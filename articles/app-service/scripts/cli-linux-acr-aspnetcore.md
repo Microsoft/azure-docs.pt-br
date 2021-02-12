@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 12/13/2018
 ms.author: msangapu
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: 1b5f6988a7f217669b2b2dfe90dd5152b880b41c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4c96b14a24cdc4b953d072dd51f4cb0ca5d67c8
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88960421"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97006048"
 ---
 # <a name="create-an-aspnet-core-app-in-a-docker-container-in-app-service-from-azure-container-registry"></a>Criar um aplicativo ASP.NET Core em um contêiner do Docker no Serviço de Aplicativo por meio do Registro de Contêiner do Azure
 
@@ -37,10 +37,10 @@ Este script usa os comandos a seguir para criar um grupo de recursos, um aplicat
 
 | Comando | Observações |
 |---|---|
-| [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Cria um Plano do Serviço de Aplicativo. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria um aplicativo do Serviço de Aplicativo. |
-| [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) | Define o contêiner do Docker para o aplicativo do Serviço de Aplicativo. |
+| [`az group create`](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Cria um Plano do Serviço de Aplicativo. |
+| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Cria um aplicativo do Serviço de Aplicativo. |
+| [`az webapp config container set`](/cli/azure/webapp/config/container#az-webapp-config-container-set) | Define o contêiner do Docker para o aplicativo do Serviço de Aplicativo. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

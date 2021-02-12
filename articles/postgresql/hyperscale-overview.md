@@ -8,12 +8,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: overview
 ms.date: 09/01/2020
-ms.openlocfilehash: 90d3cb106fa93649f7d6dda5ab5755061d118f66
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1734128384d63749d3c777cf6315278fced9d140
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91268376"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025133"
 ---
 # <a name="what-is-azure-database-for-postgresql---hyperscale-citus"></a>O que é a Hiperescala (Citus) do Banco de Dados do Azure para PostgreSQL?
 
@@ -33,4 +33,4 @@ Os aplicativos criados para o PostgreSQL podem executar consultas distribuídas 
 
 - Comece pela [criação do seu primeiro](./quickstart-create-hyperscale-portal.md) grupo de servidores da Hiperescala (Citus) do Banco de Dados do Azure para PostgreSQL.
 - Consultar a [página de preços](https://azure.microsoft.com/pricing/details/postgresql/) para ver comparações de custo e calculadoras. A Hiperescala (Citus) também oferece descontos de Instância Reservada pré-paga; confira as páginas de [preços da Hiperescala (Citus) em RI](concepts-hyperscale-reserved-pricing.md) para obter detalhes.
-- Determinar o melhor [tamanho inicial](howto-hyperscale-scaling.md#picking-initial-size) para seu grupo de servidores
+- Determinar o melhor [tamanho inicial](howto-hyperscale-scale-initial.md) para seu grupo de servidores

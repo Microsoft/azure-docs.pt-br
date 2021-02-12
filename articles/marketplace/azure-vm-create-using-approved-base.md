@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: krsh
-ms.date: 10/20/2020
-ms.openlocfilehash: c28595458fea61f66b6930ce72fa0702e00aecd9
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 01/06/2021
+ms.openlocfilehash: 9164c1e2542024a02bf4868658d0f29728f32c7b
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129264"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976853"
 ---
 # <a name="how-to-create-a-virtual-machine-using-an-approved-base"></a>Como criar uma máquina virtual usando uma base aprovada
 
@@ -37,7 +37,7 @@ O Azure oferece uma variedade de distribuições aprovadas do Linux. Para obter 
 ## <a name="create-vm-on-the-azure-portal"></a>Criar VM no portal do Azure
 
 1. Entre no [portal do Azure](https://ms.portal.azure.com/).
-2. Selecione **Máquinas virtuais** .
+2. Selecione **Máquinas virtuais**.
 3. Selecione **+ Adicionar** para abrir a tela **criar uma máquina virtual** .
 4. Selecione a imagem na lista suspensa ou selecione **procurar todas as imagens públicas e privadas** para pesquisar ou procurar todas as imagens de máquina virtual disponíveis.
 5. Para criar uma VM de **Gen 2** , vá para a guia **avançado** e selecione a opção **Gen 2** .
@@ -46,13 +46,12 @@ O Azure oferece uma variedade de distribuições aprovadas do Linux. Para obter 
 
 6. Selecione o tamanho da VM a ser implantada.
 
-    :::image type="content" source="media/create-vm/create-virtual-machine-sizes.png" alt-text="Selecione Gen 1 ou Gen 2.":::
+    :::image type="content" source="media/create-vm/create-virtual-machine-sizes.png" alt-text="Selecione um tamanho de VM recomendado para a imagem selecionada.":::
 
 7. Forneça os outros detalhes necessários para criar a VM.
-8. Selecione **Examinar + criar** para examinar suas opções. Quando a mensagem **validação aprovada** for exibida, selecione  **criar** .
+8. Selecione **Examinar + criar** para examinar suas opções. Quando a mensagem **validação aprovada** for exibida, selecione  **criar**.
 
-O Azure inicia o provisionamento da máquina virtual especificada. Acompanhe seu progresso selecionando a guia **máquinas virtuais** no menu à esquerda. Depois de criado, o status da máquina virtual é alterado para **em execução** .
-
+O Azure inicia o provisionamento da máquina virtual especificada. Acompanhe seu progresso selecionando a guia **máquinas virtuais** no menu à esquerda. Depois de criado, o status da máquina virtual é alterado para **em execução**.
 
 ## <a name="configure-the-vm"></a>Configurar a VM
 

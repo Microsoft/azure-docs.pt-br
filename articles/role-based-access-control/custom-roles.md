@@ -2,36 +2,76 @@
 title: Funções personalizadas do Azure – RBAC do Azure
 description: Saiba como criar funções personalizadas do Azure com o Azure RBAC (controle de acesso baseado em função) para o gerenciamento de acesso refinado de recursos do Azure.
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/13/2020
+ms.date: 12/15/2020
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fd737a22a37d6edc47c2769a470af00537d720eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79aaeee942a6d46243ee1c72d5904484b8698ebe
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87124146"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617316"
 ---
 # <a name="azure-custom-roles"></a>Funções personalizadas do Azure
 
 > [!IMPORTANT]
-> A adição de um grupo de gerenciamento ao `AssignableScopes` está em visualização no momento.
+> A adição de um grupo de gerenciamento a `AssignableScopes` está em versão prévia no momento.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Se as [funções internas do Azure](built-in-roles.md) não atenderem às necessidades específicas de sua organização, você poderá criar funções personalizadas próprias. Assim como as funções internas, você pode atribuir funções personalizadas a usuários, grupos e entidades de serviço em escopos grupo de gerenciamento, assinatura e grupo de recursos.
 
 As funções personalizadas podem ser compartilhadas entre assinaturas que confiam no mesmo diretório do Azure AD. Há um limite de **5.000** funções personalizadas por diretório. (Para Azure Alemanha e Azure China 21Vianet, o limite é de 2.000 funções personalizadas.) As funções personalizadas podem ser criadas usando o portal do Azure, Azure PowerShell, CLI do Azure ou a API REST.
+
+## <a name="steps-to-create-a-custom-role"></a>Etapas para criar uma função personalizada
+
+Aqui estão as etapas básicas para criar uma função personalizada.
+
+1. Determine as permissões necessárias.
+
+    Ao criar uma função personalizada, você precisa saber as operações que estão disponíveis para definir suas permissões. Normalmente, você começa com uma função interna existente e depois a modifica conforme suas necessidades. Você adicionará as operações às `Actions` Propriedades ou `NotActions` da definição de [função](role-definitions.md). Se houver operações de dados, você as adicionará às `DataActions` Propriedades ou `NotDataActions` .
+
+    Para obter mais informações, consulte a próxima seção [como determinar as permissões necessárias](#how-to-determine-the-permissions-you-need).
+
+1. Decida como você deseja criar a função personalizada.
+
+    Você pode criar funções personalizadas usando [portal do Azure](custom-roles-portal.md), [Azure PowerShell](custom-roles-powershell.md), [CLI do Azure](custom-roles-cli.md)ou a [API REST](custom-roles-rest.md).
+
+1. Crie a função personalizada.
+
+    A maneira mais fácil é usar o portal do Azure. Para obter as etapas sobre como criar uma função personalizada usando o portal do Azure, consulte [criar ou atualizar funções personalizadas do Azure usando o portal do Azure](custom-roles-portal.md).
+
+1. Teste a função personalizada.
+
+    Quando tiver sua função personalizada, será necessário testá-la para verificar se funciona como o esperado. Se você precisar fazer ajustes mais tarde, você pode atualizar a função personalizada.
+
+## <a name="how-to-determine-the-permissions-you-need"></a>Como determinar as permissões que você precisa
+
+O Azure tem milhares de permissões que podem ser potencialmente incluídas em sua função personalizada. Aqui estão alguns métodos que podem ajudá-lo a determinar as permissões que você deseja adicionar à sua função personalizada:
+
+- Examine as [funções internas](built-in-roles.md)existentes.
+
+    Talvez você queira modificar uma função existente ou combinar as permissões usadas em várias funções.
+
+- Lista os serviços do Azure aos quais você deseja conceder acesso.
+
+- Determine os [provedores de recursos que são mapeados para os serviços do Azure](../azure-resource-manager/management/azure-services-resource-providers.md).
+
+    Os serviços do Azure expõem sua funcionalidade e permissões por meio de [provedores de recursos](../azure-resource-manager/management/overview.md). Por exemplo, o provedor de recursos Microsoft. Compute fornece recursos de máquina virtual e o provedor de recursos Microsoft. billing fornece assinatura e recursos de cobrança. Conhecer os provedores de recursos pode ajudá-lo a restringir e determinar as permissões necessárias para sua função personalizada.
+
+    Ao criar uma função personalizada usando o portal do Azure, você também pode determinar os provedores de recursos pesquisando palavras-chave. Essa funcionalidade de pesquisa é descrita em [criar ou atualizar funções personalizadas do Azure usando o portal do Azure](custom-roles-portal.md#step-4-permissions).
+
+    ![Adicionar o painel de permissões com o provedor de recursos](./media/custom-roles-portal/add-permissions-provider.png)
+
+- Pesquise as [permissões disponíveis](resource-provider-operations.md) para localizar as permissões que você deseja incluir.
+
+    Ao criar uma função personalizada usando o portal do Azure, você pode procurar permissões por palavra-chave. Por exemplo, você pode pesquisar por *máquina virtual* ou permissões de *cobrança* . Você também pode baixar todas as permissões como um arquivo CSV e, em seguida, pesquisar esse arquivo. Essa funcionalidade de pesquisa é descrita em [criar ou atualizar funções personalizadas do Azure usando o portal do Azure](custom-roles-portal.md#step-4-permissions).
+
+    ![Adicionar lista de permissões](./media/custom-roles-portal/add-permissions-list.png)
 
 ## <a name="custom-role-example"></a>Exemplo de função personalizada
 
@@ -122,10 +162,10 @@ A tabela a seguir descreve o significado das propriedades da função personaliz
 | `IsCustom`</br>`roleType` | Sim | String | Indica se esta é uma função personalizada. Defina como `true` ou `CustomRole` para funções personalizadas. Defina como `false` ou `BuiltInRole` para funções internas. |
 | `Description`</br>`description` | Sim | String | A descrição da função personalizada. Pode incluir letras, números, espaços e caracteres especiais. O número máximo de caracteres é 1024. |
 | `Actions`</br>`actions` | Sim | String[] | Uma matriz de cadeias de caracteres que especifica as operações de gerenciamento permitidas pela função. Para obter mais informações, consulte [Ações](role-definitions.md#actions). |
-| `NotActions`</br>`notActions` | Não | String[] | Uma matriz de cadeias de caracteres que especifica as operações de gerenciamento que são excluídas do `Actions` permitido. Para obter mais informações, consulte [NotActions](role-definitions.md#notactions). |
-| `DataActions`</br>`dataActions` | Não | String[] | Uma matriz de cadeias de caracteres que especifica as operações de dados permitidas pela função em seus dados dentro desse objeto. Se você criar uma função personalizada com `DataActions` , essa função não poderá ser atribuída ao escopo do grupo de gerenciamento. Para obter mais informações, consulte [Dataactions](role-definitions.md#dataactions). |
-| `NotDataActions`</br>`notDataActions` | Não | String[] | Uma matriz de cadeias de caracteres que especifica as operações de dados excluídas do `DataActions` permitido. Para obter mais informações, consulte [NotDataActions](role-definitions.md#notdataactions). |
-| `AssignableScopes`</br>`assignableScopes` | Sim | String[] | Uma matriz de cadeias de caracteres que especifica os escopos para os quais a função personalizada está disponível para atribuição. Você só pode definir um grupo de gerenciamento em `AssignableScopes` uma função personalizada. A adição de um grupo de gerenciamento ao `AssignableScopes` está em visualização no momento. Para obter mais informações, consulte [AssignableScopes](role-definitions.md#assignablescopes). |
+| `NotActions`</br>`notActions` | No | String[] | Uma matriz de cadeias de caracteres que especifica as operações de gerenciamento que são excluídas do `Actions` permitido. Para obter mais informações, consulte [NotActions](role-definitions.md#notactions). |
+| `DataActions`</br>`dataActions` | No | String[] | Uma matriz de cadeias de caracteres que especifica as operações de dados permitidas pela função em seus dados dentro desse objeto. Se você criar uma função personalizada com `DataActions` , essa função não poderá ser atribuída ao escopo do grupo de gerenciamento. Para obter mais informações, consulte [Dataactions](role-definitions.md#dataactions). |
+| `NotDataActions`</br>`notDataActions` | No | String[] | Uma matriz de cadeias de caracteres que especifica as operações de dados excluídas do `DataActions` permitido. Para obter mais informações, consulte [NotDataActions](role-definitions.md#notdataactions). |
+| `AssignableScopes`</br>`assignableScopes` | Sim | String[] | Uma matriz de cadeias de caracteres que especifica os escopos para os quais a função personalizada está disponível para atribuição. Você só pode definir um grupo de gerenciamento em `AssignableScopes` uma função personalizada. A adição de um grupo de gerenciamento a `AssignableScopes` está em versão prévia no momento. Para obter mais informações, consulte [AssignableScopes](role-definitions.md#assignablescopes). |
 
 ## <a name="wildcard-permissions"></a>Permissões de curinga
 
@@ -151,26 +191,6 @@ Você também pode ter vários curingas em uma cadeia de caracteres. Por exemplo
 Microsoft.CostManagement/*/query/*
 ```
 
-## <a name="steps-to-create-a-custom-role"></a>Etapas para criar uma função personalizada
-
-Para criar uma função personalizada, aqui estão as etapas básicas que você deve seguir.
-
-1. Decida como você deseja criar a função personalizada.
-
-    Você pode criar funções personalizadas usando portal do Azure, Azure PowerShell, CLI do Azure ou a API REST.
-
-1. Determine as permissões necessárias.
-
-    Ao criar uma função personalizada, você precisa saber as operações que estão disponíveis para definir suas permissões. Para exibir a lista de operações, consulte o [Azure Resource Manager operações do provedor de recursos](resource-provider-operations.md). Você adicionará as operações às `Actions` Propriedades ou `NotActions` da definição de [função](role-definitions.md). Se houver operações de dados, você as adicionará às `DataActions` Propriedades ou `NotDataActions` .
-
-1. Crie a função personalizada.
-
-    Normalmente, você começa com uma função interna existente e depois a modifica conforme suas necessidades. A maneira mais fácil é usar o portal do Azure. Para obter as etapas sobre como criar uma função personalizada usando o portal do Azure, consulte [criar ou atualizar funções personalizadas do Azure usando o portal do Azure](custom-roles-portal.md).
-
-1. Teste a função personalizada.
-
-    Quando tiver sua função personalizada, será necessário testá-la para verificar se funciona como o esperado. Se você precisar fazer ajustes mais tarde, você pode atualizar a função personalizada.
-
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>Quem pode criar, excluir, atualizar ou exibir uma função personalizada
 
 Assim como funções internas, a propriedade `AssignableScopes` especifica os escopos para os quais a função está disponível para atribuição. A propriedade `AssignableScopes` de uma função personalizada também controla quem pode criar, excluir, atualizar ou exibir a função personalizada.
@@ -188,7 +208,8 @@ A lista a seguir descreve os limites para funções personalizadas.
 - Cada diretório pode ter até **5000** funções personalizadas.
 - O Azure Alemanha e o Azure China 21Vianet podem ter até 2000 funções personalizadas para cada diretório.
 - Não é possível definir `AssignableScopes` como o escopo raiz ( `"/"` ).
-- Você só pode definir um grupo de gerenciamento em `AssignableScopes` uma função personalizada. A adição de um grupo de gerenciamento ao `AssignableScopes` está em visualização no momento.
+- Não é possível usar curingas ( `*` ) em `AssignableScopes` . Essa restrição de curinga ajuda a garantir que um usuário não possa obter acesso a um escopo atualizando a definição de função.
+- Você só pode definir um grupo de gerenciamento em `AssignableScopes` uma função personalizada. A adição de um grupo de gerenciamento a `AssignableScopes` está em versão prévia no momento.
 - Funções personalizadas com `DataActions` não podem ser atribuídas no escopo do grupo de gerenciamento.
 - Azure Resource Manager não valida a existência do grupo de gerenciamento no escopo atribuível da definição de função.
 

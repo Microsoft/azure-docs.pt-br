@@ -11,12 +11,12 @@ ms.date: 08/04/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: 981e23a2b021cc0eb8085aa943830f87352aee69
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 141812e83653b458a2562bf73b70117c39bf7be0
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87828516"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426559"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-in-the-azure-portal"></a>Início Rápido: Criar um hub de notificação do Azure no portal do Azure
 
@@ -35,16 +35,16 @@ Nesta seção, você criará um namespace e um hub no namespace.
 Nesta seção, você criará um hub de notificação em um namespace existente.
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Selecione **Todos os serviços** no menu esquerdo, pesquise **Hub de Notificação**, selecione **estrela** (`*`) ao lado dos **Namespaces do Hub de Notificação** para adicioná-lo à seção **FAVORITOS** no menu esquerdo. Selecione **Namespaces do Hub de Notificação**.
+2. Selecione **Todos os serviços** no menu esquerdo, pesquise **Hub de Notificação** , selecione **estrela** (`*`) ao lado dos **Namespaces do Hub de Notificação** para adicioná-lo à seção **FAVORITOS** no menu esquerdo. Selecione **Namespaces do Hub de Notificação**.
 
       ![Portal do Azure – selecionar Namespaces do Hub de Notificação](./media/create-notification-hub-portal/select-notification-hub-namespaces-all-services.png)
-3. Na página **Namespaces do Hub de Notificação**, selecione o namespace na lista.
+3. Na página **Namespaces do Hub de Notificação** , selecione o namespace na lista.
 
       ![Selecionar o namespace na lista](./media/create-notification-hub-portal/select-namespace.png)
-4. Na página **Namespace do Hub de Notificação**, selecione **Adicionar Hub** na barra de ferramentas.
+4. Na página **Namespace do Hub de Notificação** , selecione **Adicionar Hub** na barra de ferramentas.
 
       ![Namespaces do Hub de Notificação – botão Adicionar Hub](./media/create-notification-hub-portal/add-hub-button.png)
-5. Na página **Novo Hub de Notificação**, insira um nome para o hub de notificação e selecione **OK**.
+5. Na página **Novo Hub de Notificação** , insira um nome para o hub de notificação e selecione **OK**.
 
       ![Página Novo Hub de Notificação -> insira um nome para o hub](./media/create-notification-hub-portal/new-notification-hub-page.png)
 6. Selecione **Notificações** (ícone de sino) na parte superior para ver o status da implantação do novo hub. Selecione **X** no canto direito para fechar a janela de notificação.
@@ -52,10 +52,10 @@ Nesta seção, você criará um hub de notificação em um namespace existente.
       ![Notificação de implantação](./media/create-notification-hub-portal/deployment-notification.png)
 7. Atualize a página da Web **Namespaces do Hub de Notificação** para ver o novo hub na lista.
 
-      ![Portal do Azure - notificações -> Acessar recurso](./media/create-notification-hub-portal/new-hub-in-list.png)
+      ![Captura de tela que mostra a página da Web Namespaces do Hub de Notificações para ver o novo hub na lista.](./media/create-notification-hub-portal/new-hub-in-list.png)
 8. Selecione o **hub de notificação** para ver a home page dele.
 
-      ![Portal do Azure - notificações -> Acessar recurso](./media/create-notification-hub-portal/hub-home-page.png)
+      ![Captura de tela que mostra a página inicial do hub de notificações.](./media/create-notification-hub-portal/hub-home-page.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

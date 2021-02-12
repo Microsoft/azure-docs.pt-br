@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 28d5ae1451b97c19576baa3f9760b8f784db3175
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4112bd1d632ec21e2d8cb565027277eeb85452d
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84736723"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018252"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gerenciar as capturas de pacotes com o Observador de Rede do Azure usando o portal
 
@@ -74,7 +74,7 @@ Depois de o limite de tempo definido na captura de pacotes expirar, a captura é
 > [!NOTE]
 > O portal automaticamente:
 >  * Cria um observador de rede na mesma região que a região em que a máquina virtual que você selecionou existe, se a região ainda não tem um observador de rede.
->  * Adiciona a extensão da máquina virtual *AzureNetworkWatcherExtension, * [Linux](../virtual-machines/linux/extensions-nwa.md) ou [Windows](../virtual-machines/windows/extensions-nwa.md) à máquina virtual se ela ainda não está instalada.
+>  * Adiciona a extensão da máquina virtual *AzureNetworkWatcherExtension,* [Linux](../virtual-machines/extensions/network-watcher-linux.md) ou [Windows](../virtual-machines/extensions/network-watcher-windows.md) à máquina virtual se ela ainda não está instalada.
 
 ## <a name="delete-a-packet-capture"></a>Excluir uma captura de pacotes
 

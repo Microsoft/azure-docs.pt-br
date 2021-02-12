@@ -3,20 +3,20 @@ title: Problema ao instalar o conector de agente de Application Proxy
 description: Como solucionar problemas que você pode enfrentar ao instalar o conector do agente de proxy de aplicativo para Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 05/21/2018
+ms.date: 01/28/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 7babe23426cafe01cadc7a5557f91896aa9bbae4
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 0f76f03883746b6f4b87bb817f8adde850ed28b3
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108194"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99253657"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problema ao instalar o conector de agente de Application Proxy
 
@@ -24,7 +24,7 @@ Microsoft Azure Active Directory conector de proxy de aplicativo é um component
 
 ## <a name="general-problem-areas-with-connector-installation"></a>Áreas de problemas gerais com a instalação do conector
 
-Quando a instalação de um conector falhar, a causa raiz é geralmente uma das seguintes áreas:
+Quando a instalação de um conector falha, a causa raiz geralmente é uma das áreas a seguir. **Como um precurso para qualquer solução de problemas, certifique-se de reinicializar o conector.**
 
 1.  **Conectividade** – para concluir uma instalação bem-sucedida, o novo conector precisa registrar e estabelecer as propriedades de confiança futuras. Isso é feito conectando-se ao serviço de nuvem Proxy de Aplicativo do Azure Active Directory.
 
@@ -39,7 +39,7 @@ Quando a instalação de um conector falhar, a causa raiz é geralmente uma das 
 
 **Objetivo:** Verifique se o computador do conector pode se conectar ao ponto de extremidade de registro do proxy de aplicativo, bem como à página de logon da Microsoft.
 
-1.  No servidor do conector, execute um teste de porta usando [Telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) ou outra ferramenta de teste de porta para verificar se as portas 443 e 80 estão abertas.
+1.  No servidor do conector, execute um teste de porta usando [Telnet](/windows-server/administration/windows-commands/telnet) ou outra ferramenta de teste de porta para verificar se as portas 443 e 80 estão abertas.
 
 2.  Se qualquer uma dessas portas não for bem-sucedida, verifique se o firewall ou proxy de back-end tem acesso aos domínios e portas necessários, confira [preparar seu ambiente local](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
@@ -77,8 +77,8 @@ Verifique a impressão digital do certificado do cliente atual. O repositório d
 Os valores possíveis de **IsInUserStore** são **true** e **false**. Um valor **true** significa que o certificado renovado automaticamente é armazenado no contêiner pessoal no repositório de certificados do usuário do serviço de rede. Um valor **false** significa que o certificado do cliente foi criado durante a instalação ou o registro iniciado pelo comando Register-AppProxyConnector e ele é armazenado no contêiner pessoal no repositório de certificados do computador local.
 
 Se o valor for **true**, siga estas etapas para verificar o certificado:
-1. Baixar [PsTools.zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
-2. Extraia o [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) do pacote e execute o **PsExec-i-u "NT authority\network Service" cmd.exe** em um prompt de comando elevado.
+1. Baixar [PsTools.zip](/sysinternals/downloads/pstools)
+2. Extraia o [PsExec](/sysinternals/downloads/psexec) do pacote e execute o **PsExec-i-u "NT authority\network Service" cmd.exe** em um prompt de comando elevado.
 3. Executar **certmgr. msc** no prompt de comando exibido recentemente
 4. No console de gerenciamento, expanda o contêiner pessoal e clique em certificados
 5. Localize o certificado emitido por **connectorregistrationca.msappproxy.net**
@@ -101,7 +101,7 @@ Import-module AppProxyPSModule
 Register-AppProxyConnector
 ```
 
-Para saber mais sobre o comando Register-AppProxyConnector, consulte [criar um script de instalação autônoma para o conector de proxy de aplicativo do AD do Azure](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-register-connector-powershell)
+Para saber mais sobre o comando Register-AppProxyConnector, consulte [criar um script de instalação autônoma para o conector de proxy de aplicativo do AD do Azure](./application-proxy-register-connector-powershell.md)
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>Verifique se o administrador é usado para instalar o conector
 

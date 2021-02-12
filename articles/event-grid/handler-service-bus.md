@@ -3,12 +3,12 @@ title: Tópicos e filas do Barramento de Serviço como manipuladores de eventos 
 description: Descreve como você pode usar tópicos e filas do Barramento de Serviço como manipuladores de eventos para eventos da Grade de Eventos do Azure.
 ms.topic: conceptual
 ms.date: 09/03/2020
-ms.openlocfilehash: ab219f0dc6009dc01d5915995fc04094e72a88cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12b72420e3475b46a4cd61ce5032b478af740dde
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629498"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399852"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Tópicos e filas do Barramento de Serviço como manipuladores de eventos para eventos da Grade de Eventos do Azure
 Um manipulador de eventos é o local para o qual o evento é enviado. O manipulador usa alguma ação adicional para processar o evento. Vários serviços do Azure são automaticamente configurados para lidar com os eventos, e o **Barramento de Serviço do Azure** é um deles. 
@@ -40,7 +40,7 @@ No portal do Azure, ao criar uma assinatura de evento, selecione o **Tópico do 
 
 ### <a name="using-cli-to-add-a-service-bus-topic-handler"></a>Como usar a CLI para adicionar um manipulador de tópico do Barramento de Serviço
 
-Para a CLI do Azure, o seguinte exemplo assina e conecta um tópico da grade de eventos a uma fila do Barramento de Serviço:
+Por CLI do Azure, o exemplo a seguir assina e conecta um tópico da grade de eventos a um tópico do barramento de serviço:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
@@ -50,18 +50,8 @@ az eventgrid event-subscription create \
     --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/topics/topic1
 ```
 
-## <a name="message-properties"></a>Propriedades da mensagem
-Se você usar um **tópico ou uma fila do barramento de serviço** como um manipulador de eventos para eventos da grade de eventos, essas são as propriedades que você recebe nos cabeçalhos de mensagem: 
+[!INCLUDE [event-grid-message-headers](../../includes/event-grid-message-headers.md)]
 
-| Nome da propriedade | Descrição |
-| ------------- | ----------- | 
-| aeg-subscription-name | Nome da assinatura de evento. |
-| aeg-delivery-count | <p>Número de tentativas feitas para o evento.</p> <p>Exemplo: "1"</p> |
-| aeg-event-type | <p>Tipo do evento.</p><p> Exemplo: "Microsoft.Storage.blobCreated"</p> | 
-| aeg-metadata-version | <p>A versão de metadados do evento.</p> <p>Exemplo: "1".</p><p> Para o **esquema de evento da Grade de Eventos**, essa propriedade representa a versão de metadados e, para o **esquema de evento da nuvem**, ela representa a **versão de especificação**. </p>|
-| aeg-data-version | <p>Versão de dados do evento.</p><p>Exemplo: "1".</p><p>Para o **esquema de evento da Grade de Eventos**, essa propriedade representa a versão dos dados e para o **esquema de evento da nuvem**, ela não se aplica.</p> |
-
-## <a name="message-headers"></a>Cabeçalhos de mensagem
 Ao enviar um evento para uma fila ou um tópico do barramento de serviço como uma mensagem orientada, o `messageid` da mensagem orientada é uma ID interna do sistema.
 
 A ID do sistema interno da mensagem será mantida na entrega do evento para que você possa evitar entregas duplicadas ativando a detecção de **duplicidades** na entidade do barramento de serviço. Recomendamos que você habilite a duração da detecção de duplicidades na entidade do Barramento de Serviço como TTL (tempo de vida) do evento ou duração máxima de repetição, o que for maior.

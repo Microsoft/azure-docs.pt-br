@@ -8,21 +8,19 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: a8d1a69070628248fb710a614369ff9311252c05
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: dcdbf94e547581cb9ff885ac5896467abdf316ae
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102773"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576186"
 ---
 # <a name="managed-disk-bursting"></a>Intermitência de disco gerenciado
 [!INCLUDE [managed-disks-bursting](../../includes/managed-disks-bursting.md)]
 
 ## <a name="virtual-machine-level-bursting"></a>Intermitência no nível da máquina virtual
-O suporte à intermitência no nível da VM está habilitado em todas as regiões na nuvem pública nos seguintes tamanhos com suporte: 
+A intermitência de nível de VM está habilitada na série de VMs a seguir em todas as regiões com suporte no:
 - [Lsv2-series](lsv2-series.md)
-
-A intermitência de nível de VM também está disponível na EUA Central ocidental para os seguintes tamanhos com suporte:
 - [Dsv3-series](dv3-dsv3-series.md)
 - [Série Esv3](ev3-esv3-series.md)
 

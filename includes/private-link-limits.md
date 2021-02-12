@@ -1,5 +1,5 @@
 ---
-title: arquivo de inclusão
+title: incluir arquivo
 description: arquivo de inclusão
 services: virtual-network
 author: KumudD
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/21/2020
 ms.author: kumud
 ms.custom: include file
-ms.openlocfilehash: 49a9917d925ebc7a36d14ff6679ad4b1737f9627
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: defcce3a00a38c88e1bff944075f0987fbdedd4b
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86515825"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98225436"
 ---
  Os seguintes limites se aplicam ao link privado do Azure:
 
@@ -26,4 +26,6 @@ ms.locfileid: "86515825"
 |Número de pontos de extremidade privados no mesmo serviço de link privado   |  1000       |
 |Número de pontos de extremidade privados por cofre de chaves | 64 |
 |Número de cofres de chaves com pontos de extremidade privados por assinatura | 400 |
+|Número de grupos de zona DNS privados que podem ser vinculados a um ponto de extremidade privado | 1 |
+|Número de zonas DNS em cada grupo | 5 |
 

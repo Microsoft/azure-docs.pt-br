@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.openlocfilehash: f37dcc1d092de10c51c0492bbc8671047e4a90a3
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546612"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020102"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>Use o portal do Azure para configurar alertas em métricas para o banco de dados do Azure para PostgreSQL-servidor único
 
@@ -40,29 +40,37 @@ Você pode configurar e obter informações sobre as regras de alerta usando:
 
 4. A página **Criar regra** é aberta, conforme mostrado abaixo. Preencha as informações obrigatórias:
 
-   :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="Selecionar regras de alerta":::
+   :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="Formulário Adicionar alerta de métrica":::
 
-5. Dentro da seção **Condição** , selecione **Adicionar condição** .
+5. Dentro da seção **Condição**, selecione **Adicionar condição**.
 
 6. Selecione uma métrica da lista de sinais sobre a qual deseja ser alertado. Neste exemplo, selecione "Porcentagem de armazenamento".
    
-   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="Selecionar regras de alerta":::
+   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="Selecionar métrica":::
 
-7. Configure a lógica de alerta, incluindo a **Condição** (por exemplo, "Maior que"), o **Limite** (por exemplo, 85%), a **Agregação de Tempo** , o **Período** durante o qual a regra de métrica deverá ser atendida antes de o alerta disparar (por exemplo, "Nos últimos 30 minutos") e **frequência** .
+7. Configure a lógica de alerta, incluindo a **Condição** (por exemplo, "Maior que"), o **Limite** (por exemplo, 85%), a **Agregação de Tempo**, o **Período** durante o qual a regra de métrica deverá ser atendida antes de o alerta disparar (por exemplo, "Nos últimos 30 minutos") e **frequência**.
    
    Selecione **Concluído** ao concluir.
 
-   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="Selecionar regras de alerta" para selecionar os Proprietários da assinatura, Colaboradores e Leitores para receber notificações.
+   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="Captura de tela que realça a seção de lógica de alerta e o botão concluído.":::
+
+8. Dentro da seção **Grupos de Ações**, selecione **Criar Novo** para criar um novo grupo para receber notificações sobre o alerta.
+
+9. Preencha o formulário "Adicionar grupo de ações" com um nome, o nome curto, a assinatura e o grupo de recursos.
+
+10. Configure o tipo de ação **Email/SMS/Push/Voz**.
+    
+    Escolha "Enviar email para a Função do Azure Resource Manager" para selecionar os Proprietários da assinatura, Colaboradores e Leitores para receber notificações.
    
     Opcionalmente, forneça um URI válido no campo **Webhook** se você quiser chamá-lo quando o alerta for disparado.
 
     Selecione **OK** ao concluir.
 
-    :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Selecionar regras de alerta":::
+    :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Captura de tela que mostra como adicionar um novo grupo de ação.":::
 
 11. Especifique um Nome da regra de alerta, uma Descrição e uma Gravidade.
 
-    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Selecionar regras de alerta"::: 
+    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Grupo de ações"::: 
 
 12. Selecione **Criar regra de alerta** para criar o alerta.
 

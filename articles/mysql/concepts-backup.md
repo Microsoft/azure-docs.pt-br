@@ -1,17 +1,17 @@
 ---
 title: Backup e restauração-banco de dados do Azure para MySQL
 description: Saiba mais sobre backups automáticos e restauração do Banco de Dados do Azure para servidor MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: bbeb1248fef846afbd1641a668c6db3be4870ca6
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a124f576b2540399d27fcd97e0e58476dba4ba4b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082089"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492804"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Backup e restauração no Banco de Dados do Azure para MySQL
 
@@ -38,13 +38,11 @@ Os backups de log de transações ocorrem a cada cinco minutos.
 O armazenamento de uso geral é o armazenamento de back-end com suporte ao [uso geral](concepts-pricing-tiers.md) e ao servidor da [camada com otimização de memória](concepts-pricing-tiers.md) . Para servidores com armazenamento de uso geral de até 4 TB, os backups completos ocorrem uma vez a cada semana. Os backups diferenciais ocorrem duas vezes por dia. Os backups de log de transações ocorrem a cada cinco minutos. Os backups no armazenamento de uso geral até o armazenamento de 4 TB não são baseados em instantâneo e consomem largura de banda de e/s no momento do backup. Para bancos de dados grandes (> 1 TB) em armazenamento de 4 TB, recomendamos que você considere
 
 - Provisionamento de mais IOPs para considerar o backup IOs ou
-- Como alternativa, migre para o armazenamento de uso geral que dá suporte a até 16 TB de armazenamento se a infraestrutura de armazenamento subjacente estiver disponível em suas [regiões do Azure](/azure/mysql/concepts-pricing-tiers#storage)preferenciais. Não há nenhum custo adicional para o armazenamento de uso geral que dá suporte a até 16 TB de armazenamento. Para obter assistência com a migração para o armazenamento de 16 TB, abra um tíquete de suporte em portal do Azure.
+- Como alternativa, migre para o armazenamento de uso geral que dá suporte a até 16 TB de armazenamento se a infraestrutura de armazenamento subjacente estiver disponível em suas [regiões do Azure](./concepts-pricing-tiers.md#storage)preferenciais. Não há nenhum custo adicional para o armazenamento de uso geral que dá suporte a até 16 TB de armazenamento. Para obter assistência com a migração para o armazenamento de 16 TB, abra um tíquete de suporte em portal do Azure.
 
 #### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>Servidores de armazenamento de uso geral com armazenamento de até 16 TB
 
-Em um subconjunto de [regiões do Azure](/azure/mysql/concepts-pricing-tiers#storage), todos os servidores recentemente provisionados podem dar suporte ao armazenamento de uso geral de até 16 TB de armazenamento. Em outras palavras, o armazenamento de até 16 TB é o armazenamento padrão de uso geral para todas as [regiões](/azure/mysql/concepts-pricing-tiers#storage) em que há suporte. Os backups nesses servidores de armazenamento de 16 TB são baseados em instantâneo. O primeiro backup de instantâneo completo é agendado imediatamente após a criação de um servidor. O primeiro backup de instantâneo completo é mantido como o backup base do servidor. Os backups de instantâneo subsequentes são apenas backups diferenciais.
-
-Em um subconjunto de [regiões do Azure](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage), todos os servidores recentemente provisionados podem dar suporte ao armazenamento de uso geral de até 16 TB de armazenamento. Em outras palavras, o armazenamento de até 16 TB é o armazenamento padrão de uso geral para todas as [regiões](/concepts-pricing-tiers.md#storage) em que há suporte. Os backups nesses servidores de armazenamento de 16 TB são baseados em instantâneo. O primeiro backup de instantâneo completo é agendado imediatamente após a criação de um servidor. O primeiro backup de instantâneo completo é mantido como o backup base do servidor. Os backups de instantâneo subsequentes são apenas backups diferenciais.
+Em um subconjunto de [regiões do Azure](./concepts-pricing-tiers.md#storage), todos os servidores recentemente provisionados podem dar suporte ao armazenamento de uso geral de até 16 TB de armazenamento. Em outras palavras, o armazenamento de até 16 TB é o armazenamento padrão de uso geral para todas as [regiões](concepts-pricing-tiers.md#storage) em que há suporte. Os backups nesses servidores de armazenamento de 16 TB são baseados em instantâneo. O primeiro backup de instantâneo completo é agendado imediatamente após a criação de um servidor. O primeiro backup de instantâneo completo é mantido como o backup base do servidor. Os backups de instantâneo subsequentes são apenas backups diferenciais.
 
 Os backups de instantâneo diferenciais ocorrem pelo menos uma vez por dia. Os backups de instantâneo diferenciais não ocorrem em um agendamento fixo. Os backups de instantâneo diferenciais ocorrem a cada 24 horas, a menos que o log de transações (binlog no MySQL) exceda 50 GB desde o último backup diferencial. Em um dia, são permitidos no máximo seis instantâneos diferenciais.
 
@@ -115,7 +113,12 @@ Talvez seja necessário aguardar a execução do próximo backup de log de trans
 
 A restauração geográfica é a opção de recuperação padrão quando o servidor não está disponível devido a um incidente na região em que ele está hospedado. Se um incidente de grande escala em uma região resultar na indisponibilidade do seu aplicativo de banco de dados, você poderá restaurar um servidor do backup com redundância geográfica para um servidor em qualquer outra região. A restauração geográfica utiliza o backup mais recente do servidor. Há um atraso entre quando um backup é feito e quando ele é replicado em uma região diferente. Esse atraso pode ser de até uma hora, então, em caso de desastre pode haver perda de dados de até uma hora.
 
+> [!IMPORTANT]
+>Se uma restauração geográfica for executada para um servidor recém-criado, a sincronização de backup inicial poderá levar mais de 24 horas, dependendo do tamanho dos dados, pois o tempo de cópia inicial do backup do instantâneo completo é muito maior. Os backups de instantâneo subsequentes são cópias incrementais e, portanto, as restaurações são mais rápidas após 24 horas de criação do servidor. Se você estiver avaliando restaurações geográficas para definir o RTO, recomendamos que você aguarde e avalie a restauração geográfica **somente após 24 horas** de criação do servidor para obter estimativas melhores.
+
 Durante a restauração geográfica, as configurações de servidor que podem ser alteradas incluem as opções de geração de computação, vCore, período de retenção de backup e redundância de backup. Não há suporte para a alteração do tipo de preço (Básico, Uso Geral ou Otimizado para Memória) ou do tamanho de armazenamento durante a restauração geográfica.
+
+O tempo estimado de recuperação dependerá de vários fatores, incluindo os tamanhos dos bancos de dados, o tamanho do log de transações, a largura de banda de rede e o número total de bancos de dados de recuperação na mesma região e ao mesmo tempo. Normalmente, o tempo de recuperação é menor do que 12 horas.
 
 ### <a name="perform-post-restore-tasks"></a>Executar tarefas de pós-restauração
 

@@ -6,12 +6,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: dcf912f431d578a6e678801d3dc8f4e11484ea78
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 7c477655dfb24eebab9a2669697d9ef610088198
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678375"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592017"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Aceitar perguntas sugeridas sobre o aprendizado ativo na base de dados de conhecimento
 
@@ -22,15 +22,15 @@ O aprendizado ativo altera a base de dados de conhecimento ou Serviço de Pesqui
 
 ## <a name="turn-on-active-learning"></a>Ativar o aprendizado ativo
 
-Para ver as perguntas sugeridas, você deve [ativar o aprendizado ativo](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/active-learning-suggestions) para seu recurso de QnA Maker.
+Para ver as perguntas sugeridas, você deve [ativar o aprendizado ativo](../concepts/active-learning-suggestions.md) para seu recurso de QnA Maker.
 
 ## <a name="view-suggested-questions"></a>Exibir perguntas sugeridas
 
-1. Para ver as perguntas sugeridas, na página **Editar** base de dados de conhecimento, selecione **Opções de exibição** e, em seguida, selecione **Mostrar sugestões de aprendizado ativo** .
+1. Para ver as perguntas sugeridas, na página **Editar** base de dados de conhecimento, selecione **Opções de exibição** e, em seguida, selecione **Mostrar sugestões de aprendizado ativo**. Essa opção será desabilitada se não houver nenhuma sugestão para nenhum dos pares de perguntas e respostas.  
 
     [![Na seção editar do portal, selecione Mostrar sugestões para ver as novas alternativas de pergunta do aprendizado ativo.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
-1. Filtre a base de dados de conhecimento com pares de perguntas e respostas para mostrar apenas sugestões selecionando **Filtrar por sugestões** .
+1. Filtre a base de dados de conhecimento com pares de perguntas e respostas para mostrar apenas sugestões selecionando **Filtrar por sugestões**.
 
     [![Use a alternância filtrar por sugestões para exibir apenas as alternativas de perguntas sugeridas do aprendizado ativo.](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
@@ -49,28 +49,55 @@ Para ver as perguntas sugeridas, você deve [ativar o aprendizado ativo](https:/
 
 <a name="#score-proximity-between-knowledge-base-questions"></a>
 
+## <a name="active-learning-suggestions-are-saved-in-the-exported-knowledge-base"></a>As sugestões de aprendizado ativo são salvas na base de dados de conhecimento exportada
+
+Quando seu aplicativo tem o aprendizado ativo habilitado e você exporta o aplicativo, a `SuggestedQuestions` coluna no arquivo TSV retém os dados de aprendizado ativos.
+
+A `SuggestedQuestions` coluna é um objeto JSON de informações de comentários implícitos, `autosuggested` , e explícitos `usersuggested` . Um exemplo desse objeto JSON para uma única pergunta enviada pelo usuário do `help` é:
+
+```JSON
+[
+    {
+        "clusterHead": "help",
+        "totalAutoSuggestedCount": 1,
+        "totalUserSuggestedCount": 0,
+        "alternateQuestionList": [
+            {
+                "question": "help",
+                "autoSuggestedCount": 1,
+                "userSuggestedCount": 0
+            }
+        ]
+    }
+]
+```
+
+Quando você Reimporta esse aplicativo, o aprendizado ativo continua a coletar informações e recomendar sugestões para sua base de dados de conhecimento.
+
+
 ### <a name="architectural-flow-for-using-generateanswer-and-train-apis-from-a-bot"></a>Fluxo de arquitetura para usar GenerateAnswer e treinar APIs de um bot
 
 Um bot ou outro aplicativo cliente deve usar o seguinte fluxo de arquitetura para usar o aprendizado ativo:
 
 * O bot [Obtém a resposta da base de dados de conhecimento](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) com a API GenerateAnswer, usando a `top` propriedade para obter várias respostas.
+
+    #### <a name="use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers"></a>Use a propriedade Top na solicitação GenerateAnswer para obter várias respostas correspondentes
+
+    Ao enviar uma pergunta para QnA Maker para uma resposta, a `top` Propriedade do corpo JSON define o número de respostas a serem retornadas.
+
+    ```json
+    {
+        "question": "wi-fi",
+        "isTest": false,
+        "top": 3
+    }
+    ```
+
 * O bot determina os comentários explícitos:
     * Usando sua própria [lógica de negócios personalizada](#use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user), filtre pontuações baixas.
     * No bot ou no aplicativo cliente, exiba a lista de possíveis respostas para o usuário e obtenha a resposta selecionada do usuário.
 * O bot [envia a resposta selecionada de volta para QnA Maker](#bot-framework-sample-code) com a [API de treinamento](#train-api).
 
-
-### <a name="use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers"></a>Use a propriedade Top na solicitação GenerateAnswer para obter várias respostas correspondentes
-
-Ao enviar uma pergunta para QnA Maker para uma resposta, a `top` Propriedade do corpo JSON define o número de respostas a serem retornadas.
-
-```json
-{
-    "question": "wi-fi",
-    "isTest": false,
-    "top": 3
-}
-```
 
 ### <a name="use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user"></a>Use a propriedade Score junto com a lógica de negócios para obter a lista de respostas para mostrar o usuário
 
@@ -134,17 +161,17 @@ Content-Type: application/json
 |--|--|--|--|
 |Parâmetro de rota de URL|ID da base de dados de conhecimento|string|o GUID da base de dados de conhecimento.|
 |Subdomínio personalizado|Nome do recurso QnAMaker|string|O nome do recurso é usado como o subdomínio personalizado para seu QnA Maker. Isso estará disponível na página configurações depois que você publicar a base de dados de conhecimento. Ele é listado como o `host` .|
-|Cabeçalho|Tipo de conteúdo|string|o tipo de mídia do corpo enviado para a API. O valor padrão é: `application/json`|
-|Cabeçalho|Autorização|string|sua chave de ponto de extremidade (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|parâmetro|Tipo de conteúdo|string|o tipo de mídia do corpo enviado para a API. O valor padrão é: `application/json`|
+|parâmetro|Autorização|string|sua chave de ponto de extremidade (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Corpo da postagem|Objeto JSON|JSON|Os comentários de treinamento|
 
 O corpo JSON tem várias configurações:
 
 |Propriedade de corpo JSON|Tipo|Finalidade|
 |--|--|--|--|
-|`feedbackRecords`|matriz|Lista de comentários.|
+|`feedbackRecords`|array|Lista de comentários.|
 |`userId`|string|A ID de usuário da pessoa que está aceitando as perguntas sugeridas. O formato da ID de usuário cabe a você. Por exemplo, um endereço de email pode ser uma ID de usuário válida em sua arquitetura. Opcional.|
-|`userQuestion`|string|Texto exato da consulta do usuário. Necessário.|
+|`userQuestion`|string|Texto exato da consulta do usuário. Obrigatório.|
 |`qnaID`|número|ID de pergunta, encontrada na [resposta de GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
 Um exemplo de corpo JSON é semelhante a:
@@ -309,33 +336,6 @@ async callTrain(stepContext){
     return await stepContext.next(stepContext.result);
 }
 ```
-
-## <a name="active-learning-is-saved-in-the-exported-knowledge-base"></a>O aprendizado ativo é salvo na base de dados de conhecimento exportada
-
-Quando seu aplicativo tem o aprendizado ativo habilitado e você exporta o aplicativo, a `SuggestedQuestions` coluna no arquivo TSV retém os dados de aprendizado ativos.
-
-A `SuggestedQuestions` coluna é um objeto JSON de informações de comentários implícitos, `autosuggested` , e explícitos `usersuggested` . Um exemplo desse objeto JSON para uma única pergunta enviada pelo usuário do `help` é:
-
-```JSON
-[
-    {
-        "clusterHead": "help",
-        "totalAutoSuggestedCount": 1,
-        "totalUserSuggestedCount": 0,
-        "alternateQuestionList": [
-            {
-                "question": "help",
-                "autoSuggestedCount": 1,
-                "userSuggestedCount": 0
-            }
-        ]
-    }
-]
-```
-
-Quando você Reimporta esse aplicativo, o aprendizado ativo continua a coletar informações e recomendar sugestões para sua base de dados de conhecimento.
-
-
 
 ## <a name="best-practices"></a>Práticas recomendadas
 

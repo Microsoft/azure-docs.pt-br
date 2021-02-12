@@ -1,14 +1,17 @@
 ---
 title: Perguntas frequentes sobre migrações para Azure
 description: Obtenha respostas para perguntas comuns sobre o serviço migrações para Azure.
+author: ms-psharma
+ms.author: panshar
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 95fd2ea9ecf5e4bcdf3fb2291e4cf7bf5b111c5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6396ca4483f5e9782890123a7c39a0cbcdbd30a3
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87847458"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832565"
 ---
 # <a name="azure-migrate-common-questions"></a>Migrações para Azure: perguntas comuns
 
@@ -31,7 +34,7 @@ As [migrações para Azure](migrate-services-overview.md) fornecem um hub centra
 
 - Usar as migrações para Azure fornece interoperabilidade e extensibilidade futura com as ferramentas de migração do Azure, outros serviços do Azure e ferramentas de terceiros.
 - O migrações para Azure: a ferramenta de migração de servidor é desenvolvida especificamente para a migração de servidor para o Azure. Ele é otimizado para migração. Você não precisa aprender sobre os conceitos e cenários que não são diretamente relevantes para a migração. 
-- Não há cobranças de uso de ferramentas para migração por 180 dias, a partir do momento em que a replicação é iniciada para uma VM. Isso lhe dá tempo para concluir a migração. Você paga apenas pelos recursos de armazenamento e de rede usados na replicação e pelos encargos de computação consumidos durante as migrações de teste.
+- Não há cobranças de uso de ferramentas para migração por 180 dias, a partir do momento em que a replicação é iniciada para uma VM. Ele dá tempo para concluir a migração. Você paga apenas pelos recursos de armazenamento e de rede usados na replicação e pelos encargos de computação consumidos durante as migrações de teste.
 - As migrações para Azure dão suporte a todos os cenários de migração com suporte pelo Site Recovery. Além disso, para VMs VMware, as migrações para Azure fornecem uma opção de migração sem agente.
 - Estamos priorizando novos recursos de migração para as migrações para Azure: ferramenta de migração de servidor somente. Esses recursos não são destinados a Site Recovery.
 
@@ -41,7 +44,7 @@ A ferramenta migrações para Azure: Server Migration usa algumas funcionalidade
 
 ## <a name="i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version"></a>Tenho um projeto com a experiência clássica anterior de migrações para Azure. Como fazer começar a usar a nova versão?
 
-Não é possível fazer upgrade de projetos ou componentes na versão anterior para a nova versão. Você precisa [criar um projeto das Migrações para Azure](create-manage-projects.md) e [adicionar ferramentas de avaliação e migração](how-to-add-tool-first-time.md) a ele. Use os tutoriais para entender como usar as ferramentas de avaliação e migração disponíveis. Se você tinha um workspace do Log Analytics anexado a um projeto clássico, poderá anexá-lo a um projeto da versão atual depois de excluir o projeto clássico.
+A migração do Azure clássica está se aposentando em fevereiro de 2024. Depois de fevereiro de 2024, a versão clássica de migrações para Azure não terá mais suporte e os metadados de inventário no projeto clássico serão excluídos. Não é possível fazer upgrade de projetos ou componentes na versão anterior para a nova versão. Você precisa [criar um projeto das Migrações para Azure](create-manage-projects.md) e [adicionar ferramentas de avaliação e migração](./create-manage-projects.md) a ele. Use os tutoriais para entender como usar as ferramentas de avaliação e migração disponíveis. Se você tinha um workspace do Log Analytics anexado a um projeto clássico, poderá anexá-lo a um projeto da versão atual depois de excluir o projeto clássico.
 
 ## <a name="whats-the-difference-between-azure-migrate-server-assessment-and-the-map-toolkit"></a>Qual é a diferença entre as migrações para Azure: avaliação de servidor e o MAP Toolkit?
 

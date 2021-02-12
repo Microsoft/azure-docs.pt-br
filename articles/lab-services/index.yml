@@ -12,12 +12,12 @@ metadata:
   author: spelluru
   ms.author: spelluru
   ms.date: 06/26/2020
-  ms.openlocfilehash: 9101d40182f3321dbe791bd700a26a782f6c697c
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: eb25361af9cac307c44000eaa8ee6ff9cb429b55
+  ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "85445110"
+  ms.lasthandoff: 12/01/2020
+  ms.locfileid: "96436735"
 landingContent:
 - title: Visão geral de alto nível
   linkLists:
@@ -25,11 +25,11 @@ landingContent:
     links:
     - text: Sobre o Lab Services e o DevTest Labs
       url: ../devtest-labs/lab-services-overview.md?toc=%2fazure%2fevent-grid%2fclassroom-labs%2ftoc.json
-    - text: Sobre os laboratórios de sala de aula
+    - text: Sobre os laboratórios
       url: classroom-labs-overview.md
   - linkListType: concept
     links:
-    - text: Conceitos dos laboratórios de sala de aula
+    - text: Conceitos dos laboratórios
       url: classroom-labs-concepts.md
 - title: Contas de laboratório
   linkLists:
@@ -43,7 +43,7 @@ landingContent:
       url: how-to-manage-lab-accounts.md
     - text: Configurar contas de laboratório
       url: how-to-configure-lab-accounts.md
-- title: Configurar laboratórios de sala de aula
+- title: Configurar os laboratórios
   linkLists:
   - linkListType: tutorial
     links:
@@ -51,7 +51,7 @@ landingContent:
       url: tutorial-setup-classroom-lab.md
   - linkListType: how-to-guide
     links:
-    - text: Criar e gerenciar laboratórios de sala de aula
+    - text: Criar e gerenciar os laboratórios
       url: how-to-manage-lab-accounts.md
     - text: Configurar, personalizar e publicar modelos
       url: how-to-create-manage-template.md
@@ -61,7 +61,7 @@ landingContent:
       url: how-to-configure-student-usage.md
     - text: Criar e gerenciar agendas
       url: how-to-create-schedules.md
-- title: Usar laboratórios de sala de aula
+- title: Usar os laboratórios
   linkLists:
   - linkListType: tutorial
     links:

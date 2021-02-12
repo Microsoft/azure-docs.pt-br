@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2020
+ms.date: 12/10/2020
 ms.author: memildin
-ms.openlocfilehash: cf297cdeec88a31950d007246f987957db80e247
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ecfb4bdbd523dd1514333a2185186eab0a7e4aaa
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785877"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032670"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrar soluções de segurança na Central de Segurança do Azure
 Este documento ajuda você a gerenciar soluções de segurança já conectadas à Central de Segurança do Azure e a adicionar novas.
@@ -26,11 +26,11 @@ Este documento ajuda você a gerenciar soluções de segurança já conectadas �
 ## <a name="integrated-azure-security-solutions"></a>Soluções de segurança integradas do Azure
 A Central de Segurança facilita a criação de soluções de segurança integradas no Azure. Os benefícios incluem:
 
-- **Implantação simplificada** : a Central de Segurança oferece provisionamento simplificado das soluções integradas de parceiros. Para soluções como antimalware e avaliação de vulnerabilidade, a central de segurança pode provisionar o agente em suas máquinas virtuais. Para dispositivos de firewall, a central de segurança pode cuidar de grande parte da configuração de rede necessária.
-- **Detecções integradas** : os eventos de segurança das soluções de parceiros são coletados, agregados e exibidos automaticamente como parte dos alertas e incidentes da central de segurança. Esses eventos também são combinados com detecções de outras fontes para fornecer funcionalidades de detecção avançada de ameaças.
-- **Unificação de gerenciamento e monitoramento de integridade** : os clientes podem usar eventos de integridade integrados para monitorar todas as soluções de parceiro em um relance. O gerenciamento básico está disponível com acesso fácil à configuração avançada usando a solução de parceiro.
+- **Implantação simplificada**: a Central de Segurança oferece provisionamento simplificado das soluções integradas de parceiros. Para soluções como antimalware e avaliação de vulnerabilidade, a central de segurança pode provisionar o agente em suas máquinas virtuais. Para dispositivos de firewall, a central de segurança pode cuidar de grande parte da configuração de rede necessária.
+- **Detecções integradas**: os eventos de segurança das soluções de parceiros são coletados, agregados e exibidos automaticamente como parte dos alertas e incidentes da central de segurança. Esses eventos também são combinados com detecções de outras fontes para fornecer funcionalidades de detecção avançada de ameaças.
+- **Unificação de gerenciamento e monitoramento de integridade**: os clientes podem usar eventos de integridade integrados para monitorar todas as soluções de parceiro em um relance. O gerenciamento básico está disponível com acesso fácil à configuração avançada usando a solução de parceiro.
 
-Atualmente, as soluções de segurança integradas incluem a avaliação de vulnerabilidades de [Qualys](https://www.qualys.com/public-cloud/#azure) e [Rapid7](https://www.rapid7.com/products/insightvm/) e o Firewall do aplicativo Web do Microsoft Application Gateway.
+Atualmente, as soluções de segurança integradas incluem a avaliação de vulnerabilidade por [Qualys](https://www.qualys.com/public-cloud/#azure) e [Rapid7](https://www.rapid7.com/products/insightvm/) e [Microsoft Azure o Firewall do aplicativo Web no gateway aplicativo Azure](../web-application-firewall/ag/ag-overview.md).
 
 > [!NOTE]
 > A central de segurança não instala o agente de Log Analytics em dispositivos virtuais de parceiros, pois a maioria dos fornecedores de segurança proíbe agentes externos em execução em seus dispositivos.
@@ -49,9 +49,9 @@ As soluções de segurança do Azure implantadas da Central de Segurança serão
 
 ## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>Gerenciar soluções de segurança integrada do Azure e outras fontes de dados
 
-1. No [portal do Azure](https://azure.microsoft.com/features/azure-portal/), abra a **central de segurança** .
+1. No [portal do Azure](https://azure.microsoft.com/features/azure-portal/), abra a **Central de Segurança**.
 
-1. No menu da central de segurança, selecione **soluções de segurança** .
+1. No menu da central de segurança, selecione **soluções de segurança**.
 
 Na página **soluções de segurança** , você pode ver a integridade das soluções de segurança integradas do Azure e executar tarefas básicas de gerenciamento.
 
@@ -78,7 +78,7 @@ Selecione **Exibir** para obter informações adicionais e opções, como:
    - **Console de solução** – abre a experiência de gerenciamento para esta solução.
    - **Vincular VM** – abre a página vincular aplicativos. Nela, você pode conectar recursos à solução de parceiro.
    - **Excluir solução**
-   - **Configurar**
+   - **Configure**
 
    ![Detalhes da solução de parceiro](./media/security-center-partner-integration/partner-solutions-detail.png)
 
@@ -95,7 +95,7 @@ Selecione **conectar** em uma solução para integrar com a central de seguranç
 
 ### <a name="add-data-sources"></a>Adicionar fontes de dados
 
-A seção **Adicionar fontes de dados** inclui outras fontes de dados disponíveis que podem ser conectadas. Para obter instruções sobre como adicionar dados de qualquer uma dessas fontes, clique em **ADICIONAR** .
+A seção **Adicionar fontes de dados** inclui outras fontes de dados disponíveis que podem ser conectadas. Para obter instruções sobre como adicionar dados de qualquer uma dessas fontes, clique em **ADICIONAR**.
 
 ![Fontes de dados](./media/security-center-partner-integration/add-data-sources.png)
 

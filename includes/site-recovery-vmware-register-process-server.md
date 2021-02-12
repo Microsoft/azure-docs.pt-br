@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/28/2019
 ms.author: raynew
 ms.openlocfilehash: 088cd5447b1f96dbf172b5918c29e4f3293289a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67534555"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008456"
 ---
 1. Estabeleça uma Conexão de Área de Trabalho Remota com o computador que está executando o servidor do processo. 
 2. Execute cspsconfigtool.exe para iniciar a ferramenta de configuração do Servidor de Processos do Azure Site Recovery.

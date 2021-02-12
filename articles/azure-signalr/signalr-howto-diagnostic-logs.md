@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
-ms.openlocfilehash: b0c1a91df30ee6a88f055dc47cfdef339e2ee2b2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5ad40ca051677ced0c6d8b5c35e8563272ff598f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151059"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183967"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Logs de recursos do serviço de Signaler do Azure
 
@@ -68,7 +68,7 @@ As cadeias de caracteres JSON do log de arquivo incluem os elementos listados na
 
 **Formato**
 
-Name | Descrição
+Nome | Descrição
 ------- | -------
 time | Hora do evento de log
 nível | Nível de evento de log
@@ -81,7 +81,7 @@ properties | Propriedades detalhadas relacionadas a esse evento de log. Para obt
 
 **Tabela de propriedades**
 
-Name | Descrição
+Nome | Descrição
 ------- | -------
 type | Tipo do evento de log. Atualmente, fornecemos informações sobre a conectividade com o serviço de Signaler do Azure. Somente o `ConnectivityLogs` tipo está disponível
 collection | Coleção do evento de log. Os valores permitidos são: `Connection` , `Authorization` e `Throttling`
@@ -89,7 +89,7 @@ ConnectionId | Identidade da conexão
 transportType | Tipo de transporte da conexão. Os valores permitidos são: `Websockets` \| `ServerSentEvents` \|`LongPolling`
 connectionType | Tipo da conexão. Os valores permitidos são: `Server` \| `Client`. `Server`: conexão do lado do servidor; `Client`: conexão do lado do cliente
 userId | Identidade do usuário
-mensagem | Mensagem detalhada do evento de log
+message | Mensagem detalhada do evento de log
 
 O código a seguir é um exemplo de uma cadeia de caracteres JSON do log de arquivo morto:
 
@@ -122,18 +122,18 @@ Para exibir os logs de recursos, siga estas etapas:
 
     ![Log Analytics item de menu](./media/signalr-tutorial-diagnostic-logs/log-analytics-menu-item.png)
 
-2. Insira `SignalRServiceDiagnosticLogs` e selecione o intervalo de tempo para consultar os logs de recursos. Para consulta avançada, consulte [introdução ao log Analytics no Azure monitor](../azure-monitor/log-query/get-started-portal.md)
+2. Insira `SignalRServiceDiagnosticLogs` e selecione o intervalo de tempo para consultar os logs de recursos. Para consulta avançada, consulte [introdução ao log Analytics no Azure monitor](../azure-monitor/log-query/log-analytics-tutorial.md)
 
     ![Log de consulta no Log Analytics](./media/signalr-tutorial-diagnostic-logs/query-log-in-log-analytics.png)
 
 As colunas de log de arquivo incluem os elementos listados na tabela a seguir:
 
-Name | Descrição
+Nome | Descrição
 ------- | ------- 
 TimeGenerated | Hora do evento de log
 Coleção | Coleção do evento de log. Os valores permitidos são: `Connection` , `Authorization` e `Throttling`
 OperationName | Nome da operação do evento
-Location | Local do serviço de Signaler do Azure
+Localização | Local do serviço de Signaler do Azure
 Nível | Nível de evento de log
 CallerIpAddress | Endereço IP do servidor/cliente
 Mensagem | Mensagem detalhada do evento de log
@@ -162,7 +162,7 @@ A diferença entre `ConnectionAborted` e `ConnectionEnded` é que é `Connection
 
 Os motivos de anulação são listados na tabela a seguir:
 
-Motivo | Description
+Motivo | Descrição
 ------- | ------- 
 A contagem de conexões atinge o limite | A contagem de conexões atinge o limite do seu tipo de preço atual. Considerar a escala vertical da unidade de serviço
 O servidor de aplicativos fechou a conexão | O servidor de aplicativos dispara o abortion. Ele pode ser considerado como um abortion esperado
@@ -182,7 +182,7 @@ Se você receber 401 de solicitações de cliente não autorizadas, verifique os
 
 #### <a name="throttling"></a>Limitação
 
-Se você achar que não é possível estabelecer conexões de cliente do Signalr para o serviço de Signaler do Azure, verifique os logs de recursos. Se você encontrar `Connection count reaches limit` no log de recursos, você estabelecerá conexões demais com o serviço signalr, que alcançará o limite de contagem de conexões. Considere a possibilidade de escalar verticalmente o serviço Signalr. Se você encontrar `Message count reaches limit` no log de recursos, isso significa que você usa a camada gratuita e usa a cota de mensagens. Se você quiser enviar mais mensagens, considere alterar o serviço de sinalização para a camada Standard para enviar mensagens adicionais. Para obter mais informações, consulte [preços do serviço de signaler do Azure](https://azure.microsoft.com/pricing/details/signalr-service/).
+Se você achar que não é possível estabelecer conexões de cliente do Signalr para o serviço de Signaler do Azure, verifique os logs de recursos. Se você encontrar `Connection count reaches limit` no log de recursos, você estabelecerá conexões demais com o serviço signalr, que alcançará o limite de contagem de conexões. Considere a possibilidade de escalar verticalmente o serviço Signalr. Se você encontrar `Message count reaches limit` no log de recursos, isso significa que você usa a camada gratuita e usa a cota de mensagens. Se você quiser enviar mais mensagens, considere alterar o serviço de sinalização para a camada Standard para enviar mensagens adicionais. Para obter mais informações, consulte [preços do serviço de signaler do Azure](https://azure.microsoft.com/pricing/details/signalr-service/).
 
 ### <a name="get-help"></a>Obter ajuda
 

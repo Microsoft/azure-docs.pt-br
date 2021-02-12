@@ -1,27 +1,25 @@
 ---
-title: Causas comuns da reciclagem de funções do Serviço de Nuvem | Microsoft Docs
+title: Causas comuns de reciclagem de funções de serviço de nuvem (clássico) | Microsoft Docs
 description: Uma função de serviço de nuvem que é reciclada repentinamente pode causar um tempo de inatividade significativo. Veja alguns problemas comuns que causam a reciclagem de funções, que podem ajudar a reduzir o tempo de inatividade.
-services: cloud-services
-documentationcenter: ''
-author: simonxjx
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 533930d1-8035-4402-b16a-cf887b2c4f85
+ms.topic: article
 ms.service: cloud-services
-ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 06/15/2018
-ms.author: v-six
-ms.openlocfilehash: 0484eb919a9de11b64dcc3334c5a9a942d875ca6
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 9610b32207f8367b9415c0881e49b54e24c49ad7
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075120"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741155"
 ---
-# <a name="common-issues-that-cause-roles-to-recycle"></a>Problemas comuns que causam a reciclagem de funções
+# <a name="common-issues-that-cause-azure-cloud-service-classic-roles-to-recycle"></a>Problemas comuns que fazem com que as funções do serviço de nuvem do Azure (clássico) sejam recicladas
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
+
 Este artigo discute algumas das causas comuns dos problemas de implantação e fornece dicas de solução de problemas para ajudá-lo a resolvê-los. Uma indicação de que existe um problema com um aplicativo é quando há uma falha na inicialização da instância de função ou se ela alterna entre os estados inicializando, ocupado e parando.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]

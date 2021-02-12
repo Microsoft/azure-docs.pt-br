@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc, devx-track-csharp
 manager: philmea
-ms.openlocfilehash: f6c8272f736e2f83b4d33f3d61ce83356aa40e5d
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: c79367ca8cf9e4a4884c829c675d794b2e734737
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126749"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220258"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Estender o Azure IoT Central com regras personalizadas usando Stream Analytics, Azure Functions e SendGrid
 
@@ -52,7 +52,7 @@ Os exemplos e capturas de tela neste artigo usam a região **Estados Unidos** . 
 
 Este modelo de aplicativo inclui dois dispositivos termostato simulados que enviam telemetria.
 
-### <a name="resource-group"></a>Resource group
+### <a name="resource-group"></a>Grupo de recursos
 
 Use o [portal do Azure para criar um grupo de recursos](https://portal.azure.com/#create/Microsoft.ResourceGroup) chamado **DetectStoppedDevices** para conter os outros recursos que você criar. Crie seus recursos do Azure no mesmo local que o aplicativo IoT Central.
 
@@ -92,7 +92,7 @@ Use o [portal do Azure para criar um aplicativo de funções](https://portal.azu
 | Subscription | Sua assinatura |
 | Resource group | DetectStoppedDevices |
 | Sistema operacional | Windows |
-| Plano de hospedagem | Plano de consumo |
+| Plano de Hospedagem | Plano de consumo |
 | Localização | Leste dos EUA |
 | Pilha de runtime | .NET |
 | Armazenamento | Criar Novo |
@@ -119,7 +119,7 @@ Quando você tiver criado todos os recursos necessários, seu grupo de recursos 
 Você pode configurar um aplicativo de IoT Central para exportar continuamente a telemetria para um hub de eventos. Nesta seção, você cria um hub de eventos para receber telemetria do seu aplicativo IoT Central. O Hub de eventos fornece a telemetria para seu trabalho de Stream Analytics para processamento.
 
 1. Na portal do Azure, navegue até o namespace de seus hubs de eventos e selecione **+ Hub de eventos**.
-1. Nomeie o **centralexport**do hub de eventos e selecione **criar**.
+1. Nomeie o **centralexport** do hub de eventos e selecione **criar**.
 
 O namespace dos hubs de eventos é semelhante à captura de tela a seguir:
 
@@ -130,7 +130,7 @@ O namespace dos hubs de eventos é semelhante à captura de tela a seguir:
 Seu aplicativo de funções precisa de uma chave de API SendGrid para enviar mensagens de email. Para criar uma chave de API do SendGrid:
 
 1. Na portal do Azure, navegue até sua conta do SendGrid. Em seguida, escolha **gerenciar** para acessar sua conta do SendGrid.
-1. Em sua conta do SendGrid, escolha **configurações**e, em seguida, **chaves de API**. Escolha **criar chave de API**:
+1. Em sua conta do SendGrid, escolha **configurações** e, em seguida, **chaves de API**. Escolha **criar chave de API**:
 
     ![Criar chave de API SendGrid](media/howto-create-custom-rules/sendgrid-api-keys.png)
 
@@ -155,7 +155,7 @@ O portal cria uma função padrão chamada **HttpTrigger1**:
 Para enviar emails com o SendGrid, você precisa configurar as associações para a função da seguinte maneira:
 
 1. Selecione **integrar**, escolha o http de saída **($Return)** e, em seguida, selecione **excluir**.
-1. Escolha **+ nova saída**, escolha **SendGrid**e escolha **selecionar**. Escolha **instalar** para instalar a extensão SendGrid.
+1. Escolha **+ nova saída**, escolha **SendGrid** e escolha **selecionar**. Escolha **instalar** para instalar a extensão SendGrid.
 1. Quando a instalação for concluída, selecione **usar valor de retorno da função**. Adicione um **endereço de endereçamento** válido para receber notificações por email.  Adicione um **endereço de** remetente válido para usar como o emissor do email.
 1. Selecione **novo** ao lado de **configuração do aplicativo de chave de API do SendGrid**. Insira **SendGridAPIKey** como a chave e a chave de API SendGrid que você anotou anteriormente como o valor. Em seguida, selecione **Criar**.
 1. Escolha **salvar** para salvar as associações SendGrid para sua função.
@@ -239,7 +239,7 @@ test-device-3    2019-05-02T14:24:28.919Z
 
 Essa solução usa uma consulta Stream Analytics para detectar quando um dispositivo para de enviar telemetria por mais de 120 segundos. A consulta usa a telemetria do hub de eventos como entrada. O trabalho envia os resultados da consulta para o aplicativo de funções. Nesta seção, você configura o trabalho de Stream Analytics:
 
-1. Na portal do Azure, navegue até o trabalho de Stream Analytics, em **topologia de trabalhos** selecione **entradas**, escolha **+ Adicionar entrada de fluxo**e, em seguida, escolha Hub de **eventos**.
+1. Na portal do Azure, navegue até o trabalho de Stream Analytics, em **topologia de trabalhos** selecione **entradas**, escolha **+ Adicionar entrada de fluxo** e, em seguida, escolha Hub de **eventos**.
 1. Use as informações na tabela a seguir para configurar a entrada usando o Hub de eventos que você criou anteriormente e, em seguida, escolha **salvar**:
 
     | Configuração | Valor |
@@ -249,7 +249,7 @@ Essa solução usa uma consulta Stream Analytics para detectar quando um disposi
     | Namespace do Hub de Eventos | Seu namespace do hub de eventos |
     | Nome do Hub de Eventos | Usar- **centralexport** existente |
 
-1. Em **topologia de trabalhos**, **selecione saídas**, escolha **+ Adicionar**e, em seguida, escolha **Azure function**.
+1. Em **topologia de trabalhos**, **selecione saídas**, escolha **+ Adicionar** e, em seguida, escolha **Azure function**.
 1. Use as informações na tabela a seguir para configurar a saída e, em seguida, escolha **salvar**:
 
     | Configuração | Valor |
@@ -300,8 +300,8 @@ Essa solução usa uma consulta Stream Analytics para detectar quando um disposi
         RightSide.deviceid2 is NULL
     ```
 
-1. Selecione **Salvar**.
-1. Para iniciar o trabalho de Stream Analytics, escolha **visão geral**, **Iniciar**, **agora**e **Iniciar**:
+1. Clique em **Salvar**.
+1. Para iniciar o trabalho de Stream Analytics, escolha **visão geral**, **Iniciar**, **agora** e **Iniciar**:
 
     ![Stream Analytics](media/howto-create-custom-rules/stream-analytics.png)
 
@@ -309,7 +309,7 @@ Essa solução usa uma consulta Stream Analytics para detectar quando um disposi
 
 No site do [Azure IOT central Application Manager](https://aka.ms/iotcentral) , navegue até o aplicativo IOT central que você criou por meio do modelo da contoso. Nesta seção, você configura o aplicativo para transmitir a telemetria de seus dispositivos simulados para o Hub de eventos. Para configurar a exportação:
 
-1. Navegue até a página **exportação de dados** , selecione **+ novo**e os **hubs de eventos do Azure**.
+1. Navegue até a página **exportação de dados** , selecione **+ novo** e os **hubs de eventos do Azure**.
 1. Use as configurações a seguir para configurar a exportação e, em seguida, selecione **salvar**:
 
     | Configuração | Valor |

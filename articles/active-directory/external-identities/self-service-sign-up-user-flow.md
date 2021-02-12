@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffb1d5eb756c7bc316a6d8e1de30a95eb1ac5194
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51602e97a8424bade542eec6f88b673130fee8b5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287042"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586016"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Adicionar um fluxo do usuário de inscrição por autoatendimento a um aplicativo (visualização)
 > [!NOTE]
@@ -53,7 +53,7 @@ Para poder adicionar um fluxo de usuário de inscrição de autoatendimento aos 
 4. Alterne a opção **Habilitar a inscrição de autoatendimento de convidado por meio de fluxos de usuário (versão prévia)** para **Sim**.
 
    ![Habilitar inscrição de autoatendimento de convidado](media/self-service-sign-up-user-flow/enable-self-service-sign-up.png)
-
+5. Selecione **Salvar**.
 ## <a name="create-the-user-flow-for-self-service-sign-up"></a>Criar o fluxo de usuário para inscrição de autoatendimento
 
 Em seguida, você criará o fluxo de usuário para inscrição de autoatendimento e o adicionará a um aplicativo.
@@ -70,6 +70,9 @@ Em seguida, você criará o fluxo de usuário para inscrição de autoatendiment
 7. Em **Atributos de usuário**, escolha os atributos que você deseja coletar do usuário. Para obter atributos adicionais, selecione **Mostrar mais**. Por exemplo, selecione **Mostrar mais** e, depois, escolha atributos e declarações de **País/região**, **Nome de exibição** e **Código postal**. Selecione **OK**.
 
    ![Criar uma nova página de fluxo de usuário](media/self-service-sign-up-user-flow/create-user-flow.png)
+
+> [!NOTE]
+> Você só pode coletar atributos quando um usuário se inscreve pela primeira vez. Depois que um usuário se inscreve, ele não será mais solicitado a coletar informações de atributo, mesmo se você alterar o fluxo do usuário.
 
 8. Selecione **Criar**.
 9. O novo fluxo de usuário aparece na lista **Fluxos de usuário (versão prévia)** . Se necessário, atualize a página.

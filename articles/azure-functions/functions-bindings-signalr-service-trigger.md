@@ -6,16 +6,18 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 05/11/2020
 ms.author: chenyl
-ms.openlocfilehash: e2651afbcdc3bae71bb531aa0e821f83264c295d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2482a26987ec142880acc51bf470d844655b6e3f
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212585"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763499"
 ---
 # <a name="signalr-service-trigger-binding-for-azure-functions"></a>Associação de gatilho de serviço signalr para Azure Functions
 
 Use a associação de gatilho de *sinalização* para responder às mensagens enviadas do serviço de Signaler do Azure. Quando a função é disparada, as mensagens passadas para a função são analisadas como um objeto JSON.
+
+No modo sem servidor do serviço de sinalização, o serviço de sinalização usa o recurso [upstream](../azure-signalr/concept-upstream.md) para enviar mensagens do cliente para o aplicativo de funções. E Aplicativo de funções usa a associação de gatilho de serviço de sinalização para lidar com essas mensagens. A arquitetura geral é mostrada abaixo: :::image type="content" source="media/functions-bindings-signalr-service/signalr-trigger.png" alt-text="arquitetura de gatilho de sinalização":::
 
 Para obter informações sobre a instalação e detalhes de configuração, confira a [visão geral](functions-bindings-signalr-service.md).
 
@@ -191,27 +193,34 @@ InvocationContext contém todo o conteúdo da mensagem enviar do serviço Signal
 |Propriedade em InvocationContext | Descrição|
 |------------------------------|------------|
 |Argumentos| Disponível para a categoria de *mensagens* . Contém *argumentos* na [mensagem de invocação](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding)|
-|Erro do| Disponível para evento *desconectado* . Ele poderá ficar vazio se a conexão for fechada sem erro ou contiver as mensagens de erro.|
+|Erro| Disponível para evento *desconectado* . Ele poderá ficar vazio se a conexão for fechada sem erro ou contiver as mensagens de erro.|
 |Hub| O nome do Hub ao qual a mensagem pertence.|
 |Categoria| A categoria da mensagem.|
 |Evento| O evento da mensagem.|
 |ConnectionId| A ID de conexão do cliente que envia a mensagem.|
 |UserId| A identidade do usuário do cliente que envia a mensagem.|
-|headers| Os cabeçalhos da solicitação.|
+|Cabeçalhos| Os cabeçalhos da solicitação.|
 |Consulta| A consulta da solicitação quando os clientes se conectam ao serviço.|
 |Declarações| As declarações do cliente.|
 
 ## <a name="using-parameternames"></a>Usando `ParameterNames`
 
-A propriedade `ParameterNames` no `SignalRTrigger` permite que você vincule argumentos de mensagens de invocação aos parâmetros de funções. Isso oferece uma maneira mais conveniente de acessar argumentos do `InvocationContext` .
+A propriedade `ParameterNames` no `SignalRTrigger` permite que você vincule argumentos de mensagens de invocação aos parâmetros de funções. O nome que você definiu pode ser usado como parte de [expressões de associação](../azure-functions/functions-bindings-expressions-patterns.md) em outra associação ou como parâmetros em seu código. Isso oferece uma maneira mais conveniente de acessar argumentos do `InvocationContext` .
 
-Digamos que você tenha um cliente de sinalização JavaScript tentando invocar o método `broadcast` no Azure Functions com dois argumentos.
+Digamos que você tenha um cliente de sinalização JavaScript tentando invocar o método `broadcast` no Azure Functions com dois argumentos `message1` , `message2` .
 
 ```javascript
 await connection.invoke("broadcast", message1, message2);
 ```
 
-Você pode acessar esses dois argumentos do parâmetro, bem como atribuir o tipo de parâmetro para eles usando `ParameterNames` .
+Depois de definido `parameterNames` , o nome que você definiu será, respectivamente, correspondente aos argumentos enviados no lado do cliente. 
+
+```cs
+[SignalRTrigger(parameterNames: new string[] {"arg1, arg2"})]
+```
+
+Em seguida, o conterá `arg1` o conteúdo de e conterá `message1` `arg2` o conteúdo de `message2` .
+
 
 ### <a name="remarks"></a>Comentários
 
@@ -219,20 +228,28 @@ Para a associação de parâmetro, a ordem é importante. Se você estiver usand
 
 `ParameterNames` e o atributo `[SignalRParameter]` **não pode** ser usado ao mesmo tempo ou você receberá uma exceção.
 
-## <a name="send-messages-to-signalr-service-trigger-binding"></a>Enviar mensagens para a associação de gatilho do serviço Signalr
+## <a name="signalr-service-integration"></a>Integração do serviço signalr
 
-A função do Azure gera uma URL para a associação de gatilho do serviço Signalr e é formatada da seguinte maneira:
+O serviço signalr precisa de uma URL para acessar Aplicativo de funções quando você está usando a associação de gatilho do serviço Signalr. A URL deve ser configurada em **configurações de upstream** no lado do serviço signalr. 
+
+:::image type="content" source="../azure-signalr/media/concept-upstream/upstream-portal.png" alt-text="Portal upstream":::
+
+Ao usar o gatilho de serviço Signalr, a URL pode ser simples e formatada, conforme mostrado abaixo:
 
 ```http
-https://<APP_NAME>.azurewebsites.net/runtime/webhooks/signalr?code=<API_KEY>
+<Function_App_URL>/runtime/webhooks/signalr?code=<API_KEY>
 ```
 
-O `API_KEY` é gerado pelo Azure function. Você pode obter o `API_KEY` de portal do Azure como você está usando a associação de gatilho do serviço signalr.
+O `Function_App_URL` pode ser encontrado na página de visão geral do aplicativo de funções e o `API_KEY` é gerado pelo Azure function. Você pode obter o `API_KEY` de `signalr_extension` na folha de **chaves do aplicativo** de aplicativo de funções.
 :::image type="content" source="media/functions-bindings-signalr-service/signalr-keys.png" alt-text="Chave de API":::
 
-Você deve definir essa URL no `UrlTemplate` nas configurações de upstream do serviço de signalr.
+Se você quiser usar mais de uma Aplicativo de funções junto com um serviço Signalr, o upstream também poderá oferecer suporte a regras de roteamento complexas. Encontre mais detalhes em [configurações de upstream](../azure-signalr/concept-upstream.md).
+
+## <a name="step-by-step-sample"></a>Exemplo passo a passo
+
+Você pode seguir o exemplo no GitHub para implantar uma sala de chat em Aplicativo de funções com associação de gatilho do serviço Signalr e recurso upstream: [exemplo de sala de chat bidirecional](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BidirectionChat)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Desenvolvimento de funções do Azure e a configuração com o serviço do Azure SignalR](../azure-signalr/signalr-concept-serverless-development-config.md)
-* [Exemplo de associação de gatilho de serviço signalr](https://github.com/Azure/azure-functions-signalrservice-extension/tree/dev/samples/bidirectional-chat)
+* [Exemplo de associação de gatilho de serviço signalr](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BidirectionChat)

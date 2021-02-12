@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 9b712756b6daf7380998bb98f56113cab29ebb59
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516504"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015155"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Tutorial: integração do Azure Active Directory com o Skills Base
 
@@ -53,11 +53,11 @@ Para configurar a integração do Skills Base com o Azure AD, você precisará a
 
 **Para adicionar o Skills Base, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory** .
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos** .
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -65,13 +65,13 @@ Para configurar a integração do Skills Base com o Azure AD, você precisará a
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Skills Base** , selecione **Skills Base** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Skills Base**, selecione **Skills Base** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![Skills Base na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Skills Base com base em um usuário de teste chamado **Brenda Fernandes** .
+Nesta seção, você configurará e testará o logon único do Azure AD com o Skills Base com base em um usuário de teste chamado **Brenda Fernandes**.
 Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Skills Base.
 
 Para configurar e testar o logon único do Azure AD com o Skills Base, você precisará concluir os seguintes blocos de construção:
@@ -89,32 +89,32 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Skills Base, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Skills Base** , selecione **Logon único** .
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Skills Base**, selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML** .
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica de SAML** , realize as seguintes etapas:
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
     ![Informações de logon único de Domínio e URLs do Skills Base](common/sp-signonurl.png)
 
-    Na caixa de texto **URL de logon** , digite um URL usando o seguinte padrão: `https://app.skills-base.com/o/<customer-unique-key>`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://app.skills-base.com/o/<customer-unique-key>`
 
     > [!NOTE]
     > Você pode obter a URL de logon do aplicativo de Base de Habilidades. Faça logon como Administrador e vá para o Administrador -> Configurações -> Detalhes da instância -> Link de atalho. Copie a URL de logon e cole-a acima da caixa de texto.
 
-5. Na página **Configurar Logon Único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+5. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-6. Na seção **Configurar o Skills Base** , copie as URLs apropriadas de acordo com suas necessidades.
+6. Na seção **Configurar o Skills Base**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -128,22 +128,22 @@ Para configurar o logon único do Azure AD com o Skills Base, execute as seguint
 
 1. Em uma janela diferente do navegador da Web, faça logon no Skills Base como Administrador de Segurança.
 
-2. No lado esquerdo do menu, em **ADMIN** , clique em **Autenticação** .
+2. No lado esquerdo do menu, em **ADMIN**, clique em **Autenticação**.
 
     ![O administrador](./media/skillsbase-tutorial/tutorial_skillsbase_auth.png)
 
-3. Na página **Autenticação** , selecione Logon Único como **SAML 2** .
+3. Na página **Autenticação**, selecione Logon Único como **SAML 2**.
 
     ![Captura de tela que mostra a página Autenticação com SAML 2 selecionado em Logon Único.](./media/skillsbase-tutorial/tutorial_skillsbase_single.png)
 
-4. Na página **Autenticação** , execute as seguintes etapas:
+4. Na página **Autenticação**, execute as seguintes etapas:
 
     ![Captura de tela que mostra a página Autenticação, na qual você pode inserir os valores descritos.](./media/skillsbase-tutorial/tutorial_skillsbase_save.png)
 
     a. Clique no botão **Atualizar metadados do IdP** ao lado da opção **Status** e cole o conteúdo do XML de metadados que você baixou do portal do Azure na caixa de texto especificada.
 
     > [!Note]
-    > Também é possível validar os metadados do IdP por meio da ferramenta **Validador de metadados** , conforme destacado na captura de tela acima.
+    > Também é possível validar os metadados do IdP por meio da ferramenta **Validador de metadados**, conforme destacado na captura de tela acima.
 
     b. Clique em **Save** (Salvar).
 
@@ -151,7 +151,7 @@ Para configurar o logon único do Azure AD com o Skills Base, execute as seguint
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários** .
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -163,40 +163,40 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes** .
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário** , digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você habilita Brenda Fernandes a usar o logon único do Azure concedendo acesso ao Skills Base.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, **Skills Base** .
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **Skills Base**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **Skills Base** .
+2. Na lista de aplicativos, selecione **Skills Base**.
 
     ![O link do Skills Base na lista de Aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Usuários e grupos** .
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
     ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-skills-base-test-user"></a>Crie um usuário de teste do Skills Base
 

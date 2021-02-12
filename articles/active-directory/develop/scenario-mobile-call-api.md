@@ -13,16 +13,16 @@ ms.date: 05/18/2020
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 781406a1bfd253f0ab3eb333f23917be4aeb3ba9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 656cb167fb47e44c28922afed75d8c46a460aaf1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83771733"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584390"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>Chamar uma API Web em um aplicativo móvel
 
-Depois que o aplicativo conectar um usuário e receber tokens, a MSAL (biblioteca de autenticação da Microsoft) expõe informações sobre o usuário, o ambiente do usuário e os tokens emitidos. Seu aplicativo pode usar esses valores para chamar uma API Web ou exibir uma mensagem de boas-vindas para o usuário.
+Depois que o aplicativo entrar em um usuário e receber tokens, a MSAL (biblioteca de autenticação da Microsoft) expõe informações sobre o usuário, o ambiente do usuário e os tokens emitidos. Seu aplicativo pode usar esses valores para chamar uma API Web ou exibir uma mensagem de boas-vindas para o usuário.
 
 Neste artigo, primeiro vamos examinar o resultado da MSAL. Em seguida, veremos como usar um token de acesso de `AuthenticationResult` ou `result` para chamar uma API Web protegida.
 
@@ -117,15 +117,15 @@ task.resume()
 
 ## <a name="make-several-api-requests"></a>Fazer várias solicitações de API
 
-Se você precisar chamar a mesma API várias vezes ou se precisar chamar várias APIs, considere o seguinte ao compilar seu aplicativo:
+Para chamar a mesma API várias vezes ou chamar várias APIs, considere os seguintes assuntos ao compilar seu aplicativo:
 
-- **Alteração incremental**: A plataforma de identidade da Microsoft permite que os aplicativos obtenham consentimento do usuário quando forem necessárias permissões em vez de tudo no início. Cada vez que seu aplicativo estiver pronto para chamar uma API, ele deverá solicitar apenas os escopos de que precisa.
+- **Consentimento incremental**: a plataforma de identidade da Microsoft permite que os aplicativos obtenham o consentimento do usuário quando forem necessárias permissões em vez de todos no início. Cada vez que seu aplicativo estiver pronto para chamar uma API, ele deverá solicitar apenas os escopos de que precisa.
 
 - **Acesso condicional**: Quando várias solicitações de API são feitas, em certos cenários, talvez seja necessário atender aos requisitos adicionais de acesso condicional. Os requisitos podem aumentar dessa forma se a primeira solicitação não tiver políticas de acesso condicional e se o seu aplicativo tentar acessar silenciosamente uma nova API que exija acesso condicional. Para lidar com esse problema, não se esqueça de detectar erros de solicitações silenciosas e esteja preparado para fazer uma solicitação interativa.  Para obter mais informações, consulte [Diretrizes para acesso condicional](../azuread-dev/conditional-access-dev-guide.md).
 
 ## <a name="call-several-apis-by-using-incremental-consent-and-conditional-access"></a>Chamar várias APIs usando o consentimento incremental e o acesso condicional
 
-Se você precisar chamar várias APIs para o mesmo usuário, depois de adquirir um token para o usuário, será possível evitar a solicitação repetida das credenciais do usuário chamando posteriormente `AcquireTokenSilent` para obter um token:
+Para chamar várias APIs para o mesmo usuário, depois de adquirir um token para o usuário, você pode evitar repetidamente solicitar as credenciais ao usuário, chamando posteriormente `AcquireTokenSilent` para obter um token:
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
@@ -159,5 +159,4 @@ catch(MsalUiRequiredException ex)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Mover para ambiente de produção](scenario-mobile-production.md)
+Vá para o próximo artigo neste cenário, [vá para produção](scenario-mobile-production.md).

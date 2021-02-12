@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2019
 ms.author: mlottner
-ms.openlocfilehash: d97fa4c3c57f6f0dcc5c55b76d839308156c40fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75c6841b7fed354843b955a971f02946be349a02
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933290"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548878"
 ---
 # <a name="azure-defender-for-iot-baseline-and-custom-checks"></a>Azure defender para IoT Baseline e verificações personalizadas
 
@@ -63,7 +63,7 @@ Para configurar verificações personalizadas de linha de base:
 ## <a name="baseline-custom-check-properties"></a>Propriedades da verificação personalizada de linha de base
 
 | Nome| Status | Valores válidos| Valores padrão| Descrição |
-|----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
+|------|-----|------|-----|-----|
 |baselineCustomChecksEnabled|Necessário: verdadeiro |Valores válidos: **booliano** |Valor padrão: **false** |Intervalo de tempo máximo antes que as mensagens de alta prioridade sejam enviadas.|
 |baselineCustomChecksFilePath |Necessário: verdadeiro|Valores válidos: **cadeia de caracteres**, **nulo** |Valor padrão: **nulo** |Caminho completo da configuração XML de linha de base|
 |baselineCustomChecksFileHash |Necessário: verdadeiro|Valores válidos: **cadeia de caracteres**, **nulo** |Valor padrão: **nulo** |`sha256sum` do arquivo de configuração XML. Use a [referência sha256sum](https://linux.die.net/man/1/sha256sum) para obter informações adicionais. |

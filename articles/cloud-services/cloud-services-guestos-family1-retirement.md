@@ -9,14 +9,15 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 5/21/2017
 ms.author: raiye
-ms.openlocfilehash: 6de03969a22c5b699fdfd2be17a6ba65905d23e6
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 7f6d3feee95d4cce654b2cc1547b8bd7f4eb45d2
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073386"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743008"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Aviso de desativação da família 1 de SO convidados
+
 A desativação da família 1 do sistema operacional foi anunciada em 1º de junho de 2013.
 
 **2 de setembro de 2014** A família 1.x do sistema operacional convidado do Azure (SO convidado), que se baseia no sistema operacional Windows Server 2008, foi oficialmente desativada. Todas as tentativas para implantar novos serviços ou atualizar serviços existentes usando a família 1 falharão com uma mensagem de erro informando que a família 1 dos sistemas operacionais convidados foi desativada.

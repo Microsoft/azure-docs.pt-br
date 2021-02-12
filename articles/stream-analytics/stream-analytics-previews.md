@@ -1,18 +1,17 @@
 ---
 title: Recursos de visualização do Azure Stream Analytics
 description: Este artigo lista os recursos do Azure Stream Analytics que estão atualmente na visualização.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 8/07/2020
-ms.openlocfilehash: 4179b06759802025f97bd32a355b788c96c9eddb
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: d07a2364cbd2b63ef9e38387b6e915f7e63676ae
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123313"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012148"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Recursos de visualização do Azure Stream Analytics
 
@@ -22,7 +21,7 @@ Este artigo resume todos os recursos atualmente em visualização do Azure Strea
 
 Os seguintes recursos estão em pré-visualização pública. Você pode aproveitar esses recursos hoje, mas não os use em seu ambiente de produção.
 
-### <a name="authenticate-to-sql-database-output-with-managed-identities"></a>Autenticar na saída do Banco de Dados SQL com identidades gerenciadas
+### <a name="authenticate-to-sql-database-output-with-managed-identities-preview"></a>Autenticar na saída do banco de dados SQL com identidades gerenciadas (versão prévia)
 
 O Azure Stream Analytics dá suporte à [Autenticação de identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) para os coletores de saída do Banco de Dados SQL do Azure. Identidades gerenciadas eliminam as limitações de métodos de autenticação baseados no usuário, como a necessidade de autenticar-se por alterações de senha. 
 

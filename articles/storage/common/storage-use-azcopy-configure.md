@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: a54c77844498beb4fd052153cbcf8cbe498cdb75
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 1a319c728b918dbad7dd5f240bc7a0bfeb0c4c09
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132203"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881037"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurar, otimizar e solucionar problemas do AzCopy
 
@@ -22,19 +22,19 @@ AzCopy é um utilitário de linha de comando que você pode usar para copiar blo
 > [!NOTE]
 > Se você estiver procurando conteúdo para ajudá-lo a começar a usar o AzCopy, consulte qualquer um dos seguintes artigos:
 > - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
-> - [Transferir dados com o AzCopy e o Armazenamento de Blobs](storage-use-azcopy-blobs.md)
+> - [Transferir dados com o AzCopy e o Armazenamento de Blobs](./storage-use-azcopy-v10.md#transfer-data)
 > - [Transferir dados com o AzCopy e o Armazenamento de Arquivos](storage-use-azcopy-files.md)
 > - [Transferir dados com o AzCopy e os buckets do Amazon S3](storage-use-azcopy-s3.md)
 
 ## <a name="configure-proxy-settings"></a>Definir configurações de proxy
 
-Para definir as configurações de proxy para AzCopy, defina a `https_proxy` variável de ambiente. Se você executar o AzCopy no Windows, o AzCopy detectará automaticamente as configurações de proxy, de modo que você não precisará usar essa configuração no Windows. Se você optar por usar essa configuração no Windows, ela substituirá a detecção automática.
+Para definir as configurações de proxy para AzCopy, defina a `HTTPS_PROXY` variável de ambiente. Se você executar o AzCopy no Windows, o AzCopy detectará automaticamente as configurações de proxy, de modo que você não precisará usar essa configuração no Windows. Se você optar por usar essa configuração no Windows, ela substituirá a detecção automática.
 
 | Sistema operacional | Comando  |
 |--------|-----------|
-| **Windows** | Em um prompt de comando, use: `set https_proxy=<proxy IP>:<proxy port>`<br> No PowerShell, use: `$env:https_proxy="<proxy IP>:<proxy port>"`|
-| **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
-| **macOS** | `export https_proxy=<proxy IP>:<proxy port>` |
+| **Windows** | Em um prompt de comando, use: `set HTTPS_PROXY=<proxy IP>:<proxy port>`<br> No PowerShell, use: `$env:HTTPS_PROXY="<proxy IP>:<proxy port>"`|
+| **Linux** | `export HTTPS_PROXY=<proxy IP>:<proxy port>` |
+| **macOS** | `export HTTPS_PROXY=<proxy IP>:<proxy port>` |
 
 Atualmente, o AzCopy não dá suporte a proxies que exigem autenticação com NTLM ou Kerberos.
 
@@ -220,5 +220,3 @@ Os níveis de log disponíveis são: `NONE` , `DEBUG` , `INFO` ,, `WARNING` `ERR
 Se você quiser remover todos os arquivos de plano e de log do computador local para economizar espaço em disco, use o `azcopy jobs clean` comando.
 
 Para remover o plano e os arquivos de log associados a apenas um trabalho, use `azcopy jobs rm <job-id>` . Substitua o `<job-id>` espaço reservado neste exemplo pela ID do trabalho.
-
-

@@ -3,45 +3,71 @@ title: Monitorar o desempenho em VMs do Azure-informações do Aplicativo Azure
 description: Monitoramento do desempenho de aplicativos para a VM do Azure e conjuntos de dimensionamento de máquinas virtuais do Azure. Tempo de resposta e carregamento do gráfico, informações de dependência e definir alertas sobre o desempenho.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 8b025c5196d65234a632bd1f939bc1116b72dce0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48441711c8c6209b25974108fd91d1023fd6e6be
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87024625"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493729"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Implantar o agente de Application Insights de Azure Monitor em máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais do Azure
 
-A habilitação do monitoramento em seus aplicativos Web baseados em .NET executados em [máquinas virtuais do Azure](https://azure.microsoft.com/services/virtual-machines/) e [conjuntos de dimensionamento de máquinas virtuais do Azure](../../virtual-machine-scale-sets/index.yml) agora está mais fácil do que nunca. Obtenha todos os benefícios do uso de Application Insights sem modificar seu código.
+Habilitar o monitoramento para seus aplicativos Web baseados em .NET ou Java executados em [máquinas virtuais do Azure](https://azure.microsoft.com/services/virtual-machines/) e [conjuntos de dimensionamento de máquinas virtuais do Azure](../../virtual-machine-scale-sets/index.yml) agora é mais fácil do que nunca. Obtenha todos os benefícios do uso de Application Insights sem modificar seu código.
 
 Este artigo orienta você pela habilitação do monitoramento de Application Insights usando o agente Application Insights e fornece diretrizes preliminares para automatizar o processo para implantações em larga escala.
+> [!IMPORTANT]
+> Aplicativos baseados em **Java** executados em VMs do Azure e VMSS são monitorados com **[Application insights agente do Java 3,0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)**, que está geralmente disponível.
 
 > [!IMPORTANT]
-> No momento, o agente de informações do Aplicativo Azure para .NET está em visualização pública.
-> Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendável para cargas de trabalho de produção. Alguns recursos podem não ter suporte e alguns podem ter recursos restritos.
+> O Aplicativo Azure agente de informações para aplicativos ASP.NET executados em **VMs do Azure e VMSS** está atualmente em visualização pública. Para monitorar seus aplicativos ASP.Net em execução **no local**, use o [agente do insights aplicativo Azure para servidores locais](./status-monitor-v2-overview.md), que está geralmente disponível e com suporte total.
+> A versão de visualização para VMs do Azure e VMSS é fornecida sem um contrato de nível de serviço e não é recomendável para cargas de trabalho de produção. Alguns recursos podem não ter suporte e alguns podem ter recursos restritos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="enable-application-insights"></a>Habilitar o Application Insights
 
 Há duas maneiras de habilitar o monitoramento de aplicativos para máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais do Azure aplicativos hospedados:
 
-* Sem **código** por meio do agente de Application insights
-    * Esse método é o mais fácil de habilitar e nenhuma configuração avançada é necessária. Ele é geralmente chamado de monitoramento de "tempo de execução".
+### <a name="auto-instrumentation-via-application-insights-agent"></a>Instrumentação automática por meio do agente de Application Insights
 
-    * Para máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais do Azure, é recomendável habilitar, no mínimo, esse nível de monitoramento. Depois disso, com base em seu cenário específico, você pode avaliar se a instrumentação manual é necessária.
+* Esse método é o mais fácil de habilitar e nenhuma configuração avançada é necessária. Ele é geralmente chamado de monitoramento de "tempo de execução".
 
-    * O agente de Application Insights coleta automaticamente os mesmos sinais de dependência prontos para uso que o SDK do .NET. Consulte [coleção de dependência automática](./auto-collect-dependencies.md#net) para saber mais.
-        > [!NOTE]
-        > Atualmente, há suporte apenas para aplicativos hospedados no IIS do .net. Use um SDK para instrumentar aplicativos ASP.NET Core, Java e Node.js hospedados em máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais.
-
-* **Baseado em código** via SDK
-
-    * Essa abordagem é muito mais personalizável, mas requer [a adição de uma dependência nos pacotes NuGet do SDK Application insights](./asp-net.md). Esse método, também significa que você precisa gerenciar as atualizações para a versão mais recente dos pacotes por conta própria.
-
-    * Se você precisar fazer chamadas à API personalizada para acompanhar eventos/dependências não capturadas por padrão com o monitoramento baseado em agente, você precisará usar esse método. Confira o [artigo API para eventos e métricas personalizados](./api-custom-events-metrics.md) para saber mais.
+* Para máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais do Azure, é recomendável habilitar, no mínimo, esse nível de monitoramento. Depois disso, com base em seu cenário específico, você pode avaliar se a instrumentação manual é necessária.
 
 > [!NOTE]
-> Se o monitoramento baseado em agente e a instrumentação baseada em SDK manual forem detectados, somente as configurações de instrumentação manual serão respeitadas. Isso é para evitar que dados duplicados sejam enviados. Para saber mais sobre isso, confira a [seção solução de problemas](#troubleshooting) abaixo.
+> Atualmente, a instrumentação automática está disponível apenas para aplicativos hospedados no IIS .NET e Java. Use um SDK para instrumentar aplicativos ASP.NET Core, Node.js e Python hospedados em máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais.
+
+
+#### <a name="net"></a>.NET
+
+  * O agente de Application Insights coleta automaticamente os mesmos sinais de dependência prontos para uso que o SDK do .NET. Consulte [coleção de dependência automática](./auto-collect-dependencies.md#net) para saber mais.
+        
+#### <a name="java"></a>Java
+  * Para Java, **[Application insights o agente java 3,0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)** é a abordagem recomendada. As bibliotecas e as estruturas mais populares, bem como os logs e as dependências, são [coletadas automaticamente](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent#auto-collected-requests-dependencies-logs-and-metrics), com uma infinidade de [configurações adicionais](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config)
+
+### <a name="code-based-via-sdk"></a>Baseado em código via SDK
+    
+#### <a name="net"></a>.NET
+  * Para aplicativos .NET, essa abordagem é muito mais personalizável, mas requer [a adição de uma dependência nos pacotes NuGet do SDK Application insights](./asp-net.md). Esse método, também significa que você precisa gerenciar as atualizações para a versão mais recente dos pacotes por conta própria.
+
+  * Se você precisar fazer chamadas à API personalizada para acompanhar eventos/dependências não capturadas por padrão com o monitoramento baseado em agente, você precisará usar esse método. Confira o [artigo API para eventos e métricas personalizados](./api-custom-events-metrics.md) para saber mais.
+
+    > [!NOTE]
+    > Somente para aplicativos .NET – se o monitoramento baseado em agente e a instrumentação baseada em SDK manual forem detectados, somente as configurações de instrumentação manual serão respeitadas. Isso é para evitar que dados duplicados sejam enviados. Para saber mais sobre isso, confira a [seção solução de problemas](#troubleshooting) abaixo.
+
+#### <a name="net-core"></a>.NET Core
+Para monitorar aplicativos .NET Core, use o [SDK](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) 
+
+#### <a name="java"></a>Java 
+
+Se você precisar de telemetria personalizada adicional para aplicativos Java, confira o que [está disponível](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent#send-custom-telemetry-from-your-application), adicione [dimensões personalizadas](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config#custom-dimensions)ou use [processadores de telemetria](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-telemetry-processors). 
+
+#### <a name="nodejs"></a>Node.js
+
+Para instrumentar seu aplicativo Node.js, use o [SDK](https://docs.microsoft.com/azure/azure-monitor/app/nodejs).
+
+#### <a name="python"></a>Python
+
+Para monitorar aplicativos Python, use o [SDK](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python).
 
 ## <a name="manage-application-insights-agent-for-net-applications-on-azure-virtual-machines-using-powershell"></a>Gerenciar o agente de Application Insights para aplicativos .NET em máquinas virtuais do Azure usando o PowerShell
 
@@ -49,7 +75,7 @@ Há duas maneiras de habilitar o monitoramento de aplicativos para máquinas vir
 > Antes de instalar o agente de Application Insights, você precisará de uma cadeia de conexão. [Crie um novo recurso Application insights](./create-new-resource.md) ou copie a cadeia de conexão de um recurso existente do Application insights.
 
 > [!NOTE]
-> Novo no PowerShell? Confira o [Guia de introdução](/powershell/azure/get-started-azureps?view=azps-2.5.0).
+> Novo no PowerShell? Confira o [Guia de introdução](/powershell/azure/get-started-azureps).
 
 Instalar ou atualizar o agente de Application Insights como uma extensão para máquinas virtuais do Azure
 ```powershell
@@ -168,7 +194,7 @@ Get-AzResource -ResourceId /subscriptions/<mySubscriptionId>/resourceGroups/<myR
 Encontre dicas de solução de problemas para Application Insights extensão do agente de monitoramento para aplicativos .NET em execução em máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais.
 
 > [!NOTE]
-> Os aplicativos .NET Core, Java e Node.js só têm suporte em máquinas virtuais do Azure e em conjuntos de dimensionamento de máquinas virtuais do Azure por meio de instrumentação manual baseada em SDK e, portanto, as etapas a seguir não se aplicam a esses cenários.
+> Os aplicativos .NET Core, Node.js e Python só têm suporte em máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais do Azure via instrumentação manual baseada em SDK e, portanto, as etapas a seguir não se aplicam a esses cenários.
 
 A saída de execução da extensão é registrada nos arquivos localizados nos seguintes diretórios:
 ```Windows

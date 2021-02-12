@@ -3,16 +3,17 @@ title: Solucionar problemas Azure Cosmos DB exceções de tempo limite de solici
 description: Saiba como diagnosticar e corrigir Azure Cosmos DB exceções de tempo limite de solicitação de serviço.
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: a18c4cf2f2bc1882a82afe0ba201f0d8b070924d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 5b188021de30561222f098e2b5782bada25d7ce0
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081358"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411236"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-timeout-exceptions"></a>Diagnosticar e solucionar problemas Azure Cosmos DB exceções de tempo limite de solicitação
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,3 +41,5 @@ Escolha uma boa chave de partição que distribua uniformemente o volume de soli
 ## <a name="next-steps"></a>Próximas etapas
 * [Diagnostique e solucione](troubleshoot-dot-net-sdk.md) problemas ao usar o SDK do .net Azure Cosmos DB.
 * Saiba mais sobre as diretrizes de desempenho para o [.net v3](performance-tips-dotnet-sdk-v3-sql.md) e o [.net v2](performance-tips.md).
+* [Diagnostique e solucione](troubleshoot-java-sdk-v4-sql.md) problemas ao usar o SDK do Azure Cosmos DB Java v4.
+* Saiba mais sobre as diretrizes de desempenho para o [SDK do Java v4](performance-tips-java-sdk-v4-sql.md).

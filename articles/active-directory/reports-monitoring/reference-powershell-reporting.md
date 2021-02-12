@@ -18,12 +18,12 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 25f3402864e2ba873ce63acb6cedcd3f2ea018f7
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9ff923d0231a1b00493a54996c2fcd489012bbe7
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123125"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862030"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Cmdlets do PowerShell do Azure AD para relatórios
 
@@ -36,7 +36,7 @@ Para instalar a versão de visualização pública, use o seguinte.
 Install-module AzureADPreview
 ```
 
-Para obter mais informações sobre como se conectar ao Azure AD usando o PowerShell, consulte o artigo [Azure ad PowerShell para Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).  
+Para obter mais informações sobre como se conectar ao Azure AD usando o PowerShell, consulte o artigo [Azure ad PowerShell para Graph](/powershell/azure/active-directory/install-adv2).  
 
 Com os relatórios do Azure Active Directory (Azure AD), você pode obter detalhes sobre as atividades em todas as operações de gravação em sua direção (logs de auditoria) e dados de autenticação (logs de entrada). Embora as informações estejam disponíveis usando o MS API do Graph, agora você pode recuperar os mesmos dados usando os cmdlets do PowerShell do Azure AD para relatórios.
 
@@ -52,7 +52,7 @@ Você obtém acesso aos logs de auditoria usando o cmdlet ' Get-AzureADAuditDire
 | Cenário                      | Comando do PowerShell |
 | :--                           | :--                |
 | Nome de exibição do aplicativo      | Get-AzureADAuditDirectoryLogs-filtrar "initiatedBy/app/displayName EQ ' sincronização de nuvem do Azure AD '" |
-| Categoria                      | Get-AzureADAuditDirectoryLogs-filtrar "category EQ ' ApplicationManagement '" |
+| Category                      | Get-AzureADAuditDirectoryLogs-filtrar "category EQ ' ApplicationManagement '" |
 | Data e hora da atividade            | Get-AzureADAuditDirectoryLogs-filtro "activityDateTime gt 2019-04-18" |
 | Todas as opções acima              | Get-AzureADAuditDirectoryLogs-filtrar "initiatedBy/app/displayName EQ ' Azure AD Cloud Sync ' e Category EQ ' ApplicationManagement ' e activityDateTime gt 2019-04-18"|
 

@@ -3,15 +3,16 @@ title: Perguntas frequentes sobre a API Gremlin no Azure Cosmos DB
 description: Obtenha respostas para perguntas frequentes sobre a API Gremlin no Azure Cosmos DB
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
-ms.openlocfilehash: 8f9e4211b05503f70987b9e476d9a55510bbd520
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0374886482b43eefe6df5e107fd4da371633099d
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078315"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359769"
 ---
 # <a name="frequently-asked-questions-about-the-gremlin-api-in-azure-cosmos-db"></a>Perguntas frequentes sobre a API Gremlin no Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -94,7 +95,7 @@ A saída do perfil acima mostra quanto tempo é gasto para obter os objetos de v
 
 ### <a name="how-are-rus-charged-when-running-queries-on-a-graph-database"></a>Como as RU/s são cobradas ao executar consultas em um banco de dados do gráfico?
 
-Todos os objetos do grafo, vértices e bordas são mostrados como documentos JSON no back-end. Já que uma consulta Gremlin pode modificar um ou muitos objetos do gráfico por vez, o custo associado a ela está diretamente relacionado aos objetos, que são bordas processadas pela consulta. É o mesmo processo que o Azure Cosmos DB usa para todas as outras APIs. Para obter mais informações, consulte [unidades de solicitação no Azure Cosmos DB](request-units.md).
+Todos os objetos do grafo, vértices e bordas são mostrados como documentos JSON no back-end. Já que uma consulta Gremlin pode modificar um ou muitos objetos do gráfico por vez, o custo associado a ela está diretamente relacionado aos objetos, que são bordas processadas pela consulta. É o mesmo processo que o Azure Cosmos DB usa para todas as outras APIs. Para obter mais informações, consulte [Unidades de Solicitação no Azure Cosmos DB](request-units.md).
 
 O custo da RU é baseado no conjunto de dados de trabalho da passagem, não no conjunto de resultados. Por exemplo, se uma consulta tem por objetivo obter um único vértice como resultado, mas precisa atravessar vários outros objetos no caminho, então, o custo se baseará em todos os objetos do gráfico necessários para calcular o vértice de um resultado.
 
@@ -108,7 +109,7 @@ A API do Gremlin do Azure Cosmos DB aproveita os drivers de fonte aberta como os
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Como me proteger contra ataques de injeção usando os drivers do Gremlin?
 
-A maioria dos drivers Tinkerpop Gremlin do Apache nativos permitem a opção de fornecer um dicionário de parâmetros para a execução da consulta. Este é um exemplo de como fazer isso no [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) e no [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
+A maioria dos drivers Tinkerpop Gremlin do Apache nativos permitem a opção de fornecer um dicionário de parâmetros para a execução da consulta. Este é um exemplo de como fazer isso no [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) e no [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/main/app.js).
 
 ### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>Por que estou recebendo o erro "erro de compilação de consulta Gremlin: não foi possível encontrar nenhum método"?
 

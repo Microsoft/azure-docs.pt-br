@@ -1,5 +1,5 @@
 ---
-title: Mitigar a imparcialidade em modelos de aprendizado de máquina (versão prévia)
+title: Atenuar a injustação em modelos de aprendizado de máquina (versão prévia)
 titleSuffix: Azure Machine Learning
 description: Saiba mais sobre a imparcialidade em modelos de machine learning e como o pacote Fairlearn para Python pode ajudá-lo a criar modelos mais razoáveis.
 services: machine-learning
@@ -8,19 +8,20 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 08/05/2020
-ms.openlocfilehash: 3f051d9fc1599c0877e1e8a58935d09d224ce22b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/26/2021
+ms.custom: responsible-ml
+ms.openlocfilehash: 6daa03728a5f323f6f8b749975d31fbca24d5602
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88689670"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871495"
 ---
-# <a name="mitigate-fairness-in-machine-learning-models-preview"></a>Mitigar a imparcialidade em modelos de aprendizado de máquina (versão prévia)
+# <a name="mitigate-unfairness-in-machine-learning-models-preview"></a>Atenuar a injustação em modelos de aprendizado de máquina (versão prévia)
 
-Saiba mais sobre a imparcialidade no aprendizado de máquina e como o pacote Python de software livre [Fairlearn](https://fairlearn.github.io/) pode ajudá-lo a reduzir problemas de imparcialidade em modelos de aprendizado de máquina. Se você não estiver tomando um esforço para entender problemas de imparcialidade e para avaliar a imparcialidade ao criar modelos de aprendizado de máquina, poderá criar modelos que produzam resultados injustos.
+Saiba mais sobre a imparcialidade no aprendizado de máquina e como o pacote Python de software livre [Fairlearn](https://fairlearn.github.io/) pode ajudá-lo a reduzir problemas de incerteza nos modelos de aprendizado de máquina. Se você não estiver tomando um esforço para entender problemas de imparcialidade e para avaliar a imparcialidade ao criar modelos de aprendizado de máquina, poderá criar modelos que produzam resultados injustos.
 
-O seguinte Resumo do [Guia do usuário](https://fairlearn.github.io/user_guide/index.html) para o pacote de código-fonte aberto do Fairlearn, descreve como usá-lo para avaliar a imparcialidade dos sistemas de ia que você está criando.  O pacote Fairlearn Open-Source também pode oferecer opções para ajudar a mitigar ou ajudar a reduzir os problemas de imparcialidade que você observar.  Consulte os [blocos de anotações](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) de [instruções](how-to-machine-learning-fairness-aml.md) e de exemplo para habilitar a avaliação de imparcialidade de sistemas de ia durante o treinamento em Azure Machine Learning.
+O seguinte Resumo do [Guia do usuário](https://fairlearn.github.io/master/user_guide/index.html) para o pacote de código-fonte aberto do Fairlearn, descreve como usá-lo para avaliar a imparcialidade dos sistemas de ia que você está criando.  O pacote Fairlearn Open-Source também pode oferecer opções para ajudar a mitigar ou ajudar a reduzir os problemas de imparcialidade que você observar.  Consulte os [blocos de anotações](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) de [instruções](how-to-machine-learning-fairness-aml.md) e de exemplo para habilitar a avaliação de imparcialidade de sistemas de ia durante o treinamento em Azure Machine Learning.
 
 
 ## <a name="what-is-fairness-in-machine-learning-models"></a>O que é a imparcialidade em modelos de aprendizado de máquina?
@@ -40,7 +41,7 @@ Para reduzir o comportamento injusto em sistemas de IA, você precisa avaliar e 
 
 ## <a name="fairness-assessment-and-mitigation-with-fairlearn"></a>Avaliação e mitigação de imparcialidade com Fairlearn
 
-O Fairlearn é um pacote de software livre para Python que permite que os desenvolvedores de sistemas de machine learning avaliem a imparcialidade dos seus sistemas e atenuem os problemas de imparcialidade observados.
+O Fairlearn é um pacote Python de software livre que permite que os desenvolvedores de sistemas de aprendizado de máquina avaliem a imparcialidade dos seus sistemas e atenuem a injustação.
 
 O pacote Fairlearn Open-Source tem dois componentes:
 
@@ -108,6 +109,6 @@ O pacote Fairlearn Open-Source fornece algoritmos de mitigação de desprocessam
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como usar os diferentes componentes, conferindo o [GitHub](https://github.com/fairlearn/fairlearn/), guia do [usuário](https://fairlearn.github.io/user_guide/index.html), [exemplos](https://fairlearn.github.io/auto_examples/)e [notebooks de exemplo](https://github.com/fairlearn/fairlearn/tree/master/notebooks)do Fairlearn.
+- Saiba como usar os diferentes componentes, conferindo o [GitHub](https://github.com/fairlearn/fairlearn/), guia do [usuário](https://fairlearn.github.io/master/user_guide/index.html), [exemplos](https://fairlearn.github.io/master/auto_examples/)e [notebooks de exemplo](https://github.com/fairlearn/fairlearn/tree/master/notebooks)do Fairlearn.
 - Saiba [como habilitar a](how-to-machine-learning-fairness-aml.md) avaliação de imparcialidade de modelos de aprendizado de máquina no Azure Machine Learning.
 - Consulte os [blocos de anotações de exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) para cenários de avaliação de imparcialidade adicionais no Azure Machine Learning. 

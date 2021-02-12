@@ -1,24 +1,23 @@
 ---
 title: Tutorial – Desserializadores .NET personalizados para trabalhos de nuvem do Azure Stream Analytics
 description: Este tutorial demonstra como criar um desserializador .NET personalizado para um trabalho de nuvem do Azure Stream Analytics usando o Visual Studio.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.date: 05/06/2019
-ms.openlocfilehash: 1fffeec1434cb066487bf383589554edec2e6a86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/17/2020
+ms.openlocfilehash: 6db65d85b5d5d72e7b4764949abcffed004cae85
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75443686"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018200"
 ---
 # <a name="tutorial-custom-net-deserializers-for-azure-stream-analytics"></a>Tutorial: Desserializadores .NET personalizados para o Azure Stream Analytics
 
 O Azure Stream Analytics tem [suporte interno para três formatos de dados](stream-analytics-parsing-json.md): JSON, CSV e Avro. Com os desserializadores .NET personalizados, você pode ler dados de outros formatos, como [Buffer de Protocolo](https://developers.google.com/protocol-buffers/), [Bond](https://github.com/Microsoft/bond) e outros formatos definidos pelo usuário para trabalhos na nuvem e na borda.
 
-Este tutorial demonstra como criar um desserializador .NET personalizado para um trabalho de nuvem do Azure Stream Analytics usando o Visual Studio. 
+Este tutorial demonstra como criar um desserializador .NET personalizado para um trabalho de nuvem do Azure Stream Analytics usando o Visual Studio. Para aprender a criar desserializadores do .NET no Visual Studio Code, confira [Criar desserializadores do .NET para trabalhos do Azure Stream Analytics no Visual Studio Code](visual-studio-code-custom-deserializer.md).
 
 Neste tutorial, você aprenderá como:
 
@@ -26,17 +25,16 @@ Neste tutorial, você aprenderá como:
 > * criar um desserializador personalizado para o buffer de protocolo.
 > * criar um trabalho do Azure Stream Analytics no Visual Studio
 > * configurar seu trabalho do Stream Analytics para usar o desserializador personalizado.
-> * executar seu trabalho do Stream Analytics localmente para testar o desserializador personalizado.
+> * Executar seu trabalho do Stream Analytics localmente para testar e depurar o desserializador personalizado.
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Instale o [Visual Studio 2017](https://www.visualstudio.com/downloads/) ou o [Visual Studio 2015](https://www.visualstudio.com/vs/older-downloads/). As edições Enterprise (Ultimate/Premium), Professional, Community têm suporte. Não há suporte para a edição Express.
+* Instale o [Visual Studio 2019 (recomendado)](https://www.visualstudio.com/downloads/) ou o [Visual Studio 2017](https://www.visualstudio.com/vs/older-downloads/). As edições Enterprise (Ultimate/Premium), Professional, Community têm suporte. Não há suporte para a edição Express. 
 
-* [Instale as ferramentas do Stream Analytics para o Visual Studio](stream-analytics-tools-for-visual-studio-install.md) ou atualize para a versão mais recente. Há suporte para as seguintes versões do Visual Studio:
-   * Visual Studio 2015
-   * Visual Studio 2017
+* [Instale as ferramentas do Stream Analytics para o Visual Studio](stream-analytics-tools-for-visual-studio-install.md) ou atualize para a versão mais recente. 
 
 * Abra o **Cloud Explorer** no Visual Studio e entre na sua assinatura do Azure.
 
@@ -45,7 +43,7 @@ O contêiner que você criar será usado para armazenar os ativos relacionados a
 
 ## <a name="create-a-custom-deserializer"></a>Criar um desserializador personalizado
 
-1. Abra o Visual Studio e selecione **Arquivo -> Novo -> Projeto**. Pesquise pelo **Stream Analytics** e selecione **Projeto de Desserializador Personalizado do Azure Stream Analytics (.NET)** . Dê um nome ao projeto, como **Protobuf Deserializer**.
+1. Abra o Visual Studio e selecione **Arquivo -> Novo -> Projeto**. Pesquise pelo **Stream Analytics** e selecione **Projeto de Desserializador Personalizado do Azure Stream Analytics (.NET)**. Dê um nome ao projeto, como **Protobuf Deserializer**.
 
    ![Criar projeto de biblioteca de classes padrão do Visual Studio dotnet](./media/custom-deserializer/create-dotnet-library-project.png)
 
@@ -80,7 +78,7 @@ O contêiner que você criar será usado para armazenar os ativos relacionados a
    |-------|---------------|
    |Fonte|Armazenamento de Blobs|
    |Recurso|Escolha fonte de dados da conta atual|
-   |Subscription|<sua assinatura>|
+   |Assinatura|<sua assinatura>|
    |Conta de Armazenamento|<sua conta de armazenamento>|
    |Contêiner|<seu contêiner de armazenamento>|
    |Formato de serialização do evento|Outro (Protobuf, XML, proprietário…)|
@@ -116,11 +114,13 @@ Você implementou com êxito um desserializador personalizado para seu trabalho 
 
 ## <a name="debug-your-deserializer"></a>Depurar o desserializador
 
-Você pode depurar seu desserializador .NET localmente da mesma maneira que depura o código .NET padrão. 
+Você pode depurar seu desserializador .NET localmente da mesma maneira que depura o código .NET padrão.
 
-1. Adicionar pontos de interrupção à sua função.
+1. Clique com o botão direito do mouse no nome do projeto **ProtobufCloudDeserializer** e defina-o como projeto de inicialização.
 
-2. Pressione **F5** para iniciar a depuração. O programa irá parar em seus pontos de interrupção conforme o esperado.
+2. Adicionar pontos de interrupção à sua função.
+
+3. Pressione **F5** para iniciar a depuração. O programa irá parar em seus pontos de interrupção conforme o esperado.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

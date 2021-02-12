@@ -1,27 +1,27 @@
 ---
-title: Detalhes do evento de entrada para Autenticação Multifator do Azure - Azure Active Directory
-description: Saiba como exibir a atividade de entrada para eventos e mensagens de status da Autenticação Multifator do Azure.
+title: Detalhes do evento de entrada para a autenticação multifator do Azure AD – Azure Active Directory
+description: Saiba como exibir a atividade de entrada para eventos de autenticação multifator do Azure AD e mensagens de status.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 05/15/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 676b8b6fbb56536ec3a49100f5de1419ac417bb6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5f78b70599d6d0ae8825accf4cc55cdc1c01d9ce
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964138"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861231"
 ---
-# <a name="use-the-sign-ins-report-to-review-azure-multi-factor-authentication-events"></a>Use o relatório de entradas para examinar os eventos da Autenticação Multifator do Azure
+# <a name="use-the-sign-ins-report-to-review-azure-ad-multi-factor-authentication-events"></a>Use o relatório de entradas para examinar os eventos da autenticação multifator do Azure AD
 
-Para examinar e entender os eventos da Autenticação Multifator do Azure, você pode usar o relatório de entradas do Azure Active Directory (Azure AD). Este relatório mostra detalhes de autenticação de eventos quando você recebe uma solicitação de Autenticação Multifator e se as políticas de acesso condicional foram usadas. Para obter informações detalhadas sobre o relatório de entradas, confira a [visão geral dos relatórios de atividade de entrada no Azure AD](../reports-monitoring/concept-sign-ins.md).
+Para examinar e entender os eventos da autenticação multifator do Azure AD, você pode usar o relatório de entradas do Azure Active Directory (Azure AD). Este relatório mostra detalhes de autenticação de eventos quando você recebe uma solicitação de Autenticação Multifator e se as políticas de acesso condicional foram usadas. Para obter informações detalhadas sobre o relatório de entradas, confira a [visão geral dos relatórios de atividade de entrada no Azure AD](../reports-monitoring/concept-sign-ins.md).
 
 Este artigo mostra como exibir o relatório de entradas do Azure AD no portal do Azure e no módulo MSOnline V1 PowerShell.
 
@@ -91,7 +91,7 @@ Os detalhes a seguir são mostrados na janela *Detalhes de Autenticação* para 
 
 ## <a name="powershell-reporting-on-users-registered-for-mfa"></a>Relatórios do PowerShell sobre usuários registrados para MFA
 
-Primeiro, verifique se você instalou o [módulo MSOnline V1 PowerShell ](/powershell/azure/active-directory/overview?view=azureadps-1.0).
+Primeiro, verifique se você instalou o [módulo MSOnline V1 PowerShell ](/powershell/azure/active-directory/overview).
 
 Identifique os usuários que se registraram para MFA usando o PowerShell a seguir. Esse conjunto de comandos exclui usuários desabilitados, pois essas contas não podem se autenticar no Azure AD:
 
@@ -121,34 +121,34 @@ A tabela a seguir pode ajudar a solucionar problemas de eventos usando a versão
 
 | Resultado da chamada | Descrição | Descrição geral |
 | --- | --- | --- |
-| SUCCESS_WITH_PIN | PIN inserido | O usuário inseriu um PIN.  Se a autenticação foi bem-sucedida, ele inseriu o PIN correto.  Se a autenticação foi negada, ele inseriu um PIN incorreto ou o usuário está configurado para o modo Padrão. |
+| SUCCESS_WITH_PIN | PIN inserido | O usuário inseriu um PIN.   Se a autenticação foi bem-sucedida, ele inseriu o PIN correto.   Se a autenticação foi negada, ele inseriu um PIN incorreto ou o usuário está configurado para o modo Padrão. |
 | SUCCESS_NO_PIN | Só digitou # | Se o usuário estiver configurado para o modo PIN e a autenticação for negada, isso significa que ele não inseriu o PIN e só digitou #.  Se o usuário estiver configurado para o modo Padrão e a autenticação for bem-sucedida, isso significa que ele só digitou #, que é a ação correta no modo Padrão. |
-| SUCCESS_WITH_PIN_BUT_TIMEOUT | # Não Pressionado Após Entrada | O usuário não enviou os dígitos DTMF porque não inseriu #.  Se # não for inserido para indicar a conclusão da entrada, os outros dígitos inseridos não serão enviados. |
-|SUCCESS_NO_PIN_BUT_TIMEOUT | Nenhuma Entrada de Telefone - Tempo Esgotado | A chamada foi atendida, mas não houve resposta.  Isso geralmente indica que a chamada foi recebida pelo correio de voz. |
+| SUCCESS_WITH_PIN_BUT_TIMEOUT | # Não Pressionado Após Entrada | O usuário não enviou os dígitos DTMF porque não inseriu #.   Se # não for inserido para indicar a conclusão da entrada, os outros dígitos inseridos não serão enviados. |
+|SUCCESS_NO_PIN_BUT_TIMEOUT | Nenhuma Entrada de Telefone - Tempo Esgotado | A chamada foi atendida, mas não houve resposta.   Isso geralmente indica que a chamada foi recebida pelo correio de voz. |
 | SUCCESS_PIN_EXPIRED | PIN Expirado e Não Alterado | O PIN do usuário expirou e o usuário foi solicitado a alterar o PIN, mas não concluiu a alteração com êxito. |
 | SUCCESS_USED_CACHE | Cache Usado | A autenticação foi bem-sucedida sem uma chamada de Autenticação Multifator, pois uma autenticação bem-sucedida anterior para o mesmo nome de usuário ocorreu dentro do período de cache configurado. |
-| SUCCESS_BYPASSED_AUTH | Autenticação Ignorada | A autenticação foi feita usando um Bypass Descartável iniciado para o usuário.  Consulte o Relatório Histórico de Usuários Ignorados para obter mais detalhes. |
+| SUCCESS_BYPASSED_AUTH | Autenticação Ignorada | A autenticação foi feita usando um Bypass Descartável iniciado para o usuário.  Consulte o Relatório Histórico de Usuários Ignorados para obter mais detalhes. |
 | SUCCESS_USED_IP_BASED_CACHE | Cache baseado em IP usado | A autenticação foi bem-sucedida sem uma chamada de Autenticação Multifator, pois uma autenticação bem-sucedida anterior para o mesmo nome de usuário, tipo de autenticação, nome de aplicativo e IP ocorreu dentro do período de cache configurado. |
 | SUCCESS_USED_APP_BASED_CACHE | Cache baseado em aplicativo usado | A autenticação foi bem-sucedida sem uma chamada de Autenticação Multifator, pois uma autenticação bem-sucedida anterior para o mesmo nome de usuário, tipo de autenticação e nome de aplicativo ocorreu dentro do período de cache configurado. |
-| SUCCESS_INVALID_INPUT | Entrada de Telefone Inválida | A resposta enviada pelo telefone não é válida.  Ela pode ter vindo de um fax ou modem, ou o usuário pode ter inserido * como parte de seu PIN. |
-| SUCCESS_USER_BLOCKED | Usuário está bloqueado | O número de telefone do usuário está bloqueado.  Um número bloqueado pode ser iniciado pelo usuário durante uma chamada de autenticação ou por um administrador usando o portal do Azure. <br> OBSERVAÇÃO:   Um número bloqueado é um subproduto de um Alerta de Fraude. |
+| SUCCESS_INVALID_INPUT | Entrada de Telefone Inválida | A resposta enviada pelo telefone não é válida.   Ela pode ter vindo de um fax ou modem, ou o usuário pode ter inserido * como parte de seu PIN. |
+| SUCCESS_USER_BLOCKED | Usuário está bloqueado | O número de telefone do usuário está bloqueado.   Um número bloqueado pode ser iniciado pelo usuário durante uma chamada de autenticação ou por um administrador usando o portal do Azure. <br> OBSERVAÇÃO:   Um número bloqueado é um subproduto de um Alerta de Fraude. |
 | SUCCESS_SMS_AUTHENTICATED | Mensagem de texto autenticada | Para uma mensagem de texto bidirecional, o usuário respondeu corretamente com sua senha de uso único (OTP) ou OTP + PIN. |
-| SUCCESS_SMS_SENT | Mensagem de texto enviada | Para uma mensagem de texto, a mensagem de texto contendo a senha de uso único (OTP) foi enviada com êxito.  O usuário insere OTP ou OTP + PIN no aplicativo para concluir a autenticação. |
+| SUCCESS_SMS_SENT | Mensagem de texto enviada | Para uma mensagem de texto, a mensagem de texto contendo a senha de uso único (OTP) foi enviada com êxito.   O usuário insere OTP ou OTP + PIN no aplicativo para concluir a autenticação. |
 | SUCCESS_PHONE_APP_AUTHENTICATED | Aplicativos móveis autenticados | O usuário foi autenticado com êxito por meio do aplicativo móvel. |
 | SUCCESS_OATH_CODE_PENDING | Código OATH Pendente | O usuário foi solicitado a fornecer seu código OATH, mas não respondeu. |
 | SUCCESS_OATH_CODE_VERIFIED | Código OATH Verificado | O usuário digitou um código OATH válido quando solicitado. |
 | SUCCESS_FALLBACK_OATH_CODE_VERIFIED | Código OATH de Fallback Verificado | O usuário teve a autenticação negada usando o método de Autenticação Multifator primário e forneceu um código OATH válido para fallback. |
 | SUCCESS_FALLBACK_SECURITY_QUESTIONS_ANSWERED | Perguntas de Segurança de Fallback Respondidas | O usuário teve a autenticação negada usando o método de Autenticação Multifator primário e respondeu as perguntas de segurança corretamente para fallback. |
-| FAILED_PHONE_BUSY | Autenticação em Andamento | A Autenticação Multifator já está processando uma autenticação para esse usuário.  Isso normalmente é causado por clientes de RADIUS que enviam várias solicitações de autenticação durante o mesmo acesso. |
-| CONFIG_ISSUE | Telefone Inacessível | O usuário tentou efetuar a chamada, mas não pôde completá-la ou ela não foi respondida.  Isso inclui sinal de ocupado, sinal de ocupado rápido (desconectado), três tons (número fora de serviço), tempo limite atingido ao tocar, etc. |
-| FAILED_INVALID_PHONENUMBER | Formato de Número de Telefone Inválido | O número de telefone tem um formato inválido.  Os números de telefone devem ser numéricos e ter 10 dígitos para o código do país + 1 (Estados Unidos e Canadá). |
+| FAILED_PHONE_BUSY | Autenticação em Andamento | A Autenticação Multifator já está processando uma autenticação para esse usuário.   Isso normalmente é causado por clientes de RADIUS que enviam várias solicitações de autenticação durante o mesmo acesso. |
+| CONFIG_ISSUE | Telefone Inacessível | O usuário tentou efetuar a chamada, mas não pôde completá-la ou ela não foi respondida.   Isso inclui sinal de ocupado, sinal de ocupado rápido (desconectado), três tons (número fora de serviço), tempo limite atingido ao tocar, etc. |
+| FAILED_INVALID_PHONENUMBER | Formato de Número de Telefone Inválido | O número de telefone tem um formato inválido.   Os números de telefone devem ser numéricos e ter 10 dígitos para o código do país + 1 (Estados Unidos e Canadá). |
 | FAILED_USER_HUNGUP_ON_US | Usuário Desligou o Telefone | O usuário atendeu ao telefone, mas desligou sem pressionar quaisquer botões. |
-| FAILED_INVALID_EXTENSION | Ramal Inválido | O ramal contém caracteres inválidos.  Apenas dígitos, vírgulas, * e # são permitidos.  O prefixo @ também pode ser usado. |
+| FAILED_INVALID_EXTENSION | Ramal Inválido | O ramal contém caracteres inválidos.   Apenas dígitos, vírgulas, * e # são permitidos.   O prefixo @ também pode ser usado. |
 | FAILED_FRAUD_CODE_ENTERED | Código de Fraude Inserido | O usuário escolheu relatar uma fraude durante a chamada, fazendo com que a autenticação fosse negada e o número de telefone, bloqueado.| 
 | FAILED_SERVER_ERROR | Não é Possível Fazer Chamada | O serviço de Autenticação Multifator não pôde fazer a chamada. |
-| FAILED_SMS_NOT_SENT | Não foi possível enviar uma mensagem de texto | Não foi possível enviar a mensagem de texto.  A autenticação foi negada. |
-| FAILED_SMS_OTP_INCORRECT | OTP da mensagem de texto incorreta | O usuário inseriu uma senha de uso único (OTP) incorreta na mensagem de texto recebida.  A autenticação foi negada. |
-| FAILED_SMS_OTP_PIN_INCORRECT | OTP + PIN da mensagem de texto incorretos | O usuário inseriu uma senha de uso único (OTP) incorreta e/ou um PIN de usuário incorreto.  A autenticação foi negada. |
+| FAILED_SMS_NOT_SENT | Não foi possível enviar uma mensagem de texto | Não foi possível enviar a mensagem de texto.   A autenticação foi negada. |
+| FAILED_SMS_OTP_INCORRECT | OTP da mensagem de texto incorreta | O usuário inseriu uma senha de uso único (OTP) incorreta na mensagem de texto recebida.   A autenticação foi negada. |
+| FAILED_SMS_OTP_PIN_INCORRECT | OTP + PIN da mensagem de texto incorretos | O usuário inseriu uma senha de uso único (OTP) incorreta e/ou um PIN de usuário incorreto.   A autenticação foi negada. |
 | FAILED_SMS_MAX_OTP_RETRY_REACHED | Excedidas as Tentativas Máximas de OTP de Mensagem de Texto | O usuário excedeu o número máximo de tentativas de senha de uso único (OTP). |
 | FAILED_PHONE_APP_DENIED | Aplicativos móveis negados | O usuário negou a autenticação no aplicativo móvel ao pressionar o botão Negar. |
 | FAILED_PHONE_APP_INVALID_PIN | PIN do Aplicativo Móvel Inválido | O usuário inseriu um PIN inválido durante a autenticação no aplicativo móvel. |

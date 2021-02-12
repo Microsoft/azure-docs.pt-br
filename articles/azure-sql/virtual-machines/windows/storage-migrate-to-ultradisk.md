@@ -8,18 +8,19 @@ editor: ''
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 4ddafd9fbeda1752a782085244597aea3ccbdd2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42d7760d25f6ab591c19889eb2159711d6de1b07
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91271895"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356745"
 ---
 # <a name="migrate-log-disk-to-ultra-disk"></a>Migrar disco de log para ultra Disk
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -50,9 +51,9 @@ Para habilitar a compatibilidade, siga estas etapas:
 
 1. Selecione **Sim** para **habilitar a compatibilidade de ultra Disk**. 
 
-   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="Selecione configurações adicionais para discos em configurações na portal do Azure":::
+   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="Captura de tela que mostra a opção Sim.":::
 
-1. Selecione **Salvar**. 
+1. Clique em **Salvar**. 
 
 
 

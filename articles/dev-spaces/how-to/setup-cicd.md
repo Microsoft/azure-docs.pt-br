@@ -9,11 +9,11 @@ manager: gwallace
 description: Saiba como configurar a integração contínua/implantação contínua usando o Azure DevOps com o Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Contêiner do Azure, contêineres
 ms.openlocfilehash: de409aa060034c9ba0faaaa56ce21f904b02cdac
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960381"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017773"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Usar CI/CD com o Azure Dev Spaces
 
@@ -78,7 +78,7 @@ Para criar um pipeline desse arquivo:
 1. Na página principal do projeto DevOps, navegue até pipelines > Builds.
 1. Selecione a opção para criar um **novo** pipeline de compilação.
 1. Selecione **GitHub** como a origem, autorize com sua conta do GitHub, se necessário, e selecione a ramificação _azds_updates_ da sua versão bifurcada do repositório de aplicativos de exemplo _dev-Spaces_ .
-1. Selecione **configuração como código**ou **YAML**, como seu modelo.
+1. Selecione **configuração como código** ou **YAML**, como seu modelo.
 1. Você agora verá uma página de configuração para o pipeline de build. Conforme mencionado acima, navegue até o caminho específico do idioma para o **caminho do arquivo YAML** usando o botão **...** . Por exemplo, `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
 1. Vá para a guia **variáveis** .
 1. Adicione manualmente _dockerId_ como uma variável, que é o nome de usuário de sua [conta de administrador do Registro de Contêiner do Azure](../../container-registry/container-registry-authentication.md#admin-account). (Mencionado nos pré-requisitos do artigo)

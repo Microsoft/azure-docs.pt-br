@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 9/22/2020
 ms.author: JenCook
-ms.openlocfilehash: 70a17aacde67744eae74ca263200f2c65fbd300a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86856d1f66b5b7d723c907c17d7179ffcd2b82ab
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90994359"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565663"
 ---
 # <a name="attesting-sgx-enclaves"></a>Atestado de enclaves SGX
 
@@ -30,11 +30,11 @@ O atestado permite que uma terceira parte confiável tenha maior confiança de q
 
 O atestado deve ser implementado usando um serviço de atestado seguro que seja compatível com o software do sistema e com o chip. Alguns exemplos de serviços que você pode usar são
 
-- [Atestado de Microsoft Azure (versão prévia)](https://docs.microsoft.com/azure/attestation/overview) ou
+- [Atestado de Microsoft Azure (versão prévia)](../attestation/overview.md) ou
 - [Serviços de atestado e provisionamento da Intel](https://software.intel.com/sgx/attestation-services)
 
 
 que são compatíveis com a infraestrutura de computação confidencial do Azure Intel SGX. 
 
 ## <a name="next-steps"></a>Próximas etapas
-Experimente os [exemplos de atestado de Microsoft Azure para aplicativos com reconhecimento de enclave](https://docs.microsoft.com/samples/azure-samples/microsoft-azure-attestation/sample-code-for-intel-sgx-attestation-using-microsoft-azure-attestation/).
+Experimente os [exemplos de atestado de Microsoft Azure para aplicativos com reconhecimento de enclave](/samples/azure-samples/microsoft-azure-attestation/sample-code-for-intel-sgx-attestation-using-microsoft-azure-attestation/).

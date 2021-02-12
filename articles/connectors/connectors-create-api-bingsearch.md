@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: 52bf42434640dc965999895549b4fa12a139dcce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87284057"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999596"
 ---
 # <a name="find-results-in-bing-search-by-using-azure-logic-apps"></a>Localizar resultados em Pesquisa do Bing usando os aplicativos lógicos do Azure
 
@@ -52,11 +52,11 @@ Ou, se a conexão já existir, forneça as informações necessárias para o gat
 
    | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | Consulta de Pesquisa | Sim | <*Pesquisar-palavras*> | Insira os termos de pesquisa que você quer utilizar. |
-   | Market | Sim | <*locale*> | A localidade de pesquisa. O padrão é "en-US", mas é possível selecionar outro valor. |
-   | Salvar pesquisa | Sim | <*nível de pesquisa*> | O nível do filtro para excluir conteúdo adulto. O padrão é "Moderado", mas você seleciona outro nível. |
+   | Consulta de Pesquisa | Yes | <*Pesquisar-palavras*> | Insira os termos de pesquisa que você quer utilizar. |
+   | Market | Yes | <*locale*> | A localidade de pesquisa. O padrão é "en-US", mas é possível selecionar outro valor. |
+   | Salvar pesquisa | Yes | <*nível de pesquisa*> | O nível do filtro para excluir conteúdo adulto. O padrão é "Moderado", mas você seleciona outro nível. |
    | Contagem | Não | <*resultados-contagem*> | Retornar o número de resultados especificado. O padrão é 20, mas é possível especificar outro valor. O número atual de resultados retornados pode ser menor que o número especificado. |
-   | Deslocamento | Não | <*ignorar valor*> | O número de resultados para ignorar antes de retornar os resultados |
+   | Deslocamento | No | <*ignorar valor*> | O número de resultados para ignorar antes de retornar os resultados |
    |||||
 
    Por exemplo:
@@ -103,11 +103,11 @@ Na lista de ações, selecione a ação desejada.
 
    | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | Consulta de Pesquisa | Sim | <*expressão de pesquisa*> | Insira uma expressão para consultar os resultados do gatilho. É possível selecionar os campos ou a lista de conteúdo dinâmico ou criar uma expressão com o construtor de expressões. |
-   | Market | Sim | <*locale*> | A localidade de pesquisa. O padrão é "en-US", mas é possível selecionar outro valor. |
-   | Salvar pesquisa | Sim | <*nível de pesquisa*> | O nível do filtro para excluir conteúdo adulto. O padrão é "Moderado", mas você seleciona outro nível. |
+   | Consulta de Pesquisa | Yes | <*expressão de pesquisa*> | Insira uma expressão para consultar os resultados do gatilho. É possível selecionar os campos ou a lista de conteúdo dinâmico ou criar uma expressão com o construtor de expressões. |
+   | Market | Yes | <*locale*> | A localidade de pesquisa. O padrão é "en-US", mas é possível selecionar outro valor. |
+   | Salvar pesquisa | Yes | <*nível de pesquisa*> | O nível do filtro para excluir conteúdo adulto. O padrão é "Moderado", mas você seleciona outro nível. |
    | Contagem | Não | <*resultados-contagem*> | Retornar o número de resultados especificado. O padrão é 20, mas é possível especificar outro valor. O número atual de resultados retornados pode ser menor que o número especificado. |
-   | Deslocamento | Não | <*ignorar valor*> | O número de resultados para ignorar antes de retornar os resultados |
+   | Deslocamento | No | <*ignorar valor*> | O número de resultados para ignorar antes de retornar os resultados |
    |||||
 
    Por exemplo, suponha que você queira aqueles resultados cuja categoria inclua a palavra "tech".
@@ -150,9 +150,9 @@ Na lista de ações, selecione a ação desejada.
 
    | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | Nome da Conexão | Sim | <*nome da conexão*> | O nome a criar para a conexão |
-   | Versão da API | Sim | <*Versão da API*> | Por padrão, a versão da API de Pesquisa do Bing é definida para a versão atual. É possível selecionar uma versão anterior, conforme necessário. |
-   | Chave de API | Sim | <*Chave de API*> | A chave da API de Pesquisa do Bing obtida anteriormente. Se você não tiver uma chave, obtenha a [Chave de API agora](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
+   | Nome da Conexão | Yes | <*nome da conexão*> | O nome a criar para a conexão |
+   | Versão da API | Yes | <*Versão da API*> | Por padrão, a versão da API de Pesquisa do Bing é definida para a versão atual. É possível selecionar uma versão anterior, conforme necessário. |
+   | Chave de API | Yes | <*Chave de API*> | A chave da API de Pesquisa do Bing obtida anteriormente. Se você não tiver uma chave, obtenha a [Chave de API agora](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
    |||||  
 
    Por exemplo:

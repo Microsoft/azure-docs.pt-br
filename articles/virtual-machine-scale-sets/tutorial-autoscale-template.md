@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: f94a68833347d662f427fa0944dd83d33458bd14
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 88cec878ca5d3ccab3a232888ff3a3c0b0faa1db
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746004"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705244"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Tutorial: dimensione automaticamente um conjunto de dimensionamento de máquinas virtuais com um modelo do Azure
 Ao criar um conjunto de dimensionamento, o número de instâncias de VM que você deseja executar é definido. À medida que seu aplicativo precisar de alterações, você poderá aumentar ou diminuir automaticamente o número de instâncias de VM. A capacidade de autoescala permite acompanhar a demanda do cliente ou reagir a alterações de desempenho do aplicativo durante todo o ciclo de vida do aplicativo. Neste tutorial, você aprenderá a:
@@ -25,15 +25,15 @@ Ao criar um conjunto de dimensionamento, o número de instâncias de VM que voc�
 > * Testar instâncias de VM sob estresse e disparar regras de dimensionamento automático
 > * Redimensionar automaticamente conforme a demanda é reduzida
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.29 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
+- Este artigo exige a versão 2.0.29 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada. 
 
 
 ## <a name="define-an-autoscale-profile"></a>Definir um perfil de autoescala
-Defina um perfil de dimensionamento automático em um modelo do Azure com o provedor de recursos *Microsoft.insights/autoscalesettings* . Um *perfil* detalha a capacidade da conjunto de dimensionamento e quaisquer regras associadas. O exemplo a seguir define um perfil chamado *Dimensionamento automático por porcentagem com base no uso da CPU* e define a capacidade padrão e mínima de *2* instâncias de VM e um máximo de *10* :
+Defina um perfil de dimensionamento automático em um modelo do Azure com o provedor de recursos *Microsoft.insights/autoscalesettings*. Um *perfil* detalha a capacidade da conjunto de dimensionamento e quaisquer regras associadas. O exemplo a seguir define um perfil chamado *Dimensionamento automático por porcentagem com base no uso da CPU* e define a capacidade padrão e mínima de *2* instâncias de VM e um máximo de *10*:
 
 ```json
 {
@@ -137,16 +137,16 @@ O exemplo a seguir define uma regra para reduzir horizontalmente o número de in
 ## <a name="create-an-autoscaling-scale-set"></a>Criar um conjunto de dimensionamento de dimensionamento automático
 Vamos usar um modelo de exemplo para criar um conjunto de dimensionamento e aplicar regras de dimensionamento automático. Você pode [revisar o modelo completo](https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/autoscale.json) ou [consultar a seção *Microsoft.insights/autoscalesettings* do provedor de recursos](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/scale_sets/autoscale.json#L220) do modelo.
 
-Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus* :
+Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Agora crie um conjunto de dimensionamento de máquinas virtuais usando [az group deployment create](/cli/azure/group/deployment). Quando solicitado, forneça seu próprio nome de usuário e senha, como *azureuser* , que são usados como as credenciais para cada instância de VM:
+Agora, crie um conjunto de dimensionamento de máquinas virtuais usando [az deployment group create](/cli/azure/deployment/group). Quando solicitado, forneça seu próprio nome de usuário e senha, como *azureuser*, que são usados como as credenciais para cada instância de VM:
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/autoscale.json
 ```
@@ -180,7 +180,7 @@ SSH para a primeira instância de VM. Especifique seu próprio endereço IP púb
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
-Depois de conectado, instale o utilitário **stress** . Inicie *10* **trabalhos** de stress que geram carga de CPU. Esses trabalhos são executados por *420* segundos, o que é suficiente para fazer com que as regras de dimensionamento automático implementem a ação desejada.
+Depois de conectado, instale o utilitário **stress**. Inicie *10* **trabalhos** de stress que geram carga de CPU. Esses trabalhos são executados por *420* segundos, o que é suficiente para fazer com que as regras de dimensionamento automático implementem a ação desejada.
 
 ```console
 sudo apt-get update
@@ -188,9 +188,9 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-Quando **stress** exibe uma saída semelhante a *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* , pressione a tecla *Enter* para retornar ao prompt.
+Quando **stress** exibe uma saída semelhante a *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, pressione a tecla *Enter* para retornar ao prompt.
 
-Para confirmar que o **stress** gera carga de CPU, examine a carga do sistema ativo com o utilitário **top** :
+Para confirmar que o **stress** gera carga de CPU, examine a carga do sistema ativo com o utilitário **top**:
 
 ```console
 top
@@ -216,7 +216,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-Novamente, quando **stress** exibe uma saída semelhante a *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* , pressione a tecla *Enter* para retornar ao prompt.
+Novamente, quando **stress** exibe uma saída semelhante a *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, pressione a tecla *Enter* para retornar ao prompt.
 
 Feche a conexão com a segunda instância de VM. **stress** continuará a ser executado na instância de VM.
 
@@ -225,7 +225,7 @@ exit
 ```
 
 ## <a name="monitor-the-active-autoscale-rules"></a>Monitorar as regras de dimensionamento automático ativas
-Para monitorar o número de instâncias de VM em seu conjunto de dimensionamento, use **watch** . Demoram 5 minutos para as regras de dimensionamento automático começarem o processo de escala horizontal em resposta à carga da CPU gerada pelo **stress** em cada uma das instâncias de VM:
+Para monitorar o número de instâncias de VM em seu conjunto de dimensionamento, use **watch**. Demoram 5 minutos para as regras de dimensionamento automático começarem o processo de escala horizontal em resposta à carga da CPU gerada pelo **stress** em cada uma das instâncias de VM:
 
 ```azurecli-interactive
 watch az vmss list-instances \

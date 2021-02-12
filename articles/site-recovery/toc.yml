@@ -48,6 +48,22 @@
           href: tutorial-dr-drill-azure.md
         - name: Fazer failover para o Azure
           href: vmware-azure-tutorial-failover-failback.md
+    - name: Recuperação de desastre da Solução VMware no Azure para o Azure
+      items:
+        - name: Preparar o Azure
+          href: avs-tutorial-prepare-azure.md
+        - name: Preparar a Solução VMware no Azure
+          href: avs-tutorial-prepare-avs.md
+        - name: Configurar a replicação
+          href: avs-tutorial-replication.md
+        - name: Realizar uma simulação de recuperação de desastre
+          href: avs-tutorial-dr-drill-azure.md
+        - name: Fazer failover para o Azure
+          href: avs-tutorial-failover.md
+        - name: Proteger novamente as VMs
+          href: avs-tutorial-reprotect.md
+        - name: Failback do Azure
+          href: avs-tutorial-failback.md
     - name: Recuperação de desastre da VM do Hyper-V para o Azure
       items:
         - name: Preparar o Azure
@@ -462,6 +478,8 @@
       href: hyper-v-vmm-powershell-resource-manager.md
     - name: Adicionar runbooks de automação aos planos de recuperação
       href: site-recovery-runbook-automation.md
+    - name: Modelos do ARM
+      href: asr-arm-templates.md
 - name: Monitoramento
   items:
     - name: Perguntas comuns sobre monitoramento

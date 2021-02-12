@@ -4,12 +4,12 @@ description: Saiba como lidar com erros na extensão de Funções Duráveis do A
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 6650322834d491d78470e2d8dbd24e2c6750ae39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 023f9dfcc421935c3f7515e847108925d5e5521e
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081688"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673640"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Lidando com erros nas Funções Duráveis (Azure Functions)
 
@@ -196,7 +196,11 @@ A chamada de função de atividade no exemplo anterior usa um parâmetro para co
 * **Coeficiente de retirada**: o coeficiente usado para determinar a taxa de aumento de retirada. O valor padrão é 1.
 * **Intervalo máx. de repetição**: o tempo máximo de espera entre tentativas de repetição.
 * **Tempo limite de repetição**: o tempo máximo a ser dedicado às novas tentativas. O comportamento padrão é repetir indefinidamente.
-* **Identificador**: um retorno de chamada definido pelo usuário pode ser especificado para determinar se uma função deve ser repetida.
+* **Identificador**: um retorno de chamada definido pelo usuário pode ser especificado para determinar se uma função deve ser repetida. 
+
+> [!NOTE]
+> Atualmente, os retornos de chamada definidos pelo usuário não têm suporte pelo Durable Functions em JavaScript ( `context.df.RetryOptions` ).
+
 
 ## <a name="function-timeouts"></a>Tempos limite de função
 

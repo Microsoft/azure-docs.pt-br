@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: b500a3777ee24d6615022dae2571d021bd0d675a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 68c0c04feba2779598a500c84b2ba4a9086b104d
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201164"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593935"
 ---
 # <a name="limitations"></a>Limitações
 
@@ -18,17 +18,18 @@ Vários recursos têm limitações de tamanho, contagem ou outras limitações.
 
 ## <a name="azure-frontend"></a>Azure Frontend
 
-* Total de instâncias de AzureFrontend por processo: 16.
-* Total de instâncias de AzureSession por AzureFrontend: 16.
+As seguintes limitações se aplicam à API de front-end (C++ e C#):
+* Total de instâncias [RemoteRenderingClient](/dotnet/api/microsoft.azure.remoterendering.remoterenderingclient) por processo: 16.
+* Total de instâncias de [RenderingSession](/dotnet/api/microsoft.azure.remoterendering.renderingsession) por [RemoteRenderingClient](/dotnet/api/microsoft.azure.remoterendering.remoterenderingclient): 16.
 
 ## <a name="objects"></a>Objetos
 
-* Total de objetos permitidos de um único tipo (Entity, CutPlaneComponent, etc.): 16.777.215.
+* Total de objetos permitidos de um único tipo ([entidade](../concepts/entities.md), [CutPlaneComponent](../overview/features/cut-planes.md), etc.): 16.777.215.
 * Total de planos de corte ativos permitidos: 8.
 
 ## <a name="geometry"></a>Geometria
 
-* **Animação:** As animações são limitadas à animação de transformações individuais de objetos de jogos. Não há suporte para animações de esqueleto com animações de aparência ou de vértice. As faixas de animação do arquivo de ativo de origem não são preservadas. Em vez disso, as animações de transformação de objeto precisam ser orientadas pelo código do cliente.
+* **Animação:** As animações são limitadas à animação de transformações individuais de [objetos de jogos](../concepts/entities.md). Não há suporte para animações de esqueleto com animações de aparência ou de vértice. As faixas de animação do arquivo de ativo de origem não são preservadas. Em vez disso, as animações de transformação de objeto precisam ser orientadas pelo código do cliente.
 * **Sombreadores personalizados:** Não há suporte para a criação de sombreadores personalizados. Somente [materiais de cores](../overview/features/color-materials.md) internos ou [materiais PBR](../overview/features/pbr-materials.md) podem ser usados.
 * **Número máximo de materiais distintos** em um ativo: 65.535. Para obter mais informações sobre a redução automática de contagem de material, consulte o capítulo eliminação [de duplicação de material](../how-tos/conversion/configure-model-conversion.md#material-de-duplication) .
 * **Dimensão máxima de uma única textura**: 16.384 x 16.384. Texturas de origem maiores serão reduzidas em tamanho pelo processo de conversão.

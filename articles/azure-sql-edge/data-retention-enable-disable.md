@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: ee2d65d66caef5cd9405d6e3d0e094de2e30ae87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b8dd911952a63ba8775f27a6128ff61e849e823
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90902493"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861418"
 ---
 # <a name="enable-and-disable-data-retention-policies"></a>Habilitar e desabilitar políticas de retenção de dados
 
@@ -22,7 +22,7 @@ Este tópico descreve como habilitar e desabilitar políticas de retenção de d
 
 ## <a name="enable-data-retention-for-a-database"></a>Habilitar a retenção de dados para um banco de dado
 
-O exemplo a seguir mostra como habilitar a retenção de dados usando [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options).
+O exemplo a seguir mostra como habilitar a retenção de dados usando [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options).
 
 ```sql
 ALTER DATABASE [<DatabaseName>] SET DATA_RETENTION  ON;
@@ -38,9 +38,9 @@ FROM sys.databases;
 
 ## <a name="enable-data-retention-for-a-table"></a>Habilitar a retenção de dados para uma tabela
 
-A retenção de dados deve ser habilitada para cada tabela para a qual você deseja que os dados sejam limpos automaticamente. Quando a retenção de dados estiver habilitada no banco de dado e na tabela, uma tarefa de sistema em segundo plano verificará periodicamente a tabela para identificar e excluir quaisquer linhas obsoletas (antigas). A retenção de dados pode ser habilitada em uma tabela durante a criação da tabela usando [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) ou usando [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
+A retenção de dados deve ser habilitada para cada tabela para a qual você deseja que os dados sejam limpos automaticamente. Quando a retenção de dados estiver habilitada no banco de dado e na tabela, uma tarefa de sistema em segundo plano verificará periodicamente a tabela para identificar e excluir quaisquer linhas obsoletas (antigas). A retenção de dados pode ser habilitada em uma tabela durante a criação da tabela usando [CREATE TABLE](/sql/t-sql/statements/create-table-transact-sql) ou usando [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql).
 
-O exemplo a seguir mostra como habilitar a retenção de dados para uma tabela usando [criar tabela](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql). 
+O exemplo a seguir mostra como habilitar a retenção de dados para uma tabela usando [criar tabela](/sql/t-sql/statements/create-table-transact-sql). 
 
 ```sql
 CREATE TABLE [dbo].[data_retention_table] 
@@ -63,7 +63,7 @@ A `WITH (DATA_DELETION = ON ( FILTER_COLUMN = [dbdatetime2], RETENTION_PERIOD = 
     - DateTimeOffset
 - RETENTION_PERIOD-um valor inteiro seguido por um descritor de unidade. As unidades permitidas são dia, dias, semana, semanas, mês, meses, ano e anos.
 
-O exemplo a seguir mostra como habilitar a retenção de dados para a tabela usando [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).  
+O exemplo a seguir mostra como habilitar a retenção de dados para a tabela usando [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql).  
 
 ```sql
 Alter Table [dbo].[data_retention_table]
@@ -88,7 +88,7 @@ where is_data_deletion_filter_column =1
 and object_id = object_id(N'dbo.data_retention_table', N'U')
 ```
 
-## <a name="corelating-db-and-table-data-retention-settings"></a>Configurações de retenção de banco de dados e tabela corelacionada
+## <a name="correlating-db-and-table-data-retention-settings"></a>Correlacionando configurações de retenção de banco de dados e tabela
 
 A configuração de retenção de dados no banco de dado e na tabela são usadas em conjunto para determinar se a limpeza automática para linhas antigas será executada nas tabelas ou não. 
 
@@ -101,7 +101,7 @@ A configuração de retenção de dados no banco de dado e na tabela são usadas
 
 ## <a name="disable-data-retention-on-a-table"></a>Desabilitar a retenção de dados em uma tabela 
 
-A retenção de dados pode ser desabilitada em uma tabela usando [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql). O comando a seguir pode ser usado para desabilitar a retenção de dados em uma tabela.
+A retenção de dados pode ser desabilitada em uma tabela usando [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql). O comando a seguir pode ser usado para desabilitar a retenção de dados em uma tabela.
 
 ```sql
 Alter Table [dbo].[data_retention_table]
@@ -110,7 +110,7 @@ Set (DATA_DELETION = OFF)
 
 ## <a name="disable-data-retention-on-a-database"></a>Desabilitar a retenção de dados em um banco de dado
 
-A retenção de dados pode ser desabilitada em uma tabela usando [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options). O comando a seguir pode ser usado para desabilitar a retenção de dados em um banco de dado.
+A retenção de dados pode ser desabilitada em uma tabela usando [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options). O comando a seguir pode ser usado para desabilitar a retenção de dados em um banco de dado.
 
 ```sql
 ALTER DATABASE <DatabaseName> SET DATA_RETENTION  OFF;

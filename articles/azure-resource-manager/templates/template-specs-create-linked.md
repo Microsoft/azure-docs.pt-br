@@ -2,24 +2,24 @@
 title: Criar uma especificação de modelo com modelos vinculados
 description: Saiba como criar uma especificação de modelo com modelos vinculados.
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: adcce8194f380b90eb9a29f4da25763e112b9f12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/05/2021
+ms.openlocfilehash: e5725ece165f5716480afbcb4ef9098274c09993
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728532"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900630"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Tutorial: criar uma especificação de modelo com modelos vinculados (visualização)
 
-Saiba como criar uma [especificação de modelo](template-specs.md) com um [modelo vinculado](linked-templates.md#linked-template). Use as especificações do modelo para compartilhar modelos do ARM com outros usuários em sua organização. Este artigo mostra como criar uma especificação de modelo para empacotar um modelo principal e seus modelos vinculados usando a `relativePath` Propriedade do [recurso de implantação](/azure/templates/microsoft.resources/deployments).
+Saiba como criar uma [especificação de modelo](template-specs.md) com um modelo principal e um [modelo vinculado](linked-templates.md#linked-template). Use as especificações do modelo para compartilhar modelos do ARM com outros usuários em sua organização. Este artigo mostra como criar uma especificação de modelo para empacotar um modelo principal e seus modelos vinculados usando a `relativePath` Propriedade do [recurso de implantação](/azure/templates/microsoft.resources/deployments).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> As especificações de modelo estão atualmente em versão prévia. Para usá-lo, você deve [inscrever-se na versão prévia](https://aka.ms/templateSpecOnboarding).
+> As especificações de modelo estão atualmente em versão prévia. Para usá-lo com o Azure PowerShell, você precisa instalar a [versão 5.0.0 ou posterior](/powershell/azure/install-az-ps). Para usá-lo com a CLI do Azure, use a [versão 2.14.2 ou posterior](/cli/azure/install-azure-cli).
 
 ## <a name="create-linked-templates"></a>Criar modelos vinculados
 
@@ -27,7 +27,7 @@ Crie o modelo principal e o modelo vinculado.
 
 Para vincular um modelo, adicione um [recurso de implantações](/azure/templates/microsoft.resources/deployments) ao seu modelo principal. Na `templateLink` propriedade, especifique o caminho relativo do modelo vinculado de acordo com o caminho do modelo pai.
 
-O modelo vinculado é chamado ** delinkedTemplate.jsem**e é armazenado em uma subpasta chamada **artefatos** no caminho em que o modelo principal está armazenado.  Você pode usar um dos seguintes valores para o relativePath:
+O modelo vinculado é chamado **delinkedTemplate.jsem** e é armazenado em uma subpasta chamada **artefatos** no caminho em que o modelo principal está armazenado.  Você pode usar um dos seguintes valores para o relativePath:
 
 - `./artifacts/linkedTemplate.json`
 - `/artifacts/linkedTemplate.json`
@@ -191,7 +191,7 @@ az ts create \
   --version "1.0.0.0" \
   --resource-group templateSpecRG \
   --location "westus2" \
-  --template-file "c:\Templates\linkedTS\azuredeploy.json"
+  --template-file "<path-to-main-template>"
 ```
 
 ---
@@ -237,7 +237,7 @@ az group create \
   --name webRG \
   --location westus2
 
-id = $(az template-specs show --name webSpec --resource-group templateSpecRG --version "1.0.0.0" --query "id")
+id = $(az ts show --name webSpec --resource-group templateSpecRG --version "1.0.0.0" --query "id")
 
 az deployment group create \
   --resource-group webRG \

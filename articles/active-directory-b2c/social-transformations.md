@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: eaa2984c0d7a5d3763f554e39f687fdbd2865e96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c60cecb9d6bfeeefc0569a1a57185d13f0c6442f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85203377"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953110"
 ---
 # <a name="social-accounts-claims-transformations"></a>Transformações de declarações de contas sociais
 
@@ -39,7 +39,7 @@ Este artigo fornece exemplos para usar as transformações de declarações da c
 
 ## <a name="createalternativesecurityid"></a>CreateAlternativeSecurityId
 
-Cria uma declaração JSON da propriedade alternativeSecurityId do usuário que pode ser usada em chamadas para o Azure Active Directory. Para obter mais informações, consulte o esquema [AlternativeSecurityId](https://docs.microsoft.com/graph/api/resources/alternativesecurityid) .
+Cria uma declaração JSON da propriedade alternativeSecurityId do usuário que pode ser usada em chamadas para o Azure Active Directory. Para obter mais informações, consulte o esquema [AlternativeSecurityId](/graph/api/resources/alternativesecurityid) .
 
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |

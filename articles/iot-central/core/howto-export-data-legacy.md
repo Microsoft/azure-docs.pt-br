@@ -7,22 +7,22 @@ ms.author: viviali
 ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 812fd0c10b63cfe469a10a99069f201fcc2cc658
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: d4c099d29a843b4c354ffb218887dc7ffab51771
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126730"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065432"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-legacy"></a>Exportar dados de IoT para destinos de nuvem usando a exportação de dados (herdada)
 
 > [!Note]
 > Este artigo descreve os recursos de exportação de dados herdados no IoT Central.
 >
-> - Para obter informações sobre os novos recursos de exportação de dados de visualização, consulte [exportar dados de IOT para destinos de nuvem usando a exportação de dados](./howto-export-data.md).
+> - Para obter informações sobre os recursos de exportação de dados mais recentes, consulte [exportar dados de IOT para destinos de nuvem usando a exportação de dados](./howto-export-data.md).
 > - Para saber mais sobre as diferenças entre os recursos de exportação de dados de visualização e exportação de dados herdados, consulte a [tabela de comparação](./howto-export-data.md#comparison-of-legacy-data-export-and-data-export).
 
-Este artigo descreve como usar o recurso de exportação de dados no Azure IoT Central. Esse recurso permite exportar os dados continuamente para os **hubs de eventos do**Azure, o **barramento de serviço do Azure**ou as instâncias **do armazenamento de BLOBs do Azure** . A exportação de dados usa o formato JSON e pode incluir telemetria, informações do dispositivo e informações do modelo do dispositivo. Use os dados exportados para:
+Este artigo descreve como usar o recurso de exportação de dados no Azure IoT Central. Esse recurso permite exportar os dados continuamente para os **hubs de eventos do** Azure, o **barramento de serviço do Azure** ou as instâncias **do armazenamento de BLOBs do Azure** . A exportação de dados usa o formato JSON e pode incluir telemetria, informações do dispositivo e informações do modelo do dispositivo. Use os dados exportados para:
 
 - Análise e insights de caminho quentes. Essa opção inclui o disparo de regras personalizadas no Azure Stream Analytics, o disparo de fluxos de trabalho personalizados em aplicativos lógicos do Azure ou a passagem por Azure Functions ser transformada.
 - Análise de caminho frio, como modelos de treinamento em Azure Machine Learning ou análise de tendência de longo prazo no Microsoft Power BI.
@@ -69,7 +69,7 @@ Se você não tiver uma conta de armazenamento do Azure existente para a qual ex
     |-|-|
     |Standard|Uso Geral v2|
     |Standard|Uso Geral v1|
-    |Standard|Armazenamento de blob|
+    |Standard|Armazenamento de Blobs|
     |Premium|Armazenamento de blobs de blocos|
 
 2. Crie um contêiner em sua conta de armazenamento. Vá até sua conta de armazenamento. Em **Serviço Blob**, selecione **Procurar Blobs**. Selecione **+ Contêiner** na parte superior para criar um contêiner.
@@ -85,9 +85,9 @@ Agora que você tem um destino para exportar dados para o, siga estas etapas par
     > [!Tip]
     > Se você não vir a **exportação de dados** no painel esquerdo, você não tem permissões para configurar a exportação de dados em seu aplicativo. Contate o administrador para configurar a exportação de dados.
 
-3. Selecione o botão **+ Novo**. Escolha um dos **armazenamento de BLOBs do Azure**, **hubs de eventos do Azure**, **fila do barramento de serviço do Azure**ou o **tópico do barramento de serviço do Azure** como o destino de sua exportação. O número máximo de exportações por aplicativo é cinco.
+3. Selecione o botão **+ Novo**. Escolha um dos **armazenamento de BLOBs do Azure**, **hubs de eventos do Azure**, **fila do barramento de serviço do Azure** ou o **tópico do barramento de serviço do Azure** como o destino de sua exportação. O número máximo de exportações por aplicativo é cinco.
 
-4. Insira um nome para a exportação. Na caixa de listagem suspensa, selecione o **namespace**ou **Insira uma cadeia de conexão**.
+4. Insira um nome para a exportação. Na caixa de listagem suspensa, selecione o **namespace** ou **Insira uma cadeia de conexão**.
 
     - Você só vê contas de armazenamento, namespaces de hubs de eventos e namespaces do barramento de serviço na mesma assinatura que seu aplicativo IoT Central. Se você quiser exportar para um destino fora dessa assinatura, escolha **Inserir uma cadeia de conexão** e consulte a etapa 6.
     - Para aplicativos criados usando o plano de preços gratuito, a única maneira de configurar a exportação de dados é por meio de uma cadeia de conexão. Os aplicativos no plano de preços gratuito não têm uma assinatura do Azure associada.
@@ -109,11 +109,11 @@ Agora que você tem um destino para exportar dados para o, siga estas etapas par
           1. Em **configurações**, selecione **chaves de acesso**
           2. Copie a cadeia de conexão key1 ou a cadeia de conexão Key2
 
-    Cole a cadeia de conexão. Digite a instância ou o **nome do contêiner**que diferencia maiúsculas de minúsculas.
+    Cole a cadeia de conexão. Digite a instância ou o **nome do contêiner** que diferencia maiúsculas de minúsculas.
 
 7. Em **dados a serem exportados**, escolha os tipos de dados a serem exportados definindo o tipo como **ativado**.
 
-8. Para ativar a exportação de dados, **Verifique se a**opção **habilitado** está ativada. Selecione **Salvar**.
+8. Para ativar a exportação de dados, **Verifique se a** opção **habilitado** está ativada. Selecione **Salvar**.
 
 9. Depois de alguns minutos, seus dados aparecerão no destino escolhido.
 
@@ -382,7 +382,6 @@ Este exemplo mostra uma mensagem sobre os dados de modelos de dispositivo no Hub
                           {
                               "@id": "<id>",
                               "@type": ["Command"],
-                              "commandType": "synchronous",
                               "request": {
                                   "@id": "<id>",
                                   "@type": ["SchemaField"],
@@ -506,7 +505,6 @@ Este instantâneo de exemplo mostra uma mensagem que contém dados de dispositiv
                           {
                               "@id": "<id>",
                               "@type": ["Command"],
-                              "commandType": "synchronous",
                               "request": {
                                   "@id": "<id>",
                                   "@type": ["SchemaField"],

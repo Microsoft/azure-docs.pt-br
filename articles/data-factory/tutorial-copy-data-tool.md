@@ -1,6 +1,6 @@
 ---
 title: Copiar dados do armazenamento de Blobs do Azure para o SQL usando a ferramenta Copiar Dados
-description: Crie um Azure data factory e, em seguida, use a ferramenta Copiar Dados para copiar dados do Armazenamento de Blobs do Azure para um Banco de Dados SQL.
+description: Crie um Azure Data Factory e use a ferramenta Copiar Dados para copiar dados do Armazenamento de Blobs do Azure para um Banco de Dados SQL.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 06/08/2020
-ms.openlocfilehash: 2165efd6b522d3809dba285cf2c3050fc50b2d28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: de01a8a8522f93684ed428fd4ef19963b1af2059
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84660978"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008337"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copie dados do Armazenamento de Blobs do Azure para um Banco de Dados SQL usando a ferramenta Copiar Dados
 
@@ -80,7 +80,7 @@ Prepare o Armazenamento de Blobs e o Banco de Dados SQL para o tutorial executan
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
-1. No menu à esquerda, selecione **Criar um recurso** > **Analytics** > **Data Factory**:
+1. No menu à esquerda, selecione **Criar um recurso** > **Integração** > **Data Factory**:
 
     ![Criação do novo data factory](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. Na página **Novo data factory**, em **Nome**, insira **ADFTutorialDataFactory**.
@@ -93,9 +93,9 @@ Prepare o Armazenamento de Blobs e o Banco de Dados SQL para o tutorial executan
 1. Selecione a **assinatura** do Azure na qual deseja criar o novo data factory.
 1. Em **Grupo de Recursos**, use uma das seguintes etapas:
 
-    a. Selecione **Usar existente**e selecione um grupo de recursos existente na lista suspensa.
+    a. Selecione **Usar existente** e selecione um grupo de recursos existente na lista suspensa.
 
-    b. Selecione **Criar novo**e insira o nome de um grupo de recursos.
+    b. Selecione **Criar novo** e insira o nome de um grupo de recursos.
     
     Para saber mais sobre grupos de recursos, confira [Usar grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md).
 

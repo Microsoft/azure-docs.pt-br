@@ -9,13 +9,13 @@ ms.subservice: common
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
-ms.custom: contperfq1
-ms.openlocfilehash: 50180984423b7c6d2921234a3502495016c4df5c
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 210f7daa9305f2fb343dfae050354264e2fd823e
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150108"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898555"
 ---
 # <a name="plan-to-manage-azure-costs"></a>Planejar o gerenciamento de custos do Azure
 
@@ -125,7 +125,7 @@ Examine o tutorial [Otimizar custos de recomendações](../costs/tutorial-acm-op
 
 ## <a name="integrate-with-billing-and-consumption-apis"></a>Integração às APIs de cobrança e consumo
 
-Use as APIs de [cobrança](/rest/api/billing/) e [consumo](/rest/api/consumption/) do Azure para obter dados de cobrança e custo de forma programática. Use a API RateCard junto com a API de Uso para obter seu uso cobrado. Para saber mais, confira [Obtenha informações sobre o consumo de recursos do Microsoft Azure](../manage/usage-rate-card-overview.md).
+Use as APIs de [cobrança](/rest/api/billing/) e [consumo](/rest/api/consumption/) do Azure para obter dados de cobrança e custo de forma programática. Use a API RateCard junto com a API de Uso para obter seu uso cobrado. Para saber mais, confira [Obtenha informações sobre o consumo de recursos do Microsoft Azure](../manage/consumption-api-overview.md#usage-details-api).
 
 ## <a name="additional-resources-and-special-cases"></a><a name="other-offers"></a> Casos especiais e recursos adicionais
 

@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 10/20/2020
+ms.date: 01/28/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 017898249f1ad32a37b7ccd6bce17fe3d32843f3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f4640bbd445b27942d757cc4e09aa7e673550ebc
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480302"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226515"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Perguntas frequentes sobre o aplicativo Microsoft Authenticator
 
 Este artigo responde a perguntas comuns sobre o aplicativo Microsoft Authenticator. Caso não encontre uma resposta para sua pergunta, vá para o [Fórum do aplicativo Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp).
 
-O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator e é o aplicativo recomendado quando você usa a autenticação multifator do Azure. O aplicativo Microsoft Authenticator está disponível para [Android](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator) e [iOS](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
+O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator e é o aplicativo recomendado quando você usa a autenticação multifator do Azure AD. O aplicativo Microsoft Authenticator está disponível para [Android](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator) e [iOS](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
@@ -32,6 +32,12 @@ O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator
 **P**: o registro de um dispositivo está concordando para dar acesso à empresa ou ao serviço ao meu dispositivo?
 
 **R**: registrar um dispositivo dá ao seu dispositivo acesso aos serviços da sua organização e não permite que sua organização acesse seu dispositivo.
+
+### <a name="error-adding-account"></a>Erro ao adicionar conta
+
+**P**: quando tento adicionar minha conta, recebo uma mensagem de erro dizendo "a conta que você está tentando adicionar não é válida no momento. Contate seu administrador para corrigir esse problema (validação de exclusividade). " O que devo fazer?
+
+**R**: entre em contato com seu administrador e informe que você está impedido de adicionar sua conta ao autenticador devido a um problema de validação de exclusividade. Você precisará fornecer seu nome de usuário de entrada para que seu administrador possa procurar na sua organização.
 
 ### <a name="legacy-apns-support-deprecated"></a>Suporte a APNs herdado preterido
 
@@ -55,13 +61,17 @@ O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator
 
 **P**: posso tirar capturas de tela de meus códigos de senha de uso único (OTP) no autenticador do Android?
 
-**R: a**partir da versão 6.2003.1704 do autenticador Android, por padrão, todos os códigos de OTP ficam ocultos sempre que uma captura de tela do autenticador é tomada. Se você quiser ver seus códigos de OTP em capturas de tela ou permitir que outros aplicativos capturem o autenticador, você pode. Basta ativar a configuração de **captura de tela** no autenticador e reiniciar o aplicativo.
+**R: a** partir da versão 6.2003.1704 do autenticador Android, por padrão, todos os códigos de OTP ficam ocultos sempre que uma captura de tela do autenticador é tomada. Se você quiser ver seus códigos de OTP em capturas de tela ou permitir que outros aplicativos capturem o autenticador, você pode. Basta ativar a configuração de **captura de tela** no autenticador e reiniciar o aplicativo.
 
 ### <a name="delete-stored-data"></a>Excluir dados armazenados
 
 **P**: quais dados o autenticador armazena em meu nome e como posso excluí-lo?
 
-**R**: o aplicativo autenticador coleta três tipos de informações:<ul><li>Informações da conta que você fornece ao adicionar a conta. Esses dados podem ser removidos, removendo a conta.</li><li>Dados de log de diagnóstico que permanecem apenas no aplicativo até você selecionar **Enviar logs** no menu **Ajuda** do aplicativo para enviar logs à Microsoft. Esses logs podem conter dados pessoais, como endereços de email, endereços de servidor ou endereços IP. Eles também podem conter dados do dispositivo, como o nome do dispositivo e a versão do sistema operacional. Todos os dados pessoais coletados são limitados às informações necessárias para ajudar a solucionar problemas de aplicativos. Você pode procurar esses arquivos de log no aplicativo a qualquer momento para ver as informações que estão sendo coletadas. Se você enviar seus arquivos de log, os engenheiros de aplicativo de autenticação os usarão somente para solucionar problemas relatados pelo cliente.</li><li>Dados de uso não pessoalmente identificáveis, como "adicionar fluxo de conta iniciado/conta adicionada com êxito" ou "notificação aprovada." Esses dados são parte integrante de nossas decisões de engenharia. Seu uso nos ajuda a determinar onde podemos melhorar os aplicativos de maneiras que são importantes para você. Você verá uma notificação dessa coleta de dados quando usar o aplicativo pela primeira vez. Ele informa que ele pode ser desativado na página de **configurações** do aplicativo. Você pode ativar ou desativar essa configuração a qualquer momento.</li></ul>
+**R**: o aplicativo autenticador coleta três tipos de informações:
+
+- Informações da conta que você fornece ao adicionar a conta. Esses dados podem ser removidos, removendo a conta.
+- Dados de log de diagnóstico que permanecem apenas no aplicativo até que você **envie comentários** no menu superior do aplicativo para enviar logs à Microsoft. Esses logs podem conter dados pessoais, como endereços de email, endereços de servidor ou endereços IP. Eles também podem conter dados do dispositivo, como o nome do dispositivo e a versão do sistema operacional. Todos os dados pessoais coletados são limitados às informações necessárias para ajudar a solucionar problemas de aplicativos. Você pode procurar esses arquivos de log no aplicativo a qualquer momento para ver as informações que estão sendo coletadas. Se você enviar seus arquivos de log, os engenheiros de aplicativo de autenticação os usarão somente para solucionar problemas relatados pelo cliente.
+- Dados de uso não pessoalmente identificáveis, como "adicionar fluxo de conta iniciado/conta adicionada com êxito" ou "notificação aprovada." Esses dados são parte integrante de nossas decisões de engenharia. Seu uso nos ajuda a determinar onde podemos melhorar os aplicativos de maneiras que são importantes para você. Você verá uma notificação dessa coleta de dados quando usar o aplicativo pela primeira vez. Ele informa que ele pode ser desativado na página de **configurações** do aplicativo   . Você pode ativar ou desativar essa configuração a qualquer momento.
 
 ### <a name="codes-in-the-app"></a>Códigos no aplicativo
 
@@ -96,7 +106,7 @@ O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator
 
 **P**: por que só obtenho notificações quando o aplicativo está aberto? Quando o aplicativo é fechado, não obtenho notificações.
 
-**R**: se você estiver recebendo notificações, mas não um alerta, mesmo com o toque ativado, verifique as configurações do aplicativo. Certifique-se de que o aplicativo esteja ativado para usar som ou vibrar para notificações. Se você não receber notificações, verifique as seguintes condições:<ul><li>Seu telefone está no modo Silencioso ou Não Incomodar? Esses modos podem impedir que aplicativos enviem notificações.</li><li>Você pode obter notificações de outros aplicativos? Caso contrário, pode ser um problema com as conexões de rede no seu telefone ou com o canal de notificações do Android ou da Apple. Você pode tentar resolver suas conexões de rede por meio de suas configurações de telefone. Talvez seja necessário conversar com seu provedor de serviços para ajudar com o canal de notificações do Android ou da Apple.</li><li>Você consegue receber notificações de algumas contas no aplicativo, mas não em outras? Se sim, remova a conta problemática do seu aplicativo, adicione-a novamente permitindo notificações e veja se isso resolve o problema.</li></ul>Se você tentou todas essas etapas e ainda está tendo problemas, recomendamos enviar seus arquivos de log para diagnósticos. Abra o aplicativo, vá para **Ajuda** e selecione **Enviar logs**. Depois disso, vá para o [Fórum do aplicativo Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) e conte-nos o problema que você está vendo e as etapas que você tentou.
+**R**: se você estiver recebendo notificações, mas não um alerta, mesmo com o toque ativado, verifique as configurações do aplicativo. Certifique-se de que o aplicativo esteja ativado para usar som ou vibrar para notificações. Se você não receber notificações, verifique as seguintes condições:<ul><li>Seu telefone está no modo Silencioso ou Não Incomodar? Esses modos podem impedir que aplicativos enviem notificações.</li><li>Você pode obter notificações de outros aplicativos? Caso contrário, pode ser um problema com as conexões de rede no seu telefone ou com o canal de notificações do Android ou da Apple. Você pode tentar resolver suas conexões de rede por meio de suas configurações de telefone. Talvez seja necessário conversar com seu provedor de serviços para ajudar com o canal de notificações do Android ou da Apple.</li><li>Você consegue receber notificações de algumas contas no aplicativo, mas não em outras? Se sim, remova a conta problemática do seu aplicativo, adicione-a novamente permitindo notificações e veja se isso resolve o problema.</li></ul>Se você tentou todas essas etapas e ainda está tendo problemas, recomendamos enviar seus arquivos de log para diagnósticos. Abra o aplicativo, vá para o menu de nível superior do aplicativo e, em seguida, selecione **enviar comentários**. Depois disso, vá para o [Fórum do aplicativo Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) e informe à Microsoft o problema que você está vendo e as etapas que você tentou.
 
 ### <a name="switch-to-push-notifications"></a>Alternar para notificações por push
 
@@ -108,7 +118,7 @@ O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator
 
 **P**: as notificações funcionam para contas que não são da Microsoft?
 
-**R**: não, as notificações só funcionam com contas da Microsoft e contas de Azure Active Directory. Se seu trabalho ou escola usa contas do Azure AD, eles podem desativar esse recurso.
+**R**: não, as notificações só funcionam com contas da Microsoft e contas de Azure Active Directory. Se seu trabalho ou escola usa contas do Azure AD, eles são capazes de desativar esse recurso.
 
 ### <a name="backup-and-recovery"></a>Backup e recuperação
 
@@ -132,7 +142,7 @@ O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator
 
 **P**: por que o aplicativo solicita tantas permissões?
 
-**R**: aqui está a lista completa de permissões que podem ser solicitadas e como elas são usadas pelo aplicativo. As permissões específicas que você verá dependem do tipo de telefone que você tem.<ul><li>**Usar hardware biométrico.** Algumas contas do trabalho e da escola exigem um PIN adicional sempre que você confirmar sua identidade. O aplicativo exige seu consentimento para usar o reconhecimento biométrico ou facial em vez de um PIN.</li><li>**Câmera.** Usado para digitalizar códigos QR quando você adiciona uma conta de trabalho, escola ou não-Microsoft.</li><li>**Contatos e telefone.** O aplicativo requer essa permissão para pesquisar contas corporativas ou de estudante da Microsoft em seu telefone e adicioná-las ao aplicativo para você.</li><li>**SMS.** Usado para garantir que seu número de telefone corresponda ao número no registro quando você entra com seu conta Microsoft pessoal pela primeira vez. Enviamos uma mensagem de texto para o telefone no qual você instalou o aplicativo que inclui um código de verificação de 6-8 dígitos. Você não precisa encontrar esse código e inseri-lo porque o autenticador o encontra automaticamente na mensagem de texto.</li><li>**Desenhar sobre outros aplicativos.** A notificação que você obtém que verifica sua identidade também é exibida em qualquer outro aplicativo em execução.</li><li>**Receba dados da internet.** Essa permissão é necessária para o envio de notificações.</li><li>**Impedir que o telefone entre em suspensão.** Se você registrar seu dispositivo em sua organização, sua organização poderá alterar essa política em seu telefone.</li><li>**Controle de vibração.** Você pode escolher se deseja uma vibração sempre que receber uma notificação para confirmar sua identidade.</li><li>**Use o hardware de impressão digital.** Algumas contas do trabalho e da escola exigem um PIN adicional sempre que você confirmar sua identidade. Para facilitar o processo, permitimos que você use sua impressão digital em vez de digitar o PIN.</li><li> **Exibir conexões de rede.** Quando você adiciona uma conta da Microsoft, o aplicativo requer conexão de rede / internet.</li><li>**Ler o conteúdo de seu armazenamento**. Essa permissão é usada apenas quando você relata um problema técnico por meio das configurações do aplicativo. Algumas informações de seu armazenamento são coletadas para diagnosticar o problema.</li><li>**Acesso total à rede.** Essa permissão é necessária para enviar notificações para verificar sua identidade.</li><li>**Execute na inicialização.** Se você reiniciar o smartphone, essa permissão garante que você continue recebendo notificações para confirmar sua identidade.</li></ul>
+**R**: aqui está a lista completa de permissões que podem ser solicitadas e como elas são usadas pelo aplicativo. As permissões específicas que você verá dependem do tipo de telefone que você tem.<ul><li>**Localização**. Às vezes, sua organização deseja saber seu local antes de permitir que você acesse determinados recursos. O aplicativo solicitará essa permissão somente se sua organização tiver uma política que exija o local.</li><li>**Usar hardware biométrico.** Algumas contas do trabalho e da escola exigem um PIN adicional sempre que você confirmar sua identidade. O aplicativo exige seu consentimento para usar o reconhecimento biométrico ou facial em vez de um PIN.</li><li>**Câmera.** Usado para digitalizar códigos QR quando você adiciona uma conta de trabalho, escola ou não-Microsoft.</li><li>**Contatos e telefone.** O aplicativo requer essa permissão para pesquisar contas corporativas ou de estudante da Microsoft em seu telefone e adicioná-las ao aplicativo para você.</li><li>**SMS.** Usado para garantir que seu número de telefone corresponda ao número no registro quando você entra com seu conta Microsoft pessoal pela primeira vez. Enviamos uma mensagem de texto para o telefone no qual você instalou o aplicativo que inclui um código de verificação de 6-8 dígitos. Você não precisa encontrar esse código e inseri-lo porque o autenticador o encontra automaticamente na mensagem de texto.</li><li>**Desenhar sobre outros aplicativos.** A notificação que você obtém que verifica sua identidade também é exibida em qualquer outro aplicativo em execução.</li><li>**Receba dados da internet.** Essa permissão é necessária para o envio de notificações.</li><li>**Impedir que o telefone entre em suspensão.** Se você registrar seu dispositivo em sua organização, sua organização poderá alterar essa política em seu telefone.</li><li>**Controle de vibração.** Você pode escolher se deseja uma vibração sempre que receber uma notificação para confirmar sua identidade.</li><li>**Use o hardware de impressão digital.** Algumas contas do trabalho e da escola exigem um PIN adicional sempre que você confirmar sua identidade. Para facilitar o processo, permitimos que você use sua impressão digital em vez de digitar o PIN.</li><li> **Exibir conexões de rede.** Quando você adiciona uma conta da Microsoft, o aplicativo requer conexão de rede / internet.</li><li>**Ler o conteúdo de seu armazenamento**. Essa permissão é usada apenas quando você relata um problema técnico por meio das configurações do aplicativo. Algumas informações de seu armazenamento são coletadas para diagnosticar o problema.</li><li>**Acesso total à rede.** Essa permissão é necessária para enviar notificações para verificar sua identidade.</li><li>**Execute na inicialização.** Se você reiniciar o smartphone, essa permissão garante que você continue recebendo notificações para confirmar sua identidade.</li></ul>
 
 ### <a name="approve-requests-without-unlocking"></a>Aprovar solicitações sem desbloquear
 
@@ -156,7 +166,7 @@ O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator
 
 **P**: o sistema operacional Windows 10 Mobile foi preterido em dezembro de 2019. O Microsoft Authenticator em sistemas operacionais Windows Mobile também será preterido?
 
-**R: o**autenticador em todos os sistemas operacionais Windows Mobile não terá suporte após 28 de fevereiro de 2020. Os usuários não estarão qualificados para receber novas atualizações do aplicativo após a data mencionada acima. Após 28 de fevereiro de 2020, os serviços da Microsoft que atualmente dão suporte a autenticações que usam o Microsoft Authenticator em todos os sistemas operacionais Windows Mobile começarão a ter o suporte desativado. Para autenticar nos serviços da Microsoft, recomendamos que todos os nossos usuários mudem para outro mecanismo de autenticação antes dessa data.
+**R: o** autenticador em todos os sistemas operacionais Windows Mobile não terá suporte após 28 de fevereiro de 2020. Os usuários não estarão qualificados para receber novas atualizações do aplicativo após a data mencionada acima. Após 28 de fevereiro de 2020, os serviços da Microsoft que atualmente dão suporte a autenticações que usam o Microsoft Authenticator em todos os sistemas operacionais Windows Mobile começarão a ter o suporte desativado. Para autenticar nos serviços da Microsoft, recomendamos que todos os nossos usuários mudem para outro mecanismo de autenticação antes dessa data.
 
 ### <a name="default-mail-app"></a>Aplicativo de email padrão
 
@@ -174,7 +184,7 @@ O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator
 
 **P**: por que todas as minhas contas não aparecem quando abro o autenticador no meu Apple Watch?
 
-**R: o**autenticador dá suporte apenas a contas pessoais ou de estudante ou corporativas da Microsoft com notificações por push no aplicativo Apple Watch Companion. Para suas outras contas, como o Google ou o Facebook, você precisa abrir o aplicativo autenticador em seu telefone para ver seus códigos de verificação.
+**R: o** autenticador dá suporte apenas a contas pessoais ou de estudante ou corporativas da Microsoft com notificações por push no aplicativo Apple Watch Companion. Para suas outras contas, como o Google ou o Facebook, você precisa abrir o aplicativo autenticador em seu telefone para ver seus códigos de verificação.
 
 ### <a name="apple-watch-notifications"></a>Notificações de Apple Watch
 
@@ -198,7 +208,70 @@ O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator
 
 **P**: meu aplicativo Apple Watch Companion falhou. Posso enviar meus logs de falhas para você investigar?
 
-**R**: primeiro você precisa ter certeza de que optou por compartilhar sua análise conosco. Se você for um usuário de TestFlight, você já se inscreveu. Caso contrário, você pode ir para **Configurações > privacidade > Análise** e selecione o **compartilham o iPhone e análise de inspeção** e o **compartilhamento com desenvolvedores de aplicativos** opções.<br>Depois de se inscrever, você pode tentar reproduzir a falha para que os logs de falhas sejam enviados automaticamente para investigação. No entanto, se você não conseguir reproduzir a falha, poderá copiar manualmente os arquivos de log e enviá-los para nós.<ol><li>Abra o aplicativo Watch no seu smartphone, acesse **Configurações> Geral** e clique em **Copiar Analítica de exibição**.</li><li>Encontre a falha correspondente em **Configurações> Privacidade> Analytics> Dados do Analytics** e copie manualmente todo o texto.</li><li>Abra o autenticador em seu telefone e cole o texto copiado na caixa de texto **compartilhar com desenvolvedores de aplicativos** na página **enviar logs** .</li></ol>
+**R**: primeiro você precisa ter certeza de que optou por compartilhar sua análise conosco. Se você for um usuário de TestFlight, você já se inscreveu. Caso contrário, você pode ir para **Configurações > privacidade > Análise** e selecione o **compartilham o iPhone e análise de inspeção** e o **compartilhamento com desenvolvedores de aplicativos** opções.<br>Depois de se inscrever, você pode tentar reproduzir a falha para que os logs de falhas sejam enviados automaticamente para investigação. No entanto, se você não conseguir reproduzir a falha, poderá copiar manualmente os arquivos de log e enviá-los para nós.<ol><li>Abra o aplicativo Watch no seu smartphone, acesse **Configurações> Geral** e clique em **Copiar Analítica de exibição**.</li><li>Encontre a falha correspondente em **Configurações> Privacidade> Analytics> Dados do Analytics** e copie manualmente todo o texto.</li><li>Abra o autenticador em seu telefone e cole o texto copiado na caixa  **descrever o problema que você está enfrentando** com **problemas?** na página  **enviar comentários** . </li></ol>
+
+## <a name="autofill-with-authenticator"></a>Preenchimento automático com autenticador
+
+**P**: o que é preenchimento automático com autenticador?
+
+**R**: o aplicativo autenticador agora armazena e preenche com segurança as senhas em aplicativos e sites que você visita em seu telefone. Você pode usar o preenchimento automático para sincronizar e fazer o preenchimento automático de suas senhas em seus dispositivos iOS e Android. Depois de configurar o aplicativo autenticador como um provedor de preenchimento automático em seu telefone, ele oferece para salvar suas senhas quando elas são inseridas em um site ou em uma página de entrada do aplicativo. As senhas são salvas como parte do [seu conta Microsoft pessoal](https://account.microsoft.com/account) e também estão disponíveis quando você entra no Microsoft Edge com sua conta Microsoft pessoal.
+
+**P**: quais informações o AutoPreenchimento pode autenticar para mim?
+
+**R: o** autenticador pode AutoPreenchimento de nomes de logon e senhas em sites e aplicativos que você visita em seu telefone.
+
+**P**: como fazer ativar o preenchimento automático de senha no autenticador em meu telefone?
+
+**R**: Siga estas etapas:
+
+1. Abra o aplicativo autenticador.
+1. Na guia **senhas** no autenticador, selecione **entrar com a conta da Microsoft** e entre usando [seu conta Microsoft](https://account.microsoft.com/account). Esse recurso atualmente dá suporte apenas a contas da Microsoft e ainda não oferece suporte a contas corporativas ou de estudante.
+
+**P**: como fazer tornar autenticador o provedor de Autopreenchimento padrão em meu telefone?
+
+**R**: Siga estas etapas:
+
+1. Abra o aplicativo autenticador.
+1. Na guia **senhas** dentro do aplicativo, selecione **entrar com a conta da Microsoft** e entre usando [seu conta Microsoft](https://account.microsoft.com/account).
+1. Realize um dos seguintes procedimentos:
+
+   - No iOS, em **configurações**, selecione **como ativar o preenchimento automático** na seção Configurações de preenchimento automático para saber como definir o autenticador como o provedor de preenchimento automático padrão.
+   - No Android, em **configurações**, selecione **definir como provedor de preenchimento automático** na seção Configurações de preenchimento automático.
+
+**P**: e se o **preenchimento automático** não estiver disponível para mim em configurações?
+
+**R**: se o preenchimento automático não estiver disponível para você no autenticador, pode ser porque o preenchimento automático ainda não foi permitido para sua organização ou tipo de conta. Você pode usar esse recurso em um dispositivo em que sua conta corporativa ou de estudante não é adicionada. Para saber mais sobre como permitir o preenchimento automático de sua organização, confira [preenchimento automático para administradores de ti](#autofill-for-it-admins).
+
+**P**: como fazer parar de sincronizar senhas?
+
+**R**: para interromper a sincronização de senhas no aplicativo autenticador, abra **configurações**  >  **preenchimento automático configurações**  >  **conta de sincronização**. Na próxima tela, você pode selecionar em **parar sincronização e remover todos os dados de preenchimento automático**. Isso removerá senhas e outros dados de preenchimento automático do dispositivo. A remoção de dados de preenchimento automático não afeta a autenticação multifator.
+
+**P**: como as minhas senhas são protegidas pelo aplicativo autenticador?
+
+**R: o** aplicativo autenticador já fornece um alto nível de segurança para autenticação multifator e gerenciamento de conta, e a mesma barra de segurança alta também é estendida para gerenciar suas senhas.
+
+- A **autenticação forte é necessária para o aplicativo autenticador**: entrar no autenticador requer um segundo fator. Isso significa que suas senhas dentro do aplicativo autenticador são protegidas mesmo que alguém tenha sua senha de conta Microsoft.
+- **Os dados de preenchimento automático são protegidos com biometria e** senha: antes de poder reativar o preenchimento da senha em um aplicativo ou site, o autenticador requer biométrica ou senha do dispositivo. Isso ajuda a adicionar segurança extra para que, mesmo que outra pessoa tenha acesso ao seu dispositivo, não possa preencher ou ver sua senha, pois não é possível fornecer a entrada biométrica ou PIN do dispositivo. Além disso, um usuário não pode abrir a página senhas, a menos que forneça biométrica ou PIN, mesmo que desativem o bloqueio de aplicativo nas configurações do aplicativo.
+- **Senhas criptografadas no dispositivo**: as senhas no dispositivo são criptografadas e as chaves de criptografia/descriptografia nunca são armazenadas e sempre geradas quando necessário. As senhas são descriptografadas apenas quando o usuário deseja, ou seja, durante o preenchimento automático ou quando o usuário deseja ver a senha, ambas exigindo biométrica ou PIN.
+- **Segurança de rede e nuvem**: suas senhas na nuvem são criptografadas e descriptografadas somente quando atingem seu dispositivo. As senhas são sincronizadas em uma conexão HTTPS protegida por SSL, o que ajuda a impedir que um invasor intercepte dados confidenciais quando ele está sendo sincronizado. Também garantimos que verificamos a sanidade dos dados que estão sendo sincronizados pela rede usando funções com hash criptografado (especificamente, o código de autenticação de mensagens baseado em hash).
+
+## <a name="autofill-for-it-admins"></a>Preenchimento automático para administradores de ti
+
+**P**: meus funcionários ou alunos terão que usar o preenchimento automático de senha no aplicativo autenticador?
+
+**R**: Sim, agora o preenchimento automático funciona para a maioria dos usuários empresariais mesmo quando uma conta corporativa ou de estudante é adicionada ao aplicativo autenticador. Você pode preencher um formulário para configurar (permitir ou negar) o preenchimento automático da sua organização e [enviá-lo para a equipe do autenticador](https://aka.ms/ConfigureAutofillInAuthenticator).
+
+**P**: a senha da conta corporativa ou de estudante do meu usuário será sincronizada automaticamente?
+
+**R**: não. O preenchimento automático de senha não sincronizará a senha da conta corporativa ou de estudante para seus usuários. Quando os usuários visitam um site ou um aplicativo, o autenticador oferecerá para salvar a senha para esse site ou aplicativo, e a senha será salva somente quando o usuário escolher.
+  
+**P**: posso permitir que somente determinados usuários da minha organização façam preenchimento automático?
+
+**R**: não. As empresas só podem habilitar o preenchimento automático de senhas para todos ou nenhum de seus funcionários no momento.
+
+**P**: e se meu funcionário ou aluno tiver várias contas corporativas ou de estudante? Por exemplo, meu funcionário tem contas de várias empresas ou escolas em seus Microsoft Authenticator.
+
+**R**: todas as empresas ou escolas adicionadas no aplicativo autenticador precisam ser permitidas-listadas para preenchimento automático no autenticador para o proprietário do aplicativo poder usá-lo. A única exceção a essa restrição é quando seu funcionário ou aluno adiciona sua conta corporativa ou de estudante à autenticação multifator baseada em nuvem da Microsoft como uma [conta externa ou](user-help-auth-app-add-non-ms-account.md)de terceiros.
 
 ## <a name="next-steps"></a>Próximas etapas
 

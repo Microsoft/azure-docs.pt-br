@@ -7,18 +7,19 @@ author: msjuergent
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fa059ec8159779969c7ef7a5f4c97f3e985993a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd81139c15e6bba65fe9b9a53a2e8e950ebd754b
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082181"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201749"
 ---
 # <a name="sap-hana-large-instances-architecture-on-azure"></a>Arquitetura do SAP HANA (Instâncias Grandes) no Azure
 
@@ -42,7 +43,7 @@ A arquitetura mostrada é dividida em três seções:
    Para bancos de dados e aplicativos do SAP NetWeaver com suporte para execução no Azure, consulte a [Nota de Suporte SAP nº 1928533 – Aplicativos do SAP no Azure: Produtos com suporte e tipos de VM do Azure](https://launchpad.support.sap.com/#/notes/1928533). Para obter documentação sobre como implantar soluções SAP no Azure, consulte:
 
   -  [Usar o SAP em máquinas virtuais do Windows](./get-started.md?toc=/azure/virtual-machines/linux/toc.json)
-  -  [Usar as soluções SAP em máquinas virtuais do Azure](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+  -  [Usar as soluções SAP em máquinas virtuais do Azure](get-started.md)
 
 - **Esquerda**: mostra o hardware certificado por TDI do SAP HANA no carimbo da Instância Grande do Azure. As unidades de instância grande do HANA estão conectadas às redes virtuais da sua assinatura do Azure usando a mesma tecnologia que a conectividade do local para o Azure. A partir de maio de 2019, foi introduzida uma otimização que permite a comunicação entre as unidades de instância grande do HANA e as VMs do Azure sem envolvimento do gateway de ExpressRoute. Essa otimização chamada caminho rápido do ExpressRoute é exibida nessa arquitetura (linhas vermelhas). 
 

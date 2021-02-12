@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: terrylan
-ms.openlocfilehash: c817608a9e015c69b252f69000d78437e918b8f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e298cb0d1a2c510a096f8ead03f8af7e39c206a8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631504"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498924"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>Proteção contra DDoS do Azure-criando soluções resilientes
 
@@ -42,22 +42,22 @@ Garanta que a segurança seja uma prioridade durante todo o ciclo de vida de um 
 Para ajudar a proteger um serviço em execução no Microsoft Azure, você deve ter uma boa compreensão da arquitetura de seus aplicativos e se concentrar nos [Cinco pilares de qualidade de software](/azure/architecture/guide/pillars).
 Você deve conhecer os volumes de tráfego típicos, o modelo de conectividade entre o aplicativo e outros aplicativos e os pontos de extremidade de serviço expostos à Internet pública.
 
-O mais importante é garantir que um aplicativo seja resiliente o suficiente para lidar com uma negação de serviço direcionados ao próprio aplicativo. Segurança e privacidade são integradas à plataforma do Azure, começando com o [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx). O SDL trata da segurança em cada fase do desenvolvimento e garante que o Azure seja atualizado continuamente para torná-lo ainda mais seguro.
+O mais importante é garantir que um aplicativo seja resiliente o suficiente para lidar com uma negação de serviço direcionados ao próprio aplicativo. A segurança e a privacidade estão incorporadas na plataforma do Azure, começando com o [SDL (Security Development Lifecycle)](https://www.microsoft.com/sdl/default.aspx). O SDL trata da segurança em cada fase do desenvolvimento e garante que o Azure seja atualizado continuamente para torná-lo ainda mais seguro.
 
 ### <a name="design-for-scalability"></a>Design para escalabilidade
 
 A escalabilidade é como um sistema pode tratar aumentos de carga. projetar seus aplicativos para [escalar horizontalmente](/azure/architecture/guide/design-principles/scale-out) para atender à demanda de uma carga amplificada, especificamente em caso de ataque de DDoS. Se seu aplicativo depender de uma única instância de um serviço, ele criará um único ponto de falha. O provisionamento de várias instâncias torna o sistema mais resiliente e mais escalonável.
 
-Para [Azure app serviço](/azure/app-service/app-service-value-prop-what-is), selecione um [plano do serviço de aplicativo](/azure/app-service/overview-hosting-plans) que ofereça várias instâncias. Para Serviços de Nuvem do Azure, configure cada uma das suas funções para usar [várias instâncias](/azure/cloud-services/cloud-services-choose-me). Para [Máquinas Virtuais do Azure](../../virtual-machines/index.yml), verifique se sua arquitetura de VM inclui mais de uma VM e se cada uma delas está incluída em um [conjunto de disponibilidade](../../virtual-machines/windows/tutorial-availability-sets.md). É recomendável usar [conjuntos de dimensionamento de máquinas virtuais](../../virtual-machine-scale-sets/overview.md) para recursos de dimensionamento automático.
+Para [Azure app serviço](../../app-service/overview.md), selecione um [plano do serviço de aplicativo](../../app-service/overview-hosting-plans.md) que ofereça várias instâncias. Para Serviços de Nuvem do Azure, configure cada uma das suas funções para usar [várias instâncias](../../cloud-services/cloud-services-choose-me.md). Para [Máquinas Virtuais do Azure](../../virtual-machines/index.yml), verifique se sua arquitetura de VM inclui mais de uma VM e se cada uma delas está incluída em um [conjunto de disponibilidade](../../virtual-machines/windows/tutorial-availability-sets.md). É recomendável usar [conjuntos de dimensionamento de máquinas virtuais](../../virtual-machine-scale-sets/overview.md) para recursos de dimensionamento automático.
 
 ### <a name="defense-in-depth"></a>Proteção completa
 
 A ideia por trás da defesa completa é gerenciar riscos ao usar estratégias de defesa diversificadas. Dispor as defesas de segurança em camadas em um aplicativo reduz a possibilidade de um ataque ser bem-sucedido. É recomendável que você implemente designs seguros para seus aplicativos ao utilizar recursos internos da plataforma Azure.
 
-Por exemplo, o risco de ataque aumenta conforme o tamanho (*área da superfície*) do aplicativo. Você pode reduzir a área da superfície usando uma lista de aprovação para fechar o espaço de endereço IP exposto e portas de escuta que não são necessárias nos balanceadores de carga ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) e [aplicativo Azure gateway](/azure/application-gateway/application-gateway-create-probe-portal)). [NSGs (grupos de segurança de rede)](/azure/virtual-network/security-overview) são outra maneira de reduzir a superfície de ataque.
-Você pode usar [marcas de serviço](/azure/virtual-network/security-overview#service-tags) e [grupos de segurança de aplicativo](/azure/virtual-network/security-overview#application-security-groups) para minimizar a complexidade da criação de regras de segurança e a configuração da segurança de rede, como uma extensão natural da estrutura do aplicativo.
+Por exemplo, o risco de ataque aumenta conforme o tamanho (*área da superfície*) do aplicativo. Você pode reduzir a área da superfície usando uma lista de aprovação para fechar o espaço de endereço IP exposto e portas de escuta que não são necessárias nos balanceadores de carga ([Azure Load Balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) e [aplicativo Azure gateway](../../application-gateway/application-gateway-create-probe-portal.md)). [NSGs (grupos de segurança de rede)](../../virtual-network/network-security-groups-overview.md) são outra maneira de reduzir a superfície de ataque.
+Você pode usar [marcas de serviço](../../virtual-network/network-security-groups-overview.md#service-tags) e [grupos de segurança de aplicativo](../../virtual-network/network-security-groups-overview.md#application-security-groups) para minimizar a complexidade da criação de regras de segurança e a configuração da segurança de rede, como uma extensão natural da estrutura do aplicativo.
 
-Você deve implantar os serviços do Azure em uma [rede virtual](/azure/virtual-network/virtual-networks-overview) sempre que possível. Esta prática permite que os recursos de serviço se comuniquem por meio de endereços IP privados. O tráfego do serviço do Azure de uma rede virtual usa Endereços IP Públicos como endereços IP de origem por padrão. Usar [pontos de extremidade de serviço](/azure/virtual-network/virtual-network-service-endpoints-overview) alterará o tráfego de serviço para usar endereços de rede virtual privados como endereços IP de origem ao acessar o serviço do Azure de uma rede virtual.
+Você deve implantar os serviços do Azure em uma [rede virtual](../../virtual-network/virtual-networks-overview.md) sempre que possível. Esta prática permite que os recursos de serviço se comuniquem por meio de endereços IP privados. O tráfego do serviço do Azure de uma rede virtual usa Endereços IP Públicos como endereços IP de origem por padrão. Usar [pontos de extremidade de serviço](../../virtual-network/virtual-network-service-endpoints-overview.md) alterará o tráfego de serviço para usar endereços de rede virtual privados como endereços IP de origem ao acessar o serviço do Azure de uma rede virtual.
 
 Muitos recursos locais dos clientes são atacados juntamente com seus recursos no Azure. Se você estiver conectando um ambiente local ao Azure, recomendamos que você minimize a exposição dos recursos locais à Internet pública. Use as funcionalidades de escala e de proteção contra DDoS avançada do Azure implantando suas entidades públicas conhecidas no Azure. Como essas entidades publicamente acessíveis muitas vezes são alvo de ataques de DDoS, colocá-las no Azure reduz o impacto sobre os recursos locais.
 
@@ -93,7 +93,7 @@ O serviço da Proteção contra DDoS do Azure Básica ajuda a proteger os client
 
 #### <a name="ddos-protection-telemetry-monitoring-and-alerting"></a>Telemetria, monitoramento e alertas da Proteção contra DDoS
 
-A Proteção contra DDoS Standard expõe uma telemetria sofisticada por meio do [Azure Monitor](/azure/azure-monitor/overview) por toda a duração de um ataque de DDoS. Você pode configurar alertas para qualquer uma das métricas do Azure Monitor que a Proteção contra DDoS utiliza. Você pode integrar o registro em log com Splunk (hubs de eventos do Azure), logs de Azure Monitor e armazenamento do Azure para análise avançada por meio da interface de diagnóstico de Azure Monitor.
+A Proteção contra DDoS Standard expõe uma telemetria sofisticada por meio do [Azure Monitor](../../azure-monitor/overview.md) por toda a duração de um ataque de DDoS. Você pode configurar alertas para qualquer uma das métricas do Azure Monitor que a Proteção contra DDoS utiliza. Você pode integrar o registro em log com Splunk (hubs de eventos do Azure), logs de Azure Monitor e armazenamento do Azure para análise avançada por meio da interface de diagnóstico de Azure Monitor.
 
 ##### <a name="ddos-mitigation-policies"></a>Políticas de mitigação de DDoS
 
@@ -113,11 +113,11 @@ Se o endereço IP público estiver sob ataque, o valor da métrica **Sob ataque 
 
 É recomendável configurar um alerta nessa métrica. Você será notificado quando houver uma mitigação de DDoS ativa executada no seu endereço IP público.
 
-Para ver mais informações, consulte [Gerenciar a Proteção contra DDoS do Azure padrão usando o Portal do Azure](/azure/virtual-network/ddos-protection-manage-portal).
+Para ver mais informações, consulte [Gerenciar a Proteção contra DDoS do Azure padrão usando o Portal do Azure](../../ddos-protection/manage-ddos-protection.md).
 
 #### <a name="web-application-firewall-for-resource-attacks"></a>Firewall do aplicativo Web para ataques de recurso
 
-Especificamente para ataques de recursos na camada de aplicativo, você deve configurar o WAF (Firewall do Aplicativo Web) para ajudar a proteger os aplicativos Web. O WAF inspeciona o tráfego de entrada da Web para bloquear injeções de SQL, scripts intersites, DDoS e outros ataques da camada 7. O Azure fornece o [WAF como um recurso do Gateway de Aplicativo](/azure/application-gateway/application-gateway-web-application-firewall-overview) para proteção centralizada de seus aplicativos Web contra vulnerabilidades e explorações comuns. Há outras ofertas de WAF disponíveis de parceiros do Azure que podem ser mais adequadas às suas necessidades no [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=WAF&page=1).
+Especificamente para ataques de recursos na camada de aplicativo, você deve configurar o WAF (Firewall do Aplicativo Web) para ajudar a proteger os aplicativos Web. O WAF inspeciona o tráfego de entrada da Web para bloquear injeções de SQL, scripts intersites, DDoS e outros ataques da camada 7. O Azure fornece o [WAF como um recurso do Gateway de Aplicativo](../../web-application-firewall/ag/ag-overview.md) para proteção centralizada de seus aplicativos Web contra vulnerabilidades e explorações comuns. Há outras ofertas de WAF disponíveis de parceiros do Azure que podem ser mais adequadas às suas necessidades no [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=WAF&page=1).
 
 Mesmo os firewalls do aplicativo Web estão suscetíveis a ataques de esgotamento volumétrico e de estado. Nós recomendamos habilitar a Proteção contra DDoS Standard em uma rede virtual WAF para ajudar a protegê-la contra ataques volumétricos e de protocolo. Para obter mais informações, consulte a seção [Arquiteturas de referência da Proteção contra DDoS](#ddos-protection-reference-architectures).
 
@@ -179,7 +179,7 @@ Para a sua equipe de resposta de DDoS, recomendamos que use exercícios de simul
 
 ### <a name="alerts-during-an-attack"></a>Alertas durante um ataque
 
-A Proteção contra DDoS do Azure Standard identificará e mitigará os ataques de DDoS sem qualquer intervenção do usuário. Para ser notificado quando houver uma mitigação ativa para um IP público protegido, você pode [configurar um alerta](/azure/virtual-network/ddos-protection-manage-portal) na métrica **sob ataque de DDoS ou não**. Você pode optar por criar alertas para as outras métricas de DDoS para entender a escala do ataque, o tráfego que está sendo descartado e outros detalhes.
+A Proteção contra DDoS do Azure Standard identificará e mitigará os ataques de DDoS sem qualquer intervenção do usuário. Para ser notificado quando houver uma mitigação ativa para um IP público protegido, você pode [configurar um alerta](../../ddos-protection/manage-ddos-protection.md) na métrica **sob ataque de DDoS ou não**. Você pode optar por criar alertas para as outras métricas de DDoS para entender a escala do ataque, o tráfego que está sendo descartado e outros detalhes.
 
 #### <a name="when-to-contact-microsoft-support"></a>Quanto entrar em contato com o Suporte da Microsoft
 
@@ -211,7 +211,7 @@ Se você suspeitar que está sofrendo um ataque de DDoS, escale a questão por m
 
 ## <a name="ddos-protection-reference-architectures"></a>Arquiteturas de referência da Proteção contra DDoS
 
-A proteção contra DDoS Standard é projetada [para serviços que são implantados em uma rede virtual](/azure/virtual-network/virtual-network-for-azure-services). Para outros serviços, a Proteção contra DDoS Básica padrão se aplica. As seguintes arquiteturas de referência são organizadas por cenários, com padrões de arquitetura agrupados.
+A proteção contra DDoS Standard é projetada [para serviços que são implantados em uma rede virtual](../../virtual-network/virtual-network-for-azure-services.md). Para outros serviços, a Proteção contra DDoS Básica padrão se aplica. As seguintes arquiteturas de referência são organizadas por cenários, com padrões de arquitetura agrupados.
 
 ### <a name="virtual-machine-windowslinux-workloads"></a>Cargas de trabalho de máquina virtual (Windows/Linux)
 
@@ -235,14 +235,14 @@ Nesta arquitetura, a Proteção contra DDoS Standard está habilitada na rede vi
 
 #### <a name="paas-web-application"></a>Aplicativo Web PaaS
 
-Essa arquitetura de referência mostra a execução de um aplicativo do Serviço de Aplicativo do Azure em uma única região. Essa arquitetura mostra um conjunto de práticas comprovadas para um aplicativo Web que usa o [serviço Azure app](https://azure.microsoft.com/documentation/services/app-service/)   e o [banco de dados SQL do Azure](https://azure.microsoft.com/documentation/services/sql-database/).
-Uma região em espera está configurada para cenários de failover.
+Essa arquitetura de referência mostra a execução de um aplicativo do Serviço de Aplicativo do Azure em uma única região. Essa arquitetura mostra um conjunto de práticas comprovadas para um aplicativo Web que usa o [Serviço de Aplicativo do Azure](https://azure.microsoft.com/documentation/services/app-service/) e o [Banco de Dados SQL do Azure](https://azure.microsoft.com/documentation/services/sql-database/).
+Uma região em espera é configurada para cenários de failover.
 
 ![Diagrama da arquitetura de referência para um aplicativo da Web de PaaS](./media/ddos-best-practices/image11.png)
 
 O Gerenciador de Tráfego do Microsoft Azure roteia as solicitações de entrada para o Gateway de Aplicativo em uma das regiões. Durante as operações normais, ele roteia as solicitações para o Gateway de Aplicativo na região ativa. Se essa região ficar não disponível, o Gerenciador de Tráfego fará failover para o Gateway de Aplicativo na região em espera.
 
-Todo o tráfego da Internet destinado ao aplicativo Web é roteado para o [Endereço IP público do Gateway de Aplicativo](/azure/application-gateway/application-gateway-web-app-overview) por meio do Gerenciador de Tráfego. Nesse cenário, o Serviço de Aplicativo (aplicativo Web) em si não é diretamente externo e está protegido pelo Gateway de Aplicativo. 
+Todo o tráfego da Internet destinado ao aplicativo Web é roteado para o [Endereço IP público do Gateway de Aplicativo](../../application-gateway/application-gateway-web-app-overview.md) por meio do Gerenciador de Tráfego. Nesse cenário, o Serviço de Aplicativo (aplicativo Web) em si não é diretamente externo e está protegido pelo Gateway de Aplicativo. 
 
 É recomendável configurar o SKU do WAF do Gateway de Aplicativo (modo de prevenção) para ajudar a proteger contra ataques da camada 7 (HTTP/HTTPS/WebSocket). Além disso, os aplicativos Web são configurados para [aceitar somente o tráfego do endereço IP do Gateway de Aplicativo](https://azure.microsoft.com/blog/ip-and-domain-restrictions-for-windows-azure-web-sites/).
 
@@ -252,7 +252,7 @@ Para obter mais informações sobre arquitetura de referência, consulte [este a
 
 #### <a name="hdinsight-on-azure"></a>HDInsight no Azure
 
-Essa arquitetura de referência mostra a configuração da Proteção contra DDoS Standard para [cluster do Azure HDInsight](/azure/hdinsight/). Verifique se o cluster do HDInsight está vinculado a uma rede virtual e se a Proteção contra DDoS está habilitada nessa rede virtual.
+Essa arquitetura de referência mostra a configuração da Proteção contra DDoS Standard para [cluster do Azure HDInsight](../../hdinsight/index.yml). Verifique se o cluster do HDInsight está vinculado a uma rede virtual e se a Proteção contra DDoS está habilitada nessa rede virtual.
 
 ![Os painéis "HDInsight" e "Configurações avançadas", com as configurações de rede virtual](./media/ddos-best-practices/image12.png)
 
@@ -260,7 +260,7 @@ Essa arquitetura de referência mostra a configuração da Proteção contra DDo
 
 Nesta arquitetura, o tráfego destinado ao cluster de HDInsight vindo da Internet é roteado para o IP público associado ao balanceador de carga de gateway do HDInsight. O balanceador de carga de gateway, em seguida, envia o tráfego para os nós principais ou nós de trabalho diretamente. Como a Proteção contra DDoS Standard está habilitada na rede virtual do HDInsight, todos os IPs públicos na rede virtual receberão proteção contra DDoS nas camadas 3 e 4. Essa arquitetura de referência pode ser combinada com arquiteturas de referência de N camadas e com várias regiões.
 
-Para obter mais informações sobre a arquitetura de referência, consulte a documentação [Estender o Azure HDInsight usando uma Rede Virtual do Azure](/azure/hdinsight/hdinsight-extend-hadoop-virtual-network?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Para obter mais informações sobre a arquitetura de referência, consulte a documentação [Estender o Azure HDInsight usando uma Rede Virtual do Azure](../../hdinsight/hdinsight-plan-virtual-network-deployment.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 
 > [!NOTE]
@@ -270,4 +270,4 @@ Para obter mais informações sobre a arquitetura de referência, consulte a doc
 
 * [Responsabilidade compartilhada na nuvem](shared-responsibility.md)
 * [Página do produto proteção contra DDoS do Azure](https://azure.microsoft.com/services/ddos-protection/)
-* [Documentação da proteção contra DDoS do Azure](/azure/virtual-network/ddos-protection-overview)
+* [Documentação da proteção contra DDoS do Azure](../../ddos-protection/ddos-protection-overview.md)

@@ -1,18 +1,15 @@
 ---
 title: Migrar Apache Storm do Azure HDInsight 3,6 para o HDInsight 4,0 Apache Spark
 description: As diferenças e o fluxo de migração para migrar cargas de trabalho de Apache Storm para o streaming do Spark ou o fluxo estruturado do Spark.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/16/2019
-ms.openlocfilehash: e1262a4699bc42cb5b9a4398be2254854c5d5ff2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa57c01558cfdcf069b17fad9e86f7640553dcfd
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86081189"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944789"
 ---
 # <a name="migrate-azure-hdinsight-36-apache-storm-to-hdinsight-40-apache-spark"></a>Migrar Apache Storm do Azure HDInsight 3,6 para o HDInsight 4,0 Apache Spark
 
@@ -40,7 +37,7 @@ O Apache Storm pode oferecer diferentes níveis de processamento de mensagem gar
 |**Garantia de processamento de eventos**|Pelo menos uma vez <br> Exatamente uma vez (Trident) |[Exatamente uma vez](https://spark.apache.org/docs/latest/streaming-programming-guide.html)|[Exatamente uma vez](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)|
 |**Modelo de processamento**|Tempo real <br> Micro batch (Trident) |Micro batch |Micro batch |
 |**Suporte ao horário do evento**|[Sim](https://storm.apache.org/releases/2.0.0/Windowing.html)|Não|[Sim](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)|
-|**Idiomas**|Java, etc.|Escala, Java, Python|Python, R, escalar, Java, SQL|
+|**Linguagens**|Java, etc.|Escala, Java, Python|Python, R, escalar, Java, SQL|
 
 ### <a name="spark-streaming-vs-spark-structured-streaming"></a>Streaming do Spark versus streaming estruturado do Spark
 

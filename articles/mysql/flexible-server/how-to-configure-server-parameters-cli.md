@@ -6,16 +6,20 @@ ms.author: ambhatna
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 11/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 87ec99a68c538e8133d64351cdecbbf8b10459e6
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 58e7c024d6494aee745884997e42b527c51ab237
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92525039"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489532"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-flexible-server-using-the-azure-cli"></a>Configurar parâmetros de servidor no banco de dados do Azure para o servidor flexível do MySQL usando o CLI do Azure
+
+> [!IMPORTANT] 
+> O Banco de Dados do Azure para MySQL – Servidor Flexível está atualmente na versão prévia pública.
+
 Você pode listar, mostrar e atualizar parâmetros para um servidor flexível do banco de dados do Azure para MySQL usando CLI do Azure, o utilitário de linha de comando do Azure. Os parâmetros de servidor são configurados com o valor padrão e recomendado quando você cria o servidor.  
 
 Este artigo descreve como listar, mostrar e atualizar parâmetros de servidor usando o CLI do Azure.
@@ -31,7 +35,7 @@ Para seguir este guia de instruções, você precisa:
 ## <a name="list-server-parameters-for-azure-database-for-mysql-flexible-server"></a>Listar parâmetros de servidor para o banco de dados do Azure para MySQL servidor flexível
 Para listar todos os parâmetros em um servidor e seus valores, execute o comando [AZ MySQL Flexible-Server Parameter List](/cli/azure/mysql/flexible-server/parameter) .
 
-Você pode listar os parâmetros de servidor para o servidor **mydemoserver.mysql.Database.Azure.com** em grupo de recursos **MyResource**Group.
+Você pode listar os parâmetros de servidor para o servidor **mydemoserver.mysql.Database.Azure.com** em grupo de recursos **MyResource** Group.
 ```azurecli-interactive
 az mysql flexible-server parameter list --resource-group myresourcegroup --server-name mydemoserver
 ```
@@ -40,14 +44,14 @@ Para obter a definição de cada um dos parâmetros listados, consulte a seção
 ## <a name="show-server-parameter-details"></a>Mostrar detalhes do parâmetro de servidor
 Para mostrar detalhes sobre um parâmetro específico para um servidor, execute o comando [AZ MySQL flexível-Server Parameter show](/cli/azure/mysql/flexible-server/parameter) .
 
-Este exemplo mostra detalhes do parâmetro de servidor de ** \_ \_ log de consulta lenta** para o servidor **mydemoserver.mysql.Database.Azure.com** em grupo de recursos **MyResource Group.**
+Este exemplo mostra detalhes do parâmetro de servidor de **\_ \_ log de consulta lenta** para o servidor **mydemoserver.mysql.Database.Azure.com** em grupo de recursos **MyResource Group.**
 ```azurecli-interactive
 az mysql flexible-server parameter show --name slow_query_log --resource-group myresourcegroup --server-name mydemoserver
 ```
 ## <a name="modify-a-server-parameter-value"></a>Modificar um valor de parâmetro de servidor
 Você também pode modificar o valor de um determinado parâmetro de servidor, que atualiza o valor de configuração subjacente para o mecanismo do servidor MySQL. Para atualizar o parâmetro de servidor, use o comando [AZ MySQL flexível-Server Parameter Set](/cli/azure/mysql/flexible-server/parameter) . 
 
-Para atualizar o parâmetro de servidor de ** \_ \_ log de consulta lenta** do servidor **mydemoserver.mysql.Database.Azure.com** em grupo de recursos **MyResource Group.**
+Para atualizar o parâmetro de servidor de **\_ \_ log de consulta lenta** do servidor **mydemoserver.mysql.Database.Azure.com** em grupo de recursos **MyResource Group.**
 ```azurecli-interactive
 az mysql flexible-server parameter set --name slow_query_log --resource-group myresourcegroup --server-name mydemoserver --value ON
 ```
@@ -55,7 +59,7 @@ Se você quiser redefinir o valor de um parâmetro, omita o parâmetro opcional 
 ```azurecli-interactive
 az mysql flexible-server parameter set --name slow_query_log --resource-group myresourcegroup --server-name mydemoserver
 ```
-Esse código redefine o ** \_ \_ log de consulta lenta** para o valor padrão **off**. 
+Esse código redefine o **\_ \_ log de consulta lenta** para o valor padrão **off**. 
 
 ## <a name="setting-non-modifiable-server-parameters"></a>Definindo parâmetros de servidor não modificáveis
 
@@ -66,7 +70,7 @@ Atualize o parâmetro do servidor **init \_ Connect** do servidor **mydemoserver
 az mysql flexible-server parameter set --name init_connect --resource-group myresourcegroup --server-name mydemoserver --value "SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;"
 ```
 >[!Note]
-> `init_connect` pode ser usado para mudar parâmetros que não exigem privilégio(s) SUPER no nível da sessão. Para verificar se você pode definir o parâmetro usando `init_connect`, execute o comando `set session parameter_name=YOUR_DESIRED_VALUE;` e, se ele apresentar o erro **Acesso negado, você precisa de privilégios SUPER**, não será possível definir o parâmetro usando "init_connect".
+> `init_connect` pode ser usado para mudar parâmetros que não exigem privilégio(s) SUPER no nível da sessão. Para verificar se você pode definir o parâmetro usando `init_connect`, execute o comando `set session parameter_name=YOUR_DESIRED_VALUE;` e, se ele apresentar o erro **Acesso negado, você precisa de privilégios SUPER** , não será possível definir o parâmetro usando "init_connect".
 
 ## <a name="working-with-the-time-zone-parameter"></a>Trabalhar com o parâmetro de fuso horário
 
@@ -94,7 +98,7 @@ SELECT name FROM mysql.time_zone_name;
 
 O fuso horário de nível global pode ser definido usando o comando [AZ MySQL flexível-Server Parameter Set](/cli/azure/mysql/flexible-server/parameter) .
 
-O comando a seguir atualiza o parâmetro de servidor de ** \_ fuso horário** do servidor **mydemoserver.mysql.Database.Azure.com** em grupo de recursos **MyResource** Group para **US/Pacífico**.
+O comando a seguir atualiza o parâmetro de servidor de **\_ fuso horário** do servidor **mydemoserver.mysql.Database.Azure.com** em grupo de recursos **MyResource** Group para **US/Pacífico**.
 
 ```azurecli-interactive
 az mysql flexible-server parameter set --name time_zone --resource-group myresourcegroup --server-name mydemoserver --value "US/Pacific"

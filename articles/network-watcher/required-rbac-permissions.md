@@ -10,14 +10,14 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 5e048729aa1d37a63678451525f8f37612c8c464
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 47418b9c5235255ff7dbf4a1a151e51e4c9aba58
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426748"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019662"
 ---
 # <a name="azure-role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Permissões de controle de acesso baseado em função do Azure necessárias para usar os recursos do observador de rede
 
@@ -90,6 +90,7 @@ O Azure RBAC (controle de acesso baseado em função) permite que você atribua 
 | Ação                                                              | Descrição                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/topology/action                   | Obter topologia                                                   |
+| Microsoft. Network/networkWatchers/Topology/Read                     | O mesmo que o descrito acima                                                  |
 
 ## <a name="reachability-report"></a>Relatório de acessibilidade
 
@@ -107,7 +108,7 @@ Os recursos do Observador de Rede também requerem as seguintes ações:
 | Microsoft.Authorization/\*/Read                                     | Usado para buscar as atribuições de função e as definições de política do Azure          |
 | Microsoft.Resources/subscriptions/resourceGroups/Read               | Usado para enumerar todos os grupos de recursos em uma assinatura    |
 | Microsoft.Storage/storageAccounts/Read                              | Usado para obter as propriedades da conta de armazenamento especificada   |
-| Microsoft. Storage/storageAccounts/listServiceSas/Action, </br> Microsoft. Storage/storageAccounts/listAccountSas/Action, <br> Microsoft.Storage/storageAccounts/listKeys/Action| Usado para buscar SAS (assinaturas de acesso compartilhado), permitindo o [acesso seguro à conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-sas-overview) e gravar na conta de armazenamento |
+| Microsoft. Storage/storageAccounts/listServiceSas/Action, </br> Microsoft. Storage/storageAccounts/listAccountSas/Action, <br> Microsoft.Storage/storageAccounts/listKeys/Action| Usado para buscar SAS (assinaturas de acesso compartilhado), permitindo o [acesso seguro à conta de armazenamento](../storage/common/storage-sas-overview.md) e gravar na conta de armazenamento |
 | Microsoft. Compute/virtualMachines/Read, </br> Microsoft.Compute/virtualMachines/Write| Usado para fazer logon na VM, fazer uma captura de pacote e carregá-la na conta de armazenamento|
 | Microsoft.Compute/virtualMachines/extensions/Read </br> Microsoft.Compute/virtualMachines/extensions/Write| Usado para verificar se a extensão do observador de rede está presente e instalar, se necessário |
 | Microsoft. Compute/virtualMachineScaleSets/Read, </br> Microsoft.Compute/virtualMachineScaleSets/Write| Usado para acessar conjuntos de dimensionamento de máquinas virtuais, fazer capturas de pacote e carregá-los na conta de armazenamento|

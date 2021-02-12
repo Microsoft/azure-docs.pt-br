@@ -4,11 +4,11 @@ description: Neste artigo, descubra como restaurar SAP HANA bancos de dados que 
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.openlocfilehash: c502b7741acd343baefe5e2bf8b95cfc02e46688
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986143"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021666"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Restaurar bancos de dados SAP HANA em VMs do Azure
 

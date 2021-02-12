@@ -1,14 +1,14 @@
 ---
 title: Saiba Azure Policy para kubernetes
 description: Saiba como o Azure Policy usa o Rego e o Open Policy Agent para gerenciar clusters que executam o Kubernetes no Azure ou localmente.
-ms.date: 09/29/2020
+ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: bd0dc08583b126b6260999ace14d8fc13c52c1f7
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f25b64bc28535d125c7883f16c9e747d6250ca96
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676697"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789731"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Noções básicas sobre clusters do Azure Policy para Kubernetes
 
@@ -25,7 +25,7 @@ O Azure Policy para Kubernetes dá suporte aos seguintes ambientes de cluster:
 - [Mecanismo do AKS](https://github.com/Azure/aks-engine/blob/master/docs/README.md)
 
 > [!IMPORTANT]
-> Os Complementos para o mecanismo AKS e o kubernetes habilitado para Arc estão em versão **prévia** . Azure Policy para kubernetes dá suporte apenas a pools de nós do Linux e definições de políticas internas. As definições de políticas internas estão na categoria **Kubernetes** . As definições de política de visualização limitada com o efeito **EnforceOPAConstraint** e **EnforceRegoPolicy** e a categoria de **serviço kubernetes** relacionado são _preteridas_ . Em vez disso, use a _auditoria_ de efeitos e a _negação_ com o modo do provedor de recursos `Microsoft.Kubernetes.Data` .
+> Os Complementos para o mecanismo AKS e o kubernetes habilitado para Arc estão em versão **prévia**. Azure Policy para kubernetes dá suporte apenas a pools de nós do Linux e definições de políticas internas. As definições de políticas internas estão na categoria **Kubernetes**. As definições de política de visualização limitada com o efeito **EnforceOPAConstraint** e **EnforceRegoPolicy** e a categoria de **serviço kubernetes** relacionado são _preteridas_. Em vez disso, use a _auditoria_ de efeitos e a _negação_ com o modo do provedor de recursos `Microsoft.Kubernetes.Data` .
 
 ## <a name="overview"></a>Visão geral
 
@@ -37,7 +37,7 @@ Para habilitar e usar o Azure Policy com o cluster do Kubernetes, execute as seg
    - [Mecanismo do AKS](#install-azure-policy-add-on-for-aks-engine)
 
    > [!NOTE]
-   > Para problemas comuns com a instalação, consulte o [complemento solucionar problemas-Azure Policy](../troubleshoot/general.md#add-on-installation-errors).
+   > Para problemas comuns com a instalação, consulte o [complemento solucionar problemas-Azure Policy](../troubleshoot/general.md#add-on-for-kubernetes-installation-errors).
 
 1. [Entender a linguagem do Azure Policy para Kubernetes](#policy-language)
 
@@ -62,7 +62,7 @@ As seguintes limitações gerais se aplicam ao complemento de Azure Policy para 
 As seguintes limitações se aplicam somente ao complemento Azure Policy para AKS:
 
 - A [política de segurança de Pod AKs](../../../aks/use-pod-security-policies.md) e o complemento Azure Policy para AKs não podem ser habilitados. Para obter mais informações, consulte [limitação de segurança do pod AKs](../../../aks/use-pod-security-on-azure-policy.md#limitations).
-- Namespaces excluídos automaticamente por Azure Policy complemento para avaliação: _Kube-System_ , _gatekeeper-System_ e _AKs-Periscope_ .
+- Namespaces excluídos automaticamente por Azure Policy complemento para avaliação: _Kube-System_, _gatekeeper-System_ e _AKs-Periscope_.
 
 ## <a name="recommendations"></a>Recomendações
 
@@ -85,7 +85,7 @@ A recomendação a seguir aplica-se somente ao AKS e ao complemento Azure Policy
 
 ## <a name="install-azure-policy-add-on-for-aks"></a>Instalar complemento do Azure Policy para AKS
 
-Antes de instalar o complemento do Azure Policy ou habilitar um dos recursos de serviço, sua assinatura precisará habilitar os provedores de recursos **Microsoft.ContainerService** e **Microsoft.PolicyInsights** .
+Antes de instalar o complemento do Azure Policy ou habilitar um dos recursos de serviço, sua assinatura precisará habilitar os provedores de recursos **Microsoft.ContainerService** e **Microsoft.PolicyInsights**.
 
 1. Você precisa do CLI do Azure versão 2.12.0 ou posterior instalado e configurado. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
@@ -93,7 +93,7 @@ Antes de instalar o complemento do Azure Policy ou habilitar um dos recursos de 
 
    - Portal do Azure:
 
-     Registre os provedores de recursos **Microsoft.ContainerService** e **Microsoft.PolicyInsights** . Para obter as etapas, confira [Provedores e tipos de recurso](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
+     Registre os provedores de recursos **Microsoft.ContainerService** e **Microsoft.PolicyInsights**. Para obter as etapas, confira [Provedores e tipos de recurso](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
    - CLI do Azure:
 
@@ -124,13 +124,13 @@ Depois que as etapas de pré-requisito acima forem concluídas, instale o comple
 
 - Portal do Azure
 
-  1. Inicie o serviço AKS no portal do Azure selecionando **todos os serviços** , em seguida, procurando e selecionando **Serviços Kubernetess** .
+  1. Inicie o serviço AKS no portal do Azure selecionando **todos os serviços**, em seguida, procurando e selecionando **Serviços Kubernetess**.
 
   1. Selecione um dos clusters do AKS.
 
   1. Selecione **políticas** no lado esquerdo da página do serviço kubernetes.
 
-  1. Na página principal, selecione o botão **Habilitar complemento** .
+  1. Na página principal, selecione o botão **Habilitar complemento**.
 
      <a name="migrate-from-v1"></a>
      > [!NOTE]
@@ -217,7 +217,7 @@ Antes de instalar o complemento do Azure Policy ou de habilitar qualquer um dos 
    |`login.windows.net` |`443` |
    |`dc.services.visualstudio.com` |`443` |
 
-1. Faça a atribuição de função “Gravador de Dados de Insights do Policy (Versão Prévia)” ao cluster do Kubernetes habilitado para Azure Arc. Substitua `<subscriptionId>` pela sua ID da assinatura, `<rg>` pelo grupo de recursos do cluster do Kubernetes habilitado para Azure Arc e `<clusterName>` pelo nome do cluster do Kubernetes habilitado para Azure Arc. Anote os valores retornados de _appId_ , _senha_ e _locatário_ para as etapas de instalação.
+1. Faça a atribuição de função “Gravador de Dados de Insights do Policy (Versão Prévia)” ao cluster do Kubernetes habilitado para Azure Arc. Substitua `<subscriptionId>` pela sua ID da assinatura, `<rg>` pelo grupo de recursos do cluster do Kubernetes habilitado para Azure Arc e `<clusterName>` pelo nome do cluster do Kubernetes habilitado para Azure Arc. Anote os valores retornados de _appId_, _senha_ e _locatário_ para as etapas de instalação.
 
    - CLI do Azure
 
@@ -384,13 +384,13 @@ Para atribuir uma definição de política ao cluster do kubernetes, você deve 
 
 Encontre as definições de política internas para gerenciar seu cluster por meio do portal do Azure com as seguintes etapas:
 
-1. Inicie o serviço do Azure Policy no portal do Azure. Selecione **Todos os serviços** no painel esquerdo e, em seguida, pesquise e selecione **Política** .
+1. Inicie o serviço do Azure Policy no portal do Azure. Selecione **Todos os serviços** no painel esquerdo e, em seguida, pesquise e selecione **Política**.
 
-1. No painel esquerdo da página do Azure Policy, selecione **Definições** .
+1. No painel esquerdo da página do Azure Policy, selecione **Definições**.
 
-1. Na caixa de listagem suspensa Categoria, use **Selecionar tudo** para limpar o filtro e, em seguida, selecione **Kubernetes** .
+1. Na caixa de listagem suspensa Categoria, use **Selecionar tudo** para limpar o filtro e, em seguida, selecione **Kubernetes**.
 
-1. Selecione a definição de política e, em seguida, o botão **Atribuir** .
+1. Selecione a definição de política e, em seguida, o botão **Atribuir**.
 
 1. Defina o **Escopo** do grupo de gerenciamento, a assinatura ou o grupo de recursos do cluster do Kubernetes ao qual a atribuição de política será aplicada.
 
@@ -401,22 +401,22 @@ Encontre as definições de política internas para gerenciar seu cluster por me
 
 1. Defina a [imposição de política](./assignment-structure.md#enforcement-mode) para um dos valores abaixo.
 
-   - **Habilitado** : impõe a política no cluster. As solicitações de admissão de Kubernetes com violações são negadas.
+   - **Habilitado**: impõe a política no cluster. As solicitações de admissão de Kubernetes com violações são negadas.
 
-   - **Desabilitado** : não impõe a política no cluster. As solicitações de admissão de Kubernetes com violações não são negadas. Os resultados da avaliação de conformidade ainda estão disponíveis. Quando você distribui novas definições de política aos clusters em execução, a opção _Desabilitado_ é útil para testar a definição de política, pois as solicitações de admissão com violações não são negadas.
+   - **Desabilitado**: não impõe a política no cluster. As solicitações de admissão de Kubernetes com violações não são negadas. Os resultados da avaliação de conformidade ainda estão disponíveis. Quando você distribui novas definições de política aos clusters em execução, a opção _Desabilitado_ é útil para testar a definição de política, pois as solicitações de admissão com violações não são negadas.
 
-1. Selecione **Avançar** .
+1. Selecione **Avançar**.
 
 1. Definir **valores de parâmetro**
 
-   - Para excluir namespaces de Kubernetes da avaliação da política, especifique a lista de namespaces no parâmetro **Exclusões de namespace** . É recomendável excluir: _kube-system_ , _gatekeeper-system_ e _azure-arc_ .
+   - Para excluir namespaces de Kubernetes da avaliação da política, especifique a lista de namespaces no parâmetro **Exclusões de namespace**. É recomendável excluir: _kube-system_, _gatekeeper-system_ e _azure-arc_.
 
-1. Selecione **Examinar + criar** .
+1. Selecione **Examinar + criar**.
 
 Como alternativa, use o início rápido [Atribuir uma política – Portal](../assign-policy-portal.md) para localizar e atribuir uma política do Kubernetes. Procure uma definição de política de Kubernetes em vez do exemplo “audit vms”.
 
 > [!IMPORTANT]
-> As definições de política internas estão disponíveis para clusters do Kubernetes na categoria **Kubernetes** . Para obter uma lista de definições de política internas, confira [exemplos de Kubernetes](../samples/built-in-policies.md#kubernetes).
+> As definições de política internas estão disponíveis para clusters do Kubernetes na categoria **Kubernetes**. Para obter uma lista de definições de política internas, confira [exemplos de Kubernetes](../samples/built-in-policies.md#kubernetes).
 
 ## <a name="policy-evaluation"></a>Avaliação da política
 
@@ -436,6 +436,14 @@ A cada 15 minutos, o complemento chama um exame completo do cluster. Depois de c
 > [!NOTE]
 > Cada relatório de conformidade no Azure Policy de seus clusters do Kubernetes inclui todas as violações nos últimos 45 minutos. O carimbo de data/hora indica quando ocorreu uma violação.
 
+Algumas outras considerações:
+
+- Se a assinatura do cluster estiver registrada na central de segurança do Azure, as políticas de kubernetes da central de segurança do Azure serão aplicadas automaticamente no cluster.
+
+- Quando uma política de negação é aplicada ao cluster com recursos kubernetes existentes, qualquer recurso preexistente que não esteja em conformidade com a nova política continuará a ser executado. Quando o recurso sem conformidade é reagendado em um nó diferente, o gatekeeper bloqueia a criação do recurso.
+
+- Quando um cluster tem uma política de negação que valida os recursos, o usuário não verá uma mensagem de rejeição ao criar uma implantação. Por exemplo, considere uma implantação kubernetes que contém replicasets e pods. Quando um usuário é executado `kubectl describe deployment $MY_DEPLOYMENT` , ele não retorna uma mensagem de rejeição como parte dos eventos. No entanto, `kubectl describe replicasets.apps $MY_DEPLOYMENT` retorna os eventos associados à rejeição.
+
 ## <a name="logging"></a>Registro em log
 
 Como um controlador/contêiner do Kubernetes, os pods _azure-policy_ e _gatekeeper_ mantêm os logs no cluster do Kubernetes. Os logs podem ser expostos na página **Insights** do cluster do Kubernetes.
@@ -453,6 +461,10 @@ kubectl logs <gatekeeper pod name> -n gatekeeper-system
 
 Para obter mais informações, confira [Depuração do Gatekeeper](https://github.com/open-policy-agent/gatekeeper#debugging) na documentação do Gatekeeper.
 
+## <a name="troubleshooting-the-add-on"></a>Solução de problemas do complemento
+
+Para obter mais informações sobre como solucionar problemas do complemento para kubernetes, consulte a [seção kubernetes](../troubleshoot/general.md#add-on-for-kubernetes-general-errors) do artigo Azure Policy solução de problemas.
+
 ## <a name="remove-the-add-on"></a>Remover o complemento
 
 ### <a name="remove-the-add-on-from-aks"></a>Remover o complemento do AKS
@@ -461,13 +473,13 @@ Para remover o complemento do Azure Policy que está no cluster do AKS, use o po
 
 - Portal do Azure
 
-  1. Inicie o serviço AKS no portal do Azure selecionando **todos os serviços** , em seguida, procurando e selecionando **Serviços Kubernetess** .
+  1. Inicie o serviço AKS no portal do Azure selecionando **todos os serviços**, em seguida, procurando e selecionando **Serviços Kubernetess**.
 
   1. Selecione o cluster do AKS no qual você deseja desabilitar o complemento do Azure Policy.
 
   1. Selecione **políticas** no lado esquerdo da página do serviço kubernetes.
 
-  1. Na página principal, selecione o botão **Desabilitar complemento** .
+  1. Na página principal, selecione o botão **Desabilitar complemento**.
 
 - CLI do Azure
 

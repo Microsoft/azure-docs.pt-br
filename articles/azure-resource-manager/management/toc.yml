@@ -103,6 +103,8 @@
               href: ../../site-recovery/move-vaults-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Rede virtual
               href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
+            - name: NIC (Adaptador de Rede)
+              href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Servidor do Banco de Dados do Azure para PostgreSQL
               href: ../../postgresql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Servidor do Banco de Dados do Azure para MariaDB
@@ -144,7 +146,7 @@
     - name: Assinaturas de EA
       items:
         - name: Criar
-          href: ../../cost-management-billing/manage/programmatically-create-subscription.md?toc=/azure/azure-resource-manager/management/toc.json
+          href: ../../cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Permitir acesso para criar
           href: ../../cost-management-billing/manage/grant-access-to-create-subscription.md?toc=/azure/azure-resource-manager/management/toc.json
     - name: Provedores e tipos de recursos
@@ -180,6 +182,8 @@
       href: ./policy-reference.md
 - name: Recursos
   items:
+    - name: Desenvolva suas habilidades com o Microsoft Learn
+      href: /learn/browse/?products=azure-resource-manager
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
     - name: Calculadora de preço

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 290990e312a7f591539686ecce1eec1ac742dd60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0dcaec9c8e9a310af1fd6fc319e0784694610e2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89443017"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463077"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Mover dados do Amazon Redshift usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -61,12 +61,12 @@ A tabela a seguir fornece descrições dos elementos JSON específicos para o se
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| **tipo** |Essa propriedade deve ser definida como: **AmazonRedshift**. |Sim |
-| **server** |O endereço IP ou nome do host do servidor Amazon Redshift. |Sim |
+| **tipo** |Essa propriedade deve ser definida como: **AmazonRedshift**. |Yes |
+| **server** |O endereço IP ou nome do host do servidor Amazon Redshift. |Yes |
 | **port** |O número da porta TCP usada pelo servidor Amazon Redshift para ouvir conexões de cliente. |Não (o padrão é 5439) |
-| **database** |O nome do banco de dados do Amazon Redshift. |Sim |
-| **username** |O nome de usuário que tem acesso ao banco de dados. |Sim |
-| **password** |A senha para a conta de usuário. |Sim |
+| **database** |O nome do banco de dados do Amazon Redshift. |Yes |
+| **username** |O nome de usuário que tem acesso ao banco de dados. |Yes |
+| **password** |A senha para a conta de usuário. |Yes |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
@@ -87,7 +87,7 @@ Para a atividade de cópia, quando a origem é do tipo **AmazonRedshiftSource**,
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | **consulta** | Use a consulta personalizada para ler os dados. |Não (se a propriedade **tableName** de um conjunto de dados for especificada) |
-| **redshiftUnloadSettings** | Contém o grupo de propriedades ao usar o comando **UNLOAD** do Redshift. | Não |
+| **redshiftUnloadSettings** | Contém o grupo de propriedades ao usar o comando **UNLOAD** do Redshift. | No |
 | **s3LinkedServiceName** | O Amazon S3 para usar como um repositório provisório. O serviço vinculado é especificado usando um nome do Azure Data Factory do tipo **AwsAccessKey**. | Necessário ao usar a propriedade **redshiftUnloadSettings** |
 | **bucketName** | Indica o bucket do Amazon S3 a ser usado para armazenar os dados provisórios. Se essa propriedade não for fornecida, a atividade de cópia gerará um bucket automaticamente. | Necessário ao usar a propriedade **redshiftUnloadSettings** |
 
@@ -101,7 +101,7 @@ Como alternativa, você pode usar o tipo **RelationalSource**, que inclui o Amaz
 
 O comando [**UNLOAD**](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) do Amazon Redshift descarrega os resultados de uma consulta para um ou mais arquivos no Amazon S3. Esse comando é recomendado pela Amazon para copiar conjuntos de dados grandes do Redshift.
 
-**Exemplo: copiar dados do Amazon redshift para o Azure Synapse Analytics (anteriormente SQL Data Warehouse)**
+**Exemplo: copiar dados do Amazon redshift para o Azure Synapse Analytics**
 
 Este exemplo copia dados do Amazon redshift para o Azure Synapse Analytics. O exemplo usa o comando **UNLOAD** do Redshift, dados de cópia em etapas e o Microsoft PolyBase.
 
@@ -333,14 +333,14 @@ Os seguintes mapeamentos são usados quando a Atividade de Cópia converte os da
 | INTEGER |Int32 |
 | bigint |Int64 |
 | DECIMAL |Decimal |
-| real |Single |
-| DOUBLE PRECISION |Double |
-| BOOLEAN |Cadeia de caracteres |
+| real |Único |
+| DOUBLE PRECISION |Duplo |
+| BOOLEAN |String |
 | CHAR |String |
 | VARCHAR |String |
 | DATE |Datetime |
 | timestamp |Datetime |
-| TEXT |Cadeia de caracteres |
+| TEXT |String |
 
 ## <a name="map-source-to-sink-columns"></a>Mapear origem para colunas de coletor
 Para saber mais sobre como mapear colunas no conjunto de dados de origem para colunas no conjunto de dados de coletor, confira [Mapeando colunas de conjunto de dados no Azure Data Factory](data-factory-map-columns.md).

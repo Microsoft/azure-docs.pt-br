@@ -4,21 +4,21 @@ description: Excluir usuários em massa no centro de administração do Azure no
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 04/27/2020
+manager: daveba
+ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4146fb6bfe6c06e699df1f563e1f26e0716b023
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b57d675003c1ebeb29927b86338f95cf7dd68090
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374286"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574456"
 ---
 # <a name="bulk-delete-users-in-azure-active-directory"></a>Excluir usuários em massa no Azure Active Directory
 
@@ -81,7 +81,7 @@ Em seguida, você pode verificar para ver se os usuários que você excluiu exis
 
 ### <a name="verify-deleted-users-with-powershell"></a>Verificar usuários excluídos com o PowerShell
 
-Execute o seguinte comando:
+Execute o comando a seguir:
 
 ``` PowerShell
 Get-AzureADUser -Filter "UserType eq 'Member'"

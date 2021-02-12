@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 01/12/2021
 ms.author: yulili
 ms.custom: references_regions
-zone_pivot_groups: programming-languages-set-nineteen
-ms.openlocfilehash: 245a00acb07d1c0e769a243413fccdf64d544f5a
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+zone_pivot_groups: programming-languages-speech-services-nomore-variant
+ms.openlocfilehash: 8602d43113f4ce21cdb430e1fa3e83f006c64753
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133490"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185556"
 ---
 # <a name="pronunciation-assessment"></a>Avaliação de pronúncia
 
@@ -128,6 +128,26 @@ pronunciation_score = pronunciation_assessment_result.pronunciation_score
 
 ::: zone-end
 
+::: zone pivot="programming-language-javascript"
+
+```Javascript
+var pronunciationAssessmentConfig = new SpeechSDK.PronunciationAssessmentConfig("reference text",
+    PronunciationAssessmentGradingSystem.HundredMark,
+    PronunciationAssessmentGranularity.Word, true);
+var speechRecognizer = SpeechSDK.SpeechRecognizer.FromConfig(speechConfig, audioConfig);
+// apply the pronunciation assessment configuration to the speech recognizer
+pronunciationAssessmentConfig.applyTo(speechRecognizer);
+
+speechRecognizer.recognizeOnceAsync((result: SpeechSDK.SpeechRecognitionResult) => {
+        var pronunciationAssessmentResult = SpeechSDK.PronunciationAssessmentResult.fromResult(result);
+        var pronunciationScore = pronResult.pronunciationScore;
+        var wordLevelResult = pronResult.detailResult.Words;
+},
+{});
+```
+
+::: zone-end
+
 ::: zone pivot="programming-language-objectivec"
 
 ```Objective-C
@@ -154,12 +174,12 @@ double pronunciationScore = pronunciationAssessmentResult.pronunciationScore;
 
 Esta tabela lista os parâmetros de configuração para avaliação de pronúncia.
 
-| Parâmetro | Descrição | Obrigatório/Opcional |
+| Parâmetro | Descrição | Necessário? |
 |-----------|-------------|---------------------|
 | ReferenceText | O texto em relação ao qual a pronúncia será avaliada. | Obrigatório |
-| GradingSystem | O sistema de ponto para a calibragem de pontuação. Os valores aceitos são `FivePoint` e `HundredMark`. A configuração padrão é `FivePoint`. | Opcional |
-| Granularidade | A granularidade da avaliação. Os valores aceitos são `Phoneme` , que mostra a pontuação no nível de texto completo, Word e fonema, `Word` , que mostra a pontuação no texto completo e no nível de palavra, `FullText` , que mostra a pontuação somente no nível de texto completo. A configuração padrão é `Phoneme`. | Opcional |
-| EnableMiscue | Habilita o cálculo de miscue. Com isso habilitado, as palavras pronunciadas serão comparadas ao texto de referência e serão marcadas com omissão/inserção com base na comparação. Os valores aceitos são `False` e `True`. A configuração padrão é `False`. | Opcional |
+| GradingSystem | O sistema de ponto para a calibragem de pontuação. O `FivePoint` sistema fornece uma pontuação de ponto flutuante de 0-5 e `HundredMark` fornece uma pontuação de ponto flutuante de 0-100. Padrão: `FivePoint`. | Opcional |
+| Granularidade | A granularidade da avaliação. Os valores aceitos são `Phoneme` , que mostra a pontuação no nível de texto completo, Word e fonema, `Word` , que mostra a pontuação no texto completo e no nível de palavra, `FullText` , que mostra a pontuação somente no nível de texto completo. Padrão: `Phoneme`. | Opcional |
+| EnableMiscue | Habilita o cálculo de miscue. Com isso habilitado, as palavras pronunciadas serão comparadas ao texto de referência e serão marcadas com omissão/inserção com base na comparação. Os valores aceitos são `False` e `True`. Padrão: `False`. | Opcional |
 | Scenarioid | Um GUID que indica um sistema de ponto personalizado. | Opcional |
 
 ### <a name="pronunciation-assessment-result-parameters"></a>Parâmetros de resultado da avaliação de pronúncia
@@ -176,26 +196,26 @@ Esta tabela lista os parâmetros de resultado da avaliação de pronúncia.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-<!-- TODO: update the sample links after release -->
+<!-- TODO: update JavaScript sample links after release -->
 
-<!-- ::: zone pivot="programming-language-csharp"
-* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#L741) on GitHub for automatic language detection
+::: zone pivot="programming-language-csharp"
+* Consulte o [código de exemplo](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#L949) no GitHub para avaliação de pronúncia.
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#L507) on GitHub for automatic language detection
+* Consulte o [código de exemplo](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#L633) no GitHub para avaliação de pronúncia.
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java#L521) on GitHub for automatic language detection
+* Consulte o [código de exemplo](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java#L697) no GitHub para avaliação de pronúncia.
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_synthesis_sample.py#L434) on GitHub for automatic language detection
+* Consulte o [código de exemplo](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py#L576) no GitHub para avaliação de pronúncia.
 ::: zone-end
 
 ::: zone pivot="programming-language-objectivec"
-* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m#L494) on GitHub for automatic language detection
-::: zone-end -->
+* Consulte o [código de exemplo](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m#L642) no GitHub para avaliação de pronúncia.
+::: zone-end
 
 * [Documentação de referência do SDK de fala](speech-sdk.md)

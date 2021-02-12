@@ -2,7 +2,7 @@
 title: Verificar a integridade de Azure Active Directory Domain Services | Microsoft Docs
 description: Saiba como verificar a integridade de um domínio gerenciado Azure Active Directory Domain Services (Azure AD DS) e entender as mensagens de status usando o portal do Azure.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 8999eec3-f9da-40b3-997a-7a2587911e96
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: bf65657ea60e94f167bfbb6585026702b64e9658
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 92cc6157c590d3e05b4002e0f071c08e4ec23a16
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962727"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620317"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Verificar a integridade de um domínio gerenciado Azure Active Directory Domain Services
 
@@ -38,7 +38,7 @@ O carimbo de data/hora *último avaliado* da página de integridade mostra quand
 
 O status no canto superior direito indica a integridade geral do domínio gerenciado. O status considera todos os alertas existentes em seu domínio. A tabela a seguir detalha os indicadores de status disponíveis:
 
-| Status | ícone | Explicação |
+| Status | Ícone | Explicação |
 | --- | :----: | --- |
 | Executando | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | O domínio gerenciado está sendo executado corretamente e não tem nenhum alerta crítico ou de aviso. O domínio pode ter alertas informativos. |
 | Requer atenção (aviso) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15" alt="Yellow exclamation mark for warning"> | Não há alertas críticos no domínio gerenciado, mas há um ou mais alertas de aviso que devem ser resolvidos. |
@@ -47,7 +47,7 @@ O status no canto superior direito indica a integridade geral do domínio gerenc
 
 ## <a name="understand-monitors-and-alerts"></a>Entender monitores e alertas
 
-O status de integridade de um domínio gerenciado mostra dois tipos de informações – *monitores*e *alertas*. Monitores mostram a hora em que as tarefas de segundo plano de núcleo foram concluídas. Os alertas fornecem informações ou sugestões para melhorar a estabilidade do domínio gerenciado.
+O status de integridade de um domínio gerenciado mostra dois tipos de informações – *monitores* e *alertas*. Monitores mostram a hora em que as tarefas de segundo plano de núcleo foram concluídas. Os alertas fornecem informações ou sugestões para melhorar a estabilidade do domínio gerenciado.
 
 ### <a name="monitors"></a>Monitores
 

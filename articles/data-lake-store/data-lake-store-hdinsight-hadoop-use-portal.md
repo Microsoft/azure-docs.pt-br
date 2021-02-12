@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: e901009063afa81c98dd86268ac8c9c6de725e5d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 666b39e2a600fe6ca004798ed4f8371cdd1dfe5f
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521009"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340247"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Criar clusters do HDInsight com o Gen1 do Azure Data Lake Storage usando o portal do Azure
 
@@ -70,7 +70,7 @@ Para criar um cluster HDInsight com Data Lake Storage Gen1 como uma conta de arm
 
     ![Armazenamento adicional das configurações da conta de armazenamento do HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png)
 
-    * **Método de seleção** – para especificar uma conta de armazenamento que faça parte de sua assinatura do Azure, selecione **minhas assinaturas**e, em seguida, selecione a conta de armazenamento. Para especificar uma conta de armazenamento que está fora de sua assinatura do Azure, selecione **Chave de acesso** e, em seguida, forneça as informações da conta de armazenamento externa.
+    * **Método de seleção** – para especificar uma conta de armazenamento que faça parte de sua assinatura do Azure, selecione **minhas assinaturas** e, em seguida, selecione a conta de armazenamento. Para especificar uma conta de armazenamento que está fora de sua assinatura do Azure, selecione **Chave de acesso** e, em seguida, forneça as informações da conta de armazenamento externa.
 
     * **Contêiner padrão** – use o valor padrão ou especifique seu próprio nome.
     * **Contas de armazenamento adicionais** – adicione mais contas de armazenamento do Azure como o armazenamento adicional.
@@ -85,14 +85,14 @@ Nesta seção, você configura o acesso do Data Lake Storage Gen1 a partir de cl
 No portal do Azure, você pode usar uma entidade de serviço existente ou criar uma nova.
 
 Para criar uma entidade de serviço do portal do Azure:
-1. Consulte [criar entidade de serviço e certificados](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) usando Azure Active Directory.
+1. Consulte [criar entidade de serviço e certificados](../active-directory/develop/howto-create-service-principal-portal.md) usando Azure Active Directory.
 
 Para usar uma entidade de serviço existente do portal do Azure:
 
 1. A entidade de serviço deve ter permissões de proprietário na conta de armazenamento. Consulte [configurar permissões para a entidade de serviço como proprietário na conta de armazenamento](#configure-serviceprincipal-permissions).
 1. Selecione **acesso a data Lake Store**.
 1. Na folha **acesso data Lake Storage Gen1** , selecione **usar existente**.
-1. Selecione **entidade de serviço**e, em seguida, selecione uma entidade de serviço.
+1. Selecione **entidade de serviço** e, em seguida, selecione uma entidade de serviço.
 1. Carregue o certificado (arquivo .pfx) associado à entidade de serviço selecionada e insira a senha do certificado.
 
     ![Adicionar entidade de serviço no cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png)
@@ -123,7 +123,7 @@ Para atribuir permissão na conta de armazenamento com Data Lake Storage Gen1 no
 
     ![Selecionar permissões de arquivo](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png)
 
-   Por padrão, __ler__, __gravar__e __executar__ estão todos selecionados.
+   Por padrão, __ler__, __gravar__ e __executar__ estão todos selecionados.
 
 1. Clique em **Selecionar** na parte inferior da página.
 1. Selecione **executar** para atribuir permissão.
@@ -200,4 +200,4 @@ Você pode usar a conta de armazenamento com Data Lake Storage Gen1 para gravar 
 * [PowerShell: crie um cluster do HDInsight para usar o Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 [makecert]: /windows-hardware/drivers/devtest/makecert
-[pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
+[pvk2pfx]: /windows-hardware/drivers/devtest/pvk2pfx

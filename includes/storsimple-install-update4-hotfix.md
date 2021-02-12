@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 89ad3dfffa82f062ef8bc808da19440adfa32f05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc42c22579346c272ee5a6f41147e6b5b09643ba
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86050232"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95556874"
 ---
 #### <a name="to-download-hotfixes"></a>Para baixar os hotfixes
 
@@ -101,7 +101,7 @@ Siga as etapas abaixo para instalar e verificar os hotfixes do modo normal. Caso
    * `FriendlySoftwareVersion: StorSimple 8000 Series Update 4.0`
    * `HcsSoftwareVersion: 6.3.9600.17820`
    
-     Se o número de versão não mudar após a aplicação da atualização, isso indica que houve falha na aplicação do hotfix. Caso isso aconteça, entre em contato com o [Suporte da Microsoft](../articles/storsimple/storsimple-contact-microsoft-support.md) para obter mais ajuda.
+     Se o número de versão não mudar após a aplicação da atualização, isso indica que houve falha na aplicação do hotfix. Caso isso aconteça, entre em contato com o [Suporte da Microsoft](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) para obter mais ajuda.
      
      > [!IMPORTANT]
      > Você deve reiniciar o controlador ativo via cmdlet `Restart-HcsController` antes de aplicar a próxima atualização.
@@ -267,4 +267,3 @@ Para instalar as atualizações de firmware de disco, siga as instruções abaix
    `Exit-HcsMaintenanceMode`
 
 5. Os controladores são reiniciados quando você sai do modo de manutenção. Depois que as atualizações do firmware de disco forem aplicadas com êxito e o dispositivo tiver saído do modo de manutenção, retorne ao portal clássico do Azure. Observe que, por 24 horas, o portal poderá não mostrar que as atualizações do modo de manutenção foram instaladas.
-

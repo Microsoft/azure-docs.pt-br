@@ -5,11 +5,11 @@ ms.service: expressroute
 ms.topic: include
 ms.author: cherylmc
 ms.openlocfilehash: f04861d55c9cea3c79f4983f7be2e1f5a3c6d864
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74926238"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018131"
 ---
 Instale as versões mais recentes dos módulos PowerShell do SM (Gerenciamento de Serviços) do Azure e do módulo ExpressRoute. Você não pode usar o ambiente do Azure Cloud Shell para executar módulos SM.
 

@@ -12,17 +12,20 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 38be8b97b3255e4e63301e693d2a5f295e8d801b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b4480f3d28cb89165a6ba3c5b26b10b1aba9765c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779961"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461840"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell e o CLI do Azure: habilitar Transparent Data Encryption com chave gerenciada pelo cliente de Azure Key Vault
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Este artigo explica como usar uma chave de Azure Key Vault para Transparent Data Encryption (TDE) no banco de dados SQL do Azure ou no Azure Synapse Analytics (anteriormente SQL Data Warehouse). Para saber mais sobre a integração da TDE com o Azure Key Vault - Suporte a Bring Your Own Key (BYOK), visite [TDE com chaves gerenciadas pelo cliente no Azure Key Vault](transparent-data-encryption-byok-overview.md).
+Este artigo explica como usar uma chave de Azure Key Vault para Transparent Data Encryption (TDE) no banco de dados SQL do Azure ou no Azure Synapse Analytics. Para saber mais sobre a integração da TDE com o Azure Key Vault - Suporte a Bring Your Own Key (BYOK), visite [TDE com chaves gerenciadas pelo cliente no Azure Key Vault](transparent-data-encryption-byok-overview.md).
+
+> [!NOTE] 
+> O SQL do Azure agora dá suporte ao uso de uma chave RSA armazenada em um HSM gerenciado como um protetor de TDE. Este recurso está em **Visualização pública**. Azure Key Vault HSM gerenciado é um serviço de nuvem compatível com os padrões de um único locatário, altamente disponível e totalmente gerenciado que permite proteger chaves criptográficas para seus aplicativos de nuvem, usando HSMs validados pelo FIPS 140-2 nível 3. Saiba mais sobre [HSMs gerenciados](../../key-vault/managed-hsm/index.yml).
 
 ## <a name="prerequisites-for-powershell"></a>Pré-requisitos para PowerShell
 
@@ -36,13 +39,14 @@ Este artigo explica como usar uma chave de Azure Key Vault para Transparent Data
 - A chave deve ter os seguintes atributos a serem usados para TDE:
   - Sem data de validade
   - Não desabilitado
-  - Capaz de realizar operações *get* , *codificar chave* , *decodificar chave*
+  - Capaz de realizar operações *get*, *codificar chave*, *decodificar chave*
+- **(Em versão prévia)** Para usar uma chave HSM gerenciada, siga as instruções para [criar e ativar um HSM gerenciado usando o CLI do Azure](../../key-vault/managed-hsm/quick-create-cli.md)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Para obter instruções de instalação do módulo Az, confira [Instalar o Azure PowerShell](/powershell/azure/install-az-ps). Para obter cmdlets específicos, consulte [AzureRM. SQL](/powershell/module/AzureRM.Sql/).
 
-Para obter informações específicas sobre Key Vault, consulte [instruções do PowerShell do Key Vault](../../key-vault/secrets/quick-create-powershell.md) e [como usar Key Vault exclusão reversível com o PowerShell](../../key-vault/general/soft-delete-powershell.md).
+Para obter informações específicas sobre Key Vault, consulte [instruções do PowerShell do Key Vault](../../key-vault/secrets/quick-create-powershell.md) e [como usar Key Vault exclusão reversível com o PowerShell](../../key-vault/general/key-vault-recovery.md).
 
 > [!IMPORTANT]
 > Ainda há suporte para o módulo do ARM (Azure Resource Manager) do PowerShell, mas todo o desenvolvimento futuro destina-se ao módulo Az.Sql. O módulo AzureRM continuará a receber as correções de bugs até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para saber mais sobre a compatibilidade entre eles, confira [Apresentação do novo módulo Az do Azure PowerShell](/powershell/azure/new-azureps-module-az).
@@ -70,6 +74,8 @@ Use o cmdlet [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azk
    Set-AzKeyVaultAccessPolicy -VaultName <KeyVaultName> `
        -ObjectId $server.Identity.PrincipalId -PermissionsToKeys get, wrapKey, unwrapKey
    ```
+Para adicionar permissões ao seu servidor em um HSM gerenciado, adicione a função de RBAC local ' criptografia do serviço de criptografia HSM gerenciada ' ao servidor. Isso permitirá que o servidor execute operações Get, wrap Key, sem encapsulamento de chave nas chaves no HSM gerenciado.
+[Instruções para provisionar o acesso ao servidor no HSM gerenciado](../../key-vault/managed-hsm/role-management.md)
 
 ## <a name="add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Adicionar a chave do Key Vault ao servidor e definir o Protetor de TDE
 
@@ -79,10 +85,15 @@ Use o cmdlet [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azk
 - Use o cmdlet [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) para confirmar se o protetor de TDE foi configurado como pretendido.
 
 > [!NOTE]
+> **(Em versão prévia)** Para chaves HSM gerenciadas, use AZ. SQL 2.11.1 versão do PowerShell.
+
+> [!NOTE]
 > O comprimento combinado para o nome do cofre de chaves e o nome da chave não pode exceder 94 caracteres.
 
 > [!TIP]
-> Um exemplo de KeyId do Key Vault: https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
+> Um exemplo de KeyId do Key Vault: <br/>https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
+>
+> Um KeyId de exemplo do HSM gerenciado:<br/>https://contosoMHSM.managedhsm.azure.net/keys/myrsakey
 
 ```powershell
 # add the key from Key Vault to the server
@@ -125,7 +136,7 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
 
 Para instalar a versão necessária do CLI do Azure (versão 2,0 ou posterior) e conectar-se à sua assinatura do Azure, consulte [instalar e configurar a interface de Command-Line de plataforma cruzada do azure 2,0](/cli/azure/install-azure-cli).
 
-Para obter informações específicas sobre Key Vault, consulte [gerenciar Key Vault usando a cli 2,0](../../key-vault/general/manage-with-cli2.md) e [como usar Key Vault exclusão reversível com a CLI](../../key-vault/general/soft-delete-cli.md).
+Para obter informações específicas sobre Key Vault, consulte [gerenciar Key Vault usando a cli 2,0](../../key-vault/general/manage-with-cli2.md) e [como usar Key Vault exclusão reversível com a CLI](../../key-vault/general/key-vault-recovery.md).
 
 ## <a name="assign-an-azure-ad-identity-to-your-server"></a>Atribuir uma identidade do Azure AD ao servidor
 
@@ -239,7 +250,7 @@ Se um problema ocorrer, verifique o seguinte:
 
 - Se a nova chave não puder ser adicionada ao servidor, ou a nova chave não puder ser atualizada como o protetor de TDE, verifique o seguinte:
    - A chave não deve ter uma data de validade
-   - A chave deve ter as operações *get* , *codificar chave* e *decodificar chave* habilitadas.
+   - A chave deve ter as operações *get*, *codificar chave* e *decodificar chave* habilitadas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

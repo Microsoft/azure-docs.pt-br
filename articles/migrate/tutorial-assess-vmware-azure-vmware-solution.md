@@ -1,15 +1,18 @@
 ---
 title: Avaliar as VMs do VMware para migração para a AVS (Solução VMware do Azure) com as Migrações para Azure
 description: Aprenda como avaliar as VMs do VMware para migração para a AVS com a Avaliação de Servidor das Migrações para Azure.
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: 29f7f824d96aedd80e490ba84c390be4d9493683
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e57084dab00210802edbd46e3380313e034eb036
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604233"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98566772"
 ---
 # <a name="tutorial-assess-vmware-vms-for-migration-to-avs"></a>Tutorial: Avaliar VMs do VMware para migração para a AVS
 
@@ -55,58 +58,63 @@ Execute uma avaliação da seguinte maneira:
 
    ![Localização do botão Avaliar e migrar servidores](./media/tutorial-assess-vmware-azure-vmware-solution/assess.png)
 
-2. Em **Migrações para Azure: Avaliação de Servidor**, clique em **Avaliar**.
+1. Em **Migrações para Azure: Avaliação de Servidor**, clique em **Avaliar**.
 
-3. Em **Avaliar servidores** > **Tipo de avaliação**, selecione **AVS (Solução VMware do Azure) (versão prévia)** .
-4. Em **Origem da descoberta**:
+1. Em **Avaliar servidores** > **Tipo de avaliação**, selecione **AVS (Solução VMware do Azure) (versão prévia)** .
+
+1. Em **Origem da descoberta**:
 
     - Se você descobriu computadores usando o dispositivo, selecione **Computadores descobertos no dispositivo de Migrações para Azure**.
     - Se você descobriu computadores usando um arquivo CSV importado, selecione **Computadores importados**. 
     
-5. Especifique um nome para a avaliação. 
-6. Clique em **Exibir tudo** para examinar as propriedades da avaliação.
+1. Clique em **Editar** para examinar as propriedades da avaliação.
 
-    ![Página para selecionar as configurações de avaliação](./media/tutorial-assess-vmware-azure-vmware-solution/assess-servers.png)
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-servers.png" alt-text="Página para selecionar as configurações de avaliação":::
+ 
 
-
-7. Em **Propriedades de avaliação** > **Propriedades de Destino**:
+1. Em **Propriedades da avaliação** > **Propriedades de Destino**:
 
     - Em **Local de destino**, especifique a região do Azure para a qual você deseja migrar.
        - As recomendações de tamanho e custo são baseadas na localização especificada.
-       - Atualmente, você pode fazer a avaliação em três regiões (Leste dos EUA, Oeste dos EUA e Oeste da Europa)
-   - Em **Tipo de armazenamento**, mantenha **vSAN**. Esse é o tipo de armazenamento padrão para uma nuvem privada da AVS.
+       - Atualmente, você pode fazer a avaliação para quatro regiões (Leste da Austrália, Leste dos EUA, Oeste da Europa e Oeste dos EUA)
+   - O **Tipo de armazenamento** usa **vSAN** como padrão. Esse é o tipo de armazenamento padrão para uma nuvem privada da AVS.
    - No momento, não há suporte para **Instâncias Reservadas** em nós da AVS.
-8. Em **Tamanho da VM**:
-    - Em **Tipo de nó**, selecione um tipo de nó com base nas cargas de trabalho em execução nas VMs locais.
-        - As Migrações para Azure recomendam o uso de nós necessários para migrar as VMs para a AVS.
-        - O tipo de nó padrão é AV36.
+1. Em **Tamanho da VM**:
+    - O **Tipo de nó** usa **AV36** como padrão. As Migrações para Azure recomendam o uso de nós necessários para migrar as VMs para a AVS.
     - Em **Configuração FTT, nível de RAID**, selecione a combinação RAID e Tolerância a Falhas.  A opção FTT selecionada, combinada com o requisito de disco de VM local, determina o total de armazenamento vSAN necessário na AVS.
     - Em **Excesso de Assinatura de CPU**, especifique a proporção de núcleos virtuais associados a um núcleo físico no nó da AVS. Um Excesso de Assinatura maior que 4:1 pode causar degradação do desempenho, mas pode ser usado para cargas de trabalho do tipo servidor Web.
 
-9. Em **Tamanho do Nó**: 
+1. Em **Tamanho do Nó**: 
     - Em **Critério de Dimensionamento**, selecione se você deseja basear a avaliação em metadados estáticos ou em dados baseados em desempenho. Se você optar por usar dados de desempenho:
         - Em **Histórico de desempenho**, indique a duração dos dados em que você deseja basear a avaliação
         - Em **Utilização de percentual**, especifique o valor percentual que você deseja usar para a amostragem de desempenho. 
     - Em **Fator de conforto**, indique o buffer que você deseja usar durante a avaliação. Esse recurso detecta problemas como uso sazonal, histórico de desempenho baixo e prováveis aumentos no uso futuro. Por exemplo, se você usar um fator de conforto de dois:
     
         **Componente** | **Utilização efetiva** | **Adicionar fator de conforto (2.0)**
-        --- | --- | ---  
-        Núcleos | 2 | 4
-        Memória | 8 GB | 16 GB     
+        --- | --- | ---
+        Núcleos | 2  | 4
+        Memória | 8 GB | 16 GB  
 
-10. Em **Preços**:
+1. Em **Preços**:
     - Em **Oferta**, na [Oferta do Azure](https://azure.microsoft.com/support/legal/offer-details/) na qual você está inscrito é exibida a estimativa de custo dessa oferta de acordo com a Avaliação de Servidor.
     - Em **Moeda**, selecione a moeda de cobrança para sua conta.
     - Em **Desconto (%)** , adicione quaisquer descontos específicos à assinatura recebidos sobre a oferta do Azure. A configuração padrão é 0%.
 
-11. Clique em **Salvar** se você fizer alterações.
+1. Clique em **Salvar** se você fizer alterações.
 
-    ![Propriedades de avaliação](./media/tutorial-assess-vmware-azure-vmware-solution/view-all.png)
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-view-all.png" alt-text="Propriedades de avaliação":::
 
-12. Em **Avaliar Servidores**, clique em **Próximo**.
-13. Em **Avaliar Servidores** > **Selecionar computadores para avaliar**, para criar um grupo de servidores para avaliação, selecione **Criar** e especifique um nome de grupo. 
-14. Selecione o dispositivo e as VMs que você deseja adicionar ao grupo. Em seguida, clique em **Próximo**.
-15. Em **Examinar + criar avaliação**, examine os detalhes da avaliação e clique em **Criar Avaliação** para criar o grupo e executar a avaliação.
+1. Em **Avaliar Servidores**, clique em **Próximo**.
+
+1. Em **Selecionar os computadores a serem avaliados** > **Nome da avaliação** > especifique um nome para a avaliação. 
+ 
+1. Em **Selecionar ou criar um grupo** > selecione **Criar** e especifique um nome de grupo. 
+    
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-group.png" alt-text="Adicionar VMs a um grupo":::
+ 
+1. Selecione o dispositivo e as VMs que você deseja adicionar ao grupo. Em seguida, clique em **Próximo**.
+
+1. Em **Examinar + criar avaliação**, examine os detalhes da avaliação e clique em **Criar Avaliação** para criar o grupo e executar a avaliação.
 
     > [!NOTE]
     > Para avaliações baseadas em desempenho, recomendamos que você espere pelo menos um dia após o início da descoberta antes de criar uma avaliação. Isso fornecerá tempo para coletar dados de desempenho com maior confiança. O ideal é que, depois de iniciar a descoberta, você aguarde a duração do desempenho especificada (dia/semana/mês) para obter uma classificação de alta confiança.
@@ -118,6 +126,8 @@ Uma avaliação da AVS descreve:
 - Preparação para a AVS: se as VMs locais são adequadas para migração para a AVS (Solução VMware do Azure).
 - Número de nós na AVS: número estimado de nós da AVS necessários para executar as VMs.
 - Utilização em nós da AVS: utilização de CPU, memória e armazenamento projetada em todos os nós.
+    - A utilização inclui a fatoração inicial nas sobrecargas de gerenciamento de cluster a seguir, como o vCenter Server, o NSX Manager (tamanho grande), o NSX Edge, o HCX Manager (se o HCX for implantado também) e o dispositivo IX consumindo cerca de 44 vCPUs (11 CPUs), 75 GB de RAM e 722 GB de armazenamento antes da compactação e da eliminação de duplicação. 
+    - A memória, a eliminação de duplicados e a compactação estão atualmente definidas como 100% de utilização para memória e 1,5 de eliminação de duplicados e compactação, que será uma entrada definida pelo usuário nas versões futuras, permitindo que o usuário ajuste o dimensionamento necessário.
 - Estimativa de custo mensal: os custos mensais estimados para todos os nós da AVS (Solução VMware do Azure) que executam as VMs locais.
 
 ## <a name="view-an-assessment"></a>Exibir uma avaliação
@@ -125,8 +135,12 @@ Uma avaliação da AVS descreve:
 Para exibir uma avaliação:
 
 1. Em **Servidores** > **Migrações para Azure: Avaliação de Servidor**, clique no número ao lado de **Avaliações**.
-2. Em **Avaliações**, selecione uma avaliação para abri-la. 
-3. Examine o resumo da avaliação. Você também pode editar as propriedades ou recalcular a avaliação.
+
+1. Em **Avaliações**, selecione uma avaliação para abri-la. Como exemplo (estimativas e custos somente para exemplo): 
+
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-summary.png" alt-text="Resumo da avaliação da AVS":::
+
+1. Examine o resumo da avaliação. Você também pode editar as propriedades ou recalcular a avaliação.
  
 
 ### <a name="review-readiness"></a>Examinar preparação

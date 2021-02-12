@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: 730a29ff579ce6a1970ceafad5891611b52c059d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7ed2a672f0f7149240e799b5529a7a3a6836a702
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972281"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499298"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>Migre seus recursos de IaaS para Azure Resource Manager até 1º de março de 2023 
 
@@ -45,12 +45,12 @@ Comece a planejar sua migração para Azure Resource Manager, hoje mesmo.
    - Você também pode consultar o grafo de recursos do Azure usando o [portal](https://portal.azure.com/#blade/HubsExtension/ArgQueryBlade/query/resources%0A%7C%20where%20type%20%3D%3D%20%22microsoft.classiccompute%2Fvirtualmachines%22) ou o [PowerShell](../governance/resource-graph/concepts/work-with-data.md) para exibir a lista de todas as VMs sinalizadas (clássicas) e informações relacionadas para as assinaturas selecionadas. 
    - Em 8 de fevereiro e 2 de setembro de 2020, enviamos emails para proprietários de assinatura com uma lista de todas as assinaturas que contêm essas VMs (clássicas). Use-os para criar essa lista. 
 
-1. [Saiba mais](./windows/migration-classic-resource-manager-overview.md) sobre como migrar suas VMs [Linux](./linux/migration-classic-resource-manager-plan.md) e [Windows](./windows/migration-classic-resource-manager-plan.md) (clássicas) para Azure Resource Manager. Para obter mais informações, consulte perguntas frequentes [sobre a migração clássica para Azure Resource Manager](./migration-classic-resource-manager-faq.md).
+1. [Saiba mais](./migration-classic-resource-manager-overview.md) sobre como migrar suas VMs [Linux](./migration-classic-resource-manager-plan.md) e [Windows](./migration-classic-resource-manager-plan.md) (clássicas) para Azure Resource Manager. Para obter mais informações, consulte perguntas frequentes [sobre a migração clássica para Azure Resource Manager](./migration-classic-resource-manager-faq.md).
 
-1. É recomendável iniciar o planejamento usando a [ferramenta de migração de suporte à plataforma](./windows/migration-classic-resource-manager-overview.md) para migrar suas VMs existentes com três etapas simples: validar, preparar e confirmar. A ferramenta foi projetada para migrar suas VMs em um mínimo ou sem tempo de inatividade. 
+1. É recomendável iniciar o planejamento usando a [ferramenta de migração de suporte à plataforma](./migration-classic-resource-manager-overview.md) para migrar suas VMs existentes com três etapas simples: validar, preparar e confirmar. A ferramenta foi projetada para migrar suas VMs em um mínimo ou sem tempo de inatividade. 
 
    1. A primeira etapa, validar, não tem impacto sobre a implantação existente e fornece uma lista de todos os cenários sem suporte para migração. 
-   1. Percorra a [lista de soluções alternativas](./windows/migration-classic-resource-manager-overview.md#unsupported-features-and-configurations) para corrigir sua implantação e torná-la pronta para a migração. 
+   1. Percorra a [lista de soluções alternativas](./migration-classic-resource-manager-overview.md#unsupported-features-and-configurations) para corrigir sua implantação e torná-la pronta para a migração. 
    1. O ideal é que todos os erros de validação sejam corrigidos, você não deve encontrar nenhum problema durante as etapas de preparação e confirmação. Depois que a confirmação for bem-sucedida, sua implantação será migrada ao vivo para Azure Resource Manager e poderá ser gerenciada por meio de novas APIs expostas por Azure Resource Manager. 
 
    Se a ferramenta de migração não for adequada para sua migração, você poderá explorar [outras ofertas de computação](/azure/architecture/guide/technology-choices/compute-decision-tree) para a migração. Como há muitas ofertas de computação do Azure e elas são diferentes uma da outra, não podemos fornecer um caminho de migração com suporte da plataforma para elas.  

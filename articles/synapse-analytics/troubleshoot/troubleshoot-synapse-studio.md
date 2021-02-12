@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas do Synapse Studio (versão prévia)
+title: Solucionar problemas do Synapse Studio
 description: Solucionar problemas do Azure Synapse Studio
 author: julieMSFT
 ms.service: synapse-analytics
@@ -8,28 +8,28 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 33022d005deca5d1350278218fb6f1fca1a35ca1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d91001024ad547e52fe48ee30749fee9a4fb4a1
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287740"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116170"
 ---
-# <a name="azure-synapse-studio-preview-troubleshooting"></a>Solução de problemas do Azure Synapse Studio (versão prévia)
+# <a name="azure-synapse-studio-troubleshooting"></a>Solução de problemas do Azure Synapse Studio
 
 Este guia de solução de problemas fornece instruções sobre quais informações fornecer ao abrir um tíquete de suporte em problemas de conectividade de rede. Com as informações apropriadas, possivelmente podemos resolver o problema mais rapidamente.
 
-## <a name="sql-on-demand-preview-service-connectivity-issue"></a>Problema de conectividade do serviço SQL sob demanda (versão prévia)
+## <a name="serverless-sql-pool-service-connectivity-issue"></a>Problema de conectividade do serviço do pool SQL sem servidor
 
 ### <a name="symptom-1"></a>Sintoma 1
 
-A opção "SQL sob demanda" está esmaecida na lista suspensa "conectar-se a".
+A opção "pool de SQL sem servidor" está esmaecida na lista suspensa "conectar-se a".
 
 ![symptom1](media/troubleshooting-synapse-studio/symptom1v2.png)
 
 ### <a name="symptom-2"></a>Sintoma 2
 
-A execução da consulta com "SQL sob demanda" fornece a mensagem de erro "falha ao estabelecer conexão com o servidor".
+A execução da consulta com "pool de SQL sem servidor" fornece a mensagem de erro "falha ao estabelecer conexão com o servidor".
 
 ![sintoma 2](media/troubleshooting-synapse-studio/symptom2.png)
  
@@ -45,7 +45,7 @@ Abra o painel "informações de diagnóstico", selecione o botão "baixar diagn�
 
 Para iniciar a solução de problemas, repita a operação executada no Azure Synapse Studio.
 
-- Para o sintoma 1, selecione o botão "atualizar" à direita da lista suspensa "usar banco de dados" na guia "script SQL" e verifique se você pode ver "SQL sob demanda".
+- Para o sintoma 1, selecione o botão "atualizar" à direita da lista suspensa "usar banco de dados" na guia "script SQL" e verifique se você pode ver "pool de SQL sem servidor".
 - Para o sintoma 2, tente executar a consulta novamente para ver se ela é executada com êxito.
 
 Se o problema ainda existir, pressione F12 no navegador para abrir "Ferramentas para Desenvolvedores" (DevTools).
@@ -71,7 +71,7 @@ Se um deles tiver algo diferente de "20x" e:
 
     - Se você vir ERR_NAME_NOT_RESOLVED e criou seu espaço de trabalho em 10 minutos, aguarde 10 minutos e tente ver se o problema ainda existe.
     - Se você vir ERR_INTERNET_DISCONNECTED ou ERR_NETWORK_CHANGED, isso poderá indicar que a conexão de rede do PC está tendo problemas. Verifique sua conexão de rede e repita a operação.
-    - Se você vir ERR_CONNECTION_RESET, ERR_SSL_PROTOCOL_ERROR ou outros códigos de erro que contenham "SSL", poderá indicar que sua configuração de SSL local está tendo problemas ou o administrador de rede bloqueou o acesso ao servidor SQL sob demanda. Abra um tíquete de suporte e anexe o código de erro na descrição.
+    - Se você vir ERR_CONNECTION_RESET, ERR_SSL_PROTOCOL_ERROR ou outros códigos de erro que contenham "SSL", isso poderá indicar que a configuração de SSL local está tendo problemas ou o administrador de rede bloqueou o acesso ao servidor do pool SQL sem servidor. Abra um tíquete de suporte e anexe o código de erro na descrição.
     - Se você vir ERR_NETWORK_ACCESS_DENIED, talvez seja necessário verificar com o administrador se sua política de firewall local bloqueou o acesso ao domínio *. database.windows.net ou à porta remota 1443.
     - Opcionalmente, tente a mesma operação imediatamente em um ambiente de rede e/ou computador diferente para eliminar um problema de configuração de rede em seu PC.
 
@@ -102,4 +102,4 @@ Determinados navegadores dão suporte à exibição de carimbos de data/hora na 
 ![Mostrar carimbo de data/hora](media/troubleshooting-synapse-studio/show-time-stamp.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Se as etapas anteriores não ajudarem a resolver seu problema, [crie um tíquete de suporte](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+Se as etapas anteriores não ajudarem a resolver seu problema, [crie um tíquete de suporte](../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)

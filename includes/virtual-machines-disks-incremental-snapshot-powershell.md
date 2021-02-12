@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9e7386e21442b5a76aae656a36e2858b52ecef65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 895a81df858e51a266cd87c96a161695a4bf2cc1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87102441"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95992861"
 ---
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
 
@@ -34,7 +34,7 @@ Install-Module -Name Az -AllowClobber -Scope CurrentUser
 
 Depois de instalado, faça logon na sua sessão do PowerShell com `Connect-AzAccount` .
 
-Para criar um instantâneo incremental com Azure PowerShell, defina a configuração com [New-AzSnapShotConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) com o `-Incremental` parâmetro e, em seguida, passe-o como uma variável para [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) por meio do `-Snapshot` parâmetro.
+Para criar um instantâneo incremental com Azure PowerShell, defina a configuração com [New-AzSnapShotConfig](/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) com o `-Incremental` parâmetro e, em seguida, passe-o como uma variável para [New-AzSnapshot](/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) por meio do `-Snapshot` parâmetro.
 
 ```PowerShell
 $diskName = "yourDiskNameHere>"

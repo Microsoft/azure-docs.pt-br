@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: sideeksh
-ms.openlocfilehash: 599ad76f38833e06cc458fd0687921e6975e190b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f63021275574e294fa372357d6e62724f5efe0f7
+ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89426360"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541183"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Personalizar as configurações de rede da VM do Azure de destino
 
@@ -44,7 +44,7 @@ Você pode fornecer as seguintes configurações de recurso-chave para a VM de f
 
      ![Personalizar as configurações de rede de failover](media/azure-to-azure-customize-networking/edit-networking-properties.png)
 
-4. Selecione uma rede virtual de failover de teste. Você pode optar por deixá-lo em branco e selecionar um no momento do failover de teste.
+4. Selecione uma rede virtual de failover de teste.
 5. Rede de failover é selecione **Editar** próximo à NIC que você deseja configurar. Na próxima folha que é aberta, selecione os recursos previamente criados correspondentes no failover de teste e no local de failover.
 
     ![Editar a configuração da NIC](media/azure-to-azure-customize-networking/nic-drilldown.png) 

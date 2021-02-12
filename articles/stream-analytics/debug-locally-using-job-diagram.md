@@ -3,16 +3,15 @@ title: Depurar Azure Stream Analytics consultas localmente usando o diagrama de 
 description: Este artigo descreve como depurar consultas localmente usando o diagrama de trabalho no Azure Stream Analytics Tools para Visual Studio.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/23/2020
-ms.openlocfilehash: c32ba468979e4566d8e349d481eddca7d407b659
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: d0e94fda1fb21be1a01516f4cecf657426ae867e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130979"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019441"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio"></a>Depurar Azure Stream Analytics consultas localmente usando o diagrama de trabalho no Visual Studio
 
@@ -32,7 +31,7 @@ Use este guia de [início rápido](stream-analytics-quick-create-vs.md) para apr
 > [!NOTE]
 > Se você exportar um trabalho para um projeto local e desejar testá-lo em um fluxo de entrada ao vivo, precisará especificar as credenciais para todas as entradas novamente.  
 
-Escolha a fonte de entrada e saída no editor de scripts e selecione **executar localmente** . O diagrama de trabalho aparece no lado direito.
+Escolha a fonte de entrada e saída no editor de scripts e selecione **executar localmente**. O diagrama de trabalho aparece no lado direito.
 
 ### <a name="view-the-intermediate-result-set"></a>Exibir o conjunto de resultados intermediário  
 

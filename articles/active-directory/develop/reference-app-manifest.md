@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/15/2020
+ms.date: 02/02/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 6971e62b20dc1155b875f69eb1d4da9d7b6e6887
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0291d2e6f0cee07bd7164b63dfd4ac8b02c42a01
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626999"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583036"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto do aplicativo do Azure Active Directory
 
@@ -27,13 +27,13 @@ O manifesto do aplicativo contém uma definição de todos os atributos de um ob
 Você pode configurar os atributos de um aplicativo por meio do portal do Azure ou programaticamente usando a [API REST](/graph/api/resources/application) ou o [PowerShell](/powershell/module/azuread#applications). No entanto, existem alguns cenários em que você precisará editar o manifesto do aplicativo para configurar o atributo de um aplicativo. Esses cenários incluem:
 
 * Se você registrou o aplicativo como multilocatário do Azure AD e contas pessoais da Microsoft, não é possível alterar as contas da Microsoft compatíveis na interface do usuário. Em vez disso, você deve usar o editor de manifesto do aplicativo para alterar o tipo de conta suportado.
-* Se você precisa definir permissões e funções que seu aplicativo suporta, você deve modificar o manifesto do aplicativo.
+* Para definir permissões e funções às quais seu aplicativo dá suporte, você deve modificar o manifesto do aplicativo.
 
 ## <a name="configure-the-app-manifest"></a>Configurar o manifesto do aplicativo
 
 Para configurar o manifesto do aplicativo:
 
-1. Vá para o [Portal do Azure](https://portal.azure.com). Procurar e selecionar o serviço **Azure Active Directory**.
+1. Vá para a <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. Procurar e selecionar o serviço **Azure Active Directory**.
 1. Selecione **Registros do Aplicativo**.
 1. Selecione o aplicativo que você deseja configurar.
 1. Na página **Visão Geral** do aplicativo, selecione a seção **Manifesto**. Um editor de manifesto baseado na Web é aberto, permitindo que você edite o manifesto no portal. Opcionalmente, você pode selecionar **Download** para editar o manifesto localmente e usar **Upload** para reaplicá-lo ao seu aplicativo.
@@ -115,17 +115,6 @@ Exemplo:
     "allowPublicClient": false,
 ```
 
-### <a name="availabletoothertenants-attribute"></a>atributo availableToOtherTenants
-
-| Chave | Tipo de valor |
-| :--- | :--- |
-| availableToOtherTenants | Boolean |
-
-Defina como true se o aplicativo for compartilhado com outros locatários; caso contrário, false.
-
-> [!NOTE]
-> Esse atributo está disponível apenas na experiência de **Registros de aplicativo (Herdados)** . Substituído por `signInAudience` na experiência [Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908).
-
 ### <a name="appid-attribute"></a>atributo appId
 
 | Chave | Tipo de valor |
@@ -165,17 +154,6 @@ Exemplo:
     ],
 ```
 
-### <a name="displayname-attribute"></a>atributo displayName
-
-| Chave | Tipo de valor |
-| :--- | :--- |
-| displayName | String |
-
-O nome de exibição do aplicativo.
-
-> [!NOTE]
-> Esse atributo está disponível apenas na experiência de **Registros de aplicativo (Herdados)** . Substituído por `name` na experiência [Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908).
-
 ### <a name="errorurl-attribute"></a>atributo errorUrl
 
 | Chave | Tipo de valor |
@@ -194,39 +172,14 @@ Configura a declaração `groups` emitida em um usuário ou o token de acesso OA
 
 - `"None"`
 - `"SecurityGroup"` (para grupos de segurança e funções do Azure AD)
-- `"All"` (isso obterá todos os grupos de segurança, grupos de distribuição e funções do diretório do Azure AD dos quais o usuário conectado é membro.
+- `"ApplicationGroup"` (essa opção inclui apenas os grupos atribuídos ao aplicativo)
+- `"DirectoryRole"` (Obtém as funções de diretório do Azure AD das quais o usuário é membro)
+- `"All"` (isso obterá todos os grupos de segurança, grupos de distribuição e funções de diretório do Azure AD dos quais o usuário conectado é membro).
 
 Exemplo:
 
 ```json
     "groupMembershipClaims": "SecurityGroup",
-```
-
-### <a name="homepage-attribute"></a>atributo homepage
-
-| Chave | Tipo de valor |
-| :--- | :--- |
-| homepage |String |
-
-A URL da home page do aplicativo.
-
-> [!NOTE]
-> Esse atributo está disponível apenas na experiência de **Registros de aplicativo (Herdados)** . Substituído por `signInUrl` na experiência [Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908).
-
-### <a name="objectid-attribute"></a>atributo objectId
-
-| Chave | Tipo de valor |
-| :--- | :--- |
-|objectId | String |
-
-O identificador exclusivo do aplicativo no diretório.
-
-Está disponível apenas na experiência de **Registros de aplicativo (Herdados)** . Substituído por `id` na experiência [Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908).
-
-Exemplo:
-
-```json
-    "objectId": "f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd",
 ```
 
 ### <a name="optionalclaims-attribute"></a>atributo optionalClaims
@@ -244,7 +197,6 @@ Exemplo:
 ```json
     "optionalClaims": null,
 ```
-
 
 
 ### <a name="identifieruris-attribute"></a>atributo identifierUris
@@ -488,16 +440,6 @@ Exemplo:
     ],
 ```
 
-### <a name="publicclient-attribute"></a>atributo publicClient
-
-| Chave | Tipo de valor |
-| :--- | :--- |
-| publicClient | Boolean|
-
-Especifica se este aplicativo é um cliente público (como um aplicativo instalado em execução em um dispositivo móvel).
-
-Essa propriedade está disponível apenas na experiência de **Registros de aplicativo (Herdados)** . Substituído por `allowPublicClient` na experiência [Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908).
-
 ### <a name="publisherdomain-attribute"></a>atributo publisherDomain
 
 | Chave | Tipo de valor |
@@ -509,18 +451,8 @@ O domínio do fornecedor verificado para o aplicativo. Somente leitura.
 Exemplo:
 
 ```json
-    "publisherDomain": "https://www.contoso.com",
-````
-
-### <a name="replyurls-attribute"></a>atributo replyUrls
-
-| Chave | Tipo de valor |
-| :--- | :--- |
-| replyUrls | Matriz de cadeia de caracteres |
-
-Essa propriedade de vários valores contém a lista de valores redirect_uri registrados que o Azure AD aceitará como destinos quando retornar tokens.
-
-Essa propriedade está disponível apenas na experiência de **Registros de aplicativo (Herdados)** . Substituído por `replyUrlsWithType` na experiência [Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908).
+    "publisherDomain": "{tenant}.onmicrosoft.com",
+```
 
 ### <a name="replyurlswithtype-attribute"></a>atributo replyUrlsWithType
 

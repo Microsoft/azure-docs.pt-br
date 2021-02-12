@@ -7,12 +7,12 @@ ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.topic: article
 ms.date: 08/03/2016
 ms.custom: seodec18
-ms.openlocfilehash: 82373dcd9e1d55e0c4a5867ddaff6875ee57da5a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cf8b0e1fda03a74d30ec77c911d705bf12cf0126
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147509"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763801"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Solucionar problemas de desempenho de aplicativo lento no Serviço de Aplicativo do Azure
 Este artigo ajuda você a solucionar problemas de desempenho de aplicativo lento no [Serviço de Aplicativo do Azure](./overview.md).
@@ -82,7 +82,7 @@ Cada aplicativo Web do Serviço de Aplicativo fornece um ponto de extremidade de
 - Editores de código-fonte, como [Azure DevOps](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Ferramentas de gerenciamento para recursos conectados, tais como um banco de dados MySQL conectado a um aplicativo.
 
-[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) é uma extensão de site para monitoramento de desempenho que também está disponível. Para usar o Application Insights, você deve recompilar seu código com um SDK. Você também pode instalar uma extensão que forneça acesso a dados adicionais. O SDK permite que você escreva código para monitorar o uso e o desempenho de seu aplicativo em mais detalhes. Para obter mais informações, consulte [Monitorar desempenho em aplicativos Web](../azure-monitor/app/web-monitor-performance.md).
+[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) é uma extensão de site para monitoramento de desempenho que também está disponível. Para usar o Application Insights, você deve recompilar seu código com um SDK. Você também pode instalar uma extensão que forneça acesso a dados adicionais. O SDK permite que você escreva código para monitorar o uso e o desempenho de seu aplicativo em mais detalhes. Para obter mais informações, consulte [Monitorar desempenho em aplicativos Web](../azure-monitor/app/app-insights-overview.md).
 
 <a name="collect"></a>
 
@@ -133,7 +133,7 @@ Estas são algumas das coisas que o Kudu fornece:
 * configurações de ambiente para seu aplicativo
 * fluxo de logs
 * despejos de diagnóstico
-* console de depuração no qual você pode executar os cmdlets do Powershell e os comandos básicos de DOS.
+* console de depuração no qual você pode executar os cmdlets do PowerShell e os comandos básicos do DOS.
 
 Outro recurso útil do Kudu é que, caso seu aplicativo esteja lançando exceções de primeira chance, você pode usar o Kudu e o despejo de processo da ferramenta SysInternals para criar despejos de memória. Esses despejos de memória são instantâneos do processo e podem frequentemente ajudá-lo a solucionar problemas mais complexos com seu aplicativo.
 
@@ -161,4 +161,4 @@ Reiniciar é geralmente a maneira mais simples de se recuperar de problemas de u
 
  ![reiniciar o aplicativo para solucionar problemas de desempenho](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
-Também é possível gerenciar o aplicativo usando o Azure Powershell. Para obter mais informações, consulte [Usando o PowerShell do Azure com o Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).
+Você também pode gerenciar seu aplicativo usando Azure PowerShell. Para obter mais informações, consulte [Usando o PowerShell do Azure com o Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).

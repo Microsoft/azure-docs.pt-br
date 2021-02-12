@@ -1,5 +1,5 @@
 ---
-title: O que é a segurança em nível de coluna do Azure Synapse?
+title: Segurança em nível de coluna para pool de SQL dedicado
 description: A segurança em nível de coluna permite que os clientes controlem o acesso às colunas da tabela do banco de dados com base no contexto de execução do usuário ou na associação de grupo, simplificando o design e a codificação da segurança em seu aplicativo e permitindo que você implemente restrições de acesso a colunas.
 services: synapse-analytics
 author: julieMSFT
@@ -12,23 +12,23 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: f8bb40f9c80a0785c81c7aeacf783553bf73aa90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb34051f7d4b24190806dde939c8cc6d9c2a4896
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259876"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679940"
 ---
-# <a name="column-level-security"></a>Segurança de Nível da Coluna
+# <a name="column-level-security"></a>Segurança ao nível da coluna
 
-Segurança de Nível de Coluna permite que os clientes controlem o acesso às colunas da tabela com base no contexto de execução do usuário ou associação de grupo.
+Column-Level segurança permite que os clientes controlem o acesso a colunas de tabela com base no contexto de execução do usuário ou na associação de grupo.
 
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
-Desde que esse vídeo foi postado, a [segurança em nível de linha](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) tornou-se disponível para o Azure Synapse.
+Como esse vídeo foi lançado, a [segurança em nível de linha](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) ficou disponível para o pool SQL dedicado no Azure Synapse.
 
 A segurança em nível de coluna simplifica o design e a codificação da segurança em seu aplicativo, permitindo que você restrinja o acesso às colunas para proteger dados confidenciais. Por exemplo, garantir que usuários específicos possam acessar apenas certas colunas de uma tabela pertinente ao seu departamento. A lógica de restrição de acesso é localizado na camada de banco de dados, em vez de longe dos dados em outra camada de aplicativo. O banco de dados aplica as restrições de acesso sempre que houver uma tentativa de acessar dados em qualquer camada. Essa restrição torna a segurança mais robusta e confiável, reduzindo a área de superfície do sistema de segurança como um todo. Além disso, a segurança em nível de coluna também elimina a necessidade de introduzir modos de exibição para filtrar colunas para impor restrições de acesso em usuários.
 
-Você pode implementar a segurança em nível de coluna com a instrução T-SQL [GRANT](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Com esse mecanismo, há suporte para a autenticação do SQL e do Azure Active Directory (Azure AD).
+Você pode implementar a segurança em nível de coluna com a instrução [Grant](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) T-SQL. Com esse mecanismo, há suporte para a autenticação do SQL e do Azure Active Directory (Azure AD).
 
 ![O diagrama mostra uma tabela esquemático com a primeira coluna entre um cadeado fechado e suas células cor laranja, enquanto as outras colunas são células brancas.](./media/column-level-security/cls.png)
 
@@ -85,5 +85,5 @@ SELECT * FROM Membership;
 
 Alguns exemplos de como a segurança em nível de coluna está sendo usada atualmente:
 
-- Uma empresa de serviços financeiros permite que apenas gerentes de contas tenham acesso aos SSN (números do seguro social), números de telefone e outras PII (informações de identificação pessoal).
+- Uma empresa de serviços financeiros permite que apenas gerentes de contas tenham acesso aos números de CPF (cadastro de pessoas sociais), números de telefone e outros dados pessoais do cliente.
 - Um provedor de saúde permite que apenas médicos e enfermeiros tenham acesso a registros médicos confidenciais, evitando que membros do departamento de cobrança vejam estes dados.

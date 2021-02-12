@@ -4,17 +4,16 @@ description: Saiba como configurar uma transformação de coletor no fluxo de da
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/27/2020
-ms.openlocfilehash: 6354b0a1df9d8c331de0731b230d628ac4e435df
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.date: 12/08/2020
+ms.openlocfilehash: 242249e3ab7fbedf9f19f3cb9a49fc4a8359f4ae
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891340"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929337"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformação do coletor no fluxo de dados de mapeamento
 
@@ -40,15 +39,16 @@ Para usar um conjunto de linhas embutido, selecione o formato desejado no seleto
 
 O mapeamento de fluxo de dados segue uma abordagem ELT (extração, carregamento e transformação) e funciona com conjuntos de dados de *preparo* que estão todos no Azure. No momento, os seguintes conjuntos de valores podem ser usados em uma transformação de origem.
 
-| Connector | Formatar | Conjunto de linhas/embutido |
+| Connector | Formato | Conjunto de linhas/embutido |
 | --------- | ------ | -------------- |
-| [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Texto delimitado](format-delimited-text.md#mapping-data-flow-properties) <br> [Delta (visualização)](format-delta.md) <br> [ORC](format-orc.md#mapping-data-flow-properties)<br> [Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br> ✓/- <br> ✓/- <br> -/✓ <br>✓/✓<br> ✓/- |
-| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Texto delimitado](format-delimited-text.md#mapping-data-flow-properties) <br> [ORC](format-orc.md#mapping-data-flow-properties)<br/> [Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br> ✓/- <br> ✓/- <br>✓/✓<br> ✓/- |
-| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Texto delimitado](format-delimited-text.md#mapping-data-flow-properties) <br> [Delta (visualização)](format-delta.md) <br> [ORC](format-orc.md#mapping-data-flow-properties)<br/> [Parquet](format-parquet.md#mapping-data-flow-properties)  <br> [Modelo de dados comuns (visualização)](format-common-data-model.md#sink-properties) | ✓/- <br> ✓/- <br> ✓/- <br> -/✓ <br>✓/✓<br> ✓/- <br> -/✓ |
-| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
+| [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties) <br>[Texto delimitado](format-delimited-text.md#mapping-data-flow-properties) <br>[Trifásico](format-delta.md) <br>[JSON](format-json.md#mapping-data-flow-properties) <br/>[ORC](format-orc.md#mapping-data-flow-properties)<br>[Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br>✓/- <br>-/✓ <br>✓/- <br>✓/✓<br>✓/- |
+| [Azure Cosmos DB (API do SQL)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties) <br>[Texto delimitado](format-delimited-text.md#mapping-data-flow-properties) <br>[JSON](format-json.md#mapping-data-flow-properties) <br/>[ORC](format-orc.md#mapping-data-flow-properties)<br/>[Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br>✓/- <br>✓/- <br>✓/✓<br>✓/- |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties) <br/>[Common Data Service](format-common-data-model.md#sink-properties)<br>[Texto delimitado](format-delimited-text.md#mapping-data-flow-properties) <br>[Trifásico](format-delta.md) <br>[JSON](format-json.md#mapping-data-flow-properties) <br/>[ORC](format-orc.md#mapping-data-flow-properties)<br/>[Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br>-/✓ <br>✓/- <br>-/✓ <br>✓/-<br>✓/✓ <br>✓/- |
+| [Banco de Dados do Azure para PostgreSQL](connector-azure-database-for-postgresql.md) |  | ✓/✓ |
 | [Banco de Dados SQL do Azure](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
 | [Instância Gerenciada do SQL do Azure (versão prévia)](connector-azure-sql-managed-instance.md#mapping-data-flow-properties) | | ✓/- |
-| [Azure Cosmos DB (API do SQL)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
 | [Snowflake](connector-snowflake.md) | | ✓/✓ |
 
 As configurações específicas para esses conectores estão localizadas na guia **configurações** . Exemplos de script de fluxo de dados e informações nessas configurações estão localizados na documentação do conector.
@@ -65,17 +65,32 @@ O vídeo a seguir explica várias opções de coletor diferentes para tipos de a
 
 ![Captura de tela que mostra as configurações do coletor.](media/data-flow/sink-settings.png "Captura de tela que mostra as configurações do coletor.")
 
-**Descompasso de esquema** : a [descompasso de esquema](concepts-data-flow-schema-drift.md) é a capacidade de data Factory de lidar nativamente com esquemas flexíveis em seus fluxos de dados sem a necessidade de definir explicitamente as alterações de coluna. Habilite **permitir descompasso de esquemas** para gravar colunas adicionais sobre o que está definido no esquema de dados do coletor.
+**Descompasso de esquema**: a [descompasso de esquema](concepts-data-flow-schema-drift.md) é a capacidade de data Factory de lidar nativamente com esquemas flexíveis em seus fluxos de dados sem a necessidade de definir explicitamente as alterações de coluna. Habilite **permitir descompasso de esquemas** para gravar colunas adicionais sobre o que está definido no esquema de dados do coletor.
 
-**Validar esquema** : se validar esquema for selecionado, o fluxo de dados falhará se qualquer coluna do esquema de origem de entrada não for encontrada na projeção de origem ou se os tipos de dados não corresponderem. Use essa configuração para impor que os dados de origem atendam ao contrato de sua projeção definida. É útil em cenários de origem de banco de dados para sinalizar que os nomes ou tipos de coluna foram alterados.
+**Validar esquema**: se validar esquema for selecionado, o fluxo de dados falhará se qualquer coluna do esquema de origem de entrada não for encontrada na projeção de origem ou se os tipos de dados não corresponderem. Use essa configuração para impor que os dados de origem atendam ao contrato de sua projeção definida. É útil em cenários de origem de banco de dados para sinalizar que os nomes ou tipos de coluna foram alterados.
 
-**Usar tempdb:** Por padrão, Data Factory usarão uma tabela temporária global para armazenar dados como parte do processo de carregamento. Como alternativa, você pode desmarcar a opção "usar TempDB" e, em vez disso, pedir Data Factory para armazenar a tabela temporária em um banco de dados de usuário localizado no banco de dados que está sendo usado para esse coletor.
+## <a name="cache-sink"></a>Coletor de cache
 
-![TempDB](media/data-flow/tempdb.png "TempDB")
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4HKt1]
+
+Um *coletor de cache* é quando um fluxo de dados grava dados no cache do Spark em vez de em um repositório de dados. No mapeamento de fluxos de dados, você pode fazer referência a esses dados dentro do mesmo fluxo muitas vezes usando uma *pesquisa de cache*. Isso é útil quando você deseja fazer referência a dados como parte de uma expressão, mas não deseja unir explicitamente as colunas a ela. Exemplos comuns em que um coletor de cache pode ajudar a pesquisar um valor máximo em um armazenamento de dados e os códigos de erro correspondentes a um banco de dado de mensagens de erro. 
+
+Para gravar em um coletor de cache, adicione uma transformação de coletor e selecione **cache** como o tipo de coletor. Ao contrário de outros tipos de coletor, você não precisa selecionar um conjunto de um DataSet ou um serviço vinculado porque não está gravando em um repositório externo. 
+
+![Selecionar coletor de cache](media/data-flow/select-cache-sink.png "Selecionar coletor de cache")
+
+Nas configurações do coletor, você pode opcionalmente especificar as colunas de chave do coletor de cache. Elas são usadas como condições de correspondência ao usar a `lookup()` função em uma pesquisa de cache. Se você especificar colunas de chave, não poderá usar a `outputs()` função em uma pesquisa de cache. Para saber mais sobre a sintaxe de pesquisa de cache, consulte [pesquisas em cache](concepts-data-flow-expression-builder.md#cached-lookup).
+
+![Colunas de chave de coletor de cache](media/data-flow/cache-sink-key-columns.png "Colunas de chave de coletor de cache")
+
+Por exemplo, se eu especificar uma única coluna de chave de `column1` em um coletor de cache chamado `cacheExample` , `cacheExample#lookup()` a chamada teria um parâmetro que especifica qual linha no coletor de cache deve corresponder. A função gera uma única coluna complexa com Subcolunas para cada coluna mapeada.
+
+> [!NOTE]
+> Um coletor de cache deve estar em um fluxo de dados completamente independente de qualquer transformação que faça referência a ele por meio de uma pesquisa de cache. Um coletor de cache também deve ter o primeiro coletor gravado. 
 
 ## <a name="field-mapping"></a>Mapeamento de campo
 
-Semelhante a uma transformação selecionar, na guia **mapeamento** do coletor, você pode decidir quais colunas de entrada serão gravadas. Por padrão, todas as colunas de entrada, incluindo colunas descompassos, são mapeadas. Esse comportamento é conhecido como *automapeamento* .
+Semelhante a uma transformação selecionar, na guia **mapeamento** do coletor, você pode decidir quais colunas de entrada serão gravadas. Por padrão, todas as colunas de entrada, incluindo colunas descompassos, são mapeadas. Esse comportamento é conhecido como *automapeamento*.
 
 Quando você desativa o mapeamento, pode adicionar mapeamentos fixos baseados em colunas ou mapeamentos baseados em regras. Com mapeamentos baseados em regras, você pode escrever expressões com correspondência de padrões. Mapeamento fixo mapeia nomes de coluna lógicos e físicos. Para obter mais informações sobre mapeamento baseado em regras, consulte [padrões de coluna no fluxo de dados de mapeamento](concepts-data-flow-column-pattern.md#rule-based-mapping-in-select-and-sink).
 
@@ -85,9 +100,27 @@ Por padrão, os dados são gravados em vários coletores em uma ordem não deter
 
 ![Captura de tela que mostra a ordenação personalizada do coletor.](media/data-flow/custom-sink-ordering.png "Captura de tela que mostra a ordenação personalizada do coletor.")
 
+> [!NOTE]
+> Ao utilizar [pesquisas armazenadas em cache](./concepts-data-flow-expression-builder.md#cached-lookup), certifique-se de que sua ordenação de coletor tenha os coletores em cache definidos como 1, o mais baixo (ou primeiro) na ordenação.
+
+![Ordenação de coletor personalizado](media/data-flow/cache-2.png "Ordenação de coletor personalizado")
+
+### <a name="sink-groups"></a>Grupos de coletor
+
+Você pode agrupar coletores aplicando o mesmo número de ordem para uma série de coletores. O ADF tratará esses coletores como grupos que podem ser executados em paralelo. As opções para execução paralela surgirão na atividade fluxo de dados do pipeline.
+
+## <a name="error-row-handling"></a>Tratamento da linha de erros
+
+Ao gravar em bancos de dados, determinadas linhas de dado podem falhar devido a restrições definidas pelo destino. Por padrão, uma execução de fluxo de dados falhará no primeiro erro obtido. Em determinados conectores, você pode optar por continuar se houver **erro** que permita que o fluxo de dados seja concluído mesmo se as linhas individuais tiverem erros. Atualmente, esse recurso está disponível apenas no banco de dados SQL do Azure. Para obter mais informações, consulte [erro de manipulação de linha no banco de dados SQL do Azure](connector-azure-sql-database.md#error-row-handling).
+
+Veja abaixo um tutorial em vídeo sobre como usar a manipulação de linha de erro de banco de dados automaticamente na transformação do coletor.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4IWne]
+
 ## <a name="data-preview-in-sink"></a>Visualização de dados no coletor
 
 Ao buscar uma visualização de dados em um cluster de depuração, nenhum dado será gravado no coletor. Um instantâneo da aparência dos dados será retornado, mas nada será gravado no destino. Para testar a gravação de dados em seu coletor, execute uma depuração de pipeline na tela do pipeline.
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Agora que você criou o fluxo de dados, adicione uma [atividade de fluxo de dados ao seu pipeline](concepts-data-flow-overview.md).

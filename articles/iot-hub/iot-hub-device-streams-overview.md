@@ -11,13 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-- devx-track-azurecli
-ms.openlocfilehash: bdd9d5fd878094326331e60fc1a639eef08b7ea3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9487fc562fa099d2650aabc8d15fc1449c7fcb5c
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792456"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825179"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Fluxos de dispositivos do Hub IoT (versão prévia)
 
@@ -27,7 +26,7 @@ Os *fluxos de dispositivos* do Hub IoT do Azure facilitam a criação de túneis
 
 Ao usar os fluxos de dispositivos do Hub IoT, os dispositivos permanecem seguros e só precisarão abrir as conexões de TCP de saída para o ponto de extremidade de streaming do Hub IoT pela porta 443. Quando um fluxo é estabelecido, os aplicativos do lado do serviço e do lado do dispositivo têm acesso via programação a um objeto de cliente do WebSocket para enviar e receber os bytes brutos entre si. As garantias de confiabilidade e ordenação fornecidas por esse túnel são similares àquelas oferecidas por TCP.
 
-## <a name="benefits"></a>Benefícios
+## <a name="benefits"></a>Vantagens
 
 Os fluxos de dispositivos do Hub IoT oferecem os seguintes benefícios:
 
@@ -57,7 +56,7 @@ A criação programática de um fluxo de dispositivo usando o SDK envolve as eta
 
 1. O aplicativo do dispositivo registra um retorno de chamada com antecedência para ser notificado sobre quando um novo fluxo de dispositivo é iniciado no dispositivo. Esta etapa geralmente ocorre quando o dispositivo é inicializado e se conecta ao Hub IoT.
 
-2. O programa do lado do serviço inicia um fluxo de dispositivo quando necessário, fornecendo a identificação do dispositivo ( _não_ o endereço IP).
+2. O programa do lado do serviço inicia um fluxo de dispositivo quando necessário, fornecendo a identificação do dispositivo (_não_ o endereço IP).
 
 3. O Hub IoT notifica o programa do lado do dispositivo, invocando o retorno de chamada registrado na etapa 1. O dispositivo pode aceitar ou rejeitar a solicitação de iniciação do fluxo. Essa lógica pode ser específica para o cenário do seu aplicativo. Se a solicitação de fluxo for rejeitada pelo dispositivo, o Hub IoT informa ao serviço; caso contrário, as etapas abaixo deverão ser seguidas.
 
@@ -129,9 +128,9 @@ Você pode configurar Azure Monitor para coletar os [logs de recursos para fluxo
 
 Siga as etapas abaixo para criar uma configuração de diagnóstico para enviar logs de fluxos de dispositivo para o Hub IoT para Azure Monitor logs:
 
-1. Em portal do Azure, navegue até o Hub IoT. No painel esquerdo, em **monitoramento** , selecione **configurações de diagnóstico** . Em seguida, selecione **Adicionar configuração de diagnóstico** .
+1. Em portal do Azure, navegue até o Hub IoT. No painel esquerdo, em **monitoramento**, selecione **configurações de diagnóstico**. Em seguida, selecione **Adicionar configuração de diagnóstico**.
 
-2. Forneça um nome para a configuração de diagnóstico e selecione **DeviceStreams** na lista de logs. Em seguida, selecione **Enviar para log Analytics** . Você será guiado para escolher um espaço de trabalho Log Analytics existente ou criar um novo.
+2. Forneça um nome para a configuração de diagnóstico e selecione **DeviceStreams** na lista de logs. Em seguida, selecione **Enviar para log Analytics**. Você será guiado para escolher um espaço de trabalho Log Analytics existente ou criar um novo.
 
     :::image type="content" source="media/iot-hub-device-streams-overview/device-streams-configure-diagnostics.png" alt-text="Habilitar logs de fluxos de dispositivo":::
 
@@ -183,7 +182,7 @@ O exemplo de proxy local demonstra uma maneira de habilitar o túnel de tráfego
 
 Esta seção descreve o uso de fluxos de dispositivos para habilitar que os usuários usem SSH em um dispositivo em relação a fluxos de dispositivos (o caso para RDP ou outro aplicativo de cliente/servidor é semelhante e utiliza a porta correspondente do protocolo).
 
-A configuração utiliza dois programas de *proxy local* mostrados na figura abaixo, ou seja, *proxy local do dispositivo* e *proxy local do serviço* . Os programas de proxy locais são responsáveis por executar o [handshake de início do fluxo de dispositivo](#device-stream-creation-flow) com o Hub IoT e interagir com o cliente SSH e o daemon SSH usando os soquetes de cliente/servidor comuns.
+A configuração utiliza dois programas de *proxy local* mostrados na figura abaixo, ou seja, *proxy local do dispositivo* e *proxy local do serviço*. Os programas de proxy locais são responsáveis por executar o [handshake de início do fluxo de dispositivo](#device-stream-creation-flow) com o Hub IoT e interagir com o cliente SSH e o daemon SSH usando os soquetes de cliente/servidor comuns.
 
 !["Configuração de proxy do fluxo do dispositivo para SSH/RDP"](./media/iot-hub-device-streams-overview/iot-hub-device-streams-ssh.png)
 

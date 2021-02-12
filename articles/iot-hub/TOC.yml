@@ -74,7 +74,7 @@
           href: tutorial-routing-view-message-routing-results.md
     - name: Aprimoramentos de mensagem
       href: tutorial-message-enrichments.md
-    - name: Usar métrica e logs de diagnóstico
+    - name: Usar métricas e logs
       href: tutorial-use-metrics-and-diags.md
     - name: Realizar o failover manual
       href: tutorial-manual-failover.md
@@ -135,12 +135,12 @@
                   href: iot-hub-devguide-messages-read-custom.md
                 - name: Adicionar consultas a rotas de mensagens
                   href: iot-hub-devguide-routing-query-syntax.md
-            - name: Reagir a eventos do Hub IoT
-              href: iot-hub-event-grid.md
             - name: Enviar mensagens de nuvem para o dispositivo do Hub IoT
               href: iot-hub-devguide-messages-c2d.md
             - name: Escolha um protocolo de comunicação
               href: iot-hub-devguide-protocols.md
+        - name: Reagir aos eventos do Hub IoT com a Grade de Eventos
+          href: iot-hub-event-grid.md
         - name: Carregar arquivos de um dispositivo
           href: iot-hub-devguide-file-upload.md
         - name: Gerenciar identidades do dispositivo
@@ -167,6 +167,12 @@
           href: iot-hub-devguide-sdks.md
         - name: Suporte ao MQTT
           href: iot-hub-mqtt-support.md
+        - name: Suporte a MQTT 5 (versão prévia)
+          items:
+            - name: Visão geral do MQTT 5
+              href: iot-hub-mqtt-5.md
+            - name: Referência de API do MQTT 5
+              href: iot-hub-mqtt-5-reference.md
         - name: Suporte ao AMQP
           href: iot-hub-amqp-support.md
         - name: Glossário
@@ -176,15 +182,15 @@
         - name: Linha de base de segurança
           href: security-baseline.md
         - name: Recomendações
-          href: ../iot-fundamentals/security-recommendations.md?context=azure%252fiot-hub%252frc%252frc
+          href: ../iot-fundamentals/security-recommendations.md?context=%2fazure%2fiot-hub%2frc%2frc
         - name: Segurança desde o início
-          href: ../iot-fundamentals/iot-security-ground-up.md?context=azure%252fiot-hub%252frc%252frc
+          href: ../iot-fundamentals/iot-security-ground-up.md?context=%2fazure%2fiot-hub%2frc%2frc
         - name: Melhores práticas de segurança
-          href: ../iot-fundamentals/iot-security-best-practices.md?context=azure%252fiot-hub%252frc%252frc
+          href: ../iot-fundamentals/iot-security-best-practices.md?context=%2fazure%2fiot-hub%2frc%2frc
         - name: Arquitetura de segurança
-          href: ../iot-fundamentals/iot-security-architecture.md?context=azure%252fiot-hub%252frc%252frc
+          href: ../iot-fundamentals/iot-security-architecture.md?context=%2fazure%2fiot-hub%2frc%2frc
         - name: Proteger sua implantação de IoT
-          href: ../iot-fundamentals/iot-security-deployment.md?context=azure%252fiot-hub%252frc%252frc
+          href: ../iot-fundamentals/iot-security-deployment.md?context=%2fazure%2fiot-hub%2frc%2frc
         - name: Controles de segurança do Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
@@ -224,8 +230,6 @@
           href: iot-hub-devguide-no-sdk.md
         - name: Consultar dados Avro em uma rota do hub
           href: iot-hub-query-avro-data.md
-        - name: Ordenar eventos de estado de conexão do dispositivo na Grade de Eventos
-          href: iot-hub-how-to-order-connection-state-events.md
         - name: Envie mensagens da nuvem para o dispositivo
           items:
             - name: .NET
@@ -343,6 +347,8 @@
           href: iot-hub-distributed-tracing.md
         - name: Serviço de Hub IoT e integridade de recursos
           href: iot-hub-azure-service-health-integration.md
+        - name: Ordenar eventos de estado de conexão do dispositivo na Grade de Eventos
+          href: iot-hub-how-to-order-connection-state-events.md
     - name: Usar dispositivos reais
       items:
         - name: Usar um simulador online
@@ -471,10 +477,12 @@
       items:
         - name: Monitoramento de operações
           href: iot-hub-operations-monitoring.md
-        - name: Migrar para as configurações de diagnóstico
+        - name: Migrar para o Azure Monitor
           href: iot-hub-migrate-to-diagnostics-settings.md
         - name: Substituição do TLS 1.0 e 1.1
           href: iot-hub-tls-deprecating-1-0-and-1-1.md
+        - name: Filtro de IP clássico
+          href: iot-hub-ip-filter-classic.md
 - name: Recursos
   items:
     - name: Opções de Ajuda e suporte

@@ -2,18 +2,17 @@
 title: Configurar grupos de disponibilidade para SQL Server em máquinas virtuais RHEL no Azure – Máquinas Virtuais do Linux | Microsoft Docs
 description: Aprenda a configurar a alta disponibilidade em um ambiente de cluster RHEL e configure o STONITH
 ms.service: virtual-machines-linux
-ms.subservice: ''
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: 06442e861a247f545ca6f22ecc82e5f5dc910553
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 533f5c9e38818a8e37482cbbb3a90602366eca6f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790229"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587206"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configurar grupos de disponibilidade para o SQL Server em máquinas virtuais RHEL no Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,9 +36,9 @@ Este tutorial usará a CLI do Azure para implantar recursos no Azure.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se preferir instalar e usar a CLI localmente, este tutorial exigirá a CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+- Este artigo exige a versão 2.0.30 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -263,7 +262,7 @@ Depois que o comando for concluído para cada VM, você deverá obter resultados
 > [!IMPORTANT]
 > A imagem padrão criada com o comando acima cria um disco do sistema operacional de 32 GB por padrão. Possivelmente, você poderia ficar sem espaço com essa instalação padrão. Você pode usar o seguinte parâmetro adicionado ao comando `az vm create` acima para criar um disco do sistema operacional com 128 GB como um exemplo: `--os-disk-size-gb 128`.
 >
-> Em seguida, você poderá [configurar o LVM (Gerenciador de Volume Lógico)](../../../virtual-machines/linux/configure-lvm.md) se precisar expandir os volumes de pastas apropriados para acomodar a instalação.
+> Em seguida, você poderá [configurar o LVM (Gerenciador de Volume Lógico)](/previous-versions/azure/virtual-machines/linux/configure-lvm) se precisar expandir os volumes de pastas apropriados para acomodar a instalação.
 
 ### <a name="test-connection-to-the-created-vms"></a>Testar a conexão com as VMs criadas
 
@@ -304,7 +303,7 @@ Conecte-se a cada nó da VM e siga a guia abaixo para habilitar a HA. Para obter
 1. Atualize e instale os pacotes do Pacemaker em todos os nós usando os seguintes comandos:
 
     > [!NOTE]
-    > **nmap** está instalado como parte desse bloco de comandos como uma ferramenta para localizar endereços IP disponíveis em sua rede. Você não precisa instalar **nmap** , mas ele será útil posteriormente neste tutorial.
+    > **nmap** está instalado como parte desse bloco de comandos como uma ferramenta para localizar endereços IP disponíveis em sua rede. Você não precisa instalar **nmap**, mas ele será útil posteriormente neste tutorial.
 
     ```bash
     sudo yum update -y
@@ -324,7 +323,7 @@ Conecte-se a cada nó da VM e siga a guia abaixo para habilitar a HA. Para obter
     sudo vi /etc/hosts
     ```
 
-    No editor **vi** , digite `i` para inserir texto e, em uma linha em branco, adicione o **IP Privado** da VM correspondente. Em seguida, adicione o nome da VM após um espaço ao lado do IP. Cada linha deve ter uma entrada separada.
+    No editor **vi**, digite `i` para inserir texto e, em uma linha em branco, adicione o **IP Privado** da VM correspondente. Em seguida, adicione o nome da VM após um espaço ao lado do IP. Cada linha deve ter uma entrada separada.
 
     ```output
     <IP1> <VM1>
@@ -335,7 +334,7 @@ Conecte-se a cada nó da VM e siga a guia abaixo para habilitar a HA. Para obter
     > [!IMPORTANT]
     > Recomendamos que você use seu endereço **IP Privado** acima. Usar o endereço IP Público nessa configuração fará a instalação falhar e não recomendamos expor sua VM a redes externas.
 
-    Para sair do editor **vi** , primeiro pressione a tecla **Esc** e, em seguida, insira o comando `:wq` para gravar o arquivo e encerrar.
+    Para sair do editor **vi**, primeiro pressione a tecla **Esc** e, em seguida, insira o comando `:wq` para gravar o arquivo e encerrar.
 
 ## <a name="create-the-pacemaker-cluster"></a>Criar o cluster do Pacemaker
 
@@ -489,11 +488,11 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
  3. Clique em [**Registros de aplicativo**](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
  4. Clique em **Novo registro**
  5. Insira um **Nome** como `<resourceGroupName>-app`, selecione **Contas apenas neste diretório de organização**
- 6. Selecione um Tipo de Aplicativo **Web** , insira uma URL de logon (por exemplo http://localhost) e clique em Adicionar. A URL de logon não é usada e pode ser qualquer URL válida. Quando terminar, clique em **Registrar**
+ 6. Selecione um Tipo de Aplicativo **Web**, insira uma URL de logon (por exemplo http://localhost) e clique em Adicionar. A URL de logon não é usada e pode ser qualquer URL válida. Quando terminar, clique em **Registrar**
  7. Selecione **Certificados e segredos** para seu novo Registro de aplicativo e clique em **Novo segredo do cliente**
  8. Insira uma descrição para uma nova chave (segredo do cliente), selecione **Nunca expira** e clique em **Adicionar**
  9. Anote o valor do segredo. Ele é usado como senha da Entidade de Serviço
-10. Selecione **Visão geral** . Anote a ID do Aplicativo. Ela é usada como nome de usuário (ID de logon nas etapas abaixo) da Entidade de Serviço
+10. Selecione **Visão geral**. Anote a ID do Aplicativo. Ela é usada como nome de usuário (ID de logon nas etapas abaixo) da Entidade de Serviço
  
 ### <a name="create-a-custom-role-for-the-fence-agent"></a>Criar uma função personalizada para o agente de limite
 
@@ -570,7 +569,7 @@ Atribua a função personalizada `Linux Fence Agent Role-<username>` que foi cri
 4. Clique em **Controle de acesso (IAM)**
 5. Clique em **Adicionar uma atribuição de função**
 6. Selecione a função `Linux Fence Agent Role-<username>` na lista **Função**
-7. Na lista **Selecionar** , insira o nome do aplicativo criado acima, `<resourceGroupName>-app`
+7. Na lista **Selecionar**, insira o nome do aplicativo criado acima, `<resourceGroupName>-app`
 8. Clique em **Salvar**
 9. Repita as etapas acima para todos os nós do cluster.
 
@@ -868,7 +867,7 @@ Em todas as instâncias do SQL Server, salve as credenciais usadas para o logon 
     <password>
     ```
 
-    Para sair do editor **vi** , primeiro pressione a tecla **Esc** e, em seguida, insira o comando `:wq` para gravar o arquivo e encerrar.
+    Para sair do editor **vi**, primeiro pressione a tecla **Esc** e, em seguida, insira o comando `:wq` para gravar o arquivo e encerrar.
 
 1. Torne o arquivo apenas legível pela raiz:
 
@@ -906,7 +905,7 @@ Em todas as instâncias do SQL Server, salve as credenciais usadas para o logon 
     GO
     ```
 
-1. Depois que as réplicas secundárias forem ingressadas, você poderá vê-las no Pesquisador de Objetos do SSMS expandindo o nó **Alta Disponibilidade Always On** :
+1. Depois que as réplicas secundárias forem ingressadas, você poderá vê-las no Pesquisador de Objetos do SSMS expandindo o nó **Alta Disponibilidade Always On**:
 
     ![A captura de tela mostra as réplicas de disponibilidade primárias e secundárias.](./media/rhel-high-availability-stonith-tutorial/availability-group-joined.png)
 
@@ -946,6 +945,9 @@ Se o `synchronization_state_desc` listar SINCRONIZADO para `db1`, isso significa
 ## <a name="create-availability-group-resources-in-the-pacemaker-cluster"></a>Criar recursos do grupo de disponibilidade no cluster do Pacemaker
 
 Seguiremos o guia para [criar os recursos do grupo de disponibilidade no cluster do Pacemaker](/sql/linux/sql-server-linux-create-availability-group#create-the-availability-group-resources-in-the-pacemaker-cluster-external-only).
+
+> [!NOTE]
+> Este artigo contém referências ao termo "servidor subordinado", um termo que a Microsoft não usa mais. Quando o termo for removido do software, também o removeremos deste artigo.
 
 ### <a name="create-the-ag-cluster-resource"></a>Criar o recurso de cluster do grupo de disponibilidade
 
@@ -1132,6 +1134,34 @@ Para verificar se a configuração foi bem-sucedida até agora, testaremos um fa
     sudo pcs resource move ag_cluster-clone <VM2> --master
     ```
 
+   Você também pode especificar uma opção adicional para que a restrição temporária criada para mover o recurso para um nó desejado seja desabilitada automaticamente e não seja necessário executar as etapas 2 e 3 abaixo.
+
+   **RHEL 7**
+
+    ```bash
+    sudo pcs resource move ag_cluster-master <VM2> --master lifetime=30S
+    ```
+
+   **RHEL 8**
+
+    ```bash
+    sudo pcs resource move ag_cluster-clone <VM2> --master lifetime=30S
+    ```
+
+   Outra alternativa para automatizar as etapas 2 e 3 abaixo que desmarcam a restrição temporária no próprio comando de movimentação de recursos é combinar vários comandos em uma linha. 
+
+   **RHEL 7**
+
+    ```bash
+    sudo pcs resource move ag_cluster-master <VM2> --master && sleep 30 && pcs resource clear ag_cluster-master
+    ```
+
+   **RHEL 8**
+
+    ```bash
+    sudo pcs resource move ag_cluster-clone <VM2> --master && sleep 30 && pcs resource clear ag_cluster-clone
+    ```
+    
 2. Se você verificar suas restrições novamente, verá que outra restrição foi adicionada devido ao failover manual:
     
     **RHEL 7**

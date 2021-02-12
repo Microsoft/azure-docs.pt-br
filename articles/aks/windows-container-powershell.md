@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 05/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bf446c858e40014a4085721d646f819e08542064
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56fc11583bcdd271d0225de90ef7ab06bcf87cbf
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87497878"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625107"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-powershell"></a>Criar um contêiner do Windows Server em um cluster AKS (Serviço de Kubernetes do Azure) usando o PowerShell
 
@@ -24,7 +24,11 @@ Este artigo pressupõe uma compreensão básica dos conceitos do Kubernetes. Par
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-Se você optar por usar o PowerShell localmente, este artigo exigirá que você instale o módulo Az PowerShell e conecte-se à sua conta do Azure usando o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount). Para obter mais informações sobre como instalar o módulo Az PowerShell, confira [Instalar o Azure PowerShell][install-azure-powershell].
+Se você optar por usar o PowerShell localmente, este artigo exigirá que você instale o módulo Az PowerShell e conecte-se à sua conta do Azure usando o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount). Para obter mais informações sobre como instalar o módulo Az PowerShell, confira [Instalar o Azure PowerShell][install-azure-powershell]. Você também deve instalar o módulo do PowerShell AZ. AKs: 
+
+```azurepowershell-interactive
+Install-Module Az.Aks
+```
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -80,7 +84,7 @@ Para executar um cluster AKS que dá suporte a pools de nós para contêineres d
 
 ```azurepowershell-interactive
 $Password = Read-Host -Prompt 'Please enter your password' -AsSecureString
-New-AzAKS -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 2 -KubernetesVersion 1.16.7 -NetworkPlugin azure -NodeVmSetType VirtualMachineScaleSets -WindowsProfileAdminUserName akswinuser -WindowsProfileAdminUserPassword $Password
+New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 2 -KubernetesVersion 1.16.7 -NetworkPlugin azure -NodeVmSetType VirtualMachineScaleSets -WindowsProfileAdminUserName akswinuser -WindowsProfileAdminUserPassword $Password
 ```
 
 > [!Note]
@@ -93,7 +97,7 @@ Após alguns minutos, o comando será concluído e retornará informações sobr
 Por padrão, um cluster AKS é criado com um pool de nós que pode executar contêineres do Linux. Use o cmdlet `New-AzAksNodePool` para adicionar um pool de nós que pode executar contêineres do Windows Server juntamente ao pool de nós do Linux.
 
 ```azurepowershell-interactive
-New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -OsType Windows -Name npwin -KubernetesVersion 1.16.7
+New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -Name npwin -KubernetesVersion 1.16.7
 ```
 
 O comando acima cria um pool de nós chamado **npwin** e o adiciona ao **myAKSCluster**. Ao criar um pool de nós para executar contêineres do Windows Server, o valor padrão de **VmSize** é **Standard_D2s_v3**. Se você optar por definir o parâmetro **VmSize**, confira a lista de [tamanhos de VM restritos][restricted-vm-sizes]. O tamanho mínimo recomendado é **Standard_D2s_v3**. O comando anterior também usa a sub-rede padrão na vnet padrão criada durante a execução de `New-AzAks`.

@@ -3,21 +3,20 @@ title: Monitorar e gerenciar o Azure Stream Analytics com o Visual Studio
 description: Este artigo descreve como usar Microsoft Visual Studio para monitorar e gerenciar os trabalhos do Azure Stream Analytics.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: a151d4ce5a2f9860c3b7919496a2edd25cc58ede
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e0db101e47a5ec8eb88d3b999058e7c8521f0ff9
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123618"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020274"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-visual-studio"></a>Monitorar e gerenciar os trabalhos do Stream Analytics com o Microsoft Visual Studio
 
-Este artigo demonstra como monitorar o trabalho do Stream Analytics no Microsoft Visual Studio. As ferramentas de Stream Analytics do Azure para o Microsoft Visual Studio fornecem uma experiência de monitoramento semelhante ao portal do Azure sem precisar sair do IDE. Você pode começar a monitorar um trabalho, assim que você **Enviar para o Azure** de seu **Script.asaql** , ou você pode monitorar os trabalhos existentes, independentemente de como eles foram criados. 
+Este artigo demonstra como monitorar o trabalho do Stream Analytics no Microsoft Visual Studio. As ferramentas de Stream Analytics do Azure para o Microsoft Visual Studio fornecem uma experiência de monitoramento semelhante ao portal do Azure sem precisar sair do IDE. Você pode começar a monitorar um trabalho, assim que você **Enviar para o Azure** de seu **Script.asaql**, ou você pode monitorar os trabalhos existentes, independentemente de como eles foram criados. 
 
 ## <a name="job-summary"></a>Resumo do trabalho
 
@@ -35,7 +34,7 @@ Você pode recolher o **Resumo do Trabalho** e clicar na guia **Métricas do Tra
 
 ## <a name="error-monitoring"></a>Monitoramento de erro
 
-Você também pode monitorar erros, clicando na guia **Erros** .
+Você também pode monitorar erros, clicando na guia **Erros**.
 
 ![Erros do Stream Analytics no Visual Studio](./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-vs-errors.png)
 

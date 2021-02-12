@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 86e3422cbd1cbf92a0d0d218267001c934403753
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: cc3a08f383368b189e41bebd204707f2483e77c0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930689"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018300"
 ---
 # <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>Personalizar as propriedades de protocolo RDP (RDP) para um pool de hosts
 
@@ -20,7 +20,7 @@ ms.locfileid: "91930689"
 
 Personalizar as propriedades de protocolo RDP (RDP) de um pool de hosts, como experiência de vários monitores e redirecionamento de áudio, permite que você forneça uma experiência ideal para seus usuários com base em suas necessidades. Você pode personalizar as propriedades de RDP na área de trabalho virtual do Windows usando o portal do Azure ou usando o parâmetro *-CustomRdpProperty* no cmdlet **Update-AzWvdHostPool** .
 
-Consulte [configurações de arquivo RDP com suporte](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context) para obter uma lista completa das propriedades com suporte e seus valores padrão.
+Consulte [configurações de arquivo RDP com suporte](/windows-server/remote/remote-desktop-services/clients/rdp-files?context=%2fazure%2fvirtual-desktop%2fcontext%2fcontext) para obter uma lista completa das propriedades com suporte e seus valores padrão.
 
 ## <a name="default-rdp-file-properties"></a>Propriedades do arquivo RDP padrão
 

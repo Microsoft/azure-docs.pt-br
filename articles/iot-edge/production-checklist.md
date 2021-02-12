@@ -12,11 +12,11 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 7cabae837656611813d44017ce2e1112f06066ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89669606"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013285"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Prepare-se para implantar sua solução IoT Edge em produção
 
@@ -132,7 +132,7 @@ O valor padrão do parâmetro timeToLiveSecs é de 7200 segundos, ou seja, duas 
 
 ### <a name="do-not-use-debug-versions-of-module-images"></a>Não use versões de depuração de imagens de módulo
 
-Ao passar de cenários de teste para cenários de produção, lembre-se de remover as configurações de depuração dos manifestos de implantação. Verifique se nenhuma das imagens de módulo nos manifestos de implantação tem o sufixo de ** \. depuração** . Se você adicionou criar opções para expor portas nos módulos para depuração, remova essas opções de criação também.
+Ao passar de cenários de teste para cenários de produção, lembre-se de remover as configurações de depuração dos manifestos de implantação. Verifique se nenhuma das imagens de módulo nos manifestos de implantação tem o sufixo de **\. depuração** . Se você adicionou criar opções para expor portas nos módulos para depuração, remova essas opções de criação também.
 
 ## <a name="container-management"></a>Gerenciamento de contêiner
 

@@ -1,14 +1,14 @@
 ---
 title: Habilitar extensão de VM usando Azure PowerShell
 description: Este artigo descreve como implantar extensões de máquina virtual para servidores habilitados para Arc do Azure em execução em ambientes de nuvem híbrida usando o Azure PowerShell.
-ms.date: 10/23/2020
+ms.date: 01/05/2021
 ms.topic: conceptual
-ms.openlocfilehash: d2408f75c7b6d81ba297de6dcdb85a712cd8908f
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 9b1f83ad976aa3471430a912280fac25dc5c5c0c
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495451"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916177"
 ---
 # <a name="enable-azure-vm-extensions-using-azure-powershell"></a>Habilitar extensões de VM do Azure usando Azure PowerShell
 
@@ -35,14 +35,47 @@ O exemplo a seguir habilita a extensão de VM Log Analytics em um servidor Linux
 ```powershell
 PS C:\> $Setting = @{ "workspaceId" = "workspaceId" }
 PS C:\> $protectedSetting = @{ "workspaceKey" = "workspaceKey" }
-PS C:\> New-AzConnectedMachineExtension -Name OMSLinuxAgent -ResourceGroupName "myResourceGroup" -MachineName "myMachine" -Location "eastus" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -TypeHandlerVersion "1.10" -Settings $Setting -ProtectedSetting $protectedSetting -ExtensionType OmsAgentforLinux"
+PS C:\> New-AzConnectedMachineExtension -Name OMSLinuxAgent -ResourceGroupName "myResourceGroup" -MachineName "myMachine" -Location "eastus" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -TypeHandlerVersion "1.10" -Settings $Setting -ProtectedSetting $protectedSetting -ExtensionType "OmsAgentForLinux"
 ```
+
+Para habilitar a extensão de VM Log Analytics em um Windows Server habilitado para Arc, altere o valor do `-ExtensionType` parâmetro para `"MicrosoftMonitoringAgent"` no exemplo anterior.
 
 O exemplo a seguir habilita a extensão de script personalizado em um servidor habilitado para Arc:
 
 ```powershell
 PS C:\> $Setting = @{ "commandToExecute" = "powershell.exe -c Get-Process" }
 PS C:\> New-AzConnectedMachineExtension -Name custom -ResourceGroupName myResourceGroup -MachineName myMachineName -Location eastus -Publisher "Microsoft.Compute" -TypeHandlerVersion 1.10 -Settings $Setting -ExtensionType CustomScriptExtension
+```
+
+### <a name="key-vault-vm-extension-preview"></a>Extensão de VM Key Vault (versão prévia)
+
+> [!WARNING]
+> Os clientes do PowerShell geralmente se adicionam `\` ao `"` no settings.js, o que caakvvm_service usará falha com o erro: `[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object.`
+
+O exemplo a seguir habilita a extensão de VM Key Vault (versão prévia) em um servidor habilitado para Arc:
+
+```powershell
+# Build settings
+    $settings = @{
+      secretsManagementSettings = @{
+       observedCertificates = @(
+        "observedCert1"
+       )
+      certificateStoreLocation = "myMachineName" # For Linux use "/var/lib/waagent/Microsoft.Azure.KeyVault.Store/"
+      certificateStore = "myCertificateStoreName"
+      pollingIntervalInS = "pollingInterval"
+      }
+    authenticationSettings = @{
+     msiEndpoint = "http://localhost:40342/metadata/identity"
+     }
+    }
+
+    $resourceGroup = "resourceGroupName"
+    $machineName = "myMachineName"
+    $location = "regionName"
+
+    # Start the deployment
+    New-AzConnectedMachineExtension -ResourceGroupName $resourceGRoup -Location $location -MachineName $machineName -Name "KeyVaultForWindows or KeyVaultforLinux" -Publisher "Microsoft.Azure.KeyVault" -ExtensionType "KeyVaultforWindows or KeyVaultforLinux" -Setting (ConvertTo-Json $settings)
 ```
 
 ## <a name="list-extensions-installed"></a>Listar extensões instaladas

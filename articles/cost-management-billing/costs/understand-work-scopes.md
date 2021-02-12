@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 61a8dbbdde87af792bb4337660d4d3c34f7cf802
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 729444b1d1ccf55f34e54a4b59508131458c472b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132288"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054797"
 ---
 # <a name="understand-and-work-with-scopes"></a>Entender e trabalhar com escopos
 
@@ -114,7 +114,7 @@ As assinaturas do Azure criadas com base em ofertas individuais, como as pagas c
 
     Tipo de recurso: Não aplicável
 
-Os administradores individuais da conta de assinatura do Azure podem exibir e gerenciar dados de cobrança, como faturas e pagamentos, do [Centro de Contas do Azure](https://account.azure.com/subscriptions). No entanto, eles não podem exibir dados de custo nem gerenciar recursos no portal do Azure. Para permitir acesso ao administrador da conta, use as funções de Gerenciamento de Custos mencionadas anteriormente.
+Os administradores individuais da conta de assinatura do Azure podem ver e gerenciar dados de cobrança, como faturas e pagamentos no [portal do Azure](https://portal.azure.com) > **Assinaturas** > selecionar uma assinatura.
 
 Ao contrário do que ocorre no EA, os administradores de contas de assinaturas do Azure individuais podem ver as respectivas notas fiscais no portal do Azure. Lembre-se de que as funções de Colaborador do Gerenciamento de Custos e de Leitor do Gerenciamento de Custos não fornecem acesso a faturas. Para obter mais informações, veja [Como permitir acesso a faturas](../manage/manage-billing-access.md#give-read-only-access-to-billing).
 

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: 44a7a89740be3d6d502c5d22c79b46582034d88a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cda71c6e825ff27ba9b03e1306ccb287663e8613
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535944"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025950"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Padrões aumentam a precisão da previsão
 Os padrões são definidos para aumentar a precisão quando várias expressões são muito similares.  Um padrão permite que você alcance maior precisão para uma intenção sem fornecer muitos enunciados a mais.
@@ -48,7 +48,7 @@ Um padrão destina-se principalmente a ajudar a previsão de intenções e funç
 Não espere ver melhorias na previsão de entidade se você recolher várias declarações em um único padrão. Para que as entidades simples sejam acionadas, você precisa adicionar declarações ou usar entidades de lista caso contrário, o padrão não será acionado.
 
 ## <a name="patterns-use-entity-roles"></a>Os padrões usam funções de entidades
-Se duas ou mais entidades em um padrão estiverem relacionadas contextualmente, os padrões usarão as [funções](luis-concept-roles.md) da entidade para extrair informações contextuais sobre as entidades.
+Se duas ou mais entidades em um padrão estiverem relacionadas contextualmente, os padrões usarão as [funções](./luis-concept-entity-types.md) da entidade para extrair informações contextuais sobre as entidades.
 
 ## <a name="prediction-scores-with-and-without-patterns"></a>Pontuação da previsão com e sem padrões
 Dadas expressões de exemplo suficientes, LUIS poderá aumentar a confiabilidade da previsão sem os padrões. Os padrões de aumentam a pontuação de confiabilidade sem ter que fornecer tantas expressões.

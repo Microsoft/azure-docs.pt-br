@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: a08ddae1d10cc8b26f3aa7ee85e731c2cea15f93
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5eb5c351462279fe5c4f790e052f73201d211cfb
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962880"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961168"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Usar o serviço Gerenciador de Dispositivos do StorSimple para modificar a configuração do dispositivo StorSimple
 
@@ -65,7 +65,7 @@ O dispositivo deve sincronizar a hora para autenticar com seu provedor de servi�
 
  Selecione seu fuso horário na lista suspensa. É possível especificar até dois servidores NTP (protocolo NTP):
 
- - **Servidor NTP primário** – A configuração é necessária e é especificada quando você usa o Windows PowerShell para StorSimple para configurar seu dispositivo. Você também pode especificar o Windows Server padrão **time.windows.com** como seu servidor NTP. É possível exibir a configuração do servidor NTP primário por meio do Portal do Azure, mas é necessário usar a interface do Windows PowerShell para alterá-la. Use o cmdlet `Set-HcsNTPClientServerAddress` para modificar o servidor NTP primário do seu dispositivo. Para obter mais informações, procure o cmdlet [Set-HcsNTPClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) em syntax.
+ - **Servidor NTP primário** – A configuração é necessária e é especificada quando você usa o Windows PowerShell para StorSimple para configurar seu dispositivo. Você também pode especificar o Windows Server padrão **time.windows.com** como seu servidor NTP. É possível exibir a configuração do servidor NTP primário por meio do Portal do Azure, mas é necessário usar a interface do Windows PowerShell para alterá-la. Use o cmdlet `Set-HcsNTPClientServerAddress` para modificar o servidor NTP primário do seu dispositivo. Para obter mais informações, procure o cmdlet [Set-HcsNTPClientServerAddress](/previous-versions/windows/powershell-scripting/dn688138(v=wps.630)) em syntax.
 
 - **Servidor NTP secundário** – A configuração é opcional. É possível usar o portal para configurar um servidor NTP secundário.
 
@@ -85,7 +85,7 @@ Um servidor DNS é usado quando o dispositivo tenta se comunicar com seu provedo
 
 Para obter alta disponibilidade, é preciso configurar os servidores DNS primário e secundário durante a implantação inicial do dispositivo.
 
-**Servidor DNS primário** – Use o Windows PowerShell para StorSimple para especificar primeiro o servidor DNS primário durante a instalação inicial. É possível reconfigurar o servidor DNS primário somente por meio da interface do Windows PowerShell. Use o cmdlet `Set-HcsDNSClientServerAddress` para modificar o servidor DNS primário do seu dispositivo. Para obter mais informações, procure o cmdlet [Set-HcsDNSClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) em syntax.
+**Servidor DNS primário** – Use o Windows PowerShell para StorSimple para especificar primeiro o servidor DNS primário durante a instalação inicial. É possível reconfigurar o servidor DNS primário somente por meio da interface do Windows PowerShell. Use o cmdlet `Set-HcsDNSClientServerAddress` para modificar o servidor DNS primário do seu dispositivo. Para obter mais informações, procure o cmdlet [Set-HcsDNSClientServerAddress](/previous-versions/windows/powershell-scripting/dn688138(v=wps.630)) em syntax.
 
 **Servidor DNS secundário** – Para modificar o servidor DNS secundário, use o cmdlet `Set-HcsDNSClientServerAddress` na interface do Windows PowerShell do dispositivo ou a folha **Configurações de rede** do seu dispositivo StorSimple no Portal do Azure.
 
@@ -169,4 +169,3 @@ Realize as etapas a seguir para alternar ou reatribuir os VIPs para qualquer uma
 
 * Saiba como [configurar o MPIO para seu dispositivo StorSimple](storsimple-8000-configure-mpio-windows-server.md).
 * Saiba como [usar o serviço Gerenciador de Dispositivos do StorSimple para administrar o dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-

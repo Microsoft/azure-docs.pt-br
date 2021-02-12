@@ -3,16 +3,17 @@ title: Integre o Microsoft Azure com o Oracle Cloud Infrastructure | Microsoft D
 description: Saiba mais sobre soluções que integram aplicativos Oracle em execução no Microsoft Azure com bancos de dados no Oracle Cloud Infrastructure (OCI).
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 06/01/2020
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 2e09f92e21743d39cbd132637cc63b27e8cfe944
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: e8e9bf23c236f805135d7d46b969c564975448ac
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996140"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965401"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Soluções de aplicativos Oracle que integram o Microsoft Azure e o Oracle Cloud Infrastructure
 
@@ -48,6 +49,7 @@ A conectividade entre nuvens é limitada às seguintes regiões:
 * Azure Central do Canadá (CanadaCentral) e OCI Toronto (sudeste do Canadá)
 * Azure Europa Ocidental (WestEurope) e OCI Amsterdam (Noroeste dos Países Baixos)
 * Azure Leste do Japão (JapanEast) e OCI Tóquio (leste do Japão)
+* Azure oeste dos EUA (Westus) & OCI San José (oeste dos EUA)
 
 ## <a name="networking"></a>Rede
 

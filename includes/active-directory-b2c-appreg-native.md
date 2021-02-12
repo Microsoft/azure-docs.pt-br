@@ -5,14 +5,14 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 06/02/2020
 ms.author: mimart
-ms.openlocfilehash: 65fb406fa4f52f19b4d8e9dc4e3895207ffe6336
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ad6b90616077a6d18550e86692b109bda622af7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84793674"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026740"
 ---
-Para registrar um aplicativo no locatário do Azure AD B2C, você pode usar a nossa nova experiência unificada de **Registros de aplicativos** ou a nossa experiência herdada **Aplicativos (Herdado)** . [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregtraining).
+Para registrar um aplicativo no locatário do Azure AD B2C, você pode usar a nossa nova experiência unificada de **Registros de aplicativos** ou a nossa experiência herdada **Aplicativos (Herdado)** . [Saiba mais sobre a nova experiência](../articles/active-directory-b2c/app-registrations-training-guide.md).
 
 #### <a name="app-registrations"></a>[Registros de aplicativo](#tab/app-reg-ga/)
 

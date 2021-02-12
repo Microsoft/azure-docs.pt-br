@@ -7,27 +7,31 @@ tags: azure-resource-manager
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 10/01/2020
+ms.date: 11/10/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 93c2f847678292a1d38eff540a813b591c255ef0
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 04b68899b796088bd4b89509a413c7a1fe5369bb
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043208"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475345"
 ---
 # <a name="azure-tls-certificate-changes"></a>Alterações no certificado TLS do Azure  
 
-A Microsoft está atualizando os serviços do Azure para que eles usem certificados TLS de outro conjunto de ACs (autoridades de certificação) raiz. Essa alteração está sendo feita porque os Certificados de Autoridade de Certificação atuais não estão em conformidade com um dos requisitos de linha de base do fórum do navegador/da AC.
+A Microsoft está atualizando os serviços do Azure para que eles usem certificados TLS de outro conjunto de ACs (autoridades de certificação) raiz. Essa alteração está sendo feita porque os certificados de autoridade de certificação atuais não estão em conformidade com um dos requisitos de linha de base do fórum de CA/navegador e serão revogados em 15 de fevereiro de 2021.
 
 ## <a name="when-will-this-change-happen"></a>Quando ocorrerá essa alteração?
 
-- Os serviços do [Azure AD (Active Directory)](/azure/active-directory) iniciaram essa transição em 7 de julho de 2020.
-- Todos os pontos de extremidade do TLS/SSL do Azure recém-criados contêm o encadeamento de certificados atualizados até as novas ACs raiz.
-- Os pontos de extremidade existentes do Azure estão fazendo a transição em fases desde 13 de agosto de 2020.
-- O [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub) e o [DPS](/azure/iot-dps/) permanecerão na AC Baltimore CyberTrust Root, mas as ACs intermediárias deles serão alteradas. [Clique aqui para obter detalhes](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
-- O [Armazenamento do Azure](/azure/storage) permanecerá na AC Raiz Baltimore CyberTrust, mas as ACs intermediárias deles serão alteradas. [Clique aqui para obter detalhes](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
-- O [cache do Azure para Redis](/azure/azure-cache-for-redis) permanecerá na AC raiz Baltimore Cybertrust, mas suas CAs intermediárias serão alteradas. [Clique aqui para obter detalhes](../../azure-cache-for-redis/cache-whats-new.md).
+Os pontos de extremidade existentes do Azure passaram por transição de uma maneira em fases desde 13 de agosto de 2020. Todos os pontos de extremidade do TLS/SSL do Azure recém-criados contêm o encadeamento de certificados atualizados até as novas ACs raiz.
+
+Detalhes específicos do serviço:
+
+- Os serviços do [Azure AD (Active Directory)](../../active-directory/index.yml) iniciaram essa transição em 7 de julho de 2020.
+- O [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub) e o [DPS](../../iot-dps/index.yml) permanecerão na AC Baltimore CyberTrust Root, mas as ACs intermediárias deles serão alteradas. [Clique aqui para obter detalhes](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
+- O [Armazenamento do Azure](../../storage/index.yml) permanecerá na AC Raiz Baltimore CyberTrust, mas as ACs intermediárias deles serão alteradas. [Clique aqui para obter detalhes](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
+- O [cache do Azure para Redis](../../azure-cache-for-redis/index.yml) permanecerá na AC raiz Baltimore Cybertrust, mas suas CAs intermediárias serão alteradas. [Clique aqui para obter detalhes](../../azure-cache-for-redis/cache-whats-new.md).
+- O serviço de metadados de instância do Azure permanecerá na AC raiz Baltimore CyberTrust, mas suas CAs intermediárias serão alteradas. [Clique aqui para obter detalhes](/answers/questions/172717/action-required-for-attested-data-tls-with-azure-i.html).
+
 > [!IMPORTANT]
 > É possível que os clientes precisem atualizar os respectivos aplicativos após essa alteração para evitar falhas de conectividade durante a tentativa de se conectarem aos serviços do Azure.
 
@@ -67,11 +71,11 @@ Estas são algumas maneiras de detectar se o seu aplicativo foi afetado:
 - Se você tiver um aplicativo que se integra às APIs do Azure ou a outros serviços do Azure e não tiver certeza se ele usa a anexação de certificado, verifique com o fornecedor do aplicativo.
 
 - Diferentes sistemas operacionais e runtimes de linguagem que se comunicam com os serviços do Azure podem exigir etapas adicionais para a criação correta da cadeia de certificados com estas novas raízes:
-    - **Linux** : muitas distribuições exigem a adição das ACs a /etc/ssl/certs. Para obter instruções específicas, veja a documentação da distribuição.
-    - **Java** : verifique se o repositório de chaves Java contém as ACs listadas acima.
-    - **Windows em execução em ambientes desconectados** : os sistemas em execução em ambientes desconectados precisarão ter raízes adicionadas ao repositório de Autoridades de Certificação Raiz Confiáveis e os intermediários adicionados ao repositório de Autoridades de Certificação Intermediárias.
-    - **Android** : verifique a documentação do dispositivo e a versão do Android.
-    - **Outros dispositivos de hardware, especialmente IoT** : entre em contato com o fabricante do dispositivo.
+    - **Linux**: muitas distribuições exigem a adição das ACs a /etc/ssl/certs. Para obter instruções específicas, veja a documentação da distribuição.
+    - **Java**: verifique se o repositório de chaves Java contém as ACs listadas acima.
+    - **Windows em execução em ambientes desconectados**: os sistemas em execução em ambientes desconectados precisarão ter raízes adicionadas ao repositório de Autoridades de Certificação Raiz Confiáveis e os intermediários adicionados ao repositório de Autoridades de Certificação Intermediárias.
+    - **Android**: verifique a documentação do dispositivo e a versão do Android.
+    - **Outros dispositivos de hardware, especialmente IoT**: entre em contato com o fabricante do dispositivo.
 
 - Caso você tenha um ambiente em que as regras de firewall estejam definidas para permitir chamadas de saída somente a localizações específicas de download da CRL (lista de certificados revogados) e/ou de verificação do protocolo OCSP. Você precisará permitir as seguintes URLs da CRL e do OCSP:
 

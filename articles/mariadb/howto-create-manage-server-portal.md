@@ -1,17 +1,17 @@
 ---
 title: Gerenciar servidor-portal do Azure-banco de dados do Azure para MariaDB
 description: Saiba como gerenciar um banco de dados do Azure para MariaDB Server do portal do Azure.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 24481abb6606d9ce830e5b65285b31637417cbd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b492e04629f23c991c1c5d69dd5e2c472676d37a
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90562444"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664394"
 ---
 # <a name="manage-an-azure-database-for-mariadb-server-using-the-azure-portal"></a>Gerenciar um banco de dados do Azure para o MariaDB Server usando o portal do Azure
 Este artigo mostra como gerenciar o banco de dados do Azure para servidores MariaDB. As tarefas de gerenciamento incluem dimensionamento de computação e armazenamento, redefinição de senha de administrador e detalhes do servidor de exibição.

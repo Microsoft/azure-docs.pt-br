@@ -1,17 +1,15 @@
 ---
 title: Reentrância no Azure Service Fabric atores
 description: Introdução à reentrância para Service Fabric Reliable Actors, uma maneira de evitar logicamente o bloqueio com base no contexto de chamada.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 75512633dae8d9a9f61c37bbc795d8e8d20c4ff1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90a8e9146d18d628fbf124307f1b79b912c9cef9
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89007801"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789373"
 ---
 # <a name="reliable-actors-reentrancy"></a>Reentrância de Reliable Actors
 Por padrão, o runtime do Reliable Actors permite a reentrância baseada no contexto da chamada lógica. Isso possibilita que os atores sejam reentrantes se estiverem na mesma cadeia de contexto de chamada. Por exemplo, se um Ator A envia a mensagem para o Ator B, que envia a mensagem para o Ator C. Como parte do processamento da mensagem no caso de o Ator C chamar o Ator A, a mensagem é reentrante e por isso será permitida. Todas as outras mensagens que fazem parte de um contexto de chamada diferente serão bloqueadas no Ator A até a conclusão do processamento.
@@ -103,4 +101,4 @@ static class Program
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre a reentrada na [Documentação de referência de API de Ator](/previous-versions/azure/dn971626(v=azure.100))
+* Saiba mais sobre a reentrância na documentação de [referência da API do ator](/dotnet/api/microsoft.servicefabric.actors))

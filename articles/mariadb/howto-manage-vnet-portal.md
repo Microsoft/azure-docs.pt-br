@@ -1,17 +1,17 @@
 ---
 title: Gerenciar pontos de extremidade de VNet-portal do Azure-banco de dados do Azure para MariaDB
 description: Crie e gerencie o Banco de Dados do Azure para endpoints e regras de serviço do MariaDB VNet usando o portal do Azure
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: a4606755aedc9b34b257a7534d5c678bdeea7c0d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: e84d5d15073e7ff4f22b15556345e40b01a9c37b
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425928"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98665014"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Crie e gerencie o Banco de Dados do Azure para endpoints de serviço do VDB da MariaDB e regras de VNet usando o portal do Azure
 

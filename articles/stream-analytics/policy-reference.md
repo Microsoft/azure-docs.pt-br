@@ -1,18 +1,18 @@
 ---
 title: Definições de políticas internas para o Azure Stream Analytics
 description: Lista as definições de políticas internas do Azure Policy para o Azure Stream Analytics. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 10/20/2020
+ms.date: 02/04/2021
 ms.topic: reference
-author: mamccrea
-ms.author: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 8a9836771b8e2a52cf23e069c28e40b788d24c45
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 723dfa28329069b1954ffab1b2e75da1ec6ed10c
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331865"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99559173"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-stream-analytics"></a>Definições internas do Azure Policy para o Azure Stream Analytics
 

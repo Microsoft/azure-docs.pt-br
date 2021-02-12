@@ -4,17 +4,18 @@ description: Saiba como usar o processador do feed de alterações do Azure Cosm
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dfd96e7c62d700ccec2ecd4b223668d7aca4f18f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 409b51682700a8b13b2840f171642bdcbee6f6d2
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93072799"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340219"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processador do feed de alterações no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -62,7 +63,7 @@ O ciclo de vida normal de uma instância de host é:
 
 1. Ler o feed de alterações.
 1. Se não houver alteração, suspenda por um período de tempo predefinido (personalizável com `WithPollInterval` no Construtor) e vá para 1.
-1. Se houver alterações, envie-as para o **delegado** .
+1. Se houver alterações, envie-as para o **delegado**.
 1. Quando o delegado terminar de processar as alterações **com êxito** , atualize o repositório de concessão com o último ponto processado no tempo e vá para 1.
 
 ## <a name="error-handling"></a>Tratamento de erros
@@ -113,7 +114,7 @@ O processador do feed de alterações será inicializado para essa data e hora e
 
 ### <a name="reading-from-the-beginning"></a>Lendo desde o início
 
-Em outros cenários como a migração de dados ou a análise de todo o histórico de um contêiner, precisamos ler o feed de alterações desde **o início do tempo de vida desse contêiner** . Para fazer isso, podemos usar `WithStartTime` na extensão do construtor, mas passando `DateTime.MinValue.ToUniversalTime()`, o que geraria a representação UTC do valor mínimo `DateTime`, desta forma:
+Em outros cenários como a migração de dados ou a análise de todo o histórico de um contêiner, precisamos ler o feed de alterações desde **o início do tempo de vida desse contêiner**. Para fazer isso, podemos usar `WithStartTime` na extensão do construtor, mas passando `DateTime.MinValue.ToUniversalTime()`, o que geraria a representação UTC do valor mínimo `DateTime`, desta forma:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartFromBeginningInitialization)]
 

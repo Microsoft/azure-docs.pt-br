@@ -1,30 +1,33 @@
 ---
-title: Importar e exportar dados entre pools do Spark (versão prévia) e pools de SQL
-description: Este artigo fornece informações sobre como usar o conector personalizado para mover dados bidirecionalmente entre pools de SQL e pools do Spark (versão prévia).
+title: Importar e exportar dados entre os pools do Apache Spark sem servidor e os pools de SQL
+description: Este artigo fornece informações sobre como usar o conector personalizado para mover dados entre os pools de SQL dedicados e os pools do Apache Spark sem servidor.
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: spark
-ms.date: 04/15/2020
+ms.date: 11/19/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: 11f73d2becb40b800c49afe0cd58f56953f8d42d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e0bdfa4a451269e82b73194e921f9067d848868e
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91259910"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511076"
 ---
 # <a name="introduction"></a>Introdução
 
-O conector de Apache Spark para SQL do Synapse do Azure Synapse foi projetado para transferir dados de maneira eficiente entre o pools do Spark (versão prévia) e pools de SQL no Azure Synapse. O conector de Apache Spark para SQL do Synapse do Azure Synapse funciona somente em pools SQL, e não funciona com o SQL sob demanda.
+O conector do Apache Spark para SQL do Synapse do Azure Synapse foi projetado para transferir dados de maneira eficiente entre os pools do Apache Spark sem servidor e os pools de SQL dedicados no Azure Synapse. O conector do Apache Spark para SQL do Synapse do Azure Synapse funciona somente em pools de SQL dedicados – e não funciona com o pool de SQL sem servidor.
+
+> [!WARNING]
+> O nome da função **sqlanalytics()** foi alterado para **synapsesql()** . A função sqlanalytics continuará a funcionar, mas será preterida.  Altere qualquer referência de **sqlanalytics()** para **synapsesql()** para evitar qualquer interrupção no futuro.
 
 ## <a name="design"></a>Design
 
 A transferência de dados entre pools do Spark e pools de SQL pode ser feita usando o JDBC. No entanto, considerando dois sistemas distribuídos, como os pools do Spark e de SQL, o JDBC tende a ser um gargalo com a transferência de dados seriais.
 
-O conector do pool do Apache Spark para SQL do Synapse do Azure Synapse é uma implementação de fonte de dados para o Apache Spark. Ele usa o Azure Data Lake Storage Gen2 e o PolyBase em pools de SQL para transferir dados com eficiência entre o cluster do Spark e a instância do SQL do Synapse.
+O conector do pool do Apache Spark para SQL do Synapse do Azure Synapse é uma implementação de fonte de dados para o Apache Spark. Ele usa o Azure Data Lake Storage Gen2 e o PolyBase em pools de SQL dedicados para transferir dados com eficiência entre o cluster do Spark e a instância SQL dedicada do Azure Synapse.
 
 ![Arquitetura do conector](./media/synapse-spark-sqlpool-import-export/arch1.png)
 
@@ -32,11 +35,13 @@ O conector do pool do Apache Spark para SQL do Synapse do Azure Synapse é uma i
 
 A autenticação entre sistemas é simplificada no Azure Synapse Analytics. O Serviço de Token se conecta ao Azure Active Directory a fim de obter tokens de segurança para uso ao acessar a conta de armazenamento ou o servidor de data warehouse.
 
-Por esse motivo, não há necessidade de criar nem de especificar credenciais na API do conector, desde que a Autenticação do AAD esteja configurada na conta de armazenamento e no servidor de data warehouse. Caso contrário, a Autenticação SQL poderá ser especificada. Encontre mais detalhes na seção [Uso](#usage).
+Por esse motivo, não há necessidade de criar nem de especificar credenciais na API do conector, contanto que a Autenticação do Azure AD esteja configurada na conta de armazenamento e no servidor de data warehouse. Caso contrário, a Autenticação SQL poderá ser especificada. Encontre mais detalhes na seção [Uso](#usage).
 
 ## <a name="constraints"></a>Restrições
 
 - Esse conector funciona apenas no Scala.
+- Para pySpark, confira os detalhes na seção [Usar o Python](#use-pyspark-with-the-connector).
+- Este Conector não dá suporte à consulta de Exibições do SQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -67,7 +72,7 @@ EXEC sp_addrolemember 'db_exporter',[mike@contoso.com]
 
 As instruções de importação não são obrigatórias, elas são pré-importadas para a experiência de notebook.
 
-### <a name="transfer-data-to-or-from-a-sql-pool-attached-with-the-workspace"></a>Transferir dados para ou de um pool de SQL anexado ao workspace
+### <a name="transfer-data-to-or-from-a-dedicated-sql-pool-attached-within-the-workspace"></a>Transferir dados de/para um pool de SQL dedicado anexado dentro do workspace
 
 > [!NOTE]
 > **Importações não necessárias na experiência do notebook**
@@ -80,7 +85,7 @@ As instruções de importação não são obrigatórias, elas são pré-importad
 #### <a name="read-api"></a>API de leitura
 
 ```scala
-val df = spark.read.sqlanalytics("<DBName>.<Schema>.<TableName>")
+val df = spark.read.synapsesql("<DBName>.<Schema>.<TableName>")
 ```
 
 A API acima funcionará em tabelas internas (gerenciadas) e externas no pool de SQL.
@@ -88,28 +93,28 @@ A API acima funcionará em tabelas internas (gerenciadas) e externas no pool de 
 #### <a name="write-api"></a>API de gravação
 
 ```scala
-df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
+df.write.synapsesql("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-A API de gravação cria a tabela no pool de SQL e invoca o Polybase para carregar os dados.  A tabela não deve existir no pool de SQL ou será retornado um erro informando que "Já existe um objeto chamado…"
+A API de gravação cria a tabela no pool de SQL dedicado e invoca o Polybase para carregar os dados.  A tabela não deve existir no pool de SQL dedicado ou será retornado um erro informando que "Já existe um objeto chamado…"
 
 Valores de TableType
 
-- Constants.INTERNAL – tabela gerenciada no pool de SQL
-- Constants.EXTERNAL – tabela externa no pool de SQL
+- Constants.INTERNAL – Tabela gerenciada no pool de SQL dedicado
+- Constants.EXTERNAL – Tabela externa no pool de SQL dedicado
 
 Tabela gerenciada pelo pool de SQL
 
 ```scala
-df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
+df.write.synapsesql("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
 ```
 
 Tabela externa do pool de SQL
 
-Para gravar em uma tabela externa do pool de SQL, uma fonte de dados externa e um formato de arquivo externo devem existir no pool de SQL.  Para obter mais informações, leia [Como criar uma fonte de dados externa](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) e [Formatos de arquivo externos](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) no pool de SQL.  Veja abaixo exemplos de como criar uma fonte de dados externa e formatos de arquivo externos no pool de SQL.
+Para gravar em uma tabela externa do pool de SQL dedicado, uma FONTE DE DADOS EXTERNA e um FORMATO DE ARQUIVO EXTERNO devem existir no pool de SQL dedicado.  Para obter mais informações, leia [Como criar uma fonte de dados externa](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) e [Formatos de arquivo externos](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) no pool de SQL dedicado.  Veja abaixo exemplos de como criar uma fonte de dados externa e formatos de arquivo externos no pool de SQL dedicado.
 
 ```sql
---For an external table, you need to pre-create the data source and file format in SQL pool using SQL queries:
+--For an external table, you need to pre-create the data source and file format in dedicated SQL pool using SQL queries:
 CREATE EXTERNAL DATA SOURCE <DataSourceName>
 WITH
   ( LOCATION = 'abfss://...' ,
@@ -130,11 +135,11 @@ Não é necessário um objeto EXTERNAL CREDENTIAL ao usar a autenticação de pa
 df.write.
     option(Constants.DATA_SOURCE, <DataSourceName>).
     option(Constants.FILE_FORMAT, <FileFormatName>).
-    sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.EXTERNAL)
+    synapsesql("<DBName>.<Schema>.<TableName>", Constants.EXTERNAL)
 
 ```
 
-### <a name="if-you-transfer-data-to-or-from-a-sql-pool-or-database-outside-the-workspace"></a>Se você transfere dados para ou de um banco de dados ou um pool de SQL fora do workspace
+### <a name="transfer-data-to-or-from-a-dedicated-sql-pool-or-database-outside-the-workspace"></a>Transferir dados de/para um pool de SQL dedicado ou um banco de dados fora do workspace
 
 > [!NOTE]
 > Importações não necessárias na experiência do notebook
@@ -149,7 +154,7 @@ df.write.
 ```scala
 val df = spark.read.
 option(Constants.SERVER, "samplews.database.windows.net").
-sqlanalytics("<DBName>.<Schema>.<TableName>")
+synapsesql("<DBName>.<Schema>.<TableName>")
 ```
 
 #### <a name="write-api"></a>API de gravação
@@ -157,21 +162,21 @@ sqlanalytics("<DBName>.<Schema>.<TableName>")
 ```scala
 df.write.
 option(Constants.SERVER, "samplews.database.windows.net").
-sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
+synapsesql("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-### <a name="use-sql-auth-instead-of-aad"></a>Usar a Autenticação SQL em vez do AAD
+### <a name="use-sql-auth-instead-of-azure-ad"></a>Usar a Autenticação do SQL em vez do Azure AD
 
 #### <a name="read-api"></a>API de leitura
 
-Atualmente, o conector não dá suporte à autenticação baseada em token em um pool de SQL que esteja fora do workspace. Você precisará usar a Autenticação SQL.
+Atualmente, o conector não é compatível com a autenticação baseada em token em um pool de SQL dedicado que esteja fora do workspace. Você precisará usar a Autenticação SQL.
 
 ```scala
 val df = spark.read.
 option(Constants.SERVER, "samplews.database.windows.net").
 option(Constants.USER, <SQLServer Login UserName>).
 option(Constants.PASSWORD, <SQLServer Login Password>).
-sqlanalytics("<DBName>.<Schema>.<TableName>")
+synapsesql("<DBName>.<Schema>.<TableName>")
 ```
 
 #### <a name="write-api"></a>API de gravação
@@ -181,10 +186,10 @@ df.write.
 option(Constants.SERVER, "samplews.database.windows.net").
 option(Constants.USER, <SQLServer Login UserName>).
 option(Constants.PASSWORD, <SQLServer Login Password>).
-sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
+synapsesql("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-### <a name="use-the-pyspark-connector"></a>Usar o conector do PySpark
+### <a name="use-pyspark-with-the-connector"></a>Usar o PySpark com o conector
 
 > [!NOTE]
 > Este exemplo é fornecido apenas com a experiência de notebook mantida em mente.
@@ -203,7 +208,7 @@ Execute uma célula do Scala no notebook do PySpark usando magics:
 %%spark
 val scala_df = spark.sqlContext.sql ("select * from pysparkdftemptable")
 
-scala_df.write.sqlanalytics("sqlpool.dbo.PySparkTable", Constants.INTERNAL)
+scala_df.write.synapsesql("sqlpool.dbo.PySparkTable", Constants.INTERNAL)
 ```
 
 Da mesma forma, no cenário de leitura, leia os dados usando o Scala, grave-os em uma tabela temporária e use o SQL do Spark no PySpark para consultar a tabela temporária em um dataframe.
@@ -227,7 +232,7 @@ Você precisa ser Proprietário de Dados do Blob de Armazenamento na conta de ar
 
 - Você deve ser capaz de usar a ACL em todas as pastas de "synapse" para baixo no portal do Azure. Para usar a ACL na pasta raiz "/", siga as instruções abaixo.
 
-- Conecte-se à conta de armazenamento conectada com o workspace do Gerenciador de Armazenamento usando o AAD
+- Conectar-se à conta de armazenamento conectada ao workspace do Gerenciador de Armazenamento usando o Azure AD
 - Selecione sua Conta e forneça a URL do ADLS Gen2 e o sistema de arquivos padrão para o workspace
 - Quando vir a conta de armazenamento listada, clique com o botão direito do mouse no workspace da lista e selecione "Gerenciar Acesso"
 - Adicione o Usuário à pasta / com a permissão de acesso "Executar". Selecione "Ok"
@@ -235,7 +240,8 @@ Você precisa ser Proprietário de Dados do Blob de Armazenamento na conta de ar
 > [!IMPORTANT]
 > Não selecione "Padrão" se não pretende fazer isso.
 
+
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Criar um pool de SQL usando o portal do Azure](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
+- [Criar um pool de SQL dedicado usando o portal do Azure](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
 - [Criar um pool do Apache Spark usando o portal do Azure](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md) 

@@ -1,19 +1,19 @@
 ---
-title: Criar uma conta do Marketplace comercial no Partner Center
+title: Criar uma conta do Marketplace comercial no Partner Center para o Azure Marketplace
 description: Saiba como criar uma conta do Microsoft Commercial Marketplace no Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 10/30/2020
+ms.date: 11/02/2020
 author: parthpandyaMSFT
 ms.author: parthp
-ms.custom: contperfq2
-ms.openlocfilehash: deb64d1c8268268061a8121151c00ccb55902274
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: d88e2b18d4e4f9df0606832356e383aaaf51cf73
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130452"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028437"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Criar uma conta do Marketplace comercial no Partner Center
 
@@ -60,14 +60,14 @@ Seu perfil de editor inclui o nome da sua empresa e a ID do MPN. Se você ainda 
 
 1. Crie uma ID de editor. Sua ID de editor identifica exclusivamente sua empresa e suas ofertas no Azure Marketplace e no AppSource.
 
-1. Depois de confirmar as informações de perfil do editor, concorde com os termos e condições e, em seguida, crie sua conta do Partner Center selecionando **aceitar e continuar** .
+1. Depois de confirmar as informações de perfil do editor, concorde com os termos e condições e, em seguida, crie sua conta do Partner Center selecionando **aceitar e continuar**.
 
     > [!IMPORTANT]
     > Para aceitar esses termos, você deve estar autorizado a agir em nome da sua empresa.
 
-    Depois de estar registrado, você será levado para a página Visão geral do Marketplace comercial. A conta do Marketplace comercial é exibida no painel esquerdo. 
-    
-1. Para verificar se a conta do Marketplace comercial está listada como registrada, selecione **configurações**  >  **configurações do parceiro**  >  **programas** .
+    Depois de estar registrado, você será levado para a página Visão geral do Marketplace comercial. A conta do Marketplace comercial é exibida no painel esquerdo.
+
+1. Para verificar se a conta do Marketplace comercial está listada como registrada, selecione **configurações** (ícone de engrenagem) no canto superior direito > **configurações de conta**  >  **programas**.
 
 Agora você criou uma conta do Marketplace comercial no Partner Center. Continue a [Adicionar novos Publicadores ao Marketplace comercial](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -91,19 +91,19 @@ Quando você usa sua conta de Microsoft Partner Network, ela vincula o domínio 
 > Você deve ter um **administrador de conta** ou uma função de **administrador global** para entrar no Microsoft Partner Network.
 
 1. Entre no [Partner Center](https://partner.microsoft.com/dashboard/) com sua conta de Microsoft Partner Network.
-1. Selecione **configurações** configurações do  >  **parceiro**  >  **programas**  >  **introdução** .
+1. Selecione **configurações** configurações de  >  **conta**  >  **programas**  >  **introdução**.
 
    Microsoft Partner Network detecta sua assinatura e exibe o painel de **perfil do Publicador** .
-   
+
 1. Insira o nome da sua empresa e a ID do MPN.
 1. Leia os termos e condições no [contrato do Microsoft Publisher](https://go.microsoft.com/fwlink/?LinkID=699560)e, em seguida, selecione **aceitar e continue** para concluir o registro.
 
     > [!IMPORTANT]
     > Para aceitar esses termos, você deve estar autorizado a agir em nome da sua empresa.
 
-    Depois de estar registrado, você será levado para a página Visão geral do Marketplace comercial. A conta do Marketplace comercial é exibida no painel esquerdo. 
-    
-1. Para verificar se a conta do Marketplace comercial está listada como registrada, selecione **configurações**  >  **configurações do parceiro**  >  **programas** .
+    Depois de estar registrado, você será levado para a página Visão geral do Marketplace comercial. A conta do Marketplace comercial é exibida no painel esquerdo.
+
+1. Para verificar se a conta do Marketplace comercial está listada como registrada, selecione **configurações**  >  **conta configurações**  >  **programas**.
 
 Agora você criou uma conta do Marketplace comercial no Partner Center. Continue a [Adicionar novos Publicadores ao Marketplace comercial](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -112,23 +112,23 @@ Agora você criou uma conta do Marketplace comercial no Partner Center. Continue
 >[!NOTE]
 >Para se registrar no Marketplace comercial na mesma conta com a qual você está conectado, você precisa ter registrado no Partner Center com uma conta da empresa. Se você se registrou com uma conta individual, seu registro do Marketplace comercial aparecerá em uma nova conta.
 >
->Contas individuais são para desenvolvedores que trabalham por conta própria. As contas da empresa são para organizações e empresas. As contas da empresa fornecem acesso para enviar aplicativos com funcionalidade adicional. 
+>Contas individuais são para desenvolvedores que trabalham por conta própria. As contas da empresa são para organizações e empresas. As contas da empresa fornecem acesso para enviar aplicativos com funcionalidade adicional.
 >
 > Para verificar se você está autorizado a configurar a conta de sua empresa, exigimos a verificação adicional das contas da empresa depois que você se registrar. Essa verificação pode levar de alguns dias a algumas semanas e, muitas vezes, inclui um telefonema para sua empresa. Os dois tipos de contas permitem que você envie aplicativos, suplementos e serviços. Para obter mais informações, consulte [tipos de conta, locais e taxas](/windows/uwp/publish/account-types-locations-and-fees).
 
 Ao se registrar no programa do Marketplace comercial com a mesma conta do programa de desenvolvedor, você poderá ver todos os registros do programa existente no painel esquerdo do Partner Center.
 
 1. Entre no [Partner Center](https://partner.microsoft.com/dashboard/) com sua conta existente.
-1. Selecione **configurações**  >  **configurações do desenvolvedor**  >  **programas** de  >  **introdução** e insira seu endereço de email de trabalho.
+1. Selecione **configurações** configurações de  >  **conta**  >  **programas** de  >  **introdução** e insira seu endereço de email comercial.
 1. Preencha os detalhes na página de **perfil do Publicador** .
 2. Leia os termos e condições no [contrato do Microsoft Publisher](https://go.microsoft.com/fwlink/?LinkID=699560)e, em seguida, selecione **aceitar e continue** para concluir o registro.
 
     >[!Important]
     > Para aceitar esses termos, você deve estar autorizado a agir em nome da sua empresa.
 
-    Depois de estar registrado, você será levado para a página Visão geral do Marketplace comercial. A conta do Marketplace comercial é exibida no painel esquerdo. 
-    
-1. Para verificar se a conta do Marketplace comercial está listada como registrada, selecione **configurações**  >  **configurações do parceiro**  >  **programas** .
+    Depois de estar registrado, você será levado para a página Visão geral do Marketplace comercial. A conta do Marketplace comercial é exibida no painel esquerdo.
+
+1. Para verificar se a conta do Marketplace comercial está listada como registrada, selecione **configurações**  >  **conta configurações**  >  **programas**.
 
 Agora você criou uma conta do Marketplace comercial no Partner Center. Para obter ajuda com a adição de publicadores, continue a [Adicionar novos Publicadores ao Marketplace comercial](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -142,10 +142,10 @@ O contrato de publicação e as informações de perfil da empresa se transforma
 
 ## <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>Adicionar novos Publicadores ao programa comercial Marketplace
 
-Uma organização pode ter vários Publicadores associados a uma conta comercial do Marketplace. Um usuário existente pode adicionar mais Publicadores depois de entrar no Partner Center selecionando **configurações de conta**  >  **Publicadores**  >  **Adicionar Publicador** .
+Uma organização pode ter vários Publicadores associados a uma conta comercial do Marketplace. Um usuário existente pode adicionar mais Publicadores depois de entrar no Partner Center selecionando **configurações**  >  **configurações de conta**  >  identificadores de **perfil da organização**  >    >  **Adicionar Publicador**.
 
 >[!NOTE]
->Antes de adicionar um novo Publicador, examine sua lista de Publicadores existentes entrando no Partner Center e selecionando **configurações de conta**  >  **Publicadores** .
+>Antes de adicionar um novo Publicador, examine sua lista de Publicadores existentes entrando no Partner Center e selecionando **configurações de conta**  >  **Publicadores**.
 
 Usuários adicionais do mesmo locatário Azure Active Directory podem usar as etapas a seguir para adicionar um novo Publicador.
 
@@ -155,9 +155,9 @@ Usuários adicionais do mesmo locatário Azure Active Directory podem usar as et
 4. Escolha a ID de MPN que você deseja associar ao Publicador.
 5. Atualize os **detalhes do Publicador** no formulário.
 
-   * **Nome do editor** : o nome que é exibido no Marketplace comercial com a oferta.  
-   * **PublisherID** : um identificador que é usado pelo Partner Center para identificar exclusivamente o Publicador. O valor padrão desse campo é mapeado para uma ID de Publicador existente e exclusiva no sistema. Como a ID do Publicador não pode ser reutilizada, esse campo precisa ser atualizado.  
-   * **Informações de contato** : Atualize as informações de contato quando necessário.
+   * **Nome do editor**: o nome que é exibido no Marketplace comercial com a oferta.  
+   * **PublisherID**: um identificador que é usado pelo Partner Center para identificar exclusivamente o Publicador. O valor padrão desse campo é mapeado para uma ID de Publicador existente e exclusiva no sistema. Como a ID do Publicador não pode ser reutilizada, esse campo precisa ser atualizado.  
+   * **Informações de contato**: Atualize as informações de contato quando necessário.
 
 Depois que esse processo for concluído, vá para a conta do Marketplace comercial listada no painel esquerdo para gerenciar o Publicador recém-criado. Se você não vir a conta do Marketplace comercial, atualize a página. O novo Publicador aparecerá na lista **editores** .
 

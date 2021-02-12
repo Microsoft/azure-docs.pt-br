@@ -8,16 +8,16 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 6b39c1d6fe2e84055e7c94dde076514d04a24f36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5ecd8f13a3255a565168f62f358a6a38e3cbab4
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90992069"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445210"
 ---
 # <a name="managed-hsm-local-rbac-built-in-roles"></a>Funções internas de RBAC local do HSM Gerenciado
 
-O RBAC local do HSM Gerenciado tem várias funções internas que você pode atribuir a usuários, entidades de serviço, grupos e identidades gerenciadas. Para permitir que uma entidade de segurança execute uma operação, você deve atribuir a elas uma função que concede permissão para executar essas operações. Todas essas funções e operações só permitem que você gerencie as permissões das operações do plano de dados. Para gerenciar as permissões do plano de controle de recursos do HSM Gerenciado (como criar um HSM Gerenciado ou atualizar, mover ou excluir um HSM Gerenciado existente), você deve usar o [RBAC (controle de acesso baseado em função) do Azure](../../role-based-access-control/overview.md).
+O RBAC local do HSM Gerenciado tem várias funções internas que você pode atribuir a usuários, entidades de serviço, grupos e identidades gerenciadas. Para permitir que uma entidade de segurança execute uma operação, você deve atribuir a elas uma função que concede permissão para executar essas operações. Todas essas funções e operações só permitem que você gerencie as permissões das operações do plano de dados. Para gerenciar as permissões do painel de controle do recurso HSM Gerenciado (como a criação de um HSM gerenciado ou a atualização, a movimentação ou a exclusão de um existente), você precisará usar o [RBAC do Azure (controle de acesso baseado em função do Azure)](../../role-based-access-control/overview.md).
 
 ## <a name="built-in-roles"></a>Funções internas
 
@@ -77,5 +77,5 @@ O RBAC local do HSM Gerenciado tem várias funções internas que você pode atr
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Confira uma visão geral do [RBAC (controle de acesso baseado em função) do Azure](../../role-based-access-control/overview.md).
+- Obtenha uma visão geral do [RBAC do Azure (controle de acesso baseado em função do Azure)](../../role-based-access-control/overview.md).
 - Confira um tutorial sobre [Gerenciamento de funções no HSM Gerenciado](role-management.md)

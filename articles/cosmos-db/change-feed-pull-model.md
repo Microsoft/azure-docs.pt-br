@@ -4,16 +4,17 @@ description: Saiba como usar o modelo de pull do feed de alterações do Azure C
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 10/27/2020
+ms.date: 01/04/2021
 ms.reviewer: sngun
-ms.openlocfilehash: 6d2f39eae94b217ad1f95a6a559aa3e1044d10da
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e227e230c4de1234e068f72958367dc2ac709426
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93072665"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881949"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Alterar o modelo de pull do feed de alterações no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -51,7 +52,7 @@ Aqui estão algumas diferenças importantes entre o processador do feed de alter
 | Nível de suporte | Disponível para o público geral | Visualização |
 
 > [!NOTE]
-> Ao contrário da leitura usando o processador do feed de alterações, você deve manipular explicitamente os casos em que não há nenhuma alteração nova. 
+> Ao contrário da leitura usando o processador do feed de alterações, você deve manipular explicitamente os casos em que não há nenhuma nova alteração. 
 
 ## <a name="consuming-an-entire-containers-changes"></a>Como consumir as alterações de um contêiner inteiro
 
@@ -114,7 +115,8 @@ while (iteratorForThePartitionKey.HasMoreResults)
                 Console.WriteLine($"Detected change for user with id {user.id}");
             }
     }
-    catch {
+    catch (CosmosException exception) when (exception.StatusCode == System.Net.HttpStatusCode.NotModified)
+    {
         Console.WriteLine($"No new changes");
         Thread.Sleep(5000);
     }
@@ -156,7 +158,8 @@ while (iteratorA.HasMoreResults)
                 Console.WriteLine($"Detected change for user with id {user.id}");
             }
     }
-    catch {
+    catch (CosmosException exception) when (exception.StatusCode == System.Net.HttpStatusCode.NotModified)
+    {
         Console.WriteLine($"No new changes");
         Thread.Sleep(5000);
     }
@@ -177,7 +180,8 @@ while (iteratorB.HasMoreResults)
                 Console.WriteLine($"Detected change for user with id {user.id}");
             }
     }
-    catch {
+    catch (CosmosException exception) when (exception.StatusCode == System.Net.HttpStatusCode.NotModified)
+    {
         Console.WriteLine($"No new changes");
         Thread.Sleep(5000);
     }
@@ -204,7 +208,8 @@ while (iterator.HasMoreResults)
                 Console.WriteLine($"Detected change for user with id {user.id}");
             }
    }
-    catch {
+    catch (CosmosException exception) when (exception.StatusCode == System.Net.HttpStatusCode.NotModified)
+    {
         Console.WriteLine($"No new changes");
         Thread.Sleep(5000);
     }   

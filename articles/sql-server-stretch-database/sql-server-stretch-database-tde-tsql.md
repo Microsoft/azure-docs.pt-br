@@ -14,12 +14,12 @@ ms.author: blazem
 ms.reviewer: jroth
 manager: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6f1f5f55348069dbfe11b4d5857d93f8ba8c9b19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 772341d046186e46b79ad7b11170e1bad23a3a6f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74033966"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024187"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure-transact-sql"></a>Habilitar TDE (Transparent Data Encryption) para Stretch Database no Azure (Transact-SQL)
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "74033966"
 
 O TDE (Transparent Data Encryption) ajuda a proteger contra ameaças de atividades mal-intencionadas por meio da execução de criptografia e descriptografia em tempo real do banco de dados, de backups associados e de arquivos de log de transações em repouso, sem exigir mudanças no aplicativo.
 
-A TDE criptografa o armazenamento de um banco de dados inteiro, usando uma chave simétrica chamada de chave de criptografia de banco de dados. A chave de criptografia do banco de dados está protegida por um certificado do servidor interno. O certificado do servidor interno é exclusivo para cada servidor do Azure. A Microsoft gira automaticamente esses certificados pelo menos a cada 90 dias. Para obter uma descrição geral do TDE, consulte [TDE (Transparent Data Encryption)].
+A TDE criptografa o armazenamento de um banco de dados inteiro usando uma chave simétrica chamada de chave de criptografia de banco de dados. A chave de criptografia do banco de dados está protegida por um certificado do servidor interno. O certificado do servidor interno é exclusivo para cada servidor do Azure. A Microsoft gira automaticamente esses certificados pelo menos a cada 90 dias. Para obter uma descrição geral do TDE, consulte [TDE (Transparent Data Encryption)].
 
 ## <a name="enabling-encryption"></a>Habilitando a criptografia
 Para habilitar a TDE para um banco de dados do Azure que armazena os dados migrados de um banco de dados do SQL Server habilitado para ampliação, faça o seguinte:
@@ -69,7 +69,7 @@ FROM
 Um resultado de ```1``` indica um banco de dados criptografado, ```0``` indica um banco de dados não criptografado.
 
 <!--Anchors-->
-[TDE (Transparent Data Encryption)]: https://msdn.microsoft.com/library/bb934049.aspx
+[TDE (Transparent Data Encryption)]: /sql/relational-databases/security/encryption/transparent-data-encryption
 
 
 <!--Image references-->

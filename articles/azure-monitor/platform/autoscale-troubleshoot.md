@@ -4,12 +4,12 @@ description: Rastreamento de problemas com o dimensionamento automático do Azur
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
-ms.openlocfilehash: a29b5d11a6ea06af9d5b6a8b5120c6f0caa6601e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c4589acd17e76d1341d5aceada67e565c8f8c37
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979036"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251260"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Solucionando problemas do dimensionamento automático do Azure
  
@@ -51,20 +51,20 @@ Vamos examinar as métricas do serviço de dimensionamento automático.
 
 ![Exemplo de CPU percentual do conjunto de dimensionamento de máquinas virtuais](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-2.png)
 
-***Figura 1a-percentual de métrica de CPU para conjunto de dimensionamento de máquinas virtuais e a métrica de valor de métrica observada para configuração de dimensionamento automático***
+**_Figura 1a-percentual de métrica de CPU para o conjunto de dimensionamento de máquinas virtuais e a métrica de valor de métrica observada para configuração de dimensionamento automático_*
 
 ![Limite de métrica e capacidade observada](media/autoscale-troubleshoot/autoscale-metric-threshold-capacity-ex-full.png)
 
-***Figura 1b-limite de métrica e capacidade observada***
+_*_Figura 1b-limite de métrica e capacidade observada_*_
 
-Na figura 1B, o **limite de métrica** (linha azul clara) para a regra de expansão é 70.  A **capacidade observada** (linha azul escura) mostra o número de instâncias ativas, que atualmente são 3. 
+Na figura 1B, o *limite de métrica* _ * (linha azul clara) para a regra de expansão é 70.  A **capacidade observada** (linha azul escura) mostra o número de instâncias ativas, que atualmente são 3. 
 
 > [!NOTE]
 > Você precisará filtrar o **limite de métrica** pela regra de gatilho de métrica dimensão de escala horizontal (aumentar) para ver o limite de expansão e pela regra de dimensionamento (diminuir). 
 
 ## <a name="example-2---advanced-autoscaling-for-a-virtual-machine-scale-set"></a>Exemplo 2-dimensionamento automático avançado para um conjunto de dimensionamento de máquinas virtuais
 
-Temos uma configuração de dimensionamento automático que permite que um recurso de conjunto de dimensionamento de máquinas virtuais Escale horizontalmente com base em seus próprios **fluxos de saída**de métrica. Observe que a opção **dividir métrica por contagem de instâncias** para o limite de métrica está marcada. 
+Temos uma configuração de dimensionamento automático que permite que um recurso de conjunto de dimensionamento de máquinas virtuais Escale horizontalmente com base em seus próprios **fluxos de saída** de métrica. Observe que a opção **dividir métrica por contagem de instâncias** para o limite de métrica está marcada. 
 
 A regra de ação de escala é: 
 
@@ -76,18 +76,18 @@ Nesse caso, o valor da métrica observada do mecanismo de dimensionamento autom�
 
 ![Exemplo de gráficos de métricas de dimensionamento automático do conjunto de escala](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-2.png)
 
-***Figura 2-exemplo de gráficos de métrica de dimensionamento automático do conjunto de dimensionamento de máquinas virtuais***
+**_Figura 2 – exemplo de escala de dimensionamento automático do conjunto de dimensionamento de máquinas virtuais_* _
 
 Na Figura 2, você pode ver dois gráficos de métricas. 
 
-O gráfico na parte superior mostra o valor real da métrica de **fluxos de saída** . O valor real é 6. 
+O gráfico na parte superior mostra o valor real da métrica _ *fluxos de saída**. O valor real é 6. 
 
 O gráfico na parte inferior mostra alguns valores. 
  - O **valor de métrica observado** (azul claro) é 3 porque há duas instâncias ativas e 6 divididas por 2 são 3. 
  - A **capacidade observada** (roxo) mostra a contagem de instâncias vista pelo mecanismo de dimensionamento automático. 
  - O **limite de métrica** (verde claro) é definido como 10. 
 
-Se houver várias regras de ação de escala, você poderá usar a opção de divisão ou **Adicionar filtro** no gráfico do Metrics Explorer para examinar a métrica por uma fonte ou regra específica. Para obter mais informações sobre como dividir um gráfico de métricas, consulte [recursos avançados de gráficos de métrica – divisão](metrics-charts.md#apply-splitting-to-a-chart)
+Se houver várias regras de ação de escala, você poderá usar a opção de divisão ou **Adicionar filtro** no gráfico do Metrics Explorer para examinar a métrica por uma fonte ou regra específica. Para obter mais informações sobre como dividir um gráfico de métricas, consulte [recursos avançados de gráficos de métrica – divisão](metrics-charts.md#apply-splitting)
 
 ## <a name="example-3---understanding-autoscale-events"></a>Exemplo 3-noções básicas sobre eventos de dimensionamento automático
 

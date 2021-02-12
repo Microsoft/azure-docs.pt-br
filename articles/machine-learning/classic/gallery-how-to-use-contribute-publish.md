@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 1c03f52802881bcf4c916ce3ed438e465e574090
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eacc7adae16785049022cd05f04904d97b0b3a6d
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91341117"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95486119"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Compartilhar e descobrir recursos na Galeria de IA do Azure
 
-**APLICA-SE A:**  ![sim](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico)   ![não](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**aplica-se a:** ![ Essa é uma marca de seleção, o que significa que este artigo se aplica a Machine Learning Studio (clássico). ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ é um X, o que significa que este artigo se aplica a Azure Machine Learning ](../../../includes/media/aml-applies-to-skus/no.png)[ . Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 
@@ -202,6 +202,6 @@ Depois de inserir uma marcação, pressione a tecla Tab para inserir outra marca
 
 Queremos que a Galeria seja orientada por nossos usuários e para nossos usuários. Use o smiley à direita para nos dizer o que você adora ou odeia na Galeria.  
 
-![Comentários](./media/gallery-how-to-use-contribute-publish/feedback.png)
+![Uma janela de comentários permite que você envie um Smiley, envie um rosto triste ou insira texto. Há um botão enviar.](./media/gallery-how-to-use-contribute-publish/feedback.png)
 
 **[LEVE-ME À GALERIA >>](https://gallery.azure.ai)**

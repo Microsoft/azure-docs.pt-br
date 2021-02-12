@@ -3,12 +3,12 @@ title: Visão geral do Azure Arc
 description: Saiba o que é o Azure Arc e como ele ajuda os clientes a habilitar o gerenciamento e a governança dos recursos híbridos com outros serviços e recursos do Azure.
 ms.date: 09/23/2020
 ms.topic: overview
-ms.openlocfilehash: 8e48378e5032768b3f56a5d99c1189e282ff37f8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8f39dff16037b5f52a050b7d07193b0ad7cab93d
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91714150"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672679"
 ---
 # <a name="azure-arc-overview"></a>Visão geral do Azure Arc
 
@@ -50,7 +50,7 @@ Veja a seguir os detalhes de preços dos recursos disponíveis hoje com o Azure 
 
 ### <a name="arc-enabled-servers"></a>Servidores habilitados para Arc
 
-A funcionalidade do plano de controle do Azure Arc é oferecida sem custo adicional.Isso inclui:
+A funcionalidade do plano de controle do Azure Arc é oferecida sem custo adicional. Isso inclui:
 
 * Organização de recursos por meio de marcas e grupos de gerenciamento do Azure.
 
@@ -60,7 +60,7 @@ A funcionalidade do plano de controle do Azure Arc é oferecida sem custo adicio
 
 * Ambientes e automação por meio de modelos e extensões.
 
-* Gerenciamento de Atualizações
+* Gerenciamento de atualizações
 
 Qualquer serviço do Azure que seja usado em servidores habilitados para Arc, por exemplo, a Central de Segurança do Azure ou o Azure Monitor, será cobrado de acordo com o preço do serviço. Para obter mais informações, confira a [página Preços do Azure](https://azure.microsoft.com/pricing/).
 
@@ -79,3 +79,5 @@ Na fase de versão prévia atual, os Serviços de Dados habilitados para o Azure
 * Para saber mais sobre o Kubernetes habilitado para Arc, confira a [visão geral](./kubernetes/overview.md) a seguir
 
 * Para saber mais sobre os Serviços de Dados habilitados para Arc, confira a [visão geral](https://azure.microsoft.com/services/azure-arc/hybrid-data-services/) a seguir
+
+* Experimente os serviços habilitados para Arc em [Iniciar rapidamente a prova de conceito](https://azurearcjumpstart.io/azure_arc_jumpstart/)

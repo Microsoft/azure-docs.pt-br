@@ -7,17 +7,17 @@ ms.reviewer: jasonh
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
-ms.date: 04/15/2020
-ms.openlocfilehash: 143713649afd7f9e42f517713b6b2365ee1605a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/16/2020
+ms.openlocfilehash: b8c7792a09dd86e7d4ac043c572f69fc47ee6e63
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91260267"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307183"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Tutorial: Criar uma definição de trabalho do Apache Spark no Synapse Studio
 
-Este tutorial demonstra como usar o Azure Synapse Studio para criar definições de trabalho do Apache Spark e depois enviá-las a um pool do Apache Spark.
+Este tutorial demonstra como usar o Azure Synapse Studio para criar definições de trabalho do Apache Spark e depois enviá-las a um pool do Apache Spark sem servidor.
 
 Este tutorial cobre as seguintes tarefas:
 > [!div class="checklist"]
@@ -33,7 +33,7 @@ Este tutorial cobre as seguintes tarefas:
 Antes de iniciar este tutorial, verifique se você atende aos seguintes requisitos:
 
 * Um workspace do Azure Synapse Analytics. Para obter instruções, confira [Criar um workspace do Azure Synapse Analytics](../../machine-learning/how-to-manage-workspace.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#create-a-workspace).
-* Um pool do Apache Spark.
+* Um Pool do Apache Spark sem servidor.
 * Uma conta de armazenamento do ADLS Gen2. Você precisa ser o **Proprietário de Dados do Blob de Armazenamento** do sistema de arquivos ADLS Gen2 com o qual deseja trabalhar. Se não for, você precisará adicionar a permissão manualmente.
 * Se você não quiser usar o armazenamento padrão do workspace, vincule a conta de armazenamento do ADLS Gen2 necessária no Synapse Studio. 
 
@@ -47,7 +47,7 @@ Nesta seção, você cria uma definição de trabalho do Apache Spark para PySpa
 
      ![arquivos de exemplo](./media/apache-spark-job-definitions/sample-files.png)
 
-3. Selecione **Dados** -> **Vinculados** -> **Azure Data Lake Storage Gen2** e carregue **wordcount.py** e **shakespeare.txt** em seu sistema de arquivos ADLS Gen2. 
+3. Selecione **Dados** -> **Vinculados** -> **Azure Data Lake Storage Gen2** e carregue **wordcount.py** e **shakespeare.txt** em seu sistema de arquivos do ADLS Gen2. 
 
      ![carregar arquivo do Python](./media/apache-spark-job-definitions/upload-python-file.png)
 
@@ -89,7 +89,7 @@ Nesta seção, você cria uma definição de trabalho do Apache Spark para o Apa
  
      ![arquivos de exemplo para Scala](./media/apache-spark-job-definitions/sample-files-scala.png)
 
- 3. Selecione **Dados** -> **Vinculados** -> **Azure Data Lake Storage Gen2** e carregue **wordcount.jar** e **shakespeare.txt** em seu sistema de arquivos ADLS Gen2.
+ 3. Selecione **Dados** -> **Vinculados** -> **Azure Data Lake Storage Gen2** e carregue **wordcount.jar** e **shakespeare.txt** em seu sistema de arquivos do ADLS Gen2.
  
      ![preparar estrutura do Scala](./media/apache-spark-job-definitions/prepare-scala-structure.png)
 
@@ -129,7 +129,7 @@ Nesta seção, você criará uma definição de trabalho do Apache Spark para .N
 
      ![exemplo para dotnet](./media/apache-spark-job-definitions/sample-dotnet.png)
 
- 3. Selecione **Dados** -> **Vinculados** -> **Azure Data Lake Storage Gen2** e carregue **wordcount.zip** e **shakespeare.txt** em seu sistema de arquivos ADLS Gen2.
+ 3. Selecione **Dados** -> **Vinculados** -> **Azure Data Lake Storage Gen2** e carregue **wordcount.zip** e **shakespeare.txt** em seu sistema de arquivos do ADLS Gen2.
  
      ![preparar estrutura dotnet](./media/apache-spark-job-definitions/prepare-dotnet-structure.png)
 

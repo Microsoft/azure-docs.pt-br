@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: 6ad8f3e146c13e7b88752b8ef6d514346542ce26
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 748ac448ad8bf5c06e5be8b7a4a8b00a9b7af84b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672272"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500879"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Localizar e aplicar recomendações de desempenho
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ Você pode usar o portal do Azure para encontrar recomendações de desempenho q
 
 ## <a name="viewing-recommendations"></a>Exibindo recomendações
 
-Para exibir e aplicar recomendações de desempenho, você precisa das permissões corretas do Azure [RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md) do Azure no Azure. As permissões de **Leitor** , **Contribuidor do DB SQL** são necessárias para exibir as recomendações, enquanto as permissões de **Proprietário** , **Contribuidor do DB SQL** são necessárias para executar todas as ações: criar ou remover índices e cancelar a criação de índices.
+Para exibir e aplicar recomendações de desempenho, você precisa das permissões corretas do Azure [RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md) do Azure no Azure. As permissões de **Leitor**, **Contribuidor do DB SQL** são necessárias para exibir as recomendações, enquanto as permissões de **Proprietário**, **Contribuidor do DB SQL** são necessárias para executar todas as ações: criar ou remover índices e cancelar a criação de índices.
 
 Use as etapas a seguir para encontrar recomendações de desempenho no portal do Azure:
 
@@ -43,7 +43,7 @@ As recomendações são classificadas de acordo com seu impacto em potencial no 
 |:--- |:--- |
 | Alta |Recomendações de alto impacto devem fornecer o impacto mais significativo no desempenho. |
 | Médio |Recomendações de médio impacto devem melhorar o desempenho, mas não substancialmente. |
-| Baixo |Recomendações de baixo impacto devem fornecer um desempenho melhor do que seria obtido sem elas, mas as melhorias podem não ser significativas. |
+| Baixa |Recomendações de baixo impacto devem fornecer um desempenho melhor do que seria obtido sem elas, mas as melhorias podem não ser significativas. |
 
 > [!NOTE]
 > O Banco de Dados SQL do Azure precisa monitorar as atividades de pelo menos um dia para identificar algumas recomendações. O Banco de Dados SQL do Azure pode otimizar com mais facilidade os padrões de consulta consistentes do que intermitências aleatórias e irregulares de atividade. Se não houver recomendações disponíveis no momento, a página **Recomendação de desempenho** apresentará uma mensagem explicando o motivo.
@@ -70,7 +70,7 @@ O banco de dados permanece online enquanto a recomendação é aplicada – o us
 
 Você pode examinar e aceitar uma recomendação de cada vez.
 
-1. Na página **Recomendações** , selecione uma recomendação.
+1. Na página **Recomendações**, selecione uma recomendação.
 2. Na página **detalhes** , clique no botão **aplicar** .
 
    ![Aplicar recomendação](./media/database-advisor-find-recommendations-portal/apply.png)
@@ -82,13 +82,13 @@ As recomendações selecionadas são aplicadas no banco de dados.
 Se sua lista de recomendações contiver itens que você deseja remover da lista, você poderá descartar a recomendação:
 
 1. Selecione uma recomendação na lista de **Recomendações** para abrir os detalhes.
-2. Clique em **Descartar** na página **Detalhes** .
+2. Clique em **Descartar** na página **Detalhes**.
 
 Se desejar, você poderá adicionar itens descartados de volta para a lista de **Recomendações** :
 
-1. Na página **Recomendações** , clique em **Exibir descartados** .
+1. Na página **Recomendações**, clique em **Exibir descartados**.
 2. Selecione um item descartado na lista para exibir seus detalhes.
-3. Outra alternativa é clicar em **Desfazer Descarte** para adicionar o índice de volta à lista principal de **Recomendações** .
+3. Outra alternativa é clicar em **Desfazer Descarte** para adicionar o índice de volta à lista principal de **Recomendações**.
 
 > [!NOTE]
 > Observe que se o [ajuste automático](automatic-tuning-overview.md) do Banco de Dados SQL estiver habilitado, e se você descartou manualmente uma recomendação na lista, essa recomendação nunca será aplicada automaticamente. Descartar uma recomendação é uma maneira útil para que os usuários tenham o ajuste automático habilitado em casos ao exigir que uma recomendação específica não deve ser aplicada.
@@ -98,7 +98,7 @@ Se desejar, você poderá adicionar itens descartados de volta para a lista de *
 
 Você pode definir seu banco de dados para implementar recomendações automaticamente. Conforme as recomendações são disponibilizadas, elas são aplicadas automaticamente. Assim como em todas as recomendações gerenciadas pelo serviço, se o impacto ao desempenho for negativo, a recomendação será revertida.
 
-1. Na página **Recomendações** , clique em **Automatizar** :
+1. Na página **Recomendações**, clique em **Automatizar**:
 
    ![Configurações do supervisor](./media/database-advisor-find-recommendations-portal/settings.png)
 2. Selecione as ações para automatização:
@@ -112,15 +112,15 @@ Depois de selecionar a configuração desejada, clique em Aplicar.
 
 ### <a name="manually-apply-recommendations-through-t-sql"></a>Aplicar recomendações manualmente por meio do T-SQL
 
-Selecione qualquer recomendação e clique em **Exibir script** . Execute este script em seu banco de dados para aplicar manualmente a recomendação.
+Selecione qualquer recomendação e clique em **Exibir script**. Execute este script em seu banco de dados para aplicar manualmente a recomendação.
 
 *Os índices que são executados manualmente não são monitorados e validados quanto ao impacto no desempenho pelo serviço* , portanto, é recomendável que você monitore esses índices após a criação para verificar se eles fornecem ganhos de desempenho e ajustá-los ou excluí-los, se necessário. Para obter detalhes sobre a criação de índices, consulte [CRIAR ÍNDICE (Transact-SQL)](/sql/t-sql/statements/create-index-transact-sql). Além disso, as recomendações aplicadas manualmente permanecerão ativas e exibidas na lista de recomendações de 24-48 horas. antes que o sistema as retire automaticamente. Se você quiser remover uma recomendação mais cedo, poderá descartá-la manualmente.
 
 ### <a name="canceling-recommendations"></a>Cancelando recomendações
 
-Recomendações que estão com status **Pendente** , **Validando** ou **Êxito** podem ser canceladas. Recomendações com status **Executando** não podem ser canceladas.
+Recomendações que estão com status **Pendente**, **Validando** ou **Êxito** podem ser canceladas. Recomendações com status **Executando** não podem ser canceladas.
 
-1. Selecione uma recomendação na área **Histórico de Ajustes** para abrir a página **detalhes da recomendação** .
+1. Selecione uma recomendação na área **Histórico de Ajustes** para abrir a página **detalhes da recomendação**.
 2. Clique em **Cancelar** para anular o processo de aplicação da recomendação.
 
 ## <a name="monitoring-operations"></a>Monitoramento de operações
@@ -146,7 +146,7 @@ Clique em uma recomendação em processo da lista para ver mais informações:
 Se você tiver usado as recomendações de desempenho para aplicar a recomendação (ou seja, não executou o script T-SQL manualmente), ela será revertida automaticamente se o impacto ao desempenho for negativo. Se, por algum motivo, você simplesmente desejar reverter uma recomendação, poderá fazer o seguinte:
 
 1. Selecione uma recomendação aplicada com êxito na área **Histórico de ajustes** .
-2. Clique em **Reverter** na página **detalhes da recomendação** .
+2. Clique em **Reverter** na página **detalhes da recomendação**.
 
 ![Índices recomendados](./media/database-advisor-find-recommendations-portal/details.png)
 

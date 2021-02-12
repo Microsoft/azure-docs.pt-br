@@ -3,21 +3,21 @@ title: Configurar chaves gerenciadas pelo cliente para criptografar dados em rep
 description: Crie e gerencie suas próprias chaves de criptografia para proteger dados em repouso para ambientes de serviço de integração (ISEs) em aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, rarayudu, logicappspm
+ms.reviewer: mijos, rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 03/11/2020
-ms.openlocfilehash: d9f25fc419a92d125dffe5c14b9b4c19cd795c6e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 01/20/2021
+ms.openlocfilehash: d31fbd813f0c5d63ee9eddbff5b299209618626b
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318459"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629667"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Configurar chaves gerenciadas pelo cliente para criptografar dados em repouso para ambientes de serviço de integração (ISEs) em aplicativos lógicos do Azure
 
 Os aplicativos lógicos do Azure dependem do armazenamento do Azure para armazenar e [criptografar automaticamente os dados em repouso](../storage/common/storage-service-encryption.md). Essa criptografia protege seus dados e ajuda a atender aos compromissos de segurança e conformidade da organização. Por padrão, o armazenamento do Azure usa chaves gerenciadas pela Microsoft para criptografar seus dados. Para obter mais informações sobre como funciona a criptografia de armazenamento do Azure, consulte [criptografia de armazenamento do Azure para dados em repouso](../storage/common/storage-service-encryption.md) e [criptografia de dados do Azure em repouso](../security/fundamentals/encryption-atrest.md).
 
-Quando você cria um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) para hospedar seus aplicativos lógicos e deseja obter mais controle sobre as chaves de criptografia usadas pelo armazenamento do Azure, você pode configurar, usar e gerenciar sua própria chave usando [Azure Key Vault](../key-vault/general/overview.md). Esse recurso também é conhecido como "Bring Your Own Key" (BYOK) e sua chave é chamada de "chave gerenciada pelo cliente".
+Quando você cria um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) para hospedar seus aplicativos lógicos e deseja obter mais controle sobre as chaves de criptografia usadas pelo armazenamento do Azure, você pode configurar, usar e gerenciar sua própria chave usando [Azure Key Vault](../key-vault/general/overview.md). Esse recurso é conhecido como "Bring Your Own Key" (BYOK) e sua chave é chamada de "chave gerenciada pelo cliente". Com esse recurso, o armazenamento do Azure habilita automaticamente a criptografia [dupla ou a *criptografia de infraestrutura* usando chaves gerenciadas por plataforma](../security/fundamentals/double-encryption.md) para sua chave. Para saber mais, confira [criptografar dados duplicados com criptografia de infraestrutura](../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption).
 
 Este tópico mostra como configurar e especificar sua própria chave de criptografia a ser usada ao criar o ISE usando a API REST de aplicativos lógicos. Para ver as etapas gerais para criar um ISE por meio da API REST de aplicativos lógicos, consulte [criar um ambiente de serviço de integração (ISE) usando a API REST de aplicativos lógicos](../logic-apps/create-integration-service-environment-rest-api.md).
 
@@ -27,11 +27,15 @@ Este tópico mostra como configurar e especificar sua própria chave de criptogr
 
 * Você pode especificar uma chave gerenciada pelo cliente *somente quando criar o ISE*, não depois. Não é possível desabilitar essa chave após a criação do ISE. No momento, não existe suporte para a rotação de uma chave gerenciada pelo cliente para um ISE.
 
-* Para dar suporte a chaves gerenciadas pelo cliente, seu ISE requer que o tenha sua [identidade gerenciada atribuída pelo sistema](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) habilitada. Essa identidade permite que o ISE autentique o acesso a recursos em outros locatários Azure Active Directory (Azure AD) para que você não precise entrar com suas credenciais.
+* Para dar suporte a chaves gerenciadas pelo cliente, seu ISE exige que você habilite a [identidade gerenciada atribuída pelo sistema ou pelo usuário](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). Essa identidade permite que o ISE autentique o acesso a recursos protegidos, como máquinas virtuais e outros sistemas ou serviços, que estão no ou estão conectados a uma rede virtual do Azure. Dessa forma, você não precisa entrar com suas credenciais.
 
-* Atualmente, para criar um ISE que dê suporte a chaves gerenciadas pelo cliente e tenha sua identidade atribuída pelo sistema habilitada, você precisa chamar a API REST dos aplicativos lógicos usando uma solicitação HTTPS PUT.
+* No momento, para criar um ISE que ofereça suporte a chaves gerenciadas pelo cliente e que tenha o tipo de identidade gerenciada habilitado, você precisa chamar a API REST dos aplicativos lógicos usando uma solicitação HTTPS PUT.
 
-* Em *30 minutos* depois de enviar a solicitação HTTPS Put que cria o ISE, você deve [fornecer acesso ao cofre de chaves para a identidade atribuída pelo sistema do ISE](#identity-access-to-key-vault). Caso contrário, a criação do ISE falhará e lançará um erro de permissões.
+* Você deve [fornecer acesso ao cofre de chaves para a identidade gerenciada do ISE](#identity-access-to-key-vault), mas o tempo depende de qual identidade gerenciada você usa.
+
+  * **Identidade gerenciada atribuída pelo sistema**: dentro de *30 minutos depois* de enviar a solicitação HTTPS Put que cria o ISE, você deve [fornecer acesso ao cofre de chaves para a identidade gerenciada do ISE](#identity-access-to-key-vault). Caso contrário, a criação do ISE falhará e você receberá um erro de permissões.
+
+  * **Identidade gerenciada atribuída pelo usuário**: antes de enviar a solicitação HTTPS Put que cria o ISE, [conceda ao cofre de chaves acesso à identidade gerenciada do ISE](#identity-access-to-key-vault).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,7 +43,7 @@ Este tópico mostra como configurar e especificar sua própria chave de criptogr
 
 * Um cofre de chaves do Azure que tem as propriedades **exclusão reversível** e **não limpar** habilitadas
 
-  Para obter mais informações sobre como habilitar essas propriedades, consulte [visão geral Azure Key Vault exclusão reversível](../key-vault/general/soft-delete-overview.md) e [Configurar chaves gerenciadas pelo cliente com Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md). Se você for novo no Azure Key Vault, saiba [como criar um cofre de chaves](../key-vault/secrets/quick-create-portal.md#create-a-vault) usando o portal do Azure ou usando o comando Azure PowerShell, [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault).
+  Para obter mais informações sobre como habilitar essas propriedades, consulte [visão geral Azure Key Vault exclusão reversível](../key-vault/general/soft-delete-overview.md) e [Configurar chaves gerenciadas pelo cliente com Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md). Se você for novo no [Azure Key Vault](../key-vault/general/overview.md), saiba como criar um cofre de chaves usando [portal do Azure](../key-vault/general/quick-create-portal.md), [CLI do Azure](../key-vault/general/quick-create-cli.md)ou [Azure PowerShell](../key-vault/general/quick-create-powershell.md).
 
 * No cofre de chaves, uma chave criada com esses valores de propriedade:
 
@@ -47,7 +51,7 @@ Este tópico mostra como configurar e especificar sua própria chave de criptogr
   |----------|-------|
   | **Tipo de Chave** | RSA |
   | **Tamanho da chave RSA** | 2.048 |
-  | **Enabled** | Sim |
+  | **Enabled** | Yes |
   |||
 
   ![Criar sua chave de criptografia gerenciada pelo cliente](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
@@ -56,7 +60,7 @@ Este tópico mostra como configurar e especificar sua própria chave de criptogr
 
 * Uma ferramenta que você pode usar para criar seu ISE chamando a API REST de aplicativos lógicos com uma solicitação HTTPS PUT. Por exemplo, você pode usar o [postmaster](https://www.getpostman.com/downloads/)ou pode criar um aplicativo lógico que executa essa tarefa.
 
-<a name="enable-support-key-system-identity"></a>
+<a name="enable-support-key-managed-identity"></a>
 
 ## <a name="create-ise-with-key-vault-and-managed-identity-support"></a>Criar ISE com o cofre de chaves e o suporte de identidade gerenciada
 
@@ -65,7 +69,7 @@ Para criar seu ISE chamando a API REST dos aplicativos lógicos, faça esta soli
 `PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01`
 
 > [!IMPORTANT]
-> A versão 2019-05-01 da API REST dos aplicativos lógicos requer que você faça sua própria solicitação HTTP PUT para conectores do ISE.
+> A versão 2019-05-01 da API REST dos aplicativos lógicos requer que você faça sua própria solicitação HTTPS PUT para conectores ISE.
 
 A implantação geralmente leva dentro de duas horas para ser concluída. Em alguns casos, a implantação pode levar até quatro horas. Para verificar o status da implantação, na [portal do Azure](https://portal.azure.com), na barra de ferramentas do Azure, selecione o ícone notificações, que abre o painel notificações.
 
@@ -88,7 +92,7 @@ No cabeçalho da solicitação, inclua estas propriedades:
 
 No corpo da solicitação, habilite o suporte para esses itens adicionais fornecendo suas informações em sua definição de ISE:
 
-* A identidade gerenciada atribuída pelo sistema que seu ISE usa para acessar o cofre de chaves
+* A identidade gerenciada que seu ISE usa para acessar o cofre de chaves
 * O cofre de chaves e a chave gerenciada pelo cliente que você deseja usar
 
 #### <a name="request-body-syntax"></a>Sintaxe de corpo da solicitação
@@ -97,7 +101,7 @@ Aqui está a sintaxe do corpo da solicitação, que descreve as propriedades a s
 
 ```json
 {
-   "id": "/subscriptions/{Azure-subscription-ID/resourceGroups/{Azure-resource-group}/providers/Microsoft.Logic/integrationServiceEnvironments/{ISE-name}",
+   "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Logic/integrationServiceEnvironments/{ISE-name}",
    "name": "{ISE-name}",
    "type": "Microsoft.Logic/integrationServiceEnvironments",
    "location": "{Azure-region}",
@@ -106,7 +110,14 @@ Aqui está a sintaxe do corpo da solicitação, que descreve as propriedades a s
       "capacity": 1
    },
    "identity": {
-      "type": "SystemAssigned"
+      "type": <"SystemAssigned" | "UserAssigned">,
+      // When type is "UserAssigned", include the following "userAssignedIdentities" object:
+      "userAssignedIdentities": {
+         "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{user-assigned-managed-identity-object-ID}": {
+            "principalId": "{principal-ID}",
+            "clientId": "{client-ID}"
+         }
+      }
    },
    "properties": {
       "networkConfiguration": {
@@ -153,7 +164,13 @@ Este exemplo de corpo de solicitação mostra os valores de exemplo:
    "type": "Microsoft.Logic/integrationServiceEnvironments",
    "location": "WestUS2",
    "identity": {
-      "type": "SystemAssigned"
+      "type": "UserAssigned",
+      "userAssignedIdentities": {
+         "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/*********************************": {
+            "principalId": "*********************************",
+            "clientId": "*********************************"
+         }
+      }
    },
    "sku": {
       "name": "Premium",
@@ -197,7 +214,11 @@ Este exemplo de corpo de solicitação mostra os valores de exemplo:
 
 ## <a name="grant-access-to-your-key-vault"></a>Permitir acesso ao cofre de chaves
 
-Em *30 minutos* depois de enviar a solicitação HTTP PUT para criar o ISE, você deve adicionar uma política de acesso ao cofre de chaves para a identidade atribuída pelo sistema do ISE. Caso contrário, a criação de seu ISE falhará e você receberá um erro de permissões. 
+Embora o intervalo seja diferente com base na identidade gerenciada que você usa, você deve [fornecer acesso ao cofre de chaves para a identidade gerenciada do ISE](#identity-access-to-key-vault).
+
+* **Identidade gerenciada atribuída pelo sistema**: em *30 minutos depois* de enviar a solicitação HTTPS Put que cria o ISE, você deve adicionar uma política de acesso ao cofre de chaves para a identidade gerenciada atribuída pelo sistema do ISE. Caso contrário, a criação de seu ISE falhará e você receberá um erro de permissões.
+
+* **Identidade gerenciada atribuída pelo usuário**: antes de enviar a solicitação HTTPS Put que cria o ISE, adicione uma política de acesso ao cofre de chaves para a identidade gerenciada atribuída pelo usuário do ISE.
 
 Para essa tarefa, você pode usar o comando Azure PowerShell [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) ou pode seguir estas etapas na portal do Azure:
 

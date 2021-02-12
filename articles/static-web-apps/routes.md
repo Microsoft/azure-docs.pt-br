@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 8abbe575e855347714c19c40155d890af484d5d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0cece3f531d50356fdefb81a598109d7c067c5ed
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822330"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805948"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Rotas na Versão Prévia do serviço Aplicativos Web Estáticos do Azure
 
@@ -210,7 +210,7 @@ Fornecer um valor para um cabeçalho adiciona ou modifica o cabeçalho. Fornecen
 }
 ```
 
-No exemplo acima, um novo `content-security-policy` cabeçalho é adicionado, o `cache-control` modifica o valor padrão do servidor e o `x-dns-prefectch-control` cabeçalho é removido.
+No exemplo acima, um novo `content-security-policy` cabeçalho é adicionado, o `cache-control` modifica o valor padrão do servidor e o `x-dns-prefetch-control` cabeçalho é removido.
 
 As considerações a seguir são importantes ao trabalhar com cabeçalhos:
 
@@ -290,9 +290,9 @@ Os exemplos a seguir descrevem o que acontece quando uma solicitação correspon
 | Solicitações para... | O resultado é... |
 |--|--|--|
 | _/profile_ | Os usuários autenticados recebem o arquivo _/profile/index.html_. Usuários não autenticados são redirecionados para _/login_. |
-| _/admin/reports_ | Usuários autenticados na função de _administradores_ recebem o arquivo _/admin/reports/index.html_. Os usuários autenticados que não estão na função _Administradores_ são atendidos com o erro<sup>2</sup>de 401. Usuários não autenticados são redirecionados para _/login_. |
+| _/admin/reports_ | Usuários autenticados na função de _administradores_ recebem o arquivo _/admin/reports/index.html_. Os usuários autenticados que não estão na função _Administradores_ são atendidos com o erro <sup>2</sup>de 401. Usuários não autenticados são redirecionados para _/login_. |
 | _/api/admin_ | As solicitações de usuários autenticados na função _administradores_ são enviadas para a API. Os usuários autenticados que não estão na função _administradores_ e usuários não autenticados recebem um erro 401. |
-| _/customers/contoso_ | Os usuários autenticados que pertencem a funções do _ \_ contoso_ de _Administradores_ ou clientes são servidos pelo _/Customers/contoso/index.html_ arquivo<sup>2</sup>. Os usuários autenticados que não estão na função _administradores_ ou _clientes\_contoso_ recebem um erro 401. Usuários não autenticados são redirecionados para _/login_. |
+| _/customers/contoso_ | Os usuários autenticados que pertencem a funções do _\_ contoso_ de _Administradores_ ou clientes são servidos pelo _/Customers/contoso/index.html_ arquivo <sup>2</sup>. Os usuários autenticados que não estão na função _administradores_ ou _clientes\_contoso_ recebem um erro 401. Usuários não autenticados são redirecionados para _/login_. |
 | _/login_ | Os usuários não autenticados são desafiados a autenticar com o GitHub. |
 | _/.auth/login/twitter_ | A autorização com o Twitter está desabilitada. O servidor responde com um erro 404. |
 | _/logout_ | Os usuários são desconectados de qualquer provedor de autenticação. |

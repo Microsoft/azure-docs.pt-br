@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 924cf1e1b5bc155bfdbd2f5f766c5459d599fed5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8591220eb80d9c60ed7873be546007449ab46f89
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91276179"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463037"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Início Rápido: Inscrever dispositivos X.509 no Serviço de Provisionamento de Dispositivos usando Java
 
@@ -26,7 +26,7 @@ Neste início rápido, você usará o Java para registrar de maneira programáti
 
 - Conclusão de [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md).
 - Uma conta do Azure com uma assinatura ativa. [Crie um gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Java SE Development Kit 8](https://aka.ms/azure-jdks). Este início rápido instalará o [SDK do Serviço Java](https://azure.github.io/azure-iot-sdk-java/service/) abaixo. Ele funciona no Windows e no Linux. Este início rápido usará o Windows.
+- [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support). Este início rápido instalará o [SDK do Serviço Java](https://azure.github.io/azure-iot-sdk-java/master/service/) abaixo. Ele funciona no Windows e no Linux. Este início rápido usará o Windows.
 - [Maven 3](https://maven.apache.org/download.cgi).
 - [Git](https://git-scm.com/download/).
 
@@ -41,7 +41,7 @@ Esta seção usa um certificado X.509 autoassinado. É importante ter em mente o
 
 As etapas a seguir mostram como adicionar os detalhes de provisionamento do dispositivo X.509 ao código de exemplo. 
 
-1. Abra um prompt de comando. Clone o repositório GitHub para o exemplo de código de registro do dispositivo usando o [SDK do Serviço Java](https://azure.github.io/azure-iot-sdk-java/service/):
+1. Abra um prompt de comando. Clone o repositório GitHub para o exemplo de código de registro do dispositivo usando o [SDK do Serviço Java](https://azure.github.io/azure-iot-sdk-java/master/service/):
     
     ```cmd\sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive

@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
 ms.openlocfilehash: fde0afcd37cd464b0b87e5ccd257d4a7a684eeb0
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040758"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021581"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Implantar o Bocal do Azure Log Analytics para Monitoramento do Sistema do Cloud Foundry
 
@@ -61,11 +61,11 @@ Antes de configurar o cliente de linha de comando UAA, verifique se o RubyGems e
 1. Na portal do Azure, pesquise a lista de serviços no Azure Marketplace e, em seguida, selecione Log Analytics espaços de trabalho.
 2. Selecione **Criar** e, em seguida, selecione opções para os seguintes itens:
 
-   * **Espaço de Trabalho do Log Analytics** : digite um nome para o espaço de trabalho.
-   * **Assinatura** : se você tiver várias assinaturas, escolha a mesma que a da sua implantação do CF.
-   * **Grupo de recursos** : é possível criar um novo grupo de recursos ou usar o mesmo com a implantação do CF.
-   * **Local** : insira o local.
-   * **Tipo de preço** : selecione **OK** para concluir.
+   * **Espaço de Trabalho do Log Analytics**: digite um nome para o espaço de trabalho.
+   * **Assinatura**: se você tiver várias assinaturas, escolha a mesma que a da sua implantação do CF.
+   * **Grupo de recursos**: é possível criar um novo grupo de recursos ou usar o mesmo com a implantação do CF.
+   * **Local**: insira o local.
+   * **Tipo de preço**: selecione **OK** para concluir.
 
 Para obter mais informações, confira [Introdução aos logs do Azure Monitor](../azure-monitor/overview.md).
 
@@ -76,13 +76,13 @@ Para obter mais informações, confira [Introdução aos logs do Azure Monitor](
 1. Digite "Cloud Foundry" na janela de pesquisa, selecione "Solução de Monitoramento Cloud Foundry".
 1. A página inicial do modelo da solução de monitoramento Cloud Foundry é carregada, clique em “Criar” para iniciar a folha do modelo.
 1. Insira os parâmetros necessários:
-    * **Assinatura** : selecione uma assinatura do Azure para o espaço de trabalho do Log Analytics, normalmente a mesmo com a implantação do Cloud Foundry.
-    * **Grupo de recursos** : selecione um grupo de recursos existente ou crie um novo para o espaço de trabalho do Log Analytics.
-    * **Localização do Grupo de Recursos** : selecione a localização do grupo de recursos.
-    * **OMS_Workspace_Name** : insira um nome de workspace. Se o workspace não existir, o modelo criará um novo.
-    * **OMS_Workspace_Region** : selecione a localização para o workspace.
-    * **OMS_Workspace_Pricing_Tier** : selecione o SKU do espaço de trabalho do Log Analytics. Confira as [diretrizes de preços](https://azure.microsoft.com/pricing/details/log-analytics/) para referência.
-    * **Termos legais** : clique em Termos legais e clique em “Criar” para aceitar o termo legal.
+    * **Assinatura**: selecione uma assinatura do Azure para o espaço de trabalho do Log Analytics, normalmente a mesmo com a implantação do Cloud Foundry.
+    * **Grupo de recursos**: selecione um grupo de recursos existente ou crie um novo para o espaço de trabalho do Log Analytics.
+    * **Localização do Grupo de Recursos**: selecione a localização do grupo de recursos.
+    * **OMS_Workspace_Name**: insira um nome de workspace. Se o workspace não existir, o modelo criará um novo.
+    * **OMS_Workspace_Region**: selecione a localização para o workspace.
+    * **OMS_Workspace_Pricing_Tier**: selecione o SKU do espaço de trabalho do Log Analytics. Confira as [diretrizes de preços](https://azure.microsoft.com/pricing/details/log-analytics/) para referência.
+    * **Termos legais**: clique em Termos legais e clique em “Criar” para aceitar o termo legal.
 1. Depois que todos os parâmetros forem especificados, clique em "Criar" para implantar o modelo. Quando a implantação for concluída, o status será exibido na guia de notificação.
 
 
@@ -100,7 +100,7 @@ Se você não estiver usando o Ops Manager do PCF, implante o Bocal como um apli
 
 #### <a name="sign-in-to-your-cf-deployment-as-an-admin-through-cf-cli"></a>Entre na implantação do CF como administrador por meio da CLI do CF
 
-Execute o seguinte comando:
+Execute o comando a seguir:
 ```
 cf login -a https://api.${SYSTEM_DOMAIN} -u ${CF_USER} --skip-ssl-validation
 ```
@@ -124,7 +124,7 @@ uaac member add doppler.firehose ${FIREHOSE_USER}
 
 #### <a name="download-the-latest-log-analytics-nozzle-release"></a>Baixar a última versão do Bocal do Log Analytics
 
-Execute o seguinte comando:
+Execute o comando a seguir:
 ```
 git clone https://github.com/Azure/oms-log-analytics-firehose-nozzle.git
 cd oms-log-analytics-firehose-nozzle
@@ -155,7 +155,7 @@ LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to Azur
 
 ### <a name="push-the-application-from-your-development-computer"></a>Efetuar push do aplicativo no seu computador de desenvolvimento
 
-Certifique-se de que você está na pasta oms-log-analytics-firehose-nozzle. Execute o seguinte comando:
+Certifique-se de que você está na pasta oms-log-analytics-firehose-nozzle. Execute o comando a seguir:
 ```
 cf push
 ```
@@ -185,7 +185,7 @@ Se você tiver criado o espaço de trabalho do Log Analytics manualmente, siga a
 
 No portal do OMS, navegue até o **Designer de exibição**  >  **importar**  >  **procurar** e selecione um dos arquivos omsview. Por exemplo, selecione *Cloud Foundry.omsview* e salve a exibição. Agora um bloco é exibido na página **Visão Geral** do OMS. Selecione-a para ver as métricas visualizadas.
 
-É possível personalizar essas exibições ou criar novas por meio do **Designer de exibição** .
+É possível personalizar essas exibições ou criar novas por meio do **Designer de exibição**.
 
 O *"Cloud Foundry.omsview"* é uma versão prévia do modelo de exibição do OMS do Cloud Foundry. Este é um modelo padrão totalmente configurado. Se você tiver sugestões ou comentários sobre o modelo, envie-os para a [seção de problemas](https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues).
 
@@ -204,7 +204,7 @@ O *"Cloud Foundry.omsview"* é uma versão prévia do modelo de exibição do OM
 | Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Número de resultados > 0   | Quando o bocal recebe um alerta de consumidor lento do agregador, ele envia o **valuemetric slowconsumeralert** ao para logs de Azure monitor. |
 | Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | Número de resultados > 0   | Se o número delta de eventos perdidos atingir um limite, isso significará que o bocal terá problemas de execução. |
 
-## <a name="scale"></a>Escala
+## <a name="scale"></a>Dimensionar
 
 É possível dimensionar o Bocal e o agregador de logs.
 

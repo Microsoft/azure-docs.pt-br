@@ -1,17 +1,17 @@
 ---
 title: Recomendações de desempenho-banco de dados do Azure para MariaDB
 description: Este artigo descreve o recurso de recomendação de desempenho no banco de dados do Azure para MariaDB
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 6/3/2020
-ms.openlocfilehash: 05bc0f1ae50f74cc7c8ab2b236d73bdb4a6fe787
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5949c6ba1ed176a609d3ceed4150ac06855440e9
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84484687"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664309"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mariadb"></a>Recomendações de desempenho no Banco de Dados do Azure para MariaDB
 
@@ -35,7 +35,7 @@ Selecione **Analisar** e escolha um banco de dados que iniciará a análise. Dep
 
 A janela **Recomendações** mostrará uma lista de recomendações (e encontradas) e a ID de consulta relacionada que gerou essa recomendação. Com a ID de consulta, você poderá usar a exibição [mysql.query_store](concepts-query-store.md#mysqlquery_store) para saber mais sobre a consulta.
 
-:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Página das Recomendações de Desempenho":::
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Nova página de recomendações de desempenho":::
 
 As recomendações não são aplicadas automaticamente. Para aplicar a recomendação, copie o texto da consulta e execute-o no cliente de sua escolha. Lembre-se de testar e monitorar para avaliar a recomendação.
 

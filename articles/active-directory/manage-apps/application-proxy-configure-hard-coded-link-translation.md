@@ -4,7 +4,7 @@ description: Saiba como redirecionar links embutidos em código para aplicativos
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 544aa1a4a859a9c328eb1d36e72d0f9f9ddb55b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44266f7a7485b44ba60a27aadd7422e8d1c3acf4
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327894"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259399"
 ---
 # <a name="redirect-hard-coded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirecionar links embutidos em código para aplicativos publicados com o Azure Proxy de Aplicativo do AD
 
@@ -47,14 +47,14 @@ Esses três recursos mantêm seus vínculos de trabalho, independentemente de on
 > [!NOTE]
 > A última opção é apenas para locatários que, por qualquer motivo, não podem usar domínios personalizados para ter as mesmas URLs internas e externas para seus aplicativos. Antes de habilitar esse recurso, verifique se [domínios personalizados no Proxy de Aplicativo do Azure AD](application-proxy-configure-custom-domain.md) podem funcionar para você. 
 > 
-> Ou, se o aplicativo que você precisa configurar com a conversão de link é o SharePoint, consulte [Configurar mapeamentos alternativos de acesso para o SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) a fim de conhecer outra abordagem de mapeamento de links. 
+> Ou, se o aplicativo que você precisa configurar com a conversão de link é o SharePoint, consulte [Configurar mapeamentos alternativos de acesso para o SharePoint 2013](/SharePoint/administration/configure-alternate-access-mappings) a fim de conhecer outra abordagem de mapeamento de links. 
 
  
 ### <a name="option-1-microsoft-edge-integration"></a>Opção 1: integração do Microsoft Edge 
 
 Você pode usar o Microsoft Edge para proteger ainda mais seu aplicativo e conteúdo. Para usar essa solução, você precisa exigir/recomendar que os usuários acessem o aplicativo por meio do Microsoft Edge. Todas as URLs internas publicadas com o proxy de aplicativo serão reconhecidas pelo Edge e redirecionadas para a URL externa correspondente. Isso garante que todas as URLs internas inseridas no código funcionem, e se um usuário for ao navegador e digitar diretamente a URL interna, ela funcione mesmo se o usuário estiver remoto.  
 
-Para saber mais, incluindo como configurar essa opção, consulte a documentação [gerenciar o acesso via Web usando o Edge for Ios e Android com Microsoft Intune](https://docs.microsoft.com/mem/intune/apps/manage-microsoft-edge) .  
+Para saber mais, incluindo como configurar essa opção, consulte a documentação [gerenciar o acesso via Web usando o Edge for Ios e Android com Microsoft Intune](/mem/intune/apps/manage-microsoft-edge) .  
 
 ### <a name="option-2-myapps-browser-extension"></a>Opção 2: extensão de navegador MyApps 
 
@@ -62,7 +62,7 @@ Com a extensão de navegador My Apps, todas as URLs internas publicadas com o Pr
 
 Para usar esse recurso, o usuário deve fazer o download da extensão e estar conectado. Não há nenhuma outra configuração necessária para os administradores ou usuários. 
 
-Para saber mais, incluindo como configurar essa opção, confira a documentação da [extensão do navegador myapps](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension) .
+Para saber mais, incluindo como configurar essa opção, confira a documentação da [extensão do navegador myapps](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) .
 
 ### <a name="option-3-link-translation-setting"></a>Opção 3: configuração de conversão de link 
 
@@ -86,28 +86,28 @@ Há dois tipos comuns de links internos em aplicativos locais:
 - **Links internos relativos** que apontam para um recurso compartilhado em uma estrutura de arquivo local como `/claims/claims.html`. Esses links funcionam automaticamente em aplicativos que são publicados por meio do Proxy de Aplicativo e continuam funcionando com ou sem a conversão de link. 
 - **Links internos** embutidos em código para outros aplicativos locais como `http://expenses` ou arquivos publicados como `http://expenses/logo.jpg` . O recurso de conversão de link funciona em links internos embutidos em código e os altera para apontar para as URLs externas que os usuários remotos precisam seguir.
 
-A lista completa de marcas de código HTML que o proxy de aplicativo dá suporte à conversão de links para o incluem:
-* um
-* áudio
-* base
-* botão
-* div
-* embed
-* formulário
-* frame
-* head
-* html
-* iframe
-* img
-* input
-* link
-* MenuItem
-* meta
-* objeto
-* Script
-* source
-* rastrear
-* video
+A lista completa de atributos em marcas de código HTML que o proxy de aplicativo dá suporte à conversão de links para o incluem:
+* a (href)
+* áudio (src)
+* base (href)
+* botão (formaaction)
+* div (dados-plano de fundo, estilo, dados-src)
+* Inserir (src)
+* formulário (ação)
+* quadro (src)
+* cabeçalho (perfil)
+* HTML (manifesto)
+* iframe (longdesc, src)
+* img (longdesc, src)
+* Input (forma, src, value)
+* link (href)
+* MenuItem (ícone)
+* meta (conteúdo)
+* objeto (arquivo morto, dados, codebase)
+* script (src)
+* origem (src)
+* Track (src)
+* vídeo (src, pôster)
 
 Além disso, no CSS, o atributo URL também é traduzido.
 
@@ -152,4 +152,4 @@ Queremos sua ajuda para fazer esse recurso funcionar para todos os seus aplicati
 ## <a name="next-steps"></a>Próximas etapas
 [Usar domínios personalizados com o Azure proxy de aplicativo do AD](application-proxy-configure-custom-domain.md) para ter a mesma URL interna e externa
 
-[Configurar mapeamentos alternativos de acesso para o SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx)
+[Configurar mapeamentos alternativos de acesso para o SharePoint 2013](/SharePoint/administration/configure-alternate-access-mappings)

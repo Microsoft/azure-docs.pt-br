@@ -3,21 +3,19 @@ title: 'Tutorial: Criar um aplicativo de análise de medidor inteligente com o I
 description: 'Tutorial: Saiba como criar um aplicativo monitoramento de medidor inteligente usando os modelos de aplicativo do Azure IoT Central.'
 author: op-ravi
 ms.author: omravi
-ms.date: 11/12/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: af4940ae6b0dc001667602b8729faaa3a10d19da
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: a95f1befcdc9b59293eb97330ba7ceae3034a74b
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127124"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516762"
 ---
 # <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>Tutorial: Criar e percorrer o modelo de aplicativo de monitoramento do medidor inteligente 
-
-
 
 Este tutorial orienta você pelo processo de criação do aplicativo de monitoramento de medidor inteligente, que inclui um modelo de dispositivo de exemplo cujos dados são simulados. Neste tutorial, você aprenderá:
 
@@ -38,14 +36,13 @@ Caso não tenha uma assinatura, [crie uma conta de avaliação gratuita](https:/
 Você pode criar esse aplicativo em três etapas simples:
 
 1. Abra a [home page do Azure IoT Central](https://apps.azureiotcentral.com) e clique em **Criar** para criar um novo aplicativo. 
-
-2. Selecione a guia **Energia** e clique em **Criar aplicativo** no bloco de aplicativo **Monitoramento de medidor inteligente**.
+1. Selecione a guia **Energia** e clique em **Criar aplicativo** no bloco de aplicativo **Monitoramento de medidor inteligente**.
 
     > [!div class="mx-imgBorder"]
     > ![Compilar o aplicativo](media/tutorial-iot-central-smart-meter/smart-meter-build.png)
     
 
-3. **Criar aplicativo** abrirá o formulário **Novo aplicativo**. Preencha os detalhes solicitados, conforme mostrado na figura abaixo:
+1. **Criar aplicativo** abrirá o formulário **Novo aplicativo**. Preencha os detalhes solicitados, conforme mostrado na figura abaixo:
     * **Nome do aplicativo**: escolha o nome para seu aplicativo do IoT Central. 
     * **URL**: escolha uma URL do IoT Central, a plataforma verificará sua exclusividade.
     * **Avaliação gratuita de 7 dias**: se você já tiver uma assinatura do Azure, a configuração padrão será recomendada. Caso não tenha uma assinatura do Azure, comece com uma avaliação gratuita.
@@ -55,7 +52,6 @@ Você pode criar esse aplicativo em três etapas simples:
         ![Formulário de novo aplicativo](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app.png)
 
         ![Informações de cobrança do formulário de novo aplicativo](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app-billinginfo.png)
-
 
 ### <a name="verify-the-application-and-simulated-data"></a>Verifique o aplicativo e os dados simulados
 
@@ -99,7 +95,7 @@ Clique na guia **Modelos de dispositivo** para ver o modelo de dispositivo do me
 Se optar por não continuar usando este aplicativo, exclua-o seguindo estas etapas:
 
 1. No painel esquerdo, abra a guia Administração
-2. Selecione Configurações do aplicativo e clique no botão Excluir na parte inferior da página. 
+1. Selecione Configurações do aplicativo e clique no botão Excluir na parte inferior da página. 
 
     > [!div class="mx-imgBorder"]
     > ![Excluir aplicativo](media/tutorial-iot-central-smart-meter/smart-meter-delete-app.png)

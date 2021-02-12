@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 7a8bdd911db82a07bfcdd1596b7a8203a19a6442
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 6f2dfdbb5833b34441b4abba7359ad70c4717d1d
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341950"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602156"
 ---
 # <a name="set-up-web-endpoints"></a>Configurar pontos de extremidade da Web
 
@@ -23,7 +23,7 @@ Neste artigo, você aprenderá a configurar pontos de extremidade da Web em um a
 
 - Configurar pontos de extremidade da Web no aplicativo de Comandos Personalizados
 - Chamar pontos de extremidade da Web no aplicativo de Comandos Personalizados
-- Receber a resposta dos pontos de extremidade da Web 
+- Receber a resposta dos pontos de extremidade da Web
 - Integrar a resposta dos pontos de extremidade da Web a um conteúdo JSON personalizado, enviá-la e visualizá-la em um aplicativo cliente C# do SDK de Fala do UWP
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -35,7 +35,7 @@ Neste artigo, você aprenderá a configurar pontos de extremidade da Web em um a
 
 ## <a name="setup-web-endpoints"></a>Configurar pontos de extremidade da Web
 
-1. Abra o aplicativo de Comandos Personalizados criado anteriormente. 
+1. Abra o aplicativo de Comandos Personalizados criado anteriormente.
 1. Acesse "Pontos de extremidade da Web" e clique em "Novo ponto de extremidade da Web".
 
    > [!div class="mx-imgBorder"]
@@ -49,10 +49,10 @@ Neste artigo, você aprenderá a configurar pontos de extremidade da Web em um a
    | Cabeçalhos | Chave: aplicativo; valor: use os oito primeiros dígitos da applicationId | Os parâmetros de cabeçalho a serem incluídos no cabeçalho da solicitação.|
 
     > [!NOTE]
-    > - O exemplo de ponto de extremidade da Web criado por meio da [Função do Azure](https://docs.microsoft.com/azure/azure-functions/), que se conecta ao banco de dados que salva o estado do dispositivo da TV e do ventilador
+    > - O exemplo de ponto de extremidade da Web criado por meio da [Função do Azure](../../azure-functions/index.yml), que se conecta ao banco de dados que salva o estado do dispositivo da TV e do ventilador
     > - O cabeçalho sugerido só é necessário para o exemplo de ponto de extremidade
     > - Para garantir que o valor do cabeçalho seja exclusivo no exemplo de ponto de extremidade, use os oito primeiros dígitos da applicationId
-    > - No mundo real, o ponto de extremidade da Web pode ser o ponto de extremidade do [Hub IoT](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) que gerencia seus dispositivos
+    > - No mundo real, o ponto de extremidade da Web pode ser o ponto de extremidade do [Hub IoT](../../iot-hub/about-iot-hub.md) que gerencia seus dispositivos
 
 1. Clique em **Salvar**.
 
@@ -61,7 +61,7 @@ Neste artigo, você aprenderá a configurar pontos de extremidade da Web em um a
 1. Acesse o comando **TurnOnOff**, selecione **ConfirmationResponse** em regra de conclusão e escolha **Adicionar uma ação**.
 1. Em **Novo Tipo de Ação**, selecione **Chamar ponto de extremidade da Web**
 1. Em **Editar Ação – Pontos de Extremidade**, selecione **UpdateDeviceState**, que é o ponto de extremidade da Web que criamos.  
-1. Em **Configuração**, coloque os seguintes valores: 
+1. Em **Configuração**, coloque os seguintes valores:
    > [!div class="mx-imgBorder"]
    > ![Chamar parâmetros de ação dos pontos de extremidade da Web](media/custom-commands/setup-web-endpoint-edit-action-parameters.png)
 
@@ -75,16 +75,16 @@ Neste artigo, você aprenderá a configurar pontos de extremidade da Web em um a
     > - Os parâmetros de consulta sugeridos só são necessários para o exemplo de ponto de extremidade
 
 1. Em **Em Caso de Êxito – Ação a ser executada**, selecione **Enviar resposta de fala**.
-    
+
     No **Editor simples**, insira `{SubjectDevice} is {OnOff}`.
-   
+
    > [!div class="mx-imgBorder"]
    > ![Captura de tela que mostra o em ação de sucesso a ser executada.](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
 
    | Configuração | Valor sugerido | Descrição |
    | ------- | --------------- | ----------- |
    | Ação a ser executada | Enviar resposta de fala | Ação a ser executada se a solicitação ao ponto de extremidade da Web for bem-sucedida |
-   
+
    > [!NOTE]
    > - Acesse também diretamente os campos na resposta HTTP usando `{YourWebEndpointName.FieldName}`. Por exemplo: `{UpdateDeviceState.TV}`
 
@@ -101,7 +101,7 @@ Neste artigo, você aprenderá a configurar pontos de extremidade da Web em um a
 
    > [!NOTE]
    > - `{WebEndpointErrorMessage}` é opcional. Você terá a liberdade para removê-la se não quiser expor nenhuma mensagem de erro.
-   > - No exemplo de ponto de extremidade, enviamos uma resposta HTTP novamente com mensagens de erro detalhadas para erros comuns, como parâmetros de cabeçalho ausentes. 
+   > - No exemplo de ponto de extremidade, enviamos uma resposta HTTP novamente com mensagens de erro detalhadas para erros comuns, como parâmetros de cabeçalho ausentes.
 
 ### <a name="try-it-out-in-test-portal"></a>Experimente-o no portal de teste
 - Resposta Em Caso de Êxito:
@@ -119,21 +119,20 @@ Em [Como enviar uma atividade para o aplicativo cliente (versão prévia)](./how
 No entanto, na maioria dos casos, você só deseja enviar a atividade para o aplicativo cliente quando a chamada ao ponto de extremidade da Web é bem-sucedida. Neste exemplo, isso ocorre quando o estado do dispositivo é atualizado com êxito.
 
 1. Exclua a ação **Enviar atividade para o cliente** adicionada anteriormente.
-1. Editar o ponto de extremidade da Web de chamada: 
+1. Editar o ponto de extremidade da Web de chamada:
     1. Em **Configuração**, verifique se a opção **Parâmetros de Consulta** é `item={SubjectDevice}&&value={OnOff}`
     1. Em **Em Caso de Êxito**, altere **Ação a ser executada** para **Enviar atividade para o cliente**
     1. Copie o JSON abaixo para **Conteúdo da Atividade**
    ```json
    {
-     "type": "event",
-     "name": "UpdateDeviceState",
-     "state": "{OnOff}",
-     "device": "{SubjectDevice}"
-   }
+      "type": "event",
+      "name": "UpdateDeviceState",
+      "value": {
+        "state": "{OnOff}",
+        "device": "{SubjectDevice}"
+      }
+    }
    ```
-    > [!div class="mx-imgBorder"]
-    > ![Enviar atividade em caso de êxito](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-activity.png)
-   
 Agora você só envia a atividade ao cliente quando a solicitação ao ponto de extremidade da Web é bem-sucedida.
 
 ### <a name="create-visuals-for-syncing-device-state"></a>Criar visuais para sincronizar o estado do dispositivo
@@ -147,7 +146,7 @@ Adicione o XML a seguir a `MainPage.xaml` acima do bloco `"EnableMicrophoneButto
         .........../>
 ```
 
-### <a name="sync-device-state"></a>Sincronizar estado do dispositivo 
+### <a name="sync-device-state"></a>Sincronizar estado do dispositivo
 
 Em `MainPage.xaml.cs`, adicione a referência `using Windows.Web.Http;`. Adicione o código a seguir à classe `MainPage` . Esse método enviará uma solicitação GET ao exemplo de ponto de extremidade e extrairá o estado atual do dispositivo para o aplicativo. Lembre-se de alterar `<your_app_name>` para o que você usou no **cabeçalho** no ponto de extremidade da Web de Comandos Personalizados
 
@@ -157,7 +156,7 @@ private async void SyncDeviceState_ButtonClicked(object sender, RoutedEventArgs 
     //Create an HTTP client object
     var httpClient = new HttpClient();
 
-    //Add a user-agent header to the GET request. 
+    //Add a user-agent header to the GET request.
     var your_app_name = "<your-app-name>";
 
     Uri endpoint = new Uri("https://webendpointexample.azurewebsites.net/api/DeviceState");
@@ -207,3 +206,4 @@ Se você testou o aplicativo com `turn on tv` na seção anterior, a TV é mostr
 
 > [!div class="nextstepaction"]
 > [Exportar o aplicativo de comandos personalizados como uma habilidade remota](./how-to-custom-commands-integrate-remote-skills.md)
+

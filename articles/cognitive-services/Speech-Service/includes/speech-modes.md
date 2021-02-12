@@ -5,15 +5,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/22/2020
 ms.author: trbye
-ms.openlocfilehash: d97a1bf00d722414bedda4be79adc0c26d02c751
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc569050b78a5797808f2e2e000019ba516ba22e
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81422358"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739222"
 ---
-## <a name="speech-modes"></a>Modos de fala
-
 **Interativo**
 - Destinado para cenários de comando e controle.
 - Tem um valor de tempo limite de segmentação de X.
@@ -34,4 +32,4 @@ ms.locfileid: "81422358"
 **Comandos**
 - Permite que os usuários especifiquem a pontuação falando nisso.
 - Chamado em carbono especificando `EnableDictation` no objeto, `SpeechConfig` independentemente da chamada à API que inicia o reconhecimento.
-- O cluster de parte 1<sup>St</sup> retorna `speech.fragment` mensagens para resultados intermediários,<sup>rd</sup> os 3 mensagens de retorno de terceiros `speech.hypothesis` .
+- O cluster de parte 1<sup>St</sup> retorna `speech.fragment` mensagens para resultados intermediários,<sup></sup> os 3 mensagens de retorno de terceiros `speech.hypothesis` .

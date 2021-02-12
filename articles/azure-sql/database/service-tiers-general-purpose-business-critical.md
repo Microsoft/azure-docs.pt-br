@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
-ms.date: 01/30/2020
-ms.openlocfilehash: 33c63ffc4220da6d98c462039897067e4ba69491
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 12/14/2020
+ms.openlocfilehash: b5a30846a6e2aaf85ded2e55641aa5fba9507a29
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793153"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165766"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Banco de dados SQL do Azure e camadas de serviço do Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -54,7 +54,7 @@ A tabela a seguir descreve as principais diferenças entre as camadas de serviç
 | **Taxa de transferência de gravação de log** | Banco de Dados SQL | [1,875 MB/s por vCore (máximo de 30 MB/s)](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) | 100 MB/s | [6 MB/s por vCore (máx. 96 MB/s)](resource-limits-vcore-single-databases.md#business-critical---provisioned-compute---gen4) |
 | | Instância Gerenciada de SQL | [3 MB/s por vCore (máximo de 22 MB/s)](../managed-instance/resource-limits.md#service-tier-characteristics) | N/D | [4 MB/s por VCORE (máx. 48 MB/s)](../managed-instance/resource-limits.md#service-tier-characteristics) |
 |**Disponibilidade**|Tudo| 99,99% |  [99,95% com uma réplica secundária, 99,99% com mais réplicas](service-tier-hyperscale-frequently-asked-questions-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99,99% <br/> [99,995% com Banco de dados individual com redundância de zona](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
-|**Backups**|Tudo|RA-GRS, 7-35 dias (7 dias por padrão)| RA-GRS, 7 dias, tempo constante de recuperação point-in-time (PITR) | RA-GRS, 7-35 dias (7 dias por padrão) |
+|**Backups**|Tudo|RA-GRS, 7-35 dias (7 dias por padrão). A retenção máxima para a camada básica é de 7 dias. | RA-GRS, 7 dias, tempo constante de recuperação point-in-time (PITR) | RA-GRS, 7-35 dias (7 dias por padrão) |
 |**OLTP na memória** | | N/D | N/D | Disponível |
 |**Réplicas somente leitura**| | 0 interno <br> 0-4 usando [a replicação geográfica](active-geo-replication-overview.md) | 0-4 interno | 1 interno, incluído no preço <br> 0-4 usando [a replicação geográfica](active-geo-replication-overview.md) |
 |**Preço/cobrança** | Banco de Dados SQL | [vCore, armazenamento reservado e armazenamento de backup](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>O IOPS não é cobrado. | [vCore para cada réplica e armazenamento usado](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>IOPS ainda não cobrado. | [vCore, armazenamento reservado e armazenamento de backup](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>O IOPS não é cobrado. |
@@ -78,6 +78,7 @@ Os seguintes fatores afetam a quantidade de armazenamento usada para arquivos de
   - Para armazenamento nas camadas de serviço Premium ou comercialmente crítico, aumente ou diminua o tamanho em incrementos de 250 GB.
 - Na camada de serviço de uso geral, o `tempdb` usa um SSD anexado e esse custo de armazenamento é incluído no preço vCore.
 - Na camada de serviço comercialmente crítico, `tempdb` o compartilha o SSD anexado com os arquivos MDF e ldf, e o `tempdb` custo de armazenamento é incluído no preço vCore.
+- Na camada de serviço do DTU Premium, `tempdb` o compartilha o SSD anexado com arquivos MDF e ldf.
 - O tamanho do armazenamento para um Instância Gerenciada SQL deve ser especificado em múltiplos de 32 GB.
 
 
@@ -93,8 +94,8 @@ Para monitorar o tamanho total atual de seus arquivos MDF e LDF, use [sp_spaceus
 
 O armazenamento de backups de banco de dados é alocado para dar suporte a recursos de PITR (restauração pontual) e [EPD (retenção de longo prazo)](long-term-retention-overview.md) do banco de dados SQL e do SQL instância gerenciada. Esse armazenamento é alocado separadamente para cada banco de dados e faturado como duas cobranças separadas por banco de dados.
 
-- **PITR** : os backups de banco de dados individuais são copiados para o [armazenamento com redundância geográfica com acesso de leitura (ra-grs)](../../storage/common/geo-redundant-design.md) automaticamente. O tamanho do armazenamento aumenta dinamicamente à medida que novos backups são criados. O armazenamento é usado por backups completos semanais, backups diferenciais diários e backups de log de transações, que são copiados a cada 5 minutos. O consumo de armazenamento depende da taxa de alteração do banco de dados e do período de retenção para backups. É possível configurar um período de retenção separado para cada banco de dados entre 7 e 35 dias. Um valor mínimo de armazenamento igual a 100 por cento (1x) do tamanho do banco de dados é fornecido sem custo adicional. Para a maioria dos bancos de dados, esse valor é suficiente para armazenar 7 dias de backups.
-- **EPD** : você também tem a opção de configurar a retenção de longo prazo de backups completos por até 10 anos (esse recurso está em [Visualização pública limitada para SQL instância gerenciada](long-term-retention-overview.md#sql-managed-instance-support). Se você configurar uma política EPD, esses backups serão armazenados automaticamente no armazenamento RA-GRS, mas você poderá controlar a frequência com que os backups são copiados. Para atender aos diferentes requisitos de conformidade, você pode selecionar períodos de retenção diferentes para backups semanais, mensais e/ou anuais. A configuração escolhida determina a quantidade de armazenamento que será usada para backups EPD. Para estimar o custo do armazenamento EPD, você pode usar a calculadora de preços EPD. Para obter mais informações, consulte [retenção de longo prazo do banco de dados SQL](long-term-retention-overview.md).
+- **PITR**: os backups de banco de dados individuais são copiados para o [armazenamento com redundância geográfica com acesso de leitura (ra-grs)](../../storage/common/geo-redundant-design.md) automaticamente. O tamanho do armazenamento aumenta dinamicamente à medida que novos backups são criados. O armazenamento é usado por backups completos semanais, backups diferenciais diários e backups de log de transações, que são copiados a cada 5 minutos. O consumo de armazenamento depende da taxa de alteração do banco de dados e do período de retenção para backups. É possível configurar um período de retenção separado para cada banco de dados entre 7 e 35 dias. Um valor mínimo de armazenamento igual a 100 por cento (1x) do tamanho do banco de dados é fornecido sem custo adicional. Para a maioria dos bancos de dados, esse valor é suficiente para armazenar 7 dias de backups.
+- **EPD**: você também tem a opção de configurar a retenção de longo prazo de backups completos por até 10 anos (esse recurso está em [Visualização pública limitada para SQL instância gerenciada](long-term-retention-overview.md#sql-managed-instance-support). Se você configurar uma política EPD, esses backups serão armazenados automaticamente no armazenamento RA-GRS, mas você poderá controlar a frequência com que os backups são copiados. Para atender aos diferentes requisitos de conformidade, você pode selecionar períodos de retenção diferentes para backups semanais, mensais e/ou anuais. A configuração escolhida determina a quantidade de armazenamento que será usada para backups EPD. Para estimar o custo do armazenamento EPD, você pode usar a calculadora de preços EPD. Para obter mais informações, consulte [retenção de longo prazo do banco de dados SQL](long-term-retention-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

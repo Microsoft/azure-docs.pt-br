@@ -13,12 +13,12 @@ ms.date: 05/19/2020
 ms.author: hirsin
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 064c9a00e1cd7c139f3f42a053dcf8a5db13f161
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: eed4e919684575bb2c63170d91517b661fac4acf
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104573"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753964"
 ---
 # <a name="handle-itp-in-safari-and-other-browsers-where-third-party-cookies-are-blocked"></a>Controle o ITP no Safari e em outros navegadores em que os cookies de terceiros são bloqueados
 
@@ -77,7 +77,7 @@ Um padrão comum em aplicativos Web é usar um iframe para inserir um aplicativo
 
 A emissão de tokens de atualização para o navegador é considerada um problema de segurança. Os ataques XSS (script entre sites) ou pacotes JS comprometidos podem roubar o token de atualização e usá-lo remotamente até que ele expire ou seja revogado. Para minimizar o risco de tokens de atualização roubado, os SPAs serão emitidos tokens válidos por apenas 24 horas. Após 24 horas, o aplicativo deve adquirir um novo código de autorização por meio de uma visita de quadro de nível superior para a página de logon.
 
-Esse padrão de token de atualização de tempo de vida limitado foi escolhido como um equilíbrio entre a segurança e a UX degradada. Sem tokens de atualização ou cookies de terceiros, o fluxo do código de autorização (conforme recomendado pelo [rascunho de práticas recomendadas de segurança do OAuth mais recentes](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14)) torna-se oneroso quando são necessários tokens novos ou adicionais. Um redirecionamento de página completo ou um pop-up é necessário para cada token único, sempre que um token expira (a cada hora, em geral, para tokens da plataforma de identidade da Microsoft).
+Esse padrão de token de atualização de tempo de vida limitado foi escolhido como um equilíbrio entre a segurança e a UX degradada. Sem tokens de atualização ou cookies de terceiros, o fluxo do código de autorização (conforme recomendado pelo [rascunho de práticas recomendadas de segurança do OAuth mais recentes](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14)) torna-se oneroso quando são necessários tokens novos ou adicionais. Um redirecionamento de página completo ou um pop-up é necessário para cada token único, sempre que um token expira (a cada hora, em geral, para os tokens da plataforma Microsoft Identity).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,7 +1,7 @@
 ---
 title: Serialização de cache de token (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Saiba mais sobre serialização e serialização de cliente do cache de token usando a Biblioteca de Autenticação da Microsoft para .NET (MSAL.NET).
+description: Saiba mais sobre serialização e serialização de cliente do cache de token usando a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,15 +13,15 @@ ms.date: 09/16/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 4a0d5af8faafac8b733bd2daa9655e663da6fe71
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 60ce3d32ffa20fc9117890528eac053d1af9fdf2
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873516"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583899"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Serialização do cache de token na MSAL.NET
-Depois que um [token é adquirido](msal-acquire-cache-tokens.md), ele é armazenado em cache pela Biblioteca de Autenticação da Microsoft (MSAL).  O código do aplicativo deve tentar obter um token a partir do cache antes de adquirir um token por outro método.  Este artigo aborda a serialização padrão e personalizada do cache de token na MSAL.NET.
+Depois que um [token é adquirido](msal-acquire-cache-tokens.md), ele é armazenado em cache pela MSAL (biblioteca de autenticação da Microsoft).  O código do aplicativo deve tentar obter um token a partir do cache antes de adquirir um token por outro método.  Este artigo aborda a serialização padrão e personalizada do cache de token na MSAL.NET.
 
 Este artigo serve para MSAL.NET 3.x. Se você estiver interessado na MSAL.NET 2.x, consulte [Serialização de cache de token da MSAL.NET 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Token-cache-serialization-2x).
 
@@ -34,7 +34,7 @@ Na MSAL.NET, um cache de token na memória é fornecido por padrão. A serializa
 
 ## <a name="custom-serialization-for-windows-desktop-apps-and-web-appsweb-apis"></a>Serialização personalizada para aplicativos da área de trabalho do Windows e aplicativos Web/APIs Web
 
-Lembre-se de que a serialização personalizada não está disponível em plataformas móveis (UWP, Xamarin.iOS e Xamarin.Android). A MSAL já define um mecanismo de serialização seguro e de alto desempenho para essas plataformas. No entanto, os aplicativos da área de trabalho do .NET e os aplicativos do .NET Core têm variadas arquiteturas e a MSAL não pode implementar um mecanismo de serialização para uso geral. Por exemplo, sites da Web podem escolher armazenar tokens em um Cache Redis ou armazenar tokens da loja de aplicativos da área de trabalho em um arquivo criptografado. Portanto, a serialização não é fornecida pronta para uso. Para ter um aplicativo de cache de token persistente na área de trabalho do .NET ou .NET Core, será necessário personalizar a serialização.
+Lembre-se de que a serialização personalizada não está disponível em plataformas móveis (UWP, Xamarin.iOS e Xamarin.Android). A MSAL já define um mecanismo de serialização seguro e de alto desempenho para essas plataformas. No entanto, os aplicativos da área de trabalho do .NET e os aplicativos do .NET Core têm variadas arquiteturas e a MSAL não pode implementar um mecanismo de serialização para uso geral. Por exemplo, sites da Web podem escolher armazenar tokens em um Cache Redis ou armazenar tokens da loja de aplicativos da área de trabalho em um arquivo criptografado. Portanto, a serialização não é fornecida pronta para uso. Para ter um aplicativo de cache de token persistente no .NET desktop ou no .NET Core, personalize a serialização.
 
 As seguintes classes e interfaces são usadas na serialização do cache de token:
 

@@ -3,7 +3,7 @@ title: O que é SSO (logon único) do Azure?
 description: Saiba como o SSO (logon único) funciona com o Azure Active Directory. Use o SSO para que os usuários não precisem se lembrar das senhas de todos os aplicativos. Além disso, use o SSO para simplificar a administração do gerenciamento de contas.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,13 +11,13 @@ ms.topic: overview
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.custom: contperfq1
-ms.openlocfilehash: 1eaef57f46bf6373fdd2a73575bb028904ef108b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 36025a5a68e4c3d0de1d6b11a13df656c72745d4
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90561643"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260190"
 ---
 # <a name="what-is-single-sign-on-sso"></a>O que é SSO (logon único)?
 

@@ -1,19 +1,16 @@
 ---
 title: 'Tutorial: Criar um pipeline de ETL de ponta a ponta para obter insights de vendas no Azure HDInsight'
 description: Saiba como usar criar pipelines de ETL com o Azure HDInsight para obter insights de dados de vendas usando clusters sob demanda do Spark e o Power BI.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/15/2020
-ms.openlocfilehash: 1031c34a44a253c7458ef78c6371b88014e882ed
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7d026d93ebe6f6a0bd9afbd277294d58d7a2a69b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746475"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932052"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>Tutorial: Criar um pipeline de dados de ponta a ponta para obter insights de vendas no Azure HDInsight
 
@@ -110,7 +107,7 @@ A senha padrão usada para acesso SSH aos clusters é `Thisisapassword1`. Caso d
 
 ### <a name="verify-deployment-and-collect-resource-information"></a>Verificar a implantação e coletar informações de recursos
 
-1. Caso deseje verificar o status da implantação, vá até o grupo de recursos no portal do Azure. Em **Configurações** , selecione **Implantações** e depois a sua implantação. Aqui você pode ver os recursos que foram implantados com êxito e aqueles que ainda estão em andamento.
+1. Caso deseje verificar o status da implantação, vá até o grupo de recursos no portal do Azure. Em **Configurações**, selecione **Implantações** e depois a sua implantação. Aqui você pode ver os recursos que foram implantados com êxito e aqueles que ainda estão em andamento.
 
 1. Para exibir os nomes dos clusters, digite o seguinte comando:
 
@@ -214,7 +211,7 @@ Para disparar o pipeline, você pode escolher uma das seguintes alternativas:
 
     Ou
 
-* Abra o data factory e selecione **Criar e Monitorar** . Dispare o pipeline `IngestAndTransform` no portal. Para obter informações sobre como disparar pipelines por meio do portal, veja [Criar clusters Apache Hadoop sob demanda no HDInsight usando o Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md#trigger-a-pipeline).
+* Abra o data factory e selecione **Criar e Monitorar**. Dispare o pipeline `IngestAndTransform` no portal. Para obter informações sobre como disparar pipelines por meio do portal, veja [Criar clusters Apache Hadoop sob demanda no HDInsight usando o Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md#trigger-a-pipeline).
 
 Para verificar se o pipeline foi executado, execute uma das seguintes etapas:
 
@@ -252,21 +249,21 @@ Para obter outras maneiras de transformar dados usando o HDInsight, veja [artigo
 
 1. Abra o Power BI Desktop.
 
-1. No menu, navegue até **Obter dados** > **Mais...**  > **Azure** > **Interactive Query do HDInsight** .
+1. No menu, navegue até **Obter dados** > **Mais...**  > **Azure** > **Interactive Query do HDInsight**.
 
-1. Selecione **Conectar** .
+1. Selecione **Conectar**.
 
-1. Na caixa de diálogo **Interactive Query do HDInsight** :
-    1. Na caixa de texto **Servidor** , digite o nome do cluster LLAP no formato `https://LLAPCLUSTERNAME.azurehdinsight.net`.
-    1. Na caixa de texto **banco de dados** , digite `default`.
-    1. Selecione **OK** .
+1. Na caixa de diálogo **Interactive Query do HDInsight**:
+    1. Na caixa de texto **Servidor**, digite o nome do cluster LLAP no formato `https://LLAPCLUSTERNAME.azurehdinsight.net`.
+    1. Na caixa de texto **banco de dados**, digite `default`.
+    1. Selecione **OK**.
 
-1. Na caixa de diálogo **AzureHive** :
-    1. Na caixa de texto **Nome de usuário** , digite `admin`.
-    1. Na caixa de texto **Senha** , insira `Thisisapassword1`.
-    1. Selecione **Conectar** .
+1. Na caixa de diálogo **AzureHive**:
+    1. Na caixa de texto **Nome de usuário**, digite `admin`.
+    1. Na caixa de texto **Senha**, insira `Thisisapassword1`.
+    1. Selecione **Conectar**.
 
-1. No **Navegador** , selecione `sales` e/ou `sales_raw` para visualizar os dados. Depois que os dados forem carregados, você poderá experimentar o painel que deseja criar. Confira os seguintes links para obter uma introdução aos dashboards do Power BI:
+1. No **Navegador**, selecione `sales` e/ou `sales_raw` para visualizar os dados. Depois que os dados forem carregados, você poderá experimentar o painel que deseja criar. Confira os seguintes links para obter uma introdução aos dashboards do Power BI:
 
 * [Introdução aos dashboards para designers do Power BI](https://docs.microsoft.com/power-bi/service-dashboards)
 * [Tutorial: Introdução ao serviço do Power BI](https://docs.microsoft.com/power-bi/service-get-started)

@@ -1,20 +1,20 @@
 ---
 title: Tutorial – Configurar o LDAPS para o Azure Active Directory Domain Services | Microsoft Docs
 description: Neste tutorial, você aprenderá a configurar o LDAPS (protocolo LDAP Seguro) para um domínio gerenciado do Azure Active Directory Domain Services.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: f5ebe594f1f50c7b7490e5ead8cb3fe7636f0ce7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 6da1d285440daa5d1d5a230905a77057728d4ae6
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967470"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256535"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configurar o LDAP Seguro para um domínio gerenciado do Azure Active Directory Domain Services
 
@@ -212,6 +212,12 @@ Uma notificação é exibida, informando que o LDAP Seguro está sendo configura
 São necessários alguns minutos para habilitar o LDAP Seguro para o domínio gerenciado. Se o certificado LDAP Seguro fornecido não corresponder aos critérios obrigatórios, a ação para habilitar o LDAP Seguro para o domínio gerenciado falhará.
 
 Alguns motivos comuns de falha incluem um nome de domínio incorreto, o algoritmo de criptografia do certificado não é *TripleDES-SHA1* ou um certificado já expirado ou prestes a expirar. Você pode recriar o certificado com parâmetros válidos e, em seguida, habilitar o LDAP Seguro usando esse certificado atualizado.
+
+## <a name="change-an-expiring-certificate"></a>Alterar um certificado que está expirando
+
+1. Crie um certificado substituto para LDAP Seguro seguindo as etapas para [Criar um certificado para o LDAP Seguro](#create-a-certificate-for-secure-ldap).
+1. Para aplicar o certificado substituto ao Azure AD DS, no menu à esquerda para o Azure AD DS no portal do Azure, selecione **LDAP Seguro** e escolha **Alterar Certificado**.
+1. Distribua o certificado para todos os clientes que se conectam usando o LDAP Seguro. 
 
 ## <a name="lock-down-secure-ldap-access-over-the-internet"></a>Bloquear o acesso LDAP Seguro na Internet
 

@@ -4,15 +4,15 @@ description: Saiba mais sobre como gerar e receber vendas potenciais de clientes
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 10/01/2020
-ms.openlocfilehash: 5627d6afab22defebeebd3f04695ef95390f1163
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d5f2248d94796d5e3ee76301642a95abddebfe4
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653308"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489328"
 ---
 # <a name="customer-leads-from-your-commercial-marketplace-offer"></a>Vendas potenciais do cliente da sua oferta do marketplace comercial
 
@@ -50,9 +50,9 @@ Aqui estão os locais em que uma venda potencial é gerada:
 
 Cada cliente potencial que você recebe durante o processo de aquisição de cliente tem dados em campos específicos. O primeiro campo a ser examinado é `LeadSource`, que segue este formato: **Ação-de-Origem** | **Oferta**.
 
-**Origens**: O valor desse campo é preenchido com base no marketplace que gerou a venda potencial. Os valores possíveis são `"AzureMarketplace"`, `"AzurePortal"` e `"AppSource (SPZA)"`.
+**Origens** : O valor desse campo é preenchido com base no marketplace que gerou a venda potencial. Os valores possíveis são `"AzureMarketplace"`, `"AzurePortal"` e `"AppSource (SPZA)"`.
 
-**Ações**: O valor desse campo é preenchido com base na ação que o cliente realizou no marketplace que gerou a venda potencial.
+**Ações** : O valor desse campo é preenchido com base na ação que o cliente realizou no marketplace que gerou a venda potencial.
 
 Os valores possíveis são:
 
@@ -62,7 +62,7 @@ Os valores possíveis são:
 - **"Create"** : essa ação ocorre apenas dentro do portal do Azure e é gerada quando um cliente compra sua oferta na conta dele.
 - **"StartTestDrive"** : essa ação é apenas para a opção **Test Drive** e é gerada quando um cliente inicia o test drive.
 
-**ofertas**: Você pode ter várias ofertas no marketplace comercial. O valor desse campo é preenchido com base na oferta que gerou a venda potencial. A ID do editor e a ID da oferta são enviadas neste campo e são os valores que você forneceu quando publicou a oferta no marketplace.
+**ofertas** : Você pode ter várias ofertas no marketplace comercial. O valor desse campo é preenchido com base na oferta que gerou a venda potencial. A ID do editor e a ID da oferta são enviadas neste campo e são os valores que você forneceu quando publicou a oferta no marketplace.
 
 Os exemplos a seguir mostram valores no formato esperado `publisherid.offerid`: 
 
@@ -89,10 +89,10 @@ As informações do cliente são enviadas usando vários campos. O exemplo a seg
 
 Aqui estão algumas recomendações para orientar os leads pelo seu ciclo de vendas:
 
-- **Processo**: Defina um processo de vendas claro, com marcos, análise e responsabilidade clara da equipe.
-- **Qualificação**: defina os pré-requisitos, que indicam se um cliente potencial foi totalmente qualificado. Os representantes de vendas ou marketing devem qualificar as vendas potenciais cuidadosamente antes de conduzi-las pelo processo de vendas completo.
-- **Acompanhamento**: não se esqueça de acompanhar em 24 horas. Você obterá o cliente potencial em seu CRM de escolha imediatamente depois que o cliente implantar um test drive; Envie-os por email enquanto eles ainda estiverem em aquecimento. Solicite o agendamento de uma chamada telefônica para entender melhor se o seu produto é uma boa solução para seu problema. Espere que a transação típica exija várias chamadas de acompanhamento.
-- **Incentivo**: incentivá suas vendas potenciais para ajudar você a obter uma margem de lucro mais alta. Fazer check-in, mas não Bombard-los. Recomendamos que você envie um email aos clientes potenciais pelo menos algumas vezes antes de fechá-los; Não desistir após a primeira tentativa. Lembre-se, esses clientes estão diretamente envolvidos em seu produto e gastaram tempo em uma avaliação gratuita; Eles são ótimos clientes potenciais.
+- **Processo** : Defina um processo de vendas claro, com marcos, análise e responsabilidade clara da equipe.
+- **Qualificação** : defina os pré-requisitos, que indicam se um cliente potencial foi totalmente qualificado. Os representantes de vendas ou marketing devem qualificar as vendas potenciais cuidadosamente antes de conduzi-las pelo processo de vendas completo.
+- **Acompanhamento** : não se esqueça de acompanhar em 24 horas. Você obterá o cliente potencial em seu CRM de escolha imediatamente depois que o cliente implantar um test drive; Envie-os por email enquanto eles ainda estiverem em aquecimento. Solicite o agendamento de uma chamada telefônica para entender melhor se o seu produto é uma boa solução para seu problema. Espere que a transação típica exija várias chamadas de acompanhamento.
+- **Incentivo** : incentivá suas vendas potenciais para ajudar você a obter uma margem de lucro mais alta. Fazer check-in, mas não Bombard-los. Recomendamos que você envie um email aos clientes potenciais pelo menos algumas vezes antes de fechá-los; Não desistir após a primeira tentativa. Lembre-se, esses clientes estão diretamente envolvidos em seu produto e gastaram tempo em uma avaliação gratuita; Eles são ótimos clientes potenciais.
 
 Depois que a instalação técnica estiver em vigor, incorpore essas vendas potenciais à estratégia atual de vendas e marketing e aos processos operacionais. Estamos interessados em entender melhor seu processo geral de vendas e queremos trabalhar estreitamente com você para fornecer vendas potenciais de alta qualidade e dados suficientes para o seu sucesso. Apreciamos seus comentários sobre como otimizar e melhorar os leads que enviamos a você, com dados adicionais para ajudar a tornar esses clientes bem-sucedidos. Informe-nos se estiver interessado em [enviar comentários](mailto:AzureMarketOnboard@microsoft.com) e sugestões para que sua equipe de vendas tenha mais sucesso com vendas potenciais do marketplace comercial.
 

@@ -7,16 +7,17 @@ ms.topic: overview
 ms.date: 10/16/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: a545059c520f3cbdeee6c73a044af48795d49ac8
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d9e01ee8b1f6c1cd04e665ad9f7bc57155abfaab
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282447"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028974"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-32-version-supported-features-and-syntax"></a>API do Azure Cosmos DB para MongoDB (versão 3.2): sintaxe e recursos compatíveis
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
-O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. É possível comunicar-se com a API do Azure Cosmos DB para MongoDB usando qualquer [driver](https://docs.mongodb.org/ecosystem/drivers) de cliente do MongoDB de software livre. A API do Azure Cosmos DB para MongoDB permite o uso de drivers de cliente existentes ao aderir ao [protocolo de transmissão](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol) do MongoDB.
+O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. Você pode se comunicar com a API do Azure Cosmos DB para MongoDB usando qualquer um dos [drivers](https://docs.mongodb.org/ecosystem/drivers) de cliente de software livre do MongoDB. A API do Azure Cosmos DB para MongoDB permite o uso de drivers de cliente existentes ao aderir ao [protocolo de transmissão](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol) do MongoDB.
 
 Usando a API do Azure Cosmos DB para MongoDB, você pode aproveitar os benefícios do MongoDB com os quais está acostumado, com todas as funcionalidades empresariais que o Cosmos DB oferece: [distribuição global](distribute-data-globally.md), [fragmentação automática](partitioning-overview.md), garantias de disponibilidade e latência, indexação automática de cada campo, criptografia em repouso, backups e muito mais.
 
@@ -31,11 +32,14 @@ A API do Azure Cosmos DB para MongoDB também oferece uma experiência de atuali
 
 ## <a name="query-language-support"></a>Suporte de linguagem de consulta
 
-A API do Azure Cosmos DB para MongoDB fornece um suporte abrangente para construções de linguagem de consulta do MongoDB. Abaixo você encontrará uma lista detalhada de operações, operadores, estágios, comandos e opções com suporte atualmente.
+A API do Azure Cosmos DB para MongoDB fornece um suporte abrangente para construções de linguagem de consulta do MongoDB. Abaixo, você encontrará uma lista detalhada de operações, operadores, estágios, comandos e opções atualmente compatíveis.
 
 ## <a name="database-commands"></a>Comandos de banco de dados
 
 A API do Azure Cosmos DB para MongoDB é compatível com os seguintes comandos de banco de dados:
+
+> [!NOTE]
+> Este artigo lista apenas os comandos de servidor com suporte e exclui as funções de wrapper do lado do cliente. Funções de wrapper do lado do cliente, como `deleteMany()` e `updateMany()`, utilizam internamente os comandos de servidor `delete()` e `update()`. As funções que utilizam comandos de servidor com suporte são compatíveis com a API do Azure Cosmos DB para MongoDB.
 
 ### <a name="query-and-write-operation-commands"></a>Comandos de operação de consulta e gravação
 
@@ -308,7 +312,7 @@ $polygon | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon",
 
 Ao usar a operação `findOneAndUpdate`, há suporte para operações de classificação em um único campo, mas não há para operações em vários campos.
 
-## <a name="additional-operators"></a>Operadores adicionais
+## <a name="other-operators"></a>Outros operadores
 
 Operador | Exemplo | Observações
 --- | --- | --- |

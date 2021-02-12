@@ -1,14 +1,14 @@
 ---
 title: Controles da amostra de blueprint dos Serviços Compartilhados ISO 27001
 description: Mapeamento de controle da amostra de blueprint dos Serviços Compartilhados ISO 27001. Cada controle é mapeado para uma ou mais definições do Azure Policy que auxiliam na avaliação.
-ms.date: 07/13/2020
+ms.date: 11/05/2020
 ms.topic: sample
-ms.openlocfilehash: 7b13440db5574da84c296e27380739e58e640a67
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: c79159fca9d619b727ef651bf42044182144ab35
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930111"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842508"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Mapeamento de controle da amostra de blueprint dos Serviços Compartilhados ISO 27001
 
@@ -37,8 +37,6 @@ O [serviço de Avaliação de Vulnerabilidades de SQL](../../../../azure-sql/dat
 O [Azure RBAC (controle de acesso baseado em função)](../../../../role-based-access-control/overview.md) ajuda a gerenciar quem tem acesso aos recursos no Azure. Esse blueprint ajuda você a controlar o acesso aos recursos do Azure por meio da atribuição de sete definições do [Azure Policy](../../../policy/overview.md). Essas políticas auditam o uso de tipos de recursos e configurações que podem permitir um acesso mais permissivo aos recursos.
 Entender os recursos que estão violando essas políticas pode ajudar você a tomar ações corretivas para garantir que o acesso aos recursos do Azure seja restrito a usuários autorizados.
 
-- Implantar pré-requisitos para auditar as VMs do Linux que têm contas que não usam senhas
-- Implantar pré-requisitos para auditar as VMs do Linux que permitem conexões remotas em contas sem senhas
 - Mostrar os resultados da auditoria das VMs do Linux que têm contas sem senhas
 - Mostrar os resultados da auditoria das VMs do Linux que permitem conexões remotas em contas sem senhas
 - As contas de armazenamento devem ser migradas para os novos recursos do Azure Resource Manager
@@ -65,7 +63,6 @@ Esse blueprint atribui três definições do [Azure Policy](../../../policy/over
 - O MFA deve ser habilitado em contas com permissões de leitura em sua assinatura
 - A MFA deve ser habilitada nas contas com permissões de gravação na sua assinatura
 - Mostrar os resultados da auditoria das VMs do Linux que não têm as permissões de arquivo de senha definidas como 0644
-- Implantar pré-requisitos para auditar as VMs do Linux que não têm as permissões de arquivo de senha definidas como 0644
 
 ## <a name="a925-review-of-user-access-rights"></a>A.9.2.5 Revisão dos direitos de acesso do usuário
 
@@ -85,7 +82,7 @@ O [Azure RBAC (controle de acesso baseado em função)](../../../../role-based-a
 
 ## <a name="a942-secure-log-on-procedures"></a>A.9.4.2 Procedimentos de logon seguro
 
-Esse blueprint atribui três definições do Azure Policy para auditar contas que não têm a autenticação multifator habilitada. A Autenticação Multifator do Azure fornece segurança adicional exigindo uma segunda forma de autenticação e fornece autenticação forte. Monitorando as contas sem a autenticação multifator habilitada, você pode identificar as contas que têm mais probabilidade de serem comprometidas.
+Esse blueprint atribui três definições do Azure Policy para auditar contas que não têm a autenticação multifator habilitada. A Autenticação Multifator do Azure AD fornece segurança adicional exigindo uma segunda forma de autenticação e fornece autenticação forte. Monitorando as contas sem a autenticação multifator habilitada, você pode identificar as contas que têm mais probabilidade de serem comprometidas.
 
 - O MFA deve ser habilitado em contas com permissões de proprietário em sua assinatura
 - O MFA deve ser habilitado em contas com permissões de leitura em sua assinatura
@@ -100,11 +97,6 @@ Esse blueprint ajuda você a impor senhas fortes por meio da atribuição de 10 
 - Mostrar os resultados da auditoria das VMs do Windows que não têm uma duração mínima da senha de 1 dia
 - Mostrar os resultados da auditoria das VMs do Windows que não restringem o tamanho mínimo da senha a 14 caracteres
 - Mostrar os resultados da auditoria das VMs do Windows que permitir reutilizar as 24 senhas anteriores
-- Implantar pré-requisitos para auditar as VMs do Windows que não têm a configuração de complexidade de senha habilitada
-- Implantar pré-requisitos para auditar as VMs do Windows que não têm uma duração máxima da senha de 70 dias
-- Implantar pré-requisitos para auditar as VMs do Windows que não têm uma duração mínima da senha de 1 dia
-- Implantar pré-requisitos para auditar as VMs do Windows que não restringem o tamanho mínimo da senha a 14 caracteres
-- Implantar pré-requisitos para auditar as VMs do Windows que permitem reutilizar as 24 senhas anteriores
 
 ## <a name="a1011-policy-on-the-use-of-cryptographic-controls"></a>A.10.1.1 Política sobre o uso de controles de criptografia
 
@@ -113,7 +105,6 @@ Esse blueprint ajuda você a impor sua política sobre o uso de controles de cri
 - O aplicativo de funções deve ser acessível apenas por HTTPS
 - Aplicativo Web deve ser acessível somente por HTTPS
 - O aplicativo de API só deve estar acessível via HTTPS
-- Implantar pré-requisitos para auditar as VMs do Windows que não armazenam senhas usando a criptografia reversível
 - Mostrar os resultados da auditoria das VMs do Windows que não armazenam senhas usando a criptografia reversível
 - A criptografia de disco deve ser aplicada em máquinas virtuais
 - As variáveis da conta de automação devem ser criptografadas

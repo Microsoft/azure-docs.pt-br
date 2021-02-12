@@ -3,12 +3,12 @@ title: Tutorial – implantar grupo com vários contêineres – YAML
 description: Neste tutorial, saiba como implantar um grupo de contêiner com vários contêineres nas Instâncias de Contêiner do Azure usando um arquivo YAML com a CLI do Azure.
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 8f1f13d4fa7e32b76988cdf356d5d1bb0528f824
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6f9dda7735587dfee1dde86c85375efcf057daa7
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091286"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605154"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Tutorial: Implantar um grupo com vários contêineres usando um arquivo YAML
 
@@ -37,7 +37,7 @@ Neste tutorial, você seguirá as etapas para executar uma configuração simple
 
 Para implantar um grupo com vários contêineres com o comando [az container create][az-container-create] na CLI do Azure, você precisa especificar a configuração do grupo de contêineres em um arquivo YAML. Em seguida, passe o arquivo YAML como um parâmetro para o comando.
 
-Comece copiando o YAML a seguir em um novo arquivo chamado **deploy-aci.yaml** . No Azure Cloud Shell, você pode usar o Visual Studio Code para criar o arquivo em seu diretório de trabalho:
+Comece copiando o YAML a seguir em um novo arquivo chamado **deploy-aci.yaml**. No Azure Cloud Shell, você pode usar o Visual Studio Code para criar o arquivo em seu diretório de trabalho:
 
 ```
 code deploy-aci.yaml
@@ -178,7 +178,6 @@ Neste tutorial, você usou um arquivo YAML para implantar um grupo de vários co
 Você também pode especificar um grupo com vários contêineres usando um [modelo do Resource Manager](container-instances-multi-container-group.md). Um modelo do Resource Manager pode ser adaptado prontamente para cenários quando você precisar implantar recursos de serviço do Azure adicionais com o grupo de contêineres.
 
 <!-- LINKS - External -->
-
 
 <!-- LINKS - Internal -->
 [aci-tutorial]: ./container-instances-tutorial-prepare-app.md

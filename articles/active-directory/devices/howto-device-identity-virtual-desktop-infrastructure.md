@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9020e364a5c8d7a59dad5549e88036dc9edaad7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c30ad26f079e6353dc4763b9ae968c33882d8ab6
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089659"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029340"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identidade do dispositivo e virtualização de área de trabalho
 
@@ -48,20 +48,19 @@ Antes de configurar as identidades de dispositivo no Azure AD para seu ambiente 
 
 | Tipo de identidade do dispositivo | Infraestrutura da identidade | Dispositivos Windows | Versão da plataforma VDI | Com suporte |
 | --- | --- | --- | --- | --- |
-| Adicionado ao Azure AD híbrido | Federado<sup>3</sup> | Windows atual e Windows de baixo nível | Persistente | Sim |
+| Adicionado ao Azure AD híbrido | Federado<sup>3</sup> | Windows atual e Windows de baixo nível | Persistente | Yes |
 |   |   | Atual do Windows | Não persistente | Sim<sup>5</sup> |
 |   |   | Nível inferior do Windows | Não persistente | Sim<sup>6</sup> |
-|   | Gerenciado<sup>4</sup> | Windows atual e Windows de baixo nível | Persistente | Sim |
-|   |   | Atual do Windows | Não persistente | Não |
+|   | Gerenciado<sup>4</sup> | Windows atual e Windows de baixo nível | Persistente | Yes |
+|   |   | Atual do Windows | Não persistente | No |
 |   |   | Nível inferior do Windows | Não persistente | Sim<sup>6</sup> |
-| Adicionado ao Azure AD | Federado | Atual do Windows | Persistente | Não |
-|   |   |   | Não persistente | Não |
-|   | Gerenciados | Atual do Windows | Persistente | Não |
-|   |   |   | Não persistente | Não |
-| Registrado no Azure AD | Federado/gerenciado | Nível inferior do Windows/atual | Persistente/não persistente | Não Aplicável |
+| Adicionado ao Azure AD | Federado | Atual do Windows | Persistente | No |
+|   |   |   | Não persistente | No |
+|   | Gerenciado | Atual do Windows | Persistente | No |
+|   |   |   | Não persistente | No |
+| Azure AD registrado | Federado/gerenciado | Nível inferior do Windows/atual | Persistente/não persistente | Não Aplicável |
 
-<sup>1</sup> os dispositivos **atuais do Windows** representam o Windows 10, o Windows Server 2016 e o Windows Server 2019.
-
+<sup>1</sup> os dispositivos **atuais do Windows** representam o Windows 10, o Windows Server 2016 v1803 ou superior e o Windows Server 2019.
 <sup>2</sup> dispositivos **de nível inferior do Windows** representam o windows 7, o Windows 8.1, o Windows Server 2008 R2, o Windows Server 2012 e o Windows Server 2012 R2. Para obter informações de suporte sobre o Windows 7, consulte o [suporte para o Windows 7 está terminando](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support). Para obter informações de suporte sobre o Windows Server 2008 R2, consulte [preparar para o fim do suporte do Windows server 2008](https://www.microsoft.com/cloud-platform/windows-server-2008).
 
 <sup>3</sup> um ambiente de infraestrutura de identidade **federada** representa um ambiente com um provedor de identidade, como AD FS ou outros IDP de terceiros.

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/30/2020
-ms.author: iainfou
-author: iainfoulds
+ms.date: 11/24/2020
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66283e4965aea9e24da6041133e2d88e95df6755
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04a46a691b2f629b64cfe09c22813b05c593af1c
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90526979"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743455"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Habilitar a entrada de chave de segurança sem senha em dispositivos Windows 10 com Azure Active Directory (versão prévia)
 
@@ -29,7 +29,7 @@ Este documento se concentra em habilitar a autenticação sem senha baseada em c
 
 | Tipo de dispositivo | Adicionado ao Azure AD | Adicionado ao Azure AD híbrido |
 | --- | --- | --- |
-| [Autenticação Multifator do Azure](howto-mfa-getstarted.md) | X | X |
+| [Autenticação multifator do Azure AD](howto-mfa-getstarted.md) | X | X |
 | [Visualização do registro de informações de segurança combinadas](concept-registration-mfa-sspr-combined.md) | X | X |
 | [Chaves de segurança FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatíveis | X | X |
 | Webauthn requer o Windows 10 versão 1903 ou superior | X | X |
@@ -79,7 +79,7 @@ As organizações podem optar por usar um ou mais dos seguintes métodos para ha
 Para habilitar o uso de chaves de segurança usando o Intune, conclua as seguintes etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. Navegue até **Microsoft Intune**registro de dispositivo inscrição do  >  **Device enrollment**  >  **Windows**  >  **Windows Hello para empresas**  >  **Propriedades**.
+1. Navegue até **Microsoft Intune** registro de dispositivo inscrição do  >  **Device enrollment**  >  **Windows**  >  **Windows Hello para empresas**  >  **Propriedades**.
 1. Em **configurações**, defina **usar chaves de segurança para entrar** como **habilitado**.
 
 A configuração de chaves de segurança para entrada não depende da configuração do Windows Hello para empresas.
@@ -89,7 +89,7 @@ A configuração de chaves de segurança para entrada não depende da configura�
 Para direcionar grupos de dispositivos específicos para habilitar o provedor de credenciais, use as seguintes configurações personalizadas por meio do Intune:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. Navegue até **Microsoft Intune**  >  perfis de**configuração de dispositivo**  >  **Profiles**  >  **Criar perfil**.
+1. Navegue até **Microsoft Intune**  >  perfis de **configuração de dispositivo**  >  **Profiles**  >  **Criar perfil**.
 1. Configure o novo perfil com as seguintes configurações:
    - Nome: chaves de segurança para o Windows Sign-In
    - Descrição: permite que as chaves de segurança FIDO sejam usadas durante a entrada do Windows
@@ -117,7 +117,7 @@ Para dispositivos não gerenciados pelo Intune, um pacote de provisionamento pod
 1. Em seu projeto recém-criado, navegue até **configurações de tempo de execução**  >  **WindowsHelloForBusiness**  >  **SecurityKeys**  >  **UseSecurityKeyForSignIn**.
 1. Defina **UseSecurityKeyForSignIn** como *habilitado*.
 1. Selecione **Exportar**  >  **pacote de provisionamento**
-1. Deixe os padrões na janela de **compilação** em **descrever o pacote de provisionamento**e selecione **Avançar**.
+1. Deixe os padrões na janela de **compilação** em **descrever o pacote de provisionamento** e selecione **Avançar**.
 1. Deixe os padrões na janela de **compilação** em **selecionar detalhes de segurança para o pacote de provisionamento** e selecione **Avançar**.
 1. Anote ou altere o caminho nas janelas de **Build** em **selecionar onde salvar o pacote de provisionamento** e selecione **Avançar**.
 1. Selecione **Compilar** na página **criar o pacote de provisionamento** .
@@ -134,7 +134,7 @@ Para **dispositivos ingressados no Azure ad híbrido**, as organizações podem 
 - Definir essa política como **habilitada** permite que os usuários entrem com chaves de segurança.
 - Definir essa política como **desabilitada** ou **não configurada** impede que os usuários entrem com chaves de segurança.
 
-Essa configuração de Política de Grupo requer uma versão atualizada do `credentialprovider.admx` modelo de política de grupo. Esse novo modelo está disponível com a próxima versão do Windows Server e com o Windows 10 20H1. Essa configuração pode ser gerenciada com um dispositivo que executa uma dessas versões mais recentes do Windows ou centralmente seguindo as orientações no tópico de suporte, [como criar e gerenciar o armazenamento central para Política de Grupo modelos administrativos no Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
+Essa configuração de Política de Grupo requer uma versão atualizada do `CredentialProviders.admx` modelo de política de grupo. Esse novo modelo está disponível com a próxima versão do Windows Server e com o Windows 10 20H1. Essa configuração pode ser gerenciada com um dispositivo que executa uma dessas versões mais recentes do Windows ou centralmente seguindo as orientações no tópico de suporte, [como criar e gerenciar o armazenamento central para Política de Grupo modelos administrativos no Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
 
 ## <a name="sign-in-with-fido2-security-key"></a>Entrar com a chave de segurança do FIDO2
 
@@ -164,4 +164,4 @@ Se você quiser compartilhar comentários ou encontrar problemas ao visualizar e
 
 [Saiba mais sobre o registro de dispositivo](../devices/overview.md)
 
-[Saiba mais sobre a Autenticação Multifator do Azure](../authentication/howto-mfa-getstarted.md)
+[Saiba mais sobre a autenticação multifator do Azure AD](../authentication/howto-mfa-getstarted.md)

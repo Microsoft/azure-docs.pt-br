@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 7bb4cca6f58cb4ad0722c1407d2ef3062c3747e2
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b49e780714bd5e0662c6cb7ef208c473a8b45ccc
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781950"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498142"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introdução aos principais serviços de armazenamento do Azure
 
@@ -49,7 +49,7 @@ A tabela a seguir compara arquivos, BLOBs, discos, filas e tabelas e mostra cen�
 | **Filas do Azure** | Permite o enfileiramento de mensagens assíncronas entre componentes do aplicativo. | Você deseja desacoplar componentes de aplicativos e usar mensagens assíncronas para se comunicar entre eles.<br><br>Para obter orientação sobre quando usar o armazenamento de filas versus filas do barramento de serviço, consulte [filas de armazenamento e filas do barramento de serviço – comparações e contrastes](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md). |
 | **Tabelas do Azure** | Permitir que você armazene dados NoSQL estruturados na nuvem, fornecendo um repositório de chaves/atributos com um design sem esquema. | Você deseja armazenar conjuntos de dados flexíveis, como os de usuário para aplicativos Web, catálogos de endereços, informações de dispositivo ou outros tipos de metadados que seu serviço requer. <br/><br/>Para obter orientação sobre quando usar o armazenamento de tabela versus o Azure Cosmos DB API de Tabela, consulte [desenvolvendo com Azure Cosmos DB API de tabela e armazenamento de tabelas do Azure](../../cosmos-db/table-support.md). |
 
-## <a name="blob-storage"></a>Armazenamento de blob
+## <a name="blob-storage"></a>Armazenamento de Blobs
 
 O Armazenamento de Blobs do Azure é uma solução de armazenamento de objetos da Microsoft para a nuvem. O armazenamento de Blobs é otimizado para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários.
 
@@ -131,7 +131,7 @@ As bibliotecas de cliente de armazenamento do Azure fornecem métodos para cript
 
 ## <a name="redundancy"></a>Redundância
 
-Para garantir que seus dados sejam duráveis, o armazenamento do Azure armazena várias cópias de seus dados. Quando você configura sua conta de armazenamento, você seleciona uma opção de redundância. Para mais informações, confira [Redundância do Armazenamento do Microsoft Azure](./storage-redundancy.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json).
+Para garantir que seus dados sejam duráveis, o armazenamento do Azure armazena várias cópias de seus dados. Quando você configura sua conta de armazenamento, você seleciona uma opção de redundância. Para mais informações, confira [Redundância do Armazenamento do Microsoft Azure](./storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="transfer-data-to-and-from-azure-storage"></a>Transferir dados de e para o armazenamento do Azure
 

@@ -1,42 +1,42 @@
 ---
 title: Configurar parâmetros do servidor-portal do Azure-banco de dados do Azure para MySQL
 description: Este artigo descreve como configurar os parâmetros do MySQL Server no Banco de Dados do Azure para MySQL usando o portal do Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/1/2020
-ms.openlocfilehash: c28f0edafd72794a60ef577fc3177e4436157950
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 363be8b34f230b812bc24276e1f3925faf0cdc1c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631470"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540834"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-using-the-azure-portal"></a>Configurar parâmetros de servidor no banco de dados do Azure para MySQL usando o portal do Azure
 
 O Banco de Dados do Azure para MySQL dá suporte à configuração de alguns parâmetros de servidor. Este artigo descreve como configurar esses parâmetros usando o portal do Azure. Nem todos os parâmetros de servidor podem ser ajustados.
 
 >[!Note]
-> Os parâmetros do servidor podem ser atualizados globalmente no nível do servidor, usar o [CLI do Azure](./howto-configure-server-parameters-using-cli.md), o [PowerShell](./howto-configure-server-parameters-using-powershell.md)ou o [portal do Azure](./howto-server-parameters.md).
+> Os parâmetros do servidor podem ser atualizados globalmente no nível do servidor. Use a [CLI do Azure](./howto-configure-server-parameters-using-cli.md), o [PowerShell](./howto-configure-server-parameters-using-powershell.md)ou o [portal do Azure](./howto-server-parameters.md).
 
 ## <a name="configure-server-parameters"></a>Configurar parâmetros do servidor
 
 1. Entre no [portal do Azure](https://portal.azure.com)e, em seguida, localize o servidor do banco de dados do Azure para MySQL.
-2. Na seção **CONFIGURAÇÕES**, clique em **Parâmetros do servidor** para abrir a página de parâmetros do servidor para o servidor do Banco de Dados do Azure para MySQL.
+2. Na seção **CONFIGURAÇÕES** , clique em **Parâmetros do servidor** para abrir a página de parâmetros do servidor para o servidor do Banco de Dados do Azure para MySQL.
 :::image type="content" source="./media/howto-server-parameters/auzre-portal-server-parameters.png" alt-text="Página de parâmetros do servidor do portal do Azure":::
 3. Localize as configurações que você precisa ajustar. Examine a coluna **Descrição** para entender a finalidade e os valores permitidos.
-:::image type="content" source="./media/howto-server-parameters/3-toggle_parameter.png" alt-text="Página de parâmetros do servidor do portal do Azure":::
+:::image type="content" source="./media/howto-server-parameters/3-toggle_parameter.png" alt-text="Enumerar a lista suspensa":::
 4. Clique em  **salvar** para salvar as alterações.
-:::image type="content" source="./media/howto-server-parameters/4-save_parameters.png" alt-text="Página de parâmetros do servidor do portal do Azure":::
+:::image type="content" source="./media/howto-server-parameters/4-save_parameters.png" alt-text="Clique em salvar ou descartar mudanças":::
 5. Se você tiver salvo os novos valores para os parâmetros, você sempre pode reverter tudo o que fazer com os valores padrão selecionando **Redefinir tudo para o padrão**.
-:::image type="content" source="./media/howto-server-parameters/5-reset_parameters.png" alt-text="Página de parâmetros do servidor do portal do Azure":::
+:::image type="content" source="./media/howto-server-parameters/5-reset_parameters.png" alt-text="Redefinir tudo para padrão":::
 
 ## <a name="setting-parameters-not-listed"></a>Parâmetros de configuração não listados
 
 Se o parâmetro de servidor que você deseja atualizar não estiver listado no portal do Azure, você poderá, opcionalmente, definir o parâmetro no nível de conexão usando `init_connect` . Isso define os parâmetros de servidor para cada cliente que se conecta ao servidor. 
 
-1. Na seção **CONFIGURAÇÕES**, clique em **Parâmetros do servidor** para abrir a página de parâmetros do servidor para o servidor do Banco de Dados do Azure para MySQL.
+1. Na seção **CONFIGURAÇÕES** , clique em **Parâmetros do servidor** para abrir a página de parâmetros do servidor para o servidor do Banco de Dados do Azure para MySQL.
 2. Pesquisar por `init_connect`
 3. Adicione os parâmetros de servidor no formato: `SET parameter_name=YOUR_DESIRED_VALUE` em valor, a coluna valor.
 
@@ -44,7 +44,7 @@ Se o parâmetro de servidor que você deseja atualizar não estiver listado no p
 4. Clique em **Salvar** para salvar as alterações.
 
 >[!Note]
-> `init_connect` pode ser usado para mudar parâmetros que não exigem privilégio(s) SUPER no nível da sessão. Para verificar se você pode definir o parâmetro usando `init_connect`, execute o comando `set session parameter_name=YOUR_DESIRED_VALUE;` e, se ele apresentar o erro **Acesso negado, você precisa de privilégios SUPER**, não será possível definir o parâmetro usando "init_connect".
+> `init_connect` pode ser usado para mudar parâmetros que não exigem privilégio(s) SUPER no nível da sessão. Para verificar se você pode definir o parâmetro usando `init_connect`, execute o comando `set session parameter_name=YOUR_DESIRED_VALUE;` e, se ele apresentar o erro **Acesso negado, você precisa de privilégios SUPER** , não será possível definir o parâmetro usando "init_connect".
 
 ## <a name="working-with-the-time-zone-parameter"></a>Trabalhar com o parâmetro de fuso horário
 
@@ -72,7 +72,7 @@ SELECT name FROM mysql.time_zone_name;
 
 O fuso horário de nível global pode ser configurado na página **Parâmetros do servidor** no portal do Azure. O exemplo abaixo configura o fuso horário global para o valor "EUA/Pacífico".
 
-:::image type="content" source="./media/howto-server-parameters/timezone.png" alt-text="Página de parâmetros do servidor do portal do Azure":::
+:::image type="content" source="./media/howto-server-parameters/timezone.png" alt-text="Definir o parâmetro de fuso horário":::
 
 ### <a name="setting-the-session-level-time-zone"></a>Configurar o fuso horário do nível de sessão
 

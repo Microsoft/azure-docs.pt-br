@@ -10,6 +10,12 @@
       href: overview-iot-central-developer.md
     - name: Atualizações recentes
       items:
+        - name: Recursos novos e atualizados de janeiro de 2021
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-january-2021/'
+        - name: Recursos novos e atualizados de novembro de 2020
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-november-2020/'
+        - name: Recursos novos e atualizados de outubro de 2020
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-upadates-october-2020/'
         - name: Recursos novos e atualizados de setembro de 2020
           href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-september-2020/'
         - name: Recursos novos e atualizados de agosto de 2020
@@ -45,10 +51,8 @@
   items:
     - name: Conectar e desenvolver dispositivos
       items:
-        - name: Conectar um dispositivo (Node.js)
-          href: tutorial-connect-device-nodejs.md
-        - name: Conectar um dispositivo (Python)
-          href: tutorial-connect-device-python.md
+        - name: Criar e conectar-se a um dispositivo
+          href: tutorial-connect-device.md
         - name: Criar um modelo de dispositivo de gateway
           href: tutorial-define-gateway-device-type.md
         - name: Conectar um dispositivo do IoT Edge
@@ -83,8 +87,14 @@
       items:
         - name: Configurar um modelo de dispositivo
           href: howto-set-up-template.md
+        - name: Como mover dispositivos para IoT
+          href: how-to-move-device-to-iot.md
         - name: Como usar propriedades
           href: howto-use-properties.md
+        - name: Como usar comandos
+          href: howto-use-commands.md
+        - name: Como usar dados de localização
+          href: howto-use-location-data.md
         - name: Preparar e conectar um Azure Sphere DevKit
           href: howto-connect-sphere.md
         - name: Preparar e conectar um dispositivo RuuviTag
@@ -149,6 +159,8 @@
               href: howto-use-app-templates.md
             - name: Monitorar a integridade do aplicativo
               href: howto-monitor-application-health.md
+            - name: Migrar aplicativo V2 para V3
+              href: howto-migrate.md
             - name: Sobre o seu aplicativo
               href: howto-get-app-info.md
             - name: Girar certificados X.509
@@ -221,6 +233,8 @@
           href: ../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
     - name: Referência de API do IoT Central
       href: /rest/api/iotcentral/
+    - name: Residência de dados do cliente
+      href: iot-central-customer-data-residency.md
     - name: Solicitações de dados do cliente
       href: iot-central-customer-data-requests.md
     - name: Navegadores com suporte

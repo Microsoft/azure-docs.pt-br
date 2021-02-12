@@ -1,17 +1,17 @@
 ---
-title: Gerenciar laboratórios de salas de aula no Azure Lab Services | Microsoft Docs
-description: Saiba como criar e configurar um laboratório de sala de aula, exibir todos os laboratórios de sala de aula, compartilhar o link de registro com um usuário de laboratório, ou excluir um laboratório.
+title: Gerenciar laboratórios no Azure Lab Services | Microsoft Docs
+description: Saiba como criar e configurar um laboratório de sala de aula, exibir todos os laboratórios, compartilhar o link de registro com um usuário de laboratório ou excluir um laboratório.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 1a251f668508ee0b727c5e2ace65d1ea4eb5123e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db7a2f58f99252a7e5076dd86c37b65bbe8ea37a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91251670"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434202"
 ---
-# <a name="manage-classroom-labs-in-azure-lab-services"></a>Gerenciar laboratórios de sala de aula no Azure Lab Services 
-Este artigo descreve como criar e excluir um laboratório de sala de aula. Isso também mostra como exibir todos os laboratórios de sala de aula em uma conta de laboratório. 
+# <a name="manage-labs-in-azure-lab-services"></a>Gerenciar laboratórios no Azure Lab Services 
+Este artigo descreve como criar e excluir um laboratório de sala de aula. Ele também mostra como exibir todos os laboratórios em uma conta de laboratório. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para configurar um laboratório de sala de aula em uma conta de laboratório, você deve ser um membro da função **Criador de Laboratório** na conta de laboratório. A conta que você usou para criar uma conta de laboratório é adicionada automaticamente a essa função. Um proprietário de laboratório pode adicionar outros usuários à função Criador de Laboratório usando as etapas do seguinte artigo: [Adicionar um usuário à função Criador de Laboratório](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
@@ -103,22 +103,26 @@ Para configurar um laboratório de sala de aula em uma conta de laboratório, vo
 > [!NOTE]
 > Talvez você não veja alguns desses tamanhos de VM na lista ao criar um laboratório de sala de aula. A lista é preenchida com base na capacidade atual do local do laboratório. Se o criador da conta de laboratório [permitir que os criadores de laboratório escolham um local para ele ](allow-lab-creator-pick-lab-location.md), você poderá tentar escolher um local diferente para o laboratório e ver se o tamanho da VM está disponível. 
 
+## <a name="view-all-labs"></a>Exibir todos os laboratórios
 
-## <a name="view-all-classroom-labs"></a>Exibir todos os laboratórios de sala de aula
 1. Navegue até [Portal do Azure Lab Services](https://labs.azure.com).
-2. Selecione **Entrar**. Selecione ou insira uma **ID de usuário** que é um membro da função **Criador de laboratório** na conta do laboratório e insira a senha. O Azure Lab Services oferece suporte a contas organizacionais e contas Microsoft. 
-3. Confirme se você vê todos os laboratórios na conta de laboratório selecionada. Na peça do laboratório, você verá o número de máquinas virtuais no laboratório e a cota de cada usuário (fora da hora agendada).
+1. Selecione **Entrar**. Selecione ou insira uma **ID de usuário** que é um membro da função **Criador de laboratório** na conta do laboratório e insira a senha. O Azure Lab Services oferece suporte a contas organizacionais e contas Microsoft. 
+
+    [!INCLUDE [Select a tenant](./includes/multi-tenant-support.md)]
+1. Confirme se você vê todos os laboratórios na conta de laboratório selecionada. Na peça do laboratório, você verá o número de máquinas virtuais no laboratório e a cota de cada usuário (fora da hora agendada).
 
     ![Todos os laboratórios](./media/how-to-manage-classroom-labs/all-labs.png)
-3. Use a lista suspensa na parte superior para selecionar uma conta de laboratório diferente. Você verá laboratórios na conta de laboratório selecionada. 
+1. Use a lista suspensa na parte superior para selecionar uma conta de laboratório diferente. Você verá laboratórios na conta de laboratório selecionada. 
 
 ## <a name="delete-a-classroom-lab"></a>Excluir um laboratório de sala de aula
+
 1. Na peça do laboratório, selecione três pontos (...) no canto e, em seguida, selecione **Excluir**. 
 
     ![Botão Excluir](./media/how-to-manage-classroom-labs/delete-button.png)
-3. Na caixa de diálogo **Excluir laboratório**, selecione **Excluir** para continuar com a exclusão. 
+1. Na caixa de diálogo **Excluir laboratório**, selecione **Excluir** para continuar com a exclusão. 
 
 ## <a name="switch-to-another-classroom-lab"></a>Alternar para outro laboratório de sala de aula
+
 Para alternar do atual laboratório de sala de aula para outro, selecione a lista suspensa de laboratórios na conta de laboratório na parte superior.
 
 ![Selecione o laboratório na lista suspensa na parte superior](./media/how-to-manage-classroom-labs/switch-lab.png)
@@ -135,5 +139,5 @@ Veja os artigos a seguir:
 
 - [Como um proprietário de laboratório, configure e publique modelos](how-to-create-manage-template.md)
 - [Como um proprietário de laboratório, configure e controle o uso de um laboratório](how-to-configure-student-usage.md)
-- [Como um usuário de laboratório, acesse os laboratórios de sala de aula](how-to-use-classroom-lab.md)
+- [Como usuário do laboratório, laboratórios de acesso](how-to-use-classroom-lab.md)
 

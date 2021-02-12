@@ -9,120 +9,123 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 11/02/2020
 ms.author: jeedes
-ms.openlocfilehash: ab1e46f3bcd4c54e49f68d649777857d7a054234
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3926e98cb55d1afd80caf4af5d67910b66c09cdd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457445"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180329"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bamboohr"></a>Tutorial: Integração do Azure Active Directory ao BambooHR
 
-Neste tutorial, você aprende a integrar o BambooHR ao Azure AD (Azure Active Directory).
-A integração do BambooHR ao Azure AD oferece os seguintes benefícios:
+Neste tutorial, você aprenderá a integrar o BambooHR ao Azure AD (Azure Active Directory). Quando você integrar o BambooHR ao Azure AD, será possível:
 
-* No Azure AD, é possível controlar quem tem acesso ao BambooHR.
-* Você pode permitir que seus usuários entrem automaticamente no BambooHR (logon único) com suas contas do Azure AD.
-* Você pode gerenciar suas contas em um único local central – o portal do Azure.
+* Controlar quem tem acesso ao BambooHR no Azure AD.
+* Permitir que usuários sejam conectados de modo automático ao BambooHR usando contas do Azure AD.
+* Gerenciar suas contas em um local central: o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
-Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="prerequisites"></a>Prerequisites
+Para começar, você precisará dos seguintes itens:
 
-Para configurar a integração do Azure AD ao BambooHR, você precisa dos seguintes itens:
-
-* Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Assinatura habilitada para logon único do BambooHR
+* Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
+* Assinatura habilitada para SSO (logon único) do BambooHR.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 * O BambooHR dá suporte ao SSO iniciado por **SP**
+
+> [!NOTE]
+> O identificador desse aplicativo é um valor de cadeia de caracteres fixo; portanto apenas uma instância pode ser configurada em um locatário.
+
 
 ## <a name="adding-bamboohr-from-the-gallery"></a>Adicionando o BambooHR por meio da galeria
 
 Para configurar a integração do BambooHR ao Azure AD, você precisa adicionar o BambooHR à lista de aplicativos SaaS gerenciados por meio da galeria.
 
-**Para adicionar o BambooHR por meio da galeria, realize as seguintes etapas:**
+1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
+1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
+1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
+1. Na seção **Adicionar da galeria**, digite **BambooHR** na caixa de pesquisa.
+1. Selecione **BambooHR** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory** .
 
-    ![O botão Azure Active Directory](common/select-azuread.png)
+## <a name="configure-and-test-azure-ad-sso-for-bamboohr"></a>Configurar e testar o SSO do Azure AD para o BambooHR
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos** .
+Configure e teste o SSO do Azure AD usando o BambooHR com um usuário de teste chamado **B.Simon**. É necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário correspondente no BambooHR para que o SSO funcione.
 
-    ![A folha Aplicativos empresariais](common/enterprise-applications.png)
+Execute as seguintes etapas para configurar e testar o SSO do Azure AD com o BambooHR:
 
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+    * **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+    * **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+2. **[Configurar o SSO do BambooHR](#configure-bamboohr-sso)** – para definir as configurações de Logon Único no lado do aplicativo.
+    * **[Criar um usuário de teste do BambooHR](#create-bamboohr-test-user)** – para ter um equivalente de Brenda Fernandes no BambooHR que esteja vinculado à representação de usuário do Azure AD.
+3. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
-    ![O botão Novo aplicativo](common/add-new-app.png)
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-4. Na caixa de pesquisa, digite **BambooHR** , selecione **BambooHR** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-     ![BambooHR na lista de resultados](common/search-new-app.png)
+1. No portal do Azure, na página de integração de aplicativos do **BambooHR**, localize a seção **Gerenciar** e selecione **Logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
+   ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-Nesta seção, você configura e testa o logon único do Azure AD com o BambooHR, com base em um usuário de teste chamado **Brenda Fernandes** .
-Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do BambooHR.
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
-Para configurar e testar o logon único do Azure AD com o BambooHR, você precisa concluir os seguintes blocos de construção:
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company>.bamboohr.com`
 
-1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Configurar o logon único do BambooHR](#configure-bamboohr-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
-3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar um usuário de teste do BambooHR](#create-bamboohr-test-user)** – para ter um equivalente de Brenda Fernandes no BambooHR que esteja vinculado à representação de usuário do Azure AD.
-6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão:
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
-
-Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
-
-Para configurar o logon único do Azure AD com o BambooHR, realize as seguintes etapas:
-
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativo **BambooHR** , selecione **Logon único** .
-
-    ![Link Configurar logon único](common/select-sso.png)
-
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
-
-    ![Modo de seleção de logon único](common/select-saml-option.png)
-
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML** .
-
-    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
-
-4. Na seção **Configuração básica de SAML** , realize as seguintes etapas:
-
-    ![Informações de logon único em Domínio e URLs do BambooHR](common/sp-identifier.png)
-
-    a. Na caixa de texto **URL de Logon** , digite uma URL usando o seguinte padrão: `https://<company>.bamboohr.com`
-
-    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `BambooHR-SAML`
+    | URL de resposta |
+    |-----------|
+    | `https://<company>.bamboohr.com/saml/consume.php` |
+    | `https://<company>.bamboohr.co.uk/saml/consume.php` |
 
     > [!NOTE]
-    > O valor da **URL de logon** não é real. Atualize o valor com a URL de logon real. Contate a [equipe de suporte ao Cliente do BambooHR](https://www.bamboohr.com/contact.php) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com a URL de entrada e a URL de Resposta reais. Entre em contato com a [equipe de suporte ao Cliente do BambooHR](https://www.bamboohr.com/contact.php) para obter os valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-4. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+4. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-6. Na seção **Configurar o BambooHR** , copie a URL apropriada, de acordo com suas necessidades.
+6. Na seção **Configurar o BambooHR**, copie a URL apropriada, de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    a. URL de logon
 
-    b. Identificador do Azure Ad
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
-    c. URL de logoff
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-### <a name="configure-bamboohr-single-sign-on"></a>Configurar o logon único do BambooHR
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
+1. Selecione **Novo usuário** na parte superior da tela.
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+   1. Clique em **Criar**.
+
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+
+Nesta seção, você permitirá que B.Fernandes use o logon único do Azure concedendo a ela acesso ao BambooHR.
+
+1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. Na lista de aplicativos, selecione **BambooHR**.
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
+1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+
+## <a name="configure-bamboohr-sso"></a>Configurar o SSO do BambooHR
 
 1. Em uma nova janela, entre no site da empresa do BambooHR como administrador.
 
@@ -130,72 +133,21 @@ Para configurar o logon único do Azure AD com o BambooHR, realize as seguintes 
    
     ![A página de Logon Único do BambooHR](./media/bamboo-hr-tutorial/ic796691.png "Logon Único")   
 
-    a. Selecione **Aplicativos** .
+    a. Selecione **Aplicativos**.
    
-    b. No painel **Aplicativos** , selecione **Logon único** .
+    b. No painel **Aplicativos**, selecione **Logon único**.
    
-    c. Selecione **Logon Único do SAML** .
+    c. Selecione **Logon Único do SAML**.
 
-3. No painel **Logon único do SAML** , faça o seguinte:
+3. No painel **Logon único do SAML**, faça o seguinte:
    
     ![O painel de Logon Único do SAML](./media/bamboo-hr-tutorial/IC796692.png "Logon Único do SAML")
    
-    a. Na caixa **URL de logon SSO** , cole a **URL de Logon** que você copiou do portal do Azure na etapa 6.
+    a. Na caixa **URL de logon SSO**, cole a **URL de Logon** que você copiou do portal do Azure na etapa 6.
       
-    b. No Bloco de Notas, abra o certificado codificado em Base 64 baixado no Portal do Azure, copie o conteúdo e cole-o na caixa **Certificado X.509** .
+    b. No Bloco de Notas, abra o certificado codificado em Base 64 baixado no Portal do Azure, copie o conteúdo e cole-o na caixa **Certificado X.509**.
    
-    c. Clique em **Salvar** .
-
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
-
-O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
-
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários** .
-
-    ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
-
-2. Selecione **Novo usuário** na parte superior da tela.
-
-    ![Botão Novo usuário](common/new-user.png)
-
-3. Nas Propriedades do usuário, execute as etapas a seguir.
-
-    ![A caixa de diálogo Usuário](common/user-properties.png)
-
-    a. No campo **Nome** , insira **BrendaFernandes** .
-  
-    b. No campo **Nome de usuário** , digite **brendafernandes\@dominiodaempresa.extensao**  
-    Por exemplo, BrittaSimon@contoso.com
-
-    c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
-
-    d. Clique em **Criar** .
-
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
-
-Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao BambooHR.
-
-1. No portal do Azure, escolha **Aplicativos empresariais** , escolha **Todos os aplicativos** e, em seguida, escolha **BambooHR** .
-
-    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
-
-2. Na lista de aplicativos, digite e escolha **BambooHR** .
-
-    ![O link do BambooHR na lista de Aplicativos](common/all-applications.png)
-
-3. No menu à esquerda, selecione **Usuários e grupos** .
-
-    ![O link “Usuários e grupos”](common/users-groups-blade.png)
-
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
-
-    ![O painel Adicionar Atribuição](common/add-assign-user.png)
-
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
-
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+    c. Selecione **Salvar**.
 
 ### <a name="create-bamboohr-test-user"></a>Crie um usuário de teste do BambooHR
 
@@ -203,31 +155,32 @@ Para permitir que os usuários do Microsoft Azure Active Directory façam logon 
 
 1. Entre em seu site de empresa do **BambooHR** como administrador.
 
-2. Na barra de ferramentas na parte superior, selecione **Configurações** .
+2. Na barra de ferramentas na parte superior, selecione **Configurações**.
    
     ![O botão Configurações](./media/bamboo-hr-tutorial/IC796694.png "Configuração")
 
-3. Selecione **Visão geral** .
+3. Selecione **Visão geral**.
 
-4. No painel esquerdo, selecione **Segurança** > **Usuários** .
+4. No painel esquerdo, selecione **Segurança** > **Usuários**.
 
 5. Digite o nome de usuário, a senha e o endereço de email da conta válida do Microsoft Azure Active Directory que você deseja configurar.
 
-6. Clique em **Salvar** .
+6. Selecione **Salvar**.
         
 >[!NOTE]
 >Para configurar contas de usuários do Microsoft Azure Active Directory, você também pode usar a ferramenta de criação de contas de usuários do BambooHR ou APIs.
 
-### <a name="test-single-sign-on"></a>Testar logon único 
+### <a name="test-sso"></a>Testar o SSO
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir. 
 
-Ao clicar no bloco do BambooHR no Painel de Acesso, você deverá ser conectado automaticamente ao BambooHR no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
+1. Clique em **Testar este aplicativo** no portal do Azure. Você será redirecionado à URL de Entrada do BambooHR, onde poderá iniciar o fluxo de logon. 
 
-## <a name="additional-resources"></a>Recursos adicionais
+2. Acesse a URL de Entrada do BambooHR diretamente e inicie o fluxo de logon desse local.
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
+3. Use o Painel de Acesso da Microsoft. Ao clicar no bloco BambooHR do Painel de Acesso, você será redirecionado para a URL de Entrada do BambooHR. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
+## <a name="next-steps"></a>Próximas etapas
+
+Após configurar o BambooHR, será possível impor o controle de sessão, que protegerá contra a exfiltração e infiltração dos dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

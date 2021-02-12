@@ -11,25 +11,25 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d3315a8d6bca9406461d0082ed85bbefc9459f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d4897b9187caab50be4db75bbc0af03e3d35aa4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88950197"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835978"
 ---
 # <a name="user-experiences-with-azure-ad-identity-protection"></a>Experiências do usuário com o Azure AD Identity Protection
 
 Com o Azure Active Directory Identity Protection, é possível:
 
-* Exigir que os usuários se registrem na MFA (autenticação multifator) do Azure
+* Exigir que os usuários se registrem na MFA (autenticação multifator) do Azure AD
 * Automatizar a correção de entradas arriscadas e usuários comprometidos
 
-Todas as políticas de proteção de identidade têm um impacto na experiência de entrada para os usuários. Permitir que os usuários se registrem e usem ferramentas como o Azure MFA e a redefinição de senha de autoatendimento pode diminuir o impacto. Essas ferramentas, juntamente com as opções de política apropriadas, oferecem aos usuários uma opção de AutoCorreção quando precisam.
+Todas as políticas de proteção de identidade têm um impacto na experiência de entrada para os usuários. Permitir que os usuários se registrem e usem ferramentas como a MFA do Azure AD e a redefinição de senha de autoatendimento pode diminuir o impacto. Essas ferramentas, juntamente com as opções de política apropriadas, oferecem aos usuários uma opção de AutoCorreção quando precisam.
 
 ## <a name="multi-factor-authentication-registration"></a>Registro de autenticação multifator
 
-Habilitar a política de proteção de identidade que requer o registro da autenticação multifator e direcionar todos os seus usuários garantirá que eles tenham a capacidade de usar o Azure MFA para corrigir automaticamente no futuro. Configurar essa política dá aos seus usuários um período de 14 dias em que eles podem optar por se registrar e, no final, são forçados a se registrar. A experiência para os usuários é descrita abaixo. Mais informações podem ser encontradas na documentação do usuário final no artigo [visão geral da verificação de dois fatores e sua conta corporativa ou de estudante](../user-help/multi-factor-authentication-end-user-first-time.md).
+Habilitar a política de proteção de identidade que requer o registro de autenticação multifator e direcionar todos os seus usuários garantirá que eles tenham a capacidade de usar o Azure AD MFA para corrigir automaticamente no futuro. Configurar essa política dá aos seus usuários um período de 14 dias em que eles podem optar por se registrar e, no final, são forçados a se registrar. A experiência para os usuários é descrita abaixo. Mais informações podem ser encontradas na documentação do usuário final no artigo [visão geral da verificação de dois fatores e sua conta corporativa ou de estudante](../user-help/multi-factor-authentication-end-user-first-time.md).
 
 ### <a name="registration-interrupt"></a>Interrupção de registro
 
@@ -37,7 +37,7 @@ Habilitar a política de proteção de identidade que requer o registro da auten
    
     ![Mais informações necessárias](./media/concept-identity-protection-user-experience/identity-protection-experience-more-info-mfa.png)
 
-1. Conclua as etapas guiadas para se registrar para a autenticação multifator do Azure e concluir sua entrada.
+1. Conclua as etapas guiadas para se registrar para a autenticação multifator do Azure AD e conclua sua entrada.
 
 ## <a name="risky-sign-in-remediation"></a>Correção de entrada arriscada
 
@@ -49,7 +49,7 @@ Quando um administrador configurou uma política para riscos de entrada, os usu�
    
     ![Algo de aviso incomum](./media/concept-identity-protection-user-experience/120.png)
 
-1. O usuário precisa provar sua identidade concluindo o Azure MFA com um de seus métodos anteriormente registrados. 
+1. O usuário precisa provar sua identidade concluindo o Azure AD MFA com um de seus métodos anteriormente registrados. 
 
 ### <a name="risky-sign-in-administrator-unblock"></a>Desbloqueio de administrador de entrada arriscada
 
@@ -69,7 +69,7 @@ Quando uma política de risco do usuário tiver sido configurada, os usuários q
    
     ![Remediação](./media/concept-identity-protection-user-experience/101.png)
 
-1. O usuário precisa provar sua identidade concluindo o Azure MFA com um de seus métodos anteriormente registrados. 
+1. O usuário precisa provar sua identidade concluindo o Azure AD MFA com um de seus métodos anteriormente registrados. 
 1. Por fim, o usuário é forçado a alterar sua senha usando a redefinição de senha de autoatendimento, já que outra pessoa pode ter tido acesso à sua conta.
 
 ## <a name="risky-sign-in-administrator-unblock"></a>Desbloqueio de administrador de entrada arriscada

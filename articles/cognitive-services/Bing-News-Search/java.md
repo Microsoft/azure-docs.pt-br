@@ -11,14 +11,19 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018, devx-track-java
-ms.openlocfilehash: a1347364066f4b36256782dd8891390a47bae020
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f49de67504c3d3fea39d4c12ab4b06790693ad68
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87326759"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351956"
 ---
 # <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>Início Rápido: executar uma pesquisa de notícias usando o Java e a API REST de Pesquisa de Notícias do Bing
+
+> [!WARNING]
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Use este início rápido para fazer sua primeira chamada à API da Pesquisa de Notícias do Bing. Este aplicativo Java simples envia uma consulta de pesquisa de notícias para a API e exibe a resposta JSON.
 
@@ -28,7 +33,7 @@ O código-fonte deste exemplo está disponível [no GitHub](https://github.com/A
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* O [JDK (Java Development Kit) 7 ou 8](https://aka.ms/azure-jdks).
+* O [JDK (Java Development Kit) 7 ou 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 * A [biblioteca Gson](https://github.com/google/gson).
 
 

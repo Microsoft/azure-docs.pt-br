@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 817b9bfc0af054b344ca9f770085ac022a8e6eac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cf0393cdb0aae1b352b81df4893f874f34970cc
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380638"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934519"
 ---
 # <a name="assign-a-key-vault-access-policy-using-azure-powershell"></a>Atribuir uma política de acesso de Key Vault usando Azure PowerShell
 
@@ -29,7 +29,7 @@ Para obter mais informações sobre como criar grupos em Azure Active Directory 
 
 1. Para executar comandos localmente, instale [Azure PowerShell](/powershell/azure/) se ainda não tiver feito isso.
 
-    Para executar comandos diretamente na nuvem, use o [Azure cloud Shell](/azure/cloud-shell/overview).
+    Para executar comandos diretamente na nuvem, use o [Azure cloud Shell](../../cloud-shell/overview.md).
 
 1. Somente PowerShell local:
 
@@ -51,7 +51,7 @@ Determine a ID de objeto do aplicativo, do grupo ou do usuário ao qual você de
     Get-AzADServicePrincipal -SearchString <search-string>
     ```
 
-- Grupos: Use o cmdlet [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup?view=azps-2.7.0) com o `-SearchString` parâmetro para filtrar os resultados para o nome do grupo desejado:
+- Grupos: Use o cmdlet [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup) com o `-SearchString` parâmetro para filtrar os resultados para o nome do grupo desejado:
 
     ```azurepowershell-interactive
     Get-AzADGroup -SearchString <search-string>
@@ -79,7 +79,6 @@ Você só precisa incluir `-PermissionsToSecrets` , `-PermissionsToKeys` e `-Per
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Segurança do Azure Key Vault: Gerenciamento de identidades e acesso](overview-security.md#identity-and-access-management)
+- [Segurança do Azure Key Vault: Gerenciamento de identidades e acesso](security-overview.md#identity-management)
 - [Proteja seu cofre de chaves](secure-your-key-vault.md).
 - [Guia do desenvolvedor do Azure Key Vault](developers-guide.md)
-- [Melhores práticas do Azure Key Vault](best-practices.md)

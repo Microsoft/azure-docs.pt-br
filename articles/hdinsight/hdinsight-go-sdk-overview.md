@@ -1,19 +1,16 @@
 ---
 title: SDK do Azure HDInsight para go
 description: Material de referência para usar o SDK do Azure HDInsight para clusters de Go e Apache Hadoop
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seodec18, devx-track-azurecli
 ms.date: 01/03/2020
-ms.openlocfilehash: 6fdd7b9e5fda92bd75e54ea5b4aad6a3ba6ecbea
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: dc8528c40fe7e3b32e2f38152afc8abb0ae18ba5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748758"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945992"
 ---
 # <a name="hdinsight-sdk-for-go-preview"></a>SDK do HDInsight para go (visualização)
 

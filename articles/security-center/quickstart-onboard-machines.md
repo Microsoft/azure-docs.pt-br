@@ -3,25 +3,25 @@ title: Conectar os computadores não Azure à Central de Segurança do Azure
 description: Aprender a conectar computadores não Azure à Central de Segurança
 author: memildin
 ms.author: memildin
-ms.date: 10/01/2020
+ms.date: 11/16/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: 8fa72dcd857977474cf76eada500214bf8129aca
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 8d0d4726763e36bd889c2f564d116d454b2f62b9
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340862"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740599"
 ---
-#  <a name="connect-your-non-azure-machines-to-security-center"></a>Conectar os computadores não Azure à Central de Segurança
+# <a name="connect-your-non-azure-machines-to-security-center"></a>Conectar os computadores não Azure à Central de Segurança
 
-A Central de Segurança pode monitorar a postura de segurança dos computadores não Azure, mas, antes, é necessário conectá-los ao Azure. 
+A Central de Segurança pode monitorar a postura de segurança dos computadores não Azure, mas, antes, é necessário conectá-los ao Azure.
 
 Você pode conectar seus computadores não Azure de qualquer uma das seguintes maneiras:
 
-- Usando o Azure Arc (**recomendado**)
+- Usando servidores habilitados para o Azure Arc (**recomendado**)
 - Nas páginas da Central de Segurança no portal do Azure (**Introdução** e **Inventário**)
 
 Cada uma delas é descrita nesta página.
@@ -30,21 +30,21 @@ Cada uma delas é descrita nesta página.
 
 ## <a name="add-non-azure-machines-with-azure-arc"></a>Adicionar computadores não Azure com Azure Arc
 
-O Azure Arc é a maneira mais recomendada para adicionar seus computadores não Azure à Central de Segurança do Azure.
+Os servidores habilitados para o Azure Arc são a maneira mais recomendada de adicionar seus computadores que não são do Azure à Central de Segurança do Azure.
 
-Um computador com o Azure Arc habilitado torna-se um recurso do Azure e aparece na Central de Segurança com recomendações, assim como seus outros recursos do Azure. 
+Um computador com o servidores habilitados para o Azure Arc torna-se um recurso do Azure e aparece na Central de Segurança com recomendações, assim como seus outros recursos do Azure.
 
-Além disso, o Azure Arc fornece recursos aprimorados, como a opção de habilitar políticas no computador, implantar o agente de Análise de Logs como extensão, simplificar a implantação com outros serviços do Azure e muito mais. Para ter uma visão geral dos benefícios, confira [Cenários com suporte](../azure-arc/servers/overview.md#supported-scenarios).
+Além disso, os servidores habilitados para o Azure Arc fornecem recursos aprimorados, como a opção de habilitar políticas de configuração de convidado no computador, implantar o agente do Log Analytics como extensão, simplificar a implantação com outros serviços do Azure e muito mais. Para ter uma visão geral dos benefícios, confira [Cenários com suporte](../azure-arc/servers/overview.md#supported-scenarios).
+
+Saiba mais sobre os [servidores habilitados para o Azure Arc](../azure-arc/servers/overview.md).
 
 **Para implantar o Azure Arc:**
 
 - Em um computador, siga as instruções em [Início Rápido: Conectar o computador híbrido com os servidores habilitados para Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
-- Para implantar o Azure Arc em grande escala, confira [Conectar computadores híbridos ao Azure em grande escala](../azure-arc/servers/onboard-service-principal.md)
-
-[Saiba mais sobre o Azure Arc](../azure-arc/servers/overview.md).
+- Para conectar vários computadores em escala a servidores habilitados para o Arc, confira [Conectar computadores híbridos ao Azure em escala](../azure-arc/servers/onboard-service-principal.md)
 
 > [!TIP]
-> Se você estiver integrando computadores AWS, o conector da Central de Segurança para AWS lidará com a implantação do Azure Arc para você de forma transparente. Saiba mais em [Conectar as contas do AWS à Central de Segurança do Azure](quickstart-onboard-aws.md).
+> Se você estiver integrando computadores em execução na AWS, o conector da Central de Segurança para AWS lidará com a implantação do Azure Arc para você de maneira transparente. Saiba mais em [Conectar as contas do AWS à Central de Segurança do Azure](quickstart-onboard-aws.md).
 
 ::: zone-end
 
@@ -62,11 +62,11 @@ Além disso, o Azure Arc fornece recursos aprimorados, como a opção de habilit
     > [!TIP]
     > Você também pode abrir a seção Adicionar computadores por meio da página **Estoque**, pressionando o botão **Adicionar servidores não Azure**.
     > 
-    > :::image type="content" source="./media/security-center-onboarding/onboard-inventory.png" alt-text="Guia de introdução na página Introdução":::
+    > :::image type="content" source="./media/security-center-onboarding/onboard-inventory.png" alt-text="Adição de computadores não Azure pela página de inventário de ativos":::
 
     É mostrada uma lista dos workspaces do Log Analytics. A lista inclui, se aplicável, o workspace padrão criado para você pela Central de Segurança quando o provisionamento automático foi habilitado. Selecione esse workspace ou outro que você queira usar.
 
-    Você pode adicionar computadores a um workspace existente ou criar um novo workspace. 
+    Você pode adicionar computadores a um workspace existente ou criar um novo workspace.
 
 1. Opcionalmente, para criar um workspace, selecione **Criar workspace**.
 
@@ -79,9 +79,10 @@ Além disso, o Azure Arc fornece recursos aprimorados, como a opção de habilit
     - [Integrar os computadores Linux](#onboard-your-linux-machines)
     - [Integrar os computadores Windows](#onboard-your-windows-machines)
 
-
 ### <a name="onboard-your-azure-stack-vms"></a>Integrar as VMs do Azure Stack
+
 Para adicionar as VMs do Azure Stack, você precisará de informações da página **Gerenciamento de agentes** e configurar a extensão da máquina virtual **Azure Monitor, atualização e gerenciamento de configuração** nas máquinas virtuais em execução no Azure Stack.
+
 1. Na página **Gerenciamento de agentes**, copie a **ID do Workspace** e a **Chave Primária** no Bloco de notas.
 1. Faça logon no portal do **Azure Stack** e abra a página **Máquinas virtuais**.
 1. Selecione a máquina virtual que você deseja proteger com a Central de Segurança.
@@ -95,16 +96,17 @@ Para adicionar as VMs do Azure Stack, você precisará de informações da pági
 1. Na página de configuração **Instalar extensão**, cole a **ID do Workspace** e a **Chave do Workspace (Chave Primária)** que você copiou para o Bloco de Notas na etapa anterior.
 1. Ao concluir a configuração, selecione **OK**. O status da extensão será exibido como **Provisionamento bem-sucedido**. Pode levar até uma hora para que a máquina virtual seja exibida na Central de Segurança.
 
-
 ### <a name="onboard-your-linux-machines"></a>Integrar os computadores Linux
+
 Para adicionar computadores Linux, você precisa do comando WGET na página **Gerenciamento de agentes**.
+
 1. Na página **Gerenciamento de agentes**, copie o comando **WGET** no bloco de notas. Salve esse arquivo em um local que possa ser acessado pelo computador Linux.
 1. No computador Linux, abra o arquivo com o comando WGET. Selecione o conteúdo todo, copie e cole em um console do terminal.
 1. Quando a instalação for concluída, você poderá confirmar se o *omsagent* está instalado executando o comando *pgrep*. O comando retornará a PID do *omsagent*.
     Os logs do agente podem ser encontrados em: */var/opt/microsoft/omsagent/\<workspace id>/log/* Pode levar até 30 minutos para que o novo computador Linux apareça na Central de Segurança.
 
-
 ### <a name="onboard-your-windows-machines"></a>Integrar os computadores Windows
+
 Para adicionar computadores Windows, você precisará das informações contidas na página **Gerenciamento de agentes** e baixar o arquivo de agente apropriado (32/64 bits).
 1. Selecione o link **Baixar Agente do Windows** aplicável a seu tipo de processador do computador para baixar o arquivo de configuração.
 1. Na página **Gerenciamento de agentes**, copie a **ID do Workspace** e a **Chave Primária** no Bloco de notas.
@@ -117,23 +119,24 @@ Para adicionar computadores Windows, você precisará das informações contidas
     1. Na página **Pronto para Instalar**, examine as configurações a serem aplicadas e selecione **Instalar**.
     1. Na página **Configuração concluída com êxito**, selecione **Concluir**.
 
-Após a conclusão, o **agente do Log Analytics** será exibido no **Painel de Controle**. Você pode revisar sua configuração e verificar se o agente está conectado.
+Após a conclusão, o **Microsoft Monitoring Agent** aparecerá no **Painel de Controle**. Você pode revisar sua configuração e verificar se o agente está conectado.
 
 Para obter mais informações sobre como instalar e configurar o agente, confira [Conectar computadores Windows](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
 
 ::: zone-end
 
 ## <a name="verifying"></a>Verificando
+
 Parabéns! Agora você pode ver seus computadores Azure e não Azure juntos, em um só lugar. Abra a [página Estoque de ativos](asset-inventory.md) e filtre pelos tipos de recursos relevantes. Estes ícones distinguem os tipos:
 
   ![Ícone ASC para computador não Azure](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Computador não Azure
 
   ![Ícone ASC para computador Azure](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) VM do Azure
 
-  ![Ícone ASC para computador Azure Arc](./media/quick-onboard-linux-computer/arc-enabled-machine-icon.png) Computador habilitado para Azure Arc
+  ![Ícone ASC para o servidor do Azure Arc](./media/quick-onboard-linux-computer/arc-enabled-machine-icon.png) Servidor habilitado para o Azure Arc
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Essa página mostrou como adicionar seus computadores não Azure à Central de Segurança do Azure. Para monitorar o status, use as ferramentas de estoque, conforme explicado na seguinte página:
 
-- [Explorar e gerenciar os recursos com as ferramentas de gerenciamento e estoque de ativos](asset-inventory.md)
+- [Explore e gerencie seus recursos usando um inventário de ativos](asset-inventory.md)

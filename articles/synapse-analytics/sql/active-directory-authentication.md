@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: a3bd565b26d011e6186cc6957769db57f9cd1c9c
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 962e0e734abd73f5a66f9b9ee6067155dd839e5d
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093405"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118278"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-synapse-sql"></a>Usar a Autenticação do Azure Active Directory para autenticação com o Synapse SQL
 
@@ -36,10 +36,10 @@ As etapas de configuração incluem os procedimentos a seguir para configurar e 
 
 1. Criar e popular o Azure AD.
 2. Criar uma identidade do Azure Active Directory
-3. Atribuir uma função à identidade criada do Azure Active Directory no workspace do Synapse (versão prévia)
+3. Atribuir uma função à identidade criada do Azure Active Directory no workspace do Azure Synapse
 4. Conecte-se ao Synapse Studio usando identidades do Azure AD.
 
-## <a name="aad-pass-through-in-azure-synapse-analytics"></a>Passagem do AAD no Azure Synapse Analytics
+## <a name="azure-ad-pass-through-in-azure-synapse-analytics"></a>Passagem do Azure AD no Azure Synapse Analytics
 
 O Azure Synapse Analytics permite que você acesse os dados do data lake usando sua identidade do Azure Active Directory.
 
@@ -49,13 +49,13 @@ A definição de direitos de acesso nos arquivos e nos dados, que é respeitada 
 
 O diagrama de alto nível a seguir resume a arquitetura da solução para o uso da autenticação do Azure AD com o Synapse SQL. Para dar suporte à senha de usuário nativo do Azure AD, apenas a parte da Nuvem e o Azure AD/Synapse SQL é considerada. Para dar suporte à Autenticação federada (ou a usuário/senha para as credenciais do Windows), será necessária a comunicação com o bloco do ADFS. As setas indicam caminhos para comunicação.
 
-![diagrama de autenticação do aad](./media/aad-authentication/1-active-directory-authentication-diagram.png)
+![diagrama de autenticação do azure ad](./media/aad-authentication/1-active-directory-authentication-diagram.png)
 
 O diagrama a seguir indica as relações de federação, confiança e hospedagem que permitem que um cliente se conecte a um banco de dados enviando um token. O token é autenticado pelo Azure AD e é considerado confiável pelo banco de dados. 
 
 O Cliente 1 pode representar um Azure Active Directory com usuários nativos ou um Azure AD com usuários federados. O Cliente 2 representa uma solução possível, incluindo os usuários importados; neste exemplo, provenientes de um Azure Active Directory federado com o ADFS sendo sincronizado com o Azure Active Directory. 
 
-É importante entender que o acesso a um banco de dados com a autenticação do Azure AD exige que a assinatura de hospedagem esteja associada ao Azure AD. A mesma assinatura precisa ser usada para criar o SQL Server que hospeda o Banco de Dados SQL do Azure ou o pool de SQL.
+É importante entender que o acesso a um banco de dados com a autenticação do Azure AD exige que a assinatura de hospedagem esteja associada ao Azure AD. A mesma assinatura precisa ser usada para criar o SQL Server que hospeda o Banco de Dados SQL do Azure ou o pool de SQL dedicado.
 
 ![relação de assinatura](./media/aad-authentication/2-subscription-relationship.png)
 
@@ -65,7 +65,7 @@ Ao usar a autenticação do Azure AD, haverá duas contas de administrador para 
 
 O logon de administrador do AD do Azure pode ser um usuário ou um grupo do AD do Azure. Quando o administrador é uma conta de grupo, ele pode ser usado por qualquer membro do grupo, permitindo múltiplos administradores do Azure AD na instância do Synapse SQL. 
 
-O uso da conta de grupo como um administrador aprimora a capacidade de gerenciamento, permitindo que você adicione e remova membros do grupo no Azure AD de maneira centralizada, sem alterar os usuários ou as permissões no workspace do Synapse Analytics. Somente um administrador do AD do Azure (um usuário ou grupo) pode ser configurado por vez, a qualquer momento.
+O uso da conta de grupo como administrador aprimora a capacidade de gerenciamento, permitindo que você adicione e remova membros do grupo no Azure AD de maneira centralizada, sem alterar os usuários ou as permissões no workspace do Azure Synapse Analytics. Somente um administrador do AD do Azure (um usuário ou grupo) pode ser configurado por vez, a qualquer momento.
 
 ![estrutura de administrador](./media/aad-authentication/3-admin-structure.png)
 
@@ -109,7 +109,7 @@ A autenticação do Active Directory do Azure dá suporte aos seguintes métodos
 - Universal do Azure Active Directory com o MFA
 - Uso da autenticação de token do aplicativo
 
-Os métodos de autenticação a seguir têm suporte para as entidades de segurança do servidor do Azure AD (logons) (**visualização pública**):
+Os seguintes métodos de autenticação têm suporte para as entidades de segurança do servidor do Azure AD (logons):
 
 - Senha do Azure Active Directory
 - Integrada do Azure Active Directory
@@ -119,8 +119,8 @@ Os métodos de autenticação a seguir têm suporte para as entidades de seguran
 
 - Para aumentar a capacidade de gerenciamento, é recomendável que você provisione um grupo dedicado do Microsoft Azure AD como administrador.
 - Somente um administrador do Azure AD (um usuário ou um grupo) pode ser configurado para o pool de SQL do Synapse a qualquer momento.
-  - A adição de entidades de segurança do servidor do Azure AD (logons) ao SQL sob demanda (versão prévia) permite criar várias dessas entidades que podem ser adicionadas à função `sysadmin`.
-- Somente um administrador do Azure AD do Synapse SQL pode inicialmente se conectar ao Synapse SQL usando uma conta do Azure Active Directory. O administrador do Active Directory pode configurar os próximos usuários do banco de dados do Azure AD.
+  - A adição de entidades de segurança do servidor do Azure AD (logons) ao SQL do Synapse permite criar várias dessas entidades que podem ser adicionadas à função `sysadmin`.
+- Somente um administrador do Azure AD do SQL do Synapse pode inicialmente se conectar ao SQL do Synapse usando uma conta do Azure Active Directory. O administrador do Active Directory pode configurar os próximos usuários do banco de dados do Azure AD.
 - É recomendável configurar o tempo limite da conexão para 30 segundos.
 - O SQL Server 2016 Management Studio e o SQL Server Data Tools para Visual Studio 2015 (versão 14.0.60311.1 de abril de 2016 ou posterior) dão suporte à autenticação do Azure Active Directory. (Há suporte para a autenticação do Azure AD no **Provedor de Dados .NET Framework para SqlServer**; é necessária, no mínimo, a versão 4.6 do .NET Framework). Sendo assim, as versões mais recentes dessas ferramentas e desses aplicativos da camada de dados (DAC e .BACPAC) podem usar a autenticação do Azure AD.
 - Na versão 15.0.1 em diante, o [utilitário sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) e o [utilitário bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) dão suporte à autenticação Interativa do Active Directory com o MFA.
@@ -129,8 +129,7 @@ Os métodos de autenticação a seguir têm suporte para as entidades de seguran
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter uma visão geral do acesso e do controle no Synapse SQL, confira [Controle de acesso do Synapse SQL](../sql/access-control.md).
+- Para obter uma visão geral do acesso e do controle no Synapse SQL, confira [Controle de acesso do Synapse SQL](../security/synapse-workspace-access-control-overview.md).
 - Para obter mais informações sobre objetos de banco de dados, confira [Entidades](/sql/relational-databases/security/authentication-access/principals-database-engine?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 - Para obter mais informações sobre as funções de banco de dados, confira [Funções de banco de dados](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
- 

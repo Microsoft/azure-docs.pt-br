@@ -2,20 +2,19 @@
 title: Recursos sem limite de contagem de 800
 description: Lista os tipos de recursos do Azure que podem ter mais de 800 instâncias em um grupo de recursos.
 ms.topic: conceptual
-ms.date: 10/28/2020
-ms.openlocfilehash: cec7ea87bbe81d3bfcca37f3133ac650e66f849f
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.date: 01/08/2021
+ms.openlocfilehash: 6a63fd7e41c03b542f4a43b483243702c5be5f14
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913493"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034927"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Recursos não limitados a 800 instâncias por grupo de recursos
 
 Por padrão, você pode implantar até 800 instâncias de um tipo de recurso em cada grupo de recursos. No entanto, alguns tipos de recursos são isentos do limite da instância 800. Este artigo lista os tipos de recursos do Azure que podem ter mais de 800 instâncias em um grupo de recursos. Todos os outros tipos de recursos são limitados a 800 instâncias.
 
 Para alguns tipos de recursos, você precisa entrar em contato com o suporte para que o limite da instância 800 seja removido. Esses tipos de recursos são indicados neste artigo.
-
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
@@ -81,7 +80,7 @@ Para alguns tipos de recursos, você precisa entrar em contato com o suporte par
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
-* Labs/virtualMachines-por padrão, limitado a 800 instâncias. Esse limite pode ser aumentado entrando em contato com o suporte.
+* Labs/virtualMachines-por padrão, limitado a 800 instâncias. 
 * schedules
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
@@ -105,6 +104,11 @@ Para alguns tipos de recursos, você precisa entrar em contato com o suporte par
 * software
 * softwareUpdateProfile
 * softwareUpdates
+
+## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
+
+* computadores – dá suporte a até 5.000 instâncias
+* extensões – dá suporte a um número ilimitado de instâncias de extensão de VM
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 

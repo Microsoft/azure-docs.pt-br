@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/21/2020
-ms.openlocfilehash: ca3cf93329ea84183ef11eec8f8fac52cd84d445
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.date: 11/13/2020
+ms.openlocfilehash: a089631ab199b0fe997bba001561c6b027034e2c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461185"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993679"
 ---
 # <a name="collect-iis-logs-with-log-analytics-agent-in-azure-monitor"></a>Coletar logs do IIS com Log Analytics Agent no Azure Monitor
 O Serviços de Informações da Internet (IIS) armazena a atividade do usuário em arquivos de log que podem ser coletados pelo agente de Log Analytics e armazenados em [logs de Azure monitor](data-platform.md).
@@ -32,6 +32,8 @@ Configure os logs do IIS no Azure Monitor no [menu configurações avançadas](a
 ## <a name="data-collection"></a>Coleta de dados
 Azure Monitor coleta entradas de log do IIS de cada agente sempre que o carimbo de data/hora do log é alterado. O log é lido a cada **5 minutos**. Se, por algum motivo, o IIS não atualizar o carimbo de data/hora antes do horário de substituição quando um novo arquivo for criado, as entradas serão coletadas após a criação do novo arquivo. A frequência da criação do novo arquivo é controlada pela configuração **agenda de substituição do arquivo de log** para o site do IIS, que é uma vez por dia por padrão. Se a configuração for por **hora**, Azure monitor coletará o log a cada hora. Se a configuração for **diária**, Azure monitor coletará o log a cada 24 horas.
 
+> [!IMPORTANT]
+> É recomendável definir a **agenda de substituição do arquivo de log** para a **cada hora**. Se ele estiver definido como **diário**, você poderá enfrentar picos nos seus dados, pois eles só serão coletados uma vez por dia.
 
 ## <a name="iis-log-record-properties"></a>Propriedades de registro de log do IIS
 Os registros log do IIS têm um tipo de **W3CIISLog** e têm as propriedades na tabela a seguir:

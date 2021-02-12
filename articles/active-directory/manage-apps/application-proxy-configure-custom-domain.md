@@ -3,7 +3,7 @@ title: Domínios personalizados no Azure Proxy de Aplicativo do AD
 description: Configurar e gerenciar domínios personalizados no Proxy de Aplicativo do Azure AD.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 6688875385d34fcbece964d43827c6d62ae7ced4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49edab5ed20749cb705d160e5cdc46a16bdee951
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88587762"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258024"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configurar domínios personalizados com o Proxy de Aplicativo do Azure AD
 
@@ -26,7 +26,7 @@ Ao publicar um aplicativo por meio do Proxy de Aplicativo do Azure Active Direct
 
 É uma boa ideia configurar domínios personalizados para seus aplicativos sempre que possível. Alguns motivos para usar domínios personalizados incluem:
 
-- Os links entre aplicativos funcionam mesmo fora da rede corporativa. Sem um domínio personalizado, se seu aplicativo tiver links internos incorporados em código para destinos fora do Proxy de Aplicativo e os links não forem resolvidos externamente, eles serão interrompidos. Quando suas URLs internas e externas são as mesmas, você evita esse problema. Se não for possível usar domínios personalizados, confira [Redirecionar links codificados para aplicativos publicados com o Proxy de Aplicativo do Azure AD](../application-proxy-link-translation.md) para outras maneiras de resolver esse problema. 
+- Os links entre aplicativos funcionam mesmo fora da rede corporativa. Sem um domínio personalizado, se seu aplicativo tiver links internos incorporados em código para destinos fora do Proxy de Aplicativo e os links não forem resolvidos externamente, eles serão interrompidos. Quando suas URLs internas e externas são as mesmas, você evita esse problema. Se não for possível usar domínios personalizados, confira [Redirecionar links codificados para aplicativos publicados com o Proxy de Aplicativo do Azure AD](./application-proxy-configure-hard-coded-link-translation.md) para outras maneiras de resolver esse problema. 
   
 - Os usuários terão uma experiência mais fácil, pois poderão acessar o aplicativo com a mesma URL de dentro ou fora de sua rede. Eles não precisam aprender diferentes URLs internas e externas, ou rastrear seu local atual. 
 

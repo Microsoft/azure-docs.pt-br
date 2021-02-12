@@ -1,7 +1,7 @@
 ---
 title: Proteger o acesso a dados na nuvem
 titleSuffix: Azure Machine Learning
-description: Saiba como se conectar com segurança aos seus dados a partir de Azure Machine Learning e como usar DataSets e datastores para tarefas de ML. Os armazenamentos de dados podem armazená-los de um blob do Azure, Azure Data Lake Gen 1 & 2, banco de dados SQL e Azure Databricks.
+description: Saiba como se conectar com segurança ao seu armazenamento de dados no Azure com Azure Machine Learning armazenamentos e DataSets.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: a36c7076de0c4db64b67f4eba38de4daf4213bca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-python, data4ml
+ms.openlocfilehash: 9e4722933ec224712c8d649c0d9d850a9ee3e322
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91446687"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872002"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Proteger o acesso a dados no Azure Machine Learning
 
@@ -29,7 +29,7 @@ Azure Machine Learning facilita a conexão com seus dados na nuvem.  Ele fornece
     
 ## <a name="data-workflow"></a>Fluxo de trabalho de dados
 
-Quando você estiver pronto para usar os dados em sua solução de armazenamento baseada em nuvem, recomendamos o seguinte fluxo de trabalho de entrega de dados. Este fluxo de trabalho pressupõe que você tenha uma [conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) e dados em um serviço de armazenamento baseado em nuvem no Azure. 
+Quando você estiver pronto para usar os dados em sua solução de armazenamento baseada em nuvem, recomendamos o seguinte fluxo de trabalho de entrega de dados. Este fluxo de trabalho pressupõe que você tenha uma [conta de armazenamento do Azure](../storage/common/storage-account-create.md?tabs=azure-portal) e dados em um serviço de armazenamento baseado em nuvem no Azure. 
 
 1. Crie um [repositório](#datastores) de dados Azure Machine Learning para armazenar informações de conexão para o armazenamento do Azure.
 
@@ -42,7 +42,7 @@ Quando você estiver pronto para usar os dados em sua solução de armazenamento
 
     1. Consuma-o diretamente em soluções de Azure Machine Learning como, execuções de experimento automatizadas do Machine Learning (ML automatizado), pipelines de aprendizado de máquina ou [Designer de Azure Machine Learning](concept-designer.md).
 
-4. Crie [monitores de conjunto](#data-drift) de dados para seu conjunto de dados de saída de modelo para detectar descompasso de dado 
+4. Crie [monitores de conjunto](#drift) de dados para seu conjunto de dados de saída de modelo para detectar descompasso de dado 
 
 5. Se a descompasso de dados for detectada, atualize o DataSet de entrada e retreine seu modelo de acordo.
 
@@ -50,7 +50,8 @@ O diagrama a seguir fornece uma demonstração visual desse fluxo de trabalho re
 
 ![O diagrama mostra o serviço de armazenamento do Azure que flui em um repositório de armazenamento, que flui para um conjunto de uma. O conjunto de dados flui para o treinamento do modelo, que flui em descompassos, o que flui para o conjunto.](./media/concept-data/data-concept-diagram.svg)
 
-## <a name="datastores"></a>Armazenamentos de dados
+<a name="datastores"></a>
+## <a name="connect-to-storage-with-datastores"></a>Conectar-se ao armazenamento com armazenamentos de
 
 Azure Machine Learning armazenamentos de dados mantêm com segurança as informações de conexão para o armazenamento do Azure, de modo que você não precisará codificar em seus scripts. [Registre e crie um armazenamento](how-to-access-data.md) de dados para se conectar facilmente à sua conta de armazenamento e acesse os dados em seu serviço de armazenamento do Azure subjacente. 
 
@@ -65,7 +66,8 @@ Serviços de armazenamento baseados em nuvem com suporte no Azure que podem ser 
 + Sistema de arquivos do Databricks
 + Banco de Dados do Azure para MySQL
 
-## <a name="datasets"></a>Conjuntos de dados
+<a name="datasets"></a>
+## <a name="reference-data-in-storage-with-datasets"></a>Dados de referência no armazenamento com DataSets
 
 Os conjuntos de dados Azure Machine Learning não são cópias de seu dado. Com a criação de um conjunto de dados, você cria uma referência a eles em seu serviço de armazenamento, juntamente com uma cópia de seus metadados. 
 
@@ -81,9 +83,9 @@ Os conjuntos de valores podem ser criados a partir de arquivos locais, de URLs p
 
 Há dois tipos de conjuntos de valores: 
 
-+ Um [Filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py&preserve-view=true) faz referência a um ou vários arquivos em seus armazenamentos de dados ou URLs públicas. Se seus dados já estiverem limpos e prontos para uso em experimentos de treinamento, você poderá [baixar ou montar arquivos](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) referenciados por filedatasets em seu destino de computação.
++ Um [Filedataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset?preserve-view=true&view=azure-ml-py) faz referência a um ou vários arquivos em seus armazenamentos de dados ou URLs públicas. Se seus dados já estiverem limpos e prontos para uso em experimentos de treinamento, você poderá [baixar ou montar arquivos](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) referenciados por filedatasets em seu destino de computação.
 
-+ Um [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) representa dados em um formato tabular analisando o arquivo ou a lista de arquivos fornecida. Você pode carregar um TabularDataset em um dataframe do pandas ou Spark para manipulação e limpeza adicionais. Para obter uma lista completa dos formatos de dados dos quais você pode criar TabularDatasets, consulte a [classe TabularDatasetFactory](https://aka.ms/tabulardataset-api-reference).
++ Um [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) representa dados em um formato tabular analisando o arquivo ou a lista de arquivos fornecida. Você pode carregar um TabularDataset em um dataframe do pandas ou Spark para manipulação e limpeza adicionais. Para obter uma lista completa dos formatos de dados dos quais você pode criar TabularDatasets, consulte a [classe TabularDatasetFactory](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory).
 
 Os recursos adicionais de conjuntos de documentos podem ser encontrados na seguinte documentação:
 
@@ -99,13 +101,13 @@ Com conjuntos de informações, você pode realizar várias tarefas de aprendiza
      + [experimentos de ML automatizados](how-to-use-automated-ml-for-ml-models.md)
      + o [Designer](tutorial-designer-automobile-price-train-score.md#import-data)
      + [notebooks](how-to-train-with-datasets.md)
-     + [Pipelines de Azure Machine Learning](how-to-create-your-first-pipeline.md)
-+ Acesse conjuntos de informações para pontuação com [inferência de lote](how-to-use-parallel-run-step.md) em [pipelines de Machine Learning](how-to-create-your-first-pipeline.md).
+     + [Pipelines de Azure Machine Learning](./how-to-create-machine-learning-pipelines.md)
++ Acesse conjuntos de informações para pontuação com [inferência de lote](./tutorial-pipeline-batch-scoring-classification.md) em [pipelines de Machine Learning](./how-to-create-machine-learning-pipelines.md).
 + Configure um monitor de conjunto de dados para a detecção de [descompasso de dados](#drift) .
 
 <a name="label"></a>
 
-## <a name="data-labeling"></a>Rotulagem de dados
+## <a name="label-data-with-data-labeling-projects"></a>Rotular dados com projetos de rótulos de dados
 
 Rotular grandes quantidades de dados costuma ser uma dor de cabeça nos projetos de aprendizado de máquina. Aqueles com um componente da pesquisa Visual computacional, como classificação de imagem ou detecção de objetos, geralmente exigem milhares de imagens e rótulos correspondentes.
 
@@ -115,7 +117,7 @@ Crie um [projeto de rotulagem de dados](how-to-create-labeling-projects.md)e a s
 
 <a name="drift"></a>
 
-## <a name="data-drift"></a>Descompasso de dados
+## <a name="monitor-model-performance-with-data-drift"></a>Monitorar o desempenho do modelo com descompasso de dados
 
 No contexto do Machine Learning, a descompasso de dados é a alteração nos dados de entrada do modelo que leva à degradação do desempenho do modelo. É um dos principais motivos pelos quais a precisão do modelo diminui ao longo do tempo, o que monitora a descompasso de dados ajuda a detectar problemas de desempenho do modelo.
 

@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0f40c91672310d5963dab01180ea92633e970c5c
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 4f6b2b1c0f584e092c9e8f7d330a94b0b54fd6f2
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055352"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197414"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Como migrar do Serviço de Controle de Acesso do Azure
 
@@ -187,7 +187,7 @@ A tabela a seguir compara os recursos do Controle de Acesso que são relevantes 
 
 Em um alto nível, o *Azure Active Directory provavelmente é a melhor opção para a sua migração se você permitir que os usuários entrem somente com suas contas corporativas ou de estudante da Microsoft*.
 
-| Recurso | Suporte do Controle de Acesso | Suporte do Azure AD |
+| Funcionalidade | Suporte do Controle de Acesso | Suporte do Azure AD |
 | ---------- | ----------- | ---------------- |
 | **Tipos de contas** | | |
 | Contas corporativas ou de estudante da Microsoft | Com suporte | Com suporte |
@@ -238,7 +238,7 @@ No entanto, o Azure AD B2C não oferece suporte para a variedade de protocolos d
 
 A tabela a seguir compara os recursos do Controle de Acesso que são relevantes para aplicativos web aos que estão disponíveis no Azure AD B2C. Em um nível elevado, o *Azure AD B2C é provavelmente a escolha certa para a sua migração se seu aplicativo for voltado a clientes, ou se ele oferecer suporte a muitos tipos de contas.*
 
-| Recurso | Suporte do Controle de Acesso | Suporte do Azure AD B2C |
+| Funcionalidade | Suporte do Controle de Acesso | Suporte do Azure AD B2C |
 | ---------- | ----------- | ---------------- |
 | **Tipos de contas** | | |
 | Contas corporativas ou de estudante da Microsoft | Com suporte | Com suporte via políticas personalizadas  |
@@ -287,7 +287,7 @@ Nesses casos, convém migrar seu aplicativo web para outro serviço de autentica
 
 ![Esta imagem mostra o logotipo de identidade de ping](./media/active-directory-acs-migration/rsz-ping.png)
 
-[Identidade de ping](https://www.pingidentity.com) oferece duas soluções semelhantes ao ACS. O PingOne é um serviço de identidade de nuvem que dá suporte a muitos dos mesmos recursos que o ACS, e o PingFederate é um produto de identidade local semelhante que oferece mais flexibilidade. Consulte [Orientação de desativação do Ping ACS](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) para obter mais detalhes sobre como usar esses produtos.
+[Identidade de ping](https://www.pingidentity.com) oferece duas soluções semelhantes ao ACS. O PingOne é um serviço de identidade de nuvem que dá suporte a muitos dos mesmos recursos que o ACS, e o PingFederate é um produto de identidade local semelhante que oferece mais flexibilidade. Consulte Orientação de desativação do Ping ACS para obter mais detalhes sobre como usar esses produtos.
 
 Nosso objetivo ao trabalhar com a identidade de Ping e Auth0 é garantir que todos os clientes de Controle de Acesso tem um caminho de migração para seus aplicativos e serviços que minimiza a quantidade de trabalho necessária para mover de Controle de Acesso.
 
@@ -320,7 +320,7 @@ Nossa recomendação para este tipo de fluxo de autenticação é migrar para o 
 
 Você também usar o Azure AB para a autenticação de servidor para servidor usando a implementação do Azure AD da concessão de credenciais de cliente do OAuth. A tabela a seguir compara os recursos do Controle de Acesso na autenticação de servidor para servidor com aquelas que estão disponíveis no Azure AD.
 
-| Recurso | Suporte do Controle de Acesso | Suporte do Azure AD |
+| Funcionalidade | Suporte do Controle de Acesso | Suporte do Azure AD |
 | ---------- | ----------- | ---------------- |
 | Como registrar um serviço Web | Crie uma terceira parte confiável no portal de gerenciamento do Controle de Acesso | Crie um aplicativo web do Azure AD no portal do Azure |
 | Como registrar um cliente | Crie uma terceira parte confiável no portal de gerenciamento do Controle de Acesso | Crie outro aplicativo web do Azure AD no portal do Azure |
@@ -351,7 +351,7 @@ Nesses casos, convém migrar seu aplicativo web para outro serviço de autentica
 [Auth0](https://auth0.com/acs) é um serviço de identidade de nuvem flexível que criou [orientação de migração de alto nível para os clientes de Controle de Acesso](https://auth0.com/acs)e oferece suporte a quase todos os recursos oferecidos pelo ACS.
 
 ![Esta imagem mostra a identidade de ping do logotipo de identidade ping ](./media/active-directory-acs-migration/rsz-ping.png)
- [Ping Identity](https://www.pingidentity.com) oferece duas soluções semelhantes ao ACS. O PingOne é um serviço de identidade de nuvem que dá suporte a muitos dos mesmos recursos que o ACS, e o PingFederate é um produto de identidade local semelhante que oferece mais flexibilidade. Consulte [Orientação de desativação do Ping ACS](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) para obter mais detalhes sobre como usar esses produtos.
+ [](https://www.pingidentity.com) oferece duas soluções semelhantes ao ACS. O PingOne é um serviço de identidade de nuvem que dá suporte a muitos dos mesmos recursos que o ACS, e o PingFederate é um produto de identidade local semelhante que oferece mais flexibilidade. Consulte Orientação de desativação do Ping ACS para obter mais detalhes sobre como usar esses produtos.
 
 Nosso objetivo ao trabalhar com a identidade de Ping e Auth0 é garantir que todos os clientes de Controle de Acesso tem um caminho de migração para seus aplicativos e serviços que minimiza a quantidade de trabalho necessária para mover de Controle de Acesso.
 

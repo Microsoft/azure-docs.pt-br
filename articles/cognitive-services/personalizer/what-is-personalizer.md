@@ -7,16 +7,16 @@ ms.topic: overview
 ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: personalizer, Azure personalizer, machine learning
-ms.openlocfilehash: ae17b799c2b222525db53d5bb8e0afdbbcf19975
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 913b4d989865a50b23d58c5493368997248f8db8
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91777234"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928554"
 ---
 # <a name="what-is-personalizer"></a>O que é o Personalizador?
 
-O Personalizador do Azure é um serviço baseado em nuvem que ajuda os seus aplicativos a escolherem o melhor item de conteúdo para mostrar aos usuários. Você pode usar o serviço do Personalizador para determinar qual produto deve ser sugerido aos compradores ou para descobrir o posicionamento ideal para um anúncio. Depois que o conteúdo é mostrado ao usuário, o sistema monitora o comportamento do usuário em tempo real e relata uma pontuação de recompensa ao serviço do Personalizador. Isso garante o aprimoramento contínuo do modelo de machine learning e a capacidade do Personalizador de selecionar o melhor item de conteúdo com base nas informações contextuais recebidas.
+O Personalizador do Azure é um serviço baseado em nuvem que ajuda os seus aplicativos a escolherem o melhor item de conteúdo para mostrar aos usuários. Você pode usar o serviço do Personalizador para determinar qual produto deve ser sugerido aos compradores ou para descobrir o posicionamento ideal para um anúncio. Depois que o conteúdo é mostrado ao usuário, o aplicativo monitora a reação do usuário e relata de volta uma pontuação de recompensa ao serviço Personalizador. Isso garante o aprimoramento contínuo do modelo de machine learning e a capacidade do Personalizador de selecionar o melhor item de conteúdo com base nas informações contextuais recebidas.
 
 > [!TIP]
 > O conteúdo é qualquer unidade de informação, como texto, imagens, URLs, emails ou qualquer outro item que você deseje selecionar e para mostrar aos usuários.
@@ -65,7 +65,7 @@ A **API** de [Recompensa](https://westus2.dev.cognitive.microsoft.com/docs/servi
 
 Use o Personalizador quando seu conteúdo:
 
-* Tiver um conjunto limitado de itens (máximo de 50) entre os quais selecionar. Se tiver uma lista maior, [use um mecanismo de recomendação](where-can-you-use-personalizer.md#how-to-use-personalizer-with-a-recommendation-solution) para reduzir a lista a 50 itens.
+* Tem um conjunto limitado de ações ou itens (máximo de ~50) para selecionar em cada evento de personalização. Se você tiver uma lista maior, [use um mecanismo de recomendação](where-can-you-use-personalizer.md#how-to-use-personalizer-with-a-recommendation-solution) para reduzir a lista a 50 itens para cada vez que chamar a classificação no serviço Personalizador.
 * Tiver informações que descrevem o conteúdo que você deseja classificar: _ações com recursos_ e _recursos de contexto_.
 * Tiver um mínimo de mil eventos relacionados a conteúdo por dia para que o Personalizador seja eficaz. Se o Personalizador não receber o tráfego mínimo necessário, o serviço levará mais tempo para determinar o melhor item de conteúdo.
 
@@ -105,7 +105,7 @@ Como o Personalizador usa informações coletivas quase em tempo real para retor
 
 Oferecemos guias de início rápido em C#, JavaScript e Python. Cada guia de início rápido é projetado para ensinar a você padrões de design básicos e para você executar o seu código em menos de dez minutos. 
 
-* [Início Rápido: Como usar a biblioteca do cliente do Personalizador](sdk-learning-loop.md)
+* [Início Rápido: Como usar a biblioteca do cliente do Personalizador](./quickstart-personalizer-sdk.md)
 
 Depois de ter tido a oportunidade de começar a usar o serviço do Personalizador, experimente nossos tutoriais e saiba como usar o Personalizador em aplicativos Web, chatbots ou um Notebook do Azure.
 
@@ -115,10 +115,10 @@ Depois de ter tido a oportunidade de começar a usar o serviço do Personalizado
 
 ## <a name="reference"></a>Referência 
 
-* [SDK para C#/.NET do Personalizador](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet)
-* [SDK para Go do Personalizador](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/personalizer/v1.0/personalizer)
-* [SDK para JavaScript do Personalizador](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest)
-* [SDK para Python do Personalizador](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/personalizer?view=azure-python)
+* [SDK para C#/.NET do Personalizador](/dotnet/api/overview/azure/cognitiveservices/client/personalizer)
+* [SDK para Go do Personalizador](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview)
+* [SDK para JavaScript do Personalizador](/javascript/api/@azure/cognitiveservices-personalizer/)
+* [SDK para Python do Personalizador](/python/api/overview/azure/cognitiveservices/personalizer)
 * [APIs REST](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank)
 
 ## <a name="next-steps"></a>Próximas etapas

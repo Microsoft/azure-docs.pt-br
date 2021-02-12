@@ -3,13 +3,13 @@ title: Configurar o monitoramento para Azure Functions
 description: Saiba como conectar seu aplicativo de funções a Application Insights para monitoramento e como configurar a coleta de dados.
 ms.date: 8/31/2020
 ms.topic: how-to
-ms.custom: contperfq2
-ms.openlocfilehash: 50705eeedf9c985a053600a8c0b27c823231e9a3
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 5007009d9aabf9a1c1c6e1d5c2f286c0ba25b340
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217177"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493746"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Como configurar o monitoramento para Azure Functions
 
@@ -38,6 +38,9 @@ O agente do Azure Functions inclui uma *categoria* para cada log. A categoria in
 | **`Host.Results`** | **requests** | Esses logs gerados pelo tempo de execução indicam êxito ou falha de uma função. Todos esses logs são gravados no nível de `Information`. Se você filtrar `Warning` ou acima, não verá nenhum desses dados. |
 | **`Microsoft`** | **traces** | Categoria de log totalmente qualificada que reflete um componente de tempo de execução .NET invocado pelo host.  |
 | **`Worker`** | **traces** | Logs gerados pelo processo de trabalho de idioma para idiomas non-.NET. Os logs de trabalho de idioma também podem ser registrados em uma `Microsoft.*` categoria, como `Microsoft.Azure.WebJobs.Script.Workers.Rpc.RpcFunctionInvocationDispatcher` . Esses logs são gravados no `Information` nível.|
+
+> [!NOTE]
+> Para funções de biblioteca de classes do .NET, essas categorias pressupõem que você está usando `ILogger` e não `ILogger<T>` . Para saber mais, consulte a [documentação do Functions ILogger](functions-dotnet-class-library.md#ilogger). 
 
 # <a name="v1x"></a>[v1. x](#tab/v1)
 
@@ -194,7 +197,7 @@ Para saber mais, consulte [amostragem em Application insights](../azure-monitor/
 
 _Este recurso está em versão prévia._ 
 
-Você pode fazer com que o [controlador de escala de Azure Functions](./functions-scale.md#runtime-scaling) emita logs para Application insights ou para o armazenamento de BLOBs para entender melhor as decisões que o controlador de escala está fazendo para seu aplicativo de funções.
+Você pode fazer com que o [controlador de escala de Azure Functions](./event-driven-scaling.md#runtime-scaling) emita logs para Application insights ou para o armazenamento de BLOBs para entender melhor as decisões que o controlador de escala está fazendo para seu aplicativo de funções.
 
 Para habilitar esse recurso, você adiciona uma configuração de aplicativo chamada `SCALE_CONTROLLER_LOGGING_ENABLED` às configurações do aplicativo de funções. O valor dessa configuração deve ser do formato `<DESTINATION>:<VERBOSITY>` , com base no seguinte:
 
@@ -226,11 +229,13 @@ az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
 --setting-names SCALE_CONTROLLER_LOGGING_ENABLED
 ```
 
+Com o registro em log do controlador de escala habilitado, agora você pode [consultar os logs do controlador de escala](analyze-telemetry-data.md#query-scale-controller-logs). 
+
 ## <a name="enable-application-insights-integration"></a>Habilitar a integração do Application Insights
 
 Para um aplicativo de funções enviar dados ao Application Insights, ele precisa saber a chave de instrumentação de um recurso do Application Insights. A chave deve estar em uma configuração de aplicativo chamada **APPINSIGHTS_INSTRUMENTATIONKEY**.
 
-Ao criar seu aplicativo de funções [no portal do Azure](functions-create-first-azure-function.md), com a linha de comando usando o [Azure Functions Core Tools](functions-create-first-azure-function-azure-cli.md), ou usando o [Visual Studio Code](functions-create-first-function-vs-code.md), a integração do Application Insights é habilitada por padrão. O recurso do Application Insights tem o mesmo nome do seu aplicativo de funções e é criado na mesma região ou na região mais próxima.
+Ao criar seu aplicativo de funções [no portal do Azure](./functions-get-started.md), com a linha de comando usando o [Azure Functions Core Tools](./create-first-function-cli-csharp.md), ou usando o [Visual Studio Code](./create-first-function-vs-code-csharp.md), a integração do Application Insights é habilitada por padrão. O recurso do Application Insights tem o mesmo nome do seu aplicativo de funções e é criado na mesma região ou na região mais próxima.
 
 ### <a name="new-function-app-in-the-portal"></a>Novo aplicativo de funções no portal
 
@@ -243,9 +248,9 @@ Quando você escolhe **Criar**, um recurso de Application Insights é criado com
 <a id="manually-connect-an-app-insights-resource"></a>
 ### <a name="add-to-an-existing-function-app"></a>Adicionar a um aplicativo de funções existente 
 
-Se um Application Insights recursos não foi criado com seu aplicativo de funções, use as etapas a seguir para criar o recurso. Em seguida, você pode adicionar a chave de instrumentação a partir desse recurso como uma [configuração de aplicativo](functions-how-to-use-azure-function-app-settings.md#settings) no seu aplicativo de funções.
+Se um recurso de Application Insights não foi criado com seu aplicativo de funções, use as etapas a seguir para criar o recurso. Em seguida, você pode adicionar a chave de instrumentação a partir desse recurso como uma [configuração de aplicativo](functions-how-to-use-azure-function-app-settings.md#settings) no seu aplicativo de funções.
 
-1. Na [portal do Azure](https://portal.azure.com), procure e selecione aplicativo de **funções**e, em seguida, escolha seu aplicativo de funções. 
+1. Na [portal do Azure](https://portal.azure.com), procure e selecione aplicativo de **funções** e, em seguida, escolha seu aplicativo de funções. 
 
 1. Selecione a faixa **O Application Insights não está configurado** na parte superior da janela. Caso não veja essa faixa, pode ser que o Application Insights já esteja habilitado no aplicativo.
 
@@ -258,7 +263,7 @@ Se um Application Insights recursos não foi criado com seu aplicativo de funç�
     | **Nome de recurso novo** | Nome de aplicativo exclusivo | É mais fácil usar o mesmo nome que seu aplicativo de funções, que deve ser exclusivo em sua assinatura. | 
     | **Localidade** | Europa Ocidental | Se possível, use a mesma [região](https://azure.microsoft.com/regions/) que seu aplicativo de funções ou uma região próxima dela. |
 
-    :::image type="content" source="media/configure-monitoring/ai-general.png" alt-text="Habilitar o Application Insights no portal":::
+    :::image type="content" source="media/configure-monitoring/ai-general.png" alt-text="Criar um recurso do Application Insights":::
 
 1. Escolha **Aplicar**. 
 

@@ -1,19 +1,16 @@
 ---
 title: Solucionar problemas do HDFS no Azure HDInsight
 description: Obtenha respostas para perguntas comuns sobre como trabalhar com o HDFS e o Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: c2af536b2b6c6a4b220a877337ade9a74ad75bb8
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0be7805493e5acc41254c57ca912b5a2ecf02dae
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534984"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931463"
 ---
 # <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>Solucione problemas de HDFS do Apache Hadoop usando o Azure HDInsight
 
@@ -115,8 +112,8 @@ hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file
 Você também pode aumentar o valor de `fs.azure.write.request.size` globalmente usando o Apache Ambari. As etapas a seguir podem ser usadas para alterar o valor na interface de usuário do Ambari Web:
 
 1. No navegador, acesse a interface de usuário do Ambari Web para seu cluster. A URL é `https://CLUSTERNAME.azurehdinsight.net` , em que `CLUSTERNAME` é o nome do cluster. Quando solicitado, insira o nome de administrador e a senha de administrador para o cluster.
-2. No lado esquerdo da tela, escolha **HDFS** e selecione a guia **Configurações** .
-3. No campo **Filtrar...** , insira `fs.azure.write.request.size`.
+2. No lado esquerdo da tela, escolha **HDFS** e selecione a guia **Configurações**.
+3. No campo **Filtrar...** , digite `fs.azure.write.request.size` .
 4. Altere o valor de 262144 (256 KB) para o novo valor. Por exemplo, 4194304 (4 MB).
 
     ![Imagem de alteração de valor por meio da interface de usuário do Ambari Web](./media/hdinsight-troubleshoot-hdfs/hbase-change-block-write-size.png)
@@ -149,10 +146,4 @@ hdfs dfs -rm hdfs://mycluster/tmp/testfile
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
-
-* Obtenha respostas de especialistas do Azure por meio do [Suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
-
-* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Como se conectar à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
-
-* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte** . Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]

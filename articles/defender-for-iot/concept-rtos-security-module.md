@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 9f816b35fd79d3f158ea12fd2c7e1d811823dc8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f521bd593369509fd520831f90ce9c601227f09
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933284"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340043"
 ---
 # <a name="security-module-for-azure-rtos-preview"></a>Módulo de segurança para RTOS do Azure (versão prévia)
 
@@ -32,7 +32,7 @@ O módulo de segurança para os RTOS do Azure é executado em segundo plano e fo
 
 ## <a name="azure-rtos-netx-duo"></a>Azure RTOS NetX Duo
 
-O Azure RTOS NetX Duo é uma pilha de rede TCP/IP avançada, de nível industrial, projetada especificamente para aplicativos de IoT e em tempo real incorporados. O Azure RTOS NetX Duo é uma pilha de rede IPv4 e IPv6 dupla que fornece um conjunto avançado de protocolos, incluindo segurança e nuvem. Saiba mais sobre as soluções [do Azure RTOs NETX Duo](https://aka.ms/netxduo) .
+O Azure RTOS NetX Duo é uma pilha de rede TCP/IP avançada, de nível industrial, projetada especificamente para aplicativos de IoT e em tempo real incorporados. O Azure RTOS NetX Duo é uma pilha de rede IPv4 e IPv6 dupla que fornece um conjunto avançado de protocolos, incluindo segurança e nuvem. Saiba mais sobre as soluções [do Azure RTOs NETX Duo](/azure/rtos/netx-duo/) .
 
 O módulo oferece os seguintes recursos:
 
@@ -47,11 +47,11 @@ O módulo de segurança para os RTOS do Azure é inicializado pela plataforma de
 :::image type="content" source="media/architecture/security-module-state-diagram.png" alt-text="Diagrama de estado do módulo de segurança IoT do Azure e fluxo de informações":::
 
 O módulo de segurança para os RTOS do Azure monitora as seguintes atividades e informações do dispositivo usando três coletores:
-- Atividade de rede do dispositivo **TCP**, **UDP**e **ICM**
+- Atividade de rede do dispositivo **TCP**, **UDP** e **ICM**
 - Informações do sistema como versões **ThreadX** e **NETX Duo**
 - Eventos de pulsação
 
-Cada coletor é vinculado a um grupo de prioridade e cada grupo de prioridade tem seu próprio intervalo com os valores possíveis de **baixo**, **médio**e **alto**. Os intervalos afetam o intervalo de tempo no qual os dados são coletados e enviados.
+Cada coletor é vinculado a um grupo de prioridade e cada grupo de prioridade tem seu próprio intervalo com os valores possíveis de **baixo**, **médio** e **alto**. Os intervalos afetam o intervalo de tempo no qual os dados são coletados e enviados.
 
 Cada intervalo de tempo é configurável e os conectores IoT podem ser habilitados e desabilitados para personalizar ainda mais [sua solução](how-to-azure-rtos-security-module.md). 
 
@@ -68,4 +68,3 @@ O módulo de segurança para os RTOS do Azure é fornecido como um download grat
 - Introdução ao módulo de segurança para os [pré-requisitos e a configuração](quickstart-azure-rtos-security-module.md)dos RTOs do Azure.
 - Saiba mais sobre o módulo de segurança para [alertas de segurança e suporte de recomendação](concept-rtos-security-alerts-recommendations.md)dos RTOs do Azure. 
 - Use o módulo de segurança para a [API de referência](azure-rtos-security-module-api.md)dos RTOs do Azure.
-

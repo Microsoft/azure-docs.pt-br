@@ -1,33 +1,27 @@
 ---
 title: Criptografia do Azure HDInsight em trânsito
 description: Saiba mais sobre os recursos de segurança para fornecer criptografia em trânsito para o cluster HDInsight do Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.openlocfilehash: 6f043a1cb870d003e371d2f20d0e1f6614c9201e
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: fb3761ce7839cb4450997da094646b6604aeb895
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628976"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946853"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Criptografia IPSec em trânsito para o Azure HDInsight
 
 Este artigo aborda a implementação de criptografia em trânsito para a comunicação entre os nós de cluster do Azure HDInsight.
 
-> [!Note]
-> Atualmente, a criptografia em trânsito está habilitada para as seguintes regiões: leste dos EUA, Sul EUA Central, oeste dos EUA 2.
-
-## <a name="background"></a>Segundo plano
+## <a name="background"></a>Tela de fundo
 
 O Azure HDInsight oferece uma variedade de recursos de segurança para proteger seus dados corporativos. Essas soluções são agrupadas sob os pilares de segurança, autenticação, autorização, auditoria, criptografia e conformidade do perímetro. A criptografia pode ser aplicada a dados em repouso e em trânsito.
 
 A criptografia em repouso é coberta pela criptografia do lado do servidor nas contas de armazenamento do Azure, bem como pela criptografia de disco nas VMs do Azure que fazem parte de seu cluster HDInsight.
 
-A criptografia de dados em trânsito no HDInsight é obtida com o protocolo [TLS](../transport-layer-security.md) para acessar os gateways de cluster e a [segurança de protocolo Internet (IPSec)](https://wikipedia.org/wiki/IPsec) entre nós de cluster. O IPSec pode ser opcionalmente habilitado entre todos os nós de cabeçalho, nós de trabalho, nós de borda e nós de Zookeeper. Ele não está habilitado para tráfego entre nós de [agente de ID](./identity-broker.md) ou de gateway, que são VMs baseadas em Windows e outros nós baseados em Linux no cluster.
+A criptografia de dados em trânsito no HDInsight é obtida com o protocolo [TLS](../transport-layer-security.md) para acessar os gateways de cluster e a [segurança de protocolo Internet (IPSec)](https://wikipedia.org/wiki/IPsec) entre nós de cluster. O IPSec pode ser opcionalmente habilitado entre todos os nós de cabeçalho, nós de trabalho, nós de borda, nós de Zookeeper, bem como nós de [agente de ID](./identity-broker.md) e gateway.
 
 ## <a name="enable-encryption-in-transit"></a>Habilitar criptografia em trânsito
 
@@ -42,7 +36,7 @@ Para criar um novo cluster com criptografia em trânsito habilitada usando o por
 
 1. Na guia **segurança + rede** , marque a caixa de seleção **habilitar criptografia em trânsito** .
 
-    :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="Crie a guia Segurança do cluster e rede.":::
+    :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="Criar cluster – habilite a criptografia em trânsito.":::
 
 ### <a name="create-a-cluster-with-encryption-in-transit-enabled-through-the-azure-cli"></a>Crie um cluster com criptografia em trânsito habilitada por meio do CLI do Azure
 
@@ -73,7 +67,7 @@ az account set --subscription <SUBSCRIPTION_ID>
 # Create resource group
 az group create --name <RESOURCEGROUPNAME> --location eastus2
 
-az group deployment create --name HDInsightEnterpriseSecDeployment \
+az deployment group create --name HDInsightEnterpriseSecDeployment \
     --resource-group <RESOURCEGROUPNAME> \
     --template-file hdinsight-enterprise-security.json \
     --parameters parameters.json

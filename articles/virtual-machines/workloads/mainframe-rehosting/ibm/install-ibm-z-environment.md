@@ -3,6 +3,7 @@ title: Instalar o ambiente de desenvolvimento/teste do IBM zD&T no Azure | Micro
 description: Implante o ambiente de teste e desenvolvimento IBM Z (zD&T) na infraestrutura como serviço (IaaS) da VM (máquina virtual) do Azure.
 services: virtual-machines-linux
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 documentationcenter: ''
 author: njray
 ms.author: edprice
@@ -12,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 55eb9a0bca3f142c1065f867cebd840cc7958b7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9958fa07d6e814cdf886c3f559d57ae1e397264a
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86499912"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625074"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Instalar o ambiente de desenvolvimento/teste do IBM zD&T no Azure
 
@@ -62,7 +63,7 @@ Este artigo mostra como configurar o ambiente de desenvolvimento e teste do Z (z
 
 3. Obtenha as credenciais SSH mostradas na folha **visão geral** da VM por meio do botão **conectar** . Selecione a guia **SSH** e copie o comando logon SSH para a área de transferência.
 
-4. Faça logon em um [shell bash](../../../../cloud-shell/quickstart.md) do seu computador local e cole o comando. Ele estará no formato **SSH \<user id\> \@ \<IP Address\> **. Quando solicitado a fornecer suas credenciais, insira-as para estabelecer uma conexão com o diretório base.
+4. Faça logon em um [shell bash](../../../../cloud-shell/quickstart.md) do seu computador local e cole o comando. Ele estará no formato **SSH \<user id\> \@ \<IP Address\>**. Quando solicitado a fornecer suas credenciais, insira-as para estabelecer uma conexão com o diretório base.
 
 ## <a name="copy-the-installation-file-to-the-server"></a>Copiar o arquivo de instalação para o servidor
 
@@ -95,12 +96,13 @@ O arquivo de instalação do servidor Web é **ZDT \_ instalar o \_ EE \_ v 12.0
 
     ```
     cd ZDT
-    chmod 755 ZDT\_Install\_EE\_V12.0.0.0.tgz
+    tar zxvf ZDT\_Install\_EE\_V12.0.0.0.tgz
     ```
 
 2. Execute o instalador:
 
     ```
+    chmod 755 ZDT\_Install\_EE\_V12.0.0.0.x86_64
     ./ZDT_Install_EE_V12.0.0.0.x86_64
     ```
 

@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 11/20/2018
 ms.author: alkohli
-ms.openlocfilehash: cbf6d01925e1924bc5f3c7f1e99840d479fef296
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb1390a32abfe9ccf31002fc569936d39e4e5428
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67172588"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553108"
 ---
 Configure o software parceiro para se conectar ao cliente. Para se conectar ao software parceiro, normalmente, você precisará das seguintes informações (que podem variar) obtidas na página **Conectar e copiar** da interface do usuário da Web local na etapa anterior:
 
@@ -23,8 +23,8 @@ Se essa for a primeira vez que estiver usando o Gerenciador de Armazenamento, vo
 
 1. Na barra de comandos superior, acesse **Editar > Definir Azure Stack como Destino**.
 
-    ![Painel do Data Box](media/data-box-configure-partner-software/data-box-connect-via-rest-6.png)
+    ![A captura de tela mostra a opção Definir Azure Stack como Destino selecionada no menu Editar.](media/data-box-configure-partner-software/data-box-connect-via-rest-6.png)
 
 2. Reinicie o Gerenciador de Armazenamento para as alterações entrarem em vigor.
 
-    ![Painel do Data Box](media/data-box-configure-partner-software/data-box-connect-via-rest-7.png)
+    ![A captura de tela mostra o botão Reiniciar Agora.](media/data-box-configure-partner-software/data-box-connect-via-rest-7.png)

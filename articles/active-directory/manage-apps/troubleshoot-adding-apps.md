@@ -3,19 +3,19 @@ title: Solucionar problemas comuns ao adicionar ou remover um aplicativo para Az
 description: Solucione os problemas comuns que as pessoas enfrentam ao adicionar ou remover um aplicativo para Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/11/2018
 ms.author: kenwith
-ms.openlocfilehash: e9e97aec66d99d149320938540c48b9ad68eaf0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbfc90f01bdd9cc0a831160d06efa1c3952884a2
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90068023"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257662"
 ---
 # <a name="troubleshoot-common-problem-adding-or-removing-an-application-to-azure-active-directory"></a>Solucionar problemas comuns ao adicionar ou remover um aplicativo para Azure Active Directory
 Este artigo ajuda você a entender os problemas comuns que as pessoas enfrentam ao adicionar ou remover um aplicativo para Azure Active Directory.
@@ -31,9 +31,9 @@ Se seu aplicativo nunca for adicionado, ou se você encontrar um erro ao clicar 
 Se encontrar um erro ao clicar no botão **Adicionar**, você verá uma **Notificação** em um estado **Erro**. Se quiser mais detalhes sobre o erro para saber mais ou para compartilhar com um engenheiro de suporte, você poderá ver mais informações sobre o erro seguindo as etapas na seção [Como ver os detalhes de uma notificação do portal](#how-to-see-the-details-of-a-portal-notification).
 
 ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Não sei configurar meu aplicativo após tê-lo adicionado
-Se você precisar de ajuda para aprender sobre aplicativos, a [lista de tutoriais sobre como integrar aplicativos SaaS com Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) artigo é um bom ponto de partida.
+Se você precisar de ajuda para aprender sobre aplicativos, a [lista de tutoriais sobre como integrar aplicativos SaaS com Azure Active Directory](../saas-apps/tutorial-list.md) artigo é um bom ponto de partida.
 
-Além disso, a [Biblioteca de documentos de aplicativos do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) ajuda você a saber mais sobre o logon único com o Azure AD e como ele funciona.
+Além disso, a [Biblioteca de documentos de aplicativos do Azure AD](./what-is-application-management.md) ajuda você a saber mais sobre o logon único com o Azure AD e como ele funciona.
 
 ## <a name="i-want-to-delete-an-application-but-the-delete-button-is-disabled"></a>Desejo excluir um aplicativo, mas o botão excluir está desabilitado
 
@@ -43,7 +43,7 @@ O botão excluir será desabilitado nos seguintes cenários:
 
 - Para o aplicativo da Microsoft, você não poderá excluí-los da interface do usuário, independentemente de sua função.
 
-- Para entidades de segurança que correspondem a uma identidade gerenciada. Entidades de serviço de identidades gerenciadas não podem ser excluídas na folha aplicativos empresariais. Você precisa acessar o recurso do Azure para gerenciá-lo. Saiba mais sobre [identidade gerenciada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+- Para entidades de segurança que correspondem a uma identidade gerenciada. Entidades de serviço de identidades gerenciadas não podem ser excluídas na folha aplicativos empresariais. Você precisa acessar o recurso do Azure para gerenciá-lo. Saiba mais sobre [identidade gerenciada](../managed-identities-azure-resources/overview.md)
 
 ## <a name="how-to-see-the-details-of-a-portal-notification"></a>Como ver os detalhes de uma notificação do portal
 Veja os detalhes de qualquer notificação do portal executando as etapas abaixo:

@@ -9,14 +9,15 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: rosouz
 ms.custom: devx-track-python
-ms.openlocfilehash: 10da2f3a84a4c1e6d761c86901f3249972cc0f5b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 4a1cd5b1773a58cf385fc6cc5c22be8df7b21e20
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477837"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018948"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Exemplos do Python no Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Exemplos de SDK do .NET V2](sql-api-dotnet-samples.md)
@@ -90,7 +91,7 @@ O exemplo [item_management.py](https://github.com/Azure/azure-sdk-for-python/blo
 
 ## <a name="indexing-examples"></a>Exemplos de indexação
 
-O exemplo [index_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py) do Python mostra como realizar as seguintes tarefas. Para saber mais sobre a indexação no Azure Cosmos DB antes de executar os exemplos a seguir, consulte os artigos conceituais [políticas de indexação](index-policy.md), [tipos de indexação](index-overview.md#index-kinds) e [caminhos de indexação](index-policy.md#include-exclude-paths).
+O exemplo [index_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py) do Python mostra como realizar as seguintes tarefas. Para saber mais sobre a indexação no Azure Cosmos DB antes de executar os exemplos a seguir, consulte os artigos conceituais [políticas de indexação](index-policy.md), [tipos de indexação](index-overview.md#index-types) e [caminhos de indexação](index-policy.md#include-exclude-paths).
 
 | Tarefa | Referência de API |
 | --- | --- |

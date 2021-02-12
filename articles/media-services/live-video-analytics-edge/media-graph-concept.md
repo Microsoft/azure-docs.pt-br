@@ -3,12 +3,12 @@ title: Conceito de grafo de mídia-Azure
 description: Um grafo de mídia permite definir onde a mídia deve ser capturada, como ela deve ser processada e onde os resultados devem ser entregues. Este artigo fornece uma descrição detalhada do conceito de grafo de mídia.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 7def82160547b759c7ab4c40c681052747261920
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f23e7db8cecb46106a63fdecdb6ba04dbd99682
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567071"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401093"
 ---
 # <a name="media-graph"></a>Grafo de mídia
 
@@ -41,7 +41,7 @@ Os valores para os parâmetros na topologia são especificados quando você cria
 O ciclo de vida de topologias de grafo e instâncias de grafo é mostrado no diagrama de estado a seguir.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/media-graph/graph-topology-lifecycle.svg" alt-text="Grafo de mídia":::
+> :::image type="content" source="./media/media-graph/graph-topology-lifecycle.svg" alt-text="Topologia do grafo e ciclo de vida da instância do grafo":::
 
 Você começa com [a criação de uma topologia de grafo](direct-methods.md#graphtopologyset). Em seguida, para cada feed de vídeo ao vivo que você deseja processar com essa topologia, você [cria uma instância de grafo](direct-methods.md#graphinstanceset). 
 
@@ -70,7 +70,7 @@ A análise de vídeo ao vivo em IoT Edge dá suporte aos seguintes tipos de nós
 
 #### <a name="rtsp-source"></a>Fonte RTSP 
 
-Um nó de origem RTSP permite que você ingerir a mídia de um [RTSP](https://tools.ietf.org/html/rfc2326 server). As câmeras baseadas em IP e de vigilância transmitem seus dados em um protocolo chamado RTSP (protocolo de streaming em tempo real) que é diferente de outros tipos de dispositivos, como telefones e câmeras de vídeo. Esse protocolo é usado para estabelecer e controlar as sessões de mídia entre um servidor (a câmera) e um cliente. O nó de origem RTSP em um grafo de mídia atua como um cliente e pode estabelecer uma sessão com um servidor RTSP. Muitos dispositivos, como a maioria das [câmeras de IP](https://en.wikipedia.org/wiki/IP_camera) , têm um servidor RTSP interno. [ONVIF](https://www.onvif.org/) exige que o RTSP tenha suporte em sua definição de [perfis G, S &](https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_Feature_overview_v2-3.pdf) dispositivos em conformidade com T. O nó de origem RTSP exige que você especifique uma URL RTSP, juntamente com as credenciais para habilitar uma conexão autenticada.
+Um nó de origem RTSP permite que você ingerir a mídia de um servidor [RTSP](https://tools.ietf.org/html/rfc2326) . As câmeras baseadas em IP e de vigilância transmitem seus dados em um protocolo chamado RTSP (protocolo de streaming em tempo real) que é diferente de outros tipos de dispositivos, como telefones e câmeras de vídeo. Esse protocolo é usado para estabelecer e controlar as sessões de mídia entre um servidor (a câmera) e um cliente. O nó de origem RTSP em um grafo de mídia atua como um cliente e pode estabelecer uma sessão com um servidor RTSP. Muitos dispositivos, como a maioria das [câmeras de IP](https://en.wikipedia.org/wiki/IP_camera) , têm um servidor RTSP interno. [ONVIF](https://www.onvif.org/) exige que o RTSP tenha suporte em sua definição de [perfis G, S &](https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_Feature_overview_v2-3.pdf) dispositivos em conformidade com T. O nó de origem RTSP exige que você especifique uma URL RTSP, juntamente com as credenciais para habilitar uma conexão autenticada.
 
 #### <a name="iot-hub-message-source"></a>Origem da mensagem do Hub IoT 
 
@@ -87,6 +87,8 @@ O nó processador de detecção de movimento permite detectar o movimento no ví
 #### <a name="frame-rate-filter-processor"></a>Processador de filtro de taxa de quadros  
 
 O nó do processador de filtro de taxa de quadros permite que você exemplo de quadros do fluxo de vídeo de entrada em uma taxa especificada. Isso permite que você reduza o número de quadros enviados para componentes de fluxo baixo (como nó de processador de extensão HTTP) para processamento adicional.
+>[!WARNING]
+> Esse processador foi **preterido** na versão mais recente da análise de vídeo ao vivo no módulo IOT Edge. O gerenciamento de taxa de quadros agora tem suporte dentro dos próprios processadores de extensão do grafo.
 
 #### <a name="http-extension-processor"></a>Processador de extensão HTTP
 
@@ -108,8 +110,9 @@ Um nó do coletor de ativos permite que você grave dados de mídia (vídeo e/ou
 
 #### <a name="file-sink"></a>Coletor de arquivos  
 
-O nó do coletor de arquivos permite que você grave dados de mídia (vídeo e/ou áudio) em um local no sistema de arquivos local do dispositivo de IoT Edge. Só pode haver um nó de coletor de arquivo em um grafo de mídia e deve ser downstream de um nó de processador de porta de sinal. Isso limita a duração dos arquivos de saída para os valores especificados nas propriedades do nó do processador da porta do sinal.
-
+O nó do coletor de arquivos permite que você grave dados de mídia (vídeo e/ou áudio) em um local no sistema de arquivos local do dispositivo de IoT Edge. Só pode haver um nó de coletor de arquivo em um grafo de mídia e deve ser downstream de um nó de processador de porta de sinal. Isso limita a duração dos arquivos de saída para os valores especificados nas propriedades do nó do processador da porta do sinal. Para garantir que o dispositivo de borda não fique sem espaço em disco, você também pode definir o tamanho máximo que a análise de vídeo ao vivo no módulo IoT Edge pode usar para armazenar dados.  
+> [!NOTE]
+Se o coletor de arquivos ficar cheio, a análise de vídeo ao vivo no módulo IoT Edge iniciará a exclusão dos dados mais antigos e o substituirá pelo novo.
 #### <a name="iot-hub-message-sink"></a>Coletor de mensagens do Hub IoT  
 
 Um nó de coletor de mensagens do Hub IoT permite que você publique eventos no Hub IoT Edge. O Hub de IoT Edge pode rotear os dados para outros módulos ou aplicativos no dispositivo de borda ou para o Hub IoT na nuvem (por rotas especificadas no manifesto de implantação). O nó do coletor de mensagens do Hub IoT pode aceitar eventos de processadores upstream, como um nó de processador de detecção de movimento, ou de um serviço de inferência externo por meio de um nó de processador de extensão HTTP.

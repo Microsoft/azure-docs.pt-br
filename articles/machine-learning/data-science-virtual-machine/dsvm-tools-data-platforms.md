@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 83c0fd796b7527c6f5e396a813def984b88ee9ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f432b417140440584bf4dfd01ed45814a746953
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440347"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320907"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Plataformas de dados compatíveis com a Máquina Virtual de Ciência de Dados
 
@@ -103,5 +103,4 @@ As bibliotecas para acessar dados do armazenamento de BLOBs do Azure ou Azure Da
 
 Para que a instância do Spark no DSVM acesse dados armazenados no armazenamento de BLOBs ou Azure Data Lake Storage, você deve criar e configurar o `core-site.xml` arquivo com base no modelo encontrado em $SPARK _HOME/conf/core-site.xml. Template. Você também deve ter as credenciais apropriadas para acessar o armazenamento de BLOBs e Azure Data Lake Storage. (Observe que os arquivos de modelo usam espaços reservados para o armazenamento de BLOBs e configurações de Azure Data Lake Storage.)
 
-Para obter informações mais detalhadas sobre como criar Azure Data Lake Storage credenciais de serviço, consulte [autenticação com Azure data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory). Depois que as credenciais para armazenamento de BLOB ou Azure Data Lake Storage são inseridas no arquivo core-site.xml, você pode fazer referência aos dados armazenados nessas fontes por meio do prefixo URI de wasb://ou adl://.
-
+Para obter informações mais detalhadas sobre como criar Azure Data Lake Storage credenciais de serviço, consulte [autenticação com Azure data Lake Storage Gen1](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md). Depois que as credenciais para armazenamento de BLOB ou Azure Data Lake Storage são inseridas no arquivo core-site.xml, você pode fazer referência aos dados armazenados nessas fontes por meio do prefixo URI de wasb://ou adl://.

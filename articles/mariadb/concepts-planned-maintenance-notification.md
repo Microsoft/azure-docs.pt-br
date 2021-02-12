@@ -3,15 +3,15 @@ title: Notificação de manutenção planejada-banco de dados do Azure para Mari
 description: Este artigo descreve o recurso de notificação de manutenção planejada no banco de dados do Azure para MariaDB
 author: ambhatna
 ms.author: ambhatna
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 2ce6959cf025d2e29f0ee3dfb3b29b3eaf5d4221
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a206d108b0935836fbc1cd5b7a1987dcf4e4725b
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490825"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664258"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mariadb"></a>Notificação de manutenção planejada no banco de dados do Azure para MariaDB
 
@@ -21,7 +21,7 @@ Saiba como se preparar para eventos de manutenção planejada no banco de dados 
 
 O banco de dados do Azure para MariaDB Service executa aplicação de patch automatizada do hardware, do sistema operacional e do mecanismo de banco de dados subjacentes. O patch inclui novos recursos de serviço, segurança e atualizações de software. Para o mecanismo MariaDB, atualizações de versão secundárias são automáticas e incluídas como parte do ciclo de aplicação de patch. Não há nenhuma ação do usuário nem definições de configuração necessárias para a aplicação de patch. O patch é testado extensivamente e distribuído usando práticas de implantação seguras.
 
-Uma manutenção planejada é uma janela de manutenção quando essas atualizações de serviço são implantadas em servidores em uma determinada região do Azure. Durante a manutenção planejada, um evento de notificação é criado para informar os clientes quando a atualização do serviço é implantada na região do Azure que hospeda seus servidores. A duração mínima entre duas manutenções planejadas é de 30 dias. Você receberá uma notificação da próxima janela de manutenção 72 horas de antecedência.
+Uma manutenção planejada é uma janela de manutenção quando essas atualizações de serviço são implantadas em servidores em uma determinada região do Azure. Durante a manutenção planejada, um evento de notificação é criado para informar os clientes quando a atualização de serviço é implantada na região do Azure que hospeda os servidores. A duração mínima entre duas manutenções planejadas é de 30 dias. Você receberá uma notificação da próxima janela de manutenção com 72 horas de antecedência.
 
 ## <a name="planned-maintenance---duration-and-customer-impact"></a>Manutenção planejada-duração e impacto sobre o cliente
 
@@ -61,7 +61,7 @@ Você pode verificar a notificação de manutenção planejada em portal do Azur
 7. Verifique se habilitar regra após a criação está definido como Sim.
 8. Selecione **criar regra de alerta** para concluir o alerta
 
-Para obter etapas detalhadas sobre como criar **alertas de integridade do serviço**, consulte [criar alertas do log de atividades em notificações de serviço](../service-health/alerts-activity-log-service-notifications.md).
+Para obter etapas detalhadas sobre como criar **alertas de integridade do serviço**, consulte [criar alertas do log de atividades em notificações de serviço](../service-health/alerts-activity-log-service-notifications-portal.md).
 
 ## <a name="can-i-cancel-or-postpone-planned-maintenance"></a>Posso cancelar ou adiar a manutenção planejada?
 
@@ -78,7 +78,7 @@ Um erro transitório, também conhecido como uma falha transitória, é um erro 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para perguntas ou sugestões que você pode ter sobre como trabalhar com o banco de dados do Azure para MariaDB, envie um email para a equipe do banco de dados do Azure para MariaDB em *AskAzureDBforMySQL@service.microsoft.com* .
+- Para perguntas ou sugestões que você pode ter sobre como trabalhar com o banco de dados do Azure para MariaDB, envie um email para a equipe do banco de dados do Azure para MariaDB em AskAzureDBforMariaDB@service.microsoft.com
 - Consulte [Como configurar alertas](howto-alert-metric.md) para obter orientação sobre como criar um alerta em uma métrica.
 - [Solucione problemas de conexão com o Banco de Dados do Azure para MariaDB](howto-troubleshoot-common-connection-issues.md)
 - [Manipular erros transitórios e conectar-se com eficiência ao banco de dados do Azure para MariaDB](concepts-connectivity.md)

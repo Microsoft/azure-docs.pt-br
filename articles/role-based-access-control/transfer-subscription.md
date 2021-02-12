@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/06/2020
+ms.date: 12/10/2020
 ms.author: rolyon
-ms.openlocfilehash: 3289f8a22e5601552ec6d44c7d37195b06913fde
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 81224b5e16f3bca5da641bbb2e9c82dd59000e79
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545337"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185879"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transferir uma assinatura do Azure para um diretório diferente do Azure AD
 
@@ -53,7 +53,12 @@ A seguir, algumas razões pelas quais você pode querer transferir uma assinatur
 - Uma parte de sua empresa foi dividida em uma empresa separada e você precisa mover alguns dos seus recursos para um diretório diferente do Azure AD.
 - Você deseja gerenciar alguns de seus recursos em um diretório diferente do Azure AD para fins de isolamento de segurança.
 
-A transferência de uma assinatura requer tempo de inatividade para concluir o processo. Dependendo do seu cenário, pode ser melhor recriar os recursos e copiar os dados para o diretório de destino e a assinatura.
+### <a name="alternate-approaches"></a>Abordagens alternativas
+
+A transferência de uma assinatura requer tempo de inatividade para concluir o processo. Dependendo do seu cenário, você pode considerar as seguintes abordagens alternativas:
+
+- Recrie os recursos e copie os dados para o diretório de destino e a assinatura.
+- Adote uma arquitetura de vários diretórios e deixe a assinatura no diretório de origem. Use o Azure Lighthouse para delegar recursos para que os usuários no diretório de destino possam acessar a assinatura no diretório de origem. Para obter mais informações, consulte [Azure Lighthouse em cenários empresariais](../lighthouse/concepts/enterprise.md).
 
 ### <a name="understand-the-impact-of-transferring-a-subscription"></a>Entender o impacto da transferência de uma assinatura
 
@@ -68,7 +73,7 @@ Vários recursos do Azure têm uma dependência em uma assinatura ou em um diret
 | Funções personalizadas | Sim | Sim | [Listar funções personalizadas](#save-custom-roles) | Todas as funções personalizadas são excluídas permanentemente. Você deve recriar as funções personalizadas e quaisquer atribuições de função. |
 | Identidades gerenciadas atribuídas pelo sistema | Sim | Sim | [Listar identidades gerenciadas](#list-role-assignments-for-managed-identities) | Você deve desabilitar e reabilitar as identidades gerenciadas. Você deve recriar as atribuições de função. |
 | Identidades gerenciadas atribuídas pelo usuário | Sim | Sim | [Listar identidades gerenciadas](#list-role-assignments-for-managed-identities) | Você deve excluir, recriar e anexar as identidades gerenciadas ao recurso apropriado. Você deve recriar as atribuições de função. |
-| Cofre de Chave do Azure | Sim | Sim | [Listar políticas de acesso Key Vault](#list-key-vaults) | Você deve atualizar a ID de locatário associada aos cofres de chaves. Você deve remover e adicionar novas políticas de acesso. |
+| Azure Key Vault | Sim | Sim | [Listar políticas de acesso Key Vault](#list-key-vaults) | Você deve atualizar a ID de locatário associada aos cofres de chaves. Você deve remover e adicionar novas políticas de acesso. |
 | Bancos de dados SQL do Azure com a integração de autenticação do Azure AD habilitada | Sim | Não | [Verificar bancos de dados SQL do Azure com autenticação do Azure AD](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
 | Armazenamento e Azure Data Lake Storage Gen2 do Azure | Sim | Sim |  | Você deve recriar quaisquer ACLs. |
 | Azure Data Lake Storage Gen1 | Sim | Sim |  | Você deve recriar quaisquer ACLs. |
@@ -87,7 +92,7 @@ Vários recursos do Azure têm uma dependência em uma assinatura ou em um diret
 
 Para concluir essas etapas, será necessário:
 
-- [Bash em Azure cloud Shell](/azure/cloud-shell/overview) ou [CLI do Azure](/cli/azure)
+- [Bash em Azure cloud Shell](../cloud-shell/overview.md) ou [CLI do Azure](/cli/azure)
 - Administrador da conta da assinatura que você deseja transferir no diretório de origem
 - Função de [proprietário](built-in-roles.md#owner) no diretório de destino
 
@@ -111,7 +116,7 @@ Para concluir essas etapas, será necessário:
 
 ### <a name="install-the-azure-resource-graph-extension"></a>Instalar a extensão do grafo de recursos do Azure
 
- A extensão de CLI do Azure para o [grafo de recursos do Azure](../governance/resource-graph/index.yml), o *grafo de recursos* , permite que você use o comando [AZ Graph](/cli/azure/ext/resource-graph/graph) para consultar recursos gerenciados pelo Azure Resource Manager. Você usará esse comando em etapas posteriores.
+ A extensão de CLI do Azure para o [grafo de recursos do Azure](../governance/resource-graph/index.yml), o *grafo de recursos*, permite que você use o comando [AZ Graph](/cli/azure/ext/resource-graph/graph) para consultar recursos gerenciados pelo Azure Resource Manager. Você usará esse comando em etapas posteriores.
 
 1. Use a [lista de extensões AZ](/cli/azure/extension#az_extension_list) para ver se você tem a extensão *Resource-Graph* instalada.
 
@@ -334,7 +339,7 @@ Nesta etapa, você transfere a assinatura do diretório de origem para o diretó
     | --- | --- |
     | Máquinas virtuais | [Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando a CLI do Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) |
     | conjuntos de escala de máquina virtual | [Configurar identidades gerenciadas para recursos do Azure em um conjunto de dimensionamento de máquinas virtuais usando a CLI do Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#user-assigned-managed-identity) |
-    | Outros serviços | [Serviços compatíveis com identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)<br/>[Criar, listar ou excluir uma identidade gerenciada atribuída ao usuário usando a CLI do Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) |
+    | Outros serviços | [Serviços compatíveis com identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)<br/>[Criar, listar ou excluir uma identidade gerenciada atribuída pelo usuário usando o CLI do Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) |
 
 1. Use [AZ role Assignment Create](/cli/azure/role/assignment#az_role_assignment_create) para criar as atribuições de função para identidades gerenciadas atribuídas pelo usuário. Para obter mais informações, consulte [atribuir um acesso de identidade gerenciada a um recurso usando CLI do Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
 
@@ -383,3 +388,4 @@ Se sua intenção é remover o acesso de usuários no diretório de origem para 
 - [Transferir a propriedade de cobrança de uma assinatura do Azure para outra conta](../cost-management-billing/manage/billing-subscription-transfer.md)
 - [Transferir assinaturas do Azure entre assinantes e CSPs](../cost-management-billing/manage/transfer-subscriptions-subscribers-csp.md)
 - [Associar ou adicionar uma assinatura do Azure ao seu locatário do Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+- [Azure Lighthouse em cenários empresariais](../lighthouse/concepts/enterprise.md)

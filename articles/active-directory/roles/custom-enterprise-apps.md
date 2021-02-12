@@ -2,23 +2,23 @@
 title: Permissões de função personalizada para atribuições de acesso do aplicativo empresarial-Azure Active Directory | Microsoft Docs
 description: Criar e atribuir funções personalizadas do Azure AD para acesso de aplicativos empresariais no Azure Active Directory
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 09/22/2020
-ms.author: curtand
+ms.date: 11/04/2020
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99d83005599c59f6a4249014139b594764df8acf
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d3cb65503ffab610f9545acb313f7284ffb11ed1
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374252"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741138"
 ---
 # <a name="assign-custom-roles-to-manage-enterprise-apps-in-azure-active-directory"></a>Atribuir funções personalizadas para gerenciar aplicativos empresariais no Azure Active Directory
 

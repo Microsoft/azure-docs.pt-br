@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: alkohli
-ms.openlocfilehash: f99a3110880626b3a809e6bab5edc02398094547
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 887aaf32592c74a5884916bc7ad63d79544fb554
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426220"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575848"
 ---
 # <a name="azure-stack-edge-blob-storage-requirements"></a>Requisitos de armazenamento de BLOBs do Azure Stack Edge
 
@@ -26,7 +26,7 @@ Recomendamos que você examine as informações cuidadosamente antes de se conec
 |     Recurso                                             |     Armazenamento do Azure                                     |     Armazenamento de BLOBs do Azure Stack Edge |
 |---------------------------------------------------------|-------------------------------------------------------|---------------------------|
 |    Armazenamento de arquivos do Azure                                   |    Compartilhamentos de arquivos SMB baseado em nuvem com suporte              |    Sem suporte      |
-|    Tipo de conta de armazenamento                                 |    Contas de armazenamento de Blobs do Azure e de uso geral    |    Uso geral v1 apenas|
+|    Tipo de conta de armazenamento                                 |    Contas de uso geral e armazenamento de BLOBs do Azure    |    Uso geral v1 apenas|
 |    Nome de blob                                            |    1.024 caracteres (2.048 bytes)                     |    880 caracteres (1.760 bytes)|
 |    Tamanho máximo do blob de blocos                              |    4,75 TB (100 MB X 50.000 blocos)                   |    4,75 TB (100 MB x 50.000 blocos) para Azure Stack borda|
 |    Tamanho máximo de blob de páginas                               |    8 TB                                               |    1 TB                   |

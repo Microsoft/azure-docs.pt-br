@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 8154ef7a90011da8c15f52870eebb6c80ebaebca
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: dda3ece27fd2c687647e0aa289bd1596a87b274f
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496113"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186015"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetria e solução de problemas
 
@@ -51,7 +51,7 @@ Entradas:
 Saídas:
 1. Azure Monitor
 
-O módulo Telegraf de análise espacial fornecido publicará todos os dados de telemetria emitidos pelo contêiner de análise espacial para Azure Monitor. Consulte a [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview) para obter informações sobre como adicionar Azure monitor à sua assinatura.
+O módulo Telegraf de análise espacial fornecido publicará todos os dados de telemetria emitidos pelo contêiner de análise espacial para Azure Monitor. Consulte a [Azure monitor](../../azure-monitor/overview.md) para obter informações sobre como adicionar Azure monitor à sua assinatura.
 
 Depois de configurar Azure Monitor, você precisará criar credenciais que permitam que o módulo envie telemetria. Você pode usar o portal do Azure para criar uma nova entidade de serviço ou usar o comando CLI do Azure abaixo para criar uma.
 
@@ -68,7 +68,7 @@ az iot hub list
 az ad sp create-for-rbac --role="Monitoring Metrics Publisher" --name "<principal name>" --scopes="<resource ID of IoT Hub>"
 ```
 
-No manifesto de implantação para seu [Azure Stack dispositivo de borda](https://go.microsoft.com/fwlink/?linkid=2142179) ou outro [computador desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), procure o módulo *Telegraf* e substitua os valores a seguir pelas informações da entidade de serviço da etapa anterior e reimplante-os.
+No manifesto de implantação para seu [dispositivo Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), [computador desktop](https://go.microsoft.com/fwlink/?linkid=2152270)ou [VM do Azure com GPU](https://go.microsoft.com/fwlink/?linkid=2152189), procure o módulo *Telegraf* e substitua os valores a seguir pelas informações da entidade de serviço da etapa anterior e reimplante.
 
 ```json
 
@@ -129,7 +129,7 @@ Você pode usar `iotedge` a ferramenta de linha de comando para verificar o stat
 
 ## <a name="collect-log-files-with-the-diagnostics-container"></a>Coletar arquivos de log com o contêiner de diagnóstico
 
-A análise espacial gera logs de depuração do Docker que você pode usar para diagnosticar problemas de tempo de execução ou incluir tíquetes de suporte. O módulo de diagnóstico de análise espacial está disponível no registro de contêiner da Microsoft para você baixar. No arquivo de implantação de manifesto para seu [Azure Stack dispositivo de borda](https://go.microsoft.com/fwlink/?linkid=2142179) ou outro [computador desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), procure o módulo *diagnóstico* .
+A análise espacial gera logs de depuração do Docker que você pode usar para diagnosticar problemas de tempo de execução ou incluir tíquetes de suporte. O módulo de diagnóstico de análise espacial está disponível no registro de contêiner da Microsoft para você baixar. No arquivo de implantação de manifesto para seu [Azure Stack dispositivo de borda](https://go.microsoft.com/fwlink/?linkid=2142179), [computador desktop](https://go.microsoft.com/fwlink/?linkid=2152270)ou [VM do Azure com a GPU](https://go.microsoft.com/fwlink/?linkid=2152189) , procure o módulo *diagnóstico* .
 
 Na seção "env", adicione a seguinte configuração:
 
@@ -188,13 +188,13 @@ Ele também pode ser definido por meio do documento do módulo de IoT Edge, seja
 > O `diagnostics` módulo não afeta o conteúdo de log, ele só ajuda a coletar, filtrar e carregar logs existentes.
 > Você deve ter a API do Docker versão 1,40 ou superior para usar este módulo.
 
-O arquivo de manifesto de implantação de exemplo para seu [dispositivo Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) ou outro [computador desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)  inclui um módulo chamado `diagnostics` que coleta e carrega logs. Esse módulo é desabilitado por padrão e deve ser habilitado por meio da configuração do módulo IoT Edge quando você precisa acessar os logs. 
+O arquivo de manifesto de implantação de exemplo para seu [dispositivo Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), [computador desktop](https://go.microsoft.com/fwlink/?linkid=2152270)ou [VM do Azure com GPU](https://go.microsoft.com/fwlink/?linkid=2152189) inclui um módulo chamado `diagnostics` que coleta e carrega logs. Esse módulo é desabilitado por padrão e deve ser habilitado por meio da configuração do módulo IoT Edge quando você precisa acessar os logs. 
 
 A `diagnostics` coleção é sob demanda e controlada por meio de um método direto IOT Edge e pode enviar logs para um armazenamento de BLOBs do Azure.
 
 ### <a name="configure-diagnostics-upload-targets"></a>Configurar destinos de upload de diagnóstico
 
-No portal de IoT Edge, selecione o dispositivo e, em seguida, o módulo **diagnóstico** . No arquivo de manifesto de implantação de exemplo para seu [dispositivo Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) ou outros [computadores desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), procure a seção **variáveis de ambiente** para diagnóstico, chamada `env` e adicione as seguintes informações:
+No portal de IoT Edge, selecione o dispositivo e, em seguida, o módulo **diagnóstico** . No arquivo de manifesto de implantação de exemplo para seu [dispositivo Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), [computadores desktop](https://go.microsoft.com/fwlink/?linkid=2152270)ou [VM do Azure com GPU](https://go.microsoft.com/fwlink/?linkid=2152189) , procure a seção **variáveis de ambiente** para diagnóstico, chamado `env` e adicione as seguintes informações:
 
 **Configurar upload para o armazenamento de BLOBs do Azure**
 
@@ -215,8 +215,8 @@ No portal de IoT Edge, selecione o dispositivo e, em seguida, o módulo **diagn�
 Os logs são carregados sob demanda com o `getRTCVLogs` método IOT Edge, no `diagnostics` módulo. 
 
 
-1. Vá para a página do portal do Hub IoT, selecione **dispositivos de borda**e, em seguida, selecione o dispositivo e o módulo de diagnóstico. 
-2. Vá para a página de detalhes do módulo e clique na guia **_método direto_*_.
+1. Vá para a página do portal do Hub IoT, selecione **dispositivos de borda** e, em seguida, selecione o dispositivo e o módulo de diagnóstico. 
+2. Vá para a página de detalhes do módulo e clique na guia **_método direto_* _.
 3. Digite `getRTCVLogs` o nome do método e uma cadeia de caracteres de formato JSON na carga. Você pode inserir `{}` , que é uma carga vazia. 
 4. Defina a conexão e os tempos limite do método e clique em _ * invocar método * *.
 5. Selecione o contêiner de destino e crie uma cadeia de caracteres JSON de carga usando os parâmetros descritos na seção de **sintaxe de log** . Clique em **invocar método** para executar a solicitação.
@@ -224,7 +224,7 @@ Os logs são carregados sob demanda com o `getRTCVLogs` método IOT Edge, no `di
 >[!NOTE]
 > Invocar o `getRTCVLogs` método com uma carga vazia retornará uma lista de todos os contêineres implantados no dispositivo. O nome do método diferencia maiúsculas de minúsculas. Você receberá um erro 501 se um nome de método incorreto for fornecido.
 
-:::image type="content" source="./media/spatial-analysis/direct-log-collection.png" alt-text="Relatório de telemetria Azure Monitor":::
+:::image type="content" source="./media/spatial-analysis/direct-log-collection.png" alt-text="Invocando o método getRTCVLogs ":::
 ![página de método direto do getRTCVLogs](./media/spatial-analysis/direct-log-collection.png)
 
  
@@ -245,7 +245,7 @@ A tabela a seguir lista os atributos na resposta da consulta.
 
 | Palavra-chave | Descrição|
 |--|--|
-|DoPost| *True* ou *false*. Indica se os logs foram carregados ou não. Quando você opta por não carregar logs, a API retorna informações * de forma**síncrona**. Quando você optar por carregar os logs, a API retornará 200, se a solicitação for válida, e iniciará o carregamento de logs de _*_forma assíncrona_*_.|
+|DoPost| *True* ou *false*. Indica se os logs foram carregados ou não. Quando você opta por não carregar logs, a API retorna informações * de forma **síncrona**. Quando você optar por carregar os logs, a API retornará 200, se a solicitação for válida, e iniciará o carregamento de logs de _*_forma assíncrona_*_.|
 |Filtro de time-| Filtro de tempo aplicado aos logs.|
 |ValueFilters| Filtros de palavras-chave aplicados aos logs. |
 |TimeStamp| Hora de início da execução do método. |
@@ -316,8 +316,8 @@ A seção a seguir é fornecida para obter ajuda com a depuração e a verifica�
 
 ### <a name="access-the-kubernetes-api-endpoint"></a>Acesse o ponto de extremidade da API do kubernetes. 
 
-1. Na interface do usuário local do seu dispositivo, vá para a página _*dispositivos**. 
-2. Em **pontos**de extremidade do dispositivo, copie o ponto de extremidades do serviço API do kubernetes. Esse ponto de extremidade é uma cadeia de caracteres no seguinte formato: `https://compute..[device-IP-address]`.
+1. Na interface do usuário local do seu dispositivo, vá para a página _ *dispositivos**. 
+2. Em **pontos** de extremidade do dispositivo, copie o ponto de extremidades do serviço API do kubernetes. Esse ponto de extremidade é uma cadeia de caracteres no seguinte formato: `https://compute..[device-IP-address]`.
 3. Salve a cadeia de caracteres do ponto de extremidade. Você o usará posteriormente ao configurar `kubectl` o para acessar o cluster kubernetes.
 
 ### <a name="connect-to-powershell-interface"></a>Conectar-se à interface do PowerShell
@@ -326,7 +326,7 @@ Remotamente, conecte-se de um cliente do Windows. Depois que o cluster kubernete
 
 > [!TIP]
 > * Antes de começar, verifique se o seu cliente Windows está executando o Windows PowerShell 5,0 ou posterior.
-> * O PowerShell também está [disponível no Linux](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux).
+> * O PowerShell também está [disponível no Linux](/powershell/scripting/install/installing-powershell-core-on-linux).
 
 1. Execute uma sessão do Windows PowerShell como administrador. 
     1. Verifique se o serviço de Gerenciamento Remoto do Windows está em execução no seu cliente. No prompt de comando, digite `winrm quickconfig`.

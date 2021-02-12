@@ -8,14 +8,14 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: e50f53c65c330265d3d9ec1b1804a7910b632b1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3507aacc68de25f7368cbe3cda917077564c56eb
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81678841"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96356237"
 ---
-1. Vá para **grupos de recursos**e selecione o grupo de recursos que você selecionou quando criou o recurso de **emparelhamento** . Use a caixa de **filtro** se você tiver muitos grupos de recursos.
+1. Vá para **grupos de recursos** e selecione o grupo de recursos que você selecionou quando criou o recurso de **emparelhamento** . Use a caixa de **filtro** se você tiver muitos grupos de recursos.
 
     > [!div class="mx-imgBorder"]
     > ![Grupos de recursos](../media/setup-direct-get-resourcegroup.png)
@@ -23,7 +23,7 @@ ms.locfileid: "81678841"
 1. Selecione o recurso de **emparelhamento** que você criou.
 
     > [!div class="mx-imgBorder"]
-    > ![Exibição de recursos de emparelhamento](../media/setup-direct-get-open.png)
+    > ![A página Visão geral está selecionada no painel esquerdo. Ele mostra informações sobre PeeringResourceGroup. Na lista de emparelhamento, AshburnPeering é realçado.](../media/setup-direct-get-open.png)
 
 1. A página **visão geral** mostra informações de alto nível, como mostrado aqui.
 
@@ -42,4 +42,4 @@ ms.locfileid: "81678841"
 
     * O **estado da conexão** corresponde ao estado da configuração da conexão de emparelhamento. Os Estados exibidos neste campo seguem o diagrama de estado mostrado no [passo a passos de emparelhamento direto](../walkthrough-direct-all.md).
     * Estado de **sessão IPv4** e **estado de sessão IPv6** correspondem aos Estados de sessão BGP IPv4 e IPv6, respectivamente. 
-    * Quando você seleciona uma linha na parte superior da tela, a seção de **conexão** na parte inferior mostra detalhes de cada conexão. Selecione as setas para expandir a **configuração**, o **endereço IPv4**e o **endereço IPv6**.
+    * Quando você seleciona uma linha na parte superior da tela, a seção de **conexão** na parte inferior mostra detalhes de cada conexão. Selecione as setas para expandir a **configuração**, o **endereço IPv4** e o **endereço IPv6**.

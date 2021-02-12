@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
-ms.openlocfilehash: 3632a34678c7a0f0e6fa93e5ce8000b07bb413a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cec17b98daa8eca31cda076921288e2838960511
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86054518"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434525"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>Aplicativos gerenciados do Azure com notificações
 
@@ -61,7 +61,7 @@ Para começar, consulte [publicar um aplicativo de catálogo de serviços por me
 
 ```
 ## <a name="add-azure-marketplace-managed-application-notifications"></a>Adicionar notificações de aplicativo gerenciado do Azure Marketplace
-Para obter mais informações, consulte [criar uma oferta de aplicativo do Azure](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).
+Para obter mais informações, consulte [criar uma oferta de aplicativo do Azure](../../marketplace/create-new-azure-apps-offer.md).
 
 ![Notificações de aplicativo gerenciado do Azure Marketplace no portal do Azure](./media/publish-notifications/marketplace-notifications.png)
 ## <a name="event-triggers"></a>Gatilhos de evento
@@ -70,12 +70,12 @@ A tabela a seguir descreve todas as combinações possíveis de EventType e Prov
 EventType | ProvisioningState | Gatilho para notificação
 ---|---|---
 PUT | Aceito | O grupo de recursos gerenciados foi criado e projetado com êxito após o aplicativo ser colocado (antes de a implantação dentro do grupo de recursos gerenciado ser inicializada).
-PUT | Êxito | O provisionamento completo do aplicativo gerenciado foi bem-sucedido após um PUT.
-PUT | Failed (Falha) | Falha ao colocar o provisionamento da instância do aplicativo em qualquer ponto.
-PATCH | Êxito | Após um PATCH bem-sucedido na instância do aplicativo gerenciado para atualizar marcas, política de acesso JIT ou identidade gerenciada.
-Delete (excluir) | Excluir | Assim que o usuário inicia uma exclusão de uma instância de aplicativo gerenciado.
-Delete (excluir) | Excluído | Após a exclusão completa e bem-sucedida do aplicativo gerenciado.
-Delete (excluir) | Failed (Falha) | Após qualquer erro durante o processo de desprovisionamento que bloqueia a exclusão.
+PUT | Com sucesso | O provisionamento completo do aplicativo gerenciado foi bem-sucedido após um PUT.
+PUT | Com falha | Falha ao colocar o provisionamento da instância do aplicativo em qualquer ponto.
+PATCH | Com sucesso | Após um PATCH bem-sucedido na instância do aplicativo gerenciado para atualizar marcas, política de acesso JIT ou identidade gerenciada.
+DELETE | Excluir | Assim que o usuário inicia uma exclusão de uma instância de aplicativo gerenciado.
+DELETE | Excluído | Após a exclusão completa e bem-sucedida do aplicativo gerenciado.
+DELETE | Com falha | Após qualquer erro durante o processo de desprovisionamento que bloqueia a exclusão.
 ## <a name="notification-schema"></a>Esquema de notificação
 Ao criar o ponto de extremidade do webhook para lidar com notificações, você precisará analisar a carga para obter propriedades importantes e, em seguida, agir sobre a notificação. As notificações do catálogo de serviços e do aplicativo gerenciado do Azure Marketplace fornecem muitas das mesmas propriedades. Duas pequenas diferenças são descritas na tabela que segue os exemplos.
 

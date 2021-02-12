@@ -1,24 +1,23 @@
 ---
 title: Políticas de erro de saída no Azure Stream Analytics
 description: Saiba mais sobre as políticas de tratamento de erro de saída disponíveis no Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 923e8d1ffc3e606c16226b4b2ccbdcfaf4d3e9f1
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 19d762a55127af34e84185b11518aa6584acb5bd
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123414"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012403"
 ---
 # <a name="azure-stream-analytics-output-error-policy"></a>Política de erro de saída no Azure Stream Analytics
 Este artigo descreve as políticas de tratamento de erro de dados de saída que podem ser configuradas no Azure Stream Analytics.
 
-As políticas de tratamento de erro de dados de saída aplicam-se apenas a erros de conversão de dados que ocorrem quando o evento de saída produzido por um trabalho do Stream Analytics não está em conformidade com o esquema do coletor de destino. É possível configurar essa política, escolhendo **Repetir** ou **Remover** . No portal do Azure, enquanto estiver em um trabalho do Stream Analytics, em **Configurar** , selecione **Política de Erro** para fazer a seleção.
+As políticas de tratamento de erro de dados de saída aplicam-se apenas a erros de conversão de dados que ocorrem quando o evento de saída produzido por um trabalho do Stream Analytics não está em conformidade com o esquema do coletor de destino. É possível configurar essa política, escolhendo **Repetir** ou **Remover**. No portal do Azure, enquanto estiver em um trabalho do Stream Analytics, em **Configurar**, selecione **Política de Erro** para fazer a seleção.
 
 ![Localização da política de erro de saída no Azure Stream Analytics](./media/stream-analytics-output-error-policy/stream-analytics-error-policy-locate.png)
 

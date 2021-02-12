@@ -1,15 +1,17 @@
 ---
 title: Matriz de suporte das Migrações para Azure
 description: Fornece um resumo de configurações compatíveis e limitações do serviço de Migrações para Azure.
+author: ms-psharma
+ms.author: panshar
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.author: raynew
-ms.openlocfilehash: 2aab8e9caeaf61c2c8dd1bf29894b13a887e44de
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 0e1cb33ca0a5fb9a1c7ddb2c4625dfef4acd3a1e
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424817"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627390"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de suporte das Migrações para Azure
 
@@ -21,10 +23,10 @@ A tabela resume os cenários de descoberta, avaliação e migração com suporte
 
 **Implantação** | **Detalhes** 
 --- | --- 
-**Descoberta** | Você pode descobrir metadados do computador e dados de desempenho dinâmicos.
+**Discovery** | Você pode descobrir metadados do computador e dados de desempenho dinâmicos.
 **Descoberta de aplicativo** | Você pode descobrir aplicativos, funções e recursos em execução em VMs do VMware. Atualmente, esse recurso está limitado apenas à descoberta. A avaliação está atualmente no nível do computador. Ainda não oferecemos aplicativos, funções ou avaliações baseadas em recursos. 
-**Avaliação** | Avalie cargas de trabalho locais e dados em execução em VMs do VMware, VMs do Hyper-V e servidores físicos. Avalie usando a avaliação do servidor de migrações para Azure, Assistente de Migração de Dados da Microsoft (DMA), bem como outras ferramentas e ofertas de ISV.
-**Migração** | Migre cargas de trabalho e dados em execução em servidores físicos, VMs do VMware, VMs do Hyper-V, servidores físicos e VMS baseadas em nuvem para o Azure. Use a Avaliação de Servidor de Migrações para Azure e o Serviço de Migração de Banco de Dados do Azure (DMS), além de outras ferramentas e ofertas de ISV, para migração.
+**Avaliação** | Avalie cargas de trabalho locais e dados em execução em VMs do VMware, VMs do Hyper-V e servidores físicos. Avalie usando migrações para Azure: avaliação de servidor, Assistente de Migração de Dados da Microsoft (DMA), bem como outras ferramentas e ofertas de ISV.
+**Migração** | Migre cargas de trabalho e dados em execução em servidores físicos, VMs do VMware, VMs do Hyper-V, servidores físicos e VMS baseadas em nuvem para o Azure. Migre usando as migrações para Azure: avaliação de servidor e serviço de migração de banco de dados do Azure (DMS), bem como outras ferramentas e ofertas de ISV.
 
 > [!NOTE]
 > Atualmente, as ferramentas de ISV não podem enviar dados para Migrações para Azure no Azure Governamental. Você pode usar as ferramentas integradas da Microsoft ou as ferramentas de parceiro de forma independente.
@@ -36,19 +38,19 @@ O suporte a ferramentas específicas é resumido na tabela.
 
 **Ferramenta** | **Avaliar** | **Migrar** 
 --- | --- | ---
-Avaliação de Servidor das Migrações para Azure | Avalie [VMs do VMware](./tutorial-discover-vmware.md), [VMs do Hyper-V](./tutorial-discover-hyper-v.md) e [servidores físicos](./tutorial-discover-physical.md). |  Não disponível (ND)
-Migração de Servidor das Migrações para Azure | NA | Migre [VMs do VMware](tutorial-migrate-vmware.md), [VMs do Hyper-V](tutorial-migrate-hyper-v.md) e [servidores físicos](tutorial-migrate-physical-virtual-machines.md).
-[Carbonite](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure) | NA | Migrar VMs do VMware, VMs do Hyper-V, servidores físicos e cargas de trabalho de nuvem pública. 
-[Cloudamize](https://www.cloudamize.com/platform#tab-0)| Acessar VMs do VMware, VMs do Hyper-V, servidores físicos e cargas de trabalho de nuvem pública. | NA
+Migrações para Azure: avaliação do servidor | Avalie [VMs do VMware](./tutorial-discover-vmware.md), [VMs do Hyper-V](./tutorial-discover-hyper-v.md) e [servidores físicos](./tutorial-discover-physical.md). |  Não disponível (N/A)
+Migrações para Azure: Migração de Servidor | N/D | Migre [VMs do VMware](tutorial-migrate-vmware.md), [VMs do Hyper-V](tutorial-migrate-hyper-v.md) e [servidores físicos](tutorial-migrate-physical-virtual-machines.md).
+[Carbonite](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure) | N/D | Migrar VMs do VMware, VMs do Hyper-V, servidores físicos e cargas de trabalho de nuvem pública. 
+[Cloudamize](https://www.cloudamize.com/platform#tab-0)| Acessar VMs do VMware, VMs do Hyper-V, servidores físicos e cargas de trabalho de nuvem pública. | N/D
 [Corent Technology](https://go.microsoft.com/fwlink/?linkid=2084928) | Avaliar e migrar VMs do VMware, VMs do Hyper-V, servidores físicos e cargas de trabalho de nuvem pública. |  Migrar VMs do VMware, VMs do Hyper-V, servidores físicos e cargas de trabalho de nuvem pública.
-[Device 42](https://go.microsoft.com/fwlink/?linkid=2097158) | Acessar VMs do VMware, VMs do Hyper-V, servidores físicos e cargas de trabalho de nuvem pública.| NA
-[DMA](/sql/dma/dma-overview?view=sql-server-2017) | Avaliar SQL Server bancos de dados. | NA
-[DMS](../dms/dms-overview.md) | NA | Migrar SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
-[Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Avaliar a infraestrutura de área de trabalho virtual (VDI) | NA
-[Movere](https://www.movere.io/) | Avaliar VMs do VMware, VMs do Hyper-V, VMs Xen, máquinas físicas, estações de trabalho (incluindo VDI), cargas de trabalho de nuvem pública | NA
-[RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | NA | Migrar VMs do VMware, VMs do Hyper-V, VMs do Xen, VMs do KVM, computadores físicos, cargas de trabalho de nuvem pública 
-[Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | Acessar VMs do VMware, VMs do Hyper-V, servidores físicos e cargas de trabalho de nuvem pública. | NA
-[UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | Acessar VMs do VMware, VMs do Hyper-V, servidores físicos, cargas de trabalho de nuvem pública e bancos de dados do SQL Server. | NA
+[Device 42](https://go.microsoft.com/fwlink/?linkid=2097158) | Acessar VMs do VMware, VMs do Hyper-V, servidores físicos e cargas de trabalho de nuvem pública.| N/D
+[DMA](/sql/dma/dma-overview?view=sql-server-2017) | Avaliar SQL Server bancos de dados. | N/D
+[DMS](../dms/dms-overview.md) | N/D | Migrar SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
+[Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Avaliar a infraestrutura de área de trabalho virtual (VDI) | N/D
+[Movere](https://www.movere.io/) | Avaliar VMs do VMware, VMs do Hyper-V, VMs Xen, máquinas físicas, estações de trabalho (incluindo VDI), cargas de trabalho de nuvem pública | N/D
+[RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | N/D | Migrar VMs do VMware, VMs do Hyper-V, VMs do Xen, VMs do KVM, computadores físicos, cargas de trabalho de nuvem pública 
+[Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | Acessar VMs do VMware, VMs do Hyper-V, servidores físicos e cargas de trabalho de nuvem pública. | N/D
+[UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | Acessar VMs do VMware, VMs do Hyper-V, servidores físicos, cargas de trabalho de nuvem pública e bancos de dados do SQL Server. | N/D
 [Assistente de Migração de aplicativo Web](https://appmigration.microsoft.com/) | Avaliar aplicativos Web | Migrar aplicativos Web.
 
 
@@ -70,8 +72,8 @@ Para que as Migrações para Azure funcionem com o Azure, você precisa dessas p
 **Tarefa** | **Permissões** | **Detalhes**
 --- | --- | ---
 Criar um projeto das Migrações para Azure | Sua conta do Azure precisa de permissões para criar um projeto. | Configurar para [VMware](./tutorial-discover-vmware.md#prepare-an-azure-user-account), [Hyper-V](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account) ou [servidores físicos](./tutorial-discover-physical.md#prepare-an-azure-user-account).
-Registrar o dispositivo de Migrações para Azure| As Migrações para Azure usam um [dispositivo leve de Migrações para Azure](migrate-appliance.md) para avaliar computadores com a avaliação de servidor de Migrações para Azure e executar a [migração sem agente](server-migrate-overview.md) de VMs do VMware com a migração de servidor das Migrações para Azure. Esse dispositivo executa a descoberta de computadores e envia os metadados e os dados de desempenho para as Migrações para Azure.<br/><br/> Durante o registro do dispositivo, os provedores de recursos (Microsoft.OffAzure, Microsoft.Migrate e Microsoft.KeyVault) são registrados com a assinatura escolhida no dispositivo para que a assinatura funcione com o provedor de recursos. Para se registrar, você precisa de acesso de colaborador ou proprietário na assinatura.<br/><br/> **VMware** – Durante a integração, as Migrações para Azure criam dois aplicativos do Azure Active Directory. O primeiro aplicativo faz a comunicação entre os agentes do dispositivo e o serviço de Migrações para Azure. O aplicativo não tem permissões para fazer chamadas de gerenciamento de recursos do Azure ou ter acesso ao RBAC do Azure para recursos. O segundo aplicativo acessa um Azure Key Vault criado na assinatura do usuário somente para a migração do VMware sem agente. Na migração sem agente, as Migrações para Azure criam um cofre de chaves para gerenciar chaves de acesso para a conta de armazenamento de replicação na sua assinatura. Ele tem acesso RBAC do Azure no Azure Key Vault (no locatário do cliente) quando a descoberta é iniciada do dispositivo.<br/><br/> **Hyper-V** - Durante a integração. As Migrações para Azure criam um aplicativo do Azure Active Directory. O aplicativo faz a comunicação entre os agentes do dispositivo e o serviço de Migrações para Azure. O aplicativo não tem permissões para fazer chamadas de gerenciamento de recursos do Azure ou ter acesso ao RBAC do Azure para recursos. | Configurar para [VMware](./tutorial-discover-vmware.md#prepare-an-azure-user-account), [Hyper-V](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account) ou [servidores físicos](./tutorial-discover-physical.md#prepare-an-azure-user-account).
-Criar um cofre de chaves para migração sem agente do VMware | Para migrar VMs do VMware usando a Migração de Servidor de Migrações para Azure sem agente, as Migrações para Azure criam um cofre de chaves para gerenciar chaves de acesso para a conta de armazenamento de replicação na sua assinatura. Para criar o cofre, defina as permissões (proprietário ou colaborador e o administrador de acesso de usuários) no grupo de recursos no qual o projeto de Migrações para Azure reside. | [Configurar](./tutorial-discover-vmware.md#prepare-an-azure-user-account) permissões.
+Registrar o dispositivo de Migrações para Azure| As migrações para Azure usam um dispositivo leve de [migrações para Azure](migrate-appliance.md) para avaliar computadores com migrações para Azure: avaliação de servidor e executar a [migração sem agente](server-migrate-overview.md) de VMs VMware com migrações para Azure: migração de servidor. Esse dispositivo executa a descoberta de computadores e envia os metadados e os dados de desempenho para as Migrações para Azure.<br/><br/> Durante o registro do dispositivo, os provedores de recursos (Microsoft.OffAzure, Microsoft.Migrate e Microsoft.KeyVault) são registrados com a assinatura escolhida no dispositivo para que a assinatura funcione com o provedor de recursos. Para se registrar, você precisa de acesso de colaborador ou proprietário na assinatura.<br/><br/> **VMware** – Durante a integração, as Migrações para Azure criam dois aplicativos do Azure Active Directory. O primeiro aplicativo faz a comunicação entre os agentes do dispositivo e o serviço de Migrações para Azure. O aplicativo não tem permissões para fazer chamadas de gerenciamento de recursos do Azure ou ter acesso ao RBAC do Azure para recursos. O segundo aplicativo acessa um Azure Key Vault criado na assinatura do usuário somente para a migração do VMware sem agente. Na migração sem agente, as Migrações para Azure criam um cofre de chaves para gerenciar chaves de acesso para a conta de armazenamento de replicação na sua assinatura. Ele tem acesso RBAC do Azure no Azure Key Vault (no locatário do cliente) quando a descoberta é iniciada do dispositivo.<br/><br/> **Hyper-V** - Durante a integração. As Migrações para Azure criam um aplicativo do Azure Active Directory. O aplicativo faz a comunicação entre os agentes do dispositivo e o serviço de Migrações para Azure. O aplicativo não tem permissões para fazer chamadas de gerenciamento de recursos do Azure ou ter acesso ao RBAC do Azure para recursos. | Configurar para [VMware](./tutorial-discover-vmware.md#prepare-an-azure-user-account), [Hyper-V](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account) ou [servidores físicos](./tutorial-discover-physical.md#prepare-an-azure-user-account).
+Criar um cofre de chaves para migração sem agente do VMware | Para migrar VMs VMware com migrações para o Azure sem agente: migração de servidor, migrações para Azure cria um Key Vault para gerenciar chaves de acesso para a conta de armazenamento de replicação em sua assinatura. Para criar o cofre, defina as permissões (proprietário ou colaborador e o administrador de acesso de usuários) no grupo de recursos no qual o projeto de Migrações para Azure reside. | [Configurar](./tutorial-discover-vmware.md#prepare-an-azure-user-account) permissões.
 
 ## <a name="supported-geographies-public-cloud"></a>Regiões geográficas com suporte (nuvem pública)
 
@@ -110,11 +112,11 @@ Replicação de destino | Estados Unidos | Regiões de destino: US DoD Central, 
 
 ## <a name="vmware-assessment-and-migration"></a>Avaliação e migração do VMware
 
-[Examine](migrate-support-matrix-vmware.md) a matriz de suporte da migração de servidor e avaliação de servidor das Migrações para Azure para VMs do VMware.
+[Examine](migrate-support-matrix-vmware.md) as migrações para Azure: avaliação do servidor e migrações para Azure: matriz de suporte de migração do servidor para VMs VMware.
 
 ## <a name="hyper-v-assessment-and-migration"></a>Avaliação e migração do Hyper-V
 
-[Examine](migrate-support-matrix-hyper-v.md) a matriz de suporte da migração de servidor e avaliação de servidor das Migrações para Azure para VMs do Hyper-V.
+[Examine](migrate-support-matrix-hyper-v.md) as migrações para Azure: avaliação do servidor e migrações para Azure: matriz de suporte de migração do servidor para VMs do Hyper-V.
 
 
 

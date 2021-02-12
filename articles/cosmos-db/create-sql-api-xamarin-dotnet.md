@@ -9,14 +9,15 @@ ms.topic: quickstart
 ms.date: 10/09/2020
 ms.author: anfeldma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2d82b7f618757fbf77072bd7147595eec3083885
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 91e89eaf215468f171974e5f3fd383691fdd6ebe
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487629"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096964"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Início Rápido: Criar um aplicativo de tarefas pendentes com o Xamarin usando a conta de API de SQL do Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -89,11 +90,11 @@ Agora, vamos clonar o aplicativo de API do SQL Xamarin no GitHub, revisar o cód
 
 Volte ao Portal do Azure para obter as informações da sua chave de API e copie-as para o aplicativo.
 
-1. No [Portal do Azure](https://portal.azure.com/), na sua conta de API do SQL do Azure Cosmos DB, no painel de navegação esquerdo, clique em **Chaves** e, em seguida, clique em **Chaves de leitura/gravação** . Você usará os botões de cópia do lado direito da tela para copiar o URI e a Chave Primária para o arquivo APIKeys.cs na próxima etapa.
+1. No [Portal do Azure](https://portal.azure.com/), na sua conta de API do SQL do Azure Cosmos DB, no painel de navegação esquerdo, clique em **Chaves** e, em seguida, clique em **Chaves de leitura/gravação**. Você usará os botões de cópia do lado direito da tela para copiar o URI e a Chave Primária para o arquivo APIKeys.cs na próxima etapa.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/keys.png" alt-text="Aplicativo de tarefas pendentes do Xamarin em execução no iOS":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/keys.png" alt-text="Exibir e copiar uma chave de acesso no portal do Azure, folha Chaves":::
 
-2. No Visual Studio, abra **ToDoItems.Core/Helpers/APIKeys.cs** .
+2. No Visual Studio, abra **ToDoItems.Core/Helpers/APIKeys.cs**.
 
 3. No portal do Azure, usando o botão Copiar, copie o valor do **URI** e o torne-o o valor da variável `CosmosEndpointUrl` em APIKeys.cs.
 
@@ -115,7 +116,7 @@ Volte ao Portal do Azure para obter as informações da sua chave de API e copie
 
 Esta solução demonstra como criar um aplicativo de tarefas pendentes usando a API do SQL do Azure Cosmos DB e o Xamarin.Forms. O aplicativo tem duas guias. A primeira contém uma exibição de lista mostrando itens de tarefas pendentes que ainda não foram concluídas. A segunda guia exibe os itens de tarefas pendentes que foram concluídos. Além de exibir os itens de tarefas pendentes não concluídos na primeira guia, você também pode adicionar novos itens de tarefas pendentes, editar os existentes e marcar itens como concluído.
 
-:::image type="content" source="./media/create-sql-api-xamarin-dotnet/android-todo-screen.png" alt-text="Aplicativo de tarefas pendentes do Xamarin em execução no iOS":::
+:::image type="content" source="./media/create-sql-api-xamarin-dotnet/android-todo-screen.png" alt-text="Copiar dados JSON e clicar em Salvar no Data Explorer no portal do Azure":::
 
 O código na solução ToDoItems contém:
 
@@ -181,27 +182,27 @@ As etapas a seguir demonstram como executar o aplicativo usando o depurador do V
 
 1. Primeiro, selecione a plataforma de destino desejada clicando no menu suspenso em destaque e selecionando a opção ToDoItems.iOS para iOS ou ToDoItems.Android para Android.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ide-select-platform.png" alt-text="Aplicativo de tarefas pendentes do Xamarin em execução no iOS":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ide-select-platform.png" alt-text="Selecionando uma plataforma para depurar no Visual Studio para Mac":::
 
 2. Para iniciar a depuração do aplicativo, pressione cmd+Enter ou clique no botão de execução.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ide-start-debug.png" alt-text="Aplicativo de tarefas pendentes do Xamarin em execução no iOS":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ide-start-debug.png" alt-text="Iniciando a depuração no Visual Studio para Mac":::
 
 3. Quando o simulador do iOS ou o emulador do Android concluir a inicialização, o aplicativo exibirá duas guias: para iOS, na parte inferior da tela; para Android, na parte superior da tela. A primeira mostra os itens de tarefas pendentes não concluídos; a segunda mostra os itens de tarefas pendentes concluídos.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ios-droid-started.png" alt-text="Aplicativo de tarefas pendentes do Xamarin em execução no iOS":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ios-droid-started.png" alt-text="Iniciar tela do aplicativo de tarefas pendentes":::
 
-4. Para concluir um item de tarefas pendentes em iOS, deslize-o para a esquerda > toque no botão **Concluir** . Para concluir um item de tarefas pendentes em Android, pressione e segure o item > toque no botão Concluir.
+4. Para concluir um item de tarefas pendentes em iOS, deslize-o para a esquerda > toque no botão **Concluir**. Para concluir um item de tarefas pendentes em Android, pressione e segure o item > toque no botão Concluir.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-complete.png" alt-text="Aplicativo de tarefas pendentes do Xamarin em execução no iOS":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-complete.png" alt-text="Concluir um item de tarefa pendente":::
 
 5. Para editar um item de tarefas pendentes > toque no item > uma nova tela é exibida, permitindo que você insira novos valores. Ao tocar no botão Salvar, serão mantidas as alterações no Azure Cosmos DB.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-edit.png" alt-text="Aplicativo de tarefas pendentes do Xamarin em execução no iOS":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-edit.png" alt-text="Editar item de tarefa pendente":::
 
 6. Para adicionar um item de tarefas pendentes > toque no botão **Adicionar** no canto superior direito da tela inicial > uma nova página de edição em branco será exibida.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-add.png" alt-text="Aplicativo de tarefas pendentes do Xamarin em execução no iOS":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-add.png" alt-text="Adicionar item de tarefa pendente":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Examinar SLAs no Portal do Azure
 

@@ -8,15 +8,15 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: overview
-ms.date: 1/10/2020
+ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fc9a5e604e6ac52eb0e853725123272ca924fa36
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4a341d33c957af8fe7423bda80f1d34a7f59cdd6
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91362223"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737992"
 ---
 # <a name="what-is-the-team-data-science-process"></a>O que é o Processo de Ciência de Dados de Equipe?
 
@@ -100,7 +100,7 @@ Confira um exemplo de uma equipe que trabalha em vários projetos e compartilha 
 
 ## <a name="tools-and-utilities-for-project-execution"></a>Ferramentas e utilitários para execução do projeto
 
-A introdução de processos na maioria das organizações é um desafio. As ferramentas fornecidas para implementar o processo e o ciclo de vida de ciência de dados ajudam a diminuir as barreiras à adoção, e a aumentar sua consistência. O TDSP fornece um conjunto inicial de ferramentas e scripts para impulsionar a adoção do TDSP dentro de uma equipe. Ele também ajuda a automatizar algumas tarefas comuns do ciclo de vida de ciência de dados, como a exploração de dados e a modelagem de linha de base. Há uma estrutura bem definida para as pessoas contribuírem com ferramentas e utilitários compartilhados no repositório de código compartilhado da própria equipe. Esses recursos podem ser aproveitados por outros projetos dentro da equipe ou da organização. O TDSP também planeja habilitar as colaborações de ferramentas e utilitários para toda a comunidade. Os utilitários do TDSP podem ser clonados por meio do [GitHub](https://github.com/Azure/Azure-TDSP-Utilities).
+A introdução de processos na maioria das organizações é um desafio. As ferramentas fornecidas para implementar o processo e o ciclo de vida de ciência de dados ajudam a diminuir as barreiras à adoção, e a aumentar sua consistência. O TDSP fornece um conjunto inicial de ferramentas e scripts para impulsionar a adoção do TDSP dentro de uma equipe. Ele também ajuda a automatizar algumas tarefas comuns do ciclo de vida de ciência de dados, como a exploração de dados e a modelagem de linha de base. Há uma estrutura bem definida para as pessoas contribuírem com ferramentas e utilitários compartilhados no repositório de código compartilhado da própria equipe. Esses recursos podem ser aproveitados por outros projetos dentro da equipe ou da organização.  A Microsoft fornece ferramentas abrangentes dentro do [Azure Machine Learning](../index.yml) que dão suporte a software livre (Python, R, ONNX e estruturas comuns de aprendizado profundo) e também às ferramentas próprias da Microsoft (AutoML).
 
 
 ## <a name="next-steps"></a>Próximas etapas

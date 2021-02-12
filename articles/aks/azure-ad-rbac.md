@@ -1,20 +1,20 @@
 ---
-title: Usar o Azure AD e o RBAC para clusters
+title: Usar o Azure AD e o kubernetes RBAC para clusters
 titleSuffix: Azure Kubernetes Service
-description: Saiba como usar Azure Active Directory Associação de grupo para restringir o acesso a recursos de cluster usando o controle de acesso baseado em função (RBAC) no serviço kubernetes do Azure (AKS)
+description: Saiba como usar Azure Active Directory Associação de grupo para restringir o acesso a recursos de cluster usando o controle de acesso baseado em função do kubernetes (kubernetes RBAC) no serviço kubernetes do Azure (AKS)
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: 2845a091c8a89f22e8892141dd2dad26d6049447
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89bf785a082ff479dcd824a773123fcd061dc22d
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88006835"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576104"
 ---
-# <a name="control-access-to-cluster-resources-using-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Controlar o acesso a recursos de cluster usando o controle de acesso baseado em função e identidades de Azure Active Directory no serviço kubernetes do Azure
+# <a name="control-access-to-cluster-resources-using-kubernetes-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Controlar o acesso a recursos de cluster usando o controle de acesso baseado em função kubernetes e identidades de Azure Active Directory no serviço kubernetes do Azure
 
-O AKS (Serviço de Kubernetes do Azure) pode ser configurado para usar o Azure Active Directory (AD) para autenticação do usuário. Nessa configuração, você entra em um cluster AKS usando um token de autenticação do Azure AD. Você também pode configurar o RBAC (controle de acesso baseado em função) kubernetes para limitar o acesso a recursos de cluster com base na identidade de um usuário ou na associação de grupo.
+O AKS (Serviço de Kubernetes do Azure) pode ser configurado para usar o Azure Active Directory (AD) para autenticação do usuário. Nessa configuração, você entra em um cluster AKS usando um token de autenticação do Azure AD. Você também pode configurar o controle de acesso baseado em função do kubernetes (kubernetes RBAC) para limitar o acesso a recursos de cluster com base na identidade de um usuário ou na associação de grupo.
 
 Este artigo mostra como usar a associação de grupo do Azure AD para controlar o acesso a namespaces e recursos de cluster usando o RBAC kubernetes em um cluster AKS. Os grupos de exemplo e os usuários são criados no Azure AD, e as funções e RoleBindings são criadas no cluster AKS para conceder as permissões apropriadas para criar e exibir recursos.
 
@@ -79,7 +79,7 @@ az role assignment create \
 
 ## <a name="create-demo-users-in-azure-ad"></a>Criar usuários de demonstração no Azure AD
 
-Com dois grupos de exemplo criados no Azure AD para nossos desenvolvedores de aplicativos e SREs, agora vamos criar dois usuários de exemplo. Para testar a integração RBAC no final do artigo, você entra no cluster AKS com essas contas.
+Com dois grupos de exemplo criados no Azure AD para nossos desenvolvedores de aplicativos e SREs, agora vamos criar dois usuários de exemplo. Para testar a integração do RBAC kubernetes no final do artigo, você entra no cluster AKS com essas contas.
 
 Crie a primeira conta de usuário no Azure AD usando o comando [AZ ad User Create][az-ad-user-create] .
 
@@ -129,7 +129,7 @@ Crie um namespace no cluster AKS usando o comando [kubectl Create namespace][kub
 kubectl create namespace dev
 ```
 
-No kubernetes, as *funções* definem as permissões a serem concedidas e *RoleBindings* as aplicam a usuários ou grupos desejados. Essas atribuições podem ser aplicadas a um determinado namespace ou em todo o cluster. Para obter mais informações, consulte [Usando a autorização do RBAC][rbac-authorization].
+No kubernetes, as *funções* definem as permissões a serem concedidas e *RoleBindings* as aplicam a usuários ou grupos desejados. Essas atribuições podem ser aplicadas a um determinado namespace ou em todo o cluster. Para obter mais informações, consulte [usando a autorização do RBAC kubernetes][rbac-authorization].
 
 Primeiro, crie uma função para o namespace *dev* . Essa função concede permissões completas para o namespace. Em ambientes de produção, você pode especificar permissões mais granulares para diferentes usuários ou grupos.
 
@@ -285,7 +285,7 @@ Agora, use o comando [kubectl Get pods][kubectl-get] para exibir pods no namespa
 kubectl get pods --namespace dev
 ```
 
-Conforme mostrado na saída de exemplo a seguir, o Pod NGINX é *executado*com êxito:
+Conforme mostrado na saída de exemplo a seguir, o Pod NGINX é *executado* com êxito:
 
 ```console
 $ kubectl get pods --namespace dev
@@ -367,7 +367,7 @@ $ kubectl run nginx-sre --image=nginx --namespace dev
 Error from server (Forbidden): pods is forbidden: User "akssre@contoso.com" cannot create pods in the namespace "dev"
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Neste artigo, você criou recursos no cluster AKS e usuários e grupos no Azure AD. Para limpar todos esses recursos, execute os seguintes comandos:
 
@@ -410,5 +410,5 @@ Para obter as práticas recomendadas sobre identidade e controle de recursos, co
 [az-ad-user-create]: /cli/azure/ad/user#az-ad-user-create
 [az-ad-group-member-add]: /cli/azure/ad/group/member#az-ad-group-member-add
 [az-ad-group-show]: /cli/azure/ad/group#az-ad-group-show
-[rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-control-rbac
+[rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-control-kubernetes-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md

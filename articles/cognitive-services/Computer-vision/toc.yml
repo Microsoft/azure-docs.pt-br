@@ -9,88 +9,22 @@
       href: whats-new.md
 - name: Inícios rápidos
   items:
-    - name: Como usar a biblioteca de clientes
+    - name: Usar as bibliotecas de cliente ou a API REST
       href: quickstarts-sdk/client-library.md
-    - name: Usando a API REST
-      items:
-        - name: Analisar uma imagem remota
-          items:
-            - name: cURL
-              href: QuickStarts/curl-analyze.md
-            - name: Go
-              href: QuickStarts/go-analyze.md
-            - name: Java
-              href: QuickStarts/java-analyze.md
-            - name: JavaScript
-              href: QuickStarts/javascript-analyze.md
-            - name: Node.js
-              href: QuickStarts/node-analyze.md
-            - name: Python
-              href: QuickStarts/python-analyze.md
-        - name: Analisar uma imagem local
-          items:
-            - name: C#
-              href: QuickStarts/CSharp-analyze.md
-            - name: Python
-              href: QuickStarts/python-disk.md
-        - name: Gerar uma miniatura
-          items:
-            - name: C#
-              href: QuickStarts/CSharp-thumb.md
-            - name: cURL
-              href: QuickStarts/curl-thumb.md
-            - name: Go
-              href: QuickStarts/go-thumb.md
-            - name: Java
-              href: QuickStarts/java-thumb.md
-            - name: JavaScript
-              href: QuickStarts/javascript-thumb.md
-            - name: Node.js
-              href: QuickStarts/node-thumb.md
-            - name: Python
-              href: QuickStarts/python-thumb.md
-        - name: Extrair texto (API de leitura)
-          items:
-            - name: C#
-              href: QuickStarts/CSharp-hand-text.md
-            - name: Java
-              href: QuickStarts/java-hand-text.md
-            - name: JavaScript
-              href: QuickStarts/javascript-hand-text.md
-            - name: Python
-              href: QuickStarts/python-hand-text.md
-        - name: Extrair texto (API de OCR)
-          items:
-            - name: C#
-              href: QuickStarts/CSharp-print-text.md
-            - name: cURL
-              href: QuickStarts/curl-print-text.md
-            - name: Go
-              href: QuickStarts/go-print-text.md
-            - name: Java
-              href: QuickStarts/java-print-text.md
-            - name: JavaScript
-              href: QuickStarts/javascript-print-text.md
-            - name: Node.js
-              href: QuickStarts/node-print-text.md
-            - name: Python
-              href: QuickStarts/python-print-text.md
-        - name: Usar um modelo de domínio
-          items:
-            - name: Python
-              href: QuickStarts/python-domain.md
 - name: Tutoriais
   items:
     - name: Gerar metadados de imagens
       href: Tutorials/storage-lab-tutorial.md
 - name: Conceitos
   items:
-    - name: Marcas de conteúdo
-      href: concept-tagging-images.md
+    - name: OCR (reconhecimento óptico de caracteres)
+      href: concept-recognizing-text.md
     - name: Detecção de objetos
       href: concept-object-detection.md
     - name: Detecção de marca
       href: concept-brand-detection.md
+    - name: Marcas de conteúdo
+      href: concept-tagging-images.md
     - name: Categorização da imagem
       href: concept-categorizing-images.md
     - name: Descrições da imagem
@@ -105,30 +39,28 @@
       href: concept-detecting-color-schemes.md
     - name: Miniaturas com recorte inteligente
       href: concept-generating-thumbnails.md
-    - name: OCR (reconhecimento óptico de caracteres)
-      href: concept-recognizing-text.md
     - name: Detecção de conteúdo para adulto
       href: concept-detecting-adult-content.md
-- name: IA responsável
+- name: Uso responsável da IA
   items:
     - name: Análise Espacial
       items:
-        - name: Observação de transparência
+        - name: Observações de transparência
           items:
             - name: Introdução à análise espacial
-              href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview?context=/azure/cognitive-services/Computer-vision/context/context'
+              href: intro-to-spatial-analysis-public-preview.md
             - name: Características e limitações
-              href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/accuracy-and-limitations?context=/azure/cognitive-services/Computer-vision/context/context'
-        - name: Diretrizes de implantação
+              href: /legal/cognitive-services/computer-vision/accuracy-and-limitations?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+        - name: Integração e uso responsável
           items:
             - name: Uso responsável na implantação de IA
-              href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/responsible-use-deployment?context=/azure/cognitive-services/Computer-vision/context/context'
+              href: /legal/cognitive-services/computer-vision/responsible-use-deployment?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
             - name: Diretrizes de design de divulgação
-              href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/disclosure-design?context=/azure/cognitive-services/Computer-vision/context/context'
+              href: /legal/cognitive-services/computer-vision/disclosure-design?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
             - name: Insights de pesquisa
-              href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/research-insights?context=/azure/cognitive-services/Computer-vision/context/context'
-        - name: 'Conformidade, privacidade e segurança'
-          href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=/azure/cognitive-services/Computer-vision/context/context'
+              href: /legal/cognitive-services/computer-vision/research-insights?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+        - name: 'Dados, privacidade e segurança'
+          href: /legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
 - name: Contêineres
   items:
     - name: Ler o contêiner da API
@@ -145,7 +77,8 @@
           href: deploy-computer-vision-on-premises.md
           displayName: 'kubectl, docker, helm, kubernetes, K8s, tiller, container, image, on-prem, on-premises'
         - name: Usar instâncias de contêiner
-          href: deploy-computer-vision-on-container-instances.md
+          maintainContext: true
+          href: ../containers/azure-container-instance-recipe.md
           displayName: 'container instances, container, containers, images'
     - name: Contêiner de análise espacial
       items:
@@ -161,6 +94,8 @@
           href: spatial-analysis-zone-line-placement.md
         - name: Posicionamento da câmera
           href: spatial-analysis-camera-placement.md
+    - name: Documentação sobre contêineres dos Serviços Cognitivos
+      href: ../containers/index.yml
 - name: Guias de instruções
   items:
     - name: Chamar a API da Pesquisa Visual Computacional
@@ -170,15 +105,13 @@
 - name: Referência
   items:
     - name: CLI do Azure
-      href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
+      href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
     - name: Azure PowerShell
-      href: 'https://aka.ms/azure-powershell-cognitiveservices'
+      href: /powershell/module/azurerm.cognitiveservices/
     - name: Versão prévia da API da Pesquisa Visual Computacional v3.2
-      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005'
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005'
     - name: API da Pesquisa Visual Computacional v3.1
       href: 'https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005'
-    - name: API da Pesquisa Visual Computacional v3.0
-      href: 'https://aka.ms/computer-vision-v3-ref'
     - name: API da Pesquisa Visual Computacional v2.1
       href: 'https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641'
     - name: API da Pesquisa Visual Computacional v1.0
@@ -186,15 +119,15 @@
     - name: SDKs
       items:
         - name: .NET
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet'
+          href: /dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
         - name: Node.js
-          href: 'https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest'
+          href: /javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest
         - name: Python
-          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/computervision?view=azure-python'
+          href: /python/api/overview/azure/cognitiveservices/computervision?view=azure-python
         - name: Go
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision'
         - name: Java
-          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable'
+          href: /java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable
 - name: Recursos
   items:
     - name: Opções de Ajuda e suporte
@@ -204,7 +137,7 @@
         - name: Explorar um aplicativo de processamento de imagens
           href: Tutorials/CSharpTutorial.md
         - name: Outras amostras de Pesquisa Visual Computacional
-          href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision'
+          href: /samples/browse/?products=azure&terms=computer-vision
     - name: Perguntas frequentes
       href: FAQ.md
     - name: Taxonomia de categoria

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: a009cd7763b4a4dc0c502d4c47a20d6fdffe61d7
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 1b945ac9f656a227bcc3335cb0ec995626f98f77
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125434"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564167"
 ---
 # <a name="confidential-computing-nodes-on-azure-kubernetes-service-public-preview"></a>Nós de computação confidencial no Serviço de Kubernetes do Azure (visualização pública)
 
@@ -61,10 +61,10 @@ O AKS dá suporte a aplicativos programados para serem executados em nós confid
 
 [Exemplos de contêiner confidencial para início rápido](https://github.com/Azure-Samples/confidential-container-samples)
 
-[Lista de SKUs do DCsv2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series)
+[Lista de SKUs do DCsv2](../virtual-machines/dcv2-series.md)
 
 <!-- LINKS - external -->
-[Azure Attestation]: https://docs.microsoft.com/en-us/azure/attestation/
+[Azure Attestation]: ../attestation/index.yml
 
 
 <!-- LINKS - internal -->

@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
 ms.date: 06/03/2020
-ms.openlocfilehash: c5392c822c42c2e0ee3f6ce9edffc6229d572165
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c805bacbd4a2219fb79168ad6426efd8b0a390df
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782409"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324509"
 ---
 # <a name="machine-learning-services-in-azure-sql-managed-instance-preview"></a>Serviços de Machine Learning no SQL Instância Gerenciada do Azure (versão prévia)
 
@@ -54,7 +54,7 @@ Essa visualização pública limitada está sujeita aos [termos de visualizaçã
 
 Se estiver interessado em ingressar no programa de visualização e aceitar esses termos, você poderá solicitar o registro criando um tíquete de suporte do Azure em [**https://azure.microsoft.com/support/create-ticket/**](https://azure.microsoft.com/support/create-ticket/) . 
 
-1. Na página **criar um tíquete de suporte** , clique em **criar um incidente** .
+1. Na página **criar um tíquete de suporte** , clique em **criar um incidente**.
 
 1. Na página **ajuda + suporte** , clique em **nova solicitação de suporte** para criar um novo tíquete.
 
@@ -67,16 +67,16 @@ Se estiver interessado em ingressar no programa de visualização e aceitar esse
    - Tipo de problema- **serviços de Machine Learning para SQL instância gerenciada (versão prévia)**
    - Subtipo de problema- **outro problema ou perguntas "como"**
 
-1. Clique em **Avançar: soluções** .
+1. Clique em **Avançar: soluções**.
 
-1. Leia as informações sobre a visualização e clique em **Avançar: detalhes** .
+1. Leia as informações sobre a visualização e clique em **Avançar: detalhes**.
 
 1. Nessa página:
-   - Para a pergunta **você está tentando se inscrever na versão prévia?** , selecione **Sim** . 
-   - Para **Descrição** , insira as especificidades de sua solicitação, incluindo o nome do servidor lógico, a região e a ID da assinatura que você deseja registrar na visualização. Insira outros detalhes conforme apropriado.
+   - Para a pergunta **você está tentando se inscrever na versão prévia?**, selecione **Sim**. 
+   - Para **Descrição**, insira as especificidades de sua solicitação, incluindo o nome do servidor lógico, a região e a ID da assinatura que você deseja registrar na visualização. Insira outros detalhes conforme apropriado.
    - Selecione seu método de contato preferencial. 
 
-1. Quando tiver terminado, clique em **Avançar: revisar + criar** e, em seguida, clique em **criar** .
+1. Quando tiver terminado, clique em **Avançar: revisar + criar** e, em seguida, clique em **criar**.
 
 Após se inscrever no programa, a Microsoft integrará você à visualização pública e habilitará os Serviços do Machine Learning para seu banco de dados novo ou existente.
 
@@ -85,6 +85,6 @@ Não recomendamos os Serviços de Machine Learning na Instância Gerenciada de S
 ## <a name="next-steps"></a>Próximas etapas
 
 - Consulte as [principais diferenças de SQL Server serviços de Machine Learning](machine-learning-services-differences.md).
-- Para saber como usar o Python no Serviços de Machine Learning, consulte [executar scripts Python](/sql/machine-learning/tutorials/quickstart-python-create-script?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&view=sql-server-ver15).
-- Para saber como usar o R no Serviços de Machine Learning, consulte [executar scripts R](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&view=sql-server-ver15).
+- Para saber como usar o Python no Serviços de Machine Learning, consulte [executar scripts Python](/sql/machine-learning/tutorials/quickstart-python-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&view=sql-server-ver15).
+- Para saber como usar o R no Serviços de Machine Learning, consulte [executar scripts R](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&view=sql-server-ver15).
 - Para obter mais informações sobre o aprendizado de máquina em outras plataformas do SQL, consulte a [documentação do SQL Machine Learning](/sql/machine-learning/).

@@ -4,15 +4,15 @@ description: Saiba como configurar o Link Privado do Azure para acessar uma cont
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 12/16/2020
 ms.author: thweiss
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4ba4e5f462a3cc88de5b23b32a5e749f9363e93f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9a6db0d25165059581d7ffafa5b8e7fd19330c87
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081885"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629639"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configurar o Link Privado do Azure para uma conta do Azure Cosmos
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -32,13 +32,13 @@ Este artigo descreve as etapas para criar um ponto de extremidade privado. Ele p
 
 Use as seguintes etapas para criar um ponto de extremidade privado para uma conta existente do Azure Cosmos usando o portal do Azure:
 
-1. No painel **Todos os recursos** , escolha uma conta do Azure Cosmos.
+1. No painel **Todos os recursos**, escolha uma conta do Azure Cosmos.
 
-1. Selecione **Conexões de Ponto de Extremidade Privado** na lista de configurações e selecione **Ponto de extremidade privado** :
+1. Selecione **Conexões de Ponto de Extremidade Privado** na lista de configurações e selecione **Ponto de extremidade privado**:
 
    :::image type="content" source="./media/how-to-configure-private-endpoints/create-private-endpoint-portal.png" alt-text="Seleções para criar um ponto de extremidade privado no portal do Azure":::
 
-1. No painel **Criar um ponto de extremidade privado – Noções básicas** , insira ou selecione os seguintes detalhes:
+1. No painel **Criar um ponto de extremidade privado – Noções básicas**, insira ou selecione os seguintes detalhes:
 
     | Configuração | Valor |
     | ------- | ----- |
@@ -49,20 +49,20 @@ Use as seguintes etapas para criar um ponto de extremidade privado para uma cont
     | Nome | Insira qualquer nome para seu ponto de extremidade privado. Se esse nome já estiver sendo usado, crie um exclusivo. |
     |Região| Selecione a região em que você deseja implantar o Link Privado. Crie o ponto de extremidade privado no mesmo local em que sua rede virtual existe.|
     |||
-1. Selecione **Avançar: Recurso** .
-1. Em **Criar um ponto de extremidade privado – Recurso** , insira ou selecione estas informações:
+1. Selecione **Avançar: Recurso**.
+1. Em **Criar um ponto de extremidade privado – Recurso**, insira ou selecione estas informações:
 
     | Configuração | Valor |
     | ------- | ----- |
-    |Método de conexão  | Selecione **Conectar-se a um recurso do Azure em meu diretório** . <br/><br/> Em seguida, você pode escolher um de seus recursos para configurar o Link Privado. Ou você pode se conectar ao recurso de outra pessoa usando uma ID do recurso ou um alias que foi compartilhado com você.|
+    |Método de conexão  | Selecione **Conectar-se a um recurso do Azure em meu diretório**. <br/><br/> Em seguida, você pode escolher um de seus recursos para configurar o Link Privado. Ou você pode se conectar ao recurso de outra pessoa usando uma ID do recurso ou um alias que foi compartilhado com você.|
     | Subscription| Selecione sua assinatura. |
-    | Tipo de recurso | Selecione **Microsoft.AzureCosmosDB/databaseAccounts** . |
+    | Tipo de recurso | Selecione **Microsoft.AzureCosmosDB/databaseAccounts**. |
     | Recurso |Selecione sua conta do Azure Cosmos. |
     |Sub-recurso de destino |Selecione o tipo de API do Azure Cosmos DB que você deseja mapear. Ele assume como padrão apenas a única opção para as APIs do SQL, MongoDB e Cassandra. Para as APIs do Gremlin e de Tabela, você também pode escolher **Sql** porque essas APIs são interoperáveis com a API do SQL. |
     |||
 
-1. Selecione **Avançar: configuração** .
-1. Em **Criar um ponto de extremidade privado – configuração** , insira ou selecione estas informações:
+1. Selecione **Avançar: configuração**.
+1. Em **Criar um ponto de extremidade privado – configuração**, insira ou selecione estas informações:
 
     | Configuração | Valor |
     | ------- | ----- |
@@ -71,11 +71,11 @@ Use as seguintes etapas para criar um ponto de extremidade privado para uma cont
     | Sub-rede | Selecione sua sub-rede. |
     |**Integração de DNS privado**||
     |Integrar com a zona DNS privado |Selecione **Sim** na barra superior. <br><br/> Para se conectar em particular com o seu ponto de extremidade privado, você precisa de um registro DNS. Recomendamos que você integre seu ponto de extremidade privado a uma zona DNS privada. Você também pode usar seus próprios servidores DNS ou criar registros DNS usando os arquivos host em suas máquinas virtuais. |
-    |Zona DNS privado |Selecione **privatelink.documents.azure.com** . <br><br/> A zona DNS privada é determinada automaticamente. Você não pode alterá-la usando o portal do Azure.|
+    |Zona DNS privado |Selecione **privatelink.documents.azure.com**. <br><br/> A zona DNS privada é determinada automaticamente. Você não pode alterá-la usando o portal do Azure.|
     |||
 
-1. Selecione **Examinar + criar** . Na página **Examinar + criar** , o Azure valida sua configuração.
-1. Quando vir a mensagem **Validação aprovada** , selecione **Criar** .
+1. Selecione **Examinar + criar**. Na página **Examinar + criar**, o Azure valida sua configuração.
+1. Quando vir a mensagem **Validação aprovada**, selecione **Criar**.
 
 Quando você tiver aprovado o Link Privado para uma conta do Azure Cosmos, no portal do Azure, a opção **Todas as redes** no painel **Firewall e redes virtuais** não ficará disponível.
 
@@ -95,11 +95,11 @@ A tabela a seguir mostra o mapeamento entre os diferentes tipos de API de conta 
 
 Depois que o ponto de extremidade privado for provisionado, você poderá consultar os endereços IP. Para exibir os endereços IP no portal do Azure:
 
-1. Selecione **Todos os recursos** .
-1. Pesquise o ponto de extremidade privado que você criou anteriormente. Nesse caso, é **cdbPrivateEndpoint3** .
+1. Selecione **Todos os recursos**.
+1. Pesquise o ponto de extremidade privado que você criou anteriormente. Nesse caso, é **cdbPrivateEndpoint3**.
 1. Selecione a guia **Visão Geral** para ver as configurações de DNS e os endereços IP.
 
-:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Seleções para criar um ponto de extremidade privado no portal do Azure":::
+:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Endereços IP privados no portal do Azure":::
 
 Vários endereços IP são criados por ponto de extremidade privado:
 
@@ -412,7 +412,7 @@ Para essas contas, você deve criar um ponto de extremidade privado para cada ti
 
 Depois que o modelo for implantado com êxito, você poderá ver uma saída semelhante à que a imagem a seguir mostra. O valor `provisioningState` será `Succeeded` se os pontos de extremidade privados estiverem configurados corretamente.
 
-:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Seleções para criar um ponto de extremidade privado no portal do Azure":::
+:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Saída de implantação para o modelo do Resource Manager":::
 
 Depois que o modelo é implantado, os endereços IP privados são reservados na sub-rede. A regra de firewall da conta do Azure Cosmos é configurada para aceitar conexões apenas do ponto de extremidade privado.
 
@@ -616,6 +616,9 @@ foreach ($ipconfig in $networkInterface.properties.ipConfigurations) {
 Você deve usar a zona DNS privada dentro da sub-rede em que você criou o ponto de extremidade privado. Configure os pontos de extremidade para que cada endereço IP privado seja mapeado para uma entrada DNS. (Confira a propriedade `fqdns` na resposta mostrada anteriormente.)
 
 Ao criar o ponto de extremidade privado, você pode integrá-lo a uma zona DNS privada no Azure. Se você optar por usar uma zona DNS personalizada, precisará configurá-la para adicionar registros DNS para todos os endereços IP privados reservados para o ponto de extremidade privado.
+
+> [!IMPORTANT]
+> É a resolução DNS de suas solicitações que determina se essas solicitações passam por seus pontos de extremidade privados ou assumem a rota pública padrão. Verifique se o DNS local referencia corretamente o IP privado endereçado mapeado pelo seu ponto de extremidade privado.
 
 ## <a name="private-link-combined-with-firewall-rules"></a>Link Privado combinado com regras de firewall
 

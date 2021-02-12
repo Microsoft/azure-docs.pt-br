@@ -1,19 +1,19 @@
 ---
 title: Garantir a continuidade dos negócios & recuperação de desastre usando regiões emparelhadas do Azure
 description: Garantir a resiliência do aplicativo usando o emparelhamento regional do Azure
-author: barbkess
-manager: barbkess
+author: martinekuan
+manager: martinekuan
 ms.service: multiple
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.author: barbkess
+ms.author: martinek
 ms.custom: references_regions
-ms.openlocfilehash: b720d9dd824018d885ccc9860ee9fd8a90a46051
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3310d4a7d86db9dee7d5f71fc9410545817886f3
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84194327"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511222"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidade dos negócios e recuperação de desastres (BCDR): Regiões Emparelhadas do Azure
 
@@ -43,7 +43,7 @@ Não. Embora um determinado serviço do Azure possa depender de um par regional,
 
 ## <a name="must-i-use-azure-regional-pairs"></a>É necessário usar pares regionais do Azure?
 
-Não. Os clientes podem aproveitar os serviços do Azure para arquitetar um serviço resiliente sem depender dos pares regionais do Azure.  No entanto, recomendamos que você configure a BCDR (recuperação de desastre de continuidade de negócios) em pares regionais para se beneficiar do [isolamento](./security/fundamentals/isolation-choices.md) e melhorar a [disponibilidade](./availability-zones/az-overview.md). Para aplicativos compatíveis com várias regiões ativas, é recomendável usar ambas as regiões em um par de regiões, sempre que possível. Isso garante a disponibilidade ideal para aplicativos e o tempo de recuperação minimizado em caso de desastre. Sempre que possível, projete seu aplicativo para obter [máxima resiliência](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview) e facilidade de [recuperação de desastres](https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery).
+Não. Os clientes podem aproveitar os serviços do Azure para arquitetar um serviço resiliente sem depender dos pares regionais do Azure.  No entanto, recomendamos que você configure a BCDR (recuperação de desastre de continuidade de negócios) em pares regionais para se beneficiar do [isolamento](./security/fundamentals/isolation-choices.md) e melhorar a [disponibilidade](./availability-zones/az-overview.md). Para aplicativos compatíveis com várias regiões ativas, é recomendável usar ambas as regiões em um par de regiões, sempre que possível. Isso garante a disponibilidade ideal para aplicativos e o tempo de recuperação minimizado em caso de desastre. Sempre que possível, projete seu aplicativo para obter [máxima resiliência](/azure/architecture/framework/resiliency/overview) e facilidade de [recuperação de desastres](/azure/architecture/framework/resiliency/backup-and-recovery).
 
 ## <a name="azure-regional-pairs"></a>Pares regionais do Azure
 
@@ -56,7 +56,7 @@ Não. Os clientes podem aproveitar os serviços do Azure para arquitetar um serv
 | Canada |Canadá Central |Leste do Canadá |
 | China |Norte da China |Leste da China|
 | China |Norte da China 2 |Leste da China 2|
-| Europa |Europa Setentrional (Irlanda) |Europa Ocidental (Países Baixos) |
+| Europa |Norte da Europa (Irlanda) |Oeste da Europa (Países Baixos) |
 | França |França Central|Sul da França|
 | Alemanha |Alemanha Central |Nordeste da Alemanha |
 | Índia |Índia Central |Sul da Índia |
@@ -94,9 +94,9 @@ Como mencionado na Figura 2.
 
 1. **Computação do Azure (IaaS)** – você deve provisionar recursos de computação adicionais com antecedência para garantir que os recursos estejam disponíveis em outra região durante um desastre. Para saber mais, confira as [Orientação técnica de resiliência do Azure](https://github.com/uglide/azure-content/blob/master/articles/resiliency/resiliency-technical-guidance.md). 
 
-2. **Armazenamento do Azure** – se você estiver usando discos gerenciados, saiba mais sobre [backups entre regiões](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) com o backup do Azure e [replicando VMs](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) de uma região para outra com Azure site Recovery. Se você estiver usando contas de armazenamento, o armazenamento com redundância geográfica (GRS) será configurado por padrão quando uma conta de armazenamento do Azure for criada. Com o GRS, seus dados são replicados automaticamente três vezes na região primária e três vezes na região emparelhada. Para saber mais, consulte [Opções de redundância do Armazenamento do Azure](storage/common/storage-redundancy.md).
+2. **Armazenamento do Azure** – se você estiver usando discos gerenciados, saiba mais sobre [backups entre regiões](/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) com o backup do Azure e [replicando VMs](./site-recovery/azure-to-azure-tutorial-enable-replication.md) de uma região para outra com Azure site Recovery. Se você estiver usando contas de armazenamento, o armazenamento com redundância geográfica (GRS) será configurado por padrão quando uma conta de armazenamento do Azure for criada. Com o GRS, seus dados são replicados automaticamente três vezes na região primária e três vezes na região emparelhada. Para saber mais, consulte [Opções de redundância do Armazenamento do Azure](storage/common/storage-redundancy.md).
 
-3. **Banco de dados SQL do Azure** – com a replicação geográfica do banco de dados SQL do Azure, você pode configurar a replicação assíncrona de transações para qualquer região do mundo; no entanto, recomendamos que você implante esses recursos em uma região emparelhada para a maioria dos cenários de recuperação de desastres. Para saber mais, confira [Replicação geográfica no Banco de Dados SQL do Azure](sql-database/sql-database-geo-replication-overview.md).
+3. **Banco de dados SQL do Azure** – com a replicação geográfica do banco de dados SQL do Azure, você pode configurar a replicação assíncrona de transações para qualquer região do mundo; no entanto, recomendamos que você implante esses recursos em uma região emparelhada para a maioria dos cenários de recuperação de desastres. Para saber mais, confira [Replicação geográfica no Banco de Dados SQL do Azure](./azure-sql/database/auto-failover-group-overview.md).
 
 4. **Azure Resource Manager** – O Resource Manager fornece de maneira inerente isolamento lógico dos componentes entre as regiões. Isso significa que falhas lógicas em uma região são apresentam menor probabilidade de afetar as outras.
 

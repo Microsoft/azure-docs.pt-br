@@ -3,16 +3,15 @@ title: Usar o pacote NuGet do Azure Stream Analytics CI/CD
 description: Este artigo descreve como usar Azure Stream Analytics pacote NuGet CI/CD para configurar um processo de implantação e integração contínua.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/15/2019
-ms.openlocfilehash: c05db2d9ba184da89665a236994c851355cc2644
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 0b4356c74b2e0c1494456d5d1082efd7b8953a15
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127426"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693368"
 ---
 # <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Usar o pacote NuGet Azure Stream Analytics CI/CD para integração e desenvolvimento 
 Este artigo descreve como usar o pacote NuGet Azure Stream Analytics CI/CD para configurar um processo de implantação e integração contínua.
@@ -26,13 +25,13 @@ Um pacote NuGet também está disponível: [Microsoft.Azure.Stream Analytics.CIC
 Para obter mais informações, veja [Ferramentas do Stream Analytics para Visual Studio](./stream-analytics-quick-create-vs.md).
 
 ## <a name="msbuild"></a>MSBuild
-Assim como na experiência padrão do MSBuild do Visual Studio, há duas opções para compilar um projeto. Você pode clicar com o botão direito do mouse no projeto e, em seguida, escolher **Compilar** . Você também pode usar o **MSBuild** no pacote NuGet da linha de comando.
+Assim como na experiência padrão do MSBuild do Visual Studio, há duas opções para compilar um projeto. Você pode clicar com o botão direito do mouse no projeto e, em seguida, escolher **Compilar**. Você também pode usar o **MSBuild** no pacote NuGet da linha de comando.
 ```
 ./build/msbuild /t:build [Your Project Full Path] /p:CompilerTaskAssemblyFile=Microsoft.WindowsAzure.StreamAnalytics.Common.CompileService.dll  /p:ASATargetsFilePath="[NuGet Package Local Path]\build\StreamAnalytics.targets"
 
 ```
 
-Após o build bem-sucedido de um projeto do Stream Analytics para Visual Studio, ele gera os dois arquivos de modelo do Azure Resource Manager a seguir na pasta **bin/[Depuração/Versão Comercial]/Deploy** : 
+Após o build bem-sucedido de um projeto do Stream Analytics para Visual Studio, ele gera os dois arquivos de modelo do Azure Resource Manager a seguir na pasta **bin/[Depuração/Versão Comercial]/Deploy**: 
 
 * Arquivo de modelo do Resource Manager
 
@@ -52,7 +51,7 @@ Os parâmetros padrão no arquivo parameters.json das configurações em seu pro
       "value": null
     },
 ```
-Saiba mais sobre como [implantar com um arquivo de modelo do Resource Manager e o Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md). Saiba mais sobre como [usar um objeto como um parâmetro em um modelo do Resource Manager](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
+Saiba mais sobre como [implantar com um arquivo de modelo do Resource Manager e o Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md). Saiba mais sobre como [usar um objeto como um parâmetro em um modelo do Resource Manager](/azure/architecture/guide/azure-resource-manager/advanced-templates/objects-as-parameters).
 
 Para usar a Identidade Gerenciada para o Azure Data Lake Storage Gen1 como coletor de saída, você precisará fornecer Acesso à entidade de serviço usando o PowerShell antes da implantação no Azure. Saiba mais sobre como [implantar o ADLS Gen1 com a Identidade Gerenciada e o modelo do Resource Manager](stream-analytics-managed-identities-adls.md#resource-manager-template-deployment).
 
@@ -60,7 +59,7 @@ Para usar a Identidade Gerenciada para o Azure Data Lake Storage Gen1 como colet
 ## <a name="command-line-tool"></a>Ferramenta de linha de comando
 
 ### <a name="build-the-project"></a>Compilar o projeto
-O pacote NuGet tem uma ferramenta de linha de comando chamada **SA.exe** . Ela dá suporte ao build do projeto e a teste local em um computador aleatório, que você pode usar em seu processo de integração contínua e de entrega contínua. 
+O pacote NuGet tem uma ferramenta de linha de comando chamada **SA.exe**. Ela dá suporte ao build do projeto e a teste local em um computador aleatório, que você pode usar em seu processo de integração contínua e de entrega contínua. 
 
 Por padrão, os arquivos de implantação são colocados no diretório atual. Você pode especificar o caminho de saída usando o parâmetro -OutputPath a seguir:
 
@@ -70,7 +69,7 @@ Por padrão, os arquivos de implantação são colocados no diretório atual. Vo
 
 ### <a name="test-the-script-locally"></a>Testar o script localmente
 
-Se o projeto tiver especificado arquivos de entrada locais no Visual Studio, você poderá executar o teste de script automatizado usando o comando *localrun* . O resultado da saída é colocado no diretório atual.
+Se o projeto tiver especificado arquivos de entrada locais no Visual Studio, você poderá executar o teste de script automatizado usando o comando *localrun*. O resultado da saída é colocado no diretório atual.
  
 ```
 localrun -Project [ProjectFullPath]

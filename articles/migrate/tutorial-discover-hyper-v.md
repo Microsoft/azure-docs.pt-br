@@ -1,15 +1,18 @@
 ---
 title: Descobrir VMs do Hyper-V usando a Avaliação de Servidor das Migrações para Azure
 description: Saiba como descobrir VMs do Hyper-V locais com a ferramenta de Avaliação de Servidor das Migrações para Azure.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 0643a13a07572dc24ef895062593e00188a0752f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 8b46d08da87565d133962c23e8281b221544d9ca
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317161"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092510"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>Tutorial: descobrir VMs do Hyper-V com a Avaliação de Servidor
 
@@ -39,16 +42,14 @@ Antes de iniciar este tutorial, verifique se estes pré-requisitos estão em vig
 **Requisito** | **Detalhes**
 --- | ---
 **Host do Hyper-V** | Os hosts do Hyper-V nos quais as VMs estão localizadas podem ser autônomos ou estar em um cluster.<br/><br/> O host deve executar Windows Server 2019, Windows Server 2016 ou Windows Server 2012 R2.<br/><br/> Verifique se as conexões de entrada são permitidas na porta 5985 do WinRM (HTTP), para que o dispositivo possa se conectar a fim de extrair os metadados da VM e os dados de desempenho usando uma sessão do modelo CIM.
-**Implantação do dispositivo** | O host do Hyper-v precisa de recursos para alocar uma VM no dispositivo:<br/><br/> - Windows Server 2016<br/><br/> – 16 GB de RAM<br/><br/> – Oito vCPUs<br/><br/> – Cerca de 80 GB de armazenamento em disco.<br/><br/> – Um comutador virtual externo.<br/><br/> – Acesso à Internet para a VM, diretamente ou por meio de um proxy.
+**Implantação do dispositivo** | O host do Hyper-V precisa de recursos a fim de alocar uma VM para o dispositivo:<br/><br/> – 16 GB de RAM, 8 vCPUs e cerca de 80 GB de armazenamento em disco.<br/><br/> – Um comutador virtual externo e acesso à Internet na VM do dispositivo, diretamente ou por um proxy.
 **VMs** | As VMs podem executar qualquer sistema operacional Windows ou Linux. 
-
-Antes de iniciar, [examine os dados](migrate-appliance.md#collected-data---hyper-v) que o dispositivo coleta durante a descoberta.
 
 ## <a name="prepare-an-azure-user-account"></a>Preparar uma conta de usuário do Azure
 
 Para criar um projeto das Migrações para Azure e registrar o dispositivo de Migrações para Azure, você precisa de uma conta com:
 - Permissões de Colaborador ou Proprietário em uma assinatura do Azure.
-- Permissões para registrar aplicativos do Azure Active Directory.
+- Permissões para registrar aplicativos do AAD (Azure Active Directory).
 
 Se você acaba de criar uma conta gratuita do Azure, você é o proprietário da assinatura. Se você não for o proprietário da assinatura, trabalhe com o proprietário para atribuir as permissões da seguinte maneira:
 
@@ -68,20 +69,51 @@ Se você acaba de criar uma conta gratuita do Azure, você é o proprietário da
 
     ![Abre a página Adicionar atribuição de função para atribuir uma função à conta](./media/tutorial-discover-hyper-v/assign-role.png)
 
-7. No portal, pesquise por usuários e, em **Serviços**, selecione **Usuários**.
-8. Em **Configurações de usuário**, verifique se os usuários do Azure AD podem registrar aplicativos (definido como **Sim** por padrão).
+1. Para registrar o dispositivo, sua conta do Azure precisa ter **permissões para registrar aplicativos do AAD.**
+1. No portal do Azure, acesse **Azure Active Directory** > **Usuários** > **Configurações de Usuário**.
+1. Em **Configurações de usuário**, verifique se os usuários do Azure AD podem registrar aplicativos (definido como **Sim** por padrão).
 
     ![Verificar nas Configurações de Usuário se os usuários podem registrar aplicativos do Active Directory](./media/tutorial-discover-hyper-v/register-apps.png)
 
-9. Como alternativa, o locatário/administrador global pode atribuir a função de **Desenvolvedor de Aplicativos** a uma conta para permitir o registro de Aplicativos do AAD. [Saiba mais](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+9. Caso as configurações de 'Registros de aplicativo' estejam definidas como 'Não', solicite ao administrador global/de locatários a atribuição da permissão necessária. Como alternativa, o administrador global/de locatários pode atribuir a função **Desenvolvedor de aplicativos** a uma conta para permitir o registro do Aplicativo do AAD. [Saiba mais](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="prepare-hyper-v-hosts"></a>Prepare os hosts do Hyper-V
 
-Configure uma conta com acesso de Administrador nos hosts do Hyper-V. O dispositivo usa essa conta para descoberta.
+Você pode preparar os hosts do Hyper-V manualmente ou usando um script. As etapas de preparação são resumidas na tabela. O script os prepara automaticamente.
 
-- Opção 1: prepare uma conta com acesso de Administrador no computador host do Hyper-V.
-- Opção 2: prepare uma conta de Administrador Local ou de Administrador de Domínio e adicione-a a estes grupos: Usuários de Gerenciamento Remoto, Administradores do Hyper-V e Usuários do Monitor de Desempenho.
+**Step** | **Script** | **Manual**
+--- | --- | ---
+Verificar os requisitos do host | Verifica se o host está executando uma versão compatível do Hyper-V e a função do Hyper-V.<br/><br/>Habilita o serviço WinRM e abre as portas 5985 (HTTP) e 5986 (HTTPS) no host (necessárias para a coleta de metadados). | O host deve executar Windows Server 2019, Windows Server 2016 ou Windows Server 2012 R2.<br/><br/> Verifique se as conexões de entrada são permitidas na porta 5985 do WinRM (HTTP), para que o dispositivo possa se conectar a fim de extrair os metadados da VM e os dados de desempenho usando uma sessão do modelo CIM.<br/><br/> No momento, não há suporte para o script em hosts com uma localidade com idioma diferente do inglês.  
+Verificar a versão do PowerShell | Verifica se você está executando o script em uma versão do PowerShell compatível. | Verifique se você está executando o PowerShell versão 4.0 ou posterior no host Hyper-V.
+Criar uma conta | Verifica se você tem as permissões corretas no host do Hyper-V.<br/><br/> Permite que você crie uma conta de usuário local com as permissões corretas. | Opção 1: prepare uma conta com acesso de Administrador no computador host do Hyper-V.<br/><br/> Opção 2: prepare uma conta de Administrador Local ou de Administrador de Domínio e adicione-a a estes grupos: Usuários de Gerenciamento Remoto, Administradores do Hyper-V e Usuários do Monitor de Desempenho.
+Habilitar a Comunicação Remota do PowerShell | Habilitar a comunicação remota do PowerShell no host para que o dispositivo de Migrações para Azure possa executar comandos do PowerShell no host, em uma conexão do WinRM. | Para a configuração, em cada host, abra um console do PowerShell como administrador e execute este comando: ``` powershell Enable-PSRemoting -force ```
+Configurar os serviços de integração do Hyper-V | Verifica se os Integration Services do Hyper-V estão habilitados em todas as VMs gerenciadas pelo host. | [Habilite os Serviços de Integração do Hyper-V](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) em cada VM.<br/><br/> Se você estiver executando o Windows Server 2003, [siga estas instruções](prepare-windows-server-2003-migration.md).
+Delegar credenciais se os discos de VM estiverem em compartilhamentos SMB remotos | Delega credenciais | Execute este comando para permitir que o CredSSP delegue credenciais em hosts que executam VMs do Hyper-V com discos em compartilhamentos SMB: ```powershell Enable-WSManCredSSP -Role Server -Force ```<br/><br/> Você pode executar esse comando remotamente em todos os hosts do Hyper-V.<br/><br/> Se você adicionar novos nós de host em um cluster, eles serão adicionados automaticamente para descoberta, mas você precisará habilitar o CredSSP manualmente.<br/><br/> Ao configurar o dispositivo, você conclui a configuração do CredSSP [habilitando-o no dispositivo](#delegate-credentials-for-smb-vhds). 
 
+### <a name="run-the-script"></a>Executar o script
+
+1. Baixe o script do [Centro de Download da Microsoft](https://aka.ms/migrate/script/hyperv). O script é assinado criptograficamente pela Microsoft.
+2. Valide a integridade do script usando arquivos de hash MD5 ou SHA256. Os valores de hashtag são indicados abaixo. Execute o seguinte comando para gerar o hash para o script:
+
+    ```powershell
+    C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]
+    ```
+    Exemplo de uso:
+
+    ```powershell
+    C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1 SHA256
+    ```
+3. Depois de validar a integridade do script, execute o script em cada host Hyper-V com este comando do PowerShell:
+
+    ```powershell
+    PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
+    ```
+Os valores de hash são:
+
+**Hash** |  **Valor**
+--- | ---
+MD5 | 0ef418f31915d01f896ac42a80dc414e
+SHA256 | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2
 
 ## <a name="set-up-a-project"></a>Configurar um projeto
 
@@ -96,26 +128,28 @@ Configure um novo projeto das Migrações para Azure.
    ![Caixas para nome e região do projeto](./media/tutorial-discover-hyper-v/new-project.png)
 
 7. Selecione **Criar**.
-8. Aguarde alguns minutos até que o projeto das Migrações para Azure seja implantado.
-
-A ferramenta **Migrações para Azure: Avaliação de Servidor** é adicionada por padrão ao novo projeto.
+8. Aguarde alguns minutos até que o projeto das Migrações para Azure seja implantado. A ferramenta **Migrações para Azure: Avaliação de Servidor** é adicionada por padrão ao novo projeto.
 
 ![Página mostrando a ferramenta de Avaliação de Servidor adicionada por padrão](./media/tutorial-discover-hyper-v/added-tool.png)
 
+> [!NOTE]
+> Se você já tiver criado um projeto, use o mesmo projeto para registrar dispositivos adicionais a fim de descobrir e avaliar um número maior de VMs.[Saiba mais](create-manage-projects.md#find-a-project)
 
 ## <a name="set-up-the-appliance"></a>Configurar o dispositivo
 
+Migrações para Azure: Avaliação de Servidor usa um dispositivo leve de Migrações para Azure. O dispositivo executa a descoberta de VMs e envia os metadados de configuração e desempenho das VMs às Migrações para Azure. Ele pode ser configurado pela implantação de um arquivo VHD que pode ser baixado do projeto de Migrações para Azure.
+
+> [!NOTE]
+> Se, por alguma razão, você não conseguir configurar o dispositivo usando o modelo, configure-o usando um script do PowerShell em um servidor Windows Server 2016 existente. [Saiba mais](deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).
+
 Este tutorial configura o dispositivo em uma VM do Hyper-V, da seguinte maneira:
 
-- Forneça um nome de dispositivo e gere uma chave de projeto das Migrações para Azure no portal.
-- Baixe um VHD compactado do Hyper-V no portal do Azure.
-- Crie o dispositivo e verifique se ele pode se conectar à Avaliação de Servidor das Migrações para Azure.
-- Configure o dispositivo pela primeira vez e registre-o no projeto das Migrações para Azure usando a chave de projeto das Migrações para Azure.
-> [!NOTE]
-> Se, por alguma razão, você não puder configurar o dispositivo usando um modelo, poderá configurá-lo usando um script do PowerShell. [Saiba mais](deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).
+1. Forneça um nome de dispositivo e gere uma chave de projeto das Migrações para Azure no portal.
+1. Baixe um VHD compactado do Hyper-V no portal do Azure.
+1. Crie o dispositivo e verifique se ele pode se conectar à Avaliação de Servidor das Migrações para Azure.
+1. Configure o dispositivo pela primeira vez e registre-o no projeto das Migrações para Azure usando a chave de projeto das Migrações para Azure.
 
-
-### <a name="generate-the-azure-migrate-project-key"></a>Gerar a chave do projeto das Migrações para Azure
+### <a name="1-generate-the-azure-migrate-project-key"></a>1. Gerar a chave do projeto das Migrações para Azure
 
 1. Em **Metas de Migração** > **Servidores** > **Migrações para Azure: Avaliação de Servidor**, selecione **Descobrir**.
 2. Em **Descobrir computadores** > **Os computadores estão virtualizados?** , selecione **Sim, com o Hyper-V**.
@@ -124,10 +158,9 @@ Este tutorial configura o dispositivo em uma VM do Hyper-V, da seguinte maneira:
 1. Após a criação bem-sucedida dos recursos do Azure, uma **chave de projeto das Migrações para Azure** é gerada.
 1. Copie a chave, pois você precisará dela para concluir o registro do dispositivo durante a configuração dele.
 
-### <a name="download-the-vhd"></a>Baixar o VHD
+### <a name="2-download-the-vhd"></a>2. Baixar o VHD
 
-Em **2: Baixar o dispositivo das Migrações para Azure**, selecione o arquivo .VHD e clique em **Baixar**. 
-
+Em **2: Baixar o dispositivo das Migrações para Azure**, selecione o arquivo .VHD e clique em **Baixar**.
 
 ### <a name="verify-security"></a>Verificar a segurança
 
@@ -149,11 +182,11 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
 
     - Para o Azure Government:
 
-        **Cenário*** | **Download** | **SHA256**
+        **Cenário** _ | _ *Download** | **SHA256**
         --- | --- | ---
         Hyper-V (85,8 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140424) |  cfed44bb52c9ab3024a628dc7a5d0df8c624f156ec1ecc3507116bae330b257f
 
-### <a name="create-the-appliance-vm"></a>Criar a VM do dispositivo
+### <a name="3-create-the-appliance-vm"></a>3. Criar a VM do dispositivo
 
 Importe o arquivo baixado e crie a VM.
 
@@ -174,7 +207,7 @@ Importe o arquivo baixado e crie a VM.
 
 Verifique se a VM do dispositivo pode se conectar às URLs do Azure para as nuvens [pública](migrate-appliance.md#public-cloud-urls) e [governamental](migrate-appliance.md#government-cloud-urls).
 
-### <a name="configure-the-appliance"></a>Configurar o dispositivo
+### <a name="4-configure-the-appliance"></a>4. Configurar o dispositivo
 
 Configure o dispositivo pela primeira vez.
 
@@ -199,15 +232,18 @@ Configure o dispositivo pela primeira vez.
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registrar o dispositivo nas Migrações para Azure
 
 1. Cole a **chave do projeto das Migrações para Azure** copiada do portal. Se você não tiver a chave, acesse **Avaliação do Servidor> Descobrir> Gerenciar dispositivos existentes**, selecione o nome do dispositivo fornecido no momento da geração da chave e copie a chave correspondente.
-1. Clique em **Fazer logon**. Será aberto um prompt de logon do Azure em uma nova guia do navegador. Se essa opção não for exibida, verifique se você desabilitou o bloqueador de pop-ups no navegador.
-1. Na nova guia, entre usando seu nome de usuário e senha do Azure.
+1. Será necessário um código do dispositivo para a autenticação com o Azure. Clicar em **Logon** abrirá uma janela restrita com o código do dispositivo, conforme mostrado abaixo.
+
+    ![Janela restrita mostrando o código do dispositivo](./media/tutorial-discover-vmware/device-code.png)
+
+1. Clique em **Copiar código e Fazer logon** para copiar o código do dispositivo e abrir um prompt de logon do Azure em uma nova guia do navegador. Se essa opção não for exibida, verifique se você desabilitou o bloqueador de pop-ups no navegador.
+1. Na nova guia, cole o código do dispositivo e entre usando seu nome de usuário e sua senha do Azure.
    
    Não há suporte para a entrada com um PIN.
-3. Depois de fazer logon com êxito, volte para o aplicativo Web. 
+3. Caso feche a guia de logon por engano sem fazer logon, você precisará atualizar a guia do navegador do gerenciador de configuração do dispositivo para habilitar novamente o botão Logon.
+1. Depois de fazer logon com êxito, volte para a guia anterior usando o gerenciador de configuração do dispositivo.
 4. Se a conta de usuário do Azure usada para o registro em log tiver as permissões corretas nos recursos do Azure criados durante a geração de chave, o registro do dispositivo será iniciado.
 1. Depois que o dispositivo for registrado com êxito, você poderá ver os detalhes do registro clicando em **Exibir detalhes**.
-
-
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>Delegar credenciais para VHDs de SMB
 

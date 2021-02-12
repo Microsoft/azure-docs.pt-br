@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: 97fdf55032e92585d723b54e21079098cdc19636
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 75226f92995794221635ced7ee0e285ac824b6e2
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735920"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696856"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Criar um balanceador de carga público com IPv6 usando a CLI do Azure
 
@@ -48,17 +48,17 @@ As etapas a seguir mostram como criar um balanceador de carga público usando a 
 
 Para implantar um balanceador de carga, crie e configure os seguintes objetos:
 
-* **Configuração de IP de front-end** : contém endereços IP públicos para o tráfego de rede de entrada.
-* **Pool de endereços de back-end** : contém NICs (interfaces de rede) para que as máquinas virtuais recebam o tráfego de rede do balanceador de carga.
-* **Regras de balanceamento de carga** : contém regras que mapeiam uma porta pública no balanceador de carga para uma porta no pool de endereços de back-end.
-* **Regras NAT de entrada** : contém regras de NAT (tradução de endereço de rede) que mapeiam uma porta pública no balanceador de carga para uma porta de uma máquina virtual específica no pool de endereços de back-end.
-* **Investigações** : contém investigações de integridade usadas para verificar a disponibilidade de instâncias de máquinas virtuais no pool de endereços de back-end.
+* **Configuração de IP de front-end**: contém endereços IP públicos para o tráfego de rede de entrada.
+* **Pool de endereços de back-end**: contém NICs (interfaces de rede) para que as máquinas virtuais recebam o tráfego de rede do balanceador de carga.
+* **Regras de balanceamento de carga**: contém regras que mapeiam uma porta pública no balanceador de carga para uma porta no pool de endereços de back-end.
+* **Regras NAT de entrada**: contém regras de NAT (tradução de endereço de rede) que mapeiam uma porta pública no balanceador de carga para uma porta de uma máquina virtual específica no pool de endereços de back-end.
+* **Investigações**: contém investigações de integridade usadas para verificar a disponibilidade de instâncias de máquinas virtuais no pool de endereços de back-end.
 
 ## <a name="set-up-azure-cli"></a>Configurar a CLI do Azure
 
 Neste exemplo, você executa as ferramentas da CLI do Azure em uma janela de comando do PowerShell. Para melhorar a legibilidade e a reutilização, use os recursos de script do PowerShell, não os cmdlets do Azure PowerShell.
 
-1. [Instale e configure a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) seguindo as etapas do artigo relacionado e entre em sua conta do Azure.
+1. [Instale e configure a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) seguindo as etapas do artigo relacionado e entre em sua conta do Azure.
 
 2. Configure variáveis do PowerShell para uso com os comandos da CLI do Azure:
 
@@ -122,7 +122,7 @@ Neste exemplo, você executa as ferramentas da CLI do Azure em uma janela de com
     > [!IMPORTANT]
     > O balanceador de carga usa o rótulo de domínio do IP público como FQDN (nome de domínio totalmente qualificado). Isso é uma mudança da implantação clássica, que usa o nome do serviço de nuvem como o FQDN do balanceador de carga.
     >
-    > Neste exemplo, o FQDN é *contoso09152016.southcentralus.cloudapp.azure.com* .
+    > Neste exemplo, o FQDN é *contoso09152016.southcentralus.cloudapp.azure.com*.
 
 ## <a name="create-front-end-and-back-end-pools"></a>Criar pools de front-end e back-end
 
@@ -284,7 +284,7 @@ Para criar VMs, você deve ter uma conta de armazenamento. Para o balanceamento 
     ```
 
     > [!WARNING]
-    > Este exemplo usa o nome de usuário e a senha para as VMs em texto sem formatação. Tome cuidado apropriado ao usar essas credenciais em texto não criptografado. Para obter um método mais seguro de tratamento de credenciais no PowerShell, consulte o [`Get-Credential`](https://technet.microsoft.com/library/hh849815.aspx) cmdlet.
+    > Este exemplo usa o nome de usuário e a senha para as VMs em texto sem formatação. Tome cuidado apropriado ao usar essas credenciais em texto não criptografado. Para obter um método mais seguro de tratamento de credenciais no PowerShell, consulte o [`Get-Credential`](/powershell/module/microsoft.powershell.security/get-credential) cmdlet.
 
 2. Criar o conjunto de disponibilidade:
 
@@ -299,5 +299,3 @@ Para criar VMs, você deve ter uma conta de armazenamento. Para o balanceamento 
 
     az vm create --resource-group $rgname --name $vm2Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic2Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
     ```
-
-

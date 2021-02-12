@@ -6,14 +6,15 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 01/27/2021
 ms.author: banders
-ms.openlocfilehash: 140fc450623f0dcb6c7cf1bf08a8cfc43b094763
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 7aa57fa20c3a043cdb210ccd8a5ddbf61323716d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371891"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943688"
 ---
 # <a name="azure-enterprise-transfers"></a>Transferências do Azure Enterprise
 
@@ -54,22 +55,22 @@ Uma transferência de registro é considerada quando:
 - Um registro está no status expirado/estendido e um novo contrato é negociado.
 - Você tem vários registros e deseja combinar todas as contas e a cobrança em um só registro.
 
-Esta seção destina-se apenas a fins informativos, pois a ação não pode ser executada por um administrador corporativo. Uma solicitação de suporte é necessária para transferir um Registro Enterprise para um novo.
+Esta seção destina-se apenas a fins informativos, pois a ação não pode ser executada por um administrador corporativo. Uma solicitação de suporte é necessária para transferir um Registro Enterprise para um novo, a menos que o registro seja qualificado para a [transferência de registro automática](#auto-enrollment-transfer).
 
 Quando você solicita a transferência de um Registro Enterprise inteiro para um registro, as seguintes ações ocorrem:
 
 - Todos os serviços, as assinaturas, as contas, os departamentos e toda a estrutura de registro do Azure, incluindo todos os administradores de departamento do EA, são transferidos para um novo registro de destino.
 - O status do registro é definido como _Transferido_. O registro transferido está disponível apenas para fins de relatório de uso histórico.
-- Você não pode adicionar funções nem assinaturas a um registro transferido. O status de transferido impede o uso adicional em relação ao registro.
+- Você não pode adicionar funções nem assinaturas a um registro transferido. O status de transferido impede o uso adicional no registro.
 - Qualquer saldo restante do pagamento antecipado do Azure no contrato é perdido, incluindo termos futuros.
--    Se o registro do qual você está fazendo a transferência tiver compras de RI, o valor de compra de RI permanecerá no registro de origem. No entanto, todos os benefícios de RI serão transferidos para serem utilizados no novo registro.
--    O valor avulso de compra do Marketplace e todos os valores fixos mensais já incorridos no registro antigo não serão transferidos para o novo registro. As cobranças do Marketplace baseadas no consumo serão transferidas.
+-    Se o registro do qual você está fazendo a transferência tiver compras de RI, o valor de compra de RI permanecerá no registro de origem. No entanto, todos os benefícios de RI serão transferidos para uso no novo registro.
+-    O valor avulso de compra do marketplace e todos os valores fixos mensais já incorridos no registro antigo não são transferidos para o novo registro. As cobranças do Marketplace baseadas no consumo serão transferidas.
 
 ### <a name="effective-transfer-date"></a>Data de início de vigência da transferência
 
 A data de efetivação da transferência pode ser a data de início do registro de destino ou uma data posterior a ela.
 
-O uso do registro de origem é cobrado no pagamento antecipado do Azure ou como excedente. O uso que ocorre após a data de início de vigência da transferência é transferido para o novo registro e cobrado de acordo.
+O uso do registro de origem é cobrado no pagamento antecipado do Azure ou como excedente. O uso que ocorre após a data de início de vigência da transferência é transferido para o novo registro e cobrado.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
@@ -85,6 +86,17 @@ Outros pontos para ter em mente antes de uma transferência de registro:
 - Se uma transferência de registro não atender aos seus requisitos, considere uma transferência de conta.
 - O status do registro de origem será atualizado para transferido e só estará disponível para fins de relatório de uso histórico.
 
+### <a name="auto-enrollment-transfer"></a>Transferência de registro automática
+
+Você poderá ver que um registro tem o estado **Transferido**, mesmo que não tenha enviado um tíquete de suporte para solicitar uma transferência de registro. O estado **Transferido** é resultado do processo de transferência de registro automática. Para que o processo de transferência de registro automática ocorra durante a fase de renovação, há alguns itens que devem ser incluídos no novo contrato:
+
+- Número do registro anterior (precisa existir no portal do EA)
+- A data de validade do número do registro anterior é um dia antes da data de início de vigência do novo contrato
+- O novo contrato tem uma ordem de pagamento antecipado do Azure faturada que tem uma data atual ou retroativa
+- O novo registro é criado no portal do EA
+
+Se não houver dados de uso ausentes no portal do EA entre o registro anterior e o novo registro, você não precisará criar um tíquete de suporte de transferência.
+
 ### <a name="azure-prepayment"></a>Pagamento antecipado do Azure
 
 O pagamento antecipado do Azure não é transferível entre registros. Os saldos do pagamento antecipado do Azure são vinculados contratualmente ao registro em que ele foi solicitado. O pagamento antecipado do Azure não é transferido como parte do processo de transferência do registro ou da conta.
@@ -93,21 +105,25 @@ O pagamento antecipado do Azure não é transferível entre registros. Os saldos
 
 Não há tempo de inatividade durante uma transferência de conta ou de registro. Ela poderá ser concluída no mesmo dia da solicitação se todas as informações necessárias forem fornecidas.
 
-## <a name="change-account-owner"></a>Alterar proprietário da conta
+## <a name="transfer-an-enterprise-subscription-to-a-pay-as-you-go-subscription"></a>Transferir uma assinatura do Enterprise para uma assinatura Pagamento Conforme o Uso
 
-O Portal do EA do Azure pode transferir assinaturas de um proprietário de conta para outro. Para obter mais informações, confira [Alterar proprietário da conta](ea-portal-get-started.md#change-account-owner).
+Para transferir uma assinatura Enterprise para uma assinatura individual com as tarifas de Pagamento Conforme o Uso, você precisa criar uma solicitação de suporte no Azure Enterprise Portal. Para criar uma solicitação de suporte, selecione **+ Nova solicitação de suporte** na área **Ajuda e Suporte**.
+
+## <a name="change-azure-subscription-or-account-ownership"></a>Alterar a propriedade da conta ou da assinatura do Azure
+
+O Portal do EA do Azure pode transferir assinaturas de um proprietário de conta para outro. Para obter mais informações, confira [Alterar a propriedade de assinatura ou de conta do Azure](ea-portal-administration.md#change-azure-subscription-or-account-ownership).
 
 ## <a name="subscription-transfer-effects"></a>Efeitos da transferência de assinatura
 
 Quando uma assinatura do Azure é transferida para uma conta no mesmo locatário do Azure Active Directory, todos os usuários, os grupos e as entidades de serviço que tinham o [Azure RBAC (controle de acesso baseado em função do Azure)](../../role-based-access-control/overview.md) para gerenciar recursos mantêm o respectivo acesso.
 
-Para exibir os usuários com acesso do Azure RBAC à assinatura:
+Para exibir os usuários com acesso RBAC à assinatura:
 
 1. No portal do Azure, abra **Assinaturas**.
 2. Selecione a assinatura que deseja exibir e, em seguida, selecione **Controle de Acesso (IAM)** .
-3. Selecione **Atribuições de função**. A página de atribuições de função lista todos os usuários que têm acesso do Azure RBAC à assinatura.
+3. Selecione **Atribuições de função**. A página de atribuições de função lista todos os usuários que têm acesso RBAC à assinatura.
 
-Se a assinatura for transferida para uma conta em um locatário diferente do Azure AD, todos os usuários, grupos e entidades de serviço que tiverem o [Azure RBAC](../../role-based-access-control/overview.md) para gerenciar recursos _perderão_ o acesso. Embora o acesso do Azure RBAC não esteja presente, o acesso à assinatura pode estar disponível por meio de mecanismos de segurança, incluindo:
+Se a assinatura for transferida para uma conta em um locatário diferente do Azure AD, todos os usuários, grupos e entidades de serviço que tiverem [RBAC](../../role-based-access-control/overview.md) para gerenciar recursos _perderão_ o acesso. Embora o acesso RBAC não esteja presente, o acesso à assinatura pode estar disponível por meio de mecanismos de segurança, incluindo:
 
 - Certificados de gerenciamento que concedem ao usuário direitos de administrador aos recursos de assinatura. Para saber mais, confira [Criar e carregar um certificado de gerenciamento do Azure](../../cloud-services/cloud-services-certs-create.md).
 - Chaves de acesso para serviços como Armazenamento. Para saber mais, confira [Visão geral da conta de armazenamento do Azure](../../storage/common/storage-account-overview.md).

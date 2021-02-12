@@ -5,18 +5,18 @@ description: Uma descrição das restrições e limitações do formato URI de r
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 10/29/2020
+ms.date: 11/23/2020
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
-ms.openlocfilehash: e7635aad85352887646a1319b4d0bfbf64924bf9
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 91df89a69368056c1967e641562cf8515f44ade0
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042910"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582801"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Restrições e limitações do URI de redirecionamento (URL de resposta)
 
@@ -34,8 +34,8 @@ Esta tabela mostra o número máximo de URIs de redirecionamento que você pode 
 
 | Contas sendo conectadas | Número máximo de URIs de redirecionamento | Descrição |
 |--------------------------|---------------------------------|-------------|
-| Contas corporativas ou de estudante da Microsoft no locatário do Azure Active Directory (Azure AD) de qualquer organização | 256 | O campo `signInAudience` no manifesto do aplicativo é definido como *AzureADMyOrg* ou *AzureADMultipleOrgs* . |
-| Contas pessoais e contas corporativas e de estudante da Microsoft | 100 | O campo `signInAudience` no manifesto do aplicativo é definido como *AzureADandPersonalMicrosoftAccount* . |
+| Contas corporativas ou de estudante da Microsoft no locatário do Azure Active Directory (Azure AD) de qualquer organização | 256 | O campo `signInAudience` no manifesto do aplicativo é definido como *AzureADMyOrg* ou *AzureADMultipleOrgs*. |
+| Contas pessoais e contas corporativas e de estudante da Microsoft | 100 | O campo `signInAudience` no manifesto do aplicativo é definido como *AzureADandPersonalMicrosoftAccount*. |
 
 ## <a name="maximum-uri-length"></a>Tamanho máximo do URI
 
@@ -45,29 +45,38 @@ Você pode usar um máximo de 256 caracteres para cada URI de redirecionamento q
 
 O modelo de aplicativo Azure Active Directory (Azure AD) atualmente dá suporte a esquemas HTTP e HTTPS para aplicativos que entram em contas corporativas ou de estudante no locatário do Azure AD de qualquer organização. Esses tipos de conta são especificados pelos `AzureADMyOrg` `AzureADMultipleOrgs` valores e no `signInAudience` campo do manifesto do aplicativo. Para aplicativos que entram em contas pessoais da Microsoft (MSA) *e* contas corporativas e de estudante (ou seja, o `signInAudience` é definido como `AzureADandPersonalMicrosoftAccount` ), somente o esquema HTTPS é permitido.
 
-Para adicionar URIs de redirecionamento com um esquema HTTP aos registros de aplicativo que entram em contas corporativas ou de estudante, você precisa usar o editor de manifesto do aplicativo no [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) no portal do Azure. No entanto, embora seja possível definir um URI de redirecionamento baseado em HTTP usando o editor de manifesto, é *altamente* recomendável que você use o esquema HTTPS para seus URIs de redirecionamento.
+Para adicionar URIs de redirecionamento com um esquema HTTP aos registros de aplicativo que entram em contas corporativas ou de estudante, use o editor de manifesto do aplicativo em [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) no portal do Azure. No entanto, embora seja possível definir um URI de redirecionamento baseado em HTTP usando o editor de manifesto, é *altamente* recomendável que você use o esquema HTTPS para seus URIs de redirecionamento.
 
 ## <a name="localhost-exceptions"></a>Exceções de localhost
 
 De acordo com as [seções RFC 8252 8,3](https://tools.ietf.org/html/rfc8252#section-8.3) e [7,3](https://tools.ietf.org/html/rfc8252#section-7.3), os URIs de redirecionamento "Loopback" ou "localhost" vêm com duas considerações especiais:
 
-1. `http` Os esquemas de URI são aceitáveis porque o redirecionamento nunca deixa o dispositivo. Assim, ambos são aceitáveis:
-    - `http://127.0.0.1/myApp`
-    - `https://127.0.0.1/myApp`
-1. Devido a intervalos de porta efêmeras geralmente exigidos por aplicativos nativos, o componente de porta (por exemplo, `:5001` ou `:443` ) é ignorado para fins de correspondência de um URI de redirecionamento. Como resultado, todos eles são considerados equivalentes:
-    - `http://127.0.0.1/MyApp`
-    - `http://127.0.0.1:1234/MyApp`
-    - `http://127.0.0.1:5000/MyApp`
-    - `http://127.0.0.1:8080/MyApp`
+1. `http` Os esquemas de URI são aceitáveis porque o redirecionamento nunca deixa o dispositivo. Dessa forma, ambos os URIs são aceitáveis:
+    - `http://localhost/myApp`
+    - `https://localhost/myApp`
+1. Devido a intervalos de porta efêmeras geralmente exigidos por aplicativos nativos, o componente de porta (por exemplo, `:5001` ou `:443` ) é ignorado para fins de correspondência de um URI de redirecionamento. Como resultado, todos esses URIs são considerados equivalentes:
+    - `http://localhost/MyApp`
+    - `http://localhost:1234/MyApp`
+    - `http://localhost:5000/MyApp`
+    - `http://localhost:8080/MyApp`
 
 Do ponto de vista do desenvolvimento, isso significa algumas coisas:
 
-* Não registre vários URIs de redirecionamento onde apenas a porta difere. O servidor de logon escolherá um arbitrariamente e usará o comportamento associado a esse URI de redirecionamento (por exemplo, se for `web` -, `native` -ou `spa` -Type Redirecionado).
-* Se você precisar registrar vários URIs de redirecionamento no localhost para testar fluxos diferentes durante o desenvolvimento, diferencie-os usando o componente de *caminho* do URI. Por exemplo, `http://127.0.0.1/MyWebApp` não corresponde `http://127.0.0.1/MyNativeApp` .
-* O endereço de loopback IPv6 ( `[::1]` ) não tem suporte no momento.
-* Para impedir que seu aplicativo seja interrompido por firewalls configurados incorretamente ou por interfaces de rede renomeadas, use o endereço IP literal loopback `127.0.0.1` no URI de redirecionamento em vez de `localhost` .
+* Não registre vários URIs de redirecionamento onde apenas a porta difere. O servidor de logon escolherá um arbitrariamente e usará o comportamento associado a esse URI de redirecionamento (por exemplo, se for um `web` `native` redirecionamento-,-ou `spa` -tipo).
 
-    Para usar o `http` esquema com o endereço de loopback literal de IP `127.0.0.1` , você deve modificar atualmente o atributo [replyUrlsWithType](reference-app-manifest.md#replyurlswithtype-attribute) no [manifesto do aplicativo](reference-app-manifest.md).
+    Isso é especialmente importante quando você deseja usar fluxos de autenticação diferentes no mesmo registro de aplicativo, por exemplo, tanto a concessão de código de autorização quanto o fluxo implícito. Para associar o comportamento de resposta correto a cada URI de redirecionamento, o servidor de logon deve ser capaz de distinguir entre os URIs de redirecionamento e não pode fazê-lo quando apenas a porta difere.
+* Para registrar vários URIs de redirecionamento no localhost para testar fluxos diferentes durante o desenvolvimento, diferencie-os usando o componente de *caminho* do URI. Por exemplo, `http://localhost/MyWebApp` não corresponde `http://localhost/MyNativeApp` .
+* O endereço de loopback IPv6 ( `[::1]` ) não tem suporte no momento.
+
+#### <a name="prefer-127001-over-localhost"></a>Preferir 127.0.0.1 em localhost
+
+Para impedir que seu aplicativo seja interrompido por firewalls configurados incorretamente ou por interfaces de rede renomeadas, use o endereço IP literal loopback `127.0.0.1` no URI de redirecionamento em vez de `localhost` . Por exemplo, `https://127.0.0.1`.
+
+No entanto, você não pode usar a caixa de texto **URIs de redirecionamento** na portal do Azure para adicionar um URI de redirecionamento baseado em auto-retorno que usa o `http` esquema:
+
+:::image type="content" source="media/reply-url/portal-01-no-http-loopback-redirect-uri.png" alt-text="Caixa de diálogo de erro no portal do Azure mostrando o URI de redirecionamento de loopback baseado em http não permitido":::
+
+Para adicionar um URI de redirecionamento que usa o `http` esquema com o `127.0.0.1` endereço de loopback, você deve modificar atualmente o atributo [replyUrlsWithType](reference-app-manifest.md#replyurlswithtype-attribute) no [manifesto do aplicativo](reference-app-manifest.md).
 
 ## <a name="restrictions-on-wildcards-in-redirect-uris"></a>Restrições em curingas em URIs de redirecionamento
 
@@ -75,7 +84,7 @@ URIs de curinga como `https://*.contoso.com` podem parecer convenientes, mas dev
 
 Atualmente, não há suporte para URIs curinga em registros de aplicativo configurados para entrar em contas pessoais da Microsoft e contas corporativas ou de estudante. Os URIs curinga são permitidos, no entanto, para aplicativos configurados para entrar somente em contas corporativas ou de estudante no locatário do Azure AD de uma organização.
 
-Para adicionar URIs de redirecionamento com caracteres curinga aos registros de aplicativo que entram em contas corporativas ou de estudante, você precisa usar o editor de manifesto do aplicativo no [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) no portal do Azure. Embora seja possível definir um URI de redirecionamento com um curinga usando o editor de manifesto, é *altamente* recomendável aderir à [seção 3.1.2 do RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2) e usar apenas URIs absolutos.
+Para adicionar URIs de redirecionamento com curingas aos registros de aplicativo que entram em contas corporativas ou de estudante, use o editor de manifesto do aplicativo em [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) no portal do Azure. Embora seja possível definir um URI de redirecionamento com um curinga usando o editor de manifesto, é *altamente* recomendável aderir à [seção 3.1.2 do RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2) e usar apenas URIs absolutos.
 
 Se seu cenário exigir mais URIs de redirecionamento do que o limite máximo permitido, considere a seguinte [abordagem de parâmetro de estado](#use-a-state-parameter) em vez de adicionar um URI de redirecionamento de caractere curinga.
 

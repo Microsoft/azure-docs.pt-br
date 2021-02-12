@@ -1,18 +1,18 @@
 ---
 title: Funções de modelo – lógica
-description: Descreve as funções a serem usadas em um modelo do Resource Manager para determinar valores lógicos.
+description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager (modelo ARM) para determinar valores lógicos.
 ms.topic: conceptual
-ms.date: 10/12/2020
-ms.openlocfilehash: ede41bd6c03eb7a01ae63526810d0310f31e4014
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.date: 11/18/2020
+ms.openlocfilehash: 27d94f10374daf0b9a351469579a5eb659cf5445
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978502"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920481"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Funções lógicas para modelos ARM
 
-O Gerenciador de recursos fornece várias funções para fazer comparações em seus modelos de Azure Resource Manager (ARM).
+O Gerenciador de recursos fornece várias funções para fazer comparações em seu modelo de Azure Resource Manager (modelo ARM):
 
 * [and](#and)
 * [bool](#bool)
@@ -22,11 +22,13 @@ O Gerenciador de recursos fornece várias funções para fazer comparações em 
 * [or](#or)
 * [true](#true)
 
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+
 ## <a name="and"></a>e
 
 `and(arg1, arg2, ...)`
 
-Verifica se todos os valores de parâmetros são verdadeiros.
+Verifica se todos os valores de parâmetros são verdadeiros. `and`Não há suporte para a função em bicep. `&&`Em vez disso, use o operador.
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -44,27 +46,39 @@ Retorna **True** se todos os valores forem verdadeiros; caso contrário, **False
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) a seguir mostra como usar funções lógicas.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [ ],
-    "outputs": {
-        "andExampleOutput": {
-            "value": "[and(bool('true'), bool('false'))]",
-            "type": "bool"
-        },
-        "orExampleOutput": {
-            "value": "[or(bool('true'), bool('false'))]",
-            "type": "bool"
-        },
-        "notExampleOutput": {
-            "value": "[not(bool('true'))]",
-            "type": "bool"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "andExampleOutput": {
+      "type": "bool",
+      "value": "[and(bool('true'), bool('false'))]"
+    },
+    "orExampleOutput": {
+      "type": "bool",
+      "value": "[or(bool('true'), bool('false'))]"
+    },
+    "notExampleOutput": {
+      "type": "bool",
+      "value": "[not(bool('true'))]"
     }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output andExampleOutput bool = bool('true') && bool('false')
+output orExampleOutput bool = bool('true') || bool('false')
+output notExampleOutput bool = !(bool('true'))
+```
+
+---
 
 O resultado do exemplo anterior é:
 
@@ -98,32 +112,44 @@ Você também pode usar [true ()](#true) e [false ()](#false) para obter valores
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/bool.json) a seguir mostra como usar um booliano com uma cadeia de caracteres ou um inteiro.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "trueString": {
-            "value": "[bool('true')]",
-            "type" : "bool"
-        },
-        "falseString": {
-            "value": "[bool('false')]",
-            "type" : "bool"
-        },
-        "trueInt": {
-            "value": "[bool(1)]",
-            "type" : "bool"
-        },
-        "falseInt": {
-            "value": "[bool(0)]",
-            "type" : "bool"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "trueString": {
+      "type": "bool",
+      "value": "[bool('true')]",
+    },
+    "falseString": {
+      "type": "bool",
+      "value": "[bool('false')]"
+    },
+    "trueInt": {
+      "type": "bool",
+      "value": "[bool(1)]"
+    },
+    "falseInt": {
+      "type": "bool",
+      "value": "[bool(0)]"
     }
+  }
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output trueString bool = bool('true')
+output falseString bool = bool('false')
+output trueInt bool = bool(1)
+output falseInt bool = bool(0)
+```
+
+---
 A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
@@ -137,7 +163,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 `false()`
 
-Retorna false.
+Retorna false. A `false` função não está disponível em bicep.  `false`Em vez disso, use a palavra-chave.
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -151,19 +177,29 @@ Um booliano que é sempre false.
 
 O exemplo a seguir retorna um valor de saída falso.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "falseOutput": {
-            "value": "[false()]",
-            "type" : "bool"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "falseOutput": {
+      "type": "bool",
+      "value": "[false()]"
     }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output falseOutput bool = false
+```
+
+---
 
 O resultado do exemplo anterior é:
 
@@ -175,7 +211,7 @@ O resultado do exemplo anterior é:
 
 `if(condition, trueValue, falseValue)`
 
-Retorna um valor com base em se uma condição é verdadeira ou falsa.
+Retorna um valor com base em se uma condição é verdadeira ou falsa. `if`Não há suporte para a função em bicep. `?:`Em vez disso, use o operador.
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -191,34 +227,46 @@ Retorna o segundo parâmetro quando o primeiro parâmetro é **True**; caso cont
 
 ### <a name="remarks"></a>Comentários
 
-Quando a condição for **verdadeira**, somente o valor verdadeiro será avaliado. Quando a condição for **falsa**, somente o valor false será avaliado. Com a função **If** , você pode incluir expressões que são apenas condicionalmente válidas. Por exemplo, você pode fazer referência a um recurso que existe sob uma condição, mas não sob a outra condição. Um exemplo de expressões de avaliação condicional é mostrado na seção a seguir.
+Quando a condição for **verdadeira**, somente o valor verdadeiro será avaliado. Quando a condição for **falsa**, somente o valor false será avaliado. Com a `if` função, você pode incluir expressões que são apenas condicionalmente válidas. Por exemplo, você pode fazer referência a um recurso que existe sob uma condição, mas não sob a outra condição. Um exemplo de expressões de avaliação condicional é mostrado na seção a seguir.
 
 ### <a name="examples"></a>Exemplos
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/if.json) a seguir mostra como usar a função `if`.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-    ],
-    "outputs": {
-        "yesOutput": {
-            "type": "string",
-            "value": "[if(equals('a', 'a'), 'yes', 'no')]"
-        },
-        "noOutput": {
-            "type": "string",
-            "value": "[if(equals('a', 'b'), 'yes', 'no')]"
-        },
-        "objectOutput": {
-            "type": "object",
-            "value": "[if(equals('a', 'a'), json('{\"test\": \"value1\"}'), json('null'))]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+  ],
+  "outputs": {
+    "yesOutput": {
+      "type": "string",
+      "value": "[if(equals('a', 'a'), 'yes', 'no')]"
+    },
+    "noOutput": {
+      "type": "string",
+      "value": "[if(equals('a', 'b'), 'yes', 'no')]"
+    },
+    "objectOutput": {
+      "type": "object",
+      "value": "[if(equals('a', 'a'), json('{\"test\": \"value1\"}'), json('null'))]"
     }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output yesOutput string = 'a' == 'a' ? 'yes' : 'no'
+output noOutput string = 'a' == 'b' ? 'yes' : 'no'
+output objectOutput object = 'a' == 'a' ? json('{"test": "value1"}') : json('null')
+```
+
+---
 
 O resultado do exemplo anterior é:
 
@@ -230,57 +278,66 @@ O resultado do exemplo anterior é:
 
 O [modelo de exemplo](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) a seguir mostra como usar essa função com expressões que são apenas condicionalmente válidas.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "vmName": {
-            "type": "string"
-        },
-        "location": {
-            "type": "string"
-        },
-        "logAnalytics": {
-            "type": "string",
-            "defaultValue": ""
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "type": "string"
     },
-    "resources": [
-        {
-            "condition": "[not(empty(parameters('logAnalytics')))]",
-            "name": "[concat(parameters('vmName'),'/omsOnboarding')]",
-            "type": "Microsoft.Compute/virtualMachines/extensions",
-            "location": "[parameters('location')]",
-            "apiVersion": "2017-03-30",
-            "properties": {
-                "publisher": "Microsoft.EnterpriseCloud.Monitoring",
-                "type": "MicrosoftMonitoringAgent",
-                "typeHandlerVersion": "1.0",
-                "autoUpgradeMinorVersion": true,
-                "settings": {
-                    "workspaceId": "[if(not(empty(parameters('logAnalytics'))), reference(parameters('logAnalytics'), '2015-11-01-preview').customerId, json('null'))]"
-                },
-                "protectedSettings": {
-                    "workspaceKey": "[if(not(empty(parameters('logAnalytics'))), listKeys(parameters('logAnalytics'), '2015-11-01-preview').primarySharedKey, json('null'))]"
-                }
-            }
-        }
-    ],
-    "outputs": {
-        "mgmtStatus": {
-            "type": "string",
-            "value": "[if(not(empty(parameters('logAnalytics'))), 'Enabled monitoring for VM!', 'Nothing to enable')]"
-        }
+    "location": {
+      "type": "string"
+    },
+    "logAnalytics": {
+      "type": "string",
+      "defaultValue": ""
     }
+  },
+  "resources": [
+    {
+      "condition": "[not(empty(parameters('logAnalytics')))]",
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "apiVersion": "2017-03-30",
+      "name": "[concat(parameters('vmName'),'/omsOnboarding')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+        "type": "MicrosoftMonitoringAgent",
+        "typeHandlerVersion": "1.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+          "workspaceId": "[if(not(empty(parameters('logAnalytics'))), reference(parameters('logAnalytics'), '2015-11-01-preview').customerId, json('null'))]"
+        },
+        "protectedSettings": {
+          "workspaceKey": "[if(not(empty(parameters('logAnalytics'))), listKeys(parameters('logAnalytics'), '2015-11-01-preview').primarySharedKey, json('null'))]"
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "mgmtStatus": {
+      "type": "string",
+      "value": "[if(not(empty(parameters('logAnalytics'))), 'Enabled monitoring for VM!', 'Nothing to enable')]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+> [!NOTE]
+> `Conditions` Ainda não foram implementadas no bicep. Consulte [condições](https://github.com/Azure/bicep/issues/186).
+
+---
 
 ## <a name="not"></a>not
 
 `not(arg1)`
 
-Converte o valor booliano em seu valor oposto.
+Converte o valor booliano em seu valor oposto. `not`Não há suporte para a função em bicep. `!`Em vez disso, use o operador.
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -296,27 +353,39 @@ Retorna **True** quando o parâmetro é **False**. Retorna **False** quando o pa
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) a seguir mostra como usar funções lógicas.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [ ],
-    "outputs": {
-        "andExampleOutput": {
-            "value": "[and(bool('true'), bool('false'))]",
-            "type": "bool"
-        },
-        "orExampleOutput": {
-            "value": "[or(bool('true'), bool('false'))]",
-            "type": "bool"
-        },
-        "notExampleOutput": {
-            "value": "[not(bool('true'))]",
-            "type": "bool"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "andExampleOutput": {
+      "type": "bool",
+      "value": "[and(bool('true'), bool('false'))]",
+    },
+    "orExampleOutput": {
+      "type": "bool",
+      "value": "[or(bool('true'), bool('false'))]"
+    },
+    "notExampleOutput": {
+      "type": "bool",
+      "value": "[not(bool('true'))]"
     }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output andExampleOutput bool = bool('true') && bool('false')
+output orExampleOutput bool = bool('true') || bool('false')
+output notExampleOutput bool = !(bool('true'))
+```
+
+---
 
 O resultado do exemplo anterior é:
 
@@ -328,20 +397,30 @@ O resultado do exemplo anterior é:
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) a seguir usa **not** com [equals](template-functions-comparison.md#equals).
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-    ],
-    "outputs": {
-        "checkNotEquals": {
-            "type": "bool",
-            "value": "[not(equals(1, 2))]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+  ],
+  "outputs": {
+    "checkNotEquals": {
+      "type": "bool",
+      "value": "[not(equals(1, 2))]"
     }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output checkNotEquals bool = !(1 == 2)
+```
+
+---
 
 O resultado do exemplo anterior é:
 
@@ -353,7 +432,7 @@ O resultado do exemplo anterior é:
 
 `or(arg1, arg2, ...)`
 
-Verifica se qualquer valor do parâmetro é verdadeiro.
+Verifica se qualquer valor do parâmetro é verdadeiro. `or`Não há suporte para a função em bicep. `||`Em vez disso, use o operador.
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -371,27 +450,39 @@ Retorna **True** se qualquer valor for verdadeiro; caso contrário, **False**.
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) a seguir mostra como usar funções lógicas.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [ ],
-    "outputs": {
-        "andExampleOutput": {
-            "value": "[and(bool('true'), bool('false'))]",
-            "type": "bool"
-        },
-        "orExampleOutput": {
-            "value": "[or(bool('true'), bool('false'))]",
-            "type": "bool"
-        },
-        "notExampleOutput": {
-            "value": "[not(bool('true'))]",
-            "type": "bool"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "andExampleOutput": {
+      "value": "[and(bool('true'), bool('false'))]",
+      "type": "bool"
+    },
+    "orExampleOutput": {
+      "value": "[or(bool('true'), bool('false'))]",
+      "type": "bool"
+    },
+    "notExampleOutput": {
+      "value": "[not(bool('true'))]",
+      "type": "bool"
     }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output andExampleOutput bool = bool('true') && bool('false')
+output orExampleOutput bool = bool('true') || bool('false')
+output notExampleOutput bool = !(bool('true'))
+```
+
+---
 
 O resultado do exemplo anterior é:
 
@@ -405,11 +496,11 @@ O resultado do exemplo anterior é:
 
 `true()`
 
-Retorna verdadeiro.
+Retorna verdadeiro. A `true` função não está disponível em bicep.  `true`Em vez disso, use a palavra-chave.
 
 ### <a name="parameters"></a>Parâmetros
 
-A função true não aceita nenhum parâmetro.
+A função true não aceita nenhum parâmetro. A `true` função não está disponível em bicep.  `true`Em vez disso, use a palavra-chave.
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -419,19 +510,29 @@ Um booliano que é sempre verdadeiro.
 
 O exemplo a seguir retorna um valor de saída verdadeiro.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "trueOutput": {
-            "value": "[true()]",
-            "type" : "bool"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "trueOutput": {
+      "type": "bool",
+      "value": "[true()]"
     }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output trueOutput bool = true
+```
+
+---
 
 O resultado do exemplo anterior é:
 
@@ -441,5 +542,4 @@ O resultado do exemplo anterior é:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter uma descrição das seções em um modelo de Azure Resource Manager, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).
-
+* Para obter uma descrição das seções em um modelo do ARM, consulte [entender a estrutura e a sintaxe de modelos do ARM](template-syntax.md).

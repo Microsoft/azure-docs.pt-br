@@ -7,12 +7,12 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 2f788452455bfbbc47f0a48689ccf3344515fdae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3033be3a793c318135f8150b86114b6fee55fac7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904247"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655180"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Configurar uma instância do Servidor de Configuração do Spring Cloud para seu serviço
 
@@ -82,6 +82,9 @@ Todas as propriedades configuráveis usadas para configurar o repositório Git p
 | `host-key-algorithm`       | Não     | O algoritmo da chave de host, que deve ser *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384* ou *ecdsa-sha2-nistp521*. *Necessário* somente se `host-key` existir. |
 | `strict-host-key-checking` | Não     | Indica se a inicialização da instância do Servidor de Configuração falhará ao fazer uso do `host-key` privado. Deve ser *true* (valor padrão) ou *false*. |
 
+> [!NOTE]
+> O servidor de configuração usa `master` (OM git em si) como rótulo padrão, se não for especificado. Mas o GitHub alterou a ramificação padrão de `master` para `main` recentemente. Para evitar a falha do servidor de configuração do Azure Spring Cloud, preste atenção ao rótulo padrão ao configurar o servidor de configuração com o GitHub, especialmente para novos repositórios criados.
+
 -----
 
 ### <a name="private-repository-with-basic-authentication"></a>Repositório privado com autenticação Básica
@@ -130,13 +133,25 @@ Agora que você salvou seus arquivos de configuração em um repositório, é ne
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-1. Vá até a página **Visão geral** do Azure Spring Cloud.
+2. Vá até a página **Visão geral** do Azure Spring Cloud.
 
-1. Escolha o serviço a ser configurado.
+3. Selecione **servidor de configuração** no painel de navegação esquerdo.
 
-1. No painel esquerdo da página Serviço, em **Configurações**, selecione a guia **Servidor de Configuração**.
+4. Na seção **Repositório padrão**, defina **URI** como "https://github.com/Azure-Samples/piggymetrics-config".
 
-![A janela Servidor de Configuração](media/spring-cloud-tutorial-config-server/portal-config-server.png)
+5. Clique em **Validar**.
+
+    ![Navegar até o servidor de configuração](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+
+6. Quando a validação for concluída, clique em **aplicar** para salvar as alterações.
+
+    ![Validando o servidor de configuração](media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
+
+7. A atualização da configuração pode levar alguns minutos.
+ 
+    ![Atualizando o servidor de configuração](media/spring-cloud-quickstart-launch-app-portal/updating-config.png) 
+
+8. Você deve receber uma notificação quando a configuração for concluída.
 
 ### <a name="enter-repository-information-directly-to-the-azure-portal"></a>Insira as informações do repositório diretamente para o portal do Azure
 

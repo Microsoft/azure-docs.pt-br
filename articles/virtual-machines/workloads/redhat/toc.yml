@@ -1,16 +1,22 @@
 - name: Visão geral
   href: overview.md
-- name: Inícios Rápidos do Red Hat
-  items: null
-- name: Início Rápido – WildFly no CentOS
-  href: wildfly-on-centos.md
 - name: Imagens do Red Hat Enterprise Linux
   items:
-    - name: Visão geral da imagem do Red Hat Enterprise Linux
+    - name: Visão geral da imagem do RHEL
       href: redhat-images.md
-    - name: Lista de imagem do Red Hat Enterprise Linux
+    - name: Lista de imagens do RHEL
       href: redhat-imagelist.md
+- name: Guias de início rápido do Red Hat Java
+  items:
+    - name: JBoss EAP + RHEL na VM/VMSS
+      href: jboss-eap-on-rhel.md
+    - name: WildFly + CentOS na VM
+      href: wildfly-on-centos.md
 - name: Infraestrutura de atualização do Red Hat no Azure
   href: redhat-rhui.md
 - name: Oferta de imagem do BYOS Red Hat Enterprise Linux
   href: byos.md
+- name: Suporte ao ciclo de vida estendido do Red Hat Enterprise Linux
+  href: redhat-extended-lifecycle-support.md
+- name: Atualização in-loco de imagens do Red Hat Enterprise no Azure
+  href: redhat-in-place-upgrade.md

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 08/19/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5cc6847332765419001eadc5944905f55a425ef
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 98cb990ede7c4d6e261bba05b0b8c97d758e6c32
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964784"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743523"
 ---
 # <a name="deployment-frequently-asked-questions-faqs-for-hybrid-fido2-security-keys-in-azure-ad-preview"></a>Perguntas frequentes sobre implantação (FAQs) para chaves de segurança FIDO2 híbridas no Azure AD (versão prévia)
 
@@ -160,7 +160,7 @@ Em um controlador de domínio do Windows Server 2016 ou 2019, verifique se os pa
 
 Não, esse recurso não tem suporte para o dispositivo somente no local. O provedor de credenciais FIDO2 não aparecerá.
 
-### <a name="fido2-security-key-sign-in-isnt-working-for-my-domain-admin-or-other-high-privilege-accounts-why"></a>A entrada da chave de segurança do FIDO2 não está funcionando para meu administrador de domínio ou outras contas de alto privilégio. Por que?
+### <a name="fido2-security-key-sign-in-isnt-working-for-my-domain-admin-or-other-high-privilege-accounts-why"></a>A entrada da chave de segurança do FIDO2 não está funcionando para meu administrador de domínio ou outras contas de alto privilégio. Por quê?
 
 A política de segurança padrão não concede permissão ao Azure AD para assinar contas com privilégios altos em recursos locais.
 
@@ -218,7 +218,7 @@ Recebemos comentários sobre a complexidade do modelo de implantação do Window
 Como qualquer outro controlador de domínio, as chaves *krbtgt* de criptografia de servidor Kerberos do Azure ad devem ser giradas regularmente. É recomendável seguir o mesmo agendamento que você usa para girar todas as outras AD DS chaves *krbtgt* .
 
 > [!NOTE]
-> Embora existam outras ferramentas para girar as chaves *krbtgt* , você deve [usar os cmdlets do PowerShell para girar as chaves *krbtgt* ](howto-authentication-passwordless-security-key-on-premises.md#rotating-the-azure-ad-kerberos-server-key) do seu servidor Kerberos do Azure AD. Esse método garante que as chaves sejam atualizadas tanto no ambiente de AD DS local quanto no Azure AD.
+> Embora existam outras ferramentas para girar as chaves *krbtgt* , você deve [usar os cmdlets do PowerShell para girar as chaves *krbtgt*](howto-authentication-passwordless-security-key-on-premises.md#rotating-the-azure-ad-kerberos-server-key) do seu servidor Kerberos do Azure AD. Esse método garante que as chaves sejam atualizadas tanto no ambiente de AD DS local quanto no Azure AD.
 
 ### <a name="why-do-we-need-azure-ad-connect-does-it-write-any-info-back-to-ad-ds-from-azure-ad"></a>Por que precisamos de Azure AD Connect? Ele grava todas as informações para AD DS do Azure AD?
 
@@ -236,9 +236,9 @@ O Azure AD combina a chave do cliente criptografada e o buffer de mensagens na r
 
 | Campo              | Type   | Descrição  |
 |--------------------|--------|--------------|
-| tgt_client_key     | cadeia de caracteres | Chave de cliente codificada em Base64 (segredo). Essa chave é o segredo do cliente usado para proteger o TGT. Nesse cenário sem senha, o segredo do cliente é gerado pelo servidor como parte de cada solicitação de TGT e, em seguida, retornado ao cliente na resposta. |
+| tgt_client_key     | string | Chave de cliente codificada em Base64 (segredo). Essa chave é o segredo do cliente usado para proteger o TGT. Nesse cenário sem senha, o segredo do cliente é gerado pelo servidor como parte de cada solicitação de TGT e, em seguida, retornado ao cliente na resposta. |
 | tgt_key_type       | INT    | O tipo de chave AD DS local usado para a chave do cliente e a chave de sessão do Kerberos incluídos no KERB_MESSAGE_BUFFER. |
-| tgt_message_buffer | cadeia de caracteres | KERB_MESSAGE_BUFFER codificado na base64. |
+| tgt_message_buffer | string | KERB_MESSAGE_BUFFER codificado na base64. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

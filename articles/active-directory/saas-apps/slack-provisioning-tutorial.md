@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: arvinh
-ms.openlocfilehash: 41ed942ea8962e845b7392656639e0d6bcdccbf5
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: 92c2ae13b840d7a73d86365ce88584bcafc878e8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515907"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181443"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: Configurar Slack para provisionamento automático de usuário
 
@@ -36,7 +36,7 @@ O objetivo deste tutorial é mostrar as etapas que precisam ser executadas no Sl
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 * [Um locatário do Azure AD](../develop/quickstart-create-new-tenant.md).
-* Uma conta de usuário no Azure AD com [permissão](../users-groups-roles/directory-assign-admin-roles.md) para configurar o provisionamento (por exemplo, Administrador de Aplicativo, Administrador de aplicativos de nuvem, Proprietário de Aplicativo ou Administrador global).
+* Uma conta de usuário no Azure AD com [permissão](../roles/permissions-reference.md) para configurar o provisionamento (por exemplo, Administrador de Aplicativo, Administrador de aplicativos de nuvem, Proprietário de Aplicativo ou Administrador global).
 * Um locatário do Slack com o [plano Plus](https://aadsyncfabric.slack.com/pricing) ou superior habilitado.
 * Uma conta de usuário no Slack com permissões de Administrador de Equipe.
 
@@ -73,11 +73,11 @@ Esta seção orienta você pela conexão do Azure AD com a API de provisionament
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
+    ![Captura de tela das opções Gerenciar com a opção Provisionamento destacada.](common/provisioning.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa Modo de Provisionamento com a opção Automático destacada.](common/provisioning-automatic.png)
 
 5. Na seção **Credenciais de Administrador**, clique em **Autorizar**. Isso abre uma caixa de diálogo de autorização do Slack em uma nova janela do navegador.
 
@@ -172,9 +172,9 @@ Depois de configurar o provisionamento, use os seguintes recursos para monitorar
 
   * Suporta caracteres não ingleses, espaços e letras maiúsculas. 
   
-  * As pontuações permitidas são pontos, sublinhados, hifens, apóstrofos, colchetes (por exemplo, ** ( [ { } ] ) **) e separadores (por exemplo, **, /; **).
+  * As pontuações permitidas são pontos, sublinhados, hifens, apóstrofos, colchetes (por exemplo, **( [ { } ] )**) e separadores (por exemplo, **, /;**).
   
-  * A propriedade displayName não pode ter um caractere '@'. Se um '@' for incluído, você poderá encontrar um evento ignorado nos logs de provisionamento com a descrição "AttributeValidationFailed".
+  * A propriedade displayName não pode ter um caractere '\@'. Se um '\@' for incluído, você poderá encontrar um evento ignorado nos logs de provisionamento com a descrição "AttributeValidationFailed".
 
   * Apenas atualiza se essas duas configurações estiverem configuradas no local de trabalho / organização do Slack - **A sincronização de perfil está ativada** e **Os usuários não podem alterar seu nome de exibição**.
 

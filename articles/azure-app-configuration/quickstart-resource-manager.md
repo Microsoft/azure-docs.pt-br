@@ -8,12 +8,12 @@ ms.date: 10/16/2020
 ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: feabac62564729338e41bf30eaf8d9f5a6317126
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c35b6d27a5e6d7ffd2a9f76ea201af4a138a77df
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149004"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219104"
 ---
 # <a name="quickstart-create-an-azure-app-configuration-store-by-using-an-arm-template"></a>Início Rápido: Criar um armazenamento da Configuração de Aplicativos do Azure usando um modelo do ARM
 
@@ -25,7 +25,7 @@ Este guia de início rápido descreve como:
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure** . O modelo será aberto no portal do Azure.
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration-store-kv%2Fazuredeploy.json)
 
@@ -46,10 +46,10 @@ O guia de início rápido usa o elemento `copy` para criar várias instâncias d
 
 Há dois recursos do Azure definidos no modelo:
 
-- [Microsoft.AppConfiguration/configurationStores](/azure/templates/microsoft.appconfiguration/2020-06-01/configurationstores): cria um repositório de Configuração de Aplicativos.
-- Microsoft.AppConfiguration/configurationStores/keyValues: crie um par chave/valor dentro do repositório de Configuração de Aplicativos.
+- [Microsoft.AppConfiguration/configurationStores](/azure/templates/microsoft.appconfiguration/2020-07-01-preview/configurationstores): cria um repositório de Configuração de Aplicativos.
+- [Microsoft.AppConfiguration/configurationStores/keyValues](/azure/templates/microsoft.appconfiguration/2020-07-01-preview/configurationstores/keyvalues): crie um par chave/valor dentro do repositório de Configuração de Aplicativos.
 
-> [!NOTE]
+> [!TIP]
 > O nome do recurso `keyValues` é uma combinação de chave e rótulo. A chave e o rótulo são unidos pelo delimitador `$`. O rótulo é opcional. No exemplo acima, o recurso `keyValues` com o nome `myKey` cria um par chave/valor sem um rótulo.
 >
 > A codificação por percentual, também conhecida como codificação de URL, permite que chaves ou rótulos incluam caracteres que não são permitidos em nomes de recursos do modelo do ARM. `%` não é um caractere permitido, portanto, `~` é usado no lugar dele. Para codificar corretamente um nome, siga estas etapas:
@@ -59,6 +59,13 @@ Há dois recursos do Azure definidos no modelo:
 > 3. Substitua `%` por `~`
 >
 > Por exemplo, para criar um par chave-valor com o nome da chave `AppName:DbEndpoint` e o nome do rótulo `Test`, o nome do recurso deve ser `AppName~3ADbEndpoint$Test`.
+
+> [!NOTE]
+> A Configuração de Aplicativos permite o acesso a dados de chave/valor em um [link privado](concept-private-endpoint.md) de sua rede virtual. Por padrão, quando o recurso está habilitado, todas as solicitações para os dados de Configuração de Aplicativos pela rede pública são negadas. Como o modelo do ARM é executado fora de sua rede virtual, o acesso a dados de um modelo do ARM não é permitido. Para permitir o acesso a dados de um modelo do ARM quando um link privado é usado, você pode habilitar o acesso à rede pública usando o comando da CLI do Azure a seguir. É importante considerar as implicações de segurança de habilitar o acesso à rede pública neste cenário.
+>
+> ```azurecli-interactive
+> az appconfig update -g MyResourceGroup -n MyAppConfiguration --enable-public-network true
+> ```
 
 ## <a name="deploy-the-template"></a>Implantar o modelo
 
@@ -84,9 +91,9 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 ## <a name="review-deployed-resources"></a>Examinar os recursos implantados
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. Na caixa de pesquisa do portal do Azure, digite **Configuração de Aplicativos** . Selecione **Configuração de Aplicativos** na lista.
+1. Na caixa de pesquisa do portal do Azure, digite **Configuração de Aplicativos**. Selecione **Configuração de Aplicativos** na lista.
 1. Selecione o recurso de Configuração de Aplicativos recém-criado.
-1. Em **Operações** , clique em **Gerenciador de configurações** .
+1. Em **Operações**, clique em **Gerenciador de configurações**.
 1. Verifique se há dois pares chave/valor.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
@@ -101,7 +108,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre como criar outros aplicativos com a Configuração de Aplicativos do Azure, prossiga para o seguinte artigo:
+Para saber mais sobre como adicionar um sinalizador de recurso e uma referência ao Key Vault a um repositório da Configuração de Aplicativos, confira os exemplos de modelo do ARM abaixo.
 
-> [!div class="nextstepaction"]
-> [Início Rápido: Criar um aplicativo ASP.NET Core com a Configuração de Aplicativos do Azure](quickstart-aspnet-core-app.md)
+- [101-app-configuration-store-ff](https://github.com/Azure/azure-quickstart-templates/tree/master/101-app-configuration-store-ff)
+- [101-app-configuration-store-keyvaultref](https://github.com/Azure/azure-quickstart-templates/tree/master/101-app-configuration-store-keyvaultref)

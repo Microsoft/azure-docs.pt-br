@@ -8,11 +8,11 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/19/2018
 ms.openlocfilehash: 6fc0833f70e3e9cd98100f193b52e5a1bfa4d651
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75666662"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000395"
 ---
 # <a name="exchange-edi-messages-as-batches-or-groups-between-trading-partners-in-azure-logic-apps"></a>Trocar mensagens EDI como lotes ou grupos entre parceiros comerciais em aplicativos lógicos do Azure
 
@@ -127,7 +127,7 @@ Para certificar-se de que o receptor do lote funciona conforme o esperado, você
    |----------|-------------|
    | **Método** | Nessa lista, selecione **POST**. | 
    | **Uri** | Gere um URI para o compartimento de solicitação e, em seguida, insira esse URI nessa caixa. | 
-   | **Corpo** | Clique dentro dessa caixa e, depois que a lista de conteúdo dinâmico for exibida, selecione o token do **Corpo**, que aparece na seção, **Codificar em lote por nome de contrato**. <p>Se você não visualizar o token do **Corpo**, próximo a **Codificar em lote por nome de contrato **, selecione **Ver mais**. | 
+   | **Corpo** | Clique dentro dessa caixa e, depois que a lista de conteúdo dinâmico for exibida, selecione o token do **Corpo**, que aparece na seção, **Codificar em lote por nome de contrato**. <p>Se você não visualizar o token do **Corpo**, próximo a **Codificar em lote por nome de contrato**, selecione **Ver mais**. | 
    ||| 
 
    ![Forneça detalhes da ação HTTP](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-add-http-action-details.png)

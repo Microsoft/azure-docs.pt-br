@@ -4,15 +4,15 @@ ms.service: service-bus
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: spelluru
-ms.openlocfilehash: aec13c6beb8dbfcdd5f38e7f96b86bf03e42fa37
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5c2959a1bf6225c164f8538c3c437e464d834b96
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "80986777"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027844"
 ---
 ## <a name="create-a-ruby-application"></a>Criar um aplicativo Ruby
-Para obter instruções, confira [Criar um aplicativo Ruby no Azure (a página pode estar em inglês)](../articles/virtual-machines/linux/classic/ruby-rails-web-app.md).
+Para obter instruções, confira [Criar um aplicativo Ruby no Azure (a página pode estar em inglês)](/previous-versions/azure/virtual-machines/linux/classic/ruby-rails-web-app).
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurar seu aplicativo para usar o Barramento de Serviço
 Para usar o Barramento de Serviço, baixe e use o pacote do Azure Ruby, que inclui um conjunto de bibliotecas convenientes que se comunicam com os serviços REST de armazenamento.

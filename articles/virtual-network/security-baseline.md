@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 36be61fd65db7ea02a3baec4b519a13231c420ec
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 716491f1a82b82bec865d0ca719e0e2c10e4400a
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514434"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223441"
 ---
 # <a name="azure-security-baseline-for-virtual-network"></a>Linha de base de segurança do Azure para rede virtual
 
@@ -54,11 +54,11 @@ Use os recursos de proteção contra ameaças da central de segurança para dete
 
 Aplique recomendações de proteção de rede adaptáveis da central de segurança para configurações do grupo de segurança de rede que limitam portas e IPs de origem com base no tráfego real e na inteligência contra ameaças. 
 
-- [Gerenciar a Proteção contra DDoS do Azure Standard usando o portal do Azure](manage-ddos-protection.md)
+- [Gerenciar a Proteção contra DDoS do Azure Standard usando o portal do Azure](../ddos-protection/manage-ddos-protection.md)
 
 - [Filtragem baseada em inteligência contra ameaças do Firewall do Azure](../firewall/threat-intel.md)
 
-- [Proteção contra ameaças na central de segurança](/azure/security-center/threat-protection)
+- [Proteção contra ameaças na central de segurança](../security-center/azure-defender.md)
 
 - [Proteção de rede adaptável na central de segurança do Azure](../security-center/security-center-adaptive-network-hardening.md)
 
@@ -106,7 +106,7 @@ Use grupos de segurança de aplicativo para ajudar a simplificar a configuraçã
 
 - [Entender e usar marcas de serviço](service-tags-overview.md)
 
-- [Entender e usar grupos de segurança de aplicativos](/azure/virtual-network/security-overview#application-security-groups)
+- [Entender e usar grupos de segurança de aplicativos](./network-security-groups-overview.md#application-security-groups)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -139,7 +139,7 @@ Use qualquer uma das definições de Azure Policy internas relacionadas à marca
 
 Escolha Azure PowerShell ou CLI do Azure para pesquisar ou executar ações em recursos com base em suas marcas.
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 - [Como criar uma Rede Virtual](quick-create-portal.md)
 
@@ -153,7 +153,7 @@ Escolha Azure PowerShell ou CLI do Azure para pesquisar ou executar ações em r
 
 **Orientação**: Use o log de atividades do Azure para monitorar as configurações de recursos e detectar alterações em sua rede virtual. Crie alertas dentro de Azure Monitor que serão disparados quando ocorrerem alterações em recursos críticos.
 
-- [Como exibir e recuperar eventos do log de atividades do Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -174,7 +174,7 @@ Como alternativa, você pode habilitar e integrar dados ao Azure Sentinel ou a u
 
 - [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
 
-- [Exibir e recuperar eventos do log de atividades do Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -188,7 +188,7 @@ Como alternativa, você pode habilitar e integrar dados ao Azure Sentinel ou a u
 
 - [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
 
-- [Exibir e recuperar eventos do log de atividades do Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -212,7 +212,7 @@ Como alternativa, você pode habilitar e integrar dados ao Azure Sentinel ou a u
 
 Como alternativa, você pode habilitar e integrar dados ao Azure Sentinel ou a um SIEM de terceiros. 
 
-- [Compreender o workspace do Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+- [Compreender o workspace do Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -258,9 +258,9 @@ Como alternativa, você pode habilitar e integrar dados ao Azure Sentinel ou um 
 
 Use o módulo do PowerShell do Azure AD para executar consultas ad hoc para descobrir contas que são membros de grupos administrativos.
 
-- [Como obter uma função de diretório no Azure AD com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -272,7 +272,7 @@ Use o módulo do PowerShell do Azure AD para executar consultas ad hoc para desc
 
 Habilite o acesso just-in-time/apenas o suficiente usando Azure AD Privileged Identity Management funções privilegiadas para serviços e Azure Resource Manager da Microsoft. 
 
-- [Saiba mais sobre o Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
+- [Saiba mais sobre o Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -306,7 +306,7 @@ Habilite o acesso just-in-time/apenas o suficiente usando Azure AD Privileged Id
 
 **Diretrizes**: Use Paw (estações de trabalho com acesso privilegiado) com a MFA (autenticação multifator) configurada para fazer logon e acessar os recursos de rede do Azure.
 
-- [Saiba mais sobre Estações de Trabalho com Acesso Privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations) 
+- [Saiba mais sobre Estações de Trabalho com Acesso Privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) 
 
 - [Como habilitar a MFA no Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -320,7 +320,7 @@ Habilite o acesso just-in-time/apenas o suficiente usando Azure AD Privileged Id
 
 Ingerir alertas de detecção de riscos da central de segurança em Azure Monitor e configure alertas/notificações personalizados usando grupos de ação.
 
-- [Noções básicas sobre as detecções de riscos da central de segurança (atividade suspeita)](/azure/active-directory/reports-monitoring/concept-risk-events) 
+- [Noções básicas sobre as detecções de riscos da central de segurança (atividade suspeita)](../active-directory/identity-protection/overview-identity-protection.md) 
 
 - [Como integrar os logs de atividades do Azure ao Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) 
 
@@ -356,7 +356,7 @@ Ingerir alertas de detecção de riscos da central de segurança em Azure Monito
 
 As revisões de acesso de identidade do Azure podem ser executadas para gerenciar com eficiência as associações de grupo, o acesso aos aplicativos empresariais e as atribuições de função. O acesso do usuário deve ser revisado regularmente para garantir que apenas os usuários ativos tenham acesso contínuo.
 
-- [Entender os relatórios do Azure AD](/azure/active-directory/reports-monitoring/)
+- [Entender os relatórios do Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Como usar as revisões de acesso de identidade do Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -380,7 +380,7 @@ Simplifique esse processo criando configurações de diagnóstico para Azure Act
 
 **Diretrizes**: Use os recursos de proteção de risco e identidade do Azure Active Directory (Azure AD) para configurar respostas automatizadas para detectar ações suspeitas relacionadas a identidades de usuário para sua rede virtual. Ingerir dados no Azure Sentinel para qualquer investigação adicional.
 
-- [Como exibir entradas suspeitas do Azure Active Directory](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Como exibir entradas suspeitas do Azure Active Directory](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Como configurar e habilitar políticas de risco de proteção de identidade](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -446,7 +446,7 @@ Escolha funções internas, como proprietário, colaborador ou colaborador de re
 
 - [Como criar consultas com o Azure Graph](../governance/resource-graph/first-query-portal.md) 
 
-- [Como exibir suas assinaturas do Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0) 
+- [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0) 
 
 - [Entender o RBAC do Azure](../role-based-access-control/overview.md)
 
@@ -458,7 +458,7 @@ Escolha funções internas, como proprietário, colaborador ou colaborador de re
 
 **Diretrizes**: Aplique marcas aos recursos do Azure, fornecendo metadados para organizá-los logicamente em uma taxonomia.
 
-- [Como criar e usar Marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar Marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -468,11 +468,11 @@ Escolha funções internas, como proprietário, colaborador ou colaborador de re
 
 **Diretrizes**: use marcação, grupos de gerenciamento e assinaturas separadas, quando apropriado, para organizar e controlar a rede virtual e os recursos relacionados. Reconcilie o inventário regularmente e garanta que os recursos não autorizados sejam excluídos da assinatura em tempo hábil.
 
-- [Como criar assinaturas adicionais do Azure](/azure/billing/billing-create-subscription) 
+- [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md) 
 
-- [Como criar Grupos de Gerenciamento](/azure/governance/management-groups/create) 
+- [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md) 
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -499,7 +499,7 @@ Consulte ou descubra recursos dentro das assinaturas com o grafo de recursos do 
 
 - [Como criar consultas com o Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Azure Policy de exemplo interno para rede virtual](/azure/virtual-network/policy-samples)
+- [Azure Policy de exemplo interno para rede virtual](./policy-reference.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -524,9 +524,9 @@ Consulte ou descubra recursos dentro das assinaturas com o grafo de recursos do 
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md) 
 
-- [Como negar um tipo de recurso específico com o Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Como negar um tipo de recurso específico com o Azure Policy](../governance/policy/samples/index.md)
 
-- [Azure Policy de exemplo interno para rede virtual](/azure/virtual-network/policy-samples)
+- [Azure Policy de exemplo interno para rede virtual](./policy-reference.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -554,11 +554,11 @@ Exporte qualquer um dos seus modelos de compilação com Azure Resource Manager 
 
 Implemente as recomendações da central de segurança como uma linha de base de configuração segura para os recursos do Azure.
 
-- [Como exibir os aliases disponíveis do Azure Policy](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Como exibir os aliases disponíveis do Azure Policy](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Tutorial: Criar e gerenciar políticas para impor a conformidade](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy de exemplo interno para rede virtual](/azure/virtual-network/policy-samples)
+- [Azure Policy de exemplo interno para rede virtual](./policy-reference.md)
 
 - [Exportação única e de vários recursos para um modelo no portal do Azure](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -582,7 +582,7 @@ Use os efeitos Azure Policy [Deny] e [implantar se não existir] para impor as c
 
 - [Exemplos de modelo do Azure Resource Manager para rede virtual](template-samples.md)
 
-- [Azure Policy de exemplo interno para rede virtual](/azure/virtual-network/policy-samples)
+- [Azure Policy de exemplo interno para rede virtual](./policy-reference.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -594,7 +594,7 @@ Use os efeitos Azure Policy [Deny] e [implantar se não existir] para impor as c
 
 Você deve ter permissões para acessar os recursos que deseja gerenciar no Azure DevOps, como seu código, compilações e acompanhamento de trabalho. A maioria das permissões é concedida por meio de grupos de segurança internos. Você pode conceder ou negar permissões a usuários específicos, grupos de segurança internos ou grupos definidos no Azure Active Directory (AD do Azure), se integrado ao Azure DevOps, ou Active Directory se integrado ao Team Foundation Server.
 
-- [Como armazenar código no Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops) 
+- [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops) 
 
 - [Sobre permissões e grupos no Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -610,7 +610,7 @@ Você deve ter permissões para acessar os recursos que deseja gerenciar no Azur
 
 - [Como usar aliases](../governance/policy/concepts/definition-structure.md#aliases)
 
-- [Azure Policy de exemplo interno para rede virtual](/azure/virtual-network/policy-samples)
+- [Azure Policy de exemplo interno para rede virtual](./policy-reference.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -624,7 +624,7 @@ Você deve ter permissões para acessar os recursos que deseja gerenciar no Azur
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy de exemplo interno para rede virtual](/azure/virtual-network/policy-samples)
+- [Azure Policy de exemplo interno para rede virtual](./policy-reference.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -636,9 +636,9 @@ Você deve ter permissões para acessar os recursos que deseja gerenciar no Azur
 
 - [Como integrar com identidades gerenciadas do Azure](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md) 
 
-- [Como criar um Key Vault](/azure/key-vault/quick-create-portal) 
+- [Como criar um Key Vault](../key-vault/secrets/quick-create-portal.md) 
 
-- [Como fornecer Key Vault autenticação com uma identidade gerenciada](/azure/key-vault/managed-identity)
+- [Como fornecer Key Vault autenticação com uma identidade gerenciada](../key-vault/general/assign-access-policy-portal.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -690,7 +690,7 @@ Você deve ter permissões para acessar os recursos que deseja gerenciar no Azur
 
 - [Introdução à automação do Azure](../automation/automation-intro.md)
 
-- [Como fazer backup de chaves do cofre de chaves no Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Como fazer backup de chaves do cofre de chaves no Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -716,13 +716,13 @@ Use o Azure RBAC (controle de acesso baseado em função) para proteger as chave
 
 Habilite a proteção de Soft-Delete e limpeza no Key Vault para proteger as chaves contra exclusão acidental ou mal-intencionada.  
 
-- [Como armazenar código no Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
 - [Sobre permissões e grupos no Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
-- [Como habilitar a proteção de Soft-Delete e limpeza no Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal) 
+- [Como habilitar a proteção de Soft-Delete e limpeza no Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal) 
 
-- [Exclusão reversível para blobs do Armazenamento do Azure ](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Exclusão reversível para blobs do Armazenamento do Azure ](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -754,7 +754,7 @@ Marque claramente as assinaturas (por exemplo, produção ou não produção) us
 
 - [Alertas de segurança na central de segurança](../security-center/security-center-alerts-overview.md)
 
-- [Usar marcas para organizar seus recursos do Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Usar marcas para organizar seus recursos do Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -812,9 +812,9 @@ Você também pode usar o conector de dados da central de segurança para transm
 
 **Diretrizes**: siga as regras de envolvimento da Microsoft para garantir que seus testes de penetração não sejam violações das políticas da Microsoft. Use a estratégia da Microsoft e a execução de equipes vermelhas e testes de penetração de sites ativos em infraestrutura de nuvem, serviços e aplicativos gerenciados pela Microsoft.
 
-- [Regras de teste de penetração do Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+- [Regras de participação para testes de penetração](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-- [Microsoft Cloud o agrupamento vermelho](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Equipes Vermelhas do Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -822,5 +822,5 @@ Você também pode usar o conector de dados da central de segurança para transm
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Confira o [Azure Security Benchmark](/azure/security/benchmarks/overview)
-- Saiba mais sobre a [Linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview)
+- Confira o [Azure Security Benchmark](../security/benchmarks/overview.md)
+- Saiba mais sobre a [Linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

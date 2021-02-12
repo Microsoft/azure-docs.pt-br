@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: f6fffadd3c53f67af2e4c833a6a1d442c18efa0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58b7b67842e9ba385b34ea4d8fdbcac190076218
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398179"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428159"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Migrar dados do StorSimple série 5000-7000 para um dispositivo série 8000
 
@@ -55,7 +55,7 @@ Uma migração do host permite a configuração da série 8000 independentemente
 | A migração pode ser abordada em fases ou com base em cada volume.                                               | Os backups anteriores (obtidos na série 5000/7000) não estão disponíveis no dispositivo da série 8000.                                                                                                       |
 | Permite a consolidação de dados em uma conta de armazenamento do Azure.                                                       | O primeiro backup na nuvem na série 8000 levará mais tempo porque todos os dados na série 8000 precisam ter o backup feito no Azure.                                                                     |
 | Após a migração bem-sucedida, todos os dados ficam localmente no dispositivo. Não há nenhuma latência ao acessar os dados. | O consumo de armazenamento do Azure aumentará até que os dados sejam excluídos do dispositivo 5000/7000.                                                                                                        |
-|                                                                                                                           | Se o dispositivo da série 5000/7000 tem uma grande quantidade de dados, durante a migração os dados precisam ser baixados do Azure, o que vai gerar custos e latências relativos ao download de dados do Azure |
+|                                                                                                                           | Se o dispositivo da série 7000/5000 tiver uma grande quantidade de dados, durante a migração, esses dados precisarão ser baixados do Azure, o que incorrerá em custos e latências relacionados ao download de dados do Azure |
 
 Este artigo se concentra somente no recurso de migração do dispositivo da série 5000/7000 para a série 8000. Para saber mais sobre a migração do lado do host, acesse [Migração de outros dispositivos de armazenamento](https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating%20Data%20to%20StorSimple%20Volumes_09-02-15.pdf).
 
@@ -150,4 +150,4 @@ Execute as etapas a seguir para instalar a ferramenta de migração do StorSimpl
   
 
 ## <a name="next-steps"></a>Próximas etapas
-Baixe as instruções passo a passo sobre como [migrar dados de um StorSimple série 5000-7000 para um dispositivo da série 8000](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b).
+Baixe as instruções passo a passo sobre como [migrar dados de um StorSimple série 5000-7000 para um dispositivo da série 8000](https://databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_Migration_Guide_20171115.pdf).

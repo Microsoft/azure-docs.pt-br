@@ -2,13 +2,13 @@
 title: Implantar recursos com o PowerShell e o modelo
 description: Use Azure Resource Manager e Azure PowerShell para implantar recursos no Azure. Os recursos são definidos em um modelo do Resource Manager.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: 5266aa51422dce6dfa4b82238e905f4f630ccf48
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 01/26/2021
+ms.openlocfilehash: efefb6706794bc2488aa4d4fef6c4ecc082b41a7
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668552"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881258"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>Implantar recursos com modelos do Resource Manager e o Azure PowerShell
 
@@ -16,26 +16,26 @@ Este artigo explica como usar Azure PowerShell com modelos de Azure Resource Man
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisa de um modelo para implantar. Se você ainda não tiver um, baixe e salve um [modelo de exemplo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) do repositório de modelos de início rápido do Azure. O nome do arquivo local usado neste artigo é **c:\MyTemplates\azuredeploy.json** .
+Você precisa de um modelo para implantar. Se você ainda não tiver um, baixe e salve um [modelo de exemplo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) do repositório de modelos de início rápido do Azure. O nome do arquivo local usado neste artigo é _C:\MyTemplates\azuredeploy.jsem_.
 
 Você precisa instalar Azure PowerShell e conectar-se ao Azure:
 
 - **Instalar cmdlets do Azure PowerShell em seu computador local.** Para obter mais informações, consulte [Introdução ao Azure PowerShell](/powershell/azure/get-started-azureps).
-- **Conectar-se ao Azure usando [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)** . Se você tiver várias assinaturas do Azure, talvez precise executar também [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). Para saber mais, confira [Use multiple Azure subscriptions](/powershell/azure/manage-subscriptions-azureps) (Usar várias assinaturas do Azure).
+- **Conectar-se ao Azure usando [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)**. Se você tiver várias assinaturas do Azure, talvez precise executar também [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). Para saber mais, confira [Use multiple Azure subscriptions](/powershell/azure/manage-subscriptions-azureps) (Usar várias assinaturas do Azure).
 
-Se você não tiver o PowerShell instalado, poderá usar o Cloud Shell. Para obter mais informações, consulte [implantar modelos de ARM de Cloud Shell](deploy-cloud-shell.md).
+Se você não tiver o PowerShell instalado, poderá usar Azure Cloud Shell. Para obter mais informações, consulte [implantar modelos de ARM de Azure cloud Shell](deploy-cloud-shell.md).
 
 ## <a name="deployment-scope"></a>Escopo da implantação
 
 Você pode direcionar sua implantação para um grupo de recursos, uma assinatura, um grupo de gerenciamento ou um locatário. Dependendo do escopo da implantação, você usará comandos diferentes.
 
-* Para implantar em um **grupo de recursos** , use [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
+- Para implantar em um **grupo de recursos**, use [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
 
   ```azurepowershell
   New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
   ```
 
-* Para implantar em uma **assinatura** , use New-AzSubscriptionDeployment:
+- Para implantar em uma **assinatura**, use [New-AzSubscriptionDeployment](/powershell/module/az.resources/new-azdeployment) , que é um alias do `New-AzDeployment` cmdlet:
 
   ```azurepowershell
   New-AzSubscriptionDeployment -Location <location> -TemplateFile <path-to-template>
@@ -43,7 +43,7 @@ Você pode direcionar sua implantação para um grupo de recursos, uma assinatur
 
   Para saber mais sobre as implantações de nível de assinatura, confira [Criar grupos de recursos e recursos no nível da assinatura](deploy-to-subscription.md).
 
-* Para implantar em um **grupo de gerenciamento** , use [New-AzManagementGroupDeployment](/powershell/module/az.resources/New-AzManagementGroupDeployment).
+- Para implantar em um **grupo de gerenciamento**, use [New-AzManagementGroupDeployment](/powershell/module/az.resources/New-AzManagementGroupDeployment).
 
   ```azurepowershell
   New-AzManagementGroupDeployment -Location <location> -TemplateFile <path-to-template>
@@ -51,7 +51,7 @@ Você pode direcionar sua implantação para um grupo de recursos, uma assinatur
 
   Para saber mais sobre implantações de nível de grupo de gerenciamento, confira [Criar recursos no nível de grupo de gerenciamento](deploy-to-management-group.md).
 
-* Para implantar em um **locatário** , use [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
+- Para implantar em um **locatário**, use [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
 
   ```azurepowershell
   New-AzTenantDeployment -Location <location> -TemplateFile <path-to-template>
@@ -60,48 +60,6 @@ Você pode direcionar sua implantação para um grupo de recursos, uma assinatur
   Para saber mais sobre implantações de nível de locatário, confira [Criar recursos no nível de locatário](deploy-to-tenant.md).
 
 Para cada escopo, o usuário que está implantando o modelo deve ter as permissões necessárias para criar recursos.
-
-## <a name="deploy-local-template"></a>Implantar o modelo local
-
-Você pode implantar um modelo de seu computador local ou um que esteja armazenado externamente. Esta seção descreve a implantação de um modelo local.
-
-Se você estiver implantando em um grupo de recursos que não existe, crie o grupo de recursos. O nome do grupo de recursos pode incluir somente caracteres alfanuméricos, pontos, sublinhados, hifens e parênteses. Pode ter até 90 caracteres. O nome não pode terminar com um ponto.
-
-```azurepowershell
-New-AzResourceGroup -Name ExampleGroup -Location "Central US"
-```
-
-Para implantar um modelo local, use o `-TemplateFile` parâmetro no comando de implantação. O exemplo a seguir também mostra como definir um valor de parâmetro proveniente do modelo.
-
-```azurepowershell
-New-AzResourceGroupDeployment `
-  -Name ExampleDeployment `
-  -ResourceGroupName ExampleGroup `
-  -TemplateFile c:\MyTemplates\azuredeploy.json
-```
-
-A implantação pode levar alguns minutos para ser concluída.
-
-## <a name="deploy-remote-template"></a>Implantar modelo remoto
-
-Em vez de armazenar modelos de ARM em seu computador local, você pode preferir armazená-los em um local externo. É possível armazenar modelos em um repositório de controle de código-fonte (como o GitHub). Ou ainda armazená-los em uma conta de armazenamento do Azure para acesso compartilhado na sua organização.
-
-Se você estiver implantando em um grupo de recursos que não existe, crie o grupo de recursos. O nome do grupo de recursos pode incluir somente caracteres alfanuméricos, pontos, sublinhados, hifens e parênteses. Pode ter até 90 caracteres. O nome não pode terminar com um ponto.
-
-```azurepowershell
-New-AzResourceGroup -Name ExampleGroup -Location "Central US"
-```
-
-Para implantar um modelo externo, use o parâmetro `-TemplateUri`.
-
-```azurepowershell
-New-AzResourceGroupDeployment `
-  -Name ExampleDeployment `
-  -ResourceGroupName ExampleGroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
-```
-
-O exemplo anterior requer um URI acessível publicamente para o modelo, que funciona para a maioria dos cenários porque seu modelo não deve incluir dados confidenciais. Se você precisar especificar dados confidenciais (como uma senha de administrador), passe esse valor como um parâmetro seguro. No entanto, se você quiser gerenciar o acesso ao modelo, considere o uso de [especificações de modelo](#deploy-template-spec).
 
 ## <a name="deployment-name"></a>Nome da implantação
 
@@ -131,11 +89,65 @@ Ao especificar um nome exclusivo para cada implantação, você pode executá-lo
 
 Para evitar conflitos com implantações simultâneas e para garantir entradas exclusivas no histórico de implantação, dê a cada implantação um nome exclusivo.
 
+## <a name="deploy-local-template"></a>Implantar o modelo local
+
+Você pode implantar um modelo de seu computador local ou um que esteja armazenado externamente. Esta seção descreve a implantação de um modelo local.
+
+Se você estiver implantando em um grupo de recursos que não existe, crie o grupo de recursos. O nome do grupo de recursos pode incluir somente caracteres alfanuméricos, pontos, sublinhados, hifens e parênteses. Pode ter até 90 caracteres. O nome não pode terminar com um ponto.
+
+```azurepowershell
+New-AzResourceGroup -Name ExampleGroup -Location "Central US"
+```
+
+Para implantar um modelo local, use o `-TemplateFile` parâmetro no comando de implantação. O exemplo a seguir também mostra como definir um valor de parâmetro proveniente do modelo.
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name ExampleDeployment `
+  -ResourceGroupName ExampleGroup `
+  -TemplateFile c:\MyTemplates\azuredeploy.json
+```
+
+A implantação pode levar vários minutos para ser concluída.
+
+## <a name="deploy-remote-template"></a>Implantar modelo remoto
+
+Em vez de armazenar modelos de ARM em seu computador local, você pode preferir armazená-los em um local externo. É possível armazenar modelos em um repositório de controle de código-fonte (como o GitHub). Ou ainda armazená-los em uma conta de armazenamento do Azure para acesso compartilhado na sua organização.
+
+Se você estiver implantando em um grupo de recursos que não existe, crie o grupo de recursos. O nome do grupo de recursos pode incluir somente caracteres alfanuméricos, pontos, sublinhados, hifens e parênteses. Pode ter até 90 caracteres. O nome não pode terminar com um ponto.
+
+```azurepowershell
+New-AzResourceGroup -Name ExampleGroup -Location "Central US"
+```
+
+Para implantar um modelo externo, use o parâmetro `-TemplateUri`.
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name remoteTemplateDeployment `
+  -ResourceGroupName ExampleGroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
+```
+
+O exemplo anterior requer um URI acessível publicamente para o modelo, que funciona para a maioria dos cenários porque seu modelo não deve incluir dados confidenciais. Se você precisar especificar dados confidenciais (como uma senha de administrador), passe esse valor como um parâmetro seguro. No entanto, se você quiser gerenciar o acesso ao modelo, considere o uso de [especificações de modelo](#deploy-template-spec).
+
+Para implantar modelos vinculados remotos com o caminho relativo que são armazenados em uma conta de armazenamento, use `QueryString` para especificar o token SAS:
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name linkedTemplateWithRelativePath `
+  -ResourceGroupName "myResourceGroup" `
+  -TemplateUri "https://stage20210126.blob.core.windows.net/template-staging/mainTemplate.json" `
+  -QueryString $sasToken
+```
+
+Para obter mais informações, consulte [usar caminho relativo para modelos vinculados](./linked-templates.md#linked-template).
+
 ## <a name="deploy-template-spec"></a>Implantar especificação de modelo
 
 Em vez de implantar um modelo local ou remoto, você pode criar uma [especificação de modelo](template-specs.md). A especificação do modelo é um recurso em sua assinatura do Azure que contém um modelo do ARM. Ele facilita o compartilhamento seguro do modelo com usuários em sua organização. Use o controle de acesso baseado em função do Azure (RBAC do Azure) para conceder acesso à especificação do modelo. Este recurso está atualmente em visualização.
 
-Os exemplos a seguir mostram como criar e implantar uma especificação de modelo. Esses comandos só estarão disponíveis se você tiver se [inscrito na versão prévia](https://aka.ms/templateSpecOnboarding).
+Os exemplos a seguir mostram como criar e implantar uma especificação de modelo.
 
 Primeiro, crie a especificação do modelo fornecendo o modelo ARM.
 
@@ -209,7 +221,7 @@ Em vez de passar parâmetros como valores embutidos no script, talvez seja mais 
 
 Para saber mais sobre o arquivo de parâmetro, confira [Criar arquivo de parâmetro do Resource Manager](parameter-files.md).
 
-Para passar um arquivo de parâmetro local, use o **TemplateParameterFile** :
+Para passar um arquivo de parâmetro local, use o `TemplateParameterFile` parâmetro:
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
@@ -217,7 +229,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
   -TemplateParameterFile c:\MyTemplates\storage.parameters.json
 ```
 
-Para passar um arquivo de parâmetro externo, use o **TemplateParameterUri** :
+Para passar um arquivo de parâmetro externo, use o `TemplateParameterUri` parâmetro:
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
@@ -230,4 +242,4 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
 - Para reverter para uma implantação bem-sucedida quando você receber um erro, confira [Reverter em caso de erro para uma implantação bem-sucedida](rollback-on-error.md).
 - Para especificar como lidar com os recursos existentes no grupo de recursos, mas que não estão definidos no modelo, confira [Modos de implantação do Azure Resource Manager](deployment-modes.md).
 - Para entender como definir parâmetros em seu modelo, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).
-- Para saber mais sobre como implantar um modelo que exija um token SAS, veja [Implantar o modelo particular com o token SAS](secure-template-with-sas-token.md).
+- Para obter informações sobre como implantar um modelo que requer um token SAS, consulte [implantar modelo de ARM privado com token SAS](secure-template-with-sas-token.md).

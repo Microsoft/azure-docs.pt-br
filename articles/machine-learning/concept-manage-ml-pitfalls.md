@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
-ms.openlocfilehash: 77b5b52153c552008406b4b85083bcba5542cebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba85bda1e322d3efd467527b48bd4cd90eb7ce8c
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87012715"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922617"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Evitar dados de sobreajuste e desequilibrados com o machine learning automatizado
 
@@ -84,8 +84,8 @@ Além disso, as execuções de machine learning automatizado geram automaticamen
 Gráfico| Descrição
 ---|---
 [Matriz de confusão](how-to-understand-automated-ml.md#confusion-matrix)| Avalia os rótulos classificados corretamente em relação aos rótulos reais dos dados. 
-[Precisão/recall](how-to-understand-automated-ml.md#precision-recall-chart)| Avalia a proporção de rótulos corretos em relação à taxa de instâncias de rótulo encontradas dos dados 
-[Curvas ROC](how-to-understand-automated-ml.md#roc)| Avalia a proporção de rótulos corretos em relação à taxa de rótulos falsos positivos.
+[Precisão/recall](how-to-understand-automated-ml.md#precision-recall-curve)| Avalia a proporção de rótulos corretos em relação à taxa de instâncias de rótulo encontradas dos dados 
+[Curvas ROC](how-to-understand-automated-ml.md#roc-curve)| Avalia a proporção de rótulos corretos em relação à taxa de rótulos falsos positivos.
 
 ## <a name="handle-imbalanced-data"></a>Tratamento dos dados desequilibrados 
 

@@ -14,11 +14,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 28169e43d0e6949a16cc56c7e7d5d91d6db1ef57
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636911"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003031"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Copiar ou mover dados facilmente com o Assistente de Cópia do Azure Data Factory
 > [!NOTE]
@@ -32,7 +32,7 @@ O Assistente de cópia do Azure Data Factory serve para facilitar o processo de 
 ## <a name="an-intuitive-wizard-for-copying-data"></a>Um assistente intuitivo para copiar dados
 Esse assistente permite mover dados facilmente de uma ampla variedade de fontes para destinos em minutos. Depois de concluir o assistente, um pipeline com uma atividade de cópia é criado automaticamente para você com entidades de Data Factory dependentes (serviços vinculados e conjuntos de dados). Não há etapas adicionais necessárias para criar o pipeline.   
 
-![Selecione uma fonte de dados](./media/data-factory-copy-wizard/select-data-source-page.png)
+![Selecionar fonte de dados](./media/data-factory-copy-wizard/select-data-source-page.png)
 
 > [!NOTE]
 > Consulte artigo [tutorial do Assistente de cópia](data-factory-copy-data-wizard-tutorial.md) para obter instruções passo a passo de como criar um pipeline de exemplo para copiar dados de um blob do Azure para uma tabela de banco de dados SQL do Azure. 
@@ -62,7 +62,7 @@ No exemplo, a consulta SQL usa a função `Text.Format` e variável `WindowStart
 ![Validar expressões](./media/data-factory-copy-wizard/validate-expressions.png)
 
 ### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Filtragem de dados em uma pasta de blobs do Azure
-Você pode usar variáveis no caminho da pasta para copiar dados de uma pasta determinada em runtime com base nas [variáveis do sistema](data-factory-functions-variables.md#data-factory-system-variables). As variáveis com suporte são: **{ano}** , **{mês}** , **{dia}** , **{hora}** , **{minuto}** e **{personalizado}** . Exemplo: pastadeentrada/{ano}/{mês}/{dia}.
+Você pode usar variáveis no caminho da pasta para copiar dados de uma pasta determinada em runtime com base nas [variáveis do sistema](data-factory-functions-variables.md#data-factory-system-variables). As variáveis com suporte são: **{ano}**, **{mês}**, **{dia}**, **{hora}**, **{minuto}** e **{personalizado}**. Exemplo: pastadeentrada/{ano}/{mês}/{dia}.
 
 Suponha que você tenha pastas de entrada no seguinte formato:
 
@@ -73,7 +73,7 @@ Suponha que você tenha pastas de entrada no seguinte formato:
 ...
 ```
 
-Clique no botão **Procurar** de **Arquivo ou pasta** , navegue até uma dessas pastas (por exemplo, 2016->03->01->02) e clique em **Escolher** . Você verá `2016/03/01/02` na caixa de texto. Agora, substitua **2016** por **{year}** , **03** por **{month}** , **01** por **{Day}** e **02** por **{Hour}** e pressione Tab. Você deve ver as listas suspensas para selecionar o formato dessas quatro variáveis:
+Clique no botão **Procurar** de **Arquivo ou pasta**, navegue até uma dessas pastas (por exemplo, 2016->03->01->02) e clique em **Escolher**. Você verá `2016/03/01/02` na caixa de texto. Agora, substitua **2016** por **{year}**, **03** por **{month}**, **01** por **{Day}** e **02** por **{Hour}** e pressione Tab. Você deve ver as listas suspensas para selecionar o formato dessas quatro variáveis:
 
 ![Usando variáveis de sistema](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 

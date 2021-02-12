@@ -3,7 +3,7 @@ title: Configurar classificações de permissão com o Azure AD
 description: Saiba como gerenciar classificações de permissão delegadas.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,13 +11,13 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: phsignor
 ms.reviewer: arvindh, luleon, phsignor
-ms.custom: contperfq2
-ms.openlocfilehash: d23ef7b78f5e97ee8a82f46794f37f3baf05ca49
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: b2d851f0f4476cd4b24b6ba30c237f9a42252726
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427665"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255213"
 ---
 # <a name="configure-permission-classifications"></a>Configurar as classificações de permissão
 
@@ -34,7 +34,7 @@ Atualmente, há suporte apenas à classificação de permissão "Pouco impacto".
 
 Siga estas etapas para classificar permissões usando o portal do Azure:
 
-1. Entre no [portal do Azure](https://portal.azure.com) como [administrador global](../roles/permissions-reference.md#global-administrator--company-administrator), [administrador de aplicativos](../roles/permissions-reference.md#application-administrator)ou administrador de [aplicativos de nuvem](../roles/permissions-reference.md#cloud-application-administrator)
+1. Entre no [portal do Azure](https://portal.azure.com) como [administrador global](../roles/permissions-reference.md#global-administrator), [administrador de aplicativos](../roles/permissions-reference.md#application-administrator)ou administrador de [aplicativos de nuvem](../roles/permissions-reference.md#cloud-application-administrator)
 1. Selecione **Azure Active Directory** > **Aplicativos empresariais** > **Consentimento e permissões** > **Classificações de permissão**.
 1. Escolha **Adicionar permissões** para classificar outra permissão como de "Pouco impacto".
 1. Selecione a API e as permissões delegadas.
@@ -45,7 +45,7 @@ Neste exemplo, classificamos o conjunto mínimo de permissões obrigatórias par
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Você pode usar o módulo de versão prévia mais recente do PowerShell do Azure AD, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), para classificar permissões. As classificações de permissão são configuradas no objeto **ServicePrincipal** da API que publica as permissões.
+Você pode usar o módulo de versão prévia mais recente do PowerShell do Azure AD, [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview), para classificar permissões. As classificações de permissão são configuradas no objeto **ServicePrincipal** da API que publica as permissões.
 
 #### <a name="list-the-current-permission-classifications-for-an-api"></a>Listar as classificações de permissão atuais para uma API
 
@@ -123,7 +123,7 @@ Para saber mais:
 * [Configurar o fluxo de trabalho de consentimento do administrador](configure-admin-consent-workflow.md)
 * [Saiba como gerenciar o consentimento em aplicativos e avaliar solicitações de consentimento](manage-consent-requests.md)
 * [Conceder consentimento de administrador em todo o locatário para um aplicativo](grant-admin-consent.md)
-* [Permissões e consentimento na plataforma de identidade da Microsoft](../develop/active-directory-v2-scopes.md)
+* [Permissões e consentimento na plataforma de identidade da Microsoft](../develop/v2-permissions-and-consent.md)
 
 Para obter ajuda ou encontrar respostas às suas perguntas:
-* [Azure AD no StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Azure AD no Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)

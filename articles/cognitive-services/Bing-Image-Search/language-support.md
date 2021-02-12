@@ -10,19 +10,19 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: b7037804f1a0984cee2d1756adf80bfe2eec3918
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 14dacc4351af444c75517df4d4e02ecca3bbf40a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095520"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350068"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Suporte de idioma e região para a API de Pesquisa de Imagem do Bing
 
 > [!WARNING]
-> APIs de Pesquisa do Bing estão mudando de serviços cognitivas para serviços Pesquisa do Bings. A partir de **30 de outubro de 2020** , todas as novas instâncias do pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
-> APIs de Pesquisa do Bing provisionado usando serviços cognitivas terão suporte nos próximos três anos ou até o final do seu Enterprise Agreement, o que ocorrer primeiro.
-> Para obter instruções de migração, consulte [serviços de pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 A API de Pesquisa de Imagem do Bing dá suporte a mais de trinta países/regiões, muitos com mais de um idioma. Especificar um país/região com uma consulta serve principalmente para refinar os resultados da pesquisa com base nos interesses nesse país/região. Além disso, os resultados podem conter links para o Bing e esses links podem localizar a experiência do usuário do Bing, de acordo com o país/região ou idioma especificado.
 
@@ -120,8 +120,8 @@ Como alternativa, é possível especificar o país/região usando o parâmetro d
 |Taiwan|Chinês tradicional|zh-TW|
 |Turquia|Turco|tr-TR|
 |Reino Unido|Inglês|en-GB|
-|Estados Unidos|Inglês|pt-BR|
+|Estados Unidos|Inglês|en-US|
 |Estados Unidos|Espanhol|es-US|
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações sobre os pontos de extremidade da Pesquisa de Notícias do Bing, confira [Referência da API de Pesquisa de Imagem v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).
+Para obter mais informações sobre os pontos de extremidade da Pesquisa de Notícias do Bing, confira [Referência da API de Pesquisa de Imagem v7](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).

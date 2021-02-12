@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 8cc7c1e0b776574ec7908557108e2cda49bb2a11
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 31dd1c06b0f17b469454593131ccdc93b45b2446
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896653"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624960"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Tutorial: Pesquisar pontos de interesse próximos usando os Mapas do Azure
 
@@ -41,7 +41,7 @@ Este tutorial mostra como configurar uma conta dos Mapas do Azure e depois usar 
 
 A API de Controle de Mapeamento é uma biblioteca de clientes conveniente. Essa API permite que você integre com facilidade os Mapas ao seu aplicativo Web. Ela oculta a complexidade das chamadas básicas de serviço REST e aumenta a produtividade com os componentes personalizáveis. As etapas a seguir mostra como criar uma página HTML estática inserida com a API do Controle de Mapeamento.
 
-1. Em seu computador local, crie um novo arquivo e nomeie-o como **MapSearch.html** .
+1. Em seu computador local, crie um novo arquivo e nomeie-o como **MapSearch.html**.
 2. Adicione os seguintes componentes HTML ao arquivo:
 
    ```HTML
@@ -246,6 +246,10 @@ O mapa que fizemos até agora apenas analisa os dados de longitude/latitude para
     ![Controle de mapa do Azure e Serviço de Pesquisa](./media/tutorial-search-location/popup-map.png)
 
 Para ver o código completo deste tutorial, clique [aqui](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html). Para ver a amostra ao vivo, clique [aqui](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Não há recursos que exijam limpeza.
 
 ## <a name="next-steps"></a>Próximas etapas
 

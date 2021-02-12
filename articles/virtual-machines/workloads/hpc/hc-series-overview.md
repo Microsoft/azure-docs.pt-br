@@ -3,16 +3,17 @@ title: Visão geral da VM da série HC-máquinas virtuais do Azure | Microsoft D
 description: Saiba mais sobre o suporte de visualização para o tamanho da VM da série HC no Azure.
 author: vermagit
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 97e0ae9ea4914cda5d92f5180199a740c02ecdf4
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b9fe978da9accd28ea0e538f458325f10c9c5d8d
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994361"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831883"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>Visão geral da máquina virtual da série HC
 
@@ -57,6 +58,6 @@ O diagrama a seguir mostra a diferenciação de núcleos reservada para o hiperv
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre a [arquitetura do Intel Xeon SP](https://bit.ly/2RCYkiE).
+- Saiba mais sobre a [arquitetura do Intel Xeon SP](https://software.intel.com/content/www/us/en/develop/articles/intel-xeon-processor-scalable-family-technical-overview.html).
 - Leia os comunicados mais recentes e alguns exemplos e resultados da HPC nos [Blogs da Tech Community da Computação do Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Para obter uma visão de nível superior da arquitetura de execução de cargas de trabalho de HPC, confira [HPC (computação de alto desempenho) no Azure](/azure/architecture/topics/high-performance-computing/).

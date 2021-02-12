@@ -7,16 +7,16 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 04/16/2020
 ms.author: ant
-ms.openlocfilehash: eccd6b33353e071a66225279f1f1c150d4bdaafc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b60075eb861fe598a05ba014a7def96bc815d06
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86143853"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653003"
 ---
 # <a name="migrate-web-application-firewall-policies-using-azure-powershell"></a>Migrar políticas de firewall do aplicativo Web usando Azure PowerShell
 
-Esse script facilita a transição de uma configuração WAF ou de uma política personalizada somente de regras de WAF para uma política completa de WAF. Você pode ver um aviso no portal que diz *migrar para a política WAF*ou talvez queira os novos recursos do WAF, como regras personalizadas geocombinadoras (versão prévia), política de WAF por site e política de WAF por URI (versão prévia) ou o conjunto de regras de mitigação de bot (versão prévia). Para usar qualquer um desses recursos, você precisa de uma política WAF completa associada ao seu gateway de aplicativo. 
+Esse script facilita a transição de uma configuração WAF ou de uma política personalizada somente de regras de WAF para uma política completa de WAF. Você pode ver um aviso no portal que diz *migrar para a política WAF* ou talvez queira os novos recursos do WAF, como regras personalizadas geocombinadoras (versão prévia), política de WAF por site e política de WAF por URI (versão prévia) ou o conjunto de regras de mitigação de bot (versão prévia). Para usar qualquer um desses recursos, você precisa de uma política WAF completa associada ao seu gateway de aplicativo. 
 
 Para obter mais informações sobre como criar uma nova política de WAF, consulte [criar políticas de firewall do aplicativo Web para o gateway de aplicativo](create-waf-policy-ag.md). Para obter informações sobre como migrar, consulte [migrar para a política WAF](create-waf-policy-ag.md#migrate-to-waf-policy).
 
@@ -146,7 +146,7 @@ function createNewTopLevelWafPolicy ($subscriptionId, $resourceGroupName, $appli
                 if ($disabled.Rules.Count -gt 0) {
                     foreach ($rule in $disabled.Rules) {
                         $ruleOverride = New-AzApplicationGatewayFirewallPolicyManagedRuleOverride -RuleId $rule
-                        $_ = $rules.Add($ruleOverride)              
+                        $_ = $rules.Add($ruleOverride)
                     }
                 }
                 
@@ -157,7 +157,7 @@ function createNewTopLevelWafPolicy ($subscriptionId, $resourceGroupName, $appli
 
         $managedRuleSet = New-AzApplicationGatewayFirewallPolicyManagedRuleSet -RuleSetType $appgw.WebApplicationFirewallConfiguration.RuleSetType -RuleSetVersion $appgw.WebApplicationFirewallConfiguration.RuleSetVersion 
         if ($ruleGroupOverrides.Count -ne 0) {
-            $managedRuleSet = New-AzApplicationGatewayFirewallPolicyManagedRuleSet -RuleSetType $appgw.WebApplicationFirewallConfiguration.RuleSetType -RuleSetVersion $appgw.WebApplicationFirewallConfiguration.RuleSetVersion -RuleGroupOverride $ruleGroupOverrides 
+            $managedRuleSet = New-AzApplicationGatewayFirewallPolicyManagedRuleSet -RuleSetType $appgw.WebApplicationFirewallConfiguration.RuleSetType -RuleSetVersion $appgw.WebApplicationFirewallConfiguration.RuleSetVersion -RuleGroupOverride $ruleGroupOverrides
         }
     
         $exclusions = [System.Collections.ArrayList]@()  
@@ -165,7 +165,7 @@ function createNewTopLevelWafPolicy ($subscriptionId, $resourceGroupName, $appli
             foreach ($excl in $appgw.WebApplicationFirewallConfiguration.Exclusions) {
                 if ($excl.MatchVariable -and $excl.SelectorMatchOperator -and $excl.Selector) {
                     $exclusionEntry = New-AzApplicationGatewayFirewallPolicyExclusion -MatchVariable  $excl.MatchVariable -SelectorMatchOperator $excl.SelectorMatchOperator -Selector $excl.Selector
-                    $_ = $exclusions.Add($exclusionEntry)               
+                    $_ = $exclusions.Add($exclusionEntry)
                 }
             }
         }

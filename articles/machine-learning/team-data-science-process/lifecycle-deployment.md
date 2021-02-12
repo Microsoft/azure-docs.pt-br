@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fe5eba72b507ebea6bc1012c567de70bc3deb5ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3bf8e5f81ae7bf35ff34039fa1e81c9fd4a406b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261338"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324542"
 ---
 # <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Estágio de implantação do ciclo de vida do Processo de Ciência de Dados de Equipe
 
@@ -39,14 +39,14 @@ Implante modelos com um pipeline de dados em um ambiente de produção ou semelh
 ## <a name="how-to-do-it"></a>Como fazer
 A principal tarefa abordada neste estágio:
 
-**Operacionalizar o modelo**: implante o modelo e o pipeline em um ambiente de produção ou semelhante à produção para consumo do aplicativo.
+**Operacionalizar o modelo** : implante o modelo e o pipeline em um ambiente de produção ou semelhante à produção para consumo do aplicativo.
 
 ### <a name="operationalize-a-model"></a>Operacionalizar um modelo
 Depois que você tiver um conjunto de modelos com um bom desempenho, eles poderão ser operacionalizados para o consumo de outros aplicativos. Dependendo dos requisitos de negócios, as previsões são feitas em tempo real ou em lotes. Para implantar modelos, exponha-os com uma interface de API livre. A interface permite que o modelo seja consumido facilmente de vários aplicativos, tais como:
 
    * Sites online
    * Planilhas 
-   * Painéis
+   * Dashboards
    * Aplicativos de linha de negócios 
    * Aplicativos de back-end 
 
@@ -71,4 +71,4 @@ Aqui estão os links para cada etapa do ciclo de vida do TDSP:
 
 Fornecemos orientações completas que demonstram todas as etapas no processo para cenários específicos. O artigo [Passo a passos de exemplo](walkthroughs.md) fornece uma lista dos cenários com descrições de links e miniaturas. Os passo a passo ilustram como combinar ferramentas e serviços de nuvem e locais em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente. 
 
-Para obter exemplos de como executar etapas nos TDSPs que usam o Azure Microsoft Azure Machine Learning Studio, consulte [Use the TDSP with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) (Usar o TDSP com o Azure Machine Learning).
+Para obter exemplos de como executar etapas nos TDSPs que usam o Azure Microsoft Azure Machine Learning Studio, consulte [Use the TDSP with Azure Machine Learning](./index.yml) (Usar o TDSP com o Azure Machine Learning).

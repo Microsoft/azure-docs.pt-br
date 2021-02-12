@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: df800938d568af0b94cfb1d368ef32e9b085b6eb
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 084ca039e7f388a11e15b29c579606c6ed3086db
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913102"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790420"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Implantar a ferramenta de rotulagem de exemplos
 
@@ -42,8 +42,8 @@ Antes de começar, é importante observar que há duas maneiras de implantar a f
 Siga estas etapas para criar um novo recurso usando o portal do Azure: 
 
 1. Entre no [portal do Azure](https://portal.azure.com/signin/index/).
-2. Selecione **Criar um recurso** . 
-3. Em seguida, selecione **aplicativo Web** . 
+2. Selecione **Criar um recurso**. 
+3. Em seguida, selecione **aplicativo Web**. 
 
    > [!div class="mx-imgBorder"]
    > ![Selecionar aplicativo Web](./media/quickstarts/formre-create-web-app.png)
@@ -86,7 +86,7 @@ Siga estas etapas para criar um novo recurso usando o portal do Azure:
    * URL do servidor-defina como `https://mcr.microsoft.com`
    * Nome de usuário (opcional)-criar um nome de usuário. 
    * Senha (opcional) – crie uma senha segura que você vai lembrar.
-   * Imagem e marca-defina isso como `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview`
+   * Imagem e marca-defina isso como `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview`
    * Implantação contínua – defina como **ativado** se você quiser receber atualizações automáticas quando a equipe de desenvolvimento fizer alterações na ferramenta de rotulagem de exemplo.
    * Comando de inicialização – defina como `./run.sh eula=accept`
     
@@ -99,6 +99,9 @@ Siga estas etapas para criar um novo recurso usando o portal do Azure:
 
 > [!NOTE]
 > Ao criar seu aplicativo Web, você também pode configurar a autorização/autenticação. Isso não é necessário para começar. 
+
+> [!IMPORTANT]
+> Talvez seja necessário habilitar o TLS para seu aplicativo Web a fim de exibi-lo em seu `https` endereço. Siga as instruções em [habilitar um ponto de extremidade TLS](../../container-instances/container-instances-container-group-ssl.md) para configurar um contêiner sidecar do que permite o TLS/SSL para seu aplicativo Web.
 
 ### <a name="azure-cli"></a>CLI do Azure
 
@@ -136,7 +139,7 @@ DNS_NAME_LABEL=aci-demo-$RANDOM
 az container create \
   --resource-group <resource_group_name> \
   --name <name> \
-  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview \
   --ports 3000 \
   --dns-name-label $DNS_NAME_LABEL \
   --location <region name> \

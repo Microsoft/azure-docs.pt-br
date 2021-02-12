@@ -1,6 +1,6 @@
 ---
 title: Tutorial – Gerenciar máquinas virtuais com o PowerShell
-description: Neste tutorial, você aprenderá a usar o Azure PowerShell para gerenciar máquinas virtuais do Azure, aplicando RBAC, políticas, bloqueios e marcas
+description: Neste tutorial, você aprenderá a usar o Azure PowerShell para gerenciar máquinas virtuais do Azure, aplicando o Azure RBAC e políticas, bloqueios e marcas do Azure
 author: tfitzmac
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 723eaeb6eb8946473b31b447e817a0a3b696f1cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 393606eb4211131b2b530e3900746e5024321aa3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87926562"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844243"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>Tutorial: Saiba mais sobre o gerenciamento de máquina virtual do Windows com o Azure PowerShell
 
@@ -39,7 +39,7 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 Atualmente, o grupo de recursos está vazio.
 
-## <a name="role-based-access-control"></a>Controle de acesso baseado em função
+## <a name="azure-role-based-access-control"></a>Controle de acesso baseado em função do Azure
 
 Você deseja certificar-se de que os usuários em sua organização têm o nível certo de acesso a esses recursos. Você não deseja conceder acesso ilimitado a usuários, mas também precisa certificar-se de que eles podem fazer o trabalho deles. [O Azure RBAC (controle de acesso baseado em função do Azure)](../../role-based-access-control/overview.md) permite que você gerencie quais usuários têm permissão para executar ações específicas em um escopo.
 

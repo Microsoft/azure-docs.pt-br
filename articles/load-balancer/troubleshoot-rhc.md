@@ -11,16 +11,28 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2020
 ms.author: errobin
-ms.openlocfilehash: 1af3ce7125d30ed0cb9b8ca6b3cb9322dc14c520
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3acaaba86c9a546a0bd45b5386287908168d50d0
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855258"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955613"
 ---
-# <a name="troubleshoot-resource-health-frontend-and-backend-availability-issues"></a>Solucionar problemas de disponibilidade do Resource Health, frontend e back-end 
+# <a name="troubleshoot-resource-health-and-inbound-availability-issues"></a>Solucionar problemas de integridade de recursos e de disponibilidade de entrada 
 
 Este artigo é um guia para investigar problemas que afetam a disponibilidade do seu IP de front-end do balanceador de carga e dos recursos de backend. 
+
+A verificação de Resource Health (RHC) para o Load Balancer é usada para determinar a integridade do balanceador de carga. Ele analisa a métrica de disponibilidade do caminho de dados em um intervalo de **2 minutos** para determinar se os pontos de extremidade de balanceamento de carga, as combinações de IP de front-end e portas de front-end com regras de balanceamento de carga, estão disponíveis.
+
+A tabela abaixo descreve a lógica RHC usada para determinar o estado de integridade do balanceador de carga.
+
+| Status de integridade de recurso | Description |
+| --- | --- |
+| Disponível | O recurso padrão do Load Balancer está íntegro e disponível. |
+| Degradado | O balanceador de carga padrão tem eventos iniciados pela plataforma ou pelo usuário que afetam o desempenho. A métrica de disponibilidade do Datapath relatou menos de 90%, mas mais de 25% de integridade por pelo menos dois minutos. Você passará por um impacto de desempenho moderado a severo. 
+| Indisponível | O recurso padrão do Load Balancer não está íntegro. A métrica de disponibilidade do caminho de dado relatou menos a integridade de 25% por pelo menos dois minutos. Você terá um impacto significativo no desempenho ou falta de disponibilidade para a conectividade de entrada. Pode haver eventos de usuário ou plataforma causando indisponibilidade. |
+| Unknown | O status de integridade do recurso para o recurso de Load Balancer padrão ainda não foi atualizado ou não recebeu informações de disponibilidade do caminho de dados dos últimos 10 minutos. Esse estado deve ser transitório e reflete o status correto assim que os dados são recebidos. |
+
 
 ## <a name="about-the-metrics-well-use"></a>Sobre as métricas que usaremos
 As duas métricas a serem usadas são o *status de investigação de integridade* e disponibilidade do caminho de *dados* e é importante entender seu significado para derivar informações corretas. 
@@ -52,7 +64,7 @@ Digamos que verifiquemos nosso status de investigação de integridade e descubr
   * Se você achar que esse problema de NSG é o caso, mova a regra de permissão existente ou crie uma nova regra de alta prioridade para permitir o tráfego de AzureLoadBalancer
 * Verifique seu sistema operacional. Verifique se suas VMs estão escutando na porta de investigação e examine suas regras de firewall do so para garantir que elas não estejam bloqueando o tráfego de investigação proveniente do endereço IP 168.63.129.16
   * Você pode verificar portas de escuta executando netstat-a no prompt de comando do Windows ou netstat-l em um terminal do Linux
-* Não coloque uma VM NVA de firewall no pool de back-end do balanceador de carga, use [rotas definidas pelo usuário](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) para rotear o tráfego para instâncias de back-end por meio do firewall
+* Não coloque uma VM NVA de firewall no pool de back-end do balanceador de carga, use [rotas definidas pelo usuário](../virtual-network/virtual-networks-udr-overview.md#user-defined) para rotear o tráfego para instâncias de back-end por meio do firewall
 * Verifique se você está usando o protocolo correto, se estiver usando HTTP para investigar uma porta que escuta um aplicativo não HTTP, a investigação falhará
 
 Se você tiver feito essa lista de verificação e ainda estiver encontrando falhas de investigação de integridade, poderá haver problemas raros de plataforma afetando o serviço de investigação para suas instâncias. Nesse caso, o Azure tem seu retorno e um alerta automatizado é enviado à nossa equipe para resolver rapidamente todos os problemas de plataforma.
@@ -61,5 +73,3 @@ Se você tiver feito essa lista de verificação e ainda estiver encontrando fal
 
 * [Saiba mais sobre a investigação de integridade Azure Load Balancer](load-balancer-custom-probe-overview.md)
 * [Saiba mais sobre as métricas de Azure Load Balancer](load-balancer-standard-diagnostics.md)
-
-

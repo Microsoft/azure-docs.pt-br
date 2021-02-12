@@ -1,14 +1,14 @@
 ---
 title: Exemplos de consulta avançada
 description: Use o Azure Resource Graph para executar algumas consultas avançadas, incluindo o trabalho com colunas, a listagem das marcas usadas e a correspondência de recursos com expressões regulares.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: sample
-ms.openlocfilehash: dff4b06cc5cf4385820c7f6251efaae792d9c22d
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: b0a13fb798a9403b240c97fb207bf9b76e01028f
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057137"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918858"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Exemplos de consultas avançadas do Resource Graph
 

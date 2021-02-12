@@ -2,20 +2,20 @@
 title: Azure AD Domain Services para provedores de soluções na nuvem | Microsoft Docs
 description: Saiba como habilitar e gerenciar Azure Active Directory Domain Services domínios gerenciados para provedores de soluções de nuvem do Azure
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 ms.assetid: 56ccb219-11b2-4e43-9f07-5a76e3cd8da8
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.author: joflore
-ms.openlocfilehash: fae04d929be7ae6f266ff136b4fbd90f7d8a4e02
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: d8edafff9b6534e5f1ce1c4581595ee187dfd432
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960958"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619892"
 ---
 # <a name="azure-active-directory-domain-services-deployment-and-management-for-azure-cloud-solution-providers"></a>Implantação e gerenciamento de Azure Active Directory Domain Services para provedores de soluções de nuvem do Azure
 

@@ -2,15 +2,16 @@
 title: Habilitar o Gerenciamento de Atualizações da Automação do Azure por runbook
 description: Este artigo informa como habilitar o Gerenciamento de Atualizações por meio de um runbook.
 services: automation
+ms.subservice: update-management
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 11/24/2020
 ms.custom: mvc
-ms.openlocfilehash: ec102015355e3312f5dc15fa526fa543da75e0de
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 219efe05b399677c60922542f3d7acd76ca37d26
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221943"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054882"
 ---
 # <a name="enable-update-management-from-a-runbook"></a>Habilitar o Gerenciamento de Atualizações de um runbook
 
@@ -34,7 +35,7 @@ Esse método usa dois runbooks:
     * *LASolutionSubscriptionId*: ID da assinatura em que o espaço de trabalho do log Analytics está localizado.
     * *LASolutionWorkspaceId*: ID do espaço de trabalho do log Analytics espaço de trabalho vinculado à sua conta de automação.
 
-    Essas variáveis são usadas para configurar o espaço de trabalho da VM integrada. Se eles não forem especificados, o script primeiro pesquisará qualquer VM integrada para Gerenciamento de Atualizações em sua assinatura, seguida pela assinatura em que a conta de automação está, seguida de todas as outras assinaturas às quais sua conta de usuário tem acesso. Se não estiver configurado corretamente, isso poderá resultar em seus computadores serem integrados a algum espaço de trabalho de Log Analytics aleatório.
+    Essas variáveis são usadas para configurar o espaço de trabalho da VM integrada e você precisa criá-las manualmente. Se eles não forem especificados, o script primeiro pesquisará qualquer VM integrada para Gerenciamento de Atualizações em sua assinatura, seguida pela assinatura em que a conta de automação está, seguida de todas as outras assinaturas às quais sua conta de usuário tem acesso. Se não estiver configurado corretamente, isso poderá resultar em seus computadores serem integrados a algum espaço de trabalho de Log Analytics aleatório.
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -52,7 +53,7 @@ Entre no [portal do Azure](https://portal.azure.com).
 
 ## <a name="install-and-update-modules"></a>Instalar e atualizar módulos
 
-É necessário atualizar para os módulos mais recentes do Azure e importar o módulo [AZ. OperationalInsights](/powershell/module/az.operationalinsights) para habilitar com êxito gerenciamento de atualizações para suas VMs com o runbook.
+É necessário atualizar para os módulos mais recentes do Azure e importar o módulo [AzureRM. OperationalInsights](/powershell/module/azurerm.operationalinsights) para habilitar com êxito gerenciamento de atualizações para suas VMs com o runbook.
 
 1. Na sua conta de Automação, selecione **Módulos** em **Recursos Compartilhados**.
 
@@ -66,9 +67,9 @@ Entre no [portal do Azure](https://portal.azure.com).
 
 5. Selecione **Procurar na galeria** para abrir a galeria de módulos.
 
-6. Pesquise `Az.OperationalInsights` e importe esse módulo para a sua conta da Automação.
+6. Pesquise `AzureRM.OperationalInsights` e importe esse módulo para a sua conta da Automação.
 
-    ![Importar o módulo OperationalInsights](media/enable-from-runbook/import-operational-insights-module.png)
+    ![Importar o módulo OperationalInsights](media/enable-from-runbook/import-operational-insights-module-azurerm.png)
 
 ## <a name="select-azure-vm-to-manage"></a>Selecione a VM do Azure a ser gerenciada
 

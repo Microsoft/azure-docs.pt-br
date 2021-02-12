@@ -6,12 +6,12 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 36c5fc93886327c0e3261418343d900ee66cb4eb
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: b44279f31aea8fc02130f1c3d7520f42c648bd4c
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168572"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607942"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Recursos suportados do Application Insights para o Azure Functions
 
@@ -23,37 +23,35 @@ Para obter mais informações sobre versões compatíveis do Application Insight
 
 ## <a name="supported-features"></a>Recursos compatíveis
 
-| Azure Functions                       | V1                | V2 & V3   | 
-|-----------------------------------    |---------------    |------------------ |
+| Funções do Azure                   | V1            | V2 & V3 | 
+|-----------------------------------|---------------|------------------|
 | | | | 
-| **Coleta automática de**        |                 |                   |               
-| &bull; Solicitações                     | Sim             | Sim               | 
-| &bull; Exceções                   | Sim             | Sim               | 
-| &bull; Contadores de desempenho         | Sim             | Sim               |
-| &bull; Dependências                   |                   |                   |               
-| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | Yes               | 
-| &nbsp;&nbsp;&nbsp;&mdash; Barramento de serviço|                 | Yes               | 
-| &nbsp;&nbsp;&nbsp;&mdash; hub de eventos  |                 | Yes               | 
-| &nbsp;&nbsp;&nbsp;&mdash; SQL       |                 | Yes               | 
+| **Coleta automática de**        |               |                  |
+| &bull; Solicitações                     | Sim           | Sim              |
+| &bull; Exceções                   | Sim           | Sim              |
+| &bull; Contadores de desempenho         | Sim           | Sim              |
+| &bull; Dependências                 |               |                  |
+| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |               | Sim              |
+| &nbsp;&nbsp;&nbsp;&mdash; Barramento de serviço|               | Sim              |
+| &nbsp;&nbsp;&nbsp;&mdash; hub de eventos  |               | Sim              |
+| &nbsp;&nbsp;&nbsp;&mdash; SQL       |               | Sim              |
 | | | | 
-| **Recursos compatíveis**                |                   |                   |               
-| &bull; QuickPulse/LiveMetrics       | Sim             | Sim               | 
-| &nbsp;&nbsp;&nbsp;&mdash; Canal de controle seguro|                 | Yes               | 
-| &bull; Amostragem                     | Sim             | Sim               | 
-| &bull; Pulsações                   |                 | Yes               | 
+| **Recursos compatíveis**              |               |                  |
+| &bull; QuickPulse/LiveMetrics       | Sim           | Sim              | 
+| &nbsp;&nbsp;&nbsp;&mdash; Canal de controle seguro |               | Sim | 
+| &bull; Amostragem                     | Sim           | Sim              | 
+| &bull; Pulsações                   | | Sim              | 
+| | | |
+| **Correlação**                    |               |                  |
+| &bull; Barramento de serviço                  |               | Sim              |
+| &bull; hub de eventos                    |               | Sim              |
 | | | | 
-| **Correlação**                       |                   |                   |               
-| &bull; Barramento de serviço                     |                   | Yes               | 
-| &bull; hub de eventos                       |                   | Yes               | 
-| | | | 
-| **Configurável**                      |                   |                   |           
-| &bull;Totalmente configurável.<br/>Ver [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) para obter instruções.<br/>Consulte [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) para todas as opções.               |                   | Yes                   | 
-
+| **Configurável**                  |               |                  |           
+| &bull;Totalmente configurável.<br/>Ver [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) para obter instruções.<br/>Consulte [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) para todas as opções.           |               | Sim                 | 
 
 ## <a name="performance-counters"></a>Contadores de desempenho
 
 A coleta automática de contadores de desempenho só funciona em máquinas Windows.
-
 
 ## <a name="live-metrics--secure-control-channel"></a>Live Metrics e canal de controle seguro
 

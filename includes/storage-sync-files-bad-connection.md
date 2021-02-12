@@ -1,6 +1,6 @@
 ---
-title: arquivo de inclusão
-description: arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: storage
 author: roygara
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b2ff542d2782293e89b66e5d25cb67a9bcde6da8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b26d4af29a92fb0f14c52e76a7eae1d0073a3aa0
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75772968"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96005292"
 ---
 Esse erro pode ocorrer sempre que o serviço de Sincronização de Arquivos do Azure está acessível do servidor. Você pode solucionar esse erro trabalhando nas seguintes etapas:
 
@@ -31,6 +31,6 @@ Esse erro pode ocorrer sempre que o serviço de Sincronização de Arquivos do A
     Import-Module "$agentPath\StorageSync.Management.ServerCmdlets.dll"
     Get-StorageSyncProxyConfiguration
     ```
-4. Use o cmdlet Test-StorageSyncNetworkConnectivity para verificar a conectividade de rede para os pontos de extremidade de serviço. Para saber mais, confira [Testar conectividade de rede para pontos de extremidade de serviço](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#test-network-connectivity-to-service-endpoints).    
+4. Use o cmdlet Test-StorageSyncNetworkConnectivity para verificar a conectividade de rede para os pontos de extremidade de serviço. Para saber mais, confira [Testar conectividade de rede para pontos de extremidade de serviço](../articles/storage/files/storage-sync-files-firewall-and-proxy.md#test-network-connectivity-to-service-endpoints).    
 
 5. Contate seu administrador de rede para obter mais assistência para a solução de problemas de conectividade de rede.

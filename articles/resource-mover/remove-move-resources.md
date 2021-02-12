@@ -5,14 +5,14 @@ manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 11/30/2020
 ms.author: raynew
-ms.openlocfilehash: 38a633a7a11ac29271231679e7075920e1f33a70
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 63548e2bf470c012e0dd8a5f879a51eeb631f453
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945936"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459273"
 ---
 # <a name="manage-move-collections-and-resource-groups"></a>Gerenciar coleções de movimentação e grupos de recursos
 
@@ -43,12 +43,11 @@ Remova um recurso (em nosso exemplo, os computadores PSDemoVM) de uma coleção 
 
 ```azurepowershell-interactive
 # Remove a resource using the resource ID
-Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus - Name PSDemoVM
+Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus -Name PSDemoVM
 ```
-**Expected output** 
- Saída ![ esperada Texto de saída após a remoção de um recurso de uma coleção de movimentação](./media/remove-move-resources/remove-resource.png)
+**Saída esperada**
 
-
+![Texto de saída após a remoção de um recurso de uma coleção de movimentação](./media/remove-move-resources/remove-resource.png)
 
 ## <a name="remove-a-collection-powershell"></a>Remover uma coleção (PowerShell)
 
@@ -59,9 +58,11 @@ Remova uma coleção de movimentação inteira usando o PowerShell, da seguinte 
 
     ```azurepowershell-interactive
     # Remove a resource using the resource ID
-    Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus 
+    Remove-AzResourceMoverMoveCollection -SubscriptionId <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus -MoveCollectionName MoveCollection-centralus-westcentralus
     ```
-    **Saída** ![ esperada Texto de saída após a remoção de uma coleção de movimentação](./media/remove-move-resources/remove-collection.png)
+    **Saída esperada**
+    
+    ![Texto de saída após a remoção de uma coleção de movimentação](./media/remove-move-resources/remove-collection.png)
 
 ## <a name="vm-resource-state-after-removing"></a>Estado do recurso da VM após a remoção
 

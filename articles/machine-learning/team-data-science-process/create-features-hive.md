@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6261e31fd84b9471fa4ea5d30e1d6a4afbac9115
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30c0a02c2cbc11002f8e0bf0295dab91de5d0365
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085371"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020578"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Criar recursos para os dados em um cluster Hadoop usando as consultas do Hive
 Este documento mostra como criar recursos para os dados armazenados em um cluster Hadoop do Azure HDInsight usando consultas do Hive. Essas consultas de Hive usam UDFs (funções definidas pelo usuário) de Hive incorporadas, Os scripts para eles são fornecidos.
@@ -25,15 +25,15 @@ As operações necessárias para criar recursos podem ter uso intensivo de memó
 
 Alguns exemplos de consultas apresentados são específicos para cenários de [Dados de Corridas de Táxi em Nova York](https://chriswhong.com/open-data/foil_nyc_taxi/) e também são fornecidos no [repositório GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Essas consultas já tem o esquema de dados especificado e estão prontas para ser enviadas para execução. Na seção final, são discutidos os parâmetros que os usuários podem ajustar para que o desempenho das consultas do Hive possa ser melhorado.
 
-Essa tarefa é uma etapa no [TDSP (Processo de Ciência de Dados de Equipe)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Essa tarefa é uma etapa no [TDSP (Processo de Ciência de Dados de Equipe)](./index.yml).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo supõe que você:
 
 * Criou uma conta de armazenamento do Azure. Se precisar de instruções, confira [Criar uma conta de Armazenamento do Azure](../../storage/common/storage-account-create.md)
-* Provisionou um cluster do Hadoop personalizado com o serviço HDInsight.  Se você precisar de instruções, consulte [Personalizar clusters Azure HDInsight Hadoop para análise avançada](customize-hadoop-cluster.md).
+* Provisionou um cluster do Hadoop personalizado com o serviço HDInsight.  Se você precisar de instruções, consulte [Personalizar clusters Azure HDInsight Hadoop para análise avançada](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
 * Os dados foram carregados para tabelas Hive em clusters do Hadoop do Azure HDInsight. Se não, siga as instruções de [Criar e carregar dados nas tabelas Hive](move-hive-tables.md) para carregar dados nas tabelas Hive primeiro.
-* Habilitou o acesso remoto ao cluster. Se precisar de instruções, consulte [Acessar o nó principal do Cluster do Hadoop](customize-hadoop-cluster.md).
+* Habilitou o acesso remoto ao cluster. Se precisar de instruções, consulte [Acessar o nó principal do Cluster do Hadoop](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
 
 ## <a name="feature-generation"></a><a name="hive-featureengineering"></a>Geração de recursos
 Nesta seção, veja vários exemplos dos modos pelos quais os recursos podem ser gerados usando consultas de Hive. Depois de gerar recursos adicionais, você pode adicioná-los como colunas à tabela existente ou criar uma nova tabela com os recursos adicionais e a chave primária, que pode ser associada à tabela original. Estes são os exemplos apresentados:
@@ -104,7 +104,7 @@ select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime f
 from <databasename>.<tablename>;
 ```
 
-Nessa consulta, se o *\<datetime field>* tiver o padrão como *03/26/2015 12:04:39*, o * \<pattern of the datetime field> '* deve ser `'MM/dd/yyyy HH:mm:ss'` . Para testá-lo, os usuários podem executar
+Nessa consulta, se o *\<datetime field>* tiver o padrão como *03/26/2015 12:04:39*, o *\<pattern of the datetime field> '* deve ser `'MM/dd/yyyy HH:mm:ss'` . Para testá-lo, os usuários podem executar
 
 ```hiveql
 select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
@@ -144,9 +144,9 @@ and dropoff_latitude between 30 and 90
 limit 10;
 ```
 
-As equações matemáticas que calculam a distância entre duas coordenadas de GPS podem ser encontradas no site <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Scripts de Tipo Móvel</a>, as quais foram criadas por Peter Lapisu. Nesse JavaScript, a função `toRad()` é apenas *lat_or_lon*PI/180, que converte graus em radianos. Aqui, *lat_or_lon* é a latitude ou a longitude. Como o Hive não fornece a função `atan2`, mas fornece a função `atan`, a função `atan2` é implementada pela função `atan` na consulta de Hive acima usando a definição fornecida na <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipédia</a>.
+As equações matemáticas que calculam a distância entre duas coordenadas de GPS podem ser encontradas no site <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Scripts de Tipo Móvel</a>, as quais foram criadas por Peter Lapisu. Nesse JavaScript, a função `toRad()` é apenas *lat_or_lon* PI/180, que converte graus em radianos. Aqui, *lat_or_lon* é a latitude ou a longitude. Como o Hive não fornece a função `atan2`, mas fornece a função `atan`, a função `atan2` é implementada pela função `atan` na consulta de Hive acima usando a definição fornecida na <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipédia</a>.
 
-![Criar workspace](./media/create-features-hive/atan2new.png)
+![Criar o workspace](./media/create-features-hive/atan2new.png)
 
 Uma lista completa de UDFs internas do Hive pode ser encontrada na seção **Funções Internas** no <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">wiki do Apache Hive</a>.  
 
@@ -198,4 +198,3 @@ As configurações de parâmetro padrão do cluster de Hive talvez não sejam ad
     set mapred.reduce.tasks=128;
     set mapred.tasktracker.reduce.tasks.maximum=128;
     ```
-

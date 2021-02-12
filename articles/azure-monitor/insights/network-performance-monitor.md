@@ -6,17 +6,19 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: c5a442a3d3711b85c0bad30218cb1ffab92558d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2856366fc8383f7aaec9d96c29acb7621ea801ae
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403714"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832905"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução do Monitor de Desempenho de Rede no Azure
 
 ![Símbolo do Monitor de Desempenho de Rede](./media/network-performance-monitor/npm-symbol.png)
 
+> [!IMPORTANT]
+> A partir de 1 de julho de 2021, você não poderá adicionar novos testes em um espaço de trabalho existente ou habilitar um novo espaço de trabalho no Monitor de Desempenho de Rede. Você pode continuar a usar os testes criados antes de 1 de julho de 2021. Para minimizar a interrupção do serviço para suas cargas de trabalho atuais, [migre seus testes de monitor de desempenho de rede para o novo monitor de conexão](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) no observador de rede do Azure antes de 29 de fevereiro de 2024.
 
 O Monitor de Desempenho de Rede é uma solução de monitoramento de rede híbrida baseada em nuvem que ajuda a monitorar o desempenho de rede entre vários pontos em sua infraestrutura de rede. Também ajuda a monitorar a conectividade de rede para serviços e pontos de extremidade do aplicativo e a monitorar o desempenho do Azure ExpressRoute. 
 
@@ -74,7 +76,7 @@ A lista de regiões de suporte para Monitor do ExpressRoute está disponível na
 
 ### <a name="install-and-configure-agents"></a>Instalar e configurar agentes 
 
-Use os processos básicos para instalar agentes em [conectar computadores Windows para Azure monitor](../platform/agent-windows.md) e [conectar Operations Manager ao Azure monitor](../platform/om-agents.md).
+Use os processos básicos para instalar agentes em [conectar computadores Windows ao Azure monitor](../platform/agent-windows.md), [conectar computadores Linux ao Azure monitor (versão prévia)](../../virtual-machines/extensions/oms-linux.md) e [conectar Operations Manager ao Azure monitor](../platform/om-agents.md).
 
 ### <a name="where-to-install-the-agents"></a>Onde instalar os agentes 
 
@@ -90,15 +92,21 @@ Use os processos básicos para instalar agentes em [conectar computadores Window
 
 O Monitor de Desempenho de Rede usa transações sintéticas para monitorar o desempenho da rede entre os agentes de origem e de destino. Você pode escolher entre TCP e ICMP como o protocolo para o monitoramento nas funcionalidades do Monitor de Desempenho e do Monitor de Conectividade de Serviço. Apenas o TCP está disponível como o protocolo de monitoramento para o Monitor do ExpressRoute. Certifique-se de que o firewall permita a comunicação entre os agentes do Log Analytics usados para monitoramento no protocolo escolhido. 
 
-* **Protocolo TCP:** se você tiver escolhido TCP como protocolo para monitoramento, abra a porta de firewall nos agentes que está sendo usada para o Monitor de Desempenho de Rede e Monitor do ExpressRoute, para garantir que os agentes possam se conectar entre si. Para abrir a porta, execute o script do PowerShell [EnableRules.ps1](https://aka.ms/npmpowershellscript) sem parâmetros em uma janela do PowerShell com privilégios administrativos.
+* **Protocolo TCP:** se você tiver escolhido TCP como protocolo para monitoramento, abra a porta de firewall nos agentes que está sendo usada para o Monitor de Desempenho de Rede e Monitor do ExpressRoute, para garantir que os agentes possam se conectar entre si. Para computadores Windows, para abrir a porta, execute o script [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell sem parâmetros em uma janela do PowerShell com privilégios administrativos.
+Para computadores Linux, as portNumbers a serem usadas precisam ser alteradas manualmente. 
+* Navegue até o caminho:/var/opt/Microsoft/omsagent/npm_state. 
+* Abrir arquivo: npmdregistry
+* Alterar o valor do número da porta ```“PortNumber:<port of your choice>”```
 
-    O script cria chaves do registro necessárias pela solução. Ele também cria regras de Firewall do Windows para permitir que os agentes criem conexões TCP entre si. As chaves do Registro criadas pelo script especificam se é preciso registrar os logs de depuração e o caminho para o arquivo de logs. O script também define a porta TCP de agente usada para comunicação. Os valores para essas chaves são definidos automaticamente pelo script. Não altere manualmente essas chaves. A porta aberta por padrão é 8084. Você pode usar uma porta personalizada fornecendo o parâmetro portNumber para o script. Use a mesma em todos os computadores em que o script é executado. 
+ Observe que os números de porta que estão sendo usados devem ser iguais em todos os agentes usados em um espaço de trabalho. 
 
-    >[!NOTE]
-    > O script configura apenas o firewall do windows localmente. Se tiver um firewall de rede, certifique-se que ele permite o tráfego destinado à porta TCP usada pelo Monitor de Desempenho de Rede.
+O script cria chaves do registro necessárias pela solução. Ele também cria regras de Firewall do Windows para permitir que os agentes criem conexões TCP entre si. As chaves do Registro criadas pelo script especificam se é preciso registrar os logs de depuração e o caminho para o arquivo de logs. O script também define a porta TCP de agente usada para comunicação. Os valores para essas chaves são definidos automaticamente pelo script. Não altere manualmente essas chaves. A porta aberta por padrão é 8084. Você pode usar uma porta personalizada fornecendo o parâmetro portNumber para o script. Use a mesma em todos os computadores em que o script é executado. 
 
-    >[!NOTE]
-    > Você não precisa executar o script [EnableRules.ps1](https://aka.ms/npmpowershellscript ) PowerShell para o monitor de conectividade de serviço.
+   >[!NOTE]
+   > O script configura apenas o firewall do windows localmente. Se tiver um firewall de rede, certifique-se que ele permite o tráfego destinado à porta TCP usada pelo Monitor de Desempenho de Rede.
+
+   >[!NOTE]
+   > Você não precisa executar o script [EnableRules.ps1](https://aka.ms/npmpowershellscript ) PowerShell para o monitor de conectividade de serviço.
 
     
 
@@ -161,7 +169,7 @@ Todos os nós que têm um agente instalado neles estão listados na guia **Nós*
 
 1. Marque ou desmarque os nós que você deseja monitorar ou parar de monitorar. 
 2. Selecione **Usar para Monitoramento** ou desmarque essa opção, conforme apropriado. 
-3. Selecione **Salvar**. 
+3. Clique em **Salvar**. 
 
 
 Configure os recursos desejados:
@@ -256,7 +264,7 @@ A topologia mostrada no mapa é a topologia de camada 3 e não contém conexões
 ![Mapa de topologia](media/network-performance-monitor/topology-map.png)
  
 
-## <a name="log-queries-in-azure-monitor"></a>Consultas de log em Azure Monitor
+## <a name="log-queries-in-azure-monitor"></a>Consultas de log no Azure Monitor
 
 Todos os dados expostos graficamente por meio do painel de Monitor de Desempenho de Rede e das páginas de busca detalhada também estão disponíveis nativamente em [consultas de log](../log-query/log-query-overview.md). Você pode executar análises interativas de dados no repositório e correlacionar dados de origens diferentes. Você também pode criar alertas personalizados e exibições e exportar os dados para Excer, Power BI ou um link compartilhável. A área **consultas comuns** no painel tem algumas consultas úteis que você pode usar como ponto de partida para criar suas próprias consultas e relatórios. 
 
@@ -274,7 +282,7 @@ Se você é um usuário do NPM criando um alerta por meio do Log Analytics:
 
 Se você for um usuário do NPM criando um alerta por meio do portal do Azure:  
 1. Você pode optar por inserir seu email diretamente ou criar alertas por meio de grupos de ação.
-2. Se você optar por inserir seu email diretamente, um grupo de ação com o nome **ActionGroup de Email NPM** é criado e a ID de email é adicionada a esse grupo de ação.
+2. Se você optar por inserir seu email diretamente, um grupo de ações com o nome **NPM email** Group será criado e a ID de email será adicionada a esse grupo de ações.
 3. Se optar por usar grupos de ação, você precisará selecionar um grupo criado anteriormente. Você pode aprender a criar um grupo de ação [aqui.](../platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) 
 4. Quando o alerta for criado com êxito, você poderá usar o link Gerenciar Alertas para gerenciar seus alertas. 
 
@@ -294,4 +302,3 @@ Informações sobre preços estão disponíveis [online](network-performance-mon
 
 ## <a name="next-steps"></a>Próximas etapas 
 Saiba mais sobre o [Monitor de Desempenho](network-performance-monitor-performance-monitor.md), o [Monitor de Conectividade do Serviço](network-performance-monitor-performance-monitor.md) e o [Monitor do ExpressRoute](network-performance-monitor-expressroute.md). 
-

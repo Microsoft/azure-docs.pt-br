@@ -1,32 +1,30 @@
 ---
 title: Barramento de serviço do Azure-pesquisa de mensagem
-description: Procurar e inspecionar mensagens do barramento de serviço permite que um cliente do barramento de serviço do Azure enumere todas as mensagens que residem em uma fila ou assinatura.
+description: Procurar e inspecionar mensagens do barramento de serviço permite que um cliente do barramento de serviço do Azure enumere todas as mensagens em uma fila ou assinatura.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 6e50fc737f6c81c07854ff07d8cc64061306749b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/11/2020
+ms.openlocfilehash: c52c9c967d4eada1a931e188ed4d25f7691cfb91
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827443"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553634"
 ---
 # <a name="message-browsing"></a>Procura de mensagens
 
-A procura de mensagens, ou espiada, permite que um cliente do Barramento de Serviço enumere todas as mensagens que residem em uma fila ou assinatura, normalmente para fins de diagnóstico e depuração.
+A procura de mensagens, ou a inspeção, permite que um cliente do barramento de serviço enumere todas as mensagens em uma fila ou uma assinatura para fins de diagnóstico e depuração.
 
-As operações de espiada retornam todas as mensagens que existem no log de mensagem de fila ou de assinatura, não apenas aquelas disponíveis para a aquisição imediata com o loop `Receive()` ou `OnMessage()`. A `State` propriedade de cada mensagem informa se a mensagem está ativa (disponível para ser recebida), [adiada](message-deferral.md), ou [agendada](message-sequencing.md).
+A operação de inspeção em uma fila retorna todas as mensagens na fila, não apenas aquelas disponíveis para aquisição imediata com `Receive()` o `OnMessage()` loop ou. A `State` propriedade de cada mensagem informa se a mensagem está ativa (disponível para ser recebida), [adiada](message-deferral.md), ou [agendada](message-sequencing.md). A operação de inspeção em uma assinatura retorna todas as mensagens, exceto as mensagens agendadas no log de mensagens de assinatura. 
 
-Mensagens consumidas e expiradas são limpas por uma execução de “coleta de lixo” assíncrona e não necessariamente exatamente quando as mensagens expiram e, portanto, `Peek` realmente podem retornar mensagens que já expiraram e serão removidas ou estarão mortas quando uma operação de recebimento for invocada a seguir na fila ou assinatura.
+As mensagens consumidas e expiradas são limpas por uma execução assíncrona de "coleta de lixo". Essa etapa pode não ocorrer necessariamente imediatamente após as mensagens expirarem. É por isso que o `Peek` pode retornar mensagens que já expiraram. Essas mensagens serão removidas ou mensagens mortas quando uma operação de recebimento for invocada na fila ou assinatura na próxima vez. Tenha esse comportamento em mente ao tentar recuperar mensagens adiadas da fila. Uma mensagem expirada não é mais elegível para recuperação regular por outros meios, mesmo quando ela está sendo retornada por Peek. Retornar essas mensagens é por design, pois Peek é uma ferramenta de diagnóstico que reflete o estado atual do log.
 
-Isso é especialmente importante para se ter em mente ao tentar recuperar mensagens desviadas da fila. Uma mensagem para a qual o instante [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc#Microsoft_Azure_ServiceBus_Message_ExpiresAtUtc) passou não é elegível para recuperação regular por outros meios, mesmo quando está sendo retornada por Peek. O retorno dessas mensagens é intencional, uma vez que Peek é uma ferramenta de diagnóstico refletindo o estado atual do log.
-
-O Peek também retorna mensagens que foram bloqueadas e estão sendo processadas por outros receptores no momento, mas ainda não foram concluídas. No entanto, como Peek retorna um instantâneo desconectado, o estado de bloqueio de uma mensagem não pode ser observado em mensagens espiadas e as propriedades [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.lockeduntilutc) e [LockToken](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.locktoken#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_LockToken) geram uma [InvalidOperationException](/dotnet/api/system.invalidoperationexception) quando o aplicativo tenta lê-las.
+Peek também retorna mensagens que foram bloqueadas e que estão sendo processadas por outros receptores. No entanto, como Peek retorna um instantâneo desconectado, o estado de bloqueio de uma mensagem não pode ser observado em mensagens inspecionadas. As propriedades [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.lockeduntilutc) e [LockToken](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.locktoken#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_LockToken) geram uma [InvalidOperationException](/dotnet/api/system.invalidoperationexception) quando o aplicativo tenta lê-las.
 
 ## <a name="peek-apis"></a>APIs de Peek
 
-Os métodos [Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) e [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) existem em todas as bibliotecas de cliente .net e Java e em todos os objetos receptores: **MessageReceiver**, **MessageSession**. Peek funciona em todas as filas e assinaturas e suas respectivas filas de mensagens mortas.
+Os métodos [Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) e [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) existem nas bibliotecas de cliente .net e Java e nos objetos receptores: **MessageReceiver** , **MessageSession**. Espiar funciona em filas, assinaturas e suas respectivas filas de mensagens mortas.
 
-Quando chamado várias vezes, o método Peek enumera todas as mensagens que existem no log de fila ou assinatura, em ordem de número de sequência, do número de sequência mais baixo disponível para o mais alto. Esta é a ordem na qual as mensagens foram enfileiradas e não é a ordem na qual as mensagens podem ser recuperadas eventualmente.
+Quando chamado repetidamente, **Peek** enumera todas as mensagens no log de fila ou assinatura, em ordem, do número de sequência mais baixo disponível para o mais alto. É a ordem na qual as mensagens foram enfileiradas, não a ordem em que as mensagens podem eventualmente ser recuperadas.
 
 [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_) recupera várias mensagens e as retorna como uma enumeração. Se nenhuma mensagem estiver disponível, o objeto de enumeração estará vazio, não nulo.
 

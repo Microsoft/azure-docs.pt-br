@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 10/22/2020
-ms.openlocfilehash: 5ebe0bcf1e491166c5fc61597904056307f9679c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 58563629b30e7be764732a9810162e1a0b1931e6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098001"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725829"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Arquitetura de conectividade de uma Instância Gerenciada de SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -107,7 +107,7 @@ Implante o SQL Instância Gerenciada em uma sub-rede dedicada dentro da rede vir
 - **Endereços IP suficientes:** A sub-rede do SQL Instância Gerenciada deve ter pelo menos 32 endereços IP. Para obter mais informações, consulte [determinar o tamanho da sub-rede para o SQL instância gerenciada](vnet-subnet-determine-size.md). Você pode implantar instâncias gerenciadas na [rede existente](vnet-existing-add-subnet.md) depois de configurá-las para atender aos [requisitos de rede do SQL instância gerenciada](#network-requirements). Caso contrário, crie uma [nova rede e sub-rede](virtual-network-subnet-create-arm-template.md).
 
 > [!IMPORTANT]
-> Quando você cria uma instância gerenciada, uma política de intenção de rede é aplicada na sub-rede para evitar alterações não compatíveis na configuração de rede. Depois que a última instância for removida da sub-rede, a política de intenção de rede também será removida.
+> Quando você cria uma instância gerenciada, uma política de intenção de rede é aplicada na sub-rede para evitar alterações não compatíveis na configuração de rede. Depois que a última instância for removida da sub-rede, a política de intenção de rede também será removida. As regras a seguir são apenas para fins informativos e você não deve implantá-las usando o modelo ARM/PowerShell/CLI. Se você quiser usar o modelo oficial mais recente, sempre poderá [recuperá-lo no portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>Regras de segurança de entrada obrigatórias com configuração de sub-rede auxiliada pelo serviço
 
@@ -128,7 +128,7 @@ Implante o SQL Instância Gerenciada em uma sub-rede dedicada dentro da rede vir
 
 ### <a name="user-defined-routes-with-service-aided-subnet-configuration"></a>Rotas definidas pelo usuário com configuração de sub-rede auxiliada por serviço
 
-|Name|Prefixo de endereço|Próximo salto|
+|Nome|Prefixo de endereço|Próximo salto|
 |----|--------------|-------|
 |sub-rede para vnetlocal|SUB-REDE DA MI|Rede virtual|
 |Mi-13-64-11-nexthop-Internet|13.64.0.0/11|Internet|
@@ -309,226 +309,15 @@ Se a rede virtual incluir um DNS personalizado, o servidor DNS personalizado dev
 
 ### <a name="networking-constraints"></a>Restrições de rede
 
-O **tls 1,2 é imposto em conexões de saída** : em Janeiro 2020 Microsoft imposto TLS 1,2 para tráfego dentro de serviço em todos os serviços do Azure. Para o Azure SQL Instância Gerenciada, isso resultou no TLS 1,2 sendo imposto em conexões de saída usadas para replicação e conexões de servidor vinculado a SQL Server. Se você estiver usando versões do SQL Server mais antigas do que 2016 com o SQL Instância Gerenciada, verifique se [as atualizações específicas do TLS 1,2](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) foram aplicadas.
+O **tls 1,2 é imposto em conexões de saída**: em Janeiro 2020 Microsoft imposto TLS 1,2 para tráfego dentro de serviço em todos os serviços do Azure. Para o Azure SQL Instância Gerenciada, isso resultou no TLS 1,2 sendo imposto em conexões de saída usadas para replicação e conexões de servidor vinculado a SQL Server. Se você estiver usando versões do SQL Server mais antigas do que 2016 com o SQL Instância Gerenciada, verifique se [as atualizações específicas do TLS 1,2](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) foram aplicadas.
 
-Atualmente, não há suporte para os seguintes recursos de rede virtual com o SQL Instância Gerenciada:
+Atualmente, *não há suporte para* os seguintes recursos de rede virtual com o SQL instância gerenciada:
 
-- **Emparelhamento da Microsoft** : habilitar o [emparelhamento da Microsoft](../../expressroute/expressroute-faqs.md#microsoft-peering) em circuitos de ExpressRoute emparelhados direta ou transitivamente com uma rede virtual em que o SQL instância gerenciada reside afeta o fluxo de tráfego entre os componentes do SQL instância gerenciada dentro da rede virtual e dos serviços dos quais depende, causando problemas de disponibilidade. As implantações do SQL Instância Gerenciada na rede virtual com o emparelhamento da Microsoft já habilitado devem falhar.
-- **Emparelhamento de rede virtual global** : a conectividade de [emparelhamento de rede virtual](../../virtual-network/virtual-network-peering-overview.md) entre regiões do Azure não funciona para instâncias gerenciadas do SQL colocadas em sub-redes criadas antes de 9/22/2020.
-- **AzurePlatformDNS** : usar a [marca de serviço](../../virtual-network/service-tags-overview.md) AzurePlatformDNS para bloquear a resolução de DNS da plataforma renderizaria o SQL instância gerenciada não disponível. Embora o SQL Instância Gerenciada dê suporte ao DNS definido pelo cliente para a resolução DNS dentro do mecanismo, há uma dependência no DNS da plataforma para operações de plataforma.
-- **Gateway NAT** : usar o [NAT da rede virtual do Azure](../../virtual-network/nat-overview.md) para controlar a conectividade de saída com um endereço IP público específico renderizaria o SQL instância gerenciada indisponível. No momento, o serviço SQL Instância Gerenciada está limitado ao uso do balanceador de carga básico que não fornece a coexistência de fluxos de entrada e saída com NAT de rede virtual.
-
-### <a name="deprecated-network-requirements-without-service-aided-subnet-configuration"></a>Preterido Requisitos de rede sem configuração de sub-rede auxiliada por serviço
-
-Implante o SQL Instância Gerenciada em uma sub-rede dedicada dentro da rede virtual. A sub-rede deve ter estas características:
-
-- **Sub-rede dedicada:** A sub-rede do SQL Instância Gerenciada não pode conter nenhum outro serviço de nuvem associado a ela e não pode ser uma sub-rede de gateway. A sub-rede não pode conter nenhum recurso, mas o SQL Instância Gerenciada, e você não pode adicionar outros tipos de recursos na sub-rede posteriormente.
-- **NSG (grupo de segurança de rede):** Um NSG associado à rede virtual deve definir [regras de segurança de entrada](#mandatory-inbound-security-rules) e de [saída](#mandatory-outbound-security-rules) antes de qualquer outra regra. Você pode usar um NSG para controlar o acesso ao ponto de extremidade de dados do SQL Instância Gerenciada filtrando o tráfego na porta 1433 e as portas 11000-11999 quando o SQL Instância Gerenciada estiver configurado para conexões de redirecionamento.
-- **Tabela de rota definida pelo usuário (UDR):** Uma tabela UDR associada à rede virtual deve incluir [entradas](#user-defined-routes)específicas.
-- **Nenhum ponto de extremidade de serviço:** Nenhum ponto de extremidade de serviço deve ser associado à sub-rede do SQL Instância Gerenciada. Certifique-se de que a opção de pontos de extremidade de serviço esteja desabilitada ao criar a rede virtual.
-- **Endereços IP suficientes:** A sub-rede do SQL Instância Gerenciada deve ter pelo menos 16 endereços IP. O mínimo recomendado é 32 endereços IP. Para obter mais informações, consulte [determinar o tamanho da sub-rede para o SQL instância gerenciada](vnet-subnet-determine-size.md). Você pode implantar instâncias gerenciadas na [rede existente](vnet-existing-add-subnet.md) depois de configurá-las para atender aos [requisitos de rede do SQL instância gerenciada](#network-requirements). Caso contrário, crie uma [nova rede e sub-rede](virtual-network-subnet-create-arm-template.md).
-
-> [!IMPORTANT]
-> Não é possível implantar uma nova instância gerenciada se a sub-rede de destino não tem essas características. Quando você cria uma instância gerenciada, uma política de intenção de rede é aplicada na sub-rede para evitar alterações não compatíveis na configuração de rede. Depois que a última instância for removida da sub-rede, a política de intenção de rede também será removida.
-
-### <a name="mandatory-inbound-security-rules"></a>Regras de segurança de entrada obrigatórias
-
-| Nome       |Porta                        |Protocolo|Fonte           |Destino|Ação|
-|------------|----------------------------|--------|-----------------|-----------|------|
-|gerenciamento  |9000, 9003, 1438, 1440, 1452|TCP     |Qualquer              |SUB-REDE DA MI  |Allow |
-|mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE DA MI        |SUB-REDE DA MI  |Allow |
-|health_probe|Qualquer                         |Qualquer     |AzureLoadBalancer|SUB-REDE DA MI  |Allow |
-
-### <a name="mandatory-outbound-security-rules"></a>Regras de segurança de saída obrigatórias
-
-| Nome       |Porta          |Protocolo|Fonte           |Destino|Ação|
-|------------|--------------|--------|-----------------|-----------|------|
-|gerenciamento  |443, 12000    |TCP     |SUB-REDE DA MI        |AzureCloud |Allow |
-|mi_subnet   |Qualquer           |Qualquer     |SUB-REDE DA MI        |SUB-REDE DA MI  |Allow |
-
-> [!IMPORTANT]
-> Verifique se há apenas uma regra de entrada para as portas 9000, 9003, 1438, 1440 e 1452, e uma regra de saída para as portas 443 e 12000. O provisionamento do SQL Instância Gerenciada por meio de implantações de Azure Resource Manager falhará se as regras de entrada e saída forem configuradas separadamente para cada porta. Se essas portas estiverem em regras separadas, a implantação falhará com o código de erro `VnetSubnetConflictWithIntendedPolicy` .
-
-\* A sub-rede MI refere-se ao intervalo de endereços IP para a sub-rede no formato x.x.x. x/y. Você pode encontrar essas informações na portal do Azure, em Propriedades da sub-rede.
-
-> [!IMPORTANT]
-> Embora as regras de segurança de entrada necessárias permitam o tráfego de _qualquer_ fonte nas portas 9000, 9003, 1438, 1440 e 1452, essas portas são protegidas por um firewall interno. Para obter mais informações, consulte [determinar o endereço do ponto de extremidade de gerenciamento](management-endpoint-find-ip-address.md).
-
-> [!NOTE]
-> Se você usar a replicação transacional no SQL Instância Gerenciada e se usar qualquer banco de dados de instância como Publicador ou distribuidor, abra a porta 445 (TCP de saída) nas regras de segurança da sub-rede. Essa porta permitirá o acesso ao compartilhamento de arquivos do Azure.
-
-### <a name="user-defined-routes"></a>rotas definidas pelo usuário
-
-|Name|Prefixo de endereço|Próximo salto|
-|----|--------------|-------|
-|subnet_to_vnetlocal|SUB-REDE DA MI|Rede virtual|
-|Mi-13-64-11-nexthop-Internet|13.64.0.0/11|Internet|
-|Mi-13-104-14-nexthop-Internet|13.104.0.0/14|Internet|
-|Mi-20-33-16-nexthop-Internet|20.33.0.0/16|Internet|
-|Mi-20-34-15-nexthop-Internet|20.34.0.0/15|Internet|
-|Mi-20-36-14-nexthop-Internet|20.36.0.0/14|Internet|
-|Mi-20-40-13-nexthop-Internet|20.40.0.0/13|Internet|
-|Mi-20-48-12-nexthop-Internet|20.48.0.0/12|Internet|
-|Mi-20-64-10-nexthop-Internet|20.64.0.0/10|Internet|
-|Mi-20-128-16-nexthop-Internet|20.128.0.0/16|Internet|
-|Mi-20-135-16-nexthop-Internet|20.135.0.0/16|Internet|
-|Mi-20-136-16-nexthop-Internet|20.136.0.0/16|Internet|
-|Mi-20-140-15-nexthop-Internet|20.140.0.0/15|Internet|
-|Mi-20-143-16-nexthop-Internet|20.143.0.0/16|Internet|
-|Mi-20-144-14-nexthop-Internet|20.144.0.0/14|Internet|
-|Mi-20-150-15-nexthop-Internet|20.150.0.0/15|Internet|
-|Mi-20-160-12-nexthop-Internet|20.160.0.0/12|Internet|
-|Mi-20-176-14-nexthop-Internet|20.176.0.0/14|Internet|
-|Mi-20-180-14-nexthop-Internet|20.180.0.0/14|Internet|
-|Mi-20-184-13-nexthop-Internet|20.184.0.0/13|Internet|
-|Mi-20-192-10-nexthop-Internet|20.192.0.0/10|Internet|
-|Mi-40-64-10-nexthop-Internet|40.64.0.0/10|Internet|
-|Mi-51-4-15-nexthop-Internet|51.4.0.0/15|Internet|
-|Mi-51-8-16-nexthop-Internet|51.8.0.0/16|Internet|
-|Mi-51-10-15-nexthop-Internet|51.10.0.0/15|Internet|
-|Mi-51-18-16-nexthop-Internet|51.18.0.0/16|Internet|
-|Mi-51-51-16-nexthop-Internet|51.51.0.0/16|Internet|
-|Mi-51-53-16-nexthop-Internet|51.53.0.0/16|Internet|
-|Mi-51-103-16-nexthop-Internet|51.103.0.0/16|Internet|
-|Mi-51-104-15-nexthop-Internet|51.104.0.0/15|Internet|
-|Mi-51-132-16-nexthop-Internet|51.132.0.0/16|Internet|
-|Mi-51-136-15-nexthop-Internet|51.136.0.0/15|Internet|
-|Mi-51-138-16-nexthop-Internet|51.138.0.0/16|Internet|
-|Mi-51-140-14-nexthop-Internet|51.140.0.0/14|Internet|
-|Mi-51-144-15-nexthop-Internet|51.144.0.0/15|Internet|
-|Mi-52-96-12-nexthop-Internet|52.96.0.0/12|Internet|
-|Mi-52-112-14-nexthop-Internet|52.112.0.0/14|Internet|
-|Mi-52-125-16-nexthop-Internet|52.125.0.0/16|Internet|
-|Mi-52-126-15-nexthop-Internet|52.126.0.0/15|Internet|
-|Mi-52-130-15-nexthop-Internet|52.130.0.0/15|Internet|
-|Mi-52-132-14-nexthop-Internet|52.132.0.0/14|Internet|
-|Mi-52-136-13-nexthop-Internet|52.136.0.0/13|Internet|
-|Mi-52-145-16-nexthop-Internet|52.145.0.0/16|Internet|
-|Mi-52-146-15-nexthop-Internet|52.146.0.0/15|Internet|
-|Mi-52-148-14-nexthop-Internet|52.148.0.0/14|Internet|
-|Mi-52-152-13-nexthop-Internet|52.152.0.0/13|Internet|
-|Mi-52-160-11-nexthop-Internet|52.160.0.0/11|Internet|
-|Mi-52-224-11-nexthop-Internet|52.224.0.0/11|Internet|
-|Mi-64-4-18-nexthop-Internet|64.4.0.0/18|Internet|
-|Mi-65-52-14-nexthop-Internet|65.52.0.0/14|Internet|
-|Mi-66-119-144-20-nexthop-Internet|66.119.144.0/20|Internet|
-|Mi-70-37-17-nexthop-Internet|70.37.0.0/17|Internet|
-|Mi-70-37-128-18-nexthop-Internet|70.37.128.0/18|Internet|
-|Mi-91-190-216-21-nexthop-Internet|91.190.216.0/21|Internet|
-|Mi-94-245-64-18-nexthop-Internet|94.245.64.0/18|Internet|
-|Mi-103-9-8-22-nexthop-Internet|103.9.8.0/22|Internet|
-|Mi-103-25-156-24-nexthop-Internet|103.25.156.0/24|Internet|
-|Mi-103-25-157-24-nexthop-Internet|103.25.157.0/24|Internet|
-|Mi-103-25-158-23-nexthop-Internet|103.25.158.0/23|Internet|
-|Mi-103-36-96-22-nexthop-Internet|103.36.96.0/22|Internet|
-|Mi-103-255-140-22-nexthop-Internet|103.255.140.0/22|Internet|
-|Mi-104-40-13-nexthop-Internet|104.40.0.0/13|Internet|
-|Mi-104-146-15-nexthop-Internet|104.146.0.0/15|Internet|
-|Mi-104-208-13-nexthop-Internet|104.208.0.0/13|Internet|
-|Mi-111-221-16-20-nexthop-Internet|111.221.16.0/20|Internet|
-|Mi-111-221-64-18-nexthop-Internet|111.221.64.0/18|Internet|
-|Mi-129-75-16-nexthop-Internet|129.75.0.0/16|Internet|
-|Mi-131-107-16-nexthop-Internet|131.107.0.0/16|Internet|
-|Mi-131-253-1-24-nexthop-Internet|131.253.1.0/24|Internet|
-|Mi-131-253-3-24-nexthop-Internet|131.253.3.0/24|Internet|
-|Mi-131-253-5-24-nexthop-Internet|131.253.5.0/24|Internet|
-|Mi-131-253-6-24-nexthop-Internet|131.253.6.0/24|Internet|
-|Mi-131-253-8-24-nexthop-Internet|131.253.8.0/24|Internet|
-|Mi-131-253-12-22-nexthop-Internet|131.253.12.0/22|Internet|
-|Mi-131-253-16-23-nexthop-Internet|131.253.16.0/23|Internet|
-|Mi-131-253-18-24-nexthop-Internet|131.253.18.0/24|Internet|
-|Mi-131-253-21-24-nexthop-Internet|131.253.21.0/24|Internet|
-|Mi-131-253-22-23-nexthop-Internet|131.253.22.0/23|Internet|
-|Mi-131-253-24-21-nexthop-Internet|131.253.24.0/21|Internet|
-|Mi-131-253-32-20-nexthop-Internet|131.253.32.0/20|Internet|
-|Mi-131-253-61-24-nexthop-Internet|131.253.61.0/24|Internet|
-|Mi-131-253-62-23-nexthop-Internet|131.253.62.0/23|Internet|
-|Mi-131-253-64-18-nexthop-Internet|131.253.64.0/18|Internet|
-|Mi-131-253-128-17-nexthop-Internet|131.253.128.0/17|Internet|
-|Mi-132-245-16-nexthop-Internet|132.245.0.0/16|Internet|
-|Mi-134-170-16-nexthop-Internet|134.170.0.0/16|Internet|
-|Mi-134-177-16-nexthop-Internet|134.177.0.0/16|Internet|
-|Mi-137-116-15-nexthop-Internet|137.116.0.0/15|Internet|
-|Mi-137-135-16-nexthop-Internet|137.135.0.0/16|Internet|
-|Mi-138-91-16-nexthop-Internet|138.91.0.0/16|Internet|
-|Mi-138-196-16-nexthop-Internet|138.196.0.0/16|Internet|
-|Mi-139-217-16-nexthop-Internet|139.217.0.0/16|Internet|
-|Mi-139-219-16-nexthop-Internet|139.219.0.0/16|Internet|
-|Mi-141-251-16-nexthop-Internet|141.251.0.0/16|Internet|
-|Mi-146-147-16-nexthop-Internet|146.147.0.0/16|Internet|
-|Mi-147-243-16-nexthop-Internet|147.243.0.0/16|Internet|
-|Mi-150-171-16-nexthop-Internet|150.171.0.0/16|Internet|
-|Mi-150-242-48-22-nexthop-Internet|150.242.48.0/22|Internet|
-|Mi-157-54-15-nexthop-Internet|157.54.0.0/15|Internet|
-|Mi-157-56-14-nexthop-Internet|157.56.0.0/14|Internet|
-|Mi-157-60-16-nexthop-Internet|157.60.0.0/16|Internet|
-|Mi-167-105-16-nexthop-Internet|167.105.0.0/16|Internet|
-|Mi-167-220-16-nexthop-Internet|167.220.0.0/16|Internet|
-|Mi-168-61-16-nexthop-Internet|168.61.0.0/16|Internet|
-|Mi-168-62-15-nexthop-Internet|168.62.0.0/15|Internet|
-|Mi-191-232-13-nexthop-Internet|191.232.0.0/13|Internet|
-|Mi-192-32-16-nexthop-Internet|192.32.0.0/16|Internet|
-|Mi-192-48-225-24-nexthop-Internet|192.48.225.0/24|Internet|
-|Mi-192-84-159-24-nexthop-Internet|192.84.159.0/24|Internet|
-|Mi-192-84-160-23-nexthop-Internet|192.84.160.0/23|Internet|
-|Mi-192-197-157-24-nexthop-Internet|192.197.157.0/24|Internet|
-|Mi-193-149-64-19-nexthop-Internet|193.149.64.0/19|Internet|
-|Mi-193-221-113-24-nexthop-Internet|193.221.113.0/24|Internet|
-|Mi-194-69-96-19-nexthop-Internet|194.69.96.0/19|Internet|
-|Mi-194-110-197-24-nexthop-Internet|194.110.197.0/24|Internet|
-|Mi-198-105-232-22-nexthop-Internet|198.105.232.0/22|Internet|
-|Mi-198-200-130-24-nexthop-Internet|198.200.130.0/24|Internet|
-|Mi-198-206-164-24-nexthop-Internet|198.206.164.0/24|Internet|
-|Mi-199-60-28-24-nexthop-Internet|199.60.28.0/24|Internet|
-|Mi-199-74-210-24-nexthop-Internet|199.74.210.0/24|Internet|
-|Mi-199-103-90-23-nexthop-Internet|199.103.90.0/23|Internet|
-|Mi-199-103-122-24-nexthop-Internet|199.103.122.0/24|Internet|
-|Mi-199-242-32-20-nexthop-Internet|199.242.32.0/20|Internet|
-|Mi-199-242-48-21-nexthop-Internet|199.242.48.0/21|Internet|
-|Mi-202-89-224-20-nexthop-Internet|202.89.224.0/20|Internet|
-|Mi-204-13-120-21-nexthop-Internet|204.13.120.0/21|Internet|
-|Mi-204-14-180-22-nexthop-Internet|204.14.180.0/22|Internet|
-|Mi-204-79-135-24-nexthop-Internet|204.79.135.0/24|Internet|
-|Mi-204-79-179-24-nexthop-Internet|204.79.179.0/24|Internet|
-|Mi-204-79-181-24-nexthop-Internet|204.79.181.0/24|Internet|
-|Mi-204-79-188-24-nexthop-Internet|204.79.188.0/24|Internet|
-|Mi-204-79-195-24-nexthop-Internet|204.79.195.0/24|Internet|
-|Mi-204-79-196-23-nexthop-Internet|204.79.196.0/23|Internet|
-|Mi-204-79-252-24-nexthop-Internet|204.79.252.0/24|Internet|
-|Mi-204-152-18-23-nexthop-Internet|204.152.18.0/23|Internet|
-|Mi-204-152-140-23-nexthop-Internet|204.152.140.0/23|Internet|
-|Mi-204-231-192-24-nexthop-Internet|204.231.192.0/24|Internet|
-|Mi-204-231-194-23-nexthop-Internet|204.231.194.0/23|Internet|
-|Mi-204-231-197-24-nexthop-Internet|204.231.197.0/24|Internet|
-|Mi-204-231-198-23-nexthop-Internet|204.231.198.0/23|Internet|
-|Mi-204-231-200-21-nexthop-Internet|204.231.200.0/21|Internet|
-|Mi-204-231-208-20-nexthop-Internet|204.231.208.0/20|Internet|
-|Mi-204-231-236-24-nexthop-Internet|204.231.236.0/24|Internet|
-|Mi-205-174-224-20-nexthop-Internet|205.174.224.0/20|Internet|
-|Mi-206-138-168-21-nexthop-Internet|206.138.168.0/21|Internet|
-|Mi-206-191-224-19-nexthop-Internet|206.191.224.0/19|Internet|
-|Mi-207-46-16-nexthop-Internet|207.46.0.0/16|Internet|
-|Mi-207-68-128-18-nexthop-Internet|207.68.128.0/18|Internet|
-|Mi-208-68-136-21-nexthop-Internet|208.68.136.0/21|Internet|
-|Mi-208-76-44-22-nexthop-Internet|208.76.44.0/22|Internet|
-|Mi-208-84-21-nexthop-Internet|208.84.0.0/21|Internet|
-|Mi-209-240-192-19-nexthop-Internet|209.240.192.0/19|Internet|
-|Mi-213-199-128-18-nexthop-Internet|213.199.128.0/18|Internet|
-|Mi-216-32-180-22-nexthop-Internet|216.32.180.0/22|Internet|
-|Mi-216-220-208-20-nexthop-Internet|216.220.208.0/20|Internet|
-|Mi-23-96-13-nexthop-Internet|23.96.0.0/13|Internet|
-|Mi-42-159-16-nexthop-Internet|42.159.0.0/16|Internet|
-|Mi-51-13-17-nexthop-Internet|51.13.0.0/17|Internet|
-|Mi-51-107-16-nexthop-Internet|51.107.0.0/16|Internet|
-|Mi-51-116-16-nexthop-Internet|51.116.0.0/16|Internet|
-|Mi-51-120-16-nexthop-Internet|51.120.0.0/16|Internet|
-|Mi-51-120-128-17-nexthop-Internet|51.120.128.0/17|Internet|
-|Mi-51-124-16-nexthop-Internet|51.124.0.0/16|Internet|
-|Mi-102-37-18-nexthop-Internet|102.37.0.0/18|Internet|
-|Mi-102-133-16-nexthop-Internet|102.133.0.0/16|Internet|
-|Mi-199-30-16-20-nexthop-Internet|199.30.16.0/20|Internet|
-|Mi-204-79-180-24-nexthop-Internet|204.79.180.0/24|Internet|
-||||
+- **Emparelhamento da Microsoft**: habilitar o [emparelhamento da Microsoft](../../expressroute/expressroute-faqs.md#microsoft-peering) em circuitos de ExpressRoute emparelhados direta ou transitivamente com uma rede virtual em que o SQL instância gerenciada reside afeta o fluxo de tráfego entre os componentes do SQL instância gerenciada dentro da rede virtual e dos serviços dos quais depende, causando problemas de disponibilidade. As implantações do SQL Instância Gerenciada na rede virtual com o emparelhamento da Microsoft já habilitado devem falhar.
+- **Emparelhamento de rede virtual global**: a conectividade de [emparelhamento de rede virtual](../../virtual-network/virtual-network-peering-overview.md) entre regiões do Azure não funciona para instâncias gerenciadas do SQL colocadas em sub-redes criadas antes de 9/22/2020.
+- **AzurePlatformDNS**: usar a [marca de serviço](../../virtual-network/service-tags-overview.md) AzurePlatformDNS para bloquear a resolução de DNS da plataforma renderizaria o SQL instância gerenciada não disponível. Embora o SQL Instância Gerenciada dê suporte ao DNS definido pelo cliente para a resolução DNS dentro do mecanismo, há uma dependência no DNS da plataforma para operações de plataforma.
+- **Gateway NAT**: usar o [NAT da rede virtual do Azure](../../virtual-network/nat-overview.md) para controlar a conectividade de saída com um endereço IP público específico renderizaria o SQL instância gerenciada indisponível. No momento, o serviço SQL Instância Gerenciada está limitado ao uso do balanceador de carga básico que não fornece a coexistência de fluxos de entrada e saída com NAT de rede virtual.
+- **IPv6 para rede virtual do Azure**: espera-se que a implantação de SQL instância gerenciada em [redes virtuais IPv4/IPv6 de pilha dupla](../../virtual-network/ipv6-overview.md) falhe. Associar o grupo de segurança de rede (NSG) ou a tabela de rotas (UDR) que contém prefixos de endereço IPv6 à sub-rede do SQL Instância Gerenciada ou adicionar prefixos de endereço IPv6 a NSG ou UDR que já está associado à sub-rede da instância gerenciada, renderizaria o SQL Instância Gerenciada indisponível. Espera-se que as implantações do SQL Instância Gerenciada em uma sub-rede com NSG e UDR que já tenham prefixos IPv6 falhem.
 
 ## <a name="next-steps"></a>Próximas etapas
 

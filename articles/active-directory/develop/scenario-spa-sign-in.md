@@ -1,5 +1,6 @@
 ---
-title: Logon do aplicativo de página única & logout-plataforma de identidade da Microsoft | Azure
+title: Entrada do aplicativo de página única & logout
+titleSuffix: Microsoft identity platform
 description: Saiba como criar um aplicativo de página única (entrada)
 services: active-directory
 author: navyasric
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: c8ec151c813bfb0b9777e583a4ea5144e3b2079a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bdfffbf8d2e416c87dd5abb8f6383c58ad270231
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297052"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584356"
 ---
 # <a name="single-page-application-sign-in-and-sign-out"></a>Aplicativo de página única: entrar e sair
 
@@ -207,7 +208,7 @@ myMsal.loginRedirect(loginRequest);
 
 # <a name="javascript-msaljs-1x"></a>[JavaScript (MSAL.js 1. x)](#tab/javascript1)
 
-Os métodos de redirecionamento não retornam uma promessa devido à afastamento do aplicativo principal. Para processar e acessar os tokens retornados, você precisa registrar os retornos de chamada de êxito e erro antes de chamar os métodos de redirecionamento.
+Os métodos de redirecionamento não retornam uma promessa devido à afastamento do aplicativo principal. Para processar e acessar os tokens retornados, registre os retornos de chamada de êxito e erro antes de chamar os métodos de redirecionamento.
 
 ```javascript
 
@@ -306,5 +307,4 @@ this.authService.logout();
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Adquirir um token para o aplicativo](scenario-spa-acquire-token.md)
+Vá para o próximo artigo neste cenário, [adquirindo um token para o aplicativo](scenario-spa-acquire-token.md).

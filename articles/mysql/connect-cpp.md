@@ -1,19 +1,19 @@
 ---
 title: 'Início Rápido: Conectar-se usando C++ – Banco de Dados do Azure para MySQL'
 description: Este início rápido fornece um exemplo de código C++ que você pode usar para conectar e consultar os dados no Banco de Dados do Azure para MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: cpp
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 8119cbbb6619b923068723a6c855c04a8de48876
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e8b2842300e43a9de88cc0b9b3ae9ce6cd754612
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90904028"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535836"
 ---
 # <a name="quickstart-use-connectorc-to-connect-and-query-data-in-azure-database-for-mysql"></a>Início Rápido: Usar o Conector/C++ para conectar e consultar dados no Banco de Dados do Azure para MySQL
 
@@ -306,6 +306,16 @@ int main()
     system("pause");
     return 0;
 }
+```
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Para limpar todos os recursos usados durante este guia de início rápido, exclua o grupo de recursos usando o seguinte comando:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

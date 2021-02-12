@@ -1,20 +1,25 @@
 ---
 title: Resource Health para serviços de nuvem (clássico)
 description: Este artigo fala sobre o suporte de verificação de Resource Health (RHC) para Serviços de Nuvem do Microsoft Azure (clássico)
-services: cloud-services
-author: tanmaygore
-ms.service: cloud-services
 ms.topic: article
-ms.date: 9/1/2020
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: f99dd8131df9f8bc5d3e4013d4438faa8c25e53b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 37294e681066eb27ace69bcacee3a813b750b8eb
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072706"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743501"
 ---
 # <a name="resource-health-check-rhc-support-for-azure-cloud-services-classic"></a>Suporte à verificação de Resource Health (RHC) para serviços de nuvem do Azure (clássico)
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
+
 Este artigo fala sobre o suporte de verificação de Resource Health (RHC) para [serviços de nuvem do Microsoft Azure (clássico)](https://azure.microsoft.com/services/cloud-services)
 
 [Azure Resource Health](../service-health/resource-health-overview.md) para serviços de nuvem ajuda você a diagnosticar e obter suporte para problemas de serviço que afetam sua implantação de serviço de nuvem, funções & instâncias de função. Ele relata a integridade atual e passada de seus serviços de nuvem na implantação, função & nível de instância de função.

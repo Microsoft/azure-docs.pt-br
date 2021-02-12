@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: twooley
 ms.openlocfilehash: 9bb787138267fd8a9fab4dea233c1c828b457d67
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 01/08/2021
 ms.locfileid: "92109180"
 ---
 # <a name="copy-data-between-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>Copiar dados entre o Data Lake Storage Gen1 e o Azure SQL Database usando o Sqoop
@@ -105,7 +105,7 @@ Um cluster HDInsight já tem os pacotes Sqoop disponíveis. Se você tiver confi
     sqoop-import --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=user1@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table1 --target-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1
     ```
 
-1. Verifique se os dados foram transferidos para a conta do Data Lake Storage Gen1. Execute o seguinte comando:
+1. Verifique se os dados foram transferidos para a conta do Data Lake Storage Gen1. Execute o comando a seguir:
 
     ```console
     hdfs dfs -ls adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/
@@ -121,7 +121,7 @@ Um cluster HDInsight já tem os pacotes Sqoop disponíveis. Se você tiver confi
     -rwxrwxrwx   0 sshuser hdfs         18 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00003
     ```
 
-   Cada arquivo **Part-m-*** corresponde a uma linha na tabela de origem, **Table1**. Você pode exibir o conteúdo dos arquivos part-m-* para verificação.
+   Cada arquivo **Part-m-** _ corresponde a uma linha na tabela de origem, _ *table1 * *. Você pode exibir o conteúdo dos arquivos Part-m-* para verificar.
 
 ### <a name="export-data-from-data-lake-storage-gen1-into-azure-sql-database"></a>Exportar dados do Data Lake Storage Gen1 para o Banco de Dados SQL do Azure
 

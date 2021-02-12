@@ -1,58 +1,39 @@
 ---
 title: Instalar âncoras espaciais do Azure para o Unity
 description: Configurar um projeto do Unity para usar âncoras espaciais do Azure
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: crtreasu
-ms.date: 09/29/2020
+ms.author: parkerra
+ms.date: 2/3/2021
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: da983719dc66656aa28cab4aea0bae558c2a7162
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56532c17c91e6c703a6acd7990bbae47cd248165
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530402"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576558"
 ---
 # <a name="configuring-azure-spatial-anchors-in-a-unity-project"></a>Configurando âncoras espaciais do Azure em um projeto do Unity
 
 Este guia mostrará como começar a usar o SDK de âncoras espaciais do Azure em seu projeto do Unity.
 
-## <a name="requirements"></a>Requisitos
+## <a name="project-requirements"></a>Requisitos do projeto
 
-As âncoras espaciais do Azure atualmente dão suporte ao Unity 2019,4 (LTS) com as seguintes configurações.
-
-* O Unity 2019,4 com o AR Foundation 3,1 tem suporte nas âncoras espaciais do Azure 2.4.0 +.
+[!INCLUDE [Unity Project Requirements](../../../includes/spatial-anchors-unity-project-requirements.md)]
 
 ## <a name="configuring-a-project"></a>Configurando um projeto
 
-### <a name="add-the-unity-package-manager-packages-to-your-project"></a>[Adicionar pacotes do Gerenciador de pacotes do Unity ao seu projeto](#tab/UPMPackage)
+Antes de incluir o SDK de âncoras espaciais do Azure em seu projeto do Unity, certifique-se de instalar os pacotes [necessários](#project-requirements) por meio do Gerenciador de pacotes do Unity.
 
-As âncoras espaciais do Azure para o Unity atualmente são distribuídas usando pacotes UPM (Gerenciador de pacotes do Unity). Esses pacotes podem ser encontrados em nosso [registro NPM](https://bintray.com/microsoft/AzureMixedReality-NPM). Para saber mais sobre como trabalhar com registros de pacote com escopo em um projeto do Unity, consulte a documentação oficial do Unity [aqui](https://docs.unity3d.com/Manual/upm-scoped.html).
+### <a name="download-asa-packages"></a>Baixar pacotes ASA
+[!INCLUDE [Download Unity Packages](../../../includes/spatial-anchors-unity-download-packages.md)]
 
-#### <a name="add-the-registry-to-your-unity-project"></a>Adicionar o registro ao projeto do Unity
+### <a name="import-asa-packages"></a>Importar pacotes ASA
+[!INCLUDE [Import Unity Packages](../../../includes/spatial-anchors-unity-import-packages.md)]
 
-1. Em um explorador de arquivos, navegue até a pasta `Packages` do projeto do Unity. Abra o arquivo de manifesto do projeto, `manifest.json`, em um editor de texto.
-2. Na parte superior do arquivo, no mesmo nível que a seção `dependencies`, adicione a entrada a seguir para incluir o registro de Âncoras Espaciais do Azure no projeto. A entrada `scopedRegistries` informa ao Unity onde procurar os pacotes do SDK de Âncoras Espaciais do Azure.
-
-    [!code-json[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-scoped-registry-setup.md?range=9-19&highlight=2-10)]
-
-#### <a name="add-the-sdk-packages-to-your-unity-project"></a>Adicionar os pacotes do SDK ao seu projeto do Unity
-
-| Plataforma | Nome do pacote                                    |
-|----------|-------------------------------------------------|
-| Android  | com. Microsoft. Azure. Spatial-ancoras-SDK. Android |
-| iOS      | com. Microsoft. Azure. Spatial-Anchors-SDK. Ios     |
-| HoloLens | com. Microsoft. Azure. Spatial-ancoras-SDK. Windows |
-
-1. Para cada plataforma (Android/iOS/HoloLens) para a qual você gostaria de dar suporte em seu projeto, adicione uma entrada com o nome do pacote e a versão do pacote à `dependencies` seção no manifesto do projeto. Veja um exemplo abaixo.
-
-    [!code-json[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-scoped-registry-setup.md?range=9-22&highlight=12-14)]
-
-2. Salve e feche o arquivo `manifest.json`. Quando você retornar ao Unity, ele deverá detectar automaticamente a alteração no manifesto do projeto e recuperar os pacotes especificados. Você pode expandir a pasta `Packages` na exibição do Projeto para verificar se os pacotes corretos foram importados.
-
-#### <a name="android-only-configure-the-maintemplategradle-file"></a>Somente Android: Configure o arquivo MainTemplate. gradle
+### <a name="android-only-configure-the-maintemplategradle-file"></a>Somente Android: Configure o arquivo MainTemplate. gradle
 
 1. Vá para **Editar** > **Configurações do Projeto** > **Player**.
 2. No **painel Inspetor** para **configurações do Player**, selecione o ícone do **Android** .
@@ -68,16 +49,6 @@ As âncoras espaciais do Azure para o Unity atualmente são distribuídas usando
 Quando tudo estiver concluído, sua `dependencies` seção deverá ter uma aparência semelhante a esta:
 
 [!code-gradle[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-android-gradle-setup.md?range=9-13&highlight=3-4)]
-
-### <a name="import-the-asset-package"></a>[Importar o pacote de ativos](#tab/UnityAssetPackage)
-
-> [!WARNING]
-> A distribuição do pacote de ativos do Unity do SDK de âncoras espaciais do Azure foi preterida na versão 2.5.0 e não está mais disponível a partir de 2.6.0.
-
-1. Baixe o `AzureSpatialAnchors.unitypackage` arquivo da versão que você deseja direcionar das [versões do GitHub](https://github.com/Azure/azure-spatial-anchors-samples/releases).
-2. Siga as instruções [aqui](https://docs.unity3d.com/Manual/AssetPackagesImport.html) para importar o pacote de ativos do Unity para seu projeto.
-
----
 
 ## <a name="next-steps"></a>Próximas etapas
 

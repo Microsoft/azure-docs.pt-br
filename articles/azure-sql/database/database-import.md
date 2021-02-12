@@ -10,13 +10,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 06/20/2019
-ms.openlocfilehash: 08aaec23b0edc0e797d26d4b51081f6daa5b5c19
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 10/29/2020
+ms.openlocfilehash: 30a511caec82ead406f0a80f107e4261a707bfdb
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92671232"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040169"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Guia de início rápido: Importar um arquivo BACPAC para um banco de dados no Banco de Dados SQL do Azure ou na Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -42,7 +42,7 @@ Para migrar um banco de dados para uma [Instância Gerenciada de SQL do Azure](.
 > [!NOTE]
 > Os computadores que processam solicitações de importação/exportação enviadas por meio do portal do Azure ou do PowerShell precisam armazenar o arquivo BACPAC, bem como os arquivos temporários gerados pelo DACFx (Data-Tier Application Framework). O espaço em disco necessário varia significativamente entre os bancos de dados com o mesmo tamanho e pode exigir até três vezes o tamanho do banco de dados. Os computadores que executam a solicitação de importação/exportação só têm 450 GB de espaço em disco local. Como resultado, algumas solicitações podem falhar com o erro `There is not enough space on the disk`. Nesse caso, a solução alternativa é executar sqlpackage.exe em um computador com espaço em disco local suficiente. Incentivamos o uso do SqlPackage para importar/exportar bancos de dados maiores que 150 GB a fim de evitar esse problema.
 
-1. Para fazer a importação por meio de um arquivo BACPAC para um novo banco de dados individual usando o portal do Azure, abra a página do servidor apropriada e, na barra de ferramentas, selecione **Importar banco de dados** .  
+1. Para fazer a importação por meio de um arquivo BACPAC para um novo banco de dados individual usando o portal do Azure, abra a página do servidor apropriada e, na barra de ferramentas, selecione **Importar banco de dados**.  
 
    ![Banco de dados import1](./media/database-import/sql-server-import-database.png)
 
@@ -52,21 +52,23 @@ Para migrar um banco de dados para uma [Instância Gerenciada de SQL do Azure](.
 
    ![Banco de dados import2](./media/database-import/sql-server-import-database-settings.png)
 
-1. Clique em **OK** .
+1. Clique em **OK**.
 
-1. Para monitorar o progresso de uma importação, abra a página do servidor do banco de dados e, em **Configurações** , selecione **Histórico de importação/exportação** . Quando obtiver êxito, a importação terá o status **Concluído** .
+1. Para monitorar o progresso de uma importação, abra a página do servidor do banco de dados e, em **Configurações** , selecione **Histórico de importação/exportação**. Quando obtiver êxito, a importação terá o status **Concluído**.
 
    ![Status de importação do banco de dados](./media/database-import/sql-server-import-database-history.png)
 
-1. Para verificar se o banco de dados está ativo no servidor, selecione **Bancos de dados SQL** e verifique se o novo banco de dados está **Online** .
+1. Para verificar se o banco de dados está ativo no servidor, selecione **Bancos de dados SQL** e verifique se o novo banco de dados está **Online**.
 
 ## <a name="using-sqlpackage"></a>Como usar o SqlPackage
 
-Para importar um Banco de Dados do SQL Server usando o utilitário de linha de comando [SqlPackage](/sql/tools/sqlpackage), confira [Importar parâmetros e propriedades](/sql/tools/sqlpackage#import-parameters-and-properties). O [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) e o [SQL Server Data Tools para Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt) incluem o SqlPackage. Você também pode fazer o download da versão mais recente do [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) do Centro de Download da Microsoft.
+Para importar um Banco de Dados do SQL Server usando o utilitário de linha de comando [SqlPackage](/sql/tools/sqlpackage), confira [Importar parâmetros e propriedades](/sql/tools/sqlpackage#import-parameters-and-properties). O [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) e o [SQL Server Data Tools para Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt) incluem o SqlPackage. Você também pode fazer o download da versão mais recente do [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) do Centro de Download da Microsoft. 
 
 Para escala e desempenho, recomendamos usar o SqlPackage na maioria dos ambientes de produção em vez de usar no portal do Azure. Para ler uma postagem de blog da Equipe de Consultoria ao Cliente do SQL Server sobre a migração usando arquivos `BACPAC`, confira [Migrando do SQL Server para o Banco de Dados SQL do Azure usando arquivos BACPAC](/archive/blogs/sqlcat/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files).
 
-O comando do SqlPackage a seguir importa o banco de dados **AdventureWorks2008R2** do armazenamento local para um servidor SQL lógico chamado **mynewserver20170403** . Ele cria um novo banco de dados chamado **myMigratedDatabase** com uma camada de serviço **Premium** e um Objetivo de serviço **P6** . Altere esses valores conforme apropriado para o seu ambiente.
+O modelo de provisionamento baseado em DTU é compatível com valores de tamanho máximo de banco de dados selecionados para cada camada. Ao importar um banco de dados [use um desses valores compatíveis](/sql/t-sql/statements/create-database-transact-sql). 
+
+O comando do SqlPackage a seguir importa o banco de dados **AdventureWorks2008R2** do armazenamento local para um servidor SQL lógico chamado **mynewserver20170403**. Ele cria um novo banco de dados chamado **myMigratedDatabase** com uma camada de serviço **Premium** e um Objetivo de serviço **P6**. Altere esses valores conforme apropriado para o seu ambiente.
 
 ```cmd
 sqlpackage.exe /a:import /tcs:"Data Source=<serverName>.database.windows.net;Initial Catalog=<migratedDatabase>;User Id=<userId>;Password=<password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
@@ -94,7 +96,7 @@ sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 > [!IMPORTANT]
 > Ainda há suporte para o módulo do ARM (Azure Resource Manager) do PowerShell, mas todo o desenvolvimento futuro destina-se ao módulo Az.Sql. O módulo AzureRM continuará a receber as correções de bugs até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para saber mais sobre a compatibilidade entre eles, confira [Apresentação do novo módulo Az do Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
-Use o cmdlet [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) para enviar uma solicitação de importação de banco de dados para o Azure. Dependendo do tamanho do banco de dados, a importação pode levar algum tempo para ser concluída.
+Use o cmdlet [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) para enviar uma solicitação de importação de banco de dados para o Azure. Dependendo do tamanho do banco de dados, a importação pode levar algum tempo para ser concluída. O modelo de provisionamento baseado em DTU é compatível com valores de tamanho máximo de banco de dados selecionados para cada camada. Ao importar um banco de dados [use um desses valores compatíveis](/sql/t-sql/statements/create-database-transact-sql). 
 
 ```powershell
 $importRequest = New-AzSqlDatabaseImport -ResourceGroupName "<resourceGroupName>" `
@@ -126,7 +128,7 @@ $importStatus
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Use o comando [az-sql-db-import](/cli/azure/sql/db#az-sql-db-import) para enviar uma solicitação de importação de banco de dados para o Azure. Dependendo do tamanho do banco de dados, a importação pode levar algum tempo para ser concluída.
+Use o comando [az-sql-db-import](/cli/azure/sql/db#az-sql-db-import) para enviar uma solicitação de importação de banco de dados para o Azure. Dependendo do tamanho do banco de dados, a importação pode levar algum tempo para ser concluída. O modelo de provisionamento baseado em DTU é compatível com valores de tamanho máximo de banco de dados selecionados para cada camada. Ao importar um banco de dados [use um desses valores compatíveis](/sql/t-sql/statements/create-database-transact-sql). 
 
 ```azurecli
 # get the storage account key

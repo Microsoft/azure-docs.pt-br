@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/10/2020
 ms.author: jeedes
-ms.openlocfilehash: bf1cef74871ccf42dc8c43e79793a5044df8de0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 527c0ce1278c920f53a2f63b7708bce09da789e1
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88551988"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516324"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-timetabling-solutions"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Timetabling Solutions
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá a integrar o Timetabling Solutions ao Azure AD 
 * Permitir que seus usuários sejam conectados automaticamente ao Timetabling Solutions com as contas do Azure AD deles.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,7 +43,7 @@ Para começar, você precisará dos seguintes itens:
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 * O Timetabling Solutions é compatível com o SSO iniciado por **SP**
-* Depois de configurar o Timetabling Solutions, você poderá impor o controle de sessão, que protege contra o vazamento e a infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Depois de configurar o Timetabling Solutions, você poderá impor o controle de sessão, que protege contra o vazamento e a infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-timetabling-solutions-from-the-gallery"></a>Adicionar o Timetabling Solutions da galeria
 
@@ -53,7 +53,7 @@ Para configurar a integração do Timetabling Solutions ao Azure AD, é necessá
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
-1. Na seção **Adicionar da galeria**, digite **Timetabling Solutions** na caixa de pesquisa.
+1. Na seção **Adicionar da galeria** , digite **Timetabling Solutions** na caixa de pesquisa.
 1. Selecione **Timetabling Solutions** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-timetabling-solutions"></a>Configurar e testar o logon único do Azure AD para o Timetabling Solutions
@@ -73,25 +73,25 @@ Para configurar e testar o SSO do Azure AD com o Timetabling Solutions, conclua 
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Timetabling Solutions**, localize a seção **Gerenciar** e selecione **logon único**.
-1. Na página **Selecionar um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Timetabling Solutions** , localize a seção **Gerenciar** e selecione **logon único**.
+1. Na página **Selecionar um método de logon único** , escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML** , clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
+1. Na seção **Configuração básica de SAML** , realize as seguintes etapas:
 
-    Na caixa de texto **URL de Logon**, digite uma URL: `https://auth.timetabling.education/login`
+    Na caixa de texto **URL de Logon** , digite uma URL: `https://auth.timetabling.education/login`
 
-1. Na seção **Certificado de Autenticação SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Certificado de Autenticação SAML**.
+1. Na seção **Certificado de Autenticação SAML** , clique no botão **Editar** para abrir a caixa de diálogo **Certificado de Autenticação SAML**.
 
     ![Editar o Certificado de Autenticação SAML](common/edit-certificate.png)
 
-1. Na seção **Certificado de Autenticação SAML**, copie o **Valor da Impressão Digital** e salve-o em seu computador.
+1. Na seção **Certificado de Autenticação SAML** , copie o **Valor da Impressão Digital** e salve-o em seu computador.
 
     ![Copiar o valor da Impressão Digital](common/copy-thumbprint.png)
 
-1. Na seção **Configurar o Timetabling Solutions**, copie as URLs apropriadas de acordo com as suas necessidades.
+1. Na seção **Configurar o Timetabling Solutions** , copie as URLs apropriadas de acordo com as suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -99,11 +99,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário**, siga estas etapas:
-   1. No campo **Nome**, insira `B.Simon`.  
-   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+1. Nas propriedades do **Usuário** , siga estas etapas:
+   1. No campo **Nome** , insira `B.Simon`.  
+   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
    1. Clique em **Criar**.
 
@@ -121,35 +121,34 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
     ![O link Adicionar Usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
 
 ## <a name="configure-timetabling-solutions-sso"></a>Configurar o SSO do Timetabling Solutions
 
-Para configurar o logon único no lado do **Timetabling Solutions**, é necessário enviar o **Valor da Impressão Digital** e as URLs apropriadas copiadas do portal do Azure para [a equipe de suporte do Timetabling Solutions](https://www.timetabling.com.au/contact-us/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **Timetabling Solutions** , é necessário enviar o **Valor da Impressão Digital** e as URLs apropriadas copiadas do portal do Azure para [a equipe de suporte do Timetabling Solutions](https://www.timetabling.com.au/contact-us/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-timetabling-solutions-test-user"></a>Criar um usuário de teste do Timetabling Solutions
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no Timetabling Solutions. Trabalhe com a [equipe de suporte do Timetabling Solutions](https://www.timetabling.com.au/contact-us/) para adicionar os usuários à plataforma do Timetabling Solutions. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no Timetabling Solutions. Trabalhe com a [equipe de suporte do Timetabling Solutions](https://www.timetabling.com.au/contact-us/) para adicionar os usuários na plataforma do Timetabling Solutions. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ## <a name="test-sso"></a>Testar o SSO 
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Timetabling Solutions no Painel de Acesso, você deverá ser conectado automaticamente ao Timetabling Solutions para o qual você configurou um SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Timetabling Solutions no Painel de Acesso, você deverá ser conectado automaticamente ao Timetabling Solutions para o qual você configurou um SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimente o Timetabling Solutions com o Azure AD](https://aad.portal.azure.com/)
 
-- [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [O que é controle de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Como proteger o Timetabling Solutions com visibilidade e controles avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
+- [Como proteger o Timetabling Solutions com visibilidade e controles avançados](/cloud-app-security/proxy-intro-aad)

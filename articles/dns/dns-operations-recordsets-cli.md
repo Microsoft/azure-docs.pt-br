@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 05/15/2018
 ms.author: rohink
 ms.openlocfilehash: 2d3989b3c477a35d602f1ccf3e45d6f597f5d78d
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737401"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011551"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli"></a>Gerenciar registros DNS e conjuntos de registros no DNS do Azure usando a CLI do Azure
 
@@ -40,13 +40,13 @@ Para obter mais informações sobre os registros DNS no DNS do Azure, confira [Z
 
 Para criar um registro DNS, use o comando `az network dns record-set <record-type> add-record` (em que `<record-type>` é o tipo do registro, ou seja, a, SRV, txt, etc.) Para obter ajuda, consulte `az network dns record-set --help` .
 
-Ao criar um registro, você precisa especificar o nome do grupo de recursos, o nome da zona, o nome do conjunto de registros, o tipo do registro e os detalhes do registro que está sendo criado. O nome do conjunto de registros fornecido deve ser um nome *relativo* , significando que ele deve excluir o nome da zona.
+Ao criar um registro, você precisa especificar o nome do grupo de recursos, o nome da zona, o nome do conjunto de registros, o tipo do registro e os detalhes do registro que está sendo criado. O nome do conjunto de registros fornecido deve ser um nome *relativo*, significando que ele deve excluir o nome da zona.
 
 Se o conjunto de registros não existir, este comando o criará para você. Se o conjunto de registros já existir, este comando adicionará o registro que você especifica para o conjunto de registros existente.
 
 Se um novo conjunto de registros for criado, um TTL padrão de 3600 será usado. Para obter instruções sobre como usar TTLs diferentes, consulte [Criar um conjunto de registros DNS](#create-a-dns-record-set).
 
-O exemplo a seguir cria um registro A chamado *www* na zona *contoso.com* no grupo de recursos *MyResourceGroup* . O endereço IP do registro A é *1.2.3.4* .
+O exemplo a seguir cria um registro A chamado *www* na zona *contoso.com* no grupo de recursos *MyResourceGroup*. O endereço IP do registro A é *1.2.3.4*.
 
 ```azurecli
 az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
@@ -60,7 +60,7 @@ az network dns record-set a add-record --resource-group myresourcegroup --zone-n
 
 ## <a name="create-a-dns-record-set"></a>Criar um conjunto de registros DNS
 
-Nos exemplos acima, o registro DNS ou foi adicionado a um conjunto de registros existente ou então o conjunto de registros foi criado *implicitamente* . Você também pode criar o conjunto de registros *explicitamente* antes de adicionar registros a ele. O DNS do Azure também dá suporte a conjuntos de registros 'vazios', que podem agir como um espaço reservado para reservar um nome DNS antes da criação de registros DNS. Os conjuntos de registros vazios são visíveis no painel de controle do DNS do Azure, mas não aparecem nos servidores de nome DNS do Azure.
+Nos exemplos acima, o registro DNS ou foi adicionado a um conjunto de registros existente ou então o conjunto de registros foi criado *implicitamente*. Você também pode criar o conjunto de registros *explicitamente* antes de adicionar registros a ele. O DNS do Azure também dá suporte a conjuntos de registros 'vazios', que podem agir como um espaço reservado para reservar um nome DNS antes da criação de registros DNS. Os conjuntos de registros vazios são visíveis no painel de controle do DNS do Azure, mas não aparecem nos servidores de nome DNS do Azure.
 
 Os conjuntos de registros são criados usando o comando `az network dns record-set <record-type> create`. Para obter ajuda, consulte `az network dns record-set <record-type> create --help`.
 
@@ -155,9 +155,9 @@ az network dns record-set txt add-record --resource-group myresourcegroup --zone
 
 Para recuperar um conjunto de registros existente, use `az network dns record-set <record-type> show`. Para obter ajuda, consulte `az network dns record-set <record-type> show --help`.
 
-Assim como acontece ao criar um registro ou conjunto de registros, o nome do conjunto de registros fornecido deve ser um nome *relativo* , significando que ele deve excluir o nome da zona. Você também precisa especificar o tipo de registro, a zona que contém o conjunto de registros e o grupo de recursos que contém a zona.
+Assim como acontece ao criar um registro ou conjunto de registros, o nome do conjunto de registros fornecido deve ser um nome *relativo*, significando que ele deve excluir o nome da zona. Você também precisa especificar o tipo de registro, a zona que contém o conjunto de registros e o grupo de recursos que contém a zona.
 
-O exemplo a seguir recupera o registro *www* de tipo A da zona *contoso.com* no grupo de recursos *MyResourceGroup* :
+O exemplo a seguir recupera o registro *www* de tipo A da zona *contoso.com* no grupo de recursos *MyResourceGroup*:
 
 ```azurecli
 az network dns record-set a show --resource-group myresourcegroup --zone-name contoso.com --name www
@@ -167,7 +167,7 @@ az network dns record-set a show --resource-group myresourcegroup --zone-name co
 
 Você pode listar todos os registros em uma zona DNS com o comando `az network dns record-set list` . Para obter ajuda, consulte `az network dns record-set list --help`.
 
-Este exemplo retorna todos os conjuntos de registros na zona *contoso.com* e no grupo de recursos *MyResourceGroup* , independentemente do nome ou tipo de registro:
+Este exemplo retorna todos os conjuntos de registros na zona *contoso.com* e no grupo de recursos *MyResourceGroup*, independentemente do nome ou tipo de registro:
 
 ```azurecli
 az network dns record-set list --resource-group myresourcegroup --zone-name contoso.com
@@ -193,7 +193,7 @@ Esse comando exclui um registro DNS de um conjunto de registros. Se o último re
 
 Você precisa especificar o registro a ser excluído e a zona da qual ele deve ser excluído, usando os mesmos parâmetros usados ao criar um registro usando `az network dns record-set <record-type> add-record`. Esses parâmetros são descritos em [Criar um registro DNS](#create-a-dns-record) e [Criar registros de outros tipos](#create-records-of-other-types), acima.
 
-O exemplo a seguir cria um registro A com o valor '1.2.3.4' do conjunto de recursos chamado *www* na zona *contoso.com* , no grupo de recursos *MyResourceGroup* .
+O exemplo a seguir cria um registro A com o valor '1.2.3.4' do conjunto de recursos chamado *www* na zona *contoso.com*, no grupo de recursos *MyResourceGroup*.
 
 ```azurecli
 az network dns record-set a remove-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "www" --ipv4-address 1.2.3.4
@@ -222,7 +222,7 @@ Ao contrário da maioria dos outros tipos de registro, um conjunto de registros 
 
 Em vez disso, para modificar um registro CNAME, use `az network dns record-set cname set-record`. Para obter ajuda, consulte `az network dns record-set cname set-record --help`
 
-O exemplo modifica o conjunto de registros CNAME *www* na zona *contoso.com* , no grupo de recursos *MyResourceGroup* , para apontar para 'www.fabrikam.net' em vez de seu valor existente:
+O exemplo modifica o conjunto de registros CNAME *www* na zona *contoso.com*, no grupo de recursos *MyResourceGroup*, para apontar para 'www.fabrikam.net' em vez de seu valor existente:
 
 ```azurecli
 az network dns record-set cname set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-cname --cname www.fabrikam.net
@@ -234,7 +234,7 @@ Ao contrário da maioria dos outros tipos de registro, um conjunto de registros 
 
 Em vez disso, para modificar um registro SOA, use `az network dns record-set soa update`. Para obter ajuda, consulte `az network dns record-set soa update --help`.
 
-O exemplo a seguir mostra como definir a propriedade 'email' do registro SOA para a zona *contoso.com* , no grupo de recursos *MyResourceGroup* :
+O exemplo a seguir mostra como definir a propriedade 'email' do registro SOA para a zona *contoso.com*, no grupo de recursos *MyResourceGroup*:
 
 ```azurecli
 az network dns record-set soa update --resource-group myresourcegroup --zone-name contoso.com --email admin.contoso.com
@@ -281,7 +281,7 @@ Os conjuntos de registros podem ser excluídos usando o comando `az network dns 
 > [!NOTE]
 > Não é possível excluir os conjuntos de registro SOA e NS no ápice da zona (`--name "@"`).  Eles são criados automaticamente quando a zona foi criada e são excluídos automaticamente quando a zona é excluída.
 
-O exemplo a seguir exclui o conjunto de registros chamado *www* de tipo A da zona *contoso.com* no grupo de recursos *MyResourceGroup* :
+O exemplo a seguir exclui o conjunto de registros chamado *www* de tipo A da zona *contoso.com* no grupo de recursos *MyResourceGroup*:
 
 ```azurecli
 az network dns record-set a delete --resource-group myresourcegroup --zone-name contoso.com --name www

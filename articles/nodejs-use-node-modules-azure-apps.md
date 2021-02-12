@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: routlaw
-ms.openlocfilehash: 6c1bbe48ca5205cf1db49d67a711e9a7523e1845
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f61f08f32ebb2b721846d3c3017405af99421104
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88077111"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542211"
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>Usando Módulos no Node.js com aplicativos do Microsoft Azure
 Este documento fornece orientação sobre como usar módulos no Node.js com aplicativos hospedados no Microsoft Azure. Ele fornece orientações sobre como garantir que seu aplicativo use uma versão específica de um módulo, além de usar módulos nativos com o Azure.
@@ -89,6 +89,6 @@ Agora que você aprendeu como usar os módulos no Node.js com o Azure, aprenda c
 
 Para saber mais, confira o [Centro de desenvolvedores do Node.js](/azure/developer/javascript/).
 
-[specify the Node.js version]: nodejs-specify-node-version-azure-apps.md
+[specify the Node.js version]: ./app-service/overview.md
 [How to use the Azure Command-Line Interface for Mac and Linux]:cli-install-nodejs.md
 [Custom Website Deployment Scripts with Kudu]: https://channel9.msdn.com/Shows/Azure-Friday/Custom-Web-Site-Deployment-Scripts-with-Kudu-with-David-Ebbo

@@ -14,12 +14,12 @@ ms.author: dbradish
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e7e140e26da79475bea032c8190ee64740370d04
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 6c565be3aea43fc4dc86fd793e0dc2dea0b08d4c
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312881"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563742"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Criar um hub de notificação do Azure usando a CLI do Azure
 
@@ -32,7 +32,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 > [!IMPORTANT]
-> Os Hubs de Notificação exigem a versão 2.0.67 ou posterior da CLI do Azure. Execute [az version](/cli/azure/reference-index?#az_version) para localizar a versão e as bibliotecas dependentes que estão instaladas. Para fazer a atualização para a versão mais recente, execute [az upgrade](/cli/azure/reference-index?#az_upgrade).
+> Os Hubs de Notificação exigem a versão 2.0.67 ou posterior da CLI do Azure. Execute [az version](/cli/azure/reference-index#az_version) para localizar a versão e as bibliotecas dependentes que estão instaladas. Para fazer a atualização para a versão mais recente, execute [az upgrade](/cli/azure/reference-index#az_upgrade).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 

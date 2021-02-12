@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 6a38b61ee03aa4853526586ca60542bd3641b66f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd582c1175d6bff0aa18ee77dde8b7734b6acf25
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91249392"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121015"
 ---
 # <a name="what-is-delta-lake"></a>O que é o Delta Lake
 
@@ -44,4 +44,4 @@ Para obter mais informações, confira [Projeto do Delta Lake](https://github.co
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Documentação do .NET para Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../index.yml)

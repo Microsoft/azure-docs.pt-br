@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5aa8f675e3fd36fbebfecf42db0f02b0f0f00115
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319747"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995974"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de auditoria no portal do Azure Active Directory 
 
@@ -33,8 +33,8 @@ Com os relatórios do Azure AD (Azure Active Directory), é possível obter as i
 A arquitetura de relatórios consiste nos seguintes componentes:
 
 - **Atividade** 
-    - **Entradas** – O [relatório de entradas](concept-sign-ins.md) fornece informações sobre o uso de aplicativos gerenciados e atividades de entrada do usuário.
-    - **Logs de auditoria** – Permitem o rastreio de todas as alterações feitas por vários recursos no Azure AD por meio de logs. Exemplos de logs de auditoria incluem alterações feitas em quaisquer recursos no Azure AD, como adicionar ou remover usuários, aplicativos, grupos, funções e políticas.
+    - **Entradas** – o [relatório](concept-sign-ins.md) de entradas fornece informações sobre o uso de aplicativos gerenciados e atividades de entrada do usuário.
+    - **Logs de auditoria** – fornece rastreamento por meio de logs para todas as alterações feitas por vários recursos no Azure AD. Exemplos de logs de auditoria incluem alterações feitas em quaisquer recursos no Azure AD, como adicionar ou remover usuários, aplicativos, grupos, funções e políticas.
     - **Logs**  -  de provisionamento Os [logs de provisionamento](./concept-provisioning-logs.md) permitem que os clientes monitorem a atividade pelo serviço de provisionamento, como a criação de um grupo no ServiceNow ou um usuário importado do workday. 
 - **Segurança** 
     - **Entradas arriscadas** -uma [entrada arriscada](../identity-protection/overview-identity-protection.md) é um indicador de uma tentativa de entrada que pode ter sido executada por alguém que não seja o proprietário legítimo de uma conta de usuário. 
@@ -92,7 +92,7 @@ Selecione um item na exibição de lista para obter informações mais detalhada
 
 O filtro de **serviço** permite que você selecione em uma lista suspensa dos seguintes serviços:
 
-- Todos
+- Tudo
 - UX de gerenciamento do AAD
 - Revisões de acesso
 - Provisionamento de conta de usuário
@@ -114,7 +114,7 @@ O filtro de **serviço** permite que você selecione em uma lista suspensa dos s
 
 O filtro **categoria** permite que você selecione um dos seguintes filtros:
 
-- Todos
+- Tudo
 - AdministrativeUnit
 - ApplicationManagement
 - Autenticação
@@ -128,7 +128,7 @@ O filtro **categoria** permite que você selecione um dos seguintes filtros:
 - KerberosDomain
 - KeyManagement
 - Rotular
-- Outros
+- Outro
 - PermissionGrantPolicy
 - Política
 - ResourceManagement
@@ -141,7 +141,7 @@ Você pode obter a lista de todas as atividades de auditoria usando o API do Gra
 
 O filtro de **status** permite filtrar com base no status de uma operação de auditoria. O status pode ser um dos seguintes:
 
-- Todos
+- Tudo
 - Sucesso
 - Falha
 

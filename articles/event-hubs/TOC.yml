@@ -32,9 +32,9 @@
           href: event-hubs-dotnet-standard-getstarted-send.md
         - name: Java (azure-messaging-eventhubs)
           href: event-hubs-java-get-started-send.md
-        - name: Python (azure-eventhub versão 5)
+        - name: Python (azure-eventhub)
           href: event-hubs-python-get-started-send.md
-        - name: JavaScript (azure/event-hubs versão 5)
+        - name: JavaScript (azure/event-hubs)
           href: event-hubs-node-get-started-send.md
         - name: Go
           href: event-hubs-go-get-started-send.md
@@ -42,7 +42,7 @@
           href: event-hubs-c-getstarted-send.md
         - name: Apache Storm (somente receber)
           href: event-hubs-storm-getstarted-receive.md
-    - name: Enviar e receber eventos (versões/pacotes antigos)
+    - name: Enviar e receber eventos (pacotes antigos)
       items:
         - name: .NET (Microsoft.Azure.EventHubs)
           href: event-hubs-dotnet-standard-get-started-send-legacy.md
@@ -89,6 +89,22 @@
       href: event-hubs-availability-and-consistency.md
     - name: Escalabilidade
       href: event-hubs-scalability.md
+    - name: Federação
+      items:
+        - name: Federação de vários sites e várias regiões
+          href: event-hubs-federation-overview.md
+        - name: Tarefas e aplicativos de replicação de eventos
+          href: event-hubs-federation-replicator-functions.md
+        - name: Padrões de tarefa de replicação de evento
+          href: event-hubs-federation-patterns.md
+        - name: Tarefas de replicação configuradas
+          href: event-hubs-federation-configuration.md
+        - name: Replicar eventos entre os Hubs de Eventos
+          href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopy'
+        - name: Enviar eventos para o Barramento de Serviço do Azure
+          href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus'
+        - name: Adquirir eventos do Barramento de Serviço do Azure
+          href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub'
     - name: Recuperação de desastre geográfico
       items:
         - name: Recuperação de desastre geográfico e replicação geográfica
@@ -151,9 +167,9 @@
               href: 'https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/README.md'
             - name: Java (azure-messaging-eventhubs)
               href: 'https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/README.md'
-            - name: Python (azure-eventhub versão 5)
+            - name: Python (azure-eventhub)
               href: 'https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/README.md'
-            - name: JavaScript (azure/event-hubs versão 5)
+            - name: JavaScript (azure/event-hubs)
               href: 'https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/README.md'
             - name: .NET (Microsoft.Azure.EventHubs)
               href: event-hubs-programming-guide.md
@@ -183,9 +199,9 @@
           href: event-hubs-kafka-spark-tutorial.md
         - name: Conectar o Apache Flink a um hub de eventos
           href: event-hubs-kafka-flink-tutorial.md
-        - name: Integrar o Apache Kafka Connect a um hub (versão prévia)
+        - name: Integrar o Apache Kafka Connect
           href: event-hubs-kafka-connect-tutorial.md
-        - name: Integrar o Apache Kafka Connect (versão prévia) ao Debezium
+        - name: Integrar o Apache Kafka Connect com o Debezium
           href: event-hubs-kafka-connect-debezium.md
         - name: Conectar o Akka Streams a um hub de eventos
           href: event-hubs-kafka-akka-streams-tutorial.md
@@ -252,33 +268,21 @@
             - name: Migrar do azure-eventhubs para o azure-messaging-eventhubs
               href: 'https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md'
             - name: azure-messaging-eventhubs (mais recente)
-              href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-messaging-eventhubs/5.0.0-beta.6/index.html'
+              href: /java/api/overview/azure/messaging-eventhubs-readme?view=azure-java-stable
             - name: azure-eventhubs (herdado)
-              href: /java/api/overview/azure/eventhubs/client?view=azure-java-stable
+              href: /java/api/overview/azure/eventhubs/client?view=azure-java-legacy
         - name: Biblioteca de gerenciamento
           href: /java/api/com.microsoft.azure.management.eventhub?view=azure-java-stable
     - name: Python
       items:
-        - name: Migrar do azure-eventhub versão 1 para versão 5
-          href: 'https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md'
         - name: Biblioteca do cliente
-          items:
-            - name: azure-eventhub versão 5
-              href: /python/api/azure-eventhub/?view=azure-python
-            - name: azure-eventhub versão 1
-              href: /python/api/azure-eventhub/?view=azure-python-previous
+          href: /python/api/overview/azure/eventhub-readme?view=azure-python
         - name: Biblioteca de gerenciamento
           href: /python/api/overview/azure/event-hub?view=azure-python
     - name: JavaScript
       items:
-        - name: Migrar do azure/eventhubs versão 2 para versão 5
-          href: 'https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md'
         - name: Biblioteca do cliente
-          items:
-            - name: azure/eventhubs versão 5
-              href: /javascript/api/@azure/event-hubs/?view=azure-node-latest
-            - name: azure/eventhubs versão 2
-              href: /javascript/api/@azure/event-hubs/?view=azure-node-legacy
+          href: /javascript/api/overview/azure/event-hubs-readme?view=azure-node-latest
         - name: Biblioteca de gerenciamento
           href: /javascript/api/@azure/arm-eventhub/?view=azure-node-latest
     - name: Go

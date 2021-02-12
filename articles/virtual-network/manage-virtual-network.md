@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 5581a4c43f0b78dc8c14c44bfb1ded371a925fd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61ca4dc8cd7048df69c827e7ca657b9882900819
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88706023"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218896"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Criar, alterar ou excluir uma rede virtual
 
@@ -37,7 +37,7 @@ Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção des
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-1. Selecione **+ criar um recurso**  >  **Networking**  >  **rede redes virtuais**.
+1. Selecione **+ criar um recurso**  >    >  **rede redes virtuais**.
 2. Insira ou selecione valores para as seguintes configurações e, em seguida, selecione **criar**:
    - **Nome**: O nome deve ser exclusivo no [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) em que você optar por criar a rede virtual. Você não pode alterar o nome depois de criar a rede virtual. Você pode criar várias redes virtuais ao longo do tempo. Para sugestões de nomenclaturas, consulte [Convenções de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources). Seguir uma convenção de nomenclatura pode ajudar a tornar mais fácil de gerenciar várias redes virtuais.
    - **Espaço de endereço**: o espaço de endereço de uma rede virtual é composto por um ou mais intervalos de endereços não sobrepostos especificados na notação CIDR. O intervalo de endereços definido pode ser público ou privado (RFC 1918). Se você definir o intervalo de endereços como público ou privado, o intervalo de endereços será acessível somente de dentro da rede virtual, de redes virtuais interconectadas e de quaisquer redes locais que você se conectou à rede virtual. Não é possível adicionar os seguintes intervalos de endereços:
@@ -56,7 +56,7 @@ Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção des
      - **Nome da sub-rede**: O nome da sub-rede deve ser exclusivo na rede virtual. Você não pode alterar o nome da sub-rede após a criação da sub-rede. O portal requer que você defina uma sub-rede ao criar uma rede virtual, mesmo que uma rede virtual não precise ter nenhuma sub-rede. No portal, você pode definir apenas uma sub-rede ao criar uma rede virtual. Você pode adicionar mais sub-redes na rede virtual mais tarde, depois de criar a rede virtual. Para adicionar uma sub-rede a uma rede virtual, consulte [Gerenciar sub-redes](virtual-network-manage-subnet.md). Você pode criar uma rede virtual que tem várias sub-redes usando a CLI do Azure ou o PowerShell.
 
        >[!TIP]
-       >Às vezes, administradores criam sub-redes diferentes para filtrar ou controlar o roteamento de tráfego entre as sub-redes. Antes de definir sub-redes, considere como você deseja filtrar e rotear o tráfego entre suas sub-redes. Para saber mais sobre a filtragem de tráfego entre sub-redes, consulte [Grupos de segurança de rede](security-overview.md). O Azure faz o roteamento de tráfego entre as sub-redes automaticamente, mas você pode substituir as rotas padrão do Azure. Para saber mais sobre o roteamento de tráfego de sub-rede padrão do Azure, consulte [Visão geral do roteamento](virtual-networks-udr-overview.md).
+       >Às vezes, administradores criam sub-redes diferentes para filtrar ou controlar o roteamento de tráfego entre as sub-redes. Antes de definir sub-redes, considere como você deseja filtrar e rotear o tráfego entre suas sub-redes. Para saber mais sobre a filtragem de tráfego entre sub-redes, consulte [Grupos de segurança de rede](./network-security-groups-overview.md). O Azure faz o roteamento de tráfego entre as sub-redes automaticamente, mas você pode substituir as rotas padrão do Azure. Para saber mais sobre o roteamento de tráfego de sub-rede padrão do Azure, consulte [Visão geral do roteamento](virtual-networks-udr-overview.md).
        >
 
      - **Intervalo de endereços de sub-rede:** O intervalo deve estar dentro do espaço de endereço inserido para a rede virtual. O menor intervalo que você pode especificar é de /29, que fornece oito endereços IP para a sub-rede. O Azure reserva o primeiro e o último endereço em cada sub-rede para conformidade de protocolo. Três endereços adicionais são reservados para uso pelo serviço do Azure. Como resultado, uma rede virtual com um intervalo de endereços de sub-rede de /29 tem apenas três endereços IP utilizáveis. Caso pretenda conectar uma rede virtual a um gateway de VPN, será necessário criar uma sub-rede de gateway. Saiba mais sobre [considerações de intervalo de endereços específico para sub-redes de gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Sob condições específicas, você pode alterar o intervalo de endereços depois que a sub-rede é criada. Para saber como alterar um intervalo de endereços de sub-rede, consulte [Gerenciar sub-redes](virtual-network-manage-subnet.md).
@@ -121,7 +121,7 @@ Para adicionar ou remover um intervalo de endereços:
 3. Selecione **Espaço de endereço** em **CONFIGURAÇÕES**.
 4. Preencha uma das seguintes opções:
     - **Adicionar um intervalo de endereços:** digite o novo intervalo de endereços. O intervalo de endereços não pode se sobrepor a um intervalo de endereços existente definido para a rede virtual.
-    - **Remover um intervalo de endereços**: à direita do intervalo de endereços que deseja remover, selecione **... ** e, em seguida, selecione **Remover**. Se existir uma sub-rede no intervalo de endereços, você não poderá removê-lo. Para remover um intervalo de endereços, você deve primeiro excluir todas as sub-redes (e outros recursos nas sub-redes) existentes no intervalo de endereços.
+    - **Remover um intervalo de endereços**: à direita do intervalo de endereços que deseja remover, selecione **...** e, em seguida, selecione **Remover**. Se existir uma sub-rede no intervalo de endereços, você não poderá removê-lo. Para remover um intervalo de endereços, você deve primeiro excluir todas as sub-redes (e outros recursos nas sub-redes) existentes no intervalo de endereços.
 5. Clique em **Salvar**.
 
 **Comandos**
@@ -170,7 +170,7 @@ Você pode excluir uma rede virtual somente se não houver recursos conectados a
 
 Para executar tarefas em redes virtuais, sua conta deve ser atribuída à função de [colaborador da rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma função [personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) à qual são atribuídas as ações apropriadas listadas na tabela a seguir:
 
-| Ação                                  |   Nome                                |
+| Ação                                  |   Name                                |
 |---------------------------------------- |   --------------------------------    |
 |Microsoft.Network/virtualNetworks/read   |   Ler uma rede virtual              |
 |Microsoft.Network/virtualNetworks/write  |   Criar ou atualizar uma rede virtual  |
@@ -179,4 +179,4 @@ Para executar tarefas em redes virtuais, sua conta deve ser atribuída à funç�
 ## <a name="next-steps"></a>Próximas etapas
 
 - Criar uma rede virtual usando [PowerShell](powershell-samples.md) ou os scripts de exemplo da [CLI do Azure](cli-samples.md) ou usando os modelos do [Azure Resource Manager](template-samples.md)
-- Criar e atribuir [definições de Azure Policy](policy-samples.md) para redes virtuais
+- Criar e atribuir [definições de Azure Policy](./policy-reference.md) para redes virtuais

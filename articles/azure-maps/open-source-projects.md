@@ -3,18 +3,18 @@ title: Projetos de código aberto da Comunidade do Azure Maps | Mapas do Microso
 description: Projetos de código aberto coordenados para a plataforma Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/17/2019
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: ebe633bbfa8ec950e7726c127e38adecf0d1872f
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: df82e76fa2e5a9ea70c447411beafb8a2df9b036
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896252"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601595"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Comunidade do Azure Maps – projetos de código aberto
 
@@ -38,13 +38,20 @@ Veja a seguir uma lista de projetos de software livre que ampliam os recursos do
 | Nome do projeto | Descrição |
 |-|-|
 | [Módulo de animação do Azure Maps](https://github.com/Azure-Samples/azure-maps-animations) | Uma biblioteca avançada de animações para uso com o SDK da Web do Azure Maps. |
+| [O Azure Maps coloca dados no módulo de controle de exibição](https://github.com/Azure-Samples/azure-maps-bring-data-into-view-control) | Um módulo SDK para Web do Azure Maps que fornece um controle que facilita a tarefa de colocar todos os dados carregados no mapa em modo de exibição. |
 | [Módulo de controle de geolocalização do Azure Maps](https://github.com/Azure-Samples/azure-maps-geolocation-control) | Um módulo SDK para Web do Azure Maps que fornece um controle que usa a API de geolocalização do navegador para localizar o usuário no mapa. |
 | [Módulo de fonte de dados matriciais do Azure Maps](https://github.com/Azure-Samples/azure-maps-gridded-data-source) | Um módulo para o SDK da Web do Azure Maps que fornece uma fonte de dados que agrupa pontos de dados em células de uma área de grade. Essa operação também é conhecida por muitos nomes, como mosaicos, data compartimentalização ou compartimentos hexadecimais.  |
 | [Módulo de controle de tela inteira do Azure Maps](https://github.com/Azure-Samples/azure-maps-fullscreen-control) | Um módulo SDK para Web do Azure Maps que fornece um controle para exibir o mapa no modo de tela inteira. |
+| [Módulo de camada de marcador HTML do Azure Maps](https://github.com/Azure-Samples/azure-maps-html-marker-layer) | Um módulo SDK da Web do Azure Maps que fornece uma camada que renderiza dados de ponto de uma fonte de dados como elementos HTML no mapa. |
+| [Módulo exportador de imagens do Azure Maps](https://github.com/Azure-Samples/azure-maps-image-exporter) | Um módulo para o SDK da Web do Azure Maps que gera capturas de tela do mapa. |
+| [Módulo de mapa de visão geral do Azure Maps](https://github.com/Azure-Samples/azure-maps-overview-map) | Um módulo SDK para Web do Azure Maps que fornece um controle que exibe um mapa de visão geral da área com foco no mapa principal. |
+| [Módulo de controle da barra de escala do Azure Maps](https://github.com/Azure-Samples/azure-maps-scale-bar-control) | Um módulo SDK da Web do Azure Maps que fornece um controle que exibe uma barra de escala em relação à resolução de pixels no centro do mapa. |
 | [Módulo de controle de seleção do Azure Maps](https://github.com/Azure-Samples/azure-maps-selection-control) | Um módulo SDK para Web do Azure Maps que fornece controles para selecionar dados em uma fonte de dados usando ferramentas de desenho ou solicitando um polígono de intervalo de rota. |
+| [Módulo de interface do usuário dos serviços do Azure Maps](https://github.com/Azure-Samples/azure-maps-services-ui) | Um conjunto de controles de interface do usuário da Web que encapsulam os serviços REST do Azure Maps. |
+| [Módulo de clusters de aranha do Azure Maps](https://github.com/Azure-Samples/azure-maps-spider-clusters) | Um módulo para o SDK da Web do Azure Maps que adiciona uma visualização ao mapa que expande clusters em um layout aranha de espiral. |
+| [Módulo de controle Spyglass do Azure Maps](https://github.com/Azure-Samples/azure-maps-spyglass-control) | Um módulo SDK da Web do Azure Maps que fornece uma janela que exibe um conjunto de dados dentro de um Spyglass no mapa.  |
 | [Módulo de mapa de deslize do Azure Maps](https://github.com/Azure-Samples/azure-maps-swipe-map) | Um módulo para o SDK da Web do Azure Maps que permite o passar o dedo entre dois mapas sobrepostos, ideal para comparar dois conjuntos de dados sobrepostos. |
 | [Módulo de mapa de sincronização do Azure Maps](https://github.com/Azure-Samples/azure-maps-sync-maps) | Um módulo SDK para Web do Azure Maps que sincroniza as câmeras de dois ou mais mapas. |
-| [Módulo de interface do usuário dos serviços do Azure Maps](https://github.com/Azure-Samples/azure-maps-services-ui) | Um conjunto de controles de interface do usuário da Web que encapsulam os serviços REST do Azure Maps. |
 
 **Amostras**
 
@@ -53,16 +60,23 @@ Veja a seguir uma lista de projetos de software livre que ampliam os recursos do
 | [Exemplos de código do Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Uma coleção de exemplos de código para usar o Azure Maps em aplicativos baseados na Web. |
 | [Exemplos de código de nuvem do Azure Maps gov](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Uma coleção de exemplos de código para usar o Azure Maps por meio da nuvem do Azure governamental. |
 | [Exemplos de Azure Active Directory de & do Azure Maps](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples) | Uma coleção de exemplos que mostram como usar Azure Active Directory com mapas do Azure. | 
+| [LiveMaps](https://github.com/Azure-Samples/LiveMaps) | Aplicativo de exemplo para fornecer visualização de mapas em tempo real de dados de IoT sobre mapas do Azure usando o Azure Maps Creator |
 | [Exemplos do Azure Maps Jupyter Notebook](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook) | Uma coleção de exemplos do Python usando os serviços REST do Azure Maps. |
 | [Controle remoto de IoT do Azure UWP .NET Maps](https://github.com/Azure-Samples/azure-maps-dotnet-webgl-uwp-iot-remote-control) | Este é um aplicativo de exemplo que mostra como criar um mapa controlado remotamente usando o mapas do Azure e os serviços do Hub IoT. |
 | [Implementar análise espacial de IoT usando o Azure Mapas](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing) | Acompanhar e capturar eventos relevantes que ocorrem em espaço e no tempo é um cenário comum de IoT. |
 
+**Plug-ins de controle de mapa de terceiros**
+
+| Nome do projeto | Descrição |
+|-|-|
+| [Plug-in Leaflet do Azure Maps](https://github.com/azure-samples/azure-maps-leaflet) | Um plug-in [Leaflet](https://leafletjs.com/) JavaScript que facilita a sobreposição de camadas de bloco dos [serviços de blocos do Azure Maps](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). |
+ 
 **Ferramentas e recursos**
 
 | Nome do projeto | Descrição |
 |-|-|
 | [Documentos do Azure Maps](https://github.com/MicrosoftDocs/azure-docs/tree/master/articles/azure-maps) | Fonte de todos os serviços do Azure baseados na localização documentação. |
-| [Ferramentas do criador do Azure Maps](https://github.com/Azure-Samples/AzureMapsCreator) | Ferramentas do Python para ferramentas do Azure Maps Creator. |
+| [Ferramentas do Azure Maps Creator (versão prévia)](https://github.com/Azure-Samples/AzureMapsCreator) | Ferramentas do Python para ferramentas do Azure Maps Creator (versão prévia). |
 
 Uma lista mais longa de projetos de código-fonte aberto para mapas do Azure que inclui projetos criados pela Comunidade está disponível [aqui](https://github.com/microsoft/Maps/blob/master/AzureMaps.md)
 

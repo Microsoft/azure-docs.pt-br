@@ -7,16 +7,16 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: baselden
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f0c19e33ab6f91e69f9c7dbc5bc29fef1fd53bb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a786907c5c954aa45de266b6d92dd47867a8445d
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964869"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743608"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planejar uma implantação de autenticação com senha no Azure Active Directory
 
@@ -67,9 +67,9 @@ As organizações devem atender aos seguintes pré-requisitos antes de iniciar u
 
 | Pré-requisito | Aplicativo autenticador | Chaves de segurança do FIDO2 |
 | --- | --- | --- |
-| O [registro combinado para a autenticação multifator do Azure e a redefinição de senha de autoatendimento (SSPR)](howto-registration-mfa-sspr-combined.md) está habilitado | √ | √ |
-| [Os usuários podem executar a autenticação multifator do Azure](howto-mfa-getstarted.md) | √ | √ |
-| [Os usuários se registraram para a autenticação multifator do Azure e o SSPR](howto-registration-mfa-sspr-combined.md) | √ | √ |
+| O [registro combinado para a autenticação multifator do Azure AD e a SSPR (redefinição de senha de autoatendimento)](howto-registration-mfa-sspr-combined.md) está habilitado | √ | √ |
+| [Os usuários podem executar a autenticação multifator do Azure AD](howto-mfa-getstarted.md) | √ | √ |
+| [Os usuários se registraram para a autenticação multifator do Azure AD e o SSPR](howto-registration-mfa-sspr-combined.md) | √ | √ |
 | [Os usuários registraram seus dispositivos móveis em Azure Active Directory](../devices/overview.md) | √ |   |
 | Windows 10 versão 1809 ou superior usando um navegador com suporte como Microsoft Edge ou Mozilla Firefox <br> (versão 67 ou superior). <br> *A Microsoft recomenda a versão 1903 ou superior para suporte nativo*. |   | √ |
 | Chaves de segurança FIDO2 compatíveis. Verifique se você está usando um dispositivo de segurança FIDO2 [testado e verificado pela Microsoft](./concept-authentication-passwordless.md) ou outro dispositivo de segurança FIDO2 compatível. |   | √ |
@@ -78,9 +78,9 @@ As organizações devem atender aos seguintes pré-requisitos antes de iniciar u
 
 Os pré-requisitos para o Windows Hello são altamente dependentes se você estiver implantando em uma configuração local, híbrida ou somente na nuvem. Para obter mais informações, consulte a [lista completa de pré-requisitos para o Windows Hello para empresas](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
-### <a name="azure-multi-factor-authentication"></a>Autenticação Multifator do Azure
+### <a name="azure-ad-multi-factor-authentication"></a>Autenticação multifator do Azure AD
 
-Os usuários registram seu método com senha como parte do fluxo de registro da autenticação multifator do Azure. A autenticação multifator com um nome de usuário e senha junto com outro método registrado pode ser usada como um fallback, caso eles não possam usar seu telefone ou chave de segurança em alguns cenários.
+Os usuários registram seu método com senha como parte do fluxo de registro da autenticação multifator do Azure AD. A autenticação multifator com um nome de usuário e senha junto com outro método registrado pode ser usada como um fallback, caso eles não possam usar seu telefone ou chave de segurança em alguns cenários.
 
 ### <a name="licensing"></a>Licenciamento 
 Não há nenhum custo adicional para autenticação sem senha, embora alguns pré-requisitos possam exigir uma assinatura premium. Para obter informações detalhadas sobre recursos e licenciamento na [página de licenciamento do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). 
@@ -126,7 +126,7 @@ Ao implantar a autenticação com senha, você deve primeiro habilitar um ou mai
 
 Os grupos podem ser sincronizados de um diretório local ou do Azure AD. Quando estiver satisfeito com os resultados do seu piloto, você poderá alternar a autenticação sem senha para todos os usuários.
 
-Consulte [práticas recomendadas para um piloto](https://aka.ms/deploymentplans) na página planos de implantação.
+Consulte [práticas recomendadas para um piloto](../fundamentals/active-directory-deployment-plans.md) na página planos de implantação.
 
 ## <a name="plan-passwordless-authentication-with-the-microsoft-authenticator-app"></a>Planejar a autenticação sem senha com o aplicativo Microsoft Authenticator
 
@@ -140,7 +140,7 @@ Ele transforma qualquer telefone iOS ou Android em uma credencial forte e com se
 
 **Integração de AD FS** – quando um usuário habilita a Microsoft Authenticator credencial com senha, a autenticação para esse usuário assume o envio de uma notificação para aprovação. Os usuários em um locatário híbrido são impedidos de serem direcionados para o ADFS para entrada, a menos que selecionem "usar sua senha em vez disso". Esse processo também ignora qualquer política de acesso condicional local e fluxos de autenticação de passagem. No entanto, se um *login_hint* for especificado, o usuário será encaminhado para o ADFS e ignorará a opção de usar a credencial sem senha.
 
-**Servidor de autenticação multifator do Azure** -usuários finais habilitados para autenticação multifator por meio do servidor Azure MFA local de uma organização podem criar e usar uma única credencial de entrada de telefone sem senha. Se o usuário tentar atualizar várias instalações (5 ou mais) do Microsoft Authenticator com a credencial, essa alteração poderá resultar em um erro.
+**Servidor de autenticação multifator do Azure ad** – usuários finais habilitados para autenticação multifator por meio do servidor Azure MFA local de uma organização podem criar e usar uma única credencial de entrada de telefone sem senha. Se o usuário tentar atualizar várias instalações (5 ou mais) do Microsoft Authenticator com a credencial, essa alteração poderá resultar em um erro.
 
 **Registro de dispositivo** -para usar o aplicativo autenticador para autenticação com senha, o dispositivo deve ser registrado no locatário do Azure AD e não pode ser um dispositivo compartilhado. Um dispositivo só pode ser registrado em um único locatário. Esse limite significa que apenas uma conta corporativa ou de estudante tem suporte para a entrada pelo telefone usando o aplicativo autenticador.
 

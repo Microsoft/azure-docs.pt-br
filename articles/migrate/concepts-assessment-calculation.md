@@ -1,14 +1,17 @@
 ---
 title: Avaliações de VM do Azure na avaliação do servidor de migrações para Azure
 description: Saiba mais sobre as avaliações na avaliação do servidor de migrações para Azure
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: d08e3c1c0035ee2bb56ee54f1ffb7ffb439d61b6
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 9bdf907ede2c09f7e314df619cd81059956f17dc
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319324"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567750"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vms"></a>Visão geral da avaliação do servidor (migrar para VMs do Azure)
 
@@ -176,7 +179,7 @@ Windows Server 2008 (32 bits e 64 bits) | O Azure fornece suporte total. | Pront
 Windows Server 2003 e Windows Server 2003 R2 | Esses sistemas operacionais passaram suas datas de fim de suporte e precisam de um [contrato de suporte personalizado (CSA)](/troubleshoot/azure/virtual-machines/server-software-support) para dar suporte no Azure. | Condicionalmente pronto para o Azure. Considere atualizar o sistema operacional antes de migrar para o Azure.
 Windows 2000, Windows 98, Windows 95, Windows NT, Windows 3,1 e MS-DOS | Esses sistemas operacionais passaram por suas datas de fim de suporte. O computador pode iniciar no Azure, mas o Azure não fornece suporte ao sistema operacional. | Condicionalmente pronto para o Azure. Recomendamos que você atualize o sistema operacional antes de migrar para o Azure.
 Windows 7, Windows 8 e Windows 10 | O Azure fornece suporte apenas com uma [assinatura do Visual Studio.](../virtual-machines/windows/client-images.md) | Condicionalmente pronto para o Azure.
-Windows 10 Pro | O Azure oferece suporte com [Direitos de Hospedagem multilocatário.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Condicionalmente pronto para o Azure.
+Windows 10 Pro | O Azure oferece suporte com [Direitos de Hospedagem multilocatário.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Condicionalmente pronto para o Azure.
 Windows Vista e Windows XP Professional | Esses sistemas operacionais passaram por suas datas de fim de suporte. O computador pode iniciar no Azure, mas o Azure não fornece suporte ao sistema operacional. | Condicionalmente pronto para o Azure. Recomendamos que você atualize o sistema operacional antes de migrar para o Azure.
 Linux | Consulte os [sistemas operacionais Linux](../virtual-machines/linux/endorsed-distros.md) que o Azure endossa. Outros sistemas operacionais Linux podem ser iniciados no Azure. Mas é recomendável que você atualize o sistema operacional para uma versão endossada antes de migrar para o Azure. | Pronto para o Azure se a versão é aprovada.<br/><br/>Condicionalmente pronto se a versão não for endossada.
 Outros sistemas operacionais, como Oracle Solaris, Apple macOS e FreeBSD | O Azure não endossa esses sistemas operacionais. O computador pode iniciar no Azure, mas o Azure não fornece suporte ao sistema operacional. | Condicionalmente pronto para o Azure. Recomendamos que você instale um sistema operacional com suporte antes de migrar para o Azure.  
@@ -265,8 +268,14 @@ Esta tabela mostra as classificações de confiança de avaliação, que depende
 Aqui estão algumas razões pelas quais uma avaliação pode obter uma classificação de baixa confiança:
 
 - Você não fez o profile do seu ambiente pela duração para a qual está criando a avaliação. Por exemplo, se você criar a avaliação com duração de desempenho definida como um dia, deverá aguardar pelo menos um dia depois de iniciar a descoberta para todos os pontos de dados a serem coletados.
-- Algumas VMs foram desligadas durante o tempo durante o qual a avaliação foi calculada. Se alguma VM for desativada por alguma duração, a avaliação do servidor não poderá coletar os dados de desempenho para esse período.
-- Algumas VMs foram criadas durante o tempo durante o qual a avaliação foi calculada. Por exemplo, suponha que você criou uma avaliação para o histórico de desempenho do último mês, mas algumas VMs foram criadas há apenas uma semana atrás. O histórico de desempenho das novas VMs não existirá durante toda a duração.
+- A avaliação não é capaz de coletar os dados de desempenho de algumas ou de todas as VMs no período de avaliação. Para uma classificação de alta confiança, verifique se: 
+    - As VMs são ativadas durante a avaliação
+    - Conexões de saída nas portas 443 são permitidas
+    - Para VMs do Hyper-V, a memória dinâmica está habilitada 
+    
+    “Recalcule” a avaliação para refletir as alterações mais recentes na classificação de confiança.
+
+- Algumas VMs foram criadas durante o tempo durante o qual a avaliação foi calculada. Por exemplo, suponha que você criou uma avaliação para o histórico de desempenho do último mês, mas algumas VMs foram criadas há apenas uma semana atrás. Nesse caso, os dados de desempenho das novas VMs não estariam disponíveis durante todo o período e a classificação de confiança seria baixa.
 
 > [!NOTE]
 > Se a classificação de confiança de qualquer avaliação for menor que cinco estrelas, recomendamos que você aguarde pelo menos um dia para o dispositivo criar o perfil do ambiente e, em seguida, recalcular a avaliação. Caso contrário, o dimensionamento baseado em desempenho pode não ser confiável. Nesse caso, recomendamos que você alterne a avaliação para o dimensionamento local.
@@ -282,7 +291,7 @@ Após a conclusão das recomendações de dimensionamento, uma avaliação de VM
     - Software Assurance
     - Instâncias reservadas
     - Tempo de atividade da VM
-    - Location
+    - Local
     - Configurações de moeda
 
     A avaliação do servidor agrega o custo em todas as máquinas para calcular o custo de computação mensal total.

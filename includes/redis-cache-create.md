@@ -8,21 +8,21 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: cauribeg
 ms.custom: include file
-ms.openlocfilehash: ae9526a47a77118503274fc824538980ebcd50de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da36cb5c5d2db20b89f80d381f48632c7528c193
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91829230"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002436"
 ---
 1. Para criar um cache, entre no [portal do Azure](https://portal.azure.com) e selecione **Criar um recurso**.
 
-    :::image type="content" source="media/redis-cache-create/create-resource.png" alt-text="Selecionar o Cache do Azure para Redis.":::
+    :::image type="content" source="media/redis-cache-create/create-resource.png" alt-text="Criar um recurso está realçado no painel de navegação esquerdo.":::
 
    
 1. Na página **Novo**, selecione **Bancos de dados** e, em seguida, **Cache do Azure para Redis**.
 
-    :::image type="content" source="media/redis-cache-create/select-cache.png" alt-text="Selecionar o Cache do Azure para Redis.":::
+    :::image type="content" source="media/redis-cache-create/select-cache.png" alt-text="Em Novo, os Bancos de Dados e o Cache do Azure para Redis estão realçados.":::
    
 1. Na página **Novo Cache Redis**, defina as configurações para o novo cache.
    
@@ -40,16 +40,18 @@ ms.locfileid: "91829230"
 
 1. Selecione **Próximo: Avançado** ou clique no botão **Próximo: Avançado** na parte inferior da página.
 
-1. Na guia **Avançado** de uma instância de cache Básico ou Standard, selecione a alternância Habilitar se desejar habilitar uma porta não TLS.
+1. Na guia **Avançado** de uma instância de cache Básico ou Standard, selecione a alternância Habilitar se desejar habilitar uma porta não TLS. Também é possível selecionar qual versão do Redis você gostaria de usar, a 4 ou a (versão prévia) 6.
 
-1. Na guia **Avançado** de uma instância de cache Premium, defina as configurações da porta não TLS, do clustering e da persistência de dados.
+    :::image type="content" source="media/redis-cache-create/redis-version.png" alt-text="Redis versão 4 ou 6.":::
+
+1. Na guia **Avançado** de uma instância de cache Premium, defina as configurações da porta não TLS, do clustering e da persistência de dados. Também é possível selecionar qual versão do Redis você gostaria de usar, a 4 ou a (versão prévia) 6. 
 
 1. Selecione **Próximo: Marcas** ou clique no botão **Próximo: Botão** Categorias na parte inferior da página.
 
 1. Opcionalmente, na guia **Marcas**, insira o nome e o valor caso deseje categorizar o recurso. 
 
-1. Selecione  **Analisar + criar**. Você será levado para a guia Examinar + criar, na qual o Azure validará a configuração.
+1. Selecione **Examinar + criar**. Você será levado para a guia Examinar + criar, na qual o Azure validará a configuração.
 
 1. Depois que a mensagem em verde Validação aprovada for exibida, selecione **Criar**.
 
-A criação do cache demora um pouco. Monitore o progresso na página  **Visão Geral**  do Cache do Azure para Redis. Quando o  **Status**  for mostrado como  **Em execução**, o cache estará pronto para uso. 
+A criação do cache demora um pouco. Monitore o progresso na página **Visão Geral** do Cache do Azure para Redis. Quando o **Status** for mostrado como **Em execução**, o cache estará pronto para uso. 

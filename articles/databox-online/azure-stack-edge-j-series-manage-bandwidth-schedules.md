@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/05/2021
 ms.author: alkohli
-ms.openlocfilehash: a0d596c7c1046ea26ac389a48c17fa5abccbfd12
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 3182258245701903e7b3d6d6163cf3e2bd55c1fc
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951597"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915412"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-pro-gpu"></a>Usar o portal do Azure para gerenciar agendamentos de largura de banda em sua GPU do Azure Stack Edge pro 
 
@@ -40,12 +40,12 @@ Para adicionar um agendamento, siga as etapas a seguir no portal do Azure.
 
     ![Selecionar Largura de Banda](media/azure-stack-edge-j-series-manage-bandwidth-schedules/add-schedule-1.png)
 
-3. Em **Adicionar agendamento**: 
+3. Em **Adicionar agendamento**:
 
-   1. Forneça o **dia de início**, o **dia de término**, a hora de **início**e a **hora de término** da agenda.
+   1. Forneça o **dia de início**, o **dia de término**, a hora de **início** e a **hora de término** da agenda.
    2. Marque a opção **todos os dias** se essa agenda deve ser executada o dia inteiro.
    3. A **taxa de largura de banda** é a largura de banda em megabits por segundo (Mbps) usada pelo seu dispositivo em operações que envolvem a nuvem (tanto carregamentos quanto downloads). Forneça um número entre 20 e 2.147.483.647 para este campo.
-   4. Marque a opção de largura de banda **Ilimitada** se você não quiser restringir o download e o upload de dados.
+   4. Selecione **largura de banda ilimitada** se você não quiser limitar a data de carregamento e download.
    5. Selecione **Adicionar**.
 
       ![Adicionar agendamento](media/azure-stack-edge-j-series-manage-bandwidth-schedules/add-schedule-2.png)
@@ -58,9 +58,10 @@ Para adicionar um agendamento, siga as etapas a seguir no portal do Azure.
 
 Execute as etapas a seguir para editar uma agenda de largura de banda.
 
-1. Na portal do Azure, vá para o recurso de borda do Azure Stack e, em seguida, vá para **largura de banda**. 
+1. Na portal do Azure, vá para o recurso de borda do Azure Stack e, em seguida, vá para **largura de banda**.
 2. Na lista de agendamentos de largura de banda, selecione uma agenda que você deseja modificar.
-    ![Selecionar agendamento da largura de banda](media/azure-stack-edge-j-series-manage-bandwidth-schedules/modify-schedule-1.png)
+
+   ![Selecionar agendamento da largura de banda](media/azure-stack-edge-j-series-manage-bandwidth-schedules/modify-schedule-1.png)
 
 3. Faça as alterações desejadas e salve-as.
 

@@ -1,19 +1,16 @@
 ---
 title: Usar Livy Spark para enviar trabalhos ao cluster do Spark no Microsoft Azure HDInsight
 description: Saiba como usar a API REST do Apache Spark para enviar trabalhos do Spark remotamente para um cluster do Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: fcb845904216fbe4cb05828877775ea2178c45e9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ff63f4fbadd7cb9e7584e2aa045583a35e0363fd
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539149"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98930122"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Use a API REST do Apache Spark para enviar trabalhos remotos para um cluster do HDInsight Spark
 
@@ -88,7 +85,7 @@ curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehd
 O Livy fornece alta disponibilidade para trabalhos Spark em execução no cluster. Aqui estão alguns exemplos.
 
 * Se o serviço Livy falhar depois que você enviar um trabalho remotamente para um cluster Spark, o trabalho continuará a ser executado em segundo plano. Quando o Livy for backup, ele restaurará o status do trabalho e enviará o relatório de volta.
-* Os blocos de notas Jupyter para HDInsight são ativados pelo Livy no back-end. Se um bloco de anotações estiver executando um trabalho do Spark e o serviço Livy for reiniciado, o bloco de notas continuará a executar as células de código.
+* Os notebooks Jupyter para HDInsight são alimentados por Livy no back-end. Se um bloco de anotações estiver executando um trabalho do Spark e o serviço Livy for reiniciado, o bloco de notas continuará a executar as células de código.
 
 ## <a name="show-me-an-example"></a>Mostrar um exemplo
 
@@ -126,7 +123,7 @@ Execute as seguintes etapas:
     {"from":0,"total":0,"sessions":[]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
     ```
 
-    Observe que a última linha da saída informa **total:0** , o que sugere que não há lotes em execução.
+    Observe que a última linha da saída informa **total:0**, o que sugere que não há lotes em execução.
 
 1. Agora vamos enviar um trabalho em lotes. O snippet a seguir usa um arquivo de entrada (input.txt) para passar o nome do jar e o nome de classe como parâmetros. Se você estiver executando essas etapas em um computador Windows, o uso de um arquivo de entrada é a abordagem recomendada.
 
@@ -155,7 +152,7 @@ Execute as seguintes etapas:
     {"id":0,"state":"starting","log":[]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
     ```
 
-    Observe que a última linha da saída informa **state:starting** . Assim como, **id:0** . Aqui, **0** é a ID do lote.
+    Observe que a última linha da saída informa **state:starting**. Assim como, **id:0**. Aqui, **0** é a ID do lote.
 
 1. Agora você pode recuperar o status desse lote específico usando a ID do lote.
 
@@ -177,7 +174,7 @@ Execute as seguintes etapas:
     {"id":0,"state":"success","log":["\t diagnostics: N/A","\t ApplicationMaster host: 10.0.0.4","\t ApplicationMaster RPC port: 0","\t queue: default","\t start time: 1448063505350","\t final status: SUCCEEDED","\t tracking URL: http://myspar.lpel.jx.internal.cloudapp.net:8088/proxy/application_1447984474852_0002/","\t user: root","15/11/20 23:52:47 INFO Utils: Shutdown hook called","15/11/20 23:52:47 INFO Utils: Deleting directory /tmp/spark-b72cd2bf-280b-4c57-8ceb-9e3e69ac7d0c"]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
     ```
 
-    Agora a saída mostra **state:success** , o que sugere que o trabalho foi concluído com êxito.
+    Agora a saída mostra **state:success**, o que sugere que o trabalho foi concluído com êxito.
 
 1. Se quiser, você pode excluir o lote.
 

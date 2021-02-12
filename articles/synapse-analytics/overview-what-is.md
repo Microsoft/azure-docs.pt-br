@@ -6,33 +6,30 @@ author: saveenr
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
-ms.date: 09/12/2020
+ms.date: 10/28/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: c4338152579170bf809577262992f0db9a1a95ff
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 7882fc6a6823a93d09c04a8ae2c19005df4843d8
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90524939"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917086"
 ---
-# <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>O que é o Azure Synapse Analytics (versão prévia dos workspaces)?
+# <a name="what-is-azure-synapse-analytics"></a>O que é o Azure Synapse Analytics?
 
-[!INCLUDE [preview](includes/note-preview.md)]
+A análise empresarial precisa funcionar em grande escala com qualquer tipo de dados, sejam eles brutos, refinados ou altamente coletados. Isso normalmente exige que as empresas costurem tecnologias de Big Data e data warehouse em pipelines de dados complexos que funcionam para dados em relational stores e data lakes. Esses tipos de soluções são difíceis de criar, manter e proteger. A complexidade deles atrasa a entrega dos insights de que as empresas precisam.
 
-A análise empresarial precisa funcionar em grande escala em qualquer tipo de dados, sejam eles brutos, refinados ou altamente coletados. Isso exigia que as empresas reunissem tecnologias de Big Data e data warehousing, como Spark e SQL, em pipelines de dados avançados que funcionam entre dados em repositórios relacionais e data lakes. Soluções como essa são difíceis de criar, proteger e manter. A complexidade atrasa a entrega dos insights de que as empresas precisam.
-
-O **Azure Synapse** é um serviço de análise integrada que acelera o tempo de descoberta de insights entre data warehouses e sistemas de análise de Big Data. Em essência, ele reúne o melhor das tecnologias do **SQL** usadas em data warehouses empresariais, das tecnologias do **Spark** usadas para Big Data e do **Pipelines** para integração de dados e ETL/ELT. O Azure Synapse tem um **Studio** baseado na Web que fornece um único local para gerenciamento, monitoramento, codificação e segurança. O Azure Synapse apresenta uma integração profunda com outros serviços do Azure, como **PowerBI**, **CosmosDB** e **AzureML**.
+O **Azure Synapse** é um serviço de análise integrada que acelera o tempo de descoberta de insights entre data warehouses e sistemas de Big Data. O Azure Synapse reúne o melhor das tecnologias de **SQL** usadas em data warehousing corporativo, tecnologias **Spark** usadas para Big Data, **Pipelines** para integração de dados e ETL/ELT e integração profunda com outros serviços do Azure, como **Power BI**, **CosmosDB** e **AzureML**.
 
 ## <a name="key-features--benefits"></a>Principais recursos e benefícios
 
 ### <a name="industry-leading-sql"></a>SQL líder do setor
 
-* O **Synapse SQL** é um sistema de consulta distribuída que permite que as empresas implementem cenários de data warehouse e de virtualização de dados usando experiências padrão de T-SQL conhecidas para os engenheiros de dados. Ele também expande as funcionalidades do SQL para lidar com cenários de streaming e aprendizado de máquina.
-
+* O **SQL do Synapse** é um sistema de consulta distribuída para o T-SQL que permite cenários de data warehouse e virtualização de dados e estende o T-SQL para lidar com cenários de streaming e machine learning.
 * O SQL do Synapse fornece modelos de recursos **sem servidor** e **dedicados**, oferecendo opções de consumo e cobrança de acordo com as suas necessidades. Para obter desempenho e custo previsíveis, crie pools de SQL dedicados para reservar a capacidade de processamento para os dados armazenados em tabelas SQL. Para cargas de trabalho não planejadas ou intermitentes, use o ponto de extremidade SQL sem servidor e sempre disponível.
 * Use funcionalidades internas de **streaming** para enviar dados de fontes de dados na nuvem para tabelas SQL
-* Integre a IA ao SQL usando modelos de **machine learning** para pontuar dados usando a [função T-SQL PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)
+* Integrar a IA ao SQL usando modelos de **machine learning** para pontuar dados empregando a [função T-SQL PREDICT](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 
 ### <a name="industry-standard-apache-spark"></a>Apache Spark padrão do setor
 
@@ -53,7 +50,7 @@ O Azure Synapse remove as barreiras de tecnologia tradicionais entre o uso do SQ
 
 ### <a name="built-in-data-integration-via-pipelines"></a>Integração de dados interna por meio de pipelines
 
-O Azure Synapse vem integrado ao mesmo mecanismo de integração de dados e as mesmas experiências do Azure Data Factory, permitindo que você crie pipelines de ETL em escala sem sair do Synapse Analytics.
+O Azure Synapse vem integrado ao mesmo mecanismo de Integração de Dados e as mesmas experiências do Azure Data Factory, permitindo que você crie pipelines de ETL avançados em escala sem sair do Azure Synapse Analytics.
 
 * Ingira dados de mais de 90 fontes de dados
 * ETL sem código com atividades de fluxo de dados
@@ -75,8 +72,13 @@ O **Synapse Studio** é a experiência nativa da Web que reúne tudo para os eng
 * Produtividade líder do setor para engenheiros de dados que trabalham com a codificação SQL ou Spark: criação, depuração e otimização de desempenho
 * Integração aos processos CI/CD empresariais
 
+## <a name="engage-with-the-synapse-engineering-team"></a>Envolver-se com a equipe de engenharia do Azure Synapse
+
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse): Faça perguntas sobre desenvolvimento.
+- [Página de perguntas e respostas da Microsoft](/answers/topics/azure-synapse-analytics.html): Faça perguntas técnicas.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Introdução ao Azure Synapse Analytics](get-started.md)
 * [Criar um workspace](quickstart-create-workspace.md)
-* [Usar o SQL sob demanda](quickstart-sql-on-demand.md)
+* [Usar o pool de SQL sem servidor](quickstart-sql-on-demand.md)

@@ -3,7 +3,7 @@ title: 'Início Rápido: Veja a lista de aplicativos que estão usando seu locat
 description: Neste guia de início rápido, use o portal do Azure para ver a lista de aplicativos que estão registrados para usar seu locatário do Azure AD (Azure Active Directory) para o gerenciamento de identidades.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 04/09/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: it-pro
-ms.openlocfilehash: a79078977d25c55edfb4ad72bbd4602a073231f6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4bf0353148a5f8474270b314a85d55c3cfd753ab
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89277928"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257554"
 ---
 # <a name="quickstart-view-the-list-of-applications-that-are-using-your-azure-active-directory-azure-ad-tenant-for-identity-management"></a>Início Rápido: Veja a lista de aplicativos que estão usando seu locatário do Azure AD (Azure Active Directory) para gerenciamento de identidades
 
@@ -69,7 +69,7 @@ Para pesquisar aplicativo específico:
 
 
 > [!TIP]
-> Para automatizar o gerenciamento de aplicativos usando a API do Graph, confira [Automatizar o gerenciamento de aplicativos com a API do Microsoft Graph](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> Para automatizar o gerenciamento de aplicativos usando a API do Graph, confira [Automatizar o gerenciamento de aplicativos com a API do Microsoft Graph](/graph/application-saml-sso-configure-api).
 
 
 ## <a name="clean-up-resources"></a>Limpar os recursos

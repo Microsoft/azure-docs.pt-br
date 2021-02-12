@@ -13,15 +13,15 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: cff1298f12d26b1260213d75701c282e0a82511d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124145"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004137"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Atualizar suas Informações de grupo no portal Meus Aplicativos
 
-Você pode usar sua conta corporativa ou de estudante com o portal **meus aplicativos** baseado na Web para exibir e iniciar muitos dos aplicativos baseados em nuvem da sua organização, para atualizar algumas de suas informações de perfil e de conta, para ver suas informações de **grupos** e para realizar **revisões de acesso** para seus aplicativos e grupos. Se você não tiver acesso ao portal **Meus Aplicativos** , será necessário contatar a assistência técnica para obter permissão.
+Você pode usar sua conta corporativa ou de estudante com o portal **meus aplicativos** baseado na Web para exibir e iniciar muitos dos aplicativos baseados em nuvem da sua organização, para atualizar algumas de suas informações de perfil e de conta, para ver suas informações de **grupos** e para realizar **revisões de acesso** para seus aplicativos e grupos. Se você não tiver acesso ao portal **Meus Aplicativos**, será necessário contatar a assistência técnica para obter permissão.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
@@ -30,7 +30,7 @@ Você pode usar sua conta corporativa ou de estudante com o portal **meus aplica
 
 ## <a name="view-your-groups-information"></a>Exibir suas Informações de grupos
 
-Se seu administrador conceder uma permissão para exibir o bloco **Grupos** , você pode:
+Se seu administrador conceder uma permissão para exibir o bloco **Grupos**, você pode:
 
 - **Como membro do grupo.** Exibir detalhes ou sair de qualquer grupo.
 
@@ -50,9 +50,9 @@ Se seu administrador conceder uma permissão para exibir o bloco **Grupos** , vo
 
 4. Com base em suas permissões, você pode usar a página **meus grupos** para:
 
-    - **Examinar os grupos de sua propriedade.** Exiba informações sobre os grupos de sua propriedade em sua organização na área **Grupos que possuo** . A seleção de um nome de grupo específico fornece mais detalhes sobre o grupo, incluindo o tipo de grupo, o número de membros, a política de junção e a lista de membros ativos.
+    - **Examinar os grupos de sua propriedade.** Exiba informações sobre os grupos de sua propriedade em sua organização na área **Grupos que possuo**. A seleção de um nome de grupo específico fornece mais detalhes sobre o grupo, incluindo o tipo de grupo, o número de membros, a política de junção e a lista de membros ativos.
 
-    - **Criar um grupo.** Crie um grupo com você como proprietário da área **Grupos que possuo** . Para etapas específicas, confira a seção [Criar um grupo](#create-a-new-group) deste artigo.
+    - **Criar um grupo.** Crie um grupo com você como proprietário da área **Grupos que possuo**. Para etapas específicas, confira a seção [Criar um grupo](#create-a-new-group) deste artigo.
 
     - **Editar um grupo existente.** Edite os detalhes de qualquer um dos seus próprios grupos. Para etapas específicas, confira a seção [Editar um grupo existente](#edit-an-existing-group) deste artigo.
 
@@ -64,11 +64,11 @@ Se seu administrador conceder uma permissão para exibir o bloco **Grupos** , vo
 
     - **Examinar os grupos dos quais você faz parte.** Exiba os nomes dos grupos dos quais você é membro na área **Grupos em que estou** área. A seleção de um nome de grupo específico fornece mais detalhes sobre o grupo, incluindo o tipo de grupo, o número de membros, a política de junção e a lista de membros ativos.
 
-    - **Ingressar em um grupo.** Entre em um grupo existente, do qual você ainda não é membro, na área **Grupos em que estou** . Para ver etapas específicas, confira [Ingressar em um grupo existente](#join-an-existing-group).
+    - **Ingressar em um grupo.** Entre em um grupo existente, do qual você ainda não é membro, na área **Grupos em que estou**. Para ver etapas específicas, confira [Ingressar em um grupo existente](#join-an-existing-group).
 
 ## <a name="create-a-new-group"></a>Criar um novo grupo
 
-1. Na página **Grupos** , selecione **Criar um grupo** na área **Grupos de minha propriedade** .
+1. Na página **Grupos**, selecione **Criar um grupo** na área **Grupos de minha propriedade**.
 
     A caixa **Criar grupo** é exibida.
 
@@ -88,9 +88,9 @@ Se seu administrador conceder uma permissão para exibir o bloco **Grupos** , vo
 
     - **Política de grupo.** Escolha permitir que todos entrem no grupo ou permitir que somente o proprietário do grupo adicione membros.
 
-3. Selecione **Criar** .
+3. Selecione **Criar**.
 
-    O grupo é criado com você como proprietário e ele é exibido na lista **Grupos de minha propriedade** . Como você é o proprietário, esse grupo também é exibido na lista **Grupos em que estou** .
+    O grupo é criado com você como proprietário e ele é exibido na lista **Grupos de minha propriedade**. Como você é o proprietário, esse grupo também é exibido na lista **Grupos em que estou**.
 
 ## <a name="edit-an-existing-group"></a>Editar um grupo existente
 
@@ -100,7 +100,7 @@ Após criar um grupo, você pode editar os detalhes dele, incluindo atualizar as
 
     A caixa **Editar detalhes** é exibida e você pode atualizar as informações adicionadas quando criou inicialmente o grupo.
 
-2. Faça todas as alterações e, em seguida, selecione **Atualizar** .
+2. Faça todas as alterações e, em seguida, selecione **Atualizar**.
 
 ## <a name="add-or-remove-a-member"></a>Adicionar ou remover um membro
 
@@ -110,7 +110,7 @@ Você pode adicionar ou remover membros de grupos de sua propriedade.
 
     ![Adicionar um membro do grupo, com o sinal de + realçado](media/my-apps-portal/my-apps-portal-add-member-link.png)
 
-2. Pesquise o membro que você deseja adicionar, na caixa **Adicionar membros** , e selecione **Adicionar** .
+2. Pesquise o membro que você deseja adicionar, na caixa **Adicionar membros**, e selecione **Adicionar**.
 
     ![Caixa Adicionar membros, com o novo membro a ser adicionado](media/my-apps-portal/my-apps-portal-add-member-page.png)
 
@@ -124,7 +124,7 @@ Você pode adicionar ou remover membros de grupos de sua propriedade.
 
 Se sua organização permitir, você poderá renovar um grupo do Office 365, estendendo sua data de validade.
 
-1. Selecione o grupo do Office 365 que você deseja renovar e, em seguida, selecione **Renovar grupo** .
+1. Selecione o grupo do Office 365 que você deseja renovar e, em seguida, selecione **Renovar grupo**.
 
     ![Renovar um grupo do Office 365, estendendo a data de validade](media/my-apps-portal/my-apps-portal-renew-group-link.png)
 
@@ -148,17 +148,17 @@ Você pode excluir qualquer um dos seus grupos a qualquer momento. No entanto, s
 
 Você pode ingressar em um grupo existente por meio da página **Grupos** ou sair dele.
 
-1. Na página **Grupos** , selecione **Ingressar em um grupo** na área **Grupos em que estou** .
+1. Na página **Grupos**, selecione **Ingressar em um grupo** na área **Grupos em que estou**.
 
     A página **Ingressar em grupos** é exibida.
 
     ![Página Ingressar em grupos, com o botão Ingressar em grupo realçado](media/my-apps-portal/my-apps-portal-join-group-link.png)
 
-2. Na página **Ingressar em grupos** , selecione o nome do grupo em que você deseja ingressar, exiba os detalhes do grupo associado e, se ele estiver disponível, selecione **Ingressar no grupo** .
+2. Na página **Ingressar em grupos**, selecione o nome do grupo em que você deseja ingressar, exiba os detalhes do grupo associado e, se ele estiver disponível, selecione **Ingressar no grupo**.
 
-    Se o grupo exigir que o proprietário aprove a associação, você deverá inserir uma justificativa comercial do porquê você precisa ingressar no grupo e, em seguida, selecionar **Solicitar** . Se o grupo não exigir aprovação, você será adicionado imediatamente como membro e ele será exibido na lista **Grupos em que estou** .
+    Se o grupo exigir que o proprietário aprove a associação, você deverá inserir uma justificativa comercial do porquê você precisa ingressar no grupo e, em seguida, selecionar **Solicitar**. Se o grupo não exigir aprovação, você será adicionado imediatamente como membro e ele será exibido na lista **Grupos em que estou**.
 
-3. Se você ingressou em um grupo por engano ou se não precisar mais fazer parte dele, poderá selecionar o nome dele na página **Ingressar em grupos** e selecionar **Sair do grupo** .
+3. Se você ingressou em um grupo por engano ou se não precisar mais fazer parte dele, poderá selecionar o nome dele na página **Ingressar em grupos** e selecionar **Sair do grupo**.
 
     ![Página Ingressar em grupos, com o botão Sair do grupo realçado](media/my-apps-portal/my-apps-portal-leave-group-link.png)
 

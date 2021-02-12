@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 09/16/2020
 ms.author: robinsh
-ms.openlocfilehash: c53f78702aeb5404bd353274ddb29b9356229fae
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ab9e122ba0b2b50203a2d66ae14f03f3b6300f96
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145782"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452337"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning-studio-classic"></a>Previsão do tempo usando os dados do sensor do seu hub IoT no Azure Machine Learning Studio (clássico)
 
@@ -46,7 +46,7 @@ Você aprende a usar Azure Machine Learning Studio (clássico) para fazer a prev
   - Um hub IoT do Azure em sua assinatura.
   - O aplicativo cliente que envia mensagens para o hub IoT do Azure.
 - Uma conta [Azure Machine Learning Studio (clássico)](https://studio.azureml.net/).
-- Uma [conta de armazenamento do Azure](../storage/common/storage-account-overview.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#types-of-storage-accounts), uma conta **v2 de uso geral** , é preferida, mas qualquer conta de armazenamento do Azure que dê suporte ao armazenamento de BLOBs do Azure também funcionará.
+- Uma [conta de armazenamento do Azure](../storage/common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-storage-accounts), uma conta **v2 de uso geral** , é preferida, mas qualquer conta de armazenamento do Azure que dê suporte ao armazenamento de BLOBs do Azure também funcionará.
 
 > [!Note]
 > Este artigo usa Azure Stream Analytics e vários outros serviços pagos. Os encargos extras são incorridos no Azure Stream Analytics quando os dados devem ser transferidos nas regiões do Azure. Por esse motivo, seria bom garantir que seu grupo de recursos, Hub IoT e conta de armazenamento do Azure, bem como o espaço de trabalho Machine Learning Studio (clássico) e Azure Stream Analytics trabalho adicionado posteriormente neste tutorial, estejam localizados na mesma região do Azure. Você pode verificar o suporte regional para Azure Machine Learning Studio (clássico) e outros serviços do Azure na [página disponibilidade do produto do Azure por região](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all).
@@ -154,7 +154,7 @@ Nesta seção, você valida o modelo, configura um serviço Web preditivo com ba
 
 1. Abra o trabalho do Stream Analytics.
 1. Em **Topologia do trabalho**, selecione **Entradas**.
-1. No painel **entradas** , selecione **Adicionar entrada de fluxo**e, em seguida, selecione **Hub IOT** na lista suspensa. No painel **novo entrada** , escolha **selecionar Hub IOT em suas assinaturas** e insira as seguintes informações:
+1. No painel **entradas** , selecione **Adicionar entrada de fluxo** e, em seguida, selecione **Hub IOT** na lista suspensa. No painel **novo entrada** , escolha **selecionar Hub IOT em suas assinaturas** e insira as seguintes informações:
 
    **Alias de entrada**: O alias exclusivo para a entrada.
 
@@ -175,7 +175,7 @@ Nesta seção, você valida o modelo, configura um serviço Web preditivo com ba
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Adicionar uma saída ao trabalho do Stream Analytics
 
 1. Em **Topologia do trabalho**, selecione **Saídas**.
-1. No painel **saídas** , selecione **Adicionar**e, em seguida, selecione **armazenamento de blob/data Lake Storage** na lista suspensa. No painel **nova saída** , escolha o **armazenamento selecionado em suas assinaturas** e insira as seguintes informações:
+1. No painel **saídas** , selecione **Adicionar** e, em seguida, selecione **armazenamento de blob/data Lake Storage** na lista suspensa. No painel **nova saída** , escolha o **armazenamento selecionado em suas assinaturas** e insira as seguintes informações:
 
    **Alias de saída**: o alias exclusivo para a saída.
 
@@ -194,7 +194,7 @@ Nesta seção, você valida o modelo, configura um serviço Web preditivo com ba
 ### <a name="add-a-function-to-the-stream-analytics-job-to-call-the-web-service-you-deployed"></a>Adicionar uma função ao trabalho do Stream Analytics para chamar o serviço Web implantado
 
 1. Em **topologia do trabalho**, selecione **funções**.
-1. No painel **funções** , selecione **Adicionar**e, em seguida, selecione **Azure ml Studio** na lista suspensa. (Verifique se você selecionou o **azure ml Studio**, não o **serviço do Azure ml**.) No painel **nova função** , escolha as **configurações da função fornecer Azure Machine Learning manualmente** e insira as seguintes informações:
+1. No painel **funções** , selecione **Adicionar** e, em seguida, selecione **Azure ml Studio** na lista suspensa. (Verifique se você selecionou o **azure ml Studio**, não o **serviço do Azure ml**.) No painel **nova função** , escolha as **configurações da função fornecer Azure Machine Learning manualmente** e insira as seguintes informações:
 
    **Alias da função**: Digite `machinelearning`.
 
@@ -215,7 +215,7 @@ Nesta seção, você valida o modelo, configura um serviço Web preditivo com ba
    WITH machinelearning AS (
       SELECT EventEnqueuedUtcTime, temperature, humidity, machinelearning(temperature, humidity) as result from [YourInputAlias]
    )
-   Select System.Timestamp time, CAST (result.[temperature] AS FLOAT) AS temperature, CAST (result.[humidity] AS FLOAT) AS humidity, CAST (result.[scored probabilities] AS FLOAT ) AS 'probabalities of rain'
+   Select System.Timestamp time, CAST (result.[temperature] AS FLOAT) AS temperature, CAST (result.[humidity] AS FLOAT) AS humidity, CAST (result.[scored probabilities] AS FLOAT ) AS 'probabalities of rain'
    Into [YourOutputAlias]
    From machinelearning
    ```

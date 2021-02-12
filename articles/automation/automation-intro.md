@@ -7,12 +7,12 @@ keywords: azure automation, DSC, powershell, state configuration, update managem
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 24aeb37cf868bed5d4211bc9b459a4736ceea4b2
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: e3986b7e8fc70f8662bed40b076897caa6165744
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205329"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182811"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Uma introdução à Automação do Azure
 
@@ -43,7 +43,7 @@ O [State Configuration da Automação do Azure](automation-dsc-overview.md) é u
 
 ## <a name="update-management"></a>Gerenciamento de atualizações
 
-A Automação do Azure inclui o recurso de [Gerenciamento de Atualizações](update-management/update-mgmt-overview.md) para sistemas Windows e Linux em ambientes híbridos. O Gerenciamento de Atualizações oferece visibilidade sobre a conformidade de atualizações no Azure, em outras nuvens e localmente. O recurso permite criar implantações agendadas que orquestram a instalação de atualizações em uma janela de manutenção definida. Se uma atualização não deve ser instalada em um computador, você pode usar a funcionalidade Gerenciamento de Atualizações para excluí-la de uma implantação.
+A Automação do Azure inclui o recurso de [Gerenciamento de Atualizações](./update-management/overview.md) para sistemas Windows e Linux em ambientes híbridos. O Gerenciamento de Atualizações oferece visibilidade sobre a conformidade de atualizações no Azure, em outras nuvens e localmente. O recurso permite criar implantações agendadas que orquestram a instalação de atualizações em uma janela de manutenção definida. Se uma atualização não deve ser instalada em um computador, você pode usar a funcionalidade Gerenciamento de Atualizações para excluí-la de uma implantação.
 
 ## <a name="shared-capabilities"></a>Funcionalidades compartilhadas
 

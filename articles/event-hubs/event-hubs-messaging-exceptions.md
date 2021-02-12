@@ -2,13 +2,13 @@
 title: Hubs de eventos do Azure-exceções (herdadas)
 description: Este artigo fornece uma lista de exceções de mensagens dos Hubs de Eventos do Azure e ações sugeridas.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 5a7ca32893a106cd59df548ae3118665acaea654
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/02/2020
+ms.openlocfilehash: 357a87c53023962dd9195a616bd9ce9e01c55bf9
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318476"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340960"
 ---
 # <a name="event-hubs-messaging-exceptions---net-legacy"></a>Exceções de mensagens dos hubs de eventos – .NET (Herdado)
 Esta seção lista as exceções .NET geradas por .NET Framework APIs. 
@@ -111,7 +111,19 @@ Esse erro pode ocorrer por um dos seguintes motivos:
 
 - O namespace de hubs de eventos não tem unidades de produtividade suficientes (você pode verificar a tela de **métricas** na janela de namespace de hubs de eventos no [portal do Azure](https://portal.azure.com) para confirmar). O portal mostra informações agregadas (1 minuto), mas medimos a taxa de transferência em tempo real – portanto, é apenas uma estimativa.
 
-    **Resolução**: aumentar as unidades de produtividade no namespace pode ajudar. É possível fazer essa operação no portal, na janela **Dimensionar** da tela do namespace dos Hubs de Eventos. Ou você pode usar [Inflar automaticamente](event-hubs-auto-inflate.md).
+    **Resolução**: aumentar as unidades de produtividade no namespace pode ajudar. 
+
+    Você pode configurar unidades de produtividade na página **escala** ou na página **visão geral** da página de namespace de seus **hubs de eventos** no portal do Azure. Ou, você pode usar o [inflar](event-hubs-auto-inflate.md)automaticamente, que é escalado verticalmente aumentando o número de unidades de produtividade para atender às necessidades de uso.
+
+    As unidades de taxa de transferência (TUs) se aplicam a todos os hubs de eventos em um namespace de hubs de eventos. Isso significa que você compra TUs no nível do namespace e elas são compartilhadas entre os hubs de eventos no namespace. Cada TU proporciona ao namespace os seguintes recursos:
+
+    - Até 1 MB por segundo de eventos de entrada (eventos enviados para um Hub de Eventos), mas não mais de 1.000 eventos de entrada, operações de gerenciamento ou chamadas por segundo à API de controle.
+    - Até 2 MB por segundo de eventos de saída (eventos consumidos de um Hub de Eventos), mas não mais do que 4096 eventos de saída.
+    - Até 84 GB de armazenamento de eventos (suficiente para o período de retenção padrão de 24 horas).
+    
+    Na página **visão geral** , na seção **Mostrar métricas** , alterne para a guia **taxa de transferência** . Selecione o gráfico para abri-lo em uma janela maior com intervalos de 1 minuto no eixo x. Examine os valores de pico e divida-os por 60 para obter bytes de entrada/segundo ou bytes de saída/segundo. Use uma abordagem semelhante para calcular o número de solicitações por segundo em horários de pico na guia **solicitações** . 
+
+    Se você vir valores maiores do que o número de limites de TUs * (1 MB por segundo para solicitações de entrada ou 1000 para entrada/segundo, 2 MB por segundo para saída), aumente o número de TUs usando o **dimensionamento** (no menu à esquerda) página de um namespace de hubs de eventos para dimensionar manualmente mais ou usar o recurso de [inflar automaticamente](event-hubs-auto-inflate.md) dos hubs de eventos. Observe que o inflar automaticamente pode aumentar até 20 TUS. Para prometê-lo a exatamente 40 TUs, envie uma [solicitação de suporte](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ### <a name="error-code-50001"></a>Código do erro 50001
 

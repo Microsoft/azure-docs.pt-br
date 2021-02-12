@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: ed29bfc099ce401288c07db863207a1d989a5e0d
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 133a7d9b3fa04797648fa253825505d29e37ca98
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168266"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576374"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Usar a análise de alterações do aplicativo (versão prévia) no Azure Monitor
 
@@ -28,6 +28,17 @@ A análise de alterações detecta vários tipos de alterações, da camada de i
 O diagrama a seguir ilustra a arquitetura da análise de alterações:
 
 ![Diagrama de arquitetura de como a análise de alterações obtém dados de alteração e fornece a ele ferramentas de cliente](./media/change-analysis/overview.png)
+
+## <a name="supported-resource-types"></a>Tipos de recurso compatíveis
+
+O serviço de análise de alterações de aplicativo dá suporte a alterações de nível de propriedade de recurso em todos os tipos de recursos do Azure, incluindo recursos comuns como
+- Máquina Virtual
+- Conjunto de escala de máquina virtual
+- Serviço de Aplicativo
+- Serviço kubernetes do Azure
+- Azure Function
+- Recursos de rede: ou seja, grupo de segurança de rede, rede virtual, gateway de aplicativo, etc.
+- Serviços de dados: ou seja, armazenamento, SQL, cache Redis, Cosmos DB, etc.
 
 ## <a name="data-sources"></a>Fontes de dados
 
@@ -49,17 +60,27 @@ A análise de alterações captura o estado de implantação e configuração de
 
 ### <a name="dependency-changes"></a>Alterações de dependência
 
-As alterações nas dependências de recursos também podem causar problemas em um aplicativo Web. Por exemplo, se um aplicativo Web chamar um cache Redis, a SKU do cache Redis poderá afetar o desempenho do aplicativo Web. Para detectar alterações nas dependências, a análise de alterações verifica o registro DNS do aplicativo Web. Dessa forma, ele identifica as alterações em todos os componentes de aplicativo que podem causar problemas.
-Atualmente, há suporte para as seguintes dependências:
+As alterações nas dependências de recursos também podem causar problemas em um recurso. Por exemplo, se um aplicativo Web chamar um cache Redis, a SKU do cache Redis poderá afetar o desempenho do aplicativo Web. Outro exemplo é se a porta 22 foi fechada no grupo de segurança de rede de uma máquina virtual, isso causará erros de conectividade. 
+
+#### <a name="web-app-diagnose-and-solve-problems-navigator-preview"></a>Navegador de problemas de diagnóstico e resolução de aplicativos Web (versão prévia)
+Para detectar alterações nas dependências, a análise de alterações verifica o registro DNS do aplicativo Web. Dessa forma, ele identifica as alterações em todos os componentes de aplicativo que podem causar problemas.
+Atualmente, há suporte para as seguintes dependências no **aplicativo Web diagnosticar e solucionar problemas | Navegador (versão prévia)**:
 - Aplicativos Web
 - Armazenamento do Azure
 - SQL do Azure
 
-## <a name="application-change-analysis-service"></a>Serviço de análise de alterações do aplicativo
+#### <a name="related-resources"></a>Recursos relacionados
+A análise de alterações do aplicativo detecta recursos relacionados. Exemplos comuns são grupo de segurança de rede, rede virtual, gateway de aplicativo e Load Balancer relacionados a uma máquina virtual. Os recursos de rede geralmente são provisionados automaticamente no mesmo grupo de recursos que os recursos que o utilizam, portanto, filtrar as alterações por grupo de recursos mostrará todas as alterações para a máquina virtual e recursos de rede relacionados.
+
+![Captura de tela de alterações de rede](./media/change-analysis/network-changes.png)
+
+## <a name="application-change-analysis-service-enablement"></a>Habilitação do serviço de análise de alteração do aplicativo
 
 O serviço de análise de alterações do aplicativo calcula e agrega dados de alteração das fontes de dados mencionadas acima. Ele fornece um conjunto de análises para que os usuários naveguem facilmente por todas as alterações de recursos e identifiquem qual alteração é relevante no contexto de solução de problemas ou monitoramento.
-O provedor de recursos "Microsoft. ChangeAnalysis" precisa ser registrado com uma assinatura para o Azure Resource Manager propriedades rastreadas e as configurações de proxy alteram os dados para que estejam disponíveis. À medida que você insere a ferramenta diagnosticar e solucionar problemas do aplicativo Web ou ativa a guia autônomo da análise de alterações, esse provedor de recursos é registrado automaticamente. Ele não tem nenhuma implementação de desempenho ou custo para sua assinatura. Quando você habilita a análise de alterações para aplicativos Web (ou habilita a ferramenta diagnosticar e solucionar problemas), ele terá um impacto insignificante no desempenho do aplicativo Web e nenhum custo de cobrança.
-Para alterações no convidado do aplicativo Web, a habilitação separada é necessária para a verificação de arquivos de código em um aplicativo Web. Para obter mais informações, consulte [análise de alterações na seção ferramenta diagnosticar e solucionar problemas](#application-change-analysis-in-the-diagnose-and-solve-problems-tool) mais adiante neste artigo para obter mais detalhes.
+O provedor de recursos "Microsoft. ChangeAnalysis" precisa ser registrado com uma assinatura para o Azure Resource Manager propriedades rastreadas e as configurações de proxy alteram os dados para que estejam disponíveis. À medida que você insere a ferramenta diagnosticar e solucionar problemas do aplicativo Web ou ativa a guia autônomo da análise de alterações, esse provedor de recursos é registrado automaticamente. Para alterações no convidado do aplicativo Web, a habilitação separada é necessária para a verificação de arquivos de código em um aplicativo Web. Para obter mais informações, consulte [análise de alterações na seção ferramenta diagnosticar e solucionar problemas](#application-change-analysis-in-the-diagnose-and-solve-problems-tool) mais adiante neste artigo para obter mais detalhes.
+
+## <a name="cost"></a>Cost
+A análise de alterações do aplicativo é um serviço gratuito-ela não incorre em nenhum custo de cobrança para assinaturas com ela habilitada. O serviço também não tem nenhum impacto no desempenho para a verificação de alterações de propriedades de recursos do Azure. Quando você habilita a análise de alterações para aplicativos Web no arquivo convidado (ou habilita a ferramenta diagnosticar e resolver problemas), ele terá um impacto insignificante no desempenho do aplicativo Web e nenhum custo de cobrança.
 
 ## <a name="visualizations-for-application-change-analysis"></a>Visualizações para análise de alterações de aplicativo
 
@@ -82,6 +103,11 @@ Clicando em um recurso para exibir todas as suas alterações. Se necessário, f
 Para qualquer comentário, use o botão enviar comentários na folha ou no email changeanalysisteam@microsoft.com .
 
 ![Captura de tela do botão de comentários na folha de análise de alterações](./media/change-analysis/change-analysis-feedback.png)
+
+#### <a name="multiple-subscription-support"></a>Suporte a várias assinaturas
+A interface do usuário dá suporte à seleção de várias assinaturas para exibir as alterações de recursos. Use o filtro de assinatura:
+
+![Captura de tela do filtro de assinatura que dá suporte à seleção de várias assinaturas](./media/change-analysis/multiple-subscriptions-support.png)
 
 ### <a name="web-app-diagnose-and-solve-problems"></a>Diagnóstico e resolução de problemas do aplicativo Web
 
@@ -190,6 +216,33 @@ Se for a primeira vez que você exibir o histórico de alterações após sua in
 ![Captura de tela da ferramenta diagnosticar e resolver problemas para uma máquina virtual com ferramentas de solução de problemas selecionadas.](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
 
 ![Captura de tela do bloco da ferramenta analisar alterações recentes de solução de problemas para uma máquina virtual.](./media/change-analysis/analyze-recent-changes.png)
+
+### <a name="azure-lighthouse-subscription-is-not-supported"></a>Não há suporte para a assinatura do Azure Lighthouse
+
+- **Falha ao consultar o provedor de recursos Microsoft. ChangeAnalysis** com a mensagem *não há suporte para a assinatura do Azure Lighthouse, as alterações só estão disponíveis no locatário inicial da assinatura*. Há uma limitação no momento para que o provedor de recursos de análise de alterações seja registrado por meio da assinatura do Azure Lighthouse para usuários que não estão no locatário inicial. Esperamos que essa limitação seja abordada em um futuro próximo. Se esse for um problema de bloqueio para você, há uma solução alternativa que envolve a criação de uma entidade de serviço e a atribuição explícita da função para permitir o acesso.  Entre em contato changeanalysishelp@microsoft.com para saber mais sobre isso.
+
+### <a name="an-error-occurred-while-getting-changes-please-refresh-this-page-or-come-back-later-to-view-changes"></a>Ocorreu um erro ao obter as alterações. Atualize esta página ou volte mais tarde para exibir as alterações
+
+Esta é a mensagem de erro geral apresentada pelo serviço de análise de alteração de aplicativo quando não foi possível carregar as alterações. Algumas causas conhecidas são:
+- Erro de conectividade com a Internet do dispositivo cliente
+- O serviço de análise de alterações está temporariamente indisponível, atualizando a página depois de alguns minutos geralmente corrige esse problema. Se o erro persistir, contate changeanalysishelp@micorosoft.com
+
+### <a name="you-dont-have-enough-permissions-to-view-some-changes-contact-your-azure-subscription-administrator"></a>Você não tem permissões suficientes para exibir algumas alterações. Contate o administrador da assinatura do Azure
+
+Esta é a mensagem de erro geral não autorizada, explicando que o usuário atual não tem permissões suficientes para exibir a alteração. Pelo menos acesso de leitor é necessário no recurso para exibir as alterações de infraestrutura retornadas pelo grafo de recursos do Azure e Azure Resource Manager. Para alterações no arquivo de aplicativo Web no convidado e alterações de configuração, pelo menos a função de colaborador é necessária.
+
+### <a name="failed-to-register-microsoftchangeanalysis-resource-provider"></a>Falha ao registrar o provedor de recursos Microsoft. ChangeAnalysis
+Essa mensagem significa que algo falhou imediatamente porque a interface do usuário enviou a solicitação para registrar o provedor de recursos e não está relacionada ao problema de permissão. É provável que possa ser um problema de conectividade de Internet temporário. Tente atualizar a página e verificar sua conexão com a Internet. Se o erro persistir, contate changeanalysishelp@microsoft.com
+ 
+### <a name="you-dont-have-enough-permissions-to-register-microsoftchangeanalysis-resource-provider-contact-your-azure-subscription-administrator"></a>Você não tem permissões suficientes para registrar o provedor de recursos Microsoft. ChangeAnalysis. Contate o administrador da assinatura do Azure.
+Essa mensagem de erro significa que sua função na assinatura atual não tem o escopo **Microsoft. support/Register/Action** associado a ela. Isso pode acontecer se você não for o proprietário de uma assinatura e tiver permissões de acesso compartilhado por meio de um colega de colaborador. ou seja, exiba o acesso a um grupo de recursos. Para corrigir isso, você pode entrar em contato com o proprietário da sua assinatura para registrar o provedor de recursos **Microsoft. ChangeAnalysis** . Isso pode ser feito em portal do Azure por meio de **assinaturas | Provedores de recursos** e pesquisam ```Microsoft.ChangeAnalysis``` e registram na interface do usuário, ou por meio de Azure PowerShell ou CLI do Azure.
+
+Registrar provedor de recursos por meio do PowerShell: 
+
+```PowerShell
+# Register resource provider
+Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

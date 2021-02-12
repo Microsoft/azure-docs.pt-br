@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/30/2019
-ms.openlocfilehash: 896254a5577dad1bdcf474b963b9544029a4c81a
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.date: 11/16/2020
+ms.openlocfilehash: 8f0d10b6ed69cd31249447b59114c590bdbeb078
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040125"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832357"
 ---
 # <a name="window-transformation-in-mapping-data-flow"></a>Transformação de janela no fluxo de dados de mapeamento
 
@@ -22,6 +22,8 @@ ms.locfileid: "93040125"
 A Transformação de janela é o local em que você definirá agregações baseadas em janela de colunas em seus fluxos de dados. No Construtor de Expressões, é possível definir diferentes tipos de agregações baseadas em janelas de dados ou de tempo (cláusula SQL OVER) como LEAD, LAG, NTILE, CUMEDIST, RANK, etc.). Um novo campo será gerado na saída que inclui essas agregações. Também é possível incluir campos opcionais agrupar por.
 
 ![Captura de tela mostra janelas selecionadas no menu.](media/data-flow/windows1.png "Windows 1")
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4IAVu]
 
 ## <a name="over"></a>Acima
 Defina o particionamento dos dados da coluna para sua transformação de janela. O SQL equivalente é o ```Partition By``` na cláusula Over no SQL. Se desejar criar um cálculo ou uma expressão a ser usada para o particionamento, será possível fazer isso passando o mouse sobre o nome da coluna e selecionando “coluna computada”.

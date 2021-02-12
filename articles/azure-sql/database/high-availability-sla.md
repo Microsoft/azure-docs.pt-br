@@ -8,16 +8,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-author: sashan
-ms.author: sashan
-ms.reviewer: sstein, sashan
+author: emlisa
+ms.author: emlisa
+ms.reviewer: sstein, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: c0c925f68e8edbae00f980d9445c59d7213a4b25
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 53b6b4f5d783029cb53de71fe3c47b8cb2d26968
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901310"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593411"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidade para o banco de dados SQL do Azure e o SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -60,7 +60,7 @@ A versão com redundância de zona da arquitetura de alta disponibilidade para a
 ![Configuração com redundância de zona para fins gerais](./media/high-availability-sla/zone-redundant-for-general-purpose.png)
 
 > [!IMPORTANT]
-> Para obter informações atualizadas sobre as regiões que dão suporte a bancos de dados com redundância de zona, consulte [suporte a serviços por região](../../availability-zones/az-region.md). A configuração com redundância de zona só estará disponível quando o hardware de computação Gen5 estiver selecionado. Este recurso não está disponível no SQL Instância Gerenciada.
+> A configuração com redundância de zona só estará disponível quando o hardware de computação Gen5 estiver selecionado. Este recurso não está disponível no SQL Instância Gerenciada. A configuração com redundância de zona para a camada de uso geral só está disponível nas seguintes regiões: leste dos EUA, leste dos EUA 2, oeste dos EUA 2, Europa Setentrional, Europa Ocidental, Sudeste Asiático, leste da Austrália, leste do Japão, Sul do Reino Unido e França central.
 
 > [!NOTE]
 > Uso Geral bancos de dados com um tamanho de 80 VCORE podem apresentar degradação de desempenho com configuração com redundância de zona. Além disso, operações como backup, restauração, cópia de banco de dados e configuração de relações de DR geográfica podem sofrer um desempenho mais lento para qualquer banco de dados individual maior que 1 TB. 
@@ -94,7 +94,7 @@ A versão com redundância de zona da arquitetura de alta disponibilidade é ilu
 
 ## <a name="hyperscale-service-tier-availability"></a>Disponibilidade da camada de serviço de hiperescala
 
-A arquitetura da camada de serviço de hiperescala é descrita na [arquitetura de funções distribuídas](https://docs.microsoft.com/azure/sql-database/sql-database-service-tier-hyperscale#distributed-functions-architecture) e só está disponível no momento para o banco de dados SQL, não o SQL instância gerenciada.
+A arquitetura da camada de serviço de hiperescala é descrita na [arquitetura de funções distribuídas](./service-tier-hyperscale.md#distributed-functions-architecture) e só está disponível no momento para o banco de dados SQL, não o SQL instância gerenciada.
 
 ![Arquitetura funcional de hiperescala](./media/high-availability-sla/hyperscale-architecture.png)
 
@@ -102,17 +102,17 @@ O modelo de disponibilidade em hiperescala inclui quatro camadas:
 
 - Uma camada de computação sem estado que executa os `sqlservr.exe` processos e contém somente dados transitórios e armazenados em cache, como o cache RBPEX de não abrangendo, tempdb, banco de dado modelo, etc. no SSD anexado, e no cache de planos, no pool de buffers e no pool columnstore na memória. Essa camada sem estado inclui a réplica de computação primária e, opcionalmente, um número de réplicas de computação secundárias que podem servir como destinos de failover.
 - Uma camada de armazenamento sem estado formada por servidores de página. Essa camada é o mecanismo de armazenamento distribuído para os `sqlservr.exe` processos em execução nas réplicas de computação. Cada servidor de página contém apenas dados transitórios e em cache, como cobrindo o cache RBPEX no SSD anexado e páginas de dados armazenadas em cache na memória. Cada servidor de página tem um servidor de páginas emparelhado em uma configuração ativo-ativo para fornecer balanceamento de carga, redundância e alta disponibilidade.
-- Uma camada de armazenamento de log de transações com estado formada pelo nó de computação executando o processo do serviço de log, a zona de aterrissagem do log de transações e o armazenamento de longo prazo do log de transações. Zona de aterrissagem e armazenamento de longo prazo usam o armazenamento do Azure, que fornece disponibilidade e [redundância](https://docs.microsoft.com/azure/storage/common/storage-redundancy) para o log de transações, garantindo a durabilidade dos dados para transações confirmadas.
-- Uma camada de armazenamento de dados com monitoração de estado com os arquivos (. MDF/. ndf) armazenados no armazenamento do Azure e são atualizados por servidores de página. Essa camada usa recursos de [redundância](https://docs.microsoft.com/azure/storage/common/storage-redundancy) e disponibilidade de dados do armazenamento do Azure. Ele garante que cada página em um arquivo de dados será preservada mesmo se os processos em outras camadas de falha de arquitetura de hiperescala ou se os nós de computação falharem.
+- Uma camada de armazenamento de log de transações com estado formada pelo nó de computação executando o processo do serviço de log, a zona de aterrissagem do log de transações e o armazenamento de longo prazo do log de transações. Zona de aterrissagem e armazenamento de longo prazo usam o armazenamento do Azure, que fornece disponibilidade e [redundância](../../storage/common/storage-redundancy.md) para o log de transações, garantindo a durabilidade dos dados para transações confirmadas.
+- Uma camada de armazenamento de dados com monitoração de estado com os arquivos (. MDF/. ndf) armazenados no armazenamento do Azure e são atualizados por servidores de página. Essa camada usa recursos de [redundância](../../storage/common/storage-redundancy.md) e disponibilidade de dados do armazenamento do Azure. Ele garante que cada página em um arquivo de dados será preservada mesmo se os processos em outras camadas de falha de arquitetura de hiperescala ou se os nós de computação falharem.
 
 Os nós de computação em todas as camadas de hiperescala são executados no Azure Service Fabric, que controla a integridade de cada nó e executa failovers para nós íntegros disponíveis, conforme necessário.
 
-Para obter mais informações sobre alta disponibilidade em hiperescala, consulte [alta disponibilidade do banco de dados em hiperescala](https://docs.microsoft.com/azure/sql-database/sql-database-service-tier-hyperscale#database-high-availability-in-hyperscale).
+Para obter mais informações sobre alta disponibilidade em hiperescala, consulte [alta disponibilidade do banco de dados em hiperescala](./service-tier-hyperscale.md#database-high-availability-in-hyperscale).
 
 
 ## <a name="accelerated-database-recovery-adr"></a>Recuperação Acelerada de Banco de Dados (ADR)
 
-A [ADR (recuperação de banco de dados acelerada)](../accelerated-database-recovery.md) é um novo recurso de mecanismo de banco de dados que melhora muito a disponibilidade do banco de dados, especialmente na presença de transações de longa execução. ADR está disponível no momento para o banco de dados SQL do Azure, Azure SQL Instância Gerenciada e Azure Synapse Analytics (anteriormente SQL Data Warehouse).
+A [ADR (recuperação de banco de dados acelerada)](../accelerated-database-recovery.md) é um novo recurso de mecanismo de banco de dados que melhora muito a disponibilidade do banco de dados, especialmente na presença de transações de longa execução. ADR está disponível no momento para o banco de dados SQL do Azure, Azure SQL Instância Gerenciada e Azure Synapse Analytics.
 
 ## <a name="testing-application-fault-resiliency"></a>Testando a resiliência de falha do aplicativo
 
@@ -122,7 +122,7 @@ Um failover pode ser iniciado usando o PowerShell, a API REST ou CLI do Azure:
 
 |Tipo de implantação|PowerShell|API REST| CLI do Azure|
 |:---|:---|:---|:---|
-|Banco de dados|[Invoke-AzSqlDatabaseFailover](/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Failover de banco de dados](/rest/api/sql/databases(failover)/failover/)|[AZ REST](/cli/azure/reference-index#az-rest) pode ser usado para invocar uma chamada à API rest de CLI do Azure|
+|Banco de dados|[Invoke-AzSqlDatabaseFailover](/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Failover de banco de dados](/rest/api/sql/databases/failover)|[AZ REST](/cli/azure/reference-index#az-rest) pode ser usado para invocar uma chamada à API rest de CLI do Azure|
 |Pool elástico|[Invoke-AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Failover de pool elástico](/rest/api/sql/elasticpools(failover)/failover/)|[AZ REST](/cli/azure/reference-index#az-rest) pode ser usado para invocar uma chamada à API rest de CLI do Azure|
 |Banco de Dados SQL|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Instâncias gerenciadas-failover](/rest/api/sql/managed%20instances%20-%20failover/failover)|[AZ SQL mi failover](/cli/azure/sql/mi/#az-sql-mi-failover)|
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.author: inhenkel
-ms.openlocfilehash: 826fda62f9c5c97d045f6dc31189b26255e72f33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a02f1fd873c0578bb4ec3a7788a06b10eebec7bd
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532679"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695462"
 ---
 # <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Executar a transmissão ao vivo usando os serviços de mídia para criar fluxos de múltiplas taxas de bits com portal do Azure
 
@@ -32,7 +32,7 @@ ms.locfileid: "91532679"
 > 
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Este tutorial orienta você pelas etapas de criação de um **Canal** que recebe um fluxo ao vivo de taxa de bits única e o codifica em fluxo de múltiplas taxas de bits.
 
@@ -158,7 +158,7 @@ Há duas maneiras de começar o evento:
 
     Se você deixou a opção **Publicar este evento ao vivo agora** marcada, o evento PUBLICANDO URLS será criado.
 
-    Você pode pressionar **Iniciar**sempre que estiver pronto para transmitir o evento.
+    Você pode pressionar **Iniciar** sempre que estiver pronto para transmitir o evento.
 
     Depois de iniciar o evento, você pode pressionar **Assistir** para iniciar a reprodução do conteúdo.
 2. Como alternativa, você pode usar um atalho e pressionar o botão **Ativar** na página **Canal**. Isso criará um Ativo, Programa e Localizador de Streaming padrão.
@@ -177,7 +177,7 @@ Para assistir o evento, clique em **Assistir** no portal do Azure ou copie a URL
 
 O evento ativo é convertido automaticamente em conteúdo sob demanda quando é interrompido.
 
-## <a name="clean-up"></a>Limpeza
+## <a name="clean-up"></a>Limpar
 
 Se você tiver terminado o fluxo de eventos e deseja limpar os recursos provisionados anteriormente, siga o procedimento a seguir.
 

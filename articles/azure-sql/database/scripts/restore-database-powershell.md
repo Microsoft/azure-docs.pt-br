@@ -7,16 +7,16 @@ ms.subservice: operations
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
-author: mashamsft
-ms.author: mathoma
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 03/27/2019
-ms.openlocfilehash: 231a97a375a46940f461d5783f9d70c701389e78
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: cc987efbf156c264d3e0c8df07335910e711c376
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792779"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94594089"
 ---
 # <a name="use-powershell-to-restore-a-database-to-an-earlier-point-in-time"></a>Usar o PowerShell para restaurar um banco de dados para um ponto anterior no tempo
 

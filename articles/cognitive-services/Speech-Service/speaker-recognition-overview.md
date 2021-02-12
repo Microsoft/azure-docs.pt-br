@@ -12,14 +12,14 @@ ms.date: 09/02/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconhecimento de locutor, biometria de voz
-ms.openlocfilehash: 2c5b73b93c22ef27d7b68455f5e1e5108f25c984
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d07a9960c8a586fa137b4b717afbf91740c265d3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397252"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015317"
 ---
-# <a name="what-is-speaker-recognition"></a>O que é o Reconhecimento do Locutor?
+# <a name="what-is-speaker-recognition-preview"></a>O que é Reconhecimento do Locutor (versão prévia)?
 
 O serviço de Reconhecimento do Locutor fornece algoritmos que verificam e identificam os alto-falantes por suas características de voz exclusivas usando biometry de voz. O Reconhecimento do Locutor é usado para responder à pergunta "quem está falando?". Você fornece dados de treinamento de áudio para um único palestrante, que cria um perfil de registro com base nas características exclusivas da voz do orador. Em seguida, você pode fazer uma verificação cruzada das amostras de voz de áudio em relação a esse perfil para verificar se o orador é a mesma pessoa (verificação do orador) ou fazer uma verificação cruzada de exemplos de voz de áudio em um *grupo* de perfis de palestrantes registrados, para ver se ele corresponde a qualquer perfil no grupo (identificação do orador). Por outro lado, o [Diarization do orador](batch-transcription.md#speaker-separation-diarization) agrupa segmentos de áudio por palestrante em uma operação em lote.
 
@@ -67,13 +67,13 @@ Assim como em todos os recursos de serviços cognitivas, os desenvolvedores que 
 | Qual é a diferença entre a verificação dependente de texto e independente de texto? | A verificação dependente de texto requer uma frase secreta específica para o registro e o reconhecimento. A verificação independente de texto requer um exemplo de voz maior para o registro, mas qualquer coisa pode ser falada, inclusive durante o reconhecimento.|
 | Quais são os idiomas com suporte? | Inglês, francês, espanhol, chinês, alemão, italiano, japonês e Português |
 | Quais regiões do Azure têm suporte? | Reconhecimento do Locutor é um serviço de visualização e está disponível no momento apenas na região oeste dos EUA.|
-| Quais formatos de áudio têm suporte? | Mono 16 bits, 16kHz WAV codificados por PCM |
+| Quais formatos de áudio são compatíveis? | Mono 16 bits, 16kHz WAV codificados por PCM |
 | **Aceitar** e **rejeitar** respostas não são precisas, como você ajusta o limite? | Como o limite ideal varia muito com os cenários, a API decide se deseja "aceitar" ou "rejeitar" simplesmente com base em um limite padrão de 0,5. Os usuários avançados são aconselhados a substituir a decisão padrão e ajustar o resultado com base em seu próprio cenário. |
 | Você pode registrar um alto-falante várias vezes? | Sim, para verificação dependente de texto, você pode registrar um palestrante até 50 vezes. Para a verificação independente de texto ou a identificação do orador, você pode registrar com até 300 segundos de áudio. |
-| Quais dados são armazenados no Azure? | O áudio do registro é armazenado no serviço até que o perfil de voz seja [excluído](speaker-recognition-basics.md#deleting-voice-profile-enrollments). Os exemplos de áudio de reconhecimento não são mantidos ou armazenados. |
+| Quais dados são armazenados no Azure? | O áudio do registro é armazenado no serviço até que o perfil de voz seja [excluído](./get-started-speaker-recognition.md#deleting-voice-profile-enrollments). Os exemplos de áudio de reconhecimento não são mantidos ou armazenados. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> * Conclua o [artigo reconhecimento do locutor noções básicas](speaker-recognition-basics.md) para obter uma execução de padrões de design comuns que você pode usar em seus aplicativos.
+> * Conclua o [artigo reconhecimento do locutor noções básicas](./get-started-speaker-recognition.md) para obter uma execução de padrões de design comuns que você pode usar em seus aplicativos.
 > * Consulte o [tutorial em vídeo](https://azure.microsoft.com/resources/videos/speaker-recognition-text-independent-verification-developer-tutorial/) para verificação de alto-falante independente de texto.

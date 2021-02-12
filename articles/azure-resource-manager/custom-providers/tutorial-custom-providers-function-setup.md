@@ -5,12 +5,12 @@ author: jjbfour
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: 6e11e08d861538ddf395f522495798546e04ca7c
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 55554678047faeedd16b78dea61a42d50fd59491
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948945"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737313"
 ---
 # <a name="set-up-azure-functions-for-azure-custom-providers"></a>Configurar o Azure Functions para os Provedores Personalizados do Azure
 
@@ -21,7 +21,7 @@ Um provedor personalizado é um contrato entre o Azure e um ponto de extremidade
 > [!NOTE]
 > Neste tutorial, você criará um ponto de extremidade de serviço simples que usa um aplicativo de funções do Azure. No entanto, um provedor personalizado pode usar qualquer ponto de extremidade publicamente acessível. As alternativas incluem Aplicativos Lógicos do Azure, Gerenciamento de API do Azure e o recurso Aplicativos Web do Serviço de Aplicativo do Azure.
 
-Para iniciar este tutorial, primeiro você deve seguir o tutorial [Criar seu primeiro aplicativo de funções do Azure no portal do Azure](../../azure-functions/functions-create-first-azure-function.md). Esse tutorial cria uma função de webhook do .NET Core que pode ser modificada no portal do Azure. Também é a base para o tutorial atual.
+Para iniciar este tutorial, primeiro você deve seguir o tutorial [Criar seu primeiro aplicativo de funções do Azure no portal do Azure](../../azure-functions/functions-get-started.md). Esse tutorial cria uma função de webhook do .NET Core que pode ser modificada no portal do Azure. Também é a base para o tutorial atual.
 
 ## <a name="install-azure-table-storage-bindings"></a>Instalar as associações do Armazenamento de Tabelas do Azure
 

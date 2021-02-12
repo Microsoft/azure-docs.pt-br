@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 10/15/2020
 ms.author: duau
 ms.openlocfilehash: 29b3cdde328a994e5806df810db15b529a6da9af
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92208066"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188659"
 ---
 # <a name="tutorial-configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Tutorial: Configurar o método de roteamento de tráfego geográfico usando o Gerenciador de Tráfego
 
@@ -37,32 +37,32 @@ Neste tutorial, você aprenderá como:
 
 1. Usando um navegador, entre no [portal do Azure](https://portal.azure.com).
 
-1. Selecione **+ Criar um recurso** do lado esquerdo. Pesquise o **perfil do Gerenciador de Tráfego** e selecione **Criar** .
+1. Selecione **+ Criar um recurso** do lado esquerdo. Pesquise o **perfil do Gerenciador de Tráfego** e selecione **Criar**.
 
     :::image type="content" source="./media/traffic-manager-geographic-routing-method/create-traffic-manager.png" alt-text="Criar um perfil do Gerenciador de Tráfego":::
 
-1. Na página *Criar perfil do Gerenciador de Tráfego* , defina as seguintes configurações:
+1. Na página *Criar perfil do Gerenciador de Tráfego*, defina as seguintes configurações:
 
     | Configuração         | Valor                                              |
     | ---             | ---                                                |
     | Nome            | Forneça um nome para seu perfil. Esse nome deve ser exclusivo dentro da zona trafficmanager.net. Para acessar o perfil do Gerenciador de Tráfego, você deve usar o nome DNS `<profilename>.trafficmanager.net`. |    
-    | Método de roteamento  | Selecione **Geográfico** . |
+    | Método de roteamento  | Selecione **Geográfico**. |
     | Subscription    | Selecione sua assinatura. |
     | Resource group   | Use um grupo de recursos existente ou crie um no qual colocar esse perfil. Se você optar por criar um novo grupo de recursos, use a lista suspensa *Localização do Grupo de Recursos* para especificar a localização do grupo de recursos. Essa configuração refere-se ao local do grupo de recursos e não tem impacto no perfil do Gerenciador de Tráfego que é implantado globalmente. |
 
 1. Selecione **Criar** para implantar seu perfil do Gerenciador de Tráfego.
 
-    :::image type="content" source="./media/traffic-manager-geographic-routing-method/create-traffic-manager-profile.png" alt-text="Criar um perfil do Gerenciador de Tráfego":::
+    :::image type="content" source="./media/traffic-manager-geographic-routing-method/create-traffic-manager-profile.png" alt-text="Página de perfil Criar um Gerenciador de Tráfego":::
 
 ## <a name="add-endpoints"></a>Adicionar pontos de extremidade
 
 1. Selecione o perfil do Gerenciador de Tráfego na lista.
 
-    :::image type="content" source="./media/traffic-manager-geographic-routing-method/traffic-manager-list-geographic.png" alt-text="Criar um perfil do Gerenciador de Tráfego":::
+    :::image type="content" source="./media/traffic-manager-geographic-routing-method/traffic-manager-list-geographic.png" alt-text="Lista geográfica do Gerenciador de Tráfego":::
 
 1. Selecione **Pontos de Extremidade** em *Configurações* e selecione **+ Adicionar** para adicionar um novo ponto de extremidade.
 
-    :::image type="content" source="./media/traffic-manager-geographic-routing-method/add-geographic-endpoint.png" alt-text="Criar um perfil do Gerenciador de Tráfego":::
+    :::image type="content" source="./media/traffic-manager-geographic-routing-method/add-geographic-endpoint.png" alt-text="Adicionar pontos de extremidade":::
 
 1. Selecione ou insira as seguintes configurações: 
 
@@ -76,30 +76,30 @@ Neste tutorial, você aprenderá como:
     > [!Note]
     > Determinados campos nessa página dependem do tipo de ponto de extremidade que você está adicionando:
     > 1. Se estiver adicionando um ponto de extremidade do Azure, selecione o **Tipo de recurso de destino** e o **Destino** com base no recurso para o qual quer direcionar o tráfego
-    > 1. Se estiver adicionando um ponto de extremidade **Externo** , forneça o **FQDN (nome de domínio totalmente qualificado)** para o ponto de extremidade.
-    > 1. Se estiver adicionando um **ponto de extremidade Aninhado** , selecione o **Recurso de destino** que corresponda ao perfil filho que quer usar e especifique a **Contagem mínima de pontos de extremidade filho** .
+    > 1. Se estiver adicionando um ponto de extremidade **Externo**, forneça o **FQDN (nome de domínio totalmente qualificado)** para o ponto de extremidade.
+    > 1. Se estiver adicionando um **ponto de extremidade Aninhado**, selecione o **Recurso de destino** que corresponda ao perfil filho que quer usar e especifique a **Contagem mínima de pontos de extremidade filho**.
 
-1. Na seção *Mapeamento geográfico* , use a lista suspensa para adicionar as regiões de onde você quer que o tráfego seja enviado para esse ponto de extremidade. Pelo menos uma região precisa ser adicionada. Você pode ter várias regiões mapeadas.
+1. Na seção *Mapeamento geográfico*, use a lista suspensa para adicionar as regiões de onde você quer que o tráfego seja enviado para esse ponto de extremidade. Pelo menos uma região precisa ser adicionada. Você pode ter várias regiões mapeadas.
 
-1. Repita essa última etapa para todos os pontos de extremidade que queira adicionar nesse perfil e selecione **Salvar** .
+1. Repita essa última etapa para todos os pontos de extremidade que queira adicionar nesse perfil e selecione **Salvar**.
 
-    :::image type="content" source="./media/traffic-manager-geographic-routing-method/traffic-manager-add-endpoint.png" alt-text="Criar um perfil do Gerenciador de Tráfego":::
+    :::image type="content" source="./media/traffic-manager-geographic-routing-method/traffic-manager-add-endpoint.png" alt-text="Adicionar um ponto de extremidade do Gerenciador de Tráfego":::
 
 ## <a name="use-the-traffic-manager-profile"></a>Usar o perfil do Gerenciador de Tráfego
 
 1.  Na barra de pesquisa do portal, pesquise o nome do **Perfil do Gerenciador de Tráfego** que você criou na seção anterior e selecione o perfil do gerenciador de tráfego nos resultados exibidos.
     
-    :::image type="content" source="./media/traffic-manager-geographic-routing-method/search-traffic-manager-profile.png" alt-text="Criar um perfil do Gerenciador de Tráfego":::
+    :::image type="content" source="./media/traffic-manager-geographic-routing-method/search-traffic-manager-profile.png" alt-text="Pesquisar perfil do Gerenciador de Tráfego":::
 
 1. O **Perfil do Gerenciador de Tráfego** exibe o nome DNS do perfil do Gerenciador de Tráfego criado recentemente. Esse nome pode ser usado por todos os clientes (por exemplo, navegando até ele usando um navegador da Web) para ser roteado para o ponto de extremidade correto, conforme determinado pelo tipo de roteamento. Com o roteamento geográfico, o Gerenciador de Tráfego examina o IP de origem da solicitação de entrada e determina a região da qual ela se origina. Se essa região estiver mapeada para um ponto de extremidade, o tráfego será roteado para lá. Se essa região não estiver mapeada para um ponto de extremidade, o Gerenciador de Tráfego retornará uma resposta de consulta NODATA.
 
-    :::image type="content" source="./media/traffic-manager-geographic-routing-method/traffic-manager-geographic-overview.png" alt-text="Criar um perfil do Gerenciador de Tráfego":::
+    :::image type="content" source="./media/traffic-manager-geographic-routing-method/traffic-manager-geographic-overview.png" alt-text="Visão geral do Gerenciador de Tráfego geográfico":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se você não precisar mais do perfil do Gerenciador de Tráfego, localize o perfil e selecione **Excluir perfil** .
+Se você não precisar mais do perfil do Gerenciador de Tráfego, localize o perfil e selecione **Excluir perfil**.
 
-:::image type="content" source="./media/traffic-manager-geographic-routing-method/delete-traffic-manager-profile.png" alt-text="Criar um perfil do Gerenciador de Tráfego":::
+:::image type="content" source="./media/traffic-manager-geographic-routing-method/delete-traffic-manager-profile.png" alt-text="Excluir o perfil do Gerenciador de Tráfego":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

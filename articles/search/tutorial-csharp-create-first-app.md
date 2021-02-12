@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ec98762ac5918437e8fdb8426b54b79b1fb5b222
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 961e30cf17bf385647f4482c6f767641c6b891af
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939714"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791671"
 ---
 # <a name="tutorial-create-your-first-search-app-using-the-net-sdk"></a>Tutorial: Criar seu primeiro aplicativo de pesquisa usando o SDK do .NET
 
@@ -77,7 +77,7 @@ Se você quiser avançar para um aplicativo em funcionamento, siga as etapas aba
 
 1. Este é um índice de hotéis, portanto, digite algumas palavras que você possa usar para pesquisar hotéis (por exemplo, "WiFi", "vista", "bar", "estacionamento") e examine os resultados.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-wifi.png" alt-text="Pesquisando *pool*" border="true":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-wifi.png" alt-text="Pesquisando *wifi*" border="true":::
 
 Esperamos que este projeto transcorra sem problemas e você tenha o aplicativo Web execução. Muitos dos componentes essenciais para pesquisas mais sofisticadas estão incluídos neste aplicativo, portanto, é uma boa ideia repassá-lo e recriá-lo passo a passo. As seções a seguir abrangem essas etapas.
 
@@ -87,17 +87,17 @@ Para criar esse projeto do zero e, assim, reforçar os conceitos do Azure Cognit
 
 1. No Visual Studio, selecione **Novo** > **Projeto** e **Aplicativo Web ASP.NET Core**.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project1.png" alt-text="Pesquisando *pool*" border="true":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project1.png" alt-text="Como criar um projeto de nuvem" border="true":::
 
 1. Dê um nome ao projeto, como "FirstSearchApp", e defina a localização. Selecione **Criar**.
 
 1. Escolha o modelo de projeto **Aplicativo Web (Model-View-Controller)** .
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project2.png" alt-text="Pesquisando *pool*" border="true":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project2.png" alt-text="Como criar um projeto MVC" border="true":::
 
 1. Instalar a biblioteca de clientes. Em **Ferramentas** > **Gerenciador de Pacotes do NuGet** > **Gerenciar Pacotes do NuGet para a Solução...** , selecione **Procurar** e pesquise por "azure.search.documents". Instale o **Azure.Search.Documents** (versão 11 ou posterior), aceitando os contratos de licença e as dependências.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="Pesquisando *pool*" border="true":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="Como usar o NuGet para adicionar bibliotecas do Azure" border="true":::
 
 ### <a name="initialize-azure-cognitive-search"></a>Inicializar a Pesquisa Cognitiva do Azure
 
@@ -114,7 +114,7 @@ Para este exemplo, você está usando dados de hotel disponíveis ao público. E
 
 1. Em Gerenciador de Soluções, selecione o arquivo e, em Propriedades, altere a configuração **Copiar para o Diretório de Saída** para **Copiar se for mais recente**.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-copy-if-newer.png" alt-text="Pesquisando *pool*" border="true":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-copy-if-newer.png" alt-text="Como copiar as configurações do aplicativo para a saída" border="true":::
 
 ## <a name="model-data-structures"></a>Modelar estruturas de dados
 
@@ -534,11 +534,11 @@ Agora, vamos verificar se o aplicativo é executado corretamente.
 
 1. Selecione **Depurar** > **Iniciar Sem Depurar** ou pressione **F5**. Se o aplicativo for executado conforme o esperado, você deverá obter a exibição de índice inicial.
 
-     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-index.png" alt-text="Pesquisando *pool*" border="true":::
+     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-index.png" alt-text="Como abrir o aplicativo" border="true":::
 
 1. Insira uma cadeia de consulta como "praia" (ou qualquer texto que lhe venha à cabeça) e clique no ícone de pesquisa para enviar a solicitação.
 
-     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-beach.png" alt-text="Pesquisando *pool*" border="true":::
+     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-beach.png" alt-text="Pesquisando *praia*" border="true":::
 
 1. Tente inserir "cinco estrelas". Observe que essa consulta não retorna nenhum resultado. Uma pesquisa mais sofisticada trataria "cinco estrelas" como sinônimo de "luxo" e retornaria esses resultados. O suporte para [sinônimos](search-synonyms.md) está disponível no Azure Cognitive Search, mas não é abordado nesta série de tutoriais.
 
@@ -554,7 +554,7 @@ Agora, vamos verificar se o aplicativo é executado corretamente.
 
 2. Execute o aplicativo, insira "bar" como o texto de pesquisa e clique no ícone de pesquisa. A exceção deve resultar na exibição de erro.
 
-     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-error.png" alt-text="Pesquisando *pool*" border="true":::
+     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-error.png" alt-text="Forçar um erro" border="true":::
 
     > [!Important]
     > Retornar os números de erro internos em páginas de erro é considerado um risco de segurança. Caso seu aplicativo destina-se a uso geral, investigue melhores práticas e segurança com relação ao que retornar quando ocorre um erro.

@@ -7,11 +7,11 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 10/30/2018
 ms.openlocfilehash: e88616f45c69d33234aa35333e0d82ad8cc59bb6
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219353"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015274"
 ---
 # <a name="best-practices-for-managing-u-sql-assemblies-in-a-cicd-pipeline"></a>Práticas recomendadas para gerenciar assemblies do U-SQL em um pipeline de CI/CD
 
@@ -57,7 +57,7 @@ Siga estas etapas para criar projetos e adicionar referências.
 
 1. Adicione **Dependências Gerenciadas** e **Arquivos Adicionais**, se houver. Ao adicionar arquivos adicionais, a ferramenta usará o caminho relativo para garantir que encontrará os assemblies no computador local e no computador de build.
 
-** \@ _DeployTempDirectory** na janela do editor na parte inferior é uma variável predefinida que aponta a ferramenta para a pasta de saída da compilação. Na pasta de saída de compilação, cada assembly possui uma subpasta nomeada com o nome do assembly. Todas as DLLs e arquivos adicionais estão na subpasta.
+**\@ _DeployTempDirectory** na janela do editor na parte inferior é uma variável predefinida que aponta a ferramenta para a pasta de saída da compilação. Na pasta de saída de compilação, cada assembly possui uma subpasta nomeada com o nome do assembly. Todas as DLLs e arquivos adicionais estão na subpasta.
 
 ## <a name="build-a-u-sql-database-project"></a>Compilar um projeto de banco de dados U-SQL
 

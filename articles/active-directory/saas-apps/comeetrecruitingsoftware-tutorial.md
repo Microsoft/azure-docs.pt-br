@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 7f992969cf50bb03df7091e0015c936a794946a6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d458d94a4bee4fce523819af2fd3e555db6e70df
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455571"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97671987"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-comeet-recruiting-software"></a>Tutorial: Integração do Active Directory do Azure com o software de recrutamento Comeet
 
@@ -49,11 +49,11 @@ Para configurar a integração do Comeet Recruiting Software ao Azure AD, você 
 
 **Para adicionar o Comeet Recruiting Software da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory** .
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos** .
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Para configurar a integração do Comeet Recruiting Software ao Azure AD, você 
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Comeet Recruiting Software** , selecione **Comeet Recruiting Software** no painel de resultados e clique no botão **Add** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Comeet Recruiting Software**, selecione **Comeet Recruiting Software** no painel de resultados e clique no botão **Add** para adicionar o aplicativo.
 
-     ![Comeet Recruiting Software na lista de resultados](common/search-new-app.png)
+    ![Comeet Recruiting Software na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Comeet Recruiting Software com base em um usuário de teste chamado **Brenda Fernandes** .
+Nesta seção, você configurará e testará o logon único do Azure AD com o Comeet Recruiting Software com base em um usuário de teste chamado **Brenda Fernandes**.
 Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Comeet Recruiting Software.
 
 Para configurar e testar o AD do Azure logon único com o Software de recrutamento Comeet, você precisa concluir os seguintes blocos de construção:
@@ -85,19 +85,19 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Comeet Recruiting Software, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativo do **Comeet Recruiting Software** , clique em **Logon único** .
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativo do **Comeet Recruiting Software**, clique em **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML** .
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica do SAML** , execute as etapas a seguir caso deseje configurar o aplicativo no modo **IDP** iniciado:
+4. Na seção **Configuração básica do SAML**, execute as etapas a seguir caso deseje configurar o aplicativo no modo **IDP** iniciado:
 
     ![Captura de tela que mostra a seção "Configuração Básica de SAML" com a ação "Salvar", o campo "Identificador" e o campo "URL de Resposta" realçados.](common/idp-intiated.png)
 
@@ -112,20 +112,20 @@ Para configurar o logon único do Azure AD com o Comeet Recruiting Software, exe
 
     ![Comeet Recruiting Software Domínio e URLs de conexão única](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de Logon** , digite uma URL: `https://app.comeet.co`
+    Na caixa de texto **URL de Logon**, digite uma URL: `https://app.comeet.co`
 
-5. O aplicativo Comeet Recruiting Software espera que as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção **Atributos de Usuário** na página de integração de aplicativos. Na página **Definir Logon Único com SAML** , clique no botão **Editar** para abrir a caixa de diálogo **Atributos do Usuário** .
+5. O aplicativo Comeet Recruiting Software espera que as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção **Atributos de Usuário** na página de integração de aplicativos. Na página **Definir Logon Único com SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Atributos do Usuário**.
 
     ![Captura de tela que mostra a seção "Atributos do Usuário" com o botão "Editar" selecionado.](common/edit-attribute.png)
 
-6. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário** , edite as declarações usando o **ícone Editar** ou adicione as declarações usando **Adicionar nova declaração** para configurar o atributo de token SAML conforme mostrado na imagem acima e executar as seguintes etapas: 
+6. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, edite as declarações usando o **ícone Editar** ou adicione as declarações usando **Adicionar nova declaração** para configurar o atributo de token SAML conforme mostrado na imagem acima e executar as seguintes etapas: 
 
     | Nome |  Atributo de Origem|
     | ---------------| --------------- |
     | nameidentifier | user.mail |
     | comeet_id | user.userprincipalname |
 
-    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários** .
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![Captura de tela que mostra a seção "Declarações do usuário" com as ações "Adicionar declaração" e "Salvar" realçadas.](common/new-save-attribute.png)
 
@@ -135,19 +135,19 @@ Para configurar o logon único do Azure AD com o Comeet Recruiting Software, exe
 
     c. Deixe o **Namespace** em branco.
 
-    d. Escolha Origem como **Atributo** .
+    d. Escolha Origem como **Atributo**.
 
-    e. Na lista **Atributo de origem** , digite o valor do atributo mostrado para essa linha.
+    e. Na lista **Atributo de origem**, digite o valor do atributo mostrado para essa linha.
 
     f. Clique em **Ok**
 
     g. Clique em **Save** (Salvar).
 
-4. Na página **Configurar Logon Único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+4. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-6. Na seção **Configurar o Comeet Recruiting Software** , copie as URLs apropriadas de acordo com suas necessidades.
+6. Na seção **Configurar o Comeet Recruiting Software**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -159,13 +159,13 @@ Para configurar o logon único do Azure AD com o Comeet Recruiting Software, exe
 
 ### <a name="configure-comeet-recruiting-software-single-sign-on"></a>Configure o Comeet Recruiting Software para logon único
 
-Para configurar o logon único no lado do **Comeet Recruiting Software** , é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Comeet Recruiting Software](https://support.comeet.co/knowledgebase/adfs-single-sign-on/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **Comeet Recruiting Software**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Comeet Recruiting Software](https://support.comeet.co/knowledgebase/adfs-single-sign-on/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários** .
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -177,40 +177,40 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes** .
-  
-    b. No campo **Nome de usuário** , digite **brendafernandes\@dominiodaempresa.extensao**  
+    a. No campo **Nome**, insira **BrendaFernandes**.
+
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, concedendo acesso ao Comeet Recruiting Software.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, selecione **Comeet Recruiting Software** .
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, selecione **Comeet Recruiting Software**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **Comeet recrutamento Software** .
+2. Na lista de aplicativos, selecione **Comeet recrutamento Software**.
 
     ![O link do Software de recrutamento Comeet na lista de aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Usuários e grupos** .
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
     ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-comeet-recruiting-software-test-user"></a>Criar usuário de teste do Comeet Recruiting Software
 

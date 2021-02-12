@@ -6,13 +6,13 @@ ms.date: 09/24/2020
 ms.custom:
 - H1Hack27Feb2017
 - devx-track-csharp
-- contperfq1
-ms.openlocfilehash: 1bacb0c71c05aeb983bfa9ebf71873a22fea39a1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+- contperf-fy21q1
+ms.openlocfilehash: b4c6ab99b0fa93e5fdea4256d6f232cc0fe4218e
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "91277692"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033724"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implantar aplicativos em nós de computação com pacotes de aplicativos do Lote
 
@@ -77,7 +77,7 @@ O serviço de Lote usa o Armazenamento do Azure para armazenar os pacotes de apl
 
 Para exibir os aplicativos em sua conta do lote, selecione **aplicativos** no menu de navegação à esquerda.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_02.png" alt-text="Diagrama mostrando uma exibição de alto nível de aplicativos e pacotes de aplicativos.":::
+:::image type="content" source="media/batch-application-packages/app_pkg_02.png" alt-text="Captura de tela do item de menu aplicativos no portal do Azure.":::
 
 A seleção dessa opção de menu abre a janela **aplicativos** . Essa janela exibe a ID de cada aplicativo em sua conta e as seguintes propriedades:
 
@@ -101,7 +101,7 @@ Para criar um novo aplicativo, você adiciona um pacote de aplicativos e especif
 
 Em sua conta do lote, selecione **aplicativos** e, em seguida, selecione **Adicionar**.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_05.png" alt-text="Diagrama mostrando uma exibição de alto nível de aplicativos e pacotes de aplicativos.":::
+:::image type="content" source="media/batch-application-packages/app_pkg_05.png" alt-text="Captura de tela do novo processo de criação de aplicativos no portal do Azure.":::
 
 Insira as seguintes informações:
 
@@ -128,7 +128,7 @@ Como você fez para o novo aplicativo, especifique a **versão** do novo pacote,
 
 Para atualizar ou excluir um pacote de aplicativos existente, selecione o aplicativo na seção **aplicativos** da sua conta do lote. Selecione as reticências na linha do pacote de aplicativos que você deseja modificar e, em seguida, selecione a ação que deseja executar.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_07.png" alt-text="Diagrama mostrando uma exibição de alto nível de aplicativos e pacotes de aplicativos.":::
+:::image type="content" source="media/batch-application-packages/app_pkg_07.png" alt-text="Captura de tela mostrando as opções de atualização e exclusão para pacotes de aplicativos no portal do Azure.":::
 
 Se você selecionar **Atualizar**, poderá carregar um novo arquivo. zip. Isso substituirá o arquivo. zip anterior que você carregou para essa versão.
 

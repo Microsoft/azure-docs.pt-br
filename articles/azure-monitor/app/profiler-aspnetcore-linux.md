@@ -7,12 +7,12 @@ author: cweining
 ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 69ec25348c3056536a2e09fd889b48e1e63ea7bb
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 6ef52e946edb5db8074a9b4e3ce5e4a81ae0bde5
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992768"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561045"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Criar o perfil de aplicativos web ASP.NET Core Azure Linux com o Application Insights Profiler
 
@@ -123,7 +123,7 @@ Para obter mais opções de implantação, consulte a [documentação do serviç
 2. Implante o projeto efetuando push nas alterações para o Azure:
 
     ```console
-    git push azure master
+    git push azure main
     ```
 
     Você deverá ver uma saída semelhante ao seguinte exemplo:
@@ -134,7 +134,7 @@ Para obter mais opções de implantação, consulte a [documentação do serviç
     Compressing objects: 100% (8/8), done.
     Writing objects: 100% (9/9), 1.78 KiB | 911.00 KiB/s, done.
     Total 9 (delta 3), reused 0 (delta 0)
-    remote: Updating branch 'master'.
+    remote: Updating branch 'main'.
     remote: Updating submodules.
     remote: Preparing deployment for commit id 'd7369a99d7'.
     remote: Generating deployment script.

@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 2100572c0bcf5bf65fe5a70ab9e552c2d7f72934
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58616b647affd33e96357e556ab61f85d1c62129
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983256"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752270"
 ---
 # <a name="authentication-requests-and-responses"></a>Autenticação, solicitações e respostas
 
@@ -39,9 +39,9 @@ Aqui estão os sufixos de URL usados para acessar cada tipo de objeto
 
 O Azure Key Vault oferece suporte a solicitações e respostas no formato JSON. As solicitações para o Azure Key Vault são direcionadas para uma URL válida do Azure Key Vault usando HTTPS com alguns parâmetros de URL e corpos de solicitação e resposta codificados com JSON.
 
-Este tópico aborda informações específicas para o serviço do Azure Key Vault. Para obter informações gerais sobre o uso de interfaces de REST do Azure, incluindo autenticação/autorização e como adquirir um token de acesso, consulte a [Referência da API REST do Azure](https://docs.microsoft.com/rest/api/azure).
+Este tópico aborda informações específicas para o serviço do Azure Key Vault. Para obter informações gerais sobre o uso de interfaces de REST do Azure, incluindo autenticação/autorização e como adquirir um token de acesso, consulte a [Referência da API REST do Azure](/rest/api/azure).
 
-## <a name="request-url"></a>URL de Solicitação  
+## <a name="request-url"></a>URL da solicitação  
  As principais operações de gerenciamento usam HTTP DELETE, GET, PATCH, PUT e HTTP POST e operações criptográficas em relação a objetos de chave existentes usam HTTP POST. Os clientes que não suportam verbos HTTP específicos também podem usar HTTP POST usando o cabeçalho X-HTTP-REQUEST para especificar o verbo pretendido; solicitações que normalmente não exigem um corpo devem incluir um corpo vazio quando usando HTTP POST, por exemplo, ao usar POST em vez de DELETE.  
 
  Para trabalhar com objetos no Azure Key Vault, a seguir estão exemplos de URLs:  
@@ -111,7 +111,7 @@ Este tópico aborda informações específicas para o serviço do Azure Key Vaul
 ## <a name="authentication"></a>Autenticação  
  Todas as solicitações para o Azure Key Vault DEVEM ser autenticadas. O Azure Key Vault oferece suporte a tokens de acesso do Azure Active Directory que podem ser obtidos usando OAuth2 [[RFC6749](https://tools.ietf.org/html/rfc6749)]. 
  
- Para obter mais informações sobre como registrar seu aplicativo e sobre a autenticação para usar o Azure Key Vault, consulte [Registrar seu aplicativo cliente com o Azure AD](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad).
+ Para obter mais informações sobre como registrar seu aplicativo e sobre a autenticação para usar o Azure Key Vault, consulte [Registrar seu aplicativo cliente com o Azure AD](/rest/api/azure/index#register-your-client-application-with-azure-ad).
  
  Tokens de acesso devem ser enviados para o serviço usando o cabeçalho de autorização HTTP:  
 
@@ -133,5 +133,7 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
 -   authorization: O endereço do serviço de autorização OAuth2 que pode ser usado para obter um token de acesso para a solicitação.  
 
--   recurso: o nome do recurso ( `https://vault.azure.net` ) a ser usado na solicitação de autorização.  
+-   recurso: o nome do recurso ( `https://vault.azure.net` ) a ser usado na solicitação de autorização.
 
+> [!NOTE]
+> Key Vault clientes SDK para segredos, certificados e chaves na primeira chamada para Key Vault não fornecem um token de acesso para recuperar informações de locatário. Espera-se que receba um HTTP 401 usando Key Vault cliente SDK em que o Key Vault mostra ao aplicativo o cabeçalho de WWW-Authenticate que contém o recurso e o locatário onde ele precisa ir e solicitar o token. Se tudo estiver configurado corretamente, a segunda chamada do aplicativo para Key Vault conterá um token válido e terá êxito. 

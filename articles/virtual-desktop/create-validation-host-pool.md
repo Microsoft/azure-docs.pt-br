@@ -3,15 +3,15 @@ title: Atualizações de serviço de pool de hosts da Área de Trabalho Virtual 
 description: Como criar um pool de host de validação para monitorar atualizações de serviço antes de distribuir atualizações para a produção.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 03/13/2020
+ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b8eb8378480b8784939e3ab63327e73e3705c74a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ead4c0aa7d8d71642fd8a4635edbabcafee5b6c2
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90526503"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563238"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutorial: Criar um pool de hosts para validar as atualizações de serviço
 
@@ -66,6 +66,20 @@ Os resultados do cmdlet devem ser semelhantes a esta saída:
     LoadBalancerType    : BreadthFirst
     ValidationEnvironment : True
 ```
+
+## <a name="enable-your-validation-environment-with-the-azure-portal"></a>Habilitar seu ambiente de validação com o portal do Azure
+
+Use também o portal do Azure para habilitar seu ambiente de validação.
+
+Para usar o portal do Azure e configurar o pool de host de validação:
+
+1. Entre no Portal do Azure em <https://portal.azure.com>.
+2. Pesquise e selecione **Área de Trabalho Virtual do Windows**.
+3. Na página Área de Trabalho Virtual do Windows, selecione **Pools de host**.
+4. Selecione o nome do pool de host que deseja editar.
+5. Selecione **Propriedades**.
+6. No campo do ambiente de validação, escolha **Sim** para habilitar o ambiente de validação.
+7. Selecione **Salvar**. Isso aplicará as novas configurações.
 
 ## <a name="update-schedule"></a>Agenda de atualização
 

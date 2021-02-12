@@ -4,12 +4,12 @@ description: Neste artigo, saiba como criar e configurar cofres de serviços de 
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: c7e7509f18e7511cd60099a70785b4e2c890afad
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 4022838575ca53608a802a6be95e150778db6ac7
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171625"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525967"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Criar e configurar um cofre dos serviços de recuperação
 
@@ -46,9 +46,9 @@ A opção de restauração de **CRR (restauração entre regiões)** permite que
 
 Ele dá suporte às seguintes fontes de origem:
 
-- VMs do Azure
-- Bancos de dados SQL hospedados em VMs do Azure
-- SAP HANA bancos de dados hospedados em VMs do Azure
+- VMs do Azure (disponibilidade geral)
+- Bancos de dados SQL hospedados em VMs do Azure (versão prévia)
+- SAP HANA bancos de dados hospedados em VMs do Azure (versão prévia)
 
 Usar a restauração entre regiões permite que você:
 
@@ -65,11 +65,13 @@ Como esse processo está no nível de armazenamento, há [implicações de preç
 >Antes de começar:
 >
 >- Examine a [matriz de suporte](backup-support-matrix.md#cross-region-restore) para obter uma lista de tipos e regiões gerenciados com suporte.
->- O recurso de CRR (restauração entre regiões) agora é visualizado em todas as regiões públicas do Azure e nuvens soberanas.
+>- O recurso de CRR (restauração entre regiões) para VMs do Azure agora está em disponibilidade geral em todas as regiões públicas do Azure.
+>- A restauração entre regiões para bancos de dados SQL e SAP HANA está em versão prévia em todas as regiões públicas do Azure.
 >- A CRR é um recurso de consentimento de nível de cofre para qualquer cofre GRS (desativado por padrão).
 >- Depois de aceitar, pode levar até 48 horas para que os itens de backup estejam disponíveis em regiões secundárias.
 >- Atualmente, a CRR para VMs do Azure tem suporte apenas para VMs do Azure do Azure Resource Manager. Não haverá suporte para VMs clássicas do Azure.  Quando tipos de gerenciamento adicionais dão suporte à CRR, eles serão registrados **automaticamente** .
->- Atualmente, a restauração entre regiões não pode ser revertida de volta para GRS ou LRS quando a proteção é iniciada pela primeira vez.
+>- Atualmente, a restauração entre regiões **não pode ser revertida de volta** para grs ou LRS quando a proteção é iniciada pela primeira vez.
+>- Atualmente, o [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) de região secundária é de até 12 horas a partir da região primária, embora a replicação de [armazenamento com REDUNDÂNCIA geográfica (ra-grs) de acesso de leitura](https://docs.microsoft.com/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region) seja de 15 minutos.
 
 ### <a name="configure-cross-region-restore"></a>Configurar a restauração entre regiões
 
@@ -77,8 +79,9 @@ Um cofre criado com redundância GRS inclui a opção de configurar o recurso de
 
  ![Faixa de configuração de backup](./media/backup-azure-arm-restore-vms/banner.png)
 
-1. No portal, acesse cofre dos serviços de recuperação > configurações > Propriedades.
-2. Selecione **habilitar a restauração entre regiões neste cofre** para habilitar a funcionalidade.
+1. No portal, acesse o cofre dos serviços de recuperação > **Propriedades** (em **configurações**).
+1. Em **configuração de backup**, selecione **Atualizar**.
+1. Selecione **habilitar a restauração entre regiões neste cofre** para habilitar a funcionalidade.
 
    ![Habilitar restauração entre regiões](./media/backup-azure-arm-restore-vms/backup-configuration.png)
 

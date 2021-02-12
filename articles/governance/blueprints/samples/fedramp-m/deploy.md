@@ -1,14 +1,14 @@
 ---
 title: Implantar amostra de blueprint do FedRAMP Moderado
 description: Etapas de implantação da amostra de blueprint FedRAMP Moderado, incluindo detalhes do parâmetro do artefato de blueprint.
-ms.date: 10/26/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 21da37b66626b3591fc0c4053cb194486273fc22
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a0e391b20ec662d2bb7bc5b22a7f33c056a9378e
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675862"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034825"
 ---
 # <a name="deploy-the-fedramp-moderate-blueprint-sample"></a>Implantar a amostra de blueprint do FedRAMP Moderado
 
@@ -25,16 +25,16 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Primeiro, implemente a amostra de blueprint criando um blueprint no ambiente usando a amostra como ponto de partida.
 
-1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **Blueprints** .
+1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **Blueprints**.
 
-1. Na página **Introdução** à esquerda, selecione o botão **Criar** em _Criar um blueprint_ .
+1. Na página **Introdução** à esquerda, selecione o botão **Criar** em _Criar um blueprint_.
 
-1. Encontre a amostra de blueprint **FedRAMP Moderado** em _Outras Amostras_ e selecione **Usar esta amostra** .
+1. Encontre a amostra de blueprint **FedRAMP Moderado** em _Outras Amostras_ e selecione **Usar esta amostra**.
 
 1. Insira as informações _Básicas_ do exemplo de blueprint:
 
-   - **Nome do blueprint** : forneça um nome para a sua cópia da amostra de blueprint FedRAMP Moderado.
-   - **Localização da definição** : Use as reticências e selecione o grupo de gerenciamento em que deseja salvar a cópia da amostra.
+   - **Nome do blueprint**: forneça um nome para a sua cópia da amostra de blueprint FedRAMP Moderado.
+   - **Localização da definição**: Use as reticências e selecione o grupo de gerenciamento em que deseja salvar a cópia da amostra.
 
 1. Selecione a guia _Artefatos_ na parte superior da página ou clique em **Avançar: Artefatos** na parte inferior da página.
 
@@ -44,17 +44,17 @@ Primeiro, implemente a amostra de blueprint criando um blueprint no ambiente usa
 
 Agora a cópia do exemplo de blueprint foi criada em seu ambiente. Ela é criada no modo **Rascunho** e deve ser **Publicada** antes de ser atribuída e implantada. A cópia da amostra de blueprint pode ser personalizada de acordo com seu ambiente e suas necessidades, mas essa modificação poderá desviá-lo dos controles do FedRAMP Moderado.
 
-1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **Blueprints** .
+1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **Blueprints**.
 
 1. Selecione a página **Definições de Blueprint** à esquerda. Use os filtros para localizar a cópia da amostra de blueprint e, em seguida, selecione-a.
 
-1. Selecione **Publicar blueprint** na parte superior da página. Na nova página à direita, informe a **Versão** da sua cópia da amostra de blueprint. Essa propriedade será útil se você fizer uma modificação mais tarde. Forneça **Notas de alterações** , como "Primeira versão publicada da amostra de blueprint do FedRAMP Moderado". Em seguida, selecione **Publicar** na parte inferior da página.
+1. Selecione **Publicar blueprint** na parte superior da página. Na nova página à direita, informe a **Versão** da sua cópia da amostra de blueprint. Essa propriedade será útil se você fizer uma modificação mais tarde. Forneça **Notas de alterações**, como "Primeira versão publicada da amostra de blueprint do FedRAMP Moderado". Em seguida, selecione **Publicar** na parte inferior da página.
 
 ## <a name="assign-the-sample-copy"></a>Atribuir a cópia de exemplo
 
 Quando a cópia do exemplo de blueprint for **Publicada** com êxito, ele poderá ser atribuído a uma assinatura do grupo de gerenciamento em que ele foi salvo. Esta é a etapa em que os parâmetros são fornecidos para tornar exclusiva cada implantação da cópia do exemplo de blueprint.
 
-1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **Blueprints** .
+1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **Blueprints**.
 
 1. Selecione a página **Definições de Blueprint** à esquerda. Use os filtros para localizar a cópia da amostra de blueprint e, em seguida, selecione-a.
 
@@ -64,11 +64,11 @@ Quando a cópia do exemplo de blueprint for **Publicada** com êxito, ele poder�
 
    - Noções básicas
 
-     - **Assinaturas** : Selecione uma ou mais das assinaturas que estão no grupo de gerenciamento em que você salvou a cópia do exemplo de blueprint. Se você selecionar mais de uma assinatura, será criada uma atribuição para cada uma, usando os parâmetros inseridos.
-     - **Nome da atribuição** : O nome é pré-preenchido para você com base no nome do blueprint.
+     - **Assinaturas**: Selecione uma ou mais das assinaturas que estão no grupo de gerenciamento em que você salvou a cópia do exemplo de blueprint. Se você selecionar mais de uma assinatura, será criada uma atribuição para cada uma, usando os parâmetros inseridos.
+     - **Nome da atribuição**: O nome é pré-preenchido para você com base no nome do blueprint.
        Altere-o conforme necessário ou mantenha-o como está.
-     - **Localização** : Selecione uma região para a identidade gerenciada a ser criada. O Blueprint do Azure usa essa identidade gerenciada para implantar todos os artefatos no blueprint atribuído. Para saber mais, veja [identidades gerenciadas para recursos do Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Versão de definição de blueprint** : Escolha uma versão **Publicada** da cópia da amostra de blueprint.
+     - **Localização**: Selecione uma região para a identidade gerenciada a ser criada. O Blueprint do Azure usa essa identidade gerenciada para implantar todos os artefatos no blueprint atribuído. Para saber mais, veja [identidades gerenciadas para recursos do Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
+     - **Versão de definição de blueprint**: Escolha uma versão **Publicada** da cópia da amostra de blueprint.
 
    - Bloquear atribuição
 
@@ -85,7 +85,7 @@ Quando a cópia do exemplo de blueprint for **Publicada** com êxito, ele poder�
 1. Depois que todos os parâmetros forem inseridos, selecione **Atribuir** na parte inferior da página. A atribuição de blueprint é criada, e a implantação de artefato é iniciada. A implantação leva aproximadamente uma hora. Para verificar o status da implantação, abra a atribuição de blueprint.
 
 > [!WARNING]
-> As amostras internas de blueprint e o serviço Azure Blueprints são **gratuitos** . Os recursos do Azure são [precificados por produto](https://azure.microsoft.com/pricing/). Use a [Calculadora de Preços](https://azure.microsoft.com/pricing/calculator/) para estimar o custo da execução de recursos implantados por essa amostra de blueprint.
+> As amostras internas de blueprint e o serviço Azure Blueprints são **gratuitos**. Os recursos do Azure são [precificados por produto](https://azure.microsoft.com/pricing/). Use a [Calculadora de Preços](https://azure.microsoft.com/pricing/calculator/) para estimar o custo da execução de recursos implantados por essa amostra de blueprint.
 
 ## <a name="artifact-parameters-table"></a>Tabela de parâmetros de artefato
 

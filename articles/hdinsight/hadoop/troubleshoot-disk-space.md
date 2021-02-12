@@ -1,18 +1,15 @@
 ---
 title: Gerenciar o espaço em disco no Azure HDInsight
 description: Etapas de solução de problemas e possíveis resoluções para gerenciar problemas de espaço em disco ao interagir com clusters do Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/17/2020
-ms.openlocfilehash: 82044796cca3e135c15e750d6706fe504622ebdb
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7164494cb08c4b419b9e4d96075ace3e52187497
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540339"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944817"
 ---
 # <a name="manage-disk-space-in-azure-hdinsight"></a>Gerenciar o espaço em disco no Azure HDInsight
 
@@ -22,7 +19,7 @@ Este artigo descreve as etapas de solução de problemas e as possíveis resolu�
 
 1. Em um navegador da Web, navegue até `https://CLUSTERNAME.azurehdinsight.net`, em que `CLUSTERNAME` é o nome do cluster.
 
-1. Navegue até configurações do **Hive**  >  **Configs**  >  **avançado** avançado  >  **Hive-Log4J** . Examine as seguintes configurações:
+1. Navegue até configurações do **Hive**  >    >  **avançado** avançado  >  **Hive-Log4J**. Examine as seguintes configurações:
 
     * `hive.root.logger=DEBUG,RFA`. Esse é o valor padrão, modifique o [nível de log](https://logging.apache.org/log4j/2.x/log4j-api/apidocs/org/apache/logging/log4j/Level.html) para `INFO` para imprimir menos entradas de logs.
 
@@ -38,7 +35,7 @@ Examine as seguintes configurações:
 
     1. Em um navegador da Web, navegue até `https://CLUSTERNAME.azurehdinsight.net`, em que `CLUSTERNAME` é o nome do cluster.
 
-    1. Navegue até configurações do **Hive**  >  **Configs**  >  **Advanced**  >  **Gerenciador de recursos** avançado. Verifique se **habilitar a agregação de log** está marcado. Se desabilitado, os nós de nome manterão os logs localmente e não os agregarão no armazenamento remoto na conclusão ou término do aplicativo.
+    1. Navegue até configurações do **Hive**  >    >    >  **Gerenciador de recursos** avançado. Verifique se **habilitar a agregação de log** está marcado. Se desabilitado, os nós de nome manterão os logs localmente e não os agregarão no armazenamento remoto na conclusão ou término do aplicativo.
 
 * Verifique se o tamanho do cluster é apropriado para a carga de trabalho. A carga de trabalho pode ter sido alterada recentemente ou o cluster pode ter sido redimensionado. [Escalar verticalmente](../hdinsight-scaling-best-practices.md) o cluster para corresponder a uma carga de trabalho maior.
 
@@ -52,4 +49,4 @@ Se você não encontrou seu problema ou não conseguiu resolver seu problema, vi
 
 * Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Como se conectar à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte** . Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 15026c378c4c399915e99b0910f1e6518f5adfc8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: da3386692d2d02015c0d3f59c88ae78a6c84b9ab
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151861"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203092"
 ---
 # <a name="azure-security-baseline-for-azure-monitor"></a>Linha de base de segurança do Azure para Azure Monitor
 
@@ -154,7 +154,7 @@ Como alternativa, você pode habilitar o e os dados integrados para o Azure Sent
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Introdução às consultas de Log Analytics](log-query/get-started-portal.md)
+- [Introdução às consultas de Log Analytics](./log-query/log-analytics-tutorial.md)
 
 - [Como realizar consultas personalizadas no Azure Monitor](log-query/get-started-queries.md)
 
@@ -182,7 +182,7 @@ Como alternativa, você pode habilitar o e os dados integrados para o Azure Sent
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: manter um inventário de contas administrativas
 
-**Diretrizes**: o Azure RBAC (controle de acesso baseado em função) do Azure permite que você gerencie o acesso aos recursos do Azure por meio de atribuições de função. Você pode atribuir essas funções a usuários, grupos de entidades de serviço e identidades gerenciadas. Há funções internas predefinidas para determinados recursos, e essas funções podem ser inventariadas ou consultadas por meio de ferramentas como CLI do Azure, Azure PowerShell ou portal do Azure.
+**Diretrizes**: o Azure RBAC (controle de acesso baseado em função) do Azure permite que você gerencie o acesso aos recursos do Azure por meio de atribuições de função. Você pode atribuir essas funções a usuários, grupos de entidades de serviço e identidades gerenciadas. Há funções internas predefinidas para determinados recursos, e essas funções podem ser inventariadas ou consultadas por meio de ferramentas como a CLI do Azure, o Azure PowerShell ou o portal do Azure.
 
 - [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -230,7 +230,7 @@ Você também pode habilitar um acesso just-in-time/apenas o suficiente usando A
 
 **Diretrizes**: Use uma estação de trabalho segura e gerenciada pelo Azure (também conhecida como uma estação de trabalho com acesso privilegiado ou Paw) para tarefas administrativas que exigem privilégios elevados.
 
-- [Entenda as estações de trabalho seguras e gerenciadas pelo Azure](../active-directory/devices/concept-azure-managed-workstation.md)
+- [Entenda as estações de trabalho seguras e gerenciadas pelo Azure](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Como habilitar o Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -324,7 +324,7 @@ Você também pode habilitar um acesso just-in-time/apenas o suficiente usando A
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: isolar sistemas que armazenam ou processam informações confidenciais
 
-**Diretrizes**: implemente o isolamento usando assinaturas e grupos de gerenciamento separados para domínios de segurança individuais, como tipo de ambiente e nível de sensibilidade de dados. Você pode restringir o nível de acesso ao seu Azure Monitor e aos recursos relacionados que seus aplicativos e ambientes empresariais exigem. Você pode controlar o acesso a Azure Monitor por meio de Azure Active Directory controle de acesso baseado em função.
+**Diretrizes**: implemente o isolamento usando assinaturas e grupos de gerenciamento separados para domínios de segurança individuais, como tipo de ambiente e nível de sensibilidade de dados. Você pode restringir o nível de acesso ao seu Azure Monitor e aos recursos relacionados que seus aplicativos e ambientes empresariais exigem. Você pode controlar o acesso a Azure Monitor por meio do controle de acesso baseado em função do Azure.
 
 - [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
@@ -361,7 +361,7 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usar o controle de acesso baseado em função para controlar o acesso aos recursos
 
-**Orientação**: Use o RBAC (controle de acesso baseado em função) do Azure para gerenciar o acesso a Azure monitor.
+**Orientação**: Use o controle de acesso baseado em função do Azure (RBAC do Azure) para gerenciar o acesso a Azure monitor.
 
 - [Funções, permissões e segurança no Azure Monitor](platform/roles-permissions-security.md)
 
@@ -381,7 +381,7 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 - [Coleta, retenção e armazenamento de dados no Application Insights](app/data-retention-privacy.md)
 
-- [Entender a criptografia em repouso no Azure](../security/fundamentals/encryption-atrest.md) 
+- [Noções básicas sobre a criptografia em repouso do Azure](../security/fundamentals/encryption-atrest.md) 
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -465,11 +465,11 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 **Diretrizes**: Use Azure Policy para colocar restrições no tipo de recursos que podem ser criados em suas assinaturas.
 
-Use o grafo de recursos do Azure para consultar e descobrir recursos em suas assinaturas.  Verifique se todos os recursos do Azure presentes no ambiente foram aprovados.
+Use o Azure Resource Graph para consultar e descobrir recursos dentro das assinaturas deles.  Verifique se todos os recursos do Azure presentes no ambiente foram aprovados.
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Como criar consultas com o Gerenciador de gráficos de recursos do Azure](../governance/resource-graph/first-query-portal.md)
+- [Como criar consultas com o Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -685,7 +685,7 @@ Use a detecção de ameaças da central de segurança do Azure para serviços de
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: garantir a proteção de backups e chaves gerenciadas pelo cliente
 
-**Diretrizes**: Use o DevOps do Azure para armazenar e gerenciar com segurança seu código, como políticas personalizadas do azure, Azure Resource Manager modelos. Para proteger os recursos que você gerencia no Azure DevOps, você pode conceder ou negar permissões a usuários específicos, grupos de segurança internos ou grupos definidos no Azure Active Directory (AD do Azure), se integrados ao Azure DevOps, ou Active Directory se integrado ao TFS.   Use o controle de acesso baseado em função para proteger chaves gerenciadas pelo cliente. 
+**Diretrizes**: Use o DevOps do Azure para armazenar e gerenciar com segurança seu código, como políticas personalizadas do azure, Azure Resource Manager modelos. Para proteger os recursos que você gerencia no Azure DevOps, você pode conceder ou negar permissões a usuários específicos, grupos de segurança internos ou grupos definidos no Azure Active Directory (AD do Azure), se integrados ao Azure DevOps, ou Active Directory se integrado ao TFS.   Use o controle de acesso baseado em função do Azure para proteger chaves gerenciadas pelo cliente. 
 
 Além disso, habilite a proteção de Soft-Delete e limpeza no Key Vault para proteger as chaves contra exclusão acidental ou mal-intencionada. Se o armazenamento do Azure for usado para armazenar Azure Resource Manager backups de modelo, habilite a exclusão reversível para salvar e recuperar seus dados quando BLOBs ou instantâneos de blob forem excluídos. 
 
@@ -783,9 +783,9 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 **Diretrizes**: siga as regras de envolvimento da Microsoft para garantir que seus testes de penetração não sejam violações das políticas da Microsoft. Use a estratégia da Microsoft e a execução de equipes vermelhas e testes de penetração de sites ativos em infraestrutura de nuvem, serviços e aplicativos gerenciados pela Microsoft.
 
-- [Regras de teste de penetração do Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+- [Regras de participação para testes de penetração](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-- [Microsoft Cloud o agrupamento vermelho](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Equipes Vermelhas do Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: bc0a556841c3c6ee91ae472087aaaf7c74009b67
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: da1acc6316d7af87ffe35b9560919c324373591a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785775"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484593"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Criptografia do Armazenamento do Azure para dados em repouso
 
@@ -32,7 +32,7 @@ Todos os blobs de blocos, BLOB de acréscimo ou BLOB de páginas que foram grava
 
 Para obter mais informações sobre os módulos de criptografia subjacentes à criptografia de armazenamento do Azure, consulte [API de criptografia: próxima geração](/windows/desktop/seccng/cng-portal).
 
-Para obter informações sobre criptografia e gerenciamento de chaves para Azure Managed disks, consulte [criptografia do lado do servidor de Azure Managed disks](../../virtual-machines/windows/disk-encryption.md) para VMs do Windows ou [criptografia do lado do servidor de Azure Managed disks](../../virtual-machines/linux/disk-encryption.md) para VMs do Linux.
+Para obter informações sobre criptografia e gerenciamento de chaves para Azure Managed disks, consulte [criptografia do lado do servidor de Azure Managed disks](../../virtual-machines/disk-encryption.md) para VMs do Windows ou [criptografia do lado do servidor de Azure Managed disks](../../virtual-machines/disk-encryption.md) para VMs do Linux.
 
 ## <a name="about-encryption-key-management"></a>Sobre o gerenciamento de chaves de criptografia
 
@@ -46,7 +46,7 @@ A tabela a seguir compara as principais opções de gerenciamento de criptografi
 | Parâmetro de gerenciamento de chaves | Chaves gerenciadas pela Microsoft | Chaves gerenciadas pelo cliente | Chaves fornecidas pelo cliente |
 |--|--|--|--|
 | Operações de criptografia/descriptografia | Azure | Azure | Azure |
-| Serviços de armazenamento do Azure com suporte | Tudo | Armazenamento de BLOBs, arquivos do Azure<sup>1, 2</sup> | Armazenamento de blob |
+| Serviços de armazenamento do Azure com suporte | Tudo | Armazenamento de BLOBs, arquivos do Azure<sup>1, 2</sup> | Armazenamento de Blobs |
 | Armazenamento de chave | Repositório de chaves da Microsoft | Azure Key Vault ou Key Vault HSM | Repositório de chaves próprio do cliente |
 | Responsabilidade de rotação de chave | Microsoft | Cliente | Cliente |
 | Controle de chave | Microsoft | Cliente | Cliente |

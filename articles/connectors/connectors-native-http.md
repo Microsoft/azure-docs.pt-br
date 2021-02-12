@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/14/2020
 tags: connectors
-ms.openlocfilehash: f005bdfa5643ea187fb2973cac065563c4cc2ee6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2835bda8ac7242b7a3ea4ea63401f26b9c8e426
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91292448"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062988"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Chamar pontos de extremidade de serviço via HTTP ou HTTPS de Aplicativos Lógicos do Azure
 
@@ -104,11 +104,11 @@ Essa ação interna faz uma chamada HTTP para a URL especificada para um ponto d
 
 Aqui estão mais informações sobre as saídas de um gatilho ou ação HTTP, que retorna essas informações:
 
-| Propriedade | Type | Descrição |
+| Propriedade | Tipo | Descrição |
 |----------|------|-------------|
 | `headers` | Objeto JSON | Os cabeçalhos da solicitação |
 | `body` | Objeto JSON | O objeto com o conteúdo do corpo da solicitação |
-| `status code` | Inteiro | O código de status da solicitação |
+| `status code` | Integer | O código de status da solicitação |
 |||
 
 | Código de status | Descrição |
@@ -249,7 +249,7 @@ Se um gatilho ou ação HTTP incluir esses cabeçalhos, os aplicativos lógicos 
 
 * `Accept-*` cabeçalhos, exceto para `Accept-version`
 * `Allow`
-* `Content-*` com estas exceções: `Content-Disposition`, `Content-Encoding` e `Content-Type`
+* `Content-*` cabeçalhos, exceto para `Content-Disposition` , `Content-Encoding` e `Content-Type` quando você usa operações post e put, mas não são incluídos para operações Get
 * `Cookie`
 * `Expires`
 * `Host`

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: configurar a sincronização de destinatário do Cofense para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
-description: Saiba como provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para a sincronização de destinatários do Cofense.
+title: 'Tutorial: Configurar a Sincronização de Destinatário do Cofense para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+description: Saiba como provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para a Sincronização de Destinatário do Cofense.
 services: active-directory
 documentationcenter: ''
 author: Zhchia
@@ -12,78 +12,78 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/11/2020
 ms.author: Zhchia
-ms.openlocfilehash: fa187d9f7ee2b4b91c8559a185f55f0015f0b441
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: MT
+ms.openlocfilehash: 084592a8db47a94a0fcd683105f749f514c05ea3
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455622"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247566"
 ---
-# <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>Tutorial: configurar a sincronização de destinatário do Cofense para o provisionamento automático de usuário
+# <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>Tutorial: Configurar a Sincronização de Destinatário do Cofense para provisionamento automático de usuário
 
-Este tutorial descreve as etapas que você precisa executar tanto na sincronização de destinatários Cofense quanto no Azure Active Directory (Azure AD) para configurar o provisionamento automático de usuário. Quando configurado, o Azure AD provisiona e desprovisiona automaticamente os usuários para a [sincronização de destinatários do Cofense](https://cofense.com/) usando o serviço de provisionamento do Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../app-provisioning/user-provisioning.md). 
+Este tutorial descreve as etapas que você precisa executar na Sincronização de Destinatário do Cofense e no Azure AD (Active Directory) para configurar o provisionamento automático de usuário. Quando configurado, o Azure AD provisiona e desprovisiona automaticamente usuários para a [Sincronização de Destinatário do Cofense](https://cofense.com/) usando o serviço de provisionamento do Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Funcionalidades com suporte
 > [!div class="checklist"]
-> * Criar usuários na sincronização de destinatários do Cofense
-> * Remova os usuários na sincronização de destinatário do Cofense quando eles não precisam mais de acesso
-> * Manter os atributos de usuário sincronizados entre o Azure AD e a sincronização de destinatários do Cofense
+> * Criar usuários na Sincronização de Destinatário do Cofense
+> * Remover usuários na Sincronização de Destinatário do Cofense quando eles não precisarem mais de acesso
+> * Manter os atributos de usuário sincronizados entre o Azure AD e a Sincronização de Destinatário do Cofense
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
-* [Um locatário do Azure AD](../develop/quickstart-create-new-tenant.md). 
-* Uma conta de usuário no Azure AD com [permissão](../users-groups-roles/directory-assign-admin-roles.md) para configurar o provisionamento (por exemplo, Administrador de Aplicativo, Administrador de aplicativos de nuvem, Proprietário de Aplicativo ou Administrador Global). 
+* [Um locatário do Azure AD](../develop/quickstart-create-new-tenant.md) 
+* Uma conta de usuário no Azure AD com [permissão](../roles/permissions-reference.md) para configurar o provisionamento (por exemplo, Administrador de Aplicativo, Administrador de aplicativos de nuvem, Proprietário de Aplicativo ou Administrador Global). 
 * Uma conta de operador padrão no Cofense PhishMe.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Etapa 1. Planeje a implantação do provisionamento
 1. Saiba mais sobre [como funciona o serviço de provisionamento](../app-provisioning/user-provisioning.md).
 2. Determine quem estará no [escopo de provisionamento](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-3. Determine quais dados [mapeados entre o Azure AD e a sincronização de destinatários do Cofense](../app-provisioning/customize-application-attributes.md). 
+3. Determine quais dados [mapear entre o Azure AD e a Sincronização de Destinatário do Cofense](../app-provisioning/customize-application-attributes.md). 
 
-## <a name="step-2-configure-cofense-recipient-sync-to-support-provisioning-with-azure-ad"></a>Etapa 2. Configurar a sincronização de destinatário do Cofense para dar suporte ao provisionamento com o Azure AD
+## <a name="step-2-configure-cofense-recipient-sync-to-support-provisioning-with-azure-ad"></a>Etapa 2. Configurar a Sincronização de Destinatário do Cofense para dar suporte ao provisionamento com o Azure AD
 
-1. Faça logon em Cofense PhishMe. Navegue até **destinatários > sincronização de destinatários**. 
-2. Aceite os termos e condições e clique em **introdução.**
+1. Faça logon no Cofense PhishMe. Navegue até **Destinatários > Sincronização de Destinatário**. 
+2. Aceite os termos e condições e, em seguida, clique em **Começar**.
 
-    ![Destinatário sincronizar TNC](media/cofense-provisioning-tutorial/recipient-sync-toc.png)
+    ![tnc do Recepient Sync](media/cofense-provisioning-tutorial/recipient-sync-toc.png)
 
-3. Copie os valores dos campos **URL** e **token** .
+3. Copie os valores dos campos **URL** e **Token**.
 
-    ![Sincronização de destinatário](media/cofense-provisioning-tutorial/recipient-sync-getting-started.png)
+    ![Recepient Sync](media/cofense-provisioning-tutorial/recipient-sync-getting-started.png)
 
 
-## <a name="step-3-add-cofense-recipient-sync-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicionar a sincronização de destinatário do Cofense da Galeria de aplicativos do Azure AD
+## <a name="step-3-add-cofense-recipient-sync-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicionar a Sincronização de Destinatário do Cofense da galeria de aplicativos do Azure AD
 
-Adicione a sincronização de destinatário do Cofense da Galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento para a sincronização de destinatários do Cofense. Se você tiver configurado anteriormente a sincronização de destinatário do Cofense para SSO, poderá usar o mesmo aplicativo. No entanto, recomendamos que você crie um aplicativo diferente ao testar a integração no início. Saiba mais sobre como adicionar um aplicativo da galeria [aqui](../manage-apps/add-application-portal.md). 
+Adicione a Sincronização de Destinatário do Cofense da galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento para ela. Se você já tiver configurado a Sincronização de Destinatário do Cofense para SSO, poderá usar o mesmo aplicativo. No entanto, recomendamos que você crie um aplicativo diferente ao testar a integração no início. Saiba mais sobre como adicionar um aplicativo da galeria [aqui](../manage-apps/add-application-portal.md). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Etapa 4. Defina quem estará no escopo de provisionamento 
 
 No Azure AD, é possível definir quem estará no escopo de provisionamento com base na atribuição ao aplicativo ou nos atributos do usuário/grupo. Se você optar por definir quem estará no escopo de provisionamento com base na atribuição, poderá usar as [etapas](../manage-apps/assign-user-or-group-access-portal.md) a seguir para atribuir usuários e grupos ao aplicativo. Se você optar por definir quem estará no escopo de provisionamento com base somente em atributos do usuário ou do grupo, poderá usar um filtro de escopo, conforme descrito [aqui](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Ao atribuir usuários e grupos à sincronização de destinatários do Cofense, você deve selecionar uma função diferente de **acesso padrão**. Os usuários com a função Acesso Padrão são excluídos do provisionamento e serão marcados como "Não qualificado efetivamente" nos logs de provisionamento. Se a única função disponível no aplicativo for a de acesso padrão, você poderá [atualizar o manifesto do aplicativo](../develop/howto-add-app-roles-in-azure-ad-apps.md) para adicionar outras funções. 
+* Quando você atribui usuários e grupos à Sincronização de Destinatário do Cofense, é preciso selecionar uma função diferente do **Acesso Padrão**. Os usuários com a função Acesso Padrão são excluídos do provisionamento e serão marcados como "Não qualificado efetivamente" nos logs de provisionamento. Se a única função disponível no aplicativo for a de acesso padrão, você poderá [atualizar o manifesto do aplicativo](../develop/howto-add-app-roles-in-azure-ad-apps.md) para adicionar outras funções. 
 
 * Comece pequeno. Teste com um pequeno conjunto de usuários e grupos antes de implementar para todos. Quando o escopo de provisionamento é definido para usuários e grupos atribuídos, é possível controlar isso atribuindo um ou dois usuários ou grupos ao aplicativo. Quando o escopo é definido para todos os usuários e grupos, é possível especificar um [atributo com base no filtro de escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 
-## <a name="step-5-configure-automatic-user-provisioning-to-cofense-recipient-sync"></a>Etapa 5. Configurar o provisionamento automático de usuário para a sincronização de destinatários do Cofense 
+## <a name="step-5-configure-automatic-user-provisioning-to-cofense-recipient-sync"></a>Etapa 5. Configurar o provisionamento automático de usuário para a Sincronização de Destinatário do Cofense 
 
-Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários na sincronização de destinatários do Cofense com base no usuário no Azure AD.
+Esta seção descreve as etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários na a Sincronização de Destinatário do Cofense com base nas atribuições de usuários no Azure AD.
 
-### <a name="to-configure-automatic-user-provisioning-for-cofense-recipient-sync-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para a sincronização de destinatários do Cofense no Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-cofense-recipient-sync-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para a Sincronização de Destinatário do Cofense no Azure AD:
 
 1. Entre no [portal do Azure](https://portal.azure.com). Selecione **Aplicativos Empresariais** e **Todos os Aplicativos**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **sincronização de destinatário do Cofense**.
+2. Na lista de aplicativos, selecione **Sincronização de Destinatário do Cofense**.
 
-    ![O link do Cofense na lista de aplicativos](common/all-applications.png)
+    ![O link do Cofense na lista de Aplicativos](common/all-applications.png)
 
 3. Selecione a guia **Provisionamento**.
 
@@ -91,11 +91,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia de provisionamento automático](common/provisioning-automatic.png)
+    ![Guia Provisionamento automático](common/provisioning-automatic.png)
 
-5. Na seção **credenciais de administrador** , insira a **URL base do scim 2,0 e o valor do token de autenticação scim** recuperado anteriormente da etapa 2. Clique em **testar conexão** para garantir que o Azure ad possa se conectar à sincronização de destinatários do Cofense. Se a conexão falhar, verifique se sua conta de sincronização de destinatário do Cofense tem permissões de administrador e tente novamente.
+5. Na seção **Credenciais de Administrador**, insira o valor **URL base do SCIM 2.0 e Token de Autenticação do SCIM** recuperado anteriormente da Etapa 2. Clique em **Testar Conectividade** para verificar se o Azure AD pode se conectar à Sincronização de Destinatário do Cofense. Se a conexão falhar, verifique se a sua conta da Sincronização de Destinatário do Cofense tem permissões de Administrador e tente novamente.
 
-    ![Token de URL do locatário](common/provisioning-testconnection-tenanturltoken.png)
+    ![Token da URL do Locatário](common/provisioning-testconnection-tenanturltoken.png)
 
 6. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
 
@@ -103,37 +103,37 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 7. Clique em **Salvar**.
 
-8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para a sincronização de destinatário do Cofense**.
+8. Na seção **Mapeamentos**, selecione **Sincronizar Usuários do Azure Active Directory com a Sincronização de Destinatário do Cofense**.
 
-9. Examine os atributos de usuário que são sincronizados do Azure AD para a sincronização de destinatários do Cofense na seção de **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário na sincronização de destinatário do Cofense para operações de atualização.  Selecione o botão **Salvar** para confirmar as alterações.
+9. Examine os atributos de usuário sincronizados do Azure AD com a Sincronização de Destinatário do Cofense na seção **Mapeamento de Atributos**. Os atributos selecionados como propriedades **Correspondentes** são usados para fazer a correspondência das contas de usuário na Sincronização de Destinatário do Cofense para operações de atualização.  Selecione o botão **Salvar** para confirmar as alterações.
 
-   |Atributo|Type|
-   |---|---|
+   |Atributo|Type|Com suporte para filtragem|
+   |---|---|---|
+   |externalId|String|&check;|
    |userName|String|
-   |externalId|String|
    |ativo|Boolean|
    |displayName|String|
    |name.formatted|String|
    |name.givenName|String|
    |name.familyName|String|
-   |nome. honorificSuffix|String|
-   |phoneNumbers [type EQ "trabalho"]. valor|String|
-   |phoneNumbers [type EQ "Home"]. valor|String|
-   |phoneNumbers [tipo EQ "other"]. valor|String|
-   |phoneNumbers [type EQ "pager"]. valor|String|
-   |phoneNumbers [tipo EQ "móvel"]. valor|String|
-   |phoneNumbers [type EQ "fax"]. valor|String|
-   |endereços [tipo EQ "other"]. formatado|String|
-   |endereços [tipo EQ "trabalho"]. formatado|String|
-   |endereços [type EQ "trabalho"]. streetAddress|String|
-   |endereços [tipo EQ "trabalho"]. localidade|String|
-   |endereços [tipo EQ "trabalho"]. região|String|
-   |endereços [type EQ "trabalho"]. postalCode|String|
-   |endereços [tipo EQ "trabalho"]. país|String|
+   |name.honorificSuffix|Cadeia de caracteres|
+   |phoneNumbers[type eq"work"].value|Cadeia de caracteres|
+   |phoneNumbers[type eq"home"].value|Cadeia de caracteres|
+   |phoneNumbers[type eq"other"].value|Cadeia de caracteres|
+   |phoneNumbers[type eq"pager"].value|Cadeia de caracteres|
+   |phoneNumbers[type eq"mobile"].value|Cadeia de caracteres|
+   |phoneNumbers[type eq"fax"].value|Cadeia de caracteres|
+   |addresses[type eq"other"].formatted|Cadeia de caracteres|
+   |addresses[type eq"work"].formatted|Cadeia de caracteres|
+   |addresses[type eq"work"].streetAddress|Cadeia de caracteres|
+   |addresses[type eq"work"].locality|Cadeia de caracteres|
+   |addresses[type eq"work"].region|Cadeia de caracteres|
+   |addresses[type eq"work"].postalCode|Cadeia de caracteres|
+   |addresses[type eq"work"].country|String|
    |título|String|
    |emails[type eq "work"].value|String|
-   |emails [tipo EQ "início"]. valor|String|
-   |emails [tipo EQ "other"]. valor|String|
+   |emails[type eq "home"].value|String|
+   |emails[type eq "other"].value|String|
    |preferredLanguage|String|
    |nickName|String|
    |userType|String|
@@ -148,11 +148,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 10. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Para habilitar o serviço de provisionamento do Azure AD para sincronização de destinatários do Cofense, altere o **status de provisionamento** para **ativado** na seção **configurações** .
+11. Para habilitar o serviço de provisionamento do Azure AD na Sincronização de Destinatário do Cofense, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**.
 
     ![Status do provisionamento ativado](common/provisioning-toggle-on.png)
 
-12. Defina os usuários e/ou grupos que você deseja provisionar para a sincronização de destinatários do Cofense escolhendo os valores desejados no **escopo** na seção **configurações** .
+12. Defina os usuários e/ou grupos que você gostaria de provisionar para a Sincronização de Destinatário do Cofense escolhendo os valores desejados em **Escopo** na seção **Configurações**.
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
@@ -165,9 +165,13 @@ Essa operação começa o ciclo de sincronização inicial de todos os usuários
 ## <a name="step-6-monitor-your-deployment"></a>Etapa 6. Monitorar a implantação
 Depois de configurar o provisionamento, use os seguintes recursos para monitorar a implantação:
 
-1. Use os [logs de provisionamento](../reports-monitoring/concept-provisioning-logs.md) para determinar quais usuários foram provisionados com êxito ou não
-2. Confira a [barra de progresso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver o status do ciclo de provisionamento e saber como fechá-la para concluir
-3. Se a configuração de provisionamento parecer estar em um estado não íntegro, o aplicativo entrará em quarentena. Saiba mais sobre os estados de quarentena [aqui](../app-provisioning/application-provisioning-quarantine-status.md).  
+* Use os [logs de provisionamento](../reports-monitoring/concept-provisioning-logs.md) para determinar quais usuários foram provisionados com êxito ou não
+* Confira a [barra de progresso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver o status do ciclo de provisionamento e saber como fechá-la para concluir
+* Se a configuração de provisionamento parecer estar em um estado não íntegro, o aplicativo entrará em quarentena. Saiba mais sobre os estados de quarentena [aqui](../app-provisioning/application-provisioning-quarantine-status.md). 
+
+## <a name="change-log"></a>Log de alterações
+
+* 15/01/2020 – Alteração de "Somente durante a criação do objeto" para "Sempre" foi implementada para o mapeamento de objectId -> externalId.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 3412bfe95951a3fea035ffc6452719ede5e66d4d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 2a1744feedc3e0ffae6cf2cd45cd090a6c2f06d5
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519598"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422086"
 ---
 # <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity"></a>Configurar uma conexão de indexador para um banco de dados Cosmos DB usando uma identidade gerenciada
 
@@ -33,7 +33,7 @@ Quando uma identidade gerenciada atribuída pelo sistema é habilitada, o Azure 
 
 ![Habilitar a identidade gerenciada atribuída ao sistema](./media/search-managed-identities/turn-on-system-assigned-identity.png "Ativar a identidade gerenciada atribuída ao sistema")
 
-Depois de selecionar **Salvar**, você verá uma ID do objeto que foi atribuída ao serviço de pesquisa.
+Depois de selecionar **Salvar** , você verá uma ID do objeto que foi atribuída ao serviço de pesquisa.
 
 ![ID do objeto](./media/search-managed-identities/system-assigned-identity-object-id.png "ID de objeto")
  
@@ -55,7 +55,7 @@ Nesta etapa, você dará permissão ao seu serviço do Azure Cognitive Search pa
 
 ### <a name="3---create-the-data-source"></a>3 – Criar a fonte de dados
 
-A [API REST](/rest/api/searchservice/create-data-source), portal do Azure e o [SDK do .net](/dotnet/api/microsoft.azure.search.models.datasource) oferecem suporte à cadeia de conexão de identidade gerenciada. Abaixo está um exemplo de como criar uma fonte de dados para indexar dados de Cosmos DB usando a [API REST](/rest/api/searchservice/create-data-source) e uma cadeia de conexão de identidade gerenciada. O formato da cadeia de conexão de identidade gerenciada é o mesmo para a API REST, o SDK do .NET e o portal do Azure.
+A [API REST](/rest/api/searchservice/create-data-source), portal do Azure e o [SDK do .net](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype) oferecem suporte à cadeia de conexão de identidade gerenciada. Abaixo está um exemplo de como criar uma fonte de dados para indexar dados de Cosmos DB usando a [API REST](/rest/api/searchservice/create-data-source) e uma cadeia de conexão de identidade gerenciada. O formato da cadeia de conexão de identidade gerenciada é o mesmo para a API REST, o SDK do .NET e o portal do Azure.
 
 Ao usar identidades gerenciadas para autenticar, as **credenciais** não incluirão uma chave de conta.
 
@@ -84,8 +84,8 @@ O corpo da solicitação contém a definição da fonte de dados, que deve inclu
 |---------|-------------|
 | **name** | Obrigatórios. Escolha qualquer nome para representar o objeto da fonte de dados. |
 |**tipo**| Obrigatórios. Deve ser `cosmosdb`. |
-|**credentials** | Obrigatórios. <br/><br/>Ao se conectar usando uma identidade gerenciada, o formato de **credenciais** deve ser: *Database=[database-name];ResourceId=[resource-id-string];(ApiKind=[api-kind];)*<br/> <br/>O formato de ResourceId: *ResourceId=/subscriptions/**sua ID de assinatura**/resourceGroups/**nome do seu grupo de recursos**/providers/Microsoft.DocumentDB/databaseAccounts/**nome da sua conta do cosmos db**/;*<br/><br/>Para coleções SQL, a cadeia de conexão não requer um ApiKind.<br/><br/>Para coleções do MongoDB, adicione **ApiKind=MongoDb** à cadeia de conexão. <br/><br/>Para gráficos Gremlin e tabelas Cassandra, inscreva-se na [versão prévia restrita do indexador](https://aka.ms/azure-cognitive-search/indexer-preview) para obter acesso à versão prévia e informações sobre como formatar as credenciais.<br/>|
-| **contêiner** | Contém os seguintes elementos: <br/>**nome**: Obrigatórios. Especifique a ID da coleção do banco de dados a ser indexada.<br/>**query**: Opcional. Você pode especificar uma consulta para nivelar um documento JSON arbitrário, criando um esquema nivelado que o Azure Cognitive Search possa indexar.<br/>Para a API do MongoDB, API do Gremlin e API do Cassandra, não há suporte para consultas. |
+|**credentials** | Obrigatórios. <br/><br/>Ao se conectar usando uma identidade gerenciada, o formato de **credenciais** deve ser: *Database=[database-name];ResourceId=[resource-id-string];(ApiKind=[api-kind];)*<br/> <br/>O formato de ResourceId: *ResourceId=/subscriptions/ **sua ID de assinatura** /resourceGroups/ **nome do seu grupo de recursos** /providers/Microsoft.DocumentDB/databaseAccounts/ **nome da sua conta do cosmos db** /;*<br/><br/>Para coleções SQL, a cadeia de conexão não requer um ApiKind.<br/><br/>Para coleções do MongoDB, adicione **ApiKind=MongoDb** à cadeia de conexão. <br/><br/>Para gráficos Gremlin e tabelas Cassandra, inscreva-se na [versão prévia restrita do indexador](https://aka.ms/azure-cognitive-search/indexer-preview) para obter acesso à versão prévia e informações sobre como formatar as credenciais.<br/>|
+| **contêiner** | Contém os seguintes elementos: <br/>**nome** : Obrigatórios. Especifique a ID da coleção do banco de dados a ser indexada.<br/>**query** : Opcional. Você pode especificar uma consulta para nivelar um documento JSON arbitrário, criando um esquema nivelado que o Azure Cognitive Search possa indexar.<br/>Para a API do MongoDB, API do Gremlin e API do Cassandra, não há suporte para consultas. |
 | **dataChangeDetectionPolicy** | Recomendadas |
 |**dataDeletionDetectionPolicy** | Opcional |
 

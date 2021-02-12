@@ -3,15 +3,16 @@ title: Usar comandos e recursos de notebook integrado nos notebooks Python do Az
 description: Saiba como usar comandos e recursos internos para realizar operações comuns usando os notebooks do Python internos do Azure Cosmos DB.
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: 32c433455e1075045323dc466b41ad19ac68f454
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b89fcf32ed033f359b4db601e36cc69bb899944d
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074345"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165817"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Usar comandos e recursos de notebook integrado nos notebooks Python do Azure Cosmos DB (versão prévia)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -123,6 +124,8 @@ Total RUs consumed : 25022.58
 ```
 Com as estatísticas de saída, você pode calcular a RU/s efetiva usado para carregar os itens. Por exemplo, se 25.000 RUs foram consumidos em 38 segundos, a RU/s efetiva é 25.000 RUs/38 segundos = 658 RU/s.
 
+Você pode salvar arquivos (como arquivos CSV ou JSON) no espaço de trabalho local do bloco de anotações. Recomendamos que você adicione uma célula em seu bloco de anotações para salvar arquivos. Você pode exibir esses arquivos do terminal integrado no ambiente do bloco de anotações. Você pode usar o comando "ls" para exibir os arquivos salvos. No entanto, esses arquivos serão removidos se você redefinir o espaço de trabalho. Portanto, é melhor usar o armazenamento persistente, como o GitHub ou uma conta de armazenamento, em vez do espaço de trabalho local.
+
 ## <a name="run-another-notebook-in-current-notebook"></a>Executar outro notebook no notebook atual 
 Você pode usar o comando mágico ``%%run`` para executar outro notebook no espaço de trabalho do notebook atual. Use a sintaxe:
 
@@ -201,7 +204,7 @@ primary_key = COSMOS.KEY
 ## <a name="reset-notebooks-workspace"></a>Restaurar espaço de trabalho de notebook
 Para restaurar as configurações padrão do espaço de trabalho de notebooks, selecione **Restaurar espaço de trabalho** na barra de comandos. Isso removerá todos os pacotes personalizados instalados e reiniciará o servidor Jupyter. Seus notebooks, arquivos e recursos de Cosmos do Azure não serão afetados.  
 
-:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Explorador de dados nteract":::
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Restaurar espaço de trabalho de notebook":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: c8af1c32607e5fc7bf548b40069e18923c666303
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28abb9f09e3bca2522b959c6a9b890de5320b17a
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87089644"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567448"
 ---
 # <a name="connect-your-infoblox-nios-to-azure-sentinel"></a>Conectar seu Infoblox NIOS ao Azure Sentinel
 
@@ -34,7 +34,7 @@ Este artigo explica como conectar seu [dispositivo nios (sistema operacional de 
 
 ## <a name="forward-infoblox-logs-to-the-syslog-agent"></a>Encaminhar logs do Infoblox para o agente de syslog  
 
-Configure o Infoblox para encaminhar mensagens de syslog para seu espaço de trabalho do Azure por meio do agente de syslog.
+Configure o Infoblox para encaminhar mensagens de syslog para seu espaço de trabalho do Azure Sentinel por meio do agente de syslog.
 
 1. No portal do Azure Sentinel, clique em **conectores de dados** e selecione conector do **Infoblox NIOS** .
 

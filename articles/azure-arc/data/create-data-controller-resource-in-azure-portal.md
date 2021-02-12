@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 297efa83fb1563e3a360f652a6ac1bc2b1679998
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd8c079e91a6765dff8ad347085c44d0aa2f8d82
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933664"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737296"
 ---
 # <a name="create-an-azure-arc-data-controller-in-the-azure-portal"></a>Criar um controlador de dados de arco do Azure no portal do Azure
 
@@ -40,12 +40,16 @@ Siga as etapas abaixo para criar um controlador de dados de arco do Azure usando
 6. Clique no botão **detalhes do controlador de dados** .
 7. Escolha uma assinatura, um grupo de recursos e uma localização do Azure da mesma forma que faria com qualquer outro recurso que você criaria na portal do Azure. Nesse caso, o local do Azure que você selecionar será onde os metadados sobre o recurso serão armazenados.  O recurso em si será criado em qualquer infraestrutura que você escolher. Ele não precisa estar na infraestrutura do Azure.
 8. Insira um nome para o controlador de dados.
-9. Somente o modo indiretamente conectado tem suporte atualmente na visualização.
-10. Selecione um perfil de configuração de implantação.
-11. Clique no botão **abrir no Azure Studio** .
-12. Na próxima tela, você verá um resumo de suas seleções e um bloco de anotações que é gerado.  Você pode clicar no botão **baixar o bloco de anotações de provisionamento** para baixar o bloco de anotações.
-13. Abra o bloco de anotações no Azure Data Studio e clique no botão **executar tudo** na parte superior.
-14. Siga os prompts e as instruções no bloco de anotações para concluir a criação do controlador de dados.
+9. Selecione o modo de conectividade para o controlador de dados. Saiba mais sobre [os requisitos e modos de conectividade](./connectivity.md). 
+
+   > [!NOTE] 
+   > Se você selecionar o modo de conectividade **direta** , verifique se as credenciais da entidade de serviço estão definidas por meio de variáveis de ambiente, conforme descrito em [criar entidade de serviço](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal). 
+
+1. Selecione um perfil de configuração de implantação.
+1. Clique no botão **abrir no Azure Studio** .
+1. Na próxima tela, você verá um resumo de suas seleções e um bloco de anotações que é gerado.  Você pode clicar no botão **baixar o bloco de anotações de provisionamento** para baixar o bloco de anotações.
+1. Abra o bloco de anotações no Azure Data Studio e clique no botão **executar tudo** na parte superior.
+1. Siga os prompts e as instruções no bloco de anotações para concluir a criação do controlador de dados.
 
 ## <a name="monitoring-the-creation-status"></a>Monitorando o status de criação
 

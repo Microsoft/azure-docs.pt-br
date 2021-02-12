@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial de classificação de imagens: Treinar modelos'
 titleSuffix: Azure Machine Learning
-description: Use o Azure Machine Learning para treinar um modelo de classificação de imagem com o scikit-learn em um Jupyter Notebook em Python. Este tutorial é a primeira parte de duas.
+description: Use o Azure Machine Learning para treinar um modelo de classificação de imagens com o Scikit-learn em um Jupyter Notebook em Python. Este tutorial é a primeira parte de duas.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 09/28/2020
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 40ee7ad74d1a1daaf6df5e76b5e51db52feea304
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6aa39709a82b01367463f0128af4223446710a1c
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535061"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183635"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Tutorial: Treinar modelos de classificação de imagem usando dados MNIST e scikit-learn 
 
@@ -37,7 +37,7 @@ Você aprenderá como selecionar um modelo e implantá-lo na [parte dois deste t
 Caso não tenha uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
 >[!NOTE]
-> O código deste artigo foi testado com o [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) versão 1.13.0.
+> O código deste artigo foi testado com o [SDK do Azure Machine Learning](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) versão 1.13.0.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -98,7 +98,7 @@ Crie um teste para acompanhar as execuções em seu workspace. Um workspace pode
 
 ```python
 from azureml.core import Experiment
-experiment_name = 'sklearn-mnist'
+experiment_name = 'Tutorial-sklearn-mnist'
 
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
@@ -159,7 +159,7 @@ Antes de treinar um modelo, você precisa entender os dados que você usa para t
 
 ### <a name="download-the-mnist-dataset"></a>Baixe o conjunto de dados MNIST
 
-Use o Azure Open DataSets para obter os arquivos de dados MNIST brutos. Os [Conjuntos de dados abertos do Azure](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) são conjuntos de dados públicos coletados que você pode usar para adicionar recursos específicos do cenário para soluções de aprendizado de máquina para obter modelos mais precisos. Cada conjunto de dados tem uma classe correspondente, `MNIST` nesse caso, para recuperar os dados de maneiras diferentes.
+Use o Azure Open DataSets para obter os arquivos de dados MNIST brutos. Os [Conjuntos de dados abertos do Azure](../open-datasets/overview-what-are-open-datasets.md) são conjuntos de dados públicos coletados que você pode usar para adicionar recursos específicos do cenário para soluções de aprendizado de máquina para obter modelos mais precisos. Cada conjunto de dados tem uma classe correspondente, `MNIST` nesse caso, para recuperar os dados de maneiras diferentes.
 
 Esse código recupera os dados como um objeto `FileDataset`, que é uma subclasse de `Dataset`. Uma `FileDataset` faz referência a um ou vários arquivos de qualquer formato em seus armazenamento de dados ou URLs públicas. A classe fornece a capacidade de baixar ou montar os arquivos em sua computação criando uma referência ao local da fonte de dados. Além disso, você registra o conjunto de dados em seu workspace para facilitar a recuperação durante o treinamento.
 
@@ -309,7 +309,7 @@ Observe como o script obtém dados e salva modelos:
 
 ### <a name="configure-the-training-job"></a>Configurar um trabalho de treinamento
 
-Crie um objeto [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) para especificar os detalhes da configuração de seu trabalho de treinamento, incluindo o script de treinamento, o ambiente a ser usado e o destino de computação para a execução. Configure o ScriptRunConfig especificando:
+Crie um objeto [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) para especificar os detalhes da configuração de seu trabalho de treinamento, incluindo o script de treinamento, o ambiente a ser usado e o destino de computação para a execução. Configure o ScriptRunConfig especificando:
 
 * O diretório que contém seus scripts. Todos os arquivos neste diretório são carregados nos nós do cluster para execução.
 * O destino de computação. Nesse caso, você usará o cluster de computação do Azure Machine Learning que criou.
@@ -382,7 +382,7 @@ Você pode verificar o andamento de um trabalho em execução de várias maneira
 
 ### <a name="jupyter-widget"></a>Widget de Jupyter
 
-Assista ao progresso da execução com um [widget do Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true). Como o envio de execução, o widget é assíncrono e fornece atualizações ao vivo a cada 10 a 15 segundos até o trabalho ser concluído:
+Assista ao progresso da execução com um [widget do Jupyter](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py). Como o envio de execução, o widget é assíncrono e fornece atualizações ao vivo a cada 10 a 15 segundos até o trabalho ser concluído:
 
 ```python
 from azureml.widgets import RunDetails
@@ -393,7 +393,7 @@ O widget terá a seguinte aparência ao final do treinamento:
 
 ![Widget de notebook](./media/tutorial-train-models-with-aml/widget.png)
 
-Se você precisar cancelar uma execução, poderá seguir [estas instruções](https://aka.ms/aml-docs-cancel-run).
+Se você precisar cancelar uma execução, poderá seguir [estas instruções](./how-to-manage-runs.md).
 
 ### <a name="get-log-results-upon-completion"></a>Obter resultados de log após a conclusão
 

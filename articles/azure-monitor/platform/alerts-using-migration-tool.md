@@ -6,16 +6,16 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: e49525018a3e23ecbbf92d7a8b3f7c50804432b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f17afc6fb5001b4bbee16fe84697b58d062b292
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358654"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526917"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Use a ferramenta de migração voluntária para migrar suas regras de alerta clássicas
 
-Como [anunciado anteriormente](monitoring-classic-retirement.md), os alertas clássicos no Azure monitor são desativados, embora ainda estejam em uso limitado para recursos que ainda não dão suporte aos novos alertas. Uma ferramenta de migração estava disponível no portal do Azure aos clientes que usaram regras de alerta clássicas e que desejam disparar a migração por conta própria. Este artigo explica como usar a ferramenta de migração, que também será usada para que os alertas restantes tenham um anúncio adicional pendente.
+Como [anunciado anteriormente](monitoring-classic-retirement.md), os alertas clássicos no Azure monitor são desativados para usuários de nuvem pública, embora ainda estejam em uso limitado para recursos que ainda não dão suporte aos novos alertas. Uma ferramenta de migração estava disponível no portal do Azure aos clientes que usaram regras de alerta clássicas e que desejam disparar a migração por conta própria. Este artigo explica como usar a ferramenta de migração, que também será usada para que os alertas restantes tenham um anúncio adicional pendente.
 
 ## <a name="benefits-of-new-alerts"></a>Benefícios de novos alertas
 
@@ -45,7 +45,7 @@ Para disparar a migração de suas regras de alerta clássicas no portal do Azur
 
 1. Em [portal do Azure](https://portal.azure.com), selecione **Monitor**.
 
-1. Selecione **alertas**e, em seguida, selecione **gerenciar regras de alerta** ou **exibir alertas clássicos**.
+1. Selecione **alertas** e, em seguida, selecione **gerenciar regras de alerta** ou **exibir alertas clássicos**.
 
 1. Selecione **migrar para novas regras** para ir para a página de aterrissagem de migração. Esta página mostra uma lista de todas as suas assinaturas e seu status de migração:
 
@@ -83,7 +83,7 @@ Quando uma assinatura se tornar pronta para migração, o proprietário da assin
 
 ### <a name="who-can-trigger-the-migration"></a>Quem pode disparar a migração?
 
-Os usuários que têm a função de colaborador de monitoramento atribuída a eles no nível de assinatura são capazes de disparar a migração. [Saiba mais sobre Role-Based controle de acesso para o processo de migração](alerts-understand-migration.md#who-can-trigger-the-migration).
+Os usuários que têm a função de colaborador de monitoramento atribuída a eles no nível de assinatura são capazes de disparar a migração. [Saiba mais sobre o controle de acesso baseado em função do Azure para o processo de migração](alerts-understand-migration.md#who-can-trigger-the-migration).
 
 ### <a name="how-long-will-the-migration-take"></a>Quanto tempo a migração levará?
 

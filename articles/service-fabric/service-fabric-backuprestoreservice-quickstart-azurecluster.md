@@ -3,12 +3,12 @@ title: Backup e restauração periódicos no Azure Service Fabric
 description: Use o recurso de restauração e backup periódico do Service Fabric para habilitar o backup periódico de dados dos dados do seu aplicativo.
 ms.topic: conceptual
 ms.date: 5/24/2019
-ms.openlocfilehash: 18d10b365cb2e4f4b4e3592233d5f467714bd5b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d167b261f9b5915a970b4c219113f0765c039cb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538663"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927995"
 ---
 # <a name="periodic-backup-and-restore-in-an-azure-service-fabric-cluster"></a>Backup e restauração periódicos em um cluster de Service Fabric do Azure
 > [!div class="op_single_selector"]
@@ -48,11 +48,16 @@ O Service Fabric fornece um conjunto de APIs para obter a funcionalidade a segui
 * Certificado X.509 para criptografia de segredos necessária para se conectar ao armazenamento para armazenar backups. Consulte o [artigo](service-fabric-cluster-creation-via-arm.md) para saber como obter ou criar um certificado X.509.
 * Aplicativo Service Fabric Reliable Stateful criado usando o SDK do Service Fabric versão 3.0 ou superior. Para aplicativos destinados ao .NET Core 2,0, o aplicativo deve ser criado usando Service Fabric SDK versão 3,1 ou superior.
 * Crie uma conta de armazenamento do Azure para armazenar backups de aplicativo.
-* Instale o módulo Microsoft. perfabric. PowerShell. http [em versão prévia] para fazer chamadas de configuração.
+* Instale o módulo Microsoft. perfabric. PowerShell. http (versão prévia) para fazer chamadas de configuração.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
+
+> [!NOTE]
+> Se sua versão do PowerShellGet for menor que 1.6.0, você precisará atualizar para adicionar suporte ao sinalizador *-AllowPrerelease* :
+>
+> `Install-Module -Name PowerShellGet -Force`
 
 * Verifique se o cluster está conectado usando o `Connect-SFCluster` comando antes de fazer qualquer solicitação de configuração usando o módulo Microsoft. perfabric. PowerShell. http.
 

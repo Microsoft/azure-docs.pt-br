@@ -1,14 +1,17 @@
 ---
 title: Perguntas comuns sobre a migração de servidor de migrações para Azure
 description: Obtenha respostas para perguntas comuns sobre como usar a migração de servidor de migração do Azure para migrar computadores.
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.openlocfilehash: b62110e6b2ce97cdd80ed91ee4b1e75d119c7c7d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 63c7f226dcd99ec8040f2078ce12be0fe3c594df
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315243"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548791"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migração de servidor de migrações para Azure: perguntas comuns
 
@@ -29,7 +32,7 @@ Migrações para Azure: a ferramenta de migração de servidor migra computadore
 
 | **Sistemas operacionais com suporte para computadores baseados em UEFI** | **VMware sem agente para o Azure**                                                                                                             | **Hyper-V sem agente para o Azure** | **VMware, físico e outras nuvens baseadas em agente para o Azure** |
 | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ---------------------------------------------------------- |
-| Windows Server 2019, 2016, 2012 R2, 201                 | S                                                                                                                                         | S                              | S                                                          |
+| Windows Server 2019, 2016, 2012 R2, 2012                | S                                                                                                                                         | S                              | S                                                          |
 | Windows 10 pro, Windows 10 Enterprise                   | S                                                                                                                                         | S                              | S                                                          |
 | SUSE Linux Enterprise Server 15 SP1                     | S                                                                                                                                         | S                              | S                                                          |
 | SUSE Linux Enterprise Server 12 SP4                     | S                                                                                                                                         | S                              | S                                                          |

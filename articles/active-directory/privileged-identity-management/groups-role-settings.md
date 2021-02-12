@@ -15,12 +15,12 @@ ms.date: 07/27/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c3cd91fb2a878567dc4b09fbddfcf448ec95edd
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: abb7f93437cd45914d3824e9f557241ba0d71162
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368529"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835383"
 ---
 # <a name="configure-privileged-access-group-settings-preview-in-privileged-identity-management"></a>Definir configurações de grupo de acesso privilegiado (versão prévia) no Privileged Identity Management
 
@@ -92,7 +92,7 @@ E, você pode escolher uma destas opções de duração da atribuição **ativa*
 
 ## <a name="require-multi-factor-authentication"></a>Exigir autenticação multifator
 
-O Privileged Identity Management fornece imposição opcional da Autenticação Multifator do Azure para dois cenários diferentes.
+Privileged Identity Management fornece imposição opcional da autenticação multifator do Azure AD para dois cenários distintos.
 
 ### <a name="require-multi-factor-authentication-on-active-assignment"></a>Exigir Autenticação Multifator na atribuição ativa
 
@@ -102,7 +102,7 @@ Para garantir que o administrador de recursos que está atendendo à atribuiçã
 
 ### <a name="require-multi-factor-authentication-on-activation"></a>Exigir a Autenticação Multifator na ativação
 
-Você pode exigir que os usuários qualificados para uma função comprovem quem estão usando a autenticação multifator do Azure antes que possam ser ativados. A autenticação multifator garante que o usuário seja quem dizem que eles estão com certeza razoável. A aplicação dessa opção protege recursos críticos em situações em que a conta do usuário pode ter sido comprometida.
+Você pode exigir que os usuários qualificados para uma função comprovem quem estão usando a autenticação multifator do Azure AD antes que possam ser ativados. A autenticação multifator garante que o usuário seja quem dizem que eles estão com certeza razoável. A aplicação dessa opção protege recursos críticos em situações em que a conta do usuário pode ter sido comprometida.
 
 Para exigir a autenticação multifator antes da ativação, marque a caixa de seleção **exigir autenticação multifator no modo de ativação** .
 
@@ -114,7 +114,7 @@ Use o controle deslizante **Duração máxima da ativação** para definir o tem
 
 ## <a name="require-justification"></a>Exigir justificativa
 
-Você pode exigir que os usuários insiram uma justificativa de negócios ao serem ativados. Para exigir justificativa, marque a caixa **Exigir justificativa na atribuição ativa ** ou a caixa **Exigir justificativa na ativação**.
+Você pode exigir que os usuários insiram uma justificativa de negócios ao serem ativados. Para exigir justificativa, marque a caixa **Exigir justificativa na atribuição ativa** ou a caixa **Exigir justificativa na ativação**.
 
 ## <a name="require-approval-to-activate"></a>Exigir aprovação para ativar
 

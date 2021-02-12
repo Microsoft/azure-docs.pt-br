@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
-ms.openlocfilehash: d90b18094a26830ee6909251d46837eff95a812a
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: f1409a931195d236b2729e629e4603c606137593
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998584"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959774"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>Suporte do DPS (serviço de provisionamento de dispositivos) do Hub IoT do Azure para redes virtuais
 
@@ -38,7 +38,7 @@ Por vários motivos, os clientes podem querer restringir a conectividade aos rec
 
 Abordagens comuns para restringir a conectividade incluem [regras de filtro IP de DPS](./iot-dps-ip-filtering.md) e rede virtual (VNET) com pontos de [extremidade privados](../private-link/private-endpoint-overview.md). O objetivo deste artigo é descrever a abordagem de VNET para o DPS usando pontos de extremidade privados. 
 
-Os dispositivos que operam em redes locais podem usar a [VPN (rede virtual privada)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) ou o emparelhamento privado do [ExpressRoute](https://azure.microsoft.com/services/expressroute/) para se conectar a uma VNET no Azure e acessar os recursos de DPS por meio de pontos de extremidade privados. 
+Os dispositivos que operam em redes locais podem usar a [VPN (rede virtual privada)](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou o emparelhamento privado do [ExpressRoute](https://azure.microsoft.com/services/expressroute/) para se conectar a uma VNET no Azure e acessar os recursos de DPS por meio de pontos de extremidade privados. 
 
 Um ponto de extremidade privado é um endereço IP privado alocado dentro de uma VNET de Propriedade do cliente pela qual um recurso do Azure está acessível. Ao ter um ponto de extremidade privado para seu recurso de DPS, você poderá permitir que os dispositivos que operam dentro de sua VNET solicitem provisionamento por seu recurso de DPS sem permitir o tráfego para o ponto de extremidade público.
 
@@ -51,7 +51,7 @@ Antes de continuar, verifique se os seguintes pré-requisitos foram atendidos:
 
 * Você provisionou uma VNET do Azure com uma sub-rede na qual o ponto de extremidade privado será criado. Para obter mais informações, consulte [criar uma rede virtual usando CLI do Azure](../virtual-network/quick-create-cli.md).
 
-* Para dispositivos que operam dentro de redes locais, configure a [VPN (rede virtual privada)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) ou o emparelhamento privado do [EXPRESSROUTE](https://azure.microsoft.com/services/expressroute/) em sua VNET do Azure.
+* Para dispositivos que operam dentro de redes locais, configure a [VPN (rede virtual privada)](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou o emparelhamento privado do [EXPRESSROUTE](https://azure.microsoft.com/services/expressroute/) em sua VNET do Azure.
 
 ## <a name="private-endpoint-limitations"></a>Limitações do ponto de extremidade privado
 
@@ -105,7 +105,7 @@ Para configurar um ponto de extremidade privado, siga estas etapas:
 
 4. Na página _criar uma configuração de ponto de extremidade privado_ , escolha sua rede virtual e sub-rede para criar o ponto de extremidade privado.
  
-    Clique em **Avançar: marcas**e, opcionalmente, forneça todas as marcas para o recurso.
+    Clique em **Avançar: marcas** e, opcionalmente, forneça todas as marcas para o recurso.
 
     ![Configurar ponto de extremidade privado](./media/virtual-network-support/create-private-endpoint-configuration.png)
 
@@ -135,7 +135,7 @@ Você pode solicitar um ponto de extremidade privado para um recurso de DPS por 
 
 3. Na página _criar uma configuração de ponto de extremidade privado_ , escolha a rede virtual e a sub-rede para criar o ponto de extremidade privado.
  
-    Clique em **Avançar: marcas**e, opcionalmente, forneça todas as marcas para o recurso.
+    Clique em **Avançar: marcas** e, opcionalmente, forneça todas as marcas para o recurso.
 
 4. Clique em **revisar + criar** e em **criar** para criar sua solicitação de ponto de extremidade particular.
 
@@ -154,5 +154,5 @@ Para obter detalhes de preço, confira [Preço do Link Privado do Azure](https:/
 
 Use os links abaixo para saber mais sobre os recursos de segurança do DPS:
 
-* [Segurança](concepts-security.md)
+* [Segurança](./concepts-service.md#attestation-mechanism)
 * [Suporte a TLS 1,2](tls-support.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-ms.openlocfilehash: fe0f2b0efa3f089398493cf30012e34097e065ec
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 139366277feab0a04c47311b4f0210223b2bc8d9
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91944251"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98891990"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao F5
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá a integrar o F5 ao Azure AD (Azure Active Direc
 * Permitir que os usuários sejam conectados automaticamente ao F5 com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -195,7 +195,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 1. Clique em **Acesso Condicional**.
 1. Clique em **Nova Política**.
-1. Agora você pode ver seu aplicativo da F5 como um recurso para a Política de AC e aplicar qualquer acesso condicional, incluindo a Autenticação Multifator, o controle de acesso baseado em dispositivo ou a Política do Identity Protection.
+1. Agora você pode ver seu aplicativo da F5 como um recurso para a política de Acesso Condicional e aplicar qualquer acesso condicional, incluindo a Autenticação Multifator, o controle de acesso baseado em dispositivo ou a Política do Identity Protection.
 
 ## <a name="configure-f5-sso"></a>Configurar o SSO do F5
 
@@ -472,21 +472,21 @@ Configure um servidor AAA do Active Directory no APM (Access Policy Manager) par
 
 ### <a name="create-f5-test-user"></a>Criar usuário de teste do F5
 
-Nesta seção, você criará um usuário chamado B.Fernandes no F5. Trabalhe com a [equipe de suporte ao Cliente do F5](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) para adicionar os usuários à plataforma do F5. Os usuários devem ser criados e ativados antes de usar o logon único. 
+Nesta seção, você criará um usuário chamado B.Fernandes no F5. Trabalhe com a [equipe de suporte ao cliente do F5](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) para adicionar os usuários na plataforma do F5. Os usuários devem ser criados e ativados antes de usar o logon único. 
 
 ## <a name="test-sso"></a>Testar o SSO 
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do F5 no Painel de Acesso, você deverá ser conectado automaticamente ao F5 no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do F5 no Painel de Acesso, você deverá ser conectado automaticamente ao F5 no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimente o F5 com o Azure AD](https://aad.portal.azure.com/)
 
@@ -494,3 +494,8 @@ Ao clicar no bloco do F5 no Painel de Acesso, você deverá ser conectado automa
 
 - [Configurar logon único do F5 para aplicativo Kerberos Avançado](advance-kerbf5-tutorial.md)
 
+- [Integração do F5 BIG-IP APM e do Azure AD para acesso híbrido seguro](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-integration)
+
+- [Tutorial para implantar a VM do F5 BIG-IP Virtual Edition na IaaS do Azure para acesso híbrido seguro](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-bigip-deployment-guide)
+
+- [Tutorial para a integração de logon único do Azure Active Directory ao F5 BIG-IP para VPN sem senha](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-password-less-vpn)

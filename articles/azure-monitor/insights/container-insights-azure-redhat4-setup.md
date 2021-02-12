@@ -3,12 +3,12 @@ title: Configurar o Azure Red Hat OpenShift v4. x com Azure Monitor para contêi
 description: Este artigo descreve como configurar o monitoramento de um cluster kubernetes com Azure Monitor hospedado no Azure Red Hat OpenShift versão 4 ou posterior.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: e9f31d1b71122c53a67dc40af31d33255e2e98d8
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 8cd551a028f2fc67c26f8e32d59c0e0650aa1e54
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994545"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944532"
 ---
 # <a name="configure-azure-red-hat-openshift-v4x-with-azure-monitor-for-containers"></a>Configurar o Azure Red Hat OpenShift v4. x com Azure Monitor para contêineres
 
@@ -20,7 +20,7 @@ Azure Monitor para contêineres fornece uma experiência de monitoramento avanç
 
 Você pode habilitar Azure Monitor para contêineres para uma ou mais implantações existentes do Azure Red Hat OpenShift v4. x usando os métodos com suporte descritos neste artigo.
 
-Para um cluster existente, execute esse [script de bash na CLI do Azure](/cli/azure/openshift?view=azure-cli-latest#az-openshift-create&preserve-view=true).
+Para um cluster existente, execute esse [script de bash na CLI do Azure](/cli/azure/openshift#az-openshift-create&preserve-view=true).
 
 ## <a name="supported-and-unsupported-features"></a>Recursos com e sem suporte
 
@@ -111,7 +111,7 @@ Se você não tiver um espaço de trabalho para especificar, poderá pular para 
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
-1. Na saída, localize o nome do espaço de trabalho e copie a ID de recurso completo do espaço de trabalho Log Analytics sob a **ID**do campo.
+1. Na saída, localize o nome do espaço de trabalho e copie a ID de recurso completo do espaço de trabalho Log Analytics sob a **ID** do campo.
 
 1. Para habilitar o monitoramento, execute o comando a seguir. Substitua os valores dos `azureAroV4ClusterResourceId` parâmetros, `logAnalyticsWorkspaceResourceId` e `kubeContext` .
 
@@ -133,7 +133,7 @@ Nesta seção, você habilita o monitoramento para o cluster do Azure Red Hat Op
 
 Neste exemplo, não é necessário criar previamente ou especificar um espaço de trabalho existente. Esse comando simplifica o processo para você criando um espaço de trabalho padrão no grupo de recursos padrão da assinatura do cluster, se ainda não existir uma na região.
 
-O espaço de trabalho padrão criado está no formato *defaultworkspace- \<GUID> - \<Region> *.  
+O espaço de trabalho padrão criado está no formato *defaultworkspace- \<GUID> - \<Region>*.  
 
 Substitua os valores dos `azureAroV4ClusterResourceId` parâmetros e `kubeContext` .
 

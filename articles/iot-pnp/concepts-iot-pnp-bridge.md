@@ -3,17 +3,17 @@ title: Ponte de Plug and Play IoT | Microsoft Docs
 description: Entenda a ponte de Plug and Play IoT e como usá-la para conectar dispositivos existentes conectados a um gateway Windows ou Linux como dispositivos de IoT Plug and Play.
 author: usivagna
 ms.author: ugans
-ms.date: 09/22/2020
+ms.date: 1/20/2021
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 0435fe3946118d59d786dd3e6cec350a5ab4eee4
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: a45efd90043ecb4d457db7ed39651f1a9b5bbd4d
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046444"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98890600"
 ---
 # <a name="iot-plug-and-play-bridge"></a>Ponte do IoT Plug and Play
 
@@ -29,63 +29,126 @@ A ponte de Plug and Play IoT dá suporte aos seguintes tipos de periféricos por
 
 |Periférico|Windows|Linux|
 |---------|---------|---------|
-|[Bluetooth LE](https://aka.ms/iot-pnp-bridge-bluetooth)       |Sim|Não|
-|[Câmeras](https://aka.ms/iot-pnp-bridge-camera)               |Sim|Não|
-|[Modbus](https://aka.ms/iot-pnp-bridge-modbus)                |Sim|Sim|
-|[MQTT](https://aka.ms/iot-pnp-bridge-mqtt)                    |Sim|Sim|
-|[Série](https://aka.ms/iot-pnp-bridge-serial)                |Sim|Sim|
-|[Periféricos USB do Windows](https://aka.ms/iot-pnp-bridge-usb)  |Sim|Não Aplicável|
+|O [adaptador do sensor Bluetooth](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/docs/bluetooth_sensor_adapter.md) conecta os sensores de ble (Bluetooth de baixa energia) detectados.       |Sim|Não|
+|[Adaptador de câmera](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/docs/camera_adapter.md) conecta câmeras em um dispositivo Windows 10.               |Sim|Não|
+|O [adaptador Modbus](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/docs/modbus_adapters.md) conecta sensores em um dispositivo Modbus.              |Sim|Sim|
+|O [adaptador MQTT](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/docs/mqtt_adapter.md) conecta dispositivos que usam um agente MQTT.                  |Sim|Sim|
+|O [adaptador SerialPnP](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/serialpnp/Readme.md) conecta dispositivos que se comunicam por meio de uma conexão serial.               |Sim|Sim|
+|Os [periféricos USB do Windows](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/docs/coredevicehealth_adapter.md) usam uma lista de classes de interface de dispositivo com suporte a adaptador para conectar dispositivos que têm uma ID de hardware específica.  |Sim|Não Aplicável|
 
->[!Important]
->Os desenvolvedores podem estender a ponte de Plug and Play IoT para dar suporte a protocolos de dispositivo adicionais por meio das instruções na **[documentação do desenvolvedor de ponte do iot plug and Play aqui](https://aka.ms/iot-pnp-bridge-dev-doc)**.
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-### <a name="os-platform"></a>Plataforma do SO
-
-Há suporte para as seguintes plataformas e versões de sistema operacional:
-
-|Plataforma  |Versões compatíveis  |
-|---------|---------|
-|Windows 10 |     Todos os SKUs do Windows têm suporte. Por exemplo: IoT Enterprise, servidor, desktop, IoT Core. *Para a funcionalidade de monitoramento de integridade da câmera, a compilação 20H1 ou posterior é recomendada. Todas as outras funcionalidades estão disponíveis em todas as compilações do Windows 10.*  |
-|Linux     |Testado e com suporte no Ubuntu 18, 4, a funcionalidade em outras distribuições não foi testada.         |
-||
-
-### <a name="hardware"></a>Hardware
-
-- Qualquer plataforma de hardware capaz de dar suporte às versões e SKUs do sistema operacional acima.
-- Os sensores serial, USB, Bluetooth e de câmera são suportados nativamente. A ponte de Plug and Play IoT pode ser estendida para dar suporte a qualquer periférico ou sensor personalizado ([consulte a seção periféricos acima](#iot-plug-and-play-bridge)).
-
-### <a name="development-environment"></a>Ambiente de desenvolvimento
-
-Para criar, estender e desenvolver a ponte de Plug and Play IoT, você precisará:  
-
-- Um ambiente de desenvolvimento que dá suporte à compilação de C++ como: [Visual Studio (Comunidade, profissional ou empresarial)](https://visualstudio.microsoft.com/downloads/)– certifique-se de incluir o desenvolvimento de desktop com carga de trabalho do C++ ao instalar o Visual Studio.
-- [CMake](https://cmake.org/download/) – quando você instala o CMake, selecione a opção `Add CMake to the system PATH` .
-- Se estiver criando no Windows, também será necessário baixar o SDK do Windows 17763: [https://developer.microsoft.com/windows/downloads/windows-10-sdk](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
-- [SDK do dispositivo C do Hub IOT do Azure](https://github.com/Azure/azure-iot-sdk-c). Os scripts de compilação incluídos neste repositório irão clonar automaticamente o SDK do Azure IoT C necessário para você.
-
-### <a name="azure-iot-products-and-tools"></a>Produtos e ferramentas do Azure IoT
-
-- **Hub IOT do Azure** -você precisará de um [Hub IOT do Azure](../iot-hub/index.yml) em sua assinatura do Azure para conectar seu dispositivo ao. Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar. Se você não tiver um hub IoT, [siga estas instruções para criar um](../iot-hub/iot-hub-create-using-cli.md).
-
-> [!Note]
-> O IoT Plug and Play está disponível atualmente nos Hubs IoT criados nas regiões EUA Central, Norte da Europa e Leste do Japão. O suporte a IoT Plug and Play não está incluído em Hubs IoT da camada básica. Para interagir com o dispositivo de Plug and Play de IoT, você pode usar a ferramenta do Azure IoT Explorer. [Baixe e instale a versão mais recente do Azure IoT Explorer](./howto-use-iot-explorer.md) para o seu sistema operacional.
+Para saber como estender a ponte de Plug and Play IoT para dar suporte a protocolos de dispositivo adicionais, consulte [estender a ponte de plug and Play IOT](howto-author-pnp-bridge-adapter.md). Para saber como criar e implantar a ponte de Plug and Play IoT, consulte [criar e implantar a ponte de plug and Play IOT](howto-build-deploy-extend-pnp-bridge.md).
 
 ## <a name="iot-plug-and-play-bridge-architecture"></a>Arquitetura de ponte de Plug and Play IoT
 
-:::image type="content" source="media/concepts-iot-pnp-bridge/iot-pnp-bridge-components.png" alt-text="No lado esquerdo, há alguns sensores existentes anexados (com e sem fio) a um PC Windows ou Linux que contém a ponte de Plug and Play IoT. Em seguida, a ponte de Plug and Play IoT se conecta a um hub IoT no lado direito":::
+:::image type="content" source="media/concepts-iot-pnp-bridge/iot-pnp-bridge-components.png" alt-text="No lado esquerdo, há várias caixas indicando vários periféricos conectados a um PC com Windows ou Linux que contém a ponte de Plug and Play IoT. Na parte superior, uma caixa rotulada pontos de configuração para a ponte. Em seguida, a ponte se conecta a um hub IoT no lado direito do diagrama.":::
+
+### <a name="iot-plug-and-play-bridge-adapters"></a>Adaptadores de ponte de Plug and Play IoT
+
+A ponte de Plug and Play IoT dá suporte a um conjunto de adaptadores de ponte de Plug and Play IoT para vários tipos de dispositivo. Um *manifesto de adaptador* define estaticamente os adaptadores para uma ponte.
+
+O Gerenciador do adaptador de ponte usa o manifesto para identificar e chamar funções de adaptador. O Gerenciador de adaptador só chama a função CREATE nos adaptadores de ponte que são necessários para os componentes de interface listados no arquivo de configuração. Uma instância de adaptador é criada para cada componente de Plug and Play de IoT.
+
+Um adaptador de ponte cria e adquire um identificador de interface de entrelaçamento digital. O adaptador usa esse identificador para associar a funcionalidade do dispositivo ao teledigital.
+
+Usando as informações no arquivo de configuração, o adaptador de ponte usa as seguintes técnicas para habilitar o dispositivo completo para comunicação de alta do digital através da ponte:
+
+- Estabelece um canal de comunicação diretamente.
+- Cria um observador de dispositivo para aguardar que um canal de comunicação fique disponível.
+
+### <a name="configuration-file"></a>Arquivo de configuração
+
+A ponte de Plug and Play IoT usa um arquivo de configuração baseado em JSON que especifica:
+
+- Como se conectar a um aplicativo de Hub IoT ou IoT Central: as opções incluem cadeias de conexão, parâmetros de autenticação ou DPS (serviço de provisionamento de dispositivos).
+- O local dos modelos de recurso de Plug and Play de IoT que a ponte usa. O modelo define os recursos de um dispositivo de Plug and Play IoT e é estático e imutável.
+- Uma lista de componentes de interface de Plug and Play IoT e as seguintes informações para cada componente:
+- A ID da interface e o nome do componente.
+- O adaptador de ponte necessário para interagir com o componente.
+- Informações de dispositivo que o adaptador de ponte precisa para estabelecer comunicação com o dispositivo. Por exemplo, ID de hardware ou informações específicas para um adaptador, interface ou protocolo.
+- Um subtipo de adaptador de ponte opcional ou configuração de interface se o adaptador oferecer suporte a vários tipos de comunicação com dispositivos semelhantes. O exemplo mostra como um componente de sensor Bluetooth pode ser configurado:
+
+    ```json
+    {
+      "_comment": "Component BLE sensor",
+      "pnp_bridge_component_name": "blesensor1",
+      "pnp_bridge_adapter_id": "bluetooth-sensor-pnp-adapter",
+      "pnp_bridge_adapter_config": {
+        "bluetooth_address": "267541100483311",
+        "blesensor_identity" : "Blesensor1"
+      }
+    }
+    ```
+
+- Uma lista opcional de parâmetros do adaptador de ponte global. Por exemplo, o adaptador de ponte do sensor Bluetooth tem um dicionário de configurações com suporte. Um componente de interface que requer o adaptador do sensor Bluetooth pode escolher uma dessas configurações como a seguinte `blesensor_identity` :
+
+    ```json
+    {
+      "pnp_bridge_adapter_global_configs": {
+        "bluetooth-sensor-pnp-adapter": {
+          "Blesensor1" : {
+            "company_id": "0x499",
+            "endianness": "big",
+            "telemetry_descriptor": [
+              {
+                "telemetry_name": "humidity",
+                "data_parse_type": "uint8",
+                "data_offset": 1,
+                "conversion_bias": 0,
+                "conversion_coefficient": 0.5
+              },
+              {
+                "telemetry_name": "temperature",
+                "data_parse_type": "int8",
+                "data_offset": 2,
+                "conversion_bias": 0,
+                "conversion_coefficient": 1.0
+              },
+              {
+                "telemetry_name": "pressure",
+                "data_parse_type": "int16",
+                "data_offset": 4,
+                "conversion_bias": 0,
+                "conversion_coefficient": 1.0
+              },
+              {
+                "telemetry_name": "acceleration_x",
+                "data_parse_type": "int16",
+                "data_offset": 6,
+                "conversion_bias": 0,
+                "conversion_coefficient": 0.00980665
+              },
+              {
+                "telemetry_name": "acceleration_y",
+                "data_parse_type": "int16",
+                "data_offset": 8,
+                "conversion_bias": 0,
+                "conversion_coefficient": 0.00980665
+              },
+              {
+                "telemetry_name": "acceleration_z",
+                "data_parse_type": "int16",
+                "data_offset": 10,
+                "conversion_bias": 0,
+                "conversion_coefficient": 0.00980665
+              }
+            ]
+          }
+        }
+      }
+    }
+    ```
 
 ## <a name="download-iot-plug-and-play-bridge"></a>Baixar ponte de Plug and Play IoT
 
-Você pode baixar uma versão pré-criada da ponte com adaptadores com suporte nas [versões do IoT plug and Play Bridge](https://aka.ms/iot-pnp-bridge-releases) e expandir a lista de ativos para a versão mais recente. Baixe a versão mais recente do aplicativo para seu sistema operacional.
+Você pode baixar uma versão pré-criada da ponte com adaptadores com suporte nas [versões do IoT plug and Play Bridge](https://github.com/Azure/iot-plug-and-play-bridge/releases) e expandir a lista de ativos para a versão mais recente. Baixe a versão mais recente do aplicativo para seu sistema operacional.
 
-Você também pode baixar e exibir o código-fonte do [IoT plug and Play Bridge no GitHub](https://aka.ms/bridge).
+Você também pode baixar e exibir o código-fonte do [IoT plug and Play Bridge no GitHub](https://github.com/Azure/iot-plug-and-play-bridge).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Agora que você tem uma visão geral da arquitetura do IoT Plug and Play Bridge, as próximas etapas são para saber mais sobre:
 
-- [Como usar a ponte de Plug and Play IoT](./howto-use-iot-pnp-bridge.md)
-- [Consulte a referência do desenvolvedor do GitHub para o IoT Plug and Play Bridge](https://aka.ms/iot-pnp-bridge-dev-doc)
-- [Ponte de Plug and Play IoT no GitHub](https://aka.ms/iotplugandplaybridge)
+- [Como conectar um exemplo de ponte IoT Plug and Play em execução no Linux ou Windows para o Hub IoT](./howto-use-iot-pnp-bridge.md)
+- [Criar e implantar a ponte do IoT Plug and Play](howto-build-deploy-extend-pnp-bridge.md)
+- [Estender a ponte do IoT Plug and Play](howto-author-pnp-bridge-adapter.md)
+- [Ponte de Plug and Play IoT no GitHub](https://github.com/Azure/iot-plug-and-play-bridge)

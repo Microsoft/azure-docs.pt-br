@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 9a5749d115a4d5d9ce1e0ac454609c7b639c2f8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a2c69735c36c06cdf72efc812aa1ac4020ff00a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91309755"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96342219"
 ---
 # <a name="tutorial-get-search-suggestions-on-a-web-page"></a>Tutorial: Obtenha sugestões de pesquisa em uma página da Web
+
+> [!WARNING]
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisaram ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Neste tutorial, criaremos uma página da Web que permite aos usuários consultar a API de Sugestão Automática do Bing.
 
@@ -353,4 +358,4 @@ Abra a página da Web no navegador. No prompt, insira sua chave de assinatura da
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Requisitos de uso e exibição](../UseAndDisplayRequirements.md)
+> [Requisitos de uso e exibição](../../bing-web-search/use-display-requirements.md)

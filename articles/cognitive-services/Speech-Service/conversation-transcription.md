@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: trbye
-ms.openlocfilehash: 5d95525c7dfecd44758c86903ca4a96c2290df52
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c27493748381a3aced92aab41745f352f228c50e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487765"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024986"
 ---
 # <a name="what-is-conversation-transcription-in-meetings-preview"></a>O que é a transcrição de conversa em reuniões (versão prévia)?
 
@@ -54,7 +54,7 @@ Esta é uma visão geral de alto nível de como funciona a transcrição de conv
 
 ## <a name="expected-inputs"></a>Entradas esperadas
 
-- **Fluxo de áudio de vários canais** – para obter detalhes de especificação e design, consulte [microfone do SDK do dispositivo de fala da Microsoft](https://aka.ms/cts/microphone). Para saber mais ou comprar um kit de desenvolvimento, confira [obter o SDK do dispositivo de fala da Microsoft](https://aka.ms/cts/getsdk).
+- **Fluxo de áudio de vários canais** – para obter detalhes de especificação e design, consulte [microfone do SDK do dispositivo de fala da Microsoft](./speech-devices-sdk-microphone.md). Para saber mais ou comprar um kit de desenvolvimento, confira [obter o SDK do dispositivo de fala da Microsoft](./get-speech-devices-sdk.md).
 - **Exemplos de voz de usuário** – a transcrição de conversa precisa de perfis de usuário antes da conversa. Você precisará coletar gravações de áudio de cada usuário e, em seguida, enviar as gravações para o [serviço de geração de assinatura](https://aka.ms/cts/signaturegenservice) para validar o áudio e gerar perfis de usuário.
 
 > [!NOTE]

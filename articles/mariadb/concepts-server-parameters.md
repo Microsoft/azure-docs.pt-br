@@ -1,17 +1,17 @@
 ---
 title: Parâmetros do servidor-banco de dados do Azure para MariaDB
 description: Este tópico fornece diretrizes para configurar parâmetros de servidor no banco de dados do Azure para MariaDB.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: b5064e3cef7def1aca5aa0c97d031d519fd610cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca1acfd6891c9389363fceb7eccec6f460537399
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626387"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664139"
 ---
 # <a name="server-parameters-in-azure-database-for-mariadb"></a>Parâmetros de servidor no banco de dados do Azure para MariaDB
 
@@ -159,7 +159,7 @@ O cache de consulta é habilitado por padrão no MariaDB com o `have_query_cache
 
 Consulte a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-variables/#query_cache_size) para saber mais sobre esse parâmetro.
 
-|**Tipo de preço**|**vCore(s)**|**Valor padrão (bytes)**|**Valor mínimo (bytes)**|* * Valor máximo * *|
+|**Tipo de preço**|**vCore(s)**|**Valor padrão (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Basic|1|Não configurável na camada básica|N/D|N/D|
 |Basic|2|Não configurável na camada básica|N/D|N/D|

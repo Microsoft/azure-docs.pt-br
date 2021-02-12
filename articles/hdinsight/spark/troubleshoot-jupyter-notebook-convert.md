@@ -1,26 +1,23 @@
 ---
-title: Não é possível criar o notebook Jupyter no Azure HDInsight
+title: Não é possível criar Jupyter Notebook no Azure HDInsight
 description: Saiba mais sobre as etapas de solução de problemas e possíveis resoluções para problemas ao interagir com clusters do Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/11/2020
-ms.openlocfilehash: 50a77e240315796d0d4c98fc8fba8edfc9cd2b7d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: d5f6612e22522452efb5eecd14c6c825bf29e6d5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545524"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938666"
 ---
-# <a name="unable-to-create-jupyter-notebook-in-azure-hdinsight"></a>Não é possível criar o notebook Jupyter no Azure HDInsight
+# <a name="unable-to-create-jupyter-notebook-in-azure-hdinsight"></a>Não é possível criar Jupyter Notebook no Azure HDInsight
 
 Este artigo descreve as etapas de solução de problemas e as possíveis resoluções para problemas ao interagir com clusters do Azure HDInsight.
 
 ## <a name="issue"></a>Problema
 
-Ao iniciar um notebook Jupyter, você receberá uma mensagem de erro que contém:
+Ao iniciar um Jupyter Notebook, você receberá uma mensagem de erro que contém:
 
 ```error
 Cannot convert notebook to v5 because that version doesn't exist
@@ -50,7 +47,7 @@ Incompatibilidade de versão.
     version_info = (4, 0, 3)
     ```
 
-    Salve as alterações digitando **Ctrl + X** , **Y** , **Enter** .
+    Salve as alterações digitando **Ctrl + X**, **Y**, **Enter**.
 
 1. Em um navegador da Web, navegue até `https://CLUSTERNAME.azurehdinsight.net/#/main/services/JUPYTER`, em que `CLUSTERNAME` é o nome do cluster.
 
@@ -64,4 +61,4 @@ Se você não encontrou seu problema ou não conseguiu resolver seu problema, vi
 
 * Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Como se conectar à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte** . Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

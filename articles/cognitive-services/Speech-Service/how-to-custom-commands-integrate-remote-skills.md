@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: sausin
-ms.openlocfilehash: 6ab3e1e063409832de839da26eba80efd8b3f4d5
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 77ade17803a35491712ec6df70aed9eb7b4883eb
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92344789"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025867"
 ---
 # <a name="export-custom-commands-application-as-a-remote-skill"></a>Exportar o aplicativo de comandos personalizados como uma habilidade remota
 
@@ -23,9 +23,9 @@ Neste artigo, você aprenderá a exportar um aplicativo de comandos personalizad
 
 ## <a name="prerequisites"></a>Pré-requisitos
 > [!div class="checklist"]
-> * [Noções básicas sobre habilidade do bot Framework](https://aka.ms/speech/cc-skill-overview)
+> * [Noções básicas sobre habilidade do bot Framework](/azure/bot-service/skills-conceptual)
 > * [Noções básicas sobre o manifesto de habilidades](https://aka.ms/speech/cc-skill-manifest)
-> * [Como invocar uma habilidade de um bot do bot Framework](https://aka.ms/speech/cc-skill-consumer)
+> * [Como invocar uma habilidade de um bot do bot Framework](/azure/bot-service/skills-about-skill-consumers)
 > * Um aplicativo de comandos personalizados existente. Caso você não tenha nenhum aplicativo de comandos personalizados, experimente com- [QuickStart: criar um assistente de voz usando comandos personalizados](quickstart-custom-commands-application.md)
 
 ## <a name="custom-commands-as-remote-skills"></a>Comandos personalizados como habilidades remotas
@@ -53,7 +53,7 @@ Você tem a opção de escolher quais comandos deseja exportar sobre habilidades
 
 1. Para expor um comando sobre as habilidades, selecione **habilitar um novo comando** em **habilitar comandos para habilidades**.
 1. No menu suspenso, selecione o comando que você pretende adicionar.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ### <a name="configure-triggering-utterances-for-commands"></a>Configurar o disparo de declarações para comandos
 Os comandos personalizados usam as frases de exemplo que são configuradas para os comandos a fim de gerar as habilidades que disparam declarações. Essas **declarações de disparo** serão usadas para gerar o [**manifesto de habilidade**](https://microsoft.github.io/botframework-solutions/skills/handbook/manifest/)da seção do **Dispatcher** .
@@ -68,7 +68,7 @@ Como autor, talvez você queira controlar quais das **frases de exemplo** são u
     > [!div class="mx-imgBorder"]
     > ![Desabilitar exemplos](media/custom-commands/skill-disable-example-sentences.png)
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 1. Você observará que não é possível adicionar um novo exemplo nessa janela. Se houver a necessidade de fazer isso, vá para sair da seção Configurações e selecione o comando relevante do acordeão de **comandos** . Neste ponto, você pode adicionar a nova entrada na seção de **sentenças de exemplo** . Essa alteração será refletida automaticamente no valor de configurações de habilidades remotas para o comando.
 
 > [!IMPORTANT]
@@ -88,4 +88,4 @@ Como autor, talvez você queira controlar quais das **frases de exemplo** são u
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Habilitar um processo de CI/CD para o aplicativo de Comandos Personalizados](./how-to-custom-commands-deploy-cicd.md)
+> [Atualizar um comando do cliente](./how-to-custom-commands-update-command-from-client.md)

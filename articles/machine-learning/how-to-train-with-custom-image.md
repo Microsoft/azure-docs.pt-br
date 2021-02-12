@@ -1,7 +1,7 @@
 ---
 title: Treinar um modelo usando uma imagem personalizada do Docker
 titleSuffix: Azure Machine Learning
-description: Saiba como treinar modelos com imagens personalizadas do Docker no Azure Machine Learning.
+description: Saiba como usar suas próprias imagens do Docker ou os listados da Microsoft para treinar modelos no Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: saachigopal
 ms.date: 10/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 6ce0885cce1861b27d6230c3807350831603684b
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ad86ebdbef8bf8c8ec00e54e15b751fd2285ad68
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329110"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601340"
 ---
 # <a name="train-a-model-by-using-a-custom-docker-image"></a>Treinar um modelo usando uma imagem personalizada do Docker
 
@@ -32,8 +32,8 @@ Execute o código em qualquer um desses ambientes:
   * No repositório de [exemplos](https://github.com/Azure/azureml-examples)de Azure Machine Learning, encontre um notebook concluído acessando o diretório **notebooks**  >  **fastai**  >  **Train-pets-resnet34. ipynb** . 
 * Seu próprio servidor de Jupyter Notebook:
   * Crie um [arquivo de configuração de workspace](how-to-configure-environment.md#workspace).
-  * Instale o [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true). 
-  * Crie um [registro de contêiner do Azure](/azure/container-registry) ou outro registro do Docker que esteja disponível na Internet.
+  * Instale o [SDK do Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py). 
+  * Crie um [registro de contêiner do Azure](../container-registry/index.yml) ou outro registro do Docker que esteja disponível na Internet.
 
 ## <a name="set-up-a-training-experiment"></a>Configurar um teste de treinamento
 
@@ -41,7 +41,7 @@ Nesta seção, você configura o teste de treinamento inicializando um espaço d
 
 ### <a name="initialize-a-workspace"></a>Inicializar um workspace
 
-O [espaço de trabalho Azure Machine Learning](concept-workspace.md) é o recurso de nível superior para o serviço. Ele oferece um local centralizado para trabalhar com todos os artefatos que você criar. No SDK do Python, você pode acessar os artefatos do espaço de trabalho criando um [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) objeto.
+O [espaço de trabalho Azure Machine Learning](concept-workspace.md) é o recurso de nível superior para o serviço. Ele oferece um local centralizado para trabalhar com todos os artefatos que você criar. No SDK do Python, você pode acessar os artefatos do espaço de trabalho criando um [`Workspace`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) objeto.
 
 Crie um `Workspace` objeto do config.jsno arquivo que você criou como um [pré-requisito](#prerequisites).
 
@@ -102,6 +102,12 @@ fastai_env.docker.base_image = None
 fastai_env.docker.base_dockerfile = "./Dockerfile"
 ```
 
+>[!IMPORTANT]
+> Azure Machine Learning oferece suporte apenas a imagens do Docker que fornecem o seguinte software:
+> * Ubuntu 16, 4 ou superior.
+> * Conda 4.5. # ou superior.
+> * Python 3.5 +.
+
 Para obter mais informações sobre como criar e gerenciar ambientes de Azure Machine Learning, consulte [criar e usar ambientes de software](how-to-use-environments.md). 
 
 ### <a name="create-or-attach-a-compute-target"></a>Criar ou anexar um destino de computação
@@ -138,7 +144,7 @@ print(compute_target.get_status().serialize())
 
 ## <a name="configure-your-training-job"></a>Configurar seu trabalho de treinamento
 
-Para este tutorial, use o script de treinamento *Train.py* no [GitHub](https://github.com/Azure/azureml-examples/blob/main/code/models/fastai/pets-resnet34/train.py). Na prática, você pode usar qualquer script de treinamento personalizado e executá-lo, como está, com Azure Machine Learning.
+Para este tutorial, use o script de treinamento *Train.py* no [GitHub](https://github.com/Azure/azureml-examples/blob/main/workflows/train/fastai/pets/src/train.py). Na prática, você pode usar qualquer script de treinamento personalizado e executá-lo, como está, com Azure Machine Learning.
 
 Crie um `ScriptRunConfig` recurso para configurar seu trabalho para execução no destino de [computação](how-to-set-up-training-targets.md)desejado.
 
@@ -158,12 +164,12 @@ Quando você envia uma execução de treinamento usando um `ScriptRunConfig` obj
 ```python
 from azureml.core import Experiment
 
-run = Experiment(ws,'fastai-custom-image').submit(src)
+run = Experiment(ws,'Tutorial-fastai').submit(src)
 run.wait_for_completion(show_output=True)
 ```
 
 > [!WARNING]
-> Azure Machine Learning executa scripts de treinamento copiando o diretório de origem inteiro. Se você tiver dados confidenciais que não deseja carregar, use um [arquivo. ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) ou não o inclua no diretório de origem. Em vez disso, acesse seus dados por meio de um [datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true).
+> Azure Machine Learning executa scripts de treinamento copiando o diretório de origem inteiro. Se você tiver dados confidenciais que não deseja carregar, use um [arquivo. ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) ou não o inclua no diretório de origem. Em vez disso, acesse seus dados por meio de um [datastore](/python/api/azureml-core/azureml.data?preserve-view=true&view=azure-ml-py).
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você treinou um modelo usando uma imagem personalizada do Docker. Consulte estes outros artigos para saber mais sobre Azure Machine Learning:

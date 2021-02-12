@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/11/2020
+ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2d00942331b7e6c881803af366d1c08e173462b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f0f3b6ffcb7ee12a692470b922cf23a3f0f40f0
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90023781"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858427"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -77,8 +77,35 @@ O elemento **RelyingParty** opcional contém os seguintes elementos:
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | DefaultUserJourney | 1:1 | O percurso do usuário padrão para o aplicativo de RP. |
+| Pontos de extremidade | 0:1 | Uma lista de pontos de extremidade. Para obter mais informações, consulte [ponto de extremidade de UserInfo](userinfo-endpoint.md). |
 | UserJourneyBehaviors | 0:1 | O escopo dos comportamentos do percurso do usuário. |
 | TechnicalProfile | 1:1 | Um perfil técnico é compatível com o aplicativo de RP. O perfil técnico fornece um contrato para o aplicativo de RP contatar o Azure AD B2C. |
+
+## <a name="endpoints"></a>Pontos de extremidade
+
+O elemento de **pontos de extremidade** contém o seguinte elemento:
+
+| Elemento | Ocorrências | Descrição |
+| ------- | ----------- | ----------- |
+| Ponto de extremidade | 1:1 | Uma referência a um ponto de extremidade.|
+
+O elemento de **ponto de extremidade** contém os seguintes atributos:
+
+| Atributo | Obrigatório | Descrição |
+| --------- | -------- | ----------- |
+| Id | Sim | Um identificador exclusivo do ponto de extremidade.|
+| UserJourneyReferenceId | Sim | Um identificador de percurso do usuário na política. Para obter mais informações, confira [percursos do usuário](userjourneys.md)  | 
+
+O exemplo a seguir mostra uma terceira parte confiável com o [ponto de extremidade UserInfo](userinfo-endpoint.md):
+
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <Endpoints>
+    <Endpoint Id="UserInfo" UserJourneyReferenceId="UserInfoJourney" />
+  </Endpoints>
+  ...
+```
 
 ## <a name="defaultuserjourney"></a>DefaultUserJourney
 
@@ -117,7 +144,7 @@ O elemento **UserJourneyBehaviors** contém os seguintes elementos:
 | SessionExpiryInSeconds | 0:1 | O tempo de vida do cookie da sessão do Azure AD B2C especificado como um inteiro armazenado no navegador do usuário mediante uma autenticação bem-sucedida. |
 | JourneyInsights | 0:1 | A chave de instrumentação do Azure Application Insights a ser usada. |
 | ContentDefinitionParameters | 0:1 | A lista de pares chave-valor a serem acrescentados ao URI da carga de definição de conteúdo. |
-|ScriptExecution| 0:1| Os modos de execução de [JavaScript](javascript-samples.md) com suporte. Valores possíveis: `Allow` ou `Disallow` (padrão).
+|ScriptExecution| 0:1| Os modos de execução de [JavaScript](javascript-and-page-layout.md) com suporte. Valores possíveis: `Allow` ou `Disallow` (padrão).
 
 ### <a name="singlesignon"></a>SingleSignOn
 
@@ -126,7 +153,7 @@ O elemento **SingleSignOn** contém o seguinte atributo:
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | Escopo | Sim | O escopo do comportamento de logon único. Valores possíveis: `Suppressed`, `Tenant`, `Application` ou `Policy`. O `Suppressed` valor indica que o comportamento é suprimido e o usuário sempre será solicitado a fornecer uma seleção de provedor de identidade.  O valor `Tenant` indica que o comportamento é aplicado a todas as políticas no locatário. Por exemplo, um usuário navegando por dois percursos de política para um locatário não é solicitado a fazer uma seleção de provedor de identidade. O valor `Application` indica que o comportamento é aplicado a todas as políticas para o aplicativo que está fazendo a solicitação. Por exemplo, um usuário navegando por dois percursos de política para um aplicativo não é solicitado a fazer uma seleção de provedor de identidade. O valor `Policy` indica que o comportamento se aplica somente a uma política. Por exemplo, um usuário que navega pelas dois percursos de política para uma estrutura de confiança é solicitado a informar uma seleção de provedor de identidade ao alternar entre políticas. |
-| KeepAliveInDays | Sim | Controla por quanto tempo o usuário permanece conectado. A definição do valor como 0 desliga a funcionalidade KMSI. Para obter mais informações, confira [Manter-me conectado](custom-policy-keep-me-signed-in.md). |
+| KeepAliveInDays | Sim | Controla por quanto tempo o usuário permanece conectado. A definição do valor como 0 desliga a funcionalidade KMSI. Para obter mais informações, confira [Manter-me conectado](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi). |
 |EnforceIdTokenHintOnLogout| Não|  Force a passar um token de ID emitido anteriormente para o ponto de extremidade de logout como uma dica sobre a sessão autenticada atual do usuário final com o cliente. Valores possíveis: `false` (padrão) ou `true`. Para obter mais informações, consulte [entrada na Web com o OpenID Connect](openid-connect.md).  |
 
 
@@ -165,7 +192,7 @@ O elemento **ContentDefinitionParameter** contém o seguinte atributo:
 | --------- | -------- | ----------- |
 | Nome | Sim | O nome do par chave-valor. |
 
-Para obter mais informações, confira [Configurar a interface do usuário com conteúdo dinâmico usando políticas personalizadas](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri)
+Para obter mais informações, confira [Configurar a interface do usuário com conteúdo dinâmico usando políticas personalizadas](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri)
 
 ## <a name="technicalprofile"></a>TechnicalProfile
 
@@ -173,7 +200,7 @@ O elemento **TechnicalProfile** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ID | Sim | O valor deve ser `PolicyProfile`. |
+| Id | Sim | O valor deve ser `PolicyProfile`. |
 
 O **TechnicalProfile** contém os seguintes elementos:
 
@@ -204,6 +231,7 @@ Quando o protocolo é `SAML` , um elemento de metadados contém os elementos a s
 | KeyEncryptionMethod| Não | Indica o método que Azure AD B2C usa para criptografar a cópia da chave que foi usada para criptografar os dados. Os metadados controlam o valor do  `<EncryptedKey>` elemento na resposta SAML. Valores possíveis: ` Rsa15` (padrão)-algoritmo de criptografia do RSA Public Key Cryptography padrão (PKCS) versão 1,5, ` RsaOaep` -algoritmo de encriptação de OAEP (preenchimento de criptografia assimétrica ideal) da RSA. |
 | UseDetachedKeys | Não |  Valores possíveis: `true` ou `false` (padrão). Quando o valor é definido como `true` , Azure ad B2C altera o formato das asserções criptografadas. O uso de chaves desanexadas adiciona a asserção criptografada como um filho do EncrytedAssertion em oposição ao EncryptedData. |
 | WantsSignedResponses| Não | Indica se Azure AD B2C assina a `Response` seção da resposta SAML. Valores possíveis: `true` (padrão) ou `false` .  |
+| RemoveMillisecondsFromDateTime| Não | Indica se o millisconds será removido dos valores de DateTime na resposta SAML (isso inclui IssueInstant, nobefore, NotOnOrAfter e AuthnInstant). Valores possíveis: `false` (padrão) ou `true` .  |
 
 ### <a name="outputclaims"></a>OutputClaims
 

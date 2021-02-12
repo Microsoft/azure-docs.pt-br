@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: absha
-ms.openlocfilehash: e18288dbc2a09c7e9dd5b0c0e96dfd04ec192596
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a1a122eb7b5b0abcc47cd321c74267a1a4aecda
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595896"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396848"
 ---
 # <a name="create-an-application-gateway-and-rewrite-http-headers"></a>Criar um gateway de aplicativo e reescrever cabeçalhos HTTP
 
-É possível usar o Azure PowerShell para configurar [regras reescrever os cabeçalhos de solicitação e de resposta HTTP](rewrite-http-headers.md) quando você cria o novo [SKU de gateway de aplicativo com dimensionamento automático e redundância de zona](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+É possível usar o Azure PowerShell para configurar [regras reescrever os cabeçalhos de solicitação e de resposta HTTP](rewrite-http-headers.md) quando você cria o novo [SKU de gateway de aplicativo com dimensionamento automático e redundância de zona](./application-gateway-autoscaling-zone-redundant.md)
 
 Neste artigo, você aprenderá como:
 
@@ -32,7 +32,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo requer que você execute Azure PowerShell localmente. É necessário ter instalado o módulo Az versão 1.0.0 ou posterior. Execute `Import-Module Az` e, em seguida, `Get-Module Az` para localizar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Depois de verificar a versão do PowerShell, execute `Login-AzAccount` para criar uma conexão com o Azure.
+Este artigo requer que você execute Azure PowerShell localmente. É necessário ter instalado o módulo Az versão 1.0.0 ou posterior. Execute `Import-Module Az` e, em seguida, `Get-Module Az` para localizar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Depois de verificar a versão do PowerShell, execute `Login-AzAccount` para criar uma conexão com o Azure.
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -107,11 +107,11 @@ $setting = New-AzApplicationGatewayBackendHttpSettings -Name "BackendHttpSetting
 
 Configure os novos objetos necessários para reescrever os cabeçalhos HTTP:
 
-- **RequestHeaderConfiguration**: este objeto é usado para especificar os campos de cabeçalho de solicitação que você pretende reescrever e o novo valor que deve ser reescrito nos cabeçalhos originais.
-- **ResponseHeaderConfiguration**: este objeto é usado para especificar os campos de cabeçalho de resposta que você pretende reescrever e o novo valor que deve ser reescrito nos cabeçalhos originais.
-- **ActionSet**: este objeto contém as configurações dos cabeçalhos de solicitação e de resposta especificados acima. 
-- **RewriteRule**: este objeto contém todos os *actionSets* especificados acima. 
-- **RewriteRuleSet**- este objeto contém todos os *rewriteRules* e deverá ser anexado a uma regra de roteamento de solicitação - básica ou com base no caminho.
+- **RequestHeaderConfiguration** : este objeto é usado para especificar os campos de cabeçalho de solicitação que você pretende reescrever e o novo valor que deve ser reescrito nos cabeçalhos originais.
+- **ResponseHeaderConfiguration** : este objeto é usado para especificar os campos de cabeçalho de resposta que você pretende reescrever e o novo valor que deve ser reescrito nos cabeçalhos originais.
+- **ActionSet** : este objeto contém as configurações dos cabeçalhos de solicitação e de resposta especificados acima. 
+- **RewriteRule** : este objeto contém todos os *actionSets* especificados acima. 
+- **RewriteRuleSet** - este objeto contém todos os *rewriteRules* e deverá ser anexado a uma regra de roteamento de solicitação - básica ou com base no caminho.
 
    ```azurepowershell
    $requestHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-isThroughProxy" -HeaderValue "True"

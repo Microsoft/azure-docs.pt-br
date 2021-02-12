@@ -1,19 +1,16 @@
 ---
 title: Componentes e versões do Apache Hadoop - Azure HDInsight
 description: Saiba mais sobre componentes e versões do Apache Hadoop no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 08/13/2020
-ms.openlocfilehash: 282f13c89c527b096573b67b5d539de821e89032
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: d1f4c57986f356f267448ff43de23973534b8126
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900803"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006659"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>Componentes e versões do Apache Hadoop disponíveis para o Azure HDInsight
 
@@ -32,7 +29,7 @@ As versões do componente associadas às versões do cluster HDInsight são list
 |------------------------|---------------|-----------------------------|
 | Apache Hadoop e YARN | 3.1.1         | 2.7.3                       |
 | Apache Tez             | 0.9.1         | 0.7.0                       |
-| Apache Pig             | 0.16.0        | 0.16.0                      |
+| Apache Pig             | 0.16.1        | 0.16.0                      |
 | Apache Hive            | 3.1.0         | 1.2.1 (2.1.0 na ESP Interactive Query) |
 | Apache Tez Hive2       | -             | 0.8.4                       |
 | Apache Ranger          | 1.1.0         | 0.7.0                       |
@@ -119,7 +116,7 @@ Esta tabela lista as versões do HDInsight que não estão disponíveis no porta
 
 ## <a name="service-level-agreement-for-hdinsight-cluster-versions"></a>Contrato de nível de serviço para versões do cluster HDInsight
 
-O Contrato de Nível de Serviço (SLA) é definido como uma _janela de suporte_ . Uma janela de suporte é o período de tempo que uma versão do HDInsight tem suporte pelo Atendimento e Suporte ao Cliente da Microsoft. Se a versão tiver uma _data de término do suporte_ que já passou, o cluster HDInsight ficará fora da janela de suporte. A data de expiração do suporte de uma versão especificada do HDInsight (assim que uma versão X+1 mais nova estiver disponível) é a posterior entre:
+O Contrato de Nível de Serviço (SLA) é definido como uma _janela de suporte_. Uma janela de suporte é o período de tempo que uma versão do HDInsight tem suporte pelo Atendimento e Suporte ao Cliente da Microsoft. Se a versão tiver uma _data de término do suporte_ que já passou, o cluster HDInsight ficará fora da janela de suporte. A data de expiração do suporte de uma versão especificada do HDInsight (assim que uma versão X+1 mais nova estiver disponível) é a posterior entre:
 
 - **Fórmula 1:** adicionar 180 dias à data em que o cluster HDInsight versão X foi lançado.
 - **Fórmula 2:** adicionar 90 dias à data em que o cluster HDInsight versão X+1 foi disponibilizado no portal do Azure.
@@ -136,3 +133,5 @@ Para obter mais informações sobre quais SKUs de máquina virtual selecionar pa
 - [Enterprise Security Package](./enterprise-security-package.md)
 - [Notas sobre a versão do Hortonworks associadas a versões do Azure HDInsight](./hortonworks-release-notes.md)
 - [Trabalhe no Apache Hadoop no HDInsight a partir de um PC Windows](hdinsight-hadoop-windows-tools.md)
+
+

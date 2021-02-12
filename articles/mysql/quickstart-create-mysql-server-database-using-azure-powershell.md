@@ -1,19 +1,19 @@
 ---
 title: 'Início Rápido: Projetar um servidor – Azure PowerShell – Banco de Dados do Azure para MySQL'
 description: Este início rápido descreve como usar o PowerShell para criar um servidor de Banco de Dados do Azure para MySQL no grupo de recursos do Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 04/28/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 65ac6b3252b134fa6774c075ebc7d5f2c428a809
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: d12d447acb3b6bf2b6f84e9768e9f063a9a36b03
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545116"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542296"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-powershell"></a>Início Rápido: Criar um servidor de Banco de Dados do Azure para MySQL usando o PowerShell
 
@@ -29,7 +29,7 @@ Se você optar por usar o PowerShell localmente, este artigo exigirá que você 
 > Enquanto o módulo Az.MySql PowerShell está em versão prévia, você deve instalá-lo separadamente do módulo Az PowerShell usando o seguinte comando: `Install-Module -Name Az.MySql -AllowPrerelease`.
 > Depois que o módulo Az.MySql PowerShell estiver em disponibilidade geral, ele passará a fazer parte das versões futuras do módulo do Az PowerShell e estará disponível nativamente no Azure Cloud Shell.
 
-Se esta for a primeira vez que você usa o serviço de Banco de Dados do Azure para MySQL, registre o provedor de recursos **Microsoft.DBforMySQL** .
+Se esta for a primeira vez que você usa o serviço de Banco de Dados do Azure para MySQL, registre o provedor de recursos **Microsoft.DBforMySQL**.
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.DBforMySQL
@@ -47,7 +47,7 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 Crie um [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) usando o cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados como um grupo.
 
-O seguinte exemplo cria um grupo de recursos chamado **myresourcegroup** na região **Oeste dos EUA** .
+O seguinte exemplo cria um grupo de recursos chamado **myresourcegroup** na região **Oeste dos EUA**.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myresourcegroup -Location westus
@@ -70,10 +70,10 @@ A tabela a seguir contém uma lista de parâmetros usados com frequência e valo
 | SslEnforcement             | habilitado          | Se o SSL deve ser habilitado para este servidor. Valores permitidos: Habilitado, Desabilitado.                                                                                                                                                                                                                                                 |
 | StorageInMb                | 51200            | A capacidade de armazenamento do servidor (a unidade é megabytes). O StorageInMb válido é um mínimo de 5120 MB e aumenta em incrementos de 1024 MB. Para obter mais informações sobre limites de tamanho de armazenamento, confira [Tipos de preço do Banco de Dados do Azure para MySQL](./concepts-pricing-tiers.md).                                                                               |
 | Versão                    | 5.7              | A versão principal do MySQL.                                                                                                                                                                                                                                                                                                                 |
-| AdministratorUserName      | myadmin          | O nome de usuário para o logon de administrador. Não pode ser **azure_superuser** , **admin** , **administrator** , **root** , **guest** nem **public** .                                                                                                                                                                                            |
+| AdministratorUserName      | myadmin          | O nome de usuário para o logon de administrador. Não pode ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** nem **public**.                                                                                                                                                                                            |
 | AdministratorLoginPassword | `<securestring>` | A senha do usuário administrador na forma de uma cadeia de caracteres segura. Ele deve conter entre 8 e 128 caracteres. A senha precisa conter caracteres de três das seguintes categorias: Letras maiúsculas, letras minúsculas, números e caracteres não alfanuméricos.                                       |
 
-O valor do parâmetro **SKU** segue a convenção **pricing-tier\_compute-generation\_vCores** , conforme mostrado nestes exemplos.
+O valor do parâmetro **SKU** segue a convenção **pricing-tier\_compute-generation\_vCores**, conforme mostrado nestes exemplos.
 
 - `-Sku B_Gen5_1` é mapeado para Básico, Gen 5 e 1 vCore. Essa opção é o menor SKU disponível.
 - `-Sku GP_Gen5_32` mapeia para Uso Geral, Gen 5 e 32 vCores.
@@ -81,7 +81,7 @@ O valor do parâmetro **SKU** segue a convenção **pricing-tier\_compute-genera
 
 Para obter informações sobre valores de **SKU** válidos por região e para camadas, confira [Tipos de preço do Banco de Dados do Azure para MySQL](./concepts-pricing-tiers.md).
 
-O exemplo a seguir cria um servidor MySQL na região **Oeste dos EUA** denominada **mydemoserver** no grupo de recursos **myresourcegroup** com um logon de administrador do servidor de **myadmin** . É um servidor Gen 5 no tipo de preço de uso geral com dois vCores e backups com redundância geográfica habilitados. Documente a senha usada na primeira linha do exemplo, pois essa é a senha da conta do administrador do servidor MySQL.
+O exemplo a seguir cria um servidor MySQL na região **Oeste dos EUA** denominada **mydemoserver** no grupo de recursos **myresourcegroup** com um logon de administrador do servidor de **myadmin**. É um servidor Gen 5 no tipo de preço de uso geral com dois vCores e backups com redundância geográfica habilitados. Documente a senha usada na primeira linha do exemplo, pois essa é a senha da conta do administrador do servidor MySQL.
 
 > [!TIP]
 > Um nome de servidor mapeia para um nome DNS e deve ser globalmente exclusivo no Azure.
@@ -100,7 +100,7 @@ Considere usar o tipo de preço Básico se computação leve e E/S forem adequad
 
 Crie uma regra de firewall no nível de servidor do Banco de Dados do Azure para MySQL usando o cmdlet `New-AzMySqlFirewallRule`. Uma regra de firewall no nível de servidor permite que um aplicativo externo, como a ferramenta de linha de comando `mysql` ou o MySQL Workbench, conecte-se ao servidor por meio do firewall do serviço Banco de Dados do Azure para MySQL.
 
-O exemplo a seguir cria uma regra de firewall chamada **AllowMyIP** , que permite conexões de um endereço IP específico, 192.168.0.1. Substitua um endereço IP ou um intervalo de endereços IP que correspondam à localização da qual você está se conectando.
+O exemplo a seguir cria uma regra de firewall chamada **AllowMyIP**, que permite conexões de um endereço IP específico, 192.168.0.1. Substitua um endereço IP ou um intervalo de endereços IP que correspondam à localização da qual você está se conectando.
 
 ```azurepowershell-interactive
 New-AzMySqlFirewallRule -Name AllowMyIP -ResourceGroupName myresourcegroup -ServerName mydemoserver -StartIPAddress 192.168.0.1 -EndIPAddress 192.168.0.1
@@ -124,7 +124,7 @@ Update-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup -SslE
 
 ## <a name="get-the-connection-information"></a>Obter informações de conexão
 
-Para se conectar ao servidor, é preciso fornecer credenciais de acesso e informações do host. Use o exemplo a seguir para determinar as informações de conexão. Anote os valores de **FullyQualifiedDomainName** e o **AdministratorLogin** .
+Para se conectar ao servidor, é preciso fornecer credenciais de acesso e informações do host. Use o exemplo a seguir para determinar as informações de conexão. Anote os valores de **FullyQualifiedDomainName** e o **AdministratorLogin**.
 
 ```azurepowershell-interactive
 Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
@@ -199,7 +199,7 @@ Para saber mais sobre outros comandos, veja [Manual de Referência do MySQL 5.7 
 
 1. Inicie o aplicativo MySQL Workbench no computador cliente. Para baixar e instalar o MySQL Workbench, confira [Baixar MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
 
-1. Na caixa de diálogo **Configurar Nova Conexão** , insira as seguintes informações na guia **Parâmetros** :
+1. Na caixa de diálogo **Configurar Nova Conexão**, insira as seguintes informações na guia **Parâmetros**:
 
    :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-powershell/setup-new-connection.png" alt-text="configurar nova conexão":::
 
@@ -212,7 +212,7 @@ Para saber mais sobre outros comandos, veja [Manual de Referência do MySQL 5.7 
     | Nome de Usuário          | myadmin@mydemoserver                    | O logon de administrador do servidor que você anotou anteriormente                |
     | Senha          | *************                           | Use a senha de conta do administrador que você configurou anteriormente      |
 
-1. Para testar se os parâmetros estão configurados corretamente, clique no botão **Testar Conexão** .
+1. Para testar se os parâmetros estão configurados corretamente, clique no botão **Testar Conexão**.
 
 1. Selecione a conexão para se conectar ao servidor.
 

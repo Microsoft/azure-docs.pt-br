@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f3248085a0719628bcf7fe42253156d9652b86cd
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3f4e855c52488652b88a3b14e9817f1755167b67
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148625"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806114"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Linha de base de segurança do Azure para instâncias de contêiner
 
@@ -263,7 +263,7 @@ Você pode usar Azure PowerShell ou CLI do Azure para pesquisar ou executar aç�
 
 * [Log de instância e grupo de contêineres com logs de Azure Monitor](./container-instances-log-analytics.md)
 
-* [Compreender o workspace do Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+* [Compreender o workspace do Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -385,7 +385,7 @@ Se você usar um registro de contêiner do Azure com instâncias de contêiner d
 
 **Diretrizes**: Use PAWs (estações de trabalho com acesso privilegiado) com a MFA configurada para fazer logon e configurar recursos do Azure.
 
-* [Saiba mais sobre Estações de Trabalho com Acesso Privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Saiba mais sobre Estações de Trabalho com Acesso Privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [Como habilitar a MFA no Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -582,7 +582,7 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 **Orientação**: por padrão, todos os dados de implantação em instâncias de contêiner do Azure são criptografados em repouso usando chaves gerenciadas pela Microsoft. Opcionalmente, gerencie a criptografia com sua própria chave (chave gerenciada pelo cliente).
 
-* [Entender a criptografia em repouso no Azure](../security/fundamentals/encryption-atrest.md)
+* [Noções básicas sobre a criptografia em repouso do Azure](../security/fundamentals/encryption-atrest.md)
 
 * [Criptografar dados de implantação com instâncias de contêiner do Azure](./container-instances-encrypt-data.md)
 
@@ -750,7 +750,7 @@ Monitore os logs de instâncias de contêiner do Azure para comportamento anorma
 
 * [Log de instância e grupo de contêineres com logs de Azure Monitor](./container-instances-log-analytics.md)
 
-* [Compreender o workspace do Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+* [Compreender o workspace do Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -1158,7 +1158,7 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 **Diretriz**: as informações de contato do incidente serão usadas pela Microsoft para contatá-lo se o MSRC (Microsoft Security Response Center) descobrir que os dados do cliente foram acessados por uma pessoa não autorizada ou ilegal. Examine os incidentes após o fato para garantir que os problemas sejam resolvidos.
 
-* [Como definir o contato da segurança da central de segurança do Azure](../security-center/security-center-provide-security-contact-details.md)
+* [Como definir o contato de segurança da Central de Segurança do Azure](../security-center/security-center-provide-security-contact-details.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -1166,7 +1166,7 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: incorporar alertas de segurança em seu sistema de resposta a incidentes
 
-**Diretriz**: exporte os alertas e recomendações da Central de Segurança do Azure usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da Central de Segurança do Azure para transmitir os alertas do Sentinel.
+**Diretriz**: exporte os alertas e recomendações da Central de Segurança do Azure usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da Central de Segurança do Azure para transmitir os alertas do Azure Sentinel.
 
 * [Como configurar a exportação contínua](../security-center/continuous-export.md)
 
@@ -1194,9 +1194,9 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 **Diretrizes**: siga as regras de envolvimento da Microsoft para garantir que seus testes de penetração não sejam violações das políticas da Microsoft. Use a estratégia da Microsoft e a execução de equipes vermelhas e testes de penetração de sites ativos em infraestrutura de nuvem, serviços e aplicativos gerenciados pela Microsoft.
 
-* [Regras de teste de penetração do Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+* [Regras de participação para testes de penetração](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [Microsoft Cloud o agrupamento vermelho](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+* [Equipes Vermelhas do Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável

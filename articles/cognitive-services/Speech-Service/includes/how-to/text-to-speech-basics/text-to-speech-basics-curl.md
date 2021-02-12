@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/09/2020
 ms.author: v-jawe
-ms.openlocfilehash: 029cb1e59876eb01c609ef8b7ba0412ed35a2a1b
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 8a877e1773431053c5ad7344209076cb868a0ee3
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940729"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94424948"
 ---
 Neste início rápido, você aprenderá converter texto em fala usando o serviço de Fala e o cURL.
 
@@ -26,7 +26,7 @@ No prompt de comando, execute o comando a seguir. Será necessário inserir os v
 - Sua região do serviço de Fala.
 
 Talvez também seja interessante alterar os valores a seguir.
-- O valor do cabeçalho `X-Microsoft-OutputFormat`, que controla o formato de saída de áudio. Você pode encontrar uma lista de formatos de saída de áudio com suporte na [referência da API REST de conversão de texto em fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech#audio-outputs).
+- O valor do cabeçalho `X-Microsoft-OutputFormat`, que controla o formato de saída de áudio. Você pode encontrar uma lista de formatos de saída de áudio com suporte na [referência da API REST de conversão de texto em fala](../../../rest-text-to-speech.md#audio-outputs).
 - A voz de saída. Para obter uma lista de vozes disponíveis para seu ponto de extremidade de Fala, confira a próxima seção.
 - O arquivo de saída. Neste exemplo, direcionamos a resposta do servidor para um arquivo chamado `output.wav`.
 

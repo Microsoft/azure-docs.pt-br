@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 5094bd4aa5ac68c24f284cfb74e410fbdf089af7
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 0539f37fe15f68d8bfd47bf426333f9d5c67c37d
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677173"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96006858"
 ---
 # <a name="configure-read-ocr-docker-containers"></a>Configurar contêineres de Docker de OCR de leitura
 
@@ -33,12 +33,12 @@ O contêiner também tem as seguintes definições de configuração específica
 
 |Obrigatório|Configuração|Finalidade|
 |--|--|--|
-|Não|ReadEngineConfig:ResultExpirationPeriod| somente contêineres v 2.0. Período de expiração do resultado em horas. O padrão é 48 horas. A configuração especifica quando o sistema deve limpar os resultados de reconhecimento. Por exemplo, se `resultExpirationPeriod=1` o sistema limpar o resultado de reconhecimento 1 hora após o processo. Se `resultExpirationPeriod=0` , o sistema limpará o resultado de reconhecimento depois que o resultado for recuperado.|
-|Não|Cache: Redis| somente contêineres v 2.0. Habilita o armazenamento Redis para armazenar os resultados. Um cache será *necessário* se vários contêineres de leitura forem colocados atrás de um balanceador de carga.|
-|Não|Fila: RabbitMQ|somente contêineres v 2.0. Habilita RabbitMQ para tarefas de expedição. A configuração é útil quando vários contêineres de leitura são colocados atrás de um balanceador de carga.|
-|Não|Fila: Azure: QueueVisibilityTimeoutInMilliseconds | somente contêineres v3. x. A hora de uma mensagem ser invisível quando outro trabalhador a estiver processando. |
-|Não|Armazenamento::D ocumentStore:: MongoDB|somente contêineres v 2.0. Habilita o MongoDB para armazenamento de resultado permanente. |
-|Não|Armazenamento: ObjectStore: AzureBlob: ConnectionString| somente contêineres v3. x. Cadeia de conexão do armazenamento de BLOBs do Azure. |
+|No|ReadEngineConfig:ResultExpirationPeriod| somente contêineres v 2.0. Período de expiração do resultado em horas. O padrão é 48 horas. A configuração especifica quando o sistema deve limpar os resultados de reconhecimento. Por exemplo, se `resultExpirationPeriod=1` o sistema limpar o resultado de reconhecimento 1 hora após o processo. Se `resultExpirationPeriod=0` , o sistema limpará o resultado de reconhecimento depois que o resultado for recuperado.|
+|No|Cache: Redis| somente contêineres v 2.0. Habilita o armazenamento Redis para armazenar os resultados. Um cache será *necessário* se vários contêineres de leitura forem colocados atrás de um balanceador de carga.|
+|No|Fila: RabbitMQ|somente contêineres v 2.0. Habilita RabbitMQ para tarefas de expedição. A configuração é útil quando vários contêineres de leitura são colocados atrás de um balanceador de carga.|
+|No|Fila: Azure: QueueVisibilityTimeoutInMilliseconds | somente contêineres v3. x. A hora de uma mensagem ser invisível quando outro trabalhador a estiver processando. |
+|No|Armazenamento::D ocumentStore:: MongoDB|somente contêineres v 2.0. Habilita o MongoDB para armazenamento de resultado permanente. |
+|No|Armazenamento: ObjectStore: AzureBlob: ConnectionString| somente contêineres v3. x. Cadeia de conexão do armazenamento de BLOBs do Azure. |
 
 ## <a name="apikey-configuration-setting"></a>Configuração de configuração do ApiKey
 
@@ -99,10 +99,10 @@ A sintaxe exata do local da montagem do host varia de acordo com o sistema opera
 
 Os exemplos a seguir usam as definições de configuração para ilustrar como escrever e usar comandos `docker run`.  Quando em execução, o contêiner continuará a ser executado até que você o [pare](computer-vision-how-to-install-containers.md#stop-the-container).
 
-* **Caractere de continuação de linha** : os comandos do Docker nas seções a seguir usam a barra invertida, `\` , como um caractere de continuação de linha. Substitua ou remova essa barra com base nos requisitos do sistema operacional de seu computador host. 
-* **Ordem do argumento** : não altere a ordem dos argumentos, a menos que você esteja muito familiarizado com contêineres do Docker.
+* **Caractere de continuação de linha**: os comandos do Docker nas seções a seguir usam a barra invertida, `\` , como um caractere de continuação de linha. Substitua ou remova essa barra com base nos requisitos do sistema operacional de seu computador host. 
+* **Ordem do argumento**: não altere a ordem dos argumentos, a menos que você esteja muito familiarizado com contêineres do Docker.
 
-Substitua { _argument_name_ } pelos seus próprios valores:
+Substitua {_argument_name_} pelos seus próprios valores:
 
 | Espaço reservado | Valor | Formato ou exemplo |
 |-------------|-------|---|
@@ -120,13 +120,13 @@ Substitua { _argument_name_ } pelos seus próprios valores:
 Os exemplos do Docker a seguir são para o contêiner de leitura.
 
 
-# <a name="version-31-preview"></a>[Versão 3.1 – versão prévia](#tab/version-3-1)
+# <a name="version-32-preview"></a>[Versão 3,2-visualização](#tab/version-3-2)
 
 ### <a name="basic-example"></a>Exemplo básico
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -137,7 +137,7 @@ ApiKey={API_KEY}
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}

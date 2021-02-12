@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 44300771ce6471c97dcd582884995395daae4995
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: fe31e1bf095d15cfdd7945288486cb866ace8246
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215477"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840603"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Entrada de página única usando o fluxo implícito do OAuth 2,0 no Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Muitos aplicativos modernos têm um front-end de aplicativo de página única qu
 
 A maneira recomendada de dar suporte a aplicativos de página única é o [fluxo de código de autorização OAuth 2,0 (com PKCE)](./authorization-code-flow.md).
 
-Algumas estruturas, como [MSAL.js 1. x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), dão suporte apenas ao fluxo de concessão implícito. Nesses casos, Azure Active Directory B2C (Azure AD B2C) dá suporte ao fluxo de concessão implícita de autorização OAuth 2,0. O fluxo três é descrito na [seção 4,2 da especificação do OAuth 2,0](https://tools.ietf.org/html/rfc6749). No fluxo implícito, o aplicativo recebe tokens diretamente do ponto de extremidade autorizado do Azure AD (Azure Active Directory) sem qualquer troca de servidor para servidor. Toda a lógica de autenticação e manipulação de sessão é feita inteiramente no cliente JavaScript com um redirecionamento de página ou uma caixa pop-up.
+Algumas estruturas, como [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), dão suporte apenas ao fluxo de concessão implícita. Nesses casos, Azure Active Directory B2C (Azure AD B2C) dá suporte ao fluxo de concessão implícita de autorização OAuth 2,0. O fluxo três é descrito na [seção 4,2 da especificação do OAuth 2,0](https://tools.ietf.org/html/rfc6749). No fluxo implícito, o aplicativo recebe tokens diretamente do ponto de extremidade autorizado do Azure AD (Azure Active Directory) sem qualquer troca de servidor para servidor. Toda a lógica de autenticação e manipulação de sessão é feita inteiramente no cliente JavaScript com um redirecionamento de página ou uma caixa pop-up.
 
 O Azure AD B2C estende o fluxo implícito do OAuth 2.0 padrão para mais que autenticação e autorização simples. O Azure AD B2C introduz o [parâmetro de política](user-flow-overview.md). Com o parâmetro de política, é possível usar o OAuth 2.0 para adicionar políticas ao seu aplicativo, como fluxos de usuários de inscrição, conexão e gerenciamento de perfil. No exemplo de solicitações HTTP neste artigo, **{Tenant}. o onmicrosoft. com** é usado como exemplo. Substitua `{tenant}` pelo nome do seu locatário se você tiver um e também tiver criado um fluxo de usuário.
 
@@ -61,7 +61,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | response_type | Sim | Deve incluir `id_token` para conexão do OpenID Connect. É possível também incluir o tipo de resposta `token`. Se utilizar `token`, seu aplicativo poderá receber imediatamente um token de acesso do ponto de extremidade autorizado, sem fazer uma segunda solicitação para o ponto de extremidade autorizado.  Se utilizar o tipo de resposta `token`, o `scope` parâmetro deverá conter um escopo indicando para quais recursos o token será emitido. |
 | redirect_uri | Não | O URI de redirecionamento do seu aplicativo, onde as respostas de autenticação podem ser enviadas e recebidas pelo aplicativo. Ele deve corresponder exatamente a um dos URIs de redirecionamento registrados no portal, exceto que ele deve ser codificado como URL. |
 | response_mode | Não | Especifica o método que deve ser usado para enviar o token resultante de volta ao aplicativo.  Para fluxos implícitos, utilize `fragment`. |
-| escopo | Sim | Uma lista de escopos separados por espaços. Um valor de escopo único indica ao Azure AD que ambas as permissões estão sendo solicitadas. O escopo `openid` indica uma permissão para entrar no usuário e obter dados sobre ele na forma de tokens de ID. O escopo `offline_access` é opcional para aplicativos Web. Isso indica que seu aplicativo precisa de um token de atualização para acesso de longa vida para recursos. |
+| scope | Sim | Uma lista de escopos separados por espaços. Um valor de escopo único indica ao Azure AD que ambas as permissões estão sendo solicitadas. O escopo `openid` indica uma permissão para entrar no usuário e obter dados sobre ele na forma de tokens de ID. O escopo `offline_access` é opcional para aplicativos Web. Isso indica que seu aplicativo precisa de um token de atualização para acesso de longa vida para recursos. |
 | state | Não | Um valor incluído na solicitação que também é retornado na resposta de token. Pode ser uma cadeia de caracteres de qualquer conteúdo que você deseje usar. Geralmente, um valor exclusivo gerado aleatoriamente é utilizado para evitar ataques de solicitação intersite forjada. O estado também é utilizado para codificar informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página em que estava. |
 | nonce | Sim | Um valor incluído na solicitação, gerado pelo aplicativo, incluído no token de ID resultante como uma declaração. O aplicativo pode, então, verificar esse valor para atenuar os ataques de reprodução de token. Normalmente, o valor é uma cadeia de caracteres aleatória e exclusiva que pode ser usada para identificar a origem da solicitação. |
 | prompt | Não | O tipo de interação do usuário que é necessária. Atualmente, o único valor válido é `login`. Esse parâmetro força o usuário a inserir suas credenciais nessa solicitação. O logon único não entra em vigor. |
@@ -88,7 +88,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | access_token | O token de acesso que o aplicativo solicitou. |
 | token_type | O valor do tipo de token. O único tipo com suporte do Azure AD é Portador |
 | expires_in | O período de tempo pelo qual o token de acesso é válido (em segundos). |
-| escopo | Os escopos para os quais o token é válido. Você também pode usar os escopos para armazenar tokens em cache para uso posterior. |
+| scope | Os escopos para os quais o token é válido. Você também pode usar os escopos para armazenar tokens em cache para uso posterior. |
 | id_token | O token de ID que o aplicativo solicitou. Você pode usar o token de ID para verificar a identidade do usuário e iniciar uma sessão com o usuário. Para obter mais informações sobre tokens de identificação e seus conteúdos, consulte a [referência de token do Azure AD B2C](tokens-overview.md). |
 | state | Se um parâmetro `state` for incluído na solicitação, o mesmo valor deverá aparecer na resposta. O aplicativo deve verificar se os valores `state` na solicitação e na resposta são idênticos. |
 
@@ -104,7 +104,7 @@ error=access_denied
 
 | Parâmetro | Descrição |
 | --------- | ----------- |
-| erro | Um código usado para classificar tipos de erros que ocorrem. |
+| error | Um código usado para classificar tipos de erros que ocorrem. |
 | error_description | Uma mensagem de erro específica que pode ajudar você a identificar a causa raiz de um erro de autenticação. |
 | state | Se um parâmetro `state` for incluído na solicitação, o mesmo valor deverá aparecer na resposta. O aplicativo deve verificar se os valores `state` na solicitação e na resposta são idênticos.|
 
@@ -141,7 +141,7 @@ Várias outras validações que você deve executar são descritas em detalhes n
 
 * Garanta que o usuário ou a organização tenha se inscrito no aplicativo.
 * Garanta que o usuário tenha autorização e privilégios adequados.
-* Garanta que uma determina força de autenticação tenha ocorrido como, por exemplo, utilizando a autenticação multifator do Azure.
+* Garantindo que uma determinada força de autenticação tenha ocorrido, como usando a autenticação multifator do Azure AD.
 
 Para obter mais informações sobre as reivindicações em um token de ID, consulte a [referência de token do Azure AD B2C](tokens-overview.md).
 
@@ -173,9 +173,9 @@ regras| Obrigatório| O fluxo do usuário a ser executado. Especifique o nome de
 | client_id |Obrigatório |A ID do aplicativo atribuída ao seu aplicativo no [portal do Azure](https://portal.azure.com). |
 | response_type |Obrigatório |Deve incluir `id_token` para conexão do OpenID Connect.  Também é possível incluir o tipo de resposta `token`. Se utilizar `token` aqui, seu aplicativo poderá receber imediatamente um token de acesso do ponto de extremidade autorizado, sem fazer uma segunda solicitação para o ponto de extremidade autorizado. Se utilizar o tipo de resposta `token`, o `scope` parâmetro deverá conter um escopo indicando para quais recursos o token será emitido. |
 | redirect_uri |Recomendadas |O URI de redirecionamento do seu aplicativo, onde as respostas de autenticação podem ser enviadas e recebidas pelo aplicativo. Ele deve coincidir exatamente com um dos URIs de redirecionamento registrados no portal, exceto que deve ser codificado em URL. |
-| escopo |Obrigatório |Uma lista de escopos separados por espaços.  Para obter tokens, inclua todos os escopos que necessários para o recurso pretendido. |
-| response_mode |Recomendadas |Especifica o método que deve ser usado para enviar o token resultante de volta ao aplicativo. Para o fluxo implícito, use `fragment` . Dois outros modos podem ser especificados `query` e `form_post` , mas não funcionam no fluxo implícito. |
-| state |Recomendadas |Um valor incluído na solicitação que retorna na resposta do token.  Pode ser uma cadeia de caracteres de qualquer conteúdo que você deseje usar.  Geralmente, um valor exclusivo gerado aleatoriamente é utilizado para evitar ataques de solicitação intersite forjada.  O estado também é usado para codificar informações sobre o estado do usuário no aplicativo, antes que a solicitação de autenticação tenha ocorrido. Por exemplo, a página ou a exibição do usuário estava ativada. |
+| scope |Obrigatório |Uma lista de escopos separados por espaços.  Para obter tokens, inclua todos os escopos que necessários para o recurso pretendido. |
+| response_mode |Recomendado |Especifica o método que deve ser usado para enviar o token resultante de volta ao aplicativo. Para o fluxo implícito, use `fragment` . Dois outros modos podem ser especificados `query` e `form_post` , mas não funcionam no fluxo implícito. |
+| state |Recomendado |Um valor incluído na solicitação que retorna na resposta do token.  Pode ser uma cadeia de caracteres de qualquer conteúdo que você deseje usar.  Geralmente, um valor exclusivo gerado aleatoriamente é utilizado para evitar ataques de solicitação intersite forjada.  O estado também é usado para codificar informações sobre o estado do usuário no aplicativo, antes que a solicitação de autenticação tenha ocorrido. Por exemplo, a página ou a exibição do usuário estava ativada. |
 | nonce |Obrigatório |Um valor incluído na solicitação, gerado pelo aplicativo, que está incluído no token de ID resultante como uma reivindicação.  O aplicativo pode, então, verificar esse valor para atenuar os ataques de reprodução de token. Normalmente, o valor é uma cadeia de caracteres aleatória e exclusiva que identifica a origem da solicitação. |
 | prompt |Obrigatório |Para atualizar e obter tokens em um iframe oculto, utilize `prompt=none` para garantir que o iframe não fique preso na página de entrada e retorna imediatamente. |
 | login_hint |Obrigatório |Para atualizar e obter tokens em um iframe oculto, inclua o nome de usuário de usuário nesta dica para distinguir entre várias sessões que o usuário pode ter em um determinado momento. Você pode extrair o nome de usuário de uma entrada anterior usando a `preferred_username` declaração (o `profile` escopo é necessário para receber a `preferred_username` declaração). |
@@ -214,7 +214,7 @@ error=user_authentication_required
 
 | Parâmetro | Descrição |
 | --- | --- |
-| erro |Uma cadeia de caracteres de código de erro que pode ser utilizada para classificar os tipos de erros que ocorrem. Você também pode usar a cadeia de caracteres para reagir a erros. |
+| error |Uma cadeia de caracteres de código de erro que pode ser utilizada para classificar os tipos de erros que ocorrem. Você também pode usar a cadeia de caracteres para reagir a erros. |
 | error_description |Uma mensagem de erro específica que pode ajudar você a identificar a causa raiz de um erro de autenticação. |
 
 Se você receber esse erro na solicitação do iframe, o usuário deverá entrar novamente de forma interativa para recuperar um novo token.

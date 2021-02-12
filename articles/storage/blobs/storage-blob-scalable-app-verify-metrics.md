@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: cfc3c445595bec046de4256a57d566067fe3d29e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 708a2369e5ba21f47f3d3fea509654b0385363f7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82692433"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912307"
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Verificar as métricas de taxa de transferência e de latência para uma conta de armazenamento
 
@@ -24,7 +24,7 @@ Na primeira parte da série, você aprende a:
 > * Configurar gráficos no portal do Azure
 > * Verificar as métricas de taxa de transferência e de latência
 
-[As métricas de armazenamento do Azure](../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) usa o monitor do Azure para fornecer uma exibição unificada para o desempenho e a disponibilidade de sua conta de armazenamento.
+[As métricas de armazenamento do Azure](./monitor-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) usa o monitor do Azure para fornecer uma exibição unificada para o desempenho e a disponibilidade de sua conta de armazenamento.
 
 ## <a name="configure-metrics"></a>Configurar métricas
 
@@ -52,7 +52,7 @@ Os gráficos podem ter mais de uma métrica atribuída a eles, mas atribuir mais
 
 ## <a name="dimensions"></a>Dimensões
 
-As [Dimensões](../common/monitor-storage-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#metrics-dimensions) são usadas para examinar mais profundamente os gráficos e obter informações mais detalhadas. Métricas diferentes têm diferentes dimensões. Uma dimensão que está disponível é a dimensão **nome da API**. Esta dimensão interrompe o gráfico em cada chamada de API separada. A primeira imagem abaixo mostra um gráfico de exemplo do total de transações para uma conta de armazenamento. A segunda imagem mostra o mesmo gráfico, mas com a API do nome de dimensão selecionada. Como você pode ver, cada transação é listada fornecendo mais detalhes para o número de chamadas feito pelo nome da API.
+As [Dimensões](./monitor-blob-storage-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#metrics-dimensions) são usadas para examinar mais profundamente os gráficos e obter informações mais detalhadas. Métricas diferentes têm diferentes dimensões. Uma dimensão que está disponível é a dimensão **nome da API**. Esta dimensão interrompe o gráfico em cada chamada de API separada. A primeira imagem abaixo mostra um gráfico de exemplo do total de transações para uma conta de armazenamento. A segunda imagem mostra o mesmo gráfico, mas com a API do nome de dimensão selecionada. Como você pode ver, cada transação é listada fornecendo mais detalhes para o número de chamadas feito pelo nome da API.
 
 ![Métricas da conta de armazenamento - transações sem uma dimensão](./media/storage-blob-scalable-app-verify-metrics/transactionsnodimensions.png)
 

@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 01/04/2021
 ms.author: banders
-ms.openlocfilehash: 559fe43bbd9b8951a97733ae1250046f65f10404
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 07e3cfdce238d5fc4e2737a49dde6fd624de8506
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149365"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882493"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Noções básicas sobre os termos em seu arquivo de uso e encargos do Azure
 
@@ -126,10 +126,24 @@ UsageDate | Data
 UsageEnd | Data
 UsageStart | Data
 
-
 ## <a name="ensure-charges-are-correct"></a>Verifique se os encargos estão corretos
 
 Para saber mais sobre o uso detalhado e os encargos, leia sobre como entender sua fatura [paga conforme o uso](review-individual-bill.md) ou [do Contrato de Cliente da Microsoft](review-customer-agreement-bill.md).
+
+## <a name="unexpected-usage-or-charges"></a>Uso ou encargos inesperados
+
+Se você tiver uso ou cobranças que não reconhece, há várias ações que você pode realizar para ajudar a entender o motivo:
+
+- Examinar a fatura que tem encargos para o recurso
+- Examinar seus encargos faturados na Análise de custo
+- Encontrar pessoas responsáveis pelo recurso e interagir com elas
+- Analisar os logs de auditoria
+- Analisar as permissões do usuário para o escopo pai do recurso
+- Criar uma [solicitação de suporte do Azure](https://go.microsoft.com/fwlink/?linkid=2083458) para ajudar a identificar os encargos
+
+Para obter mais informações, confira [Analisar encargos inesperados](analyze-unexpected-charges.md).
+
+Observe que o Azure não registra a maioria das ações do usuário. Em vez disso, a Microsoft registra o uso de recursos para cobrança. Se você observar um pico de uso no passado e não tiver habilitado o registro em log, a Microsoft não poderá identificar a causa. Habilite o registro em log do serviço para o qual você deseja exibir o aumento de uso para que a equipe técnica apropriada possa ajudar você com o problema.
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 

@@ -1,5 +1,6 @@
 ---
-title: Mover API Web chamando APIs da Web para produção-plataforma de identidade da Microsoft | Azure
+title: Mover API Web chamando APIs da Web para produção | Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como mover uma API Web que chama APIs da Web para produção.
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: aea3a173fd07b66021d35142a84499ae9c66c014
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 370bedf04dc61e2a637f735580cd4df14061264a
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86518191"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753339"
 ---
 # <a name="a-web-api-that-calls-web-apis-move-to-production"></a>Uma API Web que chama APIs da Web: mover para produção
 
@@ -30,4 +31,4 @@ Agora que você conhece as noções básicas de como chamar APIs Web de sua pró
 
 | Amostra | Plataforma | Descrição |
 |--------|----------|-------------|
-| [Active-Directory-aspnetcore-webAPI-tutorial-v2](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) capítulo 1 | API Web do ASP.NET Core, área de trabalho (WPF) | ASP.NET Core chamadas à API Web Microsoft Graph, que você chama de um aplicativo WPF usando a plataforma de identidade da Microsoft (v 2.0). |
+| [Active-Directory-aspnetcore-webAPI-tutorial-v2](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) capítulo 1 | API Web do ASP.NET Core, área de trabalho (WPF) | ASP.NET Core chamadas de API Web Microsoft Graph, que você chama de um aplicativo WPF usando a plataforma de identidade da Microsoft. |

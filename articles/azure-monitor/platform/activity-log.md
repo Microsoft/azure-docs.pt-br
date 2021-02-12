@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 6543b629af8d67658afe61ef81e22eb7355e1de7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6eae805b6edce4c414d26f1b79d52ac33f8f2d9d
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91772797"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709105"
 ---
 # <a name="azure-activity-log"></a>Log de Atividades do Azure
-O log de atividades é um [log de plataforma](platform-logs-overview.md) no Azure que fornece informações sobre eventos de nível de assinatura. Isso inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Veja o log de atividades no portal do Azure ou recupere as entradas com o PowerShell e a CLI. Para funcionalidade adicional, você deve criar uma configuração de diagnóstico para enviar o log de atividades para [Azure monitor logs](data-platform-logs.md), para os hubs de eventos do Azure para encaminhar fora do Azure ou para o armazenamento do Azure para arquivamento. Este artigo fornece detalhes sobre como exibir o log de atividades e enviá-lo para diferentes destinos.
+O log de atividades é um [log de plataforma](platform-logs-overview.md) no Azure que fornece insights sobre eventos no nível de assinatura. Isso inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Veja o log de atividades no portal do Azure ou recupere as entradas com o PowerShell e a CLI. Para funcionalidade adicional, você deve criar uma configuração de diagnóstico para enviar o log de atividades para [Azure monitor logs](data-platform-logs.md), para os hubs de eventos do Azure para encaminhar fora do Azure ou para o armazenamento do Azure para arquivamento. Este artigo fornece detalhes sobre como exibir o log de atividades e enviá-lo para diferentes destinos.
 
 Consulte [criar configurações de diagnóstico para enviar logs e métricas de plataforma para destinos diferentes](diagnostic-settings.md) para obter detalhes sobre como criar uma configuração de diagnóstico.
 
@@ -23,7 +23,7 @@ Consulte [criar configurações de diagnóstico para enviar logs e métricas de 
 > As entradas no log de atividades são geradas pelo sistema e não podem ser alteradas ou excluídas.
 
 ## <a name="view-the-activity-log"></a>Exibir o log de Atividades
-Você pode acessar o log de atividades da maioria dos menus na portal do Azure. O menu no qual você o abre determina seu filtro inicial. Se você abri-lo no menu **monitorar** , o único filtro estará na assinatura. Se você abri-lo no menu de um recurso, o filtro será definido para esse recurso. Você sempre pode alterar o filtro para exibir todas as outras entradas. Clique em **Adicionar filtro** para adicionar propriedades adicionais ao filtro.
+Você pode acessar o log de atividades na maioria dos menus do portal do Azure. O filtro inicial é determinado pelo menu em que você abriu o log de atividades. Se você abri-lo no menu **monitorar** , o único filtro estará na assinatura. Se você abri-lo no menu de um recurso, o filtro será definido para esse recurso. Você sempre pode alterar o filtro para exibir todas as outras entradas. Clique em **Adicionar filtro** para adicionar propriedades adicionais ao filtro.
 
 ![Exibir log de atividades](./media/activity-logs-overview/view-activity-log.png)
 
@@ -56,24 +56,25 @@ Você também pode acessar eventos do log de atividades usando os métodos a seg
 - Use consultas de log para executar uma análise complexa e obter informações aprofundadas sobre entradas do log de atividades.
 - Use alertas de log com entradas de atividade, permitindo uma lógica de alerta mais complexa.
 - Armazene entradas do log de atividades por mais de 90 dias.
-- Nenhuma ingestão de dados ou cobrança de retenção de dados para dados de log de atividades armazenados em um espaço de trabalho Log Analytics.
+- Não há encargos de ingestão de dados para dados de log de atividades armazenados em um espaço de trabalho Log Analytics.
+- Não há encargos de retenção de dados até 90 dias para os dados do log de atividades armazenados em um espaço de trabalho Log Analytics.
 
 [Crie uma configuração de diagnóstico](diagnostic-settings.md) para enviar o log de atividades para um espaço de trabalho log Analytics. Você pode enviar o log de atividades de qualquer assinatura única para até cinco espaços de trabalho. A coleta de logs entre locatários requer o [Azure Lighthouse](../../lighthouse/index.yml).
 
-Os dados do log de atividades em um espaço de trabalho Log Analytics são armazenados em uma tabela chamada *AzureActivity* que você pode recuperar com uma [consulta de log](../log-query/log-query-overview.md) no [log Analytics](../log-query/get-started-portal.md). A estrutura dessa tabela varia dependendo da [categoria da entrada de log](activity-log-schema.md). Para obter uma descrição das propriedades da tabela, consulte a [referência de dados do Azure monitor](/azure/azure-monitor/reference/tables/azureactivity).
+Os dados do log de atividades em um espaço de trabalho Log Analytics são armazenados em uma tabela chamada *AzureActivity* que você pode recuperar com uma [consulta de log](../log-query/log-query-overview.md) no [log Analytics](../log-query/log-analytics-tutorial.md). A estrutura dessa tabela varia dependendo da [categoria da entrada de log](activity-log-schema.md). Para obter uma descrição das propriedades da tabela, consulte a [referência de dados do Azure monitor](/azure/azure-monitor/reference/tables/azureactivity).
 
 Por exemplo, para exibir uma contagem de registros de log de atividades para cada categoria, use a consulta a seguir.
 
 ```kusto
 AzureActivity
-| summarize count() by Category
+| summarize count() by CategoryValue
 ```
 
 Para recuperar todos os registros na categoria administrativa, use a consulta a seguir.
 
 ```kusto
 AzureActivity
-| where Category == "Administrative"
+| where CategoryValue == "Administrative"
 ```
 
 
@@ -206,7 +207,7 @@ Se um perfil de log já existir, primeiro você precisará remover o perfil de l
     | serviceBusRuleId |Não |ID da Regra de Barramento de Serviço para o namespace do Barramento de Serviço no qual você gostaria que os hubs de eventos fossem criados. Esta é uma cadeia de caracteres com o formato: `{service bus resource ID}/authorizationrules/{key name}` . |
     | Localização |Sim |Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. |
     | RetentionInDays |Sim |Número de dias pelos quais os eventos devem ser retidos na conta de armazenamento, entre 1 e 365. Um valor de zero armazena os logs indefinidamente. |
-    | Categoria |Não |Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são _gravação_, _exclusão_e _ação_. |
+    | Categoria |Não |Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são _gravação_, _exclusão_ e _ação_. |
 
 ### <a name="example-script"></a>Script de exemplo
 Veja a seguir um exemplo de script do PowerShell para criar um perfil de log que grava o log de atividades em uma conta de armazenamento e no Hub de eventos.
@@ -277,11 +278,12 @@ As colunas na tabela a seguir foram preteridas no esquema atualizado. Eles ainda
 |:---|:---|
 | ActivityStatus    | ActivityStatusValue    |
 | ActivitySubstatus | ActivitySubstatusValue |
+| Categoria          | Categoriavalue          |
 | OperationName     | OperationNamevalue     |
 | ResourceProvider  | ResourceProviderValue  |
 
 > [!IMPORTANT]
-> Em alguns casos, os valores nessas colunas podem estar em letras maiúsculas. Se você tiver uma consulta que inclua essas colunas, deverá usar o [operador = ~](/azure/kusto/query/datatypes-string-operators) para fazer uma comparação sem diferenciação de maiúsculas e minúsculas.
+> Em alguns casos, os valores nessas colunas podem estar em letras maiúsculas. Se você tiver uma consulta que inclua essas colunas, deve usar o [operador =~](/azure/kusto/query/datatypes-string-operators) para fazer uma comparação que não diferencia maiúsculas de minúsculas.
 
 A seguinte coluna foi adicionada ao *AzureActivity* no esquema atualizado:
 

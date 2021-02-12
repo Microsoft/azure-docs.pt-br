@@ -7,18 +7,19 @@ author: saghorpa
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/26/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b4946524768d0cff483feb4045a2cc5fba169a7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f33ef81282dd8e60eba64cc77cbd95ab8dbc557
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86507940"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967560"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Cenários suportados para instâncias grandes do HANA
 Este artigo descreve os cenários com suporte e os detalhes de arquitetura para o HLI (HANA Large instances).
@@ -325,7 +326,7 @@ Os seguintes pontos de montagem são pré-configurados:
 |/hana/data/SID/mnt00001 | Instalação de arquivos de dados para SID de produção | 
 |/hana/log/SID/mnt00001 | Instalação de arquivos de log para SID de produção | 
 |/hana/logbackups/SID | Redo logs para produção SID |
-|** No nó secundário **|
+|**No nó secundário**|
 |/hana/shared/SID | Instalação do HANA para SID secundário | 
 |/hana/data/SID/mnt00001 | Instalação de arquivos de dados para SID secundário | 
 |/hana/log/SID/mnt00001 | Instalação de arquivos de log para SID secundário | 
@@ -546,7 +547,7 @@ Os seguintes pontos de montagem são pré-configurados:
 |/hana/data/SID/mnt00001 | Instalação de arquivos de dados para SID de produção | 
 |/hana/log/SID/mnt00001 | Instalação de arquivos de log para SID de produção | 
 |/hana/logbackups/SID | Redo logs para produção SID |
-|**No nó DR **|
+|**No nó DR**|
 |/hana/shared | Instalação do HANA para SID de produção | 
 |/hana/data/SID/mnt00001 | Instalação de arquivos de dados para SID de produção | 
 |/hana/log/SID/mnt00001 | Instalação de arquivos de log para SID de produção | 
@@ -778,7 +779,7 @@ Os seguintes pontos de montagem são pré-configurados:
 |/hana/data/SID/mnt00001 | Instalação de arquivos de dados para SID de produção | 
 |/hana/log/SID/mnt00001 | Instalação de arquivos de log para SID de produção | 
 |/hana/logbackups/SID | Redo logs para produção SID |
-|**No nó DR **|
+|**No nó DR**|
 |/hana/shared | Instalação do HANA para SID de produção | 
 |/hana/data/SID/mnt00001 | Instalação de arquivos de dados para SID de produção | 
 |/hana/log/SID/mnt00001 | Instalação de arquivos de log para SID de produção | 

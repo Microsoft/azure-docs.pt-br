@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 1f3de29e5f046da56638876a35ca983792a4ce6c
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d2e7935de23dcbdccfa6f4efa602dbab42931075
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319133"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673813"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-360-online"></a>Tutorial: Integração do Azure Active Directory com o 360 Online
 
@@ -63,7 +63,7 @@ Para configurar a integração do 360 Online ao Azure AD, você precisa adicion�
 
 4. Na caixa de pesquisa, digite **360 Online**, selecione **360 Online** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-     ![360 Online na lista de resultados](common/search-new-app.png)
+    ![360 Online na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
@@ -141,7 +141,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
     a. No campo **Nome**, insira **BrendaFernandes**.
-  
+
     b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -177,7 +177,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 ### <a name="create-360-online-test-user"></a>Criar usuário de teste do 360 Online
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no 360 Online. Trabalhe com a  [equipe de suporte do 360 Online](mailto:360online@software-innovation.com) para adicionar os usuários à plataforma 360 Online. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no 360 Online. Trabalhe com a [equipe de suporte do 360 Online](mailto:360online@software-innovation.com) para adicionar os usuários à plataforma do 360 Online. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="test-single-sign-on"></a>Testar logon único
 

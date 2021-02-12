@@ -1,14 +1,14 @@
 ---
 title: Visão Geral do exemplo de blueprint do FedRAMP Moderado
 description: Visão geral do exemplo de blueprint do FedRAMP Moderado. Este exemplo de blueprint ajuda os clientes a avaliar controles específicos do FedRAMP Moderado.
-ms.date: 10/26/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 0a706254b2de9f76fa0c79696366d38b1f72f96d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 65deb175c3a608b5f3a14048239bfa8be799619d
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675847"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033805"
 ---
 # <a name="overview-of-the-fedramp-moderate-blueprint-sample"></a>Visão geral do exemplo de blueprint do FedRAMP Moderado
 

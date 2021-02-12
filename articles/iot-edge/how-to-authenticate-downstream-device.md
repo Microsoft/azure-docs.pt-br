@@ -8,12 +8,12 @@ ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f2dd7cac8370c261f24f5587e801bd621fbdb0f0
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3876b44bc6bb1ddbc5398126421fb9651003838f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151380"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678816"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticar um dispositivo downstream no Hub IoT do Azure
 
@@ -71,7 +71,7 @@ Ao criar a nova identidade do dispositivo, forneça as seguintes informações:
 
 Você também pode usar a [extensão de IOT para CLI do Azure](https://github.com/Azure/azure-iot-cli-extension) para concluir a mesma operação. O exemplo a seguir usa o comando [AZ IOT Hub Device-Identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) para criar um novo dispositivo IOT com autenticação de chave simétrica e atribuir um dispositivo pai:
 
-```cli
+```azurecli
 az iot hub device-identity create -n {iothub name} -d {new device ID} --pd {existing gateway device ID}
 ```
 
@@ -126,7 +126,7 @@ Para a autenticação autoassinada X. 509, às vezes conhecida como autenticaç�
 
 Você também pode usar a [extensão de IOT para CLI do Azure](https://github.com/Azure/azure-iot-cli-extension) para concluir a mesma operação de criação de dispositivo. O exemplo a seguir usa o comando [AZ IOT Hub Device-Identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) para criar um novo dispositivo IOT com a autenticação autoassinada X. 509 e atribui um dispositivo pai:
 
-```cli
+```azurecli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_thumbprint --ptp {primary thumbprint} --stp {secondary thumbprint}
 ```
 
@@ -144,7 +144,7 @@ Esta seção se baseia nas instruções detalhadas no artigo do Hub IoT [Configu
 
 2. Siga as instruções na seção [Registrar certificados AC X.509 em seu hub IoT](../iot-hub/iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub) na seção *Configurar a segurança X.509 no do Hub IoT do Azure*. Nessa seção, você executa as seguintes etapas:
 
-   1. Carregue um certificado AC raiz. Se você estiver usando os certificados de demonstração, a autoridade de certificação raiz será ** \<path> /certs/Azure-IOT-Test-only.root.ca.cert.pem**.
+   1. Carregue um certificado AC raiz. Se você estiver usando os certificados de demonstração, a autoridade de certificação raiz será **\<path> /certs/Azure-IOT-Test-only.root.ca.cert.pem**.
 
    2. Verifique se você possui esse certificado de autoridade de certificação raiz.
 
@@ -170,7 +170,7 @@ Esta seção se baseia nas instruções detalhadas no artigo do Hub IoT [Configu
 
 Você também pode usar a [extensão de IOT para CLI do Azure](https://github.com/Azure/azure-iot-cli-extension) para concluir a mesma operação de criação de dispositivo. O exemplo a seguir usa o comando [AZ IOT Hub Device-Identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) para criar um novo dispositivo IOT com autenticação assinada da AC X. 509 e atribui um dispositivo pai:
 
-```cli
+```azurecli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_ca
 ```
 
@@ -191,19 +191,19 @@ As cadeias de conexão para dispositivos downstream precisam dos seguintes compo
 
 Uma cadeia de conexão completa é semelhante a:
 
-```
+```console
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz;GatewayHostName=myGatewayDevice
 ```
 
 Ou:
 
-```
+```console
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice
 ```
 
 Graças à relação pai/filho, você pode simplificar a cadeia de conexão chamando o gateway diretamente como o host de conexão. Por exemplo:
 
-```
+```console
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz
 ```
 

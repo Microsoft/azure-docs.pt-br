@@ -1,6 +1,6 @@
 ---
-title: Conceitos de serviços meteorológicos no Microsoft Azure Maps
-description: Saiba mais sobre os conceitos que se aplicam ao Microsoft Azure mapeia os serviços meteorológicos.
+title: Conceitos de serviços meteorológicos (versão prévia) em mapas do Microsoft Azure
+description: Saiba mais sobre os conceitos que se aplicam ao Microsoft Azure mapeia os serviços meteorológicos (versão prévia).
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/10/2020
@@ -8,20 +8,24 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: ea8698b7bf402850e506ec126cd2a7bb6ce05823
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 657cb6a86122d267b86e82b6f02eb58e968cddd3
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896720"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904730"
 ---
-# <a name="weather-services-in-azure-maps"></a>Serviços meteorológicos no Azure Maps
+# <a name="weather-services-preview-in-azure-maps"></a>Serviços meteorológicos (versão prévia) no Azure Maps
 
-Este artigo apresenta conceitos que se aplicam aos [serviços meteorológicos do Azure Maps](/rest/api/maps/weather). É recomendável passar por este artigo antes de começar com as APIs meteorológicos.
+> [!IMPORTANT]
+> Os serviços meteorológicos do Azure Maps estão atualmente em visualização pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Este artigo apresenta os conceitos que se aplicam aos [serviços meteorológicos](/rest/api/maps/weather)do Azure Maps. É recomendável passar por este artigo antes de começar com as APIs meteorológicos.
 
 ## <a name="unit-types"></a>Tipos de unidade
 
-Algumas das APIs de serviço meteorológico permitem que o usuário especifique se os dados são retornados na métrica ou em unidades Imperials. As respostas retornadas para essas APIs incluem UnitType e um valor numérico que pode ser usado para conversões de unidade. Consulte a tabela abaixo para interpretar esses valores.
+Algumas das APIs de serviço meteorológico (versão prévia) permitem que o usuário especifique se os dados são retornados em métrica ou em unidades Imperial. As respostas retornadas para essas APIs incluem UnitType e um valor numérico que pode ser usado para conversões de unidade. Consulte a tabela abaixo para interpretar esses valores.
 
 |unitType|Descrição         |
 |--------|--------------------|
@@ -52,9 +56,9 @@ Algumas das APIs de serviço meteorológico permitem que o usuário especifique 
 
 ## <a name="weather-icons"></a>Ícones de clima
 
-Algumas das APIs de serviço meteorológico retornam o `iconCode` na resposta. O `iconCode` é um valor numérico usado para definir o ícone. Não vincule diretamente a essas imagens de seus aplicativos, as URLs podem e serão alteradas.
+Algumas das APIs de serviço meteorológico (versão prévia) retornam o `iconCode` na resposta. O `iconCode` é um valor numérico usado para definir o ícone. Não vincule diretamente a essas imagens de seus aplicativos, as URLs podem e serão alteradas.
 
-| Número do ícone |ícone| Dia | Jogo | Texto |
+| Número do ícone |Ícone| Dia | Jogo | Texto |
 |-------------|:----:|-----|-------|------|
 | 1           | :::image type="icon" source="./media/weather-services-concepts/sunny-i.png"::: | Sim |  Não    | Ensolarado|
 | 2           | :::image type="icon" source="./media/weather-services-concepts/mostly-sunny.png"::: | Sim |  Não    | Quase que ensolarado|
@@ -575,7 +579,7 @@ A [API obter índices diários](/rest/api/maps/weather) retorna o valor de inter
   ----------------|--------------|------------
   Excelente      |     0,00        |    1.00
   Muito bom        |   1.01          |  3.00
-  Satisfatório             |   3, 1          |  5,00
+  Satisfatório             |   3, 1          |  5.00
   Razoável             |   5,01          |  7,00
   Ruim             |   7, 1          |  10,00
 
@@ -615,7 +619,7 @@ A [API obter índices diários](/rest/api/maps/weather) retorna o valor de inter
   ----------------|--------------|------------
   Muito improvável      |  0,00     |         1.00
   Provável           |  1.01     |         3.00
-  Possível           |  3, 1     |         5,00
+  Possível           |  3, 1     |         5.00
   Podem             |  5,01     |         7,00
   Muito provável        |  7, 1     |         10,00
 

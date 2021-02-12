@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7e703137b7954dd152f976069770a0c8c4a0f34c
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 6a88124397812f7599ce54b46b23d22e626cf520
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564161"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629811"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Início Rápido: criar e gerenciar compartilhamentos de arquivos do Azure com o portal do Azure 
 [Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de nuvem fácil de usar da Microsoft. Os compartilhamentos de arquivos do Azure podem ser montados no Windows, no Linux e no macOS. Este guia percorre os fundamentos de trabalhar com compartilhamentos de arquivos do Azure usando o [Portal do Azure](https://portal.azure.com/).
@@ -33,10 +33,10 @@ Para criar um compartilhamento de arquivos do Azure:
 4. Em **Nome**, digite *myshare*.
 5. Clique em **OK** para criar o compartilhamento de arquivos do Azure.
 
-Os nomes de compartilhamento precisam ter somente letras em minúsculas, números e hifens, mas não podem começar com um hífen. Para obter detalhes completos sobre como nomear arquivos e compartilhamentos de arquivos, confira [Nomenclatura e referência de compartilhamentos, diretórios, arquivos e metadados](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
+Os nomes de compartilhamento precisam ter somente letras em minúsculas, números e hifens, mas não podem começar com um hífen. Para obter detalhes completos sobre como nomear arquivos e compartilhamentos de arquivos, confira [Nomenclatura e referência de compartilhamentos, diretórios, arquivos e metadados](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
 ## <a name="use-your-azure-file-share"></a>Usar o compartilhamento de arquivos do Azure
-Os Arquivos do Azure fornecem três métodos para trabalhar com arquivos e pastas dentro do seu compartilhamento de arquivo do Azure: o [protocolo SMB](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) padrão do setor, o protocolo NFS (Network File System – versão prévia) e o [protocolo REST de arquivo](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api). 
+Os Arquivos do Azure fornecem três métodos para trabalhar com arquivos e pastas dentro do seu compartilhamento de arquivo do Azure: o [protocolo SMB](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) padrão do setor, o protocolo NFS (Network File System – versão prévia) e o [protocolo REST de arquivo](/rest/api/storageservices/file-service-rest-api). 
 
 Para montar um compartilhamento de arquivos com SMB, consulte o documento abaixo com base em seu sistema operacional:
 - [Windows](storage-how-to-use-files-windows.md)

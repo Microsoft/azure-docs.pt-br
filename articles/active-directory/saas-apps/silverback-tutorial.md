@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: a70b6bb50b397429af1af41869bbe9ecf7e8bad9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92510723"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004170"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Tutorial: Integração do Microsoft Azure Active Directory com Silverback
 
@@ -49,11 +49,11 @@ Para configurar a integração do Silverback ao Microsoft Azure Active Directory
 
 **Para adicionar o Silverback por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory** .
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos** .
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Para configurar a integração do Silverback ao Microsoft Azure Active Directory
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Silverback** , selecione **Silverback** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Silverback**, selecione **Silverback** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![Silverback na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Silverback, com base em um usuário de teste chamado **Brenda Fernandes** .
+Nesta seção, você configurará e testará o logon único do Azure AD com o Silverback, com base em um usuário de teste chamado **Brenda Fernandes**.
 Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Silverback.
 
 Para configurar e testar o logon único do Microsoft Azure Active Directory com o Silverback, você precisará concluir os seguintes blocos de construção:
@@ -85,32 +85,32 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Silverback, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Silverback** , selecione **Logon único** .
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Silverback**, selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML** .
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica de SAML** , realize as seguintes etapas:
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
     ![Informações de logon único em Domínio e URLs do Silverback](common/sp-identifier-reply.png)
 
     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<YOURSILVERBACKURL>.com/ssp`
 
-    b. Na caixa **Identificador** , digite uma URL usando o seguinte padrão: `<YOURSILVERBACKURL>.com`
+    b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `<YOURSILVERBACKURL>.com`
 
     c. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<YOURSILVERBACKURL>.com/sts/authorize/login`
 
     > [!NOTE]
     > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, o Identificador e a URL de Resposta reais. Contate a [equipe de suporte do Cliente Silverback](mailto:helpdesk@matrix42.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-5. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , clique no botão copiar para copiar **URL de metadados de federação de aplicativos** e salve-a no computador.
+5. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar **URL de metadados de federação de aplicativos** e salve-a no computador.
 
     ![O link de download do Certificado](common/copy-metadataurl.png)
 
@@ -118,25 +118,25 @@ Para configurar o logon único do Azure AD com o Silverback, execute as seguinte
 
 1. Em outro navegador da Web, faça logon no Servidor do Silverback como Administrador.
 
-2. Navegue até **Admin** > **provedor de autenticação** .
+2. Navegue até **Admin** > **provedor de autenticação**.
 
-3. Na página **Configurações do Provedor de Autenticação** , execute as etapas a seguir:
+3. Na página **Configurações do Provedor de Autenticação**, execute as etapas a seguir:
 
     ![O administrador](./media/silverback-tutorial/tutorial_silverback_admin.png)
 
-    a.  Clique em **Importar da URL** .
+    a.  Clique em **Importar da URL**.
 
-    b.  Cole a URL de metadados copiados e clique em **OK** .
+    b.  Cole a URL de metadados copiados e clique em **OK**.
 
     c.  Confirme com **OK** e em seguida, os valores serão preenchidos automaticamente.
 
-    d.  Habilitar **Mostrar na página de logon** .
+    d.  Habilitar **Mostrar na página de logon**.
 
     e.  Habilitar **Criação Dinâmica de Usuárioa** se você quiser adicionar automaticamente por usuários do Microsoft Azure Active Directory autorizado (opcional).
 
     f.  Criar um **título** para o botão sobre o Portal de autoatendimento.
 
-    g.  Carregar uma **ícone** clicando em **Escolher arquivo** .
+    g.  Carregar uma **ícone** clicando em **Escolher arquivo**.
 
     h.  Selecione o plano de fundo **cor** do botão.
 
@@ -146,7 +146,7 @@ Para configurar o logon único do Azure AD com o Silverback, execute as seguinte
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários** .
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -158,40 +158,40 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes** .
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário** , digite **brendafernandes\@dominiodaempresa.extensao**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Silverback.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, **Silverback** .
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **Silverback**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, escolha **Silverback** .
+2. Na lista de aplicativos, escolha **Silverback**.
 
     ![O link do Silverback na lista de Aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Usuários e grupos** .
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
     ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-silverback-test-user"></a>Criar um usuário de teste do Silverback
 
@@ -201,28 +201,28 @@ Para habilitar os usuários do Microsoft Azure Active Directory no Silverback, d
 
 1. Faça logon no servidor de processo como administrador.
 
-2. Navegue até  **Usuários** e **adicione um novo usuário do dispositivo** .
+2. Navegue até  **Usuários** e **adicione um novo usuário do dispositivo**.
 
-3. Na página **Básico** , execute as seguintes etapas:
+3. Na página **Básico**, execute as seguintes etapas:
 
     ![O usuário](./media/silverback-tutorial/tutorial_silverback_user.png)
 
-    a. Na caixa de texto **Nome de usuário** , digite o nome do usuário, como **Brenda** .
+    a. Na caixa de texto **Nome de usuário**, digite o nome do usuário, como **Brenda**.
 
-    b. Na caixa de texto **Nome** , insira o nome do usuário como **Brenda** .
+    b. Na caixa de texto **Nome**, insira o nome do usuário como **Brenda**.
 
-    c. Na caixa de texto **Sobrenome** , insira o nome do usuário como **Fernandes** .
+    c. Na caixa de texto **Sobrenome**, insira o nome do usuário como **Fernandes**.
 
-    d. Na caixa de texto **Endereço de email** , insira o email do usuário como **brendafernandes\@contoso.com** .
+    d. Na caixa de texto **Endereço de email**, insira o email do usuário como **brendafernandes\@contoso.com**.
 
-    e. Na caixa de texto **Senha** , insira sua senha.
+    e. Na caixa de texto **Senha**, insira sua senha.
 
-    f. Na caixa de texto **Confirmar senha** , digite sua senha novamente e confirme.
+    f. Na caixa de texto **Confirmar senha**, digite sua senha novamente e confirme.
 
     g. Clique em **Save** (Salvar).
 
 > [!NOTE]
-> Se você não quiser criar manualmente para cada usuário habilitar a **Criação Dinâmica de Usuário** caixa de seleção em **Admin** > **Provedor de Autenticação** .
+> Se você não quiser criar manualmente para cada usuário habilitar a **Criação Dinâmica de Usuário** caixa de seleção em **Admin** > **Provedor de Autenticação**.
 
 ### <a name="test-single-sign-on"></a>Testar logon único
 

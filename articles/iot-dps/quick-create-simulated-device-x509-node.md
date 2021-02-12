@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: nodejs
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: f4d2a5e10db77e9ec9d06e3bcc73552bda280152
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fe5279725a3d01001b44074eca8656e88d778cab
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91323933"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968155"
 ---
 # <a name="quickstart-create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Início Rápido: Criar e provisionar um dispositivo X.509 simulado usando o SDK do dispositivo Node.js para o Serviço de Provisionamento de Dispositivos no Hub IoT
 
@@ -76,7 +76,7 @@ Este artigo vai demonstrar o uso de registros individuais.
     npm install
     ```
 
-3. Crie o certificado X.509 de _folha_ por meio da execução do script usando seu próprio _nome-certificado_. O nome comum do certificado de folha se torna a [ID de registro](https://docs.microsoft.com/azure/iot-dps/concepts-device#registration-id). Portanto, verifique se usou apenas valores alfanuméricos minúsculos e hifens.
+3. Crie o certificado X.509 de _folha_ por meio da execução do script usando seu próprio _nome-certificado_. O nome comum do certificado de folha se torna a [ID de registro](./concepts-service.md#registration-id). Portanto, verifique se usou apenas valores alfanuméricos minúsculos e hifens.
 
     ```cmd/sh
     node create_test_cert.js device {certificate-name}
@@ -101,7 +101,7 @@ Este artigo vai demonstrar o uso de registros individuais.
 
 ## <a name="simulate-the-device"></a>Simular o dispositivo
 
-O [SDK do dispositivo Node.js do Hub IoT do Azure](https://github.com/Azure/azure-iot-sdk-node) oferece uma maneira fácil de simular um dispositivo. Para ler mais sobre o assunto, confira [Conceitos de dispositivo](https://docs.microsoft.com/azure/iot-dps/concepts-device).
+O [SDK do dispositivo Node.js do Hub IoT do Azure](https://github.com/Azure/azure-iot-sdk-node) oferece uma maneira fácil de simular um dispositivo. Para ler mais sobre o assunto, confira [Conceitos de dispositivo](./concepts-service.md).
 
 1. No portal do Azure, selecione a folha **Visão Geral** do seu Serviço de Provisionamento de Dispositivos e anote os valores de **_Ponto de Extremidade do Dispositivo Global_** e **_Escopo de ID_** .
 

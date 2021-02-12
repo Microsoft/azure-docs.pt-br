@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: a66b76350da6f3b3804dac73a7aeb9f54d2e34eb
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 42b0945de55775f55f20cefdeb547cb5d6492c06
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938365"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657067"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configurar uma conexão ponto a site usando a autenticação de certificado (clássico)
 
@@ -58,10 +58,10 @@ Use os seguintes valores para criar um ambiente de teste ou fazer referência a 
 * **Grupo de recursos:** TestRG
 * **Nome da VNet:** VNet1
 * **Espaço de endereço:** 192.168.0.0/16 <br>Neste exemplo, usamos apenas um espaço de endereço. Você pode ter mais de um espaço de endereço para sua rede virtual.
-* **Nome da sub-rede:** Front-end
+* **Nome da sub-rede:** FrontEnd
 * **Intervalo de endereços da sub-rede:** 192.168.1.0/24
 * **GatewaySubnet:** 10.11.255.0/27
-* **Região:** (EUA) leste dos EUA
+* **Região:** (EUA) Leste dos EUA
 * **Espaço de endereço do cliente:** 172.16.201.0/24 <br> Os clientes VPN que se conectarem à rede virtual usando esta conexão Ponto a Site receberão um endereço IP do pool especificado.
 * **Tipo de conexão**: selecione **ponto a site**.
 * **Intervalo de endereços GatewaySubnet (bloco CIDR):** 192.168.200.0/24
@@ -137,7 +137,7 @@ Você pode usar o mesmo pacote de configuração de cliente VPN em cada computad
 
 1. O Azure gera um pacote com as configurações específicas que o cliente requer. Sempre que fizer alterações na VNet ou no gateway, você precisará baixar um novo pacote de configuração do cliente e instalá-los nos computadores cliente.
 1. Depois que o pacote for gerado, selecione **baixar**.
-1. Instale o pacote de configuração do cliente no computador cliente. Ao instalar o, se você vir um pop-up do SmartScreen dizendo ao Windows protegido seu PC, selecione **mais informações**e, em seguida, selecione **executar mesmo assim**. Você também pode salvar o pacote de instalação em outros computadores clientes.
+1. Instale o pacote de configuração do cliente no computador cliente. Ao instalar o, se você vir um pop-up do SmartScreen dizendo ao Windows protegido seu PC, selecione **mais informações** e, em seguida, selecione **executar mesmo assim**. Você também pode salvar o pacote de instalação em outros computadores clientes.
 
 ### <a name="install-a-client-certificate"></a>Instalar um certificado de cliente
 
@@ -202,9 +202,9 @@ A prática comum é usar o certificado raiz para gerenciar o acesso em níveis d
 
 Você pode revogar um certificado de cliente adicionando a impressão digital à lista de revogação.
 
-1. Recupere a impressão digital do certificado de cliente. Para saber mais, confira [Como recuperar a impressão digital de um certificado](https://msdn.microsoft.com/library/ms734695.aspx).
+1. Recupere a impressão digital do certificado de cliente. Para saber mais, confira [Como recuperar a impressão digital de um certificado](/dotnet/framework/wcf/feature-details/how-to-retrieve-the-thumbprint-of-a-certificate).
 1. Copie as informações para um editor de texto e remova os espaços para que seja uma cadeia de caracteres contínua.
-1. Navegue até **conexão VPN ponto a site**e selecione **gerenciar certificado**.
+1. Navegue até **conexão VPN ponto a site** e selecione **gerenciar certificado**.
 1. Selecione **Lista de revogação** para abrir a página **Lista de revogação**.
 1. Na **Impressão digital**, cole a impressão digital do certificado como uma linha contínua de texto, sem espaços.
 1. Selecione **+ Adicionar à lista** para adicionar a impressão digital à CRL (lista de certificados revogados).
@@ -217,8 +217,8 @@ Após a conclusão da atualização, o certificado não poderá mais ser usado p
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Após sua conexão ser concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Para saber mais, veja [Máquinas virtuais](https://docs.microsoft.com/azure/).
+* Após sua conexão ser concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Para saber mais, veja [Máquinas virtuais](../index.yml).
 
-* Para saber mais sobre redes e máquinas virtuais do Linux, confira [Visão geral de rede de VMs do Linux e do Azure](../virtual-machines/linux/network-overview.md).
+* Para saber mais sobre redes e máquinas virtuais do Linux, confira [Visão geral de rede de VMs do Linux e do Azure](../virtual-machines/network-overview.md).
 
 * Para obter informações sobre solução de problemas de P2S, consulte [Solução de problemas de conexões de ponto a site do Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

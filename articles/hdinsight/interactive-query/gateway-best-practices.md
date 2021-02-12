@@ -1,18 +1,15 @@
 ---
 title: Aprofundamento e práticas recomendadas do gateway para Apache Hive no Azure HDInsight
 description: Saiba como navegar pelas práticas recomendadas para executar consultas de Hive no gateway do Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 3db411df69a754857220867865522f8e4fa24030
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 63484d882d8ccd387257c6f246c2048a09c77bc8
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546000"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933103"
 ---
 # <a name="gateway-deep-dive-and-best-practices-for-apache-hive-in-azure-hdinsight"></a>Aprofundamento e práticas recomendadas do gateway para Apache Hive no Azure HDInsight
 
@@ -46,7 +43,7 @@ O diagrama a seguir ilustra as etapas envolvidas em uma consulta SELECT.
 
 Apache Hive é uma abstração relacional sobre um sistema de arquivos compatível com HDFS. Essa abstração significa que as instruções **Select** no hive correspondem às operações de **leitura** no sistema de arquivos. As operações de **leitura** são convertidas no esquema apropriado antes de serem relatadas ao usuário. A latência desse processo aumenta com o tamanho dos dados e o total de saltos necessários para alcançar o usuário final.
 
-Um comportamento semelhante pode ocorrer ao executar instruções **Create** ou **Insert** de dados grandes, pois esses comandos corresponderão às operações de **gravação** no sistema de arquivos subjacente. Considere gravar dados, como ORC brutos, no sistema de arquivos/datalake, em vez de carregá-los usando **Insert** ou **Load** .
+Um comportamento semelhante pode ocorrer ao executar instruções **Create** ou **Insert** de dados grandes, pois esses comandos corresponderão às operações de **gravação** no sistema de arquivos subjacente. Considere gravar dados, como ORC brutos, no sistema de arquivos/datalake, em vez de carregá-los usando **Insert** ou **Load**.
 
 Em clusters habilitados para o Enterprise Security Pack, as políticas do Apache Ranger suficientemente complexas podem causar uma lentidão no tempo de compilação da consulta, o que pode levar a um tempo limite de gateway. Se um tempo limite de gateway for notado em um cluster ESP, considere a possibilidade de reduzir ou combinar o número de políticas de Ranger.
 
@@ -54,7 +51,7 @@ Em clusters habilitados para o Enterprise Security Pack, as políticas do Apache
 
 Há vários locais para mitigar e entender os problemas de desempenho atendidos como parte do comportamento acima. Use a seguinte lista de verificação ao experimentar a degradação do desempenho de consulta no gateway do HDInsight:
 
-* Use a cláusula **Limit** ao executar consultas de **seleção** grande. A cláusula **Limit** reduzirá o total de linhas relatadas para o host cliente. A cláusula **Limit** afeta apenas a geração de resultados e não altera o plano de consulta. Para aplicar a cláusula **Limit** ao plano de consulta, use a configuração `hive.limit.optimize.enable` . O **limite** pode ser combinado com um deslocamento usando o limite de formulário de argumento **x, y** .
+* Use a cláusula **Limit** ao executar consultas de **seleção** grande. A cláusula **Limit** reduzirá o total de linhas relatadas para o host cliente. A cláusula **Limit** afeta apenas a geração de resultados e não altera o plano de consulta. Para aplicar a cláusula **Limit** ao plano de consulta, use a configuração `hive.limit.optimize.enable` . O **limite** pode ser combinado com um deslocamento usando o limite de formulário de argumento **x, y**.
 
 * Nomeie suas colunas de interesse ao executar consultas **Select** em vez de usar ** \* Select* _. Selecionar menos colunas reduzirá a quantidade de dados lidos.
 

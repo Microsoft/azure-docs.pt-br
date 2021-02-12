@@ -4,18 +4,18 @@ description: IoT Edge a recuperação de log do módulo e o upload para o armaze
 author: v-tcassi
 manager: philmea
 ms.author: v-tcassi
-ms.date: 09/14/2020
+ms.date: 11/12/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 64264028706c1493f687f032a7ec39e69188bd45
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 69f7ec5114ad650f33eae740a54a3821b76ef2ac
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171909"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475532"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Recuperar logs de implantações IoT Edge
 
@@ -33,7 +33,7 @@ Embora não seja necessário, para obter a melhor compatibilidade com esse recur
 <{Log Level}> {Timestamp} {Message Text}
 ```
 
-`{Log Level}` deve seguir o [formato de nível de severidade do syslog](https://wikipedia.org/wiki/Syslog#Severity_lnevel) e `{Timestamp}` deve ser formatado como `yyyy-mm-dd hh:mm:ss.fff zzz` .
+`{Log Level}` deve seguir o [formato de nível de severidade do syslog](https://wikipedia.org/wiki/Syslog#Severity_level) e `{Timestamp}` deve ser formatado como `yyyy-MM-dd hh:mm:ss.fff zzz` .
 
 A [classe de agente no IOT Edge](https://github.com/Azure/iotedge/blob/master/edge-util/src/Microsoft.Azure.Devices.Edge.Util/Logger.cs) serve como uma implementação canônica.
 
@@ -50,10 +50,10 @@ Esse método aceita uma carga JSON com o esquema a seguir:
           {
              "id": "regex string",
              "filter": {
-                "tail": int,
-                "since": int,
-                "until": int,
-                "loglevel": int,
+                "tail": "int",
+                "since": "string",
+                "until": "string",
+                "loglevel": "int",
                 "regex": "regex string"
              }
           }
@@ -70,8 +70,8 @@ Esse método aceita uma carga JSON com o esquema a seguir:
 | ID | string | Uma expressão regular que fornece o nome do módulo. Ele pode corresponder a vários módulos em um dispositivo de borda. O formato de [expressões regulares do .net](/dotnet/standard/base-types/regular-expressions) é esperado. |
 | filter | Seção JSON | Filtros de log a serem aplicados aos módulos que correspondem à `id` expressão regular na tupla. |
 | engloba | Número inteiro | Número de linhas de log no passado para recuperar a partir da versão mais recente. OPCIONAL. |
-| since | Número inteiro | Apenas retorne logs desde o momento, como uma duração (1 d, 90 m, 2 dias 3 horas 2 minutos), carimbo de data/hora do rfc3339 ou carimbo de data/hora do UNIX.  Se ambos `tail` e `since` forem especificados, os logs serão recuperados usando o `since` valor primeiro. Em seguida, o `tail` valor é aplicado ao resultado e o resultado final é retornado. OPCIONAL. |
-| until | Número inteiro | Só retorna logs antes da hora especificada, como um carimbo de data/hora rfc3339, um carimbo de data/hora do UNIX ou duração (1 d, 90 m, 2 dias 3 horas 2 minutos). OPCIONAL. |
+| since | string | Apenas retorne logs desde o momento, como uma duração (1 d, 90 m, 2 dias 3 horas 2 minutos), carimbo de data/hora do rfc3339 ou carimbo de data/hora do UNIX.  Se ambos `tail` e `since` forem especificados, os logs serão recuperados usando o `since` valor primeiro. Em seguida, o `tail` valor é aplicado ao resultado e o resultado final é retornado. OPCIONAL. |
+| until | string | Só retorna logs antes da hora especificada, como um carimbo de data/hora rfc3339, um carimbo de data/hora do UNIX ou duração (1 d, 90 m, 2 dias 3 horas 2 minutos). OPCIONAL. |
 | nível de log | Número inteiro | Filtrar linhas de log menores ou iguais ao nível de log especificado. As linhas de log devem seguir o formato de log recomendado e usar o padrão de [nível de severidade de syslog](https://en.wikipedia.org/wiki/Syslog#Severity_level) . OPCIONAL. |
 | regex | string | Filtre as linhas de log que têm conteúdo que corresponde à expressão regular especificada usando o formato de [expressões regulares .net](/dotnet/standard/base-types/regular-expressions) . OPCIONAL. |
 | codificando | string | `gzip` ou `none`. O padrão é `none`. |
@@ -141,6 +141,14 @@ az iot hub invoke-module-method \
 
 Use o método direto **UploadModuleLogs** para enviar os logs solicitados para um contêiner de armazenamento de BLOBs do Azure especificado.
 
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+> [!NOTE]
+> Se você quiser carregar logs de um dispositivo por trás de um dispositivo de gateway, será necessário ter os [módulos proxy de API e armazenamento de BLOBs](how-to-configure-api-proxy-module.md) configurados no dispositivo de camada superior. Esses módulos roteiam os logs do dispositivo de camada inferior por meio do dispositivo de gateway para o armazenamento na nuvem.
+
+::: moniker-end
+
 Esse método aceita um conteúdo JSON semelhante a **GetModuleLogs**, com a adição da chave "sasUrl":
 
 ```json
@@ -151,10 +159,10 @@ Esse método aceita um conteúdo JSON semelhante a **GetModuleLogs**, com a adi�
           {
              "id": "regex string",
              "filter": {
-                "tail": int,
-                "since": int,
-                "until": int,
-                "loglevel": int,
+                "tail": "int",
+                "since": "string",
+                "until": "string",
+                "loglevel": "int",
                 "regex": "regex string"
              }
           }
@@ -261,6 +269,14 @@ Na portal do Azure, invoque o método com o nome do método `UploadModuleLogs` e
 
 Use o método direto **UploadSupportBundle** para agrupar e carregar um arquivo zip de logs de módulo IOT Edge para um contêiner de armazenamento de BLOBs do Azure disponível. Esse método direto executa o [`iotedge support-bundle`](./troubleshoot.md#gather-debug-information-with-support-bundle-command) comando em seu dispositivo IOT Edge para obter os logs.
 
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+> [!NOTE]
+> Se você quiser carregar logs de um dispositivo por trás de um dispositivo de gateway, será necessário ter os [módulos proxy de API e armazenamento de BLOBs](how-to-configure-api-proxy-module.md) configurados no dispositivo de camada superior. Esses módulos roteiam os logs do dispositivo de camada inferior por meio do dispositivo de gateway para o armazenamento na nuvem.
+
+::: moniker-end
+
 Esse método aceita uma carga JSON com o esquema a seguir:
 
 ```json
@@ -277,8 +293,8 @@ Esse método aceita uma carga JSON com o esquema a seguir:
 |-|-|-|
 | schemaVersion | string | Definida como `1.0` |
 | sasURL | Cadeia de caracteres (URI) | [URL de assinatura de acesso compartilhado com acesso de gravação ao contêiner de armazenamento de BLOBs do Azure](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer) |
-| since | Número inteiro | Apenas retorne logs desde o momento, como uma duração (1 d, 90 m, 2 dias 3 horas 2 minutos), carimbo de data/hora do rfc3339 ou carimbo de data/hora do UNIX. OPCIONAL. |
-| until | Número inteiro | Só retorna logs antes da hora especificada, como um carimbo de data/hora rfc3339, um carimbo de data/hora do UNIX ou duração (1 d, 90 m, 2 dias 3 horas 2 minutos). OPCIONAL. |
+| since | string | Apenas retorne logs desde o momento, como uma duração (1 d, 90 m, 2 dias 3 horas 2 minutos), carimbo de data/hora do rfc3339 ou carimbo de data/hora do UNIX. OPCIONAL. |
+| until | string | Só retorna logs antes da hora especificada, como um carimbo de data/hora rfc3339, um carimbo de data/hora do UNIX ou duração (1 d, 90 m, 2 dias 3 horas 2 minutos). OPCIONAL. |
 | edgeRuntimeOnly | booleano | Se verdadeiro, apenas os logs de retorno do agente do Edge, Hub do Edge e o daemon de segurança do Edge. Padrão: falso.  OPCIONAL. |
 
 > [!IMPORTANT]

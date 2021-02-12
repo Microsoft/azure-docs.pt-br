@@ -1,6 +1,6 @@
 ---
-title: arquivo de inclusão
-description: arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: cc0dd5e76227c0814659b74afc2ac46c8ca4de73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28c92004fe67de35e5776cd7dc24cf534ec6f8f3
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87102435"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98061216"
 ---
 ## <a name="common-scenarios"></a>Cenários comuns
 Os cenários a seguir podem se beneficiar muito da intermitência:
@@ -28,7 +28,7 @@ O sistema de crédito de intermitências aplica-se da mesma maneira no nível de
 
 ![Diagrama de Bucket de intermitência](media/managed-disks-bursting/bucket-diagram.jpg)
 
-Seu funcionamento completo para você sobre como deseja usar os 30 minutos de intermitência. Você pode usá-lo por 30 minutos consecutivamente ou esporadicamente ao longo do dia. Quando o produto é implantado, ele vem pronto com créditos completos e quando esgota os créditos que leva menos de um dia para ser totalmente estocado em todos os créditos. Você pode acumular e gastar seus créditos de intermitência a seu critério e o Bucket de 30 minutos não precisa estar cheio novamente para intermitência. Uma coisa a ser observada sobre a acumulação de intermitência é que ele é diferente para cada recurso, pois ele se baseia em IOPS não utilizados e MB/s abaixo de seus valores de desempenho. Isso significa que produtos de desempenho de linha de base mais altos podem acumular seus valores de intermitência mais rápido que os produtos de execução de linha de base menores. Por exemplo, um deixar de disco P1 sem atividade acumulará 120 IOPS por segundo, enquanto um disco P20 acumula 2.300 IOPS por segundo, enquanto deixar sem atividade.
+Cabe a você saber como você deseja usar os 30 minutos de intermitência. Você pode usá-lo por 30 minutos consecutivamente ou esporadicamente ao longo do dia. Quando o produto é implantado, ele vem pronto com créditos completos e quando esgota os créditos que leva menos de um dia para ser totalmente estocado em todos os créditos. Você pode acumular e gastar seus créditos de intermitência a seu critério e o Bucket de 30 minutos não precisa estar cheio novamente para intermitência. Uma coisa a ser observada sobre a acumulação de intermitência é que ele é diferente para cada recurso, pois ele se baseia em IOPS não utilizados e MB/s abaixo de seus valores de desempenho. Isso significa que produtos de desempenho de linha de base mais altos podem acumular seus valores de intermitência mais rápido que os produtos de execução de linha de base menores. Por exemplo, um deixar de disco P1 sem atividade acumulará 120 IOPS por segundo, enquanto um disco P20 acumula 2.300 IOPS por segundo, enquanto deixar sem atividade.
 
 ## <a name="bursting-states"></a>Estados de intermitência
 Há três Estados em que o recurso pode estar com a intermitência ativada:
@@ -47,7 +47,7 @@ Os exemplos a seguir mostram como a intermitência funciona com várias combina�
     - MB/s provisionados: 25
     - Máximo de MB/s de intermitência: 170 
 - 2 discos de dados P10 
-    - MB/s provisionados: 25
+    - MB/s provisionados: 100
     - Máximo de MB/s de intermitência: 170
 
  Quando a VM for inicializada, ela recuperará os dados do disco do sistema operacional. Como o disco do sistema operacional faz parte de uma VM que está sendo iniciada, o disco do sistema operacional estará cheio de créditos de intermitência. Esses créditos permitirão que o disco do so estoure sua inicialização em 170 MB/s segundo, conforme mostrado abaixo:

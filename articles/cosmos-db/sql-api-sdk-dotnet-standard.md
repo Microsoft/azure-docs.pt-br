@@ -10,10 +10,10 @@ ms.date: 10/07/2020
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: c3a403afcae394787c97885e3153cd8b0bb49758
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 11/29/2020
 ms.locfileid: "93097168"
 ---
 # <a name="azure-cosmos-db-net-sdk-v3-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK V3 para a API do SQL: download e notas de versão

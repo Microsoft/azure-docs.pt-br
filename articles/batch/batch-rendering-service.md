@@ -3,14 +3,14 @@ title: Visão geral da renderização
 description: Introdução ao uso do Azure para renderização e uma visão geral dos recursos de renderização do Lote do Azure
 author: mscurrell
 ms.author: markscu
-ms.date: 08/02/2018
+ms.date: 01/14/2021
 ms.topic: how-to
-ms.openlocfilehash: 9fac5d3efabc5d9f796c91d688f35e01aeefdca3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cd07f9322837c03e15aaeabec993820deb3170a
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87092755"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232107"
 ---
 # <a name="rendering-using-azure"></a>Renderizar usando o Azure
 
@@ -18,11 +18,11 @@ A renderização é o processo de obter modelos 3D e convertê-los em imagens 2D
 
 A carga de trabalho de renderização é muito usada para efeitos especiais (VFX) na indústria de Mídia e Entretenimento. A renderização também é usada em muitos outros setores como publicidade, varejo, petróleo e gás e manufatura.
 
-O processo de renderização é computacionalmente intensivo, isso significa que pode haver muitos quadros/imagens a serem produzidos e cada imagem poderá demorar muitas horas para ser renderizada.  A renderização é, portanto, uma carga de trabalho de processamento em lotes perfeita que pode aproveitar o Azure e o Lote do Azure para executar muitas renderizações em paralelo.
+O processo de renderização é computacionalmente intensivo, isso significa que pode haver muitos quadros/imagens a serem produzidos e cada imagem poderá demorar muitas horas para ser renderizada.  A renderização é, portanto, uma carga de trabalho de processamento em lote perfeita que pode aproveitar o Azure para executar muitos renderizações em paralelo e utilizar uma ampla gama de hardware, incluindo GPUs.
 
 ## <a name="why-use-azure-for-rendering"></a>Por que usar o Azure para renderização?
 
-Por vários motivos, a renderização é uma carga de trabalho perfeitamente adequada para o Azure e Lote do Azure:
+Por muitos motivos, a renderização é uma carga de trabalho perfeitamente adequada para o Azure:
 
 * As tarefas de renderização podem ser divididas em várias partes que podem ser executadas em paralelo usando várias VMs:
   * As animações consistem em muitos quadros e cada quadro pode ser renderizado em paralelo.  Quanto mais VMs estiverem disponíveis para processar cada quadro, mais rapidamente todos os quadros e a animação poderão ser produzidos.
@@ -36,68 +36,31 @@ Por vários motivos, a renderização é uma carga de trabalho perfeitamente ade
 * Escolha entre uma ampla seleção de hardware de acordo com aplicativo, carga de trabalho e período de tempo:
   * Há uma ampla seleção de hardware disponível no Azure que pode ser alocado e gerenciado com o Lote.
   * Dependendo do projeto, o requisito pode ser o melhor preço/desempenho ou o melhor desempenho geral.  Cenas diferentes e/ou aplicativos de renderização terão requisitos de memória diferentes.  Alguns aplicativos de renderização podem aproveitar GPUs para obter o melhor desempenho ou determinados recursos. 
-* VMs de baixa prioridade reduzem custos:
-  * VMs de baixa prioridade estão disponíveis para um grande desconto em comparação com as VMs regulares sob demanda e são adequadas para alguns tipos de trabalho.
-  * VMs de baixa prioridade podem ser alocadas pelo Lote do Azure, com o Lote fornecendo flexibilidade sobre como são usadas para atender a um amplo conjunto de requisitos.  Os pools do Lote podem consistir de VMs dedicadas e de baixa prioridade, sendo possível alterar a combinação de tipos de VM a qualquer momento.
+* As VMs de baixa prioridade ou [pontuações](https://azure.microsoft.com/pricing/spot/) reduzem o custo:
+  * As VMs de baixa prioridade e pontos estão disponíveis para um grande desconto em comparação com as VMs padrão e são adequadas para alguns tipos de trabalho.
+  
+## <a name="existing-on-premises-rendering-environment"></a>Ambiente de renderização local existente
 
-## <a name="options-for-rendering-on-azure"></a>Opções para renderizar no Azure
+O caso mais comum é para que haja um farm de renderização local existente gerenciado por um aplicativo de gerenciamento de renderização, como PipelineFX Qube, Royal render, Thinkbox prazo ou um aplicativo personalizado.  O requisito é estender a capacidade do farm de renderização local usando VMs do Azure.
 
-Há um intervalo de recursos do Azure que pode ser usado para renderizar cargas de trabalho.  Quais recursos usar dependem de qualquer ambiente e requisitos existentes.
+A infraestrutura e os serviços do Azure são usados para criar um ambiente híbrido em que o Azure é usado para complementar a capacidade local. Por exemplo:
 
-### <a name="existing-on-premises-rendering-environment-using-a-render-management-application"></a>Ambiente de renderização local existente usando um aplicativo de gerenciamento de renderização
+* Use uma [rede virtual](../virtual-network/virtual-networks-overview.md) para colocar os recursos do Azure na mesma rede que o farm de renderização local.
+* Use [avere vFXT para Azure](../avere-vfxt/avere-vfxt-overview.md) ou [cache HPC do Azure](../hpc-cache/hpc-cache-overview.md) para armazenar em cache arquivos de origem no Azure para reduzir o uso e a latência da largura de banda, maximizando o desempenho.
+* Verifique se o servidor de licença existente está na rede virtual e compre as licenças adicionais necessárias para atender à capacidade extra baseada no Azure.
 
-O caso mais comum é que haja um farm de renderização local gerenciado por um aplicativo de gerenciamento de renderização, como PipelineFX Qube, Royal Render ou Thinkbox Deadline.  O requisito é estender a capacidade do farm de renderização local usando VMs do Azure.
+## <a name="no-existing-render-farm"></a>Nenhum farm de renderização existente
 
-O software de gerenciamento de renderização tem suporte integrado ao Azure ou disponibilizamos plug-ins que adicionam suporte ao Azure. Para obter mais informações sobre os gerenciadores de renderização com suporte e a funcionalidade habilitada, consulte o artigo sobre [usar gerenciadores de renderização](./batch-rendering-render-managers.md).
+As estações de trabalho do cliente podem estar executando a renderização, mas a carga de renderização está aumentando e está demorando muito para usar apenas a capacidade da estação de trabalho.
 
-### <a name="custom-rendering-workflow"></a>Fluxo de trabalho de renderização personalizada
+Há duas opções principais disponíveis:
 
-O requisito é que as VMs estendam um farm de renderização existente.  Os pools do Lote do Azure podem alocar um grande número de VMs, permitir que VMs de baixa prioridade sejam usadas e dinamicamente dimensionadas automaticamente com VMs com preços completos e oferecer licenciamento de pagamento por uso para aplicativos de renderização populares.
+* Implante um Gerenciador de renderização local, como Royal render, e configure um ambiente híbrido para usar o Azure quando for necessário mais capacidade ou desempenho. Um Gerenciador de renderização é especificamente desenvolvido para renderizar cargas de trabalho e incluirá plug-ins para os aplicativos cliente populares, permitindo o envio fácil de trabalhos de renderização.
 
-### <a name="no-existing-render-farm"></a>Nenhum farm de renderização existente
-
-As estações de trabalho do cliente podem estar executando a renderização, mas a carga de trabalho de renderização está aumentando e demorando muito para usar somente a capacidade da estação de trabalho.  O Lote do Azure pode ser usado para alocar a computação de farm de renderização sob demanda, bem como agendar trabalhos de renderização para o farm de renderização do Azure.
-
-## <a name="azure-batch-rendering-capabilities"></a>Recursos de renderização de Lote do Azure
-
-O Lote do Azure permite que cargas de trabalho paralelas sejam executadas no Azure.  Ele permite a criação e o gerenciamento de um grande número de VMs nas quais os aplicativos são instalados e executados.  Ele também fornece recursos abrangentes de agendamento de trabalhos para executar instâncias desses aplicativos, fornecendo a atribuição de tarefas a VMs, filas, monitoramento de aplicativos, e assim por diante.
-
-O Lote do Azure é usado para muitas cargas de trabalho, mas os recursos a seguir estão disponíveis para facilitar e agilizar especificamente a execução de cargas de trabalho de renderização.
-
-* Imagens de VM com gráficos pré-instalados e aplicativos de renderização:
-  * As imagens de VM do Azure Marketplace estão disponíveis e contêm aplicativos gráficos e de renderização populares, evitando a necessidade de instalar os aplicativos por conta própria ou criar suas próprias imagens personalizadas com os aplicativos instalados. 
-* Licenciamento de pagamento por uso para renderizar aplicativos:
-  * É possível optar para pagar os aplicativos por minuto, além de pagar pelas VMs de computação, o que evita a necessidade de comprar licenças e, potencialmente, configurar um servidor de licenças para os aplicativos.  Pagar pelo uso também significa que é possível atender a uma carga variável e inesperada, pois não há um número fixo de licenças.
-  * Também é possível usar os aplicativos pré-instalados com suas próprias licenças e não usar o licenciamento de pagamento por uso. Para fazer isso, normalmente você instala um local ou baseado no servidor de licença baseado no Azure e usa uma rede virtual do Azure para conectar o pool de renderização ao servidor de licença.
-* Plug-ins para aplicativos de modelagem e design do cliente:
-  * Os plug-ins permitem que os usuários finais utilizem o Lote do Azure diretamente do aplicativo cliente como Autodesk Maya, permitindo que criem pools, enviem trabalhos e usem mais capacidade de computação para executar renderizações mais rápidas.
-* Integração do gerenciador de renderização:
-  * O Lote do Azure é integrado aos aplicativos de gerenciamento de renderização ou os plug-ins são disponibilizados para fornecer a integração do Lote do Azure.
-
-Há várias maneiras de usar o Lote do Azure, que também aplicam-se à renderização do Lote do Azure.
-
-* APIs:
-  * Grave código usando [REST](/rest/api/batchservice), [.NET](/dotnet/api/overview/azure/batch), [Python](/python/api/overview/azure/batch), [Java](/java/api/overview/azure/batch) ou outras APIs com suporte.  Desenvolvedores podem integrar os recursos do Lote do Azure aos fluxos de trabalho ou aplicativos existentes, sejam baseados em nuvem ou locais.  Por exemplo, o [plug-in do Autodesk Maya](https://github.com/Azure/azure-batch-maya) utiliza a API do Python do Lote para invocar o Lote, criar e gerenciar pools, enviar trabalhos e tarefas e monitorar status.
-* Ferramentas de linha de comando:
-  * A [linha de comando do Azure](/cli/azure/) ou o [PowerShell](/powershell/azure/) pode ser usado para script de uso do Lote.
-  * Em particular, o suporte de modelo da CLI do Lote torna muito mais fácil criar pools e enviar trabalhos.
-* Interfaces do usuário:
-  * O [Batch Explorer](https://github.com/Azure/BatchExplorer) é uma ferramenta cliente de plataforma cruzada que também permite que as contas do Lote sejam gerenciadas e monitoradas, mas fornece alguns recursos mais avançados em comparação com a interface do usuário do portal do Azure.  Um conjunto de modelos de trabalho e pool é fornecido, adaptado para cada aplicativo com suporte e pode ser usado para criar pools e enviar trabalhos facilmente.
-  * O portal do Azure pode ser usado para gerenciar e monitorar o Lote do Azure.
-* Plug-ins de aplicativo cliente:
-  * Estão disponíveis plug-ins que permitem que a renderização de Lote seja usada diretamente nos aplicativos de modelagem e design de cliente. Os plug-ins invocam principalmente o aplicativo Batch Explorer com informações contextuais sobre o modelo 3D atual.
-  * Os plug-ins a seguir estão disponíveis:
-    * [Lote do Azure para Maya](https://github.com/Azure/azure-batch-maya)
-    * [3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
-    * [Blender](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
-
-## <a name="getting-started-with-azure-batch-rendering"></a>Introdução ao processamento do Lote do Azure
-
-Consulte os tutoriais introdutórios a seguir para experimentar a renderização de Lote do Azure:
-
-* [Usar o Batch Explorer para renderizar uma cena do Blender](./tutorial-rendering-batchexplorer-blender.md)
-* [Usar a CLI do Lote para renderizar uma cena do Autodesk 3ds Max](./tutorial-rendering-cli.md)
+* Uma solução personalizada usando o lote do Azure para alocar e gerenciar a capacidade de computação, bem como fornecer o agendamento de trabalho para executar os trabalhos de renderização.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Determine a lista de aplicativos e versões de renderização incluídos nas imagens da VM do Azure Marketplace [neste artigo](./batch-rendering-applications.md).
+ Saiba como [usar a infraestrutura e os serviços do Azure para estender um farm de renderização local existente](https://azure.microsoft.com/solutions/high-performance-computing/rendering/).
+
+Saiba mais sobre os [recursos de renderização do lote do Azure](batch-rendering-functionality.md).

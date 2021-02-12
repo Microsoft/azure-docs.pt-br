@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 8e065651a5527c0ab425614197ce128325454942
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a01ee4e2b0d4e72c1b17cf56953675e735ead79
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257666"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582883"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Aplicativo daemon que chama a configuração de código de APIs da Web
 
@@ -36,9 +36,9 @@ Essas bibliotecas da Microsoft oferecem suporte a aplicativos de daemon:
 
 Os aplicativos daemon usam permissões de aplicativo em vez de permissões delegadas. Portanto, o tipo de conta com suporte não pode ser uma conta em nenhum diretório organizacional ou qualquer conta Microsoft pessoal (por exemplo, Skype, Xbox, Outlook.com). Não há nenhum administrador de locatários para conceder consentimento a um aplicativo daemon para uma conta pessoal da Microsoft. Você precisará escolher *contas em minha organização* ou *contas em qualquer organização*.
 
-Portanto, a autoridade especificada na configuração do aplicativo deve ser locatário (especificando uma ID de locatário ou um nome de domínio associado à sua organização).
+A autoridade especificada na configuração do aplicativo deve ser locatário (especificando uma ID de locatário ou um nome de domínio associado à sua organização).
 
-Se você for um ISV e quiser fornecer uma ferramenta multilocatário, poderá usar o `organizations` . Mas tenha em mente que você também precisará explicar aos seus clientes como conceder o consentimento do administrador. Para obter detalhes, consulte [solicitando consentimento para um locatário inteiro](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). Além disso, atualmente há uma limitação no MSAL: `organizations` é permitido somente quando as credenciais do cliente são um segredo do aplicativo (não um certificado).
+Mesmo que queira fornecer uma ferramenta multilocatário, você deve usar uma ID de locatário ou um nome de domínio, e **não** `common` ou `organizations` com esse fluxo, porque o serviço não pode inferir de maneira confiável qual locatário deve ser usado.
 
 ## <a name="configure-and-instantiate-the-application"></a>Configurar e instanciar o aplicativo
 
@@ -111,7 +111,7 @@ Quando você cria um cliente confidencial com certificados, o [parameters.jsno](
 
 ### <a name="instantiate-the-msal-application"></a>Instanciar o aplicativo MSAL
 
-Para instanciar o aplicativo MSAL, você precisa adicionar, referenciar ou importar o pacote MSAL (dependendo do idioma).
+Para criar uma instância do aplicativo MSAL, adicione, referencie ou importe o pacote MSAL (dependendo do idioma).
 
 A construção é diferente, dependendo se você estiver usando os segredos ou certificados do cliente (ou, como um cenário avançado, asserções assinadas).
 
@@ -289,7 +289,7 @@ MSAL.NET tem dois métodos para fornecer asserções assinadas ao aplicativo cli
 - `.WithClientAssertion()`
 - `.WithClientClaims()`
 
-Ao usar `WithClientAssertion` o, você precisa fornecer um JWT assinado. Esse cenário avançado é detalhado em [declarações de cliente](msal-net-client-assertions.md).
+Quando você usa `WithClientAssertion` o, forneça um JWT assinado. Esse cenário avançado é detalhado em [declarações de cliente](msal-net-client-assertions.md).
 
 ```csharp
 string signedClientAssertion = ComputeAssertion();
@@ -352,17 +352,14 @@ ConfidentialClientApplication cca =
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-> [!div class="nextstepaction"]
-> [Aplicativo de daemon-adquirindo tokens para o aplicativo](./scenario-daemon-acquire-token.md?tabs=dotnet)
+Vá para o próximo artigo neste cenário, [adquira um token para o aplicativo](./scenario-daemon-acquire-token.md?tabs=dotnet).
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Aplicativo de daemon-adquirindo tokens para o aplicativo](./scenario-daemon-acquire-token.md?tabs=python)
+Vá para o próximo artigo neste cenário, [adquira um token para o aplicativo](./scenario-daemon-acquire-token.md?tabs=python).
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Aplicativo de daemon-adquirindo tokens para o aplicativo](./scenario-daemon-acquire-token.md?tabs=java)
+Vá para o próximo artigo neste cenário, [adquira um token para o aplicativo](./scenario-daemon-acquire-token.md?tabs=java).
 
 ---

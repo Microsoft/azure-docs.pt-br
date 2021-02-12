@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: sample
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: caf492c2cd3940fd7f37e2a4462c8376a127f393
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 590ddef27315f37719da5b28c68b6c402371e986
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86189296"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363248"
 ---
 # <a name="python-samples-for-cognitive-services-for-big-data"></a>Exemplos de Python para Serviços Cognitivos para Big Data
 
@@ -33,7 +33,7 @@ Os exemplos neste artigo usam estes Serviços Cognitivos:
 1. Depois de criar um notebook no Azure Databricks, copie o **Código compartilhado** abaixo e cole-o em uma nova célula no seu notebook.
 1. Escolha um exemplo de serviço abaixo e copie cole-o em uma segunda nova célula do notebook.
 1. Substitua qualquer um dos espaços reservados da chave de assinatura de serviço pela sua chave.
-1. Escolha o botão Executar (ícone de triângulo) no canto superior direito da célula e selecione **Célula de Execução** .
+1. Escolha o botão Executar (ícone de triângulo) no canto superior direito da célula e selecione **Célula de Execução**.
 1. Exibir resultados em uma tabela abaixo da célula.
 
 ## <a name="shared-code"></a>Código compartilhado
@@ -56,7 +56,7 @@ assert service_key != "ADD_YOUR_SUBSCRIPION_KEY"
 
 ## <a name="text-analytics-sample"></a>Exemplo de Análise de Texto
 
-O serviço [Análise de Texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) fornece vários algoritmos para extrair Intelligent Insights do texto. Por exemplo, podemos encontrar a sentimentos do texto de entrada fornecido. O serviço retornará uma pontuação entre 0,0 e 1,0 em que as pontuações baixas indicam um sentimento negativo e pontuações altas indicam um sentimento positivo.  Este exemplo usa três frases simples e retorna o sentimento para cada uma.
+O serviço [Análise de Texto](../text-analytics/index.yml) fornece vários algoritmos para extrair Intelligent Insights do texto. Por exemplo, podemos encontrar a sentimentos do texto de entrada fornecido. O serviço retornará uma pontuação entre 0,0 e 1,0 em que as pontuações baixas indicam um sentimento negativo e pontuações altas indicam um sentimento positivo.  Este exemplo usa três frases simples e retorna o sentimento para cada uma.
 
 ```python
 from pyspark.sql.functions import col
@@ -78,20 +78,20 @@ sentiment = (TextSentiment()
     .setLanguageCol("language"))
 
 # Show the results of your text query in a table format
-display(sentiment.transform(df).select("text", col("sentiment")[0].getItem("score").alias("sentiment")))
+display(sentiment.transform(df).select("text", col("sentiment")[0].getItem("sentiment").alias("sentiment")))
 ```
 
 ### <a name="expected-result"></a>Resultado esperado
 
 | text                                      | sentimento                                             |
 |:------------------------------------------|:------------------------------------------------------|
-| Estou tão feliz hoje, está ensolarado!           | 0,9789592027664185                                    |
-| Estou frustrado com esse trânsito da horas do rush | 0,023795604705810547                                  |
-| Os serviços cognitivos no Spark não são ruins  | 0,8888956308364868                                    |
+| Estou tão feliz hoje, está ensolarado!           | positivo                                              |
+| Estou frustrado com esse trânsito da horas do rush | negativo                                              |
+| Os serviços cognitivos no Spark não são ruins  | positivo                                              |
 
 ## <a name="computer-vision-sample"></a>Exemplo de Pesquisa Visual Computacional
 
-A [Pesquisa Visual Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) analisa as imagens para identificar estruturas, como rostos, objetos e descrições de idioma natural. Neste exemplo, marcamos uma lista de imagens. Marcas são descrições de uma palavra de coisas na imagem, como objetos reconhecíveis, pessoas, cenários e ações.
+A [Pesquisa Visual Computacional](../computer-vision/index.yml) analisa as imagens para identificar estruturas, como rostos, objetos e descrições de idioma natural. Neste exemplo, marcamos uma lista de imagens. Marcas são descrições de uma palavra de coisas na imagem, como objetos reconhecíveis, pessoas, cenários e ações.
 
 ```python
 
@@ -126,7 +126,7 @@ display(analysis.transform(df).select("image", "analysis_results.description.tag
 
 ## <a name="bing-image-search-sample"></a>Exemplo de Pesquisa de Imagem do Bing
 
-A [Pesquisa de Imagem do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview) pesquisa na Web para recuperar imagens relacionadas à consulta de idioma natural de um usuário. Neste exemplo, usamos uma consulta de texto que procura imagens com citações. Ela retorna uma lista de URLs de imagem que contêm fotos relacionadas à nossa consulta.
+A [Pesquisa de Imagem do Bing](../bing-image-search/overview.md) pesquisa na Web para recuperar imagens relacionadas à consulta de idioma natural de um usuário. Neste exemplo, usamos uma consulta de texto que procura imagens com citações. Ela retorna uma lista de URLs de imagem que contêm fotos relacionadas à nossa consulta.
 
 ```python
 from pyspark.ml import PipelineModel
@@ -171,7 +171,7 @@ display(pipeline.transform(bingParameters))
 
 
 ## <a name="speech-to-text-sample"></a>Exemplo de conversão de fala em texto
-O serviço de [Conversão de fala em texto](https://docs.microsoft.com/azure/cognitive-services/speech-service/index-speech-to-text) converte fluxos ou arquivos de áudio falado em texto. Neste exemplo, transcrevemos dois arquivos de áudio. O primeiro arquivo é fácil de entender e o segundo é mais desafiador.
+O serviço de [Conversão de fala em texto](../speech-service/index-speech-to-text.yml) converte fluxos ou arquivos de áudio falado em texto. Neste exemplo, transcrevemos dois arquivos de áudio. O primeiro arquivo é fácil de entender e o segundo é mais desafiador.
 
 ```python
 
@@ -205,7 +205,7 @@ display(speech_to_text.transform(df).select("url", "text.DisplayText"))
 
 ## <a name="anomaly-detector-sample"></a>Exemplo de Detector de Anomalias
 
-O [Detector de Anomalias](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/) é ótimo para detectar irregularidades em seus dados de série temporal. Neste exemplo, usamos o serviço para encontrar anomalias em toda a série temporal.
+O [Detector de Anomalias](../anomaly-detector/index.yml) é ótimo para detectar irregularidades em seus dados de série temporal. Neste exemplo, usamos o serviço para encontrar anomalias em toda a série temporal.
 
 ```python
 from pyspark.sql.functions import lit

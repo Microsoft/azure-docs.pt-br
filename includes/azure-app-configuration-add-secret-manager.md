@@ -1,14 +1,35 @@
 ---
-ms.openlocfilehash: c3c5b8ef94b507cad433e587c9ebfc2ec16c0ff9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b1be5e903994f0a2c4a3d457f0c2bb5572a889c3
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91440420"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663022"
 ---
 ## <a name="add-secret-manager"></a>Adicionar o Gerenciador de Segredos
 
 Uma ferramenta chamada Gerenciador de Segredos armazena dados confidenciais para o trabalho de desenvolvimento fora da árvore do seu projeto. Essa abordagem ajuda a impedir o compartilhamento acidental de segredos do aplicativo no código-fonte. Conclua as seguintes etapas para habilitar o uso do Gerenciador de Segredos no projeto do ASP.NET Core:
+
+#### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
+
+Navegue até o diretório raiz do projeto e execute o seguinte comando para habilitar o armazenamento de segredos no projeto:
+
+```dotnetcli
+dotnet user-secrets init
+```
+
+Um elemento `UserSecretsId` contendo um GUID é adicionado ao arquivo *.csproj*:
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk.Web">
+    
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
+    </PropertyGroup>
+
+</Project>
+```
 
 #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 

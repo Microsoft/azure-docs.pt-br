@@ -4,7 +4,7 @@ description: Abora as noções básicas sobre os conectores do Proxy de Aplicati
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 155a91ded6c814e2d868e8edd4572459460d006f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebef93455414c114fb60df9af8ebc629769a33e6
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88642054"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254421"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Definir uma home page personalizada para aplicativos publicados usando o Proxy de Aplicativo Azure AD
 
@@ -56,14 +56,14 @@ Você pode definir a URL de home page por meio do portal do Azure ou usando o Po
 Para alterar a URL de home page do seu aplicativo por meio do portal do AD do Azure, siga estas etapas:
 
 1. Entre no [Portal do Azure](https://portal.azure.com/) como administrador.
-1. Selecione **Azure Active Directory**e, em seguida, **registros de aplicativo**. A lista de aplicativos registrados é exibida.
+1. Selecione **Azure Active Directory** e, em seguida, **registros de aplicativo**. A lista de aplicativos registrados é exibida.
 1. Escolha seu aplicativo na lista. É exibida uma página mostrando os detalhes do aplicativo registrado.
 1. Em **gerenciar**, selecione **identidade visual**.
 1. Atualize a **URL da Home Page**  com o novo caminho.
 
    ![Página de identidade visual para um aplicativo registrado mostrando o campo URL da Home Page](media/application-proxy-configure-custom-home-page/app-proxy-app-branding.png)
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ## <a name="change-the-home-page-with-powershell"></a>Alterar a home page com o PowerShell
 
@@ -75,7 +75,7 @@ Para configurar o home page de um aplicativo usando o PowerShell, você precisa:
 
 ### <a name="install-the-azure-ad-powershell-module"></a>Instalar o módulo do Powershell do Azure AD
 
-Antes de definir uma URL personalizada de página inicial usando o PowerShell, instale o módulo PowerShell do Azure AD.Baixe esse pacote da [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzureAD/2.0.2.16), que usa o ponto de extremidade de API do Graph.
+Antes de definir uma URL personalizada de página inicial usando o PowerShell, instale o módulo PowerShell do Azure AD. Baixe esse pacote da [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzureAD/2.0.2.16), que usa o ponto de extremidade de API do Graph.
 
 Para instalar o pacote, siga estas etapas:
 
@@ -115,8 +115,8 @@ Você Obtém o ObjectId do aplicativo procurando pelo aplicativo por seu nome de
 
    ```console
    DisplayName : SharePoint
-   Homepage    : https://sharepoint-iddemo.msappproxy.net/
-   ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
+   Homepage    : https://sharepoint-iddemo.msappproxy.net/
+   ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
    ```
 
    Como alternativa, você pode apenas efetuar pull da lista de todos os aplicativos, Pesquisar na lista o aplicativo com um nome de exibição ou home page específico e copiar o ObjectId do aplicativo quando o aplicativo for encontrado.
@@ -169,8 +169,8 @@ Crie a URL de home page e atualize seu aplicativo com esse valor. Continue usand
 
    ```console
    DisplayName : SharePoint
-   Homepage    : https://sharepoint-iddemo.msappproxy.net/hybrid/
-   ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
+   Homepage    : https://sharepoint-iddemo.msappproxy.net/hybrid/
+   ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
    ```
 
 1. Reinicie o aplicativo para confirmar se o home page aparece como a primeira tela, conforme esperado.

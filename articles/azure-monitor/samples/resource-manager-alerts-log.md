@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: 623ad70572683103edb0a824830be6bbba6c8c35
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 758e5b24afe2edad9bf661e2eb7a6c88db849720
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369039"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705006"
 ---
 # <a name="resource-manager-template-samples-for-log-alert-rules-in-azure-monitor"></a>Amostras de modelo do Resource Manager para regras de alerta de log no Azure Monitor
 Este artigo inclui amostras de [modelos do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para criar e configurar alertas de consultas de log no Azure Monitor. Cada amostra inclui um arquivo de modelo e um arquivo de parâmetros com valores de amostra para fornecer ao modelo.
@@ -271,14 +271,12 @@ O exemplo a seguir cria uma regra que pode ter como destino qualquer recurso.
         },
         "metricMeasureColumn": {
             "type": "string",
-            "minLength": 1,
             "metadata": {
                 "description": "Name of the measure column used in the alert evaluation."
             }
         },
         "resourceIdColumn": {
             "type": "string",
-            "minLength": 1,
             "metadata": {
                 "description": "Name of the resource ID column used in the alert targeting the alerts."
             }

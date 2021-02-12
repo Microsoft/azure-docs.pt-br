@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 6884b0c5d351d5cca160a1e00e409397f21311ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a47ba2025bcaba542d2dbec0c89643e0900f233
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380636"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746141"
 ---
 # <a name="how-to-configure-your-saas-offer-listing-details"></a>Como configurar os detalhes de listagem de sua oferta SaaS
 
@@ -24,16 +24,18 @@ As informações fornecidas na página de **listagem de ofertas** para sua ofert
 
 ## <a name="marketplace-details"></a>Detalhes do marketplace
 
-Na página **listagem de ofertas** , em **detalhes do Marketplace**, conclua as etapas a seguir. Para saber mais sobre esses detalhes necessários, consulte [detalhes da lista de ofertas](plan-saas-offer.md#offer-listing-details).
+Na página **listagem de ofertas** , em **detalhes do Marketplace**, conclua as etapas a seguir. Para saber mais sobre esses detalhes necessários, consulte [detalhes da lista de ofertas](plan-azure-application-offer.md#offer-listing-details).
 
 1. A caixa **nome** é preenchida com o nome que você inseriu anteriormente na caixa de diálogo  **nova oferta** . É possível alterar o nome a qualquer momento.
 1. Na caixa **Resumo dos resultados da pesquisa** , insira até 50 caracteres de texto. Esse resumo é usado no Marketplace listando os resultados da pesquisa.
 1. Na caixa **Descrição** , insira uma descrição para sua oferta. Essa caixa de texto tem controles de editor de texto avançado que você pode usar para tornar sua descrição mais atraente. Você também pode usar marcas HTML para formatar sua descrição. Você pode inserir até 3.000 caracteres de texto nesta caixa, que inclui marcação e espaços HTML. Para obter informações sobre formatação HTML, consulte [marcas HTML com suporte nas descrições da oferta do Marketplace comercial](supported-html-tags.md).
 1. Na caixa **instruções de introdução** , forneça instruções para ajudar os clientes a se conectarem à sua oferta de SaaS. Você pode adicionar até 3.000 caracteres de texto e links para uma documentação online mais detalhada.
-1. Adicional Nas caixas **Pesquisar palavras-chave** , insira até três palavras-chave de pesquisa que os clientes podem usar para encontrar sua oferta no Marketplace comercial. Você não precisa incluir o **nome** e a **Descrição**da oferta: esse texto é incluído automaticamente na pesquisa.
+1. Adicional Nas caixas **Pesquisar palavras-chave** , insira até três palavras-chave de pesquisa que os clientes podem usar para encontrar sua oferta no Marketplace comercial. Você não precisa incluir o **nome** e a **Descrição** da oferta: esse texto é incluído automaticamente na pesquisa.
 1. Na caixa **link de política de privacidade** , insira um link (começando com HTTPS) para a política de privacidade da sua organização. Você é responsável por garantir que seu aplicativo esteja em conformidade com as leis e regulamentos de privacidade e para fornecer uma política de privacidade válida.
 
-## <a name="add-links-to-supplemental-online-documentation-optional"></a>Adicionar links à documentação online complementar (opcional)
+## <a name="add-supplemental-links-optional"></a>Adicionar links complementares (opcional)
+
+Conclua estas etapas para adicionar links à documentação online complementar.
 
 1. Para adicionar documentos complementares opcionais online sobre seu aplicativo ou serviços relacionados, em **links úteis**, selecione **Adicionar um link**.
 1. Nos campos que aparecem, insira um título (até 255 caracteres) e o link (começando com HTTPS) para o documento online.
@@ -76,7 +78,7 @@ Todos os três tamanhos de logotipo são usados em locais diferentes nas lojas o
 - O logotipo **médio** é exibido quando você cria um novo recurso no Microsoft Azure.
 - O logotipo **grande** aparece na sua página de listagem de ofertas no Azure Marketplace e Microsoft AppSource.
 - O logotipo **pequeno** aparece nos resultados da pesquisa do Azure Marketplace e nas páginas de Microsoft AppSource página principal e resultados da pesquisa.
-   
+
 ### <a name="add-screenshots"></a>Adicionar capturas de tela
 
 Você deve adicionar no mínimo um e no máximo cinco capturas de tela que demonstram sua oferta. Todas as imagens devem ter 1280 x 720 pixels de tamanho e em. Formato PNG.
@@ -103,4 +105,4 @@ Selecione **salvar rascunho** antes de continuar para a próxima guia: Visualiza
 ## <a name="next-steps"></a>Próximas etapas
 
 - Se você estiver vendendo sua oferta pela Microsoft, acesse [como adicionar um público de visualização para sua oferta de SaaS](create-new-saas-offer-preview.md). 
-- Caso contrário, vá para [como comercializar sua oferta de SaaS](create-new-saas-offer-marketing.md).
+- Caso contrário, vá para [como vender sua oferta de SaaS](create-new-saas-offer-marketing.md).

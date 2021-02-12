@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: damendo
-ms.openlocfilehash: 62f4a06ec729d896dc11a290bc7a5ccc7c321683
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b363d90d05e95b017c3a655b57dbabc3712a155
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984051"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965537"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gerenciar e analisar os logs de fluxo do grupo de segurança de rede no Azure usando o Observador de Rede e o Graylog
 
@@ -40,7 +40,7 @@ Os logs de fluxo de grupo de segurança de rede são habilitados usando o Observ
 
 ### <a name="enable-network-security-group-flow-logging"></a>Habilite os registros em logs do fluxo do grupo de segurança de rede
 
-Nessa situação, você deve habilitar o registro em log do fluxo do grupo de segurança de rede em um ou mais grupos de segurança de rede em sua conta. Veja o artigo [Introdução ao registro em log de fluxo para grupos de segurança de rede](network-watcher-nsg-flow-logging-overview.md) para obter instruções sobre como habilitar os logs de fluxo do grupo de segurança de rede.
+Nessa situação, você deve habilitar o registro em log do fluxo do grupo de segurança de rede em um ou mais grupos de segurança de rede em sua conta. Confira o artigo [Introdução ao registro em log de fluxo para grupos de segurança de rede](network-watcher-nsg-flow-logging-overview.md) para obter instruções sobre como habilitar os logs de fluxo do grupo de segurança de rede.
 
 ### <a name="setting-up-graylog"></a>Configuração do Graylog
 
@@ -53,7 +53,7 @@ Este exemplo usa a configuração mínima do Graylog (isto é, uma única instâ
 
 O Graylog pode ser instalado de várias maneiras, dependendo de suas preferências e plataforma. Para obter uma lista completa dos métodos de instalação possíveis, consulte a [documentação](https://docs.graylog.org/en/2.2/pages/installation.html) oficial do Graylog. O aplicativo para servidores do Graylog é executado em distribuições do Linux e tem os seguintes pré-requisitos:
 
--  Java SE 8 ou posterior – [documentação Azul Azure JDK](https://aka.ms/azure-jdks)
+-  Java SE 8 ou posterior – [documentação Azul Azure JDK](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 -  Elastic Search 2.x (2.1.0 ou posterior) – [documentação de instalação do Elasticsearch 2.x](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/_installation.html)
 -  MongoDB 2.4 ou posterior – [documentação de instalação do MongoDB](https://docs.mongodb.com/manual/administration/install-on-linux/)
 
@@ -212,7 +212,7 @@ Por padrão, todos os campos de mensagem são incluídos na pesquisa se você n�
 
 Agora que o Graylog está configurado e em execução, você pode usar algumas das suas funcionalidades para entender melhor os dados de log do fluxo. Um modo é usar os painéis para criar exibições específicas de seus dados.
 
-### <a name="create-a-dashboard"></a>Criar um dashboard
+### <a name="create-a-dashboard"></a>Criar um painel
 
 1. Na barra de navegação superior, selecione **Painéis** ou navegue até `http://<graylog-server-ip>:9000/dashboards/`
 
@@ -246,4 +246,4 @@ Ao integrar o Observador de Rede com o Graylog, você agora tem uma maneira cent
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber como visualizar os logs de fluxo do grupo de segurança de rede com o Power BI, acesse [Como visualizar logs de fluxos do grupo de segurança de rede com Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
+Para saber como visualizar os logs de fluxo do grupo de segurança de rede com o Power BI, acesse [Como visualizar logs de fluxos do grupo de segurança de rede com Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).

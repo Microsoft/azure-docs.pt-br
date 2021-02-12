@@ -7,18 +7,18 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: allensu
-ms.openlocfilehash: 23fe515ddfdecb9ef168dd662e3fa2d91ece688f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b00fca8cf39bc44e0e53a112a332e6f6c5f0194e
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84711469"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218596"
 ---
 # <a name="move-azure-public-ip-configuration-to-another-region-using-the-azure-portal"></a>Mover a configuração de IP público do Azure para outra região usando o portal do Azure
 
 Há vários cenários em que é possível mover as configurações de IP do Azure existentes de uma região para outra. Por exemplo, talvez você queira criar um IP com a mesma configuração e SKU para teste. Talvez você também queira mover uma configuração de IP para outra região como parte do planejamento de recuperação de desastre.
 
-**Os IPs do Azure são específicos da região e não podem ser movidos de uma região para outra.** No entanto, você pode usar um modelo do Azure Resource Manager para exportar a configuração existente de um IP.  Em seguida, você pode preparar o recurso em outra região, exportando o IP para um modelo, modificando os parâmetros para corresponder à região de destino e, em seguida, implantando o modelo na nova região.  Para obter mais informações sobre o Resource Manager e modelos, consulte [Início Rápido: Crie e implante modelos do Azure Resource Manager usando o portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+**Os IPs do Azure são específicos da região e não podem ser movidos de uma região para outra.** No entanto, você pode usar um modelo do Azure Resource Manager para exportar a configuração existente de um IP.  Em seguida, você pode preparar o recurso em outra região, exportando o IP para um modelo, modificando os parâmetros para corresponder à região de destino e, em seguida, implantando o modelo na nova região.  Para obter mais informações sobre o Resource Manager e modelos, consulte [Início Rápido: Crie e implante modelos do Azure Resource Manager usando o portal do Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -33,7 +33,7 @@ Há vários cenários em que é possível mover as configurações de IP do Azur
 
 - Verifique se a assinatura do Azure permite criar IPs na região de destino usada. Contate o suporte para habilitar a cota necessária.
 
-- Certifique-se de que sua assinatura tenha recursos suficientes para dar suporte à adição de IPs para esse processo.  Veja [Assinatura do Azure e limites, cotas e restrições de serviço](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- Certifique-se de que sua assinatura tenha recursos suficientes para dar suporte à adição de IPs para esse processo.  Veja [Assinatura do Azure e limites, cotas e restrições de serviço](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
 
 ## <a name="prepare-and-move"></a>Preparar e mover
@@ -43,10 +43,10 @@ As etapas a seguir mostram como preparar o IP público para a configuração mov
 
 1. Faça logon no [portal do Azure](https://portal.azure.com)  >  **grupos de recursos**.
 2. Localize o grupo de recursos que contém o IP público de origem e clique nele.
-3. Selecione **configurações**de >  >  **modelo de exportação**.
+3. Selecione **configurações** de >  >  **modelo de exportação**.
 4. Escolha **implantar** na folha **Exportar modelo** .
 5. Clique em **modelo**  >  **Editar parâmetros** para abrir o **parameters.jsno** arquivo no editor online.
-8. Para editar o parâmetro do nome do IP público, altere a propriedade em **parameters**  >  **valor** de parâmetros do nome IP público de origem para o nome do seu IP público de destino, verifique se o nome está entre aspas:
+8. Para editar o parâmetro do nome do IP público, altere a propriedade em   >  **valor** de parâmetros do nome IP público de origem para o nome do seu IP público de destino, verifique se o nome está entre aspas:
 
     ```json
             {
@@ -94,7 +94,7 @@ As etapas a seguir mostram como preparar o IP público para a configuração mov
 
 12. Você também pode alterar outros parâmetros no modelo se quiser, e eles podem ser opcionais dependendo dos seus requisitos:
 
-    * **SKU** -você pode alterar a SKU do IP público na configuração de Standard para básico ou básico para Standard alterando a propriedade nome do **SKU**  >  **name** na **template.jsno** arquivo:
+    * **SKU** -você pode alterar a SKU do IP público na configuração de Standard para básico ou básico para Standard alterando a propriedade nome do **SKU**  >   na **template.jsno** arquivo:
 
         ```json
           "resources": [
@@ -109,7 +109,7 @@ As etapas a seguir mostram como preparar o IP público para a configuração mov
             },
         ```
 
-        Para obter mais informações sobre as diferenças entre IPS públicos do SKU básico e Standard, consulte [criar, alterar ou excluir um endereço IP público](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address):
+        Para obter mais informações sobre as diferenças entre IPS públicos do SKU básico e Standard, consulte [criar, alterar ou excluir um endereço IP público](./virtual-network-public-ip-address.md):
 
     * **Método de alocação de IP** e **tempo limite ocioso** – você pode alterar ambas as opções no modelo alterando a propriedade **publicIPAllocationMethod** de **Dinâmico** para **Estático** ou de **Estático** para **Dinâmico**. O tempo limite ocioso pode ser alterado alterando a propriedade **idleTimeoutInMinutes** para o valor desejado.  O padrão é **4**:
 
@@ -135,16 +135,16 @@ As etapas a seguir mostram como preparar o IP público para a configuração mov
 
         ```
 
-        Para obter mais informações sobre os métodos de alocação e os valores de tempo limite ocioso, confira [Criar, alterar ou excluir um endereço IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
+        Para obter mais informações sobre os métodos de alocação e os valores de tempo limite ocioso, confira [Criar, alterar ou excluir um endereço IP](./virtual-network-public-ip-address.md).
 
 
 13. Clique em **salvar** no editor online.
 
-14. Clique **BASICS**em  >  **assinatura** básica para escolher a assinatura na qual o IP público de destino será implantado.
+14. Clique em  >  **assinatura** básica para escolher a assinatura na qual o IP público de destino será implantado.
 
-15. Clique **BASICS**em  >  **grupo de recursos** básico para escolher o grupo de recursos em que o IP público de destino será implantado.  Você pode clicar em **criar novo** para criar um novo grupo de recursos para o IP público de destino.  Verifique se o nome não é o mesmo que o grupo de recursos de origem do IP público de origem existente.
+15. Clique em  >  **grupo de recursos** básico para escolher o grupo de recursos em que o IP público de destino será implantado.  Você pode clicar em **criar novo** para criar um novo grupo de recursos para o IP público de destino.  Verifique se o nome não é o mesmo que o grupo de recursos de origem do IP público de origem existente.
 
-16. Verifique **BASICS**se o  >  **local** básico está definido como o local de destino onde você deseja que o IP público seja implantado.
+16. Verifique se o  >  **local** básico está definido como o local de destino onde você deseja que o IP público seja implantado.
 
 17. Verifique em **configurações** que o nome corresponde ao nome que você inseriu no editor de parâmetros acima.
 
@@ -165,5 +165,5 @@ Para confirmar as alterações e concluir a movimentação do IP público, exclu
 Neste tutorial, você moveu um IP do Azure de uma região para outra e limpou os recursos de origem.  Para saber mais sobre como mover recursos entre regiões e recuperação de desastres no Azure, confira:
 
 
-- [Mover recursos para um novo grupo de recursos ou assinatura](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Mover as VMs do Azure para outra região](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Mover as VMs do Azure para outra região](../site-recovery/azure-to-azure-tutorial-migrate.md)

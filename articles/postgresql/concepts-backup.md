@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: b267a97b640c9d069f83223206200fc4814c86b9
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.date: 01/29/2021
+ms.openlocfilehash: e74c96e0c03d75f34a16d95d0bed642c1900f558
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488003"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219716"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Backup e restauração no banco de dados do Azure para PostgreSQL-servidor único
 
@@ -59,7 +59,7 @@ O principal meio de controlar o custo de armazenamento de backup é definindo o 
 
 ## <a name="restore"></a>Restaurar
 
-No Banco de Dados do Azure para PostgreSQL, a execução de uma restauração cria um novo servidor de backup do servidor original.
+No Banco de Dados do Azure para PostgreSQL, a execução de uma restauração cria um novo servidor de backup do servidor original. 
 
 Há dois tipos de restauração disponíveis:
 
@@ -68,8 +68,11 @@ Há dois tipos de restauração disponíveis:
 
 O tempo estimado de recuperação dependerá de vários fatores, incluindo os tamanhos dos bancos de dados, o tamanho do log de transações, a largura de banda de rede e o número total de bancos de dados de recuperação na mesma região e ao mesmo tempo. Normalmente, o tempo de recuperação é menor do que 12 horas.
 
-> [!IMPORTANT]
-> Excluir servidores **não é possível** ser restaurado. Se você excluir o servidor, todos os bancos de dados que pertencem ao servidor também serão excluídos e não poderão ser recuperados. Para proteger recursos do servidor, após a implantação, da exclusão acidental ou de alterações inesperadas, os administradores podem usar [bloqueios de gerenciamento](../azure-resource-manager/management/lock-resources.md).
+> [!NOTE] 
+> Se o servidor PostgreSQL de origem estiver criptografado com chaves gerenciadas pelo cliente, consulte a [documentação](concepts-data-encryption-postgresql.md) para obter considerações adicionais. 
+
+> [!NOTE]
+> Se você quiser restaurar um servidor PostgreSQL excluído, siga o procedimento documentado [aqui](howto-restore-dropped-server.md).
 
 ### <a name="point-in-time-restore"></a>Restauração em um momento determinado
 
@@ -79,19 +82,32 @@ A Restauração pontual é útil em vários cenários. Por exemplo, quando um us
 
 Talvez seja necessário aguardar a execução do próximo backup de log de transações antes de poder restaurar para um ponto anterior nos últimos cinco minutos.
 
+Se você quiser restaurar uma tabela descartada, 
+1. Restaure o servidor de origem usando o método pontual.
+2. Despeje a tabela usando `pg_dump` do servidor restaurado.
+3. Renomeie a tabela de origem no servidor original.
+4. Importar tabela usando a linha de comando psql no servidor original.
+5. Opcionalmente, você pode excluir o servidor restaurado.
+
+>[!Note]
+> É recomendável não criar várias restaurações para o mesmo servidor ao mesmo tempo. 
+
 ### <a name="geo-restore"></a>Restauração geográfica
 
-É possível restaurar um servidor para outra região do Azure onde o serviço está disponível caso você tenha configurado o servidor para backups com redundância geográfica. Os servidores que dão suporte a até 4 TB de armazenamento podem ser restaurados para a região emparelhada geograficamente ou para qualquer região que ofereça suporte a até 16 TB de armazenamento. Para servidores que dão suporte a até 16 TB de armazenamento, os backups geográficos podem ser restaurados em qualquer região que dê suporte a servidores de 16 TB também. Examine os [tipos de preço do banco de dados do Azure para PostgeSQL](concepts-pricing-tiers.md) para a lista de regiões com suporte.
+É possível restaurar um servidor para outra região do Azure onde o serviço está disponível caso você tenha configurado o servidor para backups com redundância geográfica. Os servidores que dão suporte a até 4 TB de armazenamento podem ser restaurados para a região emparelhada geograficamente ou para qualquer região que ofereça suporte a até 16 TB de armazenamento. Para servidores que dão suporte a até 16 TB de armazenamento, os backups geográficos podem ser restaurados em qualquer região que dê suporte a servidores de 16 TB também. Examine os [tipos de preço do banco de dados do Azure para PostgreSQL](concepts-pricing-tiers.md) para a lista de regiões com suporte.
 
 A restauração geográfica é a opção de recuperação padrão quando o servidor não está disponível devido a um incidente na região em que ele está hospedado. Se um incidente de grande escala em uma região resultar na indisponibilidade do seu aplicativo de banco de dados, você poderá restaurar um servidor do backup com redundância geográfica para um servidor em qualquer outra região. Há um atraso entre quando um backup é feito e quando ele é replicado em uma região diferente. Esse atraso pode ser de até uma hora, então, em caso de desastre pode haver perda de dados de até uma hora.
 
 Durante a restauração geográfica, as configurações de servidor que podem ser alteradas incluem as opções de geração de computação, vCore, período de retenção de backup e redundância de backup. Não há suporte para alterar o tipo de preço (básico, uso geral ou com otimização de memória) ou tamanho de armazenamento.
 
+> [!NOTE]
+> Se o servidor de origem usar a criptografia dupla de infraestrutura, para restaurar o servidor, haverá limitações, incluindo regiões disponíveis. Consulte a [infraestrutura de criptografia dupla](concepts-infrastructure-double-encryption.md) para obter mais detalhes.
+
 ### <a name="perform-post-restore-tasks"></a>Executar tarefas de pós-restauração
 
 Após uma restauração de um dos mecanismos de recuperação, você deve executar as seguintes tarefas para colocar os usuários e os aplicativos novamente em execução:
 
-- Se o novo servidor é usado para substituir o servidor original, redirecione clientes e aplicativos de cliente para o novo servidor
+- Se o novo servidor for destinado a substituir o servidor original, redirecione clientes e aplicativos cliente para o novo servidor. Além disso, altere também o nome de usuário para `username@new-restored-server-name` .
 - Garanta que as regras de rede virtual e de firewall no nível de servidor apropriadas estejam em vigor para que os usuários se conectem. Essas regras não são copiadas do servidor original.
 - Verifique se as permissões e os logons adequados no nível do banco de dados estão em vigor
 - Configurar os alertas, conforme apropriado

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: 13688b73c0cd73e13e407f1b75beb8dda61a754f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36db885cab734c037b0032c714de28b905595ef0
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84172251"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223254"
 ---
 # <a name="private-ip-addresses"></a>Endereços IP privados
 Os IPs privados permitem a comunicação entre os recursos no Azure. 
@@ -82,8 +82,8 @@ As VMs configuradas com o DNS gerenciado pelo Azure resolvem os nomes de host na
 
 Você pode atribuir um endereço IP privado à configuração de **front-end** de um:
 
-* [Balanceador de carga interno do Azure](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (ILB)
-* [Gateway de Aplicativo do Azure](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
+* [Balanceador de carga interno do Azure](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (ILB)
+* [Gateway de Aplicativo do Azure](../application-gateway/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
 
 Esse endereço IP privado serve como um ponto de extremidade interno. O ponto de extremidade interno é acessível somente para os recursos em sua rede virtual e as redes remotas conectadas a ele. Um IP dinâmico ou estático pode ser atribuído.
 
@@ -101,7 +101,7 @@ Os métodos de alocação possíveis que podem ser usados também são exibidos:
 | Balanceador de carga |Configuração de front-end |Sim |Sim |
 | Gateway de Aplicativo |Configuração de front-end |Sim |Sim |
 
-## <a name="limits"></a>limites
+## <a name="limits"></a>Limites
 Os limites no endereçamento IP são encontrados no conjunto completo de [limites de rede](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) no Azure. Os limites são por região e por assinatura. [Entre em contato](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o suporte para aumentar os limites padrão até os limites máximos com base em suas necessidades de negócios.
 
 ## <a name="next-steps"></a>Próximas etapas

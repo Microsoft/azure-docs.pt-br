@@ -13,16 +13,16 @@ ms.date: 04/10/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 5d91514af9aea3dd7ea13b94681fbb27c53772fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a56685c830fc7aa717add3e826c68c04449e378
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88120891"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580839"
 ---
-# <a name="differences-between-msal-js-and-adal-js"></a>Diferenças entre a MSAL para JS e a ADAL para JS
+# <a name="differences-between-msaljs-and-adaljs"></a>Diferenças entre MSAL.js e ADAL.js
 
-Tanto a Biblioteca de Autenticação da Microsoft para JavaScript (MSAL.js) e a Biblioteca de Autenticação do Active Directory para JavaScript (ADAL.js) são usadas para autenticar as entidades do Azure AD e solicitar tokens do Azure AD. Até agora, a maioria dos desenvolvedores trabalharam com o Azure AD para desenvolvedores (v1.0) para autenticar identidades do Azure AD (contas corporativas e de estudante), solicitando tokens usando a ADAL. Agora, usando a MSAL.js, você pode autenticar um conjunto mais amplo de identidades da Microsoft (identidades do Azure AD e contas da Microsoft, além de contas sociais e locais por meio do Azure AD B2C) através do ponto de extremidade da plataforma de identidade da Microsoft (v2.0).
+A biblioteca de autenticação da Microsoft para JavaScript (MSAL.js) e a biblioteca de autenticação do Azure AD para JavaScript (ADAL.js) são usadas para autenticar entidades do Azure AD e solicitar tokens do Azure AD. Até agora, a maioria dos desenvolvedores trabalharam com o Azure AD para desenvolvedores (v1.0) para autenticar identidades do Azure AD (contas corporativas e de estudante), solicitando tokens usando a ADAL. Agora, usando MSAL.js, você pode autenticar um conjunto mais amplo de identidades da Microsoft (identidades do Azure AD e contas da Microsoft e contas sociais e locais por meio de Azure AD B2C) por meio da plataforma de identidade da Microsoft.
 
 Este artigo descreve como escolher entre a Biblioteca de Autenticação da Microsoft para JavaScript (MSAL.js) e a Biblioteca de Autenticação do Microsoft Azure AD para JavaScript (ADAL.js) e comparar as duas bibliotecas.
 
@@ -48,7 +48,7 @@ No entanto, você ainda precisará usar a ADAL.js se seu aplicativo precisar con
 
 Na v1.0, ao usar a autoridade `https://login.microsoftonline.com/common`, você permitirá que os usuários entrem com qualquer conta do Azure AD (para qualquer organização).
 
-Na v2.0, ao usar a autoridade `https://login.microsoftonline.com/common`, você permitirá que os usuários entrem com uma conta da organização do Azure AD ou com uma conta pessoal da Microsoft (MSA). Para restringir a entrada apenas a contas do Azure AD (mesmo comportamento com a ADAL.js), será preciso usar `https://login.microsoftonline.com/organizations`. Para ver detalhes, confira a opção de configuração `authority` em [Inicializar usando a MSAL.js](msal-js-initializing-client-applications.md).
+Na v2.0, ao usar a autoridade `https://login.microsoftonline.com/common`, você permitirá que os usuários entrem com uma conta da organização do Azure AD ou com uma conta pessoal da Microsoft (MSA). Para restringir a entrada somente às contas do Azure AD (mesmo comportamento que com o ADAL.js), use `https://login.microsoftonline.com/organizations` . Para ver detalhes, confira a opção de configuração `authority` em [Inicializar usando a MSAL.js](msal-js-initializing-client-applications.md).
 
 ### <a name="scopes-for-acquiring-tokens"></a>Escopos para adquirir tokens
 * Escopo em vez do parâmetro de recursos em solicitações de autenticação para adquirir tokens

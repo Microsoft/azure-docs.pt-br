@@ -1,8 +1,8 @@
 ---
 title: Solução VMware no Azure pela CloudSimple
 description: Saiba mais sobre as Solução VMware da CloudSimple no Azure, incluindo uma visão geral, inícios rápidos, conceitos, tutoriais e guias de instruções.
-author: sharaths-cs
-ms.author: b-mashar
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
@@ -10,12 +10,12 @@ ms.reviewer: cynthn
 manager: dikamath
 ms.custom: seo-azure-migrate
 keywords: suporte de vms, solução vmware da cloudsimple no azure, cloudsimple no azure, ferramentas de vms, documentação de vmware
-ms.openlocfilehash: fffe0255bb905c0314e2ed59f5beab726e681e00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3514a011f940b82702984737d0a93c5da402b55
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230629"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108374"
 ---
 # <a name="azure-vmware-solution-by-cloudsimple"></a>Solução VMware no Azure pela CloudSimple
 

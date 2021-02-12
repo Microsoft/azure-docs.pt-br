@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 4863ccff5807420315f04b1b454b4ed78e5c8ae3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f044596cf084e68b6c9ca10e3da4fbdf4c8c2062
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282877"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026515"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Habilitar o registro em log no SDK de fala
 
@@ -58,7 +58,7 @@ Você pode criar um reconhecedor a partir do objeto de configuração. Isso habi
 
 Para Windows ou Linux, o arquivo de log pode estar em qualquer caminho para o qual o usuário tenha permissão de gravação. As permissões de gravação para locais do sistema de arquivos em outros sistemas operacionais podem ser limitadas ou restritas por padrão.
 
-### <a name="universal-windows-platform-uwp"></a>UWP (Plataforma Universal do Windows)
+### <a name="universal-windows-platform-uwp"></a>Plataforma Universal do Windows (UWP)
 
 Os aplicativos UWP precisam ser colocados nos arquivos de log em um dos locais de dados do aplicativo (local, móvel ou temporário). Um arquivo de log pode ser criado na pasta do aplicativo local:
 
@@ -68,7 +68,7 @@ StorageFile logFile = await storageFolder.CreateFileAsync("logfile.txt", Creatio
 config.SetProperty(PropertyId.Speech_LogFilename, logFile.Path);
 ```
 
-Mais informações sobre a permissão de acesso a arquivos para aplicativos UWP estão disponíveis [aqui](https://docs.microsoft.com/windows/uwp/files/file-access-permissions).
+Mais informações sobre a permissão de acesso a arquivos para aplicativos UWP estão disponíveis [aqui](/windows/uwp/files/file-access-permissions).
 
 ### <a name="android"></a>Android
 

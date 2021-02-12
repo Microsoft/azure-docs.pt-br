@@ -3,15 +3,15 @@ title: Monitorar Key Vault com Azure Monitor para Key Vault | Microsoft Docs
 description: Este artigo descreve o Azure Monitor para Key Vaults.
 services: azure-monitor
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 09/10/2020
-ms.openlocfilehash: d28138b251cf159b7cbc5cc6942bb287e57a95d7
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 41b058cf41aa1a8fb1def68851457385c8187823
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088090"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209875"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault"></a>Monitorando o serviço de cofre de chaves com Azure Monitor para Key Vault
 Azure Monitor para Key Vault fornece monitoramento abrangente de seus cofres de chaves, fornecendo uma exibição unificada de suas solicitações de Key Vault, desempenho, falhas e latência.
@@ -20,9 +20,9 @@ Este artigo o ajudará a entender como integrar e personalizar a experiência de
 ## <a name="introduction-to-azure-monitor-for-key-vault"></a>Introdução ao Azure Monitor para Key Vault
 
 Antes de saltar para a experiência, você deve entender como ela apresenta e visualiza informações.
--    **Na perspectiva de escala** , mostrando uma exibição de instantâneo do desempenho com base nas solicitações, no detalhamento de falhas e em uma visão geral das operações e da latência.
+-    **Na perspectiva de escala**, mostrando uma exibição de instantâneo do desempenho com base nas solicitações, no detalhamento de falhas e em uma visão geral das operações e da latência.
 -   **Análise de busca detalhada** de um key vault específico para realizar uma análise detalhada.
--    **Personalizável** , onde você pode alterar quais métricas deseja ver, modificar ou definir limites que se alinham aos limites e salvar sua própria pasta de trabalho. Os gráficos na pasta de trabalho podem ser fixados a painéis do Azure.
+-    **Personalizável**, onde você pode alterar quais métricas deseja ver, modificar ou definir limites que se alinham aos limites e salvar sua própria pasta de trabalho. Os gráficos na pasta de trabalho podem ser fixados a painéis do Azure.
 
 O Azure Monitor para Key Vault combina logs e métricas para fornecer uma solução de monitoramento global. Todos os usuários podem acessar os dados de monitoramento baseados em métricas, no entanto, a inclusão de visualizações baseadas em logs pode exigir que os usuários [habilitem o registro do Azure Key Vault](../../key-vault/general/logging.md).
 
@@ -34,7 +34,7 @@ Para exibir a utilização e as operações de seus cofres de chaves em todas as
 
 1. Entre no [Portal do Azure](https://portal.azure.com/)
 
-2. Selecione **Monitor** no painel esquerdo na portal do Azure e, na seção insights, selecione **cofres de chaves** .
+2. Selecione **Monitor** no painel esquerdo na portal do Azure e, na seção insights, selecione **cofres de chaves**.
 
 ![Captura de tela da experiência de visão geral com vários grafos](./media/key-vaults-insights-overview/overview.png)
 
@@ -126,7 +126,7 @@ As personalizações são salvas em uma pasta de trabalho personalizada para evi
 Você pode configurar as pastas de trabalho Visão geral ou Falhas de várias assinaturas e key vaults para definir o escopo para uma assinatura ou key vault específico em cada execução, seguindo as etapas abaixo:
 
 1. Selecione **Monitor** no portal e, em seguida, selecione **cofres de chaves** no painel esquerdo.
-2. Na pasta de trabalho **Visão geral** , na barra de comandos, selecione **Editar** .
+2. Na pasta de trabalho **Visão geral**, na barra de comandos, selecione **Editar**.
 3. Selecione na lista suspensa **Assinaturas** uma ou mais assinaturas que você deseja usar como o padrão. Lembre-se de que a pasta de trabalho permite selecionar até 10 assinaturas no total.
 4. Selecione na lista suspensa **Key Vaults** uma ou mais contas que você deseja usar como padrão. Lembre-se de que a pasta de trabalho permite selecionar até 200 contas de armazenamento no total.
 5. Selecione **Salvar como** na barra de comandos para salvar uma cópia da pasta de trabalho com as personalizações e, em seguida, clique em **Edição concluída** para retornar ao modo de leitura.

@@ -4,16 +4,16 @@ description: Saiba como criar e gerenciar um cluster privado do Red Hat OpenShif
 ms.service: container-service
 ms.topic: article
 ms.date: 03/12/2020
-author: georgewallace
-ms.author: gwallace
+author: sakthi-vetrivel
+ms.author: suvetriv
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3864d48399f00d5cfbdfa0a94939be0d88a73322
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 6daeb617e7d1922427fe1889b41512a61c5067cf
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928052"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740917"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Criar um cluster privado do Red Hat OpenShift 4 no Azure
 
@@ -23,7 +23,7 @@ Neste artigo, você vai preparar seu ambiente para criar clusters privados do Re
 > * Configurar os pré-requisitos e criar a rede virtual e as sub-redes necessárias
 > * Implantar um cluster com um ponto de extremidade privado do servidor de API e um controlador de entrada privado
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.6.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.6.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -192,7 +192,7 @@ az aro create \
 Depois de executar o comando `az aro create`, normalmente leva cerca de 35 minutos para criar um cluster.
 
 >[!IMPORTANT]
-> Se você optar por especificar um domínio personalizado, por exemplo **foo.example.com** , o console do OpenShift estará disponível em uma URL como `https://console-openshift-console.apps.foo.example.com`, em vez de no domínio interno `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.
+> Se você optar por especificar um domínio personalizado, por exemplo **foo.example.com**, o console do OpenShift estará disponível em uma URL como `https://console-openshift-console.apps.foo.example.com`, em vez de no domínio interno `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.
 >
 > Por padrão, o OpenShift usa certificados autoassinados para todas as rotas criadas em `*.apps.<random>.<location>.aroapp.io`.  Se você optar pelo DNS personalizado após a conexão com o cluster, será necessário seguir a documentação do OpenShift para [configurar uma AC personalizada para o controlador de entrada](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) e uma [AC personalizada para o servidor de API](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
 
@@ -233,9 +233,9 @@ Inicie a URL do console em um navegador e faça logon usando as credenciais `kub
 
 ## <a name="install-the-openshift-cli"></a>Instalar a CLI do OpenShift
 
-Quando você estiver conectado ao console Web do OpenShift, clique no **?** no canto superior direito e então em **Ferramentas de Linha de Comando** . Baixe a versão apropriada para seu computador.
+Quando você estiver conectado ao console Web do OpenShift, clique no **?** no canto superior direito e então em **Ferramentas de Linha de Comando**. Baixe a versão apropriada para seu computador.
 
-![Tela de logon do Red Hat OpenShift no Azure](media/aro4-download-cli.png)
+![Imagem mostra a tela de logon do Azure Red Hat OpenShift](media/aro4-download-cli.png)
 
 Você também pode baixar a versão mais recente da CLI apropriada para seu computador de <https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/>.
 

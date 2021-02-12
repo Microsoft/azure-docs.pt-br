@@ -1,14 +1,14 @@
 ---
 title: Detalhes da estrutura de atribuição de política
 description: Descreve a definição de atribuição de política usada por Azure Policy para relacionar definições de política e parâmetros a recursos para avaliação.
-ms.date: 09/22/2020
+ms.date: 01/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: e930e9ddcc04846a35c8db7784a349007c71580b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12acbe368c9ccd6fa5654d3394e0fecb286984bf
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904085"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219559"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estrutura de atribuição do Azure Policy
 
@@ -22,7 +22,8 @@ Você usa JSON para criar uma atribuição de política. A atribuição de polí
 - modo de imposição
 - escopos excluídos
 - definição de política
-- parameters
+- mensagens de não conformidade
+- parâmetros
 
 Por exemplo, o JSON a seguir mostra uma atribuição de política no modo _DoNotEnforce_ com parâmetros dinâmicos:
 
@@ -37,6 +38,11 @@ Por exemplo, o JSON a seguir mostra uma atribuição de política no modo _DoNot
         "enforcementMode": "DoNotEnforce",
         "notScopes": [],
         "policyDefinitionId": "/subscriptions/{mySubscriptionID}/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+        "nonComplianceMessages": [
+            {
+                "message": "Resource names must start with 'DeptA' and end with '-LC'."
+            }
+        ],
         "parameters": {
             "prefix": {
                 "value": "DeptA"
@@ -61,7 +67,7 @@ A **Propriedade** impolicymode fornece aos clientes a capacidade de testar o res
 
 Essa propriedade tem os seguintes valores:
 
-|Modo |Valor JSON |Type |Corrigir manualmente |Entrada do log de atividades |Descrição |
+|Modo |Valor JSON |Tipo |Corrigir manualmente |Entrada do log de atividades |Descrição |
 |-|-|-|-|-|-|
 |Habilitada |Padrão |string |Sim |Sim |O efeito de política é imposto durante a criação ou atualização de recursos. |
 |Desabilitado |DoNotEnforce |string |Sim |Não | O efeito de política não é imposto durante a criação ou atualização de recursos. |
@@ -79,6 +85,32 @@ O **escopo** da atribuição inclui todos os contêineres de recursos filho e re
 
 Este campo deve ser o nome do caminho completo de uma definição de política ou uma definição de iniciativa.
 `policyDefinitionId` é uma cadeia de caracteres e não uma matriz. É recomendável que, em vez disso, várias políticas sejam atribuídas juntas, para usar uma [iniciativa](./initiative-definition-structure.md) .
+
+## <a name="non-compliance-messages"></a>Mensagens de não conformidade
+
+Para definir uma mensagem personalizada que descreve por que um recurso não está em conformidade com a definição de política ou iniciativa, defina `nonComplianceMessages` na definição de atribuição. Esse nó é uma matriz de `message` entradas. Essa mensagem personalizada é além da mensagem de erro padrão para não conformidade e é opcional.
+
+```json
+"nonComplianceMessages": [
+    {
+        "message": "Default message"
+    }
+]
+```
+
+Se a atribuição for para uma iniciativa, diferentes mensagens poderão ser configuradas para cada definição de política na iniciativa. As mensagens usam o `policyDefinitionReferenceId` valor configurado na definição da iniciativa. Para obter detalhes, consulte [Propriedades de definições de propriedade](./initiative-definition-structure.md#policy-definition-properties).
+
+```json
+"nonComplianceMessages": [
+    {
+        "message": "Default message"
+    },
+    {
+        "message": "Message for just this policy definition by reference ID",
+        "policyDefinitionReferenceId": "10420126870854049575"
+    }
+]
+```
 
 ## <a name="parameters"></a>Parâmetros
 

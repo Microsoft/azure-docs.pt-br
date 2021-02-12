@@ -7,24 +7,24 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: fd6a907ce855fbb7c1ef96236766beef9b25b2ac
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: ad47ac7d51de6ab497d7061961c14b5324fab931
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428355"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202446"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Linha de base de segurança do Azure para o Key Vault
 
 A linha de base de segurança do Azure para Key Vault contém recomendações que ajudarão você a melhorar a postura de segurança de sua implantação.
 
-A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), que fornece recomendações sobre como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
+A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](../../security/benchmarks/overview.md), que fornece recomendações sobre como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
 
-Para obter mais informações, consulte [Visão geral sobre linhas de base de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Para obter mais informações, consulte [Visão geral sobre linhas de base de segurança do Azure](../../security/benchmarks/security-baselines-overview.md).
 
 ## <a name="network-security"></a>Segurança de rede
 
-*Para obter mais informações, consulte [Controle de segurança: Segurança de rede](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Para obter mais informações, consulte [Controle de segurança: Segurança de rede](../../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: proteger recursos usando grupos de segurança de rede ou o Firewall do Azure em sua Rede Virtual
 
@@ -189,7 +189,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 ## <a name="logging-and-monitoring"></a>Registro em log e monitoramento
 
-*Para obter mais informações, consulte [Controle de segurança: registro em log e monitoramento](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Para obter mais informações, consulte [Controle de segurança: registro em log e monitoramento](../../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: usar fontes de sincronização de tempo aprovadas
 
@@ -321,7 +321,7 @@ https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
 ## <a name="identity-and-access-control"></a>Identidade e controle de acesso
 
-*Para obter mais informações, consulte [Controle de segurança: Identidade e controle de acesso](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Para obter mais informações, consulte [Controle de segurança: Identidade e controle de acesso](../../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: manter um inventário de contas administrativas
 
@@ -344,7 +344,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: alterar senhas padrão quando aplicável
 
-**Orientação**: não aplicável; Azure Key Vault não tem o conceito de senhas padrão, pois a autenticação é fornecida pelo Active Directory e protegida com o controle de acesso baseado em função.
+**Orientação**: não aplicável; Azure Key Vault não tem o conceito de senhas padrão, pois a autenticação é fornecida pelo Active Directory e protegida com o controle de acesso baseado em função do Azure (RBAC do Azure).
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -382,7 +382,7 @@ https://docs.microsoft.com/azure/key-vault/service-to-service-authentication
 
 **Diretrizes**: habilite Azure Active Directory autenticação multifator e siga as recomendações do gerenciamento de acesso e identidade da central de segurança do Azure (atualmente em versão prévia) para ajudar a proteger seus recursos habilitados para o Hub de eventos.
 
-Planejando uma implantação da autenticação multifator do Azure baseada em nuvem:
+Planejando uma implantação da autenticação multifator do Azure AD baseada em nuvem:
 
 https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
@@ -397,11 +397,11 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: usar computadores dedicados (estações de trabalho com acesso privilegiado) para todas as tarefas administrativas
 
-**Orientação**: Use uma Paw (estação de trabalho com acesso privilegiado) com o MFA (autenticação multifator) do Azure configurada para fazer logon e configurar Key Vault recursos habilitados. 
+**Diretrizes**: Use uma Paw (estação de trabalho com acesso privilegiado) com o MFA (autenticação multifator) do Azure ad configurada para fazer logon e configurar Key Vault recursos habilitados. 
 
-Estações de trabalho com acesso privilegiado: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations 
+Estações de trabalho com acesso privilegiado: https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/ 
 
-Planejando uma implantação da autenticação multifator do Azure baseada em nuvem: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+Planejando uma implantação da autenticação multifator do Azure AD baseada em nuvem: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
 
 
@@ -445,7 +445,7 @@ Qual é a condição de local em Azure Active Directory acesso condicional?: htt
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Use o Azure Active Directory Domain Services
 
-**Diretrizes**: Use Azure Active Directory (AD do Azure) como o sistema de autenticação e autorização central para recursos do Azure, como key Vault. Isso permite que o RBAC (controle de acesso baseado em função) para administrar recursos confidenciais.
+**Diretrizes**: Use Azure Active Directory (AD do Azure) como o sistema de autenticação e autorização central para recursos do Azure, como key Vault. Isso permite que o controle de acesso baseado em função do Azure (RBAC do Azure) administra recursos confidenciais.
 
  
 
@@ -518,7 +518,7 @@ Serviços e cenários com suporte em disponibilidade geral: https://docs.microso
 
 ## <a name="data-protection"></a>Proteção de dados
 
-*Para obter mais informações, consulte [Controle de segurança: proteção de dados](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Para obter mais informações, consulte [Controle de segurança: proteção de dados](../../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: manter um inventário de informações confidenciais
 
@@ -623,7 +623,7 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 Documentação de suporte:
 
-- [Modelo de criptografia e tabela de gerenciamento de chaves](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#encryption-model-and-key-management-table)
+- [Modelo de criptografia e tabela de gerenciamento de chaves](../../security/fundamentals/encryption-atrest.md)
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -646,7 +646,7 @@ https://docs.microsoft.com/azure/azure-monitor/insights/azure-key-vault
 
 ## <a name="vulnerability-management"></a>Gerenciamento de vulnerabilidades
 
-*Para obter mais informações, consulte [Controle de segurança: gerenciamento de vulnerabilidades](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Para obter mais informações, consulte [Controle de segurança: gerenciamento de vulnerabilidades](../../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: executar ferramentas automatizadas de verificação de vulnerabilidade
 
@@ -697,7 +697,7 @@ https://docs.microsoft.com/azure/security-center/security-center-secure-score
 
 ## <a name="inventory-and-asset-management"></a>Inventário e gerenciamento de ativos
 
-*Para obter mais informações, consulte [Controle de segurança: inventário e gerenciamento de ativos](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Para obter mais informações, consulte [Controle de segurança: inventário e gerenciamento de ativos](../../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1: usar a descoberta de ativos do Azure
 
@@ -865,7 +865,7 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 
 ## <a name="secure-configuration"></a>Configuração segura
 
-*Para obter mais informações, consulte [Controle de segurança: configuração segura](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Para obter mais informações, consulte [Controle de segurança: configuração segura](../../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: estabelecer configurações seguras para todos os recursos do Azure
 
@@ -1031,7 +1031,7 @@ https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
   
 
-* [Como integrar com identidades gerenciadas do Azure](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity)
+* [Como integrar com identidades gerenciadas do Azure](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
 * [Como criar um Key Vault](quick-create-portal.md)
 
@@ -1055,7 +1055,7 @@ https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 ## <a name="malware-defense"></a>Defesa contra malwares
 
-*Para obter mais informações, consulte [Controle de segurança: defesa contra malwares](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Para obter mais informações, consulte [Controle de segurança: defesa contra malwares](../../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: usar software antimalware gerenciado centralmente
 
@@ -1089,7 +1089,7 @@ Entenda o Microsoft antimalware para os serviços de nuvem do Azure e máquinas 
 
 ## <a name="data-recovery"></a>Recuperação de dados
 
-*Para obter mais informações, consulte [Controle de segurança: recuperação de dados](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Para obter mais informações, consulte [Controle de segurança: recuperação de dados](../../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: garantir backups automatizados regulares
 
@@ -1190,7 +1190,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell
 
 ## <a name="incident-response"></a>Resposta a incidentes
 
-*Para obter mais informações, consulte [Controle de segurança: resposta a incidentes](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Para obter mais informações, consulte [Controle de segurança: resposta a incidentes](../../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: criar um guia de resposta a incidentes
 
@@ -1261,7 +1261,7 @@ https://docs.microsoft.com/azure/security-center/continuous-export
 
   
 
-Como transmitir alertas para o Azure Sentinel:  
+Como transmitir alertas para o Azure Sentinel: 
 
 https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 
@@ -1285,7 +1285,7 @@ https://docs.microsoft.com/azure/security-center/workflow-automation
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Testes de penetração e exercícios de Red Team
 
-*Para obter mais informações, consulte [Controle de segurança: testes de penetração e exercícios de Red Team](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Para obter mais informações, consulte [Controle de segurança: testes de penetração e exercícios de Red Team](../../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1: realizar testes de penetração regulares de seus recursos do Azure e garanta a correção de todas as constatações de segurança críticas em 60 dias
 
@@ -1305,5 +1305,5 @@ https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Consulte o [Parâmetro de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Saiba mais sobre as [Linhas de base de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- Consulte o [Parâmetro de segurança do Azure](../../security/benchmarks/overview.md)
+- Saiba mais sobre as [Linhas de base de segurança do Azure](../../security/benchmarks/security-baselines-overview.md)

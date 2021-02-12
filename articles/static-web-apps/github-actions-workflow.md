@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 02/05/2021
 ms.author: cshoe
-ms.openlocfilehash: 3518935991409d87917582558a34ad7c54841e23
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 785fd535c46b67cfd631cd18560f396a6901e5c0
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173663"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593936"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Fluxos de trabalho do GitHub Actions para Aplicativos Web Estáticos do Azure – Visualização
 
@@ -38,11 +38,11 @@ name: Azure Static Web Apps CI/CD
 on:
   push:
     branches:
-    - master
+    - main
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-    - master
+    - main
 
 jobs:
   build_and_deploy_job:
@@ -63,7 +63,7 @@ jobs:
         ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
         app_location: '/' # App source code path
         api_location: 'api' # Api source code path - optional
-        app_artifact_location: 'dist' # Built app content directory - optional
+        output_location: 'dist' # Built app content directory - optional
         ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
@@ -87,16 +87,16 @@ Um [gatilho](https://help.github.com/actions/reference/events-that-trigger-workf
 on:
   push:
     branches:
-    - master
+    - main
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-    - master
+    - main
 ```
 
 Por meio das configurações associadas à propriedade `on`, você pode definir quais ramificações disparam um trabalho, bem como definir gatilhos a serem acionados para estados de solicitação de pull diferentes.
 
-Neste exemplo, um fluxo de trabalho é iniciado quando a ramificação _mestre_ é alterada. As alterações que iniciam o fluxo de trabalho incluem envio por push de confirmações e abertura de solicitações de pull na ramificação escolhida.
+Neste exemplo, um fluxo de trabalho é iniciado conforme a ramificação _principal_ é alterada. As alterações que iniciam o fluxo de trabalho incluem envio por push de confirmações e abertura de solicitações de pull na ramificação escolhida.
 
 ## <a name="jobs"></a>Trabalhos
 
@@ -107,7 +107,7 @@ No arquivo de fluxo de trabalho de Aplicativos Web Estáticos, há dois trabalho
 | Nome  | Descrição |
 |---------|---------|
 |`build_and_deploy_job` | É executado quando você envia por push as confirmações ou abre uma solicitação de pull em relação à ramificação listada na propriedade `on`. |
-|`close_pull_request_job` | Executa somente quando você fecha uma solicitação de pull que remove o ambiente de preparo criado de solicitações de pull. |
+|`close_pull_request_job` | Executa somente quando você fecha uma solicitação de pull, que remove o ambiente de preparo criado de solicitações de pull. |
 
 ## <a name="steps"></a>Etapas
 
@@ -132,15 +132,15 @@ with:
     ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
     app_location: '/' # App source code path
     api_location: 'api' # Api source code path - optional
-    app_artifact_location: 'dist' # Built app content directory - optional
+    output_location: 'dist' # Built app content directory - optional
     ###### End of Repository/Build Configurations ######
 ```
 
 | Propriedade | Descrição | Obrigatório |
 |---|---|---|
 | `app_location` | Local do código do aplicativo.<br><br>Por exemplo, digite `/` se o código-fonte do aplicativo estiver na raiz do repositório ou `/app` se o código do aplicativo estiver em um diretório chamado `app`. | Sim |
-| `api_location` | Local do seu código de Azure Functions.<br><br>Por exemplo, digite `/api` se o código do aplicativo estiver em uma pasta chamada `api`. Se nenhum aplicativo Azure Functions for detectado na pasta, a compilação não falhará; o fluxo de trabalho pressupõe que você não deseja uma API. | Não |
-| `app_artifact_location` | Local do diretório de saída de compilação relativo ao `app_location`.<br><br>Por exemplo, se o código-fonte do aplicativo estiver localizado em `/app`, e o script de compilação gerar arquivos para a pasta `/app/build`, defina `build` como o valor `app_artifact_location`. | Não |
+| `api_location` | Local do seu código de Azure Functions.<br><br>Por exemplo, digite `/api` se o código do aplicativo estiver em uma pasta chamada `api`. Se nenhum aplicativo de Azure Functions for detectado na pasta, a compilação não falhará, o fluxo de trabalho pressupõe que você não deseja uma API. | Não |
+| `output_location` | Local do diretório de saída de compilação relativo ao `app_location`.<br><br>Por exemplo, se o código-fonte do aplicativo estiver localizado em `/app`, e o script de compilação gerar arquivos para a pasta `/app/build`, defina `build` como o valor `output_location`. | Não |
 
 Os valores `repo_token`, `action` e `azure_static_web_apps_api_token` são definidos para você pelos Aplicativos Web Estáticos do Azure e não devem ser alterados manualmente.
 
@@ -163,7 +163,7 @@ Você pode personalizar o fluxo de trabalho para procurar o [routes.json](routes
 |---------------------|-------------|
 | `routes_location` | Define o local do diretório onde o arquivo _routes.json_ é encontrado. Esse local é relativo à raiz do repositório. |
 
- Ser explícito sobre o local do seu arquivo _routes.json_ é particularmente importante se a etapa de compilação da estrutura de front-end não mover esse arquivo para o `app_artifact_location` por padrão.
+ Ser explícito sobre o local do seu arquivo _routes.json_ é particularmente importante se a etapa de compilação da estrutura de front-end não mover esse arquivo para o `output_location` por padrão.
 
 ## <a name="environment-variables"></a>Variáveis de ambiente
 
@@ -189,11 +189,59 @@ jobs:
           ###### Repository/Build Configurations
           app_location: "/"
           api_location: "api"
-          app_artifact_location: "public"
+          output_location: "public"
           ###### End of Repository/Build Configurations ######
         env: # Add environment variables here
           HUGO_VERSION: 0.58.0
 ```
+
+## <a name="monorepo-support"></a>Suporte a monorepositório
+
+Um monorepositório é um repositório que contém código para mais de um aplicativo. Por padrão, um arquivo de fluxo de trabalho de aplicativos Web estáticos rastreia todos os arquivos em um repositório, mas você pode ajustá-lo para o destino de um único aplicativo. Portanto, para monostores, cada aplicativo estático tem seu próprio arquivo de configuração, que reside lado a lado na pasta *. github/fluxos de trabalho* do repositório.
+
+```files
+├── .github
+│   └── workflows
+│       ├── azure-static-web-apps-purple-pond.yml
+│       └── azure-static-web-apps-yellow-shoe.yml
+│
+├── app1  👉 controlled by: azure-static-web-apps-purple-pond.yml
+├── app2  👉 controlled by: azure-static-web-apps-yellow-shoe.yml
+│
+├── api1  👉 controlled by: azure-static-web-apps-purple-pond.yml
+├── api2  👉 controlled by: azure-static-web-apps-yellow-shoe.yml
+│
+└── README.md
+```
+
+Para direcionar um arquivo de fluxo de trabalho para um único aplicativo, você especifica caminhos nas `push` `pull_request` seções e.
+
+O exemplo a seguir demonstra como adicionar um `paths` nó às `push` seções e `pull_request` de um arquivo chamado _Azure-static-Web-Apps-Purple-Pond. yml_.
+
+```yml
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - app1/**
+      - api1/**
+      - .github/workflows/azure-static-web-apps-purple-pond.yml
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - main
+    paths:
+      - app1/**
+      - api1/**
+      - .github/workflows/azure-static-web-apps-purple-pond.yml
+```
+
+Nessa instância, somente as alterações feitas nos seguintes arquivos disparam uma nova compilação:
+
+- Todos os arquivos dentro da pasta *App1*
+- Todos os arquivos dentro da pasta *api1*
+- Alterações no arquivo de fluxo de trabalho *Azure-static-Web-Apps-Purple-Pond. yml* do aplicativo
 
 ## <a name="next-steps"></a>Próximas etapas
 

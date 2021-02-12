@@ -2,13 +2,13 @@
 title: Perguntas frequentes - Hubs de Eventos | Microsoft Docs
 description: Este artigo fornece uma lista de perguntas frequentes (FAQ) para os Hubs de Eventos do Azure e suas respostas.
 ms.topic: article
-ms.date: 10/27/2020
-ms.openlocfilehash: 3b55521c9f90192891b450e3e161607a334c3a00
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.date: 01/20/2021
+ms.openlocfilehash: e6fd4814e771d03827e51f1cd5ee182c9e432cc5
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92909702"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696101"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Perguntas frequentes sobre os Hubs de Eventos
 
@@ -55,73 +55,10 @@ Você pode configurar o período de retenção para os dados capturados em sua c
 ### <a name="how-do-i-monitor-my-event-hubs"></a>Como monitorar meus Hubs de Eventos?
 Os Hubs de Eventos emitem métricas exaustivas que fornecem o estado de seus recursos ao [Azure Monitor](../azure-monitor/overview.md). Eles também permitem a avaliação da integridade geral do serviço do Hubs de Eventos, não apenas no nível do namespace, mas também no nível da entidade. Saiba qual monitoramento é oferecido para os [Hubs de Eventos do Azure](event-hubs-metrics-azure-monitor.md).
 
-### <a name="where-does-azure-event-hubs-store-customer-data"></a><a name="in-region-data-residency"></a>Onde os hubs de eventos do Azure armazenam dados do cliente?
-Os hubs de eventos do Azure armazenam dados do cliente. Esses dados são armazenados automaticamente por hubs de eventos em uma única região, portanto, esse serviço atende automaticamente aos requisitos de residência de dados de região, incluindo aqueles especificados na [central de confiabilidade](https://azuredatacentermap.azurewebsites.net/).
+### <a name="where-does-azure-event-hubs-store-data"></a><a name="in-region-data-residency"></a>Onde os hubs de eventos do Azure armazenam dados?
+As camadas padrão e os hubs de eventos do Azure armazenam metadados e dados em regiões que você seleciona. Quando a recuperação de desastre geográfico é configurada para um namespace de hubs de eventos do Azure, os metadados são copiados para a região secundária que você selecionar. Portanto, esse serviço atende automaticamente aos requisitos de residência de dados de região, incluindo aqueles especificados na [central de confiabilidade](https://azuredatacentermap.azurewebsites.net/).
 
-### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quais portas preciso abrir no firewall? 
-Você pode usar os seguintes protocolos com o Barramento de Serviço do Azure para enviar e receber mensagens:
-
-- AMQP
-- HTTP
-- Apache Kafka
-
-Consulte a tabela a seguir para as portas de saída que você precisa abrir para usar esses protocolos para se comunicar com os Hubs de Eventos do Azure. 
-
-| Protocolo | Portas | Detalhes | 
-| -------- | ----- | ------- | 
-| AMQP | 5671 e 5672 | Consulte [Guia do protocolo AMQP](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
-| HTTP, HTTPS | 80, 443 |  |
-| Kafka | 9093 | Consulte [Usar Hubs de Eventos de aplicativos Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-
-### <a name="what-ip-addresses-do-i-need-to-allow"></a>Quais endereços IP preciso permitir?
-Para localizar os endereços IP corretos a serem adicionados à lista de permissões para suas conexões, siga estas etapas:
-
-1. Execute o seguinte comando de um prompt de comando: 
-
-    ```
-    nslookup <YourNamespaceName>.servicebus.windows.net
-    ```
-2. Anote o endereço IP retornado em `Non-authoritative answer`. 
-
-Se você usar a **redundância de zona** para seu namespace, precisará executar algumas etapas adicionais: 
-
-1. Primeiro, execute nslookup no namespace.
-
-    ```
-    nslookup <yournamespace>.servicebus.windows.net
-    ```
-2. Anote o nome na seção **resposta não autoritativa** , que está em um dos seguintes formatos: 
-
-    ```
-    <name>-s1.cloudapp.net
-    <name>-s2.cloudapp.net
-    <name>-s3.cloudapp.net
-    ```
-3. Execute nslookup para cada um com sufixos s1, s2 e s3 para obter os endereços IP de todas as três instâncias em execução em três zonas de disponibilidade, 
-
-    > [!NOTE]
-    > O endereço IP retornado pelo `nslookup` comando não é um endereço IP estático. No entanto, ela permanece constante até que a implantação subjacente seja excluída ou movida para um cluster diferente.
-
-### <a name="where-can-i-find-client-ip-sending-or-receiving-messages-to-my-namespace"></a>Onde posso encontrar o IP do cliente enviando ou recebendo mensagens para o namespace?
-Primeiro, habilite a [filtragem de IP](event-hubs-ip-filtering.md) no namespace. 
-
-Em seguida, habilite os logs de diagnóstico para [eventos de conexão de rede virtual dos hubs de eventos](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) seguindo as instruções em [Habilitar logs de diagnóstico](event-hubs-diagnostic-logs.md#enable-diagnostic-logs). Você verá o endereço IP para o qual a conexão é negada.
-
-```json
-{
-    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
-    "NamespaceName": "namespace-name",
-    "IPAddress": "1.2.3.4",
-    "Action": "Deny Connection",
-    "Reason": "IPAddress doesn't belong to a subnet with Service Endpoint enabled.",
-    "Count": "65",
-    "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name",
-    "Category": "EventHubVNetConnectionEvent"
-}
-```
-
-> [!IMPORTANT]
-> Os logs de rede virtual serão gerados somente se o namespace permitir o acesso de **endereços IP específicos** (regras de filtro IP). Se você não quiser restringir o acesso ao seu namespace usando esses recursos e ainda quiser obter logs de rede virtual para rastrear endereços IP de clientes que se conectam ao namespace de hubs de eventos, você pode usar a seguinte solução alternativa: habilitar a filtragem de IP e adicionar o intervalo de IPv4 endereçável total (1.0.0.0/1-255.0.0.0/1). Os hubs de eventos não dão suporte a intervalos de endereços IPv6. 
+[!INCLUDE [event-hubs-connectivity](../../includes/event-hubs-connectivity.md)]
 
 ## <a name="apache-kafka-integration"></a>Integração do Apache Kafka
 
@@ -148,7 +85,7 @@ security.protocol=SASL_SSL
 sasl.mechanism=PLAIN
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXX";
 ```
-Observação: Se sasl.jaas.config não for uma configuração compatível com sua estrutura, localize as configurações usadas para definir o nome de usuário e a senha SASL e use-os em vez disso. Defina o nome de usuário como $ConnectionString e a senha para sua cadeia de conexão de Hubs de Eventos.
+Observação: se sasl.jaas.config não for uma configuração com suporte em sua estrutura, localize as configurações que são usadas para definir o nome de usuário e a senha SASL e use-as em vez disso. Defina o nome de usuário como $ConnectionString e a senha para sua cadeia de conexão de Hubs de Eventos.
 
 ### <a name="what-is-the-messageevent-size-for-event-hubs"></a>Qual é o tamanho de mensagem/evento para Hubs de Eventos?
 O tamanho máximo de mensagem permitido para os Hubs de Eventos é de 1 MB.
@@ -173,7 +110,7 @@ As TUs (unidades de produtividade) são cobradas por hora. A cobrança é basead
 Você pode começar com uma TU (unidade de produtividade) e ativar a [inflação automática](event-hubs-auto-inflate.md). O recurso de inflação automática permite que você aumente suas TUs à medida que seu conteúdo/tráfego aumenta. Você também pode definir um limite superior de TUs.
 
 ### <a name="how-does-auto-inflate-feature-of-event-hubs-work"></a>Como funciona o recurso Inflação Automática dos Hubs de Eventos?
-O recurso inflação automática permite que você escale verticalmente suas TUs (unidades de produtividade). Isso significa que você pode começar comprando poucas TUs e a inflação automática escala verticalmente suas TUs à medida que aumenta a entrada. Isso proporciona uma opção econômica e controle total do número de TUs para gerenciamento. Esse recurso **serve apenas para escalar verticalmente** , e você pode controlar completamente a redução do número de TUs atualizando-o. 
+O recurso inflação automática permite que você escale verticalmente suas TUs (unidades de produtividade). Isso significa que você pode começar comprando poucas TUs e a inflação automática escala verticalmente suas TUs à medida que aumenta a entrada. Isso proporciona uma opção econômica e controle total do número de TUs para gerenciamento. Esse recurso **serve apenas para escalar verticalmente**, e você pode controlar completamente a redução do número de TUs atualizando-o. 
 
 Convém começar com poucas TUs (unidades de produtividade), por exemplo 2 TUs. Se você prever que o tráfego pode aumentar para 15 TUs, ative o recurso inflação automática em seu namespace e defina o limite máximo como 15 TUs. Agora, você pode aumentar suas TUs automaticamente conforme seu tráfego aumenta.
 
@@ -193,9 +130,9 @@ Ao criar um namespace de camada básica ou Standard no portal do Azure, você po
 
 1. Na página **namespace do barramento de evento** , selecione **nova solicitação de suporte** no menu à esquerda. 
 1. Na página **nova solicitação de suporte** , siga estas etapas:
-    1. Para **Resumo** , descreva o problema em algumas palavras. 
-    1. Para **Tipo de problema** , selecione **Cota** . 
-    1. Para **subtipo de problema** , selecione **solicitação de aumento ou diminuição da unidade de produtividade** . 
+    1. Para **Resumo**, descreva o problema em algumas palavras. 
+    1. Para **Tipo de problema**, selecione **Cota**. 
+    1. Para **subtipo de problema**, selecione **solicitação de aumento ou diminuição da unidade de produtividade**. 
     
         :::image type="content" source="./media/event-hubs-faq/support-request-throughput-units.png" alt-text="Página de Solicitação de suporte":::
 
@@ -216,7 +153,7 @@ Para obter instruções passo a passo e mais informações sobre como configurar
 ## <a name="partitions"></a>Partições
 
 ### <a name="how-many-partitions-do-i-need"></a>De quantas partições preciso?
-O número de partições é especificado na criação e deve estar entre 1 e 32. A contagem de partições não é mutável, portanto você deve considerar a escala de longo prazo ao definir a contagem de partições. As partições são um mecanismo de organização de dados relacionados ao paralelismo de downstream necessário no consumo de aplicativos. O número de partições em um hub de eventos está diretamente relacionado ao número de leitores simultâneos que você espera ter. Para obter mais informações sobre partições, confira [Partições](event-hubs-features.md#partitions).
+O número de partições é especificado na criação do Hub de Eventos e precisa estar entre 1 e 32. A contagem de partições não pode ser alterada em todas as camadas, exceto na [camada dedicada](event-hubs-dedicated-overview.md), portanto, você deve considerar a escala de longo prazo ao definir a contagem de partições. As partições são um mecanismo de organização de dados relacionados ao paralelismo de downstream necessário no consumo de aplicativos. O número de partições em um hub de eventos está diretamente relacionado ao número de leitores simultâneos que você espera ter. Para obter mais informações sobre partições, confira [Partições](event-hubs-features.md#partitions).
 
 Talvez você queira defini-la como o maior valor possível, que é 32, no momento da criação. Lembre-se de que ter mais de uma partição resultará em eventos enviados a várias partições sem reter a ordem, a menos que você configure que os remetentes enviem somente para uma única partição fora das 32, deixando as 31 restantes de partições redundantes. No primeiro caso, você terá que ler eventos em todas as partições 32. No último caso, não há nenhum custo adicional óbvio gerado pela configuração extra que você precisa fazer no host do processador de eventos.
 
@@ -229,11 +166,11 @@ Você pode solicitar que a contagem de partições seja aumentada para 40 (exato
 
 1. Na página **namespace do barramento de evento** , selecione **nova solicitação de suporte** no menu à esquerda. 
 1. Na página **nova solicitação de suporte** , siga estas etapas:
-    1. Para **Resumo** , descreva o problema em algumas palavras. 
-    1. Para **Tipo de problema** , selecione **Cota** . 
-    1. Para **subtipo de problema** , selecione **solicitação de alteração de partição** . 
+    1. Para **Resumo**, descreva o problema em algumas palavras. 
+    1. Para **Tipo de problema**, selecione **Cota**. 
+    1. Para **subtipo de problema**, selecione **solicitação de alteração de partição**. 
     
-        :::image type="content" source="./media/event-hubs-faq/support-request-increase-partitions.png" alt-text="Página de Solicitação de suporte":::
+        :::image type="content" source="./media/event-hubs-faq/support-request-increase-partitions.png" alt-text="Aumentar contagem de partições":::
 
 A contagem de partições pode ser aumentada para exatamente 40. Nesse caso, o número de TUs também precisa ser aumentado para 40. Se você decidir mais tarde para reduzir o limite da TU para <= 20, o limite máximo de partição também será reduzido para 32. 
 
@@ -257,7 +194,7 @@ O tamanho total de todos os eventos armazenados, incluindo eventuais sobrecargas
 
 Cada evento enviado a um Hub de Eventos conta como uma mensagem faturável. Um *evento de entrada* é definido como uma unidade de dados menor ou igual a 64 KB. Qualquer evento menor ou igual a 64 KB de tamanho é considerado um evento faturável. Se o evento for maior que 64 KB, o número de eventos passíveis de cobrança será calculado de acordo com o tamanho do evento, em múltiplos de 64 KB. Por exemplo, um evento de 8 KB enviado ao Hub de Eventos é cobrado como um evento, mas uma mensagem de 96 KB enviada ao Hub de Eventos é cobrada como dois eventos.
 
-Eventos consumidos de um Hub de Eventos, bem como operações de gerenciamento e chamadas de controle, como pontos de verificação, não são contadas como eventos de entrada faturáveis, mas se acumulam no limite de unidade de produtividade.
+Os eventos consumidos de um hub de eventos, operações de gerenciamento e chamadas de controle, como pontos de verificação, não são contados como eventos de entrada faturáveis, mas acumulam até a concessão de unidade de produtividade.
 
 ### <a name="do-brokered-connection-charges-apply-to-event-hubs"></a>Cobranças por conexões agenciadas são aplicadas aos Hubs de Eventos?
 
@@ -299,13 +236,13 @@ Para saber mais sobre nosso SLA, veja a página [Contratos de Nível de Serviço
 ## <a name="azure-stack-hub"></a>Azure Stack Hub
 
 ### <a name="how-can-i-target-a-specific-version-of-azure-storage-sdk-when-using-azure-blob-storage-as-a-checkpoint-store"></a>Como é possível direcionar uma versão específica do SDK do armazenamento do Azure ao usar o armazenamento de BLOBs do Azure como um armazenamento de ponto de verificação?
-Se executar esse código no Azure Stack Hub, você verá erros de runtime, a menos que direcione uma versão de API de Armazenamento específica. Isso ocorre porque o SDK dos Hubs de Eventos usa a API do Armazenamento do Microsoft Azure mais recente disponível no Azure, que pode não estar disponível em sua plataforma do Azure Stack Hub. O Hub de Azure Stack pode dar suporte a uma versão diferente do SDK do blob de armazenamento que normalmente está disponível no Azure. Se estiver usando o Armazenamento de Blobs do Azure como um armazenamento de ponto de verificação, verifique a [versão da API do Armazenamento do Azure com suporte de seu build do Azure Stack Hub](/azure-stack/user/azure-stack-acs-differences?#api-version) e tenha como destino essa versão em seu código. 
+Se você executar esse código no Hub Azure Stack, ocorrerá erros de tempo de execução, a menos que você direcione uma versão de API de armazenamento específica. Isso ocorre porque o SDK dos Hubs de Eventos usa a API do Armazenamento do Microsoft Azure mais recente disponível no Azure, que pode não estar disponível em sua plataforma do Azure Stack Hub. O Hub de Azure Stack pode dar suporte a uma versão diferente do SDK do blob de armazenamento que normalmente está disponível no Azure. Se você estiver usando o armazenamento de blog do Azure como um armazenamento de ponto de verificação, verifique a [versão da API de armazenamento do Azure com suporte para a compilação do hub de Azure Stack](/azure-stack/user/azure-stack-acs-differences?#api-version) e direcione essa versão em seu código. 
 
-Por exemplo, se você estiver executando o Azure Stack Hub versão 2005, a versão mais alta disponível para o serviço de armazenamento é a versão 2019-02-02. Por padrão, a biblioteca de clientes do SDK dos Hubs de Eventos usa a versão mais alta disponível no Azure (2019-07-07 no momento do lançamento do SDK). Nesse caso, além de seguir as etapas desta seção, você também precisará adicionar o código para ter como destino a versão de API 2019-02-02 do serviço de Armazenamento. Para obter um exemplo de como direcionar uma versão de API de armazenamento específica, consulte os exemplos a seguir para C#, Java, Python e JavaScript/TypeScript.  
+Por exemplo, se você estiver executando o Azure Stack Hub versão 2005, a versão mais alta disponível para o serviço de armazenamento é a versão 2019-02-02. Por padrão, a biblioteca de clientes do SDK dos Hubs de Eventos usa a versão mais alta disponível no Azure (2019-07-07 no momento do lançamento do SDK). Nesse caso, além das etapas a seguir nesta seção, você também precisará adicionar o código para direcionar a versão 2019-02-02 da API do serviço de armazenamento. Para obter um exemplo de como direcionar uma versão de API de armazenamento específica, consulte os exemplos a seguir para C#, Java, Python e JavaScript/TypeScript.  
 
 Para obter um exemplo de como direcionar uma versão de API de armazenamento específica do seu código, consulte os seguintes exemplos no GitHub: 
 
-- [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs)
+- [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/)
 - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java)
 - Python – [síncrono](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py), [assíncrono](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py)
 - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) e [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts)

@@ -16,11 +16,11 @@ ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 98e587103e63cd5cc26eab5b00864d00e0b9007f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089932"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019406"
 ---
 # <a name="send-secure-push-notifications-from-azure-notification-hubs"></a>Enviar notificações por push seguras dos hubs de notificação do Azure
 
@@ -163,7 +163,7 @@ A próxima etapa é criar o componente de segundo plano de push.
     using Windows.Data.Xml.Dom;
     ```
 
-11. Em Gerenciador de Soluções, no projeto **NotifyUserWindowsPhone (Windows Phone 8,1)** , clique com o botão direito do mouse em **referências**e clique em **Adicionar referência..**.. No diálogo Gerenciador de referências, marque a caixa ao lado de **PushBackgroundComponent**e clique em **OK**.
+11. Em Gerenciador de Soluções, no projeto **NotifyUserWindowsPhone (Windows Phone 8,1)** , clique com o botão direito do mouse em **referências** e clique em **Adicionar referência..**.. No diálogo Gerenciador de referências, marque a caixa ao lado de **PushBackgroundComponent** e clique em **OK**.
 12. No Gerenciador de Soluções, clique duas vezes em **Package.appxmanifest** no projeto **NotifyUserWindowsPhone (Windows Phone 8.1)**. Em **Notificações**, defina **Compatível com Toast** como **Sim**.
 
     ![Captura de tela da janela Gerenciador de Soluções com foco no Package. appxmanifest com a opção compatível com notificação do sistema definida como Sim contornada em vermelho.][3]
@@ -174,7 +174,7 @@ A próxima etapa é criar o componente de segundo plano de push.
     ![Captura de tela da janela Gerenciador de Soluções com foco no Package. appxmanifest com as declarações disponíveis, declarações com suporte, notificações por push e opções de ponto de entrada descritos em vermelho.][13]
 16. No menu **arquivo** , clique em **salvar tudo**.
 
-## <a name="run-the-application"></a>Execute o aplicativo
+## <a name="run-the-application"></a>Executar o aplicativo
 
 Para executar o aplicativo, faça o seguinte:
 

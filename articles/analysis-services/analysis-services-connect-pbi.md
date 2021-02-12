@@ -4,15 +4,15 @@ description: Saiba como se conectar a um servidor Azure Analysis Services usando
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: bb1781394e0091d8358570c2eaa07ca97297a6ad
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: ed0f3d379ca961c610958c073c27c6fc9583252b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013773"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500913"
 ---
 # <a name="connect-with-power-bi"></a>Conectar com Power BI
 
@@ -49,6 +49,6 @@ Depois de criar um servidor no Azure e implantar um modelo tabular nele, os usu�
 1. Crie um arquivo do Power BI Desktop que tenha uma conexão ativa com seu modelo no servidor.
 2. Em [Power BI](https://powerbi.microsoft.com), clique em **Obter Dados** > **Arquivos** e em seguida, localize e selecione o arquivo .pbix.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 [Conectar-se ao Azure Analysis Services](analysis-services-connect.md)   
-[Bibliotecas de cliente](/analysis-services/client-libraries?view=azure-analysis-services-current)
+[Bibliotecas de cliente](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true)

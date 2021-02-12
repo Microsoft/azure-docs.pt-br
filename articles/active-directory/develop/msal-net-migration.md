@@ -1,7 +1,7 @@
 ---
 title: Migrando para o MSAL.NET
 titleSuffix: Microsoft identity platform
-description: Veja as diferenças entre a Biblioteca de Autenticação da Microsoft para .NET (MSAL.NET) e a Biblioteca de Autenticação do Active Directory para .NET (ADAL.NET) e descubra como migrar para a MSAL.NET.
+description: Saiba mais sobre as diferenças entre a biblioteca de autenticação da Microsoft para .NET (MSAL.NET) e a biblioteca de autenticação do AD do Azure para .NET (ADAL.NET) e como migrar para o MSAL.NET.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,18 +13,18 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 21f29135cc3b94e5b8c2dfc99b0f7be26b37d123
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 2b8577af2c8a6296ae6f4f090e8ff233e51ee6fb
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425275"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583918"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrar aplicativos para MSAL.NET
 
-Tanto a Biblioteca de Autenticação da Microsoft para .NET (MSAL.NET) quanto a Biblioteca de Autenticação do Active Directory para .NET (ADAL.NET) são usadas para autenticar as entidades do Azure AD e solicitar tokens a partir do Azure AD. Até agora, a maioria dos desenvolvedores trabalhava com o Azure AD para plataforma de desenvolvedores (v1.0) a fim de autenticar identidades do Azure AD (contas corporativas e de estudante) por meio da solicitação de tokens usando a Biblioteca de Autenticação do Active Directory (ADAL). Usando MSAL:
+Tanto o MSAL.NET (biblioteca de autenticação da Microsoft para .NET) quanto o ADAL.NET (biblioteca de autenticação do Azure AD para .NET) são usados para autenticar entidades do Azure AD e solicitar tokens do Azure AD. Até agora, a maioria dos desenvolvedores trabalhava com o Azure AD para plataforma de desenvolvedores (v1.0) a fim de autenticar identidades do Azure AD (contas corporativas e de estudante) por meio da solicitação de tokens usando a Biblioteca de Autenticação do Active Directory (ADAL). Usando MSAL:
 
-- Você pode autenticar um conjunto mais amplo de identidades da Microsoft (identidades do Azure AD e contas da Microsoft e contas sociais e locais por meio do Azure AD B2C), pois ele usa o ponto de extremidade da plataforma de identidade da Microsoft,
+- Você pode autenticar um conjunto mais amplo de identidades da Microsoft (identidades do Azure AD e contas da Microsoft e contas sociais e locais por meio do Azure AD B2C), pois ela usa a plataforma de identidade da Microsoft,
 - os usuários terão a melhor experiência de logon único.
 - seu aplicativo pode habilitar o consentimento incremental e o suporte ao acesso condicional é mais fácil
 - Você se beneficia da inovação.
@@ -35,9 +35,9 @@ Este artigo descreve as diferenças entre a biblioteca de autenticação da Micr
 
 ## <a name="differences-between-adal-and-msal-apps"></a>Diferenças entre aplicativos ADAL e MSAL
 
-Na maioria dos casos, convém usar a MSAL.NET e o ponto de extremidade da plataforma de identidade da Microsoft, que é a última geração de bibliotecas de autenticação da Microsoft. Ao usar a MSAL.NET, você adquire tokens para que os usuários acessem seu aplicativo por meio do Azure AD (contas corporativas e de estudante), conta Microsoft (pessoal) (MSA) ou Azure AD B2C.
+Na maioria dos casos, você deseja usar o MSAL.NET e a plataforma de identidade da Microsoft, que é a última geração de bibliotecas de autenticação da Microsoft. Ao usar a MSAL.NET, você adquire tokens para que os usuários acessem seu aplicativo por meio do Azure AD (contas corporativas e de estudante), conta Microsoft (pessoal) (MSA) ou Azure AD B2C.
 
-Se já estiver familiarizado com o ponto de extremidade do Azure AD para desenvolvedores (v1.0) (e a ADAL.NET), leia o artigo  [Qual é a diferença entre o ponto de extremidade da plataforma (v2.0) da identidade da Microsoft?](../azuread-dev/azure-ad-endpoint-comparison.md).
+Se você já estiver familiarizado com o ponto de extremidade do Azure AD para desenvolvedores (v 1.0) (e ADAL.NET), talvez queira ler [o que há de diferente na plataforma de identidade da Microsoft?](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 No entanto, ainda será necessário usar a ADAL.NET se o aplicativo precisar conectar usuários com versões anteriores dos [Serviços de Federação do Active Directory (AD FS)](/windows-server/identity/active-directory-federation-services). Para obter mais informações, consulte [suporte do ADFS](https://aka.ms/msal-net-adfs-support).
 
@@ -145,7 +145,7 @@ A MSAL.NET torna o cache de token uma classe selada, removendo a capacidade de e
 
 Na v1.0, se você usar a autoridade `https://login.microsoftonline.com/common`, permitirá que os usuários entrem com qualquer conta do AAD (para qualquer organização). Consulte [Validação de autoridade na ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD#authority-validation)
 
-Se você usar a autoridade `https://login.microsoftonline.com/common` na v2.0, permitirá que os usuários entrem com qualquer conta pessoal da Microsoft (MSA) ou da organização do AAD. Na MSAL.NET, se você quiser restringir logon a qualquer conta do AAD (Azure Active Directory) (mesmo comportamento da ADAL.NET), será necessário usar `https://login.microsoftonline.com/organizations`. Para obter detalhes, consulte o parâmetro `authority` no [aplicativo cliente público](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications#publicclientapplication).
+Se você usar a autoridade `https://login.microsoftonline.com/common` na v2.0, permitirá que os usuários entrem com qualquer conta pessoal da Microsoft (MSA) ou da organização do AAD. No MSAL.NET, se você quiser restringir o logon a qualquer conta do AAD (mesmo comportamento que com o ADAL.NET), use `https://login.microsoftonline.com/organizations` . Para obter detalhes, consulte o parâmetro `authority` no [aplicativo cliente público](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications#publicclientapplication).
 
 ## <a name="v10-and-v20-tokens"></a>Tokens v1.0 e v2.0
 
@@ -182,7 +182,7 @@ string[] scopes = { ResourceId + "Directory.Read", ResourceId + "Directory.Write
 
 #### <a name="warning-should-you-have-one-or-two-slashes-in-the-scope-corresponding-to-a-v10-web-api"></a>Aviso: você deve ter uma ou duas barras no escopo correspondentes a uma API Web v 1.0
 
-Se você quiser gravar o escopo correspondente à API do Azure Resource Manager (https://management.core.windows.net/), será necessário solicitar o seguinte escopo (observe as duas barras)
+Se você quiser gravar o escopo correspondente à API de Azure Resource Manager ( https://management.core.windows.net/) , solicite o seguinte escopo (Observe as duas barras).
 
 ```csharp
 var scopes = new[] {"https://management.core.windows.net//user_impersonation"};
@@ -266,4 +266,4 @@ Além disso, também é possível usar esse método para vários cenários de in
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Encontre mais informações sobre os escopos em [Escopos, permissões e consentimento no ponto de extremidade da plataforma de identidade da Microsoft](v2-permissions-and-consent.md)
+Você pode encontrar mais informações sobre os escopos em [escopos, permissões e consentimento na plataforma Microsoft Identity](v2-permissions-and-consent.md)

@@ -1,19 +1,16 @@
 ---
 title: Gerenciar com segurança dependências de jar – Azure HDInsight
 description: Este artigo discute as práticas recomendadas para o gerenciamento de dependências de arquivo Java (JAR) para aplicativos do HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 02/05/2020
-ms.openlocfilehash: 5834d3512c95e77e6ce45472ff8f2e1b4b2ed456
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 9868e32665c89bbe9aadc06f1c2834704e6534e1
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545575"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942394"
 ---
 # <a name="safely-manage-jar-dependencies"></a>Gerenciar dependências do JAR com segurança
 

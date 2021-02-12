@@ -12,12 +12,12 @@ ms.date: 07/30/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7a7736602fafb740d1d76fa09fd26da25e4ff9f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06253b571fd71623501c27fd5b0d9d4013727fc2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87481590"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840180"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Fluxos dos usuários no Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ Para ajudá-lo a configurar as tarefas de identidade mais comuns para seus aplic
 
 - Tipos de conta usados para entrar, por exemplo, contas sociais como as do Facebook ou locais
 - Atributos a serem coletados do consumidor, tais como nome, código postal e tamanho do calçado
-- Autenticação Multifator do Azure
+- Autenticação multifator do Azure AD
 - Personalização da interface do usuário
 - Informações de que o aplicativo recebe como declarações em um token
 
@@ -73,7 +73,7 @@ A maioria dos tipos de fluxo de usuário tem uma versão **recomendada** e uma v
 >- Os fluxos de usuário **recomendados** são as novas versões prévias dos fluxos de usuário. Eles são totalmente testados e combinam todos os recursos das versões herdadas **v2** e **v 1.1** . No futuro, os novos fluxos de usuário recomendados serão mantidos e atualizados. Depois de mover para esses novos fluxos de usuário recomendados, você terá acesso aos novos recursos à medida que eles forem lançados.
 >- Os fluxos de usuário **padrão** , anteriormente conhecidos como **v1**, estão geralmente disponíveis e fluxos de usuário prontos para produção. Se seus fluxos de usuário forem de missão crítica e dependerem de versões altamente estáveis, você poderá continuar a usar fluxos de usuário padrão, percebendo que essas versões não serão mantidas e atualizadas.
 >
->Todos os fluxos de usuário de visualização herdados (V 1.1 e v2) estão em um caminho para substituição em **1º de agosto de 2021**. Sempre que possível, é altamente recomendável que você [alterne para os novos fluxos de usuário **recomendados** ](user-flow-versions.md#how-to-switch-to-a-new-recommended-user-flow) o mais rápido possível, para que você sempre possa aproveitar os recursos e as atualizações mais recentes.
+>Todos os fluxos de usuário de visualização herdados (V 1.1 e v2) estão em um caminho para substituição em **1º de agosto de 2021**. Sempre que possível, é altamente recomendável que você [alterne para os novos fluxos de usuário **recomendados**](user-flow-versions.md#how-to-switch-to-a-new-recommended-user-flow) o mais rápido possível, para que você sempre possa aproveitar os recursos e as atualizações mais recentes.
 
 ## <a name="linking-user-flows"></a>Vinculação de fluxos dos usuários
 

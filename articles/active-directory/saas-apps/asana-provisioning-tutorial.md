@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: provisionamento de usuário para asana-Azure AD'
+title: 'Tutorial: Provisionamento de usuário para o Asana – Azure AD'
 description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o Asana.
 services: active-directory
 author: ArvindHarinder1
@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.reviewer: celested
-ms.openlocfilehash: 11e0606568fdaad20f996a7ae20a622576acea15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 4abc117ae0e983cf684f0e70a363758f9be196aa
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88549459"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359419"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Tutorial: Configurar o Asana para provisionamento automático de usuário
 
@@ -82,7 +82,7 @@ Esta seção orienta você sobre como conectar o Azure AD à API de provisioname
 
 1. Selecione **Salvar**.
 
-1. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para asana**.
+1. Na seção **Mapeamentos**, selecione **Sincronizar usuários do Azure Active Directory com o Asana**.
 
 1. Na seção **Mapeamentos de Atributo**, verifique os atributos do usuário a serem sincronizados entre o Azure AD e o Asana. Os atributos selecionados como propriedades **Correspondentes** serão usados para fazer a correspondência entre as contas de usuário no Asana para operações de atualização. Para confirmar eventuais alterações, selecione **Salvar**. Para obter mais informações, consulte [Personalizar mapeamentos de atributo de provisionamento de usuário](../app-provisioning/customize-application-attributes.md).
 
@@ -96,6 +96,6 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciar o provisionamento de conta de usuário para aplicativos empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gerenciar provisionamento de conta de usuário para aplicativos empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Configurar Logon Único](asana-tutorial.md)

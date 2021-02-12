@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: ramamill
 ms.openlocfilehash: a547a874c42d06d8453b154847561d8b5f0dabb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361374"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019168"
 ---
 # <a name="manage-process-servers"></a>Gerenciar servidores de processo
 
@@ -47,7 +47,7 @@ Equilibre a carga movendo as VMs entre dois servidores de processo, da seguinte 
 
     ![Captura de tela mostra o painel de balanceamento de carga com selecionar servidor de processo de destino selecionado.](media/vmware-azure-manage-process-server/LoadPS.PNG)
 
-2. Clique em **Selecionar computadores**e escolha os computadores que você deseja mover do atual para o servidor de processo de destino. Detalhes de alteração de dados médio são exibidos em cada máquina virtual. Em seguida, clique em **OK**. 
+2. Clique em **Selecionar computadores** e escolha os computadores que você deseja mover do atual para o servidor de processo de destino. Detalhes de alteração de dados médio são exibidos em cada máquina virtual. Em seguida, clique em **OK**. 
 3. No cofre, monitore o progresso do trabalho em **monitoramento**  >  **site Recovery trabalhos**.
 
 Levará cerca de 15 minutos para que as alterações sejam refletidas no Portal. Para um efeito mais rápido, [atualize o servidor de configuração](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
@@ -69,7 +69,7 @@ Levará cerca de 15 minutos para que as alterações sejam refletidas no Portal.
 
 ## <a name="register-a-master-target-server"></a>Registrar um servidor de destino mestre
 
-O servidor de destino Mestre reside no servidor de configuração e nos servidores de processo de expansão. Ele deve ser registrado com o servidor de configuração. Caso haja uma falha nesse registro, ele pode afetar a integridade dos itens protegidos. Para registrar o servidor de destino mestre com o servidor de configuração, faça logon no servidor de configuração de servidor/processo de expansão específico no qual o registro é necessário. Navegue até a pasta **%ProgramData%\ASR\Agent**e execute o seguinte no prompt de comando do administrador.
+O servidor de destino Mestre reside no servidor de configuração e nos servidores de processo de expansão. Ele deve ser registrado com o servidor de configuração. Caso haja uma falha nesse registro, ele pode afetar a integridade dos itens protegidos. Para registrar o servidor de destino mestre com o servidor de configuração, faça logon no servidor de configuração de servidor/processo de expansão específico no qual o registro é necessário. Navegue até a pasta **%ProgramData%\ASR\Agent** e execute o seguinte no prompt de comando do administrador.
 
    ```
    cmd
@@ -111,7 +111,7 @@ Se um servidor de processo local usar um proxy para se conectar ao Azure, você 
    net stop obengine
    net start obengine
    ```
-2. Navegue até a pasta **%ProgramData%\ASR\Agent**e execute este comando:
+2. Navegue até a pasta **%ProgramData%\ASR\Agent** e execute este comando:
    ```
    cmd
    cdpcli.exe --registermt

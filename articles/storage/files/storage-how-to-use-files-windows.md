@@ -8,12 +8,12 @@ ms.date: 06/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c8a1d1c0f8de742bdafa130cce6927a472efd8f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e64b7efdd430287a7a3a969c5bf62b0c0e2aec9c
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329339"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94626887"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Usar um compartilhamento de arquivos do Azure com o Windows
 [Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de nuvem fácil de usar da Microsoft. Os compartilhamentos de arquivos do Azure podem ser usados perfeitamente no Windows e no Windows Server. Este artigo aborda as considerações para usar um compartilhamento de arquivos do Azure com Windows e Windows Server.
@@ -46,7 +46,7 @@ Você pode usar compartilhamentos de arquivos do Azure em uma instalação do Wi
 Verifique se a porta 445 está aberta: O protocolo SMB requer a porta TCP 445 aberta; haverá falha de conexão se a porta 445 estiver bloqueada. Você pode verificar se o firewall está bloqueando a porta 445 com o `Test-NetConnection` cmdlet. Para saber mais sobre as maneiras de contornar uma porta bloqueada 445, consulte a seção [causa 1: porta 445 está bloqueada](storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked) do nosso guia de solução de problemas do Windows.
 
 ## <a name="using-an-azure-file-share-with-windows"></a>Usando um compartilhamento de arquivos do Azure com o Windows
-Para usar um compartilhamento de arquivos do Azure com o Windows, você deve montá-lo, ou seja, atribuir uma letra da unidade ou um caminho de ponto de montagem, ou acessá-lo por meio do [caminho UNC](https://msdn.microsoft.com/library/windows/desktop/aa365247.aspx). 
+Para usar um compartilhamento de arquivos do Azure com o Windows, você deve montá-lo, ou seja, atribuir uma letra da unidade ou um caminho de ponto de montagem, ou acessá-lo por meio do [caminho UNC](/windows/win32/fileio/naming-a-file). 
 
 Este artigo usa a chave de conta de armazenamento para acessar o compartilhamento de arquivo. Uma chave de conta de armazenamento é uma chave de administrador para uma conta de armazenamento que inclui permissões de administrador para todos os arquivos e pastas no compartilhamento de arquivo que você está acessando e para todos os compartilhamentos de arquivos e outros recursos de armazenamento (blobs, filas, tabelas etc.) contidos na conta de armazenamento. Se isso não for suficiente para a carga de trabalho, use a [Sincronização de Arquivos do Azure](storage-sync-files-planning.md) ou a [autenticação baseada em identidade com SMB](storage-files-active-directory-overview.md).
 
@@ -67,12 +67,12 @@ Para obter esse script:
 
 1. Selecione **Conectar**.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="exemplo":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="Captura de tela do ícone conectar para seu compartilhamento de arquivos.":::
 
 1. Selecione a letra da unidade à qual o compartilhamento será montado.
 1. Copie o script fornecido.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="exemplo":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Texto de exemplo":::
 
 1. Cole o script em um shell no host para o qual você gostaria de montar o compartilhamento de arquivos e execute-o.
 
@@ -196,11 +196,11 @@ Depois de criar essa chave do registro, você deverá reiniciar o servidor para 
 ### <a name="smb-resources"></a>Recursos de SMB
 - [Parar de usar protocolos SMB 1](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/)
 - [Produto SMB 1 Clearinghouse](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/)
-- [Descobrir SMB 1 em seu ambiente com DSCEA](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/)
-- [Desabilitando o SMB 1 com Política de Grupo](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/)
+- [Descobrir SMB 1 em seu ambiente com DSCEA](/archive/blogs/ralphkyttle/discover-smb1-in-your-environment-with-dscea)
+- [Desabilitando o SMB 1 com Política de Grupo](/archive/blogs/secguide/disabling-smbv1-through-group-policy)
 
 ## <a name="next-steps"></a>Próximas etapas
 Veja estes links para obter mais informações sobre o Arquivos do Azure:
 - [Planejando uma implantação de Arquivos do Azure](storage-files-planning.md)
-- [perguntas frequentes](../storage-files-faq.md)
-- [Solução de problemas no Windows](storage-troubleshoot-windows-file-connection-problems.md)      
+- [perguntas frequentes](./storage-files-faq.md)
+- [Solução de problemas no Windows](storage-troubleshoot-windows-file-connection-problems.md)

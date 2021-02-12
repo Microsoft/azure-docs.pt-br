@@ -3,16 +3,13 @@ title: Problemas de conectividade de Apache Phoenix no Azure HDInsight
 description: Problemas de conectividade entre o Apache HBase e o Apache Phoenix no Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 08/14/2019
-ms.openlocfilehash: ed12c9629506fa8defb23b987fe672bb3b384418
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2cc6556f681ece170bdfe02b985f56274c0faa1e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540084"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936974"
 ---
 # <a name="scenario-apache-phoenix-connectivity-issues-in-azure-hdinsight"></a>Cenário: problemas de conectividade de Apache Phoenix no Azure HDInsight
 
@@ -28,7 +25,7 @@ IP incorreto do nó active Zookeeper.
 
 ### <a name="resolution"></a>Resolução
 
-O IP do nó active Zookeeper pode ser identificado na interface do usuário do amAmbari seguindo os links para o **HBase**  >  **Quick links**  >  **ZK (Active)**  >  **Zookeeper info** . Corrija o IP conforme necessário.
+O IP do nó active Zookeeper pode ser identificado na interface do usuário do amAmbari seguindo os links para o **HBase**  >  **Quick links**  >  **ZK (Active)**  >  **Zookeeper info**. Corrija o IP conforme necessário.
 
 ---
 
@@ -50,7 +47,7 @@ ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,
 
 Na interface do usuário do Apache Ambari, conclua as seguintes etapas para reiniciar o serviço HMaster em todos os nós do ZooKeeper:
 
-1. Na seção de **Resumo** do HBase, vá para **HBase**  >  **Active HBase Master** .
+1. Na seção de **Resumo** do HBase, vá para **HBase**  >  **Active HBase Master**.
 
 1. Na seção **componentes** , reinicie o serviço HBase Master.
 
@@ -66,4 +63,4 @@ Se você não encontrou seu problema ou não conseguiu resolver seu problema, vi
 
 * Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Como se conectar à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte** . Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

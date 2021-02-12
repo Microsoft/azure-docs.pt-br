@@ -8,14 +8,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 89e8a6a2abfc38c497be646bd70910895f92588f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 771cf97a5c938fb987c66555c92c23f42b302a10
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489312"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134221"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Recursos do Apache Cassandra compatíveis com a API do Cassandra do Azure Cosmos DB 
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. Você pode se comunicar com a API do Cassandra do Azure Cosmos DB por meio de [drivers](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) de cliente do Cassandra de software livre em conformidade com o [protocolo de transmissão](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) do Protocolo Binário v4 da CQL. 
 
@@ -83,19 +84,27 @@ A API do Cassandra do Azure Cosmos DB é compatível com as seguintes funções 
 | Token * | Sim |
 | ttl | Sim |
 | writetime | Sim |
-| Conversão | Não |
+| cast ** | Sim |
 
-\* API do Cassandra dá suporte ao token como uma projeção/seletor e só permite token(pk) no lado esquerdo de uma cláusula where. Por exemplo, `WHERE token(pk) > 1024` tem suporte, mas `WHERE token(pk) > token(100)` não.
+> [!NOTE] 
+> \* API do Cassandra dá suporte ao token como uma projeção/seletor e só permite token(pk) no lado esquerdo de uma cláusula where. Por exemplo, há suporte para `WHERE token(pk) > 1024`, mas **não** para `WHERE token(pk) > token(100)`.  
+> \*\* A função `cast()` não pode ser aninhada na API do Cassandra. Por exemplo, há suporte para `SELECT cast(count as double) FROM myTable`, mas **não** para `SELECT avg(cast(count as double)) FROM myTable`.
+
 
 
 Funções de agregação:
 
 |Comando  |Com suporte |
 |---------|---------|
-| Min | Sim |
-| max | Sim |
 | avg | Sim |
 | count | Sim |
+| Min | Sim |
+| max | Sim |
+| Sum | Sim |
+
+> [!NOTE]
+> As funções de agregação funcionam em colunas regulares, mas **não** há suporte para agregações em colunas de clustering.
+
 
 Funções de conversão de blob:
  
@@ -176,6 +185,30 @@ O Azure Cosmos DB dá suporte aos seguintes comandos de banco de dados em contas
 | TRUNCATE | Não |
 | USE | Sim |
 
+## <a name="cql-shell-commands"></a>Comandos do Shell CQL
+
+O Azure Cosmos DB dá suporte aos seguintes comandos de banco de dados em contas da API do Cassandra.
+
+|Comando  |Com suporte |
+|---------|---------|
+| CAPTURA | Sim |
+| CLEAR | Sim |
+| CONSISTENCY * | N/D |
+| COPIAR | Não |
+| DESCRIBE | Sim |
+| cqlshExpand | Não |
+| EXIT | Sim |
+| LOGIN | N/A (não há suporte para a função CQL `USER`, portanto, `LOGIN` é redundante) |
+| PAGING | Sim |
+| SERIAL CONSISTENCY * | N/D |
+| SHOW | Sim |
+| ORIGEM | Sim |
+| TRACING | N/A (a API do Cassandra API é apoiada pelo Azure Cosmos DB – use [log de diagnóstico](cosmosdb-monitor-resource-logs.md) para solucionar problemas) |
+
+> [!NOTE] 
+> \* A consistência funciona de maneira diferente no Azure Cosmos DB, confira [aqui](cassandra-consistency.md) mais informações.  
+
+
 ## <a name="json-support"></a>Suporte a JSON
 |Comando  |Com suporte |
 |---------|---------|
@@ -197,9 +230,9 @@ A API do Cassandra do Azure Cosmos DB é uma plataforma de serviço gerenciado. 
 
 ## <a name="hosted-cql-shell-preview"></a>Shell CQL hospedado (versão prévia)
 
-Você pode abrir um shell Cassandra nativo hospedado (CQLSH v5.0.1) diretamente do Data Explorer no [portal do Azure](data-explorer.md) ou no [Azure Cosmos Explorer](https://cosmos.azure.com/). Antes de habilitar o shell CQL, você deve [habilitar o recurso](enable-notebooks.md) Notebooks em sua conta (se ainda não estiver habilitado, será solicitado ao clicar em `Open Cassandra Shell`). Marque a nota destacada em [Habilitar notebooks para as contas Azure Cosmos DB](enable-notebooks.md) para as Regiões do Azure.
+Abra um shell nativo hospedado do Cassandra (CQLSH v5.0.1) diretamente por meio do Data Explorer no [portal do Azure](data-explorer.md) ou no [Azure Cosmos DB Explorer](https://cosmos.azure.com/). Antes de habilitar o shell CQL, você deve [habilitar o recurso](enable-notebooks.md) Notebooks em sua conta (se ainda não estiver habilitado, será solicitado ao clicar em `Open Cassandra Shell`). Marque a nota destacada em [Habilitar notebooks para as contas Azure Cosmos DB](enable-notebooks.md) para as Regiões do Azure.
 
-:::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Abrir CQLSH&quot;:::
+:::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Abrir CQLSH":::
 
 Você também pode conectar a API do Cassandra no Azure Cosmos DB usando o CQLSH instalado em um computador local. Ele vem com o Apache Cassandra 3.1.1 e fica pronto para o uso definindo as variáveis de ambiente. As seções a seguir incluem instruções para instalar, configurar e conectar a API do Cassandra no Azure Cosmos DB, no Windows ou no Linux usando o CQLSH.
 
@@ -223,7 +256,7 @@ curl https://cacert.omniroot.com/bc2025.crt > bc2025.crt
 keytool -importcert -alias bc2025ca -file bc2025.crt
 
 # Install the Cassandra libraries in order to get CQLSH:
-echo &quot;deb http://www.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
+echo "deb http://www.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
 curl https://downloads.apache.org/cassandra/KEYS | sudo apt-key add -
 sudo apt-get update
 sudo apt-get install cassandra
@@ -259,7 +292,7 @@ A API do Cassandra do Azure Cosmos DB fornece a opção de consistência para op
 
 ## <a name="permission-and-role-management"></a>Gerenciamento de funções e de permissões
 
-O Azure Cosmos DB dá suporte ao controle de acesso baseado em função (RBAC) para provisionamento, revezamento de chaves, visualização de métricas e senhas/chaves de leitura/gravação e somente leitura que podem ser obtidas por meio do [portal do Azure](https://portal.azure.com). O Azure Cosmos DB não dá suporte a funções para atividades CRUD.
+O Azure Cosmos DB dá suporte ao RBAC do Azure (controle de acesso baseado em função do Azure) para provisionamento, rotação de chaves, exibição de métricas e senhas/chaves de leitura/gravação e somente leitura que podem ser obtidas por meio do [portal do Azure](https://portal.azure.com). O Azure Cosmos DB não dá suporte a funções para atividades CRUD.
 
 ## <a name="keyspace-and-table-options"></a>Opções de tabela e de keyspace
 

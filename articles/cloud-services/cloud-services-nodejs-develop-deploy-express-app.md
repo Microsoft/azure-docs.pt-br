@@ -1,24 +1,24 @@
 ---
-title: Criar e implantar um aplicativo Node.js Express para Serviços de Nuvem do Microsoft Azure
-titleSuffix: Azure Cloud Services
+title: Criar e implantar um aplicativo Node.js Express nos serviços de nuvem do Azure (clássico)
 description: Use este tutorial para criar um novo aplicativo usando o módulo Express, que fornece uma estrutura MVC para criar Node.js aplicativos Web.
-services: cloud-services
-documentationcenter: nodejs
-author: tgore03
-ms.service: cloud-services
-ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/17/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.custom: devx-track-js
-ms.openlocfilehash: 7ecaccf36988e94d0cb1114bd04c5d571d4fe86d
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: e15af589b3a3c496738c97c0c2c6429ba708ba7e
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071856"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743331"
 ---
-# <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Criar um aplicativo Web do Node.js usando o Express em um Serviço de Nuvem do Microsoft Azure
+# <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services-classic"></a>Criar e implantar um aplicativo Web Node.js usando o Express em um serviço de nuvem do Azure (clássico)
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
 
 O Node.js inclui um conjunto mínimo de funcionalidades em runtime básico.
 Os desenvolvedores normalmente usam módulos de terceiros para fornecer funcionalidade adicional ao desenvolver um aplicativo do Node.js. Neste tutorial, você vai criar um novo aplicativo usando o módulo [Express](https://github.com/expressjs/express), que fornece uma estrutura MVC para criar aplicativos web do Node.js.

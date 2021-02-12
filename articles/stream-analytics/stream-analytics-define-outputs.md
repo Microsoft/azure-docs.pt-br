@@ -1,38 +1,37 @@
 ---
 title: Saídas de Azure Stream Analytics
 description: Este artigo descreve as opções de saída de dados disponíveis para Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.custom: contperfq1
-ms.date: 10/2/2020
-ms.openlocfilehash: fdd610be1dd7c5fe9c7aa574fde33df866116dd2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.custom: contperf-fy21q1
+ms.date: 12/9/2020
+ms.openlocfilehash: 3ce4f673657561e196520466b569d0cf83d75a8a
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128827"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019339"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Saídas de Azure Stream Analytics
 
 Um trabalho do Azure Stream Analytics consiste em uma entrada, uma consulta e uma saída. Há vários tipos de saída para os quais você pode enviar dados transformados. Este artigo lista as saídas de Stream Analytics com suporte. Quando você criar sua consulta do Stream Analytics, consulte o nome de saída usando a [cláusula INTO](/stream-analytics-query/into-azure-stream-analytics). Você pode usar uma única saída por trabalho ou várias saídas por trabalho de streaming (se precisar delas) adicionando várias cláusulas INTO à consulta.
 
-Para criar, editar e testar as saídas de trabalho do Stream Analytics, você pode usar o [Porta do Azure](stream-analytics-quick-create-portal.md#configure-job-output), o [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), o [.NET API](/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), o [REST API](/rest/api/streamanalytics/) e o [Visual Studio](stream-analytics-quick-create-vs.md).
+Para criar, editar e testar as saídas de trabalho do Stream Analytics, você pode usar o [Porta do Azure](stream-analytics-quick-create-portal.md#configure-job-output), o [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), o [.NET API](/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations), o [REST API](/rest/api/streamanalytics/) e o [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Alguns tipos de saídas dão suporte a [particionamento](#partitioning) e os [tamanhos de lote de saída](#output-batch-size) variam para otimizar a taxa de transferência. A tabela a seguir mostra os recursos que têm suporte para cada tipo de saída:
 
 | Tipo de saída | Particionamento | Segurança | 
 |-------------|--------------|----------|
-|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Yes|Usuário do Active Directory do Azure </br> MSI|
-|[Banco de Dados SQL do Azure](sql-database-output.md)|Sim, opcional.|Autenticação de usuário do SQL </br> MSI (versão prévia)|
-|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Yes|Autenticação de usuário do SQL|
-|[Armazenamento de BLOBs e Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Yes|MSI </br> Chave de acesso|
-|[Hubs de eventos do Azure](event-hubs-output.md)|Sim, é necessário definir a coluna de chave de partição na configuração de saída.|Chave de acesso|
-|[Power BI](power-bi-output.md)|No|Usuário do Active Directory do Azure </br> MSI|
+|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Yes|Usuário do Active Directory do Azure </br> , Identidade gerenciada|
+|[Banco de Dados SQL do Azure](sql-database-output.md)|Sim, opcional.|Autenticação de usuário do SQL, </br> Identidade Gerenciada (versão prévia)|
+|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Yes|Autenticação de usuário do SQL, </br> Identidade Gerenciada (versão prévia)|
+|[Armazenamento de BLOBs e Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Yes|Chave de acesso, </br> Identidade Gerenciada (versão prévia)|
+|[Hubs de eventos do Azure](event-hubs-output.md)|Sim, é necessário definir a coluna de chave de partição na configuração de saída.|Chave de acesso, </br> Identidade Gerenciada (versão prévia)|
+|[Power BI](power-bi-output.md)|Não|Azure Active Directory usuário, </br> Identidade Gerenciada|
 |[Armazenamento de Tabelas do Azure](table-storage-output.md)|Yes|Chave de conta|
-|[Filas do Barramento de Serviço do Azure](service-bus-queues-output.md)|Yes|Chave de acesso|
+|[Filas do barramento de serviço do Azure](service-bus-queues-output.md)|Yes|Chave de acesso|
 |[Tópicos do barramento de serviço do Azure](service-bus-topics-output.md)|Yes|Chave de acesso|
 |[Azure Cosmos DB](azure-cosmos-db-output.md)|Yes|Chave de acesso|
 |[Azure Functions](azure-functions-output.md)|Yes|Chave de acesso|
@@ -59,7 +58,7 @@ Ao usar a implantação de modelo do Azure Resource Manager ou a API REST, as du
 
    O número mínimo de linhas por lote. Para parquet, todo lote cria um novo arquivo. O valor padrão atual é de 2.000 linhas, e o máximo permitido é de 10.000 linhas.
 
-Essas propriedades da janela de envio em lote são suportadas apenas pela versão **de API 2017-04-01-Preview** . Abaixo está um exemplo da carga JSON para uma chamada à API REST:
+Essas propriedades da janela de envio em lote são suportadas apenas pela versão **de API 2017-04-01-Preview**. Abaixo está um exemplo da carga JSON para uma chamada à API REST:
 
 ```json
 "type": "stream",

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 76f4f9ddaa1e4aec9409e96a0088ec51b8c2645e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 86de3e1199b00dff4e03f3b4292f86e6c19ea491
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097457"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296532"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Otimizar a taxa de transferência provisionada no Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -31,7 +31,7 @@ Você pode provisionar a taxa de transferência em bancos de dados ou contêiner
 
 Abaixo estão algumas diretrizes para a escolha de uma estratégia de taxa de transferência provisionada:
 
-**Considere provisionar a taxa de transferência em um banco de dados Cosmos do Azure (que contém um conjunto de contêineres) se** :
+**Considere provisionar a taxa de transferência em um banco de dados Cosmos do Azure (que contém um conjunto de contêineres) se**:
 
 1. Você tem algumas dezenas de contêineres do Azure Cosmos e deseja compartilhar a taxa de transferência entre alguns ou todos eles. 
 
@@ -55,7 +55,7 @@ Abaixo estão algumas diretrizes para a escolha de uma estratégia de taxa de tr
 
 Conforme mostrado na tabela a seguir, dependendo da opção de API, você pode provisionar a taxa de transferência em granularidades diferentes.
 
-|API|Na taxa de transferência **compartilhada** , configure |Na taxa de transferência **dedicada** , configure |
+|API|Na taxa de transferência **compartilhada**, configure |Na taxa de transferência **dedicada**, configure |
 |----|----|----|
 |API do SQL|Banco de dados|Contêiner|
 |API do Azure Cosmos DB para MongoDB|Banco de dados|Coleção|
@@ -137,7 +137,7 @@ Como você será cobrado pela taxa de transferência provisionada, igualar a tax
 
 Para determinar a taxa de transferência provisionada para uma nova carga de trabalho, você pode seguir as etapas abaixo: 
 
-1. Realize uma avaliação inicial aproximada usando o planejador de capacidade e ajuste suas estimativas com a ajuda do Azure Cosmos Explorer no portal do Azure. 
+1. Execute uma avaliação inicial e aproximada usando o planejador de capacidade e ajuste suas estimativas com a ajuda do Azure Cosmos DB Explorer no portal do Azure. 
 
 2. É recomendável criar os contêineres com uma taxa de transferência maior que a esperada e reduzir verticalmente conforme a necessidade. 
 

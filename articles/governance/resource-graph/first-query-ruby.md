@@ -1,14 +1,14 @@
 ---
 title: 'Início Rápido: Sua primeira consulta Ruby'
 description: Neste guia de início rápido, você seguirá as etapas necessárias para habilitar o gem do Resource Graph para Ruby e executará sua primeira consulta.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: 4ffd7f33fb83b7a1f247f687b77dd2ef9c8e5bc9
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 41769359eaa1f930d34b0a182f35da38a6f5109d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057236"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920030"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-ruby"></a>Início Rápido: Executar sua primeira consulta do Resource Graph usando o Ruby
 

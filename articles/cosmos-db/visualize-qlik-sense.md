@@ -2,20 +2,21 @@
 title: Conectar o Qlik Sense ao Azure Cosmos DB e visualizar seus dados
 description: Este artigo descreve as etapas necessárias para conectar o Azure Cosmos DB ao Qlik Sense e visualizar seus dados.
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 author: SnehaGunda
 ms.author: sngun
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: ccd9f10bcf8be5539528be1f513f7e7dd74549e7
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2401786a82b6a3e5bf6c6a893a8e7cd3656f3402
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073682"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996943"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Conectar o Qlik Sense ao Azure Cosmos DB e visualizar seus dados
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 Qlik Sense é uma ferramenta de visualização de dados que combina dados de fontes diferentes em uma única exibição. O Qlik Sense indexa cada relação possível em seus dados para que você possa obter insights imediatos sobre os dados. Visualize dados do Azure Cosmos DB usando o Qlik Sense. Este artigo descreve as etapas necessárias para conectar o Azure Cosmos DB ao Qlik Sense e visualizar seus dados. 
 
@@ -53,25 +54,25 @@ Antes de seguir as instruções deste artigo, verifique se você tem os seguinte
 
 ## <a name="connect-qlik-sense-to-cosmos-db"></a>Conectar o Qlik Sense ao Cosmos DB
 
-1. Abra o Qlik Sense e selecione **Criar novo aplicativo** . Forneça um nome para seu aplicativo e selecione **Criar** .
+1. Abra o Qlik Sense e selecione **Criar novo aplicativo**. Forneça um nome para seu aplicativo e selecione **Criar**.
 
    :::image type="content" source="./media/visualize-qlik-sense/create-new-qlik-sense-app.png" alt-text="Criar um novo aplicativo Qlik Sense":::
 
-2. Após a criação do novo aplicativo, selecione **Abrir aplicativo** e escolha **Adicionar dados de arquivos e outras fontes** . 
+2. Após a criação do novo aplicativo, selecione **Abrir aplicativo** e escolha **Adicionar dados de arquivos e outras fontes**. 
 
 3. Nas fontes de dados, selecione **ODBC** para abrir a janela de configuração de nova conexão. 
 
-4. Mude para **DSN de Usuário** e escolha a conexão do ODBC criada anteriormente. Forneça um nome para a conexão e selecione **Criar** . 
+4. Mude para **DSN de Usuário** e escolha a conexão do ODBC criada anteriormente. Forneça um nome para a conexão e selecione **Criar**. 
 
-   :::image type="content" source="./media/visualize-qlik-sense/create-new-connection.png" alt-text="Criar um novo aplicativo Qlik Sense":::
+   :::image type="content" source="./media/visualize-qlik-sense/create-new-connection.png" alt-text="Crie uma nova conexão":::
 
 5. Após a criação da conexão, você pode escolher o banco de dados, a coleção onde os dados de videogame estão localizados e visualizá-la.
 
-   :::image type="content" source="./media/visualize-qlik-sense/choose-database-and-collection.png" alt-text="Criar um novo aplicativo Qlik Sense"::: 
+   :::image type="content" source="./media/visualize-qlik-sense/choose-database-and-collection.png" alt-text="Escolher o banco de dados e uma coleção"::: 
 
 6. Em seguida, selecione **Adicionar dados** para carregar os dados no Qlik Sense. Depois de carregar os dados no Qlik Sense, você pode gerar insights e realizar análise nos dados. Você pode usar os insights ou criar seu próprio aplicativo explorando as vendas de videogames. A imagem a seguir mostra 
 
-   :::image type="content" source="./media/visualize-qlik-sense/visualize-data.png" alt-text="Criar um novo aplicativo Qlik Sense":::
+   :::image type="content" source="./media/visualize-qlik-sense/visualize-data.png" alt-text="Visualizar dados":::
 
 ### <a name="limitations-when-connecting-with-odbc"></a>Limitações durante a conexão com o ODBC 
 

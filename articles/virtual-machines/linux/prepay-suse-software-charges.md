@@ -8,12 +8,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: banders
-ms.openlocfilehash: a527b75d376f05ab6190187b7a03d6da775055ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a4f7de0cacb17087e346123f53dad45ae1de357
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81759292"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602622"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Pagar antecipadamente planos de software do Azure
 
@@ -32,7 +32,7 @@ Você pode comprar planos de software SUSE e RedHat na portal do Azure. Comprar 
 Preencha os campos obrigatórios. Qualquer VM SUSE Linux ou RedHat VM que corresponda aos atributos do que você compra Obtém o desconto. O número real de implantações que obtêm o desconto depende do escopo e da quantidade selecionada.
 3. Selecione uma assinatura. Ele é usado para pagar pelo plano.
 O método de pagamento de assinatura é cobrado pelos custos antecipados da reserva. O tipo de assinatura deve ser um Enterprise Agreement (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou contrato individual com o preço pago conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P).
-    - Para uma assinatura de empresa, os encargos são deduzidos do saldo do compromisso monetário do registro ou cobrados como média.
+    - Para uma assinatura empresarial, os encargos são deduzidos do saldo antecipado do Azure do registro (anteriormente chamado de compromisso monetário) ou cobrados como excedentes.
     - Para uma assinatura individual com o preço pago conforme o uso, os encargos são cobrados no cartão de crédito da assinatura ou no método de pagamento da fatura.
 4. Selecione um escopo. O escopo pode cobrir uma assinatura ou várias assinaturas (escopo compartilhado).
     - Assinatura única-o desconto do plano é aplicado ao uso correspondente na assinatura.
@@ -68,7 +68,7 @@ Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte
 
 Para saber como gerenciar uma reserva, consulte [gerenciar reservas do Azure](../../cost-management-billing/reservations/manage-reserved-vm-instance.md).
 
-Confira os seguintes artigos para saber mais:
+Para saber mais, leia os seguintes artigos:
 
 - [O que são Reservas do Azure?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
 - [Gerenciar Reservas no Azure](../../cost-management-billing/reservations/manage-reserved-vm-instance.md)

@@ -7,12 +7,12 @@ ms.author: jimmyca
 ms.date: 02/20/2020
 ms.topic: article
 ms.service: azure-app-configuration
-ms.openlocfilehash: 640be797b2653f9e6c969306b7e2b99393b99c39
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 12a62bbd06cf9adf3b5978bb061e1d014599b44c
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078197"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550735"
 ---
 # <a name="reacting-to-azure-app-configuration-events"></a>Reagindo a Azure App eventos de configuração
 
@@ -22,14 +22,14 @@ Azure App eventos de configuração são enviados para a grade de eventos do Azu
 
 Os cenários de evento de configuração de aplicativo comuns incluem a atualização da configuração do aplicativo, o disparo de implantações ou qualquer fluxo de trabalho orientado à configuração. Quando as alterações não forem frequentes, mas seu cenário exigir uma capacidade de resposta imediata, a arquitetura baseada em eventos pode ser especialmente eficaz.
 
-Dê uma olhada na [rota Azure app eventos de configuração para um ponto de extremidade da Web personalizado-CLI](./howto-app-configuration-event.md) para obter um exemplo rápido. 
+Dê uma olhada em [usar a grade de eventos para obter notificações de alteração de dados](./howto-app-configuration-event.md) para um exemplo rápido. 
 
 ![Modelo da Grade de Eventos](./media/event-grid-functional-model.png)
 
 ## <a name="available-azure-app-configuration-events"></a>Azure App eventos de configuração disponíveis
 A Grade de eventos usa [assinaturas de evento](../event-grid/concepts.md#event-subscriptions) para rotear mensagens de evento para os assinantes. Azure App as assinaturas de evento de configuração podem incluir dois tipos de eventos:  
 
-> |Nome do evento|Descrição|
+> |Nome do evento|Description|
 > |----------|-----------|
 > |`Microsoft.AppConfiguration.KeyValueModified`|Acionado quando um valor de chave é criado ou substituído|
 > |`Microsoft.AppConfiguration.KeyValueDeleted`|Acionado quando um valor de chave é excluído|
@@ -43,13 +43,13 @@ Azure App eventos de configuração contêm todas as informações de que você 
 > |subject|string|O URI do valor de chave que é o assunto do evento.|
 > |eventTime|string|A data/hora em que o evento foi gerado, no formato ISO 8601.|
 > |eventType|string|"Microsoft. AppConfiguration. KeyValueModified" ou "Microsoft. AppConfiguration. KeyValueDeleted".|
-> |ID|cadeia de caracteres|Um identificador exclusivo deste evento.|
+> |ID|string|Um identificador exclusivo deste evento.|
 > |dataVersion|string|A versão do esquema do objeto de dados.|
 > |metadataVersion|string|A versão do esquema de propriedades de nível superior.|
 > |data|objeto|Coleção de dados de eventos específicos de configuração de Azure App|
-> |Data. Key|cadeia de caracteres|A chave do valor de chave que foi modificado ou excluído.|
-> |Data. Label|cadeia de caracteres|O rótulo, se houver, do valor de chave que foi modificado ou excluído.|
-> |Data. ETag|cadeia de caracteres|Para `KeyValueModified` a eTag do novo valor de chave. Para `KeyValueDeleted` a eTag do valor de chave que foi excluído.|
+> |Data. Key|string|A chave do valor de chave que foi modificado ou excluído.|
+> |Data. Label|string|O rótulo, se houver, do valor de chave que foi modificado ou excluído.|
+> |Data. ETag|string|Para `KeyValueModified` a eTag do novo valor de chave. Para `KeyValueDeleted` a eTag do valor de chave que foi excluído.|
 
 Aqui está um exemplo de um evento KeyValueModified:
 ```json
@@ -87,4 +87,4 @@ Os aplicativos que lidam com eventos de configuração de aplicativo devem segui
 Saiba mais sobre a grade de eventos e dê uma tentativa de Azure App eventos de configuração:
 
 - [Sobre a Grade de Eventos](../event-grid/overview.md)
-- [Rotear eventos de configuração de Azure App para um ponto de extremidade da Web personalizado](./howto-app-configuration-event.md)
+- [Como usar a grade de eventos para notificações de alteração de dados](./howto-app-configuration-event.md)

@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
 ms.date: 10/26/2020
-ms.openlocfilehash: adf454ac697f8cabf4256ebfc5baa5d0d1c76264
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c806c0a13f9f5f13588b780054d1f285beb44802
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782460"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324526"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-managed-instance-and-sql-server"></a>Principais diferenças entre os Serviços de Machine Learning na Instância Gerenciada de SQL do Azure e SQL Server
 
@@ -55,7 +55,7 @@ Serviços de Machine Learning no SQL Instância Gerenciada e SQL Server oferecem
 O gerenciamento de pacotes do Python e do R funciona de maneira diferente entre o SQL Instância Gerenciada e o SQL Server. Essas diferenças são:
 
 - Não há suporte para pacotes que dependem de runtimes externos (como Java) ou que precisam acessar APIs de OS para instalação ou uso.
-- Os pacotes podem executar chamadas de rede de saída (alterar de antes na versão prévia). Você pode definir as regras de segurança de saída corretas no nível do [grupo de segurança de rede](/azure/virtual-network/network-security-groups-overview) para habilitar chamadas de rede de saída.
+- Os pacotes podem executar chamadas de rede de saída (alterar de antes na versão prévia). Você pode definir as regras de segurança de saída corretas no nível do [grupo de segurança de rede](../../virtual-network/network-security-groups-overview.md) para habilitar chamadas de rede de saída.
 
 Para obter mais informações sobre como gerenciar pacotes python e R, consulte:
 

@@ -1,6 +1,6 @@
 ---
 title: Autenticação baseada em cabeçalho com Azure Active Directory
-description: Diretrizes arquitetônicas sobre como atingir esse padrão de autenticação
+description: Diretrizes arquitetônicas sobre a obtenção de autenticação baseada em cabeçalho com o Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f364e4e14dd1b7c60cb81f06051d9dedd94396a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 69e87fc919893a544f5d0b1b615a110f25486e57
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114069"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168739"
 ---
 # <a name="header-based-authentication-with-azure-active-directory"></a>Autenticação baseada em cabeçalho com Azure Active Directory
 
@@ -48,8 +48,8 @@ Os usuários remotos precisam de logon único (SSO) com segurança para aplicati
 
 ## <a name="implement-header-based-authentication-with-azure-ad"></a>Implementar a autenticação baseada em cabeçalho com o Azure AD
 
-* [Adicionar um aplicativo local para acesso remoto por meio do proxy de aplicativo no Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application)  
+* [Adicionar um aplicativo local para acesso remoto por meio do proxy de aplicativo no Azure AD](../manage-apps/application-proxy-add-on-premises-application.md)  
 
-* [Autenticação baseada em cabeçalho para logon único com Proxy de Aplicativo e PingAccess](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-ping-access) 
+* [Autenticação baseada em cabeçalho para logon único com Proxy de Aplicativo e PingAccess](../manage-apps/application-proxy-configure-single-sign-on-with-headers.md) 
 
-* [Proteger aplicativos herdados com redes e controladores de entrega de aplicativos](https://docs.microsoft.com/azure/active-directory/manage-apps/secure-hybrid-access)
+* [Proteger aplicativos herdados com redes e controladores de entrega de aplicativos](../manage-apps/secure-hybrid-access.md)

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 6284e85d8c4e9ad9f9896081f04c6b7669b8e1c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c49f5ab9f10456c32f7f8516cba0e851fa80e74
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91446955"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392326"
 ---
 # <a name="configure-azure-sql-edge"></a>Configurar o SQL do Azure no Edge
 
@@ -95,11 +95,11 @@ As opções MSSQL. conf a seguir não são aplicáveis ao SQL Edge:
 |**Comentários do cliente** | Escolha se SQL Server envia comentários à Microsoft. |
 |**Perfil do Database Mail** | Definir o perfil padrão do Database Mail para o SQL Server em Linux. |
 |**Alta disponibilidade** | Habilitar grupos de disponibilidade. |
-|**Coordenador de Transações Distribuídas da Microsoft** | Configurar e solucionar problemas do MSDTC no Linux. Não há suporte para as opções de configuração relacionadas à transação distribuída adicional para o SQL Edge. Para obter mais informações sobre essas opções de configuração adicionais, consulte [Configurar o MSDTC](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#msdtc). |
+|**Coordenador de Transações Distribuídas da Microsoft** | Configurar e solucionar problemas do MSDTC no Linux. Não há suporte para as opções de configuração relacionadas à transação distribuída adicional para o SQL Edge. Para obter mais informações sobre essas opções de configuração adicionais, consulte [Configurar o MSDTC](/sql/linux/sql-server-linux-configure-mssql-conf#msdtc). |
 |**EULAs de serviços ML** | Aceite os EULAs do R e do Python para pacotes Azure Machine Learning. Aplica-se somente ao SQL Server 2019.|
 |**outboundnetworkaccess** |Habilitar o acesso à rede para extensões Java, R e Python dos [Serviços de Machine Learning](/sql/linux/sql-server-linux-setup-machine-learning/).|
 
-O arquivo MSSQL. conf de exemplo a seguir funciona para o SQL Edge. Para obter mais informações sobre o formato de um arquivo MSSQL. conf, consulte o [formato MSSQL. conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#mssql-conf-format).
+O arquivo MSSQL. conf de exemplo a seguir funciona para o SQL Edge. Para obter mais informações sobre o formato de um arquivo MSSQL. conf, consulte o [formato MSSQL. conf](/sql/linux/sql-server-linux-configure-mssql-conf#mssql-conf-format).
 
 ```ini
 [EULA]

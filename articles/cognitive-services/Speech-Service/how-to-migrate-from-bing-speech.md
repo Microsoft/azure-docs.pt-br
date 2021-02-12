@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: nitinme
-ms.openlocfilehash: 81c4c26f252cdd9eb302a7f8f362c8bf52e48629
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0ffd786d3fb6bb5f0d70095d947c81caa070518
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825593"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499128"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrar do Fala do Bing para o serviço de fala
 
@@ -26,9 +26,9 @@ Este artigo descreve as diferenças entre as APIs de Fala do Bing e o serviço d
 Uma única chave de assinatura do serviço de fala concede acesso aos recursos a seguir. Cada um deles é medido separadamente e, portanto, você será cobrado somente pelos recursos que usar.
 
 * [Conversão de fala em texto](speech-to-text.md)
-* [Conversão de fala em texto personalizada](https://cris.ai)
+* [Conversão de fala em texto Personalizada](https://cris.ai)
 * [Conversão de texto em fala](text-to-speech.md)
-* [Conversão de texto em vozes de fala personalizada](how-to-customize-voice-font.md)
+* [Conversão de texto em vozes de fala personalizada](./how-to-custom-voice-create-voice.md)
 * [Tradução de fala](speech-translation.md) (não inclui [Tradução de texto](../translator/translator-info-overview.md))
 
 O [SDK de Fala](speech-sdk.md) é um substituto funcional para as bibliotecas de cliente de Fala do Bing, mas usa uma API diferente.
@@ -63,7 +63,7 @@ O serviço de fala usa um modelo de preços baseado em tempo (em vez de um model
 
 Se você ou sua organização tiver aplicativos em desenvolvimento ou produção que usam um API de Fala do Bing, você deverá atualizá-los para usar o serviço de fala assim que possível. Consulte a [documentação do serviço de fala](index.yml) para ver SDKs disponíveis, exemplos de código e tutoriais.
 
-As [APIs REST](rest-apis.md) do serviço de fala são compatíveis com as apis de fala do Bing. Se você estiver usando o Fala do Bing APIs REST, precisará apenas alterar o ponto de extremidade REST e alternar para uma chave de assinatura do serviço de fala.
+As [APIs REST](./overview.md#reference-docs) do serviço de fala são compatíveis com as apis de fala do Bing. Se você estiver usando o Fala do Bing APIs REST, precisará apenas alterar o ponto de extremidade REST e alternar para uma chave de assinatura do serviço de fala.
 
 Se você estiver usando uma biblioteca de clientes de Fala do Bing para uma linguagem de programação específica, migrar para o [SDK de Fala](speech-sdk.md) exigirá alterações no seu aplicativo porque a API é diferente. O SDK de Fala pode tornar seu código mais simples e dar acesso a novos recursos. O SDK de fala está disponível em uma ampla variedade de linguagens de programação. As APIs em todas as plataformas são semelhantes, facilitando o desenvolvimento multiplataforma.
 
@@ -72,14 +72,14 @@ O serviço de fala não oferece um ponto de extremidade global. Determine se o a
 Como começar a usar o SDK de Fala:
 
 1. Faça o download do [SDK de Fala](speech-sdk.md).
-1. Trabalhe nos [guias de início rápido](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet) e [tutoriais](how-to-recognize-intents-from-speech-csharp.md)do serviço de fala. Examine também os [exemplos de código](samples.md) para ter experiência com as novas APIs.
+1. Trabalhe nos [guias de início rápido](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet) e [tutoriais](how-to-recognize-intents-from-speech-csharp.md)do serviço de fala. Examine também os [exemplos de código](./speech-sdk.md#sample-source-code) para ter experiência com as novas APIs.
 1. Atualize seu aplicativo para usar o serviço de fala.
 
 ## <a name="support"></a>Suporte
 
 Os clientes de Fala do Bing devem entrar em contato com o atendimento ao cliente abrindo um [tíquete de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Você também pode entrar em contato conosco caso sua necessidade de suporte precise de um [plano de suporte técnico](https://azure.microsoft.com/support/plans/).
 
-Para o suporte ao serviço de fala, ao SDK e à API, visite a [página de suporte](support.md)do serviço de fala.
+Para o suporte ao serviço de fala, ao SDK e à API, visite a [página de suporte](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext)do serviço de fala.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: ec976257-396b-42a0-8ea1-01c97f820fa6
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1af2e741b2ab8a6a0aa6257272798961f5962c43
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 00d0aa10f2beda3d7b8508e5ca823e020dc79d95
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167331"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489132"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Prepare a infraestrutura do Azure para alta disponibilidade do SAP usando o cluster de failover do Windows e o disco compartilhado para a instância SAP ASCS/SCS
 
@@ -165,7 +166,7 @@ ms.locfileid: "92167331"
 Este artigo descreve as etapas necessárias para preparar a infraestrutura do Azure para instalar e configurar uma instância do SAP ASCS/SCS de alta disponibilidade em um cluster de failover do Windows usando um *disco compartilhado de cluster* como uma opção para clustering de uma instância do SAP ASCS.
 Duas alternativas para o *disco compartilhado do cluster* são apresentadas na documentação:
 
-- [Discos compartilhados do Azure](../../windows/disks-shared.md)
+- [Discos compartilhados do Azure](../../disks-shared.md)
 - Usando o [sios Datakeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster/) para criar um armazenamento espelhado, que simulará o disco compartilhado clusterizado 
 
 A configuração apresentada está contando com os [PPG (grupos de posicionamento de proximidade do Azure)](./sap-proximity-placement-scenarios.md) para obter a latência de rede ideal para cargas de trabalho do SAP. A documentação não cobre a camada de banco de dados.  
@@ -192,9 +193,9 @@ Os nomes de host e os endereços IP para o cenário apresentado são:
 | --- | --- | --- |---| ---|
 | primeiro cluster do ASCS/SCS do nó do cluster |PR1-ASCs-10 |10.0.0.4 |PR1-ASCs-avset |PR1PPG |
 | segundo cluster do nó do cluster ASCS/SCS |PR1-ASCs-11 |10.0.0.5 |PR1-ASCs-avset |PR1PPG |
-| Nome da rede de clusters | pr1clust |10.0.0.42 (**somente** para cluster do Win 2016) | n/d | n/d |
-| Nome da rede do cluster ASCS | PR1-ascscl |10.0.0.43 | n/d | n/d |
-| Nome de rede de cluster ERS (**somente** para ERS2) | PR1-erscl |10.0.0.44 | n/d | n/d |
+| Nome da rede de clusters | pr1clust |10.0.0.42 (**somente** para cluster do Win 2016) | N/D | N/D |
+| Nome da rede do cluster ASCS | PR1-ascscl |10.0.0.43 | N/D | N/D |
+| Nome de rede de cluster ERS (**somente** para ERS2) | PR1-erscl |10.0.0.44 | N/D | N/D |
 
 
 ## <a name="create-azure-internal-load-balancer"></a><a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Criar um balanceador de carga interno do Azure
@@ -202,7 +203,7 @@ Os nomes de host e os endereços IP para o cenário apresentado são:
 SAP ASCS, SAP SCS e o novo SAP ERS2, use o nome de host virtual e endereços IP virtuais. No Azure, é necessário um [balanceador de carga](../../../load-balancer/load-balancer-overview.md) para usar um endereço IP virtual. É altamente recomendável usar o [balanceador de carga padrão](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). 
 
 > [!IMPORTANT]
-> Não há suporte para IP flutuante em uma configuração de IP secundário de NIC em cenários de balanceamento de carga. Para obter detalhes, consulte [limitações do Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Se você precisar de um endereço IP adicional para a VM, implante uma segunda NIC.    
+> Não há suporte para IP flutuante em uma configuração de IP secundário de NIC em cenários de balanceamento de carga. Para obter detalhes, consulte [limitações do Azure Load Balancer](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Se você precisar de um endereço IP adicional para a VM, implante uma segunda NIC.    
 
 
 A lista a seguir mostra a configuração do balanceador de carga (A) SCS/ERS. A configuração para SAP ASCS e ERS2 no executada no mesmo balanceador de carga do Azure.  
@@ -213,17 +214,17 @@ A lista a seguir mostra a configuração do balanceador de carga (A) SCS/ERS. A 
 - Configuração de back-end  
     Adicione todas as máquinas virtuais que devem ser parte do cluster (A) SCS/ERS. Neste exemplo, VMs **PR1-ASCs-10** e **PR1-ASCs-11**.
 - Porta de Investigação
-    - Porta 620**NR** deixe a opção padrão para protocolo (TCP), intervalo (5), limite não íntegro (2)
+    - Porta 620 **NR** deixe a opção padrão para protocolo (TCP), intervalo (5), limite não íntegro (2)
 - Regras de balanceamento de carga
     - Se estiver usando o Standard Load Balancer, selecione portas de HA
     - Se estiver usando o Load Balancer Básico, crie regras de balanceamento de carga para as portas a seguir
-        - 32**nr** TCP
-        - 36**nr** TCP
-        - 39**nr** TCP
-        - 81**nr** TCP
-        - 5**nr**13 TCP
-        - 5**nr**14 TCP
-        - 5**nr**16 TCP
+        - 32 **nr** TCP
+        - 36 **nr** TCP
+        - 39 **nr** TCP
+        - 81 **nr** TCP
+        - 5 **nr** 13 TCP
+        - 5 **nr** 14 TCP
+        - 5 **nr** 16 TCP
 
     - Verifique se o tempo limite de ociosidade (minutos) está definido para o valor máximo 30 e se o IP flutuante (retorno de servidor direto) está habilitado.
 
@@ -237,17 +238,17 @@ Como o enqueue Replication Server 2 (ERS2) também é clusterizado, o endereço 
   As VMs já foram adicionadas ao pool de back-end ILB.  
 
 - 2ª porta de investigação
-    - Porta 621**nr**  
+    - Porta 621 **nr**  
     Deixe a opção padrão para protocolo (TCP), intervalo (5), limite não íntegro (2)
 
 - segundo regras de balanceamento de carga
     - Se estiver usando o Standard Load Balancer, selecione portas de HA
     - Se estiver usando o Load Balancer Básico, crie regras de balanceamento de carga para as portas a seguir
-        - 32**nr** TCP
-        - 33**nr** TCP
-        - 5**nr**13 TCP
-        - 5**nr**14 TCP
-        - 5**nr**16 TCP
+        - 32 **nr** TCP
+        - 33 **nr** TCP
+        - 5 **nr** 13 TCP
+        - 5 **nr** 14 TCP
+        - 5 **nr** 16 TCP
 
     - Verifique se o tempo limite de ociosidade (minutos) está definido para o valor máximo 30 e se o IP flutuante (retorno de servidor direto) está habilitado.
 

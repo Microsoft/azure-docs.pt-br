@@ -4,19 +4,17 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: glenga
-ms.openlocfilehash: 5e0cff7bde6e80a776d694820ca7b69dafa7c0d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c9679f3d66d58c7a6c847b54c84438c979ecd39
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83648831"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936848"
 ---
-Acesso ao site privado significa tornar seu aplicativo acessível somente de uma rede privada, como em uma rede virtual do Azure.
+O [Ponto de Extremidade Privado do Azure](../articles/private-link/private-endpoint-overview.md) é um adaptador de rede que conecta você de maneira privada e segura a um serviço que conta com o Link Privado do Azure.  O Ponto de Extremidade Privado usa um endereço IP privado da rede virtual, colocando efetivamente o serviço na sua rede virtual.
 
-* O acesso ao site privado está disponível nos planos [Premium](../articles/azure-functions/functions-premium-plan.md), [Consumo](../articles/azure-functions/functions-scale.md#consumption-plan) e [Serviço de Aplicativo](../articles/azure-functions/functions-scale.md#app-service-plan) quando os pontos de extremidade de serviço são configurados.
-    * Os pontos de extremidade de serviço podem ser configurados por aplicativo em **Recursos da plataforma** > **Rede** > **Configurar restrições de acesso** > **Adicionar regra**. As redes virtuais agora podem ser selecionadas como um tipo de regra.
-    * Para obter mais informações, consulte [Pontos de extremidade de serviço de rede virtual](../articles/virtual-network/virtual-network-service-endpoints-overview.md).
-    * Saiba que, com pontos de extremidade de serviço, sua função ainda tem acesso total de saída à Internet, mesmo com a integração de rede virtual configurada.
-* O acesso ao site privado também está disponível em um Ambiente do Serviço de Aplicativo configurado com um ILB (balanceador de carga interno). Para obter mais informações, confira [Criar e usar um balanceador de carga Interno com um Ambiente do Serviço de Aplicativo](../articles/app-service/environment/create-ilb-ase.md).
+Você pode usar o ponto de extremidade privado para suas funções hospedadas nos planos de [serviço de aplicativo](../articles/azure-functions/dedicated-plan.md) e [Premium](../articles/azure-functions/functions-premium-plan.md) .
 
-Para saber como configurar o acesso ao site privado, confira [Estabelecer acesso ao site privado do Azure Functions](../articles/azure-functions/functions-create-private-site-access.md).
+Ao criar uma conexão de ponto de extremidade privada de entrada para funções, você também precisará de um registro DNS para resolver o endereço privado.  Por padrão, um registro DNS privado será criado para você ao criar um ponto de extremidade privado usando o portal do Azure.
+
+Para saber mais, consulte [usando pontos de extremidade privados para aplicativos Web](../articles/app-service/networking/private-endpoint.md).

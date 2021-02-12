@@ -6,35 +6,35 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, devx-track-azurecli
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 56ab5ba93545ffdbfd36850c08eda78cc239f694
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 0d1cbb8efe0882f48a345d44a650eb711a44d570
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207114"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739178"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Criar um cluster de computação do Azure Machine Learning
 
 Saiba como criar e gerenciar um [cluster de cálculo](concept-compute-target.md#azure-machine-learning-compute-managed) em seu espaço de trabalho do Azure Machine Learning.
 
-Você pode usar Azure Machine Learning cluster de computação para distribuir um processo de inferência de treinamento ou de lote em um cluster de nós de computação de CPU ou GPU na nuvem. Para obter mais informações sobre os tamanhos de máquina virtual que incluem GPUs, consulte os [Tamanhos de máquinas virtuais com GPU otimizadas](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu). 
+Você pode usar Azure Machine Learning cluster de computação para distribuir um processo de inferência de treinamento ou de lote em um cluster de nós de computação de CPU ou GPU na nuvem. Para obter mais informações sobre os tamanhos de máquina virtual que incluem GPUs, consulte os [Tamanhos de máquinas virtuais com GPU otimizadas](../virtual-machines/sizes-gpu.md). 
 
 Neste artigo, aprenda a:
 
 * Criar um cluster de cálculo
 * Reduzir o custo do cluster de computação
-* Configurar uma [identidade gerenciada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para o cluster
+* Configurar uma [identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) para o cluster
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um Workspace do Azure Machine Learning. Para obter mais informações, consulte [criar um Azure Machine Learning espaço de trabalho](how-to-manage-workspace.md).
 
-* A [extensão CLI do Azure para o serviço Machine Learning](reference-azure-machine-learning-cli.md), o [SDK do Azure Machine Learning Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)ou a [extensão Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
+* A [extensão CLI do Azure para o serviço Machine Learning](reference-azure-machine-learning-cli.md), o [SDK do Azure Machine Learning Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)ou a [extensão Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
 
 ## <a name="what-is-a-compute-cluster"></a>O que é um cluster de computação?
 
@@ -80,7 +80,7 @@ Para criar um recurso persistente de Computação do Azure Machine Learning em P
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
 
-Também é possível configurar várias propriedades avançadas ao criar a Computação do Azure Machine Learning. Essas propriedades permitem que criar um cluster persistente de tamanho fixo ou dentro de uma Rede Virtual do Azure existente na assinatura.  Veja [AmlCompute classe](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true) para obter detalhes.
+Também é possível configurar várias propriedades avançadas ao criar a Computação do Azure Machine Learning. Essas propriedades permitem que criar um cluster persistente de tamanho fixo ou dentro de uma Rede Virtual do Azure existente na assinatura.  Veja [AmlCompute classe](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py) para obter detalhes.
 
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
@@ -90,7 +90,7 @@ Também é possível configurar várias propriedades avançadas ao criar a Compu
 az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
 ```
 
-Para obter mais informações, consulte [az ml computetarget create amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute&preserve-view=true).
+Para obter mais informações, consulte [az ml computetarget create amlcompute](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute&preserve-view=true).
 
 # <a name="studio"></a>[Estúdio](#tab/azure-studio)
 
@@ -177,7 +177,7 @@ No estúdio, escolha **baixa prioridade** ao criar uma VM.
 
 * Criar um novo cluster de computação gerenciado com identidade gerenciada
 
-  * Identidade gerenciada atribuída pelo usuário
+  * Identidade gerenciada atribuída ao usuário
 
     ```azurecli
     az ml computetarget create amlcompute --name cpu-cluster --vm-size Standard_NC6 --max-nodes 5 --assign-identity '/subscriptions/<subcription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user_assigned_identity>'
@@ -190,7 +190,7 @@ No estúdio, escolha **baixa prioridade** ao criar uma VM.
     ```
 * Adicione uma identidade gerenciada a um cluster existente:
 
-    * Identidade gerenciada atribuída pelo usuário
+    * Identidade gerenciada atribuída ao usuário
         ```azurecli
         az ml computetarget amlcompute identity assign --name cpu-cluster '/subscriptions/<subcription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user_assigned_identity>'
         ```
@@ -212,9 +212,17 @@ Consulte [Configurar a identidade gerenciada no estúdio](how-to-create-attach-c
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-default.md)]
 
+## <a name="troubleshooting"></a>Solução de problemas
+
+Há uma chance de que alguns usuários que criaram seu espaço de trabalho Azure Machine Learning do portal do Azure antes da versão GA não possam criar AmlCompute nesse espaço de trabalho. Você pode gerar uma solicitação de suporte em relação ao serviço ou criar um novo espaço de trabalho por meio do portal ou do SDK para desbloquear-se imediatamente.
+
+Se o cluster de computação Azure Machine Learning aparecer preso no redimensionamento (0-> 0) para o estado do nó, isso pode ser causado por bloqueios de recursos do Azure.
+
+[!INCLUDE [resource locks](../../includes/machine-learning-resource-lock.md)]
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Use o cluster de computação para:
 
 * [Enviar uma execução de treinamento](how-to-set-up-training-targets.md) 
-* [Executar inferência de lote](how-to-use-parallel-run-step.md).
+* [Executar inferência de lote](./tutorial-pipeline-batch-scoring-classification.md).

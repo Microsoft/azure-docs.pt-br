@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/27/2020
 ms.author: jeedes
-ms.openlocfilehash: c8ec4b68dc774b52ad621ff3e965481de680b6ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d13619b818e18c64d9882f9e3181824173403859
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89079992"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181383"
 ---
 # <a name="tutorial-integrate-wandera-radar-admin-with-azure-active-directory"></a>Tutorial: Integrar o Wandera RADAR Admin ao Azure Active Directory
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá a integrar o Wandera RADAR Admin ao Azure AD (A
 * Permitir que os usuários sejam conectados automaticamente ao Wandera RADAR Admin com as contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,7 +40,7 @@ Para começar, você precisará dos seguintes itens:
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 * O Wandera RADAR Admin é compatível com o SSO iniciado por **IDP**
-* Depois de configurar o Wandera RADAR Admin, será possível impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Depois de configurar o Wandera RADAR Admin, será possível impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-wandera-radar-admin-from-the-gallery"></a>Como adicionar o Wandera RADAR Admin por meio da galeria
 
@@ -156,19 +156,18 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 ### <a name="create-wandera-radar-admin-test-user"></a>Criar usuário de teste do Wandera RADAR Admin
 
-Nesta seção, você criará um usuário chamado B.Fernandes no Wandera RADAR Admin. Trabalhe com a [equipe de suporte do Wandera RADAR Admin](https://www.wandera.com/about-wandera/contact/#supportsection) para adicionar os usuários na plataforma do Wandera RADAR Admin. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado B.Fernandes no Wandera RADAR Admin. Trabalhe com a [equipe de suporte do Wandera RADAR Admin](https://www.wandera.com/about-wandera/contact/#supportsection) para adicionar os usuários na plataforma do Wandera RADAR Admin. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ## <a name="test-sso"></a>Testar o SSO
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Wandera RADAR Admin no Painel de Acesso, você deverá ser conectado automaticamente ao Wandera RADAR Admin no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Wandera RADAR Admin no Painel de Acesso, você deverá ser conectado automaticamente ao Wandera RADAR Admin no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

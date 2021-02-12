@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 754d693294235ff34c68f828235cca5bb2389a2b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ff197f8add65782a594d64661ffecdaced4598c2
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544827"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919617"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mysql---single-server"></a>Notificação de manutenção planejada no banco de dados do Azure para MySQL-servidor único
 
@@ -21,7 +21,7 @@ Saiba como se preparar para eventos de manutenção planejada no banco de dados 
 
 O serviço banco de dados do Azure para MySQL executa aplicação de patch automatizada do hardware, do sistema operacional e do mecanismo de banco de dados subjacentes. O patch inclui novos recursos de serviço, segurança e atualizações de software. Para o mecanismo MySQL, as atualizações de versão secundária são automáticas e incluídas como parte do ciclo de aplicação de patch. Não há nenhuma ação do usuário nem definições de configuração necessárias para a aplicação de patch. O patch é testado extensivamente e distribuído usando práticas de implantação seguras.
 
-Uma manutenção planejada é uma janela de manutenção quando essas atualizações de serviço são implantadas em servidores em uma determinada região do Azure. Durante a manutenção planejada, um evento de notificação é criado para informar os clientes quando a atualização do serviço é implantada na região do Azure que hospeda seus servidores. A duração mínima entre duas manutenções planejadas é de 30 dias. Você receberá uma notificação da próxima janela de manutenção 72 horas de antecedência.
+Uma manutenção planejada é uma janela de manutenção quando essas atualizações de serviço são implantadas em servidores em uma determinada região do Azure. Durante a manutenção planejada, um evento de notificação é criado para informar os clientes quando a atualização de serviço é implantada na região do Azure que hospeda os servidores. A duração mínima entre duas manutenções planejadas é de 30 dias. Você receberá uma notificação da próxima janela de manutenção com 72 horas de antecedência.
 
 ## <a name="planned-maintenance---duration-and-customer-impact"></a>Manutenção planejada-duração e impacto sobre o cliente
 
@@ -46,22 +46,22 @@ Você pode verificar a notificação de manutenção planejada em portal do Azur
 
 ### <a name="check-planned-maintenance-notification-from-azure-portal"></a>Verificar a notificação de manutenção planejada de portal do Azure
 
-1. Na [portal do Azure](https://portal.azure.com), selecione **integridade do serviço** .
+1. Na [portal do Azure](https://portal.azure.com), selecione **integridade do serviço**.
 2. Selecione a guia **manutenção planejada**
-3. Selecione **assinatura** , * * região e **serviço** para os quais você deseja verificar a notificação de manutenção planejada. 
+3. Selecione a **assinatura**, a **região** e o **serviço** para os quais você deseja verificar a notificação de manutenção planejada. 
    
 ### <a name="to-receive-planned-maintenance-notification"></a>Para receber a notificação de manutenção planejada
 
-1. No [portal](https://portal.azure.com), selecione **Integridade do Serviço** .
-2. Na seção **Alertas** , selecione **Alertas de integridade** .
+1. No [portal](https://portal.azure.com), selecione **Integridade do Serviço**.
+2. Na seção **Alertas**, selecione **Alertas de integridade**.
 3. Selecione **+ adicionar alerta de integridade do serviço** e preencha os campos.
 4. Preencha os campos obrigatórios. 
-5. Escolha o **tipo de evento** , selecione **manutenção planejada** ou **selecionar tudo**
+5. Escolha o **tipo de evento**, selecione **manutenção planejada** ou **selecionar tudo**
 6. Em **grupos de ação** , defina como você deseja receber o alerta (obter um email, disparar um aplicativo lógico etc.)  
 7. Verifique se habilitar regra após a criação está definido como Sim.
 8. Selecione **criar regra de alerta** para concluir o alerta
 
-Para obter etapas detalhadas sobre como criar **alertas de integridade do serviço** , consulte [criar alertas do log de atividades em notificações de serviço](../service-health/alerts-activity-log-service-notifications-portal.md).
+Para obter etapas detalhadas sobre como criar **alertas de integridade do serviço**, consulte [criar alertas do log de atividades em notificações de serviço](../service-health/alerts-activity-log-service-notifications-portal.md).
 
 ## <a name="can-i-cancel-or-postpone-planned-maintenance"></a>Posso cancelar ou adiar a manutenção planejada?
 
@@ -78,7 +78,7 @@ Um erro transitório, também conhecido como uma falha transitória, é um erro 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para perguntas ou sugestões que você pode ter sobre como trabalhar com o banco de dados do Azure para MySQL, envie um email para a equipe do banco de dados do Azure para MySQL em *AskAzureDBforMySQL@service.microsoft.com* .
+- Para perguntas ou sugestões que você pode ter sobre como trabalhar com o banco de dados do Azure para MySQL, envie um email para a equipe do banco de dados do Azure para MySQL em AskAzureDBforMySQL@service.microsoft.com
 - Consulte [Como configurar alertas](howto-alert-on-metric.md) para obter orientação sobre como criar um alerta em uma métrica.
 - [Solucionar problemas de conexão com o banco de dados do Azure para MySQL-servidor único](howto-troubleshoot-common-connection-issues.md)
 - [Manipular erros transitórios e conectar-se com eficiência ao banco de dados do Azure para MySQL-servidor único](concepts-connectivity.md)

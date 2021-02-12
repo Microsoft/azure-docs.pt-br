@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.openlocfilehash: bbea6a0aa31034cd1c04145fb50b72432c9f8520
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 9e5d12bcea1bd7a587568c30b49c8c4ee95f8362
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319006"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937375"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Akamai
 
@@ -53,7 +53,7 @@ A parceria entre a Microsoft e o EAA do Akamai permite a flexibilidade de atende
 
 #### <a name="integration-scenario-1"></a>Cenário de integração 1
 
-O EAA do Akamai é configurado como um único aplicativo no Azure AD. O administrador pode configurar a Política de AC no aplicativo e, depois que as condições forem satisfeitas, os usuários poderão obter acesso ao portal do EAA do Akamai.
+O EAA do Akamai é configurado como um único aplicativo no Azure AD. O administrador pode configurar a política de Acesso Condicional no aplicativo e, depois que as condições forem satisfeitas, os usuários poderão obter acesso ao portal do EAA do Akamai.
 
 **Prós**:
 
@@ -63,13 +63,13 @@ O EAA do Akamai é configurado como um único aplicativo no Azure AD. O administ
 
 * Os usuários acabam tendo dois portais de aplicativos
 
-* Cobertura da Política de AC única comum para todos os aplicativos.
+* Cobertura da política de Acesso Condicional única comum para todos os aplicativos.
 
 ![Cenário de integração 1](./media/header-akamai-tutorial/scenario1.png)
 
 #### <a name="integration-scenario-2"></a>Cenário de integração 2
 
-O aplicativo EAA do Akamai é configurado individualmente no portal do Azure AD. O administrador pode configurar a Política de AC individual nos aplicativos e, depois que as condições são atendidas, os usuários poderão ser redirecionados diretamente para o aplicativo específico.
+O aplicativo EAA do Akamai é configurado individualmente no portal do Azure AD. O administrador pode configurar a política de Acesso Condicional individual nos aplicativos e, depois que as condições são atendidas, os usuários poderão ser redirecionados diretamente para o aplicativo específico.
 
 **Prós**:
 

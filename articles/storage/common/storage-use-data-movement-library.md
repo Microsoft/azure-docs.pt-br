@@ -12,11 +12,11 @@ ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 8ec35a651d4d3ef9e0877463329a654bc7491f4c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89001869"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023407"
 ---
 # <a name="transfer-data-with-the-data-movement-library"></a>Transferir dados com a biblioteca de Movimentação de Dados
 

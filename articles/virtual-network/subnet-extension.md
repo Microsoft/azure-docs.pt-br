@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2019
 ms.author: anupand
-ms.openlocfilehash: f718471c3f79e9a33b0e03b088f8c8d2ae0231d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 555c903dc3375080a8b0d006d2aac7216854c939
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73587505"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539291"
 ---
 # <a name="subnet-extension"></a>Extensão de sub-rede
 A migração de carga de trabalho para a nuvem pública requer planejamento e coordenação cuidadosos. Uma das principais considerações pode ser a capacidade de manter seus endereços IP. Isso pode ser importante especialmente se seus aplicativos tiverem dependência de endereço IP ou se você tiver requisitos de conformidade para usar endereços IP específicos. A rede virtual do Azure resolve esse problema para você, permitindo que você crie VNet e sub-redes usando um intervalo de endereços IP de sua escolha.

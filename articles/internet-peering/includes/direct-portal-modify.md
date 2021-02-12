@@ -1,26 +1,26 @@
 ---
-title: arquivo de inclusão
+title: incluir arquivo
 titleSuffix: Azure
-description: arquivo de inclusão
+description: incluir arquivo
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 3894bf046ed4ee3f068e43dbc5bc5b7f2a1002b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3212acd5015edbb639b8904b885c718d654e5b4
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81681062"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96356254"
 ---
 Esta seção descreve como executar as seguintes operações de modificação para emparelhamento direto.
 
 ### <a name="add-direct-peering-connections"></a>Adicionar conexões de emparelhamento direto
 1. Selecione o botão **+ Adicionar conexões** e configure uma nova conexão de emparelhamento.
     > [!div class="mx-imgBorder"]
-    > ![Exibição de recursos de emparelhamento](../media/setup-direct-modify-addconnection.png)
+    > ![A página AshburnPeering-conexões lista as conexões. O botão + Adicionar conexões é realçado.](../media/setup-direct-modify-addconnection.png)
 
 1. Preencha o formulário de **conexão de emparelhamento direto** e selecione **salvar**. Para obter ajuda com a configuração de uma conexão de emparelhamento, examine as etapas na seção "criar e provisionar um emparelhamento direto".
     > [!div class="mx-imgBorder"]

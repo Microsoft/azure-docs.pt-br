@@ -6,14 +6,20 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 1db412a3b83da905475749deea0432fbeae06e8f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ac65693f2513338695e07cd8a19acb13333e7281
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742774"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625779"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Monte o volume baseado em Disco Confiável do Microsoft Azure Service Fabric altamente disponível em um aplicativo de Malha do Service Fabric 
+
+> [!IMPORTANT]
+> A visualização da malha de Service Fabric do Azure foi desativada. Novas implantações não serão mais permitidas por meio da API de malha Service Fabric. O suporte para implantações existentes continuará até 28 de abril de 2021.
+> 
+> Para obter detalhes, consulte desativação da [Visualização da malha de Service Fabric do Azure](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 O método comum de persistir o estado com aplicativos de contêiner é usar o armazenamento remoto, como o armazenamento de arquivos do Azure ou banco de dados como o Azure Cosmos DB. Isso resulta em significativa leitura e gravação de latência de rede e o armazenamento remoto.
 
 Este artigo mostra como armazenar o estado em Disco Confiável do Microsoft Azure Service Fabric altamente disponível ao montar um volume dentro do contêiner de uma aplicativo de Malha do Service Fabric.
@@ -46,6 +52,11 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="deploy-the-template"></a>Implantar o modelo
 
+>[!NOTE]
+> Desde 2 de novembro de 2020, [limites de taxa de download se aplicam](https://docs.docker.com/docker-hub/download-rate-limit/) a solicitações anônimas e autenticadas para o Docker Hub de contas do plano gratuito do Docker e são impostas por endereço IP. 
+> 
+> Este modelo usa imagens públicas do Hub do Docker. Observe que você pode ter uma taxa limitada. Para obter mais detalhes, confira [Autenticar-se com o Docker Hub](../container-registry/buffer-gate-public-content.md#authenticate-with-docker-hub).
+
 O comando a seguir implanta um aplicativo do Linux usando o [modelo counter.sfreliablevolume.linux.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.linux.json). Para implantar um aplicativo do Windows, use o [modelo counter.sfreliablevolume.windows.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.windows.json). Esteja ciente de que imagens de contêiner maiores podem demorar mais para serem implantadas.
 
 ```azurecli-interactive
@@ -55,7 +66,7 @@ az mesh deployment create --resource-group myResourceGroup --template-uri https:
 Você também pode ver o estado da implantação com o comando
 
 ```azurecli-interactive
-az group deployment show --name counter.sfreliablevolume.linux --resource-group myResourceGroup
+az deployment group show --name counter.sfreliablevolume.linux --resource-group myResourceGroup
 ```
 
 Observe o nome do recurso de gateway que tem o recurso de tipo como `Microsoft.ServiceFabricMesh/gateways`. Isso será usado na obtenção do endereço IP público do aplicativo.

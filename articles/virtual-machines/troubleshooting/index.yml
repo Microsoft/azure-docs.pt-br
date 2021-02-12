@@ -10,12 +10,12 @@ metadata:
   author: genlin
   ms.author: genli
   ms.date: 09/09/2019
-  ms.openlocfilehash: 3cc1bfa72a61d13c27c02fdb114b49666b67fabe
-  ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+  ms.openlocfilehash: ad47bde23a7125bac60c9f61687e3ff4e94b7a01
+  ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/13/2020
-  ms.locfileid: "91969612"
+  ms.lasthandoff: 01/27/2021
+  ms.locfileid: "98877689"
 landingContent:
 - title: Solucionar problemas de falhas de implantação
   linkLists:
@@ -48,7 +48,7 @@ landingContent:
     - text: Solucionar problemas de conexão de RDP da VM do Azure por ID do Evento
       url: ./event-id-troubleshoot-vm-rdp-connecton.md
     - text: Solucionar problemas de erros de autenticação quando você usa o RDP para se conectar à VM do Azure
-      url: ./troubleshoot-authentication-error-rdp-vm.md
+      url: /troubleshoot/azure/virtual-machines/cannot-connect-rdp-azure-vm
     - text: A placa de rede de convidado da VM está desabilitada
       url: ./troubleshoot-rdp-nic-disabled.md
 - title: Redefinição de senha
@@ -126,7 +126,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Solução de problemas das galerias de imagens compartilhadas – a replicação está lenta
-      url: ../troubleshooting-shared-images.md#replication-is-slow
+      url: ../troubleshooting-shared-images.md#replication-speed
 - title: Problemas de extensão de VM
   linkLists:
   - linkListType: how-to-guide

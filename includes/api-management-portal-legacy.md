@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: apimpm
 ms.openlocfilehash: 44de30438d59252a431bf37ac6919a9bc186c8ed
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315729"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013523"
 ---
 > [!NOTE]
 > Este conteúdo da documentação é sobre o portal do desenvolvedor preterido. Você pode continuar usando-o, como de costume, até a desativação dele em outubro de 2023, quando ele será removido de todos os serviços de Gerenciamento de API. O portal preterido receberá apenas atualizações de segurança críticas. Veja os seguintes artigos para obter mais detalhes:

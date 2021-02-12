@@ -2,14 +2,14 @@
 title: Configurar pontos de extremidade privados para os tópicos ou domínios da grade de eventos do Azure
 description: Este artigo descreve como configurar pontos de extremidade privados para o domínio ou tópicos da grade de eventos do Azure.
 ms.topic: how-to
-ms.date: 07/07/2020
+ms.date: 11/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e2e164d55f61f7a08e689aea106eac678b553c82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8e0cfc0a850ae15ea6d03ff6ca8b90003adbfc9
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324137"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916897"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Configurar pontos de extremidade privados para os tópicos ou domínios da grade de eventos do Azure
 Você pode usar [pontos de extremidade privados](../private-link/private-endpoint-overview.md) para permitir a entrada de eventos diretamente de sua rede virtual para seus tópicos e domínios com segurança por meio de um [link privado](../private-link/private-link-overview.md) sem passar pela Internet pública. O ponto de extremidade privado usa um endereço IP do espaço de endereço de VNet para seu tópico ou domínio. Para obter mais informações conceituais, consulte [segurança de rede](network-security.md).
@@ -31,7 +31,7 @@ Esta seção mostra como usar o portal do Azure para criar um ponto de extremida
     2. Selecione um **grupo de recursos do Azure** para o ponto de extremidade privado. 
     3. Insira um **nome** para o ponto de extremidade. 
     4. Selecione a **região** para o ponto de extremidade. Seu ponto de extremidade privado deve estar na mesma região que sua rede virtual, mas pode ser em uma região diferente do recurso de link privado (neste exemplo, um tópico de grade de eventos). 
-    5. Em seguida, selecione o botão **>de recursos ** na parte inferior da página. 
+    5. Em seguida, selecione o botão **>de recursos** na parte inferior da página. 
 
       ![Ponto de extremidade privado-página noções básicas](./media/configure-private-endpoints/basics-page.png)
 3. Na página **Recurso**, siga estas etapas: 
@@ -108,7 +108,7 @@ Você pode rejeitar um ponto de extremidade privado que está no estado pendente
 
 1. Selecione o **ponto de extremidade privado** que você deseja rejeitar e selecione **rejeitar** na barra de ferramentas.
 
-    ![Captura de tela que mostra a "rede – conexões de ponto de extremidade privado (versão prévia)" com "rejeitar" selecionado.](./media/configure-private-endpoints/reject-button.png)
+    ![Captura de tela que mostra a "rede – conexões de ponto de extremidade privadas" com "rejeitar" selecionado.](./media/configure-private-endpoints/reject-button.png)
 1. Na caixa de diálogo **rejeitar conexão** , insira um comentário (opcional) e selecione **Sim**. 
 
     ![Ponto de extremidade privado-rejeitar](./media/configure-private-endpoints/reject.png)
@@ -121,7 +121,7 @@ Você pode rejeitar um ponto de extremidade privado que está no estado pendente
 
 
 ## <a name="use-azure-cli"></a>Usar a CLI do Azure
-Para criar um ponto de extremidade privado, use o método [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) , conforme mostrado no exemplo a seguir:
+Para criar um ponto de extremidade privado, use o método [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create) , conforme mostrado no exemplo a seguir:
 
 ```azurecli-interactive
 az network private-endpoint create \
@@ -135,12 +135,12 @@ az network private-endpoint create \
     --group-ids topic
 ```
 
-Para obter descrições dos parâmetros usados no exemplo, consulte a documentação para [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create). Alguns pontos a serem observados neste exemplo são: 
+Para obter descrições dos parâmetros usados no exemplo, consulte a documentação para [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create). Alguns pontos a serem observados neste exemplo são: 
 
 - Para `private-connection-resource-id` , especifique a ID de recurso do **tópico** ou do **domínio**. O exemplo anterior usa o tópico Type:.
 - para `group-ids` , especifique `topic` ou `domain` . No exemplo anterior, `topic` é usado. 
 
-Para excluir um ponto de extremidade privado, use o método [AZ Network Private-Endpoint Delete](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-delete) , conforme mostrado no exemplo a seguir:
+Para excluir um ponto de extremidade privado, use o método [AZ Network Private-Endpoint Delete](/cli/azure/network/private-endpoint?#az-network-private-endpoint-delete) , conforme mostrado no exemplo a seguir:
 
 ```azurecli-interactive
 az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --name <PRIVATE ENDPOINT NAME>
@@ -165,7 +165,7 @@ az extension add -n eventgrid
 ```
 
 ### <a name="create-a-private-endpoint"></a>Criar um ponto de extremidade privado
-Para criar um ponto de extremidade privado, use o método [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) , conforme mostrado no exemplo a seguir:
+Para criar um ponto de extremidade privado, use o método [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create) , conforme mostrado no exemplo a seguir:
 
 ```azurecli-interactive
 az network private-endpoint create \
@@ -179,12 +179,12 @@ az network private-endpoint create \
     --group-ids topic
 ```
 
-Para obter descrições dos parâmetros usados no exemplo, consulte a documentação para [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create). Alguns pontos a serem observados neste exemplo são: 
+Para obter descrições dos parâmetros usados no exemplo, consulte a documentação para [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create). Alguns pontos a serem observados neste exemplo são: 
 
 - Para `private-connection-resource-id` , especifique a ID de recurso do **tópico** ou do **domínio**. O exemplo anterior usa o tópico Type:.
 - para `group-ids` , especifique `topic` ou `domain` . No exemplo anterior, `topic` é usado. 
 
-Para excluir um ponto de extremidade privado, use o método [AZ Network Private-Endpoint Delete](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-delete) , conforme mostrado no exemplo a seguir:
+Para excluir um ponto de extremidade privado, use o método [AZ Network Private-Endpoint Delete](/cli/azure/network/private-endpoint?#az-network-private-endpoint-delete) , conforme mostrado no exemplo a seguir:
 
 ```azurecli-interactive
 az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --name <PRIVATE ENDPOINT NAME>
@@ -196,7 +196,7 @@ az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --nam
 #### <a name="sample-script"></a>Exemplo de script
 Aqui está um script de exemplo que cria os seguintes recursos do Azure:
 
-- Resource group
+- Grupo de recursos
 - Rede virtual
 - Sub-rede na rede virtual
 - Tópico da grade de eventos do Azure

@@ -3,23 +3,23 @@ title: Delegar funções por tarefa de administrador-Azure Active Directory | Mi
 description: Funções para delegar para tarefas de identidade no Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: reference
-ms.date: 05/04/2020
-ms.author: curtand
+ms.date: 11/05/2020
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fc33b0bafc0d56ebf1a14769aeaa5a55508fc4a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 3ad48141c69d78096981b89758afd56089093021
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374482"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742923"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Funções de administrador por tarefa de administrador no Azure Active Directory
 
@@ -47,11 +47,11 @@ Criar aplicativos B2C | Administrador global |
 Criar aplicativos corporativos | Administrador de Aplicativos de Nuvem | Administrador de aplicativos
 Criar, ler, atualizar e excluir políticas de B2C | Administrador de Política do IEF B2C | 
 Criar, ler, atualizar e excluir provedores de identidade | Administrador do Provedor de Identidade Externa | 
-Criar, ler, atualizar e excluir fluxos de usuários de redefinição de senha | Administrador de fluxo de usuário de ID externa | 
-Criar, ler, atualizar e excluir fluxos de usuários de edição de perfil | Administrador de fluxo de usuário de ID externa | 
-Criar, ler, atualizar e excluir fluxos de usuários de entrada | Administrador de fluxo de usuário de ID externa | 
-Criar, ler, atualizar e excluir fluxo de usuários de entrada |Administrador de fluxo de usuário de ID externa | 
-Criar, ler, atualizar e excluir atributos de usuário | Administrador de atributo de fluxo de usuário de ID externa | 
+Criar, ler, atualizar e excluir fluxos de usuários de redefinição de senha | Administrador de fluxo do usuário de ID externa | 
+Criar, ler, atualizar e excluir fluxos de usuários de edição de perfil | Administrador de fluxo do usuário de ID externa | 
+Criar, ler, atualizar e excluir fluxos de usuários de entrada | Administrador de fluxo do usuário de ID externa | 
+Criar, ler, atualizar e excluir fluxo de usuários de entrada |Administrador de fluxo do usuário de ID externa | 
+Criar, ler, atualizar e excluir atributos de usuário | Administrador de atributo de fluxo do usuário de ID externa | 
 Criar, ler, atualizar e excluir usuários | Administrador de usuários
 Ler todas as configurações | Leitor global | 
 Ler os logs de auditoria do B2C | Leitor global ([consulte a documentação](../../active-directory-b2c/faq.md)) | 
@@ -351,6 +351,7 @@ Atualizar todas as propriedades, exceto Nome UPN | Administrador de usuários |
 Atualizar nome UPN para administradores limitados (consulte a documentação) | Administrador de usuários | 
 Atualizar a propriedade do nome UPN em administradores com privilégios (consulte a documentação) | Administrador global | 
 Atualizar configurações do usuário | Administrador global | 
+Atualizar métodos de autenticação | Administrador de Autenticação | Administrador de autenticação privilegiada, administrador global
 
 
 ## <a name="support"></a>Suporte

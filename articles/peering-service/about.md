@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: 03ece391b6f33b47f34705cec1c5907602ac7b23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 198ba23920179e71e095e498ee2173d7f0111d42
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400172"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026722"
 ---
 # <a name="azure-peering-service-overview"></a>Visão geral do serviço de emparelhamento do Azure
 
@@ -45,7 +45,7 @@ O serviço de emparelhamento é:
 O serviço de emparelhamento não é um produto de conectividade privada como o Azure ExpressRoute ou um produto de VPN.
 
 > [!NOTE]
-> Para obter mais informações sobre o ExpressRoute, consulte a [documentação do expressroute](https://docs.microsoft.com/azure/expressroute/).
+> Para obter mais informações sobre o ExpressRoute, consulte a [documentação do expressroute](../expressroute/index.yml).
 >
 
 ## <a name="background"></a>Tela de fundo
@@ -57,7 +57,7 @@ Os provedores de serviços de parceiros e da Microsoft garantem que o tráfego p
 ![Conectividade pública e de rede da Microsoft](./media/peering-service-about/peering-service-background-final.png)
 
 > [!NOTE]
-> Para obter mais informações sobre a rede global da Microsoft, consulte [Microsoft Global Network](https://docs.microsoft.com/azure/networking/microsoft-global-network).
+> Para obter mais informações sobre a rede global da Microsoft, consulte [Microsoft Global Network](../networking/microsoft-global-network.md).
 >
 
 ## <a name="why-use-peering-service"></a>Por que usar o serviço de emparelhamento?

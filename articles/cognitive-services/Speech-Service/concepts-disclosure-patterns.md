@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: 7df082cd5044f142d8d5900ec1fff6c182262bd9
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 425096bf7cb75ae3560c06cbcd32778536dc1952
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425111"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537333"
 ---
 # <a name="disclosure-design-patterns"></a>Padrões de design de divulgação
 Agora que você&#39;foi determinado o [nível certo de divulgação](concepts-disclosure-guidelines.md#disclosure-assessment) para sua experiência de voz sintética, ele&#39;um bom momento para explorar os padrões de design potenciais.
@@ -237,21 +237,14 @@ Use a divulgação como uma oportunidade de falhar normalmente.
 - [Fornecendo oportunidades para saber mais sobre como a voz foi feita](#providing-opportunities-to-learn-more-about-how-the-voice-was-made)
 - [Entrega para humanos](#conversational-transparency)
 
-
-
 ## <a name="additional-resources"></a>Recursos adicionais
 - [Diretrizes de bot da Microsoft](https://www.microsoft.com/research/uploads/prod/2018/11/Bot_Guidelines_Nov_2018.pdf)
-- [Diretrizes de design da Cortana](https://docs.microsoft.com/cortana/voice-commands/voicecommand-design-guidelines)
-- [Diretrizes de design de fala do Microsoft Windows UWP](https://docs.microsoft.com/windows/uwp/design/input/speech-interactions)
-- [Diretrizes de comando de voz do Microsoft Windows Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/voice-design#top-things-users-should-know-about-speech-in-mixed-reality)
+- [Diretrizes de design da Cortana](/cortana/voice-commands/voicecommand-design-guidelines)
+- [Diretrizes de design de fala do Microsoft Windows UWP](/windows/uwp/design/input/speech-interactions)
+- [Diretrizes de comando de voz do Microsoft Windows Mixed Reality](/windows/mixed-reality/voice-design#top-things-users-should-know-about-speech-in-mixed-reality)
 
-## <a name="reference-docs"></a>Documentos de Referência
+## <a name="see-also"></a>Confira também
 
-* [Divulgação para talento de voz](https://aka.ms/disclosure-voice-talent)
+* [Divulgação para talento de voz](https://docs.microsoft.com/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context)
 * [Diretrizes para a implantação responsável da tecnologia de voz sintética](concepts-guidelines-responsible-deployment-synthetic.md)
-* [Visão geral da retenção](concepts-gating-overview.md)
 * [Como divulgar](concepts-disclosure-guidelines.md)
-
-## <a name="next-steps"></a>Próximas etapas
-
-* [Divulgação para talento de voz](https://aka.ms/disclosure-voice-talent)

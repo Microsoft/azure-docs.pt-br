@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 9ae6ff7bff1415b3b5faaaa83560c35d1b298d08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 877f589c19663503b9bb0b1627f1dffe0eba1a23
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88523551"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302735"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wikispaces"></a>Tutorial: Integração do Active Directory do Azure com o Wikispaces
 
@@ -27,7 +27,7 @@ A integração do Wikispaces ao Azure AD oferece os seguintes benefícios:
 * Você pode permitir que os usuários sejam conectados automaticamente ao Wikispaces (Logon Único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o Wikispaces, siga as etapas abai
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://session.wikispaces.net/<instancename>`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao cliente do Wikispaces](https://www.wikispaces.com/site/help) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao cliente do Wikispaces](https://wikispaces.psu.edu/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 5. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -124,7 +124,7 @@ Para configurar o logon único do Azure AD com o Wikispaces, siga as etapas abai
 
 ### <a name="configure-wikispaces-single-sign-on"></a>Configurar o logon único do Wikispaces
 
-Para configurar o logon único no lado do **Wikispaces**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Wikispaces](https://www.wikispaces.com/site/help). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **Wikispaces**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Wikispaces](https://wikispaces.psu.edu/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -190,11 +190,11 @@ Para permitir que os usuários do Azure AD façam logon no Wikispaces, eles deve
 
 3. Clique em **Convidar Pessoas**.
    
-    ![Convidar Pessoas](./media/wikispaces-tutorial/ic787194.png "Convidar Pessoas")
+    ![A captura de tela mostra a página Membros, na qual você pode selecionar Convidar Pessoas.](./media/wikispaces-tutorial/ic787194.png "Convidar Pessoas")
 
 4. Na seção **Convidar Pessoas** , realize as seguintes etapas:
    
-    ![Convidar Pessoas](./media/wikispaces-tutorial/ic787208.png "Convidar Pessoas")
+    ![A captura de tela mostra a seção Convidar Pessoas, em que você pode inserir os dados do usuário.](./media/wikispaces-tutorial/ic787208.png "Convidar Pessoas")
    
     a. Digite **Nomes de Usuário ou Endereço de Email** de uma conta válida do Azure AD que você deseja provisionar nas caixas de texto relacionadas.
    
@@ -210,13 +210,12 @@ Para permitir que os usuários do Azure AD façam logon no Wikispaces, eles deve
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Wikispaces no Painel de Acesso, você deverá ser conectado automaticamente ao Wikispaces, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Wikispaces no Painel de Acesso, você deverá ser conectado automaticamente ao Wikispaces, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

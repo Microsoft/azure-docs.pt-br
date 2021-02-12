@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: fd541b9ff65a5417bff21c0293f4d62f5b6791a7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b198c094ffd5f2113603fc9d8d2fb1c4e5cd6fe1
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972842"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881950"
 ---
 # <a name="create-a-vm-using-a-generalized-image"></a>Criar uma VM usando uma imagem generalizada 
 
@@ -146,7 +146,7 @@ New-AzVM `
 
 
 ## <a name="next-steps"></a>Próximas etapas
-O [Construtor de imagens do Azure (visualização)](./windows/image-builder-overview.md) pode ajudar a automatizar a criação da versão da imagem, até mesmo usá-la para atualizar e [criar uma nova versão da imagem a partir de uma versão de imagem existente](./windows/image-builder-gallery-update-image-version.md). 
+O [Construtor de imagens do Azure (visualização)](./image-builder-overview.md) pode ajudar a automatizar a criação da versão da imagem, até mesmo usá-la para atualizar e [criar uma nova versão da imagem a partir de uma versão de imagem existente](./windows/image-builder-gallery-update-image-version.md). 
 
 Você também pode criar um recurso de Galeria de imagens compartilhadas usando modelos. Há vários Modelos de Início Rápido do Azure disponíveis: 
 
@@ -155,4 +155,4 @@ Você também pode criar um recurso de Galeria de imagens compartilhadas usando 
 - [Criar uma Versão da Imagem em uma Galeria de Imagens Compartilhadas](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 - [Criar uma VM por meio de uma Versão da Imagem](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
-Para obter mais informações sobre galerias de imagens compartilhadas, confira a [Visão geral](./windows/shared-image-galleries.md). Se você enfrentar problemas, confira [Solução de problemas de galerias de imagens compartilhadas](troubleshooting-shared-images.md).
+Para obter mais informações sobre galerias de imagens compartilhadas, confira a [Visão geral](./shared-image-galleries.md). Se você enfrentar problemas, confira [Solução de problemas de galerias de imagens compartilhadas](troubleshooting-shared-images.md).

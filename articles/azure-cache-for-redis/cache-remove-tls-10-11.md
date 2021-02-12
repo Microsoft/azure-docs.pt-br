@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
 ms.openlocfilehash: fd0e6f893d152259c46ff06e9ec20af54395c5e6
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545303"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994376"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Remover o TLS 1.0 e 1.1 do uso com o Cache do Azure para Redis
 

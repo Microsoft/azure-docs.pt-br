@@ -3,12 +3,12 @@ title: Hubs de Eventos do Azure – visualizar anomalias de dados nos eventos em
 description: 'Tutorial: Visualizar anomalias de dados nos eventos em tempo real enviados aos Hubs de Eventos do Microsoft Azure'
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: 1394f9bedfdfc3715090bdb8a9028d2654a1e4e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd08d611761e125fdd03173ce6027c60e82baed6
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934048"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623452"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualizar anomalias de dados nos eventos em tempo real enviados aos Hubs de Eventos do Azure
 
@@ -26,14 +26,12 @@ Neste tutorial, você aprenderá como:
 
 Para concluir este tutorial, você precisa de uma assinatura do Azure. Se você não tiver [uma conta gratuita][], crie uma antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 - Instalar o [Visual Studio](https://www.visualstudio.com/). 
 - Você precisa de uma conta do Power BI para analisar a saída de um trabalho do Stream Analytics. Você pode [experimentar o Power BI gratuitamente](https://app.powerbi.com/signupredirect?pbi_source=web).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="set-up-resources"></a>Configurar recursos
 
@@ -351,7 +349,7 @@ Faça logon na sua conta do Power BI. Ir para **Meu Workspace**. Na linha com o 
 
 ### <a name="clean-up-resources-using-azure-cli"></a>Limpar recursos usando a CLI do Azure
 
-Para remover o grupo de recursos, use o comando [excluir grupo az](/cli/azure/group?view=azure-cli-latest#az-group-delete).
+Para remover o grupo de recursos, use o comando [excluir grupo az](/cli/azure/group#az-group-delete).
 
 ```azurecli-interactive
 az group delete --name $resourceGroup

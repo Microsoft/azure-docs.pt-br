@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 08/13/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c1b51792c86cfce15fa718040dfcbcc13997ee26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87ea77540e5fcaac0c4231403473d25ebae46aac
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85384950"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840246"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Solucionar problemas de políticas personalizadas do Azure AD B2C e da Estrutura de Experiência de Identidade
 
@@ -64,7 +64,7 @@ Os erros comuns de validação incluem o seguinte:
 
 * Para rastrear a troca de mensagens entre o navegador do cliente e o Azure AD B2C, use [Fiddler](https://www.telerik.com/fiddler). Ele pode ajudá-lo a obter uma indicação de onde sua jornada de usuário está falhando nas etapas de orquestração.
 
-* No **Modo de desenvolvimento**, use o [Application Insights](troubleshoot-with-application-insights.md) para rastrear a atividade da sua jornada de usuário da Estrutura de Experiência de Identidade. No **modo de desenvolvimento**, você pode observar a troca de declarações entre a estrutura de experiência de identidade e os vários provedores de declarações definidos por perfis técnicos, como provedores de identidade, serviços baseados em API, o Azure ad B2C diretório de usuário e outros serviços, como a autenticação multifator do Azure.
+* No **Modo de desenvolvimento**, use o [Application Insights](troubleshoot-with-application-insights.md) para rastrear a atividade da sua jornada de usuário da Estrutura de Experiência de Identidade. No **modo de desenvolvimento**, você pode observar a troca de declarações entre a estrutura de experiência de identidade e os vários provedores de declarações definidos por perfis técnicos, como provedores de identidade, serviços baseados em API, o Azure ad B2C diretório de usuário e outros serviços, como a autenticação multifator do Azure AD.
 
 ## <a name="recommended-practices"></a>Práticas recomendadas
 

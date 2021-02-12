@@ -3,16 +3,17 @@ title: DateTimeToTimestamp na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função do sistema SQL DateTimeToTimestamp no Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 6de48583cbc3a7e41d6da5e7ed29abf07bba3112
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 11e0150089fd979cbf840d3b117c0d796ecc68f3
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100296"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335714"
 ---
 # <a name="datetimetotimestamp-azure-cosmos-db"></a>DateTimeToTimestamp (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

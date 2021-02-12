@@ -3,15 +3,16 @@ title: Implantar um aplicativo Web com um modelo – Azure Cosmos DB
 description: Saiba como implantar uma conta do Azure Cosmos, Azure App aplicativos Web do serviço e um aplicativo Web de exemplo usando um modelo de Azure Resource Manager.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: c206c89bf8e9abae219ce863a8b08f4b0e7041c3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 55d58a6c4724bd01325db029ed75d77ccc96d0f8
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93089909"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333555"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-with-a-web-app-from-github-using-an-azure-resource-manager-template"></a>Implantar Azure Cosmos DB e Azure App serviço com um aplicativo Web do GitHub usando um modelo de Azure Resource Manager
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -41,7 +42,7 @@ Primeiro, selecione o botão **implantar no Azure** abaixo para abrir o portal d
 
 Na portal do Azure, selecione a assinatura para implantar e selecione ou crie um novo grupo de recursos. Em seguida, preencha os valores a seguir.
 
-:::image type="content" source="./media/create-website/template-deployment.png" alt-text="Implantar no Azure":::
+:::image type="content" source="./media/create-website/template-deployment.png" alt-text="Captura de tela da interface do usuário da implantação do modelo":::
 
 * **Região** -isso é exigido pelo Gerenciador de recursos. Insira a mesma região usada pelo parâmetro Location onde os recursos estão localizados.
 * **Nome do aplicativo** -esse nome é usado por todos os recursos para esta implantação. Certifique-se de escolher um nome exclusivo para evitar conflitos com as contas de Azure Cosmos DB e serviço de aplicativo existentes.
@@ -65,31 +66,31 @@ Depois de preencher os valores, selecione o botão **criar** para iniciar a impl
 
 Depois que o modelo tiver implantado os recursos, agora você poderá ver cada um deles em seu grupo de recursos.
 
-:::image type="content" source="./media/create-website/resource-group.png" alt-text="Implantar no Azure":::
+:::image type="content" source="./media/create-website/resource-group.png" alt-text="Grupo de Recursos":::
 
 ### <a name="view-cosmos-db-endpoint-and-keys"></a>Exibir Cosmos DB ponto de extremidade e chaves
 
 Em seguida, abra a conta do Azure Cosmos no Portal. A captura de tela a seguir mostra o ponto de extremidade e as chaves para uma conta do Azure Cosmos.
 
-:::image type="content" source="./media/create-website/cosmos-keys.png" alt-text="Implantar no Azure":::
+:::image type="content" source="./media/create-website/cosmos-keys.png" alt-text="Chaves Cosmos":::
 
 ### <a name="view-the-azure-cosmos-db-keys-in-application-settings"></a>Exibir as chaves de Azure Cosmos DB nas configurações do aplicativo
 
 Em seguida, navegue até o serviço de Azure App no grupo de recursos. Clique na guia configuração para exibir as configurações do aplicativo para o serviço de aplicativo. As configurações do aplicativo contêm a conta Cosmos DB e os valores de chave primária necessários para se conectar ao Cosmos DB, bem como os nomes do banco de dados e do contêiner que foram passados da implantação do modelo.
 
-:::image type="content" source="./media/create-website/application-settings.png" alt-text="Implantar no Azure":::
+:::image type="content" source="./media/create-website/application-settings.png" alt-text="Configurações do aplicativo":::
 
 ### <a name="view-web-app-in-deployment-center"></a>Exibir aplicativo Web na central de implantação
 
 Em seguida, vá para a central de implantação do serviço de aplicativo. Aqui, você verá pontos de repositório para o repositório GitHub passado para o modelo. Além disso, o status abaixo indica êxito (ativo), o que significa que o aplicativo foi implantado e iniciado com êxito.
 
-:::image type="content" source="./media/create-website/deployment-center.png" alt-text="Implantar no Azure":::
+:::image type="content" source="./media/create-website/deployment-center.png" alt-text="Centro de Implantação":::
 
 ### <a name="run-the-web-application"></a>Executar o aplicativo Web
 
 Clique em **procurar** na parte superior da central de implantação para abrir o aplicativo Web. O aplicativo Web será aberto até a tela inicial. Clique em **criar novo** e insira alguns dados nos campos e clique em salvar. A tela resultante mostra os dados salvos em Cosmos DB.
 
-:::image type="content" source="./media/create-website/app-home-screen.png" alt-text="Implantar no Azure":::
+:::image type="content" source="./media/create-website/app-home-screen.png" alt-text="Tela de Início":::
 
 ## <a name="step-3-how-does-it-work"></a>Etapa 3: como funciona
 
@@ -99,19 +100,19 @@ Há três elementos necessários para que isso funcione.
 
 Primeiro, o aplicativo precisa solicitar o ponto de extremidade Cosmos DB e a chave na `Startup` classe no aplicativo web ASP.NET MVC. O [Cosmos DB fazer o exemplo](https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app) pode ser executado localmente, onde você pode inserir as informações de conexão em appsettings.js. No entanto, quando implantado, esse arquivo é implantado com o aplicativo. Se essas linhas em vermelho não puderem acessar as configurações de appsettings.jsem, elas serão tentadas nas configurações do aplicativo no serviço Azure App.
 
-:::image type="content" source="./media/create-website/startup.png" alt-text="Implantar no Azure":::
+:::image type="content" source="./media/create-website/startup.png" alt-text="Captura de tela mostra um método com várias variáveis de cadeia de caracteres marcadas em vermelho, incluindo databaseName, ContainerName, Account e Key.":::
 
 ### <a name="using-special-azure-resource-management-functions"></a>Usando funções especiais de gerenciamento de recursos do Azure
 
 Para que esses valores estejam disponíveis para o aplicativo quando implantados, o modelo de Azure Resource Manager pode solicitar esses valores da conta de Cosmos DB usando funções especiais de gerenciamento de recursos do Azure, incluindo [referência](../azure-resource-manager/templates/template-functions-resource.md#reference) e [listKeys](../azure-resource-manager/templates/template-functions-resource.md#listkeys) que pegam os valores da conta de Cosmos DB e os inserem nos valores das configurações do aplicativo com nomes de chave que correspondem ao que é usado no aplicativo acima em um formato ' {section: Key} Por exemplo, `CosmosDb:Account`.
 
-:::image type="content" source="./media/create-website/template-keys.png" alt-text="Implantar no Azure":::
+:::image type="content" source="./media/create-website/template-keys.png" alt-text="Chaves de modelo":::
 
 ### <a name="deploying-web-apps-from-github"></a>Implantando aplicativos Web do GitHub
 
 Por fim, precisamos implantar o aplicativo Web do GitHub no serviço de aplicativo. Isso é feito usando o JSON abaixo. Duas coisas com cuidado são o tipo e o nome desse recurso. Os `"type": "sourcecontrols"` valores de propriedade e são embutidos em `"name": "web"` código e não devem ser alterados.
 
-:::image type="content" source="./media/create-website/deploy-from-github.png" alt-text="Implantar no Azure":::
+:::image type="content" source="./media/create-website/deploy-from-github.png" alt-text="Implantar do GitHub":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

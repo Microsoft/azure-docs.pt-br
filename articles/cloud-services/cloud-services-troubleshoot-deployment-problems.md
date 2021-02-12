@@ -1,27 +1,25 @@
 ---
-title: Solucionar problemas de implantação do serviço de nuvem | Microsoft Docs
+title: Solucionar problemas de implantação do serviço de nuvem (clássico) | Microsoft Docs
 description: Existem alguns problemas comuns que você experimentar ao implantar um serviço de nuvem no Azure. Este artigo fornece soluções para alguns deles.
-services: cloud-services
-documentationcenter: ''
-author: simonxjx
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: a18ae415-0d1c-4bc4-ab6c-c1ddea02c870
+ms.topic: article
 ms.service: cloud-services
-ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 06/15/2018
-ms.author: v-six
-ms.openlocfilehash: 0e7cd496f031f76320df5127d7e1aa3f2f7b06c7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 7b3d7a9a674aab3976da9399f71ff4d8df08eb62
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075069"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741070"
 ---
-# <a name="troubleshoot-cloud-service-deployment-problems"></a>Solucionar problemas de implantação do serviço de nuvem
+# <a name="troubleshoot-azure-cloud-services-classic-deployment-problems"></a>Solucionar problemas de implantação dos serviços de nuvem do Azure (clássico)
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
+
 Quando você implanta um pacote de aplicativos do serviço de nuvem no Azure, é possível obter informações sobre a implantação no painel **Propriedades** no portal do Azure. Você pode usar os detalhes nesse painel para ajudá-lo a solucionar problemas com o serviço de nuvem, e pode fornecer essas informações ao suporte do Azure ao abrir uma nova solicitação de suporte.
 
 Você pode encontrar o painel **Propriedades** da seguinte maneira:

@@ -1,18 +1,18 @@
 ---
 title: Funções de modelo – recursos
-description: Descreve as funções a serem usadas em um modelo do Azure Resource Manager para recuperar valores sobre recursos.
+description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager (modelo ARM) para recuperar valores sobre recursos.
 ms.topic: conceptual
-ms.date: 09/03/2020
-ms.openlocfilehash: dd040715cc8fb1339c6054c53007dbcd08e2cbdb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/04/2021
+ms.openlocfilehash: f16e8e06bf5deb2b66af7758f2944fe256cfa268
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91816808"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861422"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funções de recurso para modelos do ARM
 
-O Resource Manager fornece as seguintes funções para obter valores de recurso em seu modelo do ARM (Azure Resource Manager):
+O Gerenciador de recursos fornece as seguintes funções para obter valores de recurso em seu modelo de Azure Resource Manager (modelo ARM):
 
 * [extensionResourceId](#extensionresourceid)
 * [list*](#list)
@@ -26,6 +26,8 @@ O Resource Manager fornece as seguintes funções para obter valores de recurso 
 * [tenantResourceId](#tenantresourceid)
 
 Para obter valores de parâmetros, de variáveis ou da implantação atual, veja [Funções de valor de implantação](template-functions-deployment.md).
+
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## <a name="extensionresourceid"></a>extensionResourceId
 
@@ -82,29 +84,87 @@ Quando o recurso de extensão é aplicado a um **grupo de gerenciamento**, o for
 
 O exemplo a seguir retorna a ID de recurso para um bloqueio de grupo de recursos.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "lockName":{
-            "type": "string"
-        }
-    },
-    "variables": {},
-    "resources": [],
-    "outputs": {
-        "lockResourceId": {
-            "type": "string",
-            "value": "[extensionResourceId(resourceGroup().Id , 'Microsoft.Authorization/locks', parameters('lockName'))]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "lockName": {
+      "type": "string"
     }
+  },
+  "variables": {},
+  "resources": [],
+  "outputs": {
+    "lockResourceId": {
+      "type": "string",
+      "value": "[extensionResourceId(resourceGroup().Id , 'Microsoft.Authorization/locks', parameters('lockName'))]"
+    }
+  }
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param lockName string
+
+output lockResourceId string = extensionResourceId(resourceGroup().Id, 'Microsoft.Authorization/locks', lockName)
+```
+
+---
+
 Uma definição de política personalizada implantada em um grupo de gerenciamento é implementada como um recurso de extensão. Para criar e atribuir uma política, implante o modelo a seguir em um grupo de gerenciamento.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 :::code language="json" source="~/quickstart-templates/managementgroup-deployments/mg-policy/azuredeploy.json":::
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param targetMG string
+param allowedLocations array = [
+  'australiaeast'
+  'australiasoutheast'
+  'australiacentral'
+]
+
+var mgScope = tenantResourceId('Microsoft.Management/managementGroups', targetMG)
+var policyDefinition = 'LocationRestriction'
+
+resource myDefinition 'Microsoft.Authorization/policyDefinitions@2019-09-01' = {
+  name: policyDefinition
+  properties: {
+    policyType: 'Custom'
+    mode: 'All'
+    parameters: {}
+    policyRule: {
+      'if': {
+        'not': {
+          'field': 'location'
+          'in': allowedLocations
+        }
+      }
+      'then': {
+        'effect': 'deny'
+      }
+    }
+  }
+}
+
+resource myAssignment 'Microsoft.Authorization/policyAssignments@2019-09-01' = {
+  name: 'location-lock'
+  properties: {
+    scope: mgScope
+    policyDefinitionId: extensionResourceId(mgScope, 'Microsoft.Authorization/policyDefinitions', policyDefinition)
+  }
+}
+```
+
+---
 
 As definições de política internas são recursos de nível de locatário. Para obter um exemplo de implantação de uma definição de política interna, consulte [tenantResourceId](#tenantresourceid).
 
@@ -115,7 +175,7 @@ As definições de política internas são recursos de nível de locatário. Par
 
 `list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)`
 
-A sintaxe dessa função varia de acordo com o nome das operações de lista. Cada implementação retorna valores para o tipo de recurso compatível com uma operação de lista. O nome da operação deve começar com `list`. Alguns usos comuns são `listKeys` , `listKeyValue` e `listSecrets` .
+A sintaxe dessa função varia de acordo com o nome das operações de lista. Cada implementação retorna valores para o tipo de recurso compatível com uma operação de lista. O nome da operação deve começar com `list` e pode ter um sufixo. Alguns usos comuns são `list` ,, `listKeys` `listKeyValue` e `listSecrets` .
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -145,7 +205,7 @@ Os possíveis usos de lista* são mostrados na tabela a seguir.
 | Microsoft. ApiManagement/Service/namedValues | [lista de](/rest/api/apimanagement/2019-12-01/namedvalue/listvalue) |
 | Microsoft. ApiManagement/Service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/2019-12-01/openidconnectprovider/listsecrets) |
 | Microsoft.AppConfiguration/configurationStores | [ListKeys](/rest/api/appconfiguration/configurationstores/listkeys) |
-| Microsoft.AppPlatform/Spring | [listTestKeys](/rest/api/azurespringclould/services/listtestkeys) |
+| Microsoft.AppPlatform/Spring | [listTestKeys](/rest/api/azurespringcloud/services/listtestkeys) |
 | Microsoft.Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
 | Microsoft.Batch/batchAccounts | [listkeys](/rest/api/batchmanagement/batchaccount/getkeys) |
 | Microsoft.BatchAI/workspaces/experiments/jobs | [listoutputfiles](/rest/api/batchai/jobs/listoutputfiles) |
@@ -272,6 +332,7 @@ Para determinar quais tipos de recursos têm uma operação de lista, use as seg
   ```powershell
   Get-AzProviderOperation -OperationSearchString "Microsoft.Storage/*" | where {$_.Operation -like "*list*"} | FT Operation
   ```
+
 * Use o seguinte comando da CLI do Azure para filtrar apenas as operações de lista:
 
   ```azurecli
@@ -311,30 +372,63 @@ Se você usar a função **list** em um recurso implantado condicionalmente, a f
 
 O exemplo a seguir usa listKeys ao definir um valor para [scripts de implantação](deployment-script-template.md).
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 "storageAccountSettings": {
-    "storageAccountName": "[variables('storageAccountName')]",
-    "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value]"
+  "storageAccountName": "[variables('storageAccountName')]",
+  "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value]"
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+storageAccountSettings: {
+  storageAccountName: storageAccountName
+  storageAccountKey: listKeys(resourceId('Microsoft.Storage/storageAccounts', storageAccountName), '2019-06-01').keys[0].value
+}
+
+```
+
+---
+
 O exemplo a seguir mostra uma função de lista que usa um parâmetro. Nesse caso, a função é **listAccountSas**. Passe um objeto para a hora de expiração. A data de validade deve ser futura.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "parameters": {
-    "accountSasProperties": {
-        "type": "object",
-        "defaultValue": {
-            "signedServices": "b",
-            "signedPermission": "r",
-            "signedExpiry": "2020-08-20T11:00:00Z",
-            "signedResourceTypes": "s"
-        }
+  "accountSasProperties": {
+    "type": "object",
+    "defaultValue": {
+      "signedServices": "b",
+      "signedPermission": "r",
+      "signedExpiry": "2020-08-20T11:00:00Z",
+      "signedResourceTypes": "s"
     }
+  }
 },
 ...
 "sasToken": "[listAccountSas(parameters('storagename'), '2018-02-01', parameters('accountSasProperties')).accountSasToken]"
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param accountSasProperties object {
+  default: {
+    signedServices: 'b'
+    signedPermission: 'r'
+    signedExpiry: '2020-08-20T11:00:00Z'
+    signedResourceTypes: 's'
+  }
+}
+...
+sasToken: listAccountSas(storagename, '2018-02-01', accountSasProperties).accountSasToken
+```
+
+---
 
 ## <a name="pickzones"></a>pickZones
 
@@ -383,34 +477,46 @@ Quando o tipo de recurso ou a região não dá suporte a zonas, uma matriz vazia
 
 O modelo a seguir mostra três resultados para usar a função pickZones.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "functions": [],
-    "variables": {},
-    "resources": [],
-    "outputs": {
-        "supported": {
-            "type": "array",
-            "value": "[pickZones('Microsoft.Compute', 'virtualMachines', 'westus2')]"
-        },
-        "notSupportedRegion": {
-            "type": "array",
-            "value": "[pickZones('Microsoft.Compute', 'virtualMachines', 'northcentralus')]"
-        },
-        "notSupportedType": {
-            "type": "array",
-            "value": "[pickZones('Microsoft.Cdn', 'profiles', 'westus2')]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "functions": [],
+  "variables": {},
+  "resources": [],
+  "outputs": {
+    "supported": {
+      "type": "array",
+      "value": "[pickZones('Microsoft.Compute', 'virtualMachines', 'westus2')]"
+    },
+    "notSupportedRegion": {
+      "type": "array",
+      "value": "[pickZones('Microsoft.Compute', 'virtualMachines', 'northcentralus')]"
+    },
+    "notSupportedType": {
+      "type": "array",
+      "value": "[pickZones('Microsoft.Cdn', 'profiles', 'westus2')]"
     }
+  }
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output supported array = pickZones('Microsoft.Compute', 'virtualMachines', 'westus2')
+output notSupportedRegion array = pickZones('Microsoft.Compute', 'virtualMachines', 'northcentralus')
+output notSupportedType array = pickZones('Microsoft.Cdn', 'profiles', 'westus2')
+```
+
+---
+
 A saída dos exemplos anteriores retorna três matrizes.
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | com suporte | matriz | ["1"] |
 | notSupportedRegion | matriz | [] |
@@ -418,11 +524,20 @@ A saída dos exemplos anteriores retorna três matrizes.
 
 Você pode usar a resposta de pickZones para determinar se deve fornecer NULL para zonas ou atribuir máquinas virtuais a diferentes zonas. O exemplo a seguir define um valor para a zona com base na disponibilidade de zonas.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 "zones": {
-    "value": "[if(not(empty(pickZones('Microsoft.Compute', 'virtualMachines', 'westus2'))), string(add(mod(copyIndex(),3),1)), json('null'))]"
+  "value": "[if(not(empty(pickZones('Microsoft.Compute', 'virtualMachines', 'westus2'))), string(add(mod(copyIndex(),3),1)), json('null'))]"
 },
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+> [!NOTE]
+> Loops e copyIndex () ainda não foram implementados.  Consulte [loops](https://github.com/Azure/bicep/blob/main/docs/spec/loops.md).
+
+---
 
 ## <a name="providers"></a>providers
 
@@ -443,9 +558,9 @@ Cada tipo com suporte é retornado no seguinte formato:
 
 ```json
 {
-    "resourceType": "{name of resource type}",
-    "locations": [ all supported locations ],
-    "apiVersions": [ all supported API versions ]
+  "resourceType": "{name of resource type}",
+  "locations": [ all supported locations ],
+  "apiVersions": [ all supported API versions ]
 }
 ```
 
@@ -455,27 +570,40 @@ A ordenação de matriz dos valores retornados não é garantida.
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/providers.json) a seguir mostra como usar a função do provedor:
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "providerNamespace": {
-            "type": "string"
-        },
-        "resourceType": {
-            "type": "string"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "providerNamespace": {
+      "type": "string"
     },
-    "resources": [],
-    "outputs": {
-        "providerOutput": {
-            "value": "[providers(parameters('providerNamespace'), parameters('resourceType'))]",
-            "type" : "object"
-        }
+    "resourceType": {
+      "type": "string"
     }
+  },
+  "resources": [],
+  "outputs": {
+    "providerOutput": {
+      "type": "object",
+      "value": "[providers(parameters('providerNamespace'), parameters('resourceType'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param providerNamespace string
+param resourceType string
+
+output providerOutput array = providers(providerNamespace, resourceType)
+```
+
+---
 
 Para o provedor de recursos **Microsoft.Web** e o tipo de recurso **sites**, o exemplo anterior retorna um objeto no seguinte formato:
 
@@ -523,24 +651,39 @@ A função de referência recupera o estado de runtime de um recurso implantado 
 
 Normalmente, você usa a função **reference** para retornar um valor específico de um objeto, como o URI do ponto de extremidade de blob ou o nome de domínio totalmente qualificado.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 "outputs": {
-    "BlobUri": {
-        "value": "[reference(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))).primaryEndpoints.blob]",
-        "type" : "string"
-    },
-    "FQDN": {
-        "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('ipAddressName'))).dnsSettings.fqdn]",
-        "type" : "string"
-    }
+  "BlobUri": {
+    "type": "string",
+    "value": "[reference(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))).primaryEndpoints.blob]"
+  },
+  "FQDN": {
+    "type": "string",
+    "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('ipAddressName'))).dnsSettings.fqdn]"
+  }
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output BlobUri string = reference(resourceId('Microsoft.Storage/storageAccounts', storageAccountName)).primaryEndpoints.blob
+output FQDN string = reference(resourceId('Microsoft.Network/publicIPAddresses', ipAddressName)).dnsSettings.fqdn
+```
+
+---
+
 Use `'Full'` quando precisar de valores de recurso que não fizerem parte do esquema de propriedades. Por exemplo, para definir políticas de acesso ao cofre de chaves, obtenha as propriedades de identidade de uma máquina virtual.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
   "type": "Microsoft.KeyVault/vaults",
+  "apiVersion": "2019-09-01",
+  "name": "vaultName",
   "properties": {
     "tenantId": "[subscription().tenantId]",
     "accessPolicies": [
@@ -560,6 +703,33 @@ Use `'Full'` quando precisar de valores de recurso que não fizerem parte do esq
     ...
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+resource myVault 'Microsoft.KeyVault/vaults@2019-09-01' = {
+  name: 'vaultName'
+  properties: {
+    tenantId: subscription().tenantId
+    accessPolicies: [
+      {
+        'tenantId': reference(resourceId('Microsoft.Compute/virtualMachines', vmName), '2019-03-01', 'Full').identity.tenantId
+        'objectId': reference(resourceId('Microsoft.Compute/virtualMachines', vmName), '2019-03-01', 'Full').identity.principalId
+        'permissions': {
+          'keys': [
+            'all'
+          ]
+          'secrets': [
+            'all'
+          ]
+        }
+      }
+    ]
+  }
+}
+```
+
+---
+
 ### <a name="valid-uses"></a>Usos válidos
 
 A função de referência pode ser usada somente nas propriedades de uma definição de recurso e na seção de saídas de um modelo ou uma implantação. Quando usado com [iteração de propriedade](copy-properties.md), você pode usar a função de referência para `input` porque a expressão é atribuída à propriedade de recurso.
@@ -578,21 +748,51 @@ Usando a função de referência, você implicitamente declarar que um recurso d
 
 Ao fazer referência a um recurso implantado no mesmo modelo, forneça o nome do recurso.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 "value": "[reference(parameters('storageAccountName'))]"
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+value: reference(storageAccountName)
+```
+
+---
+
 Ao fazer referência a um recurso que não está implantado no mesmo modelo, forneça a ID de recurso e `apiVersion`.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+value: reference(resourceId(storageResourceGroup, 'Microsoft.Storage/storageAccounts', storageAccountName), '2018-07-01')]"
+```
+
+---
+
 Para evitar ambiguidade sobre qual recurso você está referenciando, forneça um identificador de recurso totalmente qualificado.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('ipAddressName')))]"
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+value: reference(resourceId('Microsoft.Network/publicIPAddresses', ipAddressName))
+```
+
+---
 
 Ao construir uma referência totalmente qualificada a um recurso, a ordem para combinação dos segmentos do tipo e do nome não é simplesmente uma concatenação dos dois. Em vez disso, após o namespace, use uma sequência de pares *tipo/nome* do menos específico para o mais específico:
 
@@ -614,39 +814,61 @@ O padrão é:
 
 Por exemplo, para obter a ID da entidade de segurança para uma identidade gerenciada que é aplicada a uma máquina virtual, use:
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 "[reference(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')),'2019-12-01', 'Full').identity.principalId]",
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+reference(resourceId('Microsoft.Compute/virtualMachines', vmName),'2019-12-01', 'Full').identity.principalId
+```
+
+---
+
 Ou, para obter a ID de locatário para uma identidade gerenciada que é aplicada a um conjunto de dimensionamento de máquinas virtuais, use:
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), 2019-12-01, 'Full').Identity.tenantId]"
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  vmNodeType0Name), 2019-12-01, 'Full').Identity.tenantId
+```
+
+---
+
 ### <a name="reference-example"></a>Exemplo de referência
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/referencewithstorage.json) a seguir implanta um recurso e faz referência a esse recurso.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-      "storageAccountName": {
-          "type": "string"
-      }
+    "storageAccountName": {
+      "type": "string"
+    }
   },
   "resources": [
     {
-      "name": "[parameters('storageAccountName')]",
       "type": "Microsoft.Storage/storageAccounts",
       "apiVersion": "2016-12-01",
+      "name": "[parameters('storageAccountName')]",
+      "location": "[resourceGroup().location]",
       "sku": {
         "name": "Standard_LRS"
       },
       "kind": "Storage",
-      "location": "[resourceGroup().location]",
       "tags": {},
       "properties": {
       }
@@ -654,8 +876,8 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
   ],
   "outputs": {
       "referenceOutput": {
-          "type": "object",
-          "value": "[reference(parameters('storageAccountName'))]"
+        "type": "object",
+        "value": "[reference(parameters('storageAccountName'))]"
       },
       "fullReferenceOutput": {
         "type": "object",
@@ -664,6 +886,28 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
     }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param storageAccountName string
+
+resource myStorage 'Microsoft.Storage/storageAccounts@2016-12-01' = {
+  name: storageAccountName
+  location: resourceGroup().location
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'Storage'
+  tags: {}
+  properties: {}
+}
+
+output referenceOutput object = reference(storageAccountName)
+output fullReferenceOutput object = reference(storageAccountName, '2016-12-01', 'Full')
+```
+
+---
 
 O exemplo anterior retorna os dois objetos. O objeto de propriedades tem o seguinte formato:
 
@@ -722,27 +966,40 @@ O objeto completo tem o seguinte formato:
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json) a seguir faz referência a uma conta de armazenamento que não está implantada nesse modelo. A conta de armazenamento já existe na mesma assinatura.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storageResourceGroup": {
-            "type": "string"
-        },
-        "storageAccountName": {
-            "type": "string"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageResourceGroup": {
+      "type": "string"
     },
-    "resources": [],
-    "outputs": {
-        "ExistingStorage": {
-            "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]",
-            "type": "object"
-        }
+    "storageAccountName": {
+      "type": "string"
     }
+  },
+  "resources": [],
+  "outputs": {
+    "ExistingStorage": {
+      "type": "object",
+      "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param storageResourceGroup string
+param storageAccountName string
+
+output ExistingStorage object = reference(resourceId(storageAccountName), 'Microsoft.Storage/storageAccounts', storageAccountName), '2018-07-01')
+```
+
+---
 
 ## <a name="resourcegroup"></a>resourceGroup
 
@@ -773,40 +1030,60 @@ A propriedade **managedBy** é retornada somente para grupos de recursos que con
 
 ### <a name="remarks"></a>Comentários
 
-A função `resourceGroup()` não pode ser usada em um modelo que está [implantado no nível da assinatura](deploy-to-subscription.md). Ela só pode ser usada em modelos que são implantados em um grupo de recursos. Você pode usar a função `resourceGroup()` em um [modelo vinculado ou aninhado (com escopo interno)](linked-templates.md) que se destina a um grupo de recursos, mesmo quando o modelo pai é implantado na assinatura. Nesse cenário, o modelo vinculado ou aninhado é implantado no nível do grupo de recursos. Para obter mais informações sobre como direcionar um grupo de recursos em uma implantação em nível de assinatura, confira [implantar recursos do Azure em mais de uma assinatura ou grupo de recursos](cross-scope-deployment.md).
+A função `resourceGroup()` não pode ser usada em um modelo que está [implantado no nível da assinatura](deploy-to-subscription.md). Ela só pode ser usada em modelos que são implantados em um grupo de recursos. Você pode usar a função `resourceGroup()` em um [modelo vinculado ou aninhado (com escopo interno)](linked-templates.md) que se destina a um grupo de recursos, mesmo quando o modelo pai é implantado na assinatura. Nesse cenário, o modelo vinculado ou aninhado é implantado no nível do grupo de recursos. Para obter mais informações sobre como direcionar um grupo de recursos em uma implantação em nível de assinatura, confira [implantar recursos do Azure em mais de uma assinatura ou grupo de recursos](./deploy-to-resource-group.md).
 
 Um uso comum da função resourceGroup é criar recursos no mesmo local que o grupo de recursos. O exemplo a seguir usa o local do grupo de recursos para um valor de parâmetro padrão.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 "parameters": {
-    "location": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]"
-    }
+  "location": {
+    "type": "string",
+    "defaultValue": "[resourceGroup().location]"
+  }
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param location string = resourceGroup().location
+```
+
+---
+
 Você também pode usar a função resourceGroup para aplicar marcas do grupo de recursos a um recurso. Para obter mais informações, confira [Aplicar marcas do grupo de recursos](../management/tag-resources.md#apply-tags-from-resource-group).
 
-Ao usar modelos aninhados para implantar em vários grupos de recursos, você pode especificar o escopo para avaliar a função resourceGroup. Para saber mais, consulte [Implantar recursos do Azure em mais de uma assinatura ou grupo de recursos](cross-scope-deployment.md).
+Ao usar modelos aninhados para implantar em vários grupos de recursos, você pode especificar o escopo para avaliar a função resourceGroup. Para saber mais, consulte [Implantar recursos do Azure em mais de uma assinatura ou grupo de recursos](./deploy-to-resource-group.md).
 
 ### <a name="resource-group-example"></a>Exemplo de grupo de recursos
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourcegroup.json) a seguir retorna as propriedades do grupo de recursos.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "resourceGroupOutput": {
-            "value": "[resourceGroup()]",
-            "type" : "object"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "resourceGroupOutput": {
+      "type" : "object",
+      "value": "[resourceGroup()]"
     }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output resourceGroupOutput object = resourceGroup()
+```
+
+---
 
 O exemplo anterior retorna um objeto no seguinte formato:
 
@@ -876,105 +1153,198 @@ O número de parâmetros que você fornece varia dependendo de o recurso ser pai
 
 Para obter a ID de recurso de um recurso pai na mesma assinatura e grupo de recursos, forneça o tipo e o nome do recurso.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 "[resourceId('Microsoft.ServiceBus/namespaces', 'namespace1')]"
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+resourceId('Microsoft.ServiceBus/namespaces', 'namespace1')
+```
+
+---
+
 Para obter a ID de recurso de um recurso filho, preste atenção ao número de segmentos no tipo de recurso. Forneça um nome de recurso para cada segmento do tipo de recurso. O nome do segmento corresponde ao recurso que existe para essa parte da hierarquia.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "[resourceId('Microsoft.ServiceBus/namespaces/queues/authorizationRules', 'namespace1', 'queue1', 'auth1')]"
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+resourceId('Microsoft.ServiceBus/namespaces/queues/authorizationRules', 'namespace1', 'queue1', 'auth1')
+```
+
+---
+
 Para obter a ID de recurso de um recurso na mesma assinatura, mas em um grupo de recursos diferente, forneça o nome do grupo de recursos.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts', 'examplestorage')]"
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts', 'examplestorage')
+```
+
+---
+
 Para obter a ID de recurso de um recurso em uma assinatura e um grupo de recursos diferentes, forneça a ID da assinatura e o nome do grupo de recursos.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "[resourceId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+resourceId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')
+```
+
+---
+
 Frequentemente, você precisa usar essa função ao usar uma conta de armazenamento ou rede virtual em um grupo de recursos alternativo. O exemplo a seguir mostra como um recurso de um grupo de recursos externo pode ser facilmente usado:
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-      "virtualNetworkName": {
-          "type": "string"
-      },
-      "virtualNetworkResourceGroup": {
-          "type": "string"
-      },
-      "subnet1Name": {
-          "type": "string"
-      },
-      "nicName": {
-          "type": "string"
-      }
+    "location": {
+      "type": "string"
+    },
+    "virtualNetworkName": {
+      "type": "string"
+    },
+    "virtualNetworkResourceGroup": {
+      "type": "string"
+    },
+    "subnet1Name": {
+      "type": "string"
+    },
+    "nicName": {
+      "type": "string"
+    }
   },
   "variables": {
-      "subnet1Ref": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnet1Name'))]"
+    "subnet1Ref": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnet1Name'))]"
   },
   "resources": [
-  {
-      "apiVersion": "2015-05-01-preview",
+    {
       "type": "Microsoft.Network/networkInterfaces",
+      "apiVersion": "2015-05-01-preview",
       "name": "[parameters('nicName')]",
       "location": "[parameters('location')]",
       "properties": {
-          "ipConfigurations": [{
-              "name": "ipconfig1",
-              "properties": {
-                  "privateIPAllocationMethod": "Dynamic",
-                  "subnet": {
-                      "id": "[variables('subnet1Ref')]"
-                  }
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "privateIPAllocationMethod": "Dynamic",
+              "subnet": {
+                "id": "[variables('subnet1Ref')]"
               }
-          }]
-       }
-  }]
+            }
+          }
+        ]
+      }
+    }
+  ]
 }
 ```
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param location string
+param virtualNetworkName string
+param virtualNetworkResourceGroup string
+param subnet1Name string
+param nicName string
+
+var subnet1Ref = resourceId('virtualNetworkResourceGroup', 'Microsoft.Network/virtualNetworks/subnets', 'virtualNetworkName', 'subnet1Name')
+
+resource myInterface 'Microsoft.Network/networkInterfaces@2015-05-01-preview' = {
+  name: nicName
+  location: location
+  properties: {
+    ipConfigurations: [
+      {
+        name: 'ipconfig1'
+        properties: {
+          privateIPAllocationMethod: 'Dynamic'
+          subnet: {
+            id: subnet1Ref
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
+---
+
 
 ### <a name="resource-id-example"></a>Exemplo de ID de recurso
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceid.json) a seguir retorna a ID de recurso de uma conta de armazenamento no grupo de recursos:
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "sameRGOutput": {
-            "value": "[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]",
-            "type" : "string"
-        },
-        "differentRGOutput": {
-            "value": "[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]",
-            "type" : "string"
-        },
-        "differentSubOutput": {
-            "value": "[resourceId('11111111-1111-1111-1111-111111111111', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]",
-            "type" : "string"
-        },
-        "nestedResourceOutput": {
-            "value": "[resourceId('Microsoft.SQL/servers/databases', 'serverName', 'databaseName')]",
-            "type" : "string"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "sameRGOutput": {
+      "type": "string",
+      "value": "[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]"
+    },
+    "differentRGOutput": {
+      "type": "string",
+      "value": "[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
+    },
+    "differentSubOutput": {
+      "type": "string",
+      "value": "[resourceId('11111111-1111-1111-1111-111111111111', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
+    },
+    "nestedResourceOutput": {
+      "type": "string",
+      "value": "[resourceId('Microsoft.SQL/servers/databases', 'serverName', 'databaseName')]"
     }
+  }
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output sameRGOutput string = resourceId('Microsoft.Storage/storageAccounts','examplestorage')
+output differentRGOutput string = resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')
+output differentSubOutput string = resourceId('11111111-1111-1111-1111-111111111111', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')
+output nestedResourceOutput string = resourceId('Microsoft.SQL/servers/databases', 'serverName', 'databaseName')
+```
+
+---
+
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
@@ -993,34 +1363,44 @@ A função retorna o seguinte formato:
 
 ```json
 {
-    "id": "/subscriptions/{subscription-id}",
-    "subscriptionId": "{subscription-id}",
-    "tenantId": "{tenant-id}",
-    "displayName": "{name-of-subscription}"
+  "id": "/subscriptions/{subscription-id}",
+  "subscriptionId": "{subscription-id}",
+  "tenantId": "{tenant-id}",
+  "displayName": "{name-of-subscription}"
 }
 ```
 
 ### <a name="remarks"></a>Comentários
 
-Ao usar modelos aninhados para implantar em várias assinaturas, você pode especificar o escopo para avaliar a função de assinatura. Para saber mais, consulte [Implantar recursos do Azure em mais de uma assinatura ou grupo de recursos](cross-scope-deployment.md).
+Ao usar modelos aninhados para implantar em várias assinaturas, você pode especificar o escopo para avaliar a função de assinatura. Para saber mais, consulte [Implantar recursos do Azure em mais de uma assinatura ou grupo de recursos](./deploy-to-resource-group.md).
 
 ### <a name="subscription-example"></a>Exemplo de assinatura
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json) a seguir mostra a função de assinatura chamada na seção de saídas.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "subscriptionOutput": {
-            "value": "[subscription()]",
-            "type" : "object"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "subscriptionOutput": {
+      "value": "[subscription()]",
+      "type" : "object"
     }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output subscriptionOutput object = subscription()
+```
+
+---
 
 ## <a name="subscriptionresourceid"></a>subscriptionResourceId
 
@@ -1055,54 +1435,104 @@ Use essa função para obter a ID de recurso dos recursos que são [implantados 
 
 O modelo a seguir atribui uma função interna. Você pode implantá-lo em um grupo de recursos ou assinatura. Ele usa a função subscriptionResourceId para obter a ID de recurso para funções internas.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "principalId": {
-            "type": "string",
-            "metadata": {
-                "description": "The principal to assign the role to"
-            }
-        },
-        "builtInRoleType": {
-            "type": "string",
-            "allowedValues": [
-                "Owner",
-                "Contributor",
-                "Reader"
-            ],
-            "metadata": {
-                "description": "Built-in role to assign"
-            }
-        },
-        "roleNameGuid": {
-            "type": "string",
-            "defaultValue": "[newGuid()]",
-            "metadata": {
-                "description": "A new GUID used to identify the role assignment"
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "principalId": {
+      "type": "string",
+      "metadata": {
+        "description": "The principal to assign the role to"
+      }
     },
-    "variables": {
-        "Owner": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635')]",
-        "Contributor": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'b24988ac-6180-42a0-ab88-20f7382dd24c')]",
-        "Reader": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
+    "builtInRoleType": {
+      "type": "string",
+      "allowedValues": [
+        "Owner",
+        "Contributor",
+        "Reader"
+      ],
+      "metadata": {
+        "description": "Built-in role to assign"
+      }
     },
-    "resources": [
-        {
-            "type": "Microsoft.Authorization/roleAssignments",
-            "apiVersion": "2018-09-01-preview",
-            "name": "[parameters('roleNameGuid')]",
-            "properties": {
-                "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
-                "principalId": "[parameters('principalId')]"
-            }
-        }
-    ]
+    "roleNameGuid": {
+      "type": "string",
+      "defaultValue": "[newGuid()]",
+      "metadata": {
+        "description": "A new GUID used to identify the role assignment"
+      }
+    }
+  },
+  "variables": {
+    "Owner": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635')]",
+    "Contributor": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'b24988ac-6180-42a0-ab88-20f7382dd24c')]",
+    "Reader": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/roleAssignments",
+      "apiVersion": "2018-09-01-preview",
+      "name": "[parameters('roleNameGuid')]",
+      "properties": {
+        "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
+        "principalId": "[parameters('principalId')]"
+      }
+    }
+  ]
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param principalId string {
+  metadata: {
+    'description': 'principalId'
+  }
+}
+param builtInRoleType string {
+  'allowed': [
+    'Owner'
+    'Contributor'
+    'Reader'
+  ]
+  'metadata': {
+      'description': 'Built-in role to assign'
+  }
+}
+param roleNameGuid string {
+  default: newGuid()
+  metadata: {
+    'description': 'A new GUID used to identify the role assignment'
+  }
+}
+
+var roleDefinitionId = {
+  Owner: {
+    id: subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635')
+  }
+  Contributor: {
+    id: subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'b24988ac-6180-42a0-ab88-20f7382dd24c')
+  }
+  Reader: {
+    id: subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')
+  }
+}
+
+resource myRoleAssignment 'Microsoft.Authorization/roleAssignments@2018-09-01-preview' = {
+  name: roleNameGuid
+  properties: {
+    roleDefinitionId: roleDefinitionId[builtInRoleType].id
+    principalId: principalId
+  }
+}
+```
+
+---
 
 ## <a name="tenantresourceid"></a>tenantResourceId
 
@@ -1136,23 +1566,25 @@ Você usa essa função para obter a ID do recurso para um recurso que é implan
 
 As definições de política internas são recursos de nível de locatário. Para implantar uma atribuição de política que faz referência a uma definição de política interna, use a função tenantResourceId.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "policyAssignmentName": {
-      "type": "string",
-      "defaultValue": "[guid(parameters('policyDefinitionID'), resourceGroup().name)]",
-      "metadata": {
-        "description": "Specifies the name of the policy assignment, can be used defined or an idempotent name as the defaultValue provides."
-      }
-    },
     "policyDefinitionID": {
       "type": "string",
       "defaultValue": "0a914e76-4921-4c19-b460-a2d36003525a",
       "metadata": {
         "description": "Specifies the ID of the policy definition or policy set definition being assigned."
+      }
+    },
+    "policyAssignmentName": {
+      "type": "string",
+      "defaultValue": "[guid(parameters('policyDefinitionID'), resourceGroup().name)]",
+      "metadata": {
+        "description": "Specifies the name of the policy assignment, can be used defined or an idempotent name as the defaultValue provides."
       }
     }
   },
@@ -1170,10 +1602,37 @@ As definições de política internas são recursos de nível de locatário. Par
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param policyDefinitionID string{
+  default: '0a914e76-4921-4c19-b460-a2d36003525a'
+  metadata: {
+    'description': 'Specifies the ID of the policy definition or policy set definition being assigned.'
+  }
+}
+
+param policyAssignmentName string {
+  default: guid(policyDefinitionID, resourceGroup().name)
+  metadata: {
+    'description': 'Specifies the name of the policy assignment, can be used defined or an idempotent name as the defaultValue provides.'
+  }
+}
+
+resource myPolicyAssignment 'Microsoft.Authorization/policyAssignments@2019-09-01' = {
+  name: policyAssignmentName
+  properties: {
+    scope: subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)
+    policyDefinitionId: tenantResourceId('Microsoft.Authorization/policyDefinitions', policyDefinitionID)
+  }
+}
+```
+
+---
+
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter uma descrição das seções de um modelo do Azure Resource Manager, veja [Criando modelos do Azure Resource Manager](template-syntax.md).
-* Para mesclar vários modelos, veja [Usando modelos vinculados com o Azure Resource Manager](linked-templates.md).
-* Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](copy-resources.md).
-* Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o Modelo do Azure Resource Manager](deploy-powershell.md).
-
+* Para obter uma descrição das seções em um modelo do ARM, consulte [entender a estrutura e a sintaxe de modelos do ARM](template-syntax.md).
+* Para mesclar vários modelos, consulte [usando modelos vinculados e aninhados ao implantar recursos do Azure](linked-templates.md).
+* Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte [iteração de recurso em modelos ARM](copy-resources.md).
+* Para ver como implantar o modelo que você criou, consulte [implantar recursos com modelos ARM e Azure PowerShell](deploy-powershell.md).

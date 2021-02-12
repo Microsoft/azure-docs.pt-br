@@ -7,17 +7,18 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: e5eff13c9ec672937258cf35274d2f5f7bc66f18
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 10f01fd5943928eda1f1e4518f30c8e3ccf56b46
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164237"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737788"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Preparar máquinas virtuais para um FCI (SQL Server em VMs do Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -43,26 +44,31 @@ As definições de configuração para sua máquina virtual variam de acordo com
 
 ## <a name="configure-vm-availability"></a>Configurar a disponibilidade da VM 
 
-O recurso de cluster de failover requer que as máquinas virtuais sejam colocadas em um [conjunto de disponibilidade](../../../virtual-machines/linux/tutorial-availability-sets.md) ou em uma [zona de disponibilidade](../../../availability-zones/az-overview.md#availability-zones). Se você escolher conjuntos de disponibilidade, poderá usar [grupos de posicionamento de proximidade](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) para localizar as VMs de perto. Na verdade, os grupos de posicionamento de proximidade são um pré-requisito para usar os discos compartilhados do Azure. 
+O recurso de cluster de failover requer que as máquinas virtuais sejam colocadas em um [conjunto de disponibilidade](../../../virtual-machines/linux/tutorial-availability-sets.md) ou em uma [zona de disponibilidade](../../../availability-zones/az-overview.md#availability-zones). Se você escolher conjuntos de disponibilidade, poderá usar [grupos de posicionamento de proximidade](../../../virtual-machines/co-location.md#proximity-placement-groups) para localizar as VMs de perto. Na verdade, os grupos de posicionamento de proximidade são um pré-requisito para usar os discos compartilhados do Azure. 
 
 Selecione cuidadosamente a opção de disponibilidade de VM que corresponde à configuração de cluster pretendida: 
 
- - **Discos compartilhados do Azure**: [conjunto de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) configurado com o domínio de falha e o domínio de atualização definido como 1 e colocados dentro de um [grupo de posicionamento de proximidade](../../../virtual-machines/windows/proximity-placement-groups-portal.md).
- - **Compartilhamentos de arquivos Premium**: [conjunto de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) ou [zona de disponibilidade](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address). Os compartilhamentos de arquivos Premium serão a única opção de armazenamento compartilhado se você escolher zonas de disponibilidade como a configuração de disponibilidade para suas VMs. 
- - **Espaços de armazenamento diretos**: [conjunto de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
+- **Discos compartilhados do Azure**: a opção de disponibilidade varia se você estiver usando SSDs ou UltraDisk Premium:
+   - SSD Premium: [conjunto de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) em diferentes domínios de falha/atualização para SSDs Premium colocados dentro de um [grupo de posicionamento de proximidade](../../../virtual-machines/windows/proximity-placement-groups-portal.md).
+   - Ultra Disk: a [zona de disponibilidade](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) , mas as VMs devem ser colocadas na mesma zona de disponibilidade, o que reduz a disponibilidade do cluster para 99,9%. 
+- **Compartilhamentos de arquivos Premium**: [conjunto de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) ou [zona de disponibilidade](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address).
+- **Espaços de armazenamento diretos**: [conjunto de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
 
->[!IMPORTANT]
->Você não pode definir nem alterar o conjunto de disponibilidade depois de criar uma máquina virtual.
+> [!IMPORTANT]
+> Você não pode definir nem alterar o conjunto de disponibilidade depois de criar uma máquina virtual.
 
 ## <a name="create-the-virtual-machines"></a>Criar as máquinas virtuais
 
 Depois de configurar a disponibilidade da VM, você estará pronto para criar suas máquinas virtuais. Você pode optar por usar uma imagem do Azure Marketplace que faz ou não tem SQL Server já instalado. No entanto, se você escolher uma imagem para SQL Server em VMs do Azure, será necessário desinstalar o SQL Server da máquina virtual antes de configurar a instância de cluster de failover. 
 
+### <a name="considerations"></a>Considerações
+
+Em um cluster de failover de convidado de VM do Azure, recomendamos uma única NIC por servidor (nó de cluster) e uma única sub-rede. A Rede do Azure tem redundância física, o que torna desnecessários os adaptadores de rede e as sub-redes adicionais em um cluster convidado de uma VM de IaaS do Azure. Embora o relatório de validação de cluster emita um aviso de que os nós só são acessíveis em uma única rede, esse aviso pode ser ignorado com segurança em clusters de failover de convidado de uma VM de IaaS do Azure.
 
 Coloque as duas máquinas virtuais:
 
 - No mesmo grupo de recursos do Azure que seu conjunto de disponibilidade, se você estiver usando conjuntos de disponibilidade.
-- Na mesma rede virtual que o controlador de domínio.
+- Na mesma rede virtual que o controlador de domínio ou em uma rede virtual que tem conectividade adequada com seu controlador de domínio.
 - Em uma sub-rede que tenha espaço de endereços IP suficiente para ambas as máquinas virtuais e todas as FCIs que você possa eventualmente usar nesse cluster.
 - No conjunto de disponibilidade do Azure ou na zona de disponibilidade.
 
@@ -71,15 +77,15 @@ Você pode criar uma máquina virtual do Azure usando uma imagem [com](sql-vm-cr
 
 ## <a name="uninstall-sql-server"></a>Desinstalar o SQL Server
 
-Como parte do processo de criação de FCI, você instalará SQL Server como uma instância clusterizada no cluster de failover. *Se você implantou uma máquina virtual com uma imagem do Azure Marketplace sem SQL Server, você pode ignorar esta etapa.* Se você implantou uma imagem com SQL Server pré-instalado, precisará cancelar o registro da VM SQL Server do provedor de recursos da VM do SQL e, em seguida, desinstalar o SQL Server. 
+Como parte do processo de criação de FCI, você instalará SQL Server como uma instância clusterizada no cluster de failover. *Se você implantou uma máquina virtual com uma imagem do Azure Marketplace sem SQL Server, você pode ignorar esta etapa.* Se você implantou uma imagem com SQL Server pré-instalado, precisará cancelar o registro da VM SQL Server da extensão do agente IaaS do SQL e, em seguida, desinstalar o SQL Server. 
 
-### <a name="unregister-from-the-sql-vm-resource-provider"></a>Cancelar o registro do provedor de recursos da VM do SQL
+### <a name="unregister-from-the-sql-iaas-agent-extension"></a>Cancelar o registro da extensão do SQL IaaS Agent
 
-SQL Server imagens de VM do Azure Marketplace são automaticamente registradas com o provedor de recursos de VM do SQL. Antes de desinstalar a instância do SQL Server pré-instalado, você deve primeiro [cancelar o registro de cada VM SQL Server do provedor de recursos da VM do SQL](sql-vm-resource-provider-register.md#unregister-from-rp). 
+SQL Server imagens de VM do Azure Marketplace são automaticamente registradas com a extensão do SQL IaaS Agent. Antes de desinstalar a instância do SQL Server pré-instalado, você deve primeiro [cancelar o registro de cada VM SQL Server da extensão do agente IaaS do SQL](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension). 
 
 ### <a name="uninstall-sql-server"></a>Desinstalar o SQL Server
 
-Depois de cancelar o registro do provedor de recursos, você pode desinstalar o SQL Server. Siga estas etapas em cada máquina virtual: 
+Depois de cancelar o registro da extensão, você pode desinstalar o SQL Server. Siga estas etapas em cada máquina virtual: 
 
 1. Conecte-se à máquina virtual usando o RDP.
 

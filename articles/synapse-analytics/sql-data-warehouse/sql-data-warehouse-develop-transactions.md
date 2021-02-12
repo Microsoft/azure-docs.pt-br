@@ -1,5 +1,5 @@
 ---
-title: Usar transações no pool do SQL Synapse
+title: Usar transações no pool do SQL do Azure Synapse Analytics
 description: Este artigo inclui dicas para implementar transações e desenvolver soluções no pool de SQL do Synapse.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -9,17 +9,18 @@ ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 03/22/2019
 ms.author: xiaoyul
+ms.custom: azure-synapse
 ms.reviewer: igorstan
-ms.openlocfilehash: 40a9e5268b7fccc5c01775c10e55eee47f1aaf3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8144c588d4b6794cadc0577bf63dabc2cc3e0efd
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213373"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677279"
 ---
-# <a name="use-transactions-in-synapse-sql-pool"></a>Usar transações no pool do SQL Synapse
+# <a name="use-transactions-in-a-sql-pool-in-azure-synapse"></a>Usar transações em um pool do SQL no Azure Synapse 
 
-Este artigo inclui dicas para implementar transações e desenvolver soluções no pool do SQL.
+Este artigo inclui dicas para implementar transações e desenvolver soluções em um pool do SQL.
 
 ## <a name="what-to-expect"></a>O que esperar
 
@@ -27,9 +28,9 @@ Como era esperado, o pool de SQL oferece suporte a transações como parte da ca
 
 ## <a name="transaction-isolation-levels"></a>Níveis de isolamento da transação
 
-O pool de SQL implementa transações ACID. O nível de isolamento do suporte transacional usa como padrão READ UNCOMMITTED.  Você pode alterá-lo para to READ COMMITTED SNAPSHOT ISOLATION selecionando ON na opção de banco de dados READ_COMMITTED_SNAPSHOT para um banco de dados do usuário quando conectado ao banco de dados mestre.  
+O pool de SQL implementa transações ACID. O nível de isolamento do suporte transacional usa como padrão READ UNCOMMITTED.  Você pode alterá-lo para ler o isolamento de instantâneo confirmado ativando a opção de banco de dados READ_COMMITTED_SNAPSHOT para um pool SQL de usuário quando conectado ao banco de dados mestre.  
 
-Após a habilitação, todas as transações nesse banco de dados serão executadas em READ COMMITTED SNAPSHOT ISOLATION, e a configuração READ UNCOMMITTED no nível da sessão não será respeitada. Confira [Opções ALTER DATABASE SET (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para detalhes.
+Após a habilitação, todas as transações nesse banco de dados serão executadas em READ COMMITTED SNAPSHOT ISOLATION, e a configuração READ UNCOMMITTED no nível da sessão não será respeitada. Confira [Opções ALTER DATABASE SET (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para detalhes.
 
 ## <a name="transaction-size"></a>Tamanho da transação
 
@@ -44,7 +45,7 @@ Na tabela a seguir, foram feitas duas suposições:
 
 ## <a name="gen2"></a>Gen2
 
-| [DWU](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Limite por distribuição (GB) | Número de distribuições | Tamanho máximo de transações (GB) | Nº de linhas por distribuição | Máximo de linhas por transação |
+| [DWU](./sql-data-warehouse-overview-what-is.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) | Limite por distribuição (GB) | Número de distribuições | Tamanho máximo de transações (GB) | Nº de linhas por distribuição | Máximo de linhas por transação |
 | --- | --- | --- | --- | --- | --- |
 | DW100c |1 |60 |60 |4\.000.000 |240.000.000 |
 | DW200c |1.5 |60 |90 |6\.000.000 |360.000.000 |
@@ -65,7 +66,7 @@ Na tabela a seguir, foram feitas duas suposições:
 
 ## <a name="gen1"></a>Gen1
 
-| [DWU](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Limite por distribuição (GB) | Número de distribuições | Tamanho máximo de transações (GB) | Nº de linhas por distribuição | Máximo de linhas por transação |
+| [DWU](./sql-data-warehouse-overview-what-is.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) | Limite por distribuição (GB) | Número de distribuições | Tamanho máximo de transações (GB) | Nº de linhas por distribuição | Máximo de linhas por transação |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4\.000.000 |240.000.000 |
 | DW200 |1.5 |60 |90 |6\.000.000 |360.000.000 |

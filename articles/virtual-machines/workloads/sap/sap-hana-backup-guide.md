@@ -7,21 +7,22 @@ author: msjuergent
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: b5a83b3976dd3d3af1bfd5695815f7571d73dd9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 340ce84ebe662b976f32048a47fd98d793083065
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88652178"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617095"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Guia de backup para SAP HANA em Máquinas Virtuais do Azure
 
-## <a name="getting-started"></a>Introdução
+## <a name="getting-started"></a>Guia de Introdução
 
 O guia de backup do SAP HANA em execução em máquinas virtuais do Azure descrevem apenas tópicos específicos do Azure. Para obter SAP HANA de itens relacionados ao backup geral, consulte a documentação do SAP HANA. Esperamos que você esteja familiarizado com as estratégias de backup de banco de dados, os motivos e as motivações para ter um som e uma estratégia de backup válida e esteja ciente dos requisitos que sua empresa tem para o procedimento de backup, o período de retenção de backups e o procedimento de restauração.
 
@@ -102,7 +103,7 @@ Informações sobre a verificação de consistência da tabela também podem ser
 
 ### <a name="pros-and-cons-of-hana-backup-versus-storage-snapshot"></a>Prós e contras do backup do HANA versus instantâneo do armazenamento
 
-O SAP não dá preferência para fazer backup do HANA ou instantâneo de armazenamento. Ele lista seus prós e contras, portanto, é possível determinar qual deles usar dependendo da situação e tecnologia de armazenamento disponível (consulte [Planejando sua estratégia de backup e recuperação](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)).
+O SAP não dá preferência para fazer backup do HANA ou instantâneo de armazenamento. Ele lista seus prós e contras, portanto, é possível determinar qual deles usar dependendo da situação e tecnologia de armazenamento disponível (consulte [Planejando sua estratégia de backup e recuperação](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/ef085cd5949c40b788bba8fd3c65743e.html)).
 
 No Azure, esteja ciente do fato de que o recurso de instantâneo de blob do Azure não&#39;a fornecer consistência do sistema de arquivos em vários discos (consulte [usando instantâneos de blob com o PowerShell](/archive/blogs/cie/using-blob-snapshots-with-powershell)). 
 

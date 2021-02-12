@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/15/2020
 ms.author: matjazl
-ms.openlocfilehash: c62593251cb0e19c91d1c4877d1b33fe407ebd06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 096e4e3ecbcedaec674e074a2baccbb336e03c94
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87846999"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95524191"
 ---
 # <a name="configure-local-rbac-for-fhir"></a>Configurar o RBAC local para FHIR 
 
@@ -23,7 +23,7 @@ Este artigo explica como configurar a API do Azure para FHIR para usar um locat�
 
 ## <a name="add-service-principal"></a>Adicionar entidade de serviço
 
-O RBAC local permite que você use um locatário de Azure Active Directory externo com seu servidor FHIR. Para permitir que o sistema RBAC Verifique as associações de grupo nesse locatário, a API do Azure para FHIR deve ter uma entidade de serviço no locatário. Essa entidade de serviço será criada automaticamente em locatários vinculados a assinaturas que implantaram a API do Azure para FHIR, mas, caso seu locatário não tenha nenhuma assinatura vinculada a ela, um administrador de locatários precisará criar essa entidade de serviço com um dos seguintes comandos:
+O RBAC local permite que você use um locatário de Azure Active Directory externo com seu servidor FHIR. Para permitir que o sistema RBAC local Verifique as associações de grupo nesse locatário, a API do Azure para FHIR deve ter uma entidade de serviço no locatário. Essa entidade de serviço será criada automaticamente em locatários vinculados a assinaturas que implantaram a API do Azure para FHIR, mas, caso seu locatário não tenha nenhuma assinatura vinculada a ela, um administrador de locatários precisará criar essa entidade de serviço com um dos seguintes comandos:
 
 Usando o `Az` módulo do PowerShell:
 

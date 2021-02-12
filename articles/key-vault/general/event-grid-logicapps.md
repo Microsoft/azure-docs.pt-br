@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2781ef69ce85e82dab45a9f890ef5e6862949d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c522d870a25b3df34ab6a0cf1c1e944a6462685
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90087976"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013982"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Usar Aplicativos Lógicos para receber email sobre alterações de status de segredos do Key Vault
 
@@ -28,7 +28,7 @@ Para obter uma visão geral da integração entre o Azure Key Vault e a Grade de
 - Uma conta de email de qualquer provedor de email com suporte pelos Aplicativos Lógicos do Azure Apps (como Office 365 Outlook). Essa conta de email é usada para enviar as notificações de eventos. Para obter uma lista completa de conectores de Aplicativos Lógicos com suporte, consulte a [Visão geral dos conectores](/connectors)
 - Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 - Um cofre de chaves na assinatura do Azure. Você pode criar rapidamente um novo cofre de chaves seguindo as etapas em [Definir e recuperar um segredo do Azure Key Vault usando a CLI do Azure](../secrets/quick-create-cli.md).
-- A Grade de Eventos registrada como um provedor de recursos, confira [Registros de provedores de recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)
+- A Grade de Eventos registrada como um provedor de recursos, confira [Registros de provedores de recursos](../../azure-resource-manager/management/resource-providers-and-types.md)
 
 ## <a name="create-a-logic-app-via-event-grid"></a>Criar um aplicativo lógico por meio da Grade de Eventos
 

@@ -1,17 +1,17 @@
 ---
 title: Selecionando o tipo de implantação certo-banco de dados do Azure para MariaDB
 description: Este artigo descreve quais fatores devem ser considerados antes de implantar o banco de dados do Azure para MariaDB como IaaS (infraestrutura como serviço) ou PaaS (plataforma como um serviço).
-author: kummanish
-ms.author: manishku
-ms.service: mariadb
+author: mksuni
+ms.author: sumuth
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 5be6b97ed1647ad09a2abc3360b4f3a42c25ad62
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 921ad8d187f6c2478bdf92aab0ee0ec3c9e75bce
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424910"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664511"
 ---
 # <a name="choose-the-right-mariadb-server-option-in-azure"></a>Escolha a opção de servidor MariaDB correta no Azure
 
@@ -43,7 +43,7 @@ As diferenças principais entre essas opções estão listadas na tabela a segui
 | Operações de banco de dados de monitoramento | Oferece aos clientes a capacidade de [definir alertas](concepts-monitoring.md) na operação de banco de dados e agir sobre o alcance de limites. | Gerenciado por clientes |
 | Proteção Avançada contra Ameaças | Fornece [proteção avançada contra ameaças](howto-database-threat-protection-portal.md). Essa proteção detecta atividades anômalas que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar bancos de dados.<br/><br/>A proteção avançada contra ameaças está atualmente em visualização pública.| Os clientes devem criar essa proteção para si mesmos.
 | Recuperação de desastre | Armazena backups automatizados em armazenamento com redundância [local ou](howto-restore-server-portal.md)com redundância geográfica configurado pelo usuário. Os backups também podem restaurar um servidor para um ponto no tempo. O período de retenção é de 7 a 35 dias. A restauração é realizada usando o portal do Azure. | Totalmente gerenciado pelos clientes. As responsabilidades incluem, mas não se limitam a agendamento, teste, arquivamento, armazenamento e retenção. Uma opção adicional é usar um cofre dos serviços de recuperação do Azure para fazer backup de VMs e bancos de dados do Azure em VMs. Esta opção está em visualização. |
-| Recomendações do desempenho | Fornece aos clientes [recomendações de desempenho](https://techcommunity.microsoft.com/t5/Azure-Database-for-MariaDB/Azure-brings-intelligence-and-high-performance-to-Azure-Database/ba-p/769110) com base em arquivos de log de uso gerados pelo sistema. As recomendações ajudam a otimizar as cargas de trabalho.<br/><br/>As recomendações de desempenho estão atualmente em visualização pública. | Gerenciado por clientes |
+| Recomendações de desempenho | Fornece aos clientes [recomendações de desempenho](https://techcommunity.microsoft.com/t5/Azure-Database-for-MariaDB/Azure-brings-intelligence-and-high-performance-to-Azure-Database/ba-p/769110) com base em arquivos de log de uso gerados pelo sistema. As recomendações ajudam a otimizar as cargas de trabalho.<br/><br/>As recomendações de desempenho estão atualmente em visualização pública. | Gerenciado por clientes |
 
 ## <a name="business-motivations-for-choosing-paas-or-iaas"></a>Motivações de negócios para escolher PaaS ou IaaS
 

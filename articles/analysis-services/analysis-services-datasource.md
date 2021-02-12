@@ -4,15 +4,15 @@ description: Descreve as fontes de fonte de dados e os conectores com suporte pa
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/21/2020
+ms.date: 02/08/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 174ad4692d043390e6773a98e31f0985d75c8e2e
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 03f4d151fc948e4c060989a7d101ad91aecdecb6
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018807"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981486"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Fontes de dados com suporte no Azure Analysis Services
 
@@ -36,7 +36,7 @@ As fontes de dados e conectores mostrados no Assistente Obter Dados ou de Import
 **Observações:**
 
 <a name="tab1400a">1</a> - Tabular 1.400 e modelos superiores somente.  
-<a name="azprovider">2</a> - Quando especificado como uma *fonte de dados* do provedor em modelos tabulares nos níveis de compatibilidade 1200 e superiores, os modelos na memória e DirectQuery exigem o Driver do Microsoft OLE DB para SQL Server MSOLEDBSQL (recomendado), SQL Server Native Client 11.0 ou Provedor de Dados .NET Framework para SQL Server.  
+<a name="azprovider">2</a> -quando especificado como uma fonte de dados de *provedor* nos modelos tabulares 1200 e superior, os modelos na memória e DirectQuery exigem o Microsoft OLE DB driver para SQL Server MSOLEDBSQL (recomendado) ou .NET Framework provedor de dados para SQL Server.  
 <a name="azsqlmanaged">3</a> -há suporte para o Azure SQL instância gerenciada. Como o SQL Instância Gerenciada é executado na VNet do Azure com um endereço IP privado, o ponto de extremidade público deve ser habilitado na instância. Caso não esteja habilitado, é necessário um [Gateway de dados local](analysis-services-gateway.md).  
 <a name="databricks">4</a> - No momento, não há suporte para uso do conector do Spark pelo Azure Databricks.  
 <a name="gen2">5</a> - No momento, não há suporte para o conector ADLS Gen2, no entanto, o conector de Armazenamento de Blobs do Azure pode ser usado com uma fonte de dados do ADLS Gen2.
@@ -118,9 +118,12 @@ Para fontes de dados de nuvem:
 
 * Se estiver usando a autenticação SQL, a representação deverá ser a Conta de serviço.
 
+
 ## <a name="oauth-credentials"></a>Credenciais OAuth
 
-Para modelos de tabela no nível de compatibilidade 1400 e superior usando o modo na memória, o banco de dados SQL do Azure, o Azure Synapse (anteriormente SQL Data Warehouse), o Dynamics 365 e a lista do SharePoint dão suporte a credenciais OAuth. O Azure Analysis Services gerencia a atualização de token para fontes de dados OAuth para evitar tempos limite para operações de atualização de execução de longa duração. Para gerar tokens válidos, defina as credenciais usando Power Query.
+Para modelos de tabela no nível de compatibilidade 1400 e superior usando o modo *na memória* , o banco de dados SQL do Azure, o Azure Synapse, o Dynamics 365 e a lista do SharePoint dão suporte a credenciais OAuth. Para gerar tokens válidos, defina as credenciais usando Power Query. O Azure Analysis Services gerencia a atualização de token para fontes de dados OAuth para evitar tempos limite para operações de atualização de execução de longa duração. 
+> [!NOTE]
+> A atualização de token gerenciada não tem suporte para fontes de dados acessadas por meio de um gateway. Por exemplo, uma ou mais fontes de dados de consulta de mashup são acessadas por meio de um gateway e/ou a propriedade [ASPaaS\AlwaysUseGateway](analysis-services-vnet-gateway.md) é definida como **true**. 
 
 Não há suporte para o modo Direct Query com credenciais OAuth.
 

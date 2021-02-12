@@ -7,11 +7,11 @@ ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 4a847b273472ecc9d2aaa3993ec9d88aa46f2e7f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973862"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017161"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Criar e gerenciar um pacote de suporte do StorSimple da série 8000
 
@@ -66,8 +66,8 @@ Você pode usar os seguintes parâmetros com o cmdlet Export-HcsSupportPackage.
 
 | Parâmetro | Obrigatório/Opcional | Descrição |
 | --- | --- | --- |
-| `-Path` |Necessária |Use para fornecer o local da pasta compartilhada de rede na qual o pacote de suporte é colocado. |
-| `-EncryptionPassphrase` |Necessária |Use para fornecer uma frase secreta para ajudar a criptografar o pacote de suporte. |
+| `-Path` |Obrigatório |Use para fornecer o local da pasta compartilhada de rede na qual o pacote de suporte é colocado. |
+| `-EncryptionPassphrase` |Obrigatório |Use para fornecer uma frase secreta para ajudar a criptografar o pacote de suporte. |
 | `-Credential` |Opcional |Use para fornecer credenciais de acesso para a pasta compartilhada de rede. |
 | `-Force` |Opcional |Use para ignorar a etapa de confirmação de frase secreta de criptografia. |
 | `-PackageTag` |Opcional |Use para especificar um diretório no *Caminho* no qual o pacote de suporte é colocado. O padrão é [nome do dispositivo]-[data e hora atuais:aaaa-MM-dd-HH-mm-ss]. |

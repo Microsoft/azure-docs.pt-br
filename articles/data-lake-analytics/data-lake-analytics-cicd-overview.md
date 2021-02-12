@@ -8,11 +8,11 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 09/14/2018
 ms.openlocfilehash: 95b638b85e0746d2995488f2a28a5fb2512b1063
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219319"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015257"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Como configurar um pipeline de IC / CD para o Azure Data Lake Analytics  
 
@@ -83,7 +83,7 @@ A definição e os valores dos argumentos são os seguintes:
 
   - **SyntaxCheck**. O modo SyntaxCheck primeiro mescla os arquivos code-behind no script U-SQL. Em seguida, ele compila o script U-SQL para validar seu código.
 
-- **DataRoot = \<DataRoot path> **. DataRoot é necessária apenas para o modo SyntaxCheck. Quando ele cria o script com o modo SyntaxCheck, o MSBuild verifica as referências aos objetos do banco de dados no script. Antes de criar, configure um ambiente local correspondente que contenha os objetos referenciados do banco de dados U-SQL na pasta DataRoot da máquina de compilação. Você também pode gerenciar essas dependências de banco de dados ao [fazer referência a um projeto de banco de dados U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild verifica somente as referências de objeto de banco de dados, não arquivos.
+- **DataRoot = \<DataRoot path>**. DataRoot é necessária apenas para o modo SyntaxCheck. Quando ele cria o script com o modo SyntaxCheck, o MSBuild verifica as referências aos objetos do banco de dados no script. Antes de criar, configure um ambiente local correspondente que contenha os objetos referenciados do banco de dados U-SQL na pasta DataRoot da máquina de compilação. Você também pode gerenciar essas dependências de banco de dados ao [fazer referência a um projeto de banco de dados U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild verifica somente as referências de objeto de banco de dados, não arquivos.
 
 - **EnableDeployment = true** ou **falso**. EnableDeployment indica se é permitido implantar bancos de dados U-SQL referenciados durante o processo de compilação. Se você fizer referência a um projeto de banco de dados U-SQL e consumir os objetos de banco de dados em seu script U-SQL, defina esse parâmetro como **true**.
 
@@ -93,7 +93,7 @@ Além da linha de comando, você também poderá usar o Build do Visual Studio o
 
 ![Tarefa do MSBuild para um projeto de U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png)
 
-1. Adicione uma tarefa de restauração do NuGet para obter o pacote NuGet referenciado pela solução que inclui `Azure.DataLake.USQL.SDK`, para que o MSBuild possa localizar os destinos da linguagem U-SQL. Defina **Advanced**  >  o**diretório de destino** avançado como `$(Build.SourcesDirectory)/packages` se desejar usar o exemplo de argumentos do MSBuild diretamente na etapa 2.
+1. Adicione uma tarefa de restauração do NuGet para obter o pacote NuGet referenciado pela solução que inclui `Azure.DataLake.USQL.SDK`, para que o MSBuild possa localizar os destinos da linguagem U-SQL. Defina **Advanced**  >  o **diretório de destino** avançado como `$(Build.SourcesDirectory)/packages` se desejar usar o exemplo de argumentos do MSBuild diretamente na etapa 2.
 
    ![Tarefa de restauração do NuGet para um projeto de U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
@@ -332,7 +332,7 @@ Além da linha de comando, você poderá usar o Build do Visual Studio ou uma ta
 
    ![Tarefa CI / CD MSBuild para um projeto U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png)
 
-1. Inclua uma tarefa de restauração do NuGet para obter o pacote NuGet referenciado pela solução, que inclui `Azure.DataLake.USQL.SDK`, para que o MSBuild possa localizar os destinos da linguagem U-SQL. Defina **Advanced**  >  o**diretório de destino** avançado como `$(Build.SourcesDirectory)/packages` se desejar usar o exemplo de argumentos do MSBuild diretamente na etapa 2.
+1. Inclua uma tarefa de restauração do NuGet para obter o pacote NuGet referenciado pela solução, que inclui `Azure.DataLake.USQL.SDK`, para que o MSBuild possa localizar os destinos da linguagem U-SQL. Defina **Advanced**  >  o **diretório de destino** avançado como `$(Build.SourcesDirectory)/packages` se desejar usar o exemplo de argumentos do MSBuild diretamente na etapa 2.
 
    ![Tarefa CI / CD MSBuild para um projeto U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 

@@ -9,13 +9,13 @@ ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 6221b36263b55f54faef18d6596f97c5b3798d3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: how-to, devx-track-python, contperf-fy21q2
+ms.openlocfilehash: 7144d576694b6694f426533451717cef58c2da87
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541706"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562439"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Reinforcement Learning (versão prévia) com Azure Machine Learning
 
@@ -24,7 +24,7 @@ ms.locfileid: "91541706"
 > [!NOTE]
 > O Reinforcement Learning do Azure Machine Learning é, no momento, uma versão prévia do recurso. Somente as estruturas Ray e RLlib têm suporte no momento.
 
-Neste artigo, você aprenderá a treinar um agente de RL para jogar o jogo de videogame Pong. Você usará o [Ray RLlib](https://ray.readthedocs.io/en/master/rllib.html), uma biblioteca Python de software livre, com o Azure Machine Learning para gerenciar a complexidade dos trabalhos distribuídos de RL.
+Neste artigo, você aprenderá a treinar um agente de RL para jogar o jogo de videogame Pong. Você usa a Biblioteca Python de software livre [Ray RLlib](https://ray.readthedocs.io/en/master/rllib.html) com Azure Machine Learning para gerenciar a complexidade de RL distribuído.
 
 Neste artigo, você aprenderá a:
 > [!div class="checklist"]
@@ -38,7 +38,7 @@ Este artigo se baseia no [exemplo do Pong de RLlib](https://aka.ms/azureml-rl-po
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Execute este código em um dos ambientes a seguir. Recomendamos que você use a instância de computação do Azure Machine Learning para uma experiência de inicialização mais rápida. Os notebooks de exemplo de reforço estão disponíveis para clonar e executar rapidamente em uma instância de computação do Azure Machine Learning.
+Execute este código em qualquer um desses ambientes. Recomendamos que você tente Azure Machine Learning instância de computação para obter a experiência de inicialização mais rápida. Você pode clonar e executar rapidamente os notebooks de exemplo reforço em uma instância de computação Azure Machine Learning.
 
  - Instância de computação do Azure Machine Learning
 
@@ -49,10 +49,10 @@ Execute este código em um dos ambientes a seguir. Recomendamos que você use a 
  
  - Seu próprio servidor Jupyter Notebook
 
-    - Instale o [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
-    - Instale o [SDK do RL do Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py&preserve-view=true): `pip install --upgrade azureml-contrib-reinforcementlearning`
+    - Instale o [SDK do Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+    - Instale o [SDK do RL do Azure Machine Learning](/python/api/azureml-contrib-reinforcementlearning/?preserve-view=true&view=azure-ml-py): `pip install --upgrade azureml-contrib-reinforcementlearning`
     - Crie um [arquivo de configuração de workspace](how-to-configure-environment.md#workspace).
-    - Execute o [notebook de configuração](https://aka.ms/azure-rl-env-setup) de rede virtual para abrir as portas de rede usadas para aprendizado por reforço distribuído.
+    - Execute a rede virtual para abrir portas de rede usadas para aprendizado de reforço distribuído.
 
 
 ## <a name="how-to-train-a-pong-playing-agent"></a>Como treinar um agente para jogar Pong
@@ -61,19 +61,21 @@ O RL (Reinforcement Learning) é uma abordagem do machine learning na qual o com
 
 Os agentes em treinamento aprendem a jogar Pong em um ambiente **simulado**. Os agentes em treinamento fazem uma decisão a cada quadro do jogo para mover a raquete para cima, para baixo ou para ficar no lugar. Ele examina o estado do jogo (uma imagem RGB da tela) para tomar uma decisão.
 
-O RL usa **recompensas** para informar ao agente se suas decisões tiveram êxito. Nesse ambiente, o agente obtém uma recompensa positiva quando faz um ponto e uma recompensa negativa quando o adversário faz um ponto. Em muitas iterações, o agente em treinamento aprende a escolher a ação, com base em seu estado atual, que otimiza a soma das recompensas futuras esperadas.
-
-É comum usar um modelo de DNN **(rede neural profunda)** para executar essa otimização em RL. Inicialmente, o agente em aprendizagem terá um desempenho ruim, mas cada jogo vai gerar exemplos adicionais para melhorar ainda mais o modelo.
+O RL usa **recompensas** para informar ao agente se suas decisões tiveram êxito. Neste exemplo, o agente Obtém uma recompensa positiva quando pontua um ponto e uma recompensa negativa quando um ponto é pontuado em relação a ele. Em muitas iterações, o agente em treinamento aprende a escolher a ação, com base em seu estado atual, que otimiza a soma das recompensas futuras esperadas. É comum usar **redes neurais profundas** (DNN) para executar essa otimização em RL. 
 
 O treinamento termina quando o agente atinge uma pontuação média de recompensa de 18 em um período de treinamento. Isso significa que o agente superou seu adversário por uma média de pelo menos 18 pontos em partidas de até 21 pontos.
 
-O processo de iteração por meio de simulação e readaptação de um DNN é computacionalmente custoso e requer grandes quantidades de dados. Um modo de melhorar o desempenho dos trabalhos de RL é ao **paralelizar o trabalho** para que vários agentes em treinamento possam agir e aprender simultaneamente. No entanto, gerenciar um ambiente de RL distribuído pode ser uma tarefa complexa.
+O processo de iteração por meio de simulação e readaptação de um DNN é computacionalmente caro e requer muitos dados. Um modo de melhorar o desempenho dos trabalhos de RL é ao **paralelizar o trabalho** para que vários agentes em treinamento possam agir e aprender simultaneamente. No entanto, gerenciar um ambiente de RL distribuído pode ser uma tarefa complexa.
 
 O Azure Machine Learning fornece a estrutura para gerenciar essas complexidades para escalar horizontalmente suas cargas de trabalho de RL.
 
 ## <a name="set-up-the-environment"></a>Configurar o ambiente
 
-Configure o ambiente de RL local carregando os pacotes Python necessários, inicializando seu workspace, criando um experimento e especificando uma rede virtual configurada.
+Configure o ambiente local RL da:
+1. Carregando os pacotes python necessários
+1. Inicializando seu espaço de trabalho
+1. Criando um experimento
+1. Especificando uma rede virtual configurada.
 
 ### <a name="import-libraries"></a>Importar bibliotecas
 
@@ -97,9 +99,7 @@ from azureml.contrib.train.rl import WorkerConfiguration
 
 ### <a name="initialize-a-workspace"></a>Inicializar um workspace
 
-O [workspace do Azure Machine Learning](concept-workspace.md) é o recurso de nível superior para o Azure Machine Learning. Ele fornece um local centralizado para trabalhar com todos os artefatos que você criar.
-
-Inicialize um objeto de workspace do arquivo `config.json` criado na [seção de pré-requisitos](#prerequisites). Se você está executando esse código em uma Instância de Computação do Azure Machine Learning, o arquivo de configuração já foi criado para você.
+Inicialize um objeto de [espaço de trabalho](concept-workspace.md) do `config.json` arquivo criado [na seção pré-requisitos](#prerequisites). Se você está executando esse código em uma Instância de Computação do Azure Machine Learning, o arquivo de configuração já foi criado para você.
 
 ```Python
 ws = Workspace.from_config()
@@ -107,7 +107,7 @@ ws = Workspace.from_config()
 
 ### <a name="create-a-reinforcement-learning-experiment"></a>Criar um experimento de aprendizado por reforço
 
-Crie um [experimento](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true) para acompanhar a execução do aprendizado por reforço. No Azure Machine Learning, os experimentos são coleções lógicas de avaliações relacionadas para organizar logs de execução, histórico, saídas e muito mais.
+Crie um [experimento](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py) para acompanhar a execução do aprendizado por reforço. No Azure Machine Learning, os experimentos são coleções lógicas de avaliações relacionadas para organizar logs de execução, histórico, saídas e muito mais.
 
 ```python
 experiment_name='rllib-pong-multi-node'
@@ -117,7 +117,9 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### <a name="specify-a-virtual-network"></a>Especificar uma rede virtual
 
-Para trabalhos de RL que usam vários destinos de computação, você deve especificar uma rede virtual com portas abertas que permitam que nós de trabalho e nós de cabeçalho se comuniquem entre si. A rede virtual pode estar em qualquer grupo de recursos, mas deve estar na mesma região que seu workspace. Para obter mais informações sobre como configurar sua rede virtual, consulte o [notebook de configuração do workspace](https://aka.ms/azure-rl-env-setup) que pode ser encontrado na seção de pré-requisitos. Aqui, você especifica o nome da rede virtual em seu grupo de recursos.
+Para trabalhos de RL que usam vários destinos de computação, você deve especificar uma rede virtual com portas abertas que permitam que nós de trabalho e nós de cabeçalho se comuniquem entre si.
+
+A rede virtual pode estar em qualquer grupo de recursos, mas deve estar na mesma região que seu workspace. Para obter mais informações sobre como configurar sua rede virtual, consulte o bloco de anotações de instalação do espaço de trabalho na seção pré-requisitos. Aqui, você especifica o nome da rede virtual em seu grupo de recursos.
 
 ```python
 vnet = 'your_vnet'
@@ -125,13 +127,13 @@ vnet = 'your_vnet'
 
 ## <a name="define-head-and-worker-compute-targets"></a>Definir destinos de computação de cabeçalho e de trabalho
 
-Este exemplo usa destinos de computação separados para os nós de cabeçalho e de trabalho do Ray. Essas configurações permitem que você escale e reduza verticalmente seus recursos de computação dependendo da carga de trabalho esperada. Defina o número de nós e o tamanho de cada nó com base nas necessidades do seu experimento.
+Este exemplo usa destinos de computação separados para os nós de cabeçalho e de trabalho do Ray. Essas configurações permitem que você dimensione seus recursos de computação para cima e para baixo, dependendo de sua carga de trabalho. Defina o número de nós e o tamanho de cada nó, com base em suas necessidades.
 
 ### <a name="head-computing-target"></a>Destino de computação de cabeçalho
 
-Este exemplo usa um cluster de cabeçalho equipado com GPU para otimizar o desempenho de aprendizado profundo. O nó de cabeçalho treina a rede neural que o agente usa para tomar decisões. O nó de cabeçalho também coleta pontos de dados dos nós de trabalho para treinar ainda mais a rede neural.
+Você pode usar um cluster de cabeçalho equipado com GPU para melhorar o desempenho de aprendizado profundo. O nó de cabeçalho treina a rede neural que o agente usa para tomar decisões. O nó de cabeçalho também coleta pontos de dados dos nós de trabalho para treinar a rede neural.
 
-A computação de cabeçalho usa uma única VM (máquina virtual) [`STANDARD_NC6`](https://docs.microsoft.com/azure/virtual-machines/nc-series). Ela conta com seis CPUs virtuais, o que significa que ela pode distribuir o trabalho entre seis CPUs de trabalho.
+A computação de cabeçalho usa uma única VM (máquina virtual) [`STANDARD_NC6`](../virtual-machines/nc-series.md). Ele tem 6 CPUs virtuais nas quais distribuir o trabalho.
 
 
 ```python
@@ -173,7 +175,7 @@ else:
 
 ### <a name="worker-computing-cluster"></a>Cluster de computação de trabalho
 
-Este exemplo usa quatro VMs [`STANDARD_D2_V2`](https://docs.microsoft.com/azure/virtual-machines/nc-series) para o destino de computação de trabalho. Cada nó de trabalho tem duas CPUs disponíveis para um total de oito CPUs disponíveis para paralelizar o trabalho.
+Este exemplo usa quatro VMs [`STANDARD_D2_V2`](../virtual-machines/nc-series.md) para o destino de computação de trabalho. Cada nó de trabalho tem duas CPUs disponíveis para um total de 8 CPUs disponíveis.
 
 As GPUs não são necessárias para os nós de trabalho, pois não estão executando aprendizado profundo. Os trabalhos executam as simulações de jogos e coletam dados.
 
@@ -212,14 +214,13 @@ else:
 ```
 
 ## <a name="create-a-reinforcement-learning-estimator"></a>Criar um avaliador de aprendizado por reforço
+Use o [ReinforcementLearningEstimator](/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?preserve-view=true&view=azure-ml-py) para enviar um trabalho de treinamento para Azure Machine Learning.
 
-Nesta seção, você aprenderá a usar o [ReinforcementLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py&preserve-view=true) para enviar um trabalho de treinamento para o Azure Machine Learning.
-
-O Azure Machine Learning usa classes do avaliador para encapsular informações de configuração de execução. Isso permite que você especifique facilmente como configurar uma execução de script. 
+O Azure Machine Learning usa classes do avaliador para encapsular informações de configuração de execução. Isso permite que você especifique como configurar uma execução de script. 
 
 ### <a name="define-a-worker-configuration"></a>Definir uma configuração de trabalho
 
-O objeto WorkerConfiguration informa ao Azure Machine Learning como inicializar o cluster de trabalho que executará o script de entrada.
+O objeto WorkerConfiguration informa Azure Machine Learning como inicializar o cluster de trabalho que executa o script de entrada.
 
 ```python
 # Pip packages we will use for both head and worker
@@ -246,9 +247,11 @@ worker_conf = WorkerConfiguration(
 
 O script de entrada `pong_rllib.py` aceita uma lista de parâmetros que define como executar o trabalho de treinamento. Passar esses parâmetros por meio do avaliador como uma camada de encapsulamento facilita a alteração dos parâmetros de script e a execução das configurações de modo independente.
 
-Especificar o `num_workers` correto aproveitará ao máximo seus esforços de paralelização. Defina o número de trabalhos como o mesmo que o número de CPUs disponíveis. Para este exemplo, você pode calcular isso da seguinte maneira:
+Especificar o correto `num_workers` faz o máximo proveito de seus esforços de paralelização. Defina o número de trabalhos como o mesmo que o número de CPUs disponíveis. Para este exemplo, você pode usar o seguinte cálculo:
 
-O nó de cabeçalho é um [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) com seis vCPUs. O cluster de trabalho é composto por quatro [VMs Standard_D2_V2](https://docs.microsoft.com/azure/cloud-services/cloud-services-sizes-specs#dv2-series) com duas CPUs cada, para um total de oito CPUs. No entanto, você deve subtrair uma CPU da contagem de trabalho, pois uma deve ser dedicada à função do nó de cabeçalho. 6 CPUs + 8 CPUs - 1 CPU principal = 13 trabalhos simultâneos. O Azure Machine Learning usa clusters de cabeçalho e de trabalho para distinguir recursos de computação. No entanto, o Ray não distingue entre cabeçalho e trabalho, e todas as CPUs são CPUs disponíveis para execução de thread de trabalho.
+O nó de cabeçalho é um [Standard_NC6](../virtual-machines/nc-series.md) com seis vCPUs. O cluster de trabalho é composto por quatro [VMs Standard_D2_V2](../cloud-services/cloud-services-sizes-specs.md#dv2-series) com duas CPUs cada, para um total de oito CPUs. No entanto, você deve subtrair uma CPU da contagem de trabalho, pois uma deve ser dedicada à função do nó de cabeçalho.
+
+6 CPUs + 8 CPUs - 1 CPU principal = 13 trabalhos simultâneos. O Azure Machine Learning usa clusters de cabeçalho e de trabalho para distinguir recursos de computação. No entanto, Ray não distingue entre Head e Workers, e todas as CPUs estão disponíveis como threads de trabalho.
 
 
 ```python
@@ -399,7 +402,7 @@ def on_train_result(info):
 
 ## <a name="submit-a-run"></a>Enviar uma execução
 
-A [execução](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) trata do histórico de execução de trabalhos em andamento ou completos. 
+A [execução](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) trata do histórico de execução de trabalhos em andamento ou completos. 
 
 ```python
 run = exp.submit(config=rl_estimator)
@@ -409,7 +412,7 @@ run = exp.submit(config=rl_estimator)
 
 ## <a name="monitor-and-view-results"></a>Monitorar e exibir resultados
 
-Use o widget do Jupyter do Azure Machine Learning para ver o status de suas execuções em tempo real. Neste exemplo, o widget mostra duas execuções filho: uma para o cabeçalho e outra para os trabalhos. 
+Use o widget do Jupyter do Azure Machine Learning para ver o status de suas execuções em tempo real. O widget mostra duas execuções filhas: uma para o Head e outra para os trabalhadores. 
 
 ```python
 from azureml.widgets import RunDetails
@@ -429,7 +432,7 @@ O gráfico **episode_reward_mean** mostra o número médio de pontos feitos por 
 
 Se você procurar os logs da execução filho, poderá ver os resultados da avaliação registrados no arquivo driver_log.txt. Talvez seja necessário aguardar alguns minutos para que essas métricas fiquem disponíveis na página Executar.
 
-Resumidamente, você aprendeu a configurar vários recursos de computação para treinar um agente de aprendizado por reforço a jogar Pong muito bem.
+Em suma trabalho, você aprendeu a configurar vários recursos de computação para treinar um agente de aprendizado de reforço para executar o pongue muito bem em um computador oppponent.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,17 +1,17 @@
 ---
 title: Pontos de extremidade de serviço de VNet-banco de dados do Azure para MySQL
 description: Descreve como os pontos de extremidade de serviço de VNet funcionam no servidor do Banco de Dados do Azure para MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/17/2020
-ms.openlocfilehash: dba6b3f2137230ebe95f1bc89156cf6b127c8f52
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 364d9c20c0bfce1f31103ddf6df0c8d7b228eca2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428141"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461770"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Usar regras e pontos de extremidade de serviço de Rede Virtual para Banco de Dados do Azure para MySQL
 
@@ -112,7 +112,7 @@ Para o Banco de Dados do Azure para MySQL, o recurso de regras da rede virtual t
 
 - As regras da rede virtual se aplicam somente a redes virtuais do Azure Resource Manager; e não a redes do [modelo de implantação clássico][arm-deployment-model-568f].
 
-- Ativar pontos de extremidade de serviço de rede virtual para o banco de dados do Azure para MySQL usando a marca de serviço **Microsoft. SQL** também habilita os pontos de extremidade para todos os serviços de banco de dados do Azure: banco de dados do Azure para MySQL, banco de dados do Azure para PostgreSQL, banco de dados SQL do Azure e análise de Synapse do Azure (anteriormente SQL data warehouse
+- Ativar pontos de extremidade de serviço de rede virtual para o banco de dados do Azure para MySQL usando a marca de serviço **Microsoft. SQL** também habilita os pontos de extremidade para todos os serviços de banco de dados do Azure: banco de dados do Azure para MySQL, banco de dados do Azure para PostgreSQL, banco de dados SQL do Azure e análise de Synapse
 
 - O suporte para ponto de extremidade de serviço de VNet é apenas para servidores de Uso Geral e Otimizados para Memória.
 

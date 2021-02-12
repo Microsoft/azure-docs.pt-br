@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 3727e9a83827261bf9e8a526ffedb6d3fc644afa
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 54ac7b27ada62a969dd40428fd9a753bb5a99530
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745987"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499825"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: Implantar um aplicativo na Malha do Service Fabric usando um modelo
 
@@ -61,7 +61,7 @@ az account set --subscription "<subscriptionName>"
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Use o comando a seguir para criar um grupo de recursos chamado *myResourceGroup* no local *eastus* .
+Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Use o comando a seguir para criar um grupo de recursos chamado *myResourceGroup* no local *eastus*.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -103,6 +103,11 @@ Quando o registro é criado, você vê uma saída semelhante à seguinte:
 Este tutorial usa o aplicativo de exemplo de lista de tarefas como um exemplo.  As imagens de contêiner para os serviços [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) e [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) podem ser encontradas no Hub do Docker. Veja [Compilar um aplicativo Web da Malha do Service Fabric](service-fabric-mesh-tutorial-create-dotnetcore.md) para obter informações sobre como compilar o aplicativo no Visual Studio. A Malha do Service Fabric pode executar contêineres do Docker no Windows ou Linux.  Se você estiver trabalhando com contêineres do Linux, selecione **Alternar para contêineres do Linux** no Docker.  Se você estiver trabalhando com contêineres do Windows, selecione **Alternar para contêineres do Windows** no Docker.
 
 Para enviar por push uma imagem para uma instância do ACR, primeiro você deve ter uma imagem de contêiner. Se você ainda não tiver as imagens de contêiner local, use o comando [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) para efetuar pull das imagens [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) e [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) do Hub do Docker.
+
+>[!NOTE]
+> Desde 2 de novembro de 2020, [limites de taxa de download se aplicam](https://docs.docker.com/docker-hub/download-rate-limit/) a solicitações anônimas e autenticadas para o Docker Hub de contas do plano gratuito do Docker e são impostas por endereço IP. 
+> 
+> Esses comandos fazem uso de imagens públicas do Docker Hub. Observe que você pode ter uma taxa limitada. Para obter mais detalhes, confira [Autenticar-se com o Docker Hub](../container-registry/buffer-gate-public-content.md#authenticate-with-docker-hub).
 
 Efetuar pull das imagens do Windows:
 
@@ -156,7 +161,7 @@ seabreeze/azure-mesh-todo-webfrontend
 seabreeze/azure-mesh-todo-service
 ```
 
-O exemplo a seguir lista as marcas no repositório **azure-mesh-todo-service** .
+O exemplo a seguir lista as marcas no repositório **azure-mesh-todo-service**.
 
 ```azurecli
 az acr repository show-tags --name myContainerRegistry --repository seabreeze/azure-mesh-todo-service --output table
@@ -195,10 +200,10 @@ Um aplicativo de Malha do Serviço Fabric é um recurso do Azure que você pode 
 
 Este tutorial usa o exemplo de lista de tarefas como um exemplo.  Em vez de criar novos arquivos de modelo e parâmetros, baixe os arquivos [modelo de implantação mesh_rp.windows.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) e [parâmetros mesh_rp.windows.parameter.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json).
 
-### <a name="parameters"></a>parâmetros
-Quando há valores no modelo que você pretende alterar após a implantação do aplicativo ou se você deseja ter a opção de alterar a cada implantação (se você planeja reutilizar esse modelo para outras implantações), a prática recomendada é parametrizar os valores. A maneira correta de fazer isso é criar uma seção "parâmetros" na parte superior do seu modelo de implantação, em que você especifica nomes e propriedades de parâmetros, que serão referenciados posteriormente no modelo de implantação. Cada definição de parâmetro inclui *tipo* , *defaultValue* e uma seção opcional *metadados* com uma *descrição* .
+### <a name="parameters"></a>Parâmetros
+Quando há valores no modelo que você pretende alterar após a implantação do aplicativo ou se você deseja ter a opção de alterar a cada implantação (se você planeja reutilizar esse modelo para outras implantações), a prática recomendada é parametrizar os valores. A maneira correta de fazer isso é criar uma seção "parâmetros" na parte superior do seu modelo de implantação, em que você especifica nomes e propriedades de parâmetros, que serão referenciados posteriormente no modelo de implantação. Cada definição de parâmetro inclui *tipo*, *defaultValue* e uma seção opcional *metadados* com uma *descrição*.
 
-A seção de parâmetros é definida na parte superior do seu modelo de implantação, logo antes da seção *recursos* :
+A seção de parâmetros é definida na parte superior do seu modelo de implantação, logo antes da seção *recursos*:
 
 ```json
 {
@@ -373,7 +378,7 @@ Essa informação vem da seção ```outputs``` no modelo ARM. Conforme mostrado 
   }
 ```
 
-## <a name="open-the-application"></a>Abra o aplicativo
+## <a name="open-the-application"></a>Abrir o aplicativo
 
 Depois que o aplicativo é implantado com êxito, obtenha o endereço IP público para o ponto de extremidade de serviço. O comando de implantação retorna o endereço IP público do ponto de extremidade de serviço. Opcionalmente, você também pode consultar o recurso de rede para localizar o endereço IP público do ponto de extremidade de serviço. O nome do recurso de rede para este aplicativo é `todolistappNetwork`, buscar informações sobre ele usando o comando a seguir. 
 

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: pafarley
-ms.openlocfilehash: d6bcb5485833fbfaa3eb72191ee54b1ee69bab04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58ced0c45d66223ac3e40112126e92a4539db32d
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82594288"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616069"
 ---
 # <a name="use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Usar um modelo ONNX do Serviço de Visão Personalizada com Windows ML (versão prévia)
 
@@ -28,7 +28,7 @@ Neste guia, você aprenderá a usar um arquivo ONNX exportado do Serviço de Vis
 * Windows 10 versão 1809 ou superior
 * SDK do Windows build 17763 ou superior
 * Visual Studio 2017 versão 15.7 ou posterior com a carga de trabalho __Desenvolvimento com a Plataforma Universal do Windows__ habilitada.
-* Modo de desenvolvedor habilitado em seu PC. Para obter mais informações, consulte [habilitar seu dispositivo para desenvolvimento](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development).
+* Modo de desenvolvedor habilitado em seu PC. Para obter mais informações, consulte [habilitar seu dispositivo para desenvolvimento](/windows/uwp/get-started/enable-your-device-for-development).
 
 ## <a name="about-the-example-app"></a>Sobre o aplicativo de exemplo
 
@@ -47,9 +47,9 @@ O aplicativo de exemplo está disponível no [ONNX de serviços cognitivas visã
 
 Para usar seu próprio modelo classificador de imagem, siga estas etapas:
 
-1. Crie e treine um classificador com o Serviço de Visão Personalizada. Para obter instruções sobre como fazer isso, consulte [criar e treinar um classificador](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier). Use um dos domínios do **Compact** , como **geral (compacto)**. 
+1. Crie e treine um classificador com o Serviço de Visão Personalizada. Para obter instruções sobre como fazer isso, consulte [criar e treinar um classificador](./getting-started-build-a-classifier.md). Use um dos domínios do **Compact** , como **geral (compacto)**. 
    * Se você tiver um classificador existente que usa um domínio diferente, poderá convertê-lo para **compactar** as configurações do projeto. Em seguida, treine novamente o seu projeto antes de continuar.
-1. Exporte seu modelo. Alterne para a guia desempenho e selecione uma iteração que foi treinada com um domínio **compacto** . Selecione o botão **Exportar** que aparece. Em seguida, selecione **ONNX**e **Exportar**. Depois que o arquivo estiver pronto, selecione o botão **Baixar**. Para obter mais informações sobre opções de exportação, consulte [exportar seu modelo](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model).
+1. Exporte seu modelo. Alterne para a guia desempenho e selecione uma iteração que foi treinada com um domínio **compacto** . Selecione o botão **Exportar** que aparece. Em seguida, selecione **ONNX** e **Exportar**. Depois que o arquivo estiver pronto, selecione o botão **Baixar**. Para obter mais informações sobre opções de exportação, consulte [exportar seu modelo](./export-your-model.md).
 1. Abra o arquivo *. zip* baixado e extraia o arquivo *Model. onnx* dele. Este arquivo contém o modelo de classificador.
 1. Na Gerenciador de Soluções no Visual Studio, clique com o botão direito do mouse na pasta **ativos** e selecione __Adicionar item existente__. Selecione o arquivo ONNX.
 1. Em Gerenciador de Soluções, clique com o botão direito do mouse no arquivo ONNX e selecione **Propriedades**. Altere as seguintes propriedades para o arquivo:
@@ -63,7 +63,7 @@ Para usar seu próprio modelo classificador de imagem, siga estas etapas:
 
 Para descobrir outras maneiras de exportar e usar um modelo do Serviço de Visão Personalizada, confira os seguintes documentos:
 
-* [Exportar seu modelo](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model)
+* [Exportar seu modelo](./export-your-model.md)
 * [Usar o modelo Tensorflow exportado em um aplicativo Android](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)
 * [Usar o modelo CoreML exportado em um aplicativo iOS Swift](https://go.microsoft.com/fwlink/?linkid=857726)
 * [Usar o modelo CoreML exportado em um aplicativo iOS com Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)

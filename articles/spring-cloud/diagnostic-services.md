@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: aec8448cb82480397f561e095420bbd49982d4b2
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 11f5fcd74b228fa2d57658f5c268e3bebc3c7e93
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093031"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499519"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analisar logs e métricas com configurações de diagnóstico
 
@@ -40,7 +40,7 @@ Escolha a categoria de log e a categoria de métrica que você deseja monitorar.
 
 Para obter uma lista completa de métricas, consulte [métricas de nuvem Spring](./spring-cloud-concept-metrics.md#user-metrics-options).
 
-Para começar, habilite um desses serviços para receber os dados. Para saber mais sobre como configurar Log Analytics, consulte [introdução ao log Analytics no Azure monitor](../azure-monitor/log-query/get-started-portal.md).
+Para começar, habilite um desses serviços para receber os dados. Para saber mais sobre como configurar Log Analytics, consulte [introdução ao log Analytics no Azure monitor](../azure-monitor/log-query/log-analytics-tutorial.md).
 
 ## <a name="configure-diagnostics-settings"></a>Definir configurações de diagnóstico
 
@@ -135,7 +135,7 @@ Para saber mais sobre como enviar informações de diagnóstico para um hub de e
 
 ## <a name="analyze-the-logs"></a>Analisar os logs
 
-O Log Analytics do Azure está em execução com um mecanismo de Kusto para que você possa consultar seus logs para análise. Para obter uma breve introdução à consulta de logs usando o Kusto, consulte o [tutorial de log Analytics](../azure-monitor/log-query/get-started-portal.md).
+O Log Analytics do Azure está em execução com um mecanismo de Kusto para que você possa consultar seus logs para análise. Para obter uma breve introdução à consulta de logs usando o Kusto, consulte o [tutorial de log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md).
 
 Os logs de aplicativo fornecem informações críticas e logs detalhados sobre a integridade, o desempenho e muito mais do aplicativo. Nas próximas seções estão algumas consultas simples para ajudá-lo a entender os Estados atuais e antigos do seu aplicativo.
 

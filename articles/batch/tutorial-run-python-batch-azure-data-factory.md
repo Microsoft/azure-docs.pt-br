@@ -1,18 +1,18 @@
 ---
-title: Executar scripts do Python com o Data Factory
-description: Tutorial – saiba como executar scripts do Python como parte de um pipeline por meio do Azure Data Factory usando o Lote do Azure.
-author: mammask
+title: Tutorial – Executar scripts do Python por meio do Data Factory
+description: Saiba como executar scripts do Python como parte de um pipeline por meio do Azure Data Factory usando o Lote do Azure.
+author: pkshultz
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 08/12/2020
-ms.author: komammas
+ms.author: peshultz
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: f4c71cffe00faa6dd8cc440c59f94b8c2d60f712
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6cc6e6a9739b8b06ab3c48dd3fd75f19de8d0787
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88185104"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106267"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Tutorial: Executar scripts do Python por meio de Azure Data Factory usando o Lote do Azure
 
@@ -33,7 +33,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma distribuição instalada do [Python](https://www.python.org/downloads/) para teste local.
-* O pacote do `pip` do [Azure](https://pypi.org/project/azure/).
+* O pacote [azure-storage-blob](https://pypi.org/project/azure-storage-blob/) `pip`.
 * O [conjunto de dados iris.csv](https://www.kaggle.com/uciml/iris/version/2#Iris.csv)
 * Uma conta do Lote do Azure e uma conta de Armazenamento do Azure vinculada. Confira [Criar uma conta do Lote](quick-create-portal.md#create-a-batch-account) para obter mais informações sobre como criar e vincular contas de Lote a contas de armazenamento.
 * Uma conta do Azure Data Factory. Confira [Criar um data factory](../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory) para obter mais informações sobre como criar um data factory por meio do portal do Azure.
@@ -57,7 +57,7 @@ Nesta seção, você usará o Batch Explorer para criar o pool do Lote que será
     1. Defina o tipo de escala para **Tamanho fixo** e defina a contagem do nó dedicado para 2.
     1. Em **Ciência de dados**, selecione **Dsvm Windows** como o sistema operacional.
     1. Escolha `Standard_f2s_v2` como o tamanho da máquina virtual.
-    1. Habilite a tarefa de início e adicione o comando `cmd /c "pip install pandas"`. A identidade do usuário pode permanecer como o padrão do **Usuário do pool**.
+    1. Habilite a tarefa de início e adicione o comando `cmd /c "pip install azure-storage-blob pandas"`. A identidade do usuário pode permanecer como o padrão do **Usuário do pool**.
     1. Selecione **OK**.
 
 ## <a name="create-blob-containers"></a>Criar contêineres de blob
@@ -75,17 +75,17 @@ O script do Python a seguir carrega o conjunto de dados `iris.csv` do seu contê
 
 ``` python
 # Load libraries
-from azure.storage.blob import BlockBlobService
+from azure.storage.blob import BlobServiceClient
 import pandas as pd
 
 # Define parameters
-storageAccountName = "<storage-account-name>"
+storageAccountURL = "<storage-account-url>"
 storageKey         = "<storage-account-key>"
 containerName      = "output"
 
 # Establish connection with the blob storage account
-blobService = BlockBlobService(account_name=storageAccountName,
-                               account_key=storageKey
+blob_service_client = BlockBlobService(account_url=storageAccountURL,
+                               credential=storageKey
                                )
 
 # Load iris dataset from the task node
@@ -98,10 +98,12 @@ df = df[df['Species'] == "setosa"]
 df.to_csv("iris_setosa.csv", index = False)
 
 # Upload iris dataset
-blobService.create_blob_from_path(containerName, "iris_setosa.csv", "iris_setosa.csv")
+container_client = blob_service_client.get_container_client(containerName)
+with open("iris_setosa.csv", "rb") as data:
+    blob_client = container_client.upload_blob(name="iris_setosa.csv", data=data)
 ```
 
-Salve o script como `main.py` e carregue-o para o contêiner **Armazenamento do Azure**. Teste e valide a funcionalidade localmente antes de carregá-la para seu contêiner de blob:
+Salve o script como `main.py` e carregue-o para o contêiner **Armazenamento do Azure** `input`. Teste e valide a funcionalidade localmente antes de carregá-la para seu contêiner de blob:
 
 ``` bash
 python main.py
@@ -146,13 +148,23 @@ Caso os avisos ou erros sejam produzidos pela execução do seu script, você po
 1. Clique na tarefa que tinha um código de saída de falha.
 1. Veja `stdout.txt` e `stderr.txt` para investigar e diagnosticar o problema.
 
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Embora você não seja cobrado pelos trabalhos e pelas tarefas, será cobrado pelos nós de computação. Portanto, recomendamos que você aloque os pools conforme a necessidade. Quando você excluir o pool, todas as saídas de tarefa nos nós são excluídas. No entanto, os arquivos de entrada e saída permanecerão na conta de armazenamento. Quando não for mais necessário, você também poderá excluir a conta do Lote e a conta de armazenamento.
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você explorou um exemplo que ensina como executar scripts do Python como parte de um pipeline por meio do Azure Data Factory usando o Lote do Azure.
+Neste tutorial, você aprendeu a:
+
+> [!div class="checklist"]
+> * Autenticar com as contas do Lote e do Armazenamento
+> * Desenvolver e executar um script em Python
+> * Criar um conjunto de nós de computação para executar um aplicativo
+> * Agendar suas cargas de trabalho do Python
+> * Monitorar seu pipeline de análise
+> * Acessar seus arquivos de log
 
 Para saber mais sobre o Azure Data Factory, confira:
 
 > [!div class="nextstepaction"]
-> [Azure Data Factory](../data-factory/introduction.md)
-> [Pipelines e atividades](../data-factory/concepts-pipelines-activities.md)
-> [Atividades personalizadas](../data-factory/transform-data-using-dotnet-custom-activity.md)
+> [Visão geral do Azure Data Factory](../data-factory/introduction.md)

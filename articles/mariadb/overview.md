@@ -1,18 +1,18 @@
 ---
 title: Visão geral – Banco de Dados do Azure para MariaDB
 description: Saiba mais sobre o serviço do Banco de Dados do Azure para MariaDB, um serviço de banco de dados relacional na nuvem da Microsoft baseada no MySQL Community Edition.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.topic: overview
 ms.custom: mvc
 ms.date: 3/18/2020
-ms.openlocfilehash: 84fd24890495e7278c69c2f83c7182fd65f86791
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7c365dee2b3ac32a62b38d0b3273f2f13e402936
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "79535554"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662010"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>O que é o Banco de Dados do Azure para MariaDB?
 
@@ -41,7 +41,7 @@ For a set of Azure CLI samples, see:
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Ajustar o desempenho e a escala em segundos
 
-O serviço Banco de Dados do Azure para MariaDB oferece várias camada de serviço: Básico, Uso Geral e Otimizado para Memória. Cada camada oferece diferentes níveis de desempenho e recursos para dar suporte a cargas de trabalho de banco de dados leves e pesadas. Você pode criar seu primeiro aplicativo em um banco de dados pequeno por alguns dólares por mês e então ajustar a escala para atender às necessidades da sua solução. A escalabilidade dinâmica ajuda o seu banco de dados a responder de forma transparente a mudanças rápidas nos requisitos de recursos. Você paga apenas pelos recursos de que precisa, e somente quando precisa deles. Veja  [Tipos de preço](concepts-pricing-tiers.md) para obter detalhes.
+O serviço Banco de Dados do Azure para MariaDB oferece várias camada de serviço: Básico, Uso Geral e Otimizado para Memória. Cada camada oferece diferentes níveis de desempenho e recursos para dar suporte a cargas de trabalho de banco de dados leves e pesadas. Você pode criar seu primeiro aplicativo em um banco de dados pequeno por alguns dólares por mês e então ajustar a escala para atender às necessidades da sua solução. A escalabilidade dinâmica ajuda o seu banco de dados a responder de forma transparente a mudanças rápidas nos requisitos de recursos. Você paga apenas pelos recursos de que precisa, e somente quando precisa deles. Veja [Tipos de preço](concepts-pricing-tiers.md) para obter detalhes.
 
 ## <a name="monitoring-and-alerting"></a>Monitoramento e alertas
 

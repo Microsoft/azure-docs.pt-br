@@ -1,14 +1,14 @@
 ---
 title: Locatários, usuários e funções em cenários de Lighthouse do Azure
 description: Entenda os conceitos de locatários, usuários e funções do Azure Active Directory, além de como eles podem ser usados em cenários do Azure Lighthouse.
-ms.date: 10/29/2020
+ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 411b9bae19166e1875011360aa011c05d590b237
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: d78828cc739030f8e456c64885d77ddf59dd13fb
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043047"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233909"
 ---
 # <a name="tenants-users-and-roles-in-azure-lighthouse-scenarios"></a>Locatários, usuários e funções em cenários de Lighthouse do Azure
 
@@ -18,7 +18,10 @@ Um *locatário* é uma instância dedicada e confiável do Azure AD. Normalmente
 
 Para alcançar essa projeção lógica, uma assinatura (ou um ou mais grupos de recursos em uma assinatura) no locatário do cliente deve ser *integrada* ao Azure Lighthouse. Esse processo de integração pode ser feito [por meio de modelos do Azure Resource Manager](../how-to/onboard-customer.md) ou ao [publicar uma oferta pública ou privada no Azure Marketplace](../how-to/publish-managed-services-offers.md).
 
-Seja qual for o método de integração que você escolher, será necessário definir as *autorizações* . Cada autorização especifica uma conta de usuário no locatário de gerenciamento que terá acesso aos recursos delegados e uma função interna que define as permissões que cada um desses usuários terá para esses recursos.
+Seja qual for o método de integração que você escolher, será necessário definir as *autorizações*. Cada autorização especifica um **PrincipalId** que terá acesso aos recursos delegados e uma função interna que define as permissões que cada um desses usuários terá para esses recursos. Essa **PrincipalId** define um usuário, grupo ou entidade de serviço do Azure AD no locatário de gerenciamento.
+
+> [!NOTE]
+> A menos que especificado explicitamente, as referências a um "usuário" na documentação do Azure Lighthouse podem ser aplicadas a um usuário, grupo ou entidade de serviço do Azure AD em uma autorização.
 
 ## <a name="best-practices-for-defining-users-and-roles"></a>Práticas recomendadas para definir usuários e funções
 
@@ -30,7 +33,7 @@ Ao criar suas autorizações, recomendamos as melhores práticas abaixo:
 - Certifique-se de que qualquer usuário que precise [exibir a página Meus clientes no portal do Azure](../how-to/view-manage-customers.md) tenha a função [Leitor](../../role-based-access-control/built-in-roles.md#reader) (ou outra função interna que inclua acesso de leitura).
 
 > [!IMPORTANT]
-> Para adicionar permissões para um grupo do Azure AD, o **tipo de grupo** deve ser definido como **segurança** . Essa opção é selecionada quando o grupo é criado. Para obter mais informações, consulte [Criar um grupo básico e adicionar membros usando o Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+> Para adicionar permissões para um grupo do Azure AD, o **tipo de grupo** deve ser definido como **segurança**. Essa opção é selecionada quando o grupo é criado. Para obter mais informações, consulte [Criar um grupo básico e adicionar membros usando o Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## <a name="role-support-for-azure-lighthouse"></a>Suporte de função para Lighthouse do Azure
 

@@ -16,16 +16,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2019
 ms.author: terrylan
-ms.openlocfilehash: fc273c2e6e27c191b4407ffae86a4ba227ee642b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 849743dd756eff27ec0670cc39d2419c60538183
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87131031"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701007"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Melhores práticas para proteger aplicativos PaaS móveis e Web usando o Serviço de Aplicativo do Azure
 
-Neste artigo, discutiremos um conjunto de práticas recomendadas de segurança do [Serviço de Aplicativo do Azure](/azure/app-service/overview) para proteger seus aplicativos móveis e Web de PaaS. Essas práticas recomendadas derivam da nossa experiência com o Azure e da experiência de clientes como você.
+Neste artigo, discutiremos um conjunto de práticas recomendadas de segurança do [Serviço de Aplicativo do Azure](../../app-service/overview.md) para proteger seus aplicativos móveis e Web de PaaS. Essas práticas recomendadas derivam da nossa experiência com o Azure e da experiência de clientes como você.
 
 O Serviço de Aplicativo do Azure é uma oferta de PaaS (plataforma como serviço) que permite a você criar aplicativos Web e móveis para qualquer plataforma ou dispositivo e se conectar a dados em qualquer lugar, na nuvem ou local. O Serviço de Aplicativo inclui os recursos móveis e da Web que antes eram fornecidos separadamente, como os Sites do Azure e os Serviços Móveis do Azure. Ele também inclui novos recursos para automatizar processos empresariais e hospedagem de APIs de nuvem. O Serviço de Aplicativo proporciona, como um único serviço integrado, um avançado conjunto de recursos para cenários da Web, móveis e de integração.
 
@@ -33,7 +33,7 @@ O Serviço de Aplicativo do Azure é uma oferta de PaaS (plataforma como serviç
 O Serviço de Aplicativo fornece um serviço OAuth 2.0 para seu provedor de identidade. O OAuth 2.0 concentra-se na simplicidade do desenvolvedor cliente, fornecendo fluxos de autorização específicos para aplicativos Web, aplicativos da área de trabalho e celulares. O Azure AD usa o OAuth 2.0 para que você possa autorizar o acesso a aplicativos móveis e da Web. Para obter mais informações, confira [Autenticação e autorização no Serviço de Aplicativo do Azure](../../app-service/overview-authentication-authorization.md).
 
 ## <a name="restrict-access-based-on-role"></a>Restringir o acesso baseado em função
-A restrição do acesso é fundamental para as organizações que desejam impor políticas de segurança para acesso a dados. Você pode usar controle de acesso baseado em função (RBAC) para atribuir permissões a usuários, grupos e aplicativos em um determinado escopo, assim como os princípios de segurança de necessidade de saber e privilégios mínimos. Para saber mais sobre como conceder acesso a aplicativos aos usuários, confira [o que é o Azure RBAC (controle de acesso baseado em função)](/azure/role-based-access-control/overview).
+A restrição do acesso é fundamental para as organizações que desejam impor políticas de segurança para acesso a dados. Você pode usar o Azure RBAC (controle de acesso baseado em função) para atribuir permissões a usuários, grupos e aplicativos em um determinado escopo, como a necessidade de conhecer e os princípios de segurança de privilégios mínimos. Para saber mais sobre como conceder acesso a aplicativos aos usuários, confira [o que é o Azure RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md).
 
 ## <a name="protect-your-keys"></a>Proteja suas chaves
 Não importa a qualidade de sua segurança se você perder suas chaves de assinatura. O Cofre da Chave do Azure ajuda a proteger chaves criptográficas e segredos usados por aplicativos e serviços em nuvem. Com o Key Vault, você pode criptografar chaves e segredos (como chaves de autenticação, chaves de conta de armazenamento, chaves de criptografia de dados, arquivos .PFX e senhas) usando chaves protegidas por HSMs (módulos de segurança de hardware). Para garantia extra, você pode importar ou gerar chaves em HSMs. Também é possível usar o Key Vault para gerenciar seus certificados TLS com renovação automática. Veja [O que é o Azure Key Vault](../../key-vault/general/overview.md) para saber mais.

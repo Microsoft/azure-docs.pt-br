@@ -1,20 +1,20 @@
 ---
-title: Início rápido do Node.js para fluxos de dispositivos do Hub IoT do Azure para SSH e RDP
+title: Guia de Início Rápido – Node.js para fluxos de dispositivos do Hub IoT do Azure para SSH e RDP
 description: Neste início rápido, você executará um aplicativo Node.js de exemplo que funciona como proxy para habilitar cenários de SSH e RDP em fluxos de dispositivos do Hub IoT.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc, devx-track-js, devx-track-azurecli
+ms.custom: references_regions
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 86b5c1dc396a755d898f0c3c332ab59933236afe
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ef45a6277adeff09a34fe22b7abeb21d3e603167
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747437"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624347"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>Início Rápido: Habilitar o SSH e o RDP em fluxos de dispositivos do Hub IoT usando o aplicativo proxy do Node.js (versão prévia)
 
@@ -30,13 +30,15 @@ Neste guia de início rápido, você permite que o tráfego de SSH (Secure Shell
 
 * [Node.js 10+](https://nodejs.org).
 
+    Você pode verificar a versão atual do Node.js no computador de desenvolvimento usando o seguinte comando:
+
+    ```cmd/sh
+    node --version
+    ```
+
 * [Um projeto de exemplo do Node.js](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip).
 
-Você pode verificar a versão atual do Node.js no computador de desenvolvimento usando o seguinte comando:
-
-```cmd/sh
-node --version
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 Atualmente, o Hub IoT do Microsoft Azure dá suporte a fluxos de dispositivos como uma [versão prévia do recurso](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -47,8 +49,6 @@ Atualmente, o Hub IoT do Microsoft Azure dá suporte a fluxos de dispositivos co
 > * EUA Central EUAP
 > * Norte da Europa
 > * Sudeste Asiático
-  
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ### <a name="add-azure-iot-extension"></a>Adicionar Extensão do Azure IoT
 
@@ -82,13 +82,13 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Nesta 
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
-1. Para permitir que o aplicativo back-end se conecte ao hub IoT e recupere as mensagens, você também precisa de uma *cadeia de conexão de serviço* . O seguinte comando recupera a cadeia de caracteres para o hub IoT:
+1. Para permitir que o aplicativo back-end se conecte ao hub IoT e recupere as mensagens, você também precisa de uma *cadeia de conexão de serviço*. O seguinte comando recupera a cadeia de caracteres para o hub IoT:
 
    > [!NOTE]
    > Substitua o espaço reservado *YourIoTHubName* com o nome escolhido para o hub IoT.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
+    az iot hub connection-string show --policy-name service --hub-name {YourIoTHubName} --output table
     ```
 
    Anote a cadeia de conexão de serviço retornada para uso posterior neste início rápido. Ela se parece com o seguinte exemplo:

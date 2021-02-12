@@ -1,5 +1,5 @@
 ---
-title: Sinalizar faixas de áudio descritivas com os serviços de mídia do Azure v3 | Microsoft Docs
+title: Sinalizar faixas de áudio descritivas com os serviços de mídia v3
 description: Siga as etapas deste tutorial para carregar um arquivo, codificar o vídeo, adicionar faixas de áudio descritivas e transmitir seu conteúdo com os serviços de mídia v3.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 0bd2002e8f6f233361dd85cc08cfbd97ca23ed60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d029f23a094646d20dd6ae8cb6560aeef4aed54
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89291255"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954505"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Sinalizar faixas de áudio descritivas
 
@@ -36,7 +36,7 @@ Este artigo mostra como codificar um vídeo, carregar um arquivo MP4 somente de 
 
 ## <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Criar um ativo de entrada e carregar um arquivo local para ele 
 
-A função **CreateInputAsset** cria um novo [Ativo](/rest/api/media/assets) de entrada e carrega o arquivo de vídeo local especificado para ele. Esse **ativo** é usado como a entrada para seu trabalho de codificação. Nos serviços de mídia v3, a entrada para um **trabalho** pode ser um **ativo**ou pode ser o conteúdo que você disponibiliza para sua conta de serviços de mídia por meio de URLs HTTPS. 
+A função **CreateInputAsset** cria um novo [Ativo](/rest/api/media/assets) de entrada e carrega o arquivo de vídeo local especificado para ele. Esse **ativo** é usado como a entrada para seu trabalho de codificação. Nos serviços de mídia v3, a entrada para um **trabalho** pode ser um **ativo** ou pode ser o conteúdo que você disponibiliza para sua conta de serviços de mídia por meio de URLs HTTPS. 
 
 Se você quiser saber como codificar a partir de uma URL HTTPS, consulte [Este artigo](job-input-from-http-how-to.md) .  
 

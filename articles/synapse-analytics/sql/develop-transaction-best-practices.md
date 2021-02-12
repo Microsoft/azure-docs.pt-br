@@ -1,6 +1,6 @@
 ---
-title: Otimizar transações para o pool do SQL
-description: Saiba como otimizar o desempenho do seu código transacional no pool do SQL.
+title: Otimizar transações para o pool do SQL dedicado
+description: Saiba como otimizar o desempenho do seu código transacional no pool SQL dedicado.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,22 +10,22 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 174ae84e66f10db4ad24ed561b228f0031492d97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 908f047a22491d50337f51c0a6dce7f2db8a2ebc
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288640"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97026805"
 ---
-# <a name="optimize-transactions-in-sql-pool"></a>Otimizar transações no pool do SQL
+# <a name="optimize-transactions-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Otimizar transações com um pool SQL dedicado no Azure Synapse Analytics 
 
-Saiba como otimizar o desempenho do código transacional no pool de SQL minimizando o risco de reversões longas.
+Saiba como otimizar o desempenho do seu código transacional no pool SQL dedicado e, ao mesmo tempo, minimizar o risco de reversões longas.
 
 ## <a name="transactions-and-logging"></a>Transações e registro em log
 
-As transações são um componente importante de um mecanismo de banco de dados relacional. O pool de SQL usa transações durante a modificação de dados. Essas transações podem ser implícitas ou explícitas. Instruções INSERT, UPDATE e DELETE únicas são exemplos de transações implícitas. Transações explícitas usam BEGIN TRAN, COMMIT TRAN ou ROLLBACK TRAN. As transações explícitas normalmente são usadas quando várias instruções de modificação precisam ser ligadas em uma única unidade atômica.
+As transações são um componente importante de um mecanismo de banco de dados relacional. O pool SQL dedicado usa transações durante a modificação de dados. Essas transações podem ser implícitas ou explícitas. Instruções INSERT, UPDATE e DELETE únicas são exemplos de transações implícitas. Transações explícitas usam BEGIN TRAN, COMMIT TRAN ou ROLLBACK TRAN. As transações explícitas normalmente são usadas quando várias instruções de modificação precisam ser ligadas em uma única unidade atômica.
 
-O pool de SQL confirma as alterações no banco de dados usando os logs de transação. Cada distribuição tem seu próprio log de transações. As gravações de log de transações são automáticas. Não é necessária nenhuma configuração. No entanto, embora esse processo garanta a gravação, ele introduz uma sobrecarga no sistema. Você pode minimizar esse impacto ao escrever um código transacionalmente eficiente. De modo geral, um código transacionalmente eficiente se enquadra em duas categorias.
+O pool SQL dedicado confirma as alterações no banco de dados usando logs de transação. Cada distribuição tem seu próprio log de transações. As gravações de log de transações são automáticas. Não é necessária nenhuma configuração. No entanto, embora esse processo garanta a gravação, ele introduz uma sobrecarga no sistema. Você pode minimizar esse impacto ao escrever um código transacionalmente eficiente. De modo geral, um código transacionalmente eficiente se enquadra em duas categorias.
 
 * Use constructos de registro em log mínimos sempre que possível
 * Processar dados usando lotes com escopo para evitar transações de longa execução singulares
@@ -44,7 +44,7 @@ Os limites de segurança de transação só se aplicam às operações totalment
 
 As seguintes operações podem ser minimamente registradas em log:
 
-* CREATE TABLE AS SELECT ([CTAS])(../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+* CREATE TABLE como SELECT ([CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json))
 * INSERT..SELECT
 * CREATE INDEX
 * ALTER INDEX REBUILD
@@ -78,7 +78,7 @@ CTAS e INSERT...SELECT são ambas operações de carregamento em massa. No entan
 Vale a pena observar que todas as gravações para atualizar índices secundários ou não clusterizados sempre serão operações com log completo.
 
 > [!IMPORTANT]
-> O pool de SQL tem 60 distribuições. Portanto, supondo que todas as linhas são distribuídas uniformemente e em uma única partição, o seu lote deverá conter 6.144.000 linhas ou mais para ser minimamente registrado ao gravar em um Índice Columnstore Clusterizado. Se a tabela estiver particionada e as linhas que estiverem sendo inseridas se estenderem pelos limites de partição, você precisará de 6.144.000 linhas por limite de partição, considerando uma distribuição uniforme de dados. Cada partição em cada distribuição deve exceder independentemente o limite de 102.400 linhas para a inserção ser minimamente registrada em log para a distribuição.
+> O pool SQL dedicado tem 60 distribuições. Portanto, supondo que todas as linhas são distribuídas uniformemente e em uma única partição, o seu lote deverá conter 6.144.000 linhas ou mais para ser minimamente registrado ao gravar em um Índice Columnstore Clusterizado. Se a tabela estiver particionada e as linhas que estiverem sendo inseridas se estenderem pelos limites de partição, você precisará de 6.144.000 linhas por limite de partição, considerando uma distribuição uniforme de dados. Cada partição em cada distribuição deve exceder independentemente o limite de 102.400 linhas para a inserção ser minimamente registrada em log para a distribuição.
 
 Carregar dados em uma tabela não vazia com um índice clusterizado pode, muitas vezes, conter uma combinação de linhas total e minimamente registradas em log. Um índice clusterizado é uma árvore balanceada (árvore b) das páginas. Se a página que estiver sendo gravada já contiver linhas de outra transação, então essas gravações serão totalmente registradas em log. No entanto, se a página estiver vazia, a gravação para essa página será minimamente registrada em log.
 
@@ -177,7 +177,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> A recriação de tabelas grandes pode se beneficiar do uso de recursos de gerenciamento de carga de trabalho do pool de SQL. Para obter mais informações, consulte [Classes de recurso para gerenciamento de carga de trabalho](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+> Recriar tabelas grandes pode se beneficiar do uso de recursos dedicados de gerenciamento de carga de trabalho do pool SQL. Para obter mais informações, consulte [Classes de recurso para gerenciamento de carga de trabalho](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ## <a name="optimize-with-partition-switching"></a>Otimizar com alternância de partição
 
@@ -406,20 +406,20 @@ END
 
 ## <a name="pause-and-scaling-guidance"></a>Diretrizes de pausa e dimensionamento
 
-O Azure Synapse Analytics permite que você [pause, retome e escale](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) seu pool de SQL sob demanda. 
+O Azure Synapse Analytics permite que você [Pause, retome e dimensione](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) seu pool SQL dedicado sob demanda. 
 
-Quando você pausa ou escala o pool de SQL, deve reconhecer que todas as transações em trânsito serão encerradas imediatamente, fazendo com que qualquer transação aberta seja revertida. 
+Ao pausar ou dimensionar seu pool SQL dedicado, é importante entender que todas as transações em andamento são encerradas imediatamente; fazendo com que todas as transações abertas sejam revertidas. 
 
-Se sua carga de trabalho tiver emitido uma modificação de dados de longa duração e incompleta antes de a operação de dimensionamento ou pausa, o trabalho precisará ser desfeito. Esse desfazer pode impactar no tempo necessário para pausar ou escalar seu pool de SQL. 
+Se sua carga de trabalho tiver emitido uma modificação de dados de longa duração e incompleta antes de a operação de dimensionamento ou pausa, o trabalho precisará ser desfeito. Isso pode afetar o tempo necessário para pausar ou dimensionar seu pool SQL dedicado. 
 
 > [!IMPORTANT]
 > As operações `UPDATE` e `DELETE` são totalmente registradas em log e, portanto, essas operações de desfazer/refazer podem demorar significativamente mais do que as operações equivalentes minimamente registradas em log.
 
-O melhor cenário é permitir que as transações de modificação de dados em trânsito sejam concluídas antes da pausa ou da escala do pool de SQL. No entanto, esse cenário nem sempre pode ser prático. Para reduzir o risco de uma longa reversão, considere uma das seguintes opções:
+O melhor cenário é permitir que as transações de modificação de dados de voo sejam concluídas antes de pausar ou dimensionar seu pool SQL dedicado. No entanto, esse cenário nem sempre pode ser prático. Para reduzir o risco de uma longa reversão, considere uma das seguintes opções:
 
 * Regenere operações de execução longa usando [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 * Interromper a operação em partes; operando em um subconjunto das linhas
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira [Transações no pool de SQL](develop-transactions.md) para saber mais sobre os níveis de isolamento e os limites transacionais.  Para obter uma visão geral de outras Melhores Práticas, confira [Melhores práticas do pool de SQL](best-practices-sql-pool.md).
+Confira [Transações no pool de SQL dedicado](develop-transactions.md) para saber mais sobre os níveis de isolamento e limites transacionais.  Para obter uma visão geral de outras Melhores Práticas, confira [Melhores práticas do pool de SQL](best-practices-sql-pool.md).

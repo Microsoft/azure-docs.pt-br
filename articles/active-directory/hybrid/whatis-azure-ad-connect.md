@@ -11,12 +11,12 @@ ms.date: 01/08/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 338f957d3e881a76b39b0b7c00288ae2ebf2be59
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: d8e1af1848405441088796d2e3b42e7b52eedba8
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018604"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065109"
 ---
 # <a name="what-is-azure-ad-connect"></a>O que é o Azure AD Connect?
 
@@ -26,7 +26,7 @@ O Azure AD Connect é a ferramenta da Microsoft criada para atender e atingir su
 - [Autenticação de passagem](how-to-connect-pta.md) – um método de entrada que permite que os usuários usem a mesma senha localmente e na nuvem, mas não exige a infraestrutura adicional de um ambiente federado.
 - [Integração de federação](how-to-connect-fed-whatis.md) – a federação é uma parte opcional do Azure AD Connect e pode ser usada para configurar um ambiente híbrido usando uma infraestrutura do AD FS local. Ela também fornece recursos de gerenciamento do AD FS, como renovação de certificado e implantações adicionais de servidor do AD FS.
 - [Sincronização](how-to-connect-sync-whatis.md) – responsável pela criação de usuários, grupos e outros objetos.  Também é responsável por garantir que as informações de identidade dos usuários e grupos locais correspondam às da nuvem.  Essa sincronização também inclui os hashes de senha.
-- [Monitoramento de Integridade]() – o Azure AD Connect Health pode fornecer monitoramento robusto e fornecer um local central no portal do Azure para exibir essa atividade. 
+- [Monitoramento de Integridade](whatis-azure-ad-connect.md#what-is-azure-ad-connect-health) – o Azure AD Connect Health pode fornecer monitoramento robusto e fornecer um local central no portal do Azure para exibir essa atividade. 
 
 
 ![O que é o Azure AD Connect](./media/whatis-hybrid-identity/arch.png)
@@ -59,7 +59,7 @@ Principais benefícios e melhores práticas:
 |-----|-----|
 |Segurança aprimorada|[Tendências de bloqueio de extranet](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[Relatório de entradas de falha](how-to-connect-health-adfs-risky-ip.md)</br>[Em conformidade com a privacidade](reference-connect-health-user-privacy.md)|
 |Receba alertas sobre [todos os problemas críticos do sistema ADFS](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)|Configuração e disponibilidade do servidor</br>[Desempenho e conectividade](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>Manutenção regular|
-|Fácil de implantar e gerenciar|[Instalação rápida do agente](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)</br>Atualização automática do agente até o mais recente</br>Dados disponíveis no portal em minutos|
+|Fácil de implantar e gerenciar|[Instalação rápida do agente](how-to-connect-health-agent-install.md#install-the-agent-for-ad-fs)</br>Atualização automática do agente até o mais recente</br>Dados disponíveis no portal em minutos|
 [Métricas de uso](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs) avançadas|Uso dos principais aplicativos</br>Locais de rede e conexão TCP</br>Solicitações de token por servidor|
 |Ótima experiência do usuário|Forma do painel do portal do Azure</br>[Alertas por emails](how-to-connect-health-adfs.md#alerts-for-ad-fs)|
 

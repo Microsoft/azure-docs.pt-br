@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 47733f4b141b0064e966d0c083fd6414405f65f9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6c628d93c112a770c85a10d0eff958614a7cf4cb
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095519"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814152"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard-using-azure-cli"></a>Início rápido: criar e configurar a proteção contra DDoS do Azure Standard usando o CLI do Azure
 
@@ -39,7 +39,7 @@ Se você prefere instalar e usar a CLI localmente, este guia de início rápido 
 
 No Azure, você pode alocar recursos relacionados a um grupo de recursos. Você pode usar um grupo de recursos existente ou criar um novo.
 
-Para criar um grupo de recursos, use [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create&preserve-view=true). Neste exemplo, vamos nomear nosso grupo de recursos _MyResource_ Group e usar o local _leste dos EUA_ :
+Para criar um grupo de recursos, use [az group create](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-create). Neste exemplo, vamos nomear nosso grupo de recursos _MyResource_ Group e usar o local _leste dos EUA_ :
 
 ```azurecli-interactive
 az group create \
@@ -47,7 +47,7 @@ az group create \
     --location eastus
 ```
 
-Agora, crie um plano de proteção contra DDoS chamado _MyDdosProtectionPlan_ :
+Agora, crie um plano de proteção contra DDoS chamado _MyDdosProtectionPlan_:
 
 ```azurecli-interactive
 az network ddos-protection create \
@@ -59,7 +59,7 @@ az network ddos-protection create \
 
 ### <a name="enable-ddos-protection-for-a-new-virtual-network"></a>Habilitar a proteção contra DDoS para uma nova rede virtual
 
-Você pode habilitar a proteção contra DDoS ao criar uma rede virtual. Neste exemplo, vamos nomear nossa rede virtual _MyVnet_ : 
+Você pode habilitar a proteção contra DDoS ao criar uma rede virtual. Neste exemplo, vamos nomear nossa rede virtual _MyVnet_: 
 
 ```azurecli-interactive
 az network vnet create \
@@ -73,7 +73,7 @@ Você não pode mover uma rede virtual para outro grupo de recursos ou assinatur
 
 ### <a name="enable-ddos-protection-for-an-existing-virtual-network"></a>Habilitar a proteção contra DDoS para uma rede virtual existente
 
-Ao [criar um plano de proteção contra DDoS](#create-a-ddos-protection-plan), você pode associar uma ou mais redes virtuais ao plano. Para adicionar mais de uma rede virtual, basta listar os nomes ou as IDs, separados por espaços. Neste exemplo, adicionaremos _MyVnet_ :
+Ao [criar um plano de proteção contra DDoS](#create-a-ddos-protection-plan), você pode associar uma ou mais redes virtuais ao plano. Para adicionar mais de uma rede virtual, basta listar os nomes ou as IDs, separados por espaços. Neste exemplo, adicionaremos _MyVnet_:
 
 ```azurecli-interactive
 az group create \
@@ -111,7 +111,7 @@ Verifique se o comando retorna os detalhes corretos do seu plano de proteção c
 
 Você pode manter seus recursos para o próximo tutorial. Se não for mais necessário, exclua o grupo de recursos _MyResource_ Group. Ao excluir o grupo de recursos, você também exclui o plano de proteção contra DDoS e todos os seus recursos relacionados. 
 
-Para excluir o grupo de recursos, use [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az_group_delete&preserve-view=true):
+Para excluir o grupo de recursos, use [az group delete](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az_group_delete):
 
 ```azurecli-interactive
 az group delete \
@@ -134,4 +134,4 @@ Se você quiser excluir um plano de proteção contra DDoS, deverá primeiro dis
 Para saber como exibir e configurar a telemetria para seu plano de proteção contra DDoS, continue com os tutoriais.
 
 > [!div class="nextstepaction"]
-> [Exibir e configurar a telemetria da Proteção contra DDoS](telemetry-monitoring-alerting.md)
+> [Exibir e configurar a telemetria da Proteção contra DDoS](telemetry.md)

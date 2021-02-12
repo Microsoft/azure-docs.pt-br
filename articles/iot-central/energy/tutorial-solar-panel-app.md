@@ -1,113 +1,109 @@
 ---
-title: 'Tutorial: Criar um aplicativo de monitoramento de painel solar com o IoT Central'
+title: 'Tutorial: Criar um aplicativo de monitoramento de painel solar com o Azure IoT Central'
 description: 'Tutorial: Saiba como criar um aplicativo de painel solar usando os modelos de aplicativo do Azure IoT Central.'
 author: op-ravi
 ms.author: omravi
-ms.date: 11/12/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 145aefbe5a31d71ae614826c63d285c37ac03571
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 9ea1db982a6944bd12b458624545b3888881508f
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123918"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881910"
 ---
-# <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>Tutorial: Criar e percorrer o modelo de aplicativo de monitoramento do painel solar 
+# <a name="tutorial-create-and-explore-the-solar-panel-monitoring-app-template"></a>Tutorial: Criar e explorar o modelo de aplicativo de monitoramento do painel solar 
 
-
-
-Este tutorial orienta você pelo processo de criação do aplicativo de monitoramento de painel solar, que inclui um modelo de dispositivo de exemplo cujos dados são simulados. Neste tutorial, você aprenderá:
+Este tutorial orienta você pelo processo de criação de um aplicativo de monitoramento de painel solar, que inclui um modelo de dispositivo de exemplo cujos dados são simulados. Neste tutorial, você aprenderá como:
 
 
 > [!div class="checklist"]
-> * A criar o aplicativo de painel solar gratuitamente
-> * Passo a passo do aplicativo
+> * Criar um aplicativo de painel solar gratuitamente
+> * Explorar o aplicativo
 > * Limpar os recursos
 
 
-Caso não tenha uma assinatura, [crie uma conta de avaliação gratuita](https://azure.microsoft.com/free)
+Caso não tenha uma assinatura, [crie uma conta de avaliação gratuita](https://azure.microsoft.com/free).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- Nenhum
-- A assinatura do Azure é recomendada, mas não é obrigatória para experimentar
+
+Não há pré-requisitos para a conclusão deste tutorial. A assinatura do Azure é recomendada, mas não é obrigatória.
 
 
 ## <a name="create-a-solar-panel-monitoring-app"></a>Criar um aplicativo de monitoramento de painel solar 
 
 Você pode criar esse aplicativo em três etapas simples:
 
-1. Abra a [home page do Azure IoT Central](https://apps.azureiotcentral.com) e clique em **Criar** para criar um novo aplicativo. 
+1. Acesse o [Azure IoT Central](https://apps.azureiotcentral.com). Para criar um aplicativo, selecione **Criar**. 
 
-2. Selecione a guia **Energia** e clique em **Criar aplicativo** no bloco de aplicativo **Monitoramento de painel solar**. 
+1. Selecione a guia **Energia**. Em **Monitoramento do painel solar**, selecione **Criar aplicativo**. 
 
     > [!div class="mx-imgBorder"]
-    > ![Compilar o aplicativo](media/tutorial-iot-central-solar-panel/solar-panel-build.png)
+    > ![Captura de tela das opções de criação do Azure IoT Central.](media/tutorial-iot-central-solar-panel/solar-panel-build.png)
   
-3. **Criar aplicativo** abrirá o formulário **Novo aplicativo**. Preencha os detalhes solicitados, conforme mostrado na figura abaixo:
-    * **Nome do aplicativo**: escolha o nome para seu aplicativo do IoT Central. 
-    * **URL**: escolha uma URL do IoT Central, a plataforma verificará sua exclusividade.
-    * **Avaliação gratuita de 7 dias**: se você já tiver uma assinatura do Azure, a configuração padrão será recomendada. Caso não tenha uma assinatura do Azure, comece com uma avaliação gratuita.
-    * **Informações de Cobrança**: o aplicativo é gratuito. é necessário informar os detalhes em Diretório, Assinatura do Azure e Região para provisionar os recursos para seu aplicativo.
-    * Clique no botão **Criar** na parte inferior da página e seu aplicativo será criado em cerca de um minuto.
-        ![Formulário de novo aplicativo](media/tutorial-iot-central-solar-panel/solar-panel-create-app.png)
+1. Na caixa de diálogo **Novo aplicativo**, preencha os detalhes solicitados e, em seguida, selecione **Criar**:
+    * **Nome do aplicativo**: Escolha o nome para seu aplicativo do Azure IoT Central. 
+    * **URL**: Escolha uma URL do Azure IoT Central. A plataforma verifica a própria exclusividade.
+    * **Plano de preços**: se você já tem uma assinatura do Azure, a configuração padrão é recomendada. Caso não tenha uma assinatura do Azure, comece com a avaliação gratuita.
+    * **Informações de cobrança**: o aplicativo é gratuito. é necessário informar os detalhes de diretório, assinatura do Azure e região para provisionar os recursos para seu aplicativo.
+        ![Captura de tela do Novo aplicativo.](media/tutorial-iot-central-solar-panel/solar-panel-create-app.png)
         
-        ![Informações de cobrança do formulário de novo aplicativo](media/tutorial-iot-central-solar-panel/solar-panel-create-app-billinginfo.png)
+        ![Captura de tela das Informações de cobrança.](media/tutorial-iot-central-solar-panel/solar-panel-create-app-billinginfo.png)
 
 
 ### <a name="verify-the-application-and-simulated-data"></a>Verifique o aplicativo e os dados simulados
 
-O aplicativo de painel solar recém-criado é seu e você pode modificá-lo a qualquer momento. Vamos garantir que o aplicativo esteja implantado e que funcione conforme o esperado antes de modificá-lo.
+Você pode modificar seu novo aplicativo de painel solar a qualquer momento. Por hora, vamos garantir que o aplicativo esteja implantado e que funcione conforme o esperado antes de modificá-lo.
 
-Para verificar a criação do aplicativo e a simulação de dados, acesse o **Painel**. Se você puder ver os blocos com alguns dados, a implantação do aplicativo terá sido bem-sucedida. A simulação de dados pode levar algum tempo para gerar os dados, portanto, aguarde 1 ou 2 minutos. 
+Para verificar a criação do aplicativo e a simulação de dados, acesse o **Painel**. Se você puder ver os blocos com alguns dados, a implantação do aplicativo terá sido bem-sucedida. A simulação de dados pode levar algum tempo para gerar os dados. 
 
 ## <a name="application-walk-through"></a>Passo a passo do aplicativo
-Após você implantar com êxito o modelo de aplicativo, ele vem com o dispositivo de medidor inteligente de exemplo, o modelo de dispositivo e o painel.
+Depois de implantar com êxito o modelo de aplicativo, você desejará explorar o aplicativo um pouco mais. Observe que ele vem com o dispositivo de medidor inteligente de exemplo, o modelo de dispositivo e o painel.
 
-Adatum é uma empresa de energia fictícia, que monitora e gerencia painéis solares. No painel de monitoramento de painel solar, você vê as propriedades do painel solar, os dados e os comandos de exemplo. Ele permite que os operadores e as equipes de suporte executem proativamente as seguintes atividades antes que ocorram incidentes de suporte:
-* Examinar as informações mais recentes do painel e sua localização de instalação no mapa
-* Verificar proativamente o status do painel e o status da conexão
-* Examinar tendências de geração de energia e temperatura para capturar padrões anormais
-* Acompanhar a geração de energia total para fins de planejamento e cobrança
-* Comandar e controlar operações, como ativar o painel e atualizar a versão do firmware. No modelo, os botões de comando mostram as funcionalidades possíveis e não enviam comandos reais.
+A Adatum é uma empresa de energia fictícia, que monitora e gerencia painéis solares. No painel de monitoramento de painel solar, você vê as propriedades do painel solar, os dados e os comandos de exemplo. Este painel permite que você ou sua equipe de suporte execute as seguintes atividades proativamente, antes que os problemas exijam suporte adicional:
+* examinar as informações mais recentes do painel e a localização de instalação dele no mapa;
+* verificar o status do painel e o status da conexão;
+* examinar tendências de geração de energia e temperatura para capturar padrões anormais.
+* acompanhar a geração de energia total para fins de planejamento e cobrança;
+* ativar um painel e atualizar a versão do firmware, se necessário. No modelo, os botões de comando mostram as funcionalidades possíveis e não enviam comandos reais.
 
 > [!div class="mx-imgBorder"]
-> ![Painel de monitoramento de painel solar](media/tutorial-iot-central-solar-panel/solar-panel-dashboard.png)
+> ![Captura de tela do Painel de Modelo de Monitoramento de Painel Solar.](media/tutorial-iot-central-solar-panel/solar-panel-dashboard.png)
 
 ### <a name="devices"></a>Dispositivos
-O aplicativo vem com um dispositivo de painel solar de exemplo. Você pode ver os detalhes do dispositivo clicando na guia **Dispositivos**.
+O aplicativo vem com um dispositivo de painel solar de exemplo. Em detalhes do dispositivo, selecione **Dispositivos**.
 
 > [!div class="mx-imgBorder"]
-> ![Dispositivos de painel solar](media/tutorial-iot-central-solar-panel/solar-panel-device.png)
+> ![Captura de tela dos Dispositivos de Modelo de Monitoramento de Painel Solar.](media/tutorial-iot-central-solar-panel/solar-panel-device.png)
 
-
-Clique no link do dispositivo de exemplo **SP0123456789** para ver os detalhes. Na página **Atualizar Propriedades**, você pode atualizar as propriedades graváveis do dispositivo e visualizar os valores atualizados no painel. 
+Selecione o dispositivo de exemplo, **SP0123456789**. Na guia **Atualizar Propriedades**, você pode atualizar as propriedades graváveis do dispositivo e visualizar os valores atualizados no painel. 
 
 > [!div class="mx-imgBorder"]
-> ![Propriedades do painel solar](media/tutorial-iot-central-solar-panel/solar-panel-device-properties.png)
+> ![Captura de tela da guia Atualizar Propriedades dos Dispositivos de Modelo de Monitoramento de Painel Solar.](media/tutorial-iot-central-solar-panel/solar-panel-device-properties.png)
 
 
 ### <a name="device-template"></a>Modelo de dispositivo
-Clique na guia **Modelos de dispositivo** para ver o modelo de dispositivo do painel solar. O modelo tem uma interface predefinida para Dados, Propriedade, Comandos e Exibições.
+Selecione a guia **Modelos de dispositivo** para ver o modelo de dispositivo do painel solar. O modelo tem uma interface predefinida para dados, propriedades, comandos e exibições.
 
 > [!div class="mx-imgBorder"]
-> ![Modelo de dispositivos de painel solar](media/tutorial-iot-central-solar-panel/solar-panel-device-templates.png)
+> ![Captura de tela dos modelos de Dispositivos de Modelo de Monitoramento de Painel Solar.](media/tutorial-iot-central-solar-panel/solar-panel-device-templates.png)
 
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 Se optar por não continuar usando este aplicativo, exclua-o seguindo estas etapas:
 
-1. No painel esquerdo, abra a guia Administração
-2. Selecione Configurações do aplicativo e clique no botão Excluir na parte inferior da página. 
+1. No painel esquerdo, selecione **Administração**.
+1. Selecione **Configurações do aplicativo** > **Excluir**. 
 
     > [!div class="mx-imgBorder"]
-    > ![Excluir aplicativo](media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png)
+    > ![Captura de tela da Administração de Modelo de Monitoramento de Painel Solar.](media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre a arquitetura do aplicativo de painel solar: confira 
+ 
 > [!div class="nextstepaction"]
-> [o artigo conceito](./concept-iot-central-solar-panel-app.md)
-* Crie modelos de aplicativos de painel solar gratuitamente: [aplicativo de painel solar](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
-* Saiba mais sobre o IoT Central conferindo a [Visão geral do IoT Central](../index.yml)
+> [Azure IoT Central – arquitetura de aplicativo do painel solar](./concept-iot-central-solar-panel-app.md)
+* [Criar modelos de aplicativos de painel solar gratuitamente](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
+* [Visão geral do Azure IoT Central](../index.yml)

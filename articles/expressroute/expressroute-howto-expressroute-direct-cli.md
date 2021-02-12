@@ -5,19 +5,28 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 12/14/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0bdf2c4dda3e272ae04681f886f6e4da31dcebd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aea51e56f2d96fa634b1ece2029c9ea5bf3f60fc
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569826"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011298"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configurar o ExpressRoute direto usando o CLI do Azure
 
 O ExpressRoute Direct oferece a capacidade de se conectar diretamente à rede global da Microsoft por meio de locais de emparelhamento distribuídos estrategicamente em todo o mundo. Para obter mais informações, confira [Sobre a conexão do ExpressRoute Direct](expressroute-erdirect-about.md).
+
+## <a name="before-you-begin"></a>Antes de começar
+
+Antes de usar o ExpressRoute Direct, você deve primeiro registrar sua assinatura. Para se inscrever, envie um e-mail para <ExpressRouteDirect@microsoft.com> com seu ID de assinatura, incluindo os seguintes detalhes:
+
+* Cenários que você pretende para realizar com o **ExpressRoute Direct**
+* Preferências de localização. Confira [Localizações de emparelhamento e parceiros do ExpressRoute](expressroute-locations-providers.md) para obter uma lista completa de todas as localizações
+* Linha do tempo para implementação
+* Tem mais perguntas?
 
 ## <a name="create-the-resource"></a><a name="resources"></a>Criar o recurso
 
@@ -208,14 +217,6 @@ O ExpressRoute Direct oferece a capacidade de se conectar diretamente à rede gl
    "type": "Microsoft.Network/expressRoutePorts"
    }  
    ```
-
-## <a name="generate-the-letter-of-authorization-loa"></a><a name="authorization"></a>Gerar a letra de autorização (LOA)
-
-Insira o nome do recurso direto do ExpressRoute criado recentemente, o nome do grupo de recursos e um nome de cliente para gravar o LOA e (opcionalmente) definir um local de arquivo para armazenar o documento. Se um caminho de arquivo não for referenciado, o documento será baixado para o diretório atual.
-
-```azurecli
-az network express-route port generate-loa -n Contoso-Direct -g Contoso-Direct-rg --customer-name Contoso --destination C:\Users\SampleUser\Downloads\LOA.pdf
-```
 
 ## <a name="change-adminstate-for-links"></a><a name="state"></a>Alterar AdminState para links
 

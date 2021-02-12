@@ -6,12 +6,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 07/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: efdb195ad41b036f7f470884b3a441de1db7f7f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 320668f9596376cf7aa12ed97872671404a07658
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91716151"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895910"
 ---
 # <a name="manage-role-permissions-and-security"></a>Gerenciar permissões e segurança de funções
 
@@ -319,7 +319,7 @@ Você pode remover a permissão de acesso de um usuário que não está gerencia
 
 Você também pode configurar o acesso baseado em função para uma conta de Automação usando os seguintes [cmdlets do Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
-[Get-AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) lista todas as funções do Azure que estão disponíveis no Azure Active Directory. Você pode usar o cmdlet com o parâmetro `Name` para listar todas as ações que uma função específica pode executar.
+[Get-AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition) lista todas as funções do Azure que estão disponíveis no Azure Active Directory. Você pode usar o cmdlet com o parâmetro `Name` para listar todas as ações que uma função específica pode executar.
 
 ```azurepowershell-interactive
 Get-AzRoleDefinition -Name 'Automation Operator'
@@ -338,7 +338,7 @@ NotActions       : {}
 AssignableScopes : {/}
 ```
 
-[Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0) lista as atribuições de função do Azure no escopo especificado. Sem nenhum parâmetro, o cmdlet retorna todas as atribuições de função feitas na assinatura. Use o parâmetro `ExpandPrincipalGroups` para listar as atribuições de acesso para o usuário especificado, bem como os grupos aos quais o usuário pertence.
+[Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) lista as atribuições de função do Azure no escopo especificado. Sem nenhum parâmetro, o cmdlet retorna todas as atribuições de função feitas na assinatura. Use o parâmetro `ExpandPrincipalGroups` para listar as atribuições de acesso para o usuário especificado, bem como os grupos aos quais o usuário pertence.
 
 **Exemplo:** Use o cmdlet a seguir para listar todos os usuários e suas funções em uma conta de Automação.
 
@@ -360,7 +360,7 @@ ObjectId           : 15f26a47-812d-489a-8197-3d4853558347
 ObjectType         : User
 ```
 
-Use [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment?view=azps-3.7.0) para atribuir o acesso de usuários, grupos e aplicativos a um escopo específico.
+Use [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) para atribuir o acesso de usuários, grupos e aplicativos a um escopo específico.
 
 **Exemplo:** Use o comando a seguir para atribuir a função "Operador de Automação" para um usuário no escopo da Conta de Automação.
 
@@ -382,7 +382,7 @@ ObjectId           : f5ecbe87-1181-43d2-88d5-a8f5e9d8014e
 ObjectType         : User
 ```
 
-Use [Remove-AzureRmRoleAssignment](/powershell/module/Az.Resources/Remove-AzRoleAssignment?view=azps-3.7.0) para remover o acesso de um usuário, grupo ou aplicativo especificado a determinado escopo.
+Use [Remove-AzureRmRoleAssignment](/powershell/module/Az.Resources/Remove-AzRoleAssignment) para remover o acesso de um usuário, grupo ou aplicativo especificado a determinado escopo.
 
 **Exemplo:** Use o comando a seguir para remover o usuário da função de Operador de Automação no escopo da conta de Automação.
 

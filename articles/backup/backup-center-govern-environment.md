@@ -3,14 +3,14 @@ title: Administrar seu espaço de backup usando o Centro de Backup
 description: Saiba como controlar seu ambiente do Azure para garantir que todos os seus recursos estejam em conformidade de uma perspectiva de backup com o centro de backup.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: ebb4d72c3a3377072e185251bd642762f6876c03
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 67b0591c7d7146d162687018854365d338105d76
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173808"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893839"
 ---
-# <a name="govern-your-backup-estate-using-backup-center"></a>Administrar seu espaço de backup usando o Centro de Backup
+# <a name="govern-your-backup-estate-using-backup-center-preview"></a>Controlar seu patrimônio de backup usando o centro de backup (versão prévia)
 
 O centro de backup ajuda você a governar seu ambiente do Azure para garantir que todos os seus recursos estejam em conformidade a partir de uma perspectiva de backup. Abaixo estão alguns dos recursos de governança do centro de backup:
 
@@ -43,6 +43,11 @@ Clicar no item de menu conformidade de backup ajuda a exibir a [conformidade](..
 A seleção do item de menu de **fontes de fonte de proteção** permite que você exiba todas as fontes de fonte que não foram configuradas para backup. Você pode filtrar a lista por assinatura de DataSource, grupo de recursos, local, tipo e marcas. Depois de identificar uma fonte de fontes que precisa ser submetida a backup, você pode clicar com o botão direito do mouse no item de grade correspondente e selecionar **backup** para configurar o backup do recurso.
 
 ![Menu fonte de fontes protegíveis](./media/backup-center-govern-environment/protectable-datasources.png)
+
+> [!NOTE]
+> Se você selecionar **SQL na VM do Azure** como o tipo de fonte de dados, a exibição de fontes de dados **protegíveis** exibirá a lista de todas as VMs da galeria que não têm nenhum banco de dados SQL configurado para backup.
+> Se você selecionar **armazenamento do Azure (arquivos do Azure)** como o tipo DataSource, a exibição fontes de armazenamento de **proteção** exibirá a lista de todas as contas de repositório (que dão suporte a compartilhamentos de arquivos) que não têm nenhum compartilhamento de arquivos configurado para backup.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

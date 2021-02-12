@@ -2,7 +2,7 @@
 title: Ingresse em uma VM RHEL para Azure AD Domain Services | Microsoft Docs
 description: Saiba como configurar e ingressar um Red Hat Enterprise Linux máquina virtual em um domínio Azure AD Domain Services gerenciado.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/13/2020
-ms.author: joflore
-ms.openlocfilehash: ffde2317ea66a15936df75c4fe2455f627ea6e98
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 285a972936bfdf4b173e2a20223143883cd8b7d3
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962115"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619548"
 ---
 # <a name="join-a-red-hat-enterprise-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Ingressar uma máquina virtual Red Hat Enterprise Linux em um domínio Azure Active Directory Domain Services gerenciado
 

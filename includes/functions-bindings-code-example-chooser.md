@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 09/24/2020
 ms.author: glenga
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 541b72fdd97c48388d5f954d5ee13399d24bf22a
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 1ff9606d10ac62e0bab15f970a964bfd0b08bee8
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92116752"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97506299"
 ---
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -23,6 +23,7 @@ ms.locfileid: "92116752"
 | Hub IoT |[Gatilho](../articles/azure-functions/functions-bindings-event-iot-trigger.md?tabs=csharp#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-iot-output.md?tabs=csharp#example) | |
 | HTTP |[Gatilho](../articles/azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#example) | [Link](https://www.serverlesslibrary.net/?language=C%23&filtertext=http) |
 | Armazenamento de filas | [Gatilho](../articles/azure-functions/functions-bindings-storage-queue-trigger.md?tabs=csharp#example)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-queue-output.md?tabs=csharp#example) | [Link](https://www.serverlesslibrary.net/?technology=Storage%20Queue&language=C%23) |
+| RabbitMQ |[Gatilho](../articles/azure-functions/functions-bindings-rabbitmq-trigger.md?tabs=csharp#example)<br/>[Saída](../articles/azure-functions/functions-bindings-rabbitmq-output.md?tabs=csharp#example) |
 | SendGrid | [Saída](../articles/azure-functions/functions-bindings-sendgrid.md?tabs=csharp#example) | |
 | Barramento de Serviço |[Gatilho](../articles/azure-functions/functions-bindings-service-bus-trigger.md?tabs=csharp#example)<br/>[Saída](../articles/azure-functions/functions-bindings-service-bus-output.md?tabs=csharp#example) | [Link](https://www.serverlesslibrary.net/?technology=Service%20Bus%20Queue&language=C%23) |
 | SignalR| [Gatilho](../articles/azure-functions/functions-bindings-signalr-service-trigger.md?tabs=csharp#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-signalr-service-input.md?tabs=csharp#example)<br/>[Saída](../articles/azure-functions/functions-bindings-signalr-service-output.md?tabs=csharp) | |
@@ -41,6 +42,7 @@ ms.locfileid: "92116752"
 | Hub IoT |[Gatilho](../articles/azure-functions/functions-bindings-event-iot-trigger.md?tabs=java#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-iot-output.md?tabs=java#example) | |
 | HTTP |[Gatilho](../articles/azure-functions/functions-bindings-http-webhook-trigger.md?tabs=java#example) | [Link](https://www.serverlesslibrary.net/?language=Java&filtertext=http) |
 | Armazenamento de filas | [Gatilho](../articles/azure-functions/functions-bindings-storage-queue-trigger.md?tabs=java#example)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-queue-output.md?tabs=java#example) | [Link](https://www.serverlesslibrary.net/?technology=Storage%20Queue&language=Java) |
+| RabbitMQ |[Gatilho](../articles/azure-functions/functions-bindings-rabbitmq-trigger.md?tabs=java#example)<br/>[Saída](../articles/azure-functions/functions-bindings-rabbitmq-output.md?tabs=java#example) |
 | SendGrid | [Saída](../articles/azure-functions/functions-bindings-sendgrid.md?tabs=java#example) | |
 | Barramento de Serviço |[Gatilho](../articles/azure-functions/functions-bindings-service-bus-trigger.md?tabs=java#example)<br/>[Saída](../articles/azure-functions/functions-bindings-service-bus-output.md?tabs=java#example) | [Link](https://www.serverlesslibrary.net/?technology=Service%20Bus%20Queue&language=Java) |
 | SignalR| [Gatilho](../articles/azure-functions/functions-bindings-signalr-service-trigger.md?tabs=java#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-signalr-service-input.md?tabs=java#example)<br/>[Saída](../articles/azure-functions/functions-bindings-signalr-service-output.md?tabs=java) | |
@@ -59,6 +61,7 @@ ms.locfileid: "92116752"
 | Hub IoT |[Gatilho](../articles/azure-functions/functions-bindings-event-iot-trigger.md?tabs=javascript#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-iot-output.md?tabs=javascript#example) | |
 | HTTP |[Gatilho](../articles/azure-functions/functions-bindings-http-webhook-trigger.md?tabs=javascript#example) | [Link](https://www.serverlesslibrary.net/?language=JavaScript&filtertext=http) |
 | Armazenamento de filas | [Gatilho](../articles/azure-functions/functions-bindings-storage-queue-trigger.md?tabs=javascript#example)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-queue-output.md?tabs=javascript#example) | [Link](https://www.serverlesslibrary.net/?technology=Storage%20Queue&language=JavaScript) |
+| RabbitMQ |[Gatilho](../articles/azure-functions/functions-bindings-rabbitmq-trigger.md?tabs=javascript#example)<br/>[Saída](../articles/azure-functions/functions-bindings-rabbitmq-output.md?tabs=javascript#example) |
 | SendGrid | [Saída](../articles/azure-functions/functions-bindings-sendgrid.md?tabs=javascript#example) | |
 | Barramento de Serviço |[Gatilho](../articles/azure-functions/functions-bindings-service-bus-trigger.md?tabs=javascript#example)<br/>[Saída](../articles/azure-functions/functions-bindings-service-bus-output.md?tabs=javascript#example) | [Link](https://www.serverlesslibrary.net/?technology=Service%20Bus%20Queue&language=JavaScript) |
 | SignalR| [Gatilho](../articles/azure-functions/functions-bindings-signalr-service-trigger.md?tabs=javascript#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-signalr-service-input.md?tabs=javascript#example)<br/>[Saída](../articles/azure-functions/functions-bindings-signalr-service-output.md?tabs=javascript) | |
@@ -77,6 +80,7 @@ ms.locfileid: "92116752"
 | Hub IoT |[Gatilho](../articles/azure-functions/functions-bindings-event-iot-trigger.md?tabs=powershell#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-iot-output.md?tabs=powershell#example) | |
 | HTTP |[Gatilho](../articles/azure-functions/functions-bindings-http-webhook-trigger.md?tabs=powershell#example) | [Link](https://www.serverlesslibrary.net/?language=PowerShell&filtertext=http) |
 | Armazenamento de filas | [Gatilho](../articles/azure-functions/functions-bindings-storage-queue-trigger.md?tabs=powershell#example)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-queue-output.md?tabs=powershell#example) | [Link](https://www.serverlesslibrary.net/?technology=Storage%20Queue&language=PowerShell) |
+| RabbitMQ |[Gatilho](../articles/azure-functions/functions-bindings-rabbitmq-trigger.md?tabs=powershell#example)<br/>[Saída](../articles/azure-functions/functions-bindings-rabbitmq-output.md?tabs=powershell#example) |
 | SendGrid | [Saída](../articles/azure-functions/functions-bindings-sendgrid.md?tabs=powershell#example) | |
 | Barramento de Serviço |[Gatilho](../articles/azure-functions/functions-bindings-service-bus-trigger.md?tabs=powershell#example)<br/>[Saída](../articles/azure-functions/functions-bindings-service-bus-output.md?tabs=powershell#example) | [Link](https://www.serverlesslibrary.net/?technology=Service%20Bus%20Queue&language=PowerShell) |
 | SignalR| [Gatilho](../articles/azure-functions/functions-bindings-signalr-service-trigger.md?tabs=powershell#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-signalr-service-input.md?tabs=powershell#example)<br/>[Saída](../articles/azure-functions/functions-bindings-signalr-service-output.md?tabs=powershell) | |
@@ -95,6 +99,7 @@ ms.locfileid: "92116752"
 | Hub IoT |[Gatilho](../articles/azure-functions/functions-bindings-event-iot-trigger.md?tabs=python#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-iot-output.md?tabs=python#example) | |
 | HTTP |[Gatilho](../articles/azure-functions/functions-bindings-http-webhook-trigger.md?tabs=python#example) | [Link](https://www.serverlesslibrary.net/?language=Python&filtertext=http) |
 | Armazenamento de filas | [Gatilho](../articles/azure-functions/functions-bindings-storage-queue-trigger.md?tabs=python#example)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-queue-output.md?tabs=python#example) | [Link](https://www.serverlesslibrary.net/?technology=Storage%20Queue&language=Python) |
+| RabbitMQ |[Gatilho](../articles/azure-functions/functions-bindings-rabbitmq-trigger.md?tabs=python#example)<br/>[Saída](../articles/azure-functions/functions-bindings-rabbitmq-output.md?tabs=python#example) |
 | SendGrid | [Saída](../articles/azure-functions/functions-bindings-sendgrid.md?tabs=python#example) | |
 | Barramento de Serviço |[Gatilho](../articles/azure-functions/functions-bindings-service-bus-trigger.md?tabs=python#example)<br/>[Saída](../articles/azure-functions/functions-bindings-service-bus-output.md?tabs=python#example) | [Link](https://www.serverlesslibrary.net/?technology=Service%20Bus%20Queue&language=Python) |
 | SignalR| [Gatilho](../articles/azure-functions/functions-bindings-signalr-service-trigger.md?tabs=python#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-signalr-service-input.md?tabs=python#example)<br/>[Saída](../articles/azure-functions/functions-bindings-signalr-service-output.md?tabs=python) | |

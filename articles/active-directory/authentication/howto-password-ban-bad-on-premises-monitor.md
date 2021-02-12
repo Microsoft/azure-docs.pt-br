@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 315dfcb10b11278401d6cc0abd42b40b5f55f72a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: edc246a414401c4c1c0248787eda0381fcd63037
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968354"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741755"
 ---
 # <a name="monitor-and-review-logs-for-on-premises-azure-ad-password-protection-environments"></a>Monitorar e examinar os logs de ambientes de proteção de senha do Azure AD locais
 
@@ -64,17 +64,21 @@ Eventos discretos para capturar essas situações são registrados com base nos 
 
 Os principais eventos relacionados à validação de senha são os seguintes:
 
-| evento |Alteração de senha |Definição de senha|
+| Evento |Alteração de senha |Definição de senha|
 | --- | :---: | :---: |
 |Aprovado |10014 |10015|
 |Falha (devido à política de senha do cliente)| 10016, 30002| 10017, 30003|
 |Falha (devido à política de senha da Microsoft)| 10016, 30004| 10017, 30005|
 |Falha (devido à combinação das políticas de senha da Microsoft e do cliente)| 10016, 30026| 10017, 30027|
+|Falha (devido ao nome de usuário)| 10016, 30021| 10017, 30022|
 |Aprovado somente auditoria (teria falhado a política de senha do cliente)| 10024, 30008| 10025, 30007|
 |Aprovado somente auditoria (teria falhado a política de senha da Microsoft)| 10024, 30010| 10025, 30009|
 |Aprovado somente auditoria (teria falhado na combinação das políticas de senha da Microsoft e do cliente)| 10024, 30028| 10025, 30029|
+|Passagem somente de auditoria (falharia devido a nome de usuário)| 10016, 30024| 10017, 30023|
 
 Os casos que fazem referência a "políticas combinadas" na tabela acima são referindo-se a situações em que a senha do usuário foi encontrada para conter pelo menos um token da lista de senhas banida do Microsoft e a lista de senhas banida do cliente.
+
+Os casos na tabela acima que se referem a "nome de usuário" estão se referindo a situações em que a senha de um usuário foi encontrada para conter o nome da conta do usuário e/ou um dos nomes amigáveis do usuário. Qualquer um dos cenários fará com que a senha do usuário seja rejeitada quando a política for definida como impor ou passada se a política estiver no modo de auditoria.
 
 Quando um par de eventos é registrado em conjunto, ambos os eventos são explicitamente associados tendo a mesma CorrelationId.
 

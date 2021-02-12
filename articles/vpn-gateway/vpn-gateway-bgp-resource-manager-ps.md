@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: aeb43f1b9f53a9f57cc436ced1db1bc3feed02d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8573d9e55299382392927b532966a6e6fdd8c439
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843253"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659753"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Como configurar o BGP em Gateways de VPN do Azure usando o PowerShell
 Este artigo explica as etapas para habilitar o BGP em uma conexão de VPN Site a Site (S2S) entre locais e uma conexão de VNet para VNet usando o modelo de implantação do Resource Manager e o PowerShell.
@@ -75,7 +75,7 @@ $Connection15 = "VNet1toSite5"
 ```
 
 #### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2. Conecte-se à sua assinatura e crie um novo grupo de recursos
-Para usar os cmdlets do Gerenciador de Recursos, alterne para o modo do PowerShell. Para obter mais informações, consulte [Usando o Windows PowerShell com o Gerenciador de Recursos](../powershell-azure-resource-manager.md).
+Para usar os cmdlets do Gerenciador de Recursos, alterne para o modo do PowerShell. Para obter mais informações, consulte [Usando o Windows PowerShell com o Gerenciador de Recursos](../azure-resource-manager/management/manage-resources-powershell.md).
 
 Abra o console do PowerShell e conecte-se à sua conta. Use o exemplo a seguir para ajudar com a conexão:
 

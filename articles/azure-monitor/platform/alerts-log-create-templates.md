@@ -6,16 +6,16 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.subservice: alerts
-ms.openlocfilehash: b23f1d455610222ffa5713773a0bfb947f23ce34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74f067e6fb820b4fd7dcefd0777c342b72c2bbea
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91340981"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704241"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Criar um alerta de log com um modelo do Resource Manager
 
-Os alertas de log permitem que os usuários usem uma consulta [log Analytics](../log-query/get-started-portal.md) para avaliar os logs de recursos a cada frequência definida e acionar um alerta com base nos resultados. As regras podem disparar a execução de uma ou mais ações usando [grupos de ações](./action-groups.md). [Saiba mais sobre a funcionalidade e a terminologia de alertas de log](alerts-unified-log.md).
+Os alertas de log permitem que os usuários usem uma consulta [log Analytics](../log-query/log-analytics-tutorial.md) para avaliar os logs de recursos a cada frequência definida e acionar um alerta com base nos resultados. As regras podem disparar a execução de uma ou mais ações usando [grupos de ações](./action-groups.md). [Saiba mais sobre a funcionalidade e a terminologia de alertas de log](alerts-unified-log.md).
 
 Este artigo mostra como você pode usar um [modelo de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para configurar [alertas de log](alerts-unified-log.md) no Azure monitor. Os modelos do Resource Manager permitem que você configure programaticamente os alertas de maneira consistente e reproduzível em seus ambientes. Os alertas de log são criados no `Microsoft.Insights/scheduledQueryRules` provedor de recursos. Consulte referência de API para a [API de regras de consulta agendada](/rest/api/monitor/scheduledqueryrules/).
 
@@ -26,7 +26,7 @@ As etapas básicas são as seguintes:
 4. Implantar o modelo usando qualquer método de implantação.
 
 > [!NOTE]
-> Os dados de log de um [espaço de trabalho log Analytics](../log-query/get-started-portal.md) podem ser enviados para o repositório de métricas de Azure monitor. Os alertas de métricas têm [comportamento diferente](alerts-metric-overview.md), o que pode ser mais desejável, dependendo dos dados com os quais você está trabalhando. Para obter informações sobre o que e como você pode rotear logs para métricas, consulte [alerta de métrica para logs](alerts-metric-logs.md).
+> Os dados de log de um [espaço de trabalho log Analytics](../log-query/log-analytics-tutorial.md) podem ser enviados para o repositório de métricas de Azure monitor. Os alertas de métricas têm [comportamento diferente](alerts-metric-overview.md), o que pode ser mais desejável, dependendo dos dados com os quais você está trabalhando. Para obter informações sobre o que e como você pode rotear logs para métricas, consulte [alerta de métrica para logs](alerts-metric-logs.md).
 
 > [!NOTE]
 > Alertas de log para Log Analytics usados para serem gerenciados usando a [API de alerta log Analytics](api-alerts.md) herdada e os modelos herdados de [log Analytics pesquisas e alertas salvos](../insights/solutions.md). [Saiba mais sobre como alternar para a API ScheduledQueryRules atual](alerts-log-api-switch.md).
@@ -268,14 +268,12 @@ Modelo de [criação de regras de consulta agendada](/rest/api/monitor/scheduled
         },
         "metricMeasureColumn": {
             "type": "string",
-            "minLength": 1,
             "metadata": {
                 "description": "Name of the measure column used in the alert evaluation."
             }
         },
         "resourceIdColumn": {
             "type": "string",
-            "minLength": 1,
             "metadata": {
                 "description": "Name of the resource ID column used in the alert targeting the alerts."
             }

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: c592055be1987786b94623bde5352e2a3cc0e092
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19d4cc388494e149b7f258a8e9f154041a3dd070
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630144"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021959"
 ---
 # <a name="speech-service-for-telephony-data"></a>Serviço de fala para dados de telefonia
 
@@ -60,7 +60,7 @@ Não é incomum que 35% de uma chamada de suporte consista no que chamamos de te
 
 ### <a name="translation"></a>Tradução
 
-Algumas empresas estão experimentando o fornecimento de transcrições traduzidas de chamadas de suporte a idiomas estrangeiros para que os gerentes de entrega possam entender a experiência mundial de seus clientes. Nossas funcionalidades de [tradução](/azure/cognitive-services/speech-service/speech-translation) são incomparáveis. Podemos traduzir áudio para áudio ou áudio para texto para um grande número de localidades.
+Algumas empresas estão experimentando o fornecimento de transcrições traduzidas de chamadas de suporte a idiomas estrangeiros para que os gerentes de entrega possam entender a experiência mundial de seus clientes. Nossas funcionalidades de [tradução](./speech-translation.md) são incomparáveis. Podemos traduzir áudio para áudio ou áudio para texto para um grande número de localidades.
 
 ### <a name="text-to-speech"></a>Conversão de Texto em Fala
 
@@ -70,7 +70,7 @@ Nossa latência de ponta a ponta é consideravelmente baixa para as várias tecn
 
 Nossas novas vozes também são praticamente idênticas às vozes humanas. Você pode usar nossas vozes para dar a seu bot sua personalidade exclusiva.
 
-### <a name="search"></a>Search
+### <a name="search"></a>Pesquisar
 
 Outro ponto importante da análise é identificar as interações em que uma experiência ou um evento específico tenha ocorrido. Isso normalmente é feito com uma das duas abordagens; uma pesquisa ad hoc em que o usuário simplesmente digita uma frase e o sistema responde, ou uma consulta mais estruturada em que um analista pode criar um conjunto de instruções lógicas que identificam um cenário em uma chamada e, em seguida, cada chamada pode ser indexada em relação a esse conjunto de consultas. Um bom exemplo de pesquisa é a declaração de conformidade onipresente "esta chamada deve ser registrada para fins de qualidade... ". Muitas empresas desejam ter certeza de que seus agentes estão fornecendo esse aviso aos clientes antes que a chamada seja realmente registrada. A maioria dos sistemas de análise tem a capacidade de tendência dos comportamentos encontrados por algoritmos de consulta/pesquisa, e esse relatório de tendências é, em última instância, uma das funções mais importantes de um sistema de análise. Por meio do [diretório de Serviços Cognitivos](https://azure.microsoft.com/services/cognitive-services/directory/search/), sua solução de ponta a ponta pode ser consideravelmente aprimorada com funcionalidades de indexação e pesquisa.
 
@@ -94,7 +94,7 @@ Uma solução típica usa estes serviços:
 
 - O serviço de fala é usado para transcrever a conversão de fala em texto. Uma assinatura padrão (S0) para o serviço de fala é necessária para usar a API de transcrição do lote. Assinaturas gratuitas (F0) não funcionarão.
 - O [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) é usado para armazenar dados de telefonia e as transcrições retornadas pela API de Transcrição em Lote. Essa conta de armazenamento deve usar notificações, especificamente para quando novos arquivos são adicionados. Essas notificações são usadas para disparar o processo de transcrição.
-- O [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) é usado para criar o URI de SAS (Assinatura de Acesso Compartilhado) para cada gravação e disparar a solicitação HTTP POST a fim de iniciar uma transcrição. Além disso, o Azure Functions é usado para criar solicitações a fim de recuperar e excluir transcrições usando a API de Transcrição em Lote.
+- O [Azure Functions](../../azure-functions/index.yml) é usado para criar o URI de SAS (Assinatura de Acesso Compartilhado) para cada gravação e disparar a solicitação HTTP POST a fim de iniciar uma transcrição. Além disso, o Azure Functions é usado para criar solicitações a fim de recuperar e excluir transcrições usando a API de Transcrição em Lote.
 
 Internamente, estamos usando as tecnologias acima para dar suporte às chamadas de cliente da Microsoft no modo de lote.
 :::image type="content" source="media/scenarios/call-center-batch-pipeline.png" alt-text="Tecnologias usadas para dar suporte a chamadas de clientes da Microsoft no modo de lote.":::
@@ -111,7 +111,7 @@ Internamente, estamos usando as tecnologias acima para analisar em tempo real as
 
 ## <a name="a-word-on-ivrs"></a>Explicação sobre IVRs
 
-O serviço de fala pode ser facilmente integrado em qualquer solução usando o [SDK de fala](speech-sdk.md) ou a [API REST](rest-apis.md). No entanto, a transcrição de call center pode exigir outras tecnologias. Normalmente, é necessária uma conexão entre um sistema IVR e o Azure. Embora não ofereçamos esses componentes, aqui está uma descrição do que uma conexão com um IVR envolve.
+O serviço de fala pode ser facilmente integrado em qualquer solução usando o [SDK de fala](speech-sdk.md) ou a [API REST](./overview.md#reference-docs). No entanto, a transcrição de call center pode exigir outras tecnologias. Normalmente, é necessária uma conexão entre um sistema IVR e o Azure. Embora não ofereçamos esses componentes, aqui está uma descrição do que uma conexão com um IVR envolve.
 
 Vários produtos de serviço IVR ou de telefonia (como Genesys ou AudioCodes) oferecem recursos de integração que podem ser utilizados para habilitar a passagem de áudio de entrada e saída para um serviço do Azure. Basicamente, um serviço do Azure personalizado pode fornecer uma interface específica para definir sessões de chamada telefônica (como início da chamada ou término da chamada) e expor uma API WebSocket para receber áudio de fluxo de entrada que é usado com o serviço de fala. As respostas de saída, como transcrição de conversas ou conexões com o Bot Framework, podem ser sintetizadas com o serviço de conversão de texto em fala da Microsoft e retornadas ao IVR para reprodução.
 
@@ -121,12 +121,12 @@ Outro cenário é a integração direta com o SIP (Session Initiation Protocol).
 
  O serviço de fala funciona bem com modelos internos. No entanto, talvez você queira personalizar ainda mais e ajustar a experiência para seu produto ou ambiente. As opções de personalização vão do ajuste do modelo acústico a fontes de voz exclusivas para sua marca. Depois de criar um modelo personalizado, você pode usá-lo com qualquer um dos recursos do serviço de fala em modo em tempo real ou em lote.
 
-| Serviço de Fala | Modelar | Descrição |
+| Serviço de Fala | Modelar | Description |
 | -------------- | ----- | ----------- |
-| Conversão de fala em texto | [Modelo acústico](how-to-customize-acoustic-models.md) | Crie um modelo acústico personalizado para aplicativos, ferramentas ou dispositivos usados em ambientes particulares, como um carro ou um chão de fábrica, cada um deles com condições específicas de gravação. Exemplos incluem fala com sotaque, ruídos de fundo específicos ou uso de um microfone específico para gravação. |
-|                | [Modelo de linguagem](how-to-customize-language-model.md) | Crie um modelo de linguagem personalizado para melhorar a transcrição do vocabulário e da gramática específicos de um setor, por exemplo, terminologia médica ou jargão de TI. |
-|                | [Modelo de pronúncia](how-to-customize-pronunciation.md) | Com um modelo de pronúncia personalizada, você pode definir o formulário fonético e exibir uma palavra ou termo. É útil para lidar com termos personalizados, como nomes de produtos ou acrônimos. Tudo o que você precisa para começar é um arquivo de pronúncia, que é um `.txt` arquivo simples. |
-| Conversão de texto em fala | [Fonte de voz](how-to-customize-voice-font.md) | Fontes de voz personalizadas permitem que você crie uma voz reconhecível exclusiva para sua marca. É necessária apenas uma pequena quantidade de dados para começar a usar. Quanto mais dados que você fornecer, mais natural e humana sua fonte de voz soará. |
+| Conversão de fala em texto | [Modelo acústico](./how-to-custom-speech-train-model.md) | Crie um modelo acústico personalizado para aplicativos, ferramentas ou dispositivos usados em ambientes particulares, como um carro ou um chão de fábrica, cada um deles com condições específicas de gravação. Exemplos incluem fala com sotaque, ruídos de fundo específicos ou uso de um microfone específico para gravação. |
+|                | [Modelo de linguagem](./how-to-custom-speech-train-model.md) | Crie um modelo de linguagem personalizado para melhorar a transcrição do vocabulário e da gramática específicos de um setor, por exemplo, terminologia médica ou jargão de TI. |
+|                | [Modelo de pronúncia](./how-to-custom-speech-train-model.md) | Com um modelo de pronúncia personalizada, você pode definir o formulário fonético e exibir uma palavra ou termo. É útil para lidar com termos personalizados, como nomes de produtos ou acrônimos. Tudo o que você precisa para começar é um arquivo de pronúncia, que é um `.txt` arquivo simples. |
+| Conversão de texto em fala | [Fonte de voz](./how-to-custom-voice-create-voice.md) | Fontes de voz personalizadas permitem que você crie uma voz reconhecível exclusiva para sua marca. É necessária apenas uma pequena quantidade de dados para começar a usar. Quanto mais dados que você fornecer, mais natural e humana sua fonte de voz soará. |
 
 ## <a name="sample-code"></a>Código de exemplo
 
@@ -138,7 +138,7 @@ O código de exemplo está disponível no GitHub para cada um dos recursos do se
 
 ## <a name="reference-docs"></a>Documentos de Referência
 
-- [SDK da fala](speech-sdk-reference.md)
+- [SDK da fala](./speech-sdk.md)
 - [SDK de Dispositivos de Fala](speech-devices-sdk.md)
 - [API REST: conversão de fala em texto](rest-speech-to-text.md)
 - [API REST: conversão de texto em fala](rest-text-to-speech.md)

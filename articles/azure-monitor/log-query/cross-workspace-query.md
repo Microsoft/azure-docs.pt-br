@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
-ms.openlocfilehash: 8eb163c95fb1426ebae8956d50f6d8f6aec6fd7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a6b328bc076ffa619921a8698549e95e6f15c60
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612075"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400753"
 ---
 # <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>Executar consulta de log em Azure Monitor que abrangem espaços de trabalho e aplicativos
 
@@ -22,7 +22,7 @@ Há dois métodos para consultar dados que são armazenados em vários espaços 
 2. Usando implicitamente [consultas de contexto de recurso](../platform/design-logs-deployment.md#access-mode). Quando você consulta no contexto de um recurso específico, um grupo de recursos ou uma assinatura, os dados relevantes serão buscados de todos os espaços de trabalho que contêm dados para esses recursos. Application Insights dados armazenados em aplicativos, não serão buscados.
 
 > [!IMPORTANT]
-> Se você estiver usando um [recurso do Application Insights baseado em workspace](../app/create-workspace-resource.md), a telemetria é armazenada no workspace do Log Analytics com todos os outros dados do log. Use a expressão log () para gravar uma consulta que inclui o aplicativo em vários espaços de trabalho. Para vários aplicativos no mesmo espaço de trabalho, você não precisa de uma consulta entre espaços de trabalho.
+> Se você estiver usando um [recurso do Application Insights baseado em workspace](../app/create-workspace-resource.md), a telemetria é armazenada no workspace do Log Analytics com todos os outros dados do log. Use a expressão Workspace () para gravar uma consulta que inclui o aplicativo em vários espaços de trabalho. Para vários aplicativos no mesmo espaço de trabalho, você não precisa de uma consulta entre espaços de trabalho.
 
 
 ## <a name="cross-resource-query-limits"></a>Limites de consulta entre recursos 

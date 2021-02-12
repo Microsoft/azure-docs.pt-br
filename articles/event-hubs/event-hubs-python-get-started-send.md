@@ -1,17 +1,17 @@
 ---
 title: Enviar ou receber eventos dos Hubs de Eventos do Azure usando o Python (mais recente)
-description: Este artigo fornece um passo a passo para criar um aplicativo Python que envia/recebe eventos para/de Hubs de Eventos do Azure usando o pacote azure-eventhub versão 5 mais recente.
+description: Este artigo fornece um passo a passo para criar um aplicativo Python que envia/recebe eventos para/de Hubs de Eventos do Azure usando o pacote azure-eventhub mais recente.
 ms.topic: quickstart
 ms.date: 02/11/2020
-ms.openlocfilehash: bdcd85786afdf307fdc7043db7ed7651d41820a4
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: f05f546f19a7944c049b97ba18065159db6fab67
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91729076"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605557"
 ---
-# <a name="send-events-to-or-receive-events-from-event-hubs-by-using-python-azure-eventhub-version-5"></a>Enviar eventos para Hubs de Eventos ou receber eventos deles usando o Python (azure-eventhub versão 5)
-Este início rápido mostra como enviar e receber eventos de um hub de eventos usando o pacote Python **azure-eventhub versão 5**.
+# <a name="send-events-to-or-receive-events-from-event-hubs-by-using-python-azure-eventhub"></a>Enviar eventos para Hubs de Eventos ou receber eventos deles usando o Python (azure-eventhub)
+Este início rápido mostra como enviar e receber eventos de um hub de eventos usando o pacote Python **azure-eventhub**.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Se você estiver conhecendo agora os Hubs de Eventos do Azure, confira [Visão geral dos Hubs de Eventos](event-hubs-about.md) antes de prosseguir com este início rápido. 
@@ -50,7 +50,7 @@ Nesta seção, você criará um script Python para enviar eventos para o hub de 
     async def run():
         # Create a producer client to send messages to the event hub.
         # Specify a connection string to your event hubs namespace and
-            # the event hub name.
+        # the event hub name.
         producer = EventHubProducerClient.from_connection_string(conn_str="EVENT HUBS NAMESPACE - CONNECTION STRING", eventhub_name="EVENT HUB NAME")
         async with producer:
             # Create a batch.
@@ -78,9 +78,9 @@ Este início rápido usa o Armazenamento de Blobs do Azure como um repositório 
 
 
 > [!WARNING]
-> Se você executar esse código no Azure Stack Hub, haverá erros de runtime, a menos que você direcione uma versão específica da API de Armazenamento. Isso ocorre porque o SDK dos Hubs de Eventos usa a última API de Armazenamento do Azure disponível no Azure que talvez não esteja disponível na sua plataforma Azure Stack Hub. O Azure Stack Hub poderá dar suporte a uma versão diferente do SDK do Storage Blob do que aquelas normalmente disponíveis no Azure. Se estiver usando o Armazenamento de Blobs do Azure como um repositório de pontos de verificação, verifique a [versão da API do Armazenamento do Azure com suporte para o build do Azure Stack Hub](/azure-stack/user/azure-stack-acs-differences?#api-version) e tenha como destino essa versão no código. 
+> Se você executar esse código no Azure Stack Hub, haverá erros de runtime, a menos que você direcione uma versão específica da API de Armazenamento. Isso ocorre porque o SDK dos Hubs de Eventos usa a API do Armazenamento do Microsoft Azure mais recente disponível no Azure, que pode não estar disponível em sua plataforma do Azure Stack Hub. O Azure Stack Hub pode dar suporte a uma versão diferente do SDK do Armazenamento de Blobs do que aquelas normalmente disponíveis no Azure. Se estiver usando o Armazenamento de Blobs do Azure como um armazenamento de ponto de verificação, verifique a [versão da API do Armazenamento do Azure com suporte de seu build do Azure Stack Hub](/azure-stack/user/azure-stack-acs-differences?#api-version) e tenha como destino essa versão em seu código. 
 >
-> Por exemplo, se a execução estiver sendo feita no Azure Stack Hub versão 2005, a versão mais recente disponível para o serviço de Armazenamento será a versão 2019-02-02. Por padrão, a biblioteca de clientes do SDK dos Hubs de Eventos usa a versão mais recente disponível no Azure (2019-07-07, no momento da liberação do SDK). Nesse caso, além de seguir as etapas desta seção, você também precisará adicionar o código para ter como destino a versão de API 2019-02-02 do serviço de Armazenamento. Para obter um exemplo de como direcionar uma versão de API específica do Armazenamento, confira as amostras [síncronas](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py) e [assíncronas](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py) no GitHub. 
+> Por exemplo, se a execução estiver sendo feita no Azure Stack Hub versão 2005, a versão mais alta disponível para o serviço de Armazenamento será a versão 2019-02-02. Por padrão, a biblioteca de clientes do SDK dos Hubs de Eventos usa a versão mais alta disponível no Azure (2019-07-07 no momento do lançamento do SDK). Nesse caso, além de seguir as etapas desta seção, você também precisará adicionar o código para ter como destino a versão de API 2019-02-02 do serviço de Armazenamento. Para obter um exemplo de como direcionar uma versão de API específica do Armazenamento, confira as amostras [síncronas](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py) e [assíncronas](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py) no GitHub. 
 
 
 ### <a name="create-an-azure-storage-account-and-a-blob-container"></a>Criar uma conta de armazenamento e um contêiner de blobs do Azure

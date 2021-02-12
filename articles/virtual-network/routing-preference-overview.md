@@ -8,17 +8,17 @@ manager: mtillman
 ms.service: virtual-network
 Customer intent: As an Azure customer, I want to learn more about routing choices for my internet egress traffic.
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/18/2020
+ms.date: 12/02/2020
 ms.author: mnayak
-ms.openlocfilehash: 171ae04a70f3639981e74d20d260a03359a0f2c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fdd23aea5e435c94493a0cbe86b6ffcdb0d2e10
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187431"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539062"
 ---
 # <a name="what-is-routing-preference-preview"></a>O que é a preferência de roteamento (versão prévia)?
 
@@ -70,28 +70,11 @@ Para o armazenamento, os pontos de extremidade primários sempre usam a **rede g
 * Azure Data Lake
 
 ## <a name="pricing"></a>Preços
-A diferença de preço entre as duas opções é refletida nos preços de transferência de dados de saída da Internet. O preço de transferência de dados do roteamento por meio da **rede global da Microsoft** é igual ao atual preço de saída da Internet. Visite a [página de preços de largura de banda do Azure](https://azure.microsoft.com/pricing/details/bandwidth/) para obter as informações de preços mais recentes. O roteamento por meio da **Internet pública** é mais barato, como mostrado na tabela abaixo:
+A diferença de preço entre as duas opções é refletida nos preços de transferência de dados de saída da Internet. O preço de transferência de dados do roteamento por meio da **rede global da Microsoft** é igual ao atual preço de saída da Internet. Visite a [página de preços de largura de banda do Azure](https://azure.microsoft.com/pricing/details/bandwidth/) para obter as informações de preços mais recentes. 
 
-| Região de origem de saída | 0-5 GB/mês | 5 GB – 10 TB/mês | 10-50 TB/mês | 50-150 TB/mês | 150-500 TB/mês |
-| --- | --- | --- | --- | --- | --- |
-| Zona 1 | US$ 0/GB | US$ 0,085/GB | US$ 0,065/GB | US$ 0,06/GB | US$ 0,04/GB |
-| Zona 2 | US$ 0/GB | US$ 0,11/GB | US$ 0,075/GB | US$ 0,07/GB | US$ 0,06/GB  |
-
-[Fale conosco](https://azure.microsoft.com/overview/sales-number/) para saber sobre os preços de um volume mensal acima de 500 TB.
-* Zona 1: Austrália Central, Austrália Central 2, Canadá Central, Leste do Canadá, Norte da Europa, Oeste da Europa, França Central, Sul da França, Norte da Alemanha (público), Centro-Oeste da Alemanha (público), Leste da Noruega, Oeste da Noruega, Norte da Suíça, Oeste da Suíça, Sul do Reino Unido, Oeste do Reino Unido, EUA Central, Leste dos EUA, Leste dos EUA 2, Centro-Norte dos EUA, Centro-Sul dos EUA, Oeste dos EUA, Oeste dos EUA 2 e Centro-Oeste dos EUA.
-
-* Zona 2: Leste da Ásia, Sudeste da Ásia, Leste da Austrália, Sudeste da Austrália, Índia Central, Sul da Índia, Oeste da Índia, Leste do Japão, Oeste do Japão, Coreia Central e Sul da Coreia.
-
-* Zona 3: Sul do Brasil, Norte da África do Sul, Oeste da África do Sul, EAU Central e Norte dos EAU.
-
-## <a name="availability"></a>Disponibilidade
-
-O suporte à preferência de roteamento está disponível nas seguintes regiões para serviços como máquina virtual e balanceador de carga voltado para a Internet que usam um IP público para a saída da Internet: Norte da Europa, Oeste da Europa, Sul da França, Sul do Reino Unido, Leste dos EUA, Centro-Norte dos EUA, Centro-Sul dos EUA, Oeste dos EUA, Centro-Oeste dos EUA, Sudeste da Ásia, Centro-Oeste da Alemanha, Oeste da Suíça, Leste do Japão e Oeste do Japão.
-
-O suporte de preferência de roteamento para a conta de armazenamento está disponível nas seguintes regiões do Azure-norte EUA Central, Oeste EUA Central, Sul EUA Central, leste dos EUA, oeste dos EUA, Europa Setentrional, sul da França, Centro-oeste da Alemanha, Oeste da Suíça, Sul Ásia Oriental, leste do Japão e oeste do Japão.
 ## <a name="limitations"></a>Limitações
 
-* A preferência de roteamento é compatível apenas com o SKU Standard do endereço IP público. Não há suporte para o SKU Básico do endereço IP público.
+* A preferência de roteamento é compatível apenas com SKU padrão com redundância de zona de endereço IP público. Não há suporte para o SKU Básico do endereço IP público.
 * Atualmente, a preferência de roteamento dá suporte apenas a endereços IP públicos IPv4. Não há suporte para endereços IP públicos IPv6.
 * As máquinas virtuais com várias NICs podem ter apenas um tipo de preferência de roteamento.
 

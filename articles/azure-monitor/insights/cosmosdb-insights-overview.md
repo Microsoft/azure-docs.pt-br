@@ -1,16 +1,16 @@
 ---
 title: Monitorar o Azure Cosmos DB com o Azure Monitor para Cosmos DB | Microsoft Docs
 description: Este artigo descreve o recurso Azure Monitor para Cosmos DB, que fornece aos proprietários do Cosmos DB uma rápida compreensão dos problemas de desempenho e utilização com as contas do CosmosDB deles.
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: dcd64cf779b931dbf3b4f743844071835e0b8c91
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 878ae21cfbe55565c4a20064d937d1447f96ce7a
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932049"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209892"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Explorar o Azure Monitor para o Azure Cosmos DB
 
@@ -71,7 +71,7 @@ Selecione **Falhas** na parte superior da página e a parte **Falhas** do modelo
 
 ![Captura de tela de falhas com divisão por tipo de solicitação HTTP](./media/cosmosdb-insights-overview/failures.png)
 
-| Código      |  Descrição       | 
+| Código |  Descrição       | 
 |-----------|:--------------------|
 | `200 OK`  | Uma das seguintes operações REST foi bem-sucedida: </br>– GET em um recurso. </br> – PUT em um recurso. </br> – POST em um recurso. </br> – POST em um recurso de procedimento armazenado para executar o procedimento armazenado.|
 | `201 Created` | Uma operação POST para criar um recurso foi bem-sucedida. |

@@ -3,12 +3,12 @@ title: Reprodução de gravações – Azure
 description: Você pode usar a análise de vídeo ao vivo em IoT Edge para gravação contínua de vídeo, na qual você pode gravar vídeo na nuvem por semanas ou meses. Você também pode limitar a gravação a clipes que são de interesse, por meio da gravação baseada em eventos. Este artigo fala sobre como reproduzir gravações.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: 6222d2c05b2fe05945d4bcbef6dbb0d64bd4726a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0351f10d9fac3ad7e3b4fdd5fd549eb7c0023694
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84260379"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99490887"
 ---
 # <a name="playback-of-recordings"></a>Reprodução de gravações 
 
@@ -52,7 +52,7 @@ Em que o valor de precisão pode ser um de: ano, mês, dia ou completo (como mos
 |---|---|---|---|---|
 |Consulta|`/availableMedia?precision=year&startTime=2018&endTime=2019`|`/availableMedia?precision=month& startTime=2018-01& endTime=2019-02`|`/availableMedia?precision=day& startTime=2018-01-15& endTime=2019-02-02`|`/availableMedia?precision=full& startTime=2018-01-15T10:08:11.123& endTime=2019-01-015T12:00:01.123`|
 |Resposta|`{  "timeRanges":[{ "start":"2018", "end":"2019" }]}`|`{  "timeRanges":[{ "start":"2018-03", "end":"2019-01" }]}`|`{  "timeRanges":[    { "start":"2018-03-01", "end":"2018-03-07" },    { "start":"2018-03-09", "end":"2018-03-31" }  ]}`|Resposta de fidelidade total. Se não houvesse nenhuma lacuna, o início seria StartTime e End seria endTime.|
-|Restringe|&#x2022;StartTime <= endTime<br/>&#x2022;ambos devem estar no formato aaaa; caso contrário, erro de retorno.<br/>&#x2022;valores podem ser separados por qualquer número de anos.<br/>&#x2022;valores são inclusivos.|&#x2022;StartTime <= endTime<br/>&#x2022;ambos devem estar no formato AAAA-MM, caso contrário, erro de retorno.<br/>&#x2022;valores podem ter no máximo 12 meses de distância.<br/>&#x2022;valores são inclusivos.|&#x2022;StartTime <= endTime<br/>&#x2022;ambos devem estar no formato AAAA-MM-DD, caso contrário, erro de retorno.<br/>&#x2022;valores podem ter no máximo 31 dias de diferença.<br/>Os valores são inclusivos.|&#x2022;StartTime < endTime<br/>&#x2022;valores podem ter no máximo 25 horas de diferença.<br/>&#x2022;valores são inclusivos.|
+|Restrições|&#x2022;StartTime <= endTime<br/>&#x2022;ambos devem estar no formato aaaa; caso contrário, erro de retorno.<br/>&#x2022;valores podem ser separados por qualquer número de anos.<br/>&#x2022;valores são inclusivos.|&#x2022;StartTime <= endTime<br/>&#x2022;ambos devem estar no formato AAAA-MM, caso contrário, erro de retorno.<br/>&#x2022;valores podem ter no máximo 12 meses de distância.<br/>&#x2022;valores são inclusivos.|&#x2022;StartTime <= endTime<br/>&#x2022;ambos devem estar no formato AAAA-MM-DD, caso contrário, erro de retorno.<br/>&#x2022;valores podem ter no máximo 31 dias de diferença.<br/>Os valores são inclusivos.|&#x2022;StartTime < endTime<br/>&#x2022;valores podem ter no máximo 25 horas de diferença.<br/>&#x2022;valores são inclusivos.|
 
 #### <a name="additional-request-format-considerations"></a>Considerações sobre o formato de solicitação adicional
 

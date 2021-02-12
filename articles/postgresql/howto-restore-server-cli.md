@@ -8,27 +8,25 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 10/25/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c7e8f0fc3a90a0811d38840004f7ae12a9a225ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef397eb67c1f60c14fb36bf455236d84b730f611
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708502"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659566"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Como fazer backup e restaurar um servidor no banco de dados do Azure para PostgreSQL-servidor único usando o CLI do Azure
 
 O backup do Banco de Dados do Azure para servidores PostgreSQL é feito periodicamente para habilitar os recursos de restauração. Com esse recurso de backup automático, você pode restaurar o servidor e todos os seus bancos de dados para um ponto anterior em um novo servidor.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para concluir este guia de instruções, você precisa:
-- Um [banco de dados do Azure para servidor PostgreSQL e banco de dados](quickstart-create-server-database-azure-cli.md)
+Para concluir este guia de instruções:
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+- Você precisa de um banco de dados do [Azure para servidor e banco de dados PostgreSQL](quickstart-create-server-database-azure-cli.md).
 
- 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-> [!IMPORTANT]
-> Este guia de instruções requer que você use a CLI do Azure versão 2.0 ou posterior. Para confirmar a versão, no prompt de comando da CLI do Azure, digite `az --version`. Para instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+ - Este artigo requer a versão 2,0 ou posterior do CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="set-backup-configuration"></a>Definir configuração de backup
 
@@ -69,9 +67,9 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 
 O comando `az postgres server restore` exige os seguintes parâmetros:
 
-| Configuração | Valor sugerido | Descrição  |
+| Configuração | Valor sugerido | Descrição  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  O grupo de recursos em que o servidor de origem existe.  |
+| resource-group |  myresourcegroup |  O grupo de recursos em que o servidor de origem existe.  |
 | name | mydemoserver-restored | O nome do novo servidor que é criado pelo comando de restauração. |
 | restore-point-in-time | 2018-03-13T13:59:00Z | Selecione um ponto no tempo para o qual restaurar. Essa data e hora devem estar dentro do período de retenção de backup do servidor de origem. Use o formato ISO8601 de data e hora. Por exemplo, você pode usar seu fuso horário local, como `2018-03-13T05:59:00-08:00`. Você também pode usar o formato UTC Zulu, por exemplo, `2018-03-13T13:59:00Z`. |
 | source-server | mydemoserver | O nome ou ID para restaurar a partir do servidor de origem. |
@@ -109,7 +107,7 @@ az postgres server georestore --resource-group newresourcegroup --name mydemoser
 
 O comando `az postgres server georestore` exige os seguintes parâmetros:
 
-| Configuração | Valor sugerido | Descrição  |
+| Configuração | Valor sugerido | Descrição  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | O nome do grupo de recursos a qual o novo servidor pertencerá.|
 |name | mydemoserver-georestored | O nome do novo servidor. |

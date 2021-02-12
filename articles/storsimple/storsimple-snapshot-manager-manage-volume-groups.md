@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
-ms.openlocfilehash: 805ab0e78f0679ce483af3a73203b41132be2a59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df2d74701e21c3773d96564f1b06d80ddb9fce9d
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90054765"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209212"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Usar o StorSimple Snapshot Manager para criar e gerenciar grupos de volumes
 ## <a name="overview"></a>Visão geral
@@ -50,9 +50,9 @@ Se você clicar no nó **Grupos de Volumes**, o painel **Resultados** mostrará 
 
 | Coluna de resultados | Descrição |
 |:--- |:--- |
-| Nome |A coluna **Nome** contém o nome do grupo de volumes. |
+| Name |A coluna **Nome** contém o nome do grupo de volumes. |
 | Aplicativo |A coluna **Aplicativos** mostra o número de gravadores VSS atualmente instalados e em execução no host do Windows. |
-| Selecionado |A coluna **Selecionado** mostra o número de volumes contidos no grupo de volumes. Um zero (0) indica que nenhum aplicativo está associado aos volumes no grupo de volumes. |
+| Selecionada |A coluna **Selecionado** mostra o número de volumes contidos no grupo de volumes. Um zero (0) indica que nenhum aplicativo está associado aos volumes no grupo de volumes. |
 | Importado |A coluna **Importado** mostra o número de volumes importados. Quando definida como **True**, essa coluna indica que um grupo de volumes foi importado do portal do Azure e não foi criado no StorSimple Snapshot Manager. |
 
 > [!NOTE]
@@ -107,7 +107,7 @@ Use o procedimento a seguir para editar um grupo de volumes.
 #### <a name="to-edit-a-volume-group"></a>Para editar um grupo de volumes
 1. Clique no ícone da área de trabalho para iniciar o StorSimple Snapshot Manager.
 2. No painel **Escopo**, expanda o nó **Grupos de Volume**, clique com o botão direito em um nome do grupo de volumes e, em seguida, clique em **Editar**.
-3. A caixa de diálogo Criar um grupo de volumes é exibida. É possível alterar as entradas **Nome**, **Aplicativos** e **Volumes**.
+3. A caixa de diálogo **Criar um grupo de volumes** aparece. É possível alterar as entradas **Nome**, **Aplicativos** e **Volumes**.
 4. Clique em **OK** para salvar suas alterações.
 
 ## <a name="delete-a-volume-group"></a>Excluir um grupo de volumes

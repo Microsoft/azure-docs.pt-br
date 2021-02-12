@@ -4,12 +4,12 @@ ms.topic: include
 ms.date: 11/09/2018
 author: linda33wj
 ms.author: jingwang
-ms.openlocfilehash: c0fcdf1cf69c55f63288138bc7377a78295cb2be
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 34848b638ff0c7f7b9d1a2f3e5894339f8310ccc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86544689"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013337"
 ---
 ## <a name="review-deployed-resources"></a>Examinar os recursos implantados
 
@@ -17,13 +17,13 @@ O pipeline cria automaticamente a pasta de saída no contêiner de blob adftutor
 
 1. No portal do Azure, na página do contêiner **adftutorial**, selecione **Atualizar** para ver a pasta de saída. 
     
-    ![Atualizar](media/data-factory-quickstart-verify-output-cleanup/output-refresh.png)
+    ![A captura de tela mostra a página de contêiner em que você pode atualizar a página.](media/data-factory-quickstart-verify-output-cleanup/output-refresh.png)
 
 2. Selecione **saída** na lista de pastas. 
 
 3. Confirme que **emp.txt** tenha sido copiado para a pasta de saída. 
 
-    ![Atualizar](media/data-factory-quickstart-verify-output-cleanup/output-file.png)
+    ![A captura de tela mostra o conteúdo da pasta de saída.](media/data-factory-quickstart-verify-output-cleanup/output-file.png)
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

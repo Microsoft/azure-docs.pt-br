@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
 ms.topic: quickstart
-ms.openlocfilehash: 4513a1997dc2955e1c5488a4a3740afa88f51623
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: d35d6e75b45c2ea263c2e986c5fc6f414cad16e4
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207267"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724962"
 ---
 # <a name="quickstart-deploy-native-c-sample-to-hololens"></a>Início Rápido: Implantar exemplo nativo do C++ no HoloLens
 
@@ -39,7 +39,7 @@ O seguinte software deve ser instalado:
 
 ## <a name="clone-the-arr-samples-repository"></a>Clonar o repositório de exemplos do ARR
 
-Como uma primeira etapa, clonamos o repositório Git, que abriga os exemplos públicos do Azure Remote Rendering. Abra um prompt de comando (digite `cmd` no menu iniciar do Windows) e mude para um diretório no qual é interessante armazenar o projeto de exemplo do ARR.
+Como uma primeira etapa, clonamos o repositório Git, que abriga os exemplos globais do Azure Remote Rendering. Abra um prompt de comando (digite `cmd` no menu iniciar do Windows) e mude para um diretório no qual é interessante armazenar o projeto de exemplo do ARR.
 
 Execute os seguintes comandos:
 
@@ -70,7 +70,8 @@ Como as credenciais da conta são codificadas no código-fonte do tutorial, alte
     RR::AzureFrontendAccountInfo init;
     init.AccountId = "00000000-0000-0000-0000-000000000000";
     init.AccountKey = "<account key>";
-    init.AccountDomain = "westus2.mixedreality.azure.com"; // <change to your region>
+    init.AccountDomain = "westus2.mixedreality.azure.com"; // <change to the region that the rendering session should be created in>
+    init.AccountAuthenticationDomain = "westus2.mixedreality.azure.com"; // <change to the region the account was created in>
     m_modelURI = "builtin://Engine";
     m_sessionOverride = ""; // If there is a valid session ID to re-use, put it here. Otherwise a new one is created
     m_frontEnd = RR::ApiHandle(RR::AzureFrontend(init));
@@ -78,9 +79,9 @@ Como as credenciais da conta são codificadas no código-fonte do tutorial, alte
 ```
 
 Especificamente, altere os seguintes valores:
-* `init.AccountId` e `init.AccountKey` para usar os dados da sua conta. Veja o parágrafo sobre como [recuperar informações da conta](../../../how-tos/create-an-account.md#retrieve-the-account-information).
-* A parte da região da cadeia de caracteres `init.AccountDomain` para regiões diferentes de `westus2`, por exemplo, `"westeurope.mixedreality.azure.com"`
-* Além disso, `m_sessionOverride` pode ser alterada para uma ID de sessão existente. As sessões podem ser criadas fora deste exemplo, por exemplo, usando [o script do PowerShell](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) ou usando a [API REST da sessão](../../../how-tos/session-rest-api.md#create-a-session) diretamente.
+* `init.AccountId`, `init.AccountKey` e `init.AccountAuthenticationDomain` para usar os dados de sua conta. Veja o parágrafo sobre como [recuperar informações da conta](../../../how-tos/create-an-account.md#retrieve-the-account-information).
+* Especifique onde criar a sessão de renderização remota modificando a parte da região da cadeia de caracteres `init.AccountDomain` para outras regiões diferentes de `westus2`, por exemplo, `"westeurope.mixedreality.azure.com"`.
+* Além disso, `m_sessionOverride` pode ser alterada para uma ID de sessão existente. As sessões podem ser criadas fora deste exemplo, por exemplo, usando [o script do PowerShell](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) ou a [API REST da sessão](../../../how-tos/session-rest-api.md#create-a-session) diretamente.
 A criação de uma sessão fora do exemplo é recomendada quando o exemplo deve ser executado várias vezes. Se nenhuma sessão for passada, o exemplo criará uma nova sessão após cada inicialização, o que pode levar vários minutos.
 
 Agora o aplicativo pode ser compilado.

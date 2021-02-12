@@ -3,20 +3,20 @@ title: 'Tutorial: Compilar um aplicativo Flask para traduzir, sintetizar e anali
 titleSuffix: Azure Cognitive Services
 description: Neste tutorial, você criará um aplicativo Web baseado em Flask para traduzir texto, analisar sentimentos e sintetizar o texto traduzido em fala.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 05/26/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.custom: devx-track-python, devx-track-js
-ms.openlocfilehash: 41d7fe8e22b39d8755f86e5ee490aa6e7dff97fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 755e6370883bf39596850b45dc10f7efd3c9b55b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330614"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896673"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Tutorial: Criar um aplicativo Flask com os serviços Cognitivos do Azure
 
@@ -64,7 +64,7 @@ Conforme mencionado anteriormente, você vai precisar de três chaves de assinat
 * Análise de texto
 * Serviços de Fala
 
-Use [Criar uma Conta de Serviços Cognitivos no portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para obter instruções passo a passo para criar recursos.
+Use [Criar uma Conta de Serviços Cognitivos no portal do Azure](../cognitive-services-apis-create-account.md) para obter instruções passo a passo para criar recursos.
 
 > [!IMPORTANT]
 > Para este tutorial, crie os recursos na região Oeste dos EUA. Se usar uma região diferente, você precisará ajustar a URL base em cada um dos seus arquivos de Python.
@@ -475,7 +475,7 @@ Pressione **CTRL + c** para encerrar o aplicativo, em seguida, vá para a próxi
 
 ## <a name="analyze-sentiment"></a>Analisar sentimento
 
-O [API de análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) pode ser usado para executar análise de sentimento, extrair frases-chave de texto ou detectar o idioma de origem. Neste aplicativo, vamos usar a análise de sentimento para determinar se o texto fornecido é positiva, negativa ou neutra. A API retorna uma pontuação numérica entre 0 e 1. Pontuações próximas de 1 indicam sentimento positivo e pontuações próximas de 0 indicam sentimento negativo.
+O [API de análise de texto](../text-analytics/overview.md) pode ser usado para executar análise de sentimento, extrair frases-chave de texto ou detectar o idioma de origem. Neste aplicativo, vamos usar a análise de sentimento para determinar se o texto fornecido é positiva, negativa ou neutra. A API retorna uma pontuação numérica entre 0 e 1. Pontuações próximas de 1 indicam sentimento positivo e pontuações próximas de 0 indicam sentimento negativo.
 
 Nesta seção, você vai fazer algumas coisas:
 
@@ -659,7 +659,7 @@ Pressione **CTRL + c** para encerrar o aplicativo, em seguida, vá para a próxi
 
 ## <a name="convert-text-to-speech"></a>Converter texto em fala
 
-O [API de texto em fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech) permite que seu aplicativo converta texto em fala sintetizada natural semelhante à humana. O serviço suporta vozes neurais, padrão e personalizadas. Nosso aplicativo de exemplo usa um punhado de vozes disponíveis. Para obter uma lista completa, consulte [idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech).
+O [API de texto em fala](../speech-service/text-to-speech.md) permite que seu aplicativo converta texto em fala sintetizada natural semelhante à humana. O serviço suporta vozes neurais, padrão e personalizadas. Nosso aplicativo de exemplo usa um punhado de vozes disponíveis. Para obter uma lista completa, consulte [idiomas com suporte](../speech-service/language-support.md#text-to-speech).
 
 Nesta seção, você vai fazer algumas coisas:
 
@@ -954,7 +954,7 @@ Navegue até o endereço do servidor fornecido. Digite texto na área de entrada
 > [!TIP]
 > Se as alterações feitas não estão aparecendo, ou se o aplicativo não funciona da maneira esperada, tente limpar o cache ou abri uma janela privada/anônima.
 
-Isso é tudo, você tem um aplicativo de trabalho que executa as traduções, analisa o sentimento e a voz sintetizada. Pressione **CTRL + c** para encerrar o aplicativo. Certifique-se de fazer check-out de outros [Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/).
+Isso é tudo, você tem um aplicativo de trabalho que executa as traduções, analisa o sentimento e a voz sintetizada. Pressione **CTRL + c** para encerrar o aplicativo. Certifique-se de fazer check-out de outros [Serviços Cognitivos do Azure](../index.yml).
 
 ## <a name="get-the-source-code"></a>Obter o código-fonte
 
@@ -962,6 +962,6 @@ O código-fonte desse projeto está disponível no [GitHub](https://github.com/M
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Referência do Tradutor](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
+* [Referência do Tradutor](./reference/v3-0-reference.md)
 * [Referência de API de Análise de Texto](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
-* [Referência de API de texto em fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech)
+* [Referência de API de texto em fala](../speech-service/rest-text-to-speech.md)

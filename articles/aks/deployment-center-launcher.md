@@ -5,12 +5,12 @@ ms.author: puagarw
 ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
-ms.openlocfilehash: 36b2e829e56cf4d3b5ace64af989fa7f71725c44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15b0413eabcfae7e3a4b28243caf2a708260ccae
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360830"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932210"
 ---
 # <a name="deployment-center-for-azure-kubernetes"></a>Centro de implantação para o Kubernetes do Azure
 
@@ -56,7 +56,7 @@ Neste tutorial, você irá:
 
    ![A captura de tela mostra o portal do Azure com uma seta apontando para o Centro de implantação.](media/deployment-center-launcher/settings.png)
 
-1. Escolha a localização do código e selecione **Avançar**. Em seguida, selecione um dos repositórios compatíveis no momento: **[Azure Repos](/azure/devops/repos/index?view=azure-devops)** ou **GitHub**.
+1. Escolha a localização do código e selecione **Avançar**. Em seguida, selecione um dos repositórios compatíveis no momento: **[Azure Repos](/azure/devops/repos/index)** ou **GitHub**.
 
     O Azure Repos é um conjunto de ferramentas de controle de versão que ajuda você a gerenciar seu código. Independentemente de o projeto de software ser grande ou pequeno, é uma boa ideia usar o controle de versão assim que possível.
 
@@ -77,7 +77,7 @@ Neste tutorial, você irá:
 
     ![A captura de tela mostra o Centro de implantação com uma mensagem Não foi possível localizar o Dockerfile no repositório.](media/deployment-center-launcher/dockerfile.png)
 
-1. Selecione um registro de contêiner existente ou crie um e, em seguida, selecione **Concluir**. O pipeline é criado automaticamente e coloca um build na fila do [Azure Pipelines](/azure/devops/pipelines/index?view=azure-devops).
+1. Selecione um registro de contêiner existente ou crie um e, em seguida, selecione **Concluir**. O pipeline é criado automaticamente e coloca um build na fila do [Azure Pipelines](/azure/devops/pipelines/index).
 
     O Azure Pipelines é um serviço de nuvem que você pode usar para criar e testar automaticamente o projeto de código e disponibilizá-lo para outros usuários. O Azure Pipelines combina a integração contínua e a entrega contínua para testar e criar seu código de forma constante e consistente e enviá-lo para qualquer destino.
 

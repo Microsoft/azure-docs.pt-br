@@ -1,34 +1,29 @@
 ---
-title: Como configurar o logon único para um aplicativo de proxy de aplicativo
-description: Como você pode configurar o logon único para um aplicativo de Application Proxy rapidamente
+title: Entender o logon único com um aplicativo local usando o proxy de aplicativo
+description: Entenda o logon único com um aplicativo local usando o proxy de aplicativo.
 services: active-directory
-documentationcenter: ''
 author: kenwith
-manager: celestedg
-ms.assetid: ''
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: troubleshooting
-ms.date: 03/12/2019
+ms.topic: conceptual
+ms.date: 10/07/2020
 ms.author: kenwith
 ms.reviewer: japere, asteen
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54673e0018f83024d1c01599d0096c71b6b1d0ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10b722edbe8d70c92e617c78db3d2fb1d46da3a5
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88642122"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254097"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Como configurar o logon único para um aplicativo de Application Proxy
 
 Logon único (SSO) permite que os usuários acessem um aplicativo sem autenticação, várias vezes. Ele permite que a autenticação única que ocorre na nuvem, no Azure Active Directory, e permite que o serviço ou o conector represente o usuário para concluir os desafios de autenticação adicional do aplicativo.
 
 ## <a name="how-to-configure-single-sign-on"></a>Como configurar o logon único
-Para configurar SSO, primeiro certifique-se de que seu aplicativo está configurado para pré-autenticação através do Azure Active Directory. Para fazer essa configuração, vá para **Azure Active Directory**  - &gt; **aplicativos empresariais**  - &gt; **todos os aplicativos**  - &gt; do ** - &gt; proxy de aplicativo**do aplicativo. Nessa página, consulte o campo "Pré-autenticação" e certifique-se que é definido como "Azure Active Directory". 
+Para configurar SSO, primeiro certifique-se de que seu aplicativo está configurado para pré-autenticação através do Azure Active Directory. Para fazer essa configuração, vá para **Azure Active Directory**  - &gt; **aplicativos empresariais**  - &gt; **todos os aplicativos**  - &gt; do **- &gt; proxy de aplicativo** do aplicativo. Nessa página, consulte o campo "Pré-autenticação" e certifique-se que é definido como "Azure Active Directory". 
 
 Para obter mais informações sobre os métodos de pré-autenticação, consulte a etapa 4 do [documento de publicação de aplicativo](application-proxy-add-on-premises-application.md).
 
@@ -41,7 +36,7 @@ Configure o tipo específico de logon único. Os métodos de logon são classifi
 
 -   **Autenticação integrada do Windows**: para aplicativos que usam autenticação integrada do Windows (IWA), o logon único está habilitado por meio de delegação de restrita de Kerberos (KCD). Esse método concede permissão de conectores do Application Proxy no Active Directory para representar os usuários e para enviar e receber tokens em seu nome. Detalhes sobre como configurar o KCD podem ser encontrados no [Logon único com documentação de KCD](application-proxy-configure-single-sign-on-with-kcd.md).
 
--   **Logon com base no cabeçalho**: logon com base no cabeçalho é habilitado por meio de uma parceria e exige alguma configuração adicional. Para obter detalhes sobre a parceria e instruções passo a passo para configurar o logon único para um aplicativo que usa cabeçalhos para autenticação, consulte o [PingAccess para a documentação do Azure AD](application-proxy-configure-single-sign-on-with-ping-access.md).
+-   **Logon baseado em cabeçalho**: o logon baseado em cabeçalho é usado para fornecer recursos de logon único usando cabeçalhos HTTP. Para saber mais, consulte [logon único baseado em cabeçalho](application-proxy-configure-single-sign-on-with-headers.md).
 
 -   **Logon único do SAML**: com o logon único do SAML, o Azure AD é autenticado no aplicativo usando a conta do Azure AD do usuário. O Azure AD comunica as informações do logon para o aplicativo por meio de um protocolo de conexão. Com o logon único baseado em SAML, você pode mapear os usuários para funções de aplicativo específicas com base nas regras definidas nas suas declarações SAML. Para obter informações sobre como configurar o logon único do SAML, consulte [SAML para logon único com o proxy de aplicativo](application-proxy-configure-single-sign-on-on-premises-apps.md).
 
@@ -54,5 +49,5 @@ Essa opção permite que um administrador crie um link para um aplicativo que os
 ## <a name="next-steps"></a>Próximas etapas
 - [Compartimentação de senhas para logon único com o Proxy de Aplicativo](application-proxy-configure-single-sign-on-password-vaulting.md)
 - [Delegação restrita de Kerberos para logon único com o Proxy de Aplicativo](application-proxy-configure-single-sign-on-with-kcd.md)
-- [Autenticação baseada em cabeçalho para logon único com o Proxy de Aplicativo](application-proxy-configure-single-sign-on-with-ping-access.md) 
+- [Autenticação baseada em cabeçalho para logon único com o Proxy de Aplicativo](application-proxy-configure-single-sign-on-with-headers.md) 
 - [SAML para logon único com o proxy de aplicativo](application-proxy-configure-single-sign-on-on-premises-apps.md).

@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: stevelas
 ms.date: 10/29/2020
 ms.custom: ''
-ms.openlocfilehash: 261604b66d393723b35b472415b8840b047bc36e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 4fba6290b4973e797c13943fc9be4fadb19f3274
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133493"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349275"
 ---
 # <a name="how-to-consume-and-maintain-public-content-with-azure-container-registry-tasks"></a>Como consumir e manter conteúdo público com tarefas de registro de contêiner do Azure
 
@@ -39,7 +39,7 @@ Você pode usar o Azure Cloud Shell ou uma instalação local do CLI do Azure pa
 
 Este passo a passos configura:
 
-1. Três **registros de contêiner** , representando:
+1. Três **registros de contêiner**, representando:
    * Um Hub do [Docker][docker-hub] simulado ( `publicregistry` ) para dar suporte à alteração da imagem base
    * Registro da equipe ( `contoso` ) para compartilhar imagens privadas
    * Registro compartilhado da empresa/equipe ( `baseartifacts` ) para conteúdo público importado
@@ -47,12 +47,12 @@ Este passo a passos configura:
    1. Criar uma imagem pública simulada `node`
    1. Importar e validar a `node` imagem para o registro compartilhado da empresa/equipe
    1. Criar e implantar a `hello-world` imagem
-1. **Definições de tarefa ACR** , incluindo configurações para:
-1. Uma coleção de **credenciais de registro** , que são ponteiros para um cofre de chaves
-1. Uma coleção de **segredos** , disponível em um `acr-task.yaml` , que são ponteiros para um cofre de chaves
+1. **Definições de tarefa ACR**, incluindo configurações para:
+1. Uma coleção de **credenciais de registro**, que são ponteiros para um cofre de chaves
+1. Uma coleção de **segredos**, disponível em um `acr-task.yaml` , que são ponteiros para um cofre de chaves
 1. Uma coleção de **valores configurados** usados em um `acr-task.yaml`
 1. Um **cofre de chaves do Azure** para proteger todos os segredos
-1. Uma **instância de contêiner do Azure** , que hospeda o `hello-world` aplicativo de compilação
+1. Uma **instância de contêiner do Azure**, que hospeda o `hello-world` aplicativo de compilação
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -751,11 +751,11 @@ Neste artigo. Você usou tarefas ACR para criar um fluxo de trabalho de retenç�
 
 [install-cli]:                  /cli/azure/install-azure-cli
 [acr]:                          https://aka.ms/acr
-[acr-repo-permissions]:         https://aka.ms/acr/repo-permissions
-[acr-task]:                     https://aka.ms/acr/tasks
+[acr-repo-permissions]:         ./container-registry-repository-scoped-permissions.md
+[acr-task]:                     ./container-registry-tasks-overview.md
 [acr-task-triggers]:            container-registry-tasks-overview.md#task-scenarios
 [acr-task-credentials]:       container-registry-tasks-authentication-managed-identity.md#4-optional-add-credentials-to-the-task
-[acr-tokens]:                   https://aka.ms/acr/tokens
+[acr-tokens]:                   ./container-registry-repository-scoped-permissions.md
 [aci]:                          https://aka.ms/aci
 [alpine-public-image]:          https://hub.docker.com/_/alpine
 [docker-hub]:                   https://hub.docker.com
@@ -766,11 +766,7 @@ Neste artigo. Você usou tarefas ACR para criar um fluxo de trabalho de retenç�
 [helm-charts]:                  https://helm.sh
 [mcr]:                          https://aka.ms/mcr
 [nginx-public-image]:           https://hub.docker.com/_/nginx
-[oci-artifacts]:                https://aka.ms/acr/artifacts
+[oci-artifacts]:                ./container-registry-oci-artifacts.md
 [oci-consuming-public-content]: https://opencontainers.org/posts/blog/2020-10-30-consuming-public-content/
 [opa]:                          https://www.openpolicyagent.org/
 [quay]:                         https://quay.io
-
-
-
-

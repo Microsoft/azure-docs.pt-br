@@ -2,8 +2,8 @@
 title: Como ramificar e encadear atividades em um pipeline usando portal do Azure
 description: Saiba como controlar o fluxo de dados no pipeline do Azure Data Factory no portal do Azure.
 services: data-factory
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
 ms.reviewer: maghan
 ms.service: data-factory
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: b1b766e3cb337151c5ca9b35e2040a2a47124151
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc82cfdc4e5a063e7c5cb833b617da58023d1ba6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568542"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497428"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Como ramificar e encadear atividades em um pipeline do Azure Data Factory usando o portal do Azure
 
@@ -144,8 +144,8 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 3. Selecione a **assinatura** do Azure na qual você deseja criar o data factory.
 4. Para o **Grupo de Recursos**, execute uma das seguintes etapas:
 
-      - Selecione **Usar existente**e selecione um grupo de recursos existente na lista suspensa.
-      - Selecione **Criar novo**e insira o nome de um grupo de recursos.   
+      - Selecione **Usar existente** e selecione um grupo de recursos existente na lista suspensa.
+      - Selecione **Criar novo** e insira o nome de um grupo de recursos.   
          
         Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md).  
 4. Selecione **V2** para a **versão**.
@@ -179,10 +179,10 @@ Nesta etapa, você pode criar um pipeline com uma atividade de Cópia e duas ati
     - **receiver** – este parâmetro é usado pelas duas atividades Web no pipeline que enviam emails de êxito ou falha para o receptor cujos endereços de email são especificados por esse parâmetro.
 
    ![Menu do novo pipeline](./media/tutorial-control-flow-portal/pipeline-parameters.png)
-4. Na caixa de ferramentas **Atividades**, expanda **Fluxo de Dados**e arraste e solte a atividade **Cópia** para a superfície do designer de pipeline.
+4. Na caixa de ferramentas **Atividades**, expanda **Fluxo de Dados** e arraste e solte a atividade **Cópia** para a superfície do designer de pipeline.
 
    ![Atividade de cópia arrastar e soltar](./media/tutorial-control-flow-portal/drag-drop-copy-activity.png)
-5. Na janela **Propriedades** da atividade de **Cópia**, na parte inferior, alterne para a guia **Origem**guia e, em seguida, clique em **+ Novo**. Você cria um conjunto de dados de origem para a atividade de cópia nesta etapa.
+5. Na janela **Propriedades** da atividade de **Cópia**, na parte inferior, alterne para a guia **Origem** guia e, em seguida, clique em **+ Novo**. Você cria um conjunto de dados de origem para a atividade de cópia nesta etapa.
 
    ![Captura de tela que mostra como criar um conjunto de dados de origem para a atividade de cópia.](./media/tutorial-control-flow-portal/new-source-dataset-button.png)
 6. Na janela **Novo serviço vinculado**, selecione **Armazenamento de Blobs do Azure** e clique em **Continuar**.
@@ -191,7 +191,7 @@ Nesta etapa, você pode criar um pipeline com uma atividade de Cópia e duas ati
 7. Você verá uma nova **guia** intitulada **AzureBlob1**. Altere o nome do conjunto de dados para **SourceBlobDataset**.
 
    ![Configurações gerais do conjunto de dados](./media/tutorial-control-flow-portal/dataset-general-page.png)
-8. Alterne para a guia**Conexão** na janela **Propriedades** e clique em Novo para o **Serviço vinculado**. Você cria um serviço vinculado para vincular sua conta do Armazenamento do Azure ao data factory nesta etapa.
+8. Alterne para a guia **Conexão** na janela **Propriedades** e clique em Novo para o **Serviço vinculado**. Você cria um serviço vinculado para vincular sua conta do Armazenamento do Azure ao data factory nesta etapa.
 
    ![Conexão de conjunto de dados - novo serviço vinculado](./media/tutorial-control-flow-portal/dataset-connection-new-button.png)
 9. Na janela **Novo Serviço Vinculado**, execute estas etapas:

@@ -1,6 +1,6 @@
 ---
-title: arquivo de inclusão
-description: arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/15/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6a90b23c10e08e8b14a18f9619cff5aaeb003cab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22d68722afe4be6113263a7e7282dde3f188b18a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76045686"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026216"
 ---
 ### <a name="to-modify-the-local-network-gateway-gatewayipaddress---no-gateway-connection"></a><a name="gwipnoconnection"></a> Para modificar o gateway de rede local 'gatewayIpAddress' - sem conexão de gateway
 
@@ -45,7 +45,7 @@ Se o dispositivo VPN ao qual você deseja se conectar mudou seu endereço IP pú
    -Location "East US" -AddressPrefix @('10.101.0.0/24','10.101.1.0/24') `
    -GatewayIpAddress "104.40.81.124" -ResourceGroupName TestRG1
    ```
-3. Crie a conexão. Neste exemplo, configuramos um tipo de conexão IPsec. Quando você recriar a conexão, use o tipo de conexão especificado para sua configuração. Para outros tipos de conexão, consulte a página [Cmdlet do PowerShell](https://msdn.microsoft.com/library/mt603611.aspx) .  Para obter o nome do VirtualNetworkGateway, você pode executar o cmdlet 'Get-AzVirtualNetworkGateway'.
+3. Crie a conexão. Neste exemplo, configuramos um tipo de conexão IPsec. Quando você recriar a conexão, use o tipo de conexão especificado para sua configuração. Para outros tipos de conexão, consulte a página [Cmdlet do PowerShell](/powershell/module/Azurerm.Network/New-AzureRmVirtualNetworkGatewayConnection) .  Para obter o nome do VirtualNetworkGateway, você pode executar o cmdlet 'Get-AzVirtualNetworkGateway'.
    
     Defina as variáveis.
 

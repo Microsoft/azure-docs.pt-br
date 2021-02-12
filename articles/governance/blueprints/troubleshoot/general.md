@@ -1,14 +1,14 @@
 ---
 title: Solução de problemas comuns
 description: Saiba como solucionar problemas de criação, atribuição e remoção de plantas como violações de política e funções de parâmetro Blueprint.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: a1689141f95aaac9183391af79edb0cabf5343b6
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 65cf8ef9a5dcba0165aad8522f91ff1eb2c963a8
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058277"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918837"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Solucionar problemas usando o Azure Blueprint
 

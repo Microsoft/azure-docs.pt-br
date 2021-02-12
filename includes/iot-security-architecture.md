@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: a2eafd6bb34b897f3492ddcffd6841f0fabc4ca7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28609ad27330ae4ea5ea7c0d02d5a61181fbe0df
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73034539"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95558582"
 ---
 Durante a criação de um sistema, é importante compreender as ameaças potenciais para esse sistema e adicionar as defesas apropriadas da mesma forma, conforme o sistema é projetado e desenvolvido. É importante projetar o produto desde o início com a segurança em mente porque a compreensão de como um invasor pode conseguir comprometer um sistema ajuda a garantir que as mitigações adequadas estão em vigor desde o início.
 
@@ -72,7 +72,7 @@ Os quatro principais elementos de um modelo de risco são:
 
 * Entidades externas (qualquer elemento que interage com o sistema, mas não está sob o controle do aplicativo, os exemplos incluem usuários e feeds de satélite)
 
-Todos os elementos no diagrama da arquitetura estão sujeitos a várias ameaças; neste artigo, usamos o mnemônico STRIDE. Leia [Threat Modeling Again, STRIDE](https://blogs.msdn.microsoft.com/larryosterman/2007/09/04/threat-modeling-again-stride/) (Modelagem de risco novamente, STRIDE) para saber mais sobre os elementos do STRIDE.
+Todos os elementos no diagrama da arquitetura estão sujeitos a várias ameaças; neste artigo, usamos o mnemônico STRIDE. Leia [Threat Modeling Again, STRIDE](/archive/blogs/larryosterman/threat-modeling-again-stride) (Modelagem de risco novamente, STRIDE) para saber mais sobre os elementos do STRIDE.
 
 Diferentes elementos do diagrama de aplicativo estão sujeitos a determinadas ameaças do STRIDE:
 
@@ -265,7 +265,7 @@ As superfícies de controle físico intermediário são aquelas em que a lógica
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-Para obter mais informações, consulte os seguintes artigos:
+Para obter mais informações, confira os seguintes artigos:
 
 * [Ferramenta de modelagem de ameaças do SDL](https://www.microsoft.com/sdl/adopt/threatmodeling.aspx)
 * [Arquitetura de referência da IoT do Microsoft Azure](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)

@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: jrasnick, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 09/30/2020
-ms.openlocfilehash: 2e5ab1f07473a2572f7fb228139da8670fd6269c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3d28cf1a89ff455cfbed26aad234607ec8cd7e63
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790348"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490560"
 ---
 # <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Monitoramento e ajuste de desempenho no Banco de Dados SQL do Azure e da Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

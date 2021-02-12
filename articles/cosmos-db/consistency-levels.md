@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/12/2020
-ms.openlocfilehash: 742ff2e6cff4569b5b7eeb131cd4394277b6c3cd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 12/09/2020
+ms.openlocfilehash: a480c8f2dfdda0ce7a1eb879554fb79c96adbe1e
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100449"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347805"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Níveis de coerência no Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -44,20 +44,25 @@ A consistência de leitura se aplica a uma única operação de leitura com esco
 
 Você pode configurar o nível de coerência padrão em sua conta do Azure Cosmos a qualquer momento. O nível de consistência padrão configurado em sua conta se aplica a todos os bancos de dados e contêineres do Azure Cosmos sob essa conta. Todas as leituras e consultas emitidas em um contêiner ou banco de dados usam o nível de consistência especificado por padrão. Para obter mais informações, consulte [configurar o nível de consistência padrão](how-to-manage-consistency.md#configure-the-default-consistency-level). Você também pode substituir o nível de consistência padrão para uma solicitação específica, para saber mais, consulte como [substituir o artigo de nível de consistência padrão](how-to-manage-consistency.md?#override-the-default-consistency-level) .
 
+> [!IMPORTANT]
+> É necessário recriar qualquer instância do SDK depois de alterar o nível de consistência padrão. Isso pode ser feito reiniciando o aplicativo. Isso garante que o SDK use o novo nível de consistência padrão.
+
 ## <a name="guarantees-associated-with-consistency-levels"></a>Garantias associadas a níveis de coerência
 
 Azure Cosmos DB garante que 100 por cento das solicitações de leitura atendam à garantia de consistência para o nível de consistência escolhido. As definições precisas dos cinco níveis de consistência no Azure Cosmos DB usando a linguagem de especificação TLA + são fornecidas no repositório GitHub [Azure-Cosmos-TLA](https://github.com/Azure/azure-cosmos-tla) .
 
 A semântica dos cinco níveis de coerência é descrita aqui:
 
-- **Forte** : a consistência forte oferece uma garantia transação atômica. Transação atômica refere-se ao fornecimento de solicitações simultaneamente. As leituras são garantidas para retornar a versão mais recente de um item. Um cliente nunca vê uma gravação não comprometida ou parcial. Os usuários sempre terão a garantia de ler a última gravação confirmada.
+- **Forte**: a consistência forte oferece uma garantia transação atômica. Transação atômica refere-se ao fornecimento de solicitações simultaneamente. As leituras são garantidas para retornar a versão mais recente de um item. Um cliente nunca vê uma gravação não comprometida ou parcial. Os usuários sempre terão a garantia de ler a última gravação confirmada.
 
   O gráfico a seguir ilustra a forte consistência com notas musicais. Depois que os dados são gravados na região "oeste dos EUA 2", ao ler os dados de outras regiões, você obtém o valor mais recente:
 
-  :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="Consistência como um espectro" pode ser configurada de duas maneiras:
+  :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="Ilustração do nível de consistência forte":::
 
-- O número de versões ( *K* ) do item
-- As leituras de intervalo de tempo ( *T* ) podem atrasar por trás das gravações
+- Desatualização **limitada**: as leituras têm a garantia de honrar a garantia de prefixo consistente. As leituras podem atrasar por trás das gravações por no máximo *"K"* versões (ou seja, "Atualizações") de um item ou por um intervalo de tempo *"T"* , o que for atingido primeiro. Em outras palavras, quando você escolhe a desatualização limitada, a "desatualização" pode ser configurada de duas maneiras:
+
+- O número de versões (*K*) do item
+- As leituras de intervalo de tempo (*T*) podem atrasar por trás das gravações
 
 Para uma única conta de região, o valor mínimo de *K* e *T* é de 10 operações de gravação ou 5 segundos. Para contas de várias regiões, o valor mínimo de *K* e *T* é de 100.000 operações de gravação ou 300 segundos.
 
@@ -72,7 +77,9 @@ Dentro da janela de desatualização, a desatualização limitada fornece as seg
 
   A desatualização limitada é frequentemente escolhida por aplicativos distribuídos globalmente que esperam latências de baixa gravação, mas exigem garantia de ordem global total. A desatualização limitada é excelente para aplicativos que apresentam colaboração e compartilhamento de grupos, cotação de ações, publicação/assinatura/enfileiramento, etc. O gráfico a seguir ilustra a consistência de desatualização limitada com notas musicais. Depois que os dados são gravados na região "oeste dos EUA 2", as regiões "leste dos EUA 2" e "leste da Austrália" lêem o valor escrito com base no tempo de retardo máximo configurado ou no máximo de operações:
 
-  :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="Consistência como um espectro" ou o compartilhamento do token de sessão para vários gravadores.
+  :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="Ilustração do nível de consistência de desatualização limitada":::
+
+- **Sessão**: em uma única sessão de cliente, as leituras têm a garantia de honrar as leituras de prefixo consistente, de monotônico, gravações de monotônico, leitura e gravação, e as garantias de Write-seguir-leituras. Isso pressupõe uma única sessão de "gravador" ou o compartilhamento do token de sessão para vários gravadores.
 
 Os clientes fora da sessão que executam gravações verão as seguintes garantias:
 
@@ -83,9 +90,9 @@ Os clientes fora da sessão que executam gravações verão as seguintes garanti
 
   A consistência da sessão é o nível de consistência mais amplamente usado para a região única, bem como para aplicativos distribuídos globalmente. Ele fornece latências de gravação, disponibilidade e taxa de transferência de leitura comparável à de consistência eventual, mas também fornece as garantias de consistência que atendem às necessidades dos aplicativos escritos para operar no contexto de um usuário. O gráfico a seguir ilustra a consistência da sessão com notas musicais. O "gravador oeste dos EUA 2" e o "leitor oeste dos EUA 2" estão usando a mesma sessão (sessão A) para que ambos leiam os mesmos dados ao mesmo tempo. Enquanto a região "leste da Austrália" está usando a "sessão B", ela recebe dados mais tarde, mas na mesma ordem que as gravações.
 
-  :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="Consistência como um espectro":::
+  :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="Ilustração do nível de consistência da sessão":::
 
-- **Prefixo consistente** : as atualizações que são retornadas contêm algum prefixo de todas as atualizações, sem intervalos. O nível de consistência de prefixo consistente garante que as leituras nunca vejam gravações fora de ordem.
+- **Prefixo consistente**: as atualizações que são retornadas contêm algum prefixo de todas as atualizações, sem intervalos. O nível de consistência de prefixo consistente garante que as leituras nunca vejam gravações fora de ordem.
 
 Se as gravações foram executadas na ordem `A, B, C` , um cliente vê `A` , `A,B` ou `A,B,C` , mas nunca permutações fora de ordem, como `A,C` ou `B,A,C` . O prefixo consistente fornece latências de gravação, disponibilidade e taxa de transferência de leitura comparáveis à de consistência eventual, mas também fornece as garantias de ordem que atendem às necessidades dos cenários em que a ordem é importante.
 
@@ -98,18 +105,18 @@ Abaixo estão as garantias de consistência para o prefixo consistente:
 
 O gráfico a seguir ilustra a consistência do prefixo de consistência com notas musicais. Em todas as regiões, as leituras nunca veem gravações fora de ordem:
 
-  :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="Consistência como um espectro":::
+  :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="Ilustração de um prefixo consistente":::
 
-- **Eventual** : não há garantia de classificação para leituras. Na ausência de qualquer gravação adicional, as réplicas eventualmente convergem.  
+- **Eventual**: não há garantia de classificação para leituras. Na ausência de qualquer gravação adicional, as réplicas eventualmente convergem.  
 A consistência eventual é a forma mais fraca de consistência, pois um cliente pode ler os valores mais antigos do que aqueles que tinha lido anteriormente. A consistência eventual é ideal quando o aplicativo não requer nenhuma garantia de ordenação. Os exemplos incluem a contagem de retweets, curtidos ou comentários não-threaded. O gráfico a seguir ilustra a consistência eventual com notas musicais.
 
-  :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="Consistência como um espectro":::
+  :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="viIllustration de consistência eventual":::
 
 ## <a name="consistency-guarantees-in-practice"></a>Garantias de consistência na prática
 
 Na prática, muitas vezes você pode obter garantias de consistência mais fortes. Garantias de consistência para uma operação de leitura correspondem à atualização e ordenação do estado do banco de dados que você solicita. Consistência de leitura é vinculada ao pedido e a propagação das operações de gravação/atualização.  
 
-Se não houver nenhuma operação de gravação no banco de dados, uma operação de leitura com níveis de consistência **eventual** , de **sessão** ou de **prefixo consistente** provavelmente produzirá os mesmos resultados que uma operação de leitura com um nível de consistência forte.
+Se não houver nenhuma operação de gravação no banco de dados, uma operação de leitura com níveis de consistência **eventual**, de **sessão** ou de **prefixo consistente** provavelmente produzirá os mesmos resultados que uma operação de leitura com um nível de consistência forte.
 
 Se sua conta do Azure Cosmos estiver configurada com um nível de consistência diferente da consistência forte, você poderá descobrir a probabilidade de que seus clientes possam obter leituras fortes e consistentes para suas cargas de trabalho examinando a métrica do PBS (desatualização limitada) do *Probabilistic* . Essa métrica é exposta no portal do Azure, para obter mais informações, consulte [métrica Monitor Probabilistic Bounded Staleness (PBS)](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
 
@@ -136,7 +143,7 @@ A latência RTT é uma função de distância à velocidade da luz e a topologia
 
 - Para um determinado tipo de operação de gravação, como inserir, substituir, submeter, excluir, a taxa de transferência de gravação para unidades de solicitação é idêntica para todos os níveis de consistência.
 
-|**Nível de consistência**|**Leituras de quorum**|**Gravações de quorum**|
+|**Nível de coerência**|**Leituras de quorum**|**Gravações de quorum**|
 |--|--|--|
 |**Forte**|Minoria local|Maioria global|
 |**Desatualização limitada**|Minoria local|Maioria local|
@@ -149,7 +156,7 @@ A latência RTT é uma função de distância à velocidade da luz e a topologia
 
 ## <a name="consistency-levels-and-data-durability"></a><a id="rto"></a>Níveis de consistência e durabilidade dos dados
 
-Em um ambiente de banco de dados distribuído globalmente, há uma relação direta entre a durabilidade dos dados e o nível de consistência no caso de uma interrupção em toda a região. À medida que você vai desenvolvendo o plano de continuidade dos negócios, precisará saber qual é o tempo máximo aceitável antes que o aplicativo se recupere completamente após um evento de interrupção. O tempo necessário para que um aplicativo se recupere totalmente é conhecido como **RTO** ( **objetivo de tempo de recuperação** ). Também é necessário saber o período máximo de atualizações de dados recentes que o aplicativo pode perder sem maiores problemas durante a recuperação após um evento de interrupção. O período de tempo das atualizações que você pode perder é conhecido como **RPO** ( **objetivo de ponto de recuperação** ).
+Em um ambiente de banco de dados distribuído globalmente, há uma relação direta entre a durabilidade dos dados e o nível de consistência no caso de uma interrupção em toda a região. À medida que você vai desenvolvendo o plano de continuidade dos negócios, precisará saber qual é o tempo máximo aceitável antes que o aplicativo se recupere completamente após um evento de interrupção. O tempo necessário para que um aplicativo se recupere totalmente é conhecido como **RTO**( **objetivo de tempo de recuperação** ). Também é necessário saber o período máximo de atualizações de dados recentes que o aplicativo pode perder sem maiores problemas durante a recuperação após um evento de interrupção. O período de tempo das atualizações que você pode perder é conhecido como **RPO**( **objetivo de ponto de recuperação** ).
 
 A tabela a seguir define a relação entre o modelo de consistência e a durabilidade dos dados na presença de uma interrupção em toda a região. É importante observar que, em um sistema distribuído, mesmo com uma consistência forte, é impossível ter um banco de dados distribuído com RPO e RTO de zero devido a [teoremas de ponta](https://en.wikipedia.org/wiki/CAP_theorem).
 

@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 3ba8ccf3534cbb4a93983f81095b4ef2c20d6498
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: ec14e59e748e74709b909b0590bc750cf5f075b8
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042783"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695485"
 ---
 # <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Monitorar o andamento do trabalho codificação com o portal do Azure
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 ## <a name="overview"></a>Visão geral
 
 Quando você executa trabalhos, geralmente precisa de uma maneira de acompanhar o andamento do trabalho. 
 
-Para monitorar o andamento do trabalho de codificação, clique em **Configurações** (na parte superior da página), em seguida, selecione **Trabalhos** .
+Para monitorar o andamento do trabalho de codificação, clique em **Configurações** (na parte superior da página), em seguida, selecione **Trabalhos**.
 
 ![Captura de tela que mostra "trabalhos" selecionados no menu "configurações".](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 

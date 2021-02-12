@@ -1,19 +1,16 @@
 ---
 title: Identidades gerenciadas no Azure HDInsight
 description: Fornece uma visão geral da implementação de identidades gerenciadas no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
-ms.openlocfilehash: 4d9a5900990ea41788ced5f25690619fbde68d33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2b7f6e8421a735db131bc05605936e8cb2d87eb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854980"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944118"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Identidades gerenciadas no Azure HDInsight
 
@@ -55,6 +52,7 @@ Se você já tiver criado um cluster de execução longa com várias identidades
  * Em clusters ESP, ao alterar o certificado de LDAPs do AAD-DS, o certificado LDAPs não é atualizado automaticamente e, portanto, a sincronização LDAP e a escala de UPS começam a falhar.
  * O acesso de MSI ao ADLS Gen2 iniciar falha.
  * As chaves de criptografia não podem ser giradas no cenário CMK.
+
 em seguida, você deve atribuir as funções e permissões necessárias para os cenários acima para todas as identidades gerenciadas usadas no cluster. Por exemplo, se você usou diferentes identidades gerenciadas para clusters ADLS Gen2 e ESP, então ambos devem ter as funções "proprietário do armazenamento de dados de blob" e "colaborador de serviços de domínio do HDInsight" atribuídas a eles para evitar a execução nesses problemas.
 
 ## <a name="faq"></a>Perguntas frequentes

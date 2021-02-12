@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Implantar cargas de trabalho do Azure IoT Edge
 keywords: Kubernetes, Arc, Azure, K8s, contêineres
-ms.openlocfilehash: bfaa43a03ddd98616b22fc3fc7b4dccb4c38f44c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88c480f93bfe28a424441a1c5857c623efb4e1d3
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86103969"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99091640"
 ---
 # <a name="deploy-azure-iot-edge-workloads-preview"></a>Implantar cargas de trabalho do Azure IoT Edge (versão preliminar)
 
@@ -29,7 +29,7 @@ O Azure Arc e o Azure IoT Edge complementam muito os recursos uns dos outros. O 
 
 * Use o [suporte do IoT Edge para Kubernetes](https://aka.ms/edgek8sdoc) para implantá-lo por meio do operador de fluxo do Azure Arc.
 
-* Baixe o arquivo [**values.yaml**](https://github.com/Azure/iotedge/blob/master/kubernetes/charts/edge-kubernetes/values.yaml) para o gráfico do IoT Edge Helm e substitua o espaço reservado **deviceConnectionString** no final do arquivo pelo que foi anotado na etapa 1. Você pode definir qualquer outra opção de instalação de gráfico compatível, conforme necessário. Crie um namespace para a carga de trabalho de IoT Edge e crie um segredo nele:
+* Baixe o arquivo [**values.yaml**](https://github.com/Azure/iotedge/blob/preview/iiot/kubernetes/charts/edge-kubernetes/values.yaml) para o gráfico do IoT Edge Helm e substitua o espaço reservado **deviceConnectionString** no final do arquivo pelo que foi anotado na etapa 1. Você pode definir qualquer outra opção de instalação de gráfico compatível, conforme necessário. Crie um namespace para a carga de trabalho de IoT Edge e crie um segredo nele:
 
     ```
     $ kubectl create ns iotedge

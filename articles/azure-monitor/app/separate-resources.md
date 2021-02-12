@@ -3,12 +3,12 @@ title: Como projetar sua implantação do Application Insights – Um vs. muitos
 description: Direcione a telemetria para diferentes recursos para stamps de desenvolvimento, teste e produção.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 264cbe35e7af50577b345d686b639e47760f428d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49e9b8920af7333e0d95e23e6e5cf0828d448609
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88258716"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536346"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Quantos recursos do Application Insights devo implantar?
 
@@ -26,7 +26,7 @@ Cada recurso do Application Insights vem com métricas que estão disponíveis p
 
 -   Para componentes de aplicativos implantados juntos. Normalmente desenvolvidos por uma única equipe, gerenciados pelo mesmo conjunto de usuários de DevOps/ITOps.
 -   Se fizer sentido agregar KPIs (indicadores chave de desempenho), tais como durações de resposta, taxas de falha no painel, etc., em todos eles por padrão (você pode segmentar por nome de função na experiência do Metrics Explorer).
--   Se não for necessário gerenciar o controle de acesso baseado em função (RBAC) de forma diferente entre os componentes do aplicativo.
+-   Se não houver necessidade de gerenciar o controle de acesso baseado em função do Azure (RBAC do Azure) de forma diferente entre os componentes do aplicativo.
 -   Se critérios de alerta de métricas diferentes entre os componentes não forem necessários.
 -   Se não for necessário gerenciar exportações contínuas de maneira diferente entre os componentes.
 -   Se não for necessário gerenciar cobrança/cotas de maneira diferente entre os componentes.

@@ -1,21 +1,21 @@
 ---
 title: Link privado-banco de dados do Azure para PostgreSQL-servidor único
 description: Saiba como o link privado funciona para o banco de dados do Azure para PostgreSQL-servidor único.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 9b93e3f42c6b635ced7fdca61cb2ffe4f74d19bc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e0d1789d61bbe57c735f4dd2a70a1c2a8f183d90
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489499"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881054"
 ---
 # <a name="private-link-for-azure-database-for-postgresql-single-server"></a>Link privado para o banco de dados do Azure para PostgreSQL-Single Server
 
-O link privado permite criar pontos de extremidade privados para o banco de dados do Azure para PostgreSQL-servidor único e, por isso, traz os serviços do Azure dentro de sua VNet (rede virtual privada). O ponto de extremidade privado expõe um IP privado que você pode usar para se conectar ao servidor de banco de dados, assim como qualquer outro recurso na VNet.
+O link privado permite que você crie pontos de extremidade privados para o banco de dados do Azure para PostgreSQL-servidor único para trazê-lo dentro de sua rede virtual (VNet). O ponto de extremidade privado expõe um IP privado em uma sub-rede que você pode usar para se conectar ao servidor de banco de dados, assim como qualquer outro recurso na VNet.
 
 Para obter uma lista dos serviços de PaaS que dão suporte à funcionalidade de link privado, examine a [documentação](../private-link/index.yml)do link privado. Um ponto de extremidade privado é um endereço IP privado em uma [VNET](../virtual-network/virtual-networks-overview.md) e sub-rede específicas.
 
@@ -72,21 +72,21 @@ Depois que o administrador de rede cria o ponto de extremidade privado (PE), o a
 
 * Selecione uma PEC individual na lista selecionando-a.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link.png" alt-text="Selecione o portal de ponto de extremidade privado":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link.png" alt-text="Selecione a aprovação de ponto de extremidade particular pendente":::
 
 * O administrador do servidor PostgreSQL pode optar por aprovar ou rejeitar um PEC e, opcionalmente, adicionar uma resposta de texto curto.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-message.png" alt-text="Selecione o portal de ponto de extremidade privado":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-message.png" alt-text="Selecione a mensagem de ponto de extremidade particular":::
 
 * Após a aprovação ou rejeição, a lista refletirá o estado apropriado junto com o texto de resposta
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png" alt-text="Selecione o portal de ponto de extremidade privado":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png" alt-text="Selecione o estado final do ponto de extremidade privado":::
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-postgresql"></a>Casos de uso de link privado para o banco de dados do Azure para PostgreSQL
 
 Os clientes podem se conectar ao ponto de extremidade privado da mesma VNet, rede virtual emparelhada na mesma região ou via conexão VNet a VNet entre regiões. Além disso, os clientes podem se conectar localmente usando o ExpressRoute, o emparelhamento privado ou o túnel de VPN. Veja abaixo um diagrama simplificado que mostra os casos de uso comuns.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="Selecione o portal de ponto de extremidade privado":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="Selecione a visão geral do ponto de extremidade privado":::
 
 ### <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>Como se conectar por meio de uma VM do Azure na VNET (Rede Virtual) emparelhada
 Configure o [emparelhamento VNet](../virtual-network/tutorial-connect-virtual-networks-powershell.md) para estabelecer a conectividade com o banco de dados do Azure para PostgreSQL-servidor único de uma VM do Azure em uma VNet emparelhada.

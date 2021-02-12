@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 02/27/2020
 ms.author: jgao
-ms.openlocfilehash: cff67e99d40b092341e89c96a9f1e037d8572248
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1cbe5f986ca36ecc3b45cf4bb7ecffa7067a27bd
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88690622"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936610"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-an-arm-template"></a>Início Rápido: Definir e recuperar um segredo do Azure Key Vault usando um modelo do Resource Manager
 
@@ -124,7 +124,7 @@ A saída é semelhante à seguinte:
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
-![Modelo do Resource Manager, integração do Key Vault, saída de validação do portal de implantação](../media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
+![Captura de tela que mostra a saída de validação do portal de implantação na CLI.](../media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
@@ -162,4 +162,4 @@ Neste guia de início rápido, você criou um cofre de chaves e um segredo usand
 
 - Leia uma [Visão geral do Azure Key Vault](../general/overview.md)
 - Saiba mais sobre o [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-- Examine as [Melhores práticas do Azure Key Vault](../general/best-practices.md)
+- Examine a [Visão geral de segurança do Key Vault](../general/security-overview.md)

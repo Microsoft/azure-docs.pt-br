@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: b8f6768ebf988ff568739c86303b52ea5b0a9234
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 7d0e3f8c55a2c8eff40c196719213390e96efb0a
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018705"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089301"
 ---
 # <a name="ev4-and-esv4-series"></a>Séries Ev4 e Esv4
 
@@ -35,6 +35,8 @@ O armazenamento em disco de dados remotos é cobrado separadamente das máquinas
 [Migração ao vivo](maintenance-and-updates.md): com suporte<br>
 [Atualizações de preservação de memória](maintenance-and-updates.md): com suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
 <br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Máximo de NICs|Largura de banda de rede esperada (Mbps) |
@@ -58,7 +60,9 @@ Os tamanhos da série Esv4 são executados no Intel &reg; Xeon &reg; Platinum 82
 [Cache de armazenamento Premium](premium-storage-performance.md): com suporte<br>
 [Migração ao vivo](maintenance-and-updates.md): com suporte<br>
 [Atualizações de preservação de memória](maintenance-and-updates.md): com suporte<br>
-[Suporte à geração de VM](generation-2.md): geração 1<br>
+[Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
 <br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência de disco sem cache: IOPS/MBps | Máximo de NICs|Largura de banda de rede esperada (Mbps) |
@@ -71,8 +75,11 @@ Os tamanhos da série Esv4 são executados no Intel &reg; Xeon &reg; Platinum 82
 | Standard_E32s_v4 | 32 | 256 | Somente armazenamento remoto | 32 | 51200/768  | 8|16000 |
 | Standard_E48s_v4 | 48 | 384 | Somente armazenamento remoto | 32 | 76800/1152 | 8|24.000 |
 | Standard_E64s_v4 <sup>1</sup> | 64 | 504| Somente armazenamento remoto | 32 | 80000/1200 | 8|30000 |
+| Standard_E80is_v4 <sup>2</sup> | 80 | 504 | Somente armazenamento remoto | 32 | 80000/1200 | 8|30000 |
 
-<sup>1</sup> [tamanhos de núcleos restritos disponíveis](./constrained-vcpu.md).
+<sup>1</sup> [Tamanhos limitados de núcleos disponíveis)](./constrained-vcpu.md).
+
+<sup>2</sup> A instância é isolada em hardware dedicado a um único cliente.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

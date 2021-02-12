@@ -1,6 +1,6 @@
 ---
-title: Obter logs para solucionar problemas do controlador de dados habilitado para o Azure Arc
-description: Obtenha logs de serviço para solucionar problemas do controlador de dados habilitado para Arc do Azure.
+title: Obter logs para solucionar problemas dos serviços de dados habilitados para o Azure Arc
+description: Saiba como obter arquivos de log de um controlador de dados para solucionar problemas de serviços de dados habilitados para o Azure Arc.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -9,14 +9,14 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 625092e0557d40051e1ffd538a496c20edc0222f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 0c4cff7583f08fe27649cee464fcef802cddd88f
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320195"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93234029"
 ---
-# <a name="get-azure-arc-enabled-data-services-logs"></a>Obter logs de serviços de dados habilitados para o Azure Arc
+# <a name="get-logs-to-troubleshoot-azure-arc-enabled-data-services"></a>Obter logs para solucionar problemas dos serviços de dados habilitados para o Azure Arc
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -24,12 +24,12 @@ ms.locfileid: "92320195"
 
 Antes de continuar, você precisa:
 
-* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]. [Instruções de instalação](./install-client-tools.md).
-* Uma conta de administrador para entrar no controlador de serviços de dados habilitado para Arc do Azure.
+* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]. Para obter mais informações, consulte [instalar ferramentas de cliente para implantar e gerenciar os serviços de dados de arco do Azure](./install-client-tools.md).
+* Uma conta de administrador para entrar no controlador de dados habilitado para Arc do Azure.
 
-## <a name="get-azure-arc-enabled-data-services-logs"></a>Obter logs de serviços de dados habilitados para o Azure Arc
+## <a name="get-log-files"></a>Obter arquivos de log
 
-Você pode obter os logs de serviços de dados habilitados para o Azure ARC em todos os pods ou pods específicos para fins de solução de problemas. Você pode fazer isso usando ferramentas de kubernetes padrão, como o `kubectl logs` comando ou neste artigo, você usará a [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] ferramenta, o que torna mais fácil obter todos os logs de uma vez.
+Você pode obter logs de serviço em todos os pods ou pods específicos para fins de solução de problemas. Uma maneira é usar ferramentas de kubernetes padrão, como o `kubectl logs` comando. Neste artigo, você usará a [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] ferramenta, que torna mais fácil obter todos os logs de uma vez.
 
 1. Entre no controlador de dados com uma conta de administrador.
 
@@ -53,27 +53,27 @@ O controlador de dados cria os arquivos de log no diretório de trabalho atual e
 
 ## <a name="options"></a>Opções
 
-`azdata arc dc debug copy-logs` fornece as opções a seguir para gerenciar a saída.
+O `azdata arc dc debug copy-logs` comando fornece as seguintes opções para gerenciar a saída:
 
 * Gere os arquivos de log para um diretório diferente usando o `--target-folder` parâmetro.
 * Compacte os arquivos omitindo o `--skip-compress` parâmetro.
-* Dispare e inclua despejos de memória omitindo o `--exclude-dumps` . Esse método não é recomendado a menos que Suporte da Microsoft tenha solicitado os despejos de memória. Fazer um despejo de memória requer que a configuração do controlador de dados `allowDumps` esteja definida como `true` a hora da criação do controlador de dados.
+* Dispare e inclua despejos de memória omitindo `--exclude-dumps` . Não recomendamos esse método, a menos que Suporte da Microsoft tenha solicitado os despejos de memória. Obter um despejo de memória requer que a configuração do controlador de dados `allowDumps` seja definida como `true` quando o controlador de dados for criado.
 * Filtre para coletar logs para apenas um pod ( `--pod` ) ou contêiner ( `--container` ) específico por nome.
-* Filtre para coletar logs de um recurso personalizado específico passando o `--resource-kind` parâmetro e `--resource-name` . O `resource-kind` valor do parâmetro deve ser um dos nomes de definição de recurso personalizados, que podem ser recuperados pelo comando `kubectl get customresourcedefinition` .
+* Filtre para coletar logs de um recurso personalizado específico passando os `--resource-kind` parâmetros e `--resource-name` . O `resource-kind` valor do parâmetro deve ser um dos nomes de definição de recurso personalizados. Você pode recuperar esses nomes usando o comando `kubectl get customresourcedefinition` .
 
-Com esses parâmetros, você pode substituir o `<parameters>` no exemplo a seguir. 
+Com esses parâmetros, você pode substituir o `<parameters>` no exemplo a seguir: 
 
 ```console
 azdata arc dc debug copy-logs --target-folder <desired folder> --exclude-dumps --skip-compress -resource-kind <custom resource definition name> --resource-name <resource name> --namespace <namespace name>
 ```
 
-Por exemplo
+Por exemplo:
 
 ```console
 #azdata arc dc debug copy-logs --target-folder C:\temp\logs --exclude-dumps --skip-compress --resource-kind postgresql-12 --resource-name pg1 --namespace arc
 ```
 
-Exemplo de hierarquia de pastas. A hierarquia de pastas é organizada pelo nome do pod, pelo contêiner e, em seguida, pela hierarquia do diretório no contêiner.
+A hierarquia de pastas a seguir é um exemplo. Ele é organizado pelo nome do pod, pelo contêiner e, em seguida, pela hierarquia de diretório dentro do contêiner.
 
 ```output
 <export directory>

@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: duau
 ms.openlocfilehash: b1901ddce2eb9c8ff5ec9ac90a56379e74c11aa6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401360"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994886"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Tráfego direto para pontos de extremidade específicos com base na sub-rede do usuário usando o Gerenciador de Tráfego
 
@@ -40,7 +40,7 @@ Entre no Portal do Azure em https://portal.azure.com.
 ### <a name="create-websites"></a>Criar sites
 
 Nesta seção, você criará duas instâncias de site que fornecem os dois pontos de extremidade para o perfil do Gerenciador de Tráfego em duas regiões do Azure. Criar dois sites inclui as seguintes etapas:
-1. Criar duas VMs para executar um site básico - uma no **Leste dos EUA**e o outro na **Europa Ocidental**.
+1. Criar duas VMs para executar um site básico - uma no **Leste dos EUA** e o outro na **Europa Ocidental**.
 2. Instale o servidor IIS em cada VM e atualize a página de site padrão que descreve o nome da VM que um usuário está conectado ao visitar o site.
 
 #### <a name="create-vms-for-running-websites"></a>Criar VMs para a execução de sites
@@ -54,7 +54,7 @@ Nesta seção, você cria duas VMs *myEndpointVMEastUS* e *myEndpointVMWEurope* 
     |Nome|myIISVMEastUS|
     |Nome de usuário| Insira um nome de usuário de sua escolha.|
     |Senha| Insira uma senha de sua escolha. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Resource group| Selecione **Novo**e digite *myResourceGroupTM1*.|
+    |Resource group| Selecione **Novo** e digite *myResourceGroupTM1*.|
     |Location| Selecione **Leste dos EUA**.|
     |||
 
@@ -74,7 +74,7 @@ Nesta seção, você cria duas VMs *myEndpointVMEastUS* e *myEndpointVMWEurope* 
 
     |Configuração|Valor|
     |---|---|
-    |Resource group | Selecione **Novo**e digite *myResourceGroupTM2*|
+    |Resource group | Selecione **Novo** e digite *myResourceGroupTM2*|
     |Location|Europa Ocidental|
     |Nome da VM | myIISVMWEurope|
     |Rede virtual | Selecione **Rede Virtual**, em **Criar rede virtual**, para **Nome**, insira *myVNet2*, para a sub-rede, insira *mySubnet*.|
@@ -86,14 +86,14 @@ Nesta seção, você cria duas VMs *myEndpointVMEastUS* e *myEndpointVMWEurope* 
 
 #### <a name="install-iis-and-customize-the-default-web-page"></a>Instalar o IIS e personalizar a página da Web padrão
 
-Nesta seção, você instala o servidor IIS nas duas VMs- *myIISVMEastUS*   &  *myIISVMWEurope*e, em seguida, atualiza a página padrão do site. A página do site personalizada mostra o nome da VM que você está se conectando ao visitar o site em um navegador da web.
+Nesta seção, você instala o servidor IIS nas duas VMs- *myIISVMEastUS*   &  *myIISVMWEurope* e, em seguida, atualiza a página padrão do site. A página do site personalizada mostra o nome da VM que você está se conectando ao visitar o site em um navegador da web.
 
 1. Clique em **Todos os recursos** no menu esquerdo e, em seguida, na lista de recursos, clique em *myIISVMEastUS*, que está localizado no grupo de recursos *myResourceGroupTM1*.
-2. Na página **Visão geral**, clique em **Conectar**e, em seguida, em **Conectar-se a máquina virtual**, selecione **Fazer download do arquivo RDP**.
+2. Na página **Visão geral**, clique em **Conectar** e, em seguida, em **Conectar-se a máquina virtual**, selecione **Fazer download do arquivo RDP**.
 3. Abra o arquivo rdp baixado. Se solicitado, selecione **Conectar**. Insira o nome de usuário e senha que você especificou ao criar a VM. Talvez seja necessário selecionar **Mais escolhas** e, em seguida, **Usar uma conta diferente** para especificar as credenciais inseridas durante a criação da VM.
 4. Selecione **OK**.
 5. Você pode receber um aviso do certificado durante o processo de logon. Se você receber o aviso, selecione **Sim** ou **Continuar**, para prosseguir com a conexão.
-6. Na área de trabalho do servidor, navegue até **Windows Administrative Tools** > **Gerenciador do servidor**.
+6. Na área de trabalho do servidor, navegue até **Ferramentas Administrativas do Windows**>**Gerenciador do Servidor**.
 7. Inicie o Windows PowerShell em *myIISVMEastUS* e use os seguintes comandos para instalar o servidor IIS e atualizar o arquivo htm padrão.
     ```powershell-interactive
     # Install IIS
@@ -169,7 +169,7 @@ Nesta seção, você pode criar uma VM (*mVMEastUS* e *myVMWestEurope*) em cada 
 ## <a name="create-a-traffic-manager-profile"></a>Criar um perfil do Gerenciador de Tráfego
 Crie um perfil de Gerenciador de Tráfego que permite que você retorne pontos de extremidade específicos com base no IP de origem da solicitação.
 
-1. No canto superior esquerdo da tela, selecione **criar um recurso**  >  **rede**  >  **perfil do Gerenciador de tráfego**  >  **criar**.
+1. No canto superior esquerdo da tela, selecione **Criar um recurso** > **Rede** > **Perfil do Gerenciador de Tráfego** > **Criar**.
 2. No **perfil Criar Gerenciador de Tráfego**, insira ou selecione as informações a seguir, aceite os padrões para as configurações restantes e selecione **Criar**:
 
     | Configuração                 | Valor                                              |
@@ -193,13 +193,13 @@ Adicione as duas VMs que executam os servidores IIS- *myIISVMEastUS*  &  *myIISV
 
     | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
-    | Tipo                    | Ponto de extremidade do Azure                                   |
+    | Type                    | Ponto de extremidade do Azure                                   |
     | Nome           | myTestWebSiteEndpoint                                        |
     | Tipo de recurso de destino           | Endereço IP público                          |
     | Recurso de destino          | **Escolha um endereço IP Público** para mostrar a lista de recursos com endereços IP públicos na mesma assinatura. Em **Recursos**, selecione o endereço IP público denominado *myIISVMEastUS-ip*. Isso é o endereço IP público do servidor IIS VM no Leste dos EUA.|
     |  Configurações de roteamento da sub-rede    |   Adicione o endereço IP do *myVMEastUS* VM de teste. Qualquer consulta de usuário origina essa VM será direcionada para o *myTestWebSiteEndpoint*.    |
 
-4. Repita as etapas 2 e 3 para adicionar outro ponto de extremidade chamado *myProductionEndpoint* para o endereço IP público *ip myIISVMWEurope* que está associado com o servidor IIS VM denominada *myIISVMWEurope *. Para **configurações de roteamento da sub-rede**, adicione o endereço IP da VM - teste *myVMWestEurope*. Qualquer consulta de usuário de teste VM será roteada para o ponto de extremidade - *myProductionWebsiteEndpoint*.
+4. Repita as etapas 2 e 3 para adicionar outro ponto de extremidade chamado *myProductionEndpoint* para o endereço IP público *ip myIISVMWEurope* que está associado com o servidor IIS VM denominada *myIISVMWEurope*. Para **configurações de roteamento da sub-rede**, adicione o endereço IP da VM - teste *myVMWestEurope*. Qualquer consulta de usuário de teste VM será roteada para o ponto de extremidade - *myProductionWebsiteEndpoint*.
 5. Quando a adição de ambos os pontos de extremidade estiver concluída, eles serão exibidos em **Perfil do Gerenciador de Tráfego** com seu status de monitoramento como **Online**.
 
     ![Adicionar um ponto de extremidade do Gerenciador de Tráfego](./media/traffic-manager-subnet-routing-method/customize-endpoint-with-subnet-routing-eastus.png)
@@ -226,7 +226,7 @@ Você pode determinar o nome DNS do seu perfil do Gerenciador de Tráfego confor
 Nesta seção, você pode ver que o Gerenciador de Tráfego é a ação.
 
 1. Selecione **Todos os recursos** no menu esquerdo e, em seguida, na lista de recursos, clique em *myIISVMEastUS*, que está localizado no grupo de recursos *myResourceGroupTM1*.
-2. Na página **Visão geral**, clique em **Conectar**e, em seguida, em **Conectar-se a máquina virtual**, selecione **Fazer download do arquivo RDP**.
+2. Na página **Visão geral**, clique em **Conectar** e, em seguida, em **Conectar-se a máquina virtual**, selecione **Fazer download do arquivo RDP**.
 3. Abra o arquivo rdp baixado. Se solicitado, selecione **Conectar**. Insira o nome de usuário e senha que você especificou ao criar a VM. Talvez seja necessário selecionar **Mais escolhas** e, em seguida, **Usar uma conta diferente** para especificar as credenciais inseridas durante a criação da VM.
 4. Selecione **OK**.
 5. Você pode receber um aviso do certificado durante o processo de logon. Se você receber o aviso, selecione **Sim** ou **Continuar**, para prosseguir com a conexão.

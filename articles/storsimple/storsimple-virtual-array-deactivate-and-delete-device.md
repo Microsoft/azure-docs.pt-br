@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: alkohli
-ms.openlocfilehash: c787df901fc33c2dcd2c8a901202c72ea6de45d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84fd1a2d3d0dc4ce6960469ea3212b8ca1d4d07c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85513599"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023016"
 ---
 # <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>Desativar e excluir uma Matriz Virtual StorSimple
 
@@ -30,7 +30,7 @@ Ao desativar uma Matriz Virtual do StorSimple, você dividirá a conexão entre 
 * Desativar um dispositivo 
 * Excluir um dispositivo desativado
 
-As informações nesse artigo aplicam-se somente a Matrizes Virtuais do StorSimple. Para obter informações sobre a série 8000, acesse como [desativar ou excluir um dispositivo](storsimple-deactivate-and-delete-device.md).
+As informações nesse artigo aplicam-se somente a Matrizes Virtuais do StorSimple. Para obter informações sobre a série 8000, acesse como [desativar ou excluir um dispositivo](./storsimple-8000-deactivate-and-delete-device.md).
 
 ## <a name="when-to-deactivate"></a>Quando desativar?
 
@@ -90,5 +90,4 @@ Para excluir o dispositivo, execute as etapas a seguir.
 
 * Para saber mais sobre como realizar o failover, acesse [Failover e recuperação de desastre do sua Matriz Virtual do StorSimple](storsimple-virtual-array-failover-dr.md).
 
-* Para saber como usar o serviço Gerenciador de Dispositivo do StorSimple, acesse [Usar o serviço Gerenciador de Dispositivo do StorSimple para administrar a sua Matriz Virtual do StorSimple](storsimple-virtual-array-manager-service-administration.md). 
-
+* Para saber como usar o serviço Gerenciador de Dispositivo do StorSimple, acesse [Usar o serviço Gerenciador de Dispositivo do StorSimple para administrar a sua Matriz Virtual do StorSimple](storsimple-virtual-array-manager-service-administration.md).

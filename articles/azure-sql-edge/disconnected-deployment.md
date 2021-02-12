@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: ff14f8a9f236701889aea95911f2a1e381eabf83
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fce098767fffd36376399bbd9396699e3d9fbfd3
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90943109"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392071"
 ---
 # <a name="deploy-azure-sql-edge-with-docker"></a>Implantar o SQL do Azure no Edge usando o Docker
 
@@ -28,7 +28,7 @@ Essa imagem consiste no SQL do Azure no Edge com base no Ubuntu 18.04. Ela pode 
 - Driver de armazenamento **overlay2** do Docker. Esse é o padrão para a maioria dos usuários. Se você perceber que não está usando esse provedor de armazenamento e precisar alterar, confira as instruções e avisos na [documentação do Docker para configurar o overlay2](https://docs.docker.com/storage/storagedriver/overlayfs-driver/#configure-docker-with-the-overlay-or-overlay2-storage-driver).
 - Mínimo de 10 GB de espaço em disco.
 - Mínimo de 1 GB de RAM.
-- [Requisitos de hardware para o SQL do Azure no Edge](https://docs.microsoft.com/azure/azure-sql-edge/features#hardware-support).
+- [Requisitos de hardware para o SQL do Azure no Edge](./features.md#hardware-support).
 
 
 ## <a name="pull-and-run-the-container-image"></a>Efetuar pull e executar a imagem de contêiner
@@ -70,7 +70,7 @@ O comando anterior efetua pull das imagens de contêiner mais recentes do SQL do
     | Parâmetro | Descrição |
     |-----|-----|
     | **-e "ACCEPT_EULA=Y"** |  Defina a variável **ACCEPT_EULA** com qualquer valor para confirmar sua aceitação dos [Termos de Licença](https://go.microsoft.com/fwlink/?linkid=2139274). Configuração necessária para a imagem do SQL do Azure no Edge. |
-    | **-e "MSSQL_SA_PASSWORD=yourStrong(!)Password"** | Especifique a sua senha forte que tenha pelo menos oito caracteres e atenda aos [Requisitos de senha do SQL do Azure no Edge](https://docs.microsoft.com/sql/relational-databases/security/password-policy). Configuração necessária para a imagem do SQL do Azure no Edge. |
+    | **-e "MSSQL_SA_PASSWORD=yourStrong(!)Password"** | Especifique a sua senha forte que tenha pelo menos oito caracteres e atenda aos [Requisitos de senha do SQL do Azure no Edge](/sql/relational-databases/security/password-policy). Configuração necessária para a imagem do SQL do Azure no Edge. |
     | **-p 1433:1433** | Mapeie uma porta TCP no ambiente do host (primeiro valor) para uma porta TCP no contêiner (segundo valor). Neste exemplo, o SQL do Azure no Edge está escutando na TCP 1433 no contêiner e isso é exposto para a porta 1433 no host. |
     | **--name azuresqledge** | Especifique um nome personalizado para o contêiner em vez de um nome gerado aleatoriamente. Se você executar mais de um contêiner, não será possível reutilizar esse mesmo nome. |
     | **-d** | Executar o contêiner em segundo plano (daemon) |
@@ -83,7 +83,7 @@ O comando anterior efetua pull das imagens de contêiner mais recentes do SQL do
     sudo docker ps -a
    ```
 
-4. Se a coluna **STATUS** mostrar o status **Up**, o SQL do Azure no Edge estará em execução no contêiner e estará ouvindo na porta especificada na coluna **PORTS**. Se a coluna **STATUS** do contêiner do SQL do Azure no Edge mostrar **Exited**, confira a seção Solução de problemas da Documentação do SQL do Azure no Edge.
+4. Se a coluna **STATUS** mostrar o status **Up** , o SQL do Azure no Edge estará em execução no contêiner e estará ouvindo na porta especificada na coluna **PORTS**. Se a coluna **STATUS** do contêiner do SQL do Azure no Edge mostrar **Exited** , confira a seção Solução de problemas da Documentação do SQL do Azure no Edge.
 
     O parâmetro `-h` (nome do host) também é útil, mas para simplificar, ele não é usado neste tutorial. Ele altera o nome interno do contêiner para um valor personalizado. Este é o nome que será retornado na consulta Transact-SQL a seguir:
 
@@ -114,7 +114,7 @@ A conta **SA** é um administrador do sistema na instância do SQL do Azure no E
 
 ## <a name="connect-to-azure-sql-edge"></a>Conectar-se ao SQL do Azure no Edge
 
-As etapas a seguir usam a ferramenta de linha de comando do SQL do Azure no Edge, **sqlcmd**, dentro do contêiner para se conectar ao SQL do Azure no Edge.
+As etapas a seguir usam a ferramenta de linha de comando do SQL do Azure no Edge, **sqlcmd** , dentro do contêiner para se conectar ao SQL do Azure no Edge.
 
 > [!NOTE]
 > A ferramenta sqlcmd não está disponível na versão ARM64 dos contêineres do SQL no Edge.
@@ -134,7 +134,7 @@ As etapas a seguir usam a ferramenta de linha de comando do SQL do Azure no Edge
    > [!TIP]
    > É possível omitir a senha na linha de comando para receber uma solicitação para inseri-la.
 
-3. Se isso funcionar, você será levado a um prompt de comando **sqlcmd**: `1>`.
+3. Se isso funcionar, você será levado a um prompt de comando **sqlcmd** : `1>`.
 
 ## <a name="create-and-query-data"></a>Criar e consultar dados
 
@@ -144,7 +144,7 @@ As seções a seguir descrevem como usar o **sqlcmd** e o Transact-SQL para cria
 
 As etapas a seguir criam um novo banco de dados denominado `TestDB`.
 
-1. No prompt de comando **sqlcmd**, cole o seguinte comando Transact-SQL para criar um banco de dados de teste:
+1. No prompt de comando **sqlcmd** , cole o seguinte comando Transact-SQL para criar um banco de dados de teste:
 
    ```sql
    CREATE DATABASE TestDB
@@ -162,7 +162,7 @@ As etapas a seguir criam um novo banco de dados denominado `TestDB`.
 
 Em seguida, crie uma nova tabela, `Inventory`, e insira duas novas linhas.
 
-1. No prompt de comando **sqlcmd**, altere o contexto para o novo banco de dados `TestDB`:
+1. No prompt de comando **sqlcmd** , altere o contexto para o novo banco de dados `TestDB`:
 
    ```sql
    USE TestDB
@@ -190,7 +190,7 @@ Em seguida, crie uma nova tabela, `Inventory`, e insira duas novas linhas.
 
 Agora, execute uma consulta para retornar da tabela `Inventory`.
 
-1. No prompt de comando **sqlcmd**, digite uma consulta que retorna linhas de tabela `Inventory` em que a quantidade é maior que 152:
+1. No prompt de comando **sqlcmd** , digite uma consulta que retorna linhas de tabela `Inventory` em que a quantidade é maior que 152:
 
    ```sql
    SELECT * FROM Inventory WHERE quantity > 152;
@@ -204,7 +204,7 @@ Agora, execute uma consulta para retornar da tabela `Inventory`.
 
 ### <a name="exit-the-sqlcmd-command-prompt"></a>Saia do prompt de comando sqlcmd
 
-1. Para encerrar a sessão **sqlcmd**, digite `QUIT`:
+1. Para encerrar a sessão **sqlcmd** , digite `QUIT`:
 
    ```sql
    QUIT

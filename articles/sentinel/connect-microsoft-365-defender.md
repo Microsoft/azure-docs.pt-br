@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: yelevin
-ms.openlocfilehash: e9e892ae08c65ee5c5008bbdc1b419d8dec30183
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 756c245fe06ae81545a125dd98f30fb27fdff2dd
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933079"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655572"
 ---
 # <a name="connect-data-from-microsoft-365-defender-to-azure-sentinel"></a>Conectar dados do Microsoft 365 defender ao Azure Sentinel
 
@@ -33,9 +33,9 @@ ms.locfileid: "90933079"
 
 ## <a name="background"></a>Tela de fundo
 
-O novo conector do [Microsoft 365 defender](https://docs.microsoft.com/microsoft-365/security/mtp/microsoft-threat-protection) permite que você transmita logs de **busca avançados** – um tipo de dados brutos de evento – do Microsoft 365 defender para o Azure Sentinel. 
+O novo conector do [Microsoft 365 defender](/microsoft-365/security/mtp/microsoft-threat-protection) permite que você transmita logs de **busca avançados** – um tipo de dados brutos de evento – do Microsoft 365 defender para o Azure Sentinel. 
 
-Com a integração do [Microsoft defender for Endpoint (MDATP)](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) com a proteção de segurança do Microsoft 365 defender, agora você pode coletar seus eventos de [busca avançada](https://aka.ms/mdatpAH) do Microsoft defender para pontos de extremidade usando o conector do Microsoft 365 defender e transmiti-los diretamente para novas tabelas criadas no seu espaço de trabalho do Azure Sentinel. Essas tabelas são criadas no mesmo esquema usado no portal do Microsoft 365 defender, oferecendo acesso completo ao conjunto completo de logs de busca avançada e permitindo que você faça o seguinte:
+Com a integração do [Microsoft defender for Endpoint (MDATP)](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) com a proteção de segurança do Microsoft 365 defender, agora você pode coletar seus eventos de [busca avançada](/windows/security/threat-protection/microsoft-defender-atp/advanced-hunting-overview) do Microsoft defender para pontos de extremidade usando o conector do Microsoft 365 defender e transmiti-los diretamente para novas tabelas criadas no seu espaço de trabalho do Azure Sentinel. Essas tabelas são criadas no mesmo esquema usado no portal do Microsoft 365 defender, oferecendo acesso completo ao conjunto completo de logs de busca avançada e permitindo que você faça o seguinte:
 
 - Copie facilmente suas consultas de busca avançada existentes do Microsoft defender ATP para o Azure Sentinel.
 
@@ -49,7 +49,7 @@ Com a integração do [Microsoft defender for Endpoint (MDATP)](https://docs.mic
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Você deve ter uma licença válida para o Microsoft defender para ponto de extremidade, conforme descrito em [Configurar o Microsoft defender para implantação de ponto de extremidade](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/licensing). 
+- Você deve ter uma licença válida para o Microsoft defender para ponto de extremidade, conforme descrito em [Configurar o Microsoft defender para implantação de ponto de extremidade](/windows/security/threat-protection/microsoft-defender-atp/licensing). 
 
 - O usuário deve receber a função de administrador global no locatário (em Azure Active Directory).
 
@@ -101,4 +101,4 @@ Na guia **próximas etapas** , você encontrará algumas consultas de exemplo qu
 ## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu a obter dados de eventos brutos do Microsoft defender for Endpoint para o Azure Sentinel, usando o conector do Microsoft 365 defender. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
-- Comece a [detectar ameaças com o Azure Sentinel](tutorial-detect-threats.md).
+- Comece a [detectar ameaças com o Azure Sentinel](./tutorial-detect-threats-built-in.md).

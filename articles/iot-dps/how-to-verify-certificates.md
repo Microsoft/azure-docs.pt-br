@@ -7,12 +7,12 @@ ms.date: 02/26/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 50e8dfd2998b50bfff7341e49ac4d0770c115166
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2020205357c68e007a1a375c4853e8c04afd2019
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530855"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789053"
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Como fazer uma prova de posse para certificados de autoridade de certificação X.509 com o Serviço de Provisionamento de Dispositivos
 
@@ -58,7 +58,7 @@ A Microsoft fornece ferramentas e exemplos que podem ajudá-lo a criar um certif
 > [!IMPORTANT]
 > Além de realizar uma prova de posse, os scripts de PowerShell e Bash citados anteriormente também permitem que você crie certificados raiz, certificados intermediários e certificados de folha que podem ser usados para autenticar e provisionar dispositivos. Esses certificados devem ser usados somente para desenvolvimento. Eles nunca devem ser usados em um ambiente de produção. 
 
-Os scripts de PowerShell e Bash fornecidos na documentação e SDKs dependem do [OpenSSL](https://www.openssl.org/). Você também pode usar o OpenSSL ou outras ferramentas de terceiros para ajudá-lo a fazer uma prova de posse. Para obter mais informações sobre as ferramentas fornecidas com os SDKs, consulte [Como usar as ferramentas fornecidas no SDK](how-to-use-sdk-tools.md). 
+Os scripts de PowerShell e Bash fornecidos na documentação e SDKs dependem do [OpenSSL](https://www.openssl.org/). Você também pode usar o OpenSSL ou outras ferramentas de terceiros para ajudá-lo a fazer uma prova de posse. Para obter um exemplo usando ferramentas fornecidas com os SDKs, consulte [criar uma cadeia de certificados X. 509](tutorial-custom-hsm-enrollment-group-x509.md#create-an-x509-certificate-chain). 
 
 
 ## <a name="upload-the-signed-verification-certificate"></a>Carregar o certificado de verificação assinado

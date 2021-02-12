@@ -1,6 +1,6 @@
 ---
-title: arquivo de inclusão
-description: arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: virtual-machines-linux
 author: cynthn
 ms.service: virtual-machines-linux
@@ -9,11 +9,11 @@ ms.date: 07/09/2020
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 612e7dc2f3d1ef6aa5d3598999aa214a2f377e1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87513172"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016346"
 ---
 ## <a name="overview-of-ssh-and-keys"></a>Visão geral do SSH e das chaves
 

@@ -3,12 +3,12 @@ title: Perguntas frequentes sobre o Azure DevTest Labs | Microsoft Docs
 description: Este artigo dá respostas para algumas das perguntas frequentes sobre o Azure DevTest Labs.
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: 1cbea3628d6c8c1b43766140d201ce46964a60b5
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 9fcdc160754822d5c6f22b7349d0e72f0cf22633
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328378"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590266"
 ---
 # <a name="azure-devtest-labs-faq"></a>Perguntas frequentes sobre o Azure DevTest Labs
 Obtenha respostas para algumas das perguntas mais comuns sobre o Azure DevTest Labs.
@@ -318,7 +318,7 @@ Como parte da estratégia de gerenciamento de configuração e de governança de
 - Associe o Azure Repos ao mesmo locatário do Azure Active Directory que a assinatura do Azure está usando para autenticação e autorização.
 - Crie um grupo chamado `All DevTest Labs Developers` no Azure Active Directory que seja gerenciado centralmente. Qualquer desenvolvedor que contribui para o desenvolvimento de artefatos deve ser colocado nesse grupo.
 - O mesmo grupo do Azure Active Directory pode ser usado para fornecer acesso ao repositório do Azure Repos e ao laboratório.
-- No Azure Repos, a ramificação ou bifurcação deve ser usada para um repositório em desenvolvimento separado do repositório de produção primário. O conteúdo só é adicionado ao branch mestre com uma solicitação de pull após uma revisão de código apropriada. Depois que o revisor de código aprova a alteração, um desenvolvedor-chefe, que é responsável pela manutenção do branch mestre, mescla o código atualizado.
+- No Azure Repos, a ramificação ou bifurcação deve ser usada para um repositório em desenvolvimento separado do repositório de produção primário. O conteúdo é adicionado somente ao Branch principal com uma solicitação pull após uma revisão de código adequada. Depois que o revisor de código aprovar a alteração, um desenvolvedor líder, responsável pela manutenção da ramificação principal, mesclará o código atualizado.
 
 ## <a name="cicd-integration"></a>Integração de CI/CD
 

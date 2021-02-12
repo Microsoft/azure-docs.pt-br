@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/07/2020
 ms.topic: article
-ms.openlocfilehash: fc82d046caa3663cffcda585258642813ab3a7d8
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: dbe86313054706af974ccb324a39e942e9b5ca44
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207250"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594122"
 ---
 # <a name="camera"></a>Câmera
 
@@ -32,7 +32,7 @@ As propriedades a seguir podem ser alteradas nas configurações da câmera:
 
 **Plano próximo e longe:**
 
-Para certificar-se de que nenhum intervalo inválido possa ser definido, as propriedades **NearPlane** e **FarPlane** são somente leitura e uma função separada **SetNearAndFarPlane** existe para alterar o intervalo. Esses dados serão enviados para o servidor no final do quadro.
+Para certificar-se de que nenhum intervalo inválido possa ser definido, as propriedades **NearPlane** e **FarPlane** são somente leitura e uma função separada **SetNearAndFarPlane** existe para alterar o intervalo. Esses dados serão enviados para o servidor no final do quadro. Ao definir esses valores, **NearPlane** precisa ser menor que **FarPlane**. Caso contrário, ocorrerá um erro.
 
 > [!IMPORTANT]
 > No Unity, isso é manipulado automaticamente ao alterar os planos próximos e distantes da câmera principal.
@@ -44,25 +44,42 @@ Para certificar-se de que nenhum intervalo inválido possa ser definido, as prop
 > [!TIP]
 > No Unity, é fornecido um componente de depuração chamado **EnableDepthComponent** que pode ser usado para alternar esse recurso na interface do usuário do editor.
 
+**InverseDepth**:
+
+> [!NOTE]
+> Essa configuração só será importante se o `EnableDepth` for definido como `true` . Caso contrário, essa configuração não terá nenhum impacto.
+
+Buffers de profundidade normalmente registram valores z em um intervalo de ponto flutuante de [0; 1], com 0 denotando a profundidade de plano próximo e 1 denotando a profundidade do plano distante. Também é possível inverter esse intervalo e registrar valores de profundidade no intervalo [1; 0], ou seja, a profundidade de plano próximo se torna 1 e a profundidade do plano distante se torna 0. Em geral, o último melhora a distribuição da precisão de ponto flutuante no intervalo z não linear.
+
+> [!WARNING]
+> Uma abordagem comum é inverter os valores de plano próximo e de muito plano nos objetos da câmera. Isso irá falhar para a renderização remota do Azure com um erro ao tentar isso no `CameraSettings` .
+
+A API de renderização remota do Azure precisa saber sobre a Convenção de buffer de profundidade do seu renderizador local para compor corretamente a profundidade remota no buffer de profundidade local. Se o intervalo do buffer de profundidade for [0; 1], deixe esse sinalizador como `false` . Se você usar um buffer de profundidade invertido com um intervalo de [1; 0], defina o `InverseDepth` sinalizador como `true` .
+
+> [!NOTE]
+> Para o Unity, a configuração correta já está aplicada pelo `RenderingConnection` , portanto, não há necessidade de intervenção manual.
+
 A alteração das configurações da câmera pode ser feita da seguinte maneira:
 
 ```cs
-void ChangeCameraSetting(AzureSession session)
+void ChangeCameraSetting(RenderingSession session)
 {
-    CameraSettings settings = session.Actions.CameraSettings;
+    CameraSettings settings = session.Connection.CameraSettings;
 
     settings.SetNearAndFarPlane(0.1f, 20.0f);
     settings.EnableDepth = false;
+    settings.InverseDepth = false;
 }
 ```
 
 ```cpp
-void ChangeStageSpace(ApiHandle<AzureSession> session)
+void ChangeCameraSetting(ApiHandle<RenderingSession> session)
 {
-    ApiHandle<CameraSettings> settings = session->Actions()->GetCameraSettings();
+    ApiHandle<CameraSettings> settings = session->Connection()->GetCameraSettings();
 
     settings->SetNearAndFarPlane(0.1f, 20.0f);
     settings->SetEnableDepth(false);
+    settings->SetInverseDepth(false);
 }
 ```
 

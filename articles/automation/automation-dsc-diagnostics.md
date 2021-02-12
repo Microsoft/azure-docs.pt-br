@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 425a7ff0553ddeac502c59e240f5ab152d6e0d79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34bbf34d53c44dcef7b8e128a93ee64201423c3e
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87015146"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897030"
 ---
 # <a name="integrate-with-azure-monitor-logs"></a>Integrar com os logs do Azure Monitor
 
@@ -36,7 +36,7 @@ Para começar a enviar seus relatórios de State Configuration de Automação pa
 
 - Versão de novembro 2016 ou posterior do [Azure PowerShell](/powershell/azure/) ( versão 2.3.0).
 - Uma conta de Automação do Azure. Confira mais informações em [Uma introdução à Automação do Azure](automation-intro.md).
-- Um espaço de trabalho do Log Analytics com uma oferta de serviço Automação e Controle. Para obter mais informações, confira [Introdução ao Log Analytics no Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
+- Um espaço de trabalho do Log Analytics com uma oferta de serviço Automação e Controle. Para obter mais informações, confira [Introdução ao Log Analytics no Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md).
 - No mínimo, um nó de Configuração do Estado de Automação do Azure. Para saber mais, veja [Máquinas de integração para o gerenciamento pela State Configuration de Automação do Azure](automation-dsc-onboarding.md).
 - O módulo [xDscDiagnostics](https://www.powershellgallery.com/packages/xDscDiagnostics/2.7.0.0), versão 2.7.0.0 ou superior. Para obter as etapas de instalação, consulte [Solucionar problemas com a Desired State Configuration da Automação do Azure](./troubleshoot/desired-state-configuration.md).
 
@@ -196,7 +196,7 @@ O diagnóstico da Automação do Azure cria duas categorias de registros nos log
 - Para obter uma visão geral, consulte [Visão geral da State Configuration da Automação do Azure](automation-dsc-overview.md).
 - Para começar, confira [Introdução ao State Configuration da Automação do Azure](automation-dsc-getting-started.md).
 - Para saber como compilar configurações DSC para que possam ser atribuídas a nós de destino, confira [Compilar configurações DSC no State Configuration da Automação do Azure](automation-dsc-compile.md).
-- Para obter uma referência de cmdlet do PowerShell, confira [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+- Para obter uma referência de cmdlet do PowerShell, confira [Az.Automation](/powershell/module/az.automation).
 - Para obter informações sobre preços, consulte [Preço da State Configuration da Automação do Azure](https://azure.microsoft.com/pricing/details/automation/).
 - Para ver um exemplo de uso do State Configuration da Automação do Azure em um pipeline de implantação contínua, confira [Configurar a implantação contínua com o Chocolatey](automation-dsc-cd-chocolatey.md).
 - Para saber mais sobre como construir consultas de pesquisa diferentes e examinar os logs de State Configuration da Automação do Azure com os logs do Azure Monitor, confira [Pesquisas de logs em logs do Azure Monitor](../azure-monitor/log-query/log-query-overview.md).

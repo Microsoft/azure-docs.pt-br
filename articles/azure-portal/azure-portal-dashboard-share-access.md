@@ -1,24 +1,15 @@
 ---
 title: Compartilhar portal do Azure dashboards usando o controle de acesso baseado em função do Azure
 description: Este artigo explica como compartilhar um painel no portal do Azure usando o controle de acesso baseado em função do Azure.
-services: azure-portal
-documentationcenter: ''
-author: mgblythe
-manager: mtillman
 ms.assetid: 8908a6ce-ae0c-4f60-a0c9-b3acfe823365
-ms.service: azure-portal
-ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 03/23/2020
-ms.author: mblythe
-ms.openlocfilehash: b74cae439ce351a4d720f215679cc0802eebe898
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: de2efd75d07c3dc7df771aad1bd9c73453dad212
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092198"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745971"
 ---
 # <a name="share-azure-dashboards-by-using-azure-role-based-access-control"></a>Compartilhar painéis do Azure usando o controle de acesso baseado em função do Azure
 

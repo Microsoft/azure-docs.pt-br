@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/08/2019
 ms.author: Zhchia
-ms.openlocfilehash: 43f5b96c7029da6b49bc9df40d92fbd250145715
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: e79f21300325c6b451dd564bf2c69830f003f55c
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325990"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357854"
 ---
 # <a name="tutorial-configure-priority-matrix-for-automatic-user-provisioning"></a>Tutorial: configurar a matriz de prioridade para o provisionamento automático de usuário
 
@@ -37,7 +37,7 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes pr�
 
 ## <a name="assign-users-to-priority-matrix"></a>Atribuir usuários à matriz de prioridade
 
-O Azure Active Directory usa um conceito chamado atribuições para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
+Azure Active Directory usa um conceito chamado atribuições para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
 
 Antes de configurar e habilitar o provisionamento automático de usuário, você deve decidir quais usuários e/ou grupos no Azure AD precisam de acesso à matriz de prioridade. Depois de decidir, você pode atribuir esses usuários e/ou grupos à matriz de prioridade seguindo as instruções aqui:
 
@@ -67,11 +67,11 @@ Antes de configurar a matriz de prioridade para o provisionamento automático de
 
 Para configurar a matriz de prioridade para o provisionamento automático de usuário com o Azure AD, você precisa adicionar a matriz de prioridade da Galeria de aplicativos do Azure AD à sua lista de aplicativos SaaS gerenciados.
 
-1. No **[portal do Azure](https://portal.azure.com)**, no painel de navegação à esquerda, selecione **Azure Active Directory**.
+1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação à esquerda, selecione **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os aplicativos**.
+2. Vá para **Aplicativos da empresa** , em seguida, selecione **Todos os aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -79,7 +79,7 @@ Para configurar a matriz de prioridade para o provisionamento automático de usu
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, insira **matriz de prioridade**, selecione **matriz de prioridade** no painel de resultados. 
+4. Na caixa de pesquisa, insira **matriz de prioridade** , selecione **matriz de prioridade** no painel de resultados. 
 
     ![Matriz de prioridade na lista de resultados](common/search-new-app.png)
 
@@ -124,11 +124,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![URL do locatário + token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção - **Enviar uma notificação por email quando ocorrer uma falha**.
+6. No campo **Notificação por Email** , insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção - **Enviar uma notificação por email quando ocorrer uma falha**.
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Salvar**.
+7. Clique em **Save** (Salvar).
 
 8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários com a matriz de prioridade**.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 59eb2e320a828b644af6f740cf9f8381370a0dda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 849236b9ac33cec92cc145bb32b4271b73476057
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88527258"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608809"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-timeoffmanager"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao TimeOffManager
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá a integrar o TimeOffManager ao Azure AD (Azure 
 * Permitir que os usuários sejam conectados automaticamente ao TimeOffManager com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -146,11 +146,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 2. Vá para **Conta \> Opções da Conta \> Configurações de Logon Único**.
    
-    ![Configurações de logon único](./media/timeoffmanager-tutorial/ic795917.png "Configurações de logon único")
+    ![A captura de tela mostra a opção Configurações de Logon Único selecionada nas Opções de Conta.](./media/timeoffmanager-tutorial/ic795917.png "Configurações de logon único")
 
 3. Na seção **Configurações de Logon Único** , realize as seguintes etapas:
    
-    ![Configurações de logon único](./media/timeoffmanager-tutorial/ic795918.png "Configurações de logon único")
+    ![A captura de tela mostra a seção Configurações de Logon Único, na qual você pode inserir os valores descritos.](./media/timeoffmanager-tutorial/ic795918.png "Configurações de logon único")
    
     a. Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole todo o Certificado na caixa de texto **Certificado X.509** .
    
@@ -168,7 +168,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 4. Na página **Configurações de logon único**, copie o valor da **URL do Serviço do Consumidor de Declaração** e cole-a na caixa de texto **URL de Resposta** na seção **Configuração Básica de SAML** no Portal do Azure. 
 
-      ![Configurações de logon único](./media/timeoffmanager-tutorial/ic795915.png "Configurações de logon único")
+    ![A captura de tela mostra o link da URL do Serviço do Consumidor de Declaração.](./media/timeoffmanager-tutorial/ic795915.png "Configurações de logon único")
 
 ### <a name="create-timeoffmanager-test-user"></a>Criar usuário de teste do TimeOffManager
 
@@ -181,15 +181,14 @@ Nesta seção, um usuário chamado Brenda Fernandes será criado no TimeOffManag
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco TimeOffManager Manager no Painel de Acesso, você deverá ser conectado automaticamente ao TimeOffManager para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco TimeOffManager Manager no Painel de Acesso, você deverá ser conectado automaticamente ao TimeOffManager para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimentar o TimeOffManager com o Azure AD](https://aad.portal.azure.com/)
-

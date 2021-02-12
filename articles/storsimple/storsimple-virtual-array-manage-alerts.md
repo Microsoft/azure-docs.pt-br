@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5f32ec82c2b4c6d8b902195782b286cca82befb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12fcc9996697f3bbba35826d79bec238bfb0f8b3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85507629"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95992999"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Usar o Gerenciador de Dispositivos do StorSimple para gerenciar alertas do StorSimple Virtual Array
 
@@ -48,17 +48,17 @@ Depois de habilitar a notificação por email para uma matriz virtual, os membro
     ![Configurações de alerta](./media/storsimple-virtual-array-manage-alerts/alerts2.png)
 2. Isso abrirá a folha **Configurações**. Na seção **Configurações do dispositivo**, selecione **Geral**. Isso abrirá a folha **Configurações Gerais**.
    
-    ![configuração da notificação de alertas](./media/storsimple-virtual-array-manage-alerts/alerts4.png)
+    ![Captura de tela mostra o painel configurações do dispositivo com a área de configurações de alerta chamada out.](./media/storsimple-virtual-array-manage-alerts/alerts4.png)
 3. Na folha **Configurações Gerais**, acesse a seção **Configurações de alerta** e defina o seguinte:
    
    1. No campo **Habilitar notificação por email**, selecione **SIM**.
    2. No campo **Administradores do serviços de email**, selecione **SIM** se deseja que o administrador de serviços e todos os coadministradores recebam as notificações de alerta.
    3. No campo **Destinatários de email adicionais**, insira os endereços de email de todos os outros destinatários que devem receber as notificações de alerta. Insira nomes no formato *alguém \@ Somewhere.com*. Use ponto e vírgula para separar os endereços de email. Você pode configurar um máximo de 20 endereços de email por dispositivo virtual.
       
-       ![configuração da notificação de alertas](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
+       ![Captura de tela mostra os detalhes das configurações de alerta com as configurações descritas nesta etapa.](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
    4. Para enviar uma notificação de email de teste, clique em **Enviar email de teste**. O serviço Gerenciador de Dispositivo do StorSimple exibirá mensagens de status conforme ele encaminha a notificação de teste.
       
-       ![Email de notificação de teste de alertas enviado](./media/storsimple-virtual-array-manage-alerts/alerts7.png)
+       ![Captura de tela mostra uma caixa de diálogo informativa verificando o email de teste.](./media/storsimple-virtual-array-manage-alerts/alerts7.png)
       
       > [!NOTE]
       > Se a mensagem de notificação de teste não pode ser enviada, o serviço Gerenciador de Dispositivo do StorSimple exibirá uma mensagem apropriada. Clique em **OK**, aguarde alguns minutos e, em seguida, tente enviar a mensagem de notificação de teste novamente.
@@ -66,13 +66,13 @@ Depois de habilitar a notificação por email para uma matriz virtual, os membro
       >
    5. Na parte inferior da página, clique em **Salvar** para salvar sua configuração. Quando solicitada a confirmação, clique em **Sim**.
       
-      ![Email de notificação de teste de alertas enviado](./media/storsimple-virtual-array-manage-alerts/alerts10.png)
+      ![Captura de tela mostra o painel configurações com o botão salvar selecionado.](./media/storsimple-virtual-array-manage-alerts/alerts10.png)
 
 ## <a name="common-alert-conditions"></a>Condições comuns de alerta
 
 A matriz Virtual StorSimple gera alertas em resposta a uma variedade de condições. A seguir estão os tipos mais comuns de condições de alerta:
 
-* **Problemas de conectividade** – esses alertas ocorrem quando há dificuldade na transferência de dados. Podem ocorrer problemas de comunicação durante a transferência de dados de e para a conta de armazenamento do Azure ou devido à falta de conectividade entre os dispositivos virtuais e o serviço Gerenciador de Dispositivo do StorSimple. Problemas de comunicação são alguns dos mais difíceis de corrigir porque há muitos pontos de falha. Você deve sempre verificar primeiro se a conectividade de rede e o acesso à Internet estão disponíveis antes de continuar com a solução de problemas mais avançados. Para obter informações sobre portas e configurações de firewall, vá para [Requisitos do sistema StorSimple Virtual Array](storsimple-ova-system-requirements.md). Para obter ajuda com a solução de problemas, acesse [Solucionar problemas com o cmdlet Test-Connection](storsimple-troubleshoot-deployment.md).
+* **Problemas de conectividade** – esses alertas ocorrem quando há dificuldade na transferência de dados. Podem ocorrer problemas de comunicação durante a transferência de dados de e para a conta de armazenamento do Azure ou devido à falta de conectividade entre os dispositivos virtuais e o serviço Gerenciador de Dispositivo do StorSimple. Problemas de comunicação são alguns dos mais difíceis de corrigir porque há muitos pontos de falha. Você deve sempre verificar primeiro se a conectividade de rede e o acesso à Internet estão disponíveis antes de continuar com a solução de problemas mais avançados. Para obter informações sobre portas e configurações de firewall, vá para [Requisitos do sistema StorSimple Virtual Array](storsimple-ova-system-requirements.md). Para obter ajuda com a solução de problemas, acesse [Solucionar problemas com o cmdlet Test-Connection](./storsimple-8000-troubleshoot-deployment.md).
 * **Problemas de desempenho** – Estes alertas são causados quando seu sistema não apresenta um desempenho satisfatório, como quando está sobrecarregado.
 
 Além disso, você pode ver alertas relacionados à segurança, atualizações ou falhas no trabalho.

@@ -3,12 +3,12 @@ title: Adicionar partições dinamicamente a um hub de eventos nos Hubs de Event
 description: Este artigo mostra como adicionar partições dinamicamente a um hub de eventos nos Hubs de Eventos do Azure.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 4a729147eaa11497c66f82a9764dfee9492786b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6efdc7bab309f825032555c97f1e1128f5addd6
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87002532"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625258"
 ---
 # <a name="dynamically-add-partitions-to-an-event-hub-apache-kafka-topic-in-azure-event-hubs"></a>Adicionar partições dinamicamente a um hub de eventos (tópico do Apache Kafka) nos Hubs de Eventos do Azure
 Os Hubs de Evento fornecem streaming de mensagens por meio de um padrão de consumidor particionado no qual cada consumidor lê somente um subconjunto específico, ou partição, do fluxo de mensagens. Esse padrão permite a escala horizontal para processamento de eventos e fornece outros recursos centrados no fluxo que não estão disponíveis em filas e tópicos. Uma partição é uma sequência ordenada de eventos que é mantida em um hub de eventos. À medida que novos eventos chegam, eles são adicionados ao final dessa sequência. Para obter mais informações sobre partições em geral, confira [Partições](event-hubs-scalability.md#partitions)
@@ -26,14 +26,14 @@ Você pode especificar o número de partições no momento da criação de um hu
 Esta seção mostra como atualizar a contagem de partições de um hub de eventos de diferentes maneiras (PowerShell, CLI e assim por diante).
 
 ### <a name="powershell"></a>PowerShell
-Use o comando [Set-AzureRmEventHub](/powershell/module/azurerm.eventhub/Set-AzureRmEventHub?view=azurermps-6.13.0) do PowerShell para atualizar partições em um hub de eventos. 
+Use o comando [Set-AzureRmEventHub](/powershell/module/azurerm.eventhub/Set-AzureRmEventHub) do PowerShell para atualizar partições em um hub de eventos. 
 
 ```azurepowershell-interactive
 Set-AzureRmEventHub -ResourceGroupName MyResourceGroupName -Namespace MyNamespaceName -Name MyEventHubName -partitionCount 12
 ```
 
 ### <a name="cli"></a>CLI
-Use o [`az eventhubs eventhub update`](/cli/azure/eventhubs/eventhub?view=azure-cli-latest#az-eventhubs-eventhub-update) comando da CLI para atualizar partições em um hub de eventos. 
+Use o [`az eventhubs eventhub update`](/cli/azure/eventhubs/eventhub#az-eventhubs-eventhub-update) comando da CLI para atualizar partições em um hub de eventos. 
 
 ```azurecli-interactive
 az eventhubs eventhub update --resource-group MyResourceGroupName --namespace-name MyNamespaceName --name MyEventHubName --partition-count 12
@@ -71,7 +71,7 @@ Os Hubs de Eventos fornecem três opções de remetente:
 
 - **Remetente da partição**: nesse cenário, os clientes enviam eventos diretamente para uma partição. Embora as partições sejam identificáveis e os eventos possam ser enviados diretamente a elas, não recomendamos esse padrão. A adição de partições não afeta esse cenário. Recomendamos que você reinicie os aplicativos para que eles possam detectar partições adicionadas recentemente. 
 - **Remetente da chave de partição** – nesse cenário, os clientes enviam os eventos com uma chave para que todos os eventos que pertençam a essa chave terminem na mesma partição. Nesse caso, o serviço faz hash da chave e das rotas para a partição correspondente. A atualização de contagem de partições pode causar problemas fora de ordem devido à alteração de hash. Portanto, se você se preocupa com a ordenação, verifique se o aplicativo consome todos os eventos de partições existentes antes de aumentar a contagem de partições.
-- **Remetente de round robin (padrão)** – nesse cenário, o serviço de Hubs de Eventos faz distribuição round robin dos eventos entre partições. O serviço de Hubs de Eventos reconhece alterações de contagem de partições e solicitará novas partições segundos após uma alteração da contagem de partições.
+- **Remetente de Round Robin (padrão)** – neste cenário, o serviço de hubs de eventos Arredonde Robin os eventos entre partições e também usa um algoritmo de balanceamento de carga. O serviço de Hubs de Eventos reconhece alterações de contagem de partições e solicitará novas partições segundos após uma alteração da contagem de partições.
 
 ### <a name="receiverconsumer-clients"></a>Clientes de receptor/consumidor
 Os Hubs de Eventos fornecem receptores diretos e uma biblioteca de consumidor fácil de usar, chamada de [Host do Processador de Eventos (SDK antigo)](event-hubs-event-processor-host.md) ou [Processador de Eventos (SDK novo)](event-processor-balance-partition-load.md).
@@ -99,7 +99,7 @@ Quando um membro do grupo de consumidores executa uma atualização de metadados
     > [!IMPORTANT]
     > Enquanto os dados existentes preservarem a ordenação, o hash de partição será interrompido para mensagens com hash após a alteração na contagem de partições devido à adição de partições.
 - A adição de uma partição a uma instância do hub de eventos ou tópico existente é recomendada nos seguintes casos:
-    - Quando você usa o método round robin (padrão) de envio de eventos
+    - Quando você usa o método padrão de envio de eventos
      - Kafka estratégias de particionamento padrão, exemplo – estratégia de atribuição de adesivo
 
 

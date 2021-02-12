@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 02/28/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: 383895f2cb5983abd68bfca67d2c8361ee094ea1
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ae508754775d4eb622d8e91ef58eb0d6e1c45692
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744834"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94889007"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Reparos automáticos de instância para conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -36,9 +36,9 @@ Antes de habilitar a política de reparos de instância automática, verifique s
 
 Para instâncias marcadas como "não íntegras", os reparos automáticos são disparados pelo conjunto de dimensionamento. Verifique se o ponto de extremidade do aplicativo está configurado corretamente antes de habilitar a política de reparos automáticos para evitar reparos de instância não intencional, enquanto o ponto de extremidade está sendo configurado.
 
-**Habilitar grupo de posicionamento único**
+**Número máximo de instâncias no conjunto de dimensionamento**
 
-Esse recurso está disponível no momento apenas para conjuntos de dimensionamento implantados como grupo de posicionamento único. A propriedade *singlePlacementGroup* deve ser definida como *true* para seu conjunto de dimensionamento para usar o recurso de reparos automáticos de instância. Saiba mais sobre [grupos de posicionamento](./virtual-machine-scale-sets-placement-groups.md#placement-groups).
+Esse recurso está disponível no momento apenas para conjuntos de dimensionamento que têm um máximo de 200 instâncias. O conjunto de dimensionamento pode ser implantado como um único grupo de posicionamento ou um grupo de vários locais. no entanto, a contagem de instâncias não poderá ser superior a 200 se o reparo automático de instância estiver habilitado para o conjunto de dimensionamento.
 
 **Versão da API**
 
@@ -56,19 +56,19 @@ Atualmente, não há suporte para este recurso em conjuntos de dimensionamento d
 
 O recurso de reparo automático de instância depende do monitoramento de integridade de instâncias individuais em um conjunto de dimensionamento. As instâncias de VM em um conjunto de dimensionamento podem ser configuradas para emitir o status de integridade do aplicativo usando a [extensão de integridade do aplicativo](./virtual-machine-scale-sets-health-extension.md) ou as investigações de integridade do [balanceador de carga](../load-balancer/load-balancer-custom-probe-overview.md). Se uma instância for considerada não íntegra, o conjunto de dimensionamento executará a ação de reparo excluindo a instância não íntegra e criando uma nova para substituí-la. O modelo de conjunto de dimensionamento de máquinas virtuais mais recente é usado para criar a nova instância. Esse recurso pode ser habilitado no modelo do conjunto de dimensionamento de máquinas virtuais usando o objeto *automaticRepairsPolicy* .
 
-### <a name="batching"></a>Envio em lote
+### <a name="batching"></a>Separação em lotes
 
 As operações automáticas de reparo de instância são executadas em lotes. Em um determinado momento, não mais do que 5% das instâncias no conjunto de dimensionamento são reparadas por meio da política de reparos automáticas. Isso ajuda a evitar a exclusão simultânea e a recriação de um grande número de instâncias, se elas não estiverem íntegras ao mesmo tempo.
 
 ### <a name="grace-period"></a>Período de carência
 
-Quando uma instância passa por uma operação de alteração de estado devido a uma ação PUT, PATCH ou POST executada no conjunto de dimensionamento (por exemplo, refazer a imagem, reimplantar, atualizar, etc.), qualquer ação de reparo nessa instância é executada somente depois de aguardar o período de carência. O período de carência é a quantidade de tempo para permitir que a instância retorne ao estado íntegro. O período de carência começa após a conclusão da alteração de estado. Isso ajuda a evitar qualquer operação de reparo prematuro ou acidental. O período de carência é respeitado para qualquer instância recém-criada no conjunto de dimensionamento (incluindo aquele criado como resultado da operação de reparo). O período de carência é especificado em minutos no formato ISO 8601 e pode ser definido usando a propriedade *automaticRepairsPolicy. gracePeriod* . O período de carência pode variar entre 30 minutos e 90 minutos e tem um valor padrão de 30 minutos.
+Quando uma instância passa por uma operação de alteração de estado devido a uma ação PUT, PATCH ou POST executada no conjunto de dimensionamento (por exemplo, refazer a imagem, reimplantar, atualizar, etc.), qualquer ação de reparo nessa instância é executada somente depois de aguardar o período de carência. O período de carência é a quantidade de tempo para permitir que a instância retorne ao estado íntegro. O período de carência começa após a conclusão da alteração de estado. Isso ajuda a evitar qualquer operação de reparo prematuro ou acidental. O período de carência é respeitado para qualquer instância recém-criada no conjunto de dimensionamento (incluindo aquele criado como resultado da operação de reparo). O período de carência é especificado em minutos no formato ISO 8601 e pode ser definido usando a propriedade *automaticRepairsPolicy. gracePeriod*. O período de carência pode variar entre 30 minutos e 90 minutos e tem um valor padrão de 30 minutos.
 
 ### <a name="suspension-of-repairs"></a>Suspensão de reparos 
 
-Os conjuntos de dimensionamento de máquinas virtuais fornecem a capacidade de suspender temporariamente os reparos automáticos da instância, se necessário. O *ServiceState* para os reparos automáticos na propriedade *orchestrationServices* na exibição de instância do conjunto de dimensionamento de máquinas virtuais mostra o estado atual dos reparos automáticos. Quando um conjunto de dimensionamento é aceito em reparos automáticos, o valor do parâmetro *ServiceState* é definido como *running* . Quando os reparos automáticos são suspensos para um conjunto de dimensionamento, o parâmetro *ServiceState* é definido como *suspenso* . Se *automaticRepairsPolicy* for definido em um conjunto de dimensionamento, mas o recurso de reparos automáticos não estiver habilitado, o parâmetro *ServiceState* será definido como *não em execução* .
+Os conjuntos de dimensionamento de máquinas virtuais fornecem a capacidade de suspender temporariamente os reparos automáticos da instância, se necessário. O *ServiceState* para os reparos automáticos na propriedade *orchestrationServices* na exibição de instância do conjunto de dimensionamento de máquinas virtuais mostra o estado atual dos reparos automáticos. Quando um conjunto de dimensionamento é aceito em reparos automáticos, o valor do parâmetro *ServiceState* é definido como *running*. Quando os reparos automáticos são suspensos para um conjunto de dimensionamento, o parâmetro *ServiceState* é definido como *suspenso*. Se *automaticRepairsPolicy* for definido em um conjunto de dimensionamento, mas o recurso de reparos automáticos não estiver habilitado, o parâmetro *ServiceState* será definido como *não em execução*.
 
-Se as instâncias recém-criadas para substituir as não íntegras em um conjunto de dimensionamento continuarem a permanecer não íntegras mesmo após a execução repetida das operações de reparo, como medida de segurança, a plataforma atualizará o *ServiceState* para que os reparos automáticos sejam *suspensos* . Você pode retomar os reparos automáticos novamente definindo o valor de *ServiceState* para que os reparos automáticos sejam *executados* . Instruções detalhadas são fornecidas na seção sobre como [Exibir e atualizar o estado do serviço da política de reparos automáticos](#viewing-and-updating-the-service-state-of-automatic-instance-repairs-policy) para seu conjunto de dimensionamento. 
+Se as instâncias recém-criadas para substituir as não íntegras em um conjunto de dimensionamento continuarem a permanecer não íntegras mesmo após a execução repetida das operações de reparo, como medida de segurança, a plataforma atualizará o *ServiceState* para que os reparos automáticos sejam *suspensos*. Você pode retomar os reparos automáticos novamente definindo o valor de *ServiceState* para que os reparos automáticos sejam *executados*. Instruções detalhadas são fornecidas na seção sobre como [Exibir e atualizar o estado do serviço da política de reparos automáticos](#viewing-and-updating-the-service-state-of-automatic-instance-repairs-policy) para seu conjunto de dimensionamento. 
 
 O processo de reparos automáticos da instância funciona da seguinte maneira:
 
@@ -96,14 +96,14 @@ Você também pode usar este [modelo de início rápido](https://github.com/Azur
  
 As etapas a seguir habilitam a política de reparos automáticos ao criar um novo conjunto de dimensionamento.
  
-1. Vá para **conjuntos de dimensionamento de máquinas virtuais** .
+1. Vá para **conjuntos de dimensionamento de máquinas virtuais**.
 1. Selecione **+ Adicionar** para criar um novo conjunto de dimensionamento.
 1. Vá para a guia **integridade** . 
 1. Localize a seção de **integridade** .
 1. Habilite a opção **monitorar integridade do aplicativo** .
 1. Localize a seção **política de reparo automática** .
 1. Ative **a opção de** **reparos automáticos** .
-1. No **período de carência (min)** , especifique o período de carência em minutos; os valores permitidos estão entre 30 e 90 minutos. 
+1. No **período de carência (min)**, especifique o período de carência em minutos; os valores permitidos estão entre 30 e 90 minutos. 
 1. Quando terminar de criar o novo conjunto de dimensionamento, selecione o botão **revisar + criar** .
 
 ### <a name="rest-api"></a>API REST
@@ -141,7 +141,7 @@ New-AzVmssConfig `
 
 ### <a name="azure-cli-20"></a>CLI do Azure 2.0
 
-O exemplo a seguir habilita a política de reparos automáticos ao criar um novo conjunto de dimensionamento usando *[AZ vmss Create](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create)* . Primeiro, crie um grupo de recursos e, em seguida, crie um novo conjunto de dimensionamento com o período de carência da política de reparos automático definido como 30 minutos.
+O exemplo a seguir habilita a política de reparos automáticos ao criar um novo conjunto de dimensionamento usando *[AZ vmss Create](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create)*. Primeiro, crie um grupo de recursos e, em seguida, crie um novo conjunto de dimensionamento com o período de carência da política de reparos automático definido como 30 minutos.
 
 ```azurecli-interactive
 az group create --name <myResourceGroup> --location <VMSSLocation>
@@ -156,7 +156,7 @@ az vmss create \
   --automatic-repairs-grace-period 30
 ```
 
-O exemplo acima usa um balanceador de carga e uma investigação de integridade existentes para monitorar o status de integridade do aplicativo de instâncias. Se preferir usar uma extensão de integridade do aplicativo para monitoramento em vez disso, você pode criar um conjunto de dimensionamento, configurar a extensão de integridade do aplicativo e habilitar a política de reparos de instância automática usando a *atualização AZ vmss* , conforme explicado na próxima seção.
+O exemplo acima usa um balanceador de carga e uma investigação de integridade existentes para monitorar o status de integridade do aplicativo de instâncias. Se preferir usar uma extensão de integridade do aplicativo para monitoramento em vez disso, você pode criar um conjunto de dimensionamento, configurar a extensão de integridade do aplicativo e habilitar a política de reparos de instância automática usando a *atualização AZ vmss*, conforme explicado na próxima seção.
 
 ## <a name="enabling-automatic-repairs-policy-when-updating-an-existing-scale-set"></a>Habilitando a política de reparos automáticos ao atualizar um conjunto de dimensionamento existente
 
@@ -169,12 +169,12 @@ Depois de atualizar o modelo de um conjunto de dimensionamento existente, certif
 Você pode modificar a política de reparos automáticos de um conjunto de dimensionamento existente por meio do portal do Azure. 
  
 1. Acesse um conjunto de dimensionamento de máquinas virtuais existente.
-1. Em **configurações** no menu à esquerda, selecione **integridade e reparo** .
+1. Em **configurações** no menu à esquerda, selecione **integridade e reparo**.
 1. Habilite a opção **monitorar integridade do aplicativo** .
 1. Localize a seção **política de reparo automática** .
 1. Ative **a opção de** **reparos automáticos** .
-1. No **período de carência (min)** , especifique o período de carência em minutos; os valores permitidos estão entre 30 e 90 minutos. 
-1. Quando terminar, selecione **Salvar** . 
+1. No **período de carência (min)**, especifique o período de carência em minutos; os valores permitidos estão entre 30 e 90 minutos. 
+1. Quando terminar, selecione **Salvar**. 
 
 ### <a name="rest-api"></a>API REST
 
@@ -209,7 +209,7 @@ Update-AzVmss `
 
 ### <a name="azure-cli-20"></a>CLI do Azure 2.0
 
-Veja a seguir um exemplo de atualização da política de reparos automáticos de instância de um conjunto de dimensionamento existente, usando *[AZ vmss Update](/cli/azure/vmss?view=azure-cli-latest#az-vmss-update)* .
+Veja a seguir um exemplo de atualização da política de reparos automáticos de instância de um conjunto de dimensionamento existente, usando *[AZ vmss Update](/cli/azure/vmss?view=azure-cli-latest#az-vmss-update)*.
 
 ```azurecli-interactive
 az vmss update \  
@@ -223,7 +223,7 @@ az vmss update \
 
 ### <a name="rest-api"></a>API REST 
 
-Use a [exibição obter instância](/rest/api/compute/virtualmachinescalesets/getinstanceview) com a versão de API 2019-12-01 ou superior para o conjunto de dimensionamento de máquinas virtuais para exibir o *ServiceState* para reparos automáticos na propriedade *orchestrationServices* . 
+Use a [exibição obter instância](/rest/api/compute/virtualmachinescalesets/getinstanceview) com a versão de API 2019-12-01 ou superior para o conjunto de dimensionamento de máquinas virtuais para exibir o *ServiceState* para reparos automáticos na propriedade *orchestrationServices*. 
 
 ```http
 GET '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/instanceView?api-version=2019-12-01'
@@ -309,7 +309,7 @@ A instância pode estar no período de carência. Essa é a quantidade de tempo 
 
 **Exibindo o status de integridade do aplicativo para instâncias do conjunto de dimensionamento**
 
-Você pode usar a [API de exibição obter instância](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) para instâncias em um conjunto de dimensionamento de máquinas virtuais para exibir o status de integridade do aplicativo. Com Azure PowerShell, você pode usar o cmdlet [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) com o sinalizador *-InstanceView* . O status de integridade do aplicativo é fornecido sob a propriedade *vmHealth* .
+Você pode usar a [API de exibição obter instância](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) para instâncias em um conjunto de dimensionamento de máquinas virtuais para exibir o status de integridade do aplicativo. Com Azure PowerShell, você pode usar o cmdlet [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) com o sinalizador *-InstanceView* . O status de integridade do aplicativo é fornecido sob a propriedade *vmHealth*.
 
 No portal do Azure, você também pode ver o status de integridade. Vá para um conjunto de dimensionamento existente, selecione **instâncias** no menu à esquerda e examine a coluna **estado de integridade** do status de integridade de cada instância do conjunto de dimensionamento. 
 

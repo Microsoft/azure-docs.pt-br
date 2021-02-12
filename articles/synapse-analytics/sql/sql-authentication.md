@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8edf782c03300cf22bd349548da425669f492bc1
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ed9b67e9c3d21d11c6e413694190850c20d2c46c
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093524"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682929"
 ---
 # <a name="sql-authentication"></a>Autenticação SQL
 
@@ -22,10 +22,10 @@ O Azure Synapse Analytics tem dois fatores forma do SQL que permitem controlar o
 
 Para a autorização do Synapse SQL, você pode usar dois tipos de autorização:
 
-- Autorização do AAD
+- Autorização do Azure Active Directory
 - Autorização SQL
 
-A autorização do AAD depende do Azure Active Directory e permite que você tenha um só lugar para o gerenciamento de usuários. A autorização SQL permite que os aplicativos herdados usem o Synapse SQL de maneira bem conhecida.
+O Azure Active Directory permite que você tenha um só lugar para o gerenciamento de usuários. A autorização SQL permite que os aplicativos herdados usem o Synapse SQL de maneira bem conhecida.
 
 ## <a name="administrative-accounts"></a>Contas administrativas
 
@@ -51,18 +51,18 @@ As contas do **Administrador do servidor** e do **Administrador do Azure AD** t�
 - Podem adicionar e remover membros das funções `dbmanager` e `loginmanager`.
 - Podem exibir a tabela do sistema `sys.sql_logins`.
 
-## <a name="sql-on-demand-preview"></a>[SQL sob demanda (versão prévia)](#tab/serverless)
+## <a name="serverless-sql-pool"></a>[Pool de SQL sem servidor](#tab/serverless)
 
-Para gerenciar os usuários que têm acesso ao SQL sob demanda, use as instruções abaixo.
+Para gerenciar o acesso dos usuários ao pool de SQL sem servidor, use as instruções abaixo.
 
-Para criar um logon para o SQL sob demanda, use a seguinte sintaxe:
+Para criar um logon para o pool de SQL sem servidor, use a seguinte sintaxe:
 
 ```sql
 CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
 -- or
 CREATE LOGIN Mary@domainname.net FROM EXTERNAL PROVIDER;
 ```
-Depois que o logon for criado, crie usuários nos bancos de dados individuais dentro do ponto de extremidade do SQL sob demanda e conceda as permissões necessárias a esses usuários. Para criar um uso, use a seguinte sintaxe:
+Depois que o logon for criado, crie usuários nos bancos de dados individuais dentro do ponto de extremidade do pool de SQL sem servidor e conceda as permissões necessárias a esses usuários. Para criar um uso, use a seguinte sintaxe:
 ```sql
 CREATE USER Mary FROM LOGIN Mary;
 -- or
@@ -92,18 +92,18 @@ Uma dessas funções administrativas é a função **dbmanager**. Os membros des
 Para criar um banco de dados, o usuário deve ser um usuário baseado em um logon do SQL Server no banco de dados `master` ou um usuário de banco de dados baseado em um usuário do Azure Active Directory independente.
 
 1. Com uma conta de administrador, conecte-se ao banco de dados `master`.
-2. Crie um logon de autenticação do SQL Server usando a instrução [CRIAR LOGIN](/sql/t-sql/statements/create-login-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Exemplo de instrução:
+2. Crie um logon de autenticação do SQL Server usando a instrução [CRIAR LOGIN](/sql/t-sql/statements/create-login-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Exemplo de instrução:
 
    ```sql
    CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
    ```
 
    > [!NOTE]
-   > Você deve usar uma senha forte ao criar um logon ou um usuário de banco de dados independente. Para saber mais, confira [Strong Passwords](/sql/relational-databases/security/strong-passwords?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+   > Você deve usar uma senha forte ao criar um logon ou um usuário de banco de dados independente. Para saber mais, confira [Strong Passwords](/sql/relational-databases/security/strong-passwords?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
-   Para melhorar o desempenho, logons (entidades de nível de servidor) são temporariamente armazenados em cache no nível do banco de dados. Para atualizar o cache de autenticação, veja [DBCC FLUSHAUTHCACHE](/sql/t-sql/database-console-commands/dbcc-flushauthcache-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+   Para melhorar o desempenho, logons (entidades de nível de servidor) são temporariamente armazenados em cache no nível do banco de dados. Para atualizar o cache de autenticação, veja [DBCC FLUSHAUTHCACHE](/sql/t-sql/database-console-commands/dbcc-flushauthcache-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
-3. Crie o usuário de banco de dados usando a instrução [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). O usuário pode ser usuário de banco de dados independente de autenticação no Azure Active Directory (se você tiver configurado o ambiente para autenticação do Azure AD), um usuário de banco de dados independente de autenticação do SQL Server ou um usuário de autenticação do SQL Server com base em um logon de autenticação do SQL Server (criado na etapa anterior). Exemplo de instruções:
+3. Crie o usuário de banco de dados usando a instrução [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). O usuário pode ser usuário de banco de dados independente de autenticação no Azure Active Directory (se você tiver configurado o ambiente para autenticação do Azure AD), um usuário de banco de dados independente de autenticação do SQL Server ou um usuário de autenticação do SQL Server com base em um logon de autenticação do SQL Server (criado na etapa anterior). Exemplo de instruções:
 
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
@@ -111,7 +111,7 @@ Para criar um banco de dados, o usuário deve ser um usuário baseado em um logo
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. Adicione o novo usuário à função de banco de dados **dbmanager** no `master` usando o procedimento [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=azure-sqldw-latest) (observe que instrução [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) não tem suporte no SQL provisionado). Exemplo de instruções:
+4. Adicione o novo usuário à função de banco de dados **dbmanager** no `master` usando o procedimento [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=azure-sqldw-latest&preserve-view=true) (observe que instrução [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) não tem suporte no SQL provisionado). Exemplo de instruções:
 
    ```sql
    EXEC sp_addrolemember 'dbmanager', 'Mary'; 
@@ -127,13 +127,13 @@ Agora, o usuário pode se conectar ao banco de dados `master` e criar novos banc
 
 ### <a name="login-managers"></a>Gerentes de logon
 
-A outra função administrativa é a função de gerente de logon. Os membros dessa função podem criar novos logons no banco de dados mestre. Se quiser, você poderá concluir as mesmas etapas (criar um logon e usuário, e adicionar um usuário à função **loginmanager**) para permitir que um usuário crie novos logons no mestre. Normalmente, os logons não são necessários, pois a Microsoft recomenda o uso de usuários de banco de dados independentes, que são autenticados no nível do banco de dados em vez de usar os usuários baseados em logons. Para obter mais informações, consulte [Usuários de bancos de dados independentes – Tornando seu banco de dados portátil](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+A outra função administrativa é a função de gerente de logon. Os membros dessa função podem criar novos logons no banco de dados mestre. Se quiser, você poderá concluir as mesmas etapas (criar um logon e usuário, e adicionar um usuário à função **loginmanager**) para permitir que um usuário crie novos logons no mestre. Normalmente, os logons não são necessários, pois a Microsoft recomenda o uso de usuários de banco de dados independentes, que são autenticados no nível do banco de dados em vez de usar os usuários baseados em logons. Para obter mais informações, consulte [Usuários de bancos de dados independentes – Tornando seu banco de dados portátil](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ---
 
 ## <a name="non-administrator-users"></a>Usuários não administradores
 
-Em geral, contas que não são de administrador não precisam de acesso ao banco de dados mestre. Crie usuários do banco de dados independente no nível do banco de dados usando a instrução [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx) . 
+Em geral, contas que não são de administrador não precisam de acesso ao banco de dados mestre. Crie usuários do banco de dados independente no nível do banco de dados usando a instrução [CREATE USER (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql) . 
 
 O usuário pode ser usuário de banco de dados independente de autenticação no Azure Active Directory (se você tiver configurado o ambiente para autenticação do Azure AD), ou um usuário de banco de dados independente de autenticação do SQL Server, ou um usuário de autenticação do SQL Server com base em um logon de autenticação do SQL Server (criado na etapa anterior).  
 
@@ -158,7 +158,7 @@ No Banco de Dados SQL do Azure ou no Azure Synapse sem servidor, use a instruç�
 ALTER ROLE db_owner ADD MEMBER Mary;
 ```
 
-No pool de SQL, use [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+No pool de SQL dedicado, use [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ```sql
 EXEC sp_addrolemember 'db_owner', 'Mary';
@@ -171,7 +171,7 @@ Para obter mais informações sobre a configuração de logons para a replicaç�
 
 ### <a name="configuring-the-database-level-firewall"></a>Configuração do firewall no nível do banco de dados
 
-Como prática recomendada, os usuários não administradores só devem ter acesso por meio do firewall aos bancos de dados que eles usam. Em vez de autorizar seus endereços IP pelo firewall no nível do servidor e conceder acesso a todos os bancos de dados, use a instrução [sp_set_database_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para configurar o firewall no nível do banco de dados. O firewall no nível de banco de dados não pode ser configurado usando o portal.
+Como prática recomendada, os usuários não administradores só devem ter acesso por meio do firewall aos bancos de dados que eles usam. Em vez de autorizar seus endereços IP pelo firewall no nível do servidor e conceder acesso a todos os bancos de dados, use a instrução [sp_set_database_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para configurar o firewall no nível do banco de dados. O firewall no nível de banco de dados não pode ser configurado usando o portal.
 
 ### <a name="non-administrator-access-path"></a>Caminho de acesso do não administrador
 
@@ -183,15 +183,15 @@ Quando o firewall no nível do banco de dados está configurado corretamente, os
 
 O gerenciamento de acesso eficiente usa as permissões atribuídas a grupos e funções, em vez de usuários individuais.
 
-- Ao usar a autenticação do Azure Active Directory, coloque os usuários do Azure Active Directory em um grupo do Azure Active Directory. Crie um usuário de banco de dados independente para o grupo. Coloque um ou mais usuários de banco de dados em uma [função de banco de dados](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) e então atribua [permissões](/sql/relational-databases/security/permissions-database-engine?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) à função de banco de dados.
+- Ao usar a autenticação do Azure Active Directory, coloque os usuários do Azure Active Directory em um grupo do Azure Active Directory. Crie um usuário de banco de dados independente para o grupo. Coloque um ou mais usuários de banco de dados em uma [função de banco de dados](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) e então atribua [permissões](/sql/relational-databases/security/permissions-database-engine?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) à função de banco de dados.
 
-- Ao usar a autenticação do SQL Server, crie usuários de banco de dados independentes no banco de dados. Coloque um ou mais usuários de banco de dados em uma [função de banco de dados](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) e então atribua [permissões](/sql/relational-databases/security/permissions-database-engine?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) à função de banco de dados.
+- Ao usar a autenticação do SQL Server, crie usuários de banco de dados independentes no banco de dados. Coloque um ou mais usuários de banco de dados em uma [função de banco de dados](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) e então atribua [permissões](/sql/relational-databases/security/permissions-database-engine?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) à função de banco de dados.
 
 As funções do banco de dados podem ser funções internas, como **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter** e **db_denydatareader**. **db_owner** é usada normalmente para conceder permissão total a apenas alguns usuários. As outras funções fixas de banco de dados são úteis para mover rapidamente um banco de dados simples para desenvolvimento, mas não são recomendadas para a maioria dos bancos de dados de produção. 
 
 Por exemplo, a função do banco de dados fixa **db_datareader** concede acesso de leitura a todas as tabelas no banco de dados, sendo, em geral, mais do que é estritamente necessário. 
 
-É muito melhor usar a instrução [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) para criar suas funções do banco de dados definidas pelo usuário e conceder cuidadosamente a cada função as permissões mínimas necessárias para o negócio. Quando um usuário for membro de várias funções, ele agregará as permissões de todas elas.
+É muito melhor usar a instrução [CREATE ROLE](/sql/t-sql/statements/create-role-transact-sql) para criar suas funções do banco de dados definidas pelo usuário e conceder cuidadosamente a cada função as permissões mínimas necessárias para o negócio. Quando um usuário for membro de várias funções, ele agregará as permissões de todas elas.
 
 ## <a name="permissions"></a>Permissões
 
@@ -199,7 +199,7 @@ Há mais de 100 permissões que podem ser concedidas ou negadas individualmente 
 
 Devido à natureza aninhada e ao número de permissões, talvez seja necessário realizar um estudo cuidadoso para criar um sistema de permissões apropriado a fim de proteger corretamente o banco de dados. 
 
-Comece com a lista de permissões em [Permissões (Mecanismo do Banco de Dados)](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) e examine o [gráfico com tamanho de pôster](https://docs.microsoft.com/sql/relational-databases/security/media/database-engine-permissions.png) das permissões.
+Comece com a lista de permissões em [Permissões (Mecanismo do Banco de Dados)](/sql/relational-databases/security/permissions-database-engine) e examine o [gráfico com tamanho de pôster](/sql/relational-databases/security/media/database-engine-permissions.png) das permissões.
 
 ### <a name="considerations-and-restrictions"></a>Considerações e restrições
 
@@ -236,5 +236,4 @@ Ao gerenciar logons e usuários no Banco de Dados SQL, considere os seguintes po
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações, consulte [Usuários de bancos de dados independentes – Tornando seu banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
- 
+Para obter mais informações, consulte [Usuários de bancos de dados independentes – Tornando seu banco de dados portátil](/sql/relational-databases/security/contained-database-users-making-your-database-portable).

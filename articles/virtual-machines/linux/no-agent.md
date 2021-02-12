@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 30e76ec3085922ec2a1d4693681eb97c9052c026
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1c9ac872587804adbd9e62a3dc3ef3daed9e0c25
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978723"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223044"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>Criando imagens generalizadas sem um agente de provisionamento
 
@@ -154,7 +154,7 @@ wireserver_conn.close()
 
 Se sua VM não tiver o Python instalado ou disponível, você poderá reproduzir programaticamente essa lógica de script acima com as seguintes etapas:
 
-1. Recupere o `ContainerId` e `InstanceId` analisando a resposta do WireServer: `curl -X GET -H 'x-ms-version: 2012-11-30' http://$168.63.129.16/machine?comp=goalstate` .
+1. Recupere o `ContainerId` e `InstanceId` analisando a resposta do WireServer: `curl -X GET -H 'x-ms-version: 2012-11-30' http://168.63.129.16/machine?comp=goalstate` .
 
 2. Construa os seguintes dados XML, injetando o analisado `ContainerId` e `InstanceId` a partir da etapa acima:
    ```xml
@@ -180,7 +180,7 @@ Se sua VM não tiver o Python instalado ou disponível, você poderá reproduzir
 
 Esta demonstração usa o sistema, que é o sistema de inicialização mais comum no moderno Linux distribuições. Portanto, a maneira mais fácil e nativa de garantir que esse mecanismo de relatório pronto seja executado no momento certo é criar uma unidade de serviço do sistema. Você pode adicionar o seguinte arquivo de unidade a `/etc/systemd/system` (Este exemplo nomeia o arquivo de unidade `azure-provisioning.service` ):
 
-```
+```bash
 [Unit]
 Description=Azure Provisioning
 
@@ -199,12 +199,12 @@ WantedBy=multi-user.target
 Esse serviço em sistema faz três coisas para o provisionamento básico:
 
 1. Relatórios prontos para o Azure (para indicar que ele foi fornecido com êxito).
-1. Renomeia a VM com base no nome da VM fornecida pelo usuário ao extrair esses dados do [serviço de metadados de instância do Azure (IMDS)](./instance-metadata-service.md). **Observação** O IMDS também fornece outros [metadados de instância](./instance-metadata-service.md#accessing-azure-instance-metadata-service), como chaves públicas SSH, para que você possa definir mais do que o nome do host.
+1. Renomeia a VM com base no nome da VM fornecida pelo usuário ao extrair esses dados do [serviço de metadados de instância do Azure (IMDS)](./instance-metadata-service.md). **Observação** O IMDS também fornece outros [metadados de instância](./instance-metadata-service.md#access-azure-instance-metadata-service), como chaves públicas SSH, para que você possa definir mais do que o nome do host.
 1. Desabilita a si mesmo para que ele só seja executado na primeira inicialização e não nas reinicializações subsequentes.
 
 Com a unidade no sistema de arquivos, execute o seguinte para habilitá-lo:
 
-```
+```bash
 $ sudo systemctl enable azure-provisioning.service
 ```
 
@@ -214,14 +214,14 @@ Agora a VM está pronta para ser generalizada e tem uma imagem criada a partir d
 
 De volta ao seu computador de desenvolvimento, execute o seguinte para preparar a criação da imagem da VM de base:
 
-```
+```bash
 $ az vm deallocate --resource-group demo1 --name demo1
 $ az vm generalize --resource-group demo1 --name demo1
 ```
 
 E crie a imagem a partir desta VM:
 
-```
+```bash
 $ az image create \
     --resource-group demo1 \
     --source demo1 \
@@ -231,7 +231,7 @@ $ az image create \
 
 Agora, estamos prontos para criar uma nova VM (ou várias VMs) a partir da imagem:
 
-```
+```bash
 $ IMAGE_ID=$(az image show -g demo1 -n demo1img --query id -o tsv)
 $ az vm create \
     --resource-group demo12 \
@@ -249,7 +249,7 @@ $ az vm create \
 
 Esta VM deve ser provisionada com êxito. Fazendo logon na VM de provisionamento novo, você deve ser capaz de ver a saída do serviço de sistema pronto para o relatório:
 
-```
+```bash
 $ sudo journalctl -u azure-provisioning.service
 -- Logs begin at Thu 2020-06-11 20:28:45 UTC, end at Thu 2020-06-11 20:31:24 UTC. --
 Jun 11 20:28:49 thstringnopa systemd[1]: Starting Azure Provisioning...

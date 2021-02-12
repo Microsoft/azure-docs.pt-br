@@ -1,19 +1,19 @@
 ---
 title: Local do recurso de modelo
-description: Descreve como definir o local do recurso em um modelo de Azure Resource Manager.
+description: Descreve como definir o local do recurso em um modelo de Azure Resource Manager (modelo ARM).
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.custom: ''
-ms.openlocfilehash: e1310c81d7b726e9be2fe9f38a0bb8d701035ba4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84a818109e6681b8d0e18de4d2d7969310582818
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613689"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922406"
 ---
 # <a name="set-resource-location-in-arm-template"></a>Definir local do recurso no modelo ARM
 
-Ao implantar um modelo de Azure Resource Manager (ARM), você deve fornecer um local para cada recurso. O local não precisa ser o mesmo local que o local do grupo de recursos.
+Ao implantar um modelo de Azure Resource Manager (modelo ARM), você deve fornecer um local para cada recurso. O local não precisa ser o mesmo local que o local do grupo de recursos.
 
 ## <a name="get-available-locations"></a>Obter locais disponíveis
 
@@ -96,5 +96,5 @@ O exemplo a seguir mostra uma conta de armazenamento implantada a um local espec
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter a lista completa das funções de modelo, veja [Funções de modelo do Gerenciador de Recursos do Azure](template-functions.md).
+* Para obter a lista completa de funções de modelo, consulte [funções de modelo ARM](template-functions.md).
 * Para obter mais informações sobre arquivos de modelo, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).

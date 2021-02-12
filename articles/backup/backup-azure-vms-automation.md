@@ -3,12 +3,12 @@ title: Fazer backup e recuperar VMs do Azure com o PowerShell
 description: Descreve como fazer backup e recuperar VMs do Azure usando o backup do Azure com o PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: ded2bc8a71bf564e31f40ca9f0d6c8049188768b
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 90bb6f60712fc59aec05ff2e85364fccf00ff1df
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094085"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804787"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Fazer backup e restaurar VMs do Azure com o PowerShell
 
@@ -228,7 +228,7 @@ NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 Depois de definir a política de proteção, você deve habilitar a política para um item. Use [Enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) para habilitar a proteção. Habilitar a proteção envolve dois objetos – o item e a política. Depois de a política ter sido associada ao cofre, o fluxo de trabalho de backup será disparado no momento definido no agendamento da política.
 
 > [!IMPORTANT]
-> Ao usar o PowerShell para habilitar o backup para várias VMs de uma vez, verifique se uma única política não tem mais de 100 VMs associadas a ela. Essa é uma [melhor prática recomendada](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). Atualmente, o cliente PowerShell não bloqueia explicitamente se há mais de 100 VMs, mas há planos de adicionar essa verificação no futuro.
+> Ao usar o PowerShell para habilitar o backup para várias VMs de uma vez, verifique se uma única política não tem mais de 100 VMs associadas a ela. Essa é uma [melhor prática recomendada](./backup-azure-vm-backup-faq.yml#is-there-a-limit-on-number-of-vms-that-can-be-associated-with-the-same-backup-policy). Atualmente, o cliente PowerShell não bloqueia explicitamente se há mais de 100 VMs, mas há planos de adicionar essa verificação no futuro.
 
 Os exemplos a seguir permitem a proteção do item, V2VM, usando a política NewPolicy. Os exemplos diferem com base em se a VM está criptografada e em qual tipo de criptografia.
 
@@ -258,6 +258,8 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 > [!NOTE]
 > Se você estiver usando a nuvem do Azure governamental, use o valor `ff281ffe-705c-4f53-9f37-a40e6f2c68f3` para o parâmetro **servicePrincipalName** no cmdlet [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) .
 >
+
+Se você quiser fazer backup seletivo de alguns discos e excluir outros, conforme mencionado nesses [cenários](selective-disk-backup-restore.md#scenarios), poderá configurar a proteção e fazer backup somente dos discos relevantes, conforme documentado [aqui](selective-disk-backup-restore.md#enable-backup-with-powershell).
 
 ## <a name="monitoring-a-backup-job"></a>Monitoramento de um trabalho de backup
 
@@ -338,6 +340,10 @@ $bkpPol.AzureBackupRGName="Contosto_"
 $bkpPol.AzureBackupRGNameSuffix="ForVMs"
 Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
+
+### <a name="exclude-disks-for-a-protected-vm"></a>Excluir discos de uma VM protegida
+
+O backup de VM do Azure fornece um recurso para excluir seletivamente ou incluir discos que são úteis nesses [cenários](selective-disk-backup-restore.md#scenarios). Se a máquina virtual já estiver protegida pelo backup de VM do Azure e se for feito o backup de todos os discos, você poderá modificar a proteção para incluir ou excluir seletivamente os discos, conforme mencionado [aqui](selective-disk-backup-restore.md#modify-protection-for-already-backed-up-vms-with-powershell).
 
 ### <a name="trigger-a-backup"></a>Disparar um backup
 
@@ -511,6 +517,13 @@ Depois que o trabalho de restauração for concluído, use o cmdlet [Get-AzRecov
 $restorejob = Get-AzRecoveryServicesBackupJob -Job $restorejob -VaultId $targetVault.ID
 $details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob -VaultId $targetVault.ID
 ```
+
+#### <a name="restore-selective-disks"></a>Restaurar discos seletivos
+
+Um usuário pode restaurar seletivamente alguns discos em vez do conjunto de backup completo. Forneça os LUNs de disco necessários como parâmetro para restaurá-los somente em vez de todo o conjunto, conforme documentado [aqui](selective-disk-backup-restore.md#restore-selective-disks-with-powershell).
+
+> [!IMPORTANT]
+> Uma delas tem que fazer backup de discos seletivamente para restaurar discos seletivamente. Mais detalhes são fornecidos [aqui](selective-disk-backup-restore.md#selective-disk-restore).
 
 Depois de restaurar os discos, vá para a próxima seção para criar a VM.
 

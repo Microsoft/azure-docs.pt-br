@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: mbullwin
-ms.openlocfilehash: 887e7432151569eb07e3c9256c7f126e7f884d54
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: a17301e0807877662ae1bf34ade48e90a1d30c0c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017617"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006193"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Tutorial: Visualizar anomalias usando a detecção em lotes e o Power BI
 
@@ -119,7 +119,7 @@ Invoque a consulta na folha de dados selecionando `Sheet1` abaixo de **Inserir P
 ## <a name="data-source-privacy-and-authentication"></a>Privacidade e autenticação da fonte de dados
 
 > [!NOTE]
-> Esteja ciente das políticas de sua organização referentes ao acesso a dados e à privacidade de dados. Confira [Níveis de privacidade do Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-privacy-levels) para obter mais informações.
+> Esteja ciente das políticas de sua organização referentes ao acesso a dados e à privacidade de dados. Confira [Níveis de privacidade do Power BI Desktop](/power-bi/desktop-privacy-levels) para obter mais informações.
 
 Talvez você receba uma mensagem de aviso quando tentar executar a consulta, pois ela utiliza uma fonte de dados externa.
 

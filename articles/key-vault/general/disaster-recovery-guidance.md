@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: sudbalas
-ms.openlocfilehash: 3cc4bdc0fabd9d1e209634a88bed1bf063db917c
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: d66fe736936963e601aad7cba7bdaa94f0c3ec3f
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91597882"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518440"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Redundância e disponibilidade de Cofre de Chaves do Azure
 
@@ -23,11 +23,13 @@ O Cofre de Chaves do Azure tem várias camadas de redundância, a fim de garanti
 > [!NOTE]
 > Este guia se aplica aos cofres. Os pools do HSM gerenciado usam um modelo diferente de alta disponibilidade e recuperação de desastre. Confira o [Guia de recuperação de desastre do HSM gerenciado](../managed-hsm/disaster-recovery-guide.md) para obter mais informações.
 
-O conteúdo de seu cofre de chaves é replicado na região e em uma região secundária a pelo menos 150 milhas de distância, mas na mesma região geográfica, para manter alta durabilidade de suas chaves e segredos. Consulte o documento [Regiões emparelhadas do Azure](../../best-practices-availability-paired-regions.md) para obter detalhes sobre pares de regiões específicos.
+O conteúdo do seu cofre de chaves é replicado na região e em uma região secundária a, pelo menos, 150 milhas de distância, mas na mesma geografia, para manter alta durabilidade das chaves e dos segredos. Para obter detalhes sobre pares de regiões específicas, confira [Regiões emparelhadas do Azure](../../best-practices-availability-paired-regions.md). A exceção ao modelo de regiões emparelhadas é o Sul do Brasil, que permite apenas a opção de manter os dados residentes no Sul do Brasil. O Sul do Brasil usa o ZRS (armazenamento com redundância de zona) para replicar os seus dados três vezes em uma localização/região.   
 
 Se os componentes individuais dentro do serviço de cofre de chaves falharem, os componentes alternativos dentro da região interferirão para atender à sua solicitação, de modo a garantir que não haja degradação da funcionalidade. Você não precisa realizar nenhuma ação para iniciar esse processo, ele ocorre automaticamente e será transparente para você.
 
-No eventual caso de uma região inteira do Azure ficar indisponível, as solicitações que você faz do Cofre de Chaves do Azure nessa região são roteadas automaticamente (*failover*) para uma região secundária. Quando a região primária estiver disponível novamente, as solicitações serão roteadas de volta (*failback*) para a região primária. Novamente, não é necessário executar nenhuma ação, pois isso acontecerá de modo automático.
+No improvável caso de uma região inteira do Azure ficar não disponível, as solicitações que você faz do Azure Key Vault nessa região serão roteadas automaticamente (*failover*) para uma região secundária, exceto no caso da região Sul do Brasil. Quando a região primária estiver disponível novamente, as solicitações serão roteadas de volta (*failback*) para a região primária. Novamente, não é necessário executar nenhuma ação, pois isso acontecerá de modo automático.
+
+Na região Sul do Brasil, você precisa planejar a recuperação dos seus cofres de chaves do Azure em um cenário de falha de região. Para fazer backup e restaurar o Azure Key Vault para uma região de sua escolha, conclua as etapas detalhadas no [backup do Azure Key Vault](backup.md). 
 
 Com esse design de alta disponibilidade, o Azure Key Vault não requer nenhum tempo de inatividade para atividades de manutenção.
 

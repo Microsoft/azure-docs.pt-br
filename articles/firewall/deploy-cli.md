@@ -7,12 +7,12 @@ ms.service: firewall
 ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 7f00b57edb37cc5bb5c8340663d619e526c2eacb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d611a6d575fbc94a555006882f77e5a31753164
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89075419"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051421"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Implantar e configurar o Firewall do Azure usando o CLI do Azure
 
@@ -25,7 +25,7 @@ Uma maneira de controlar o acesso à saída de rede em uma sub-rede do Azure é 
 
 O tráfego de rede está sujeito às regras de firewall configuradas quando o tráfego de rede para o firewall foi roteado como a sub-rede de gateway padrão.
 
-Para este artigo, você cria uma VNet única simplificada com três sub-redes para facilitar a implantação. Para implantações de produção, é recomendado um [modelo de hub e spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). O firewall está na própria VNet. Os servidores de carga de trabalho estão em VNets emparelhadas na mesma região que uma ou mais sub-redes.
+Para este artigo, você cria uma VNet única simplificada com três sub-redes para facilitar a implantação. Para implantações de produção, é recomendado um [modelo de hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). O firewall está na própria VNet. Os servidores de carga de trabalho estão em VNets emparelhadas na mesma região que uma ou mais sub-redes.
 
 * **AzureFirewallSubnet**: o firewall está nesta sub-rede.
 * **Workload-SN**: o servidor de carga de trabalho está nessa sub-rede. O tráfego de rede dessa sub-rede passa pelo firewall.
@@ -44,22 +44,11 @@ Neste artigo, você aprenderá como:
 
 Se preferir, você pode concluir este procedimento usando o [portal do Azure](tutorial-firewall-deploy-portal.md) ou [Azure PowerShell](deploy-ps.md).
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
-
-### <a name="azure-cli"></a>CLI do Azure
-
-Se você optar por instalar e usar a CLI localmente, execute a CLI do Azure versão 2.0.4 ou posterior. Para localizar a versão, execute **AZ--Version**. Para saber mais sobre como instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
-
-Instale a extensão do firewall do Azure:
-
-```azurecli-interactive
-az extension add -n azure-firewall
-```
-
+- Este artigo exige a versão 2.0.4 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="set-up-the-network"></a>Configurar a rede
 
@@ -78,7 +67,7 @@ az group create --name Test-FW-RG --location eastus
 Essa rede virtual tem três sub-redes.
 
 > [!NOTE]
-> O tamanho da sub-rede AzureFirewallSubnet é /26. Para obter mais informações sobre o tamanho da sub-rede, confira [Perguntas frequentes sobre o Firewall do Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+> O tamanho da sub-rede AzureFirewallSubnet é /26. Para obter mais informações sobre o tamanho da sub-rede, confira [Perguntas frequentes sobre o Firewall do Azure](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
 ```azurecli-interactive
 az network vnet create \
@@ -273,7 +262,7 @@ Agora teste o firewall para confirmar se ele funciona conforme o esperado.
 
    Os dois comandos devem retornar respostas, mostrando que as consultas DNS estão passando pelo firewall.
 
-1. Execute os comandos a seguir:
+1. Execute os seguintes comandos:
 
    ```
    Invoke-WebRequest -Uri https://www.google.com
@@ -301,4 +290,4 @@ az group delete \
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Tutorial: Monitorar os logs do Firewall do Azure](./tutorial-diagnostics.md)
+* [Tutorial: Monitorar os logs do Firewall do Azure](./firewall-diagnostics.md)

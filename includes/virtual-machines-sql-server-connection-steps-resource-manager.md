@@ -4,12 +4,12 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
-ms.openlocfilehash: 4e79fef08af8ff73ce63ab4732c9efd77e3a5d3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51dc04fbef8d09878f33d7fda6f15039d3afba3e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67171877"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027197"
 ---
 ### <a name="configure-a-dns-label-for-the-public-ip-address"></a>Configurar um rótulo de DNS para o endereço IP público
 
@@ -34,7 +34,7 @@ Para criar um rótulo de DNS, primeiro selecione **Máquinas Virtuais** no porta
 
 ### <a name="connect-to-the-database-engine-from-another-computer"></a>Conectar-se ao Mecanismo de Banco de Dados de outro computador
 
-1. Em um computador conectado à Internet, abra o SSMS (SQL Server Management Studio). Se você não tiver o SQL Server Management Studio, poderá baixá-lo [aqui](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+1. Em um computador conectado à Internet, abra o SSMS (SQL Server Management Studio). Se você não tiver o SQL Server Management Studio, poderá baixá-lo [aqui](/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. Na caixa de diálogo **Conectar ao Servidor** ou **Conectar ao Mecanismo de Banco de Dados**, edite o valor **Nome do servidor**. Insira o endereço IP ou o nome DNS completo da máquina virtual (determinado na tarefa anterior). Você também pode adicionar uma vírgula e fornecer a porta TCP do SQL Server. Por exemplo, `mysqlvmlabel.eastus.cloudapp.azure.com,1433`.
 

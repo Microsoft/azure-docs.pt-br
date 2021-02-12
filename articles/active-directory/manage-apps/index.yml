@@ -12,12 +12,12 @@ metadata:
   author: kenwith
   ms.author: kenwith
   manager: celested
-  ms.openlocfilehash: 66d2691d1e8c10c21b419cc5c6672179f89171a9
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: e3f258813fd937fa82ce108150b84e9ce78f77aa
+  ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92372439"
+  ms.lasthandoff: 01/29/2021
+  ms.locfileid: "99052255"
 landingContent:
 - title: Sobre o gerenciamento de aplicativos
   linkLists:
@@ -96,7 +96,7 @@ landingContent:
   - linkListType: learn
     links:
     - text: Planejar uma implantação de Meus Aplicativos
-      url: access-panel-deployment-plan.md
+      url: my-apps-deployment-plan.md
     - text: Criar coleções
       url: access-panel-collections.md
 - title: Desenvolver novos aplicativos
@@ -104,7 +104,7 @@ landingContent:
   - linkListType: learn
     links:
     - text: Diretrizes para desenvolvedores
-      url: developer-guidance-for-integrating-applications.md
+      url: ../develop/v2-howto-app-gallery-listing.md
     - text: Entender a plataforma
       url: ../develop/v2-overview.md
 - title: Novidades nos documentos

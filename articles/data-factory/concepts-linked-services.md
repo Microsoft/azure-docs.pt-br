@@ -3,20 +3,20 @@ title: Serviços vinculados no Azure Data Factory
 description: Saiba mais sobre os serviços vinculados no Data Factory. Os serviços vinculados vinculam computação/armazenamentos de dados a um data factory.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: 3d49422af01e38884b5d8ff871fbe84254938944
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 172694363b482edf6d463aa74b85e81c91fa6a9c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89434088"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500097"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Serviços vinculados no Azure Data Factory
 
@@ -32,7 +32,7 @@ Se estiver conhecendo o Azure Data Factory agora, consulte [Introdução ao Azur
 
 ## <a name="overview"></a>Visão geral
 
-Uma fábrica de dados pode ter um ou mais pipelines. Um **pipeline** é um agrupamento lógico de **atividades** que juntas executam uma tarefa. As atividades em um pipeline definem ações para executar em seus dados. Por exemplo, você pode usar uma atividade de cópia para copiar dados de SQL Server para o armazenamento de BLOBs do Azure. Em seguida, poderá usar uma atividade do Hive que executa um script Hive em um cluster HDInsight do Azure a fim de processar dados do armazenamento de Blobs para gerar dados de saída. Por fim, você pode usar uma segunda atividade de cópia para copiar os dados de saída para o Azure Synapse Analytics (anteriormente SQL Data Warehouse), sobre quais soluções de relatório de business intelligence (BI) são criadas. Para obter mais informações sobre pipelines e atividades, consulte [Pipelines e atividades](concepts-pipelines-activities.md) no Azure Data Factory.
+Uma fábrica de dados pode ter um ou mais pipelines. Um **pipeline** é um agrupamento lógico de **atividades** que juntas executam uma tarefa. As atividades em um pipeline definem ações para executar em seus dados. Por exemplo, você pode usar uma atividade de cópia para copiar dados de SQL Server para o armazenamento de BLOBs do Azure. Em seguida, poderá usar uma atividade do Hive que executa um script Hive em um cluster HDInsight do Azure a fim de processar dados do armazenamento de Blobs para gerar dados de saída. Por fim, você pode usar uma segunda atividade de cópia para copiar os dados de saída para o Azure Synapse Analytics, na parte superior das soluções de relatório de business intelligence (BI) criadas. Para obter mais informações sobre pipelines e atividades, consulte [Pipelines e atividades](concepts-pipelines-activities.md) no Azure Data Factory.
 
 Por outro lado, um **conjunto de dados** é uma exibição nomeada de dados que simplesmente aponta ou faz referência aos dados que você deseja usar em suas **atividades** como entradas e saídas.
 

@@ -15,30 +15,31 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: f28243be6b4f998e8bdea0ce02da3ceedde23e02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1462246b95da67591cbdfd1f9ed819220de5764
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85559114"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633054"
 ---
-# <a name="connect-your-barracuda-appliance"></a>Conectar seu dispositivo Barracuda 
-
-
+# <a name="connect-your-barracuda-waf-appliance"></a>Conectar seu dispositivo Barracuda WAF 
 
 O conector do WAF (firewall do aplicativo Web) Barracuda permite que você conecte facilmente seus logs do Barracuda à sentinela do Azure, exiba painéis, crie alertas personalizados e melhore a investigação. Isso lhe dá mais informações sobre a rede da sua organização e aprimora seus recursos de operação de segurança. O Azure Sentinel aproveita a integração nativa entre o **Barracuda** e o agente de log Analytics para fornecer integração direta. 
-
 
 > [!NOTE]
 > Os dados serão armazenados na localização geográfica do espaço de trabalho no qual você está executando o Azure Sentinel.
 
 ## <a name="configure-and-connect-barracuda-waf"></a>Configurar e conectar o Barracuda WAF
-O Firewall do aplicativo Web Barracuda pode integrar e exportar logs diretamente para o Azure Sentinel por meio do agente de Log Analytics.
-1. Vá para [fluxo de configuração do Barracuda WAF](https://campus.barracuda.com/product/webapplicationfirewall/doc/73696965/configure-the-barracuda-web-application-firewall-to-integrate-with-the-oms-server-and-export-logs/)e siga as instruções para configurar a conexão, usando estes parâmetros:
-    - **ID do espaço de trabalho**: Copie o valor da ID do espaço de trabalho na página do conector do Azure Sentinel Barracuda.
-    - **Chave primária**: Copie o valor da sua chave primária da página do conector do Azure Sentinel Barracuda.
-1. Para usar o esquema relevante em Log Analytics para os eventos de Barracuda, pesquise **CommonSecurityLog** e **barracuda_CL**.
 
+O Firewall do aplicativo Web Barracuda pode integrar e exportar logs diretamente para o Azure Sentinel por meio do agente de Log Analytics.
+
+1. Vá para [fluxo de configuração do Barracuda WAF](https://campus.barracuda.com/product/webapplicationfirewall/doc/73696965/configure-the-barracuda-web-application-firewall-to-integrate-with-the-oms-server-and-export-logs/)e siga as instruções para configurar a conexão, usando estes parâmetros:
+
+    - **ID do espaço de trabalho**: Copie o valor da ID do espaço de trabalho na página do conector do Azure Sentinel Barracuda.
+
+    - **Chave primária**: Copie o valor da sua chave primária da página do conector do Azure Sentinel Barracuda.
+
+1. Para usar o esquema relevante em Log Analytics para os eventos de Barracuda, pesquise **CommonSecurityLog** e **barracuda_CL**.
 
 ## <a name="validate-connectivity"></a>Validar a conectividade
 

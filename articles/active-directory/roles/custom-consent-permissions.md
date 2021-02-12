@@ -2,22 +2,22 @@
 title: Permissões de consentimento do aplicativo para funções personalizadas no Azure Active Directory | Microsoft Docs
 description: Veja uma versão prévia das permissões de consentimento do aplicativo para as funções personalizadas do Azure AD no portal do Azure, no PowerShell ou na API do Graph.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: overview
-ms.date: 10/06/2020
-ms.author: curtand
+ms.date: 11/04/2020
+ms.author: rolyon
 ms.reviewer: psignoret
 ms.custom: it-pro
-ms.openlocfilehash: 372ae994c62767032f1bfb069093f66d738c23b3
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f9c2c15bbfcf9a9271e629ef26c11ecc4cbaaa6f
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378570"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740101"
 ---
 # <a name="app-consent-permissions-for-custom-roles-in-azure-active-directory"></a>Permissões de consentimento do aplicativo para funções personalizadas no Azure Active Directory
 

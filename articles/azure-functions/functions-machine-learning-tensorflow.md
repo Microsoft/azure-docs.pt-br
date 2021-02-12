@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: antchu
 ms.custom: mvc, devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: e9bbfd311d6a05d0dd328a63c7d11e14ab0d7e4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca9ce27583168dfee1a597fce559afad38a3a8c7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069605"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994597"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Tutorial: Aplicar modelos de machine learning no Azure Functions com o Python e o TensorFlow
 
@@ -133,7 +133,7 @@ No Azure Functions, um projeto de função é um contêiner para uma ou mais fun
     func new --name classify --template "HTTP trigger"
     ```
 
-    Esse comando cria uma pasta correspondente ao nome da função, *classify*. Nessa pasta, há dois arquivos: *\_\_init\_\_.py*, que contém o código da função, e *function.json*, que descreve o gatilho da função e as associações de entrada e saída. Para obter detalhes sobre o conteúdo desses arquivos, confira [Examinar o conteúdo do arquivo](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python#optional-examine-the-file-contents) no início rápido do Python.
+    Esse comando cria uma pasta correspondente ao nome da função, *classify*. Nessa pasta, há dois arquivos: *\_\_init\_\_.py*, que contém o código da função, e *function.json*, que descreve o gatilho da função e as associações de entrada e saída. Para obter detalhes sobre o conteúdo desses arquivos, confira [Examinar o conteúdo do arquivo](./create-first-function-cli-python.md#optional-examine-the-file-contents) no início rápido do Python.
 
 
 ## <a name="run-the-function-locally"></a>Executar a função localmente

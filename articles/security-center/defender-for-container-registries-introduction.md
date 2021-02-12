@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 05d7316ceccd67a8eeb1d081843307162ff210c1
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: 79a428c322b65bfbb982be7a7e0c8b9fab7eed18
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558628"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132709"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introdução ao Azure Defender para registros de contêiner
 
@@ -20,28 +20,36 @@ O ACR (Registro de Contêiner do Azure) é um serviço de registro gerenciado e 
 
 Para proteger todos os registros baseados no Azure Resource Manager da sua assinatura, habilite o **Azure Defender para registros de contêiner** no nível de assinatura. A Central de Segurança examinará as imagens enviadas por push para o registro, importadas para o registro ou todas as imagens extraídas nos últimos 30 dias. Esse recurso é cobrado por imagem.
 
+[!INCLUDE [Defender for container registries availability info](../../includes/security-center-availability-defender-for-container-registries.md)]
+
 ## <a name="what-are-the-benefits-of-azure-defender-for-container-registries"></a>Quais são os benefícios do Azure Defender para registros de contêiner?
 
 A Central de Segurança identifica os registros do ACR baseados no Azure Resource Manager da sua assinatura e fornece diretamente a avaliação e o gerenciamento nativos do Azure das vulnerabilidades para as imagens do registro.
 
 O **Azure Defender para registros de contêiner** inclui um verificador de vulnerabilidade para verificar as imagens nos seus registros do Registro de Contêiner do Azure baseados no Azure Resource Manager e fornecer uma visibilidade mais profunda das vulnerabilidades das suas imagens. O verificador integrado é fornecido pela Qualys, o fornecedor líder do setor de verificação de vulnerabilidades.
 
-Quando forem encontrados problemas – pela Qualys ou pela Central de Segurança – você será notificado no painel da Central de Segurança. Para cada vulnerabilidade, a Central de Segurança fornece recomendações práticas, juntamente com uma classificação de severidade e diretrizes sobre como corrigir o problema. Para obter detalhes das recomendações da Central de Segurança para contêineres, confira a [lista de referência de recomendações](recommendations-reference.md#recs-containers).
+Quando forem encontrados problemas – pela Qualys ou pela Central de Segurança – você será notificado no painel da Central de Segurança. Para cada vulnerabilidade, a Central de Segurança fornece recomendações práticas, juntamente com uma classificação de severidade e diretrizes sobre como corrigir o problema. Para obter detalhes das recomendações da Central de Segurança para contêineres, confira a [lista de referência de recomendações](recommendations-reference.md#recs-compute).
 
 A Central de Segurança filtra e classifica as descobertas do verificador. Quando uma imagem está íntegra, a Central de Segurança marca a imagem como tal. A Central de Segurança gera recomendações de segurança apenas para as imagens que têm problemas a serem resolvidos. Ela fornece detalhes de cada vulnerabilidade relatada e uma classificação de severidade. Além disso, oferece diretrizes de como corrigir as vulnerabilidades específicas encontradas em cada imagem.
 
 Notificando você apenas quando há problemas, a Central de Segurança reduz o potencial de alertas informativos indesejados.
 
 
+> [!TIP]
+> Para saber mais sobre os recursos de segurança de contêiner da Central de Segurança, confira:
+>
+> - [Central de Segurança do Azure e segurança do contêiner](container-security.md)
+> - [Introdução ao Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)
+
 ## <a name="when-are-images-scanned"></a>Quando as imagens são verificadas?
 
 Há três gatilhos para uma verificação de imagem:
 
-- **No momento do push** : sempre que uma imagem é enviada por push ao registro, a Central de Segurança verifica automaticamente essa imagem. Para disparar a verificação de uma imagem, envie-a por push ao repositório.
+- **No momento do push**: sempre que uma imagem é enviada por push ao registro, a Central de Segurança verifica automaticamente essa imagem. Para disparar a verificação de uma imagem, envie-a por push ao repositório.
 
-- **Recém-extraída** : como novas vulnerabilidades são descobertas todos os dias, o **Azure Defender para registros de contêiner** também verifica qualquer imagem que tenha sido extraída nos últimos 30 dias. Não há nenhum custo adicional para um novo exame; conforme mencionado acima, você é cobrado uma vez por imagem.
+- **Recém-extraída**: como novas vulnerabilidades são descobertas todos os dias, o **Azure Defender para registros de contêiner** também verifica qualquer imagem que tenha sido extraída nos últimos 30 dias. Não há nenhum custo adicional para um novo exame; conforme mencionado acima, você é cobrado uma vez por imagem.
 
-- **No momento da importação** : o Registro de Contêiner do Azure tem ferramentas de importação para levar as imagens do Docker Hub, do Registro de Contêiner da Microsoft ou de outro registro de contêiner do Azure para o seu registro. O **Azure Defender para registros de contêiner** examina as imagens compatíveis importadas. Saiba mais em [Importar imagens de contêiner para um registro de contêiner](../container-registry/container-registry-import-images.md).
+- **No momento da importação**: o Registro de Contêiner do Azure tem ferramentas de importação para levar as imagens do Docker Hub, do Registro de Contêiner da Microsoft ou de outro registro de contêiner do Azure para o seu registro. O **Azure Defender para registros de contêiner** examina as imagens compatíveis importadas. Saiba mais em [Importar imagens de contêiner para um registro de contêiner](../container-registry/container-registry-import-images.md).
  
 Normalmente, a verificação é concluída em 2 minutos, mas pode levar até 15 minutos. As descobertas são disponibilizadas como recomendações da Central de Segurança, como esta:
 
@@ -77,14 +85,11 @@ Sim. Caso você tenha uma necessidade organizacional para ignorar uma descoberta
 
 [Saiba mais sobre como criar regras para desabilitar as descobertas da ferramenta de avaliação de vulnerabilidade integrada](defender-for-container-registries-usage.md#disable-specific-findings-preview).
 
+### <a name="why-is-security-center-alerting-me-to-vulnerabilities-about-an-image-that-isnt-in-my-registry"></a>Por que a Central de Segurança está me alertando sobre as vulnerabilidades de uma imagem que não está no meu registro?
+A Central de Segurança fornece avaliações de vulnerabilidade para todas as imagens enviadas por push ou extraídas de um registro. Algumas imagens podem reutilizar marcações de uma imagem que já foi verificada. Por exemplo, você pode transferir a marcação "Mais recente" sempre que adicionar uma imagem a um resumo. Nesses casos, a imagem antiga ainda existe no registro e pode ser extraída pelo resumo. Se a imagem tiver descobertas de segurança e for extraída, ela vai expor vulnerabilidades.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre os recursos de segurança de contêiner da Central de Segurança, confira:
-
-- [Central de Segurança do Azure e segurança do contêiner](container-security.md)
-
-- [Introdução ao Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)
-
-
+> [!div class="nextstepaction"]
+> [Verificar se há vulnerabilidades nas imagens](defender-for-container-registries-usage.md)

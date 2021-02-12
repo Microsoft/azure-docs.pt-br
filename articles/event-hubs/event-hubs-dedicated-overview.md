@@ -3,18 +3,22 @@ title: Visão geral dos hubs de eventos dedicados – Hubs de Eventos do Azure |
 description: Este artigo fornece uma visão geral dos hubs de eventos dedicados do Azure, que oferece implantações de um único locatário de hubs de eventos.
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: 20b153c9093c96e7357a8e439b6655f1db80bd46
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 1a15206fc35f0d536c7105aa73dfdcfc9967124d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516981"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358857"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Visão geral de Hubs de Eventos Dedicados
 
-Os *clusters de hubs de eventos* oferecem implantações de locatário único para clientes com as necessidades de streaming mais exigentes. Essa oferta de locatário único tem um SLA de 99,99% garantido e está disponível apenas em nosso tipo de preço dedicado. Um cluster de Hubs de Eventos possível insere milhões de eventos por segundo com latência de subsegundos e capacidade garantida. Os namespaces e os hubs de eventos criados no cluster dedicado incluem todos os recursos da oferta padrão e muito mais, mas sem nenhum limite de entrada. Ele também inclui o recurso popular de [captura de hubs de eventos](event-hubs-capture-overview.md) sem custo adicional, permitindo que você faça automaticamente o lote e o log de fluxos de dados para o armazenamento do Azure ou Azure data Lake. 
+Os *clusters de hubs de eventos* oferecem implantações de locatário único para clientes com as necessidades de streaming mais exigentes. Essa oferta de locatário único tem um SLA de 99,99% garantido e está disponível apenas em nosso tipo de preço dedicado. Um cluster de Hubs de Eventos possível insere milhões de eventos por segundo com latência de subsegundos e capacidade garantida. Os namespaces e os hubs de eventos criados no cluster dedicado incluem todos os recursos da oferta padrão e muito mais, mas sem nenhum limite de entrada. Ele também inclui o recurso popular de [captura de hubs de eventos](event-hubs-capture-overview.md) sem custo adicional. Esse recurso permite que você faça automaticamente o lote e o log de fluxos de dados para o armazenamento do Azure ou Azure Data Lake. 
 
-Os clusters são provisionados e cobrados por **unidades de capacidade (cus)**, uma quantidade alocada de CPU e recursos de memória. Você pode comprar 1, 2, 4, 8, 12, 16 ou 20 UCS para cada cluster. O quanto você pode ingerir e transmitir por CU depende de uma variedade de fatores, como o número de produtores e consumidores, a forma de carga, a taxa de egresso (consulte os resultados de parâmetro de comparação abaixo para obter mais detalhes). 
+Os clusters são provisionados e cobrados por **unidades de capacidade (cus)** , uma quantidade alocada de CPU e recursos de memória. Você pode comprar 1, 2, 4, 8, 12, 16 ou 20 UCS para cada cluster. O quanto você pode ingerir e transmitir por CU depende de uma variedade de fatores, como os seguintes: 
+
+- Número de produtores e consumidores
+- Forma da carga
+- Taxa de egresso
 
 > [!NOTE]
 > Todos os clusters de hubs de eventos são habilitados para Kafka por padrão e dão suporte a pontos de extremidade Kafka que podem ser usados por seus aplicativos baseados em Kafka existentes. Ter o Kafka habilitado no cluster não afeta os casos de uso não Kafka; Não há nenhuma opção ou é necessário desabilitar o Kafka em um cluster.
@@ -25,10 +29,10 @@ Os hubs de eventos dedicados oferecem três benefícios atraentes para clientes 
 
 #### <a name="single-tenancy-guarantees-capacity-for-better-performance"></a>A locação única garante capacidade para melhor desempenho
 
-Um cluster dedicado garante a capacidade em escala total e pode fazer a entrada de até gigabytes de dados de streaming com o armazenamento totalmente durável e a latência de subsegundo para acomodar qualquer intermitência no tráfego. 
+Um cluster dedicado garante a capacidade em grande escala. Ele pode fazer a entrada de gigabytes de dados de streaming com o armazenamento totalmente durável e a latência de subsegundos para acomodar qualquer intermitência no tráfego. 
 
 #### <a name="inclusive-and-exclusive-access-to-features"></a>Acesso inclusivo e exclusivo aos recursos 
-A oferta dedicada inclui recursos como a captura sem custo adicional e acesso exclusivo a recursos futuros como o Bring Your Own Key (BYOK). O serviço também gerencia o balanceamento de carga, as atualizações do sistema operacional, OS patches de segurança e o particionamento do cliente, para que você possa gastar menos tempo na manutenção da infraestrutura e mais tempo na criação de recursos do lado do cliente.  
+A oferta dedicada inclui recursos como a captura sem custo adicional e acesso exclusivo a recursos futuros como o Bring Your Own Key (BYOK). O serviço também gerencia o balanceamento de carga, as atualizações do sistema operacional, OS patches de segurança e o particionamento. Portanto, você pode gastar menos tempo na manutenção da infraestrutura e mais tempo na criação de recursos do lado do cliente.  
 
 #### <a name="cost-savings"></a>Economia de custos
 Em volumes de entrada altos (>unidades de produtividade 100), um cluster custa significativamente menos por hora do que comprar uma quantidade comparável de unidades de produtividade na oferta padrão.
@@ -36,20 +40,22 @@ Em volumes de entrada altos (>unidades de produtividade 100), um cluster custa s
 
 ## <a name="event-hubs-dedicated-quotas-and-limits"></a>Cotas e limites de Hubs de Eventos Dedicados
 
-A oferta de Hubs de Eventos Dedicados é cobrada a um preço mensal fixo, com um mínimo de quatro horas de uso. O nível Dedicado oferece todos os recursos do plano Standard, mas com capacidade em escala empresarial e limites para clientes com cargas de trabalho exigentes. 
+A oferta de Hubs de Eventos Dedicados é cobrada a um preço mensal fixo, com um mínimo de quatro horas de uso. A camada dedicada oferece todos os recursos do plano padrão, mas com capacidade e limites de escala empresarial para clientes com cargas de trabalho exigentes. 
 
 | Recurso | Standard | Dedicado |
-| --- |:---:|:---:|
+| --- |:---|:---|
 | Largura de banda | 20 TUs (até 40 TUs) | 20 CUs |
 | Namespaces |  1 | 50 por CU |
 | Hubs de Eventos |  10 por namespace | 1\.000 por namespace |
 | Eventos de entrada | Pagamento por milhão de eventos | Incluso |
 | Tamanho da mensagem | 1 milhão bytes | 1 milhão bytes |
-| Partições | 32 por Hub de eventos | 1024 por Hub de eventos |
+| Partições | 32 por Hub de eventos | 1024 por Hub de eventos<br/>2\.000 por CU |
 | Grupos de consumidores | 20 por Hub de eventos | Nenhum limite por CU, 1000 por hub de eventos |
 | Conexões orientadas | 1.000 incluso, 5.000 máx. | 100 K incluídos e máximo |
 | Retenção de mensagem | 7 dias, 84 GB incluídos por TU | 90 dias, 10 TB incluídos por CU |
 | Capturar | Pagamento por hora | Incluso |
+
+Para obter mais cotas e limites, consulte [limites e cotas de hubs de eventos](event-hubs-quotas.md)
 
 ## <a name="how-to-onboard"></a>Como fazer a integração
 

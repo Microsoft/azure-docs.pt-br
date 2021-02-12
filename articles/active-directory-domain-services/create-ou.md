@@ -2,7 +2,7 @@
 title: Criar uma UO (unidade organizacional) no Azure AD Domain Services | Microsoft Docs '
 description: Saiba como criar e gerenciar uma UO (unidade organizacional) personalizada em um Azure AD Domain Services domínio gerenciado.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 52602ad8-2b93-4082-8487-427bdcfa8126
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: df8d32fb38d9ea6750ef47651e4f660428fd1fbe
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: fbdfcc23553a27aaa4d7bbd4bff9c4f33cb8fd19
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960993"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620011"
 ---
 # <a name="create-an-organizational-unit-ou-in-an-azure-active-directory-domain-services-managed-domain"></a>Criar uma UO (unidade organizacional) em um domínio gerenciado Azure Active Directory Domain Services
 

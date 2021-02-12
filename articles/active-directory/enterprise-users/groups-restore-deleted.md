@@ -5,20 +5,20 @@ services: active-directory
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
-ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 092288d320874488cee4d2f097d7406c0757e8a0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1eacba47e68310dd45976bcd9ddff052fa193436
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378532"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090130"
 ---
 # <a name="restore-a-deleted-microsoft-365-group-in-azure-active-directory"></a>Restaurar um grupo do Microsoft 365 excluído no Azure Active Directory
 
@@ -32,7 +32,7 @@ As permissões necessárias para restaurar um grupo podem ser qualquer uma das s
 Função | Permissões
 --------- | ---------
 Administrador global, Administrador de grupo, suporte de Camada 2 do Parceiro e Administrador do Intune | Pode restaurar qualquer grupo do Microsoft 365 excluído
-Administrador de Usuário e suporte de Camada 1 do Parceiro | Pode restaurar qualquer grupo do Microsoft 365 excluído, exceto aqueles atribuídos à função de Administrador da Empresa
+Administrador de Usuário e suporte de Camada 1 do Parceiro | Pode restaurar qualquer grupo excluído do Microsoft 365, exceto aqueles atribuídos à função Administrador global
 Usuário | Pode restaurar qualquer grupo do Microsoft 365 excluído que seja de sua propriedade
 
 ## <a name="view-and-manage-the-deleted-microsoft-365-groups-that-are-available-to-restore"></a>Exibir e gerenciar os grupos do Microsoft 365 excluídos que estão disponíveis para restauração
@@ -43,14 +43,14 @@ Usuário | Pode restaurar qualquer grupo do Microsoft 365 excluído que seja de 
 
     ![exibir grupos que estão disponíveis para restauração](./media/groups-restore-deleted/deleted-groups3.png)
 
-3. Na folha **Grupos excluídos** , você pode:
+3. Na folha **Grupos excluídos**, você pode:
 
-   - Restaurar o grupo excluído e seu conteúdo, selecionando **Restaurar grupo** .
-   - Remover permanentemente o grupo excluído, selecionando **Excluir permanentemente** . Para remover permanentemente um grupo, você deve ser um administrador.
+   - Restaurar o grupo excluído e seu conteúdo, selecionando **Restaurar grupo**.
+   - Remover permanentemente o grupo excluído, selecionando **Excluir permanentemente**. Para remover permanentemente um grupo, você deve ser um administrador.
 
 ## <a name="view-the-deleted-microsoft-365-groups-that-are-available-to-restore-using-powershell"></a>Exibir os grupos do Microsoft 365 excluídos que estão disponíveis para restauração usando o PowerShell
 
-Os cmdlets a seguir podem ser usados para exibir os grupos excluídos para verificar que aqueles em que você está interessado ainda não foram permanentemente removidos. Esses cmdlets são parte do módulo do [PowerShell do Azure AD](https://www.powershellgallery.com/packages/AzureAD/). Mais informações sobre esse módulo podem ser encontradas no artigo [Azure Active Directory PowerShell Versão 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+Os cmdlets a seguir podem ser usados para exibir os grupos excluídos para verificar que aqueles em que você está interessado ainda não foram permanentemente removidos. Esses cmdlets são parte do módulo do [PowerShell do Azure AD](https://www.powershellgallery.com/packages/AzureAD/). Mais informações sobre esse módulo podem ser encontradas no artigo [Azure Active Directory PowerShell Versão 2](/powershell/azure/active-directory/install-adv2).
 
 1.  Execute o cmdlet a seguir para exibir todos os grupos do Microsoft 365 excluídos na sua organização do Azure AD que ainda estão disponíveis para restauração.
    

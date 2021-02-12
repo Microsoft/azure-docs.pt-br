@@ -8,16 +8,16 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 6b523ac306feef2e4c82b3739096b26158c55fc3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 94a691badf056c8e93f47ae8d052fc1388b34e4c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741747"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737465"
 ---
 # <a name="use-the-azure-cli-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Use o CLI do Azure para habilitar a criptografia de ponta a ponta usando a criptografia no host
 
-Quando você habilita a criptografia no host, os dados armazenados no host da VM são criptografados em repouso e os fluxos são criptografados para o serviço de armazenamento. Para obter informações conceituais sobre criptografia no host, bem como outros tipos de criptografia de disco gerenciado, consulte [criptografia em criptografia de host de ponta a ponta para os dados da VM](disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+Quando você habilita a criptografia no host, os dados armazenados no host da VM são criptografados em repouso e os fluxos são criptografados para o serviço de armazenamento. Para obter informações conceituais sobre criptografia no host, bem como outros tipos de criptografia de disco gerenciado, consulte [criptografia em criptografia de host de ponta a ponta para os dados da VM](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
 ## <a name="restrictions"></a>Restrições
 
@@ -187,7 +187,7 @@ az vmss show -n $vmssName \
 
 Não há suporte para tamanhos de VM herdados. Você pode encontrar a lista de tamanhos de VM com suporte por meio de:
 
-Chamar a [API de SKUs de recursos](/rest/api/compute/resourceskus/list) e verificar se a `EncryptionAtHostSupported` funcionalidade está definida como **true** .
+Chamar a [API de SKUs de recursos](/rest/api/compute/resourceskus/list) e verificar se a `EncryptionAtHostSupported` funcionalidade está definida como **true**.
 
 ```json
     {
@@ -208,7 +208,7 @@ Chamar a [API de SKUs de recursos](/rest/api/compute/resourceskus/list) e verifi
     }
 ```
 
-Ou, chamando o cmdlet [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku?view=azps-3.8.0) do PowerShell.
+Ou, chamando o cmdlet [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku) do PowerShell.
 
 ```powershell
 $vmSizes=Get-AzComputeResourceSku | where{$_.ResourceType -eq 'virtualMachines' -and $_.Locations.Contains('CentralUSEUAP')} 

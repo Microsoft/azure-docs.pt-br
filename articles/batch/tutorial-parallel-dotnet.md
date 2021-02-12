@@ -1,16 +1,16 @@
 ---
-title: Executar uma carga de trabalho paralela usando a API do .NET
+title: Tutorial – Executar uma carga de trabalho paralela usando a API do .NET
 description: 'Tutorial: transcodificar arquivos de mídia em paralelo com ffmpeg no Lote do Azure usando a biblioteca de cliente .NET do Lote'
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 09/29/2020
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 8c8dcd01c7e97f77e994d021e39ce6a5e591ff9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a990a5480a8a6462bb6ef9f84070b78768628fd0
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537575"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106522"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutorial: Executar uma carga de trabalho paralela com o Lote do Azure usando a API do .NET
 
@@ -35,7 +35,7 @@ Neste tutorial, você converte os arquivos de mídia MP4 em paralelo para o form
 
 * Uma conta do Lote e uma conta de Armazenamento do Azure vinculada. Para criar essas contas, consulte os guias de início rápido do Lote usando o [portal do Azure](quick-create-portal.md) ou a [CLI do Azure](quick-create-cli.md).
 
-* [Versão do Windows de 64 bits do ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-09-21-full_build.zip) (.zip). Baixe o arquivo zip em seu computador local. Para este tutorial, você só precisa do arquivo zip. Não é necessário descompactar o arquivo ou instalá-lo localmente.
+* [Versão do Windows de 64 bits do ffmpeg 4.3.1](https://github.com/GyanD/codexffmpeg/releases/tag/4.3.1-2020-11-08) (.zip). Baixe o arquivo zip em seu computador local. Para este tutorial, você só precisa do arquivo zip. Não é necessário descompactar o arquivo ou instalá-lo localmente.
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -332,6 +332,3 @@ Para obter mais exemplos de como usar a API do .NET para agendar e processar car
 
 > [!div class="nextstepaction"]
 > [Exemplos em C# do Lote](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp)
-
-
-Definir a variável de instância LowPriorityNodeCount=0 e o DedicatedNodeCount=5 corrigiu o problema e permitiu que o trabalho fosse concluído.

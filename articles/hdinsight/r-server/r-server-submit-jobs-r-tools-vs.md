@@ -1,19 +1,16 @@
 ---
 title: Enviar trabalhos a partir das Ferramentas do R para Visual Studio - Azure HDInsight
 description: Envie trabalhos de R em sua máquina local do Visual Studio para um cluster HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: 08426c74b26c18b15466578d9921520da1e9c923
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c5a0b2d21f7d42b8ce96f72d58e5d0a8ab0c572c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536225"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943937"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Enviar trabalhos a partir das Ferramentas do R para Visual Studio
 
@@ -21,13 +18,13 @@ ms.locfileid: "92536225"
 
 RTVS aprimora seu fluxo de trabalho de R, oferecendo ferramentas como o [janela de R Interativo](/visualstudio/rtvs/interactive-repl) (REPL), intellisense (conclusão de código), [plotar visualização](/visualstudio/rtvs/visualizing-data) por meio de bibliotecas de R como ggplot2 e ggviz, [depuração de código de R](/visualstudio/rtvs/debugging)e muito mais.
 
-## <a name="set-up-your-environment"></a>Configure seu ambiente
+## <a name="set-up-your-environment"></a>Configurar seu ambiente
 
 1. Instalar [Ferramentas do R para Visual Studio](/visualstudio/rtvs/installing-r-tools-for-visual-studio).
 
     ![Instalando o RTVS no Visual Studio de 2017](./media/r-server-submit-jobs-r-tools-vs/install-r-tools-for-vs.png)
 
-2. Selecione a carga de trabalho *ciência de dados e aplicativos analíticos* , selecione as opções **suporte a idioma R** , **suporte de runtime para o desenvolvimento de R** , e **Microsoft R Client** .
+2. Selecione a carga de trabalho *ciência de dados e aplicativos analíticos*, selecione as opções **suporte a idioma R**, **suporte de runtime para o desenvolvimento de R**, e **Microsoft R Client**.
 
 3. Você precisa ter as chaves públicas e privadas para autenticação de SSH.
    <!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
@@ -37,14 +34,14 @@ RTVS aprimora seu fluxo de trabalho de R, oferecendo ferramentas como o [janela 
 5. Instale [PuTTY](https://www.putty.org/) para fornecer um contexto de computação para executar `RevoScaleR` funções de seu cliente local para seu cluster HDInsight.
 
 6. Você tem a opção de aplicar as Configurações da Ciência de Dados para o ambiente do Visual Studio, que fornece um novo layout para seu workspace para as ferramentas de R.
-   1. Para salvar suas configurações atuais do Visual Studio, use o comando **Ferramentas > Importar e exportar configurações** e, em seguida, selecione **Exportar configurações de ambiente selecionadas** e especifique um nome de arquivo. Para restaurar essas configurações, use o mesmo comando e selecione **Importar configurações de ambiente selecionadas** .
+   1. Para salvar suas configurações atuais do Visual Studio, use o comando **Ferramentas > Importar e exportar configurações** e, em seguida, selecione **Exportar configurações de ambiente selecionadas** e especifique um nome de arquivo. Para restaurar essas configurações, use o mesmo comando e selecione **Importar configurações de ambiente selecionadas**.
 
-   2. Vá para o item de menu **Ferramentas R** , selecione **Configurações da Ciência de Dados...** .
+   2. Vá para o item de menu **Ferramentas R**, selecione **Configurações da Ciência de Dados...**.
 
        ![Configurações da Ciência de Dados do Visual Studio](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
 
       > [!NOTE]  
-      > Usando a abordagem na etapa 1, você pode também salvar e restaurar o layout de cientista de dados personalizado, em vez de repetir o comando **Configurações da Ciência de Dados** .
+      > Usando a abordagem na etapa 1, você pode também salvar e restaurar o layout de cientista de dados personalizado, em vez de repetir o comando **Configurações da Ciência de Dados**.
 
 ## <a name="execute-local-r-methods"></a>Executar métodos locais de R
 
@@ -121,7 +118,7 @@ Usando um Microsoft ML Server/Microsoft R Client de um computador com Windows eq
 
         ![Contêineres de armazenamento do Azure HDInsight](./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png)
 
-    4. Selecione nome do contêiner do cluster, navegue até a pasta **Usuário** (você talvez precise clicar *Carregar mais* na parte inferior da lista), em seguida, selecione *RevoShare* , em seguida, **newUser** . O `people.json` arquivo deve ser exibido no `newUser` pasta.
+    4. Selecione nome do contêiner do cluster, navegue até a pasta **Usuário** (você talvez precise clicar *Carregar mais* na parte inferior da lista), em seguida, selecione *RevoShare*, em seguida, **newUser**. O `people.json` arquivo deve ser exibido no `newUser` pasta.
 
         ![Local da pasta de arquivos copiados do HDInsight](./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png)
 

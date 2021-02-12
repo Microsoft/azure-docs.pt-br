@@ -3,12 +3,12 @@ title: Habilitar Azure Monitor para contêineres | Microsoft Docs
 description: Este artigo descreve como habilitar e configurar Azure Monitor para contêineres para que você possa entender como o contêiner está sendo executado e quais problemas relacionados ao desempenho foram identificados.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 69022643e3346444eee95f4487eeed292c4ef139
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 56f60b58cff351aa37e98cdba933c929aaaedab6
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994060"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805995"
 ---
 # <a name="enable-azure-monitor-for-containers"></a>Habilitar Azure Monitor para contêineres
 
@@ -21,7 +21,7 @@ Este artigo fornece uma visão geral das opções disponíveis para configurar A
 
 Você também pode monitorar o desempenho de cargas de trabalho implantadas em clusters kubernetes autogerenciados hospedados em:
 - Azure, usando o [mecanismo AKs](https://github.com/Azure/aks-engine)
-- [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) ou local, usando o mecanismo AKs.
+- [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) ou local, usando o mecanismo AKs.
 
 Você pode habilitar Azure Monitor para contêineres para uma nova implantação ou para uma ou mais implantações existentes do kubernetes usando qualquer um dos seguintes métodos com suporte:
 
@@ -35,6 +35,12 @@ Você pode habilitar Azure Monitor para contêineres para uma nova implantação
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
+
+> [!IMPORTANT]
+> Log Analytics agente do Linux em contêineres (Pod do réplicaset) faz chamadas à API para todos os nós do Windows na porta Kubelet Secure (10250) no cluster para coletar métricas relacionadas ao desempenho do nó e do contêiner. A porta segura do Kubelet (: 10250) deve ser aberta na rede virtual do cluster para que a coleção de métricas relacionada ao nó do Windows e o desempenho do contêiner funcionem.
+>
+> Se você tiver um cluster kubernetes com nós do Windows, examine e configure o grupo de segurança de rede e as políticas de rede para certificar-se de que a porta segura do Kubelet (: 10250) esteja aberta para entrada e saída na rede virtual do cluster.
+
 
 - Você tem um espaço de trabalho Log Analytics.
 
@@ -51,7 +57,7 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 - Você é um membro do grupo de *colaboradores log Analytics* para habilitar o monitoramento de contêiner. Para obter mais informações sobre como controlar o acesso a um espaço de trabalho do Log Analytics, veja [Gerenciar espaços de trabalho](../platform/manage-access.md).
 
-- Você é um membro do grupo [ *proprietário* ](../../role-based-access-control/built-in-roles.md#owner) no recurso de cluster AKs.
+- Você é um membro do grupo [ *proprietário*](../../role-based-access-control/built-in-roles.md#owner) no recurso de cluster AKs.
 
    [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -63,7 +69,7 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 O Azure Monitor para contêineres dá suporte oficialmente às seguintes configurações:
 
-- Ambientes: Azure Red Hat OpenShift, kubernetes local e o mecanismo de AKS no Azure e Azure Stack. Para obter mais informações, consulte [o mecanismo AKS em Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
+- Ambientes: Azure Red Hat OpenShift, kubernetes local e o mecanismo de AKS no Azure e Azure Stack. Para obter mais informações, consulte [o mecanismo AKS em Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview).
 - As versões do kubernetes e da política de suporte são as mesmas [com suporte no AKs (serviço kubernetes do Azure)](../../aks/supported-kubernetes-versions.md). 
 
 ## <a name="network-firewall-requirements"></a>Requisitos de firewall de rede
@@ -117,7 +123,7 @@ Para habilitar Azure Monitor para contêineres, use um dos métodos descritos na
 | Novo cluster kubernetes | [Criar um cluster AKS usando o CLI do Azure](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| Você pode habilitar o monitoramento para um novo cluster AKS que você cria usando o CLI do Azure. |
 | | [Criar um cluster AKS usando o Terraform](container-insights-enable-new-cluster.md#enable-using-terraform)| Você pode habilitar o monitoramento para um novo cluster AKS que você cria usando a ferramenta de código-fonte aberto Terraform. |
 | | [Criar um cluster OpenShift usando um modelo de Azure Resource Manager](container-insights-azure-redhat-setup.md#enable-for-a-new-cluster-using-an-azure-resource-manager-template) | Você pode habilitar o monitoramento para um novo cluster OpenShift que você cria usando um modelo de Azure Resource Manager pré-configurado. |
-| | [Criar um cluster OpenShift usando o CLI do Azure](/cli/azure/openshift?view=azure-cli-latest#az-openshift-create) | Você pode habilitar o monitoramento ao implantar um novo cluster OpenShift usando o CLI do Azure. |
+| | [Criar um cluster OpenShift usando o CLI do Azure](/cli/azure/openshift#az-openshift-create) | Você pode habilitar o monitoramento ao implantar um novo cluster OpenShift usando o CLI do Azure. |
 | Cluster kubernetes existente | [Habilitar o monitoramento de um cluster AKS usando o CLI do Azure](container-insights-enable-existing-clusters.md#enable-using-azure-cli) | Você pode habilitar o monitoramento para um cluster AKS que já está implantado usando o CLI do Azure. |
 | |[Habilitar para o cluster AKS usando Terraform](container-insights-enable-existing-clusters.md#enable-using-terraform) | Você pode habilitar o monitoramento para um cluster AKS que já está implantado usando a ferramenta de código-fonte aberto Terraform. |
 | | [Habilitar para o cluster AKS de Azure Monitor](container-insights-enable-existing-clusters.md#enable-from-azure-monitor-in-the-portal)| Você pode habilitar o monitoramento para um ou mais clusters AKS que já estão implantados na página de vários clusters no Azure Monitor. |

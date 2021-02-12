@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 3927133b9cbd59a5d085e7406d9dceb177a47637
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30a139ca0569a2ada4a66befbf7c56a9f8edaab9
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268631"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656726"
 ---
 # <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>Importar uma coleção Postman com operações de streaming sob demanda
 
@@ -180,7 +180,7 @@ Este artigo contém uma definição da coleção **Postman** que contém as soli
                                 ]
                             }
                         }
-                    ],                  
+                    ],
                     "request": {
                         "auth": {
                             "type": "bearer",
@@ -3253,7 +3253,7 @@ Este artigo contém uma definição da coleção **Postman** que contém as soli
                                     "key": "access-control-expose-headers",
                                     "value": "request-id, x-ms-request-id",
                                     "name": "access-control-expose-headers",
-                                    "description": "Lets a server whitelist headers that browsers are allowed to access."
+                                    "description": "Lets a server allowlist headers that browsers are allowed to access."
                                 },
                                 {
                                     "key": "request-id",
@@ -3456,7 +3456,7 @@ Este artigo contém uma definição da coleção **Postman** que contém as soli
                                     "key": "access-control-expose-headers",
                                     "value": "request-id, x-ms-request-id",
                                     "name": "access-control-expose-headers",
-                                    "description": "Lets a server whitelist headers that browsers are allowed to access."
+                                    "description": "Lets a server allowlist headers that browsers are allowed to access."
                                 },
                                 {
                                     "key": "request-id",
@@ -5591,3 +5591,4 @@ Este artigo contém uma definição da coleção **Postman** que contém as soli
     ]
 }
 ```
+

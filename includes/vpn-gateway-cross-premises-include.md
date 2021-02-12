@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 05/16/2018
+ms.date: 12/17/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 8c82e3d2c978a7980d02bc686346acdcb21dd591
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b283add6cff1400cc3141f4fba3f0f3939ee34aa
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "66425771"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97665091"
 ---
 |  | **Ponto a Site** | **Site a site** | **ExpressRoute** |
 | --- | --- | --- | --- |
@@ -22,7 +22,7 @@ ms.locfileid: "66425771"
 | **Protocolos com Suporte** |SSTP (Secure Sockets Tunneling Protocol), OpenVPN e IPsec |IPsec |Conexão direta pelas tecnologias VLANs e VPN do NSP (MPLS, VPLS...) |
 | **Roteamento** |RouteBased (dinâmico) |Damos suporte a PolicyBased (roteamento estático) e RouteBased (VPN de roteamento dinâmico) |BGP |
 | **Resiliência de conexão** |ativo-passivo |ativo-passivo ou ativo-ativo |ativo-ativo |
-| **Caso de uso típico** |Criação de protótipos, cenários de desenvolvimento / teste / laboratório para serviços de nuvem e máquinas virtuais |Cenários de desenvolvimento / teste / laboratório e de cargas de trabalho de produção em pequena escala para serviços de nuvem e máquinas virtuais |Acesso a todos os serviços do Azure (lista validada), cargas de trabalho essenciais e em nível Empresarial, Backup, Big Data e Azure como um site de DR |
+| **Caso de uso típico** |Proteger o acesso às redes virtuais do Azure para usuários remotos |Cenários de desenvolvimento/teste/laboratório e cargas de trabalho de produção em pequena e média escala para serviços de nuvem e máquinas virtuais |Acesso a todos os serviços do Azure (lista validada), cargas de trabalho essenciais e em nível Empresarial, Backup, Big Data e Azure como um site de DR |
 | **SLA** |[SLA](https://azure.microsoft.com/support/legal/sla/) |[SLA](https://azure.microsoft.com/support/legal/sla/) |[SLA](https://azure.microsoft.com/support/legal/sla/) |
 | **Preços** |[Preços](https://azure.microsoft.com/pricing/details/vpn-gateway/) |[Preços](https://azure.microsoft.com/pricing/details/vpn-gateway/) |[Preços](https://azure.microsoft.com/pricing/details/expressroute/) |
 | **Documentação Técnica** |[Documentação de Gateway de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) |[Documentação de Gateway de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) |[Documentação do ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) |

@@ -7,12 +7,13 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a4ab8372e23e3621f7d73f8dbc38957c809acc9c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: references_regions
+ms.openlocfilehash: 3cd7d2541cb980fc5ca6a1a9c42a430eac1ecb1b
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89236792"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429272"
 ---
 # <a name="basic-concepts"></a>Conceitos básicos
 
@@ -28,21 +29,24 @@ A [JWK](https://tools.ietf.org/html/rfc7517) (Chave da Web JSON) é uma estrutur
 
 ## <a name="attestation-provider"></a>Provedor de atestado
 
-O provedor de atestado pertence ao provedor de recursos do Azure chamado Microsoft.Attestation. O provedor de recursos é um ponto de extremidade de serviço que fornece o contrato REST do Atestado do Azure e é implantado por meio do [Azure Resource Manager](../azure-resource-manager/management/overview.md). Cada provedor de atestado respeita uma política específica e detectável. 
+O provedor de atestado pertence ao provedor de recursos do Azure chamado Microsoft.Attestation. O provedor de recursos é um ponto de extremidade de serviço que fornece o contrato REST do Atestado do Azure e é implantado por meio do [Azure Resource Manager](../azure-resource-manager/management/overview.md). Cada provedor de atestado respeita uma política específica e detectável. Os provedores de atestado são criados com uma política padrão para cada tipo de atestado (observe que o enclave da VBS não tem nenhuma política padrão). Confira os [exemplos de uma política de atestado](policy-examples.md) para obter mais detalhes sobre a política padrão do SGX.
 
-Os provedores de atestado são criados com uma política padrão para cada tipo de TEE (observe que o enclave da VBS não tem nenhuma política padrão). Confira os [exemplos de uma política de atestado](policy-examples.md) para obter mais detalhes sobre a política padrão do SGX.
+### <a name="regional-shared-provider"></a>Provedor compartilhado regional
 
-### <a name="regional-default-provider"></a>Provedor padrão regional
-
-O Atestado do Azure fornece um provedor padrão em cada região. Os clientes podem optar por usar o provedor padrão para o atestado ou criar provedores próprios com políticas personalizadas. Os provedores padrão podem ser acessados por qualquer usuário do Azure AD, e a política associada a um provedor padrão não pode ser alterada.
+O Atestado do Azure fornece um provedor compartilhado regional em cada região disponível. Os clientes podem optar por usar o provedor compartilhado regional para o atestado ou criar provedores próprios com políticas personalizadas. Os provedores compartilhados podem ser acessados por qualquer usuário do Azure AD, e a política associada a ele não pode ser alterada.
 
 | Região | URI do atestado | 
 |--|--|
-| Sul do Reino Unido | https://shareduks.uks.attest.azure.net | 
-| Leste dos EUA 2 | https://sharedeus2.eus2.attest.azure.net | 
-| Centro dos EUA | https://sharedcus.cus.attest.azure.net | 
-| Leste dos EUA| https://sharedeus.eus.attest.azure.net | 
-| Canadá Central | https://sharedcac.cac.attest.azure.net | 
+| Leste dos EUA | `https://sharedeus.eus.attest.azure.net` | 
+| Oeste dos EUA | `https://sharedwus.wus.attest.azure.net` | 
+| Sul do Reino Unido | `https://shareduks.uks.attest.azure.net` | 
+| Oeste do Reino Unido| `https://sharedukw.ukw.attest.azure.net  ` | 
+| Leste do Canadá | `https://sharedcae.cae.attest.azure.net` | 
+| Canadá Central | `https://sharedcac.cac.attest.azure.net` | 
+| Norte da Europa | `https://sharedneu.neu.attest.azure.net` | 
+| Europa Ocidental| `https://sharedweu.weu.attest.azure.net` | 
+| Leste dos EUA 2 | `https://sharedeus2.eus2.attest.azure.net` | 
+| Centro dos EUA | `https://sharedcus.cus.attest.azure.net` | 
 
 ## <a name="attestation-request"></a>Solicitação de atestado
 
@@ -50,15 +54,15 @@ A solicitação de atestado é um objeto JSON serializado enviado pelo aplicativ
 - “Quote”: o valor da propriedade “Quote” é uma cadeia de caracteres que contém uma representação codificada em Base64URL da cotação do atestado
 - “EnclaveHeldData”: o valor da propriedade “EnclaveHeldData” é uma cadeia de caracteres que contém uma representação codificada em Base64URL dos dados contidos no enclave.
 
-O Atestado do Azure validará a “Cotação” fornecida do TEE e garantirá que o hash SHA256 dos Dados Contidos no Enclave fornecido seja expresso nos primeiros 32 bytes do campo reportData na cotação. 
+O Atestado do Azure validará a “Cotação” fornecida e garantirá que o hash SHA256 dos Dados Contidos no Enclave fornecidos seja expresso nos primeiros 32 bytes do campo reportData na cotação. 
 
 ## <a name="attestation-policy"></a>Política de atestado
 
 A política de atestado é usada para processar as evidências de atestado e pode ser configurada pelos clientes. No centro do Atestado do Azure está um mecanismo de política, que processa as declarações que constituem as evidências. As políticas são usadas para determinar se o Atestado do Azure deverá emitir um token de atestado com base nas evidências (ou não) e, portanto, endossa o Atestador (ou não). Da mesma forma, a falha na aprovação em todas as políticas fará com que nenhum token JWT seja emitido.
 
-Se a política padrão do TEE no provedor de atestado não atender às necessidades, os clientes poderão criar políticas personalizadas em uma das regiões com suporte no Atestado do Azure. O gerenciamento de políticas é um recurso importante fornecido aos clientes pelo Atestado do Azure. As políticas serão específicas do TEE e podem ser usadas para identificar enclaves ou adicionar declarações ao token de saída ou modificar declarações em um token de saída. 
+Se a política padrão no provedor de atestado não atender às necessidades, os clientes poderão criar políticas personalizadas em uma das regiões com suporte no Atestado do Azure. O gerenciamento de políticas é um recurso importante fornecido aos clientes pelo Atestado do Azure. As políticas serão específicas do tipo de atestado e podem ser usadas para identificar enclaves ou adicionar declarações ao token de saída ou modificar declarações em um token de saída. 
 
-Confira os [exemplos de uma política de atestado](policy-examples.md) para obter o conteúdo e os exemplos de política padrão.
+Confira [exemplos de uma política de atestado](policy-examples.md) para ver exemplos de política.
 
 ## <a name="benefits-of-policy-signing"></a>Benefícios da assinatura de política
 
@@ -80,25 +84,64 @@ Exemplo de JWT gerado para um enclave do SGX:
 
 ```
 {
-  “alg”: “RS256”,
-  “jku”: “https://tradewinds.us.attest.azure.net/certs”,
-  “kid”: “f1lIjBlb6jUHEUp1/Nh6BNUHc6vwiUyMKKhReZeEpGc=”,
-  “typ”: “JWT”
+  "alg": "RS256",
+  "jku": "https://tradewinds.us.attest.azure.net/certs",
+  "kid": <self signed certificate reference to perform signature verification of attestation token,
+  "typ": "JWT"
 }.{
-  “maa-ehd”: <input enclave held data>,
-  “exp”: 1568187398,
-  “iat”: 1568158598,
-  “is-debuggable”: false,
-  “iss”: “https://tradewinds.us.attest.azure.net”,
-  “nbf”: 1568158598,
-  “product-id”: 4639,
-  “sgx-mrenclave”: “”,
-  “sgx-mrsigner”: “”,
-  “svn”: 0,
-  “tee”: “sgx”
+  "aas-ehd": <input enclave held data>,
+  "exp": 1568187398,
+  "iat": 1568158598,
+  "is-debuggable": false,
+  "iss": "https://tradewinds.us.attest.azure.net",
+  "maa-attestationcollateral": 
+    {
+      "qeidcertshash": <SHA256 value of QE Identity issuing certs>,
+      "qeidcrlhash": <SHA256 value of QE Identity issuing certs CRL list>,
+      "qeidhash": <SHA256 value of the QE Identity collateral>,
+      "quotehash": <SHA256 value of the evaluated quote>, 
+      "tcbinfocertshash": <SHA256 value of the TCB Info issuing certs>, 
+      "tcbinfocrlhash": <SHA256 value of the TCB Info issuing certs CRL list>, 
+      "tcbinfohash": <SHA256 value of the TCB Info collateral>
+     },
+  "maa-ehd": <input enclave held data>,
+  "nbf": 1568158598,
+  "product-id": 4639,
+  "sgx-mrenclave": <SGX enclave mrenclave value>,
+  "sgx-mrsigner": <SGX enclave msrigner value>,
+  "svn": 0,
+  "tee": "sgx"
+  "x-ms-attestation-type": "sgx", 
+  "x-ms-policy-hash": <>,
+  "x-ms-sgx-collateral": 
+    {
+      "qeidcertshash": <SHA256 value of QE Identity issuing certs>,
+      "qeidcrlhash": <SHA256 value of QE Identity issuing certs CRL list>,
+      "qeidhash": <SHA256 value of the QE Identity collateral>,
+      "quotehash": <SHA256 value of the evaluated quote>, 
+      "tcbinfocertshash": <SHA256 value of the TCB Info issuing certs>, 
+      "tcbinfocrlhash": <SHA256 value of the TCB Info issuing certs CRL list>, 
+      "tcbinfohash": <SHA256 value of the TCB Info collateral>
+     },
+  "x-ms-sgx-ehd": <>, 
+  "x-ms-sgx-is-debuggable": true,
+  "x-ms-sgx-mrenclave": <SGX enclave mrenclave value>,
+  "x-ms-sgx-mrsigner": <SGX enclave msrigner value>, 
+  "x-ms-sgx-product-id": 1, 
+  "x-ms-sgx-svn": 1,
+  "x-ms-ver": "1.0"
 }.[Signature]
 ```
-Declarações como “exp”, “iat”, “iss” e “nbf” são definidas pelo [RFC JWT](https://tools.ietf.org/html/rfc7517) e as restantes são geradas pelo Atestado do Azure. Confira as [declarações emitidas pelo Atestado do Azure](claim-sets.md) para obter mais informações.
+Algumas declarações usadas acima são consideradas preteridas, mas ainda têm suporte completo.  É recomendável que todos os códigos e ferramentas futuras usem os nomes de declaração não preteridos. Confira as [declarações emitidas pelo Atestado do Azure](claim-sets.md) para obter mais informações.
+
+## <a name="encryption-of-data-at-rest"></a>Criptografia de dados em repouso
+
+Para proteger os dados do cliente, o Atestado do Azure persiste os dados no Armazenamento do Azure. O Armazenamento do Azure fornece criptografia de dados inativos durante a gravação deles em data centers e descriptografa-os para serem acessados pelos clientes. Essa criptografia ocorre com uma chave de criptografia gerenciada pela Microsoft. 
+
+Além de proteger os dados no Armazenamento do Azure, o Atestado do Azure também aproveita o ADE (Azure Disk Encryption) para criptografar as VMs de serviço. Para o Atestado do Azure em execução em um enclave nos ambientes de computação confidencial do Azure, atualmente, não há suporte para a extensão do ADE. Nesses cenários, para impedir que os dados sejam armazenados na memória, o arquivo de paginação fica desabilitado. 
+
+Nenhum dado do cliente é persistido nas unidades de disco rígido locais da instância do Atestado do Azure.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

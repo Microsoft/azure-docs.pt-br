@@ -9,20 +9,20 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 088300d4b6f92886310315b67763536e39cbb019
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7bc15b369bfa4964384d4f7910d6953bdfeaa664
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789515"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094158"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Link Privado do Azure para o Banco de Dados SQL do Azure e o Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-O Link Privado permite que você se conecte a vários serviços de PaaS no Azure por meio de um **ponto de extremidade privado** . Para obter uma lista dos serviços de PaaS que dão suporte à funcionalidade de Link Privado, acesse a página [Documentação do Link Privado](../../private-link/index.yml). Um ponto de extremidade privado é um endereço IP privado em uma [VNet](../../virtual-network/virtual-networks-overview.md) e sub-rede específicas.
+O Link Privado permite que você se conecte a vários serviços de PaaS no Azure por meio de um **ponto de extremidade privado**. Para obter uma lista dos serviços de PaaS que dão suporte à funcionalidade de Link Privado, acesse a página [Documentação do Link Privado](../../private-link/index.yml). Um ponto de extremidade privado é um endereço IP privado em uma [VNet](../../virtual-network/virtual-networks-overview.md) e sub-rede específicas.
 
 > [!IMPORTANT]
-> Este artigo se aplica ao Banco de Dados SQL do Azure e ao Azure Synapse Analytics (anteriormente, SQL Data Warehouse). Para simplificar, o termo "banco de dados" se refere aos bancos de dados no Banco de Dados SQL do Azure e no Azure Synapse Analytics. Da mesma forma, as referências a "servidor" se referem ao [servidor SQL lógico](logical-servers.md) que hospeda o Banco de Dados SQL do Azure e o Azure Synapse Analytics. Este artigo *não* se aplica à **Instância Gerenciada de SQL do Azure** .
+> Este artigo aplica-se ao Banco de Dados SQL do Azure e ao Azure Synapse Analytics. Para simplificar, o termo "banco de dados" se refere aos bancos de dados no Banco de Dados SQL do Azure e no Azure Synapse Analytics. Da mesma forma, as referências a "servidor" se referem ao [servidor SQL lógico](logical-servers.md) que hospeda o Banco de Dados SQL do Azure e o Azure Synapse Analytics. Este artigo *não* se aplica à **Instância Gerenciada de SQL do Azure**.
 
 ## <a name="how-to-set-up-private-link-for-azure-sql-database"></a>Como configurar o Link Privado para o Banco de Dados SQL do Azure 
 
@@ -145,11 +145,11 @@ A exportação de dados no Banco de Dados SQL do Azure ocorre quando um usuário
 
 Considere um cenário com um usuário que executa o SSMS (SQL Server Management Studio) em uma máquina virtual do Azure que se conecta a um banco de dados no Banco de Dados SQL. Esse banco de dados está no data center do Oeste dos EUA. O exemplo abaixo mostra como limitar o acesso com pontos de extremidade públicos no Banco de Dados SQL usando controles de acesso à rede.
 
-1. Desabilite todo o tráfego de serviço do Azure para o Banco de Dados SQL por meio do ponto de extremidade público configurando Permitir Serviços do Azure como **DESATIVADO** . Verifique se nenhum endereço IP é permitido nas regras de firewall no nível de servidor e de banco de dados. Para obter mais informações, confira [Controles de acesso à rede do Banco de Dados SQL do Azure e do Azure Synapse Analytics](network-access-controls-overview.md).
+1. Desabilite todo o tráfego de serviço do Azure para o Banco de Dados SQL por meio do ponto de extremidade público configurando Permitir Serviços do Azure como **DESATIVADO**. Verifique se nenhum endereço IP é permitido nas regras de firewall no nível de servidor e de banco de dados. Para obter mais informações, confira [Controles de acesso à rede do Banco de Dados SQL do Azure e do Azure Synapse Analytics](network-access-controls-overview.md).
 1. Só permita o tráfego para o banco de dados no Banco de Dados SQL usando o endereço IP privado da VM. Para obter mais informações, confira os artigos sobre o [ponto de extremidade de serviço](vnet-service-endpoint-rule-overview.md) e as [regras de firewall da rede virtual](firewall-configure.md).
 1. Na VM do Azure, restrinja o escopo da conexão de saída usando [NSGs (grupos de segurança de rede)](../../virtual-network/manage-network-security-group.md) e Marcas de Serviço, conforme mostrado a seguir
     - Especifique uma regra NSG para permitir o tráfego para a Tag de Serviço = SQL.WestUs – só permitindo a conexão com o Banco de Dados SQL no Oeste dos EUA
-    - Especifique uma regra NSG (com uma **prioridade mais alta** ) para negar o tráfego para a Tag de Serviço = SQL – negando as conexões com o Banco de Dados SQL em todas as regiões
+    - Especifique uma regra NSG (com uma **prioridade mais alta**) para negar o tráfego para a Tag de Serviço = SQL – negando as conexões com o Banco de Dados SQL em todas as regiões
 
 Ao final desta configuração, a VM do Azure só poderá se conectar a um banco de dados no Banco de Dados SQL na região Oeste dos EUA. No entanto, a conectividade não é restrita a um banco de dados individual no Banco de Dados SQL. A VM ainda pode se conectar a qualquer banco de dados na região Oeste dos EUA, incluindo os bancos de dados que não fazem parte da assinatura. Embora tenhamos reduzido o escopo da exportação de dados no cenário acima a uma região específica, não o eliminamos por completo.
 
@@ -177,7 +177,7 @@ Para estabelecer a conectividade de um ambiente local com o banco de dados no Ba
 
 ## <a name="connecting-from-azure-synapse-analytics-to-azure-storage-using-polybase-and-the-copy-statement"></a>Conectar-se do Azure Synapse Analytics para o Armazenamento do Azure usando o Polybase e a instrução COPY
 
-O PolyBase e a instrução COPY costumam a ser usados para carregar dados no Azure Synapse Analytics de contas de Armazenamento do Azure. Se a conta de Armazenamento do Azure da qual você está carregando dados limitar o acesso somente a um conjunto de sub-redes da rede virtual por meio de Pontos de Extremidade Privados, Pontos de Extremidade de Serviço ou firewalls baseados em IP, a conectividade do PolyBase e da instrução COPY com a conta será interrompida. Para habilitar os cenários de importação e de exportação com o Azure Synapse Analytics conectando-se ao Armazenamento do Azure protegido com uma rede virtual, siga as etapas fornecidas [aqui](vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
+O PolyBase e a instrução COPY costumam a ser usados para carregar dados no Azure Synapse Analytics de contas de Armazenamento do Azure. Se a conta de Armazenamento do Azure da qual você está carregando dados limitar o acesso somente a um conjunto de sub-redes da rede virtual por meio de Pontos de Extremidade Privados, Pontos de Extremidade de Serviço ou firewalls baseados em IP, a conectividade do PolyBase e da instrução COPY com a conta será interrompida. Para habilitar os cenários de importação e de exportação com o Azure Synapse Analytics conectando-se ao Armazenamento do Azure protegido com uma rede virtual, siga as etapas fornecidas [aqui](vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

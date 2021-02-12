@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 37e09612491d41887c5945920488569d3620bf0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2c88091072921f1ca674868e401c34d354418de
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85052025"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746502"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Regras e grupos de regras CRS do firewall do aplicativo Web
 
@@ -259,7 +259,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |941150|Filtro XSS - Categoria 5 = atributos HTML não permitidos|
 |941160|NoScript XSS InjectionChecker: injeção de HTML|
 |941170|NoScript XSS InjectionChecker: injeção de atributo|
-|941180|Palavras-chave da lista negra do validador de nós|
+|941180|Palavras-chave de Node-Validator blocklist|
 |941190|XSS usando folhas de estilo|
 |941200|XSS usando quadros VML|
 |941210|XSS usando JavaScript ofuscado|
@@ -487,7 +487,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |941130|Filtro XSS - Categoria 3 = vetor de atributo|
 |941140|Filtro XSS - Categoria 4 = Vector de URI de Javascript|
 |941150|Filtro XSS - Categoria 5 = atributos HTML não permitidos|
-|941180|Palavras-chave da lista negra do validador de nós|
+|941180|Palavras-chave de Node-Validator blocklist|
 |941190|XSS usando folhas de estilo|
 |941200|XSS usando quadros VML|
 |941210|XSS usando JavaScript ofuscado|

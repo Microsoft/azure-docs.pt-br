@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.openlocfilehash: ef04bf9f6d9ca6ff5089d2826c05a5acfb759b04
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460488"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001653"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>Tutorial: integração do Active Directory do Azure ao IdeaScale
 
@@ -49,11 +49,11 @@ Para configurar a integração do IdeaScale ao Azure AD, você precisará adicio
 
 **Para adicionar o IdeaScale da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory** .
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos** .
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Para configurar a integração do IdeaScale ao Azure AD, você precisará adicio
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **IdeaScale** , selecione **IdeaScale** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **IdeaScale**, selecione **IdeaScale** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![IdeaScale na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o IdeaScale, com base em um usuário de teste chamado **Brenda Fernandes** .
+Nesta seção, você configurará e testará o logon único do Azure AD com o IdeaScale, com base em um usuário de teste chamado **Brenda Fernandes**.
 Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do IdeaScale.
 
 Para configurar e testar o logon único do Azure AD com o IdeaScale, você precisa concluir os seguintes blocos de construção:
@@ -85,23 +85,23 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o IdeaScale, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **IdeaScale** , selecione **Logon único** .
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **IdeaScale**, selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML** .
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica de SAML** , realize as seguintes etapas:
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
     ![Informações de logon único de Domínio e URLs do IdeaScale](common/sp-identifier.png)
 
-    a. Na caixa de texto **URL de Logon** , digite uma URL usando o seguinte padrão: `https://<companyname>.ideascale.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.ideascale.com`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão:
     
@@ -113,11 +113,11 @@ Para configurar o logon único do Azure AD com o IdeaScale, execute as seguintes
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com a [equipe de suporte do cliente do IdeaScale](https://support.ideascale.com/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-5. Na página **Configurar Logon Único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+5. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-6. Na seção **Configurar o IdeaScale** , copie as URLs apropriadas de acordo com suas necessidades.
+6. Na seção **Configurar o IdeaScale**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -131,15 +131,15 @@ Para configurar o logon único do Azure AD com o IdeaScale, execute as seguintes
 
 1. Em outra janela do navegador da Web, faça logon no site da empresa do IdeaScale como administrador.
 
-2. Vá para **Configurações da Comunidade** .
+2. Vá para **Configurações da Comunidade**.
 
     ![Configurações da Comunidade](./media/ideascale-tutorial/ic790847.png "Configurações da Comunidade")
 
-3. Vá para **Segurança \> Configurações de Logon Único** .
+3. Vá para **Segurança \> Configurações de Logon Único**.
 
     ![Captura de tela que mostra as Configurações de Logon Único selecionadas no menu Segurança.](./media/ideascale-tutorial/ic790848.png "Configurações de Logon Único")
 
-4. Para **Tipo de Logon Único** , selecione **SAML 2.0** .
+4. Para **Tipo de Logon Único**, selecione **SAML 2.0**.
 
     ![Tipo de Logon Único](./media/ideascale-tutorial/ic790849.png "Tipo de Logon Único")
 
@@ -147,19 +147,19 @@ Para configurar o logon único do Azure AD com o IdeaScale, execute as seguintes
 
     ![Captura de tela que mostra a caixa de diálogo Configurações de Logon Único.](./media/ideascale-tutorial/ic790850.png "Configurações de Logon Único")
 
-    a. Na caixa de texto **ID da Entidade de IdP SAML** , cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
+    a. Na caixa de texto **ID da Entidade de IdP SAML**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
 
-    b. Abra o arquivo de metadados baixado do portal do Azure no Bloco de notas, copie o conteúdo dele e cole-o na caixa de texto **Metadados do IdP SAML** .
+    b. Abra o arquivo de metadados baixado do portal do Azure no Bloco de notas, copie o conteúdo dele e cole-o na caixa de texto **Metadados do IdP SAML**.
 
-    c. Na caixa de texto **URL de Sucesso do Logoff** , cole o valor da **URL de Logoff** copiado do portal do Azure.
+    c. Na caixa de texto **URL de Sucesso do Logoff**, cole o valor da **URL de Logoff** copiado do portal do Azure.
 
-    d. Clique em **Salvar Alterações** .
+    d. Clique em **Salvar Alterações**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários** .
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -171,40 +171,40 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes** .
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário** , digite **brendafernandes\@dominiodaempresa.extensao**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao IdeaScale.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, **IdeaScale** .
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **IdeaScale**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **IdeaScale** .
+2. Na lista de aplicativos, selecione **IdeaScale**.
 
     ![O link do IdeaScale na lista Aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Usuários e grupos** .
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
     ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-ideascale-test-user"></a>Criar um usuário de teste do IdeaScale
 
@@ -214,13 +214,13 @@ Para permitir que os usuários do Azure AD façam logon no IdeaScale, eles dever
 
 1. Faça logon em seu site de empresa do **IdeaScale** como administrador.
 
-2. Vá para **Configurações da Comunidade** .
+2. Vá para **Configurações da Comunidade**.
 
     ![Configurações da Comunidade](./media/ideascale-tutorial/ic790847.png "Configurações da Comunidade")
 
-3. Vá para **Configurações Básicas \> Gerenciamento de Membros** .
+3. Vá para **Configurações Básicas \> Gerenciamento de Membros**.
 
-4. Clique em **Adicionar Membro** .
+4. Clique em **Adicionar Membro**.
 
     ![Gerenciamento de Membros](./media/ideascale-tutorial/ic790852.png "Gerenciamento de Membros")
 
@@ -228,9 +228,9 @@ Para permitir que os usuários do Azure AD façam logon no IdeaScale, eles dever
 
     ![Adicionar Novo Membro](./media/ideascale-tutorial/ic790853.png "Adicionar Novo Membro")
 
-    a. Na caixa de texto **Endereços de Email** , digite o endereço de email de uma conta válida do Azure AD que deseja provisionar.
+    a. Na caixa de texto **Endereços de Email**, digite o endereço de email de uma conta válida do Azure AD que deseja provisionar.
 
-    b. Clique em **Salvar Alterações** .
+    b. Clique em **Salvar Alterações**.
 
     > [!NOTE]
     > O titular da conta do Azure Active Directory recebe um email com um link para confirmar a conta antes que ela se torne ativa.

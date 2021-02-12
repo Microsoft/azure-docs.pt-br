@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e44cb38435ca86ad7cd4709d5e99f5cf41fcf91
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: da21359b56b9e5b9d6e971032d06f8bae94efce0
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366319"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682131"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planejar uma implantação de acesso condicional
 
@@ -24,7 +24,7 @@ O planejamento da implantação de acesso condicional é essencial para garantir
 
 Em um mundo em que o dispositivo móvel e a nuvem vêm em primeiro lugar, os usuários podem acessar os recursos da organização de qualquer lugar, usando uma grande variedade de dispositivos e aplicativos. Por causa disso, concentrar-se apenas em quem pode acessar um recurso não é mais suficiente. Você também precisa considerar onde o usuário está, o dispositivo que está sendo usado, o recurso que está sendo acessado e muito mais. 
 
-O Acesso Condicional (CA) do Azure Active Directory (Azure AD) analisa sinais como usuário, dispositivo e local para automatizar decisões e impor políticas de acesso organizacional para o recurso. Você pode usar políticas de CA para aplicar controles de acesso como autenticação multifator (MFA). As políticas de CA permitem que você solicite aos usuários a MFA quando necessário para a segurança e fique fora do caminho do usuário quando não for necessário.
+O Azure Active Directory (Azure AD) analisa os sinais de acesso condicional como usuário, dispositivo e local para automatizar decisões e impor políticas de acesso organizacional para o recurso. Você pode usar políticas de acesso condicional para aplicar controles de acesso como a MFA (autenticação multifator). As políticas de acesso condicional permitem solicitar aos usuários a MFA quando necessário para segurança e ficam fora do caminho do usuário quando não forem necessárias.
 
 ![Visão geral do Acesso Condicional](./media/plan-conditional-access/conditional-access-overview-how-it-works.png)
 
@@ -38,7 +38,7 @@ Antes de começar, verifique se você entendeu como funciona o [acesso condicion
 
 Os benefícios da implantação do acesso condicional são:
 
-* Aumentar a produtividade. Interrompa apenas os usuários com uma condição de entrada como a MFA quando um ou mais sinais recomendarem. As políticas de CA permitem controlar quando os usuários são solicitados a MFA, quando o acesso é bloqueado e quando eles devem usar um dispositivo confiável.
+* Aumentar a produtividade. Interrompa apenas os usuários com uma condição de entrada como a MFA quando um ou mais sinais recomendarem. As políticas de acesso condicional permitem controlar quando os usuários são solicitados a MFA, quando o acesso é bloqueado e quando eles devem usar um dispositivo confiável.
 
 * gerenciar riscos. Automatizar a avaliação de riscos com condições de política significa que as entradas arriscadas são identificadas e corrigidas ou bloqueadas. O acoplamento do acesso condicional com [Proteção de identidade](../identity-protection/overview-identity-protection.md), que detecta anomalias e eventos suspeitos, permite que você direcione quando o acesso aos recursos é bloqueado ou restringido. 
 
@@ -71,9 +71,9 @@ Os recursos a seguir podem ser úteis à medida que você aprende sobre o acesso
 
 * [O que é Acesso Condicional?](https://youtu.be/ffMAw2IVO7A)
 * [Como implantar acesso condicional?](https://youtu.be/c_izIRNJNuk)
-* [Como distribuir políticas de CA para usuários finais?](https://youtu.be/0_Fze7Zpyvc)
+* [Como distribuir políticas de acesso condicional para usuários finais?](https://youtu.be/0_Fze7Zpyvc)
 * [Acesso condicional com controles de dispositivo](https://youtu.be/NcONUf-jeS4)
-* [Acesso condicional com Azure MFA](https://youtu.be/Tbc-SU97G-w)
+* [Acesso condicional com o Azure AD MFA](https://youtu.be/Tbc-SU97G-w)
 * [Acesso condicional no Enterprise Mobility + Security](https://youtu.be/A7IrxAH87wc)
 
 
@@ -102,13 +102,13 @@ Quando novas políticas estiverem prontas para o seu ambiente, implante-as em fa
 > [!NOTE]
 > Para distribuir novas políticas não específicas para administradores, exclua todos os administradores. Isso garante que os administradores ainda possam acessar a política e fazer alterações ou revogá-la se houver um impacto significativo. Sempre valide a política com grupos de usuários menores antes de aplicar a todos os usuários.
 
-## <a name="understand-ca-policy-components"></a>Entender os componentes da política de CA
-As políticas de CA são instruções if-then: se uma atribuição for atendida, aplique esses controles de acesso.
+## <a name="understand-conditional-access-policy-components"></a>Entender os componentes da política de acesso condicional
+As políticas de acesso condicional são instruções if-then: se uma atribuição for atendida, aplique esses controles de acesso.
 
-Ao configurar políticas de CA, as condições são chamadas *atribuições*. As políticas de CA permitem que você imponha controles de acesso aos aplicativos da sua organização de acordo com determinadas condições.
+Ao configurar políticas de acesso condicional, as condições são chamadas de *atribuições*. As políticas de acesso condicional permitem que você imponha controles de acesso nos aplicativos da sua organização com base em determinadas atribuições.
 
 
-Para obter mais informações, consulte [Criando política de CA](concept-conditional-access-policies.md).
+Para obter mais informações, consulte [criando uma política de acesso condicional](concept-conditional-access-policies.md).
 
 ![tela de criação de política](media/plan-conditional-access/create-policy.png)
 
@@ -195,7 +195,7 @@ Deseja impor qualquer um dos seguintes controles de acesso em aplicativos de nuv
 ![Acessar diagrama de token de emissão](media/plan-conditional-access/CA-policy-token-issuance.png)
 
 > [!NOTE]
-> Se nenhuma atribuição for necessária e nenhuma política de autoridade de certificação estiver em vigor, o comportamento padrão será emitir um token de acesso. 
+> Se nenhuma atribuição for necessária e nenhuma política de acesso condicional estiver em vigor, o comportamento padrão será emitir um token de acesso. 
 
 Por exemplo, considere uma política em que:
 
@@ -207,14 +207,14 @@ Se um usuário que não está no grupo 1 tentar acessar o aplicativo, nenhuma co
 
 A estrutura de acesso condicional fornece uma excelente flexibilidade de configuração. No entanto, uma grande flexibilidade também significa que é necessário examinar cuidadosamente cada política de configuração, antes de liberá-la, para evitar resultados indesejáveis.
 
-### <a name="apply-ca-policies-to-every-app"></a>Aplicar políticas de CA a todos os aplicativos
+### <a name="apply-conditional-access-policies-to-every-app"></a>Aplicar políticas de acesso condicional a todos os aplicativos
 
-Tokens de acesso são emitidos por padrão se uma condição de política de CA não disparar um controle de acesso. Verifique se cada aplicativo tem pelo menos uma política de acesso condicional aplicada
+Tokens de acesso são emitidos por padrão se uma condição de política de acesso condicional não disparar um controle de acesso. Verifique se cada aplicativo tem pelo menos uma política de acesso condicional aplicada
 
 > [!IMPORTANT]
 > Tenha muito cuidado ao usar o bloco e todos os aplicativos em uma única política. Isso pode bloquear os administradores fora do portal de administração do Azure, e as exclusões não poderão ser configuradas para pontos de extremidade importantes, como Microsoft Graph.
 
-### <a name="minimize-the-number-of-ca-policies"></a>Minimizar o número de políticas de CA
+### <a name="minimize-the-number-of-conditional-access-policies"></a>Minimizar o número de políticas de acesso condicional
 
 A criação de uma política para cada aplicativo não é eficiente e leva a uma administração difícil. O acesso condicional só aplicará as primeiras 195 políticas por usuário. Recomendamos que você analise seus aplicativos e agrupe-os em aplicativos que têm os mesmos requisitos de recursos para os mesmos usuários. Por exemplo, se todos os aplicativos de Microsoft 365 ou todos os aplicativos de RH tiverem os mesmos requisitos para os mesmos usuários, crie uma única política e inclua todos os aplicativos aos quais ele se aplica. 
 
@@ -224,14 +224,6 @@ Se você configurar uma política incorretamente, ela poderá bloquear as organi
 
 * Crie uma conta de usuário dedicada à administração de política e excluída de todas as suas políticas.
 
-* Cenário de interrupção para ambientes híbridos:
-
-  * Crie um grupo de segurança local e sincronize-o com o Azure AD. O grupo de segurança deve conter sua conta de administração de política dedicada. 
-
-   * ISENTAR este grupo de segurança de todas as políticas de CA.
-
-   * Quando ocorrer uma interrupção de serviço, adicione os outros administradores ao grupo local conforme apropriado e force uma sincronização. Isso ativa sua isenção às políticas de CA.
-
 ### <a name="set-up-report-only-mode"></a>Configurar o modo somente relatório
 
 Pode ser difícil prever o número e os nomes dos usuários afetados por iniciativas de implantação comuns, como:
@@ -240,9 +232,9 @@ Pode ser difícil prever o número e os nomes dos usuários afetados por iniciat
 * requer MFA
 * implantar políticas de risco de entrada
 
-O [modo somente de relatório ](concept-conditional-access-report-only.md) permite que os administradores avaliem o impacto das políticas de CA antes de habilitá-las em seu ambiente.
+O [modo somente de relatório](concept-conditional-access-report-only.md) permite que os administradores avaliem o impacto das políticas de acesso condicional antes de habilitá-las em seu ambiente.
 
-Saiba como [configurar o modo somente de relatório em uma política de CA](howto-conditional-access-insights-reporting.md).
+Saiba como [Configurar o modo somente de relatório em uma política de acesso condicional](howto-conditional-access-insights-reporting.md).
 
 ### <a name="plan-for-disruption"></a>Planejar a interrupção
 
@@ -295,7 +287,7 @@ Quando novas políticas estiverem prontas para seu ambiente, certifique-se de ex
 
 ## <a name="common-policies"></a>Políticas comuns
 
-Ao planejar a solução de política de acesso condicional, avalie se é preciso criar políticas que atinjam os resultados a seguir.
+Ao planejar sua solução de política de acesso condicional, avalie se você precisa criar políticas para obter os resultados a seguir.
 
 * [Exigir MFA](#require-mfa)
 * [Responder a contas potencialmente comprometidas](#respond-to-potentially-compromised-accounts)
@@ -319,7 +311,7 @@ Os casos de uso comuns para exigir acesso MFA são:
 
 ### <a name="respond-to-potentially-compromised-accounts"></a>Responder a contas potencialmente comprometidas
 
-Com políticas de acesso condicional, você pode implementar respostas automatizadas em credenciais de identidades potencialmente comprometidas. A probabilidade de que uma conta tenha sido comprometida é expressa na forma de níveis de risco. Há dois níveis de risco calculados pela proteção de identidade: risco de credenciais e risco de usuário. As três políticas padrão a seguir podem ser habilitadas.
+Com as políticas de acesso condicional, você pode implementar respostas automatizadas para entradas por identidades potencialmente comprometidas. A probabilidade de que uma conta tenha sido comprometida é expressa na forma de níveis de risco. Há dois níveis de risco calculados pela proteção de identidade: risco de credenciais e risco de usuário. As três políticas padrão a seguir podem ser habilitadas.
 
 * [Exigir que todos os usuários se registrem para MFA](howto-conditional-access-policy-risk.md)
 
@@ -374,7 +366,7 @@ Algumas organizações têm locatários de teste para essa finalidade. No entant
 
 ### <a name="create-a-test-plan"></a>Criar um plano de deste
 
-O plano de teste é importante para que se tenha uma comparação entre os resultados esperados e os resultados reais. Você sempre deve ter uma expectativa antes de testar algo. A tabela a seguir descreve exemplos de casos de teste. Ajuste os cenários e os resultados esperados com base na configuração de suas políticas de autoridade de certificação.
+O plano de teste é importante para que se tenha uma comparação entre os resultados esperados e os resultados reais. Você sempre deve ter uma expectativa antes de testar algo. A tabela a seguir descreve exemplos de casos de teste. Ajuste os cenários e os resultados esperados com base em como as políticas de acesso condicional são configuradas.
 
 | Política| Cenário| Resultado esperado |
 | - | - | - |
@@ -389,9 +381,9 @@ O plano de teste é importante para que se tenha uma comparação entre os resul
 
 ### <a name="configure-the-test-policy"></a>Configure a política de testes
 
-No [portal do Azure](https://portal.azure.com/), você configura as políticas de autoridade de certificação em Azure Active Directory > Segurança > Acesso Condicional.
+No [portal do Azure](https://portal.azure.com/), configure as políticas de acesso condicional em Azure Active Directory segurança do > > acesso condicional.
 
-Se você quiser saber mais sobre como criar políticas de CA, consulte este exemplo: [Política de CA para solicitar MFA quando um usuário entrar no portal do Azure](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json). Este início rápido ajuda você a:
+Se você quiser saber mais sobre como criar políticas de acesso condicional, consulte este exemplo: [política de acesso condicional para solicitar MFA quando um usuário entrar no portal do Azure](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json). Este início rápido ajuda você a:
 
 * Familiarizar-se com a interface do usuário
 
@@ -415,7 +407,7 @@ Você pode exibir o impacto agregado de suas políticas de acesso condicional na
 Outra maneira de validar sua política de acesso condicional é usando a [ferramenta e-se](troubleshoot-conditional-access-what-if.md), que simula quais políticas se aplicam a um usuário que entra em circunstâncias hipotéticas. Selecione os atributos de entrada que você deseja testar (como usuário, aplicativo, plataforma de dispositivo e local) e veja quais políticas se aplicam.
 
 > [!NOTE] 
-> Embora uma execução simulada dê uma impressão do impacto que uma política de acesso condicional tem, ela não substitui uma execução de teste real.
+> Embora uma execução simulada lhe dê uma boa ideia do impacto de uma política de acesso condicional, ela não substitui uma execução de teste real.
 
 ### <a name="test-your-policy"></a>Testar sua política
 
@@ -442,14 +434,14 @@ Caso você precise reverter as suas políticas recentemente implementadas, use u
 
 ## <a name="manage-access-to-cloud-apps"></a>Gerenciar o acesso aos aplicativos de nuvem
 
-Use as seguintes opções de gerenciamento para controlar e gerenciar suas políticas de autoridade de certificação:
+Use as seguintes opções de gerenciamento para controlar e gerenciar suas políticas de acesso condicional:
 
 ![Captura de tela mostra as opções de gerenciar para C uma políticas, incluindo locais nomeados, controles personalizados, Termos de uso, conectividade V P N e as políticas clássicas selecionadas.](media/plan-conditional-access/manage-access.png)
 
 
 ### <a name="named-locations"></a>Localizações nomeadas
 
-A condição de localização de uma política de acesso condicional permite que você ligue as configurações de controle de acesso aos locais de rede dos usuários. Com [Localizações denominadas](location-condition.md), você pode criar agrupamentos lógicos de intervalos de endereços IP, países e regiões.
+A condição de local de uma política de acesso condicional permite que você vincule as configurações de controles de acesso aos locais de rede dos usuários. Com [Localizações denominadas](location-condition.md), você pode criar agrupamentos lógicos de intervalos de endereços IP, países e regiões.
 
 ### <a name="custom-controls"></a>Controles personalizados
 
@@ -459,9 +451,9 @@ A condição de localização de uma política de acesso condicional permite que
 
 Antes de acessar determinados aplicativos de nuvem em seu ambiente, talvez você queira obter o consentimento dos usuários ao aceitar os Termos de uso (ToU). Siga este [Início rápido para criar os Termos de uso](require-tou.md).
 
-## <a name="troubleshoot-conditional-access"></a>Solucionar Problemas de Acesso Condicional
+## <a name="troubleshoot-conditional-access"></a>Solucionar problemas de acesso condicional
 
-Quando um usuário estiver tendo um problema com uma política de autoridade de certificação, colete as informações a seguir para facilitar a solução de problemas.
+Quando um usuário estiver tendo um problema com uma política de acesso condicional, colete as informações a seguir para facilitar a solução de problemas.
 
 * Nome de princípio de usuário
 
@@ -493,4 +485,4 @@ Após recolher as informações, consulte os recursos a seguir:
 
 [Saiba mais sobre Proteção de identidade](../identity-protection/overview-identity-protection.md)
 
-[Gerenciar políticas de CA com Microsoft Graph API](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md)
+[Gerenciar políticas de acesso condicional com a API Microsoft Graph](/graph/api/resources/conditionalaccesspolicy)

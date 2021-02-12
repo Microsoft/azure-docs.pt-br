@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 09/22/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: dc0cdca2355403bc8f5409d9a6ca7f4ae89caf25
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7d38ee1782987afce703fbd8b4203186bbcbb505
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90943197"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754471"
 ---
 # <a name="quickstart-protect-an-aspnet-core-web-api-with-microsoft-identity-platform"></a>Início Rápido: Proteger uma API Web ASP.NET Core com a plataforma de identidade da Microsoft
 
-Neste guia de início rápido, você usará um exemplo de código para aprender a proteger uma API Web ASP.NET Core, de modo que ela possa ser acessada somente por contas autorizadas. As contas podem ser contas pessoais (hotmail.com, outlook.com e outras) e contas corporativas e de estudante em qualquer instância do Azure AD (Azure Active Directory).
+Neste guia de início rápido, você baixará um exemplo de código da API Web ASP.NET Core e examinará o código que restringe o acesso aos recursos somente às contas autorizadas. O exemplo dá suporte à autorização de contas Microsoft pessoais e contas em qualquer organização do Azure AD (Azure Active Directory).
 
 > [!div renderon="docs"]
 > ## <a name="prerequisites"></a>Pré-requisitos
@@ -35,15 +35,13 @@ Neste guia de início rápido, você usará um exemplo de código para aprender 
 >
 > Primeiro, registre a API Web no seu locatário do Azure AD e adicione um escopo seguindo estas etapas:
 >
-> 1. Entre no [portal do Azure](https://portal.azure.com).
+> 1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 > 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
 > 1. Pesquise **Azure Active Directory** e selecione-o.
-> 1. Em **Gerenciar**, selecione **Registros de aplicativo** e **Novo registro**.
+> 1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
 > 1. Insira um **Nome** para seu aplicativo, por exemplo, `AspNetCoreWebApi-Quickstart`. Os usuários do seu aplicativo podem ver esse nome e você pode alterá-lo mais tarde.
 > 1. Selecione **Registrar**.
-> 1. Em **Gerenciar**, selecione **Expor uma API**
-> 1. Selecione **Adicionar um escopo** e **Salvar e continuar** para aceitar o **URI da ID do Aplicativo** padrão.
-> 1. No painel **Adicionar um escopo**, insira os seguintes valores:
+> 1. Em **Gerenciar**, selecione **Expor uma API** > **Adicionar um escopo**. Aceite o **URI da ID do Aplicativo** padrão selecionando **Salvar e continuar** e insira os seguintes detalhes:
 >    - **Nome do escopo**: `access_as_user`
 >    - **Quem pode consentir?** : **Administradores e usuários**
 >    - **Nome de exibição de consentimento do administrador**: `Access AspNetCoreWebApi-Quickstart`
@@ -98,7 +96,7 @@ O middleware *Microsoft.AspNetCore.Authentication* usa a classe `Startup` execut
 
 O método `AddAuthentication()` configura o serviço para adicionar a autenticação baseada em JwtBearer.
 
-A linha que contém `.AddMicrosoftIdentityWebApi` adiciona a autorização da plataforma de identidade da Microsoft à sua API Web. Em seguida, ela é configurada para validar os tokens de acesso emitidos pelo ponto de extremidade da plataforma de identidade da Microsoft com base nas informações na seção `AzureAD` do arquivo de configuração *appsettings.json*:
+A linha que contém `.AddMicrosoftIdentityWebApi` adiciona a autorização da plataforma de identidade da Microsoft à sua API Web. Em seguida, ela é configurada para validar os tokens de acesso emitidos pela plataforma de identidade da Microsoft com base nas informações na seção `AzureAD` do arquivo de configuração *appsettings.json*:
 
 | chave *appsettings.json* | Descrição                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|

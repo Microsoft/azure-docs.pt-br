@@ -1,6 +1,6 @@
 ---
 title: Acesso seguro a um HSM gerenciado – HSM gerenciado do Azure Key Vault
-description: Saiba como proteger o acesso ao HSM gerenciado usando o RBAC do HSM gerenciado local e o RBAC do Azure
+description: Saiba como proteger o acesso ao HSM Gerenciado usando o RBAC do Azure e o RBAC local do HSM Gerenciado
 services: key-vault
 author: amitbapat
 tags: azure-resource-manager
@@ -9,18 +9,18 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 18ffa0f878effda8888200c13ab312851aaebdcd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99918d039052c9913400b85ac3caa4a1a5481155
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90992095"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445312"
 ---
 # <a name="secure-access-to-your-managed-hsms"></a>Proteger o acesso aos HSMs gerenciados
 
 O HSM gerenciado do Azure Key Vault é um serviço de nuvem que protege as chaves de criptografia. Como esses dados são confidenciais e comercialmente críticos, é necessário proteger o acesso aos seus HSMs gerenciados permitindo que apenas aplicativos e usuários autorizados os acessem. Este artigo apresenta uma visão geral do modelo de controle de acesso do HSM gerenciado. Explica a autenticação e a autorização e descreve como proteger o acesso ao seus HSMs gerenciados.
 
-Este tutorial orientará você por um exemplo simples que mostra como obter separação de tarefas e controle de acesso usando o RBAC do Azure e o RBAC do HSM gerenciado local. Confira [Controle de acesso do HSM gerenciado](access-control.md) para aprender sobre o modelo de controle de acesso do HSM gerenciado.
+Este tutorial apresentará um exemplo simples que mostra como obter a diferenciação de direitos e o controle de acesso usando o RBAC do Azure e o RBAC local do HSM Gerenciado. Confira [Controle de acesso do HSM gerenciado](access-control.md) para aprender sobre o modelo de controle de acesso do HSM gerenciado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

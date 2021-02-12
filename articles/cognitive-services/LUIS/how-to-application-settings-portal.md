@@ -3,14 +3,14 @@ title: Configurações do aplicativo
 description: Configure as definições do seu aplicativo e da versão no portal do LUIS, como a normalização do enunciado e a privacidade do aplicativo.
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: quickstart
-ms.date: 05/17/2020
-ms.openlocfilehash: 0a07e423b5307934938727cd8ccc475989e04362
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.topic: conceptual
+ms.date: 11/30/2020
+ms.openlocfilehash: aabe05924e781fbab5f92bd620ddcd566365f7e8
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91309618"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436633"
 ---
 # <a name="application-and-version-settings"></a>Configurações do aplicativo e da versão
 

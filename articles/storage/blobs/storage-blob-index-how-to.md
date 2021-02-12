@@ -3,18 +3,18 @@ title: Usar marcas de índice de BLOB para gerenciar e localizar dados no armaze
 description: Consulte exemplos de como usar marcas de índice de BLOB para categorizar, gerenciar e consultar objetos de BLOB.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 10/19/2020
+ms.date: 11/19/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 159252cf850fd59f40d1b59e592153f50d7cb813
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 411815ca2f947c47b8dfb0d2e5d61f8ea18f3545
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371963"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95541242"
 ---
 # <a name="use-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Usar marcas de índice de BLOB (versão prévia) para gerenciar e localizar dados no armazenamento de BLOBs do Azure
 
@@ -38,7 +38,7 @@ Como o índice de blob está em versão prévia, o pacote de armazenamento do .N
 
 2. No Gerenciador de pacotes NuGet, localize o pacote **Azure. Storage. BLOBs** e instale a versão **12.7.0-Preview. 1** ou mais recente em seu projeto. Você também pode executar o comando do PowerShell: `Install-Package Azure.Storage.Blobs -Version 12.7.0-preview.1`
 
-   Para saber como, confira [Localizar e instalar um pacote](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
+   Para saber como, confira [Localizar e instalar um pacote](/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
 
 3. Adicione o seguinte usando as instruções na parte superior do seu arquivo de código.
 
@@ -56,7 +56,7 @@ Como o índice de blob está em versão prévia, o pacote de armazenamento do .N
 
 ## <a name="upload-a-new-blob-with-index-tags"></a>Carregar um novo blob com marcas de índice
 
-O carregamento de um novo BLOB com marcas de índice pode ser executado pelo [proprietário de dados do blob de armazenamento](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Além disso, os usuários com a `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` permissão [controle de acesso baseado em função](/azure/role-based-access-control/overview) podem executar essa operação.
+Essa tarefa pode ser executada por um [proprietário de dados de blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) ou uma entidade de segurança que tenha recebido permissão para a `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [operação do provedor de recursos do Azure](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) por meio de uma função personalizada do Azure.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -114,9 +114,9 @@ static async Task BlobIndexTagsOnCreate()
 
 ## <a name="get-set-and-update-blob-index-tags"></a>Obter, definir e atualizar marcas de índice de BLOB
 
-A obtenção de marcas de índice de blob pode ser executada pelo [proprietário de dados do blob de armazenamento](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Além disso, os usuários com a `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` permissão [controle de acesso baseado em função](/azure/role-based-access-control/overview) podem executar essa operação.
+A obtenção de marcas de índice de blob pode ser executada por um [proprietário de dados de blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) ou uma entidade de segurança que tenha recebido permissão para a operação do provedor de `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` [recursos do Azure](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) por meio de uma função personalizada do Azure.
 
-A configuração e a atualização de marcas de índice de blob podem ser executadas pelo [proprietário de dados do blob de armazenamento](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Além disso, os usuários com a `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` permissão [controle de acesso baseado em função](/azure/role-based-access-control/overview) podem executar essa operação.
+A configuração e a atualização de marcas de índice de blob podem ser executadas por um [proprietário de dados de blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) ou uma entidade de segurança que tenha recebido permissão para a operação do provedor de `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [recursos do Azure](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) por meio de uma função personalizada do Azure.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -132,7 +132,7 @@ A configuração e a atualização de marcas de índice de blob podem ser execut
 
 6. Selecione o botão **Salvar** para confirmar as atualizações do seu blob
 
-:::image type="content" source="media/storage-blob-index-concepts/blob-index-get-set-tags.png" alt-text="Captura de tela do portal do Azure mostrando como carregar um blob com marcas de índice.":::
+:::image type="content" source="media/storage-blob-index-concepts/blob-index-get-set-tags.png" alt-text="Captura de tela do portal do Azure mostrando como obter, definir, atualizar e excluir marcas de índice em BLOBs.":::
 
 # <a name="net"></a>[.NET](#tab/net)
 
@@ -193,7 +193,7 @@ static async Task BlobIndexTagsExample()
 
 ## <a name="filter-and-find-data-with-blob-index-tags"></a>Filtrar e localizar dados com marcas de índice de BLOB
 
-Pesquisar e filtrar por marcas de índice de blob podem ser executados pelo [proprietário de dados do blob de armazenamento](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Além disso, os usuários com a `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` permissão [controle de acesso baseado em função](/azure/role-based-access-control/overview) podem executar essa operação.
+Essa tarefa pode ser executada por um [proprietário de dados de blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) ou uma entidade de segurança que tenha recebido permissão para a `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` [operação do provedor de recursos do Azure](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) por meio de uma função personalizada do Azure.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -209,7 +209,7 @@ Dentro do portal do Azure, o filtro de marcas de índice de blob aplica automati
 
 5. Selecione o botão **Filtrar marcas do Índice de Blob** para adicionar filtros de marca adicionais (até 10)
 
-:::image type="content" source="media/storage-blob-index-concepts/blob-index-tag-filter-within-container.png" alt-text="Captura de tela do portal do Azure mostrando como carregar um blob com marcas de índice.":::
+:::image type="content" source="media/storage-blob-index-concepts/blob-index-tag-filter-within-container.png" alt-text="Captura de tela do portal do Azure mostrando como filtrar e localizar BLOBs marcados usando marcas de índice":::
 
 # <a name="net"></a>[.NET](#tab/net)
 
@@ -303,11 +303,11 @@ static async Task FindBlobsByTagsExample()
 
 4. Selecione conjunto de **filtros** para Adicionar filtro opcional para correspondência de prefixo e correspondência de índice de BLOB
 
-  :::image type="content" source="media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png" alt-text="Captura de tela do portal do Azure mostrando como carregar um blob com marcas de índice.":::
+  :::image type="content" source="media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png" alt-text="Captura de tela do portal do Azure mostrando como adicionar marcas de índice para o gerenciamento do ciclo de vida.":::
 
 5. Selecione **examinar + adicionar** para revisar as configurações de regra
 
-  :::image type="content" source="media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png" alt-text="Captura de tela do portal do Azure mostrando como carregar um blob com marcas de índice.":::
+  :::image type="content" source="media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png" alt-text="Captura de tela da portal do Azure mostrando uma regra de gerenciamento de ciclo de vida com marcas de índice de blob exemplo de filtro":::
 
 6. Selecione **Adicionar** para aplicar a nova regra à política de gerenciamento do ciclo de vida
 

@@ -3,14 +3,14 @@ title: Fazer backup de compartilhamentos de arquivos do Azure com CLI do Azure
 description: Saiba como usar CLI do Azure para fazer backup de compartilhamentos de arquivos do Azure no cofre dos serviços de recuperação
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: 12d258a3242530745cc8ce31afae18f622323488
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34eea8daa6a0a8920c842178664055838b06a78a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293231"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565884"
 ---
-# <a name="back-up-azure-file-shares-with-cli"></a>Fazer backup de compartilhamentos de arquivos do Azure com a CLI
+# <a name="back-up-azure-file-shares-with-azure-cli"></a>Fazer backup de compartilhamentos de arquivos do Azure com CLI do Azure
 
 A CLI (interface de linha de comando) do Azure fornece uma experiência de linha de comando para gerenciar recursos do Azure. É uma excelente ferramenta para a criação de automação personalizada para usar os recursos do Azure. Este artigo fornece detalhes sobre como fazer backup de compartilhamentos de arquivos do Azure com CLI do Azure. Você também pode executar essas etapas usando o [Azure PowerShell](./backup-azure-afs-automation.md) ou o [portal do Azure](backup-afs.md).
 
@@ -20,9 +20,9 @@ Ao final deste tutorial, você aprenderá a executar as operações abaixo com C
 * Habilitar backup para compartilhamentos de arquivos do Azure
 * Disparar um backup sob demanda para compartilhamentos de arquivos
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Para instalar e usar a CLI localmente, você deve executar a CLI do Azure versão 2.0.18 ou posterior. Para localizar a versão da CLI, `run az --version` . Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+ - Este tutorial requer a versão 2.0.18 ou posterior do CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 

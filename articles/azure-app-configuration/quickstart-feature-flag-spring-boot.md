@@ -1,18 +1,18 @@
 ---
 title: Início Rápido para adicionar sinalizadores de recursos ao Spring Boot com a Configuração de Aplicativos do Azure
 description: Adicionar sinalizadores de recursos a aplicativos Spring Boot e gerenciá-los usando a Configuração de Aplicativos do Azure
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.date: 04/18/2020
-ms.author: lcozzens
+ms.date: 08/06/2020
+ms.author: alkemper
 ms.custom: devx-track-java
-ms.openlocfilehash: 9a804bd40635cd039a2c099f98351b2487c554d3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: e931b974fc48d07237b2698e7782c48be20745d9
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075528"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930698"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Início Rápido: Adicionar sinalizadores de recursos a um aplicativo Spring Boot
 
@@ -286,7 +286,7 @@ Use o [Spring Initializr](https://start.spring.io/) para criar um novo projeto S
 
 1. Abra uma nova janela do navegador e acesse a URL: `http://localhost:8080/welcome`.
 
-    ![Inicialização local do aplicativo do Início Rápido](./media/quickstarts/spring-boot-feature-flag-local-before.png)
+    ![A captura de tela mostra uma janela de navegador com uma mensagem de boas-vindas.](./media/quickstarts/spring-boot-feature-flag-local-before.png)
 
 1. No portal da Configuração de Aplicativos, selecione **Gerenciador de Recursos** e altere o estado da chave **Beta** para **Ativado**:
 
@@ -296,7 +296,7 @@ Use o [Spring Initializr](https://start.spring.io/) para criar um novo projeto S
 
 1. Atualize a página do navegador para ver as novas definições de configuração.
 
-    ![Inicialização local do aplicativo do Início Rápido](./media/quickstarts/spring-boot-feature-flag-local-after.png)
+    ![A captura de tela mostra uma janela do navegador com uma mensagem de boas-vindas e um link Beta destacado.](./media/quickstarts/spring-boot-feature-flag-local-after.png)
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

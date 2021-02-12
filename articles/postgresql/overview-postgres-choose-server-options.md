@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: 8bc303f619d145cc280e6caab65781bd42d1b314
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: db80ae66761e49ce90f25a22f0e74cf8a1300796
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489686"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797240"
 ---
 # <a name="choose-the-right-postgresql-server-option-in-azure"></a>Escolher a opção certa do servidor PostgreSQL no Azure
 
@@ -21,7 +21,7 @@ Com o Azure, as suas cargas de trabalho do Servidor PostgreSQL podem ser executa
 Ao tomar essa decisão, considere as três opções a seguir na PaaS ou, como alternativa, em execução nas VMs do Azure (IaaS)
 - [Servidor Único do banco de dados do Azure para PostgreSQL](./overview-single-server.md)
 - [Servidor Flexível do banco de dados do Azure para PostgreSQL](./flexible-server/overview.md)
-- [Hiperescala (Citus) do banco de dados do Azure para PostgreSQL]()
+- [Hiperescala (Citus) do banco de dados do Azure para PostgreSQL](hyperscale/index.yml)
 
 A opção **PostgreSQL em VMs do Azure** se enquadra na categoria do setor de IaaS. Com esse serviço, você pode executar o Servidor PostgreSQL dentro de uma máquina virtual totalmente gerenciada na plataforma de nuvem do Azure. Todas as versões e edições recentes do PostgreSQL podem ser instaladas em uma máquina virtual IaaS. A diferença mais significativa do Banco de Dados do Azure para PostgreSQL é que o PostgreSQL em VMs do Azure oferece controle sobre o mecanismo de banco de dados. No entanto, esse controle é acompanhado da responsabilidade de gerenciar as VMs e muitas tarefas de DBA (administração de banco de dados). Essas tarefas incluem manutenção e aplicação de patches de servidores de banco de dados, recuperação de banco de dados e design de alta disponibilidade.
 

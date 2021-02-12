@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 97209dca7d30de037dbd21f5cc145b2941060e70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85512976"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015393"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Usar indicadores de monitoramento do StorSimple para gerenciar seu dispositivo
 
@@ -136,7 +136,7 @@ A ilustração a seguir ajuda a identificar os LEDs no controlador primário. (T
 Use a tabela a seguir para determinar se o módulo do controlador está operando corretamente.  
 
 ### <a name="controller-indicator-leds"></a>LEDs indicadores do controlador
-| LED | Descrição |
+| LED | Description |
 | --- | --- |
 | LED de ID (azul) |Indica se o módulo está sendo identificado. Se o LED azul estiver piscando em um controlador em execução, então o controlador é o controlador ativo e o outro é o controlador standby. Para saber mais, consulte [Identificar o controlador ativo no seu dispositivo](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
 | LED de falha (âmbar) |Indica uma falha no controlador. |

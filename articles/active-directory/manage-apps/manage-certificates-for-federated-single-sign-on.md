@@ -4,7 +4,7 @@ description: Saiba como personalizar a data de vencimento para seus certificados
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 04/04/2019
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1731d5ea5d8db9ea1c5855a32d2daca0387c0bf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9b6e81fd090a625ec7ac86963cc9d5e66f5010e
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763203"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259212"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gerenciar certificados para logon único federado no Azure Active Directory
 
@@ -30,7 +30,7 @@ Este artigo é relevante apenas para aplicativos que são configurados para usar
 
 ## <a name="auto-generated-certificate-for-gallery-and-non-gallery-applications"></a>Certificado gerado automaticamente para aplicativos da galeria e inexistentes na galeria
 
-Quando você adiciona um novo aplicativo da galeria e configura um logon baseado em SAML (selecionando SAML de **logon único**  >  **SAML** na página Visão geral do aplicativo), o Azure ad gera um certificado para o aplicativo que é válido por três anos. Para baixar o certificado ativo como um arquivo de certificado de segurança (**. cer**), retorne a essa página (**logon baseado em SAML**) e selecione um link de download no cabeçalho do **certificado de autenticação SAML** . Você pode escolher entre o certificado bruto (binário) ou o certificado Base64 (texto codificado em base 64). Para aplicativos da galeria, esta seção também pode mostrar um link para baixar o certificado como XML de metadados de Federação (um arquivo **. xml** ), dependendo do requisito do aplicativo.
+Quando você adiciona um novo aplicativo da galeria e configura um logon baseado em SAML (selecionando SAML de **logon único**  >   na página Visão geral do aplicativo), o Azure ad gera um certificado para o aplicativo que é válido por três anos. Para baixar o certificado ativo como um arquivo de certificado de segurança (**. cer**), retorne a essa página (**logon baseado em SAML**) e selecione um link de download no cabeçalho do **certificado de autenticação SAML** . Você pode escolher entre o certificado bruto (binário) ou o certificado Base64 (texto codificado em base 64). Para aplicativos da galeria, esta seção também pode mostrar um link para baixar o certificado como XML de metadados de Federação (um arquivo **. xml** ), dependendo do requisito do aplicativo.
 
 ![Opções de download de certificado de autenticação ativo SAML](./media/manage-certificates-for-federated-single-sign-on/active-certificate-download-options.png)
 
@@ -77,7 +77,7 @@ Em seguida, baixe o novo certificado no formato correto, carregue-o no aplicativ
 
 1. Nas instruções, observe o formato de codificação necessário para o carregamento do certificado.
 1. Siga as instruções na seção [certificado gerado automaticamente para galeria e aplicativos inexistentes na Galeria](#auto-generated-certificate-for-gallery-and-non-gallery-applications) anteriormente. Esta etapa baixa o certificado no formato de codificação necessário para carregar pelo aplicativo.
-1. Quando desejar passar para o novo certificado, volte para a página **certificado de autenticação SAML** e, na linha certificado recentemente salvo, selecione as reticências (**...**) e selecione **tornar o certificado ativo**. O status do novo certificado é alterado para **ativo**e o certificado anteriormente ativo muda para um status **inativo**.
+1. Quando desejar passar para o novo certificado, volte para a página **certificado de autenticação SAML** e, na linha certificado recentemente salvo, selecione as reticências (**...**) e selecione **tornar o certificado ativo**. O status do novo certificado é alterado para **ativo** e o certificado anteriormente ativo muda para um status **inativo**.
 1. Continue seguindo as instruções de configuração de logon do SAML do aplicativo que você exibiu anteriormente, para que você possa carregar o certificado de autenticação SAML no formato de codificação correto.
 
 ## <a name="add-email-notification-addresses-for-certificate-expiration"></a>Adicionar endereços de notificação por email para expiração do certificado
@@ -111,4 +111,4 @@ Se um certificado estiver prestes a expirar, você poderá renová-lo usando um 
 - [Tutoriais para a integração de aplicativos SaaS ao Azure Active Directory](../saas-apps/tutorial-list.md)
 - [Gerenciamento de aplicativos com o Azure Active Directory](what-is-application-management.md)
 - [Logon único em aplicativos no Azure Active Directory](what-is-single-sign-on.md)
-- [Depurar o logon único baseado em SAML para aplicativos no Azure Active Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+- [Depurar o logon único baseado em SAML para aplicativos no Azure Active Directory](./debug-saml-sso-issues.md)

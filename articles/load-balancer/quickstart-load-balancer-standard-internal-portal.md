@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: efe4753e78c6dd16fa0b6ce3e98dd21ceae52577
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f70116847a8743cf8b3cb56ff35f9d913f13f359
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047804"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562345"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Início Rápido: Criar um balanceador de carga interno para balancear a carga de VMs usando o portal do Azure
 
-Comece a usar o Azure Load Balancer por meio do portal do Azure para criar um balanceador de carga interno e duas máquinas virtuais.
+Comece a usar o Azure Load Balancer no portal do Azure para criar um balanceador de carga interno e três máquinas virtuais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,6 +45,10 @@ Nesta seção, você criará um balanceador de carga que faz o balanceamento da 
 
 Quando você cria um balanceador de carga interno, uma rede virtual é configurada como a rede para o balanceador de carga. 
 
+O seguinte diagrama mostra os recursos criados neste guia de início rápido:
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="Recursos do Standard Load Balancer criados para o guia de início rápido." border="false":::
+
 Um endereço IP privado na rede virtual é configurado como o front-end (chamado **LoadBalancerFrontend** por padrão) para o balanceador de carga. 
 
 O endereço IP do front-end pode ser **Estático** ou **Dinâmico**.
@@ -61,7 +65,7 @@ Nesta seção, você criará uma rede virtual e uma sub-rede.
     |------------------|-----------------------------------------------------------------|
     | **Detalhes do projeto**  |                                                                 |
     | Subscription     | Selecionar sua assinatura do Azure                                  |
-    | Grupo de recursos   | Selecione **myResourceGroupLB** |
+    | Grupo de recursos   | Selecione **CreateIntLBQS-rg** |
     | **Detalhes da instância** |                                                                 |
     | Nome             | Insira **myVNet**                                    |
     | Região           | Selecione **Oeste da Europa** |
@@ -106,10 +110,10 @@ Nesta seção, você criará uma rede virtual e uma sub-rede.
 
 2. Na guia **Informações Básicas** da página **Criar balanceador de carga**, insira ou selecione as seguintes informações: 
 
-    | Setting                 | Valor                                              |
+    | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscription               | Selecione sua assinatura.    |    
-    | Resource group         | Selecione **myResourceGroupLB** criado na etapa anterior.|
+    | Resource group         | Selecione **CreateIntLBQS-rg** criado na etapa anterior.|
     | Nome                   | Insira **myLoadBalancer**                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Type          | selecione **Interno**.                                        |
@@ -195,23 +199,21 @@ Nesta seção, você criará uma regra de balanceador de carga:
     | Porta de back-end | Insira **80**. |
     | Pool de back-end | Selecione **myBackendPool**.|
     | Investigação de integridade | Selecione **myHealthProbe**. |
-    | Criar regras de saída implícitas | Selecione **Não**.
-
+    | Tempo limite de ociosidade (minutos) | Mova o controle deslizante para **15** minutos. |
+    | Redefinição de TCP | Selecione **Habilitado**. |
+    
 4. Deixe o restante dos padrões e selecione **OK**.
-
->[!NOTE]
->As máquinas virtuais do pool de back-end não terão conectividade de saída com a Internet com essa configuração. </br> Para obter mais informações sobre como fornecer a conectividade de saída, confira: </br> **[Conexões de saída no Azure](load-balancer-outbound-connections.md)**</br> Opções para fornecer conectividade: </br> **[Configuração do balanceador de carga somente de saída](egress-only.md)** </br> **[O que é NAT de Rede Virtual?](https://docs.microsoft.com/azure/virtual-network/nat-overview)**
 
 ## <a name="create-backend-servers"></a>Criar servidores de back-end
 
 Nesta seção, você:
 
-* Criar duas máquinas virtuais para o pool de back-end do balanceador de carga.
+* Crie três máquinas virtuais para o pool de back-end do balanceador de carga.
 * Instale o IIS nas máquinas virtuais para testar o balanceador de carga.
 
 ### <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
-Nesta seção, você criará duas VMs (**myVM1**, **myVM2**).
+Nesta seção, você criará três VMs (**myVM1**, **myVM2** e **myVM3**).
 
 Essas VMs são adicionadas ao pool de back-end do balanceador de carga criado anteriormente.
 
@@ -219,11 +221,11 @@ Essas VMs são adicionadas ao pool de back-end do balanceador de carga criado an
    
 2. Em **Criar uma máquina virtual**, digite ou selecione os valores na guia **Informações Básicas**:
 
-    | Setting | Valor                                          |
+    | Configuração | Valor                                          |
     |-----------------------|----------------------------------|
     | **Detalhes do projeto** |  |
     | Subscription | Selecionar sua assinatura do Azure |
-    | Grupo de recursos | Selecione **myResourceGroupLB** |
+    | Grupo de recursos | Selecione **CreateIntLBQS-rg** |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **myVM1** |
     | Região | Selecione **Oeste da Europa** |
@@ -241,7 +243,7 @@ Essas VMs são adicionadas ao pool de back-end do balanceador de carga criado an
   
 4. Na guia Rede, selecione ou insira:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     |-|-|
     | **Interface de rede** |  |
     | Rede virtual | **myVNet** |
@@ -260,13 +262,13 @@ Essas VMs são adicionadas ao pool de back-end do balanceador de carga criado an
   
 6. Examine as configurações e selecione **Criar**.
 
-7. Siga as etapas 1 a 8 para criar uma VM adicional com os seguintes valores e todas as outras configurações iguais à **myVM1**:
+7. Siga as etapas 1 a 8 para criar mais duas VMs com os seguintes valores e todas as outras configurações iguais à **myVM1**:
 
-    | Configuração | VM 2|
-    | ------- | ----- |
-    | Nome |  **myVM2** |
-    | Zona de disponibilidade | **2** |
-    | Grupo de segurança de rede | Selecione o **myNSG** existente|
+    | Configuração | VM 2 | VM 3 |
+    | ------- | ----- | ---- |
+    | Nome |  **myVM2** | **myVM3** |
+    | Zona de disponibilidade | **2** | **3** |
+    | Grupo de segurança de rede | Selecione o **myNSG** existente| Selecione o **myNSG** existente |
 
 
 # <a name="basic-sku"></a>[**SKU Básico**](#tab/option-1-create-internal-load-balancer-basic)
@@ -277,6 +279,10 @@ Essas VMs são adicionadas ao pool de back-end do balanceador de carga criado an
 Nesta seção, você criará um balanceador de carga que faz o balanceamento da carga de máquinas virtuais. 
 
 Quando você cria um balanceador de carga interno, uma rede virtual é configurada como a rede para o balanceador de carga. 
+
+O seguinte diagrama mostra os recursos criados neste guia de início rápido:
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="Recursos do balanceador de carga básico criados no guia de início rápido." border="false":::
 
 Um endereço IP privado na rede virtual é configurado como o front-end (chamado **LoadBalancerFrontend** por padrão) para o balanceador de carga. 
 
@@ -294,7 +300,7 @@ Nesta seção, você criará uma rede virtual e uma sub-rede.
     |------------------|-----------------------------------------------------------------|
     | **Detalhes do projeto**  |                                                                 |
     | Subscription     | Selecionar sua assinatura do Azure                                  |
-    | Grupo de recursos   | Selecione **myResourceGroupLB** |
+    | Grupo de recursos   | Selecione **CreateIntLBQS-rg** |
     | **Detalhes da instância** |                                                                 |
     | Nome             | Insira **myVNet**                                    |
     | Região           | Selecione **Oeste da Europa** |
@@ -339,10 +345,10 @@ Nesta seção, você criará uma rede virtual e uma sub-rede.
 
 2. Na guia **Informações Básicas** da página **Criar balanceador de carga**, insira ou selecione as seguintes informações: 
 
-    | Setting                 | Valor                                              |
+    | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscription               | Selecione sua assinatura.    |    
-    | Resource group         | Selecione **myResourceGroupLB** criado na etapa anterior.|
+    | Resource group         | Selecione **CreateIntLBQS-rg** criado na etapa anterior.|
     | Nome                   | Insira **myLoadBalancer**                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Type          | selecione **Interno**.                                        |
@@ -355,7 +361,7 @@ Nesta seção, você criará uma rede virtual e uma sub-rede.
 
 4. Na guia **Examinar + criar**, selecione **Criar**.   
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-basic-internal-load-balancer.png" alt-text="Criar um balanceador de carga interno Standard." border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-basic-internal-load-balancer.png" alt-text="Criar um balanceador de carga interno básico." border="true":::
 
 ## <a name="create-load-balancer-resources"></a>Criar recursos do balanceador de carga
 
@@ -435,6 +441,7 @@ Nesta seção, você criará uma regra de balanceador de carga:
     | Porta de back-end | Insira **80**. |
     | Pool de back-end | Selecione **myBackendPool**.|
     | Investigação de integridade | Selecione **myHealthProbe**. |
+    | Tempo limite de ociosidade (minutos) | Mova o controle deslizante para **15** minutos. |
  
 4. Deixe o restante dos padrões e selecione **OK**.
 
@@ -442,13 +449,13 @@ Nesta seção, você criará uma regra de balanceador de carga:
 
 Nesta seção, você:
 
-* Criar duas máquinas virtuais para o pool de back-end do balanceador de carga.
+* Crie três máquinas virtuais para o pool de back-end do balanceador de carga.
 * Crie um conjunto de disponibilidade para as máquinas virtuais.
 * Instale o IIS nas máquinas virtuais para testar o balanceador de carga.
 
 ### <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
-Nesta seção, você criará duas VMs (**myVM1** e **myVM2**).
+Nesta seção, você criará três VMs (**myVM1**, **myVM2**, **myVM3**).
 
 As duas VMs serão adicionadas a um conjunto de disponibilidade chamado **myAvailabilitySet**.
 
@@ -458,11 +465,11 @@ Essas VMs são adicionadas ao pool de back-end do balanceador de carga criado an
    
 2. Em **Criar uma máquina virtual**, digite ou selecione os valores na guia **Informações Básicas**:
 
-    | Setting | Valor                                          |
+    | Configuração | Valor                                          |
     |-----------------------|----------------------------------|
     | **Detalhes do projeto** |  |
     | Subscription | Selecionar sua assinatura do Azure |
-    | Grupo de recursos | Selecione **myResourceGroupLB** |
+    | Grupo de recursos | Selecione **CreateIntLBQS-rg** |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **myVM1** |
     | Região | Selecione **Oeste da Europa** |
@@ -480,7 +487,7 @@ Essas VMs são adicionadas ao pool de back-end do balanceador de carga criado an
   
 4. Na guia Rede, selecione ou insira:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     |-|-|
     | **Interface de rede** |  |
     | Rede virtual | Selecione **myVNet** |
@@ -495,13 +502,13 @@ Essas VMs são adicionadas ao pool de back-end do balanceador de carga criado an
   
 6. Examine as configurações e selecione **Criar**.
 
-7. Siga as etapas 1 a 8 para criar uma VM adicional com os seguintes valores e todas as outras configurações iguais à **myVM1**:
+7. Siga as etapas 1 a 8 para criar mais duas VMs com os seguintes valores e todas as outras configurações iguais à **myVM1**:
 
-    | Configuração | VM 2 |
-    | ------- | ----- |
-    | Nome |  **myVM2** |
-    | Conjunto de disponibilidade| Selecione **myAvailabilitySet** |
-    | Grupo de segurança de rede | Selecione o **myNSG** existente|
+    | Configuração | VM 2 | VM 3 |
+    | ------- | ----- | ---- |
+    | Nome |  **myVM2** | **myVM3** |
+    | Conjunto de disponibilidade | Selecione **myAvailabilitySet** | Selecione **myAvailabilitySet** |
+    | Grupo de segurança de rede | Selecione o **myNSG** existente | Selecione o **myNSG** existente |
 
 ### <a name="add-virtual-machines-to-the-backend-pool"></a>Adicionar máquinas virtuais ao pool de back-end
 
@@ -515,7 +522,7 @@ As VMs criadas nas etapas anteriores devem ser adicionadas ao pool de back-end d
 
 4. Na seção **Máquinas virtuais**, selecione **+Adicionar**.
 
-5. Selecione as caixas ao lado de **myVM1** e **myVM2**.
+5. Selecione as caixas ao lado de **myVM1**, **myVM2** e **myVM3**.
 
 6. Selecione **Adicionar**.
 
@@ -530,11 +537,11 @@ Nesta seção, você criará uma VM chamada **myTestVM**.  Essa VM será usada p
    
 2. Em **Criar uma máquina virtual**, digite ou selecione os valores na guia **Informações Básicas**:
 
-    | Setting | Valor                                          |
+    | Configuração | Valor                                          |
     |-----------------------|----------------------------------|
     | **Detalhes do projeto** |  |
     | Subscription | Selecionar sua assinatura do Azure |
-    | Grupo de recursos | Selecione **myResourceGroupLB** |
+    | Grupo de recursos | Selecione **CreateIntLBQS-rg** |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **myTestVM** |
     | Região | Selecione **Oeste da Europa** |
@@ -551,7 +558,7 @@ Nesta seção, você criará uma VM chamada **myTestVM**.  Essa VM será usada p
   
 4. Na guia Rede, selecione ou insira:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     |-|-|
     | **Interface de rede** |  |
     | Rede virtual | **myVNet** |
@@ -566,7 +573,7 @@ Nesta seção, você criará uma VM chamada **myTestVM**.  Essa VM será usada p
 
 ## <a name="install-iis"></a>Instalar o IIS
 
-1. Selecione **Todos os serviços** no menu à esquerda, **Todos os recursos** e na lista de recursos e **myVM1**, que está localizada no grupo de recursos **myResourceGroupLB**.
+1. Selecione **Todos os serviços** no menu à esquerda, em seguida, **Todos os recursos** e, na lista de recursos, escolha **myVM1**, que está no grupo de recursos **CreateIntLBQS-rg**.
 
 2. Na página **Visão Geral**, selecione **Conectar** e **Bastion**.
 
@@ -595,7 +602,7 @@ Nesta seção, você criará uma VM chamada **myTestVM**.  Essa VM será usada p
    ```
 8. Feche a sessão do Bastion com **myVM1**.
 
-9. Repita as etapas de 1 a 6 para instalar o IIS e o arquivo iisstart.htm atualizado em **myVM2**.
+9. Repita as etapas de 1 a 6 para instalar o IIS e o arquivo iisstart.htm atualizado em **myVM2** e **myVM3**.
 
 
 ## <a name="test-the-load-balancer"></a>Testar o balanceador de carga
@@ -604,7 +611,7 @@ Nesta seção, você criará uma VM chamada **myTestVM**.  Essa VM será usada p
 
 2. Anote ou copie o endereço ao lado de **Endereço IP Privado** na **Visão geral** do **myLoadBalancer**.
 
-3. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos** e, na lista de recursos, selecione **myTestVM**, que está localizada no grupo de recursos **myResourceGroupLB**.
+3. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos** e, na lista de recursos, escolha **myTestVM**, que está no grupo de recursos **CreateIntLBQS-rg**.
 
 4. Na página **Visão Geral**, selecione **Conectar** e **Bastion**.
 
@@ -614,22 +621,22 @@ Nesta seção, você criará uma VM chamada **myTestVM**.  Essa VM será usada p
 
 8. Insira o endereço IP da etapa anterior na barra de endereços do navegador. A página padrão do servidor Web do IIS é exibida no navegador.
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Criar um balanceador de carga interno Standard." border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="A captura de tela mostra uma janela do navegador que exibe a página padrão, conforme esperado." border="true":::
    
 Para ver o balanceador de carga distribuir o tráfego entre as duas VMs, personalize a página padrão do servidor Web do IIS de cada VM e force a atualização do navegador da Web no computador cliente.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando não forem mais necessários, exclua o grupo de recursos, o balanceador de carga e todos os recursos relacionados. Para fazer isso, selecione o grupo de recursos **myResourceGroupLB** que contém os recursos e escolha **Excluir**.
+Quando não forem mais necessários, exclua o grupo de recursos, o balanceador de carga e todos os recursos relacionados. Para fazer isso, selecione o grupo de recursos **CreateIntLBQS-rg** que contém os recursos e escolha **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste início rápido, você:
 
 * Criou um balanceador de carga interno Standard ou Básico do Azure
-* Anexou duas VMs ao balanceador de carga.
+* Anexou três VMs ao balanceador de carga.
 * Configurou a regra de tráfego do balanceador de carga e a investigação de integridade e testou o balanceador de carga. 
 
-Para saber mais sobre o Azure Load Balancer, vá para...
+Para saber mais sobre o Azure Load Balancer, vá para:
 > [!div class="nextstepaction"]
-> [O que é o Azure Load Balancer?](load-balancer-overview.md) 
+> [O que é o Azure Load Balancer?](load-balancer-overview.md)

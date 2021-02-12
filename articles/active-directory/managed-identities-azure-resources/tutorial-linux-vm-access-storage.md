@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/14/2020
+ms.date: 10/23/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b61d3ed21d053fc7166b47c94a9ec61e355d199
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a4c7612188043be070ead92c88838b567b22787d
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89263154"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131262"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Tutorial: Usar uma identidade gerenciada atribuída pelo sistema da VM do Linux para acessar o Armazenamento do Azure 
 
@@ -33,9 +33,6 @@ Este tutorial mostra como usar uma identidade gerenciada atribuída pelo sistema
 > * Criar um contêiner de blobs em uma conta de armazenamento
 > * Conceder acesso de Identidade Gerenciada de Linux VM em um contêiner de Armazenamento do Azure
 > * Obter um token de acesso e usá-lo para chamar o Armazenamento do Azure
-
-> [!NOTE]
-> A autenticação do Azure Active Directory para Armazenamento do Azure está em versão prévia.
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -79,7 +76,10 @@ Arquivos exigem armazenamento de blobs, então é preciso criar um contêiner de
 
 ## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>Conceder à sua VM acesso a um contêiner do Armazenamento do Azure 
 
-Você pode usar a identidade gerenciada da VM para recuperar os dados no Azure Storage Blob.   
+Você pode usar a identidade gerenciada da VM para recuperar os dados no Azure Storage Blob.
+
+>[!NOTE]
+> Para obter mais informações sobre as várias funções que você pode usar para conceder permissões para o armazenamento, examine [Autorizar o acesso a blobs e filas usando o Azure Active Directory](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights)
 
 1. Navegue de volta para sua conta de armazenamento criado recentemente.  
 2. Clique no link do **Controle de acesso (IAM)** no painel à esquerda.  

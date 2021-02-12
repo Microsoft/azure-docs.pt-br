@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 07/14/2020
-ms.openlocfilehash: 87f3ea2d1ce8d3d9f2f584db379618fc6c4a4a67
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 595ec1aaa4aedc3916d1b4d46986dcabae887aaf
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491233"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93076394"
 ---
 # <a name="quickstart-build-a-go-app-with-the-gocql-client-to-manage-azure-cosmos-db-cassandra-api-data"></a>Início Rápido: Criar um aplicativo Go com o cliente do `gocql` para gerenciar dados da API do Cassandra para Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -225,7 +226,7 @@ func mapToUser(m map[string]interface{}) model.User {
 
 Como mencionado anteriormente, o aplicativo aceita a conectividade e as credenciais no formato de variáveis de ambiente. 
 
-1. Em sua conta do Azure Cosmos DB no [portal do Azure](https://portal.azure.com/), selecione **Cadeia de Conexão** . 
+1. Em sua conta do Azure Cosmos DB no [portal do Azure](https://portal.azure.com/), selecione **Cadeia de Conexão**. 
 
     :::image type="content" source="./media/create-cassandra-go/copy-username-connection-string-azure-portal.png" alt-text="Ver e copiar detalhes da página Cadeia de Conexão no portal do Azure":::
 
@@ -254,7 +255,7 @@ go run main.go
 
 4. No portal do Azure, abra **Data Explorer** para consultar, modificar e trabalhar com esses novos dados. 
 
-    :::image type="content" source="./media/create-cassandra-go/view-data-explorer-go-app.png" alt-text="Ver e copiar detalhes da página Cadeia de Conexão no portal do Azure":::
+    :::image type="content" source="./media/create-cassandra-go/view-data-explorer-go-app.png" alt-text="Exibir os dados no Data Explorer – Azure Cosmos DB":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Examinar SLAs no Portal do Azure
 

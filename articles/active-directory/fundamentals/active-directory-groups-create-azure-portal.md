@@ -11,14 +11,14 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: ajburnle
 ms.reviewer: krbain
-ms.custom: it-pro, seodec18, contperfq4
+ms.custom: it-pro, seodec18, contperf-fy20q4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e4533334204a3a1cfd46ff27b04ff0c05350dfc
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f8041656a11689d0cca64c3edae1af2e70409028
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371844"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027706"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Criar um grupo básico e adicionar membros usando o Azure Active Directory
 Você pode criar um grupo básico usando o portal do Azure AD (Azure Active Directory). Para os fins deste artigo, um grupo básico é adicionado a um único recurso pelo proprietário do recurso (administrador) e inclui membros específicos (funcionários) que precisam acessar o recurso. Para cenários mais complexos, incluindo associações dinâmicas e criação de regra, confira a [documentação de gerenciamento de usuário do Azure Active Directory](../enterprise-users/index.yml).
@@ -77,7 +77,7 @@ Você pode criar um grupo básico e adicionar seus membros ao mesmo tempo. Para 
 
 ## <a name="turn-on-or-off-group-welcome-email"></a>Ativar ou desativar o email de boas-vindas do grupo
 
-Quando qualquer novo grupo de Microsoft 365 é criado, seja com associação dinâmica ou estática, uma notificação de boas-vindas é enviada a todos os usuários que são adicionados ao grupo. Quando um atributo de um usuário ou dispositivo é alterado, todas as regras de grupos dinâmicos na organização são processadas para possíveis alterações de associação. Os usuários que são adicionados também recebem a notificação de boas-vindas. É possível desativar esse comportamento no [PowerShell do Exchange](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
+Quando qualquer novo grupo de Microsoft 365 é criado, seja com associação dinâmica ou estática, uma notificação de boas-vindas é enviada a todos os usuários que são adicionados ao grupo. Quando um atributo de um usuário ou dispositivo é alterado, todas as regras de grupos dinâmicos na organização são processadas para possíveis alterações de associação. Os usuários que são adicionados também recebem a notificação de boas-vindas. É possível desativar esse comportamento no [PowerShell do Exchange](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

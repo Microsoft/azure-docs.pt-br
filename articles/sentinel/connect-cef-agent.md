@@ -9,17 +9,17 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/01/2020
+ms.date: 01/05/2021
 ms.author: yelevin
-ms.openlocfilehash: 6ab02cc7e60870852666c8c01ccc17a1b1102a62
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8261856598a155e97f90ea350cedcd4c10e6893c
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742843"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747299"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>Etapa 1: implantar o encaminhador de log
 
@@ -38,24 +38,32 @@ Nesta etapa, você designará e configurará o computador Linux que encaminhará
 
 - Você deve ter permissões elevadas (sudo) em seu computador Linux designado.
 
-- Você deve ter o **python 2,7** instalado no computador Linux.<br>Use o `python -version` comando para verificar.
+- Você deve ter o **python 2,7** ou **3** instalado no computador Linux.<br>Use o `python -version` comando para verificar.
 
 - O computador Linux não deve estar conectado a nenhum espaço de trabalho do Azure antes de instalar o agente de Log Analytics.
 
-- Talvez seja necessário a ID do espaço de trabalho e a chave primária do espaço de trabalho em algum momento nesse processo. Você pode encontrá-los no recurso de espaço de trabalho, em **Gerenciamento de agentes** .
+- Seu computador Linux deve ter, no mínimo **, 4 núcleos de CPU e 8 GB de RAM**.
+
+    > [!NOTE]
+    > - Um único computador de encaminhador de log usando o daemon do **rsyslog** tem uma capacidade com suporte de **até 8500 de eventos por segundo (EPS)** coletados.
+
+- Talvez seja necessário a ID do espaço de trabalho e a chave primária do espaço de trabalho em algum momento nesse processo. Você pode encontrá-los no recurso de espaço de trabalho, em **Gerenciamento de agentes**.
 
 ## <a name="run-the-deployment-script"></a>Executar o script de implantação
  
-1. No menu de navegação do Azure Sentinel, clique em **conectores de dados** . Na lista de conectores, clique no bloco **CEF (formato de evento comum)** e, em seguida, no botão **abrir página do conector** no canto inferior direito. 
+1. No menu de navegação do Azure Sentinel, clique em **conectores de dados**. Na lista de conectores, clique no bloco **CEF (formato de evento comum)** e, em seguida, no botão **abrir página do conector** no canto inferior direito. 
 
-1. Em **1,2 Instale o coletor CEF no computador Linux** , copie o link fornecido em **executar o script a seguir para instalar e aplicar o coletor CEF** ou do texto abaixo (aplicando a ID do espaço de trabalho e a chave primária no lugar dos espaços reservados):
+1. Em **1,2 Instale o coletor CEF no computador Linux**, copie o link fornecido em **executar o script a seguir para instalar e aplicar o coletor CEF** ou do texto abaixo (aplicando a ID do espaço de trabalho e a chave primária no lugar dos espaços reservados):
 
     ```bash
-    sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]`
+    sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]
     ```
 
 1. Enquanto o script estiver em execução, verifique se você não recebe mensagens de erro ou de aviso.
     - Você pode receber uma mensagem direcionando para executar um comando para corrigir um problema com o mapeamento do campo *computador* . Consulte a [explicação no script de implantação](#mapping-command) para obter detalhes.
+
+1. Continue na [etapa 2: configurar sua solução de segurança para encaminhar mensagens CEF](connect-cef-solution-config.md).
+
 
 > [!NOTE]
 > **Usando o mesmo computador para encaminhar mensagens de syslog *e* CEF simples**
@@ -67,7 +75,16 @@ Nesta etapa, você designará e configurará o computador Linux que encaminhará
 > 1. Você deve executar o comando a seguir nessas máquinas para desabilitar a sincronização do agente com a configuração de syslog no Azure Sentinel. Isso garante que a alteração de configuração feita na etapa anterior não seja substituída.<br>
 > `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
 
-Continue na [etapa 2: configurar sua solução de segurança para encaminhar mensagens CEF](connect-cef-solution-config.md) .
+> [!NOTE]
+> **Alterando a origem do campo TimeGenerated**
+>
+> - Por padrão, o agente de Log Analytics popula o campo *TimeGenerated* no esquema com a hora em que o agente recebeu o evento do daemon syslog. Como resultado, a hora em que o evento foi gerado no sistema de origem não é registrada no Azure Sentinel.
+>
+> - No entanto, você pode executar o comando a seguir, que baixará e executará o `TimeGenerated.py` script. Esse script configura o agente de Log Analytics para preencher o campo *TimeGenerated* com a hora original do evento em seu sistema de origem, em vez da hora em que ele foi recebido pelo agente.
+>
+>    ```bash
+>    wget -O TimeGenerated.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/TimeGenerated.py && python TimeGenerated.py {ws_id}
+>    ```
 
 ## <a name="deployment-script-explained"></a>Script de implantação explicado
 
@@ -82,8 +99,8 @@ Escolha um daemon syslog para ver a descrição apropriada.
     - Baixa o script de instalação para o agente do Log Analytics (OMS) do Linux.
 
         ```bash
-        wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/
-            onboard_agent.sh
+        wget -O onboard_agent.sh https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/
+            master/installer/scripts/onboard_agent.sh
         ```
 
     - Instala o agente de Log Analytics.
@@ -97,7 +114,7 @@ Escolha um daemon syslog para ver a descrição apropriada.
     - Baixa a configuração do repositório GitHub do agente de Log Analytics.
 
         ```bash
-        wget -o /etc/opt/microsoft/omsagent/[workspaceID]/conf/omsagent.d/security_events.conf
+        wget -O /etc/opt/microsoft/omsagent/[workspaceID]/conf/omsagent.d/security_events.conf
             https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/installer/conf/
             omsagent.d/security_events.conf
         ```
@@ -148,8 +165,8 @@ Escolha um daemon syslog para ver a descrição apropriada.
     - Baixa o script de instalação para o agente do Log Analytics (OMS) do Linux.
 
         ```bash
-        wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/
-            onboard_agent.sh
+        wget -O onboard_agent.sh https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/
+            master/installer/scripts/onboard_agent.sh
         ```
 
     - Instala o agente de Log Analytics.
@@ -163,7 +180,7 @@ Escolha um daemon syslog para ver a descrição apropriada.
     - Baixa a configuração do repositório GitHub do agente de Log Analytics.
 
         ```bash
-        wget -o /etc/opt/microsoft/omsagent/[workspaceID]/conf/omsagent.d/security_events.conf
+        wget -O /etc/opt/microsoft/omsagent/[workspaceID]/conf/omsagent.d/security_events.conf
             https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/installer/conf/
             omsagent.d/security_events.conf
         ```
@@ -177,8 +194,7 @@ Escolha um daemon syslog para ver a descrição apropriada.
         Conteúdo do `security-config-omsagent.conf` arquivo:
 
         ```bash
-        filter f_oms_filter {match(\"CEF\|ASA\" ) ;};
-        destination oms_destination {tcp(\"127.0.0.1\" port("25226"));};
+        filter f_oms_filter {match(\"CEF\|ASA\" ) ;};destination oms_destination {tcp(\"127.0.0.1\" port(25226));};
         log {source(s_src);filter(f_oms_filter);destination(oms_destination);};
         ```
 
@@ -208,9 +224,10 @@ Escolha um daemon syslog para ver a descrição apropriada.
         ```bash
         sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
         ```
+---
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Neste documento, você aprendeu a implantar o agente de Log Analytics para conectar dispositivos CEF ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
-- Comece a [detectar ameaças com o Azure Sentinel](tutorial-detect-threats.md).
-
+- Comece a [detectar ameaças com o Azure Sentinel](./tutorial-detect-threats-built-in.md).

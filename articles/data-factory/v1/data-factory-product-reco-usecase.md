@@ -3,8 +3,8 @@ title: Caso de uso do Data Factory - recomendações de produtos
 description: Saiba mais sobre um caso de uso implementado usando o Azure Data Factory junto com outros serviços.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.assetid: 6f1523c7-46c3-4b8d-9ed6-b847ae5ec4ae
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 3d9d41e80f78af7087c80592d927c193e494eab8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc1e0398f98dc72d57039530dce9751af012f154
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442387"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495286"
 ---
 # <a name="use-case---product-recommendations"></a>Caso de uso - recomendações de produtos
 O Azure Data Factory é um dos muitos serviços usados para implementar o Cortana Intelligence Suite de aceleradores de solução.  Consulte a página [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) para obter detalhes sobre este pacote. Neste documento, descrevemos um caso de uso comum que usuários do Azure já resolveram e implementaram usando o Azure Data Factory e outros serviços de componente do Cortana Intelligence.
@@ -41,7 +41,7 @@ Por fim, os revendedores devem avaliar a eficiência de sua abordagem acompanhan
 ## <a name="solution-overview"></a>Visão geral da solução
 Esse exemplo de caso de uso foi resolvido e implementado por usuários reais do Azure pelo uso do Azure Data Factory e outros serviços de componente de Cortana Intelligence, inclusive [HDInsight](https://azure.microsoft.com/services/hdinsight/) e [Power BI](https://powerbi.microsoft.com/).
 
-O varejista online usa um repositório de blob do Azure, um SQL Server local, um banco de dados SQL do Azure e um data mart relacional como suas opções de armazenamento de dados em todo o fluxo de trabalho.  O armazenamento de blob contém dados de informações de produto, dados de comportamento do cliente e informações do produto. Os dados de informações do produto incluem informações da marca do produto e um catálogo de produtos armazenado no local em uma análise de Synapse do Azure (anteriormente SQL Data Warehouse). 
+O varejista online usa um repositório de blob do Azure, um SQL Server local, um banco de dados SQL do Azure e um data mart relacional como suas opções de armazenamento de dados em todo o fluxo de trabalho.  O armazenamento de blob contém dados de informações de produto, dados de comportamento do cliente e informações do produto. Os dados de informações do produto incluem informações da marca do produto e um catálogo de produtos armazenado no local em uma análise de Synapse do Azure. 
 
 Todos os dados são combinados alimentados em um sistema de recomendação de produtos para fornecer recomendações personalizadas com base em ações e os interesses do cliente, enquanto o usuário procura produtos no catálogo existente no site. O cliente também vê produtos que estão relacionados ao produto está examinando com base nos padrões de uso geral do site, que não estão relacionadas a nenhum usuário específico.
 
@@ -53,7 +53,7 @@ O sistema de recomendação usado para o aprendizado de máquina neste exemplo �
 
 Por fim, o conjunto de resultados de recomendações de produtos personalizadas é movido para um data mart para dados relacionais para consumo pelo site do revendedor.  O conjunto de resultados também pode ser acessado diretamente do armazenamento de blob por outro aplicativo ou movido para repositórios adicionais para outros consumidores e casos de uso.
 
-## <a name="benefits"></a>Vantagens
+## <a name="benefits"></a>Benefícios
 Ao otimizar sua estratégia de recomendação de produtos e alinhá-la com as metas de negócios, a solução atendeu aos objetivos de marketing e gerenciamento de mercadorias do revendedor online. Além disso, eles conseguiram operacionalizar e gerenciar o fluxo de trabalho de recomendação de produtos de maneira eficiente, confiável e econômica. A abordagem facilitou para que eles possam atualizar seus modelos e ajustar sua eficácia com base em medidas de vendas bem-sucedidas de conversão de clique. Usando o Azure Data Factory, eles conseguiram abandonar seu gerenciamento de recursos de nuvem manual dispendioso e demorado e passar a usar o gerenciamento de recursos de nuvem sob demanda. Portanto, eles conseguiram economizar tempo, dinheiro e reduzir o tempo para implantação de soluções. Tornou-se fácil visualizar e solucionar problemas nas exibições de linhagem de dados e integridade do serviço operacional com a interface de usuário intuitiva de monitoramento e gerenciamento do Data Factory, disponível no Portal do Azure. Sua solução agora pode ser agendada e gerenciada de modo que os dados concluídos sejam produzidos e entregues aos usuários de maneira confiável e que os dados em dependências de processamento sejam gerenciados automaticamente, sem intervenção humana.
 
 Ao fornecer essa experiência personalizada de compra, o revendedor online criou uma experiência de cliente mais competitiva, atraente e, consequentemente, haverá aumento da satisfação geral e das vendas.

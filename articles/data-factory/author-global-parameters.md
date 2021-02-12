@@ -5,15 +5,15 @@ services: data-factory
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.date: 08/31/2020
-ms.openlocfilehash: c20bb77711833a1a17082e25e31d4a2e14db5bf9
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 676b954854fd0c2b0c4b12c654972e2e80cae781
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328157"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500165"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Parâmetros globais no Azure Data Factory
 

@@ -1,20 +1,19 @@
 ---
-title: Saída do Azure Stream Analytics para Banco de Dados SQL do Azure
+title: Aumentar o desempenho da taxa de transferência para o banco de dados SQL do Azure Azure Stream Analytics
 description: Saiba mais sobre realizar a saída de dados para o SQL Azure do Azure Stream Analytics e alcançar maiores taxas de transferência de gravação.
 author: chetanmsft
 ms.author: chetang
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: db396bbd2f26638c39f2573fb6014cd2602279d0
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 8baa33c8d9622ff76db04345f5c6c465f026e261
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129738"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020223"
 ---
-# <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Saída do Azure Stream Analytics para Banco de Dados SQL do Azure
+# <a name="increase-throughput-performance-to-azure-sql-database-from-azure-stream-analytics"></a>Aumentar o desempenho da taxa de transferência para o banco de dados SQL do Azure Azure Stream Analytics
 
 Este artigo aborda as dicas para obter um melhor desempenho de taxa de transferência de gravação quando você estiver carregando dados no Azure SQL Database usando Azure Stream Analytics.
 
@@ -35,7 +34,7 @@ Aqui estão algumas configurações dentro de cada serviço que podem ajudar a m
 
 ## <a name="sql-azure"></a>SQL Azure
 
-- **Índices e Tabela Particionados** – usar uma tabela SQL [particionada](/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-2017) e índices particionados na tabela com a mesma coluna como chave de partição (por exemplo, PartitionId) pode reduzir significativamente as contenções entre partições durante gravações. Para uma tabela particionada, você precisará criar uma [função de partição](/sql/t-sql/statements/create-partition-function-transact-sql?view=sql-server-2017) e um [esquema de partição](/sql/t-sql/statements/create-partition-scheme-transact-sql?view=sql-server-2017) no grupo de arquivos PRIMARY. Isso também aumentará a disponibilidade dos dados existentes enquanto novos dados estiverem sendo carregados. O limite de E/S de log pode ser atingido com base no número de partições, que pode ser aumentado atualizando a SKU.
+- **Índices e Tabela Particionados** – usar uma tabela SQL [particionada](/sql/relational-databases/partitions/partitioned-tables-and-indexes) e índices particionados na tabela com a mesma coluna como chave de partição (por exemplo, PartitionId) pode reduzir significativamente as contenções entre partições durante gravações. Para uma tabela particionada, você precisará criar uma [função de partição](/sql/t-sql/statements/create-partition-function-transact-sql) e um [esquema de partição](/sql/t-sql/statements/create-partition-scheme-transact-sql) no grupo de arquivos PRIMARY. Isso também aumentará a disponibilidade dos dados existentes enquanto novos dados estiverem sendo carregados. O limite de E/S de log pode ser atingido com base no número de partições, que pode ser aumentado atualizando a SKU.
 
 - **Evitar violações de chave exclusivas** – se você receber [várias mensagens de aviso de violação de chave](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) no Log de Atividades do Azure Stream Analytics, verifique se seu trabalho não é afetado por violações de restrição exclusivas que têm probabilidade de acontecer durante a casos de recuperação. Isso pode ser evitado configurando a opção [IGNORE\_DUP\_KEY](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) em seus índices.
 

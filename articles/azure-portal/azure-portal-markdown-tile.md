@@ -1,21 +1,15 @@
 ---
 title: Usar um bloco markdown personalizado nos painéis do Azure
 description: Saiba como adicionar um bloco markdown a um painel do Azure para exibir conteúdo estático
-services: azure-portal
-keywords: ''
-author: mgblythe
-ms.author: mblythe
 ms.date: 01/08/2020
 ms.topic: how-to
 ms.custom: devx-track-js
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: 5ca225f136b0c3a6fc8b47d00ff64064fe17d4ee
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 5121142ecf568aa1ac9a7ec19f7211c6f9a6253f
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281752"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745750"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Usar um bloco markdown em painéis do Azure para mostrar conteúdo personalizado
 
@@ -48,7 +42,7 @@ ms.locfileid: "92281752"
       ![Captura de tela mostrando a inserção da URL](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-url.png)
 
       > [!NOTE]
-      > Para maior segurança, você pode criar um arquivo de redução e armazená-lo em um [BLOB da conta de armazenamento do Azure em que a criptografia está habilitada](../storage/common/storage-service-encryption.md)e, em seguida, apontar para o arquivo usando a opção URL. O conteúdo de redução é criptografado por meio das opções de criptografia da conta de armazenamento. Somente os usuários com permissões para o arquivo podem ver o conteúdo de redução no painel. Defina uma regra de compartilhamento de recursos entre origens (CORS) na conta de armazenamento para que o portal do Azure ( _https://portal.azure.com/_ ) possa acessar o arquivo de redução no BLOB.
+      > Para maior segurança, você pode criar um arquivo de redução e armazená-lo em um [BLOB da conta de armazenamento do Azure em que a criptografia está habilitada](../storage/common/storage-service-encryption.md)e, em seguida, apontar para o arquivo usando a opção URL. O conteúdo de redução é criptografado por meio das opções de criptografia da conta de armazenamento. Somente os usuários com permissões para o arquivo podem ver o conteúdo de redução no painel. Talvez seja necessário definir uma regra de [compartilhamento de recursos entre origens (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) na conta de armazenamento para que o portal do Azure ( _https://portal.azure.com/_ ) possa acessar o arquivo de redução no BLOB.
 
 1. Selecione **Concluído** para ignorar o painel **Editar Markdown**. Seu conteúdo aparece no bloco de redução, que você pode redimensionar arrastando a alça no canto inferior direito.
 

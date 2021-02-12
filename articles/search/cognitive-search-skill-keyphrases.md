@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 145d8265412c4efcaa2afad97feb23528a36191d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fdebffbf9643febc08cba997b3a5a5fc4bb5998
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88936054"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652306"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Habilidade cognitiva de Extração de Frases-Chave
 
@@ -37,7 +37,7 @@ O tamanho máximo de um registro deve ser de 50.000 caracteres conforme medido p
 
 Os parâmetros diferenciam maiúsculas de minúsculas.
 
-| Entradas                | Descrição |
+| Entradas | Descrição |
 |---------------------|-------------|
 | `defaultLanguageCode` | (opcional) O código de idioma a ser aplicado a documentos que não especifica explicitamente o idioma.  Se o código de idioma padrão não for especificado, em inglês (en) será usado como o código de idioma padrão. <br/> Consulte [Lista completa dos idiomas com suporte](../cognitive-services/text-analytics/language-support.md). |
 | `maxKeyPhraseCount`   | (opcional) O número máximo de frases-chave para produzir. |

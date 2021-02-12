@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 286d826f61a6c99396ef04af0a0855567bc4d1e4
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 7615e1dbce040002d9d1a13502637f78100965fb
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951376"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538900"
 ---
 # <a name="features-of-azure-cognitive-search"></a>Recursos do Azure Pesquisa Cognitiva
 
@@ -49,7 +49,7 @@ O Azure Pesquisa Cognitiva fornece um mecanismo de pesquisa de texto completo, a
 
 | Categorias&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Recursos |
 |-------------------|----------|
-| Criptografia de dados | A [**criptografia em repouso gerenciada pela Microsoft**](search-security-overview.md#encrypted-transmissions-and-storage) está incorporada à camada de armazenamento interno e é irrevogável. <br/><br/>[**As chaves de criptografia gerenciadas pelo cliente**](search-security-manage-encryption-keys.md) que você cria e gerencia no Azure Key Vault podem ser usadas para a criptografia complementar de índices e mapas de sinônimos. Para serviços criados após 1 2020 de agosto, a criptografia CMK se estende aos dados em discos temporários, para criptografia dupla completa de conteúdo indexado.|
+| Criptografia de dados | A [**criptografia em repouso gerenciada pela Microsoft**](search-security-overview.md#encryption) está incorporada à camada de armazenamento interno e é irrevogável. <br/><br/>[**As chaves de criptografia gerenciadas pelo cliente**](search-security-manage-encryption-keys.md) que você cria e gerencia no Azure Key Vault podem ser usadas para a criptografia complementar de índices e mapas de sinônimos. Para serviços criados após 1 2020 de agosto, a criptografia CMK se estende aos dados em discos temporários, para criptografia dupla completa de conteúdo indexado.|
 | Endpoint Protection | [**Regras de IP para suporte de firewall de entrada**](service-configure-firewall.md) permite que você configure intervalos de IP nos quais o serviço de pesquisa aceitará solicitações.<br/><br/>[**Crie um ponto de extremidade privado**](service-create-private-endpoint.md) usando o link privado do Azure para forçar todas as solicitações por meio de uma rede virtual. |
 | Segurança de saída (indexadores) | O [**acesso a dados por meio de pontos de extremidade privados**](search-indexer-howto-access-private.md) permite que um indexador se conecte aos recursos do Azure protegidos por meio do link privado do Azure.<br/><br/>[**O acesso a dados usando uma identidade confiável**](search-howto-managed-identities-data-sources.md) significa que as cadeias de conexão para fontes de dados externas podem omitir nomes de usuário e senhas. Quando um indexador se conecta à fonte de dados, o recurso permite a conexão se o serviço de pesquisa foi registrado anteriormente como um serviço confiável. |
 
@@ -70,7 +70,7 @@ O Azure Pesquisa Cognitiva fornece um mecanismo de pesquisa de texto completo, a
 | SDK do Azure para Python | [**Azure-Search-Documents**](/python/api/overview/azure/search-documents-readme) é para operações de plano de dados, incluindo todas as operações relacionadas à indexação, consultas e enriquecimento de ia. Você também pode usar essa biblioteca de cliente para recuperar informações e estatísticas do sistema. <br/><br/>[**Azure-MGMT-Search**](/python/api/overview/azure/search/management) é para a criação e limpeza de serviço por meio de Azure Resource Manager. Você também pode usar essa API para gerenciar chaves e provisionar um serviço. |
 | SDK do Azure para JavaScript/TypeScript | o [**Azure/Search-Documents**](/javascript/api/@azure/search-documents/) é para operações de plano de dados, incluindo todas as operações relacionadas à indexação, consultas e enriquecimento de ia. Você também pode usar essa biblioteca de cliente para recuperar informações e estatísticas do sistema. <br/><br/>[**Azure/ARM-a pesquisa destina-**](/javascript/api/@azure/arm-search/) se à criação e limpeza de serviços por meio de Azure Resource Manager. Você também pode usar essa API para gerenciar chaves e provisionar um serviço. |
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 + [Novidades no Cognitive Search](whats-new.md)
 

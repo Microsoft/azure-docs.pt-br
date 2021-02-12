@@ -17,16 +17,14 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
-ms.openlocfilehash: 1d4fcc280ba2e34d2fa81584846441ad6fe81431
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8e300c9be8f3e59dc9443bf1f1806e4228992ad
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84708188"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790335"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-azure-powershell"></a>Gerenciar vazamento de dados para contas de armazenamento do Azure com políticas de ponto de extremidade de serviço de rede virtual usando Azure PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 As políticas de ponto de extremidade de serviço de rede virtual permitem que você aplique o controle de acesso nas contas de armazenamento do Azure de dentro de uma rede virtual em pontos de extremidade de serviço. Essa é uma chave para proteger suas cargas de trabalho, gerenciar quais contas de armazenamento são permitidas e onde os dados vazamento são permitidos.
 Neste artigo, você aprenderá como:
@@ -39,7 +37,9 @@ Neste artigo, você aprenderá como:
 * Confirme o acesso à conta de armazenamento permitida da sub-rede.
 * Confirme se o acesso foi negado à conta de armazenamento não permitida da sub-rede.
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

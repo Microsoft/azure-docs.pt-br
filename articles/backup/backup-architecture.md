@@ -3,12 +3,12 @@ title: Visão geral da arquitetura
 description: Fornece uma visão geral da arquitetura, componentes e processos usados pelo serviço de Backup do Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: f5d4c881244ddae41ba4c706812bd7b8274a374e
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 288b073c20b93bf1802f34f5dcd17b12430bb279
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173283"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427727"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitetura e componentes de backup do Azure
 
@@ -22,11 +22,11 @@ O backup do Azure faz backup dos dados, do estado da máquina e das cargas de tr
 
 Você pode fazer backup de computadores e dados usando vários métodos:
 
-- **Fazer backup dos computadores locais**:
+- **Fazer backup dos computadores locais** :
   - Você pode fazer backup de computadores Windows no local diretamente no Azure usando o agente de Serviços de Recuperação do Microsoft Azure de backup do Azure (MARS). Computadores Linux não tem suporte.
   - Você pode fazer backup de computadores locais em um servidor de backup – o System Center Data Protection Manager (DPM) ou o Backup do Microsoft Azure Server (MABS). Em seguida, você pode fazer backup do servidor de backup em um cofre dos serviços de recuperação no Azure.
 
-- **Fazer backup de VMs do Azure**:
+- **Fazer backup de VMs do Azure** :
   - Você pode fazer backup de VMs do Azure diretamente. O backup do Azure instala uma extensão de backup para o agente de VM do Azure que está em execução na VM. Essa extensão faz backup de toda a VM.
   - Você pode fazer backup de arquivos e pastas específicos na VM do Azure executando o agente MARS.
   - Você pode fazer backup de VMs do Azure para o MABS em execução no Azure e, em seguida, fazer backup do MABS em um cofre dos serviços de recuperação.
@@ -43,9 +43,9 @@ Os cofres têm os seguintes recursos:
 - Você pode monitorar itens com backup em um cofre, incluindo VMs do Azure e computadores locais.
 - Você pode gerenciar o acesso ao cofre com o [controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/role-assignments-portal.md).
 - Você especifica como os dados no cofre são replicados para redundância:
-  - **LRS (armazenamento com redundância local)**: para se proteger contra falhas em um datacenter, você pode usar o lRS. O LRS replica os dados para uma unidade de escala de armazenamento. [Saiba mais](../storage/common/storage-redundancy.md#locally-redundant-storage).
-  - **Armazenamento com redundância geográfica (GRS)**: para proteger contra interrupções em toda a região, você pode usar o grs. O GRS Replica seus dados para uma região secundária. [Saiba mais](../storage/common/storage-redundancy.md#geo-redundant-storage).
-  - **ZRS (armazenamento com redundância de zona)**: Replica seus dados em [zonas de disponibilidade](../availability-zones/az-overview.md#availability-zones), garantindo a resiliência e a resistência dos dados na mesma região. [Saiba mais](../storage/common/storage-redundancy.md#zone-redundant-storage)
+  - **LRS (armazenamento com redundância local)** : para se proteger contra falhas em um datacenter, você pode usar o lRS. O LRS replica os dados para uma unidade de escala de armazenamento. [Saiba mais](../storage/common/storage-redundancy.md#locally-redundant-storage).
+  - **Armazenamento com redundância geográfica (GRS)** : para proteger contra interrupções em toda a região, você pode usar o grs. O GRS Replica seus dados para uma região secundária. [Saiba mais](../storage/common/storage-redundancy.md#geo-redundant-storage).
+  - **ZRS (armazenamento com redundância de zona)** : Replica seus dados em [zonas de disponibilidade](../availability-zones/az-overview.md#availability-zones), garantindo a resiliência e a resistência dos dados na mesma região. [Saiba mais](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - Por padrão, os cofres dos serviços de recuperação usam GRS.
 
 Os cofres dos serviços de recuperação têm os seguintes recursos adicionais:
@@ -69,7 +69,7 @@ A tabela a seguir explica os diferentes tipos de backups e quando eles são usad
 --- | --- | ---
 **Full** | Um backup completo contém a fonte de dados inteira. Consome mais largura de banda de rede do que backups diferenciais ou incrementais. | Usado no backup inicial.
 **Diferencial** |  Um backup diferencial armazena os blocos que foram alterados desde o backup completo inicial. O usa uma quantidade menor de rede e armazenamento e não mantém cópias redundantes de dados inalterados.<br/><br/> Ineficiente porque os blocos de dados que são inalterados entre os backups posteriores são transferidos e armazenados. | Não é usada pelo Backup do Azure.
-**Lucrativ** | Um backup incremental armazena apenas os blocos de dados que foram alterados desde o backup anterior. Alto armazenamento e eficiência de rede. <br/><br/> Com o backup incremental, não é necessário complementar com backups completos. | Usado pelo MABS/DPM para backups em disco e usado em todos os backups no Azure. Não é usado para SQL Server Backup.
+**Incremental** | Um backup incremental armazena apenas os blocos de dados que foram alterados desde o backup anterior. Alto armazenamento e eficiência de rede. <br/><br/> Com o backup incremental, não é necessário complementar com backups completos. | Usado pelo MABS/DPM para backups em disco e usado em todos os backups no Azure. Não é usado para SQL Server Backup.
 
 ## <a name="sql-server-backup-types"></a>Tipos de backup do SQL Server
 
@@ -87,7 +87,7 @@ O consumo do armazenamento, o RTO (objetivo do tempo de recuperação) e o consu
 
 - A fonte de dados A é composta de 10 blocos de armazenamento, A1-A10, cujo backup é feito mensalmente.
 - Os blocos A2, A3, A4 e A9 alteram-se no primeiro mês e o bloco A5 altera-se no próximo mês.
-- Para backups diferenciais, no segundo mês é feito o backup dos blocos que foram alterados, A2, A3, A4 e A9. No terceiro mês, é feito novamente o backup desses mesmos blocos, junto com o bloco A5 que foi alterado. O backup dos blocos alterados continua a ser feito até que o próximo backup completo aconteça.
+- Para backups diferenciais, no segundo mês, os blocos a2, a3, A4 e A9 são submetidos a backup. No terceiro mês, é feito novamente o backup desses mesmos blocos, junto com o bloco A5 que foi alterado. O backup dos blocos alterados continua a ser feito até que o próximo backup completo aconteça.
 - Para backups incrementais, no segundo mês, os blocos a2, a3, A4 e A9 são marcados como alterados e transferidos. No terceiro mês, somente o bloco alterado A5 é marcado e transferido.
 
 ![Imagem mostrando comparações de métodos de backup](./media/backup-architecture/backup-method-comparison.png)
@@ -99,8 +99,8 @@ A tabela a seguir resume os recursos com suporte para os diferentes tipos de bac
 **Recurso** | **Backup direto de arquivos e pastas (usando o agente MARS)** | **Backup de VM do Azure** | **Computadores ou aplicativos com o DPM/MABS**
 --- | --- | --- | ---
 Fazer backup para o cofre | ![Sim][green] | ![Sim][green] | ![Sim][green]
-Fazer backup no disco do DPM/MABS e, em seguida, para o Azure | | | ![Sim][green]
-Compactar os dados enviados para backup | ![Sim][green] | Nenhuma compactação é usada durante a transferência de dados. O armazenamento está um pouco inflado, mas a restauração é mais rápida.  | ![Sim][green]
+Fazer backup no disco do DPM/MABS e, em seguida, para o Azure | | | ![Yes][green]
+Compactar os dados enviados para backup | ![Yes][green] | Nenhuma compactação é usada durante a transferência de dados. O armazenamento está um pouco inflado, mas a restauração é mais rápida.  | ![Yes][green]
 Executa o backup incremental |![Sim][green] |![Sim][green] |![Sim][green]
 Fazer backup de discos com eliminação de duplicação | | | ![Parcialmente][yellow]<br/><br/> Para servidores do MABS/DPM implantados apenas localmente.
 
@@ -123,6 +123,12 @@ Fazer backup de discos com eliminação de duplicação | | | ![Parcialmente][ye
 - Retenção de pontos de backup "mensais", "anuais" são chamados de retenção de longo prazo (EPD)
 - Quando um cofre é criado, um "DefaultPolicy" também é criado e pode ser usado para fazer backup de recursos.
 - Todas as alterações feitas no período de retenção de uma política de backup serão aplicadas retroativamente a todos os pontos de recuperação mais antigos além dos novos.
+
+### <a name="impact-of-policy-change-on-recovery-points"></a>Impacto da alteração de política em pontos de recuperação
+
+- A **duração da retenção foi aumentada/diminuída:** Quando a duração da retenção é alterada, a nova duração de retenção também é aplicada aos pontos de recuperação existentes. Como resultado, alguns dos pontos de recuperação serão limpos. Se o período de retenção for aumentado, os pontos de recuperação existentes também terão uma retenção maior.
+- **Alterado de diariamente para semanal:** Quando os backups agendados são alterados de diariamente para semana, os pontos de recuperação diários existentes são limpos.
+- **Alterado de semanal para diário:** Os backups semanais existentes serão mantidos com base no número de dias restantes de acordo com a política de retenção atual.
 
 ### <a name="additional-reference"></a>Referência adicional
 
@@ -204,7 +210,7 @@ Para obter mais informações sobre o armazenamento em disco e os tipos de disco
 
 Você pode fazer backup de VMs do Azure usando o armazenamento Premium com o backup do Azure:
 
-- Durante o processo de backup de VMs com o armazenamento Premium, o serviço de backup cria um local temporário de preparo, chamado *AzureBackup-*, na conta de armazenamento. O tamanho do local de preparo é igual ao tamanho do instantâneo do ponto de recuperação.
+- Durante o processo de backup de VMs com o armazenamento Premium, o serviço de backup cria um local temporário de preparo, chamado *AzureBackup-* , na conta de armazenamento. O tamanho do local de preparo é igual ao tamanho do instantâneo do ponto de recuperação.
 - Certifique-se de que a conta de armazenamento premium tenha espaço livre suficiente para acomodar o local de preparo temporário. Para obter mais informações, consulte [metas de escalabilidade para contas de armazenamento de blob de página Premium](../storage/blobs/scalability-targets-premium-page-blobs.md). Não modifique o local de preparo.
 - Após a conclusão do trabalho de backup, o local de preparo será excluído.
 - O preço do armazenamento usado para o local de preparo é consistente com os [preços do armazenamento premium](../virtual-machines/disks-types.md#billing).

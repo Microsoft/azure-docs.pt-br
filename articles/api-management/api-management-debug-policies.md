@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 4eb32243df219d721d7baae80984c45d0fc4cf25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8ed834c9ab093ae063e386978bca4d73fa46543
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91340792"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400719"
 ---
 # <a name="debug-azure-api-management-policies-in-visual-studio-code"></a>Depurar políticas de gerenciamento de API do Azure no Visual Studio Code
 
@@ -30,9 +30,11 @@ Este artigo descreve como depurar políticas de gerenciamento de API usando a [e
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Crie uma instância de camada de desenvolvedor de gerenciamento de API seguindo este [tutorial](get-started-create-service-instance.md) primeiro.
+* Crie uma instância de camada de desenvolvedor de gerenciamento de API seguindo este [início rápido](get-started-create-service-instance.md) primeiro.
 
-Instale [Visual Studio Code](https://code.visualstudio.com/) e a versão mais recente da [extensão de gerenciamento de API do Azure para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement). 
+* Instale [Visual Studio Code](https://code.visualstudio.com/) e a versão mais recente da [extensão de gerenciamento de API do Azure para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement). 
+
+* Importe uma API para sua instância de gerenciamento de API. Por exemplo, veja [o tutorial: usar a extensão de gerenciamento de API para Visual Studio Code para importar e gerenciar APIs](visual-studio-code-tutorial.md).
 
 ## <a name="restrictions-and-limitations"></a>Restrições e limitações
 

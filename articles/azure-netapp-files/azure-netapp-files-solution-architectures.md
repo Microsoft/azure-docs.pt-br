@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 02/03/2021
 ms.author: b-juche
-ms.openlocfilehash: 0818d113b5475e847c009f979345e103d6e089bb
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 390b025ec039d5b04cead3f6bb22fedd0e987673
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938858"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537772"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Arquiteturas da solução usando o Azure NetApp Files
 Este artigo fornece referências a práticas recomendadas que podem ajudá-lo a entender as arquiteturas de solução para usar o Azure NetApp Files.  
@@ -39,6 +39,9 @@ Esta seção fornece referências para soluções para bancos de dados e aplicat
 * [Imagens de VM Oracle e sua implantação no Microsoft Azure: opções de configuração de armazenamento compartilhado](../virtual-machines/workloads/oracle/oracle-vm-solutions.md#shared-storage-configuration-options)
 * [Benefícios do uso do Azure NetApp Files com o Oracle Database](solutions-benefits-azure-netapp-files-oracle-database.md)
 
+### <a name="machine-learning"></a>Machine Learning
+*   [Machine Learning Cloudera](https://docs.cloudera.com/machine-learning/cloud/requirements-azure/topics/ml-requirements-azure.html)
+
 ## <a name="windows-apps-and-sql-server-solutions"></a>Aplicativos do Windows e soluções de SQL Server
 
 Esta seção fornece referências para aplicativos do Windows e soluções de SQL Server.
@@ -47,6 +50,7 @@ Esta seção fornece referências para aplicativos do Windows e soluções de SQ
 
 * [Compilar seu próprio NFS do Azure? Compartilhamentos de arquivos do Linux extrair na nuvem](https://cloud.netapp.com/blog/ma-anf-blg-build-your-own-linux-nfs-file-shares)
 * [Implantação de Azure NetApp Files/cache de arquivos global](https://youtu.be/91LKb1qsLIM)
+* [Conformidade com a nuvem para Azure NetApp Files](https://cloud.netapp.com/hubfs/Cloud%20Compliance%20for%20Azure%20NetApp%20Files%20-%20November%202020.pdf)
 
 ### <a name="sql-server"></a>SQL Server
 
@@ -69,11 +73,18 @@ Esta seção fornece referências ao SAP em soluções do Azure.
 ### <a name="sap-hana"></a>SAP HANA 
 
 * [Configurações de armazenamento de máquina virtual do SAP HANA no Azure](../virtual-machines/workloads/sap/hana-vm-operations-storage.md)
+* [Volumes NFS v4.1 no Azure NetApp Files para SAP HANA](../virtual-machines/workloads/sap/hana-vm-operations-netapp.md)
 * [Alta disponibilidade de SAP HANA escalar verticalmente com Azure NetApp Files no Red Hat Enterprise Linux](../virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-red-hat.md)
 * [SAP HANA escalar horizontalmente com o nó em espera em VMs do Azure com Azure NetApp Files no SUSE Linux Enterprise Server](../virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse.md)
 * [SAP HANA escalar horizontalmente com o nó em espera em VMs do Azure com Azure NetApp Files no Red Hat Enterprise Linux](../virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel.md)
+* [Aplicativo Azure ferramenta de instantâneo consistente (AzAcSnap)](azacsnap-introduction.md)
+
+### <a name="sap-anydb"></a>AnyDB SAP
+
+* [Implantar o SAP AnyDB (Oracle 19C) com Azure NetApp Files](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-anydb-oracle-19c-with-azure-netapp-files/ba-p/2064043)
 
 ### <a name="sap-iq-nls"></a>SAP IQ-NLS
+
 *   [Implantar a solução SAP IQ-NLS HA usando o Azure NetApp Files no SUSE Linux Enterprise Server](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-iq-nls-ha-solution-using-azure-netapp-files-on-suse/ba-p/1651172#.X2tDfpNzBh4.linkedin)
 
 ### <a name="sap-tech-community-and-blog-posts"></a>Postagens de blog e comunidade do SAP Tech 
@@ -83,6 +94,10 @@ Esta seção fornece referências ao SAP em soluções do Azure.
 * [Azure NetApp Files – SAP HANA descarregar o backup com sincronização de nuvem](https://blog.netapp.com/azure-netapp-files-sap-hana)
 * [Acelere seu SAP HANA cópias do sistema usando Azure NetApp Files](https://blog.netapp.com/sap-hana-faster-using-azure-netapp-files/)
 * [Os volumes de nuvem ONTAP e Azure NetApp Files: SAP HANA a migração do sistema facilitada](https://blog.netapp.com/cloud-volumes-ontap-and-azure-netapp-files-sap-hana-system-migration-made-easy/)
+
+## <a name="azure-vmware-solutions"></a>Soluções do Azure VMware
+
+* [Azure NetApp Files com a solução VMware do Azure – montagens do SO convidado](../azure-vmware/netapp-files-with-azure-vmware-solution.md)
 
 ## <a name="virtual-desktop-infrastructure-solutions"></a>Soluções de Virtual Desktop Infrastructure
 
@@ -95,6 +110,7 @@ Esta seção fornece referências para soluções de infraestrutura de área de 
 * [Criar um contêiner de perfil do FSLogix para um pool de hosts usando Azure NetApp Files](../virtual-desktop/create-fslogix-profile-container.md)
 * [Área de Trabalho Virtual do Windows em escala corporativa](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
 * [Microsoft FSLogix para as práticas recomendadas de Azure NetApp Files empresarial](/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#azure-netapp-files-best-practices)
+* [Configurando Azure NetApp Files para anexação de aplicativo MSIX](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/setting-up-azure-netapp-files-for-msix-app-attach-step-by-step/m-p/1990021)
 
 ## <a name="hpc-solutions"></a>Soluções de HPC
 
@@ -119,7 +135,7 @@ Esta seção fornece referências para soluções de HPC (computação de alto d
 
 ### <a name="analytics"></a>Análise
 
-* [Azure NetApp Files: um novo sistema de arquivos compartilhado a ser usado com a grade SAS no Microsoft Azure](https://communities.sas.com/t5/Architecture/Azure-NetApp-Files-A-new-shared-file-system-to-use-with-SAS-Grid/m-p/606978)
+* [Azure NetApp Files: um sistema de arquivos compartilhado a ser usado com a grade SAS no Microsoft Azure](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/705192)
 * [Práticas recomendadas para usar Microsoft Azure com SAS®](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833#M19680)
 
 ## <a name="azure-platform-services-solutions"></a>Soluções de serviços da plataforma Azure
@@ -131,6 +147,7 @@ Esta seção fornece soluções para os serviços da plataforma Azure.
 * [Integrar Azure NetApp Files com o serviço kubernetes do Azure](../aks/azure-netapp-files.md)
 * [Desempenho de kubernetes fora do mundo no Azure com Azure NetApp Files](https://cloud.netapp.com/blog/ma-anf-blg-configure-kubernetes-openshift)
 * [Trident-orquestrador de armazenamento para contêineres](https://netapp-trident.readthedocs.io/en/stable-v20.04/kubernetes/operations/tasks/backends/anf.html)
+* [Magento a plataforma de comércio eletrônico no serviço kubernetes do Azure (AKS)](/azure/architecture/example-scenario/magento/magento-azure)
 
 ### <a name="azure-batch"></a>Lote do Azure
 

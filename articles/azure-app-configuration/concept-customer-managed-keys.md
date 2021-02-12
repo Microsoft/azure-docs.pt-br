@@ -1,17 +1,17 @@
 ---
 title: Usar chaves gerenciadas pelo cliente para criptografar seus dados de configuração
 description: Criptografar seus dados de configuração usando chaves gerenciadas pelo cliente
-author: lisaguthrie
-ms.author: lcozzens
-ms.date: 02/18/2020
+author: AlexandraKemperMS
+ms.author: alkemper
+ms.date: 07/28/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 8942c93b7346613b8cfdc97d9afe09f1c473fb10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46a1e99a7bc75efa85fcb5eff649c14af5abd17b
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87384864"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930493"
 ---
 # <a name="use-customer-managed-keys-to-encrypt-your-app-configuration-data"></a>Usar chaves gerenciadas pelo cliente para criptografar os dados de configuração do aplicativo
 Azure App configuração [criptografa informações confidenciais em repouso](../security/fundamentals/encryption-atrest.md). O uso de chaves gerenciadas pelo cliente fornece proteção de dados aprimorada, permitindo que você gerencie suas chaves de criptografia.  Quando a criptografia de chave gerenciada é usada, todas as informações confidenciais na configuração do aplicativo são criptografadas com uma chave de Azure Key Vault fornecida pelo usuário.  Isso fornece a capacidade de girar a chave de criptografia sob demanda.  Ele também fornece a capacidade de revogar o acesso de Azure App configuração a informações confidenciais revogando o acesso da instância de configuração de aplicativo à chave.

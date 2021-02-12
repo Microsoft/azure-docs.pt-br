@@ -6,22 +6,22 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/29/2020
-ms.openlocfilehash: 7ddfb3221c73c740a339dd8d9d4f60cca46c6425
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: d094e1760db1ddfcff520b0022a232735d21d355
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026761"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525815"
 ---
 # <a name="operationalinsights-api-version-retirement"></a>Desativação da versão da API do OperationalInsights
 A Microsoft fornece notificações com pelo menos 12 meses de antecedência para desativar uma API a fim de suavizar a transição para uma versão mais recente/com suporte. Lançamos uma nova versão (2020-08-01) para as APIs do provedor de recursos **OperationalInsights** e desativaremos todas as versões anteriores da API em 29 de fevereiro de 2024.
 
-Incentivamos você a começar a usar a versão 2020-08-01 agora para obter os benefícios da nova funcionalidade, como [cluster dedicado](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters), [chaves gerenciadas pelo cliente](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys), [link privado](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security) e [exportação de dados](https://docs.microsoft.com/azure/azure-monitor/platform/logs-data-export). Além disso, novos recursos e funcionalidades e otimizações são adicionados somente à API atual.
+Incentivamos você a começar a usar a versão 2020-08-01 agora para obter os benefícios da nova funcionalidade, como [cluster dedicado](../log-query/logs-dedicated-clusters.md), [chaves gerenciadas pelo cliente](./customer-managed-keys.md), [link privado](./private-link-security.md) e [exportação de dados](./logs-data-export.md). Além disso, novos recursos e funcionalidades e otimizações são adicionados somente à API atual.
 
 Após 29 de fevereiro de 2024 Azure Monitor não dará mais suporte a versões anteriores de APIs do que 2020-08-01. Se você preferir não atualizar, as solicitações enviadas de versões anteriores continuarão sendo servidas pelo serviço de Azure Monitor até 29 de fevereiro de 2024.
 
 ## <a name="migration-steps"></a>Etapas da migração
-Dependendo do método de configuração usado, você deve atualizar a nova versão em solicitações **REST** e modelos do **Resource Manager** . Siga os exemplos abaixo para atualizar a versão da API:
+Dependendo do método de configuração usado, você deve atualizar a nova versão em solicitações **REST** e modelos do **Resource Manager**. Siga os exemplos abaixo para atualizar a versão da API:
 
 1. As solicitações da API REST usam a versão da API na URL da solicitação. Substitua essa versão pela versão mais recente (2020-08-01), conforme mostrado no exemplo a seguir.
 
@@ -66,6 +66,15 @@ Dependendo do método de configuração usado, você deve atualizar a nova vers�
     }
     ```
 
+
+### <a name="more-information"></a>Mais informações
+Se você tiver dúvidas, obtenha respostas de [nossos especialistas em comunidade de tecnologia]( https://techcommunity.microsoft.com/t5/azure-monitor/bd-p/AzureMonitor). Se você tiver um plano de suporte e precisar de ajuda técnica, crie uma [solicitação de suporte]( https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest): 
+1.  Em *tipo de problema*, selecione **técnico**. 
+2.  Em *Assinatura*, selecione sua assinatura. 
+3.  Em *serviço*, selecione **meus serviços** e, em seguida, selecione **log Analytics**. 
+4.  Em *Resumo*, digite uma descrição do seu problema. 
+5.  Em *tipo de problema*, selecione **log Analytics gerenciamento de espaço de trabalho**.  
+6.  Em *subtipo de problema*, selecione **modelos de ARM, PowerShell e CLI**. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

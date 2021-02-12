@@ -1,19 +1,19 @@
 ---
 title: Use tokens de recurso do Azure Cosmos DB com o SDK do Gremlin
 description: Saiba como criar tokens de recurso e usá-los para acessar o banco de dados do Graph.
-author: jasonwhowell
-ms.author: jasonh
+author: christopheranderson
+ms.author: chrande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/06/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 74d851a28712beb80bf2a7aa196e471ef4f15074
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 22c048b748806404ccfa580e660552a1744f3781
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085727"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361686"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Use tokens de recurso do Azure Cosmos DB com o SDK do Gremlin
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -101,7 +101,7 @@ Com uma única conta do Gremlin, você pode emitir um número ilimitado de token
 
 ## <a name="permission"></a>Permissão
 
-Um erro comum que os aplicativos encontram enquanto estão usando tokens de recurso é "Permissões insuficientes fornecidas no cabeçalho de autorização para a solicitação correspondente. Tente novamente com outro cabeçalho de autorização". Esse erro é retornado quando a travessia do Gremlin tenta gravar uma borda ou um vértice, mas o token de recurso concede somente permissões de *Leitura* . Inspecione sua passagem para ver se ela contém qualquer uma das seguintes etapas:. *.addV()* , *.addE()* , *.drop()* ou *.property()* .
+Um erro comum que os aplicativos encontram enquanto estão usando tokens de recurso é "Permissões insuficientes fornecidas no cabeçalho de autorização para a solicitação correspondente. Tente novamente com outro cabeçalho de autorização". Esse erro é retornado quando a travessia do Gremlin tenta gravar uma borda ou um vértice, mas o token de recurso concede somente permissões de *Leitura*. Inspecione sua passagem para ver se ela contém qualquer uma das seguintes etapas:. *.addV()* , *.addE()* , *.drop()* ou *.property()*.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Controle de acesso baseado em função do Azure (RBAC do Azure)](role-based-access-control.md) no Azure Cosmos DB

@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.subservice: alerts
-ms.openlocfilehash: 23ebb513e55e6b61f608354ae1cb3bf3864a54ae
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f9005e95ac902a2d09b792c5f64520d0175c7707
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108840"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694965"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Criar Alertas de métrica para Logs no Azure Monitor
 
@@ -25,7 +25,7 @@ Você pode usar alertas de métrica em logs populares de Log Analytics extraído
 
 - [Contadores de desempenho](./data-sources-performance-counters.md) para computadores Windows e Linux
 - [Registros de pulsação para Integridade do Agente](../insights/solution-agenthealth.md)
-- Registros de [gerenciamento de atualizações](../../automation/update-management/update-mgmt-overview.md)
+- Registros de [gerenciamento de atualizações](../../automation/update-management/overview.md)
 - Logs de [dados de evento](./data-sources-windows-events.md)
 
 Há muitos benefícios de se usar os **Alertas de métrica para logs** em vez dos [Alertas de log](./alerts-log.md) no Azure. Alguns deles são listados abaixo:
@@ -55,7 +55,7 @@ Para que as Métricas para logs coletadas de dados do Log Analytics funcionem, o
 
 1. **Espaço de trabalho do Log Analytics ativo**: é necessário ter um espaço de trabalho do Log Analytics ativo e válido. Para obter mais informações, confira [Criar um espaço de trabalho do Log Analytics no portal do Azure](../learn/quick-create-workspace.md).
 2. **Agente está configurado para log Analytics espaço de trabalho**: o agente precisa ser configurado para VMs do Azure (e/ou) VMS locais para enviar dados para o espaço de trabalho log Analytics usado na etapa anterior. Para saber mais, confira [Log Analytics - Visão geral do agente](./agents-overview.md).
-3. As **soluções log Analytics com suporte estão instaladas**: a solução de log Analytics deve ser configurada e enviar dados para log Analytics soluções com suporte do espaço de trabalho são [contadores de desempenho para Windows & Linux](./data-sources-performance-counters.md), [registros de pulsação para integridade do agente](../insights/solution-agenthealth.md), [Gerenciamento de atualizações](../../automation/update-management/update-mgmt-overview.md)e [dados de eventos](./data-sources-windows-events.md).
+3. As **soluções log Analytics com suporte estão instaladas**: a solução de log Analytics deve ser configurada e enviar dados para log Analytics soluções com suporte do espaço de trabalho são [contadores de desempenho para Windows & Linux](./data-sources-performance-counters.md), [registros de pulsação para integridade do agente](../insights/solution-agenthealth.md), [Gerenciamento de atualizações](../../automation/update-management/overview.md)e [dados de eventos](./data-sources-windows-events.md).
 4. **As soluções do Log Analytics configuradas para enviar logs**: A solução Log Analytics deve ter os logs / dados correspondentes a [métricas compatíveis com espaços de trabalho do Log Analytics](./metrics-supported.md#microsoftoperationalinsightsworkspaces) ativados. Por exemplo, para *% de memória disponível*, o contador deve ser configurado na solução [Contadores de desempenho](./data-sources-performance-counters.md) primeiro.
 
 ## <a name="configuring-metric-alert-for-logs"></a>Como configurar o Alerta de métrica para logs
@@ -366,7 +366,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfrom
 Ou use Implantar o modelo de recurso usando a CLI do Azure:
 
 ```azurecli
-az group deployment create --resource-group myRG --template-file metricfromLogsAlertStatic.json --parameters @metricfromLogsAlertStatic.parameters.json
+az deployment group create --resource-group myRG --template-file metricfromLogsAlertStatic.json --parameters @metricfromLogsAlertStatic.parameters.json
 ```
 
 ### <a name="metric-alerts-for-logs-with-dynamic-thresholds"></a>Alertas de métrica para Logs com Limites Dinâmicos
@@ -682,7 +682,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfrom
 Ou use Implantar o modelo de recurso usando a CLI do Azure:
 
 ```azurecli
-az group deployment create --resource-group myRG --template-file metricfromLogsAlertDynamic.json --parameters @metricfromLogsAlertDynamic.parameters.json
+az deployment group create --resource-group myRG --template-file metricfromLogsAlertDynamic.json --parameters @metricfromLogsAlertDynamic.parameters.json
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

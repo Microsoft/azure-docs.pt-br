@@ -1,5 +1,5 @@
 ---
-title: Criar um pool de SQL usando o modelo do Azure Resource Manager
+title: Criar um pool de SQL dedicado (antigo SQL DW) usando o modelo do Azure Resource Manager
 description: Aprenda a criar um pool de SQL do Azure Synapse Analytics usando o modelo do Azure Resource Manager.
 services: azure-resource-manager
 author: julieMSFT
@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: jrasnick
 ms.date: 06/09/2020
-ms.openlocfilehash: 29d4e4d696b34aa493714c870ebb466f491c47fe
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 70adb7409c44a79345a192df173a1a073cc9b7dd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88641867"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460738"
 ---
-# <a name="quickstart-create-an-azure-synapse-analytics-sql-pool-by-using-an-arm-template"></a>Início Rápido: Criar um pool de SQL do Azure Synapse Analytics usando um modelo ARM
+# <a name="quickstart-create-an-azure-synapse-analytics-dedicated-sql-pool-formerly-sql-dw-by-using-an-arm-template"></a>Início rápido: Criar um pool de SQL dedicado do Azure Synapse Analytics (antigo SQL DW) usando um modelo do ARM
 
-Este modelo do Azure Resource Manager (modelo ARM) criará um pool de SQL do Azure Synapse Analytics com Transparent Data Encryption habilitada. O pool de SQL do Synapse refere-se aos recursos corporativos de data warehousing que estão em disponibilidade geral no Azure Synapse.
+Este modelo do ARM (Azure Resource Manager) criará um pool de SQL dedicado (antigo SQL DW) com a Transparent Data Encryption habilitada. O pool de SQL dedicado (antigo SQL DW) refere-se aos recursos empresariais de data warehouse que estão em disponibilidade geral no Azure Synapse.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -41,7 +41,7 @@ O modelo define um recurso:
 
 ## <a name="deploy-the-template"></a>Implantar o modelo
 
-1. Selecione a imagem a seguir para entrar no Azure e abrir o modelo. Este modelo cria um pool de SQL do Synapse.
+1. Selecione a imagem a seguir para entrar no Azure e abrir o modelo. Este modelo cria um pool de SQL dedicado (antigo SQL DW).
    
    [![Implantar no Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-sql-data-warehouse-transparent-encryption-create%2Fazuredeploy.json)
 
@@ -53,7 +53,7 @@ O modelo define um recurso:
    * **Nome do SQL Server**: aceite o nome padrão ou insira um nome para o SQL Server.
    * **Logon de Administrador**: insira o nome de usuário do administrador do SQL Server.
    * **Senha do administrador do SQL**: insira a senha de administrador para o SQL Server.
-   * **Nome do Data Warehouse**: insira um nome para o pool de SQL.
+   * **Nome do Data Warehouse**: insira um nome do pool de SQL dedicado.
    * **Transparent Data Encryption**: aceito o padrão, habilitado. 
    * **Objetivo de nível de serviço**: aceite o padrão, DW400c.
    * **Localização**: aceite o local padrão do grupo de recursos.
@@ -67,7 +67,7 @@ Você pode usar o portal do Azure para verificar os recursos implantados ou usar
 # <a name="cli"></a>[CLI](#tab/CLI)
 
 ```azurecli-interactive
-echo "Enter the resource group where your Synapse SQL pool exists:" &&
+echo "Enter the resource group where your dedicated SQL pool (formerly SQL DW) exists:" &&
 read resourcegroupName &&
 az resource list --resource-group $resourcegroupName 
 ```
@@ -75,7 +75,7 @@ az resource list --resource-group $resourcegroupName
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the resource group name where your SQL pool account exists"
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name where your dedicated SQL pool (formerly SQL DW) account exists"
 (Get-AzResource -ResourceType "Microsoft.Sql/servers/databases" -ResourceGroupName $resourceGroupName).Name
  Write-Host "Press [ENTER] to continue..."
 ```
@@ -107,7 +107,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você criou um pool de SQL do Azure Synapse Analytics usando um modelo do ARM e validou a implantação. Para saber mais sobre o Azure Synapse Analytics e o Azure Resource Manager, continue com os artigos abaixo.
+Neste início rápido, você criou um pool de SQL dedicado (antigo SQL DW) usando um modelo do ARM e validou a implantação. Para saber mais sobre o Azure Synapse Analytics e o Azure Resource Manager, confira os artigos abaixo.
 
 - Leia uma [Visão geral do Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md)
 - Saiba mais sobre o [Azure Resource Manager](../../azure-resource-manager/management/overview.md)

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2019
 ms.author: cawa
-ms.openlocfilehash: 07652f2ac88475664f30e8189204b5649f966d16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48f00d964a87790b8d8c9b1d8eceaed26d15199e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88033607"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95531960"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Gerenciar recursos de Armazenamento de Blobs com o Gerenciador de Armazenamento do Azure
 
 ## <a name="overview"></a>Visão geral
 
-O [armazenamento de BLOBs do Azure](storage/blobs/storage-dotnet-how-to-use-blobs.md) é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários, que podem ser acessados de qualquer lugar do mundo por meio de http ou HTTPS.
+O [armazenamento de BLOBs do Azure](./storage/blobs/storage-quickstart-blobs-dotnet.md) é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários, que podem ser acessados de qualquer lugar do mundo por meio de http ou HTTPS.
 Você pode usar o armazenamento de Blob para expor dados publicamente para o mundo ou para armazenar dados do aplicativo de forma privada. Neste artigo, você aprenderá a usar o Gerenciador de Armazenamento do Azure para trabalhar com blobs e contêineres de blobs.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -61,7 +61,7 @@ As etapas a seguir ilustram como exibir o conteúdo de um contêiner de blobs no
 
 1. Abra o Explorer do Armazenamento.
 2. No painel esquerdo, expanda a conta de armazenamento que contém o contêiner de blobs que você deseja exibir.
-3. Expanda os **Contêineres de Blob**da conta de armazenamento.
+3. Expanda os **Contêineres de Blob** da conta de armazenamento.
 4. Clique com o botão direito no contêiner de blob que você deseja exibir e, no menu de contexto, selecione **Abrir Editor do Contêiner de Blobs**.
    Você também pode clicar duas vezes no contêiner de blobs que deseja exibir.
 
@@ -78,7 +78,7 @@ As etapas a seguir ilustram como excluir um contêiner de blobs no Gerenciador d
 
 1. Abra o Explorer do Armazenamento.
 2. No painel esquerdo, expanda a conta de armazenamento que contém o contêiner de blobs que você deseja exibir.
-3. Expanda os **Contêineres de Blob**da conta de armazenamento.
+3. Expanda os **Contêineres de Blob** da conta de armazenamento.
 4. Clique com o botão direito no contêiner de blobs que você deseja excluir e, no menu de contexto, escolha **Excluir**.
    Você também pode pressionar **Excluir** para excluir o contêiner de blobs selecionado atualmente.
 
@@ -95,7 +95,7 @@ As etapas a seguir ilustram como copiar um contêiner de blobs de uma conta de a
 
 1. Abra o Explorer do Armazenamento.
 2. No painel esquerdo, expanda a conta de armazenamento que contém o contêiner de blobs que você deseja copiar.
-3. Expanda os **Contêineres de Blob**da conta de armazenamento.
+3. Expanda os **Contêineres de Blob** da conta de armazenamento.
 4. Clique com o botão direito no contêiner de blobs que você deseja copiar e, no menu de contexto, escolha **Copiar Contêiner de Blobs**.
 
    ![Menu de contexto Copiar contêiner de blobs][6]
@@ -105,14 +105,14 @@ As etapas a seguir ilustram como copiar um contêiner de blobs de uma conta de a
 
 ## <a name="get-the-sas-for-a-blob-container"></a>Obter a SAS para um contêiner de blob
 
-Uma [SAS (assinatura de acesso compartilhado)](storage/common/storage-dotnet-shared-access-signature-part-1.md) fornece acesso delegado aos recursos em sua conta de armazenamento.
+Uma [SAS (assinatura de acesso compartilhado)](./storage/common/storage-sas-overview.md) fornece acesso delegado aos recursos em sua conta de armazenamento.
 Isso significa que você pode conceder a um cliente permissões limitadas a objetos na sua conta de armazenamento por um período especificado e com um conjunto determinado de permissões, sem precisar compartilhar suas chaves de acesso de conta.
 
 As etapas a seguir ilustram como criar uma SAS para um contêiner de blobs:
 
 1. Abra o Explorer do Armazenamento.
 2. No painel esquerdo, expanda a conta de armazenamento que contém o contêiner de blobs para o qual você deseja obter uma SAS.
-3. Expanda os **Contêineres de Blob**da conta de armazenamento.
+3. Expanda os **Contêineres de Blob** da conta de armazenamento.
 4. Clique com o botão direito no contêiner de blobs desejado e, no menu de contexto, escolha **Obter Assinatura de Acesso Compartilhado**.
 
    ![Menu de contexto Obter SAS][8]
@@ -132,7 +132,7 @@ As etapas a seguir ilustram como gerenciar (adicionar e remover) políticas de a
 
 1. Abra o Explorer do Armazenamento.
 2. No painel esquerdo, expanda a conta de armazenamento que contém o contêiner de blobs cujas políticas de acesso você deseja gerenciar.
-3. Expanda os **Contêineres de Blob**da conta de armazenamento.
+3. Expanda os **Contêineres de Blob** da conta de armazenamento.
 4. Escolha o contêiner de blobs desejado e, no menu de contexto, escolha **Gerenciar Políticas de Acesso**.
 
    ![Menu de contexto Gerenciar políticas de acesso][11]
@@ -153,7 +153,7 @@ As etapas a seguir ilustram como especificar um nível de acesso público para u
 
 1. Abra o Explorer do Armazenamento.
 2. No painel esquerdo, expanda a conta de armazenamento que contém o contêiner de blobs cujas políticas de acesso você deseja gerenciar.
-3. Expanda os **Contêineres de Blob**da conta de armazenamento.
+3. Expanda os **Contêineres de Blob** da conta de armazenamento.
 4. Escolha o contêiner de blobs desejado e, no menu de contexto, escolha **Definir o Nível de Acesso Público**.
 
    ![Menu de contexto Definir nível de acesso público][13]
@@ -170,7 +170,7 @@ As etapas a seguir ilustram como gerenciar os blobs (e pastas) dentro de um cont
 
 1. Abra o Explorer do Armazenamento.
 2. No painel esquerdo, expanda a conta de armazenamento que contém o contêiner de blobs que você deseja gerenciar.
-3. Expanda os **Contêineres de Blob**da conta de armazenamento.
+3. Expanda os **Contêineres de Blob** da conta de armazenamento.
 4. Clique duas vezes no contêiner de blobs que você deseja exibir.
 5. O painel principal exibirá o conteúdo do contêiner de blobs.
 
@@ -180,7 +180,7 @@ As etapas a seguir ilustram como gerenciar os blobs (e pastas) dentro de um cont
 
    * **Carregar arquivos em um contêiner de blobs**
 
-     1. Na barra de ferramentas do painel principal, selecione **carregar**e, em seguida, **carregar arquivos** no menu suspenso.
+     1. Na barra de ferramentas do painel principal, selecione **carregar** e, em seguida, **carregar arquivos** no menu suspenso.
 
         ![Menu Carregar arquivos][15]
      2. Na caixa de diálogo **Carregar arquivos**, escolha o botão de reticências (**...**) no lado direito da caixa de texto **Arquivos** para selecionar os arquivos que você deseja carregar.
@@ -191,7 +191,7 @@ As etapas a seguir ilustram como gerenciar os blobs (e pastas) dentro de um cont
      5. Escolha **Carregar**.
    * **Carregar uma pasta em um contêiner de blobs**
 
-     1. Na barra de ferramentas do painel principal, selecione **carregar**e, em seguida, **carregar pasta** no menu suspenso.
+     1. Na barra de ferramentas do painel principal, selecione **carregar** e, em seguida, **carregar pasta** no menu suspenso.
 
         ![Menu Carregar pasta][17]
      2. Na caixa de diálogo **Carregar pasta**, escolha o botão de reticências (**...**) no lado direito da caixa de texto **Pasta** para selecionar a pasta cujo conteúdo você deseja carregar.

@@ -7,11 +7,11 @@ ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
 ms.openlocfilehash: f91728435b885f3b4d9415bc81e18fdaaea0148f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86537741"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021938"
 ---
 # <a name="set-up-the-business-glossary-for-governed-tagging"></a>Como configurar o glossário de negócios para marcação controlada
 

@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 85264eae325d9ed7049daac47a124cf1efb806e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a96b44a280e0aea15a6d0843f02f4ed16f8fcf4
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91649942"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879840"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planejando uma implantação de Arquivos do Azure
 Os [arquivos do Azure](storage-files-introduction.md) podem ser implantados de duas maneiras principais: montando diretamente os compartilhamentos de arquivos do Azure sem servidor ou armazenando em cache os compartilhamentos de arquivos do Azure no local usando sincronização de arquivos do Azure. A opção de implantação escolhida altera as coisas que você precisa considerar ao planejar sua implantação. 
@@ -96,95 +96,24 @@ A exclusão reversível para compartilhamentos de arquivos (visualização) é u
 
 É recomendável ativar a exclusão reversível para a maioria dos compartilhamentos de arquivos. Se você tiver um fluxo de trabalho em que o compartilhamento de exclusão é comum e esperado, você pode decidir ter um período de retenção muito curto ou não ter a exclusão reversível habilitada.
 
-Para obter mais informações sobre exclusão reversível, consulte [impedir a exclusão acidental de dados](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion).
+Para obter mais informações sobre exclusão reversível, consulte [impedir a exclusão acidental de dados](./storage-files-prevent-file-share-deletion.md).
 
 ### <a name="backup"></a>Backup
-Você pode fazer backup do compartilhamento de arquivos do Azure por meio de [instantâneos de compartilhamento](https://docs.microsoft.com/azure/storage/files/storage-snapshots-files), que são cópias de ponto no tempo somente leitura do seu compartilhamento. Os instantâneos são incrementais, o que significa que eles contêm tantos dados quantos foram alterados desde o instantâneo anterior. Você pode ter até 200 instantâneos por compartilhamento de arquivos e mantê-los por até 10 anos. Você pode pegar esses instantâneos manualmente no portal do Azure, por meio do PowerShell ou da CLI (interface de linha de comando), ou pode usar o [backup do Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json). Os instantâneos são armazenados no compartilhamento de arquivos, o que significa que, se você excluir o compartilhamento de arquivos, os instantâneos também serão excluídos. Para proteger os backups de instantâneo contra exclusão acidental, verifique se a exclusão reversível está habilitada para seu compartilhamento.
+Você pode fazer backup do compartilhamento de arquivos do Azure por meio de [instantâneos de compartilhamento](./storage-snapshots-files.md), que são cópias de ponto no tempo somente leitura do seu compartilhamento. Os instantâneos são incrementais, o que significa que eles contêm tantos dados quantos foram alterados desde o instantâneo anterior. Você pode ter até 200 instantâneos por compartilhamento de arquivos e mantê-los por até 10 anos. Você pode pegar esses instantâneos manualmente no portal do Azure, por meio do PowerShell ou da CLI (interface de linha de comando), ou pode usar o [backup do Azure](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Os instantâneos são armazenados no compartilhamento de arquivos, o que significa que, se você excluir o compartilhamento de arquivos, os instantâneos também serão excluídos. Para proteger os backups de instantâneo contra exclusão acidental, verifique se a exclusão reversível está habilitada para seu compartilhamento.
 
-O [backup do Azure para compartilhamentos de arquivos do Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json) manipula o agendamento e a retenção de instantâneos. Seus recursos de GFS (avô-pai-filho) significam que você pode usar instantâneos diários, semanais, mensais e anuais, cada um com seu próprio período de retenção distinto. O backup do Azure também orquestra a habilitação da exclusão reversível e usa um bloqueio de exclusão em uma conta de armazenamento assim que qualquer compartilhamento de arquivos dentro dele é configurado para backup. Por fim, o backup do Azure fornece determinados recursos de monitoramento e alerta importantes que permitem aos clientes ter uma exibição consolidada de seus bens de backup.
+O [backup do Azure para compartilhamentos de arquivos do Azure](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) manipula o agendamento e a retenção de instantâneos. Seus recursos de GFS (avô-pai-filho) significam que você pode usar instantâneos diários, semanais, mensais e anuais, cada um com seu próprio período de retenção distinto. O backup do Azure também orquestra a habilitação da exclusão reversível e usa um bloqueio de exclusão em uma conta de armazenamento assim que qualquer compartilhamento de arquivos dentro dele é configurado para backup. Por fim, o backup do Azure fornece determinados recursos de monitoramento e alerta importantes que permitem aos clientes ter uma exibição consolidada de seus bens de backup.
 
 Você pode executar restaurações em nível de item e de compartilhamento no portal do Azure usando o backup do Azure. Tudo o que você precisa fazer é escolher o ponto de restauração (um instantâneo específico), o arquivo ou diretório específico, se relevante, e depois o local (original ou alternativo) no qual você deseja restaurar. O serviço de backup lida com a cópia dos dados do instantâneo e mostra o progresso da restauração no Portal.
 
-Para obter mais informações sobre backup, consulte [sobre o backup de compartilhamento de arquivos do Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json).
+Para obter mais informações sobre backup, consulte [sobre o backup de compartilhamento de arquivos do Azure](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 ### <a name="advanced-threat-protection-for-azure-files-preview"></a>Proteção avançada contra ameaças para arquivos do Azure (versão prévia)
 A ATP (proteção avançada contra ameaças) para o armazenamento do Azure fornece uma camada adicional de inteligência de segurança que fornece alertas quando detecta atividade anômala em sua conta de armazenamento, por exemplo, tentativas incomuns de acessar a conta de armazenamento. ATP também executa a análise de reputação de hash de malware e alertará sobre o malware conhecido. Você pode configurar ATP em um nível de assinatura ou de conta de armazenamento por meio da central de segurança do Azure. 
 
-Para obter mais informações, consulte [proteção avançada contra ameaças para o armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection).
+Para obter mais informações, consulte [proteção avançada contra ameaças para o armazenamento do Azure](../common/azure-defender-storage-configure.md).
 
 ## <a name="storage-tiers"></a>Camadas de armazenamento
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
-
-Em geral, os recursos de arquivos do Azure e a interoperabilidade com outros serviços são os mesmos entre compartilhamentos de arquivos Premium e compartilhamentos de arquivos padrão (incluindo compartilhamentos de arquivos avançados, otimizados para transações), no entanto, há algumas diferenças importantes:
-- **Modelo de cobrança**
-    - Os compartilhamentos de arquivos Premium são cobrados usando um modelo de cobrança provisionado, o que significa que você paga um preço fixo quanto ao armazenamento que você provisiona, em vez da quantidade de armazenamento que você usa. Não há custos adicionais para transações e metadados em repouso.
-    - Os compartilhamentos de arquivos padrão são cobrados usando um modelo pago conforme o uso, que inclui um custo base de armazenamento para a quantidade de armazenamento que você está consumindo e, em seguida, um custo de transação adicional com base em como você usa o compartilhamento. Com compartilhamentos de arquivos padrão, sua fatura aumentará se você usar (leitura/gravação/montagem) do compartilhamento de arquivos do Azure mais.
-- **Opções de redundância**
-    - Os compartilhamentos de arquivos Premium só estão disponíveis para armazenamento com redundância local (LRS) e com redundância de zona (ZRS).
-    - Os compartilhamentos de arquivos padrão estão disponíveis para o armazenamento localmente redundante, com redundância de zona, com redundância geográfica (GRS) e com redundância de zona geográfica (GZRS).
-- **Tamanho máximo do compartilhamento de arquivos**
-    - Os compartilhamentos de arquivos Premium podem ser provisionados para até 100 TiB sem nenhum trabalho adicional.
-    - Por padrão, os compartilhamentos de arquivos padrão podem abranger até 5 TiB, embora o limite de compartilhamento possa ser aumentado para 100 TiB, optando pelo sinalizador de recurso de conta de armazenamento de *compartilhamento de arquivo grande* . Os compartilhamentos de arquivos padrão podem abranger até 100 TiB para contas de armazenamento com redundância local ou de zona. Para obter mais informações sobre como aumentar os tamanhos de compartilhamento de arquivos, consulte [habilitar e criar compartilhamentos de arquivos grandes](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share).
-- **Disponibilidade regional**
-    - Os compartilhamentos de arquivos premium estão disponíveis na maioria das regiões do Azure, com uma exceção de algumas regiões. O suporte com redundância de zona está disponível em um subconjunto de regiões. Para descobrir se os compartilhamentos de arquivos premium estão disponíveis atualmente em sua região, confira a página [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=storage) para o Azure. Para descobrir quais regiões dão suporte a ZRS, consulte [armazenamento com redundância de zona](../common/storage-redundancy.md#zone-redundant-storage). Para nos ajudar a priorizar novas regiões e recursos da camada Premium, preencha esta [pesquisa](https://aka.ms/pfsfeedback).
-    - Os compartilhamentos de arquivos padrão estão disponíveis em todas as regiões do Azure.
-- O AKS (serviço kubernetes do Azure) dá suporte a compartilhamentos de arquivos Premium na versão 1,13 e posterior.
-
-Depois que um compartilhamento de arquivos é criado como um compartilhamento de arquivos Premium ou Standard, não é possível convertê-lo automaticamente para a outra camada. Se desejar alternar para a outra camada, você deverá criar um novo compartilhamento de arquivos nessa camada e copiar manualmente os dados do compartilhamento original para o novo compartilhamento que você criou. É recomendável usar o `robocopy` para Windows ou `rsync` para MacOS e Linux para executar essa cópia.
-
-### <a name="understanding-provisioning-for-premium-file-shares"></a>Noções básicas sobre provisionamento para compartilhamentos de arquivos Premium
-Os compartilhamentos de arquivos Premium são provisionados com base em uma taxa de GiB/IOPS/transferência fixa. Para cada GiB provisionado, o compartilhamento emitirá um IOPS e uma taxa de transferência de 0,1 MiB/s até os limites máximos por compartilhamento. O provisionamento mínimo permitido é de 100 GiB, com um IOPS e uma taxa de transferência mínimos.
-
-Com base no melhor esforço, todos os compartilhamentos poderão acumular até três IOPS por GiB de armazenamento provisionado por 60 minutos ou mais, dependendo do tamanho do compartilhamento. Os novos compartilhamentos começam com o crédito de intermitência completa com base na capacidade provisionada.
-
-Os compartilhamentos devem ser provisionados em incrementos de 1 GiB. O tamanho mínimo é 100 GiB, o próximo tamanho é 101 GiB e assim por diante.
-
-> [!TIP]
-> IOPS de linha de base = 1 * GiB provisionado. (Até um máximo de 100.000 IOPS).
->
-> Limite de intermitência = 3 * IOPS de linha de base. (Até um máximo de 100.000 IOPS).
->
-> taxa de egresso = 60 MiB/s + 0, 6 * provisionamento GiB
->
-> taxa de entrada = 40 MiB/s + 0, 4 * provisionamento GiB
-
-O tamanho do compartilhamento provisionado é especificado por cota de compartilhamento. A cota de compartilhamento pode ser aumentada a qualquer momento, mas só pode ser reduzida após 24 horas desde o último aumento. Depois de aguardar 24 horas sem um aumento de cota, você pode diminuir a cota de compartilhamento quantas vezes desejar, até aumentá-la novamente. As alterações de escala de taxa de transferência/IOPS entrarão em vigor em alguns minutos após a alteração do tamanho.
-
-É possível diminuir o tamanho do compartilhamento provisionado abaixo do GiB usado. Se você fizer isso, não perderá dados, mas ainda será cobrado pelo tamanho usado e receberá o desempenho (IOPS de linha de base, taxa de transferência e IOPS de intermitência) do compartilhamento provisionado, não o tamanho usado.
-
-A tabela a seguir ilustra alguns exemplos dessas fórmulas para os tamanhos de compartilhamento provisionados:
-
-|Capacidade (GiB) | IOPS de linha de base | IOPS de intermitência | Saída (MiB/s) | Entrada (MiB/s) |
-|---------|---------|---------|---------|---------|
-|100         | 100     | Até 300     | 66   | 44   |
-|500         | 500     | Até 1.500   | 90   | 60   |
-|1\.024       | 1\.024   | Até 3.072   | 122   | 81   |
-|5.120       | 5.120   | Até 15.360  | 368   | 245   |
-|10.240      | 10.240  | Até 30.720  | 675 | 450   |
-|33.792      | 33.792  | Até 100.000 | 2.088 | 1.392   |
-|51.200      | 51.200  | Até 100.000 | 3.132 | 2.088   |
-|102.400     | 100.000 | Até 100.000 | 6.204 | 4.136   |
-
-> [!NOTE]
-> O desempenho dos compartilhamentos de arquivos está sujeito aos limites de rede da máquina, largura de banda de rede disponível, tamanhos de e/s, paralelismo, entre muitos outros fatores. Por exemplo, com base no teste interno com 8 tamanhos de e/s de leitura/gravação de KiB, uma única máquina virtual do Windows, *F16s_v2 padrão*, conectada ao compartilhamento de arquivos Premium em SMB poderia alcançar IOPS de leitura de 20 mil e IOPS de gravação de 15.000. Com tamanhos de e/s de leitura/gravação de MiB 512, a mesma VM pode atingir a saída de 1,1 GiB/s e a taxa de transferência de entrada de 370 MiB/s. Para obter a escala de desempenho máxima, distribua a carga entre várias VMs. Consulte o [Guia de solução de problemas](storage-troubleshooting-files-performance.md) para alguns problemas comuns de desempenho e soluções alternativas.
-
-#### <a name="bursting"></a>Bursting
-Os compartilhamentos de arquivos Premium podem aumentar seu IOPS até um fator de três. A intermitência é automatizada e opera com base em um sistema de crédito. A intermitência funciona em uma base de melhor esforço e o limite de intermitência não é uma garantia, os compartilhamentos de arquivos podem *aumentar até* o limite.
-
-Os créditos se acumulam em um Bucket de intermitência sempre que o tráfego para o compartilhamento de arquivos está abaixo do IOPS de linha de base. Por exemplo, um compartilhamento de GiB 100 tem 100 IOPS de linha de base. Se o tráfego real no compartilhamento era de 40 IOPS para um intervalo específico de 1 segundo, o IOPS de 60 não utilizado será creditado em um Bucket de intermitência. Esses créditos serão então usados mais tarde, quando as operações excederem o IOPs de linha de base.
-
-> [!TIP]
-> Tamanho do Bucket de intermitência = IOPS de linha de base * 2 * 3600.
-
-Sempre que um compartilhamento exceder o IOPS de linha de base e tiver créditos em um Bucket de intermitência, ele será rompido. Os compartilhamentos podem continuar a aumentar, contanto que os créditos permaneçam, embora os compartilhamentos menores que 50 TiB permanecerão apenas no limite de intermitência de até uma hora. Compartilhamentos maiores que 50 TiB podem, tecnicamente, exceder esse limite de hora, até duas horas, mas isso se baseia no número de créditos de intermitência acumulados. Cada e/s além do IOPS de linha de base consome um crédito e quando todos os créditos são consumidos, o compartilhamento retornaria ao IOPS de linha de base
-
-Os créditos de compartilhamento têm três Estados:
-
-- A acumulação, quando o compartilhamento de arquivos está usando menos do que o IOPS de linha de base.
-- Recusando, quando o compartilhamento de arquivos estiver intermitente.
-- Constante restante, quando não há créditos ou IOPS de linha de base em uso.
-
-Novos compartilhamentos de arquivos começam com o número total de créditos em seu Bucket de intermitência. Os créditos de intermitência não serão acumulados se o IOPS de compartilhamento cair abaixo do IOPS de linha de base devido à limitação pelo servidor.
 
 ### <a name="enable-standard-file-shares-to-span-up-to-100-tib"></a>Habilitar compartilhamentos de arquivo padrão para abranger até 100 TiB
 [!INCLUDE [storage-files-tiers-enable-large-shares](../../../includes/storage-files-tiers-enable-large-shares.md)]
@@ -202,6 +131,6 @@ O [artigo Visão geral da migração](storage-files-migration-overview.md) abord
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Planejando uma implantação de Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
-* [Implantando Arquivos do Azure](storage-files-deployment-guide.md)
+* [Implantando Arquivos do Azure](./storage-how-to-create-file-share.md)
 * [Implantando a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md)
 * [Confira o artigo Visão geral da migração para encontrar o guia de migração para seu cenário](storage-files-migration-overview.md)

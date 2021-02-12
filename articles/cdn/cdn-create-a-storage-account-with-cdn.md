@@ -16,11 +16,11 @@ ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: b80437fa1ac41bb240565923eb40e562c8cf8c5b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778890"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018606"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Início Rápido: Integrar uma conta de Armazenamento do Azure à CDN do Azure
 
@@ -42,19 +42,19 @@ Para criar uma conta de armazenamento, você deve ser o administrador de serviç
 
 1. No portal do Azure, selecione **Criar um recurso** no canto superior esquerdo. O **Novo** painel é exibido.
 
-1. Pesquise **Conta de armazenamento** e selecione **Conta de armazenamento – blob, arquivo, tabela** de fila na lista suspensa. Em seguida, selecione **Criar** :
+1. Pesquise **Conta de armazenamento** e selecione **Conta de armazenamento – blob, arquivo, tabela** de fila na lista suspensa. Em seguida, selecione **Criar**:
     
     ![Selecionar o recurso de armazenamento](./media/cdn-create-a-storage-account-with-cdn/cdn-select-new-storage-account.png)
 
-1. No painel **Criar conta de armazenamento** , insira os seguintes detalhes:
+1. No painel **Criar conta de armazenamento**, insira os seguintes detalhes:
 
     | Configuração | Valor | 
     | --- | --- |
-    | Detalhes do projeto > Grupo de recursos | Selecione **Criar** e use o nome *CDNQuickstart-rg* . Você também poderá usar um grupo de recursos existente, se preferir. |
+    | Detalhes do projeto > Grupo de recursos | Selecione **Criar** e use o nome *CDNQuickstart-rg*. Você também poderá usar um grupo de recursos existente, se preferir. |
     | Detalhes da instância > Nome da conta de armazenamento | Insira um nome para a conta usando apenas 3-24 letras minúsculas e números. O nome deve ser exclusivo no Azure e se torna o nome do host na URL usada para endereçar recursos de blob, fila ou tabela para a assinatura. Para resolver um recurso de contêiner no Armazenamento de Blobs, use um URI no seguinte formato: http:// *&lt;nomedacontadearmazenamento&gt;* .blob.core.windows.net/ *&lt;nome-do-contêiner&gt;* .
     | Detalhes da instância > Localização | Selecione uma região do Azure perto de você na lista suspensa. |
     
-    Deixe todos os outros detalhes definidos para os padrões e, em seguida, selecione **Examinar + criar** .
+    Deixe todos os outros detalhes definidos para os padrões e, em seguida, selecione **Examinar + criar**.
 
 1. A criação da conta de armazenamento pode levar vários minutos para ser concluída. Após a conclusão da criação, selecione **Ir para recurso** para abrir a página da conta de armazenamento para a próxima etapa.
 
@@ -64,16 +64,16 @@ Para criar uma conta de armazenamento, você deve ser o administrador de serviç
 
     ![Criar ponto de extremidade da CDN](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-endpoint-configuration.png)
     
-1. Na seção **Novo ponto de extremidade** , insira as seguintes informações:
+1. Na seção **Novo ponto de extremidade**, insira as seguintes informações:
 
     | Configuração  | Valor |
     | -------- | ----- |
-    | **Perfil do CDN** | Selecione **Criar** e insira seu nome de perfil, por exemplo, *cdn-profile-123* . Um perfil é uma coleção de pontos de extremidade. |
-    | **Tipo de preços** | Selecione uma das opções **Standard** , como **Standard Microsoft** . |
-    | **Nome do ponto de extremidade do CDN** | Insira o nome de host do ponto de extremidade, como *cdn-endpoint-123* . Esse nome deve ser globalmente exclusivo no Azure porque é para acessar os recursos armazenados em cache na URL _&lt;nome-do-ponto-de-extremidade&gt;_ .azureedge.net. |
+    | **Perfil do CDN** | Selecione **Criar** e insira seu nome de perfil, por exemplo, *cdn-profile-123*. Um perfil é uma coleção de pontos de extremidade. |
+    | **Tipo de preços** | Selecione uma das opções **Standard**, como **Standard Microsoft**. |
+    | **Nome do ponto de extremidade do CDN** | Insira o nome de host do ponto de extremidade, como *cdn-endpoint-123*. Esse nome deve ser globalmente exclusivo no Azure porque é para acessar os recursos armazenados em cache na URL _&lt;nome-do-ponto-de-extremidade&gt;_ .azureedge.net. |
     | **Nome do host de origem** | Por padrão, um novo ponto de extremidade CDN usa o nome do host de sua conta de armazenamento como o servidor de origem. |
 
-1. Selecione **Criar** . Depois que o ponto de extremidade é criado, ele aparece na lista de pontos de extremidade.
+1. Selecione **Criar**. Depois que o ponto de extremidade é criado, ele aparece na lista de pontos de extremidade.
 
     ![Um novo ponto de extremidade CDN de armazenamento](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-list.png)
 
@@ -95,7 +95,7 @@ Se você deseja conceder acesso limitado aos contêineres de armazenamento priva
 
 Para acessar o conteúdo armazenado em cache na CDN, utilize a URL da CDN fornecida no portal. O endereço de um blob armazenado em cache tem o seguinte formato:
 
-http://< *nome-do-ponto-de-extremidade*\>.azureedge.net/< *meuContêinerPúbllico*\>/<*NomeDoBlob*\>
+http://<*nome-do-ponto-de-extremidade*\>.azureedge.net/<*meuContêinerPúbllico*\>/<*NomeDoBlob*\>
 
 > [!NOTE]
 > Depois de habilitar o acesso à CDN do Azure para uma conta de armazenamento, todos os objetos disponíveis publicamente estarão qualificados para armazenamento em cache de POP da CDN. Se você modificar um objeto que está armazenado em cache na CDN atualmente, o novo conteúdo não estará disponível por meio da CDN do Azure até que esta atualize seu conteúdo após o período de vida do conteúdo em cache expirar.
@@ -116,7 +116,7 @@ Nas etapas anteriores, você criou um perfil CDN e um ponto de extremidade em um
 
 1. No menu à esquerda no portal do Azure, selecione **Grupos de recursos** e *CDNQuickstart-rg*\*.
 
-2. Na página **Grupo de recursos** , selecione **Excluir grupo de recursos** , digite *CDNQuickstart-rg* na caixa de texto e, em seguida, selecione **Excluir** .
+2. Na página **Grupo de recursos**, selecione **Excluir grupo de recursos**, digite *CDNQuickstart-rg* na caixa de texto e, em seguida, selecione **Excluir**.
 
     Essa ação excluirá o grupo de recursos, o perfil e o ponto de extremidade que você criou neste início rápido.
 

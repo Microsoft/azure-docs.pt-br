@@ -9,14 +9,15 @@ ms.topic: quickstart
 ms.date: 09/22/2020
 ms.author: anfeldma
 ms.custom: devx-track-js
-ms.openlocfilehash: 25e5d583b2ae94277b155e8e03d61a308a88ec8d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b4ed27e1515e898a71fb503bb0f260c608ef9f6f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91322743"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090198"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>Início Rápido: Usar o Node.js para se conectar e consultar dados de uma conta da API SQL do Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > - [.NET V3](create-sql-api-dotnet.md)
@@ -63,11 +64,11 @@ Agora, você pode usar a ferramenta Data Explorer no portal do Azure para criar 
 
    :::image type="content" source="./media/create-sql-api-nodejs/azure-cosmosdb-data-explorer.png" alt-text="O Data Explorer do portal do Azure, painel Adicionar Contêiner":::
 
-2. Na página **Adicionar contêiner**, insira as configurações do novo contêiner.
+2. Na página **Adicionar contêiner** , insira as configurações do novo contêiner.
 
    | Configuração           | Valor sugerido | Descrição                                                                                                                                                                                                                                                                                                                                                                           |
    | ----------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-   | **ID do banco de dados**   | Tarefas           | Digite _Tarefas_ como o nome do novo banco de dados. Os nomes dos banco de dados devem conter de 1 a 255 caracteres e não podem conter `/, \\, #, ?` nem um espaço à direita. Marque a opção **Provisionar a produtividade do banco de dados**; ela permite que você compartilhe a produtividade provisionada para o banco de dados em todos os contêineres no banco de dados. Essa opção também ajuda na economia de custo. |
+   | **ID do banco de dados**   | Tarefas           | Digite _Tarefas_ como o nome do novo banco de dados. Os nomes dos banco de dados devem conter de 1 a 255 caracteres e não podem conter `/, \\, #, ?` nem um espaço à direita. Marque a opção **Provisionar a produtividade do banco de dados** ; ela permite que você compartilhe a produtividade provisionada para o banco de dados em todos os contêineres no banco de dados. Essa opção também ajuda na economia de custo. |
    | **Taxa de transferência**    | 400             | Deixe a taxa de transferência em 400 unidades de solicitação por segundo (RU/s). Se quiser reduzir a latência, você poderá escalar verticalmente a taxa de transferência mais tarde.                                                                                                                                                                                                                                                    |
    | **ID do contêiner**  | Itens           | Insira _Itens_ como o nome do novo contêiner. As IDs do contêiner têm os mesmos requisitos de caractere dos nomes de bancos de dados.                                                                                                                                                                                                                                                               |
    | **Chave de partição** | /category       | O exemplo descrito neste artigo usa _/category_ como a chave de partição.                                                                                                                                                                                                                                                                                                           |
@@ -98,7 +99,7 @@ Agora, vamos clonar um aplicativo Node.js do GitHub, definir a cadeia de conexã
 
 Esta etapa é opcional. Se você estiver interessado em aprender como os recursos de banco de dados do Azure Cosmos são criados no código, poderá examinar os snippets de código a seguir. Caso contrário, você poderá pular para [Atualizar sua cadeia de conexão](#update-your-connection-string).
 
-Se você está familiarizado com a versão anterior do SDK do SQL JavaScript, pode estar acostumado a ver os termos _coleção_ e _documento_. Como o Azure Cosmos DB dá suporte a [vários modelos de API](introduction.md), a [versão 2.0 ou superior do SDK do JavaScript](https://www.npmjs.com/package/@azure/cosmos) usa o termos genéricos _contêiner_, que pode ser uma coleção, um gráfico ou uma tabela, e _item_ para descrever o conteúdo do contêiner.
+Se você está familiarizado com a versão anterior do SDK do SQL JavaScript, pode estar acostumado a ver os termos _coleção_ e _documento_. Como o Azure Cosmos DB dá suporte a [vários modelos de API](introduction.md), a [versão 2.0 ou superior do SDK do JavaScript](https://www.npmjs.com/package/@azure/cosmos) usa o termos genéricos _contêiner_ , que pode ser uma coleção, um gráfico ou uma tabela, e _item_ para descrever o conteúdo do contêiner.
 
 O SDK do Cosmos DB para JavaScript é chamado de "@azure/cosmos" e pode ser instalado por meio do npm...
 
@@ -177,7 +178,7 @@ Agora, volte para a portal do Azure para obter os detalhes da cadeia de conexão
 
 1. Na sua conta do Azure Cosmos DB no [portal do Azure](https://portal.azure.com/), selecione **Chaves** no painel de navegação esquerdo e, em seguida, selecione **Chaves de leitura/gravação**. Use os botões de cópia no lado direito da tela para copiar o URI e a Chave Primária no arquivo _app.js_ na próxima etapa.
 
-   :::image type="content" source="./media/create-sql-api-dotnet/keys.png" alt-text="O Data Explorer do portal do Azure, painel Adicionar Contêiner":::
+   :::image type="content" source="./media/create-sql-api-dotnet/keys.png" alt-text="Exibir e copiar uma chave de acesso no portal do Azure, folha Chaves":::
 
 2. Abra o arquivo _config.js_.
 

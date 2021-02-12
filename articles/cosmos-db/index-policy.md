@@ -3,22 +3,23 @@ title: Políticas de indexação no Azure Cosmos DB
 description: Saiba como configurar e alterar a política de indexação padrão para indexação automática e melhor desempenho no Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 02/02/2021
 ms.author: tisande
-ms.openlocfilehash: d0ee7dc8890c228617eaeee8b1cdc72d2230458e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 58ee3bcd0ba14359ea9adaa131b8280b81008b57
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082956"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526748"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Políticas de indexação no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-No Azure Cosmos DB, cada contêiner tem uma política de indexação que determina como os itens do contêiner devem ser indexados. A política de indexação padrão para contêineres recém-criados indexa cada propriedade de cada item e impõe índices de intervalo para qualquer cadeia de caracteres ou número. Isso permite que você obtenha um alto desempenho de consulta sem precisar pensar na indexação e no gerenciamento de índice antecipadamente.
+No Azure Cosmos DB, cada contêiner tem uma política de indexação que determina como os itens do contêiner devem ser indexados. A política de indexação padrão para contêineres recém-criados indexa cada propriedade de cada item e impõe índices de intervalo para qualquer cadeia de caracteres ou número. Isso permite que você obtenha um bom desempenho de consulta sem precisar pensar na indexação e no gerenciamento de índice antecipadamente.
 
-Em algumas situações, talvez você queira substituir esse comportamento automático para atender melhor às suas necessidades. Você pode personalizar a política de indexação de um contêiner definindo seu *modo de indexação* e incluir ou excluir os *caminhos de propriedade* .
+Em algumas situações, talvez você queira substituir esse comportamento automático para atender melhor às suas necessidades. Você pode personalizar a política de indexação de um contêiner definindo seu *modo de indexação* e incluir ou excluir os *caminhos de propriedade*.
 
 > [!NOTE]
 > O método de atualização das políticas de indexação descritas neste artigo se aplica somente à API do SQL (Core) do Azure Cosmos DB. Saiba mais sobre a indexação na [API do Azure Cosmos DB para MongoDB](mongodb-indexing.md)
@@ -27,13 +28,21 @@ Em algumas situações, talvez você queira substituir esse comportamento autom�
 
 O Azure Cosmos DB dá suporte a dois modos de indexação:
 
-- **Consistente** : o índice é atualizado de forma síncrona à medida que você cria, atualiza ou exclui itens. Isso significa que a consistência de suas consultas de leitura será a [consistência configurada para a conta](consistency-levels.md).
-- **Nenhum** : a indexação está desabilitada no contêiner. Isso é normalmente usado quando um contêiner é usado como um repositório de chave-valor puro sem a necessidade de índices secundários. Ele também pode ser usado para melhorar o desempenho de operações em massa. Depois que as operações em massa forem concluídas, o modo de índice poderá ser definido como consistente e, em seguida, monitorado usando o [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) até ser concluído.
+- **Consistente**: o índice é atualizado de forma síncrona à medida que você cria, atualiza ou exclui itens. Isso significa que a consistência de suas consultas de leitura será a [consistência configurada para a conta](consistency-levels.md).
+- **Nenhum**: a indexação está desabilitada no contêiner. Isso é normalmente usado quando um contêiner é usado como um repositório de chave-valor puro sem a necessidade de índices secundários. Ele também pode ser usado para melhorar o desempenho de operações em massa. Depois que as operações em massa forem concluídas, o modo de índice poderá ser definido como consistente e, em seguida, monitorado usando o [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) até ser concluído.
 
 > [!NOTE]
-> O Azure Cosmos DB também dá suporte a um modo de indexação lento. A indexação lenta faz atualizações no índice em um nível de prioridade muito menor quando o mecanismo não executa outros trabalhos. Isso pode resultar em resultados de consultas **inconsistentes ou incompletas** . Caso você planeje consultar um contêiner Cosmos, não selecione a indexação lenta. Em junho de 2020, apresentamos uma alteração que não permite mais que novos contêineres sejam definidos como modo de indexação lento. Se sua conta de Azure Cosmos DB já contiver pelo menos um contêiner com indexação lenta, essa conta será isenta automaticamente da alteração. Você também pode solicitar uma isenção entrando em contato com o [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (exceto se você estiver usando uma conta do Azure Cosmos no modo sem [servidor](serverless.md) que não dá suporte à indexação lenta).
+> O Azure Cosmos DB também dá suporte a um modo de indexação lento. A indexação lenta faz atualizações no índice em um nível de prioridade muito menor quando o mecanismo não executa outros trabalhos. Isso pode resultar em resultados de consultas **inconsistentes ou incompletas**. Caso você planeje consultar um contêiner Cosmos, não selecione a indexação lenta. Os novos contêineres não podem selecionar a indexação lenta. Você pode solicitar uma isenção entrando em contato com o [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (exceto se você estiver usando uma conta do Azure Cosmos no modo sem [servidor](serverless.md) que não dá suporte à indexação lenta).
 
 Por padrão, a política de indexação é definida como `automatic` . É possível definir a `automatic` Propriedade na política de indexação como `true` . Definir essa propriedade como `true` permite que o Azure CosmosDB indexe automaticamente os documentos conforme eles são gravados.
+
+## <a name="index-size"></a><a id="index-size"></a>Tamanho do índice
+
+No Azure Cosmos DB, o armazenamento consumido total é a combinação do Tamanho dos dados e do Tamanho do índice. A seguir estão alguns recursos do tamanho do índice:
+
+* O tamanho do índice depende da política de indexação. Se todas as propriedades forem indexadas, o tamanho do índice poderá ser maior que o tamanho dos dados.
+* Quando os dados são excluídos, os índices são compactados em uma base quase contínua. No entanto, para exclusões de dados pequenas, você pode não observar imediatamente uma diminuição no tamanho do índice.
+* O tamanho do índice pode aumentar temporariamente quando as partições físicas são divididas. O espaço de índice é liberado depois que a divisão de partição é concluída.
 
 ## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>Incluindo e excluindo caminhos de propriedade
 
@@ -74,11 +83,11 @@ Qualquer política de indexação deve incluir o caminho raiz `/*` como um camin
 - Inclua o caminho raiz para excluir seletivamente os caminhos que não precisam ser indexados. Essa é a abordagem recomendada, pois ela permite que Azure Cosmos DB indexe proativamente qualquer nova propriedade que possa ser adicionada ao seu modelo.
 - Exclua o caminho raiz para incluir seletivamente os caminhos que precisam ser indexados.
 
-- Para caminhos com caracteres regulares que incluem: caracteres alfanuméricos e _ (sublinhado), você não precisa escapar da cadeia de caracteres do caminho em volta de aspas duplas (por exemplo, "/Path/?"). Para caminhos com outros caracteres especiais, você precisa escapar da cadeia de caracteres de caminho em aspas duplas (por exemplo, "/ \" Path-ABC \" /?"). Se você espera caracteres especiais em seu caminho, pode escapar de cada caminho para segurança. Funcionalmente não faz nenhuma diferença se você escapa de todos os caminhos, e não apenas aqueles com caracteres especiais.
+- Para caminhos com caracteres regulares que incluem: caracteres alfanuméricos e _ (sublinhado), você não precisa escapar da cadeia de caracteres do caminho em volta de aspas duplas (por exemplo, "/Path/?"). Para caminhos com outros caracteres especiais, você precisa escapar da cadeia de caracteres de caminho em aspas duplas (por exemplo, "/ \" Path-ABC \" /?"). Se você espera caracteres especiais em seu caminho, pode escapar de cada caminho para segurança. Funcionalmente, não faz nenhuma diferença se você escapar de todos os caminhos em vez daqueles que têm caracteres especiais.
 
 - A propriedade do sistema `_etag` é excluída da indexação por padrão, a menos que a ETag seja adicionada ao caminho incluído para indexação.
 
-- Se o modo de indexação estiver definido como **consistente** , as propriedades do sistema `id` e `_ts` serão indexadas automaticamente.
+- Se o modo de indexação estiver definido como **consistente**, as propriedades do sistema `id` e `_ts` serão indexadas automaticamente.
 
 Ao incluir e excluir caminhos, você pode encontrar os seguintes atributos:
 
@@ -102,11 +111,11 @@ Consulte [esta seção](how-to-manage-indexing-policy.md#indexing-policy-example
 
 Se os caminhos incluídos e os caminhos excluídos tiverem um conflito, o caminho mais preciso terá precedência.
 
-Veja um exemplo:
+Aqui está um exemplo:
 
-**Caminho incluído** : `/food/ingredients/nutrition/*`
+**Caminho incluído**: `/food/ingredients/nutrition/*`
 
-**Caminho excluído** : `/food/ingredients/*`
+**Caminho excluído**: `/food/ingredients/*`
 
 Nesse caso, o caminho incluído tem precedência sobre o caminho excluído porque é mais preciso. Com base nesses caminhos, todos os dados no `food/ingredients` caminho ou aninhados em serão excluídos do índice. A exceção seria dado dentro do caminho incluído: `/food/ingredients/nutrition/*` , que seria indexado.
 
@@ -134,7 +143,7 @@ Azure Cosmos DB, por padrão, não criará nenhum índice espacial. Se você qui
 
 ## <a name="composite-indexes"></a>Índices compostos
 
-As consultas que têm uma `ORDER BY` cláusula com duas ou mais propriedades exigem um índice composto. Você também pode definir um índice composto para melhorar o desempenho de várias consultas de igualdade e de intervalo. Por padrão, nenhum índice composto é definido, portanto, você deve [Adicionar índices compostos](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) conforme necessário.
+As consultas que têm uma `ORDER BY` cláusula com duas ou mais propriedades exigem um índice composto. Você também pode definir um índice composto para melhorar o desempenho de várias consultas de igualdade e de intervalo. Por padrão, nenhum índice composto é definido, portanto, você deve [Adicionar índices compostos](how-to-manage-indexing-policy.md#composite-index) conforme necessário.
 
 Ao contrário dos caminhos incluídos ou excluídos, você não pode criar um caminho com o `/*` curinga. Cada caminho composto tem um implícito `/?` no final do caminho que você não precisa especificar. Os caminhos compostos levam a um valor escalar e esse é o único valor que é incluído no índice composto.
 
@@ -159,7 +168,7 @@ As seguintes considerações são usadas ao usar índices compostos para consult
 
 Considere o exemplo a seguir em que um índice composto é definido nas propriedades Name, age e _ts:
 
-| **Índice composto**     | **Consulta de exemplo `ORDER BY`**      | **Com suporte do índice composto?** |
+| **Índices compostos**     | **Consulta de exemplo `ORDER BY`**      | **Compatível com índice composto?** |
 | ----------------------- | -------------------------------- | -------------- |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c ORDER BY c.name ASC, c.age asc``` | ```Yes```            |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c ORDER BY c.age ASC, c.name asc```   | ```No```             |
@@ -174,93 +183,135 @@ Você deve personalizar a política de indexação para que possa atender a toda
 
 Se uma consulta tiver filtros em duas ou mais propriedades, poderá ser útil criar um índice composto para essas propriedades.
 
-Por exemplo, considere a seguinte consulta que tem um filtro de igualdade em duas propriedades:
+Por exemplo, considere a seguinte consulta que tem um filtro de igualdade e de intervalo:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" AND c.age = 18
+SELECT *
+FROM c
+WHERE c.name = "John" AND c.age > 18
 ```
 
-Essa consulta será mais eficiente, levando menos tempo e consumindo menos RU, se for capaz de aproveitar um índice composto em (nome ASC, idade ASC).
+Essa consulta será mais eficiente, levando menos tempo e consumindo menos RU, se for capaz de aproveitar um índice composto em `(name ASC, age ASC)` .
 
-Consultas com filtros de intervalo também podem ser otimizadas com um índice composto. No entanto, a consulta só pode ter um filtro de intervalo único. Os filtros de intervalo incluem,,, `>` `<` `<=` `>=` e `!=` . O filtro de intervalo deve ser definido por último no índice composto.
+Consultas com vários filtros de intervalo também podem ser otimizadas com um índice composto. No entanto, cada índice composto individual só pode otimizar um único filtro de intervalo. Os filtros de intervalo incluem,,, `>` `<` `<=` `>=` e `!=` . O filtro de intervalo deve ser definido por último no índice composto.
 
-Considere a seguinte consulta com filtros de igualdade e de intervalo:
+Considere a seguinte consulta com um filtro de igualdade e dois filtros de intervalo:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" AND c.age > 18
+SELECT *
+FROM c
+WHERE c.name = "John" AND c.age > 18 AND c._ts > 1612212188
 ```
 
-Essa consulta será mais eficiente com um índice composto em (nome ASC, idade ASC). No entanto, a consulta não utilizará um índice composto em (age ASC, Name ASC) porque os filtros de igualdade devem ser definidos primeiro no índice composto.
+Essa consulta será mais eficiente com um índice composto em `(name ASC, age ASC)` e `(name ASC, _ts ASC)` . No entanto, a consulta não utilizará um índice composto em `(age ASC, name ASC)` porque as propriedades com filtros de igualdade devem ser definidas primeiro no índice composto. Dois índices compostos separados são necessários em vez de um único índice composto em `(name ASC, age ASC, _ts ASC)` , pois cada índice composto só pode otimizar um filtro de intervalo único.
 
 As seguintes considerações são usadas ao criar índices compostos para consultas com filtros em várias propriedades
 
+- Expressões de filtro podem usar vários índices compostos.
 - As propriedades no filtro da consulta devem corresponder às do índice composto. Se uma propriedade estiver no índice composto, mas não estiver incluída na consulta como um filtro, a consulta não usará o índice composto.
 - Se uma consulta tiver propriedades adicionais no filtro que não foram definidas em um índice composto, uma combinação de índices compostos e de intervalo será usada para avaliar a consulta. Isso exigirá menos RU do que usar exclusivamente índices de intervalo.
-- Se uma propriedade tiver um filtro de intervalo (,,, `>` `<` `<=` `>=` ou `!=` ), essa propriedade deverá ser definida por último no índice composto. Se uma consulta tiver mais de um filtro de intervalo, ela não usará o índice composto.
-- Ao criar um índice composto para otimizar consultas com vários filtros, o `ORDER` do índice composto não terá impacto sobre os resultados. Esta propriedade é opcional.
-- Se você não definir um índice composto para uma consulta com filtros em várias propriedades, a consulta ainda terá sucesso. No entanto, o custo de RU da consulta pode ser reduzido com um índice composto.
+- Se uma propriedade tiver um filtro de intervalo (,,, `>` `<` `<=` `>=` ou `!=` ), essa propriedade deverá ser definida por último no índice composto. Se uma consulta tiver mais de um filtro de intervalo, ela poderá se beneficiar de vários índices compostos.
+- Ao criar um índice composto para otimizar consultas com vários filtros, o `ORDER` do índice composto não terá impacto sobre os resultados. Essa propriedade é opcional.
 
 Considere os seguintes exemplos em que um índice composto é definido nas propriedades Name, age e timestamp:
 
-| **Índice composto**     | **Consulta de exemplo**      | **Com suporte do índice composto?** |
+| **Índices compostos**     | **Consulta de exemplo**      | **Compatível com índice composto?** |
 | ----------------------- | -------------------------------- | -------------- |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18``` | ```Yes```            |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c WHERE c.name = "John" AND c.age > 18```   | ```Yes```             |
+| ```(name ASC, age ASC)```   | ```SELECT COUNT(1) FROM c WHERE c.name = "John" AND c.age > 18```   | ```Yes```             |
 | ```(name DESC, age ASC)```    | ```SELECT * FROM c WHERE c.name = "John" AND c.age > 18``` | ```Yes```            |
 | ```(name ASC, age ASC)```     | ```SELECT * FROM c WHERE c.name != "John" AND c.age > 18``` | ```No```             |
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 123049923``` | ```Yes```            |
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp = 123049923``` | ```No```            |
+| ```(name ASC, age ASC) and (name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp > 123049923``` | ```Yes```            |
 
-### <a name="queries-with-a-filter-as-well-as-an-order-by-clause"></a>Consultas com um filtro, bem como uma cláusula ORDER BY
+### <a name="queries-with-a-filter-and-order-by"></a>Consultas com um filtro e ORDENAr por
 
 Se uma consulta filtrar em uma ou mais propriedades e tiver propriedades diferentes na cláusula ORDER BY, poderá ser útil adicionar as propriedades no filtro à `ORDER BY` cláusula.
 
-Por exemplo, ao adicionar as propriedades no filtro à cláusula ORDER BY, a consulta a seguir pode ser reescrita para aproveitar um índice composto:
+Por exemplo, ao adicionar as propriedades no filtro à `ORDER BY` cláusula, a consulta a seguir pode ser reescrita para aproveitar um índice composto:
 
 Consulta usando índice de intervalo:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp
+SELECT *
+FROM c 
+WHERE c.name = "John" 
+ORDER BY c.timestamp
 ```
 
 Consultar usando índice composto:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" ORDER BY c.name, c.timestamp
+SELECT * 
+FROM c 
+WHERE c.name = "John"
+ORDER BY c.name, c.timestamp
 ```
 
-As mesmas otimizações de padrão e consulta podem ser generalizadas para consultas com vários filtros de igualdade:
+As mesmas otimizações de consulta podem ser generalizadas para qualquer `ORDER BY` consulta com filtros, tendo em mente que índices compostos individuais só podem dar suporte a, no máximo, um filtro de intervalo.
 
 Consulta usando índice de intervalo:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.timestamp
+SELECT * 
+FROM c 
+WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 1611947901 
+ORDER BY c.timestamp
 ```
 
 Consultar usando índice composto:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.timestamp
+SELECT * 
+FROM c 
+WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 1611947901 
+ORDER BY c.name, c.age, c.timestamp
+```
+
+Além disso, você pode usar índices compostos para otimizar consultas com funções do sistema e ORDENAr por:
+
+Consulta usando índice de intervalo:
+
+```sql
+SELECT * 
+FROM c 
+WHERE c.firstName = "John" AND Contains(c.lastName, "Smith", true) 
+ORDER BY c.lastName
+```
+
+Consultar usando índice composto:
+
+```sql
+SELECT * 
+FROM c 
+WHERE c.firstName = "John" AND Contains(c.lastName, "Smith", true) 
+ORDER BY c.firstName, c.lastName
 ```
 
 As seguintes considerações são usadas ao criar índices compostos para otimizar uma consulta com um filtro e uma `ORDER BY` cláusula:
 
-* Se a consulta filtrar em Propriedades, elas deverão ser incluídas primeiro na `ORDER BY` cláusula.
 * Se você não definir um índice composto em uma consulta com um filtro em uma propriedade e uma cláusula separada `ORDER BY` usando uma propriedade diferente, a consulta ainda terá sucesso. No entanto, o custo de RU da consulta pode ser reduzido com um índice composto, especialmente se a propriedade na `ORDER BY` cláusula tiver uma cardinalidade alta.
+* Se a consulta filtrar em Propriedades, elas deverão ser incluídas primeiro na `ORDER BY` cláusula.
+* Se a consulta filtrar em várias propriedades, os filtros de igualdade devem ser as primeiras propriedades na `ORDER BY` cláusula.
+* Se a consulta filtrar em várias propriedades, você poderá ter no máximo um filtro de intervalo ou uma função de sistema utilizada por índice composto. A propriedade usada no filtro de intervalo ou na função do sistema deve ser definida por último no índice composto.
 * Todas as considerações para a criação de índices compostos para `ORDER BY` consultas com várias propriedades, bem como consultas com filtros em várias propriedades ainda se aplicam.
 
 
-| **Índice composto**                      | **Consulta de exemplo `ORDER BY`**                                  | **Com suporte do índice composto?** |
+| **Índices compostos**                      | **Consulta de exemplo `ORDER BY`**                                  | **Compatível com índice composto?** |
 | ---------------------------------------- | ------------------------------------------------------------ | --------------------------------- |
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.name ASC, c.timestamp ASC``` | `Yes` |
+| ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" AND c.timestamp > 1589840355 ORDER BY c.name ASC, c.timestamp ASC``` | `Yes` |
+| ```(timestamp ASC, name ASC)```          | ```SELECT * FROM c WHERE c.timestamp > 1589840355 AND c.name = "John" ORDER BY c.timestamp ASC, c.name ASC``` | `No` |
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC, c.name ASC``` | `No`  |
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC``` | ```No```   |
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.age ASC, c.name ASC,c.timestamp ASC``` | `Yes` |
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.timestamp ASC``` | `No` |
 
-## <a name="modifying-the-indexing-policy"></a>Modificando a política de indexação
+## <a name="index-transformationmodifying-the-indexing-policy"></a>Índice de <-transformação>modificar a política de indexação
 
-A política de indexação de um contêiner pode ser atualizada a qualquer momento [usando o portal do Azure ou um dos SDKs com suporte](how-to-manage-indexing-policy.md). Uma atualização para a política de indexação dispara uma transformação do índice antigo para o novo, que é executado online e in-loco (portanto, nenhum espaço de armazenamento adicional é consumido durante a operação). O índice antigo da política é transformado com eficiência na nova política sem afetar a disponibilidade de gravação, a disponibilidade de leitura ou a taxa de transferência provisionada no contêiner. A transformação de índice é uma operação assíncrona e o tempo necessário para concluir depende da taxa de transferência provisionada, do número de itens e de seu tamanho.
+A política de indexação de um contêiner pode ser atualizada a qualquer momento [usando o portal do Azure ou um dos SDKs com suporte](how-to-manage-indexing-policy.md). Uma atualização para a política de indexação dispara uma transformação do índice antigo para o novo, que é executado online e in-loco (portanto, nenhum espaço de armazenamento adicional é consumido durante a operação). A política de indexação antiga é transformada com eficiência para a nova política sem afetar a disponibilidade de gravação, a disponibilidade de leitura ou a taxa de transferência provisionada no contêiner. A transformação de índice é uma operação assíncrona e o tempo necessário para concluir depende da taxa de transferência provisionada, do número de itens e de seu tamanho.
 
 > [!IMPORTANT]
 > A transformação de índice é uma operação que consome [unidades de solicitação](request-units.md). As unidades de solicitação consumidas por uma transformação de índice não serão cobradas no momento se você estiver usando contêineres sem [servidor](serverless.md) . Essas unidades de solicitação serão cobradas quando o servidor não estiver disponível para o público geral.
@@ -281,14 +332,10 @@ Ao remover índices e executar imediatamente consultas que filtram os índices d
 
 Usar o [recurso TTL (vida útil)](time-to-live.md) requer indexação. Isso significa que:
 
-- Não é possível ativar o TTL em um contêiner em que o modo de indexação está definido como nenhum,
+- Não é possível ativar o TTL em um contêiner no qual o modo de indexação está definido como `none` ,
 - Não é possível definir o modo de indexação como None em um contêiner em que TTL está ativado.
 
-Para cenários em que nenhum caminho de propriedade precisa ser indexado, mas o TTL é necessário, você pode usar uma política de indexação com:
-
-- um modo de indexação definido como consistente e
-- nenhum caminho incluído e
-- `/*` como o único caminho excluído.
+Para cenários em que nenhum caminho de propriedade precisa ser indexado, mas o TTL é necessário, você pode usar uma política de indexação com um modo de indexação definido como `consistent` , sem caminhos incluídos e `/*` como o único caminho excluído.
 
 ## <a name="next-steps"></a>Próximas etapas
 

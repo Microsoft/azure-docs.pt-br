@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 764e0262c8a26511c55740aa1797b5ec9b59cc8e
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 077d200dcaf957f636acecebb441ff99a68eb96f
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150145"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963580"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar seu aplicativo a uma rede virtual do Azure
 
@@ -131,6 +131,12 @@ A interface do usuário da Integração VNET do Plano do Serviço de Aplicativo 
 * **Sincronizar rede**: a operação de rede de sincronização é usada somente para o recurso de Integração VNET dependente de gateway. A execução de uma operação de sincronização de rede verifica se os certificados e as informações de rede são em sincronia. Se você adicionar ou alterar o DNS da VNET, execute uma operação de sincronização de rede. Essa operação reinicia todos os aplicativos que usam essa VNET. Essa operação não funcionará se você estiver usando um aplicativo e uma VNET que pertença a assinaturas diferentes.
 * **Adicionar rotas**: a adição de rotas conduz o tráfego de saída para a VNET.
 
+O IP privado atribuído à instância é exposto por meio da variável de ambiente, **WEBSITE_PRIVATE_IP**. A interface do usuário do console do kudu também mostra a lista de variáveis de ambiente disponíveis para o aplicativo Web. Esse IP é atribuído do intervalo de endereços da sub-rede integrada. Para integração de VNet regional, o valor de WEBSITE_PRIVATE_IP é um IP do intervalo de endereços da sub-rede delegada e para integração VNet exigida pelo gateway, o valor é um IP do intervalo de endereços do pool de endereço ponto a site configurado no gateway de rede virtual. Esse é o IP que será usado pelo aplicativo Web para se conectar aos recursos por meio da rede virtual. 
+
+> [!NOTE]
+> O valor de WEBSITE_PRIVATE_IP é associado à alteração. No entanto, ele será um IP dentro do intervalo de endereços da sub-rede de integração ou do intervalo de endereços de ponto a site, portanto, você precisará permitir o acesso de todo o intervalo de endereços.
+>
+
 ### <a name="gateway-required-vnet-integration-routing"></a>Roteamento da Integração VNET exigida pelo gateway
 As rotas definidas na VNET são usadas para direcionar o tráfego para a VNET do aplicativo. Para enviar o tráfego de saída adicional para a VNET, adicione esses blocos de endereço aqui. Essa funcionalidade só funciona com a Integração VNET exigida pelo gateway. As tabelas de rotas não afetam o tráfego do aplicativo quando você usa a Integração VNET exigida pelo gateway como exigem com a Integração VNET regional.
 
@@ -152,6 +158,7 @@ Três custos estão relacionados ao uso do recurso de Integração VNET exigido 
 
 > [!NOTE]
 > Não há suporte para integração VNET em cenários de Docker Compose no serviço de aplicativo.
+> Azure Functions restrições de acesso serão ignoradas se houver um ponto de extremidade privado presente.
 >
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]

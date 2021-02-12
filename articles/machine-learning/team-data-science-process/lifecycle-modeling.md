@@ -8,15 +8,15 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c3406b28c44644053fa984f2cf7739bb53ccf6c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4719bd21bc6299373f9dabfe4733541c6fa27b94
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336438"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94740174"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Estágio de modelagem do ciclo de vida do Processo de Ciência de Dados da Equipe
 
@@ -67,8 +67,6 @@ O processo de treinamento do modelo inclui as seguintes etapas:
 > 
 > 
 
-Fornecemos uma [ferramenta automatizada de modelagem e relatório](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/Modeling) com o TDSP que pode ser executada por meio de vários algoritmos e limpezas de parâmetros para produzir um modelo de linha de base. Ela também produz um relatório de modelagem de linha de base que fornece um resumo do desempenho de cada combinação de modelo e de parâmetro, incluindo a importância da variável. Esse processo também é iterativo, pois pode gerar mais engenharia de recursos. 
-
 ## <a name="artifacts"></a>Artifacts
 Os artefatos produzidos neste estágio incluem:
 
@@ -90,4 +88,4 @@ Aqui estão os links para cada etapa do ciclo de vida do TDSP:
 
 Fornecemos passo a passo completos que demonstram todas as etapas do processo para cenários específicos. O artigo [Passo a passos de exemplo](walkthroughs.md) fornece uma lista dos cenários com descrições de links e miniaturas. Os passo a passo ilustram como combinar ferramentas e serviços de nuvem e locais em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente. 
 
-Para obter exemplos de como executar etapas nos TDSPs que usam o Azure Microsoft Azure Machine Learning Studio, consulte [Use the TDSP with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) (Usar o TDSP com o Azure Machine Learning). 
+Para obter exemplos de como executar etapas nos TDSPs que usam o Azure Microsoft Azure Machine Learning Studio, consulte [Use the TDSP with Azure Machine Learning](./index.yml) (Usar o TDSP com o Azure Machine Learning).

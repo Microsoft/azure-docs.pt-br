@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 85fd5a4246e891ef6640438b07e12a9c32ad12fa
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 3336a086fbe8f4291f752836a610cd80b773ec2d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094238"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790809"
 ---
 # <a name="azure-digital-twins-high-availability-and-disaster-recovery"></a>Alta disponibilidade e recuperação de desastre do Azure digital gêmeos
 
@@ -28,7 +28,7 @@ Você também pode ver a seção [*práticas recomendadas*](#best-practices) par
 
 ## <a name="intra-region-ha"></a>HA entre regiões
  
-O Azure digital gêmeos fornece HA de região interna implementando redundâncias dentro do serviço. **Nenhum trabalho adicional é exigido pelos desenvolvedores de uma solução de gêmeos digital do Azure para aproveitar esses recursos de alta disponibilidade.** Embora o Azure digital gêmeos ofereça uma garantia de tempo de atividade razoavelmente alta, as falhas transitórias ainda podem ser esperadas, como em qualquer plataforma de computação distribuída. As políticas de repetição apropriadas devem ser internas aos componentes que interagem com um aplicativo de nuvem para lidar com falhas transitórias.
+O Azure digital gêmeos fornece HA de região interna implementando redundâncias dentro do serviço. Isso é refletido no [SLA de serviço](https://azure.microsoft.com/support/legal/sla/digital-twins) para tempo de atividade. **Nenhum trabalho adicional é exigido pelos desenvolvedores de uma solução de gêmeos digital do Azure para aproveitar esses recursos de alta disponibilidade.** Embora o Azure digital gêmeos ofereça uma garantia de tempo de atividade razoavelmente alta, as falhas transitórias ainda podem ser esperadas, como em qualquer plataforma de computação distribuída. As políticas de repetição apropriadas devem ser internas aos componentes que interagem com um aplicativo de nuvem para lidar com falhas transitórias.
 
 ## <a name="cross-region-dr"></a>Recuperação de desastres de região cruzada
 
@@ -38,6 +38,29 @@ O **failover iniciado pela Microsoft** é exercido pela Microsoft em raras situa
 
 >[!NOTE]
 > Alguns serviços do Azure também fornecem uma opção adicional chamada **failover iniciado pelo cliente**, que permite que os clientes iniciem um failover apenas para sua instância, como para executar uma análise de recuperação de desastre. No momento, esse mecanismo **não tem suporte** do Azure digital gêmeos. 
+
+## <a name="monitor-service-health"></a>Monitorar a integridade do serviço
+
+À medida que as instâncias do Azure digital gêmeos têm failover e são recuperadas, você pode monitorar o processo usando a ferramenta de [integridade do serviço do Azure](../service-health/service-health-overview.md) . A integridade do serviço rastreia a integridade dos seus serviços do Azure em diferentes regiões e assinaturas e compartilha comunicações de impacto de serviço sobre interrupções e tempos de inatividade.
+
+Durante um evento de failover, a integridade do serviço pode fornecer uma indicação de quando o serviço está inoperante e quando ele está em backup.
+
+Para exibir eventos de integridade do serviço...
+1. Navegue até [integridade do serviço](https://portal.azure.com/?feature.customportal=false#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues) na portal do Azure (você pode usar este link ou pesquisá-lo usando a barra de pesquisa do Portal).
+1. Use o menu à esquerda para alternar para a página *histórico de integridade* .
+1. Procure um *nome de problema* começando com o **gêmeos digital do Azure** e selecione-o.
+
+    :::image type="content" source="media/concepts-high-availability-disaster-recovery/navigate.png" alt-text="Captura de tela da portal do Azure mostrando a página Histórico de integridade. Há uma lista de vários problemas dos últimos dias e um problema chamado ' Azure digital gêmeos-Europa Ocidental-Mitigated ' é realçado." lightbox="media/concepts-high-availability-disaster-recovery/navigate.png":::
+
+1. Para obter informações gerais sobre a interrupção, exiba a guia *Resumo* .
+
+    :::image type="content" source="media/concepts-high-availability-disaster-recovery/summary.png" alt-text="Na página Histórico de integridade, a guia Resumo é realçada. A guia exibe informações gerais, como o recurso que foi afetado, sua região e sua assinatura." lightbox="media/concepts-high-availability-disaster-recovery/summary.png":::
+1. Para obter mais informações e atualizações sobre o problema ao longo do tempo, exiba a guia *Issue updates* .
+
+    :::image type="content" source="media/concepts-high-availability-disaster-recovery/issue-updates.png" alt-text="Na página Histórico de integridade, a guia Atualizações de problema é realçada. A guia exibe várias entradas mostrando o status atual de um dia atrás." lightbox="media/concepts-high-availability-disaster-recovery/issue-updates.png":::
+
+
+Observe que as informações exibidas nesta ferramenta não são específicas para uma instância digital do Azure. Depois de usar a integridade do serviço para entender o que está acontecendo com o serviço de gêmeos digital do Azure em uma determinada região ou assinatura, você pode tomar o monitoramento de um passo além usando a [ferramenta Resource Health](troubleshoot-resource-health.md) para fazer uma busca detalhada em instâncias específicas e ver se elas são afetadas.
 
 ## <a name="best-practices"></a>Práticas recomendadas
 

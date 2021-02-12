@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 704449a9d70a38f9a05a68df290a4c0d0e6aeb54
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2aaa301a95f3f07ca81d20daba3ef28b812da0e6
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318907"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672331"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alcumus-info-exchange"></a>Tutorial: integração do Active Directory do Azure ao Alcumus Info Exchange
 
@@ -63,7 +63,7 @@ Para configurar a integração do Alcumus Info Exchange ao Azure AD, você preci
 
 4. Na caixa de pesquisa, digite **Alcumus Info Exchange**, selecione **Alcumus Info Exchange** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
 
-     ![Alcumus Info Exchange na lista de resultados](common/search-new-app.png)
+    ![Alcumus Info Exchange na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
@@ -143,7 +143,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
     a. No campo **Nome**, insira **BrendaFernandes**.
-  
+
     b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -179,7 +179,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
 ### <a name="create-alcumus-info-exchange-test-user"></a>Criar um usuário de teste do Alcumus Info Exchange
 
-Nesta seção, você criará um usuário chamado Brenda Fernandes no Alcumus Info Exchange. Trabalhe com a  [equipe de suporte do Alcumus Info Exchange](mailto:helpdesk@alcumusgroup.com) para adicionar os usuários na plataforma do Alcumus Info Exchange. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado Brenda Fernandes no Alcumus Info Exchange. Trabalhe com a [equipe de suporte do Alcumus Info Exchange](mailto:helpdesk@alcumusgroup.com) para adicionar os usuários à plataforma do Alcumus Info Exchange. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="test-single-sign-on"></a>Testar logon único
 

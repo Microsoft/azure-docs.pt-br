@@ -70,7 +70,7 @@
         - name: Como autorizar operações de gerenciamento
           href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Controles de segurança interna
-          href: ../common/security-baseline.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json
+          href: ../common/security-baseline.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Usar pontos de extremidade privados do Azure
           href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Controles de segurança do Azure Policy
@@ -94,8 +94,6 @@
               href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Lista de verificação de desempenho e escalabilidade
           href: storage-performance-checklist.md
-    - name: Simultaneidade
-      href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Monitorar e solucionar problemas
       items:
         - name: Monitorar o Armazenamento de Filas
@@ -121,6 +119,8 @@
           href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Atualizar uma conta de armazenamento
           href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Recuperar uma conta de armazenamento excluída
+          href: ../common/storage-account-recover.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Proteger dados da fila
       items:
         - name: Autorizar acesso aos dados da fila
@@ -128,11 +128,11 @@
             - name: Opções de autorização para usuários
               items:
                 - name: Portal
-                  href: authorize-queue-access-portal.md
+                  href: authorize-data-operations-portal.md
                 - name: PowerShell
-                  href: authorize-active-directory-powershell.md
+                  href: authorize-data-operations-powershell.md
                 - name: CLI do Azure
-                  href: ../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                  href: authorize-data-operations-cli.md
             - name: Gerenciar direitos de acesso com o Azure RBAC
               items:
                 - name: Portal
@@ -261,7 +261,7 @@
         - name: Introdução ao Gerenciador de Armazenamento
           href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Notas de versão do Gerenciador de Armazenamento
-          href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+          href: 'https://github.com/microsoft/AzureStorageExplorer/releases'
         - name: Solucionar problemas do Gerenciador de Armazenamento
           href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Acessibilidade do Gerenciador de Armazenamento
@@ -279,17 +279,17 @@
     - name: Pacotes NuGet (.NET)
       items:
         - name: Microsoft.Azure.Storage.Common (versão 11.x)
-          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/'
+          href: 'https://www.nuget.org/packages/microsoft.azure.storage.common/'
         - name: Azure.Storage.Common (versão 12.x)
           href: 'https://www.nuget.org/packages/Azure.Storage.Common/'
         - name: Microsoft.Azure.Storage.Queue (versão 11.x)
-          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/'
+          href: 'https://www.nuget.org/packages/microsoft.azure.storage.queue/'
         - name: Azure.Storage.Common (versão 12.x)
-          href: 'https://www.nuget.org/packages/Azure.Storage.Queues/'
+          href: 'https://www.nuget.org/packages/azure.storage.queues/'
         - name: Azure Configuration Manager
-          href: 'https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/'
+          href: 'https://www.nuget.org/packages/microsoft.azure.configurationmanager/'
         - name: Biblioteca do provedor de recursos de armazenamento
-          href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/'
+          href: 'https://www.nuget.org/packages/microsoft.azure.management.storage/'
     - name: Código-fonte
       items:
         - name: .NET

@@ -10,13 +10,13 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 1dc7c343087e4fc11aef20e95bc9cafea20a99b4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.custom: how-to, contperf-fy20q4, tracking-python, contperf-fy21q1
+ms.openlocfilehash: 07b8c130a2a22554e4cd5b33996d5a5ee967d47f
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672858"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029525"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Proteger um espaço de trabalho Azure Machine Learning com redes virtuais
 
@@ -48,7 +48,7 @@ Neste artigo, você aprenderá a habilitar os seguintes recursos de espaços de 
     - "Microsoft. Network/virtualNetworks/Join/Action" no recurso de rede virtual.
     - "Microsoft. Network/virtualNetworks/sub-rede/junção/ação" no recurso de sub-rede.
 
-    Para obter mais informações sobre o RBAC do Azure com rede, consulte [funções internas de rede](/azure/role-based-access-control/built-in-roles#networking)
+    Para obter mais informações sobre o RBAC do Azure com rede, consulte [funções internas de rede](../role-based-access-control/built-in-roles.md#networking)
 
 
 ## <a name="secure-the-workspace-with-private-endpoint"></a>Proteger o espaço de trabalho com o ponto de extremidade privado
@@ -66,7 +66,7 @@ O Azure Machine Learning dá suporte a contas de armazenamento configuradas para
 >
 > A conta de armazenamento padrão é provisionada automaticamente quando você cria um workspace.
 >
-> O parâmetro `storage_account` na função [`Workspace.create()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-&preserve-view=true) permite que você especifique uma conta de armazenamento personalizada pela ID do recurso do Azure em contas de armazenamento não padrão.
+> O parâmetro `storage_account` na função [`Workspace.create()`](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-&preserve-view=true) permite que você especifique uma conta de armazenamento personalizada pela ID do recurso do Azure em contas de armazenamento não padrão.
 
 Para usar uma conta de armazenamento do Azure para o workspace em uma rede virtual, siga as seguintes etapas:
 
@@ -74,20 +74,20 @@ Para usar uma conta de armazenamento do Azure para o workspace em uma rede virtu
 
    [![O armazenamento anexado ao workspace do Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
 
-1. Na página conta de serviço de armazenamento, selecione __firewalls e redes virtuais__ .
+1. Na página conta de serviço de armazenamento, selecione __firewalls e redes virtuais__.
 
    ![A área “Firewalls e redes virtuais” na página Armazenamento do Azure no portal do Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
 
-1. Na página __Firewalls e redes virtuais__ , execute as seguintes ações:
-    1. Selecione __Redes selecionadas__ .
-    1. Em __Redes virtuais__ , selecione o link __Adicionar rede virtual existente__ . Essa ação adiciona a rede virtual onde sua computação reside (consulte a etapa 1).
+1. Na página __Firewalls e redes virtuais__, execute as seguintes ações:
+    1. Selecione __Redes selecionadas__.
+    1. Em __Redes virtuais__, selecione o link __Adicionar rede virtual existente__. Essa ação adiciona a rede virtual onde sua computação reside (consulte a etapa 1).
 
         > [!IMPORTANT]
         > A conta de armazenamento deve estar na mesma rede virtual e sub-rede que as instâncias ou clusters de computação usados para treinamento ou inferência.
 
-    1. Marque a caixa de seleção __Permitir que serviços confiáveis da Microsoft acessem esta conta de armazenamento__ . Isso não dá a todos os serviços do Azure acesso à sua conta de armazenamento.
+    1. Marque a caixa de seleção __Permitir que serviços confiáveis da Microsoft acessem esta conta de armazenamento__. Isso não dá a todos os serviços do Azure acesso à sua conta de armazenamento.
     
-        * Os recursos de alguns serviços, **registrados em sua assinatura** , podem acessar a conta de armazenamento **na mesma assinatura** para operações de seleção. Por exemplo, gravando logs ou criando backups.
+        * Os recursos de alguns serviços, **registrados em sua assinatura**, podem acessar a conta de armazenamento **na mesma assinatura** para operações de seleção. Por exemplo, gravando logs ou criando backups.
         * Os recursos de alguns serviços podem receber acesso explícito à sua conta de armazenamento __atribuindo uma função do Azure__ à sua identidade gerenciada atribuída pelo sistema.
 
         Para saber mais, consulte [Configurar Redes Virtuais e Firewalls de Armazenamento do Azure](../storage/common/storage-network-security.md#trusted-microsoft-services).
@@ -95,7 +95,7 @@ Para usar uma conta de armazenamento do Azure para o workspace em uma rede virtu
     > [!IMPORTANT]
     > Ao trabalhar com o SDK do Azure Machine Learning, seu ambiente de desenvolvimento deve ter a capacidade de se conectar à Conta de Armazenamento do Azure. O firewall deve permitir o acesso do endereço IP do ambiente de desenvolvimento quando a conta de armazenamento está dentro de uma rede virtual.
     >
-    > Para habilitar o acesso à conta de armazenamento, acesse __Firewalls e redes virtuais__ para a conta de armazenamento *de um navegador da Web no cliente de desenvolvimento* . Em seguida, use a caixa de seleção __Adicionar endereço IP do seu cliente__ para adicionar o endereço IP do cliente ao __INTERVALO DE ENDEREÇOS__ . Você também pode usar o campo __INTERVALO DE ENDEREÇOS__ para inserir manualmente o endereço IP do ambiente de desenvolvimento. Após adicionar o endereço IP do cliente, ele poderá acessar a conta de armazenamento usando o SDK.
+    > Para habilitar o acesso à conta de armazenamento, acesse __Firewalls e redes virtuais__ para a conta de armazenamento *de um navegador da Web no cliente de desenvolvimento*. Em seguida, use a caixa de seleção __Adicionar endereço IP do seu cliente__ para adicionar o endereço IP do cliente ao __INTERVALO DE ENDEREÇOS__. Você também pode usar o campo __INTERVALO DE ENDEREÇOS__ para inserir manualmente o endereço IP do ambiente de desenvolvimento. Após adicionar o endereço IP do cliente, ele poderá acessar a conta de armazenamento usando o SDK.
 
    [![O painel “Firewalls e redes virtuais” no portal do Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
@@ -175,12 +175,12 @@ Para usar os recursos de experimentação do Azure Machine Learning com Azure Ke
 
 1. Vá para o Key Vault associado ao espaço de trabalho.
 
-1. Na página __Key Vault__ , no painel esquerdo, selecione __rede__ .
+1. Na página __Key Vault__ , no painel esquerdo, selecione __rede__.
 
 1. Na guia __firewalls e redes virtuais__ , execute as seguintes ações:
-    1. Em __permitir acesso de__ , selecione __ponto de extremidade privado e redes selecionadas__ .
-    1. Em __Redes virtuais__ , selecione __Adicionar redes virtuais existentes__ para adicionar a rede virtual onde reside a sua computação de experimentação.
-    1. Em __permitir que os serviços confiáveis da Microsoft ignorem esse firewall?__ , selecione __Sim__ .
+    1. Em __permitir acesso de__, selecione __ponto de extremidade privado e redes selecionadas__.
+    1. Em __Redes virtuais__, selecione __Adicionar redes virtuais existentes__ para adicionar a rede virtual onde reside a sua computação de experimentação.
+    1. Em __permitir que os serviços confiáveis da Microsoft ignorem esse firewall?__, selecione __Sim__.
 
    [![A seção “Firewalls e redes virtuais” no painel do Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
 
@@ -188,7 +188,7 @@ Para usar os recursos de experimentação do Azure Machine Learning com Azure Ke
 
 Para usar o registro de contêiner do Azure dentro de uma rede virtual, você deve atender aos seguintes requisitos:
 
-* O registro de contêiner do Azure deve ser uma versão Premium. Para obter mais informações sobre atualização, consulte [Como alterar SKUs](/azure/container-registry/container-registry-skus#changing-skus).
+* O registro de contêiner do Azure deve ser uma versão Premium. Para obter mais informações sobre atualização, consulte [Como alterar SKUs](../container-registry/container-registry-skus.md#changing-tiers).
 
 * Seu Registro de Contêiner do Azure deve estar na mesma rede virtual e sub-rede que a conta de armazenamento e os destinos de computação usados para treinamento ou inferência.
 
@@ -233,7 +233,7 @@ Depois que esses requisitos forem atendidos, use as etapas a seguir para habilit
     > [!IMPORTANT]
     > A conta de armazenamento, o cluster de cálculo e o Registro de Contêiner do Azure devem estar todos na mesma sub-rede da rede virtual.
     
-    Para obter mais informações, consulte a referência do método [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-&preserve-view=true).
+    Para obter mais informações, consulte a referência do método [update()](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-&preserve-view=true).
 
 1. Aplique o modelo de Azure Resource Manager a seguir. Este modelo permite que seu workspace se comunique com o ACR.
 
@@ -289,7 +289,7 @@ Depois que esses requisitos forem atendidos, use as etapas a seguir para habilit
 
     Este modelo cria um _ponto de extremidade privado_ para acesso à rede do espaço de trabalho para o ACR. A captura de tela abaixo mostra um exemplo desse ponto de extremidade privado.
 
-    :::image type="content" source="media/how-to-secure-workspace-vnet/acr-private-endpoint.png" alt-text="Registro de Contêiner do Azure para o workspace":::
+    :::image type="content" source="media/how-to-secure-workspace-vnet/acr-private-endpoint.png" alt-text="Configurações de ponto de extremidade privado do ACR":::
 
     > [!IMPORTANT]
     > Não exclua este ponto de extremidade! Se você excluí-lo acidentalmente, poderá aplicar novamente o modelo nesta etapa para criar um novo.

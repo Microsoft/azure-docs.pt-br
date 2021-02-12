@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 70cb1297c4b47f22f9eb5cc6992e6fcd6c58b364
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a41cd2ce14ceb452d783b472955de347199d0870
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545031"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109463"
 ---
 # <a name="create-and-manage-virtual-networks-for-azure-database-for-mysql---flexible-server-using-the-azure-cli"></a>Criar e gerenciar redes virtuais para o banco de dados do Azure para MySQL-servidor flexível usando o CLI do Azure
 
@@ -23,9 +23,9 @@ O servidor flexível do banco de dados do Azure para MySQL é compatível com ti
 - Acesso público (endereços IP permitidos)
 - Acesso privado (Integração VNet)
 
-Neste artigo, vamos nos concentrar na criação do MySQL Server com **acesso privado (integração VNet)** usando CLI do Azure. Com o *acesso privado (integração VNet)* , você pode implantar seu servidor flexível em sua própria [rede virtual do Azure](../../virtual-network/virtual-networks-overview.md). As redes virtuais do Azure fornecem comunicação de rede privada e segura. No acesso privado, as conexões com o servidor MySQL são restritas apenas dentro de sua rede virtual. Para saber mais sobre isso, consulte [acesso privado (integração VNet)](./concepts-networking.md#private-access-vnet-integration).
+Neste artigo, vamos nos concentrar na criação do MySQL Server com **acesso privado (integração VNet)** usando CLI do Azure. Com o *acesso privado (integração VNet)*, você pode implantar seu servidor flexível em sua própria [rede virtual do Azure](../../virtual-network/virtual-networks-overview.md). As redes virtuais do Azure fornecem comunicação de rede privada e segura. No acesso privado, as conexões com o servidor MySQL são restritas apenas dentro de sua rede virtual. Para saber mais sobre isso, consulte [acesso privado (integração VNet)](./concepts-networking.md#private-access-vnet-integration).
 
-No banco de dados do Azure para MySQL servidor flexível, você só pode implantar o servidor em uma rede virtual e uma sub-rede durante a criação do servidor. Depois que o servidor flexível for implantado em uma rede virtual e sub-rede, você não poderá movê-lo para outra rede virtual, sub-rede ou *acesso público (endereços IP permitidos)* .
+No banco de dados do Azure para MySQL servidor flexível, você só pode implantar o servidor em uma rede virtual e uma sub-rede durante a criação do servidor. Depois que o servidor flexível for implantado em uma rede virtual e sub-rede, você não poderá movê-lo para outra rede virtual, sub-rede ou *acesso público (endereços IP permitidos)*.
 
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 
@@ -50,10 +50,10 @@ az account set --subscription <subscription id>
 ```
 
 ## <a name="create-azure-database-for-mysql-flexible-server-using-cli"></a>Criar um servidor flexível do banco de dados do Azure para MySQL usando a CLI
-Você pode usar o `az mysql flexible-server` comando para criar o servidor flexível com *acesso privado (integração VNet)* . Esse comando usa o acesso privado (integração VNet) como o método de conectividade padrão. Uma rede virtual e uma sub-rede serão criadas para você se nenhuma for fornecida. Você também pode fornecer a rede virtual e a sub-rede já existentes usando a ID de sub-rede. <!-- You can provide the **vnet**,**subnet**,**vnet-address-prefix** or**subnet-address-prefix** to customize the virtual network and subnet.--> Há várias opções para criar um servidor flexível usando a CLI, conforme mostrado nos exemplos abaixo.
+Você pode usar o `az mysql flexible-server` comando para criar o servidor flexível com *acesso privado (integração VNet)*. Esse comando usa o acesso privado (integração VNet) como o método de conectividade padrão. Uma rede virtual e uma sub-rede serão criadas para você se nenhuma for fornecida. Você também pode fornecer a rede virtual e a sub-rede já existentes usando a ID de sub-rede. <!-- You can provide the **vnet**,**subnet**,**vnet-address-prefix** or**subnet-address-prefix** to customize the virtual network and subnet.--> Há várias opções para criar um servidor flexível usando a CLI, conforme mostrado nos exemplos abaixo.
 
 >[!Important]
-> O uso desse comando delegará a sub-rede a **Microsoft. DBforMySQL/flexibleServers** . Essa delegação significa que somente os servidores flexíveis do banco de dados do Azure para MySQL podem usar essa sub-rede. Nenhum outro tipo de recurso do Azure pode estar na sub-rede delegada.
+> O uso desse comando delegará a sub-rede a **Microsoft. DBforMySQL/flexibleServers**. Essa delegação significa que somente os servidores flexíveis do banco de dados do Azure para MySQL podem usar essa sub-rede. Nenhum outro tipo de recurso do Azure pode estar na sub-rede delegada.
 >
 
 Consulte a documentação de [referência](/cli/azure/mysql/flexible-server) do CLI do Azure para obter a lista completa de parâmetros da CLI configuráveis. Por exemplo, nos comandos abaixo, você pode opcionalmente especificar o grupo de recursos.
@@ -62,21 +62,22 @@ Consulte a documentação de [referência](/cli/azure/mysql/flexible-server) do 
     ```azurecli-interactive
     az mysql flexible-server create
     ```
-<!--- Create a flexible server using already existing virtual network and subnet
+- Crie um servidor flexível usando a rede virtual e a sub-rede já existentes. Se a rede virtual e a sub-rede fornecidas não existirem, a rede virtual e a sub-rede com o prefixo de endereço padrão serão criados.
     ```azurecli-interactive
     az mysql flexible-server create --vnet myVnet --subnet mySubnet
-    ```-->
-- Crie um servidor flexível usando a rede virtual já existente, a sub-rede e o usando a ID de sub-rede. A sub-rede fornecida não deve ter nenhum outro recurso implantado nela e essa sub-rede será delegada para **Microsoft. DBforMySQL/flexibleServers** , se ainda não tiver sido delegada.
+    ```
+
+- Crie um servidor flexível usando a rede virtual já existente, a sub-rede e o usando a ID de sub-rede. A sub-rede fornecida não deve ter nenhum outro recurso implantado nela e essa sub-rede será delegada para **Microsoft. DBforMySQL/flexibleServers**, se ainda não tiver sido delegada.
     ```azurecli-interactive
     az mysql flexible-server create --subnet /subscriptions/{SubID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Network/virtualNetworks/{VNetName}/subnets/{SubnetName}
     ```
     > [!Note]
     > A rede virtual e a sub-rede devem estar na mesma região e assinatura que o servidor flexível.
-<!--
-- Create a flexible server using new virtual network, subnet with non-default address prefix
+<
+- Crie um servidor flexível usando uma nova rede virtual, sub-rede com um prefixo de endereço não padrão.
     ```azurecli-interactive
-    az mysql flexible-server create --vnet myVnet --vnet-address-prefix 10.0.0.0/24 --subnet mySubnet --subnet-address-prefix 10.0.0.0/24
-    ```-->
+    az mysql flexible-server create --vnet myVnet --address-prefixes 10.0.0.0/24 --subnet mySubnet --subnet-prefixes 10.0.0.0/24
+    ```
 Consulte a documentação de [referência](/cli/azure/mysql/flexible-server) do CLI do Azure para obter a lista completa de parâmetros da CLI configuráveis.
 
 

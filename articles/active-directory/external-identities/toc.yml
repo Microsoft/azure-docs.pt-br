@@ -10,6 +10,8 @@
           href: what-is-b2b.md
         - name: O que é o Azure AD B2C?
           href: ../../active-directory-b2c/overview.md
+        - name: O que há de novo no Docs?
+          href: whats-new-docs.md
     - name: Inícios rápidos
       items:
         - name: Adicionar usuários convidados no portal
@@ -114,6 +116,8 @@
               href: use-dynamic-groups.md
             - name: Entender o usuário de B2B
               href: user-properties.md
+            - name: Redefinir status do resgate
+              href: reset-redemption-status.md
             - name: B2B para aplicativos integrados do Azure AD
               href: configure-saas-apps.md
         - name: Gerenciar acesso de convidados em uma organização híbrida

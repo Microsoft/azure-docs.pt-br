@@ -1,14 +1,17 @@
 ---
 title: Configurar um dispositivo de migrações para Azure no Azure governamental
 description: Saiba como configurar um dispositivo de migrações para Azure no Azure governamental
-ms.topic: article
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: 1060bda13cc593980850bc6563555cf5dd4b7fd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f31211c4448ad5bbe8d839b2ec86b0b61970f568
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450031"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752185"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Configurar um dispositivo no Azure governamental 
 
@@ -35,7 +38,7 @@ Para configurar o dispositivo para VMware, você baixa um arquivo compactado do 
 
 1.  Em **Metas de Migração** > **Servidores** > **Migrações para Azure: Avaliação de Servidor**, clique em **Descobrir**.
 2.  Em **Descobrir computadores** > **As suas máquinas são virtualizadas?** , selecione **Sim, com o hipervisor do VMware vSphere**.
-3.  Clique em **baixar**para baixar o arquivo compactado. 
+3.  Clique em **baixar** para baixar o arquivo compactado. 
 
 
 ### <a name="verify-file-security"></a>Verificar a segurança do arquivo
@@ -76,7 +79,7 @@ Para executar o script:
     ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-VMWare-USGov>.\AzureMigrateInstaller.ps1 ```
 1. Depois que o script é executado com êxito, ele inicia o aplicativo Web do dispositivo para que você possa configurar o dispositivo. Se você encontrar problemas, examine os logs de script em C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
-### <a name="verify-access"></a>Verificar acesso
+### <a name="verify-access"></a>Verificar o acesso
 
 Verifique se o dispositivo pode se conectar a URLs do Azure para [nuvens governamentais](migrate-appliance.md#government-cloud-urls).
 
@@ -89,7 +92,7 @@ Para configurar o dispositivo para Hyper-V, você baixa um arquivo compactado do
 
 1.  Em **Metas de Migração** > **Servidores** > **Migrações para Azure: Avaliação de Servidor**, clique em **Descobrir**.
 2.  Em **Descobrir computadores** > **Os computadores estão virtualizados?** , selecione **Sim, com o Hyper-V**.
-3.  Clique em **baixar**para baixar o arquivo compactado. 
+3.  Clique em **baixar** para baixar o arquivo compactado. 
 
 
 ### <a name="verify-file-security"></a>Verificar a segurança do arquivo
@@ -131,7 +134,7 @@ Para executar o script:
     ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-HyperV-USGov>.\AzureMigrateInstaller.ps1 ``` 
 1. Depois que o script é executado com êxito, ele inicia o aplicativo Web do dispositivo para que você possa configurar o dispositivo. Se você encontrar problemas, examine os logs de script em C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
-### <a name="verify-access"></a>Verificar acesso
+### <a name="verify-access"></a>Verificar o acesso
 
 Verifique se o dispositivo pode se conectar a URLs do Azure para [nuvens governamentais](migrate-appliance.md#government-cloud-urls).
 
@@ -144,7 +147,7 @@ Para configurar o dispositivo para VMware, você baixa um arquivo compactado do 
 
 1.  Em **Metas de Migração** > **Servidores** > **Migrações para Azure: Avaliação de Servidor**, clique em **Descobrir**.
 2.  Em **descobrir computadores**  >  **são seus computadores virtualizados?**, selecione **não virtualizados/outros**.
-3.  Clique em **baixar**para baixar o arquivo compactado. 
+3.  Clique em **baixar** para baixar o arquivo compactado. 
 
 
 ### <a name="verify-file-security"></a>Verificar a segurança do arquivo
@@ -158,7 +161,7 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
 
 3. Verifique a versão mais recente do dispositivo e o valor de hash:
 
-    **Cenário** | **Baixar*** | **Valor de hash**
+    **Cenário** | **Baixar** _ | _ *Valor de hash**
     --- | --- | ---
     Físico (85 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140338) | cfed44bb52c9ab3024a628dc7a5d0df8c624f156ec1ecc3507116bae330b257f
           
@@ -185,7 +188,7 @@ Para executar o script:
     ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>.\AzureMigrateInstaller.ps1 ```
 1. Depois que o script é executado com êxito, ele inicia o aplicativo Web do dispositivo para que você possa configurar o dispositivo. Se você encontrar problemas, examine os logs de script em C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
-### <a name="verify-access"></a>Verificar acesso
+### <a name="verify-access"></a>Verificar o acesso
 
 Verifique se o dispositivo pode se conectar a URLs do Azure para [nuvens governamentais](migrate-appliance.md#government-cloud-urls).
 

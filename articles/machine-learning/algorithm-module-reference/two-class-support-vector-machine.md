@@ -1,7 +1,7 @@
 ---
 title: 'Two-Class computador de vetor de suporte: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo de **máquina de vetor de suporte de duas classes** no Azure Machine Learning para criar um modelo baseado no algoritmo máquina de vetor de suporte.
+description: Saiba como usar o módulo máquina de vetor de suporte do Two-Class no Azure Machine Learning para criar um classificador binário.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 1dc2f8bdf6ed2823b44d25bdf65766b1f7ae060c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46cfdd319fc89e569d165dc2e11303e67c6dd54e
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907664"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420556"
 ---
 # <a name="two-class-support-vector-machine-module"></a>Módulo de máquina de vetor de suporte do Two-Class
 
@@ -42,33 +42,33 @@ Para esse tipo de modelo, é recomendável que você Normalize o conjunto de os 
   
 2.  Especifique como você deseja que o modelo seja treinado, definindo a opção **criar modo de instrutor** .  
   
-    -   **Parâmetro único**: se você souber como deseja configurar o modelo, poderá fornecer um conjunto específico de valores como argumentos.  
+    -   **Parâmetro único** : se você souber como deseja configurar o modelo, poderá fornecer um conjunto específico de valores como argumentos.  
 
-    -   **Intervalo de parâmetros**: se você não tiver certeza dos melhores parâmetros, poderá encontrar os parâmetros ideais usando o módulo [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md) . Você fornece algum intervalo de valores, e o instrutor itera em várias combinações de configurações para determinar a combinação de valores que produz o melhor resultado.
+    -   **Intervalo de parâmetros** : se você não tiver certeza dos melhores parâmetros, poderá encontrar os parâmetros ideais usando o módulo [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md) . Você fornece algum intervalo de valores, e o instrutor itera em várias combinações de configurações para determinar a combinação de valores que produz o melhor resultado.
 
-3.  Para **número de iterações**, digite um número que denota o número de iterações usadas durante a criação do modelo.  
+3.  Para **número de iterações** , digite um número que denota o número de iterações usadas durante a criação do modelo.  
   
      Este parâmetro pode ser usado para controlar o compromisso entre a precisão e a velocidade de treinamento.  
   
-4.  Para **lambda**, digite um valor a ser usado como o peso para regularização L1.  
+4.  Para **lambda** , digite um valor a ser usado como o peso para regularização L1.  
   
      Esse coeficiente de regularização pode ser usado para ajustar o modelo. Valores maiores penalizam modelos mais complexos.  
   
-5.  Selecione a opção **normalizar recursos**, se desejar normalizar os recursos antes do treinamento.
+5.  Selecione a opção **normalizar recursos** , se desejar normalizar os recursos antes do treinamento.
   
      Se você aplicar a normalização, antes do treinamento, os pontos de dados serão centralizados na média e dimensionados para ter uma unidade de desvio padrão.
   
-6.  Selecione a opção, **projeto para a esfera de unidade**, para normalizar coeficientes.
+6.  Selecione a opção, **projeto para a esfera de unidade** , para normalizar coeficientes.
   
      A projeção de valores para o espaço de unidade significa que, antes do treinamento, os pontos de dados são centralizados em 0 e dimensionados para ter uma unidade de desvio padrão.
   
-7.  Em **semente de número aleatório**, digite um valor inteiro para usar como semente se você quiser garantir reprodução em execuções.  Caso contrário, um valor de relógio do sistema será usado como uma semente, o que pode resultar em resultados ligeiramente diferentes entre as execuções.
+7.  Em **semente de número aleatório** , digite um valor inteiro para usar como semente se você quiser garantir reprodução em execuções.  Caso contrário, um valor de relógio do sistema será usado como uma semente, o que pode resultar em resultados ligeiramente diferentes entre as execuções.
   
 9. Conecte um DataSet rotulado e treine o modelo:
 
-    + Se você definir **criar modo de instrutor** como um **único parâmetro**, conecte um conjunto de um DataSet marcado e o módulo [treinar modelo](train-model.md) .  
+    + Se você definir **criar modo de instrutor** como um **único parâmetro** , conecte um conjunto de um DataSet marcado e o módulo [treinar modelo](train-model.md) .  
   
-    + Se você definir **criar modo de instrutor** como **intervalo de parâmetros**, conecte um conjunto de um DataSet marcado e treine o modelo usando [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md).  
+    + Se você definir **criar modo de instrutor** como **intervalo de parâmetros** , conecte um conjunto de um DataSet marcado e treine o modelo usando [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 

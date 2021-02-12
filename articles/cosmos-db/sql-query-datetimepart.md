@@ -3,16 +3,17 @@ title: DateTimePart na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função do sistema SQL DateTimePart no Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/14/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: dd88f8d6a0f5271da97d6f2f95eecb60bf94ed78
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 97eaff405086190b60279ac7d5cf8bf441c8f840
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095791"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336343"
 ---
 # <a name="datetimepart-azure-cosmos-db"></a>DateTimePart (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

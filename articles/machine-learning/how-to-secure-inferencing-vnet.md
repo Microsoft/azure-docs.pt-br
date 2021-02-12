@@ -10,13 +10,13 @@ ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
-ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 20f0d6a9d87caa8e95e7f9fa0b29ff45ed1195c2
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
+ms.openlocfilehash: 80abe036ef4a08f7ed6f0f19cffc2abde70a6ea9
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735479"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981299"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Proteger um ambiente Azure Machine Learning inferência com redes virtuais
 
@@ -47,7 +47,7 @@ Neste artigo, você aprenderá a proteger os seguintes recursos do inferência e
     - "Microsoft. Network/virtualNetworks/Join/Action" no recurso de rede virtual.
     - "Microsoft. Network/virtualNetworks/sub-rede/junção/ação" no recurso de sub-rede.
 
-    Para obter mais informações sobre o RBAC do Azure com rede, consulte [funções internas de rede](/azure/role-based-access-control/built-in-roles#networking)
+    Para obter mais informações sobre o RBAC do Azure com rede, consulte [funções internas de rede](../role-based-access-control/built-in-roles.md#networking)
 
 <a id="aksvnet"></a>
 
@@ -68,16 +68,16 @@ Para adicionar o AKS em uma rede virtual ao seu espaço de trabalho, use as segu
 
 1. Selecione __Clusters de inferência__ da central e, em seguida, selecione __+__ .
 
-1. Na caixa de diálogo __Novo cluster de inferência__ , selecione __Avançado__ em __Configuração de rede__ .
+1. Na caixa de diálogo __Novo cluster de inferência__, selecione __Avançado__ em __Configuração de rede__.
 
 1. Para configurar esse recurso de computação para usar uma rede virtual, execute as seguintes ações:
 
-    1. Na lista suspensa __Grupo de recursos__ , selecione o grupo de recursos que contém a rede virtual.
-    1. Na lista suspensa __Rede virtual__ , selecione a rede virtual que contém a sub-rede.
-    1. Na lista suspensa __Sub-rede__ , selecione a sub-rede.
+    1. Na lista suspensa __Grupo de recursos__, selecione o grupo de recursos que contém a rede virtual.
+    1. Na lista suspensa __Rede virtual__, selecione a rede virtual que contém a sub-rede.
+    1. Na lista suspensa __Sub-rede__, selecione a sub-rede.
     1. Na caixa __Intervalo de endereços do serviço Kubernetes__ , insira o intervalo de endereços do serviço Kubernetes. Esse intervalo de endereços usa um intervalo de IP de notação de Roteamento entre Domínios sem Classificação (CIDR) para definir os endereços IP disponíveis para o cluster. Ele não deve se sobrepor a nenhum intervalo de IP de sub-rede (por exemplo, 10.0.0.0/16).
     1. Na caixa __Endereço IP do serviço DNS do Kubernetes__ , insira o endereço IP do serviço de DNS do Kubernetes. Esse endereço IP é atribuído ao serviço DNS do Kubernetes. Ele deve estar dentro do intervalo de endereços do serviço Kubernetes (por exemplo, 10.0.0.10).
-    1. Na caixa __Endereço de ponte do Docker__ , insira o endereço da ponte do Docker. Esse endereço IP é atribuído à ponte Docker. Ele não deve estar em nenhum intervalo de IP de sub-rede nem no intervalo de endereços do serviço Kubernetes (por exemplo, 172.17.0.1/16).
+    1. Na caixa __Endereço de ponte do Docker__, insira o endereço da ponte do Docker. Esse endereço IP é atribuído à ponte Docker. Ele não deve estar em nenhum intervalo de IP de sub-rede nem no intervalo de endereços do serviço Kubernetes (por exemplo, 172.17.0.1/16).
 
    ![Azure Machine Learning: Configurações de rede virtual de Computação do Machine Learning](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
 
@@ -86,7 +86,7 @@ Para adicionar o AKS em uma rede virtual ao seu espaço de trabalho, use as segu
     Para localizar o endereço IP do ponto de extremidade de pontuação, examine o URI de Pontuação para o serviço implantado. Para obter informações sobre como exibir o URI de pontuação, consulte [consumir um modelo implantado como um serviço Web](how-to-consume-web-service.md#connection-information).
 
    > [!IMPORTANT]
-   > Mantenha as regras de saída padrão para o NSG. Para obter mais informações, consulte as regras de segurança padrão em [Grupos de segurança](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
+   > Mantenha as regras de saída padrão para o NSG. Para obter mais informações, consulte as regras de segurança padrão em [Grupos de segurança](../virtual-network/network-security-groups-overview.md#default-security-rules).
 
    [![Uma regra de segurança de entrada](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png#lightbox)
 
@@ -115,12 +115,46 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 Quando o processo de criação for concluído, você pode executar inferência ou pontuação de modelo em um cluster de AKS atrás de uma rede virtual. Para obter mais informações, consulte [Como implantar no AKS](how-to-deploy-and-where.md).
 
+Para obter mais informações sobre como usar o controle de acesso Role-Based com kubernetes, consulte [usar o RBAC do Azure para autorização do kubernetes](../aks/manage-azure-rbac.md).
+
+## <a name="network-contributor-role"></a>Função de colaborador de rede
+
+> [!IMPORTANT]
+> Se você criar ou anexar um cluster AKS fornecendo uma rede virtual criada anteriormente, deverá conceder a entidade de serviço (SP) ou a identidade gerenciada para seu cluster AKS a função de _colaborador de rede_ para o grupo de recursos que contém a rede virtual.
+>
+> Para adicionar a identidade como colaborador de rede, use as seguintes etapas:
+
+1. Para localizar a entidade de serviço ou a ID de identidade gerenciada para AKS, use os seguintes comandos de CLI do Azure. Substitua `<aks-cluster-name>` pelo nome do cluster. Substitua `<resource-group-name>` pelo nome do grupo de recursos que _contém o cluster AKs_:
+
+    ```azurecli-interactive
+    az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query servicePrincipalProfile.clientId
+    ``` 
+
+    Se esse comando retornar um valor de `msi` , use o seguinte comando para identificar a ID da entidade de segurança para a identidade gerenciada:
+
+    ```azurecli-interactive
+    az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query identity.principalId
+    ```
+
+1. Para localizar a ID do grupo de recursos que contém sua rede virtual, use o comando a seguir. Substitua `<resource-group-name>` pelo nome do grupo de recursos que _contém a rede virtual_:
+
+    ```azurecli-interactive
+    az group show -n <resource-group-name> --query id
+    ```
+
+1. Para adicionar a entidade de serviço ou a identidade gerenciada como um colaborador de rede, use o comando a seguir. Substituir `<SP-or-managed-identity>` pela ID retornada para a entidade de serviço ou identidade gerenciada. Substituir `<resource-group-id>` pela ID retornada para o grupo de recursos que contém a rede virtual:
+
+    ```azurecli-interactive
+    az role assignment create --assignee <SP-or-managed-identity> --role 'Network Contributor' --scope <resource-group-id>
+    ```
+Para obter mais informações sobre como usar o balanceador de carga interno com o AKS, consulte [Usar o balanceador de carga interno com o Serviço de Kubernetes do Azure](../aks/internal-lb.md).
+
 ## <a name="secure-vnet-traffic"></a>Tráfego de VNet seguro
 
 Há duas abordagens para isolar o tráfego de e para o cluster AKS para a rede virtual:
 
-* __Cluster AKs privado__ : essa abordagem usa o link privado do Azure para proteger as comunicações com o cluster para operações de implantação/gerenciamento.
-* __Balanceador de carga AKs interno__ : essa abordagem configura o ponto de extremidade para suas implantações para AKs usar um IP privado dentro da rede virtual.
+* __Cluster AKs privado__: essa abordagem usa o link privado do Azure para proteger as comunicações com o cluster para operações de implantação/gerenciamento.
+* __Balanceador de carga AKs interno__: essa abordagem configura o ponto de extremidade para suas implantações para AKs usar um IP privado dentro da rede virtual.
 
 > [!WARNING]
 > O balanceador de carga interno não funciona com um cluster AKS que usa kubenet. Se você quiser usar um balanceador de carga interno e um cluster AKS privado ao mesmo tempo, configure seu cluster AKS privado com o CNI (interface de rede de contêiner do Azure). Para obter mais informações, consulte [Configurar a rede CNI do Azure no serviço kubernetes do Azure](../aks/configure-azure-cni.md).
@@ -138,39 +172,7 @@ Depois de criar o cluster AKS privado, [anexe o cluster à rede virtual](how-to-
 
 Por padrão, as implantações do AKS usam um [balanceador de carga público](../aks/load-balancer-standard.md). Nesta seção, você aprenderá a configurar o AKS para usar um balanceador de carga interno. Um balanceador de carga interno (ou privado) é usado onde somente os IPs privados são permitidos como front-end. Balanceadores de carga internos são usados para balancear a carga do tráfego dentro de uma rede virtual
 
-Um balanceador de carga privado é habilitado Configurando AKS para usar um _balanceador de carga interno_ . 
-
-#### <a name="network-contributor-role"></a>Função de colaborador de rede
-
-> [!IMPORTANT]
-> Se você criar ou anexar um cluster AKS fornecendo uma rede virtual criada anteriormente, deverá conceder a entidade de serviço (SP) ou a identidade gerenciada para seu cluster AKS a função de _colaborador de rede_ para o grupo de recursos que contém a rede virtual. Isso deve ser feito antes de tentar alterar o balanceador de carga interno para o IP privado.
->
-> Para adicionar a identidade como colaborador de rede, use as seguintes etapas:
-
-1. Para localizar a entidade de serviço ou a ID de identidade gerenciada para AKS, use os seguintes comandos de CLI do Azure. Substitua `<aks-cluster-name>` pelo nome do cluster. Substitua `<resource-group-name>` pelo nome do grupo de recursos que _contém o cluster AKs_ :
-
-    ```azurecli-interactive
-    az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query servicePrincipalProfile.clientId
-    ``` 
-
-    Se esse comando retornar um valor de `msi` , use o seguinte comando para identificar a ID da entidade de segurança para a identidade gerenciada:
-
-    ```azurecli-interactive
-    az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query identity.principalId
-    ```
-
-1. Para localizar a ID do grupo de recursos que contém sua rede virtual, use o comando a seguir. Substitua `<resource-group-name>` pelo nome do grupo de recursos que _contém a rede virtual_ :
-
-    ```azurecli-interactive
-    az group show -n <resource-group-name> --query id
-    ```
-
-1. Para adicionar a entidade de serviço ou a identidade gerenciada como um colaborador de rede, use o comando a seguir. Substituir `<SP-or-managed-identity>` pela ID retornada para a entidade de serviço ou identidade gerenciada. Substituir `<resource-group-id>` pela ID retornada para o grupo de recursos que contém a rede virtual:
-
-    ```azurecli-interactive
-    az role assignment create --assignee <SP-or-managed-identity> --role 'Network Contributor' --scope <resource-group-id>
-    ```
-Para obter mais informações sobre como usar o balanceador de carga interno com o AKS, consulte [Usar o balanceador de carga interno com o Serviço de Kubernetes do Azure](/azure/aks/internal-lb).
+Um balanceador de carga privado é habilitado Configurando AKS para usar um _balanceador de carga interno_. 
 
 #### <a name="enable-private-load-balancer"></a>Habilitar o balanceador de carga privado
 
@@ -203,6 +205,7 @@ except:
     prov_config.service_cidr = "10.0.0.0/16"
     prov_config.dns_service_ip = "10.0.0.10"
     prov_config.subnet_name = subnet_name
+    prov_config.load_balancer_subnet = subnet_name
     prov_config.docker_bridge_cidr = "172.17.0.1/16"
 
     # Create compute target
@@ -217,7 +220,10 @@ except:
 az ml computetarget create aks -n myaks --load-balancer-type InternalLoadBalancer
 ```
 
-Para obter mais informações, consulte a referência do [AZ ml computetarget Create AKs](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks) .
+> [!IMPORTANT]
+> Usando a CLI, você só pode criar um cluster AKS com um balanceador de carga interno. Não há nenhum comando AZ ml para atualizar um cluster existente para usar um balanceador de carga interno.
+
+Para obter mais informações, consulte a referência do [AZ ml computetarget Create AKs](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks) .
 
 ---
 
@@ -247,19 +253,24 @@ aks_target.wait_for_completion(show_output = True)
 As Instâncias de Contêiner do Azure são criadas dinamicamente durante a implantação de um modelo. Para habilitar a Azure Machine Learning para criar ACI dentro da rede virtual, você deve habilitar a __delegação de sub-rede__ para a sub-rede usada pela implantação.
 
 > [!WARNING]
-> Ao usar instâncias de contêiner do Azure em uma rede virtual, a rede virtual deve estar no mesmo grupo de recursos que seu espaço de trabalho do Azure Machine Learning.
+> Ao usar instâncias de contêiner do Azure em uma rede virtual, a rede virtual deve ser:
+> * No mesmo grupo de recursos que seu espaço de trabalho Azure Machine Learning.
+> * Se o seu espaço de trabalho tiver um __ponto de extremidade privado__, a rede virtual usada para instâncias de contêiner do Azure deverá ser a mesma usada pelo ponto de extremidade privado do espaço de trabalho.
 >
-> Ao usar as instâncias de contêiner do Azure dentro da rede virtual, o ACR (registro de contêiner do Azure) para seu espaço de trabalho também não pode estar na rede virtual.
+> Ao usar as instâncias de contêiner do Azure dentro da rede virtual, o ACR (registro de contêiner do Azure) para seu espaço de trabalho não pode estar na rede virtual.
 
 Para usar a ACI em uma rede virtual no seu workspace, siga as seguintes etapas:
 
 1. Para habilitar a delegação de sub-rede em sua rede virtual, use as informações do artigo [Adicionar ou remover uma delegação de sub-rede](../virtual-network/manage-subnet-delegation.md). É possível habilitar a delegação ao criar uma rede virtual ou adicioná-la a uma rede existente.
 
     > [!IMPORTANT]
-    > Ao habilitar a delegação, use `Microsoft.ContainerInstance/containerGroups` como o valor de __Delegar sub-rede ao serviço__ .
+    > Ao habilitar a delegação, use `Microsoft.ContainerInstance/containerGroups` como o valor de __Delegar sub-rede ao serviço__.
 
-2. Implante o modelo usando [AciWebservice. deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py&preserve-view=true#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true), use os parâmetros `vnet_name` e `subnet_name`. Defina esses parâmetros para o nome da rede virtual e a sub-rede onde você habilitou a delegação.
+2. Implante o modelo usando [AciWebservice. deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?preserve-view=true&view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true), use os parâmetros `vnet_name` e `subnet_name`. Defina esses parâmetros para o nome da rede virtual e a sub-rede onde você habilitou a delegação.
 
+## <a name="limit-outbound-connectivity-from-the-virtual-network"></a>Limitar a conectividade de saída da rede virtual
+
+Se você não quiser usar as regras de saída padrão e quiser limitar o acesso de saída de sua rede virtual, deverá permitir o acesso ao registro de contêiner do Azure. Por exemplo, verifique se os NSG (grupos de segurança de rede) contêm uma regra que permite o acesso à marca de serviço __AzureContainerRegistry. RegionName__ , em que ' {RegionName} é o nome de uma região do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 

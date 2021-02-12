@@ -1,19 +1,16 @@
 ---
 title: Usar o Serviço de Kubernetes do Azure com Kafka no HDInsight
 description: Saiba como usar o Kafka no HDInsight a partir de imagens de contêiner hospedadas no AKS (Serviço de Kubernetes do Azure).
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: ab87f181f78158d2ea0dd6575a30e6087600f60c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d807b591229644984f6658cdacd0bf447759f292
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485674"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933032"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Usar o Serviço de Kubernetes do Azure com Apache Kafka no HDInsight
 

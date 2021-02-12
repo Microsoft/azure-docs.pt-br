@@ -7,16 +7,16 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: 2e4a09ba07a5fa5eb3a5af7aa88e092feb3e7efc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 000f8a1457298901dcfc94bc5e0923e94ba35dc7
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487969"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620895"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>Extensões PostgreSQL no banco de dados do Azure para PostgreSQL – Citus (hiperescala)
 
-O PostgreSQL fornece a capacidade de estender a funcionalidade do seu banco de dados usando extensões. As extensões permitem o agrupamento de vários objetos SQL relacionados em um único pacote que pode ser carregado ou removido de seu banco de dados com um único comando. Depois de ser carregado no banco de dados, as extensões podem funcionar como recursos internos. Para obter mais informações sobre extensões PostgreSQL, consulte [empacotar objetos relacionados em uma extensão](https://www.postgresql.org/docs/current/static/extend-extensions.html).
+O PostgreSQL fornece a capacidade de estender a funcionalidade do banco de dados usando extensões. As extensões permitem o agrupamento de vários objetos SQL relacionados em um único pacote que pode ser carregado ou removido de seu banco de dados com um único comando. Após serem carregadas no banco de dados, as extensões funcionam como recursos internos. Para obter mais informações sobre extensões PostgreSQL, consulte [empacotar objetos relacionados em uma extensão](https://www.postgresql.org/docs/current/static/extend-extensions.html).
 
 ## <a name="use-postgresql-extensions"></a>Usar extensões do PostgreSQL
 
@@ -35,8 +35,8 @@ As tabelas a seguir listam as extensões PostgreSQL padrão que têm suporte atu
 > |---|---|
 > | [citext](https://www.postgresql.org/docs/current/static/citext.html) | Fornece um tipo de cadeia de caracteres que não diferencia maiúsculas de minúsculas. |
 > | [simples](https://www.postgresql.org/docs/current/static/cube.html) | Fornece um tipo de dados para cubos multidimensionais. |
-> | [hstore](https://www.postgresql.org/docs/current/static/hstore.html) | Fornece um tipo de dados para armazenar conjuntos de pares chave-valor. |
 > | [hll](https://github.com/citusdata/postgresql-hll) | Fornece uma estrutura de dados HyperLogLog. |
+> | [hstore](https://www.postgresql.org/docs/current/static/hstore.html) | Fornece um tipo de dados para armazenar conjuntos de pares chave-valor. |
 > | [isn](https://www.postgresql.org/docs/current/static/isn.html) | Fornece tipos de dados para padrões de numeração de produto internacionais. |
 > | [lo](https://www.postgresql.org/docs/current/lo.html) | Manutenção de objeto grande. |
 > | [ltree](https://www.postgresql.org/docs/current/static/ltree.html) | Fornece um tipo de dados para estruturas semelhantes a árvores hierárquicas. |
@@ -65,9 +65,9 @@ As tabelas a seguir listam as extensões PostgreSQL padrão que têm suporte atu
 > | [intag](https://www.postgresql.org/docs/current/intagg.html) | Agregador inteiro e enumerador (obsoleto). |
 > | [intarray](https://www.postgresql.org/docs/current/static/intarray.html) | Fornece funções e operadores para manipular matrizes de inteiros sem nulos. |
 > | [moddatetime](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.9) | Funções para controlar a hora da última modificação. |
-> | [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html) | Fornece funções de criptografia. |
 > | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Gerencia as tabelas de partição por hora ou ID. |
 > | [pg\_trgm](https://www.postgresql.org/docs/current/static/pgtrgm.html) | Fornece funções e operadores para determinar a semelhança de texto alfanumérico, com base na correspondência de trigram. |
+> | [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html) | Fornece funções de criptografia. |
 > | [refint](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.5) | Funções para implementar a integridade referencial (obsoleto). |
 > | análise de sessão \_ | Funções para consultar matrizes hstore. |
 > | [tablefunc](https://www.postgresql.org/docs/current/static/tablefunc.html) | Fornece funções que manipulam tabelas inteiras, incluindo a tabela de referência cruzada. |
@@ -81,7 +81,6 @@ As tabelas a seguir listam as extensões PostgreSQL padrão que têm suporte atu
 > | **Extensão** | **Descrição** |
 > |---|---|
 > | [citus](https://github.com/citusdata/citus) | Banco de dados distribuído Citus. |
-> | rebalanceador de fragmento \_ | Equilibre dados com segurança em um grupo de servidores em caso de adição ou remoção de nós. |
 
 ### <a name="index-types-extensions"></a>Extensões de tipos de índice
 
@@ -106,6 +105,7 @@ As tabelas a seguir listam as extensões PostgreSQL padrão que têm suporte atu
 > |---|---|
 > | [adminpack](https://www.postgresql.org/docs/current/adminpack.html) | Funções administrativas para PostgreSQL. |
 > | [amcheck](https://www.postgresql.org/docs/current/amcheck.html) | Funções para verificar a integridade da relação. |
+> | [dblink](https://www.postgresql.org/docs/current/dblink.html) | Um módulo que suporta conexões com outros bancos de dados do PostgreSQL de dentro de uma sessão de banco de dados. Consulte a seção "dblink e postgres_fdw" para obter informações sobre essa extensão. |
 > | [fdw de arquivo \_](https://www.postgresql.org/docs/current/file-fdw.html) | Wrapper de dados estrangeiros para acesso de arquivo simples. |
 > | [pageinspect](https://www.postgresql.org/docs/current/pageinspect.html) | Inspecione o conteúdo das páginas do banco de dados em um nível baixo. |
 > | [pg\_buffercache](https://www.postgresql.org/docs/current/static/pgbuffercache.html) | Fornece um meio para examinar o que está acontecendo no cache do buffer compartilhado em tempo real. |
@@ -120,8 +120,6 @@ As tabelas a seguir listam as extensões PostgreSQL padrão que têm suporte atu
 > | [sslinfo](https://www.postgresql.org/docs/current/sslinfo.html) | Informações sobre certificados TLS/SSL. |
 > | [\_linhas do sistema TSM \_](https://www.postgresql.org/docs/current/tsm-system-rows.html) | Método TABLESAMPLE, que aceita o número de linhas como um limite. |
 > | [\_hora do sistema do TSM \_](https://www.postgresql.org/docs/current/tsm-system-time.html) | Método TABLESAMPLE, que aceita o tempo em milissegundos como um limite. |
-> | [hypopg](https://hypopg.readthedocs.io/en/latest/) | Fornece um meio de criação de índices hipotéticos que não gastam CPU ou disco. |
-> | [dblink](https://www.postgresql.org/docs/current/dblink.html) | Um módulo que suporta conexões com outros bancos de dados do PostgreSQL de dentro de uma sessão de banco de dados. Consulte a seção "dblink e postgres_fdw" para obter informações sobre essa extensão. |
 > | [xml2](https://www.postgresql.org/docs/current/xml2.html) | Consulta XPath e XSLT. |
 
 

@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 08/04/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 84da38fe71446c54f17c4d4329c7294c5e5176d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 963a84c55a5433a204f387d1936eb7ceee60d913
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87800187"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730033"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Tutorial: Criar e gerenciar redes virtuais do Microsoft Azure para as máquinas virtuais do Windows com o Microsoft Azure PowerShell
 
@@ -127,7 +127,7 @@ $frontendNic = New-AzNetworkInterface `
   -PublicIpAddressId $pip.Id
 ```
 
-Defina o nome de usuário e a senha necessários para a conta de administrador na VM usando [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1). Você usa essas credenciais para conectar-se à VM nas etapas adicionais:
+Defina o nome de usuário e a senha necessários para a conta de administrador na VM usando [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential). Você usa essas credenciais para conectar-se à VM nas etapas adicionais:
 
 ```azurepowershell-interactive
 $cred = Get-Credential
@@ -280,7 +280,4 @@ Neste tutorial, você criou e protegeu redes do Azure em relação às máquinas
 > * Protegem o tráfego de rede
 > * Criar uma VM de back-end
 
-Avance para o próximo tutorial a fim de aprender sobre como monitorar e proteger dados em máquinas virtuais usando o backup do Azure.
-
-> [!div class="nextstepaction"]
-> [Fazer backup de máquinas virtuais do Windows no Azure](./tutorial-backup-vms.md)
+Para saber como proteger seus discos de VM, confira [Backup e recuperação de desastre para discos](backup-and-disaster-recovery-for-azure-iaas-disks.md).

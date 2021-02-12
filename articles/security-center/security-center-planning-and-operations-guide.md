@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: de6a416666866a4089d22f2fa047dc860c922d3c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 1f5db17549c2b95d5dd0dd2f866ca1d1c0e7d8aa
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341236"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965112"
 ---
 # <a name="planning-and-operations-guide"></a>Guia de planejamento e operações
 Este guia destina-se a profissionais de TI (tecnologia da informação), arquitetos de TI, analistas de segurança da informação e administradores de nuvem que pretendem usar a Central de Segurança do Azure.
@@ -76,7 +76,7 @@ A Central de Segurança usa o [RBAC do Azure (controle de acesso baseado em fun�
 
 As funções da Central de Segurança descritas acima não têm acesso a outras áreas de serviço do Azure como Armazenamento, Web e Móveis ou Internet das Coisas.
 
-Usando as pessoas explicadas no diagrama anterior, o seguinte RBAC seria necessário:
+Usando as personas explicadas no diagrama anterior, o seguinte Azure RBAC seria necessário:
 
 **Matheus (proprietário da carga de trabalho)**
 
@@ -106,7 +106,7 @@ Algumas informações importantes a serem consideradas:
 * Somente os Proprietários/Colaboradores da assinatura e Administradores de segurança podem editar uma política de segurança.
 * Somente os Proprietários e os Colaboradores da assinatura e do grupo de recursos podem aplicar recomendações de segurança para um recurso.
 
-Ao planejar o controle de acesso usando o RBAC para a Central de Segurança, compreenda quem em sua organização usará a Central de Segurança. Além disso, quais tipos de tarefas irão executar, em seguida, configurar o RBAC de acordo.
+Ao planejar o controle de acesso usando o Azure RBAC para a Central de Segurança, tenha em mente quem, em sua organização, usará a Central de Segurança. Além disso, compreenda quais tipos de tarefas essa pessoa executará; em seguida, configure o Azure RBAC corretamente.
 
 > [!NOTE]
 > Recomendamos que você atribua a função menos permissiva necessária para os usuários realizarem suas tarefas. Por exemplo, os usuários que precisarem apenas exibir informações sobre o estado de segurança dos recursos, mas não precisarem executar ações, por exemplo, aplicar recomendações ou editar políticas, deverão receber a função de Leitor.
@@ -219,7 +219,7 @@ O exemplo a seguir mostra uma atividade de RDP suspeita ocorrendo:
 
 Essa página mostra os detalhes sobre o horário do ataque, o nome do host de origem, a VM de destino e também fornece etapas de recomendação. Em algumas circunstâncias, as informações de origem do ataque podem estar vazias. Leia [Informações de Origem Ausentes nos Alertas da Central de Segurança do Azure](/archive/blogs/azuresecurity/missing-source-information-in-azure-security-center-alerts) para obter mais informações sobre esse tipo de comportamento.
 
-Depois de identificar o sistema comprometido, execute uma [Automação de Fluxo de Trabalho](workflow-automation.md) criada anteriormente. Essa é uma coleção de procedimentos que pode ser executada na Central de Segurança depois que for disparada por um alerta.
+Depois de identificar o sistema comprometido, execute uma [automação de fluxo de trabalho](workflow-automation.md) criada anteriormente. Essa é uma coleção de procedimentos que pode ser executada na Central de Segurança depois que for disparada por um alerta.
 
 No vídeo [Como utilizar a Central de Segurança do Azure e o Microsoft Operations Management Suite para uma resposta a incidentes](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703), veja algumas demonstrações que podem ajudar você a entender como a Central de Segurança pode ser usada em cada um desses estágios.
 

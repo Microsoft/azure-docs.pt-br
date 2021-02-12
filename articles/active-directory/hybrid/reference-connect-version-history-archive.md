@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f80808f917036dfba122a97bbd255d466f40e476
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 859a4f199e65dd0c3aee9424029f6060683d5fbd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90018485"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836080"
 ---
 # <a name="azure-ad-connect-version-release-history-archive"></a>Azure AD Connect: arquivo de histórico de lançamento de versão
 
@@ -167,7 +167,7 @@ A atualização do Azure AD Connect falha se a Disponibilidade AlwaysOn do SQL f
 ### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
 
 - A integração do Ping Federate no Azure AD Connect agora está disponível para disponibilidade geral. [Saiba mais sobre como federar o Azure AD com o Ping Federate](./plan-connect-user-signin.md#federation-with-pingfederate)
-- O Azure AD Connect agora cria o backup da confiança do AD do Azure no AD FS toda vez que uma atualização é feita e a armazena em um arquivo separado para facilitar a restauração, se necessário. [Saiba mais sobre a nova funcionalidade e o gerenciamento de confiança do Azure AD no Azure AD Connect](https://aka.ms/fedtrustinaadconnect).
+- O Azure AD Connect agora cria o backup da confiança do AD do Azure no AD FS toda vez que uma atualização é feita e a armazena em um arquivo separado para facilitar a restauração, se necessário. [Saiba mais sobre a nova funcionalidade e o gerenciamento de confiança do Azure AD no Azure AD Connect](./how-to-connect-azure-ad-trust.md).
 - Novo conjunto de ferramentas de solução de problemas ajuda a solucionar problemas de alteração do endereço de e-mail primário e ocultação de conta da lista de endereços global
 - O Azure AD Connect foi atualizado para incluir o mais recente cliente nativo do SQL Server 2012
 - Quando você alternar entrada do usuário para a sincronização de Hash de senha ou autenticação de passagem na tarefa "Alterar entrada do usuário", a caixa de seleção de logon único contínuo é habilitada por padrão.
@@ -1023,7 +1023,7 @@ Lançado: Fevereiro de 2016
 **Novos recursos:**
 
 * [Automatic upgrade](how-to-connect-install-automatic-upgrade.md) para clientes de configurações Expressas.
-* Suporte para o administrador global usando a Autenticação Multifator do Azure e o Privileged Identity Management no assistente de instalação.
+* Suporte para o administrador global usando a autenticação multifator do Azure AD e Privileged Identity Management no assistente de instalação.
   * Você precisará permitir que o proxy também permita o tráfego para https://secure.aadcdn.microsoftonline-p.com se usar a Autenticação Multifator.
   * Você precisa adicionar https://secure.aadcdn.microsoftonline-p.com à lista de sites confiáveis para que a Autenticação Multifator funcione corretamente.
 * Permita alterar o método de logon do usuário após a instalação inicial.

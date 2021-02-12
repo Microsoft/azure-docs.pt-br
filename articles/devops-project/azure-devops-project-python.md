@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: b6aa0a1bd14072e6ea4ea42004209f332f46a2d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dec41f1b9de6920338360edeb18b9878a8c86432
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91856068"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588923"
 ---
 # <a name="create-a-cicd-pipeline-for-python-with-azure-devops-starter"></a>Criar um pipeline de CI/CD para Python com o Azure DevOps Starter
 
@@ -67,9 +67,9 @@ O DevOps Starter cria um pipeline de CI/CD no Azure Pipelines. É possível cria
 
 O DevOps Starter cria um repositório Git no Azure Repos ou no GitHub. Para exibir o repositório e fazer alterações de código no seu aplicativo, faça o seguinte: 
 
-1. No lado esquerdo do painel do DevOps Starter, selecione o link para seu branch mestre. Esse link abre uma exibição do repositório de Git recém-criado.
+1. No lado esquerdo do painel do DevOps Starter, selecione o link para sua ramificação principal. Esse link abre uma exibição do repositório de Git recém-criado.
 
-1. Para exibir a URL de clone do repositório, selecione **Clone** na parte superior direita do navegador. Você pode clonar seu repositório Git no seu IDE favorito. Nas próximas etapas, você pode usar o navegador da Web para criar e confirmar as alterações de código diretamente no branch mestre.
+1. Para exibir a URL de clone do repositório, selecione **Clone** na parte superior direita do navegador. Você pode clonar seu repositório Git no seu IDE favorito. Nas próximas etapas, você pode usar o navegador da Web para criar e confirmar as alterações de código diretamente na ramificação principal.
 
 1. À esquerda, vá até o arquivo **app/templates/app/index.html**.
 

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 10/23/2020
+ms.date: 11/23/2020
 ms.author: erhopf
-ms.openlocfilehash: e43572a321968a0436cb7900578e80086d5cbe4e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 3814f52034922c7814b1d45822ca1e9d5f248825
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503293"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97844987"
 ---
 # <a name="language-support-for-form-recognizer"></a>Suporte a idiomas para o Reconhecimento de Formulários
 
-Este artigo lista os idiomas humanos compatíveis com o serviço de Reconhecimento de Formulários.
+Esta tabela lista os idiomas humanos compatíveis com o serviço Reconhecimento de Formulários.
 
 
 |Linguagem| Código de idioma | Reconhecimento de Formulários v2.0 | Versão prévia do Reconhecimento de Formulários v2.1|
@@ -30,5 +30,6 @@ Este artigo lista os idiomas humanos compatíveis com o serviço de Reconhecimen
 |Francês | `fr` | | ✔ |
 |Alemão | `de` | | ✔ |
 |Italiano | `it` | | ✔ |
+|Japonês | `ja` |  | ✔|
 |Português | `pt` | | ✔ |
 |Espanhol | `es` | | ✔ |

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 12/04/2020
 ms.author: b-juche
-ms.openlocfilehash: c79586703c49fe37d4d0915f49b69e6aa842083e
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: a17e6cc0479cf8ff2306736994a369d9e44dfdda
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017515"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745937"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Métricas do Azure NetApp Files
 
@@ -42,10 +42,8 @@ Azure NetApp Files fornece métricas sobre armazenamento alocado, uso de armazen
 
 ## <a name="usage-metrics-for-volumes"></a><a name="volumes"></a>Métricas de uso de volumes
 
-<!-- ANF-5023: fixed version: 2020.08, 2020.09
-- *Percentage Volume Consumed Size*    
-    The percentage of the volume consumed, including snapshots.  
--->
+- *Percentual de tamanho consumido por volume*    
+    O percentual do volume consumido, incluindo instantâneos.  
 - *Tamanho alocado do volume*   
     O tamanho provisionado de um volume
 - *Tamanho da cota de volume*    
@@ -88,7 +86,8 @@ Azure NetApp Files fornece métricas sobre armazenamento alocado, uso de armazen
 ## <a name="volume-replication-metrics"></a><a name="replication"></a>Métricas de replicação de volume
 
 > [!NOTE] 
-> O tamanho da transferência de rede (por exemplo, as métricas de *transferência total de replicação de volume* ) pode ser diferente dos volumes de origem ou de destino de uma replicação entre regiões. Esse comportamento é um resultado de um mecanismo de replicação eficiente ser usado para minimizar o custo de transferência de rede.
+> * O tamanho da transferência de rede (por exemplo, as métricas de *transferência total de replicação de volume* ) pode ser diferente dos volumes de origem ou de destino de uma replicação entre regiões. Esse comportamento é um resultado de um mecanismo de replicação eficiente ser usado para minimizar o custo de transferência de rede.
+> * As métricas de replicação de volume estão atualmente populadas para volumes de destino de replicação e não a origem da relação de replicação.
 
 - *O status de replicação do volume é íntegro*   
     A condição da relação de replicação. Um estado íntegro é indicado pelo `1` . Um estado não íntegro é indicado por `0` .

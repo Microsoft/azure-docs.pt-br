@@ -1,18 +1,18 @@
 ---
 title: Controles de Conformidade Regulatória do Azure Policy para o Azure Service Fabric
 description: Lista os controles de Conformidade Regulatória do Azure Policy disponíveis para as Mensagens do Azure Service Fabric. Estas definições de políticas internas fornecem abordagens comuns para gerenciar a conformidade dos seus recursos do Azure.
-ms.date: 10/20/2020
+ms.date: 01/29/2021
 ms.topic: sample
 author: erikadoyle
 ms.author: edoyle
 ms.service: service-fabric
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 3102c602f76dde7bf7a80ea83b1cc9b2b7175898
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 915940c4b99b52d70993dc9fc14c07273f878bf9
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316679"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097852"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-service-fabric"></a>Controles de Conformidade Regulatória do Azure Policy para o Azure Service Fabric
 

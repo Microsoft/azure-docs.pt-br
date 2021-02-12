@@ -2,35 +2,31 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/28/2020
+ms.date: 01/28/2021
 ms.author: glenga
-ms.openlocfilehash: 43da0ea4ddfc5410425465d436522523739218fe
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1a0521f76a2cf986f7036d1f701a40a156d16ee7
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91408519"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493423"
 ---
 ## <a name="run-the-function-locally"></a>Executar a função localmente
 
 O Visual Studio Code integra-se ao [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md) para permitir que você execute esse projeto em seu computador de desenvolvimento local antes da publicação no Azure.
 
-1. Para chamar sua função, pressione <kbd>F5</kbd> para iniciar o projeto de aplicativo de funções. A saída do Core Tools é exibida no painel **Terminal**.
-
-1. Se ainda não tiver instalado o Azure Functions Core Tools, selecione **Instalar** no prompt. Quando o Core Tools for instalado, seu aplicativo será iniciado no painel **Terminal**. Você pode ver o ponto de extremidade de URL de sua função disparada por HTTP localmente.
+1. Para chamar sua função, pressione <kbd>F5</kbd> para iniciar o projeto de aplicativo de funções. A saída do Core Tools é exibida no painel **Terminal**. Seu aplicativo é iniciado no painel **Terminal**. Você pode ver o ponto de extremidade de URL de sua função disparada por HTTP localmente.
 
     ![Saída do VS Code de função local](./media/functions-run-function-test-local-vs-code/functions-vscode-f5.png)
 
-1. Com o Core Tools em execução, navegue até a URL a seguir para executar uma solicitação GET, que inclui a cadeia de caracteres de consulta `?name=Functions`.
+    Se você tiver problemas com a execução no Windows, verifique se o terminal padrão do Visual Studio Code não está definido como **bash WSL**.
 
-    `http://localhost:7071/api/HttpExample?name=Functions`
+1. Com o Core Tools em execução, acesse a área **Azure: Funções**. Em **Funções**, expanda **Projeto Local** > **Funções**. Clique com o botão direito do mouse (Windows) ou clique em <kbd>CTRL -</kbd> (macOS) na função `HttpExample` e escolha **Função Executar Agora...** .
 
-1. Uma resposta é retornada, semelhante ao seguinte em um navegador:
+    :::image type="content" source="media/functions-run-function-test-local-vs-code/execute-function-now.png" alt-text="Executar a função agora por meio do Visual Studio Code":::
 
-    ![Navegador – saída de exemplo de localhost](./media/functions-run-function-test-local-vs-code/functions-test-local-browser.png)
+1. Em **Insira o corpo da solicitação**, você verá o valor do corpo da mensagem de solicitação igual a `{ "name": "Azure" }`. Clique em ENTER para enviar essa mensagem de solicitação à função.  
 
-1. As informações sobre a solicitação são mostradas no painel **Terminal**.
-
-    ![Início do host da tarefa – saída do terminal do VS Code](./media/functions-run-function-test-local-vs-code/function-execution-terminal.png)
+1. Quando a função é executada localmente e retorna uma resposta, uma notificação é gerada no Visual Studio Code. As informações sobre a execução da função são mostradas no painel **Terminal**.
 
 1. Pressione <kbd>Ctrl + C</kbd> para parar o Core Tools e desconectar o depurador.

@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: af90166b688dee104e7bda18a88a2fe7c98f657b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7a3c4bc2a0445a2821e212986b495993695652a6
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82996210"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165919"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Início Rápido: Criar um perfil e um ponto de extremidade da CDN do Azure
 
@@ -68,7 +68,7 @@ Depois de criar um perfil CDN, você o usa para criar um ponto de extremidade.
     
    ![Ponto de extremidade CDN](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
-   O tempo necessário para que o ponto de extremidade se propague depende do tipo de preço selecionado quando você criou o perfil. O **Standard Akamai** geralmente é concluído em um minuto; o **Standard Microsoft**, em 10 minutos; e o **Standard Verizon** e o **Premium Verizon**, em até 90 minutos.
+   O tempo necessário para que o ponto de extremidade se propague depende do tipo de preço selecionado quando você criou o perfil. O **Standard Akamai** geralmente é concluído em um minuto; o **Standard Microsoft**, em 10 minutos; e o **Standard Verizon** e o **Premium Verizon**, em até 30 minutos.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

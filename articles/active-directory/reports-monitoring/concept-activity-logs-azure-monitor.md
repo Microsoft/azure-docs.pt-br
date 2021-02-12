@@ -17,12 +17,12 @@ ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4253fe52346890eaa993a18e8e9bc9b270bffd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8dbf14b1816d367f864cc3a2977497b34111df3f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89229847"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586186"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Logs de atividades do Azure AD no Azure Monitor
 
@@ -60,7 +60,7 @@ Para usar esse recurso, você precisa de:
 
 Dependendo do destino de encaminhamento dos dados da trilha de auditoria, você precisa do seguinte:
 
-* Uma conta de armazenamento do Azure para a qual você tem permissões *ListKeys*. Recomendamos que você use uma conta de armazenamento geral e não uma conta do Armazenamento de blobs. Para saber mais sobre preços do armazenamento, confira a [Calculadora de preços do armazenamento do Azure](https://azure.microsoft.com/pricing/calculator/?service=storage). 
+* Uma conta de armazenamento do Azure para a qual você tem permissões de *ListKeys* . Recomendamos que você use uma conta de armazenamento geral e não uma conta do Armazenamento de blobs. Para saber mais sobre preços do armazenamento, confira a [Calculadora de preços do armazenamento do Azure](https://azure.microsoft.com/pricing/calculator/?service=storage). 
 * Um namespace dos Hubs de Eventos do Azure para integração com soluções de terceiros.
 * Um espaço de trabalho do Log Analytics do Azure para enviar logs aos logs do Azure Monitor.
 
@@ -111,11 +111,11 @@ A tabela a seguir contém custos estimados por mês para um hub de eventos bási
 
 
 
-| Categoria do log       | Número de usuários | Eventos por dia | Eventos por mês (30 dias) | Custo por mês em USD (est.) |
-| :--                | ---             | ---            | ---                        | --:                          |
-| Auditoria e entradas | 100.000         | 16,5 milhões     | 495 milhões                |  $1093                       |
-| Audit              | 100.000         | 1,5 milhões      | 45.000.000                 |  $246.66                     |
-| Entradas           | 100.000         | 15.000.000     | 450.000.000                |  $847.28                     |
+| Categoria do log | Número de usuários | Eventos por dia | Eventos por mês (30 dias) | Custo por mês em USD (est.) |
+|:-|--|--|--|-:|
+| Auditoria e entradas | 100.000 | 16,5 milhões | 495 milhões | $1093 |
+| Audit | 100.000 | 1,5 milhões | 45.000.000 | $246.66 |
+| Entradas | 100.000 | 15.000.000 | 450.000.000 | $847.28 |
 
 
 

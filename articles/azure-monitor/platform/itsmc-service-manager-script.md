@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
-ms.openlocfilehash: 46c219a82d45129ed0856d22d88be819938e5240
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d9360b167a246e257d8c0b2ec4cb88f1ae39dcd
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87325297"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600149"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Criar aplicativo Web Service Manager usando o script automatizado
 
-Use o script a seguir a fim de criar o aplicativo Web para sua instância do Service Manager. Mais informações sobre a conexão do Service Manager estão aqui: [Aplicativo Web Service Manager](./itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
+Use o script a seguir a fim de criar o aplicativo Web para sua instância do Service Manager. Mais informações sobre a conexão do Service Manager estão aqui: [Aplicativo Web Service Manager](./itsmc-connections-scsm.md)
 
 Execute o script fornecendo os seguintes detalhes necessários:
 
@@ -26,7 +26,7 @@ Execute o script fornecendo os seguintes detalhes necessários:
 - Prefixo de nome do site para seu aplicativo Web
 - Namespace do ServiceBus.
 
-O script criará um aplicativo Web usando o nome especificado (junto com algumas cadeias de caracteres adicionais para torná-la exclusiva). Ele gera a **URL do aplicativo Web**, a **ID do cliente**e o **segredo do cliente**.
+O script criará um aplicativo Web usando o nome especificado (junto com algumas cadeias de caracteres adicionais para torná-la exclusiva). Ele gera a **URL do aplicativo Web**, a **ID do cliente** e o **segredo do cliente**.
 
 Salve os valores. Você precisará deles quando criar uma conexão com o Conector de Gerenciamento de Serviços de TI.
 
@@ -138,14 +138,14 @@ if(!$resourceProvider -or $resourceProvider[0].RegistrationState -ne "Registered
     {
         Write-Host "Failed to Register Microsoft.Web Resource Provider. Please register it in Azure Portal."
         exit
-    }   
+    }
 }
 do
 {
     $rand = Get-Random -Maximum 32000
 
     $siteName = $siteNamePrefix + $rand
-    
+
     $resource = Get-AzResource -Name $siteName -ResourceType Microsoft.Web/sites
 
 }while($resource)
@@ -276,7 +276,7 @@ if(!$resourceProvider -or $resourceProvider[0].RegistrationState -ne "Registered
     catch
     {
         Write-Host "Failed to Register Microsoft.Relay Resource Provider. Please register it in Azure Portal."
-    }   
+    }
 }
 
 $resource = Get-AzResource -Name $serviceName -ResourceType Microsoft.Relay/namespaces
@@ -317,6 +317,11 @@ if(!$err)
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
-[Configure a conexão híbrida](./itsmc-connections.md#configure-the-hybrid-connection).
+## <a name="troubleshoot-service-manager-web-app-deployment"></a>Solucionar problemas Service Manager implantação de aplicativo Web
 
+-   Se você tiver problemas com a implantação do aplicativo Web, verifique se você tem permissões para criar/implantar recursos na assinatura.
+-   Se você receber uma **referência de objeto não definida como uma instância de um erro de objeto** ao executar o [script](itsmc-service-manager-script.md), certifique-se de que você inseriu valores válidos na seção **configuração do usuário** .
+-   Se você não conseguir criar o namespace de retransmissão do barramento de serviço, verifique se o provedor de recursos necessário está registrado na assinatura. Se não estiver registrado, crie manualmente o namespace de retransmissão do barramento de serviço do portal do Azure. Você também pode criá-lo ao [criar a conexão híbrida](./itsmc-connections-scsm.md#configure-the-hybrid-connection) no portal do Azure.
+
+## <a name="next-steps"></a>Próximas etapas
+[Configure a conexão híbrida](./itsmc-connections-scsm.md#configure-the-hybrid-connection).

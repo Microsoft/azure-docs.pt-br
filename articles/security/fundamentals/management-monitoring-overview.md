@@ -13,25 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2019
+ms.date: 01/24/2021
 ms.author: terrylan
-ms.openlocfilehash: c5525fc43f23ecd1760c5a869d8171aee0e9415d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d85b1fdd433c372bb41adec6e3d33013f19363f0
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91395763"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747166"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Visão geral de gerenciamento e monitoramento de segurança do Azure
 Este artigo fornece uma visão geral dos recursos de segurança e serviços que o Azure fornece para auxiliar no gerenciamento e no monitoramento de serviços de nuvem e máquinas virtuais do Azure.
 
-## <a name="role-based-access-control"></a>Controle de Acesso Baseado em Função
+## <a name="azure-role-based-access-control"></a>Controle de acesso baseado em função do Azure
 
-O RBAC (Controle de Acesso Baseado em Função) fornece o gerenciamento de acesso detalhado para os recursos do Azure. Usando o RBAC, é possível conceder às pessoas apenas a quantidade de acesso de que precisam para realizar seus trabalhos. O RBAC também pode ajudar a garantir que as pessoas perderão o acesso aos recursos na nuvem quando saírem da organização.
+O Azure RBAC (controle de acesso baseado em função) do Azure fornece gerenciamento de acesso detalhado para recursos do Azure. Usando o Azure RBAC, você pode conceder às pessoas apenas a quantidade de acesso de que eles precisam para executar seus trabalhos. O RBAC do Azure também pode ajudá-lo a garantir que quando as pessoas deixam a organização, elas perdem o acesso aos recursos na nuvem.
 
 Saiba mais:
 
-* [Blog da equipe do Active Directory sobre o RBAC](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
+* [Blog da equipe Active Directory no RBAC do Azure](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
 * [RBAC do Azure (controle de acesso baseado em função do Azure)](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="antimalware"></a>Antimalware
@@ -48,21 +48,21 @@ Saiba mais:
 
 * [Implantando soluções antimalware em máquinas virtuais do Azure](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [Microsoft Antimalware para Serviços de Nuvem do Azure e máquinas virtuais](antimalware.md)
-* [Como instalar e configurar o Trend Micro Deep Security as a Service em uma VM do Windows](/azure/virtual-machines/windows/classic/install-trend)
-* [Como instalar e configurar o Symantec Endpoint Protection em uma VM do Windows](/azure/virtual-machines/windows/classic/install-symantec)
+* [Como instalar e configurar o Trend Micro Deep Security as a Service em uma VM do Windows](../../virtual-machines/extensions/trend.md)
+* [Como instalar e configurar o Symantec Endpoint Protection em uma VM do Windows](../../virtual-machines/extensions/symantec.md)
 * [Novas opções de antimalware para proteção das Máquinas Virtuais do Azure](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 
 ## <a name="multi-factor-authentication"></a>Autenticação Multifator
 
-A Autenticação Multifator do Azure é um método de autenticação que requer o uso de mais de um método de verificação. Ele adiciona uma segunda camada de segurança crítica para logons de usuário e transações.
+A autenticação multifator do Azure AD é um método de autenticação que requer o uso de mais de um método de verificação. Ele adiciona uma segunda camada de segurança crítica para logons de usuário e transações.
 
 A Autenticação Multifator ajuda a proteger o acesso a dados e aplicativos enquanto atende à demanda dos usuários para um processo de logon simples. Ele fornece autenticação forte por meio de uma variedade de opções de verificação (chamada telefônica, mensagem de texto, notificação de aplicativo móvel ou código de verificação) e tokens OATH de terceiros.
 
 Saiba mais:
 
 * [Autenticação Multifator](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [O que é a Autenticação Multifator do Azure?](/azure/active-directory/authentication/multi-factor-authentication)
-* [Como funciona a Autenticação Multifator do Azure](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [O que é a Autenticação Multifator do Azure AD?](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [Como a Autenticação Multifator do Azure AD funciona](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="expressroute"></a>ExpressRoute
 
@@ -112,25 +112,28 @@ Ao fornecer notificações e correções recomendadas, o Identity Protection aju
 
 Saiba mais:
 
-* [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection)
+* [Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md)
 * [Canal 9: Azure AD e Identity Show: visualização do Identity Protection](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="security-center"></a>Central de Segurança
 
-A Central de Segurança do Azure ajuda você a evitar, detectar e responder a ameaças. A Central de Segurança proporciona a você maior visibilidade e controle da segurança de seus recursos do Azure. Ela fornece monitoramento de segurança integrado e gerenciamento de políticas em suas assinaturas do Azure. Ela ajuda a detectar ameaças que poderiam não ser notadas de outra forma e funciona com um amplo ecossistema de soluções de segurança.
+A Central de Segurança do Azure ajuda você a evitar, detectar e responder a ameaças. A central de segurança oferece maior visibilidade e controle sobre a segurança de seus recursos do Azure, bem como aquelas em seu ambiente de nuvem híbrida. 
+
+A central de segurança executa avaliações de segurança contínuas de seus recursos conectados e compara sua configuração e implantação com o [benchmark de segurança do Azure](../benchmarks/introduction.md) para fornecer recomendações de segurança detalhadas adaptadas para seu ambiente.
 
 A Central de Segurança ajuda a otimizar e monitorar a segurança de seus recursos do Azure:
 
-* Permitindo que você defina políticas para seus recursos de assinatura do Azure com:
-  * As necessidades de segurança da sua empresa.
-  * O tipo de aplicativos ou a confidencialidade dos dados em cada assinatura.
-* Monitorando o estado das máquinas virtuais, da redes e dos aplicativos do Azure.
-* Fornecendo uma lista priorizada de alertas de segurança, incluindo alertas de soluções integradas de parceiros. Ela também fornece as informações de que você precisa para investigar rapidamente um ataque e recomendações sobre como corrigi-lo.
+- Permitindo que você defina políticas para seus recursos de assinatura do Azure com:
+    - As necessidades de segurança de sua organização.
+    - O tipo de aplicativos ou a confidencialidade dos dados em cada assinatura.
+    - Quaisquer padrões da indústria ou normativos ou benchmarks aplicados às suas assinaturas. 
+- Monitorando o estado das máquinas virtuais, da redes e dos aplicativos do Azure.
+- Fornecendo uma lista priorizada de alertas de segurança, incluindo alertas de soluções integradas de parceiros. Ela também fornece as informações de que você precisa para investigar rapidamente um ataque e recomendações sobre como corrigi-lo.
 
 Saiba mais:
 
-* [Introdução à Central de Segurança do Azure](../../security-center/security-center-intro.md)
-* [Melhorar sua pontuação segura na Central de segurança do Azure](../../security-center/security-center-secure-score.md)
+* [Introdução à Central de Segurança do Azure](../../security-center/security-center-introduction.md)
+* [Melhorar sua pontuação segura na Central de segurança do Azure](../../security-center/secure-score-security-controls.md)
 
 ## <a name="intelligent-security-graph"></a>Gráfico de Segurança Inteligente
 

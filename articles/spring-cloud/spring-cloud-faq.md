@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: edd79d08d18e95d27e557a26f0adc36868097bb3
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 307afc8f1caafac1a511f0f9895cc73dd9b47eb4
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900271"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196037"
 ---
 # <a name="azure-spring-cloud-faq"></a>FAQ do Azure Spring Cloud
 
@@ -37,7 +37,7 @@ A segurança e a privacidade estão entre as principais prioridades do Azure e d
 
 ### <a name="in-which-regions-is-azure-spring-cloud-available"></a>Em quais regiões o Azure Spring Cloud está disponível?
 
-Leste dos EUA, leste dos EUA 2, EUA Central, Sul EUA Central, oeste dos EUA 2, Europa Ocidental, Europa Setentrional, Sul do Reino Unido, Sudeste Asiático e leste da Austrália.
+Leste dos EUA, leste dos EUA 2, EUA Central, Sul EUA Central, norte EUA Central, oeste dos EUA, oeste dos EUA 2, Europa Ocidental, Europa Setentrional, Sul do Reino Unido, Sudeste Asiático, leste da Austrália, Canadá central, Norte dos EAU, Índia central, Coreia central, Ásia Oriental e Leste da China 2 (mooncake). [Saiba mais](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
 
 ### <a name="is-any-customer-data-stored-outside-of-the-specified-region"></a>Os dados do cliente são armazenados fora da região especificada?
 
@@ -69,13 +69,30 @@ Para obter a maneira mais rápida de começar a usar o Azure Spring Cloud, siga 
 ### <a name="what-java-runtime-does-azure-spring-cloud-support"></a>A qual Java Runtime o Azure Spring Cloud dá suporte?
 
 O Azure Spring Cloud dá suporte ao Java 8 e 11. Consulte [Java Runtime e versões do sistema operacional](#java-runtime-and-os-versions)
+
+### <a name="is-spring-boot-24x-supported"></a>Há suporte para Spring boot 2.4. x?
+Identificamos um problema com o Spring boot 2,4 e estamos trabalhando atualmente com a Comunidade Spring para resolvê-lo. Enquanto isso, inclua essas duas dependências para habilitar a autenticação TLS entre seus aplicativos e o Eureka.
+
+```xml
+<dependency> 
+    <groupId>com.sun.jersey</groupId>
+    <artifactId>jersey-client</artifactId>
+    <version>1.19.4</version>
+</dependency>
+<dependency>
+    <groupId>com.sun.jersey.contribs</groupId>
+    <artifactId>jersey-apache-client4</artifactId>
+    <version>1.19.4</version>
+</dependency>
+```
+
 ::: zone-end
 
 ### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>Onde posso exibir meus logs e métricas de aplicativos de nuvem Spring?
 
-Encontre métricas na guia Visão Geral do Aplicativo e na guia [Azure Monitor](../azure-monitor/platform/data-platform-metrics.md#interacting-with-azure-monitor-metrics).
+Encontre métricas na guia Visão Geral do Aplicativo e na guia [Azure Monitor](../azure-monitor/platform/data-platform-metrics.md#metrics-explorer).
 
-O Azure Spring Cloud dá suporte à exportação de métricas e logs de aplicativos de nuvem Spring para o armazenamento do Azure, o EventHub e o [log Analytics](../azure-monitor/platform/data-platform-logs.md#log-queries). O nome da tabela em Log Analytics é *AppPlatformLogsforSpring* . Para saber como habilitá-lo, consulte [serviços de diagnóstico](diagnostic-services.md).
+O Azure Spring Cloud dá suporte à exportação de métricas e logs de aplicativos de nuvem Spring para o armazenamento do Azure, o EventHub e o [log Analytics](../azure-monitor/platform/data-platform-logs.md). O nome da tabela em Log Analytics é *AppPlatformLogsforSpring*. Para saber como habilitá-lo, consulte [serviços de diagnóstico](diagnostic-services.md).
 
 ### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>O Azure Spring Cloud dá suporte ao rastreamento distribuído?
 
@@ -93,6 +110,21 @@ No momento, há suporte a três serviços:
 ### <a name="can-i-view-add-or-move-persistent-volumes-from-inside-my-applications"></a>Posso exibir, adicionar ou mover volumes persistentes de dentro de meus aplicativos?
 
 Sim.
+
+### <a name="how-many-outbound-public-ip-addresses-does-an-azure-spring-cloud-instance-have"></a>Quantos endereços IP públicos de saída uma instância do Azure Spring Cloud tem?
+
+O número de endereços IP públicos de saída pode variar de acordo com as camadas e outros fatores. 
+
+| Tipo de instância do Azure Spring Cloud | Número padrão de endereços IP públicos de saída |
+| -------------------------------- | ---------------------------------------------- |
+| Instâncias da camada básica             | 1                                              |
+| Instâncias da camada Standard          | 2                                              |
+| Instâncias de injeção de VNet         | 1                                              |
+
+
+### <a name="can-i-increase-the-number-of-outbound-public-ip-addresses"></a>Posso aumentar o número de endereços IP públicos de saída?
+
+Sim, você pode abrir um [tíquete de suporte](https://azure.microsoft.com/support/faq/)  para solicitar mais endereços IP públicos de saída.
 
 ### <a name="when-i-deletemove-an-azure-spring-cloud-service-instance-will-its-extension-resources-be-deletedmoved-as-well"></a>Quando eu excluir/mover uma instância do serviço de nuvem do Azure Spring, seus recursos de extensão também serão excluídos/movidos?
 

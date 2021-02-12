@@ -8,16 +8,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sashan, sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: sashan
 ms.date: 08/27/2019
-ms.openlocfilehash: df10e2b674a8e97766ee96a802e614e2bd797b7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1609f188af8ffb58251edc806e19f7820a6b0869
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617733"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525714"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Tutorial: Adicionar uma Instância Gerenciada de SQL a um grupo de failover
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -32,7 +32,7 @@ Adicione instâncias gerenciadas da Instância Gerenciada de SQL do Azure a um g
   > [!NOTE]
   > - Ao acompanhar este tutorial, verifique se você está configurando seus recursos com os [pré-requisitos para configurar grupos de failover para a Instância Gerenciada de SQL](../database/auto-failover-group-overview.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
   > - A criação de uma instância gerenciada pode levar um tempo significativo. Como resultado, este tutorial pode levar várias horas para ser concluído. Para obter mais informações sobre os tempos de provisionamento, confira [Operações de gerenciamento da Instância Gerenciada de SQL](sql-managed-instance-paas-overview.md#management-operations). 
-  > - As instâncias gerenciadas que participam de um grupo de failover exigem o [Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) ou dois gateways de VPN conectados. O Emparelhamento VNET Global não é compatível. Este tutorial fornece etapas para criar e conectar os gateways de VPN. Ignore essas etapas se você já tiver o ExpressRoute configurado. 
+  > - As instâncias gerenciadas que participam de um grupo de failover exigem o [Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md), o emparelhamento VNET ou global ou dois gateways de VPN conectados. Este tutorial fornece etapas para criar e conectar os gateways de VPN. Ignore essas etapas se você já tiver o ExpressRoute configurado. 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -161,8 +161,8 @@ Crie o grupo de recursos e a instância gerenciada primária usando o PowerShell
    # Suppress networking breaking changes warning (https://aka.ms/azps-changewarnings
    Set-Item Env:\SuppressAzurePowerShellBreakingChangeWarnings "true"
    
-   # Set the subscription context
-   Set-AzContext -SubscriptionId $subscriptionId 
+   # Set the subscription context
+   Set-AzContext -SubscriptionId $subscriptionId 
    
    # Create the resource group
    Write-host "Creating resource group..."

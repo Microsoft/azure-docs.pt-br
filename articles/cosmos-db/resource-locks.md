@@ -3,15 +3,16 @@ title: Impedir que Azure Cosmos DB recursos sejam excluídos ou alterados
 description: Use bloqueios de recursos do Azure para impedir que Azure Cosmos DB recursos sejam excluídos ou alterados.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: mjbrown
-ms.openlocfilehash: 6db7bbf03b023a80032a4ed15f2f4f82dd2b0b98
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1c8c766208132aec115e1fbeb15af3a057c3de3e
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088362"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636683"
 ---
 # <a name="prevent-azure-cosmos-db-resources-from-being-deleted-or-changed"></a>Impedir que Azure Cosmos DB recursos sejam excluídos ou alterados
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,7 +26,7 @@ Como administrador, talvez seja necessário bloquear uma conta do Azure Cosmos, 
 
 Quando você aplica um bloqueio a um escopo pai, todos os recursos filho herdam o mesmo bloqueio. Até mesmo os recursos que você adiciona posteriormente herdam o bloqueio do pai. O bloqueio mais restritivo na herança terá precedência.
 
-Ao contrário do controle de acesso baseado em função, é possível usar bloqueios de gerenciamento para aplicar uma restrição a todos os usuários e a todas as funções. Para saber mais sobre o RBAC para Azure Cosmos DB consulte [controle de acesso baseado em função no Azure Cosmos DB](role-based-access-control.md).
+Ao contrário do controle de acesso baseado em função do Azure, você usa bloqueios de gerenciamento para aplicar uma restrição em todos os usuários e funções. Para saber mais sobre o RBAC do Azure para Azure Cosmos DB consulte [controle de acesso baseado em função do Azure no Azure Cosmos DB](role-based-access-control.md).
 
 Bloqueios do Resource Manager se aplicam apenas às operações que ocorrem no plano de gerenciamento, que consistem em operações enviadas para https://management.azure.com. Os bloqueios não restringem a maneira como os recursos executam suas próprias funções. Alterações de recursos são restritas, mas as operações de recursos não são. Por exemplo, um bloqueio ReadOnly em um contêiner Cosmos do Azure impede que você exclua ou modifique o contêiner. Ele não impede que você crie, atualize ou exclua dados no contêiner. As transações de dados são autorizadas porque essas operações não são enviadas para https://management.azure.com.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 6628d693a8df3614097e23785ac234a451565ca3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bc97a932e622838315f717cc7b036a559787805
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777098"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369150"
 ---
 # <a name="overview-of-the-azure-security-benchmark-v2"></a>Visão geral do benchmark de segurança do Azure (v2)
 
@@ -22,10 +22,10 @@ O ASB (benchmark de segurança do Azure) fornece recomendações e práticas rec
 Esse parâmetro de comparação faz parte de um conjunto de diretrizes de segurança holísticas que também incluem:
 
 - **Estrutura de adoção de nuvem** – orientação sobre segurança, incluindo [estratégia](/azure/cloud-adoption-framework/strategy/define-security-strategy), [funções e responsabilidades](/azure/cloud-adoption-framework/organize/cloud-security), [as 10 melhores práticas de segurança](/azure/cloud-adoption-framework/get-started/security#step-1-establish-essential-security-practices)e implementação de [referência](/azure/cloud-adoption-framework/ready/enterprise-scale/)do Azure.
-- **Estrutura de Well-Architected do Azure** – diretrizes sobre como [proteger suas cargas de trabalho](https://docs.microsoft.com/assessments/?mode=pre-assessment&session=local) no Azure.
+- **Estrutura de Well-Architected do Azure** – diretrizes sobre como [proteger suas cargas de trabalho](/assessments/?mode=pre-assessment&session=local) no Azure.
 - **Práticas recomendadas de segurança da Microsoft** – [recomendações](/security/compass/microsoft-security-compass-introduction) com exemplos no Azure.
 
- O benchmark de segurança do Azure concentra-se em áreas de controle centradas na nuvem. Esses controles são consistentes com benchmarks de segurança conhecidos, como os descritos pelos controles do CIS (Center for Internet Security), versão 7,1 e National Institute of Standards and Technology (NIST) SP800-53.
+ O benchmark de segurança do Azure concentra-se em áreas de controle centradas na nuvem. Esses controles são consistentes com benchmarks de segurança conhecidos, como os descritos pelos controles do CIS (Center for Internet Security) versão 7,1 e do NIST (National Institute of Standards and Technology) SP 800-53.
 Os seguintes controles estão incluídos no benchmark de segurança do Azure:
 
 | Domínios de controle ASB | Descrição 
@@ -48,7 +48,7 @@ Cada recomendação inclui as seguintes informações:
 
 - **ID do Azure**: a ID de benchmark de segurança do Azure que corresponde à recomendação.
 - Os **controles do CIS v 7.1 ID (s)**: o cis controla os controles do v 7.1 que correspondem a essa recomendação.
-- **NIST SP800-53 ID (s) R4**: os controles NIST SP800-53 R4 (moderado) que correspondem a essa recomendação.
+- **ID (s) do NIST sp 800-53 R4**: os controles nist SP 800-53 R4 (moderado) que correspondem a essa recomendação.
 - **Detalhes**: a lógica para a recomendação e links para orientação sobre como implementá-la. Se a recomendação for suportada pela central de segurança do Azure, essas informações também serão listadas.
 - **Responsabilidade**: se o cliente, o provedor de serviços ou ambos são responsáveis por implementar essa recomendação. As responsabilidades de segurança são compartilhadas na nuvem pública. Alguns controles de segurança só estão disponíveis para o provedor de serviços de nuvem e, portanto, o provedor é responsável por lidar com eles. Essas são observações gerais – para alguns serviços individuais, a responsabilidade será diferente do que está listado no benchmark de segurança do Azure. Essas diferenças são descritas nas recomendações de linha de base para o serviço individual.
 - **Participantes de segurança do cliente**: [as funções de segurança](/azure/cloud-adoption-framework/organize/cloud-security#security-functions) na organização cliente que podem ser responsáveis, responsáveis ou consultados pelo respectivo controle. Ele pode ser diferente da organização para a organização, dependendo da estrutura da organização de segurança de sua empresa, e das funções e responsabilidades que você configurou relacionadas à segurança do Azure.

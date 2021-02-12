@@ -1,33 +1,34 @@
 ---
 title: Acessar logs de auditoria-CLI do Azure-banco de dados do Azure para MariaDB
 description: Este artigo descreve como configurar e acessar os logs de auditoria no banco de dados do Azure para MariaDB no CLI do Azure.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.topic: how-to
 ms.date: 6/24/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0aba88c10304cf7d87277ad851ae38eae8eb5bf3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57fc79e88e3268c37dd932a5618bd661f000e09c
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87497113"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98665167"
 ---
 # <a name="configure-and-access-azure-database-for-maria-db-audit-logs-in-the-azure-cli"></a>Configurar e acessar os logs de auditoria do banco de dados do Azure para Maria DB no CLI do Azure
 
 Você pode configurar os [logs de auditoria do banco de dados do Azure para MariaDB](concepts-audit-logs.md) no CLI do Azure.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para seguir este guia de instruções, você precisa:
+Para concluir este guia:
 
-- [Banco de dados do Azure para servidor MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md)
+- Você precisa de um [banco de dados do Azure para o servidor MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-> [!IMPORTANT]
-> Este guia de instruções requer que você use a CLI do Azure versão 2.0 ou posterior. Para confirmar a versão, no prompt de comando da CLI do Azure, digite `az --version`. Para instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+- Este artigo exige a versão 2.0 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="configure-audit-logging"></a>Configurar o log de auditoria
 

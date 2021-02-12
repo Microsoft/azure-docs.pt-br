@@ -3,14 +3,14 @@ title: Referência do desenvolvedor de JavaScript para Azure Functions
 description: Entenda como desenvolver funções usando JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 11/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 758e11a9c043fbd1238d1e3533a2d83804ec0b73
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 3e99b156d220b4c24a368886b1c0ca0813ffdc51
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043106"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674126"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do desenvolvedor de JavaScript do Azure Functions
 
@@ -20,7 +20,7 @@ Como um Express.js, Node.js ou desenvolvedor de JavaScript, se você for novo no
 
 | Introdução | Conceitos| Aprendizagem orientada |
 | -- | -- | -- | 
-| <ul><li>[Node.js função usando Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-javascript)</li><li>[ FunçãoNode.js com terminal/prompt de comando](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-javascript)</li></ul> | <ul><li>[Guia do desenvolvedor](functions-reference.md)</li><li>[Opções de hospedagem](functions-scale.md)</li><li>[Funções do TypeScript](#typescript)</li><li>[&nbsp;Considerações sobre desempenho](functions-best-practices.md)</li></ul> | <ul><li>[Criar aplicativos sem servidor](/learn/paths/create-serverless-applications/)</li><li>[Refatorar Node.js e APIs expressas para APIs sem servidor](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
+| <ul><li>[Node.js função usando Visual Studio Code](./create-first-function-vs-code-node.md)</li><li>[ FunçãoNode.js com terminal/prompt de comando](./create-first-function-cli-node.md)</li></ul> | <ul><li>[Guia do desenvolvedor](functions-reference.md)</li><li>[Opções de hospedagem](functions-scale.md)</li><li>[Funções do TypeScript](#typescript)</li><li>[&nbsp;Considerações sobre desempenho](functions-best-practices.md)</li></ul> | <ul><li>[Criar aplicativos sem servidor](/learn/paths/create-serverless-applications/)</li><li>[Refatorar Node.js e APIs expressas para APIs sem servidor](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
 ## <a name="javascript-function-basics"></a>Noções básicas da função JavaScript
 
@@ -107,7 +107,7 @@ Em JavaScript, [ligações](functions-triggers-bindings.md) são configuradas e 
 
 ### <a name="inputs"></a>Entradas
 As entradas são divididas em duas categorias no Azure Functions: uma é a entrada de gatilho e a outra é a entrada adicional. Trigger e outras ligações de entrada (ligações de `direction === "in"`) podem ser lidas por uma função de três maneiras:
- - **_[Recomendado]_ Como parâmetros passados para sua função.** Eles são passados para a função na mesma ordem em que são definidos *function.json* . A `name` propriedade definida no *function.jsem* não precisa corresponder ao nome do parâmetro, embora deva ser.
+ - **_[Recomendado]_ Como parâmetros passados para sua função.** Eles são passados para a função na mesma ordem em que são definidos *function.json*. A `name` propriedade definida no *function.jsem* não precisa corresponder ao nome do parâmetro, embora deva ser.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
@@ -134,11 +134,11 @@ As entradas são divididas em duas categorias no Azure Functions: uma é a entra
    ```
 
 ### <a name="outputs"></a>Saídas
-As saídas (ligações de `direction === "out"`) podem ser gravadas por uma função de várias maneiras. Em todos os casos, a propriedade `name` da ligação, conforme definido em *function.json* , corresponde ao nome do membro do objeto gravado na sua função. 
+As saídas (ligações de `direction === "out"`) podem ser gravadas por uma função de várias maneiras. Em todos os casos, a propriedade `name` da ligação, conforme definido em *function.json*, corresponde ao nome do membro do objeto gravado na sua função. 
 
 Você pode atribuir dados a associações de saída de uma das seguintes maneiras (não Combine esses métodos):
 
-- **_[Recomendado para várias saídas]_ Retornando um objeto.** Se você estiver usando uma função de retorno de Async/Promise, poderá retornar um objeto com os dados de saída atribuídos. No exemplo abaixo, as ligações de saída são nomeadas "httpResponse" e "queueOutput" em *function.json* .
+- **_[Recomendado para várias saídas]_ Retornando um objeto.** Se você estiver usando uma função de retorno de Async/Promise, poderá retornar um objeto com os dados de saída atribuídos. No exemplo abaixo, as ligações de saída são nomeadas "httpResponse" e "queueOutput" em *function.json*.
 
   ```javascript
   module.exports = async function(context) {
@@ -325,10 +325,10 @@ Além do nível padrão, os seguintes métodos de log estão disponíveis para p
 
 | Método                 | Descrição                                |
 | ---------------------- | ------------------------------------------ |
-| **erro ( _mensagem_ )**   | Grava um evento de nível de erro nos logs.   |
-| **warn( _message_ )**    | Grava um evento no nível de aviso nos logs. |
-| **info( _message_ )**    | Grava no registro em log no nível da informação, ou em um nível inferior.    |
-| **verbose( _message_ )** | Grava no registro em log no nível detalhado.           |
+| **erro (_mensagem_)**   | Grava um evento de nível de erro nos logs.   |
+| **warn(_message_)**    | Grava um evento no nível de aviso nos logs. |
+| **informações (_mensagem_)**    | Grava no registro em log no nível da informação, ou em um nível inferior.    |
+| **verbose(_message_)** | Grava no registro em log no nível detalhado.           |
 
 O exemplo a seguir grava o mesmo log no nível de rastreamento de aviso, em vez do nível de informações:
 
@@ -358,7 +358,7 @@ Para definir o limite para todos os rastreamentos gravados nos logs e o console,
 }  
 ```
 
-Os valores de **consoleLevel** correspondem aos nomes dos métodos `context.log`. Para desabilitar todo o registro em log do rastreamento no console, defina **consoleLevel** como _off_ . Para obter mais informações, consulte [host.jsna referência v1. x](functions-host-json-v1.md).
+Os valores de **consoleLevel** correspondem aos nomes dos métodos `context.log`. Para desabilitar todo o registro em log do rastreamento no console, defina **consoleLevel** como _off_. Para obter mais informações, consulte [host.jsna referência v1. x](functions-host-json-v1.md).
 
 ---
 
@@ -493,7 +493,7 @@ Ao trabalhar com gatilhos HTTP, há várias maneiras de acessar os objetos de so
 
 ## <a name="scaling-and-concurrency"></a>Dimensionamento e simultaneidade
 
-Por padrão, o Azure Functions monitora automaticamente a carga em seu aplicativo e cria instâncias de host adicionais para Node.js conforme necessário. O Functions usa limites internos (não configuráveis pelo usuário) em tipos de gatilhos diferentes para decidir quando adicionar instâncias, por exemplo, a idade das mensagens e o tamanho da fila para QueueTrigger. Para obter mais informações, confira [Como funcionam os planos de consumo e Premium](functions-scale.md#how-the-consumption-and-premium-plans-work).
+Por padrão, o Azure Functions monitora automaticamente a carga em seu aplicativo e cria instâncias de host adicionais para Node.js conforme necessário. O Functions usa limites internos (não configuráveis pelo usuário) em tipos de gatilhos diferentes para decidir quando adicionar instâncias, por exemplo, a idade das mensagens e o tamanho da fila para QueueTrigger. Para obter mais informações, confira [Como funcionam os planos de consumo e Premium](event-driven-scaling.md).
 
 Esse comportamento de dimensionamento é suficiente para muitos aplicativos Node.js. Para aplicativos associados à CPU, você pode melhorar ainda mais o desempenho usando vários processos de trabalho de linguagem.
 
@@ -507,13 +507,21 @@ A tabela a seguir mostra as versões de Node.js com suporte atuais para cada ver
 
 | Versão do Functions | Versão do nó (Windows) | Versão do nó (Linux) |
 |---|---| --- |
-| 1.x | 6.11.2 (bloqueada pelo runtime) | N/D |
-| 2. x  | ~ 8<br/>~ 10 (recomendado)<br/>aproximadamente 12<sup>*</sup> | ~ 8 (recomendado)<br/>~ 10  |
-| 3.x | ~ 10<br/>~ 12 (recomendado)  | ~ 10<br/>~ 12 (recomendado) |
+| 1.x | 6.11.2 (bloqueada pelo runtime) | n/a |
+| 2. x  | `~8`<br/>`~10` aconselhável<br/>`~12` | `node|8`<br/>`node|10` aconselhável  |
+| 3.x | `~10`<br/>`~12` aconselhável<br/>`~14` (versão prévia)  | `node|10`<br/>`node|12` aconselhável<br/>`node|14` (versão prévia) |
 
-<sup>*</sup>No momento, o nó ~ 12 é permitido na versão 2. x do tempo de execução do functions. No entanto, para obter um melhor desempenho, é recomendável usar o Functions versão 3. x com o nó ~ 12. 
+Você pode ver a versão atual que o tempo de execução está usando registrando-se `process.version` em qualquer função.
 
-Veja versão atual que o runtime está usando verificando a configuração de aplicativo acima ou imprimindo `process.version` de qualquer função. Direcione a versão no Azure definindo a configuração do [aplicativo](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_NODE_DEFAULT_VERSION como uma versão do LTS com suporte, como `~10` .
+### <a name="setting-the-node-version"></a>Configurando a versão do nó
+
+Para aplicativos de funções do Windows, direcione a versão no Azure definindo a `WEBSITE_NODE_DEFAULT_VERSION` [configuração do aplicativo](functions-how-to-use-azure-function-app-settings.md#settings) como uma versão do LTS com suporte, como `~12` .
+
+Para aplicativos de funções do Linux, execute o seguinte comando CLI do Azure para atualizar a versão do nó.
+
+```bash
+az functionapp config set --linux-fx-version "node|12" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
+```
 
 ## <a name="dependency-management"></a>Gerenciamento de dependência
 Para usar as bibliotecas da comunidade no código JavaScript, como é mostrado no exemplo abaixo, você precisa garantir que todas as dependências sejam instaladas no aplicativo de funções no Azure.
@@ -545,31 +553,52 @@ Há duas maneiras de instalar pacotes no aplicativo de funções:
 ### <a name="using-kudu"></a>Usando o Kudu
 1. Ir para `https://<function_app_name>.scm.azurewebsites.net`.
 
-2. Clique em **console de depuração**  >  **cmd** .
+2. Clique em **console de depuração**  >  **cmd**.
 
 3. Acesse `D:\home\site\wwwroot`e arraste o arquivo package.json para a pasta **wwwroot** na metade superior da página.  
     Também há outras maneiras de carregar arquivos em seu aplicativo de função. Para saber mais, confira [Como atualizar os arquivos do aplicativo de função](functions-reference.md#fileupdate). 
 
-4. Depois que o arquivo package.json é carregado, execute o comando `npm install` no **console de execução remota do Kudu** .  
+4. Depois que o arquivo package.json é carregado, execute o comando `npm install` no **console de execução remota do Kudu**.  
     Essa ação baixa os pacotes indicados no arquivo package.json e reinicia o aplicativo de função.
 
 ## <a name="environment-variables"></a>Variáveis de ambiente
 
-Em funções, [configurações do aplicativo](functions-app-settings.md), como conexão de serviço cadeias de caracteres, são expostas como variáveis de ambiente durante a execução. Você pode acessar essas configurações usando `process.env` , conforme mostrado aqui na segunda e terceira chamadas para `context.log()` onde registramos as `AzureWebJobsStorage` variáveis de `WEBSITE_SITE_NAME` ambiente e:
+Adicione suas próprias variáveis de ambiente a um aplicativo de funções, em seus ambientes locais e de nuvem, como segredos operacionais (cadeias de conexão, chaves e pontos de extremidade) ou configurações ambientais (como variáveis de criação de perfil). Acesse essas configurações usando `process.env` o no seu código de função.
+
+### <a name="in-local-development-environment"></a>No ambiente de desenvolvimento local
+
+Ao executar localmente, seu projeto de funções inclui um [ `local.settings.json` arquivo](./functions-run-local.md), onde você armazena suas variáveis de ambiente no `Values` objeto. 
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "translatorTextEndPoint": "https://api.cognitive.microsofttranslator.com/",
+    "translatorTextKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "languageWorkers__node__arguments": "--prof"
+  }
+}
+```
+
+### <a name="in-azure-cloud-environment"></a>No ambiente de nuvem do Azure
+
+Ao executar no Azure, o aplicativo de funções permite que você defina o usa [configurações do aplicativo](functions-app-settings.md), como cadeias de conexão de serviço, e expõe essas configurações como variáveis de ambiente durante a execução. 
+
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
+
+### <a name="access-environment-variables-in-code"></a>Acessar variáveis de ambiente no código
+
+Acesse as configurações do aplicativo como variáveis de ambiente usando `process.env` , conforme mostrado aqui na segunda e terceira chamadas para `context.log()` onde registramos as `AzureWebJobsStorage` variáveis de `WEBSITE_SITE_NAME` ambiente e:
 
 ```javascript
 module.exports = async function (context, myTimer) {
-    var timeStamp = new Date().toISOString();
 
-    context.log('Node.js timer trigger function ran!', timeStamp);
     context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
     context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
 };
 ```
-
-[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
-
-Ao executar localmente, as configurações do aplicativo são lidos a partir de [Settings](functions-run-local.md#local-settings-file) arquivo de projeto.
 
 ## <a name="configure-function-entry-point"></a>Configurar o ponto de entrada de função
 
@@ -651,7 +680,7 @@ Na versão 1. x, a configuração `languageWorkers:node:arguments` não funciona
 
 ## <a name="typescript"></a>TypeScript
 
-Quando você visa a versão 2. x do tempo de execução do functions, ambos [Azure Functions para Visual Studio Code](functions-create-first-function-vs-code.md) e o [Azure Functions Core Tools](functions-run-local.md) permitem criar aplicativos de funções usando um modelo que ofereça suporte a projetos de aplicativo de função TypeScript. O modelo gera `package.json` e `tsconfig.json` arquivos de projeto que facilitam a transcompilação, execução e publicação de funções JavaScript do código TypeScript com essas ferramentas.
+Quando você visa a versão 2. x do tempo de execução do functions, ambos [Azure Functions para Visual Studio Code](./create-first-function-cli-typescript.md) e o [Azure Functions Core Tools](functions-run-local.md) permitem criar aplicativos de funções usando um modelo que ofereça suporte a projetos de aplicativo de função TypeScript. O modelo gera `package.json` e `tsconfig.json` arquivos de projeto que facilitam a transcompilação, execução e publicação de funções JavaScript do código TypeScript com essas ferramentas.
 
 Um `.funcignore` arquivo gerado é usado para indicar quais arquivos são excluídos quando um projeto é publicado no Azure.  
 

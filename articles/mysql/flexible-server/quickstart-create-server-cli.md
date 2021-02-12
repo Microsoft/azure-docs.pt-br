@@ -1,19 +1,19 @@
 ---
 title: 'Início Rápido: Criar um servidor – CLI do Azure – Banco de Dados do Azure para MySQL – Servidor Flexível'
 description: Este início rápido descreverá como usar a CLI do Azure para criar um Servidor Flexível do Banco de Dados do Azure para MySQL em um grupo de recursos do Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 9/21/2020
-ms.custom: mvc
-ms.openlocfilehash: 4be295ada476e4dc41a86d06908ef1d653a3bad8
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 65cc3d2fdcbdea934e80a5f0012ca4f3da157ca3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545014"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843427"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-flexible-server-using-azure-cli"></a>Início Rápido: Criar um Servidor Flexível do Banco de Dados do Azure para MySQL usando a CLI do Azure
 
@@ -32,7 +32,7 @@ Caso prefira instalar e usar a CLI localmente, este início rápido exigirá a C
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisará fazer logon em sua conta usando o comando [az login](/cli/azure/reference-index#az-login). Observe a propriedade **id** , que se refere à **ID da Assinatura** para sua conta do Azure.
+Você precisará fazer logon em sua conta usando o comando [az login](/cli/azure/reference-index#az-login). Observe a propriedade **id**, que se refere à **ID da Assinatura** para sua conta do Azure.
 
 ```azurecli-interactive
 az login
@@ -107,7 +107,7 @@ Para se conectar ao servidor, é preciso fornecer credenciais de acesso e inform
 az mysql flexible-server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-O resultado está no formato JSON. Anote o **fullyQualifiedDomainName** e o **administratorLogin** . Abaixo está um exemplo da saída JSON: 
+O resultado está no formato JSON. Anote o **fullyQualifiedDomainName** e o **administratorLogin**. Abaixo está um exemplo da saída JSON: 
 
 ```json
 {

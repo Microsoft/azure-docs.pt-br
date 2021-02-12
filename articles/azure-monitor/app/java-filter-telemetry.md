@@ -3,15 +3,20 @@ title: Filtrar Aplicativo Azure telemetria de informações em seu aplicativo We
 description: Reduza o tráfego da telemetria filtrando os eventos que você não precisa monitorar.
 ms.topic: conceptual
 ms.date: 3/14/2019
+author: MS-jgol
 ms.custom: devx-track-java
-ms.openlocfilehash: e450cf0de7dce4f626fd41252bfeed5fba294c70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: jgol
+ms.openlocfilehash: 71858be97404344bad88ea20e31b17fa44f669a2
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760998"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131178"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrar a telemetria no aplicativo Web Java
+
+> [!IMPORTANT]
+> A abordagem recomendada para monitorar aplicativos Java é usar a instrumentação automática sem alterar o código. Siga as diretrizes para [Application insights o agente do Java 3,0](./java-in-process-agent.md).
 
 Os filtros fornecem uma maneira de selecionar a telemetria que seu [aplicativo Web Java envia ao Application Insights](java-get-started.md). Existem alguns filtros prontos para uso, mas você também pode escrever seus próprios filtros personalizados.
 
@@ -78,7 +83,7 @@ Em ApplicationInsights.xml, adicione uma seção `TelemetryProcessors`, como nes
 
 ```
 
-[Inspecione o conjunto completo de processadores internos](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal).
+[Inspecione o conjunto completo de processadores internos](https://github.com/microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal).
 
 ## <a name="built-in-filters"></a>Filtros internos
 
@@ -198,32 +203,31 @@ No seu código, crie uma classe que implementa `TelemetryProcessor`:
 
     public class SuccessFilter implements TelemetryProcessor {
 
-       /* Any parameters that are required to support the filter.*/
-       private final String successful;
+        /* Any parameters that are required to support the filter.*/
+        private final String successful;
 
-       /* Initializers for the parameters, named "setParameterName" */
-       public void setNotNeeded(String successful)
-       {
-          this.successful = successful;
-       }
-
-       /* This method is called for each item of telemetry to be sent.
-          Return false to discard it.
-          Return true to allow other processors to inspect it. */
-       @Override
-       public boolean process(Telemetry telemetry) {
-        if (telemetry == null) { return true; }
-        if (telemetry instanceof RequestTelemetry)
+        /* Initializers for the parameters, named "setParameterName" */
+        public void setNotNeeded(String successful)
         {
-            RequestTelemetry requestTelemetry = (RequestTelemetry)telemetry;
-            return request.getSuccess() == successful;
+            this.successful = successful;
         }
-        return true;
-       }
+
+        /* This method is called for each item of telemetry to be sent.
+           Return false to discard it.
+           Return true to allow other processors to inspect it. */
+        @Override
+        public boolean process(Telemetry telemetry) {
+            if (telemetry == null) { return true; }
+            if (telemetry instanceof RequestTelemetry)
+            {
+                RequestTelemetry requestTelemetry = (RequestTelemetry)    telemetry;
+                return request.getSuccess() == successful;
+            }
+            return true;
+        }
     }
 
 ```
-
 
 ### <a name="2-invoke-your-filter-in-the-configuration-file"></a>2. invocar seu filtro no arquivo de configuração
 

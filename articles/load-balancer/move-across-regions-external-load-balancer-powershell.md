@@ -6,18 +6,18 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: be1971c9184d0b2b406b669ae9d1ea61598b201f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e43d8f1050f6b2b458c0926c674c05f7f18edc63
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84809424"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018504"
 ---
 # <a name="move-azure-external-load-balancer-to-another-region-using-azure-powershell"></a>Mover o Load Balancer externo do Azure para outra região usando Azure PowerShell
 
 Há vários cenários em que você deseja mover seu balanceador externo de carga existente de uma região para outra. Por exemplo, talvez você queira criar um balanceador de carga externo com a mesma configuração para teste. Você também pode querer mover um balanceador externo de carga para outra região como parte do planejamento de recuperação de desastre.
 
-Os balanceadores de carga externos do Azure não podem ser movidos de uma região para outra. No entanto, você pode usar um modelo de Azure Resource Manager para exportar a configuração existente e o IP público de um balanceador de carga externo.  Em seguida, você pode preparar o recurso em outra região exportando o balanceador de carga e o IP público para um modelo, modificando os parâmetros para corresponder à região de destino e, em seguida, implantar os modelos na nova região.  Para obter mais informações sobre o Resource Manager e os modelos, confira [Exportar grupos de recursos para modelos](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates)
+Os balanceadores de carga externos do Azure não podem ser movidos de uma região para outra. No entanto, você pode usar um modelo de Azure Resource Manager para exportar a configuração existente e o IP público de um balanceador de carga externo.  Em seguida, você pode preparar o recurso em outra região exportando o balanceador de carga e o IP público para um modelo, modificando os parâmetros para corresponder à região de destino e, em seguida, implantar os modelos na nova região.  Para obter mais informações sobre o Resource Manager e os modelos, confira [Exportar grupos de recursos para modelos](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates)
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -32,7 +32,7 @@ Os balanceadores de carga externos do Azure não podem ser movidos de uma regiã
 
 - Verifique se sua assinatura do Azure permite criar balanceadores de carga externos na região de destino usada. Contate o suporte para habilitar a cota necessária.
 
-- Verifique se sua assinatura tem recursos suficientes para dar suporte à adição de balanceadores de carga para esse processo.  Confira [assinatura do Azure e limites de serviço, cotas e restrições](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)
+- Verifique se sua assinatura tem recursos suficientes para dar suporte à adição de balanceadores de carga para esse processo.  Confira [assinatura do Azure e limites de serviço, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)
 
 
 ## <a name="prepare-and-move"></a>Preparar e mover
@@ -43,18 +43,18 @@ As etapas a seguir mostram como preparar o balanceador externo de carga para a m
 
 ### <a name="export-the-public-ip-template-and-deploy-from-azure-powershell"></a>Exportar o modelo de IP público e implantá-lo do Azure PowerShell
 
-1. Entre em sua assinatura do Azure com o comando [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) e siga as instruções na tela:
+1. Entre em sua assinatura do Azure com o comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) e siga as instruções na tela:
     
     ```azurepowershell-interactive
     Connect-AzAccount
     ```
-2. Obtenha a ID do recurso do IP que você deseja mover para a região de destino e coloque-a em uma variável usando [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0):
+2. Obtenha a ID do recurso do IP que você deseja mover para a região de destino e coloque-a em uma variável usando [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0):
 
     ```azurepowershell-interactive
     $sourcePubIPID = (Get-AzPublicIPaddress -Name <source-public-ip-name> -ResourceGroupName <source-resource-group-name>).Id
 
     ```
-3. Exporte o IP público de origem para um arquivo. JSON no diretório em que você executa o comando [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
+3. Exporte o IP público de origem para um arquivo. JSON no diretório em que você executa o comando [Export-AzResourceGroup](/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
    
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
@@ -107,7 +107,7 @@ As etapas a seguir mostram como preparar o balanceador externo de carga para a m
              ]             
     ```
   
-7. Para obter códigos de localização de região, você pode usar o cmdlet do Azure PowerShell [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) executando o seguinte comando:
+7. Para obter códigos de localização de região, você pode usar o cmdlet do Azure PowerShell [Get-AzLocation](/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) executando o seguinte comando:
 
     ```azurepowershell-interactive
 
@@ -131,7 +131,7 @@ As etapas a seguir mostram como preparar o balanceador externo de carga para a m
                     },
          ```
 
-         Para obter mais informações sobre as diferenças entre IPs de SKU Básico e Standard, confira [Criar, alterar ou excluir um endereço IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
+         Para obter mais informações sobre as diferenças entre IPs de SKU Básico e Standard, confira [Criar, alterar ou excluir um endereço IP](../virtual-network/virtual-network-public-ip-address.md).
 
     * **Método de alocação de IP** e **tempo limite ocioso** – você pode alterar ambas as opções no modelo alterando a propriedade **publicIPAllocationMethod** de **Dinâmico** para **Estático** ou de **Estático** para **Dinâmico**. O tempo limite ocioso pode ser alterado alterando a propriedade **idleTimeoutInMinutes** para o valor desejado.  O padrão é **4**:
 
@@ -158,17 +158,17 @@ As etapas a seguir mostram como preparar o balanceador externo de carga para a m
                 }            
          ```
 
-        Para obter mais informações sobre os métodos de alocação e os valores de tempo limite ocioso, confira [Criar, alterar ou excluir um endereço IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
+        Para obter mais informações sobre os métodos de alocação e os valores de tempo limite ocioso, confira [Criar, alterar ou excluir um endereço IP](../virtual-network/virtual-network-public-ip-address.md).
 
 
 9. Salve o arquivo **\<resource-group-name>.json**.
 
-10. Crie um grupo de recursos na região de destino para o IP de destino a ser implantado usando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0).
+10. Crie um grupo de recursos na região de destino para o IP de destino a ser implantado usando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0).
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. Implante o arquivo **\<resource-group-name>.json** editado no grupo de recursos criado na etapa anterior usando [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+11. Implante o arquivo **\<resource-group-name>.json** editado no grupo de recursos criado na etapa anterior usando [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 
@@ -176,7 +176,7 @@ As etapas a seguir mostram como preparar o balanceador externo de carga para a m
     
     ```
 
-12. Para verificar se os recursos foram criados na região de destino, use [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) e [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0):
+12. Para verificar se os recursos foram criados na região de destino, use [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) e [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0):
     
     ```azurepowershell-interactive
 
@@ -192,19 +192,19 @@ As etapas a seguir mostram como preparar o balanceador externo de carga para a m
 
 ### <a name="export-the-external-load-balancer-template-and-deploy-from-azure-powershell"></a>Exportar o modelo de balanceador de carga externo e implantar do Azure PowerShell
 
-1. Entre em sua assinatura do Azure com o comando [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) e siga as instruções na tela:
+1. Entre em sua assinatura do Azure com o comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) e siga as instruções na tela:
     
     ```azurepowershell-interactive
     Connect-AzAccount
     ```
 
-2. Obtenha a ID de recurso do balanceador de carga externo que você deseja mover para a região de destino e coloque-a em uma variável usando [Get-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/get-azloadbalancer?view=azps-2.6.0):
+2. Obtenha a ID de recurso do balanceador de carga externo que você deseja mover para a região de destino e coloque-a em uma variável usando [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer?view=azps-2.6.0):
 
     ```azurepowershell-interactive
     $sourceExtLBID = (Get-AzLoadBalancer -Name <source-external-lb-name> -ResourceGroupName <source-resource-group-name>).Id
 
     ```
-3. Exporte a configuração de balanceador de carga externa de origem para um arquivo. JSON no diretório em que você executa o comando [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
+3. Exporte a configuração de balanceador de carga externa de origem para um arquivo. JSON no diretório em que você executa o comando [Export-AzResourceGroup](/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
    
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceExtLBID -IncludeParameterDefaultValue
@@ -232,7 +232,7 @@ As etapas a seguir mostram como preparar o balanceador externo de carga para a m
 
     ```
 
-6.  Para editar o valor do IP público de destino que foi movido acima, você deve primeiro obter a ID do recurso e, em seguida, copiá-la e colá-la no arquivo ** \<resource-group-name> . JSON** .  Para obter a ID, use [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0):
+6.  Para editar o valor do IP público de destino que foi movido acima, você deve primeiro obter a ID do recurso e, em seguida, copiá-la e colá-la no arquivo **\<resource-group-name> . JSON** .  Para obter a ID, use [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0):
 
     ```azurepowershell-interactive
     $targetPubIPID = (Get-AzPublicIPaddress -Name <target-public-ip-name> -ResourceGroupName <target-resource-group-name>).Id
@@ -244,7 +244,7 @@ As etapas a seguir mostram como preparar o balanceador externo de carga para a m
     /subscriptions/7668d659-17fc-4ffd-85ba-9de61fe977e8/resourceGroups/myResourceGroupLB-Move/providers/Microsoft.Network/publicIPAddresses/myPubIP-in-move
     ```
 
-7.  No arquivo ** \<resource-group-name> . JSON** , Cole a **ID do recurso** da variável no lugar do **DEFAULTVALUE** no segundo parâmetro para a ID externa do IP público, certifique-se de colocar o caminho entre aspas:
+7.  No arquivo **\<resource-group-name> . JSON** , Cole a **ID do recurso** da variável no lugar do **DEFAULTVALUE** no segundo parâmetro para a ID externa do IP público, certifique-se de colocar o caminho entre aspas:
 
     ```json
             "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -261,7 +261,7 @@ As etapas a seguir mostram como preparar o balanceador externo de carga para a m
 
     ```
 
-8.  Se você tiver configurado o NAT de saída e as regras de saída para o balanceador de carga, uma terceira entrada estará presente nesse arquivo para a ID externa para o IP público de saída.  Repita as etapas acima na **região de destino** para obter a ID para o IP público de saída e cole essa entrada no arquivo ** \<resource-group-name> . JSON** :
+8.  Se você tiver configurado o NAT de saída e as regras de saída para o balanceador de carga, uma terceira entrada estará presente nesse arquivo para a ID externa para o IP público de saída.  Repita as etapas acima na **região de destino** para obter a ID para o IP público de saída e cole essa entrada no arquivo **\<resource-group-name> . JSON** :
 
     ```json
             "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -282,7 +282,7 @@ As etapas a seguir mostram como preparar o balanceador externo de carga para a m
         },
     ```
 
-10. Para editar a região de destino em que a configuração do balanceador de carga externo será movida, altere a propriedade **local** em **recursos** no arquivo ** \<resource-group-name> . JSON** :
+10. Para editar a região de destino em que a configuração do balanceador de carga externo será movida, altere a propriedade **local** em **recursos** no arquivo **\<resource-group-name> . JSON** :
 
     ```json
         "resources": [
@@ -297,7 +297,7 @@ As etapas a seguir mostram como preparar o balanceador externo de carga para a m
                 },
     ```
 
-11. Para obter códigos de localização de região, você pode usar o cmdlet do Azure PowerShell [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) executando o seguinte comando:
+11. Para obter códigos de localização de região, você pode usar o cmdlet do Azure PowerShell [Get-AzLocation](/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) executando o seguinte comando:
 
     ```azurepowershell-interactive
 
@@ -306,7 +306,7 @@ As etapas a seguir mostram como preparar o balanceador externo de carga para a m
     ```
 12. Você também pode alterar outros parâmetros no modelo se quiser, e eles podem ser opcionais dependendo dos seus requisitos:
     
-    * **SKU** -você pode alterar a SKU do balanceador externo de carga na configuração de Standard para básico ou básico para Standard, alterando a propriedade **sku**  >  **nome** do SKU no arquivo ** \<resource-group-name> . JSON** :
+    * **SKU** -você pode alterar a SKU do balanceador externo de carga na configuração de Standard para básico ou básico para Standard, alterando a propriedade **sku**  >  **nome** do SKU no arquivo **\<resource-group-name> . JSON** :
 
         ```json
         "resources": [
@@ -320,9 +320,9 @@ As etapas a seguir mostram como preparar o balanceador externo de carga para a m
                 "tier": "Regional"
             },
         ```
-      Para obter mais informações sobre as diferenças entre os balanceadores de carga do SKU básico e Standard, consulte [visão geral do Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
+      Para obter mais informações sobre as diferenças entre os balanceadores de carga do SKU básico e Standard, consulte [visão geral do Azure Standard Load Balancer](./load-balancer-overview.md)
 
-    * **Regras de balanceamento de carga** – você pode adicionar ou remover regras de balanceamento de carga na configuração adicionando ou removendo entradas na seção **loadBalancingRules** do arquivo ** \<resource-group-name> . JSON** :
+    * **Regras de balanceamento de carga** – você pode adicionar ou remover regras de balanceamento de carga na configuração adicionando ou removendo entradas na seção **loadBalancingRules** do arquivo **\<resource-group-name> . JSON** :
 
         ```json
         "loadBalancingRules": [
@@ -352,9 +352,9 @@ As etapas a seguir mostram como preparar o balanceador externo de carga para a m
                     }
                 ]
         ```
-       Para obter mais informações sobre regras de balanceamento de carga, consulte [o que é Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+       Para obter mais informações sobre regras de balanceamento de carga, consulte [o que é Azure Load Balancer?](./load-balancer-overview.md)
 
-    * **Investigações** – você pode adicionar ou remover uma investigação para o balanceador de carga na configuração adicionando ou removendo entradas para a seção **investigações** do arquivo ** \<resource-group-name> . JSON** :
+    * **Investigações** – você pode adicionar ou remover uma investigação para o balanceador de carga na configuração adicionando ou removendo entradas para a seção **investigações** do arquivo **\<resource-group-name> . JSON** :
 
         ```json
         "probes": [
@@ -372,9 +372,9 @@ As etapas a seguir mostram como preparar o balanceador externo de carga para a m
                     }
                 ],
         ```
-       Para obter mais informações sobre Azure Load Balancer investigações de integridade, consulte [investigações de integridade de Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
+       Para obter mais informações sobre Azure Load Balancer investigações de integridade, consulte [investigações de integridade de Load Balancer](./load-balancer-custom-probe-overview.md)
 
-    * **Regras de NAT de entrada** -você pode adicionar ou remover regras de NAT de entrada para o balanceador de carga adicionando ou removendo entradas para a seção **inboundNatRules** do arquivo ** \<resource-group-name> . JSON** :
+    * **Regras de NAT de entrada** -você pode adicionar ou remover regras de NAT de entrada para o balanceador de carga adicionando ou removendo entradas para a seção **inboundNatRules** do arquivo **\<resource-group-name> . JSON** :
 
         ```json
         "inboundNatRules": [
@@ -396,7 +396,7 @@ As etapas a seguir mostram como preparar o balanceador externo de carga para a m
                     }
                 ]
         ```
-        Para concluir a adição ou remoção de uma regra NAT de entrada, a regra deve estar presente ou removida como uma propriedade de **tipo** no final do arquivo ** \<resource-group-name> . JSON** :
+        Para concluir a adição ou remoção de uma regra NAT de entrada, a regra deve estar presente ou removida como uma propriedade de **tipo** no final do arquivo **\<resource-group-name> . JSON** :
 
         ```json
         {
@@ -420,9 +420,9 @@ As etapas a seguir mostram como preparar o balanceador externo de carga para a m
             }
         }
         ```
-        Para obter mais informações sobre regras de NAT de entrada, consulte [o que é Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+        Para obter mais informações sobre regras de NAT de entrada, consulte [o que é Azure Load Balancer?](./load-balancer-overview.md)
 
-    * **Regras de saída** – você pode adicionar ou remover regras de saída na configuração editando a propriedade **outboundRules** no arquivo ** \<resource-group-name> . JSON** :
+    * **Regras de saída** – você pode adicionar ou remover regras de saída na configuração editando a propriedade **outboundRules** no arquivo **\<resource-group-name> . JSON** :
 
         ```json
         "outboundRules": [
@@ -448,16 +448,16 @@ As etapas a seguir mostram como preparar o balanceador externo de carga para a m
                 ]
         ```
 
-         Para obter mais informações sobre as regras de saída, consulte [Load Balancer regras de saída](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)
+         Para obter mais informações sobre as regras de saída, consulte [Load Balancer regras de saída](./load-balancer-outbound-connections.md#outboundrules)
 
 13. Salve o arquivo **\<resource-group-name>.json**.
     
-10. Crie ou um grupo de recursos na região de destino para o balanceador de carga externo de destino a ser implantado usando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0). O grupo de recursos existente acima também pode ser reutilizado como parte desse processo:
+10. Crie ou um grupo de recursos na região de destino para o balanceador de carga externo de destino a ser implantado usando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0). O grupo de recursos existente acima também pode ser reutilizado como parte desse processo:
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. Implante o arquivo **\<resource-group-name>.json** editado no grupo de recursos criado na etapa anterior usando [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+11. Implante o arquivo **\<resource-group-name>.json** editado no grupo de recursos criado na etapa anterior usando [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 
@@ -465,7 +465,7 @@ As etapas a seguir mostram como preparar o balanceador externo de carga para a m
     
     ```
 
-12. Para verificar se os recursos foram criados na região de destino, use [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) e [Get-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/get-azloadbalancer?view=azps-2.6.0):
+12. Para verificar se os recursos foram criados na região de destino, use [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) e [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer?view=azps-2.6.0):
     
     ```azurepowershell-interactive
 
@@ -481,7 +481,7 @@ As etapas a seguir mostram como preparar o balanceador externo de carga para a m
 
 ## <a name="discard"></a>Descartar 
 
-Após a implantação, se você quiser começar ou descartar o IP público e o balanceador de carga no destino, exclua o grupo de recursos que foi criado no destino e o IP público movido e o balanceador de carga serão excluídos.  Para remover o grupo de recursos, use [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
+Após a implantação, se você quiser começar ou descartar o IP público e o balanceador de carga no destino, exclua o grupo de recursos que foi criado no destino e o IP público movido e o balanceador de carga serão excluídos.  Para remover o grupo de recursos, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
 
 ```azurepowershell-interactive
 
@@ -491,7 +491,7 @@ Remove-AzResourceGroup -Name <resource-group-name>
 
 ## <a name="clean-up"></a>Limpar
 
-Para confirmar as alterações e concluir a movimentação do NSG, exclua o NSG de origem ou o grupo de recursos, use [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0) ou [Remove-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/remove-azpublicipaddress?view=azps-2.6.0) e [Remove-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/remove-azloadbalancer?view=azps-2.6.0)
+Para confirmar as alterações e concluir a movimentação do NSG, exclua o NSG de origem ou o grupo de recursos, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0) ou [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress?view=azps-2.6.0) e [Remove-AzLoadBalancer](/powershell/module/az.network/remove-azloadbalancer?view=azps-2.6.0)
 
 ```azurepowershell-interactive
 
@@ -513,5 +513,5 @@ Remove-AzPublicIpAddress -Name <public-ip> -ResourceGroupName <resource-group-na
 Neste tutorial, você moveu um grupo de segurança de rede do Azure de uma região para outra e limpou os recursos de origem.  Para saber mais sobre como mover recursos entre regiões e recuperação de desastres no Azure, confira:
 
 
-- [Mover recursos para um novo grupo de recursos ou assinatura](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Mover as VMs do Azure para outra região](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Mover as VMs do Azure para outra região](../site-recovery/azure-to-azure-tutorial-migrate.md)

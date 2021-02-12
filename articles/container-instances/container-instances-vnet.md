@@ -4,12 +4,12 @@ description: Saiba como implantar um grupo de contêineres em uma rede virtual d
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 02cf514e6c19387e3a9e2f1c78b65f346fff764e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b791d3f37809c2eca53f5a3cd34f7c44dd11ce40
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746898"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028872"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implantar instâncias de contêiner em uma rede virtual do Azure
 
@@ -20,7 +20,7 @@ Este artigo mostra como usar o comando [AZ container Create][az-container-create
 Para cenários de rede e limitações, consulte [cenários e recursos de rede virtual para instâncias de contêiner do Azure](container-instances-virtual-network-concepts.md).
 
 > [!IMPORTANT]
-> A implantação de grupo de contêineres em uma rede virtual está geralmente disponível para contêineres do Linux, na maioria das regiões em que as instâncias de contêiner do Azure estão disponíveis. Para obter detalhes, consulte [regiões e disponibilidade de recursos](container-instances-virtual-network-concepts.md#where-to-deploy). 
+> A implantação de grupo de contêineres em uma rede virtual está geralmente disponível para contêineres do Linux, na maioria das regiões em que as instâncias de contêiner do Azure estão disponíveis. Para obter detalhes, consulte [regiões e disponibilidade de recursos][container-regions]. 
 
 Os exemplos neste artigo são formatados para o shell bash. Se você preferir outro shell, como o PowerShell ou o Prompt de Comando, ajuste os caracteres de continuação de linha adequadamente.
 
@@ -69,7 +69,7 @@ Para implantar um grupo de contêineres em uma rede virtual existente:
 
 O exemplo a seguir implanta um segundo grupo de contêineres na mesma sub-rede criada anteriormente e verifica a comunicação entre as duas instâncias de contêiner.
 
-Primeiramente, obtenha o endereço IP do primeiro grupo de contêineres que você implantou, o *appcontainer* :
+Primeiramente, obtenha o endereço IP do primeiro grupo de contêineres que você implantou, o *appcontainer*:
 
 ```azurecli
 az container show --resource-group myResourceGroup \
@@ -83,7 +83,7 @@ A saída exibe o endereço IP do grupo de contêineres na sub-rede privada. Por 
 10.0.0.4
 ```
 
-Agora, defina `CONTAINER_GROUP_IP` como o IP recuperado com o comando `az container show` e execute o seguinte comando `az container create`. Esse segundo contêiner, *commchecker* , executa uma imagem com base em Linux Alpine e executa `wget` em relação ao endereço IP da sub-rede privada do primeiro grupo de contêineres.
+Agora, defina `CONTAINER_GROUP_IP` como o IP recuperado com o comando `az container show` e execute o seguinte comando `az container create`. Esse segundo contêiner, *commchecker*, executa uma imagem com base em Linux Alpine e executa `wget` em relação ao endereço IP da sub-rede privada do primeiro grupo de contêineres.
 
 ```azurecli
 CONTAINER_GROUP_IP=<container-group-IP-address>
@@ -139,7 +139,7 @@ Saída de exemplo:
 /subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-aci-subnet
 ```
 
-Quando tiver a ID do perfil de rede, copie o YAML a seguir em um novo arquivo denominado *vnet-deploy-aci.yaml* . Em `networkProfile`, substitua o valor `id` pela ID que acabou de recuperar; em seguida, salve o arquivo. Esse YAML cria um grupo de contêineres chamado *appcontaineryaml* em sua rede virtual.
+Quando tiver a ID do perfil de rede, copie o YAML a seguir em um novo arquivo denominado *vnet-deploy-aci.yaml*. Em `networkProfile`, substitua o valor `id` pela ID que acabou de recuperar; em seguida, salve o arquivo. Esse YAML cria um grupo de contêineres chamado *appcontaineryaml* em sua rede virtual.
 
 ```YAML
 apiVersion: '2019-12-01'
@@ -204,7 +204,7 @@ Esse recurso atualmente requer vários comandos adicionais para excluir os recur
 Antes de executar o script, defina a variável `RES_GROUP` como o nome do grupo de recursos que contém a rede virtual e a sub-rede que devem ser excluídas. Atualize o nome da rede virtual se você não usou o `aci-vnet` nome sugerido anteriormente. O script é formatado para o shell do Bash. Se você preferir outro shell, como o PowerShell ou o Prompt de Comando, você precisará ajustar a atribuição de variável e os acessadores adequadamente.
 
 > [!WARNING]
-> Esse script exclui recursos! Ele exclui a rede virtual e todas as sub-redes que ela contém. Certifique-se de que você não precisa mais de *qualquer* um dos recursos na rede virtual, incluindo todas as sub-redes que ela contém, antes de executar esse script. Depois de excluídos, **esses recursos são irrecuperáveis** .
+> Esse script exclui recursos! Ele exclui a rede virtual e todas as sub-redes que ela contém. Certifique-se de que você não precisa mais de *qualquer* um dos recursos na rede virtual, incluindo todas as sub-redes que ela contém, antes de executar esse script. Depois de excluídos, **esses recursos são irrecuperáveis**.
 
 ```azurecli
 # Replace <my-resource-group> with the name of your resource group
@@ -238,3 +238,4 @@ Para implantar uma nova rede virtual, sub-rede, perfil de rede e grupo de contê
 [az-container-show]: /cli/azure/container#az-container-show
 [az-network-vnet-create]: /cli/azure/network/vnet#az-network-vnet-create
 [az-network-profile-list]: /cli/azure/network/profile#az-network-profile-list
+[container-regions]: container-instances-region-availability.md

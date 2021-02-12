@@ -7,15 +7,15 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 09/15/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4d1488d6dd2e5d08ae774ca88b7ab41b2020efe5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d47935f76347b2d5272b386942a85643a732e643
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90998255"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831745"
 ---
 # <a name="quickstart-create-an-key-vault-managed-hsm-using-an-azure-resource-manager-template"></a>Início Rápido: Criar um HSM Gerenciado do Key Vault usando um modelo do Azure Resource Manager
 
@@ -79,7 +79,6 @@ Talvez você também precise da sua ID de locatário. Para encontrá-la, use o c
     - **Grupo de recursos**: Selecione **Criar**, insira um nome exclusivo para o grupo de recursos e clique em **OK**.
     - **Localização**: Selecione um local. Por exemplo, **Centro-Sul dos EUA**.
     - **managedHSMName**: Insira um nome para o HSM gerenciado.
-    - **SKU**: Insira o Nome e a Família do HSM gerenciado que você deseja criar.  Para este guia de início rápido, insira "Standard_B1" para Nome e "B" para Família.
     - **ID do locatário**: A função de modelo recupera automaticamente sua ID de locatário. Não altere o valor padrão.  Se não há nenhum valor, insira a ID de locatário que você recuperou em [Pré-requisitos](#prerequisites).
     * **initialAdminObjectIds**: insira a ID de objeto que você recuperou em [Pré-requisitos](#prerequisites).
 

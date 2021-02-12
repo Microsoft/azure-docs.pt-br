@@ -1,19 +1,16 @@
 ---
 title: Personalizar as configurações de cluster do Azure HDInsight usando a inicialização
 description: Saiba como personalizar a configuração do cluster HDInsight programaticamente usando modelos .NET, PowerShell e Resource Manager.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/01/2020
-ms.openlocfilehash: 246c5600da3b554ba65872780f0719a58f3f4be2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 306ebcf7db3c11f783af8cf4c1779bd3d1a013a4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547479"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945756"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalizar clusters do HDInsight usando a Inicialização
 
@@ -21,7 +18,7 @@ Os scripts de Bootstrap permitem que você instale e configure componentes no Az
 
 Há três abordagens para definir as configurações do arquivo de configuração à medida que seu cluster HDInsight é criado:
 
-* Usar o Azure PowerShell
+* Usar PowerShell do Azure
 * Usar o SDK do .NET
 * Usar o modelo do Azure Resource Manager
 
@@ -50,7 +47,7 @@ Para obter informações sobre como instalar componentes adicionais no cluster H
 
 * Se estiver usando o PowerShell, você precisará do [Az Module](/powershell/azure/).
 
-## <a name="use-azure-powershell"></a>Usar o Azure PowerShell
+## <a name="use-azure-powershell"></a>Usar PowerShell do Azure
 
 O seguinte código do PowerShell personaliza uma configuração de [Apache Hive](https://hive.apache.org/):
 
@@ -86,9 +83,9 @@ Um script do PowerShell completo em funcionamento pode ser encontrado no [Apênd
 **Para verificar a alteração:**
 
 1. Navegue até `https://CLUSTERNAME.azurehdinsight.net/` onde `CLUSTERNAME` é o nome do cluster.
-1. No menu à esquerda, navegue até configurações do **Hive**  >  **Configs**  >  **avançado** .
-1. Expanda **avançado Hive-site** .
-1. Localize **Hive. metastore. Client. Socket. Timeout** e confirme se o valor é **anos 90** .
+1. No menu à esquerda, navegue até configurações do **Hive**  >    >  **avançado**.
+1. Expanda **avançado Hive-site**.
+1. Localize **Hive. metastore. Client. Socket. Timeout** e confirme se o valor é **anos 90**.
 
 Alguns outros exemplos de personalização de outros arquivos de configuração:
 
@@ -138,7 +135,7 @@ Exemplo de trecho do modelo do Resource Manager para alternar a configuração e
 }
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 * [Criar clusters Apache Hadoop no HDInsight](hdinsight-hadoop-provision-linux-clusters.md) fornece instruções sobre como criar um cluster HDInsight usando outras opções personalizadas.
 * [Desenvolver scripts de ação de script para o HDInsight](hdinsight-hadoop-script-actions-linux.md)

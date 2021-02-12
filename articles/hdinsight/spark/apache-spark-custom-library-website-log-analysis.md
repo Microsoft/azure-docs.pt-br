@@ -1,19 +1,16 @@
 ---
 title: Analisar logs de sites com bibliotecas de Python no Spark – Azure
 description: Este notebook demonstra como analisar dados de log usando uma biblioteca personalizada com o Spark no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 12/27/2019
-ms.openlocfilehash: 1094235f5bc5cc25cf6d8f3762dc242503952de6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 591804a31c100e5c8211ec6d73fc483c9ac85c72
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86083790"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940297"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>Analise logs do site usando uma biblioteca Python personalizada com cluster do Apache Spark no HDInsight
 
@@ -25,15 +22,15 @@ Um cluster do Apache Spark no HDInsight. Para obter instruções, consulte o art
 
 ## <a name="save-raw-data-as-an-rdd"></a>Salvar dados brutos como RDD
 
-Nesta seção, usamos o notebook [Jupyter](https://jupyter.org) associado a um cluster do Apache Spark no HDInsight para executar trabalhos que processam dados brutos de exemplo e os salvam como uma tabela Hive. Os dados de exemplo são um arquivo .csv (hvac.csv) disponível em todos os clusters por padrão.
+Nesta seção, usamos o notebook [Jupyter](https://jupyter.org) associado a um cluster apache Spark no HDInsight para executar trabalhos que processam seus dados brutos de exemplo e salvá-los como uma tabela do hive. Os dados de exemplo são um arquivo .csv (hvac.csv) disponível em todos os clusters por padrão.
 
 Depois que os dados forem salvos como uma tabela Apache Hive, na próxima seção, vamos nos conectar à tabela Hive usando ferramentas de BI, como Power BI e tableau.
 
 1. Em um navegador da Web, navegue até `https://CLUSTERNAME.azurehdinsight.net/jupyter`, em que `CLUSTERNAME` é o nome do cluster.
 
-1. Crie um novo bloco de anotações. Selecione **novo**e, em seguida, **PySpark**.
+1. Crie um novo bloco de anotações. Selecione **novo** e, em seguida, **PySpark**.
 
-    ![Criar um novo notebook Apache Jupyter](./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "Criar um novo bloco de anotações do Jupyter")
+    ![Criar um novo Apache Jupyter Notebook](./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "Criar um novo Jupyter Notebook")
 
 1. Um novo bloco de anotações é criado e aberto com o nome Untitled.pynb. Selecione o nome do bloco de anotações na parte superior e insira um nome amigável.
 
@@ -154,7 +151,7 @@ Depois que os dados forem salvos como uma tabela Apache Hive, na próxima seçã
     (u'/blogposts/mvc4/step1.png', 98.0)]
     ```
 
-1. Você também pode apresentar essas informações na forma do gráfico. Como uma primeira etapa para criar um gráfico, criaremos uma tabela **AverageTime**temporária. A tabela agrupa os logs por hora para ver se houve quaisquer picos incomuns de latência em um determinado momento.
+1. Você também pode apresentar essas informações na forma do gráfico. Como uma primeira etapa para criar um gráfico, criaremos uma tabela **AverageTime** temporária. A tabela agrupa os logs por hora para ver se houve quaisquer picos incomuns de latência em um determinado momento.
 
     ```pyspark
     avgTimeTakenByMinute = avgTimeTakenByKey(logLines.map(lambda p: (p.datetime.minute, p))).sortByKey()
@@ -203,5 +200,5 @@ Depois que os dados forem salvos como uma tabela Apache Hive, na próxima seçã
 Explore os seguintes artigos:
 
 * [Visão geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
-* [Usar pacotes externos com blocos de notas Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
+* [Usar pacotes externos com notebooks Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalar o Jupyter em seu computador e conectar-se a um cluster Spark do HDInsight](apache-spark-jupyter-notebook-install-locally.md)

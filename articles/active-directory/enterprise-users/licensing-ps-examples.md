@@ -7,19 +7,19 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/29/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86b3b44e480ccdc823853b5c790cad02a0821795
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 77483920e327b95c699c9bb2b494f41eff3d2605
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374382"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586373"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Exemplos do PowerShell e do Graph para licenciamento baseado em grupo no Azure AD
 
@@ -71,7 +71,7 @@ location: https://graph.microsoft.com/v2/d056d009-17b3-4106-8173-cd3978ada898/di
 
 ## <a name="view-product-licenses-assigned-to-a-group"></a>Exibir as licenças de produto atribuídas a um grupo
 
-O cmdlet [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) pode ser usado para recuperar o objeto de grupo e verificar a propriedade *Licenças*: ele lista todas as licenças de produto atualmente atribuídas ao grupo.
+O cmdlet [Get-MsolGroup](/powershell/module/msonline/get-msolgroup) pode ser usado para recuperar o objeto de grupo e verificar a propriedade *Licenças*: ele lista todas as licenças de produto atualmente atribuídas ao grupo.
 
 ```powershell
 (Get-MsolGroup -ObjectId 99c4216a-56de-42c4-a4ac-e411cd8c7c41).Licenses
@@ -662,9 +662,9 @@ aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipp
 Para saber mais sobre o conjunto de recursos de gerenciamento de licenças por meio de grupos, consulte os artigos a seguir:
 
 * [O que é o licenciamento baseado em grupo no Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
-* [Atribuição de licenças a um grupo no Azure Active Directory](../users-groups-roles/licensing-groups-assign.md)
+* [Atribuição de licenças a um grupo no Azure Active Directory](./licensing-groups-assign.md)
 * [Identificar e resolver problemas de licença para um grupo no Azure Active Directory](licensing-groups-resolve-problems.md)
 * [Como migrar usuários individuais licenciados para licenciamento baseado em grupo no Azure Active Directory](licensing-groups-migrate-users.md)
 * [Como migrar usuários entre licenças de produto usando o licenciamento baseado em grupo no Microsoft Azure Active Directory](licensing-groups-change-licenses.md)
-* [Cenários adicionais de licenciamento baseado em grupo do Azure Active Directory](../users-groups-roles/licensing-group-advanced.md)
+* [Cenários adicionais de licenciamento baseado em grupo do Azure Active Directory](./licensing-group-advanced.md)
 * [Exemplos do PowerShell para licenciamento baseado em grupo no Azure Active Directory](licensing-ps-examples.md)

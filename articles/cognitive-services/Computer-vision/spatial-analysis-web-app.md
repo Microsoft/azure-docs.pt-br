@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 3bc03cf03f8a8e0f2a222ca1089618eaade9485d
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: de011fb0f827ea90efe33e237bbf1c5100dc76a7
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496072"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183465"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>Como implantar um aplicativo Web de contagem de pessoas
 
@@ -31,7 +31,7 @@ Neste tutorial, você aprenderá a:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
-* Noções básicas sobre Azure IoT Edge configurações de implantação e um [Hub IOT do Azure](https://docs.microsoft.com/azure/iot-hub/)
+* Noções básicas sobre Azure IoT Edge configurações de implantação e um [Hub IOT do Azure](../../iot-hub/index.yml)
 * Um [computador host](spatial-analysis-container.md)configurado.
 
 ## <a name="deploy-the-spatial-analysis-container"></a>Implantar o contêiner de análise espacial
@@ -63,14 +63,16 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 
 ### <a name="deploy-the-container-on-azure-iot-edge-on-the-host-computer"></a>Implantar o contêiner em Azure IoT Edge no computador host
 
-Implante o contêiner de análise espacial como um módulo IoT no computador host, usando o CLI do Azure. O processo de implantação requer um arquivo de manifesto de implantação que descreve os contêineres, as variáveis e as configurações necessárias para sua implantação. Você pode encontrar um [manifesto de implantação específico do Azure Stack Edge](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) , bem como um [manifesto de implantação específico de borda não Azure Stack](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) no GitHub, que inclui uma configuração de implantação básica para o contêiner de *análise espacial* . 
+Implante o contêiner de análise espacial como um módulo IoT no computador host, usando o CLI do Azure. O processo de implantação requer um arquivo de manifesto de implantação que descreve os contêineres, as variáveis e as configurações necessárias para sua implantação. Você pode encontrar um exemplo de [manifesto de implantação específico de Azure Stack de borda](https://go.microsoft.com/fwlink/?linkid=2142179), manifesto de [implantação específico de Azure Stack de borda](https://go.microsoft.com/fwlink/?linkid=2152189)e [VM do Azure com manifesto de implantação específico de GPU](https://go.microsoft.com/fwlink/?linkid=2152189) no GitHub, que incluem uma configuração de implantação básica para o contêiner de *análise espacial* . 
+
+Como alternativa, você pode usar as extensões do Azure IoT para Visual Studio Code para executar operações com o Hub IoT. Vá para [implantar módulos de Azure IOT Edge de Visual Studio Code](../../iot-edge/how-to-deploy-modules-vscode.md) para saber mais.
 
 > [!NOTE] 
-> Os contêineres *Spatial-Analysis-Telegraf* e *Spatial-Analysis-Diagnostics* são opcionais. Você pode decidir removê-los do *DeploymentManifest.jsno* arquivo. Para obter mais informações, consulte o artigo [telemetria e solução de problemas](./spatial-analysis-logging.md) . Você pode encontrar dois *DeploymentManifest.jsde exemplo em* arquivos no GitHub, para [dispositivos Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) ou outro [computador desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)
+> Os contêineres *Spatial-Analysis-Telegraf* e *Spatial-Analysis-Diagnostics* são opcionais. Você pode decidir removê-los do *DeploymentManifest.jsno* arquivo. Para obter mais informações, consulte o artigo [telemetria e solução de problemas](./spatial-analysis-logging.md) . Você pode encontrar três *DeploymentManifest.jsde exemplo em* arquivos no GitHub, para [dispositivos Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), um [computador desktop](https://go.microsoft.com/fwlink/?linkid=2152189)ou uma [VM do Azure com GPU](https://go.microsoft.com/fwlink/?linkid=2152189)
 
 ### <a name="set-environment-variables"></a>Definir variáveis de ambiente
 
-A maioria das **variáveis de ambiente** para o módulo IOT Edge já está definida noDeploymentManifest.jsde exemplo * nos* arquivos vinculados acima. No arquivo, procure as variáveis de `BILLING_ENDPOINT` `API_KEY` ambiente e, mostradas abaixo. Substitua os valores com o URI do ponto de extremidade e a chave de API que você criou anteriormente. Verifique se o valor do EULA está definido como "Accept". 
+A maioria das **variáveis de ambiente** para o módulo IOT Edge já está definida noDeploymentManifest.jsde exemplo *nos* arquivos vinculados acima. No arquivo, procure as variáveis de `BILLING_ENDPOINT` `API_KEY` ambiente e, mostradas abaixo. Substitua os valores com o URI do ponto de extremidade e a chave de API que você criou anteriormente. Verifique se o valor do EULA está definido como "Accept". 
 
 ```json
 "EULA": { 
@@ -170,7 +172,7 @@ docker tag rtvsofficial.azurecr.io/acceleratorapp.personcount:1.0 [desired local
 docker push [desired local image name]
 ```
 
-Para instalar o contêiner, crie um novo Aplicativo Web para Contêineres do Azure e preencha os parâmetros necessários. Em seguida, vá para a guia **Docker** e selecione **contêiner único**e, em seguida, **registro de contêiner do Azure**. Use sua instância do registro de contêiner do Azure onde você enviou por push a imagem acima.
+Para instalar o contêiner, crie um novo Aplicativo Web para Contêineres do Azure e preencha os parâmetros necessários. Em seguida, vá para a guia **Docker** e selecione **contêiner único** e, em seguida, **registro de contêiner do Azure**. Use sua instância do registro de contêiner do Azure onde você enviou por push a imagem acima.
 
 ![Inserir detalhes da imagem](./media/spatial-analysis/solution-app-create-screen.png)
 
@@ -178,18 +180,21 @@ Depois de inserir os parâmetros acima, clique em **examinar + criar** e crie o 
 
 ### <a name="configure-the-app"></a>Configurar o aplicativo 
 
-Aguarde a conclusão da instalação e navegue até o recurso no portal do Azure. Vá para a seção de **configuração** e adicione as duas **configurações de aplicativo**a seguir.
+Aguarde a conclusão da instalação e navegue até o recurso no portal do Azure. Vá para a seção de **configuração** e adicione as duas **configurações de aplicativo** a seguir.
 
 * `EventHubConsumerGroup` – O nome da cadeia de caracteres do grupo de consumidores do Hub IoT do Azure, você pode criar um novo grupo de consumidores em seu hub IoT ou usar o grupo padrão. 
 * `IotHubConnectionString` – A cadeia de conexão para o Hub IoT do Azure, que pode ser recuperada na seção chaves do recurso do Hub IoT do Azure ![ configurar parâmetros](./media/spatial-analysis/solution-app-config-page.png)
 
-Depois que essas duas configurações forem adicionadas, clique em **salvar**. Em seguida, clique em **autenticação/autorização** no menu de navegação à esquerda e atualize-o com o nível de autenticação desejado. Recomendamos o Azure Active Directory (Azure AD) Express. 
+Depois que essas duas configurações forem adicionadas, clique em **salvar**. Em seguida, clique em **autenticação/autorização** no menu de navegação à esquerda e atualize-o com o nível de autenticação desejado. Recomendamos Azure Active Directory (Azure AD) Express. 
 
 ### <a name="test-the-app"></a>Testar o aplicativo
 
 Vá para o aplicativo Web do Azure e verifique se a implantação foi bem-sucedida e se o aplicativo Web está em execução. Navegue até a URL configurada: `<yourapp>.azurewebsites.net` para exibir o aplicativo em execução.
 
 ![Teste a implantação](./media/spatial-analysis/solution-app-output.png)
+
+## <a name="get-the-personcount-source-code"></a>Obter o código-fonte PersonCount
+Se você quiser exibir ou modificar o código-fonte para este aplicativo, poderá encontrá-lo [no GitHub](https://github.com/Azure-Samples/cognitive-services-spatial-analysis).
 
 ## <a name="next-steps"></a>Próximas etapas
 

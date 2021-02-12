@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: b9b76b2eb5e9536561f73a92b6911a2f82122a1b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa0fe33dff0161767b74546aad49003d8fc70c16
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078088"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015249"
 ---
 # <a name="speech-service-encryption-of-data-at-rest"></a>Criptografia do serviço de fala de dados em repouso
 
@@ -33,11 +33,11 @@ Quando você usa Fala Personalizada e voz personalizada, o serviço de fala pode
 
 Por padrão, os dados são armazenados no armazenamento da Microsoft e sua assinatura usa chaves de criptografia gerenciadas pela Microsoft. Você também tem uma opção para preparar sua própria conta de armazenamento. O acesso ao repositório é gerenciado pela identidade gerenciada, e o serviço de fala não pode acessar diretamente seus próprios dados, como dados de rastreamento de fala, dados de treinamento de personalização e modelos personalizados.
 
-Para obter mais informações sobre identidade gerenciada, consulte [o que são identidades gerenciadas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Para obter mais informações sobre identidade gerenciada, consulte [o que são identidades gerenciadas](../../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="bring-your-own-storage-byos-for-customization-and-logging"></a>Traga seu próprio armazenamento (BYOS) para personalização e registro em log
 
-Para solicitar acesso para trazer seu próprio armazenamento, preencha e envie o [formulário de solicitação serviço de fala – traga seu próprio armazenamento (BYOS)](https://aka.ms/cogsvc-cmk). Depois de aprovado, você precisará criar sua própria conta de armazenamento para armazenar os dados necessários para a personalização e o registro em log. Ao adicionar uma conta de armazenamento, o recurso do serviço de fala habilitará uma identidade gerenciada atribuída ao sistema. Depois que a identidade gerenciada atribuída pelo sistema estiver habilitada, esse recurso será registrado com Azure Active Directory (AAD). Depois de ser registrado, a identidade gerenciada receberá acesso à conta de armazenamento. Você pode aprender mais sobre identidades gerenciadas aqui. Para obter mais informações sobre identidade gerenciada, consulte [o que são identidades gerenciadas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Para solicitar acesso para trazer seu próprio armazenamento, preencha e envie o [formulário de solicitação serviço de fala – traga seu próprio armazenamento (BYOS)](https://aka.ms/cogsvc-cmk). Depois de aprovado, você precisará criar sua própria conta de armazenamento para armazenar os dados necessários para a personalização e o registro em log. Ao adicionar uma conta de armazenamento, o recurso do serviço de fala habilitará uma identidade gerenciada atribuída ao sistema. Depois que a identidade gerenciada atribuída pelo sistema estiver habilitada, esse recurso será registrado com Azure Active Directory (AAD). Depois de ser registrado, a identidade gerenciada receberá acesso à conta de armazenamento. Você pode aprender mais sobre identidades gerenciadas aqui. Para obter mais informações sobre identidade gerenciada, consulte [o que são identidades gerenciadas](../../active-directory/managed-identities-azure-resources/overview.md).
 
 > [!IMPORTANT]
 > Se você desabilitar as identidades gerenciadas atribuídas pelo sistema, o acesso à conta de armazenamento será removido. Isso fará com que as partes do serviço de fala que exigem acesso à conta de armazenamento parem de funcionar.  
@@ -50,4 +50,4 @@ No momento, o serviço de fala não oferece suporte a Sistema de Proteção de D
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Serviço de fala – formulário de solicitação de BYOS (Traga seu próprio armazenamento)](https://aka.ms/cogsvc-cmk)
-* [O que são identidades gerenciadas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+* [O que são identidades gerenciadas](../../active-directory/managed-identities-azure-resources/overview.md).

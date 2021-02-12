@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/25/2020
-ms.openlocfilehash: 3d02210559e3da0d42f7de96157cbbe886b16082
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: 4c40d394e48cb0cd8bc02ef7b37e7ed2b27e13c4
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558577"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511545"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Criar um gatilho que execute um pipeline em uma janela em cascata
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -27,9 +27,9 @@ Os gatilhos de janela em cascata são um tipo de gatilho acionado em um interval
 
 ## <a name="data-factory-ui"></a>IU do Data Factory
 
-1. Para criar um gatilho de janela do em cascata na interface do usuário do Data Factory, selecione a guia **gatilhos** e, em seguida, selecione **novo** . 
+1. Para criar um gatilho de janela do em cascata na interface do usuário do Data Factory, selecione a guia **gatilhos** e, em seguida, selecione **novo**. 
 1. Depois que o painel de configuração do gatilho for aberto, selecione **janela em cascata** e defina as propriedades do gatilho da janela em cascata. 
-1. Quando terminar, selecione **Salvar** .
+1. Quando terminar, selecione **Salvar**.
 
 ![Criar um gatilho de janela em cascata no portal do Azure](media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger.png)
 
@@ -37,7 +37,7 @@ Os gatilhos de janela em cascata são um tipo de gatilho acionado em um interval
 
 Uma janela em cascata tem as seguintes propriedades de tipo de gatilho:
 
-```
+```json
 {
     "name": "MyTriggerName",
     "properties": {
@@ -47,7 +47,7 @@ Uma janela em cascata tem as seguintes propriedades de tipo de gatilho:
             "frequency": <<Minute/Hour>>,
             "interval": <<int>>,
             "startTime": "<<datetime>>",
-            "endTime: <<datetime – optional>>,
+            "endTime": <<datetime – optional>>,
             "delay": <<timespan – optional>>,
             "maxConcurrency": <<int>> (required, max allowed: 50),
             "retryPolicy": {
@@ -97,12 +97,12 @@ A seguinte tabela fornece uma visão geral de alto nível dos principais element
 | Elemento JSON | Descrição | Type | Valores permitidos | Obrigatório |
 |:--- |:--- |:--- |:--- |:--- |
 | **tipo** | O tipo do gatilho. O tipo é o valor fixo "TumblingWindowTrigger". | String | "TumblingWindowTrigger" | Sim |
-| **runtimeState** | O estado atual do tempo de execução do gatilho.<br/>**Observação** : esse elemento é \<readOnly> . | String | “Iniciado”, “Interrompido”, “Desabilitado” | Sim |
-| **frequência** | Uma cadeia de caracteres que representa a unidade de frequência (em minutos ou horas) no qual o gatilho ocorre periodicamente. Se os valores de dados **startTime** são mais granulares do que o valor de **frequência** , os dados **startTime** são consideradas quando os limites da janela são computados. Por exemplo, se o valor de **frequência** for de hora em hora e o valor **startTime** for 2017-09-01T10:10:10Z, a primeira janela será (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | String | "minuto", "hora"  | Sim |
-| **intervalo** | Um inteiro positivo que indica o intervalo para o valor de **frequência** , que determina a frequência com a qual o gatilho é executado. Por exemplo, se **intervalo** for 3 e **frequência** é "hora", o gatilho é repetido a cada 3 horas. <br/>**Observação** : o intervalo mínimo da janela é de 5 minutos. | Integer | Um número inteiro positivo. | Sim |
-| **startTime**| A primeira ocorrência, que pode estar no passado. O primeiro intervalo do gatilho é ( **startTime** , **startTime** + **intervalo** ). | Datetime | Um valor Datetime. | Sim |
+| **runtimeState** | O estado atual do tempo de execução do gatilho.<br/>**Observação**: esse elemento é \<readOnly> . | String | “Iniciado”, “Interrompido”, “Desabilitado” | Sim |
+| **frequência** | Uma cadeia de caracteres que representa a unidade de frequência (em minutos ou horas) no qual o gatilho ocorre periodicamente. Se os valores de dados **startTime** são mais granulares do que o valor de **frequência**, os dados **startTime** são consideradas quando os limites da janela são computados. Por exemplo, se o valor de **frequência** for de hora em hora e o valor **startTime** for 2017-09-01T10:10:10Z, a primeira janela será (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | String | "minuto", "hora"  | Sim |
+| **intervalo** | Um inteiro positivo que indica o intervalo para o valor de **frequência**, que determina a frequência com a qual o gatilho é executado. Por exemplo, se **intervalo** for 3 e **frequência** é "hora", o gatilho é repetido a cada 3 horas. <br/>**Observação**: o intervalo mínimo da janela é de 5 minutos. | Integer | Um número inteiro positivo. | Sim |
+| **startTime**| A primeira ocorrência, que pode estar no passado. O primeiro intervalo do gatilho é (**startTime**, **startTime** + **intervalo**). | Datetime | Um valor Datetime. | Sim |
 | **Final**| A última ocorrência, que pode estar no passado. | Datetime | Um valor Datetime. | Sim |
-| **retardo** | A quantidade de tempo para atrasar o início do processamento de dados para a janela. A execução do pipeline é iniciada após o tempo de execução esperado mais a quantidade de **atraso** . O **atraso** define quanto tempo o gatilho espera antes de disparar uma nova execução. O **atraso** não altera a janela **startTime** . Por exemplo, um valor **atraso** igual a 00:10:00 indica um atraso de 10 minutos. | Timespan<br/>(hh:mm:ss)  | Um valor temporal em que o padrão é 00:00:00. | Não |
+| **retardo** | A quantidade de tempo para atrasar o início do processamento de dados para a janela. A execução do pipeline é iniciada após o tempo de execução esperado mais a quantidade de **atraso**. O **atraso** define quanto tempo o gatilho espera antes de disparar uma nova execução. O **atraso** não altera a janela **startTime**. Por exemplo, um valor **atraso** igual a 00:10:00 indica um atraso de 10 minutos. | Timespan<br/>(hh:mm:ss)  | Um valor temporal em que o padrão é 00:00:00. | Não |
 | **maxConcurrency** | O número de execuções do gatilho simultâneas que são acionadas para janelas prontas. Por exemplo, para fazer o preenchimento por hora é executada para resultados de ontem em 24 janelas. Se **maxConcurrency** = 10, os eventos de gatilho serão disparados somente para as 10 primeiras janelas (00:00-01:00 - 09:00-10:00). Após a conclusão das primeiras 10 execuções de pipeline disparada, as execuções de gatilho serão disparadas para as próximas 10 janelas (10:00-11:00-19:00 às 20:00). Continuando com esse exemplo de **maxConcurrency** = 10, se houver 10 janelas prontas, há 10 execuções totais de pipeline. Se houver apenas 1 janela pronta, há apenas 1 execução do pipeline. | Integer | Um número inteiro entre 1 e 50. | Sim |
 | **retryPolicy: Count** | O número de repetições antes da execução do pipeline ser marcada como "Failed."  | Integer | Um inteiro, em que o padrão é 0 (sem repetições). | Não |
 | **retryPolicy: intervalInSeconds** | O intervalo entre tentativas de repetição especificado em segundos. | Integer | O número de segundos, em que o padrão é 30. | Não |
@@ -115,9 +115,9 @@ A seguinte tabela fornece uma visão geral de alto nível dos principais element
 
 ### <a name="windowstart-and-windowend-system-variables"></a>Variáveis do sistema WindowStart e WindowEnd
 
-Você pode usar as variáveis de sistema **WindowStart** e **WindowEnd** do gatilho de janela em cascata na sua definição de **pipeline** (ou seja, para a parte de uma consulta). Passar as variáveis de sistema como parâmetros para o pipeline na definição de **gatilho** . O exemplo a seguir mostra como passar essas variáveis como parâmetros:
+Você pode usar as variáveis de sistema **WindowStart** e **WindowEnd** do gatilho de janela em cascata na sua definição de **pipeline** (ou seja, para a parte de uma consulta). Passar as variáveis de sistema como parâmetros para o pipeline na definição de **gatilho**. O exemplo a seguir mostra como passar essas variáveis como parâmetros:
 
-```
+```json
 {
     "name": "MyTriggerName",
     "properties": {
@@ -154,7 +154,7 @@ Se o StartTime de Trigger estiver no passado, com base nessa fórmula, M = (Curr
 Os seguintes pontos se aplicam à atualização de elementos **TriggerResource** existentes:
 
 * O valor do elemento **Frequency** (ou tamanho da janela) do gatilho juntamente com o elemento **Interval** não pode ser alterado depois que o gatilho é criado. Isso é necessário para o funcionamento adequado da execução do triggerRun e avaliações de dependência
-* Se o valor para o elemento **endTime** do gatilho altera (adicionado ou atualizado), o estado das janelas que já foram processadas *não* é redefinido. O gatilho respeita o novo valor **endTime** . Se o novo valor **endTime** estiver antes da janela que já foi executado, o gatilho é interrompido. Caso contrário, o gatilho interrompe quando o novo valor **endTime** for encontrado.
+* Se o valor para o elemento **endTime** do gatilho altera (adicionado ou atualizado), o estado das janelas que já foram processadas *não* é redefinido. O gatilho respeita o novo valor **endTime**. Se o novo valor **endTime** estiver antes da janela que já foi executado, o gatilho é interrompido. Caso contrário, o gatilho interrompe quando o novo valor **endTime** for encontrado.
 
 ### <a name="user-assigned-retries-of-pipelines"></a>Tentativas de repetição de pipelines atribuídas pelo usuário
 
@@ -166,7 +166,7 @@ Se você quiser garantir que um gatilho de janela em cascata seja executado some
 
 ### <a name="cancel-tumbling-window-run"></a>Cancelar a execução da janela em cascata
 
-Você pode cancelar execuções para um gatilho de janela em cascata, se a janela específica estiver em _espera_ , _aguardando dependência_ ou _executando_ o estado
+Você pode cancelar execuções para um gatilho de janela em cascata, se a janela específica estiver em _espera_, _aguardando dependência_ ou _executando_ o estado
 
 * Se a janela estiver em estado de **execução** , cancele a _execução do pipeline_ associado e a execução do gatilho será marcada como _cancelada_ posteriormente
 * Se a janela estiver em **espera** ou **aguardando** o estado de dependência, você poderá cancelar a janela do monitoramento:

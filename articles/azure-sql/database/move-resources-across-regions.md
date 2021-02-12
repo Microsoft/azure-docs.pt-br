@@ -8,16 +8,16 @@ ms.subservice: data-movement
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: how-to
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 06/25/2019
-ms.openlocfilehash: 0b78419f4fb37bb96e2c71c89f740a35914ccede
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae6c87c9eabea837ba9c43676d4ca712caa385cb
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91446391"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94594157"
 ---
 # <a name="move-resources-to-new-region---azure-sql-database--azure-sql-managed-instance"></a>Mover recursos para uma nova região – banco de dados SQL do Azure & SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -68,7 +68,7 @@ Este artigo fornece um fluxo de trabalho geral para mover recursos para uma regi
 
 ### <a name="monitor-the-preparation-process"></a>Monitorar o processo de preparação
 
-Você pode chamar o [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) periodicamente para monitorar a replicação de seus bancos de dados da origem para o destino. O objeto de saída de `Get-AzSqlDatabaseFailoverGroup` inclui uma propriedade para o **replicationstate**:
+Você pode chamar o [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) periodicamente para monitorar a replicação de seus bancos de dados da origem para o destino. O objeto de saída de `Get-AzSqlDatabaseFailoverGroup` inclui uma propriedade para o **replicationstate** :
 
 - **Replicationstate = 2** (CATCH_UP) indica que o banco de dados está sincronizado e pode ter o failover com segurança.
 - **Replicationstate = 0** (propagação) indica que o banco de dados ainda não foi propagado e uma tentativa de failover falhará.
@@ -122,7 +122,7 @@ Quando a movimentação for concluída, remova os recursos na região de origem 
 
 ### <a name="monitor-the-preparation-process"></a>Monitorar o processo de preparação
 
-Você pode chamar o [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) periodicamente para monitorar a replicação de seus bancos de dados da origem para o destino. O objeto de saída de `Get-AzSqlDatabaseFailoverGroup` inclui uma propriedade para o **replicationstate**:
+Você pode chamar o [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) periodicamente para monitorar a replicação de seus bancos de dados da origem para o destino. O objeto de saída de `Get-AzSqlDatabaseFailoverGroup` inclui uma propriedade para o **replicationstate** :
 
 - **Replicationstate = 2** (CATCH_UP) indica que o banco de dados está sincronizado e pode ter o failover com segurança.
 - **Replicationstate = 0** (propagação) indica que o banco de dados ainda não foi propagado e uma tentativa de failover falhará.
@@ -170,7 +170,7 @@ A replicação de todos os bancos de dados em cada instância será iniciada aut
 
 ### <a name="monitor-the-preparation-process"></a>Monitorar o processo de preparação
 
-Você pode chamar o [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) periodicamente para monitorar a replicação de seus bancos de dados da origem para o destino. O objeto de saída de `Get-AzSqlDatabaseFailoverGroup` inclui uma propriedade para o **replicationstate**:
+Você pode chamar o [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) periodicamente para monitorar a replicação de seus bancos de dados da origem para o destino. O objeto de saída de `Get-AzSqlDatabaseFailoverGroup` inclui uma propriedade para o **replicationstate** :
 
 - **Replicationstate = 2** (CATCH_UP) indica que o banco de dados está sincronizado e pode ter o failover com segurança.
 - **Replicationstate = 0** (propagação) indica que o banco de dados ainda não foi propagado e uma tentativa de failover falhará.

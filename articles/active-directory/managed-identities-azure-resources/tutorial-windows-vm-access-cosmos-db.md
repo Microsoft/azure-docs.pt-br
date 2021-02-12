@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2020
+ms.date: 12/10/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b571b2b8e0d334a02631e3f443ec54398117ee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc3417284137cdbc9f93ac02f825820bfe744843
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532662"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107491"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Tutorial: Usar uma identidade gerenciada atribuída pelo sistema da VM do Windows para acessar o Azure Cosmos DB
 
@@ -36,25 +36,18 @@ Este tutorial mostra como usar uma identidade gerenciada atribuída pelo sistema
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
+- Se você não estiver familiarizado com as identidades gerenciadas para funcionalidades de recursos do Azure, veja esta [visão geral](overview.md). 
+- Caso você ainda não tenha uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+- Para executar a criação de recursos e o gerenciamento de função necessários, sua conta precisa de permissões "Proprietário" no escopo apropriado (sua assinatura ou grupo de recursos). Caso você precise de ajuda com a atribuição de função, consulte [Usar o controle de acesso baseado em função para gerenciar o acesso aos recursos de assinatura do Azure](../../role-based-access-control/role-assignments-portal.md).
 - Instale a versão mais recente do [Azure PowerShell](/powershell/azure/install-az-ps)
+- Você também precisa de uma máquina virtual do Windows com identidades gerenciadas atribuídas ao sistema habilitadas.
+  - Se precisar criar uma máquina virtual para este tutorial, siga o artigo intitulado [Criar uma máquina virtual com a identidade atribuída pelo sistema habilitada](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity)
 
-
-## <a name="enable"></a>Habilitar
-
-[!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
-
-
-
-## <a name="grant-access"></a>Conceder acesso
-
-
-### <a name="create-a-cosmos-db-account"></a>Criar uma conta do BD Cosmos 
+## <a name="create-a-cosmos-db-account"></a>Criar uma conta do BD Cosmos 
 
 Se você ainda não tiver uma conta do Cosmos DB, crie uma. Você poderá ignorar esta etapa e usar uma conta de Cosmos DB existente. 
 
-1. Clique no botão **+/Criar novo serviço** encontrado no canto superior esquerdo do portal do Azure.
+1. Clique no botão **+ Criar um recurso** localizado no canto superior esquerdo do Portal do Azure.
 2. Clique em **Bancos de dados** e, em seguida, **Azure Cosmos DB** e um novo painel "Nova conta" será exibido.
 3. Insira uma **ID** para a conta do Azure Cosmos DB, a qual será usada posteriormente.  
 4. A **API** deve ser definida como “SQL”. A abordagem descrita neste tutorial pode ser usada com outros tipos de API disponíveis, mas as etapas neste tutorial são para a API do SQL.
@@ -70,11 +63,17 @@ Em seguida, adicione uma coleção de dados na conta do Cosmos DB que você poss
 3. Dê à coleção uma ID de banco de dados, ID de coleção, selecione uma capacidade de armazenamento, insira uma chave de partição, digite um valor de taxa de transferência e clique em **OK**.  Para este tutorial, é suficiente usar "Teste" como ID do banco de dados e a ID da coleção, selecionar uma capacidade de armazenamento fixa e a menor taxa de transferência (400 RU/s).  
 
 
-### <a name="grant-access-to-the-cosmos-db-account-access-keys"></a>Permitir acesso às chaves de acesso da conta do Cosmos DB
+## <a name="grant-access"></a>Conceder acesso
 
 Esta seção mostra como conceder à identidade gerenciada atribuída pelo sistema da VM do Windows acesso às chaves de acesso da conta do Cosmos DB. O Cosmos DB não dá suporte nativo a autenticação do Microsoft Azure AD. No entanto, você pode usar uma identidade gerenciada atribuída pelo sistema para recuperar uma chave de acesso do Cosmos DB do Resource Manager e usar essa chave para acessar o Cosmos DB. Nesta etapa, você concede à identidade gerenciada atribuída pelo sistema da VM do Windows acesso às chaves para a conta do Cosmos DB.
 
-Para conceder o acesso de identidade gerenciada atribuída pelo sistema da VM do Windows à conta do Cosmos DB no Azure Resource Manager usando o PowerShell, atualize os valores de `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` e `<COSMOS DB ACCOUNT NAME>` para o seu ambiente. O Cosmos DB oferece suporte a dois níveis de granularidade ao usar chaves de acesso: acesso de leitura/gravação à conta e acesso somente leitura à conta.  Atribua a função `DocumentDB Account Contributor` se você quiser obter chaves de leitura/gravação para a conta ou atribua a função `Cosmos DB Account Reader Role` se você quiser obter chaves somente leitura para a conta.  Para este tutorial, atribua o `Cosmos DB Account Reader Role`:
+Para conceder à identidade gerenciada atribuída pelo sistema da VM do Windows acesso à conta do Cosmos DB no Azure Resource Manager usando o PowerShell, atualize os seguintes valores:
+
+- `<SUBSCRIPTION ID>`
+- `<RESOURCE GROUP>`
+- `<COSMOS DB ACCOUNT NAME>`
+
+O Cosmos DB oferece suporte a dois níveis de granularidade ao usar chaves de acesso: acesso de leitura/gravação à conta e acesso somente leitura à conta.  Atribua a função `DocumentDB Account Contributor` se você quiser obter chaves de leitura/gravação para a conta ou atribua a função `Cosmos DB Account Reader Role` se você quiser obter chaves somente leitura para a conta.  Para este tutorial, atribua o `Cosmos DB Account Reader Role`:
 
 ```azurepowershell
 $spID = (Get-AzVM -ResourceGroupName myRG -Name myVM).identity.principalid
@@ -82,15 +81,13 @@ New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Read
 ```
 
 >[!NOTE]
-> Lembre-se de que caso não seja possível executar uma operação, pode ser que você não tenha as permissões corretas. Caso queira obter o acesso para gravação de chaves, será necessário usar uma função RBAC, como o Colaborador da Conta do DocumentDB ou criar uma função personalizada. Para obter mais informações, examine o [Controle de acesso baseado em função no Azure Cosmos DB](../../cosmos-db/role-based-access-control.md)
+> Lembre-se de que caso não seja possível executar uma operação, pode ser que você não tenha as permissões corretas. Caso queira obter o acesso para gravação de chaves, você precisará usar uma função do Azure, como Colaborador da Conta do DocumentDB ou criar uma função personalizada. Para obter mais informações, examine [Controle de acesso baseado em função do Azure no Azure Cosmos DB](../../cosmos-db/role-based-access-control.md)
 
 ## <a name="access-data"></a>Acessar dados
 
 Esta seção mostra como chamar o Azure Resource Manager usando um token de acesso para a identidade gerenciada atribuída pelo sistema da VM do Windows. Para o restante do tutorial, trabalharemos na VM criada anteriormente. 
 
 Você precisa instalar a versão mais recente da [CLI do Azure](/cli/azure/install-azure-cli) em sua VM do Windows.
-
-
 
 ### <a name="get-an-access-token"></a>Obter um token de acesso
 
@@ -119,10 +116,18 @@ Você precisa instalar a versão mais recente da [CLI do Azure](/cli/azure/insta
 
 ### <a name="get-access-keys"></a>Obter chaves de acesso 
 
-Esta seção mostra como obter chaves de acesso do Azure Resource Manager para realizar chamadas do Cosmos DB. Agora, usaremos PowerShell para fazer uma chamada ao Gerenciador de Recursos usando o token de acesso recuperado na seção anterior para recuperar a chave de acesso da conta do Cosmos DB. Assim que tivermos a chave de acesso, poderemos fazer consultas no Cosmos DB. Substitua os parâmetros `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` e `<COSMOS DB ACCOUNT NAME>` pelos seus próprios valores. Substitua o valor `<ACCESS TOKEN>` pelo token de acesso que você recuperou anteriormente.  Se você quiser recuperar chaves de leitura/gravação, use o tipo de operação de chave `listKeys`.  Se você quiser recuperar chaves somente leitura, use o tipo de operação de chave `readonlykeys`:
+Esta seção mostra como obter chaves de acesso do Azure Resource Manager para realizar chamadas do Cosmos DB. Estamos usando o PowerShell para chamar o Resource Manager usando o token de acesso que obtivemos anteriormente para recuperar a chave de acesso da conta do Cosmos DB. Assim que tivermos a chave de acesso, poderemos fazer consultas no Cosmos DB. Use os próprios valores para substituir as entradas abaixo:
+
+- `<SUBSCRIPTION ID>`
+- `<RESOURCE GROUP>`
+- `<COSMOS DB ACCOUNT NAME>` 
+- Substitua o valor `<ACCESS TOKEN>` pelo token de acesso que você recuperou anteriormente. 
+
+>[!NOTE]
+>Se você quiser recuperar chaves de leitura/gravação, use o tipo de operação de chave `listKeys`.  Se você quiser recuperar chaves somente leitura, use o tipo de operação de chave `readonlykeys`. Se não for possível usar 'listkeys', verifique se você atribuiu a [função apropriada](../../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role) à identidade gerenciada.
 
 ```powershell
-Invoke-WebRequest -Uri 'https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.DocumentDb/databaseAccounts/<COSMOS DB ACCOUNT NAME>/listKeys/?api-version=2016-03-31' -Method POST -Headers @{Authorization="Bearer $ARMToken"}
+Invoke-WebRequest -Uri 'https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.DocumentDb/databaseAccounts/<COSMOS DB ACCOUNT NAME>/readonlykeys/?api-version=2016-03-31' -Method POST -Headers @{Authorization="Bearer $ARMToken"}
 ```
 A resposta fornece a lista de chaves.  Por exemplo, se você receber as chaves somente leitura:
 

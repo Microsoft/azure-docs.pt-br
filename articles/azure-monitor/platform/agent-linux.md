@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 8b9fac51b5bdab20d7b082945ee594ac76c3e52a
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: e1dbf5e20aa206189397cab26e9b867f4942e1d5
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332494"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886831"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Instalar o Agente do Log Analytics em computadores Linux
 Este artigo fornece detalhes sobre como instalar o agente de Log Analytics em computadores Linux usando os seguintes métodos:
@@ -30,13 +30,17 @@ Consulte [visão geral dos agentes de Azure monitor](agents-overview.md#supporte
 
 >[!NOTE]
 >OpenSSL 1.1.0 só tem suporte em plataformas de x86_x64 (64 bits) e OpenSSL mais cedo do que 1. x não tem suporte em qualquer plataforma.
->
+
+>[!NOTE]
+>Não há suporte para a execução do agente do Log Analytics Linux em contêineres. Se você precisar monitorar contêineres, aproveite a [solução de monitoramento de contêiner](../insights/containers.md) para hosts do Docker ou [Azure monitor para contêineres](../insights/container-insights-overview.md) para kubernetes.
+
 Começando com versões lançadas depois de agosto de 2018, estamos fazendo as seguintes alterações ao nosso modelo de suporte:  
 
 * Somente o servidor versões têm suporte, um não cliente.  
 * Concentre o suporte em uma das [Distribuições endossadas do Linux do Azure ](../../virtual-machines/linux/endorsed-distros.md). Observe que pode haver algum atraso entre uma nova distribuição/versão sendo endossada pelo Linux do Azure e seu suporte ao Agente do Log Analytics Linux.
 * Todas as versões secundárias têm suporte para cada versão principal listada.
-* As versões que passaram a data de fim de suporte do fabricante não são suportadas.  
+* As versões que passaram a data de fim de suporte do fabricante não são suportadas.
+* Suporte apenas a imagens de VM; os contêineres, mesmo aqueles derivados de imagens oficiais do distribuição Publishers, não têm suporte.
 * Não há suporte para novas versões do AMI.  
 * Apenas versões que executam o SSL 1.x por padrão são suportadas.
 

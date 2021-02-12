@@ -7,17 +7,18 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: ca782e9949f990857db408919cac342d7f712d2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c92aa3b35240831fad14919dc73609d803c610a
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272609"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358207"
 ---
 # <a name="feature-interoperability-with-sql-server-fci--dnn"></a>Interoperabilidade de recursos com SQL Server FCI & DNN
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -86,7 +87,7 @@ Por exemplo, suponha que você tenha um Publicador configurado como um FCI usand
 
 Use o nome completo da instância para uma instância nomeada, como o exemplo de imagem a seguir: 
 
-:::image type="content" source="media/failover-cluster-instance-dnn-interoperability/alias-named-instance-configuration-manager.png" alt-text="Configure o nome DNS DNN como o alias de rede usando SQL Server Configuration Manager." :::
+:::image type="content" source="media/failover-cluster-instance-dnn-interoperability/alias-named-instance-configuration-manager.png" alt-text="Use o nome de instância completo ao configurar um alias de rede para uma instância nomeada." :::
 
 ## <a name="database-mirroring"></a>Espelhamento de banco de dados
 
@@ -177,5 +178,5 @@ Em seguida, crie um alias de rede para o qual Mapear `vnnname\insta1` `dnnlsnr\i
 Para obter mais informações, consulte: 
 
 - [Tecnologias de cluster do Windows](/windows-server/failover-clustering/failover-clustering-overview)   
-- [SQL Server instâncias de cluster de failover](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Instâncias de cluster de failover do SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 

@@ -3,15 +3,15 @@ title: ReliableConcurrentQueue no Azure Service Fabric
 description: ReliableConcurrentQueue é uma fila de alta taxa de transferência que permite filas paralelas e remover filas.
 ms.topic: conceptual
 ms.date: 5/1/2017
-ms.openlocfilehash: 423ef3d1898176d7c25c596ad186a9c000108aa4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6852982621d3efd3f4a8597a2959fceb13abd12
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86257437"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784284"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Introdução a ReliableConcurrentQueue no Azure Service Fabric
-Fila Simultânea Confiável é uma fila assíncrona, transacional e replicada quais apresenta alta simultaneidade para operações de enfileirar e remover da fila. Ele é projetado para oferecer alta taxa de transferência e baixa latência flexibilizando a rígida ordenação de PEPS fornecida pela [Fila Confiável](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliablequeue_1) e, em vez disso, fornece uma ordenação de melhor esforço.
+Fila Simultânea Confiável é uma fila assíncrona, transacional e replicada quais apresenta alta simultaneidade para operações de enfileirar e remover da fila. Ele é projetado para oferecer alta taxa de transferência e baixa latência flexibilizando a rígida ordenação de PEPS fornecida pela [Fila Confiável](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1#microsoft_servicefabric_data_collections_ireliablequeue_1) e, em vez disso, fornece uma ordenação de melhor esforço.
 
 ## <a name="apis"></a>APIs
 
@@ -21,11 +21,11 @@ Fila Simultânea Confiável é uma fila assíncrona, transacional e replicada qu
 | bool TryDequeue(out T result)  | Task< ConditionalValue < T > > TryDequeueAsync(ITransaction tx)  |
 | int Count()                    | long Count()                                                     |
 
-## <a name="comparison-with-reliable-queue"></a>Comparação com [Fila Confiável](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliablequeue_1)
+## <a name="comparison-with-reliable-queue"></a>Comparação com [Fila Confiável](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1#microsoft_servicefabric_data_collections_ireliablequeue_1)
 
-A Fila Simultâneas Confiável é oferecida como uma alternativa à [Fila Confiável](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliablequeue_1). Ela deve ser usada em casos em que ordenação PEPS estrita não seja necessária, como garantir que PEPS exija uma compensação com simultaneidade.  [Fila Confiável](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliablequeue_1) usa bloqueios para impor a ordenação PEPS, com no máximo uma transação com permissão para enfileirar e no máximo uma transação com permissão para remover da fila por vez. Em comparação, Fila Simultâneos Confiável flexibiliza a restrição de ordenação e permite que qualquer número de transações simultâneas intercale suas operações de enfileirar e remover da fila. Ordenação de melhor esforço é fornecido, porém, a ordenação relativa de dois valores em uma Fila Simultânea Confiável nunca pode ser garantida.
+A Fila Simultâneas Confiável é oferecida como uma alternativa à [Fila Confiável](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1#microsoft_servicefabric_data_collections_ireliablequeue_1). Ela deve ser usada em casos em que ordenação PEPS estrita não seja necessária, como garantir que PEPS exija uma compensação com simultaneidade.  [Fila Confiável](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1#microsoft_servicefabric_data_collections_ireliablequeue_1) usa bloqueios para impor a ordenação PEPS, com no máximo uma transação com permissão para enfileirar e no máximo uma transação com permissão para remover da fila por vez. Em comparação, Fila Simultâneos Confiável flexibiliza a restrição de ordenação e permite que qualquer número de transações simultâneas intercale suas operações de enfileirar e remover da fila. Ordenação de melhor esforço é fornecido, porém, a ordenação relativa de dois valores em uma Fila Simultânea Confiável nunca pode ser garantida.
 
-Fila Simultâneas Confiáveis fornecem maior taxa de transferência e menor latência que [Fila Confiável](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliablequeue_1) sempre que há várias transações simultâneas executando ações de enfileirar e/ou remover da fila.
+Fila Simultâneas Confiáveis fornecem maior taxa de transferência e menor latência que [Fila Confiável](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1#microsoft_servicefabric_data_collections_ireliablequeue_1) sempre que há várias transações simultâneas executando ações de enfileirar e/ou remover da fila.
 
 Um exemplo de caso de uso para o ReliableConcurrentQueue é o cenário [Fila de Mensagens](https://en.wikipedia.org/wiki/Message_queue). Nesse cenário, um ou mais produtores de mensagem criam e adicionam itens à fila, e um ou mais consumidores de mensagens capturam mensagens da fila e as processam. Vários produtores e consumidores podem trabalhar de modo independente, usando transações simultâneas para processar a fila.
 
@@ -340,4 +340,4 @@ using (var txn = this.StateManager.CreateTransaction())
 * [Configuração do Gerenciador de estado confiável](service-fabric-reliable-services-configuration.md)
 * [Introdução com Service Fabric serviços de API Web](./service-fabric-reliable-services-communication-aspnetcore.md)
 * [Uso avançado do modelo de programação de Reliable Services](./service-fabric-reliable-services-lifecycle.md)
-* [Referência do desenvolvedor para coleções confiáveis](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
+* [Referência do desenvolvedor para coleções confiáveis](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 9405eb01dbe2d7ea9d4a9e64bf7dd79ca356e9f5
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 39bdf9cb0c97e19a67b23046c6f06b60daa30147
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926981"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584933"
 ---
 # <a name="evaluate-model-module"></a>Módulo Avaliar modelo
 
@@ -30,11 +30,11 @@ Use este módulo para medir a precisão de um modelo treinado. Você fornece um 
 
 
 > [!TIP]
-> Se a avaliação de modelo for novidade para você, recomendamos a série de vídeos do Dr. Stephen Elston, como parte do [curso de aprendizado de máquina](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) da EdX. 
+> Se a avaliação de modelo for novidade para você, recomendamos a série de vídeos do Dr. Stephen Elston, como parte do [curso de aprendizado de máquina](/archive/blogs/machinelearning/new-edx-course-data-science-machine-learning-essentials) da EdX. 
 
 
 ## <a name="how-to-use-evaluate-model"></a>Como usar Avaliar modelo
-1. Conecte a saída **Conjunto de dados pontuados** da saída do conjunto de dados [Modelo de pontuação](./score-model.md) ou Resultado de [Atribuir dados aos clusters](./assign-data-to-clusters.md) à porta de entrada esquerda de **Avaliar modelo** . 
+1. Conecte a saída **Conjunto de dados pontuados** da saída do conjunto de dados [Modelo de pontuação](./score-model.md) ou Resultado de [Atribuir dados aos clusters](./assign-data-to-clusters.md) à porta de entrada esquerda de **Avaliar modelo**. 
     > [!NOTE] 
     > Se usar módulos, como "Selecionar colunas no conjunto de dados", para selecionar parte do conjunto de dados de entrada, verifique se as colunas de rótulo “Real” (usada no treinamento), “Probabilidades pontuadas” e “Rótulos pontuados” existem para calcular métricas, como AUC, Precisão para classificação binária/detecção de anomalias.
     > A coluna de rótulo real e a coluna “Rótulos pontuados” existem para calcular métricas para classificação/regressão multiclasse.
@@ -48,7 +48,7 @@ Use este módulo para medir a precisão de um modelo treinado. Você fornece um 
     > + Para a tarefa de classificação múltipla, o conjunto de pontos a ser avaliado deve ter uma coluna, denominada `Multi Class Scored Labels` , que representa rótulos pontuados.
     > Se as saídas do módulo upstream não tiverem essas colunas, você precisará modificar de acordo com os requisitos acima.
 
-2. [Opcional] Conecte a saída **Conjunto de dados pontuado** da saída de conjunto de dados [Modelo de pontuação](./score-model.md) ou Resultado de Atribuir dados a clusters para o segundo modelo à porta de entrada **direita** de **Avaliar modelo** . Você pode comparar facilmente os resultados de dois modelos diferentes nos mesmos dados. Os dois algoritmos de entrada devem ter o mesmo tipo de algoritmo. Ou, você pode comparar pontuações de duas execuções diferentes sobre os mesmos dados com parâmetros diferentes.
+2. [Opcional] Conecte a saída **Conjunto de dados pontuado** da saída de conjunto de dados [Modelo de pontuação](./score-model.md) ou Resultado de Atribuir dados a clusters para o segundo modelo à porta de entrada **direita** de **Avaliar modelo**. Você pode comparar facilmente os resultados de dois modelos diferentes nos mesmos dados. Os dois algoritmos de entrada devem ter o mesmo tipo de algoritmo. Ou, você pode comparar pontuações de duas execuções diferentes sobre os mesmos dados com parâmetros diferentes.
 
     > [!NOTE]
     > O tipo de algoritmo consulta “Classificação de duas classes”, “Classificação multiclasse”, “Regressão”, “Clustering” em “Algoritmos de aprendizado de máquina”. 
@@ -57,14 +57,14 @@ Use este módulo para medir a precisão de um modelo treinado. Você fornece um 
 
 ## <a name="results"></a>Resultados
 
-Depois de executar **Avaliar modelo** , selecione o módulo para abrir o painel de navegação **Avaliar modelo** à direita.  Depois, escolha a guia **Saídas + Logs** e, nessa guia, a seção **Saída de dados** tem vários ícones. O ícone **Visualizar** tem ícone de gráfico de barra e é a primeira maneira de ver os resultados.
+Depois de executar **Avaliar modelo**, selecione o módulo para abrir o painel de navegação **Avaliar modelo** à direita.  Depois, escolha a guia **Saídas + Logs** e, nessa guia, a seção **Saída de dados** tem vários ícones. O ícone **Visualizar** tem ícone de gráfico de barra e é a primeira maneira de ver os resultados.
 
 Para classificação binária, depois de clicar no ícone **Visualizar** , você poderá visualizar a matriz de confusão binária.
 Para várias classificações, você pode encontrar o arquivo de plotagem da matriz de confusão na guia **saídas + logs** , como a seguir:
 > [!div class="mx-imgBorder"]
 > ![Visualização da imagem carregada](media/module/multi-class-confusion-matrix.png)
 
-Se você conectar conjuntos de dados a ambas as entradas de **Avaliar modelo** , os resultados conterão as métricas para o conjunto de dados ou ambos os modelos.
+Se você conectar conjuntos de dados a ambas as entradas de **Avaliar modelo**, os resultados conterão as métricas para o conjunto de dados ou ambos os modelos.
 O modelo ou os dados anexados à porta à esquerda são apresentados primeiro no relatório, seguidos pelas métricas do conjunto de dados ou pelo modelo anexado na porta à direita.  
 
 Por exemplo, a imagem a seguir representa uma comparação de resultados de dois modelos de clustering criados com os mesmos dados, mas com parâmetros diferentes.  
@@ -75,7 +75,7 @@ Como esse é um modelo de clustering, os resultados da avaliação são diferent
 
 ## <a name="metrics"></a>Métricas
 
-Esta seção descreve as métricas retornadas para os tipos específicos de modelos com suporte para uso com **Avaliar modelo** :
+Esta seção descreve as métricas retornadas para os tipos específicos de modelos com suporte para uso com **Avaliar modelo**:
 
 + [modelos de classificação](#metrics-for-classification-models)
 + [modelos de regressão](#metrics-for-regression-models)
@@ -94,7 +94,7 @@ As métricas a seguir são relatadas ao avaliar modelos de classificação biná
   
 -   A **Pontuação F1** é calculada como a média ponderada de precisão e RECALL entre 0 e 1, em que o valor de Pontuação F1 ideal é 1.  
   
--   **AUC** mede a área sob a curva plotada com verdadeiros positivos no eixo y e falsos positivos no eixo x. Essa métrica é útil porque ele fornece um único número que permite comparar modelos de tipos diferentes.  
+-   **AUC** mede a área sob a curva plotada com verdadeiros positivos no eixo y e falsos positivos no eixo x. Essa métrica é útil porque ele fornece um único número que permite comparar modelos de tipos diferentes. AUC é classificação-limite-invariável. Ele mede a qualidade das previsões do modelo, independentemente de qual limite de classificação é escolhido.
 
 
 ### <a name="metrics-for-regression-models"></a>Métricas para modelos de regressão
@@ -113,7 +113,7 @@ As métricas retornadas para modelos de regressão são projetadas para estimar 
   
 
   
-- **Coeficiente de determinação** , frequentemente chamado de R <sup>2</sup>, representa o poder de previsão do modelo como um valor entre 0 e 1. Zero significa que o modelo é aleatório (não explica nada) e 1 significa que há um ajuste perfeito. No entanto, deve-se ter cuidado ao interpretar valores de R<sup>2</sup>, pois valores baixos podem ser totalmente normais e valores altos podem ser suspeitos.
+- **Coeficiente de determinação**, frequentemente chamado de R <sup>2</sup>, representa o poder de previsão do modelo como um valor entre 0 e 1. Zero significa que o modelo é aleatório (não explica nada) e 1 significa que há um ajuste perfeito. No entanto, deve-se ter cuidado ao interpretar valores de R<sup>2</sup>, pois valores baixos podem ser totalmente normais e valores altos podem ser suspeitos.
 
 ###  <a name="metrics-for-clustering-models"></a>Métricas para modelos de clustering
 
@@ -133,7 +133,7 @@ As métricas a seguir são relatadas para avaliar modelos de clustering.
   
      Se o número de pontos de dados atribuídos a clusters for menor que o número total de pontos de dados disponíveis, isso significará que não foi possível atribuir os pontos de dados a um cluster.  
   
--   As pontuações na coluna, a **distância máxima ao centro de cluster** , representam o máximo de distâncias entre cada ponto e o centróide do cluster desse ponto.  
+-   As pontuações na coluna, a **distância máxima ao centro de cluster**, representam o máximo de distâncias entre cada ponto e o centróide do cluster desse ponto.  
   
      Se esse número for alto, pode significar que o cluster é amplamente disperso. Você deve examinar essa estatística junto com a **Distância média ao centro de cluster** para determinar o espalhamento do cluster.   
 
@@ -142,4 +142,4 @@ As métricas a seguir são relatadas para avaliar modelos de clustering.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning.

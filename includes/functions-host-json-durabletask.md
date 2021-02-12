@@ -7,41 +7,17 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 6e253604c57d73c2a89ccfa5cff7efe9e572d11d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a862a051d0040ac99746d81f10ae63d5af7545f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89094286"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013710"
 ---
-Definições de configuração para [Funções Duráveis](../articles/azure-functions/durable-functions-overview.md).
+Definições de configuração para [Funções Duráveis](../articles/azure-functions/durable/durable-functions-overview.md).
 
-### <a name="durable-functions-1x"></a>Durable Functions 1.x
-
-```json
-{
-  "durableTask": {
-    "hubName": "MyTaskHub",
-    "controlQueueBatchSize": 32,
-    "partitionCount": 4,
-    "controlQueueVisibilityTimeout": "00:05:00",
-    "workItemQueueVisibilityTimeout": "00:05:00",
-    "maxConcurrentActivityFunctions": 10,
-    "maxConcurrentOrchestratorFunctions": 10,
-    "maxQueuePollingInterval": "00:00:30",
-    "azureStorageConnectionStringName": "AzureWebJobsStorage",
-    "trackingStoreConnectionStringName": "TrackingStorage",
-    "trackingStoreNamePrefix": "DurableTask",
-    "traceInputsAndOutputs": false,
-    "logReplayEvents": false,
-    "eventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
-    "eventGridKeySettingName":  "EventGridKey",
-    "eventGridPublishRetryCount": 3,
-    "eventGridPublishRetryInterval": "00:00:30",
-    "eventGridPublishEventTypes": ["Started", "Completed", "Failed", "Terminated"]
-  }
-}
-```
+> [!NOTE]
+> Todas as versões principais das Durable Functions são compatíveis com todas as versões do Azure Functions Runtime. No entanto, o esquema da configuração host.json é ligeiramente diferente dependendo da versão do Azure Functions Runtime e da versão da extensão das Durable Functions que você usa. Os exemplos a seguir são referentes ao uso com o Azure Functions 2.0 e 3.0. Em ambos os exemplos, se você estiver usando o Azure Functions 1.0, as configurações disponíveis serão as mesmas, mas a seção "durableTask" do host.json deverá estar na raiz da configuração host.json, em vez de como um campo em "extensões".
 
 ### <a name="durable-functions-2x"></a><a name="durable-functions-2-0-host-json"></a>Durable Functions 2.x
 
@@ -92,11 +68,40 @@ Definições de configuração para [Funções Duráveis](../articles/azure-func
 
 ```
 
-Nomes de hubs de tarefas devem começar com uma letra e devem ser compostos somente por letras e números. Se não for especificado, o nome do hub de tarefas padrão de um aplicativo de funções será **DurableFunctionsHub**. Para obter mais informações, consulte [Hubs de tarefas](../articles/azure-functions/durable-functions-task-hubs.md).
+### <a name="durable-functions-1x"></a>Durable Functions 1.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "hubName": "MyTaskHub",
+      "controlQueueBatchSize": 32,
+      "partitionCount": 4,
+      "controlQueueVisibilityTimeout": "00:05:00",
+      "workItemQueueVisibilityTimeout": "00:05:00",
+      "maxConcurrentActivityFunctions": 10,
+      "maxConcurrentOrchestratorFunctions": 10,
+      "maxQueuePollingInterval": "00:00:30",
+      "azureStorageConnectionStringName": "AzureWebJobsStorage",
+      "trackingStoreConnectionStringName": "TrackingStorage",
+      "trackingStoreNamePrefix": "DurableTask",
+      "traceInputsAndOutputs": false,
+      "logReplayEvents": false,
+      "eventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
+      "eventGridKeySettingName":  "EventGridKey",
+      "eventGridPublishRetryCount": 3,
+      "eventGridPublishRetryInterval": "00:00:30",
+      "eventGridPublishEventTypes": ["Started", "Completed", "Failed", "Terminated"]
+    }
+  }
+}
+```
+
+Nomes de hubs de tarefas devem começar com uma letra e devem ser compostos somente por letras e números. Se não for especificado, o nome do hub de tarefas padrão de um aplicativo de funções será **DurableFunctionsHub**. Para obter mais informações, consulte [Hubs de tarefas](../articles/azure-functions/durable/durable-functions-task-hubs.md).
 
 |Propriedade  |Padrão | Descrição |
 |---------|---------|---------|
-|hubName|DurableFunctionsHub|Nomes alternativos para [hub de tarefas](../articles/azure-functions/durable-functions-task-hubs.md) podem ser usados para isolar vários aplicativos de Funções Duráveis uns dos outros, mesmo se eles estiverem usando o mesmo back-end de armazenamento.|
+|hubName|DurableFunctionsHub|Nomes alternativos para [hub de tarefas](../articles/azure-functions/durable/durable-functions-task-hubs.md) podem ser usados para isolar vários aplicativos de Funções Duráveis uns dos outros, mesmo se eles estiverem usando o mesmo back-end de armazenamento.|
 |controlQueueBatchSize|32|O número de mensagens para efetuar pull da fila de controle por vez.|
 |controlQueueBufferThreshold|256|O número de mensagens de fila de controle que podem ser armazenadas em buffer na memória por vez. Nesse ponto, o dispatcher aguardará antes de retirar da fila qualquer mensagem adicional.|
 |partitionCount |4|A contagem de partição para a fila de controle. Pode ser um número inteiro positivo entre 1 e 16.|
@@ -119,4 +124,4 @@ Nomes de hubs de tarefas devem começar com uma letra e devem ser compostos some
 |useLegacyPartitionManagement|true|Quando definido como `false`, ele usa um algoritmo de gerenciamento de partição que reduz a possibilidade de execução de função duplicada ao expandir.  Disponível a partir da v2.3.0. O padrão será alterado para `false` em uma versão futura.|
 |useGracefulShutdown|false|(Versão Prévia) Habilite o desligamento normal para reduzir a chance de desligamentos de host falharem em execuções de função em processo.|
 
-Muitas dessas configurações servem para otimizar o desempenho. Para obter mais informações, consulte [Desempenho e escala](../articles/azure-functions/durable-functions-perf-and-scale.md).
+Muitas dessas configurações servem para otimizar o desempenho. Para obter mais informações, consulte [Desempenho e escala](../articles/azure-functions/durable/durable-functions-perf-and-scale.md).

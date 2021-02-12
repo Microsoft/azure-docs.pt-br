@@ -1,19 +1,16 @@
 ---
 title: 'Infraestrutura: Apache Hadoop locais para o Azure HDInsight'
 description: Aprenda as melhores práticas de infraestrutura para migrar clusters do Hadoop locais para o Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: e412b82be911f0b4ba2e5cda51495cdcd7826917
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f66e13046a34bddfd27912e23ce51f75006fd9fa
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542294"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932140"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrar clusters do Apache Hadoop local para o Azure HDInsight – práticas recomendadas de infraestrutura
 
@@ -80,7 +77,7 @@ Para obter mais informações, consulte o artigo [Componentes do Apache Hadoop d
 
 ## <a name="customize-hdinsight-clusters-using-script-actions"></a>Personalizar clusters do HDInsight utilizando ações de script
 
-O HDInsight fornece um método de configuração de cluster chamado de **ação de script** . Uma ação de script é um script Bash executado em nós em um cluster do HDInsight e pode ser usado para instalar componentes adicionais e alterar as definições de configuração.
+O HDInsight fornece um método de configuração de cluster chamado de **ação de script**. Uma ação de script é um script Bash executado em nós em um cluster do HDInsight e pode ser usado para instalar componentes adicionais e alterar as definições de configuração.
 
 Ações de script devem estar armazenadas em um URI que pode ser acessado do cluster HDInsight. Podem ser usadas durante ou após a criação do cluster e também podem ser restrita para a execução apenas de determinados tipos de nó.
 

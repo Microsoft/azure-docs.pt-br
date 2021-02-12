@@ -9,12 +9,12 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: b46ce20b868f8756f6ad91795a27328abcb2fbdf
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 71bfc84eb50521aef72f78b482bddda112c00c6c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044166"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964347"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Tutorial: Desenvolver um módulo do IoT Edge do C# para dispositivos Linux
 
@@ -33,7 +33,7 @@ O módulo IoT Edge que criado neste tutorial filtra os dados de temperatura gera
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="solution-scope"></a>Escopo da solução
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este tutorial demonstra como desenvolver um módulo em **C#** usando o **Visual Studio Code** e implantá-lo em um **dispositivo Linux**. Se você estiver desenvolvendo módulos para dispositivos Windows, acesse [Desenvolver um módulo do IoT Edge em C# para dispositivos Windows](tutorial-csharp-module-windows.md).
 
@@ -46,8 +46,6 @@ Use a tabela a seguir para entender as opções para desenvolver e implantar mó
 
 >[!NOTE]
 >O suporte para dispositivos Linux ARM64 está disponível na [versão prévia pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para obter mais informações, confira [Desenvolver e depurar módulos do IoT Edge ARM64 no Visual Studio Code (versão prévia)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
-
-## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de iniciar este tutorial, você deve ter passado pelo tutorial anterior para configurar seu ambiente de desenvolvimento, [Desenvolver um módulo do IoT Edge para um dispositivo Linux](tutorial-develop-for-linux.md). Após concluir esse tutorial, você já deverá ter os seguintes pré-requisitos:
 

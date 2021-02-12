@@ -1,14 +1,14 @@
 ---
 title: Implantar a amostra de blueprint do PBMM Federal do Canadá
 description: Etapas de implantação da amostra de blueprint do PBMM Federal do Canadá, incluindo detalhes do parâmetro do artefato de blueprint.
-ms.date: 07/31/2020
+ms.date: 11/02/2020
 ms.topic: sample
-ms.openlocfilehash: 0b7e0467fbc43ea83a0aa4ff40e9b0be4c69b41e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da83ec775b953f064444c0c97687a506d66de57f
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500105"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420454"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>Implantar as amostras de blueprint do PBMM Federal do Canadá
 
@@ -25,7 +25,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Primeiro, implemente a amostra de blueprint criando um blueprint no ambiente usando a amostra como ponto de partida.
 
-1. Selecione **Todos os serviços** e pesquise e selecione **Política** no painel esquerdo. Na página **Política**, selecione **Blueprints**.
+1. Selecione **Todos os serviços** e pesquise e selecione **Política** no painel esquerdo. Na página **Política** , selecione **Blueprints**.
 
 1. Na página **Introdução** à esquerda, selecione o botão **Criar** em _Criar um blueprint_.
 
@@ -33,8 +33,8 @@ Primeiro, implemente a amostra de blueprint criando um blueprint no ambiente usa
 
 1. Insira as informações _Básicas_ do exemplo de blueprint:
 
-   - **Nome do blueprint**: forneça um nome para a sua cópia do exemplo de blueprint.
-   - **Localização da definição**: Use as reticências e selecione o grupo de gerenciamento em que deseja salvar a cópia da amostra.
+   - **Nome do blueprint** : forneça um nome para a sua cópia do exemplo de blueprint.
+   - **Localização da definição** : Use as reticências e selecione o grupo de gerenciamento em que deseja salvar a cópia da amostra.
 
 1. Selecione a guia _Artefatos_ na parte superior da página ou clique em **Avançar: Artefatos** na parte inferior da página.
 
@@ -44,7 +44,7 @@ Primeiro, implemente a amostra de blueprint criando um blueprint no ambiente usa
 
 Agora a cópia do exemplo de blueprint foi criada em seu ambiente. Ela é criada no modo **Rascunho** e deve ser **Publicada** antes de ser atribuída e implantada. A cópia da amostra de blueprint pode ser personalizada de acordo com seu ambiente e suas necessidades, mas essa modificação poderá desviá-lo do padrão.
 
-1. Selecione **Todos os serviços** e pesquise e selecione **Política** no painel esquerdo. Na página **Política**, selecione **Blueprints**.
+1. Selecione **Todos os serviços** e pesquise e selecione **Política** no painel esquerdo. Na página **Política** , selecione **Blueprints**.
 
 1. Selecione a página **Definições de Blueprint** à esquerda. Use os filtros para localizar a cópia da amostra de blueprint e, em seguida, selecione-a.
 
@@ -54,7 +54,7 @@ Agora a cópia do exemplo de blueprint foi criada em seu ambiente. Ela é criada
 
 Quando a cópia do exemplo de blueprint for **Publicada** com êxito, ele poderá ser atribuído a uma assinatura do grupo de gerenciamento em que ele foi salvo. Esta é a etapa em que os parâmetros são fornecidos para tornar exclusiva cada implantação da cópia do exemplo de blueprint.
 
-1. Selecione **Todos os serviços** e pesquise e selecione **Política** no painel esquerdo. Na página **Política**, selecione **Blueprints**.
+1. Selecione **Todos os serviços** e pesquise e selecione **Política** no painel esquerdo. Na página **Política** , selecione **Blueprints**.
 
 1. Selecione a página **Definições de Blueprint** à esquerda. Use os filtros para localizar a cópia da amostra de blueprint e, em seguida, selecione-a.
 
@@ -64,11 +64,11 @@ Quando a cópia do exemplo de blueprint for **Publicada** com êxito, ele poder�
 
    - Noções básicas
 
-     - **Assinaturas**: Selecione uma ou mais das assinaturas que estão no grupo de gerenciamento em que você salvou a cópia do exemplo de blueprint. Se você selecionar mais de uma assinatura, será criada uma atribuição para cada uma, usando os parâmetros inseridos.
-     - **Nome da atribuição**: O nome é pré-preenchido para você com base no nome do blueprint.
+     - **Assinaturas** : Selecione uma ou mais das assinaturas que estão no grupo de gerenciamento em que você salvou a cópia do exemplo de blueprint. Se você selecionar mais de uma assinatura, será criada uma atribuição para cada uma, usando os parâmetros inseridos.
+     - **Nome da atribuição** : O nome é pré-preenchido para você com base no nome do blueprint.
        Altere-o conforme necessário ou mantenha-o como está.
-     - **Localização**: Selecione uma região para a identidade gerenciada a ser criada. O Blueprint do Azure usa essa identidade gerenciada para implantar todos os artefatos no blueprint atribuído. Para saber mais, veja [identidades gerenciadas para recursos do Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Versão de definição de blueprint**: Escolha uma versão **Publicada** da cópia da amostra de blueprint.
+     - **Localização** : Selecione uma região para a identidade gerenciada a ser criada. O Blueprint do Azure usa essa identidade gerenciada para implantar todos os artefatos no blueprint atribuído. Para saber mais, veja [identidades gerenciadas para recursos do Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
+     - **Versão de definição de blueprint** : Escolha uma versão **Publicada** da cópia da amostra de blueprint.
 
    - Bloquear atribuição
 

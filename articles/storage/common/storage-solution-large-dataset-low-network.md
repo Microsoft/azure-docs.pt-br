@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 8afedec224fed55f617340af512485726ff44326
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9b83ba106b35a0a3abd035e85f60c4c39bbadd3b
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792932"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704633"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>Transferência de dados para conjuntos de dados grandes com largura de banda de rede baixa ou ausente
  
@@ -66,6 +66,6 @@ A tabela a seguir resume as diferenças nas principais funcionalidades.
 
 - Entenda como
 
-    - [Transferir dados com o Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).
-    - [Transferir dados com o Data Box](../../databox/data-box-quickstart-portal.md).
-    - [Transferir dados com Importação/Exportação](./storage-import-export-data-to-blobs.md).
+    - [Transferir dados com disco do data Box](../../databox/data-box-disk-quickstart-portal.md).
+    - [Transferir dados com data Box](../../databox/data-box-quickstart-portal.md).
+    - [Transferir dados com importação/exportação](../../import-export/storage-import-export-data-to-blobs.md).

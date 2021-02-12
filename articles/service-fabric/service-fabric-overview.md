@@ -3,13 +3,13 @@ title: Visão geral do Azure Service Fabric
 description: O Service Fabric é uma plataforma de sistemas distribuídos para criar microsserviços escalonáveis, confiáveis e facilmente gerenciados.
 ms.topic: overview
 ms.date: 09/22/2020
-ms.custom: contentperfq1
-ms.openlocfilehash: 3c282178decc1a07b2c0acc102b279688c42d52e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: b6a14ba3f905fbef3fc3796b616cd594941a3d60
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91300642"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028624"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Visão geral do Azure Service Fabric
 

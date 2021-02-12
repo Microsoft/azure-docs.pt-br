@@ -1,16 +1,16 @@
 ---
 title: Colabore com outras pessoas – QnA Maker
-description: ''
+description: Saiba como colaborar com outros autores e editores usando o controle de acesso baseado em função do Azure.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: c3d6e21b45bccbdaeeee350bac79be680783eb24
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f43fa06cf93d383efcb0fe746de28ab143280e50
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147517"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988028"
 ---
 # <a name="collaborate-with-other-authors-and-editors"></a>Colabore com outros autores e editores
 
@@ -42,11 +42,11 @@ O diagrama a seguir mostra o fluxo, da perspectiva do autor, para entrar no port
 |3|API de QnA Maker valida o token.|
 |4 |API de QnA Maker chama o serviço QnAMaker.|
 
-Se você pretende chamar as [APIs de criação](../How-To/collaborate-knowledge-base.md), saiba mais sobre como configurar a autenticação.
+Se você pretende chamar as [APIs de criação](../index.yml), saiba mais sobre como configurar a autenticação.
 
 ## <a name="authenticate-by-qna-maker-portal"></a>Autenticar pelo portal de QnA Maker
 
-Se você criar e colaborar usando o portal de QnA Maker, depois de [Adicionar a função apropriada ao recurso para um colaborador](../How-To/collaborate-knowledge-base.md), o portal de QnA Maker gerenciará todas as permissões de acesso.
+Se você criar e colaborar usando o portal de QnA Maker, depois de adicionar a função apropriada ao recurso para um colaborador, o portal de QnA Maker gerenciará todas as permissões de acesso.
 
 ## <a name="authenticate-by-qna-maker-apis-and-sdks"></a>Autenticar por QnA Maker APIs e SDKs
 
@@ -54,4 +54,4 @@ Se você criar e colaborar usando as APIs, seja por REST ou pelos SDKs, será ne
 
 ## <a name="next-step"></a>Próxima etapa
 
-* Criar uma base de dados de conhecimento para [linguagens](design-language-culture.md) e para [aplicativos cliente](integration-with-other-applications.md)
+* Criar uma base de dados de conhecimento para linguagens e para aplicativos cliente

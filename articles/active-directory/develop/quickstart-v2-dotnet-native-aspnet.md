@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Chamar um ASP.NET Web API protegido pela plataforma de identidade da Microsoft | Azure'
+title: 'Início rápido: Chamar um ASP.NET Web API protegido pela plataforma de identidade da Microsoft | Azure'
 titleSuffix: Microsoft identity platform
 description: Neste início rápido, saiba como chamar uma ASP.NET Web API protegida pela plataforma de identidade da Microsoft de um aplicativo da Área de Trabalho do Windows (WPF).
 services: active-directory
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 10/05/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 786f566b121d5f0d5d64e7b8b269c7cdfab9e4a6
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: ec8fd05c0661178cc07b9165793c9f34f2463948
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825069"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754312"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-thats-protected-by-microsoft-identity-platform"></a>Início Rápido: chamar uma ASP.NET Web API protegida pela plataforma de identidade da Microsoft
 
-Neste início rápido, você expõe uma API Web e a protege para que somente usuários autenticados possam acessá-la. Este artigo mostra como expor uma ASP.NET Web API para que ela possa aceitar tokens emitidos por contas pessoais, como o outlook.com ou o live.com, bem como contas corporativas ou de estudante de qualquer empresa ou organização integrada à plataforma de identidade da Microsoft.
+Neste guia de início rápido, você baixará e executará um exemplo de código que demonstra como proteger uma ASP.NET Web API restringindo o acesso aos recursos dela somente às contas autorizadas. O exemplo dá suporte à autorização de contas Microsoft pessoais e contas em qualquer organização do Azure AD (Azure Active Directory).
 
 O artigo também usa um aplicativo do WPF (Windows Presentation Foundation) para demonstrar como você pode solicitar um token de acesso para acessar uma API Web.
 
@@ -48,32 +48,30 @@ Nesta seção, você registrará sua API Web em **Registros de aplicativo** no p
 
 Para registrar seus aplicativos manualmente, escolha o locatário do Azure AD (Azure Active Directory) no qual deseja criar os aplicativos.
 
-1. Entre no [portal do Azure](https://portal.azure.com) com uma conta corporativa ou de estudante ou uma conta pessoal Microsoft.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a> com uma conta corporativa ou de estudante ou uma conta pessoal Microsoft.
 1. Se a conta estiver em mais de um locatário do Azure AD, selecione o perfil na parte superior direita e selecione **Alternar diretório**.
 1. Altere sua sessão do portal para o locatário do Azure AD que deseja usar.
 
 ### <a name="register-the-todolistservice-app"></a>Registrar o aplicativo TodoListService
 
-1. Vá para o portal [Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) da plataforma de identidade da Microsoft para desenvolvedores.
-1. Selecione **Novo registro**.
-1. Quando a **página Registrar um aplicativo** for exibida, insira as informações de registro do aplicativo:
-
-    1. Na seção **Nome**, insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo. Por exemplo, insira **AppModelv2-NativeClient-DotNet-TodoListService**.
-    1. Em **Tipos de conta compatíveis**, selecione **Contas em qualquer diretório da organização**.
-    1. Selecione **Registrar** para criar o aplicativo.
-
+1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
+1. Pesquise **Azure Active Directory** e selecione-o.
+1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
+1. Insira um **Nome** para seu aplicativo, por exemplo, `AppModelv2-NativeClient-DotNet-TodoListService`. Os usuários do seu aplicativo podem ver esse nome e você pode alterá-lo mais tarde.
+1. Em **Tipos de conta compatíveis**, selecione **Contas em qualquer diretório da organização**.
+1. Selecione **Registrar** para criar o aplicativo.
 1. Na página **Visão Geral** do aplicativo, localize o valor da **ID do aplicativo (cliente)** e registre-o para uso posterior. Você precisará dele para definir o arquivo de configuração do Visual Studio para este projeto (ou seja, `ClientId` no arquivo *TodoListService\Web.config*).
+1. Em **Gerenciar**, selecione **Expor uma API** > **Adicionar um escopo**. Aceite o URI da ID do Aplicativo proposto (`api://{clientId}`) selecionando **Salvar e continuar** e insira as seguintes informações:
 
-1. Na seção **Expor uma API**, selecione **Adicionar um escopo**, aceite o URI da ID do Aplicativo proposto (`api://{clientId}`) escolhendo **Salvar e Continuar** e insira as seguintes informações:
-
-    1. Para **Nome do escopo**, insira **access_as_user**.
+    1. Para **Nome do escopo**, insira `access_as_user`.
     1. Para **Quem pode consentir**, verifique se a opção **Administradores e usuários** está selecionada.
-    1. Na caixa **Nome de exibição do consentimento do administrador**, insira **Acessar TodoListService como usuário**.
-    1. Na caixa **Descrição do consentimento do administrador**, insira **Acessar a API Web do TodoListService como usuário**.
-    1. Na caixa **Nome de exibição do consentimento do usuário**, insira **Acessar TodoListService como usuário**.
-    1. Na caixa **Descrição do consentimento do usuário**, insira **Acessar a API Web do TodoListService como usuário**.
+    1. Na caixa **Nome de exibição do consentimento do administrador**, insira `Access TodoListService as a user`.
+    1. Na caixa **Descrição do consentimento do administrador**, insira `Accesses the TodoListService web API as a user`.
+    1. Na caixa **Nome de exibição do consentimento do usuário**, insira `Access TodoListService as a user`.
+    1. Na caixa **Descrição do consentimento do usuário**, insira `Accesses the TodoListService web API as a user`.
     1. Para **Estado**, mantenha **Habilitado**.
-    1. Selecione **Adicionar escopo**.
+1. Selecione **Adicionar escopo**.
 
 ### <a name="configure-the-service-project"></a>Configurar o projeto de serviço
 

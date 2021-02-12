@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 1ab366cddbabf7e6d574189892e779ab49f6fad8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5882cc949d88e8c2a4102362cf5d2a3613e1d714
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403374"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475481"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Dicas para o enriquecimento de ia no Azure Pesquisa Cognitiva
 
@@ -100,7 +100,7 @@ A análise de imagem faz uso intensivo de computação até mesmo em casos simpl
 
 O tempo de execução máximo varia por camada: vários minutos na Camada gratuita, indexação de 24 horas nas camadas faturáveis. Se o processamento não for concluído em um período de 24 horas para o processamento sob demanda, use uma agenda para que o indexador retome o processamento de onde parou. 
 
-Para indexadores agendados, a indexação é retomada de acordo com a agenda no último documento bem-sucedido. Com o uso de um agenda recorrente, o indexador pode percorrer a lista de pendências de imagem ao longo de várias horas ou vários dias, até que todas as imagens não processadas sejam processadas. Para obter mais informações sobre a sintaxe de agendamento, consulte [etapa 3: criar-um-indexador](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer) ou ver [como agendar indexadores para o Azure pesquisa cognitiva](search-howto-schedule-indexers.md).
+Para indexadores agendados, a indexação é retomada de acordo com a agenda no último documento bem-sucedido. Com o uso de um agenda recorrente, o indexador pode percorrer a lista de pendências de imagem ao longo de várias horas ou vários dias, até que todas as imagens não processadas sejam processadas. Para obter mais informações sobre a sintaxe de agendamento, consulte [agendar um indexador](search-howto-schedule-indexers.md).
 
 > [!NOTE]
 > Se um indexador for definido como um determinado agendamento, mas falhar repetidamente no mesmo documento repetidamente, sempre que for executado, o indexador começará a ser executado em um intervalo menos frequente (até o máximo de pelo menos uma vez a cada 24 horas) até que ele faça o progresso com êxito novamente.  Se acreditar que você corrigiu qualquer problema que estava fazendo com que o indexador fosse paralisado em um determinado ponto, você poderá executar uma execução sob demanda do indexador e, se isso fizer o progresso com êxito, o indexador retornará ao seu intervalo de agendamento definido novamente.
@@ -115,6 +115,6 @@ Para a [indexação paralela](search-howto-large-index.md), coloque os dados em 
 
 + [Início rápido: criar um pipeline de enriquecimento de ia no portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: aprender sobre APIs REST de rericação de AI](cognitive-search-tutorial-blob.md)
-+ [Specifying data source credentials](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials) (Especificando credenciais de fonte de dados)
++ [Como configurar indexadores de BLOB](search-howto-indexing-azure-blob-storage.md)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
 + [How to map enriched fields to an index](cognitive-search-output-field-mapping.md) (Como mapear campos enriquecidos para um índice)

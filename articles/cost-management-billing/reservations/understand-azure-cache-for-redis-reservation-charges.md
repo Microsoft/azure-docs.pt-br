@@ -7,20 +7,20 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: yegu
-ms.openlocfilehash: 4b5f77742d3b2611fd7baf5880b9f8fed047aa86
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5f9e0a18db0920acd35ebd7b133ed3fe5d0eaee9
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147325"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352942"
 ---
 # <a name="how-the-reservation-discount-is-applied-to-azure-cache-for-redis"></a>Como o desconto de reserva é aplicado ao Cache do Azure para Redis
 
-Depois de comprar uma capacidade reservada do Cache do Azure para Redis, o desconto de reserva é aplicado automaticamente às instâncias de cache que correspondem aos atributos e à quantidade da reserva. Uma reserva abrange somente os custos de computação do Cache do Azure para Redis. Você será cobrado por armazenamento e rede com as taxas normais. A capacidade reservada está disponível somente para caches do [nível Premium](//azure/azure-cache-for-redis/quickstart-create-redis).
+Depois de comprar uma capacidade reservada do Cache do Azure para Redis, o desconto de reserva é aplicado automaticamente às instâncias de cache que correspondem aos atributos e à quantidade da reserva. Uma reserva abrange somente os custos de computação do Cache do Azure para Redis. Você será cobrado por armazenamento e rede com as taxas normais. A capacidade reservada está disponível somente para caches do [nível Premium](../../azure-cache-for-redis/quickstart-create-redis.md).
 
 ## <a name="how-reservation-discount-is-applied"></a>Como o desconto de reserva é aplicado
 
-Um desconto de reserva é do tipo ***usar ou perder***. Portanto, se você não tiver recursos correspondentes para nenhuma hora, perderá uma quantidade de reserva para essa hora. Não é possível postergar horas reservadas não utilizadas.
+Um desconto de reserva é do tipo ***usar ou perder** _. Portanto, se você não tiver recursos correspondentes para nenhuma hora, perderá uma quantidade de reserva para essa hora. Não é possível postergar horas reservadas não utilizadas.
 
 Quando você desliga um recurso, o desconto de reserva se aplica automaticamente a outro recurso correspondente no escopo especificado. Se nenhum recurso correspondente for encontrado no escopo especificado, as horas reservadas serão perdidas.
 
@@ -30,7 +30,7 @@ O desconto de capacidade reservada do Cache do Azure para Redis é aplicado aos 
 
 Os exemplos a seguir mostram que a aplicação do desconto de capacidade reservada do Cache do Azure para Redis depende do número de caches que você comprou e de quando estão em execução.
 
-**Exemplo 1**: Você compra uma cache capacidade reservada Cache do Azure para Redis para um cache de 6 GB. Se você estiver executando um cache de 13 GB que corresponda ao restante dos atributos da reserva, será cobrado pelo preço pago conforme o uso de 7 GB de sua utilização de computação do Cache do Azure para Redis e obterá o desconto de reserva por uma hora do uso de computação de 6 GB.
+_ **Exemplo 1**: Você compra uma cache capacidade reservada Cache do Azure para Redis para um cache de 6 GB. Se você estiver executando um cache de 13 GB que corresponda ao restante dos atributos da reserva, será cobrado pelo preço pago conforme o uso de 7 GB de sua utilização de computação do Cache do Azure para Redis e obterá o desconto de reserva por uma hora do uso de computação de 6 GB.
 
 Para o restante desses exemplos, suponha que a capacidade reservada do Cache do Azure para Redis que você compra é para um cache de 26 GB e o restante dos atributos de reserva correspondem ao cache em execução.
 

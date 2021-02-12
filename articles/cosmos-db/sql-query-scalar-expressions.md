@@ -3,15 +3,16 @@ title: Expressões escalares em consultas do Azure Cosmos DB SQL
 description: Saiba mais sobre a sintaxe SQL de expressão escalar para Azure Cosmos DB. Este artigo também descreve como combinar expressões escalares em expressões complexas usando operadores.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: c40916d975b8acabaa7083cf57259291f09b40a9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 34df2d2f4a2209cca93c3f7ac12dcd203bf4a089
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082599"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339624"
 ---
 # <a name="scalar-expressions-in-azure-cosmos-db-sql-queries"></a>Expressões escalares em consultas do Azure Cosmos DB SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 175c92c02196105e9fb1249e5b88d73bc8b87d48
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 3210829b3281aa862cdf0dbdc9c915249a55e423
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735234"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517998"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Tutorial: Monitorar alterações e atualizar uma máquina virtual do Linux no Azure
 
@@ -32,17 +32,13 @@ Neste tutorial, você aprenderá como:
 > * Gerenciar atualizações do Linux
 > * Monitoramento de alterações e inventário
 
-## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta.
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+- Este tutorial requer a versão 2.0.30 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-vm"></a>Criar VM
 
-Para ver os diagnósticos e as métricas em ação, você precisa de uma VM. Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#az-group-create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroupMonitor* no local *eastus* .
+Para ver os diagnósticos e as métricas em ação, você precisa de uma VM. Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#az-group-create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroupMonitor* no local *eastus*.
 
 ```azurecli-interactive
 az group create --name myResourceGroupMonitor --location eastus
@@ -70,9 +66,9 @@ Para obter informações sobre preços, consulte [Preços de automação de Gere
 
 Habilite o Gerenciamento de Atualizações para sua VM:
 
-1. No lado esquerdo da tela, selecione **Máquinas virtuais** .
+1. No lado esquerdo da tela, selecione **Máquinas virtuais**.
 2. Na lista, selecione uma VM.
-3. Na tela da VM, na seção **Operações** , selecione **Gerenciamento de atualizações** . A tela **Habilitar Gerenciamento de Atualizações** é aberta.
+3. Na tela da VM, na seção **Operações**, selecione **Gerenciamento de atualizações**. A tela **Habilitar Gerenciamento de Atualizações** é aberta.
 
 Uma validação é executada para determinar se o Gerenciamento de Atualizações está habilitado para essa VM.
 A validação inclui verificar se há um espaço de trabalho do Log Analytics e uma conta de automação vinculada e se a solução está no espaço de trabalho.
@@ -91,7 +87,7 @@ Se algum dos seguintes pré-requisitos estiver ausente durante a integração, e
 * [Conta de automação](../../automation/index.yml)
 * Uma [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) está habilitada na VM
 
-A tela **Gerenciamento de Atualizações** é exibida. Configure o local, o workspace do Log Analytics e a conta de Automação a serem usados e selecione **Habilitar** . Caso os campos estejam esmaecidos, isso significa que outra solução de automação está habilitada para a VM e o mesmo workspace e conta de Automação devem ser usados.
+A tela **Gerenciamento de Atualizações** é exibida. Configure o local, o workspace do Log Analytics e a conta de Automação a serem usados e selecione **Habilitar**. Caso os campos estejam esmaecidos, isso significa que outra solução de automação está habilitada para a VM e o mesmo workspace e conta de Automação devem ser usados.
 
 ![Habilitar a solução de Gerenciamento de Atualizações](./media/tutorial-monitoring/manage-updates-update-enable.png)
 
@@ -99,7 +95,7 @@ A habilitação da solução pode levar até 15 minutos. Durante esse tempo, nã
 
 ### <a name="view-update-assessment"></a>Exibir avaliação de atualização
 
-Depois que o **Gerenciamento de Atualizações** for habilitado, a tela **Gerenciamento de Atualizações** será exibida. Depois que a avaliação das atualizações estiver completa, você verá uma lista de atualizações ausentes na guia **Atualizações ausentes** .
+Depois que o **Gerenciamento de Atualizações** for habilitado, a tela **Gerenciamento de Atualizações** será exibida. Depois que a avaliação das atualizações estiver completa, você verá uma lista de atualizações ausentes na guia **Atualizações ausentes**.
 
  ![Exibir o status de atualização](./media/tutorial-monitoring/manage-updates-view-status-linux.png)
 
@@ -107,16 +103,16 @@ Depois que o **Gerenciamento de Atualizações** for habilitado, a tela **Gerenc
 
 Para instalar atualizações, agende uma implantação que siga o agendamento de versão e o período de serviço. Você pode escolher quais tipos de atualização deseja incluir na implantação. Por exemplo, você pode incluir atualizações críticas ou de segurança e excluir pacotes cumulativos de atualizações.
 
-Agende uma nova implantação de atualização para a VM clicando em **Agendar implantação de atualização** na parte superior da tela **Gerenciamento de Atualizações** . Na tela **Nova implantação de atualização** , especifique as seguintes informações:
+Agende uma nova implantação de atualização para a VM clicando em **Agendar implantação de atualização** na parte superior da tela **Gerenciamento de Atualizações**. Na tela **Nova implantação de atualização**, especifique as seguintes informações:
 
-Para criar uma nova implantação de atualização, selecione **Agendar implantação de atualização** . A página **Nova implantação de atualizações** será aberta. Insira valores para as propriedades descritas na tabela a seguir e clique em **Criar** :
+Para criar uma nova implantação de atualização, selecione **Agendar implantação de atualização**. A página **Nova implantação de atualizações** será aberta. Insira valores para as propriedades descritas na tabela a seguir e clique em **Criar**:
 
 | Propriedade | Descrição |
 | --- | --- |
 | Nome |Nome exclusivo para identificar a Implantação de Atualizações. |
 |Sistema operacional| Linux ou Windows|
 | Grupos a serem atualizados |Para computadores do Azure, defina uma consulta com base em uma combinação de assinatura, grupos de recursos, localizações e marcas para criar um grupo dinâmico de VMs do Azure a ser incluído na implantação. </br></br>Para computadores que não são Azure, selecione uma pesquisa salva existente para selecionar um grupo de computadores que não são Azure a serem incluídos na implantação. </br></br>Para obter mais informações, consulte [grupos dinâmicos](../../automation/update-management/configure-groups.md)|
-| Computadores para atualizar |Selecione uma pesquisa salva, um grupo importado ou selecione a máquina na lista suspensa e selecione máquinas individuais. Se você escolher **Machines** , a prontidão da máquina é mostrada na coluna **UPDATE AGENT READINESS** .</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos logs do Azure Monitor, veja [Grupos de computadores nos logs do Azure Monitor](../../azure-monitor/platform/computer-groups.md) |
+| Computadores para atualizar |Selecione uma pesquisa salva, um grupo importado ou selecione a máquina na lista suspensa e selecione máquinas individuais. Se você escolher **Machines**, a prontidão da máquina é mostrada na coluna **UPDATE AGENT READINESS**.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos logs do Azure Monitor, veja [Grupos de computadores nos logs do Azure Monitor](../../azure-monitor/platform/computer-groups.md) |
 |Classificações de origem|Selecione todas as classificações de atualização necessárias|
 |Incluir/excluir atualizações|Isso abre o **incluir/excluir** página. As atualizações a serem incluídas ou excluídas estão em guias separadas. Para obter mais informações sobre como a inclusão é tratada, confira [Agendar uma implantação de atualizações](../../automation/update-management/deploy-updates.md#schedule-an-update-deployment) |
 |Configurações de agendamento|Selecione o tempo para iniciar e selecione Uma Vez ou recorrente para a recorrência|
@@ -131,9 +127,9 @@ Observe que a tabela **Agendado** mostra a agenda de implantação criada.
 
 ### <a name="view-results-of-an-update-deployment"></a>Exibir resultados de uma implantação de atualização
 
-Após o início da implantação agendada, você pode ver o status dessa implantação na guia **Implantações de atualização** na tela **Gerenciamento de Atualizações** .
-Se ela estiver em execução, seu status será mostrado como **Em andamento** . Após a conclusão, em caso de êxito, ele será alterado para **Êxito** .
-Se houver falha em uma ou mais atualizações na implantação, o status será **Falhou parcialmente** .
+Após o início da implantação agendada, você pode ver o status dessa implantação na guia **Implantações de atualização** na tela **Gerenciamento de Atualizações**.
+Se ela estiver em execução, seu status será mostrado como **Em andamento**. Após a conclusão, em caso de êxito, ele será alterado para **Êxito**.
+Se houver falha em uma ou mais atualizações na implantação, o status será **Falhou parcialmente**.
 Selecione a implantação de atualização concluída para ver o painel dessa implantação de atualização.
 
 ![Painel de status de implantação de atualização para implantação específica](./media/tutorial-monitoring/manage-updates-view-results.png)
@@ -159,11 +155,11 @@ Selecione **Erros** para ver informações detalhadas sobre quaisquer erros da i
 
 Habilitar Alterações e Gerenciamento de Estoque para a sua VM:
 
-1. No lado esquerdo da tela, selecione **Máquinas virtuais** .
+1. No lado esquerdo da tela, selecione **Máquinas virtuais**.
 2. Na lista, selecione uma VM.
-3. Na tela da VM, na seção **Operações** , selecione **Estoque** ou **Rastrear mudanças** . A tela **Habilitar Controle de Alterações e Estoque** é aberta.
+3. Na tela da VM, na seção **Operações**, selecione **Estoque** ou **Rastrear mudanças**. A tela **Habilitar Controle de Alterações e Estoque** é aberta.
 
-Configure o local, o workspace do Log Analytics e a conta de Automação a serem usados e selecione **Habilitar** . Caso os campos estejam esmaecidos, isso significa que outra solução de automação está habilitada para a VM e o mesmo workspace e conta de Automação devem ser usados. Mesmo que as soluções estejam separadas no menu, elas são a mesma solução. Habilitar uma permite ambos para sua VM.
+Configure o local, o workspace do Log Analytics e a conta de Automação a serem usados e selecione **Habilitar**. Caso os campos estejam esmaecidos, isso significa que outra solução de automação está habilitada para a VM e o mesmo workspace e conta de Automação devem ser usados. Mesmo que as soluções estejam separadas no menu, elas são a mesma solução. Habilitar uma permite ambos para sua VM.
 
 ![Habilitar Controle de Alterações e Inventário](./media/tutorial-monitoring/manage-inventory-enable.png)
 
@@ -171,23 +167,23 @@ Depois que a solução é habilitada, leva algum tempo para os dados serem exibi
 
 ### <a name="track-changes"></a>Controle de alterações
 
-Na sua VM, selecione **Controle de alterações** em **OPERAÇÕES** . Selecione **Editar configurações** , a página **Controle de alterações** é exibida. Selecione o tipo de configuração que você deseja acompanhar e, em seguida, selecione **+Adicionar** para definir as configurações. A opção disponível para Linux é **Arquivos Linux**
+Na sua VM, selecione **Controle de alterações** em **OPERAÇÕES**. Selecione **Editar configurações**, a página **Controle de alterações** é exibida. Selecione o tipo de configuração que você deseja acompanhar e, em seguida, selecione **+Adicionar** para definir as configurações. A opção disponível para Linux é **Arquivos Linux**
 
 Para obter informações detalhadas sobre o Controle de Alterações, consulte [Solucionar as alterações em uma máquina virtual](../../automation/automation-tutorial-troubleshoot-changes.md)
 
 ### <a name="view-inventory"></a>Exibição do Inventário
 
-Na sua VM, selecione **Inventário** em **OPERAÇÕES** . Na guia **Software** , há uma lista de tabelas que o software havia encontrado. Os detalhes de alto nível de cada registro de software estão visíveis na tabela. Esses detalhes incluem o nome do software, a versão, publicador, hora da última atualização.
+Na sua VM, selecione **Inventário** em **OPERAÇÕES**. Na guia **Software**, há uma lista de tabelas que o software havia encontrado. Os detalhes de alto nível de cada registro de software estão visíveis na tabela. Esses detalhes incluem o nome do software, a versão, publicador, hora da última atualização.
 
 ![Exibição do Inventário](./media/tutorial-monitoring/inventory-view-results.png)
 
 ### <a name="monitor-activity-logs-and-changes"></a>Monitorar os logs de atividades e alterações
 
-Na página **Controle de alterações** em sua VM, selecione **Gerenciar Conexão do Log de Atividades** . Essa tarefa abre a página **Log de Atividades do Azure** . Selecione **Conectar** para conectar o Controle de alterações ao log de atividades do Azure para sua VM.
+Na página **Controle de alterações** em sua VM, selecione **Gerenciar Conexão do Log de Atividades**. Essa tarefa abre a página **Log de Atividades do Azure**. Selecione **Conectar** para conectar o Controle de alterações ao log de atividades do Azure para sua VM.
 
 Com essa configuração habilitada, navegue até a página **Visão geral** para a VM e selecione **Parar** para interromper a VM. Quando solicitado, selecione **Sim** para interromper a VM. Quando ele for desalocado, selecione **Iniciar** para reiniciar a VM.
 
-Interromper e iniciar uma VM registra um evento em seu log de atividades. Navegue de volta para a página **Controle de alterações** . Selecione a guia **Eventos** na parte inferior da página. Após algum tempo, os eventos são exibidos no gráfico e na tabela. Cada evento pode ser selecionado para exibir informações detalhadas sobre ele.
+Interromper e iniciar uma VM registra um evento em seu log de atividades. Navegue de volta para a página **Controle de alterações**. Selecione a guia **Eventos** na parte inferior da página. Após algum tempo, os eventos são exibidos no gráfico e na tabela. Cada evento pode ser selecionado para exibir informações detalhadas sobre ele.
 
 ![Visualizar categorias no log de atividades](./media/tutorial-monitoring/manage-activitylog-view-results.png)
 

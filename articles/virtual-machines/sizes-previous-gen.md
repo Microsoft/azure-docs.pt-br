@@ -6,14 +6,14 @@ ms.subservice: sizes
 author: mimckitt
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 10/02/2020
-ms.author: jushiman
-ms.openlocfilehash: 175d572e69dd34a09787f44cf14ae0336c8e95e0
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.date: 11/01/2020
+ms.author: mimckitt
+ms.openlocfilehash: 90bc98d63b45e43c9325eed4fe019b18f52d0de8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975596"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500284"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Gerações anteriores de tamanhos de máquinas virtuais
 
@@ -61,9 +61,28 @@ MBps = 10^6 bytes por segundo e GiB = 1024^3 bytes.
 
 <sup>1</sup> a taxa de transferência máxima possível do disco (IOPS ou Mbps) com uma VM da série FS pode ser limitada pelo número, tamanho e distribuição dos discos anexados.  Para obter detalhes, consulte [design para alto desempenho](premium-storage-performance.md).
 
+
+## <a name="nvv2-series"></a>Série NVv2
+
+**Recomendação de tamanho mais recente**: [série NVv3](nvv3-series.md)
+
+As máquinas virtuais da série NVv2 contam com as GPUs [Tesla M60 NVIDIA](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) e a tecnologia NVIDIA GRID com CPUs Intel Broadwell. Essas máquinas virtuais são direcionadas para aplicativos com gráficos acelerados por GPU e áreas de trabalho virtuais em que os clientes querem visualizar dados, simular resultados para exibição, trabalhar no CAD ou renderizar e transmitir conteúdo por streaming. Além disso, essas máquinas virtuais podem executar cargas de trabalho de precisão simples, como codificação e renderização. As máquinas virtuais NVv2 são compatíveis com o Armazenamento Premium e oferecem duas vezes mais memória (RAM) em comparação com a Série NV anterior.  
+
+Cada GPU em instâncias da NVv2 vem com uma licença GRID. Esta licença oferece flexibilidade para usar uma instância NV como uma estação de trabalho virtual para um único usuário ou 25 usuários simultâneos podem se conectar à VM para um cenário de aplicativo virtual.
+
+| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | GPU | Memória da GPU: GiB | Discos de dados máximos | Máximo de NICs | Estações de trabalho virtuais | Aplicativos virtuais |
+|---|---|---|---|---|---|---|---|---|---|
+| Standard_NV6s_v2  | 6  | 112 | 320  | 1 | 8  | 12 | 4 | 1 | 25  |
+| Standard_NV12s_v2 | 12 | 224 | 640  | 2 | 16 | 24 | 8 | 2 | 50  |
+| Standard_NV24s_v2 | 24 | 448 | 1280 | 4 | 32 | 32 | 8 | 4 | 100 |
+
+## <a name="older-generations-of-virtual-machine-sizes"></a>Gerações mais antigas de tamanhos de máquina virtual
+
+Esta seção fornece informações sobre gerações mais antigas de tamanhos de máquina virtual. Esses tamanhos ainda têm suporte, mas não receberão capacidade adicional. Há tamanhos mais novos ou alternativos que estão geralmente disponíveis. Consulte tamanhos de [máquinas virtuais no Azure](./sizes.md) para escolher os tamanhos de VM que melhor se ajustarão às suas necessidades.  
+
+Para obter mais informações sobre o redimensionamento de uma VM do Linux, consulte [redimensionar uma VM do Linux](linux/change-vm-size.md).  
+
 <br>
-
-
 
 ### <a name="basic-a"></a>A Básico  
 
@@ -142,7 +161,7 @@ Os tamanhos A8-A11 e série H também são conhecidos como *instâncias de compu
 <sup>1</sup>Para os aplicativos MPI, a rede de back-end RDMA dedicada é habilitada pela rede InfiniBand FDR, que fornece latência ultrabaixa e largura de banda alta.  
 
 > [!NOTE]
-> As VMs A8 – A11 estão planejadas para serem desativadas em 3/2021. É altamente recomendável não criar novas VMs A8 – a11. Migre quaisquer VMs A8-a11 existentes para tamanhos de VM de computação de alto desempenho mais novos e eficientes, como H, HB, HC, HBv2, bem como tamanhos de VM de computação de uso geral, como D, E e F para melhor desempenho-preço. Para obter mais informações, confira o [Guia de migração de HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
+> As [VMs A8 – a11 estão planejadas para aposentadoria em 3/2021](https://azure.microsoft.com/updates/a8-a11-azure-virtual-machine-sizes-will-be-retired-on-march-1-2021/). É altamente recomendável não criar novas VMs A8 – a11. Migre quaisquer VMs A8-a11 existentes para tamanhos de VM de computação de alto desempenho mais novos e eficientes, como H, HB, HC, HBv2, bem como tamanhos de VM de computação de uso geral, como D, E e F para melhor desempenho-preço. Para obter mais informações, confira o [Guia de migração de HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
 
 <br>
 
@@ -188,7 +207,7 @@ Cache de Armazenamento Premium:  Sem suporte
 
 <br>
 
-## <a name="preview-dc-series"></a>Visualização: série CC
+### <a name="preview-dc-series"></a>Visualização: série CC
 
 **Recomendação de tamanho mais recente**: [série DCsv2](dcv2-series.md)
 
@@ -323,7 +342,7 @@ Cache de Armazenamento Premium:  Sem suporte
 <sup>1</sup> A instância é isolada em hardware dedicado a um único cliente.
 <br>
 
-## <a name="nv-series"></a>Série NV
+### <a name="nv-series"></a>Série NV
 **Recomendação de tamanho mais recente**: [série NVv3](nvv3-series.md) e [série NVv4](nvv4-series.md)
 
 As máquinas virtuais da série NV têm a tecnologia das GPUs [ Tesla M60 da NVIDIA ](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) e NVIDIA GRID para aplicativos acelerados de área de trabalho e áreas de trabalho virtuais, em que os clientes podem visualizar seus dados ou simulações. Os usuários podem visualizar seus fluxos de trabalho com uso intensivo de gráficos em instâncias NV para obter capacidade gráfica superior, além de executar cargas de trabalho de precisão única, como codificação e renderização. As VMs da série NV também são alimentadas por CPUs do Intel Xeon E5-2690 v3 (Haswell).
@@ -347,26 +366,7 @@ Atualizações de preservação de memória: Sem suporte
 1 GPU = metade de um cartão M60.
 <br>
 
-
-## <a name="nvv2-series"></a>Série NVv2
-
-**Recomendação de tamanho mais recente**: [série NVv3](nvv3-series.md)
-
-As máquinas virtuais da série NVv2 contam com as GPUs [Tesla M60 NVIDIA](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) e a tecnologia NVIDIA GRID com CPUs Intel Broadwell. Essas máquinas virtuais são direcionadas para aplicativos com gráficos acelerados por GPU e áreas de trabalho virtuais em que os clientes querem visualizar dados, simular resultados para exibição, trabalhar no CAD ou renderizar e transmitir conteúdo por streaming. Além disso, essas máquinas virtuais podem executar cargas de trabalho de precisão simples, como codificação e renderização. As máquinas virtuais NVv2 são compatíveis com o Armazenamento Premium e oferecem duas vezes mais memória (RAM) em comparação com a Série NV anterior.  
-
-Cada GPU em instâncias da NVv2 vem com uma licença GRID. Esta licença oferece flexibilidade para usar uma instância NV como uma estação de trabalho virtual para um único usuário ou 25 usuários simultâneos podem se conectar à VM para um cenário de aplicativo virtual.
-
-| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | GPU | Memória da GPU: GiB | Discos de dados máximos | Máximo de NICs | Estações de trabalho virtuais | Aplicativos virtuais |
-|---|---|---|---|---|---|---|---|---|---|
-| Standard_NV6s_v2  | 6  | 112 | 320  | 1 | 8  | 12 | 4 | 1 | 25  |
-| Standard_NV12s_v2 | 12 | 224 | 640  | 2 | 16 | 24 | 8 | 2 | 50  |
-| Standard_NV24s_v2 | 24 | 448 | 1280 | 4 | 32 | 32 | 8 | 4 | 100 |
-
-[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
-
-<br>
-
-## <a name="nc-series"></a>Série NC
+### <a name="nc-series"></a>Série NC
 **Recomendação de tamanho mais recente**: [NC T4 v3-Series](nct4-v3-series.md)
 
 As VMs da série NC são alimentadas pela placa [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) e pelo processador Intel Xeon E5-2690 v3 (Haswell). Os usuários podem processar os dados mais rapidamente aproveitando o CUDA para aplicativos de exploração de energia, simulações de falhas, renderização de traçados de raio, aprendizado profundo e muito mais. A configuração NC24r fornece um adaptador de rede de alta taxa de transferência e baixa latência, otimizado para cargas de trabalho de computação paralela firmemente acopladas.
@@ -393,7 +393,7 @@ As VMs da série NC são alimentadas pela placa [NVIDIA Tesla K80](https://www.n
 <br>
 
 
-## <a name="ncv2-series"></a>Série NCv2
+### <a name="ncv2-series"></a>Série NCv2
 **Recomendação de tamanho mais recente**: [NC T4 v3-Series](nct4-v3-series.md) e [NC V100 v3-Series](ncv3-series.md)
 
 VMs da série NCv2 têm a tecnologia de GPUs NVIDIA Tesla P100. Essas GPUs podem fornecer desempenho computacional 2 vezes maior que da série NC. Os clientes podem aproveitar essas GPUs atualizadas para cargas de trabalho HPC tradicionais como modelagem de reservatório, sequenciamento de DNA, análise de proteína, simulações de Monte Carlo, entre outros. Além das GPUs, as VMs da série NCv2 também são alimentadas por CPUs Intel Xeon E5-2690 V4 (Broadwell).
@@ -421,7 +421,7 @@ A configuração NC24rs v2 fornece um adaptador de rede de alta taxa de transfer
 
 <br>
 
-## <a name="nd-series"></a>Série ND
+### <a name="nd-series"></a>Série ND
 **Recomendação de tamanho mais recente**: [NDv2-Series](ndv2-series.md) e [NC V100 v3-Series](ncv3-series.md)
 
 As máquinas virtuais da série ND são uma nova adição à família de GPU projetada para cargas de trabalho AI e Deep Learning. Elas oferecem um desempenho excelente para treinamento e Inferência. As instâncias do ND são alimentadas por [NVIDIA Tesla P40](https://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) GPUs e CPUs Intel Xeon E5-2690 V4 (Broadwell). Essas instâncias oferecem um desempenho excelente para operações de ponto flutuante de precisão simples, para cargas de trabalho de AI que utilizam o Cognitive Toolkit, o TensorFlow, o Caffe e outras estruturas. A série ND também oferece um tamanho de memória de GPU muito maior (24 GB), permitindo usar modelos de rede neural muito maiores. Como a série NC, a série ND oferece uma configuração com uma baixa latência secundária, uma rede com alta taxa de transferência por meio de RDMA e a conectividade InfiniBand, permitindo executar trabalhos de grande escala que abrangem várias GPUs.
@@ -446,15 +446,6 @@ As máquinas virtuais da série ND são uma nova adição à família de GPU pro
 *Compatível com RDMA
 
 <br>
-
-## <a name="other-sizes"></a>Outros tamanhos
-
-* [Propósito geral](sizes-general.md)
-* [Computação otimizada](sizes-compute.md)
-* [Memória otimizada](sizes-memory.md)
-* [Armazenamento otimizado](sizes-storage.md)
-* [GPU](sizes-gpu.md)
-* [Computação de alto desempenho](sizes-hpc.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

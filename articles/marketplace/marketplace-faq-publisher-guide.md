@@ -4,15 +4,15 @@ description: Obtenha respostas para perguntas comuns sobre o Azure Marketplace e
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 09/11/2020
-ms.openlocfilehash: a5c5d7ae4dbf1126d171c78bbd4e353f11402260
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 584e1e943f215aa4a69368fb71cb3053b1444a01
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126712"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660212"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Perguntas comuns sobre o Marketplace comercial da Microsoft
 
@@ -58,10 +58,10 @@ Para inscrever-se para ser um editor do marketplace comercial, acesse o [Partner
 
 As maneiras como os clientes podem usar sua oferta do marketplace comercial dependem de como você cria as ofertas.
 
-- Para soluções que você fornece automaticamente, sejam elas pagas, BYOL (traga sua própria licença) ou gratuitas, os clientes são incentivados a *Obtê-las agora* .
-- Ofertas que dão suporte a um test drive (demonstração) solicitam que o cliente faça o *Test Drive* . 
-- As ofertas de SaaS (software como serviço) fornecem uma avaliação fora do mercado comercial, digamos que a *avaliação gratuita* .
-- As listagens simples permitem que o cliente solicite contato por meio da opção *Entre em Contato Comigo* .
+- Para soluções que você fornece automaticamente, sejam elas pagas, BYOL (traga sua própria licença) ou gratuitas, os clientes são incentivados a *Obtê-las agora*.
+- Ofertas que dão suporte a um test drive (demonstração) solicitam que o cliente faça o *Test Drive*. 
+- As ofertas de SaaS (software como serviço) fornecem uma avaliação fora do mercado comercial, digamos que a *avaliação gratuita*.
+- As listagens simples permitem que o cliente solicite contato por meio da opção *Entre em Contato Comigo*.
 
 ### <a name="how-do-i-create-offers-for-the-commercial-marketplace"></a>Como faço para criar ofertas para o marketplace comercial?
 
@@ -87,7 +87,7 @@ O marketplace comercial trabalha usando um modelo de agência. O cliente assina 
 
 Como editor, você define os termos de uso da solução de software, que os clientes devem aceitar como parte do fluxo de compra. Para simplificar e acelerar o processo, fornecemos um Contrato Standard que você pode optar por incluir em seus termos e condições. Isso permite que os clientes examinem o Contrato Standard uma vez, obtenham aprovação de equipes jurídicas e de compras e se concentrem nas emendas de cada oferta.
 
-Você pode criar alterações que se aplicam a todos os clientes ou fazer as alterações específicas para determinados clientes. Você também pode personalizar totalmente seus termos e condições, que podem ser inseridos em uma caixa de texto ou hospedados em um site que será mostrado como um endereço Web.
+Você pode criar alterações que se aplicam a todos os clientes ou fazer as alterações específicas para determinados clientes. Você também pode personalizar totalmente seus termos e condições, que podem ser inseridos em uma caixa de texto no Partner Center.
 
 Para saber mais, confira [Contrato Standard para o marketplace comercial da Microsoft](standard-contract.md).
 
@@ -99,10 +99,10 @@ Sim, o Azure Government Marketplace está disponível nas regiões do Azure Gove
 
 Há quatro funções relevantes que regem o acesso ao Partner Center.
 
-- *Gerente* : Fornece permissões para gerenciar usuários do Partner Center no diretório e criar e atualizar ofertas.
-- *Desenvolvedor* : Permite que um usuário crie e atualize ofertas.
-- *Colaborador financeiro* : fornece permissões para exibir o relatório de pagamento.
-- *Proprietário* : Pode configurar a conta de pagamento e o perfil de imposto. O usuário que aceitou o Contrato de Editor se torna o proprietário por padrão.
+- *Gerente*: Fornece permissões para gerenciar usuários do Partner Center no diretório e criar e atualizar ofertas.
+- *Desenvolvedor*: Permite que um usuário crie e atualize ofertas.
+- *Colaborador financeiro*: fornece permissões para exibir o relatório de pagamento.
+- *Proprietário*: Pode configurar a conta de pagamento e o perfil de imposto. O usuário que aceitou o Contrato de Editor se torna o proprietário por padrão.
 
 As permissões de *administrador global* do Azure AD (Azure Active Directory) são necessárias para criar novas contas de usuário ou convidar contas de convidado no diretório subjacente. O Partner Center aplica o Azure AD ao modelo de identidade, e uma instância do Azure AD de uma organização é geralmente gerenciada e controlada por suas equipes de TI ou de segurança.
 

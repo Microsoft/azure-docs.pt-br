@@ -9,12 +9,12 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 810a08d2f72359b385d2a7567b796aa222c6ab14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c42acb69e13cc1eb0fbba3fcafaec1451bc4d77
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933797"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589212"
 ---
 # <a name="features-and-capabilities-of-azure-arc-enabled-sql-managed-instance"></a>Recursos e funcionalidades do SQL Instância Gerenciada habilitado para Arc do Azure
 
@@ -31,7 +31,7 @@ O SQL Instância Gerenciada habilitado para arco do Azure compartilham uma base 
 
 ## <a name="features-of-azure-arc-enabled-sql-managed-instance"></a>Recursos do SQL Instância Gerenciada habilitado para o Arc do Azure
 
-###  <a name="rdbms-high-availability"></a><a name="RDBMSHA"></a> Alta disponibilidade de RDBMS  
+###  <a name="rdbms-high-availability"></a><a name="RDBMSHA"></a> RDBMS High Availability  
   
 |Recurso|Instância Gerenciada de SQL habilitada para Azure Arc|
 |-------------|----------------|
@@ -57,80 +57,80 @@ O SQL Instância Gerenciada habilitado para arco do Azure compartilham uma base 
 
 <sup>2</sup> versões futuras fornecerão recursos do AG 
 
-###  <a name="rdbms-scalability-and-performance"></a><a name="RDBMSSP"></a> Escalabilidade e desempenho do RDBMS  
+###  <a name="rdbms-scalability-and-performance"></a><a name="RDBMSSP"></a> RDBMS Scalability and Performance  
 
-|Recurso|Instância Gerenciada de SQL habilitada para Azure Arc|
-|-------------|----------------|
-|columnstore|   Sim|
-|Binários de objeto grandes em índices columnstore clusterizados|    Sim|
-|Recompilação de índice columnstore não clusterizado online| Sim|
-|OLTP na memória|    Sim|
-|Memória principal persistente|    Sim|
-|Particionamento de tabela e índice|  Sim
-|Compactação de dados|  Sim|
-|Administrador de Recursos| Sim|
-|Paralelismo de tabela particionada| Sim|
-|Memória de página grande com reconhecimento para NUMA e alocação de matriz de buffer|  Sim|
-|Administração do recurso de E/S|    Sim|
-|Durabilidade atrasada|    Sim|
-|Ajuste Automático|  Sim|
-|Junções Adaptáveis de Modo de Lote| Sim|
-|Comentários de Concessão de Memória do Modo de Lote|  Sim|
-|Execução Intercalada para Funções com Valor de Tabela de Várias Instruções|  Sim|
-|Aprimoramentos de inserção em massa   |Sim|
+| Recurso | Instância Gerenciada de SQL habilitada para Azure Arc |
+|--|--|
+| columnstore | Sim |
+| Binários de objeto grandes em índices columnstore clusterizados | Sim |
+| Recompilação de índice columnstore não clusterizado online | Sim |
+| OLTP na memória | Sim |
+| Memória principal persistente | Sim |
+| Particionamento de tabela e índice | Sim |
+| Compactação de dados | Sim |
+| Administrador de Recursos | Sim |
+| Paralelismo de tabela particionada | Sim |
+| Memória de página grande com reconhecimento para NUMA e alocação de matriz de buffer | Sim |
+| Administração do recurso de E/S | Sim |
+| Durabilidade atrasada | Sim |
+| Ajuste Automático | Sim |
+| Junções Adaptáveis de Modo de Lote | Sim |
+| Comentários de Concessão de Memória do Modo de Lote | Sim |
+| Execução Intercalada para Funções com Valor de Tabela de Várias Instruções | Sim |
+| Aprimoramentos de inserção em massa | Sim |
 
-###  <a name="rdbms-security"></a><a name="RDBMSS"></a> Segurança do RDBMS  
-|Recurso|Instância Gerenciada de SQL habilitada para Azure Arc|
-|-------------|----------------|
-|Segurança em nível de linha|    Sim|
-|Always Encrypted|  Sim|
-|Always Encrypted com enclaves seguros| Não|
-|Mascaramento de dados dinâmicos|  Sim|
-|Auditoria básica|    Sim|
-|Auditoria refinada| Sim|
-|Criptografia transparente do banco de dados|   Sim|
-|Funções definidas pelo usuário|    Sim|
-|Bancos de dados independentes|   Sim|
-|Criptografia para backups|    Sim|
+###  <a name="rdbms-security"></a><a name="RDBMSS"></a> RDBMS Security
 
-###  <a name="rdbms-manageability"></a><a name="RDBMSM"></a> Gerenciamento de RDBMS  
+| Recurso | Instância Gerenciada de SQL habilitada para Azure Arc |
+|--|--|
+| Segurança em nível de linha | Sim |
+| Always Encrypted | Sim |
+| Always Encrypted com enclaves seguros | Não |
+| Mascaramento de dados dinâmicos | Sim |
+| Auditoria básica | Sim |
+| Auditoria refinada | Sim |
+| Criptografia transparente do banco de dados | Sim |
+| Funções definidas pelo usuário | Sim |
+| Bancos de dados independentes | Sim |
+| Criptografia para backups | Sim |
 
-|Recurso|Instância Gerenciada de SQL habilitada para Azure Arc|
-|-------------|----------------|
-|Conexão dedicada de administrador|    Sim|
-|Suporte de scripts PowerShell|  Sim|
-|Suporte para operações de componente do aplicativo da camada de dados – extrair, implantar, atualizar, excluir| Sim
-|Automação de política (verificação de agenda e alterações)   |Sim|
-|Coletor de dados de desempenho|    Sim|
-|Relatórios de desempenho padrão   |Sim|
-|Guias de plano e planejar congelamento para guias de plano| Sim|
-|Direcione a consulta de exibições indexadas (usando a dica de NOEXPAND)|   Sim|
-|Manutenção automática de exibições indexadas    |Sim|
-|Exibições particionadas distribuídas| Sim|
-|Operações indexadas paralelas    |Sim|
-|Uso automático da exibição indexada através do otimizador de consulta|  Sim|
-|Verificação de consistência paralela |Sim|
+###  <a name="rdbms-manageability"></a><a name="RDBMSM"></a> RDBMS Manageability  
 
+| Recurso | Instância Gerenciada de SQL habilitada para Azure Arc |
+|--|--|
+| Conexão dedicada de administrador | Sim |
+| Suporte de scripts PowerShell | Sim |
+| Suporte para operações de componente do aplicativo da camada de dados – extrair, implantar, atualizar, excluir | Sim |
+| Automação de política (verificação de agenda e alterações) | Sim |
+| Coletor de dados de desempenho | Sim |
+| Relatórios de desempenho padrão | Sim |
+| Guias de plano e planejar congelamento para guias de plano | Sim |
+| Direcione a consulta de exibições indexadas (usando a dica de NOEXPAND) | Sim |
+| Manutenção automática de exibições indexadas | Sim |
+| Exibições particionadas distribuídas | Sim |
+| Operações indexadas paralelas | Sim |
+| Uso automático da exibição indexada através do otimizador de consulta | Sim |
+| Verificação de consistência paralela | Sim |
 
 ### <a name="programmability"></a><a name="Programmability"></a> Programmability  
 
-|Recurso|Instância Gerenciada de SQL habilitada para Azure Arc|
-|-------------|----------------|
-|JSON|  Sim |       |
-|Repositório de Consultas    |Sim    |       
-|Temporal|  Sim |       
-|Suporte a XML nativo|    Sim |       
-|Indexação XML   |Sim    |       
-|Funcionalidades MERGE e UPSERT|   Sim |       
-|Tipos de dados de Data e Hora    |Sim    |       
-|Suporte à internacionalização|  Sim |       
-|Pesquisa semântica e de texto completo |    Não      |
-|Especificação de idioma em consulta |Sim        |   
-|Service Broker (mensagens)|    Sim     |   
-|pontos de extremidade Transact-SQL|    Sim |       
-|Grafo| Sim |   
-|Serviços de Machine Learning| Não  |   
-|PolyBase| Não   |
+| Recurso | Instância Gerenciada de SQL habilitada para Azure Arc |
+|--|--|
+| JSON | Sim |
+| Repositório de Consultas | Sim |  |
+| Temporal | Sim |  |
+| Suporte a XML nativo | Sim |  |
+| Indexação XML | Sim |  |
+| Funcionalidades MERGE e UPSERT | Sim |  |
+| Tipos de dados de Data e Hora | Sim |  |
+| Suporte à internacionalização | Sim |  |
+| Pesquisa semântica e de texto completo | Não |
+| Especificação de idioma em consulta | Sim |  |
+| Service Broker (mensagens) | Sim |  |
+| pontos de extremidade Transact-SQL | Sim |  |
+| Grafo | Sim |  |
+| Serviços de Machine Learning | Não |  |
+| PolyBase | Não |
 
 
 ### <a name="tools"></a>Ferramentas

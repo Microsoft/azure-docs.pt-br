@@ -1,30 +1,30 @@
 ---
 title: Usando SQL dinâmico
-description: Dicas para soluções de desenvolvimento usando SQL dinâmico no pool de SQL do Synapse.
+description: Dicas para soluções de desenvolvimento usando SQL dinâmico para pools SQL dedicados no Azure Synapse Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: bce79b8e18b3ec6f1fd139af280086281bbdda98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 18dcdbf5a4840fda3c2689cc3c8c003470bf1c7f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213458"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679594"
 ---
-# <a name="dynamic-sql-in-synapse-sql-pool"></a>SQL dinâmico no pool do SQL Synapse
+# <a name="dynamic-sql-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>SQL dinâmico para pools SQL dedicados no Azure Synapse Analytics
 
-Estão incluídas neste artigo Dicas para soluções de desenvolvimento usando SQL dinâmico no pool SQL.
+Estão incluídos neste artigo Dicas para soluções de desenvolvimento que usam SQL dinâmico em pools SQL dedicados.
 
-## <a name="dynamic-sql-example"></a>Exemplo SQL dinâmico
+## <a name="dynamic-sql-example"></a>Exemplo de SQL dinâmico
 
-Ao desenvolver o código do aplicativo para o pool SQL, talvez seja necessário usar o SQL dinâmico para ajudar a fornecer soluções flexíveis, genéricas e modulares. O pool SQL não dá suporte a tipos de dados de blob no momento.
+Ao desenvolver o código do aplicativo para pools SQL dedicados, talvez seja necessário usar o SQL dinâmico para ajudar a fornecer soluções flexíveis, genéricas e modulares. Os pools dedicados do SQL não dão suporte a tipos de dados de blob no momento.
 
 O não suporte a tipos de dados blob pode limitar o tamanho de suas cadeias de caracteres desde que os tipos de dados blobs incluam tipos varchar (máx) e nvarchar (máx).
 
@@ -40,7 +40,7 @@ DECLARE @sql_fragment1 VARCHAR(8000)=' SELECT name '
 EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 ```
 
-Se a cadeia de caracteres for curta, você poderá usar [sp_executesql](/sql/relational-databases/system-stored-procedures/sp-executesql-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) normalmente.
+Se a cadeia de caracteres for curta, você poderá usar [sp_executesql](/sql/relational-databases/system-stored-procedures/sp-executesql-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) normalmente.
 
 > [!NOTE]
 > As instruções executadas como SQL dinâmico ainda estarão sujeitas a todas as regras de validação do T-SQL.

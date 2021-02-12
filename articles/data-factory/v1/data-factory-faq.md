@@ -3,20 +3,20 @@ title: Azure Data Factory - Perguntas frequentes
 description: Perguntas frequentes sobre o Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: de4661bcfd7106d515480e39dc4660f44f469a3d
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 57f2beef3dc14a47480950bf9e3bdf35a1fd6ce8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631692"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495813"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - Perguntas frequentes
 > [!NOTE]
@@ -26,7 +26,7 @@ ms.locfileid: "92631692"
 
 ## <a name="general-questions"></a>Perguntas gerais
 ### <a name="what-is-azure-data-factory"></a>O que é o Azure Data Factory?
-O Data Factory é um serviço de integração de dados baseado em nuvem que **automatiza a movimentação e a transformação dos dados** . Assim como uma fábrica que usa equipamentos para pegar matérias-primas e transformá-las em produtos, o Data Factory orquestra serviços existentes que coletam dados brutos e os transformam em informações para uso imediato.
+O Data Factory é um serviço de integração de dados baseado em nuvem que **automatiza a movimentação e a transformação dos dados**. Assim como uma fábrica que usa equipamentos para pegar matérias-primas e transformá-las em produtos, o Data Factory orquestra serviços existentes que coletam dados brutos e os transformam em informações para uso imediato.
 
 O Data Factory permite que você crie fluxos de trabalho orientados a dados para mover dados entre armazenamentos de dados local e na nuvem, além de processar/transformar dados usando serviços de computação, como Azure HDInsight e Azure Data Lake Analytics. Depois de criar um pipeline que executa a ação que você precisa, você pode programá-lo para ser executado periodicamente (por hora, diariamente, semanalmente etc).   
 
@@ -41,7 +41,7 @@ Consulte [Data Factory página de detalhes de preços][adf-pricing-details] para
 * Para obter um tutorial sobre como **transformar dados** usando a atividade Hive do HDInsight. Consulte [Processar dados executando o script do Hive no cluster do Hadoop](data-factory-build-your-first-pipeline.md)
 
 ### <a name="what-is-the-data-factorys-region-availability"></a>Qual é a disponibilidade de região do Data Factory?
-O Data Factory está disponível no **Oeste dos EUA** e no **Norte da Europa** . Os serviços de computação e armazenamento utilizados por data factories podem estar em outras regiões. Consulte [regiões com suporte](data-factory-introduction.md#supported-regions).
+O Data Factory está disponível no **Oeste dos EUA** e no **Norte da Europa**. Os serviços de computação e armazenamento utilizados por data factories podem estar em outras regiões. Consulte [regiões com suporte](data-factory-introduction.md#supported-regions).
 
 ### <a name="what-are-the-limits-on-number-of-data-factoriespipelinesactivitiesdatasets"></a>Quais são os limites de número de fábricas/pipelines/atividades/conjuntos de dados?
 Veja a seção **Limites do Azure Data Factory** do artigo [Limites, cotas e restrições da assinatura e do serviço do Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) .
@@ -72,7 +72,7 @@ A tabela a seguir fornece uma lista dos ambientes de computação com suporte do
 | [Lote do Azure](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning Studio (clássico)](data-factory-compute-linked-services.md#azure-machine-learning-studio-classic-linked-service) |[Atividades de estúdio (clássicas): execução em lote e recurso de atualização](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[U-SQL da Análise Data Lake](data-factory-usql-activity.md) |
-| [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure Synapse Analytics (anteriormente SQL Data Warehouse)](data-factory-compute-linked-services.md#azure-synapse-analytics-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Procedimento armazenado](data-factory-stored-proc-activity.md) |
+| [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure Synapse Analytics](data-factory-compute-linked-services.md#azure-synapse-analytics-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Procedimento armazenado](data-factory-stored-proc-activity.md) |
 
 ### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>Como o Azure Data Factory se compara com o SSIS (SQL Server Integration Services)? 
 Consulte a apresentação [Azure data Factory versus SSIS](https://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) de um de nossos MVPs (profissionais mais valorizados): reza Rad. Algumas das alterações recentes no Data Factory podem não estar listadas no conjunto de slides. Estamos continuamente adicionando mais recursos ao Azure Data Factory. Estamos continuamente adicionando mais recursos ao Azure Data Factory. Nós incorporaremos essas atualizações à comparação das tecnologias de integração de dados da Microsoft, mais tarde neste ano.   
@@ -141,7 +141,7 @@ No exemplo acima, otherLinkedServiceName1 e otherLinkedServiceName2 representam 
 ### <a name="why-are-my-input-slices-not-in-ready-state"></a>Por que minhas fatias de entrada não estão no estado Pronto?
 Um erro comum é não configurar a propriedade **external** como **true** no conjunto de dados de entrada quando os dados de entrada são externos ao data factory (não produzidos pelo data factory).
 
-No exemplo a seguir, você só precisa definir **external** como true no **dataset1** .  
+No exemplo a seguir, você só precisa definir **external** como true no **dataset1**.  
 
 **DataFactory1** Pipeline 1: dataset1 -> activity1 -> dataset2 -> activity2 -> dataset3 Pipeline 2: dataset3-> activity3 -> dataset4
 
@@ -184,9 +184,9 @@ Você também pode fazer o seguinte no portal do Azure:
 
 1. Clique no bloco **Conjuntos de dados** da folha **DATA FACTORY** da sua fábrica de dados.
 2. Clique no conjunto de dados específico na folha **Conjuntos de dados** .
-3. Selecione a fatia em que você está interessado na lista **Fatias recentes** na folha **TABELA** .
-4. Clique na execução da lista **Execuções de Atividade** na folha **FATIA DE DADOS** .
-5. Clique no bloco **Propriedades** da folha **DETALHES DE EXECUÇÃO DA ATIVIDADE** .
+3. Selecione a fatia em que você está interessado na lista **Fatias recentes** na folha **TABELA**.
+4. Clique na execução da lista **Execuções de Atividade** na folha **FATIA DE DADOS**.
+5. Clique no bloco **Propriedades** da folha **DETALHES DE EXECUÇÃO DA ATIVIDADE**.
 6. Você deve ver o campo **DURAÇÃO** com um valor. Esse valor é o tempo necessário para processar a fatia.   
 
 ### <a name="how-to-stop-a-running-slice"></a>Como parar uma fatia em execução?

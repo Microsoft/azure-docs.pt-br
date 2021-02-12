@@ -7,16 +7,28 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: f64d4d2b9acbe0e6585ca546c915b82d2d1dbbc4
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ca75416a66bcf2c90028c7f1dc11fbe23a9a9bd9
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737182"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631360"
 ---
 # <a name="common-errors"></a>Erros comuns
 
 O Banco de Dados do Azure para MySQL é um serviço totalmente gerenciado ativado pela versão da comunidade do MySQL. A experiência do MySQL em um ambiente de serviço gerenciado pode ser diferente da execução do MySQL no próprio ambiente. Neste artigo, você verá alguns dos erros comuns que os usuários podem receber ao fazer a migração para o serviço Banco de Dados do Azure para MySQL ou fazer o desenvolvimento nele pela primeira vez.
+
+## <a name="common-connection-errors"></a>Erros de conexão comuns
+
+#### <a name="error-1184-08s01-aborted-connection-22-to-db-db-name-user-user-host-hostip-init_connect-command-failed"></a>ERRO 1184 (08S01): conexão 22 com db: 'db-name' usuário: 'user' host: 'hostIP' anulada (falha no comando init_connect)
+O erro acima ocorre após o logon bem-sucedido, mas antes da execução de qualquer comando quando a sessão é estabelecida. A mensagem acima indica que você definiu um valor incorreto do parâmetro de servidor init_connect, que está causando a falha na inicialização da sessão.
+
+Há alguns parâmetros do servidor como require_secure_transport que não são compatíveis com o nível de sessão. Portanto, a tentativa de alterar os valores desses parâmetros usando init_connect poderá resultar no erro 1184 durante a conexão com o servidor MySQL, conforme mostrado abaixo
+
+mysql> show databases; ERROR 2006 (HY000): O servidor MySQL desapareceu. Sem conexão. Tentando reconectar... ID da conexão:    64897 Banco de dados atual: *** NENHUM **_ ERRO 1184 (08S01): conexão 22 com db: 'db-name' usuário: 'user' host: 'hostIP' anulada (falha no comando init_connect)
+
+_ *Resolução**: você deve redefinir o valor de init_connect na guia Parâmetros do servidor no portal do Azure e definir apenas os parâmetros do servidor compatíveis usando o parâmetro init_connect. 
+
 
 ## <a name="errors-due-to-lack-of-super-privilege-and-dba-role"></a>Erros devido à ausência do privilégio SUPER e da função DBA
 
@@ -61,9 +73,40 @@ DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`AdminUserName`@`ServerName`*/ /*!50003
 DELIMITER ;
 ```
+#### <a name="error-1227-42000-at-line-295-access-denied-you-need-at-least-one-of-the-super-or-set_user_id-privileges-for-this-operation"></a>ERRO 1227 (42000) na linha 295: acesso negado; você precisará ter (pelo menos um dos) privilégios SUPER ou SET_USER_ID para executar essa operação
+
+O erro acima poderá ocorrer durante a execução de CREATE VIEW com instruções DEFINER como parte da importação de um arquivo de despejo ou da execução de um script. O Banco de Dados do Azure para MySQL não permite privilégios SUPER ou SET_USER_ID para nenhum usuário. 
+
+**Resolução**: 
+* use o usuário do definidor para executar CREATE VIEW, se possível. É provável que haja muitas exibições com diferentes definidores tendo permissões diferentes. Portanto, talvez isso não seja viável.  OU
+* Edite o arquivo de despejo ou o script CREATE VIEW e remova a instrução DEFINER= do arquivo de despejo OU 
+* Edite o arquivo de despejo ou o script CREATE VIEW e substitua os valores do definidor pelo usuário com as permissões de administrador que está executando a importação ou execute o arquivo de script.
+
+> [!Tip] 
+> Use sed ou o PERL para modificar um arquivo de despejo ou um script SQL para substituir a instrução DEFINER=
+
+## <a name="common-connection-errors-for-server-admin-login"></a>Erros comuns de conexão do logon de administrador do servidor
+
+Quando um servidor do Banco de Dados do Azure para MySQL é criado, um logon de administrador do servidor é fornecido pelo usuário final durante a criação do servidor. O logon de administrador do servidor permite que você crie bancos de dados, adicione novos usuários e conceda permissões. Se o logon de administrador do servidor for excluído, suas permissões forem revogadas ou sua senha for alterada, você poderá começar a ver erros de conexões no aplicativo durante as conexões. Estes são alguns dos erros comuns
+
+#### <a name="error-1045-28000-access-denied-for-user-usernameip-address-using-password-yes"></a>ERRO 1045 (28000): Acesso negado para o usuário 'nome de usuário'@'endereço IP' (usando a senha: YES)
+
+O erro acima ocorre se:
+
+* O nome de usuário não existe
+* O nome de usuário foi excluído
+* a senha foi alterada ou redefinida.
+
+**Resolução**: 
+* confirme se o "nome de usuário" existe como um usuário válido no servidor ou se ele foi excluído acidentalmente. Execute a seguinte consulta fazendo logon no usuário do Banco de Dados do Azure para MySQL:
+  ```sql
+  select user from mysql.user;
+  ```
+* Se você não pode fazer logon no MySQL para executar a própria consulta, recomendamos [redefinir a senha de administrador usando o portal do Azure](howto-create-manage-server-portal.md). A opção de redefinição de senha do portal do Azure ajudará a recriar o usuário, redefinir a senha e restaurar as permissões de administrador, o que permitirá que você faça logon usando o administrador do servidor e execute outras operações.
 
 ## <a name="next-steps"></a>Próximas etapas
-Se você não encontrou a resposta que estava procurando, considere o seguinte:
+Caso não encontre a resposta que estava procurando, considere o seguinte:
+
 - Poste sua pergunta na [página de perguntas do Microsoft Q&A](/answers/topics/azure-database-mysql.html) ou no [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
 - Envie um email para a Equipe do Banco de Dados do Azure para MySQL [@Ask Azure DB para MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com). Esse endereço de email não é um alias de suporte técnico.
 - Para entrar em contato com o Suporte do Azure, [crie um tíquete no portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Para corrigir um problema com sua conta, apresente uma [solicitação de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) no portal do Azure.

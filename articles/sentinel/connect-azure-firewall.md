@@ -7,26 +7,22 @@ ms.assetid: bfa2eca4-abdc-49ce-b11a-0ee229770cdd
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: how-to
-ms.date: 08/30/2020
+ms.date: 01/20/2021
 ms.author: yelevin
-ms.openlocfilehash: 05a2869152def0fc9a44defaa21f0643d9fdbb08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b21ce75bfb33b5a8869c63b7d3f71fb9f0c93768
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504869"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621288"
 ---
 # <a name="connect-data-from-azure-firewall"></a>Conectar dados do firewall do Azure
-
-> [!IMPORTANT]
-> O conector de dados do firewall do Azure no Azure Sentinel está atualmente em visualização pública.
-> Esse recurso é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Firewall do Azure é um serviço de segurança de rede gerenciado e baseado em nuvem que protege seus recursos de Rede Virtual do Azure. É um firewall como serviço totalmente com estado com alta disponibilidade interna e escalabilidade de nuvem irrestrita. 
 
 Você pode conectar os logs de firewall do Azure ao Azure Sentinel, permitindo que você exiba dados de log em pastas de trabalho, use-os para criar alertas personalizados e incorporá-los para melhorar sua investigação.
 
-Saiba mais sobre como [monitorar logs de firewall do Azure](https://docs.microsoft.com/azure/firewall/tutorial-diagnostics).
+Saiba mais sobre como [monitorar logs de firewall do Azure](../firewall/firewall-diagnostics.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,7 +36,7 @@ Saiba mais sobre como [monitorar logs de firewall do Azure](https://docs.microso
 
 1. Habilite os **logs de diagnóstico** em todos os firewalls cujos logs você deseja conectar:
 
-    1. Selecione o link **abrir >de recursos do firewall do Azure ** .
+    1. Selecione o link **abrir >de recursos do firewall do Azure** .
 
     1. No menu de navegação **firewalls** , selecione **configurações de diagnóstico**.
 

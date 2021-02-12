@@ -5,14 +5,14 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 12/15/2020
 ms.author: banders
-ms.openlocfilehash: 32db8396a687428c668a9b8a4213b50986614083
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 045ab35a35aa4caefb1e1bcbbf7bf78b726c09f7
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150118"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601465"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Trocas e reembolsos realizados via autoatendimento nas Reservas do Azure
 
@@ -21,7 +21,7 @@ As Reservas do Azure fornecem flexibilidade para ajudar a atender às suas neces
 Os recursos de cancelamento e troca de autoatendimento não estão disponíveis para clientes do US Government Enterprise Agreement. Há suporte para outros tipos de assinatura do governo dos EUA, incluindo Pagamento Conforme o Uso e CSP (Provedor de Solução de Nuvem).
 
 > [!NOTE]
-> - **Você precisa ter acesso de proprietário ao Pedido de Reserva para trocar ou reembolsar uma reserva existente**. Você pode [Adicionar ou alterar os usuários que podem gerenciar uma reserva](./manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+> - **Você precisa ter acesso de proprietário ao Pedido de Reserva para trocar ou reembolsar uma reserva existente**. Você pode [Adicionar ou alterar os usuários que podem gerenciar uma reserva](./manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 > - Atualmente, a Microsoft não está cobrando valores de término antecipado para reembolsos de reserva. Poderemos cobrar valores para reembolsos feitos no futuro. No momento, não temos uma data para habilitar o valor.
 
 ## <a name="how-to-exchange-or-refund-an-existing-reservation"></a>Como trocar ou reembolsar uma reserva existente
@@ -30,7 +30,7 @@ Você pode trocar sua reserva no [portal do Azure](https://portal.azure.com/#bla
 
 1. Selecione as reservas que deseja reembolsar e selecione **Trocar**.  
     [![Exemplo de imagem mostrando reservas a serem devolvidas](./media/exchange-and-refund-azure-reservations/exchange-refund-return.png)](./media/exchange-and-refund-azure-reservations/exchange-refund-return.png#lightbox)
-1. Selecione o produto de VM que você deseja comprar e digite uma quantidade. Verifique se o novo total de compra é maior que o total de devolução. [Determine o tamanho correto antes da compra](../../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
+1. Selecione o produto de VM que você deseja comprar e digite uma quantidade. Verifique se o novo total de compra é maior que o total de devolução. [Determine o tamanho correto antes da compra](../../virtual-machines/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
     [![Exemplo de imagem mostrando o produto da VM a ser comprado com uma troca](./media/exchange-and-refund-azure-reservations/exchange-refund-select-purchase.png)](./media/exchange-and-refund-azure-reservations/exchange-refund-select-purchase.png#lightbox)
 1. Examine e conclua a transação.  
     [![Exemplo de imagem mostrando o produto da VM a ser comprado com uma troca, concluindo a devolução](./media/exchange-and-refund-azure-reservations/exchange-refund-confirm-exchange.png)](./media/exchange-and-refund-azure-reservations/exchange-refund-confirm-exchange.png#lightbox)
@@ -47,7 +47,7 @@ Primeiro, a Microsoft cancela a reserva existente e reembolsa o valor proporcion
 
 ### <a name="enterprise-agreement-customers"></a>Clientes do Contrato Enterprise
 
-Adiciona-se dinheiro ao compromisso monetário para trocas e reembolsos caso a compra original tenha sido feita usando tal. Se o termo de compromisso monetário que usa a reserva comprada não estiver mais ativo, o crédito será adicionado ao seu atual termo de compromisso monetário do Contrato Enterprise atual. O crédito é válido por 90 dias a partir da data do reembolso. Créditos não utilizados expiram no final dos 90 dias.
+Adiciona-se dinheiro ao Pagamento antecipado do Azure (anteriormente conhecido como compromisso monetário) para trocas e reembolsos caso a compra original tenha sido feita usando tal. Se o termo do Pagamento antecipado do Azure que usa a reserva foi comprado não estiver mais ativo, o crédito será adicionado ao termo do Pagamento antecipado do Azure do seu Contrato Enterprise atual. O crédito é válido por 90 dias a partir da data do reembolso. Créditos não utilizados expiram no final dos 90 dias.
 
 Se a compra original foi feita como excedente, a fatura original na qual a reserva foi adquirida e todas as notas fiscais posteriores serão reabertas e reajustadas. A Microsoft emite um memorando de crédito para os reembolsos.
 
@@ -66,7 +66,7 @@ O Azure tem as políticas de cancelamento, troca e reembolso a seguir.
 **Políticas de troca**
 
 - Você pode devolver várias reservas existentes a fim de comprar uma nova reserva do mesmo tipo. Não é permitido trocar reservas de um tipo por outro. Por exemplo, você não pode devolver uma reserva de VM para comprar uma reserva de SQL. Você pode alterar a propriedade de uma reserva, como família, série, versão, SKU, região, quantidade e prazo com uma troca.
-- Somente os proprietários de reserva podem processar uma troca. [Saiba como adicionar ou alterar os usuários que podem gerenciar uma reserva](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+- Somente os proprietários de reserva podem processar uma troca. [Saiba como adicionar ou alterar os usuários que podem gerenciar uma reserva](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 - Uma troca é processada como um reembolso seguido de uma nova compra – diferentes transações são criadas para o cancelamento e a nova compra de reserva. O valor rateado da reserva que você troca é reembolsado. O valor integral é cobrado pela nova compra. O valor proporcional da reserva é o valor residual diário proporcional da reserva que está sendo devolvida.
 - Você pode trocar ou reembolsar reservas mesmo que o Contrato Enterprise usado para comprar a reserva esteja expirado e tenha sido renovado como um novo contrato.
 - O compromisso de tempo de vida da nova reserva deve ser igual ou maior que o compromisso restante da reserva devolvida. Exemplo: para uma reserva de três anos de US$ 100 por mês trocada após o 18° pagamento, o compromisso de tempo de vida da nova reserva deve ser de US$ 1800 ou mais (com pagamento mensal ou antecipado).
@@ -79,7 +79,7 @@ O Azure tem as políticas de cancelamento, troca e reembolso a seguir.
 - O compromisso cancelado total não pode ultrapassar US$ 50.000 em uma janela ininterrupta de 12 meses para um perfil de cobrança ou registro único. Por exemplo, para uma reserva de três anos de US$ 100 por mês reembolsada no 18° mês, o compromisso cancelado é de US$ 1.800. Após o reembolso, seu novo limite disponível para reembolso será de US$ 48.200. Em 365 dias depois deste reembolso, o limite de US$ 48.200 será aumentado em US$ 1.800 e seu novo pool será de US$ 50.000. Qualquer outro cancelamento de reserva para o perfil de cobrança ou registro de EA esvaziará o mesmo pool, e a mesma lógica de reabastecimento será aplicada.
 - O Azure não processará nenhum reembolso que ultrapasse o limite de US$ 50.000 em uma janela de 12 meses para um perfil de cobrança ou registro de EA.
 - O cálculo dos reembolsos é baseado no valor mais baixo entre o preço de compra e o preço atual da reserva.
-- Somente os proprietários de pedidos de reserva podem processar um reembolso. [Saiba como adicionar ou alterar os usuários que podem gerenciar uma reserva](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+- Somente os proprietários de pedidos de reserva podem processar um reembolso. [Saiba como adicionar ou alterar os usuários que podem gerenciar uma reserva](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 

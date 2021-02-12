@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7ed1d4c49c46673f1a1c2b5cb08b2467490acae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 498b75a6541da97e57e23465ae6eb23a6c854727
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565104"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836947"
 ---
 # <a name="identity-data-storage-for-australian-and-new-zealand-customers-in-azure-active-directory"></a>Armazenamento de dados de identidade para clientes australianos e da Nova Zelândia no Azure Active Directory
 
@@ -32,9 +32,9 @@ Para os clientes que forneceram um endereço na Austrália ou Nova Zelândia, o 
 
 Todos os outros serviços do Azure AD armazenam dados do cliente em data centers globais. Para localizar o datacenter de um serviço, consulte [Azure Active Directory – onde os dados estão localizados?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located)
 
-## <a name="microsoft-azure-multi-factor-authentication-mfa"></a>Microsoft Azure a autenticação multifator (MFA)
+## <a name="microsoft-azure-ad-multi-factor-authentication-mfa"></a>Microsoft Azure AD a autenticação multifator (MFA)
 
-A MFA armazena dados de clientes de identidade em datacenters globais. Para saber mais sobre as informações do usuário coletadas e armazenadas pela MFA do Azure baseada em nuvem e pelo servidor do Azure MFA, confira [coleta de dados do usuário da autenticação multifator do Azure](../authentication/concept-mfa-data-residency.md).
+A MFA armazena dados de clientes de identidade em datacenters globais. Para saber mais sobre as informações do usuário coletadas e armazenadas por MFA do Azure AD baseado em nuvem e servidor do Azure MFA, confira [coleta de dados do usuário da autenticação multifator do Azure](../authentication/concept-mfa-data-residency.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre qualquer um dos recursos e funcionalidades descritos acima, consulte esses artigos:

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e1a9a644e3ec4690dbb1f536dd15db995b56cf12
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: bbe683f1ec7dac1960395dd3d30fb36c70a1d6c9
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331712"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806182"
 ---
 # <a name="azure-security-baseline-for-expressroute"></a>Linha de base de segurança do Azure para ExpressRoute
 
@@ -56,9 +56,9 @@ Para obter mais informações, confira a [Visão geral sobre linhas de base de s
 
 **Orientação**: não aplicável; os Expressroute ao qual de cada cliente estão contidos em seus próprios domínios de roteamento e são encapsulados em sua própria rede virtual. Embora os Expressroute ao qual sejam isolados, para proteção extra de outros recursos que compartilham a mesma rede virtual, você pode habilitar a proteção contra DDoS Standard para proteger contra ataques de DDoS.
 
-* [Entender os controles de segurança do Azure ExpressRoute](./expressroute-security-controls.md)
+* [Entender os controles de segurança do Azure ExpressRoute]()
 
-* [Como configurar a proteção contra DDoS](../virtual-network/manage-ddos-protection.md)
+* [Como configurar a proteção contra DDoS](../ddos-protection/manage-ddos-protection.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -76,7 +76,7 @@ Para obter mais informações, confira a [Visão geral sobre linhas de base de s
 
 **Orientação**: não aplicável; os Expressroute ao qual de cada cliente estão contidos em seus próprios domínios de roteamento e são encapsulados em sua própria rede virtual.
 
-* [Entender os controles de segurança do Azure ExpressRoute](./expressroute-security-controls.md)
+* [Entender os controles de segurança do Azure ExpressRoute]()
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -299,11 +299,11 @@ Além disso, para ajudá-lo a controlar contas administrativas dedicadas, você 
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: usar computadores dedicados (estações de trabalho com acesso privilegiado) para todas as tarefas administrativas
 
-**Orientação**: Use uma estação de trabalho de acesso privilegiado (Paw) com a autenticação multifator do Azure (MFA) habilitada para fazer logon e configurar seus recursos relacionados ao sentinela do Azure.
+**Orientação**: Use uma Paw (estação de trabalho com acesso privilegiado) com o MFA (autenticação multifator) do Azure ad habilitada para fazer logon e configurar seus recursos relacionados ao sentinela do Azure.
 
-* [Estações de trabalho com acesso privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Estações de trabalho com acesso privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-* [Planejar uma implantação da Autenticação Multifator do Azure baseada em nuvem](../active-directory/authentication/howto-mfa-getstarted.md)
+* [Planejar uma implantação da Autenticação Multifator do Azure AD baseada em nuvem](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -447,7 +447,7 @@ Como configurar o IPSEC site a site por meio do ExpressRoute: https://docs.micro
 
 **Orientação**: não aplicável; O Azure ExpressRoute não armazena dados do cliente.
 
-* [Entender os controles de segurança do Azure ExpressRoute](./expressroute-security-controls.md)
+* [Entender os controles de segurança do Azure ExpressRoute]()
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -861,7 +861,7 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 
 **Orientação**: não aplicável; O Azure ExpressRoute não armazena dados do cliente.
 
-* [Entender os controles de segurança do Azure ExpressRoute](./expressroute-security-controls.md)
+* [Entender os controles de segurança do Azure ExpressRoute]()
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -951,7 +951,7 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: incorporar alertas de segurança em seu sistema de resposta a incidentes
 
-**Diretriz**: exporte os alertas e recomendações da Central de Segurança do Azure usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da Central de Segurança do Azure para transmitir os alertas do Sentinel.
+**Diretriz**: exporte os alertas e recomendações da Central de Segurança do Azure usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da Central de Segurança do Azure para transmitir os alertas do Azure Sentinel.
 
 * [Como configurar a exportação contínua](../security-center/continuous-export.md)
 

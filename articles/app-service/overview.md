@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 07/06/2020
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: 1b72224441741990a1fc94400dfe718ea9d1b0b3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d59dfe5b0fe3268dcda20fbc83aa31bba8a8713b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88961475"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936202"
 ---
 # <a name="app-service-overview"></a>Visão geral do Serviço de Aplicativo
 
@@ -44,7 +44,13 @@ O Serviço de Aplicativo também pode hospedar aplicativos Web nativamente no Li
 
 ### <a name="built-in-languages-and-frameworks"></a>Linguagens e estruturas internas
 
-O Serviço de Aplicativo no Linux dá suporte a várias imagens internas específicas da linguagem. Basta implantar o código. As linguagens com suporte incluem: Node.js, Java (JRE 8 e JRE 11), PHP, Python, .NET Core e Ruby. Execute [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) para exibir as linguagens mais recentes e as versões com suporte. Se não houver suporte para o runtime de que o seu aplicativo precisa nas imagens internas, implante-o com um contêiner personalizado.
+O Serviço de Aplicativo no Linux dá suporte a várias imagens internas específicas da linguagem. Basta implantar o código. As linguagens com suporte incluem: Node.js, Java (JRE 8 e JRE 11), PHP, Python, .NET Core e Ruby. Execute [`az webapp list-runtimes --linux`](/cli/azure/webapp#az-webapp-list-runtimes) para exibir as linguagens mais recentes e as versões com suporte. Se não houver suporte para o runtime de que o seu aplicativo precisa nas imagens internas, implante-o com um contêiner personalizado.
+
+Os runtimes desatualizados são removidos periodicamente das folhas de criação e configuração dos aplicativos Web no Portal. Esses runtimes ficam ocultos no portal quando eles são preteridos pela organização de manutenção ou apresentam vulnerabilidades significativas. Essas opções estão ocultas para orientar os clientes para os runtimes mais recentes, onde serão os mais bem-sucedidos. 
+
+Quando um runtime desatualizado estiver oculto no Portal, qualquer um dos sites existentes que usam essa versão continuará a ser executado. Se um runtime for totalmente removido da plataforma do Serviço de Aplicativo, seus proprietários de assinatura do Azure receberão um aviso por email antes da remoção.
+
+Se você precisar criar outro aplicativo Web com uma versão de runtime desatualizada que não é mais mostrada no Portal, confira os guias de configuração de idioma para obter instruções sobre como obter a versão de runtime do seu site. Você pode usar a CLI do Azure para criar outro site com o mesmo runtime. Como alternativa, use o botão **Exportar Modelo** na folha do aplicativo Web no Portal para exportar um modelo do ARM do site. Você pode usar novamente este modelo para implantar um novo site com o mesmo runtime a mesma configuração.
 
 ### <a name="limitations"></a>Limitações
 

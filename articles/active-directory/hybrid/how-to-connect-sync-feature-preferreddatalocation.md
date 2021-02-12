@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ec5757b41da630c4cb09ad0c096aee87572615d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4c456e7788280b7ca5328342e1cd848ba3a583a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319887"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972752"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Sincronização de Azure Active Directory Connect: configurar o local de dados preferencial para recursos de Microsoft 365
 A finalidade deste tópico é orientá-lo sobre como configurar o atributo para o local de dados preferencial na sincronização do Azure Active Directory (Azure AD) Connect. Quando alguém usa recursos de várias geografias no Microsoft 365, você usa esse atributo para designar a localização geográfica dos dados de Microsoft 365 do usuário. (Os termos *região* e *área geográfica* são usados de maneira intercambiável.)
@@ -36,7 +36,7 @@ Com a configuração do atributo **preferredDataLocation**, a área geográfica 
 >
 >
 
-Uma lista de todos os áreas geográficas para Microsoft 365 pode ser encontrada em [onde os dados estão localizados?](https://aka.ms/datamaps).
+Uma lista de todos os áreas geográficas para Microsoft 365 pode ser encontrada em [onde os dados estão localizados?](/microsoft-365/enterprise/o365-data-locations).
 
 Os áreas geográficas em Microsoft 365 disponíveis para várias regiões geográficas são:
 
@@ -44,7 +44,7 @@ Os áreas geográficas em Microsoft 365 disponíveis para várias regiões geogr
 | --- | --- |
 | Pacífico Asiático | APC |
 | Austrália | AUS |
-| Canada | CAN |
+| Canadá | CAN |
 | União Europeia | EUR |
 | França | FRA |
 | Índia | IND |
@@ -53,7 +53,7 @@ Os áreas geográficas em Microsoft 365 disponíveis para várias regiões geogr
 | África do Sul | ZAF |
 | Suíça | CHE |
 | Emirados Árabes Unidos | ARE |
-| United Kingdom | GBR |
+| Reino Unido | GBR |
 | Estados Unidos | NAM |
 
 * Se uma área geográfica não estiver listada nesta tabela, por exemplo, América do Sul, ela não poderá ser usada para Multi-Geo.
@@ -143,7 +143,7 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
     | Atributo | Valor | Detalhes |
     | --- | --- | --- |
     | Nome | *Fornecer um nome* | Por exemplo, "Entrada do AD – PreferredDataLocation do usuário" |
-    | Descrição | *Forneça uma descrição personalizada* |  |
+    | Description | *Forneça uma descrição personalizada* |  |
     | Sistema Conectado | *Selecione o Active Directory Connector local* |  |
     | Tipo de Objeto do Sistema Conectado | **Usuário** |  |
     | Tipo de Objeto de Metaverso | **Person** |  |
@@ -151,7 +151,7 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
     | Precedência | *Escolha um número entre 1 e 99* | 1 a 99 são reservados para regras de sincronização personalizadas. Não selecione um valor que seja usado por outra regra de sincronização. |
 
 5. Mantenha o **filtro de escopo** vazio, para incluir todos os objetos. Talvez seja necessário ajustar o filtro de escopo de acordo com sua implantação do Azure AD Connect.
-6. Vá para a **guia transformação**e implemente a seguinte regra de transformação:
+6. Vá para a **guia transformação** e implemente a seguinte regra de transformação:
 
     | Tipo de fluxo | Atributo de destino | Fonte | Aplicar uma vez | Tipo de mesclagem |
     | --- | --- | --- | --- | --- |
@@ -213,7 +213,7 @@ Em geral, o ciclo completo de sincronização é necessário. Isso ocorre porque
 
 2. Execute **Importação completa** no Azure AD Connector:
 
-   1. Clique com o botão direito do mouse no **Azure ad Connector**e selecione **executar**.
+   1. Clique com o botão direito do mouse no **Azure ad Connector** e selecione **executar**.
    2. Na caixa de diálogo, selecione **Importação Completa** e clique em **OK**.
    3. Aguarde a conclusão da operação.
 
@@ -229,7 +229,7 @@ Em geral, o ciclo completo de sincronização é necessário. Isso ocorre porque
 
 5. Verifique **Exportações Pendentes** para o Azure AD:
 
-   1. Clique com o botão direito do mouse no **conector do Azure ad**e selecione **Pesquisar espaço do conector**.
+   1. Clique com o botão direito do mouse no **conector do Azure ad** e selecione **Pesquisar espaço do conector**.
    2. Na caixa de diálogo **Pesquisar Espaço Conector**:
 
         a. Defina o **Escopo** como **Exportação Pendente**.<br>
@@ -239,7 +239,7 @@ Em geral, o ciclo completo de sincronização é necessário. Isso ocorre porque
 
 6. Executar **exportação** no **conector do AD do Azure**
 
-   1. Clique com o botão direito do mouse no **Azure ad Connector**e selecione **executar**.
+   1. Clique com o botão direito do mouse no **Azure ad Connector** e selecione **executar**.
    2. Na caixa de diálogo **Executar Conector**, selecione **Exportar** e depois **OK**.
    3. Aguarde a conclusão da operação.
 
@@ -267,8 +267,8 @@ Supondo que o locatário foi marcado para ser capaz de usar esse recurso, a caix
 Saiba mais sobre várias regiões geográficas no Microsoft 365:
 
 * [Sessões do Multi-Geo no Ignite](https://aka.ms/MultiGeoIgnite)
-* [Multi-Geo no OneDrive](https://aka.ms/OneDriveMultiGeo)
-* [Multi-Geo no SharePoint Online](https://aka.ms/SharePointMultiGeo)
+* [Multi-Geo no OneDrive](/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365)
+* [Multi-Geo no SharePoint Online](/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365)
 
 Saiba mais sobre o modelo de configuração no mecanismo de sincronização:
 

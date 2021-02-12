@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2018
-ms.openlocfilehash: 00fdaf93553c97112c67caa66cb2246756b63c33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c59b5646e011afa6b8487e8145a1cb07e6e2a8ff
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207483"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015571"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Splunk para a consulta de log do Azure Monitor
 
@@ -123,7 +123,7 @@ O Splunk não parece ter um operador semelhante a `project-away`. Você pode usa
 | **Azure Monitor** | **project**<br>**project-away** | <code>Office_Hub_OHubBGTaskError<br>&#124; project exception, state</code> |
 
 ### <a name="aggregation"></a>Agregação
-Confira as [Agregações em consultas de log do Azure Monitor](aggregations.md) para as diferentes funções de agregação.
+Confira as [Agregações em consultas de log do Azure Monitor](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#aggregations) para as diferentes funções de agregação.
 
 | | Operador | Exemplo |
 |:---|:---|:---|
@@ -139,7 +139,7 @@ Unir-se ao Splunk tem limitações significativas. A subconsulta tem um limite d
 | **Splunk** | **join** |  <code>Event.Rule=120103* &#124; stats by Client.Id, Data.Alias \| join Client.Id max=0 [search earliest=-24h Event.Rule="150310.0" Data.Hresult=-2147221040]</code> |
 | **Azure Monitor** | **join** | <code>cluster("OAriaPPT").database("Office PowerPoint").Office_PowerPoint_PPT_Exceptions<br>&#124; where  Data_Hresult== -2147221040<br>&#124; join kind = inner (Office_System_SystemHealthMetadata<br>&#124; summarize by Client_Id, Data_Alias)on Client_Id</code>   |
 
-### <a name="sort"></a>Sort
+### <a name="sort"></a>Classificar
 No Splunk, para classificar em ordem crescente, você deve usar o operador `reverse`. O Azure Monitor também dá suporte à definição de onde colocar os nulos, no início ou no final.
 
 | | Operador | Exemplo |

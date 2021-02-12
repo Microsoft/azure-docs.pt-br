@@ -11,12 +11,12 @@ ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse, devx-track-azurepowershell
-ms.openlocfilehash: 08ddb6077887043d798af9790a7b66f1b8ebb95c
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 6022974b80a7f691edc9b9a11b972035b203187c
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570695"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121032"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-synapse-sql-pool-with-azure-powershell"></a>Início Rápido: Pausar e retomar a computação no pool de SQL do Synapse com o Azure PowerShell
 
@@ -136,4 +136,4 @@ Siga estas etapas para limpar os recursos conforme desejado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o pool de SQL, prossiga para o artigo [Carregar dados para o pool de SQL](load-data-from-azure-blob-storage-using-polybase.md). Para obter informações adicionais sobre como gerenciar funcionalidades de computação, confira o artigo [Gerenciar visão geral de computação](sql-data-warehouse-manage-compute-overview.md).
+Para saber mais sobre o pool de SQL, prossiga para o artigo [Carregar dados para o pool de SQL](./load-data-from-azure-blob-storage-using-copy.md). Para obter informações adicionais sobre como gerenciar funcionalidades de computação, confira o artigo [Gerenciar visão geral de computação](sql-data-warehouse-manage-compute-overview.md).

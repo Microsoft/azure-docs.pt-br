@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 3c05596e16edc5243b8a97002a5cc5990c69ec43
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2b7d00335253772683b867acf0765b77fc493e79
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90943205"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94523933"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, é preciso:
@@ -85,7 +85,7 @@ chat_client = ChatClient(endpoint, CommunicationUserCredential(<Access Token>))
 Use o método `create_chat_thread` para criar uma conversa de chat.
 
 - Use `topic` para fornecer um tópico a essa conversa; o tópico pode ser atualizado depois que a conversa de chat é criada por meio da função `update_thread`.
-- Use `members` para listar o `ChatThreadMember` a ser adicionado à conversa de chat; o `ChatThreadMember` usa o tipo `CommunicationUser` como `user`, que você obteve após a criação por meio de [Criar um usuário](../../access-tokens.md#create-a-user)
+- Use `members` para listar o `ChatThreadMember` a ser adicionado à conversa de chat; o `ChatThreadMember` usa o tipo `CommunicationUser` como `user`, que você obteve após a criação por meio de [Criar um usuário](../../access-tokens.md#create-an-identity)
 
 A resposta `chat_thread_client` é usada para executar operações na conversa de chat recém-criada, como adicionar membros a ela, enviar mensagens, excluir mensagens etc. Ela contém uma propriedade `thread_id`, que é a ID exclusiva da conversa de chat.
 
@@ -158,7 +158,7 @@ Depois que uma conversa de chat é criada, você pode adicionar e remover usuár
 Use o método `add_members` para adicionar membros de conversa à conversa identificada por threadId.
 
 - Use `members` para listar os membros a serem adicionados à conversa de chat;
-- `user`, obrigatório, é o `CommunicationUser` que você criou pelo `CommunicationIdentityClient` em [Criar um usuário](../../access-tokens.md#create-a-user)
+- `user`, obrigatório, é o `CommunicationUser` que você criou pelo `CommunicationIdentityClient` em [Criar um usuário](../../access-tokens.md#create-an-identity)
 - `display_name`, opcional, é o nome de exibição do membro da conversa.
 - `share_history_time`, opcional, é a hora a partir da qual o histórico de chats é compartilhado com o membro. Para compartilhar o histórico desde o início da conversa de chat, defina essa propriedade como qualquer data igual ou inferior à hora de criação da conversa. Para não compartilhar nenhum histórico anterior ao momento em que o membro foi adicionado, defina-a como a data atual. Para compartilhar o histórico parcial, defina-a como uma data intermediária.
 

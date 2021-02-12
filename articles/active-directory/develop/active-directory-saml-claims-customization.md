@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/22/2019
+ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 90efdd560735a112c2a4c5eb5740f211b587a241
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0ded249a55e5a59bdcad7407694cbd5ed4cf2352
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275753"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756067"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como personalizar declarações emitidas no token SAML para aplicativos empresariais
 
-Atualmente, a plataforma de identidade da Microsoft dá suporte ao SSO (logon único) com a maioria dos aplicativos corporativos, incluindo os aplicativos previamente integrados na Galeria de aplicativos do Azure AD, bem como os personalizados. Quando um usuário é autenticado em um aplicativo por meio da plataforma Microsoft Identity usando o protocolo SAML 2,0, a plataforma de identidade da Microsoft envia um token para o aplicativo (por meio de um HTTP POST). Em seguida, o aplicativo é validado e usa o token para conectar o usuário em vez de solicitar um nome de usuário e a senha. Esses tokens SAML contêm partes de informações sobre o usuário conhecidas como *declarações*.
+Atualmente, a plataforma de identidade da Microsoft dá suporte ao SSO (logon único) com a maioria dos aplicativos empresariais, incluindo os aplicativos previamente integrados na Galeria de aplicativos do Azure AD, bem como os personalizados. Quando um usuário é autenticado em um aplicativo por meio da plataforma Microsoft Identity usando o protocolo SAML 2,0, a plataforma de identidade da Microsoft envia um token para o aplicativo (por meio de um HTTP POST). Em seguida, o aplicativo é validado e usa o token para conectar o usuário em vez de solicitar um nome de usuário e a senha. Esses tokens SAML contêm partes de informações sobre o usuário conhecidas como *declarações*.
 
 Uma *declaração* são informações que um provedor de identidade declara sobre um usuário dentro do token que emite para esse usuário. No [Token SAML](https://en.wikipedia.org/wiki/SAML_2.0), esses dados normalmente estão contidos na Instrução de Atributo SAML. A ID única do usuário é normalmente representada na SAML Subject, também denominada Identificador de Nome.
 
@@ -60,7 +60,6 @@ Na lista suspensa **Escolha o formato do identificador de nome**, você pode sel
 | **Persistente** | A plataforma de identidade da Microsoft usará persistente como o formato NameID. |
 | **EmailAddress** | A plataforma de identidade da Microsoft usará EmailAddress como o formato NameID. |
 | **Não especificado** | A plataforma de identidade da Microsoft usará não especificado como o formato NameID. |
-| **Nome qualificado de domínio do Windows** | A plataforma de identidade da Microsoft usará WindowsDomainQualifiedName como o formato NameID. |
 
 O NameID transitório também é compatível, mas não está disponível na lista suspensa e não pode ser configurado no lado do Azure. Para saber mais sobre o atributo NameIDPolicy, confira [Protocolo SAML de logon único](single-sign-on-saml-protocol.md).
 
@@ -82,7 +81,7 @@ Para obter mais informações, confira a [Tabela 3: valores de ID válidos por o
 
 Você também pode atribuir qualquer valor constante (estático) a qualquer declaração que você definir no Azure AD. Siga as etapas abaixo para atribuir um valor constante:
 
-1. No [portal do Azure](https://portal.azure.com/), na seção **Declarações e Atributos do Usuário**, clique no ícone **Editar** para editar as declarações.
+1. Na <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span></a>, na seção **atributos de usuário & declarações** , clique no ícone **Editar** para editar as declarações.
 
 1. Clique na declaração necessária que você deseja modificar.
 
@@ -136,7 +135,7 @@ Para aplicar uma transformação a um atributo de usuário:
 | **StartWith()** | Gera um atributo ou constante se a entrada começa com o valor especificado. Caso contrário, você poderá especificar outra saída se não houver correspondência.<br/>Por exemplo, se você quiser emitir uma declaração em que o valor será a ID de funcionário do usuário quando o país/região começar com "EUA", mas quiser gerar um atributo de extensão quando o início do país/região for diferente. Para fazer isso, você configuraria os seguintes valores:<br/>*Parâmetro 1 (entrada)* : user.country<br/>*Valor*: "EUA"<br/>Parâmetro 2 (saída): user.employeeid<br/>Parâmetro 3 (saída se não houver correspondência): user.extensionattribute1 |
 | **Extract() – Após a correspondência** | Retorna a substring após ela corresponder ao valor especificado.<br/>Por exemplo, se o valor da entrada for "Finance_BFernandes", o valor correspondente será "Finance_", então a saída da declaração será "BFernandes". |
 | **Extract() – Antes da correspondência** | Retorna a substring até ela corresponder ao valor especificado.<br/>Por exemplo, se o valor da entrada for "BFernandes_EUA", o valor correspondente será "_EUA", então a saída da declaração será "BFernandes". |
-| **Extract() – Entre a correspondência** | Retorna a substring até ela corresponder ao valor especificado.<br/>Por exemplo, se o valor da entrada for "Finance_BFernandes_EUA", o primeiro valor correspondente será "Finance_", o segundo valor correspondente será "_EUA", então a saída da declaração será "BFernandes". |
+| **Extract() – Entre a correspondência** | Retorna a substring até ela corresponder ao valor especificado.<br/>Por exemplo, se o valor da entrada for "Finance_BSimon_US", o primeiro valor correspondente é "Finance \_ ", o segundo valor correspondente é " \_ US", então a saída da declaração é "BSimon". |
 | **ExtractAlpha() – Prefixo** | Retorna a parte alfabética do prefixo da cadeia de caracteres.<br/>Por exemplo, se o valor da entrada for "BFernandes_123", ele retornará "BFernandes". |
 | **ExtractAlpha() – Sufixo** | Retorna a parte alfabética do sufixo da cadeia de caracteres.<br/>Por exemplo, se o valor da entrada for "123_Fernandes", ele retornará "Fernandes". |
 | **ExtractNumeric() – Prefixo** | Retorna a parte numérica do prefixo da cadeia de caracteres.<br/>Por exemplo, se o valor da entrada for "123_BFernandes", ele retornará "123". |
@@ -178,5 +177,5 @@ Primeiro, a plataforma de identidade da Microsoft verifica se o tipo de usuário
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Gerenciamento de aplicativos no Azure AD](../manage-apps/what-is-application-management.md)
-* [Configurar logon único para aplicativos que não estão na galeria de aplicativos do Azure AD](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [Solução de problemas de logon único baseado em SAML](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+* [Configurar logon único para aplicativos que não estão na galeria de aplicativos do Azure AD](../manage-apps/configure-saml-single-sign-on.md)
+* [Solução de problemas de logon único baseado em SAML](../manage-apps/debug-saml-sso-issues.md)

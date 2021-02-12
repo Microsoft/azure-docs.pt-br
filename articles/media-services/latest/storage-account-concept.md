@@ -1,24 +1,9 @@
 ---
-title: Contas de armazenamento do Azure
-titleSuffix: Azure Media Services
-description: Saiba como criar uma conta de armazenamento do Azure para usar com os serviços de mídia do Azure.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: conceptual
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.openlocfilehash: f37b453a294a0d0a7b9a99bfebe8f3eff09e8956
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89291187"
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Campos obrigatórios. Veja mais em aka.ms/skyeye/meta.
+Título: contas de armazenamento do Azure: descrição dos serviços de mídia do Azure: saiba como criar uma conta de armazenamento do Azure para usar com os serviços de mídia do Azure.
+serviços: Media-Services documentationcenter: ' ' autor: IngridAtMicrosoft gerente: femila editor: ' ' MS. Service: Media-Services MS. Workload: MS. tópico: conceptual MS. Date: 01/29/2021 MS. Author: inhenkel
 ---
+
 # <a name="azure-storage-accounts"></a>Contas de armazenamento do Azure
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
@@ -34,7 +19,7 @@ Recomendamos que você use o GPv2, para que você possa aproveitar os recursos e
 > [!NOTE]
 > Somente a camada de acesso quente tem suporte para uso com os serviços de mídia do Azure, embora as outras camadas de acesso possam ser usadas para reduzir os custos de armazenamento no conteúdo que não está sendo usado ativamente.
 
-Há SKUs diferentes que você pode escolher para sua conta de armazenamento. Para obter mais informações, confira [Contas de armazenamento](/cli/azure/storage/account?view=azure-cli-latest). Caso deseje fazer experimentos com contas de armazenamento, use `--sku Standard_LRS`. No entanto, ao escolher uma SKU para produção, você deve considerar `--sku Standard_RAGRS` , que fornece replicação geográfica para continuidade dos negócios.
+Há SKUs diferentes que você pode escolher para sua conta de armazenamento. Caso deseje fazer experimentos com contas de armazenamento, use `--sku Standard_LRS`. No entanto, ao escolher uma SKU para produção, você deve considerar `--sku Standard_RAGRS` , que fornece replicação geográfica para continuidade dos negócios.
 
 ## <a name="assets-in-a-storage-account"></a>Ativos em uma conta de armazenamento
 
@@ -49,11 +34,15 @@ Para proteger seus ativos em repouso, os ativos devem ser criptografados pela cr
 
 |Opção de criptografia|Descrição|Serviços de Mídia v3|
 |---|---|---|
-|Criptografia de armazenamento dos serviços de mídia| Criptografia AES-256, chave gerenciada pelos serviços de mídia. |Sem suporte. <sup>(1)</sup>|
+|Criptografia de armazenamento dos serviços de mídia| Criptografia AES-256, chave gerenciada pelos serviços de mídia. |Sem suporte. <sup>1</sup>|
 |[Criptografia do serviço de armazenamento para dados em repouso](../../storage/common/storage-service-encryption.md)|Criptografia do lado do servidor oferecida pelo armazenamento do Azure, chave gerenciada pelo Azure ou por cliente.|Com suporte.|
 |[Criptografia do lado do cliente de armazenamento](../../storage/common/storage-client-side-encryption.md)|Criptografia do lado do cliente oferecida pelo armazenamento do Azure, chave gerenciada por cliente no Key Vault.|Não há suporte.|
 
 <sup>1</sup> no Media Services V3, a criptografia de armazenamento (criptografia AES-256) tem suporte apenas para compatibilidade com versões anteriores quando seus ativos foram criados com os serviços de mídia v2, o que significa que o V3 funciona com ativos criptografados de armazenamento existentes, mas não permitirá a criação de novos.
+
+## <a name="storage-account-double-encryption"></a>Criptografia dupla da conta de armazenamento
+
+As contas de armazenamento dão suporte à criptografia dupla, mas a segunda camada deve ser habilitada explicitamente. Consulte [criptografia de armazenamento do Azure para dados em repouso](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#doubly-encrypt-data-with-infrastructure-encryption).  
 
 ## <a name="storage-account-errors"></a>Erros de conta de armazenamento
 
@@ -65,10 +54,6 @@ Veja a seguir os principais cenários que fariam com que a conta de Serviços de
 |---|---|
 |A conta de Serviços de Mídia ou as contas de armazenamento anexadas foram migradas para assinaturas separadas. |Migre as contas de armazenamento ou a conta de serviços de mídia para que elas estejam todas na mesma assinatura. |
 |A conta de Serviços de Mídia está usando uma conta de armazenamento anexada em uma assinatura diferente, já que ela era uma conta Serviços de Mídia inicial compatível com este cenário. Todas as contas de serviços de mídia anteriores foram convertidas em contas baseadas no Gerenciador de recursos do Azure modernas e terão um estado desconectado. |Migrar a conta de armazenamento ou a conta dos serviços de mídia para que elas estejam todas na mesma assinatura.|
-
-## <a name="azure-storage-firewall"></a>Firewall do armazenamento do Azure
-
-Os serviços de mídia do Azure não dão suporte a contas de armazenamento com o Firewall do armazenamento do Azure ou [pontos de extremidade privados](../../storage/common/storage-network-security.md) habilitados.
 
 ## <a name="next-steps"></a>Próximas etapas
 

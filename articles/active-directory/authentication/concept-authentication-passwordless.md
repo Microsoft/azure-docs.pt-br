@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b308b47ff813237bdf90637334f20ac6b5490a19
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: e1b82dbe169e01b68e7d4b8a4c243cb72d3a3e8b
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992824"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012998"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opções de autenticação com senha para Azure Active Directory
 
@@ -62,7 +62,7 @@ Você também pode permitir que o telefone de seu funcionário se torne um méto
 
 O aplicativo autenticador transforma qualquer telefone iOS ou Android em uma credencial forte e com senha. Os usuários podem entrar em qualquer plataforma ou navegador, obtendo uma notificação para seu telefone, correspondendo a um número exibido na tela para aquele em seu telefone e, em seguida, usando sua biométrica (toque ou face) ou PIN para confirmar. Consulte [baixar e instalar o aplicativo Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md) para obter detalhes de instalação.
 
-A entrada sem senha com o aplicativo Microsoft Authenticator para o Azure AD está atualmente em versão prévia. Uso do aplicativo Microsoft Authenticator para autenticação secundária para autenticação multifator do Azure, redefinição de senha de autoatendimento (SSPR) ou tokens de software OATH é GA. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+A entrada sem senha com o aplicativo Microsoft Authenticator para o Azure AD está atualmente em versão prévia. Uso do aplicativo Microsoft Authenticator para autenticação secundária para autenticação multifator do Azure AD, redefinição de senha de autoatendimento (SSPR) ou tokens de software OATH é GA. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 A autenticação com senha usando o aplicativo autenticador segue o mesmo padrão básico do Windows Hello para empresas. É um pouco mais complicado, pois o usuário precisa ser identificado para que o Azure AD possa encontrar a versão do aplicativo Microsoft Authenticator que está sendo usada:
 
@@ -135,7 +135,12 @@ Os provedores a seguir oferecem chaves de segurança FIDO2 de fatores forma dife
 | AuthenTrend | [https://authentrend.com/about-us/#pg-35-3](https://authentrend.com/about-us/#pg-35-3) |
 | Gemalto (grupo Thales) | [https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/](https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/) |
 | OneSpan Inc. | [https://www.onespan.com/products/fido](https://www.onespan.com/products/fido) |
-| IDmelon Technologies Inc. | [https://www.idmelon.com/#idmelon](https://www.idmelon.com/#idmelon) | 
+| IDmelon Technologies Inc. | [https://www.idmelon.com/#idmelon](https://www.idmelon.com/#idmelon) |
+| Hypersecu | [https://www.hypersecu.com/hyperfido](https://www.hypersecu.com/hyperfido) |
+| VinCSS | [https://passwordless.vincss.net](https://passwordless.vincss.net) |
+| KONA I | [https://konai.com/business/security/fido](https://konai.com/business/security/fido) |
+| Excelsecu | [https://www.excelsecu.com/productdetail/esecufido2secu.html](https://www.excelsecu.com/productdetail/esecufido2secu.html) |
+| Token2 Suíça | [https://www.token2.swiss/shop/product/token2-t2f2-alu-fido2-u2f-and-totp-security-key](https://www.token2.swiss/shop/product/token2-t2f2-alu-fido2-u2f-and-totp-security-key) |
 
 > [!NOTE]
 > Se você comprar e planejar usar chaves de segurança baseadas em NFC, precisará de um leitor de NFC com suporte para a chave de segurança. O leitor NFC não é um requisito ou limitação do Azure. Consulte o fornecedor da sua chave de segurança baseada em NFC para obter uma lista de leitores NFC com suporte.

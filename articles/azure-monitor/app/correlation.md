@@ -7,12 +7,12 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 5d8adea95708f4c7bbe3e7113c3e39e0484159ee
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 50b858d0bf05aa46ea20a6cf9e088376be2996e3
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018042"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693419"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria no Application Insights
 
@@ -79,7 +79,6 @@ Os modelos de dados do [W3C Trace-Context](https://w3c.github.io/trace-context/)
 | `Operation_Id`                         | [ID do rastreamento](https://w3c.github.io/trace-context/#trace-id)                                           |
 | `Operation_ParentId`                   | [ID pai](https://w3c.github.io/trace-context/#parent-id) da extensão pai deste span. Se esse for um Span raiz, esse campo deverá estar vazio.     |
 
-
 Para obter mais informações, consulte [Application insights modelo de dados de telemetria](../../azure-monitor/app/data-model.md).
 
 ### <a name="enable-w3c-distributed-tracing-support-for-net-apps"></a>Habilitar o suporte ao rastreamento distribuído W3C para aplicativos .NET
@@ -103,7 +102,7 @@ O rastreamento distribuído baseado em W3C de TraceContext é habilitado por pad
        <Param name ="enableW3CBackCompat" value = "true" />
     </Add>
     ```
-    
+
   - Para aplicativos Spring boot, adicione estas propriedades:
 
     - `azure.application-insights.web.enable-W3C=true`
@@ -139,7 +138,7 @@ Adicione a seguinte configuração:
   ```JavaScript
     distributedTracingMode: DistributedTracingModes.W3C
   ```
-  
+
 - **[Configuração baseada em trecho](./javascript.md#snippet-based-setup)**
 
 Adicione a seguinte configuração:
@@ -147,7 +146,7 @@ Adicione a seguinte configuração:
       distributedTracingMode: 2 // DistributedTracingModes.W3C
   ```
 > [!IMPORTANT] 
-> Para ver todas as configurações necessárias para habilitar a correlação, consulte a [documentação de correlação do JavaScript](/azure/azure-monitor/app/javascript#enable-correlation).
+> Para ver todas as configurações necessárias para habilitar a correlação, consulte a [documentação de correlação do JavaScript](./javascript.md#enable-correlation).
 
 ## <a name="telemetry-correlation-in-opencensus-python"></a>Correlação de telemetria no OpenCensus Python
 
@@ -235,6 +234,54 @@ Observe que há um `spanId` presente para a mensagem de log que está dentro do 
 
 Você pode exportar os dados de log usando o `AzureLogHandler` . Para obter mais informações, consulte [este artigo](./opencensus-python.md#logs).
 
+Também podemos passar informações de rastreamento de um componente para outro para uma correlação adequada. Por exemplo, considere um cenário em que há dois componentes `module1` e `module2` . O Module1 chama funções no Module2 e para obter logs de `module1` e para `module2` um único rastreamento, podemos usar a seguinte abordagem:
+
+```python
+# module1.py
+import logging
+
+from opencensus.trace import config_integration
+from opencensus.trace.samplers import AlwaysOnSampler
+from opencensus.trace.tracer import Tracer
+from module2 import function_1
+
+config_integration.trace_integrations(['logging'])
+logging.basicConfig(format='%(asctime)s traceId=%(traceId)s spanId=%(spanId)s %(message)s')
+tracer = Tracer(sampler=AlwaysOnSampler())
+
+logger = logging.getLogger(__name__)
+logger.warning('Before the span')
+with tracer.span(name='hello'):
+   logger.warning('In the span')
+   function_1(tracer)
+logger.warning('After the span')
+
+
+# module2.py
+
+import logging
+
+from opencensus.trace import config_integration
+from opencensus.trace.samplers import AlwaysOnSampler
+from opencensus.trace.tracer import Tracer
+
+config_integration.trace_integrations(['logging'])
+logging.basicConfig(format='%(asctime)s traceId=%(traceId)s spanId=%(spanId)s %(message)s')
+tracer = Tracer(sampler=AlwaysOnSampler())
+
+def function_1(parent_tracer=None):
+    if parent_tracer is not None:
+        tracer = Tracer(
+                    span_context=parent_tracer.span_context,
+                    sampler=AlwaysOnSampler(),
+                )
+    else:
+        tracer = Tracer(sampler=AlwaysOnSampler())
+
+    with tracer.span("function_1"):
+        logger.info("In function_1")
+```
+
 ## <a name="telemetry-correlation-in-net"></a>Correlação de telemetria em .NET
 
 O tempo de execução do .NET oferece suporte distribuído com a ajuda da [atividade](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) e do [diagnóstico](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md)
@@ -260,10 +307,8 @@ Talvez você queira personalizar a maneira como os nomes de componentes são exi
 
     ```json
     {
-      "instrumentationSettings": {
-        "preview": {
-          "roleName": "my cloud role name"
-        }
+      "role": {
+        "name": "my cloud role name"
       }
     }
     ```

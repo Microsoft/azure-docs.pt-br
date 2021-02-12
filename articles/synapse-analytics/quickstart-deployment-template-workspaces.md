@@ -1,6 +1,6 @@
 ---
 title: 'Início Rápido: Criar um workspace do Azure Synapse com um modelo do Azure Resource Manager'
-description: Saiba como criar um workspace do Synapse usando um modelo do Azure Resource Manager.
+description: Saiba como criar um workspace do Synapse usando um modelo do Azure Resource Manager (Modelo do ARM).
 services: azure-resource-manager
 author: julieMSFT
 ms.service: azure-resource-manager
@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: jrasnick
 ms.date: 08/07/2020
-ms.openlocfilehash: 6ae5c4f20cc42ee3865726973a81e2ba90aeaf33
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 2b05220081dde4db6f07f21fb9978d9e466235ca
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093830"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740369"
 ---
-# <a name="quickstart-create-an-azure-synapse-workspace-using-a-deployment-template"></a>Início Rápido: Criar um workspace do Azure Synapse usando um modelo de implantação
+# <a name="quickstart-create-an-azure-synapse-workspace-using-an-arm-template"></a>Início Rápido: Criar um workspace do Azure Synapse usando um modelo do ARM
 
 Este modelo do ARM (Azure Resource Manager) criará um workspace do Azure Synapse com o Data Lake Storage subjacente. O workspace do Azure Synapse é um limite de colaboração protegível para processos de análise no Azure Synapse Analytics.
 
@@ -31,7 +31,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="review-the-template"></a>Examinar o modelo
 
-Examine o modelo selecionando o link **Visualizar** da seguinte maneira:
+É possível examinar o modelo selecionando o link **Visualizar**. Depois selecione **Editar modelo**.
 
 [![Visualizar](../media/template-deployments/template-visualize-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FSynapse%2Fmaster%2FManage%2FDeployWorkspace%2Fazuredeploy.json)
 
@@ -43,25 +43,25 @@ O modelo define dois recursos:
 ## <a name="deploy-the-template"></a>Implantar o modelo
 
 1. Selecione a imagem a seguir para entrar no Azure e abrir o modelo. Este modelo cria um workspace do Synapse.
-   
+
    [![Implantar no Azure 2](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FSynapse%2Fmaster%2FManage%2FDeployWorkspace%2Fazuredeploy.json)
 
 1. Insira ou atualize os seguintes valores:
 
-   * **Assinatura**: Selecione uma assinatura do Azure.
-   * **Grupo de recursos**: Selecione **Criar** e insira um nome exclusivo para o grupo de recursos e selecione **OK**. Um novo grupo de recursos facilitará a limpeza de recursos.
-   * **Região**: Selecione uma região.  Por exemplo, **Centro dos EUA**.
-   * **Name**: insira um nome para o workspace.
-   * **Logon de Administrador**: insira o nome de usuário do administrador do SQL Server.
-   * **Senha do administrador do SQL**: insira a senha de administrador para o SQL Server.
-   * **Valores das Marcas**: Aceite o padrão. 
-   * **Examinar e criar**: selecione.
-   * **Criar**: selecione.
+   - **Assinatura** : Selecione uma assinatura do Azure.
+   - **Grupo de recursos** : Selecione **Criar** e insira um nome exclusivo para o grupo de recursos e selecione **OK**. Um novo grupo de recursos facilitará a limpeza de recursos.
+   - **Região** : Selecione uma região.  Por exemplo, **Centro dos EUA**.
+   - **Name** : insira um nome para o workspace.
+   - **Logon de Administrador** : insira o nome de usuário do administrador do SQL Server.
+   - **Senha do administrador do SQL** : insira a senha de administrador para o SQL Server.
+   - **Valores das Marcas** : Aceite o padrão.
+   - **Examinar e criar** : selecione.
+   - **Criar** : selecione.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre o Azure Synapse Analytics e o Azure Resource Manager, continue com os artigos abaixo.
 
-- Leia uma [Visão geral do Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 
+- Leia uma [Visão geral do Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 - Saiba mais sobre o [Azure Resource Manager](../azure-resource-manager/management/overview.md)
 - [Criar e implantar seu primeiro modelo do ARM](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

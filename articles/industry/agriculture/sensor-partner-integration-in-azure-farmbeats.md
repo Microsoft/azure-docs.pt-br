@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: ef74c4b799c3a24636f88a8e704bf726104b034f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674319"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001585"
 ---
 # <a name="sensor-partner-integration"></a>Integração com parceiros de sensor
 
@@ -126,12 +126,12 @@ O JSON é um formato de dados comum independente de linguagem que fornece uma re
 
 O FarmBeats Datahub tem as seguintes APIs que permitem aos parceiros de dispositivo criar e gerenciar metadados de dispositivo ou sensor.
 
-- /**DeviceModel** : DeviceModel corresponde aos metadados do dispositivo, como o fabricante e o tipo de dispositivo, seja gateway ou nó.
-- /**Device** : Device corresponde a um dispositivo físico presente no farm.
-- /**SensorModel** : SensorModel corresponde aos metadados do sensor, como o fabricante, o tipo de sensor, seja analógico ou digital, e a medida do sensor, como temperatura ambiente e pressão.
-- /**Sensor** : Sensor corresponde a um sensor físico que registra valores. Um sensor geralmente está conectado a um dispositivo com uma ID de dispositivo.
+- /**DeviceModel**: DeviceModel corresponde aos metadados do dispositivo, como o fabricante e o tipo de dispositivo, seja gateway ou nó.
+- /**Device**: Device corresponde a um dispositivo físico presente no farm.
+- /**SensorModel**: SensorModel corresponde aos metadados do sensor, como o fabricante, o tipo de sensor, seja analógico ou digital, e a medida do sensor, como temperatura ambiente e pressão.
+- /**Sensor**: Sensor corresponde a um sensor físico que registra valores. Um sensor geralmente está conectado a um dispositivo com uma ID de dispositivo.
 
-  DeviceModel | Descrição |
+  DeviceModel | Description |
   --- | ---
   Tipo (nó, gateway)  | Tipo de dispositivo: nó ou gateway |
   Fabricante  | Nome do fabricante |
@@ -324,7 +324,7 @@ Os parceiros de dispositivo podem permitir que os clientes editem as configuraç
 
 ## <a name="view-the-last-telemetry-sent"></a>Exibir a última telemetria enviada
 
-Os parceiros de dispositivo podem permitir que os clientes visualizem o carimbo de data/hora da última telemetria enviada, encontrada em **Telemetria Enviada** . Esta é a hora em que a telemetria mais recente foi enviada com sucesso para o FarmBeats.
+Os parceiros de dispositivo podem permitir que os clientes visualizem o carimbo de data/hora da última telemetria enviada, encontrada em **Telemetria Enviada**. Esta é a hora em que a telemetria mais recente foi enviada com sucesso para o FarmBeats.
 
 ## <a name="troubleshooting-and-error-management"></a>Solução de problemas e gerenciamento de erros
 

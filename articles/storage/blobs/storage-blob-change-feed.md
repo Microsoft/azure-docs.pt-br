@@ -3,27 +3,33 @@ title: Alterar feed no armazenamento de BLOBs do Azure | Microsoft Docs
 description: Saiba mais sobre os logs do feed de alterações no armazenamento de BLOBs do Azure e como usá-los.
 author: normesta
 ms.author: normesta
-ms.date: 09/08/2020
+ms.date: 02/08/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 105978daeb93a2e5646222ff10055ba20a1dc481
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 9a439541880cc8e20457edc8d24c5600ba2747c8
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172909"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979208"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Suporte ao feed de alterações no armazenamento de BLOBs do Azure
 
-A finalidade do feed de alterações é fornecer logs de transação de todas as alterações que ocorrem nos BLOBs e nos metadados de BLOB em sua conta de armazenamento. O feed de alterações fornece o log **ordenado**, **garantido**, **durável**, **imutável**e **somente leitura** dessas alterações. Os aplicativos cliente podem ler esses logs a qualquer momento, seja no streaming ou no modo de lote. O feed de alterações permite que você crie soluções eficientes e escalonáveis que processam eventos de alteração que ocorrem em sua conta de armazenamento de BLOBs a um custo baixo.
+A finalidade do feed de alterações é fornecer logs de transação de todas as alterações que ocorrem nos BLOBs e nos metadados de BLOB em sua conta de armazenamento. O feed de alterações fornece o log **ordenado**, **garantido**, **durável**, **imutável** e **somente leitura** dessas alterações. Os aplicativos cliente podem ler esses logs a qualquer momento, seja no streaming ou no modo de lote. O feed de alterações permite que você crie soluções eficientes e escalonáveis que processam eventos de alteração que ocorrem em sua conta de armazenamento de BLOBs a um custo baixo.
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
-O feed de alterações é armazenado como [BLOBs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) em um contêiner especial em sua conta de armazenamento em custo de [preço de blob](https://azure.microsoft.com/pricing/details/storage/blobs/) padrão. Você pode controlar o período de retenção desses arquivos com base em seus requisitos (consulte as [condições](#conditions) da versão atual). Os eventos de alteração são anexados ao feed de alterações como registros na especificação de formato [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) : um formato compacto, rápido e binário que fornece estruturas de dados avançadas com esquema embutido. Esse formato é amplamente usado no ecossistema do Hadoop, pelo Stream Analytics e pelo Azure Data Factory.
+## <a name="how-the-change-feed-works"></a>Como o feed de alterações funciona
+
+O feed de alterações é armazenado como [BLOBs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) em um contêiner especial em sua conta de armazenamento em custo de [preço de blob](https://azure.microsoft.com/pricing/details/storage/blobs/) padrão. Você pode controlar o período de retenção desses arquivos com base em seus requisitos (consulte as [condições](#conditions) da versão atual). Os eventos de alteração são anexados ao feed de alterações como registros na especificação de formato [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) : um formato compacto, rápido e binário que fornece estruturas de dados avançadas com esquema embutido. Esse formato é amplamente usado no ecossistema do Hadoop, pelo Stream Analytics e pelo Azure Data Factory.
 
 Você pode processar esses logs de forma assíncrona, incremental ou completa. Qualquer número de aplicativos cliente pode ler de forma independente o feed de alterações, em paralelo e em seu próprio ritmo. Aplicativos de análise, como [Apache Drill](https://drill.apache.org/docs/querying-avro-files/) ou [Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html) , podem consumir logs diretamente como arquivos Avro, o que permite processá-los a um baixo custo, com alta largura de banda e sem precisar escrever um aplicativo personalizado.
+
+O diagrama a seguir mostra como os registros são adicionados ao feed de alterações:
+
+:::image type="content" source="media/storage-blob-change-feed/change-feed-diagram.png" alt-text="Diagrama mostrando como o feed de alterações funciona para fornecer um log ordenado de alterações em BLOBs":::
 
 O suporte ao feed de alterações é bem adequado para cenários que processam dados com base em objetos que foram alterados. Por exemplo, os aplicativos podem:
 
@@ -105,7 +111,7 @@ Use um modelo de Azure Resource Manager para habilitar o feed de alterações em
 
 1. Na portal do Azure, escolha **criar um recurso**.
 
-2. Em **Pesquisar no Marketplace**, digite **implantação de modelo**e pressione **Enter**.
+2. Em **Pesquisar no Marketplace**, digite **implantação de modelo** e pressione **Enter**.
 
 3. Escolha **[implantar um modelo personalizado](https://portal.azure.com/#create/Microsoft.Template)** e, em seguida, escolha **criar seu próprio modelo no editor**.
 
@@ -206,7 +212,7 @@ O arquivo de manifesto de segmento ( `meta.json` ) mostra o caminho dos arquivos
 
 Os arquivos do feed de alterações contêm uma série de registros de eventos de alteração. Cada registro de evento de alteração corresponde a uma alteração em um blob individual. Os registros são serializados e gravados no arquivo usando a especificação de formato [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) . Os registros podem ser lidos usando a especificação de formato de arquivo Avro. Há várias bibliotecas disponíveis para processar arquivos nesse formato.
 
-Os arquivos do feed de alterações são armazenados no `$blobchangefeed/log/` diretório virtual como [blobs de acréscimo](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs). O primeiro arquivo de feed de alteração em cada caminho terá `00000` o nome do arquivo (por exemplo `00000.avro` ). O nome de cada arquivo de log subsequente adicionado a esse caminho será incrementado em 1 (por exemplo: `00001.avro` ).
+Os arquivos do feed de alterações são armazenados no `$blobchangefeed/log/` diretório virtual como [blobs de acréscimo](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs). O primeiro arquivo de feed de alteração em cada caminho terá `00000` o nome do arquivo (por exemplo `00000.avro` ). O nome de cada arquivo de log subsequente adicionado a esse caminho será incrementado em 1 (por exemplo: `00001.avro` ).
 
 Os seguintes tipos de evento são capturados nos registros do feed de alterações:
 - BlobCreated
@@ -243,7 +249,7 @@ Aqui está um exemplo de registro de evento de alteração do arquivo do feed de
 }
 ```
 
-Para obter uma descrição de cada propriedade, consulte [esquema de evento da grade de eventos do Azure para armazenamento de BLOBs](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties). Os eventos BlobPropertiesUpdated e BlobSnapshotCreated são atualmente exclusivos para o feed de alterações e ainda não têm suporte para eventos de armazenamento de BLOBs.
+Para obter uma descrição de cada propriedade, consulte [esquema de evento da grade de eventos do Azure para armazenamento de BLOBs](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties). Os eventos BlobPropertiesUpdated e BlobSnapshotCreated são atualmente exclusivos para o feed de alterações e ainda não têm suporte para eventos de armazenamento de BLOBs.
 
 > [!NOTE]
 > Os arquivos do feed de alterações de um segmento não aparecem imediatamente depois que um segmento é criado. O comprimento do atraso está dentro do intervalo normal de latência de publicação do feed de alterações, que está dentro de alguns minutos da alteração.

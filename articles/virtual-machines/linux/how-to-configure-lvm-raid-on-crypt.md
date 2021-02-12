@@ -7,13 +7,13 @@ ms.subservice: security
 ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
-ms.custom: seodec18
-ms.openlocfilehash: c8ffe78e885eedd84c4cf6948954a7d3477a5cff
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 3f90d5a95d153405f9257258fba6ab9cc1ce9a35
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911810"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681295"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>Configurar o LVM e o RAID em dispositivos criptografados
 
@@ -77,7 +77,7 @@ New-AzVm -ResourceGroupName ${RGNAME} `
 ```
 CLI do Azure:
 
-```bash
+```azurecli
 az vm create \
 -n ${VMNAME} \
 -g ${RGNAME} \
@@ -105,7 +105,7 @@ Update-AzVM -VM ${VM} -ResourceGroupName ${RGNAME}
 
 CLI do Azure:
 
-```bash
+```azurecli
 az vm disk attach \
 -g ${RGNAME} \
 --vm-name ${VMNAME} \
@@ -125,7 +125,7 @@ $VM.StorageProfile.DataDisks | Select-Object Lun,Name,DiskSizeGB
 
 CLI do Azure:
 
-```bash
+```azurecli
 az vm show -g ${RGNAME} -n ${VMNAME} --query storageProfile.dataDisks -o table
 ```
 ![Lista de discos anexados no CLI do Azure](./media/disk-encryption/lvm-raid-on-crypt/002-lvm-raid-check-disks-cli.png)
@@ -207,7 +207,7 @@ Set-AzVMDiskEncryptionExtension -ResourceGroupName $RGNAME `
 
 CLI do Azure usando um KEK:
 
-```bash
+```azurecli
 az vm encryption enable \
 --resource-group ${RGNAME} \
 --name ${VMNAME} \
@@ -231,7 +231,7 @@ Get-AzVmDiskEncryptionStatus -ResourceGroupName ${RGNAME} -VMName ${VMNAME}
 
 CLI do Azure:
 
-```bash
+```azurecli
 az vm encryption show -n ${VMNAME} -g ${RGNAME} -o table
 ```
 ![Status de criptografia no CLI do Azure](./media/disk-encryption/lvm-raid-on-crypt/009-lvm-raid-verify-encryption-status-cli.png)
@@ -298,7 +298,7 @@ echo "y" | pvcreate /dev/mapper/4159c60a-a546-455b-985f-92865d51158c
 ![Verificação de que um volume físico foi criado](./media/disk-encryption/lvm-raid-on-crypt/014-lvm-raid-pvcreate.png)
 
 >[!NOTE] 
->Os nomes de/dev/mapper/Device aqui precisam ser substituídos para seus valores reais com base na saída de **lsblk** .
+>Os nomes de/dev/mapper/Device aqui precisam ser substituídos para seus valores reais com base na saída de **lsblk**.
 
 #### <a name="verify-the-information-for-physical-volumes"></a>Verificar as informações de volumes físicos
 ```bash
@@ -370,7 +370,7 @@ df -h
 ```
 ![Captura de tela mostra uma janela de console com sistemas de arquivos montados como data0 e Data1.](./media/disk-encryption/lvm-raid-on-crypt/018-lvm-raid-lsblk-after-lvm.png)
 
-Nessa variação de **lsblk** , estamos listando os dispositivos que mostram as dependências na ordem inversa. Essa opção ajuda a identificar os dispositivos agrupados pelo volume lógico em vez dos nomes de dispositivo/dev/sd [disco] originais.
+Nessa variação de **lsblk**, estamos listando os dispositivos que mostram as dependências na ordem inversa. Essa opção ajuda a identificar os dispositivos agrupados pelo volume lógico em vez dos nomes de dispositivo/dev/sd [disco] originais.
 
 É importante garantir que a opção **nofail** seja adicionada às opções de ponto de montagem dos volumes LVM criados na parte superior de um dispositivo criptografado por meio de Azure Disk Encryption. Isso impede que o sistema operacional fique preso durante o processo de inicialização (ou no modo de manutenção).
 
@@ -406,7 +406,7 @@ mdadm --create /dev/md10 \
 ![Informações para o RAID configurado por meio do comando mdadm](./media/disk-encryption/lvm-raid-on-crypt/019-lvm-raid-md-creation.png)
 
 >[!NOTE] 
->Os nomes de/dev/mapper/Device aqui precisam ser substituídos pelos valores reais, com base na saída de **lsblk** .
+>Os nomes de/dev/mapper/Device aqui precisam ser substituídos pelos valores reais, com base na saída de **lsblk**.
 
 ### <a name="checkmonitor-raid-creation"></a>Verificar/monitorar a criação de RAID
 ```bash

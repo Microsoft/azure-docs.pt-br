@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 10/11/2020
+ms.date: 02/08/2021
 ms.author: raynew
-ms.openlocfilehash: 4ee442d1983e4f7c1825690e1c780454272971aa
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 3022b2d4954ffaef71e17ed28dd9b6f141d4da70
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521298"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980483"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Suporte para mover VMs do Azure entre regiões do Azure
 
@@ -101,7 +101,7 @@ SUSE Linux Enterprise Server 15 e 15 SP1 |  Há suporte para todos os kernels SU
 **Configuração** | **Suporte** | **Detalhes**
 --- | --- | ---
 Tamanho | Qualquer tamanho de VM do Azure com pelo menos dois núcleos de CPU e 1 GB de RAM | Verifique se [tamanhos de máquina virtual do Azure](../virtual-machines/sizes-general.md).
-Conjuntos de disponibilidade | Sem suporte no momento | Se você adicionar uma VM do Azure com um conjunto de disponibilidade à coleção de movimentação com as opções padrão, o processo de preparação falhará. Você pode optar por mover a VM para uma zona de disponibilidade para ou para movê-la como uma única VM de instância. Você pode modificar essas configurações na página Editar propriedades de destino.
+Conjuntos de disponibilidade | Com suporte | Com suporte.
 Zonas de disponibilidade | Com suporte | Com suporte, dependendo do suporte de região de destino.
 Imagens da galeria do Azure (publicadas pela Microsoft) | Com suporte | Suportado se a VM for executada em um sistema operacional suportado.
 Imagens da galeria do Azure (publicadas por terceiros)  | Com suporte | Suportado se a VM for executada em um sistema operacional suportado.
@@ -113,27 +113,29 @@ Extensões | Sem suporte | As extensões não são copiadas para a VM na região
 
 ## <a name="supported-vm-storage-settings"></a>Configurações de armazenamento de VM com suporte
 
-Esta tabela resumiu o suporte ao disco do SO do Azure VM, ao disco de dados e ao disco temporário. É importante observar os limites de disco e os destinos da VM para [Linux](../virtual-machines/linux/disk-scalability-targets.md) e [VMs do Windows](../virtual-machines/windows/disk-scalability-targets.md) para evitar problemas de desempenho.
+Esta tabela resumiu o suporte ao disco do SO do Azure VM, ao disco de dados e ao disco temporário. É importante observar os limites de disco da VM e os destinos de [discos gerenciados](../virtual-machines/disks-scalability-targets.md) para evitar problemas de desempenho.
 
 > [!NOTE]
-> O tamanho da VM de destino deve ser igual ou maior que a VM de origem. Os parâmetros usados para validação são: contagem de discos de dados, contagem de NICs, CPUs disponíveis, memória em GB. Se não for emitido um erro.
+> O tamanho da VM de destino deve ser igual ou maior que a VM de origem. Os parâmetros usados para validação são: contagem de discos de dados, contagem de NICs, CPUs disponíveis, memória em GB. Se ele sn't um erro é emitido.
 
 
 **Componente** | **Suporte** | **Detalhes**
 --- | --- | ---
-Tamanho máximo do disco do sistema operacional | 2048 GB | [Saiba mais](../virtual-machines/windows/managed-disks-overview.md) sobre discos de VM.
-Disco temporário | Sem suporte | O disco temporário sempre é excluído do processo de preparação.<br/><br/> Não armazene nenhum dado persistente no disco temporário. [Saiba mais](../virtual-machines/windows/managed-disks-overview.md#temporary-disk).
+Tamanho máximo do disco do sistema operacional | 2048 GB | [Saiba mais](../virtual-machines/managed-disks-overview.md) sobre discos de VM.
+Disco temporário | Sem suporte | O disco temporário sempre é excluído do processo de preparação.<br/><br/> Não armazene nenhum dado persistente no disco temporário. [Saiba mais](../virtual-machines/managed-disks-overview.md#temporary-disk).
 Tamanho máximo do disco de dados | 8\.192 GB para discos gerenciados
 Tamanho mínimo do disco de dados |  2 GB para discos gerenciados |
-Número máximo de discos de dados | Até 64, de acordo com o suporte para um tamanho específico de VM do Azure | [Saiba mais](../virtual-machines/windows/sizes.md) sobre os tamanhos de VM.
+Número máximo de discos de dados | Até 64, de acordo com o suporte para um tamanho específico de VM do Azure | [Saiba mais](../virtual-machines/sizes.md) sobre os tamanhos de VM.
 Taxa de alteração do disco de dados | Máximo de 10 MBps por disco para armazenamento premium. Máximo de 2 MBps por disco para armazenamento padrão. | Se a taxa média de alteração de dados no disco for continuamente maior do que o máximo, a preparação não será atualizada.<br/><br/>  No entanto, se o máximo for excedido esporadicamente, a preparação poderá ser atualizada, mas você poderá ver pontos de recuperação ligeiramente atrasados.
 Disco de dados (conta de armazenamento Standard) | Não há suporte. | Altere o tipo de armazenamento para disco gerenciado e tente mover a VM.
 Disco de dados (conta de armazenamento Premium) | Sem suporte | Altere o tipo de armazenamento para disco gerenciado e tente mover a VM.
-Disco gerenciado (Standard) | Com suporte  |
-Disco gerenciado (Premium) | Com suporte |
+Disco gerenciado (Standard) | Suportado  |
+Disco gerenciado (Premium) | Suportado |
 SSD Standard | Com suporte |
 Geração 2 (inicialização de UEFI) | Com suporte
 Conta de armazenamento de diagnóstico de inicialização | Sem suporte | Habilite-a novamente depois de mover a VM para a região de destino.
+VMs com a criptografia de disco do Azure habilitada | Com suporte | [Saiba mais](tutorial-move-region-encrypted-virtual-machines.md)
+VMs usando criptografia do lado do servidor com chave gerenciada pelo cliente | Com suporte | [Saiba mais](tutorial-move-region-encrypted-virtual-machines.md)
 
 ### <a name="limits-and-data-change-rates"></a>Limites e taxas de alteração de dados
 
@@ -152,14 +154,14 @@ Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou maior |20 MB/s | 1\.684 GB por
 
 **Configuração** | **Suporte** | **Detalhes**
 --- | --- | ---
-NIC | Com suporte | Especifique um recurso existente na região de destino ou crie um novo recurso durante o processo de preparação. 
-Balanceador de carga interno | Com suporte | Especifique um recurso existente na região de destino ou crie um novo recurso durante o processo de preparação.  
-Balanceador de carga público | Sem suporte no momento | Especifique um recurso existente na região de destino ou crie um novo recurso durante o processo de preparação.  
+NIC | Suportado | Especifique um recurso existente na região de destino ou crie um novo recurso durante o processo de preparação. 
+Balanceador de carga interno | Suportado | Especifique um recurso existente na região de destino ou crie um novo recurso durante o processo de preparação.  
+Balanceador de carga público | Suportado | Especifique um recurso existente na região de destino ou crie um novo recurso durante o processo de preparação.  
 Endereço IP público | Com suporte | Especifique um recurso existente na região de destino ou crie um novo recurso durante o processo de preparação.<br/><br/> O endereço IP público é específico da região e não será retido na região de destino após a movimentação. Tenha isso em mente ao modificar as configurações de rede (incluindo regras de balanceamento de carga) no local de destino.
-Grupo de segurança de rede | Com suporte | Especifique um recurso existente na região de destino ou crie um novo recurso durante o processo de preparação.  
+Grupo de segurança de rede | Suportado | Especifique um recurso existente na região de destino ou crie um novo recurso durante o processo de preparação.  
 Endereço IP reservado (estático) | Com suporte | Você não pode configurar isso no momento. O valor padrão é o valor de origem. <br/><br/> Se a NIC na VM de origem tiver um endereço IP estático e a sub-rede de destino tiver o mesmo endereço IP disponível, ele será atribuído à VM de destino.<br/><br/> Se a sub-rede de destino não tiver o mesmo endereço IP disponível, a movimentação de início para a VM falhará.
 Endereço IP dinâmico | Com suporte | Você não pode configurar isso no momento. O valor padrão é o valor de origem.<br/><br/> Se a NIC na origem tiver um endereçamento IP dinâmico, a NIC na VM de destino também será dinâmica por padrão.
-Configurações de IP | Com suporte | Você não pode configurar isso no momento. O valor padrão é o valor de origem.
+Configurações de IP | Suportado | Você não pode configurar isso no momento. O valor padrão é o valor de origem.
 
 ## <a name="outbound-access-requirements"></a>Requisitos de acesso de saída
 

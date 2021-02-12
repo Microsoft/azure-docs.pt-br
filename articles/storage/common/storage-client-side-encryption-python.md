@@ -12,11 +12,11 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: 511166e156591562b2120b58cc420f3fccd1d8c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84804912"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008916"
 ---
 # <a name="client-side-encryption-with-python"></a>Criptografia do lado do cliente com Python
 
@@ -54,7 +54,7 @@ A descriptografia com a técnica de envelope funciona da seguinte maneira:
 A biblioteca de cliente de armazenamento usa [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) para criptografar os dados do usuário. Especificamente, o modo [CBC (Encadeamento de Blocos de Criptografia)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) com AES. Cada serviço funciona ligeiramente diferente, portanto, discutiremos cada uma deles aqui.
 
 ### <a name="blobs"></a>Blobs
-Atualmente, a biblioteca de cliente dá suporte à criptografia somente de blobs completos. Especificamente, a criptografia tem suporte quando os usuários utilizam os métodos **create**\*. Para downloads, os downloads completos e de intervalo têm suporte e a paralelização do download e do upload está disponível.
+Atualmente, a biblioteca de cliente dá suporte à criptografia somente de blobs completos. Especificamente, há suporte para a criptografia quando os usuários usam os métodos **Create** _. Para downloads, os downloads completos e de intervalo têm suporte e a paralelização do download e do upload está disponível.
 
 Durante a criptografia, a biblioteca de cliente gerará um vetor de inicialização aleatório (IV) de 16 bytes, juntamente com uma chave de criptografia aleatória de conteúdo (CEK) de 32 bytes e executará a criptografia de envelope dos dados blob usando essas informações. O CEK encapsulado e alguns metadados adicionais de criptografia são armazenadas como metadados com o blob criptografado no serviço de blob.
 
@@ -63,9 +63,9 @@ Durante a criptografia, a biblioteca de cliente gerará um vetor de inicializaç
 > 
 > 
 
-Baixar um blob criptografado envolve a recuperação do conteúdo do blob inteiro usando os métodos de conveniência **get**\*. O CEK encapsulado é desempacotado e usado em conjunto com o IV (armazenado como metadados de blob neste caso) para retornar os dados descriptografados para os usuários.
+O download de um blob criptografado envolve a recuperação do conteúdo do blob inteiro usando os métodos de conveniência de _*obtenção* *_ . O CEK encapsulado é desempacotado e usado em conjunto com o IV (armazenado como metadados de blob neste caso) para retornar os dados descriptografados para os usuários.
 
-Baixar um intervalo arbitrário (métodos**get*** com parâmetros de intervalo passados) no blob criptografado envolve o ajuste do intervalo fornecido pelos usuários para obter uma pequena quantidade de dados adicionais que podem ser usados para descriptografar com êxito o intervalo solicitado.
+Baixar um intervalo arbitrário (métodos _*Get* *_ com parâmetros de intervalo passados) no blob criptografado envolve o ajuste do intervalo fornecido pelos usuários para obter uma pequena quantidade de dados adicionais que podem ser usados para descriptografar com êxito o intervalo solicitado.
 
 Os blobs de blocos e os blobs de páginas podem ser criptografados/descriptografadas usando este esquema. No momento, não há suporte para a criptografia de blobs de acréscimo.
 
@@ -114,7 +114,7 @@ Observe que as entidades são criptografadas conforme elas são inseridas no lot
 > [!IMPORTANT]
 > Lembre-se dos seguintes pontos importantes ao usar a criptografia no lado do cliente:
 > 
-> * Durante a leitura ou gravação de um blob criptografado, use comandos de carregamento de blob completos e comandos de download de blob completos/em intervalos. Evite gravar em um blob criptografado usando operações de protocolo tais como Put Block, Put Block List, Write Pages ou Clear Pages; caso contrário, você pode corromper o blob criptografado e torná-lo ilegível.
+> _ Ao ler ou gravar em um blob criptografado, use comandos de carregamento de blob inteiros e comandos de download de blob inteiro/intervalo. Evite gravar em um blob criptografado usando operações de protocolo tais como Put Block, Put Block List, Write Pages ou Clear Pages; caso contrário, você pode corromper o blob criptografado e torná-lo ilegível.
 > * Para tabelas, existe uma restrição semelhante. Tenha cuidado para não atualizar propriedades criptografadas sem atualizar os metadados de criptografia.
 > * Se você definir os metadados no blob criptografado, poderá substituir os metadados relacionados à criptografia necessários para a descriptografia, uma vez que a definição de metadados não é aditiva. Isso também ocorre em instantâneos. Evite especificar metadados ao criar um instantâneo de um blob criptografado. Se for necessário definir os metadados, lembre-se de chamar o método **get_blob_metadata** primeiro para obter os metadados de criptografia atuais e evitar gravações simultâneas enquanto os metadados estão sendo definidos.
 > * Habilite o sinalizador **require_encryption** no objeto de serviço para usuários que devem trabalhar apenas com dados criptografados. Saiba mais logo abaixo.

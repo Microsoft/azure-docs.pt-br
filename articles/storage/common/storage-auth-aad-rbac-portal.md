@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 12/07/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e2d577261a1cea0bad9aab549b3669f8fdef5751
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40003db9c3bd2c736f9cedd73b8b7a31a77f625f
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715843"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854573"
 ---
 # <a name="use-the-azure-portal-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Use o portal do Azure para atribuir uma função do Azure para acesso aos dados de BLOB e de fila
 
@@ -39,14 +39,14 @@ Depois de determinar o escopo apropriado para uma atribuição de função, nave
 
 1. Atribua a função apropriada do Azure Storage do Azure para conceder acesso a uma entidade de segurança do Azure AD.
 
-1. Atribua a função [leitor](../../role-based-access-control/built-in-roles.md#reader) de Azure Resource Manager a usuários que precisam acessar contêineres ou filas por meio do portal do Azure usando suas credenciais do Azure AD. 
+1. Atribua a função [leitor](../../role-based-access-control/built-in-roles.md#reader) de Azure Resource Manager a usuários que precisam acessar contêineres ou filas por meio do portal do Azure usando suas credenciais do Azure AD.
 
 As seções a seguir descrevem cada uma dessas etapas mais detalhadamente.
 
 > [!NOTE]
-> Como proprietário da conta do Armazenamento do Microsoft Azure, você não recebe permissões automaticamente para acessar dados. Você deve atribuir explicitamente a si mesmo uma função do Azure para o armazenamento do Azure. Você pode atribuí-la no nível da sua assinatura, grupo de recursos, conta de armazenamento ou um contêiner ou fila.
+> Ao criar uma conta de armazenamento do Azure, você não recebe automaticamente permissões para acessar dados por meio do Azure AD. Você deve atribuir explicitamente a si mesmo uma função do Azure para o armazenamento do Azure. Você pode atribuí-la no nível de assinatura, grupo de recursos, conta de armazenamento ou contêiner ou fila.
 >
-> Você não poderá atribuir uma função com escopo a um contêiner ou fila se sua conta de armazenamento tiver um namespace hierárquico habilitado.
+> Antes de atribuir a si mesmo uma função para acesso a dados, você poderá acessar dados em sua conta de armazenamento por meio do portal do Azure porque o portal do Azure também pode usar a chave de conta para acesso a dados. Para obter mais informações, consulte [escolher como autorizar o acesso a dados de blob no portal do Azure](../blobs/authorize-data-operations-portal.md).
 
 ### <a name="assign-an-azure-built-in-role"></a>Atribuir uma função interna do Azure
 
@@ -64,11 +64,11 @@ O procedimento mostrado aqui atribui uma função com escopo a um contêiner, ma
 1. Clique no botão **Adicionar atribuição de função** para adicionar uma nova função.
 1. Na janela **Adicionar atribuição de função** , selecione a função de armazenamento do Azure que você deseja atribuir. Em seguida, pesquise para localizar a entidade de segurança para a qual você deseja atribuir essa função.
 
-    :::image type="content" source="media/storage-auth-aad-rbac-portal/add-rbac-role.png" alt-text="Captura de tela mostrando as configurações de controle de acesso do contêiner":::
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/add-rbac-role.png" alt-text="Captura de tela mostrando como atribuir uma função do Azure":::
 
-1. Clique em **Salvar**. A identidade à qual você atribuiu a função aparece listada sob essa função. Por exemplo, a imagem a seguir mostra que o usuário adicionado agora tem permissões de leitura para os dados no contêiner nomeado *sample-container*.
+1. Clique em **Save** (Salvar). A identidade à qual você atribuiu a função aparece listada sob essa função. Por exemplo, a imagem a seguir mostra que o usuário adicionado agora tem permissões de leitura para os dados no contêiner nomeado *sample-container*.
 
-    :::image type="content" source="media/storage-auth-aad-rbac-portal/container-scoped-role.png" alt-text="Captura de tela mostrando as configurações de controle de acesso do contêiner":::
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/container-scoped-role.png" alt-text="Captura de tela mostrando a lista de usuários atribuídos a uma função":::
 
 Você pode seguir etapas semelhantes para atribuir uma função com escopo à conta de armazenamento, ao grupo de recursos ou à assinatura.
 

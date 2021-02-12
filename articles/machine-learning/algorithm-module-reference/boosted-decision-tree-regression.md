@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/24/2020
-ms.openlocfilehash: 21cd1491da4374babaff8b5b4b451a3cce874368
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 664943fc5535883b3df77b2795383e5c0586a71c
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898841"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375322"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Módulo de regressão da árvore de decisão aumentada
 
@@ -52,39 +52,39 @@ O método de impulsionamento de gradiente também pode ser usado para problemas 
 
 ## <a name="how-to-configure-boosted-decision-tree-regression"></a>Como configurar a regressão da árvore de decisão aumentada
 
-1.  Adicione o módulo **árvore de decisão aumentada** ao seu pipeline. Você pode encontrar esse módulo em **Machine Learning**, **inicializar**, na categoria **regressão** . 
+1.  Adicione o módulo **árvore de decisão aumentada** ao seu pipeline. Você pode encontrar esse módulo em **Machine Learning** , **inicializar** , na categoria **regressão** . 
   
 2.  Especifique como você deseja que o modelo seja treinado, definindo a opção **criar modo de instrutor** .  
   
-    -   **Parâmetro único**: Selecione esta opção se você souber como deseja configurar o modelo e fornecer um conjunto específico de valores como argumentos. 
+    -   **Parâmetro único** : Selecione esta opção se você souber como deseja configurar o modelo e fornecer um conjunto específico de valores como argumentos. 
      
-    -   **Intervalo de parâmetros**: Selecione esta opção se você não tiver certeza dos melhores parâmetros e quiser executar uma limpeza de parâmetro. Selecione um intervalo de valores para iteração e os [hiperparâmetros de modelo de ajuste](tune-model-hyperparameters.md) iteram sobre todas as combinações possíveis das configurações que você forneceu para determinar os hiperparâmetros que produzem os resultados ideais.    
+    -   **Intervalo de parâmetros** : Selecione esta opção se você não tiver certeza dos melhores parâmetros e quiser executar uma limpeza de parâmetro. Selecione um intervalo de valores para iteração e os [hiperparâmetros de modelo de ajuste](tune-model-hyperparameters.md) iteram sobre todas as combinações possíveis das configurações que você forneceu para determinar os hiperparâmetros que produzem os resultados ideais.    
    
   
-3. **Número máximo de folhas por árvore**: indica o número máximo de nós de terminal (folhas) que podem ser criados em qualquer árvore.  
+3. **Número máximo de folhas por árvore** : indica o número máximo de nós de terminal (folhas) que podem ser criados em qualquer árvore.  
 
     Aumentando este valor, você aumenta potencialmente o tamanho da árvore e obtém maior precisão, com o risco de sobreajuste e tempo de treinamento maior.  
 
-4. **Número mínimo de amostras por nó folha**: indique o número mínimo de casos necessários para criar qualquer nó de terminal (folha) em uma árvore.
+4. **Número mínimo de amostras por nó folha** : indique o número mínimo de casos necessários para criar qualquer nó de terminal (folha) em uma árvore.
 
     Aumentando esse valor, você aumenta o limite para a criação de novas regras. Por exemplo, com o valor padrão de 1, um único caso pode causar uma nova regra a ser criada. Se você aumentar o valor para 5, os dados de treinamento precisam conter pelo menos 5 casos que atendem as mesmas condições.
 
-5. **Taxa de aprendizagem**: digite um número entre 0 e 1 que defina o tamanho da etapa durante o aprendizado. A taxa de aprendizagem determina o quão rápido ou lento o aprendiz convergi na solução ideal. Se o tamanho da etapa for muito grande, você poderá exceder a solução ideal. Se o tamanho da etapa for muito pequeno, o treinamento levará mais tempo para convergir na melhor solução.
+5. **Taxa de aprendizagem** : digite um número entre 0 e 1 que defina o tamanho da etapa durante o aprendizado. A taxa de aprendizagem determina o quão rápido ou lento o aprendiz convergi na solução ideal. Se o tamanho da etapa for muito grande, você poderá exceder a solução ideal. Se o tamanho da etapa for muito pequeno, o treinamento levará mais tempo para convergir na melhor solução.
 
-6. **Número de árvores construídas**: indica o número total de árvores de decisão a serem criadas no Ensemble. Ao criar mais árvores de decisão, você pode potencialmente obter uma cobertura melhor, mas o tempo de treinamento aumenta.
+6. **Número de árvores construídas** : indica o número total de árvores de decisão a serem criadas no Ensemble. Ao criar mais árvores de decisão, você pode potencialmente obter uma cobertura melhor, mas o tempo de treinamento aumenta.
 
-    Esse valor também controla o número de árvores exibidas ao visualizar o modelo treinado. Se você quiser ver ou imprimir uma única árvore, poderá definir o valor como 1; no entanto, apenas uma árvore é produzida (a árvore com o conjunto inicial de parâmetros) e nenhuma iteração adicional é executada.
+    Se você definir o valor como 1; no entanto, apenas uma árvore é produzida (a árvore com o conjunto inicial de parâmetros) e nenhuma iteração adicional é executada.
 
-7. **Semente de número aleatório**: digite um inteiro não negativo opcional para usar como o valor de semente aleatória. A especificação de uma semente garante reprodução entre as execuções que têm os mesmos dados e parâmetros.
+7. **Semente de número aleatório** : digite um inteiro não negativo opcional para usar como o valor de semente aleatória. A especificação de uma semente garante reprodução entre as execuções que têm os mesmos dados e parâmetros.
 
     Por padrão, a semente aleatória é definida como 0, o que significa que o valor de semente inicial é obtido do relógio do sistema.
   
 
 9. Treine o modelo:
 
-    + Se você definir **criar modo de instrutor** como um **único parâmetro**, conecte um conjunto de um DataSet marcado e o módulo [treinar modelo](train-model.md) .  
+    + Se você definir **criar modo de instrutor** como um **único parâmetro** , conecte um conjunto de um DataSet marcado e o módulo [treinar modelo](train-model.md) .  
   
-    + Se você definir **criar modo de instrutor** como **intervalo de parâmetros**, conecte um conjunto de um DataSet marcado e treine o modelo usando [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md).  
+    + Se você definir **criar modo de instrutor** como **intervalo de parâmetros** , conecte um conjunto de um DataSet marcado e treine o modelo usando [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 

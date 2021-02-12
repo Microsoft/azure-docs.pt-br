@@ -4,13 +4,13 @@ description: Saiba como planejar seu aplicativo QnA Maker. Entenda como QnA Make
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/2/2020
-ms.openlocfilehash: 84e4d6907c9036503f43cd607b54577fd3d97444
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: bf5582016f74e67926c38111a3d8d2f468f3ac79
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776928"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987982"
 ---
 # <a name="plan-your-qna-maker-app"></a>Planejar seu aplicativo QnA Maker
 
@@ -20,6 +20,8 @@ Para planejar seu aplicativo QnA Maker, você precisa entender como o QnA Maker 
 
 Cada [recurso do Azure](azure-resources.md#resource-purposes) criado com QnA Maker tem uma finalidade específica. Cada recurso tem sua própria finalidade, limites e [tipo de preço](azure-resources.md#pricing-tier-considerations). É importante entender a função desses recursos para que você possa usar esse conhecimento em seu processo de planejamento.
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versão estável)](#tab/v1)
+
 | Recurso | Finalidade |
 |--|--|
 | [QnA Maker](azure-resources.md#qna-maker-resource) recurso | Criação e previsão de consulta |
@@ -27,6 +29,14 @@ Cada [recurso do Azure](azure-resources.md#resource-purposes) criado com QnA Mak
 | Recurso do [serviço de aplicativo e recurso do serviço de plano de aplicativo](azure-resources.md#app-service-and-app-service-plan) | Ponto de extremidade de previsão da consulta |
 | [Application insights](azure-resources.md#application-insights) recurso | Telemetria de previsão de consulta |
 
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
+
+| Recurso | Finalidade |
+|--|--|
+| [QnA Maker](azure-resources.md#qna-maker-resource) recurso | Criação, ponto de extremidade de previsão de consulta e telemetria|
+| [Pesquisa cognitiva](azure-resources.md#cognitive-search-resource) recurso | Armazenamento e pesquisa de dados |
+
+---
 ### <a name="resource-planning"></a>Planejamento de recursos
 
 A camada gratuita, `F0` , de cada recurso, funciona e pode fornecer a experiência de criação e previsão de consulta. Você pode usar essa camada para aprender a criação e a previsão de consultas. Ao mudar para um cenário de produção ou ao vivo, reavalie sua seleção de recursos.
@@ -65,19 +75,32 @@ Uma base de dados de conhecimento está diretamente vinculada ao recurso QnA Mak
 
 ### <a name="language-considerations"></a>Considerações sobre o idioma
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versão estável)](#tab/v1)
+
 A primeira base de dados de conhecimento criada em seu QnA Maker recurso define o idioma do recurso. Você só pode ter um idioma para um recurso QnA Maker.
 
 Você pode estruturar seus recursos de QnA Maker por idioma ou pode usar o [Tradutor](../../translator/translator-info-overview.md) para alterar uma consulta de outro idioma para o idioma da base de dados de conhecimento antes de enviar a consulta para o ponto de extremidade de previsão de consulta.
 
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
+
+Agora você pode ter bases de dados de conhecimento em diferentes idiomas dentro do mesmo QnA Maker recurso. Ao criar a primeira base de dados de conhecimento, você pode escolher se deseja usar o recurso para bases de dados de conhecimento em um único idioma ou em vários idiomas.
+
+![Seleção da base de dados de conhecimento multilíngue (visualização) QnA Maker gerenciada (versão prévia)](../media/concept-plan-your-knowledge-base/qnamaker-v2-select-multilanguage-knowledge-base.png)
+
+> [!NOTE]
+> Se você habilitar as configurações de idioma por base de dados de conhecimento, não poderá criar tantas bases de conhecimento em seu recurso de QnA Maker. Para obter [mais detalhes sobre as limitações de configurações de idioma](./azure-resources.md).
+
+---
+
 ### <a name="ingest-data-sources"></a>Fontes de dados de ingestão
 
-Você pode usar uma das seguintes [fontes de dados](knowledge-base.md) ingeridas para criar uma base de conhecimento:
+Você pode usar uma das seguintes [fontes de dados](../Concepts/data-sources-and-content.md) ingeridas para criar uma base de conhecimento:
 
 * URL pública
 * URL privada do SharePoint
 * Arquivo
 
-O processo de ingestão converte os [tipos de conteúdo com suporte](content-types.md) para redução. Toda edição adicional da *resposta* é feita com a redução. Depois de criar uma base de dados de conhecimento, você pode editar [pares de QnA](question-answer-set.md) no portal de QnA Maker com a [criação de Rich Text](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
+O processo de ingestão converte os [tipos de conteúdo com suporte](../reference-document-format-guidelines.md) para redução. Toda edição adicional da *resposta* é feita com a redução. Depois de criar uma base de dados de conhecimento, você pode editar [pares de QnA](question-answer-set.md) no portal de QnA Maker com a [criação de Rich Text](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
 
 ### <a name="data-format-considerations"></a>Considerações de formato de dados
 
@@ -101,17 +124,17 @@ Você deve projetar seu fluxo de conversação com um loop em mente para que um 
 
 Os colaboradores podem ser outros desenvolvedores que compartilham a pilha de desenvolvimento completa do aplicativo da base de dados de conhecimento ou podem estar limitados a apenas criar a base de dados de conhecimento.
 
-A criação da base de dados de conhecimento dá suporte a várias [permissões de acesso baseadas em função](../how-to/collaborate-knowledge-base.md) que você aplica no portal do Azure para limitar o escopo das habilidades de um colaborador.
+A criação da base de dados de conhecimento dá suporte a várias permissões de acesso baseadas em função que você aplica no portal do Azure para limitar o escopo das habilidades de um colaborador.
 
 ## <a name="integration-with-client-applications"></a>Integração com aplicativos cliente
 
-A integração com [aplicativos cliente](integration-with-other-applications.md) é realizada enviando uma consulta para o ponto de extremidade de tempo de execução de previsão. Uma consulta é enviada para sua base de dados de conhecimento específica com um SDK ou uma solicitação baseada em REST para o ponto de extremidade do aplicativo Web do QnA Maker.
+A integração com aplicativos cliente é realizada enviando uma consulta para o ponto de extremidade de tempo de execução de previsão. Uma consulta é enviada para sua base de dados de conhecimento específica com um SDK ou uma solicitação baseada em REST para o ponto de extremidade do aplicativo Web do QnA Maker.
 
 Para autenticar uma solicitação de cliente corretamente, o aplicativo cliente deve enviar as credenciais corretas e a ID da base de dados de conhecimento. Se você estiver usando um serviço de bot do Azure, defina essas configurações como parte da configuração do bot no portal do Azure.
 
 ### <a name="conversation-flow-in-a-client-application"></a>Fluxo de conversa em um aplicativo cliente
 
-O fluxo de conversa em um [aplicativo cliente](integration-with-other-applications.md), como um bot do Azure, pode exigir funcionalidade antes e depois de interagir com a base de dados de conhecimento.
+O fluxo de conversa em um aplicativo cliente, como um bot do Azure, pode exigir funcionalidade antes e depois de interagir com a base de dados de conhecimento.
 
 O aplicativo cliente dá suporte ao fluxo de conversa, seja fornecendo meios alternativos para lidar com avisos de acompanhamento ou incluindo Chit-Chit? Nesse caso, projete esses primeiros e verifique se a consulta do aplicativo cliente é tratada corretamente por outro serviço ou quando enviada à sua base de dados de conhecimento.
 
@@ -125,11 +148,11 @@ Nesse cenário de [arquitetura compartilhada](../choose-natural-language-process
 
 ### <a name="active-learning-from-a-client-application"></a>Aprendizado ativo de um aplicativo cliente
 
-O QnA Maker usa o _aprendizado ativo_ para melhorar sua base de dados de conhecimento sugerindo perguntas alternativas para uma resposta. O aplicativo cliente é responsável por uma parte deste [aprendizado ativo](active-learning-suggestions.md). Por meio de prompts de conversação, o aplicativo cliente pode determinar se a base de dados de conhecimento retornou uma resposta que não é útil para o usuário e pode determinar uma resposta melhor. O aplicativo cliente precisa [enviar essas informações de volta para a base de dados de conhecimento](active-learning-suggestions.md#how-you-give-explicit-feedback-with-the-train-api) para melhorar a qualidade da previsão.
+O QnA Maker usa o _aprendizado ativo_ para melhorar sua base de dados de conhecimento sugerindo perguntas alternativas para uma resposta. O aplicativo cliente é responsável por uma parte deste [aprendizado ativo](../How-To/use-active-learning.md). Por meio de prompts de conversação, o aplicativo cliente pode determinar se a base de dados de conhecimento retornou uma resposta que não é útil para o usuário e pode determinar uma resposta melhor. O aplicativo cliente precisa enviar essas informações de volta para a base de dados de conhecimento para melhorar a qualidade da previsão.
 
 ### <a name="providing-a-default-answer"></a>Fornecendo uma resposta padrão
 
-Se sua base de dados de conhecimento não encontrar uma resposta, ela retornará a _resposta padrão_. Essa resposta é configurável na página **configurações** no portal QnA Maker ou nas [APIs](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#request-body).
+Se sua base de dados de conhecimento não encontrar uma resposta, ela retornará a _resposta padrão_. Essa resposta é configurável na página **configurações** no portal QnA Maker ou nas [APIs](/rest/api/cognitiveservices/qnamaker/knowledgebase/update#request-body).
 
 Essa resposta padrão é diferente da resposta padrão do bot do Azure. Você configura a resposta padrão para o bot do Azure no portal do Azure como parte das definições de configuração. Ele é retornado quando o limite de pontuação não é atendido.
 
@@ -152,7 +175,15 @@ Há uma [classificação de resposta de duas fases](query-knowledge-base.md#how-
 
 ### <a name="service-updates"></a>Atualizações de serviço
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versão estável)](#tab/v1)
+
 Aplique as [atualizações de tempo de execução mais recentes](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) para gerenciar atualizações de serviço automaticamente.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
+
+No QnA Maker gerenciado (versão prévia), o tempo de execução é gerenciado pelo próprio serviço QnA Maker. Portanto, as atualizações de serviço não são aplicáveis.
+
+---
 
 ### <a name="scaling-throughput-and-resiliency"></a>Dimensionamento, taxa de transferência e resiliência
 
@@ -160,7 +191,16 @@ O dimensionamento, a taxa de transferência e a resiliência são determinados p
 
 ### <a name="analytics-with-application-insights"></a>Análise com Application Insights
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versão estável)](#tab/v1)
+
 Todas as consultas à sua base de dados de conhecimento são armazenadas em Application Insights. Use nossas [principais consultas](../how-to/get-analytics-knowledge-base.md) para entender suas métricas.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
+
+Na implantação gerenciada, a telemetria é oferecida por meio do [serviço de Azure monitor](../../../azure-monitor/index.yml). Use nossas [principais consultas](../how-to/get-analytics-knowledge-base.md) para entender suas métricas.
+
+
+---
 
 ## <a name="development-lifecycle"></a>Ciclo de vida de desenvolvimento
 
@@ -168,16 +208,16 @@ O [ciclo de vida de desenvolvimento](development-lifecycle-knowledge-base.md) de
 
 ### <a name="knowledge-base-development-of-qna-maker-pairs"></a>Desenvolvimento da base de dados de conhecimento de pares de QnA Maker
 
-Seus [pares de QnA](question-answer-set.md) devem ser projetados e desenvolvidos com base no uso do aplicativo cliente.
+Seus pares de QnA devem ser projetados e desenvolvidos com base no uso do aplicativo cliente.
 
 Cada par pode conter:
 * Metadados-filtráveis ao consultar para permitir que você marque seus pares de QnA com informações adicionais sobre a origem, o conteúdo, o formato e a finalidade de seus dados.
 * Prompts de acompanhamento – ajuda a determinar um caminho por meio de sua base de dados de conhecimento para que o usuário chegue à resposta correta.
-* Perguntas alternativas – importante para permitir que a pesquisa corresponda à sua resposta de diferentes formas da pergunta. As [sugestões de aprendizado ativo são transformadas](active-learning-suggestions.md) em perguntas alternativas.
+* Perguntas alternativas – importante para permitir que a pesquisa corresponda à sua resposta de diferentes formas da pergunta. As [sugestões de aprendizado ativo são transformadas](../How-To/use-active-learning.md) em perguntas alternativas.
 
 ### <a name="devops-development"></a>Desenvolvimento de DevOps
 
-Desenvolver uma base de dados de conhecimento para inserir em um pipeline do DevOps exige que a base de dados de conhecimento seja isolada durante o [teste do lote](../quickstarts/batch-testing.md).
+Desenvolver uma base de dados de conhecimento para inserir em um pipeline do DevOps requer que a base de dados de conhecimento seja isolada durante o teste do lote.
 
 Uma base de dados de conhecimento compartilha o índice de Pesquisa Cognitiva com todas as outras bases de dados de conhecimento no recurso de QnA Maker. Embora a base de dados de conhecimento seja isolada por partição, o compartilhamento do índice pode causar uma diferença na pontuação quando comparado à base de dados de conhecimento publicada.
 

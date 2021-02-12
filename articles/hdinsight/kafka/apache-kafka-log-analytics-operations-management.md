@@ -1,19 +1,16 @@
 ---
 title: Logs de Azure Monitor para Apache Kafka-Azure HDInsight
 description: Saiba como usar os logs de Azure Monitor para analisar logs de Apache Kafka cluster no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/17/2020
-ms.openlocfilehash: 5128ac7608dfce08471f7a7f97ed28a7971e62b2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: d577e96c3ae95103a412b96eba3e1293142f1acd
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534440"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932769"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analise logs do Apache Kafka no HDInsight
 
@@ -50,7 +47,7 @@ As etapas para habilitar os logs de Azure Monitor para o HDInsight são as mesma
 
 1. No [portal do Azure](https://portal.azure.com), selecione seu espaço de trabalho do log Analytics.
 
-2. No menu à esquerda, em **geral** , selecione **logs** . A partir desse ponto, é possível pesquisar os dados coletados do Kafka. Insira uma consulta na janela de consulta e, em seguida, selecione **executar** . Veja a seguir alguns exemplos de pesquisas:
+2. No menu à esquerda, em **geral**, selecione **logs**. A partir desse ponto, é possível pesquisar os dados coletados do Kafka. Insira uma consulta na janela de consulta e, em seguida, selecione **executar**. Veja a seguir alguns exemplos de pesquisas:
 
 * Uso do disco:
 

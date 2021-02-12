@@ -3,12 +3,12 @@ title: Exclusão reversível para o backup do Azure
 description: Saiba como usar recursos de segurança no backup do Azure para tornar os backups mais seguros.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: d7998c7f9def6ce9965ded3b6ec700f7975891eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da473b1d886ec2fe95a7baae76b09aff38fb3cd7
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91271538"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95254012"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Exclusão reversível para o backup do Azure
 
@@ -73,7 +73,7 @@ Siga estas etapas:
 
 1. Siga as etapas para [desabilitar a exclusão reversível](#enabling-and-disabling-soft-delete).
 
-2. No portal do Azure, acesse seu cofre, vá para **itens de backup**e escolha o item com exclusão reversível.
+2. No portal do Azure, acesse seu cofre, vá para **itens de backup** e escolha o item com exclusão reversível.
 
    ![Escolher item com exclusão reversível](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
@@ -87,11 +87,11 @@ Siga estas etapas:
 
 5. Escolha **excluir dados de backup** para excluir permanentemente os dados de backup.
 
-   ![Escolha excluir dados de backup](/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+   ![Escolha excluir dados de backup](./media/backup-azure-manage-vms/delete-backup-button.png)
 
 6. Digite o nome do item de backup para confirmar que você deseja excluir os pontos de recuperação.
 
-   ![Digite o nome do item de backup](/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+   ![Digite o nome do item de backup](./media/backup-azure-manage-vms/delete-backup-data.png)
 
 7. Para excluir os dados de backup do item, selecione **excluir**. Uma mensagem de notificação permite que você saiba que os dados de backup foram excluídos.
 

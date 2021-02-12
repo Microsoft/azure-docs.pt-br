@@ -1,5 +1,5 @@
 ---
-title: Gerenciar pontos de extremidade de streaming com os serviços de mídia do Azure v3
+title: Gerenciar pontos de extremidade de streaming
 description: Este artigo demonstra como gerenciar pontos de extremidade de streaming com os serviços de mídia do Azure v3.
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 8d3835d78ec55f120f6b9439aea9c29434e6bd47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d656ce23cf68a1eec23421b769d5847f9b661bb4
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89289470"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955895"
 ---
 # <a name="manage-streaming-endpoints-with--media-services-v3"></a>Gerenciar pontos de extremidade de streaming com os serviços de mídia v3
 

@@ -1,19 +1,18 @@
 ---
 title: Testar dados dinâmicos com o Azure Stream Analytics para Visual Studio
 description: Saiba como testar seu trabalho do Azure Stream Analytics localmente usando dados de streaming ao vivo.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: ajetasin
+ms.author: ajetasi
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0788d8b4f659364fcedc690185c9159a24434125
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 99e9ce85bb1e59b5016e836ff16d03cb3326ec8c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123907"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020359"
 ---
 # <a name="test-live-data-locally-using-azure-stream-analytics-tools-for-visual-studio-preview"></a>Testar dados dinâmicos localmente usando as ferramentas do Azure Stream Analytics para Visual Studio (Versão Prévia)
 
@@ -31,7 +30,7 @@ Há suporte para as seguintes opções de testes locais:
 
 ## <a name="local-testing-with-live-data"></a>O teste local usando dados dinâmicos
 
-1. Depois de criar um [projeto de nuvem do Azure Stream Analytics no Visual Studio](stream-analytics-quick-create-vs.md), abra **script.asaql** . O teste local usa entrada e saída locais por padrão.
+1. Depois de criar um [projeto de nuvem do Azure Stream Analytics no Visual Studio](stream-analytics-quick-create-vs.md), abra **script.asaql**. O teste local usa entrada e saída locais por padrão.
 
    ![Entrada e saída local do Visual Studio no Azure Stream Analytics](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-local-input-output.png)
 
@@ -43,7 +42,7 @@ Há suporte para as seguintes opções de testes locais:
 
    ![Hora de início de dados dinâmicos do Visual Studio no Azure Stream Analytics](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-start-time.png)
 
-4. Clique em **Executar Localmente** . Uma janela do console será exibida com as métricas de trabalho e progresso em execução. Se você quiser interromper o processo, poderá fazer isso manualmente. 
+4. Clique em **Executar Localmente**. Uma janela do console será exibida com as métricas de trabalho e progresso em execução. Se você quiser interromper o processo, poderá fazer isso manualmente. 
 
    ![Janela de processo de dados dinâmicos do Visual Studio no Azure Stream Analytics](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-process-window.png)
 

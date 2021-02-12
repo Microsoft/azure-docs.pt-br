@@ -1,14 +1,14 @@
 ---
 title: Importar e exportar plantas com o PowerShell
 description: Saiba como trabalhar com suas definições de plano gráfico como código. Compartilhe, controle do código-fonte e gerencie-os usando os comandos exportar e importar.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: how-to
-ms.openlocfilehash: 87e8f00013fec3abb8132f92c1c717f152d1e264
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5b1adda0b02e2e2490441c5958ca9334febc24c
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051433"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919979"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>Importar e exportar definições de Blueprint com o PowerShell
 

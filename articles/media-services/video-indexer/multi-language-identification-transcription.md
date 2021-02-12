@@ -10,14 +10,14 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/01/2019
 ms.author: juliako
-ms.openlocfilehash: f0dede42891069bb5d01ddc33f3797c20c5493d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 657ccafa0e7b7f640122fd6b397b3fa2a7c5f0fc
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72968735"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015548"
 ---
-# <a name="automatically-identify-and-transcribe-multi-language-content-preview"></a>Identificar e transcrever automaticamente o conteúdo em vários idiomas (visualização)
+# <a name="automatically-identify-and-transcribe-multi-language-content"></a>Identificar e transcrever automaticamente o conteúdo em vários idiomas
 
 O Video Indexer dá suporte à identificação de idioma e à transcrição automáticas no conteúdo em vários idiomas. Esse processo envolve a identificação automática da linguagem falada em diferentes segmentos do áudio, o envio de cada segmento do arquivo de mídia a ser transcrita e a combinação da transcrição de volta a uma transcrição unificada. 
 

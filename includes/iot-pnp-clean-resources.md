@@ -4,15 +4,13 @@ ms.author: dominicbetts
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/15/2019
-ms.openlocfilehash: 6cd983b6421fc821853aa22d4dc2c297f672d292
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 647226091c3e15a19bf8262c23e62d95018488b3
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87336881"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831189"
 ---
-## <a name="clean-up-resources"></a>Limpar os recursos
-
 Se planejar continuar com os artigos adicionais de IoT Plug and Play, guarde e use novamente os recursos usados neste artigo. Caso contrário, exclua os recursos criados neste artigo para evitar encargos adicionais.
 
 Você pode excluir o hub e o dispositivo registrado ao mesmo tempo excluindo o grupo de recursos inteiro com o comando da CLI do Azure a seguir. Não use esse comando se esses recursos estiverem compartilhando um grupo de recursos com outros recursos que você desejar manter.

@@ -1,15 +1,15 @@
 ---
-title: 'Tutorial: backup do BD SAP HANA no Azure usando a CLI'
+title: Tutorial – Backup do BD SAP HANA no Azure usando a CLI do Azure
 description: Neste tutorial, saiba como fazer backup de bancos de dados SAP HANA executados em uma VM do Azure em um cofre dos Serviços de Recuperação do Backup do Azure usando a CLI do Azure.
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f11e01c6af18cac956d58b9c692d7b57c8fe653a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f146bed9ee607fe1b1b6062f9fe372fbb9b9ba6a
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324953"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746738"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: backup de bancos de dados SAP HANA em uma VM do Azure usando a CLI do Azure
 
@@ -26,9 +26,9 @@ Este documento pressupõe que você já tem um banco de dados SAP HANA instalado
 
 Confira os [cenários atualmente compatíveis](./sap-hana-backup-support-matrix.md#scenario-support) com SAP HANA.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Para instalar e usar a CLI localmente, você deve executar a CLI do Azure versão xx.xxx.x ou posterior. Para encontrar a versão da CLI, execute `az --version`. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+ - Este tutorial requer a versão 2.0.30 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
@@ -126,8 +126,8 @@ Para proteger e configurar o backup em um banco de dados, um de cada vez, usamos
 ```azurecli-interactive
 az backup protection enable-for-azurewl --resource-group saphanaResourceGroup \
     --policy-name saphanaPolicy \
-    --protectable-item-name saphanadatabase;hxe;hxe  \
-    --protectable-item-type SAPHANADatabse \
+    --protectable-item-name "saphanadatabase;hxe;hxe"  \
+    --protectable-item-type SAPHANADatabase \
     --server-name hxehost \
     --workload-type SAPHANA \
     --output table

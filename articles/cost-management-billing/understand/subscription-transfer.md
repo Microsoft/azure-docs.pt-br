@@ -10,13 +10,13 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
-ms.custom: contperfq1
-ms.openlocfilehash: f4dd6d67d60603ed6cad7056cff4bb07dcb1c2e5
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 163bd7dbdac4de7b7d9c1657ac3debf45382a27a
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149380"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027264"
 ---
 # <a name="about-transferring-billing-ownership-for-an-azure-subscription"></a>Sobre a transferência da propriedade da cobrança para uma assinatura do Azure
 
@@ -36,7 +36,7 @@ Somente o administrador de cobrança de uma conta pode transferir a propriedade 
 
 O administrador de cobrança é a pessoa que tem permissão para gerenciar a cobrança de uma conta. Ele tem autoridade para acessar a cobrança no [portal do Azure](https://portal.azure.com) e executar várias tarefas de cobrança, como criar assinaturas, exibir e pagar faturas ou atualizar formas de pagamento.
 
-Para identificar contas das quais você é administrador de cobrança, acesse a [página Gerenciamento de Custos e Cobrança no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview). Em seguida, selecione **Todos os escopos de cobrança** no painel esquerdo. A página de assinaturas mostra todas as assinaturas das quais você é administrador de cobrança.
+Para identificar contas das quais você é administrador de cobrança, acesse a [página Gerenciamento de Custos e Cobrança no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview). Em seguida, selecione **Todos os escopos de cobrança** no painel esquerdo. A página de assinaturas mostra todas as assinaturas nas quais você é um Administrador de cobrança.
 
 Se você não tiver certeza de quem é o administrador da conta de uma assinatura, acesse a [página Assinaturas no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Em seguida, selecione a assinatura que você deseja verificar e olhe em **Configurações**. Selecione **Propriedades** e o administrador da conta da assinatura é mostrado na caixa **Administrador da Conta**.
 

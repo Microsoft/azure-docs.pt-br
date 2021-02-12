@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: af2dc8378d1f1fe952a568ecb4bd89d088e3e3d3
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b222e4ff519fbe2fbb4fa58b39555ac9fead0917
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147244"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352908"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-data-explorer"></a>Entender como o desconto de reserva é aplicado ao Azure Data Explorer
 
@@ -29,7 +29,7 @@ Quando você desliga um recurso, o desconto de reserva se aplica automaticamente
 Um desconto de reserva é aplicado ao consumo de marcação do Azure Data Explorer de hora em hora. Para recursos do Azure Data Explorer que não são executados durante toda a hora, o desconto de reserva é aplicado automaticamente a outros recursos do Data Explorer que correspondem aos atributos de reserva. O desconto pode se aplicar aos recursos do Azure Data Explorer que estão sendo executados simultaneamente. Se você não tiver recursos do Azure Data Explorer que sejam executados durante a hora inteira e que correspondam aos atributos da reserva, você não terá o benefício total do desconto da reserva para essa hora.
 
 > [!NOTE]
-> * É **altamente recomendado** comprar [capacidade de reserva](../../virtual-machines/windows/prepay-reserved-vm-instances.md) para as máquinas virtuais usadas para o cluster do Azure Data Explorer a fim de maximizar a economia de capacidade reservada.
+> * É **altamente recomendado** comprar [capacidade de reserva](../../virtual-machines/prepay-reserved-vm-instances.md) para as máquinas virtuais usadas para o cluster do Azure Data Explorer a fim de maximizar a economia de capacidade reservada.
 > * A compra da reserva aplicará descontos a todas as regiões.
 
 ## <a name="examples"></a>Exemplos

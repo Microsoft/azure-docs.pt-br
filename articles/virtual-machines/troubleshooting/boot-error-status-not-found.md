@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: 3677d67f55cfccdc80245b2ec870ffa76b0a1940
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a91add684d7b7aaee67e7dd4f4f2d0c6df078132
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87088658"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632217"
 ---
 # <a name="troubleshoot-windows-boot-manager-error----0xc0000225-status-not-found"></a>Solucionar problemas do Gerenciador de Inicialização do Windows – 0xC0000225 "Status não encontrado"
  
@@ -80,6 +80,9 @@ Uma corrupção do hive de registro pode ocorrer devido a:
 
 ### <a name="process-overview"></a>Visão geral do processo
 
+> [!TIP]
+> Se você tiver um backup recente da VM, poderá tentar [restaurar a VM do backup](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema de inicialização.
+
 1. Criar e acessar uma VM de reparo.
 1. Selecionar uma solução:
    - [Reparar o arquivo de sistema](#repair-the-system-file)
@@ -126,7 +129,7 @@ Uma corrupção do hive de registro pode ocorrer devido a:
       `dir <BINARY WITH ".SYS" EXTENSION>  /s`
 
       Esse comando listará todas as versões do arquivo presentes no computador, fornecendo o histórico de caminho desse componente.
-      
+
       Por exemplo, **dir cng.sys** seria renomeado como **dir cng.sys /s**
 
    1. Escolha a versão mais recente do arquivo na lista (ou qualquer outra da sua preferência) e copie o arquivo para a pasta **windows\system32** usando o caminho anterior e o seguinte comando:

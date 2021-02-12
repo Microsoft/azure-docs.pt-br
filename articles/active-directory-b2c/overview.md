@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 09/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7126cd38a9d0f9ed0079a73e1235cb08a99bcbcf
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 29b34041042f00d72b8a9fe86e31bd80f8c77dc2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396528"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953943"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>O que é o Azure Active Directory B2C?
 
@@ -79,7 +79,7 @@ O WoodGrove Groceries oferece diversas opções de entrada com base na relação
 
 * Clientes **individuais** podem se inscrever ou entrar com contas individuais, como com um provedor de identidade social ou um endereço de email e senha.
 * Clientes de **negócios** podem se inscrever ou entrar com suas credenciais empresariais.
-* **Parceiros** e fornecedores são indivíduos que fornecem ao supermercado produtos para venda. A identidade do parceiro é fornecida pelo [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
+* **Parceiros** e fornecedores são indivíduos que fornecem ao supermercado produtos para venda. A identidade do parceiro é fornecida pelo [Azure Active Directory B2B](../active-directory/external-identities/what-is-b2b.md).
 
 ![Páginas de entrada individuais (B2C), da empresa (B2C) e do parceiro (B2B)](./media/overview/woodgrove-overview.png)
 
@@ -111,7 +111,7 @@ Essa política apresenta ao usuário uma opção para usar suas credenciais corp
 
 O link **Entrar com sua conta de fornecedor** usa a funcionalidade de colaboração do Azure Active Directory B2B. O Azure AD B2B é uma família de recursos no Azure Active Directory para gerenciar identidades de parceiros. Essas identidades podem ser federadas no Azure Active Directory para acesso a aplicativos protegidos pelo Azure AD B2C.
 
-Saiba mais sobre o Azure AD B2B em [O que é acesso de usuário convidado no Azure Active Directory B2B?](../active-directory/b2b/what-is-b2b.md).
+Saiba mais sobre o Azure AD B2B em [O que é acesso de usuário convidado no Azure Active Directory B2B?](../active-directory/external-identities/what-is-b2b.md).
 
 <!-- UNCOMMENT WHEN REPO IS UPDATED WITH LATEST DEMO CODE
 ### Sample code

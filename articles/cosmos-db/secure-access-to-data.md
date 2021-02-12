@@ -4,15 +4,16 @@ description: Saiba mais sobre os conceitos de controle de acesso no Azure Cosmos
 author: thomasweiss
 ms.author: thweiss
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 11/30/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 68f3fd34081868884782e007885befff59fa05da
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6dd95fc8fd0ab0099ac7404d4ca4e4b1851f650f
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096114"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359592"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Proteger o acesso aos dados no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -90,11 +91,11 @@ Este é um padrão de design típico no qual tokens de recurso podem ser solicit
 7. O aplicativo de telefone pode continuar usando o token de recurso para acessar diretamente recursos do Cosmos DB com as permissões definidas pelo token de recurso e no intervalo permitido por ele.
 8. Quando o token de recurso expira, as solicitações seguintes recebem uma exceção 401 de não autorizado.  Nesse ponto, o aplicativo móvel restabelece a identidade e solicita um novo token de recurso.
 
-    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Rotação de chave primária no portal do Azure-demonstrando a segurança do banco de dados NoSQL" border="false":::
+    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Fluxo de trabalho dos tokens de recurso do Azure Cosmos DB" border="false":::
 
 A geração e o gerenciamento de tokens de recurso são tratados pelas bibliotecas de cliente do Cosmos DB nativo; no entanto, se você usar o REST, deverá construir os cabeçalhos de solicitação/autenticação. Para obter mais informações sobre como criar cabeçalhos de autenticação para REST, consulte [controle de acesso em Cosmos DB recursos](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) ou o código-fonte para nosso [SDK do .net](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/Authorization/AuthorizationHelper.cs) ou [ SDK doNode.js](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
 
-Para obter um exemplo de um serviço de camada intermediária usado para gerar, ou tokens de recurso do agente, confira o [aplicativo ResourceTokenBroker](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
+Para obter um exemplo de um serviço de camada intermediária usado para gerar, ou tokens de recurso do agente, confira o [aplicativo ResourceTokenBroker](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
 ## <a name="users"></a>Usuários<a id="users"></a>
 
@@ -157,18 +158,18 @@ CosmosClient client = new CosmosClient(accountEndpoint: "MyEndpoint", authKeyOrR
 Para adicionar o acesso de leitor de conta do Azure Cosmos DB à sua conta de usuário, peça ao proprietário de uma assinatura que execute as seguintes etapas no portal do Azure.
 
 1. Abra o portal do Azure e selecione sua conta do Azure Cosmos DB.
-2. Clique na guia **Controle de acesso (IAM)** e, em seguida, clique em **+ Adicionar atribuição de função** .
-3. No painel **Adicionar atribuição de função** , na caixa **Função** , selecione **Função de leitor de conta do Cosmos DB** .
-4. Na **caixa atribuir acesso a** , selecione **usuário, grupo ou aplicativo do Azure ad** .
+2. Clique na guia **Controle de acesso (IAM)** e, em seguida, clique em **+ Adicionar atribuição de função**.
+3. No painel **Adicionar atribuição de função**, na caixa **Função**, selecione **Função de leitor de conta do Cosmos DB**.
+4. Na **caixa atribuir acesso a**, selecione **usuário, grupo ou aplicativo do Azure ad**.
 5. Selecione o usuário, o grupo ou o aplicativo no diretório ao qual você deseja conceder acesso.  Você pode pesquisar o diretório por nome para exibição, endereço de email ou identificadores de objeto.
     O usuário, grupo ou aplicativo selecionado aparece na lista de membros selecionados.
-6. Clique em **Salvar** .
+6. Clique em **Save** (Salvar).
 
 A entidade agora poderá ler recursos do Azure Cosmos DB.
 
 ## <a name="delete-or-export-user-data"></a>Excluir ou exportar dados do usuário
 
-O Azure Cosmos DB permite que você pesquise, selecione, modifique e exclua todos os dados pessoais localizados no banco de dados ou nas coleções. O Azure Cosmos DB fornece APIs para localizar e excluir dados pessoais, no entanto, é sua responsabilidade usar as APIs e definir a lógica necessária para apagar os dados pessoais. Cada API multimodelo (SQL, MongoDB, Gremlin, Cassandra, tabela) fornece SDKs de linguagens diferentes que contêm métodos para pesquisar e excluir dados pessoais. Você também pode habilitar o recurso [TTL (vida útil)](time-to-live.md) para excluir os dados automaticamente após um período especificado, sem resultar em nenhum custo adicional.
+Como um serviço de banco de dados, o Azure Cosmos DB permite que você pesquise, selecione, modifique e exclua todos os dados localizados no banco de dados ou contêineres. No entanto, é sua responsabilidade usar as APIs fornecidas e definir a lógica necessária para localizar e apagar todos os dados pessoais, se necessário. Cada API de vários modelos (SQL, MongoDB, Gremlin, Cassandra, Table) fornece diferentes SDKs de linguagem que contêm métodos para pesquisar e excluir dados com base em predicados personalizados. Você também pode habilitar o recurso [TTL (vida útil)](time-to-live.md) para excluir os dados automaticamente após um período especificado, sem resultar em nenhum custo adicional.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 

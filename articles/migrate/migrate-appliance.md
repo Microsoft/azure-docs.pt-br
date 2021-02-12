@@ -1,14 +1,17 @@
 ---
 title: Dispositivo de Migrações para Azure
 description: Fornece um resumo do suporte para o dispositivo de migrações para Azure.
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: ac3c90f1c09d290d5112a0e0d7abc5218788caf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17ac10fd4e48043b79db5448fad2f29c5eb3f2a3
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450035"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986812"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo de Migrações para Azure
 
@@ -42,7 +45,7 @@ A tabela a seguir resume os requisitos do dispositivo de Migrações para Azure 
 
 **Requisito** | **VMware** 
 --- | ---
-**Permissões** | Para acessar o aplicativo Web do dispositivo de forma local ou remota, você precisa ser administrador do domínio ou administrador local no computador do dispositivo.
+**Permissões** | Para acessar o aplicativo Web do dispositivo localmente ou remotamente, você precisa ter uma conta de usuário local ou de domínio com privilégios administrativos no servidor do dispositivo.
 **Componentes do dispositivo** | O dispositivo tem os seguintes componentes:<br/><br/> - **Aplicativo de gerenciamento**: é um aplicativo Web para entrada do usuário durante a implantação do dispositivo. Usado ao avaliar computadores para migração para o Azure.<br/> - **Agente de descoberta**: o agente coleta dados de configuração do computador. Usado ao avaliar computadores para migração para o Azure.<br/>- **Agente coletor**: o agente coleta dados de desempenho. Usado ao avaliar computadores para migração para o Azure.<br/>- **Serviço de atualização automática**: atualiza os componentes do dispositivo (executado a cada 24 horas).<br/>- **Agente DRA**: orquestra a replicação da VM e coordena a comunicação entre computadores replicados e o Azure. Usado somente ao replicar as VMs do VMware para o Azure usando a migração sem agente.<br/>- **Gateway**: envia dados replicados para o Azure. Usado somente ao replicar as VMs do VMware para o Azure usando a migração sem agente.
 **Implantação com suporte** | Implantação como VM do VMware usando o modelo OVA.<br/><br/> Implantação como uma VM do VMware ou computador físico usando um script de instalação do PowerShell.
 **Suporte de projeto** |  Um dispositivo pode ser associado a um único projeto. <br/> Qualquer quantidade de dispositivos pode ser associada a um único projeto.<br/> 
@@ -62,15 +65,15 @@ A tabela a seguir resume os requisitos do dispositivo de Migrações para Azure 
 
 **Requisito** | **Hyper-V** 
 --- | ---
-**Permissões** | Para acessar o aplicativo Web do dispositivo de forma local ou remota, você precisa ser administrador do domínio ou administrador local no computador do dispositivo.
+**Permissões** | Para acessar o aplicativo Web do dispositivo localmente ou remotamente, você precisa ter uma conta de usuário local ou de domínio com privilégios administrativos no servidor do dispositivo.
 **Componentes do dispositivo** | O dispositivo tem os seguintes componentes:<br/><br/>- **Aplicativo de gerenciamento**: é um aplicativo Web para entrada do usuário durante a implantação do dispositivo. Usado ao avaliar computadores para migração para o Azure.<br/> - **Agente de descoberta**: o agente coleta dados de configuração do computador. Usado ao avaliar computadores para migração para o Azure.<br/>- **Agente coletor**: o agente coleta dados de desempenho. Usado ao avaliar computadores para migração para o Azure.<br/>- **Serviço de atualização automática**: atualiza os componentes do dispositivo (executado a cada 24 horas).
 **Implantação com suporte** | Implantação como VM do Hyper-V usando um modelo VHD.<br/><br/> Implantação como uma VM do Hyper-V ou computador físico usando um script de instalação do PowerShell.
 **Suporte de projeto** |  Um dispositivo pode ser associado a um único projeto. <br/> Qualquer quantidade de dispositivos pode ser associada a um único projeto.<br/> 
 **Limites de descoberta** | Um dispositivo pode descobrir até 5.000 VMs do Hyper-V.<br/> Um dispositivo pode se conectar a até 300 hosts do Hyper-V.
 **Modelo VHD** | Pasta compactada incluindo VHD. Baixe do portal ou [daqui](https://go.microsoft.com/fwlink/?linkid=2140422).<br/><br/> O tamanho do download é 8,91 GB.<br/><br/> O modelo de dispositivo baixado é fornecido com uma licença de avaliação do Windows Server 2016 que é válida por 180 dias. Caso o período de avaliação esteja próximo da expiração, recomendamos que você baixe e implante um novo dispositivo ou ative a licença do sistema operacional da VM do dispositivo.
 **Script do PowerShell** | Consulte este [artigo](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).<br/><br/> 
-**Software/hardware***   |  O dispositivo deve ser executado no computador com o Windows Server 2016, 16 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento em disco e um comutador virtual externo.<br/> O dispositivo precisa de um endereço IP estático ou dinâmico e requer acesso à Internet, diretamente ou por meio de um proxy.<br/><br/> Se você executar o dispositivo como uma VM do Hyper-V, precisará de recursos suficientes no host do Hyper-V para alocar os requisitos de hardware.<br/><br/> Se você executar o dispositivo em um computador físico, verifique se ele está executando o Windows Server 2016 e se atende aos requisitos de hardware. 
-**Requisitos do Hyper-V** | Se você implantar o dispositivo com o modelo VHD, a VM do dispositivo fornecida pelas Migrações para Azure será a versão 5.0 da VM do Hyper-V.<br/><br/> O host do Hyper-V deve estar executando o Windows Server 2012 R2 ou posterior. 
+**Software/hardware** _   |  O dispositivo deve ser executado no computador com o Windows Server 2016, 16 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento em disco e um comutador virtual externo.<br/> O dispositivo precisa de um endereço IP estático ou dinâmico e requer acesso à Internet, diretamente ou por meio de um proxy.<br/><br/> Se você executar o dispositivo como uma VM do Hyper-V, precisará de recursos suficientes no host do Hyper-V para alocar os requisitos de hardware.<br/><br/> Se você executar o dispositivo em um computador físico, verifique se ele está executando o Windows Server 2016 e se atende aos requisitos de hardware. 
+_ *Requisitos do Hyper-V** | Se você implantar o dispositivo com o modelo VHD, a VM do dispositivo fornecida pelas Migrações para Azure será a versão 5.0 da VM do Hyper-V.<br/><br/> O host do Hyper-V deve estar executando o Windows Server 2012 R2 ou posterior. 
 **Valor de hash – VHD** | [Verificar](tutorial-discover-hyper-v.md#verify-security) Valores de hash do modelo VHD.
 **Valor de hash – script do PowerShell** | [Verifique](deploy-appliance-script.md#verify-file-security) os valores de hash de script do PowerShell.
 
@@ -79,7 +82,7 @@ A tabela a seguir resume os requisitos do dispositivo de Migrações para Azure 
 
 **Requisito** | **Físico** 
 --- | ---
-**Permissões** | Para acessar o aplicativo Web do dispositivo de forma local ou remota, você precisa ser administrador do domínio ou administrador local no computador do dispositivo.
+**Permissões** | Para acessar o aplicativo Web do dispositivo localmente ou remotamente, você precisa ter uma conta de usuário local ou de domínio com privilégios administrativos no servidor do dispositivo.
 **Componentes do dispositivo** | O dispositivo tem os seguintes componentes: <br/><br/> - **Aplicativo de gerenciamento**: é um aplicativo Web para entrada do usuário durante a implantação do dispositivo. Usado ao avaliar computadores para migração para o Azure.<br/> - **Agente de descoberta**: o agente coleta dados de configuração do computador. Usado ao avaliar computadores para migração para o Azure.<br/>- **Agente coletor**: o agente coleta dados de desempenho. Usado ao avaliar computadores para migração para o Azure.<br/>- **Serviço de atualização automática**: atualiza os componentes do dispositivo (executado a cada 24 horas).
 **Implantação com suporte** | Implante como computador físico dedicado, ou VM, usando um script de instalação do PowerShell. O script está disponível para download no portal.
 **Suporte de projeto** |  Um dispositivo pode ser associado a um único projeto. <br/> Qualquer quantidade de dispositivos pode ser associada a um único projeto.<br/> 
@@ -215,11 +218,11 @@ A descoberta de aplicativos coleta aplicativos instalados e dados do sistema ope
 
 Aqui estão os dados de aplicativo instalados que o dispositivo coleta de cada VM habilitada para descoberta de aplicativos. Estes dados são enviados para o Azure.
 
-**Dados** | **Local do Registro** | **Key**
+**Dados** | **Local do Registro** | **Chave**
 --- | --- | ---
 Nome do Aplicativo  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayName
 Versão  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
-Provedor  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Publicador
+Provedor  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Publisher
 
 #### <a name="windows-vm-features-data"></a>Dados de recursos de VM do Windows
 
@@ -235,7 +238,7 @@ Pai  | Get-WindowsFeature  | Pai
 
 Aqui estão os metadados do SQL Server que o dispositivo coleta de VMs que executam o Microsoft SQL Server habilitado para descoberta de aplicativos. Estes dados são enviados para o Azure.
 
-**Dados**  | **Local do Registro**  | **Key**
+**Dados**  | **Local do Registro**  | **Chave**
 --- | --- | ---
 Nome  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL servidor \ instância Names\SQL  | installedInstance
 Edition  | HKLM: \ \\ SOFTWARE\Microsoft\Microsoft SQL Server \% \<InstanceName>  | Edition 

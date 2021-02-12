@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 04/26/2018
 ms.author: duau
-ms.openlocfilehash: 86151efdc6d2b17c9eef722f2dc3c6306d5aa1b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: abac2e5b1fcba65db92edd2bcc2f390ec0114f59
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400212"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185335"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-cli"></a>Rotear o tráfego para alta disponibilidade de aplicativos usando a CLI do Azure
 
@@ -49,14 +49,14 @@ Esse script usa os seguintes comandos para criar um grupo de recursos, o aplicat
 
 | Comando | Observações |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan) | Cria um Plano do Serviço de Aplicativo. Isso é como um farm de servidores para seu aplicativo Web do Azure. |
-| [az webapp web create](https://docs.microsoft.com/cli/azure/webapp#az-webapp-create) | Cria um aplicativo web do Azure no plano do Serviço de Aplicativo. |
-| [az network traffic-manager profile create](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile) | Cria um perfil de Gerenciador de Tráfego do Azure. |
-| [az network traffic-manager endpoint create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint) | Adiciona um endpoint a um perfil do Gerenciador de tráfego do Azure. |
+| [az group create](/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az appservice plan create](/cli/azure/appservice/plan) | Cria um Plano do Serviço de Aplicativo. Isso é como um farm de servidores para seu aplicativo Web do Azure. |
+| [az webapp web create](/cli/azure/webapp#az-webapp-create) | Cria um aplicativo web do Azure no plano do Serviço de Aplicativo. |
+| [az network traffic-manager profile create](/cli/azure/network/traffic-manager/profile) | Cria um perfil de Gerenciador de Tráfego do Azure. |
+| [az network traffic-manager endpoint create](/cli/azure/network/traffic-manager/endpoint) | Adiciona um endpoint a um perfil do Gerenciador de tráfego do Azure. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
+Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](/cli/azure).
 
 Os exemplos de script da CLI do Serviço de Aplicativo adicionais podem ser encontrados na [documentação de Rede do Azure](../cli-samples.md).

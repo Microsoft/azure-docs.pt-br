@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: 34baa054104a6cf2c78864cc2827b16c1eedb084
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fec130ff02d9796fb9a6cea7a831bbdcb25cb1ed
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91613298"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225623"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Início Rápido: Adicionar entrada usando o OpenID Connect para um aplicativo Web do Node.js
 
-Neste início rápido, você aprenderá a configurar a autenticação do OpenID Connect em um aplicativo Web criado usando o Node.js com o Express. O exemplo foi projetado para ser executado em qualquer plataforma.
+Neste guia de início rápido, você baixará e executará um exemplo de código que demonstra como configurar a autenticação do OpenID Connect em um aplicativo Web criado usando o Node.js com o Express. O exemplo foi projetado para ser executado em qualquer plataforma.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,38 +29,29 @@ Neste início rápido, você aprenderá a configurar a autenticação do OpenID 
 - [Node.js](https://nodejs.org/en/download/).
 
 ## <a name="register-your-application"></a>Registre seu aplicativo
-1. Entre no [portal do Azure](https://portal.azure.com/) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-1. Se sua conta estiver presente em mais de um locatário do Azure AD:
-    - Selecione seu perfil no menu no canto superior direito da página e, em seguida, escolha **Alternar diretório**.
-    - Altere a sessão para o locatário do Azure AD no qual você deseja criar seu aplicativo.
 
-1. Navegue até [Azure Active Directory > Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) para registrar seu aplicativo.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
+1. Pesquise **Azure Active Directory** e selecione-o.
+1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
+1. Insira um **Nome** para seu aplicativo, por exemplo, `MyWebApp`. Os usuários do seu aplicativo podem ver esse nome e você pode alterá-lo mais tarde.
+1. Na seção **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)** .
 
-1. Selecione **Novo registro**.
-
-1. Quando a página **Registrar um aplicativo** for exibida, insira as informações de registro do aplicativo:
-    - Na seção **Nome**, insira um nome relevante que será exibido aos usuários do aplicativo. Por exemplo:  MyWebApp
-    - Na seção **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)** .
-
-    Se houver mais de um URI de redirecionamento, você precisará adicioná-los da guia **Autenticação** posteriormente depois que o aplicativo tiver sido criado com êxito.
+    Se houver mais de um URI de redirecionamento, adicione-os por meio da guia **Autenticação** posteriormente depois que o aplicativo for criado com êxito.
 
 1. Selecione **Registrar** para criar o aplicativo.
-
 1. Na página **Visão geral** do aplicativo, localize o valor de **ID do aplicativo (cliente)** e registre-o para uso posterior. Você precisará desse valor para configurar o aplicativo posteriormente neste projeto.
+1. Em **Gerenciar**, selecione **Autenticação**.
+1. Selecione **Adicionar uma plataforma** > **Web**. 
+1. Na seção **URIs de Redirecionamento**, insira `http://localhost:3000/auth/openid/return`.
+1. Insira uma **URL de logoff de front-channel** igual a `https://localhost:3000`.
+1. Na seção **Concessão implícita e fluxos híbridos**, selecione **Tokens de ID**, pois este exemplo exige que o [Fluxo de concessão implícita](./v2-oauth2-implicit-grant-flow.md) seja habilitado para conectar o usuário.
+1. Selecione **Configurar**.
+1. Em **Gerenciar**, selecione **Certificados e segredos** > **Novo segredo do cliente**.
+1. Insira uma descrição de chave (para o segredo do aplicativo da instância).
+1. Selecione uma duração de chave de **Em 1 ano, Em 2 anos** ou **Nunca expira**.
+1. Selecione **Adicionar**. O valor da chave será exibido. Copie o valor da chave e salve-o em uma localização segura para uso posterior.
 
-1. Na lista de páginas para o aplicativo, selecione **Autenticação**.
-    - Na seção **Redirecionamento de URIs**, selecione **Web** na caixa de combinação e insira o seguinte URI de redirecionamento: `http://localhost:3000/auth/openid/return`
-    - Na seção **Configurações avançadas**, defina **URL de Saída** como `https://localhost:3000`.
-    - Na seção **Configurações avançadas > Concessão implícita**, marque **Tokens de ID**, pois este exemplo requer que o [Fluxo de concessão implícita](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-implicit-grant-flow) seja habilitado para conectar o usuário.
-
-1. Clique em **Salvar**.
-
-1. Na página **Certificados e segredos**, na seção **Segredos do cliente**, escolha **Novo segredo do cliente**.
-    - Insira uma descrição de chave (para o segredo do aplicativo da instância).
-    - Selecione uma duração de chave de **Em 1 ano, Em 2 anos** ou **Nunca expira**.
-    - Quando você clicar no botão **Adicionar**, o valor da chave será exibido. Copie o valor da chave e salve-o em um local seguro.
-
-    Você precisará dessa chave posteriormente para configurar o aplicativo. Esse valor de chave não será exibido novamente nem poderá ser recuperado por outros meios, portanto, registre-o assim que estiver visível na portal do Azure.
 
 ## <a name="download-the-sample-application-and-modules"></a>Baixar os módulos e aplicativo de exemplo
 

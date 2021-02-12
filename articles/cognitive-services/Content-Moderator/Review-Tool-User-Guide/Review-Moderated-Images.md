@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
-ms.openlocfilehash: cfda4d7970c734d92c9f2355d553721ef6165e43
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 77d7b8a0bf4d7fe9a94a61ea3f2f4279246ffb69
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911844"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903880"
 ---
 # <a name="create-human-reviews"></a>Criar análises humanas
 
@@ -28,7 +28,7 @@ Neste guia, você aprenderá a configurar as [revisões](../review-api.md#review
 ## <a name="image-reviews"></a>Análises de imagem
 
 1. Vá para a [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/), selecione a guia **tentar** e carregue algumas imagens para revisar.
-1. Depois que as imagens carregadas tiverem terminado o processamento, vá para a guia **revisar** e selecione **imagem** .
+1. Depois que as imagens carregadas tiverem terminado o processamento, vá para a guia **revisar** e selecione **imagem**.
 
     ![Navegador Chrome que mostra a ferramenta de análise com a opção de examinar imagem realçada](images/review-images-1.png)
 
@@ -38,7 +38,7 @@ Neste guia, você aprenderá a configurar as [revisões](../review-api.md#review
 
     ![Navegador Chrome mostrando a ferramenta Revisar com imagens marcadas para revisão](images/review-images-2.png)
 
-1. Para ver mais informações sobre uma imagem, clique nas reticências na miniatura e selecione **Exibir detalhes** . Você pode atribuir uma imagem a uma subequipe com a opção **mover para** (consulte a seção [equipes](./configure.md#manage-team-and-subteams) para saber mais sobre subequipes).
+1. Para ver mais informações sobre uma imagem, clique nas reticências na miniatura e selecione **Exibir detalhes**. Você pode atribuir uma imagem a uma subequipe com a opção **mover para** (consulte a seção [equipes](./configure.md#manage-team-and-subteams) para saber mais sobre subequipes).
 
     ![Uma imagem com a opção de exibição de detalhes realçada](images/review-images-3.png)
 
@@ -56,4 +56,4 @@ As revisões de texto funcionam de forma semelhante às revisões de imagem. Em 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste guia, você aprendeu a configurar e usar as revisões da [ferramenta de análise](https://contentmoderator.cognitive.microsoft.com)de Content Moderator. Em seguida, consulte o [guia da API REST](../try-review-api-review.md) ou o [início rápido do SDK do .net](../client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp) para saber como criar revisões programaticamente.
+Neste guia, você aprendeu a configurar e usar as revisões da [ferramenta de análise](https://contentmoderator.cognitive.microsoft.com)de Content Moderator. Em seguida, consulte o [Guia do console de API](../try-review-api-review.md) ou o [início rápido do SDK do .net](../client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp) para saber como criar revisões programaticamente.

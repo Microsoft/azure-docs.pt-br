@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 09e0b3bbac0bdc1d268aa7f24741aeb12a7d366d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f96365bcdf64d19dc0b894f2f1230233b3137bc7
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462574"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842644"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Implantar uma ferramenta de gerenciamento de área de trabalho virtual do Windows (clássica) com um modelo de Azure Resource Manager
 
@@ -36,7 +36,7 @@ Os seguintes navegadores são compatíveis com a ferramenta de gerenciamento:
 
 Antes de implantar a ferramenta de gerenciamento, você precisará que um usuário do Azure AD (Azure Active Directory) crie um registro de aplicativo e implante a interface do usuário de gerenciamento. Esse usuário precisa:
 
-- Ter a (MFA) Autenticação Multifator do Azure desabilitada
+- Ter a autenticação multifator (MFA) do Azure AD desabilitada
 - Ter permissão para criar recursos em sua assinatura do Azure
 - Ter permissão para criar um aplicativo do Azure AD. Siga estas etapas para verificar se o usuário tem as permissões necessárias, seguindo as instruções em [Permissões necessárias](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 

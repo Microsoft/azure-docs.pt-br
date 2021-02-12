@@ -7,17 +7,18 @@ author: hermanndms
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: 5c3a24bc9d754a15a0b372667fbcd689365a9aec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87758100299eb170a7950a1a7a2c6bd2029b27fb
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87088301"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621545"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verificar e solucionar problemas de instalação de alta disponibilidade de expansão do SAP HANA no SLES 12 SP3 
 
@@ -44,6 +45,9 @@ Todos os testes para expansão do SAP HANA em combinação com a replicação de
 O SUSE publicou uma [descrição detalhada dessa configuração otimizada para desempenho][sles-hana-scale-out-ha-paper].
 
 Para tipos de máquinas virtuais compatíveis com expansão SAP HANA, verifique o [diretório IaaS certificado pelo SAP HANA][sap-hana-iaas-list].
+
+> [!NOTE]
+> Este artigo contém referências aos termos *mestre* e *subordinado*, termos que a Microsoft não usa mais. Quando esses termos forem removidos do software, nós os removeremos deste artigo.
 
 Houve um problema técnico com expansão do SAP HANA em combinação com várias sub-redes e vNICs e configuração de HSR. É obrigatório usar os patches mais recentes do SAP HANA 2.0 em que esse problema foi corrigido. Há suporte para as seguintes versões do SAP HANA: 
 
@@ -550,7 +554,7 @@ Last change: Wed Sep 12 07:46:54 2018 by root via cibadmin on hso-hana-vm-s2-1
 7 nodes configured
 17 resources configured
 
-              *** Resource management is DISABLED ***
+              **_ Resource management is DISABLED _*_
   The cluster will not attempt to start, stop or recover services
 
 Online: [ hso-hana-dm hso-hana-vm-s1-0 hso-hana-vm-s1-1 hso-hana-vm-s1-2 hso-hana-vm-s2-0 hso-hana-vm-s2-1 hso-hana-vm-s2-2 ]
@@ -586,7 +590,7 @@ crm configure property maintenance-mode=false
 </code></pre>
 
 
-Outro comando **crm** obtém a configuração completa do cluster em um editor, para que você possa editá-lo. Depois de salvar as alterações, o cluster inicia as ações apropriadas:
+Outro comando _ *CRM** Obtém a configuração completa do cluster em um editor, para que você possa editá-la. Depois de salvar as alterações, o cluster inicia as ações apropriadas:
 
 <pre><code>
 crm configure edit
@@ -682,7 +686,7 @@ Também ajuda a observar o status da paisagem do SAP HANA proveniente de um scri
 
 Há algumas tentativas para evitar failovers desnecessários. O cluster reage apenas se o status for alterado de **Ok**, retornar valor **4**, para **erro**, retornar valor **1**. Para que ela esteja correta se a saída do **SAPHanaSR showAttr** mostra uma VM com o estado **offline**. Mas ainda não há atividade para alternar entre primário e secundário. Nenhuma atividade do cluster é disparada enquanto o SAP HANA não retornar um erro.
 
-Você pode monitorar o status de integridade do SAP HANA Landscape como o ** \<HANA SID\> ADM** do usuário chamando o script do SAP Python da seguinte maneira. Talvez seja necessário adaptar o caminho:
+Você pode monitorar o status de integridade do SAP HANA Landscape como o **\<HANA SID\> ADM** do usuário chamando o script do SAP Python da seguinte maneira. Talvez seja necessário adaptar o caminho:
 
 <pre><code>
 watch python /hana/shared/HSO/exe/linuxx86_64/HDB_2.00.032.00.1533114046_eeaf4723ec52ed3935ae0dc9769c9411ed73fec5/python_support/landscapeHostConfiguration.py

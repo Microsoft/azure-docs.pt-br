@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 9/24/2019
 ms.author: rohink
-ms.openlocfilehash: a951bc07c4a8ed42b1c116332d13674656bbaafd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9eaa320e79f1d595303c6d9fe1399df12cb6c52b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75646788"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954402"
 ---
 # <a name="what-is-a-private-azure-dns-zone"></a>O que é uma zona DNS privada do Azure
 
@@ -23,9 +23,9 @@ Os registros contidos em uma zona DNS privada não podem ser resolvidos pela Int
 Você pode vincular uma zona DNS privada a uma ou mais redes virtuais criando [links de rede virtual](./private-dns-virtual-network-links.md).
 Você também pode habilitar o recurso de [registro automático](./private-dns-autoregistration.md) para gerenciar automaticamente o ciclo de vida dos registros DNS para as máquinas virtuais implantadas em uma rede virtual.
 
-## <a name="limits"></a>limites
+## <a name="limits"></a>Limites
 
-Para entender quantas zonas DNS privadas você pode criar em uma assinatura e quantos conjuntos de registros têm suporte em uma zona DNS privada, consulte [limites de DNS do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits)
+Para entender quantas zonas DNS privadas você pode criar em uma assinatura e quantos conjuntos de registros têm suporte em uma zona DNS privada, consulte [limites de DNS do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits)
 
 ## <a name="restrictions"></a>Restrições
 

@@ -1,28 +1,24 @@
 ---
 title: Perguntas frequentes sobre problemas de configuração e gerenciamento
-titleSuffix: Azure Cloud Services
 description: Este artigo lista as perguntas frequentes sobre a configuração e o gerenciamento de Serviços de Nuvem do Microsoft Azure.
-services: cloud-services
-documentationcenter: ''
-author: genlin
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
-ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/23/2018
-ms.author: genli
-ms.openlocfilehash: c4497805e64ef303c9d7340c48a49027b3a26bef
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: c5dd09292897d69f90606e8661b4e6cb28090612
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144692"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742583"
 ---
-# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gerenciamento para Serviços de Nuvem do Azure: perguntas frequentes
+# <a name="configuration-and-management-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Problemas de configuração e gerenciamento dos serviços de nuvem do Azure (clássico): perguntas frequentes (FAQs)
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
 
 Este artigo inclui perguntas frequentes sobre a configuração e o gerenciamento de [Serviços de Nuvem do Microsoft Azure](https://azure.microsoft.com/services/cloud-services). Você também pode consultar a [página de tamanho de VM de Serviços de Nuvem](cloud-services-sizes-specs.md) para obter informações de tamanho.
 
@@ -62,7 +58,7 @@ Este artigo inclui perguntas frequentes sobre a configuração e o gerenciamento
 
 **Genérico**
 
-- [Como fazer para adicionar "nosniff" ao meu site?](#how-do-i-add-nosniff-to-my-website)
+- [Como fazer adicionar `nosniff` ao meu site?](#how-do-i-add-nosniff-to-my-website)
 - [Como fazer para personalizar o IIS para uma função web?](#how-do-i-customize-iis-for-a-web-role)
 - [O que é o limite de cota para meu serviço de nuvem?](#what-is-the-quota-limit-for-my-cloud-service)
 - [Por que a unidade na VM do meu serviço de nuvem mostra muito pouco espaço livre em disco?](#why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space)
@@ -128,7 +124,7 @@ $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLoc
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
-Capacidade de escolher o blob ou local para o seu csdef e de carregar localização de cscfg em breve. Usando [New-AzureDeployment](/powershell/module/servicemanagement/azure.service/new-azuredeployment?view=azuresmps-4.0.0), você pode definir o valor de cada local.
+Capacidade de escolher o blob ou local para o seu csdef e de carregar localização de cscfg em breve. Usando [New-AzureDeployment](/powershell/module/servicemanagement/azure.service/new-azuredeployment?view=azuresmps-4.0.0&preserve-view=true), você pode definir o valor de cada local.
 
 Capacidade de monitorar as métricas no nível de instância. Recursos de monitoramentos adicionais estão disponíveis em [como monitorar Serviços De Nuvem](cloud-services-how-to-monitor.md).
 
@@ -146,9 +142,9 @@ Para obter mais informações, consulte um dos seguintes documentos:
 Você pode habilitar o log do Windows Azure Diagnostics (WAD) através das seguintes opções:
 1. [Ativar a partir do Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 2. [Habilitar por meio de código .NET](./cloud-services-dotnet-diagnostics.md)
-3. [Ativar através do Powershell](./cloud-services-diagnostics-powershell.md)
+3. [Habilitar por meio do PowerShell](./cloud-services-diagnostics-powershell.md)
 
-Para obter as configurações atuais do WAD do seu Serviço em Nuvem, você pode usar [Get-AzureServiceDiagnosticsExtensions](./cloud-services-diagnostics-powershell.md#get-current-diagnostics-extension-configuration) pscmd ou pode visualizá-lo no portal a partir da folha "Serviços em Nuvem -> Extensões".
+Para obter as configurações de WAD atuais de seu serviço de nuvem, você pode usar o [Get-AzureServiceDiagnosticsExtensions](./cloud-services-diagnostics-powershell.md#get-current-diagnostics-extension-configuration) PowerShell cmd ou pode exibi-lo por meio do portal da folha "serviços de nuvem-> extensões".
 
 
 ## <a name="network-configuration"></a>Configuração de rede
@@ -233,7 +229,7 @@ Esse erro pode ocorrer se você usar o arquivo RDP a partir de um computador ass
 1. Clique com o botão direito no arquivo RDP que você fez download e, em seguida, selecione **Editar**.
 2. Adicione "&#92;" como prefixo antes do nome de usuário. Por exemplo, use **.\nome de usuário** em vez de **nome de usuário**.
 
-## <a name="scaling"></a>Scaling
+## <a name="scaling"></a>Dimensionamento
 
 ### <a name="i-cannot-scale-beyond-x-instances"></a>Não consigo dimensionar além de X instâncias
 Sua Assinatura do Azure tem um limite no número de núcleos que você pode usar. O dimensionamento não funcionará se você tiver usado todos os núcleos disponíveis. Por exemplo, se você tiver um limite de 100 núcleos, isso significa você poderia ter 100 instâncias de máquina virtual A1 dimensionadas para seu serviço de nuvem ou 50 instâncias de máquina virtual A2.
@@ -254,7 +250,7 @@ Para obter mais informações sobre como habilitar o log de Diagnóstico do Micr
 
 ## <a name="generic"></a>Genérico
 
-### <a name="how-do-i-add-nosniff-to-my-website"></a>Como fazer para adicionar "nosniff" ao meu site?
+### <a name="how-do-i-add-nosniff-to-my-website"></a>Como fazer adicionar `nosniff` ao meu site?
 Para evitar que clientes detectem os tipos MIME, adicione uma configuração ao arquivo *web.config*.
 
 ```xml
@@ -284,11 +280,11 @@ Consulte [Limites específicos do serviço](../azure-resource-manager/management
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>Por que a unidade na VM do meu serviço de nuvem mostra muito pouco espaço livre em disco?
 Esse comportamento é esperado e não deve causar nenhum problema ao seu aplicativo. Registro em log está ativado para a unidade %approot% em VMs virtuais de PaaS do Azure, que consome basicamente o dobro da quantidade de espaço que os arquivos normalmente ocupam. No entanto, há vários elementos a serem considerados que essencialmente transformam isso em um não problema.
 
-O tamanho da unidade% approot% é calculado como \<size of .cspkg + max journal size + a margin of free space> , ou 1,5 GB, o que for maior. O tamanho da sua VM não tem influência sobre esse cálculo. (O tamanho da VM só afeta o tamanho da unidade C: temporária.) 
+O tamanho da unidade %approot% é calculado como <tamanho do .cspkg + tamanho máximo do diário + margem de espaço livre> ou 1,5 GB, o que for maior. O tamanho da sua VM não tem influência sobre esse cálculo. (O tamanho da VM só afeta o tamanho da unidade C: temporária.) 
 
 Não tem suporte para gravar na unidade %approot%. Se você estiver gravando na VM do Azure, deverá fazer isso em um recurso LocalStorage temporário (ou outra opção, como o armazenamento de Blobs, Arquivos do Azure etc.). Portanto, a quantidade de espaço livre na pasta %approot% não é significativa. Se você não tiver certeza de que seu aplicativo está gravando na unidade %approot%, poderá sempre permitir que o serviço seja executado por alguns dias e, em seguida, comparar os tamanhos "antes" e "depois". 
 
-O Azure não gravará nada na unidade %approot%. Quando o VHD tiver sido criado do seu .cspkg e montado na VM do Azure, você poderá gravar apenas seu aplicativo nessa unidade. 
+O Azure não gravará nada na unidade %approot%. Depois que o VHD é criado de seu `.cspkg` e montado na VM do Azure, a única coisa que pode gravar nessa unidade é seu aplicativo. 
 
 As definições do diário são não configuráveis, assim, não é possível desligá-las.
 
@@ -297,7 +293,7 @@ As definições do diário são não configuráveis, assim, não é possível de
 É possível habilitar a extensão Antimalware usando o script do PowerShell na Tarefa de Inicialização. Siga as etapas nestes artigos para implementá-la: 
  
 - [Criar uma tarefa de inicialização do PowerShell](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
-- [Set-AzureServiceAntimalwareExtension](/powershell/module/servicemanagement/azure.service/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
+- [Set-AzureServiceAntimalwareExtension](/powershell/module/servicemanagement/azure.service/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0&preserve-view=true)
 
 Para obter mais informações sobre cenários de implantação do Antimalware e como habilitá-lo no portal, consulte [Antimalware Deployment Scenarios](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios) (Cenários de implantação de Antimalware).
 

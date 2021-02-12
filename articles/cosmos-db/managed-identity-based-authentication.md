@@ -3,17 +3,18 @@ title: Como usar uma identidade gerenciada atribuída pelo sistema da VM do Linu
 description: Saiba como configurar Azure Active Directory uma identidade gerenciada (identidade de serviço gerenciado) atribuída pelo sistema (Azure AD) para acessar chaves de Azure Cosmos DB.
 author: j-patrick
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 918033f736a28534cd36a4637b41d0a6b3b4cdc7
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4d9845fad8c9013bd20499c45a8d1714e30e9dbf
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088566"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927417"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Usar identidades gerenciadas atribuídas pelo sistema para acessar dados de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -30,13 +31,13 @@ Nesta etapa, você atribuirá uma identidade gerenciada atribuída pelo sistema 
 
 1. No [portal do Azure](https://portal.azure.com/), abra o painel de **funções do Azure** e vá para seu aplicativo de funções. 
 
-1. Abra a **Platform features**  >  guia **identidade** de recursos da plataforma: 
+1. Abra a   >  guia **identidade** de recursos da plataforma: 
 
    :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-selection.png" alt-text="Captura de tela mostrando recursos de plataforma e opções de identidade para o aplicativo de funções.":::
 
-1. Na guia **identidade** , ative o **status** **de identidade** do sistema e selecione **salvar** . O painel **identidade** deve ter a seguinte aparência:  
+1. Na guia **identidade** , ative o **status** **de identidade** do sistema e selecione **salvar**. O painel **identidade** deve ter a seguinte aparência:  
 
-   :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-system-managed-on.png" alt-text="Captura de tela mostrando recursos de plataforma e opções de identidade para o aplicativo de funções.":::
+   :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-system-managed-on.png" alt-text="Captura de tela mostrando o status de identidade do sistema definido como ativado.":::
 
 ## <a name="grant-access-to-your-azure-cosmos-account"></a>Conceder acesso à sua conta do Azure Cosmos
 
@@ -59,21 +60,21 @@ Nesse cenário, o aplicativo de funções lerá a temperatura do aquário e, em 
 
 1. Entre no portal do Azure e vá para sua conta do Azure Cosmos DB. Abra o painel **controle de acesso (iam)** e, em seguida, a guia **atribuições de função** :
 
-   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="Captura de tela mostrando recursos de plataforma e opções de identidade para o aplicativo de funções.":::
+   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="Captura de tela mostrando o painel controle de acesso e a guia atribuições de função.":::
 
-1. Selecione **+Adicionar** > **Adicionar atribuição de função** .
+1. Selecione **+Adicionar** > **Adicionar atribuição de função**.
 
 1. O painel **Adicionar atribuição de função** é aberto à direita:
 
-   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="Captura de tela mostrando recursos de plataforma e opções de identidade para o aplicativo de funções.":::
+   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="Captura de tela mostrando o painel Adicionar atribuição de função.":::
 
-   * **Função** : selecione **colaborador de conta do DocumentDB**
-   * **Atribuir acesso a** : na subseção **selecionar identidade gerenciada atribuída pelo sistema** , selecione **aplicativo de funções** .
-   * **Select** : o painel será preenchido com todos os aplicativos de funções em sua assinatura que têm uma **identidade de sistema gerenciada** . Nesse caso, selecione o aplicativo de funções **FishTankTemperatureService** : 
+   * **Função**: selecione **colaborador de conta do DocumentDB**
+   * **Atribuir acesso a**: na subseção **selecionar identidade gerenciada atribuída pelo sistema** , selecione **aplicativo de funções**.
+   * **Select**: o painel será preenchido com todos os aplicativos de funções em sua assinatura que têm uma **identidade de sistema gerenciada**. Nesse caso, selecione o aplicativo de funções **FishTankTemperatureService** : 
 
-      :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Captura de tela mostrando recursos de plataforma e opções de identidade para o aplicativo de funções.":::
+      :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Captura de tela mostrando o painel Adicionar atribuição de função preenchido com exemplos.":::
 
-1. Depois de selecionar seu aplicativo de funções, selecione **salvar** .
+1. Depois de selecionar seu aplicativo de funções, selecione **salvar**.
 
 ### <a name="assign-the-role-using-azure-cli"></a>Atribuir a função usando CLI do Azure
 
@@ -129,7 +130,7 @@ namespace Monitor
 }
 ```
 
-Você usará a biblioteca [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) para obter o token de identidade gerenciado atribuído pelo sistema. Para saber outras maneiras de obter o token e obter mais informações sobre a `Microsoft.Azure.Service.AppAuthentication` biblioteca, consulte o artigo de [autenticação de serviço a serviço](../key-vault/general/service-to-service-authentication.md) .
+Você usará a biblioteca [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) para obter o token de identidade gerenciado atribuído pelo sistema. Para saber outras maneiras de obter o token e obter mais informações sobre a `Microsoft.Azure.Service.AppAuthentication` biblioteca, consulte o artigo de [autenticação de serviço a serviço](/dotnet/api/overview/azure/service-to-service-authentication) .
 
 
 ```csharp
@@ -213,7 +214,7 @@ namespace Monitor
 }
 ```
 
-Agora você está pronto para [implantar seu aplicativo de funções](../azure-functions/functions-create-first-function-vs-code.md).
+Agora você está pronto para [implantar seu aplicativo de funções](../azure-functions/create-first-function-vs-code-csharp.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

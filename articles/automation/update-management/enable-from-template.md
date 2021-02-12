@@ -1,18 +1,16 @@
 ---
-title: Habilitar o Gerenciamento de Atualizações usando o modelo do Azure Resource Manager | Microsoft Docs
+title: Habilitar o Gerenciamento de Atualizações usando o modelo do Azure Resource Manager
 description: Este artigo diz como usar um modelo do Azure Resource Manager to habilitar o Gerenciamento de Atualizações.
-ms.service: automation
+services: automation
 ms.subservice: update-management
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 09/18/2020
-ms.openlocfilehash: eac7999db61bd883dd1148e8b866b811a4f3c851
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 47c982bff45838617b9a55f9129d4dc55d58b0d2
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222015"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050324"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Habilitar o Gerenciamento de Atualizações usando o modelo do Azure Resource Manager
 
@@ -29,7 +27,7 @@ O modelo não automatiza a habilitação de Gerenciamento de Atualizações em u
 Se você já tiver um workspace do Log Analytics e uma conta da Automação implantada em uma região com suporte em sua assinatura, eles não serão vinculados. O uso desse modelo cria com êxito o link e implanta Gerenciamento de Atualizações.
 
 >[!NOTE]
->Não há suporte para a criação da conta Executar como de Automação quando você está usando um modelo do ARM. Para criar uma conta Executar como manualmente no portal ou com o PowerShell, consulte [Gerenciar contas Executar como](../manage-runas-account.md).
+>Não há suporte para a criação da conta Executar como de Automação quando você está usando um modelo do ARM. Para criar uma conta Executar como manualmente no portal ou com o PowerShell, consulte [criar conta Executar como](../create-run-as-account.md).
 
 Depois de concluir essas etapas, você precisará [definir configurações de diagnóstico](../automation-manage-send-joblogs-log-analytics.md) para sua conta de automação para enviar fluxos de trabalho e status do trabalho de runbook para o workspace do Log Analytics vinculado.
 
@@ -315,8 +313,8 @@ Se você for novo na automação do Azure e Azure Monitor, é importante entende
 
     **CLI do Azure**
 
-    ```cli
-    az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deployUMSolutiontemplate.json
+    ```azurecli
+    az deployment group create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deployUMSolutiontemplate.json
     ```
 
     A implantação pode levar alguns minutos para ser concluída. Quando ela for concluída, você verá uma mensagem semelhante que inclui o resultado:
@@ -341,7 +339,7 @@ Se você for novo na automação do Azure e Azure Monitor, é importante entende
 
     ![Exibição de avaliação de recurso Gerenciamento de Atualizações](./media/enable-from-template/update-management-assessment-view.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando você não precisar mais deles, exclua a solução **atualizações** no espaço de trabalho log Analytics, desvincule a conta de automação do espaço de trabalho e, em seguida, exclua a conta de automação e o espaço de trabalho.
 

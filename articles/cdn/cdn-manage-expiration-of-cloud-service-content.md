@@ -15,12 +15,12 @@ ms.custom: devx-track-csharp
 ms.topic: how-to
 ms.date: 02/15/2018
 ms.author: allensu
-ms.openlocfilehash: fefa19e8dfee295d34231d36df079b80d1e82768
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d8eb450d2010bf2a525a26f1c5ff48f59732ce43
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778589"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240963"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Gerenciar a expiração do conteúdo da Web na CDN do Azure
 > [!div class="op_single_selector"]
@@ -73,9 +73,9 @@ O método preferencial para configurar um cabeçalho `Cache-Control` do servidor
 
 1. Em **Personalizar regras de cache** , crie duas condições de combinação:
 
-     a. Para a primeira condição de correspondência, ajuste **Condição de correspondência** para **Path** e insira `/webfolder1/*` para o **Valor de correspondência** . Defina o **Comportamento de cache** para **Substituição** e insira 4 na caixa **Horas** .
+     a. Para a primeira condição de correspondência, ajuste **Condição de correspondência** para **Path** e insira `/webfolder1/*` para o **Valor de correspondência** . Defina o **comportamento de cache** para **substituir** e insira 4 na caixa **dias** .
 
-     b. Para a segunda condição de correspondência, ajuste **Condição de correspondência** para **Path** e insira `/webfolder1/file1.txt` para o **Valor de correspondência** . Defina o **Comportamento de cache** para **Substituição** e insira 2 na caixa **Horas** .
+     b. Para a segunda condição de correspondência, ajuste **Condição de correspondência** para **Path** e insira `/webfolder1/file1.txt` para o **Valor de correspondência** . Defina o **comportamento de cache** para **substituir** e digite 2 na caixa **dias** .
 
     ![Exemplo de regras de cache personalizadas da CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-custom-caching-rules-example.png)
 

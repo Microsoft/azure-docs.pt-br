@@ -3,18 +3,18 @@ title: Renderizar dados personalizados em um mapa de rasterização | Mapas do M
 description: Saiba como adicionar anotações, rótulos e formas geométricas a um mapa de rasterização. Consulte como usar o serviço de imagem estática no Azure Maps para essa finalidade.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 01/23/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 88afb380f1aabf0c91e9d5abb0430972743eb6c2
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 5c70835c11bafb3fd06645ba51099b33d1eb6149
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895742"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906073"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Renderizar dados personalizados em um mapa de rasterização
 
@@ -41,9 +41,9 @@ A camada S0 da conta do Azure Maps dá suporte a apenas uma única instância do
 
 Para renderizar anotações com rótulos e uma imagem personalizada, conclua estas etapas:
 
-1. Crie uma coleção na qual armazenar as solicitações. No aplicativo de postmaster, selecione **novo** . Na janela **Criar** , selecione **Coleção** . Nomeie a coleção e selecione o botão **Criar** . 
+1. Crie uma coleção na qual armazenar as solicitações. No aplicativo de postmaster, selecione **novo**. Na janela **Criar**, selecione **Coleção**. Nomeie a coleção e selecione o botão **Criar**. 
 
-2. Para criar a solicitação, selecione **Novo** outra vez. Na janela **Criar** , selecione **Solicitação** . Insira um **nome de solicitação** para os pinos. Selecione a coleção que você criou na etapa anterior, como o local para salvar a solicitação. Em seguida, selecione **Salvar** .
+2. Para criar a solicitação, selecione **Novo** outra vez. Na janela **Criar**, selecione **Solicitação**. Insira um **nome de solicitação** para os pinos. Selecione a coleção que você criou na etapa anterior, como o local para salvar a solicitação. Em seguida, selecione **Salvar**.
     
     ![Criar uma solicitação no postmaster](./media/how-to-render-custom-data/postman-new.png)
 
@@ -223,4 +223,4 @@ Da mesma forma, você pode alterar, adicionar e remover outros modificadores de 
 
 
 * Explore a documentação [Obter API de Imagem de Mapa do Azure Mapas](/rest/api/maps/render/getmapimage).
-* Para saber mais sobre o serviço de dados do Azure Maps, consulte a [documentação do serviço](/rest/api/maps/data).
+* Para saber mais sobre o serviço de dados do Azure Maps (versão prévia), consulte a [documentação do serviço](/rest/api/maps/data).

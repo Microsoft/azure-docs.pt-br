@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 04/02/2020
-ms.openlocfilehash: 2bfcdfcb01e7908c199054e793d82cdfa1b726c7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7bcee0f571fe42e4c00499f188e35d0e0ff2ebe7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88816330"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322494"
 ---
 # <a name="what-is-the-azure-data-science-virtual-machine-for-linux-and-windows"></a>O que é a Máquina Virtual de Ciência de Dados do Azure para Linux e Windows?
 
@@ -28,7 +28,7 @@ O DSVM está disponível em:
 
 ## <a name="comparison-with-azure-machine-learning"></a>Comparação com o Azure Machine Learning
 
-A DSVM é uma imagem de VM personalizada para ciência de dados, enquanto o [Azure ML](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml) (Azure Machine Learning) é uma plataforma completa que abrange:
+A DSVM é uma imagem de VM personalizada para ciência de dados, enquanto o [Azure ML](../overview-what-is-azure-ml.md) (Azure Machine Learning) é uma plataforma completa que abrange:
 
 + Computação totalmente gerenciada
   + Instâncias de computação
@@ -44,7 +44,7 @@ A DSVM é uma imagem de VM personalizada para ciência de dados, enquanto o [Azu
 
 ### <a name="comparison-with-azureml-compute-instances"></a>Comparação com as instâncias de computação do AzureML
 
-As [instâncias de Computação do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance) são uma imagem de VM __totalmente configurada e gerenciada__, enquanto a DSVM é uma VM __não gerenciada__.
+As [instâncias de Computação do Azure Machine Learning](../concept-compute-instance.md) são uma imagem de VM __totalmente configurada e gerenciada__ , enquanto a DSVM é uma VM __não gerenciada__.
 
 As principais diferenças entre essas duas ofertas de produtos são detalhadas abaixo:
 

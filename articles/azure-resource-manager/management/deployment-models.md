@@ -3,12 +3,12 @@ title: Gerenciador de Recursos e implantação clássica
 description: Descreve as diferenças entre o modelo de implantação do Gerenciador de Recursos e o modelo de implantação clássica (ou do Gerenciamento de Serviços).
 ms.topic: conceptual
 ms.date: 02/06/2020
-ms.openlocfilehash: d9c1a27efc1f474e25d0ed164d106e8f64ba3e96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da260db84de0cc8bd092eb95491b7cc38df93a12
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88511398"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185837"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager vs. Implantação clássica: compreenda os modelos de implantação e o estado dos seus recursos
 
@@ -123,9 +123,9 @@ Para obter informações sobre como conectar redes virtuais de diferentes modelo
 Se você estiver pronto para migrar seus recursos da implantação clássica para a implantação do Gerenciador de recursos, consulte:
 
 1. [Análise técnica aprofundada sobre a migração com suporte da plataforma do clássico para o Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-deep-dive.md)
-2. [Platform supported migration of IaaS resources from Classic to Azure Resource Manager (Migração de recursos de IaaS com suporte da plataforma do Clássico para o Azure Resource Manager)](../../virtual-machines/windows/migration-classic-resource-manager-overview.md)
-3. [Migrar recursos de IaaS do Clássico para o Azure Resource Manager usando o Azure PowerShell](../../virtual-machines/windows/migration-classic-resource-manager-ps.md)
-4. [Migrar recursos de IaaS do modelo clássico para o Azure Resource Manager usando a CLI do Azure](../../virtual-machines/linux/migration-classic-resource-manager-cli.md)
+2. [Platform supported migration of IaaS resources from Classic to Azure Resource Manager (Migração de recursos de IaaS com suporte da plataforma do Clássico para o Azure Resource Manager)](../../virtual-machines/migration-classic-resource-manager-overview.md)
+3. [Migrar recursos de IaaS do Clássico para o Azure Resource Manager usando o Azure PowerShell](../../virtual-machines/migration-classic-resource-manager-ps.md)
+4. [Migrar recursos de IaaS do modelo clássico para o Azure Resource Manager usando a CLI do Azure](../../virtual-machines/migration-classic-resource-manager-cli.md)
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 

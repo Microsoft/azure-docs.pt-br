@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 837231ca07abcfdbd6ce932bb24bd890d91506a8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3693f46a602929f9d6e2f4e29083b071ae6a9e9e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "69541426"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972399"
 ---
 Agora, você pode usar a ferramenta Data Explorer no portal do Azure para criar um banco de dados de grafo. 
 
@@ -30,6 +30,6 @@ Agora, você pode usar a ferramenta Data Explorer no portal do Azure para criar 
     ID do banco de dados|banco de dados de exemplo|Digite *banco de dados de exemplo* como o nome do novo banco de dados. Os nomes de banco de dados devem ter entre um e 255 caracteres e não podem conter `/ \ # ?` nem espaços à direita.
     Produtividade|400 RUs|Altere a taxa de transferência para 400 unidades de solicitação por segundo (RU/s). Se quiser reduzir a latência, você poderá escalar verticalmente a taxa de transferência mais tarde.
     ID do Grafo|grafo de exemplo|Digite *grafo de exemplo* como o nome da nova coleção. Os nomes de grafo têm os mesmos requisitos de caractere do que as IDs de banco de dados.
-    Chave de partição| /pk |Todas as contas do Cosmos DB precisam de uma chave de partição para dimensionar horizontalmente. Saiba como selecionar uma chave de partição apropriada no [artigo de Particionamento de Dados de Grafo](https://docs.microsoft.com/azure/cosmos-db/graph-partitioning).
+    Chave de partição| /pk |Todas as contas do Cosmos DB precisam de uma chave de partição para dimensionar horizontalmente. Saiba como selecionar uma chave de partição apropriada no [artigo de Particionamento de Dados de Grafo](../articles/cosmos-db/graph-partitioning.md).
 
 3. Depois que o formulário for preenchido, selecione **OK**.

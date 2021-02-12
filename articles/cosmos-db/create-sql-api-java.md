@@ -9,15 +9,15 @@ ms.topic: quickstart
 ms.date: 09/22/2020
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 4678ab34de169a8406f0d73b63906152ef1185f0
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 4b62b591c408f663fd28d5077af924f785ee66c8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281907"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090402"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>Início Rápido: Criar um aplicativo Java para gerenciar os dados de API de SQL do Azure Cosmos DB
-
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -43,7 +43,7 @@ Neste início rápido, você criará e gerenciará uma conta da API do SQL para 
 
 ## <a name="introductory-notes"></a>Notas introdutórias
 
-*A estrutura de uma conta do Cosmos DB.* Independentemente da API ou da linguagem de programação, uma *conta* do Cosmos DB contém zero ou mais *bancos de dados*, um *DB* (banco de dados) contém zero ou mais *contêineres* e um *contêiner* contém zero ou mais itens, conforme mostrado no diagrama abaixo:
+*A estrutura de uma conta do Cosmos DB.* Independentemente da API ou da linguagem de programação, uma *conta* do Cosmos DB contém zero ou mais *bancos de dados* , um *DB* (banco de dados) contém zero ou mais *contêineres* e um *contêiner* contém zero ou mais itens, conforme mostrado no diagrama abaixo:
 
 :::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Entidades de conta do Azure Cosmos" border="false":::
 
@@ -51,7 +51,7 @@ Você pode ler mais sobre bancos de dados, contêineres e itens [aqui.](account-
 
 A taxa de transferência provisionada é medida em *RUs* (Unidades de Solicitação) que têm um preço monetário e são um fator determinante substancial no custo operacional da conta. A taxa de transferência provisionada pode ser selecionada na granularidade por contêiner ou na granularidade por banco de dados. No entanto, há preferência pela especificação da taxa de transferência no nível de contêiner normalmente. Você pode ler mais sobre o provisionamento da taxa de transferência [aqui.](set-throughput.md)
 
-À medida que itens são inseridos em um contêiner do Cosmos DB, o banco de dados cresce horizontalmente adicionando mais armazenamento e computação para lidar com solicitações. As capacidades de armazenamento e computação são adicionadas em unidades discretas conhecidas como *partições* e você deve escolher um campo em seus documentos para ser a chave de partição que mapeia cada documento para uma partição. A maneira como as partições são gerenciadas é que cada participação recebe uma fatia aproximadamente igual do intervalo dos valores de chave de partição; portanto, é recomendável escolher uma chave de partição relativamente aleatória ou distribuída uniformemente. Caso contrário, algumas partições terão substancialmente mais solicitações (*partição a quente*), enquanto outras partições terão substancialmente menos solicitações (*partição a frio*), o que deve ser evitado. Você pode saber mais sobre particionamento [aqui](partitioning-overview.md).
+À medida que itens são inseridos em um contêiner do Cosmos DB, o banco de dados cresce horizontalmente adicionando mais armazenamento e computação para lidar com solicitações. As capacidades de armazenamento e computação são adicionadas em unidades discretas conhecidas como *partições* e você deve escolher um campo em seus documentos para ser a chave de partição que mapeia cada documento para uma partição. A maneira como as partições são gerenciadas é que cada participação recebe uma fatia aproximadamente igual do intervalo dos valores de chave de partição; portanto, é recomendável escolher uma chave de partição relativamente aleatória ou distribuída uniformemente. Caso contrário, algumas partições terão substancialmente mais solicitações ( *partição a quente* ), enquanto outras partições terão substancialmente menos solicitações ( *partição a frio* ), o que deve ser evitado. Você pode saber mais sobre particionamento [aqui](partitioning-overview.md).
 
 ## <a name="create-a-database-account"></a>Criar uma conta de banco de dados
 

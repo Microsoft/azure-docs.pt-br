@@ -3,20 +3,20 @@ title: Regras para nomear entidades de Azure Data Factory
 description: Descreve as regras de nomenclatura para entidades de Data Factory.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 85e1e7fbea6033fde7c5f46b2ef566672bbe1fea
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 21adf26c2dbaca4507a4c925e3dae3b99c9d53ba
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92105865"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497513"
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - regras de nomenclatura
 

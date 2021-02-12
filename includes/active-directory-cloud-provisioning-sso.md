@@ -5,12 +5,12 @@ ms.subservice: cloud-provisioning
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: billmath
-ms.openlocfilehash: 3aa1571b46938b03f556fa124d3f0a2a70f2c5c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d95e40623f17a39145778a2fc067dccc68fd872
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79504346"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95561810"
 ---
 ## <a name="steps-to-enable-single-sign-on"></a>Etapas para habilitar o logon único
 O provisionamento de nuvem funciona com o logon único.  No momento, não há uma opção para habilitar o SSO quando o agente é instalado, no entanto, você pode usar as etapas abaixo para habilitar o SSO e usá-lo. 
@@ -23,7 +23,7 @@ O provisionamento de nuvem funciona com o logon único.  No momento, não há um
 
 ### <a name="step-2-import-the-seamless-sso-powershell-module"></a>Etapa 2: importar o módulo do PowerShell de SSO contínuo
 
-1. Baixe e instale o [PowerShell do Azure ad](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+1. Baixe e instale o [PowerShell do Azure ad](/powershell/azure/active-directory/overview).
 2. Navegue até a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
 3. Importe o módulo do PowerShell de SSO Contínuo usando este comando: `Import-Module .\AzureADSSO.psd1`.
 

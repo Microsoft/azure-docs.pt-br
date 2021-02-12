@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 09/14/2020
+ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconhecimento de imagem, identificador de imagem, aplicativo de reconhecimento de imagem, visão personalizada
-ms.openlocfilehash: 47227a60b1ed45499afdb42fbc062abc5ae51ff9
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 12877f2d43f9b8f864871e5a5ab050aa0eeb61e2
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605357"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814594"
 ---
 # <a name="what-is-custom-vision"></a>O que é Visão Personalizada?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-A Visão Personalizada do Azure é um serviço de reconhecimento de imagem que permite criar, implantar e aprimorar os próprios identificadores de imagem. Um identificador de imagem aplica rótulos (que representam classes ou objetos) a imagens, de acordo com as características visuais delas. Ao contrário do serviço [Pesquisa Visual Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), a Visão Personalizada permite que você especifique os rótulos e treine modelos personalizados para detectá-los.
+A Visão Personalizada do Azure é um serviço de reconhecimento de imagem que permite criar, implantar e aprimorar os próprios identificadores de imagem. Um identificador de imagem aplica rótulos (que representam classes ou objetos) a imagens, de acordo com as características visuais delas. Ao contrário do serviço [Pesquisa Visual Computacional](../computer-vision/overview.md), a Visão Personalizada permite que você especifique os rótulos e treine modelos personalizados para detectá-los.
 
 ## <a name="what-it-does"></a>O que faz
 
@@ -51,4 +51,4 @@ Assim como ocorre com todos os Serviços Cognitivos, os desenvolvedores que usam
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Siga o guia [Criar um classificador](getting-started-build-a-classifier.md) para começar a usar a Visão Personalizada no portal da Web ou conclua um [guia de início rápido da biblioteca de clientes](quickstarts/image-classification.md) para implementar os cenários básicos no código.
+Siga o guia [Criar um classificador](getting-started-build-a-classifier.md) para começar a usar a Visão Personalizada no portal da Web ou conclua um [início rápido](quickstarts/image-classification.md) para implementar os cenários básicos no código.

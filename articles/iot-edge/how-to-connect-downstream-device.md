@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 979ed3d21986ad43d805446a520a59333a6798ed
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 35bb17a5cdfcc6aff4a513a594a08283ab1f1305
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149319"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437024"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Conecte um dispositivo downstream a um gateway do Azure IoT Edge
 
@@ -100,7 +100,7 @@ Você deverá ver uma mensagem que diz "Atualizando certificados no/etc/SSL/Cert
 
 As etapas a seguir são um exemplo de como instalar um certificado de autoridade de certificação em um host do Windows. Este exemplo pressupõe que você esteja usando o certificado **Azure-IOT-Test-only. root. ca. cert. pem** dos artigos de pré-requisitos e que você copiou o certificado em um local no dispositivo downstream.
 
-Você pode instalar certificados usando o [importar certificado](/powershell/module/pkiclient/import-certificate?view=win10-ps) do PowerShell como administrador:
+Você pode instalar certificados usando o [importar certificado](/powershell/module/pkiclient/import-certificate) do PowerShell como administrador:
 
 ```powershell
 import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorelocation cert:\LocalMachine\root
@@ -109,7 +109,7 @@ import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorel
 Você também pode instalar certificados usando o utilitário **certlm** :
 
 1. No menu Iniciar, pesquise e selecione **Gerenciar certificados de computador**. Um utilitário chamado **certlm** é aberto.
-2. Navegue até **certificados-**  >  **autoridades de certificação raiz confiáveis**do computador local.
+2. Navegue até **certificados-**  >  **autoridades de certificação raiz confiáveis** do computador local.
 3. Clique com o botão direito do mouse em **Certificates** e selecione **All Tasks** > **Import**. O assistente para importação de certificados deve ser iniciado.
 4. Siga as etapas conforme direcionado e importe o arquivo de certificado `<path>/azure-iot-test-only.root.ca.cert.pem`. Quando concluído, você verá uma mensagem "Importada com êxito".
 
@@ -168,11 +168,15 @@ Esta seção apresenta um aplicativo de amostra para conectar um cliente de disp
 3. No arquivo iotedge_downstream_device_sample.c, atualize as variáveis **connectionString** e **edge_ca_cert_path**.
 4. Consulte a documentação do SDK para obter instruções sobre como executar a amostra no seu dispositivo.
 
+
 O SDK do dispositivo IoT do Azure para C fornece uma opção para registrar um certificado de CA ao configurar o cliente. Essa operação não instala o certificado em nenhum lugar, mas usa um formato de cadeia de caracteres do certificado na memória. O certificado salvo é fornecido para a pilha TLS subjacente ao estabelecer uma conexão.
 
 ```C
 (void)IoTHubDeviceClient_SetOption(device_handle, OPTION_TRUSTED_CERT, cert_string);
 ```
+
+>[!NOTE]
+> O método para registrar um certificado de autoridade de certificação ao configurar o cliente pode ser alterado se estiver usando um pacote [gerenciado](https://github.com/Azure/azure-iot-sdk-c#packages-and-libraries) ou uma biblioteca. Por exemplo, a [biblioteca baseada em IDE Arduino](https://github.com/azure/azure-iot-arduino) exigirá a adição do certificado de autoridade de certificação a uma matriz de certificados definida em um arquivo [certs. c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) global, em vez de usar a `IoTHubDeviceClient_LL_SetOption` operação.  
 
 Nos hosts do Windows, se você não estiver usando o OpenSSL ou outra biblioteca TLS, o padrão do SDK será usar o Schannel. Para que o Schannel funcione, o certificado da AC raiz da IoT Edge deve ser instalado no repositório de certificados do Windows, não definido usando a operação `IoTHubDeviceClient_SetOption`.
 

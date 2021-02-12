@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: negoe
-ms.reviewer: negoe,celested
+ms.reviewer: marsma, negoe,celested
 ms.custom: aaddev,references_regions
-ms.openlocfilehash: d27498748f03fb101d165351ec80c77d57f78f1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da1ea6462d22242d23629bcec192d7760314dfed
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88141492"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444808"
 ---
 # <a name="national-clouds"></a>Nuvens nacionais
 
@@ -60,8 +60,8 @@ A tabela a seguir lista as URLs base para os pontos de extremidade do Azure Acti
 
 Você pode formar solicitações para os pontos de extremidade de token ou de autorização do Azure Active Directory se usar a URL base correta específica à região. Por exemplo, para o Azure Alemanha:
 
-  - O ponto de extremidade de autorização comum é `https://login.microsoftonline.de/common/oauth2/v2.0/authorize`.
-  - O ponto de extremidade de token comum é `https://login.microsoftonline.de/common/oauth2/v2.0/token`.
+- O ponto de extremidade de autorização comum é `https://login.microsoftonline.de/common/oauth2/v2.0/authorize`.
+- O ponto de extremidade de token comum é `https://login.microsoftonline.de/common/oauth2/v2.0/token`.
 
 Para aplicativos de locatário único, substitua o comum nas URLs anteriores por sua ID de locatário ou nome. Um exemplo é `https://login.microsoftonline.de/contoso.com`.
 
@@ -76,9 +76,10 @@ Para saber como criar um aplicativo usando a plataforma de identidade da Microso
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre:
+Saiba como usar a [MSAL (biblioteca de autenticação da Microsoft) em um ambiente de nuvem nacional](msal-national-cloud.md).
+
+Documentação da nuvem nacional:
 
 - [Azure Governamental](../../azure-government/index.yml)
 - [Azure China 21Vianet](/azure/china/)
 - [Azure Alemanha](../../germany/index.yml)
-- [Noções básicas da autenticação do Azure Active Directory](./authentication-vs-authorization.md)

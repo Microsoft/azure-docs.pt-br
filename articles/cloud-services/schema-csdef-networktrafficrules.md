@@ -1,26 +1,25 @@
 ---
-title: Esquema de Def. NetworkTrafficRules do Azure Cloud Services | Microsoft Docs
+title: Esquema de Def. NetworkTrafficRules de serviços de nuvem do Azure (clássico) | Microsoft Docs
 description: Saiba mais sobre o NetworkTrafficRules, que limita as funções que podem acessar os pontos de extremidade internos de uma função. Ele combina com funções em um arquivo de definição de serviço.
-ms.custom: ''
-ms.date: 04/14/2015
-services: cloud-services
-ms.reviewer: ''
+ms.topic: article
 ms.service: cloud-services
-ms.suite: ''
-ms.tgt_pltfrm: ''
-ms.topic: reference
-ms.assetid: 351b369f-365e-46c1-82ce-03fc3655cc88
-caps.latest.revision: 17
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: e53c10395ec3168e656633cc43fb2d01902209fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 2c8ab53068b71652d03d03bf79a224fe5e34dff3
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79534721"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98739761"
 ---
-# <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Esquema NetworkTrafficRules de definição dos Serviços de Nuvem do Azure
+# <a name="azure-cloud-services-classic-definition-networktrafficrules-schema"></a>Esquema NetworkTrafficRules de definição de serviços de nuvem do Azure (clássico)
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
+
 O nó `NetworkTrafficRules` é um elemento opcional no arquivo de definição de serviço que especifica como as funções comunicam-se entre si. Ele limita quais funções podem acessar os pontos de extremidade internos da função específica. O `NetworkTrafficRules` não é um elemento autônomo; ele é combinado com duas ou mais funções em um arquivo de definição de serviço.
 
 A extensão padrão do arquivo de definição de serviço é .csdef.

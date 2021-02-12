@@ -1,17 +1,17 @@
 ---
-title: Traga sua própria chave (chaves gerenciadas pelo cliente) com os serviços de mídia
+title: Traga sua própria chave (chaves gerenciadas pelo cliente)
 description: Você pode usar uma chave gerenciada pelo cliente (ou seja, traga sua própria chave) com os serviços de mídia.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: a89ff56eb9e0f0a29b5b1fed7543c5f718425e51
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 1/28/2020
+ms.openlocfilehash: 27d357279a54d7abc351370e7afda3a7961bac33
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92325963"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428547"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Traga sua própria chave (chaves gerenciadas pelo cliente) com os serviços de mídia
 
@@ -37,9 +37,18 @@ Você pode especificar um nome de chave e uma versão de chave, ou apenas um nom
 > [!WARNING]
 > Os serviços de mídia monitoram o acesso à chave do cliente. Se a chave do cliente se tornar inacessível (por exemplo, a chave tiver sido excluída ou o Key Vault tiver sido excluído ou a concessão de acesso tiver sido removida), os serviços de mídia passarão a conta para o estado inacessível da chave do cliente (desabilitando efetivamente a conta). No entanto, a conta pode ser excluída nesse estado. As únicas operações com suporte são conta GET, lista e exclusão; todas as outras solicitações (codificação, streaming e assim por diante) falharão até que o acesso à chave de conta seja restaurado.
 
-## <a name="tutorial"></a>Tutorial
-Experimente o tutorial [usar chaves gerenciadas pelo cliente ou BYOK (traga sua própria chave) com os serviços de mídia](tutorial-byok.md) para saber mais sobre como configurar e usar chaves gerenciadas pelo cliente com o postmaster e a API REST do Azure.
+## <a name="double-encryption"></a>Criptografia dupla
+
+Os serviços de mídia dão suporte automaticamente à criptografia dupla. Para dados em repouso, a primeira camada de criptografia usa uma chave gerenciada pelo cliente ou uma chave gerenciada da Microsoft, dependendo da `AccountEncryption` configuração da conta.  A segunda camada de criptografia para dados em repouso é fornecida automaticamente usando uma chave gerenciada da Microsoft separada. Para saber mais sobre a criptografia dupla, confira [criptografia dupla do Azure](../../security/fundamentals/double-encryption.md).
+
+> [!NOTE]
+> A criptografia dupla é habilitada automaticamente na conta dos serviços de mídia. No entanto, você precisa configurar a chave gerenciada pelo cliente e a criptografia dupla em sua conta de armazenamento separadamente. Consulte [Storege Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+
+## <a name="tutorials"></a>Tutoriais
+
+- [Usar o portal do Azure para usar as chaves gerenciadas pelo cliente ou o BYOK com os Serviços de Mídia](tutorial-byok-portal.md)
+- [Use chaves gerenciadas pelo cliente ou BYOK com a API REST dos serviços de mídia](tutorial-byok-postman.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Tutorial: usar chaves gerenciadas pelo cliente ou BYOK (traga sua própria chave) com os serviços de mídia](tutorial-byok.md)
+[Proteger seu conteúdo com a criptografia dinâmica dos serviços de mídia](content-protection-overview.md)

@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 07/20/2020
-ms.openlocfilehash: c4c7b8da659fa7fe8879ae92c4947b7f0867274c
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.date: 12/31/2020
+ms.openlocfilehash: ad16b63360364acd88ab12fb4715d1fd3115c0fb
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173503"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209365"
 ---
 # <a name="analyze-data-in-a-storage-account"></a>Analisar dados em uma conta de armazenamento
 
@@ -30,42 +30,45 @@ Até agora nós abordamos cenários em que os dados residem em bancos de dados n
 
 ### <a name="create-csv-and-parquet-files-in-your-storage-account"></a>Criar arquivos CSV e Parquet na conta de armazenamento
 
-Execute o código a seguir em um notebook. Ele cria um arquivo CSV e um arquivo Parquet na conta de armazenamento.
+Execute o código a seguir em um notebook em uma nova célula de código. Ele cria um arquivo CSV e um arquivo Parquet na conta de armazenamento.
 
 ```py
 %%pyspark
 df = spark.sql("SELECT * FROM nyctaxi.passengercountstats")
 df = df.repartition(1) # This ensure we'll get a single file during write()
-df.write.mode("overwrite").csv("/NYCTaxi/PassengerCountStats.csv")
-df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
+df.write.mode("overwrite").csv("/NYCTaxi/PassengerCountStats_csvformat")
+df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats_parquetformat")
 ```
 
 ### <a name="analyze-data-in-a-storage-account"></a>Analisar dados em uma conta de armazenamento
 
+Você pode analisar os dados na conta do ADLS Gen2 padrão do seu workspace ou vincular uma conta de armazenamento do ADLS Gen2 ou de Blobs ao seu workspace por meio de "**Gerenciar**" > "**Serviços Vinculados**" > "**Novo**" (As etapas abaixo se referem à conta do ADLS Gen2 primária).
+
 1. No Synapse Studio, acesse o hub **Dados** e, em seguida, selecione **Vinculado**.
 1. Navegue até **Contas de armazenamento** > **myworkspace (Primário – contosolake)** .
-1. Selecione **usuários (Primário)** . Você deve ver a pasta **NYCTaxi**. Dentro dela, você verá duas pastas: **PassengerCountStats.csv** e **PassengerCountStats.parquet**.
-1. Abra a pasta **PassengerCountStats.parquet**. Dentro dela, você verá um arquivo Parquet com um nome como `part-00000-2638e00c-0790-496b-a523-578da9a15019-c000.snappy.parquet`.
-1. Clique com o botão direito do mouse em **.parquet** e selecione **novo notebook**. Ele cria um notebook que tem uma célula como esta:
+1. Selecione **usuários (Primário)** . Você deve ver a pasta **NYCTaxi**. Nela, você verá duas pastas chamadas **PassengerCountStats_csvformat** e **PassengerCountStats_parquetformat**.
+1. Abra a pasta **PassengerCountStats_parquetformat**. Dentro dela, você verá um arquivo Parquet com um nome como `part-00000-2638e00c-0790-496b-a523-578da9a15019-c000.snappy.parquet`.
+1. Clique com o botão direito do mouse em **.parquet**, selecione **Novo notebook** e **Carregar no DataFrame**. Um notebook será criado com uma célula desta forma:
 
     ```py
     %%pyspark
-    data_path = spark.read.load('abfss://users@contosolake.dfs.core.windows.net/NYCTaxi/PassengerCountStats.parquet/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet', format='parquet')
-    data_path.show(100)
+    df = spark.read.load('abfss://users@contosolake.dfs.core.windows.net/NYCTaxi/PassengerCountStats.parquet/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet', format='parquet')
+    display(df.limit(10))
     ```
 
-1. Execute a célula.
-1. Clique com o botão direito do mouse no arquivo Parquet contido nele e selecione **Novo script SQL** > **SELECIONAR AS 100 PRIMEIRAS LINHAS**. Ele cria um script SQL como este:
+1. Anexe-o ao Pool do Spark chamado **Spark1**. Execute a célula.
+1. Clique para voltar à pasta **users**. Clique com o botão direito do mouse no arquivo **.parquet** novamente e escolha **Novo script SQL** > **SELECIONAR AS 100 PRIMEIRAS LINHAS**. Ele cria um script SQL como este:
 
     ```sql
-    SELECT TOP 100 *
+    SELECT 
+        TOP 100 *
     FROM OPENROWSET(
         BULK 'https://contosolake.dfs.core.windows.net/users/NYCTaxi/PassengerCountStats.parquet/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet',
         FORMAT='PARQUET'
-    ) AS [r];
+    ) AS [result]
     ```
 
-    Na janela de script, **Conectar-se a** é definido como **SQL sob demanda**.
+    Na janela de script, verifique se o campo **Conectar-se a** está definido como o pool de SQL sem servidor **Interno**.
 
 1. Execute o script.
 

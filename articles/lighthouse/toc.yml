@@ -24,20 +24,35 @@
     - name: Ofertas de serviço gerenciado no Azure Marketplace
       displayName: 'azure marketplace, marketplace, managed service, private, plan'
       href: ./concepts/managed-services-offers.md
-    - name: Práticas de segurança recomendadas
-      displayName: 'mfa, authentication, secure, group'
-      href: ./concepts/recommended-security-practices.md
-    - name: Considerações sobre o programa Provedor de Soluções na Nuvem
+    - name: Programa Provedor de Soluções na Nuvem
       displayName: 'csp, aobo, partner'
       href: ./concepts/cloud-solution-provider.md
-    - name: Azure Lighthouse em cenários empresariais
+    - name: Cenários empresariais
       displayName: 'corporation, IT, consolidate'
       href: ./concepts/enterprise.md
+    - name: Cenários ISV
+      displayName: 'independent, software, vendor, saas'
+      href: ./concepts/isv-scenarios.md
     - name: Azure Lighthouse e aplicativos gerenciados do Azure
       displayName: 'managed apps, ama'
       href: ./concepts/managed-applications.md
+    - name: Segurança
+      items:
+        - name: Práticas de segurança recomendadas
+          displayName: 'mfa, authentication, secure, group'
+          href: ./concepts/recommended-security-practices.md
+        - name: Linha de base de segurança
+          href: security-baseline.md
 - name: Guias de instruções
   items:
+    - name: Ações do cliente
+      items:
+        - name: Exibir e gerenciar provedores de serviços
+          displayName: 'customer, update, visibility, control'
+          href: ./how-to/view-manage-service-providers.md
+        - name: Exibir atividade do provedor de serviços
+          displayName: 'monitor, log, customer, visibility, transparency, control'
+          href: ./how-to/view-service-provider-activity.md
     - name: Integrar um cliente ao Azure Lighthouse
       displayName: resource management
       href: ./how-to/onboard-customer.md
@@ -50,12 +65,18 @@
     - name: Vincular sua ID de parceiro
       displayName: 'partner earned credit, pec, mpn'
       href: ./how-to/partner-earned-credit.md
+    - name: Atualizar uma delegação
+      displayName: upgrade
+      href: ./how-to/update-delegation.md
     - name: Remover o acesso a uma delegação
       displayName: 'delete, undelegate'
       href: ./how-to/remove-delegation.md
     - name: Integração do Azure Arc
       displayName: 'server, kubernetes, hybrid, infrastructure'
       href: ./how-to/manage-hybrid-infrastructure-arc.md
+    - name: Integração das Migrações para Azure
+      displayName: 'migration, project, on-prem'
+      href: ./how-to/migration-at-scale.md
     - name: Integração com o Azure Monitor
       items:
         - name: Usar logs do Azure Monitor em escala
@@ -74,14 +95,6 @@
           href: ./how-to/deploy-policy-remediation.md
     - name: Integração do Azure Sentinel
       href: ./how-to/manage-sentinel-workspaces.md
-    - name: Ações do cliente
-      items:
-        - name: Exibir e gerenciar provedores de serviços
-          displayName: 'customer, update'
-          href: ./how-to/view-manage-service-providers.md
-        - name: Exibir atividade do provedor de serviços
-          displayName: 'monitor, log'
-          href: ./how-to/view-service-provider-activity.md
 - name: Referência
   items:
     - name: CLI do Azure
@@ -103,6 +116,8 @@
       href: ./samples/policy-reference.md
     - name: Terraform
       href: 'https://www.terraform.io/docs/providers/azurerm/r/lighthouse_assignment.html'
+    - name: Ansible
+      href: 'https://docs.ansible.com/ansible/latest/collections/azure/azcollection/index.html#plugins-in-azure-azcollection'
 - name: Recursos
   items:
     - name: P e R da Microsoft para Azure Lighthouse
@@ -111,5 +126,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Calculadora de preço
       href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Disponibilidade regional
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=azure-lighthouse&regions=all'
     - name: Comentários sobre o produto
       href: 'https://feedback.azure.com/forums/922753'

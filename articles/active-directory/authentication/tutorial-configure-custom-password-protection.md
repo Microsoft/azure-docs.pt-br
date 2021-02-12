@@ -6,16 +6,16 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/13/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91cb1a0819902d2dfa27718ccfe39b175959a16c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 89abdcf4c76c92c2ed967594527d323b2cd8be32
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963832"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741177"
 ---
 # <a name="tutorial-configure-custom-banned-passwords-for-azure-active-directory-password-protection"></a>Tutorial: Configurar senhas proibidas personalizadas para proteção de senha do Azure Active Directory
 
@@ -124,4 +124,4 @@ Neste tutorial, você habilitou e configurou listas personalizadas de proteção
 > * Testar alterações de senha com uma senha proibida
 
 > [!div class="nextstepaction"]
-> [Habilitar a Autenticação Multifator do Azure baseada em risco](./tutorial-enable-azure-mfa.md)
+> [Habilitar a Autenticação Multifator do Azure AD baseada em risco](./tutorial-enable-azure-mfa.md)

@@ -6,14 +6,14 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/10/2020
-ms.openlocfilehash: f81b6dabbd9053a69ff60d1a3c71d03fff38f627
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 6aea427848afd39b9b9ca166856470a2f9b88694
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129755"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705091"
 ---
-# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Use a identidade gerenciada para autenticar seu trabalho de Azure Stream Analytics para Power BI
+# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi-preview"></a>Usar identidade gerenciada para autenticar seu trabalho de Azure Stream Analytics para Power BI (versão prévia)
 
 A [autenticação de identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) para saída para Power bi fornece aos trabalhos de Stream Analytics acesso direto a um espaço de trabalho dentro de sua conta de Power bi. Esse recurso permite que as implantações de Stream Analytics trabalhos sejam totalmente automatizadas, já que não é mais necessário que um usuário faça logon interativamente no Power BI por meio do portal do Azure. Além disso, trabalhos de longa execução que gravam em Power BI agora têm melhor suporte, já que você não precisará reautorizar o trabalho periodicamente.
 
@@ -29,13 +29,13 @@ Os itens a seguir são necessários para usar esse recurso:
 
 ## <a name="create-a-stream-analytics-job-using-the-azure-portal"></a>Criar um trabalho de Stream Analytics usando o portal do Azure
 
-1. Crie um novo trabalho de Stream Analytics ou abra um trabalho existente no portal do Azure. Na barra de menus localizada no lado esquerdo da tela, selecione **identidade gerenciada** localizada em **Configurar** . Certifique-se de que "usar identidade gerenciada atribuída pelo sistema" esteja selecionado e, em seguida, selecione o botão **salvar** na parte inferior da tela.
+1. Crie um novo trabalho de Stream Analytics ou abra um trabalho existente no portal do Azure. Na barra de menus localizada no lado esquerdo da tela, selecione **identidade gerenciada** localizada em **Configurar**. Certifique-se de que "usar identidade gerenciada atribuída pelo sistema" esteja selecionado e, em seguida, selecione o botão **salvar** na parte inferior da tela.
 
    ![Configurar Stream Analytics identidade gerenciada](./media/common/stream-analytics-enable-managed-identity.png)
 
 2. Antes de configurar a saída, conceda ao trabalho de Stream Analytics acesso ao seu espaço de trabalho do Power BI seguindo as instruções na seção [fornecer ao trabalho de Stream Analytics acesso ao seu espaço de trabalho do Power bi](#give-the-stream-analytics-job-access-to-your-power-bi-workspace) deste artigo.
 
-3. Navegue até a seção de **saídas** do trabalho do seu fluxo analítico, selecione **+ Adicionar** e, em seguida, escolha **Power bi** . Em seguida, selecione o botão **autorizar** e faça logon com sua conta de Power bi.
+3. Navegue até a seção de **saídas** do trabalho do seu fluxo analítico, selecione **+ Adicionar** e, em seguida, escolha **Power bi**. Em seguida, selecione o botão **autorizar** e faça logon com sua conta de Power bi.
 
    ![Autorizar com Power BI conta](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-authorize-powerbi.png)
 
@@ -45,7 +45,7 @@ Os itens a seguir são necessários para usar esse recurso:
 
 ## <a name="azure-resource-manager-deployment"></a>Implantação do Azure Resource Manager
 
-Azure Resource Manager permite automatizar totalmente a implantação de seu trabalho de Stream Analytics. Você pode implantar modelos do Resource Manager usando Azure PowerShell ou o [CLI do Azure](/cli/azure/?view=azure-cli-latest). Os exemplos a seguir usam o CLI do Azure.
+Azure Resource Manager permite automatizar totalmente a implantação de seu trabalho de Stream Analytics. Você pode implantar modelos do Resource Manager usando Azure PowerShell ou o [CLI do Azure](/cli/azure/). Os exemplos a seguir usam o CLI do Azure.
 
 
 1. Você pode criar um recurso **Microsoft. StreamAnalytics/streamingjobs** com uma identidade gerenciada, incluindo a seguinte propriedade na seção de recursos do seu modelo do Resource Manager:
@@ -100,7 +100,7 @@ Azure Resource Manager permite automatizar totalmente a implantação de seu tra
     Implante o trabalho acima para o grupo de recursos de **exemplo** usando o comando a seguir CLI do Azure:
 
     ```azurecli
-    az group deployment create --resource-group ExampleGroup -template-file StreamingJob.json
+    az deployment group create --resource-group ExampleGroup -template-file StreamingJob.json
     ```
 
 2. Depois que o trabalho for criado, use Azure Resource Manager para recuperar a definição completa do trabalho.
@@ -209,6 +209,10 @@ Corpo da solicitação
     "principalType": "App"
 }
 ```
+
+## <a name="remove-managed-identity"></a>Remover identidade gerenciada
+
+A identidade gerenciada criada para um trabalho de Stream Analytics é excluída somente quando o trabalho é excluído. Não é possível excluir a identidade gerenciada sem excluir o trabalho. Se você não quiser mais usar a identidade gerenciada, poderá alterar o método de autenticação para a saída. A identidade gerenciada continuará existindo até que o trabalho seja excluído e será usado se você decidir usar a autenticação de identidade gerenciada novamente.
 
 ## <a name="limitations"></a>Limitações
 Abaixo estão as limitações desse recurso:

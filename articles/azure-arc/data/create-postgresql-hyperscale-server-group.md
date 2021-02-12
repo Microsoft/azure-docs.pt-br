@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: d2eef20b4c5648b1b11f16d8e46b956fc1497181
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 45bb045e7bad2d5f8a56b71787b3abb5921cb7d5
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364415"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985879"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Criar um grupo de servidores de hiperescala PostgreSQL habilitado para o Azure Arc
 
@@ -32,7 +32,7 @@ Há tópicos importantes que você pode querer ler antes de prosseguir com a cri
 - [Configuração de armazenamento e conceitos de armazenamento kubernetes](storage-configuration.md)
 - [Modelo de recurso kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
 
-Se você preferir experimentar coisas sem provisionar um ambiente completo, comece rapidamente com o [Azure Arc JumpStart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) no Azure kubernetes Service (AKs), AWS elástico kubernetes Service (EKS), Google Cloud kubernetes Engine (GKE) ou em uma VM do Azure.
+Se você preferir experimentar coisas sem provisionar um ambiente completo, comece rapidamente com o [Azure Arc JumpStart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) no Azure kubernetes Service (AKs), AWS elástico kubernetes Service (EKS), Google Cloud kubernetes Engine (GKE) ou em uma VM do Azure.
 
 
 ## <a name="login-to-the-azure-arc-data-controller"></a>Fazer logon no controlador de dados de arco do Azure
@@ -78,9 +78,16 @@ azdata arc postgres server create -n <name> --workers <# worker nodes with #>=2>
 #azdata arc postgres server create -n postgres01 --workers 2
 ```
 
+> [!IMPORTANT]
+> - A classe de armazenamento usada para backups (_--Storage-Class-backups-SCB_) usa como padrão a classe de armazenamento de dados do controlador de dados se ela não for fornecida.
+> - Para restaurar um grupo de servidores para um grupo de servidores separado (como a restauração pontual), você deve configurar o grupo de servidores para usar PVCs com o modo de acesso ReadWriteMany. É necessário fazer isso na criação do grupo de servidores. Ele não pode ser alterado depois de ser criado. Para obter mais detalhes, leia:
+>    - [Esta seção sobre backup e restauração](https://docs.microsoft.com/azure/azure-arc/data/backup-restore-postgresql-hyperscale#create-a-server-group-that-is-ready-for-backups-and-restores)
+>    - [Esta seção sobre as limitações da hiperescala do PostgreSQL habilitada para Arc do Azure](https://docs.microsoft.com/azure/azure-arc/data/limitations-postgresql-hyperscale)
+
+
 > [!NOTE]
 > - **Há outros parâmetros de linha de comando disponíveis.  Consulte a lista completa de opções executando `azdata arc postgres server create --help` .**
-> - A classe de armazenamento usada para backups (_--Storage-Class-backups-SCB_) usa como padrão a classe de armazenamento de dados do controlador de dados se ela não for fornecida.
+
 > - A unidade aceita pelos parâmetros--volume-Size-* é uma quantidade de recursos kubernetes (um número inteiro seguido por um desses valores é suficiente (T, G, M, K, m) ou seus equivalentes de potência de dois (ti, GI, mi, Ki)).
 > - Os nomes devem ter 12 caracteres ou menos de comprimento e estar em conformidade com as convenções de nomenclatura de DNS.
 > - Você será solicitado a inserir a senha para o usuário administrativo do _postgres_ Standard.  Você pode ignorar o prompt interativo definindo a `AZDATA_PASSWORD` variável de ambiente de sessão antes de executar o comando Create.

@@ -1,18 +1,18 @@
 ---
 title: Sintaxe e expressões de modelo
-description: Descreve a sintaxe JSON declarativa para modelos de Azure Resource Manager.
+description: Descreve a sintaxe JSON declarativa para modelos de Azure Resource Manager (modelos ARM).
 ms.topic: conceptual
 ms.date: 03/17/2020
-ms.openlocfilehash: baddedae1b918502e579d2ed230e0779960f45e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44a386ed849771dfba717c8d1414e64422d0c7bd
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82203821"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797036"
 ---
-# <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Sintaxe e expressões em modelos do Azure Resource Manager
+# <a name="syntax-and-expressions-in-arm-templates"></a>Sintaxe e expressões em modelos ARM
 
-A sintaxe básica do modelo é JSON. No entanto, você pode usar expressões para estender os valores JSON disponíveis no modelo.  As expressões começam e terminam com colchetes: `[` e `]`, respectivamente. O valor da expressão é avaliado quando o modelo é implantado. Uma expressão pode retornar uma cadeia de caracteres, um inteiro, um booliano, uma matriz ou um objeto.
+A sintaxe básica do modelo de Azure Resource Manager (modelo ARM) é JavaScript Object Notation (JSON). No entanto, você pode usar expressões para estender os valores JSON disponíveis no modelo.  As expressões começam e terminam com colchetes: `[` e `]`, respectivamente. O valor da expressão é avaliado quando o modelo é implantado. Uma expressão pode retornar uma cadeia de caracteres, um inteiro, um booliano, uma matriz ou um objeto.
 
 Uma expressão de modelo não pode exceder 24.576 caracteres.
 
@@ -31,7 +31,7 @@ Azure Resource Manager fornece [funções](template-functions.md) que você pode
 
 Dentro da expressão, a sintaxe `resourceGroup()` chama uma das funções que o Gerenciador de recursos fornece para uso em um modelo. Nesse caso, é a função [resourcegroup](template-functions-resource.md#resourcegroup) . Assim como no JavaScript, as chamadas de função são formatadas como `functionName(arg1,arg2,arg3)`. A sintaxe `.location` recupera uma propriedade do objeto retornado por essa função.
 
-As funções do modelo e seus parâmetros não diferenciam maiúsculas de minúsculas. Por exemplo, o Resource Manager resolve **variables('var1')** e **VARIABLES('VAR1')** da mesma forma. Quando avaliada, a função preservará as maiúsculas e minúsculas, a menos que a função modifique-as expressamente (como toUpper ou toLower). Determinados tipos de recursos podem ter requisitos de caso separados de como as funções são avaliadas.
+As funções do modelo e seus parâmetros não diferenciam maiúsculas de minúsculas. Por exemplo, o Gerenciador de recursos resolve `variables('var1')` e `VARIABLES('VAR1')` o mesmo. Quando avaliada, a menos que a função modifique expressamente o caso (como `toUpper` ou `toLower` ), a função preserva o caso. Determinados tipos de recursos podem ter requisitos de caso separados de como as funções são avaliadas.
 
 Para passar um valor de cadeia de caracteres como um parâmetro para uma função, use aspas simples.
 
@@ -123,7 +123,7 @@ A mesma formatação se aplica ao passar valores de um arquivo de parâmetro. Os
 
 ## <a name="null-values"></a>Valores nulos
 
-Para definir uma propriedade como nula, você pode usar **NULL** ou **[JSON (' NULL ')]**. A [função JSON](template-functions-object.md#json) retorna um objeto vazio quando você fornece `null` como o parâmetro. Em ambos os casos, os modelos do Resource Manager o tratam como se a propriedade não estiver presente.
+Para definir uma propriedade como nula, é possível usar `null` ou `[json('null')]`. A [função JSON](template-functions-object.md#json) retorna um objeto vazio quando você fornece `null` como o parâmetro. Em ambos os casos, os modelos do Resource Manager o tratam como se a propriedade não estiver presente.
 
 ```json
 "stringValue": null,
@@ -132,5 +132,5 @@ Para definir uma propriedade como nula, você pode usar **NULL** ou **[JSON (' N
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter a lista completa das funções de modelo, veja [Funções de modelo do Gerenciador de Recursos do Azure](template-functions.md).
-* Para obter mais informações sobre arquivos de modelo, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](template-syntax.md).
+* Para obter a lista completa de funções de modelo, consulte [funções de modelo ARM](template-functions.md).
+* Para obter mais informações sobre arquivos de modelo, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).

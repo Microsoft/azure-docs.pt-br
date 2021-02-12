@@ -1,6 +1,6 @@
 ---
 title: Melhores práticas de carregamento de dados
-description: Recomendações e otimizações de desempenho para carregar dados no SQL Synapse
+description: Recomendações e otimizações de desempenho para carregar dados em um pool SQL dedicado do Azure Synapse Analytics.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,20 +11,20 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 4c07ad2aaf6c682dc370e3223dba1f199242ca2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31014d336b5122251cf8be4a166520064776fce3
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289224"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118159"
 ---
-# <a name="best-practices-for-loading-data-for-data-warehousing"></a>Melhores práticas para carregar dados no data warehouse
+# <a name="best-practices-for-loading-data-into-a-dedicated-sql-pool-azure-synapse-analytics"></a>Práticas recomendadas para carregar dados em um pool SQL dedicado Azure Synapse Analytics
 
 Neste artigo, você encontrará recomendações e otimizações de desempenho para carregar dados.
 
 ## <a name="prepare-data-in-azure-storage"></a>Preparar dados no armazenamento do Azure
 
-Para minimizar a latência, coloque a camada de armazenamento e o data warehouse.
+Para minimizar a latência, coloque a camada de armazenamento e o pool SQL dedicado.
 
 Ao exportar dados em um formato de arquivo ORC, você poderá receber erros de falta de memória Java quando houver colunas de texto grandes. Para contornar essa limitação, exporte apenas um subconjunto das colunas.
 
@@ -36,7 +36,7 @@ Dividir arquivos compactados grandes em arquivos compactados menores.
 
 ## <a name="run-loads-with-enough-compute"></a>Executar cargas com computação suficiente
 
-Para uma velocidade mais alta de carregamento, execute apenas uma carga de trabalho por vez. Se isso não for possível, execute uma quantidade mínima de carregamento simultaneamente. Se você espera um trabalho de carregamento grande, considere escalar verticalmente seu pool SQL antes do carregamento.
+Para uma velocidade mais alta de carregamento, execute apenas uma carga de trabalho por vez. Se isso não for possível, execute uma quantidade mínima de carregamento simultaneamente. Se você espera um trabalho de carregamento grande, considere escalar verticalmente seu pool SQL dedicado antes do carregamento.
 
 Para executar cargas com recursos de computação apropriados, crie usuários de carregamento designados para executar cargas. Atribua cada usuário de carregamento a uma classe de recurso ou grupo de carga de trabalho específico. Para executar uma carga, entre como um dos usuários de carregamento e, em seguida, execute a carga. A carga é executada com a classe de recurso do usuário.  Esse método é mais simples do que tentar alterar a classe de recurso do usuário para se ajustar à necessidade de classe de recurso atual.
 
@@ -145,5 +145,5 @@ Não é necessária nenhuma outra alteração nas fontes de dados externas subja
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre o polybase e criar um processo de extração, carregamento e transformação (ELT), consulte [design ELT for Azure Synapse Analytics](../sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
-- Para um tutorial de carregamento, [use o polybase para carregar dados do armazenamento de BLOBs do Azure para o Azure Synapse Analytics](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+- Para um tutorial de carregamento, [use o polybase para carregar dados do armazenamento de BLOBs do Azure para o Azure Synapse Analytics](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
 - Para monitorar os carregamentos de dados, consulte [Monitorar sua carga de trabalho usando DMVs](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).

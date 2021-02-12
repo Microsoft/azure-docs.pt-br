@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4bcbbd9378b6ea861c926eed16d2ceed8131b913
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082742"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000956"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Tarefas e funções do Processo de Ciência de Dados de Equipe
 
@@ -65,7 +65,7 @@ O gerente do grupo ou um administrador do sistema TDSP designado conclui as segu
 - Cria um **repositório de modelos de projeto** no projeto do grupo DevOps do Azure e propaga-o do repositório de modelos do projeto desenvolvido pela equipe do Microsoft TDSP. O repositório de modelos de projeto do Microsoft TDSP fornece:
   - Uma **estrutura de diretório padronizada**, incluindo diretórios de dados, código e documentos.
   - Um conjunto de **modelos de documento padronizados** para guiar um processo eficiente de ciência de dados.
-- Cria um **repositório do utilitário**e propaga-o do repositório do utilitário desenvolvido pela equipe do Microsoft TDSP. O repositório do utilitário TDSP da Microsoft fornece um conjunto de utilitários úteis para tornar o trabalho de um cientista de dados mais eficiente. O repositório do utilitário da Microsoft inclui utilitários para exploração de dados interativa, análise, relatórios e modelagem de linha de base e relatórios.
+- Cria um **repositório do utilitário** e propaga-o do repositório do utilitário desenvolvido pela equipe do Microsoft TDSP. O repositório do utilitário TDSP da Microsoft fornece um conjunto de utilitários úteis para tornar o trabalho de um cientista de dados mais eficiente. O repositório do utilitário da Microsoft inclui utilitários para exploração de dados interativa, análise, relatórios e modelagem de linha de base e relatórios.
 - Configura a **política de controle de segurança** para a conta da organização.
 
 Para obter instruções detalhadas, consulte [tarefas do gerente de grupo para uma equipe de ciência de dados](group-manager-tasks.md).

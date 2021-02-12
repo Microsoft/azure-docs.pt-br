@@ -16,12 +16,12 @@ ms.date: 02/07/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4778ce5efcd6145447c194eaab34bc230bcbe34c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d74a243ab10d0fffca960dc5149999560a7b54cd
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371538"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980579"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>Aprovar ou negar solicitações para funções do Azure AD no Privileged Identity Management
 
@@ -38,9 +38,9 @@ A partir de novembro de 2019, a parte das funções do Azure AD da Privileged Id
 
 Siga as etapas neste artigo para aprovar ou negar solicitações para funções do Azure AD.
 
-# <a name="new-version"></a>[Nova versão](#tab/new)
+## <a name="new-version"></a>[Nova versão](#tab/new)
 
-## <a name="view-pending-requests"></a>Exibir solicitações pendentes
+### <a name="view-pending-requests"></a>Exibir solicitações pendentes
 
 Como um Aprovador delegado, você receberá uma notificação por email quando uma solicitação de função do Azure AD estiver aguardando sua aprovação. Você pode exibir essas solicitações pendentes no Privileged Identity Management.
 
@@ -54,7 +54,7 @@ Como um Aprovador delegado, você receberá uma notificação por email quando u
 
     Na seção **Solicitações para ativações de função** você verá uma lista de solicitações aguardando a aprovação.
 
-## <a name="approve-requests"></a>Aprovar solicitações
+### <a name="approve-requests"></a>Aprovar solicitações
 
 1. Localize e selecione a solicitação que você deseja aprovar. Uma página aprovar ou negar é exibida.
 
@@ -66,7 +66,7 @@ Como um Aprovador delegado, você receberá uma notificação por email quando u
 
     ![Aprovar notificação mostrando que a solicitação foi aprovada](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png))
 
-## <a name="deny-requests"></a>Negar solicitações
+### <a name="deny-requests"></a>Negar solicitações
 
 1. Localize e selecione a solicitação que você deseja negar. Uma página aprovar ou negar é exibida.
 
@@ -76,7 +76,7 @@ Como um Aprovador delegado, você receberá uma notificação por email quando u
 
 1. Selecione **negar**. Uma notificação é exibida com a negação.
 
-## <a name="workflow-notifications"></a>Notificações de fluxo de trabalho
+### <a name="workflow-notifications"></a>Notificações de fluxo de trabalho
 
 Veja algumas informações sobre notificações de fluxo de trabalho:
 
@@ -88,9 +88,9 @@ Veja algumas informações sobre notificações de fluxo de trabalho:
 >[!NOTE]
 >Um administrador global ou administrador de função com privilégios que acredita que um usuário aprovado não deve estar ativo pode remover a atribuição de função ativa em Privileged Identity Management. Embora os administradores não sejam notificados sobre solicitações pendentes, a menos que sejam um aprovador, eles podem exibir e cancelar quaisquer solicitações pendentes para todos os usuários exibindo solicitações pendentes no Privileged Identity Management.
 
-# <a name="previous-version"></a>[Versão anterior](#tab/previous)
+## <a name="previous-version"></a>[Versão anterior](#tab/previous)
 
-## <a name="view-pending-requests"></a>Exibir solicitações pendentes
+### <a name="view-pending-requests"></a>Exibir solicitações pendentes
 
 Como um Aprovador delegado, você receberá uma notificação por email quando uma solicitação de função do Azure AD estiver aguardando sua aprovação. Você pode exibir essas solicitações pendentes no Privileged Identity Management.
 
@@ -106,7 +106,7 @@ Como um Aprovador delegado, você receberá uma notificação por email quando u
 
     Você verá uma lista de solicitações aguardando sua aprovação.
 
-## <a name="approve-requests"></a>Aprovar solicitações
+### <a name="approve-requests"></a>Aprovar solicitações
 
 1. Selecione as solicitações que você deseja aprovar e, em seguida, clique em **aprovar** abrir a aprovar selecionado no painel de solicitações.
 
@@ -122,7 +122,7 @@ Como um Aprovador delegado, você receberá uma notificação por email quando u
 
     ![Aprovar o painel de solicitações selecionadas após o botão aprovar clicado](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
 
-## <a name="deny-requests"></a>Negar solicitações
+### <a name="deny-requests"></a>Negar solicitações
 
 1. Selecione as solicitações que você deseja negar e clique em **Negar** para abrir o painel Negar solicitações selecionadas.
 

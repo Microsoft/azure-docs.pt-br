@@ -1,7 +1,7 @@
 ---
 title: Como usar PerfInsights no Microsoft Azure | Microsoft Docs
 description: Aprenda a usar o PerfInsights para solucionar problemas de desempenho da VM do Windows.
-services: virtual-machines-windows'
+services: virtual-machines-windows
 documentationcenter: ''
 author: anandhms
 manager: dcscontentpm
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f49ae5139dc92ec1448e5dea05be8c8c216ef91e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e298bf39446024f384b9af142fe3000e936bb6d
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361340"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656845"
 ---
 # <a name="how-to-use-perfinsights-in-azure"></a>Como usar o PerfInsights no Azure
 
@@ -76,13 +76,13 @@ Este cenário executa uma captura de contador de desempenho especial junto com u
 | IOPS         | Solicitações de dados/s             |
 |              | Solicitações de leitura/s             |
 |              | Solicitações de gravação/s            |
-| Latency      | Média de solicitação de dados/s         |
+| Latência      | Média de solicitação de dados/s         |
 |              | Média de leitura/s                 |
 |              | Média de gravação/s                |
 | Tamanho de E/S      | Média de bytes/solicitação de dados       |
 |              | Méd. de Bytes/leitura               |
 |              | Méd. de Bytes/gravação              |
-| Produtividade   | Bytes de dados/s                |
+| Taxa de transferência   | Bytes de dados/s                |
 |              | Bytes de leitura/s                |
 |              | Bytes de gravação/s               |
 | Comprimento da fila | Comprimento médio da fila de leitura        |
@@ -118,15 +118,15 @@ São coletadas informações sobre a VM do Windows, a configuração de discos o
 | Configuração do SQL Server          | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
 | Rastreamentos de diagnóstico de desempenho *  | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
 | Rastreamento do contador de desempenho **      |                            |                                    | Sim                      |                      | Sim                  |
-| Rastreamento do contador SMB **              |                            |                                    |                          | Sim                  |                      |
+| Rastreamento do contador SMB **              |                            |                                    |                          | Yes                  |                      |
 | Rastreamento do contador do SQL Server **       |                            |                                    | Sim                      |                      | Sim                  |
-| Rastreamento de XPerf                       |                            |                                    |                          |                      | Sim                  |
-| Rastreamento de StorPort                    |                            |                                    |                          |                      | Sim                  |
+| Rastreamento de XPerf                       |                            |                                    |                          |                      | Yes                  |
+| Rastreamento de StorPort                    |                            |                                    |                          |                      | Yes                  |
 | Rastreamento de rede                     |                            |                                    |                          | Sim                  | Sim                  |
-| Rastreamento de parâmetro de comparação de Diskspd ***       |                            | Sim                                |                          |                      |                      |
+| Rastreamento de benchmark Diskspd * * _       |                            | Yes                                |                          |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
-### <a name="performance-diagnostics-trace-"></a>Rastreamento de diagnóstico de desempenho (*)
+### <a name="performance-diagnostics-trace-_"></a>Rastreamento de diagnóstico de desempenho (_)
 
 Executa um mecanismo baseado em regras no segundo plano para coletar dados e diagnosticar problemas de desempenho em andamento. No momento, há suporte para regras a seguir:
 
@@ -154,7 +154,7 @@ Coleta os seguintes contadores de desempenho:
 #### <a name="for-azure-files"></a>Para Arquivos do Azure
 \SMB Client Shares
 
-### <a name="diskspd-benchmark-trace-"></a>Rastreamento de parâmetro de comparação de Diskspd (***)
+### <a name="diskspd-benchmark-trace-_"></a>Rastreamento de parâmetro de comparação Diskspd (* * _)
 Testes de carga de trabalho de E/S do Diskspd (disco do SO [gravação] e unidades de pool [leitura/gravação])
 
 ## <a name="run-the-perfinsights-tool-on-your-vm"></a>Executar a ferramenta PerfInsights em sua VM
@@ -165,8 +165,7 @@ Testes de carga de trabalho de E/S do Diskspd (disco do SO [gravação] e unidad
 
 -  Esta ferramenta deve ser executada na VM que tem o problema de desempenho. 
 
--  Há suporte para os seguintes sistemas operacionais:
-   * Windows Server 2019
+-  Há suporte para os seguintes sistemas operacionais: _ Windows Server 2019
    * Windows Server 2016
    * Windows Server 2012 R2
    * Windows Server 2012

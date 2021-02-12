@@ -2,13 +2,13 @@
 title: Evento de filtragem para a Grade de Eventos do Azure
 description: Descreve como filtrar eventos durante a criação de uma assinatura de Grade de Eventos do Azure.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 837209d4197c271598155776b8d171a705e1f454
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/03/2020
+ms.openlocfilehash: bc3e84037693fcd909961ba409871d947ef1de7d
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86120085"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574899"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Compreender a filtragem para assinaturas da Grade de Eventos
 
@@ -72,7 +72,7 @@ Se você especificar um único filtro com vários valores, uma operação **ou**
 ]
 ```
 
-Se você especificar vários filtros diferentes, uma operação and será executada, portanto, cada condição **de** filtro deverá ser atendida. Veja um exemplo: 
+Se você especificar vários filtros diferentes, uma operação and será feita, portanto, cada condição **de** filtro deverá ser atendida. Aqui está um exemplo: 
 
 ```json
 "advancedFilters": [
@@ -115,7 +115,24 @@ Os operadores disponíveis para **cadeias de caracteres** são:
 * StringIn
 * StringNotIn
 
-Todas as comparações de cadeia de caracteres **não** diferenciam maiúsculas de minúscula
+Todas as comparações de cadeia de caracteres **não** diferenciam maiúsculas de minúsculas.
+
+> [!NOTE]
+> Se o evento JSON não contiver a chave de filtro avançada, Filter será evaulated como **não correspondente** aos seguintes operadores: 
+> - NumberGreaterThan
+> - NumberGreaterThanOrEquals
+> - NumberLessThan
+> - NumberLessThanOrEquals
+> - NumberIn
+> - BoolEquals
+> - StringContains
+> - StringBeginsWith
+> - StringEndsWith
+> - StringIn
+> 
+>O filtro é evaulated como **correspondido** para os seguintes operadores:
+> - NumberNotIn
+> - StringNotIn
 
 ### <a name="key"></a>Chave
 
@@ -154,7 +171,7 @@ No entanto, o MakeCert tem as seguintes limitações:
 * 5 filtros avançados e 25 valores de filtro em todos os filtros por assinatura de grade de eventos
 * 512 caracteres por valor de cadeia de caracteres
 * Cinco valores para **em** e **não está nos** operadores
-* Chaves com um caractere ** `.` (ponto)** . Por exemplo: `http://schemas.microsoft.com/claims/authnclassreference` ou `john.doe@contoso.com`. No momento, não há suporte para caracteres de escape em chaves. 
+* Chaves com um caractere **`.` (ponto)** . Por exemplo: `http://schemas.microsoft.com/claims/authnclassreference` ou `john.doe@contoso.com`. No momento, não há suporte para caracteres de escape em chaves. 
 
 A mesma chave pode ser usada em mais de um filtro.
 

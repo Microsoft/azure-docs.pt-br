@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/18/2020
+ms.date: 12/02/2020
 ms.author: mnayak
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 39514f8a34e85525e2a8900a8e6e3cc8656fb84a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82057fa689692643e3cf9733dd70795e1030fa06
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329288"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934241"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-azure-cli"></a>Configurar a preferência de roteamento para um endereço IP público usando a CLI do Azure
 
@@ -38,16 +38,11 @@ Por padrão, a preferência de roteamento para o endereço IP público é defini
 > A preferência de roteamento está atualmente em versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) agora.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-Se você optar por instalar e usar a CLI do Azure localmente, este início rápido exigirá a versão 2.0.49 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão instalada. Para informações sobre como instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## <a name="register-the-feature-for-your-subscription"></a>Registrar recurso para sua assinatura
-O recurso Preferência de Roteamento está atualmente na versão prévia. Registrar recurso para sua assinatura como a seguir:
-```azurecli
-az feature register --namespace Microsoft.Network --name AllowRoutingPreferenceFeature
-```
+- Este artigo requer a versão 2.0.49 ou posterior do CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). O exemplo a seguir cria um grupo de recursos na região **Leste dos EUA** do Azure:
@@ -57,7 +52,7 @@ Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-gr
 ```
 ## <a name="create-a-public-ip-address"></a>Criar um endereço IP público
 
-Crie um Endereço IP Público com preferência de roteamento do tipo "Internet" usando o comando [az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create), com o formato mostrado abaixo.
+Crie um endereço IP público com preferência de roteamento de tipo de **Internet** usando o comando [AZ Network Public-IP Create](/cli/azure/network/public-ip#az-network-public-ip-create), com o formato conforme mostrado abaixo.
 
 O comando a seguir cria um novo IP público com a preferência de roteamento **Internet** na região **Leste dos EUA** do Azure.
 

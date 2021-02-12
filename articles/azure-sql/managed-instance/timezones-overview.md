@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 ms.date: 10/12/2020
-ms.openlocfilehash: bf0cfd70c9850cc6a5ff4482b494d68700022ad8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8a4c1b2ac53679153c8d9485443a231b817df77a
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790620"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734572"
 ---
 # <a name="time-zones-in-azure-sql-managed-instance"></a>Fusos horários no Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -32,7 +32,7 @@ Funções T-SQL como [GETDATE ()](/sql/t-sql/functions/getdate-transact-sql) ou 
 
 Um conjunto de fusos horários com suporte é herdado do sistema operacional subjacente da instância gerenciada. Ele é atualizado regularmente para obter novas definições de fuso horário e refletir as alterações nas existentes.
 
-A [política de horário de verão e alterações de fuso horário](https://aka.ms/time) garante a precisão histórica de 2010 para frente.
+A [política de horário de verão e alterações de fuso horário](/troubleshoot/windows-client/system-management-components/daylight-saving-time-help-support) garante a precisão histórica de 2010 para frente.
 
 Uma lista com nomes dos fusos horários com suporte é exposta por meio da exibição do sistema [Sys.time_zone_info](/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) .
 
@@ -241,7 +241,7 @@ Usar o mesmo fuso horário em uma instância primária e secundária em um grupo
 | Hora oficial de Samoa | (UTC + 13:00) Samoa |
 | Hora oficial das ilhas de linha | (UTC + 14:00) Ilha Kiritimati |
 
-## <a name="see-also"></a>Veja também 
+## <a name="see-also"></a>Confira também 
 
 - [CURRENT_TIMEZONE (Transact-SQL)](/sql/t-sql/functions/current-timezone-transact-sql)
 - [CURRENT_TIMEZONE_ID (Transact-SQL)](/sql/t-sql/functions/current-timezone-id-transact-sql)

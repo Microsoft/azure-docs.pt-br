@@ -6,21 +6,21 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 5bd637f4e4a786cd4cba0f70c4b2349e354469fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa4be5852b4f8af00346a3ea9a86b13a85f99824
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657479"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358449"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Criar loops que repetem ações de fluxo de trabalho ou processam matrizes nos Aplicativos Lógicos do Azure
 
-Para processar uma matriz em seu aplicativo lógico, você pode criar um [loop "Foreach"](#foreach-loop). Esse loop repete uma ou mais ações em cada item na matriz. Para saber quais são os limites no número de itens de matriz que os loops "Foreach" podem processar, confira [Limites e configurações](../logic-apps/logic-apps-limits-and-config.md). 
+Para processar uma matriz em seu aplicativo lógico, você pode criar um [loop "Foreach"](#foreach-loop). Esse loop repete uma ou mais ações em cada item na matriz. Para obter o limite do número de itens de matriz que um loop "foreach" pode processar, consulte [limites de simultaneidade, looping e debatching](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-Para repetir ações até que uma condição seja atendida ou um estado seja alterado, você poderá criar uma [loop "Until"](#until-loop). O aplicativo lógico primeiro executa todas as ações dentro do loop e, em seguida, verifica a condição ou o estado. Se a condição é atendida, o loop para. Caso contrário, o loop repete. Para saber quais são os limites no número de loops "Until" em uma execução do aplicativo lógico, confira [Limites e configurações](../logic-apps/logic-apps-limits-and-config.md). 
+Para repetir ações até que uma condição seja atendida ou um estado seja alterado, você poderá criar uma [loop "Until"](#until-loop). O aplicativo lógico primeiro executa todas as ações dentro do loop e, em seguida, verifica a condição ou o estado. Se a condição é atendida, o loop para. Caso contrário, o loop repete. Para os limites padrão e máximo no número de loops de "until" que uma execução de aplicativo lógico pode ter, consulte [os limites de simultaneidade, looping e debatching](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 > [!TIP]
-> Se você tiver um gatilho que recebe uma matriz e deseja executar um fluxo de trabalho para cada item de matriz, é possível fazer *debatch* dessa matriz com o [**SplitOn** da propriedade de gatilho](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
+> Se você tiver um gatilho que recebe uma matriz e deseja executar um fluxo de trabalho para cada item de matriz, é possível fazer *debatch* dessa matriz com o [**SplitOn** da propriedade de gatilho](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,7 +32,9 @@ Para repetir ações até que uma condição seja atendida ou um estado seja alt
 
 ## <a name="foreach-loop"></a>Loop "Foreach"
 
-Um loop "Foreach" repete uma ou mais ações em cada item da matriz e funciona somente em matrizes. Aqui estão algumas considerações ao usar loops "Foreach":
+Um loop "foreach" repete uma ou mais ações em cada item de matriz e funciona apenas em matrizes. Aqui estão algumas considerações ao usar loops "Foreach":
+
+* O loop "foreach" pode processar um número limitado de itens de matriz. Para esse limite, consulte [limites de simultaneidade, looping e debatching](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 * Por padrão, as iterações em um loop "foreach" são executadas ao mesmo tempo ou em paralelo. Esse comportamento difere da [ativação de energia **para cada** loop](/power-automate/apply-to-each) em que as iterações são executadas uma de cada vez ou sequencialmente. No entanto, você pode [Configurar iterações de loop "foreach" sequenciais](#sequential-foreach-loop). Por exemplo, se você quiser pausar a próxima iteração em um loop "foreach" usando a [ação de atraso](../connectors/connectors-native-delay.md), será necessário definir o loop para ser executado em sequência.
 
@@ -58,7 +60,7 @@ Este exemplo de aplicativo lógico envia um resumo diário para um RSS feed de u
 
       ![Adicionar o loop "for each"](media/logic-apps-control-flow-loops/select-for-each.png)
 
-3. Agora, compile o loop. Em **Selecionar uma saída das etapas anteriores** após a lista **Adicionar conteúdo dinâmico** aparecer, selecione a matriz de **Links de feed**, que é emitida pelo gatilho RSS. 
+3. Agora, compile o loop. Em **Selecionar uma saída das etapas anteriores** após a lista **Adicionar conteúdo dinâmico** aparecer, selecione a matriz de **Links de feed** , que é emitida pelo gatilho RSS. 
 
    ![Selecionar a partir da lista de conteúdo dinâmico](media/logic-apps-control-flow-loops/for-each-loop-dynamic-content-list.png)
 
@@ -126,7 +128,7 @@ Por padrão, os ciclos em um loop "Foreach" são executados em paralelo. Para ex
 
    ![No loop "Foreach" loop, escolha "..." > "Configurações"](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
-1. Em **Controle de Simultaneidade**, defina a configuração **Controle de Simultaneidade** como **Ativado**. Mova o controle deslizante **Grau de Paralelismo** para **1** e escolha **Concluído**.
+1. Em **Controle de Simultaneidade** , defina a configuração **Controle de Simultaneidade** como **Ativado**. Mova o controle deslizante **Grau de Paralelismo** para **1** e escolha **Concluído**.
 
    ![Ativar o controle de simultaneidade](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
 
@@ -150,7 +152,7 @@ Se você estiver trabalhando com a definição de JSON do aplicativo lógico, vo
 
 ## <a name="until-loop"></a>Loop "Until"
   
-Para executar e repetir ações até que uma condição seja atendida ou um estado seja alterado, coloque essas ações em um loop "Until". O aplicativo lógico primeiro executa toda e qualquer ação dentro do loop e, em seguida, verifica a condição ou o estado. Se a condição é atendida, o loop para. Caso contrário, o loop repete.
+Para executar e repetir ações até que uma condição seja atendida ou um estado seja alterado, coloque essas ações em um loop "Until". O aplicativo lógico primeiro executa toda e qualquer ação dentro do loop e, em seguida, verifica a condição ou o estado. Se a condição é atendida, o loop para. Caso contrário, o loop repete. Para os limites padrão e máximo no número de loops de "until" que uma execução de aplicativo lógico pode ter, consulte [os limites de simultaneidade, looping e debatching](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 Aqui estão alguns cenários comuns em que é possível utilizar um loop "Until":
 
@@ -196,7 +198,7 @@ Começando às 8h00 todos os dias, esse aplicativo lógico incrementa uma variá
    | **Valor** | 0 | Valor inicial de variável | 
    |||| 
 
-1. Na ação **Inicializar variável**, escolha **Nova etapa**. 
+1. Na ação **Inicializar variável** , escolha **Nova etapa**. 
 
 1. Na caixa de pesquisa, escolha **Tudo**. Pesquise por "until" e selecione esta ação: **Until – Controle**
 
@@ -213,7 +215,7 @@ Começando às 8h00 todos os dias, esse aplicativo lógico incrementa uma variá
 
    ![Adicionar ação para incrementar a variável](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable.png)
 
-1. Para **Nome**, selecione a variável **Limite**. Para **Valor**, insira "1". 
+1. Para **Nome** , selecione a variável **Limite**. Para **Valor** , insira "1". 
 
      ![Incrementar "Limite" por 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
@@ -243,17 +245,19 @@ Começando às 8h00 todos os dias, esse aplicativo lógico incrementa uma variá
 
       ![Email recebido](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
 
+<a name="prevent-endless-loops"></a>
+
 ## <a name="prevent-endless-loops"></a>Impedir loops infinitos
 
-Um loop "Until" possui limites padrão que param a execução se alguma destas condições ocorrer:
+O loop "until" interrompe a execução com base nessas propriedades, portanto, certifique-se de definir seus valores adequadamente:
 
-| Propriedade | Valor padrão | Descrição | 
-| -------- | ------------- | ----------- | 
-| **Count** | 60 | O número mais alto de loops que são executados antes da saída do loop. O padrão é 60 ciclos. | 
-| **Tempo Limite** | PT1H | A maior quantidade de tempo para executar um loop antes da saída do loop. O padrão é uma hora e é especificado no formato ISO 8601. <p>O valor de tempo limite é avaliado para cada ciclo de loop. Se qualquer ação no loop demorar mais do que o tempo limite, o ciclo atual não parará. No entanto, o próximo ciclo será iniciado porque a condição de limite não foi atendida. | 
-|||| 
+* **Contagem** : esse valor é o número mais alto de loops executados antes de o loop ser encerrado. Para os limites padrão e máximo no número de loops de "until" que uma execução de aplicativo lógico pode ter, consulte [os limites de simultaneidade, looping e debatching](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-Para alterar esses limites padrão, escolha **Mostrar opções avançadas** na forma de ação do loop.
+* **Tempo limite** : esse valor é a maior quantidade de tempo que o loop é executado antes de sair e é especificado no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Para obter os limites padrão e máximo do valor de **tempo limite** , consulte [os limites de simultaneidade, looping e debatching](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+
+  O valor de tempo limite é avaliado para cada ciclo de loop. Se qualquer ação no loop demorar mais do que o tempo limite, o ciclo atual não parará. No entanto, o próximo ciclo será iniciado porque a condição de limite não foi atendida.
+
+Para alterar esses limites, na ação de loop, selecione **alterar limites**.
 
 <a name="until-json"></a>
 

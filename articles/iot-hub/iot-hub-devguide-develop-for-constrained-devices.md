@@ -10,12 +10,12 @@ ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 9010ff582f05e81e17e280e20f180ceccf0e746f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a43eb2537ebc09ffcb524a4426d7a8c9bec560b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81733197"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499995"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Desenvolver para dispositivos restritos usando SDKs C de IoT do Azure
 
@@ -29,6 +29,9 @@ O SDK C está disponível em formulário de pacote do apt-get, NuGet e MBED. Par
 ## <a name="building-the-c-sdk-for-constrained-devices"></a>Compilar o SDK C para dispositivos restritos
 
 Crie o SDK C para dispositivos restritos.
+
+> [!NOTE]
+> O SDK do C inserido é uma alternativa para dispositivos restritos que dão suporte à abordagem BYON (traga sua própria rede). Os desenvolvedores de IoT têm a liberdade de trazer o cliente MQTT, o TLS e o soquete de sua escolha para criar uma solução de dispositivo. [Saiba mais sobre o SDK do C inserido](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot).
 
 ### <a name="prerequisites"></a>Pré-requisitos
 

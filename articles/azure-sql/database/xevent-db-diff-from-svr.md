@@ -7,16 +7,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: reference
-author: MightyPen
-ms.author: genemi
-ms.reviewer: jrasnik
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: 0c89dc28a330e319e18a6289e5f6759c56e46ae8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 139673e46421aa0dc19298697872fbff5fe587af
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791266"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501202"
 ---
 # <a name="extended-events-in-azure-sql-database"></a>Eventos estendidos no Banco de Dados SQL do Azure 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -66,7 +66,7 @@ Os tópicos relacionados fornecem dois exemplos de código:
 - Ao executar o comando [CREATE EVENT SESSION](/sql/t-sql/statements/create-event-session-transact-sql) no SQL Server, você usa a cláusula **ON SERVER** . Porém, no banco de dados SQL do Azure, use a cláusula **on Database** .
 - A cláusula **ON DATABASE** também se aplica aos comandos Transact-SQL [ALTER EVENT SESSION](/sql/t-sql/statements/alter-event-session-transact-sql) e [DROP EVENT SESSION](/sql/t-sql/statements/drop-event-session-transact-sql).
 
-- Uma prática recomendada é incluir a opção de sessão de evento de **STARTUP_STATE = ON** em sua instrução **CREATE EVENT SESSION** ou **ALTER EVENT SESSION** .
+- Uma prática recomendada é incluir a opção de sessão de evento de **STARTUP_STATE = ON** em sua instrução **CREATE EVENT SESSION** ou **ALTER EVENT SESSION**.
   - O valor **= ON** oferece suporte à reinicialização automática após a reconfiguração do banco de dados lógico devido a um failover.
 
 ## <a name="new-catalog-views"></a>Novas exibições do catálogo
@@ -81,7 +81,7 @@ O recurso de eventos estendidos recebe suporte de várias [exibições do catál
 | **sys.database_event_session_targets** |Retorna uma linha para cada destino de evento em uma sessão de evento. |
 | **sys.database_event_sessions** |Retorna uma linha para cada sessão de evento no banco de dados. |
 
-No Microsoft SQL Server, exibições do catálogo semelhantes têm nomes que incluem *.server\_* em vez de *.database\_* . O nome padrão é **sys.server_event_%** .
+No Microsoft SQL Server, exibições do catálogo semelhantes têm nomes que incluem *.server\_* em vez de *.database\_*. O nome padrão é **sys.server_event_%**.
 
 ## <a name="new-dynamic-management-views-dmvs"></a>Novas exibições de gerenciamento dinâmico [(DMVs)](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)
 
@@ -97,7 +97,7 @@ O Banco de Dados SQL do Azure tem [exibições de gerenciamento dinâmico (DMVs)
 
 No Microsoft SQL Server, exibições de catálogo semelhantes são nomeadas sem a parte do *\_ banco de dados* do nome, como:
 
-- **sys.dm_xe_sessions** , em vez de nome<br/>**sys.dm_xe_database_sessions** .
+- **sys.dm_xe_sessions**, em vez de nome<br/>**sys.dm_xe_database_sessions**.
 
 ### <a name="dmvs-common-to-both"></a>DMVs comuns a ambos
 
@@ -151,11 +151,11 @@ A API do [ETW (rastreamento de eventos para Windows)](/dotnet/framework/wcf/samp
 Há algumas diferenças relacionadas à segurança ao se ajustar ao ambiente de nuvem do banco de dados SQL do Azure:
 
 - Os eventos estendidos são baseados no modelo de isolamento de locatário único. Uma sessão de eventos em um banco de dados não pode acessar dados ou eventos de outro banco de dados.
-- Não é possível emitir uma instrução **CREATE EVENT SESSION** no contexto do banco de dados **mestre** .
+- Não é possível emitir uma instrução **CREATE EVENT SESSION** no contexto do banco de dados **mestre**.
 
 ## <a name="permission-model"></a>Modelo de permissão
 
-Você deve ter permissão de **Controle** no banco de dados para emitir uma instrução **CREATE EVENT SESSION** . O proprietário do banco de dados (dbo) tem a permissão de **Controle** .
+Você deve ter permissão de **Controle** no banco de dados para emitir uma instrução **CREATE EVENT SESSION**. O proprietário do banco de dados (dbo) tem a permissão de **Controle** .
 
 ### <a name="storage-container-authorizations"></a>Autorizações de contêiner de armazenamento
 
@@ -172,7 +172,7 @@ Há situações nas quais o uso intensivo de eventos estendidos pode acumular ma
 Se você receber uma mensagem de erro informando que há uma imposição de quantidade máxima de memória, estas são algumas das ações corretivas possíveis:
 
 - Executar menos sessões simultâneas do evento.
-- Por meio das instruções **CREATE** e **ALTER** das sessões de evento, reduza a quantidade de memória que você especifica na cláusula **MAX\_MEMORY** .
+- Por meio das instruções **CREATE** e **ALTER** das sessões de evento, reduza a quantidade de memória que você especifica na cláusula **MAX\_MEMORY**.
 
 ### <a name="network-latency"></a>Latência da rede
 

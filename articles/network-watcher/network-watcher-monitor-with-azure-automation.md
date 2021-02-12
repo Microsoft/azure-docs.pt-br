@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 273e9f7ce65cdd15000b1cc4ac7c19cde5992992
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af671996722524de9af1a90ae8dfde27f814c8c2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396766"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011805"
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Monitorar os gateways de VPN com a solução de problemas do Observador de Rede
 
@@ -51,7 +51,7 @@ Antes de começar este tutorial, você deve ter os seguintes pré-requisitos:
 
 ### <a name="create-the-runbook"></a>Criar o runbook
 
-A primeira etapa para configurar o exemplo é criar o runbook. Este exemplo usa uma conta do tipo executar como. Para saber mais sobre as contas executar como, visite [Autenticar Runbooks com conta Executar Como do Azure](../automation/automation-create-runas-account.md)
+A primeira etapa para configurar o exemplo é criar o runbook. Este exemplo usa uma conta do tipo executar como. Para saber mais sobre as contas executar como, visite [Autenticar Runbooks com conta Executar Como do Azure](../automation/manage-runas-account.md)
 
 ### <a name="step-1"></a>Etapa 1
 

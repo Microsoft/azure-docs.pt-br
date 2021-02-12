@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.custom: contperfq1
-ms.openlocfilehash: 76f3ba000a9bde4a306d19e8281ebeb41f1616e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 4e23c6f25145724a5300c9e5cdcb55431fb0b4f2
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335860"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028760"
 ---
 # <a name="network-security-groups"></a>Grupos de segurança de rede
 <a name="network-security-groups"></a>
@@ -56,19 +56,19 @@ O Azure cria as seguintes regras padrão em cada grupo de segurança de rede que
 
 ##### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|Prioridade|Fonte|Portas de origem|Destino|Portas de destino|Protocolo|Acesso|
+|Prioridade|Fonte|Portas de origem|Destino|Portas de destino|Protocolo|Access|
 |---|---|---|---|---|---|---|
 |65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Qualquer|Allow|
 
 ##### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|Prioridade|Fonte|Portas de origem|Destino|Portas de destino|Protocolo|Acesso|
+|Prioridade|Fonte|Portas de origem|Destino|Portas de destino|Protocolo|Access|
 |---|---|---|---|---|---|---|
 |65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Qualquer|Allow|
 
 ##### <a name="denyallinbound"></a>DenyAllInBound
 
-|Prioridade|Fonte|Portas de origem|Destino|Portas de destino|Protocolo|Acesso|
+|Prioridade|Fonte|Portas de origem|Destino|Portas de destino|Protocolo|Access|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Qualquer|Negar|
 
@@ -76,19 +76,19 @@ O Azure cria as seguintes regras padrão em cada grupo de segurança de rede que
 
 ##### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
+|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Access |
 |---|---|---|---|---|---|---|
 | 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Qualquer | Allow |
 
 ##### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
+|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Access |
 |---|---|---|---|---|---|---|
 | 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Qualquer | Allow |
 
 ##### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
+|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Access |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Qualquer | Negar |
 

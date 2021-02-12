@@ -4,11 +4,11 @@ description: Aprenda sobre como empacotar um aplicativo existente como um execut
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.openlocfilehash: 8b808d092001196a4d2150e44d508e031db95554
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86247380"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017739"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>Implantar um executável existente no Service Fabric
 Você pode executar qualquer tipo de código, como Node.js, Java ou C++ no Service Fabric como um serviço. O Service Fabric se refere a esses tipos de serviço como executáveis convidados.

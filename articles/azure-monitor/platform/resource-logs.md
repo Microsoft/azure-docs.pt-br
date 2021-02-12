@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: a9423069b917c37e77b70a4466e489918cd330c4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a2f46440a4214e298bc6d2f3b9c2b5680437ead7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143921"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522695"
 ---
 # <a name="azure-resource-logs"></a>Logs de recursos do Azure
 Os logs de recursos do Azure são [logs de plataforma](platform-logs-overview.md) que fornecem informações sobre as operações que foram executadas em um recurso do Azure. O conteúdo dos logs de recursos varia de acordo com o serviço do Azure e o tipo de recurso. Os logs de recursos não são coletados por padrão. Você deve criar uma configuração de diagnóstico para cada recurso do Azure para enviar seus logs de recursos para um Log Analytics espaço de trabalho para usar com [logs de Azure monitor](data-platform-logs.md), hubs de eventos do Azure para encaminhar fora do Azure ou para o armazenamento do Azure para arquivamento.
@@ -43,7 +43,7 @@ Considere o exemplo a seguir em que as configurações de diagnóstico estão se
 
 A tabela AzureDiagnostics terá a seguinte aparência:  
 
-| ResourceProvider    | Categoria     | A  | B  | C  | D  | E  | F  | G  | H  | I  |
+| ResourceProvider    | Categoria     | Um  | B  | C  | D  | E  | F  | G  | H  | I  |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Microsoft. Service1 | AuditLogs    | X1 | Y1 | z1 |    |    |    |    |    |    |
 | Microsoft. Service1 | ErrorLogs    |    |    |    | q1 | W1 | E1 |    |    |    |
@@ -54,13 +54,13 @@ A tabela AzureDiagnostics terá a seguinte aparência:
 | ... |
 
 ### <a name="resource-specific"></a>Específico do recurso
-Nesse modo, as tabelas individuais no espaço de trabalho selecionado são criadas para cada categoria selecionada na configuração de diagnóstico. Esse método é recomendado, pois torna muito mais fácil trabalhar com os dados em consultas de log, fornece melhor detecção de esquemas e sua estrutura, melhora o desempenho em tempos de consulta e latência de ingestão e a capacidade de conceder direitos de RBAC em uma tabela específica. Todos os serviços do Azure eventualmente serão migrados para o modo de Resource-Specific. 
+Nesse modo, as tabelas individuais no espaço de trabalho selecionado são criadas para cada categoria selecionada na configuração de diagnóstico. Esse método é recomendado, pois torna muito mais fácil trabalhar com os dados em consultas de log, fornece melhor capacidade de descoberta de esquemas e sua estrutura, melhora o desempenho em tempos de consulta e latência de ingestão e a capacidade de conceder direitos de RBAC do Azure em uma tabela específica. Todos os serviços do Azure eventualmente serão migrados para o modo de Resource-Specific. 
 
 O exemplo acima resultaria em três tabelas sendo criadas:
  
 - Tabela *Service1AuditLogs* da seguinte maneira:
 
-    | Provedor de recursos | Categoria | A | B | C |
+    | Provedor de recursos | Categoria | Um | B | C |
     | -- | -- | -- | -- | -- |
     | Service1 | AuditLogs | X1 | Y1 | z1 |
     | Service1 | AuditLogs | x5 | y5 | z5 |

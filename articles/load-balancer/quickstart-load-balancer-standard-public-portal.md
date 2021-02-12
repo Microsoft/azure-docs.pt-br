@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/17/2020
+ms.date: 10/22/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: c8ead035b9ac47325b2237ebd4d248f09d2d22f5
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 8827171788bd83a202b3607537204c71c34f29e0
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047736"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511834"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Início Rápido: Criar um balanceador de carga público para balancear cargas de VMs usando o Portal do Azure
 
@@ -41,6 +41,10 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 >[!NOTE]
 >O balanceador de carga de SKU Standard é recomendado para cargas de trabalho de produção.  Para obter mais informações sobre SKUs, confira **[SKUs do Azure Load Balancer](skus.md)** .
 
+:::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/resources-diagram.png" alt-text="Recursos do Standard Load Balancer criados para o guia de início rápido." border="false":::
+
+*Figura: recursos criados no guia de início rápido.*
+
 Nesta seção, você criará um balanceador de carga que faz o balanceamento da carga de máquinas virtuais. 
 
 Quando você criar um balanceador de carga público, crie um endereço IP público configurado como o front-end (chamado de **LoadBalancerFrontend** por padrão) para o balanceador de carga.
@@ -52,7 +56,7 @@ Quando você criar um balanceador de carga público, crie um endereço IP públi
     | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscription               | Selecione sua assinatura.    |    
-    | Resource group         | Selecione **Criar** e insira **myResourceGroupLB** na caixa de texto.|
+    | Resource group         | Selecione **Criar novo** e insira **CreatePubLBQS-rg** na caixa de texto.|
     | Nome                   | Insira **myLoadBalancer**                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Type          | Selecione **Público**.                                        |
@@ -60,7 +64,7 @@ Quando você criar um balanceador de carga público, crie um endereço IP públi
     | Endereço IP público | Selecione **Criar novo**. Se você tiver um IP público existente que deseja usar, selecione **Usar existente**. |
     | Nome do endereço IP público | Digite **myPublicIP** na caixa de texto.|
     | Zona de disponibilidade | Selecione **Com redundância de zona** para criar uma balanceador de carga resiliente. Para criar um balanceador de carga zonal, selecione uma zona específica de 1, 2 ou 3 |
-    | Adicionar um endereço IPv6 público | Selecione **Não**. </br> Para obter mais informações sobre endereços IPv6 e o balanceador de carga, confira [O que é o IPv6 da Rede Virtual do Azure?](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)  |
+    | Adicionar um endereço IPv6 público | Selecione **Não**. </br> Para obter mais informações sobre endereços IPv6 e o balanceador de carga, confira [O que é o IPv6 da Rede Virtual do Azure?](../virtual-network/ipv6-overview.md)  |
 
 3. Aceite os padrões para as demais configurações e selecione **Examinar + criar**.
 
@@ -124,7 +128,7 @@ Nesta seção, você criará uma regra de balanceador de carga:
 
 1. Clique em **Todos os serviços** no menu à esquerda, selecione **Todos os recursos** e depois selecione **myLoadBalancer** na lista de recursos.
 
-2. Em **Configurações**, selecione **Regras de balanceamento de carga** e, em seguida, **Adicionar**.
+2. Em **Configurações**, selecione **Regras de balanceamento de carga** e **Adicionar**.
 
 3. Use estes valores para configurar a regra de balanceamento de carga:
     
@@ -138,7 +142,9 @@ Nesta seção, você criará uma regra de balanceador de carga:
     | Porta de back-end | Insira **80**. |
     | Pool de back-end | Selecione **myBackendPool**.|
     | Investigação de integridade | Selecione **myHealthProbe**. |
-    | Criar regras de saída implícitas | Selecione **Não**.
+    | Tempo limite de ociosidade (minutos) | Mova o controle deslizante para **15** minutos. |
+    | Redefinição de TCP | Selecione **Habilitado**. |
+    | SNAT (conversão de endereços de rede de origem) de saída | Selecione **(Recomendado) Usar regras de saída para fornecer acesso à Internet aos membros do pool de back-ends.** |
 
 4. Deixe o restante dos padrões e selecione **OK**.
 
@@ -162,7 +168,7 @@ Nesta seção, você criará uma rede virtual e uma sub-rede.
     |------------------|-----------------------------------------------------------------|
     | **Detalhes do projeto**  |                                                                 |
     | Subscription     | Selecionar sua assinatura do Azure                                  |
-    | Grupo de recursos   | Selecione **myResourceGroupLB** |
+    | Grupo de recursos   | Selecione **CreatePubLBQS-rg** |
     | **Detalhes da instância** |                                                                 |
     | Nome             | Insira **myVNet**                                    |
     | Região           | Selecione **Oeste da Europa** |
@@ -215,7 +221,7 @@ Essas VMs são adicionadas ao pool de back-end do balanceador de carga criado an
     |-----------------------|----------------------------------|
     | **Detalhes do projeto** |  |
     | Subscription | Selecionar sua assinatura do Azure |
-    | Grupo de recursos | Selecione **myResourceGroupLB** |
+    | Grupo de recursos | Selecione **CreatePubLBQS-rg** |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **myVM1** |
     | Região | Selecione **Oeste da Europa** |
@@ -320,6 +326,10 @@ Confira mais informações sobre conexões de saída em [Conexões de saída no 
 >[!NOTE]
 >O balanceador de carga de SKU Standard é recomendado para cargas de trabalho de produção.  Para obter mais informações sobre SKUs, confira **[SKUs do Azure Load Balancer](skus.md)** .
 
+:::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/resources-diagram-basic.png" alt-text="Recursos do balanceador de carga básico criados no guia de início rápido." border="false":::
+
+*Figura: recursos criados no guia de início rápido.*
+
 Nesta seção, você criará um balanceador de carga que faz o balanceamento da carga de máquinas virtuais. 
 
 Quando você criar um balanceador de carga público, crie um endereço IP público configurado como o front-end (chamado de **LoadBalancerFrontend** por padrão) para o balanceador de carga.
@@ -331,7 +341,7 @@ Quando você criar um balanceador de carga público, crie um endereço IP públi
     | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscription               | Selecione sua assinatura.    |    
-    | Resource group         | Selecione **Criar** e digite **myResourceGroupLB** na caixa de texto.|
+    | Resource group         | Selecione **Criar novo** e digite **CreatePubLBQS-rg** na caixa de texto.|
     | Nome                   | Insira **myLoadBalancer**                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Type          | Selecione **Público**.                                        |
@@ -339,13 +349,13 @@ Quando você criar um balanceador de carga público, crie um endereço IP públi
     | Endereço IP público | Selecione **Criar novo**. Se você tiver um IP público existente que deseja usar, selecione **Usar existente**. |
     | Nome do endereço IP público | Digite **myPublicIP** na caixa de texto.|
     | Atribuição | Selecione **Dinâmico** |
-    | Adicionar um endereço IPv6 público | Selecione **Não**. </br> Para obter mais informações sobre endereços IPv6 e o balanceador de carga, confira [O que é o IPv6 da Rede Virtual do Azure?](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)  |
+    | Adicionar um endereço IPv6 público | Selecione **Não**. </br> Para obter mais informações sobre endereços IPv6 e o balanceador de carga, confira [O que é o IPv6 da Rede Virtual do Azure?](../virtual-network/ipv6-overview.md)  |
 
 3. Aceite os padrões para as demais configurações e selecione **Examinar + criar**.
 
 4. Na guia **Examinar + criar**, selecione **Criar**.   
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-basic-load-balancer.png" alt-text="Criar um balanceador de carga padrão" border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-basic-load-balancer.png" alt-text="Criar um balanceador de carga básico" border="true":::
 
 ## <a name="create-load-balancer-resources"></a>Criar recursos do balanceador de carga
 
@@ -368,7 +378,7 @@ Nesta seção, você criará uma rede virtual e uma sub-rede.
     |------------------|-----------------------------------------------------------------|
     | **Detalhes do projeto**  |                                                                 |
     | Subscription     | Selecionar sua assinatura do Azure                                  |
-    | Grupo de recursos   | Selecione **myResourceGroupLB** |
+    | Grupo de recursos   | Selecione **CreatePubLBQS-rg** |
     | **Detalhes da instância** |                                                                 |
     | Nome             | Insira **myVNet**                                    |
     | Região           | Selecione **Oeste da Europa** |
@@ -474,6 +484,7 @@ Nesta seção, você criará uma regra de balanceador de carga:
     | Porta de back-end | Insira **80**. |
     | Pool de back-end | Selecione **myBackendPool**.|
     | Investigação de integridade | Selecione **myHealthProbe**. |
+    | Tempo limite de ociosidade (minutos) | Mova o controle deslizante para **15** minutos. |
  
 4. Deixe o restante dos padrões e selecione **OK**.
 
@@ -501,7 +512,7 @@ Essas VMs são adicionadas ao pool de back-end do balanceador de carga criado an
     |-----------------------|----------------------------------|
     | **Detalhes do projeto** |  |
     | Subscription | Selecionar sua assinatura do Azure |
-    | Grupo de recursos | Selecione **myResourceGroupLB** |
+    | Grupo de recursos | Selecione **CreatePubLBQS-rg** |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **myVM1** |
     | Região | Selecione **Oeste da Europa** |
@@ -573,7 +584,7 @@ As VMs criadas nas etapas anteriores devem ser adicionadas ao pool de back-end d
 
 ## <a name="install-iis"></a>Instalar o IIS
 
-1. Selecione **Todos os serviços** no menu à esquerda, **Todos os recursos** e na lista de recursos e **myVM1**, que está localizada no grupo de recursos **myResourceGroupLB**.
+1. Selecione **Todos os serviços** no menu à esquerda, **Todos os recursos** e, na lista de recursos, selecione **myVM1** localizada no grupo de recursos **CreatePubLBQS-rg**.
 
 2. Na página **Visão Geral**, selecione **Conectar** e **Bastion**.
 
@@ -616,7 +627,7 @@ Para ver o balanceador de carga distribuir o tráfego entre as três VMs, person
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Exclua o grupo de recursos, o balanceador de carga e todos os recursos relacionados quando eles não forem mais necessários. Para fazer isso, selecione o grupo de recursos **myResourceGroupLB** que contém os recursos e escolha **Excluir**.
+Exclua o grupo de recursos, o balanceador de carga e todos os recursos relacionados quando eles não forem mais necessários. Para fazer isso, selecione o grupo de recursos **CreatePubLBQS-rg** que contém os recursos e escolha **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -626,6 +637,6 @@ Neste início rápido, você:
 * Anexou três VMs ao balanceador de carga.
 * Configurou a regra de tráfego do balanceador de carga e a investigação de integridade e testou o balanceador de carga. 
 
-Para saber mais sobre o Azure Load Balancer, vá para...
+Para saber mais sobre o Azure Load Balancer, vá para:
 > [!div class="nextstepaction"]
 > [O que é o Azure Load Balancer?](load-balancer-overview.md)

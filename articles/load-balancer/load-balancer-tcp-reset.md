@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/07/2020
 ms.author: allensu
-ms.openlocfilehash: 060048bf786f424d5df6eb8fb4813877acb0fea0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d02b46345af13770f77a7dac452127a665e01fd
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91823219"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696737"
 ---
 # <a name="load-balancer-tcp-reset-and-idle-timeout"></a>Load Balancer o tempo limite de ociosidade e de redefinição de TCP
 
-Você pode usar o [Standard Load Balancer](load-balancer-standard-overview.md) para criar um comportamento de aplicativo mais previsível para seus cenários, permitindo a Redefinição de TCP no modo ocioso para uma determinada regra. O comportamento de padrão do Load Balancer é remover fluxos silenciosamente quando o tempo limite de ociosidade de um fluxo for atingido.  Habilitar esse recurso fará o Load Balancer enviar Redefinições de TCP bidirecionais (pacote TCP RST) no tempo limite de ociosidade.  Isso informará os pontos de extremidade do aplicativo de que a conexão atingiu o tempo limite e não é mais utilizável.  Pontos de extremidade podem estabelecer imediatamente uma nova conexão se necessário.
+Você pode usar o [Standard Load Balancer](./load-balancer-overview.md) para criar um comportamento de aplicativo mais previsível para seus cenários, permitindo a Redefinição de TCP no modo ocioso para uma determinada regra. O comportamento de padrão do Load Balancer é remover fluxos silenciosamente quando o tempo limite de ociosidade de um fluxo for atingido.  Habilitar esse recurso fará o Load Balancer enviar Redefinições de TCP bidirecionais (pacote TCP RST) no tempo limite de ociosidade.  Isso informará os pontos de extremidade do aplicativo de que a conexão atingiu o tempo limite e não é mais utilizável.  Pontos de extremidade podem estabelecer imediatamente uma nova conexão se necessário.
 
 ![Redefinição de TCP do Balanceador de Carga](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
  
 ## <a name="tcp-reset"></a>Redefinição de TCP
 
-Alterar esse comportamento padrão e habilitar envio de Redefinições de TCP no tempo limite de ociosidade em regras NAT de entrada, regras de balanceamento de carga e [regras de saída](https://aka.ms/lboutboundrules).  Quando habilitado por regra, o Load Balancer enviará Redefinições de TCP (pacotes TCP RST) para os pontos de extremidade do cliente e do servidor no momento do tempo limite de ociosidade para todos os fluxos correspondentes.
+Alterar esse comportamento padrão e habilitar envio de Redefinições de TCP no tempo limite de ociosidade em regras NAT de entrada, regras de balanceamento de carga e [regras de saída](./load-balancer-outbound-connections.md#outboundrules).  Quando habilitado por regra, o Load Balancer enviará Redefinições de TCP (pacotes TCP RST) para os pontos de extremidade do cliente e do servidor no momento do tempo limite de ociosidade para todos os fluxos correspondentes.
 
 Os pontos de extremidade que recebem pacotes TCP RST fecham imediatamente o soquete correspondente. Isso fornece uma notificação imediata para os pontos de extremidade que a liberação da conexão ocorreu e qualquer comunicação futura na mesma conexão TCP falhará.  Aplicativos podem limpar conexões quando o soquete é fechado e restabelecer as conexões conforme necessário, sem esperar o tempo limite eventual da conexão TCP.
 
@@ -48,7 +48,7 @@ Por padrão, é definido como 4 minutos. Se um período de inatividade for maior
 
 Quando a conexão estiver fechada, o aplicativo cliente poderá receber a seguinte mensagem de erro: "A conexão subjacente estava fechada: Uma conexão que deveria permanecer ativa foi fechada pelo servidor."
 
-Uma prática comum é usar um TCP keep alive. Essa prática mantém a conexão ativa por um período maior. Para obter mais informações, consulte estes [exemplos do .NET](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Com o keep alive habilitado, os pacotes são enviados durante os períodos de inatividade na conexão. Os pacotes keep-alive garantem que o valor de tempo limite de ociosidade não será atingido, e a conexão será mantida por um longo período.
+Uma prática comum é usar um TCP keep alive. Essa prática mantém a conexão ativa por um período maior. Para obter mais informações, consulte estes [exemplos do .NET](/dotnet/api/system.net.servicepoint.settcpkeepalive). Com o keep alive habilitado, os pacotes são enviados durante os períodos de inatividade na conexão. Os pacotes keep-alive garantem que o valor de tempo limite de ociosidade não será atingido, e a conexão será mantida por um longo período.
 
 A configuração só funciona para conexões de entrada. Para evitar a perda da conexão, configure o TCP keep-alive com um intervalo menor do que a configuração de tempo limite de ociosidade ou aumente o valor do tempo limite de ociosidade. Para permitir esses cenários, o suporte a um tempo limite de ociosidade configurável foi adicionado.
 
@@ -63,6 +63,6 @@ O TCP keep-alive funciona para cenários em que a vida útil da bateria não é 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre [Standard Load Balancer](load-balancer-standard-overview.md).
-- Saiba mais sobre [as regras de saída](load-balancer-outbound-rules-overview.md).
+- Saiba mais sobre [Standard Load Balancer](./load-balancer-overview.md).
+- Saiba mais sobre [as regras de saída](./load-balancer-outbound-connections.md#outboundrules).
 - [Configurar TCP RST no tempo limite ocioso](load-balancer-tcp-idle-timeout.md)

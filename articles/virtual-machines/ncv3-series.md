@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 854c988346bce9be06811d386b3798d2d0427dd7
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: b8eeb06b75ba0e0bdaf19957699ad638c6937891
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92095918"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094751"
 ---
 # <a name="ncv3-series"></a>Série NCv3
 
@@ -23,6 +23,9 @@ VMs da série NCv3 têm a tecnologia de GPUs NVIDIA Tesla V100. Essas GPUs podem
 [Migração ao vivo](maintenance-and-updates.md): sem suporte<br>
 [Atualizações de preservação de memória](maintenance-and-updates.md): sem suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): sem suporte<br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
+Interconexão NVIDIA NVLink: sem suporte<br>
 
 > [!IMPORTANT]
 > Para essa série de VMs, a cota de vCPU (núcleo) em sua assinatura é inicialmente definida como 0 em cada região. [Solicite um aumento de cota de vCPU](../azure-portal/supportability/resource-manager-core-quotas-request.md) para esta série em uma [região disponível](https://azure.microsoft.com/regions/services/). Essas SKUs não estão disponíveis para avaliação ou assinaturas do Azure do assinante do Visual Studio. Seu nível de assinatura pode não dar suporte à seleção ou implantação dessas SKUs. 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: alkohli
 ms.openlocfilehash: f4a0739eb1ab14155a98b17e2427c5b08c9db788
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564416"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020663"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Instalar e operar o Azure Data Box com segurança
 ![Ícone de aviso](./media/data-box-safety/warning_icon.png)
@@ -24,7 +24,7 @@ Leia todas as informações de segurança neste artigo antes de usar o Azure Dat
 ## <a name="safety-icon-conventions"></a>Convenções de ícones de segurança
 Estes são os ícones que você encontrará ao ler as precauções de segurança observadas ao configurar e executar seu Data Box.
 
-| ícone | DESCRIÇÃO |
+| ícone | Descrição |
 |:--- |:--- |
 | ![Ícone de perigo](./media/data-box-safety/warning_icon.png) **PERIGO!** |Indica uma situação perigosa que, se não for evitada, resultará em morte ou lesões graves. Essa palavra limitas-e às situações mais graves. |
 | ![Aviso de ícone de aviso ](./media/data-box-safety/warning_icon.png) **!** |Indica uma situação perigosa que, se não for evitada, pode causar lesões graves ou de morte. |

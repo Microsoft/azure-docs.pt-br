@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/22/2020
 ms.author: aahi
-ms.openlocfilehash: a3b2a9db688104c168017863910745427a3a68f9
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: cc6bcef77ca1601b76468586aa6af202836f1438
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425792"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631985"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>Kit de processamento em lote para contêineres de fala
 
@@ -86,13 +86,13 @@ docker run --rm -ti -v  /mnt/my_nfs:/my_nfs --entrypoint /bin/bash /mn
 Para executar o cliente do lote:  
 
 ```Docker
-run-batch-client -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
+run-batch-client -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -file_log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
 
 Para executar o cliente e o contêiner do lote em um único comando:
 
 ```Docker
-docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
+docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -file_log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
 
 
@@ -106,7 +106,7 @@ O kit de processamento em lote oferece três modos, usando o `--run-mode` parâm
 
 `ONESHOT` o modo transcreve um único lote de arquivos de áudio (de um diretório de entrada e uma lista de arquivos opcionais) para uma pasta de saída.
 
-:::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="Um diagrama mostrando um exemplo de fluxo de trabalho de contêiner do kit de lote.":::
+:::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="Um diagrama que mostra o contêiner do kit do lote Processando arquivos no modo oneshot.":::
 
 1. Defina os pontos de extremidade do contêiner de fala que serão usados pelo cliente do lote no `config.yaml` arquivo. 
 2. Coloque os arquivos de áudio para transcrição em um diretório de entrada.  
@@ -121,7 +121,7 @@ O kit de processamento em lote oferece três modos, usando o `--run-mode` parâm
 
 `DAEMON` o modo transcreve os arquivos existentes em uma determinada pasta e, continuamente, transcreve novos arquivos de áudio à medida que eles são adicionados.          
 
-:::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="Um diagrama mostrando um exemplo de fluxo de trabalho de contêiner do kit de lote.":::
+:::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="Um diagrama que mostra os arquivos de processamento do contêiner do kit do lote no modo daemon.":::
 
 1. Defina os pontos de extremidade do contêiner de fala que serão usados pelo cliente do lote no `config.yaml` arquivo. 
 2. Invocar o contêiner em um diretório de entrada. O cliente do lote começará a monitorar o diretório em busca de arquivos de entrada. 
@@ -134,7 +134,7 @@ O kit de processamento em lote oferece três modos, usando o `--run-mode` parâm
 
 `REST` Mode é um modo de servidor de API que fornece um conjunto básico de pontos de extremidade HTTP para envio de lote de arquivos de áudio, verificação de status e sondagem longa. Também habilita o consumo programático usando uma extensão de módulo python ou a importação como um submódulo.
 
-:::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="Um diagrama mostrando um exemplo de fluxo de trabalho de contêiner do kit de lote.":::
+:::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="Um diagrama que mostra o contêiner do kit do lote Processando arquivos no modo REST.":::
 
 1. Defina os pontos de extremidade do contêiner de fala que serão usados pelo cliente do lote no `config.yaml` arquivo. 
 2. Envie uma solicitação de solicitação HTTP para um dos pontos de extremidade do servidor de API. 
@@ -151,12 +151,12 @@ O kit de processamento em lote oferece três modos, usando o `--run-mode` parâm
 
 ---
 
-## <a name="logging"></a>Log
+## <a name="logging"></a>Registro em log
 
 > [!NOTE]
 > O cliente do lote pode substituir o arquivo *Run. log* periodicamente se ele ficar muito grande.
 
-O cliente cria um arquivo *Run. log* no diretório especificado pelo `-log_folder` argumento no comando Docker `run` . Os logs são capturados no nível de depuração por padrão. Os mesmos logs são enviados para o `stdout/stderr` e filtrados dependendo do `-log_level` argumento. Esse log só é necessário para depuração, ou se você precisar enviar um rastreamento para suporte. A pasta de log também contém os logs do SDK de fala para cada arquivo de áudio.
+O cliente cria um arquivo *Run. log* no diretório especificado pelo `-log_folder` argumento no comando Docker `run` . Os logs são capturados no nível de depuração por padrão. Os mesmos logs são enviados para o `stdout/stderr` e filtrados dependendo dos `-file_log_level` `console_log_level` argumentos ou. Esse log só é necessário para depuração, ou se você precisar enviar um rastreamento para suporte. A pasta de log também contém os logs do SDK de fala para cada arquivo de áudio.
 
 O diretório de saída especificado por `-output_folder` conterá um *run_summary.jsno*   arquivo, que é regravado periodicamente a cada 30 segundos ou sempre que novas transcrições são concluídas. Você pode usar esse arquivo para verificar o andamento conforme o lote continua. Ele também conterá as estatísticas de execução final e o status final de cada arquivo quando o lote for concluído. O lote é concluído quando o processo tem uma saída limpa. 
 

@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Prever preços de carro com o designer'
 titleSuffix: Azure Machine Learning
-description: Saiba como treinar, pontuar e implantar um modelo de machine learning usando uma interface do tipo "arrastar e soltar". Este tutorial é a primeira parte de uma série de duas partes sobre a previsão de preços de automóveis usando a regressão linear.
+description: Treine o modelo de machine learning para prever preços de automóveis usando a regressão linear. Este tutorial é parte de uma série de duas partes.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: d9422cfb9bd8e5539f1a9b43d6fb7b137778f3d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46098b2b7ebbf219a3c17b4fa40e1fd52344f683
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91404911"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879790"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Tutorial: Prever preço de automóvel com o designer
 
@@ -48,7 +48,10 @@ Para criar um pipeline do Azure Machine Learning, você precisa de um workspace 
 
 ### <a name="create-a-new-workspace"></a>Criar um novo workspace
 
-Para usar o designer, primeiro você precisa de um Workspace do Azure Machine Learning. O workspace é o recurso de nível superior para Azure Machine Learning; ele fornece um local centralizado para trabalhar com todos os artefatos que você cria no Azure Machine Learning.
+Você precisa de um Workspace do Azure Machine Learning para usar o designer. O workspace é o recurso de nível superior para Azure Machine Learning; ele fornece um local centralizado para trabalhar com todos os artefatos que você cria no Azure Machine Learning. Para obter instruções sobre como criar um workspace, confira [Criar e gerenciar workspaces do Azure Machine Learning](how-to-manage-workspace.md).
+
+> [!NOTE]
+> Se o seu workspace usa uma rede virtual, há etapas de configuração adicionais que você precisa seguir para usar o designer. Para obter mais informações, confira [Usar o estúdio do Azure Machine Learning em uma rede virtual do Azure](how-to-enable-studio-virtual-network.md)
 
 ### <a name="create-the-pipeline"></a>Criar o pipeline
 
@@ -100,7 +103,7 @@ Há vários conjuntos de dados de exemplo incluídos no designer para que você 
 
 Você pode visualizar os dados para entender o conjunto de dados que será usado.
 
-1. Clique com o botão direito do mouse nos **Dados de preço do automóvel (Brutos)** e selecione **Visualizar**.
+1. Clique com o botão direito do mouse nos **Dados de preço do automóvel (Brutos)** e selecione **Visualizar** > **Saída do conjunto de dados**.
 
 1. Selecione as diferentes colunas na janela de dados para exibir informações sobre cada um.
 
@@ -221,7 +224,7 @@ Treine o modelo fornecendo a ele um conjunto de dados que inclua o preço. O alg
     > [!IMPORTANT]
     > Verifique se as portas de saída esquerdas de **Dividir Dados** se conectam a **Treinar Modelo**. A porta esquerda contém o conjunto de treinamento. A porta direita contém o conjunto de teste.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Select-column":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Captura de tela mostrando a configuração correta do módulo Treinar Modelo. O módulo Regressão Linear se conecta à porta esquerda e o módulo Dividir Dados se conecta à porta direita do módulo Treinar Modelo.":::
 
 1. Selecione o módulo **Treinar Modelo**.
 
@@ -236,7 +239,7 @@ Treine o modelo fornecendo a ele um conjunto de dados que inclua o preço. O alg
 
     Seu pipeline deve ter esta aparência:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Select-column":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Captura de tela mostrando a configuração correta do pipeline após a adição do módulo Treinar Modelo.":::
 
 ### <a name="add-the-score-model-module"></a>Módulo Adicionar o Modelo de Pontuação
 
@@ -256,7 +259,7 @@ Use o módulo **Avaliar Modelo** para avaliar a o desempenho do modelo na pontua
 
     O pipeline final deve ser semelhante ao seguinte:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Select-column":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Captura de tela mostrando a configuração correta do pipeline.":::
 
 ## <a name="submit-the-pipeline"></a>Enviar o pipeline
 
@@ -269,29 +272,29 @@ Agora que o pipeline está configurado, você poderá enviar uma execução de p
     > [!NOTE]
     > Pipelines semelhantes no grupo de experimentos são executados juntos. Se executar um pipeline várias vezes, você poderá selecionar o mesmo experimento para execuções sucessivas.
 
-    1. Insira um nome descritivo para o **Nome do novo experimento**.
+    1. Para obter um **Novo nome do experimento**, insira **Tutorial-CarPrices**.
 
     1. Selecione **Enviar**.
     
     Você pode exibir o status e os detalhes da execução no canto superior direito da tela.
     
-    Se for a primeira execução do pipeline, ela poderá levar até 20 minutos para ser concluída. As configurações de computação padrão têm um tamanho de nó mínimo de 0, o que significa que o designer precisa alocar recursos depois de ficar ocioso. Execuções de pipeline repetidas levarão menos tempo, já que os recursos de computação já estão alocados. Além disso, o designer usa resultados armazenados em cache para cada módulo para melhorar ainda mais a eficiência.
+    Se essa for a primeira execução do pipeline, ela poderá levar até 20 minutos para ser concluída. As configurações de computação padrão têm um tamanho de nó mínimo de 0, o que significa que o designer precisa alocar recursos depois de ficar ocioso. Execuções de pipeline repetidas levarão menos tempo, já que os recursos de computação já estão alocados. Além disso, o designer usa resultados armazenados em cache para cada módulo para melhorar ainda mais a eficiência.
 
 ### <a name="view-scored-labels"></a>Exibir os rótulos pontuados
 
 Depois que a execução for concluída, você poderá exibir os resultados da execução do pipeline. Primeiro, examine as previsões geradas pelo modelo de regressão.
 
-1. Clique com o botão direito do mouse no módulo **Modelo de Pontuação** e selecione **Visualizar** para ver a saída dele.
+1. Clique com o botão direito do mouse no módulo **Modelo de Pontuação** e selecione **Visualizar** > **Conjunto de dados pontuado** para ver a saída dele.
 
     Aqui você poderá ver os preços previstos e os preços reais dos dados de teste.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Select-column":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Captura de tela da visualização de saída realçando a coluna Rótulo Pontuado":::
 
 ### <a name="evaluate-models"></a>Avaliar os modelos
 
 Use **Avaliar Modelo** para ver como o desempenho do modelo treinado no conjunto de dados de teste.
 
-1. Clique com o botão direito do mouse no módulo **Modelo de Avaliação** e selecione **Visualizar** para ver a saída dele.
+1. Clique com o botão direito do mouse no módulo **Avaliar Modelo** e selecione **Visualizar** > **Resultados da avaliação** para ver a saída dele.
 
 As seguintes estatísticas são mostradas para o modelo:
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 01/28/2021
 ms.author: alkohli
-ms.openlocfilehash: 64d028892298a70e7588863bf9a3f4fc6f4ca609
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2c46e8a7cae9ddba9606abf75ac022e804fde9c
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760051"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062486"
 ---
 # <a name="deploy-a-gpu-enabled-iot-module-from-azure-marketplace-on-azure-stack-edge-pro-gpu-device"></a>Implantar um módulo IoT habilitado para GPU do Azure Marketplace no dispositivo Azure Stack Edge pro GPU
 
@@ -32,7 +32,7 @@ O módulo exemplo de GPU neste artigo inclui o exemplo de código de parâmetro 
 
 Antes de começar, verifique se você tem:
 
-- Você tem acesso a um dispositivo de borda com Azure Stack de 1 nó habilitado por GPU. Este dispositivo está ativado com um recurso no Azure. 
+- Você tem acesso a um dispositivo de borda com Azure Stack de 1 nó habilitado por GPU. Esse dispositivo foi ativado com um recurso no Azure. 
 - Você configurou a computação neste dispositivo. Siga as etapas em [tutorial: configurar a computação em seu dispositivo de Azure Stack Edge](azure-stack-edge-gpu-deploy-configure-compute.md).
 - Os seguintes recursos de desenvolvimento em um cliente do Windows:
     - [Visual Studio Code](https://code.visualstudio.com/)  
@@ -53,7 +53,7 @@ Antes de começar, verifique se você tem:
 
     ![Obter módulo de exemplo](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/get-sample-module-1.png)
 
-4. Selecione **continuar** para confirmar os termos de uso e a política de privacidade do provedor. 
+4. Selecione **continuar** para confirmar os termos de uso e a política de privacidade do provedor. 
 
     ![Obter módulo de exemplo 2](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/terms-of-use-1.png)
 
@@ -63,13 +63,11 @@ Antes de começar, verifique se você tem:
 
 6. Insira o nome do serviço do Hub IoT que você criou quando configurou o dispositivo Azure Stack Edge pro. Para localizar esse nome de serviço do Hub IoT, vá para o Azure Stack recurso de borda associado ao seu dispositivo no portal do Azure. 
 
-    1. Nas opções de menu do painel esquerdo, vá até **borda computação > introdução**. 
-
-    1. No bloco **Configurar computação de borda** , selecione **Exibir configuração**. 
+    1. Nas opções de menu do painel esquerdo, acesse **serviços de borda > IOT Edge**. 
 
         ![Exibir configuração de computação](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/view-config-1.png)
 
-    1. Na folha **configuração de computação de borda** :
+    1. Vá para **Propriedades**. 
 
         1. Anote o serviço do Hub IoT que foi criado quando você configurou a computação em seu dispositivo Azure Stack Edge pro.
         2. Observe o nome do dispositivo IoT Edge que foi criado quando você configurou a computação. Você usará esse nome na etapa subsequente.
@@ -78,16 +76,16 @@ Antes de começar, verifique se você tem:
 
 10. Selecione **Implantar em um dispositivo**.
 
-11. Insira o nome do dispositivo IoT Edge ou selecione **Localizar dispositivo**   para procurar entre os dispositivos registrados com o Hub.
+11. Insira o nome do dispositivo IoT Edge ou selecione **Localizar dispositivo** para procurar entre os dispositivos registrados com o Hub.
 
     ![Localizar dispositivo](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/find-device-1.png)
 
-12. Selecione **criar**   para continuar o processo padrão de configuração de um manifesto de implantação, incluindo a adição de outros módulos, se desejado. Os detalhes para o novo módulo são predefinidos, como a imagem do URI, as opções de criação e as propriedades desejadas, mas podem ser alterados.
+12. Selecione **criar** para continuar o processo padrão de configuração de um manifesto de implantação, incluindo a adição de outros módulos, se desejado. Os detalhes para o novo módulo são predefinidos, como a imagem do URI, as opções de criação e as propriedades desejadas, mas podem ser alterados.
 
     ![Selecione criar](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/target-devices-iot-edge-module-1.png)
 
 
-13. Verifique se o módulo está implantado em seu hub IoT no portal do Azure. Selecione seu dispositivo, selecione **definir módulos**   e o módulo deve estar listado na seção **módulos de IOT Edge**   .
+13. Verifique se o módulo está implantado em seu hub IoT no portal do Azure. Selecione seu dispositivo, selecione **definir módulos** e o módulo deve estar listado na seção **módulos de IOT Edge** .
 
     ![Selecione criar 2](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/running-module-iotres-1.png)
 

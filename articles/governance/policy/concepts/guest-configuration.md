@@ -1,14 +1,14 @@
 ---
 title: Aprenda a auditar o conteúdo de máquinas virtuais
-description: Saiba como o Azure Policy usa o agente de Configuração de Convidado para auditar as configurações dentro de máquinas virtuais.
-ms.date: 10/14/2020
+description: Saiba como Azure Policy usa o cliente de configuração de convidado para auditar as configurações nas máquinas virtuais.
+ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: e941938fce09e8729856322a5b6572b46a3714be
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c141169545379f1ac0dd18a97e85652f97b90e6f
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075477"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210113"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Entender a Configuração de Convidado do Azure Policy
 
@@ -58,11 +58,11 @@ O cliente de Configuração Convidado verifica o novo conteúdo a cada 5 minutos
 
 ## <a name="supported-client-types"></a>Tipos de clientes com suporte
 
-As definições de política de configuração de convidado são inclusivas de novas versões. As versões mais antigas dos sistemas operacionais disponíveis no Azure Marketplace serão excluídas se o agente de configuração do convidado não for compatível. A tabela a seguir mostra uma lista de sistemas operacionais compatíveis em imagens do Azure:
+As definições de política de configuração de convidado são inclusivas de novas versões. As versões mais antigas dos sistemas operacionais disponíveis no Azure Marketplace serão excluídas se o cliente de configuração de convidado não for compatível. A tabela a seguir mostra uma lista de sistemas operacionais compatíveis em imagens do Azure:
 
 |Publicador|Nome|Versões|
 |-|-|-|
-|Canônico|Ubuntu Server|14.04 e posterior|
+|Canônico|Ubuntu Server|14, 4-18, 4|
 |Credativ|Debian|8 e posterior|
 |Microsoft|Windows Server|2012 e posterior|
 |Microsoft|Windows Client|Windows 10|
@@ -84,7 +84,7 @@ As máquinas virtuais que usam redes virtuais para comunicação exigirão acess
 
 ### <a name="communicate-over-private-link-in-azure"></a>Comunicar-se sobre o link privado no Azure
 
-As máquinas virtuais podem usar o [link privado](../../../private-link/private-link-overview.md) para comunicação com o serviço de configuração do convidado. Aplique a marca com o nome `EnablePrivateNeworkGC` e o valor `TRUE` para habilitar esse recurso. A marca pode ser aplicada antes ou após as definições de política de configuração de convidado serem aplicadas ao computador.
+As máquinas virtuais podem usar o [link privado](../../../private-link/private-link-overview.md) para comunicação com o serviço de configuração do convidado. Aplique a marca com o nome `EnablePrivateNeworkGC` (sem "t" na rede) e o valor `TRUE` para habilitar esse recurso. A marca pode ser aplicada antes ou após as definições de política de configuração de convidado serem aplicadas ao computador.
 
 O tráfego é roteado usando o [endereço IP público virtual](../../../virtual-network/what-is-ip-address-168-63-129-16.md) do Azure para estabelecer um canal seguro e autenticado com recursos da plataforma Azure.
 
@@ -101,11 +101,11 @@ Para servidores conectados em arco em data centers privados, permita o tráfego 
 
 ## <a name="managed-identity-requirements"></a>Requisitos de identidade gerenciada
 
-As definições de política na iniciativa [implantar pré-requisitos para habilitar políticas de configuração de convidado em máquinas virtuais](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8) habilitam uma identidade gerenciada atribuída pelo sistema, caso não exista uma. Há duas definições de política na iniciativa que gerenciam a criação de identidade. As condições IF nas definições de política garantem o comportamento correto com base no estado atual do recurso de máquina no Azure.
+As definições de política na iniciativa _implantar pré-requisitos para habilitar políticas de configuração de convidado em máquinas virtuais_ habilitam uma identidade gerenciada atribuída pelo sistema, caso não exista uma. Há duas definições de política na iniciativa que gerenciam a criação de identidade. As condições IF nas definições de política garantem o comportamento correto com base no estado atual do recurso de máquina no Azure.
 
-Se o computador não tiver nenhuma identidade gerenciada no momento, a política efetiva será: versão [ \[ prévia \] : Adicionar identidade gerenciada atribuída pelo sistema para habilitar atribuições de configuração de convidado em máquinas virtuais sem identidades](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
+Se o computador não tiver nenhuma identidade gerenciada no momento, a política efetiva será: [Adicionar identidade gerenciada atribuída pelo sistema para habilitar atribuições de configuração de convidado em máquinas virtuais sem identidades](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
 
-Se o computador tiver atualmente uma identidade de sistema atribuída pelo usuário, a política efetiva será: versão [ \[ prévia \] : Adicionar identidade gerenciada atribuída pelo sistema para habilitar atribuições de configuração de convidado em máquinas virtuais com uma identidade atribuída pelo usuário](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6)
+Se o computador tiver atualmente uma identidade de sistema atribuída pelo usuário, a política efetiva será: [Adicionar identidade gerenciada atribuída pelo sistema para habilitar atribuições de configuração de convidado em VMs com uma identidade atribuída pelo usuário](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6)
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisitos de definição da Configuração de Convidado
 
@@ -120,7 +120,7 @@ Azure Policy usa a propriedade **complianceStatus** do provedor de recursos de c
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Auditar configurações do sistema operacional seguindo as linhas de base do setor
 
-Uma iniciativa no Azure Policy fornece a capacidade de auditar as configurações do sistema operacional seguindo uma "linha de base". A definição, _\[Versão prévia\]: Auditar as VMs do Windows que não correspondem às configurações da linha de base de segurança do Azure_ inclui um conjunto de regras com base na Política de Grupo do Active Directory.
+Uma iniciativa no Azure Policy audita as configurações do sistema operacional seguindo uma "linha de base". A definição, versão _\[ prévia \] : computadores Windows devem atender aos requisitos para a linha de base de segurança do Azure_ inclui um conjunto de regras com base em Active Directory política de grupo.
 
 A maioria das configurações estão disponíveis como parâmetros. Os parâmetros permitem que você personalize o que é auditado.
 Alinhe a política com seus requisitos ou mapeie a política para informações de terceiros, como padrões regulatórios do setor.
@@ -153,8 +153,6 @@ A extensão de Configuração de Convidado grava arquivos de log nos seguintes l
 Windows: `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
 
 Linux: `/var/lib/GuestConfig/gc_agent_logs/gc_agent.log`
-
-Em que `<version>` se refere ao número de versão atual.
 
 ### <a name="collecting-logs-remotely"></a>Coletando logs remotamente
 

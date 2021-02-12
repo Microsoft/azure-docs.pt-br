@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b537fecefd0b8b00967894daa94881a084d5c8f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc00a4f1c1551932b4a30a8ef9b27cb1d4082667
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398503"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071589"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Conceitos básicos do Azure Key Vault
 
@@ -39,15 +39,13 @@ Aqui estão outros termos importantes:
 
 - **Grupo de recursos**: trata-se de um contêiner que mantém os recursos relacionados de uma solução do Azure. O grupo de recursos pode incluir todos os recursos para a solução ou apenas os recursos que você deseja gerenciar como um grupo. Você decide como deseja alocar recursos para grupos de recursos com base no que faz mais sentido para sua organização.
 
-- **Entidade**de segurança: uma entidade de segurança do Azure é uma identidade de segurança que os aplicativos, serviços e ferramentas de automação criados pelo usuário usam para acessar recursos específicos do Azure. Imagine-o como uma "identidade do usuário" (nome de usuários e senha ou certificado) com uma função específica e permissões rigidamente controladas. Uma entidade de segurança deve precisar apenas fazer coisas específicas, diferentemente de uma identidade de usuário geral. Ele melhora a segurança se você conceder apenas o nível mínimo de permissão necessário para executar suas tarefas de gerenciamento. Uma entidade de segurança usada com um aplicativo ou serviço é especificamente chamada de **entidade de serviço**.
+- **Entidade** de segurança: uma entidade de segurança do Azure é uma identidade de segurança que os aplicativos, serviços e ferramentas de automação criados pelo usuário usam para acessar recursos específicos do Azure. Imagine-o como uma "identidade do usuário" (nome de usuários e senha ou certificado) com uma função específica e permissões rigidamente controladas. Uma entidade de segurança deve precisar apenas fazer coisas específicas, diferentemente de uma identidade de usuário geral. Ele melhora a segurança se você conceder apenas o nível mínimo de permissão necessário para executar suas tarefas de gerenciamento. Uma entidade de segurança usada com um aplicativo ou serviço é especificamente chamada de **entidade de serviço**.
 
-- [Azure Active Directory (Azure AD)](../../active-directory/active-directory-whatis.md): o Azure AD é o serviço do Active Directory de um locatário. Cada diretório tem um ou mais domínios. Um diretório pode ter várias assinaturas associadas a ele, mas apenas um locatário.
+- [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md): o Azure AD é o serviço do Active Directory de um locatário. Cada diretório tem um ou mais domínios. Um diretório pode ter várias assinaturas associadas a ele, mas apenas um locatário.
 
 - **ID do locatário do Azure**: uma ID de locatário é uma maneira exclusiva para identificar uma instância do Azure AD dentro de uma assinatura do Azure.
 
 - **Identidades gerenciadas**: o Azure Key Vault fornece uma maneira de armazenar credenciais e outras chaves e segredos com segurança, mas seu código precisa autenticar-se no Key Vault para recuperá-los. Usar a identidade gerenciada torna a solução desse problema mais simples, fornecendo aos serviços do Azure uma identidade gerenciada automaticamente no Microsoft Azure Active Directory. Você pode usar essa identidade para autenticar o Key Vault ou qualquer serviço que dê suporte à autenticação do Azure AD sem ter as credenciais no código. Para obter mais informações, consulte a imagem a seguir e a [visão geral de identidades gerenciadas para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md).
-
-    ![Diagrama de como as identidades gerenciadas dos recursos do Azure funcionam](../media/key-vault-whatis/msi.png)
 
 ## <a name="authentication"></a>Autenticação
 Para realizar operações com Key Vault, primeiro você precisa se autenticar nele. Há três maneiras de se autenticar no Key Vault:

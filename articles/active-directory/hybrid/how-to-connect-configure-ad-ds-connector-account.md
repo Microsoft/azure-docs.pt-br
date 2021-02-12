@@ -12,12 +12,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9a082270e2c113bcdf31ed6bd6db3d38a7117500
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62bfc528886767bc09159ca2a2696c8c9264b307
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279288"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349932"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurar as permissões de Conta do AD DS Connector 
 
@@ -149,7 +149,7 @@ Esse cmdlet definirá as seguintes permissões:
 
  
 ### <a name="configure-ms-ds-consistency-guid-permissions"></a>Configurar permissões do MS-DS-Consistency-Guid 
-Para definir permissões para a conta do conector do AD DS ao usar o atributo ms-Ds-Consistency-Guid como âncora de origem (também conhecido como a opção "Permitir que o Azure gerencie a âncora de origem para mim"), execute: 
+Para definir permissões para a conta do conector de AD DS ao usar o atributo ms-DS-Consistency-GUID como a âncora de origem (também conhecida como a opção "permitir que o Azure gerencie a âncora de origem para mim"), execute: 
 
 ``` powershell
 Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 

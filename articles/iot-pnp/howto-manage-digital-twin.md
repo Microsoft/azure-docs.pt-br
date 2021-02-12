@@ -7,12 +7,12 @@ ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5f1c52b764634f8086763aca67dfc32b507d2edd
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: ddb8027c145f6a38bfcd953be66dae2943a20c3a
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042840"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654601"
 ---
 # <a name="manage-iot-plug-and-play-digital-twins"></a>Gerenciar gêmeos digital de IoT Plug and Play
 
@@ -26,7 +26,7 @@ Um dispositivo de Plug and Play IoT implementa um modelo descrito pelo [DTDL (di
 
 O dispositivo IoT Plug and Play usado como exemplo neste artigo implementa o modelo do [controlador de temperatura](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) com componentes [termostato](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) .
 
-O trecho de código a seguir mostra a resposta a uma solicitação de " **obter digital** " formatada como um objeto JSON. Para saber mais sobre o formato de informações digitais, consulte [entender IoT plug and Play Digital gêmeos](./concepts-digital-twin.md#digital-twin-json-format):
+O trecho de código a seguir mostra a resposta a uma solicitação de " **obter digital** " formatada como um objeto JSON. Para saber mais sobre o formato de informações digitais, consulte [entender IoT plug and Play Digital gêmeos](./concepts-digital-twin.md#digital-twin-example):
 
 ```json
 {
@@ -130,7 +130,7 @@ O exemplo de patch JSON a seguir mostra como adicionar, substituir ou remover um
 
 Uma operação de adicionar ou substituir define o valor desejado de uma propriedade. O dispositivo pode sincronizar o estado e relatar uma atualização do valor junto com um `ack` código, uma versão e uma descrição.
 
-A remoção de uma propriedade desmarcará o valor desejado da propriedade se ela estiver definida. O dispositivo pode então parar de relatar essa propriedade e é removido do componente. Se essa propriedade for a última no componente, o componente também será removido.
+A remoção de uma propriedade desmarcará o valor desejado da propriedade se ela estiver definida. O dispositivo pode então parar de relatar essa propriedade e ela é removida do componente. Se essa propriedade for a última no componente, o componente também será removido.
 
 O exemplo de patch JSON a seguir mostra como adicionar, substituir ou remover uma propriedade dentro de um componente:
 
@@ -193,6 +193,6 @@ As atualizações podem falhar se os valores relatados de um dispositivo não es
 
 Agora que você aprendeu sobre o digital gêmeos, aqui estão alguns recursos adicionais:
 
-- [Interagir com um dispositivo da sua solução](quickstart-service-node.md)
+- [Interagir com um dispositivo da sua solução](quickstart-service.md)
 - [API REST de monodigital de IoT](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT Explorer](howto-use-iot-explorer.md)

@@ -9,19 +9,19 @@ ms.topic: conceptual
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: how-to
-ms.openlocfilehash: eb1a3c1f306b6941987d0981967cf5d096a68735
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.custom: how-to, automl
+ms.openlocfilehash: 4fb147dc5c57c3a98607a025f566fa583bf87460
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133488"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358806"
 ---
 # <a name="make-predictions-with-an-automl-onnx-model-in-net"></a>Fazer previsões com um modelo AutoML ONNX no .NET
 
 Neste artigo, você aprende a usar um modelo de intercâmbio de rede neural (ONNX) aberto do ML (AutoML) para fazer previsões em um aplicativo de console do .NET Core do C# com ML.NET.
 
-O [ml.net](https://docs.microsoft.com/dotnet/machine-learning/) é uma estrutura de aprendizado de máquina de software livre e de plataforma cruzada para o ecossistema do .NET que permite treinar e consumir modelos de aprendizado de máquina personalizados usando uma abordagem de código-primeira em C# ou F #, bem como por meio de ferramentas de código baixo, como o [Construtor de modelos](https://docs.microsoft.com/dotnet/machine-learning/automate-training-with-model-builder) e a CLI do [ml.net](https://docs.microsoft.com/dotnet/machine-learning/automate-training-with-cli). A estrutura também é extensível e permite que você aproveite outras estruturas de aprendizado de máquina populares, como TensorFlow e ONNX.
+O [ml.net](/dotnet/machine-learning/) é uma estrutura de aprendizado de máquina de software livre e de plataforma cruzada para o ecossistema do .NET que permite treinar e consumir modelos de aprendizado de máquina personalizados usando uma abordagem de código-primeira em C# ou F #, bem como por meio de ferramentas de código baixo, como o [Construtor de modelos](/dotnet/machine-learning/automate-training-with-model-builder) e a CLI do [ml.net](/dotnet/machine-learning/automate-training-with-cli). A estrutura também é extensível e permite que você aproveite outras estruturas de aprendizado de máquina populares, como TensorFlow e ONNX.
 
 ONNX é um formato de código aberto para modelos de ia. O ONNX é compatível com a interoperabilidade entre estruturas. Isso significa que você pode treinar um modelo em uma das muitas estruturas de aprendizado de máquina populares, como PyTorch, convertê-la em formato ONNX e consumir o modelo de ONNX em uma estrutura diferente, como ML.NET. Para saber mais, visite o [site do ONNX](https://onnx.ai/).
 
@@ -34,7 +34,7 @@ ONNX é um formato de código aberto para modelos de ia. O ONNX é compatível c
 
 ## <a name="create-a-c-console-application"></a>Criação de um aplicativo de console em C#
 
-Neste exemplo, você usa o CLI do .NET Core para compilar seu aplicativo, mas você pode fazer as mesmas tarefas usando o Visual Studio. Saiba mais sobre o [CLI do .NET Core](https://docs.microsoft.com/dotnet/core/tools/).
+Neste exemplo, você usa o CLI do .NET Core para compilar seu aplicativo, mas você pode fazer as mesmas tarefas usando o Visual Studio. Saiba mais sobre o [CLI do .NET Core](/dotnet/core/tools/).
 
 1. Abra um terminal e crie um novo aplicativo de console do .NET Core em C#. Neste exemplo, o nome do aplicativo é `AutoMLONNXConsoleApp` . Um diretório é criado com esse mesmo nome com o conteúdo do seu aplicativo.
 
@@ -71,7 +71,7 @@ Neste exemplo, você usa o CLI do .NET Core para compilar seu aplicativo, mas vo
 
 ## <a name="add-a-reference-to-the-onnx-model"></a>Adicionar uma referência ao modelo ONNX
 
-Uma maneira para o aplicativo de console acessar o modelo ONNX é adicioná-lo ao diretório de saída de compilação.  Para saber mais sobre os itens comuns do MSBuild, consulte o [Guia do MSBuild](https://docs.microsoft.com/visualstudio/msbuild/common-msbuild-project-items).
+Uma maneira para o aplicativo de console acessar o modelo ONNX é adicioná-lo ao diretório de saída de compilação.  Para saber mais sobre os itens comuns do MSBuild, consulte o [Guia do MSBuild](/visualstudio/msbuild/common-msbuild-project-items).
 
 Adicionar uma referência ao arquivo de modelo ONNX em seu aplicativo
 
@@ -86,7 +86,7 @@ Adicionar uma referência ao arquivo de modelo ONNX em seu aplicativo
     </ItemGroup>
     ```
 
-    Nesse caso, o nome do arquivo de modelo ONNX é *automl-Model. ONNX* .
+    Nesse caso, o nome do arquivo de modelo ONNX é *automl-Model. ONNX*.
 
 1. Abra o arquivo *Program.cs* e adicione a linha a seguir dentro da `Program` classe.
 
@@ -161,7 +161,7 @@ O [`ColumnName`](xref:Microsoft.ML.Data.ColumnNameAttribute) atributo permite es
   
 Para valores numéricos, ML.NET só opera em [`Single`](xref:System.Single) tipos de valor. No entanto, o tipo de dados original de algumas das colunas são inteiros. O [`OnnxMapType`](xref:Microsoft.ML.Transforms.Onnx.OnnxMapTypeAttribute) atributo mapeia tipos entre ONNX e ml.net.
 
-Para saber mais sobre atributos de dados, consulte o [Guia de dados de carga do ml.net](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/load-data-ml-net).
+Para saber mais sobre atributos de dados, consulte o [Guia de dados de carga do ml.net](/dotnet/machine-learning/how-to-guides/load-data-ml-net).
 
 ### <a name="define-model-output-schema"></a>Definir esquema de saída do modelo
 
@@ -179,7 +179,7 @@ Semelhante ao `OnnxInput` , use o [`ColumnName`](xref:Microsoft.ML.Data.ColumnNa
 
 ## <a name="define-a-prediction-pipeline"></a>Definir um pipeline de previsão
 
-Um pipeline no ML.NET normalmente é uma série de transformações encadeadas que operam nos dados de entrada para produzir uma saída. Para saber mais sobre transformações de dados, consulte o [Guia de transformação de dados do ml.net](https://docs.microsoft.com/dotnet/machine-learning/resources/transforms).
+Um pipeline no ML.NET normalmente é uma série de transformações encadeadas que operam nos dados de entrada para produzir uma saída. Para saber mais sobre transformações de dados, consulte o [Guia de transformação de dados do ml.net](/dotnet/machine-learning/resources/transforms).
 
 1. Criar um novo método chamado `GetPredictionPipeline` dentro da `Program` classe
 
@@ -226,7 +226,7 @@ Um pipeline no ML.NET normalmente é uma série de transformações encadeadas q
     O [`Fit`](xref:Microsoft.ML.IEstimator%601.Fit%2A) método espera uma [`IDataView`](xref:Microsoft.ML.IDataView) entrada as para executar as operações no. Um [`IDataView`](xref:Microsoft.ML.IDataView) é uma maneira de representar dados no ml.NET usando um formato tabular. Como nesse caso o pipeline é usado apenas para previsões, você pode fornecer um vazio [`IDataView`](xref:Microsoft.ML.IDataView) para fornecer as [`ITransformer`](xref:Microsoft.ML.ITransformer) informações necessárias de esquema de entrada e saída. O ajustado [`ITransformer`](xref:Microsoft.ML.ITransformer) é então retornado para uso posterior em seu aplicativo.
 
     > [!TIP]
-    > Neste exemplo, o pipeline é definido e usado dentro do mesmo aplicativo. No entanto, é recomendável que você use aplicativos separados para definir e usar seu pipeline para fazer previsões. No ML.NET, seus pipelines podem ser serializados e salvos para uso adicional em outros aplicativos de usuário final do .NET. O ML.NET dá suporte a vários destinos de implantação, como aplicativos de área de trabalho, serviços Web, aplicativos Webassembly * e muito mais. Para saber mais sobre como salvar pipelines, consulte o [Guia de modelos treinados para salvar e carregar ml.net](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/save-load-machine-learning-models-ml-net).
+    > Neste exemplo, o pipeline é definido e usado dentro do mesmo aplicativo. No entanto, é recomendável que você use aplicativos separados para definir e usar seu pipeline para fazer previsões. No ML.NET, seus pipelines podem ser serializados e salvos para uso adicional em outros aplicativos de usuário final do .NET. O ML.NET dá suporte a vários destinos de implantação, como aplicativos de área de trabalho, serviços Web, aplicativos Webassembly * e muito mais. Para saber mais sobre como salvar pipelines, consulte o [Guia de modelos treinados para salvar e carregar ml.net](/dotnet/machine-learning/how-to-guides/save-load-machine-learning-models-ml-net).
     >
     > * O Webassembly só tem suporte no .NET Core 5 ou superior
 
@@ -284,9 +284,9 @@ Agora que você tem um pipeline, é hora de usá-lo para fazer previsões. O ML.
     Predicted Fare: 15.621523
     ```
 
-Para saber mais sobre como fazer previsões no ML.NET, consulte o [guia usar um modelo para fazer previsões](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/machine-learning-model-predictions-ml-net).
+Para saber mais sobre como fazer previsões no ML.NET, consulte o [guia usar um modelo para fazer previsões](/dotnet/machine-learning/how-to-guides/machine-learning-model-predictions-ml-net).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Implantar seu modelo como uma API Web ASP.NET Core](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/serve-model-web-api-ml-net)
-- [Implantar seu modelo como uma função do .NET Azure sem servidor](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/serve-model-serverless-azure-functions-ml-net)
+- [Implantar seu modelo como uma API Web ASP.NET Core](/dotnet/machine-learning/how-to-guides/serve-model-web-api-ml-net)
+- [Implantar seu modelo como uma função do .NET Azure sem servidor](/dotnet/machine-learning/how-to-guides/serve-model-serverless-azure-functions-ml-net)

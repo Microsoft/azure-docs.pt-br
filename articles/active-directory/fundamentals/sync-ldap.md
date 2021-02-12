@@ -1,6 +1,6 @@
 ---
 title: Sincronização LDAP com Azure Active Directory
-description: Diretrizes arquitetônicas sobre como atingir esse padrão de sincronização
+description: Diretrizes arquitetônicas sobre a obtenção de sincronização LDAP com Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a14149551c0fb33906ab7d1a00b387026d827911
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 1f34e734b315c7c05ce77f5e168a452fc1c1c547
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114045"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168671"
 ---
 # <a name="ldap-synchronization-with-azure-active-directory"></a>Sincronização LDAP com Azure Active Directory
 
@@ -52,13 +52,12 @@ Você precisa sincronizar dados de identidade entre seus diretórios LDAP v3 loc
 
 ## <a name="implement-ldap-synchronization-with-azure-ad"></a>Implementar a sincronização LDAP com o Azure AD
 
-* [Ferramentas de integração de diretório de identidade híbrida](https://docs.microsoft.com/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-tools-comparison) 
+* [Ferramentas de integração de diretório de identidade híbrida](../hybrid/plan-hybrid-identity-design-considerations-tools-comparison.md) 
 
-* [Roteiro de instalação do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-roadmap) 
+* [Roteiro de instalação do Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md) 
 
-* [Visão geral e criação de um conector LDAP](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) 
+* [Visão geral e criação de um conector LDAP](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) 
 
    > [!NOTE]
    > Os conectores LDAP são uma configuração avançada que requer alguma familiaridade com o Forefront Identity Manager e/ou Microsoft Identity Manager. Se usado na produção, aconselhamos que as perguntas sobre essa configuração devem passar por [suporte Premier](https://support.microsoft.com/premier) ou Microsoft Partner Network.
 
- 

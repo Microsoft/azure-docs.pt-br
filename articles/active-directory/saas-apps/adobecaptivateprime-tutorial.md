@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 89f59bba856d662aea0c3ed249d5a1462297ec60
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 63bbec6de8f122178289cc313e5d938e3b926af2
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309056"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673212"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-captivate-prime"></a>Tutorial: integração do Azure Active Directory com a Adobe Captivate Prime
 
@@ -63,7 +63,7 @@ Para configurar a integração do Adobe Captivate Prime no Azure AD, você preci
 
 4. Na caixa de pesquisa, digite **Adobe Captivate Prime**, selecione **Adobe Captivate Prime** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
-     ![Adobe Captivate Prime na lista de resultados](common/search-new-app.png)
+    ![Adobe Captivate Prime na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
@@ -144,7 +144,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
     a. No campo **Nome**, insira **BrendaFernandes**.
-  
+
     b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -180,7 +180,7 @@ Nesta seção, você deve habilitar Brenda Fernandes para usar logon único do A
 
 ### <a name="create-adobe-captivate-prime-test-user"></a>Criar usuário de teste do Adobe Captivate Prime
 
-Nesta seção, você deve criar um usuário chamado Brenda Fernandes no Adobe Captivate Prime. Trabalhe com a  [equipe de suporte do Adobe Captivate Prime](mailto:captivateprimesupport@adobe.com) para adicionar os usuários à plataforma Adobe Captivate Prime. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você deve criar um usuário chamado Brenda Fernandes no Adobe Captivate Prime. Trabalhar com [equipe de suporte do Adobe Captivate Prime](mailto:captivateprimesupport@adobe.com) para adicionar os usuários na plataforma Adobe Captivate Prime. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="test-single-sign-on"></a>Testar logon único
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 6519f9d549c513e03400366447812a170f9ab41c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7e93c659ad58db8d82e68380ab6a0855af27e1bf
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978655"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882375"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento Premium do Azure: projeto para alto desempenho
 
@@ -35,8 +35,8 @@ Fornecemos estas diretrizes especificamente para Armazenamento Premium porque as
 >
 > Se você pretende avaliar o benchmark de seu disco, consulte nossos artigos sobre benchmarking de um disco:
 >
-> * Para o Linux: [avaliar o aplicativo no armazenamento em disco do Azure](linux/disks-benchmarks.md)
-> * Para Windows: [benchmarking de um disco](windows/disks-benchmarks.md).
+> * Para o Linux: [avaliar o aplicativo no armazenamento em disco do Azure](./disks-benchmarks.md)
+> * Para Windows: [benchmarking de um disco](./disks-benchmarks.md).
 >
 > Se sua VM oferecer suporte a rede acelerada, verifique se ela está ativada. Se não estiver ativado, você poderá ativá-lo em VMs já implementadas nos [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) e [Linux](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
@@ -230,7 +230,7 @@ A tabela abaixo resume o detalhamento do custo desse cenário para Armazenamento
 
 *Distribuições do Linux*  
 
-Com o Armazenamento Premium do Azure, você obtém o mesmo nível de Desempenho para VMs que executam Windows e Linux. Há suporte para vários tipos de distribuição Linux, e você pode ver a lista completa [aqui](linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). É importante observar que as diferentes distribuições são mais adequadas para tipos diferentes de carga de trabalho. Você verá diferentes níveis de desempenho dependendo da distribuição em que a carga de trabalho está sendo executada. Teste as distribuições Linux com seu aplicativo e escolha a mais adequada.
+Com o Armazenamento Premium do Azure, você obtém o mesmo nível de Desempenho para VMs que executam Windows e Linux. Há suporte para vários tipos de distribuição Linux, e você pode ver a lista completa [aqui](linux/endorsed-distros.md). É importante observar que as diferentes distribuições são mais adequadas para tipos diferentes de carga de trabalho. Você verá diferentes níveis de desempenho dependendo da distribuição em que a carga de trabalho está sendo executada. Teste as distribuições Linux com seu aplicativo e escolha a mais adequada.
 
 Ao executar Linux com Armazenamento Premium, verifique as últimas atualizações dos drivers necessários para garantir alto desempenho.
 
@@ -319,7 +319,7 @@ No Windows, você pode usar Espaços de Armazenamento para dividir discos em con
 
 Importante: Usando a interface de usuário do Gerenciador do Servidor UI, você pode definir o número total de colunas até 8 para um volume distribuído. Ao anexar mais de oito discos, use o PowerShell para criar o volume. Usando o PowerShell, é possível definir o número de colunas como igual ao número de discos. Por exemplo, se houver 16 discos em um único conjunto de distribuição; especifique 16 colunas no parâmetro *NumberOfColumns* do cmdlet *New-VirtualDisk* do PowerShell.
 
-No Linux, use o utilitário MDADM para distribuir os discos em conjunto. Para ver etapas detalhadas sobre como distribuir discos no Linux, consulte [Configurar o Software RAID no Linux](linux/configure-raid.md).
+No Linux, use o utilitário MDADM para distribuir os discos em conjunto. Para ver etapas detalhadas sobre como distribuir discos no Linux, consulte [Configurar o Software RAID no Linux](/previous-versions/azure/virtual-machines/linux/configure-raid).
 
 *Tamanho da distribuição*  
 Uma configuração importante na distribuição de disco é o tamanho dela. O tamanho da distribuição ou tamanho do bloco é a menor parte de dados que o aplicativo pode incluir em um volume distribuído. O tamanho da distribuição que você configura depende do tipo de aplicativo e de seu padrão de solicitação. Se você escolher o tamanho de distribuição errado, isso pode levar ao alinhamento incorreto de E/S, o que leva à degradação de desempenho do aplicativo.
@@ -380,8 +380,8 @@ O Armazenamento Premium do Azure provisiona um número especificado de IOPS e Ta
 
 Se você pretende avaliar o benchmark de seu disco, consulte nossos artigos sobre benchmarking de um disco:
 
-* Para o Linux: [avaliar o aplicativo no armazenamento em disco do Azure](linux/disks-benchmarks.md)
-* Para Windows: [benchmarking de um disco](windows/disks-benchmarks.md).
+* Para o Linux: [avaliar o aplicativo no armazenamento em disco do Azure](./disks-benchmarks.md)
+* Para Windows: [benchmarking de um disco](./disks-benchmarks.md).
 
 Saiba mais sobre os tipos de disco disponíveis:
 

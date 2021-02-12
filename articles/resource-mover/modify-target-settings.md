@@ -5,14 +5,14 @@ manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 02/08/2021
 ms.author: raynew
-ms.openlocfilehash: ca22def6bc152d03c3992ed7e94ac2b5ccf179e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb28e4c8f6b465e2a9b38cc4571bc4a00baf4ef7
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604471"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979616"
 ---
 # <a name="modify-target-settings"></a>Modificar configurações de destino
 
@@ -37,15 +37,15 @@ As definições de configuração que você pode modificar são resumidas na tab
 **Recurso** | **Opções** 
 --- | --- | --- 
 **Nome da VM** | Opções:<br/><br/> -Crie uma nova VM com o mesmo nome na região de destino.<br/><br/> -Crie uma nova VM com um nome diferente na região de destino.<br/><br/> -Use uma VM existente na região de destino.<br/><br/> Se você criar uma nova VM, com exceção das configurações que você modificar, a nova VM de destino receberá as mesmas configurações que a origem.
-**Zona de disponibilidade da VM** | A zona de disponibilidade na qual a VM de destino será colocada. Isso pode ser marcado **na** , se você não quiser alterar as configurações de origem, ou se não quiser posicionar a VM em uma zona de disponibilidade.
+**Zona de disponibilidade da VM** | A zona de disponibilidade na qual a VM de destino será colocada. Selecione **não aplicável** se você não quiser alterar as configurações de origem ou se não quiser posicionar a VM em uma zona de disponibilidade.
 **SKU da VM** | O [tipo de VM](https://azure.microsoft.com/pricing/details/virtual-machines/series/) (disponível na região de destino) que será usado para a VM de destino.<br/><br/> A VM de destino selecionada não deve ser menor que a VM de origem.
-**Recursos de rede** | Opções para redes virtuais (VNets)/Network grupos de segurança/interfaces de rede:<br/><br/> -Crie um novo recurso com o mesmo nome na região de destino.<br/><br/> -Crie um novo recurso com um nome diferente na região de destino.<br/><br/> -Use um recurso de rede existente na região de destino.<br/><br/> Se você criar um novo recurso de destino, com exceção das configurações que você modificar, ele receberá as mesmas configurações que o recurso de origem.
-**Nome do endereço IP público** | Especifique o nome.
-**SKU do endereço IP público** | Especifique a [SKU](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku).
-**Zona de endereço IP público** | Especifique a [zona](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) para endereços IP públicos padrão.<br/><br/> Se você quiser que ele seja com redundância de zona, insira como com **redundância de zona**.
-**Nome do balanceador de carga** | Especifique o nome.
-**SKU do balanceador de carga** | Básico ou Padrão. É recomendável usar Standard.
-**Zona do balanceador de carga** | Especifique uma zona para o balanceador de carga. <br/><br/> Se você quiser que ele seja com redundância de zona, insira como com **redundância de zona**.
+* * Conjunto de disponibilidade de VM | O conjunto de disponibilidade no qual a VM de destino será colocada. Selecione **não aplicável**  você não deseja alterar as configurações de origem ou se não quiser posicionar a VM em um conjunto de disponibilidade.
+**Cofre de chaves de VM** | O cofre de chaves associado ao habilitar a criptografia de disco do Azure em uma VM.
+**Conjunto de criptografia de disco** | O conjunto de criptografia de disco associado se a VM usa uma chave gerenciada pelo cliente para criptografia do lado do servidor.
+**Grupo de recursos** | O grupo de recursos no qual a VM de destino será colocada.
+**Recursos de rede** | Opções para interfaces de rede, redes virtuais (VNets/) e grupos de segurança de rede/interfaces de rede:<br/><br/> -Crie um novo recurso com o mesmo nome na região de destino.<br/><br/> -Crie um novo recurso com um nome diferente na região de destino.<br/><br/> -Use um recurso de rede existente na região de destino.<br/><br/> Se você criar um novo recurso de destino, com exceção das configurações que você modificar, ele receberá as mesmas configurações que o recurso de origem.
+**Nome do endereço IP público, SKU e zona** | Especifica o nome, a [SKU](../virtual-network/public-ip-addresses.md#sku)e a [zona](../virtual-network/public-ip-addresses.md#standard) para endereços IP públicos padrão.<br/><br/> Se você quiser que ele seja com redundância de zona, insira como com **redundância de zona**.
+* * Nome do balanceador de carga, SKU e zona * * | Especifica o nome, SKU (básico ou padrão) e zona para o balanceador de carga.<br/><br/> É recomendável usar o sKU Standard.<br/><br/> Se você quiser que ele seja de redundância de zona, especifique como com **redundância de zona**.
 **Dependências de recursos** | Opções para cada dependência:<br/><br/>-O recurso usa recursos dependentes de origem que serão movidos para a região de destino.<br/><br/> -O recurso usa diferentes recursos dependentes localizados na região de destino. Nesse caso, você pode escolher entre qualquer recurso semelhante na região de destino.
 
 ### <a name="edit-vm-target-settings"></a>Editar configurações de destino da VM

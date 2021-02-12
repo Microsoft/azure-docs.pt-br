@@ -7,18 +7,19 @@ author: saghorpa
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5fdaa1346e4837b3bf611d964158d132dcdfeeda
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 42333a3feae19b6c3c77494f7e843cac1d9bc078
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282676"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006312"
 ---
 # <a name="backup-and-restore-of-sap-hana-on-hana-large-instances"></a>Backup e restauração de SAP HANA em instâncias grandes HANA
 
@@ -338,7 +339,7 @@ Uma segunda opção para excluir instantâneos específicos é usar o script `az
 
 Para obter mais informações sobre o script, consulte "excluir um instantâneo-azure_hana_snapshot_delete" em [Microsoft snapshot Tools for SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
-Execute o script como **raiz**do usuário.
+Execute o script como **raiz** do usuário.
 
 >[!IMPORTANT]
 >Se houver dados que existem somente no instantâneo que você planeja excluir, depois que o instantâneo for excluído, esses dados serão perdidos para sempre.
@@ -438,19 +439,19 @@ As etapas para integrar o SnapCenter no SAP HANA são:
 
 1. Na página de assinatura do SAP HANA, selecione a subpágina **grupos de recursos** .
 
-   :::image type="content" source="./media/snapcenter/solution-lab-subscription-resource-groups.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário" lightbox="./media/snapcenter/solution-lab-subscription-resource-groups.png":::
+   :::image type="content" source="./media/snapcenter/solution-lab-subscription-resource-groups.png" alt-text="Grupo de recursos de assinatura do laboratório de solução" lightbox="./media/snapcenter/solution-lab-subscription-resource-groups.png":::
 
 1. Selecione um grupo de recursos apropriado em uma região.
 
-   :::image type="content" source="./media/snapcenter/select-appropriate-resource-group-in-region.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário" lightbox="./media/snapcenter/select-appropriate-resource-group-in-region.png":::
+   :::image type="content" source="./media/snapcenter/select-appropriate-resource-group-in-region.png" alt-text="Selecione o grupo de recursos apropriado na região" lightbox="./media/snapcenter/select-appropriate-resource-group-in-region.png":::
 
 1. Selecione uma entrada de SKU correspondente a SAP HANA no armazenamento do Azure.
 
-   :::image type="content" source="./media/snapcenter/select-sku-entry-corresponding-to-sap-hana.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário" lightbox="./media/snapcenter/select-sku-entry-corresponding-to-sap-hana.png":::
+   :::image type="content" source="./media/snapcenter/select-sku-entry-corresponding-to-sap-hana.png" alt-text="Selecione a entrada de SKU correspondente a SAP HANA" lightbox="./media/snapcenter/select-sku-entry-corresponding-to-sap-hana.png":::
 
 1. Abra uma **nova** solicitação de tíquete de suporte, descrita em vermelho.
 
-   :::image type="content" source="./media/snapcenter/open-new-support-ticket-request.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário":::
+   :::image type="content" source="./media/snapcenter/open-new-support-ticket-request.png" alt-text="Abrir nova solicitação de tíquete de suporte":::
 
 1. Na guia **noções básicas** , forneça as seguintes informações para o tíquete:
 
@@ -468,7 +469,7 @@ As etapas para integrar o SnapCenter no SAP HANA são:
    * Configurar o SnapCenter para HLI
    * Sua chave pública para o usuário do SnapCenter (SnapCenter. pem) – consulte o exemplo de criação de chave pública abaixo
 
-     :::image type="content" source="./media/snapcenter/new-support-request-details.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário" lightbox="./media/snapcenter/new-support-request-details.png":::
+     :::image type="content" source="./media/snapcenter/new-support-request-details.png" alt-text="Nova solicitação de suporte-guia detalhes" lightbox="./media/snapcenter/new-support-request-details.png":::
 
 1. Selecione **revisão + criar** para examinar seu tíquete de suporte. 
 
@@ -525,7 +526,7 @@ Antes de instalar o SnapCenter, examine [SAP Hana backup/recuperação com SnapC
 
 1. Configure as credenciais do usuário para o SnapCenter. Por padrão, ele popula as credenciais de usuário do Windows usadas para instalar o aplicativo. 
 
-   :::image type="content" source="media/snapcenter/installation-user-inputs-dialog.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário"::: 
+   :::image type="content" source="media/snapcenter/installation-user-inputs-dialog.png" alt-text="Diálogo entradas do usuário de instalação"::: 
 
 1. Ao iniciar a sessão, salve a isenção de segurança e a GUI será iniciada.
 
@@ -534,22 +535,22 @@ Antes de instalar o SnapCenter, examine [SAP Hana backup/recuperação com SnapC
 
 ### <a name="set-up-the-storage-system"></a>Configurar o sistema de armazenamento
 
-1. Em SnapCenter, selecione **sistema de armazenamento**e, em seguida, selecione **+ novo**. 
+1. Em SnapCenter, selecione **sistema de armazenamento** e, em seguida, selecione **+ novo**. 
 
-   :::image type="content" source="./media/snapcenter/snapcenter-storage-connections-window.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário" lightbox="./media/snapcenter/snapcenter-storage-connections-window.png":::
+   :::image type="content" source="./media/snapcenter/snapcenter-storage-connections-window.png" alt-text="Conexões de armazenamento SnapCenter" lightbox="./media/snapcenter/snapcenter-storage-connections-window.png":::
 
    O padrão é um SVM por locatário. Se um cliente tiver vários locatários ou HLIs em várias regiões, a recomendação será configurar todos os SVMs no SnapCenter
 
 1. Em adicionar sistema de armazenamento, forneça as informações para o sistema de armazenamento que você deseja adicionar, o nome de usuário e a senha do SnapCenter e, em seguida, selecione **Enviar**.
 
-   :::image type="content" source="./media/snapcenter/new-storage-connection.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário":::
+   :::image type="content" source="./media/snapcenter/new-storage-connection.png" alt-text="Nova conexão de armazenamento":::
 
    >[!NOTE]
    >O padrão é um SVM por locatário.  Se houver vários locatários, a recomendação é configurar todos os SVMs aqui em SnapCenter. 
 
 1. Em SnapCenter, selecione **hosts** e selecione **+ Adicionar** para configurar o plug-in do Hana e os hosts do Hana DB.  A versão mais recente do SnapCenter detecta automaticamente o banco de dados HANA no host.
 
-   :::image type="content" source="media/snapcenter/managed-hosts-new-host.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário" lightbox="media/snapcenter/managed-hosts-new-host.png":::
+   :::image type="content" source="media/snapcenter/managed-hosts-new-host.png" alt-text="Em SnapCenter, selecione hosts e, em seguida, selecione Adicionar." lightbox="media/snapcenter/managed-hosts-new-host.png":::
 
 1. Forneça as informações para o novo host:
    1. Selecione o sistema operacional para o tipo de host.
@@ -557,7 +558,7 @@ Antes de instalar o SnapCenter, examine [SAP Hana backup/recuperação com SnapC
    1. Forneça as credenciais que você deseja usar.
    1. Selecione as opções **Microsoft Windows** e **SAP Hana** e, em seguida, selecione **Enviar**.
 
-   :::image type="content" source="media/snapcenter/add-new-host-operating-system-credentials.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário":::
+   :::image type="content" source="media/snapcenter/add-new-host-operating-system-credentials.png" alt-text="Informações para o novo host":::
 
    >[!IMPORTANT]
    >Antes que você possa instalar o primeiro nó, o SnapCenter permite que um usuário não raiz instale plug-ins no banco de dados.  Para obter informações sobre como habilitar um usuário não raiz, consulte [adicionando um usuário não raiz e configurando privilégios sudo](https://library.netapp.com/ecmdocs/ECMLP2590889/html/GUID-A3EEB5FC-242B-4C2C-B407-510E48A8F131.html).
@@ -566,7 +567,7 @@ Antes de instalar o SnapCenter, examine [SAP Hana backup/recuperação com SnapC
 
 1. Depois que o plug-in estiver instalado, em SnapCenter, selecione **hosts** e, em seguida, selecione **+ Adicionar** para adicionar um nó do Hana.
 
-   :::image type="content" source="media/snapcenter/add-hana-node.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário" lightbox="media/snapcenter/add-hana-node.png":::
+   :::image type="content" source="media/snapcenter/add-hana-node.png" alt-text="Adicionar um nó do HANA" lightbox="media/snapcenter/add-hana-node.png":::
 
 1. Forneça as informações para o nó do HANA:
    1. Selecione o sistema operacional para o tipo de host.
@@ -574,15 +575,15 @@ Antes de instalar o SnapCenter, examine [SAP Hana backup/recuperação com SnapC
    1. Selecione **+** para adicionar as credenciais configuradas no sistema operacional do host do BD Hana e selecione **OK**.
    1. Selecione **SAP Hana** e, em seguida, selecione **Enviar**.
 
-   :::image type="content" source="media/snapcenter/add-hana-node-details.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário":::
+   :::image type="content" source="media/snapcenter/add-hana-node-details.png" alt-text="Detalhes do nó de SAP HANA":::
 
 1. Confirme a impressão digital e selecione **confirmar e enviar**.
 
-   :::image type="content" source="media/snapcenter/confirm-submit-fingerprint.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário":::
+   :::image type="content" source="media/snapcenter/confirm-submit-fingerprint.png" alt-text="Confirmar e enviar impressão digital":::
 
 1. No nó do Hana, no banco de dados do sistema, selecione **segurança**  >  **usuários**  >  **SNAPCENTER** para criar o usuário SNAPCENTER.
 
-   :::image type="content" source="media/snapcenter/create-snapcenter-user-hana-system-db.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário":::
+   :::image type="content" source="media/snapcenter/create-snapcenter-user-hana-system-db.png" alt-text="Criar o usuário SnapCenter no HANA (banco de usuários do sistema)":::
 
 
 
@@ -595,15 +596,15 @@ Se você tiver configurado o HSR, deverá configurar o sistema manualmente.
 
 1. Em SnapCenter, selecione **recursos** e **San Hana** (na parte superior) e, em seguida, selecione **+ Adicionar SAP Hana banco de dados** (à direita).
 
-   :::image type="content" source="media/snapcenter/manual-hana-setup.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário" lightbox="media/snapcenter/manual-hana-setup.png":::
+   :::image type="content" source="media/snapcenter/manual-hana-setup.png" alt-text="Instalação manual do HANA" lightbox="media/snapcenter/manual-hana-setup.png":::
 
 1. Especifique os detalhes do recurso do usuário administrador do HANA configurado no host do Linux ou no host onde os plug-ins estão instalados. O backup será gerenciado a partir do plug-in no sistema Linux.
 
-   :::image type="content" source="media/snapcenter/provide-resource-details-sap-hana-database.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário":::
+   :::image type="content" source="media/snapcenter/provide-resource-details-sap-hana-database.png" alt-text="Especifique os detalhes do recurso do usuário administrador do HANA configurado no host do Linux.":::
 
 1. Selecione o volume de dados para o qual você precisa fazer instantâneos, selecione **salvar** e **concluir**.
 
-   :::image type="content" source="media/snapcenter/provide-storage-footprint.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário":::
+   :::image type="content" source="media/snapcenter/provide-storage-footprint.png" alt-text="Selecione o volume de dados para o qual você precisa fazer instantâneos, selecione salvar e concluir.":::
 
 ### <a name="create-a-snapshot-policy"></a>Criar uma política de instantâneo
 
@@ -611,53 +612,53 @@ Antes de usar o SnapCenter para fazer backup de SAP HANA recursos de banco de da
 
 1. Em SnapCenter, selecione **recursos** e, em seguida, selecione um banco de dados.
 
-   :::image type="content" source="media/snapcenter/select-database-create-policy.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário":::
+   :::image type="content" source="media/snapcenter/select-database-create-policy.png" alt-text="Em SnapCenter, selecione recursos e, em seguida, selecione um banco de dados.":::
 
 1. Siga o fluxo de trabalho do assistente de configuração para configurar o Agendador de instantâneos.
 
-   :::image type="content" source="media/snapcenter/follow-workflow-configuration-wizard.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário" lightbox="media/snapcenter/follow-workflow-configuration-wizard.png":::
+   :::image type="content" source="media/snapcenter/follow-workflow-configuration-wizard.png" alt-text="Siga o fluxo de trabalho do assistente de configuração para configurar o Agendador de instantâneos." lightbox="media/snapcenter/follow-workflow-configuration-wizard.png":::
 
 1. Forneça as opções para configurar comandos Pre/post e chaves SSL especiais.  Neste exemplo, não estamos usando configurações especiais.
 
-   :::image type="content" source="media/snapcenter/configuration-options-pre-post-commands.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário" lightbox="media/snapcenter/configuration-options-pre-post-commands.png":::
+   :::image type="content" source="media/snapcenter/configuration-options-pre-post-commands.png" alt-text="Forneça as opções para configurar comandos Pre-post e chaves SSL especiais." lightbox="media/snapcenter/configuration-options-pre-post-commands.png":::
 
 1. Selecione **Adicionar** para criar uma política de instantâneo, que também pode ser usada para outros bancos de dados Hana. 
 
-   :::image type="content" source="media/snapcenter/select-one-or-more-policies.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário":::
+   :::image type="content" source="media/snapcenter/select-one-or-more-policies.png" alt-text="Selecione Adicionar para criar uma política de instantâneo, que também pode ser usada para outros bancos de dados HANA.":::
 
 1. Insira o nome da política e uma descrição.
 
-   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário":::
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy.png" alt-text="Insira o nome da política e uma descrição.":::
 
 
 1. Selecione o tipo e a frequência de backup.
 
-   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-settings.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário":::
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-settings.png" alt-text="Selecione o tipo e a frequência de backup.":::
 
 1. Defina as **configurações de retenção de backup sob demanda**.  Em nosso exemplo, estamos definindo a retenção para três cópias de instantâneo a serem mantidas.
 
-   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-retention-settings.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário":::
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-retention-settings.png" alt-text="Defina as configurações de retenção de backup sob demanda.":::
 
 1. Defina as **configurações de retenção por hora**. 
 
-   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-hourly-retention-settings.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário":::
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-hourly-retention-settings.png" alt-text="Defina as configurações de retenção por hora.":::
 
 1. Se uma configuração do SnapMirror estiver configurada, selecione **Atualizar SnapMirror depois de criar uma cópia de instantâneo local**.
 
-   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-snapmirror.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário":::
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-snapmirror.png" alt-text="Se um SnapMirror for necessário, selecione Atualizar SnapMirror depois de criar uma cópia de instantâneo local.":::
 
 1. Selecione **concluir** para examinar o resumo da nova política de backup. 
 1. Em **Configurar agendamento**, selecione **Adicionar**.
 
-   :::image type="content" source="media/snapcenter/configure-schedules-for-selected-policies.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário":::
+   :::image type="content" source="media/snapcenter/configure-schedules-for-selected-policies.png" alt-text="Em configurar agendamento, selecione Adicionar.":::
 
 1. Selecione a **data de início**, **expira em** data e a frequência.
 
-   :::image type="content" source="media/snapcenter/add-schedules-for-policy.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário":::
+   :::image type="content" source="media/snapcenter/add-schedules-for-policy.png" alt-text="Selecione a data de início, expira em data e a frequência.":::
 
 1. Forneça os detalhes do email para notificações.
 
-   :::image type="content" source="media/snapcenter/backup-policy-notification-settings.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário":::
+   :::image type="content" source="media/snapcenter/backup-policy-notification-settings.png" alt-text="Forneça os detalhes do email para notificações.":::
 
 1.  Selecione **concluir** para criar a política de backup.
 
@@ -704,11 +705,11 @@ Você pode usar SnapCenter para restaurar o banco de dados.  Nesta seção, abor
 
 1. Restaure os arquivos de banco de dados via SnapCenter.  Selecione o banco de dados e, em seguida, selecione **restaurar**.  
 
-   :::image type="content" source="media/snapcenter/restore-database-via-snapcenter.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário" lightbox="media/snapcenter/restore-database-via-snapcenter.png":::
+   :::image type="content" source="media/snapcenter/restore-database-via-snapcenter.png" alt-text="Selecione um banco de dados e selecione restaurar." lightbox="media/snapcenter/restore-database-via-snapcenter.png":::
 
 1. Selecione o tipo de restauração.  Em nosso exemplo, estamos restaurando o recurso completo. 
 
-   :::image type="content" source="media/snapcenter/restore-database-select-restore-type.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário":::
+   :::image type="content" source="media/snapcenter/restore-database-select-restore-type.png" alt-text="Selecione o tipo de restauração.":::
 
    >[!NOTE]
    >Com uma configuração padrão, você não precisa especificar comandos para fazer uma restauração local do instantâneo em disco. 
@@ -720,23 +721,23 @@ Você pode usar SnapCenter para restaurar o banco de dados.  Nesta seção, abor
    
    O SnapCenter restaura os dados para o local original para que você possa iniciar o processo de restauração no HANA. Além disso, como SnapCenter não é capaz de modificar o catálogo de backup (o banco de dados está inoperante), um aviso é exibido.
 
-   :::image type="content" source="media/snapcenter/restore-database-job-details-warning.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário":::
+   :::image type="content" source="media/snapcenter/restore-database-job-details-warning.png" alt-text="Como o SnapCenter não é capaz de modificar o catálogo de backup, um aviso é exibido. ":::
 
 1. Como todos os arquivos de banco de dados são restaurados, inicie o processo de restauração no HANA. No Hana Studio, em **sistemas**, clique com o botão direito do mouse no banco de dados do sistema e selecione **backup e recuperação**  >  **recuperar banco de dados do sistema**.
 
-   :::image type="content" source="media/snapcenter/hana-studio-backup-recovery.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário":::
+   :::image type="content" source="media/snapcenter/hana-studio-backup-recovery.png" alt-text="Inicie o processo de restauração no HANA.":::
 
 1. Selecione um tipo de recuperação.
 
-   :::image type="content" source="media/snapcenter/restore-database-select-recovery-type.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário":::
+   :::image type="content" source="media/snapcenter/restore-database-select-recovery-type.png" alt-text="Selecione o tipo de recuperação.":::
 
 1. Selecione o local do catálogo de backup.
 
-   :::image type="content" source="media/snapcenter/restore-database-select-location-backup-catalog.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário":::
+   :::image type="content" source="media/snapcenter/restore-database-select-location-backup-catalog.png" alt-text="Selecione o local do catálogo de backup.":::
 
 1. Selecione um backup para recuperar o banco de dados de SAP HANA.
 
-   :::image type="content" source="media/snapcenter/restore-database-select-backup.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário":::
+   :::image type="content" source="media/snapcenter/restore-database-select-backup.png" alt-text="Selecione um backup para recuperar o banco de dados de SAP HANA.":::
 
    Depois que o banco de dados é recuperado, uma mensagem é exibida com uma **recuperação em tempo** e **recuperada no carimbo de posição de log** .
 
@@ -753,7 +754,7 @@ Você pode restaurar volumes que não são de dados, por exemplo, um compartilha
 
 Antes de clonar, você deve ter a mesma versão do HANA instalada como o banco de dados de origem. O SID e a ID podem ser diferentes. 
 
-:::image type="content" source="media/snapcenter/system-cloning-diagram.png" alt-text="Criar caso de suporte para a configuração de armazenamento do usuário" lightbox="media/snapcenter/system-cloning-diagram.png" border="false":::
+:::image type="content" source="media/snapcenter/system-cloning-diagram.png" alt-text="Clonagem do sistema SAP HANA" lightbox="media/snapcenter/system-cloning-diagram.png" border="false":::
 
 1. Criar um repositório de usuários do banco de dados do HANA para o banco de dados H34 do/usr/sap/H34/HDB40.
 

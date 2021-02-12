@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: b0bc23d515bebdd0d943bbad33c5ebba35a35605
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 552cac01cd492229a19bdbc297665eb7d3ccb401
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987210"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751284"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Configurar Iniciar/Parar VMs fora do horário comercial
 
@@ -48,7 +48,7 @@ Você pode habilitar o direcionamento da ação a uma assinatura e um grupo de r
 
 2. Adicione uma lista separada por vírgulas de VMs (sem espaços) no campo parâmetro **VMList** . Uma lista de exemplos é `vm1,vm2,vm3` .
 
-3. Defina o campo de parâmetro **WHATIF** como true.
+3. Defina o campo de parâmetro **WHATIF** como true para visualizar as alterações.
 
 4. Configure a `External_ExcludeVMNames` variável com uma lista separada por vírgulas de VMs (VM1, VM2, VM3), sem espaços entre valores separados por vírgulas.
 
@@ -63,7 +63,7 @@ Em um ambiente que inclui dois ou mais componentes em várias VMs compatíveis c
 
 ### <a name="target-the-start-and-stop-actions-against-a-subscription-and-resource-group"></a>Direcionar a ação de início e parada para uma assinatura e um grupo de recursos
 
-1. Adicione um `sequencestart` e uma marca de `sequencestop` com valores inteiros positivos às VMs que são destinadas às variáveis `External_Start_ResourceGroupNames` e `External_Stop_ResourceGroupNames`. As ações iniciar e parar são executadas em ordem crescente. Para saber como marcar uma VM, consulte [Marcar uma máquina virtual do Windows no Azure](../virtual-machines/windows/tag.md) e [Marcar uma máquina virtual do Linux no Azure](../virtual-machines/linux/tag.md).
+1. Adicione um `sequencestart` e uma marca de `sequencestop` com valores inteiros positivos às VMs que são destinadas às variáveis `External_Start_ResourceGroupNames` e `External_Stop_ResourceGroupNames`. As ações iniciar e parar são executadas em ordem crescente. Para saber como marcar uma VM, consulte [Marcar uma máquina virtual do Windows no Azure](../virtual-machines/tag-portal.md) e [Marcar uma máquina virtual do Linux no Azure](../virtual-machines/tag-cli.md).
 
 2. Modifique os agendamentos **Sequenced-StartVM** e **Sequenced-StopVM** de acordo com a data e hora que atendem às suas exigências e habilite o agendamento.
 
@@ -79,7 +79,7 @@ Em um ambiente que inclui dois ou mais componentes em várias VMs compatíveis c
 
 3. Adicione uma lista separada por vírgulas de VMs (sem espaços) no campo parâmetro **VMList** . Uma lista de exemplos é `vm1,vm2,vm3` .
 
-4. Defina **WHATIF** como verdadeiro. 
+4. Defina **WHATIF** como true para visualizar as alterações. 
 
 5. Configure a `External_ExcludeVMNames` variável com uma lista separada por vírgulas de VMs, sem espaços entre valores separados por vírgulas.
 
@@ -143,13 +143,13 @@ Para alterar as notificações por email depois que a ação Iniciar/Parar VMs f
 
 2. Na página StartStop_VM_Notification, clique em **Editar detalhes** em **Detalhes**. Isso abre a página Email/SMS/Push/Voz. Atualize o endereço de email e clique em **OK** para salvar suas alterações.
 
-    :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Captura de tela da página monitorar-grupos de ações.":::
+    :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Captura de tela da página email/SMS/Push/voz mostrando um exemplo de endereço de email atualizado.":::
 
     Como alternativa, você pode adicionar mais ações no grupo de ações. Para saber mais sobre grupos de ações, confira [grupos de ações](../azure-monitor/platform/action-groups.md)
 
 A seguir está um email de exemplo que é enviado quando o recurso desliga as máquinas virtuais.
 
-:::image type="content" source="media/automation-solution-vm-management/email.png" alt-text="Captura de tela da página monitorar-grupos de ações.":::
+:::image type="content" source="media/automation-solution-vm-management/email.png" alt-text="Captura de tela de um email de exemplo enviado quando o recurso desliga as máquinas virtuais.":::
 
 ## <a name="add-or-exclude-vms"></a><a name="add-exclude-vms"></a>Adicionar ou excluir VMs
 

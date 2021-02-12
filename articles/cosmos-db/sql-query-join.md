@@ -1,24 +1,25 @@
 ---
 title: Consultas do SQL JOIN para Azure Cosmos DB
 description: Saiba como unir várias tabelas em Azure Cosmos DB para consultar os dados
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/17/2019
-ms.author: mjbrown
-ms.openlocfilehash: b4c754455e2a686274eab8b1f77713b8983251a4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 01/07/2021
+ms.author: tisande
+ms.openlocfilehash: cb7b2e62a9fabeeca675edb8e6aa356213e0999e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100789"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011366"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Junções no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Em um banco de dados relacional, as junções entre as tabelas são o registro lógico da criação de esquemas normalizados. Por outro lado, a API do SQL usa o modelo de dados desnormalizado de itens sem esquema, que é o equivalente lógico de uma *auto-associação* .
+Em um banco de dados relacional, as junções entre as tabelas são o registro lógico da criação de esquemas normalizados. Por outro lado, a API do SQL usa o modelo de dados desnormalizado de itens sem esquema, que é o equivalente lógico de uma *auto-associação*.
 
-Junções internas resultam em um produto completo cruzando os conjuntos associados à junção. O resultado de uma junção de N maneiras é um conjunto de tuplas com N elementos, em que cada valor na tupla é associado ao alias do conjunto membro da junção e pode ser acessado pela referência desse alias em outras cláusulas.
+As junções resultam em um produto cruzado completo dos conjuntos que participam da junção. O resultado de uma junção de N maneiras é um conjunto de tuplas com N elementos, em que cada valor na tupla é associado ao alias do conjunto membro da junção e pode ser acessado pela referência desse alias em outras cláusulas.
 
 ## <a name="syntax"></a>Syntax
 
@@ -252,6 +253,8 @@ Os resultados são:
       }
     ]
 ```
+
+Se sua consulta tiver uma junção e filtros, você poderá reescrever parte da consulta como uma [subconsulta](sql-query-subquery.md#optimize-join-expressions) para melhorar o desempenho.
 
 ## <a name="next-steps"></a>Próximas etapas
 

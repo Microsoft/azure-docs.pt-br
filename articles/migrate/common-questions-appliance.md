@@ -1,14 +1,17 @@
 ---
 title: FAQ do dispositivo de migrações para Azure
 description: Obtenha respostas para perguntas comuns sobre o dispositivo migrações para Azure.
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: e0fd170859de2d4a9d38fdba0fff0575921c6d32
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 9badbfe6cfe12d67e07f0889d175ed32bc455321
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314775"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753868"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Dispositivo de migrações para Azure: perguntas comuns
 
@@ -42,12 +45,13 @@ O dispositivo pode ser implantado da seguinte maneira:
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>Como o dispositivo se conecta ao Azure?
 
-O dispositivo pode se conectar pela Internet ou usando o Azure ExpressRoute. Verifique se essas [URLs](./migrate-appliance.md#url-access) foram aprovadas para que o dispositivo se conecte ao Azure.
+O dispositivo pode se conectar pela Internet ou usando o Azure ExpressRoute. 
 
-- Para usar o Azure ExpressRoute para migrar o tráfego de replicação do Azure, o emparelhamento da Microsoft ou um emparelhamento público existente é necessário (o emparelhamento público é preterido para novas criações de ER).
-- Não há suporte para replicação no Azure ExpressRoute com o emparelhamento privado (somente) habilitado.
+- Verifique se o dispositivo pode se conectar a essas [URLs do Azure](./migrate-appliance.md#url-access). 
+- Você pode usar o ExpressRoute com o emparelhamento da Microsoft.  O emparelhamento público foi preterido e não está disponível para novos circuitos do ExpressRoute.
+- Somente o emparelhamento privado não tem suporte.
 
-O Azure ExpressRoute com o emparelhamento da Microsoft configurado é o domínio de roteamento recomendado para o tráfego de replicação.
+
 
 ## <a name="does-appliance-analysis-affect-performance"></a>A análise de dispositivos afeta o desempenho?
 

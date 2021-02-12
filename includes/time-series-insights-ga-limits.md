@@ -1,6 +1,6 @@
 ---
-title: arquivo de inclusão
-description: arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
@@ -9,18 +9,18 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.custom: include file
-ms.openlocfilehash: 1aff5780aa5f4cf21d862a5cee3b140179dac03c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e584b6eff16636f0657c586f6c630dbf8bbb99b2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88704144"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026817"
 ---
 O a seguir resume os limites principais no Azure Time Series Insights Gen1.
 
 ### <a name="sku-ingress-rates-and-capacities"></a>Taxas e capacidades de entrada do SKU
 
-As taxas e as capacidades de entrada de SKU S1 e S2 fornecem flexibilidade ao configurar um novo ambiente de Azure Time Series Insights. Sua capacidade de SKU indica sua taxa de entrada diária com base no número de eventos ou bytes armazenados, o que ocorrer primeiro. Observe que a entrada é medida *por minuto*e a **limitação** é aplicada usando o algoritmo de Bucket de tokens. A entrada é medida em blocos de 1 KB. Por exemplo, um evento real de 0,8-KB seria medido como um evento, e um evento de 2,6 KB é contado como três eventos.
+As taxas e as capacidades de entrada de SKU S1 e S2 fornecem flexibilidade ao configurar um novo ambiente de Azure Time Series Insights. Sua capacidade de SKU indica sua taxa de entrada diária com base no número de eventos ou bytes armazenados, o que ocorrer primeiro. Observe que a entrada é medida *por minuto* e a **limitação** é aplicada usando o algoritmo de Bucket de tokens. A entrada é medida em blocos de 1 KB. Por exemplo, um evento real de 0,8-KB seria medido como um evento, e um evento de 2,6 KB é contado como três eventos.
 
 | Capacidade de SKU S1 | Taxa de entrada | Capacidade máxima de armazenamento
 | --- | --- | --- |
@@ -44,7 +44,7 @@ Os ambientes de SKU S2 dão suporte a substancialmente mais eventos por mês e t
 
 ### <a name="property-limits"></a>Limites de propriedade
 
-Os limites de propriedade Gen1 dependem do ambiente de SKU selecionado. As propriedades de evento fornecidas têm as colunas JSON, CSV e de gráfico correspondentes que podem ser exibidas no [Gerenciador de Azure Time Series insights](https://docs.microsoft.com/azure/time-series-insights/time-series-quickstart).
+Os limites de propriedade Gen1 dependem do ambiente de SKU selecionado. As propriedades de evento fornecidas têm as colunas JSON, CSV e de gráfico correspondentes que podem ser exibidas no [Gerenciador de Azure Time Series insights](../articles/time-series-insights/time-series-quickstart.md).
 
 | SKU | Propriedades máximas |
 | --- | --- |
@@ -55,9 +55,9 @@ Os limites de propriedade Gen1 dependem do ambiente de SKU selecionado. As propr
 
 Há suporte para no máximo duas origens de evento por instância.
 
-* Saiba como [Adicionar uma origem do hub de eventos](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
-* Configurar [uma origem do Hub IOT](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub).
+* Saiba como [Adicionar uma origem do hub de eventos](../articles/time-series-insights/how-to-ingest-data-event-hub.md).
+* Configurar [uma origem do Hub IOT](../articles/time-series-insights/how-to-ingest-data-iot-hub.md).
 
 ### <a name="api-limits"></a>Limites de API
 
-Os limites da API REST para Azure Time Series Insights Gen1 são especificados na [documentação de referência da API REST](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability).
+Os limites da API REST para Azure Time Series Insights Gen1 são especificados na [documentação de referência da API REST](/rest/api/time-series-insights/dataaccess(preview)/query/getavailability).

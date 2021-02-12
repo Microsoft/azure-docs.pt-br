@@ -1,6 +1,6 @@
 ---
 title: Ajuste de desempenho com o índice columnstore clusterizado ordenado
-description: Recomendações e considerações que você deve saber ao usar o índice columnstore clusterizado ordenado para melhorar o desempenho da consulta.
+description: Recomendações e considerações que você deve saber ao usar o índice columnstore clusterizado ordenado para melhorar seu desempenho de consulta em pools SQL dedicados.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,22 +11,22 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 48db8541ebad19e3b22b737f7e92dcc980708ef6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afb6efcee2ad4f5cf25a411eed353ff2fc27d75c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841587"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460784"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Ajuste de desempenho com o índice columnstore clusterizado ordenado  
 
-Quando os usuários consultam uma tabela columnstore no pool SQL Synapse, o otimizador verifica os valores mínimo e máximo armazenados em cada segmento.  Os segmentos que estão fora dos limites do predicado de consulta não são lidos do disco para a memória.  Uma consulta pode obter um desempenho mais rápido se o número de segmentos a serem lidos e seu tamanho total forem pequenos.   
+Quando os usuários consultam uma tabela columnstore no pool SQL dedicado, o otimizador verifica os valores mínimo e máximo armazenados em cada segmento.  Os segmentos que estão fora dos limites do predicado de consulta não são lidos do disco para a memória.  Uma consulta pode obter um desempenho mais rápido se o número de segmentos a serem lidos e seu tamanho total forem pequenos.   
 
 ## <a name="ordered-vs-non-ordered-clustered-columnstore-index"></a>Índice columnstore clusterizado versus não ordenado
 
 Por padrão, para cada tabela criada sem uma opção de índice, um componente interno (Construtor de índice) cria um CCI (índice columnstore clusterizado) não ordenado.  Os dados em cada coluna são compactados em um segmento de rowgroup de CCI separado.  Há metadados no intervalo de valores de cada segmento, de modo que os segmentos que estão fora dos limites do predicado de consulta não são lidos do disco durante a execução da consulta.  O CCI oferece o nível mais alto de compactação de dados e reduz o tamanho dos segmentos a serem lidos para que as consultas possam ser executadas mais rapidamente. No entanto, como o construtor de índice não classifica os dados antes de compactá-los em segmentos, os segmentos com intervalos de valores sobrepostos podem ocorrer, fazendo com que as consultas leiam mais segmentos do disco e demorem mais para serem concluídas.  
 
-Ao criar um CCI ordenado, o mecanismo do SQL Synapse classifica os dados existentes na memória pelas chaves de ordem antes que o construtor de índice os compacte em segmentos de índice.  Com os dados classificados, a sobreposição de segmento é reduzida, permitindo que as consultas tenham uma eliminação de segmento mais eficiente e um desempenho mais rápido, pois o número de segmentos a serem lidos do disco é menor.  Se todos os dados puderem ser classificados na memória de uma vez, a sobreposição de segmento poderá ser evitada.  Devido a grandes tabelas em data warehouses, esse cenário não acontece com frequência.  
+Ao criar um CCI ordenado, o mecanismo do pool de SQL dedicado classifica os dados existentes na memória pelas chaves de ordem antes que o construtor de índice os compacte em segmentos de índice.  Com os dados classificados, a sobreposição de segmento é reduzida, permitindo que as consultas tenham uma eliminação de segmento mais eficiente e um desempenho mais rápido, pois o número de segmentos a serem lidos do disco é menor.  Se todos os dados puderem ser classificados na memória de uma vez, a sobreposição de segmento poderá ser evitada.  Devido a grandes tabelas em data warehouses, esse cenário não acontece com frequência.  
 
 Para verificar os intervalos de segmento de uma coluna, execute o seguinte comando com o nome da tabela e o nome da coluna:
 
@@ -50,7 +50,7 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 > [!NOTE] 
-> Em uma tabela de CCI ordenada, os novos dados resultantes do mesmo lote de operações DML ou de carregamento de dados são classificados dentro desse lote, não há nenhuma classificação global em todos os dados na tabela.  Os usuários podem recriar o CCI ordenado para classificar todos os dados na tabela.  No SQL Synapse, a recompilação do índice columnstore é uma operação offline.  Para uma tabela particionada, a recompilação é feita uma partição por vez.  Os dados na partição que está sendo recriada são "offline" e indisponíveis até que a recompilação seja concluída para essa partição. 
+> Em uma tabela de CCI ordenada, os novos dados resultantes do mesmo lote de operações DML ou de carregamento de dados são classificados dentro desse lote, não há nenhuma classificação global em todos os dados na tabela.  Os usuários podem recriar o CCI ordenado para classificar todos os dados na tabela.  No pool SQL dedicado, a recompilação do índice columnstore é uma operação offline.  Para uma tabela particionada, a recompilação é feita uma partição por vez.  Os dados na partição que está sendo recriada são "offline" e indisponíveis até que a recompilação seja concluída para essa partição. 
 
 ## <a name="query-performance"></a>Desempenho de consulta
 

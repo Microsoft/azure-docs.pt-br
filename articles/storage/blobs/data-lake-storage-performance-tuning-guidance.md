@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 82220a63cfe470344951e4276bc9eaccd9600428
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f0f64d910d03e42008c5fe6fef28a5b9c0917abd
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677354"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814458"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Otimizar Azure Data Lake Storage Gen2 para desempenho
 
@@ -21,11 +21,11 @@ O Azure Data Lake Storage Gen2 dá suporte a alta taxa de transferência para mo
 
 ![Desempenho do Data Lake Storage Gen2](./media/data-lake-storage-performance-tuning-guidance/throughput.png)
 
-O Data Lake Storage Gen2 pode ser dimensionado para fornecer a taxa de transferência necessária para qualquer cenário de análise. Por padrão, uma conta do Data Lake Storage Gen2 fornece automaticamente taxa de transferência suficiente para atender às necessidades de uma ampla gama de casos de uso. Para os casos em que os clientes atingem o limite padrão, a conta do Data Lake Storage Gen2 pode ser configurada para fornecer mais taxa de transferência entrando em contato com o [Suporte do Azure](https://azure.microsoft.com/support/faq/).
+Data Lake Storage Gen2 pode dimensionar para fornecer a taxa de transferência necessária para todos os cenários de análise. Por padrão, uma conta de Data Lake Storage Gen2 fornece taxa de transferência suficiente em sua configuração padrão para atender às necessidades de uma categoria ampla de casos de uso. Para os casos em que os clientes atingem o limite padrão, a conta do Data Lake Storage Gen2 pode ser configurada para fornecer mais taxa de transferência entrando em contato com o [Suporte do Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="data-ingestion"></a>Ingestão de dados
 
-Ao ingerir dados de um sistema de origem para o Data Lake Storage Gen2, é importante considerar que o hardware de origem, o hardware de rede de origem e a conectividade de rede com o Data Lake Storage Gen2 podem ser o gargalo.  
+Ao ingerir dados de um sistema de origem para Data Lake Storage Gen2, é importante considerar que o hardware de origem, o hardware de rede de origem ou a conectividade de rede para Data Lake Storage Gen2 pode ser o afunilamento.  
 
 ![Diagrama que mostra os fatores a serem considerados ao ingerir dados de um sistema de origem para Data Lake Storage Gen2.](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
 
@@ -37,17 +37,17 @@ Se você estiver usando computadores locais ou VMs no Azure, você deverá selec
 
 ### <a name="network-connectivity-to-data-lake-storage-gen2"></a>Conectividade de rede com o Data Lake Storage Gen2
 
-A conectividade de rede entre os dados de origem e o Data Lake Storage Gen2 às vezes pode ser o gargalo. Quando os dados de origem forem locais, considere o uso de uma conexão dedicada com o [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/). Se os dados de origem estiverem no Azure, o desempenho será melhor quando os dados estiverem na mesma região do Azure que a conta do Data Lake Storage Gen2.
+A conectividade de rede entre os dados de origem e o Data Lake Storage Gen2 às vezes pode ser o gargalo. Quando os dados de origem estiverem no local, considere usar um link dedicado com o [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/). Se os dados de origem estiverem no Azure, o desempenho será melhor quando os dados estiverem na mesma região do Azure que a conta do Data Lake Storage Gen2.
 
 ### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>Configurar ferramentas de ingestão de dados para paralelização máxima
 
 Depois que você tiver resolvido os gargalos de hardware de origem e conectividade de rede acima, você estará pronto para configurar as ferramentas de ingestão. A tabela a seguir resume as configurações de chave para diversas ferramentas de ingestão populares e fornece artigos detalhados de ajuste de desempenho para eles.  Para saber mais sobre qual ferramenta usar para seu cenário, visite este [artigo](data-lake-storage-data-scenarios.md).
 
-| Ferramenta               | Configurações     | Mais detalhes                                                                 |
+| Ferramenta               | Configurações | Mais detalhes                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
 | DistCp            | -m (mapper)   | [Link](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
 | Fábrica de dados do Azure| parallelCopies    | [Link](../../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | fs.azure.block.size, -m (mapper)    |   [Link](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
+| Sqoop           | fs.azure.block.size, -m (mapper)    |   [Link](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
 
 ## <a name="structure-your-data-set"></a>Estruturar seu conjunto de dados
 
@@ -57,7 +57,7 @@ Quando os dados são armazenados no Data Lake Storage Gen2, o tamanho do arquivo
 
 Normalmente os mecanismos de análise, tais como HDInsight e Azure Data Lake Analytics, têm uma sobrecarga por arquivo. Se você armazenar os dados como vários arquivos pequenos, isso poderá afetar negativamente o desempenho. Em geral, organize seus dados em arquivos de tamanhos maiores para melhorar o desempenho (de 256 MB a 100 GB). Alguns mecanismos e aplicativos podem ter problemas para processar com eficiência arquivos maiores que 100 GB.
 
-Às vezes, os pipelines de dados têm controle limitado sobre os dados brutos, que têm muitos arquivos pequenos. Recomenda-se ter um processo de "cooking" que gere arquivos maiores para usar em aplicativos downstream.
+Às vezes, os pipelines de dados têm controle limitado sobre os dados brutos, que têm muitos arquivos pequenos. Em geral, recomendamos que o sistema tenha algum tipo de processo para agregar arquivos pequenos em maiores para uso por aplicativos downstream.
 
 ### <a name="organizing-time-series-data-in-folders"></a>Organizar dados de série temporal em pastas
 
@@ -138,5 +138,5 @@ Além das diretrizes gerais acima, cada aplicativo tem diferentes parâmetros di
 | [MapReduce no HDInsight](data-lake-storage-performance-tuning-mapreduce.md) | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [Storm no HDInsight](data-lake-storage-performance-tuning-storm.md)| <ul><li>Número de processos de trabalho</li><li>Número de instâncias de spout executor</li><li>Número de instâncias de bolt executor </li><li>Número de tarefas de spout</li><li>Número de tarefas de bolt</li></ul>|
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 * [Visão geral do Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)

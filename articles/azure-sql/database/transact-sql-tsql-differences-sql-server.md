@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/03/2018
-ms.openlocfilehash: 4fdbf3bf1d9f740654fa694de03315b876116429
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1e286b2329cb98d580bbf64071ff8767db304a00
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784874"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461876"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolvendo diferenças de Transact-SQL durante a migração para o Banco de Dados SQL
 
@@ -45,7 +45,7 @@ As principais instruções de DDL (linguagem de definição de dados) estão dis
 Além das instruções Transact-SQL relacionadas aos recursos sem suporte descritos na [comparação de recursos do banco de dados SQL do Azure](features-comparison.md), não há suporte para as instruções e grupos de instruções a seguir. Assim, se o banco de dados a ser migrado usa qualquer um dos recursos a seguir, faça a reengenharia de seu T-SQL para eliminar essas instruções e recursos do T-SQL.
 
 - Ordenação de objetos do sistema
-- Relacionado à conexão: instruções de ponto de extremidade. O banco de dados SQL não dá suporte à autenticação do Windows, mas oferece suporte à autenticação Azure Active Directory semelhante. Alguns tipos de autenticação exigem a versão mais recente do SSMS. Para obter mais informações, consulte [conectando-se ao banco de dados SQL ou ao Azure Synapse Analytics (anteriormente SQL data warehouse) usando a autenticação Azure Active Directory](authentication-aad-overview.md).
+- Relacionado à conexão: instruções de ponto de extremidade. O banco de dados SQL não dá suporte à autenticação do Windows, mas oferece suporte à autenticação Azure Active Directory semelhante. Alguns tipos de autenticação exigem a versão mais recente do SSMS. Para obter mais informações, consulte [conectando-se ao banco de dados SQL ou ao Azure Synapse Analytics usando a autenticação Azure Active Directory](authentication-aad-overview.md).
 - Consultas cruzadas de banco de dados usando nomes de três ou quatro partes. (As consultas de bancos de dados somente leitura têm suporte por meio de [consulta de banco de dados elástico](elastic-query-overview.md).)
 - encadeamento de propriedades de bancos de dados, configuração `TRUSTWORTHY`
 - `EXECUTE AS LOGIN` Use “EXECUTE AS USER”.
@@ -82,7 +82,7 @@ Para obter mais informações sobre gramática, uso e exemplos do Transact-SQL, 
 
 ### <a name="about-the-applies-to-tags"></a>Sobre as marcas "Aplica-se a"
 
-A referência do Transact-SQL inclui artigos relacionados a versões do SQL Server da 2008 à atual. Abaixo do título do artigo há uma barra de ícones, listando as quatro plataformas SQL Server e indicando aplicabilidade. Por exemplo, grupos de disponibilidade foram introduzidos no SQL Server 2012. O artigo [Criar grupo de disponibilidade](/sql/t-sql/statements/create-availability-group-transact-sql) indica que a instrução se aplica a **SQL Server (começando com 2012)** . A instrução não se aplica a SQL Server 2008, SQL Server 2008 R2, banco de dados SQL do Azure, análise de Synapse do Azure Azure (anteriormente SQL Data Warehouse) ou data warehouse paralela.
+A referência do Transact-SQL inclui artigos relacionados a versões do SQL Server da 2008 à atual. Abaixo do título do artigo há uma barra de ícones, listando as quatro plataformas SQL Server e indicando aplicabilidade. Por exemplo, grupos de disponibilidade foram introduzidos no SQL Server 2012. O artigo [Criar grupo de disponibilidade](/sql/t-sql/statements/create-availability-group-transact-sql) indica que a instrução se aplica a **SQL Server (começando com 2012)**. A instrução não se aplica a SQL Server 2008, SQL Server 2008 R2, banco de dados SQL do Azure, análise de Synapse do Azure Azure ou data warehouse paralelas.
 
 Em alguns casos, o assunto geral de um artigo pode ser usado em um produto, mas há pequenas diferenças entre os produtos. As diferenças são indicadas em pontos médios no artigo, conforme apropriado. Em alguns casos, o assunto geral de um artigo pode ser usado em um produto, mas há pequenas diferenças entre os produtos. As diferenças são indicadas em pontos médios no artigo, conforme apropriado. Por exemplo, o artigo criar gatilho está disponível no banco de dados SQL. Mas a opção **All Server** para gatilhos no nível do servidor indica que os gatilhos no nível do servidor não podem ser usados no banco de dados SQL. Use gatilhos de nível de banco de dados em vez disso.
 

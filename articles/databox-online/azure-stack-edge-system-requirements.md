@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 02/05/2021
 ms.author: alkohli
-ms.openlocfilehash: a1a0462b82629b16bd8ccbe269fb1a917357d542
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c87c8cfd40903f6296f0a36f5c83c0b5c5cb7818
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883516"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831563"
 ---
 # <a name="azure-stack-edge-pro-system-requirements"></a>Requisitos de sistema do Azure Stack Edge pro
 
 Este artigo descreve os requisitos de sistema importantes para sua solução Microsoft Azure Stack Edge pro e para os clientes que se conectam ao Azure Stack Edge pro. Recomendamos que você revise as informações cuidadosamente antes de implantar o Azure Stack Edge pro. Você pode consultar novamente a essas informações conforme necessário durante a implantação e operação subsequente.
 
-Os requisitos de sistema para o Azure Stack Edge pro incluem:
+Os requisitos de sistema para o Azure Stack Edge pro incluem: 
 
 - **Requisitos de software para hosts** – descreve as plataformas com suporte, os navegadores da interface do usuário de configuração local, os clientes SMB e requisitos adicionais para os clientes que acessam o dispositivo.
 - **Requisitos de rede para o dispositivo** – fornece informações sobre os requisitos de rede da operação do dispositivo físico.
@@ -62,7 +62,7 @@ Use a tabela a seguir para a configuração de porta dos servidores que hospedam
 |----------|-----------|------------|----------|----------|
 | TCP 443 (HTTPS)| Saída       | WAN        | Sim      | Saída aberta para o provisionamento do IoT Edge. Essa configuração é necessária ao usar scripts manuais ou o DPS (serviço de provisionamento de dispositivos) do Azure IoT.|
 
-Para todas as informações, acesse [Regras de configuração de firewall e de porta para implantação do IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
+Para todas as informações, acesse [Regras de configuração de firewall e de porta para implantação do IoT Edge](../iot-edge/troubleshoot.md).
 
 ## <a name="url-patterns-for-firewall-rules"></a>Padrões de URL para regras de firewall
 

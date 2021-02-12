@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: conversão de texto em fala
-ms.openlocfilehash: 5d60279a2e3cb6aa7226f518783d53a1a38ddaa8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54db794d4e9cf0cd2a049a865f2e7bb52698a4bd
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357447"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599535"
 ---
 # <a name="what-is-text-to-speech"></a>O que é conversão de texto em fala?
 
@@ -31,7 +31,7 @@ Nesta visão geral, você aprenderá sobre os benefícios e capacidades do servi
 
 ## <a name="core-features"></a>Principais recursos
 
-* Síntese de fala – use o [SDK de fala](quickstarts/text-to-speech-audio-file.md) ou a [API REST](rest-text-to-speech.md) para converter conversão de texto em fala usando vozes padrão, neural ou personalizadas.
+* Síntese de fala – use o [SDK de fala](./get-started-text-to-speech.md) ou a [API REST](rest-text-to-speech.md) para converter conversão de texto em fala usando vozes padrão, neural ou personalizadas.
 
 * Síntese assíncrona de longo áudio – Use a [API de áudio longo](long-audio-api.md) para sintetizar de forma assíncrona arquivos de texto para fala por mais de 10 minutos (por exemplo, livros de áudio ou palestras). Ao contrário da síntese executada usando o SDK de fala ou a API REST de fala em texto, as respostas não são retornadas em tempo real. A expectativa é que as solicitações sejam enviadas de forma assíncrona, que as respostas sejam sondadas e que o áudio sintetizado seja baixado quando disponibilizado a partir do serviço. Há suporte apenas para vozes neurais personalizadas.
 
@@ -39,7 +39,7 @@ Nesta visão geral, você aprenderá sobre os benefícios e capacidades do servi
 
 * Vozes neurais-as redes neurais profundas são usadas para superar os limites da síntese de fala tradicional com relação a estresse e intonation na linguagem falada. A previsão de Prosody e a síntese de voz são executadas simultaneamente, o que resulta em saídas mais suaves e de som natural. As vozes neurais podem ser usadas para fazer interações com os assistentes de voz e chatbots mais naturais e envolventes, converter textos digitais, como livros eletrônicos em Audiobooks, e aprimorar os sistemas de navegação no carro. Com a Prosody natural humana e a clara Articulation de palavras, as vozes neurais reduzem significativamente a escuta de fadiga quando você interage com sistemas de ia. Para obter uma lista completa de vozes neurais, consulte [idiomas com suporte](language-support.md#text-to-speech).
 
-* Linguagem de marcação de síntese de fala (SSML) – uma linguagem de marcação baseada em XML usada para personalizar saídas de fala para texto. Com o SSML, você pode ajustar o timbre, adicionar pausas, melhorar a pronúncia, acelerar ou diminuir a taxa de fala, aumentar ou diminuir o volume e atribuir várias vozes a um único documento. Consulte [SSML](speech-synthesis-markup.md).
+* Ajustar estilos de fala com o SSML-linguagem de marcação de síntese de fala (SSML) é uma linguagem de marcação baseada em XML usada para personalizar saídas de fala para texto. Com o SSML, você pode ajustar o timbre, adicionar pausas, melhorar a pronúncia, acelerar ou diminuir a taxa de fala, aumentar ou diminuir o volume e atribuir várias vozes a um único documento. Consulte o " [como](speech-synthesis-markup.md) " para ajustar estilos de fala.
 
 ## <a name="get-started"></a>Introdução
 

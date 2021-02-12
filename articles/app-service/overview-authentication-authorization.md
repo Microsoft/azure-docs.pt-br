@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: e984332e6e93fc9a42123d06f320a66073585bff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b95b1e96dc26fb72338518fc969c69b035d5f68
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89596032"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095229"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticação e autorização no serviço Azure App e Azure Functions
 
@@ -140,15 +140,19 @@ Essa opção oferece mais flexibilidade no processamento de solicitações anôn
 
 ### <a name="allow-only-authenticated-requests"></a>Permitir apenas solicitações autenticadas
 
-A opção é **fazer logon com \<provider> **o. O Serviço de Aplicativo redireciona todas as solicitações anônimas para `/.auth/login/<provider>` do provedor escolhido. Se a solicitação anônima originar-se de um aplicativo móvel nativo, a resposta retornada será `HTTP 401 Unauthorized`.
+A opção é **fazer logon com \<provider>** o. O Serviço de Aplicativo redireciona todas as solicitações anônimas para `/.auth/login/<provider>` do provedor escolhido. Se a solicitação anônima originar-se de um aplicativo móvel nativo, a resposta retornada será `HTTP 401 Unauthorized`.
 
 Com essa opção, você não precisa gravar nenhum código de autenticação no aplicativo. Uma autorização mais precisa, como autorização específica de função, pode ser tratada inspecionando as declarações do usuário (consulte [Acessar declarações do usuário](app-service-authentication-how-to.md#access-user-claims)).
 
 > [!CAUTION]
 > Restringir o acesso dessa maneira se aplica a todas as chamadas para seu aplicativo, o que pode não ser desejável para aplicativos que querem um home page publicamente disponível, como em muitos aplicativos de página única.
 
+> [!NOTE]
+> Por padrão, qualquer usuário em seu locatário do Azure AD pode solicitar um token para seu aplicativo do Azure AD. Você pode [Configurar o aplicativo no Azure ad](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) se quiser restringir o acesso ao seu aplicativo a um conjunto definido de usuários.
+
 ## <a name="more-resources"></a>Mais recursos
 
+* [Tutorial: autenticar e autorizar usuários em um aplicativo Web que acessa o armazenamento do Azure e Microsoft Graph](scenario-secure-app-authentication-app-service.md)
 * [Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure (Windows)](tutorial-auth-aad.md)  
 * [Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure para Linux](./tutorial-auth-aad.md?pivots=platform-linux%3fpivots%3dplatform-linux)  
 * [Personalizar autenticação e autorização no Serviço de Aplicativo](app-service-authentication-how-to.md)
@@ -163,6 +167,7 @@ Guias de instruções específicas do provedor:
 * [Como configurar seu aplicativo para usar o logon da Conta da Microsoft][MSA]
 * [Como configurar seu aplicativo para usar o logon do Twitter][Twitter]
 * [Como configurar seu aplicativo para usar um provedor do OpenID Connect para logon (versão prévia)][OIDC]
+* [Como configurar seu aplicativo para usar uma entrada com a Apple (versão prévia)][Apple]
 
 [AAD]: configure-authentication-provider-aad.md
 [Facebook]: configure-authentication-provider-facebook.md
@@ -170,6 +175,7 @@ Guias de instruções específicas do provedor:
 [MSA]: configure-authentication-provider-microsoft.md
 [Twitter]: configure-authentication-provider-twitter.md
 [OIDC]: configure-authentication-provider-openid-connect.md
+[Apple]: configure-authentication-provider-apple.md
 
 [custom-auth]: /previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk#custom-auth
 

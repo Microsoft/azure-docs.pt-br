@@ -9,20 +9,20 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 141cc47adb398cbd5730fbe33bcd90fece809ed3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 800cbf9b7a7fa415452f29b253347188c8917c52
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91543262"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219446"
 ---
 # <a name="quickstart-create-a-new-azure-machine-learning-linked-service-in-synapse"></a>Início Rápido: Criar um serviço vinculado do Azure Machine Learning no Azure Synapse
 
-Neste início rápido, você vinculará um workspace do Synapse Analytics a um Workspace do Azure Machine Learning. Vincular esses workspaces permite aproveitar o Azure Machine Learning de várias experiências no Azure Synapse.
+Neste início rápido, você vinculará um workspace do Azure Synapse Analytics a um Workspace do Azure Machine Learning. Vincular esses workspaces permite aproveitar o Azure Machine Learning de várias experiências no Azure Synapse.
 
 Por exemplo, essa vinculação a um Workspace do Azure Machine Learning permite estas experiências:
 
-- Execute seus pipelines do Azure Machine Learning como uma etapa em seus pipelines do Azure Synapse. Para saber mais, confira [Executar pipelines do Azure Machine Learning](/azure/data-factory/transform-data-machine-learning-service).
+- Execute seus pipelines do Azure Machine Learning como uma etapa em seus pipelines do Azure Synapse. Para saber mais, confira [Executar pipelines do Azure Machine Learning](../../data-factory/transform-data-machine-learning-service.md).
 
 - Enriqueça seus dados com previsões usando um modelo de machine learning do registro de modelos do Azure Machine Learning e pontuando o modelo em pools de SQL do Synapse. Para obter mais detalhes, confira [Tutorial: Assistente de pontuação do modelo de machine learning para pools de SQL do Synapse](tutorial-sql-pool-model-scoring-wizard.md).
 
@@ -30,7 +30,7 @@ Por exemplo, essa vinculação a um Workspace do Azure Machine Learning permite 
 
 - Assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/).
 - [Workspace do Synapse Analytics](../get-started-create-workspace.md) com uma conta de armazenamento ADLS Gen2 configurada como o armazenamento padrão. Você precisa ser o **Colaborador de Dados do Blob de Armazenamento** do sistema de arquivos ADLS Gen2 com o qual trabalha.
-- [Workspace do Azure Machine Learning](/azure/machine-learning/how-to-manage-workspace).
+- [Workspace do Azure Machine Learning](../../machine-learning/how-to-manage-workspace.md).
 - Você precisa de permissões (ou solicitação de alguém que tenha permissões) para criar uma entidade de serviço e um segredo que você pode usar para criar o serviço vinculado. Observe que essa entidade de serviço precisa receber a função de colaborador no Workspace do Azure Machine Learning.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
@@ -79,5 +79,5 @@ Esta etapa criará uma entidade de serviço. Se você quiser usar uma entidade d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Tutorial: Assistente de pontuação do modelo de machine learning – pool de SQL](tutorial-sql-pool-model-scoring-wizard.md)
-- [Funcionalidades de Machine Learning no Azure Synapse Analytics (versão prévia dos workspaces)](what-is-machine-learning.md)
+- [Tutorial: Assistente de pontuação do modelo de machine learning – pool de SQL dedicado](tutorial-sql-pool-model-scoring-wizard.md)
+- [Funcionalidades do Machine Learning no Azure Synapse Analytics](what-is-machine-learning.md)

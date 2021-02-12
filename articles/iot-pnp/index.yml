@@ -11,12 +11,12 @@ metadata:
   ms.author: dobett
   manager: philmea
   ms.date: 10/31/2019
-  ms.openlocfilehash: 5b01154fa3e5821ca577e4a910facff8d9cb968a
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 75aa276fb41ebe717caa5c2f0dbdab5f9709237e
+  ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91598042"
+  ms.lasthandoff: 11/23/2020
+  ms.locfileid: "95495229"
 landingContent:
 - title: Sobre o IoT Plug and Play
   linkLists:
@@ -30,20 +30,12 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Conectar um dispositivo de exemplo ao Hub IoT (C)
-      url: quickstart-connect-device-c.md
-    - text: Conectar um dispositivo de exemplo ao Hub IoT (C#)
-      url: quickstart-connect-device-csharp.md
-    - text: Conectar um dispositivo de exemplo ao Hub IoT (Java)
-      url: quickstart-connect-device-java.md
-    - text: Conectar um dispositivo de exemplo ao Hub IoT (Node.js)
-      url: quickstart-connect-device-node.md
-    - text: Conectar um dispositivo de exemplo ao Hub IoT (Python)
-      url: quickstart-connect-device-python.md
+    - text: Conectar um dispositivo de exemplo ao Hub IoT
+      url: quickstart-connect-device.md
   - linkListType: concept
     links:
     - text: Guia do desenvolvedor
-      url: concepts-developer-guide-device-csharp.md
+      url: concepts-developer-guide-device.md
     - text: Componentes
       url: concepts-components.md
     - text: Convenções do IoT Plug and Play
@@ -54,10 +46,8 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Interagir com um dispositivo da sua solução (Node.js)
-      url: quickstart-service-node.md
-    - text: Interagir com um dispositivo da sua solução (Python)
-      url: quickstart-service-python.md
+    - text: Interagir com um dispositivo da sua solução
+      url: quickstart-service.md
   - linkListType: concept
     links:
     - text: Arquitetura

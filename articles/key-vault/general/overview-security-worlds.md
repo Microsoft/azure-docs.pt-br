@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 07/03/2017
-ms.openlocfilehash: 3584f83c5e1a5e83d069373395227b70c084eae9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d21deea13aac3d40c452a183c340d3108a1a01f4
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81428947"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936321"
 ---
 # <a name="azure-key-vault-security-worlds-and-geographic-boundaries"></a>Universos de segurança e limites geográficos do Azure Key Vault
 
@@ -43,6 +43,3 @@ No artigo produtos por região, por exemplo, a guia **Américas** contém LESTE 
 >Uma exceção é que Leste do US DoD e Região Central do US DoD têm seus próprios mundos de segurança. 
 
 Da mesma forma, na guia **Europa**, NORTE DA EUROPA e EUROPA OCIDENTAL são ambos mapeados para a região Europa. O mesmo também ocorre na guia **Pacífico Asiático**.
-
-
-

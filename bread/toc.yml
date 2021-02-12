@@ -268,6 +268,13 @@
         - name: Provedores Personalizados do Azure
           tocHref: /azure/azure-resource-manager/custom-providers/
           topicHref: /azure/azure-resource-manager/custom-providers/
+    - name: Soluções de parceiros
+      tocHref: /azure/partner-solutions/
+      topicHref: /azure/partner-solutions/
+      items:
+        - name: Apache Kafka para Confluent Cloud
+          tocHref: /azure/partner-solutions/apache-kafka-confluent-cloud/overview
+          topicHref: /azure/partner-solutions/apache-kafka-confluent-cloud/overview
     - name: Serviço SignalR
       tocHref: /azure/azure-signalr/
       topicHref: /azure/azure-signalr/
@@ -277,6 +284,9 @@
     - name: Usuário do Azure Stack
       tocHref: /azure/azure-stack/user/
       topicHref: /azure/azure-stack/user/
+    - name: Infraestrutura BareMetal
+      tocHref: /azure/baremetal-infrastructure/
+      topicHref: /azure/baremetal-infrastructure/
     - name: Backup
       tocHref: /azure/backup/
       topicHref: /azure/backup/
@@ -464,6 +474,9 @@
         - name: Transferência online do Data Box
           tocHref: /azure/databox-online/
           topicHref: /azure/databox-online/
+        - name: Data Box Gateway
+          tocHref: /azure/databox-gateway/
+          topicHref: /azure/databox-gateway/
     - name: Catálogo de Dados
       tocHref: /azure/data-catalog/
       topicHref: /azure/data-catalog/
@@ -908,3 +921,6 @@
         - name: Reservas
           tocHref: /azure/cost-management-billing/reservations/
           topicHref: /azure/cost-management-billing/reservations/
+    - name: Purview
+      tocHref: /azure/purview/
+      topicHref: /azure/purview/

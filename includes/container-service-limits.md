@@ -1,23 +1,23 @@
 ---
-title: arquivo de inclusão
+title: incluir arquivo
 description: incluir arquivo
 services: container-service
-author: dlepow
+author: mlearned
 ms.service: container-service
 ms.topic: include
 ms.date: 11/22/2019
-ms.author: danlep
+ms.author: mlearned
 ms.custom: include file
-ms.openlocfilehash: 6b4678b381e769993b01bbedd1cb4c0aeefc0cc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a42bba1b6524825aa571e4c18319b61b97829792
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80335062"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96584608"
 ---
 | Recurso | Limite |
 | --- | :--- |
-| Máximo de clusters por assinatura | 100 |
+| Máximo de clusters por assinatura | 1000 |
 | Máximo de nós por cluster com conjuntos de disponibilidade de máquinas virtuais e SKU de Load Balancer Básico  | 100 |
 | Máximo de nós por cluster com Conjuntos de Dimensionamento de Máquinas Virtuais e [SKU do Standard Load Balancer][standard-load-balancer] | 1000 (100 nós por [pool de nós][node-pool]) |
 | Máximo de pods por nó: [rede básica][basic-networking] com Kubenet | 110 |
@@ -28,7 +28,7 @@ ms.locfileid: "80335062"
 <!-- LINKS - Internal -->
 [basic-networking]: ../articles/aks/concepts-network.md#kubenet-basic-networking
 [advanced-networking]: ../articles/aks/concepts-network.md#azure-cni-advanced-networking
-[standard-load-balancer]: ../articles/load-balancer/load-balancer-standard-overview.md
+[standard-load-balancer]: ../articles/load-balancer/load-balancer-overview.md
 [node-pool]: ../articles/aks/use-multiple-node-pools.md
 
 <!-- LINKS - External -->

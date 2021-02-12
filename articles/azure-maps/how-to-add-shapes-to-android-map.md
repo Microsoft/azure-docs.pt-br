@@ -1,367 +1,111 @@
 ---
-title: Adicionar formas a mapas do Android | Mapas do Microsoft Azure
-description: Saiba como adicionar formas a mapas. Consulte exemplos de código que usam o SDK do Android do Azure Maps para adicionar uma linha e um polígono a um mapa.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 04/26/2019
-ms.topic: how-to
+title: Adicionar uma camada de polígono aos mapas do Android | Mapas do Microsoft Azure
+description: Saiba como adicionar polígonos ou círculos a mapas. Veja como usar o SDK do Android do Azure Maps para personalizar formas geométricas e torná-las fáceis de atualizar e manter.
+author: rbrundritt
+ms.author: richbrun
+ms.date: 12/08/2020
+ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
-ms.openlocfilehash: 04773ef279717c7728cf1b07761c6e4c0726a877
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+manager: cpendle
+ms.openlocfilehash: 1712cedab9cef23108fcc48b8e09bdc3e33065c4
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897119"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679464"
 ---
-# <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Adicionar uma forma a um mapa usando o Azure Maps SDK do Android
+# <a name="add-a-polygon-layer-to-the-map-android-sdk"></a>Adicionar uma camada de polígono ao mapa (SDK do Android)
 
-Este artigo mostra como renderizar formas em um mapa usando o Azure Maps SDK do Android.
+Este artigo mostra como renderizar as áreas de geometrias de recurso `Polygon` e `MultiPolygon` no mapa usando uma camada de polígono.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir o processo neste artigo, você precisa instalar o [Azure Maps SDK do Android](./how-to-use-android-map-control-library.md) para carregar um mapa.
+Certifique-se de concluir as etapas no documento [início rápido: criar um aplicativo Android](quick-android-map.md) . Os blocos de código neste artigo podem ser inseridos no `onReady` manipulador de eventos Maps.
 
+## <a name="use-a-polygon-layer"></a>Usar uma camada de polígono
 
-## <a name="add-a-line-to-the-map"></a>Adicionar uma linha ao mapa
+Quando uma camada de polígono é conectada a uma fonte de dados e carregada no mapa, ela renderiza a área com os recursos `Polygon` e `MultiPolygon`. Para criar um polígono, adicione-o a uma fonte de dados e renderize-o com uma camada de polígono usando a `PolygonLayer` classe.
 
-Você pode adicionar uma linha ao mapa usando uma **camada de linha** , seguir as etapas abaixo para adicionar uma linha no mapa.
+```java
+//Create a data source and add it to the map.
+DataSource source = new DataSource();
+map.sources.add(source);
 
-1. Edite o **layout de > res > activity_main.xml** para que ele se pareça com o seguinte:
-
-    ```XML
-    <?xml version="1.0" encoding="utf-8"?>
-    <FrameLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-    
-        <com.microsoft.azure.maps.mapcontrol.MapControl
-            android:id="@+id/mapcontrol"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:mapcontrol_centerLat="40.743270"
-            app:mapcontrol_centerLng="-74.004420"
-            app:mapcontrol_zoom="12"
-            />
-    
-    </FrameLayout>
-    ```
-
-2. Copie o trecho de código a seguir para o método **OnCreate ()** da sua `MainActivity.java` classe.
-
-    ```Java
-    mapControl.onReady(map -> {
-
-        //Create a data source and add it to the map.
-        DataSource dataSource = new DataSource();
-        map.sources.add(dataSource);
-    
-        //Create a list of points.
-        List<Point> points = Arrays.asList(
-            Point.fromLngLat(-73.972340, 40.743270),
-            Point.fromLngLat(-74.004420, 40.756800));
-    
-        //Create a LineString feature and add it to the data source.
-        dataSource.add(LineString.fromLngLats(points));
-    
-        //Create a line layer and add it to the map.
-        map.layers.add(new LineLayer(dataSource,
-            strokeColor("blue"),
-            strokeWidth(5f)));
-    });
-
-    ```
-    
-    O trecho de código acima Obtém primeiro uma instância de controle de mapa do Azure Maps usando o método de retorno de chamada **Onreadal ()** . Em seguida, ele cria um objeto de fonte de dados usando a classe **DataSource** e o adiciona ao mapa. Em seguida, ele cria uma lista de objetos **Point** . Uma **LineString** é criada na lista de pontos e adicionada à fonte de dados. Uma **camada de linha** renderiza os objetos de linha encapsulados em uma fonte de dados no mapa. Em seguida, uma camada de linha é criada e a fonte de dados é adicionada a ela.
-
-    Depois de adicionar o trecho de código acima, seu `MainActivity.java` deve se parecer com o seguinte:
-    
-    ```Java
-    package com.example.myapplication;
-
-    import android.app.Activity;
-    import android.os.Bundle;
-    import com.mapbox.geojson.LineString;
-    import com.mapbox.geojson.Point;
-    import android.support.v7.app.AppCompatActivity;
-    import com.microsoft.azure.maps.mapcontrol.layer.LineLayer;
-    import com.microsoft.azure.maps.mapcontrol.options.LineLayerOptions;
-    import com.microsoft.azure.maps.mapcontrol.source.DataSource;
-    import java.util.Arrays;
-    import java.util.List;
-    import com.microsoft.azure.maps.mapcontrol.AzureMaps;
-    import com.microsoft.azure.maps.mapcontrol.MapControl;
-    import static com.microsoft.azure.maps.mapcontrol.options.LineLayerOptions.strokeColor;
-    import static com.microsoft.azure.maps.mapcontrol.options.LineLayerOptions.strokeWidth;
-        
-    public class MainActivity extends AppCompatActivity {
-    
-        static{
-            AzureMaps.setSubscriptionKey("<Your Azure Maps subscription key>");
-        }
-    
-        MapControl mapControl;
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-    
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
-    
-            mapControl = findViewById(R.id.mapcontrol);
-    
-            mapControl.onCreate(savedInstanceState);
-    
-            mapControl.onReady(map -> {
-
-                //Create a data source and add it to the map.
-                DataSource dataSource = new DataSource();
-                map.sources.add(dataSource);
-            
-                //Create a list of points.
-                List<Point> points = Arrays.asList(
-                    Point.fromLngLat(-73.972340, 40.743270),
-                    Point.fromLngLat(-74.004420, 40.756800));
-            
-                //Create a LineString feature and add it to the data source.
-                dataSource.add(LineString.fromLngLats(points));
-            
-                //Create a line layer and add it to the map.
-                map.layers.add(new LineLayer(dataSource,
-                    strokeColor("blue"),
-                    strokeWidth(5f)));
-            });    
-        }
-    
-        @Override
-        public void onResume() {
-            super.onResume();
-            mapControl.onResume();
-        }
-    
-        @Override
-        public void onPause() {
-            super.onPause();
-            mapControl.onPause();
-        }
-    
-        @Override
-        public void onStop() {
-            super.onStop();
-            mapControl.onStop();
-        }
-    
-        @Override
-        public void onLowMemory() {
-            super.onLowMemory();
-            mapControl.onLowMemory();
-        }
-    
-        @Override
-        protected void onDestroy() {
-            super.onDestroy();
-            mapControl.onDestroy();
-        }
-    
-        @Override
-        protected void onSaveInstanceState(Bundle outState) {
-            super.onSaveInstanceState(outState);
-            mapControl.onSaveInstanceState(outState);
-        }    
-    }
-    ```
-
-Se você executar o aplicativo agora, deverá ver uma linha no mapa, como mostrado abaixo:
-
-<center>
-
-![Uma linha renderizada em um mapa do Android](./media/how-to-add-shapes-to-android-map/android-map-line.png)</center>
-
-
-## <a name="add-a-polygon-to-the-map"></a>Adicionar um polígono a um mapa
-
-A **camada de polígono** permite renderizar a área do polígono para o mapa. Siga as etapas abaixo para adicionar um polígono no mapa.
-
-1. Edite o **layout de > res > activity_main.xml** para que ele se pareça com o seguinte:
-
-    ```XML
-    <?xml version="1.0" encoding="utf-8"?>
-    <FrameLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-    
-        <com.microsoft.azure.maps.mapcontrol.MapControl
-            android:id="@+id/mapcontrol"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:mapcontrol_centerLat="40.78"
-            app:mapcontrol_centerLng="-73.97"
-            app:mapcontrol_zoom="12"
-            />
-    
-    </FrameLayout>
-    ```
-
-2. Copie o trecho de código a seguir para o método **OnCreate ()** da sua `MainActivity.java` classe.
-
-    ```Java
-    mapControl.onReady(map -> {
-        //Create a data source and add it to the map.
-        DataSource dataSource = new DataSource();
-        map.sources.add(dataSource);
-    
-        //Create a list of point arrays to create polygon rings.
-        List<List<Point>> rings = Arrays.asList(Arrays.asList(
+//Create a rectangular polygon.
+source.add(Polygon.fromLngLats(
+    Arrays.asList(
+        Arrays.asList(
             Point.fromLngLat(-73.98235, 40.76799),
             Point.fromLngLat(-73.95785, 40.80044),
-            Point.fromLngLat(-73.94928, 40.7968),
+            Point.fromLngLat(-73.94928, 40.79680),
             Point.fromLngLat(-73.97317, 40.76437),
-            Point.fromLngLat(-73.98235, 40.76799)));
-    
-        //Create a Polygon feature and add it to the data source.
-        dataSource.add(Feature.fromGeometry(Polygon.fromLngLats(rings)));
-    
-        //Add a polygon layer for rendering the polygon area.
-        map.layers.add(new PolygonLayer(dataSource,
-            fillColor("red")));
-    
-        //Add a line layer for rendering the polygon outline.
-        map.layers.add(new LineLayer(dataSource,
-            strokeColor("blue"),
-            strokeWidth(2f)));
-    });
-    ```
+            Point.fromLngLat(-73.98235, 40.76799)
+        )
+    )
+));
 
-    O trecho de código acima Obtém primeiro uma instância de controle de mapa do Azure Maps usando o método de retorno de chamada **Onreadal ()** . Em seguida, ele cria um objeto de fonte de dados usando a classe **DataSource** e o adiciona ao mapa. Um objeto **Polygon** é então criado a partir de uma lista de objetos **Point**  e é adicionado à fonte de dados. Uma **camada de polígono** renderiza os dados encapsulados na fonte de dados no mapa. Em seguida, ele cria uma camada de polígono para renderizar a área do polígono e adiciona a fonte de dados a ela. Uma **camada de linha** renderiza os objetos de linha encapsulados em uma fonte de dados. A última parte do trecho de código cria uma camada de linha para renderizar o contorno do polígono e adiciona a fonte de dados a ele.
+//Create and add a polygon layer to render the polygon on the map, below the label layer.
+map.layers.add(new PolygonLayer(source, 
+    fillColor("red"),
+    fillOpacity(0.7f)
+), "labels");
+```
 
-    Depois de adicionar o trecho de código acima, seu `MainActivity.java` deve se parecer com o seguinte:
+A captura de tela a seguir mostra o código acima renderizando a área de um polígono usando uma camada de polígono.
 
-    ```Java
-    package com.example.myapplication;
-    
-    import android.app.Activity;
-    import android.os.Bundle;
-    import java.util.Arrays;
-    import android.util.Log;
-    import java.util.Collections;
-    import android.support.v7.app.AppCompatActivity;
-    import com.mapbox.geojson.Point;
-    import com.mapbox.geojson.Polygon;
-    import com.mapbox.geojson.Feature;
-    import com.microsoft.azure.maps.mapcontrol.layer.LineLayer;
-    import com.microsoft.azure.maps.mapcontrol.options.LineLayerOptions;
-    import com.microsoft.azure.maps.mapcontrol.layer.PolygonLayer;
-    import com.microsoft.azure.maps.mapcontrol.source.DataSource;
-    import com.microsoft.azure.maps.mapcontrol.AzureMaps;
-    import com.microsoft.azure.maps.mapcontrol.MapControl;
-    import static com.microsoft.azure.maps.mapcontrol.options.LineLayerOptions.strokeColor;
-    import static com.microsoft.azure.maps.mapcontrol.options.LineLayerOptions.strokeWidth;
-    import static com.microsoft.azure.maps.mapcontrol.options.PolygonLayerOptions.fillColor;
-    
-    public class MainActivity extends AppCompatActivity {
-    
-        static{
-            AzureMaps.setSubscriptionKey("<Your Azure Maps subscription key>");
-        }
-    
-        MapControl mapControl;
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-    
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
-    
-            mapControl = findViewById(R.id.mapcontrol);
-    
-            mapControl.onCreate(savedInstanceState);
-    
-            mapControl.onReady(map -> {
-                //Create a data source and add it to the map.
-                DataSource dataSource = new DataSource();
-                map.sources.add(dataSource);
-            
-                //Create a list of point arrays to create polygon rings.
-                List<List<Point>> rings = Arrays.asList(Arrays.asList(
-                    Point.fromLngLat(-73.98235, 40.76799),
-                    Point.fromLngLat(-73.95785, 40.80044),
-                    Point.fromLngLat(-73.94928, 40.7968),
-                    Point.fromLngLat(-73.97317, 40.76437),
-                    Point.fromLngLat(-73.98235, 40.76799)));
-            
-                //Create a Polygon feature and add it to the data source.
-                dataSource.add(Feature.fromGeometry(Polygon.fromLngLats(rings)));
-            
-                //Add a polygon layer for rendering the polygon area.
-                map.layers.add(new PolygonLayer(dataSource,
-                    fillColor("red")));
-            
-                //Add a line layer for rendering the polygon outline.
-                map.layers.add(new LineLayer(dataSource,
-                    strokeColor("blue"),
-                    strokeWidth(2f)));
-            });    
-        }
-    
-        @Override
-        public void onResume() {
-            super.onResume();
-            mapControl.onResume();
-        }
-    
-        @Override
-        public void onPause() {
-            super.onPause();
-            mapControl.onPause();
-        }
-    
-        @Override
-        public void onStop() {
-            super.onStop();
-            mapControl.onStop();
-        }
-    
-        @Override
-        public void onLowMemory() {
-            super.onLowMemory();
-            mapControl.onLowMemory();
-        }
-    
-        @Override
-        protected void onDestroy() {
-            super.onDestroy();
-            mapControl.onDestroy();
-        }
-    
-        @Override
-        protected void onSaveInstanceState(Bundle outState) {
-            super.onSaveInstanceState(outState);
-            mapControl.onSaveInstanceState(outState);
-        }    
-    }
-    ```
+![Polígono com sua área de preenchimento renderizada](media/how-to-add-shapes-to-android-map/android-polygon-layer.png)
 
-Se você executar seu aplicativo agora, você deverá ver um polígono no mapa, como mostrado abaixo:
+## <a name="use-a-polygon-and-line-layer-together"></a>Usar um polígono e uma camada de linha juntos
 
-<center>
+Uma camada de linha é usada para renderizar o contorno de polígonos. O exemplo de código a seguir renderiza um polígono como o exemplo anterior, mas agora adiciona uma camada de linha. Essa camada de linha é uma segunda camada conectada à fonte de dados.  
 
-![Um polígono renderizado em um mapa do Android](./media/how-to-add-shapes-to-android-map/android-map-polygon.png)</center>
+```java
+//Create a data source and add it to the map.
+DataSource source = new DataSource();
+map.sources.add(source);
 
+//Create a rectangular polygon.
+source.add(Polygon.fromLngLats(
+    Arrays.asList(
+        Arrays.asList(
+            Point.fromLngLat(-73.98235, 40.76799),
+            Point.fromLngLat(-73.95785, 40.80044),
+            Point.fromLngLat(-73.94928, 40.79680),
+            Point.fromLngLat(-73.97317, 40.76437),
+            Point.fromLngLat(-73.98235, 40.76799)
+        )
+    )
+));
+
+//Create and add a polygon layer to render the polygon on the map, below the label layer.
+map.layers.add(new PolygonLayer(source,
+    fillColor("rgba(0, 200, 200, 0.5)")
+), "labels");
+
+//Create and add a line layer to render the outline of the polygon.
+map.layers.add(new LineLayer(source,
+    strokeColor("red"),
+    strokeWidth(2f)
+));
+```
+
+A captura de tela a seguir mostra o código acima renderizando um polígono com seu contorno renderizado usando uma camada de linha.
+
+![Polígono com sua área de preenchimento e estrutura de tópicos renderizados](media/how-to-add-shapes-to-android-map/android-polygon-and-line-layer.png)
+
+> [!TIP]
+> Ao estruturar um polígono com uma camada de linha, não se esqueça de fechar todos os anéis em polígonos de modo que cada matriz de pontos tenha o mesmo ponto inicial e final. Se isso não for feito, a camada de linha poderá não conectar o último ponto do polígono ao primeiro ponto.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para adicionar mais dados ao seu mapa:
+Consulte os artigos a seguir para obter mais exemplos de código para adicionar aos seus mapas:
 
 > [!div class="nextstepaction"]
-> [Adicionar uma camada de símbolo](how-to-add-symbol-to-android-map.md)
+> [Criar uma fonte de dados](create-data-source-android-sdk.md)
 
 > [!div class="nextstepaction"]
-> [Adicionar uma camada de bloco](how-to-add-tile-layer-android-map.md)
+> [Usar expressões de estilo controladas por dados](data-driven-style-expressions-android-sdk.md)
 
 > [!div class="nextstepaction"]
-> [Exibir informações do recurso](display-feature-information-android.md)
+> [Adicionar uma camada de linha](android-map-add-line-layer.md)

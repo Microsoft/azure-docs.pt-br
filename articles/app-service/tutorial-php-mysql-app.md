@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 06/15/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 1053eb9772650dce040570bda04addf93df49178
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e2a4d8635a1a793fd8a5d98b8957bea6b36cecda
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743537"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934927"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure-app-service"></a>Tutorial: Criar um aplicativo em PHP e MySQL no Serviço de Aplicativo do Azure
 
@@ -46,11 +46,12 @@ Neste tutorial, você aprenderá como:
 
 Para concluir este tutorial:
 
-* [Instalar o Git](https://git-scm.com/)
-* [Instalar o PHP 5.6.4 ou posterior](https://php.net/downloads.php)
-* [Instalar o Composer](https://getcomposer.org/doc/00-intro.md)
-* Habilite as seguintes extensões de PHP de que o Laravel precisa: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
-* [Instalar e iniciar o MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
+- [Instalar o Git](https://git-scm.com/)
+- [Instalar o PHP 5.6.4 ou posterior](https://php.net/downloads.php)
+- [Instalar o Composer](https://getcomposer.org/doc/00-intro.md)
+- Habilite as seguintes extensões de PHP de que o Laravel precisa: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
+- [Instalar e iniciar o MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html)
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)] 
 
 ## <a name="prepare-local-mysql"></a>Preparar o MySQL local
 
@@ -107,7 +108,7 @@ composer install
 
 ### <a name="configure-mysql-connection"></a>Configurar a conexão do MySQL
 
-Na raiz do repositório, crie um arquivo chamado *.env* . Copie as variáveis a seguir para o arquivo *.env* . Substitua o espaço reservado _&lt;root_password>_ pela senha do usuário raiz do MySQL.
+Na raiz do repositório, crie um arquivo chamado *.env*. Copie as variáveis a seguir para o arquivo *.env*. Substitua o espaço reservado _&lt;root_password>_ pela senha do usuário raiz do MySQL.
 
 ```txt
 APP_ENV=local
@@ -121,7 +122,7 @@ DB_USERNAME=root
 DB_PASSWORD=<root_password>
 ```
 
-Para obter informações sobre como o Laravel usa o arquivo _.env_ , consulte [Configuração de ambiente do Laravel](https://laravel.com/docs/5.4/configuration#environment-configuration).
+Para obter informações sobre como o Laravel usa o arquivo _.env_, consulte [Configuração de ambiente do Laravel](https://laravel.com/docs/5.4/configuration#environment-configuration).
 
 ### <a name="run-the-sample-locally"></a>Executar o exemplo localmente
 
@@ -149,8 +150,6 @@ Navegue até `http://localhost:8000` em um navegador. Adicione algumas tarefas �
 
 Para interromper o PHP, digite `Ctrl + C` no terminal.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## <a name="create-mysql-in-azure"></a>Criar o MySQL no Azure
 
 Nesta etapa, você cria um banco de dados MySQL no [Banco de Dados do Azure para MySQL](../mysql/index.yml). Posteriormente, você configura o aplicativo PHP para se conectar a esse banco de dados.
@@ -163,7 +162,7 @@ Nesta etapa, você cria um banco de dados MySQL no [Banco de Dados do Azure para
 
 No Cloud Shell, crie um servidor no Banco de Dados do Azure para MySQL com o comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest&preserve-view=true#az-mysql-server-create).
 
-No comando a seguir, substitua um nome do servidor exclusivo pelo espaço reservado *\<mysql-server-name>* , um nome de usuário pelo *\<admin-user>* e uma senha pelo espaço reservado *\<admin-password>* . O nome do servidor é usado como parte de seu ponto de extremidade do MySQL (`https://<mysql-server-name>.mysql.database.azure.com`) e, portanto, precisa ser exclusivo entre todos os servidores no Azure. Para obter detalhes sobre como selecionar o SKU do banco de dados MySQL, confira [Criar um servidor do Banco de Dados do Azure para MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md#create-an-azure-database-for-mysql-server).
+No comando a seguir, substitua um nome do servidor exclusivo pelo espaço reservado *\<mysql-server-name>* , um nome de usuário pelo *\<admin-user>* e uma senha pelo espaço reservado *\<admin-password>* . O nome do servidor é usado como parte de seu ponto de extremidade do MySQL (`https://<mysql-server-name>.mysql.database.azure.com`) e, portanto, precisa ser exclusivo entre todos os servidores no Azure. Para obter detalhes sobre como selecionar o SKU do Banco de Dados MySQL, confira [Criar um servidor do Banco de Dados do Azure para MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md#create-an-azure-database-for-mysql-server).
 
 ```azurecli-interactive
 az mysql server create --resource-group myResourceGroup --name <mysql-server-name> --location "West Europe" --admin-user <admin-user> --admin-password <admin-password> --sku-name B_Gen5_1
@@ -242,7 +241,7 @@ Nesta etapa, você conecta o aplicativo PHP ao banco de dados MySQL criado no Ba
 
 ### <a name="configure-the-database-connection"></a>Configurar a conexão de banco de dados
 
-Na raiz do repositório, crie um arquivo _.env.production_ e copie as variáveis a seguir para ele. Substitua o espaço reservado _&lt;mysql-server-name>_ em *DB_HOST* e *DB_USERNAME* .
+Na raiz do repositório, crie um arquivo _.env.production_ e copie as variáveis a seguir para ele. Substitua o espaço reservado _&lt;mysql-server-name>_ em *DB_HOST* e *DB_USERNAME*.
 
 ```
 APP_ENV=production
@@ -402,7 +401,7 @@ az webapp config appsettings set --name <app-name> --resource-group myResourceGr
 
 O Laravel precisa de uma chave de aplicativo no Serviço de Aplicativo. É possível configurá-la com as configurações do aplicativo.
 
-Na janela do terminal local, use `php artisan` para gerar uma nova chave de aplicativo sem salvá-la em _.env_ .
+Na janela do terminal local, use `php artisan` para gerar uma nova chave de aplicativo sem salvá-la em _.env_.
 
 ```bash
 php artisan key:generate --show
@@ -420,7 +419,7 @@ az webapp config appsettings set --name <app-name> --resource-group myResourceGr
 
 ::: zone pivot="platform-windows"  
 
-Defina o caminho do aplicativo virtual do aplicativo. Esta etapa é necessária porque o [ciclo de vida do aplicativo do Laravel](https://laravel.com/docs/5.4/lifecycle) começa no diretório _public_ , em vez de no diretório raiz do aplicativo. Outras estruturas PHP cujo ciclo de vida começa no diretório raiz podem funcionar sem a configuração manual do caminho do aplicativo virtual.
+Defina o caminho do aplicativo virtual do aplicativo. Esta etapa é necessária porque o [ciclo de vida do aplicativo do Laravel](https://laravel.com/docs/5.4/lifecycle) começa no diretório _public_, em vez de no diretório raiz do aplicativo. Outras estruturas PHP cujo ciclo de vida começa no diretório raiz podem funcionar sem a configuração manual do caminho do aplicativo virtual.
 
 No Cloud Shell, defina o caminho do aplicativo virtual usando o comando [`az resource update`](/cli/azure/resource#az-resource-update). Substitua o espaço reservado _&lt;app-name>_ .
 
@@ -428,13 +427,13 @@ No Cloud Shell, defina o caminho do aplicativo virtual usando o comando [`az res
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01
 ```
 
-Por padrão, o Serviço de Aplicativo do Azure aponta o caminho do aplicativo virtual raiz ( _/_ ) para o diretório raiz dos arquivos de aplicativo implantados ( _sites\wwwroot_ ).
+Por padrão, o Serviço de Aplicativo do Azure aponta o caminho do aplicativo virtual raiz ( _/_ ) para o diretório raiz dos arquivos de aplicativo implantados (_sites\wwwroot_).
 
 ::: zone-end
 
 ::: zone pivot="platform-linux"
 
-O [ciclo de vida do aplicativo Laravel](https://laravel.com/docs/5.4/lifecycle) começa no diretório _public_ , e não no diretório raiz do aplicativo. A imagem do Docker do PHP padrão para o Serviço de Aplicativo usa Apache, e não permite a personalização do `DocumentRoot` para Laravel. No entanto, você pode usar `.htaccess` para reescrever todas as solicitações a fim de apontar para _/public_ em vez do diretório raiz. Na raiz do repositório, já há um `.htaccess` para essa finalidade. Com ele, seu aplicativo Laravel está pronto para ser implantado.
+O [ciclo de vida do aplicativo Laravel](https://laravel.com/docs/5.4/lifecycle) começa no diretório _public_, e não no diretório raiz do aplicativo. A imagem do Docker do PHP padrão para o Serviço de Aplicativo usa Apache, e não permite a personalização do `DocumentRoot` para Laravel. No entanto, você pode usar `.htaccess` para reescrever todas as solicitações a fim de apontar para _/public_ em vez do diretório raiz. Na raiz do repositório, já há um `.htaccess` para essa finalidade. Com ele, seu aplicativo Laravel está pronto para ser implantado.
 
 Para obter mais informações, confira [Alterar raiz do site](configure-language-php.md#change-site-root).
 
@@ -452,7 +451,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
@@ -483,7 +482,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
@@ -498,7 +497,7 @@ remote: Running deployment command...
 
 Navegue até `http://<app-name>.azurewebsites.net` e adicione algumas tarefas à lista.
 
-:::image type="content" source="./media/tutorial-php-mysql-app/php-mysql-in-azure.png" alt-text="Captura de tela de um exemplo de aplicativo PHP intitulado Lista de Tarefas.":::
+:::image type="content" source="./media/tutorial-php-mysql-app/php-mysql-in-azure.png" alt-text="Captura de tela do exemplo de aplicativo do Azure intitulado Lista de Tarefas mostrando novas tarefas adicionadas.":::
 
 Parabéns! Você está executando um aplicativo PHP controlado por dados no Serviço de Aplicativo do Azure.
 
@@ -550,11 +549,11 @@ Na janela do terminal local, execute migrações de banco de dados do Laravel pa
 php artisan migrate
 ```
 
-Com base na [convenção de nomenclatura do Laravel](https://laravel.com/docs/5.4/eloquent#defining-models), o modelo `Task` (consulte _app/Task.php_ ) é mapeado para a tabela `tasks` por padrão.
+Com base na [convenção de nomenclatura do Laravel](https://laravel.com/docs/5.4/eloquent#defining-models), o modelo `Task` (consulte _app/Task.php_) é mapeado para a tabela `tasks` por padrão.
 
 ### <a name="update-application-logic"></a>Atualizar a lógica do aplicativo
 
-Abra o arquivo *routes/web.php* . O aplicativo define suas rotas e sua lógica de negócios aqui.
+Abra o arquivo *routes/web.php*. O aplicativo define suas rotas e sua lógica de negócios aqui.
 
 No final do arquivo, adicione uma rota com o código a seguir:
 
@@ -577,7 +576,7 @@ O código anterior faz uma atualização simples no modelo de dados ativando/des
 
 ### <a name="update-the-view"></a>Atualizar a exibição
 
-Abra o arquivo *resources/views/tasks.blade.php* . Encontre a marcação de abertura `<tr>` e a substitua por:
+Abra o arquivo *resources/views/tasks.blade.php*. Encontre a marcação de abertura `<tr>` e a substitua por:
 
 ```html
 <tr class="{{ $task->complete ? 'success' : 'active' }}" >
@@ -635,7 +634,7 @@ Confirme todas as alterações no Git e, em seguida, envie as alterações de c�
 ```bash
 git add .
 git commit -m "added complete checkbox"
-git push azure master
+git push azure main
 ```
 
 Quando `git push` for concluído, navegue até o aplicativo do Azure e teste a nova funcionalidade.
@@ -669,7 +668,7 @@ Para interromper o streaming de log a qualquer momento, digite `Ctrl`+`C`.
 ::: zone-end
 
 > [!TIP]
-> Um aplicativo PHP pode usar o [error_log()](https://php.net/manual/function.error-log.php) padrão para gerar a saída para o console. O aplicativo de exemplo usa essa abordagem em _app/Http/routes.php_ .
+> Um aplicativo PHP pode usar o [error_log()](https://php.net/manual/function.error-log.php) padrão para gerar a saída para o console. O aplicativo de exemplo usa essa abordagem em _app/Http/routes.php_.
 >
 > Como uma estrutura da Web, o [Laravel usa o Monolog](https://laravel.com/docs/5.4/errors) como provedor de logs. Para saber como fazer com que o Monolog produza mensagens para o console, confira [PHP: como usar o Monolog para registrar no console (php://out)](https://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out).
 >

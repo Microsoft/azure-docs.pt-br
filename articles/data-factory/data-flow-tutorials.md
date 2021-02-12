@@ -1,17 +1,17 @@
 ---
 title: Mapeamento de tutoriais em vídeo de fluxo de dados
 description: Uma lista de tutoriais em vídeo explicando os conceitos do fluxo de dados de mapeamento
-author: djpmsft
-ms.author: daperlov
+author: kromerm
+ms.author: makromer
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 10/13/2020
-ms.openlocfilehash: 90b0791387e8b4966f8f2c56d3838f54457beef5
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.date: 12/14/2020
+ms.openlocfilehash: 289f22230a38ef8dd6e369573091c5b30dd4a5c7
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044013"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706993"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Mapeamento de tutoriais em vídeo de fluxo de dados
 
@@ -86,6 +86,10 @@ Veja a seguir uma lista de tutoriais em vídeo sobre o fluxo de dados de mapeame
 [Transformar dados hierárquicos](https://youtu.be/oAEh21NFgWQ)
 
 [Classificar a transformação](https://youtu.be/6XvgkbMtws0)
+
+[Pesquisa armazenada em cache](https://www.youtube.com/watch?v=HqCn42FaRJs)
+
+[Contexto de linha por meio da transformação de Janela](http://youtu.be/jqt1gmX2XUg)
 
 ## <a name="source-and-sink"></a>Fonte e coletor
 

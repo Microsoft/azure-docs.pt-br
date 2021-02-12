@@ -1,19 +1,16 @@
 ---
 title: Criar redes virtuais para clusters do Azure HDInsight
 description: Saiba como criar uma rede virtual do Azure para conectar o HDInsight a outros recursos de nuvem ou recursos em seu datacenter.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/16/2020
-ms.openlocfilehash: 4f604ba2edcc63a245a5e87d3dcb6fdd16a9d050
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 43d57eac94cabb5c648183911e0c0bf72889946d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741433"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946064"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Criar redes virtuais para clusters do Azure HDInsight
 

@@ -2,19 +2,16 @@
 title: Corrigir um erro Hive sem memória no Azure HDInsight
 description: Corrija um erro Hive sem memória no HDInsight. O cenário de cliente é uma consulta em várias tabelas grandes.
 keywords: erro de memória insuficiente, OOM, configurações do Hive
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 11/28/2019
-ms.openlocfilehash: d91da1aa6f7079069541ac955fce8331591a3bc6
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c0810d33f3ac939b9382bf321448ed72b6d87474
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546170"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945712"
 ---
 # <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Consertar um erro de memória insuficiente do Apache Hive no Azure HDInsight
 
@@ -91,7 +88,7 @@ Nosso suporte e as equipes de engenharia juntos descobriram que um dos problemas
 
 "Quando Hive. auto. converter. Join. noconditionaltask = true verificamos noconditionaltask. size e, se a soma dos tamanhos das tabelas na junção do mapa for menor que noconditionaltask. Size o plano geraria uma junção de mapa, o problema com isso é que o cálculo não leva em conta a sobrecarga introduzida por uma implementação de tabela de hash diferente como resultado se a soma dos tamanhos de entrada for menor do que o tamanho de noconditionaltask por uma pequena
 
-O **hive.auto.convert.join.noconditionaltask** no arquivo hive-site.xml estava definido como **true** :
+O **hive.auto.convert.join.noconditionaltask** no arquivo hive-site.xml estava definido como **true**:
 
 ```xml
 <property>
@@ -109,10 +106,10 @@ O **hive.auto.convert.join.noconditionaltask** no arquivo hive-site.xml estava d
 
 ![Diagrama de memória de contêiner Tez: erro de falta de memória do Hive](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
 
-Como sugere a postagem no blog, as duas configurações de memória a seguir definem a memória de contêiner para o heap: **hive.tez.container.size** e **hive.tez.java.opts** . Da nossa experiência, a exceção de memória insuficiente não significa que o tamanho do contêiner é muito pequeno. Isso significa que o tamanho do heap de Java (hive.tez.java.opts) é muito pequeno. Portanto, sempre que você vir falta de memória, poderá tentar aumentar **hive.tez.java.opts** . Se necessário, pode ser que você precise aumentar **hive.tez.container.size** . A configuração **java.opts** deve ser aproximadamente 80% do **container.size** .
+Como sugere a postagem no blog, as duas configurações de memória a seguir definem a memória de contêiner para o heap: **hive.tez.container.size** e **hive.tez.java.opts**. Da nossa experiência, a exceção de memória insuficiente não significa que o tamanho do contêiner é muito pequeno. Isso significa que o tamanho do heap de Java (hive.tez.java.opts) é muito pequeno. Portanto, sempre que você vir falta de memória, poderá tentar aumentar **hive.tez.java.opts**. Se necessário, pode ser que você precise aumentar **hive.tez.container.size**. A configuração **java.opts** deve ser aproximadamente 80% do **container.size**.
 
 > [!NOTE]  
-> A configuração **hive.tez.java.opts** deve ser menor que **hive.tez.container.size** .
+> A configuração **hive.tez.java.opts** deve ser menor que **hive.tez.container.size**.
 
 Como uma máquina D12 tem 28 GB de memória, decidimos usar um tamanho de contêiner de 10 GB (10240 MB) e atribuir 80% a Java. aceita:
 

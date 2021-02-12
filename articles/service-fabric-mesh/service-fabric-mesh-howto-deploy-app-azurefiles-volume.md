@@ -6,14 +6,19 @@ ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter , devx-track-azurecli
-ms.openlocfilehash: 00addbe992bc113c67df08f73414107d51b3bce5
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 40d10568e13ad455bc5178821da80e89f4132e93
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748212"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625830"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Montar um volume de Arquivos do Azure com base em um aplicativo da Malha do Azure Service Fabric 
+
+> [!IMPORTANT]
+> A visualização da malha de Service Fabric do Azure foi desativada. Novas implantações não serão mais permitidas por meio da API de malha Service Fabric. O suporte para implantações existentes continuará até 28 de abril de 2021.
+> 
+> Para obter detalhes, consulte desativação da [Visualização da malha de Service Fabric do Azure](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Este artigo descreve como montar um volume de arquivos do Azure com base em um serviço de um aplicativo da Malha do Azure Service Fabric.  O driver de volume de arquivos do Azure é um driver de volume do Docker usado para montar um compartilhamento de Arquivos do Azure para um contêiner, que você usa para manter o estado do serviço. Os volumes oferecem armazenamento de arquivos de finalidade geral e permitem a você ler/gravar arquivos usando APIs de arquivo de E/S de disco normal.  Para saber mais sobre volumes e opções para armazenar dados de aplicativo, leia [armazenando o estado](service-fabric-mesh-storing-state.md).
 
@@ -75,9 +80,9 @@ az storage account keys list --account-name <storageAccountName> --query "[?keyN
 ```
 
 Você também pode encontrar esses valores na [portal do Azure](https://portal.azure.com):
-* `<storageAccountName>` - Em **Contas de Armazenamento** , o nome da conta de armazenamento que você usou quando criou o compartilhamento de arquivos.
-* `<storageAccountKey>` - Selecione a conta de armazenamento em **Contas de Armazenamento** e, em seguida, selecione **Chaves de acesso** e use o valor em **key1** .
-* `<fileShareName>` - Selecione a conta de armazenamento em **Contas de Armazenamento** e, em seguida, selecione **Arquivos** . O nome a usar é o nome do compartilhamento de arquivos que você acabou de criar.
+* `<storageAccountName>` - Em **Contas de Armazenamento**, o nome da conta de armazenamento que você usou quando criou o compartilhamento de arquivos.
+* `<storageAccountKey>` - Selecione a conta de armazenamento em **Contas de Armazenamento** e, em seguida, selecione **Chaves de acesso** e use o valor em **key1**.
+* `<fileShareName>` - Selecione a conta de armazenamento em **Contas de Armazenamento** e, em seguida, selecione **Arquivos**. O nome a usar é o nome do compartilhamento de arquivos que você acabou de criar.
 
 ## <a name="declare-a-volume-resource-and-update-the-service-resource-json"></a>Declare um recurso de volume e atualize o recurso de serviço (JSON)
 

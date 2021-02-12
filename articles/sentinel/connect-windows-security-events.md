@@ -1,6 +1,6 @@
 ---
 title: Conectar dados de eventos de segurança do Windows ao Azure Sentinel | Microsoft Docs
-description: Aprenda a usar o conector de eventos de segurança para transmitir todos os eventos de segurança de seus sistemas Windows para seu espaço de trabalho do Azure Sentinel. 
+description: Aprenda a usar o conector de eventos de segurança para transmitir todos os eventos de segurança de seus sistemas Windows para seu espaço de trabalho do Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: a16afcafa03ef2ab8642316db560e30a473a526b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 226d5a46482d6611fdecf214d040fc27af9ac586
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883712"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632039"
 ---
 # <a name="connect-windows-security-events"></a>Conectar eventos de segurança do Windows 
 
@@ -44,28 +44,28 @@ O conector de eventos de segurança permite que você transmita todos os eventos
 
 > [!NOTE]
 > A coleta de eventos de segurança no contexto de um único espaço de trabalho pode ser configurada a partir da central de segurança do Azure ou do Azure Sentinel, mas não ambos. Se você estiver integrando o Azure Sentinel em um espaço de trabalho que já está obtendo alertas do Azure defender da central de segurança do Azure e estiver definido para coletar eventos de segurança, você terá duas opções:
-> - Deixe a coleção de eventos de segurança na central de segurança do Azure como está. Você poderá consultar e analisar esses eventos no Azure Sentinel, bem como no Azure defender. No entanto, não será possível monitorar o status de conectividade do conector ou alterar sua configuração no Azure Sentinel. Se isso for importante para você, considere a segunda opção.
+> - Deixe a coleção de Eventos de Segurança na Central de Segurança do Azure no estado em que se encontra. Você poderá consultar e analisar esses eventos no Azure Sentinel, bem como no Azure Defender. No entanto, não será possível monitorar o status de conectividade do conector nem alterar a configuração dele no Azure Sentinel. Se isso for importante para você, considere a segunda opção.
 >
-> - [Desabilite a coleta de eventos de segurança](../security-center/security-center-enable-data-collection.md) na central de segurança do Azure e, em seguida, adicione o conector de eventos de segurança no Azure Sentinel. Assim como na primeira opção, você poderá consultar e analisar eventos no Azure Sentinel e no Azure defender/ASC, mas agora será capaz de monitorar o status de conectividade do conector ou alterar sua configuração no-e somente no Azure Sentinel.
+> - [Desabilite a coleção de Eventos de Segurança](../security-center/security-center-enable-data-collection.md) na Central de Segurança do Azure e adicione o conector de Eventos de Segurança no Azure Sentinel. Assim como aconteceu com a primeira opção, você poderá consultar e analisar eventos no Azure Sentinel e no Azure Defender/ASC, mas agora poderá monitorar o status de conectividade do conector ou alterar a configuração dele no (e apenas no) Azure Sentinel.
 
 ## <a name="set-up-the-windows-security-events-connector"></a>Configurar o conector de eventos de segurança do Windows
 
 Para coletar seus eventos de segurança do Windows no Azure Sentinel:
 
-1. No menu de navegação do Azure Sentinel, selecione **conectores de dados**. Na lista de conectores, clique em **eventos de segurança**e, em seguida, no botão **abrir página do conector** no canto inferior direito. Em seguida, siga as instruções na tela na guia **instruções** , conforme descrito no restante desta seção.
+1. No menu de navegação do Azure Sentinel, selecione **conectores de dados**. Na lista de conectores, clique em **eventos de segurança** e, em seguida, no botão **abrir página do conector** no canto inferior direito. Em seguida, siga as instruções na tela na guia **instruções** , conforme descrito no restante desta seção.
 
-1. Verifique se você tem as permissões apropriadas, conforme descrito em **pré-requisitos**.
+1. Verifique se você tem as permissões apropriadas, conforme descrito na seção **pré-requisitos** na página do conector.
 
 1. Baixe e instale o [agente de log Analytics](../azure-monitor/platform/log-analytics-agent.md) (também conhecido como Microsoft Monitoring Agent ou MMA) nos computadores para os quais você deseja transmitir eventos de segurança para o Azure Sentinel.
 
     Para máquinas virtuais do Azure:
     
-    1. Clique em **instalar agente na máquina virtual do Windows do Azure**e, em seguida, no link que aparece abaixo.
+    1. Clique em **instalar agente na máquina virtual do Windows do Azure** e, em seguida, no link que aparece abaixo.
     1. Para cada máquina virtual que você deseja conectar, clique em seu nome na lista que aparece à direita e, em seguida, clique em **conectar**.
 
     Para computadores Windows que não são do Azure (físico, virtual local ou virtual em outra nuvem):
 
-    1. Clique em **instalar agente em computador não Azure com Windows**e, em seguida, no link que aparece abaixo.
+    1. Clique em **instalar agente em computador não Azure com Windows** e, em seguida, no link que aparece abaixo.
     1. Clique nos links de download apropriados que aparecem à direita, em **computadores com Windows**.
     1. Usando o arquivo executável baixado, instale o agente nos sistemas Windows de sua escolha e configure-o usando a **ID do espaço de trabalho e as chaves** que aparecem abaixo dos links de download mencionados acima.
 
@@ -73,9 +73,9 @@ Para coletar seus eventos de segurança do Windows no Azure Sentinel:
     >
     > Para permitir que os sistemas Windows sem a conectividade de Internet necessária ainda transmitam eventos para o Azure Sentinel, baixe e instale o **gateway do OMS** em um computador separado, usando o link no canto inferior direito, para atuar como um proxy.  Você ainda precisará instalar o agente de Log Analytics em cada sistema Windows cujos eventos você deseja coletar.
     >
-    > Para obter mais informações sobre esse cenário, consulte a documentação do [ **gateway de log Analytics** ](../azure-monitor/platform/gateway.md).
+    > Para obter mais informações sobre esse cenário, consulte a documentação do [ **gateway de log Analytics**](../azure-monitor/platform/gateway.md).
 
-    Para obter opções de instalação adicionais e mais detalhes, consulte a documentação do [ **agente de log Analytics** ](../azure-monitor/platform/agent-windows.md).
+    Para obter opções de instalação adicionais e mais detalhes, consulte a documentação do [ **agente de log Analytics**](../azure-monitor/platform/agent-windows.md).
 
 1. Selecione qual conjunto de eventos ([tudo, comum ou mínimo](#event-sets)) você deseja transmitir.
 
@@ -106,7 +106,7 @@ O Azure Sentinel pode aplicar o ML (aprendizado de máquina) aos dados de evento
 
 1. Você deve estar coletando dados de logon RDP (ID do evento 4624) por meio do conector de dados de **eventos de segurança** . Verifique se você selecionou um [conjunto de eventos](#event-sets) além de "nenhum" para transmitir para o Azure Sentinel.
 
-1. No portal do Azure Sentinel, clique em **análise**e, em seguida, clique na guia **modelos de regra** . Escolha a regra de **detecção de logon de RDP anômala (visualização)** e mova o controle deslizante de **status** para **habilitado**.
+1. No portal do Azure Sentinel, clique em **análise** e, em seguida, clique na guia **modelos de regra** . Escolha a regra de **detecção de logon de RDP anômala (visualização)** e mova o controle deslizante de **status** para **habilitado**.
 
     > [!NOTE]
     > Como o algoritmo de aprendizado de máquina exige um valor de dados de 30 dias para criar um perfil de linha de base de comportamento do usuário, você deve permitir que 30 dias de dados de eventos de segurança sejam coletados antes que qualquer incidente possa ser detectado.

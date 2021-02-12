@@ -1,17 +1,17 @@
 ---
 title: Proteção avançada contra ameaças-portal do Azure-banco de dados do Azure para MariaDB
 description: A proteção contra ameaças do banco de dados do Azure para MariaDB detecta atividades anormais de banco de dados que indicam possíveis ameaças de segurança ao banco de dados.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 1b5a16a014892764ee26b524489a82744fe6ca82
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 33bc93c62c32010e28cc8bb783bcef6f40700ca0
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425966"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98665099"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mariadb"></a>Proteção avançada contra ameaças para o banco de dados do Azure para MariaDB
 

@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: ba9f2b10258f19504e3fd37723eceff7b8c37f6a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a817c12a367d7c14f693389920e49b368a35cc06
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203476"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522865"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Otimizar consultas de log no Azure Monitor
-Os logs de Azure Monitor usam o [Data Explorer do Azure (ADX)](/azure/data-explorer/) para armazenar dados de log e executar consultas para analisar esses dados. Ele cria, gerencia e mantém os clusters ADX para você e os otimiza para sua carga de trabalho de análise de log. Quando você executa uma consulta, ela é otimizada e roteada para o cluster ADX apropriado que armazena os dados do espaço de trabalho. Os logs de Azure Monitor e o Data Explorer do Azure usam muitos mecanismos de otimização de consulta automática. Embora as otimizações automáticas forneçam um aumento significativo, elas estão em alguns casos em que você pode melhorar drasticamente o desempenho da consulta. Este artigo explica as considerações de desempenho e várias técnicas para corrigi-las.
+Os logs de Azure Monitor usam o [Data Explorer do Azure (ADX)](/azure/data-explorer/) para armazenar dados de log e executar consultas para analisar esses dados. Ele cria, gerencia e mantém os clusters ADX para você e os otimiza para sua carga de trabalho de análise de log. Quando você executa uma consulta, ela é otimizada e roteada para o cluster ADX apropriado que armazena os dados do espaço de trabalho. Os logs de Azure Monitor e o Data Explorer do Azure usam muitos mecanismos de otimização de consulta automática. Embora as otimizações automáticas forneçam um aumento significativo, há alguns casos em que você pode melhorar drasticamente o desempenho da consulta. Este artigo explica as considerações de desempenho e várias técnicas para corrigi-las.
 
 A maioria das técnicas é comum a consultas que são executadas diretamente no Azure Data Explorer e nos logs de Azure Monitor, embora haja várias considerações de logs de Azure Monitor exclusivas que são discutidas aqui. Para obter mais dicas de otimização de Data Explorer do Azure, consulte [práticas recomendadas de consulta](/azure/kusto/query/best-practices).
 
@@ -463,7 +463,7 @@ Os comportamentos de consulta que podem reduzir o paralelismo incluem:
 - O uso de funções de serialização e de janela, como o [operador serializar](/azure/kusto/query/serializeoperator), [Next ()](/azure/kusto/query/nextfunction), [Ant ()](/azure/kusto/query/prevfunction)e as funções [Row](/azure/kusto/query/rowcumsumfunction) . As funções de série temporal e análise de usuário podem ser usadas em alguns desses casos. A serialização ineficiente também poderá ocorrer se os operadores a seguir forem usados não no final da consulta: [intervalo](/azure/kusto/query/rangeoperator), [classificação](/azure/kusto/query/sortoperator), [ordem](/azure/kusto/query/orderoperator), [superior](/azure/kusto/query/topoperator), [superior Hitters](/azure/kusto/query/tophittersoperator), [GetSchema](/azure/kusto/query/getschemaoperator).
 -    O uso da função de agregação [DContar ()](/azure/kusto/query/dcount-aggfunction) força o sistema a ter uma cópia central dos valores distintos. Quando a escala de dados é alta, considere usar os parâmetros opcionais da função DContar para reduzir a precisão.
 -    Em muitos casos, o operador de [junção](/azure/kusto/query/joinoperator?pivots=azuremonitor) reduz o paralelismo geral. Examine a junção em ordem aleatória como alternativa quando o desempenho é problemático.
--    Em consultas de escopo de recurso, as verificações de pré-instalação RBAC podem permanecer em situações em que há um número muito grande de atribuições de função do Azure. Isso pode levar a verificações mais longas que resultaria em um paralelismo inferior. Por exemplo, uma consulta é executada em uma assinatura em que há milhares de recursos e cada recurso tem muitas atribuições de função no nível de recurso, não na assinatura ou no grupo de recursos.
+-    Em consultas de escopo de recurso, as verificações de RBAC ou RBAC do Azure kubernetes podem permanecer em situações em que há um número muito grande de atribuições de função do Azure. Isso pode levar a verificações mais longas que resultaria em um paralelismo inferior. Por exemplo, uma consulta é executada em uma assinatura em que há milhares de recursos e cada recurso tem muitas atribuições de função no nível de recurso, não na assinatura ou no grupo de recursos.
 -    Se uma consulta estiver processando pequenas partes de dados, seu paralelismo será baixo, pois o sistema não o espalhará em muitos nós de computação.
 
 

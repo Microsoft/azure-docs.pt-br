@@ -7,12 +7,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 69a9ba316a1fda14a2e85d4d981321d4b2f9f289
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75927534bf62fa4733bb552906ffa7e3a6e76286
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88930308"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935618"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Criar o perfil de Serviços de Nuvem do Azure ativos com o Application Insights
 
@@ -38,11 +38,11 @@ O Application Insights Profiler é instalado com a extensão de Diagnóstico do 
 
 1. Configure a extensão de Diagnóstico do Azure para habilitar o Profiler:
 
-    a. Localize o arquivo [diagnostics.wadcfgx do ](../platform/diagnostics-extension-overview.md) *Diagnóstico do Azure* para sua função de aplicativo, como mostrado aqui:  
+    a. Localize o arquivo [diagnostics.wadcfgx do](../platform/diagnostics-extension-overview.md) *Diagnóstico do Azure* para sua função de aplicativo, como mostrado aqui:  
 
       ![Local do arquivo de configuração de diagnóstico](./media/profiler-cloudservice/cloudservice-solutionexplorer.png)  
 
-      Se não for possível encontrar o arquivo, confira [Configurar diagnóstico para Máquinas Virtuais e Serviços de Nuvem do Azure](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?view=vs-2019).
+      Se não for possível encontrar o arquivo, confira [Configurar diagnóstico para Máquinas Virtuais e Serviços de Nuvem do Azure](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
 
     b. Adicione a seguinte seção `SinksConfig` como um elemento filho do `WadCfg`:  
 

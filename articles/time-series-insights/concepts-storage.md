@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 01/21/2021
 ms.custom: seodec18
-ms.openlocfilehash: b186c2d2c4b5efc8e1e052a63505549e860b5619
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 748eaca93eaee5ec858ea43261995111cef8ceda
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460821"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676844"
 ---
 # <a name="data-storage"></a>Armazenamento de dados
 
@@ -27,7 +27,7 @@ Ao criar um ambiente de Azure Time Series Insights Gen2, você tem as seguintes 
 
 * Armazenamento de dados frio:
   * Crie um novo recurso de armazenamento do Azure na assinatura e na região que você escolheu para o seu ambiente.
-  * Anexe uma conta de armazenamento do Azure já existente. Essa opção só está disponível por meio da implantação de um [modelo](https://docs.microsoft.com/azure/templates/microsoft.timeseriesinsights/allversions)de Azure Resource Manager e não é visível na portal do Azure.
+  * Anexe uma conta de armazenamento do Azure já existente. Essa opção só está disponível por meio da implantação de um [modelo](/azure/templates/microsoft.timeseriesinsights/allversions)de Azure Resource Manager e não é visível na portal do Azure.
 * Armazenamento de dados quente:
   * Uma loja morna é opcional e pode ser habilitada ou desabilitada durante ou após o provisionamento. Se você decidir habilitar a loja a quente em um momento posterior e já houver dados em sua loja fria, examine [esta](concepts-storage.md#warm-store-behavior) seção abaixo para entender o comportamento esperado. O tempo de retenção de dados de armazenamento quente pode ser configurado para 7 a 31 dias, e isso também pode ser ajustado conforme necessário.
 
@@ -40,14 +40,14 @@ Quando um evento é ingerido, ele é indexado na loja a quente (se habilitada) e
 
 ## <a name="data-availability"></a>Disponibilidade de dados
 
-Azure Time Series Insights Gen2 partições e índices de dados para obter o desempenho de consulta ideal. Os dados tornam-se disponíveis para consulta de uma loja passiva (se habilitada) e fria após sua indexação. A quantidade de dados que está sendo ingerida e a taxa de transferência por partição pode afetar a disponibilidade. Examine as limitações de [taxa de transferência](./concepts-streaming-ingress-throughput-limits.md) da origem do evento e [as práticas recomendadas](./concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices) para melhor desempenho. Você também pode configurar um [alerta](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts) de atraso para ser notificado se o seu ambiente estiver enfrentando problemas de processamento de dados.
+Azure Time Series Insights Gen2 partições e índices de dados para obter o desempenho de consulta ideal. Os dados tornam-se disponíveis para consulta de uma loja passiva (se habilitada) e fria após sua indexação. A quantidade de dados que está sendo ingerida e a taxa de transferência por partição pode afetar a disponibilidade. Examine as limitações de [taxa de transferência](./concepts-streaming-ingress-throughput-limits.md) da origem do evento e [as práticas recomendadas](./concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices) para melhor desempenho. Você também pode configurar um [alerta](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) de atraso para ser notificado se o seu ambiente estiver enfrentando problemas de processamento de dados.
 
 > [!IMPORTANT]
 > Você pode experimentar um período de até 60 segundos antes que os dados se tornem disponíveis. Se você enfrentar uma latência significativa que dure mais de 60 segundos, envie um tíquete de suporte pelo portal do Azure.
 
 ## <a name="warm-store"></a>Armazenamento quente
 
-Os dados em sua loja a quente estão disponíveis apenas por meio das [APIs de consulta de série temporal](./time-series-insights-update-tsq.md), do [Azure Time Series insights Explorer TSI](./time-series-insights-update-explorer.md)ou do [conector de Power bi](./how-to-connect-power-bi.md). As consultas de armazenamento quente são gratuitas e não há nenhuma cota, mas há um [limite de 30](https://docs.microsoft.com/rest/api/time-series-insights/reference-api-limits#query-apis---limits) solicitações simultâneas.
+Os dados em sua loja a quente estão disponíveis apenas por meio das [APIs de consulta de série temporal](./concepts-query-overview.md), do [Azure Time Series insights Explorer TSI](./concepts-ux-panels.md)ou do [conector de Power bi](./how-to-connect-power-bi.md). As consultas de armazenamento quente são gratuitas e não há nenhuma cota, mas há um [limite de 30](/rest/api/time-series-insights/reference-api-limits#query-apis---limits) solicitações simultâneas.
 
 ### <a name="warm-store-behavior"></a>Comportamento de armazenamento quente
 
@@ -77,9 +77,9 @@ Para garantir o desempenho da consulta e a disponibilidade de dados, não edite 
 
 #### <a name="accessing-cold-store-data"></a>Acessando dados de armazenamento frio
 
-Além de acessar seus dados do [Azure Time Series insights Explorer](./time-series-insights-update-explorer.md) e das [APIs de consulta de série temporal](./time-series-insights-update-tsq.md), você também pode querer acessar seus dados diretamente dos arquivos parquet armazenados na Cold Store. Por exemplo, você pode ler, transformar e limpar dados em um notebook Jupyter e, em seguida, usá-lo para treinar seu modelo do Azure Machine Learning no mesmo fluxo de trabalho do Spark.
+Além de acessar seus dados do [Azure Time Series insights Explorer](./concepts-ux-panels.md) e das [APIs de consulta de série temporal](./concepts-query-overview.md), você também pode querer acessar seus dados diretamente dos arquivos parquet armazenados na Cold Store. Por exemplo, você pode ler, transformar e limpar dados em um notebook Jupyter e, em seguida, usá-lo para treinar seu modelo do Azure Machine Learning no mesmo fluxo de trabalho do Spark.
 
-Para acessar dados diretamente da sua conta de armazenamento do Azure, você precisa de acesso de leitura à conta usada para armazenar seus dados do Azure Time Series Insights Gen2. Você pode ler os dados selecionados com base na hora de criação do arquivo Parquet localizado na pasta `PT=Time` descrita abaixo na seção [Formato de arquivo Parquet](#parquet-file-format-and-folder-structure).  Para obter mais informações sobre como habilitar o acesso de leitura para sua conta de armazenamento, consulte [Gerenciar o acesso aos recursos de sua conta de armazenamento](../storage/blobs/storage-manage-access-to-resources.md).
+Para acessar dados diretamente da sua conta de armazenamento do Azure, você precisa de acesso de leitura à conta usada para armazenar seus dados do Azure Time Series Insights Gen2. Você pode ler os dados selecionados com base na hora de criação do arquivo Parquet localizado na pasta `PT=Time` descrita abaixo na seção [Formato de arquivo Parquet](#parquet-file-format-and-folder-structure).  Para obter mais informações sobre como habilitar o acesso de leitura para sua conta de armazenamento, consulte [Gerenciar o acesso aos recursos de sua conta de armazenamento](../storage/blobs/anonymous-read-access-configure.md).
 
 #### <a name="data-deletion"></a>Exclusão de dados
 
@@ -123,6 +123,6 @@ Azure Time Series Insights eventos Gen2 são mapeados para o conteúdo do arquiv
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Leia sobre [modelagem de dados](./time-series-insights-update-tsm.md).
+* Leia sobre [modelagem de dados](./concepts-model-overview.md).
 
-* Planeje seu [ambiente de Azure Time Series insights Gen2](./time-series-insights-update-plan.md).
+* Planeje seu [ambiente de Azure Time Series insights Gen2](./how-to-plan-your-environment.md).

@@ -12,25 +12,26 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f92b95e38dea6555ca881d56ccf1cf2d68783e53
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 90cc15dc3944efd82d025df1bb5072c57346055e
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896082"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355623"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Perguntas frequentes sobre a colaboração B2B do Azure Active Directory
 
 Essas perguntas frequentes sobre a colaboração B2B (entre empresas) do Azure AD (Azure Active Directory) são atualizadas periodicamente para incluir novos tópicos.
 
-   > [!IMPORTANT]
-   > **A partir de 31 de março de 2021** , a Microsoft não dará mais suporte ao resgate de convites criando contas e locatários do Azure AD não gerenciado para cenários de colaboração B2B. Durante a preparação, incentivamos os clientes a aceitarem a [autenticação de senha avulsa por email](one-time-passcode.md). Agradecemos seus comentários sobre essa versão prévia do recurso pública e estamos empolgados em criar ainda mais maneiras de colaborar.
+> [!IMPORTANT]
+> - A **partir de 4 de janeiro de 2021**, o Google está [preterindo o suporte de entrada do WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Se você estiver usando a inscrição do Google Federation ou autoatendimento com o Gmail, deverá [testar seus aplicativos nativos de linha de negócios para compatibilidade](google-federation.md#deprecation-of-webview-sign-in-support).
+> - **A partir de 31 de março de 2021**, a Microsoft não dará mais suporte ao resgate de convites criando contas e locatários do Azure AD não gerenciado para cenários de colaboração B2B. Durante a preparação, incentivamos os clientes a aceitarem a [autenticação de senha avulsa por email](one-time-passcode.md). Agradecemos seus comentários sobre essa versão prévia do recurso pública e estamos empolgados em criar ainda mais maneiras de colaborar.
 
 ### <a name="can-we-customize-our-sign-in-page-so-its-more-intuitive-for-our-b2b-collaboration-guest-users"></a>Podemos personalizar nossa página de login para que seja mais intuitiva para nossos usuários convidados de colaboração B2B?
 Claro que não! Consulte nossa [postagem de blog sobre esse recurso](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Para obter mais informações sobre como personalizar a página de conexão de sua organização, consulte [Adicionar a identidade visual da empresa às páginas de conexão e do Painel de Acesso](../fundamentals/customize-branding.md).
 
 ### <a name="can-b2b-collaboration-users-access-sharepoint-online-and-onedrive"></a>Os usuários de colaboração B2B podem acessar o SharePoint Online e o OneDrive?
-Sim. Entretanto, a capacidade de pesquisar usuários convidados existentes no SharePoint Online com o seletor de pessoas está **Desativada** por padrão. Para ativar a opção de pesquisa de usuários convidados existentes, defina **ShowPeoplePickerSuggestionsForGuestUsers** como **Ativado** . Ative essa configuração no nível do locatário ou no nível de conjunto de sites. Altere essa configuração usando os cmdlets Set-SPOTenant e Set-SPOSite. Com esses cmdlets, os membros podem pesquisar todos os usuários convidados existentes no diretório. Alterações no escopo do inquilino não afetam os sites do SharePoint Online que já foram provisionados.
+Sim. Entretanto, a capacidade de pesquisar usuários convidados existentes no SharePoint Online com o seletor de pessoas está **Desativada** por padrão. Para ativar a opção de pesquisa de usuários convidados existentes, defina **ShowPeoplePickerSuggestionsForGuestUsers** como **Ativado**. Ative essa configuração no nível do locatário ou no nível de conjunto de sites. Altere essa configuração usando os cmdlets Set-SPOTenant e Set-SPOSite. Com esses cmdlets, os membros podem pesquisar todos os usuários convidados existentes no diretório. Alterações no escopo do inquilino não afetam os sites do SharePoint Online que já foram provisionados.
 
 ### <a name="is-the-csv-upload-feature-still-supported"></a>Ainda há suporte para o recurso de upload de CSV?
 Sim. Para obter mais informações sobre como usar o recurso de upload de arquivo .csv, consulte [esta amostra do PowerShell](code-samples.md).
@@ -64,17 +65,17 @@ A menos que um usuário receba a função de administrador limitado, os usuário
 Sim. Você pode criar uma política de acesso condicional que impede que todos os usuários convidados e externos acessem o portal do Azure. Ao configurar essa política, tenha cuidado para evitar o bloqueio acidental do acesso a membros e administradores.
 
 1. Entre no [portal do Azure](https://portal.azure.com/) como administrador de segurança ou como administrador de acesso condicional.
-2. Na portal do Azure, selecione **Azure Active Directory** . 
-3. Em **gerenciar** , selecione **segurança** .
-4. Em **proteger** , selecione **acesso condicional** . Selecione **Nova política** .
+2. No portal do Azure, selecione **Azure Active Directory**. 
+3. Em **gerenciar**, selecione **segurança**.
+4. Em **proteger**, selecione **acesso condicional**. Selecione **Nova política**.
 5. Na página **novo** , na caixa de texto **nome** , insira um nome para a política (por exemplo, "bloquear convidados de acessar o portal").
-6. Em **Atribuições** , selecione **Usuários e Grupos** .
-7. Na guia **incluir** , escolha **Selecionar usuários e grupos** e, em seguida, selecione **todos os usuários convidados e externos (versão prévia)** .
-9. Selecione **Concluído** .
-10. Na página **novo** , na seção **atribuições** , selecione **aplicativos de nuvem ou ações** .
-11. Na página **aplicativos de nuvem ou ações** , escolha **selecionar aplicativos** e escolha **selecionar** .
-12. Na página **Selecionar** , escolha **Gerenciamento do Microsoft Azure** e escolha **Selecionar** .
-13. Na página **aplicativos de nuvem ou ações** , selecione **concluído** .
+6. Em **Atribuições**, selecione **Usuários e Grupos**.
+7. Na guia **incluir** , escolha **Selecionar usuários e grupos** e, em seguida, selecione **todos os usuários convidados e externos (versão prévia)**.
+9. Selecione **Concluído**.
+10. Na página **novo** , na seção **atribuições** , selecione **aplicativos de nuvem ou ações**.
+11. Na página **aplicativos de nuvem ou ações** , escolha **selecionar aplicativos** e escolha **selecionar**.
+12. Na página **Selecionar**, escolha **Gerenciamento do Microsoft Azure** e escolha **Selecionar**.
+13. Na página **aplicativos de nuvem ou ações** , selecione **concluído**.
 
 ### <a name="does-azure-ad-b2b-collaboration-support-multi-factor-authentication-and-consumer-email-accounts"></a>A colaboração do Azure AD B2B dá suporte à autenticação multifator e a contas de email do consumidor?
 Sim. Há suporte para a autenticação multifator e a contas de email do consumidor na colaboração do Azure AD B2B.
@@ -84,7 +85,7 @@ Se o seu locatário do Microsoft Azure Active Directory para o diretório inicia
  
 * Os usuários convidados que entrarem com uma conta da Microsoft (por exemplo, guestuser@live.com) podem redefinir suas próprias senhas usando a redefinição de senha de autoatendimento da conta da Microsoft (SSPR). Veja [Como redefinir a senha da sua conta da Microsoft](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
 * Os usuários convidados que fazem login com uma Conta do Google ou outro provedor de identidade externo podem redefinir suas próprias senhas usando o método SSPR do provedor de identidade. Por exemplo, um usuário convidado com a Conta do Google guestuser@gmail.com pode redefinir sua senha seguindo as instruções em [Alterar ou redefinir sua senha](https://support.google.com/accounts/answer/41078).
-* Se o inquilino de identidade for um inquilino Just-in-time (JIT) ou "viral" (ou seja, um inquilino separado do Azure não gerenciado), somente o usuário convidado poderá redefinir sua senha. Às vezes, uma organização [assumirá o gerenciamento de locatários virais](../users-groups-roles/domains-admin-takeover.md) que são criados quando os funcionários usam seus emails de trabalho para se inscrever em serviços. Depois que a organização assumir um locatário viral, somente um administrador da organização poderá redefinir a senha do usuário ou habilitar a SSPR. Se necessário, como a organização de convite, você pode remover a conta de usuário convidado do diretório e reenviar um convite.
+* Se o inquilino de identidade for um inquilino Just-in-time (JIT) ou "viral" (ou seja, um inquilino separado do Azure não gerenciado), somente o usuário convidado poderá redefinir sua senha. Às vezes, uma organização [assumirá o gerenciamento de locatários virais](../enterprise-users/domains-admin-takeover.md) que são criados quando os funcionários usam seus emails de trabalho para se inscrever em serviços. Depois que a organização assumir um locatário viral, somente um administrador da organização poderá redefinir a senha do usuário ou habilitar a SSPR. Se necessário, como a organização de convite, você pode remover a conta de usuário convidado do diretório e reenviar um convite.
 
 * Se o diretório inicial do usuário convidado for o seu locatário do Microsoft Azure Active Directory, você poderá redefinir a senha do usuário. Por exemplo, você pode ter criado um usuário ou sincronizado um usuário em seu Active Directory local e definir seu UserType como Convidado. Como esse usuário está hospedado em seu diretório, você pode redefinir sua senha no portal do Azure.
 

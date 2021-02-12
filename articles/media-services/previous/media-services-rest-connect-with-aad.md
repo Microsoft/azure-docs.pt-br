@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: willzhan; johndeu
-ms.openlocfilehash: 8bea4c049c3d7ea17e173f069a3e99cbcca1fe48
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 28719046c9a8ccc65d231244ef8b5b3f8e116282
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041989"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98694723"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Usar a autenticação do Azure AD para acessar a API dos Serviços de Mídia com REST
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Ao usar a autenticação do Azure AD com os Serviços de Mídia do Azure, você pode fazer a autenticação usando uma destas duas maneiras:
 
@@ -38,7 +38,7 @@ Ao usar a autenticação do Azure AD com os Serviços de Mídia do Azure, você 
     > [!NOTE]
     > A **entidade de serviço** é a prática recomendada para a maioria dos aplicativos que se conectam aos Serviços de Mídia do Azure. 
 
-Neste tutorial, você aprenderá como:
+Neste tutorial, você aprende a:
 
 > [!div class="checklist"]
 > * Obter informações de autenticação do portal do Azure
@@ -56,7 +56,7 @@ Neste tutorial, você aprenderá como:
 - Consulte o artigo [Acessando a API dos Serviços de Mídia do Azure com visão geral da autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 - Instale o cliente REST do [Postman](https://www.getpostman.com/) para executar as APIs REST mostradas neste artigo. 
 
-    Neste tutorial, estamos usando o **Postman** , mas qualquer ferramenta REST seria adequada. Outras alternativas são: **Visual Studio Code** com o plug-in REST ou o **Fiddler Telerik** . 
+    Neste tutorial, estamos usando o **Postman**, mas qualquer ferramenta REST seria adequada. As outras alternativas são: **Visual Studio Code** com o plug-in do REST ou **Telerik Fiddler**. 
 
 ## <a name="get-the-authentication-information-from-the-azure-portal"></a>Obter informações de autenticação do portal do Azure
 
@@ -77,8 +77,8 @@ Para obter as informações, siga estas etapas:
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com).
 2. Navegue até sua instância do AMS.
-3. Selecione **Acesso à API** .
-4. Clique em **Conecte-se à API dos Serviços de Mídia do Azure com a entidade de serviço** .
+3. Selecione **Acesso à API**.
+4. Clique em **Conecte-se à API dos Serviços de Mídia do Azure com a entidade de serviço**.
 
     ![Captura de tela que mostra "A P eu acesso" selecionado no menu "serviços de mídia" e "conectar aos serviços de mídia do Azure A P com A entidade de serviço" selecionada no painel direito.](./media/connect-with-rest/connect-with-rest01.png)
 
@@ -89,10 +89,10 @@ Para obter as informações, siga estas etapas:
 
     Se precisar criar um novo aplicativo do AD, siga estas etapas:
     
-   1. Pressione **Criar Novo** .
+   1. Pressione **Criar Novo**.
    2. Insira um nome.
    3. Pressione **Criar Novo** novamente.
-   4. Pressione **Salvar** .
+   4. Pressione **Salvar**.
 
       ![Captura de tela que mostra o diálogo "criar novo" com a caixa de texto "criar aplicativo" realçada e o botão "salvar" selecionado.](./media/connect-with-rest/new-app.png)
 
@@ -107,11 +107,11 @@ Para obter as informações, siga estas etapas:
 
 7. Obter a **Chave** do aplicativo (segredo do cliente). 
 
-   1. Clique no botão **Gerenciar aplicativo** (observe que as informações de ID do cliente estão em **ID do Aplicativo** ). 
-   2. Pressione **Chaves** .
+   1. Clique no botão **Gerenciar aplicativo** (observe que as informações de ID do cliente estão em **ID do Aplicativo**). 
+   2. Pressione **Chaves**.
     
        ![Captura de tela que mostra o botão "gerenciar aplicativo" selecionado, o "aplicativo I D" no painel central realçado e "chaves" selecionadas no painel direito.](./media/connect-with-rest/manage-app.png)
-   3. Gere a chave do aplicativo (segredo do cliente) preenchendo **DESCRIÇÃO** e **VENCIMENTO** e pressionando **Salvar** .
+   3. Gere a chave do aplicativo (segredo do cliente) preenchendo **DESCRIÇÃO** e **VENCIMENTO** e pressionando **Salvar**.
     
        Quando o botão **Salvar** é pressionado, o valor da chave é exibido. Copie o valor de chave antes de deixar a folha.
 
@@ -124,15 +124,15 @@ Você pode adicionar valores para parâmetros de conexão do AD ao seu arquivo a
 
 ## <a name="get-the-access-token-using-postman"></a>Obter o token de acesso usando o Postman
 
-Esta seção mostra como usar o **Postman** para executar uma API REST que retorna um Token de Portador JWT (token de acesso). Para chamar qualquer API REST dos Serviços de Mídia, você precisa adicionar o cabeçalho "Authorization" às e adicionar o valor de "Bearer *seu_token_de_acesso* " a cada chamada (conforme mostrado na próxima seção deste tutorial). 
+Esta seção mostra como usar o **Postman** para executar uma API REST que retorna um Token de Portador JWT (token de acesso). Para chamar qualquer API REST dos Serviços de Mídia, você precisa adicionar o cabeçalho "Authorization" às e adicionar o valor de "Bearer *seu_token_de_acesso*" a cada chamada (conforme mostrado na próxima seção deste tutorial). 
 
-1. Abrir o **postmaster** .
-2. Selecione **POST** .
-3. Digite a URL que inclui o nome do locatário usando o seguinte formato: o nome do locatário deve terminar com **.onmicrosoft.com** e a URL deve terminar com **oauth2/token** : 
+1. Abrir o **postmaster**.
+2. Selecione **POST**.
+3. Digite a URL que inclui o nome do locatário usando o seguinte formato: o nome do locatário deve terminar com **.onmicrosoft.com** e a URL deve terminar com **oauth2/token**: 
 
     `https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token`
 
-4. Selecione a guia **Cabeçalhos** .
+4. Selecione a guia **Cabeçalhos**.
 5. Insira as informações de **Cabeçalhos** usando a grade de dados de "chave/valor". 
 
     ![Captura de tela que mostra a guia "cabeçalhos" e a ação de "edição em massa" selecionada.](./media/connect-with-rest/headers-data-grid.png)
@@ -144,7 +144,7 @@ Esta seção mostra como usar o **Postman** para executar uma API REST que retor
     Keep-Alive:true
     ```
 
-6. Pressione a guia **Corpo** .
+6. Pressione a guia **Corpo**.
 7. Insira as informações do corpo usando a grade de dados de "chave/valor" (substitua os valores de ID do cliente e segredo). 
 
     ![Grade de dados](./media/connect-with-rest/data-grid.png)
@@ -158,7 +158,7 @@ Esta seção mostra como usar o **Postman** para executar uma API REST que retor
     resource:https://rest.media.azure.net
     ```
 
-8. Pressione **Enviar** .
+8. Pressione **Enviar**.
 
     ![Captura de tela que mostra a caixa de texto "post", as guias "cabeçalhos" e "corpo" e "access_token" realçados e o botão "enviar" detectado.](./media/connect-with-rest/connect-with-rest04.png)
 
@@ -166,23 +166,23 @@ A resposta retornada contém o **token de acesso** que você precisa usar para a
 
 ## <a name="test-the-assets-api-using-the-access-token"></a>Testar a API de **Ativos** usando o token de acesso
 
-Esta seção mostra como acessar a API de **Ativos** usando o **Postman** .
+Esta seção mostra como acessar a API de **Ativos** usando o **Postman**.
 
-1. Abrir o **postmaster** .
-2. Selecione **obter** .
+1. Abrir o **postmaster**.
+2. Selecione **obter**.
 3. Cole o ponto de extremidade da API REST (por exemplo, https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
-4. Selecione a guia **Autorização** . 
-5. Selecione **Token de Portador** .
+4. Selecione a guia **Autorização**. 
+5. Selecione **Token de Portador**.
 6. Cole o token que foi criado na seção anterior.
 
     ![obter token](./media/connect-with-rest/connect-with-rest05.png)
 
     > [!NOTE]
-    > A experiência do usuário do Postman pode ser diferente entre um Mac e um PC. Se a versão do Mac não tiver a opção "Token de Portador" no menu suspenso da seção de **Autenticação** , você deverá adicionar o cabeçalho de **Autorização** manualmente no cliente Mac.
+    > A experiência do usuário do Postman pode ser diferente entre um Mac e um PC. Se a versão do Mac não tiver a opção "Token de Portador" no menu suspenso da seção de **Autenticação**, você deverá adicionar o cabeçalho de **Autorização** manualmente no cliente Mac.
 
    ![Cabeçalho de autenticação](./media/connect-with-rest/auth-header.png)
 
-7. Selecione **Cabeçalhos** .
+7. Selecione **Cabeçalhos**.
 5. Clique no link **Editar em Massa** à direita da janela do Postman.
 6. Cole os seguintes cabeçalhos:
 
@@ -194,7 +194,7 @@ Esta seção mostra como acessar a API de **Ativos** usando o **Postman** .
     MaxDataServiceVersion:3.0
     ```
 
-7. Pressione **Enviar** .
+7. Pressione **Enviar**.
 
 A resposta retornada contém os ativos que estão em sua conta.
 

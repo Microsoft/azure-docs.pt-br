@@ -2,19 +2,19 @@
 title: Tutorial do C# Otimizar a indexação com a API de envio por push
 titleSuffix: Azure Cognitive Search
 description: Saiba como indexar dados com eficiência usando a API de envio por push do Azure Cognitive Search. Este tutorial e este código de exemplo estão em C#.
-manager: liamca
+manager: luisca
 author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/12/2020
+ms.date: 1/29/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 13825422358fdddf6742353fbabaac0303b0c82e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f97a99bf2d055805ee665ab51aff8cff12dc5a69
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973437"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094185"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>Tutorial: Como otimizar a indexação com a API de envio por push
 
@@ -73,7 +73,7 @@ As chamadas à API exigem a URL do serviço e uma chave de acesso. Um serviço d
 
 1. Em **Configurações** > **Chaves**, obtenha uma chave de administração para adquirir todos os direitos sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso seja necessário sobrepor uma. É possível usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
 
-   ![Obter um ponto de extremidade HTTP e uma chave de acesso](media/search-get-started-postman/get-url-key.png "Obter um ponto de extremidade HTTP e uma chave de acesso")
+   ![Obter um ponto de extremidade HTTP e uma chave de acesso](media/search-get-started-rest/get-url-key.png "Obter um ponto de extremidade HTTP e uma chave de acesso")
 
 ## <a name="2---set-up-your-environment"></a>2 – Configurar o ambiente
 
@@ -162,7 +162,7 @@ O esquema do índice pode ter um impacto significativo nas velocidades de indexa
 O Azure Cognitive Search dá suporte às seguintes APIs para carregar um ou vários documentos em um índice:
 
 + [Adicionar, atualizar ou excluir documentos (API REST)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [Classe IndexDocumentsAction](/dotnet/api/azure.search.documents.models.indexdocumentsaction?view=azure-dotnet) ou [Classe IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch?view=azure-dotnet)
++ [Classe IndexDocumentsAction](/dotnet/api/azure.search.documents.models.indexdocumentsaction) ou [Classe IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch)
 
 A indexação de documentos em lotes aprimorará significativamente o desempenho da indexação. Esses lotes podem ter até mil documentos ou até aproximadamente 16 MB por lote.
 

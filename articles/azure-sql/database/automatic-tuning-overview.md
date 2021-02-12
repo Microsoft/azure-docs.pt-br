@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 03/30/2020
-ms.openlocfilehash: 180f6e8902dc881c99a74a6491eeb3012bc03d0f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 4204254754307f8310d5ccfda19400de57381075
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675230"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500862"
 ---
 # <a name="automatic-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Ajuste automático no banco de dados SQL do Azure e no SQL Instância Gerenciada do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -69,7 +69,7 @@ As opções de ajuste automático disponíveis no banco de dados SQL do Azure e 
 
 ### <a name="automatic-tuning-for-sql-database"></a>Ajuste automático para o banco de dados SQL
 
-O ajuste automático para o banco de dados SQL do Azure usa as recomendações **criar índice** , **drop index** e **forçar último plano** do banco de dados para otimizar o desempenho do banco de dados. Para obter mais informações, consulte [recomendações do Database Advisor no portal do Azure](database-advisor-find-recommendations-portal.md), no [PowerShell](/powershell/module/az.sql/get-azsqldatabaserecommendedaction)e na [API REST](/rest/api/sql/serverautomatictuning).
+O ajuste automático para o banco de dados SQL do Azure usa as recomendações **criar índice**, **drop index** e **forçar último plano** do banco de dados para otimizar o desempenho do banco de dados. Para obter mais informações, consulte [recomendações do Database Advisor no portal do Azure](database-advisor-find-recommendations-portal.md), no [PowerShell](/powershell/module/az.sql/get-azsqldatabaserecommendedaction)e na [API REST](/rest/api/sql/serverautomatictuning).
 
 Você pode aplicar manualmente as recomendações de ajuste usando o portal do Azure ou pode permitir que o ajuste automático aplique recomendações de ajuste de forma autônoma para você. Os benefícios de permitir que o sistema aplique recomendações de ajuste autonomamente para você é que ele valida automaticamente que existe um ganho positivo no desempenho da carga de trabalho e, se não houver nenhuma melhoria de desempenho significativa detectada, ele reverterá automaticamente a recomendação de ajuste. Observe que, no caso de consultas afetadas por recomendações de ajuste que não são executadas com frequência, a fase de validação pode levar até 72 horas por design.
 
@@ -90,7 +90,7 @@ Para saber mais sobre como criar notificações por email para recomendações d
 
 ### <a name="automatic-tuning-for-azure-sql-managed-instance"></a>Ajuste automático para o Azure SQL Instância Gerenciada
 
-O ajuste automático para o SQL Instância Gerenciada dá suporte apenas ao **último plano de bom esforço** . Para obter mais informações sobre como configurar opções de ajuste automático por meio do T-SQL, consulte o [ajuste automático introduz a correção automática do plano](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) e a [correção automática do plano](/sql/relational-databases/automatic-tuning/automatic-tuning?view=sql-server-ver15#automatic-plan-correction).
+O ajuste automático para o SQL Instância Gerenciada dá suporte apenas ao **último plano de bom esforço**. Para obter mais informações sobre como configurar opções de ajuste automático por meio do T-SQL, consulte o [ajuste automático introduz a correção automática do plano](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) e a [correção automática do plano](/sql/relational-databases/automatic-tuning/automatic-tuning?view=sql-server-ver15#automatic-plan-correction).
 
 ## <a name="next-steps"></a>Próximas etapas
 

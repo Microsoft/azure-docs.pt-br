@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 1c25e48bd46f0d37330f693cb4d6538e7bc29c4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07685cccf5a8dce99ae13e6df5186a5da44b1338
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85367233"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99559416"
 ---
 # <a name="step-2-configure-your-security-solution-to-send-cef-messages"></a>ETAPA 2: configurar sua solução de segurança para enviar mensagens CEF
 
@@ -30,16 +30,24 @@ Nesta etapa, você executará as alterações de configuração necessárias na 
 Se sua solução de segurança já tiver um conector existente, use as instruções específicas do conector da seguinte maneira:
 
 - [Detecção de IA da Vectra](connect-ai-vectra-detect.md)
+- [Eventos de segurança da Akamai](connect-akamai-security-events.md)
 - [Check Point](connect-checkpoint.md)
-- [Cisco](connect-cisco.md)
+- [Cisco ASA](connect-cisco.md)
+- [Citrix WAF](connect-citrix-waf.md)
+- [CyberArk Enterprise Password Vault](connect-cyberark.md)
 - [ExtraHop Reveal(x)](connect-extrahop.md)
-- [F5 ASM](connect-f5.md)  
+- [F5 ASM](connect-f5.md)
+- [Produtos Forcepoint](connect-forcepoint-casb-ngfw.md)
 - [Fortinet](connect-fortinet.md)
+- [Illusive redes AMS](connect-illusive-attack-management-system.md)
+- [Imperva WAF gateway](connect-imperva-waf-gateway.md)
 - [One Identity Safeguard](connect-one-identity.md)
 - [Palo Alto Networks](connect-paloalto.md)
+- [Servidor secreto Thycotic](connect-thycotic-secret-server.md)
 - [Deep Security da Trend Micro](connect-trend-micro.md)
-- [Zscaler](connect-zscaler.md)   
-
+- [Trend Micro TippingPoint](connect-trend-micro-tippingpoint.md)
+- [Plataforma de perícia de rede WireX](connect-wirex-systems.md)
+- [Zscaler](connect-zscaler.md)
 ## <a name="configure-any-other-solution"></a>Configurar qualquer outra solução
 
 Se não existir um conector para sua solução de segurança específica, use as instruções genéricas a seguir para encaminhar logs para o agente CEF.
@@ -50,15 +58,25 @@ Se não existir um conector para sua solução de segurança específica, use as
     - Formato = CEF
     - Endereço IP-certifique-se de enviar as mensagens CEF para o endereço IP da máquina virtual que você dedicaram para essa finalidade.
 
-   > [!NOTE]
-   > Esta solução oferece suporte a RFC 3164 ou a RFC 5424 do syslog.
+   Esta solução oferece suporte a RFC 3164 ou a RFC 5424 do syslog.
 
-1. Para usar o esquema relevante em Log Analytics para os eventos CEF, procure `CommonSecurityLog` .
+1. Para procurar eventos CEF em Log Analytics, insira `CommonSecurityLog` na janela de consulta.
 
 1. Continue na etapa 3: [validar a conectividade](connect-cef-verify.md).
+
+> [!NOTE]
+> **Alterando a origem do campo TimeGenerated**
+>
+> - Por padrão, o agente de Log Analytics popula o campo *TimeGenerated* no esquema com a hora em que o agente recebeu o evento do daemon syslog. Como resultado, a hora em que o evento foi gerado no sistema de origem não é registrada no Azure Sentinel.
+>
+> - No entanto, você pode executar o comando a seguir, que baixará e executará o `TimeGenerated.py` script. Esse script configura o agente de Log Analytics para preencher o campo *TimeGenerated* com a hora original do evento em seu sistema de origem, em vez da hora em que ele foi recebido pelo agente.
+>
+>    ```bash
+>    wget -O TimeGenerated.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/TimeGenerated.py && python TimeGenerated.py {ws_id}
+>    ```
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste documento, você aprendeu a conectar os dispositivos CEF ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
-- Comece a [detectar ameaças com o Azure Sentinel](tutorial-detect-threats.md).
+- Comece a [detectar ameaças com o Azure Sentinel](./tutorial-detect-threats-built-in.md).

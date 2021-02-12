@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 3f8c35604af9780fb4299bbd7bfd87c3d93ac537
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed250e3f32965fc450102fb14b93b93d6753ab3e
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84702832"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222778"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Exibindo e modificando os nomes do host
-Para permitir que as instâncias de função sejam referenciadas pelo nome do host, você deve definir o valor para o nome do host no arquivo de configuração de serviço para cada função. Faça isso adicionando o nome do host desejado ao atributo **vmName** do elemento **Função**. O valor do atributo **vmName** é usado como base para o nome de host de cada instância de função. Por exemplo, se **vmName** for *webrole* e houver três instâncias dessa função, os nomes de host das instâncias serão *webrole0*, *webrole1* e *webrole2*. Você não precisa especificar um nome do host para máquinas virtuais no arquivo de configuração, porque o nome do host para uma máquina virtual é preenchido com base no nome da máquina virtual. Para obter mais informações sobre como configurar um serviço do Microsoft Azure, consulte [Esquema de configuração do serviço do Azure (arquivo .cscfg)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
+Para permitir que as instâncias de função sejam referenciadas pelo nome do host, você deve definir o valor para o nome do host no arquivo de configuração de serviço para cada função. Faça isso adicionando o nome do host desejado ao atributo **vmName** do elemento **Função**. O valor do atributo **vmName** é usado como base para o nome de host de cada instância de função. Por exemplo, se **vmName** for *webrole* e houver três instâncias dessa função, os nomes de host das instâncias serão *webrole0*, *webrole1* e *webrole2*. Você não precisa especificar um nome do host para máquinas virtuais no arquivo de configuração, porque o nome do host para uma máquina virtual é preenchido com base no nome da máquina virtual. Para obter mais informações sobre como configurar um serviço do Microsoft Azure, consulte [Esquema de configuração do serviço do Azure (arquivo .cscfg)](/previous-versions/azure/reference/ee758710(v=azure.100))
 
 ## <a name="viewing-hostnames"></a>Exibindo nomes do host
 Você pode exibir os nomes de host das máquinas virtuais e as instâncias de função em um serviço de nuvem usando as ferramentas abaixo.
@@ -39,7 +39,7 @@ Após habilitar a área de trabalho remota (Windows), comunicação remota do Wi
 ### <a name="azure-service-management-rest-api"></a>API REST de Gerenciamento de Serviços do Azure
 Em um cliente REST, siga estas instruções:
 
-1. Certifique-se de que você tenha um certificado do cliente para se conectar ao Portal do Azure. Para obter um certificado do cliente, execute as etapas apresentadas em [Como baixar e importar configurações de publicação e informações de assinatura](https://msdn.microsoft.com/library/dn385850.aspx). 
+1. Certifique-se de que você tenha um certificado do cliente para se conectar ao Portal do Azure. Para obter um certificado do cliente, execute as etapas apresentadas em [Como baixar e importar configurações de publicação e informações de assinatura](/previous-versions/dynamicsnav-2013/dn385850(v=nav.70)). 
 2. Defina uma entrada de cabeçalho chamada x-ms-version com um valor de 2013-11-01.
 3. Envie uma solicitação no seguinte formato: https: \/ /Management.Core.Windows.NET/ \<subscrition-id\> /Services/hostedservices/ \<service-name\> ? embed-Detail = true
 4. Procure o elemento **HostName** para cada elemento **RoleInstance**.
@@ -55,9 +55,8 @@ Você pode modificar o nome de host para qualquer máquina virtual ou instância
 ## <a name="next-steps"></a>Próximas etapas
 [Resolução de nomes (DNS)](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
-[Esquema de configuração de serviço do Azure (.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710.aspx)
+[Esquema de configuração de serviço do Azure (.cscfg)](/previous-versions/azure/reference/ee758710(v=azure.100))
 
-[Esquema de configuração de Rede Virtual do Azure](https://go.microsoft.com/fwlink/?LinkId=248093)
+[Esquema de configuração de Rede Virtual do Azure](/previous-versions/azure/reference/jj157100(v=azure.100))
 
-[Especificar configurações de DNS usando arquivos de configuração de rede](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
-
+[Especificar configurações de DNS usando arquivos de configuração de rede](/previous-versions/azure/virtual-network/virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file)

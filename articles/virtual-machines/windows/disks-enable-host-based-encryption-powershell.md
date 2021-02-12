@@ -8,16 +8,16 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 804f26f27e9f2807b796daa03b045ab1b5948815
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46c26b6070a874947dfe5d7acd5a615961576b49
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89421927"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736677"
 ---
 # <a name="use-the-azure-powershell-module-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Usar o módulo Azure PowerShell para habilitar a criptografia de ponta a ponta usando criptografia no host
 
-Quando você habilita a criptografia no host, os dados armazenados no host da VM são criptografados em repouso e os fluxos são criptografados para o serviço de armazenamento. Para obter informações conceituais sobre criptografia no host, bem como outros tipos de criptografia de disco gerenciado, consulte [criptografia em criptografia de host de ponta a ponta para os dados da VM](disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+Quando você habilita a criptografia no host, os dados armazenados no host da VM são criptografados em repouso e os fluxos são criptografados para o serviço de armazenamento. Para obter informações conceituais sobre criptografia no host, bem como outros tipos de criptografia de disco gerenciado, consulte [criptografia em criptografia de host de ponta a ponta para os dados da VM](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
 ## <a name="restrictions"></a>Restrições
 
@@ -35,7 +35,7 @@ Você também pode encontrar os tamanhos de VM programaticamente. Para saber com
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para poder usar a criptografia no host para suas VMs ou conjuntos de dimensionamento de máquinas virtuais, você deve obter o recurso habilitado em sua assinatura. Envie um email para encryptionAtHost@microsoft.com com as suas IDs de assinatura para habilitar o recurso para suas assinaturas.
+Para poder usar a criptografia no host para suas VMs ou conjuntos de dimensionamento de máquinas virtuais, você deve obter o recurso habilitado em sua assinatura. Envie um email para encryptionAtHost@microsoft.com com suas IDs de assinatura para obter o recurso habilitado para suas assinaturas.
 
 ### <a name="create-an-azure-key-vault-and-diskencryptionset"></a>Criar um Azure Key Vault e DiskEncryptionSet
 
@@ -293,7 +293,7 @@ Chamar a [API de SKUs de recursos](/rest/api/compute/resourceskus/list) e verifi
     }
 ```
 
-Ou, chamando o cmdlet [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku?view=azps-3.8.0) do PowerShell.
+Ou, chamando o cmdlet [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku) do PowerShell.
 
 ```powershell
 $vmSizes=Get-AzComputeResourceSku | where{$_.ResourceType -eq 'virtualMachines' -and $_.Locations.Contains('CentralUSEUAP')} 

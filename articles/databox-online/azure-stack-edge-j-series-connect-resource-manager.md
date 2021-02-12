@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 5cf406dc0577f477858dd8a6570f7975747112e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54aad90cf86f1a20d76f04f3a829f29c47023558
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891232"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805791"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Conectar-se a Azure Resource Manager em seu dispositivo do Azure Stack Edge pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-O Azure Resource Manager fornece uma camada de gerenciamento que permite criar, atualizar e excluir recursos em sua assinatura do Azure. O dispositivo pro Edge Azure Stack dá suporte às mesmas APIs de Azure Resource Manager para criar, atualizar e excluir VMs em uma assinatura local. Esse suporte permite que você gerencie o dispositivo de maneira consistente com a nuvem. 
+O Azure Resource Manager fornece uma camada de gerenciamento que lhe permite criar, atualizar e excluir recursos em sua assinatura do Azure. O dispositivo pro Edge Azure Stack dá suporte às mesmas APIs de Azure Resource Manager para criar, atualizar e excluir VMs em uma assinatura local. Esse suporte permite que você gerencie o dispositivo de maneira consistente com a nuvem. 
 
 Este tutorial descreve como se conectar às APIs locais em seu dispositivo Azure Stack Edge pro por meio de Azure Resource Manager usando Azure PowerShell.
 
@@ -34,7 +34,7 @@ Azure Resource Manager fornece uma camada de gerenciamento consistente para cham
 
 A tabela a seguir resume os vários pontos de extremidade expostos em seu dispositivo, os protocolos com suporte e as portas para acessar esses pontos de extremidade. Ao longo do artigo, você encontrará referências a esses pontos de extremidade.
 
-| # | Ponto de extremidade | Protocolos com suporte | Porta usada | Usada para |
+| # | Ponto de Extremidade | Protocolos com suporte | Porta usada | Usada para |
 | --- | --- | --- | --- | --- |
 | 1. | Azure Resource Manager | HTTPS | 443 | Para se conectar ao Azure Resource Manager para automação |
 | 2. | Serviço de token de segurança | HTTPS | 443 | Para autenticar por meio de tokens de acesso e de atualização |
@@ -99,10 +99,10 @@ Para uso somente de teste e desenvolvimento, você pode usar o Windows PowerShel
 
 3. Para todos esses certificados, verifique se o nome da entidade e o nome alternativo da entidade estão em conformidade com as seguintes diretrizes:
 
-    |Type |Nome da entidade (SN)  |SAN (nome alternativo da entidade)  |Exemplo de nome da entidade |
+    |Tipo |Nome da entidade (SN)  |SAN (nome alternativo da entidade)  |Exemplo de nome da entidade |
     |---------|---------|---------|---------|
     |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
-    |Armazenamento de blobs|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
+    |Armazenamento de Blobs|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
     |Certificado único de várias SANs para ambos os pontos de extremidade|`<Device name>.<dnsdomain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
 
 Para obter mais informações sobre certificados, acesse como [gerenciar certificados](azure-stack-edge-j-series-manage-certificates.md).
@@ -138,9 +138,9 @@ O cliente do Windows deve atender aos seguintes pré-requisitos:
 
     Compare a versão **principal** e verifique se ela é 5,0 ou posterior.
 
-    Se você tiver uma versão desatualizada, consulte [Atualizar o Windows PowerShell existente](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
+    Se você tiver uma versão desatualizada, consulte [Atualizar o Windows PowerShell existente](/powershell/scripting/install/installing-windows-powershell?view=powershell-6&preserve-view=true#upgrading-existing-windows-powershell).
 
-    Se você não \' tiver o PowerShell 5,0, siga a [instalação do Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6).
+    Se você não \' tiver o PowerShell 5,0, siga a [instalação do Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6&preserve-view=true).
 
     Um exemplo de saída é mostrado abaixo.
 
@@ -156,7 +156,7 @@ O cliente do Windows deve atender aos seguintes pré-requisitos:
     
 2. Você pode acessar o Galeria do PowerShell.
 
-    Execute o PowerShell como administrador. Verifique se o PSGallery está registrado como um repositório.
+    Execute o PowerShell como administrador. Verifique se o `PSGallery` está registrado como um repositório.
 
     ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop
@@ -175,11 +175,11 @@ O cliente do Windows deve atender aos seguintes pré-requisitos:
     PSGallery                 Trusted              https://www.powershellgallery.com/api/v2
     ```
     
-Se o repositório não for confiável ou se você precisar de mais informações, consulte [validar o Galeria do PowerShell acessibilidade](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?view=azs-1908#2-validate-the-powershell-gallery-accessibility).
+Se o repositório não for confiável ou se você precisar de mais informações, consulte [validar o Galeria do PowerShell acessibilidade](/azure-stack/operator/azure-stack-powershell-install?view=azs-1908&preserve-view=true&preserve-view=true#2-validate-the-powershell-gallery-accessibility).
 
 ## <a name="step-4-set-up-azure-powershell-on-the-client"></a>Etapa 4: configurar Azure PowerShell no cliente 
 
-<!--1. Verify the API profile of the client and identify which version of the Azure PowerShell modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
+<!--1. Verify the API profile of the client and identify which version of the Azure PowerShell modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
 
 1. Você instalará Azure PowerShell módulos em seu cliente que funcionarão com seu dispositivo.
 
@@ -297,9 +297,9 @@ Verifique se o nome do ponto de extremidade está resolvido no cliente que você
 Defina o ambiente de Azure Resource Manager e verifique se a comunicação do dispositivo com o cliente via Azure Resource Manager está funcionando bem. Execute as seguintes etapas para esta verificação:
 
 
-1. Use o `Add-AzureRmEnvironment` cmdlet para garantir que a comunicação via Azure Resource Manager esteja funcionando corretamente e que as chamadas à API estejam passando pela porta dedicada para Azure Resource Manager-443.
+1. Use o cmdlet `Add-AzureRmEnvironment` para garantir que a comunicação pelo Azure Resource Manager esteja funcionando corretamente e que as chamadas à API estejam passando pela porta dedicada ao Azure Resource Manager, 443.
 
-    O `Add-AzureRmEnvironment` cmdlet adiciona pontos de extremidade e metadados para permitir que Azure Resource Manager cmdlets se conectem a uma nova instância do Azure Resource Manager. 
+    O cmdlet `Add-AzureRmEnvironment` adiciona pontos de extremidade e metadados para permitir que os cmdlets do Azure Resource Manager se conectem a uma nova instância do Azure Resource Manager. 
 
 
     > [!IMPORTANT]
@@ -319,7 +319,7 @@ Defina o ambiente de Azure Resource Manager e verifique se a comunicação do di
     AzDBE https://management.dbe-n6hugc2ra.microsoftdatabox.com https://login.dbe-n6hugc2ra.microsoftdatabox.com/adfs/
     ```
 
-2. Defina o ambiente como Azure Stack Edge pro e a porta a ser usada para chamadas de Azure Resource Manager como 443. Você define o ambiente de duas maneiras:
+2. Defina o ambiente como Azure Stack Edge Pro e a porta a ser usada para chamadas do Azure Resource Manager como 443. Você define o ambiente de duas maneiras:
 
     - Defina o ambiente. Digite o seguinte comando:
 
@@ -327,13 +327,13 @@ Defina o ambiente de Azure Resource Manager e verifique se a comunicação do di
     Set-AzureRMEnvironment -Name <Environment Name>
     ```
     
-    Para obter mais informações, vá para [set-AzureRMEnvironment](https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0).
+    Para obter mais informações, vá para [set-AzureRMEnvironment](/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0&preserve-view=true).
 
     - Defina o ambiente embutido para cada cmdlet que você executar. Isso garante que todas as chamadas à API estejam passando pelo ambiente correto. Por padrão, as chamadas passarão pelo público do Azure, mas você deseja que elas passem pelo ambiente que você definiu para Azure Stack dispositivo pro Edge.
 
     - Veja mais informações sobre [como mudar os ambientes AzureRM](#switch-environments).
 
-2. Chame APIs de dispositivo local para autenticar as conexões com Azure Resource Manager. 
+2. Chame APIs do dispositivo local para autenticar as conexões com o Azure Resource Manager. 
 
     1. Essas credenciais são para uma conta do computador local e são usadas somente para acesso à API.
 
@@ -460,4 +460,4 @@ Você passou para o ambiente desejado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Implantar VMs no dispositivo Azure Stack Edge Pro](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).
+[Implantar VMs no dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).

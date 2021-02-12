@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 02/12/2020
-  ms.openlocfilehash: a05f168b18f32e2b4730e5ef50624d41fb48e147
-  ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+  ms.openlocfilehash: bcba2b48fdecda311ce349f90ba43023b906bd44
+  ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/30/2020
-  ms.locfileid: "93099089"
+  ms.lasthandoff: 11/26/2020
+  ms.locfileid: "96186398"
 landingContent:
 - title: Sobre os Gêmeos Digitais do Azure
   linkLists:
@@ -71,20 +71,24 @@ landingContent:
     links:
     - text: Escrever código de autenticação do aplicativo
       url: how-to-authenticate-client.md
-- title: Exibir referência de API
+- title: Descobrir as APIs
   linkLists:
+  - linkListType: reference
+    links:
+    - text: APIs REST
+      url: /rest/api/azure-digitaltwins/
   - linkListType: how-to-guide
     links:
     - text: Usar as APIs e os SDKs dos Gêmeos Digitais do Azure
       url: how-to-use-apis-sdks.md
   - linkListType: how-to-guide
     links:
+    - text: Fazer solicitações com o Postman
+      url: how-to-use-postman.md
+  - linkListType: how-to-guide
+    links:
     - text: Criar SDKs personalizados com o AutoRest
       url: how-to-create-custom-sdks.md
-  - linkListType: reference
-    links:
-    - text: APIs REST
-      url: /rest/api/azure-digitaltwins/
 - title: Explorar exemplos de código
   linkLists:
   - linkListType: sample

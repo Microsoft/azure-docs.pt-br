@@ -7,22 +7,22 @@ ms.date: 12/16/2019
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27, devx-track-python
 ms.topic: how-to
-ms.openlocfilehash: 6155722b81b32e426a91a283910e8bdce926e342
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f3f433742ec25a1ee1abb2ede32a38e6b611f14
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777656"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352279"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>Início Rápido: Criar uma base de dados de conhecimento no QnA Maker usando Python
 
-Este início rápido ensina a criar e a publicar uma base de dados de conhecimento do QnA Maker de maneira programática. O QnA Maker extrai automaticamente perguntas e respostas de conteúdos semiestruturados, como perguntas frequentes, de [fontes de dados](../Concepts/knowledge-base.md). O modelo da base de dados de conhecimento é definido no JSON enviado no corpo da solicitação da API.
+Este início rápido ensina a criar e a publicar uma base de dados de conhecimento do QnA Maker de maneira programática. O QnA Maker extrai automaticamente perguntas e respostas de conteúdos semiestruturados, como perguntas frequentes, de [fontes de dados](../index.yml). O modelo da base de dados de conhecimento é definido no JSON enviado no corpo da solicitação da API.
 
 Este início rápido chama as APIs de QnA Maker:
-* [Criar uma base de dados de conhecimento](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
-* [Obter detalhes da operação](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
+* [Criar uma base de dados de conhecimento](/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
+* [Obter detalhes da operação](/rest/api/cognitiveservices/qnamaker/operations/getdetails)
 
-[Documentação](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase)  |  de referência [Exemplo de Python](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py)
+[Documentação](/rest/api/cognitiveservices/qnamaker/knowledgebase)  |  de referência [Exemplo de Python](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -135,4 +135,4 @@ Depois que sua base de dados de conhecimento tiver sido criada, você poderá ex
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Referência da API REST do QnA Maker (V4)](https://go.microsoft.com/fwlink/?linkid=2092179)
+> [Referência da API REST do QnA Maker (V4)](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase)

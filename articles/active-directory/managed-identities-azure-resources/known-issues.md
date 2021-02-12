@@ -13,16 +13,16 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 08/06/2020
+ms.date: 02/04/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: cf9f484a3f9285d1be06443b39bd50ec73ccf632
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f1be2e64435cb0bcdb369a398a9a65fc3714fb2
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665286"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008529"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Perguntas frequentes e problemas conhecidos com identidades gerenciadas para recursos do Azure
 
@@ -49,6 +49,10 @@ Registros de aplicativo tem dois componentes: um objeto de aplicativo + um objet
 
 Identidades gerenciadas não têm um objeto de aplicativo no diretório, que é comumente usado para conceder permissões de aplicativo para o MS Graph. Em vez disso, as permissões do MS Graph para identidades gerenciadas precisam ser concedidas diretamente à entidade de serviço.  
 
+### <a name="can-the-same-managed-identity-be-used-across-multiple-regions"></a>A mesma identidade gerenciada pode ser usada em várias regiões?
+
+Em suma, sim, você pode usar identidades gerenciadas atribuídas pelo usuário em mais de uma região do Azure. A resposta mais longa é que, enquanto as identidades gerenciadas atribuídas pelo usuário são criadas como recursos regionais, a [entidade de serviço](../develop/app-objects-and-service-principals.md#service-principal-object) associada (SPN) criada no Azure ad está disponível globalmente. A entidade de serviço pode ser usada em qualquer região do Azure e sua disponibilidade depende da disponibilidade do Azure AD. Por exemplo, se você criou uma identidade gerenciada atribuída pelo usuário na região South-Central e essa região ficar indisponível, esse problema afetará apenas as atividades do [plano de controle](../../azure-resource-manager/management/control-plane-and-data-plane.md) na própria identidade gerenciada.  As atividades executadas por todos os recursos já configurados para usar as identidades gerenciadas não seriam afetadas.
+
 ### <a name="does-managed-identities-for-azure-resources-work-with-azure-cloud-services"></a>As identidades gerenciadas dos recursos do Azure funcionam com os serviços de nuvem do Azure?
 
 Não, não há planos para suportar identidades gerenciadas para recursos do Azure no Azure Cloud Services.
@@ -74,7 +78,7 @@ O limite de segurança da identidade é o recurso ao qual ele está anexado. Por
 
 Não. Se você mover uma assinatura para outro diretório, precisará recriá-las manualmente e conceder as atribuições de função do Azure novamente.
 - Para sistema atribuído a identidades gerenciadas: desabilite e habilite novamente. 
-- Para identidades gerenciadas atribuídas ao usuário: exclua, recrie e anexe-os novamente para os recursos necessários (por exemplo, máquinas virtuais)
+- Para identidades gerenciadas atribuídas pelo usuário: excluir, recriar e anexá-las novamente aos recursos necessários (por exemplo, máquinas virtuais)
 
 ### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>Posso usar uma identidade gerenciada para acessar um recurso em um diretório/locatário diferente?
 
@@ -85,6 +89,46 @@ Não. Identidades gerenciadas não têm suporte a cenários entre diretórios.
 - Identidade gerenciada atribuída ao sistema: Você precisa de permissões de gravação sobre o recurso. Por exemplo, para máquinas virtuais, você precisa do Microsoft.Compute/virtualMachines/write. Essa ação é incluída em funções internas específicas do recurso, como [Colaborador da máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 - Identidade gerenciada atribuída ao usuário: Você precisa de permissões de gravação sobre o recurso. Por exemplo, para máquinas virtuais, você precisa do Microsoft.Compute/virtualMachines/write. Também é necessário atribuir a função de [Operador da identidade gerenciada](../../role-based-access-control/built-in-roles.md#managed-identity-operator) sobre essa identidade.
 
+### <a name="how-do-i-prevent-the-creation-of-user-assigned-managed-identities"></a>Como fazer impedir a criação de identidades gerenciadas atribuídas pelo usuário?
+
+Você pode impedir que os usuários criem identidades gerenciadas atribuídas pelo usuário usando [Azure Policy](../../governance/policy/overview.md)
+
+- Navegue até a [portal do Azure](https://portal.azure.com) e vá para **política**.
+- Escolher **definições**
+- Selecione **+ definição de política** e insira as informações necessárias.
+- Na seção regra de política, Cole
+
+```json
+{
+  "mode": "All",
+  "policyRule": {
+    "if": {
+      "field": "type",
+      "equals": "Microsoft.ManagedIdentity/userAssignedIdentities"
+    },
+    "then": {
+      "effect": "deny"
+    }
+  },
+  "parameters": {}
+}
+
+```
+
+Depois de criar a política, atribua-a ao grupo de recursos que você deseja usar.
+
+- Navegue até grupos de recursos.
+- Localize o grupo de recursos que você está usando para teste.
+- Escolha **políticas** no menu à esquerda.
+- Selecionar **atribuir política**
+- Na seção **noções básicas** , forneça:
+    - **Escopo** O grupo de recursos que estamos usando para teste
+    - **Definição de política**: a política que criamos anteriormente.
+- Deixe todas as outras configurações em seus padrões e escolha **revisar + criar**
+
+Neste ponto, qualquer tentativa de criar uma identidade gerenciada atribuída pelo usuário no grupo de recursos falhará.
+
+  ![Violação de política](./media/known-issues/policy-violation.png)
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
@@ -127,9 +171,9 @@ Identidades gerenciadas não são atualizadas quando uma assinatura for movida/t
 Para identidades gerenciadas em uma assinatura movidas para outro diretório, confira as seguintes soluções alternativas:
 
  - Para sistema atribuído a identidades gerenciadas: desabilite e habilite novamente. 
- - Para identidades gerenciadas atribuídas ao usuário: exclua, recrie e anexe-os novamente para os recursos necessários (por exemplo, máquinas virtuais)
+ - Para identidades gerenciadas atribuídas pelo usuário: excluir, recriar e anexá-las novamente aos recursos necessários (por exemplo, máquinas virtuais)
 
-Para obter mais informações, consulte [transferir uma assinatura do Azure para um diretório diferente do Azure ad](../../role-based-access-control/transfer-subscription.md).
+Para obter mais informações, confira [Transferir uma assinatura do Azure para um diretório diferente do Azure AD](../../role-based-access-control/transfer-subscription.md).
 
 ### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>Mover a identidade gerenciada atribuída pelo usuário para uma assinatura/um grupo de recursos diferente
 

@@ -40,7 +40,7 @@
           href: quickstart-feature-flag-spring-boot.md
 - name: Tutoriais
   items:
-    - name: Habilitar configuração dinâmica
+    - name: Habilitar a configuração dinâmica usando o modelo de sondagem
       items:
         - name: ASP.NET Core
           href: enable-dynamic-configuration-aspnet-core.md
@@ -52,9 +52,13 @@
           href: enable-dynamic-configuration-azure-functions-csharp.md
         - name: Spring Boot
           href: enable-dynamic-configuration-java-spring-app.md
-    - name: Usar sinalizadores de recursos
+    - name: Habilitar a configuração dinâmica usando o modelo de push
       items:
         - name: .NET Core
+          href: enable-dynamic-configuration-dotnet-core-push-refresh.md
+    - name: Usar sinalizadores de recursos
+      items:
+        - name: ASP.NET Core
           href: use-feature-flags-dotnet-core.md
         - name: Spring Boot
           href: use-feature-flags-spring-boot.md
@@ -70,6 +74,8 @@
       items:
         - name: Efetuar push usando o Azure Pipelines
           href: push-kv-devops-pipeline.md
+        - name: Efetuar pull usando o Azure Pipelines
+          href: pull-key-value-devops-pipeline.md
         - name: Efetuar push usando o GitHub Actions
           href: concept-github-action.md
         - name: Criar projeto usando a configuração exportada
@@ -100,21 +106,27 @@
           href: concept-enable-rbac.md
         - name: Atribuir uma Identidade Gerenciada do Azure
           href: overview-managed-identity.md
+        - name: Linha de base de segurança
+          href: security-baseline.md
+        - name: Controles de segurança do Azure Policy
+          href: ./security-controls-policy.md
     - name: Alta disponibilidade
       items:
         - name: Resiliência e recuperação de desastre
           href: concept-disaster-recovery.md
 - name: Guias de instruções
   items:
-    - name: Habilitar um recurso para um subconjunto de usuários
+    - name: Usar sinalizadores de recursos condicionais
       href: howto-feature-filters-aspnet-core.md
+    - name: Habilitar um recurso para os usuários/grupos especificados
+      href: howto-targetingfilter-aspnet-core.md
     - name: Usar rótulos para configuração por ambiente
       href: howto-labels-aspnet-core.md
     - name: Importar ou exportar dados de configuração
       href: howto-import-export-data.md
     - name: Usar o tipo de conteúdo JSON para pares chave-valor
       href: howto-leverage-json-content-type.md
-    - name: Rotear eventos para um ponto de extremidade personalizado
+    - name: Usar a Grade de Eventos para notificações de alteração de dados
       href: howto-app-configuration-event.md
     - name: Fazer backup do repositório de configurações automaticamente
       href: howto-backup-config-store.md
@@ -140,8 +152,6 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2103727'
         - name: SDK do Azure para JavaScript
           href: 'https://go.microsoft.com/fwlink/?linkid=2103664'
-        - name: API REST
-          href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
     - name: Gerenciamento de recursos
       items:
         - name: Biblioteca do .NET Core
@@ -156,6 +166,52 @@
           href: /powershell/module/az.appconfiguration/
         - name: Terraform
           href: 'https://www.terraform.io/docs/providers/azurerm/r/app_configuration.html'
+    - name: API REST
+      items:
+        - name: Visão geral
+          href: rest-api.md
+        - name: Recursos
+          items:
+            - name: simétricas
+              href: ./rest-api-keys.md
+            - name: Valores de chave
+              href: ./rest-api-key-value.md
+            - name: Rótulos
+              href: ./rest-api-labels.md
+            - name: Locks
+              href: ./rest-api-locks.md
+            - name: Revisões
+              href: ./rest-api-revisions.md
+        - name: Protocolo
+          items:
+            - name: Autenticação
+              href: ./rest-api-authentication-index.md
+              items:
+                - name: Autenticação do Azure Active Directory
+                  href: rest-api-authentication-azure-ad.md
+                - name: Autenticação HMAC
+                  href: rest-api-authentication-hmac.md
+            - name: Autorização
+              href: ./rest-api-authorization-index.md
+              items:
+                - name: Autorização do Azure Active Directory
+                  href: rest-api-authorization-azure-ad.md
+                - name: Autorização do HMAC
+                  href: rest-api-authorization-hmac.md
+            - name: Modelo de consistência
+              href: ./rest-api-consistency.md
+            - name: Cabeçalhos comuns
+              href: ./rest-api-headers.md
+            - name: Limitação
+              href: ./rest-api-throttling.md
+            - name: Controle de versão
+              href: ./rest-api-versioning.md
+        - name: Desenvolvimento
+          items:
+            - name: Fiddler
+              href: ./rest-api-fiddler.md
+            - name: postman
+              href: ./rest-api-postman.md
     - name: Itens internos do Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

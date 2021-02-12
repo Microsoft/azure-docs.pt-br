@@ -4,12 +4,12 @@ ms.service: api-management
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: vlvinogr
-ms.openlocfilehash: 3b42d5fbcfb19f08b46241dbe92e6a300bec1df6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1858317d40efa59b188ce894534be93a1f11b287
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81275200"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96028105"
 ---
 ## <a name="how-apim-proxy-server-responds-with-ssl-certificates-in-the-tls-handshake"></a>Como o Servidor Proxy APIM responde com certificados SSL no handshake de TLS
 
@@ -20,9 +20,8 @@ Se o cliente tiver um ou vários domínios personalizados configurados para Prox
 Se o cliente está usando um cliente, que não envia o cabeçalho de [SNI](https://tools.ietf.org/html/rfc6066#section-3), o APIM cria respostas com base na seguinte lógica:
 
 * Se o serviço tem apenas um domínio personalizado configurado para o Proxy, o Certificado Padrão é o certificado que foi emitido para o domínio personalizado do Proxy.
-* Se o serviço tiver configurado vários domínios personalizados para o proxy (compatível apenas com os níveis **Desenvolvedor** e **Premium**), o cliente poderá designar qual certificado deve ser o certificado padrão. Para definir o certificado padrão, a propriedade [defaultSslBinding](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/apimanagementservice/createorupdate#hostnameconfiguration) deve ser definida como true (“defaultSslBinding”: “true”). Se o cliente não definir a propriedade, o certificado padrão é o certificado emitido para o domínio de Proxy padrão hospedado em *.azure-api.net.
+* Se o serviço tiver configurado vários domínios personalizados para o proxy (compatível apenas com os níveis **Desenvolvedor** e **Premium**), o cliente poderá designar qual certificado deve ser o certificado padrão. Para definir o certificado padrão, a propriedade [defaultSslBinding](/rest/api/apimanagement/2019-12-01/apimanagementservice/createorupdate#hostnameconfiguration) deve ser definida como true (“defaultSslBinding”: “true”). Se o cliente não definir a propriedade, o certificado padrão é o certificado emitido para o domínio de Proxy padrão hospedado em *.azure-api.net.
 
 ## <a name="support-for-putpost-request-with-large-payload"></a>Suporte para a solicitação PUT/POST com grande payload
 
-O servidor Proxy do APIM dá suporte à solicitação com grande payload ao usar certificados de cliente em HTTPS (por exemplo, a carga > 40 KB). Para impedir que a solicitação do servidor congele, os clientes podem definir a propriedade ["negotiateClientCertificate": "true"](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/ApiManagementService/CreateOrUpdate#hostnameconfiguration) no nome do host do Proxy. Se a propriedade for definida como true, o certificado do cliente é solicitado ao tempo de conexão SSL/TLS, antes de qualquer troca de solicitação HTTP. Uma vez que a configuração se aplica ao nível do **Nome do host do Proxy**, todas as solicitações de conexão solicitam o certificado do cliente. Os clientes podem configurar até 20 domínios personalizados para o Proxy (com suporte apenas na camada **Premium**) e trabalhar com essa limitação.
-
+O servidor Proxy do APIM dá suporte à solicitação com grande payload ao usar certificados de cliente em HTTPS (por exemplo, a carga > 40 KB). Para impedir que a solicitação do servidor congele, os clientes podem definir a propriedade ["negotiateClientCertificate": "true"](/rest/api/apimanagement/2019-12-01/ApiManagementService/CreateOrUpdate#hostnameconfiguration) no nome do host do Proxy. Se a propriedade for definida como true, o certificado do cliente é solicitado ao tempo de conexão SSL/TLS, antes de qualquer troca de solicitação HTTP. Uma vez que a configuração se aplica ao nível do **Nome do host do Proxy**, todas as solicitações de conexão solicitam o certificado do cliente. Os clientes podem configurar até 20 domínios personalizados para o Proxy (com suporte apenas na camada **Premium**) e trabalhar com essa limitação.

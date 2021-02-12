@@ -6,12 +6,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 7f925854f4ef09ccc74c0ec1e8fdcca6b71d1437
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8bdf637ab773e90a5eac42bcaa443cf6741db636
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744067"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696006"
 ---
 # <a name="configure-a-nodejs-app-for-azure-app-service"></a>Configurar um aplicativo de Node.js para o serviço Azure App
 
@@ -85,6 +85,36 @@ Essa configuração especifica a versão de Node.js a ser usada, em tempo de exe
 
 ::: zone-end
 
+## <a name="get-port-number"></a>Obter número da porta
+
+Você Node.js aplicativo precisa escutar a porta certa para receber solicitações de entrada.
+
+::: zone pivot="platform-windows"  
+
+No serviço de aplicativo no Windows, os aplicativos Node.js são hospedados com [IISNode](https://github.com/Azure/iisnode)e seu aplicativo Node.js deve escutar a porta especificada na `process.env.PORT` variável. O exemplo a seguir mostra como fazer isso em um aplicativo Express simples:
+
+::: zone-end
+
+::: zone pivot="platform-linux"  
+
+O serviço de aplicativo define a variável de ambiente `PORT` no contêiner de Node.js e encaminha as solicitações de entrada para o contêiner nesse número de porta. Para receber as solicitações, seu aplicativo deve escutar essa porta usando `process.env.PORT` . O exemplo a seguir mostra como fazer isso em um aplicativo Express simples:
+
+::: zone-end
+
+```javascript
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 3000
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
+```
+
 ::: zone pivot="platform-linux"
 
 ## <a name="customize-build-automation"></a>Personalizar a automação de build
@@ -93,8 +123,8 @@ Se você implantar seu aplicativo usando pacotes Git ou zip com a automação de
 
 1. Executar script personalizado se especificado por `PRE_BUILD_SCRIPT_PATH`.
 1. Execute `npm install` sem nenhum sinalizador, o que inclui NPM `preinstall` e `postinstall` scripts e também instalações `devDependencies` .
-1. Executar `npm run build` se um script de compilação for especificado no seu *package.jsem* .
-1. Executar `npm run build:azure` se um Build: script do Azure for especificado no seu *package.jsem* .
+1. Executar `npm run build` se um script de compilação for especificado no seu *package.jsem*.
+1. Executar `npm run build:azure` se um Build: script do Azure for especificado no seu *package.jsem*.
 1. Executar script personalizado se especificado por `POST_BUILD_SCRIPT_PATH`.
 
 > [!NOTE]
@@ -123,7 +153,7 @@ Os contêineres de Node.js vêm com [PM2](https://pm2.keymetrics.io/), gerente d
 
 ### <a name="run-custom-command"></a>Executar comando personalizado
 
-O serviço de aplicativo pode iniciar seu aplicativo usando um comando personalizado, como um executável como *Run.sh* . Por exemplo, para executar `npm run start:prod` , execute o seguinte comando no [Cloud Shell](https://shell.azure.com):
+O serviço de aplicativo pode iniciar seu aplicativo usando um comando personalizado, como um executável como *Run.sh*. Por exemplo, para executar `npm run start:prod` , execute o seguinte comando no [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "npm run start:prod"
@@ -164,7 +194,7 @@ O contêiner inicia automaticamente seu aplicativo com PM2 quando um dos arquivo
 Você também pode configurar um arquivo de inicialização personalizado com as seguintes extensões:
 
 - Um arquivo *. js*
-- Um [arquivo PM2](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) com a extensão *. JSON* , *.config.js* , *. YAML* ou *. yml*
+- Um [arquivo PM2](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) com a extensão *. JSON*, *.config.js*, *. YAML* ou *. yml*
 
 Para adicionar um arquivo de inicialização personalizado, execute o seguinte comando no [Cloud Shell](https://shell.azure.com):
 
@@ -177,7 +207,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 > [!NOTE]
 > A depuração remota está atualmente em visualização.
 
-Você pode depurar seu aplicativo Node.js remotamente no [Visual Studio Code](https://code.visualstudio.com/) se configurá-lo para ser [executado com PM2](#run-with-pm2), exceto quando você executá-lo usando um * .config.js, *. yml ou *. YAML* .
+Você pode depurar seu aplicativo Node.js remotamente no [Visual Studio Code](https://code.visualstudio.com/) se configurá-lo para ser [executado com PM2](#run-with-pm2), exceto quando você executá-lo usando um * .config.js, *. yml ou *. YAML*.
 
 Na maioria dos casos, nenhuma configuração adicional é necessária para seu aplicativo. Se seu aplicativo for executado com um *process.jsno* arquivo (padrão ou personalizado), ele deverá ter uma `script` Propriedade na raiz JSON. Por exemplo:
 
@@ -191,9 +221,9 @@ Na maioria dos casos, nenhuma configuração adicional é necessária para seu a
 
 Para configurar Visual Studio Code para depuração remota, instale a [extensão do serviço de aplicativo](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Siga as instruções na página extensão e entre no Azure no Visual Studio Code.
 
-No Azure Explorer, localize o aplicativo que você deseja depurar, clique nele com o botão direito do mouse e selecione **Iniciar Depuração remota** . Clique em **Sim** para habilitá-lo para seu aplicativo. O serviço de aplicativo inicia um proxy de túnel para você e anexa o depurador. Em seguida, você pode fazer solicitações para o aplicativo e ver o depurador pausando em pontos de interrupção.
+No Azure Explorer, localize o aplicativo que você deseja depurar, clique nele com o botão direito do mouse e selecione **Iniciar Depuração remota**. Clique em **Sim** para habilitá-lo para seu aplicativo. O serviço de aplicativo inicia um proxy de túnel para você e anexa o depurador. Em seguida, você pode fazer solicitações para o aplicativo e ver o depurador pausando em pontos de interrupção.
 
-Depois de concluir a depuração, pare o depurador selecionando **Desconectar** . Quando solicitado, você deve clicar em **Sim** para desabilitar a depuração remota. Para desabilitá-lo mais tarde, clique com o botão direito do mouse no seu aplicativo novamente no Azure Explorer e selecione **Desabilitar depuração remota** .
+Depois de concluir a depuração, pare o depurador selecionando **Desconectar**. Quando solicitado, você deve clicar em **Sim** para desabilitar a depuração remota. Para desabilitá-lo mais tarde, clique com o botão direito do mouse no seu aplicativo novamente no Azure Explorer e selecione **Desabilitar depuração remota**.
 
 ::: zone-end
 
@@ -227,7 +257,7 @@ npm install kuduscript -g
 kuduscript --node --scriptType bash --suppressPrompt
 ```
 
-A raiz do repositório agora tem dois arquivos adicionais: *. Deployment* e *Deploy.sh* .
+A raiz do repositório agora tem dois arquivos adicionais: *. Deployment* e *Deploy.sh*.
 
 Abra *Deploy.sh* e localize a `Deployment` seção, que é semelhante a esta:
 
@@ -318,7 +348,7 @@ Quando um aplicativo Node.js funcionando se comporta de forma diferente no servi
 
 - [Acessar o fluxo de log](#access-diagnostic-logs).
 - Teste o aplicativo localmente no modo de produção. O Serviço de Aplicativo executa seus aplicativos do Node.js no modo de produção, portanto, verifique se seu projeto funciona como esperado localmente no modo de produção. Por exemplo:
-    - Dependendo do seu *package.jsno* , pacotes diferentes podem ser instalados para o modo de produção ( `dependencies` vs. `devDependencies` ).
+    - Dependendo do seu *package.jsno*, pacotes diferentes podem ser instalados para o modo de produção ( `dependencies` vs. `devDependencies` ).
     - Determinadas estruturas da Web podem implantar arquivos estáticos de maneira diferente no modo de produção.
     - Determinadas estruturas da Web podem usar scripts de inicialização personalizados ao serem executados no modo de produção.
 - Execute seu aplicativo no serviço de aplicativo no modo de desenvolvimento. Por exemplo, em [MEAN.js](https://meanjs.org/), você pode definir seu aplicativo para o modo de desenvolvimento em tempo de execução [definindo a `NODE_ENV` configuração do aplicativo](configure-common.md).

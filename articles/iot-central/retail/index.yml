@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: 8528c3a158c85c4b70bc1d6039b459993d06ce2b
-  ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+  ms.openlocfilehash: 93c5aea44586a37ac9d4c4c2647754fb7ba5659d
+  ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91874196"
+  ms.lasthandoff: 11/25/2020
+  ms.locfileid: "96122391"
 landingContent:
 - title: Criar soluções de varejo
   linkLists:
@@ -51,10 +51,8 @@ landingContent:
       url: ../core/overview-iot-central-developer.md
   - linkListType: tutorial
     links:
-    - text: Conectar um dispositivo (Node.js)
-      url: ../core/tutorial-connect-device-nodejs.md
-    - text: Conectar um dispositivo (Python)
-      url: ../core/tutorial-connect-device-python.md
+    - text: Criar e conectar-se a um dispositivo
+      url: ../core/tutorial-connect-device.md
   - linkListType: concept
     links:
     - text: Conectividade do dispositivo

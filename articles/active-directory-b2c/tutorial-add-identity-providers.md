@@ -11,12 +11,13 @@ ms.topic: tutorial
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9f9abf9105da773ec5f8321c0f8e70e20516618c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 166bdb7a2cf15a84e1b826a9a798042c568bb227
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87922142"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608224"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Tutorial: Adicionar provedores de identidade a seus aplicativos no Azure Active Directory B2C
 
@@ -99,19 +100,21 @@ Depois de criar o aplicativo para o provedor de identidade que você deseja adic
 1. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
 1. Selecione **Provedores de identidade** e **Novo provedor do OpenID Connect**.
 1. Insira um **Nome**. Por exemplo, insira *Contoso Azure AD*.
-1. Para a **URL dos metadados**, insira a seguinte URL, substituindo `your-AD-tenant-domain` pelo nome de domínio do locatário do Azure AD:
+1. Para a **URL dos metadados**, insira a seguinte URL, substituindo `{tenant}` pelo nome de domínio do locatário do Azure AD:
 
     ```
-    https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
+    https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
     ```
 
-    Por exemplo, `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`.
+    Por exemplo, `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`.
+    Por exemplo, `https://login.microsoftonline.com/contoso.com/v2.0/.well-known/openid-configuration`.
 
 1. Para **ID do cliente**, insira a ID do aplicativo que você registrou anteriormente.
 1. Para **Segredo do cliente**, insira o segredo do cliente que você registrou anteriormente.
-1. Deixe os valores padrão para **Escopo**, **Tipo de resposta** e **Modo de resposta**.
-1. (Opcional) Insira um valor para **Domain_hint**. Por exemplo, *ContosoAD*. [Dicas de domínio](../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) são diretivas incluídas na solicitação de autenticação de um aplicativo. Elas podem ser usadas para agilizar o usuário até a página de entrada IdP. Ou elas podem ser usadas por um aplicativo multilocatário para agilizar o usuário diretamente para a página de entrada do Azure AD da marca do locatário.
-1. Em **Mapeamento de declarações do provedor de identidade**, insira os seguintes valores de mapeamento de declarações:
+1. No **Escopo**, insira o `openid profile`.
+1. Deixe os valores padrão para **Tipo de resposta** e **Modo de resposta**.
+1. (Opcional) Em **Dica de domínio**, insira `contoso.com`. Para obter mais informações, confira [Configurar entrada direta usando o Azure Active Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
+1. Em **Mapeamento de declarações do provedor de identidade**, selecione as seguintes declarações:
 
     * **ID de usuário**: *oid*
     * **Nome de exibição**: *name*

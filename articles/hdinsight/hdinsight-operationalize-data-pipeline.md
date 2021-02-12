@@ -1,19 +1,16 @@
 ---
 title: Operacionalize um pipeline de análise de dados - Azure
 description: Configure e execute um exemplo de pipeline de dados que é disparado por novos dados e produz resultados concisos.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/25/2019
-ms.openlocfilehash: 1e73c403a03eef9a47bc0550b37769db302a599c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a306890560497b0c7196f1286de3f73039821ea2
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504411"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939521"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Operacionalize um pipeline de análise de dados
 
@@ -53,7 +50,7 @@ Esse pipeline exige um Banco de Dados SQL do Azure e um cluster Hadoop do HDInsi
 
 1. Crie um Banco de Dados SQL do Azure. Consulte [criar um banco de dados SQL do Azure no portal do Azure](../azure-sql/database/single-database-create-quickstart.md).
 
-1. Para garantir que seu cluster HDInsight possa acessar o banco de dados SQL do Azure conectado, configure as regras de firewall do banco de dados SQL do Azure para permitir que os serviços e recursos do Azure acessem o servidor. Você pode habilitar essa opção no portal do Azure selecionando **definir o Firewall do servidor**e selecionando abaixo **permitir que os serviços e recursos do Azure acessem este servidor para o** banco de dados SQL do Azure. **ON** Para obter mais informações, confira [Criar e gerenciar regras de firewall de IP](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
+1. Para garantir que seu cluster HDInsight possa acessar o banco de dados SQL do Azure conectado, configure as regras de firewall do banco de dados SQL do Azure para permitir que os serviços e recursos do Azure acessem o servidor. Você pode habilitar essa opção no portal do Azure selecionando **definir o Firewall do servidor** e selecionando abaixo **permitir que os serviços e recursos do Azure acessem este servidor para o** banco de dados SQL do Azure.  Para obter mais informações, confira [Criar e gerenciar regras de firewall de IP](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
 
 1. Use o [Editor de consultas](../azure-sql/database/single-database-create-quickstart.md#query-the-database) para executar as seguintes instruções SQL para criar a `dailyflights` tabela que armazenará os dados resumidos de cada execução do pipeline.
 

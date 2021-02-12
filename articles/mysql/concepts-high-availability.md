@@ -1,17 +1,17 @@
 ---
 title: Alta disponibilidade-banco de dados do Azure para MySQL
 description: Este artigo fornece informações sobre a alta disponibilidade no banco de dados do Azure para MySQL
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: 668243f66deff67a923097c116c4b150d0256992
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b301946ce818559510b4e401b1f0aaf7c235d5a3
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90882560"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242289"
 ---
 # <a name="high-availability-in-azure-database-for-mysql"></a>Alta disponibilidade no banco de dados do Azure para MySQL
 O serviço banco de dados do Azure para MySQL fornece um alto nível de disponibilidade garantido com o SLA (contrato de nível de serviço) com suporte financeiro de [99,99%](https://azure.microsoft.com/support/legal/sla/mysql) de tempo de atividade. O banco de dados do Azure para MySQL fornece alta disponibilidade durante eventos planejados, como a operação de computação de escala iniciada pelo do usuário, e também quando ocorrem eventos não planejados, como hardware subjacente, software ou falhas de rede. O banco de dados do Azure para MySQL pode se recuperar rapidamente das circunstâncias mais críticas, garantindo praticamente nenhum tempo de inatividade do aplicativo ao usar esse serviço.

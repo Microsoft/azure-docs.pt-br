@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 0fda0b659dd2500e811fac1f53c99a9987276185
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ef284661d44f700cf0b5282efcd2e6f7b94fa3b6
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537466"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621511"
 ---
 # <a name="azure-cache-for-redis-network-isolation-options"></a>Cache do Azure para opções de isolamento de rede Redis 
 Neste artigo, você aprenderá a determinar a melhor solução de isolamento de rede para suas necessidades. Veremos os conceitos básicos do link privado do Azure, a injeção da VNet (rede virtual do Azure) e as regras de firewall do Azure com suas vantagens e limitações.  
@@ -22,7 +22,7 @@ O link privado do Azure fornece conectividade privada de uma rede virtual para o
 ### <a name="advantages"></a>Vantagens
 * Com suporte em cache básico, Standard e Premium do Azure para instâncias de Redis. 
 * Usando o [link privado do Azure](../private-link/private-link-overview.md), você pode se conectar a uma instância de cache do Azure de sua rede virtual por meio de um ponto de extremidade privado, que é atribuído a um endereço IP privado em uma sub-rede dentro da rede virtual. Com isso, as instâncias de cache estão disponíveis tanto na VNet quanto publicamente.  
-* Depois que um ponto de extremidade privado é criado, o acesso à rede pública pode ser restringido por meio do `publicNetworkAccess` sinalizador. Esse sinalizador é definido como `Enabled` por padrão, dando a você a opção de permitir o acesso de link público e privado ao cache. Se definido como `Disabled` , ele só permitirá o acesso de link privado. Você pode definir o valor como `Disabled` com uma solicitação de patch. Para obter mais informações, consulte [cache do Azure para Redis com o link privado do Azure (versão prévia)](cache-private-link.md). 
+* Depois que um ponto de extremidade privado é criado, o acesso à rede pública pode ser restringido por meio do `publicNetworkAccess` sinalizador. Esse sinalizador é definido como `Disabled` por padrão, o que permitirá somente o acesso de link privado. Você pode definir o valor para `Enabled` ou `Disabled` com uma solicitação de patch. Para obter mais informações, consulte [cache do Azure para Redis com o link privado do Azure (versão prévia)](cache-private-link.md). 
 * Todas as dependências de cache externo não afetarão as regras de NSG da VNet.
 
 ### <a name="limitations"></a>Limitações 

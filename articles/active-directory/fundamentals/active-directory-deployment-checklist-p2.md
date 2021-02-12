@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7aebe6fafea7cbbb0b37469a13262529b568e342
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 92d1e5b8ac6492b0b1d819431e4616d32a092cc8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077958"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836913"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guia de implantação de recurso do Azure Active Directory
 
@@ -57,7 +57,7 @@ Nessa fase, os administradores habilitam recursos de segurança básicos para cr
 | [Implantar a autenticação multifator do Azure AD usando políticas de acesso condicional](../authentication/howto-mfa-getstarted.md) | Exigir que os usuários executem a verificação em duas etapas ao acessar aplicativos confidenciais usando políticas de acesso condicional. | Azure AD Premium P1 |
 | [Ativar a proteção de identidade do Active Directory do Azure](../identity-protection/overview-identity-protection.md) | Habilite o rastreamento de conexões arriscadas e credenciais comprometidas para usuários da sua organização. | Azure AD Premium P2 |
 | [Usar as detecções de risco para disparar a autenticação multifator e as alterações de senha](../authentication/tutorial-risk-based-sspr-mfa.md) | Habilite a automação que pode disparar eventos como autenticação multifator, redefinição de senha e bloqueio de conexões com base no risco. | Azure AD Premium P2 |
-| [Habilitar registro combinado para redefinição de senha de autoatendimento e autenticação multifator do Azure AD](../authentication/concept-registration-mfa-sspr-combined.md) | Permita que os usuários se registrem de uma experiência comum na Autenticação Multifator do Microsoft Azure e no autoatendimento de redefinição de senha. | Azure AD Premium P1 |
+| [Habilitar registro combinado para redefinição de senha de autoatendimento e autenticação multifator do Azure AD](../authentication/concept-registration-mfa-sspr-combined.md) | Permita que os usuários se registrem de uma experiência comum para a autenticação multifator do Azure AD e a redefinição de senha de autoatendimento. | Azure AD Premium P1 |
 
 ## <a name="phase-2-import-users-enable-synchronization-and-manage-devices"></a>Fase 2: importar usuários, habilitar a sincronização e gerenciar dispositivos
 

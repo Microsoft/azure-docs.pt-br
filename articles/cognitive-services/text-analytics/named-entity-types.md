@@ -8,18 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 07/28/2020
+ms.date: 01/22/2021
 ms.author: aahi
-ms.openlocfilehash: 77b75b1134bbc8366478b1f9f4d14e86e9684f70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 883c5a20612f4dab44c0d06776ee287b27174ab9
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91709138"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097247"
 ---
 # <a name="supported-entity-categories-in-the-text-analytics-api-v3"></a>Categorias de entidade com suporte no API de Análise de Texto v3
 
-Use este artigo para localizar as categorias de entidade que podem ser retornadas pelo [reconhecimento de entidade nomeada](how-tos/text-analytics-how-to-entity-linking.md) (Ner). Uma visualização do NER v 3.1 também está disponível, o que inclui a capacidade de detectar informações pessoais ( `PII` ) e de integridade ( `PHI` ). Além disso, clique na guia **integridade** para ver uma lista de categorias com suporte no análise de texto para fins de integridade.
+Use este artigo para localizar as categorias de entidade que podem ser retornadas pelo [reconhecimento de entidade nomeada](how-tos/text-analytics-how-to-entity-linking.md) (Ner). NER executa um modelo de previsão para identificar e categorizar entidades nomeadas de um documento de entrada.
+
+Uma visualização do NER v 3.1 também está disponível, o que inclui a capacidade de detectar informações pessoais ( `PII` ) e de integridade ( `PHI` ). Além disso, clique na guia **integridade** para ver uma lista de categorias com suporte no análise de texto para fins de integridade. 
+
+Você pode encontrar uma lista de tipos retornados pela versão 2,1 no [Guia de migração](migration-guide.md?tabs=named-entity-recognition)
 
 ## <a name="entity-categories"></a>Categorias de entidade
 
@@ -35,8 +39,8 @@ Use este artigo para localizar as categorias de entidade que podem ser retornada
 
 [!INCLUDE [biomedical entity types](./includes/entity-types/health-entities.md)]
 
-***
+**_
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Como usar o reconhecimento de entidade nomeada no Análise de Texto](how-tos/text-analytics-how-to-entity-linking.md)
+_ [Como usar o reconhecimento de entidade nomeada no análise de texto](how-tos/text-analytics-how-to-entity-linking.md)

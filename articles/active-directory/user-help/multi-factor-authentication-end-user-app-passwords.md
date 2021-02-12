@@ -13,21 +13,21 @@ ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: c9d8bb85aac87503ca641f6633668a6dc582882f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07303a0b0b3007ade9adb90af7397855a5014cc0
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056074"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179415"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Gerenciar senhas de aplicativos para verificação em duas etapas
 
->[!Important]
+> [!Important]
 >O administrador pode não permitir que você use senhas de aplicativo. Caso você não veja a opção **Senhas de aplicativos**, elas não estão disponíveis em sua organização.
 
 Ao usar senhas de aplicativos, é importante lembrar:
 
-- As senhas de aplicativos são geradas automaticamente e devem ser inseridas apenas uma vez por aplicativo.
+- As senhas de aplicativo são geradas automaticamente e devem ser criadas e inseridas uma vez por aplicativo.
 
 - Há um limite de 40 senhas por usuário. Se você tentar criar um após esse limite, será solicitado que você exclua uma senha existente antes de poder criar a nova.
 
@@ -64,17 +64,17 @@ Você pode criar e excluir senhas de aplicativo na página **Verificação de se
 
     ![Sua página de senha do aplicativo com a senha para seu aplicativo especificado](media/multi-factor-authentication-end-user-app-passwords/mfa-your-app-password-page.png)
 
-4. Na página **Senhas do aplicativo**, verifique se seu aplicativo está listado.
+4. Na página **senhas de aplicativo** , verifique se seu aplicativo está listado.
 
-     ![Página de senhas do aplicativo, com o novo aplicativo mostrado na lista](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)  
+    ![Página de senhas do aplicativo, com o novo aplicativo mostrado na lista](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)  
 
 5. Abra o aplicativo para o qual você criou a senha do aplicativo (por exemplo, Outlook 2010) e cole a senha do aplicativo quando solicitado. Você só deve fazer isso uma vez por aplicativo.
 
 ### <a name="to-delete-an-app-password-using-the-app-passwords-page"></a>Para excluir uma senha de aplicativo usando a página Senhas de aplicativo
 
-1. Na página **Senhas do aplicativo** e, em seguida, selecione **Excluir** ao lado da senha do aplicativo que você deseja excluir.
+1. Na página **senhas de aplicativo** , selecione **excluir** ao lado da senha de aplicativo que você deseja excluir.
 
-   ![Excluir uma senha de aplicativo](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-delete.png)
+   ![Captura de tela que mostra a exclusão de uma senha de aplicativo na página senhas de aplicativo](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-delete.png)
 
 2. Selecione **Sim** para confirmar que deseja excluir a senha e, em seguida, selecione **Fechar**.
 
@@ -86,35 +86,35 @@ Se você usar a verificação em duas etapas com sua conta corporativa ou de est
 
 ### <a name="to-create-app-passwords-using-the-office-365-portal"></a>Para criar senhas de aplicativos usando o portal do Office 365
 
-1. Entre em sua conta corporativa ou de estudante, vá para a [página minha conta](https://portal.office.com), selecione **segurança & privacidade**e, em seguida, expanda **verificação de segurança adicional**.
+1. Entre em sua conta corporativa ou de estudante, vá para a [página minha conta](https://myaccount.microsoft.com)e selecione **informações de segurança**.
 
-    ![Do portal mostrando Office expandido a área de verificação de segurança adicional](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-o365-my-account-page.png)
+    ![Portal do Office mostrando a guia informações de segurança](media/multi-factor-authentication-end-user-app-passwords/mfa-security-info.png)
 
-2. Selecione o texto que diz: **Crie e gerencie senhas de aplicativos** para abrir a página **Senhas de aplicativos**.
+2. Selecione **Adicionar método**, escolha **senha de aplicativo** na lista suspensa e clique em **Adicionar**.
 
-    ![Página Senhas do aplicativo, com a guia Senhas do aplicativo realçada](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page.png)
+    ![Página informações de segurança, com a lista Adicionar um método drowpdown](media/multi-factor-authentication-end-user-app-passwords/mfa-add-method.png)
 
-3. Selecione **Criar**, digite o nome do aplicativo que requer a senha do aplicativo e selecione **Avançar**.
+3. Insira um nome para a senha do aplicativo e, em seguida, selecione **Avançar**.
 
-    ![Página Criar senhas do aplicativo, com o nome do aplicativo que precisa de senha](media/multi-factor-authentication-end-user-app-passwords/mfa-create-app-password-page.png)
+    ![Página criar senhas de aplicativo, com o nome da senha do aplicativo](media/multi-factor-authentication-end-user-app-passwords/mfa-enter-app-password-name.png)
 
-4. Copie a senha da página **Sua senha do aplicativo** e selecione **Fechar**.
+4. Copie a senha da página **senha do aplicativo** e, em seguida, selecione **concluído**.
 
-    ![Sua página de senha do aplicativo com a senha para seu aplicativo especificado](media/multi-factor-authentication-end-user-app-passwords/mfa-your-app-password-page.png)
+    ![Página senha do aplicativo com a nova senha de aplicativo que você criou](media/multi-factor-authentication-end-user-app-passwords/mfa-copy-app-password.png)
 
-5. Na página **Senhas do aplicativo**, verifique se seu aplicativo está listado.
+5. Na página **informações de segurança** , verifique se a senha do aplicativo está listada.
 
-     ![Página de senhas do aplicativo, com o novo aplicativo mostrado na lista](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)  
+    ![Página informações de segurança, com nova senha de aplicativo mostrada na lista](media/multi-factor-authentication-end-user-app-passwords/mfa-verify-app-password.png)  
 
-6. Abra o aplicativo para o qual você criou a senha do aplicativo (por exemplo, Outlook 2010) e cole a senha do aplicativo quando solicitado. Você só deve fazer isso uma vez por aplicativo.
+6. Abra o aplicativo para o qual você criou a senha de aplicativo (por exemplo, Outlook 2016) e cole a senha do aplicativo quando solicitado. Você só deve fazer isso uma vez por aplicativo.
 
-### <a name="to-delete-app-passwords-using-the-app-passwords-page"></a>Para excluir senhas de aplicativo usando a página Senhas de aplicativo
+### <a name="to-delete-app-passwords-using-the-security-info-page"></a>Para excluir senhas de aplicativo usando a página informações de segurança
 
-1. Na página **Senhas do aplicativo** e, em seguida, selecione **Excluir** ao lado da senha do aplicativo que você deseja excluir.
+1. Na página **informações de segurança** , selecione **excluir** ao lado da senha de aplicativo que você deseja excluir.
 
-   ![Excluir uma senha de aplicativo](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-delete.png)
+   ![Captura de tela que mostra a exclusão de uma senha de aplicativo na página informações de segurança](media/multi-factor-authentication-end-user-app-passwords/mfa-delete-app-password.png)
 
-2. Selecione **Sim** na caixa de confirmação e selecione **Fechar**.
+2. Selecione **OK** na caixa de confirmação.
 
     A senha do aplicativo é excluída com sucesso.
 

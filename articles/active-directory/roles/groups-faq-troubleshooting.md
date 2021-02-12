@@ -2,23 +2,23 @@
 title: Perguntas frequentes sobre solução de problemas de funções atribuídas a grupos de nuvem-Azure Active Directory | Microsoft Docs
 description: Aprenda algumas perguntas comuns e dicas de solução de problemas para atribuir funções a grupos no Azure Active Directory.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 08/13/2020
-ms.author: curtand
+ms.date: 11/05/2020
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 837750d7eeef9bc7a133a54b23a0c52c847364eb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0ff906654dc91c7b1980292efd2a737503e684e9
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374462"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742906"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Solução de problemas de funções atribuídas a grupos de nuvem
 
@@ -40,8 +40,8 @@ Aqui estão algumas perguntas comuns e dicas de solução de problemas para atri
 
 **R:** O usuário pode ser um proprietário de um grupo de função atribuível. Protegemos os proprietários de grupos de função atribuíveis para evitar a elevação de privilégio. Um exemplo pode ser se um grupo Contoso_Security_Admins for atribuído à função de administrador de segurança, onde Bob é o proprietário do grupo e Alice é administrador de senha na organização. Se essa proteção não estivesse presente, Alice poderia redefinir as credenciais de Bob e assumir sua identidade. Depois disso, Alice poderia adicionar a si mesmo ou qualquer pessoa ao grupo Contoso_Security_Admins grupo para se tornar um administrador de segurança na organização. Para descobrir se um usuário é um proprietário de grupo, obtenha a lista de objetos de propriedade desse usuário e veja se algum dos grupos tem isAssignableToRole definido como true. Em caso afirmativo, esse usuário será protegido e o comportamento será por design. Consulte estas documentações para obter objetos de propriedade:
 
-- [Get-AzureADUserOwnedObject](/powershell/module/azuread/get-azureaduserownedobject?view=azureadps-2.0)  
-- [Listar ownedObjects](/graph/api/user-list-ownedobjects?tabs=http&view=graph-rest-1.0)
+- [Get-AzureADUserOwnedObject](/powershell/module/azuread/get-azureaduserownedobject)  
+- [Listar ownedObjects](/graph/api/user-list-ownedobjects?tabs=http)
 
 **P:** Posso criar uma revisão de acesso em grupos que podem ser atribuídos às funções do Azure AD (especificamente, grupos com a propriedade isAssignableToRole definida como true)?  
 
@@ -61,7 +61,7 @@ Administrador de serviços de equipes | Proprietário do catálogo  | &nbsp; | �
 Administrador do SharePoint | Proprietário do catálogo | &nbsp; | ✔️  | &nbsp;  | ✔️ 
 Administrador de aplicativos | Proprietário do catálogo  | &nbsp;  | &nbsp; | ✔️  | &nbsp;
 Administrador de aplicativos de nuvem | Proprietário do catálogo  | &nbsp;  | &nbsp; | ✔️  | &nbsp;
-Usuário | Proprietário do catálogo | Somente se o proprietário do grupo | Somente se o proprietário do grupo | Somente se o proprietário do aplicativo  | &nbsp;
+User | Proprietário do catálogo | Somente se o proprietário do grupo | Somente se o proprietário do grupo | Somente se o proprietário do aplicativo  | &nbsp;
 
 \*O grupo não pode ser atribuído à função; ou seja, isAssignableToRole = false. Se um grupo for de função atribuível, a pessoa que criar o pacote de acesso também deverá ser proprietária do grupo de funções de atribuição.
 
@@ -89,7 +89,7 @@ Usuário | Proprietário do catálogo | Somente se o proprietário do grupo | So
 
 1. Entre no [portal do Azure](https://portal.azure.com) e abra **Azure Active Directory**.
 1. Selecione usuários e abra um perfil de usuário.
-1. Selecione **funções atribuídas**e, em seguida:
+1. Selecione **funções atribuídas** e, em seguida:
 
     - Em Azure AD Premium as organizações licenciadas P1: selecione o ícone de engrenagem. Um painel é aberto e pode fornecer essas informações.
     - Em organizações licenciadas Azure AD Premium P2: você encontrará informações de licença diretas e herdadas na coluna **Associação** .

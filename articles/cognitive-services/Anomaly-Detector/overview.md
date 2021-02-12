@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 01/05/2021
 ms.author: mbullwin
 keywords: detecção de anomalias, machine learning, algoritmos
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 9b540f2e04ae8533a00f79d05e220d99964d9a34
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 425c6cab4a4a5e1329e2d38f49c5058ec8ffc5b9
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016596"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901361"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>O que é a API do Detector de Anomalias?
 
@@ -83,8 +83,21 @@ Após a inscrição:
 
 Você pode ler o artigo [Serviço de detecção de anomalias da série temporal na Microsoft](https://arxiv.org/abs/1906.03821) (aceito por KDD 2019) para saber mais sobre os algoritmos SR-CNN desenvolvidos pela Microsoft.
 
-
 > [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
+
+## <a name="service-availability-and-redundancy"></a>Disponibilidade e redundância do serviço
+
+### <a name="is-the-anomaly-detector-service-zone-resilient"></a>A zona de serviço do Detector de Anomalias é resiliente?
+
+Sim. O serviço do Detector de Anomalias tem uma zona resiliente por padrão.
+
+### <a name="how-do-i-configure-the-anomaly-detector-service-to-be-zone-resilient"></a>Como devo configurar o serviço do Detector de Anomalias para obter uma zona resiliente?
+
+Nenhuma configuração do cliente será necessária para habilitar a resiliência de zona. A resiliência de zona está disponível por padrão para recursos do Detector de Anomalias, além de ser gerenciada pelo serviço.
+
+## <a name="deploy-on-premises-using-docker-containers"></a>Implantação local usando contêineres do Docker
+
+[Use contêineres do Detector de Anomalias](anomaly-detector-container-howto.md) para implantar recursos de API no local. Os contêineres do Docker permitem que você aproxime o serviço dos seus dados para fins de conformidade, segurança ou outras razões operacionais.
 
 ## <a name="join-the-anomaly-detector-community"></a>Ingressar na comunidade do Detector de Anomalias
 
@@ -93,6 +106,6 @@ Você pode ler o artigo [Serviço de detecção de anomalias da série temporal 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Início Rápido: Detectar anomalias nos dados de série temporal usando a API REST do Detector de Anomalias](quickstarts/detect-data-anomalies-csharp.md)
+* [Início Rápido: Detectar anomalias nos dados de série temporal usando o Detector de Anomalias](quickstarts/client-libraries.md)
 * A [demonstração online](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector) da API do Detector de Anomalias
 * A [referência da API REST](https://aka.ms/anomaly-detector-rest-api-ref) do Detector de Anomalias

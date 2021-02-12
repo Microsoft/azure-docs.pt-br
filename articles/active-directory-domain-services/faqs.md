@@ -2,21 +2,21 @@
 title: Perguntas frequentes sobre Azure AD Domain Services | Microsoft Docs
 description: Leia e entenda algumas das perguntas frequentes sobre configuração, administração e disponibilidade para Azure Active Directory Domain Services
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 48731820-9e8c-4ec2-95e8-83dba1e58775
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/30/2020
-ms.author: joflore
-ms.openlocfilehash: 07d2d71c13cd054dec46b6eaa9f07079c8cec63b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.date: 02/09/2021
+ms.author: justinha
+ms.openlocfilehash: 3d0f2b44f37cb318be2117b5dc5d8b42b418ff19
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962285"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100090982"
 ---
 # <a name="frequently-asked-questions-faqs-about-azure-active-directory-ad-domain-services"></a>Perguntas frequentes (FAQs) sobre os serviços de domínio do Azure Active Directory (AD)
 
@@ -106,7 +106,7 @@ Qualquer conta de usuário que faça parte do domínio gerenciado pode ingressar
 Não. Você não recebe privilégios administrativos no domínio gerenciado. Os privilégios de administrador de *domínio* e de *administrador corporativo* não estão disponíveis para uso no domínio. Os membros dos grupos de administrador de domínio ou de administrador corporativo na sua Active Directory local também não recebem privilégios de administrador de domínio/empresa no domínio gerenciado.
 
 ### <a name="can-i-modify-group-memberships-using-ldap-or-other-ad-administrative-tools-on-managed-domains"></a>Posso modificar associações de grupo usando o LDAP ou outras ferramentas administrativas do AD em domínios gerenciados?
-Os usuários e grupos que são sincronizados de Azure Active Directory para Azure AD Domain Services não podem ser modificados porque sua origem de origem é Azure Active Directory. Qualquer usuário ou grupo originado no domínio gerenciado pode ser modificado.
+Os usuários e grupos que são sincronizados de Azure Active Directory para Azure AD Domain Services não podem ser modificados porque sua origem de origem é Azure Active Directory. Isso inclui mover usuários ou grupos da unidade organizacional gerenciada usuários do AADDC para uma unidade organizacional personalizada. Qualquer usuário ou grupo originado no domínio gerenciado pode ser modificado.  
 
 ### <a name="how-long-does-it-take-for-changes-i-make-to-my-azure-ad-directory-to-be-visible-in-my-managed-domain"></a>Quanto tempo demora para que as alterações que eu fiz ao meu diretório do Azure AD fiquem visíveis em meu domínio gerenciado?
 As alterações feitas no diretório do Azure AD usando a interface do usuário do Azure AD ou o PowerShell são sincronizadas automaticamente com o domínio gerenciado. Esse processo de sincronização ocorre em segundo plano. Não há nenhum período de tempo definido para que essa sincronização conclua todas as alterações de objeto.
@@ -152,7 +152,7 @@ Azure AD Domain Services está incluído na avaliação gratuita do Azure. Você
 Não. Depois de habilitar um Azure AD Domain Services domínio gerenciado, o serviço estará disponível em sua rede virtual selecionada até que você exclua o domínio gerenciado. Não há como pausar o serviço. A cobrança continuará por hora até que você exclua o domínio gerenciado.
 
 ### <a name="can-i-fail-over-azure-ad-domain-services-to-another-region-for-a-dr-event"></a>Posso fazer failover de Azure AD Domain Services para outra região para um evento de recuperação de desastre?
-Não. No momento, o Azure AD Domain Services não fornece um modelo de implantação com redundância geográfica. Ele é limitado a uma única rede virtual em uma região do Azure. Se quiser utilizar várias regiões do Azure, você precisará executar seus Controladores de Domínio do Active Directory em VMs IaaS do Azure. Para obter diretrizes de arquitetura, consulte [estender seu domínio de Active Directory local para o Azure](/azure/architecture/reference-architectures/identity/adds-extend-domain).
+Sim, para fornecer resiliência geográfica para um domínio gerenciado, você pode criar um conjunto de [réplicas](tutorial-create-replica-set.md) adicional para uma rede virtual emparelhada em qualquer região do Azure que dê suporte ao Azure AD DS. Os conjuntos de réplicas compartilham o mesmo namespace e configuração com o domínio gerenciado.
 
 ### <a name="can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-ems-do-i-need-azure-ad-premium-to-use-azure-ad-domain-services"></a>Posso obter os Serviços de Domínio do AD do Azure como parte do EMS (Enterprise Mobility Suite)? Preciso do Azure AD Premium para usar os Serviços de Domínio do Azure AD?
 Não. Azure AD Domain Services é um serviço pago conforme o uso do Azure e não faz parte do EMS. Azure AD Domain Services pode ser usado com todas as edições do Azure AD (gratuito e Premium). Você é cobrado por hora, dependendo do uso.

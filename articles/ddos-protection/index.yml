@@ -10,12 +10,12 @@ metadata:
   ms.service: ddos-protection
   ms.topic: landing-page
   ms.custom: azure-ddos-protection
-  ms.openlocfilehash: cfc0a8c4856711c4f011805322e2b28942866573
-  ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+  ms.openlocfilehash: 50f871b08e2a945c599f7217ce680669da39af40
+  ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/28/2020
-  ms.locfileid: "92904691"
+  ms.lasthandoff: 12/30/2020
+  ms.locfileid: "97813965"
 landingContent:
 - title: Saiba mais sobre a Proteção contra DDoS do Azure Standard
   linkLists:
@@ -40,9 +40,11 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: Exibir e configurar a telemetria da Proteção contra DDoS
-      url: telemetry-monitoring-alerting.md
-    - text: Configurar relatórios de mitigação de ataque de DDoS e logs de fluxo
-      url: reports-and-flow-logs.md
+      url: telemetry.md
+    - text: Exibir e configurar o log de diagnóstico de DDoS
+      url: diagnostic-logging.md
+    - text: Exibir e configurar os alertas da proteção contra DDoS
+      url: alerts.md
 - title: Como responder a DDoS
   linkLists:
   - linkListType: concept

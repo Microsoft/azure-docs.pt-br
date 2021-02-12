@@ -2,16 +2,16 @@
 title: Grade de eventos do Azure-eventos de parceiro
 description: Envie eventos de parceiros de PaaS e SaaS da Grade de Eventos de terceiros diretamente para os serviços do Azure com a Grade de Eventos do Azure.
 ms.topic: conceptual
-ms.date: 10/29/2020
-ms.openlocfilehash: 87d1d40b3696229344b0b5c20d06d9d993a514a4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/10/2020
+ms.openlocfilehash: 31a5fe611871eb4734b6a68e3818592028ebc75c
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102795"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506134"
 ---
 # <a name="partner-events-in-azure-event-grid-preview"></a>Eventos de parceiro na grade de eventos do Azure (visualização)
-O recurso de **eventos de parceiro** permite que um provedor de SaaS de terceiros publique eventos de seus serviços para torná-los disponíveis para os consumidores que podem assinar esses eventos. Ele oferece uma experiência de terceiros a fontes de eventos de terceiros expondo um tipo de [tópico](concepts.md#topics) , um **tópico de parceiro** , que os assinantes usam para consumir eventos. Ele também oferece um modelo de pub-sub limpo, separando as preocupações e a propriedade dos recursos usados por editores de eventos e assinantes.
+O recurso de **eventos de parceiro** permite que um provedor de SaaS de terceiros publique eventos de seus serviços para que os consumidores possam assinar esses eventos. Esse recurso oferece uma experiência de terceiros a fontes de eventos de terceiros, expondo um tipo de [tópico](concepts.md#topics) , um **tópico de parceiro**. Os assinantes criam assinaturas para este tópico para consumir eventos. Ele também fornece um modelo de pub-sub limpo, separando as preocupações e a propriedade dos recursos que são usados por editores de eventos e assinantes.
 
 > [!NOTE]
 > Se você for novo no usando a grade de eventos, consulte [visão geral](overview.md), [conceitos](concepts.md)e [manipuladores de eventos](event-handlers.md).
@@ -75,6 +75,20 @@ Um canal de eventos é um recurso espelhado em um tópico de parceiro. Quando um
 
 ## <a name="resources-managed-by-subscribers"></a>Recursos gerenciados por assinantes 
 Os assinantes podem usar tópicos de parceiros definidos por um Publicador e é o único tipo de recurso que eles veem e gerenciam. Depois que um tópico de parceiro é criado, um usuário do assinante pode criar assinaturas de evento definindo regras de filtro para [destinos/manipuladores de eventos](overview.md#event-handlers). Para assinantes, um tópico de parceiro e suas assinaturas de evento associadas fornecem os mesmos recursos avançados que os [Tópicos personalizados](custom-topics.md) e suas assinaturas relacionadas fazem com uma diferença notável: os tópicos de parceiros dão suporte apenas ao [esquema de eventos de nuvem 1,0](cloudevents-schema.md), que fornece um conjunto mais rico de recursos do que outros esquemas com suporte.
+
+A imagem a seguir mostra o fluxo de operações do plano de controle.
+
+:::image type="content" source="./media/partner-events-overview/partner-control-plane-flow.png" alt-text="Eventos de parceiro – fluxo do plano de controle":::
+
+1. O Publicador cria um **registro de parceiro**. Os registros de parceiros são globais. Ou seja, eles não estão associados a uma região específica do Azure. Esta etapa é opcional.
+1. O editor cria um **namespace de parceiro** em uma região específica.
+1. Quando o assinante 1 tenta criar um tópico de parceiro, um **canal de evento** , canal de evento 1, é criado na assinatura do Azure do Publicador primeiro.
+1. Em seguida, um **tópico de parceiro** , tópico de parceiro 1, é criado na assinatura do Azure do Assinante. O assinante precisa ativar o tópico parceiro. 
+1. O assinante 1 cria uma **assinatura dos aplicativos lógicos do Azure** para o tópico 1 do parceiro.
+1. O assinante 1 cria uma **assinatura de armazenamento de BLOBs do Azure** para o tópico de parceiro 1. 
+1. Quando o assinante 2 tenta criar um tópico de parceiro, outro **canal de evento** , canal de evento 2, é criado na assinatura do Azure do Publicador primeiro. 
+1. Em seguida, o **tópico de parceiro** , o tópico de parceiro 2, é criado na assinatura do Azure do segundo assinante. O assinante precisa ativar o tópico parceiro. 
+1. O assinante 2 cria uma **assinatura Azure Functions** para o tópico do parceiro 2. 
 
 ## <a name="pricing"></a>Preços
 Os tópicos de parceiros são cobrados pelo número de operações realizadas ao usar a grade de eventos. Para obter mais informações sobre todos os tipos de operações que são usadas como base para cobrança e informações detalhadas de preço, consulte [preços da grade de eventos](https://azure.microsoft.com/pricing/details/event-grid/).

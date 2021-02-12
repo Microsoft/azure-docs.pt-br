@@ -7,20 +7,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 3a67f16b53c2754e2ac5ae1df467aac7726f358e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18b70d60ade7cd40f7ed51aa7c219c8c046abfc3
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320992"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584731"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtenha uma resposta com a API e os metadados do GenerateAnswer
 
 Para obter a resposta prevista para a pergunta de um usuário, use a API GenerateAnswer. Ao publicar uma base de dados de conhecimento, você pode ver informações sobre como usar essa API na página **publicar** . Você também pode configurar a API para filtrar as respostas com base nas marcas de metadados e testar a base de dados de conhecimento do ponto de extremidade com o parâmetro de cadeia de caracteres de consulta de teste.
 
-QnA Maker permite adicionar metadados, na forma de pares de chave e valor, aos seus pares de perguntas e respostas. Você pode usar essas informações para filtrar os resultados para consultas de usuário e armazenar informações adicionais que podem ser usadas em conversas de acompanhamento. Para mais informações, consulte a [Base de dados de conhecimento](../Concepts/knowledge-base.md).
+QnA Maker permite adicionar metadados, na forma de pares de chave e valor, aos seus pares de perguntas e respostas. Você pode usar essas informações para filtrar os resultados para consultas de usuário e armazenar informações adicionais que podem ser usadas em conversas de acompanhamento. Para mais informações, consulte a [Base de dados de conhecimento](../index.yml).
 
 <a name="qna-entity"></a>
 
@@ -36,13 +36,13 @@ Cada entidade QnA tem uma ID exclusiva e persistente. Você pode usar a ID para 
 
 ## <a name="get-answer-predictions-with-the-generateanswer-api"></a>Obter previsões de resposta com a API GenerateAnswer
 
-Você usa a [API GenerateAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) em seu bot ou aplicativo para consultar sua base de dados de conhecimento com uma pergunta de usuário, para obter a melhor correspondência dos pares de perguntas e respostas.
+Você usa a [API GenerateAnswer](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) em seu bot ou aplicativo para consultar sua base de dados de conhecimento com uma pergunta de usuário, para obter a melhor correspondência dos pares de perguntas e respostas.
 
 <a name="generateanswer-endpoint"></a>
 
 ## <a name="publish-to-get-generateanswer-endpoint"></a>Publicar para obter ponto de extremidade GenerateAnswer
 
-Depois de publicar sua base de dados de conhecimento, seja no [portal de QnA Maker](https://www.qnamaker.ai)ou usando a [API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish), você pode obter os detalhes do seu ponto de extremidade GenerateAnswer.
+Depois de publicar sua base de dados de conhecimento, seja no [portal de QnA Maker](https://www.qnamaker.ai)ou usando a [API](/rest/api/cognitiveservices/qnamaker/knowledgebase/publish), você pode obter os detalhes do seu ponto de extremidade GenerateAnswer.
 
 Para obter os detalhes do ponto de extremidade:
 1. Entre em [https://www.qnamaker.ai](https://www.qnamaker.ai).
@@ -50,7 +50,15 @@ Para obter os detalhes do ponto de extremidade:
     ![Captura de tela de minhas bases de dados de conhecimento](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
 1. Obtenha os detalhes do ponto de extremidade do GenerateAnswer.
 
+    # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versão estável)](#tab/v1)
+
     ![Captura de tela dos detalhes do ponto de extremidade](../media/qnamaker-how-to-metadata-usage/view-code.png)
+
+    # <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
+
+    ![Captura de tela de detalhes de ponto de extremidade gerenciados](../media/qnamaker-how-to-metadata-usage/view-code-managed.png)
+
+    ---
 
 Também é possível obter os detalhes de ponto de extremidade na guia **Configurações** da base de dados de conhecimento.
 
@@ -62,9 +70,9 @@ Você chama o GenerateAnswer com uma solicitação HTTP POST. Para código de ex
 
 A solicitação POST usa:
 
-* [Parâmetros de URI](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters) necessários
+* [Parâmetros de URI](/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters) necessários
 * Propriedade de cabeçalho necessária, `Authorization` , para segurança
-* [Propriedades do corpo](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto)necessárias.
+* [Propriedades do corpo](/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto)necessárias.
 
 A URL GenerateAnswer tem o seguinte formato:
 
@@ -100,7 +108,7 @@ O JSON anterior solicitou apenas respostas com 30% ou acima da Pontuação de li
 
 ## <a name="generateanswer-response-properties"></a>Propriedades de resposta do GenerateAnswer
 
-A [resposta](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful-query) é um objeto JSON, incluindo todas as informações de que você precisa para exibir a resposta e o próximo ativar a conversa, se disponível.
+A [resposta](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful-query) é um objeto JSON, incluindo todas as informações de que você precisa para exibir a resposta e o próximo ativar a conversa, se disponível.
 
 ```json
 {
@@ -128,7 +136,7 @@ O JSON anterior respondeu com uma resposta com uma pontuação de 38,5%.
 
 ## <a name="use-qna-maker-with-a-bot-in-c"></a>Usar QnA Maker com um bot em C #
 
-A estrutura de bot fornece acesso às propriedades do QnA Maker com a [API getrespondi](https://docs.microsoft.com/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync?view=botbuilder-dotnet-stable#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__):
+A estrutura de bot fornece acesso às propriedades do QnA Maker com a [API getrespondi](/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__):
 
 ```csharp
 using Microsoft.Bot.Builder.AI.QnA;
@@ -147,7 +155,7 @@ O JSON anterior solicitou apenas respostas com 30% ou acima da Pontuação de li
 
 ## <a name="use-qna-maker-with-a-bot-in-nodejs"></a>Use QnA Maker com um bot no Node.js
 
-A estrutura de bot fornece acesso às propriedades do QnA Maker com a [API getrespondi](https://docs.microsoft.com/javascript/api/botbuilder-ai/qnamaker?view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-):
+A estrutura de bot fornece acesso às propriedades do QnA Maker com a [API getrespondi](/javascript/api/botbuilder-ai/qnamaker?preserve-view=true&view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-):
 
 ```javascript
 const { QnAMaker } = require('botbuilder-ai');
@@ -269,7 +277,7 @@ Você pode pesquisar os KB publicados, usando `isTest=false` ou na KB de teste u
 
 |Código|Explicação|
 |:--|--|
-|2xx|Êxito|
+|2xx|Sucesso|
 |400|Os parâmetros da solicitação estão incorretos, o que significa que os parâmetros necessários estão ausentes, errados ou são muitos grandes|
 |400|O corpo da solicitação está incorreto, o que significa que o JSON está ausente, errado ou é muito grande|
 |401|Chave inválida|
@@ -283,3 +291,5 @@ A página **publicar** também fornece informações para [gerar uma resposta co
 
 > [!div class="nextstepaction"]
 > [Obter análises na base de dados de conhecimento](../how-to/get-analytics-knowledge-base.md)
+> [!div class="nextstepaction"]
+> [Pontuação de confiança](../Concepts/confidence-score.md)

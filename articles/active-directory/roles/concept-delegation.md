@@ -3,24 +3,24 @@ title: Entenda a delegação de função de administrador - Azure Active Directo
 description: Modelos de delegação, exemplos e segurança de função no Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.author: curtand
+ms.date: 11/05/2020
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c1d53f15e945788ab6147299ccd59e7e4e947c5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 77ba93b9017fa75f7247bda639880415eda1d280
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374253"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740305"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Delegar administração no Azure Active Directory
 

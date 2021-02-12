@@ -8,11 +8,11 @@ ms.date: 05/29/2018
 ms.custom: devx-track-java
 ms.author: twooley
 ms.openlocfilehash: 0e320557a7372af6a41038d9b3196db23d2496c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87325042"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000378"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-java"></a>Autenticação serviço a serviço com Gen1 de armazenamento do Azure Data Lake usando o Java
 
@@ -20,7 +20,7 @@ ms.locfileid: "87325042"
 > * [Usando Java](data-lake-store-service-to-service-authenticate-java.md)
 > * [Usando o SDK .NET](data-lake-store-service-to-service-authenticate-net-sdk.md)
 > * [Usando Python](data-lake-store-service-to-service-authenticate-python.md)
-> * [Usando a API REST](data-lake-store-service-to-service-authenticate-rest-api.md)
+> * [Usar a API REST](data-lake-store-service-to-service-authenticate-rest-api.md)
 >
 >  
 

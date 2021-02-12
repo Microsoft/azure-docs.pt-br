@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 9ada1956af2dabdb8e5deff33722af7a8691dd19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5a855ffe06a17d8ec1bfe249dbe7bc41d1166af
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91295457"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369065"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>Controle de segurança v2: registro em log e detecção de ameaças
 
@@ -20,7 +20,7 @@ O registro em log e a detecção de ameaças abrangem controles para detectar am
 
 ## <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: habilitar a detecção de ameaças para recursos do Azure
 
-| ID do Azure | Controles do CIS v 7.1 ID (s) | NIST SP800-53 ID (s) R4 |
+| ID do Azure | Controles do CIS v 7.1 ID (s) | ID (s) do NIST SP 800-53 R4 |
 |--|--|--|--|
 | LT-1 | 6.7 | AU-3, AU-6, AU-12, SI-4 |
 
@@ -30,7 +30,7 @@ Use o recurso de detecção de ameaças interna da central de segurança do Azur
 
 Além disso, use o Azure Sentinel para criar regras de análise, que são ameaças que correspondem a critérios específicos em seu ambiente. As regras geram incidentes quando os critérios são correspondidos, para que você possa investigar cada incidente. O Azure Sentinel também pode importar inteligência de ameaças de terceiros para aprimorar seu recurso de detecção de ameaças. 
 
-- [Proteção contra ameaças na Central de Segurança do Azure](../../security-center/threat-protection.md)
+- [Proteção contra ameaças na Central de Segurança do Azure](../../security-center/azure-defender.md)
 
 - [Guia de referência de alertas de segurança da central de segurança do Azure](../../security-center/alerts-reference.md)
 
@@ -52,9 +52,9 @@ Além disso, use o Azure Sentinel para criar regras de análise, que são ameaç
 
 - [Inteligência contra ameaças](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
-## <a name="lt-2-enable-threat-detection-for-azure-identity-and-access-management"></a>LT-2: habilitar a detecção de ameaças para gerenciamento de identidade e acesso do Azure
+## <a name="lt-2-enable-threat-detection-for-azure-identity-and-access-management"></a>LT-2: habilitar a detecção de ameaças para o gerenciamento de identidades e acesso do Azure
 
-| ID do Azure | Controles do CIS v 7.1 ID (s) | NIST SP800-53 ID (s) R4 |
+| ID do Azure | Controles do CIS v 7.1 ID (s) | ID (s) do NIST SP 800-53 R4 |
 |--|--|--|--|
 | LT-2 | 6,8 | AU-3, AU-6, AU-12, SI-4 |
 
@@ -71,9 +71,9 @@ A central de segurança do Azure também pode alertar sobre determinadas ativida
 
 - [Relatórios de atividade de auditoria no Azure AD](../../active-directory/reports-monitoring/concept-audit-logs.md)
 
-- [Habilitar a proteção de identidade do Azure](../../active-directory/identity-protection/overview-identity-protection.md)
+- [Habilitar o Azure Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Proteção contra ameaças na Central de Segurança do Azure](../../security-center/threat-protection.md)
+- [Proteção contra ameaças na Central de Segurança do Azure](../../security-center/azure-defender.md)
 
 **Responsabilidade**: Cliente
 
@@ -91,7 +91,7 @@ A central de segurança do Azure também pode alertar sobre determinadas ativida
 
 ## <a name="lt-3-enable-logging-for-azure-network-activities"></a>LT-3: habilitar o registro em log para atividades de rede do Azure
 
-| ID do Azure | Controles do CIS v 7.1 ID (s) | NIST SP800-53 ID (s) R4 |
+| ID do Azure | Controles do CIS v 7.1 ID (s) | ID (s) do NIST SP 800-53 R4 |
 |--|--|--|--|
 | LT-3 | 9,3, 12,2, 12,5, 12,8 | AU-3, AU-6, AU-12, SI-4 |
 
@@ -125,7 +125,7 @@ Habilite e colete logs de recursos do NSG (grupo de segurança de rede), logs de
 
 ## <a name="lt-4-enable-logging-for-azure-resources"></a>LT-4: habilitar o registro em log para recursos do Azure
 
-| ID do Azure | Controles do CIS v 7.1 ID (s) | NIST SP800-53 ID (s) R4 |
+| ID do Azure | Controles do CIS v 7.1 ID (s) | ID (s) do NIST SP 800-53 R4 |
 |--|--|--|--|
 | LT-4 | 6,2, 6,3, 8,8 | AU-3, AU-12 |
 
@@ -136,8 +136,6 @@ Você pode usar a central de segurança do Azure e Azure Policy para habilitar l
 - [Entender o registro em log e diferentes tipos de log no Azure](../../azure-monitor/platform/platform-logs-overview.md)
 
 - [Entender a coleta de dados da central de segurança do Azure](../../security-center/security-center-enable-data-collection.md)
-
-- [Habilitar e configurar o monitoramento de antimalware](../fundamentals/antimalware.md#enable-and-configure-antimalware-monitoring-using-powershell-cmdlets)
 
 **Responsabilidade**: Compartilhado
 
@@ -153,7 +151,7 @@ Segurança de infraestrutura e ponto de extremidade
 
 ## <a name="lt-5-centralize-security-log-management-and-analysis"></a>LT-5: centralizar o gerenciamento e a análise do log de segurança
 
-| ID do Azure | Controles do CIS v 7.1 ID (s) | NIST SP800-53 ID (s) R4 |
+| ID do Azure | Controles do CIS v 7.1 ID (s) | ID (s) do NIST SP 800-53 R4 |
 |--|--|--|--|
 | LT-5 | 6,5, 6,6 | AU-3, SI-4 |
 
@@ -179,9 +177,9 @@ Muitas organizações optam por usar o Azure Sentinel para dados "quentes" que s
 
 - [Segurança de infraestrutura e ponto de extremidade](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-## <a name="lt-6-configure-log-storage-retention"></a>LT-6: configurar a retenção de armazenamento de log
+## <a name="lt-6-configure-log-storage-retention"></a>LT-6: configurar a retenção do armazenamento de log
 
-| ID do Azure | Controles do CIS v 7.1 ID (s) | NIST SP800-53 ID (s) R4 |
+| ID do Azure | Controles do CIS v 7.1 ID (s) | ID (s) do NIST SP 800-53 R4 |
 |--|--|--|--|
 | LT-6 | 6.4 | AU-3, AU-11 |
 
@@ -209,7 +207,7 @@ No Azure Monitor, você pode definir seu período de retenção de espaço de tr
 
 ## <a name="lt-7-use-approved-time-synchronization-sources"></a>LT-7: usar fontes de sincronização de tempo aprovadas
 
-| ID do Azure | Controles do CIS v 7.1 ID (s) | NIST SP800-53 ID (s) R4 |
+| ID do Azure | Controles do CIS v 7.1 ID (s) | ID (s) do NIST SP 800-53 R4 |
 |--|--|--|--|
 | LT-7 | 6.1 | AU-8 |
 
@@ -232,4 +230,3 @@ Todos os logs gerados pelos recursos no Azure fornecem carimbos de data/hora com
 - [Segurança e DevOps de aplicativos](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
 - [Segurança de infraestrutura e ponto de extremidade](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
-

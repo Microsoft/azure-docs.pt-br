@@ -4,12 +4,12 @@ description: Este artigo aborda dúvidas comuns sobre o Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 3da86eead5b927a2a71d7b1a28bc5966bf5f8840
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 9db91a15c0ee5c982f73f36a36f12b38b969a125
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369430"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820189"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Perguntas gerais sobre o Azure Site Recovery
 
@@ -188,7 +188,7 @@ Sim, o [ExpressRoute pode ser usado](concepts-expressroute-with-site-recovery.md
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-or-managed-disk-do-i-need"></a>Se eu replicar no Azure, de que tipo de conta de armazenamento ou disco gerenciado preciso?
 
-Você precisa de um armazenamento LRS ou GRS. É recomendável usar GRS para que os dados sejam resilientes caso ocorra uma interrupção regional, ou se a região principal não puder ser recuperada. A rede deve estar na mesma região do que o cofre dos Serviços de Recuperação. O Armazenamento Premium tem suporte para VM do VMware, VM do Hyper-V e replicação de servidores físicos, quando você implantar o Site Recovery no Portal do Azure. Os discos gerenciados são compatíveis apenas com armazenamento com redundância local.
+Não há suporte para o uso de contas de armazenamento como armazenamento de destino pelo Azure Site Recovery. É recomendável usar discos gerenciados como o armazenamento de destino para seus computadores. O Managed disks dá suporte apenas ao tipo LRS para resiliência de dados.
 
 ### <a name="how-often-can-i-replicate-data"></a>Com que frequência posso replicar dados?
 * **Hyper-V:** VMs Hyper-V podem ser replicadas a cada 30 segundos (exceto para o armazenamento premium), 5 minutos ou 15 minutos.
@@ -273,6 +273,9 @@ Pontos de recuperação consistentes em termos de aplicativo são criados com ba
 
 Devido a seu conteúdo adicional, instantâneos de aplicativo consistente são os mais envolvidos e levam mais tempo para executar. Recomendamos pontos de recuperação consistentes em termos de aplicativo para sistemas operacionais de banco de dados como o SQL Server.
 
+>[!Note]
+>A criação de pontos de recuperação consistentes com o aplicativo falha no computador Windows, se ele tiver mais de 64 volumes.
+
 ### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>Qual é o impacto de pontos de recuperação consistentes em termos de aplicativo no desempenho do aplicativo?
 
 Os pontos de recuperação consistentes com o aplicativo capturam todos os dados na memória e em processamento. Como os pontos de recuperação capturam esses dados, eles exigem estruturas como o Serviço de Cópias de Sombra de Volume no Windows para desativar o aplicativo. Se o processo de captura for frequente, poderá afetar o desempenho quando a carga de trabalho já estiver ocupada. Não é recomendável usar a frequência baixa para pontos de recuperação consistentes com o aplicativo em cargas de trabalho que não são de banco de dados. Mesmo para a carga de trabalho do banco de dados, 1 hora é suficiente.
@@ -341,6 +344,14 @@ Sim, você pode usar a recuperação em uma localização alternativa para fazer
 
 * [Para máquinas virtuais VMware](concepts-types-of-failback.md#alternate-location-recovery-alr)
 * [Para máquinas virtuais Hyper-V](hyper-v-azure-failback.md#fail-back-to-an-alternate-location)
+
+### <a name="what-is-the-difference-between-complete-migration-commit-and-disable-replication"></a>Qual é a diferença entre migração completa, confirmar e desabilitar a replicação?
+
+Após o failover de um computador do local de origem para o local de destino, há três opções disponíveis para sua escolha. Todos os três servem para diferentes finalidades –
+
+1.  A **migração completa** significa que você não vai mais para o local de origem. Você migrou para a região de destino e agora está pronto. Clicar em concluir migração dispara a confirmação e, em seguida, desabilita a replicação internamente. 
+2.  **Confirmar** significa que esse não é o fim do processo de replicação. O item de replicação junto com todas as configurações permanecerá e você poderá clicar em **proteger novamente** em um momento posterior para habilitar a replicação de seus computadores de volta para a região de origem. 
+3.  **Desabilitar a replicação** desabilitará a replicação e removerá todas as configurações relacionadas. Ele não afetará a máquina já existente na região de destino.
 
 ## <a name="automation"></a>Automação
 

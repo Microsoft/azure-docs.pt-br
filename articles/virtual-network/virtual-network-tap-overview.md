@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2019
 ms.author: kaanan
-ms.openlocfilehash: ceafbacb4cfc99b5327423ff1a50b82292030893
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8347dcd60dcdfbf03f52e25eb24744909c69465a
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479248"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99804863"
 ---
 # <a name="virtual-network-tap"></a>TAP de rede virtual
 > [!IMPORTANT]
@@ -49,7 +49,7 @@ As contas usadas para aplicar a configuração de TAP em adaptadores de rede pre
 
 ### <a name="network-packet-brokers"></a>Agentes de pacote de rede
 
-- [Gigamon GigaSECURE](https://blog.gigamon.com/2018/09/13/why-microsofts-new-vtap-service-works-even-better-with-gigasecure-for-azure)
+- [GigaVUE Cloud Suite para Azure](https://www.gigamon.com/solutions/cloud/public-cloud/gigavue-cloud-suite-azure.html)
 - [Ixia CloudLens](https://www.ixiacom.com/cloudlens/cloudlens-azure)
 - [Nubeva Prisms](https://www.nubeva.com/azurevtap)
 - [Big Switch Big Monitoring Fabric](https://www.bigswitch.com/products/big-monitoring-fabric/public-cloud/microsoft-azure)

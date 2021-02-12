@@ -1,6 +1,6 @@
 ---
 title: Uso de regras de supressão de alertas para suprimir falsos positivos ou outros alertas de segurança indesejados na Central de Segurança do Azure.
-description: Este artigo explica como usar as regras de supressão da central de segurança do Azure para ocultar alertas indesejados do Azure defender
+description: Este artigo explica como usar as regras de supressão da central de segurança do Azure para ocultar alertas de segurança indesejados
 author: memildin
 manager: rkarlin
 services: security-center
@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 50426e0b0920e89cf83dc5a81c515b06c06c09c5
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 12cc2de6cd1a8e9ddf40b358c94b720b8b2cf594
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342086"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920436"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Suprimir alertas do Azure Defender
 
@@ -23,7 +23,7 @@ Esta página explica como você pode usar as regras de supressão de alertas par
 
 |Aspecto|Detalhes|
 |----|:----|
-|Estado da versão:|Versão Prévia|
+|Estado da versão:|GA (Disponibilidade Geral)|
 |Preço:|Gratuita<br>(A maioria dos alertas de segurança só está disponível com o Azure defender)|
 |Funções e permissões necessárias:|**Administrador de segurança** e **proprietário** podem criar/excluir regras.<br>O **Leitor de segurança** e o **Leitor** podem exibir regras.|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|

@@ -38,4 +38,4 @@
 - name: Recursos
   items:
     - name: Ponto de partida do Azure Arc
-      href: 'https://github.com/microsoft/azure_arc'
+      href: 'https://azurearcjumpstart.io'

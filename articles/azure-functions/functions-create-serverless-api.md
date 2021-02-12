@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: d683ef92c4e8d11e9defbed5454e5849211bf8f7
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 7375a46245fbe523ddf0512bb5a55371adff64e9
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104743"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683735"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Personalizar um ponto de extremidade HTTP no Azure Functions
 
@@ -86,7 +86,7 @@ Nesta seção, você cria um novo proxy, que serve como um front-end para sua AP
 
 ### <a name="setting-up-the-frontend-environment"></a>Configurar o ambiente front-end
 
-Repita as etapas para [Criar um aplicativo de função](./functions-create-first-azure-function.md#create-a-function-app) a fim de criar um novo aplicativo de função no qual você criará o proxy. A URL do novo aplicativo serve como o front-end para nossa API, e o aplicativo de funções que você estava editando anteriormente funciona como um back-end.
+Repita as etapas para [Criar um aplicativo de função](./functions-get-started.md) a fim de criar um novo aplicativo de função no qual você criará o proxy. A URL do novo aplicativo serve como o front-end para nossa API, e o aplicativo de funções que você estava editando anteriormente funciona como um back-end.
 
 1. Navegue até seu novo aplicativo de função front-end no portal.
 1. Selecione **Recursos de Plataforma** e escolha **Configurações de Aplicativo**.
@@ -101,18 +101,18 @@ Repita as etapas para [Criar um aplicativo de função](./functions-create-first
 
 1. Navegue de volta para seu aplicativo de funções de front-end no Portal.
 
-1. No menu à esquerda, selecione **proxies**e, em seguida, selecione **Adicionar**. 
+1. No menu à esquerda, selecione **proxies** e, em seguida, selecione **Adicionar**. 
 
 1. Na página **novo proxy** , use as configurações na tabela a seguir e, em seguida, selecione **criar**.
 
     | Campo | Valor de exemplo | Descrição |
     |---|---|---|
-    | Nome | HelloProxy | Um nome amigável usado apenas para gerenciamento |
+    | Name | HelloProxy | Um nome amigável usado apenas para gerenciamento |
     | Modelo de rota | /api/remotehello | Determina qual rota pode ser usada para chamar esse proxy |
     | URL do back-end | https://%HELLO_HOST%/api/hello | Especifica o ponto de extremidade ao qual a solicitação deve ser transmitida por proxy |
 
     
-    :::image type="content" source="./media/functions-create-serverless-api/creating-proxy.png" alt-text="Personalizar uma função HTTP":::
+    :::image type="content" source="./media/functions-create-serverless-api/creating-proxy.png" alt-text="Criação de um proxy":::
 
     Proxies do Azure Functions não fornece o `/api` prefixo de caminho base, que deve ser incluído no modelo de rota. A `%HELLO_HOST%` sintaxe faz referência à configuração do aplicativo que você criou anteriormente. A URL resolvida apontará para sua função original.
 
@@ -124,7 +124,7 @@ Repita as etapas para [Criar um aplicativo de função](./functions-create-first
 
 Em seguida, você usará um proxy para criar uma API fictícia para sua solução. Esse proxy permite que o desenvolvimento de clientes seja progredido, sem a necessidade de um back-end totalmente implementado. Posteriormente, no desenvolvimento, você pode criar um novo aplicativo de funções, que oferece suporte a essa lógica e redirecionar o proxy para ele.
 
-Para criar essa API fictícia, criaremos um novo proxy, desta vez usando o [Editor do serviço de aplicativo](https://github.com/projectkudu/kudu/wiki/App-Service-Editor). Para começar, navegue até seu aplicativo de função no portal. Selecione **recursos de plataforma**e, em **ferramentas de desenvolvimento** , localize **Editor do serviço de aplicativo**. O Editor do Serviço de Aplicativo é aberto em uma nova guia.
+Para criar essa API fictícia, criaremos um novo proxy, desta vez usando o [Editor do serviço de aplicativo](https://github.com/projectkudu/kudu/wiki/App-Service-Editor). Para começar, navegue até seu aplicativo de função no portal. Selecione **recursos de plataforma** e, em **ferramentas de desenvolvimento** , localize **Editor do serviço de aplicativo**. O Editor do Serviço de Aplicativo é aberto em uma nova guia.
 
 Selecione `proxies.json` no painel de navegação esquerdo. Esse arquivo armazena a configuração de todos os seus proxies. Se você usar um dos [métodos de implantação de funções](./functions-continuous-deployment.md), você manterá esse arquivo no controle do código-fonte. Para saber mais sobre esse arquivo, confira [Configuração avançada de proxies](./functions-proxies.md#advanced-configuration).
 
@@ -195,5 +195,5 @@ As referências a seguir podem ser úteis durante o desenvolvimento de sua API:
 - [Documentar uma API do Azure Functions (visualização)](./functions-openapi-definition.md)
 
 
-[Create your first function]: ./functions-create-first-azure-function.md
+[Create your first function]: ./functions-get-started.md
 [Trabalhar com Proxies do Azure Functions]: ./functions-proxies.md

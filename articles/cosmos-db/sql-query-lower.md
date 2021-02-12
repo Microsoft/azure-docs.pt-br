@@ -3,16 +3,17 @@ title: INFERIOR na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função de sistema SQL inferior no Azure Cosmos DB para retornar uma expressão de cadeia de caracteres após converter dados de caracteres maiúsculos em minúsculas
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 163b893b74b5f6d3950ae92e209f96abde8cd90e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: dd1d9ddefd67cadb92632fd6db7a1fbd5a34f35a
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075272"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338418"
 ---
 # <a name="lower-azure-cosmos-db"></a>INFERIOR (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

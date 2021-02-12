@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 830a97db562820853efcd88b1ab8c0b729a5dc9a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: eb22946bb3f0858a545d5b854afe48b2e1e61927
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490128"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109225"
 ---
 # <a name="create-and-manage-virtual-networks-for-azure-database-for-postgresql---flexible-server-using-the-azure-cli"></a>Criar e gerenciar redes virtuais para o banco de dados do Azure para PostgreSQL – servidor flexível usando o CLI do Azure
 
@@ -61,22 +61,22 @@ Consulte a documentação de referência do CLI do Azure <!--FIXME --> para obte
     ```azurecli-interactive
     az postgres flexible-server create
     ```
-<!--- Create a flexible server using already existing virtual network and subnet
+- Crie um servidor flexível usando a rede virtual e a sub-rede já existentes. Se a rede virtual e a sub-rede fornecidas não existirem, a rede virtual e a sub-rede com o prefixo de endereço padrão serão criados.
     ```azurecli-interactive
     az postgres flexible-server create --vnet myVnet --subnet mySubnet
-    ```-->
+    ```
 - Crie um servidor flexível usando a rede virtual já existente, a sub-rede e o usando a ID de sub-rede. A sub-rede fornecida não deve ter nenhum outro recurso implantado nela e essa sub-rede será delegada para **Microsoft. DBforPostgreSQL/flexibleServers**, se ainda não tiver sido delegada.
     ```azurecli-interactive
     az postgres flexible-server create --subnet /subscriptions/{SubID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Network/virtualNetworks/{VNetName}/subnets/{SubnetName}
     ```
     > [!Note]
     > A rede virtual e a sub-rede devem estar na mesma região e assinatura que o servidor flexível.
-<!--  
-- Create a flexible server using new virtual network, subnet with non-default address prefix
+
+- Criar um servidor flexível usando uma nova rede virtual, sub-rede com um prefixo de endereço não padrão
     ```azurecli-interactive
-    az postgres flexible-server create --vnet myVnet --vnet-address-prefix 10.0.0.0/24 --subnet mySubnet --subnet-address-prefix 10.0.0.0/24
-    ```-->
-Consulte a documentação de referência do CLI do Azure <!--FIXME --> para obter uma lista completa de parâmetros configuráveis da CLI.
+    az postgres flexible-server create --vnet myVnet --address-prefixes 10.0.0.0/24 --subnet mySubnet --subnet-prefixes 10.0.0.0/24
+    ```
+Consulte a documentação de [referência](/cli/azure/postgres/flexible-server) do CLI do Azure para obter a lista completa de parâmetros da CLI configuráveis.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre [rede no banco de dados do Azure para PostgreSQL – servidor flexível](./concepts-networking.md).

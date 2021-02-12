@@ -3,16 +3,17 @@ title: Visão geral de cargas de trabalho do Red Hat no Azure | Microsoft Docs
 description: Saiba mais sobre as ofertas de produtos do Red Hat disponíveis no Azure.
 author: asinn826
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: overview
 ms.date: 02/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 61f7461633aba18a21fcc18709055dc790ffee7b
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 09612ff3d86c669801f9e824d367a2b9a5bb10ac
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993239"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830642"
 ---
 # <a name="red-hat-workloads-on-azure"></a>Cargas de trabalho do Red Hat no Azure
 
@@ -35,7 +36,7 @@ O ideal é usar as imagens de Pagamento Conforme o Uso se você não quer se pre
 ### <a name="red-hat-gold-images"></a>Imagens do Red Hat Gold
 
 O Azure também oferece imagens do Red Hat Gold (`rhel-byos`). Essas imagens podem ser úteis para os clientes que têm assinaturas existentes do Red Hat e que desejam usá-las no Azure. Você precisa habilitar suas assinaturas existentes do Red Hat para o Red Hat Cloud Access para usá-las no Azure. O acesso a essas imagens é concedido automaticamente quando suas assinaturas do Red Hat são habilitadas para Acesso à Nuvem e atendem aos requisitos de qualificação. O uso dessas imagens permite que um cliente evite a cobrança dupla que poderá ocorrer com o uso das imagens de Pagamento Conforme o Uso.
-* Saiba como [habilitar suas assinaturas do Red Hat para o Cloud Access com o Azure](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/con-enable-subs).
+* Saiba como [habilitar suas assinaturas do Red Hat para o Cloud Access com o Azure](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/enabling-and-maintaining-subs_cloud-access).
 * Saiba como [localizar imagens do Red Hat Gold no portal do Azure, na CLI do Azure ou no cmdlet do PowerShell](./byos.md).
 
 > [!NOTE]

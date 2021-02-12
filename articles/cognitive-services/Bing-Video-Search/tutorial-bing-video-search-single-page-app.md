@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 2bdd51218c098dcd778d9a72a98fe42b96357b4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76d7f4e31934480be57cd5ac133c1c7e6a9dd364
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328710"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349598"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Tutorial: Aplicativo de Pesquisa de Vídeo de página única
+
+> [!WARNING]
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisaram ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 A API de Pesquisa de Vídeo do Bing permite que você faça pesquisas na Web e obtenha resultados de vídeo relevantes para uma consulta de pesquisa. Neste tutorial, criaremos um aplicativo Web de página única que usa a API de Pesquisa do Bing para exibir os resultados da pesquisa na página. O aplicativo inclui componentes HTML, CSS e JavaScript.
 
 <!-- Remove until it can be replaced with a sanitized version.
@@ -42,7 +47,7 @@ Esse aplicativo de tutorial ilustra como:
 
 A página do tutorial é completamente autossuficiente; ela não usa estruturas externas, folhas de estilo nem arquivos de imagem. Ela usa apenas recursos de linguagem JavaScript amplamente compatíveis e funciona com as versões atuais de todos os principais navegadores da Web.
 
-Neste tutorial, abordaremos as partes selecionadas do código-fonte. O [código-fonte](tutorial-bing-video-search-single-page-app-source.md) completo está disponível. Para executar o exemplo, copie e cole o código-fonte em um editor de texto e salve-o como `bing.html`.
+Neste tutorial, abordaremos as partes selecionadas do código-fonte. O [código-fonte]() completo está disponível. Para executar o exemplo, copie e cole o código-fonte em um editor de texto e salve-o como `bing.html`.
 
 ## <a name="app-components"></a>Componentes do aplicativo
 Como qualquer aplicativo Web de página única, esse aplicativo de tutorial inclui três partes:

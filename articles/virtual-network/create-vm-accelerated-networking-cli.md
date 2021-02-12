@@ -16,20 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 0b0b2cbf3fc637d7ad53be911c0171f6bb971bc6
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 643a52c9be04fb325b8e1d088faeb68e473aa673
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896116"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919945"
 ---
-# <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Criar uma máquina virtual Linux com rede acelerada usando o CLI do Azure
+# <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Criar uma máquina virtual Linux com Rede Acelerada usando CLI do Azure
 
 Neste tutorial, você aprenderá a criar uma VM (máquina virtual) do Linux com Rede Acelerada. Para criar uma VM Windows com Rede Acelerada, consulte [Criar uma VM Windows com Rede Acelerada](create-vm-accelerated-networking-powershell.md). Rede acelerada permite SR-IOV (virtualização de E/S de raiz única) para uma VM, melhorando muito seu desempenho de rede. Esse caminho de alto desempenho ignora o host do caminho de dados, reduzindo a latência, a tremulação e a utilização da CPU para uso com as cargas de trabalho de rede mais exigentes nos tipos de VM compatíveis. A figura abaixo mostra a comunicação entre duas VMs com e sem rede acelerada:
 
 ![Comparação](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
-Sem rede acelerada, todo o tráfego de rede que entra e sai da VM deve cruzar o host e o comutador virtual. O comutador virtual fornece toda a imposição de política, como grupos de segurança de rede, listas de controle de acesso, isolamento e outros serviços virtualizados de rede para tráfego de rede. Para saber mais sobre comutadores virtuais, leia o artigo [Virtualização de rede Hyper-V e comutador virtual](https://technet.microsoft.com/library/jj945275.aspx).
+Sem rede acelerada, todo o tráfego de rede que entra e sai da VM deve cruzar o host e o comutador virtual. O comutador virtual fornece toda a imposição de política, como grupos de segurança de rede, listas de controle de acesso, isolamento e outros serviços virtualizados de rede para tráfego de rede. Para saber mais sobre comutadores virtuais, leia o artigo [Virtualização de rede Hyper-V e comutador virtual](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134230(v=ws.11)).
 
 Com Rede Acelerada, o tráfego de rede chega ao NIC (adaptador de rede) da máquina virtual e então é encaminhado para a VM. Todas as políticas de rede que o comutador virtual aplica agora são descarregadas e aplicadas em hardware. Aplicar a política de hardware permite que a NIC encaminhe tráfego de rede diretamente à VM, ignorando o host e o comutador virtual, mantendo toda a política que aplicou no host.
 
@@ -48,19 +48,17 @@ As seguintes distribuições têm suporte imediato da Galeria do Azure:
 * **RHEL 7,4 ou posterior**
 * **CentOS 7,4 ou posterior**
 * **CoreOS Linux**
-* **Debian "Stretch" com kernel de portas traseiras**
+* **Debian "Stretch" com kernel de backports, Debian "Buster" ou posterior**
 * **Oracle Linux 7,4 e posterior com kernel compatível com Red Hat (RHCK)**
 * **Oracle Linux 7,5 e posterior com UEK versão 5**
-* **FreeBSD 10,4, 11,1 & 12,0**
+* **FreeBSD 10,4, 11,1 & 12,0 ou posterior**
 
 ## <a name="limitations-and-constraints"></a>Limitações e Restrições
 
 ### <a name="supported-vm-instances"></a>Instâncias de VM compatíveis
-A Rede Acelerada é compatível com os tamanhos de instância de uso geral e de computação otimizada com 2 ou mais vCPUs.  Essas séries com suporte são: D/DSv2 e F/Fs
+A Rede Acelerada é compatível com os tamanhos de instância de uso geral e de computação otimizada com 2 ou mais vCPUs. Em instâncias que são compatíveis com hyperthreading, a Rede Acelerada é compatível com instâncias de VM com 4 ou mais vCPUs. 
 
-Em instâncias que são compatíveis com hyperthreading, a Rede Acelerada é compatível com instâncias de VM com 4 ou mais vCPUs. As séries com suporte são: D/Dsv3, D/Dsv4, DD/Ddv4, da/Dasv4, E/Esv3, E/Esv4, Ed/Edsv4, ea/Easv4, Fsv2, Lsv2, MS/MMS e MS/Mmsv2.
-
-Para obter mais informações sobre instâncias de VM, consulte [Tamanhos de VM do Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+O suporte para rede acelerada pode ser encontrado na documentação de [tamanhos de máquinas virtuais](../virtual-machines/sizes.md) individuais. 
 
 ### <a name="custom-images"></a>Imagens personalizadas
 Se você estiver usando uma imagem personalizada e sua imagem der suporte à rede acelerada, certifique-se de ter os drivers necessários para trabalhar com NICs Mellanox ConnectX-3 e ConnectX-4 LX no Azure.
@@ -78,7 +76,7 @@ Máquinas virtuais (clássicas) não podem ser implantadas com Rede Acelerada.
 
 ## <a name="create-a-linux-vm-with-azure-accelerated-networking"></a>Criar uma VM do Linux com Rede Acelerada do Azure
 ## <a name="portal-creation"></a>Criação de portal
-Embora este artigo forneça etapas para criar uma máquina virtual com a rede acelerada usando a CLI do Azure, você também pode [criar uma máquina virtual com a rede acelerada usando o portal do Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Ao criar uma máquina virtual no portal, na folha **criar uma máquina virtual** , escolha a guia **rede** .  Nessa guia, há uma opção para **rede acelerada** .  Se você tiver escolhido um [sistema operacional com suporte](#supported-operating-systems) e um [tamanho de VM](#supported-vm-instances), essa opção será preenchida automaticamente como "ativada".  Caso contrário, ele preencherá a opção "desativado" para rede acelerada e dará ao usuário um motivo pelo qual ele não está habilitado.   
+Embora este artigo forneça etapas para criar uma máquina virtual com a rede acelerada usando a CLI do Azure, você também pode [criar uma máquina virtual com a rede acelerada usando o portal do Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Ao criar uma máquina virtual no portal, na folha **criar uma máquina virtual** , escolha a guia **rede** .  Nessa guia, há uma opção para **rede acelerada**.  Se você tiver escolhido um [sistema operacional com suporte](#supported-operating-systems) e um [tamanho de VM](#supported-vm-instances), essa opção será preenchida automaticamente como "ativada".  Caso contrário, ele preencherá a opção "desativado" para rede acelerada e dará ao usuário um motivo pelo qual ele não está habilitado.   
 
 * *Observação:* Somente sistemas operacionais com suporte podem ser habilitados por meio do Portal.  Se você estiver usando uma imagem personalizada e sua imagem der suporte à rede acelerada, crie sua VM usando a CLI ou o PowerShell. 
 
@@ -87,9 +85,9 @@ Depois que a máquina virtual for criada, você poderá confirmar se a rede acel
 ## <a name="cli-creation"></a>Criação de CLI
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Instale a [CLI do Azure](/cli/azure/install-azure-cli) mais recente do Azure e faça logon em uma conta do Azure usando [az login](/cli/azure/reference-index). Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Os nomes de parâmetro de exemplo incluem *myResourceGroup* , *myNic* e *myVm* .
+Instale a [CLI do Azure](/cli/azure/install-azure-cli) mais recente do Azure e faça logon em uma conta do Azure usando [az login](/cli/azure/reference-index). Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Os nomes de parâmetro de exemplo incluem *myResourceGroup*, *myNic* e *myVm*.
 
-Crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *centralus* :
+Crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *centralus*:
 
 ```azurecli
 az group create --name myResourceGroup --location centralus
@@ -109,7 +107,7 @@ az network vnet create \
 ```
 
 ### <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
-Crie um grupo de segurança de rede com [az network nsg create](/cli/azure/network/nsg). O exemplo a seguir cria um grupo de segurança de rede denominado *myNetworkSecurityGroup* :
+Crie um grupo de segurança de rede com [az network nsg create](/cli/azure/network/nsg). O exemplo a seguir cria um grupo de segurança de rede denominado *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -160,7 +158,7 @@ az network nic create \
 ### <a name="create-a-vm-and-attach-the-nic"></a>Criar uma VM e anexar o NIC
 Ao criar a VM, especifique o NIC que criou com `--nics`. Selecione um tamanho e uma distribuição listados em [Rede acelerada Linux](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
 
-Crie uma VM com [az vm create](/cli/azure/vm). O exemplo a seguir cria uma VM denominada *myVM* com a imagem UbuntuLTS e um tamanho que é compatível com a Rede Acelerada ( *Standard_DS4_v2* ):
+Crie uma VM com [az vm create](/cli/azure/vm). O exemplo a seguir cria uma VM denominada *myVM* com a imagem UbuntuLTS e um tamanho que é compatível com a Rede Acelerada (*Standard_DS4_v2*):
 
 ```azurecli
 az vm create \
@@ -173,9 +171,9 @@ az vm create \
     --nics myNic
 ```
 
-Para obter uma lista de todos os tamanhos e características de VM, consulte [Tamanhos de VM do Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Para obter uma lista de todos os tamanhos e características de VM, consulte [Tamanhos de VM do Linux](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Depois que a VM é criada, é retornada uma saída semelhante ao exemplo a seguir. Anote o **publicIpAddress** . Esse endereço é usado para acessar a VM em etapas subsequentes.
+Depois que a VM é criada, é retornada uma saída semelhante ao exemplo a seguir. Anote o **publicIpAddress**. Esse endereço é usado para acessar a VM em etapas subsequentes.
 
 ```output
 {
@@ -200,10 +198,10 @@ ssh azureuser@<your-public-ip-address>
 
 No shell Bash, insira `uname -r` e confirme se a versão do kernel é uma das seguintes versões, ou superior:
 
-* **Ubuntu 16.04** : 4.11.0-1013
-* **SLES SP3** : 4.4.92-6.18
-* **RHEL** : 7.4.2017120423
-* **CentOS** : 7.4.20171206
+* **Ubuntu 16.04**: 4.11.0-1013
+* **SLES SP3**: 4.4.92-6.18
+* **RHEL**: 7.4.2017120423
+* **CentOS**: 7.4.20171206
 
 
 Confirme se o dispositivo Mellanox VF está exposto à VM com o comando `lspci`. A saída retornada é semelhante à seguinte saída:
@@ -230,7 +228,7 @@ A Rede Acelerada agora está habilitada para sua VM.
 
 ## <a name="handle-dynamic-binding-and-revocation-of-virtual-function"></a>Manipular associação dinâmica e revogação da função virtual 
 Os aplicativos devem ser executados sobre a NIC sintética que é exposta na VM. Se o aplicativo for executado diretamente pela NIC VF, ele não receberá **todos os** pacotes destinados à VM, já que alguns pacotes aparecem na interface sintética.
-Se você executar um aplicativo na NIC sintética, ele garante que o aplicativo receba **todos os** pacotes destinados a ele. Ele também garante que o aplicativo continue em execução, mesmo que o FV seja revogado quando o host estiver sendo atendido. A associação de aplicativos à NIC sintética é um requisito **obrigatório** para todos os aplicativos que aproveitam a **rede acelerada** .
+Se você executar um aplicativo na NIC sintética, ele garante que o aplicativo receba **todos os** pacotes destinados a ele. Ele também garante que o aplicativo continue em execução, mesmo que o FV seja revogado quando o host estiver sendo atendido. A associação de aplicativos à NIC sintética é um requisito **obrigatório** para todos os aplicativos que aproveitam a **rede acelerada**.
 
 ## <a name="enable-accelerated-networking-on-existing-vms"></a>Habilitar Rede Acelerada em VMs existentes
 Se você tiver criado uma VM sem Rede Acelerada, será possível habilitar esse recurso em uma VM existente.  A VM deve dar suporte à Rede Acelerada atendendo aos pré-requisitos a seguir que também estão descritos acima:
@@ -310,5 +308,4 @@ Uma VM com Rede Acelerada habilitada não pode ser redimensionada para uma inst�
 
 * Interrompa/desaloque a VM ou, em um conjunto de disponibilidade/VMSS, interrompa/desaloque todas as VMs no conjunto/VMSS.
 * A Rede Acelerada deve ser desabilitada na NIC da VM ou, se em um conjunto de disponibilidade/VMSS, todas as VMs no conjunto/VMSS.
-* Quando a Rede Acelerada é desabilitada, a VM/o conjunto de disponibilidade/o VMSS podem ser movidos para um novo tamanho que não oferece suporte para Rede Acelerada e reiniciados.  
-
+* Quando a Rede Acelerada é desabilitada, a VM/o conjunto de disponibilidade/o VMSS podem ser movidos para um novo tamanho que não oferece suporte para Rede Acelerada e reiniciados.

@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: reference
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9b320c765b258473acd6fa553831b4f075cca9ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8806ff41edabcd3c0875d3c02360dc9a275e3878
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983236"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460816"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Recursos de dados de cliente do Azure Key Vault
 
@@ -54,12 +54,12 @@ Os logs de diagnóstico do Azure Key Vault que contêm dados pessoais podem ser 
 
 - [Logs do Cofre da Chave do Azure](logging.md)
 
-- [Visão geral de exclusão reversível do Azure Key Vault](soft-delete-cli.md)
+- [Visão geral de exclusão reversível do Azure Key Vault](./key-vault-recovery.md)
 
-- [Operações de chave do Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/key-operations)
+- [Operações de chave do Azure Key Vault](/rest/api/keyvault/key-operations)
 
-- [Operações de segredo do Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/secret-operations)
+- [Operações de segredo do Azure Key Vault](/rest/api/keyvault/secret-operations)
 
-- [Certificados e políticas do Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/certificates-and-policies)
+- [Certificados e políticas do Azure Key Vault](/rest/api/keyvault/certificates-and-policies)
 
-- [Chaves de conta de Armazenamento do Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations)
+- [Chaves de conta de Armazenamento do Azure Key Vault](/rest/api/keyvault/storage-account-key-operations)

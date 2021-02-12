@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/16/2020
 ms.custom: subject-armqs, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: c8542bfe3d1393917a63e4a1feae7d6dfc223031
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5be4cea7d8ddb00a4c8a22a696dbdce1c062765c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746188"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183015"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>Início Rápido: Criar um aplicativo do Serviço de Aplicativo usando um modelo do ARM
 
@@ -21,13 +21,13 @@ Comece a usar o [Serviço de Aplicativo do Azure](overview.md) implantando um ap
 
  [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure** . O modelo será aberto no portal do Azure.
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
 
-Use o seguinte botão para implantação no **Linux** :
+Use o seguinte botão para implantação no **Linux**:
 
 [![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-service-docs-linux%2Fazuredeploy.json)
 
-Use o seguinte botão para implantação no **Windows** :
+Use o seguinte botão para implantação no **Windows**:
 
 [![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-service-docs-windows%2Fazuredeploy.json)
 
@@ -145,7 +145,7 @@ Quando o grupo de recursos não for mais necessário, [exclua-o](../azure-resour
 > [PHP com MySQL](tutorial-php-mysql-app.md)
 
 > [!div class="nextstepaction"]
-> [Conectar-se a Banco de Dados SQL do Azure com Java](../azure-sql/database/connect-query-java.md?toc=%252fazure%252fjava%252ftoc.json)
+> [Conectar-se a Banco de Dados SQL do Azure com Java](../azure-sql/database/connect-query-java.md?toc=%2fazure%2fjava%2ftoc.json)
 
 > [!div class="nextstepaction"]
 > [Mapear domínio personalizado](app-service-web-tutorial-custom-domain.md)

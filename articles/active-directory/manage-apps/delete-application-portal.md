@@ -3,23 +3,25 @@ title: 'Início Rápido: Excluir um aplicativo do seu locatário do Azure AD (Az
 description: Este início rápido usa o portal do Azure para excluir um aplicativo de seu locatário do Azure AD (Azure Active Directory).
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/01/2020
+ms.date: 1/5/2021
 ms.author: kenwith
-ms.openlocfilehash: 659d136695943d846fe57986d4b64a37f0d8f30e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 187f4a1d524e0343130808aa4b4c18222fa982c3
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89300112"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259263"
 ---
 # <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>Início Rápido: Excluir um aplicativo do seu locatário do Azure AD (Azure Active Directory)
 
 Este início rápido usa o portal do Azure para excluir um aplicativo que foi adicionado ao seu locatário do Azure AD (Azure Active Directory).
+
+Saiba mais sobre o SSO e o Azure. Confira o artigo [O que é o SSO (Logon Único)](what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,7 +47,7 @@ Para excluir um aplicativo do seu locatário do Azure AD:
 1. Selecione **Excluir** e **Sim** para confirmar que deseja excluir o aplicativo do seu locatário do Azure AD.
 
 > [!TIP]
-> Para automatizar o gerenciamento de aplicativos usando a API do Graph, confira [Automatizar o gerenciamento de aplicativos com a API do Microsoft Graph](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> Para automatizar o gerenciamento de aplicativos usando a API do Graph, confira [Automatizar o gerenciamento de aplicativos com a API do Microsoft Graph](/graph/application-saml-sso-configure-api).
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -53,6 +55,6 @@ Quando concluir esta série de guias de início rápido, considere a possibilida
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você concluiu a série de guias de início rápido. Como uma próxima etapa, leia mais sobre as melhores práticas em gerenciamento de aplicativos.
+Você concluiu a série de guias de início rápido. Em seguida, saiba mais sobre o SSO (Logon Único). Confira o artigo [O que é o SSO?](what-is-single-sign-on.md) Ou leia informações sobre práticas recomendadas no gerenciamento de aplicativos.
 > [!div class="nextstepaction"]
 > [Melhores práticas de gerenciamento de aplicativos](application-management-fundamentals.md)

@@ -4,14 +4,14 @@ description: Como criar caminhos voltados para o cliente para armazenamento de b
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 12/22/2020
 ms.author: v-erkel
-ms.openlocfilehash: 090e3f93d025fe87ad5b89a98193574595f3d632
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5549670dbd1f302bdb17b8b94cbd1fb5c4c1a1d9
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614538"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760513"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>Configurar o namespace agregado
 
@@ -21,13 +21,13 @@ Leia [planejar o namespace agregado](hpc-cache-namespace.md) para saber mais sob
 
 A página **namespace** na portal do Azure mostra os caminhos que os clientes usam para acessar seus dados por meio do cache. Use esta página para criar, remover ou alterar caminhos de namespace. Você também pode configurar caminhos de namespace usando o CLI do Azure.
 
-Todos os caminhos voltados para o cliente existentes são listados na página **namespace** . Se um destino de armazenamento não tiver nenhum caminho, ele não aparecerá na tabela.
+Todos os caminhos voltados para o cliente que foram definidos para esse cache estão listados na página **namespace** . Os destinos de armazenamento que não têm nenhum caminho de namespace definido ainda não aparecem na tabela.
 
-Você pode classificar as colunas da tabela clicando nas setas e entender melhor o namespace agregado do cache.
+Você pode classificar as colunas da tabela para entender melhor o namespace agregado do cache. Clique nas setas nos cabeçalhos de coluna para classificar os caminhos.
 
-![captura de tela da página de namespace do portal com dois caminhos em uma tabela. Cabeçalhos de coluna: caminho de namespace, destino de armazenamento, caminho de exportação e subdiretório de exportação. Os itens na primeira coluna são links clicáveis. Botões principais: Adicionar caminho do namespace, atualizar, excluir](media/namespace-page.png)
+[![captura de tela da página de namespace do portal com dois caminhos em uma tabela. Cabeçalhos de coluna: caminho do namespace, destino de armazenamento, caminho de exportação e subdiretório de exportação e política de acesso do cliente. Os nomes de caminho na primeira coluna são links clicáveis. Botões principais: Adicionar caminho do namespace, atualizar, excluir ](media/namespace-page.png)](media/namespace-page.png#lightbox)
 
-## <a name="add-or-edit-client-facing-namespace-paths"></a>Adicionar ou editar caminhos de namespace voltados para o cliente
+## <a name="add-or-edit-namespace-paths"></a>Adicionar ou editar caminhos de namespace
 
 Você deve criar pelo menos um caminho de namespace antes que os clientes possam acessar o destino de armazenamento. (Leia [montar o cache do HPC do Azure](hpc-cache-mount.md) para obter mais informações sobre o acesso do cliente.)
 
@@ -43,21 +43,23 @@ No portal do Azure, carregue a página Configurações de **namespace** . Você 
 
 * **Adicionar um novo caminho:** Clique no botão **+ Adicionar** na parte superior e preencha as informações no painel de edição.
 
-  * Selecione o destino de armazenamento na lista suspensa. (Nesta captura de tela, o destino de armazenamento de BLOBs não pode ser selecionado porque já tem um caminho de namespace.)
+  ![Captura de tela do adicionar campos de edição de namespace com um destino de armazenamento de BLOBs selecionado. Os caminhos de exportação e subdiretório são definidos como/e não editáveis.](media/namespace-add-blob.png)
 
-    ![Captura de tela do novo namespace editar campos com o seletor de destino de armazenamento exposto](media/namespace-select-storage-target.png)
+  * Insira o caminho que os clientes usarão para acessar esse destino de armazenamento.
+
+  * Selecione a política de acesso a ser usada para este caminho. Saiba mais sobre como personalizar o acesso do cliente em [usar políticas de acesso para cliente](access-policies.md).
+
+  * Selecione o destino de armazenamento na lista suspensa. Se um destino de armazenamento de BLOBs já tiver um caminho de namespace, ele não poderá ser selecionado.
 
   * Para um destino de armazenamento de BLOBs do Azure, os caminhos de exportação e subdiretório são definidos automaticamente como ``/`` .
 
-* **Alterar um caminho existente:** Clique no caminho do namespace. O painel Editar é aberto e você pode modificar o caminho.
-
-  ![Captura de tela da página de namespace depois de clicar em um caminho de namespace de blob-os campos de edição aparecem em um painel à direita](media/edit-namespace-blob.png)
+* **Alterar um caminho existente:** Clique no caminho do namespace. O painel Editar é aberto. Você pode modificar o caminho e a política de acesso, mas não pode alterar para um destino de armazenamento diferente.
 
 * **Excluir um caminho de namespace:** Marque a caixa de seleção à esquerda do caminho e clique no botão **excluir** .
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurar CLI do Azure para o cache do HPC do Azure](./az-cli-prerequisites.md).
 
 Ao usar o CLI do Azure, você deve adicionar um caminho de namespace ao criar o destino de armazenamento. Leia [Adicionar um novo destino de armazenamento de BLOBs do Azure](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-azure-blob-storage-target) para obter detalhes.
 
@@ -81,9 +83,9 @@ Esta lista mostra o número máximo de caminhos de namespace por configuração.
 
   * caminhos de namespace cache-10 de 3 TB
   * caminhos de namespace de 6 TB de cache-10
-  * 23 TB de namespace de cache-20
+  * 12 TB de cache-20 caminhos de namespace
 
-* Taxa de transferência de até 5 GB/s:
+* Taxa de transferência de até 4 GB/s:
 
   * caminhos de namespace de 6 TB de cache-10
   * 12 TB de namespace de cache-10
@@ -109,17 +111,19 @@ Preencha esses valores para cada caminho de namespace:
 
 * **Caminho do namespace** -o caminho do arquivo voltado para o cliente.
 
+* **Política de acesso de cliente** – selecione a política de acesso a ser usada para este caminho. Saiba mais sobre como personalizar o acesso do cliente em [usar políticas de acesso para cliente](access-policies.md).
+
 * **Destino de armazenamento** -se estiver criando um novo caminho de namespace, selecione um destino de armazenamento no menu suspenso.
 
 * **Caminho de exportação** -Insira o caminho para a exportação de NFS. Certifique-se de digitar o nome de exportação corretamente-o portal valida a sintaxe para esse campo, mas não verifica a exportação até que você envie a alteração.
 
 * **Exportar subdiretório** – se você quiser que esse caminho monte um subdiretório específico da exportação, insira-o aqui. Caso contrário, deixe esse campo em branco.
 
-![captura de tela da página namespace do portal com a página de atualização aberta à direita](media/update-namespace-nfs.png)
+![captura de tela da página namespace do portal com a página Editar aberta à direita. O formulário editar mostra as configurações de um caminho de namespace de destino de armazenamento NFS](media/namespace-edit-nfs.png)
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurar CLI do Azure para o cache do HPC do Azure](./az-cli-prerequisites.md).
 
 Ao usar o CLI do Azure, você deve adicionar pelo menos um caminho de namespace ao criar o destino de armazenamento. Leia [Adicionar um novo destino de armazenamento NFS](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-nfs-storage-target) para obter detalhes.
 

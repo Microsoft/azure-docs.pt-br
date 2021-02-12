@@ -1,17 +1,17 @@
 ---
 title: Logs de auditoria-banco de dados do Azure para MySQL
 description: Descreve os logs de auditoria disponíveis no banco de dados do Azure para MySQL e os parâmetros disponíveis para habilitar os níveis de log.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/24/2020
-ms.openlocfilehash: 8b12e1bd7bd67c3d22bdb62255b481d81976b969
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa845e7c402073a64f51d75b1da51f56142eee2e
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85362118"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630491"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Logs de auditoria no banco de dados do Azure para MySQL
 
@@ -43,7 +43,7 @@ Outros parâmetros que você pode ajustar incluem:
 | `DCL` | Consultas como "conceder permissão" |
 | `ADMIN` | Consultas como "mostrar STATUS" |
 | `GENERAL` | Tudo em DML_SELECT, DML_NONSELECT, DML, DDL, DCL e administrador |
-| `TABLE_ACCESS` | -Disponível somente para MySQL 5,7 <br> -Instruções de leitura de tabela, como selecionar ou inserir em... Não <br> -Instruções DELETE de tabela, como DELETE ou TRUNCATE TABLE <br> -Instruções INSERT de tabela, como INSERT ou REPLACE <br> -Instruções de atualização de tabela, como UPDATE |
+| `TABLE_ACCESS` | -Disponível para MySQL 5,7 e MySQL 8,0 <br> -Instruções de leitura de tabela, como selecionar ou inserir em... Não <br> -Instruções DELETE de tabela, como DELETE ou TRUNCATE TABLE <br> -Instruções INSERT de tabela, como INSERT ou REPLACE <br> -Instruções de atualização de tabela, como UPDATE |
 
 ## <a name="access-audit-logs"></a>Acesse os logs de auditoria
 

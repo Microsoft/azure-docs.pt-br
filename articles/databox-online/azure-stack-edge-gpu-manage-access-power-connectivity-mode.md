@@ -6,18 +6,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 01/28/2021
 ms.author: alkohli
-ms.openlocfilehash: 99dd3da3f9e8434f9c859afd347bd19d10628083
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1b5c236c147f060ca1c05e8ed9de12e7e88cf68
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933104"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99061793"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro-gpu"></a>Gerenciar o acesso, a energia e o modo de conectividade para sua GPU pro do Azure Stack Edge
 
 Este artigo descreve como gerenciar o modo de acesso, energia e conectividade para seu Azure Stack Edge pro com o dispositivo de GPU. Essas operações são executadas por meio da interface do usuário da web local ou o portal do Azure.
+
+Este artigo aplica-se a Azure Stack Edge pro GPU, Azure Stack borda pro R e Azure Stack dispositivos mini R do Edge.
+
 
 Neste artigo, você aprenderá como:
 
@@ -31,6 +34,8 @@ Neste artigo, você aprenderá como:
 ## <a name="manage-device-access"></a>Gerenciar o acesso de dispositivo
 
 O acesso ao seu dispositivo Azure Stack Edge pro é controlado pelo uso de uma senha de dispositivo. Você pode alterar a senha por meio da interface do usuário da Web local. Você também pode redefinir a senha do dispositivo no portal do Azure.
+
+O acesso aos dados nos discos do dispositivo também é controlado por chaves de criptografia em repouso.
 
 ### <a name="change-device-password"></a>Alterar a senha de dispositivo
 
@@ -49,12 +54,46 @@ O fluxo de trabalho de redefinição não exige que o usuário recupere a senha 
 
 1. No portal do Azure, acesse **visão geral > Redefinir senha de administrador**.
 
-    ![Redefinir senha](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-1.png)
+    ![Captura de tela mostra o dispositivo com a senha de redefinição do dispositivo selecionada.](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/reset-password-1.png)
 
 
 2. Digite a nova senha e confirme-a. A senha fornecida deve ter entre 8 e 16 caracteres. A senha deve ter 3 dos seguintes caracteres: maiúscula, minúscula, numérica e caracteres especiais. Selecione **Restaurar**.
 
-    ![Redefinir senha](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+    ![Redefinir senha 2](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+
+### <a name="manage-access-to-device-data"></a>Gerenciar o acesso aos dados do dispositivo
+
+Para os dispositivos do Azure Stack Edge pro R e Azure Stack mini-R Edge, o acesso aos dados do dispositivo é controlado usando chaves de criptografia em repouso para as unidades de dispositivo. Depois de configurar com êxito o dispositivo para criptografia em repouso, a opção girar chaves de criptografia em repouso fica disponível na interface do usuário local do dispositivo. 
+
+Essa operação permite alterar as chaves para volumes do BitLocker `HcsData` e `HcsInternal` todas as unidades de criptografia automática em seu dispositivo.
+
+Siga estas etapas para girar as chaves de criptografia em repouso.
+
+1. Na interface do usuário local do dispositivo, vá para a página de **introdução** . No bloco **segurança** , selecione **criptografia em repouso: opção teclas de rotação** . Essa opção só estará disponível depois que você tiver configurado com êxito as chaves de criptografia em repouso.
+
+    ![Selecionar teclas de rotação para criptografia em repouso na página de introdução](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-1.png)
+
+1. Você pode usar suas próprias chaves do BitLocker ou usar as chaves geradas pelo sistema.  
+
+    Para fornecer sua própria chave, insira uma cadeia de caracteres com codificação de base 64 de 32 caracteres. A entrada é semelhante ao que você forneceria ao configurar a criptografia em repouso pela primeira vez.
+
+    ![Traga sua própria chave de criptografia em repouso](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-2.png)
+
+    Você também pode optar por usar uma chave gerada pelo sistema.
+
+    ![Usar a chave de criptografia em repouso gerada pelo sistema](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-3.png)
+
+1. Selecione **Aplicar**. Os protetores de chave são girados.
+
+    ![Aplicar a nova chave de criptografia em repouso](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-4.png)
+
+1. Quando for solicitado a baixar e salvar o arquivo de chave, selecione **baixar e continuar**. 
+
+    ![Baixar e continuar o arquivo de chave](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-5.png)
+
+    Salve o `.json` arquivo de chave em um local seguro. Esse arquivo é usado para facilitar uma possível recuperação futura do dispositivo.
+
+    ![Captura de tela mostra a caixa de diálogo Redefinir senha do dispositivo.](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-resource-access"></a>Gerenciar o acesso de recursos
 
@@ -69,7 +108,7 @@ Ao gerar a chave de ativação para o Azure Stack dispositivo pro Edge ou execut
 
 Você deve ter `User` acesso ao Active Directory locatário, pois precisa ser capaz de fazer isso `Read all directory objects` . Você não pode ser um usuário convidado, pois não tem permissões para `Read all directory objects` . Se você for um convidado, as operações, como a geração de uma chave de ativação, a criação de um compartilhamento no dispositivo Azure Stack Edge pro, a criação de um usuário, a configuração da função de computação de borda, falharão ao redefinir a senha do dispositivo.
 
-Para obter mais informações sobre como fornecer acesso aos usuários para Microsoft Graph API, consulte [referência de permissões de Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
+Para obter mais informações sobre como fornecer acesso aos usuários para Microsoft Graph API, consulte [referência de permissões de Microsoft Graph](/graph/permissions-reference).
 
 ### <a name="register-resource-providers"></a>Registrar provedores de recursos
 
@@ -115,7 +154,7 @@ Além do modo totalmente conectado padrão, o dispositivo também pode ser execu
 Para alterar o modo de dispositivo, siga estas etapas:
 
 1. Na interface do usuário da Web local do seu dispositivo, vá para **configuração > nuvem**.
-2. Na lista suspensa, selecione o modo no qual você deseja operar o dispositivo. Você pode selecionar entre **totalmente**conectado, **parcialmente conectado**e **totalmente desconectado**. Para executar o dispositivo no modo desconectado parcialmente, habilite **gerenciamento do portal do Azure**.
+2. Na lista suspensa, selecione o modo no qual você deseja operar o dispositivo. Você pode selecionar entre **totalmente** conectado, **parcialmente conectado** e **totalmente desconectado**. Para executar o dispositivo no modo desconectado parcialmente, habilite **gerenciamento do portal do Azure**.
 
  
 ## <a name="manage-power"></a>Gerenciar potência

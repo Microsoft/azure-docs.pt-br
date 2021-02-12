@@ -1,39 +1,36 @@
 ---
-title: Restringir o conteúdo da CDN do Azure por país/região | Microsoft Docs
+title: Restringir o conteúdo da CDN do Azure por país/região
 description: Saiba como restringir o acesso por país/região ao conteúdo da CDN do Azure usando o recurso de filtragem geográfica.
 services: cdn
 documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
-ms.assetid: 12c17cc5-28ee-4b0b-ba22-2266be2e786a
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 06/19/2018
+ms.date: 01/16/2021
 ms.author: allensu
-ms.openlocfilehash: ed82adcc1432bde27042d5775c454bfabcdb96ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8901dffb752409acd7fb08a2025bed9a4cc70132
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358127"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539501"
 ---
 # <a name="restrict-azure-cdn-content-by-countryregion"></a>Restringir o conteúdo da CDN do Azure por país/região
 
 ## <a name="overview"></a>Visão geral
-Quando um usuário solicita o conteúdo, por padrão, o conteúdo é exibido, independentemente da localização do usuário que fez a solicitação. No entanto, em alguns casos, talvez você queira restringir o acesso ao seu conteúdo por país/região. Com o recurso de *filtragem geográfica* , você pode criar regras em caminhos específicos no ponto de extremidade da CDN para permitir ou bloquear conteúdo em países/regiões selecionados.
+Quando um usuário solicita seu conteúdo, o conteúdo é servido para os usuários em todos os locais. Talvez você queira restringir o acesso ao seu conteúdo por país/região. 
+
+Com o recurso de *filtragem geográfica* , você pode criar regras em caminhos específicos no ponto de extremidade da CDN. Você pode definir as regras para permitir ou bloquear o conteúdo em países/regiões selecionados.
 
 > [!IMPORTANT]
 > **A CDN Standard do Azure dos perfis da Microsoft** não oferecem suporte baseado no caminho da filtragem geográfica.
 > 
 
 ## <a name="standard-profiles"></a>Perfis Standard
-Os procedimentos nesta seção são apenas para perfis **CDN Standard do Azure da Akamai** e **CDN Standard do Azure da Verizon**. 
 
-Para perfis**CDN Premium do Azure da Verizon**, você deve usar o portal **Gerenciar** para ativar a filtragem geográfica. Para obter mais informações, consulte os [perfis CDN Premium do Azure da Verizon](#azure-cdn-premium-from-verizon-profiles).
+Estas instruções são para os perfis da **CDN standard do Azure da Akamai** e do **Azure CDN Standard da Verizon** .
+
+Para perfis **CDN Premium do Azure da Verizon**, você deve usar o portal **Gerenciar** para ativar a filtragem geográfica. Para obter mais informações, consulte os [perfis CDN Premium do Azure da Verizon](#azure-cdn-premium-from-verizon-profiles).
 
 ### <a name="define-the-directory-path"></a>Definir o caminho do diretório
 Para acessar o recurso de filtragem geográfica, selecione o ponto de extremidade da CDN no portal e, em seguida, selecione **Filtragem Geográfica** em CONFIGURAÇÕES no menu esquerdo. 
@@ -42,7 +39,7 @@ Para acessar o recurso de filtragem geográfica, selecione o ponto de extremidad
 
 Na caixa **PATH**, especifique o caminho relativo para o local ao qual os usuários terão permissão ou acesso negado. 
 
-É possível aplicar filtragem geográfica a todos os arquivos com uma barra (/) ou selecionar pastas específicas, especificando caminhos de diretórios (por exemplo, */imagens/*). Adicionalmente, é possível aplicar filtragem geográfica a um único arquivo (por exemplo */imagens/city.png*). Várias regras são permitidas e, após inserir uma regra, aparecerá uma linha em branco para que você insira a próxima regra.
+É possível aplicar filtragem geográfica a todos os arquivos com uma barra (/) ou selecionar pastas específicas, especificando caminhos de diretórios (por exemplo, */imagens/*). Adicionalmente, é possível aplicar filtragem geográfica a um único arquivo (por exemplo */imagens/city.png*). Várias regras são permitidas. Depois de inserir uma regra, uma linha em branco é exibida para que você insira a próxima regra.
 
 Por exemplo, todos os filtros de caminho de diretório a seguir são válidos:   
 */*                                 
@@ -63,6 +60,7 @@ Por exemplo, uma regra de filtragem geográfica para bloquear o caminho */Fotos/
  *http: \/ / \<endpoint> . azureedge.net/photos/Strasbourg/Cathedral/1000.jpg*
 
 ### <a name="define-the-countriesregions"></a>Definir os países/regiões
+
 Na lista **códigos de país** , selecione os países/regiões que você deseja bloquear ou permitir para o caminho. 
 
 Depois de concluir a seleção dos países/regiões, selecione **salvar** para ativar a nova regra de filtragem geográfica. 
@@ -70,41 +68,43 @@ Depois de concluir a seleção dos países/regiões, selecione **salvar** para a
 ![Captura de tela mostra os códigos de país a serem usados para bloquear ou permitir países ou regiões.](./media/cdn-filtering/cdn-geo-filtering-rules.png)
 
 ### <a name="clean-up-resources"></a>Limpar os recursos
+
 Para excluir uma regra, selecione-a na lista da página **Filtragem Geográfica** e, em seguida escolha **Excluir**.
 
 ## <a name="azure-cdn-premium-from-verizon-profiles"></a>Perfis CDN Premium do Azure da Verizon
-Para perfis**CDN Premium do Azure da Verizon**, a interface do usuário para criar uma regra de filtragem geográfica é diferente:
+
+Para perfis **da CDN Premium do Azure da Verizon** , a interface do usuário para criar uma regra de filtragem geográfica é diferente:
 
 1. No menu superior do perfil da CDN do Azure, selecione **Gerenciar**.
 
 2. No portal da Verizon, selecione **HTTP Grande** e, em seguida, selecione **Filtragem por País/Região**.
 
-    ![Captura de tela mostra como selecionar a filtragem de país no Azure C D N.](./media/cdn-filtering/cdn-geo-filtering-premium.png)
-
+    :::image type="content" source="./media/cdn-filtering/cdn-geo-filtering-premium.png" alt-text="Captura de tela mostra como selecionar a filtragem de país na CDN do Azure" border="true":::
+  
 3. Selecione **Adicionar Filtro por País/Região**.
 
-    A página **Etapa Um:** aparece.
+4. Na **etapa um:**, insira o caminho do diretório. Selecione **Bloquear** ou **Adicionar** e, em seguida, selecione **Avançar**.
 
-4. Insira o caminho do diretório, selecione **Bloquear** ou **Adicionar** e, em seguida, selecione **Avançar**.
-
-    A página **Etapa Dois:** aparece. 
-
-5. Selecione um ou mais países/regiões na lista e, em seguida, selecione **concluir** para ativar a regra. 
+    > [!IMPORTANT]
+    > O nome do ponto de extremidade deve estar no caminho.  Exemplo: **/myendpoint8675/MyFolder**.  Substitua **myendpoint8675** pelo nome do ponto de extremidade.
+    > 
+    
+5. Na **etapa dois**, selecione um ou mais países/regiões na lista. Selecione **concluir** para ativar a regra. 
     
     A nova regra aparece na tabela na página **Filtragem por País/Região**.
-
-    ![Captura de tela mostra onde a regra aparece na filtragem de país.](./media/cdn-filtering/cdn-geo-filtering-premium-rules.png)
-
+    
+    :::image type="content" source="./media/cdn-filtering/cdn-geo-filtering-premium-rules.png" alt-text="Captura de tela mostra onde a regra aparece na filtragem de país." border="true":::
+ 
 ### <a name="clean-up-resources"></a>Limpar os recursos
 Na tabela regras de filtragem de país/região, selecione o ícone excluir ao lado de uma regra para excluí-la ou o ícone Editar para modificá-la.
 
 ## <a name="considerations"></a>Considerações
-* As alterações na configuração de filtragem geográfica não são efetivadas imediatamente:
+* As alterações na sua configuração de filtragem geográfica não entram em vigor imediatamente:
    * Para perfis da **CDN Standard do Azure da Microsoft**, a propagação geralmente é concluída em dez minutos. 
    * Para perfis da **CDN Standard do Azure da Akamai**, a propagação normalmente é concluída em um minuto. 
    * Para perfis da **CDN Standard do Azure da Verizon** e da **CDN Premium do Azure da Verizon**, a propagação geralmente é concluída em 10 minutos. 
  
-* Esse recurso não dá suporte a caracteres curinga (por exemplo, *).
+* Este recurso não dá suporte a caracteres curinga (por exemplo, *).
 
 * A configuração de filtragem geográfica associada ao caminho relativo é aplicada recursivamente a esse caminho.
 

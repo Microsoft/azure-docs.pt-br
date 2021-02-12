@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 2961ffb21a1f34ca677e0aede5170689f4e38dca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e939b86eeadfee276378488cfcb40c07f28684d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84267964"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880651"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guia de IA do Azure para soluções de manutenção preditiva
 
@@ -189,7 +189,7 @@ Outros etapas de pré-processamento de dados incluem _lidar com valores ausentes
 Com as fontes de dados pré-processados acima no local, as transformação final mediante a engenharia do recurso é unir as tabelas acima com base no identificador do ativo e carimbo de data/hora. A tabela resultante teria valores nulos para a coluna de falha quando a máquina estivesse em operação normal. Esses valores nulos podem ser inseridos por um indicador para operação normal. Use essa coluna de falha para criar _rótulos para o modelo de previsão_. Para obter mais informações, consulte a seção sobre a [modelagem técnica para manutenção preditiva](#modeling-techniques-for-predictive-maintenance).
 
 ## <a name="feature-engineering"></a>Engenharia de recursos
-A engenharia de recursos é a primeira etapa antes da modelagem de dados. Sua função no processo de ciência de dados [é descrita aqui](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/create-features). Um _recurso_ é um atributo de previsão para o modelo - como a temperatura, pressão, vibração e assim por diante. Para o PdM, a engenharia de recursos envolve a abstração da integridade de um computador sobre os dados históricos coletados durante uma duração ajustável. Nesse sentido, é diferente de seus colegas, como monitoramento remoto, detecção de anomalias e detecção de falha. 
+A engenharia de recursos é a primeira etapa antes da modelagem de dados. Sua função no processo de ciência de dados [é descrita aqui](./create-features.md). Um _recurso_ é um atributo de previsão para o modelo - como a temperatura, pressão, vibração e assim por diante. Para o PdM, a engenharia de recursos envolve a abstração da integridade de um computador sobre os dados históricos coletados durante uma duração ajustável. Nesse sentido, é diferente de seus colegas, como monitoramento remoto, detecção de anomalias e detecção de falha. 
 
 ### <a name="time-windows"></a>Janelas de tempo
 O monitoramento remoto implica relatar os eventos que acontecem a partir dos _pontos no tempo_. Modelos de detecção de anomalias avaliam fluxos de entrada (pontuação) de dados para sinalizar anomalias a partir de pontos no tempo. A detecção de falha classifica as falha como tipos específicos conforme ocorrem pontos no tempo. Em contraste, a PdM envolve prever falhas em um _período futuro_, com base nos recursos que representam o comportamento da máquina em _período de tempo históricos_. Para PdM, os dados de recurso de pontos individuais de tempo são muito barulhentos para serem preditivos. Assim, os dados para cada recurso precisam ser _suavizados_ por pontos de dados de agregação em janelas de tempo.
@@ -217,7 +217,7 @@ Exemplos de agregações sem interrupção em uma janela de tempo são contagem,
 Outra técnica interessante é capturar alterações de tendência, picos e alterações de nível usando algoritmos que detectam anomalias nos dados usando algoritmos de detecção de anomalias.
 
 #### <a name="tumbling-aggregates"></a>Agregações em cascata
-Para cada registro rotulado de um ativo, uma janela de tamanho _w-<sub>k</sub> _ é definida, em que _k_ é o número de janelas de tamanho _w_. As agregações são então criadas sobre _k_ _em cascata Windows_ _W-k, w-<sub>(k-1)</sub>,..., w-<sub>2</sub>, w-<sub>1</sub> _ para os períodos antes do carimbo de data/hora de um registro. _k_ pode ser um número pequeno para capturar efeitos de curto prazo ou um número grande para capturar padrões de degração de longo prazo. (veja Figura 2).
+Para cada registro rotulado de um ativo, uma janela de tamanho _w-<sub>k</sub>_ é definida, em que _k_ é o número de janelas de tamanho _w_. As agregações são então criadas sobre _k_ _em cascata Windows_ _W-k, w-<sub>(k-1)</sub>,..., w-<sub>2</sub>, w-<sub>1</sub>_ para os períodos antes do carimbo de data/hora de um registro. _k_ pode ser um número pequeno para capturar efeitos de curto prazo ou um número grande para capturar padrões de degração de longo prazo. (veja Figura 2).
 
 ![Figura 2. Recursos de agregação em cascata](./media/predictive-maintenance-playbook/tumbling-aggregate-features.png)
 
@@ -301,18 +301,18 @@ Aqui, a pergunta é: "Qual é a probabilidade de o ativo falhar nas próximas X 
 
 Figura 5. Rotulação da classificação multiclasse para a previsão da hora da falha
 
-Aqui, a pergunta é: "qual é a probabilidade de o ativo falhar nas próximas X unidades de tempo? devido à causa raiz/problema _P<sub>i</sub>_?" onde _i_ é o número de causas raízes possíveis. Para responder essa pergunta, rótulo X registros antes da falha de um ativo como “prestes a falhar devido à causa raiz _P<sub>i</sub>_" (rótulo = _P<sub>i</sub>_). Rotule todos os outros registros como "normal" (rótulo = 0). Nesse método, os rótulos são categóricos (veja a Figura 6).
+Aqui, a pergunta é: "qual é a probabilidade de o ativo falhar nas próximas X unidades de tempo? devido à causa raiz/problema _P <sub>i</sub>_?" onde _i_ é o número de causas raízes possíveis. Para responder essa pergunta, rótulo X registros antes da falha de um ativo como “prestes a falhar devido à causa raiz _P <sub>i</sub>_" (rótulo = _P <sub>i</sub>_). Rotule todos os outros registros como "normal" (rótulo = 0). Nesse método, os rótulos são categóricos (veja a Figura 6).
 
 ![Figura 6. Rótulos de previsão de causa raiz para classificação multiclasse](./media/predictive-maintenance-playbook/labelling-for-multiclass-classification-for-root-cause-prediction.png)
 
 Figura 6. Rotulação da classificação multiclasse para a previsão da causa-raiz
 
-O modelo atribui uma probabilidade de falha devido a cada _P<sub>i</sub>_ e também uma probabilidade de não falha. Essas probabilidades podem ser ordenadas por magnitude para permitir a previsão dos problemas que têm maior probabilidade de ocorrer no futuro.
+O modelo atribui uma probabilidade de falha devido a cada _P <sub>i</sub>_ e também uma probabilidade de não falha. Essas probabilidades podem ser ordenadas por magnitude para permitir a previsão dos problemas que têm maior probabilidade de ocorrer no futuro.
 
 Aqui, a pergunta é: "quais ações de manutenção você recomenda após um falha?” Para responder essa pergunta, a rotulação _não requer que um horizonte futuro seja selecionado_, porque o modelo não está prevendo falha no futuro. Ele é apenas previsão mais provável de causa raiz _depois que a falha já aconteceu_.
 
 ## <a name="training-validation-and-testing-methods-for-predictive-maintenance"></a>Métodos de treinamento, validação e teste para manutenção preditiva
-O [Processo de Ciência de Dados de Equipe](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) fornece uma cobertura completa do ciclo de validação de teste de treinamento de modelo. Esta seção discute aspectos exclusivos de PdM.
+O [Processo de Ciência de Dados de Equipe](./overview.md) fornece uma cobertura completa do ciclo de validação de teste de treinamento de modelo. Esta seção discute aspectos exclusivos de PdM.
 
 ### <a name="cross-validation"></a>Validação cruzada
 O objetivo da [validação cruzada](https://en.wikipedia.org/wiki/Cross-validation_(statistics)) é definir um conjunto de dados para "testar" o modelo na fase de treinamento. Esse conjunto de dados é chamado de _validação de conjunto_. Essa técnica ajuda a limitar problemas como _sobreajuste_ e fornece um insight sobre como o modelo irá generalizar a um conjunto de ddos independente. Ou seja, um conjunto de dados descibgecudi que pode ser um problema real. A rotina de treinamento e teste para PdM precisa levar em conta os aspectos de tempo diferentes para generalizar melhor sobre dados futuros despercebidos.
@@ -339,7 +339,7 @@ Esta seção descreve as práticas recomendadas para implementar a divisão depe
 
 Suponha que tenhamos um fluxo de eventos com carimbo de data/hora, como medidas de vários sensores. Define os recursos e rótulos de treinamento e exemplos de teste sobre os períodos que contenham vários eventos. Por exemplo, para classificação binária, crie recursos com base em eventos passados e crie rótulos com base em eventos futuros dentro das unidades de tempo no futuro (consulte as seções sobre Engenharia de [recursos](#feature-engineering) e técnicas de modelagem). Assim, o período de tempo de rotulamento de um exemplo ocorre depois do período de tempo de seus recursos.
 
-Para divisão dependente de tempo, escolhemos um _tempo de corte de treinamento T<sub>c</sub>_  em que treinar um modelo, com hiperparâmetros ajustados usando dados históricos T<sub>c</sub>. Para impedir o vazamento de rótulos futuros que são além de T<sub>c</sub> nos dados de treinamento, escolha a hora mais recente para rotular exemplos de treinamento como unidades X antes de T<sub>c</sub>. No exemplo mostrado na Figura 7, cada quadrado representa um registro no conjunto de dados onde os recursos e os rótulos são computados conforme descrito acima. A figura mostra os registros que deveriam ir para conjuntos de treinamento e testes para  X=2 e W=3:
+Para divisão dependente de tempo, escolhemos um _tempo de corte de treinamento T <sub>c</sub>_  em que treinar um modelo, com hiperparâmetros ajustados usando dados históricos T <sub>c</sub>. Para impedir o vazamento de rótulos futuros que são além de T<sub>c</sub> nos dados de treinamento, escolha a hora mais recente para rotular exemplos de treinamento como unidades X antes de T<sub>c</sub>. No exemplo mostrado na Figura 7, cada quadrado representa um registro no conjunto de dados onde os recursos e os rótulos são computados conforme descrito acima. A figura mostra os registros que deveriam ir para conjuntos de treinamento e testes para  X=2 e W=3:
 
 ![ Figura 7. Divisão dependente do tempo para classificação binária](./media/predictive-maintenance-playbook/time-dependent-split-for-binary-classification.png)
 
@@ -362,7 +362,7 @@ Muitos problemas PdM enfrentam tais conjuntos de dados desequilibrados, em que u
 
 No caso de desequilíbrio de classe, o desempenho da maioria dos algoritmos de aprendizado padrão fica comprometido, já que eles tentam minimizar a taxa de erro geral. Para um conjunto de dados com exemplos positivo de % 1 e 99% negativo, um modelo pode ser mostrado com precisão de 99% rotulando todas as instâncias como negativo. Mas o modelo será classificado incorretamente todos os exemplos positivos; portanto, mesmo se a precisão for alta, o algoritmo não é útil. Consequentemente, as métricas de avaliação convencional, como _a precisão geral na taxa de erro_, não são suficientes em caso de aprendizado em desequilíbrio. Ao se deparar com conjuntos de dados desequilibrados, outras métricas são usadas para avaliação do modelo:
 - Precisão
-- Chamar de volta
+- Recall
 - Pontuações F1
 - Custo ajustado ROC (características operacionais do destinatário)
 
@@ -415,7 +415,7 @@ O processo acima é declarado de muitas maneiras na literatura acadêmica e do s
 
 Conforme mencionado anteriormente, a operacionalização de modelo para PdM é diferente de seus colegas. Cenários envolvendo detecção de anomalias e detecção de falha normalmente implementa _pontuação online_ (também chamada de _em pontuação em tempo real_). Aqui, o modelo _pontua_ cada registro de entrada e retorna uma previsão. Para detecção de anomalias, a previsão é uma indicação de que ocorreu uma anomalia (exemplo: uma classe SVM). Para detecção de falha, seria o tipo ou classe de falha.
 
-Em contraparte, a PdM envolve _a pontuação em lote_. Para estar de acordo com a assinatura do modelo, os recursos dos novos dados devem ser feitos da mesma maneira como os dados de treinamento. Para grandes conjuntos de dados que são típicos para novos dados, os recursos são agregados em janelas de tempo e pontuação em lote. A pontuação em lote normalmente é feita em sistemas distribuídos como [Spark](https://spark.apache.org/) ou [lote do Microsoft Azure](https://docs.microsoft.com/azure/batch/batch-api-basics). Há duas alternativas - ambos de qualidade inferior:
+Em contraparte, a PdM envolve _a pontuação em lote_. Para estar de acordo com a assinatura do modelo, os recursos dos novos dados devem ser feitos da mesma maneira como os dados de treinamento. Para grandes conjuntos de dados que são típicos para novos dados, os recursos são agregados em janelas de tempo e pontuação em lote. A pontuação em lote normalmente é feita em sistemas distribuídos como [Spark](https://spark.apache.org/) ou [lote do Microsoft Azure](../../batch/batch-service-workflow-features.md). Há duas alternativas - ambos de qualidade inferior:
 - Mecanismos de fluxo de dados oferecem suporte a agregação em janelas na memória. Portanto, poderia argumentar que oferecem suporte a pontuação online. Mas esses sistemas são adequados para dados densos nas janelas estreitas de tempo ou  elementos esparsos em janelas mais ampla. Podem não ser dimensionadas bem para os dados densos sobre janelas de tempo maiores, como visto nos cenários de PdM.
 - Se a pontuação do lote não estiver disponível, a solução é adaptar a pontuação online para lidar com novos dados em lotes pequenos por vez.
 
@@ -429,7 +429,7 @@ A seção final deste guia fornece uma lista de modelos de solução PdM, tutori
 | 3 | [Aprendizado Profundo da Manutenção Preditiva](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Azure Notebook com solução de demonstração do uso de redes LSTM (memória de prazo curto-longo) (uma classe de redes neurais recorrente) para manutenção preditiva, com um [postagem de blog sobre esse exemplo](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
 | 4 | [Manutenção preditiva do Azure para o setor aeroespacial](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | Um dos modelos de solução de PdM primeiro com base na versão 1.0 do ML do Azure para manutenção de aeronave. Este guia que se originou desse projeto. |
 | 5 | [Kit de Ferramentas de IA para o Azure IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | IA no IoT Edge usando TensorFlow; o kit de ferramentas empacota modelos de aprendizado profundo em contêineres do Docker compatíveis com Azure IoT Edge e expõe esses modelos como APIs REST.
-| 6 | [Azure IoT – Manutenção preditiva](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IoT Suite PCS - Solução pré-configurada Modelo de PdM de manutenção de aeronave com IoT Suite. [Outro documento](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-overview) e [passo a passo](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-walkthrough) relacionados ao mesmo projeto. |
+| 6 | [Azure IoT – Manutenção preditiva](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IoT Suite PCS - Solução pré-configurada Modelo de PdM de manutenção de aeronave com IoT Suite. [Outro documento](/previous-versions/azure/iot-accelerators/about-iot-accelerators) e [passo a passo](/previous-versions/azure/iot-accelerators/iot-accelerators-predictive-walkthrough) relacionados ao mesmo projeto. |
 | 7 | [Modelo de manutenção preditiva usando os Serviços R do SQL](https://gallery.azure.ai/Tutorial/Predictive-Maintenance-Template-with-SQL-Server-R-Services-1) | Demonstração do cenário de vida útil restantes com base nos serviços R. |
 | 8 | [Guia de modelagem de manutenção preditiva](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) | Recurso de conjunto de dados de manutenção de aeronave projetada  usando o R com [experiências](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Experiment-1) e [conjuntos de dados](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Data-Sets-1) e Azure Notebook e [experiências](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2)no AzureML v1.0.|
 

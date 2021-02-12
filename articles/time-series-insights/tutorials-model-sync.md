@@ -8,18 +8,18 @@ ms.author: radhsrin
 manager: diviso
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 01/19/2021
 ms.custom: dpalled
-ms.openlocfilehash: c3948a5bdfce583384992fb87bf40e9e7251974d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e8e5367daa532fa0cc36a18cd28b382e7cd8f78
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91341042"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682895"
 ---
 # <a name="model-synchronization-between-azure-digital-twins-and-time-series-insights-gen2"></a>Sincronização de modelo entre os Gêmeos Digitais do Azure e o Time Series Insights Gen2
 
-Este artigo explica as práticas recomendadas e as ferramentas usadas para converter o modelo de ativo no gêmeos digital do Azure (ADT) para o modelo de ativo em Azure Time Series Insights (TSI).  Este artigo é a segunda parte de uma série de tutoriais de duas partes explicando a integração do Azure digital gêmeos com o Azure Time Series Insights. A integração do Azure digital gêmeos com o Time Series Insights permite arquivamento e acompanhamento do histórico de telemetrias e propriedades calculadas de gêmeos digital. Esta série de tutoriais destina-se a desenvolvedores que trabalham para integrar o Time Series Insights com o Azure digital gêmeos. A parte 1 explica  [como estabelecer o pipeline de dados que traz os dados reais de série temporal do Azure digital gêmeos para Time Series insights](https://docs.microsoft.com/azure/digital-twins/how-to-integrate-time-series-insights) e esta, segunda parte da série de tutoriais explica a sincronização do modelo de ativo entre o gêmeos e o time Series insights digital do Azure. Este tutorial explica as práticas recomendadas para escolher e estabelecer a Convenção de nomenclatura para ID de série temporal (TS ID) e estabelecer hierarquias manualmente no TSM (modelo de série temporal).
+Este artigo explica as práticas recomendadas e as ferramentas usadas para converter o modelo de ativo no gêmeos digital do Azure (ADT) para o modelo de ativo em Azure Time Series Insights (TSI).  Este artigo é a segunda parte de uma série de tutoriais de duas partes explicando a integração do Azure digital gêmeos com o Azure Time Series Insights. A integração do Azure digital gêmeos com o Time Series Insights permite arquivamento e acompanhamento do histórico de telemetrias e propriedades calculadas de gêmeos digital. Esta série de tutoriais destina-se a desenvolvedores que trabalham para integrar o Time Series Insights com o Azure digital gêmeos. A parte 1 explica  [como estabelecer o pipeline de dados que traz os dados reais de série temporal do Azure digital gêmeos para Time Series insights](../digital-twins/how-to-integrate-time-series-insights.md) e esta, segunda parte da série de tutoriais explica a sincronização do modelo de ativo entre o gêmeos e o time Series insights digital do Azure. Este tutorial explica as práticas recomendadas para escolher e estabelecer a Convenção de nomenclatura para ID de série temporal (TS ID) e estabelecer hierarquias manualmente no TSM (modelo de série temporal).
 
 ## <a name="choosing-a-time-series-id"></a>Escolhendo uma ID de série temporal
 
@@ -29,7 +29,7 @@ ID de série temporal é um identificador exclusivo usado para identificar ativo
 
 ## <a name="contextualizing-time-series"></a>Contextualização de série temporal
 
-A concontexto de dados (principalmente a espacial por natureza) em Time Series Insights é obtida por meio de hierarquias de ativos e o mesmo é usado para facilitar a navegação de dados por meio de uma exibição de árvore no Gerenciador de Time Series Insights. Os tipos de série temporal e hierarquias são definidos usando o modelo de série temporal (TSM) no Time Series Insights. Os tipos na ajuda do TSM para definir variáveis, enquanto os níveis de hierarquia e os valores de campo de instância são usados para construir o modo de exibição de árvore no Gerenciador de Time Series Insights. Para obter mais informações sobre o TSM, consulte a [documentação online do time Series insights](https://docs.microsoft.com/azure/time-series-insights/concepts-model-overview).
+A concontexto de dados (principalmente a espacial por natureza) em Time Series Insights é obtida por meio de hierarquias de ativos e o mesmo é usado para facilitar a navegação de dados por meio de uma exibição de árvore no Gerenciador de Time Series Insights. Os tipos de série temporal e hierarquias são definidos usando o modelo de série temporal (TSM) no Time Series Insights. Os tipos na ajuda do TSM para definir variáveis, enquanto os níveis de hierarquia e os valores de campo de instância são usados para construir o modo de exibição de árvore no Gerenciador de Time Series Insights. Para obter mais informações sobre o TSM, consulte a [documentação online do time Series insights](./concepts-model-overview.md).
 
 No Azure digital gêmeos, a conexão entre os ativos é expressa usando relações de conexão. As relações de entrelaçamento são simplesmente um grafo de ativos conectados. No entanto, no time Series Insight, as relações entre os ativos são hierárquicas por natureza. Ou seja, os ativos compartilham uma relação pai-filho tipo OD e são representados usando uma estrutura de árvore. Para converter informações de relacionamento do Azure digital gêmeos em hierarquias Time Series Insights, precisamos escolher relações hierárquicas relevantes do gêmeos digital do Azure. O Azure digital gêmeos usa uma linguagem de modelagem padrão aberta chamada DTDL (digital mydefinition Language). Nos modelos DTDL são descritos usando uma variante do JSON chamada JSON-LD. Consulte a [documentação do DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) para obter detalhes completos sobre a especificação.
 
@@ -82,7 +82,7 @@ O trecho de código abaixo mostra como o aplicativo cliente foi capaz de navegar
 
 > [!Note]
 >
-> Este exemplo de trecho de código pressupõe que os leitores estejam familiarizados com a [parte 01](https://docs.microsoft.com/azure/digital-twins/tutorial-end-to-end#set-up-the-sample-function-app) do tutorial e que essa alteração de código tenha sido feita dentro da função "ProcessHubToDTEvents".
+> Este exemplo de trecho de código pressupõe que os leitores estejam familiarizados com a [parte 01](../digital-twins/tutorial-end-to-end.md#set-up-the-sample-function-app) do tutorial e que essa alteração de código tenha sido feita dentro da função "ProcessHubToDTEvents".
 
 ```csharp
 if (propertyPath.Equals("/Flow"))
@@ -114,7 +114,7 @@ relationship for " + twinId);
 
 ## <a name="updating-instance-fields-using-apis"></a>Atualizando campos de instância usando APIs
 
-Esta seção do tutorial explica a escuta de alterações de modelo no Azure digital gêmeos, como criação, exclusão de gêmeos ou alteração de relações entre gêmeos e atualização de campos de instância e hierarquias programaticamente usando Time Series Insights APIs de modelo. Esse método de atualização do modelo de Time Series Insights geralmente é obtido por meio do Azure functions. No gêmeos digital do Azure, as notificações de eventos, como adição ou exclusões de ou mais, podem ser roteadas para serviços downstream, como hubs de eventos que, por sua vez, podem ser alimentadas no Azure functions. Mais detalhes sobre roteamento e filtragem de eventos são explicados [aqui](https://docs.microsoft.com/azure/digital-twins/how-to-manage-routes-portal).  Restante desta seção explica como usar Time Series Insights APIs de modelo no Azure Functions para atualizar o modelo de Time Series Insights em resposta à adição de conjunto de alterações (um tipo de alteração de modelo) no Azure digital gêmeos.
+Esta seção do tutorial explica a escuta de alterações de modelo no Azure digital gêmeos, como criação, exclusão de gêmeos ou alteração de relações entre gêmeos e atualização de campos de instância e hierarquias programaticamente usando Time Series Insights APIs de modelo. Esse método de atualização do modelo de Time Series Insights geralmente é obtido por meio do Azure functions. No gêmeos digital do Azure, as notificações de eventos, como adição ou exclusões de ou mais, podem ser roteadas para serviços downstream, como hubs de eventos que, por sua vez, podem ser alimentadas no Azure functions. Mais detalhes sobre roteamento e filtragem de eventos são explicados [aqui](../digital-twins/how-to-manage-routes-portal.md).  Restante desta seção explica como usar Time Series Insights APIs de modelo no Azure Functions para atualizar o modelo de Time Series Insights em resposta à adição de conjunto de alterações (um tipo de alteração de modelo) no Azure digital gêmeos.
 
 ### <a name="receiving-and-identifying-twin-addition-event-notification"></a>Recebendo e identificando a notificação de eventos de adição de entrelaçamento
 
@@ -227,4 +227,4 @@ private async Task<TimeSeriesInstance> AddHierarchyToInstanceAsync(TimeSeriesIns
 
 ## <a name="next-steps"></a>Próximas etapas
 
-A terceira parte da série de tutoriais é mostrar como consultar dados históricos do Azure digital gêmeos usando APIs de Time Series Insights. É um trabalho em andamento e a seção será atualizada quando estiver pronta. Enquanto isso, os leitores são incentivados a consultar a [documentação da API de consulta de dados Time Series insights](https://docs.microsoft.com/azure/time-series-insights/concepts-query-overview).
+A terceira parte da série de tutoriais é mostrar como consultar dados históricos do Azure digital gêmeos usando APIs de Time Series Insights. É um trabalho em andamento e a seção será atualizada quando estiver pronta. Enquanto isso, os leitores são incentivados a consultar a [documentação da API de consulta de dados Time Series insights](./concepts-query-overview.md).

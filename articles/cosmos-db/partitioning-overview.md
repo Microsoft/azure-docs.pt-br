@@ -6,17 +6,17 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 7c05ca6462d49d1d41791e5b93b7723ac681d448
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b91c846b5a79125c1cee9c36ce81b5c3d3229ba9
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080825"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627758"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Particionamento e escala horizontal no Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB usa o particionamento para dimensionar contêineres individuais em um banco de dados para atender às necessidades de desempenho do seu aplicativo. No particionamento, os itens em um contêiner são divididos em subconjuntos distintos chamados *partições lógicas* . As partições lógicas são formadas com base no valor de uma *chave de partição* associada a cada item em um contêiner. Todos os itens em uma partição lógica têm o mesmo valor de chave de partição.
+Azure Cosmos DB usa o particionamento para dimensionar contêineres individuais em um banco de dados para atender às necessidades de desempenho do seu aplicativo. No particionamento, os itens em um contêiner são divididos em subconjuntos distintos chamados *partições lógicas*. As partições lógicas são formadas com base no valor de uma *chave de partição* associada a cada item em um contêiner. Todos os itens em uma partição lógica têm o mesmo valor de chave de partição.
 
 Por exemplo, um contêiner contém itens. Cada item tem um valor exclusivo para a `UserID` propriedade. Se `UserID` serve como a chave de partição para os itens no contêiner e há 1.000 valores exclusivos `UserID` , 1.000 partições lógicas são criadas para o contêiner.
 
@@ -36,10 +36,13 @@ Não há nenhum limite para o número de partições lógicas em seu contêiner.
 
 Um contêiner é dimensionado distribuindo dados e taxa de transferência entre partições físicas. Internamente, uma ou mais partições lógicas são mapeadas para uma única partição física. Normalmente, contêineres menores têm muitas partições lógicas, mas exigem apenas uma única partição física. Ao contrário das partições lógicas, as partições físicas são uma implementação interna do sistema e são totalmente gerenciadas pelo Azure Cosmos DB.
 
-O número de partições físicas no contêiner depende da seguinte configuração:
+O número de partições físicas no contêiner depende do seguinte:
 
 * O número de taxa de transferência provisionado (cada partição física individual pode fornecer uma taxa de transferência de até 10.000 unidades de solicitação por segundo).
 * O armazenamento de dados total (cada partição física individual pode armazenar até 50 GB de dados).
+
+> [!NOTE]
+> As partições físicas são uma implementação interna do sistema e são totalmente gerenciadas pelo Azure Cosmos DB. Ao desenvolver suas soluções, não se concentre em partições físicas porque não é possível controlá-las. Em vez disso, concentre-se nas chaves de partição. Se você escolher uma chave de partição que distribua uniformemente o consumo de taxa de transferência entre partições lógicas, você garantirá que o consumo de taxa de transferência entre partições físicas seja balanceado.
 
 Não há nenhum limite para o número total de partições físicas em seu contêiner. À medida que a produtividade provisionada ou o tamanho dos dados crescer, Azure Cosmos DB criará automaticamente novas partições físicas, dividindo as existentes. As divisões de partição física não afetam a disponibilidade do aplicativo. Após a divisão da partição física, todos os dados em uma única partição lógica ainda serão armazenados na mesma partição física. Uma divisão de partição física simplesmente cria um novo mapeamento de partições lógicas para partições físicas.
 
@@ -49,12 +52,9 @@ Você pode ver as partições físicas do contêiner na seção **armazenamento*
 
 :::image type="content" source="./media/partitioning-overview/view-partitions-zoomed-out.png" alt-text="Exibindo o número de partições físicas" lightbox="./media/partitioning-overview/view-partitions-zoomed-in.png" ::: 
 
-Na captura de tela acima, um contêiner tem `/foodGroup` como a chave de partição. Cada uma das três barras no grafo representa uma partição física. Na imagem, o **intervalo de chaves de partição** é o mesmo que uma partição física. A partição física selecionada contém três partições lógicas: `Beef Products` , `Vegetable and Vegetable Products` e `Soups, Sauces, and Gravies` .
+Na captura de tela acima, um contêiner tem `/foodGroup` como a chave de partição. Cada uma das três barras no grafo representa uma partição física. Na imagem, o **intervalo de chaves de partição** é o mesmo que uma partição física. A partição física selecionada contém as três principais partições lógicas de tamanho mais significativas: `Beef Products` , `Vegetable and Vegetable Products` e `Soups, Sauces, and Gravies` .
 
 Se você provisionar uma taxa de transferência de 18.000 unidades de solicitação por segundo (RU/s), cada uma das três partições físicas poderá utilizar 1/3 da taxa de transferência total provisionada. Na partição física selecionada, as chaves de partição lógica `Beef Products` , `Vegetable and Vegetable Products` e `Soups, Sauces, and Gravies` podem, coletivamente, utilizar as 6.000 de ru/s provisionadas da partição física. Como a taxa de transferência provisionada é dividida uniformemente nas partições físicas do contêiner, é importante escolher uma chave de partição que distribua uniformemente o consumo da taxa de transferência, [escolhendo a chave de partição lógica correta](#choose-partitionkey). 
-
-> [!NOTE]
-> Se você escolher uma chave de partição que distribua uniformemente o consumo de taxa de transferência entre partições lógicas, você garantirá que o consumo de taxa de transferência entre partições físicas seja balanceado.
 
 ## <a name="managing-logical-partitions"></a>Gerenciando partições lógicas
 
@@ -70,15 +70,15 @@ Você pode saber mais sobre [como Azure Cosmos DB gerencia partições](partitio
 
 Cada partição física consiste em um conjunto de réplicas, também conhecido como um [*conjunto de réplicas*](global-dist-under-the-hood.md). Cada conjunto de réplicas hospeda uma instância do mecanismo de banco de dados. Um conjunto de réplicas torna os dados armazenados na partição física durável, altamente disponível e consistente. Cada réplica que compõe a partição física herda a cota de armazenamento da partição. Todas as réplicas de uma partição física dão suporte coletiva à taxa de transferência alocada para a partição física. Azure Cosmos DB gerencia automaticamente os conjuntos de réplicas.
 
-Normalmente, os contêineres menores exigem apenas uma única partição física, mas eles ainda terão pelo menos 4 réplicas.
+Normalmente, contêineres menores exigem apenas uma única partição física, mas eles ainda terão pelo menos 4 réplicas.
 
 A imagem a seguir mostra como as partições lógicas são mapeadas para partições físicas distribuídas globalmente:
 
-:::image type="content" source="./media/partitioning-overview/logical-partitions.png" alt-text="Exibindo o número de partições físicas" border="false":::
+:::image type="content" source="./media/partitioning-overview/logical-partitions.png" alt-text="Uma imagem que demonstra Azure Cosmos DB particionamento" border="false":::
 
 ## <a name="choosing-a-partition-key"></a><a id="choose-partitionkey"></a>Escolhendo uma chave de partição
 
-Uma chave de partição tem dois componentes: **caminho de chave de partição** e valor de chave de **partição** . Por exemplo, considere um item {"userId": "Andrew", "worksFor": "Microsoft"} se você escolher "userId" como a chave de partição, estes são os dois componentes de chave de partição:
+Uma chave de partição tem dois componentes: **caminho de chave de partição** e valor de chave de **partição**. Por exemplo, considere um item {"userId": "Andrew", "worksFor": "Microsoft"} se você escolher "userId" como a chave de partição, estes são os dois componentes de chave de partição:
 
 * O caminho da chave de partição (por exemplo: "/userid"). O caminho da chave de partição aceita caracteres alfanuméricos e sublinhados (_). Você também pode usar objetos aninhados usando a notação de caminho padrão (/).
 
@@ -114,20 +114,20 @@ Se o contêiner puder aumentar para mais de algumas partições físicas, você 
 
 ## <a name="using-item-id-as-the-partition-key"></a>Usando a ID do item como a chave de partição
 
-Se o contêiner tiver uma propriedade que tenha uma ampla gama de valores possíveis, provavelmente será uma ótima opção de chave de partição. Um exemplo possível de tal propriedade é a *ID do item* . Para contêineres de leitura intensa pequenos ou contêineres de gravação pesada de qualquer tamanho, a *ID do item* é naturalmente uma ótima opção para a chave de partição.
+Se o contêiner tiver uma propriedade que tenha uma ampla gama de valores possíveis, provavelmente será uma ótima opção de chave de partição. Um exemplo possível de tal propriedade é a *ID do item*. Para contêineres de leitura intensa pequenos ou contêineres de gravação pesada de qualquer tamanho, a *ID do item* é naturalmente uma ótima opção para a chave de partição.
 
-A ID do *Item* de Propriedade do sistema existe em cada item em seu contêiner. Você pode ter outras propriedades que representam uma ID lógica do seu item. Em muitos casos, essas também são ótimas opções de chave de partição pelos mesmos motivos da *ID do item* .
+A ID do *Item* de Propriedade do sistema existe em cada item em seu contêiner. Você pode ter outras propriedades que representam uma ID lógica do seu item. Em muitos casos, essas também são ótimas opções de chave de partição pelos mesmos motivos da *ID do item*.
 
 A *ID do item* é uma ótima opção de chave de partição pelos seguintes motivos:
 
 * Há uma grande variedade de valores possíveis (uma ID de *Item* exclusiva por item).
 * Como há uma ID de *Item* exclusiva por item, a *ID do item* faz um ótimo trabalho em balanceamento uniforme de consumo e armazenamento de dados em ru.
-* Você pode facilmente fazer leituras de ponto eficientes, pois você sempre saberá a chave de partição de um item se souber sua *ID de item* .
+* Você pode facilmente fazer leituras de ponto eficientes, pois você sempre saberá a chave de partição de um item se souber sua *ID de item*.
 
 Algumas coisas a serem consideradas ao selecionar a *ID do item* como a chave de partição incluem:
 
 * Se a *ID do item* for a chave de partição, ela se tornará um identificador exclusivo em todo o seu contêiner. Você não poderá ter itens com uma *ID de item* duplicada.
-* Se você tiver um contêiner de leitura intensa que tenha muitas [partições físicas](partitioning-overview.md#physical-partitions), as consultas serão mais eficientes se tiverem um filtro de igualdade com a ID do *Item* .
+* Se você tiver um contêiner de leitura intensa que tenha muitas [partições físicas](partitioning-overview.md#physical-partitions), as consultas serão mais eficientes se tiverem um filtro de igualdade com a ID do *Item*.
 * Você não pode executar procedimentos armazenados ou gatilhos em várias partições lógicas.
 
 ## <a name="next-steps"></a>Próximas etapas

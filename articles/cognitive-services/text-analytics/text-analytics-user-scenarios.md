@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: 4f540c7e853efe370c84b7c4d0a7d74911b8cd6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a4c551a6e9b8d79fdeb7b5219f311c7c7c969757
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91823951"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505351"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Exemplos de cenário do usuário para a API de Análise de Texto
 
@@ -61,4 +61,4 @@ Agrupe opiniões relacionadas a aspectos específicos de um produto ou serviço 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [O que é a API de Análise de Texto?](overview.md)
-* [Enviar uma solicitação à API de Análise de Texto usando a biblioteca de clientes](quickstarts/text-analytics-sdk.md)
+* [Enviar uma solicitação à API de Análise de Texto usando a biblioteca de clientes](quickstarts/client-libraries-rest-api.md)

@@ -4,21 +4,21 @@ description: Adicione membros do grupo em massa ao centro de administração do 
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 04/27/2020
+manager: daveba
+ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d2a6e0a5459fbf53698b4204b8ae1f47a6a17bc
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 22d39a2ee66f2c63612ad2cb3cf9ae61f1660de3
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374341"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547739"
 ---
 # <a name="bulk-add-group-members-in-azure-active-directory"></a>Adicionar membros do grupo em massa no Azure Active Directory
 

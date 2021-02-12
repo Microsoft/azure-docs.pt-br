@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: quickstart
-ms.date: 09/17/2020
+ms.date: 01/27/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to quickly deploy Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 200e7f191cb19588fa79ba685c91a75dabd0156a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 642ab348cd2bb5cd2cedd2b481b0d06fb6c4b425
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91347823"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98953930"
 ---
 # <a name="quickstart-get-started-with-azure-stack-edge-pro-with-gpu"></a>Início Rápido: Introdução ao Azure Stack Edge Pro com GPU 
 
@@ -28,7 +28,7 @@ O procedimento total deve levar cerca de 1,5 horas para ser concluído. Para obt
 Antes de implantar, verifique se os seguintes pré-requisitos foram cumpridos:
 
 1. O dispositivo de GPU do Azure Stack Edge Pro é entregue na unidade, [desempacotado](azure-stack-edge-gpu-deploy-install.md#unpack-the-device) e [montado no rack](azure-stack-edge-gpu-deploy-install.md#rack-the-device). 
-1. Configure sua rede de modo que o dispositivo possa acessar [os padrões e as portas das URLs listadas](azure-stack-edge-gpu-system-requirements.md#networking-port-requirements). 
+1. Configure sua rede de modo que o dispositivo possa acessar [as portas e os padrões de URL listados](azure-stack-edge-gpu-system-requirements.md#networking-port-requirements). 
 1. Você tem acesso de colaborador ou proprietário à assinatura do Azure.
 1. No portal do Azure, acesse **Página Inicial > Assinaturas > Sua assinatura > Provedores de recursos**. Pesquise `Microsoft.DataBoxEdge` e registre o provedor de recursos. Repita para registrar `Microsoft.Devices` se você for criar um recurso do Hub IoT para implantar cargas de trabalho de computação.
 1. Verifique se você tem um mínimo de dois IPs gratuitos, estáticos e contíguos para nós Kubernetes e pelo menos um IP estático para o serviço do IoT Edge. Para cada módulo ou serviço externo, você deve implantar um IP adicional.

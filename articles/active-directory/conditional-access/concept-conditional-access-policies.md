@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5361460f7816dd4a3b2b53deecd9d360f98ad1d3
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 28d58c476a805b672a6ec8b4d8ec465eba17e559
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145371"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169674"
 ---
 # <a name="building-a-conditional-access-policy"></a>Criando uma política de acesso condicional
 
@@ -101,7 +101,7 @@ Bloquear acesso faz exatamente isso, ele bloqueará o acesso nas atribuições e
 
 O controle Grant pode disparar a imposição de um ou mais controles. 
 
-- Exigir autenticação multifator (autenticação multifator do Azure)
+- Exigir autenticação multifator (autenticação multifator do Azure AD)
 - Exigir que o dispositivo seja marcado como compatível (Intune)
 - Exigir um dispositivo ingressado no Azure AD Híbrido
 - Exigir um aplicativo cliente aprovado
@@ -146,11 +146,11 @@ O artigo [políticas de acesso condicional comum](concept-conditional-access-pol
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Criar uma política de acesso condicional](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json#create-a-conditional-access-policy)
+[Criar uma política de acesso condicional](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json#create-a-conditional-access-policy)
 
 [Simular comportamento de entrada usando a ferramenta What If de Acesso Condicional](troubleshoot-conditional-access-what-if.md)
 
-[Planejar uma implantação da Autenticação Multifator do Azure baseada em nuvem](../authentication/howto-mfa-getstarted.md)
+[Planejando uma implantação da autenticação multifator do Azure AD baseada em nuvem](../authentication/howto-mfa-getstarted.md)
 
 [Gerenciando a conformidade do dispositivo com o Intune](/intune/device-compliance-get-started)
 

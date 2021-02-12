@@ -3,19 +3,19 @@ title: Azure IoT Edge e IoT Central do Azure | Microsoft Docs
 description: Entenda como usar Azure IoT Edge com um aplicativo IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/12/2019
+ms.date: 12/19/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom:
 - device-developer
 - iot-edge
-ms.openlocfilehash: 5c51649e742f6e314e0e324ae19c38f1a83b02ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a7c886ba4dd6e7ab4bd62700f5437855a16a5ad
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90016853"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796560"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Conectar dispositivos Azure IoT Edge a um aplicativo do Azure IoT Central
 
@@ -63,9 +63,9 @@ No Azure IoT Central, você pode importar um manifesto de implantação para cri
 
 O IoT Central modela um dispositivo IoT Edge da seguinte maneira:
 
-* Cada modelo de dispositivo IoT Edge tem um modelo de funcionalidade de dispositivo.
+* Cada modelo de dispositivo IoT Edge tem um modelo de dispositivo.
 * Para cada módulo personalizado listado no manifesto de implantação, um modelo de funcionalidade do módulo é gerado.
-* Um relacionamento é estabelecida entre cada modelo de funcionalidade do módulo e um modelo de funcionalidade do dispositivo.
+* Uma relação é estabelecida entre cada modelo de funcionalidade de módulo e um modelo de dispositivo.
 * Um modelo de funcionalidade do módulo implementa interfaces de módulo.
 * Cada interface de módulo contém telemetria, propriedades e comandos.
 
@@ -73,7 +73,7 @@ O IoT Central modela um dispositivo IoT Edge da seguinte maneira:
 
 ## <a name="iot-edge-gateway-devices"></a>Dispositivos IoT Edge gateway
 
-Se tiver selecionado o dispositivo IoT Edge como um dispositivo de gateway, poderá adicionar relações de downstream aos modelos de funcionalidade do dispositivo para os dispositivos que você deseja conectar ao dispositivo de gateway.
+Se você selecionou um dispositivo de IoT Edge para ser um dispositivo de gateway, poderá adicionar relações de downstream a modelos de dispositivo para dispositivos que você deseja conectar ao dispositivo de gateway.
 
 ## <a name="next-steps"></a>Próximas etapas
 

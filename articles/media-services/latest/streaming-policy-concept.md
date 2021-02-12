@@ -1,5 +1,5 @@
 ---
-title: Políticas de streaming nos Serviços de Mídia do Azure | Microsoft Docs
+title: Políticas de streaming nos serviços de mídia do Azure
 description: Este artigo fornece uma explicação sobre o que são as políticas de streaming e como são usados pelos Serviços de Mídia do Azure.
 services: media-services
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: inhenkel
-ms.openlocfilehash: 9ecb4e0b8a74a163632967781c84d1a110ab3a9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2873486b95f0bb4a9a27e2e050cc6f6d5473a44e
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297205"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898165"
 ---
 # <a name="streaming-policies"></a>Políticas de Streaming
 

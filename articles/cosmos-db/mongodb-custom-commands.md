@@ -1,18 +1,19 @@
 ---
 title: Comandos de extensão do MongoDB para gerenciar dados na API do Azure Cosmos DB para MongoDB
 description: Este artigo descreve como usar comandos de extensão do MongoDB para gerenciar dados armazenados na API do Azure Cosmos DB para o MongoDB.
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.author: jasonh
+ms.author: chrande
 ms.custom: devx-track-js
-ms.openlocfilehash: 68f7c9331423fa4ef350bd7915ad85e3152c6885
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2fd2fa7620e57c58f72dad73c1012a19190e8fbc
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096539"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359639"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Usar comandos de extensão do MongoDB para gerenciar dados armazenados na API do Azure Cosmos DB para MongoDB 
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -235,7 +236,7 @@ use test
 db.runCommand({customAction: "CreateCollection", collection: "testCollection"});
 ```
 
-Isso resultará em uma nova coleção fixa, não fragmentada, com 400RU/s e um índice no `_id` campo criado automaticamente. Esse tipo de configuração também será aplicado ao criar novas coleções por meio da `insert()` função. Por exemplo:  
+Isso resultará em uma nova coleção fixa, não fragmentada, com 400RU/s e um índice no `_id` campo criado automaticamente. Esse tipo de configuração também será aplicado ao criar novas coleções por meio da `insert()` função. Por exemplo: 
 
 ```javascript
 use test

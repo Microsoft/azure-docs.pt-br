@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sourabha, sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 7b2432fda70e8f9a5fa8bc64ede846d977672e9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75e6ebaea4c5ba883820d2309212b35fed128142
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90886490"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422120"
 ---
 # <a name="set-up-iot-edge-modules-and-connections"></a>Configurar módulos e conexões de IoT Edge
 
@@ -49,27 +49,30 @@ Agora, especifique as credenciais do contêiner no módulo do IoT Edge.
    Nome do Usuário|Nome de Usuário
    Senha|Senha
   
-## <a name="deploy-the-data-generator-module"></a>Implantar o módulo gerador de dados
+## <a name="build-push-and-deploy-the-data-generator-module"></a>Criar, efetuar push e implantar um Módulo Gerador de Dados
 
-1. Na seção **IoT Edge**, em **Gerenciamento de Dispositivo Automático**, clique em **ID do dispositivo**. Para este tutorial, a ID é `IronOrePredictionDevice`. Clique em **Definir Módulos**.
-
-2.  Na seção **Módulos do IoT Edge**, na página **Definir módulos no dispositivo:** , clique em **+ ADICIONAR** e selecione **Módulo do IoT Edge**.
-
-3. Forneça um nome e um URI de imagem válidos para o módulo do IoT Edge.
-   O URI da imagem pode ser encontrado no registro de contêiner no grupo de recursos criado na parte um deste tutorial. Selecione a seção **Repositórios**, em **Serviços**. Para este tutorial, escolha o repositório chamado `silicaprediction`. Selecione a tag apropriada. O URI da imagem terá o formato:
-
-   *servidor de login do registro de contêiner*/*nome do repositório*:*nome da tag*
-
-   Por exemplo:
-
+1. Clone os [arquivos de projeto](https://github.com/microsoft/sqlsourabh/tree/main/SQLEdgeSamples/IoTEdgeSamples/IronOreSilica) em seu computador.
+2. Abra o arquivo **IronOre_Silica_Predict.sln** usando o Visual Studio 2019
+3. Atualize os detalhes do registro de contêiner em **deployment.template.json** 
+   ```json
+   "registryCredentials":{
+        "RegistryName":{
+            "username":"",
+            "password":""
+            "address":""
+        }
+    }
    ```
-   ASEdemocontregistry.azurecr.io/silicaprediction:amd64
+4. Atualize o arquivo **modules.json** para especificar o registro de contêiner de destino (ou o repositório do módulo)
+   ```json
+   "image":{
+        "repository":"samplerepo.azurecr.io/ironoresilicapercent",
+        "tag":
+    }
    ```
-
-4. Deixe a *Política de Reinicialização* e os campos *Status Desejado* como estão.
-
-5. Clique em **Adicionar**.
-
+5. Execute o projeto no modo de depuração ou versão para garantir que o projeto seja executado sem problemas 
+6. Efetue push do projeto para o registro de contêiner clicando com o botão direito do mouse no nome do projeto e selecionando **Criar e efetuar push de Módulos do IoT Edge**.
+7. Implante o módulo Gerador de Dados como um módulo do IoT Edge em seu dispositivo do Edge. 
 
 ## <a name="deploy-the-azure-sql-edge-module"></a>Implantar o módulo de SQL do Azure no Edge
 
@@ -77,7 +80,7 @@ Agora, especifique as credenciais do contêiner no módulo do IoT Edge.
 
 2. Na folha **Módulo do Marketplace do IoT Edge**, pesquise *SQL do Azure no Edge* e escolha *Desenvolvedor do SQL do Azure no Edge*. 
 
-3. Clique no módulo *SQL do Azure no Edge* recém-adicionado em **Módulos do IoT Edge** para configurar o módulo do SQL do Azure no Edge. Para obter mais informações sobre as opções de configuração, confira [Implantar o SQL do Azure no Edge](https://docs.microsoft.com/azure/azure-sql-edge/deploy-portal).
+3. Clique no módulo *SQL do Azure no Edge* recém-adicionado em **Módulos do IoT Edge** para configurar o módulo do SQL do Azure no Edge. Para obter mais informações sobre as opções de configuração, confira [Implantar o SQL do Azure no Edge](./deploy-portal.md).
 
 4. Adicione a variável de ambiente `MSSQL_PACKAGE` à implantação do módulo *SQL do Azure no Edge* e especifique a URL da SAS do arquivo dacpac do banco de dados criado na etapa 8 da [Parte um](tutorial-deploy-azure-resources.md) deste tutorial.
 

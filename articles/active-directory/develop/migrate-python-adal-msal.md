@@ -12,14 +12,14 @@ ms.tgt_pltfrm: Python
 ms.workload: identity
 ms.date: 11/11/2019
 ms.author: rayluo
-ms.reviewer: rayluo, nacanuma
+ms.reviewer: marsma, rayluo, nacanuma
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 574615a6b6e4b399605ca1863c0f764f814b2bd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42ffc7ffba20868b23675fd8613fd3ef11b0924a
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258295"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755048"
 ---
 # <a name="adal-to-msal-migration-guide-for-python"></a>Guia de migração do ADAL para MSAL para Python
 
@@ -38,19 +38,19 @@ Oferece suporte a:
   - OAuth v 2.0
   - OpenID Connect (OIDC)
 
-Veja [o que há de diferente no ponto de extremidade da plataforma Microsoft Identity (v 2.0)?](../azuread-dev/azure-ad-endpoint-comparison.md) para obter mais detalhes.
+Veja [o que há de diferente na plataforma de identidade da Microsoft?](../azuread-dev/azure-ad-endpoint-comparison.md) para obter mais detalhes.
 
 ### <a name="scopes-not-resources"></a>Escopos não recursos
 
 O Python ADAL adquire tokens para recursos, mas o Python MSAL adquire tokens para escopos. A superfície de API no MSAL Python não tem mais o parâmetro de recurso. Você precisaria fornecer escopos como uma lista de cadeias de caracteres que declaram as permissões e os recursos desejados que são solicitados. Para ver alguns exemplos de escopos, consulte [escopos de Microsoft Graph](/graph/permissions-reference).
 
-Você pode adicionar o `/.default` sufixo de escopo ao recurso para ajudar a migrar seus aplicativos do ponto de extremidade v 1.0 (Adal) para o ponto de extremidade da plataforma de identidade da Microsoft (MSAL). Por exemplo, para o valor do recurso de `https://graph.microsoft.com` , o valor de escopo equivalente é `https://graph.microsoft.com/.default` .  Se o recurso não estiver no formato de URL, mas uma ID de recurso do formulário `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX` , você ainda poderá usar o valor de escopo como `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default` .
+Você pode adicionar o `/.default` sufixo de escopo ao recurso para ajudar a migrar seus aplicativos do ponto de extremidade v 1.0 (Adal) para a plataforma de identidade da Microsoft (MSAL). Por exemplo, para o valor do recurso de `https://graph.microsoft.com` , o valor de escopo equivalente é `https://graph.microsoft.com/.default` .  Se o recurso não estiver no formato de URL, mas uma ID de recurso do formulário `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX` , você ainda poderá usar o valor de escopo como `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default` .
 
 Para obter mais detalhes sobre os diferentes tipos de escopos, consulte [permissões e consentimento na plataforma de identidade da Microsoft](./v2-permissions-and-consent.md) e os [escopos para uma API Web aceitando os artigos de tokens v 1.0](./msal-v1-app-scopes.md) .
 
 ### <a name="error-handling"></a>Tratamento de erros
 
-A ADAL (biblioteca de autenticação Azure Active Directory) para Python usa a exceção `AdalError` para indicar que há um problema. O MSAL para o Python normalmente usa códigos de erro, em vez disso. Para obter mais informações, consulte  [MSAL para tratamento de erros do Python](./msal-handling-exceptions.md?tabs=python).
+A ADAL (biblioteca de autenticação Azure Active Directory) para Python usa a exceção `AdalError` para indicar que há um problema. O MSAL para o Python normalmente usa códigos de erro, em vez disso. Para obter mais informações, consulte [MSAL para tratamento de erros do Python](msal-error-handling-python.md).
 
 ### <a name="api-changes"></a>Alterações de API
 
@@ -88,11 +88,11 @@ def get_preexisting_rt_and_their_scopes_from_elsewhere():
     #   https://github.com/AzureAD/azure-activedirectory-library-for-python/blob/1.2.3/sample/device_code_sample.py#L72
     # which uses a resource rather than a scope,
     # you need to convert your v1 resource into v2 scopes
-    # See https://docs.microsoft.com/azure/active-directory/develop/azure-ad-endpoint-comparison#scopes-not-resources
+    # See https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison#scopes-not-resources
     # You may be able to append "/.default" to your v1 resource to form a scope
     # See https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#the-default-scope
 
-    # Or maybe you have an app already talking to Microsoft identity platform v2,
+    # Or maybe you have an app already talking to the Microsoft identity platform,
     # powered by some 3rd-party auth library, and persist its tokens somehow.
 
     # Either way, you need to extract RTs from there, and return them like this.

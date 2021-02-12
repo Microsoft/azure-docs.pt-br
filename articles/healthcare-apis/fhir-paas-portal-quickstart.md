@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 03/15/2020
 ms.author: cavoeg
-ms.openlocfilehash: f3b3430ef7669022e532166848cb16d6aa66efe8
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: cabacd5204f4a9ac5c17c7bd66924482b5bf688a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220781"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023458"
 ---
 # <a name="quickstart-deploy-azure-api-for-fhir-using-azure-portal"></a>Início Rápido: Implantar a API do Azure para FHIR usando o portal do Azure
 
@@ -37,13 +37,13 @@ Você pode encontrar a API do Azure para FHIR digitando "FHIR" na caixa de pesqu
 
 Selecione **Criar** para criar uma conta da API do Azure para FHIR:
 
-:::image type="content" source="media/quickstart-paas-portal/portal-create-healthcare-apis.png" alt-text="Pesquisar APIs de Saúde":::
+:::image type="content" source="media/quickstart-paas-portal/portal-create-healthcare-apis.png" alt-text="Criar conta da API do Azure para FHIR":::
 
 ## <a name="enter-account-details"></a>Inserir detalhes da conta
 
 Selecione um grupo de recursos ou crie um, escolha um nome para a conta e, por fim, clique em **Examinar + criar**:
 
-:::image type="content" source="media/quickstart-paas-portal/portal-new-healthcareapi-details.png" alt-text="Pesquisar APIs de Saúde":::
+:::image type="content" source="media/quickstart-paas-portal/portal-new-healthcareapi-details.png" alt-text="Novos detalhes da API de saúde":::
 
 Confirme a criação e aguarde a implantação da API do FHIR.
 
@@ -51,7 +51,7 @@ Confirme a criação e aguarde a implantação da API do FHIR.
 
 Você também pode clicar em **Avançar: configurações adicionais** para exibir as configurações de autenticação. A configuração padrão para a API do Azure para FHIR é [usar o RBAC do Azure para atribuir funções de plano de dados](configure-azure-rbac.md). Quando configurado nesse modo, a "Autoridade" do serviço FHIR será definida como o locatário do Azure Active Directory da assinatura:
 
-:::image type="content" source="media/rbac/confirm-azure-rbac-mode-create.png" alt-text="Pesquisar APIs de Saúde":::
+:::image type="content" source="media/rbac/confirm-azure-rbac-mode-create.png" alt-text="Configurações de autenticação padrão":::
 
 Observe que a caixa para inserir as IDs de objeto permitidas está esmaecida, já que usamos o RBAC do Azure para configurar atribuições de função nesse caso.
 
@@ -67,7 +67,10 @@ Quando ele não for mais necessário, você poderá excluir o grupo de recursos,
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste guia de início rápido, você implantou a API do Azure para FHIR em sua assinatura. Para definir configurações adicionais em sua API do Azure para FHIR, vá para o guia de instruções de configurações adicionais.
+Neste guia de início rápido, você implantou a API do Azure para FHIR em sua assinatura. Para definir configurações adicionais em sua API do Azure para FHIR, vá para o guia de instruções de configurações adicionais. Se estiver pronto para começar a usar a API do Azure para FHIR, leia mais sobre como registrar aplicativos.
 
 >[!div class="nextstepaction"]
 >[Configurações adicionais na API do Azure para FHIR](azure-api-for-fhir-additional-settings.md)
+
+>[!div class="nextstepaction"]
+>[Visão geral sobre como Registrar os Aplicativos](fhir-app-registration.md)

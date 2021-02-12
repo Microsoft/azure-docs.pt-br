@@ -2,18 +2,18 @@
 title: 'Tutorial: criar um analisador personalizado'
 titleSuffix: Azure Cognitive Search
 description: Saiba como criar um analisador personalizado para aprimorar a qualidade dos resultados da pesquisa no Azure Cognitive Search.
-manager: liamca
+manager: luisca
 author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 09/25/2020
-ms.openlocfilehash: ac7cee2c1d72b4102fb397aa8093c2d38686fc88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/29/2021
+ms.openlocfilehash: f4bde98cfc772f5a80bb52c2e4bc2f5a9c28c78d
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397259"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097650"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>Tutorial: Criar um analisador personalizado para números de telefone
 
@@ -59,9 +59,9 @@ Para cada solicitação, você precisa:
 
 1. Substituir `<YOUR-ADMIN-API-KEY>` pela chave primária ou secundária do serviço de pesquisa.
 
-  :::image type="content" source="media/search-get-started-postman/postman-url.png" alt-text="URL e cabeçalho da solicitação do Postman" border="false":::
+  :::image type="content" source="media/search-get-started-rest/postman-url.png" alt-text="URL e cabeçalho da solicitação do Postman" border="false":::
 
-Se não estiver familiarizado com o Postman, confira [Explorar APIs REST do Azure Cognitive Search usando Postman](search-get-started-postman.md).
+Se não estiver familiarizado com o Postman, confira [Explorar APIs REST do Azure Cognitive Search](search-get-started-rest.md).
 
 ## <a name="3---create-an-initial-index"></a>3 – Criar um índice inicial
 
@@ -239,11 +239,11 @@ Os analisadores consistem em três componentes:
 
 No seguinte diagrama, você pode ver como esses três componentes funcionam em conjunto para indexar uma sentença:
 
-  :::image type="content" source="media/tutorial-create-custom-analyzer/analyzers-explained.png" alt-text="URL e cabeçalho da solicitação do Postman":::
+  :::image type="content" source="media/tutorial-create-custom-analyzer/analyzers-explained.png" alt-text="Diagrama do processo do analisador para criar tokens para uma sentença":::
 
 Esses tokens são então armazenados em um índice invertido, que permite pesquisas rápidas de texto completo.  Um índice invertido permite a pesquisa de texto completo mapeando todos os termos exclusivos extraídos durante a análise lexical para os documentos em que eles ocorrem. Você pode ver um exemplo no diagrama abaixo:
 
-  :::image type="content" source="media/tutorial-create-custom-analyzer/inverted-index-explained.png" alt-text="URL e cabeçalho da solicitação do Postman":::
+  :::image type="content" source="media/tutorial-create-custom-analyzer/inverted-index-explained.png" alt-text="Índice invertido de exemplo":::
 
 Toda a pesquisa fica inativa para pesquisar os termos armazenados no índice invertido. Quando o usuário emite uma consulta:
 
@@ -251,7 +251,7 @@ Toda a pesquisa fica inativa para pesquisar os termos armazenados no índice inv
 1. O índice invertido é então examinado em busca de documentos com termos correspondentes.
 1. Por fim, os documentos recuperados são classificados pelo [algoritmo de similaridade](index-ranking-similarity.md).
 
-  :::image type="content" source="media/tutorial-create-custom-analyzer/query-architecture-explained.png" alt-text="URL e cabeçalho da solicitação do Postman":::
+  :::image type="content" source="media/tutorial-create-custom-analyzer/query-architecture-explained.png" alt-text="Similaridade de classificação do diagrama do processo do Analisador":::
 
 Se os termos da consulta não corresponderem aos termos no índice invertido, os resultados não serão retornados. Para saber mais sobre como funcionam as consultas, confira este artigo sobre [pesquisa de texto completo](search-lucene-query-architecture.md).
 
@@ -270,8 +270,8 @@ POST https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basi
   api-key: <YOUR-ADMIN-API-KEY>
 
   {
-      "text": "(425) 555-0100",
-      "analyzer": "standard.lucene"
+    "text": "(425) 555-0100",
+    "analyzer": "standard.lucene"
   }
 ```
 

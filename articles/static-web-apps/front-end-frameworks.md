@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 07/18/2020
 ms.author: cshoe
-ms.openlocfilehash: 4b1bc58b6b4a87cd6e5e09e83020a38261b8746f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14564b0591ef0146131b3f9324556b613e25daac
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905363"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901225"
 ---
 # <a name="configure-front-end-frameworks-and-libraries-with-azure-static-web-apps-preview"></a>Configurar estruturas e bibliotecas de front-end com a visualização de aplicativos Web estáticos do Azure
 
@@ -24,7 +24,7 @@ A tabela a seguir lista as configurações de uma série de estruturas e bibliot
 
 A intenção das colunas da tabela é explicada pelos seguintes itens:
 
-- **Local do artefato do aplicativo**: lista o valor para `app_artifact_location` , que é a [pasta para versões compiladas dos arquivos do aplicativo](github-actions-workflow.md#build-and-deploy).
+- **Local de saída**: lista o valor para `output_location` , que é a [pasta para versões compiladas de arquivos de aplicativo](github-actions-workflow.md#build-and-deploy).
 
 - **Comando de compilação personalizada**: quando a estrutura requer um comando diferente de `npm run build` ou `npm run azure:build` , você pode definir um [comando de compilação personalizado](github-actions-workflow.md#custom-build-commands).
 

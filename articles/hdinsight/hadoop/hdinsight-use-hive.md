@@ -1,19 +1,16 @@
 ---
 title: O que é o Apache Hive e HiveQL - Azure HDInsight?
 description: O Apache Hive é um sistema de data warehouse para Apache Hadoop. Você pode consultar dados armazenados no Hive usando o HiveQL, que é semelhante ao Transact-SQL. Neste documento, você aprenderá a usar o Hive e HiveQL com o Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: d2e59b35a30bd838eab2b05dcacf83d8b2c21236
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4e8c6b25055dfc38d56509e1744b8c7fcac40700
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540390"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944293"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Saiba mais sobre o Apache Hive e o HiveQL no Azure HDInsight?
 
@@ -23,7 +20,7 @@ O Hive permite que você projete estrutura em grandes volumes de dados sem estru
 
 O HDInsight fornece vários tipos de cluster, que são ajustados para cargas de trabalho específicas. Os seguintes tipos de cluster geralmente são usados para consultas de Hive:
 
-|Tipo de cluster |Description|
+|Tipo de cluster |Descrição|
 |---|---|
 |Consulta Interativa|Um cluster Hadoop que fornece funcionalidade [LLAP (Processamento Analítico de Baixa Latência)](https://cwiki.apache.org/confluence/display/Hive/LLAP) para melhorar os tempos de resposta de consultas interativas. Para obter mais informações, confira o documento [Introdução à Consulta Interativa no HDInsight](../interactive-query/apache-interactive-query-get-started.md).|
 |O Hadoop|Um cluster Hadoop que está ajustado para cargas de trabalho de processamento em lotes. Para obter mais informações, confira o documento [Introdução ao Apache Hadoop no HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md).|
@@ -72,14 +69,14 @@ Para obter mais informações sobre formatos de arquivo compatíveis com o Hive,
 
 Há dois tipos de tabelas que você pode criar com o Hive:
 
-* __Interna__ : os dados são armazenados no data warehouse do Hive. O data warehouse está localizado no `/hive/warehouse/` no armazenamento padrão para o cluster.
+* __Interna__: os dados são armazenados no data warehouse do Hive. O data warehouse está localizado no `/hive/warehouse/` no armazenamento padrão para o cluster.
 
     Use tabelas internas quando uma das condições a seguir se aplicar:
 
     * Os dados são temporários.
     * Você quer que o Hive gerencie o ciclo de vida da tabela e dos dados.
 
-* __Externa__ : os dados são armazenados fora do data warehouse. Os dados podem ser armazenados em qualquer armazenamento acessível pelo cluster.
+* __Externa__: os dados são armazenados fora do data warehouse. Os dados podem ser armazenados em qualquer armazenamento acessível pelo cluster.
 
     Use tabelas externas quando uma das condições a seguir se aplicar:
 
@@ -92,7 +89,7 @@ Para obter mais informações, confira a publicação do blog [Introdução às 
 
 ## <a name="user-defined-functions-udf"></a>UDF (Funções definidas pelo usuário)
 
-O Hive também pode ser estendido por meio de **UDF (funções definidas pelo usuário)** . As UDF permitem que você implemente funcionalidade ou lógica que não é facilmente modelada em HiveQL. Para obter um exemplo de uso de UDFs com o Hive, confira os seguinte documentos:
+O Hive também pode ser estendido por meio de **UDF (funções definidas pelo usuário)**. As UDF permitem que você implemente funcionalidade ou lógica que não é facilmente modelada em HiveQL. Para obter um exemplo de uso de UDFs com o Hive, confira os seguinte documentos:
 
 * [Usar uma função definida pelo usuário do Java com o Apache Hive](../hadoop/apache-hadoop-hive-java-udf.md)
 
@@ -137,7 +134,7 @@ No exemplo anterior, as instruções HiveQL executam as seguintes ações:
 |CREATE EXTERNAL TABLE|Cria uma nova tabela **externa** no hive. Tabelas externas só armazenam a definição da tabela no Hive. Os dados são mantidos no local e no formato originais.|
 |FORMATO DE LINHA|Informa ao Hive como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.|
 |ARMAZENADO COMO LOCAL DO TEXTFILE|Informa ao hive onde os dados são armazenados (o `example/data` diretório) e que são armazenados como texto. Os dados podem estar em um arquivo ou distribuídos em vários arquivos dentro do diretório.|
-|SELECT|Seleciona uma contagem de todas as linhas nas quais a coluna **t4** contém o valor **[ERROR]** . Essa instrução retorna um valor de **3** , já que há três linhas que contêm esse valor.|
+|SELECT|Seleciona uma contagem de todas as linhas nas quais a coluna **t4** contém o valor **[ERROR]**. Essa instrução retorna um valor de **3**, já que há três linhas que contêm esse valor.|
 |INPUT__FILE__NAME como '%. log '|O hive tenta aplicar o esquema a todos os arquivos no diretório. Nesse caso, o diretório contém arquivos que não correspondem ao esquema. Para evitar dados incorretos nos resultados, essa instrução informa ao Hive que devemos retornar apenas dados de arquivos que terminam em .log.|
 
 > [!NOTE]  
@@ -168,7 +165,7 @@ Essas instruções executam as seguintes ações:
 |---|---|
 |CREATE TABLE SE NÃO EXISTIR|Se a tabela não existir, crie-a. Como a palavra-chave **external** não é usada, essa instrução cria uma tabela interna. Uma tabela interna é armazenada no data warehouse do Hive e é totalmente gerenciada pelo Hive.|
 |ARMAZENADO COMO ORC|Armazena os dados no formato OCR (Optimized Row Columnar). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.|
-|INSERIR SUBSTITUIÇÃO... Não|Seleciona as linhas na tabela **log4jLogs** que contém **[ERROR]** e insere os dados na tabela **errorLogs** .|
+|INSERIR SUBSTITUIÇÃO... Não|Seleciona as linhas na tabela **log4jLogs** que contém **[ERROR]** e insere os dados na tabela **errorLogs**.|
 
 > [!NOTE]  
 > Diferentemente de tabelas externas, o descarte de uma tabela interna excluirá também os dados subjacentes.

@@ -3,17 +3,16 @@ title: Agregações do JavaScript definidas pelo usuário no Azure Stream Analyt
 description: Este artigo descreve como executar a mecânica de consulta avançada com agregações definidas pelo usuário do JavaScript no Azure Stream Analytics.
 author: rodrigoaatmicrosoft
 ms.author: rodrigoa
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
 ms.custom: devx-track-js
-ms.openlocfilehash: 8891bb5cd3b8bd8ae9e02c871d6d0ffe42078c0b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e9695a268d1c6ec43a737afd36536e4ec2a41a41
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124757"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012471"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>Agregações definidas pelo usuário do JavaScript do Azure Stream Analytics
  
@@ -83,7 +82,7 @@ O alias da função é o identificador da UDA. Quando chamado em consultas do St
 
 ### <a name="function-type"></a>Tipo de função
 
-Para a UDA, o tipo da função deve ser **UDA do JavaScript** .
+Para a UDA, o tipo da função deve ser **UDA do JavaScript**.
 
 ### <a name="output-type"></a>Tipo de saída
 
@@ -123,7 +122,7 @@ Abaixo mostramos passo a passo o processo de criação de uma UDA no Portal. O e
 Agora vamos criar uma UDA do JavaScript em um trabalho ASA existente seguindo as etapas.
 
 1. Faça logon no Portal do Azure e localize o trabalho existente do Stream Analytics.
-1. Em seguida, clique no link de funções em **TOPOLOGIA DO TRABALHO** .
+1. Em seguida, clique no link de funções em **TOPOLOGIA DO TRABALHO**.
 1. Clique no ícone **Adicionar** para adicionar uma nova função.
 1. Na exibição Nova Função, selecione **UDA do JavaScript** como o Tipo de Função e você verá um modelo de UDA padrão aparecer no editor.
 1. Preencha “TWA” como o alias da UDA e altere a implementação da função como mostrado a seguir:

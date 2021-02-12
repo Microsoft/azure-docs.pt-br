@@ -4,16 +4,16 @@ description: Como gerenciar Grupos Inteligentes criados de acordo com suas inst�
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 09/24/2018
-ms.openlocfilehash: 763bfefcf71b0be43722b99f31641015a5991607
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 564440336bf6a90cbd40aba6c8284cbc6c5e3ff3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92105831"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186041"
 ---
 # <a name="manage-smart-groups"></a>Gerenciar grupos inteligentes
 
-Os [Grupos inteligentes](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json) usam algoritmos de aprendizado de máquina para agrupar alertas juntos com base na coocorrência ou a similaridade, para que o usuário agora possa gerenciar grupos inteligentes em vez de precisar gerenciar cada alerta individualmente. Este artigo explica como acessar e usar grupos inteligentes no Azure Monitor.
+Os [Grupos inteligentes](./alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json) usam algoritmos de aprendizado de máquina para agrupar alertas juntos com base na coocorrência ou a similaridade, para que o usuário agora possa gerenciar grupos inteligentes em vez de precisar gerenciar cada alerta individualmente. Este artigo explica como acessar e usar grupos inteligentes no Azure Monitor.
 
 1. Para ver os grupos inteligentes criados para suas instâncias de alerta, você pode:
 

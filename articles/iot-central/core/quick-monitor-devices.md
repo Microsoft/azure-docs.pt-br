@@ -3,18 +3,17 @@ title: Início Rápido – Monitorar seus dispositivos no Azure IoT Central
 description: Início Rápido – Como operador, aprenda a usar o aplicativo do Azure IoT Central para monitorar os dispositivos.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/12/2020
+ms.date: 11/16/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: philmea
-ms.openlocfilehash: af5683bf253e26ab928e46059f9af9d2ab8af3bd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e4485e4f8e873b1b49dc3d6df72eb04a1cbe8c17
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90987338"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992736"
 ---
 # <a name="quickstart-use-azure-iot-central-to-monitor-your-devices"></a>Início Rápido: Use o Azure IoT Central para monitorar seus dispositivos
 
@@ -28,29 +27,29 @@ Antes de começar, você deve concluir os três inícios rápidos anteriores [Cr
 
 ## <a name="receive-a-notification"></a>Receber uma notificação
 
-O Azure IoT Central envia notificações sobre dispositivos como mensagens de email. O construtor adicionou uma regra para enviar uma notificação quando a temperatura em um sensor de dispositivo conectado exceder um limite. Verifique os emails enviados para a conta escolhida pelo construtor para receber notificações.
+O Azure IoT Central envia notificações sobre dispositivos como mensagens de email. Como construtor, você adicionou uma regra para enviar uma notificação a um operador quando a umidade em um sensor de dispositivo conectado excedesse um limite. Como operador, você verifica seus emails para ver se há notificações.
 
 Abra a mensagem de email recebida no final do início rápido [Configurar regras e ações para o seu dispositivo](quick-configure-rules.md). No email, selecione o link para o dispositivo:
 
-![Email de notificação de alerta](media/quick-monitor-devices/email.png)
+:::image type="content" source="media/quick-monitor-devices/email.png" alt-text="Captura de tela que mostra o email de notificação":::
 
 A exibição **Visão geral** do dispositivo simulado que você criou nos inícios rápidos anteriores é aberta no navegador:
 
-![Dispositivo que disparou a mensagem de email com a notificação](media/quick-monitor-devices/dashboard.png)
+:::image type="content" source="media/quick-monitor-devices/dashboard.png" alt-text="Captura de tela que mostra a visão geral do dispositivo que disparou a notificação":::
 
 ## <a name="investigate-an-issue"></a>Investigar um problema
 
 Como um operador, você pode exibir informações sobre o dispositivo nas exibições **Visão geral**, **Sobre** e **Comandos**. O construtor criou uma exibição **Gerenciar dispositivos** para que você edite informações do dispositivo e defina as propriedades do dispositivo.
 
-O gráfico no painel mostra um gráfico de temperatura do dispositivo. Você decide se a temperatura do dispositivo está muito alta.
+O gráfico no painel mostra um gráfico da umidade do dispositivo. Você decide se a umidade do dispositivo está muito alta.
 
 ## <a name="remediate-an-issue"></a>Resolver um problema
 
 Para fazer uma alteração no dispositivo, use a página **Gerenciar dispositivo**.
 
-Altere a **Velocidade do ventilador** para 500 para resfriar o dispositivo. Escolha **Salvar** para atualizar o dispositivo. Quando o dispositivo confirma as alterações de configuração, o status da propriedade muda para **sincronizado**:
+Altere a **Temperatura de destino** para 80 para aquecer o dispositivo e reduzir a umidade. Escolha **Salvar** para atualizar o dispositivo. Quando o dispositivo confirma as alterações de configuração, o status da propriedade muda para **sincronizado**:
 
-![Atualizar configurações](media/quick-monitor-devices/change-settings.png)
+:::image type="content" source="media/quick-monitor-devices/change-settings.png" alt-text="Captura de tela que mostra a configuração da temperatura de destino atualizada para o dispositivo":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

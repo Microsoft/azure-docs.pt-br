@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 161272fe35ee9ea1e0880b991273e5d1a79eafb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec74ca19978a4164289276d44b34eb14b694687f
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987322"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051574"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Criar runbooks gráficos na Automação do Azure
 
@@ -95,7 +95,7 @@ Quando você habilita a repetição de uma atividade, é possível definir um at
 
 A condição de repetição é uma expressão do PowerShell que é avaliada sempre após a execução da atividade. Se a expressão for resolvida como True, a atividade será executada novamente. Se a expressão for resolvida como False, a atividade não será executada novamente, e o runbook passará para a próxima atividade.
 
-:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="Captura de tela das configurações Habilitar recurso de repetição.":::
+:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="Captura de tela mostrando o campo repetir até que esse critério seja verdadeiro e exemplos de expressões do PowerShell que podem ser usadas na condição de repetição.":::
 
 A condição de repetição pode usar uma variável chamada `RetryData` que fornece acesso às informações sobre as repetições de atividade. Essa variável tem as propriedades na tabela a seguir:
 
@@ -373,7 +373,7 @@ O exemplo a seguir usa a saída de uma atividade chamada `Get Twitter Connection
 
 ## <a name="authenticate-to-azure-resources"></a>Autenticar-se em recursos do Azure
 
-Os runbooks na Automação do Azure que gerenciam os recursos do Azure requerem a autenticação do Azure. A opção [conta Executar como](./manage-runas-account.md), também conhecido como uma entidade de serviço, é o mecanismo padrão que um runbook de Automação usa para acessar recursos do Azure Resource Manager na sua assinatura. Você pode adicionar essa funcionalidade a um runbook gráfico adicionando o ativo de conexão `AzureRunAsConnection` à tela, o qual usa o cmdlet [Get-AutomationConnection](/system-center/sma/manage-global-assets) do PowerShell. Você também pode adicionar o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Esse cenário é ilustrado no seguinte exemplo.
+Os runbooks na Automação do Azure que gerenciam os recursos do Azure requerem a autenticação do Azure. A opção [conta Executar como](./automation-security-overview.md), também conhecido como uma entidade de serviço, é o mecanismo padrão que um runbook de Automação usa para acessar recursos do Azure Resource Manager na sua assinatura. Você pode adicionar essa funcionalidade a um runbook gráfico adicionando o ativo de conexão `AzureRunAsConnection` à tela, o qual usa o cmdlet [Get-AutomationConnection](/system-center/sma/manage-global-assets) do PowerShell. Você também pode adicionar o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Esse cenário é ilustrado no seguinte exemplo.
 
 ![Executa Como Atividades de Autenticação](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)
 

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/27/2020
+ms.date: 11/17/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1df7afb5a029ff7770a64d6bf698a462c8ab9735
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5802070bf9b495c0e866d160d6661349369a444e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230663"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95993730"
 ---
 # <a name="enable-and-manage-blob-versioning"></a>Habilitar e gerenciar o controle de versão de blob
 
@@ -27,7 +27,7 @@ Este artigo mostra como habilitar ou desabilitar o controle de versão de BLOB p
 
 ## <a name="enable-blob-versioning"></a>Habilitar controle de versão de blob
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 Para habilitar o controle de versão de blob no portal do Azure:
 
@@ -42,8 +42,8 @@ Para habilitar o controle de versão de blob no portal do Azure:
 Para habilitar o controle de versão de blob com um modelo, crie um modelo com a propriedade **IsVersioningEnabled** como **true**. As etapas a seguir descrevem como criar um modelo no portal do Azure.
 
 1. Na portal do Azure, escolha **criar um recurso**.
-1. Em **Pesquisar no Marketplace**, digite **implantação de modelo**e pressione **Enter**.
-1. Escolha **implantação de modelo**, escolha **criar**e, em seguida, escolha **criar seu próprio modelo no editor**.
+1. Em **Pesquisar no Marketplace**, digite **implantação de modelo** e pressione **Enter**.
+1. Escolha **implantação de modelo**, escolha **criar** e, em seguida, escolha **criar seu próprio modelo no editor**.
 1. No editor de modelo, Cole o JSON a seguir. Substitua o espaço reservado `<accountName>` pelo nome da sua conta de armazenamento.
 1. Salve o modelo.
 1. Especifique o grupo de recursos da conta e, em seguida, escolha o botão **comprar** para implantar o modelo e habilitar o controle de versão de BLOB.
@@ -77,87 +77,17 @@ O exemplo de código a seguir mostra como disparar a criação de uma nova vers�
 
 O exemplo cria um blob de blocos e, em seguida, atualiza os metadados do blob. Atualizar os metadados do blob dispara a criação de uma nova versão. O exemplo recupera a versão inicial e a versão atual e mostra que apenas a versão atual inclui os metadados.
 
-```csharp
-public static async Task UpdateVersionedBlobMetadata(string containerName, string blobName)
-{
-    // Create a new service client from the connection string.
-    BlobServiceClient blobServiceClient = new BlobServiceClient(ConnectionString);
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_UpdateVersionedBlobMetadata":::
 
-    // Create a new container client.
-    BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient(containerName);
+## <a name="list-blob-versions"></a>Listar versões de BLOB
 
-    try
-    {
-        // Create the container.
-        await containerClient.CreateIfNotExistsAsync();
+Para listar versões de BLOB ou instantâneos com a biblioteca de cliente .NET V12, especifique o parâmetro [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates) com o campo **version** .
 
-        // Upload a block blob.
-        BlockBlobClient blockBlobClient = containerClient.GetBlockBlobClient(blobName);
+O exemplo de código a seguir mostra como listar a versão de BLOBs com a biblioteca de cliente de armazenamento do Azure para .NET, versão [12.5.1](https://www.nuget.org/packages/Azure.Storage.Blobs/12.5.1) ou posterior. Antes de executar este exemplo, verifique se você habilitou o controle de versão para sua conta de armazenamento.
 
-        string blobContents = string.Format("Block blob created at {0}.", DateTime.Now);
-        byte[] byteArray = Encoding.ASCII.GetBytes(blobContents);
-
-        string initalVersionId;
-        using (MemoryStream stream = new MemoryStream(byteArray))
-        {
-            Response<BlobContentInfo> uploadResponse = await blockBlobClient.UploadAsync(stream, null, default);
-
-            // Get the version ID for the current version.
-            initalVersionId = uploadResponse.Value.VersionId;
-        }
-
-        // Update the blob's metadata to trigger the creation of a new version.
-        Dictionary<string, string> metadata = new Dictionary<string, string>
-        {
-            { "key", "value" },
-            { "key1", "value1" }
-        };
-
-        Response<BlobInfo> metadataResponse = await blockBlobClient.SetMetadataAsync(metadata);
-
-        // Get the version ID for the new current version.
-        string newVersionId = metadataResponse.Value.VersionId;
-
-        // Request metadata on the previous version.
-        BlockBlobClient initalVersionBlob = blockBlobClient.WithVersion(initalVersionId);
-        Response<BlobProperties> propertiesResponse = await initalVersionBlob.GetPropertiesAsync();
-        PrintMetadata(propertiesResponse);
-
-        // Request metadata on the current version.
-        BlockBlobClient newVersionBlob = blockBlobClient.WithVersion(newVersionId);
-        Response<BlobProperties> newPropertiesResponse = await newVersionBlob.GetPropertiesAsync();
-        PrintMetadata(newPropertiesResponse);
-    }
-    catch (RequestFailedException e)
-    {
-        Console.WriteLine(e.Message);
-        Console.ReadLine();
-        throw;
-    }
-    finally
-    {
-        await containerClient.DeleteAsync();
-    }
-}
-
-static void PrintMetadata(Response<BlobProperties> propertiesResponse)
-{
-    if (propertiesResponse.Value.Metadata.Count > 0)
-    {
-        Console.WriteLine("Metadata values for version {0}:", propertiesResponse.Value.VersionId);
-        foreach (var item in propertiesResponse.Value.Metadata)
-        {
-            Console.WriteLine("Key:{0}  Value:{1}", item.Key, item.Value);
-        }
-    }
-    else
-    {
-        Console.WriteLine("Version {0} has no metadata.", propertiesResponse.Value.VersionId);
-    }
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobVersions":::
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Controle de versão de BLOB](versioning-overview.md)
-- [Exclusão reversível para blobs do Armazenamento do Azure ](soft-delete-overview.md)
+- [Exclusão reversível para blobs do Armazenamento do Azure ](./soft-delete-blob-overview.md)

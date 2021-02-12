@@ -6,11 +6,11 @@ ms.date: 03/22/2019
 ms.author: sngun
 ms.custom: seo-java-september2019
 ms.openlocfilehash: a8162afadb5a7d327804d7202b29ca0dccf275c4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "71210140"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972396"
 ---
 O portal do Azure monitora a taxa de transferência, armazenamento, disponibilidade, latência e consistência da conta do Cosmos DB. Gráficos de métricas associados a um [SLA (Contrato de Nível de Serviço) do Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/) mostram o valor do SLA em comparação com o desempenho real. Esse conjunto de métricas torna o monitoramento dos SLAs transparente.
 

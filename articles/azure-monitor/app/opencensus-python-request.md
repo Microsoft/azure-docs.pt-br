@@ -6,12 +6,12 @@ author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: c94bc949f13ee19a9d2150c9d3c1b6a2bdb959b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4abb795335bfcb2c9b335d4fb09ddc9fdb2476b4
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87850059"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746570"
 ---
 # <a name="track-incoming-requests-with-opencensus-python"></a>Acompanhar solicitações de entrada com Python OpenCensus
 
@@ -33,7 +33,7 @@ Primeiro, instrumentar seu aplicativo Python com o [SDK do Python OpenCensus](./
     )
     ```
 
-3. Verifique se o AzureExporter está configurado corretamente no seu `settings.py` em `OPENCENSUS` . Para solicitações de URLs que você não deseja controlar, adicione-as ao `BLACKLIST_PATHS` .
+3. Verifique se o AzureExporter está configurado corretamente no seu `settings.py` em `OPENCENSUS` . Para solicitações de URLs que você não deseja controlar, adicione-as ao `EXCLUDELIST_PATHS` .
 
     ```python
     OPENCENSUS = {
@@ -42,7 +42,7 @@ Primeiro, instrumentar seu aplicativo Python com o [SDK do Python OpenCensus](./
             'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
                 connection_string="InstrumentationKey=<your-ikey-here>"
             )''',
-            'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
+            'EXCLUDELIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
         }
     }
     ```
@@ -74,7 +74,7 @@ Primeiro, instrumentar seu aplicativo Python com o [SDK do Python OpenCensus](./
     
     ```
 
-2. Você também pode configurar seu `flask` aplicativo por meio do `app.config` . Para solicitações de URLs que você não deseja controlar, adicione-as ao `BLACKLIST_PATHS` .
+2. Você também pode configurar seu `flask` aplicativo por meio do `app.config` . Para solicitações de URLs que você não deseja controlar, adicione-as ao `EXCLUDELIST_PATHS` .
 
     ```python
     app.config['OPENCENSUS'] = {
@@ -83,7 +83,7 @@ Primeiro, instrumentar seu aplicativo Python com o [SDK do Python OpenCensus](./
             'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
                 connection_string="InstrumentationKey=<your-ikey-here>",
             )''',
-            'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
+            'EXCLUDELIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
         }
     }
     ```
@@ -100,7 +100,7 @@ Primeiro, instrumentar seu aplicativo Python com o [SDK do Python OpenCensus](./
                          '.pyramid_middleware.OpenCensusTweenFactory')
     ```
 
-2. Você pode configurar sua `pyramid` interpolação diretamente no código. Para solicitações de URLs que você não deseja controlar, adicione-as ao `BLACKLIST_PATHS` .
+2. Você pode configurar sua `pyramid` interpolação diretamente no código. Para solicitações de URLs que você não deseja controlar, adicione-as ao `EXCLUDELIST_PATHS` .
 
     ```python
     settings = {
@@ -110,18 +110,73 @@ Primeiro, instrumentar seu aplicativo Python com o [SDK do Python OpenCensus](./
                 'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
                     connection_string="InstrumentationKey=<your-ikey-here>",
                 )''',
-                'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
+                'EXCLUDELIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
             }
         }
     }
     config = Configurator(settings=settings)
     ```
 
+## <a name="tracking-fastapi-applications"></a>Acompanhamento de aplicativos FastAPI
+
+OpenCensus não tem uma extensão para FastAPI. Para escrever seu próprio middleware FastAPI, conclua as seguintes etapas:
+
+1. As seguintes dependências são necessárias: 
+    - [fastapi](https://pypi.org/project/fastapi/)
+    - [uvicorn](https://pypi.org/project/uvicorn/)
+
+2. Adicione o [middleware FastAPI](https://fastapi.tiangolo.com/tutorial/middleware/). Certifique-se de definir o tipo de span Server: `span.span_kind = SpanKind.SERVER` .
+
+3. Execute seu aplicativo. As chamadas feitas ao aplicativo FastAPI devem ser rastreadas automaticamente e a telemetria deve ser registrada diretamente em Azure Monitor.
+
+    ```python 
+    # Opencensus imports
+    from opencensus.ext.azure.trace_exporter import AzureExporter
+    from opencensus.trace.samplers import ProbabilitySampler
+    from opencensus.trace.tracer import Tracer
+    from opencensus.trace.span import SpanKind
+    from opencensus.trace.attributes_helper import COMMON_ATTRIBUTES
+    # FastAPI imports
+    from fastapi import FastAPI, Request
+    # uvicorn
+    import uvicorn
+
+    app = FastAPI()
+
+    HTTP_URL = COMMON_ATTRIBUTES['HTTP_URL']
+    HTTP_STATUS_CODE = COMMON_ATTRIBUTES['HTTP_STATUS_CODE']
+
+    # fastapi middleware for opencensus
+    @app.middleware("http")
+    async def middlewareOpencensus(request: Request, call_next):
+        tracer = Tracer(exporter=AzureExporter(connection_string=f'InstrumentationKey={APPINSIGHTS_INSTRUMENTATIONKEY}'),sampler=ProbabilitySampler(1.0))
+        with tracer.span("main") as span:
+            span.span_kind = SpanKind.SERVER
+
+            response = await call_next(request)
+
+            tracer.add_attribute_to_current_span(
+                attribute_key=HTTP_STATUS_CODE,
+                attribute_value=response.status_code)
+            tracer.add_attribute_to_current_span(
+                attribute_key=HTTP_URL,
+                attribute_value=str(request.url))
+
+        return response
+
+    @app.get("/")
+    async def root():
+        return "Hello World!"
+
+    if __name__ == '__main__':
+        uvicorn.run("example:app", host="127.0.0.1", port=5000, log_level="info")
+    ```
+
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Mapa do aplicativo](./app-map.md)
 * [Disponibilidade](./monitor-web-app-availability.md)
-* [Pesquisar](./diagnostic-search.md)
+* [Pesquisa](./diagnostic-search.md)
 * [Consulta de log (Analytics)](../log-query/log-query-overview.md)
 * [Diagnóstico da transação](./transaction-diagnostics.md)
 

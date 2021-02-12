@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: jushiman
-ms.openlocfilehash: 7234c02d387e2fbf21a7f6002e44f84deb851133
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 61897a790da8a5f52b1b8f8e208629e7755690fa
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977588"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97759731"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Suporte para VMs de geração 2 no Azure
 
@@ -36,7 +36,9 @@ As VMs de geração 1 têm suporte de todos os tamanhos de VM no Azure (exceto p
 * [Série Dasv4](dav4-dasv4-series.md)
 * [Série Ddsv4](ddv4-ddsv4-series.md)
 * [Série Esv3](ev3-esv3-series.md)
+* [Série Esv4](ev4-esv4-series.md)
 * [Série Easv4](eav4-easv4-series.md)
+* [Série Edsv4](edv4-edsv4-series.md)
 * [Série Fsv2](fsv2-series.md)
 * [Série GS](sizes-previous-gen.md#gs-series)
 * [Série HB](hb-series.md)
@@ -49,6 +51,8 @@ As VMs de geração 1 têm suporte de todos os tamanhos de VM no Azure (exceto p
 * [Série NCv3](ncv3-series.md)
 * [Série ND](nd-series.md)
 * [Série NVv3](nvv3-series.md)
+* [Série NVv4](nvv4-series.md)
+* [Série NCasT4_v3](nct4-v3-series.md)
 
 <sup>1</sup> A série Mv2 não dá suporte a imagens de VM de geração 1 e só oferece suporte a um subconjunto de imagens de geração 2. Consulte a [documentação da série Mv2](mv2-series.md) para obter detalhes.
 
@@ -101,7 +105,8 @@ Atualmente, o Azure não dá suporte a alguns dos recursos que o Hyper-V local d
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | Backup/restauração                    | :heavy_check_mark: | :heavy_check_mark: |
 | Galeria de imagens compartilhadas              | :heavy_check_mark: | :heavy_check_mark: |
-| Criptografia de disco do Azure             | :heavy_check_mark: | :x:                |
+| [Criptografia de disco do Azure](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :x:                |
+| [Criptografia no servidor](disk-encryption.md)            | :heavy_check_mark: | :heavy_check_mark: |
 
 ## <a name="creating-a-generation-2-vm"></a>Criando uma VM de geração 2
 

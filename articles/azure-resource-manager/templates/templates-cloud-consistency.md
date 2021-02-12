@@ -1,23 +1,23 @@
 ---
 title: Reutilizar modelos entre nuvens
-description: Desenvolva modelos do Azure Resource Manager que funcionam de maneira uniforme para diferentes ambientes de nuvem. Crie modelos ou atualize modelos existentes para o Azure Stack.
+description: Desenvolva modelos de Azure Resource Manager (modelos ARM) que funcionam consistentemente para diferentes ambientes de nuvem. Crie modelos ou atualize modelos existentes para o Azure Stack.
 author: marcvaneijk
 ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: ea010a625c3e3cd6228513299d878733bf3775ce
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 806556a8da97ec84fe8141b95198b4a7da95c062
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744762"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928351"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Desenvolver modelos ARM para consistência de nuvem
 
 [!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
-Um dos principais benefícios do Azure é a consistência. Os investimentos de desenvolvimento em um local são reutilizáveis em outro. Um modelo de Azure Resource Manager (ARM) torna suas implantações consistentes e reproduzíveis entre ambientes, incluindo as nuvens globais do Azure, do Azure soberanas e Azure Stack. No entanto, para reutilizar modelos entre nuvens, você precisa considerar dependências específicas da nuvem, como explica este guia.
+Um dos principais benefícios do Azure é a consistência. Os investimentos de desenvolvimento em um local são reutilizáveis em outro. Um modelo de Azure Resource Manager (modelo ARM) torna suas implantações consistentes e reproduzíveis entre ambientes, incluindo as nuvens globais do Azure, do Azure soberanas e Azure Stack. No entanto, para reutilizar modelos entre nuvens, você precisa considerar dependências específicas da nuvem, como explica este guia.
 
 A Microsoft oferece serviços de nuvem inteligentes e prontos para a empresa em muitos locais, incluindo:
 
@@ -205,7 +205,7 @@ Para construir o URI absoluto de um artefato, o método preferencial é usar a f
 }
 ```
 
-Com essa abordagem, todos os artefatos de implantação, incluindo scripts de configuração, podem ser armazenados no mesmo local com o próprio modelo. Para alterar o local de todos os links, você só precisa especificar uma URL base diferente para os _parâmetros artifactsLocation_ .
+Com essa abordagem, todos os artefatos de implantação, incluindo scripts de configuração, podem ser armazenados no mesmo local com o próprio modelo. Para alterar o local de todos os links, você só precisa especificar uma URL base diferente para os _parâmetros artifactsLocation_.
 
 ## <a name="factor-in-differing-regional-capabilities"></a>Incluir funcionalidades regionais diferentes
 
@@ -443,8 +443,8 @@ Namespaces de ponto de extremidade também pode ser usados na saída de um model
 
 Em geral, evite pontos de extremidade embutidos em código em um modelo. A melhor prática é usar a função de modelo de referência para recuperar os pontos de extremidade dinamicamente. Por exemplo, o ponto de extremidade mais geralmente embutido em código é o namespace de ponto de extremidade para contas de armazenamento. Cada conta de armazenamento tem um FQDN exclusivo que é construído pela concatenação do nome da conta de armazenamento com o namespace de ponto de extremidade. Uma conta de Armazenamento de Blobs chamada mystorageaccount1 resulta em FQDNs diferentes, dependendo da nuvem:
 
-* **mystorageaccount1.blob.core.windows.net** quando criado na nuvem do Azure global.
-* **mystorageaccount1.blob.Core.chinacloudapi.cn** quando criado na nuvem da 21Vianet do Azure na China.
+* `mystorageaccount1.blob.core.windows.net` Quando criado na nuvem global do Azure.
+* `mystorageaccount1.blob.core.chinacloudapi.cn` Quando criado na nuvem da 21Vianet do Azure na China.
 
 A seguinte função de modelo de referência recupera o namespace de ponto de extremidade do provedor de recursos de armazenamento:
 
@@ -611,7 +611,7 @@ Como as extensões de VM são recursos internos do Resource Manager, elas têm s
 
 A versão de API do recurso de extensão de VM precisa estar presente em todos os locais que você pretende ter como destino com o modelo. A dependência de local funciona como a disponibilidade da versão de API do provedor de recursos abordada anteriormente na seção "Verificar a versão de todos os tipos de recurso".
 
-Para recuperar uma lista das versões de API disponíveis para o recurso de extensão de VM, use o cmdlet [Get-AzureRmResourceProvider](/powershell/module/az.resources/get-azresourceprovider) com o provedor de recursos **Microsoft.Compute** , conforme mostrado abaixo:
+Para recuperar uma lista das versões de API disponíveis para o recurso de extensão de VM, use o cmdlet [Get-AzureRmResourceProvider](/powershell/module/az.resources/get-azresourceprovider) com o provedor de recursos **Microsoft.Compute**, conforme mostrado abaixo:
 
 ```azurepowershell-interactive
 Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachines/extensions"}
@@ -641,7 +641,7 @@ Cada extensão específica também tem um controle de versão. Essa versão é m
         ...
 ```
 
-Para recuperar uma lista das versões disponíveis de uma extensão de VM específica, use o cmdlet [Get-AzureRmVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage). O seguinte exemplo recupera as versões disponíveis para a extensão de VM de DSC (Desired State Configuration) do PowerShell de **myLocation** :
+Para recuperar uma lista das versões disponíveis de uma extensão de VM específica, use o cmdlet [Get-AzureRmVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage). O seguinte exemplo recupera as versões disponíveis para a extensão de VM de DSC (Desired State Configuration) do PowerShell de **myLocation**:
 
 ```azurepowershell-interactive
 Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerShell -Type DSC | FT

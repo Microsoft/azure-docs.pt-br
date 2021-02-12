@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 2a4debda712636e577639b84845dda6b9b4228a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bd85d6faf05fcf659e9335ee9de3d64198dfa08
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84725048"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011162"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Inspeção de pacotes com o Observador de Rede do Azure
 
@@ -93,7 +93,7 @@ Compreender os tipos de tráfego, pontos de extremidade e portas de comunicaçã
 
 ### <a name="step-1"></a>Etapa 1
 
-Usando a mesma captura no cenário anterior, clique em **estatísticas**estatísticas  >  **IPv4**  >  **destinos e portas**
+Usando a mesma captura no cenário anterior, clique em **estatísticas** estatísticas  >  **IPv4**  >  **destinos e portas**
 
 ![janela de captura de pacotes][4]
 

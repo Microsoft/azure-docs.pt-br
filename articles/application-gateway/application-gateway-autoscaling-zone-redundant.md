@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 8c989e426faa77025a84515fe0a19424cb6bfa89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fad6e27c4ee7e8c10237cb3face5cfab9329b2ed
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826629"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059714"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Dimensionamento automático e Gateway de Aplicativo com redundância de zona v2 
 
@@ -21,7 +21,7 @@ O gateway de aplicativo está disponível em um SKU Standard_v2. O WAF (firewall
 
 O novo SKU v2 inclui os seguintes aprimoramentos:
 
-- **Dimensionamento**automático: as implantações de gateway de aplicativo ou WAF no SKU de dimensionamento automático podem ser expandidas ou baseadas com base na alteração de padrões de carga de tráfego. O escalonamento automático também remove o requisito de escolher um tamanho de implantação ou contagem de instâncias durante o provisionamento. Esse SKU oferece a verdadeira elasticidade. No SKU Standard_v2 e WAF_v2, o Gateway de Aplicativo pode operar tanto em capacidade fixa (dimensionamento automático desabilitado) quanto em modo habilitado em dimensionamento automático. O modo de capacidade fixa é útil para cenários com cargas de trabalho consistentes e previsíveis. O modo de dimensionamento automático é útil em aplicativos que observam variação no tráfego do aplicativo.
+- **Dimensionamento** automático: as implantações de gateway de aplicativo ou WAF no SKU de dimensionamento automático podem ser expandidas ou baseadas com base na alteração de padrões de carga de tráfego. O escalonamento automático também remove o requisito de escolher um tamanho de implantação ou contagem de instâncias durante o provisionamento. Esse SKU oferece a verdadeira elasticidade. No SKU Standard_v2 e WAF_v2, o Gateway de Aplicativo pode operar tanto em capacidade fixa (dimensionamento automático desabilitado) quanto em modo habilitado em dimensionamento automático. O modo de capacidade fixa é útil para cenários com cargas de trabalho consistentes e previsíveis. O modo de dimensionamento automático é útil em aplicativos que observam variação no tráfego do aplicativo.
 - **Redundância de Zona**: Uma implantação do Gateway de Aplicativo ou do WAF pode abranger várias Zonas de Disponibilidade, eliminando a necessidade de provisionar instâncias separadas do Gateway de Aplicativo em cada zona com um Gerenciador de Tráfego. Você pode escolher uma única zona ou várias zonas nas quais as instâncias do Gateway de Aplicativo são implantadas, o que proporciona maior resiliência de falha de zona. O pool de back-end para aplicativos pode ser distribuído de maneira semelhante em Zonas de Disponibilidade.
 
   A redundância de zona está disponível somente quando as Zonas do Azure estão disponíveis. Em outras regiões, todos os outros recursos são compatíveis. Para obter mais informações, confira [Regiões e Zonas de Disponibilidade no Azure](../availability-zones/az-overview.md)
@@ -101,7 +101,7 @@ Esta seção descreve os recursos e as limitações do SKU v2 que são diferente
 |Certificado de autenticação|Sem suporte.<br>Para obter mais informações, confira [Visão geral de TLS de ponta a ponta com o Gateway de Aplicativo](ssl-overview.md#end-to-end-tls-with-the-v2-sku).|
 |Combinando Standard_v2 e o Gateway de Aplicativo Standard na mesma sub-rede|Sem suporte|
 |Rota Definida pelo Usuário (UDR) na sub-rede do Gateway de Aplicativo|Com Suporte (cenários específicos). Em versão prévia.<br> Para obter mais informações sobre os cenários com suporte, confira [Visão geral da configuração do Gateway de Aplicativo](configuration-infrastructure.md#supported-user-defined-routes).|
-|NSG para o intervalo de porta de entrada| -65200 a 65535 para Standard_v2 SKU<br>-65503 to 65534 para Standard SKU.<br>Consulte mais informações em [Perguntas Frequentes](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
+|NSG para o intervalo de porta de entrada| -65200 a 65535 para Standard_v2 SKU<br>-65503 to 65534 para Standard SKU.<br>Consulte mais informações em [Perguntas Frequentes](application-gateway-faq.yml#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Logs de desempenho no diagnóstico do Azure|Sem suporte.<br>As métricas do Azure devem ser usadas.|
 |Cobrança|Cobrança agendada para iniciar em 1º de julho de 2019.|
 |Modo FIPS|Essas não atualmente têm suporte.|

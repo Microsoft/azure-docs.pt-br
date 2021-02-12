@@ -2,15 +2,15 @@
 title: Solucionar problemas de Gerenciamento de Atualizações com a Automação do Azure
 description: Este artigo informa como solucionar problemas com o Gerenciamento de Atualizações de automação do Azure.
 services: automation
-ms.date: 10/14/2020
-ms.topic: conceptual
-ms.service: automation
-ms.openlocfilehash: 8818047dd4fef9c495c46b353e68841f83e9677c
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.subservice: update-management
+ms.date: 01/13/2021
+ms.topic: troubleshooting
+ms.openlocfilehash: 9ccaddec73a9c74123471c34b1b973b78eacfff8
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217211"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98890774"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Solucionar problemas do Gerenciamento de Atualizações
 
@@ -18,6 +18,40 @@ Este artigo aborda os problemas que você pode encontrar ao implantar o recurso 
 
 >[!NOTE]
 >Se você tiver problemas ao implantar Gerenciamento de Atualizações em um computador Windows, abra o Visualizador de Eventos do Windows e verifique o log de eventos do **Operations Manager** em **logs de aplicativos e serviços** no computador local. Procure eventos com a ID de evento 4502 e detalhes do evento que contenham `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
+
+## <a name="scenario-linux-updates-shown-as-pending-and-those-installed-vary"></a><a name="updates-linux-installed-different"></a>Cenário: atualizações do Linux mostradas como pendentes e as instaladas variam
+
+### <a name="issue"></a>Problema
+
+Para seu computador Linux, Gerenciamento de Atualizações mostra atualizações específicas disponíveis em **segurança** de classificação e **outras**. Mas quando um agendamento de atualização é executado no computador, por exemplo, para instalar somente as atualizações que correspondem à classificação de **segurança** , as atualizações instaladas são diferentes de ou um subconjunto das atualizações mostradas anteriormente correspondentes a essa classificação.
+
+### <a name="cause"></a>Causa
+
+Quando uma avaliação das atualizações do sistema operacional pendentes para seu computador Linux é feita, os arquivos de [linguagem oval e de vulnerabilidades](https://oval.mitre.org/) fornecidas pelo fornecedor do Linux distribuição são usados pelo gerenciamento de atualizações para classificação. A categorização é feita para atualizações do Linux como **segurança** ou **outras**, com base nos arquivos ovais que afirmam atualizações que abordam problemas de segurança ou vulnerabilidades. Mas quando o agendamento de atualização é executado, ele é executado no computador Linux usando o Gerenciador de pacotes apropriado, como YUM, APT ou ZYPPER para instalá-los. O Gerenciador de pacotes para o distribuição do Linux pode ter um mecanismo diferente para classificar atualizações, onde os resultados podem diferir daqueles obtidos dos arquivos OVAL por Gerenciamento de Atualizações.
+
+### <a name="resolution"></a>Resolução
+
+Você pode verificar manualmente o computador Linux, as atualizações aplicáveis e sua classificação de acordo com o Gerenciador de pacotes do distribuição. Para entender quais atualizações são classificadas como **segurança** pelo Gerenciador de pacotes, execute os comandos a seguir.
+
+Para YUM, o comando a seguir retorna uma lista diferente de zero de atualizações categorizadas como **segurança** pela Red Hat. Observe que no caso do CentOS, ele sempre retorna uma lista vazia e nenhuma classificação de segurança ocorre.
+
+```bash
+sudo yum -q --security check-update
+```
+
+Para ZYPPER, o comando a seguir retorna uma lista diferente de zero de atualizações categorizadas como **segurança** pelo SuSE.
+
+```bash
+sudo LANG=en_US.UTF8 zypper --non-interactive patch --category security --dry-run
+```
+
+Para APT, o comando a seguir retorna uma lista diferente de zero de atualizações categorizadas como **segurança** por Canonical para Ubuntu Linux distribuições.
+
+```bash
+sudo grep security /etc/apt/sources.list > /tmp/oms-update-security.list LANG=en_US.UTF8 sudo apt-get -s dist-upgrade -oDir::Etc::Sourcelist=/tmp/oms-update-security.list
+```
+
+Nessa lista, você executa o comando `grep ^Inst` para obter todas as atualizações de segurança pendentes.
 
 ## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a><a name="failed-to-enable-error"></a>Cenário: Você recebe o erro "Falha ao habilitar a solução de atualização"
 
@@ -110,13 +144,11 @@ Esse problema pode ser causado por problemas de configuração local ou pela con
    | summarize by Computer, Solutions
    ```
 
-4. Se você não vir seu computador nos resultados da consulta, ele não fez check-in recentemente. Provavelmente, há um problema de configuração local e você deve [reinstalar o agente](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
+    Se você não vir seu computador nos resultados da consulta, ele não fez check-in recentemente. Provavelmente, há um problema de configuração local e você deve [reinstalar o agente](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
-5. Se o computador aparecer nos resultados da consulta, verifique se há problemas de configuração de escopo. A [configuração de escopo](../update-management/scope-configuration.md) determina quais computadores estão configurados para Gerenciamento de Atualizações.
+    Se o computador estiver listado nos resultados da consulta, verifique na propriedade **soluções** que **atualizações** está listada. Isso verifica se ele está registrado com Gerenciamento de Atualizações. Se não estiver, verifique se há problemas de configuração de escopo. A [configuração de escopo](../update-management/scope-configuration.md) determina quais computadores estão configurados para Gerenciamento de Atualizações. Para configurar a configuração de escopo para o computador de destino, consulte [habilitar máquinas no espaço de trabalho](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
 
-6. Se seu computador estiver aparecendo no seu espaço de trabalho, mas não no Gerenciamento de Atualizações, você deverá definir a configuração de escopo para direcionar os computadores. Para saber como fazer isso, consulte [Habilitar máquinas no espaço de trabalho](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
-
-7. Em seu espaço de trabalho, execute esta consulta.
+4. Em seu espaço de trabalho, execute esta consulta.
 
    ```kusto
    Operation
@@ -124,9 +156,9 @@ Esse problema pode ser causado por problemas de configuração local ou pela con
    | sort by TimeGenerated desc
    ```
 
-8. Se você obtiver um resultado `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota`, a cota definida em seu espaço de trabalho foi atingida, o que impediu que os dados fossem salvos. Em seu espaço de trabalho, vá para **gerenciamento de volume de dados** em **Uso e custos estimados** e altere ou remova a cota.
+   Se você obtiver um resultado `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota`, a cota definida em seu espaço de trabalho foi atingida, o que impediu que os dados fossem salvos. Em seu espaço de trabalho, vá para **gerenciamento de volume de dados** em **Uso e custos estimados** e altere ou remova a cota.
 
-9. Se o problema ainda não tiver sido resolvido, siga as etapas descritas em [Implantar um Hybrid Runbook Worker do Windows](../automation-windows-hrw-install.md) para reinstalar o Hybrid Worker para o Windows. Para o Linux, siga as etapas em [Implantar um Hybrid Runbook Worker do Linux.](../automation-linux-hrw-install.md)
+5. Se o problema ainda não tiver sido resolvido, siga as etapas descritas em [Implantar um Hybrid Runbook Worker do Windows](../automation-windows-hrw-install.md) para reinstalar o Hybrid Worker para o Windows. Para o Linux, siga as etapas em [Implantar um Hybrid Runbook Worker do Linux.](../automation-linux-hrw-install.md)
 
 ## <a name="scenario-unable-to-register-automation-resource-provider-for-subscriptions"></a><a name="rp-register"></a>Cenário: Não é possível registrar o provedor de recursos de automação para assinaturas
 
@@ -391,7 +423,7 @@ Esse problema pode ocorrer por um dos seguintes motivos:
 
 Quando aplicável, use [grupos dinâmicos](../update-management/configure-groups.md) para suas implantações de atualização. Além disso, você pode seguir as seguintes etapas.
 
-1. Verifique se seu computador ou servidor atende aos [requisitos](../update-management/overview.md#client-requirements).
+1. Verifique se seu computador ou servidor atende aos [requisitos](../update-management/overview.md#system-requirements).
 2. Verifique a conectividade com o Hybrid Runbook Worker usando a solução de problemas do agente de Hybrid Runbook Worker. Para saber mais sobre a solução de problemas, consulte [solucionar problemas do agente de atualização](update-agent-issues.md).
 
 ## <a name="scenario-updates-are-installed-without-a-deployment"></a><a name="updates-nodeployment"></a>Cenário: As atualizações são instaladas sem uma implantação

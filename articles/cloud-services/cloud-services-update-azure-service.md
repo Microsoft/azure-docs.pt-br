@@ -1,20 +1,24 @@
 ---
-title: Como atualizar um serviço de nuvem | Microsoft Docs
+title: Como atualizar um serviço de nuvem (clássico) | Microsoft Docs
 description: Saiba como atualizar os serviços de nuvem no Azure. Saiba como uma atualização em um serviço de nuvem é realizada para garantir a disponibilidade.
-services: cloud-services
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 04/19/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: f12e5b6b0b2902d69936b9cf2695b7ee21db88e2
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 5d85003ca7b4307c308914484502ae03269f66ac
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075035"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741104"
 ---
-# <a name="how-to-update-a-cloud-service"></a>Como atualizar um serviço de nuvem
+# <a name="how-to-update-an-azure-cloud-service-classic"></a>Como atualizar um serviço de nuvem do Azure (clássico)
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
 
 A atualização de um serviço de nuvem, incluindo suas funções e o SO convidado, é um processo que envolve três etapas. Primeiro, os binários e os arquivos de configuração do novo serviço de nuvem, ou a versão do sistema operacional, devem ser carregados. Em seguida, o Azure reserva recursos de computação e de rede para o serviço de nuvem com base nos requisitos da nova versão do serviço de nuvem. Por fim, o Azure executa uma atualização sem interrupção a fim de atualizar de forma incremental o locatário para a nova versão ou o SO convidado, preservando a disponibilidade. Este artigo discute os detalhes desta última etapa – a atualização sem interrupção.
 

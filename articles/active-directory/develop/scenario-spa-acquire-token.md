@@ -1,5 +1,6 @@
 ---
-title: Adquirir um token para chamar uma API Web (aplicativos de página única)-plataforma de identidade da Microsoft | Azure
+title: Adquirir um token para chamar uma API da Web (aplicativos de página única) | Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como criar um aplicativo de página única (adquirir um token para chamar uma API)
 services: active-directory
 author: negoe
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
-ms.openlocfilehash: eeba01a609a1a21ed564c0b9cb78a28a4ad5c95a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83896b2599f03961b2dcaf34ea9b55fe16c13b9e
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80882311"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756442"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Aplicativo de página única: adquirir um token para chamar uma API
 
@@ -198,5 +199,4 @@ Esse código é o mesmo descrito anteriormente.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Chamar uma API Web](scenario-spa-call-api.md)
+Vá para o próximo artigo neste cenário, [chamando uma API da Web](scenario-spa-call-api.md).

@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 09/10/2020
 ms.author: victorh
-ms.openlocfilehash: a0333f9afa69b533ac28dc302987e6d057bfeeb1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69890e2d846a63a70c1b7459b1df13ce5e891289
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90090152"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659464"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Logs e métricas do Firewall do Azure
 
@@ -173,6 +173,6 @@ As seguintes métricas estão disponíveis para o Firewall do Azure:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber como monitorar as métricas e logs do Firewall do Azure, veja [Tutorial: Monitorar os logs de Firewall do Azure](tutorial-diagnostics.md).
+- Para saber como monitorar as métricas e logs do Firewall do Azure, veja [Tutorial: Monitorar os logs de Firewall do Azure](./firewall-diagnostics.md).
 
 - Para saber mais sobre as métricas em Azure Monitor, consulte [métricas em Azure monitor](../azure-monitor/platform/data-platform-metrics.md).

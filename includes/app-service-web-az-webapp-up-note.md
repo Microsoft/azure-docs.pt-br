@@ -8,21 +8,21 @@ ms.topic: include
 ms.date: 02/27/2019
 ms.author: msangapu
 ms.custom: include file
-ms.openlocfilehash: 8b5be0a438d9c5bb1fd0596368327c53a2d6c31f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 08458bd170707b28c69fdad1d8aa115a7ad245a5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "67172598"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95559610"
 ---
 > [!NOTE]
 > O comando `az webapp up` realiza as seguintes ações:
 >
->- Criar um grupo de [recursos padrão](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create).
+>- Criar um grupo de [recursos padrão](/cli/azure/group?view=azure-cli-latest#az-group-create).
 >
->- Criar um [plano de serviço de aplicativo padrão](https://docs.microsoft.com/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create).
+>- Criar um [plano de serviço de aplicativo padrão](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create).
 >
->- [Criar um aplicativo](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) com o nome especificado.
+>- [Criar um aplicativo](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) com o nome especificado.
 >
->- Faz a [implantação de Zip](https://docs.microsoft.com/azure/app-service/deploy-zip) dos arquivos do diretório de trabalho atual para o aplicativo.
+>- Faz a [implantação de Zip](../articles/app-service/deploy-zip.md) dos arquivos do diretório de trabalho atual para o aplicativo.
 >

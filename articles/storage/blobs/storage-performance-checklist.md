@@ -9,12 +9,12 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3a3395873d7655118e3fcc9c36cdfc3855f8f000
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14da8b6cb695703f1881b6b0b9858772bde386c5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714810"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544744"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Lista de verificação de desempenho e escalabilidade do Armazenamento de Blobs
 
@@ -59,7 +59,7 @@ Este artigo organiza as práticas comprovadas de desempenho em uma lista de veri
 
 Se o seu aplicativo se aproximar ou ultrapassar alguma das metas de escalabilidade, pode haver aumento da latência e restrição das transações. Quando o Armazenamento do Azure limita seu aplicativo, o serviço começa a retornar os códigos de erro 503 (Servidor ocupado) ou 500 (Tempo limite da operação). Evitar esses erros mantendo-se dentro dos limites dos destinos de escalabilidade é uma parte importante do aprimoramento do desempenho do seu aplicativo.
 
-Para obter mais informações sobre metas de escalabilidade para o serviço Fila, confira [Metas de escalabilidade e desempenho do Armazenamento do Azure](/azure/storage/queues/scalability-targets#scale-targets-for-queue-storage).
+Para obter mais informações sobre metas de escalabilidade para o serviço Fila, confira [Metas de escalabilidade e desempenho do Armazenamento do Azure](../queues/scalability-targets.md#scale-targets-for-queue-storage).
 
 ### <a name="maximum-number-of-storage-accounts"></a>Número máximo de contas de armazenamento
 
@@ -100,7 +100,7 @@ Entender como o armazenamento do Azure particiona seus dados de blob é útil pa
 
 O armazenamento de BLOBs usa um esquema de particionamento baseado em intervalo para dimensionamento e balanceamento de carga. Cada blob tem uma chave de partição composta pelo nome completo do blob (conta + contêiner + BLOB). A chave de partição é usada para particionar dados de BLOB em intervalos. Os intervalos são então balanceados por carga no armazenamento de BLOBs.
 
-O particionamento baseado em intervalo significa que as convenções de nomenclatura que usam a ordenação lexical (por exemplo, *mypayroll*, *myperformance*, *MyEmployees*etc.) ou carimbos de data/hora (*log20160101*, *log20160102*, *log20160102*, etc.) têm mais probabilidade de resultar nas partições que estão sendo colocalizadas no mesmo servidor de partição. , até que o aumento da carga exija que eles sejam divididos em intervalos menores. A colocalização de BLOBs no mesmo servidor de partição melhora o desempenho, portanto, uma parte importante do aprimoramento de desempenho envolve nomear blobs de forma a organizá-los com mais eficiência.
+O particionamento baseado em intervalo significa que as convenções de nomenclatura que usam a ordenação lexical (por exemplo, *mypayroll*, *myperformance*, *MyEmployees* etc.) ou carimbos de data/hora (*log20160101*, *log20160102*, *log20160102*, etc.) têm mais probabilidade de resultar nas partições que estão sendo colocalizadas no mesmo servidor de partição. , até que o aumento da carga exija que eles sejam divididos em intervalos menores. A colocalização de BLOBs no mesmo servidor de partição melhora o desempenho, portanto, uma parte importante do aprimoramento de desempenho envolve nomear blobs de forma a organizá-los com mais eficiência.
 
 Por exemplo, todos os blobs em um contêiner podem ser servidos por um único servidor até que a carga nesses blobs exija mais rebalanceamento dos intervalos de partição. Da mesma forma, um grupo de contas levemente carregadas com seus nomes organizados em ordem lexical pode ser servido por um único servidor até que a carga em uma ou todas essas contas exija que eles sejam divididos em vários servidores de partição.
 
@@ -195,7 +195,7 @@ ServicePointManager.DefaultConnectionLimit = 100; //(Or More)
 
 Para outras linguagens de programação, consulte a documentação para determinar como definir o limite de conexão.  
 
-Para saber mais, confira a postagem no blog [Serviços Web: conexões simultâneas](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
+Para saber mais, confira a postagem no blog [Serviços Web: conexões simultâneas](/archive/blogs/darrenj/web-services-concurrent-connections).  
 
 ### <a name="increase-minimum-number-of-threads"></a>Aumentar o número mínimo de threads
 
@@ -213,7 +213,7 @@ Embora o paralelismo possa ser ótimo para o desempenho, tenha cuidado ao usar o
 
 ## <a name="client-libraries-and-tools"></a>Bibliotecas de cliente e ferramentas
 
-Para obter o melhor desempenho, sempre use as bibliotecas de cliente e ferramentas mais recentes fornecidas pela Microsoft. As bibliotecas de cliente do Armazenamento do Azure estão disponíveis para várias linguagens. O Armazenamento do Azure também dá suporte ao PowerShell e à CLI do Azure. A Microsoft desenvolve ativamente essas ferramentas e bibliotecas de cliente pensando no desempenho, os mantém atualizados com as versões de serviço mais recentes e verifica se eles lidam com muitas práticas de desempenho comprovadas internamente. Para obter mais informações, confira a [documentação de referência do Armazenamento do Azure](/azure/storage/#reference).
+Para obter o melhor desempenho, sempre use as bibliotecas de cliente e ferramentas mais recentes fornecidas pela Microsoft. As bibliotecas de cliente do Armazenamento do Azure estão disponíveis para várias linguagens. O Armazenamento do Azure também dá suporte ao PowerShell e à CLI do Azure. A Microsoft desenvolve ativamente essas ferramentas e bibliotecas de cliente pensando no desempenho, os mantém atualizados com as versões de serviço mais recentes e verifica se eles lidam com muitas práticas de desempenho comprovadas internamente.
 
 ## <a name="handle-service-errors"></a>Manipular erros de serviço
 
@@ -243,11 +243,11 @@ Para copiar dados dentro da mesma conta de armazenamento, use a operação de [c
 
 ### <a name="use-azcopy"></a>Usar o AzCopy
 
-O utilitário de linha de comando AzCopy é uma opção simples e eficiente para a transferência em massa de BLOBs para, de e entre contas de armazenamento. O AzCopy é otimizado para esse cenário e pode alcançar altas taxas de transferência. A versão 10 do AzCopy usa a `Put Block From URL` operação para copiar dados de blob entre contas de armazenamento. Para obter mais informações, consulte [copiar ou mover dados para o armazenamento do Azure usando o AzCopy V10](/azure/storage/common/storage-use-azcopy-v10).  
+O utilitário de linha de comando AzCopy é uma opção simples e eficiente para a transferência em massa de BLOBs para, de e entre contas de armazenamento. O AzCopy é otimizado para esse cenário e pode alcançar altas taxas de transferência. A versão 10 do AzCopy usa a `Put Block From URL` operação para copiar dados de blob entre contas de armazenamento. Para obter mais informações, consulte [copiar ou mover dados para o armazenamento do Azure usando o AzCopy V10](../common/storage-use-azcopy-v10.md).  
 
 ### <a name="use-azure-data-box"></a>Usar Azure Data Box
 
-Para importar grandes volumes de dados para o armazenamento de BLOBs, considere usar a família de Azure Data Box para transferências offline. Os dispositivos Data Box fornecidos pela Microsoft são uma boa opção para mover grandes quantidades de dados para o Azure quando você está limitado por tempo, disponibilidade de rede ou custos. Para obter mais informações, consulte a [documentação do Azure data Box](/azure/databox/).
+Para importar grandes volumes de dados para o armazenamento de BLOBs, considere usar a família de Azure Data Box para transferências offline. Os dispositivos Data Box fornecidos pela Microsoft são uma boa opção para mover grandes quantidades de dados para o Azure quando você está limitado por tempo, disponibilidade de rede ou custos. Para obter mais informações, consulte a [documentação do Azure data Box](../../databox/index.yml).
 
 ## <a name="content-distribution"></a>Distribuição de conteúdo
 

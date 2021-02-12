@@ -8,18 +8,19 @@ editor: ''
 tags: azure-service-management
 ms.assetid: d710c296-e490-43e7-8ca9-8932586b71da
 ms.service: virtual-machines-sql
+ms.subservice: security
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e6f6d1960c07dc23c584dec5bb424f91630fc1bb
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 54010359f226fe02336f039e3dcbb98075e9b06a
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785061"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360077"
 ---
 # <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Considerações sobre Segurança para SQL Server em Máquinas Virtuais do Microsoft Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -59,11 +60,11 @@ Por fim, considere a possibilidade de habilitar as conexões criptografadas na i
 
 ## <a name="encryption"></a>Criptografia
 
-O Managed disks oferece Server-Side criptografia e Azure Disk Encryption. A [criptografia do lado do servidor](../../../virtual-machines/windows/disk-encryption.md) fornece criptografia em repouso e protege seus dados para atender aos compromissos de conformidade e segurança da organização. O [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) usa a tecnologia BitLocker ou DM-Crypt e integra-se com o Azure Key Vault para criptografar o sistema operacional e os discos de dados. 
+O Managed disks oferece Server-Side criptografia e Azure Disk Encryption. A [criptografia do lado do servidor](../../../virtual-machines/disk-encryption.md) fornece criptografia em repouso e protege seus dados para atender aos compromissos de conformidade e segurança da organização. O [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) usa a tecnologia BitLocker ou DM-Crypt e integra-se com o Azure Key Vault para criptografar o sistema operacional e os discos de dados. 
 
 ## <a name="use-a-non-default-port"></a>Usar uma porta não padrão
 
-Por padrão, o SQL Server escuta uma porta conhecida, 1433. Para uma maior segurança, configure o SQL Server para escutar uma porta não padrão, como 1401. Se você provisionar uma imagem da galeria do SQL Server no portal do Azure, poderá especificar essa porta na folha **Configurações do SQL Server** .
+Por padrão, o SQL Server escuta uma porta conhecida, 1433. Para uma maior segurança, configure o SQL Server para escutar uma porta não padrão, como 1401. Se você provisionar uma imagem da galeria do SQL Server no portal do Azure, poderá especificar essa porta na folha **Configurações do SQL Server**.
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
@@ -84,18 +85,18 @@ Quando o SQL Server está escutando uma porta não padrão, você deve especific
 
 Você não deseja que os invasores adivinhem nomes de contas ou senhas facilmente. Use as seguintes dicas para ajudar:
 
-- Crie uma conta de administrador local exclusiva que não esteja nomeada como **Administrador** .
+- Crie uma conta de administrador local exclusiva que não esteja nomeada como **Administrador**.
 
 - Use senhas fortes e complexas para todas as suas contas. Para obter mais informações sobre como criar uma senha forte, consulte o artigo [Criar uma senha forte](https://support.microsoft.com/instantanswers/9bd5223b-efbe-aa95-b15a-2fb37bef637d/create-a-strong-password).
 
 - Por padrão, o Azure seleciona a Autenticação do Windows durante a instalação da máquina virtual do SQL Server. Portanto, o logon **SA** é desabilitado e uma senha é atribuída pela instalação. Recomendamos que o logon **SA** não seja usado nem habilitado. Se você precisar ter um logon do SQL, use uma das seguintes estratégias:
 
-  - Crie uma conta do SQL com um nome exclusivo que tem a associação **sysadmin** . Faça isso no portal habilitando a **Autenticação SQL** durante o provisionamento.
+  - Crie uma conta do SQL com um nome exclusivo que tem a associação **sysadmin**. Faça isso no portal habilitando a **Autenticação SQL** durante o provisionamento.
 
     > [!TIP] 
-    > Se você não habilitar a Autenticação SQL durante o provisionamento, deverá alterar manualmente o modo de autenticação para **Modo de Autenticação do SQL Server e do Windows** . Para obter mais informações, consulte [Alterar Modo de Autenticação do Servidor](/sql/database-engine/configure-windows/change-server-authentication-mode).
+    > Se você não habilitar a Autenticação SQL durante o provisionamento, deverá alterar manualmente o modo de autenticação para **Modo de Autenticação do SQL Server e do Windows**. Para obter mais informações, consulte [Alterar Modo de Autenticação do Servidor](/sql/database-engine/configure-windows/change-server-authentication-mode).
 
-  - Se precisar usar o logon **SA** , habilite o logon depois de provisionar e atribuir uma nova senha forte.
+  - Se precisar usar o logon **SA**, habilite o logon depois de provisionar e atribuir uma nova senha forte.
 
 ## <a name="additional-best-practices"></a>Melhores práticas adicionais
 

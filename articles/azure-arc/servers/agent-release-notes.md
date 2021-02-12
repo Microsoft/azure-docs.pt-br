@@ -1,14 +1,14 @@
 ---
 title: O que há de novo no agente de servidores habilitados para Arc do Azure
-description: Este artigo tem notas de versão para o agente de servidores habilitados para o Azure Arc. Para muitos dos problemas resumidos, há links para detalhes adicionais.
+description: Este artigo tem notas de versão para o agente de servidores habilitados para o Azure Arc. Para muitos dos problemas resumidos, há links para mais detalhes.
 ms.topic: conceptual
-ms.date: 09/16/2020
-ms.openlocfilehash: 1918d03b5bbfaaa64b7d74c18fad4eb9a86800a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/21/2020
+ms.openlocfilehash: 4b7fd97d5b7e1cddc1d78e0d24205890e74c45c1
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908155"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722514"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>O que há de novo no agente de servidores habilitados para Arc do Azure
 
@@ -17,6 +17,37 @@ O agente de máquina conectado de servidores habilitados para Arc do Azure receb
 - As versões mais recentes
 - Problemas conhecidos
 - Correções de bug
+
+## <a name="december-2020"></a>Dezembro de 2020
+
+Versão: 1,3
+
+### <a name="new-feature"></a>New recurso
+
+Adicionado suporte para o Windows Server 2008 R2
+
+### <a name="fixed"></a>Fixo
+
+Problema resolvido impedindo que a extensão de script personalizado no Linux seja instalada com êxito.
+
+## <a name="november-2020"></a>Novembro de 2020
+
+Versão: 1,2
+
+### <a name="fixed"></a>Fixo
+
+Problema resolvido em que a configuração de proxy pode ser perdida após a atualização em distribuições baseadas em RPM.
+
+## <a name="october-2020"></a>Outubro de 2020
+
+Versão 1.1
+
+### <a name="fixed"></a>Fixo
+
+- O script de proxy fixo para manipular o local alternativo do arquivo de unidade de daemon do GC.
+- Alterações de confiabilidade do agente GuestConfig.
+- Suporte do agente GuestConfig para US Gov-Virgínia região.
+- As mensagens de relatório de extensão do agente GuestConfig serão mais detalhadas em caso de falhas.
 
 ## <a name="september-2020"></a>Setembro de 2020
 
@@ -36,7 +67,7 @@ Versão: 1,0 (disponibilidade geral)
 - `azcmagent show --json`Opção adicionada para saída de estado do agente no formato facilmente analisável.
 - Foi adicionado um sinalizador na `azcmagent show` saída para indicar se o servidor está em uma máquina virtual hospedada no Azure.
 - `azcmagent disconnect --force-local-only`Opção adicionada para permitir a redefinição do estado do agente local quando o serviço do Azure não pode ser acessado.
-- `azcmagent connect --cloud`Opção adicionada para dar suporte a nuvens adicionais. Nesta versão, somente o serviço do Azure é suportado pelo Service no momento da versão do agente.
+- `azcmagent connect --cloud`Opção adicionada para dar suporte a outras nuvens. Nesta versão, somente o serviço do Azure é suportado pelo Service no momento da versão do agente.
 - O agente foi localizado em idiomas com suporte do Azure.
 
 ### <a name="fixed"></a>Fixo
@@ -56,7 +87,7 @@ Versão: 0,11
 
 ### <a name="known-issues"></a>Problemas conhecidos
 
-Se você estiver usando uma versão mais antiga do agente do Linux e o tiver configurado para usar um servidor proxy, será necessário reconfigurar a configuração do servidor proxy após a atualização. Para fazer isso, execute `sudo azcmagent_proxy add http://proxyserver.local:83`.
+Se você estiver usando uma versão mais antiga do agente do Linux e estiver configurado para usar um servidor proxy, será necessário reconfigurar a configuração do servidor proxy após a atualização. Para fazer isso, execute `sudo azcmagent_proxy add http://proxyserver.local:83`.
 
 ## <a name="next-steps"></a>Próximas etapas
 

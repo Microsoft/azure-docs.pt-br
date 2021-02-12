@@ -7,15 +7,15 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: edd9898580c60199b761b24b172a366069f09cb2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 0c0b3bd81e0f73a7879382e28516378bd722bc17
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516181"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498635"
 ---
 # <a name="how-to-use-permissions-in-azure-spring-cloud"></a>Como usar permissões no Azure Spring Cloud
-Este artigo mostra como criar funções personalizadas que delegam permissões para recursos de nuvem do Azure Spring. As funções personalizadas estendem as [funções internas do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) com várias permissões de ações.
+Este artigo mostra como criar funções personalizadas que delegam permissões para recursos de nuvem do Azure Spring. As funções personalizadas estendem as [funções internas do Azure](../role-based-access-control/built-in-roles.md) com várias permissões de ações.
 
 Implementaremos as seguintes funções personalizadas:
 
@@ -257,9 +257,9 @@ Em **Microsoft. AppPlatform/SKUs**, selecione:
 
 
 ## <a name="see-also"></a>Confira também
-* [Criar ou atualizar as funções personalizadas do Azure usando o portal do Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal)
+* [Criar ou atualizar as funções personalizadas do Azure usando o portal do Azure](../role-based-access-control/custom-roles-portal.md)
 
 Para obter mais informações sobre três métodos que definem permissões personalizadas, consulte:
-* [Clonar uma função](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#clone-a-role)
-* [Começar do zero](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#start-from-scratch)
-* [Iniciar do JSON](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#start-from-json)
+* [Clonar uma função](../role-based-access-control/custom-roles-portal.md#clone-a-role)
+* [Começar do zero](../role-based-access-control/custom-roles-portal.md#start-from-scratch)
+* [Iniciar do JSON](../role-based-access-control/custom-roles-portal.md#start-from-json)

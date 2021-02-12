@@ -6,12 +6,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 03/09/2018
 ms.author: mimckitt
-ms.openlocfilehash: c7852bd1b6d93357c1c9127686d1edbb5c702a3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 530ae08dabe54ed279a4055e52109aad0ef4f842
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88701359"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426146"
 ---
 # <a name="constrained-vcpu-capable-vm-sizes"></a>Tamanhos de VM compatíveis com vCPU restrita
 
@@ -24,7 +24,7 @@ Por exemplo, o tamanho da VM atual Standard_GS5 acompanha 32 vCPUs, 448 GB de RA
 Os valores de licenciamento cobrados para SQL Server ou Oracle são restritos à nova contagem de vCPU e outros produtos devem ser cobrados com base na contagem de vCPU nova. Isso resulta em um aumento de 50% a 75% na razão entre as especificações VM para vCPUs ativas (Faturável). Esses novos tamanhos de VM permitem que as cargas de trabalho dos clientes usem a mesma memória, armazenamento e largura de banda de e/s ao mesmo tempo em que otimizam seu custo de licenciamento de software. Neste momento, o custo de computação, que inclui o licenciamento do sistema operacional, permanece o mesmo com o tamanho original. Para obter mais informações, consulte [tamanhos de VM do Azure para cargas de trabalho do banco de dados mais econômicos](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/).
 
 
-| Nome                | vCPU | Especificações           |
+| Name                | vCPU | Especificações           |
 |---------------------|------|-----------------|
 | Standard_M8-2ms     | 2    | Mesmo que M8ms    |
 | Standard_M8-4ms     | 4    | Mesmo que M8ms    |
@@ -63,6 +63,17 @@ Os valores de licenciamento cobrados para SQL Server ou Oracle são restritos à
 | Standard_E32-8ds_v4 | 8    | O mesmo que E32ds_v4|
 | Standard_E64-32ds_v4| 32   | O mesmo que E64ds_v4|
 | Standard_E64-16ds_v4| 16   | O mesmo que E64ds_v4|
+| Standard_E4-2as_v4  | 2    | O mesmo que E4as_v4 |
+| Standard_E8-4as_v4  | 4    | O mesmo que E8as_v4 |
+| Standard_E8-2as_v4  | 2    | O mesmo que E8as_v4 |
+| Standard_E16-8as_v4 | 8    | O mesmo que E16as_v4|
+| Standard_E16-4as_v4 | 4    | O mesmo que E16as_v4|
+| Standard_E32-16as_v4| 16   | O mesmo que E32as_v4|
+| Standard_E32-8as_v4 | 8    | O mesmo que E32as_v4|
+| Standard_E64-32as_v4| 32   | O mesmo que E64as_v4|
+| Standard_E64-16as_v4| 16   | O mesmo que E64as_v4|
+| Standard_E96-48as_v4| 48   | O mesmo que E96as_v4|
+| Standard_E96-24as_v4| 24   | O mesmo que E96as_v4|
 | Standard_GS4-8      | 8    | O mesmo que GS4     |
 | Standard_GS4-4      | 4    | O mesmo que GS4     |
 | Standard_GS5-16     | 16   | O mesmo que GS5     |

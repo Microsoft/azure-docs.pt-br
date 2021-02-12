@@ -14,18 +14,18 @@ ms.date: 09/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a5a4659671f8d4ded64a4f04f84abf1f67d8825
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0fbda588d99de44c77118586519055a8fc474104
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265248"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861758"
 ---
 # <a name="azure-ad-connect---msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>Azure AD Connect-msExchUserHoldPolicies e cloudMsExchUserHoldPolicies
 O documento de referência a seguir descreve esses atributos usados pelo Exchange e a maneira apropriada de editar as regras de sincronização padrão.
 
 ## <a name="what-are-msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>O que são msExchUserHoldPolicies e cloudMsExchUserHoldPolicies?
-Há dois tipos de [suspensões](https://docs.microsoft.com/Exchange/policy-and-compliance/holds/holds?view=exchserver-2019) disponíveis para um servidor Exchange: suspensão de litígio e In-Place. Quando a suspensão de litígio está habilitada, todas as caixas de correio todos os itens são colocados em espera.  Um In-Place Hold é usado para preservar somente os itens que atendem aos critérios de uma consulta de pesquisa que você definiu usando a ferramenta de eDiscovery In-Place.
+Há dois tipos de [suspensões](/Exchange/policy-and-compliance/holds/holds) disponíveis para um servidor Exchange: suspensão de litígio e In-Place. Quando a suspensão de litígio está habilitada, todas as caixas de correio todos os itens são colocados em espera.  Um In-Place Hold é usado para preservar somente os itens que atendem aos critérios de uma consulta de pesquisa que você definiu usando a ferramenta de eDiscovery In-Place.
 
 Os atributos MsExchUserHoldPolcies e cloudMsExchUserHoldPolicies permitem o AD local e o Azure AD para determinar quais usuários estão em uma suspensão, dependendo se eles estão usando o Exchange ou o Exchange Online no local.
 

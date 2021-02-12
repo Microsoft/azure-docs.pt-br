@@ -4,12 +4,12 @@ description: Saiba como solucionar problemas comuns ao implantar, executar ou ge
 ms.topic: article
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: ac75fff3b088a7d595de2b27c92126ce592aff47
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: d8e7fb85e369f5f278436370944eafeb1fb6a50e
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746916"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779508"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Solucionar problemas comuns nas Instâncias de Contêiner do Azure
 
@@ -99,7 +99,7 @@ Esse erro indica que devido à carga pesada na região em que você está tentan
 ## <a name="issues-during-container-group-runtime"></a>Problemas durante o tempo de execução do grupo de contêineres
 ### <a name="container-continually-exits-and-restarts-no-long-running-process"></a>Contêiner sai e reinicia continuamente (sem processo de longa execução)
 
-A [política de reinicialização](container-instances-restart-policy.md) padrão dos grupos de contêineres é **Sempre** ; portanto, o grupo de contêineres sempre reiniciará após ser executado até a conclusão. Talvez seja necessário alterar isso para **OnFailure** ou **Nunca** se você pretende executar contêineres baseados em tarefa. Se você especificar **Em caso de Falha** e ainda continuar sendo reiniciado, pode haver um problema com o aplicativo ou script executado em seu contêiner.
+A [política de reinicialização](container-instances-restart-policy.md) padrão dos grupos de contêineres é **Sempre**; portanto, o grupo de contêineres sempre reiniciará após ser executado até a conclusão. Talvez seja necessário alterar isso para **OnFailure** ou **Nunca** se você pretende executar contêineres baseados em tarefa. Se você especificar **Em caso de Falha** e ainda continuar sendo reiniciado, pode haver um problema com o aplicativo ou script executado em seu contêiner.
 
 Ao executar grupos de contêineres sem processos de longa execução, talvez você veja saídas e reinicializações repetidos com imagens como Ubuntu ou Alpine. Conectar-se por meio de [EXEC](container-instances-exec.md) não funcionará, porque o contêiner não tem nenhum processo que o mantenha ativo. Para resolver esse problema, inclua um comando Iniciar, como o seguinte, com a implantação do grupo de contêineres para manter o contêiner em execução.
 
@@ -155,7 +155,7 @@ A API de Instâncias de Contêiner e o portal do Azure incluem uma propriedade `
 ```
 
 > [!NOTE]
-> A maioria das imagens de contêiner para as distribuições de Linux definem um shell (assim como um bash) como o comando padrão. Já que um shell por si só não é um serviço de execução longa, esses contêineres saem imediatamente e entram em um loop de reinicialização quando configurados com a política de reinício padrão **Sempre** .
+> A maioria das imagens de contêiner para as distribuições de Linux definem um shell (assim como um bash) como o comando padrão. Já que um shell por si só não é um serviço de execução longa, esses contêineres saem imediatamente e entram em um loop de reinicialização quando configurados com a política de reinício padrão **Sempre**.
 
 ### <a name="container-takes-a-long-time-to-start"></a>Contêiner leva muito tempo para iniciar
 
@@ -187,7 +187,7 @@ Outra maneira de reduzir o impacto do pull da imagem no tempo de inicialização
 
 #### <a name="cached-images"></a>Imagens armazenadas em cache
 
-As instâncias de contêiner do Azure usam um mecanismo de cache para ajudar a acelerar o tempo de inicialização do contêiner para imagens criadas em [imagens básicas](container-instances-faq.md#what-windows-base-os-images-are-supported)comuns do Windows, incluindo `nanoserver:1809` , `servercore:ltsc2019` e `servercore:1809` . Imagens do Linux comumente usadas, como `ubuntu:1604` e `alpine:3.6` também são armazenadas em cache. Para obter uma lista atualizada de imagens e marcas armazenadas em cache, use a API da [lista de imagens em cache][list-cached-images] .
+As instâncias de contêiner do Azure usam um mecanismo de cache para ajudar a acelerar o tempo de inicialização do contêiner para imagens criadas em [imagens básicas](container-instances-faq.md#what-windows-base-os-images-are-supported)comuns do Windows, incluindo `nanoserver:1809` , `servercore:ltsc2019` e `servercore:1809` . Imagens do Linux comumente usadas, como `ubuntu:1604` e `alpine:3.6` também são armazenadas em cache. Para imagens do Windows e do Linux, evite usar a `latest` marca. Examine [as práticas recomendadas da marca de imagem](../container-registry/container-registry-image-tag-version.md) do registro de contêiner para obter diretrizes. Para obter uma lista atualizada de imagens e marcas armazenadas em cache, use a API da [lista de imagens em cache][list-cached-images] .
 
 > [!NOTE]
 > Use as imagens com base no Windows Server 2019 nas instâncias de contêiner do Azure nesta versão prévia.
@@ -213,7 +213,7 @@ Se você quiser confirmar que as instâncias de contêiner do Azure podem escuta
     --ip-address Public --ports 9000 \
     --environment-variables 'PORT'='9000'
     ```
-1. Localize o endereço IP do grupo de contêineres na saída de comando de `az container create` . Procure o valor de **IP** . 
+1. Localize o endereço IP do grupo de contêineres na saída de comando de `az container create` . Procure o valor de **IP**. 
 1. Depois que o contêiner for provisionado com êxito, navegue até o endereço IP e a porta do aplicativo de contêiner em seu navegador, por exemplo: `192.0.2.0:9000` . 
 
     Você deve ver o "bem-vindo às instâncias de contêiner do Azure!" mensagem exibida pelo aplicativo Web.

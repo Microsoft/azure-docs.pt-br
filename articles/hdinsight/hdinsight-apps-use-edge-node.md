@@ -1,19 +1,16 @@
 ---
 title: Usar nós de borda vazios em clusters do Apache Hadoop no Azure HDInsight
 description: Como adicionar um nó de borda vazio a um cluster HDInsight. Use-o como um cliente e, em seguida, teste ou hospede seus aplicativos do HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
-ms.openlocfilehash: ddd1a6fa2fc25add30664da5b739338e87e7e74f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4061df2dfcfb4cf993e2312fb3438de66863a476
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547836"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942675"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Usar nós de borda vazios em clusters do Apache Hadoop no HDInsight
 
@@ -109,9 +106,9 @@ Nesta seção, você pode usar um modelo do Resource Manager para criar um clust
     |Resource group|crie um novo grupo de recursos usado para o cluster.|
     |Location|Selecione um local para o grupo de recursos.|
     |Nome do cluster|insira um nome para o novo cluster que será criado.|
-    |Nome de usuário de logon do cluster|insira o nome de usuário HTTP do Hadoop.  O nome padrão é **admin** .|
+    |Nome de usuário de logon do cluster|insira o nome de usuário HTTP do Hadoop.  O nome padrão é **admin**.|
     |Senha de logon do cluster|insira a senha do usuário HTTP do Hadoop.|
-    |Nome de Usuário SSH|insira o nome de usuário SSH. O nome padrão é **sshuser** .|
+    |Nome de Usuário SSH|insira o nome de usuário SSH. O nome padrão é **sshuser**.|
     |Senha SSH|insira a senha de usuário SSH.|
     |Instalar ação de script|Mantenha o valor padrão para percorrer este artigo.|
 
@@ -133,7 +130,7 @@ O nó de borda aparece como um aplicativo no portal do Azure.  O portal fornece 
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Abra o cluster HDInsight com um nó de borda.
-3. Selecione **Aplicativos** . Você verá o nó de borda.  O nome padrão é **new-edgenode** .
+3. Selecione **Aplicativos**. Você verá o nó de borda.  O nome padrão é **new-edgenode**.
 4. Selecione o nó de borda. Você deverá ver o ponto de extremidade SSH.
 
 **Para usar o Hive no nó de borda**
@@ -158,8 +155,8 @@ Você pode excluir um nó de borda no portal do Azure.
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Abra o cluster HDInsight com um nó de borda.
-3. Selecione **Aplicativos** . Você verá uma lista de nós de borda.  
-4. Clique no nó de borda que deseja excluir e selecione **Excluir** .
+3. Selecione **Aplicativos**. Você verá uma lista de nós de borda.  
+4. Clique no nó de borda que deseja excluir e selecione **Excluir**.
 5. Clique em **Sim** para confirmar.
 
 ## <a name="next-steps"></a>Próximas etapas

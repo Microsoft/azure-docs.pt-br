@@ -1,5 +1,5 @@
 ---
-title: Carregar conteúdo em um ativo dos Serviços de Mídia do Azure usando a CLI do Azure
+title: Carregar conteúdo para uma CLI de ativo
 description: O script de CLI do Azure neste tópico mostra como criar um ativo dos Serviços de Mídia para carregar o conteúdo.
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: aa5c9178bc84983b7e577cd63cf5b8d9fb9a8436
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f3c5fa41150f5df2b0e89c4253cb0bb55b1d625
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89254654"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955810"
 ---
 # <a name="create-an-asset"></a>Criar um ativo
 

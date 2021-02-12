@@ -1,19 +1,16 @@
 ---
 title: Consultar logs de Azure Monitor para monitorar os clusters do Azure HDInsight
 description: Saiba como executar consultas em logs de Azure Monitor para monitorar trabalhos em execução em um cluster HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/02/2019
-ms.openlocfilehash: c2ddcd8ea3524b4afdfa7f70d21f0cba96975f72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9213f36ec33939c3df3b56d21822aa3b6a17c03
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085354"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945609"
 ---
 # <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Consulta logs do Azure Monitor para monitorar clusters do HDInsight
 
@@ -34,7 +31,7 @@ Saiba como procurar métricas específicas para seu cluster HDInsight.
 
 1. Abra o espaço de trabalho do Log Analytics que está associado ao seu cluster HDInsight do portal do Azure.
 1. Em **Geral**, selecione **Logs**.
-1. Digite a consulta a seguir na caixa de pesquisa para procurar todas as métricas de todas as métricas disponíveis para todos os clusters HDInsight configurados para usar logs de Azure Monitor e, em seguida, selecione **executar**. Revise os resultados.
+1. Digite a consulta a seguir na caixa de pesquisa para procurar todas as métricas de todas as métricas disponíveis para todos os clusters HDInsight configurados para usar logs de Azure Monitor e, em seguida, selecione **executar**. Examine os resultados.
 
     ```kusto
     search *
@@ -127,7 +124,7 @@ A primeira etapa para criar um alerta é chegar a uma consulta com base na qual 
 
 Para obter mais informações, confira [Criar, exibir e gerenciar alertas de métrica usando o Azure Monitor](../azure-monitor/platform/alerts-metric.md).
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [Introdução às consultas de log no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 * [Criar exibições personalizadas usando o designer de exibição no Azure Monitor](../azure-monitor/platform/view-designer.md)

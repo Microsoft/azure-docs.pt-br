@@ -1,14 +1,14 @@
 ---
 title: Controles da amostra de blueprint do UK OFFICIAL e do UK NHS
 description: Mapeamento de controle das amostras de blueprint do UK OFFICIAL e do UK NHS. Cada controle é mapeado para uma ou mais definições do Azure Policy que auxiliam na avaliação.
-ms.date: 07/13/2020
+ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: b798ac98e057b85cce0faa835575dbb0d50f9c8c
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: bf10bcf7064306094664c1ff560187ef77645d4d
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931265"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627559"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Mapeamento de controle das amostras de blueprint do UK OFFICIAL e do UK NHS
 
@@ -26,7 +26,6 @@ O blueprint ajuda você a garantir que a transferência de informações com os 
 - Apenas conexões seguras com o Cache Redis devem ser habilitadas
 - A transferência segura para contas de armazenamento deve ser habilitada
 - Mostrar os resultados da auditoria dos servidores Web do Windows que não estão usando protocolos de comunicação segura
-- Implantar pré-requisitos para auditar os servidores Web do Windows que não estão usando protocolos de comunicação segura
 - Aplicativo Web deve ser acessível somente por HTTPS
 - O aplicativo de funções deve ser acessível apenas por HTTPS
 - O aplicativo de API só deve estar acessível via HTTPS
@@ -55,19 +54,19 @@ Esse blueprint ajuda você a gerenciar as vulnerabilidades do sistema de informa
 - As vulnerabilidades nos bancos de dados SQL devem ser corrigidas
 - As vulnerabilidades devem ser corrigidas por uma solução de Avaliação de Vulnerabilidades
 - A avaliação da vulnerabilidade deve ser habilitada nos servidores SQL
-- A avaliação de vulnerabilidades deve ser habilitada nas instâncias gerenciadas do SQL
+- A avaliação de vulnerabilidades deverá ser habilitada na instância gerenciada de SQL
 - As vulnerabilidades da configuração de segurança nos conjuntos de dimensionamento de máquinas virtuais devem ser corrigidas
-- A Segurança de Dados Avançada deve ser habilitada nas instâncias gerenciadas do SQL
+- A segurança de dados avançada deverá ser habilitada na instância gerenciada de SQL
 - A Segurança de Dados Avançada deve ser habilitada nos servidores SQL
 
 ## <a name="53-protective-monitoring"></a>5.3 Monitoramento de proteção
 
 Este blueprint ajuda a proteger os ativos do sistema de informações atribuindo definições do [Azure Policy](../../../policy/overview.md) que fornecem monitoramento de proteção de acesso irrestrito, atividade de lista de permissões e ameaças.
 
-- Auditar o acesso irrestrito à rede para contas de armazenamento
-- Os controles de aplicativos adaptáveis devem ser habilitados em máquinas virtuais
+- As contas de armazenamento devem restringir o acesso da rede
+- Os Controles de Aplicativos Adaptáveis para definir aplicativos seguros deverão estar habilitados em seus computadores
 - Auditar máquinas virtuais sem a recuperação de desastre configurada
-- A Proteção contra DDoS Standard deve ser habilitada
+- A Proteção contra DDoS do Azure Standard deve estar habilitada
 - Os tipos de Proteção Avançada contra Ameaças devem estar definidos como “Todos” nas configurações de Segurança de Dados Avançada da instância gerenciada de SQL
 - Os tipos de Proteção Avançada contra Ameaças devem estar definidos como “Todos” nas configurações de Segurança de Dados Avançada do SQL Server
 - Implantar a Detecção de Ameaças em servidores SQL
@@ -115,11 +114,6 @@ Esse blueprint também atribui uma definição do Azure Policy que audita as per
 
 Esse blueprint ajuda você a impor senhas fortes por meio da atribuição de definições do Azure Policy que auditam VMs do Windows que não impõem a força mínima e outros requisitos de senha. O reconhecimento de VMs que estejam violando a política de força da senha ajuda você a tomar ações corretivas para garantir que as senhas de todas as contas de usuário da VM estejam em conformidade com a política.
 
-- Implantar pré-requisitos para auditar as VMs do Windows que não têm a configuração de complexidade de senha habilitada
-- Implantar pré-requisitos para auditar as VMs do Windows que não têm uma duração máxima da senha de 70 dias
-- Implantar pré-requisitos para auditar as VMs do Windows que não têm uma duração mínima da senha de 1 dia
-- Implantar pré-requisitos para auditar as VMs do Windows que não restringem o tamanho mínimo da senha a 14 caracteres
-- Implantar pré-requisitos para auditar as VMs do Windows que permitem reutilizar as 24 senhas anteriores
 - Mostrar os resultados da auditoria das VMs do Windows que não têm a configuração de complexidade de senha habilitada
 - Mostrar os resultados da auditoria das VMs do Windows que não têm uma duração máxima da senha de 70 dias
 - Mostrar os resultados da auditoria das VMs do Windows que não têm uma duração mínima da senha de 1 dia
@@ -128,8 +122,6 @@ Esse blueprint ajuda você a impor senhas fortes por meio da atribuição de def
 
 Esse blueprint também ajuda você a controlar o acesso aos recursos do Azure por meio da atribuição de definições do Azure Policy. Essas políticas auditam o uso de tipos de recursos e configurações que podem permitir um acesso mais permissivo aos recursos. Entender os recursos que estão violando essas políticas pode ajudar você a tomar ações corretivas para garantir que o acesso aos recursos do Azure seja restrito a usuários autorizados.
 
-- Implantar requisitos para auditar as VMs do Linux que têm contas sem senhas
-- Implantar requisitos para auditar as VMs do Linux que permitem conexões remotas em contas sem senhas
 - Mostrar os resultados da auditoria das VMs do Linux que têm contas sem senhas
 - Mostrar os resultados da auditoria das VMs do Linux que permitem conexões remotas em contas sem senhas
 - As contas de armazenamento devem ser migradas para os novos recursos do Azure Resource Manager
@@ -141,15 +133,15 @@ Esse blueprint também ajuda você a controlar o acesso aos recursos do Azure po
 Além de usar mais de 25 políticas para o gerenciamento seguro de usuários apropriado, este blueprint ajuda a proteger interfaces de serviço contra acesso não autorizado atribuindo uma definição do [Azure Policy](../../../policy/overview.md) que monitora contas de armazenamento irrestritas.
 As contas de armazenamento com acesso irrestrito podem permitir o acesso inadvertido a informações contidas no sistema de informações. Esse blueprint também atribui uma política que habilita controles de aplicativo adaptáveis em máquinas virtuais.
 
-- Auditar o acesso irrestrito à rede para contas de armazenamento
-- Os controles de aplicativos adaptáveis devem ser habilitados em máquinas virtuais
+- As contas de armazenamento devem restringir o acesso da rede
+- Os Controles de Aplicativos Adaptáveis para definir aplicativos seguros deverão estar habilitados em seus computadores
 - O acesso pelo ponto de extremidade para a Internet deve ser restrito
 - As recomendações da Proteção de Rede Adaptável devem ser aplicadas nas máquinas virtuais para a Internet
 - A solução de proteção de ponto de extremidade deve ser instalada nos conjuntos de dimensionamento de máquinas virtuais
-- O controle de acesso à rede just-in-time deve ser aplicado em máquinas virtuais
-- A depuração remota deve ser desativada para o aplicativo de funções
-- Depuração remota deve ser desativada para o aplicativo da Web
-- A depuração remota deve ser desligada para o aplicativo de API
+- As portas de gerenciamento de máquinas virtuais devem ser protegidas com o controle de acesso à rede Just-In-Time
+- A depuração remota deve ser desativada para o aplicativos de funções
+- A depuração remota deve ser desativada para aplicativos Web
+- A depuração remota deve ser desligada para aplicativos de API
 
 ## <a name="13-audit-information-for-users"></a>13 Informações de auditoria para usuários
 
@@ -161,6 +153,7 @@ Uma política atribuída também audita se as máquinas virtuais não estão env
 - \[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Linux
 - \[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Windows
 - Implantar o observador de rede quando redes virtuais são criadas
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

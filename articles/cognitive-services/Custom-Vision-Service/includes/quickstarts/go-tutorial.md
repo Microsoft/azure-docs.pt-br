@@ -3,12 +3,12 @@ author: areddish
 ms.author: areddish
 ms.service: cognitive-services
 ms.date: 09/15/2020
-ms.openlocfilehash: 481c0d85420ab2cc57f5636ed1862a525ace553b
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 49b920ede2b0af306af00875a3368cffd853f89b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604930"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948593"
 ---
 Este artigo fornece informações e um código de exemplo para ajudar você a começar a usar a biblioteca de clientes da Visão Personalizada para Go, a fim de criar um modelo de classificação de imagem. Você criará um projeto, adicionará marcas, treinará o projeto e usará a URL do ponto de extremidade de previsão do projeto para testá-lo programaticamente. Use este exemplo como um modelo para criar o próprio aplicativo de reconhecimento de imagem.
 
@@ -45,7 +45,7 @@ Crie um arquivo chamado *sample.go* no diretório de seu projeto de preferência
 
 Adicione o código a seguir ao seu script para criar um novo projeto do Serviço de Visão Personalizada. Insira as chaves de assinatura nas definições pertinentes. Além disso, obtenha sua URL de Ponto de Extremidade no painel Configurações do site da Visão Personalizada.
 
-Confira o método [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) para especificar outras opções ao criar seu projeto (explicado no guia do portal da Web [Criar um classificador](../../getting-started-build-a-classifier.md)).
+Confira o método [CreateProject](/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) para especificar outras opções ao criar seu projeto (explicado no guia do portal da Web [Criar um classificador](../../getting-started-build-a-classifier.md)).
 
 ```go
 import(
@@ -189,6 +189,8 @@ Done!
 
 Em seguida, você pode verificar se a imagem de teste (encontrada em **<url_imagem_base>/Images/Test/**) foi marcada apropriadamente. Você pode também voltar para o [site da Visão Personalizada](https://customvision.ai) e ver o estado atual do projeto recém-criado.
 
+## <a name="clean-up-resources"></a>Limpar os recursos
+
 [!INCLUDE [clean-ic-project](../../includes/clean-ic-project.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -198,6 +200,6 @@ Agora você viu como cada etapa do processo de detecção de objetos pode ser ex
 > [!div class="nextstepaction"]
 > [Testar e readaptar um modelo](../../test-your-model.md)
 
-* O que é Visão Personalizada?
+* [O que é Visão Personalizada?](../../overview.md)
 * [Documentação de referência do SDK (treinamento)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training)
 * [Documentação de referência do SDK (previsão)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction)

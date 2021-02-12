@@ -4,19 +4,18 @@ ms.service: storage
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: tamram
-ms.openlocfilehash: ede5e2587f1f4d99193e621965b68f75fbad27f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02e8d956fd1ce01d1449fbe3de32ae03e981240e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67171820"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96007011"
 ---
 Agora que você aprendeu os conceitos básicos do Armazenamento de Blobs do Azure, siga estes links para saber mais sobre tarefas de armazenamento mais complexas.
 
-* Exiba a documentação de referência do serviço Blob na referência [Biblioteca de Clientes do Armazenamento do Azure para .NET](https://go.microsoft.com/fwlink/?LinkID=390731) para obter detalhes completos sobre as APIs disponíveis.
+* Exiba a documentação de referência do serviço Blob na referência [Biblioteca de Clientes do Armazenamento do Azure para .NET](/dotnet/api/overview/azure/storage) para obter detalhes completos sobre as APIs disponíveis.
 * Para saber como simplificar o código que você escreve para trabalhar com o Armazenamento do Azure, confira [O que é o SDK do Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki)
 * Consulte outros guias de recursos para obter informações sobre opções adicionais para armazenar dados no Azure.
-  * Para trabalhar com Tabelas de Armazenamento do Azure, consulte a [Introdução ao Armazenamento de Tabelas do Azure usando o .NET](../articles/cosmos-db/table-storage-how-to-use-dotnet.md).
+  * Para trabalhar com Tabelas de Armazenamento do Azure, consulte a [Introdução ao Armazenamento de Tabelas do Azure usando o .NET](../articles/cosmos-db/tutorial-develop-table-dotnet.md).
   * Para trabalhar com Filas de Armazenamento do Azure, veja a [Introdução ao Armazenamento de Filas do Azure usando o .NET](../articles/storage/queues/storage-dotnet-how-to-use-queues.md).
-  * Para armazenar dados relacionais, consulte [Conectar-se ao Banco de Dados SQL usando .NET (C#)](../articles/sql-database/sql-database-develop-dotnet-simple.md).
-
+  * Para armazenar dados relacionais, consulte [Conectar-se ao Banco de Dados SQL usando .NET (C#)](../articles/azure-sql/database/connect-query-dotnet-visual-studio.md).

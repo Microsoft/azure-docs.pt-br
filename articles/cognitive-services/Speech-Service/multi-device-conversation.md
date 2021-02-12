@@ -1,7 +1,7 @@
 ---
 title: Conversa de vários dispositivos (visualização)-serviço de fala
 titleSuffix: Azure Cognitive Services
-description: ''
+description: A conversa de vários dispositivos facilita a criação de uma conversa de fala ou de texto entre vários clientes e coordena as mensagens que são enviadas entre elas.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 15b69e664ae9a01635afb44d7b6b7c24d7551ce9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b38bc390b28788003c2de757f45e8ecdfd5c89a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87921411"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932417"
 ---
 # <a name="what-is-multi-device-conversation-preview"></a>O que é conversa com vários dispositivos (versão prévia)?
 
@@ -37,7 +37,7 @@ Enquanto a [**transcrição de conversa**](conversation-transcription.md) funcio
 ## <a name="key-features"></a>Principais recursos
 
 - **Transcrição em tempo real** – todos receberão uma transcrição da conversa, para que possam acompanhar o texto em tempo real ou salvá-lo para mais tarde.
-- **Conversão em tempo real** – com mais de 60 [idiomas com suporte](language-support.md#text-languages) para tradução de texto, os usuários podem traduzir a conversa para suas linguagens preferenciais.
+- **Conversão em tempo real** – com mais de 70 [idiomas com suporte](language-support.md#text-languages) para tradução de texto, os usuários podem traduzir a conversa para suas linguagens preferenciais.
 - **Transcrições legíveis** – a transcrição e a tradução são fáceis de acompanhar, com quebras de frase e pontuação.
 - **Entrada de voz ou de texto** – cada usuário pode falar ou digitar em seu próprio dispositivo, dependendo dos recursos de suporte de idioma habilitados para o idioma escolhido do participante. Consulte o [suporte ao idioma](language-support.md#speech-to-text).
 - **Retransmissão de mensagens** – o serviço de conversa de vários dispositivos distribuirá mensagens enviadas por um cliente para todos os outros, nos idiomas de sua escolha.
@@ -59,9 +59,6 @@ A transcrição e a tradução em tempo real podem ajudar a tornar as conversas 
 
 Você também pode fornecer legendas para apresentações e palestras na tela e nos próprios dispositivos dos membros do público. Depois que o público ingressa no código de conversa, ele pode ver a transcrição em seu idioma preferencial, em seu próprio dispositivo.
 
-> [!NOTE]
-> Para ver um exemplo, confira o [conversor de apresentação](https://www.microsoft.com/translator/apps/presentation-translator/), um suplemento do PowerPoint que usa o serviço de conversa de vários dispositivos. Você pode baixá-lo [aqui](https://download.cnet.com/s/powerpoint-add-in/).
-
 ## <a name="how-it-works"></a>Como ele funciona
 
 Todos os clientes usarão o SDK de fala para criar ou ingressar em uma conversa. O SDK de fala interage com o serviço de conversa de vários dispositivos, que gerencia o tempo de vida de uma conversa, incluindo a lista de participantes, as linguagens escolhidas por cada cliente e as mensagens enviadas.  
@@ -72,7 +69,7 @@ Cada cliente pode enviar áudio ou mensagens instantâneas. O serviço usará o 
 
 ## <a name="overview-of-conversation-host-and-participant"></a>Visão geral da conversa, do host e do participante
 
-Uma **conversa** é uma sessão que um usuário inicia para os outros usuários participantes ingressarem. Todos os clientes se conectam à conversa usando o **código de conversa**de cinco letras.
+Uma **conversa** é uma sessão que um usuário inicia para os outros usuários participantes ingressarem. Todos os clientes se conectam à conversa usando o **código de conversa** de cinco letras.
 
 Cada conversa cria metadados que incluem:
 -    Carimbos de data/hora de quando a conversa foi iniciada e encerrada
@@ -105,7 +102,7 @@ Ao criar ou ingressar em uma conversa, cada usuário deve escolher um **idioma p
 Há dois tipos de idiomas: somente de **fala a texto** e **texto**:
 - Se o usuário escolher uma linguagem de **fala para texto** como seu idioma principal, ele poderá usar a fala e a entrada de texto na conversa.
 
-- Se o usuário escolher uma linguagem **somente texto** , será possível usar apenas a entrada de texto e enviar mensagens instantâneas na conversa. As linguagens somente texto são os idiomas com suporte para tradução de texto, mas não de conversão de fala em texto. Você pode ver os idiomas disponíveis na página de [suporte ao idioma](supported-languages.md) .
+- Se o usuário escolher uma linguagem **somente texto** , será possível usar apenas a entrada de texto e enviar mensagens instantâneas na conversa. As linguagens somente texto são os idiomas com suporte para tradução de texto, mas não de conversão de fala em texto. Você pode ver os idiomas disponíveis na página de [suporte ao idioma](./language-support.md) .
 
 Além do idioma principal, cada participante também pode especificar idiomas adicionais para a tradução da conversa.
 
@@ -119,7 +116,7 @@ Abaixo está um resumo do que o usuário poderá fazer em uma conversa com vári
 | Traduza a conversa | ✔️ | ✔️ |
 
 > [!NOTE]
-> Para obter listas de idiomas de conversão de fala em texto e de texto disponíveis, consulte [idiomas com suporte](supported-languages.md).
+> Para obter listas de idiomas de conversão de fala em texto e de texto disponíveis, consulte [idiomas com suporte](./language-support.md).
 
 
 

@@ -6,13 +6,13 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/16/2020
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c64e01253652ea3b49ad6221f161bb78f499b6ed
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: f9ced3dfeccdbac5f0eb220cf0e104679f263aac
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150531"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186857"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluções de monitoramento no Azure Monitor
 
@@ -20,7 +20,7 @@ As soluções de monitoramento no Azure Monitor fornecem análise da operação 
 
 ## <a name="use-monitoring-solutions"></a>Usar soluções de monitoramento
 
-A página **visão geral** de soluções no Azure Monitor exibe um bloco para cada solução instalada em um espaço de trabalho log Analytics. Para abrir essa página, vá para **Azure monitor** na [portal do Azure](https://ms.portal.azure.com). No menu **insights** , selecione **mais** para abrir o **Hub de informações**e, em seguida, clique em **log Analytics espaços de trabalho**.
+A página **visão geral** de soluções no Azure Monitor exibe um bloco para cada solução instalada em um espaço de trabalho log Analytics. Para abrir essa página, vá para **Azure monitor** na [portal do Azure](https://ms.portal.azure.com). No menu **insights** , selecione **mais** para abrir o **Hub de informações** e, em seguida, clique em **log Analytics espaços de trabalho**.
 
 [![Hub de informações](media/solutions/insights-hub.png)](media/solutions/insights-hub.png#lightbox)
 
@@ -29,7 +29,7 @@ Use as caixas suspensas na parte superior da tela para alterar o workspace ou o 
 
 [![Captura de tela mostra o menu portal do Azure com soluções selecionadas e soluções exibidas no painel soluções.](media/solutions/overview.png)](media/solutions/overview.png#lightbox)
 
-As soluções de monitoramento podem conter vários tipos de recursos do Azure e é possível exibir todos os recursos incluídos em uma solução como qualquer outro recurso. Por exemplo, todas as consultas de log incluídas na solução estão listadas em **Consultas de Solução** no [Gerenciador de consultas](../log-query/get-started-portal.md#load-queries) e é possível usar essas consultas ao executar análises ad hoc com [consultas de log](../log-query/log-query-overview.md).
+As soluções de monitoramento podem conter vários tipos de recursos do Azure e é possível exibir todos os recursos incluídos em uma solução como qualquer outro recurso. Por exemplo, todas as consultas de log incluídas na solução são listadas em **consultas de solução** no [Gerenciador de consultas](../log-query/log-analytics-tutorial.md). Você pode usar essas consultas ao executar análises ad hoc com [consultas de log](../log-query/log-query-overview.md).
 
 ## <a name="list-installed-monitoring-solutions"></a>Listar soluções de monitoramento instaladas
 
@@ -111,11 +111,11 @@ Os membros da comunidade podem enviar soluções de gerenciamento para Modelos d
 
 1. Instalar a CLI do Azure
 
-   Você precisa [instalar o CLI do Azure](/cli/azure/install-azure-cli) antes de executar comandos de referência da CLI.  Se preferir, você também pode usar Azure Cloud Shell para concluir as etapas neste artigo.  Azure Cloud Shell é um ambiente de shell interativo que você usa por meio de seu navegador.  Inicie Cloud Shell usando um destes métodos:
+   Você precisa [instalar o CLI do Azure](/cli/azure/install-azure-cli) antes de executar comandos de referência da CLI.  Se preferir, você também pode usar Azure Cloud Shell para concluir as etapas neste artigo.  O Azure Cloud Shell é um ambiente de shell interativo usado por meio do navegador.  Inicie o Cloud Shell usando um destes métodos:
 
-   - Abra Cloud Shell acessando [https://shell.azure.com](https://shell.azure.com)
+   - Abra o Cloud Shell acessando [https://shell.azure.com](https://shell.azure.com)
 
-   - Selecione o botão **Cloud Shell** na barra de menus no canto superior direito da [portal do Azure](https://portal.azure.com)
+   - Selecione o botão **Cloud Shell** na barra de menus, no canto superior direito do [portal do Azure](https://portal.azure.com)
 
 1. Entrar.
 
@@ -173,14 +173,14 @@ az monitor log-analytics solution create --resource-group MyResourceGroup \
 
 1. Instalar o Azure PowerShell
 
-   Você precisa [instalar o Azure PowerShell](/powershell/azure/install-az-ps) antes de executar Azure PowerShell comandos de referência. Se preferir, você também pode usar Azure Cloud Shell para concluir as etapas neste artigo. Azure Cloud Shell é um ambiente de shell interativo que você usa por meio de seu navegador. Inicie Cloud Shell usando um destes métodos:
+   Você precisa [instalar o Azure PowerShell](/powershell/azure/install-az-ps) antes de executar Azure PowerShell comandos de referência. Se preferir, você também pode usar Azure Cloud Shell para concluir as etapas neste artigo. O Azure Cloud Shell é um ambiente de shell interativo usado por meio do navegador. Inicie o Cloud Shell usando um destes métodos:
 
-   - Abra Cloud Shell acessando [https://shell.azure.com](https://shell.azure.com)
+   - Abra o Cloud Shell acessando [https://shell.azure.com](https://shell.azure.com)
 
-   - Selecione o botão **Cloud Shell** na barra de menus no canto superior direito da [portal do Azure](https://portal.azure.com)
+   - Selecione o botão **Cloud Shell** na barra de menus, no canto superior direito do [portal do Azure](https://portal.azure.com)
 
    > [!IMPORTANT]
-   > Enquanto o módulo **AZ. MonitoringSolutions** do PowerShell está em versão prévia, você deve instalá-lo separadamente usando o `Install-Module` cmdlet. Depois que esse módulo do PowerShell estiver disponível para o público geral, ele fará parte das versões futuras do módulo do PowerShell AZ e estará disponível por padrão em Azure Cloud Shell.
+   > Enquanto o módulo **AZ. MonitoringSolutions** do PowerShell está em versão prévia, você deve instalá-lo separadamente usando o `Install-Module` cmdlet. Depois que esse módulo do PowerShell estiver em disponibilidade geral, ele fará parte das versões futuras do módulo Az PowerShell e estará disponível por padrão no Azure Cloud Shell.
 
    ```azurepowershell-interactive
    Install-Module -Name Az.MonitoringSolutions

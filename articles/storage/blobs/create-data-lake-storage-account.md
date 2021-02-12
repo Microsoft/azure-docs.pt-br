@@ -8,12 +8,12 @@ ms.date: 08/31/2020
 ms.service: storage
 ms.reviewer: stewu
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 6b63933fc625079bb490942cf3a32232a484fe38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 712f1dc0679ee49791831e782fb68c39a757870a
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269995"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624330"
 ---
 # <a name="create-a-storage-account-to-use-with-azure-data-lake-storage-gen2"></a>Criar uma conta de armazenamento para usar com Azure Data Lake Storage Gen2
 
@@ -40,6 +40,9 @@ A imagem a seguir mostra essa configuração na página **criar conta de armazen
 > ![Configuração de namespace hierárquico](./media/create-data-lake-storage-account/hierarchical-namespace-feature.png)
 
 Se você tiver uma conta de armazenamento existente que deseja usar com Data Lake Storage e a configuração de namespace hierárquico estiver desabilitada, você deverá migrar os dados para uma nova conta de armazenamento que tenha a configuração habilitada.
+
+> [!NOTE]
+> A **proteção de dados** e o **namespace hierárquico** não podem ser habilitados simultaneamente.
 
 ## <a name="next-steps"></a>Próximas etapas
 

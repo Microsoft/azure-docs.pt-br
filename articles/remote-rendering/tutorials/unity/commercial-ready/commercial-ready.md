@@ -5,12 +5,12 @@ author: FlorianBorn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 0ff6d064b6bfabbd8a648c23b5648aae9b12a11d
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 7258b37c9d92f25227eac678dde77963e644e64b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207488"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483310"
 ---
 # <a name="tutorial-creating-a-commercial-ready-azure-remote-rendering-application"></a>Tutorial: Criar um aplicativo Azure Remote Rendering pronto para o comércio
 
@@ -54,7 +54,7 @@ Para conseguir isso, o Azure oferece um serviço chamado marcação de recursos,
 
 Para obter mais informações sobre a nomenclatura e a marcação de recursos, um bom lugar para começar é:
 
-* [Guia de decisão sobre nomenclatura e marcação de recursos](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%252fazure%252fazure-resource-manager%252fmanagement%252ftoc.json)
+* [Guia de decisão sobre nomenclatura e marcação de recursos](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 ### <a name="diagnostics"></a>Diagnósticos
 
@@ -255,7 +255,7 @@ Muitos clientes empresariais determinam que o Azure Stack pode ser implantado na
 Para mais informações:
 
 * [Azure Marketplace](https://azure.microsoft.com/marketplace/)
-* [Tutorial: Publicar Aplicativos Gerenciados do Azure no Marketplace](../../../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)
+* [Tutorial: Publicar Aplicativos Gerenciados do Azure no Marketplace](../../../../marketplace/create-new-azure-apps-offer.md)
 
 ### <a name="security"></a>Segurança
 

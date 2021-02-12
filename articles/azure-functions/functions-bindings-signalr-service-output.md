@@ -6,12 +6,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 02/20/2020
 ms.author: cshoe
-ms.openlocfilehash: 7fa49583c17c198642d4ad6d72a0faa19dcfe659
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 159df4c228f74bb605c745e899d99bfff2aa511b
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323321"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763278"
 ---
 # <a name="signalr-service-output-binding-for-azure-functions"></a>Associação de saída do serviço signalr para Azure Functions
 
@@ -116,7 +116,7 @@ function.json de exemplo:
 ```json
 {
   "type": "signalR",
-  "name": "out_message",
+  "name": "outMessage",
   "hubName": "<hub_name>",
   "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
   "direction": "out"
@@ -126,9 +126,9 @@ function.json de exemplo:
 Aqui está o código Python:
 
 ```python
-def main(req: func.HttpRequest, out_message: func.Out[str]) -> func.HttpResponse:
+def main(req: func.HttpRequest, outMessage: func.Out[str]) -> func.HttpResponse:
     message = req.get_json()
-    out_message.set(json.dumps({
+    outMessage.set(json.dumps({
         'target': 'newMessage',
         'arguments': [ message ]
     }))
@@ -248,7 +248,7 @@ function.json de exemplo:
 ```json
 {
   "type": "signalR",
-  "name": "out_message",
+  "name": "outMessage",
   "hubName": "<hub_name>",
   "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
   "direction": "out"
@@ -258,9 +258,9 @@ function.json de exemplo:
 Aqui está o código Python:
 
 ```python
-def main(req: func.HttpRequest, out_message: func.Out[str]) -> func.HttpResponse:
+def main(req: func.HttpRequest, outMessage: func.Out[str]) -> func.HttpResponse:
     message = req.get_json()
-    out_message.set(json.dumps({
+    outMessage.set(json.dumps({
         #message will only be sent to this user ID
         'userId': 'userId1',
         'target': 'newMessage',
@@ -383,7 +383,7 @@ function.json de exemplo:
 ```json
 {
   "type": "signalR",
-  "name": "out_message",
+  "name": "outMessage",
   "hubName": "<hub_name>",
   "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
   "direction": "out"
@@ -393,9 +393,9 @@ function.json de exemplo:
 Aqui está o código Python:
 
 ```python
-def main(req: func.HttpRequest, out_message: func.Out[str]) -> func.HttpResponse:
+def main(req: func.HttpRequest, outMessage: func.Out[str]) -> func.HttpResponse:
     message = req.get_json()
-    out_message.set(json.dumps({
+    outMessage.set(json.dumps({
         #message will only be sent to this group
         'groupName': 'myGroup',
         'target': 'newMessage',
@@ -734,7 +734,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |**direction**| n/d | Deve ser definido como `in`.|
 |**name**| n/d | Nome da variável usada no código de função para o objeto de informações de conexão. |
 |**hubName**|**HubName**| Esse valor deve ser definido como o nome do hub SignalR para o qual as informações de conexão são geradas.|
-|**ID**|**ID**| Opcional: o valor da declaração do identificador de usuário a ser definida no token de chave de acesso. |
+|**ID**|**UserId**| Opcional: o valor da declaração do identificador de usuário a ser definida no token de chave de acesso. |
 |**connectionStringSetting**|**ConnectionStringSetting**| O nome da configuração do aplicativo que contém a cadeia de conexão do SignalR Service (o padrão é "AzureSignalRConnectionString") |
 
 ### <a name="signalr"></a>SignalR
@@ -753,4 +753,5 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 ## <a name="next-steps"></a>Próximas etapas
 
+- [Manipular mensagens do serviço de sinalização (Associação de gatilho)](./functions-bindings-signalr-service-trigger.md)
 - [Retornar a URL do ponto de extremidade de serviço e o token de acesso (Associação de entrada)](./functions-bindings-signalr-service-input.md)

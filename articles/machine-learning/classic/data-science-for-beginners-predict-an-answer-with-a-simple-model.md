@@ -9,12 +9,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: 1cfe617ab424fbb29e2866cd98d4b8c390f306c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c02abf095beefdd131a5835d015175d56a63de47
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91341020"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322818"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prever uma resposta com um modelo simples
 
@@ -88,7 +88,7 @@ Desenhando uma linha, criamos um *modelo*. Pense nisso como pegar o mundo real e
 
 O fato de que todos os pontos não passam exatamente pela linha não tem qualquer problema. Cientistas de dados explicam isso dizendo que há o modelo (essa é a linha) e cada ponto tem algum *ruído* ou *variação* associado a ele. Há a relação perfeita subjacente, e há o mundo real que adiciona ruído e incerteza.
 
-Como estamos tentando responder à pergunta *quanto custa?*, isso é chamado de *regressão*. E, como estamos usando uma linha reta, é uma *regressão linear*.
+Como estamos tentando responder à pergunta *quanto custa?* , isso é chamado de *regressão*. E, como estamos usando uma linha reta, é uma *regressão linear*.
 
 ## <a name="use-the-model-to-find-the-answer"></a>Usar o modelo para encontrar a resposta
 Agora, temos um modelo e fazemos a nossa pergunta: quanto custará um diamante de 1,35 quilate?
@@ -98,7 +98,7 @@ Para responder à nossa pergunta, nós identificamos visualmente o 1,35 quilate 
 ![Encontrar a resposta no modelo](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
 ## <a name="create-a-confidence-interval"></a>Criar um intervalo de confiança
-É natural se preocupar com a precisão dessa previsão. É muito útil saber se o preço do diamante de 1,35 quilate será muito próximo de $10.000, mais barato ou mais caro. Para descobrir isso, vamos desenhar um envelope ao redor da linha de regressão que inclua a maioria dos pontos. Esse envelope é chamado de nosso *intervalo de confiança*: estamos bem confiantes de que os preços se enquadram nesse envelope, pois, no passado, a maioria deles se enquadrou. Podemos desenhar outras duas linhas horizontais a partir das quais a linha de 1,35 quilate cruza a parte superior e inferior do envelope.
+É natural se preocupar com a precisão dessa previsão. É muito útil saber se o preço do diamante de 1,35 quilate será muito próximo de $10.000, mais barato ou mais caro. Para descobrir isso, vamos desenhar um envelope ao redor da linha de regressão que inclua a maioria dos pontos. Esse envelope é chamado de nosso *intervalo de confiança* : estamos bem confiantes de que os preços se enquadram nesse envelope, pois, no passado, a maioria deles se enquadrou. Podemos desenhar outras duas linhas horizontais a partir das quais a linha de 1,35 quilate cruza a parte superior e inferior do envelope.
 
 ![intervalo de confiança](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 
@@ -109,7 +109,7 @@ Fizemos o que os cientistas de dados são pagos para fazer, e fizemos isso apena
 
 * Fizemos uma pergunta que pudemos responder com dados
 * Criamos um *modelo* usando a *regressão linear*
-* Fizemos uma *previsão*, completa com um *intervalo de confiança*
+* Fizemos uma *previsão* , completa com um *intervalo de confiança*
 
 E não usamos matemática ou computadores para isso.
 
@@ -129,4 +129,4 @@ Certifique-se de conferir os outros vídeos em "ciência de dados para iniciante
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Experimente um primeiro experimento de ciência de dados com Machine Learning Studio (clássico)](create-experiment.md)
-* [Obtenha uma introdução ao Machine Learning no Microsoft Azure](/azure/machine-learning/overview-what-is-azure-ml)
+* [Obtenha uma introdução ao Machine Learning no Microsoft Azure](../overview-what-is-azure-ml.md)

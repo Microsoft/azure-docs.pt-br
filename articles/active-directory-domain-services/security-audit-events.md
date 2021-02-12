@@ -2,7 +2,7 @@
 title: Habilitar auditorias de segurança para Azure AD Domain Services | Microsoft Docs
 description: Saiba como habilitar auditorias de segurança para centralizar o log de eventos para análise e alertas no Azure AD Domain Services
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 662362c3-1a5e-4e94-ae09-8e4254443697
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: b9656b62e2c689d0993fb16c1f1d66b14d3430c6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 13bdc8797af8facaa73d3e43ecfbe504a6bd1dc2
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967725"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618868"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Habilitar auditorias de segurança para Azure Active Directory Domain Services
 
@@ -39,7 +39,7 @@ A tabela a seguir descreve os cenários para cada tipo de recurso de destino.
 | Recurso de destino | Cenário |
 |:---|:---|
 |Armazenamento do Azure| Esse destino deve ser usado quando a principal necessidade é armazenar eventos de auditoria de segurança para fins de arquivamento. Outros destinos podem ser usados para fins de arquivamento, no entanto, esses destinos fornecem recursos além da principal necessidade de arquivamento. <br /><br />Antes de habilitar os eventos de auditoria de segurança do Azure AD DS, primeiro [crie uma conta de armazenamento do Azure](../storage/common/storage-account-create.md).|
-|Hubs de eventos do Azure| Esse destino deve ser usado quando a principal necessidade é compartilhar eventos de auditoria de segurança com software adicional, como software de análise de dados ou informações de segurança & software de gerenciamento de eventos (SIEM).<br /><br />Antes de habilitar os eventos de auditoria de segurança do Azure AD DS, [crie um hub de eventos usando portal do Azure](../event-hubs/event-hubs-create.md)|
+|Hubs de Eventos do Azure| Esse destino deve ser usado quando a principal necessidade é compartilhar eventos de auditoria de segurança com software adicional, como software de análise de dados ou informações de segurança & software de gerenciamento de eventos (SIEM).<br /><br />Antes de habilitar os eventos de auditoria de segurança do Azure AD DS, [crie um hub de eventos usando portal do Azure](../event-hubs/event-hubs-create.md)|
 |Espaço de trabalho Log Analytics do Azure| Esse destino deve ser usado quando a principal necessidade é analisar e revisar as auditorias seguras do portal do Azure diretamente.<br /><br />Antes de habilitar os eventos de auditoria de segurança do Azure AD DS, [crie um espaço de trabalho log Analytics no portal do Azure.](../azure-monitor/learn/quick-create-workspace.md)|
 
 ## <a name="enable-security-audit-events-using-the-azure-portal"></a>Habilitar eventos de auditoria de segurança usando o portal do Azure
@@ -63,11 +63,11 @@ Para habilitar os eventos de auditoria de segurança do Azure AD DS usando o por
     ![Habilitar o destino necessário e o tipo de eventos de auditoria a serem capturados](./media/security-audit-events/diagnostic-settings-page.png)
 
     * **Armazenamento do Azure**
-        * Selecione **arquivar em uma conta de armazenamento**e, em seguida, escolha **Configurar**.
+        * Selecione **arquivar em uma conta de armazenamento** e, em seguida, escolha **Configurar**.
         * Selecione a **assinatura** e a **conta de armazenamento** que você deseja usar para arquivar eventos de auditoria de segurança.
         * Quando estiver pronto, escolha **OK**.
     * **Hubs de eventos do Azure**
-        * Selecione **fluxo para um hub de eventos**e escolha **Configurar**.
+        * Selecione **fluxo para um hub de eventos** e escolha **Configurar**.
         * Selecione a **assinatura** e o **namespace do hub de eventos**. Se necessário, escolha também um **nome de Hub de eventos** e, em seguida, **nome da política do hub de eventos**.
         * Quando estiver pronto, escolha **OK**.
     * **Espaços de trabalho de análise de logs do Azure**
@@ -95,7 +95,7 @@ Para habilitar os eventos de auditoria de segurança do Azure AD DS usando o Azu
 1. Crie o recurso de destino para os eventos de auditoria de segurança.
 
     * **Armazenamento**  -  do Azure [Criar uma conta de armazenamento usando Azure PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell)
-    * Hubs de eventos **do Azure**  -  [Crie um hub de eventos usando Azure PowerShell](../event-hubs/event-hubs-quickstart-powershell.md). Talvez você também precise usar o cmdlet [New-AzEventHubAuthorizationRule](/powershell/module/az.eventhub/new-azeventhubauthorizationrule) para criar uma regra de autorização que conceda permissões de AD DS do Azure para o *namespace*do hub de eventos. A regra de autorização deve incluir os direitos **gerenciar**, **escutar**e **Enviar** .
+    * Hubs de eventos **do Azure**  -  [Crie um hub de eventos usando Azure PowerShell](../event-hubs/event-hubs-quickstart-powershell.md). Talvez você também precise usar o cmdlet [New-AzEventHubAuthorizationRule](/powershell/module/az.eventhub/new-azeventhubauthorizationrule) para criar uma regra de autorização que conceda permissões de AD DS do Azure para o *namespace* do hub de eventos. A regra de autorização deve incluir os direitos **gerenciar**, **escutar** e **Enviar** .
 
         > [!IMPORTANT]
         > Verifique se você definiu a regra de autorização no namespace do hub de eventos e não no próprio Hub de eventos.
@@ -141,7 +141,7 @@ Para habilitar os eventos de auditoria de segurança do Azure AD DS usando o Azu
 Os espaços de trabalho de análise de log permitem exibir e analisar os eventos de auditoria de segurança usando Azure Monitor e a linguagem de consulta Kusto. Essa linguagem de consulta é projetada para uso somente leitura que apresenta recursos de análise de energia com uma sintaxe de fácil leitura. Para obter mais informações sobre como começar a usar as linguagens de consulta do Kusto, consulte os seguintes artigos:
 
 * [Documentação do Azure Monitor](../azure-monitor/index.yml)
-* [Introdução ao Log Analytics no Azure Monitor](../azure-monitor/log-query/get-started-portal.md)
+* [Introdução ao Log Analytics no Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md)
 * [Introdução às consultas de log no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 * [Criar e compartilhar painéis de dados do Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 

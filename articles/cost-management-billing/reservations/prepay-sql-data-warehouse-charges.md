@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: b82f4252754e79813629e0c792ee0ba35e437714
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: bd43b668c318b825c5c5b6f36fc1da1055863bed
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151513"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599093"
 ---
 # <a name="save-costs-for-azure-synapse-analytics-charges-with-reserved-capacity"></a>Economize custos para encargos do Azure Synapse Analytics com capacidade reservada
 
@@ -46,7 +46,7 @@ Por exemplo, suponha que o consumo total do Azure Synapse Analytics seja DW3000c
 1. Entre no [portal do Azure](https://portal.azure.com/).
 2. Selecione **Todos os serviços** > **Reservas**.
 3. Selecione uma assinatura. Use a lista Assinatura para escolher a assinatura usada para pagar a capacidade reservada. A forma de pagamento da assinatura é cobrada nos custos da capacidade reservada. O tipo de assinatura deve ser um contrato empresarial (números da oferta: MS-AZR-0017P ou MS-AZR-0148P) ou Pagamento Conforme o Uso (números da oferta: MS-AZR-0003P ou MS-AZR-0023P).
-   - Para uma assinatura de empresa, os encargos são deduzidos do saldo do compromisso monetário do registro ou cobrados como média.
+   - Para uma assinatura corporativa, os encargos são deduzidos do saldo do Pagamento antecipado do Azure do registro (chamado anteriormente de compromisso monetário) ou cobrados como excedente.
    - Para a assinatura de Pagamento Conforme o Uso, as cobranças são feitas ao cartão de crédito ou à forma de pagamento de faturas na assinatura.
 4. Selecione um escopo. Use a lista Escopo para escolher um escopo da assinatura.
    - **Escopo de grupo de recursos único** — aplica o desconto de reserva apenas aos recursos correspondentes no grupo de recursos selecionado.

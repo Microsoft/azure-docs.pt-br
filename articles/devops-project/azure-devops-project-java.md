@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 8f74d2b5ab2cc85edbc8b1ea9f7d230f0215f35d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 077730d63d388566bd842a4ba185bd5fd6637043
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91854589"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588991"
 ---
 # <a name="set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-starter"></a>Configurar um pipeline de CI/CD para um aplicativo Java com o Azure DevOps Starter
 
@@ -66,9 +66,9 @@ O DevOps Starter configurou automaticamente um build de CI e gatilho de liberaç
 
 O DevOps Starter cria um repositório Git no Azure Repos ou no GitHub. Para exibir o repositório e fazer alterações de código no seu aplicativo, faça o seguinte:
 
-1. Na esquerda do dashboard do DevOps Starter, selecione o link para a ramificação mestre. Esse link abre uma exibição do repositório de Git recém-criado.
+1. Na esquerda do painel do DevOps Starter, selecione o link para a ramificação principal. Esse link abre uma exibição do repositório de Git recém-criado.
 
-1. Para exibir a URL de clone do repositório, selecione **Clone** na parte superior direita do navegador. Você pode clonar seu repositório Git no seu IDE favorito. Nas próximas etapas, você pode usar o navegador da Web para criar e confirmar as alterações de código diretamente no branch mestre.
+1. Para exibir a URL de clone do repositório, selecione **Clone** na parte superior direita do navegador. Você pode clonar seu repositório Git no seu IDE favorito. Nas próximas etapas, você pode usar o navegador da Web para criar e confirmar as alterações de código diretamente na ramificação principal.
 
 1. No lado direito do navegador, vá até o arquivo **src/main/webapp/index.html**.
 

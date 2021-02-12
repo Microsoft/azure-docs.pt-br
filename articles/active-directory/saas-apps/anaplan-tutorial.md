@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 92a878c60ba2a7c08a17ce2833132b389ef49435
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 9b6fcec6f564e944f0e73d151b61d46af4b4cc03
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318742"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673130"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-anaplan"></a>Tutorial: Integração do Azure Active Directory ao Anaplan
 
@@ -63,7 +63,7 @@ Para configurar a integração do Anaplan ao Azure AD, você precisará adiciona
 
 4. Na caixa de pesquisa, digite **Anaplan**, selecione **Anaplan** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-     ![Anaplan na lista de resultados](common/search-new-app.png)
+    ![Anaplan na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
@@ -143,7 +143,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
     a. No campo **Nome**, insira **BrendaFernandes**.
-  
+
     b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -179,7 +179,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
 ### <a name="create-anaplan-test-user"></a>Criar um usuário de teste do Anaplan
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no Anaplan. Trabalhe com a  [equipe de suporte da Anaplan](mailto:support@anaplan.com) para adicionar os usuários à plataforma Anaplan. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no Anaplan. Trabalhe com a [equipe de suporte do Anaplan](mailto:support@anaplan.com) para adicionar os usuários à plataforma do Anaplan. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="test-single-sign-on"></a>Testar logon único
 

@@ -3,19 +3,19 @@ title: 'Início Rápido: Adicionar um aplicativo a seu locatário do Azure AD (A
 description: Este início rápido usa o portal do Azure para adicionar um aplicativo de galeria ao locatário do Azure AD (Azure Active Directory).
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: 2946590cbb4c5e8f495a1f6ee4aac65929cd4d0e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2d3b0be88a23bbbb0573b4d11a2e5a39dc6254da
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91305711"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259060"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-azure-ad-tenant"></a>Início Rápido: Adicionar um aplicativo a seu locatário do Azure AD (Azure Active Directory)
 
@@ -55,10 +55,10 @@ Para adicionar um aplicativo ao locatário do Azure AD:
     :::image type="content" source="media/add-application-portal/sso-types.png" alt-text="Captura de tela mostrando o seletor de tipos de SSO." lightbox="media/add-application-portal/sso-types.png":::
 
     - Se o desenvolvedor do aplicativo usou o **padrão OIDC** para SSO, selecione **Inscrever-se**. A página de configuração é exibida. Em seguida, vá para o início rápido sobre como configurar o logon único baseado em OIDC.
-    :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="Captura de tela mostrando o seletor de tipos de SSO.":::
+    :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="Captura de tela mostrando o processo de adicionar um aplicativo com SSO baseado em OIDC.":::
 
     - Se o desenvolvedor do aplicativo usou o **padrão SAML** para o SSO, selecione **Criar**. Uma página de introdução é exibida com as opções para configurar o aplicativo para a organização. No formulário, você pode editar o nome do aplicativo para atender às necessidades de sua organização. Em seguida, vá para o início rápido sobre como configurar o logon único baseado em SAML.
-    :::image type="content" source="media/add-application-portal/create-application.png" alt-text="Captura de tela mostrando o seletor de tipos de SSO.":::
+    :::image type="content" source="media/add-application-portal/create-application.png" alt-text="Captura de tela mostrando o processo de adicionar um aplicativo com SSO baseado em SAML.":::
 
 
 > [!IMPORTANT]
@@ -69,7 +69,7 @@ Se o aplicativo que você está procurando não estiver na galeria, selecione o 
 Você terminou de adicionar um aplicativo. O próximo guia de início rápido mostra como alterar o logotipo e editar outras propriedades do aplicativo.
 
 > [!TIP]
-> Para automatizar o gerenciamento de aplicativos usando a API do Graph, confira [Automatizar o gerenciamento de aplicativos com a API do Microsoft Graph](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> Para automatizar o gerenciamento de aplicativos usando a API do Graph, confira [Automatizar o gerenciamento de aplicativos com a API do Microsoft Graph](/graph/application-saml-sso-configure-api).
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/30/2020
 ms.author: sharadag
 ms.custom: include file
-ms.openlocfilehash: 60c26d8c33b1d419da5a51206d310e2112c69644
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: eb3cc6a37e9116b2a28b72fc7a3779aafb2a1e21
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135659"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026179"
 ---
 As ACs a seguir são permitidas quando você criar seu próprio certificado:
 
@@ -32,7 +32,7 @@ As ACs a seguir são permitidas quando você criar seu próprio certificado:
 - D-TRUST Root Class 3 CA 2 2009
 - DigiCert Cloud Services CA-1
 - DigiCert Global Root CA
-- AC global DigiCert G2
+- DigiCert Global Root G2
 - DigiCert High Assurance CA-3
 - DigiCert High Assurance EV Root CA
 - DigiCert SHA2 CA do Servidor de Validação Estendido
@@ -55,6 +55,7 @@ As ACs a seguir são permitidas quando você criar seu próprio certificado:
 - Go Daddy Root Certificate Authority – G2
 - Go Daddy Secure Certificate Authority - G2
 - Vamos criptografar Authority X3
+- Microssegundos Szigno CA raiz 2009
 - Raiz QuoVadis CA2 G3
 - RapidSSL RSA CA 2018
 - RootCA1 de comunicação de segurança

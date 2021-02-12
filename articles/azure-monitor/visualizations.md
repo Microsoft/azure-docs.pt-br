@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/17/2020
-ms.openlocfilehash: 4c9f74f5a9950a299b34e22c1e86dd91f8c82364
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/25/2021
+ms.openlocfilehash: bc59c639856de6a5ce5adda1f78266eb7e4d5dd3
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983606"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881224"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizando dados do Monitor do Azure
 Este artigo fornece um resumo dos métodos disponíveis para visualizar os dados de log e métrica armazenados no Azure Monitor.
@@ -46,10 +46,10 @@ Aqui está uma explicação em vídeo sobre como criar painéis.
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AslH]
 
 ### <a name="advantages"></a>Vantagens
-- Integração profunda no Azure. As visualizações podem ser fixadas em painéis a partir de várias páginas do Azure, incluindo o Metrics Explorer, o Log Analytics e o Application Insights.
+- Integração profunda no Azure. As visualizações podem ser fixadas em painéis de várias páginas do Azure, incluindo [Metrics Explorer](platform/metrics-charts.md), [log Analytics](log-query/log-analytics-overview.md)e [Application insights](app/app-insights-overview.md).
 - Suporta métricas e logs.
-- Combine dados de várias origens, incluindo a saída do [Metrics Explorer](platform/metrics-charts.md), das [consultas de log](log-query/log-query-overview.md) e dos [mapas](app/app-map.md), e a disponibilidade no Application Insights.
-- Opção para os painéis de pessoais ou compartilhadas. Integrado com a autenticação baseada em função do Azure [(RBAC)](../role-based-access-control/overview.md).
+- Combine dados de várias fontes, incluindo saída de [Metrics Explorer](platform/metrics-charts.md), [consultas de log](log-query/log-query-overview.md)e [mapas](app/app-map.md) e disponibilidade no [Application insights](app/app-insights-overview.md).
+- Opção para os painéis de pessoais ou compartilhadas. Integrado com o Azure [RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md).
 - Atualização automática. A atualização de métricas depende do intervalo de tempo com um mínimo de cinco minutos. Os logs são atualizados a cada hora, com uma opção de atualização manual sob demanda clicando no ícone “atualizar” em uma determinada visualização ou atualizando o painel completo.
 - Painéis de métricas parametrizadas com carimbo de data/hora e parâmetros personalizados.
 - Opções de layout flexível.
@@ -57,7 +57,7 @@ Aqui está uma explicação em vídeo sobre como criar painéis.
 
 
 ### <a name="limitations"></a>Limitações
-- Controle limitado sobre as visualizações de log sem suporte para tabelas de dados. O número total de séries de dados é limitado a 10 com outras séries de dados agrupadas em um _outro_ intervalo.
+- Controle limitado sobre as visualizações de log sem suporte para tabelas de dados. O número total de séries de dados é limitado a 50 com mais séries de dados agrupadas em _outro_ Bucket.
 - Sem suporte para parâmetros personalizados em gráficos de log.
 - Os gráficos de log estão limitados aos últimos 30 dias.
 - Os gráficos de log só podem ser fixados em painéis compartilhados.
@@ -140,8 +140,9 @@ As [exibições no Azure Monitor](platform/view-designer.md) permitem que você 
 ## <a name="next-steps"></a>Próximas etapas
 - Aprenda sobre os [dados coletados pelo Azure Monitor](platform/data-platform.md).
 - Saiba mais sobre os [painéis do Azure](../azure-portal/azure-portal-dashboards.md).
-- Saiba mais sobre [modos de exibição no Azure Monitor](platform/view-designer.md).
+- Saiba mais sobre o [Metrics Explorer](platform/metrics-getting-started.md)
 - Saiba mais sobre [Pastas de trabalho](./platform/workbooks-overview.md).
 - Saiba mais sobre [importar dados de log no Power BI](./platform/powerbi.md).
 - Saiba mais sobre o [plug-in de fonte de dados do Azure Monitor do Grafana](./platform/grafana-plugin.md).
+- Saiba mais sobre [modos de exibição no Azure Monitor](platform/view-designer.md).
 

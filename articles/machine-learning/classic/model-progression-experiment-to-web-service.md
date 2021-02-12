@@ -9,37 +9,36 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: b618f3f852e9aaeb7852d8137536d0e48a8905d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c92f8c74da76b2ac938892e27f3d6be9c70c3238
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91340863"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95507251"
 ---
 # <a name="how-a-machine-learning-studio-classic-model-progresses-from-an-experiment-to-a-web-service"></a>Como um modelo do Machine Learning Studio (clássico) evolui de uma experiência para um serviço Web
 
-**APLICA-SE A:**  ![sim](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico)   ![não](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**aplica-se a:** ![ Essa é uma marca de seleção, o que significa que este artigo se aplica a Machine Learning Studio (clássico). ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ é um X, o que significa que este artigo se aplica a Azure Machine Learning ](../../../includes/media/aml-applies-to-skus/no.png)[ . Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
+Azure Machine Learning Studio (clássico) fornece uma tela interativa que permite desenvolver, executar, testar e iterar um **_experimento_* _ que representa um modelo de análise preditiva. Há uma grande variedade de módulos disponíveis que podem:
 
-O Azure Machine Learning Studio (clássico) fornece uma tela interativa que permite desenvolver, executar, testar e iterar um ***teste*** representando um modelo de análise preditiva. Há uma grande variedade de módulos disponíveis que podem:
-
-* Inserir dados em seu teste
+_ Dados de entrada em seu experimento
 * Manipular os dados
 * Treinar um modelo usando algoritmos de aprendizado de máquina
 * Pontuar o modelo
 * Avaliar os resultados
 * Exibir os valores finais
 
-Quando você estiver satisfeito com o teste, poderá implantá-lo como um ***serviço Web clássico do Azure Machine Learning*** ou um ***novo serviço Web do Azure Machine Learning*** para que os usuários possam enviar novos dados e receber resultados.
+Quando estiver satisfeito com o experimento, você poderá implantá-lo como um serviço Web do ***clássico Azure Machine Learning** _ ou um _*_novo Azure Machine Learning Web Service_*_ para que os usuários possam enviar novos dados e receber resultados.
 
 Neste artigo, ofereceremos uma visão geral sobre a mecânica de como seu modelo de Machine Learning evolui de um experimento de desenvolvimento para um serviço Web operacional.
 
 > [!NOTE]
-> Há outras maneiras de desenvolver e implantar modelos de aprendizado de máquina, mas este artigo foca em como usar o Machine Learning Studio (clássico). Por exemplo, para ler uma descrição de como criar um serviço Web preditivo clássico com R, confira a postagem no blog [Build & Deploy Predictive Web Apps Using RStudio and Azure Machine Learning studio](https://docs.microsoft.com/archive/blogs/machinelearning/build-deploy-predictive-web-apps-using-rstudio-and-azure-ml) (Compilar e implantar aplicativos Web preditivos usando o RStudio e o Azure Machine Learning Studio).
+> Há outras maneiras de desenvolver e implantar modelos de aprendizado de máquina, mas este artigo foca em como usar o Machine Learning Studio (clássico). Por exemplo, para ler uma descrição de como criar um serviço Web preditivo clássico com R, confira a postagem no blog [Build & Deploy Predictive Web Apps Using RStudio and Azure Machine Learning studio](/archive/blogs/machinelearning/build-deploy-predictive-web-apps-using-rstudio-and-azure-ml) (Compilar e implantar aplicativos Web preditivos usando o RStudio e o Azure Machine Learning Studio).
 >
 >
 
-Embora o Azure Machine Learning Studio (clássico) seja projetado para ajudar você a desenvolver e implantar um *modelo de análise preditiva*, é possível usar o Studio (clássico) para desenvolver um teste que não inclua um modelo de análise preditiva. Por exemplo, um experimento pode simplesmente inserir dados, manipulá-los e gerar os resultados. Assim como um teste de análise preditiva, você pode implantar esse teste não preditivo como um serviço Web, mas esse é um processo mais simples porque o experimento não está treinando ou pontuando um modelo de aprendizado de máquina. Embora esse não seja o uso usual do Studio (clássico), o incluiremos na discussão para que possamos dar uma explicação completa de como funciona o Studio (clássico).
+Embora Azure Machine Learning Studio (clássico) seja projetado para ajudá-lo a desenvolver e implantar um modelo de análise de _predictive *, é possível usar o estúdio (clássico) para desenvolver um experimento que não inclua um modelo de análise preditiva. Por exemplo, um experimento pode simplesmente inserir dados, manipulá-los e gerar os resultados. Assim como um teste de análise preditiva, você pode implantar esse teste não preditivo como um serviço Web, mas esse é um processo mais simples porque o experimento não está treinando ou pontuando um modelo de aprendizado de máquina. Embora esse não seja o uso usual do Studio (clássico), o incluiremos na discussão para que possamos dar uma explicação completa de como funciona o Studio (clássico).
 
 ## <a name="developing-and-deploying-a-predictive-web-service"></a>Desenvolvendo e implantando um serviço Web preditivo
 Estes são os estágios pelos quais passa uma solução típica quando você a desenvolve e implanta usando o Machine Learning Studio (clássico):
@@ -49,14 +48,14 @@ Estes são os estágios pelos quais passa uma solução típica quando você a d
 *Figura 1 - Estágios de um modelo típico de análise preditiva*
 
 ### <a name="the-training-experiment"></a>O teste de treinamento
-O ***teste de treinamento*** é a fase inicial do desenvolvimento do serviço Web no Machine Learning Studio (clássico). A finalidade do teste de treinamento é fornecer a você um lugar para desenvolver, testar, iterar e, eventualmente, treinar um modelo de aprendizado de máquina. Você pode até mesmo treinar vários modelos simultaneamente já que procura pela melhor solução, mas assim que terminar de testar, selecionará um único modelo treinado e eliminará o restante do teste. Para obter um exemplo de como desenvolver um teste de análise preditiva, consulte [Desenvolver uma solução de análise preditiva para avaliação de risco de crédito no Azure Machine Learning Studio (clássico)](tutorial-part1-credit-risk.md).
+O ***experimento de treinamento** _ é a fase inicial de desenvolvimento de seu serviço Web no Machine Learning Studio (clássico). A finalidade do teste de treinamento é fornecer a você um lugar para desenvolver, testar, iterar e, eventualmente, treinar um modelo de aprendizado de máquina. Você pode até mesmo treinar vários modelos simultaneamente já que procura pela melhor solução, mas assim que terminar de testar, selecionará um único modelo treinado e eliminará o restante do teste. Para obter um exemplo de como desenvolver um teste de análise preditiva, consulte [Desenvolver uma solução de análise preditiva para avaliação de risco de crédito no Azure Machine Learning Studio (clássico)](tutorial-part1-credit-risk.md).
 
 ### <a name="the-predictive-experiment"></a>O teste preditivo
-Quando você já tiver um modelo treinado em seu teste de treinamento, clique em **Configurar serviço Web** e selecione **Serviço Web preditivo** no Machine Learning Studio (clássico) para iniciar o processo de conversão do teste de treinamento em um ***teste preditivo***. A finalidade do experimento preditivo é usar o modelo treinado para pontuar novos dados, com o objetivo de se tornar posteriormente operacionalizado como um serviço Web do Azure.
+Depois de ter um modelo treinado em seu experimento de treinamento, clique em _*configurar serviço Web** e selecione **serviço web de previsão** no Machine Learning Studio (clássico) para iniciar o processo de conversão do teste de treinamento em um **_experimento de previsão_*_. A finalidade do experimento preditivo é usar o modelo treinado para pontuar novos dados, com o objetivo de se tornar posteriormente operacionalizado como um serviço Web do Azure.
 
 Essa conversão é feita para você pelas seguintes etapas:
 
-* Converter o conjunto de módulos usados para treinamento em um único módulo e salvá-lo como um modelo treinado
+_ Converta o conjunto de módulos usados para treinamento em um único módulo e salve-o como um modelo treinado
 * Eliminar quaisquer módulos externos não relacionados à pontuação
 * Adicionar portas de entrada e saída que serão usadas pelo possível serviço Web
 
@@ -98,7 +97,7 @@ Aqui está um exemplo: suponha que seu experimento preditivo retorne toda a linh
 
 Se você desejar manter a modelo de aprendizado de máquina, mas se quiser treiná-lo novamente com novos dados, terá duas opções:
 
-1. **Treinar novamente o modelo enquanto o serviço Web está em execução** – se você quiser treinar novamente seu modelo enquanto o serviço Web preditivo estiver em execução, faça isso por meio de algumas modificações no teste de treinamento para transformá-lo em um ***teste de novo treinamento***, para poder implantá-lo como um ***serviço* Web de novo treinamento**. Para obter instruções sobre como fazer isso, veja [Treinar novamente os modelos do Machine Learning de forma programática](/azure/machine-learning/studio/retrain-machine-learning-model).
+1. **Treinar novamente o modelo enquanto o serviço Web estiver em execução** -se você quiser treinar novamente seu modelo enquanto o serviço Web de previsão estiver em execução, faça isso fazendo algumas modificações no teste de treinamento para torná-lo um experimento de novo **_treinamento_*, então você pode implantá-lo como um* serviço Web de novo _treinamento_**. Para obter instruções sobre como fazer isso, veja [Treinar novamente os modelos do Machine Learning de forma programática](./retrain-machine-learning-model.md).
 2. **Volte para o teste de treinamento original e use dados de treinamento diferentes para desenvolver seu modelo** – seu teste preditivo está vinculado ao serviço Web, mas o teste de treinamento não é diretamente vinculado dessa maneira. Se você modificar o teste de treinamento original e clicar em **Configurar Serviço Web**, será criado um *novo* teste preditivo que, quando implantado, criará um *novo* serviço Web. Isso não apenas atualiza o serviço Web original.
 
    Se você precisar modificar o teste de treinamento, abra-o e clique em **Salvar como** para fazer uma cópia. Isso deixará intacto o teste de treinamento original, o teste preditivo e o serviço Web. Agora você pode criar um novo serviço Web com suas alterações. Depois de implantar o novo serviço Web, você poderá decidir se deseja interromper o serviço Web anterior ou mantê-lo em execução junto com o novo.
@@ -112,7 +111,7 @@ Para obter mais detalhes sobre o processo de desenvolvimento e teste, veja os se
 
 * converter o experimento – [Como preparar o modelo para implantação no Azure Machine Learning Studio (clássico)](deploy-a-machine-learning-web-service.md)
 * implantando o serviço Web – [Implantar um serviço Web do Azure Machine Learning](deploy-a-machine-learning-web-service.md)
-* treinando novamente o modelo - [Treinar novamente os modelos do Machine Learning de forma programática](/azure/machine-learning/studio/retrain-machine-learning-model)
+* treinando novamente o modelo - [Treinar novamente os modelos do Machine Learning de forma programática](./retrain-machine-learning-model.md)
 
 Para obter exemplos do processo inteiro, consulte:
 

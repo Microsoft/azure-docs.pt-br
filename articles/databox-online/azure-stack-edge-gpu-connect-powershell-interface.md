@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: alkohli
-ms.openlocfilehash: e0b02f8d6a46c26b8927b4bac4d2089d3b57c295
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27af230f8fa157f76865bd38a48c17640491d7db
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777775"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896182"
 ---
 # <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Gerenciar um dispositivo do Azure Stack Edge pro GPU por meio do Windows PowerShell
 
@@ -47,7 +47,7 @@ Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cer
 ```
 When you run this cmdlet, you will be prompted to provide the password for the network share.
 
-For more information on certificates, go to [Azure IoT Edge certificates](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) or [Install certificates on a gateway](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway).-->
+For more information on certificates, go to [Azure IoT Edge certificates](../iot-edge/iot-edge-certs.md) or [Install certificates on a gateway](../iot-edge/how-to-create-transparent-gateway.md).-->
 
 ## <a name="view-device-information"></a>Exibir informações do dispositivo
  
@@ -424,6 +424,116 @@ DEBUG 2020-05-14T20:42:14Z: loop process - 0 events, 0.000s
 
 [10.100.10.10]: PS>
 ```
+
+### <a name="change-memory-processor-limits-for-kubernetes-worker-node"></a>Alterar memória, limites de processador para o nó de trabalho do kubernetes
+
+Para alterar os limites de memória ou de processador para o nó de trabalho do kubernetes, execute as seguintes etapas:
+
+1. [Conecte-se à interface do PowerShell do dispositivo](#connect-to-the-powershell-interface).
+1. Para obter os recursos atuais para o nó de trabalho e as opções de função, execute o seguinte comando:
+
+    `Get-AzureDataBoxEdgeRole`
+
+    Aqui está um exemplo de saída. Observe os valores para `Name` e `Compute` na `Resources` seção. `MemoryInBytes` e `ProcessorCount` denotam a quantidade de processadores e a memória de valores atribuídos atualmente para o nó de trabalho kubernetes.  
+
+    ```powershell
+    [10.100.10.10]: PS>Get-AzureDataBoxEdgeRole
+    ImageDetail                : Name:mcr.microsoft.com/azureiotedge-agent
+                                 Tag:1.0
+                                 PlatformType:Linux
+    EdgeDeviceConnectionString :
+    IotDeviceConnectionString  :
+    HubHostName                : ase-srp-007.azure-devices.net
+    IotDeviceId                : srp-007-storagegateway
+    EdgeDeviceId               : srp-007-edge
+    Version                    :
+    Id                         : 6ebeff9f-84c5-49a7-890c-f5e05520a506
+    Name                       : IotRole
+    Type                       : IOT
+    Resources                  : Compute:
+                                 MemoryInBytes:34359738368
+                                 ProcessorCount:12
+                                 VMProfile:
+    
+                                 Storage:
+                                 EndpointMap:
+                                 EndpointId:c0721210-23c2-4d16-bca6-c80e171a0781
+                                 TargetPath:mysmbedgecloudshare1
+                                 Name:mysmbedgecloudshare1
+                                 Protocol:SMB
+    
+                                 EndpointId:6557c3b6-d3c5-4f94-aaa0-6b7313ab5c74
+                                 TargetPath:mysmbedgelocalshare
+                                 Name:mysmbedgelocalshare
+                                 Protocol:SMB
+                                 RootFileSystemStorageSizeInBytes:0
+    
+    HostPlatform               : KubernetesCluster
+    State                      : Created
+    PlatformType               : Linux
+    HostPlatformInstanceId     : 994632cb-853e-41c5-a9cd-05b36ddbb190
+    IsHostPlatformOwner        : True
+    IsCreated                  : True    
+    [10.100.10.10]: PS>
+    ```
+    
+1. Para alterar os valores de memória e processadores para o nó de trabalho, execute o seguinte comando:
+
+    Set-AzureDataBoxEdgeRoleCompute-name <Name value from the output of Get-AzureDataBoxEdgeRole> -Memory <Value in Bytes> -ProcessorCount <não. de núcleos>
+
+    Aqui está um exemplo de saída. 
+    
+    ```powershell
+    [10.100.10.10]: PS>Set-AzureDataBoxEdgeRoleCompute -Name IotRole -MemoryInBytes 32GB -ProcessorCount 16
+    
+    ImageDetail                : Name:mcr.microsoft.com/azureiotedge-agent
+                                 Tag:1.0
+                                 PlatformType:Linux
+    
+    EdgeDeviceConnectionString :
+    IotDeviceConnectionString  :
+    HubHostName                : ase-srp-007.azure-devices.net
+    IotDeviceId                : srp-007-storagegateway
+    EdgeDeviceId               : srp-007-edge
+    Version                    :
+    Id                         : 6ebeff9f-84c5-49a7-890c-f5e05520a506
+    Name                       : IotRole
+    Type                       : IOT
+    Resources                  : Compute:
+                                 MemoryInBytes:34359738368
+                                 ProcessorCount:16
+                                 VMProfile:
+    
+                                 Storage:
+                                 EndpointMap:
+                                 EndpointId:c0721210-23c2-4d16-bca6-c80e171a0781
+                                 TargetPath:mysmbedgecloudshare1
+                                 Name:mysmbedgecloudshare1
+                                 Protocol:SMB
+    
+                                 EndpointId:6557c3b6-d3c5-4f94-aaa0-6b7313ab5c74
+                                 TargetPath:mysmbedgelocalshare
+                                 Name:mysmbedgelocalshare
+                                 Protocol:SMB
+    
+                                 RootFileSystemStorageSizeInBytes:0
+    
+    HostPlatform               : KubernetesCluster
+    State                      : Created
+    PlatformType               : Linux
+    HostPlatformInstanceId     : 994632cb-853e-41c5-a9cd-05b36ddbb190
+    IsHostPlatformOwner        : True
+    IsCreated                  : True
+    
+    [10.100.10.10]: PS>    
+    ```
+
+Ao alterar a memória e o uso do processador, siga estas diretrizes.
+
+- A memória padrão é 25% da especificação do dispositivo.
+- A contagem de processadores padrão é 30% da especificação do dispositivo.
+- Ao alterar os valores de contagens de memória e processador, recomendamos que você varie os valores entre 15% a 65% da memória do dispositivo e da contagem do processador. 
+- Recomendamos um limite superior de 65% para que haja recursos suficientes para os componentes do sistema. 
 
 ## <a name="connect-to-bmc"></a>Conectar-se ao BMC
 

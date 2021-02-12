@@ -1,0 +1,37 @@
+### YamlMime:Landing
+title: Documentação da infraestrutura BareMetal
+summary: Saiba como usar a infraestrutura BareMetal para criar, implantar e gerenciar máquinas virtuais no Microsoft Azure.
+metadata:
+  title: Documentação da infraestrutura BareMetal
+  description: Saiba como usar a infraestrutura BareMetal para criar, implantar e gerenciar máquinas virtuais no Microsoft Azure.
+  services: virtual-machines
+  ms.service: baremetal-infrastructure
+  ms.topic: landing-page
+  author: shortpatti
+  ms.author: v-patsho
+  ms.date: 12/31/2020
+  ms.openlocfilehash: 285421d12b656290ef5ddbe21136345b718e0ca1
+  ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 01/23/2021
+  ms.locfileid: "98730265"
+landingContent:
+- title: Sobre a infraestrutura BareMetal
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é a infraestrutura BareMetal no Azure?
+      url: workloads/sap/baremetal-overview-architecture.md
+    - text: Conhecer os termos
+      url: know-baremetal-terms.md
+  - linkListType: reference
+    links:
+    - text: Tipos de carga de trabalho BareMetal
+      url: ../virtual-machines/workloads/sap/get-started.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+- title: Unidades de instância BareMetal
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Gerenciar unidades de instância BareMetal no Azure
+      url: workloads/sap/baremetal-infrastructure-portal.md

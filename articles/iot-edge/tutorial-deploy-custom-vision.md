@@ -9,12 +9,12 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4854e61b646c0ca2a2070d676e3efc5cfbac6b9b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 564f19a1be5b3ce8a5267a07bd4f1f6de80fecf1
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044574"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621273"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Realizar a classificação de imagem na borda com o Serviço de Visão Personalizada
 
@@ -449,9 +449,7 @@ Caso contrário, é possível excluir as configurações locais e os recursos do
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você treinou um modelo da Visão Personalizada e o implantou como um módulo em um dispositivo do IoT Edge. Em seguida, você criou um módulo que pode consultar o serviço de classificação de imagem e relatar os resultados para o Hub IoT. 
-
-Se você quiser experimentar uma versão mais detalhada deste cenário com um feed de câmera em tempo real, consulte o projeto [Visão Personalizada e Azure IoT Edge em um Raspberry Pi 3](https://github.com/Azure-Samples/Custom-vision-service-iot-edge-raspberry-pi) do GitHub. 
+Neste tutorial, você treinou um modelo da Visão Personalizada e o implantou como um módulo em um dispositivo do IoT Edge. Em seguida, você criou um módulo que pode consultar o serviço de classificação de imagem e relatar os resultados para o Hub IoT.
 
 Siga para os próximos tutoriais para saber mais sobre outras formas pelas quais o Azure IoT Edge pode ajudá-lo a transformar dados em informações de negócios na borda.
 

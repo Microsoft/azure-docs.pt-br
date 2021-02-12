@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
-ms.openlocfilehash: c82fb9764b29119092bf313b2c10f00c983e8c03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51d2c4553a745d9a9dfb477694da4526588ed0ea
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710763"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98951471"
 ---
 # <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licenciamento do Microsoft &reg; Smooth streaming client Porting kit
 
@@ -123,16 +123,19 @@ As licenças de SSPK provisórias e finais podem enviar perguntas técnicas para
 * TECNOLOGIA DE SORTE EXPRESSA LIMITADA
 * Fluendo S.A.
 * FUNAI ELÉTRICO CO., LTD
-* Hisense International Co., Ltd. 
+* Hisense International Co., Ltd.
+* Tecnologia Visual Hisense co., Ltd
 * HKC Corporation Limited
 * Rae de Hong Kong Konka Ltd
 * Innolux Corporation
 * Innopia Technologies, Inc.
+* Jinpin Electric Company Ltd. Zhuhai. S. E. Z
 * Tecnologia K-Tronics (Suzhou) Co., Ltd. 
 * Kaonmedia Co., Ltd.
 * KDDI Corporation
 * Co-se eletrônicos de mega Fame. limitado
 * MIRC eletrônica limitado
+* MOKA INTERNATIONAL LIMITED
 * Nintendo Co., Ltd.
 * ONEPLUS ELECTRONICS (SHENZHEN) CO., LTD.
 * Panasonic Corporation
@@ -153,6 +156,7 @@ As licenças de SSPK provisórias e finais podem enviar perguntas técnicas para
 * Technicolor Delivery Technologies, SAS
 * Top Victory Investments, Ltd.
 * UMC Polônia SP. z. o.o.
+* Vizio, Inc.
 * ZTE Corporation
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia

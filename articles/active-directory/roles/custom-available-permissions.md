@@ -2,23 +2,23 @@
 title: Permissões de função personalizada para registro de aplicativo-Azure AD | Microsoft Docs
 description: Delegar permissões de função de administrador personalizado para gerenciar registros de aplicativo.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 09/22/2020
-ms.author: curtand
+ms.date: 11/04/2020
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d283a5bec804696a1243005a37bf73b087677d09
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6eb854c8b9ac3b4ee527c9a117edde13479bfeb4
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374489"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740186"
 ---
 # <a name="application-registration-permissions-for-custom-roles-in-azure-active-directory"></a>Permissões de registro de aplicativo para funções personalizadas no Azure Active Directory
 

@@ -6,21 +6,18 @@ ms.subservice: sizes
 author: vikancha-MSFT
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 01/12/2021
 ms.author: vikancha
-ms.openlocfilehash: 7c3423e8bd5cd3e38c05205842845bec2243ed83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac1147435bee60db0f3028289a83026e1f9c1c15
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653495"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99091673"
 ---
-# <a name="ncast4_v3-series-in-preview"></a>Série NCasT4_v3 (em versão prévia) 
+# <a name="ncast4_v3-series"></a>Série NCasT4_v3 
 
 As máquinas virtuais da série NCasT4_v3 são alimentadas por GPUs [NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) e CPUs AMD EPYC 7V12 (Roma). O recurso de VMs tem até 4 GPUs NVIDIA T4 com 16 GB de memória cada, até 64 núcleos de processador EPYC de 7V12 (Roma) não multithread e 440 GiB de memória do sistema. Essas máquinas virtuais são ideais para a implantação de serviços de ia, como inferência em tempo real de solicitações geradas pelo usuário ou para gráficos interativos e cargas de trabalho de visualização usando o driver de grade da NVIDIA e a tecnologia de GPU virtual. As cargas de trabalho de computação de GPU padrão baseadas em CUDA, TensorRT, Caffe, ONNX e outras estruturas, ou aplicativos gráficos com aceleração de GPU com base em OpenGL e DirectX podem ser implantadas de forma econômica, com proximidade aos usuários, na série de NCasT4_v3.
-
-> [!NOTe]
-> [Envie uma solicitação](https://aka.ms/NCT4v3Preview) para fazer parte do programa de visualização.
 
 <br>
 
@@ -29,15 +26,18 @@ As máquinas virtuais da série NCasT4_v3 são alimentadas por GPUs [NVIDIA Tesl
 [Cache de armazenamento Premium](premium-storage-performance.md): com suporte<br>
 [Migração ao vivo](maintenance-and-updates.md): sem suporte<br>
 [Atualizações de preservação de memória](maintenance-and-updates.md): sem suporte<br>
-[Suporte à geração de VM](generation-2.md): geração 1<br>
+[Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
+Interconexão NVIDIA NVLink: sem suporte<br>
 <br>
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | GPU | Memória da GPU: GiB | Discos de dados máximos | Máximo de NICs |
+| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | GPU | Memória da GPU: GiB | Discos de dados máximos | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NC4as_T4_v3 |4 |28 |180 | 1 | 16 | 8 | 2 |
-| Standard_NC8as_T4_v3 |8 |56 |360 | 1 | 16 | 16 | 4  |
-| Standard_NC16as_T4_v3 |16 |110 |360 | 1 | 16 | 32 | 8  |
-| Standard_NC64as_T4_v3 |64 |440 |2880 | 4 | 64 | 32 | 8  |
+| Standard_NC4as_T4_v3 |4 |28 |180 | 1 | 16 | 8 | 2 / 8000 |
+| Standard_NC8as_T4_v3 |8 |56 |360 | 1 | 16 | 16 | 4 / 8000  |
+| Standard_NC16as_T4_v3 |16 |110 |360 | 1 | 16 | 32 | 8 / 8000  |
+| Standard_NC64as_T4_v3 |64 |440 |2880 | 4 | 64 | 32 | 8 / 32000  |
 
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]

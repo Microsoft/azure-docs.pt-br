@@ -9,18 +9,19 @@ editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 999d63ee-890e-432e-9391-25b3fc6cde28
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78ea26adb8299cc13d4677c66a0e06cba901d9dc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 565f98126cea8cc03874bb4f83ecdc2c65f8d5fb
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977367"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016447"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Recursos e extensões da máquina virtual para Windows
 
@@ -355,7 +356,7 @@ As seguintes etapas de solução de problemas aplicam-se a todas as extensões d
 
 1. Para verificar o log do agente convidado do Windows, examine a atividade quando sua extensão estava sendo provisionada no *C:\WindowsAzure\Logs\WaAppAgent.log*
 
-2. Verifique os logs de extensão reais para obter mais detalhes em *C:\WindowsAzure\Logs\Plugins \<extensionName> *
+2. Verifique os logs de extensão reais para obter mais detalhes em *C:\WindowsAzure\Logs\Plugins \\ <extensionName>*
 
 3. Verifique as seções de solução de problemas da documentação específica da extensão para códigos de erro, problemas conhecidos etc.
 

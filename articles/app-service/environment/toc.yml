@@ -3,6 +3,8 @@
   items:
     - name: Sobre os Ambientes do Serviço de Aplicativo
       href: intro.md
+    - name: Ambiente do Serviço de Aplicativo v3 (versão prévia)
+      href: overview.md
 - name: Inícios rápidos
   expanded: true
   items:
@@ -10,11 +12,13 @@
       href: create-external-ase.md
     - name: Criar ASE interno
       href: create-ilb-ase.md
+    - name: Criar ASEv3 (versão prévia)
+      href: creation.md
 - name: Tutoriais
   items:
     - name: Integrar com um WAF
       href: app-service-app-service-environment-web-application-firewall.md
-    - name: Configurar TLS
+    - name: Configurações personalizadas do ASE
       href: app-service-app-service-environment-custom-settings.md
 - name: Exemplos
   items:
@@ -28,12 +32,12 @@
       href: network-info.md
     - name: Dimensionamento distribuídos geograficamente
       href: app-service-app-service-environment-geo-distributed-scale.md
-    - name: ASEv1
-      href: app-service-app-service-environment-intro.md
     - name: Diagnósticos
       href: ../overview-diagnostics.md
     - name: Certificados
       href: certificates.md
+    - name: Rede do ASEv3 (versão prévia)
+      href: networking.md
 - name: Guias de Instruções
   items:
     - name: Usar um ASE
@@ -48,12 +52,16 @@
       href: firewall-integration.md
     - name: Redundância de zona
       href: zone-redundancy.md
+    - name: Usando o ASEv3 (versão prévia)
+      href: using.md
 - name: Referência
   items:
     - name: Endereços de gerenciamento
       href: management-addresses.md
     - name: Documentação de ASEv1
       items:
+        - name: ASEv1
+          href: app-service-app-service-environment-intro.md
         - name: Criar ASEv1
           href: app-service-web-how-to-create-an-app-service-environment.md
         - name: Configurar ASEv1

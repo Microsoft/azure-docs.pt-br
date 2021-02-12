@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: b201ebb5ad8ab9d98a76a29831fa12d6174e47cc
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 587ad53fa3a4875f7019a8c094db1b9a5f096519
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125199"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509546"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorar aplicativos no Serviço de Aplicativo do Azure
 O [serviço de Azure app](./overview.md) fornece funcionalidade de monitoramento interna para aplicativos Web, móveis e aplicativos de API no [portal do Azure](https://portal.azure.com).
@@ -25,9 +25,9 @@ Aplicativos hospedados no Serviço de Aplicativo estão sujeitos a determinados 
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-Se o aplicativo estiver hospedado em um plano *Gratuito* ou *Compartilhado* , os limites de uso dos recursos por parte do aplicativo são definidos por cotas.
+Se o aplicativo estiver hospedado em um plano *Gratuito* ou *Compartilhado*, os limites de uso dos recursos por parte do aplicativo são definidos por cotas.
 
-Se o aplicativo estiver hospedado em um plano *Básico* , *Standard* ou *Premium* , os limites de uso dos recursos são definidos pelo *tamanho* (Pequeno, Médio, Grande) e *contagem de instâncias* (1, 2, 3...) do Plano do Serviço de Aplicativo.
+Se o aplicativo estiver hospedado em um plano *Básico*, *Standard* ou *Premium*, os limites de uso dos recursos são definidos pelo *tamanho* (Pequeno, Médio, Grande) e *contagem de instâncias* (1, 2, 3...) do Plano do Serviço de Aplicativo.
 
 As cotas para aplicativos Gratuitos ou Compartilhados são:
 
@@ -39,13 +39,13 @@ As cotas para aplicativos Gratuitos ou Compartilhados são:
 | **Largura de banda** | A quantidade total de largura de banda de saída permitida para esse aplicativo em um dia. Essa cota é definida novamente a cada 24 horas, à meia-noite UTC. |
 | **WPD** | A quantidade total de armazenamento permitida. |
 
-A única cota aplicável a aplicativos hospedados em *Basic* , *Standard* e *Premium* é FileSystem.
+A única cota aplicável a aplicativos hospedados em *Basic*, *Standard* e *Premium* é FileSystem.
 
 Para saber mais sobre cotas, limites e recursos específicos disponíveis para os vários SKUs de Serviço de Aplicativo, confira [Limites do serviço de assinatura do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
 
 ### <a name="quota-enforcement"></a>Aplicação de cota
 
-Se um aplicativo exceder a cota *CPU (Curto)* , *CPU (Dia)* ou *largura de banda* , o aplicativo será interrompido até que a cota seja redefinida. Durante esse tempo, todas as solicitações de entrada resultarão em um erro HTTP 403.
+Se um aplicativo exceder a cota *CPU (Curto)*, *CPU (Dia)* ou *largura de banda*, o aplicativo será interrompido até que a cota seja redefinida. Durante esse tempo, todas as solicitações de entrada resultarão em um erro HTTP 403.
 
 ![Mensagem de erro 403][http403]
 
@@ -82,7 +82,7 @@ Para um aplicativo, as métricas disponíveis são:
 | **Assemblies Atuais** | O número atual de Assemblies carregados em todos os AppDomains nesse aplicativo. |
 | **Dados em** | A quantidade de largura de banda de entrada consumida pelo aplicativo em MiB. |
 | **Saída de dados** | A quantidade de largura de banda de saída consumida pelo aplicativo em MiB. |
-| **Uso do sistema de arquivos** | Porcentagem da cota do sistema de arquivos consumida pelo aplicativo. |
+| **Uso do sistema de arquivos** | A quantidade de uso em bytes por compartilhamento de armazenamento. |
 | **Coletas de lixo da Ger 0** | O número de vezes que os objetos da geração 0 são coletados como lixo desde o início do processo do aplicativo. As coletas de lixo de geração superior incluem todas as coletas da geração inferior.|
 | **Coletas de lixo da Ger 1** | O número de vezes que os objetos da geração 1 são coletados como lixo desde o início do processo do aplicativo. As coletas de lixo de geração superior incluem todas as coletas da geração inferior.|
 | **Coletas de lixo da Ger 2** | O número de vezes que os objetos da geração 2 são coletados como lixo desde o início do processo do aplicativo.|
@@ -114,7 +114,7 @@ Para um aplicativo, as métricas disponíveis são:
 Para um Plano do Serviço de Aplicativo, as métricas disponíveis são:
 
 > [!NOTE]
-> As métricas do Plano do Serviço de Aplicativo só estão disponíveis para os planos *Básico* , *Standard* e *Premium* .
+> As métricas do Plano do Serviço de Aplicativo só estão disponíveis para os planos *Básico*, *Standard* e *Premium*.
 > 
 
 | Métrica | Descrição |
@@ -131,9 +131,9 @@ Para um Plano do Serviço de Aplicativo, as métricas disponíveis são:
 
 Há duas métricas que refletem o uso da CPU:
 
-**Tempo de CPU** : útil para aplicativos hospedados em planos gratuitos ou compartilhados, pois uma de suas cotas é definida em minutos de CPU usados pelo aplicativo.
+**Tempo de CPU**: útil para aplicativos hospedados em planos gratuitos ou compartilhados, pois uma de suas cotas é definida em minutos de CPU usados pelo aplicativo.
 
-**Percentual de CPU** : útil para aplicativos hospedados nos planos básico, Standard e Premium, pois eles podem ser escalados horizontalmente. A porcentagem de CPU é uma boa indicação do uso geral em todas as instâncias.
+**Percentual de CPU**: útil para aplicativos hospedados nos planos básico, Standard e Premium, pois eles podem ser escalados horizontalmente. A porcentagem de CPU é uma boa indicação do uso geral em todas as instâncias.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>Granularidade de métricas e política de retenção
 As métricas para um aplicativo e um plano do serviço de aplicativo são registradas e agregadas pelo serviço e [mantidas de acordo com essas regras](../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics).
@@ -143,7 +143,7 @@ Para examinar o status das várias cotas e métricas que afetam um aplicativo, a
 
 ![Gráfico de cotas no portal do Azure][quotas]
 
-Para localizar cotas, selecione **configurações**  >  **cotas** . No gráfico, você pode ver: 
+Para localizar cotas, selecione **configurações**  >  **cotas**. No gráfico, você pode ver: 
 1. O nome da cota.
 1. O intervalo de redefinição.
 1. O limite atual.

@@ -3,12 +3,12 @@ title: Proteger o Azure Functions
 description: Saiba mais sobre como tornar o código de função em execução no modo seguro do Azure contra ataques comuns.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: cd97193fdf6549e667578e36f0be9104e4381d30
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: ee54ff8c1efaee00999888891e6de255060aa416
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102299"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491317"
 ---
 # <a name="securing-azure-functions"></a>Proteger o Azure Functions
 

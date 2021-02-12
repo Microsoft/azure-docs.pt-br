@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 10/15/2019
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
-ms.openlocfilehash: e8f60a3f39e770c1b09668a6d76e025b07ebbd6d
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 6d05c4ba6af860616e5afdfba2378ad9b17fcc77
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893502"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938264"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Início Rápido: Entrada de usuários e chamada à API do Microsoft Graph em um aplicativo Android
 
-Este início rápido usa um exemplo de código para demonstrar como um aplicativo Android pode conectar contas pessoais, corporativas ou de estudante usando a plataforma de identidade da Microsoft e, em seguida, obter um token de acesso e chamar a API do Microsoft Graph. (Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.)
+Neste guia de início rápido, você baixará e executará um exemplo de código que demonstra como um aplicativo Android pode conectar usuários e obter um token de acesso para chamar a API do Microsoft Graph. 
+
+Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.
 
 Os aplicativos precisam ser representados por um objeto de aplicativo no Azure Active Directory, de modo que a plataforma de identidade da Microsoft possa fornecer tokens ao aplicativo.
 
@@ -33,7 +35,7 @@ Os aplicativos precisam ser representados por um objeto de aplicativo no Azure A
 
 > [!div class="sxs-lookup" renderon="portal"]
 > ### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Etapa 1: Configurar seu aplicativo no portal do Azure
->  Para que o exemplo de código deste Início Rápido funcione, é necessário adicionar um URI de redirecionamento compatível com o Agente de autenticação.
+>  O código de exemplo deste guia de início rápido exige um URI de redirecionamento compatível com o agente de autenticação.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer essas alterações para mim]()
 >

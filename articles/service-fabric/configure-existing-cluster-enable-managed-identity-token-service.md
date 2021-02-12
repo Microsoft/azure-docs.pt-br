@@ -3,13 +3,12 @@ title: Configurar o suporte de identidade gerenciada em um cluster existente do 
 description: Veja como habilitar o suporte a identidades gerenciadas em um cluster existente do Azure Service Fabric
 ms.topic: article
 ms.date: 03/11/2019
-ms.custom: sfrev
-ms.openlocfilehash: 722c507300cc5766d162f336f77f60293c5c90dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc341688cae6d98f53be10351e4e4572a3539e4e
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86257611"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790032"
 ---
 # <a name="configure-managed-identity-support-in-an-existing-service-fabric-cluster"></a>Configurar o suporte de identidade gerenciada em um cluster existente do Service Fabric
 
@@ -40,7 +39,7 @@ Para habilitar o serviço de token de identidade gerenciado em um cluster existe
 ]
 ```
 
-Para que as alterações entrem em vigor, você também precisará alterar a política de atualização para especificar uma reinicialização forçada do tempo de execução de Service Fabric em cada nó à medida que a atualização progride por meio do cluster. Essa reinicialização garante que o serviço de sistema habilitado recentemente seja iniciado e em execução em cada nó. No trecho de código abaixo, `forceRestart` é a configuração essencial para habilitar a reinicialização. Para os parâmetros restantes, use os valores descritos abaixo ou use os valores personalizados existentes já especificados para o recurso de cluster. As configurações personalizadas para a política de atualização do fabric (' upgradeDescription ') podem ser exibidas no portal do Azure selecionando a opção ' malha atualizações ' no recurso de Service Fabric ou resources.azure.com. As opções padrão para a política de atualização (' upgradeDescription ') não são visíveis do PowerShell ou do resources.azure.com. Consulte [ClusterUpgradePolicy](/dotnet/api/microsoft.azure.management.servicefabric.models.clusterupgradepolicy?view=azure-dotnet) para obter informações adicionais.  
+Para que as alterações entrem em vigor, você também precisará alterar a política de atualização para especificar uma reinicialização forçada do tempo de execução de Service Fabric em cada nó à medida que a atualização progride por meio do cluster. Essa reinicialização garante que o serviço de sistema habilitado recentemente seja iniciado e em execução em cada nó. No trecho de código abaixo, `forceRestart` é a configuração essencial para habilitar a reinicialização. Para os parâmetros restantes, use os valores descritos abaixo ou use os valores personalizados existentes já especificados para o recurso de cluster. As configurações personalizadas para a política de atualização do fabric (' upgradeDescription ') podem ser exibidas no portal do Azure selecionando a opção ' malha atualizações ' no recurso de Service Fabric ou resources.azure.com. As opções padrão para a política de atualização (' upgradeDescription ') não são visíveis do PowerShell ou do resources.azure.com. Consulte [ClusterUpgradePolicy](/dotnet/api/microsoft.azure.management.servicefabric.models.clusterupgradepolicy) para obter informações adicionais.  
 
 ```json
 "upgradeDescription": {

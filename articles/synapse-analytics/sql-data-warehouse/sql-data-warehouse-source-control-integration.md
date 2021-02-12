@@ -1,6 +1,6 @@
 ---
 title: Integração de controle do código-fonte
-description: Experiência de DevOps de banco de dados de classe empresarial para o pool de SQL com integração do controle do código-fonte nativo usando Azure Repos (Git e GitHub).
+description: Experiência de DevOps de banco de dados corporativo para o pool de SQL dedicado com integração do controle do código-fonte nativo usando Azure Repos (Git e GitHub).
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: sql-dw
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 84abfea39cb7311e7cd60346d936c08c28c334d4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0eeea04cd42498c5ba066a3a3e977c92b2906292
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89441250"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98738026"
 ---
-# <a name="source-control-integration-for-sql-pool"></a>Integração de controle do código-fonte para o pool de SQL
+# <a name="source-control-integration-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Integração do controle do código-fonte para o pool de SQL dedicado no Azure Synapse Analytics
 
-Este tutorial descreve como integrar seu projeto de banco de dados SSDT (SQL Server Data Tools) com controle do código-fonte.  A integração do controle do código-fonte é a primeira etapa na criação de seu pipeline de implantação e integração contínua com o recurso de pool de SQL no Azure Synapse Analytics.
+Este tutorial descreve como integrar seu projeto de banco de dados SSDT (SQL Server Data Tools) com controle do código-fonte.  A integração do controle do código-fonte é a primeira etapa na criação do seu pipeline de implantação e integração contínua com o recurso de pool de SQL dedicado no Azure Synapse Analytics.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -38,18 +38,20 @@ Este tutorial descreve como integrar seu projeto de banco de dados SSDT (SQL Ser
    ![Gerenciar Conexões](./media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Gerenciar conexões")
 
 3. Conecte-se ao seu projeto selecionando **Gerenciar Conexões** e **Conectar-se a um projeto**.
- ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Conectar")
+ 
+    ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Conectar")
 
 
 4. Localize o projeto que você criou na etapa um e selecione **Conectar**.
-![Connect2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "Conectar")
+ 
+    ![Connect2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "Conectar")
 
 
 3. Clone seu repositório do Azure DevOps de seu projeto para o computador local.
 
    ![Clonar repositório](./media/sql-data-warehouse-source-control-integration/4-clone-repo.png "Clonar repositório")
 
-Para obter mais informações sobre como conectar projetos usando o Visual Studio, confira [Conectar-se a projetos no Team Explorer](https://docs.microsoft.com/visualstudio/ide/connect-team-project?view=vs-2019). Para obter diretrizes sobre como clonar um repositório usando o Visual Studio, examine o artigo [Clonar um repositório Git de saída](https://docs.microsoft.com/azure/devops/repos/git/clone?view=azure-devops&tabs=visual-studio). 
+Para obter mais informações sobre como conectar projetos usando o Visual Studio, confira [Conectar-se a projetos no Team Explorer](/visualstudio/ide/connect-team-project?view=vs-2019&preserve-view=true). Para obter diretrizes sobre como clonar um repositório usando o Visual Studio, examine o artigo [Clonar um repositório Git de saída](/azure/devops/repos/git/clone?tabs=visual-studio&view=azure-devops&preserve-view=true). 
 
 ## <a name="create-and-connect-your-project"></a>Criar e conectar o projeto
 
@@ -85,8 +87,8 @@ Para obter mais informações sobre como conectar projetos usando o Visual Studi
 
    ![Verificar](./media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "Verificar alterações")
 
-4. (**Opcional**) Use a Comparação de Esquemas e atualize as alterações de seu data warehouse de destino usando o SSDT para garantir que as definições de objeto no repositório Azure Repo e no repositório local reflitam seu data warehouse.
+4. (**Opcional**) Use a Comparação de Esquemas e atualize as alterações no pool de SQL dedicado de destino usando o SSDT, para garantir que as definições de objeto no repositório do Azure e no repositório local reflitam o pool de SQL dedicado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Como desenvolvedor para o pool de SQL](sql-data-warehouse-overview-develop.md)
+- [Desenvolvimento do pool de SQL dedicado](sql-data-warehouse-overview-develop.md)

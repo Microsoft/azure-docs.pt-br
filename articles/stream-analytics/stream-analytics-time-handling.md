@@ -1,18 +1,17 @@
 ---
 title: Noções básicas sobre a manipulação de horas no Azure Stream Analytics
 description: Saiba como escolher a melhor hora de início, lidar com eventos atrasados e antigos e saber as métricas de tratamento de tempo em Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: c8f40808834c64ad74673f1c5f0c19892607fdcc
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f9dbdb3907b376df8de988730c6c48ed01bfccd0
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127466"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019934"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Noções básicas sobre a manipulação de horas no Azure Stream Analytics
 
@@ -22,11 +21,11 @@ Neste artigo, você saberá como fazer escolhas de design para resolver problema
 
 Para um melhor quadro de discussão, vamos definir alguns conceitos informativos:
 
-- **Hora do evento** : o momento em que o evento original ocorreu. Por exemplo, quando um carro em movimento na rodovia se aproxima de uma cabine de pedágio.
+- **Hora do evento**: o momento em que o evento original ocorreu. Por exemplo, quando um carro em movimento na rodovia se aproxima de uma cabine de pedágio.
 
-- **Tempo de processamento** : o momento em que o evento atinge o sistema de processamento e é observado. Por exemplo, quando o sensor de uma cabine de pedágio detecta o carro e o sistema do computador leva alguns segundos para processar os dados.
+- **Tempo de processamento**: o momento em que o evento atinge o sistema de processamento e é observado. Por exemplo, quando o sensor de uma cabine de pedágio detecta o carro e o sistema do computador leva alguns segundos para processar os dados.
 
-- **Marca-d'água** : um marcador da hora de um evento que indica até que ponto os eventos entraram no processador de streaming. As marcas-d'água permitem que o sistema indique claramente o andamento da ingestão dos eventos. Pela natureza dos fluxos, os dados do evento de entrada nunca param, de modo que as marcas-d'água indicam o andamento até um determinado ponto no fluxo.
+- **Marca-d'água**: um marcador da hora de um evento que indica até que ponto os eventos entraram no processador de streaming. As marcas-d'água permitem que o sistema indique claramente o andamento da ingestão dos eventos. Pela natureza dos fluxos, os dados do evento de entrada nunca param, de modo que as marcas-d'água indicam o andamento até um determinado ponto no fluxo.
 
    O conceito de marca-d'água é importante. As marcas-d'água permitem que o Stream Analytics determine quando o sistema pode gerar resultados completos, corretos e repetíveis que não precisem ser retraídos. O processamento pode ser feito de forma previsível e repetível. Por exemplo, se uma recontagem precisa ser feita por alguma condição de tratamento de erro, as marcas-d'água são pontos seguros de partida e término.
 
@@ -62,7 +61,7 @@ O design tem duas finalidades adicionais, além de gerar as marcas-d'água:
 
 1. O sistema gera resultados de forma oportuna, com ou sem os eventos de entrada.
 
-   Você tem controle sobre a frequência com que você quer ver os resultados gerados. No portal do Azure, na página **Ordenação de eventos** do seu trabalho do Stream Analytics, você pode definir a configuração **Eventos fora de ordem** . Ao definir essa configuração, considere a compensação entre pontualidade e tolerância dos eventos fora de ordem no fluxo de eventos.
+   Você tem controle sobre a frequência com que você quer ver os resultados gerados. No portal do Azure, na página **Ordenação de eventos** do seu trabalho do Stream Analytics, você pode definir a configuração **Eventos fora de ordem**. Ao definir essa configuração, considere a compensação entre pontualidade e tolerância dos eventos fora de ordem no fluxo de eventos.
 
    A janela de tolerância de chegada tardia é necessária para continuar gerando marcas-d'água, mesmo na ausência de eventos de entrada. Às vezes, pode haver um período em que nenhum evento de entrada chega, por exemplo, quando o fluxo de entrada de um evento é esparso. Esse problema é exacerbado pelo uso de várias partições no agente de evento de entrada.
 
@@ -76,7 +75,7 @@ Quando você opta por usar a **hora de chegada** como a hora do evento, não há
 
 ## <a name="late-arriving-events"></a>Eventos de chegada tardia
 
-Por definição da janela de tolerância de chegada tardia, para cada evento de entrada, o Azure Stream Analytics compara a **hora do evento** com a **hora de chegada** . Se a hora do evento estiver fora da janela de tolerância, você poderá configurar o sistema para descartar o evento ou ajustar a hora do evento para estar dentro da tolerância.
+Por definição da janela de tolerância de chegada tardia, para cada evento de entrada, o Azure Stream Analytics compara a **hora do evento** com a **hora de chegada**. Se a hora do evento estiver fora da janela de tolerância, você poderá configurar o sistema para descartar o evento ou ajustar a hora do evento para estar dentro da tolerância.
 
 Depois que as marcas-d'água são geradas, o serviço pode potencialmente receber eventos com a hora de um evento anterior ao da marca-d'água. Você pode configurar o serviço para **descartar** esses eventos ou **ajustar** a hora do evento para o valor da marca-d'água.
 
@@ -86,7 +85,7 @@ Como parte do ajuste, o **System.Timestamp** do evento é definido para o novo v
 
 O mecanismo heurístico de geração de marca-d'água descrito funciona bem na maioria dos casos em que a hora é sincronizada na maioria das vezes entre os diversos remetentes de eventos. No entanto, na vida real, especialmente em muitos cenários de IoT, o sistema tem pouco controle sobre o relógio dos remetentes de eventos. Os remetentes de eventos podem estar em todos os tipos de dispositivo no campo, talvez em diferentes versões de hardware e software.
 
-Em vez de usar uma marca d'água global para todos os eventos em uma partição de entrada, o Stream Analytics tem outro mecanismo chamado **subfluxos** . Você pode utilizar subfluxos em seu trabalho escrevendo uma consulta de trabalho que usa a cláusula [**TIMESTAMP BY**](/stream-analytics-query/timestamp-by-azure-stream-analytics) e a palavra-chave **OVER** . Para designar o subfluxo, forneça um nome de coluna de chave após a palavra-chave **OVER** , como `deviceid`, para que o sistema aplique as políticas de hora por essa coluna. Cada subfluxo obtém a sua própria marca-d'água independente. Esse mecanismo é útil para permitir a geração de saída em tempo hábil ao lidar com grandes desvios de relógio ou atrasos de rede entre remetentes de eventos.
+Em vez de usar uma marca d'água global para todos os eventos em uma partição de entrada, o Stream Analytics tem outro mecanismo chamado **subfluxos**. Você pode utilizar subfluxos em seu trabalho escrevendo uma consulta de trabalho que usa a cláusula [**TIMESTAMP BY**](/stream-analytics-query/timestamp-by-azure-stream-analytics) e a palavra-chave **OVER**. Para designar o subfluxo, forneça um nome de coluna de chave após a palavra-chave **OVER**, como `deviceid`, para que o sistema aplique as políticas de hora por essa coluna. Cada subfluxo obtém a sua própria marca-d'água independente. Esse mecanismo é útil para permitir a geração de saída em tempo hábil ao lidar com grandes desvios de relógio ou atrasos de rede entre remetentes de eventos.
 
 Os subfluxos são uma solução exclusiva fornecida pelo Azure Stream Analytics e não são oferecidos por outros sistemas de processamento de dados de streaming.
 
@@ -104,7 +103,7 @@ Esse conceito é usado para garantir que o processamento seja repetível, indepe
 
 ## <a name="side-effects-of-event-ordering-time-tolerances"></a>Efeitos colaterais das tolerâncias de tempo da ordenação de eventos
 
-Os trabalhos do Stream Analytics têm várias opções de **Ordenação de eventos** . Duas podem ser configuradas no portal do Azure: a configuração **Eventos fora de ordem** (tolerância fora de ordem) e a configuração **Eventos que chegam com atraso** (tolerância de chegada tardia). A tolerância de **chegada antecipada** é fixa e não pode ser ajustada. Essas políticas de tempo são usadas pelo Stream Analytics para fornecer garantias robustas. No entanto, essas configurações às vezes têm algumas implicações inesperadas:
+Os trabalhos do Stream Analytics têm várias opções de **Ordenação de eventos**. Duas podem ser configuradas no portal do Azure: a configuração **Eventos fora de ordem** (tolerância fora de ordem) e a configuração **Eventos que chegam com atraso** (tolerância de chegada tardia). A tolerância de **chegada antecipada** é fixa e não pode ser ajustada. Essas políticas de tempo são usadas pelo Stream Analytics para fornecer garantias robustas. No entanto, essas configurações às vezes têm algumas implicações inesperadas:
 
 1. Envio acidental de eventos com muita antecedência.
 
@@ -122,9 +121,9 @@ Os trabalhos do Stream Analytics têm várias opções de **Ordenação de event
 
    Quando não houver entrada em uma determinada partição, a hora de marca-d'água será calculada como a **hora de chegada** menos a janela de tolerância de chegada tardia. Como resultado, se os eventos de entrada forem infrequentes e esparsos, a saída poderá ser atrasada por esse período. O valor padrão dos **Eventos que chegam com atraso** é de 5 segundos. Você deve esperar ver algum atraso ao enviar eventos de entrada, um por vez, por exemplo. Os atrasos podem ficar piores quando você define a janela **Eventos que chegam com atraso** para um valor maior.
 
-5. O valor de **System.Timestamp** é diferente da hora no campo de **hora do evento** .
+5. O valor de **System.Timestamp** é diferente da hora no campo de **hora do evento**.
 
-   Conforme descrito anteriormente, o sistema ajusta a hora do evento pela tolerância fora de ordem ou pelas janelas de tolerância de chegada tardia. O valor de **System.Timestamp** do evento é ajustado, mas não o campo de **hora do evento** . Isso pode ser usado para identificar para quais eventos os carimbos de data/hora são ajustados. Se o sistema alterou o carimbo de data/hora devido a uma das tolerâncias, normalmente eles são os mesmos.
+   Conforme descrito anteriormente, o sistema ajusta a hora do evento pela tolerância fora de ordem ou pelas janelas de tolerância de chegada tardia. O valor de **System.Timestamp** do evento é ajustado, mas não o campo de **hora do evento**. Isso pode ser usado para identificar para quais eventos os carimbos de data/hora são ajustados. Se o sistema alterou o carimbo de data/hora devido a uma das tolerâncias, normalmente eles são os mesmos.
 
 ## <a name="metrics-to-observe"></a>Métricas a serem observadas
 

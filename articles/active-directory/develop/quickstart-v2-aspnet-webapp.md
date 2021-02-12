@@ -11,16 +11,19 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
-ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperfq1
-ms.openlocfilehash: e621d50280adcccb8dbd82f4ceb0de7956e98e4b
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperf-fy21q1
+ms.openlocfilehash: 420415cc3bc2228a104ccf054098543bf04847b0
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91576958"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225758"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Início Rápido: Adicionar a entrada da plataforma de identidade da Microsoft a um aplicativo Web ASP.NET
-Neste início rápido, você usará um exemplo de código para saber como um aplicativo Web ASP.NET pode entrar em contas pessoais (hotmail.com, outlook.com e outras) e contas corporativas e de estudante em qualquer instância do Azure AD (Azure Active Directory).  (Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.)
+
+Neste guia de início rápido, você baixará e executará um exemplo de código que demonstra como um aplicativo Web ASP.NET pode conectar usuários de qualquer organização do Azure AD (Azure Active Directory). 
+
+Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.
 > [!div renderon="docs"]
 > ## <a name="prerequisites"></a>Pré-requisitos
 >
@@ -35,8 +38,8 @@ Neste início rápido, você usará um exemplo de código para saber como um apl
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: Registrar e configurar o aplicativo automaticamente e, em seguida, baixar seu exemplo de código
 >
-> 1. Acesse o novo painel do [portal do Azure – Registros de aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs).
-> 1. Insira um nome para o aplicativo e clique em **Registrar**.
+> 1. Acesse a experiência de início rápido do <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs" target="_blank">portal do Azure – Registros de aplicativo<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Insira um nome para seu aplicativo e selecione **Registrar**.
 > 1. Siga as instruções para baixar e configurar automaticamente o novo aplicativo com apenas um clique.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2: Registrar e configurar manualmente o aplicativo e o exemplo de código
@@ -44,20 +47,20 @@ Neste início rápido, você usará um exemplo de código para saber como um apl
 > #### <a name="step-1-register-your-application"></a>Etapa 1: Registre seu aplicativo
 > Para registrar seu aplicativo e adicionar as informações de registro do aplicativo à solução manualmente, siga estas etapas:
 >
-> 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-> 1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito e defina sua sessão do portal para o locatário desejado do Azure AD.
-> 1. Navegue até a página [Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) da plataforma de identidade da Microsoft para desenvolvedores.
-> 1. Selecione **Novo registro**.
-> 1. Quando a página **Registrar um aplicativo** for exibida, insira as informações de registro do aplicativo:
->      - Na seção **Nome**, insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo, por exemplo, `ASPNET-Quickstart`.
->      - Adicione `https://localhost:44368/` na **URI de redirecionamento** e clique em **Registrar**.
->      - No painel de navegação à esquerda, na seção Gerenciar, selecione **Autenticação**
->          - Na subseção **Concessão Implícita**, selecione **Tokens de ID**.
->          - Em seguida, selecione **Salvar**.
+> 1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
+> 1. Pesquise **Azure Active Directory** e selecione-o.
+> 1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
+> 1. Insira um **Nome** para seu aplicativo, por exemplo, `ASPNET-Quickstart`. Os usuários do seu aplicativo podem ver esse nome e você pode alterá-lo mais tarde.
+> 1. Adicione `https://localhost:44368/` em **URI de redirecionamento** e selecione **Registrar**.
+> 1. Em **Gerenciar**, selecione **Autenticação**.
+> 1. Na seção **Concessão implícita e fluxos híbridos**, selecione **Tokens de ID**.
+> 1. Clique em **Salvar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Etapa 1: Configurar seu aplicativo no portal do Azure
-> Para que o exemplo de código deste início rápido funcione, você precisa adicionar uma URL de resposta como `https://localhost:44368/`.
+> O código de exemplo deste guia de início rápido exige um **URI de Redirecionamento** igual a `https://localhost:44368/`.
+
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer essa alteração para mim]()
 >
@@ -69,9 +72,9 @@ Neste início rápido, você usará um exemplo de código para saber como um apl
 > [!div renderon="docs"]
 > [Baixar a solução do Visual Studio 2019](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
-> [!div renderon="portal"]
+> [!div renderon="portal" class="sxs-lookup"]
 > Execute o projeto usando o Visual Studio 2019.
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Baixe o exemplo de código](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -167,7 +170,7 @@ public void Configuration(IAppBuilder app)
 > |---------|---------|
 > | `ClientId`     | ID do aplicativo referente ao aplicativo registrado no portal do Azure |
 > | `Authority`    | O ponto de extremidade do STS para o usuário autenticar. Geralmente `https://login.microsoftonline.com/{tenant}/v2.0` para a nuvem pública, em que {tenant} é o nome do seu locatário, sua Id do locatário ou *common* para uma referência ao ponto de extremidade comum (usado para aplicativos multilocatário) |
-> | `RedirectUri`  | URL à qual os usuários são enviados após a autenticação com relação ao ponto de extremidade da plataforma de identidade da Microsoft |
+> | `RedirectUri`  | URL à qual os usuários são enviados após a autenticação com relação à plataforma de identidade da Microsoft |
 > | `PostLogoutRedirectUri`     | URL à qual os usuários são enviados após saírem |
 > | `Scope`     | A lista de escopos que estão sendo solicitados, separados por espaços |
 > | `ResponseType`     | Solicitação de que a resposta da autenticação contenha um token de ID |

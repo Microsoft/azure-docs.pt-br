@@ -1,19 +1,19 @@
 ---
 title: Solução do Azure VMware por CloudSimple – modelo de permissão de nuvem privada
 description: Descreve o modelo, os grupos e as categorias de permissão da nuvem privada do CloudSimple
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 28c4dc7831f97d66eb4d47f08e640344d5cca0d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c8cfeda008955006f2fbad1df58c8047bd36541
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77014939"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898038"
 ---
 # <a name="cloudsimple-private-cloud-permission-model-of-vmware-vcenter"></a>Modelo de permissão de nuvem privada do CloudSimple do VMware vCenter
 
@@ -68,13 +68,13 @@ Para conceder permissões a usuários individuais para gerenciar a nuvem privada
 | **Marcação de vSphere** | Atribuir ou cancelar a atribuição de marca vSphere <br> Criar marca vSphere <br> Criar categoria de marca vSphere <br> Excluir marca vSphere <br> Excluir categoria de marca vSphere <br> Editar marca vSphere <br> Editar categoria da marca vSphere <br> Modificar o campo UsedBy para a categoria <br> Modificar campo UsedBy para marca |
 | **Rede** | Assign network <br> Configurar <br> Mover rede <br> Remover |
 | **Desempenho** | Modificar intervalos |
-| **Perfil de host** | Exibir |
+| **Perfil de host** | Visualizar |
 | **Recurso** | Aplicar recomendação <br> Atribuir vApp ao pool de recursos <br> Assign virtual machine to resource pool <br> Criar pool de recursos <br> Migrar máquina virtual desligada <br> Migrar máquina virtual ligada <br> Modificar pool de recursos <br> Mover pool de recursos <br> Consultar o vMotion <br> Remover pool de recursos <br> Renomear pool de recursos |
 | **Tarefa agendada** | Criar tarefas <br> Modificar tarefa <br> Remover tarefa <br> Executar tarefa |
 | **Sessões** | Representar usuário <br> Mensagem <br> Validar sessão <br> Exibir e parar sessões |
 | **Cluster de repositório de armazenamento** | Configurar um cluster de repositório de armazenamento |
 | **Armazenamento controlado por perfil** | Atualização de armazenamento controlada por perfil <br> Exibição de armazenamento controlada por perfil |
-| **Exibições de armazenamento** | Configurar serviços <br> Exibir |
+| **Exibições de armazenamento** | Configurar serviços <br> Visualizar |
 | **Tarefas** | Criar tarefa <br> Atualizar tarefa |
 | **Serviço de transferência**| Gerenciar <br> Monitoramento |
 | **vApp** | Adicionar máquina virtual <br> Atribuir pool de recursos <br> Atribuir vApp <br> Clone <br> Criar <br> Excluir <br> Exportação <br> Importar <br> Mover <br> Desligar <br> Ligue <br> Renomear <br> Suspend <br> Cancelar o registro  <br> Exibir ambiente OVF <br> configuração do aplicativo vApp <br> configuração da instância de vApp <br> configuração do vApp managedBy <br> configuração do recurso vApp |
@@ -82,7 +82,7 @@ Para conceder permissões a usuários individuais para gerenciar a nuvem privada
 | **Configuração de > de máquina virtual** | Adicionar disco existente <br> Adicionar novo disco <br> Adicionar ou remover dispositivo <br> Avançado <br> Alterar contagem de CPU <br> Alterar recurso <br> Configurar o managedBy <br> Controle de alterações do disco <br> Concessão de disco <br> Exibir configurações de conexão <br> Estender disco virtual <br> Dispositivo USB do host <br> Memória <br> Modificar as configurações de dispositivo <br> Compatibilidade de tolerância a falhas de consulta <br> Consultar arquivos sem proprietário <br> Dispositivo bruto <br> Recarregar do caminho <br> Remover disco <br> Renomear <br> Redefinir informações de convidado <br> Definir anotação <br> Configurações <br> Posicionamento do Swapfile <br> Alternar bifurcação pai <br> Desbloquear máquina virtual <br> Atualizar a compatibilidade da máquina virtual |
 | **Operações de convidado de > de máquina virtual** | Modificação do alias da operação de convidado <br> Consulta de alias de operação de convidado <br> Modificações de operação de convidado <br> Execução do programa de operação de convidado <br> Consultas de operação de convidado |
 | **Interação de > de máquina virtual** | Pergunta de resposta <br> Operação de backup na máquina virtual <br> Configurar mídia de CD <br> Configurar mídia de disquete <br> Interação do console <br> Criar captura de tela <br> Desfragmentar todos os discos <br> Conexão de dispositivo <br> Arrastar e soltar <br> Gerenciamento do sistema operacional convidado pela API do VIX <br> Injetar códigos de verificação de HID USB <br> Pausar ou pausar <br> Executar operações de apagamento ou redução <br> Desligar <br> Ligue <br> Registrar sessão na máquina virtual <br> Repetir sessão na máquina virtual <br> Redefinir <br> Retomar tolerância a falhas <br> Suspend <br> Tolerância a falhas de suspensão <br> Failover de Teste <br> VM secundária de reinício de teste <br> Desativar tolerância a falhas <br> Ativar tolerância a falhas <br> Instalação das ferramentas do VMware |
-| **Inventário de > de máquina virtual** | Criar a partir de existente <br> Create new <br> Mover <br> Registrar <br> Remover <br> Cancelar o registro  |
+| **Inventário de > de máquina virtual** | Criar a partir de existente <br> Criar Novo <br> Mover <br> Registrar <br> Remover <br> Cancelar o registro  |
 | **Provisionamento de > de máquina virtual** | Permitir acesso ao disco <br> Permitir acesso a arquivos <br> Allow read-only disk access <br> Permitir download de máquina virtual <br> Permitir carregamento de arquivos de máquina virtual <br> Clonar modelo <br> Clonar máquina virtual <br> Criar modelo a partir da máquina virtual <br> Personalizar <br> Implantar modelo <br> Marcar como modelo <br> Marcar como máquina virtual <br> Modificar especificação de personalização <br> Promover discos <br> Ler especificações de personalização |
 | **Configuração do serviço de > de máquina virtual** | Permitir notificações <br> Permitir sondagem de notificações de eventos globais <br> Gerenciar configurações de serviço <br> Modificar configuração de serviço <br> Configurações do serviço de consulta <br> Ler configuração de serviço |
 | **Gerenciamento de instantâneos de > de máquina virtual** | Create snapshot <br> Remover instantâneo <br> Renomear instantâneo <br> Reverter para instantâneo |
@@ -104,7 +104,7 @@ Para conceder permissões a usuários individuais para gerenciar a nuvem privada
 | **Configuração de > de máquina virtual** | Adicionar disco existente <br> Adicionar novo disco <br> Adicionar ou remover dispositivo <br> Avançado <br> Alterar contagem de CPU <br> Alterar recurso <br> Configurar o managedBy <br> Controle de alterações do disco <br> Concessão de disco <br> Exibir configurações de conexão <br> Estender disco virtual <br> Dispositivo USB do host <br> Memória <br> Modificar as configurações de dispositivo <br> Compatibilidade de tolerância a falhas de consulta <br> Consultar arquivos sem proprietário <br> Dispositivo bruto <br> Recarregar do caminho <br> Remover disco <br> Renomear <br> Redefinir informações de convidado <br> Definir anotação <br> Configurações <br> Posicionamento do Swapfile <br> Alternar bifurcação pai <br> Desbloquear máquina virtual <br> Atualizar a compatibilidade da máquina virtual |
 | **Operações de convidado de > de máquina virtual** | Modificação do alias da operação de convidado <br> Consulta de alias de operação de convidado <br> Modificações de operação de convidado <br> Execução do programa de operação de convidado <br> Consultas de operação de convidado |
 | **Interação de > de máquina virtual** | Pergunta de resposta <br> Operação de backup na máquina virtual <br> Configurar mídia de CD <br> Configurar mídia de disquete <br> Interação do console <br> Criar captura de tela <br> Desfragmentar todos os discos <br> Conexão de dispositivo <br> Arrastar e soltar <br> Gerenciamento do sistema operacional convidado pela API do VIX <br> Injetar códigos de verificação de HID USB <br> Pausar ou pausar <br> Executar operações de apagamento ou redução <br> Desligar <br> Ligue <br> Registrar sessão na máquina virtual <br> Repetir sessão na máquina virtual <br> Redefinir <br> Retomar tolerância a falhas <br> Suspend <br> Tolerância a falhas de suspensão <br> Failover de Teste <br> VM secundária de reinício de teste <br> Desativar tolerância a falhas <br> Ativar tolerância a falhas <br> Instalação das ferramentas do VMware
-| **Inventário de > de máquina virtual** | Criar a partir de existente <br> Create new <br> Mover <br> Registrar <br> Remover <br> Cancelar o registro  |
+| **Inventário de > de máquina virtual** | Criar a partir de existente <br> Criar Novo <br> Mover <br> Registrar <br> Remover <br> Cancelar o registro  |
 | **Provisionamento de > de máquina virtual** | Permitir acesso ao disco <br> Permitir acesso a arquivos <br> Allow read-only disk access <br> Permitir download de máquina virtual <br> Permitir carregamento de arquivos de máquina virtual <br> Clonar modelo <br> Clonar máquina virtual <br> Criar modelo a partir da máquina virtual <br> Personalizar <br> Implantar modelo <br> Marcar como modelo <br> Marcar como máquina virtual <br> Modificar especificação de personalização <br> Promover discos  <br> Ler especificações de personalização |
 | **Configuração do serviço de > de máquina virtual** | Permitir notificações <br> Permitir sondagem de notificações de eventos globais <br> Gerenciar configurações de serviço <br> Modificar configuração de serviço <br> Configurações do serviço de consulta <br> Ler configuração de serviço
 | **Gerenciamento de instantâneos de > de máquina virtual** | Create snapshot <br> Remover instantâneo <br> Renomear instantâneo <br> Reverter para instantâneo |
@@ -119,7 +119,7 @@ Para conceder permissões a usuários individuais para gerenciar a nuvem privada
 | **Configuração de > de host** | Configuração da partição de armazenamento |
 | **Cluster de repositório de armazenamento** | Configurar um cluster de repositório de armazenamento |
 | **Armazenamento controlado por perfil** | Atualização de armazenamento controlada por perfil <br> Exibição de armazenamento controlada por perfil |
-| **Exibições de armazenamento** | Configurar serviços <br> Exibir |
+| **Exibições de armazenamento** | Configurar serviços <br> Visualizar |
 
 ### <a name="cloud-network-admin-role"></a>Cloud-Network-admin-role
 
@@ -140,7 +140,7 @@ Para conceder permissões a usuários individuais para gerenciar a nuvem privada
 | **Configuração de > de máquina virtual** | Adicionar disco existente <br> Adicionar novo disco <br> Adicionar ou remover dispositivo <br> Avançado <br> Alterar contagem de CPU <br> Alterar recurso <br> Configurar o managedBy <br> Controle de alterações do disco <br> Concessão de disco <br> Exibir configurações de conexão <br> Estender disco virtual <br> Dispositivo USB do host <br> Memória <br> Modificar as configurações de dispositivo <br> Compatibilidade de tolerância a falhas de consulta <br> Consultar arquivos sem proprietário <br> Dispositivo bruto <br> Recarregar do caminho <br> Remover disco <br> Renomear <br> Redefinir informações de convidado <br> Definir anotação <br> Configurações <br> Posicionamento do Swapfile <br> Alternar bifurcação pai <br> Desbloquear máquina virtual <br> Atualizar a compatibilidade da máquina virtual |
 | **Operações de convidado de >de máquina virtual** | Modificação do alias da operação de convidado <br> Consulta de alias de operação de convidado <br> Modificações de operação de convidado <br> Execução do programa de operação de convidado <br> Consultas de operação de convidado    |
 | **Interação de >de máquina virtual** | Pergunta de resposta <br> Operação de backup na máquina virtual <br> Configurar mídia de CD <br> Configurar mídia de disquete <br> Interação do console <br> Criar captura de tela <br> Desfragmentar todos os discos <br> Conexão de dispositivo <br> Arrastar e soltar <br> Gerenciamento do sistema operacional convidado pela API do VIX <br> Injetar códigos de verificação de HID USB <br> Pausar ou pausar <br> Executar operações de apagamento ou redução <br> Desligar <br> Ligue <br> Registrar sessão na máquina virtual <br> Repetir sessão na máquina virtual <br> Redefinir <br> Retomar tolerância a falhas <br> Suspend <br> Tolerância a falhas de suspensão <br> Failover de Teste <br> VM secundária de reinício de teste <br> Desativar tolerância a falhas <br> Ativar tolerância a falhas <br> Instalação das ferramentas do VMware |
-| **Inventário de >de máquina virtual** | Criar a partir de existente <br> Create new <br> Mover <br> Registrar <br> Remover <br> Cancelar o registro  |
+| **Inventário de >de máquina virtual** | Criar a partir de existente <br> Criar Novo <br> Mover <br> Registrar <br> Remover <br> Cancelar o registro  |
 | **Provisionamento de >de máquina virtual** | Permitir acesso ao disco <br> Permitir acesso a arquivos <br> Allow read-only disk access <br> Permitir download de máquina virtual <br> Permitir carregamento de arquivos de máquina virtual <br> Clonar modelo <br> Clonar máquina virtual <br> Criar modelo a partir da máquina virtual <br> Personalizar <br> Implantar modelo <br> Marcar como modelo <br> Marcar como máquina virtual <br> Modificar especificação de personalização <br> Promover discos <br> Ler especificações de personalização |
 | **Configuração do serviço de >de máquina virtual** | Permitir notificações <br> Permitir sondagem de notificações de eventos globais <br> Gerenciar configurações de serviço <br> Modificar configuração de serviço <br> Configurações do serviço de consulta <br> Ler configuração de serviço
 | **Gerenciamento de instantâneos de >de máquina virtual** | Create snapshot <br> Remover instantâneo <br> Renomear instantâneo <br> Reverter para instantâneo |

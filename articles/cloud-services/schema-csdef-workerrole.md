@@ -1,26 +1,25 @@
 ---
-title: Esquema de Def. WorkerRole do Azure Cloud Services | Microsoft Docs
+title: Esquema de Def. WorkerRole de serviços de nuvem do Azure (clássico) | Microsoft Docs
 description: A função de trabalho do Azure é usada para desenvolvimento generalizado e pode executar o processamento em segundo plano para uma função Web. Saiba mais sobre o esquema de função de trabalho do Azure.
-services: cloud-services
-ms.custom: ''
-ms.date: 04/14/2015
-ms.reviewer: ''
+ms.topic: article
 ms.service: cloud-services
-ms.suite: ''
-ms.tgt_pltfrm: ''
-ms.topic: reference
-ms.assetid: 41cd46bc-c479-43fa-96e5-d6c83e4e6d89
-caps.latest.revision: 55
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 26225442c72fb209bb1ac4cd2bf4777fb39542fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 0871527187a3d678cb2b94bd8dc342cf2abde1ba
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79534364"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743127"
 ---
-# <a name="azure-cloud-services-definition-workerrole-schema"></a>Esquema WorkerRole de definição dos Serviços de Nuvem do Azure
+# <a name="azure-cloud-services-classic-definition-workerrole-schema"></a>Esquema WorkerRole de definição de serviços de nuvem do Azure (clássico)
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
+
 A função de trabalho do Azure é uma função útil para o desenvolvimento generalizado e pode executar o processamento em segundo plano para uma função web.
 
 A extensão padrão do arquivo de definição de serviço é .csdef.
@@ -265,7 +264,7 @@ A tabela a seguir descreve os atributos do elemento `FixedPortRange`.
 
 | Atributo | Type | Descrição |
 | --------- | ---- | ----------- |
-|Min|INT|Obrigatórios. A porta mínima no intervalo. Os valores possíveis variam entre 1 e 65535, inclusive (SDK do Azure versão 1.7 ou superior).|
+|min|INT|Obrigatórios. A porta mínima no intervalo. Os valores possíveis variam entre 1 e 65535, inclusive (SDK do Azure versão 1.7 ou superior).|
 |max|string|Obrigatórios. A porta máxima no intervalo. Os valores possíveis variam entre 1 e 65535, inclusive (SDK do Azure versão 1.7 ou superior).|
 
 ##  <a name="certificates"></a><a name="Certificates"></a> Certificados
@@ -349,7 +348,7 @@ A tabela a seguir descreve os atributos do elemento `NetFxEntryPoint`.
 
 | Atributo | Type | Descrição |
 | --------- | ---- | ----------- |
-|assemblyName|string|Obrigatórios. O caminho e o nome do arquivo do assembly que contém o ponto de entrada. O caminho é relativo à pasta ** \\ %ROLEROOT%\Approot** (não especifique ** \\ %ROLEROOT%\Approot** em `commandLine` , é pressuposto). **%ROLEROOT%** é uma variável de ambiente mantida pelo Azure e ela representa o local da pasta raiz da sua função. A pasta ** \\ %ROLEROOT%\Approot** representa a pasta do aplicativo para sua função.|
+|assemblyName|string|Obrigatórios. O caminho e o nome do arquivo do assembly que contém o ponto de entrada. O caminho é relativo à pasta **\\ %ROLEROOT%\Approot** (não especifique **\\ %ROLEROOT%\Approot** em `commandLine` , é pressuposto). **%ROLEROOT%** é uma variável de ambiente mantida pelo Azure e ela representa o local da pasta raiz da sua função. A pasta **\\ %ROLEROOT%\Approot** representa a pasta do aplicativo para sua função.|
 |targetFrameworkVersion|string|Obrigatórios. A versão do .NET Framework na qual esse assembly foi criado. Por exemplo, `targetFrameworkVersion="v4.0"`.|
 
 ##  <a name="programentrypoint"></a><a name="ProgramEntryPoint"></a> ProgramEntryPoint

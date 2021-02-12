@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: ff612b7c052ead5658ea4bbfafd7aace51ba3c02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86132495"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017433"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gerenciar servidor de configuração para recuperação de desastres do servidor físico
 
@@ -33,7 +33,7 @@ A tabela resume os pré-requisitos para implantação do computador do servidor 
 | Espaço livre em disco (disco de retenção) | 600 GB|
 | Sistema operacional  | Windows Server 2012 R2 <br> Windows Server 2016 |
 | Localidade do sistema operacional | Inglês (EUA)|
-| Versão do VMware vSphere PowerCLI | Não é necessária|
+| Versão do VMware vSphere PowerCLI | Não obrigatório|
 | Funções do Windows Server | Não habilite essas funções: <br> - Active Directory Domain Services <br>- Serviços de Informações da Internet <br> - Hyper-V |
 | Políticas de grupo| Não habilite estas políticas de grupo: <br> - Impedir o acesso ao prompt de comando <br> - Impedir o acesso às ferramentas de edição do registro <br> - Lógica de confiança para anexos de arquivo <br> - Ativar a execução do script <br> [Saiba mais](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))|
 | IIS | – Nenhum site da Web padrão já existente <br> -Habilitar  [autenticação anônima](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br> - Habilitar configuração [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10))  <br> – Nenhum aplicativo/site da Web pré-existente escutando na porta 443<br>|
@@ -108,7 +108,7 @@ Execute o arquivo de instalação da seguinte maneira:
 
 ### <a name="parameters"></a>Parâmetros
 
-|Nome do Parâmetro| Type | Descrição| Valores|
+|Nome do Parâmetro| Tipo | Descrição| Valores|
 |-|-|-|-|
 | /ServerMode|Obrigatório|Especifica se os servidores de configuração e de processo devem ser instalados ou somente o servidor de processo|CS<br>PS|
 |/InstallLocation|Obrigatório|A pasta na qual os componentes estão instalados| Qualquer pasta no computador|
@@ -303,7 +303,7 @@ Para implantações de servidor de configuração antes de maio de 2016, a expir
 
 ### <a name="renew-the-certificate"></a>Renovar o certificado
 
-1. No cofre, abra **site Recovery**  >  **servidor de configuração**de infraestrutura e clique no servidor de configuração necessário.
+1. No cofre, abra **site Recovery**  >  **servidor de configuração** de infraestrutura e clique no servidor de configuração necessário.
 2. A data de expiração aparece em **integridade do servidor de configuração**
 3. Clique em **Renovar certificados**. 
 

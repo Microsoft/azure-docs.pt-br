@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4a4d3a1480a852218e698862a509c4af45e49eb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d9b2546553e03d1555cf4c587d699d9a4ea7e51
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76714420"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000973"
 ---
 # <a name="project-lead-tasks-in-the-team-data-science-process"></a>Tarefas do líder de projetos no processo de ciência de dados de equipe
 
@@ -49,7 +49,7 @@ Para clonar repositórios e modificar o conteúdo em seu computador local ou Má
 
 - Uma assinatura do Azure.
 - Git instalado em seu computador. Se você estiver usando um DSVM, o git será pré-instalado. Caso contrário, consulte o [apêndice Plataformas e ferramentas](platforms-and-tools.md#appendix).
-- Se você quiser usar um DSVM, o DSVM do Windows ou Linux criado e configurado no Azure. Para obter mais informações e instruções, consulte a [documentação do máquina virtual de ciência de dados](/azure/machine-learning/data-science-virtual-machine/).
+- Se você quiser usar um DSVM, o DSVM do Windows ou Linux criado e configurado no Azure. Para obter mais informações e instruções, consulte a [documentação do máquina virtual de ciência de dados](../data-science-virtual-machine/index.yml).
 - Para um DSVM do Windows, o [Gerenciador de credenciais do git (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado em seu computador. No arquivo *README.MD* , role para baixo até a seção **baixar e instalar** e selecione o **instalador mais recente**. Baixe o instalador *. exe* da página do instalador e execute-o. 
 - Para um DSVM do Linux, uma chave pública SSH configurada em seu DSVM e adicionada no Azure DevOps. Para obter mais informações e instruções, consulte a seção **criar chave pública SSH** no [Apêndice plataformas e ferramentas](platforms-and-tools.md#appendix). 
 
@@ -57,13 +57,13 @@ Para clonar repositórios e modificar o conteúdo em seu computador local ou Má
 
 Para criar um repositório de projeto no projeto **myTeam** de sua equipe:
 
-1. Vá para a página de **Resumo** do projeto da sua equipe em * \/ / \<server name> / \<organization name> / \<team name> https:*, por exemplo, **https: \/ /dev.Azure.com/DataScienceUnit/myTeam**e selecione **repositórios** na barra de navegação à esquerda. 
+1. Vá para a página de **Resumo** do projeto da sua equipe em *\/ / \<server name> / \<organization name> / \<team name> https:*, por exemplo, **https: \/ /dev.Azure.com/DataScienceUnit/myTeam** e selecione **repositórios** na barra de navegação à esquerda. 
    
 1. Selecione o nome do repositório na parte superior da página e, em seguida, selecione **novo repositório** na lista suspensa.
    
    ![Selecionar novo repositório](./media/project-lead-tasks/project-leads-9-select-repos.png)
    
-1. Na caixa de diálogo **criar um novo repositório** , verifique se **git** está selecionado em **tipo**. Digite *DSProject1* em **nome do repositório**e, em seguida, selecione **criar**.
+1. Na caixa de diálogo **criar um novo repositório** , verifique se **git** está selecionado em **tipo**. Digite *DSProject1* em **nome do repositório** e, em seguida, selecione **criar**.
    
    ![Criar repositório](./media/project-lead-tasks/project-leads-3-create-project-repo-2.png)
    
@@ -83,7 +83,7 @@ Para popular o repositório do seu projeto com o conteúdo do seu repositório d
    
    ![Selecionar importação](./media/project-lead-tasks/project-leads-5-create-project-repo-4.png)
    
-1. Na caixa de diálogo **importar um repositório git** , selecione **git** como o **tipo de origem**e insira a URL para o repositório do **teamtemplate** em **clonar URL**. A URL é *https: \/ / \<server name> / \<organization name> / \<team name> /_git/ \<team template repository name> *. Por exemplo: **https: \/ /dev.Azure.com/DataScienceUnit/myTeam/_git/TeamTemplate**. 
+1. Na caixa de diálogo **importar um repositório git** , selecione **git** como o **tipo de origem** e insira a URL para o repositório do **teamtemplate** em **clonar URL**. A URL é *https: \/ / \<server name> / \<organization name> / \<team name> /_git/ \<team template repository name>*. Por exemplo: **https: \/ /dev.Azure.com/DataScienceUnit/myTeam/_git/TeamTemplate**. 
    
 1. Selecione **Importar**. O conteúdo do seu repositório de modelos de equipe é importado para o repositório do projeto. 
    

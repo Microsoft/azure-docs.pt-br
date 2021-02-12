@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: agummadi
-ms.openlocfilehash: 36e41db6e1a3cff13f31f0abf2e83e872dfd7c49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a92c6789723dc42ac8f3a9c471e494079dc19328
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742325"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233433"
 ---
 # <a name="network-monitoring-solutions"></a>Soluções de monitoramento de rede 
 
@@ -52,10 +52,10 @@ Monitor de Desempenho é parte do NPM e está monitorando a rede para ambientes 
 Para obter mais informações, consulte os seguintes artigos:
 
 * [Configurar uma solução de Monitor de Desempenho de Rede em logs de Azure Monitor](../azure-monitor/insights/network-performance-monitor.md) 
-* [Casos de uso](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
+* [Casos de uso](/archive/blogs/msoms/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor)
 * Atualizações do produto:
-  * [Fevereiro de 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/)
-  * [Agosto de 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
+  * [Fevereiro de 2017](/archive/blogs/msoms/oms-network-performance-monitor-is-now-generally-available)
+  * [Agosto de 2017](/archive/blogs/msoms/improvements-to-oms-network-performance-monitor)
 
 ## <a name="expressroute-monitor"></a>ExpressRoute Monitor
 
@@ -106,7 +106,7 @@ A Análise de Tráfego fornece informações acionáveis que ajudam a auditar a 
 ![Mapa geográfico mostrando o tráfego entre as regiões 2](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
 
 Links relacionados:
-* [Postagem no blog](https://aka.ms/trafficanalytics), [Documentação](https://aka.ms/trafficanalyticsdocs), [Perguntas frequentes](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)
+* [Postagem no blog](https://aka.ms/trafficanalytics), [Documentação](../network-watcher/traffic-analytics.md), [Perguntas frequentes](../network-watcher/traffic-analytics-faq.md)
 
 ## <a name="dns-analytics"></a>Análise de DNS
 Compilada para Administradores de DNS, essa solução coleta, analisa e correlaciona logs de DNS para fornecer insights relacionados à segurança, operações e ao desempenho.  Algumas das capacidades são:
@@ -120,8 +120,8 @@ Compilada para Administradores de DNS, essa solução coleta, analisa e correlac
 ![Painel de Análise de DNS](./media/network-monitoring-overview/dns-analytics-overview.png) 
 
 Links relacionados:
-* [Postagem no blog](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [Documentação](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
+* [Postagem no blog](/archive/blogs/msoms/introducing-oms-dns-analytics), [Documentação](../azure-monitor/insights/dns-analytics.md)
 
 ## <a name="miscellaneous"></a>Diversos
 
-* [Novos preços](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor-pricing-faq)
+* [Novos preços](../azure-monitor/insights/network-performance-monitor-pricing-faq.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 04/02/2020
-ms.openlocfilehash: af77f18771d8e18ee86b79360ac03307d3330cb0
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: b02c5bbf2e6accbea9c7a33dc26c4e89e46bb697
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131421"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679141"
 ---
 # <a name="power-bi-app-creation-overview"></a>Visão geral da criação de aplicativos Power BI
 
@@ -33,7 +33,7 @@ Benefícios da publicação no Marketplace comercial:
 
 Estas são as principais etapas de publicação:
 
-1. Crie seu aplicativo no Power BI. Você receberá um link de instalação de pacote, que é o principal ativo técnico para a oferta. Envie o pacote de teste para pré-produção antes de criar a oferta no Partner Center. Para obter detalhes, consulte [o que são aplicativos Power bi?](/power-bi/service-template-apps-overview).
+1. Crie seu aplicativo no Power BI. Você receberá um link de instalação de pacote, que é o principal ativo técnico para a oferta. Envie o pacote de teste para pré-produção antes de criar a oferta no Partner Center. Para obter detalhes, consulte [o que são aplicativos Power bi?](/power-bi/service-template-apps-overview)
 2. Adicione os materiais de marketing, como nome oficial, descrição e logotipos.
 3. Inclua os documentos legais e de suporte da oferta, como termos de uso, política de privacidade, política de suporte e ajuda do usuário.
 4. Crie a oferta – use o Partner Center para editar os detalhes, incluindo a descrição da oferta, materiais de marketing, informações legais, informações de suporte e especificações de ativos.

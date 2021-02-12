@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 05/28/2020
 ms.topic: reference
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b37aabb39e19fa5ec53d2b006a7cbc1793adad72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e2687954fb05ce826e780ae0dbd3931d899885f
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90988050"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594393"
 ---
 # <a name="server-sizes"></a>Tamanhos de servidor
 
@@ -30,26 +30,35 @@ Quando o renderizador ativado em um tamanho de servidor ' padrão ' atinge essa 
 O tipo desejado de configuração do servidor deve ser especificado no tempo de inicialização da sessão de renderização. Ele não pode ser alterado em uma sessão em execução. Os exemplos de código a seguir mostram o local onde o tamanho do servidor deve ser especificado:
 
 ```cs
-async void CreateRenderingSession(AzureFrontend frontend)
+async void CreateRenderingSession(RemoteRenderingClient client)
 {
-    RenderingSessionCreationParams sessionCreationParams = new RenderingSessionCreationParams();
-    sessionCreationParams.Size = RenderingSessionVmSize.Standard; // or  RenderingSessionVmSize.Premium
+    RenderingSessionCreationOptions sessionCreationOptions = default;
+    sessionCreationOptions.Size = RenderingSessionVmSize.Standard; // or  RenderingSessionVmSize.Premium
 
-    AzureSession session = await frontend.CreateNewRenderingSessionAsync(sessionCreationParams).AsTask();
+    CreateRenderingSessionResult result = await client.CreateNewRenderingSessionAsync(sessionCreationOptions);
+    if (result.ErrorCode == Result.Success)
+    {
+        RenderingSession session = result.Session;
+        // do something with the session
+    }
 }
 ```
 
 ```cpp
-void CreateRenderingSession(ApiHandle<AzureFrontend> frontend)
+void CreateRenderingSession(ApiHandle<RemoteRenderingClient> client)
 {
-    RenderingSessionCreationParams sessionCreationParams;
-    sessionCreationParams.Size = RenderingSessionVmSize::Standard; // or  RenderingSessionVmSize::Premium
+    RenderingSessionCreationOptions sessionCreationOptions;
+    sessionCreationOptions.Size = RenderingSessionVmSize::Standard; // or  RenderingSessionVmSize::Premium
 
-    if (auto createSessionAsync = frontend->CreateNewRenderingSessionAsync(sessionCreationParams))
-    {
-        // ...
-    }
+    client->CreateNewRenderingSessionAsync(sessionCreationOptions, [](Status status, ApiHandle<CreateRenderingSessionResult> result) {
+        if (status == Status::OK && result->GetErrorCode() == Result::Success)
+        {
+            ApiHandle<RenderingSession> session = result->GetSession();
+            // do something with the session
+        }
+    });
 }
+
 ```
 
 Para os [scripts do PowerShell de exemplo](../samples/powershell-example-scripts.md), o tamanho do servidor desejado deve ser especificado dentro do `arrconfig.json` arquivo:
@@ -76,8 +85,8 @@ Da mesma forma, é possível gravar um aplicativo que tem como alvo o `standard`
 ### <a name="how-to-determine-the-number-of-polygons"></a>Como determinar o número de polígonos
 
 Há duas maneiras de determinar o número de polígonos de um modelo ou cena que contribuem para o limite de orçamento do `standard` tamanho da configuração:
-* No lado da conversão de modelo, recupere o [arquivo JSON de saída de conversão](../how-tos/conversion/get-information.md)e verifique a `numFaces` entrada na [seção *inputStatistics* ](../how-tos/conversion/get-information.md#the-inputstatistics-section)
-* Se seu aplicativo estiver lidando com conteúdo dinâmico, o número de polígonos renderizados poderá ser consultado dinamicamente durante o tempo de execução. Use uma [consulta de avaliação de desempenho](../overview/features/performance-queries.md#performance-assessment-queries) e verifique o `polygonsRendered` membro na `FrameStatistics` estrutura. O `polygonsRendered` campo será definido como `bad` quando o renderizador atingir a limitação do polígono. O plano de fundo quadriculado sempre fica com algum atraso para garantir que a ação do usuário possa ser executada após essa consulta assíncrona. A ação do usuário pode, por exemplo, ocultar ou excluir instâncias do modelo.
+* No lado da conversão de modelo, recupere o [arquivo JSON de saída de conversão](../how-tos/conversion/get-information.md)e verifique a `numFaces` entrada na [seção *inputStatistics*](../how-tos/conversion/get-information.md#the-inputstatistics-section)
+* Se seu aplicativo estiver lidando com conteúdo dinâmico, o número de polígonos renderizados poderá ser consultado dinamicamente durante o tempo de execução. Use uma [consulta de avaliação de desempenho](../overview/features/performance-queries.md#performance-assessment-queries) e verifique o `polygonsRendered` membro na `FrameStatistics` estrutura. O `PolygonsRendered` campo será definido como `bad` quando o renderizador atingir a limitação do polígono. O plano de fundo quadriculado sempre fica com algum atraso para garantir que a ação do usuário possa ser executada após essa consulta assíncrona. A ação do usuário pode, por exemplo, ocultar ou excluir instâncias do modelo.
 
 ## <a name="pricing"></a>Preços
 

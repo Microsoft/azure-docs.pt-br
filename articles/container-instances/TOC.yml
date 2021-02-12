@@ -72,7 +72,7 @@
           href: container-instances-vnet.md
         - name: Implantar a partir do Registro de Contêiner do Azure
           href: container-instances-using-azure-container-registry.md
-        - name: Implantar com GitHub Actions (versão prévia)
+        - name: Implantar com ações do GitHub
           href: container-instances-github-action.md
         - name: Criptografar dados de implantação
           href: container-instances-encrypt-data.md

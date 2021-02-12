@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 09/15/2020
+ms.date: 12/07/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b87af4a08c5a796d96d853ca63e50e335b9731fb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b12eb95a7840bdbb902701fc644eee30ffe9900f
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362766"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778505"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Criar uma revisão de acesso de grupos e aplicativos nas revisões de acesso do Azure AD
 
@@ -43,103 +43,94 @@ Para obter mais informações, veja [Requisitos de licença](access-reviews-over
 
 1. Entre no portal do Azure e abra a [página governança de identidade](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
-1. No menu à esquerda, clique em **revisões de acesso**.
+2. No menu à esquerda, clique em **revisões de acesso**.
 
-1. Clique em **Nova análise de acesso** para criar uma nova revisão de acesso.
+3. Clique em **Nova análise de acesso** para criar uma nova revisão de acesso.
 
     ![Painel de revisões de acesso no controle de identidade](./media/create-access-review/access-reviews.png)
 
-1. Nomeie a revisão de acesso. Opcionalmente, forneça uma descrição à revisão. O nome e a descrição são mostrados aos revisores.
+4. Na **etapa 1: selecione o que deve ser revisado** selecione qual recurso você gostaria de examinar.
 
-    ![Criar uma revisão de acesso - nome da revisão e descrição](./media/create-access-review/name-description.png)
+    ![Criar uma revisão de acesso - nome da revisão e descrição](./media/create-access-review/select-what-review.png)
 
-1. Defina a **Data de início**. Por padrão, uma revisão de acesso ocorre uma vez, inicia na mesma hora em que é criada e termina em um mês. Você pode alterar as datas de início e de término para iniciar uma análise de acesso em uma data futura e que dure quantos dias você desejar.
+5. Se você selecionou **Teams + groups** na etapa 1, terá duas opções na etapa 2
+   - **Todos os grupos de Microsoft 365 com usuários convidados.** Selecione esta opção se desejar criar revisões recorrentes em todos os seus usuários convidados em todas as suas equipes e grupos de M365 da Microsoft em sua organização. Você pode optar por excluir determinados grupos clicando em ' selecionar grupo (s) para exclusão '.
+   - **Selecione equipes + grupos.** Selecione esta opção se desejar especificar um conjunto finito de equipes e/ou grupos a serem examinados. Depois de clicar nessa opção, você verá uma lista de grupos à direita da qual escolher.
 
-    ![Criar uma revisão de acesso - Data inicial e final](./media/create-access-review/start-end-dates.png)
+     ![Equipes e grupos](./media/create-access-review/teams-groups.png)
 
-1. Para fazer com que a revisão de acesso seja recorrente, altere a configuração de **frequência** de **uma vez** para **semanal**, **mensal**, **trimestral**, **semianual**ou **anualmente**. Use o controle deslizante **Duração** ou caixa de texto para definir por quantos dias cada revisão da série recorrente será aberta para entrada de revisores. Por exemplo, a duração máxima que você pode definir para uma revisão mensal é de 27 dias, para evitar revisões sobrepostas.
+     ![Equipes e grupos escolhidos na interface do usuário](./media/create-access-review/teams-groups-detailed.png)
 
-1. Use a configuração **Final** para especificar como terminar a série de revisão de acesso recorrente. A série pode terminar de três maneiras: 
-    1. Ele é executado continuamente para iniciar revisões indefinidamente
-    1. Até uma data específica,
-    1. Até que um número definido de ocorrências tenha sido concluído. 
-  
-    Você, outro usuário administrador ou outro administrador global pode interromper a série após a criação, alterando a data em **Configurações** para que ela encerre nessa data.
+6. Se você selecionou **aplicativos** na etapa 1, poderá selecionar um ou mais aplicativos na etapa 2.
 
-1. Na seção **usuários** , especifique os usuários aos quais a revisão de acesso se aplica. As revisões de acesso podem ser de membros de um grupo ou usuários que foram atribuídos a um aplicativo. Você pode detalhar ainda mais o escopo da análise de acesso para examinar apenas os usuários convidados que são membros (ou atribuídos ao aplicativo), em vez de examinar todos os usuários que são membros ou que têm acesso ao aplicativo.
+    >[!NOTE]
+    > A seleção de vários grupos e/ou aplicativos resultará em várias revisões de acesso criadas. Por exemplo, se você selecionar 5 grupos para revisão, isso resultará em 5 revisões de acesso separadas
 
-    ![Criar uma revisão de acesso - Usuários](./media/create-access-review/users.png)
+   ![A interface exibida se você escolher aplicativos em vez de grupos](./media/create-access-review/select-application-detailed.png)
 
-1. Na seção **grupo** , selecione um ou mais grupos dos quais você gostaria de examinar a associação.
+7. Em seguida, na etapa 3, você pode selecionar um escopo para a revisão. Suas opções são
+   - **Somente usuários convidados.** Selecionar essa opção limita a revisão de acesso apenas aos usuários convidados do Azure AD B2B em seu diretório.
+   - **Mundo.** A seleção dessa opção abrange a revisão de acesso a todos os objetos de usuário associados ao recurso.
 
-    > [!NOTE]
-    > A seleção de mais de um grupo criará várias revisões de acesso. Por exemplo, a seleção de cinco grupos criará cinco revisões de acesso separadas.
-    
-    ![Criar uma revisão de acesso-selecionar grupo](./media/create-access-review/select-group.png)
+    >[!NOTE]
+    > Se você selecionou todos os grupos de Microsoft 365 com usuários convidados na etapa 2, sua única opção é examinar os usuários convidados na etapa 3
 
-1. Na seção **aplicativos** (se você selecionou **atribuído a um aplicativo** na etapa 8), selecione os aplicativos para os quais deseja revisar o acesso.
+8. Clique em Avançar: revisões
+9. Na seção **selecionar revisores** , selecione uma ou mais pessoas para executar as revisões de acesso. Você pode escolher:
+    - **Proprietário (s) do grupo** (disponível somente ao executar uma revisão em uma equipe ou grupo)
+    - **Usuário (s) ou grupos (s) selecionados**
+    - **Os usuários revisam o próprio acesso**
+    - **Apresentação Gerentes de usuários.**
+    Se você escolher **gerentes de usuários** ou **proprietários de grupo**  , também terá a opção de especificar um revisor de fallback. Os revisores de fallback são solicitados a fazer uma análise quando o usuário não tem nenhum gerente especificado no diretório ou o grupo não tem um proprietário.
 
-    > [!NOTE]
-    > A seleção de mais de um aplicativo criará várias revisões de acesso. Por exemplo, a seleção de cinco aplicativos criará cinco revisões de acesso separadas.
-    
-    ![Criar uma revisão de acesso-selecionar aplicativo](./media/create-access-review/select-application.png)
+    ![nova revisão de acesso](./media/create-access-review/new-access-review.png)
 
-1. Na seção **Revisores**, selecione uma ou mais pessoas para examinar todos os usuários no escopo. Ou você pode selecionar para que os membros examinem seus próprios acessos. Se o recurso for um grupo, você pode pedir que a revisão seja realizada pelos proprietários de grupo. Você também pode exigir que os revisores forneçam um motivo ao aprovar o acesso.
+10. Na seção **especificar recorrência da revisão** , você pode especificar uma frequência como **semanal, mensal, trimestral, semianual, anualmente**. Em seguida, você especifica uma **duração**, que define por quanto tempo uma análise será aberta para entrada de revisores. Por exemplo, a duração máxima que você pode definir para uma revisão mensal é de 27 dias, para evitar revisões sobrepostas. Talvez você queira reduzir a duração para garantir que a entrada dos revisores seja aplicada anteriormente. Em seguida, você pode selecionar uma **data de início** e uma data de **término**.
 
-    ![Criar uma revisão de acesso - Revisores](./media/create-access-review/reviewers.png)
+    ![Escolha a frequência com que a revisão deve ocorrer](./media/create-access-review/frequency.png)
 
-1. Na seção **Programas**, selecione o programa que você deseja usar. O **Programa Padrão** sempre está presente.
-
-    ![Criar uma revisão de acesso - Programas](./media/create-access-review/programs.png)
-
-    Você pode simplificar a coleta e o acompanhamento de revisões de acesso organizando-as em programas. Cada análise de acesso pode ser vinculada a um programa. Em seguida, ao preparar relatórios para um auditor, você poderá concentrar-se nas revisões de acesso no escopo de uma iniciativa específica. Os resultados de análise de programas e acesso são visíveis para os usuários no administrador global, administrador de usuários, administrador de segurança ou função de leitor de segurança.
-
-    Para ver uma lista de programas, vá para a página revisões de acesso e selecione **Programas**. Se você estiver em uma função de administrador global ou de administrador de usuários, poderá criar programas adicionais. Por exemplo, é possível optar por ter um programa para cada iniciativa de conformidade ou meta de negócios. Quando você não precisar mais de um programa e ele não tiver nenhum controle vinculado a ele, você poderá excluí-lo.
-
-### <a name="upon-completion-settings"></a>Após configurações de conclusão
-
-1. Para especificar o que acontece após a conclusão de uma revisão, expanda a seção **Após configurações de conclusão**.
+11. Clique no botão **próximo: configurações** na parte inferior da página
+12. Nas **configurações de conclusão** , você pode especificar o que acontece após a conclusão da revisão
 
     ![Criar uma revisão de acesso-após as configurações de conclusão](./media/create-access-review/upon-completion-settings-new.png)
 
-2. Se você quiser remover automaticamente o acesso para usuários negados, defina **auto aplicar resultados para recurso** a ser **habilitado**. Se você deseja aplicar manualmente os resultados quando a revisão for concluída, defina a opção para **Desabilitar**.
+Se você quiser remover automaticamente o acesso para usuários negados, defina auto aplicar resultados para recurso a ser habilitado. Se você deseja aplicar manualmente os resultados quando a revisão for concluída, defina a opção para Desabilitar.
+Use a lista se os revisores não responderem para especificar o que acontece para os usuários que não são revisados pelo revisor no período de revisão. Essa configuração não afeta os usuários que foram revisados pelos revisores manualmente. Se a decisão do revisor final for negar o acesso do usuário será removido.
 
-3. Use a lista **se os revisores não responderem** para especificar o que acontece para os usuários que não são revisados pelo revisor no período de revisão. Essa configuração não afeta os usuários que foram revisados pelos revisores manualmente. Se a decisão do revisor final for negar o acesso do usuário será removido.
+- **Nenhuma alteração** - deixar o acesso do usuário inalterado
+- **Remover o acesso** - remover o acesso do usuário
+- **Aprovar o acesso** - aprovar o acesso do usuário
+- **Fazer recomendações** - levar a recomendação do sistema ao negar ou aprovar o acesso contínuo do usuário
 
-    - **Nenhuma alteração** - deixar o acesso do usuário inalterado
-    - **Remover o acesso** - remover o acesso do usuário
-    - **Aprovar o acesso** - aprovar o acesso do usuário
-    - **Fazer recomendações** - levar a recomendação do sistema ao negar ou aprovar o acesso contínuo do usuário
+    ![Nas opções de configurações de conclusão](./media/create-access-review/upon-completion-settings-new.png)
 
-    ![Criar uma revisão de acesso – configurações avançadas](./media/create-access-review/advanced-settings-preview-new.png)
-
-4. Apresentação Use a ação a ser aplicada a usuários negados para especificar o que acontece com os usuários convidados se eles forem negados.
-    - A **opção 1** removerá o acesso negado do usuário ao grupo ou aplicativo que está sendo revisado, ainda poderá entrar no locatário. 
-    - A **opção 2** impedirá que os usuários negados se inscrevam no locatário, independentemente de terem acesso a outros recursos. Se houvesse um erro ou se um administrador decidir reabilitar o acesso de um, ele poderá fazer isso dentro de 30 dias depois que o usuário tiver sido desabilitado. Se não houver nenhuma ação executada nos usuários desabilitados, eles serão excluídos do locatário.
+Use a ação a ser aplicada em usuários **convidados** negados para especificar o que acontece com os usuários convidados se eles forem negados.
+- Remover a associação do usuário do recurso removerá o acesso do usuário negado ao grupo ou aplicativo que está sendo revisado. eles ainda poderão entrar no locatário.
+- Bloquear o logon do usuário por 30 dias e, em seguida, remover o usuário do locatário bloqueará a entrada de usuários negados no locatário, independentemente de terem acesso a outros recursos. Se houvesse um erro ou se um administrador decidir reabilitar o acesso de um, ele poderá fazer isso dentro de 30 dias depois que o usuário tiver sido desabilitado. Se não houver nenhuma ação executada nos usuários desabilitados, eles serão excluídos do locatário.
 
 Para saber mais sobre as práticas recomendadas para remover usuários convidados que não têm mais acesso aos recursos em sua organização, leia o artigo intitulado [Use Azure ad Identity Governance para revisar e remover usuários externos que não têm mais acesso a recursos.](access-reviews-external-users.md)
 
->[!NOTE]
-> A ação a ser aplicada a usuários negados só funcionará se você tiver definido anteriormente uma revisão para apenas os usuários convidados (consulte a seção **criar uma ou mais revisões de acesso** etapa 8)
+   >[!NOTE]
+   >A ação a ser aplicada em usuários convidados negados não é configurável em revisões com escopo para mais de usuários convidados. Ele também não é configurável para revisões de **todos os grupos de M365 com usuários convidados.** Quando não configurável, a opção padrão de remover a associação do usuário do recurso é usada em usuários negados.
 
-### <a name="advanced-settings"></a>Configurações avançadas
+13. Na tela **habilitar, os auxiliares de decisão** escolhem se deseja que o revisor receba recomendações durante o processo de revisão.
 
-1. Para especificar configurações adicionais, expanda a seção **Configurações avançadas**.
+    ![Habilitar opções de auxiliares de decisão](./media/create-access-review/helpers.png)
 
-1. Definir **Mostrar recomendações** à **Habilitar** para mostrar aos revisores as recomendações do sistema com base nas informações de acesso do usuário.
+14. Na seção **Configurações avançadas** , você pode escolher o seguinte
+    - Defina a **justificativa necessária** para **habilitar** o para exigir que o revisor forneça um motivo para aprovação.
+    - Defina **notificações por email** para **habilitar** o para que o Azure ad envie notificações por email aos revisores quando uma revisão de acesso for iniciada e aos administradores quando uma análise for concluída.
+    - Defina **Lembretes** para **Habilitar** para que o Azure Active Directory envie lembretes de análises de acesso em andamento para os revisores que não concluíram a sua análise. Esses lembretes serão autodirecionados pela duração da revisão.
+    - O conteúdo do email enviado aos revisores é gerado automaticamente com base nos detalhes da revisão, como nome da revisão, nome do recurso, data de vencimento, etc. Se você precisar de uma maneira de comunicar informações adicionais, como instruções adicionais ou informações de contato, poderá especificar esses detalhes na seção **conteúdo adicional para o email do revisor** . As informações inseridas são incluídas nos emails de convite e lembrete enviados aos revisores atribuídos. A seção realçada na imagem abaixo mostra onde essas informações são exibidas.
 
-1. Definir **Requer motivo sob aprovação** para **Habilitar** para exigir que o revisor forneça um motivo para aprovação.
 
-1. Definir **Notificações por email** para **Habilitar** para que o Azure Active Directory envie notificações por email para os revisores quando uma revisão de acesso começar e para os administradores quando uma revisão terminar.
+      ![conteúdo adicional para o revisor](./media/create-access-review/additional-content-reviewer.png)
 
-1. Defina **Lembretes** para **Habilitar** para que o Azure Active Directory envie lembretes de análises de acesso em andamento para os revisores que não concluíram a sua análise. 
+15. Clique em **Avançar: revisar + criar** para ir para a próxima página
+16. Nomeie a revisão de acesso. Opcionalmente, forneça uma descrição à revisão. O nome e a descrição são mostrados aos revisores.
+17. Examine as informações e selecione **criar**
 
-    >[!NOTE]
-    > Por padrão, o Azure AD envia automaticamente um lembrete na metade da data de término para os revisores que ainda não responderam
-
-1. Apresentação O conteúdo do email enviado aos revisores é gerado automaticamente com base nos detalhes da revisão, como nome da revisão, nome do recurso, data de vencimento, etc. Se você precisar de uma maneira de comunicar informações adicionais, como instruções adicionais ou informações de contato, poderá especificar esses detalhes no **conteúdo adicional do email do revisor** que será incluído nos emails de convite e lembrete enviados aos revisores atribuídos. A seção realçada abaixo é onde essas informações serão exibidas.
-
-    ![Examinar um acesso de usuários a um grupo](./media/create-access-review/review-users-access-group.png)
+       ![criar tela de revisão](./media/create-access-review/create-review.png)
 
 ## <a name="start-the-access-review"></a>Inicie a revisão de acesso
 
@@ -164,7 +155,7 @@ Se você tiver atribuído convidados como revisores e eles não tiverem aceitado
 |Revisado automaticamente | As decisões foram registradas pelo sistema para todos os usuários que não foram revisados. A revisão está pronta para continuar a **aplicação** se a aplicação automática estiver habilitada. |
 |Solicita | Não haverá nenhuma alteração no acesso para usuários que foram aprovados. |
 |Aplicado | Os usuários negados, se houver algum, foram removidos do recurso ou diretório. |
-|Failed (Falha) | A revisão não pôde ser executada. Esse erro pode estar relacionado à exclusão do locatário, uma alteração nas licenças ou outras alterações internas do locatário. |
+|Com falha | A revisão não pôde ser executada. Esse erro pode estar relacionado à exclusão do locatário, uma alteração nas licenças ou outras alterações internas do locatário. |
 
 ## <a name="create-reviews-via-apis"></a>Criar revisões via APIs
 

@@ -8,20 +8,20 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 09/22/2020
-ms.custom: contperfq1
-ms.openlocfilehash: d462ed4627254275703d88cadbaf5d55a106da55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/14/2020
+ms.custom: contperf-fy21q1,contperfq1
+ms.openlocfilehash: 61305e4f9ba45cb7c13a96bee9d1aab81108bb4d
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330121"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220687"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Aprendizado profundo versus aprendizado de máquina em Azure Machine Learning
 
 Este artigo explica o aprendizado profundo versus o aprendizado de máquina e como eles se encaixam na categoria mais ampla de inteligência artificial. Saiba mais sobre soluções de aprendizado profundo que você pode criar em Azure Machine Learning, como detecção de fraudes, reconhecimento de voz e facial, análise de sentimentos e previsão de séries temporais.
 
-Para obter orientação sobre como escolher algoritmos para suas soluções, consulte a folha de consulta do [algoritmo de Machine Learning](algorithm-cheat-sheet.md).
+Para obter orientação sobre como escolher algoritmos para suas soluções, consulte a folha de consulta do [algoritmo de Machine Learning](./algorithm-cheat-sheet.md?WT.mc_id=docs-article-lazzeri).
 
 ## <a name="deep-learning-machine-learning-and-ai"></a>Aprendizado profundo, aprendizado de máquina e ia
 
@@ -57,6 +57,16 @@ A tabela a seguir compara as duas técnicas mais detalhadamente:
 |  **Tempo de execução** | Leva um tempo comparativamente pequeno para ser treinado, variando de alguns segundos a algumas horas. | Geralmente leva muito tempo para treinar porque um algoritmo de aprendizado profundo envolve muitas camadas. |
 |  **Saída** | A saída geralmente é um valor numérico, como uma pontuação ou uma classificação. | A saída pode ter vários formatos, como um texto, uma pontuação ou um som. |
 
+## <a name="what-is-transfer-learning"></a>O que é o aprendizado de transferência
+
+O treinamento de modelos de aprendizado profundo geralmente requer grandes quantidades de dados de treinamento, recursos de computação de alto nível (GPU, TPU) e um tempo de treinamento mais longo. Em cenários em que não há nenhum deles disponível para você, você pode fazer um atalho para o processo de treinamento usando uma técnica conhecida como *aprendizado de transferência.*
+
+O aprendizado de transferência é uma técnica que aplica o conhecimento obtido da solução de um problema para um problema diferente, mas relacionado.
+
+Devido à estrutura de redes neurais, o primeiro conjunto de camadas geralmente contém recursos de nível inferior, enquanto o conjunto final de camadas contém um recurso de nível mais alto que está mais próximo do domínio em questão. Ao redirecionar as camadas finais para uso em um novo domínio ou problema, você pode reduzir significativamente a quantidade de tempo, os dados e os recursos de computação necessários para treinar o novo modelo. Por exemplo, se você já tiver um modelo que reconheça carros, poderá redirecionar esse modelo usando o aprendizado de transferência para também reconhecer caminhões, motocicletas e outros tipos de veículos.
+
+Saiba como aplicar o aprendizado de transferência para classificação de imagem usando uma estrutura de código-fonte aberto no Azure Machine Learning: [treinar um modelo de PyTorch de aprendizado profundo usando o aprendizado de transferência](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri).
+
 ## <a name="deep-learning-use-cases"></a>Casos de uso de aprendizado profundo
 
 Devido à estrutura de rede neural artificial, o profundo aprendizado de excels na identificação de padrões em dados não estruturados, como imagens, som, vídeo e texto. Por esse motivo, o aprendizado profundo está transformando rapidamente muitas indústrias, incluindo saúde, energia, finanças e transporte. Esses setores agora estão relembrando os processos de negócios tradicionais. 
@@ -72,8 +82,6 @@ O reconhecimento de entidade nomeada é um método de aprendizado profundo que l
 O aprendizado profundo foi aplicado em muitos casos de uso de detecção de objetos. A detecção de objeto é composta por duas partes: classificação de imagem e localização de imagem. A _classificação_ de imagem identifica os objetos da imagem, como carros ou pessoas. A _localização_ da imagem fornece o local específico desses objetos. 
 
 A detecção de objetos já é usada em setores como jogos, varejo, turismo e carros de autoatendimento.
-
-Saiba como usar um modelo de classificação de imagem de uma estrutura de código-fonte aberto em Azure Machine Learning: [classificar imagens usando um modelo Pytorch](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
 
 ### <a name="image-caption-generation"></a>Geração de legenda de imagem
 
@@ -93,8 +101,6 @@ A análise de texto baseada em métodos de aprendizado profundo envolve a análi
 
 As empresas usam o aprendizado profundo para executar a análise de texto para detectar o Insider Trading e a conformidade com as normas governamentais. Outro exemplo comum é a fraude de seguro: a análise de texto geralmente foi usada para analisar grandes quantidades de documentos para reconhecer as chances de uma declaração de seguro ser fraude. 
 
-Saiba como usar um modelo TensorFlow no Azure Machine Learning: [classificar dígitos manuscritos usando um modelo TensorFlow](https://docs.microsoft.com/azure/machine-learning/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
-
 ## <a name="artificial-neural-networks"></a>Redes neurais artificial
 
 Redes neurais artificial são formadas por camadas de nós conectados. Os modelos de aprendizado profundo usam redes neurais que têm um grande número de camadas. 
@@ -107,9 +113,9 @@ A rede neural Feedforward é o tipo mais simples de rede neural artificial. Em u
 
 ### <a name="recurrent-neural-network"></a>Rede neural recorrente
 
-As redes neurais recorrentes são uma rede neural artificial amplamente usada. Essas redes salvam a saída de uma camada e as alimentam de volta à camada de entrada para ajudar a prever o resultado da camada. As redes neurais recorrentes têm ótimos recursos de aprendizado. Eles são amplamente usados para tarefas complexas, como Previsão de série temporal, aprendizagem de manuscrito e reconhecimento de idioma.
+As redes neurais recorrentes são uma rede neural artificial amplamente usada. Essas redes salvam a saída de uma camada e as alimentam de volta à camada de entrada para ajudar a prever o resultado da camada. As redes neurais recorrentes têm ótimos recursos de aprendizado. Eles são amplamente usados para tarefas complexas, como Previsão de série temporal, aprendizado de manuscrito e linguagem de reconhecimento.
 
-### <a name="convolutional-neural-networks"></a>Redes neurais de revolução
+### <a name="convolutional-neural-network"></a>Rede neural de convolução
 
 Uma rede neural de revolução é uma rede neural artificialmente eficaz e apresenta uma arquitetura exclusiva. As camadas são organizadas em três dimensões: largura, altura e profundidade. Os neurônios em uma camada conectam-se não a todos os neurônios na próxima camada, mas apenas a uma pequena região dos neurônios da camada. A saída final é reduzida a um único vetor de pontuações de probabilidade, organizadas ao longo da dimensão de profundidade. 
 
@@ -117,8 +123,11 @@ As redes neurais de revolução foram usadas em áreas como reconhecimento de v�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Os artigos a seguir mostram mais opções para usar modelos de aprendizado aprofundado de software livre no [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/?WT.mc_id=docs-article-lazzeri):
+Os artigos a seguir mostram mais opções para usar modelos de aprendizado aprofundado de software livre no [Azure Machine Learning](./index.yml?WT.mc_id=docs-article-lazzeri):
 
-- [Classificar dígitos manuscritos usando um estimador TensorFlow e Keras](https://docs.microsoft.com/azure/machine-learning/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
 
-- [Classificar dígitos manuscritos usando um modelo de encadeamento](https://docs.microsoft.com/azure/machine-learning/how-to-train-ml-models)
+- [Classificar dígitos manuscritos usando um modelo TensorFlow](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri) 
+
+- [Classificar dígitos manuscritos usando um estimador TensorFlow e Keras](./how-to-train-keras.md?WT.mc_id=docs-article-lazzeri)
+
+- [Classificar dígitos manuscritos usando um modelo de encadeamento](./how-to-set-up-training-targets.md)

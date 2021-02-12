@@ -2,18 +2,18 @@
 title: incluir arquivo
 description: incluir arquivo
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: include
-ms.date: 07/25/2019
-ms.author: cherylmc
+ms.date: 01/12/2021
+ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: d1402bcc0c46003429e1809e8d09e9662218cd82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f8ed3381f056238bdbb24fe52c5f859afef7d03
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89147765"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98147682"
 ---
 | Recurso | Limite |
 | --- | --- |

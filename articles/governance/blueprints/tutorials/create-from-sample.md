@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Amostra do blueprint para o novo ambiente'
 description: Neste tutorial, você usa um exemplo de blueprint para criar uma definição dele que configure dois grupos de recursos e uma atribuição de função para cada grupo.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: tutorial
-ms.openlocfilehash: 891240dcafe0cbfbfab4ff1fd415cba4abf682a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aea3760128221d42e092e4ca45200874d54da54a
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89048725"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915536"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Tutorial: Criar um ambiente com base em um exemplo de blueprint
 
@@ -144,7 +144,7 @@ A atribuição de blueprint cria e controla os artefatos definidos na definiçã
 
 1. Selecione a atribuição de negação e, em seguida, selecione a página **Permissões Negadas** à esquerda.
 
-   A atribuição de negação está impedindo todas as operações com **\*** e a configuração **Ação**, mas permite o acesso de leitura excluindo **\*/read** por meio de **NotActions**.
+   A atribuição de negação está impedindo todas as operações com o **\* *_ e a configuração _* Ação**, mas permite o acesso de leitura excluindo **\*/read** por meio de **NotActions**.
 
 1. Na trilha do portal do Azure, selecione **PreProductionRG – Controle de acesso (IAM)** . Depois, selecione a página **Visão geral** à esquerda e, em seguida, o botão **Excluir grupo de recursos**. Insira o nome _PreProductionRG_ para confirmar a exclusão e selecione **Excluir** na parte inferior do painel.
 

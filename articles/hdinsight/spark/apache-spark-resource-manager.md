@@ -1,19 +1,16 @@
 ---
 title: Gerenciar os recursos para o cluster do Apache Spark no Azure HDInsight
 description: Saiba como gerenciar recursos para clusters Spark no Azure HDInsight para melhorar o desempenho.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/06/2019
-ms.openlocfilehash: 5427077a4b07917c8852d0a63c815195e776b9de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/12/2021
+ms.openlocfilehash: ff7cfe8ad09201df20db89e14f8c175e678e5107
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085184"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929804"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Gerenciar os recursos para o cluster do Apache Spark no Azure HDInsight
 
@@ -56,9 +53,9 @@ Os três parâmetros de configuração podem ser definidos no nível de cluster 
 
     ![Reiniciar serviços](./media/apache-spark-resource-manager/apache-ambari-restart-services.png)
 
-### <a name="change-the-parameters-for-an-application-running-in-jupyter-notebook"></a>Alterar os parâmetros para um aplicativo em execução no bloco de notas do Jupyter
+### <a name="change-the-parameters-for-an-application-running-in-jupyter-notebook"></a>Alterar os parâmetros de um aplicativo em execução no Jupyter Notebook
 
-Para aplicativos em execução no bloco de notas Jupyter, você pode usar a mágica `%%configure` para fazer as alterações na configuração. De modo ideal, você deve fazer tais alterações no início do aplicativo, antes de executar a primeira célula de código. Isso garante que a configuração seja aplicada à sessão Livy quando for criada. Se quiser alterar a configuração em uma fase posterior no aplicativo, você deverá usar o parâmetro `-f` . No entanto, ao fazer isso, todo o progresso do aplicativo é perdido.
+Para aplicativos em execução no Jupyter Notebook, você pode usar a `%%configure` mágica para fazer as alterações de configuração. De modo ideal, você deve fazer tais alterações no início do aplicativo, antes de executar a primeira célula de código. Isso garante que a configuração seja aplicada à sessão Livy quando for criada. Se quiser alterar a configuração em uma fase posterior no aplicativo, você deverá usar o parâmetro `-f` . No entanto, ao fazer isso, todo o progresso do aplicativo é perdido.
 
 O snippet a seguir mostra como alterar a configuração para um aplicativo em execução no Jupyter.
 
@@ -84,6 +81,9 @@ O comando a seguir é um exemplo de como alterar os parâmetros de configuraçã
 ```bash
 curl -k -v -H 'Content-Type: application/json' -X POST -d '{"file":"<location of application jar file>", "className":"<the application class to execute>", "args":[<application parameters>], "numExecutors":10, "executorMemory":"2G", "executorCores":5' localhost:8998/batches
 ```
+
+> [!Note]
+> Copie o arquivo JAR para sua conta de armazenamento de cluster. Não copie o arquivo JAR diretamente para o nó principal.
 
 ### <a name="change-these-parameters-on-a-spark-thrift-server"></a>Alterar esses parâmetros em um Servidor Spark Thrift
 
@@ -126,7 +126,7 @@ Devido à alocação dinâmica do Spark, os únicos recursos que são consumidos
 
 ## <a name="restart-the-jupyter-service"></a>Reiniciar o serviço Jupyter
 
-Inicie a interface do usuário da Web do Ambari, conforme mostrado no início do artigo. No painel de navegação esquerdo, selecione **Jupyter**, selecione **ações de serviço**e, em seguida, selecione **reiniciar tudo**. Isso iniciará o serviço Jupyter em todos os nós de cabeçalho.
+Inicie a interface do usuário da Web do Ambari, conforme mostrado no início do artigo. No painel de navegação esquerdo, selecione **Jupyter**, selecione **ações de serviço** e, em seguida, selecione **reiniciar tudo**. Isso iniciará o serviço Jupyter em todos os nós de cabeçalho.
 
 ![Reiniciar Jupyter](./media/apache-spark-resource-manager/apache-ambari-restart-jupyter.png "Reiniciar Jupyter")
 
@@ -146,7 +146,7 @@ Inicie a interface do usuário do Yarn, conforme mostrado no início do artigo. 
 
     ![Eliminar App2](./media/apache-spark-resource-manager/apache-ambari-kill-app2.png "Eliminar App2")
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](apache-spark-job-debugging.md)
 
@@ -164,6 +164,6 @@ Inicie a interface do usuário do Yarn, conforme mostrado no início do artigo. 
 * [Use o Plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Spark Scala](apache-spark-intellij-tool-plugin.md)
 * [Use o Plugin do HDInsight Tools para o IntelliJ IDEA para depurar os aplicativos do Apache Spark remotamente](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Use os blocos de anotações do Apache Zeppelin com um cluster do Apache Spark no HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels disponíveis para o notebook Jupyter no cluster do Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
-* [Usar pacotes externos com blocos de notas Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
+* [Kernels disponíveis para Jupyter Notebook no cluster Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Usar pacotes externos com notebooks Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalar o Jupyter em seu computador e conectar-se a um cluster Spark do HDInsight](apache-spark-jupyter-notebook-install-locally.md)

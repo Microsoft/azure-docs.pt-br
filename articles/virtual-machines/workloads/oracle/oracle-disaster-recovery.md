@@ -3,16 +3,17 @@ title: Visão geral de um cenário de recuperação de desastre do Oracle no amb
 description: Um cenário de recuperação de desastre do banco de dados Oracle Database 12c no ambiente do Azure
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 9736c4d2b048aa18f283689247f5597d7526f1df
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8c5281b4fe596cf9807d6f0dacb844562dc152dc
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480353"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880617"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Recuperação de desastre para um banco de dados Oracle Database 12c em um ambiente do Azure
 
@@ -99,4 +100,4 @@ Veja aqui um resumo da configuração do Azure:
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Tutorial: criar VMs altamente disponíveis](../../linux/create-cli-complete.md)
-- [Explorar exemplos da CLI do Azure de implantação de VM](../../linux/cli-samples.md)
+- [Explorar exemplos da CLI do Azure de implantação de VM](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

@@ -2,16 +2,16 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 08/30/2020
+ms.date: 01/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 30ca4d330d9b16214396ac81e5ab5722ca0e7569
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f39f727deaf3a53db5e2928e5af23779c298318
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89254280"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97911530"
 ---
-1. No [portal do Azure](https://portal.azure.com/), selecione o recurso do Azure Stack Edge e, em seguida, acesse **Visão Geral**. O dispositivo deve estar online.
+1. No [portal do Azure](https://portal.azure.com/), selecione o recurso do Azure Stack Edge e, em seguida, acesse **Visão Geral**. O dispositivo deve estar online. Acesse **Gateway de armazenamento em nuvem > Contas de armazenamento**.
 
 2. Selecione **+ Adicionar conta de armazenamento** na barra de comandos do dispositivo. 
 
@@ -34,6 +34,6 @@ ms.locfileid: "89254280"
     
 4. Se você selecionar essa nova conta de armazenamento e acessar **Chaves de acesso**, poderá encontrar o ponto de extremidade de serviço de blob e o nome da conta de armazenamento correspondente. Copie essas informações, pois esses valores junto com as chaves de acesso ajudarão você a se conectar à conta de armazenamento do Edge.
 
-    ![Adicionar uma conta de armazenamento](media/azure-stack-edge-gateway-add-storage-account/add-storage-account-4.png)
+    ![Adicionar uma conta de armazenamento 2](media/azure-stack-edge-gateway-add-storage-account/add-storage-account-4.png)
 
     Você obtém as chaves de acesso [Conectar-se às APIs locais do dispositivo usando o Azure Resource Manager](../articles/databox-online/azure-stack-edge-j-series-connect-resource-manager.md). 

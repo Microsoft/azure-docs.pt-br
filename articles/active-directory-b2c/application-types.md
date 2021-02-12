@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2f99c5b9362380690badce832c3dd540137d35ac
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 07897823a3ba3b83e240e8e8dc005ea13b036fce
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215392"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952039"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Tipos de aplicativos que podem ser usados no Active Directory B2C
  
@@ -76,24 +76,24 @@ Para ver esse cenário em ação, experimente um destes exemplos de código de e
 Além de facilitar a entrada simples, um aplicativo de servidor Web talvez precise acessar algum serviço Web back-end. Nesse caso, o aplicativo Web pode executar o [fluxo do OpenID Connect](openid-connect.md) um pouco diferente, e adquirir tokens usando códigos de autorização e tokens de atualização. Este cenário é descrito na [seção de APIs Web](#web-apis)a seguir.
 
 ## <a name="single-page-applications"></a>Aplicativos de página única
-Muitos aplicativos Web modernos são criados como aplicativos de página única do lado do cliente ("SPAs"). Os desenvolvedores as escrevem usando JavaScript ou uma estrutura SPA, como angular, Vue e reagir. Esses aplicativos são executados em um navegador da Web e têm características de autenticação diferentes dos aplicativos Web tradicionais do lado do servidor.
+Muitos aplicativos Web modernos são criados como "SPAs" (aplicativos de página única). Os desenvolvedores os escrevem usando JavaScript ou uma estrutura SPA, como Angular, Vue e React. Esses aplicativos são executados em um navegador da Web e têm características de autenticação diferentes dos aplicativos Web do lado do servidor tradicionais.
 
-Azure AD B2C fornece **duas** opções para permitir que aplicativos de página única conectem usuários e obtenham tokens para acessar serviços de back-end ou APIs da Web:
+O Azure AD B2C fornece **duas** opções para permitir que aplicativos de página única conectem usuários e obtenham tokens para acessar serviços de back-end ou APIs Web:
 
-### <a name="authorization-code-flow-with-pkce"></a>Fluxo de código de autorização (com PKCE)
-- [Fluxo de código de autorização do OAuth 2,0 (com PKCE)](./authorization-code-flow.md). O fluxo de código de autorização permite que o aplicativo troque um código de autorização para tokens de **ID** a fim de representar o usuário autenticado e os tokens de **acesso** necessários para chamar APIs protegidas. Além disso, ele retorna tokens de **atualização** que fornecem acesso de longo prazo aos recursos em nome dos usuários sem a necessidade de interação com esses usuários. 
+### <a name="authorization-code-flow-with-pkce"></a>Fluxo do código de autorização (com PKCE)
+- [Fluxo do código de autorização do OAuth 2.0 (com PKCE)](./authorization-code-flow.md). O fluxo de código de autorização permite que o aplicativo troque um código de autorização para tokens de **ID** representarem o usuário autenticado e tokens de **Acesso** necessários para chamar APIs protegidas. Além disso, ele retorna tokens de **Atualização** que fornecem acesso de longo prazo a recursos em nome de usuários sem exigir interação com esses usuários. 
 
-Essa é a abordagem **recomendada** . Ter tokens de atualização de tempo de vida limitados ajuda seu aplicativo a se adaptar às [limitações de privacidade do cookie do navegador moderno](../active-directory/develop/reference-third-party-cookies-spas.md), como o Safari ITP.
+Essa é a abordagem **recomendada**. Ter tokens de atualização com tempo de vida limitado ajuda o aplicativo a se adaptar às [limitações de privacidade de cookie dos navegadores modernos](../active-directory/develop/reference-third-party-cookies-spas.md), como o Safari ITP.
 
-Para aproveitar esse fluxo, seu aplicativo pode usar uma biblioteca de autenticação que dá suporte a ela, como [MSAL.js 2. x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser).
+Para aproveitar esse fluxo, seu aplicativo pode usar uma biblioteca de autenticação que dá suporte a ela, como [MSAL.js 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser).
 
 <!-- ![Single-page applications-auth](./media/tutorial-single-page-app/spa-app-auth.svg) -->
-![Aplicativos de página única-autenticação](./media/tutorial-single-page-app/active-directory-oauth-code-spa.png)
+![Aplicativos de página única – autenticação](./media/tutorial-single-page-app/active-directory-oauth-code-spa.png)
 
 ### <a name="implicit-grant-flow"></a>Fluxo de concessão implícita
-- [Fluxo implícito do OAuth 2,0](implicit-flow-single-page-application.md). Algumas estruturas, como [MSAL.js 1. x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), dão suporte apenas ao fluxo de concessão implícito. O fluxo de concessão implícita permite que o aplicativo obtenha tokens de **ID** e de **acesso** . Diferentemente do fluxo de código de autorização, o fluxo de concessão implícito não retorna um **token de atualização**. 
+- [Fluxo implícito do OAuth 2.0](implicit-flow-single-page-application.md). Algumas estruturas, como [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), dão suporte apenas ao fluxo de concessão implícita. O fluxo de concessão implícita permite que o aplicativo obtenha os tokens de **ID** e **Acesso**. Diferentemente do fluxo de código de autorização, o fluxo de concessão implícita não retorna um **token de Atualização**. 
 
-Esse fluxo de autenticação não inclui cenários de aplicativos que usam estruturas JavaScript de plataforma cruzada, como o ar-nativo e o reajam, são nativos. Esses cenários exigem mais recursos para interação com as plataformas nativas.
+Esse fluxo de autenticação não inclui cenários de aplicativos que usam estruturas JavaScript de multiplataforma, como o Electron e React-Native. Esses cenários exigem mais funcionalidades para interação com as plataformas nativas.
 
 ## <a name="web-apis"></a>APIs da Web
 
@@ -141,7 +141,7 @@ Os aplicativos que contêm processos de longa duração ou que operam sem a pres
 
 Embora o fluxo de concessão de credenciais de cliente do OAuth 2,0 não tenha suporte direto no serviço de autenticação Azure AD B2C, você pode configurar o fluxo de credenciais do cliente usando o Azure AD e o ponto de extremidade/token da plataforma de identidade da Microsoft para um aplicativo em seu locatário Azure AD B2C. Um locatário do Azure AD B2C compartilha algumas funcionalidades com os locatários corporativos do Azure AD.
 
-Para configurar o fluxo de credencial do cliente, consulte [Azure Active Directory v2.0 e o fluxo de credencial do cliente OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds). Uma autenticação com êxito resulta no recebimento de um token formatado para poder ser usado pelo Azure AD, conforme descrito na [referência de token do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+Para configurar o fluxo de credencial do cliente, consulte [Azure Active Directory v2.0 e o fluxo de credencial do cliente OAuth 2.0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). Uma autenticação com êxito resulta no recebimento de um token formatado para poder ser usado pelo Azure AD, conforme descrito na [referência de token do Azure AD](../active-directory/develop/id-tokens.md).
 
 Para obter instruções sobre como registrar um aplicativo de gerenciamento, consulte [gerenciar Azure ad B2C com Microsoft Graph](microsoft-graph-get-started.md).
 
@@ -155,7 +155,7 @@ Esse cenário de API Web encadeado pode ter suporte usando a concessão credenci
 
 Não edite aplicativos Azure AD B2C das seguintes maneiras:
 
-- Em outros portais de gerenciamento de aplicativos, como o  [Portal de Registro de Aplicativos](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade).
+- Em outros portais de gerenciamento de aplicativo, como o [Portal de Registro de Aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade).
 - Usando a API do Graph ou o PowerShell.
 
 Se você editar o aplicativo do Azure AD B2C fora do portal do Azure, ele se tornará um aplicativo com falha e não poderá mais ser usado com o Azure AD B2C. Exclua o aplicativo e crie-o novamente.

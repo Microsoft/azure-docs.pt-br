@@ -6,14 +6,14 @@ ms.author: ambhatna
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 1ed2929dc5dc79c30f2a9583966e32d81b63ba2e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8db556709f68a1184046989a15fad147542a05a7
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487901"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735734"
 ---
-# <a name="planned-maintenance-notification-in-azure-database-for-postgresql---single-server"></a>Notificação de manutenção planejada no banco de dados do Azure para PostgreSQL-servidor único
+# <a name="planned-maintenance-notification-in-azure-database-for-postgresql---single-server"></a>Notificação de manutenção planejada no Banco de Dados do Azure para PostgreSQL – Servidor Único
 
 Saiba como se preparar para eventos de manutenção planejada no banco de dados do Azure para PostgreSQL.
 
@@ -21,11 +21,11 @@ Saiba como se preparar para eventos de manutenção planejada no banco de dados 
 
 O serviço banco de dados do Azure para PostgreSQL executa aplicação de patch automatizada do hardware, do sistema operacional e do mecanismo de banco de dados subjacentes. O patch inclui novos recursos de serviço, segurança e atualizações de software. Para o mecanismo do PostgreSQL, as atualizações de versão secundária são automáticas e incluídas como parte do ciclo de aplicação de patch. Não há nenhuma ação do usuário nem definições de configuração necessárias para a aplicação de patch. O patch é testado extensivamente e distribuído usando práticas de implantação seguras.
 
-Uma manutenção planejada é uma janela de manutenção quando essas atualizações de serviço são implantadas em servidores em uma determinada região do Azure. Durante a manutenção planejada, um evento de notificação é criado para informar os clientes quando a atualização do serviço é implantada na região do Azure que hospeda seus servidores. A duração mínima entre duas manutenções planejadas é de 30 dias. Você receberá uma notificação da próxima janela de manutenção 72 horas de antecedência.
+Uma manutenção planejada é uma janela de manutenção quando essas atualizações de serviço são implantadas em servidores em uma determinada região do Azure. Durante a manutenção planejada, um evento de notificação é criado para informar os clientes quando a atualização de serviço é implantada na região do Azure que hospeda os servidores. A duração mínima entre duas manutenções planejadas é de 30 dias. Você receberá uma notificação da próxima janela de manutenção com 72 horas de antecedência.
 
 ## <a name="planned-maintenance---duration-and-customer-impact"></a>Manutenção planejada-duração e impacto sobre o cliente
 
-Uma manutenção planejada para uma determinada região do Azure normalmente deve ser executada 15 h. A janela também inclui o tempo de buffer para executar um plano de reversão, se necessário. Durante a manutenção planejada, pode haver reinicializações ou failovers do servidor de banco de dados, o que pode levar a uma breve indisponibilidade dos servidores de banco de dados para os usuários finais. Os servidores do banco de dados do Azure para PostgreSQL estão em execução em contêineres, portanto, as reinicializações do servidor de banco de dados normalmente são rápidas, esperadas normalmente em 60-120 segundos. Todo o evento de manutenção planejada, incluindo cada reinicialização do servidor, é cuidadosamente monitorado pela equipe de engenharia. O tempo de failover do servidor depende do tempo de recuperação do banco de dados, o que pode fazer com que o banco de dados fique online mais tempo se você tiver atividade transacional pesada no servidor no momento do failover. Para evitar tempo de reinício mais longo, é recomendável evitar todas as transações de longa execução (cargas em massa) durante os eventos de manutenção planejada.
+Uma manutenção planejada para uma determinada região do Azure normalmente deve ser concluída dentro de 15 horas. Essa janela de tempo também inclui o tempo de buffer para executar um plano de reversão, se necessário. Os servidores do banco de dados do Azure para PostgreSQL estão em execução em contêineres, de modo que as reinicializações do servidor de banco de dados normalmente levam 60-120 segundos para serem concluídas, mas não há nenhuma maneira determinística de saber quando nessa janela de 15 horas o servidor será afetado. Todo o evento de manutenção planejada, incluindo cada reinicialização do servidor, é cuidadosamente monitorado pela equipe de engenharia. O tempo de failover do servidor depende da recuperação do banco de dados, o que pode fazer com que o banco de dados fique online mais tempo se você tiver atividade transacional pesada no servidor no momento do failover. Para evitar tempo de reinício mais longo, é recomendável evitar todas as transações de longa execução (cargas em massa) durante os eventos de manutenção planejada.
 
 Em resumo, enquanto o evento de manutenção planejada é executado por 15 horas, o impacto do servidor individual geralmente dura 60 segundos, dependendo da atividade transacional no servidor. Uma notificação é enviada 72 horas de calendário antes do início da manutenção planejada e outra, enquanto a manutenção está em andamento para uma determinada região.
 
@@ -78,7 +78,7 @@ Um erro transitório, também conhecido como uma falha transitória, é um erro 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para perguntas ou sugestões que você pode ter sobre como trabalhar com o banco de dados do Azure para PostgreSQL, envie um email para a equipe do banco de dados do Azure para PostgreSQL em *AskAzureDBforMySQL@service.microsoft.com* .
+- Para perguntas ou sugestões que você pode ter sobre como trabalhar com o banco de dados do Azure para PostgreSQL, envie um email para a equipe do banco de dados do Azure para PostgreSQL em AskAzureDBforPostgreSQL@service.microsoft.com
 - Consulte [Como configurar alertas](howto-alert-on-metric.md) para obter orientação sobre como criar um alerta em uma métrica.
 - [Solucionar problemas de conexão com o banco de dados do Azure para PostgreSQL-servidor único](howto-troubleshoot-common-connection-issues.md)
 - [Manipular erros transitórios e conectar-se com eficiência ao banco de dados do Azure para PostgreSQL-servidor único](concepts-connectivity.md)

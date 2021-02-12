@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-js
 ms.openlocfilehash: ebc12e6d64d015267497497bebc22c8586adf999
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043724"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995906"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Use o código do Visual Studio Code para desenvolver e depurar módulos para o Azure IoT Edge
 
@@ -93,7 +93,7 @@ As etapas a seguir mostram como criar um módulo IoT Edge em seu idioma de desen
 
 1. Digite um nome para o módulo. Escolha um nome exclusivo no registro de contêiner.
 
-1. Forneça o nome do repositório de imagens do módulo. O Visual Studio Code preenche automaticamente o nome do módulo com **localhost:5000/<nome do seu módulo\>**. Substitua-o pelas informações de seu registro. Se você usar um registro do Docker local para teste, o **localhost** será bem. Se usar o Registro de Contêiner do Azure, utilize o servidor de início de sessão nas configurações do registro. O servidor de logon é semelhante a ** _\<registry name\>_ . azurecr.Io**. Substitua apenas a parte **localhost: 5000** da cadeia de caracteres para que o resultado final seja semelhante a ** \<*registry name*\> . azurecr.Io/ _\<your module name\>_ **.
+1. Forneça o nome do repositório de imagens do módulo. O Visual Studio Code preenche automaticamente o nome do módulo com **localhost:5000/<nome do seu módulo\>**. Substitua-o pelas informações de seu registro. Se você usar um registro do Docker local para teste, o **localhost** será bem. Se usar o Registro de Contêiner do Azure, utilize o servidor de início de sessão nas configurações do registro. O servidor de logon é semelhante a **_\<registry name\>_ . azurecr.Io**. Substitua apenas a parte **localhost: 5000** da cadeia de caracteres para que o resultado final seja semelhante a **\<*registry name*\> . azurecr.Io/ _\<your module name\>_**.
 
    ![Fornecer o repositório de imagem do Docker](./media/how-to-develop-csharp-module/repository.png)
 
@@ -122,7 +122,7 @@ Para adicionar mais módulos à sua solução, execute o comando **Azure IOT Edg
 
 O código padrão do módulo que vem com a solução está localizado em:
 
-- Azure function (C#): **módulos > * &lt; seu nome &gt; de módulo*o nome  >  * &lt; do módulo &gt; *. cs**
+- Azure function (C#): **módulos > *&lt; seu nome &gt; de módulo* o nome  >  *&lt; do módulo &gt;*. cs**
 - C#: **módulos > *&lt;nome do módulo&gt;* > Program.cs**
 - Python: **módulos > *&lt;nome do módulo&gt;* > main.py**
 - Node.js: **módulos > *&lt;nome do módulo&gt;* > app.js**
@@ -160,7 +160,7 @@ Para configurar e iniciar o simulador, execute o comando **Azure IOT Edge: inici
 
 1. Prepare o ambiente para depuração de acordo com os requisitos da sua linguagem de desenvolvimento, defina um ponto de interrupção em seu módulo e selecione a configuração de depuração para usar:
    - **C#**
-     - No terminal integrado Visual Studio Code, altere o diretório para a pasta *** &lt; nome &gt; do módulo*** e, em seguida, execute o comando a seguir para compilar o aplicativo .NET Core.
+     - No terminal integrado Visual Studio Code, altere o diretório para o **_&lt; nome &gt; do módulo_* _ pasta e, em seguida, execute o comando a seguir para compilar o aplicativo .NET Core.
 
        ```cmd
        dotnet build
@@ -168,13 +168,13 @@ Para configurar e iniciar o simulador, execute o comando **Azure IOT Edge: inici
 
      - Abra o arquivo `Program.cs` e adicione um ponto de interrupção.
 
-     - Navegue até a exibição de Depuração do Visual Studio Code, selecionando **Exibir > Depurar**. Selecione a configuração de depuração ** * &lt; o nome &gt; do módulo* depuração local (.NET Core)** na lista suspensa.
+     - Navegue até o Visual Studio Code exibição de depuração selecionando _* exibir > Depurar * *. Selecione a configuração de depuração * *_ &lt; nome do módulo &gt; _ depuração local (.NET Core) * * na lista suspensa.
 
         > [!NOTE]
         > Se o seu .NET Core `TargetFramework` não estiver consistente com o caminho do programa no `launch.json` , você precisará atualizar manualmente o caminho do programa no `launch.json` para que ele corresponda ao `TargetFramework` em seu arquivo. csproj para que Visual Studio Code possa iniciar esse programa com êxito.
 
    - **Node.js**
-     - No terminal integrado Visual Studio Code, altere o diretório para a pasta *** &lt; nome &gt; do módulo*** e, em seguida, execute o seguinte comando para instalar pacotes de nó
+     - No terminal integrado Visual Studio Code, altere o diretório para o **_&lt; nome &gt; do módulo_* _ pasta e, em seguida, execute o seguinte comando para instalar pacotes de nó
 
        ```cmd
        npm install
@@ -182,11 +182,11 @@ Para configurar e iniciar o simulador, execute o comando **Azure IOT Edge: inici
 
      - Abra o arquivo `app.js` e adicione um ponto de interrupção.
 
-     - Navegue até a exibição de Depuração do Visual Studio Code, selecionando **Exibir > Depurar**. Selecione a configuração de depuração ** * &lt; o nome &gt; do módulo* depuração local (Node.js)** na lista suspensa.
+     - Navegue até o Visual Studio Code exibição de depuração selecionando _* exibir > Depurar * *. Selecione a configuração de depuração * *_ &lt; nome do módulo &gt; _ depuração local (Node.js) * * na lista suspensa.
    - **Java**
      - Abra o arquivo `App.java` e adicione um ponto de interrupção.
 
-     - Navegue até a exibição de Depuração do Visual Studio Code, selecionando **Exibir > Depurar**. Selecione a configuração de depuração ** * &lt; o nome &gt; do módulo* depuração local (Java)** na lista suspensa.
+     - Navegue até a exibição de Depuração do Visual Studio Code, selecionando **Exibir > Depurar**. Selecione a configuração de depuração **_&lt; o nome &gt; do módulo_ depuração local (Java)** na lista suspensa.
 
 1. Clique em **Iniciar Depuração** ou pressione **F5** para iniciar a sessão de depuração.
 
@@ -203,7 +203,7 @@ Para configurar e iniciar o simulador, execute o comando **Azure IOT Edge: inici
 
 1. Na exibição de Depuração do Visual Studio Code, você verá as variáveis no painel esquerdo.
 
-1. Para interromper a sessão de depuração, selecione o botão parar ou pressione **Shift + F5**e execute **Azure IoT Edge: parar IOT Edge simulador** na paleta de comandos para interromper o simulador e limpá-lo.
+1. Para interromper a sessão de depuração, selecione o botão parar ou pressione **Shift + F5** e execute **Azure IoT Edge: parar IOT Edge simulador** na paleta de comandos para interromper o simulador e limpá-lo.
 
 ## <a name="debug-in-attach-mode-with-iot-edge-simulator-c-nodejs-java-azure-functions"></a>Depuração no modo anexo com o simulador do IoT Edge (C#, Node. js, Java, Azure Functions)
 
@@ -234,13 +234,13 @@ No computador de desenvolvimento, é possível iniciar o simulador do IoT Edge, 
 
    ![Observar variáveis](media/how-to-vs-code-develop-module/view-log.png)
 
-1. Navegue até a exibição de Depuração do Visual Studio Code e selecione o arquivo de configuração de depuração para o seu módulo. O nome da opção de depuração deve ser semelhante ao ** * &lt; nome &gt; do módulo* depuração remota**
+1. Navegue até a exibição de Depuração do Visual Studio Code e selecione o arquivo de configuração de depuração para o seu módulo. O nome da opção de depuração deve ser semelhante ao **_&lt; nome &gt; do módulo_ depuração remota**
 
 1. Clique em **Iniciar depuração** ou pressione **F5**. Selecione o processo ao qual ele deverá ser anexado.
 
 1. Na exibição de Depuração do Visual Studio Code, você verá as variáveis no painel esquerdo.
 
-1. Para interromper a sessão de depuração, primeiro selecione o botão parar ou pressione **Shift + F5**e, em seguida, selecione **Azure IoT Edge: parar IOT Edge simulador** na paleta de comandos.
+1. Para interromper a sessão de depuração, primeiro selecione o botão parar ou pressione **Shift + F5** e, em seguida, selecione **Azure IoT Edge: parar IOT Edge simulador** na paleta de comandos.
 
 > [!NOTE]
 > O exemplo anterior mostra como depurar os módulos IoT Edge nos contêineres. Ele adicionou portas expostas às configurações `createOptions` de contêiner do módulo. Após concluir a depuração dos módulos, é recomendável remover essas portas expostas de módulos do IoT Edge prontos para produção.
@@ -322,13 +322,13 @@ Você poderá ignorar esta seção se os módulos estiverem em execução no mes
 
   - Verifique se o módulo no computador a ser depurado está em execução e pronto para anexar depuradores e se a porta 9229 está acessível externamente. Para verificar isso, abra `http://<target-machine-IP>:9229/json` no computador do depurador. Essa URL deve mostrar informações sobre o módulo Node.js a ser depurado.
   
-  - Em seu computador de desenvolvimento, abra Visual Studio Code e, em seguida, edite `launch.json` para que o valor de endereço do perfil do ** * &lt; nome &gt; do módulo* (Node.js)** (ou o perfil de **depuração remota do * &lt; &gt; nome do módulo* (Node.js no contêiner do Windows)** se o módulo estiver sendo executado como um contêiner do Windows) é o IP do computador que está sendo depurado.
+  - Em seu computador de desenvolvimento, abra Visual Studio Code e, em seguida, edite `launch.json` para que o valor de endereço do perfil do **_&lt; nome &gt; do módulo_ (Node.js)** (ou o perfil de **depuração remota do _&lt; &gt; nome do módulo_ (Node.js no contêiner do Windows)** se o módulo estiver sendo executado como um contêiner do Windows) é o IP do computador que está sendo depurado.
 
 - **Java**
 
   - Compile um túnel SSH para o computador que será depurado executando `ssh -f <username>@<target-machine> -L 5005:127.0.0.1:5005 -N`.
   
-  - No computador de desenvolvimento, abra Visual Studio Code e edite o perfil de **depuração remota do * &lt; &gt; nome do módulo* (Java)** no `launch.json` para que você possa anexar ao computador de destino. Para saber mais sobre edição `launch.json` e depuração de Java com o Visual Studio Code, confira a seção sobre [configurar o depurador](https://code.visualstudio.com/docs/java/java-debugging#_configuration).
+  - No computador de desenvolvimento, abra Visual Studio Code e edite o perfil de **depuração remota do _&lt; &gt; nome do módulo_ (Java)** no `launch.json` para que você possa anexar ao computador de destino. Para saber mais sobre edição `launch.json` e depuração de Java com o Visual Studio Code, confira a seção sobre [configurar o depurador](https://code.visualstudio.com/docs/java/java-debugging#_configuration).
 
 - **Python**
 
@@ -336,11 +336,11 @@ Você poderá ignorar esta seção se os módulos estiverem em execução no mes
 
   - No código `ptvsd.enable_attach(('0.0.0.0', 5678))` inserido anteriormente em `main.py`, altere **0.0.0.0** para o endereço IP do computador a ser depurado. Compile, efetue push e implante seu módulo do IoT Edge novamente.
 
-  - No computador de desenvolvimento, abra Visual Studio Code e, em seguida, edite `launch.json` para que o `host` valor do perfil de **depuração remota do * &lt; &gt; nome do módulo* (Python)** use o endereço IP do computador de destino em vez de `localhost` .
+  - No computador de desenvolvimento, abra Visual Studio Code e, em seguida, edite `launch.json` para que o `host` valor do perfil de **depuração remota do _&lt; &gt; nome do módulo_ (Python)** use o endereço IP do computador de destino em vez de `localhost` .
 
 ### <a name="debug-your-module"></a>Depurar seu aplicativo
 
-1. Na exibição Depuração do Visual Studio Code e selecione o arquivo de configuração de depuração para o seu módulo. O nome da opção de depuração deve ser semelhante ao ** * &lt; nome &gt; do módulo* depuração remota**
+1. Na exibição Depuração do Visual Studio Code e selecione o arquivo de configuração de depuração para o seu módulo. O nome da opção de depuração deve ser semelhante ao **_&lt; nome &gt; do módulo_ depuração remota**
 
 1. Abra o arquivo de módulo para sua linguagem de desenvolvimento e adicione um ponto de interrupção:
 

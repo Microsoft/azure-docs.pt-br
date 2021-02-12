@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: 13923596b7ad0f6d3fdef24e847f469645b448ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7dc3241198fbc6eeddba059251f28c6dc35c8a29
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119922"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754935"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Migrar aplicativos para o MSAL para iOS e macOS
 
@@ -38,14 +38,14 @@ A plataforma de identidade da Microsoft tem algumas diferenças importantes com 
 
 ### <a name="standards-compliance"></a>Conformidade com os padrões
 
-* O ponto de extremidade da plataforma Microsoft Identity segue os padrões OAuth 2,0 e OpenId Connect.
+* A plataforma de identidade da Microsoft segue os padrões OAuth 2,0 e OpenId Connect.
 
 ### <a name="incremental-and-dynamic-consent"></a>Consentimento incremental e dinâmico
 
 * O ponto de extremidade do Azure Active Directory v 1.0 requer que todas as permissões sejam declaradas com antecedência durante o registro do aplicativo. Isso significa que essas permissões são estáticas.
 * A plataforma Microsoft Identity permite que você solicite permissões dinamicamente. Os aplicativos podem solicitar permissões apenas conforme necessário e solicitar mais como o aplicativo precisa delas.
 
-Para obter mais informações sobre as diferenças entre o Azure Active Directory v 1.0 e a plataforma de identidade da Microsoft, consulte [por que atualizar para a plataforma Microsoft Identity (v 2.0)?](../azuread-dev/azure-ad-endpoint-comparison.md).
+Para obter mais informações sobre as diferenças entre o Azure Active Directory v 1.0 e a plataforma de identidade da Microsoft, consulte [por que atualizar para a plataforma Microsoft Identity?](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 ## <a name="adal-and-msal-library-differences"></a>Diferenças de biblioteca ADAL e MSAL
 
@@ -136,7 +136,7 @@ O MSAL fornece mais clareza entre os erros que podem ser tratados pelo seu aplic
 
 A manipulação de todos os outros erros na [ `MSALError` lista](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/master/MSAL/src/public/MSALError.h#L128) é opcional. Você pode usar as informações nesses erros para melhorar a experiência do usuário.
 
-Consulte [tratamento de exceções e erros usando o MSAL](msal-handling-exceptions.md) para obter mais informações sobre o tratamento de erros do MSAL.
+Consulte [tratamento de exceções e erros usando o MSAL](msal-error-handling-ios.md) para obter mais informações sobre o tratamento de erros do MSAL.
 
 ### <a name="broker-support"></a>Suporte do Broker
 

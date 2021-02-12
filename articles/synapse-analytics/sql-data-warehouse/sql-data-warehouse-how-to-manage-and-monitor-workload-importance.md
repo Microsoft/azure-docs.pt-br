@@ -1,6 +1,6 @@
 ---
-title: Gerenciar e monitorar a importância da carga de trabalho
-description: Saiba como gerenciar e monitorar a importância do nível de solicitação no Azure Synapse Analytics.
+title: Gerenciar e monitorar a importância da carga de trabalho no pool SQL dedicado
+description: Saiba como gerenciar e monitorar o pool SQL dedicado de importância de nível de solicitação para a análise de Synapse do Azure.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,20 +11,20 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 43006456142728287ddf4adba1fbb9b45f5ccc89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12b75ad3746cd0f54e27e474e0fd13bb0bba0e05
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85211962"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685235"
 ---
-# <a name="manage-and-monitor-workload-importance-in-azure-synapse-analytics"></a>Gerenciar e monitorar a importância da carga de trabalho no Azure Synapse Analytics
+# <a name="manage-and-monitor-workload-importance-in-dedicated-sql-pool-for-azure-synapse-analytics"></a>Gerenciar e monitorar a importância da carga de trabalho no pool SQL dedicado para o Azure Synapse Analytics
 
-Gerencie e monitore a importância do nível de solicitação SQL do Synapse no Azure Synapse usando DMVs e exibições de catálogo.
+Gerencie e monitore a importância do nível de solicitação do pool SQL dedicado no Azure Synapse usando DMVs e exibições de catálogo.
 
 ## <a name="monitor-importance"></a>Importância do monitor
 
-Monitore a importância usando a coluna nova importância na exibição de gerenciamento dinâmico [Sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .
+Monitore a importância usando a coluna nova importância na exibição de gerenciamento dinâmico [Sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) .
 A consulta de monitoramento abaixo mostra o tempo de envio e a hora de início das consultas. Examine a hora de envio e a hora de início junto com a importância para ver como a importância influencia o agendamento.
 
 ```sql
@@ -47,7 +47,7 @@ SELECT *
   WHERE classifier_id > 12
 ```
 
-A exibição de catálogo, [Sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), contém informações sobre os parâmetros usados na criação do classificador.  A consulta abaixo mostra que ExecReportsClassifier foi criado no ```membername``` parâmetro para valores com ExecutiveReports:
+A exibição de catálogo, [Sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), contém informações sobre os parâmetros usados na criação do classificador.  A consulta abaixo mostra que ExecReportsClassifier foi criado no ```membername``` parâmetro para valores com ExecutiveReports:
 
 ```sql
 SELECT c.name,cd.classifier_type, classifier_value

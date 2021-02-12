@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
-ms.openlocfilehash: e377f910e1c1ddda864ea312b40fe3608c166376
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9363a2dacd91d3868e69e47381eea528e358935c
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541383"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845458"
 ---
 # <a name="language-and-region-support-for-luis"></a>Suporte de idioma e região para o LUIS
 
@@ -28,24 +28,24 @@ Se você precisar de um aplicativo de cliente LUIS com vários idiomas, como um 
 
 O LUIS compreende declarações nos seguintes idiomas:
 
-| Language |Localidade  |  Domínio predefinido | Entidade predefinida | Recomendações da lista de frases | **[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentimento e<br>Palavras-chave)|
+| Linguagem |Localidade  |  Domínio predefinido | Entidade predefinida | Recomendações da lista de frases | **[Análise de texto](../text-analytics/language-support.md)<br>(Sentimento e<br>Palavras-chave)|
 |--|--|:--:|:--:|:--:|:--:|
-| Inglês (Estados Unidos) |`en-US` | ✔ | ✔  |✔|✔|
 | Árabe (visualização-árabe moderno padrão) |`ar-AR`|-|-|-|-|
 | *[Chinês](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
 | Holandês |`nl-NL` |✔|-|-|✔|
-| Francês (França) |`fr-FR` |✔| ✔ |✔ |✔|
+| Inglês (Estados Unidos) |`en-US` | ✔ | ✔  |✔|✔|
 | Francês (Canadá) |`fr-CA` |-|-|-|✔|
+| Francês (França) |`fr-FR` |✔| ✔ |✔ |✔|
 | Alemão |`de-DE` |✔| ✔ |✔ |✔|
 | Guzerate | `gu-IN`|-|-|-|-|
-| Híndi | `hi-IN`|-|✔|-|-|
+| Hindi | `hi-IN`|-|✔|-|-|
 | Italiano |`it-IT` |✔| ✔ |✔|✔|
 | *[Japonês](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Somente frase principal|
 | Coreano |`ko-KR` |✔|-|-|Somente frase principal|
 | Marati | `mr-IN`|-|-|-|-|
 | Português (Brasil) |`pt-BR` |✔| ✔ |✔ |nem todas as subculturas|
-| Espanhol (Espanha) |`es-ES` |✔| ✔ |✔|✔|
 | Espanhol (México)|`es-MX` |-|-|✔|✔|
+| Espanhol (Espanha) |`es-ES` |✔| ✔ |✔|✔|
 | Tâmil | `ta-IN`|-|-|-|-|
 | Télugo | `te-IN`|-|-|-|-|
 | Turco | `tr-TR` |✔|✔|-|Sentimento, somente|
@@ -69,7 +69,7 @@ O suporte aos idiomas varia para [entidades predefinidas](luis-reference-prebuil
 Veja [Idiomas com suporte](../speech-service/speech-to-text.md) de Fala para idiomas no modo de ditado de Fala.
 
 ### <a name="bing-spell-check-supported-languages"></a>Idiomas com suporte para Verificação Ortográfica do Bing
-Veja [idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) da Verificação Ortográfica do Bing para obter uma lista dos idiomas com suporte e status.
+Veja [idiomas com suporte](../bing-spell-check/language-support.md) da Verificação Ortográfica do Bing para obter uma lista dos idiomas com suporte e status.
 
 ## <a name="rare-or-foreign-words-in-an-application"></a>Palavras raras ou estrangeiras em um aplicativo
 Na cultura`en-us`, o LUIS aprende a distinguir mais palavras em inglês, incluindo gírias. Na cultura `zh-cn`, o LUIS aprende distinguir a maioria dos caracteres chineses. Se você usar uma palavra rara em `en-us` ou caractere em `zh-cn`, e você verá que o LUIS não parece capaz de distinguir essa palavra ou caractere, você pode adicionar essa palavra ou caractere a um [recurso de lista de frases](luis-how-to-add-features.md). Por exemplo, as palavras fora da cultura do aplicativo, ou seja, as palavras estrangeiras, devem ser adicionadas a um recurso de lista de frases.
@@ -82,7 +82,7 @@ Os idiomas híbridos combinam palavras de duas culturas, como inglês e chinês.
 ## <a name="tokenization"></a>Geração de tokens
 Para executar o aprendizado de máquina, o LUIS divide uma declaração em [tokens](luis-glossary.md#token) com base na cultura.
 
-|Language|  cada espaço ou caractere especial | nível do caractere|palavras compostas
+|Linguagem|  cada espaço ou caractere especial | nível do caractere|palavras compostas
 |--|:--:|:--:|:--:|
 |Árabe|✔|||
 |Chinês||✔||
@@ -92,7 +92,7 @@ Para executar o aprendizado de máquina, o LUIS divide uma declaração em [toke
 |Francês (fr-CA)|✔|||
 |Alemão|✔||✔|
 |Guzerate|✔|||
-|Híndi|✔|||
+|Hindi|✔|||
 |Italiano|✔|||
 |Japonês|||✔
 |Coreano||✔||
@@ -101,7 +101,7 @@ Para executar o aprendizado de máquina, o LUIS divide uma declaração em [toke
 |Espanhol (es-ES)|✔|||
 |Espanhol (es-MX)|✔|||
 |Tâmil|✔|||
-|Télugo|✔|||
+|Telugu|✔|||
 |Turco|✔|||
 
 

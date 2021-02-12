@@ -9,23 +9,23 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: f3bbab14152f16515c93972e6b41ef34693e1143
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a36eb21f681aec1cfc52a000b60bdbc30cab0633
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91367947"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302791"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-machine-learning-studio-classic"></a>Guia para a linguagem de especificação de rede neural net # para Machine Learning Studio (clássico)
 
-**APLICA-SE A:**  ![Aplica-se a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico) ![Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APLICA-SE A:**  ![Aplica-se a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico) ![Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 Net# é uma linguagem desenvolvida pela Microsoft usada para definir arquiteturas de redes neurais complexas, como redes neurais profundas ou convoluções de dimensões arbitrárias. Você pode usar as estruturas complexas para aprimorar o aprendizado sobre dados, como áudio, vídeo ou imagem.
 
 Você pode usar uma especificação de arquitetura Net# nestes contextos:
 
-+ Todos os módulos de rede neural no Microsoft Azure Machine Learning Studio (clássico): [rede neural multiclasse](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [rede neural de duas classes](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network)e [regressão de rede neural](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
-+ As funções de rede neural no Microsoft ML Server: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) e [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)para a linguagem R e [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) para Python.
++ Todos os módulos de rede neural no Microsoft Azure Machine Learning Studio (clássico): [rede neural multiclasse](/azure/machine-learning/studio-module-reference/multiclass-neural-network), [rede neural de duas classes](/azure/machine-learning/studio-module-reference/two-class-neural-network)e [regressão de rede neural](/azure/machine-learning/studio-module-reference/neural-network-regression)
++ As funções de rede neural no Microsoft ML Server: [NeuralNet](/machine-learning-server/r-reference/microsoftml/neuralnet) e [rxNeuralNet](/machine-learning-server/r-reference/microsoftml/rxneuralnet)para a linguagem R e [rx_neural_network](/machine-learning-server/python-reference/microsoftml/rx-neural-network) para Python.
 
 
 Este artigo descreve os conceitos básicos e a sintaxe necessária para desenvolver uma rede neural personalizada usando Net#:
@@ -57,7 +57,7 @@ Adicionalmente, a Net# dá suporte aos quatro tipos de grupos de conexão avanç
 
 ## <a name="supported-customizations"></a>Personalizações com suporte
 
-A arquitetura dos modelos de rede neural que você cria no Azure Machine Learning Studio (clássico) pode ser amplamente personalizada com o uso de net #. Você pode:
+A arquitetura dos modelos de rede neural que você cria no Azure Machine Learning Studio (clássico) pode ser amplamente personalizada com o uso de net #. Você poderá:
 
 + Criar camadas ocultas e controlar o número de nós em cada camada.
 + Especifique como as camadas devem conectar-se umas às outras.
@@ -214,7 +214,7 @@ Há dois conjuntos de propriedades que controlam o preenchimento, sendo as propr
 
     Se o valor para uma dimensão é falso, os kernels são definidos de modo que o número de nós deixados de fora em cada lado é o mesmo (podendo chegar até uma diferença de 1). O valor padrão desse atributo é uma tupla com todos os componentes iguais a Falso.
 
-+ **UpperPad** e **LowerPad**: (opcional) fornecem maior controle sobre a quantidade de preenchimento a ser usada. **Importante**: esses atributos podem ser definidos se e somente se a propriedade **Padding** acima ***não*** estiver definida. Os valores devem ser tuplas de números inteiros com comprimentos igual à aridade do pacote. Quando esses atributos são especificados, nós "falsos" são adicionados às extremidades inferior e superior de cada dimensão da camada de entrada. O número de nós adicionados às extremidades inferior e superior em cada dimensão é determinado por **LowerPad**[i] e **UpperPad**[i], respectivamente.
++ **UpperPad** e **LowerPad**: (opcional) fornecem maior controle sobre a quantidade de preenchimento a ser usada. **Importante:** Esses atributos podem ser definidos se e somente se a propriedade **Padding** acima **_não_ estiver *definida. Os valores devem ser tuplas com valor inteiro com comprimentos que sejam a arity do pacote. Quando esses atributos são especificados, os nós "fictícios" são adicionados às extremidades inferior e superior de cada dimensão da camada de entrada. O número de nós adicionados às extremidades inferior e superior em cada dimensão é determinado por _* LowerPad**[i] e **UpperPad**[i] respectivamente.
 
     Para assegurar que os kernels correspondam somente a nós "reais" e não a nós "falsos", as condições a seguir precisam ser satisfeitas:
   - Cada componente de **LowerPad** precisa ser estritamente menor que `KernelShape[d]/2`.
@@ -225,7 +225,7 @@ Há dois conjuntos de propriedades que controlam o preenchimento, sendo as propr
 
 Para mais informações sobre redes convolucionais e seus aplicativos, consulte esses artigos:
 
-+ [http://deeplearning.net/tutorial/lenet.html](http://deeplearning.net/tutorial/lenet.html)
++ [http://d2l.ai/chapter_convolutional-neural-networks/lenet.html ](http://d2l.ai/chapter_convolutional-neural-networks/lenet.html )
 + [https://research.microsoft.com/pubs/68920/icdar03.pdf](https://research.microsoft.com/pubs/68920/icdar03.pdf)
 
 ## <a name="pooling-bundles"></a>Grupos de pooling
@@ -266,9 +266,9 @@ A normalização de resposta é usada para auxiliar na generalização de redes 
 
 Os grupos de normalização de resposta dão suporte a todos os atributos convolucionais, exceto **Sharing**, **MapCount** e **Weights**.
 
-+ Se o kernel contém neurônios no mesmo mapa que ***x***, nos referimos ao esquema de normalização como **normalização de mesmo mapa**. Para definir a normalização de mesmo mapa, a primeira coordenada em **InputShape** precisa ter o valor 1.
++ Se o kernel contiver neurônios no mesmo mapa que **_x_*_, o esquema de normalização será referido como _* normalização de mapa**. Para definir a normalização de mesmo mapa, a primeira coordenada em **InputShape** precisa ter o valor 1.
 
-+ Se o kernel contém neurônios na mesma posição espacial que ***x*** mas os neurônios estão em outros mapas, o esquema de normalização é chamado de **normalização entre mapas**. Esse tipo de normalização de resposta implementa um tipo de inibição lateral inspirada no tipo encontrado em neurônios reais, criando concorrência por níveis elevados de ativação entre as saídas de neurônio computadas em mapas diferentes. Para definir a normalização entre mapas, a primeira coordenada precisa ser um número inteiro maior que um e que não seja maior que o número de mapas, enquanto o resto das coordenadas deve ter o valor 1.
++ Se o kernel contiver neurônios na mesma posição espacial que **_x_*_, mas os neurônios estiverem em outros mapas, o esquema de normalização será chamado _* na normalização de mapas**. Esse tipo de normalização de resposta implementa um tipo de inibição lateral inspirada no tipo encontrado em neurônios reais, criando concorrência por níveis elevados de ativação entre as saídas de neurônio computadas em mapas diferentes. Para definir a normalização entre mapas, a primeira coordenada precisa ser um número inteiro maior que um e que não seja maior que o número de mapas, enquanto o resto das coordenadas deve ter o valor 1.
 
 Já que os grupos de normalização de resposta aplicam uma função predefinida aos valores de nó de origem para determinar o valor do nó de destino, eles não têm estado treinável (pesos ou vieses).
 
@@ -463,4 +463,4 @@ output Digit [10] from Hid3 all;
 
 ## <a name="acknowledgements"></a>Confirmações
 
-A linguagem Net# para personalizar a arquitetura das redes neurais foi desenvolvida na Microsoft por Shon Katzenberger (arquiteto, Machine Learning) e Alexey Kamenev (engenheiro de software, Microsoft Research). Ela é usada internamente para projetos de aprendizado de máquina e aplicativos que vão de detecção de imagem a análise de texto. Para obter mais informações, veja [Redes neurais no Azure Machine Learning Studio – Introdução ao Net#](https://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)
+A linguagem Net# para personalizar a arquitetura das redes neurais foi desenvolvida na Microsoft por Shon Katzenberger (arquiteto, Machine Learning) e Alexey Kamenev (engenheiro de software, Microsoft Research). Ela é usada internamente para projetos de aprendizado de máquina e aplicativos que vão de detecção de imagem a análise de texto. Para obter mais informações, veja [Redes neurais no Azure Machine Learning Studio – Introdução ao Net#](/archive/blogs/machinelearning/neural-nets-in-azure-ml-introduction-to-net)

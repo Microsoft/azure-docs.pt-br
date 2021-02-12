@@ -11,23 +11,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/29/2020
+ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: d1837d84c97227ba3d8743c3717e2f68dafd6b95
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 7821d94ed032fd0fc52a756766e6a9af7c82cfde
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911385"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99559237"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Impedir entradas DNS pendente e evitar subdomínio tomada
 
 Este artigo descreve a ameaça de segurança comum do subdomínio tomada e as etapas que você pode executar para atenuá-lo.
 
 
-## <a name="what-is-subdomain-takeover"></a>O que é subdomínio tomada?
+## <a name="what-is-a-subdomain-takeover"></a>O que é um subdomínio tomada?
 
-Subdomínio takeovers são uma ameaça comum e de alta gravidade para as organizações que criam e excluem muitos recursos regularmente. Um subdomínio tomada pode ocorrer quando você tem um [registro DNS](https://docs.microsoft.com/azure/dns/dns-zones-records#dns-records) que aponta para um recurso do Azure desprovisionado. Esses registros DNS também são conhecidos como entradas "pendente DNS". Os registros CNAME são especialmente vulneráveis a essa ameaça. O subdomínio takeovers permite que os atores mal-intencionados redirecionem o tráfego destinado ao domínio de uma organização a um site executando atividades mal-intencionadas.
+Subdomínio takeovers são uma ameaça comum e de alta gravidade para as organizações que criam e excluem muitos recursos regularmente. Um subdomínio tomada pode ocorrer quando você tem um [registro DNS](../../dns/dns-zones-records.md#dns-records) que aponta para um recurso do Azure desprovisionado. Esses registros DNS também são conhecidos como entradas "DNS pendentes". Os registros CNAME são particularmente vulneráveis a essa ameaça. As invasões de subdomínio permitem que os atores mal-intencionados redirecionem o tráfego destinado ao domínio de uma organização a um site que executa atividades mal-intencionadas.
 
 Um cenário comum para um subdomínio tomada:
 
@@ -86,7 +86,7 @@ Se os CNAMEs estiverem em outros serviços DNS e apontarem para recursos do Azur
 A ferramenta dá suporte aos recursos do Azure listados na tabela a seguir. A ferramenta extrai ou usa como entradas, todos os CNAMEs do locatário.
 
 
-| Serviço                   | Type                                        | FQDNproperty                               | Exemplo                         |
+| Serviço                   | Tipo                                        | FQDNproperty                               | Exemplo                         |
 |---------------------------|---------------------------------------------|--------------------------------------------|---------------------------------|
 | Porta da frente do Azure          | microsoft.network/frontdoors                | Properties. cName                           | `abc.azurefd.net`               |
 | Armazenamento do Blobs do Azure        | microsoft.storage/storageaccounts           | Propriedades. primaryEndpoints. blob           | `abc. blob.core.windows.net`    |
@@ -144,6 +144,15 @@ Garantir que sua organização tenha implementado processos para evitar entradas
 
 Alguns serviços do Azure oferecem recursos para auxiliar na criação de medidas preventivas e são detalhados abaixo. Outros métodos para evitar esse problema devem ser estabelecidos por meio das práticas recomendadas da sua organização ou dos procedimentos operacionais padrão.
 
+### <a name="enable-azure-defender-for-app-service"></a>Habilitar o Azure defender para o serviço de aplicativo
+
+A CWPP (plataforma de proteção de carga de trabalho de nuvem) integrada da central de segurança do Azure, o Azure defender, oferece uma variedade de planos para proteger seus recursos e cargas de trabalho do Azure, híbridos e de várias nuvens.
+
+O plano do **Azure defender para o serviço de aplicativo** inclui a detecção de DNS pendente. Com esse plano habilitado, você obterá alertas de segurança se desativar um site do serviço de aplicativo, mas não remover seu domínio personalizado do seu registrador de DNS.
+
+A proteção de DNS pendente do Azure defender está disponível se seus domínios são gerenciados com o DNS do Azure ou um registrador de domínio externo e se aplicam ao serviço de aplicativo no Windows e no Linux.
+
+Saiba mais sobre este e outros benefícios deste plano do Azure defender na [introdução ao Azure defender para o serviço de aplicativo](../../security-center/defender-for-app-service-introduction.md).
 
 ### <a name="use-azure-dns-alias-records"></a>Usar registros de alias do DNS do Azure
 
@@ -201,6 +210,8 @@ Muitas vezes, os desenvolvedores e as equipes de operações executam processos 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre os serviços relacionados e os recursos do Azure que você pode usar para se defender do subdomínio tomada, consulte as páginas a seguir.
+
+- [Habilitar o Azure defender para o serviço de aplicativo](../../security-center/defender-for-app-service-introduction.md) -para receber alertas quando as entradas DNS pendente forem detectadas
 
 - [Impedir registros DNS pendente com o DNS do Azure](../../dns/dns-alias.md#prevent-dangling-dns-records)
 

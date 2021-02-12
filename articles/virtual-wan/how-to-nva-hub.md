@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
-ms.openlocfilehash: 0e174f9b78606e0bea5cded3a176f4207745bb5c
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 1f80da4014d4b6b27155db17d32800e54b51f40d
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077296"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258058"
 ---
 # <a name="how-to-create-a-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Como criar uma solução de virtualização de rede em um hub de WAN virtual do Azure (versão prévia)
 
@@ -21,8 +21,7 @@ Este artigo mostra como usar a WAN virtual para se conectar aos seus recursos no
 
 As etapas neste artigo o ajudarão a criar uma solução de virtualização de rede de **Wan CloudGen Barracuda** no Hub de WAN virtual. Para concluir este exercício, você deve ter um dispositivo de nuvem Barracuda (CPE) e uma licença para o dispositivo de WAN Barracuda CloudGen que você implanta no hub antes de começar.
 
-Para obter a documentação de implantação do **Cisco SD-Wan** na WAN virtual do Azure, envie um email para a Cisco no seguinte endereço de email: vwan_public_preview@external.cisco.com
-
+Para obter a documentação de implantação do **Cisco SD-Wan** na WAN virtual do Azure, confira [Cisco Cloud enrampa para várias nuvens](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -66,14 +65,14 @@ Nesta etapa, você criará uma solução de virtualização de rede no Hub. O pr
 
 1. Localize o Hub de WAN virtual que você criou na etapa anterior e abra-o.
 
-   :::image type="content" source="./media/how-to-nva-hub/nva-hub.png" alt-text="Noções básicas":::
+   :::image type="content" source="./media/how-to-nva-hub/nva-hub.png" alt-text="Hub virtual":::
 1. Localize o bloco dispositivos de rede virtual e selecione o link **criar** .
-1. Na folha da **solução de virtualização de rede** , selecione **Barracuda CloudGen Wan**e, em seguida, selecione o botão **criar** .
+1. Na folha da **solução de virtualização de rede** , selecione **Barracuda CloudGen Wan** e, em seguida, selecione o botão **criar** .
 
-   :::image type="content" source="./media/how-to-nva-hub/select-nva.png" alt-text="Noções básicas":::
+   :::image type="content" source="./media/how-to-nva-hub/select-nva.png" alt-text="Selecionar NVA":::
 1. Isso levará você para a oferta do Azure Marketplace para o gateway de WAN do Barracuda CloudGen. Leia os termos e, em seguida, selecione o botão **criar** quando estiver pronto.
 
-   :::image type="content" source="./media/how-to-nva-hub/barracuda-create-basics.png" alt-text="Noções básicas":::
+   :::image type="content" source="./media/how-to-nva-hub/barracuda-create-basics.png" alt-text="Noções básicas do Barracuda NVA":::
 1. Na página **noções básicas** , você precisará fornecer as seguintes informações:
 
    * **Assinatura** – escolha a assinatura que você usou para implantar a WAN virtual e o Hub.
@@ -83,7 +82,7 @@ Nesta etapa, você criará uma solução de virtualização de rede no Hub. O pr
    * **Grupo de recursos gerenciados** – esse é o nome do grupo de recursos gerenciado no qual o Barracuda implantará os recursos que são gerenciados por eles. O nome deve ser preenchido previamente para isso.
 1. Selecione o botão **Avançar: CLOUDGEN Wan gateway** .
 
-   :::image type="content" source="./media/how-to-nva-hub/barracuda-cloudgen-wan.png" alt-text="Noções básicas":::
+   :::image type="content" source="./media/how-to-nva-hub/barracuda-cloudgen-wan.png" alt-text="Gateway de WAN CloudGen":::
 1. Forneça as seguintes informações aqui:
 
    * **Hub de WAN virtual** -o Hub de WAN virtual no qual você deseja implantar esse NVA.

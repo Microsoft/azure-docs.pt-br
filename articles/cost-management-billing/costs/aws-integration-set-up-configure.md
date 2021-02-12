@@ -3,17 +3,17 @@ title: Configurar a integração da AWS com o Gerenciamento de Custos do Azure
 description: Este artigo explica como preparar e configurar a integração do relatório de Custo e Uso da AWS com o Gerenciamento de Custos do Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/28/2020
+ms.date: 10/23/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
-ms.openlocfilehash: 8bf3df25d4702b4a0cc6361f20ad08e618e7d62b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 2b8a008decc41a5686fb2c8d9fee271f95f0fef3
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266046"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122416"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Preparar e configurar a integração do relatório de Custo e Uso da AWS
 
@@ -39,14 +39,12 @@ Use a página **Relatórios de Custo de Uso** do console de Gerenciamento de Cus
 6. Para **Configurações de atualização de dados**, selecione se deseja que o relatório de Custo e Uso da AWS seja atualizado se a AWS aplicar reembolsos, créditos ou taxas de suporte à sua conta depois de finalizar a sua fatura. Quando um relatório é atualizado, um novo relatório é carregado no Amazon S3. Recomendamos que você deixe a configuração selecionada.
 7. Selecione **Avançar**.
 8. Para o **bucket do S3**, escolha **Configurar**.
-9. Na caixa de diálogo Configurar Bucket do S3, realize uma das seguintes tarefas:
-    1. Selecione um bucket existente na lista suspensa e escolha **Próximo**.
-    2. Insira um nome de bucket e a região em que você deseja criar um bucket e escolha **Próximo**.
-10.    Selecione **Eu confirmei que essa política está correta** e clique em **Salvar**.
-11.    (Opcional) Para o prefixo do caminho do relatório, insira o prefixo do caminho do relatório que você deseja que seja anexado ao nome do relatório.
+9. Na caixa de diálogo Configurar Bucket S3, insira um nome de bucket e a região em que você deseja criar um bucket e escolha **Avançar**.
+10. Selecione **Eu confirmei que essa política está correta** e clique em **Salvar**.
+11. (Opcional) Para o prefixo do caminho do relatório, insira o prefixo do caminho do relatório que você deseja que seja anexado ao nome do relatório.
 Se você não especificar um prefixo, o prefixo padrão será o nome que você especificou para o relatório. O intervalo de datas tem o formato `/report-name/date-range/`.
 12. Para **Unidade de tempo**, escolha **Por hora**.
-13.    Para **Controle de versão de relatório**, escolha se deseja que cada versão do relatório substitua a versão anterior ou se deseja novos relatórios adicionais.
+13. Para **Controle de versão de relatório**, escolha se deseja que cada versão do relatório substitua a versão anterior ou se deseja novos relatórios adicionais.
 14. Em **Habilitar a integração de dados para**, nenhuma seleção é necessária.
 15. Em **Compressão**, selecione **GZIP**.
 16. Selecione **Avançar**.
@@ -152,7 +150,8 @@ O JSON da política deve ser semelhante ao exemplo a seguir. Substitua _bucketna
 Use as seguintes informações para criar um conector da AWS e começar a monitorar seus custos de AWS:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Acesse **Gerenciamento de Custos + Cobrança** > **Gerenciamento de Custos**.
+2. Acesse a Página Inicial do Azure clicando em **Página Inicial** no menu à esquerda (ícone do menu de "hambúrguer" com três linhas).
+3. Acesse **Ferramentas** > **Gerenciamento de Custos** na parte inferior da página.
 3. Em **Configurações**, selecione **Conectores da AWS**.  
 4. Selecione **+Adicionar** na parte superior da página para criar um conector.  
     :::image type="content" source="./media/aws-integration-setup-configure/aws-connector.png" alt-text="Exemplo mostrando a configuração de Conectores da AWS" :::

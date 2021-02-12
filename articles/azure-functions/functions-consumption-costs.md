@@ -3,12 +3,12 @@ title: Estimando os custos do plano de consumo em Azure Functions
 description: Saiba como estimar melhor os custos que você pode incorrer ao executar seu aplicativo de funções em um plano de consumo no Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 58082e03c1416848e9aa1e97308bed1ceaa67295
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 430804d478df718f51ae1da9adb6693f597157a9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168097"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934876"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Como estimar os custos do plano de Consumo
 
@@ -16,9 +16,9 @@ Atualmente, há três tipos de planos de hospedagem para um aplicativo que é ex
 
 | Planejar | Descrição |
 | ---- | ----------- |
-| [**Utilização**](functions-scale.md#consumption-plan) | Você é cobrado apenas pelo tempo em que seu aplicativo de funções é executado. Esse plano inclui uma[página de preços] de [concessão gratuita]em uma base por assinatura.|
-| [**Premium**](functions-scale.md#premium-plan) | Fornece os mesmos recursos e mecanismo de dimensionamento que o plano de consumo, mas com o desempenho aprimorado e o acesso à VNET. O custo é baseado no tipo de preço escolhido. Para saber mais, confira [Azure Functions plano Premium](functions-premium-plan.md). |
-| [**Dedicado (serviço de aplicativo)**](functions-scale.md#app-service-plan) <br/>(camada básica ou superior) | Quando você precisa executar em VMs dedicadas ou isoladamente, use imagens personalizadas ou deseja usar o excesso de capacidade do plano do serviço de aplicativo. Usa a [cobrança regular do plano do serviço de aplicativo](https://azure.microsoft.com/pricing/details/app-service/). O custo é baseado no tipo de preço escolhido.|
+| [**Consumo**](consumption-plan.md) | Você é cobrado apenas pelo tempo em que seu aplicativo de funções é executado. Esse plano inclui uma[página de preços] de [concessão gratuita]em uma base por assinatura.|
+| [**Premium**](functions-premium-plan.md) | Fornece os mesmos recursos e mecanismo de dimensionamento que o plano de consumo, mas com o desempenho aprimorado e o acesso à VNET. O custo é baseado no tipo de preço escolhido. Para saber mais, confira [Azure Functions plano Premium](functions-premium-plan.md). |
+| [**Dedicado (serviço de aplicativo)**](dedicated-plan.md) <br/>(camada básica ou superior) | Quando você precisa executar em VMs dedicadas ou isoladamente, use imagens personalizadas ou deseja usar o excesso de capacidade do plano do serviço de aplicativo. Usa a [cobrança regular do plano do serviço de aplicativo](https://azure.microsoft.com/pricing/details/app-service/). O custo é baseado no tipo de preço escolhido.|
 
 Você escolheu o plano que melhor dá suporte aos requisitos de desempenho e custo de sua função. Para saber mais, confira [Escala e hospedagem do Azure Functions](functions-scale.md).
 
@@ -75,7 +75,7 @@ Use [Azure monitor métricas Explorer](../azure-monitor/platform/metrics-getting
 
 1. Na parte superior da [portal do Azure] em **Pesquisar serviços, recursos e**  pesquisa de documentos `monitor` e selecione **monitorar** em **Serviços**.
 
-1. À esquerda, selecione **métricas**  >  **Selecione um recurso**e, em seguida, use as configurações abaixo da imagem para escolher seu aplicativo de funções.
+1. À esquerda, selecione **métricas**  >  **Selecione um recurso** e, em seguida, use as configurações abaixo da imagem para escolher seu aplicativo de funções.
 
     ![Selecione o recurso de aplicativo de funções](media/functions-consumption-costing/select-a-resource.png)
 

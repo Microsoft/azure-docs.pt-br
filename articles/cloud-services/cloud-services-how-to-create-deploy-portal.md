@@ -1,21 +1,25 @@
 ---
-title: Como criar e implantar um serviço de nuvem | Microsoft Docs
+title: Como criar e implantar um serviço de nuvem (clássico) | Microsoft Docs
 description: Saiba como usar o método criação rápida para criar um serviço de nuvem e usar carregar para carregar e implantar um pacote de serviço de nuvem no Azure.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 05/18/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 66938975784f1de2abdc0ac22e62aaca82279f86
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 879b86714adf50b5a4da4398389405063ac046dc
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164157"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743399"
 ---
-# <a name="how-to-create-and-deploy-a-cloud-service"></a>Como criar e implantar um serviço de nuvem
+# <a name="how-to-create-and-deploy-an-azure-cloud-service-classic"></a>Como criar e implantar um serviço de nuvem do Azure (clássico)
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
+
 O portal do Azure oferece duas maneiras de criar e implantar um serviço de nuvem: *Criação Rápida* e *Criação Personalizada*.
 
 Este artigo explica como usar o método Criação Rápida para criar um novo serviço de nuvem e usar **Carregar** para carregar e implantar um pacote de serviço de nuvem no Azure. Ao usar esse método, o Portal do Azure disponibiliza links convenientes para o cumprimento de todos os requisitos quando você precisar. Se você estiver pronto para implantar o serviço de nuvem ao criá-lo, é possível usar ambos ao mesmo tempo usando a Criação Personalizada.
@@ -56,7 +60,8 @@ Para criar um serviço de nuvem com implantações de funções Web ou de Trabal
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 2. Clique em **Criar um recurso > Computação**, e, em seguida, role para baixo e clique em **Serviço de Nuvem**.
 
-    ![Captura de tela que realça a opção de serviço de nuvem em criar um recurso > computação.](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
+    ![Publicar seu Service1 de nuvem](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
+
 3. No novo painel **Serviço de Nuvem**, insira um valor para o **Nome DNS**.
 4. Crie um novo **grupo de recursos** ou selecione um existente.
 5. Selecione um **Local**.
@@ -65,16 +70,16 @@ Para criar um serviço de nuvem com implantações de funções Web ou de Trabal
 8. Clique em **OK** que fechará o painel **Carregar um pacote**.
 9. Se você não tiver nenhum certificado para adicionar, clique em **Criar**.
 
-    ![Publicar o serviço de nuvem](media/cloud-services-how-to-create-deploy-portal/select-package.png)
+    ![Publicar sua nuvem Service2](media/cloud-services-how-to-create-deploy-portal/select-package.png)
 
 ## <a name="upload-a-certificate"></a>Carregar um certificado
 Se o pacote de implantação tiver sido [configurado para usar certificados](cloud-services-configure-ssl-certificate-portal.md#modify), você poderá carregar o certificado agora.
 
-1. Selecione **certificados**e, no painel **adicionar certificados** , selecione o arquivo. pfx do certificado TLS/SSL e forneça a **senha** para o certificado,
+1. Selecione **certificados** e, no painel **adicionar certificados** , selecione o arquivo. pfx do certificado TLS/SSL e forneça a **senha** para o certificado,
 2. Clique em **Anexar certificado** e, em seguida, clique em **OK** no painel **Adicionar certificados**.
 3. Clique em **Criar** no painel **Serviço de Nuvem**. Quando a implantação alcançar o status **Pronto** , será possível passar às próximas etapas.
 
-    ![Captura de tela que realça o processo para carregar um certificado.](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
+    ![Publicar sua nuvem Service3](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 
 ## <a name="verify-your-deployment-completed-successfully"></a>Verifique se a implantação foi concluída com êxito
 1. Clique na instância do serviço de nuvem.

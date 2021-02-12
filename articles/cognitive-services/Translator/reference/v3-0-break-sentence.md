@@ -3,25 +3,25 @@ title: Método BreakSentence do Tradutor
 titleSuffix: Azure Cognitive Services
 description: O método BreakSentence do tradutor identifica o posicionamento dos limites de sentença em uma parte do texto.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 08/06/2020
-ms.author: swmachan
-ms.openlocfilehash: 340b0ed02821fb98f271539ac39e0ccad8581082
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: lajanuar
+ms.openlocfilehash: 2da614fe829d0aa82bfa57337baf44491993c68f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87903996"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895536"
 ---
 # <a name="translator-30-breaksentence"></a>Tradutor 3,0: BreakSentence
 
 Identifica o posicionamento dos limites de frase em uma parte do texto.
 
-## <a name="request-url"></a>URL de Solicitação
+## <a name="request-url"></a>URL da solicitação
 
 Envie uma solicitação `POST` para:
 
@@ -43,7 +43,7 @@ Os cabeçalhos de solicitação incluem:
 
 | Cabeçalhos | Descrição |
 | ------- | ----------- |
-| Cabeçalhos de autenticação <img width=200/>  | **Cabeçalho de solicitação obrigatório**.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>. |
+| Cabeçalhos de autenticação <img width=200/>  | **Cabeçalho de solicitação obrigatório**.<br/>Veja <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>. |
 | Tipo de conteúdo | **Cabeçalho de solicitação obrigatório**.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`. |
 | Content-Length    | **Cabeçalho de solicitação obrigatório**.<br/>O tamanho do corpo da solicitação.  | 
 | X-ClientTraceId   | **Opcional**.<br/>Um GUID gerado pelo cliente para identificar exclusivamente a solicitação. Observe que você poderá omitir esse cabeçalho se incluir a ID de rastreamento na cadeia de caracteres de consulta usando um parâmetro de consulta nomeado `ClientTraceId`.  | 
@@ -141,7 +141,7 @@ Veja a seguir os possíveis códigos de status HTTP retornados por uma solicita�
   </tr>
 </table> 
 
-Se ocorrer um erro, a solicitação também retornará uma resposta de erro JSON. O código de erro é um número de 6 dígitos que combina o código de status HTTP de 3 dígitos seguido por um número de 3 dígitos para categorizar ainda mais o erro. Códigos de erro comuns podem ser encontrados na [página de referência do tradutor v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Se ocorrer um erro, a solicitação também retornará uma resposta de erro JSON. O código de erro é um número de 6 dígitos que combina o código de status HTTP de 3 dígitos seguido por um número de 3 dígitos para categorizar ainda mais o erro. Códigos de erro comuns podem ser encontrados na [página de referência do tradutor v3](./v3-0-reference.md#errors). 
 
 ## <a name="examples"></a>Exemplos
 
@@ -150,4 +150,3 @@ O exemplo a seguir mostra como obter os limites de frase de uma única frase. O 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"
 ```
-

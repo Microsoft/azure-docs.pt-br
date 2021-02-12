@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: c34cf47a5b8c20c10b160ac6e55309b3c18448f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af2711a3d219bb472334ad61bad0b87f6c691dab
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88959010"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183193"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>Tutorial: Solucionar problemas de um aplicativo do Serviço de Aplicativo com o Azure Monitor
 
@@ -52,7 +52,7 @@ az webapp deployment user set --user-name <username> --password <password>
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1 --is-linux
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "PHP|7.3" --deployment-local-git
 git remote add azure <url_from_previous_step>
-git push azure master
+git push azure main
 ```
 
 ## <a name="configure-azure-monitor-preview"></a>Configurar o Azure Monitor (versão prévia)
@@ -171,11 +171,11 @@ where ResultDescription  contains "error"
 
 Na coluna `ResultDescription`, você verá o seguinte erro:
 
-<pre>
+```output
 PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted 
 (tried to allocate 16384 bytes) in /home/site/wwwroot/process.php on line 20, 
 referer: http://<app-name>.azurewebsites.net/
-</pre>
+```
 
 ### <a name="join-appservicehttplogs-and-appserviceconsolelogs"></a>Unir AppServiceHTTPLogs e AppServiceConsoleLogs
 
@@ -201,11 +201,11 @@ myHttp | join myConsole on TimeGen | project TimeGen, CsUriStem, ScStatus, Resul
 
 Na coluna `ResultDescription`, você verá o seguinte erro ao mesmo tempo que erros do servidor Web:
 
-<pre>
+```output
 PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted 
 (tried to allocate 16384 bytes) in /home/site/wwwroot/process.php on line 20, 
 referer: http://<app-name>.azurewebsites.net/
-</pre>
+```
 
 A mensagem declara que a memória foi esgotada na linha 20 de `process.php`. Agora você confirmou que o aplicativo produziu um erro durante o erro HTTP 500. Vamos dar uma olhada no código para identificar o problema.
 
@@ -243,7 +243,7 @@ Confirme suas alterações no Git e, em seguida, envie as alterações de códig
 
 ```bash
 git commit -am "Load images on-demand in process.php"
-git push azure master
+git push azure main
 ```
 
 ### <a name="browse-to-the-azure-app"></a>Navegar até o aplicativo do Azure

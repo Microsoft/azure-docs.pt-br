@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: overview
 ms.date: 5/22/2020
 ms.author: derekol
-ms.openlocfilehash: 3ffef24d459a2864ffd3f2271e6bca9e4bc638cc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 717a8c87c6a1c22d3f75cd4e3054bfdf0c4b5f9a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83849375"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023438"
 ---
 # <a name="internet-peering-vs-peering-service"></a>Emparelhamento de Internet vs. Serviço de Emparelhamento
 
@@ -53,5 +53,5 @@ Para obter as perguntas frequentes, confira [Serviço de Emparelhamento: pergunt
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre os benefícios do cliente com o [Serviço de Emparelhamento](https://docs.microsoft.com/azure/peering-service/).
+* Saiba mais sobre os benefícios do cliente com o [Serviço de Emparelhamento](../peering-service/index.yml).
 * Saiba mais sobre as etapas usadas para habilitar um emparelhamento direto no Serviço de Emparelhamento no [passo a passo do parceiro do Serviço de Emparelhamento](walkthrough-peering-service-all.md).

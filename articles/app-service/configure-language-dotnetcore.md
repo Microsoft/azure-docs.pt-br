@@ -6,12 +6,12 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 0f7047638aa2e2b4a9ac6ffade82fdc117b56cfb
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1223ff5c56d3c7d58b324d2099980bc0b5408125
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744172"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655961"
 ---
 # <a name="configure-an-aspnet-core-app-for-azure-app-service"></a>Configurar um aplicativo de ASP.NET Core para o serviço Azure App
 
@@ -125,7 +125,7 @@ namespace SomeNamespace
 }
 ```
 
-Se você definir uma configuração de aplicativo com o mesmo nome no serviço de aplicativo e no *appsettings.jsem* , por exemplo, o valor do serviço de aplicativo terá precedência sobre a *appsettings.jsno* valor. O *appsettings.jslocal no* valor permite que você depure o aplicativo localmente, mas o valor do serviço de aplicativo permite que você execute o aplicativo no produto com as configurações de produção. As cadeias de conexão funcionam da mesma maneira. Dessa forma, você pode manter os segredos do aplicativo fora do seu repositório de código e acessar os valores apropriados sem alterar seu código.
+Se você definir uma configuração de aplicativo com o mesmo nome no serviço de aplicativo e no *appsettings.jsem*, por exemplo, o valor do serviço de aplicativo terá precedência sobre a *appsettings.jsno* valor. O *appsettings.jslocal no* valor permite que você depure o aplicativo localmente, mas o valor do serviço de aplicativo permite que você execute o aplicativo no produto com as configurações de produção. As cadeias de conexão funcionam da mesma maneira. Dessa forma, você pode manter os segredos do aplicativo fora do seu repositório de código e acessar os valores apropriados sem alterar seu código.
 
 > [!NOTE]
 > Observe que os [dados de configuração hierárquica](/aspnet/core/fundamentals/configuration/#hierarchical-configuration-data) no *appsettings.jsem* é acessado usando o `:` delimitador padrão para o .NET Core. Para substituir uma definição de configuração hierárquica específica no serviço de aplicativo, defina o nome da configuração do aplicativo com o mesmo formato delimitado na chave. Você pode executar o exemplo a seguir no [Cloud Shell](https://shell.azure.com):
@@ -175,7 +175,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## <a name="detect-https-session"></a>Detectar sessão HTTPS
 
-No Serviço de Aplicativo, a [Terminação SSL](https://wikipedia.org/wiki/TLS_termination_proxy) ocorre nos balanceadores de carga de rede de modo que todas as solicitações HTTPS cheguem ao seu aplicativo como solicitações HTTP não criptografadas. Se a lógica do aplicativo precisar saber se as solicitações do usuário estão criptografadas ou não, configure o middleware de cabeçalhos encaminhados em *Startup.cs* :
+No Serviço de Aplicativo, a [Terminação SSL](https://wikipedia.org/wiki/TLS_termination_proxy) ocorre nos balanceadores de carga de rede de modo que todas as solicitações HTTPS cheguem ao seu aplicativo como solicitações HTTP não criptografadas. Se a lógica do aplicativo precisar saber se as solicitações do usuário estão criptografadas ou não, configure o middleware de cabeçalhos encaminhados em *Startup.cs*:
 
 - Configure o middleware com [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) para encaminhar os cabeçalhos `X-Forwarded-For` e `X-Forwarded-Proto` em `Startup.ConfigureServices`.
 - Adicione intervalos de endereços IP privados às redes conhecidas, para que o middleware possa confiar no balanceador de carga do serviço de aplicativo.
@@ -192,6 +192,7 @@ public void ConfigureServices(IServiceCollection services)
     {
         options.ForwardedHeaders =
             ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+        // These three subnets encapsulate the applicable Azure subnets. At the moment, it's not possible to narrow it down further.
         options.KnownNetworks.Add(new IPNetwork(IPAddress.Parse("::ffff:10.0.0.0"), 104));
         options.KnownNetworks.Add(new IPNetwork(IPAddress.Parse("::ffff:192.168.0.0"), 112));
         options.KnownNetworks.Add(new IPNetwork(IPAddress.Parse("::ffff:172.16.0.0"), 108));

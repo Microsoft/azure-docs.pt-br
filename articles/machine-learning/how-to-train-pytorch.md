@@ -8,21 +8,21 @@ ms.subservice: core
 ms.author: minxia
 author: mx-iao
 ms.reviewer: peterlu
-ms.date: 09/28/2020
+ms.date: 01/14/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 22e834ccc31e2d01646250c973080848173661de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 962054943a68aa61ac681de97eeebc10fe3f2b0a
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743770"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216624"
 ---
 # <a name="train-pytorch-models-at-scale-with-azure-machine-learning"></a>Treine os modelos PyTorch em escala com Azure Machine Learning
 
 Neste artigo, saiba como executar seus scripts de treinamento do [PyTorch](https://pytorch.org/) em escala empresarial usando o Azure Machine Learning.
 
-Os scripts de exemplo neste artigo são usados para classificar as imagens de galinha e Turquia para criar uma rede neural de aprendizado profundo (DNN) com base no [tutorial](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html)de aprendizado de transferência do PyTorch. 
+Os scripts de exemplo neste artigo são usados para classificar as imagens de galinha e Turquia para criar uma rede neural de aprendizado profundo (DNN) com base no [tutorial](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html)de aprendizado de transferência do PyTorch. O aprendizado de transferência é uma técnica que aplica o conhecimento obtido da solução de um problema para um problema diferente, mas relacionado. Isso aborda o processo de treinamento exigindo menos dados, tempo e recursos de computação do que o treinamento do zero. Consulte o artigo aprendizado [profundo vs. Machine Learning](./concept-deep-learning-vs-machine-learning.md#what-is-transfer-learning) para saber mais sobre o aprendizado de transferência.
 
 Se você está treinando um modelo de PyTorch de aprendizado profundo do zero ou está trazendo um modelo existente para a nuvem, você pode usar Azure Machine Learning para expandir trabalhos de treinamento de software livre usando recursos de computação em nuvem elásticos. Você pode criar, implantar, obter uma versão e monitorar modelos de nível de produção com Azure Machine Learning. 
 
@@ -36,7 +36,7 @@ Execute este código em qualquer um destes ambientes:
     - Na pasta exemplos de aprendizado profundo no servidor do notebook, encontre um bloco de anotações concluído e expandido navegando até este diretório: **como usar-azureml > ml-frameworks > pytorch > Train-hiperparameter-Prepare-deploy-com-pytorch** pasta. 
  
  - Seu próprio servidor Jupyter Notebook
-    - [Instale o SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) (>= 1.15.0).
+    - [Instale o SDK do Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.15.0).
     - [Criar um arquivo de configuração de workspace](how-to-configure-environment.md#workspace).
     - [Baixar os arquivos de script de exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch)`pytorch_train.py`
      
@@ -56,6 +56,7 @@ import shutil
 
 from azureml.core.workspace import Workspace
 from azureml.core import Experiment
+from azureml.core import Environment
 
 from azureml.core.compute import ComputeTarget, AmlCompute
 from azureml.core.compute_target import ComputeTargetException
@@ -63,7 +64,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### <a name="initialize-a-workspace"></a>Inicializar um workspace
 
-O [espaço de trabalho Azure Machine Learning](concept-workspace.md) é o recurso de nível superior para o serviço. Ele fornece um local centralizado para trabalhar com todos os artefatos que você criar. No SDK do Python, você pode acessar os artefatos do espaço de trabalho criando um [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) objeto.
+O [espaço de trabalho Azure Machine Learning](concept-workspace.md) é o recurso de nível superior para o serviço. Ele fornece um local centralizado para trabalhar com todos os artefatos que você criar. No SDK do Python, você pode acessar os artefatos do espaço de trabalho criando um [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) objeto.
 
 Crie um objeto de espaço de trabalho a partir do `config.json` arquivo criado na [seção pré-requisitos](#prerequisites).
 
@@ -164,8 +165,6 @@ Crie um ambiente do Azure ML a partir desta especificação de ambiente Conda. O
 Por padrão, se nenhuma imagem base for especificada, o Azure ML usará uma imagem de CPU `azureml.core.environment.DEFAULT_CPU_IMAGE` como a imagem base. Como este exemplo executa o treinamento em um cluster de GPU, você precisará especificar uma imagem de base de GPU que tenha os drivers e as dependências de GPU necessários. O Azure ML mantém um conjunto de imagens de base publicadas no MCR (registro de contêiner da Microsoft) que você pode usar, consulte o repositório GitHub [Azure/AzureML-containers](https://github.com/Azure/AzureML-Containers) para obter mais informações.
 
 ```python
-from azureml.core import Environment
-
 pytorch_env = Environment.from_conda_specification(name='pytorch-1.6-gpu', file_path='./conda_dependencies.yml')
 
 # Specify a GPU base image
@@ -182,7 +181,7 @@ Para obter mais informações sobre como criar e usar ambientes, consulte [criar
 
 ### <a name="create-a-scriptrunconfig"></a>Criar um ScriptRunConfig
 
-Crie um objeto [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) para especificar os detalhes da configuração de seu trabalho de treinamento, incluindo o script de treinamento, o ambiente a ser usado e o destino de computação para a execução. Todos os argumentos para seu script de treinamento serão passados por meio da linha de comando, se especificado no `arguments` parâmetro. 
+Crie um objeto [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) para especificar os detalhes da configuração de seu trabalho de treinamento, incluindo o script de treinamento, o ambiente a ser usado e o destino de computação para a execução. Todos os argumentos para seu script de treinamento serão passados por meio da linha de comando, se especificado no `arguments` parâmetro. 
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -200,14 +199,14 @@ src = ScriptRunConfig(source_directory=project_folder,
 Para obter mais informações sobre como configurar trabalhos com o ScriptRunConfig, consulte [configurar e enviar execuções de treinamento](how-to-set-up-training-targets.md).
 
 > [!WARNING]
-> Se você estava usando o estimador do PyTorch anteriormente para configurar seus trabalhos de treinamento do PyTorch, observe que os estimadores serão preteridos em uma versão futura do SDK do ML do Azure. Com o SDK do Azure ML >= 1.15.0, o ScriptRunConfig é a maneira recomendada para configurar trabalhos de treinamento, incluindo aqueles que usam o DL frameworks.
+> Se você estava usando o estimador do PyTorch anteriormente para configurar seus trabalhos de treinamento do PyTorch, observe que os estimadores foram preteridos a partir da versão do SDK do 1.19.0. Com o SDK do Azure ML >= 1.15.0, o ScriptRunConfig é a maneira recomendada para configurar trabalhos de treinamento, incluindo aqueles que usam estruturas de aprendizado profundo. Para perguntas comuns de migração, consulte o [estimador para o guia de migração do ScriptRunConfig](how-to-migrate-from-estimators-to-scriptrunconfig.md).
 
 ## <a name="submit-your-run"></a>Envie sua execução
 
-O [objeto Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) fornece a interface para o histórico de execução enquanto o trabalho está em execução e após sua conclusão.
+O [objeto Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) fornece a interface para o histórico de execução enquanto o trabalho está em execução e após sua conclusão.
 
 ```Python
-run = Experiment(ws, name='pytorch-birds').submit(src)
+run = Experiment(ws, name='Tutorial-pytorch-birds').submit(src)
 run.wait_for_completion(show_output=True)
 ```
 
@@ -268,7 +267,7 @@ dependencies:
   - horovod==0.19.5
 ```
 
-Para executar um trabalho distribuído usando MPI/Horovod no Azure ML, você deve especificar um [MpiConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py&preserve-view=true) para o `distributed_job_config` parâmetro do Construtor ScriptRunConfig. O código abaixo configurará um trabalho distribuído de 2 nós que executa um processo por nó. Se você também quiser executar vários processos por nó (ou seja, se o SKU do cluster tiver várias GPUs), especifique também o `process_count_per_node` parâmetro em MpiConfiguration (o padrão é `1` ).
+Para executar um trabalho distribuído usando MPI/Horovod no Azure ML, você deve especificar um [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?preserve-view=true&view=azure-ml-py) para o `distributed_job_config` parâmetro do Construtor ScriptRunConfig. O código abaixo configurará um trabalho distribuído de 2 nós que executa um processo por nó. Se você também quiser executar vários processos por nó (ou seja, se o SKU do cluster tiver várias GPUs), especifique também o `process_count_per_node` parâmetro em MpiConfiguration (o padrão é `1` ).
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -286,7 +285,7 @@ Para obter um tutorial completo sobre como executar PyTorch distribuídas com Ho
 ### <a name="distributeddataparallel"></a>DistributedDataParallel
 Se você estiver usando o módulo [DistributedDataParallel](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html) interno do PyTorch criado usando o pacote **Torch. Distributed** no seu código de treinamento, você também poderá iniciar o trabalho distribuído por meio do Azure ml.
 
-Para executar um trabalho PyTorch distribuído com DistributedDataParallel, especifique um [PyTorchConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?view=azure-ml-py&preserve-view=true) para o `distributed_job_config` parâmetro do Construtor ScriptRunConfig. Para usar o back-end NCCL para Torch. Distributed, especifique `communication_backend='Nccl'` no PyTorchConfiguration. O código abaixo configurará um trabalho distribuído de 2 nós. O back-end NCCL é o back-end recomendado para treinamento de GPU distribuída do PyTorch.
+Para executar um trabalho PyTorch distribuído com DistributedDataParallel, especifique um [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py) para o `distributed_job_config` parâmetro do Construtor ScriptRunConfig. Para usar o back-end NCCL para Torch. Distributed, especifique `communication_backend='Nccl'` no PyTorchConfiguration. O código abaixo configurará um trabalho distribuído de 2 nós. O back-end NCCL é o back-end recomendado para treinamento de GPU distribuída do PyTorch.
 
 Para trabalhos PyTorch distribuídos configurados por meio de PyTorchConfiguration, o Azure ML definirá as seguintes variáveis de ambiente nos nós do destino de computação:
 
@@ -315,6 +314,10 @@ src = ScriptRunConfig(source_directory=project_folder,
 Se você preferir usar o back-end gloo para treinamento distribuído, especifique `communication_backend='Gloo'` em vez disso. O back-end gloo é recomendado para treinamento de CPU distribuído.
 
 Para obter um tutorial completo sobre como executar PyTorch distribuídas no Azure ML, consulte [Distributed PyTorch with DistributedDataParallel](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/distributed-pytorch-with-nccl-gloo).
+
+### <a name="troubleshooting"></a>Solução de problemas
+
+* O **Horovod foi desligado**: na maioria dos casos, se você encontrar "AbortedError: Horovod foi desligado", houve uma exceção subjacente em um dos processos que fizeram com que o Horovod fosse desligado. Cada classificação no trabalho da MPI obtém seu próprio arquivo de log dedicado no Azure Machine Learning. Esses logs são nomeados `70_driver_logs`. No caso de treinamento distribuído, os nomes de log têm o sufixo `_rank` para facilitar a diferenciação dos logs. Para localizar o erro exato que fez com que o Horovod fosse desligado, percorra todos os arquivos de log e procure `Traceback` no final dos arquivos de driver_log. Um desses arquivos fornecerá a exceção subjacente real. 
 
 ## <a name="export-to-onnx"></a>Exportar para ONNX
 

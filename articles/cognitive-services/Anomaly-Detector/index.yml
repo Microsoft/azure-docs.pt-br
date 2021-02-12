@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/10/2019
   ms.author: aahi
-  ms.openlocfilehash: 4bce0b354d1daffccfea108b5668f33fd429f075
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: 7e0fe85007aae69bf79557e0f094e275f538d280
+  ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92371232"
+  ms.lasthandoff: 12/18/2020
+  ms.locfileid: "97683428"
 landingContent:
 - title: Sobre a API do Detector de Anomalias
   linkLists:
@@ -86,6 +86,8 @@ landingContent:
       url: anomaly-detector-container-configuration.md
     - text: Implantar uma instância de contêiner no Azure
       url: how-to/deploy-anomaly-detection-on-container-instances.md
+    - text: Implantar no IoT Edge
+      url: how-to/deploy-anomaly-detection-on-iot-edge.md
   - linkListType: video
     links:
     - text: Tornar a implantação do Detector de Anomalias local e com suporte a contêineres
@@ -119,6 +121,6 @@ landingContent:
     - text: SDK do Node.js
       url: https://go.microsoft.com/fwlink/?linkid=2090788
     - text: Azure PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+      url: /powershell/module/az.cognitiveservices/#cognitive_services
     - text: CLI do Azure
       url: /cli/azure/cognitiveservices#az-cognitiveservices-list

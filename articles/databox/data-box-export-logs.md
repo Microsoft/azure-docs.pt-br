@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 01eb35a60a6d51b5742d8fedd2ee0631aa86c924
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3a915ac8de83a5e183660ec4a3d05044eafff4a9
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147949"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337501"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-export-orders"></a>Rastreamento e log de eventos para seus Azure Data Box e Azure Data Box Heavy ordens de exportação
 
@@ -50,11 +50,11 @@ Para obter mais informações sobre o uso do RBAC do Azure sugerido, consulte [p
 
 ## <a name="enable-verbose-log-in-the-order"></a>Habilitar log detalhado na ordem
 
-Ao colocar uma ordem de exportação para Data Box, você tem a opção de habilitar a coleta de log detalhado. Aqui está a tela do pedido em que você pode habilitar o log detalhado:
+Ao colocar uma ordem de exportação para Data Box, você tem a opção de habilitar a coleta de um log detalhado. Aqui está a tela do pedido em que você pode habilitar o log detalhado:
 
-![Selecionar opção de exportação](media/data-box-deploy-export-ordered/azure-data-box-export-04b.png)
+![Selecionar opção de exportação](media/data-box-deploy-export-ordered/azure-data-box-export-order-export-option.png)
 
-Quando você seleciona a opção **incluir log detalhado** , um arquivo de log detalhado é gerado ao copiar os dados da sua conta de armazenamento do Azure. Esse log contém uma lista de todos os arquivos que foram exportados com êxito.      
+Quando você seleciona a opção **incluir log detalhado** , um arquivo de log detalhado é gerado ao copiar os dados da sua conta de armazenamento do Azure. Esse log contém uma lista de todos os arquivos que foram exportados com êxito.
 
 Para obter mais informações sobre a ordem de exportação, consulte [criar uma ordem de exportação para data Box](data-box-deploy-export-ordered.md)
 
@@ -252,7 +252,7 @@ Se você rolar o histórico do pedido, verá:
 
 - Informações de rastreamento de portador para seu dispositivo.
 - Eventos com a atividade *SecureErase* . Esses eventos correspondem à eliminação dos dados no disco.
-- Data Box links de log. Os caminhos para os *logs de auditoria*, *os logs de cópia*e os arquivos de *bom* são apresentados.
+- Data Box links de log. Os caminhos para os *logs de auditoria* , *os logs de cópia* e os arquivos de *bom* são apresentados.
 
 Aqui está um exemplo do log do histórico de pedidos do portal do Azure:
 

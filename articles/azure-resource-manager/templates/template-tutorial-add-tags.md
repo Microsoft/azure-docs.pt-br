@@ -1,21 +1,21 @@
 ---
 title: Tutorial – adicionar marcas a recursos no modelo
-description: Adicione marcas a recursos que você implanta em seu modelo do Azure Resource Manager. As marcas permitem que você organize logicamente os recursos.
+description: Adicione marcas aos recursos implantados no modelo do ARM (modelo do Azure Resource Manager). As marcas permitem que você organize logicamente os recursos.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 16fc294784d9d6ff3c2fdd920d053eae5cd4b56d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 625a88c0ee946b1ca67737d9cc67b638699d12f0
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613196"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106995"
 ---
 # <a name="tutorial-add-tags-in-your-arm-template"></a>Tutorial: Adicionar marcas em seu modelo do ARM
 
-Neste tutorial, você aprenderá a adicionar marcas aos recursos no modelo do ARM (Azure Resource Manager). As [marcas](../management/tag-resources.md) ajudam você a organizar logicamente seus recursos. Os valores de tag aparecem em relatórios de custo. Este tutorial leva **8 minutos** para ser concluído.
+Neste tutorial, você aprenderá a adicionar marcas aos recursos no modelo do ARM (modelo do Azure Resource Manager). As [marcas](../management/tag-resources.md) ajudam você a organizar logicamente seus recursos. Os valores de tag aparecem em relatórios de custo. Este tutorial leva **8 minutos** para ser concluído.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,7 +43,7 @@ O exemplo a seguir realça as alterações no modelo. Copie o arquivo inteiro e 
 
 É hora de implantar o modelo e examinar os resultados.
 
-Caso você não tenha criado o grupo de recursos, confira [Criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que você tenha definido a variável **templateFile** como o caminho para o arquivo de modelo, conforme mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
+Caso você não tenha criado o grupo de recursos, confira [Criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que você tenha definido a variável `templateFile` como o caminho para o arquivo de modelo, conforme mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -72,7 +72,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Se a implantação falhar, use a opção **detalhado** para obter informações sobre os recursos que estão sendo criados. Use a opção **depurar** para obter mais informações de depuração.
+> Se a implantação falhar, use a opção `verbose` para obter informações sobre os recursos que estão sendo criados. Use a opção `debug` para obter mais informações de depuração.
 
 ## <a name="verify-deployment"></a>Verificar implantação
 

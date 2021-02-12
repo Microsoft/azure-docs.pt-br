@@ -6,12 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 9a3a7cad8399146834eed0282e0655a551bc083a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8f57210ff6b65ee3a893fb344a48629466e90004
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977265"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095348"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>Mover o armazenamento de mainframe para o Azure
 
@@ -51,7 +51,7 @@ O armazenamento do Azure está disponível como [discos do Azure](../../../manag
 
 <table>
 <thead>
-    <tr><th>Type</th><th>Descrição</th><th>Use quando desejar:</th></tr>
+    <tr><th>Tipo</th><th>Descrição</th><th>Use quando desejar:</th></tr>
 </thead>
 <tbody>
 <tr><td>Arquivos do Azure
@@ -94,7 +94,7 @@ O tipo de armazenamento de um determinado sistema depende dos requisitos do sist
 
 O SSDs fornece o melhor desempenho de armazenamento no Azure. As seguintes opções estão disponíveis (a partir da escrita deste documento):
 
-| Type         | Tamanho           | IOPS                  |
+| Tipo         | Tamanho           | IOPS                  |
 |--------------|----------------|-----------------------|
 | SSD Ultra    | 4 GB a 64 TB  | 1.200 a 160.000 IOPS |
 | SSD Premium  | 32 GB a 32 TB | 12 a 15.000 IOPS     |
@@ -127,4 +127,4 @@ O armazenamento de BLOBs fornece o maior volume de armazenamento no Azure. Além
 ### <a name="more-migration-resources"></a>Mais recursos de migração
 
 - [Guia de deslocamento e comparação de precisão de Data Center Virtual do Azure](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)
-- [GlusterFS iSCSI](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)
+- [GlusterFS iSCSI](https://glusterdocs.readthedocs.io/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)

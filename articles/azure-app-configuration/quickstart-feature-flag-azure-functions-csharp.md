@@ -8,16 +8,16 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 8/26/2020
 ms.author: alkemper
-ms.openlocfilehash: d1dc843ff676429f202c0b9077057d067294f738
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 96efc0ea6300e482ddeeda8fa177847f02b7e126
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076157"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724236"
 ---
 # <a name="quickstart-add-feature-flags-to-an-azure-functions-app"></a>Início Rápido: Adicionar sinalizadores de recurso a um aplicativo Azure Functions
 
-Neste guia de início rápido, você cria uma implementação do gerenciamento de recursos em um aplicativo Azure Functions usando a Configuração de Aplicativos do Azure. Você usará o serviço de Configuração de Aplicativos para armazenar de maneira centralizada todos os sinalizadores de recurso e controlar os estados deles. 
+Neste guia de início rápido, você cria um aplicativo Azure Functions e usa sinalizadores de recurso nele. Você usa o gerenciamento de recursos da Configuração de Aplicativos do Azure para armazenar centralmente todos os sinalizadores de recursos e controlar seus estados.
 
 As bibliotecas do Gerenciamento de Recursos do .NET estendem a estrutura com suporte a sinalizadores de recursos. Essas bibliotecas se baseiam no sistema de configuração do .NET. Elas são integradas à Configuração de Aplicativos por meio do provedor de configuração do .NET.
 
@@ -46,66 +46,113 @@ As bibliotecas do Gerenciamento de Recursos do .NET estendem a estrutura com sup
 
 ## <a name="connect-to-an-app-configuration-store"></a>Conectar um repositório de Configuração de Aplicativos
 
-1. Clique com o botão direito do mouse no projeto e selecione **Gerenciar Pacotes do NuGet**. Na guia **Navegar**, pesquise e adicione os seguintes pacotes do NuGet ao projeto. Verifique `Microsoft.Extensions.DependencyInjection` se você está no build estável mais recente. 
+Este projeto usará [injeção de dependência no Azure Functions .NET](../azure-functions/functions-dotnet-dependency-injection.md). Ele adiciona a Configuração de Aplicativos do Azure como uma fonte de configuração extra em que os sinalizadores de recurso são armazenados.
 
-    ```
-    Microsoft.Extensions.DependencyInjection
-    Microsoft.Extensions.Configuration
-    Microsoft.FeatureManagement
-    ```
+1. Clique com o botão direito do mouse no projeto e selecione **Gerenciar Pacotes do NuGet**. Na guia **Navegar**, pesquise e adicione os pacotes NuGet a seguir ao projeto.
+   - [Microsoft.Extensions.Configuration.AzureAppConfiguration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureAppConfiguration/) versão 4.1.0 ou posterior
+   - [Microsoft.FeatureManagement](https://www.nuget.org/packages/Microsoft.FeatureManagement/) versão 2.2.0 ou posterior
+   - [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/) versão 1.1.0 ou posterior 
 
-
-1. Abra *Function1.cs* e adicione os namespaces desses pacotes.
+2. Adicione um novo arquivo, *Startup.cs*, com o código a seguir. Ele define uma classe chamada `Startup` que implementa a classe abstrata `FunctionsStartup`. Um atributo de assembly é usado para especificar o nome de tipo usado durante a inicialização do Azure Functions.
 
     ```csharp
+    using System;
+    using Microsoft.Azure.Functions.Extensions.DependencyInjection;
     using Microsoft.Extensions.Configuration;
     using Microsoft.FeatureManagement;
-    using Microsoft.Extensions.DependencyInjection;
-    ```
 
-1. Adicione o construtor estático `Function1` abaixo para inicializar o provedor de Configuração de Aplicativos do Azure. Em seguida, adicione dois membros `static`, um campo chamado `ServiceProvider` para criar uma instância singleton de `ServiceProvider` e uma propriedade abaixo `Function1` chamada `FeatureManager` para criar uma instância singleton de `IFeatureManager`. Em seguida, conecte-se à Configuração de Aplicativos no `Function1` chamando `AddAzureAppConfiguration()`. Esse processo carregará a configuração na inicialização do aplicativo. A mesma instância de configuração será usada para todas as chamadas do Functions posteriormente. 
+    [assembly: FunctionsStartup(typeof(FunctionApp.Startup))]
 
-    ```csharp
-        // Implements IDisposable, cached for life time of function
-        private static ServiceProvider ServiceProvider; 
-
-        static Function1()
+    namespace FunctionApp
+    {
+        class Startup : FunctionsStartup
         {
-            IConfigurationRoot configuration = new ConfigurationBuilder()
-                .AddAzureAppConfiguration(options =>
-                {
-                    options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
-                           .UseFeatureFlags();
-                }).Build();
+            public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder builder)
+            {
+            }
 
-            var services = new ServiceCollection();                                                                             
-            services.AddSingleton<IConfiguration>(configuration).AddFeatureManagement();
-
-            ServiceProvider = services.BuildServiceProvider(); 
+            public override void Configure(IFunctionsHostBuilder builder)
+            {
+            }
         }
-
-        private static IFeatureManager FeatureManager => ServiceProvider.GetRequiredService<IFeatureManager>();
+    }
     ```
 
-1. Atualize o método `Run` para alterar o valor da mensagem exibida dependendo do estado do sinalizador de recurso.
+
+3. Atualize o método `ConfigureAppConfiguration` e adicione o provedor de Configuração de Aplicativos do Azure como uma fonte de configuração extra chamando `AddAzureAppConfiguration()`. 
+
+   O método `UseFeatureFlags()` diz para o provedor carregar os sinalizadores de recurso. Todos os sinalizadores de recurso têm um término de cache padrão de 30 segundos antes de verificar se há alterações. O intervalo de término pode ser atualizado definindo a propriedade `FeatureFlagsOptions.CacheExpirationInterval` passada para o método `UseFeatureFlags`. 
 
     ```csharp
-        [FunctionName("Function1")]
-        public static async Task<IActionResult> Run(
-                [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
-                ILogger log)
-            {
-                string message = await FeatureManager.IsEnabledAsync("Beta")
-                     ? "The Feature Flag 'Beta' is turned ON"
-                     : "The Feature Flag 'Beta' is turned OFF";
-                
-                return (ActionResult)new OkObjectResult(message); 
-            }
+    public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder builder)
+    {
+        builder.ConfigurationBuilder.AddAzureAppConfiguration(options =>
+        {
+            options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
+                   .Select("_")
+                   .UseFeatureFlags();
+        });
+    }
+    ```
+   > [!TIP]
+   > Se você não quiser que nenhuma configuração diferente dos sinalizadores de recurso seja carregada em seu aplicativo, chame `Select("_")` para carregar apenas uma chave fictícia não existente "_". Por padrão, todos os valores de chave de configuração em seu repositório de Configuração de Aplicativos serão carregados se nenhum método `Select` for chamado.
+
+4. Atualize o método `Configure` para tornar os serviços de Configuração de Aplicativos do Azure e o gerenciador de recursos disponíveis por meio de injeção de dependência.
+
+    ```csharp
+    public override void Configure(IFunctionsHostBuilder builder)
+    {
+        builder.Services.AddAzureAppConfiguration();
+        builder.Services.AddFeatureManagement();
+    }
+    ```
+
+5. Abra *Function1.cs* e adicione os namespaces a seguir.
+
+    ```csharp
+    using System.Linq;
+    using Microsoft.FeatureManagement;
+    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+    ```
+
+   Adicione um construtor usado para obter instâncias de `_featureManagerSnapshot` e `IConfigurationRefresherProvider` por meio de injeção de dependência. No `IConfigurationRefresherProvider`, você pode obter a instância do `IConfigurationRefresher`.
+
+    ```csharp
+    private readonly IFeatureManagerSnapshot _featureManagerSnapshot;
+    private readonly IConfigurationRefresher _configurationRefresher;
+
+    public Function1(IFeatureManagerSnapshot featureManagerSnapshot, IConfigurationRefresherProvider refresherProvider)
+    {
+        _featureManagerSnapshot = featureManagerSnapshot;
+        _configurationRefresher = refresherProvider.Refreshers.First();
+    }
+    ```
+
+6. Atualize o método `Run` para alterar o valor da mensagem exibida dependendo do estado do sinalizador de recurso.
+
+   O método `TryRefreshAsync` é chamado no início da chamada de funções para atualizar os sinalizadores de recurso. Ele não estará operacional se a janela de tempo de término do cache não for atingida. Remova o operador `await` se preferir que os sinalizadores de recurso sejam atualizados sem bloquear a chamada de funções atual. Nesse caso, as chamadas de funções posteriores receberão o valor atualizado.
+
+    ```csharp
+    [FunctionName("Function1")]
+    public async Task<IActionResult> Run(
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
+        ILogger log)
+    {
+        log.LogInformation("C# HTTP trigger function processed a request.");
+
+        await _configurationRefresher.TryRefreshAsync();
+
+        string message = await _featureManagerSnapshot.IsEnabledAsync("Beta")
+                ? "The Feature Flag 'Beta' is turned ON"
+                : "The Feature Flag 'Beta' is turned OFF";
+
+        return (ActionResult)new OkObjectResult(message);
+    }
     ```
 
 ## <a name="test-the-function-locally"></a>Testar a função localmente
 
-1. Defina uma variável de ambiente chamada **ConnectionString**, em que o valor é a chave de acesso que você recuperou anteriormente em seu repositório de Configuração de Aplicativos em **Chaves de Acesso**. Se você usar o prompt de comando do Windows, execute o comando a seguir e reinicie o prompt de comando para permitir que a alteração entre em vigor:
+1. Defina uma variável de ambiente chamada **ConnectionString**, em que o valor é a cadeia de conexão que você recuperou anteriormente em seu repositório de Configuração de Aplicativos em **Chaves de Acesso**. Se você usar o prompt de comando do Windows, execute o comando a seguir e reinicie o prompt de comando para permitir que a alteração entre em vigor:
 
     ```cmd
         setx ConnectionString "connection-string-of-your-app-configuration-store"
@@ -133,15 +180,16 @@ As bibliotecas do Gerenciamento de Recursos do .NET estendem a estrutura com sup
 
     ![Sinalizador de recurso de função de início rápido desabilitado](./media/quickstarts/functions-launch-ff-disabled.png)
 
-1. Entre no [portal do Azure](https://portal.azure.com). Escolha **Todos os recursos** e escolha a instância do repositório de Configuração de Aplicativos que você criou.
+1. Entre no [portal do Azure](https://portal.azure.com). Escolha **Todos os recursos** e escolha o repositório de Configuração de Aplicativos que você criou.
 
-1. Escolha **Gerenciador de Recursos** e altere o estado da chave **Beta** para **Ativado**.
+1. Selecione **Gerenciador de recursos** e altere o estado da chave **Beta** para **Ativado**.
 
-1. Retorne ao prompt de comando e cancele o processo em execução pressionando `Ctrl-C`.  Reinicie o aplicativo pressionando F5. 
-
-1. Copie a URL de sua função da saída do Azure Functions Runtime usando o mesmo processo que na etapa 3. Cole a URL para a solicitação HTTP na barra de endereços do navegador. A resposta do navegador deve ter sido alterada para indicar que o sinalizador de recurso `Beta` está ativado, conforme mostrado na imagem abaixo.
+1. Atualize o navegador algumas vezes. Quando o sinalizador de recurso em cache expirar após 30 segundos, a página deverá ter sido alterada para indicar que o sinalizador de recurso `Beta` está ativado, conforme mostra a imagem abaixo.
  
     ![Sinalizador de recurso de função de início rápido habilitado](./media/quickstarts/functions-launch-ff-enabled.png)
+
+> [!NOTE]
+> O código de exemplo usado neste tutorial pode ser baixado do [repositório do GitHub da Configuração de Aplicativos do Azure](https://github.com/Azure/AppConfiguration/tree/master/examples/DotNetCore/AzureFunction).
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -149,8 +197,10 @@ As bibliotecas do Gerenciamento de Recursos do .NET estendem a estrutura com sup
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você criou um sinalizador de recurso e o usou com um aplicativo do Azure Functions por meio do [Provedor de Configuração de Aplicativos](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration).
+Neste guia de início rápido, você criou um sinalizador de recurso e o utilizou com um aplicativo Azure Functions por meio da biblioteca [Microsoft.FeatureManagement](/dotnet/api/microsoft.featuremanagement).
 
-- Saiba mais sobre o [gerenciamento de recursos](./concept-feature-management.md).
-- [Gerenciar sinalizadores de recursos](./manage-feature-flags.md).
+- Saiba mais sobre o [gerenciamento de recursos](./concept-feature-management.md)
+- [Gerenciar sinalizadores de recursos](./manage-feature-flags.md)
+- [Usar sinalizadores de recursos condicionais](./howto-feature-filters-aspnet-core.md)
+- [Habilitar a distribuição em etapas de recursos para públicos-alvo](./howto-targetingfilter-aspnet-core.md)
 - [Usar a configuração dinâmica no aplicativo Azure Functions](./enable-dynamic-configuration-azure-functions-csharp.md)

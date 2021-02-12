@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/22/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4ff270977449bb80f97073342dc0c726a3f2316
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb84eae2db01180865db54250598f45c7b2ddca0
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80128515"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746228"
 ---
 # <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management"></a>Solicitar notificações de processo e email no gerenciamento de direitos do Azure AD
 

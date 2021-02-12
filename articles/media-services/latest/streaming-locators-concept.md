@@ -1,5 +1,5 @@
 ---
-title: Localizadores de Transmissão nos Serviços de Mídia do Azure | Microsoft Docs
+title: Localizadores de streaming nos serviços de mídia do Azure
 description: Este artigo fornece uma explicação sobre o que são os Localizadores de Transmissão e como eles são usados pelos Serviços de Mídia do Azure.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 68df5256949db44b2b347002570c64d1aa0d55ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b711b9a6923a1923562a282dcaffe7cecb0c58b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297953"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898131"
 ---
 # <a name="streaming-locators"></a>Localizadores de Streaming
 
@@ -25,7 +25,7 @@ Para fazer vídeos na saída do ativo disponível para clientes de reprodução,
 
 O processo de criação de um **Localizador de Streaming** é chamado de publicação. Por padrão, o **localizador de streaming** é válido imediatamente depois que você faz as chamadas à API e dura até que ela seja excluída, a menos que você configure as horas de início e término opcionais. 
 
-Ao criar um **localizador de streaming**, você deve especificar um nome de **ativo** e um nome de **política de streaming** . Para obter mais informações, consulte estes tópicos:
+Ao criar um **localizador de streaming**, você deve especificar um nome de **ativo** e um nome de **política de streaming** . Para mais informações, consulte os seguintes tópicos:
 
 * [Ativos](assets-concept.md)
 * [Políticas de streaming](streaming-policy-concept.md)
@@ -91,7 +91,7 @@ Confira [Filtragem, classificação, paginação de entidades dos Serviços de M
 
 Para obter localizadores de streaming com base no nome do ativo associado, use as seguintes operações:
 
-|Language|API|
+|Idioma|API|
 |---|---|
 |REST|[liststreaminglocators](/rest/api/media/assets/liststreaminglocators)|
 |CLI|[AZ AMS Asset List – streaming-Locators](/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)|

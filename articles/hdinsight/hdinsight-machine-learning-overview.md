@@ -1,19 +1,16 @@
 ---
 title: Visão geral do aprendizado de máquina - Azure HDInsight
 description: Visão geral de Big Data opções de aprendizado de máquina para clusters no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: a3c050b414e322f08fd45a569a22cea2db591b99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18be3fa8851c2dbaab622c770d02f4db252a231c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302682"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945257"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Aprendizado de máquina no HDInsight
 
@@ -49,7 +46,7 @@ Criar recursos para dados em um cluster do HDInsight Hadoop usando [consultas do
 
 Para ajudar a avançar seu próprio trabalho no aprendizado profundo, a Microsoft desenvolveu o [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/). Este kit de ferramentas está sendo usado por uma grande variedade de produtos da Microsoft, por empresas em todo o mundo com a necessidade de implantar aprendizado profundo em escala e por estudantes interessados nos algoritmos e técnicas mais recentes.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 ### <a name="scenarios"></a>Cenários
 

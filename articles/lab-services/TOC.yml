@@ -4,6 +4,10 @@
   items:
     - name: Sobre o Lab Services
       href: lab-services-overview.md
+- name: Inícios rápidos
+  items:
+    - name: Introdução
+      href: get-started-manage-labs.md
 - name: Tutoriais
   items:
     - name: Configurar uma conta de laboratório
@@ -16,11 +20,11 @@
       href: tutorial-track-usage.md
 - name: Conceitos
   items:
-    - name: Visão geral dos laboratórios de sala de aula
+    - name: Visão geral dos laboratórios
       href: classroom-labs-overview.md
-    - name: Conceitos dos laboratórios de sala de aula
+    - name: Conceitos dos laboratórios
       href: classroom-labs-concepts.md
-    - name: Conceitos básicos da arquitetura de laboratórios de sala de aula
+    - name: Conceitos básicos da arquitetura de laboratórios
       href: classroom-labs-fundamentals.md
     - name: Limites de capacidade
       href: capacity-limits.md
@@ -32,7 +36,7 @@
           href: classroom-labs-scenarios.md
         - name: Usar o Lab Services para hackathon
           href: hackathon-labs.md
-        - name: Laboratórios de sala de aula – tipos de aula
+        - name: Tipos de classe de laboratório
           items:
             - name: Visão geral dos tipos de classe
               href: class-types.md
@@ -42,9 +46,11 @@
               href: class-type-shell-scripting-linux.md
             - name: Hacking ético
               href: class-type-ethical-hacking.md
+            - name: Rede com GNS3
+              href: class-type-networking-gns3.md
             - name: Gerenciamento de banco de dados
               href: class-type-database-management.md
-            - name: Gerenciamento e desenvolvimento do Banco de Dados SQL do Azure
+            - name: Gerenciamento e desenvolvimento do Banco de Dados SQL
               href: class-type-sql-server.md
             - name: Python e Jupyter Notebooks
               href: class-type-jupyter-notebook.md
@@ -54,22 +60,15 @@
               href: class-type-matlab.md
             - name: CAD (design assistido por computador) da SolidWorks
               href: class-type-solidworks.md
+            - name: ArcGIS
+              href: class-type-arcgis.md
+            - name: Project Lead the Way
+              href: class-type-pltw.md
         - name: Usar o Azure Lab Services dentro do Teams
           items:
             - name: Visão geral
+              displayName: labs within Teams
               href: lab-services-within-teams-overview.md
-            - name: Criar um laboratório por meio do Teams
-              href: how-to-get-started-create-lab-within-teams.md
-            - name: Gerenciar listas do usuário
-              href: how-to-manage-user-lists-within-teams.md
-            - name: Gerenciar pool de VMs
-              href: how-to-manage-vm-pool-within-teams.md
-            - name: Excluir laboratórios
-              href: how-to-delete-lab-within-teams.md
-            - name: Agendamentos e configurações
-              href: how-to-create-schedules-within-teams.md
-            - name: Acessar uma VM (exibição de estudante)
-              href: how-to-access-vm-for-students-within-teams.md
 - name: Guias de instruções
   items:
     - name: Guia do administrador
@@ -106,9 +105,9 @@
           href: lab-account-owner-support-information.md
         - name: Carregar uma imagem personalizada na Galeria de Imagens Compartilhadas
           href: upload-custom-image-shared-image-gallery.md
-    - name: Criar e configurar laboratórios de sala de aula (educador)
+    - name: Criar e configurar os laboratórios (educador)
       items:
-        - name: Criar e gerenciar laboratórios de sala de aula
+        - name: Criar e gerenciar os laboratórios
           href: how-to-manage-classroom-labs.md
         - name: Usar o dashboard
           href: use-dashboard.md
@@ -144,9 +143,9 @@
           href: lab-creator-support-information.md
         - name: Acessar VMs do aluno na exibição do educador
           href: instructor-access-virtual-machines.md
-    - name: Conectar a VMs nos laboratórios de sala de aula (aluno)
+    - name: Conectar a VMs nos laboratórios (estudante)
       items:
-        - name: Acessar laboratórios de sala de aula
+        - name: Acessar os laboratórios
           href: how-to-use-classroom-lab.md
         - name: Conectar-se a VMs do Linux
           href: how-to-use-remote-desktop-linux-student.md
@@ -158,10 +157,24 @@
           href: how-to-set-virtual-machine-passwords-student.md
         - name: Exibir informações de suporte (aluno)
           href: lab-user-support-information.md
+    - name: Usar laboratórios dentro do Teams
+      items:
+        - name: Criar um laboratório por meio do Teams
+          href: how-to-get-started-create-lab-within-teams.md
+        - name: Gerenciar listas do usuário
+          href: how-to-manage-user-lists-within-teams.md
+        - name: Gerenciar pool de VMs
+          href: how-to-manage-vm-pool-within-teams.md
+        - name: Excluir laboratórios
+          href: how-to-delete-lab-within-teams.md
+        - name: Agendamentos e configurações
+          href: how-to-create-schedules-within-teams.md
+        - name: Acessar uma VM (exibição de estudante)
+          href: how-to-access-vm-for-students-within-teams.md
 - name: Referência
   items:
     - name: API REST
-      href: 'https://docs.microsoft.com/rest/api/labservices/'
+      href: /rest/api/labservices/
     - name: Módulo Az.LabServices do PowerShell (versão prévia)
       href: reference-powershell-module.md
 - name: Recursos

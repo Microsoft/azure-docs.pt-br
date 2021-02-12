@@ -1,31 +1,31 @@
 ---
-title: Função do Azure como um manipulador de eventos para os eventos da Grade de Eventos do Azure
-description: Descreve como você pode usar as funções do Azure como manipuladores de eventos para os eventos da Grade de Eventos.
+title: Usar uma função no Azure como um manipulador de eventos para eventos da grade de eventos do Azure
+description: Descreve como você pode usar funções criadas no e hospedadas pelo Azure Functions como manipuladores de eventos para eventos de grade de eventos.
 ms.topic: conceptual
 ms.date: 09/18/2020
-ms.openlocfilehash: 9e04fd3e04dab7a50940c2a4a799a56d447fbb6e
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: beddc35f2dd8db974492d14aec27ce754a74737c
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145749"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632505"
 ---
-# <a name="azure-function-as-an-event-handler-for-event-grid-events"></a>Função do Azure como um manipulador de eventos para os eventos da Grade de Eventos
+# <a name="use-a-function-as-an-event-handler-for-event-grid-events"></a>Usar uma função como um manipulador de eventos para eventos de grade de eventos
 
 Um manipulador de eventos é o local para o qual o evento é enviado. O manipulador usa uma ação para processar o evento. Vários serviços do Azure são automaticamente configurados para lidar com os eventos e o **Azure Functions** é um deles. 
 
 
-Para usar uma função do Azure como um manipulador para eventos, siga uma destas abordagens: 
+Para usar uma função no Azure como um manipulador para eventos, siga uma destas abordagens: 
 
--   Use o [gatilho de grade de eventos](../azure-functions/functions-bindings-event-grid-trigger.md).  Especifique o **Azure function** como o **tipo de ponto de extremidade**. Em seguida, especifique o aplicativo de funções do Azure e a função que manipulará eventos. 
--   Use o [gatilho http](../azure-functions/functions-bindings-http-webhook.md).  Especifique o **gancho da Web** como o **tipo de ponto de extremidade**. Em seguida, especifique a URL para a função do Azure que manipulará eventos. 
+-   Use o [gatilho de grade de eventos](../azure-functions/functions-bindings-event-grid-trigger.md).  Especifique o **Azure function** como o **tipo de ponto de extremidade**. Em seguida, especifique o aplicativo de funções e a função que manipulará eventos. 
+-   Use o [gatilho http](../azure-functions/functions-bindings-http-webhook.md).  Especifique o **gancho da Web** como o **tipo de ponto de extremidade**. Em seguida, especifique a URL para a função que tratará os eventos. 
 
 Recomendamos que você use a primeira abordagem (gatilho de grade de eventos), pois ela tem as seguintes vantagens em relação à segunda abordagem:
 -   A Grade de Eventos valida automaticamente os próprios gatilhos. Com os gatilhos HTTP genéricos, você deve implementar a [resposta de validação](webhook-event-delivery.md).
 -   A grade de eventos ajusta automaticamente a taxa na qual os eventos são entregues a uma função disparada por um evento de grade de eventos com base na taxa percebida na qual a função pode processar eventos. Esse recurso de correspondência de taxa evita erros de entrega que resultam da incapacidade de uma função de processar eventos à medida que a taxa de processamento de eventos da função pode variar ao longo do tempo. Para melhorar a eficiência em alta taxa de transferência, habilite o envio em lote na assinatura do evento. Para obter mais informações, consulte [habilitar o envio em lote](#enable-batching).
 
     > [!NOTE]
-    > No momento, você não pode usar um gatilho de grade de eventos para um aplicativo Azure Functions quando o evento é entregue no esquema **CloudEvents** . Em vez disso, use um gatilho HTTP.
+    > No momento, você não pode usar um gatilho de grade de eventos para um aplicativo de funções quando o evento é entregue no esquema **CloudEvents** . Em vez disso, use um gatilho HTTP.
 
 ## <a name="tutorials"></a>Tutoriais
 
@@ -69,13 +69,13 @@ No momento da criação de uma assinatura na interface do usuário, na página *
 
 Você pode atualizar esses valores para uma assinatura existente na guia **recursos** da página de **Tópicos da grade de eventos** . 
 
-:::image type="content" source="./media/custom-event-to-function/features-batch-settings.png" alt-text="Habilitar o envio em lote no momento da criação de uma assinatura":::
+:::image type="content" source="./media/custom-event-to-function/features-batch-settings.png" alt-text="Habilitar o envio em lote após a criação":::
 
 ### <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
 Você pode definir **maxEventsPerBatch** e **preferredBatchSizeInKilobytes** em um modelo de Azure Resource Manager. Para obter mais informações, consulte [referência de modelo do Microsoft. EventGrid eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions).
 
 ### <a name="azure-cli"></a>CLI do Azure
-Você pode usar o comando [AZ eventgrid Event-Subscription Create](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create&preserve-view=true) ou [AZ eventgrid Event-Subscription Update](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update&preserve-view=true) para definir configurações relacionadas ao lote usando os seguintes parâmetros: `--max-events-per-batch` ou `--preferred-batch-size-in-kilobytes` .
+Você pode usar o comando [AZ eventgrid Event-Subscription Create](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create&preserve-view=true) ou [AZ eventgrid Event-Subscription Update](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_update&preserve-view=true) para definir configurações relacionadas ao lote usando os seguintes parâmetros: `--max-events-per-batch` ou `--preferred-batch-size-in-kilobytes` .
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Você pode usar o cmdlet [New-AzEventGridSubscription](/powershell/module/az.eventgrid/new-azeventgridsubscription) ou [Update-AzEventGridSubscription](/powershell/module/az.eventgrid/update-azeventgridsubscription) para definir configurações relacionadas ao lote usando os seguintes parâmetros: `-MaxEventsPerBatch` ou `-PreferredBatchSizeInKiloBytes` .

@@ -1,35 +1,143 @@
 ---
-title: Como depurar e solucionar problemas de ParallelRunStep
+title: Como solucionar problemas do ParallelRunStep
 titleSuffix: Azure Machine Learning
-description: Depure e solucione problemas do ParallelRunStep em pipelines do Machine Learning no SDK do Azure Machine Learning para Python. Aprenda armadilhas comuns para o desenvolvimento com pipelines e dicas para ajudá-lo a depurar seus scripts, antes e durante a execução remota.
+description: Dicas sobre como solucionar problemas quando você recebe erros usando o ParallelRunStep em pipelines de Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.custom: troubleshooting
-ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
+ms.reviewer: larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 09/23/2020
-ms.openlocfilehash: 602babb3544093b7cd7c5b30ce4f4612148591cb
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: a0f813253520d76731a9b49a89b0bcace7c2ef34
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216905"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979157"
 ---
-# <a name="debug-and-troubleshoot-parallelrunstep"></a>Como depurar e solucionar problemas de ParallelRunStep
+# <a name="troubleshooting-the-parallelrunstep"></a>Como solucionar problemas do ParallelRunStep
 
+Neste artigo, você aprenderá a solucionar problemas quando receber erros usando a classe [ParallelRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?preserve-view=true&view=azure-ml-py) do [SDK do Azure Machine Learning](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
 
-Neste artigo, você aprenderá a depurar e solucionar problemas da classe [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py&preserve-view=true) do [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
+Para obter dicas gerais sobre como solucionar problemas de um pipeline, consulte [Solucionando problemas de pipelines do Machine Learning](how-to-debug-pipelines.md).
 
 ## <a name="testing-scripts-locally"></a>Testar scripts localmente
 
-Consulte a seção [Testar scripts localmente](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-machine-learning-pipelines) para pipelines do Machine Learning. Seu ParallelRunStep é executado como uma etapa em pipelines de ML para que a mesma resposta se aplique a ambos.
+ Seu ParallelRunStep é executado como uma etapa em pipelines de ML. Talvez você queira [testar seus scripts localmente](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-machine-learning-pipelines) como uma primeira etapa.
+
+##  <a name="script-requirements"></a>Requisitos de script
+
+O script para um `ParallelRunStep` *deve conter* duas funções:
+- `init()`: Use essa função para qualquer preparação dispendiosa ou comum para inferência posterior. Por exemplo, use-a para carregar o modelo em um objeto global. Essa função será chamada apenas uma vez no início do processo.
+-  `run(mini_batch)`: A função será executada para cada instância de `mini_batch`.
+    -  `mini_batch`: `ParallelRunStep` invocará o método run e transmitirá uma lista ou o `DataFrame` Pandas como um argumento para o método. Cada entrada em min_batch será um caminho de arquivo se a entrada for um `FileDataset` ou um `DataFrame` Pandas se a entrada for um `TabularDataset`.
+    -  `response`: o método run() deve retornar um `DataFrame` Pandas ou uma matriz. Para append_row output_action, esses elementos retornados são acrescentados ao arquivo de saída comum. Para summary_only, o conteúdo dos elementos é ignorado. Para todas as ações de saída, cada elemento de saída retornado indica uma execução bem-sucedida do elemento de entrada no minilote de entrada. Verifique se dados suficientes foram incluídos no resultado da execução para mapear a entrada para o resultado da saída da execução. A saída de execução será gravada no arquivo de saída e não haverá garantia de que esteja em ordem; você deverá usar uma chave na saída para mapeá-la para a entrada.
+
+```python
+%%writefile digit_identification.py
+# Snippets from a sample script.
+# Refer to the accompanying digit_identification.py
+# (https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines/parallel-run)
+# for the implementation script.
+
+import os
+import numpy as np
+import tensorflow as tf
+from PIL import Image
+from azureml.core import Model
+
+
+def init():
+    global g_tf_sess
+
+    # Pull down the model from the workspace
+    model_path = Model.get_model_path("mnist")
+
+    # Construct a graph to execute
+    tf.reset_default_graph()
+    saver = tf.train.import_meta_graph(os.path.join(model_path, 'mnist-tf.model.meta'))
+    g_tf_sess = tf.Session()
+    saver.restore(g_tf_sess, os.path.join(model_path, 'mnist-tf.model'))
+
+
+def run(mini_batch):
+    print(f'run method start: {__file__}, run({mini_batch})')
+    resultList = []
+    in_tensor = g_tf_sess.graph.get_tensor_by_name("network/X:0")
+    output = g_tf_sess.graph.get_tensor_by_name("network/output/MatMul:0")
+
+    for image in mini_batch:
+        # Prepare each image
+        data = Image.open(image)
+        np_im = np.array(data).reshape((1, 784))
+        # Perform inference
+        inference_result = output.eval(feed_dict={in_tensor: np_im}, session=g_tf_sess)
+        # Find the best probability, and add it to the result list
+        best_result = np.argmax(inference_result)
+        resultList.append("{}: {}".format(os.path.basename(image), best_result))
+
+    return resultList
+```
+
+Se você tiver outro arquivo ou pasta no mesmo diretório que o script de inferência, poderá consultá-lo localizando o diretório de trabalho atual.
+
+```python
+script_dir = os.path.realpath(os.path.join(__file__, '..',))
+file_path = os.path.join(script_dir, "<file_name>")
+```
+
+### <a name="parameters-for-parallelrunconfig"></a>Parâmetros para ParallelRunConfig
+
+`ParallelRunConfig` é a principal configuração para a instância `ParallelRunStep` no pipeline do Azure Machine Learning. Use-a para encapsular o script e configurar os parâmetros necessários, incluindo todas as seguintes entradas:
+- `entry_script`: Um script de usuário como um caminho de arquivo local que será executado em paralelo em vários nós. Se `source_directory` estiver presente, use um caminho relativo. Caso contrário, use qualquer caminho que seja acessível no computador.
+- `mini_batch_size`: O tamanho do minilote passado para uma única chamada de `run()`. (opcional; o valor padrão são arquivos `10` para `FileDataset` e `1MB` para `TabularDataset`.)
+    - Para `FileDataset`, é o número de arquivos com um valor mínimo de `1`. Você pode combinar vários arquivos em um minilote.
+    - Para `TabularDataset`, é o tamanho dos dados. Os valores de exemplo são `1024`, `1024KB`, `10MB` e `1GB`. O valor recomendado é `1MB`. O minilote de `TabularDataset` nunca ultrapassará os limites do arquivo. Por exemplo, se você tiver arquivos .csv com vários tamanhos, o menor arquivo será de 100 KB, e o maior será de 10 MB. Se você definir `mini_batch_size = 1MB`, os arquivos com um tamanho menor que 1 MB serão tratados como um minilote. Arquivos com um tamanho maior que 1 MB serão divididos em vários minilotes.
+- `error_threshold`: O número de falhas de registro para `TabularDataset` e falhas de arquivo para `FileDataset` que devem ser ignorados durante o processamento. Se a contagem de erros de toda a entrada ficar acima desse valor, o trabalho será anulado. O limite de erro é para toda a entrada, não para um minilote individual enviado ao método `run()`. O intervalo é `[-1, int.max]`. A parte `-1` indica que é para ignorar todas as falhas durante o processamento.
+- `output_action`: Um dos seguintes valores indica como a saída será organizada:
+    - `summary_only`: O script de usuário armazenará a saída. `ParallelRunStep` usará a saída somente para o cálculo do limite de erro.
+    - `append_row`: para todas as entradas, somente um arquivo será criado na pasta de saída para acrescentar todas as saídas separadas por linha.
+- `append_row_file_name`: para personalizar o nome do arquivo de saída para append_row output_action (opcional; o valor padrão é `parallel_run_step.txt`).
+- `source_directory`: Caminhos para pastas que contêm todos os arquivos a serem executados no destino de computação (opcional).
+- `compute_target`: Apenas `AmlCompute` tem suporte.
+- `node_count`: O número de nós de computação a serem usados para executar o script do usuário.
+- `process_count_per_node`: O número de processos por nó. A melhor prática é definir como o número de GPU ou CPU que um nó tem (opcional; o valor padrão é `1`).
+- `environment`: A definição de ambiente Python. Você pode configurá-lo para usar um ambiente Python existente ou para configurar um ambiente temporário. A definição também é responsável por configurar as dependências de aplicativo necessárias (opcional).
+- `logging_level`: Detalhamento do log. Os valores no detalhamento crescente são: `WARNING`, `INFO` e `DEBUG`. (opcional; o valor padrão é `INFO`)
+- `run_invocation_timeout`: O tempo limite de invocação do método `run()` em segundos. (opcional; o valor padrão é `60`)
+- `run_max_try`: contagem máxima de tentativas de `run()` para um minilote. Um `run()` falhará se uma exceção for gerada ou nada será retornado quando `run_invocation_timeout` for atingido (opcional; o valor padrão é `3`). 
+
+Especifique `mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout` e `run_max_try` como `PipelineParameter`, de modo que, ao reenviar uma execução de pipeline, você possa ajustar os valores de parâmetro. Neste exemplo, você usa `PipelineParameter` para `mini_batch_size` e `Process_count_per_node` e vai alterar esses valores ao reenviar uma execução posteriormente. 
+
+### <a name="parameters-for-creating-the-parallelrunstep"></a>Parâmetros para criar o ParallelRunStep
+
+Crie o ParallelRunStep usando o script, a configuração do ambiente e os parâmetros. Especifique o destino de computação que você já anexou ao seu workspace como o destino de execução do seu script de inferência. Use `ParallelRunStep` para criar a etapa do pipeline de inferência de lote, que usa todos os seguintes parâmetros:
+- `name`: O nome da etapa, com as seguintes restrições de nomenclatura: unique, 3-32 characters e regex ^\[a-z\]([-a-z0-9]*[a-z0-9])?$.
+- `parallel_run_config`: Um objeto `ParallelRunConfig`, conforme definido anteriormente.
+- `inputs`: um ou mais conjuntos de dados do Azure Machine Learning de tipo único a serem particionados para processamento paralelo.
+- `side_inputs`: um ou mais dados de referência ou conjuntos de dados usados como entradas laterais sem a necessidade de partição.
+- `output`: Um objeto `PipelineData` que corresponde ao diretório de saída.
+- `arguments`: uma lista de argumentos passados para o script do usuário. Use unknown_args para recuperá-los em seu script de entrada (opcional).
+- `allow_reuse`: Se a etapa deve reutilizar os resultados anteriores quando executada com as mesmas configurações/entradas. Se esse parâmetro for `False`, uma nova execução sempre será gerada para essa etapa durante a execução do pipeline. (opcional; o valor padrão é `True`.)
+
+```python
+from azureml.pipeline.steps import ParallelRunStep
+
+parallelrun_step = ParallelRunStep(
+    name="predict-digits-mnist",
+    parallel_run_config=parallel_run_config,
+    inputs=[input_mnist_ds_consumption],
+    output=output_dir,
+    allow_reuse=True
+)
+```
 
 ## <a name="debugging-scripts-from-remote-context"></a>Depurar scripts do contexto remoto
 
-A transição da depuração de um script de pontuação localmente para depurar um script de pontuação em um pipeline real pode ser um passo difícil. Para obter informações sobre como localizar seus logs no portal, a seção [Pipelines do Machine Learning em scripts de depuração de um contexto remoto](how-to-debug-pipelines.md). As informações contidas nessa seção também se aplicam a um ParallelRunStep.
+A transição da depuração de um script de pontuação localmente para depurar um script de pontuação em um pipeline real pode ser um passo difícil. Para obter informações sobre como localizar seus logs no portal, consulte a  [seção pipelines do Machine Learning em depuração de scripts de um contexto remoto](how-to-debug-pipelines.md). As informações contidas nessa seção também se aplicam a um ParallelRunStep.
 
 Por exemplo, o arquivo de log `70_driver_log.txt` contém informações do controlador que inicia o código ParallelRunStep.
 
@@ -63,9 +171,19 @@ Quando você precisar de um entendimento completo de como cada nó executou o sc
     - O número total de itens, contagem de itens processados com êxito e contagem de itens com falha.
     - A hora de início, a duração, o tempo de processamento e o tempo do método de execução.
 
-Você também pode encontrar informações sobre o uso de recursos dos processos para cada trabalho. Essas informações estão no formato CSV e estão localizadas em `~/logs/sys/perf/<ip_address>/node_resource_usage.csv`. As informações sobre cada processo estão disponíveis em `~logs/sys/perf/<ip_address>/processes_resource_usage.csv` .
+Você também pode exibir os resultados de cheques periódicos do uso de recursos para cada nó. Os arquivos de log e os arquivos de instalação estão nesta pasta:
+
+- `~/logs/perf`: Defina `--resource_monitor_interval` para alterar o intervalo de verificação em segundos. O intervalo padrão é `600` , que é de aproximadamente 10 minutos. Para interromper o monitoramento, defina o valor como `0` . Cada `<ip_address>` pasta inclui:
+
+    - `os/`: Informações sobre todos os processos em execução no nó. Uma verificação executa um comando do sistema operacional e salva o resultado em um arquivo. No Linux, o comando é `ps` . No Windows, use `tasklist` .
+        - `%Y%m%d%H`: O nome da subpasta é a hora em hora.
+            - `processes_%M`: O arquivo termina com o minuto do tempo de verificação.
+    - `node_disk_usage.csv`: Uso detalhado do disco do nó.
+    - `node_resource_usage.csv`: Visão geral do uso de recursos do nó.
+    - `processes_resource_usage.csv`: Visão geral do uso de recursos de cada processo.
 
 ### <a name="how-do-i-log-from-my-user-script-from-a-remote-context"></a>Como fazer log do meu script de usuário a partir de um contexto remoto?
+
 ParallelRunStep pode executar vários processos em um nó com base em process_count_per_node. Para organizar os logs de cada processo no nó e combinar a instrução print e log, é recomendável usar o ParallelRunStep Logger, conforme mostrado abaixo. Você Obtém um agente de log de EntryScript e faz os logs aparecerem na pasta **logs/usuário** no Portal.
 
 **Um script de entrada de exemplo usando o agente:**
@@ -94,7 +212,7 @@ def run(mini_batch):
 
 O usuário pode passar dados de referência para script usando side_inputs parâmetro de ParalleRunStep. Todos os conjuntos de itens fornecidos como side_inputs serão montados em cada nó de trabalho. O usuário pode obter o local de montagem passando o argumento.
 
-Construa um [conjunto](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true) de dados que contenha o dado de referência e registre-o com seu espaço de trabalho. Passe-o para o parâmetro `side_inputs` do seu `ParallelRunStep`. Além disso, você pode adicionar seu caminho na `arguments` seção para acessar facilmente seu caminho montado:
+Construa um [conjunto](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py) de dados que contenha o dado de referência e registre-o com seu espaço de trabalho. Passe-o para o parâmetro `side_inputs` do seu `ParallelRunStep`. Além disso, você pode adicionar seu caminho na `arguments` seção para acessar facilmente seu caminho montado:
 
 ```python
 label_config = label_ds.as_named_input("labels_input")
@@ -144,6 +262,6 @@ registered_ds = ds.register(ws, '***dataset-name***', create_new_version=True)
 
 * Veja esses [blocos de anotações do Jupyter que demonstram pipelines Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 
-* Consulte a referência do SDK para obter ajuda com o pacote [azureml-pipeline-Steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py&preserve-view=true) . Exiba a [documentação](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py&preserve-view=true) de referência para a classe ParallelRunStep.
+* Consulte a referência do SDK para obter ajuda com o pacote [azureml-pipeline-Steps](/python/api/azureml-pipeline-steps/azureml.pipeline.steps?preserve-view=true&view=azure-ml-py) . Exiba a [documentação](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?preserve-view=true&view=azure-ml-py) de referência para a classe ParallelRunStep.
 
-* Siga o [tutorial avançado](tutorial-pipeline-batch-scoring-classification.md) sobre como usar pipelines com o ParallelRunStep. O tutorial mostra como passar outro arquivo como uma entrada lateral. 
+* Siga o [tutorial avançado](tutorial-pipeline-batch-scoring-classification.md) sobre como usar pipelines com o ParallelRunStep. O tutorial mostra como passar outro arquivo como uma entrada lateral.

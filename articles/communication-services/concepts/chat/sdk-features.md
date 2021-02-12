@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 3b66c962758afc28da3c6be938c13d768c4f2572
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b239cf6d253c1c2d2e36d213e92e0b218add3f8c
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91666136"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94885981"
 ---
 # <a name="chat-client-library-overview"></a>Visão geral da biblioteca de clientes de chat
 
@@ -52,7 +52,7 @@ A lista a seguir apresenta o conjunto de recursos que estão atualmente disponí
 | Eventos             | Usar a Grade de Eventos para assinar a atividade do usuário que ocorre em conversas de chat e integrar os serviços de notificação personalizados ou a lógica de negócios     | ✔️   | ✔️  | ✔️    | ✔️  |
 | Monitoramento        | Monitorar o uso em termos de mensagens enviadas                                                                               | ✔️   | ✔️  | ✔️    | ✔️  |
 |                    | Monitorar a qualidade e o status das solicitações de API feitas pelo aplicativo e configurar alertas por meio do portal                                                          | ✔️   | ✔️  | ✔️    | ✔️  |
-|Recursos adicionais | Usar a [API de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/) junto com a biblioteca de clientes de chat para habilitar recursos inteligentes: *tradução de idioma e análise de sentimento da mensagem de entrada em um cliente, conversão de fala em texto para compor uma mensagem enquanto o membro fala etc.*                                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |
+|Recursos adicionais | Usar a [API de Serviços Cognitivos](../../../cognitive-services/index.yml) junto com a biblioteca de clientes de chat para habilitar recursos inteligentes: *tradução de idioma e análise de sentimento da mensagem de entrada em um cliente, conversão de fala em texto para compor uma mensagem enquanto o membro fala etc.*                                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |
 
 ## <a name="next-steps"></a>Próximas etapas
 

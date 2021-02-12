@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/06/2020
-ms.openlocfilehash: 48336b65ec564f834ef8a1e8f4911c89b1a37f31
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: c6b976ca1beb9beb78f7c56d7ae512c1f499c2c5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107939"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186517"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Fontes de dados de monitoramento para Azure Monitor
 O Azure Monitor se baseia em uma [plataforma de dados de monitoramento comum](data-platform.md) que inclui [logs](data-platform-logs.md) e [métricas](data-platform-metrics.md). Coletar dados nessa plataforma permite que os dados de vários recursos sejam analisados juntos usando um conjunto comum de ferramentas no Azure Monitor. Os dados de monitoramento também podem ser enviados para outros locais para dar suporte a determinados cenários, e alguns recursos podem gravar em outros locais antes que possam ser coletados em logs ou métricas.
@@ -164,7 +164,7 @@ Quando você habilita o Application Insights para um aplicativo por meio da inst
 |            | Os dados de instantâneo de depuração capturados para um subconjunto de exceções são armazenados no armazenamento do Azure. Use Application Insights no portal do Azure para baixar para análise local.  | [Como os instantâneos funcionam](../app/snapshot-debugger.md#how-snapshots-work) |
 
 ## <a name="monitoring-solutions-and-insights"></a>Soluções e ideias de monitoramento
-O [monitoramento de soluções](../insights/solutions.md) e [informações](../insights/insights-overview.md) coleta dados para fornecer informações adicionais sobre a operação de um serviço ou aplicativo específico. Eles podem tratar recursos em diferentes camadas de aplicativo e até mesmo várias camadas.
+O [monitoramento de soluções](../insights/solutions.md) e [informações](../monitor-reference.md) coleta dados para fornecer informações adicionais sobre a operação de um serviço ou aplicativo específico. Eles podem tratar recursos em diferentes camadas de aplicativo e até mesmo várias camadas.
 
 ### <a name="monitoring-solutions"></a>Soluções de monitoramento
 

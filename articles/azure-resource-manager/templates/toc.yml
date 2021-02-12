@@ -19,7 +19,7 @@
             - name: Pesquisa Cognitiva
               href: ../../search/search-get-started-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Serviços Cognitivos
-              href: ../../cognitive-services/create-account-resource-manager-template.md?toc=%252fazure%252fazure-resource-manager%252ftemplates%252ftoc.json
+              href: ../../cognitive-services/create-account-resource-manager-template.md?toc=%2fazure%2fazure-resource-manager%2ftemplates%2ftoc.json
             - name: Máquina Virtual de Ciência de Dados
               href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Machine Learning
@@ -48,7 +48,7 @@
               href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Stream Analytics
               href: ../../stream-analytics/quick-create-azure-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
-            - name: Pool de SQL do Synapse Analytics
+            - name: Pool de SQL dedicado (antigo SQL DW)
               href: ../../synapse-analytics/sql-data-warehouse/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Blockchain
           items:
@@ -126,6 +126,8 @@
               href: ../../iot-edge/how-to-install-iot-edge-ubuntuvm.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Hub IoT
               href: ../../iot-hub/horizontal-arm-route-messages.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Provisionamento de Dispositivos no Hub IoT
+              href: ../../iot-dps/quick-setup-auto-provision-rm.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Gerenciamento e governança
           items:
             - name: Supervisor
@@ -146,7 +148,9 @@
               href: ../../azure-portal/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Resource Graph
               href: ../../governance/resource-graph/shared-query-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-            - name: RBAC do Azure (controle de acesso baseado em função do Azure)
+            - name: Controle de acesso baseado em função – funções personalizadas
+              href: ../../role-based-access-control/custom-roles-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Controle de acesso baseado em função – atribuição de função
               href: ../../role-based-access-control/quickstart-role-assignments-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Integridade do Serviço
               href: ../../service-health/alerts-activity-log-service-notifications-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
@@ -158,6 +162,8 @@
               href: ../../application-gateway/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Rede de Distribuição de Conteúdo
               href: ../../cdn/create-profile-endpoint-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Proteção contra DDoS
+              href: ../../ddos-protection/manage-ddos-protection-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: DNS
               href: ../../dns/dns-get-started-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: ExpressRoute
@@ -286,14 +292,14 @@
         - name: Usar a verificação de integridade no Gerenciador de Implantação
           displayName: adm
           href: deployment-manager-tutorial-health-check.md
+    - name: Demarcador sobre modelos do Microsoft Learn
+      href: /learn/paths/deploy-manage-resource-manager-templates/
 - name: Conceitos
   items:
     - name: Práticas recomendadas de modelo
       href: template-best-practices.md
     - name: Perguntas frequentes
       href: frequently-asked-questions.md
-    - name: Especificações de Modelo
-      href: template-specs.md
     - name: Modelos de consistência de nuvem
       href: templates-cloud-consistency.md
     - name: Modos de implantação
@@ -417,6 +423,12 @@
           href: test-toolkit.md
         - name: Casos de teste
           href: test-cases.md
+    - name: Especificações de modelo
+      items:
+        - name: Criar e implantar especificações de modelo
+          href: template-specs.md
+        - name: Converter a galeria de modelos do portal
+          href: convert-to-template-spec.md
     - name: CI/CD
       items:
         - name: Modelos ARM com pipelines
@@ -511,6 +523,8 @@
       href: /python/api/overview/azure/resources?view=azure-python
 - name: Recursos
   items:
+    - name: Desenvolva suas habilidades com o Microsoft Learn
+      href: /learn/paths/deploy-manage-resource-manager-templates/
     - name: Modelos de início rápido do Azure
       href: 'https://azure.microsoft.com/resources/templates/'
     - name: Roteiro do Azure

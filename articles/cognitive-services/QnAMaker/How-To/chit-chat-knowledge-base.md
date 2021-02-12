@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3d5c47d3e3e9485c3a6de8f93782c654fb34a516
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1208d95a282ca6e236d9d6be8013f51dead90d13
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330631"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376632"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Adicionar bate-papo à base de dados de conhecimento
 
@@ -41,7 +41,7 @@ Para a consulta de usuário do `When is your birthday?` , cada personalidade tem
 
 Chit-os conjuntos de dados de chat têm suporte nos seguintes idiomas:
 
-|Linguagem|
+|Idioma|
 |--|
 |Chinês|
 |Inglês|
@@ -60,7 +60,15 @@ Durante a criação da base de dados de conhecimento, depois de adicionar suas U
 ## <a name="add-chit-chat-to-an-existing-kb"></a>Adicionar bate-papo a uma KB existente
 Selecione sua KB e, em seguida, navegue para a página **Configurações**. Há um link para todos os conjuntos de dados de bate-papo no formato **.tsv** apropriado. Baixe a personalidade que você desejar e, em seguida, carregue-a como uma fonte de arquivo. Não edite o formato ou os metadados ao baixar e carregar o arquivo.
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versão estável)](#tab/v1)
+
 ![Adicionar bate-papo a uma KB existente](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset.png)
+
+# <a name="qna-maker-managed-preview-release"></a>[Gerenciado QnA Maker (versão de visualização)](#tab/v2)
+
+![Adicionar Chit-Chat à versão de visualização da KB existente](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset-v2.png)
+
+---
 
 ## <a name="edit-your-chit-chat-questions-and-answers"></a>Editar as perguntas e respostas do seu bate-papo
 Ao editar sua KB, você verá uma nova fonte para bate-papo, com base na personalidade que você selecionou. Agora é possível adicionar perguntas alteradas ou editar as respostas, assim como com qualquer outra fonte.

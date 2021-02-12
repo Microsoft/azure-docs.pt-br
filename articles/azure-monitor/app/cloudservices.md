@@ -4,12 +4,12 @@ description: Monitorar suas funções da Web e de trabalho com eficiência com o
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-ms.openlocfilehash: cae2e4e1d5b5e199e772c5263a46d82289f5d6ac
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: ccd863db55ef0ff9f4051947321321c8b01430c4
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992843"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920686"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para serviços de nuvem do Azure
 O [Application Insights][start] pode monitorar os [aplicativos de serviço de nuvem do Azure](https://azure.microsoft.com/services/cloud-services/) para analisar a disponibilidade, o desempenho, as falhas e o uso combinando os dados de SDKs do Application Insights com os dados do [Diagnóstico do Azure](../platform/diagnostics-extension-overview.md) a partir de seus serviços de nuvem. Com os comentários que você obtiver sobre o desempenho e a eficiência de seu aplicativo em uso, você pode fazer escolhas informadas sobre a direção do projeto em cada ciclo de vida de desenvolvimento.
@@ -110,15 +110,14 @@ No Visual Studio, configure o SDK do Application Insights para cada projeto de a
 
     b. Adicione [Application Insights para Windows Servers](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
 
-    ![Pesquise "Application Insights"](./media/cloudservices/04-ai-nuget.png)
-
 1. Para configurar o SDK para enviar dados ao recurso do Application Insights:
 
     a. Em uma função de inicialização adequada, defina a chave de instrumentação na configuração no arquivo *.cscfg*:
  
     ```csharp
-   
-     TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("APPINSIGHTS_INSTRUMENTATIONKEY");
+        TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+        configuration.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("APPINSIGHTS_INSTRUMENTATIONKEY");
+        var telemetryClient = new TelemetryClient(configuration);
     ```
    
     b. Repita a "etapa a" para cada função em seu aplicativo. Veja os exemplos:
@@ -191,7 +190,7 @@ Para exibir os contadores de desempenho e as contagens de eventos, abra o [Metri
 
 ![Dados de Diagnóstico do Azure](./media/cloudservices/23-wad.png)
 
-Para pesquisar nos vários logs de rastreamento enviados pelo Diagnóstico do Azure, use a [Pesquisa](./diagnostic-search.md) ou uma [consulta do Analytics](../log-query/get-started-portal.md). Por exemplo, imagine que você tem uma exceção sem tratamento que causou a falha e a reciclagem de uma função. Essa informação será mostrada no canal do Aplicativo do Log de Eventos do Windows. É possível usar a Pesquisa para exibir o erro do Log de Eventos do Windows e obter o rastreamento de pilha completo da exceção. Isso lhe ajudará a encontrar a causa raiz do problema.
+Para pesquisar nos vários logs de rastreamento enviados pelo Diagnóstico do Azure, use a [Pesquisa](./diagnostic-search.md) ou uma [consulta do Analytics](../log-query/log-analytics-tutorial.md). Por exemplo, imagine que você tem uma exceção sem tratamento que causou a falha e a reciclagem de uma função. Essa informação será mostrada no canal do Aplicativo do Log de Eventos do Windows. É possível usar a Pesquisa para exibir o erro do Log de Eventos do Windows e obter o rastreamento de pilha completo da exceção. Isso lhe ajudará a encontrar a causa raiz do problema.
 
 ![Pesquisa no Diagnóstico do Azure](./media/cloudservices/25-wad.png)
 
@@ -236,7 +235,7 @@ Para funções web, esses contadores também são coletados:
 * \Aplicativos ASP.NET (?. APP_W3SVC_PROC?)\Tempo de Execução de Solicitação
 * \Aplicativos ASP.NET (?. APP_W3SVC_PROC?)\Solicitações na Fila do Aplicativo
 
-É possível especificar contadores de desempenho personalizados adicionais ou outros contadores de desempenho do Windows editando o *ApplicationInsights.config, * [conforme mostrado neste exemplo](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14).
+É possível especificar contadores de desempenho personalizados adicionais ou outros contadores de desempenho do Windows editando o *ApplicationInsights.config,* [conforme mostrado neste exemplo](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14).
 
   ![Contadores de desempenho](./media/cloudservices/002-servers.png)
 
@@ -245,7 +244,7 @@ Para obter uma experiência de diagnóstico avançada, é possível ver o que oc
 
 Para obter essas exibições das funções de trabalho, use um inicializador de telemetria personalizado para definir um atributo de contexto Operation.Id comum para todas as telemetrias. Ao fazer isso, você vê imediatamente se o problema de latência ou falha foi causado por uma dependência ou pelo código. 
 
-Este é o procedimento:
+Aqui está como:
 
 * Defina a ID de correlação em uma CallContext, [conforme mostrado neste exemplo](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L36). Nesse caso, estamos usando a ID de solicitação como correlationId.
 * Adicione uma implementação personalizada de TelemetryInitializer para definir a Operation.Id à correlationId que foi definida anteriormente. Para ver um exemplo, consulte [ItemCorrelationTelemetryInitializer](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13).

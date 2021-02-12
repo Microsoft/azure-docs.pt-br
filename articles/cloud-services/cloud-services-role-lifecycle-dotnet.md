@@ -1,22 +1,25 @@
 ---
-title: Tratar eventos de ciclo de vida do Serviço de Nuvem | Microsoft Docs
+title: Manipular eventos do ciclo de vida do serviço de nuvem (clássico) | Microsoft Docs
 description: Saiba como usar os métodos de ciclo de vida de uma função de serviço de nuvem no .NET, incluindo RoleEntryPoint, que fornece métodos para responder a eventos de ciclo de vida.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
-ms.custom: devx-track-csharp
 ms.topic: article
-ms.date: 07/18/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: d64414abfbc62e52b172a2c42796ec8d89d1719f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: b5aa4bd061647f63ebcc70109f0ba21b39e814cc
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88930053"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741325"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Personalizar o ciclo de vida de uma função Web ou de trabalho no .NET
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
+
 Quando você cria uma função de trabalho, estende a classe [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) que oferece métodos a serem substituídos, permitindo que você responda a eventos de ciclo de vida. Para funções Web, essa classe é opcional e, portanto, deve ser usada para responder a eventos de ciclo de vida.
 
 ## <a name="extend-the-roleentrypoint-class"></a>Estender a classe RoleEntryPoint

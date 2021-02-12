@@ -1,17 +1,17 @@
 ---
 title: Conectividade SSL/TLS-banco de dados do Azure para MariaDB
 description: Informações para configurar o Banco de Dados do Azure para MariaDB e aplicativos associados a fim de usar as conexões SSL adequadamente
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: 4eb4ad48554b8ca2ce6af9f89652fad685998a2a
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 6c4ee8c6d12a6350c319e40bbe30046af4932311
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126047"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550633"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mariadb"></a>Conectividade SSL/TLS no banco de dados do Azure para MariaDB
 O Banco de Dados do Azure para MariaDB dá suporte à conexão de seu servidor de banco de dados com aplicativos cliente usando o protocolo SSL. Impor conexões SSL entre seu servidor de banco de dados e os aplicativos cliente ajuda a proteger contra ataques de "intermediários" criptografando o fluxo de dados entre o servidor e seu aplicativo.
@@ -62,7 +62,7 @@ Para saber como definir a configuração de TLS para o banco de dados do Azure p
 
 ## <a name="cipher-support-by-azure-database-for-mariadb"></a>Suporte de codificação pelo banco de dados do Azure para MariaDB
 
-Como parte da comunicação SSL/TLS, os conjuntos de codificação são validados e apenas suporte para os naipes de codificação têm permissão para se comunicar com o banco de dados Server. A validação do conjunto de codificação é controlada na [camada do gateway](concepts-connectivity-architecture.md#connectivity-architecture) e não explicitamente no próprio nó. Se os conjuntos de codificação não corresponderem a um dos conjuntos listados abaixo, as conexões de entrada do cliente serão rejeitadas.
+Como parte da comunicação SSL/TLS, os conjuntos de codificação são validados e apenas suporte para os naipes de codificação têm permissão para se comunicar com o servidor de banco de dados. A validação do conjunto de codificação é controlada na [camada do gateway](concepts-connectivity-architecture.md#connectivity-architecture) e não explicitamente no próprio nó. Se os conjuntos de codificação não corresponderem a um dos conjuntos listados abaixo, as conexões de entrada do cliente serão rejeitadas.
 
 ### <a name="cipher-suite-supported"></a>Conjunto de codificação com suporte
 

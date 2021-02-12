@@ -1,19 +1,16 @@
 ---
 title: Operacionalizar o ML Services no HDInsight - Azure
 description: Saiba como colocar seu modelo de dados em operação para fazer previsões com os serviços de ML no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/27/2018
-ms.openlocfilehash: 20159cf911670eb70fd5757991c07b63b3f1776b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c90642e58c026c78ce854e7fe74dd36963d48b67
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536259"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944002"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Operacionalizar o cluster do ML Services no Azure HDInsight
 
@@ -21,7 +18,7 @@ Após usar o cluster do ML Services no HDInsight para concluir a modelagem de da
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster dos Serviços de ML no HDInsight. Veja [Criar clusters Apache Hadoop usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Serviços de ML** como **Tipo de cluster** .
+* Um cluster dos Serviços de ML no HDInsight. Veja [Criar clusters Apache Hadoop usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Serviços de ML** como **Tipo de cluster**.
 
 * Um cliente Secure Shell (SSH): um cliente SSH é usado para se conectar ao cluster HDInsight remotamente e executar comandos diretamente no cluster. Para obter mais informações, confira [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -54,11 +51,11 @@ Após usar o cluster do ML Services no HDInsight para concluir a modelagem de da
         sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
         ```
 
-1. São apresentadas as opções para escolher. Escolha a primeira opção, conforme mostrado na captura de tela a seguir, para **Configurar o ML Server para operacionalização** .
+1. São apresentadas as opções para escolher. Escolha a primeira opção, conforme mostrado na captura de tela a seguir, para **Configurar o ML Server para operacionalização**.
 
     ![Seleção do utilitário de administração do R Server](./media/r-server-operationalize/admin-util-one-box-1.png)
 
-1. Agora, é possível escolher como você quer operacionalizar o ML Server. A partir das opções apresentadas, escolha a primeiro inserindo **A** .
+1. Agora, é possível escolher como você quer operacionalizar o ML Server. A partir das opções apresentadas, escolha a primeiro inserindo **A**.
 
     ![Operacionalização do utilitário de administração do R Server](./media/r-server-operationalize/admin-util-one-box-2.png)
 
@@ -74,7 +71,7 @@ Após usar o cluster do ML Services no HDInsight para concluir a modelagem de da
 
     ![Diagnóstico do utilitário de administração do R Server](./media/r-server-operationalize/hdinsight-diagnostic1.png)
 
-    b. No menu testes de diagnóstico, selecione **um** . Quando solicitado, insira a senha que você forneceu para o usuário administrador local.
+    b. No menu testes de diagnóstico, selecione **um**. Quando solicitado, insira a senha que você forneceu para o usuário administrador local.
 
     ![Teste do utilitário de administração do servidor R](./media/r-server-operationalize/hdinsight-diagnostic2.png)
 
@@ -86,7 +83,7 @@ Após usar o cluster do ML Services no HDInsight para concluir a modelagem de da
 
 ### <a name="long-delays-when-consuming-web-service-on-apache-spark"></a>Atrasos longos ao consumir um serviço web no Apache Spark
 
-Se você tiver longos atrasos ao tentar consumir um serviço web criado com as funções mrsdeploy no contexto de computação do Apache Spark, talvez seja necessário adicionar algumas pastas ausentes. O aplicativo Spark pertence a um usuário chamado ' *rserve2* ' sempre que ele é chamado de um serviço web usando as funções mrsdeploy. Para contornar este problema:
+Se você tiver longos atrasos ao tentar consumir um serviço web criado com as funções mrsdeploy no contexto de computação do Apache Spark, talvez seja necessário adicionar algumas pastas ausentes. O aplicativo Spark pertence a um usuário chamado '*rserve2*' sempre que ele é chamado de um serviço web usando as funções mrsdeploy. Para contornar este problema:
 
 ```r
 # Create these required folders for user 'rserve2' in local and hdfs:
@@ -151,21 +148,21 @@ O cluster do ML Services não é gerenciado pelo [Apache Hadoop YARN](https://ha
 
 Siga estas etapas para desativar os nós de trabalho:
 
-1. Faça logon no console de Ambari do cluster e clique na guia **Hosts** .
+1. Faça logon no console de Ambari do cluster e clique na guia **Hosts**.
 
 1. Selecione nós de trabalho (para ser desativado).
 
-1. Clique em **ações**  >  **hosts selecionados**  >  **hosts**  >  **ativar o modo de manutenção** . Por exemplo, na imagem a seguir, selecionamos wn3 e wn4 para desativar.  
+1. Clique em **ações**  >  **hosts selecionados**  >  **hosts**  >  **ativar o modo de manutenção**. Por exemplo, na imagem a seguir, selecionamos wn3 e wn4 para desativar.  
 
    ![O Apache Ambari ativa o modo de manutenção](./media/r-server-operationalize/get-started-operationalization.png)  
 
-* Selecione **ações**  >  **hosts selecionados**  >  **datanodes** > clique em **desativar** .
-* Selecione **ações**  >  **hosts selecionados**  >  **NodeManagers** > clique em **desativar** .
-* Selecione **ações**  >  **hosts selecionados**  >  **nós** de > clique em **parar** .
-* Selecione **ações**  >  **hosts selecionados**  >  **NodeManagers** > clique em **parar** .
-* Selecione **ações**  >  **hosts selecionados**  >  **hosts** > clique em **parar todos os componentes** .
+* Selecione **ações**  >  **hosts selecionados**  >  **datanodes** > clique em **desativar**.
+* Selecione **ações**  >  **hosts selecionados**  >  **NodeManagers** > clique em **desativar**.
+* Selecione **ações**  >  **hosts selecionados**  >  **nós** de > clique em **parar**.
+* Selecione **ações**  >  **hosts selecionados**  >  **NodeManagers** > clique em **parar**.
+* Selecione **ações**  >  **hosts selecionados**  >  **hosts** > clique em **parar todos os componentes**.
 * Desmarque os nós de trabalho e selecione os nós de cabeçalho.
-* Selecione **ações**  >  **hosts selecionados** > " **hosts**  >  **reiniciar todos os componentes** .
+* Selecione **ações**  >  **hosts selecionados** > "**hosts**  >  **reiniciar todos os componentes**.
 
 ### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>Etapa 2: Configurar nós de computação em cada nó de trabalho encerrado
 
@@ -177,7 +174,7 @@ Siga estas etapas para desativar os nós de trabalho:
     dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
     ```
 
-1. Insira **1** para selecionar a opção **Configurar o ML Server para operacionalização** .
+1. Insira **1** para selecionar a opção **Configurar o ML Server para operacionalização**.
 
 1. Insira **C** para selecionar a opção `C. Compute node`. Isso configura o nó de computação no nó de trabalho.
 

@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 2ce38add-1078-4bb9-a1da-6f407a9bc910
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 14ffcbf2e111e052f4b45259b0b25664049d3b3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62803bd450db351290bbc12d650d23a4148a4536
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855379"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022336"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Preparar a infraestrutura do Azure para alta disponibilidade do SAP usando um cluster de failover do Windows e compartilhamento de arquivos para instâncias ASCS/SCS do SAP
 
@@ -218,8 +219,8 @@ Antes de iniciar a instalação, leia este artigo:
 | --- | --- | --- | --- |
 | Primeiro cluster ASCS/SCS do nó de cluster | ascs-1 | 10.0.6.4 | ascs-as |
 | Segundo cluster ASCS/SCS do nó de cluster | ascs-2 | 10.0.6.5 | ascs-as |
-| Nome da rede de clusters |ascs-cl | 10.0.6.6 | n/a |
-| Nome da rede de clusters SAP PR1 ASCS |pr1-ascs | 10.0.6.7 | n/a |
+| Nome da rede de clusters |ascs-cl | 10.0.6.6 | N/D |
+| Nome da rede de clusters SAP PR1 ASCS |pr1-ascs | 10.0.6.7 | N/D |
 
 
 **Tabela 1**: Cluster do ASCS/SCS
@@ -236,8 +237,8 @@ Antes de iniciar a instalação, leia este artigo:
 | Primeiro nó de cluster | sofs-1 | 10.0.6.10 | sofs-as |
 | Segundo nó de cluster | sofs-2 | 10.0.6.11 | sofs-as |
 | Terceiro nó de cluster | sofs-3 | 10.0.6.12 | sofs-as |
-| Nome da rede de clusters | sofs-cl | 10.0.6.13 | n/a |
-| Nome de host global do SAP | sapglobal | Usar IPs de todos os nós de cluster | n/a |
+| Nome da rede de clusters | sofs-cl | 10.0.6.13 | N/D |
+| Nome de host global do SAP | sapglobal | Usar IPs de todos os nós de cluster | N/D |
 
 **Tabela 3**: Cluster de Servidor de Arquivos de Escalabilidade Horizontal
 
@@ -259,9 +260,9 @@ Para preparar a infraestrutura do Azure, faça o seguinte:
 * Com o uso do Windows Server 2016, é recomendável configurar a [Testemunha em Nuvem do Azure][deploy-cloud-witness].
 
 
-## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>Implantar manualmente o cluster do Servidor de Arquivos de Escalabilidade Horizontal 
+## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>Implantar manualmente o cluster do Servidor de Arquivos de Escalabilidade Horizontal 
 
-Você pode implantar o cluster do Servidor de Arquivos de Escalabilidade Horizontal Microsoft manualmente, conforme descrito no blog sobre [Espaços de Armazenamento Diretos no Azure][ms-blog-s2d-in-azure], executando o seguinte código:  
+Você pode implantar o cluster do Servidor de Arquivos de Escalabilidade Horizontal Microsoft manualmente, conforme descrito no blog sobre [Espaços de Armazenamento Diretos no Azure][ms-blog-s2d-in-azure], executando o seguinte código:  
 
 
 ```powershell

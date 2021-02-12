@@ -10,12 +10,12 @@ ms.devlang: NA
 ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: e9033caf903967432b713afa00a509bd2d966d8b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ff70df225b5ed27960c96889d409d7005f0fbcc4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972009"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950715"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Restaurar um volume do StorSimple de um conjunto de backup
 
@@ -63,7 +63,7 @@ Na Atualização 4, os cmdlets do Windows PowerShell podem ser usados para consu
 
 * `Set-HcsRehydrationJob` - Este cmdlet permite que você pause, interrompa, continue o trabalho de reidratação, quando a reidratação estiver em andamento.
 
-Para saber mais sobre como usar esse cmdlet, acesse [Referência de cmdlets do Windows PowerShell para StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
+Para saber mais sobre como usar esse cmdlet, acesse [Referência de cmdlets do Windows PowerShell para StorSimple](/powershell/module/hcs/?viewFallbackFrom=winserverr2-ps).
 
 Com a reidratação automática, espera-se um desempenho de leitura transitório normalmente mais alto. A magnitude real dos aprimoramentos depende de vários fatores, como o padrão de acesso, variação de dados e tipo de dados. 
 
@@ -137,4 +137,3 @@ Para concluir a operação de restauração, coloque o volume offline no host e 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [Gerenciar volumes do StorSimple](storsimple-8000-manage-volumes-u2.md).
 * Saiba como [usar o serviço Gerenciador de Dispositivos do StorSimple para administrar o dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-

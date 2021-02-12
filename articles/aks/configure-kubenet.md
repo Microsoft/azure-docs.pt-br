@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 3bc245fa02f57a433a76a316caac67ed5d884fe9
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 6cb083e823583105f04aaa59a99357b2b2b2426b
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072740"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97034047"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Use a rede do kubenet com seus próprios intervalos de endereços IP no Serviço de Kubernetes do Azure (AKS)
 
@@ -34,7 +34,7 @@ Este artigo mostra como usar a rede *kubenet* para criar e usar uma sub-rede da 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Você precisa do CLI do Azure versão 2.0.65 ou posterior instalado e configurado. Execute  `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
+Você precisa do CLI do Azure versão 2.0.65 ou posterior instalado e configurado. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][install-azure-cli].
 
 ## <a name="overview-of-kubenet-networking-with-your-own-subnet"></a>Visão geral da rede do kubenet com sua própria sub-rede
 
@@ -57,7 +57,7 @@ Com o *CNI do Azure*, cada pod recebe um endereço IP na sub-rede IP e pode se c
 * Os recursos **sem suporte no kubenet** incluem:
    * [Políticas de rede do Azure](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy), mas as políticas de rede Calico têm suporte no kubenet
    * [Pools de nós do Windows](./windows-faq.md)
-   * [Complemento de nós virtuais](virtual-nodes-portal.md#known-limitations)
+   * [Complemento de nós virtuais](virtual-nodes.md#network-requirements)
 
 ### <a name="ip-address-availability-and-exhaustion"></a>Disponibilidade e esgotamento de endereços IP
 
@@ -168,7 +168,7 @@ Os seguintes intervalos de endereços IP também são definidos como parte do pr
 
 * *--pod-cidr* deve ser um espaço de endereço grande que não esteja em uso em outro lugar no ambiente de rede. Esse intervalo inclui todos os intervalos de rede local se você se conectar ou se pretende conectar-se a suas redes virtuais do Azure usando a rota expressa ou uma conexão VPN site a site.
     * Esse intervalo de endereços deve ser grande o suficiente para acomodar o número de nós que você espera ampliar. Se precisar de mais endereços para nós adicionais, não é possível alterar esse intervalo de endereços depois que o cluster for implantado.
-    * O intervalo de endereços IP de Pod é usado para atribuir um espaço de endereço */24* a cada nó no cluster. No exemplo a seguir, o *--Pod-CIDR* de *10.244.0.0/16* atribui o primeiro nó *10.244.0.0/24*, o segundo nó *10.244.1.0/24*e o terceiro nó *10.244.2.0/24*.
+    * O intervalo de endereços IP de Pod é usado para atribuir um espaço de endereço */24* a cada nó no cluster. No exemplo a seguir, o *--Pod-CIDR* de *10.244.0.0/16* atribui o primeiro nó *10.244.0.0/24*, o segundo nó *10.244.1.0/24* e o terceiro nó *10.244.2.0/24*.
     * À medida que o cluster é dimensionado ou atualizado, a plataforma do Azure continua atribuindo um intervalo de endereços IP do pod a cada novo nó.
     
 * O *--Docker-Bridge-address* permite que os nós AKs se comuniquem com a plataforma de gerenciamento subjacente. Esse endereço IP não deve estar dentro do intervalo de endereços IP da rede virtual do cluster e não deve se sobrepor a outros intervalos de endereços em uso na rede.
@@ -224,7 +224,6 @@ A rede Kubenet requer regras de tabela de rotas organizadas para rotear solicita
 Limitações:
 
 * As permissões devem ser atribuídas antes da criação do cluster, verifique se você está usando uma entidade de serviço com permissões de gravação para sua sub-rede personalizada e tabela de rotas personalizada.
-* Atualmente, não há suporte para identidades gerenciadas com tabelas de rotas personalizadas em kubenet.
 * Uma tabela de rotas personalizada deve ser associada à sub-rede antes de criar o cluster AKS.
 * O recurso de tabela de rotas associado não pode ser atualizado após a criação do cluster. Embora o recurso de tabela de rotas não possa ser atualizado, as regras personalizadas podem ser modificadas na tabela de rotas.
 * Cada cluster AKS deve usar uma única tabela de rotas exclusiva para todas as sub-redes associadas ao cluster. Não é possível reutilizar uma tabela de rotas com vários clusters devido à possibilidade de sobreposição de CIDRs e de regras de roteamento conflitantes.

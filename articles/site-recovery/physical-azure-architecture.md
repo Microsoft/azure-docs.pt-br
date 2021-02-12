@@ -3,12 +3,12 @@ title: Arquitetura de recuperação de desastres do servidor físico no Azure Si
 description: Este artigo fornece uma visão geral dos componentes e da arquitetura usados durante a recuperação de desastres de servidores físicos locais para o Azure com o serviço Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 02/11/2020
-ms.openlocfilehash: f2184654a8169cb353fb40fa76f0a7fe9b3df6f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 966636e269043d81912b552711635f34b412f22f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87422650"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654720"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Servidor físico para a arquitetura de recuperação de desastre do Azure
 
@@ -42,7 +42,7 @@ Caso esteja usando um proxy de firewall baseado em URL para controlar a conectiv
 
 | **Nome**                  | **Comercial**                               | **Governo**                                 | **Descrição** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
-| Armazenamento                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`               | Permite que os dados sejam gravados da VM para a conta de armazenamento de cache da região de origem. |
+| Armazenamento                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Permite que os dados sejam gravados da VM para a conta de armazenamento de cache da região de origem. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Fornece autorização e autenticação para as URLs do serviço Site Recovery. |
 | Replicação               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Permite que a VM se comunique com o serviço Site Recovery. |
 | Barramento de Serviço               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Permite que a VM grave o monitoramento do Site Recovery e os dados de diagnóstico. |

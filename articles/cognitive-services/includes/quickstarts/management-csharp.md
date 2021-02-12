@@ -8,16 +8,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: d8da5fcffa6ff02bed76973021b8a69c6c250821
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7da10fbdff0b6771fcffb6cc303d5ab183df190a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89321529"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948549"
 ---
-[Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/management?view=azure-dotnet) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices) | [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Management.CognitiveServices/) | [Exemplos](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices/tests)
+[Documentação de referência](/dotnet/api/overview/azure/cognitiveservices/management) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices) | [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Management.CognitiveServices/) | [Exemplos](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices/tests)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="c-prerequisites"></a>Pré-requisitos para usar C#
 
 * Uma assinatura válida do Azure; [crie uma gratuitamente](https://azure.microsoft.com/free/).
 * A versão atual do [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
@@ -84,7 +84,11 @@ Adicione o código a seguir ao método **Main** para listar os recursos disponí
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_calls)]
 
-## <a name="create-a-cognitive-services-resource"></a>Criar um recurso dos Serviços Cognitivos
+## <a name="create-a-cognitive-services-resource-c"></a>Criar um recurso dos Serviços Cognitivos (C#)
+
+Para criar e assinar um recurso dos Serviços Cognitivos, use o método **Criar**. Esse método adiciona um novo recurso que pode ser cobrado ao grupo de recursos que você passa. Ao criar o recurso, você precisará saber qual "tipo" de serviço deseja usar, bem como o tipo de preço (ou SKU) desejado e um local do Azure. O método a seguir usa todos esses argumentos e cria um recurso.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_create)]
 
 ### <a name="choose-a-service-and-pricing-tier"></a>Escolher um serviço e um tipo de preço
 
@@ -95,12 +99,6 @@ Ao criar um recurso, você precisará saber qual "tipo" de serviço deseja usar,
 [!INCLUDE [cognitive-services-subscription-types](../../../../includes/cognitive-services-subscription-types.md)]
 
 [!INCLUDE [SKUs and pricing](./sku-pricing.md)]
-
-## <a name="create-a-cognitive-services-resource"></a>Criar um recurso dos Serviços Cognitivos
-
-Para criar e assinar um recurso dos Serviços Cognitivos, use o método **Criar**. Esse método adiciona um novo recurso que pode ser cobrado ao grupo de recursos que você passa. Ao criar o recurso, você precisará saber qual "tipo" de serviço deseja usar, bem como o tipo de preço (ou SKU) desejado e um local do Azure. O método a seguir usa todos esses argumentos e cria um recurso.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_create)]
 
 ## <a name="view-your-resources"></a>Exibir os recursos
 
@@ -124,7 +122,7 @@ dotnet run
 
 ## <a name="see-also"></a>Veja também
 
-* [Documentação de referência do SDK de Gerenciamento do Azure](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/management?view=azure-dotnet)
-* [O que são os Serviços Cognitivos do Azure?](../../Welcome.md)
+* [Documentação de referência do SDK de Gerenciamento do Azure](/dotnet/api/overview/azure/cognitiveservices/management)
+* [O que são os Serviços Cognitivos do Azure?](../../what-are-cognitive-services.md)
 * [Autenticar solicitações para os Serviços Cognitivos do Azure](../../authentication.md)
 * [Criar um recurso usando o portal do Azure](../../cognitive-services-apis-create-account.md)

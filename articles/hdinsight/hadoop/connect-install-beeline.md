@@ -1,19 +1,16 @@
 ---
 title: Conectar-se ou instalar o Apache beeline-Azure HDInsight
 description: Saiba como se conectar ao cliente Apache beeline para executar consultas Hive com Hadoop no HDInsight. Beeline é um utilitário para trabalhar com HiveServer2 sobre JDBC.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.date: 05/27/2020
-ms.openlocfilehash: be33c968499052b2b254754f37e5163012bcadd0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ab5dedf6718dad4f16fde59d905e2e59be5c495f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547581"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944463"
 ---
 # <a name="connect-to-apache-beeline-on-hdinsight-or-install-it-locally"></a>Conectar-se ao Apache beeline no HDInsight ou instalá-lo localmente
 
@@ -128,7 +125,7 @@ Embora o beeline esteja incluído nos nós de cabeçalho, talvez você queira in
         export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
         ```
 
-        Em seguida, pressione **Ctrl + X** , em seguida, **Y** e, em seguida, Enter.
+        Em seguida, pressione **Ctrl + X**, em seguida, **Y** e, em seguida, Enter.
 
 1. Baixe os arquivos mortos Hadoop e beeline, insira os seguintes comandos:
 
@@ -156,7 +153,7 @@ Embora o beeline esteja incluído nos nós de cabeçalho, talvez você queira in
         PATH=$PATH:$HIVE_HOME/bin
         ```
 
-    1. Em seguida, pressione **Ctrl + X** , em seguida, **Y** e, em seguida, Enter.
+    1. Em seguida, pressione **Ctrl + X**, em seguida, **Y** e, em seguida, Enter.
 
 1. Feche e reabra a sessão de bash.
 

@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 09/22/2020
 ms.topic: conceptual
 keywords: powershell,  runbook, json, automação do azure
-ms.openlocfilehash: 18f1d4ced2a80f9adb5da2c209987fc1997a3f22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9b443d1840840d3d6202140da235589c73453cc
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91304144"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051389"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-a-powershell-runbook"></a>Implantar um modelo do Azure Resource Manager em um runbook do PowerShell
 
@@ -22,7 +22,7 @@ Neste artigo, criamos um runbook do PowerShell que usa um modelo do Gerenciador 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure. Se você ainda não tiver uma, poderá [ativar os benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou [inscrever-se em uma conta gratuita](https://azure.microsoft.com/free/).
-* [Conta de automação](./manage-runas-account.md) para manter o runbook e se autenticar nos recursos do Azure. Esta conta deve ter permissão para iniciar e parar a máquina virtual.
+* [Conta de automação](./automation-security-overview.md) para manter o runbook e se autenticar nos recursos do Azure. Esta conta deve ter permissão para iniciar e parar a máquina virtual.
 * [Conta de armazenamento do Azure](../storage/common/storage-account-create.md) na qual armazenar o modelo do Resource Manager.
 * Azure PowerShell instalado em um computador local. Confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps) para obter informações sobre como obter o Azure PowerShell.
 

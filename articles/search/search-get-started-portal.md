@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 09/16/2020
-ms.openlocfilehash: b783366958380f391dc76583c42988badc9915c8
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.date: 12/12/2020
+ms.openlocfilehash: 1e9d63c88cf0cd6f65db99b2bc878797770d53cd
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056473"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368623"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Início Rápido: Criar um índice da Pesquisa Cognitiva do Azure no portal do Azure
 
-O assistente **Importar dados** é uma ferramenta do portal do Azure que orienta você durante a criação de um índice de pesquisa para poder escrever consultas interessantes em minutos. 
+Crie seu primeiro índice usando o assistente para **Importação de dados** e uma fonte de dados de exemplo interna que consiste em dados fictícios de hotéis. O assistente orientará você durante a criação de um índice de pesquisa (hotels-sample-index) para que você possa escrever consultas interessantes em minutos. 
 
-O assistente também tem páginas para enriquecimento de IA para que você possa extrair texto e estrutura de arquivos de imagem e texto não estruturado. O processamento de conteúdo com a IA inclui o OCR (Reconhecimento Óptico de Caracteres), a extração de frases-chave e entidade e análise de imagem.
+Embora você não vá usar as opções deste guia de início rápido, o assistente inclui uma página de enriquecimento de IA, de modo que você possa extrair o texto e a estrutura de arquivos de imagem e texto não estruturado. Para obter um passo a passo semelhante que inclui o enriquecimento de IA, confira [Guia de início rápido: Criar um conjunto de habilidades cognitivas](cognitive-search-quickstart-blob.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -49,9 +49,11 @@ Para este tutorial, usamos um conjunto de dados interno de exemplo que pode ser 
 
 1. [Encontre seu serviço de pesquisa](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) e, na página Visão Geral, clique em **Importar dados** na barra de comandos para criar e preencher um índice de pesquisa.
 
-   :::image type="content" source="media/search-get-started-portal/import-data-cmd.png" alt-text="Listas de índices, indexadores e fontes de dados" que pode ser reutilizada em outras operações de importação.
+   :::image type="content" source="media/search-get-started-portal/import-data-cmd.png" alt-text="Comando Importar de dados":::
 
-   :::image type="content" source="media/search-get-started-portal/import-datasource-sample.png" alt-text="Listas de índices, indexadores e fontes de dados":::
+1. No assistente, clique em **Conectar-se aos seus dados** > **Exemplos** > **hotels-sample**. Essa fonte de dados é interna. Se você estiver criando sua própria fonte de dados, precisará especificar um nome, um tipo e as informações de conexão. Depois de criada, ela se torna uma "fonte de dados existente" que pode ser reutilizada em outras operações de importação.
+
+   :::image type="content" source="media/search-get-started-portal/import-datasource-sample.png" alt-text="Selecionar o conjunto de dados de exemplo":::
 
 1. Continue para a próxima página.
 
@@ -61,7 +63,7 @@ O assistente dá suporte à criação de um [pipeline de enriquecimento de IA](c
 
 Ignoraremos esta etapa por enquanto e passaremos diretamente para **Personalizar o índice de destino**.
 
-   :::image type="content" source="media/search-get-started-portal/skip-cog-skill-step.png" alt-text="Listas de índices, indexadores e fontes de dados":::
+   :::image type="content" source="media/search-get-started-portal/skip-cog-skill-step.png" alt-text="Ignorar etapa de habilidades cognitivas":::
 
 > [!TIP]
 > Você pode percorrer um exemplo de indexação de inteligência artificial em um [guia de início rápido](cognitive-search-quickstart-blob.md) ou [tutorial](cognitive-search-tutorial-blob.md).
@@ -81,24 +83,24 @@ Os requisitos de armazenamento não variam como resultado de sua seleção. Por 
 
 Por padrão, o assistente procura na fonte de dados identificadores exclusivos como base para o campo de chave. As *cadeias de caracteres* são atribuídas como **Recuperáveis** e **Pesquisáveis**. Os *inteiros* são atribuídos como **Recuperáveis**, **Filtráveis**, **Classificáveis** e **Com Faceta**.
 
-1. Aceite os padrões. 
+1. Aceite os padrões.
 
    Se você executar o assistente uma segunda vez usando uma fonte de dados de hotéis existente, o índice não será configurado com os atributos padrão. Você precisará selecionar manualmente os atributos em importações futuras. 
 
-   :::image type="content" source="media/search-get-started-portal/hotelsindex.png" alt-text="Listas de índices, indexadores e fontes de dados":::
+   :::image type="content" source="media/search-get-started-portal/hotelsindex.png" alt-text="Índice de hotéis gerado":::
 
 2. Continue para a próxima página.
 
 
 ### <a name="step-4---configure-indexer"></a>Etapa 4 – Configurar o indexador
 
-Ainda no assistente **Importar dados**, clique em **Indexador** > **Nome**e digite um nome para o indexador.
+Ainda no assistente **Importar dados**, clique em **Indexador** > **Nome** e digite um nome para o indexador.
 
 Esse objeto define um processo executável. Você poderá colocá-lo em uma agenda recorrente, mas, por enquanto, use a opção padrão para executar o indexador uma vez, imediatamente.
 
 Clique em **Enviar** para criar e executar simultaneamente o indexador.
 
-  :::image type="content" source="media/search-get-started-portal/hotels-indexer.png" alt-text="Listas de índices, indexadores e fontes de dados":::
+  :::image type="content" source="media/search-get-started-portal/hotels-indexer.png" alt-text="indexador de hotéis":::
 
 ## <a name="monitor-progress"></a>Monitorar o progresso
 
@@ -106,7 +108,7 @@ O assistente levará você para a lista Indexadores, na qual você poderá monit
 
 Podem ser necessários alguns minutos para que o portal atualize a página, mas você deverá ver o indexador recém-criado na lista, com o status indicando "em andamento" ou êxito, juntamente com o número de documentos indexados.
 
-   :::image type="content" source="media/search-get-started-portal/indexers-inprogress.png" alt-text="Listas de índices, indexadores e fontes de dados":::
+   :::image type="content" source="media/search-get-started-portal/indexers-inprogress.png" alt-text="Mensagem de andamento do indexador":::
 
 ## <a name="view-the-index"></a>Exibir índice
 
@@ -114,13 +116,13 @@ A página principal do serviço fornece links para os recursos criados em seu se
 
 Aguarde a atualização da página do portal. Após alguns minutos, você deverá ver o índice com uma contagem de documentos e tamanho de armazenamento.
 
-   :::image type="content" source="media/search-get-started-portal/indexes-list.png" alt-text="Listas de índices, indexadores e fontes de dados":::
+   :::image type="content" source="media/search-get-started-portal/indexes-list.png" alt-text="Lista de índices no painel de serviço":::
 
 Nesta lista, você pode clicar no índice *hotels-sample* que acabou de criar e exibir o esquema de índice. e, opcionalmente, adicionar novos campos. 
 
 A guia **Campos** mostra o esquema de índice. Role até a parte inferior da lista para inserir um novo campo. Na maioria dos casos, você não pode alterar os campos existentes. Os campos existentes têm uma representação física na Pesquisa Cognitiva do Azure e, portanto, não podem ser modificados, nem mesmo no código. Para alterar fundamentalmente um campo existente, crie um índice, removendo o original.
 
-   :::image type="content" source="media/search-get-started-portal/sample-index-def.png" alt-text="Listas de índices, indexadores e fontes de dados":::
+   :::image type="content" source="media/search-get-started-portal/sample-index-def.png" alt-text="exemplo de definição de índice":::
 
 Outros constructos, como perfis de pontuação e opções de CORS, podem ser adicionados a qualquer momento.
 
@@ -138,15 +140,15 @@ O **Gerenciador de pesquisa** só é capaz de lidar com [Solicitações da API R
 
 1. Clique em **Gerenciador de pesquisa** na barra de comandos.
 
-   :::image type="content" source="media/search-get-started-portal/search-explorer-cmd.png" alt-text="Listas de índices, indexadores e fontes de dados":::
+   :::image type="content" source="media/search-get-started-portal/search-explorer-cmd.png" alt-text="Comando Search Explorer":::
 
 2. Na lista suspensa **Índice**, escolha *hotels-sample-index*. Clique na lista suspensa **Versão da API** para ver quais APIs REST estão disponíveis. Para as consultas a seguir, use a versão em disponibilidade geral (30/06/2020).
 
-   :::image type="content" source="media/search-get-started-portal/search-explorer-changeindex.png" alt-text="Listas de índices, indexadores e fontes de dados":::
+   :::image type="content" source="media/search-get-started-portal/search-explorer-changeindex.png" alt-text="Comandos de índice e API":::
 
 3. Na barra de pesquisa, cole as cadeias de consulta abaixo e clique em **Pesquisar**.
 
-   :::image type="content" source="media/search-get-started-portal/search-explorer-query-string-example.png" alt-text="Listas de índices, indexadores e fontes de dados":::
+   :::image type="content" source="media/search-get-started-portal/search-explorer-query-string-example.png" alt-text="Botão de pesquisa e de cadeia de consulta":::
 
 ## <a name="example-queries"></a>Consultas de exemplo
 
@@ -186,8 +188,8 @@ Os filtros de faceta estão incluídos em solicitações de pesquisa. Você pode
 
 #### <a name="example-faceted-with-scope-reduction-searchfacetcategorytop2"></a>Exemplo (facetado com redução de escopo): `search=*&facet=Category&$top=2`
 
-* **search=** * é uma pesquisa vazia. Pesquisas vazias pesquisam tudo. Um motivo de envio de uma consulta vazia é fazer a filtragem ou faceta no conjunto completo de documentos. Por exemplo, você deseja que uma estrutura de navegação de facetas contenha todos os hotéis no índice.
-* **facet** retorna uma estrutura de navegação que você pode passar para um controle de interface do usuário. Ela retorna categorias e uma contagem. Nesse caso, as categorias são baseadas em um campo convenientemente denominado *Categoria*. Não há nenhuma agregação na Pesquisa Cognitiva do Azure, mas você pode aproximar a agregação com `facet`, que retorna uma contagem de documentos em cada categoria.
+* **search=** _ é uma pesquisa vazia. Pesquisas vazias pesquisam tudo. Um motivo de envio de uma consulta vazia é fazer a filtragem ou faceta no conjunto completo de documentos. Por exemplo, você deseja que uma estrutura de navegação de facetas contenha todos os hotéis no índice.
+_ **facet** retorna uma estrutura de navegação que você pode transmitir para um controle de interface do usuário. Ela retorna categorias e uma contagem. Nesse caso, as categorias são baseadas em um campo convenientemente denominado *Categoria*. Não há nenhuma agregação na Pesquisa Cognitiva do Azure, mas você pode aproximar a agregação com `facet`, que retorna uma contagem de documentos em cada categoria.
 
 * **$top=2** recupera dois documentos, ilustrando a que você pode usar `top` para reduzir ou aumentar os resultados.
 

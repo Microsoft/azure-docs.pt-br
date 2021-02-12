@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 9/17/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: facial recognition, facial recognition software, facial analysis, face matching, face recognition app, face search by image, facial recognition search
-ms.openlocfilehash: 0a7e242add9fdaa9e169a4003e8ad8f39b1fb111
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 600ca48cc19ee8723b423e484ec96736a55ae7fc
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91262477"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95532249"
 ---
 # <a name="what-is-the-azure-face-service"></a>O que é o serviço de Detecção Facial do Azure?
 
@@ -34,7 +34,7 @@ O serviço de Detecção Facial fornece várias funções de análise facial dif
 O serviço de Detecção Facial detecta rostos humanos em uma imagem e retorna as coordenadas do retângulo dos locais. Opcionalmente, a detecção facial pode extrair uma série de atributos relacionados ao rosto, como pose da cabeça, gênero, idade, emoção, pelos do rosto e óculos.
 
 > [!NOTE]
-> O recurso de detecção facial também está disponível por meio do [serviço de Pesquisa Visual Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home). No entanto, se quiser realizar outras operações usando dados faciais, você deverá usar esse serviço.
+> O recurso de detecção facial também está disponível por meio do [serviço de Pesquisa Visual Computacional](../computer-vision/overview.md). No entanto, se quiser realizar outras operações usando dados faciais, você deverá usar esse serviço.
 
 ![Uma imagem de uma mulher e um homem, com retângulos desenhados em torno de seus rostos e informações de idade e gênero exibidas](./Images/Face.detection.jpg)
 
@@ -76,9 +76,9 @@ Depois de criar e treinar um banco de dados, você poderá fazer a identificaç�
 
 Para saber mais sobre a identificação da pessoa, confira o guia de conceitos de [Reconhecimento facial](concepts/face-recognition.md) ou a documentação de referência da [API de Identificação](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
-## <a name="containers"></a>Contêineres
+## <a name="deploy-on-premises-using-docker-containers"></a>Implantação local usando contêineres do Docker
 
-[Use o contêiner de Detecção Facial](face-how-to-install-containers.md) para detectar, reconhecer e identificar rostos, instalando um contêiner do Docker padronizado mais próximos aos seus dados.
+[Use o contêiner da Detecção Facial (versão prévia)](face-how-to-install-containers.md) para implantar recursos de API no local. Esse contêiner do Docker permite que você aproxime o serviço dos seus dados para fins de conformidade, segurança ou outras razões operacionais.
 
 ## <a name="sample-apps"></a>Aplicativos de exemplo
 

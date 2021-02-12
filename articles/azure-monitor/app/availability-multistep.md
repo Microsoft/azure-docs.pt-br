@@ -3,12 +3,12 @@ title: Monitoramento com testes na Web de várias etapas – Azure Application I
 description: Configuração de testes na Web de várias etapas para monitorar aplicativos Web com o Azure Application Insights
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 2df8b7450423c901665090608da83f68b43b30e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0031971dc2ccd2a9e681220dd835f46d33e36dbb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87024764"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934863"
 ---
 # <a name="multi-step-web-tests"></a>Testes na Web com diversas etapas
 
@@ -37,7 +37,7 @@ Localizar o pré-requisito das ferramentas de teste. Inicie o **Instalador do Vi
 > [!WARNING]
 > Não é mais recomendável usar o gravador de várias etapas. O gravador foi desenvolvido para páginas HTML estáticas com interações básicas e não fornece uma experiência funcional para páginas da Web modernas.
 
-Para obter orientação sobre como criar testes na Web do Visual Studio, consulte a [documentação oficial do Visual Studio 2019](/visualstudio/test/how-to-create-a-web-service-test?view=vs-2019).
+Para obter orientação sobre como criar testes na Web do Visual Studio, consulte a [documentação oficial do Visual Studio 2019](/visualstudio/test/how-to-create-a-web-service-test).
 
 ## <a name="upload-the-web-test"></a>Carregamento do teste na Web
 

@@ -7,18 +7,18 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 19b4ac619ec3e72c787efc8e9f043f42dbd8b09b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85505147"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010292"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Autenticação de serviço a serviço com o Armazenamento de dados do Windows Azure Gen1 usando o .NET SDK
 > [!div class="op_single_selector"]
 > * [Usando Java](data-lake-store-service-to-service-authenticate-java.md)
 > * [Usando o SDK .NET](data-lake-store-service-to-service-authenticate-net-sdk.md)
 > * [Usando Python](data-lake-store-service-to-service-authenticate-python.md)
-> * [Usando a API REST](data-lake-store-service-to-service-authenticate-rest-api.md)
+> * [Usar a API REST](data-lake-store-service-to-service-authenticate-rest-api.md)
 >
 >
 
@@ -32,7 +32,7 @@ Neste artigo, você aprende sobre como usar o .NET SDK para fazer a autenticaç�
 * **Criar um aplicativo "Web" do Azure Active Directory**. Você deve ter concluído as etapas em [Autenticação de serviço a serviço com Azure Data Lake Storage Gen1 usando Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 ## <a name="create-a-net-application"></a>Criar um aplicativo .NET
-1. No Visual Studio, selecione o menu **arquivo** , **novo**e **projeto**.
+1. No Visual Studio, selecione o menu **arquivo** , **novo** e **projeto**.
 2. Escolha **aplicativo de console (.NET Framework)** e, em seguida, selecione **Avançar**.
 3. Em **Nome do projeto**, digite `CreateADLApplication` e, em seguida, selecione **Criar**.
 

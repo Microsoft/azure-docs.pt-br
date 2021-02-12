@@ -3,12 +3,12 @@ title: Visão geral da segurança
 description: Informações de segurança sobre servidores habilitados para Arc do Azure.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: be79be3030af76425b54fd683784d0e216ac2cf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa8653b783e7eb3e211b7514831604dd5642cfbe
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329033"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117020"
 ---
 # <a name="azure-arc-for-servers-security-overview"></a>Visão geral de segurança do Arc para servidores do Azure
 
@@ -16,7 +16,7 @@ Este artigo descreve a configuração de segurança e as considerações que dev
 
 ## <a name="identity-and-access-control"></a>Identidade e controle de acesso
 
-Cada servidor habilitado para Arc do Azure tem uma identidade gerenciada como parte de um grupo de recursos dentro de uma assinatura do Azure, essa identidade representa o servidor em execução no local ou em outro ambiente de nuvem. O acesso a esse recurso é controlado pelo [controle de acesso baseado em função do Azure](../../role-based-access-control/overview.md)padrão. Na página [**controle de acesso (iam)**](../../role-based-access-control/role-assignments-portal.md#access-control-iam) no portal do Azure, você pode verificar quem tem acesso ao seu servidor habilitado para Arc do Azure.
+Cada servidor habilitado para Arc do Azure tem uma identidade gerenciada como parte de um grupo de recursos dentro de uma assinatura do Azure, essa identidade representa o servidor em execução no local ou em outro ambiente de nuvem. O acesso a esse recurso é controlado pelo [controle de acesso baseado em função do Azure](../../role-based-access-control/overview.md)padrão. Na página [**controle de acesso (iam)**](../../role-based-access-control/role-assignments-portal.md) no portal do Azure, você pode verificar quem tem acesso ao seu servidor habilitado para Arc do Azure.
 
 :::image type="content" source="./media/security-overview/access-control-page.png" alt-text="Controle de acesso do servidor habilitado para Arc do Azure" border="false" lightbox="./media/security-overview/access-control-page.png":::
 

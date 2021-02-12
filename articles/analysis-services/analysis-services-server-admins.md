@@ -4,15 +4,15 @@ description: Este artigo descreve como gerenciar administradores de servidor par
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 2/4/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8c876e27165eba30b17874eca600ba81be2e9354
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 62acb526a247362b17c4dfd4e26c52760deecd71
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019420"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573476"
 ---
 # <a name="manage-server-administrators"></a>Gerenciar administradores de servidor
 
@@ -20,10 +20,14 @@ Os administradores de servidor devem ser um usuário, uma entidade de serviço o
 
 Ao adicionar um **grupo de segurança**, use `obj:groupid@tenantid` . Não há suporte para entidades de serviço em grupos de segurança adicionados à função de administrador do servidor.
 
+Para saber mais sobre como adicionar uma entidade de serviço à função de administrador do servidor, consulte [Adicionar uma entidade de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md).
+
+Se o Firewall do servidor estiver habilitado, os endereços IP do computador cliente do administrador do servidor deverão ser incluídos em uma regra de firewall. Para saber mais, consulte [Configurar o Firewall do servidor](analysis-services-qs-firewall.md).
+
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>Para adicionar administradores do servidor usando o Portal do Azure
 
 1. No portal, para o seu servidor, clique em **Administradores do Analysis Services**.
-2. ** \<servername> Administradores Analysis Services**, clique em **Adicionar**.
+2. **\<servername> Administradores Analysis Services**, clique em **Adicionar**.
 3. Em **Adicionar Administradores de Servidor**, selecione contas de usuário do seu Azure Active Directory ou convide usuários externos por endereço de email.
 
     ![Administradores de servidor no portal do Azure](./media/analysis-services-server-admins/aas-manage-users-admins.png)

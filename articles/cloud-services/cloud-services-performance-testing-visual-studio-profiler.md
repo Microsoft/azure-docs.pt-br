@@ -1,27 +1,25 @@
 ---
-title: Criação de um perfil de serviço de nuvem localmente no emulador de computação | Microsoft Docs
-services: cloud-services
+title: Criação de perfil de um serviço de nuvem (clássico) localmente no emulador de computação | Microsoft Docs
 description: Investigar problemas de desempenho nos serviços de nuvem com o criador de perfil do Visual Studio
-documentationcenter: ''
-author: mikejo
-manager: jillfra
-editor: ''
-tags: ''
-ms.assetid: 25e40bf3-eea0-4b0b-9f4a-91ffe797f6c3
-ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/18/2016
-ms.author: mikejo
-ms.openlocfilehash: 6b5707405879c462a1d919e04730d368332ba68c
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 2f924d84967c1a1928a47b59fd3a8c28da091130
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077148"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743552"
 ---
-# <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Testando o desempenho de um serviço de nuvem localmente no emulador de computação do Azure usando o criador de perfis do Visual Studio
+# <a name="testing-the-performance-of-a-cloud-service-classic-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Testando o desempenho de um serviço de nuvem (clássico) localmente no emulador de computação do Azure usando o criador de perfil do Visual Studio
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
+
 Várias técnicas e ferramentas estão disponíveis para testar o desempenho de serviços de nuvem.
 Quando publica um serviço de nuvem no Azure, você pode fazer com que o Visual Studio colete dados de criação de perfil e, em seguida, os analise localmente, conforme descrito em [Criar o perfil de um aplicativo do Azure][1].
 Você também pode usar o diagnóstico para acompanhar vários contadores de desempenho, conforme descrito em [Usar contadores de desempenho no Azure][2].

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/28/2020
+ms.date: 01/18/2021
 ms.author: jeedes
-ms.openlocfilehash: fc5e0270c4533eaae1310dc84b616d675a79c8ea
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: dc0cd57eb32baaeac0850337bbead3a73dec9292
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895079"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897319"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-cloud-platform-identity-authentication"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao SAP Cloud Platform Identity Authentication
 
@@ -25,8 +25,6 @@ Neste tutorial, você aprenderá como integrar o SAP Cloud Platform Identity Aut
 * Controlar quem tem acesso ao SAP Cloud Platform Identity Authentication no Azure AD.
 * Permitir que os usuários sejam conectados automaticamente ao SAP Cloud Platform Identity Authentication com as contas do Azure AD deles.
 * Gerenciar suas contas em um local central: o portal do Azure.
-
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,7 +38,6 @@ Para começar, você precisará dos seguintes itens:
 Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
 * A SAP Cloud Platform Identity Authentication é compatível com SSO iniciado por **SP** e **IDP**
-* Após configurar o Cloud Platform Identity Authentication, você poderá impor controles de sessão, que protegem o vazamento e a infiltração de dados confidenciais de sua organização em tempo real. Os controles da sessão são estendidos do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 Antes de se aprofundar nos detalhes técnicos, é essencial entender os conceitos que serão examinados. Os AD FS (Serviços de Federação do Active Directory) e a Autenticação de Identidade da SAP Cloud Platform permitem que você implemente o SSO em aplicativos ou serviços protegidos pelo Azure AD (como um IdP) com aplicativos SAP e serviços protegidos pela Autenticação de Identidade da SAP Cloud Platform.
 
@@ -65,40 +62,38 @@ Ao configurar a autenticação de identidade da SAP Cloud Platform como um aplic
 
 Para configurar a integração da Autenticação de Identidade da SAP Cloud Platform no Azure AD, você precisa adicionar a Autenticação de Identidade da SAP Cloud Platform da galeria à sua lista de aplicativos SaaS gerenciados.
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory** .
-1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos** .
-1. Para adicionar um novo aplicativo, escolha **Novo aplicativo** .
-1. Na seção **Adicionar da galeria** , digite **SAP Cloud Platform Identity Authentication** na caixa de pesquisa.
+1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
+1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
+1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
+1. Na seção **Adicionar da galeria**, digite **SAP Cloud Platform Identity Authentication** na caixa de pesquisa.
 1. Selecione **SAP Cloud Platform Identity Authentication** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-sap-cloud-platform-identity-authentication"></a>Configurar e testar o logon único do Azure AD para o SAP Cloud Platform Identity Authentication
+## <a name="configure-and-test-azure-ad-sso-for-sap-cloud-platform-identity-authentication"></a>Configurar e testar o SSO do Azure AD para o SAP Cloud Platform Identity Authentication
 
-Configure e teste o SSO do Azure AD com o SAP Cloud Platform Identity Authentication usando um usuário de teste com o nome **B.Fernandes** . Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do SAP Cloud Platform Identity Authentication.
+Configure e teste o SSO do Azure AD com o SAP Cloud Platform Identity Authentication usando um usuário de teste com o nome **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do SAP Cloud Platform Identity Authentication.
 
-Para configurar e testar o SSO do Azure AD com o SAP Cloud Platform Identity Authentication, conclua os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o SAP Cloud Platform Identity Authentication, realize as seguintes etapas:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
-    * **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
-    * **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
+    1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
+    1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
 1. **[Configurar o SSO do SAP Cloud Platform Identity Authentication](#configure-sap-cloud-platform-identity-authentication-sso)** – para configurar o logon único no lado do aplicativo.
-    * **[Criar um usuário de teste do SAP Cloud Platform Identity Authentication](#create-sap-cloud-platform-identity-authentication-test-user)** – para ter um equivalente de B.Fernandes no SAP Cloud Platform Identity Authentication que esteja vinculado à representação de usuário do Azure AD.
+    1. **[Criar um usuário de teste do SAP Cloud Platform Identity Authentication](#create-sap-cloud-platform-identity-authentication-test-user)** – para ter um equivalente de B.Fernandes no SAP Cloud Platform Identity Authentication que esteja vinculado à representação de usuário do Azure AD.
 1. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **SAP Cloud Platform Identity Authentication** , localize a seção **Gerenciar** e selecione **logon único** .
-1. Na página **Selecionar um método de logon único** , escolha **SAML** .
-1. Na página **Configurar o logon único com o SAML** , clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. No portal do Azure, na página de integração do aplicativo **SAP Cloud Platform Identity Authentication**, localize a seção **Gerenciar** e selecione **logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração Básica de SAML** , execute as seguintes etapas caso deseje configurar no modo iniciado por **IDP** :
-
-    ![Uma captura de tela que mostra a seção "Configuração Básica de SAML" com as caixas de texto "Identificador" e "URL de Resposta" realçadas, bem como o botão "Salvar" selecionado.](common/idp-intiated.png)
+4. Na seção **Configuração Básica de SAML**, execute as seguintes etapas caso deseje configurar no modo iniciado por **IDP**:
 
     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `<IAS-tenant-id>.accounts.ondemand.com`
 
@@ -107,11 +102,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte do Cliente de SAP Cloud Platform Identity Authentication](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) para obter esses valores. Se você não entender esse valor de identificador, leia a documentação do SAP Cloud Platform Identity Authentication sobre [Configuração do SAML 2.0 do Locatário](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html).
 
-5. Clique em **Definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado por **SP** :
+5. Clique em **Definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado por **SP**:
 
     ![Informações sobre logon único de Domínio e URLs do SAP Cloud Platform Identity Authentication](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de logon** , digite um URL usando o seguinte padrão: `{YOUR BUSINESS APPLICATION URL}`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `{YOUR BUSINESS APPLICATION URL}`
 
     > [!NOTE]
     > Esse valor não é real. Atualize esse valor com o URL de Logon real. Use a URL de logon do aplicativo comercial específica. Entre em contato com a [equipe de suporte do Cliente de SAP Cloud Platform Identity Authentication](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) se você tiver qualquer dúvida.
@@ -126,61 +121,60 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     | ---------------| --------------- |
     | firstName | user.givenname |
 
-8. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Download** para baixar o **XML de metadados** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+8. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Download** para baixar o **XML de metadados** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-9. Na seção **Configurar a SAP Cloud Platform Identity Authentication** , copie as URLs apropriadas de acordo com suas necessidades.
+9. Na seção **Configurar a SAP Cloud Platform Identity Authentication**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
-
-    a. URL de logon
-
-    b. Identificador do Azure Ad
-
-    c. URL de logoff
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários** .
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário** , siga estas etapas:
-   1. No campo **Nome** , insira `B.Simon`.  
-   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha** .
-   1. Clique em **Criar** .
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que B.Fernandes use o logon único do Azure permitindo acesso ao SAP Cloud Platform Identity Authentication.
 
-1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos** .
-1. Na lista de aplicativos, selecione **SAP Cloud Platform Identity Authentication** .
-1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos** .
+1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. Na lista de aplicativos, selecione **SAP Cloud Platform Identity Authentication**.
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
 
-   ![O link “Usuários e grupos”](common/users-groups-blade.png)
+1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
-1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
 
-    ![O link Adicionar Usuário](common/add-assign-user.png)
-
-1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-sap-cloud-platform-identity-authentication-sso"></a>Configurar o SSO do SAP Cloud Platform Identity Authentication
 
-1. Para configurar o SSO para o seu aplicativo, vá para o Console de administração da Autenticação de Identidade da SAP Cloud Platform. A URL tem o seguinte padrão: `https://<tenant-id>.accounts.ondemand.com/admin`. Em seguida, leia a documentação sobre autenticação de identidade da SAP Cloud Platform em [Integração com o Microsoft Azure AD](https://developers.sap.com/tutorials/cp-ias-azure-ad.html).
+1. Para automatizar a configuração no SAP Cloud Platform Identity Authentication, você precisa instalar a **extensão do navegador de Entrada Segura dos Meus Aplicativos** clicando em **Instalar extensão**.
 
-2. No portal do Azure, selecione o botão **Salvar** .
+    ![Extensão Meus Aplicativos](common/install-myappssecure-extension.png)
 
-3. Continue com o seguinte somente se quiser adicionar e habilitar o SSO para outro aplicativo SAP. Repita as etapas na seção **Adicionar Autenticação de Identidade da SAP Cloud Platform por meio da galeria** .
+2. Após adicionar a extensão ao navegador, clique em **Configurar o SAP Cloud Platform Identity Authentication**, o que direcionará você para o aplicativo SAP Cloud Platform Identity Authentication. Nele, forneça as credenciais de administrador para entrar no SAP Cloud Platform Identity Authentication. A extensão do navegador configurará automaticamente o aplicativo e automatizará as etapas de 3 a 7.
 
-4. No portal do Azure, na página de integração de aplicativos de **SAP Cloud Platform Identity Authentication** , selecione **Logon vinculado** .
+    ![Configuração da instalação](common/setup-sso.png)
 
-    ![Configurar o logon vinculado](./media/sap-hana-cloud-platform-identity-authentication-tutorial/linked_sign_on.png)
+3. Se quiser configurar o SAP Cloud Platform Identity Authentication manualmente, em outra janela do navegador da Web, vá para o console de administração do SAP Cloud Platform Identity Authentication. A URL tem o seguinte padrão: `https://<tenant-id>.accounts.ondemand.com/admin`. Em seguida, leia a documentação sobre autenticação de identidade da SAP Cloud Platform em [Integração com o Microsoft Azure AD](https://developers.sap.com/tutorials/cp-ias-azure-ad.html).
+
+2. No portal do Azure, selecione o botão **Salvar**.
+
+3. Continue com o seguinte somente se quiser adicionar e habilitar o SSO para outro aplicativo SAP. Repita as etapas na seção **Adicionar Autenticação de Identidade da SAP Cloud Platform por meio da galeria**.
+
+4. No portal do Azure, na página de integração de aplicativos de **SAP Cloud Platform Identity Authentication**, selecione **Logon vinculado**.
+
+    ![Configurar o logon vinculado](./media/sap-hana-cloud-platform-identity-authentication-tutorial/linked-sign-on.png)
 
 5. Salve a configuração.
 
@@ -199,20 +193,20 @@ Para obter mais informações sobre como habilitar ou desabilitar a Federação 
 
 ## <a name="test-sso"></a>Testar o SSO 
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir.
 
-Quando clicar no bloco da SAP Cloud Platform Identity Authentication no Painel de Acesso, você deverá fazer logon automaticamente no SAP Cloud Platform Identity Authentication, para o qual configurou o logon único. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Iniciado por SP:
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Clique em **Testar este aplicativo** no portal do Azure. Isso redirecionará você à URL de Logon do SAP Cloud Platform Identity Authentication, na qual poderá iniciar o fluxo de logon.
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](./tutorial-list.md)
+* Acesse diretamente a URL de Logon do SAP Cloud Platform Identity Authentication, na qual você iniciará o fluxo de logon.
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>Iniciado por IdP:
 
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
+* Clique em **Testar este aplicativo** no portal do Azure e você será conectado automaticamente ao SAP Cloud Platform Identity Authentication, para o qual configurou o SSO
 
-- [Experimente o SAP Cloud Platform Identity Authentication com o Azure AD](https://aad.portal.azure.com/)
+Use também os Meus Aplicativos da Microsoft para testar o aplicativo em qualquer modo. Quando você clicar no bloco do SAP Cloud Platform Identity Authentication em Meus Aplicativos, se ele estiver configurado no modo SP, você será redirecionado para a página de logon do aplicativo para iniciar o fluxo de logon e, se ele estiver configurado no modo IDP, você será conectado automaticamente ao SAP Cloud Platform Identity Authentication, para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
-- [O que é controle de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+## <a name="next-steps"></a>Próximas etapas
 
-- [Como proteger o SAP Cloud Platform Identity Authentication com visibilidade e controles avançados](/cloud-app-security/proxy-intro-aad)
+Após configurar o SAP Cloud Platform Identity Authentication, você poderá impor controles de sessão, que protegem contra exfiltração e infiltração de dados confidenciais de sua organização em tempo real. Os controles da sessão são estendidos do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

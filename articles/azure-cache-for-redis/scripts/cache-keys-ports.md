@@ -9,12 +9,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9fef834e550f144075ec9cc72cac3b11cc1e99e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3e8e359a97c091e025049ac8a978e1beca1d759
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87504204"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184206"
 ---
 # <a name="get-the-hostname-ports-and-keys-for-azure-cache-for-redis"></a>Obtenha o nome de host, portas e chaves do Cache do Azure para Redis
 
@@ -33,12 +33,12 @@ Este script usa os seguintes comandos para recuperar o nome de host, as chaves e
 
 | Comando | Observações |
 |---|---|
-| [apresentação de redis az](https://docs.microsoft.com/cli/azure/redis) | Recuperar os detalhes de uma instância do Cache Redis do Azure. |
-| [az redis list-keys](https://docs.microsoft.com/cli/azure/redis) | Recuperar as chaves de acesso de uma instância do Cache do Azure para Redis. |
+| [apresentação de redis az](/cli/azure/redis) | Recuperar os detalhes de uma instância do Cache Redis do Azure. |
+| [az redis list-keys](/cli/azure/redis) | Recuperar as chaves de acesso de uma instância do Cache do Azure para Redis. |
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
+Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](/cli/azure).
 
 Exemplos adicionais de scripts da CLI do Cache Redis do Azure podem ser encontrados na [Documentação do Cache Redis do Azure](../cli-samples.md).

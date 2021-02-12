@@ -3,19 +3,19 @@ title: Especificando Service Fabric pontos de extremidade de serviço
 description: Como descrever os recursos de ponto de extremidade em um manifesto do serviço, incluindo como configurar pontos de extremidade HTTPS
 ms.topic: conceptual
 ms.date: 09/16/2020
-ms.custom: contperfq1
-ms.openlocfilehash: 5e8f39fe25011d02b989614fdc6538cd92c12d4e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 0ed5a4aa8993f52d42b97288cd143e6114ff36ff
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92313579"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033299"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificar recursos em um manifesto do serviço
 ## <a name="overview"></a>Visão geral
 Service Fabric aplicativos e serviços são definidos e com controle de versão usando arquivos de manifesto. Para obter uma visão geral de nível mais alto de ServiceManifest.xml e ApplicationManifest.xml, consulte [Service Fabric manifestos de aplicativo e serviço](service-fabric-application-and-service-manifests.md).
 
-O manifesto do serviço permite que os recursos usados pelo serviço sejam declarados ou alterados sem alterar o código compilado. Service Fabric dá suporte à configuração de recursos de ponto de extremidade para o serviço. O acesso aos recursos que são especificados no manifesto do serviço pode ser controlado por meio do SecurityGroup no manifesto do aplicativo. A declaração de recursos permite que esses recursos sejam alterados no momento da implantação, o que significa que o serviço não precisa apresentar um novo mecanismo de configuração. A definição de esquema para o arquivo de ServiceManifest.xml é instalada com o SDK do Service Fabric e ferramentas para *c:\Arquivos de Programas\microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*e está documentada na [documentação do esquema ServiceFabricServiceModel. xsd](service-fabric-service-model-schema.md).
+O manifesto do serviço permite que os recursos usados pelo serviço sejam declarados ou alterados sem alterar o código compilado. Service Fabric dá suporte à configuração de recursos de ponto de extremidade para o serviço. O acesso aos recursos que são especificados no manifesto do serviço pode ser controlado por meio do SecurityGroup no manifesto do aplicativo. A declaração de recursos permite que esses recursos sejam alterados no momento da implantação, o que significa que o serviço não precisa apresentar um novo mecanismo de configuração. A definição de esquema para o arquivo de ServiceManifest.xml é instalada com o SDK do Service Fabric e ferramentas para *c:\Arquivos de Programas\microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd* e está documentada na [documentação do esquema ServiceFabricServiceModel. xsd](service-fabric-service-model-schema.md).
 
 ## <a name="endpoints"></a>Pontos de extremidade
 Quando um recurso de ponto de extremidade é definido no manifesto do serviço, o Service Fabric atribui portas do intervalo de portas reservadas do aplicativo quando uma porta não é explicitamente especificada. Por exemplo, examine o ponto de extremidade *ServiceEndpoint1* especificado no snippet de manifesto fornecido após este parágrafo. Além disso, os serviços também podem solicitar uma porta específica em um recurso. As réplicas do serviço em execução em nós diferentes do cluster podem receber números de porta diferentes, enquanto as réplicas do mesmo serviço em execução no mesmo nó compartilham a porta. As réplicas de serviço podem usar essas portas conforme a necessidade para replicação e escuta de solicitações de clientes.

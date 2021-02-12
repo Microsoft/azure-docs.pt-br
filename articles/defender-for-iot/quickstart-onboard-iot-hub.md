@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2020
 ms.author: mlottner
-ms.openlocfilehash: 3f84f3121d9982205ecf51ec64cfe332b6a5ad42
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e3768ef233c60f1687bc804778c3dabf32666e1d
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90943280"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97835152"
 ---
 # <a name="quickstart-onboard-azure-defender-for-iot-service-in-iot-hub"></a>Início Rápido: Integrar o serviço Azure Defender para IoT no Hub IoT
 
-Este artigo oferece uma explicação de como habilitar o serviço Defender para IoT no seu Hub IoT existente. Se você não tiver, no momento, um Hub IoT, confira [Criar um Hub IoT usando o portal do Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) para começar a usar.
+Este artigo oferece uma explicação de como habilitar o serviço Defender para IoT no seu Hub IoT existente. Se você não tiver, no momento, um Hub IoT, confira [Criar um Hub IoT usando o portal do Azure](../iot-hub/iot-hub-create-through-portal.md) para começar a usar.
 
 > [!NOTE]
 > O Defender para IoT atualmente dá suporte apenas ao nível standard dos Hubs IoT.
@@ -33,7 +33,7 @@ Este artigo oferece uma explicação de como habilitar o serviço Defender para 
   - Dois tipos de informação são armazenados por padrão no workspace do Log Analytics pelo Defender para IoT: **alertas de segurança** e **recomendações**.
   - Você pode optar por adicionar armazenamento de um tipo de informações adicionais **eventos brutos**. Observe que armazenar **eventos brutos** no Log Analytics transporta os custos de armazenamento adicionais.
 - Hub IoT (camada standard)
-- Atenda a todos os [pré-requisitos de serviço](service-prerequisites.md)
+- Atenda a todos os [pré-requisitos do sistema](quickstart-system-prerequisites.md).
 
 ## <a name="enable-defender-for-iot-on-your-iot-hub"></a>Habilitar o Defender para IoT no Hub IoT
 

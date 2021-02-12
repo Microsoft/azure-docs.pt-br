@@ -1,19 +1,16 @@
 ---
 title: Segurança da camada de transporte no Azure HDInsight
 description: O protocolo TLS e SSL são protocolos criptográficos que fornecem segurança de comunicações em uma rede de computadores.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 42c1efa176a6dbf5294e19afe02fd74a53150272
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 648f24e87e7d8a49c9c495a78e56afb8ae9e8aae
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538945"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944706"
 ---
 # <a name="transport-layer-security-in-azure-hdinsight"></a>Segurança da camada de transporte no Azure HDInsight
 

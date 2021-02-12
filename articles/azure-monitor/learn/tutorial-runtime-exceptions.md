@@ -3,16 +3,16 @@ title: Diagnosticar exceções no tempo de execução usando o Azure Application
 description: Tutorial para localizar e diagnosticar exceções de tempo de execução em seu aplicativo usando o Azure Application Insights.
 ms.subservice: application-insights
 ms.topic: tutorial
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: af8479f6460a6cc555d7ea67dcfe65c779878624
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98ccaef716ae2390dcbcfbc7c4a1916359115f93
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357855"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210147"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Localizar e diagnosticar exceções de tempo de execução com o Azure Application Insights
 
@@ -81,7 +81,7 @@ O depurador de instantâneo coleta instantâneos das exceções mais frequentes 
 
 3. A primeira chamada que tem valores válidos é **ValidZipCode** e podemos ver que um CEP foi informado com letras que não podem ser convertidas em um número inteiro.  Isso parece ser o erro no código que precisa ser corrigido.
 
-    ![Depurar instantâneo](media/tutorial-runtime-exceptions/debug-snapshot-02.png)
+    ![Captura de tela que mostra um erro no código que precisa ser corrigido.    ](media/tutorial-runtime-exceptions/debug-snapshot-02.png)
 
 4. Você então tem a opção de baixar esse instantâneo para o Visual Studio em que podemos localizar o código real que precisa ser corrigido. Para fazer isso, clique em **Baixar Instantâneo**.
 5. O instantâneo é carregado no Visual Studio.

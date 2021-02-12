@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1052ad06400eb70fe41617421b54978bddd9e50
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 4c97958add682a4c49d7832843c0b95ffd2663bf
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441361"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859624"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriedades de um usuário de colaboração B2B do Azure Active Directory
 
@@ -71,6 +71,8 @@ Essa propriedade indica a relação entre o usuário e o locatário do host. Ess
   > [!NOTE]
   > O UserType não tem nenhuma relação com o tipo de acesso do usuário, nem com a função do diretório do usuário e assim por diante. Essa propriedade só indica a relação do usuário com a organização host, e permite que a organização aplique as políticas que dependem desse atributo.
 
+Para obter detalhes relacionados aos preços, consulte [Azure Active Directory preços](https://azure.microsoft.com/pricing/details/active-directory).
+
 ### <a name="source"></a>Fonte
 Essa propriedade indica o tipo de acesso do usuário.
 
@@ -108,7 +110,7 @@ Sim. Por padrão, objetos convidados não são visíveis na lista de endereços 
 
 ## <a name="can-i-update-a-guest-users-email-address"></a>Posso atualizar o endereço de email de um usuário convidado?
 
-Se um usuário convidado aceitar seu convite e, posteriormente, alterar seu endereço de email, o novo email não será sincronizado automaticamente com o objeto de usuário convidado em seu diretório. A propriedade mail é criada por meio da [API Microsoft Graph](/graph/api/resources/user?view=graph-rest-1.0). Você pode atualizar a propriedade mail por meio da API Microsoft Graph, do centro de administração do Exchange ou do [PowerShell do Exchange Online](/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps). A alteração será refletida no objeto de usuário convidado do Azure AD.
+Se um usuário convidado aceitar seu convite e, posteriormente, alterar seu endereço de email, o novo email não será sincronizado automaticamente com o objeto de usuário convidado em seu diretório. A propriedade mail é criada por meio da [API Microsoft Graph](/graph/api/resources/user). Você pode atualizar a propriedade mail por meio da API Microsoft Graph, do centro de administração do Exchange ou do [PowerShell do Exchange Online](/powershell/module/exchange/users-and-groups/set-mailuser). A alteração será refletida no objeto de usuário convidado do Azure AD.
 
 ## <a name="next-steps"></a>Próximas etapas
 

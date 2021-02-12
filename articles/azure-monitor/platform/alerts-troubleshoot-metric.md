@@ -4,16 +4,16 @@ description: Problemas comuns com Azure Monitor alertas de métrica e possíveis
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 10/05/2020
+ms.date: 01/21/2021
 ms.subservice: alerts
-ms.openlocfilehash: 2e68a780890b8ddf857bf8f52a0ecf9a4c24b36c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: f7425e1cf34348b7742b739ef5440a5cb0355077
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342120"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942093"
 ---
-# <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Solucionando problemas em alertas de métrica Azure Monitor 
+# <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Solucionando problemas em alertas de métrica do Azure Monitor 
 
 Este artigo aborda problemas comuns em Azure Monitor [alertas de métrica](alerts-metric-overview.md) e como solucioná-los.
 
@@ -24,8 +24,9 @@ Azure Monitor Alertas proativamente notificam você quando condições important
 Se você acredita que um alerta de métrica deve ter sido acionado, mas não foi acionado e não foi encontrado no portal do Azure, tente as seguintes etapas:
 
 1. **Configuração** -examine a configuração da regra de alerta de métrica para certificar-se de que ela está configurada corretamente:
-    - Verifique se o **tipo de agregação**, a **granularidade de agregação (período)** e o **valor de limite** ou a **sensibilidade** estão configurados como esperado
-    - Para uma regra de alerta que usa limites dinâmicos, verifique se as configurações avançadas estão definidas, uma vez que o **número de violações** pode filtrar alertas e **ignorar dados antes que** o possa afetar a forma como os limites são calculados
+    - Verifique se o **tipo de agregação** e a **granularidade de agregação (período)** estão configurados como esperado. O **tipo de agregação** determina como os valores de métrica são agregados (Saiba mais [aqui](./metrics-aggregation-explained.md#aggregation-types)), e a **granularidade de agregação (período)** controla o quanto a avaliação agrega os valores de métrica cada vez que a regra de alerta é executada.
+    -  Verifique se o **valor** ou a **Sensibilidade** do limite estão configurados conforme o esperado.
+    - Para uma regra de alerta que usa limites dinâmicos, verifique se as configurações avançadas estão definidas, uma vez que o **número de violações** pode filtrar alertas e **ignorar dados antes que** o possa afetar a forma como os limites são calculados.
 
        > [!NOTE] 
        > Os limites dinâmicos exigem pelo menos 3 dias e 30 amostras de métricas antes de ficarem ativos.
@@ -44,7 +45,7 @@ Se você acredita que um alerta de métrica deve ter sido acionado, mas não foi
 
 Se você acredita que seu alerta de métrica não deveria ter sido acionado, mas fez isso, as etapas a seguir podem ajudar a resolver o problema.
 
-1. Examine a [lista de alertas acionados](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) para localizar o alerta acionado e clique para exibir seus detalhes. Examine as informações fornecidas sob **por que o alerta foi acionado?** para ver o gráfico de métrica, o **valor de métrica**e o **valor de limite** no momento em que o alerta foi disparado.
+1. Examine a [lista de alertas acionados](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) para localizar o alerta acionado e clique para exibir seus detalhes. Examine as informações fornecidas sob **por que o alerta foi acionado?** para ver o gráfico de métrica, o **valor de métrica** e o **valor de limite** no momento em que o alerta foi disparado.
 
     > [!NOTE] 
     > Se você estiver usando um tipo de condição de limites dinâmicos e considerar que os limites usados não estavam corretos, forneça comentários usando o ícone de rosto triste. Esses comentários afetarão a pesquisa de algoritmos do Machine Learning e ajudarão a melhorar as detecções futuras.
@@ -72,7 +73,7 @@ Para alertar sobre as métricas do sistema operacional convidado de máquinas vi
 - [Para VMs do Linux](./collect-custom-metrics-linux-telegraf.md)
 
 Para obter mais informações sobre como coletar dados do sistema operacional convidado de uma máquina virtual, consulte [aqui](../insights/monitor-vm-azure.md#guest-operating-system).
-    
+
 > [!NOTE] 
 > Se você configurou as métricas de convidado a serem enviadas para um espaço de trabalho Log Analytics, as métricas serão exibidas no recurso de espaço de trabalho Log Analytics e começarão a mostrar dados **somente** após a criação de uma regra de alerta que as monitore. Para isso, siga as etapas para [configurar um alerta de métrica para os logs](./alerts-metric-logs.md#configuring-metric-alert-for-logs).
 
@@ -91,9 +92,9 @@ Se você quiser criar um alerta em uma métrica específica, mas não puder vê-
 Se você estiver procurando alertar sobre [valores de dimensão específicos de uma métrica](./alerts-metric-overview.md#using-dimensions), mas não puder encontrar esses valores, observe o seguinte:
 
 1. Pode levar alguns minutos para que os valores de dimensão apareçam na lista **Valores de dimensão**
-1. Os valores de dimensão exibidos se baseiam nos dados de métrica coletados nos últimos 3 dias
-1. Se o valor da dimensão ainda não foi emitido, clique no sinal ' + ' para adicionar um valor personalizado
-1. Se você quiser alertar sobre todos os valores possíveis de uma dimensão (incluindo valores futuros), marque a caixa de seleção ' selecionar * '
+1. Os valores de dimensão exibidos se baseiam nos dados de métrica coletados no último dia
+1. Se o valor da dimensão ainda não for emitido ou não for mostrado, você poderá usar a opção ' adicionar valor personalizado ' para adicionar um valor de dimensão personalizado
+1. Se você quiser alertar sobre todos os valores possíveis de uma dimensão (incluindo valores futuros), escolha a opção ' selecionar todos os valores atuais e futuros '
 
 ## <a name="metric-alert-rules-still-defined-on-a-deleted-resource"></a>Regras de alerta de métrica ainda definidas em um recurso excluído 
 
@@ -106,7 +107,7 @@ Ao excluir um recurso do Azure, as regras associadas de alerta de métrica não 
 
 ## <a name="make-metric-alerts-occur-every-time-my-condition-is-met"></a>Os alertas de métrica ocorrem toda vez que minha condição é atendida
 
-Os alertas de métricas são monitorados por padrão e, portanto, alertas adicionais não são acionados se já houver um alerta acionado em uma determinada série temporal. Se você quiser tornar uma regra de alerta de métrica específica sem monitoração de estado e receber um alerta sobre cada avaliação em que a condição de alerta é atendida, crie a regra de alerta programaticamente (por exemplo, por meio do [Resource Manager](./alerts-metric-create-templates.md), do [PowerShell](/powershell/module/az.monitor/?view=azps-3.6.1), do [REST](/rest/api/monitor/metricalerts/createorupdate), da [CLI](/cli/azure/monitor/metrics/alert?view=azure-cli-latest)) e defina a propriedade *automitigate* como ' false '.
+Os alertas de métricas são monitorados por padrão e, portanto, alertas adicionais não são acionados se já houver um alerta acionado em uma determinada série temporal. Se você quiser tornar uma regra de alerta de métrica específica sem monitoração de estado e receber um alerta sobre cada avaliação em que a condição de alerta é atendida, crie a regra de alerta programaticamente (por exemplo, por meio do [Resource Manager](./alerts-metric-create-templates.md), do [PowerShell](/powershell/module/az.monitor/), do [REST](/rest/api/monitor/metricalerts/createorupdate), da [CLI](/cli/azure/monitor/metrics/alert)) e defina a propriedade *automitigate* como ' false '.
 
 > [!NOTE] 
 > Fazer uma regra de alerta de métrica sem monitoração de estado impede que os alertas disparados se tornem resolvidos, mesmo depois que a condição não for mais satisfeita, os alertas disparados permanecerão em um estado disparado até o período de retenção
@@ -122,17 +123,17 @@ Para evitar a falha da implantação ao tentar validar as definições da métri
     "odata.type": "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
         "allOf": [
             {
-                    "name" : "condition1",
-                        "metricName": "myCustomMetric",
+                "name" : "condition1",
+                "metricName": "myCustomMetric",
                 "metricNamespace": "myCustomMetricNamespace",
-                        "dimensions":[],
-                        "operator": "GreaterThan",
-                        "threshold" : 10,
-                        "timeAggregation": "Average",
-                    "skipMetricValidation": true
-        }
-              ]
-        }
+                "dimensions":[],
+                "operator": "GreaterThan",
+                "threshold" : 10,
+                "timeAggregation": "Average",
+                "skipMetricValidation": true
+            }
+        ]
+    }
 ```
 
 ## <a name="export-the-azure-resource-manager-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Exportar o modelo de Azure Resource Manager de uma regra de alerta de métrica por meio do portal do Azure
@@ -174,9 +175,9 @@ Para verificar o uso atual de regras de alerta de métrica, siga as etapas abaix
 
 ### <a name="from-api"></a>Na API
 
-- PowerShell - [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2?view=azps-3.7.0)
+- PowerShell - [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2)
 - API REST - [Lista por assinatura](/rest/api/monitor/metricalerts/listbysubscription)
-- CLI do Azure - [Lista de alerta de métricas do monitor az](/cli/azure/monitor/metrics/alert?view=azure-cli-latest#az-monitor-metrics-alert-list)
+- CLI do Azure - [Lista de alerta de métricas do monitor az](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-list)
 
 ## <a name="managing-alert-rules-using-resource-manager-templates-rest-api-powershell-or-azure-cli"></a>Gerenciando regras de alerta usando modelos do Resource Manager, API REST, PowerShell ou CLI do Azure
 
@@ -195,14 +196,14 @@ Examine o [guia da API REST](/rest/api/monitor/metricalerts/) para verificar se 
 
 Verifique se você está usando os cmdlets do PowerShell corretos para alertas de métrica:
 
-- Os cmdlets do PowerShell para alertas de métrica estão disponíveis no [módulo AZ.Monitor](/powershell/module/az.monitor/?view=azps-3.6.1)
-- Certifique-se de usar os cmdlets que terminam com ' v2 ' para novos alertas de métrica (não clássicos) (por exemplo, [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2?view=azps-3.6.1))
+- Os cmdlets do PowerShell para alertas de métrica estão disponíveis no [módulo AZ.Monitor](/powershell/module/az.monitor/)
+- Certifique-se de usar os cmdlets que terminam com ' v2 ' para novos alertas de métrica (não clássicos) (por exemplo, [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2))
 
 ### <a name="azure-cli"></a>CLI do Azure
 
 Verifique se você está usando os comandos da CLI corretos para alertas de métrica:
 
-- Os comandos da CLI para alertas de métrica começam com `az monitor metrics alert`. Examine a [referência da CLI do Azure](/cli/azure/monitor/metrics/alert?view=azure-cli-latest) para saber mais sobre a sintaxe.
+- Os comandos da CLI para alertas de métrica começam com `az monitor metrics alert`. Examine a [referência da CLI do Azure](/cli/azure/monitor/metrics/alert) para saber mais sobre a sintaxe.
 - Você pode consultar um [exemplo que mostra como usar a CLI de alerta de métrica](./alerts-metric.md#with-azure-cli)
 - Para alertar sobre uma métrica personalizada, lembre-se de prefixar o nome da métrica com o namespace de métrica relevante: NAMESPACE.METRIC
 
@@ -241,6 +242,8 @@ Considere as seguintes restrições para nomes de regra de alerta de métrica:
 - Os nomes de regra de alerta de métrica não podem conter os seguintes caracteres: * # & +:  < > ? @ % { } \ / 
 - Os nomes de regra de alerta de métrica não podem terminar com um espaço ou um ponto
 
+> [!NOTE] 
+> Se o nome da regra de alerta contiver caracteres que não são alfabéticos ou numéricos (por exemplo: espaços, sinais de pontuação ou símbolos), esses caracteres poderão ser codificados por URL quando forem recuperados por determinados clientes.
 
 ## <a name="restrictions-when-using-dimensions-in-a-metric-alert-rule-with-multiple-conditions"></a>Restrições ao usar dimensões em uma regra de alerta de métrica com várias condições
 
@@ -263,6 +266,23 @@ Por exemplo:
 -   Regra de alerta de métrica que monitora várias dimensões – quando uma nova combinação de valor de dimensão é adicionada
 -   Regra de alerta de métrica que monitora vários recursos – quando um novo recurso é adicionado ao escopo
 -   Regra de alerta de métrica que monitora uma métrica que não é emitida continuamente (métrica esparsa) – quando a métrica é emitida após um período de mais de 24 horas em que ela não foi emitida
+
+## <a name="the-dynamic-thresholds-borders-dont-seem-to-fit-the-data"></a>As bordas de limites dinâmicos não parecem se ajustar aos dados
+
+Se o comportamento de uma métrica foi alterado recentemente, as alterações não serão necessariamente refletidas nas bordas de limite dinâmico (limites superiores e inferiores) imediatamente, pois elas são calculadas com base nos dados de métrica dos últimos 10 dias. Ao exibir as bordas de limite dinâmico para uma determinada métrica, certifique-se de examinar a tendência da métrica na última semana e não apenas por horas ou dias recentes.
+
+## <a name="why-is-weekly-seasonality-not-detected-by-dynamic-thresholds"></a>Por que a sazonalidade semanal não é detectada por limites dinâmicos?
+
+Para identificar sazonalidade semanalmente, o modelo de limites dinâmicos requer pelo menos três semanas de dados históricos. Quando dados históricos suficientes estiverem disponíveis, qualquer sazonalidade semanal que exista nos dados da métrica será identificada e o modelo será ajustado de acordo. 
+
+## <a name="dynamic-thresholds-shows-a-negative-lower-bound-for-a-metric-even-though-the-metric-always-has-positive-values"></a>Os limites dinâmicos mostram um limite inferior negativo para uma métrica, embora a métrica sempre tenha valores positivos
+
+Quando uma métrica exibe a flutuação grande, os limites dinâmicos criarão um modelo mais amplo em torno dos valores de métrica, o que pode fazer com que a borda inferior esteja abaixo de zero. Especificamente, isso pode acontecer nos seguintes casos:
+1. A sensibilidade está definida como baixa 
+2. Os valores medianos estão próximos de zero
+3. A métrica exibe um comportamento irregular com alta variação (há picos ou DIPs nos dados)
+
+Quando o limite inferior tem um valor negativo, isso significa que é plausível que a métrica alcance um valor zero, dado o comportamento irregular da métrica. Você pode considerar a escolha de uma maior sensibilidade ou uma *granularidade de agregação maior (período)* para tornar o modelo menos sensível, ou usando a opção *ignorar dados antes* de excluir um irregulaity recente dos dados históricos usados para criar o modelo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

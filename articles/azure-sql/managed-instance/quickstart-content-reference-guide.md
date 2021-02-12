@@ -12,12 +12,12 @@ author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 07/11/2019
-ms.openlocfilehash: ae2f2b8b9b6f3bc934321b13dcefeff46e43b089
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 936e4f8f54e92ba90372fff1c9d8dfc1982bbd62
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788155"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325107"
 ---
 # <a name="getting-started-with-azure-sql-managed-instance"></a>Introdução à Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -72,7 +72,7 @@ Os inícios rápidos mencionados anteriormente permitem que você configure rapi
 No entanto, para migrar seu banco de dados de produção ou até mesmo bancos de dados de desenvolvimento/teste que deseja usar para algum teste de desempenho, você precisará considerar o uso de algumas técnicas adicionais, como:
 
 - Teste de desempenho – você deve medir as métricas de desempenho de linha de base da sua instância do SQL Server de origem e compará-las com as métricas de desempenho da Instância Gerenciada de SQL de destino para a qual migrou o banco de dados. Saiba mais sobre as [melhores práticas de comparação de desempenho](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210).
-- Migração online – com o `RESTORE` nativo descrito neste artigo, é necessário aguardar até que os bancos de dados sejam restaurados (e copiados para o Armazenamento de Blobs do Azure caso ainda não estejam armazenados lá). Isso causa algum tempo de inatividade do seu aplicativo, principalmente para bancos de dados maiores. Para mover o banco de dados de produção, use o [DMS (Serviço de Migração de Dados)](../../dms/tutorial-sql-server-to-managed-instance.md?toc=%252fazure%252fsql-database%252ftoc.json) para migrar o banco de dados com tempo de inatividade mínimo. O DMS faz isso enviando por push as alterações feitas no banco de dados de origem em incrementos para o banco de dados da Instância Gerenciada de SQL que está sendo restaurado. Dessa forma, você pode alternar rapidamente seu aplicativo do banco de dados de origem para o de destino com tempo de inatividade mínimo.
+- Migração online – com o `RESTORE` nativo descrito neste artigo, é necessário aguardar até que os bancos de dados sejam restaurados (e copiados para o Armazenamento de Blobs do Azure caso ainda não estejam armazenados lá). Isso causa algum tempo de inatividade do seu aplicativo, principalmente para bancos de dados maiores. Para mover o banco de dados de produção, use o [DMS (Serviço de Migração de Dados)](../../dms/tutorial-sql-server-to-managed-instance.md?toc=%2fazure%2fsql-database%2ftoc.json) para migrar o banco de dados com tempo de inatividade mínimo. O DMS faz isso enviando por push as alterações feitas no banco de dados de origem em incrementos para o banco de dados da Instância Gerenciada de SQL que está sendo restaurado. Dessa forma, você pode alternar rapidamente seu aplicativo do banco de dados de origem para o de destino com tempo de inatividade mínimo.
 
 Saiba mais sobre o [processo de migração recomendado](migrate-to-instance-from-sql-server.md).
 

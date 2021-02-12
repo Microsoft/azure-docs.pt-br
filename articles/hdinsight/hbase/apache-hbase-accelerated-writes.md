@@ -1,18 +1,15 @@
 ---
 title: Gravações aceleradas do Azure HDInsight para Apache HBase
 description: Fornece uma visão geral do recurso de gravações aceleradas do Azure HDInsight, que usa o Premium Managed disks para melhorar o desempenho do log write ahead do Apache HBase.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/24/2020
-ms.openlocfilehash: 99253aa2e7e2e1f3f58f2ab7d5c40a695c2b9690
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f5a9f05b94f43db9e1d883ef5e86f8621f39251
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654847"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943028"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Gravações aceleradas do Azure HDInsight para Apache HBase
 
@@ -20,13 +17,13 @@ Este artigo fornece informações sobre o recurso de **gravações aceleradas** 
 
 ## <a name="overview-of-hbase-architecture"></a>Visão geral da arquitetura do HBase
 
-No HBase, uma **linha** consiste em uma ou mais **colunas** e é identificada por uma **chave de linha**. Várias linhas compõem uma **tabela**. As colunas contêm **células**, que são versões com carimbo de data/hora do valor nessa coluna. As colunas são agrupadas em **famílias de colunas**e todas as colunas em uma família de colunas são armazenadas juntas em arquivos de armazenamento chamados **HFiles**.
+No HBase, uma **linha** consiste em uma ou mais **colunas** e é identificada por uma **chave de linha**. Várias linhas compõem uma **tabela**. As colunas contêm **células**, que são versões com carimbo de data/hora do valor nessa coluna. As colunas são agrupadas em **famílias de colunas** e todas as colunas em uma família de colunas são armazenadas juntas em arquivos de armazenamento chamados **HFiles**.
 
 As **regiões** no HBase são usadas para balancear a carga de processamento de dados. O HBase armazena primeiro as linhas de uma tabela em uma única região. As linhas são distribuídas entre várias regiões à medida que a quantidade de dados na tabela aumenta. Os **servidores de região** podem lidar com solicitações para várias regiões.
 
 ## <a name="write-ahead-log-for-apache-hbase"></a>Log write-ahead para o Apache HBase
 
-O HBase primeiro grava as atualizações de dados em um tipo de log de confirmação chamado log write ahead (WAL). Depois que a atualização é armazenada no WAL, ela é gravada no **MemStore**na memória. Quando os dados na memória atingem sua capacidade máxima, eles são gravados em disco como um **HFile**.
+O HBase primeiro grava as atualizações de dados em um tipo de log de confirmação chamado log write ahead (WAL). Depois que a atualização é armazenada no WAL, ela é gravada no **MemStore** na memória. Quando os dados na memória atingem sua capacidade máxima, eles são gravados em disco como um **HFile**.
 
 Se um **RegionServer** falhar ou ficar indisponível antes de o MemStore ser liberado, o log write-ahead poderá ser usado para reproduzir atualizações. Sem o WAL, se um **RegionServer** falhar antes de liberar atualizações para um **HFile**, todas essas atualizações serão perdidas.
 
@@ -36,9 +33,9 @@ O recurso de gravações aceleradas resolve o problema de latências de gravaç�
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Como habilitar gravações aceleradas para o HBase no HDInsight
 
-Para criar um novo cluster HBase com o recurso de gravações aceleradas, siga as etapas em [Configurar clusters no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) até chegar à **etapa 3, armazenamento**. Em **configurações do metastore**, marque a caixa de seleção ao lado de **habilitar gravações aceleradas do HBase**. Em seguida, continue com as etapas restantes para a criação do cluster.
+Para criar um novo cluster HBase com o recurso de gravações aceleradas, siga as etapas em [Configurar clusters no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Na guia **noções básicas** , selecione tipo de cluster como HBase, especifique uma versão de componente e, em seguida, clique na caixa de seleção ao lado de **habilitar gravações aceleradas do HBase**. Em seguida, continue com as etapas restantes para a criação do cluster.
 
-![Habilitar a opção de gravações aceleradas para o Apache HBase do HDInsight](./media/apache-hbase-accelerated-writes/azure-portal-cluster-storage-hbase.png)
+![Habilitar a opção de gravações aceleradas para o Apache HBase do HDInsight](./media/apache-hbase-accelerated-writes/azure-portal-create-hbase-wals.png)
 
 ## <a name="other-considerations"></a>Outras considerações
 

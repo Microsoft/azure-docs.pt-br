@@ -1,18 +1,15 @@
 ---
 title: Arquitetura de rede virtual do Azure HDInsight
 description: Conheça os recursos disponíveis ao criar um cluster HDInsight em uma rede virtual do Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: ad0e0250b32f2bdef4944e6e148be3215f3822f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5b8bdf5577642290cee7250e0f21f8a69dfd248
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81390214"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931151"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Arquitetura de rede virtual do Azure HDInsight
 
@@ -22,7 +19,7 @@ Este artigo explica os recursos que estão presentes quando você implanta um cl
 
 Os clusters do Azure HDInsight têm diferentes tipos de máquinas virtuais ou nós. Cada tipo de nó desempenha uma função na operação do sistema. A tabela a seguir resume esses tipos de nó e suas funções no cluster.
 
-| Type | Descrição |
+| Tipo | Descrição |
 | --- | --- |
 | Nó de cabeçalho |  Para todos os tipos de cluster, exceto Apache Storm, os nós de cabeçalho hospedam os processos que gerenciam a execução do aplicativo distribuído. O nó de cabeçalho também é o nó no qual você pode realizar SSH e executar aplicativos que são coordenados para serem executados nos recursos do cluster. O número de nós de cabeçalho é corrigido em dois para todos os tipos de cluster. |
 | Nó ZooKeeper | O Zookeeper coordena as tarefas entre os nós que estão fazendo o processamento de dados. Ele também faz eleição de líder do nó principal e controla qual nó principal está executando um serviço mestre específico. O número de nós ZooKeeper é corrigido em três. |

@@ -12,12 +12,12 @@ ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: references_regions
-ms.openlocfilehash: ced4e920936ad94c3d4140d51d5e7d4e867ee848
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9d4ae746c192e8b4afd1781c1e072fc0dc70422
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84196079"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599800"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Perguntas frequentes sobre bancos de dados MySql do ClearDB com o Serviço de Aplicativo do Azure
 Estas perguntas frequentes respondem a dúvidas comuns sobre como usar e adquirir os bancos de dados MySQL do ClearDB para aplicativos Web do Azure.
@@ -33,7 +33,7 @@ Consulte [ClearDB](https://w2.cleardb.net/) para ver as informações mais recen
 Você tem várias outras opções para hospedar MySQL no Azure:
 * [Banco de Dados do Azure para MySQL](https://azure.microsoft.com/services/mysql/)
 * [Cluster MySQL em execução em uma VM do Azure](https://github.com/azure/azure-quickstart-templates/tree/master/mysql-replication)
-* [Instância única do MySQL em execução em uma VM do Azure](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Instância única do MySQL em execução em uma VM do Azure](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 
 ## <a name="do-i-need-a-credit-card-for-the-web-app--mysql-template-in-the-azure-marketplace"></a>Preciso de um cartão de crédito para o modelo aplicativo Web + MySQL no Azure Marketplace?
@@ -42,13 +42,13 @@ Isso depende do tipo de assinatura que você está usando. Veja a seguir alguns 
 * [Pré-pago](https://azure.microsoft.com/offers/ms-azr-0003p/): exige um cartão de crédito, e quando você comprar um banco de dados MySQL pago, ele será cobrado no cartão de crédito.
 * [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/): inclui créditos para uso com os serviços do Microsoft Azure, mas não permite a compra de recursos de terceiros. Para comprar serviços de terceiros ou um banco de dados MySQL pago, você precisa usar uma assinatura habilitada para cartão de crédito. Para aplicativos Web, você pode criar um banco de dados MySQL do ClearDB GRATUITO.
 * [Assinatura do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) e **Desenvolvimento/Teste MSDN Pré-Pago**: semelhante à Avaliação gratuita, uma assinatura do MSDN exige que você tenha um cartão de crédito para comprar uma solução paga do MySQL da ClearDB.
-* [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/): os clientes de EA recebem em uma fatura consolidada e separada uma cobrança por seu EA a cada trimestre referente a todas as suas compras (de terceiros) no Azure Marketplace. Você será cobrado fora do compromisso monetário por qualquer compra no marketplace. Observe que, no momento, o Armazenamento do Azure não está disponível para clientes inscritos no Azerbaijão, na Croácia, na Noruega e em Porto Rico. 
+* [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/): os clientes de EA recebem em uma fatura consolidada e separada uma cobrança por seu EA a cada trimestre referente a todas as suas compras (de terceiros) no Azure Marketplace. Você será cobrado fora do pagamento antecipado do Azure (anteriormente chamado de compromisso monetário) para qualquer compra do Marketplace. Observe que, no momento, o Armazenamento do Azure não está disponível para clientes inscritos no Azerbaijão, na Croácia, na Noruega e em Porto Rico. 
 
 ## <a name="why-was-i-charged-350-for-a-web-app--mysql-from-the-azure-marketplace"></a>Por que recebi uma cobrança de US$ 3,50 por um aplicativo Web + MySQL no Azure Marketplace?
 A opção de banco de dados padrão é Titan, que custa US$ 3,50. Não mostramos o custo durante a criação do banco de dados e talvez você compre um banco de dados que não pretendia por engano. Estamos tentando encontrar uma maneira de melhorar a experiência, mas até lá, você deverá verificar todos os tipos de preços selecionados para o aplicativo Web e o banco de dados antes de clicar em **Criar** e iniciar a implantação dos recursos.
 
 ## <a name="i-am-running-mysql-on-my-own-azure-virtual-machine-can-i-connect-my-azure-web-app-to-my-database"></a>Estou executando o MySQL em minha própria máquina virtual do Azure. Posso conectar meu aplicativo Web do Azure ao meu banco de dados?
-Sim. Você pode conectar seu aplicativo Web ao seu banco de dados desde que sua VM do Azure tenha acesso remoto ao seu aplicativo Web. Para obter mais informações, confira [Instalar o MySQL em uma máquina virtual](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Sim. Você pode conectar seu aplicativo Web ao seu banco de dados desde que sua VM do Azure tenha acesso remoto ao seu aplicativo Web. Para obter mais informações, confira [Instalar o MySQL em uma máquina virtual](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="in-which-countriesregions-are-cleardb-premium-mysql-clusters-supported"></a>Em quais países/regiões os clusters MySQL do ClearDB Premium têm suporte?
 Os clusters MySQL do ClearDB Premium estão disponíveis em todas as regiões do Azure no mundo, com exceção da Índia, da Austrália, do Sul do Brasil e da China.
@@ -94,10 +94,10 @@ Os bancos de dados ClearDB existentes usam o cartão de crédito associado às a
 * Atualize seu aplicativo para usar o novo banco de dados.
 * Exclua o banco de dados ClearDB antigo.
 
-Quando você cria um novo aplicativo Web com o MySQL (ClearDB) ou cria um banco de dados MySQL (ClearDB), a assinatura escolhida determina como você pagará pelo serviço. Com uma assinatura de EA, não bloquearemos a aquisição dos serviços de terceiros, como ClearDB, no portal do Azure. As assinaturas de EA são cobradas fora do Compromisso Monetário e são cobradas trimestralmente e mediante inadimplência. O cliente de EA precisa configurar um método de pagamento, como um cartão de crédito, a fim de pagar por quaisquer serviços de terceiros no marketplace.
+Quando você cria um novo aplicativo Web com o MySQL (ClearDB) ou cria um banco de dados MySQL (ClearDB), a assinatura escolhida determina como você pagará pelo serviço. Com uma assinatura de EA, não bloquearemos a aquisição dos serviços de terceiros, como ClearDB, no portal do Azure. As assinaturas de EA são cobradas fora do pagamento antecipado do Azure e são cobradas trimestralmente e em pelos débitos anteriores. O cliente de EA precisa configurar um método de pagamento, como um cartão de crédito, a fim de pagar por quaisquer serviços de terceiros no marketplace.
 
 ## <a name="where-can-i-see-the-charges-for-cleardb-resources-in-an-ea-subscription"></a>Onde posso ver os encargos para os recursos do ClearDB em uma assinatura de EA?
-Para clientes diretos do EA, os encargos do Azure Marketplace ficam visíveis no Portal Empresarial. Observe que todas as compras e consumo no marketplace são faturadas fora do Compromisso monetário e são cobradas trimestralmente e mediante inadimplência. Os clientes de EA precisam pagar diretamente aos provedores de serviços de terceiros e podem fazer isso habilitando um método de pagamento, como um cartão de crédito, com suas contas EA.
+Para clientes diretos do EA, os encargos do Azure Marketplace ficam visíveis no Portal Empresarial. Observe que todas as compras e consumo do Marketplace são cobrados fora do pagamento antecipado do Azure e são cobrados trimestralmente e em pelos débitos anteriores. Os clientes de EA precisam pagar diretamente aos provedores de serviços de terceiros e podem fazer isso habilitando um método de pagamento, como um cartão de crédito, com suas contas EA.
 
 Os clientes indiretos do EA podem encontrar suas assinaturas do Azure Marketplace na página **Gerenciar Assinaturas** do Portal Empresarial, mas os preços ficam ocultos. Os clientes devem entrar em contato com seus LSPs para saber mais sobre encargos do Marketplace.
 
@@ -108,4 +108,3 @@ Entre em contato com o [Atendimento ao Cliente Corporativo](https://aka.ms/Azure
 
 ## <a name="more-information"></a>Mais informações
 [Perguntas frequentes sobre o Azure Marketplace](https://azure.microsoft.com/marketplace/faq/)
-

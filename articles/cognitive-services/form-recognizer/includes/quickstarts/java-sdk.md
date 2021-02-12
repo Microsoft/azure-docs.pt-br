@@ -10,28 +10,28 @@ ms.topic: include
 ms.date: 09/21/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 9bf42518c77dadb350d8c93c6aa5a17d48aaaff5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3923f3d0a65412c23d5fc32d7a4cea8648686df4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963019"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947404"
 ---
 > [!IMPORTANT]
-> * No momento, o SDK do Reconhecimento de Formulários direciona a v2.0 do serviço de Reconhecimento de Formulários.
-> * O código neste artigo usa métodos síncronos e armazenamento de credenciais não seguras por motivos de simplicidade. Confira a documentação de referência abaixo. 
+> O código neste artigo usa métodos síncronos e armazenamento de credenciais não seguras por motivos de simplicidade.
 
-[Documentação de referência](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src) | [Pacote (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) | [Exemplos](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
+[Documentação de referência](/java/api/overview/azure/ai-formrecognizer-readme) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src) | [Pacote (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) | [Exemplos](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
-* Um blob do Armazenamento do Azure contendo um conjunto de dados de treinamento. Confira [Criar um conjunto de dados de treinamento para um modelo personalizado](../../build-training-data-set.md) para obter dicas e opções para compilar o conjunto de dados de treinamento. Para este guia de início rápido, você pode usar os arquivos na pasta **Train** do [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451) (baixe e extraia o *sample_data.zip*).
 * A versão atual do [JDK (Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * A [ferramenta de build Gradle](https://gradle.org/install/) ou outro gerenciador de dependência.
 * Depois de ter sua assinatura do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Criar um recurso do Reconhecimento de Formulários"  target="_blank">crie um Reconhecimento de Formulários <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter a chave e o ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
     * Você precisará da chave e do ponto de extremidade do recurso criado para conectar seu aplicativo à API do Reconhecimento de Formulários. Cole a chave e o ponto de extremidade no código abaixo mais adiante no guia de início rápido.
     * Use o tipo de preço gratuito (`F0`) para experimentar o serviço e atualizar mais tarde para um nível pago para produção.
+* Um blob do Armazenamento do Azure contendo um conjunto de dados de treinamento. Confira [Criar um conjunto de dados de treinamento para um modelo personalizado](../../build-training-data-set.md) para obter dicas e opções para compilar o conjunto de dados de treinamento. Para este guia de início rápido, você pode usar os arquivos na pasta **Train** do [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451) (baixe e extraia o *sample_data.zip*).
+
 
 ## <a name="setting-up"></a>Configurando
 
@@ -51,11 +51,6 @@ gradle init --type basic
 
 Quando solicitado a escolher uma **DSL**, escolha **Kotlin**.
 
-Do diretório de trabalho, execute o seguinte comando:
-
-```console
-mkdir -p src/main/java
-```
 
 ### <a name="install-the-client-library"></a>Instalar a biblioteca de clientes
 
@@ -63,6 +58,7 @@ Este início rápido usa o gerenciador de dependência do Gradle. Você pode enc
 
 No arquivo *build.gradle.kts* do projeto, inclua a biblioteca de clientes como uma instrução `implementation`, juntamente com as configurações e os plug-ins necessários.
 
+#### <a name="version-20"></a>[versão 2.0](#tab/ga)
 ```kotlin
 plugins {
     java
@@ -79,37 +75,77 @@ dependencies {
 }
 ```
 
-Navegue até a nova pasta **src/main/java** e crie um arquivo chamado *Management.java*. Abra-a no editor ou IDE de sua preferência e adicione as seguintes instruções `import`:
+> [!NOTE]
+> O SDK do Reconhecimento de Formulários 3.0.0 reflete a API versão 2.0
 
-```java
-import com.azure.ai.formrecognizer.*;
-import com.azure.ai.formrecognizer.training.*;
-import com.azure.ai.formrecognizer.models.*;
-import com.azure.ai.formrecognizer.training.models.*;
-
-import java.util.concurrent.atomic.AtomicReference;
-import java.util.List;
-import java.util.Map;
-import java.time.LocalDate;
-
-import com.azure.core.credential.AzureKeyCredential;
-import com.azure.core.http.rest.PagedIterable;
-import com.azure.core.util.Context;
-import com.azure.core.util.polling.SyncPoller;
-```
-
-Adicione uma classe e um método `main` e crie variáveis para a chave e o Ponto de Extremidade do Azure do recurso. Se você tiver criado a variável de ambiente depois de iniciar o aplicativo, precisará fechar e abrir novamente o editor, o IDE ou o shell para acessar a variável. Você definirá os métodos mais tarde.
-
-
-```java
-public class FormRecognizer {
-    public static void main(String[] args)
-    {
-        String key = "<replace-with-your-form-recognizer-key>";
-        String endpoint = "<replace-with-your-form-recognizer-endpoint>";
-    }
+#### <a name="version-31-preview"></a>[versão 3.1 – versão prévia](#tab/preview)
+```kotlin
+plugins {
+    java
+    application
+}
+application {
+    mainClass.set("FormRecognizer")
+}
+repositories {
+    mavenCentral()
+}
+dependencies {
+    implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.1.0-beta.1")
 }
 ```
+
+> [!NOTE]
+> O SDK do Reconhecimento de Formulários 3.1.0 reflete a versão prévia da API versão 2.1
+
+---
+
+### <a name="create-a-java-file"></a>Criar um arquivo Java
+
+
+Do diretório de trabalho, execute o seguinte comando:
+
+```console
+mkdir -p src/main/java
+```
+
+Navegue até a nova pasta e crie um arquivo chamado *FormRecognizer.java*. Abra-a no editor ou IDE de sua preferência e adicione as seguintes instruções `import`:
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_imports)]
+
+> [!TIP]
+> Deseja exibir todo o arquivo de código do início rápido de uma vez? Você pode encontrá-lo no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/FormRecognizer.java), que contém os exemplos de código neste início rápido.
+
+
+Na classe **FormRecognizer** do aplicativo, crie variáveis para a chave e o ponto de extremidade do recurso.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_creds)]
+
+> [!IMPORTANT]
+> Acesse o portal do Azure. Se o recurso do Reconhecimento de Formulários que você criou na seção **Pré-requisitos** tiver sido implantado com êxito, clique no botão **Ir para o Recurso** em **Próximas etapas**. Encontre a chave e o ponto de extremidade na página da **chave e do ponto de extremidade** do recurso, em **gerenciamento de recursos**. 
+>
+> Lembre-se de remover a chave do seu código quando terminar e nunca poste-a publicamente. Para produção, considere o uso de uma maneira segura de armazenar e acessar suas credenciais. Confira o artigo [segurança](../../../cognitive-services-security.md) de Serviços Cognitivos para obter mais informações.
+
+No método **main** do aplicativo, adicione chamadas para os métodos usados neste guia de início rápido. Você os definirá mais tarde. Você também precisará adicionar referências às URLs para os dados de treinamento e teste.
+
+* [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
+  
+   :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="Recuperação da URL SAS":::
+* Para obter uma URL de um formulário para teste, use as etapas acima para obter a URL de SAS de um documento individual no armazenamento de blobs. Ou então, selecione a URL de um documento localizado em outro lugar.
+* Use o método acima para obter a URL de uma imagem de recibo também.
+
+#### <a name="version-20"></a>[versão 2.0](#tab/ga)
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_mainvars)]
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_maincalls)]
+#### <a name="version-21-preview"></a>[versão 2.1 – versão prévia](#tab/preview)
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_mainvars)]
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_maincalls)]
+
+---
+
+
 
 ## <a name="object-model"></a>Modelo de objeto 
 
@@ -120,8 +156,8 @@ Com o Reconhecimento de Formulários, você pode criar dois tipos diferentes de 
 `FormRecognizerClient` fornece operações para:
 
 - Reconhecer campos e conteúdo do formulário usando modelos personalizados treinados para reconhecer seus formulários personalizados.  Esses valores são retornados em uma coleção de objetos `RecognizedForm`. Confira o exemplo [Analisar formulários personalizados](#analyze-forms-with-a-custom-model).
-- Reconhecer o conteúdo do formulário, incluindo tabelas, linhas e palavras, sem a necessidade de treinar um modelo.  O conteúdo do formulário é retornado em uma coleção de objetos `FormPage`. Confira o exemplo [Reconhecer o conteúdo do formulário](#recognize-form-content).
-- Reconhecer campos comuns de recibos dos EUA, usando um modelo de recibo pré-treinado no serviço do Reconhecimento de Formulários.  Esses campos e metadados são retornados em uma coleção de objetos `RecognizedForm`. Confira o exemplo [Reconhecer recibos](#recognize-receipts).
+- Reconhecer o conteúdo do formulário, incluindo tabelas, linhas e palavras, sem a necessidade de treinar um modelo.  O conteúdo do formulário é retornado em uma coleção de objetos `FormPage`. Confira o exemplo [Analisar layout](#analyze-layout).
+- Reconhecer campos comuns de recibos dos EUA, usando um modelo de recibo pré-treinado no serviço do Reconhecimento de Formulários.  Esses campos e metadados são retornados em uma coleção de objetos `RecognizedForm`. Confira o exemplo [Analisar recibos](#analyze-receipts).
 
 ### <a name="formtrainingclient"></a>FormTrainingClient
 
@@ -133,115 +169,51 @@ Com o Reconhecimento de Formulários, você pode criar dois tipos diferentes de 
 - Copiar um modelo personalizado de um recurso de Reconhecimento de Formulários para outro.
 
 > [!NOTE]
-> Os modelos também podem ser treinados usando uma interface gráfica do usuário, como a [Ferramenta de Rotulagem do Reconhecimento de Formulários](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool).
+> Os modelos também podem ser treinados usando uma interface gráfica do usuário, como a [Ferramenta de Rotulagem do Reconhecimento de Formulários](../../quickstarts/label-tool.md).
 
 ## <a name="code-examples"></a>Exemplos de código
 
 Estes snippets de códigos mostram como executar as seguintes tarefas com a biblioteca de clientes do Reconhecimento de Formulários para Java:
 
+#### <a name="version-20"></a>[versão 2.0](#tab/ga)
 * [Autenticar o cliente](#authenticate-the-client)
-* [Reconhecer o conteúdo do formulário](#recognize-form-content)
-* [Reconhecer recibos](#recognize-receipts)
+* [Analisar layout](#analyze-layout)
+* [Analisar recibos](#analyze-receipts)
+* [Treinar um modelo personalizado](#train-a-custom-model)
+* [Analisar formulários com um modelo personalizado](#analyze-forms-with-a-custom-model)
+* [Gerenciar seus modelos personalizados](#manage-your-custom-models)
+#### <a name="version-21-preview"></a>[versão 2.1 – versão prévia](#tab/preview)
+* [Autenticar o cliente](#authenticate-the-client)
+* [Analisar layout](#analyze-layout)
+* [Analisar recibos](#analyze-receipts)
+* [Analisar cartões de visita](#analyze-business-cards)
+* [Analisar faturas](#analyze-invoices)
 * [Treinar um modelo personalizado](#train-a-custom-model)
 * [Analisar formulários com um modelo personalizado](#analyze-forms-with-a-custom-model)
 * [Gerenciar seus modelos personalizados](#manage-your-custom-models)
 
+---
+
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-No método `Main`, adicione o código a seguir. Aqui, você autenticará os objetos de cliente usando as variáveis de assinatura definidas acima. Você usará um objeto **AzureKeyCredential**, para, se necessário, atualizar a chave de API sem criar objetos de cliente.
+Na parte superior do método **main**, adicione o código a seguir. Aqui, você autenticará os objetos de cliente usando as variáveis de assinatura definidas acima. Você usará um objeto **AzureKeyCredential**, para, se necessário, atualizar a chave de API sem criar objetos de cliente.
 
-> [!IMPORTANT]
-> Obtenha a chave e o ponto de extremidade no portal do Azure. Se o recurso do Reconhecimento de Formulários que você criou na seção **Pré-requisitos** tiver sido implantado com êxito, clique no botão **Ir para o Recurso** em **Próximas etapas**. Encontre a chave e o ponto de extremidade na página da **chave e do ponto de extremidade** do recurso, em **gerenciamento de recursos**. 
->
-> Lembre-se de remover a chave do seu código quando terminar e nunca poste-a publicamente. Para produção, considere o uso de uma maneira segura de armazenar e acessar suas credenciais. Por exemplo, o [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_auth)]
 
-```java
-    FormRecognizerClient recognizerClient = new FormRecognizerClientBuilder()
-    .credential(new AzureKeyCredential(key))
-    .endpoint(endpoint)
-    .buildClient();
-    
-    FormTrainingClient trainingClient = new FormTrainingClientBuilder()
-    .credential(new AzureKeyCredential(key))
-    .endpoint(endpoint)
-    .buildClient();
-```
-
-### <a name="call-client-specific-methods"></a>Chamar métodos específicos do cliente
-
-O próximo bloco de código usa os objetos de cliente para chamar métodos para cada uma das principais tarefas no SDK do Reconhecimento de Formulários. Você definirá esses métodos mais tarde.
-
-Você também precisará adicionar referências às URLs para os dados de treinamento e teste.
-
-* Para recuperar a URL de SAS para os dados de treinamento do modelo personalizado, abra o Gerenciador de Armazenamento do Microsoft Azure, clique com o botão direito do mouse no contêiner e selecione **Obter Assinatura de Acesso Compartilhado**. Verifique se as permissões de **Leitura** e **Lista** estão marcadas e clique em **Criar**. Em seguida, copie o valor na seção **URL**. Deve ter o formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
-* Para obter uma URL de um formulário para teste, use as etapas acima para obter a URL de SAS de um documento individual no armazenamento de blobs. Ou então, selecione a URL de um documento localizado em outro lugar.
-* Use o método acima para obter a URL de uma imagem de recibo também.
-
-> [!NOTE]
-> Os snippets de código deste guia usam formulários remotos acessados por URLs. Caso deseje processar documentos de formulário local, confira os métodos relacionados na [documentação de referência](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview).
-
-```java
-    String trainingDataUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";
-    String formUrl = "<SAS-URL-of-a-form-in-blob-storage>";
-    String receiptUrl = "https://docs.microsoft.com/azure/cognitive-services/form-recognizer/media"
-    + "/contoso-allinone.jpg";
-
-    // Call Form Recognizer scenarios:
-    System.out.println("Get form content...");
-    GetContent(recognizerClient, formUrl);
-
-    System.out.println("Analyze receipt...");
-    AnalyzeReceipt(recognizerClient, receiptUrl);
-
-    System.out.println("Train Model with training data...");
-    String modelId = TrainModel(trainingClient, trainingDataUrl);
-
-    System.out.println("Analyze PDF form...");
-    AnalyzePdfForm(recognizerClient, modelId, formUrl);
-
-    System.out.println("Manage models...");
-    ManageModels(trainingClient, trainingDataUrl);
-```
-
-
-## <a name="recognize-form-content"></a>Reconhecer o conteúdo do formulário
+## <a name="analyze-layout"></a>Analisar layout
 
 Use o Reconhecimento de Formulários para reconhecer tabelas, linhas e palavras em documentos, sem a necessidade de treinar um modelo.
 
-Para reconhecer o conteúdo de um arquivo em um URI especificado, use o método **beginRecognizeContentFromUrl**.
+Para reconhecer o conteúdo de um arquivo em determinada URL, use o método **beginRecognizeContentFromUrl**.
 
-```java
-private static void GetContent(
-    FormRecognizerClient recognizerClient, String invoiceUri)
-{
-    String analyzeFilePath = invoiceUri;
-    SyncPoller<FormRecognizerOperationResult, List<FormPage>> recognizeContentPoller =
-        recognizerClient.beginRecognizeContentFromUrl(analyzeFilePath);
-    
-    List<FormPage> contentResult = recognizeContentPoller.getFinalResult();
-```
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_getcontent_call)]
+
+> [!TIP]
+> Você também pode obter o conteúdo em um arquivo local. Confira os métodos de [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient), como **beginRecognizeContent**. Ou veja o código de exemplo no [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) para obter cenários que envolvam imagens locais.
 
 O valor retornado é uma coleção de objetos **FormPage**: um para cada página no documento enviado. O código a seguir itera nesses objetos e imprime os pares de chave/valor extraídos e os dados da tabela.
 
-```java
-    contentResult.forEach(formPage -> {
-        // Table information
-        System.out.println("----Recognizing content ----");
-        System.out.printf("Has width: %f and height: %f, measured with unit: %s.%n", formPage.getWidth(),
-            formPage.getHeight(),
-            formPage.getUnit());
-        formPage.getTables().forEach(formTable -> {
-            System.out.printf("Table has %d rows and %d columns.%n", formTable.getRowCount(),
-                formTable.getColumnCount());
-            formTable.getCells().forEach(formTableCell -> {
-                System.out.printf("Cell has text %s.%n", formTableCell.getText());
-            });
-            System.out.println();
-        });
-    });
-}
-```
-
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_getcontent_print)]
 ### <a name="output"></a>Saída
 
 ```console
@@ -261,99 +233,24 @@ Cell has text $89,024.34.
 Cell has text ET.
 ```
 
-## <a name="recognize-receipts"></a>Reconhecer recibos
+## <a name="analyze-receipts"></a>Analisar recibos
 
 Esta seção demonstra como reconhecer e extrair campos comuns de recibos dos EUA usando um modelo de recibo pré-treinado.
 
-Para reconhecer recibos de um URI, use o método **beginRecognizeReceiptsFromUrl**. O valor retornado é uma coleção de objetos **RecognizedReceipt**: um para cada página no documento enviado.
+Para reconhecer recibos de um URI, use o método **beginRecognizeReceiptsFromUrl**. 
 
-```java
-private static void AnalyzeReceipt(
-    FormRecognizerClient recognizerClient, String receiptUri)
-{
-    SyncPoller<FormRecognizerOperationResult, List<RecognizedForm>> syncPoller =
-    recognizerClient.beginRecognizeReceiptsFromUrl(receiptUri);
-    List<RecognizedForm> receiptPageResults = syncPoller.getFinalResult();
-```
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_call)]
 
-O próximo bloco de código itera pelos recibos e imprime os detalhes no console.
+> [!TIP]
+> Você também pode reconhecer imagens de recebimento local. Confira os métodos de [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient), como **beginRecognizeReceipts**. Ou veja o código de exemplo no [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) para obter cenários que envolvam imagens locais.
 
-```java
-    for (int i = 0; i < receiptPageResults.size(); i++) {
-        RecognizedForm recognizedForm = receiptPageResults.get(i);
-        Map<String, FormField> recognizedFields = recognizedForm.getFields();
-        System.out.printf("----------- Recognized Receipt page %d -----------%n", i);
-        FormField merchantNameField = recognizedFields.get("MerchantName");
-        if (merchantNameField != null) {
-            if (FieldValueType.STRING == merchantNameField.getValue().getValueType()) {
-                String merchantName = merchantNameField.getValue().asString();
-                System.out.printf("Merchant Name: %s, confidence: %.2f%n",
-                    merchantName, merchantNameField.getConfidence());
-            }
-        }
-        FormField merchantAddressField = recognizedFields.get("MerchantAddress");
-        if (merchantAddressField != null) {
-            if (FieldValueType.STRING == merchantAddressField.getValue().getValueType()) {
-                String merchantAddress = merchantAddressField.getValue().asString();
-                System.out.printf("Merchant Address: %s, confidence: %.2f%n",
-                    merchantAddress, merchantAddressField.getConfidence());
-            }
-        }
-        FormField transactionDateField = recognizedFields.get("TransactionDate");
-        if (transactionDateField != null) {
-            if (FieldValueType.DATE == transactionDateField.getValue().getValueType()) {
-                LocalDate transactionDate = transactionDateField.getValue().asDate();
-                System.out.printf("Transaction Date: %s, confidence: %.2f%n",
-                    transactionDate, transactionDateField.getConfidence());
-            }
-        }
-```
+O valor retornado é uma coleção de objetos **RecognizedReceipt**: um para cada página no documento enviado. O próximo bloco de código itera pelos recibos e imprime os detalhes no console.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_print)]
+
 O próximo bloco de código itera em itens individuais detectados no recibo e imprime os detalhes no console.
 
-```java
-        FormField receiptItemsField = recognizedFields.get("Items");
-        if (receiptItemsField != null) {
-            System.out.printf("Receipt Items: %n");
-            if (FieldValueType.LIST == receiptItemsField.getValue().getValueType()) {
-                List<FormField> receiptItems = receiptItemsField.getValue().asList();
-                receiptItems.stream()
-                    .filter(receiptItem -> FieldValueType.MAP == receiptItem.getValue().getValueType())
-                    .map(formField -> formField.getValue().asMap())
-                    .forEach(formFieldMap -> formFieldMap.forEach((key, formField) -> {
-                        if ("Name".equals(key)) {
-                            if (FieldValueType.STRING == formField.getValue().getValueType()) {
-                                String name = formField.getValue().asString();
-                                System.out.printf("Name: %s, confidence: %.2fs%n",
-                                    name, formField.getConfidence());
-                            }
-                        }
-                        if ("Quantity".equals(key)) {
-                            if (FieldValueType.FLOAT == formField.getValue().getValueType()) {
-                                Float quantity = formField.getValue().asFloat();
-                                System.out.printf("Quantity: %f, confidence: %.2f%n",
-                                    quantity, formField.getConfidence());
-                            }
-                        }
-                        if ("Price".equals(key)) {
-                            if (FieldValueType.FLOAT == formField.getValue().getValueType()) {
-                                Float price = formField.getValue().asFloat();
-                                System.out.printf("Price: %f, confidence: %.2f%n",
-                                    price, formField.getConfidence());
-                            }
-                        }
-                        if ("TotalPrice".equals(key)) {
-                            if (FieldValueType.FLOAT == formField.getValue().getValueType()) {
-                                Float totalPrice = formField.getValue().asFloat();
-                                System.out.printf("Total Price: %f, confidence: %.2f%n",
-                                    totalPrice, formField.getConfidence());
-                            }
-                        }
-                }));
-            }
-        }
-    }
-}
-```
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_print_items)]
 
 ### <a name="output"></a>Saída 
 
@@ -372,6 +269,54 @@ Quantity: null, confidence: 0.927s]
 Total Price: null, confidence: 0.93
 ```
 
+## <a name="analyze-business-cards"></a>Analisar cartões de visita
+
+#### <a name="version-20"></a>[versão 2.0](#tab/ga)
+
+> [!IMPORTANT]
+> Este recurso não está disponível na versão selecionada da API.
+
+#### <a name="version-21-preview"></a>[versão 2.1 – versão prévia](#tab/preview)
+
+Esta seção demonstra como reconhecer e extrair campos comuns de cartões de visita em inglês usando um modelo pré-treinado.
+
+Para reconhecer cartões de visita por meio de uma URL, use o método `beginRecognizeBusinessCardsFromUrl`. 
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_call)]
+
+> [!TIP]
+> Reconheça também imagens de cartões de visita locais. Confira os métodos de [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient), como **beginRecognizeBusinessCards**. Ou veja o código de exemplo no [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) para obter cenários que envolvam imagens locais.
+
+O valor retornado é uma coleção de objetos **RecognizedForm**: um para cada cartão no documento. O código a seguir processa um cartão de visita no URI fornecido e imprime os valores e os campos principais no console.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_print)]
+
+---
+
+## <a name="analyze-invoices"></a>Analisar faturas
+
+#### <a name="version-20"></a>[versão 2.0](#tab/ga)
+
+> [!IMPORTANT]
+> Este recurso não está disponível na versão selecionada da API.
+
+#### <a name="version-21-preview"></a>[versão 2.1 – versão prévia](#tab/preview)
+
+Esta seção demonstra como reconhecer e extrair campos comuns de faturas de vendas usando um modelo pré-treinado.
+
+Para reconhecer cartões de visita por meio de uma URL, use o método `beginRecognizeInvoicesFromUrl`. 
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_invoice_call)]
+
+> [!TIP]
+> Reconheça também faturas locais. Confira os métodos de [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient), como **beginRecognizeInvoices**. Ou veja o código de exemplo no [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) para obter cenários que envolvam imagens locais.
+
+O valor retornado é uma coleção de objetos **RecognizedForm**: um para cada fatura no documento. O código a seguir processa um cartão de visita no URI fornecido e imprime os valores e os campos principais no console.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_invoice_print)]
+
+---
+
 ## <a name="train-a-custom-model"></a>Treinar um modelo personalizado
 
 Esta seção demonstra como treinar um modelo com os próprios dados. Um modelo treinado pode gerar dados estruturados que incluem as relações de chave/valor no documento de formulário original. Depois de treinar no modelo, você pode testá-lo, treinar novamente e, por fim, usá-lo para extrair, de forma confiável, dados de mais formulários de acordo com suas necessidades.
@@ -385,42 +330,17 @@ Treine modelos personalizados para reconhecer todos os campos e valores encontra
 
 O método a seguir treina um modelo em um especificado conjunto de documentos e imprime o status do modelo no console. 
 
-```java
-private static String TrainModel(
-    FormTrainingClient trainingClient, String trainingDataUrl)
-{
-    SyncPoller<FormRecognizerOperationResult, CustomFormModel> trainingPoller =
-        trainingClient.beginTraining(trainingDataUrl, false);
-    
-    CustomFormModel customFormModel = trainingPoller.getFinalResult();
-    
-    // Model Info
-    System.out.printf("Model Id: %s%n", customFormModel.getModelId());
-    System.out.printf("Model Status: %s%n", customFormModel.getModelStatus());
-    System.out.printf("Training started on: %s%n", customFormModel.getTrainingStartedOn());
-    System.out.printf("Training completed on: %s%n%n", customFormModel.getTrainingCompletedOn());
-```
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_train_call)]
+
 O objeto **CustomFormModel** retornado contém informações sobre os tipos de formulários que o modelo pode reconhecer e os campos que ele pode extrair de cada tipo de formulário. O bloco de código a seguir imprime essas informações no console.
 
-```java 
-    System.out.println("Recognized Fields:");
-    // looping through the subModels, which contains the fields they were trained on
-    // Since the given training documents are unlabeled, we still group them but they do not have a label.
-    customFormModel.getSubmodels().forEach(customFormSubmodel -> {
-        // Since the training data is unlabeled, we are unable to return the accuracy of this model
-        System.out.printf("The subModel has form type %s%n", customFormSubmodel.getFormType());
-        customFormSubmodel.getFields().forEach((field, customFormModelField) ->
-            System.out.printf("The model found field '%s' with label: %s%n",
-                field, customFormModelField.getLabel()));
-    });
-```
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_train_print)]
 
 Por fim, esse método retorna a ID exclusiva do modelo.
 
-```java
-    return customFormModel.getModelId();
-}
-```
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_train_return)]
+
 
 ### <a name="output"></a>Saída
 
@@ -446,40 +366,13 @@ The model found field 'field-6' with label: VAT ID
 
 Você também pode treinar modelos personalizados rotulando manualmente os documentos de treinamento. O treinamento com rótulos leva a um melhor desempenho em alguns cenários. Para o treinamento com rótulos, você precisará ter arquivos de informações de rótulo especiais ( *\<filename\>.pdf.labels.json*) no contêiner de armazenamento de blobs junto com os documentos de treinamento. A [ferramenta de rotulagem de exemplo Reconhecimento de Formulários](../../quickstarts/label-tool.md) fornece uma interface do usuário para ajudar você a criar esses arquivos de rótulo. Depois de obtê-los, chame o método **beginTraining** com o parâmetro *useTrainingLabels* definido como `true`.
 
-```java
-private static String TrainModelWithLabels(
-    FormTrainingClient trainingClient, String trainingDataUrl)
-{
-    // Train custom model
-    String trainingSetSource = trainingDataUrl;
-    SyncPoller<FormRecognizerOperationResult, CustomFormModel> trainingPoller = trainingClient.beginTraining(trainingSetSource, true);
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_trainlabels_call)]
 
-    CustomFormModel customFormModel = trainingPoller.getFinalResult();
-
-    // Model Info
-    System.out.printf("Model Id: %s%n", customFormModel.getModelId());
-    System.out.printf("Model Status: %s%n", customFormModel.getModelStatus());
-    System.out.printf("Training started on: %s%n", customFormModel.getTrainingStartedOn());
-    System.out.printf("Training completed on: %s%n%n", customFormModel.getTrainingCompletedOn());
-```
 
 O **CustomFormModel** retornado indica os campos que o modelo pode extrair, juntamente com a precisão estimada em cada campo. O bloco de código a seguir imprime essas informações no console.
 
-```java
-    // looping through the subModels, which contains the fields they were trained on
-    // The labels are based on the ones you gave the training document.
-    System.out.println("Recognized Fields:");
-    // Since the data is labeled, we are able to return the accuracy of the model
-    customFormModel.getSubmodels().forEach(customFormSubmodel -> {
-        System.out.printf("The subModel with form type %s has accuracy: %.2f%n",
-            customFormSubmodel.getFormType(), customFormSubmodel.getAccuracy());
-        customFormSubmodel.getFields().forEach((label, customFormModelField) ->
-            System.out.printf("The model found field '%s' to have name: %s with an accuracy: %.2f%n",
-                label, customFormModelField.getName(), customFormModelField.getAccuracy()));
-    });
-    return customFormModel.getModelId();
-}
-```
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_trainlabels_print)]
+
 
 ### <a name="output"></a>Saída
 
@@ -508,34 +401,17 @@ Esta seção demonstra como extrair informações de chave/valor e outro conteú
 > [!IMPORTANT]
 > Para implementar esse cenário, você já precisará ter treinado um modelo para passar a ID para o método abaixo. Confira a seção [Treinar um modelo](#train-a-model-without-labels).
 
-Você usará o método **beginRecognizeCustomFormsFromUrl**. O valor retornado é uma coleção de objetos **RecognizedForm**: um para cada página no documento enviado.
+Você usará o método **beginRecognizeCustomFormsFromUrl**. 
 
-```java
-// Analyze PDF form data
-private static void AnalyzePdfForm(
-    FormRecognizerClient formClient, String modelId, String pdfFormUrl)
-{    
-    SyncPoller<FormRecognizerOperationResult, List<RecognizedForm>> recognizeFormPoller =
-    formClient.beginRecognizeCustomFormsFromUrl(modelId, pdfFormUrl);
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_analyze_call)]
 
-    List<RecognizedForm> recognizedForms = recognizeFormPoller.getFinalResult();
-```
+> [!TIP]
+> Você também pode analisar um arquivo local. Confira os métodos de [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient), como **beginRecognizeCustomForms**. Ou veja o código de exemplo no [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) para obter cenários que envolvam imagens locais.
 
-O código a seguir imprime os resultados da análise no console. Ele imprime cada campo reconhecido e o valor correspondente, juntamente com uma pontuação de confiança.
+O valor retornado é uma coleção de objetos **RecognizedForm**: um para cada página no documento enviado. O código a seguir imprime os resultados da análise no console. Ele imprime cada campo reconhecido e o valor correspondente, juntamente com uma pontuação de confiança.
 
-```java
-    for (int i = 0; i < recognizedForms.size(); i++) {
-        final RecognizedForm form = recognizedForms.get(i);
-        System.out.printf("----------- Recognized custom form info for page %d -----------%n", i);
-        System.out.printf("Form type: %s%n", form.getFormType());
-        form.getFields().forEach((label, formField) ->
-            // label data is populated if you are using a model trained with unlabeled data,
-            // since the service needs to make predictions for labels if not explicitly given to it.
-            System.out.printf("Field '%s' has label '%s' with a confidence "
-                + "score of %.2f.%n", label, formField.getLabelData().getText(), formField.getConfidence()));
-    }
-}
-```
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_analyze_print)]
+
 
 ### <a name="output"></a>Saída
 
@@ -557,24 +433,15 @@ Field 'field-6' has label 'VAT ID' with a confidence score of 1.00.
 
 Esta seção demonstra como gerenciar os modelos personalizados armazenados na sua conta. O código a seguir executa todas as tarefas de gerenciamento de modelos em um só método, como um exemplo. Comece copiando a assinatura de método abaixo:
 
-```java
-private static void ManageModels(
-    FormTrainingClient trainingClient, String trainingFileUrl)
-{
-```
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage)]
+
 
 ### <a name="check-the-number-of-models-in-the-formrecognizer-resource-account"></a>Verificar o número de modelos na conta do recurso do FormRecognizer
 
 O bloco de código a seguir verifica quantos modelos você salvou na sua conta do Reconhecimento de Formulários e os compara com o limite da conta.
 
-```java
-    AtomicReference<String> modelId = new AtomicReference<>();
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage_count)]
 
-    // First, we see how many custom models we have, and what our limit is
-    AccountProperties accountProperties = trainingClient.getAccountProperties();
-    System.out.printf("The account has %s custom models, and we can have at most %s custom models",
-        accountProperties.getCustomModelCount(), accountProperties.getCustomModelLimit());
-```
 
 #### <a name="output"></a>Saída 
 
@@ -586,31 +453,8 @@ The account has 12 custom models, and we can have at most 250 custom models
 
 O bloco de código a seguir lista os modelos atuais na sua conta e imprime os detalhes no console.
 
-```java    
-    // Next, we get a paged list of all of our custom models
-    PagedIterable<CustomFormModelInfo> customModels = trainingClient.listCustomModels();
-    System.out.println("We have following models in the account:");
-    customModels.forEach(customFormModelInfo -> {
-        System.out.printf("Model Id: %s%n", customFormModelInfo.getModelId());
-        // get custom model info
-        modelId.set(customFormModelInfo.getModelId());
-        CustomFormModel customModel = trainingClient.getCustomModel(customFormModelInfo.getModelId());
-        System.out.printf("Model Id: %s%n", customModel.getModelId());
-        System.out.printf("Model Status: %s%n", customModel.getModelStatus());
-        System.out.printf("Training started on: %s%n", customModel.getTrainingStartedOn());
-        System.out.printf("Training completed on: %s%n", customModel.getTrainingCompletedOn());
-        customModel.getSubmodels().forEach(customFormSubmodel -> {
-            System.out.printf("Custom Model Form type: %s%n", customFormSubmodel.getFormType());
-            System.out.printf("Custom Model Accuracy: %.2f%n", customFormSubmodel.getAccuracy());
-            if (customFormSubmodel.getFields() != null) {
-                customFormSubmodel.getFields().forEach((fieldText, customFormModelField) -> {
-                    System.out.printf("Field Text: %s%n", fieldText);
-                    System.out.printf("Field Accuracy: %.2f%n", customFormModelField.getAccuracy());
-                });
-            }
-        });
-    });
-```
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage_list)]
+
 
 #### <a name="output"></a>Saída 
 
@@ -636,12 +480,8 @@ Field Accuracy: 1.00
 
 Exclua também um modelo da sua conta referenciando a ID.
 
-```java
-    // Delete Custom Model
-    System.out.printf("Deleted model with model Id: %s, operation completed with status: %s%n", modelId.get(),
-    trainingClient.deleteModelWithResponse(modelId.get(), Context.NONE).getStatusCode());
-}
-```
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage_delete)]
+
 
 
 ## <a name="run-the-application"></a>Executar o aplicativo

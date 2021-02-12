@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/01/2020
+ms.date: 12/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 92f589e6a587febc10a4b407fe3616aca42d27d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c6bd62e96d85305036626a8672c39ff1b9f6b26
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89318940"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201086"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Sobre dispositivos VPN e os parâmetros IPsec/IKE para conexões do Gateway de VPN site a site
 
@@ -51,7 +51,7 @@ Para ajudar a configurar seu dispositivo VPN, consulte os links que correspondem
 | Citrix |NetScaler MPX, SDX, VPX |10.1 e acima |[Guia de configuração](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Não compatível |
 | F5 |Série BIG-IP |12.0 |[Guia de configuração](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Guia de configuração](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.6 | (não testado) |[Guia de configuração](https://docs.fortinet.com/document/fortigate/5.6.0/cookbook/255100/ipsec-vpn-to-azure) |
-| Redes Hillstone | Firewalls da Next-Gen (NGFW) | 5.5 R7  | (não testado) | [Guia de configuração](https://www.hillstonenet.com/wp-content/uploads/How-to-setup-Site-to-Site-VPN-between-Microsoft-Azure-and-an-on-premise-Hillstone-Networks-Security-Gateway.pdf) |
+| Hillstone Networks | Firewalls da Next-Gen (NGFW) | 5.5 R7  | (não testado) | [Guia de configuração](https://www.hillstonenet.com/wp-content/uploads/How-to-setup-Site-to-Site-VPN-between-Microsoft-Azure-and-an-on-premise-Hillstone-Networks-Security-Gateway.pdf) |
 | Internet Initiative Japan (IIJ) |Série SEIL |SEIL/X 4.60<br>SEIL/B1 4.60<br>SEIL/x86 3.20 |[Guia de configuração](https://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |Não compatível |
 | Juniper |SRX |PolicyBased: JunOS 10.2<br>Routebased: JunOS 11.4 |Com suporte |[Script de configuração](vpn-gateway-download-vpndevicescript.md) |
 | Juniper |Série J |PolicyBased: JunOS 10.4r9<br>RouteBased: JunOS 11.4 |Com suporte |[Script de configuração](vpn-gateway-download-vpndevicescript.md) |
@@ -61,14 +61,14 @@ Para ajudar a configurar seu dispositivo VPN, consulte os links que correspondem
 | Microsoft |Serviço de Roteamento e Acesso Remoto |Windows Server 2012 |Não compatível |Com suporte |
 | AG de sistemas abertos |Gateway de Segurança de Controle de Missão |N/D |[Guia de configuração](https://open-systems.com/wp-content/uploads/2019/12/OpenSystems-AzureVPNSetup-Installation-Guide.pdf) |Não compatível |
 | Redes Palo Alto |Todos os dispositivos executando PAN-OS |PAN-OS<br>PolicyBased: 6.1.5 ou posterior<br>RouteBased: 7.1.4 |Com suporte |[Guia de configuração](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000Cm6WCAS) |
-| Sentrium (desenvolvedor) | VyOS | VyOS 1.2.2 | (não testado) | [Guia de configuração ](https://vyos.readthedocs.io/en/latest/appendix/examples/azure-vpn-bgp.html)|
+| Sentrium (desenvolvedor) | VyOS | VyOS 1.2.2 | (não testado) | [Guia de configuração ](https://docs.vyos.io/en/latest/configexamples/azure-vpn-bgp.html)|
 | ShareTech | Próxima geração de UTM (série NU) | 9.0.1.3 | Não compatível | [Guia de configuração](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |
 | SonicWall |Série TZ, série NSA<br>Série SuperMassive<br>Série NSA E-Class |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |Não compatível |[Guia de configuração](https://www.sonicwall.com/support/knowledge-base/170505320011694) |
 | Sophos | Firewall XG de última geração | XG v17 | (não testado) | [Guia de configuração](https://community.sophos.com/kb/127546)<br><br>[Guia de configuração – Várias SAs](https://community.sophos.com/kb/en-us/133154) |
 | Synology | MR2200ac <br>RT2600ac <br>RT1900ac | SRM 1.1.5/VpnPlusServer-1.2.0 | (não testado) | [Guia de configuração](https://www.synology.com/en-global/knowledgebase/SRM/tutorial/VPN/How_to_set_up_Site_to_Site_VPN_between_Synology_Router_and_MS_Azure) |
 | Ubiquiti | EdgeRouter | EdgeOS v1.10 | (não testado) | [BGP em IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012374708)<br><br>[VTI em IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012305347) |
-| Ultra | 3E-636L3 | 5.2.0. T3 Build-13  | (não testado) | [Guia de configuração](https://ultra-3eti.com/wp-content/uploads/2020/07/Azure-VPN-636L3-Site-to-Site-Test-Notes.pdf) |
-| WatchGuard |Todos |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Guia de configuração](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Guia de configuração](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
+| Ultra | 3E-636L3 | 5.2.0. T3 Build-13  | (não testado) | Guia de configuração |
+| WatchGuard |Tudo |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Guia de configuração](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Guia de configuração](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 | Zyxel |Série ZyWALL USG<br>Série ZyWALL ATP<br>Série de VPN ZyWALL | ZLD v 4.32 + | (não testado) | [VTI em IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2648/)<br><br>[BGP em IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2650/)|
 
 > [!NOTE]
@@ -112,13 +112,11 @@ Depois de baixar o exemplo de configuração de dispositivo VPN fornecido, você
 | &lt;SP_AzureGatewayIpAddress&gt; |Informações específicas à sua rede virtual e que estão localizadas no Portal de Gerenciamento como **Endereço IP do Gateway**. |
 | &lt;SP_PresharedKey&gt; |Essas informações são específicas da sua rede virtual e estão localizadas no Portal de Gerenciamento como Gerenciar Chave. |
 
-## <a name="ipsecike-parameters"></a><a name="ipsec"></a>Parâmetros IPsec/IKE
+## <a name="default-ipsecike-parameters"></a><a name="ipsec"></a>Parâmetros padrão de IPsec/IKE
 
-> [!IMPORTANT]
-> 1. As tabelas a seguir contêm as combinações de algoritmos e parâmetros que os gateways de VPN do Azure usam na configuração padrão. Para gateways de VPN baseados em rota criados usando o modelo de implantação do Azure Resource Manager, você pode especificar uma política personalizada em cada conexão individual. Confira [Configurar política de IPsec/IKE](vpn-gateway-ipsecikepolicy-rm-powershell.md) para obter instruções detalhadas.
->
-> 2. Além disso, você deve fixar o TCP **MSS** em **1350**. Ou, se os dispositivos VPN não derem suporte à fixação de MSS, como alternativa, você poderá definir o **MTU** na interface de túnel como **1400** bytes em vez disso.
->
+As tabelas a seguir contêm as combinações de algoritmos e parâmetros que os gateways de VPN do Azure usam na configuração padrão (**políticas padrão**). Para gateways de VPN baseados em rota criados usando o modelo de implantação do Azure Resource Manager, você pode especificar uma política personalizada em cada conexão individual. Confira [Configurar política de IPsec/IKE](vpn-gateway-ipsecikepolicy-rm-powershell.md) para obter instruções detalhadas.
+
+Além disso, você deve fixe TCP **MSS** em **1350**. Ou, se os dispositivos VPN não derem suporte à fixação de MSS, como alternativa, você poderá definir o **MTU** na interface de túnel como **1400** bytes em vez disso.
 
 Nas tabelas a seguir:
 
@@ -144,7 +142,7 @@ Nas tabelas a seguir:
 | Criptografia e algoritmos de hash |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[Ofertas QM SA RouteBased](#RouteBasedOffers) |
 | Tempo de vida da SA (Tempo)            |3.600 segundos  |27.000 segundos                               |
 | Tempo de vida da SA (Bytes)           |102.400.000 KB |102.400.000 KB                               |
-| PFS (Perfect Forward Secrecy) |Não             |[Ofertas QM SA RouteBased](#RouteBasedOffers) |
+| PFS (Perfect Forward Secrecy) |No             |[Ofertas QM SA RouteBased](#RouteBasedOffers) |
 | Detecção de par inativo (DPD)     |Sem suporte  |Com suporte                                    |
 
 

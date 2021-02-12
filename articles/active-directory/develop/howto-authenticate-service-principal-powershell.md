@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.openlocfilehash: e034149372ba061ec958e0c1e22187d33009080c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b07679c6dd5e03131fde1439213783893971a088
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265826"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581798"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Como usar o Azure PowerShell para criar uma entidade de serviço com um certificado
 
@@ -72,7 +72,7 @@ O exemplo fica suspenso por 20 segundos para dar tempo para a nova entidade de s
 
 Você pode definir o escopo da atribuição de função para um grupo de recursos específico usando o parâmetro **ResourceGroupName**. Você pode definir o escopo para um recurso específico também usando os parâmetros **ResourceType** e **ResourceName**. 
 
-Se você **não tiver o Windows 10 ou o Windows Server 2016**, precisará baixar o [Gerador de certificado autoassinado](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) no Script Center da Microsoft. Extraia seu conteúdo e importe o cmdlet necessário.
+Se você **não tiver o Windows 10 ou o Windows Server 2016**, baixe o [gerador de certificado autoassinado](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) do Microsoft Script Center. Extraia seu conteúdo e importe o cmdlet necessário.
 
 ```powershell
 # Only run if you could not use New-SelfSignedCertificate
@@ -91,14 +91,14 @@ $cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'C
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Fornecer certificado por meio do script PowerShell automatizado
 
-Sempre que você entrar como uma entidade de serviço, precisará fornecer a ID do locatário do diretório do aplicativo do AD. Um locatário é uma instância do Azure AD.
+Sempre que você entrar como uma entidade de serviço, forneça a ID do locatário do diretório para seu aplicativo do AD. Um locatário é uma instância do Azure AD.
 
 ```powershell
 $TenantId = (Get-AzSubscription -SubscriptionName "Contoso Default").TenantId
 $ApplicationId = (Get-AzADApplication -DisplayNameStartWith exampleapp).ApplicationId
 
- $Thumbprint = (Get-ChildItem cert:\CurrentUser\My\ | Where-Object {$_.Subject -eq "CN=exampleappScriptCert" }).Thumbprint
- Connect-AzAccount -ServicePrincipal `
+$Thumbprint = (Get-ChildItem cert:\CurrentUser\My\ | Where-Object {$_.Subject -eq "CN=exampleappScriptCert" }).Thumbprint
+Connect-AzAccount -ServicePrincipal `
   -CertificateThumbprint $Thumbprint `
   -ApplicationId $ApplicationId `
   -TenantId $TenantId
@@ -126,7 +126,7 @@ Param (
  Connect-AzAccount
  Import-Module Az.Resources
  Set-AzContext -Subscription $SubscriptionId
- 
+
  $CertPassword = ConvertTo-SecureString $CertPlainPassword -AsPlainText -Force
 
  $PFXCert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @($CertPath, $CertPassword)
@@ -146,22 +146,22 @@ Param (
     $NewRole = Get-AzRoleAssignment -ObjectId $ServicePrincipal.Id -ErrorAction SilentlyContinue
     $Retries++;
  }
- 
+
  $NewRole
 ```
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Fornecer certificado por meio do script PowerShell automatizado
-Sempre que você entrar como uma entidade de serviço, precisará fornecer a ID do locatário do diretório do aplicativo do AD. Um locatário é uma instância do Azure AD.
+Sempre que você entrar como uma entidade de serviço, forneça a ID do locatário do diretório para seu aplicativo do AD. Um locatário é uma instância do Azure AD.
 
 ```powershell
 Param (
- 
+
  [Parameter(Mandatory=$true)]
  [String] $CertPath,
 
  [Parameter(Mandatory=$true)]
  [String] $CertPlainPassword,
- 
+
  [Parameter(Mandatory=$true)]
  [String] $ApplicationId,
 
@@ -218,7 +218,7 @@ Você pode receber os seguintes erros ao criar uma entidade de serviço:
 
 * **"Authentication_Unauthorized"** ou **"Nenhuma assinatura encontrada no contexto".** - Você recebe esse erro quando sua conta não tem as [permissões necessárias](#required-permissions) no Azure AD para registrar um aplicativo. Normalmente, você vê esse erro quando somente usuários administradores no seu Azure Active Directory podem registrar aplicativos e sua conta não é um administrador. Peça ao administrador para atribuí-lo a uma função de administrador ou para permitir que os usuários registrem aplicativos.
 
-* Sua conta **"não tem autorização para executar a ação 'Microsoft.Authorization/roleAssignments/write' no escopo '/subscriptions/{guid}'". ** – Você verá esse erro quando sua conta não tiver permissões suficientes para atribuir uma função a uma identidade. Solicite ao administrador da assinatura para adicioná-lo à função Administrador de Acesso do Usuário.
+* Sua conta **"não tem autorização para executar a ação 'Microsoft.Authorization/roleAssignments/write' no escopo '/subscriptions/{guid}'".** – Você verá esse erro quando sua conta não tiver permissões suficientes para atribuir uma função a uma identidade. Solicite ao administrador da assinatura para adicioná-lo à função Administrador de Acesso do Usuário.
 
 ## <a name="next-steps"></a>Próximas etapas
 

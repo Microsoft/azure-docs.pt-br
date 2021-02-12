@@ -14,34 +14,34 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: b-juche
-ms.openlocfilehash: ad006279a656758ba856cd3f39c17b0410e525e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eab55f881c250c2e07717604d4ba00587a8b6031
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708518"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95243198"
 ---
 # <a name="manage-disaster-recovery-using-cross-region-replication"></a>Gerenciar a recuperação de desastre usando a replicação entre regiões 
 
-Uma replicação em andamento entre os volumes de origem e de destino (consulte [criar emparelhamento de replicação](cross-region-replication-create-peering.md)) prepara você para um evento de recuperação de desastre. 
+Uma replicação contínua entre os volumes de origem e de destino (consulte [criar replicação de volume](cross-region-replication-create-peering.md)) prepara você para um evento de recuperação de desastre. 
 
-Quando esse evento ocorre, você pode [fazer failover para o volume de destino](#break-replication-peering-to-activate-the-destination-volume), permitindo que o cliente leia e grave no volume de destino. 
+Quando esse evento ocorre, você pode [fazer failover para o volume de destino](#fail-over-to-destination-volume), permitindo que o cliente leia e grave no volume de destino. 
 
-Após a recuperação de desastre, você pode fazer failback para o volume de origem com uma [operação de ressincronização](#resync-replication-to-reactivate-the-source-volume) que substitui os dados do volume de origem pelos dados do volume de destino.  Em seguida, [restabeleça a replicação de origem para destino](#reestablish-source-to-destination-replication) e remonte o volume de origem para o cliente acessar. 
+Após a recuperação de desastres, você pode executar uma operação de [ressincronização](#resync-replication) para fazer failback para o volume de origem. Em seguida, [restabeleça a replicação de origem para destino](#reestablish-source-to-destination-replication) e remonte o volume de origem para o cliente acessar. 
 
 Os detalhes são descritos abaixo. 
 
-## <a name="break-replication-peering-to-activate-the-destination-volume"></a>Interromper o emparelhamento de replicação para ativar o volume de destino
+## <a name="fail-over-to-destination-volume"></a>Failover para o volume de destino
 
 Quando você precisar ativar o volume de destino (por exemplo, quando desejar fazer failover para a região de destino), será necessário interromper o emparelhamento de replicação e montar o volume de destino.  
 
 1. Para interromper o emparelhamento de replicação, selecione o volume de destino. Clique em **replicação** em serviço de armazenamento.  
 
 2.  Verifique os campos a seguir antes de continuar:  
-    * Verifique se o estado do espelho mostra ***espelhado***.   
-        Não tente interromper o emparelhamento de replicação se o estado do espelho mostrar não *inicializado*.
-    * Verifique se o status da relação mostra ***ocioso***.   
-        Não tente interromper o emparelhamento de replicação se o status da relação mostrar *transferência*.   
+    * Verifique se o estado do espelho mostra ***espelhado** _.   
+        Não tente interromper o emparelhamento de replicação se o estado do espelho mostrar _Uninitialized *.
+    * Verifique se o status da relação mostra ***Idle** _.   
+        Não tente interromper o emparelhamento de replicação se o status da relação mostrar _Transferring *.   
 
     Consulte [Exibir status de integridade da relação de replicação](cross-region-replication-display-health-status.md). 
 
@@ -54,7 +54,7 @@ Quando você precisar ativar o volume de destino (por exemplo, quando desejar fa
 5.  Monte o volume de destino seguindo as etapas em [montar ou desmontar um volume para máquinas virtuais Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).   
     Esta etapa permite que um cliente acesse o volume de destino.
 
-## <a name="resync-replication-to-reactivate-the-source-volume"></a>Ressincronizar a replicação para reativar o volume de origem   
+## <a name="resync-volumes-after-disaster-recovery"></a><a name="resync-replication"></a>Ressincronizar volumes após a recuperação de desastre
 
 Após a recuperação de desastre, você pode reativar o volume de origem executando uma operação de ressincronização.  A operação de ressincronização reverte o processo de replicação e sincroniza os dados do volume de destino para o volume de origem.  
 
@@ -63,7 +63,7 @@ Após a recuperação de desastre, você pode reativar o volume de origem execut
 
 1. Para ressincronizar a replicação, selecione o volume de *origem* . Clique em **replicação** em serviço de armazenamento. Em seguida, clique em **ressincronizar**.  
 
-2. Digite **Sim** quando solicitado e clique no botão **ressincronizar** . 
+2. Digite **Sim** quando solicitado e clique em **ressincronizar**. 
  
     ![Ressincronizar replicação](../media/azure-netapp-files/cross-region-replication-resync-replication.png)
 
@@ -80,10 +80,10 @@ Após a conclusão da operação de ressincronização do destino para a origem,
 1. Interromper o emparelhamento de replicação:  
     a. Selecione o volume de *destino* . Clique em **replicação** em serviço de armazenamento.  
     b. Verifique os campos a seguir antes de continuar:   
-    * Verifique se o estado do espelho mostra ***espelhado***.   
-    Não tente interromper o emparelhamento de replicação se o estado do espelho mostrar não *inicializado*.  
-    * Verifique se o status da relação mostra ***ocioso***.   
-    Não tente interromper o emparelhamento de replicação se o status da relação mostrar *transferência*.    
+    * Verifique se o estado do espelho mostra ***espelhado** _.   
+    Não tente interromper o emparelhamento de replicação se o estado do espelho mostrar _uninitialized *.  
+    * Verifique se o status da relação mostra ***Idle** _.   
+    Não tente interromper o emparelhamento de replicação se o status da relação mostrar _transferring *.    
 
         Consulte [Exibir status de integridade da relação de replicação](cross-region-replication-display-health-status.md). 
 
@@ -103,5 +103,6 @@ Após a conclusão da operação de ressincronização do destino para a origem,
 * [Requisitos e considerações para usar a replicação entre regiões](cross-region-replication-requirements-considerations.md)
 * [Exibir o status de integridade da relação de replicação](cross-region-replication-display-health-status.md)
 * [Métricas de replicação de volume](azure-netapp-files-metrics.md#replication)
+* [Excluir volumes ou replicações de volume](cross-region-replication-delete.md)
 * [Solucionar problemas de replicação entre regiões](troubleshoot-cross-region-replication.md)
 

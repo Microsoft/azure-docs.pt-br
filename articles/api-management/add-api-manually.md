@@ -13,15 +13,15 @@ ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: apimpm
 ms.openlocfilehash: 39a3b9d7dd9efbda93de0b5d7c5f9938922d0012
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631283"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183800"
 ---
 # <a name="add-an-api-manually"></a>Adicionar uma API manualmente
 
-As etapas neste artigo mostram como usar o portal do Azure para adicionar uma API manualmente à instância de APIM (Gerenciamento de API). Um cenário comum quando você deseja criar uma API em branco e defini-la manualmente é quando deseja simular a API. Para obter detalhes sobre a simulação de uma API, consulte [Simular respostas de API](mock-api-responses.md).
+As etapas neste artigo mostram como usar o Portal do Azure para adicionar uma API manualmente à instância de APIM (Gerenciamento de API). Um cenário comum quando você deseja criar uma API em branco e defini-la manualmente é quando deseja simular a API. Para obter detalhes sobre a simulação de uma API, consulte [Simular respostas de API](mock-api-responses.md).
 
 Se você deseja importar uma API existente, consulte a seção de [tópicos relacionados](#related-topics).
 

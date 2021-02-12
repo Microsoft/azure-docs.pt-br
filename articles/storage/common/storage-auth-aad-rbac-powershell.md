@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 12/07/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 19262441df87b96bbb43a010ca47861ec2b236d3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 852375cc7948fc7f6bd106380b3194f2dc84b8ca
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488751"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778896"
 ---
 # <a name="use-powershell-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Usar o PowerShell para atribuir uma função do Azure para acesso a dados de BLOB e de fila
 
@@ -59,6 +59,9 @@ Storage Queue Data Reader                 Allows for read access to Azure Storag
 ## <a name="assign-an-azure-role-to-a-security-principal"></a>Atribuir uma função do Azure a uma entidade de segurança
 
 Para atribuir uma função do Azure a uma entidade de segurança, use o comando [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) . O formato do comando pode diferir com base no escopo da atribuição. Para executar o comando, você precisa ter a função de proprietário ou colaborador atribuída no escopo correspondente. Os exemplos a seguir mostram como atribuir uma função a um usuário em vários escopos, mas você pode usar o mesmo comando para atribuir uma função a qualquer entidade de segurança.
+
+> [!NOTE]
+> Ao criar uma conta de armazenamento do Azure, você não recebe automaticamente permissões para acessar dados por meio do Azure AD. Você deve atribuir explicitamente a si mesmo uma função do Azure para o armazenamento do Azure. Você pode atribuí-la no nível de assinatura, grupo de recursos, conta de armazenamento ou contêiner ou fila.
 
 ### <a name="container-scope"></a>Escopo do contêiner
 

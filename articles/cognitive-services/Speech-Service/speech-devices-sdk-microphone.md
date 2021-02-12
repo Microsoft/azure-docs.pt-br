@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
-ms.openlocfilehash: eace63effdbd62d8f08395aa16683627b475a963
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 698a1d52af6c2472d6c025851ead1a0b6a6dff82
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86232518"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015334"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Recomendações de matriz do microfone do SDK de dispositivos de fala
 
@@ -41,7 +41,7 @@ Os componentes do microfone devem ser selecionados para reproduzir com precisão
 
 As propriedades recomendadas ao selecionar microfones são:
 
-| Parâmetro | Recomendadas |
+| Parâmetro | Recomendado |
 | --------- | ----------- |
 | SNR | \>= 65 dB (sinal de 1 kHz 94 dBSPL, ruído de peso) |
 | Correspondência de amplitude | ± 1 dB @ 1 kHz |
@@ -60,7 +60,7 @@ Uma boa seleção de componente deve ser emparelhada com boa integração de Ele
 
 O desempenho da matriz de microfone quando integrada a um dispositivo será diferente da especificação do componente. É importante garantir que os microfones sejam bem combinados após a integração. Portanto, o desempenho do dispositivo medido após qualquer lucro ou EQ fixo deve atender às seguintes recomendações:
 
-| Parâmetro          | Recomendadas                                        |
+| Parâmetro          | Recomendado                                        |
 | ------------------ | -------------------------------------------------- |
 | SNR                | \> 63 dB (sinal de 1 kHz 94 dBSPL, ruído de peso) |
 | Sensibilidade de saída | -26 dBFS/PA @ 1 kHz (recomendado)                  |
@@ -76,7 +76,7 @@ O desempenho da matriz de microfone quando integrada a um dispositivo será dife
 
 Como o cancelamento de eco é necessário para dispositivos de reconhecimento de fala que contêm alto-falantes, são fornecidas recomendações adicionais para a integração e a seleção de palestrante.
 
-| Parâmetro | Recomendadas |
+| Parâmetro | Recomendado |
 | --------- | ----------- |
 | Considerações sobre linearidade | Nenhum processamento não linear após a referência do alto-falante, caso contrário, é necessário um fluxo de referência de auto-retorno baseado em hardware |
 | Loopback do orador | Fornecido via WASAPI, APIs privadas, plug-in ALSA personalizado (Linux) ou fornecido por meio do canal de firmware |
@@ -97,7 +97,7 @@ As seguintes diretrizes para arquitetura são necessárias ao integrar microfone
 | Relógio de amostragem      | O áudio do dispositivo deve estar livre de tremulação e saídas com baixa descompasso |
 | Capacidade de registro   | O dispositivo deve ser capaz de registrar fluxos brutos individuais de canal simultaneamente |
 | USB                 | Todos os dispositivos de entrada de áudio USB devem definir descritores de acordo com a [especificação de Rev3 de dispositivos de áudio USB](https://www.usb.org/document-library/usb-audio-devices-rev-30-and-adopters-agreement) |
-| Geometria do microfone | Os drivers devem implementar os [descritores de geometria da matriz de microfone](https://docs.microsoft.com/windows-hardware/drivers/audio/ksproperty-audio-mic-array-geometry) corretamente |
+| Geometria do microfone | Os drivers devem implementar os [descritores de geometria da matriz de microfone](/windows-hardware/drivers/audio/ksproperty-audio-mic-array-geometry) corretamente |
 | Detectabilidade     | Os dispositivos não devem ter nenhum hardware, firmware ou algoritmos de processamento de áudio não linear baseados em software de terceiros, que sejam descobertos, de/para o dispositivo |
 | Formato de captura      | Os formatos de captura devem usar uma taxa de amostragem mínima de 16 kHz e uma profundidade de 24 bits recomendada |
 

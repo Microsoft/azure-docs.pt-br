@@ -4,12 +4,12 @@ description: Saiba como configurar e usar o status de orquestração personaliza
 ms.topic: conceptual
 ms.date: 07/10/2020
 ms.author: azfuncdf
-ms.openlocfilehash: bb5c6ee15a5a445b4b762bd9eaf8919e1396f8ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a95e7c74fac7043d0adb5f31d2bdcdd73b9577a
+ms.sourcegitcommit: 489ce69c0ff3f5188889ecfef5ffa76f7121e0d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081824"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97766321"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Status de orquestração personalizado em Funções Duráveis (Azure Functions)
 
@@ -125,7 +125,7 @@ public static async Task<HttpResponseMessage> Run(
 {
     // Function input comes from the request content.
     dynamic eventData = await req.Content.ReadAsAsync<object>();
-    string instanceId = await starter.StartNewAsync(functionName, eventData);
+    string instanceId = await starter.StartNewAsync(functionName, (string)eventData);
 
     log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
 

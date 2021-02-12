@@ -3,16 +3,17 @@ title: Funções de data e hora na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre as funções do sistema SQL de data e hora no Azure Cosmos DB para executar as operações DateTime e timestamp.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: a7f19a7c3cc7337f0e1c53cf387abb35b96d1e38
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: cfa81b6ec5f10218a70de6b9b55e502d87898194
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100313"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549164"
 ---
 # <a name="date-and-time-functions-azure-cosmos-db"></a>Funções de data e hora (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -45,4 +46,4 @@ As funções a seguir permitem que você manipule facilmente os valores DateTime
 - [Funções de sistema do Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)
 - [Funções definidas pelo usuário](sql-query-udfs.md)
-- [Agregações](sql-query-aggregates.md)
+- [Agregações](sql-query-aggregate-functions.md)

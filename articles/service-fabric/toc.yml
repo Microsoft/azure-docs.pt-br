@@ -663,6 +663,8 @@
                   href: service-fabric-cluster-creation-via-portal.md
                 - name: Implantar um Cluster do Azure Service Fabric em zonas de disponibilidade
                   href: service-fabric-cross-availability-zones.md
+                - name: Implantar um Cluster do Azure Service Fabric com tipos de nós sem estado
+                  href: service-fabric-stateless-node-types.md
                 - name: Configurar autenticação do Azure Active Directory
                   href: service-fabric-cluster-creation-setup-aad.md
                 - name: Criar um modelo de cluster personalizado
@@ -687,7 +689,7 @@
                   href: service-fabric-how-to-remove-node-type.md
             - name: Atualizar
               items:
-                - name: Adicionar uma extensão de conjunto de dimensionamento de VM a um tipo de nó de cluster gerenciado
+                - name: Adicionar um conjunto de dimensionamento de máquinas virtuais a um tipo de nó de cluster gerenciado
                   href: how-to-managed-cluster-vmss-extension.md
                 - name: Atualizar a versão do Service Fabric
                   href: service-fabric-cluster-upgrade-version-azure.md
@@ -711,8 +713,6 @@
                   href: service-fabric-cluster-security-update-certs-azure.md
                 - name: Conexão remota para a VM do nó de cluster
                   href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
-                - name: Atualizar nós de cluster para usar discos gerenciados
-                  href: upgrade-managed-disks.md
         - name: Clusters independentes
           items:
             - name: Criar
@@ -797,6 +797,8 @@
               href: configure-existing-cluster-enable-managed-identity-token-service.md
             - name: Configurar um novo cluster do Azure Service Fabric com identidade gerenciada
               href: configure-new-azure-service-fabric-enable-managed-identity.md
+            - name: Configurar um cluster gerenciado do Service Fabric com identidade gerenciada
+              href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
         - name: Instalação do aplicativo
           items:
             - name: Como implantar o aplicativo com identidade gerenciada

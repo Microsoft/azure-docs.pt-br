@@ -1,17 +1,17 @@
 ---
 title: Pontos de extremidade de serviço de VNet-banco de dados do Azure para MariaDB
 description: Descreve como os pontos de extremidade de serviço de VNet funcionam no servidor do Banco de Dados do Azure para MariaDB.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 7/17/2020
-ms.openlocfilehash: 15bfeb3860c3a7dd5f9dc11f7fb18473116f5ff4
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 0f90e64f2a20b6455d5a169025230b78e64287cc
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425608"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662671"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Usar regras e pontos de extremidade de serviço de Rede Virtual para Banco de Dados do Azure para MariaDB
 
@@ -112,7 +112,7 @@ Para o Banco de Dados do Azure para MariaDB, o recurso de regras da rede virtual
 
 - As regras da rede virtual se aplicam somente a redes virtuais do Azure Resource Manager; e não a redes do [modelo de implantação clássico][resource-manager-deployment-model-568f].
 
-- Ativar pontos de extremidade de serviço de rede virtual no banco de dados do Azure para MariaDB usando a marca de serviço **Microsoft. SQL** também habilita os pontos de extremidade para todos os serviços de banco de dados do Azure: banco de dados do Azure para MariaDB, banco de dados do Azure para MySQL, banco de dados do Azure para PostgreSQL, banco de dados SQL do Azure e azure Synapse SQL data warehouse Analytics
+- Ativar pontos de extremidade de serviço de rede virtual no banco de dados do Azure para MariaDB usando a marca de serviço **Microsoft. SQL** também habilita os pontos de extremidade para todos os serviços de banco de dados do Azure: banco de dados do Azure para MariaDB, banco de dados do Azure para MySQL, banco de dados do Azure para PostgreSQL, banco de dados SQL do Azure e Azure Synapse
 
 - O suporte para ponto de extremidade de serviço de VNet é apenas para servidores de Uso Geral e Otimizados para Memória.
 

@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 318da4e92e6d07df1fcb89a4df0cb29d82caa630
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f52e46ff9cab7d3d150af9fd7b4f1c432bec74b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294854"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836182"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definir uma estratégia de adoção de identidade híbrida
 Nesta tarefa, você define uma estratégia de adoção para sua solução de identidade híbrida para atender aos requisitos de negócios que abordamos nos tópicos:
@@ -176,7 +176,7 @@ Os itens a seguir não têm suporte e não devem ser escolhidos como implementa�
 > 
 
 ## <a name="define-multi-factor-authentication-strategy"></a>Definir uma estratégia de autenticação multifator
-Nesta tarefa, você define a estratégia de autenticação multifator que vai usar.  A Autenticação Multifator do Microsoft Azure é fornecido em duas versões distintas.  Uma delas é baseada na nuvem e a outra é local usando o servidor Azure MFA.  Com base na avaliação que você fez anteriormente, determine a solução mais adequada para sua estratégia.  Use a tabela abaixo para determinar a opção de design que melhor atende aos requisitos de segurança da empresa:
+Nesta tarefa, você define a estratégia de autenticação multifator que vai usar.  A autenticação multifator do Azure AD vem em duas versões diferentes.  Uma delas é baseada na nuvem e a outra é local usando o servidor Azure MFA.  Com base na avaliação que você fez anteriormente, determine a solução mais adequada para sua estratégia.  Use a tabela abaixo para determinar a opção de design que melhor atende aos requisitos de segurança da empresa:
 
 Opções de design de vários fatores:
 
@@ -185,8 +185,8 @@ Opções de design de vários fatores:
 | Aplicativos da Microsoft |sim |sim |
 | Aplicativos SaaS da Galeria de Aplicativos |sim |sim |
 | Aplicativos IIS publicados por meio da Proxy de aplicativo do Azure AD |sim |sim |
-| Aplicativos do IIS não publicados através do Proxy de Aplicativo do AD do Azure |não |sim |
-| Acesso remoto, como VPN e RDG |não |sim |
+| Aplicativos do IIS não publicados através do Proxy de Aplicativo do AD do Azure |no |sim |
+| Acesso remoto, como VPN e RDG |no |sim |
 
 Mesmo que defina uma solução para sua estratégia, você deve usar a avaliação anterior sobre a localização dos usuários.  Isso pode levar a uma mudança de solução.  Use a tabela abaixo para lhe ajudar a determinar os seguintes itens:
 

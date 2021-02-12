@@ -2,13 +2,13 @@
 title: Implantar recursos em grupos de recursos
 description: Descreve como implantar recursos em um modelo de Azure Resource Manager. Ele mostra como direcionar mais de um grupo de recursos.
 ms.topic: conceptual
-ms.date: 10/26/2020
-ms.openlocfilehash: fd211641d7fcc02a1db154053597497583b21ae5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 01/13/2021
+ms.openlocfilehash: c3401346f31d34d92da1f52ca79f691e94e7eb78
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681385"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491547"
 ---
 # <a name="resource-group-deployments-with-arm-templates"></a>Implantações de grupo de recursos com modelos ARM
 
@@ -83,7 +83,10 @@ Ao implantar em um grupo de recursos, você pode implantar recursos em:
 
 * o grupo de recursos de destino da operação
 * outros grupos de recursos na mesma assinatura ou outras assinaturas
-* os [recursos de extensão](scope-extension-resources.md) podem ser aplicados aos recursos
+* qualquer assinatura no locatário
+* o locatário para o grupo de recursos
+
+Um [recurso de extensão](scope-extension-resources.md) pode ser definido como escopo para um destino diferente do destino de implantação.
 
 O usuário que está implantando o modelo deve ter acesso ao escopo especificado.
 
@@ -95,6 +98,8 @@ Para implantar recursos no recurso de destino, adicione esses recursos à seçã
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-rg.json" highlight="5":::
 
+Para obter um modelo de exemplo, consulte [implantar no grupo de recursos de destino](#deploy-to-target-resource-group).
+
 ### <a name="scope-to-resource-group-in-same-subscription"></a>Escopo para o grupo de recursos na mesma assinatura
 
 Para implantar recursos em um grupo de recursos diferente na mesma assinatura, adicione uma implantação aninhada e inclua a `resourceGroup` propriedade. Se você não especificar a ID da assinatura ou o grupo de recursos, serão usados a assinatura e o grupo de recursos do modelo pai. Todos os grupos de recursos devem existir antes da execução da implantação.
@@ -103,13 +108,45 @@ No exemplo a seguir, a implantação aninhada tem como destino um grupo de recur
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/same-sub-to-resource-group.json" highlight="9,13":::
 
+Para obter um modelo de exemplo, consulte [implantar em vários grupos de recursos](#deploy-to-multiple-resource-groups).
+
 ### <a name="scope-to-resource-group-in-different-subscription"></a>Escopo para o grupo de recursos em uma assinatura diferente
 
 Para implantar recursos em um grupo de recursos em uma assinatura diferente, adicione uma implantação aninhada e inclua as `subscriptionId` `resourceGroup` Propriedades e. No exemplo a seguir, a implantação aninhada tem como destino um grupo de recursos denominado `demoResourceGroup` .
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/different-sub-to-resource-group.json" highlight="9,10,14":::
 
-## <a name="cross-resource-groups"></a>Grupos de recursos cruzados
+Para obter um modelo de exemplo, consulte [implantar em vários grupos de recursos](#deploy-to-multiple-resource-groups).
+
+### <a name="scope-to-subscription"></a>Escopo da assinatura
+
+Para implantar recursos em uma assinatura, adicione uma implantação aninhada e inclua a `subscriptionId` propriedade. A assinatura pode ser a assinatura para o grupo de recursos de destino ou qualquer outra assinatura no locatário. Além disso, defina a `location` propriedade para a implantação aninhada.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-subscription.json" highlight="9,10,14":::
+
+Para obter um modelo de exemplo, consulte [Criar grupo de recursos](#create-resource-group).
+
+### <a name="scope-to-tenant"></a>Escopo para o locatário
+
+Para criar recursos no locatário, defina `scope` como `/` . O usuário que está implantando o modelo deve ter o [acesso necessário para implantar no locatário](deploy-to-tenant.md#required-access).
+
+Para usar uma implantação aninhada, defina `scope` e `location` .
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-tenant.json" highlight="9,10,14":::
+
+Ou, você pode definir o escopo como `/` para alguns tipos de recursos, como grupos de gerenciamento.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-create-mg.json" highlight="12,15":::
+
+Para obter mais informações, consulte [grupo de gerenciamento](deploy-to-management-group.md#management-group).
+
+## <a name="deploy-to-target-resource-group"></a>Implantar no grupo de recursos de destino
+
+Para implantar recursos no grupo de recursos de destino, defina esses recursos na `resources` seção do modelo. O modelo a seguir cria uma conta de armazenamento no grupo de recursos especificado na operação de implantação.
+
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json":::
+
+## <a name="deploy-to-multiple-resource-groups"></a>Implantar em vários grupos de recursos
 
 Você pode implantar em mais de um grupo de recursos em um único modelo ARM. Para usar como destino um grupo de recursos diferente daquele para o modelo pai, use um [modelo aninhado ou vinculado](linked-templates.md). Dentro do tipo de recurso de implantação, especifique valores para a ID de assinatura e para o grupo de recursos onde você deseja implantar o modelo aninhado. Os grupos de recursos podem estar presentes em diferentes assinaturas.
 
@@ -126,7 +163,7 @@ Para testar o modelo anterior e ver os resultados, use o PowerShell ou a CLI do 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para implantar duas contas de armazenamento em dois grupos de recursos na **mesma assinatura** , use:
+Para implantar duas contas de armazenamento em dois grupos de recursos na **mesma assinatura**, use:
 
 ```azurepowershell-interactive
 $firstRG = "primarygroup"
@@ -143,7 +180,7 @@ New-AzResourceGroupDeployment `
   -secondStorageLocation eastus
 ```
 
-Para implantar duas contas de armazenamento em **duas assinaturas** , use:
+Para implantar duas contas de armazenamento em **duas assinaturas**, use:
 
 ```azurepowershell-interactive
 $firstRG = "primarygroup"
@@ -152,10 +189,10 @@ $secondRG = "secondarygroup"
 $firstSub = "<first-subscription-id>"
 $secondSub = "<second-subscription-id>"
 
-Select-AzSubscription -Subscription $secondSub
+Set-AzContext -Subscription $secondSub
 New-AzResourceGroup -Name $secondRG -Location eastus
 
-Select-AzSubscription -Subscription $firstSub
+Set-AzContext -Subscription $firstSub
 New-AzResourceGroup -Name $firstRG -Location southcentralus
 
 New-AzResourceGroupDeployment `
@@ -169,7 +206,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para implantar duas contas de armazenamento em dois grupos de recursos na **mesma assinatura** , use:
+Para implantar duas contas de armazenamento em dois grupos de recursos na **mesma assinatura**, use:
 
 ```azurecli-interactive
 firstRG="primarygroup"
@@ -184,7 +221,7 @@ az deployment group create \
   --parameters storagePrefix=tfstorage secondResourceGroup=$secondRG secondStorageLocation=eastus
 ```
 
-Para implantar duas contas de armazenamento em **duas assinaturas** , use:
+Para implantar duas contas de armazenamento em **duas assinaturas**, use:
 
 ```azurecli-interactive
 firstRG="primarygroup"
@@ -207,6 +244,76 @@ az deployment group create \
 ```
 
 ---
+
+## <a name="create-resource-group"></a>Criar grupo de recursos
+
+De uma implantação de grupo de recursos, você pode alternar para o nível de uma assinatura e criar um grupo de recursos. O modelo a seguir implanta uma conta de armazenamento no grupo de recursos de destino e cria um novo grupo de recursos na assinatura especificada.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storagePrefix": {
+            "type": "string",
+            "maxLength": 11
+        },
+        "newResourceGroupName": {
+            "type": "string"
+        },
+        "nestedSubscriptionID": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        }
+    },
+    "variables": {
+        "storageName": "[concat(parameters('storagePrefix'), uniqueString(resourceGroup().id))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-06-01",
+            "name": "[variables('storageName')]",
+            "location": "[parameters('location')]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "demoSubDeployment",
+            "location": "westus",
+            "subscriptionId": "[parameters('nestedSubscriptionID')]",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Resources/resourceGroups",
+                            "apiVersion": "2020-06-01",
+                            "name": "[parameters('newResourceGroupName')]",
+                            "location": "[parameters('location')]",
+                            "properties": {}
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }
+        }
+    ]
+}
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

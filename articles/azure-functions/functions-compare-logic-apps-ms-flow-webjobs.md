@@ -4,12 +4,12 @@ description: 'Compare os serviços em nuvem da Microsoft otimizados para tarefas
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 2c17b311811fd2cba46db379fcc766c04dd9d56d
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.openlocfilehash: 95167791efe13526b0a70c28fa89771542a9d220
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91403068"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685554"
 ---
 # <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Escolha os serviços de integração e automação corretos no Azure
 
@@ -78,9 +78,9 @@ O Azure Functions se baseia no SDK do WebJobs e, portanto, compartilha muitos do
 
 |  | Funções | WebJobs com o SDK do WebJobs |
 | --- | --- | --- |
-|**[Modelo de aplicativo sem servidor](https://azure.microsoft.com/solutions/serverless/) com [dimensionamento automático](functions-scale.md#how-the-consumption-and-premium-plans-work)**|✔||
-|**[Desenvolver e testar no navegador](functions-create-first-azure-function.md)** |✔||
-|**[Preço de pagamento por uso](functions-scale.md#consumption-plan)**|✔||
+|**[Modelo de aplicativo sem servidor](https://azure.microsoft.com/solutions/serverless/) com [dimensionamento automático](event-driven-scaling.md)**|✔||
+|**[Desenvolver e testar no navegador](./functions-get-started.md)** |✔||
+|**[Preço de pagamento por uso](consumption-plan.md)**|✔||
 |**[Integração com os Aplicativos Lógicos](functions-twitter-email.md)**|✔||
 | **Eventos de gatilho** |[Timer](functions-bindings-timer.md)<br>[Blobs e filas do Armazenamento do Azure](functions-bindings-storage-blob.md)<br>[Filas e tópicos do Barramento de Serviço do Azure](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Hubs de eventos do Azure](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Grade de Eventos do Azure](functions-bindings-event-grid.md)|[Timer](functions-bindings-timer.md)<br>[Blobs e filas do Armazenamento do Azure](functions-bindings-storage-blob.md)<br>[Filas e tópicos do Barramento de Serviço do Azure](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Hubs de eventos do Azure](functions-bindings-event-hubs.md)<br>[Sistema de Arquivos](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
 | **Idiomas com suporte**  |C#<br>F#<br>JavaScript<br>Java<br>Python<br>PowerShell |C#<sup>1</sup>|
@@ -124,4 +124,4 @@ Comece criando seu primeiro fluxo, aplicativo lógico ou aplicativo de funções
 
 * [Introdução ao Power Automate](/power-automate/getting-started)
 * [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [Como criar a sua primeira função do Azure](functions-create-first-azure-function.md)
+* [Como criar a sua primeira função do Azure](./functions-get-started.md)

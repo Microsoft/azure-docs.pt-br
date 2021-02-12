@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Criar um aplicativo HoloLens Unity'
 description: Neste tutorial, você aprenderá como criar um novo aplicativo HoloLens Unity usando Âncoras Espaciais do Azure.
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: crtreasu
-ms.date: 08/17/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e94ced70ad17286612328884d03d4d1253b7818b
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: ee0bf9b4ce009f37dd1931d4ed030defa24e7d38
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096531"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95996246"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Tutorial: Instruções passo a passo para criar um novo aplicativo HoloLens Unity usando Âncoras Espaciais do Azure
 

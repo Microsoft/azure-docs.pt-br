@@ -1,18 +1,17 @@
 ---
 title: Power BI saída de Azure Stream Analytics
 description: Este artigo descreve como gerar dados de saída de Azure Stream Analytics para Power BI.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 29bd4dc5cabe8b29efe7b89395c5e7d36bd0347a
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: a94389a075fd62d80345a21e32f1bc977dfdee87
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129772"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020053"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Power BI saída de Azure Stream Analytics
 
@@ -71,7 +70,7 @@ Anterior/atual | Int64 | String | Datetime | Double
 -----------------|-------|--------|----------|-------
 Int64 | Int64 | String | String | Double
 Double | Double | String | String | Double
-String | String | String | String | String 
+String | Cadeia de caracteres | Cadeia de caracteres | Cadeia de caracteres | String 
 Datetime | String | String |  Datetime | String
 
 ## <a name="output-batch-size"></a>Tamanho do lote de saída
@@ -80,9 +79,5 @@ Para o tamanho do lote de saída, confira [Power bi limites da API REST](/power-
 
 ## <a name="next-steps"></a>Próximas etapas
 
+* [Usar identidade gerenciada para autenticar seu trabalho de Azure Stream Analytics para Power BI (versão prévia)](powerbi-output-managed-identity.md)
 * [Início Rápido: Criar um trabalho do Stream Analytics usando o portal do Azure](stream-analytics-quick-create-portal.md)
-* [Início Rápido: Criar um trabalho do Azure Stream Analytics usando a CLI do Azure](quick-create-azure-cli.md)
-* [Início Rápido: Criar um trabalho do Azure Stream Analytics usando um modelo do Resource Manager](quick-create-azure-resource-manager.md)
-* [Início rápido: criar um trabalho de Stream Analytics usando Azure PowerShell](stream-analytics-quick-create-powershell.md)
-* [Início Rápido: Criar um trabalho do Azure Stream Analytics usando o Visual Studio](stream-analytics-quick-create-vs.md)
-* [Início rápido: criar um trabalho de Azure Stream Analytics no Visual Studio Code](quick-create-visual-studio-code.md)

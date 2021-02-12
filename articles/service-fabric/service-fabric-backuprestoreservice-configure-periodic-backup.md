@@ -3,12 +3,12 @@ title: Noções básicas sobre a configuração de backup periódico
 description: Use o recurso backup e restauração periódicos do Service Fabric para configurar o backup periódico de seus serviços confiáveis com estado ou Reliable Actors.
 ms.topic: article
 ms.date: 2/01/2019
-ms.openlocfilehash: 633b13104ecc1697685f49a42b2a9c76b43b81d0
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 2607502af44b178131820d78f23bcdf4e32454a0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205686"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018878"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Noções básicas sobre a configuração de backup periódico no Azure Service Fabric
 
@@ -46,7 +46,7 @@ Uma política de backup é composta pelas seguintes configurações:
         ```
 
     2. **Agendamento de backup baseado em tempo**: esse tipo de agendamento deverá ser usado se for necessário executar backup de dados em horários específicos do dia ou semana. O tipo de frequência do agendamento pode ser diário ou semanal.
-        1. **_Agendamento de backup baseado em tempo_ diário**: esse tipo de agendamento deverá ser usado se for necessário executar backup de dados em horários específicos do dia. Para especificar isso, defina `ScheduleFrequencyType` como _Diário_; e defina `RunTimes` como a lista de tempo desejado durante o dia no formato ISO8601, a data especificada junto com a hora será ignorada. Por exemplo, `0001-01-01T18:00:00` representa _18h_ todos os dias, ignorando a parte da data _0001-01-01_. O exemplo abaixo ilustra a configuração para disparar o backup diário às _9h_ e _18h_ todos os dias.
+        1. **Agendamento de backup com base em tempo _diário_**: esse tipo de agendamento deve ser usado se a necessidade for fazer o backup de dados em horários específicos do dia. Para especificar isso, defina `ScheduleFrequencyType` como _Diário_; e defina `RunTimes` como a lista de tempo desejado durante o dia no formato ISO8601, a data especificada junto com a hora será ignorada. Por exemplo, `0001-01-01T18:00:00` representa _18h_ todos os dias, ignorando a parte da data _0001-01-01_. O exemplo abaixo ilustra a configuração para disparar o backup diário às _9h_ e _18h_ todos os dias.
 
             ```json
             {
@@ -59,7 +59,7 @@ Uma política de backup é composta pelas seguintes configurações:
             }
             ```
 
-        2. **_Agendamento de backup baseado em tempos _semanal**: esse tipo de agendamento deverá ser usado se for necessário executar backup de dados em horários específicos do dia. Para especificar isso, defina `ScheduleFrequencyType` como _Semanal_; e defina `RunDays` como a lista de dias em uma semana quando o backup precisa ser disparado e `RunTimes` como a lista de horários desejados durante o dia no formato ISO8601, a data especificada junto com a hora será ignorada. Lista de dias de uma semana quando disparar o backup periódico. O exemplo abaixo ilustra a configuração para disparar um backup diário às _9h_ e às _18h_ de segunda a sexta-feira.
+        2. **Agendamento de backup com base em tempo _semanal_**: esse tipo de agendamento deve ser usado se a necessidade for fazer o backup de dados em horários específicos do dia. Para especificar isso, defina `ScheduleFrequencyType` como _Semanal_; e defina `RunDays` como a lista de dias em uma semana quando o backup precisa ser disparado e `RunTimes` como a lista de horários desejados durante o dia no formato ISO8601, a data especificada junto com a hora será ignorada. Lista de dias de uma semana quando disparar o backup periódico. O exemplo abaixo ilustra a configuração para disparar um backup diário às _9h_ e às _18h_ de segunda a sexta-feira.
 
             ```json
             {
@@ -81,6 +81,7 @@ Uma política de backup é composta pelas seguintes configurações:
 
 * **Armazenamento de backup**: especifica o local para carregar backups. O armazenamento pode ser o armazenamento de blobs do Azure ou o compartilhamento de arquivos.
     1. **Armazenamento de blobs do Azure**: esse tipo de armazenamento deve ser selecionado quando a necessidade é armazenar backups gerados no Azure. Os clusters _autônomos_ e _baseados no Azure_ podem usar esse tipo de armazenamento. Uma descrição para esse tipo de armazenamento requer uma cadeia de conexão e um nome do contêiner, em que os backups precisam ser carregados. Se o contêiner com o nome especificado não estiver disponível, ele será criado durante o carregamento de um backup.
+
         ```json
         {
             "StorageKind": "AzureBlobStore",
@@ -89,9 +90,10 @@ Uma política de backup é composta pelas seguintes configurações:
             "ContainerName": "BackupContainer"
         }
         ```
-> [!NOTE]
-> O serviço de restauração de backup não funciona com o armazenamento v1 do Azure
->
+
+        > [!NOTE]
+        > O serviço de restauração de backup não funciona com o armazenamento v1 do Azure
+        >
 
     2. **Compartilhamento de arquivos**: esse tipo de armazenamento deve ser selecionado para clusters _autônomos_ quando a necessidade é armazenar o backup de dados no local. Uma descrição desse tipo de armazenamento requer um caminho de compartilhamento de arquivos para o qual os backups precisam ser carregados. O acesso ao compartilhamento de arquivos pode ser configurado usando uma das seguintes opções
         1. _Autenticação Integrada do Windows_, em que o acesso ao compartilhamento de arquivos é fornecido a todos os computadores que pertencem ao cluster do Service Fabric. Nesse caso, defina os campos a seguir para configurar o armazenamento de backup baseado no _compartilhamento de arquivos_.

@@ -5,15 +5,16 @@ services: virtual-machines-linux
 author: msmbaldwin
 tags: keyvault
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2d5a6949c5dbe1e4c3c668dcb9eae6e51e5806f7
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 0558513d88eb5ffb03484e9d3bd8e37b2c9a0dcf
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926029"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895012"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual de Key Vault para Linux
 
@@ -34,9 +35,24 @@ A extensão de VM do Key Vault dá suporte a essas distribuições do Linux:
 - PEM
 
 ## <a name="prerequisities"></a>Pré-requisitos
-  - Key Vault instância com certificado. Consulte [criar um Key Vault](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal)
-  - VM/VMSS devem ter uma [identidade gerenciada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) atribuída
-  - A política de acesso de Key Vault deve ser definida com segredos `get` e `list` permissão para a identidade gerenciada VM/VMSS para recuperar a parte de um segredo do certificado. Consulte [como autenticar para Key Vault](/azure/key-vault/general/authentication) e [atribuir uma política de acesso de Key Vault](/azure/key-vault/general/assign-access-policy-cli).
+  - Key Vault instância com certificado. Consulte [criar um Key Vault](../../key-vault/general/quick-create-portal.md)
+  - VM/VMSS devem ter uma [identidade gerenciada](../../active-directory/managed-identities-azure-resources/overview.md) atribuída
+  - A política de acesso de Key Vault deve ser definida com segredos `get` e `list` permissão para a identidade gerenciada VM/VMSS para recuperar a parte de um segredo do certificado. Consulte [como autenticar para Key Vault](../../key-vault/general/authentication.md) e [atribuir uma política de acesso de Key Vault](../../key-vault/general/assign-access-policy-cli.md).
+  -  VMSS deve ter a seguinte configuração de identidade: ` 
+  "identity": {
+  "type": "UserAssigned",
+  "userAssignedIdentities": {
+  "[parameters('userAssignedIdentityResourceId')]": {}
+  }
+  }
+  `
+  
+ - A extensão AKV deve ter essa configuração: `
+                 "authenticationSettings": {
+                    "msiEndpoint": "[parameters('userAssignedIdentityEndpoint')]",
+                    "msiClientId": "[reference(parameters('userAssignedIdentityResourceId'), variables('msiApiVersion')).clientId]"
+                  }
+   `
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
@@ -79,7 +95,7 @@ O JSON a seguir mostra o esquema para a extensão da VM de Key Vault. A extensã
 > Isso porque o caminho `/secrets` retorna todo o certificado, incluindo a chave privada, enquanto o caminho `/certificates` não faz isso. Mais informações sobre certificados podem ser encontradas aqui: [Certificados do Key Vault](../../key-vault/general/about-keys-secrets-certificates.md)
 
 > [!IMPORTANT]
-> A propriedade ' authenticationSettings ' é **necessária** somente para VMs com **identidades atribuídas pelo usuário** .
+> A propriedade ' authenticationSettings ' é **necessária** somente para VMs com **identidades atribuídas pelo usuário**.
 > Especifica a identidade a ser usada para autenticação para Key Vault.
 
 
@@ -95,7 +111,7 @@ O JSON a seguir mostra o esquema para a extensão da VM de Key Vault. A extensã
 | certificateStoreName | Ele é ignorado no Linux | string |
 | linkOnRenewal | false | booleano |
 | certificateStoreLocation  | /var/lib/waagent/Microsoft.Azure.KeyVault | string |
-| requiredInitialSync | true | booleano |
+| requireInitialSync | true | booleano |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate", "https://myvault.vault.azure.net/secrets/mycertificate2"] | Matriz de cadeia de caracteres
 | msiEndpoint | http://169.254.169.254/metadata/identity | string |
 | msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
@@ -108,7 +124,7 @@ Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Ma
 A configuração JSON para uma extensão de máquina virtual deve ser aninhada dentro do fragmento do recurso de máquina virtual do modelo, especificamente o objeto `"resources": []` para o modelo de máquina virtual e, no caso de conjunto de dimensionamento de máquinas virtuais, no objeto `"virtualMachineProfile":"extensionProfile":{"extensions" :[]`.
 
  > [!NOTE]
-> A extensão de VM exigiria que a identidade gerenciada do sistema ou do usuário fosse atribuída para autenticar no Key Vault.  Consulte [como autenticar para Key Vault e atribuir uma política de acesso de Key Vault.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+> A extensão de VM exigiria que a identidade gerenciada do sistema ou do usuário fosse atribuída para autenticar no Key Vault.  Consulte [como autenticar para Key Vault e atribuir uma política de acesso de Key Vault.](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 > 
 
 ```json
@@ -137,6 +153,17 @@ A configuração JSON para uma extensão de máquina virtual deve ser aninhada d
     }
 ```
 
+### <a name="extension-dependency-ordering"></a>Ordenação de dependência de extensão
+A extensão de VM Key Vault dá suporte à ordenação de extensão, se configurada. Por padrão, a extensão relata que ela foi iniciada com êxito assim que começou a sondagem. No entanto, ele pode ser configurado para aguardar até que tenha baixado com êxito a lista completa de certificados antes de relatar um início bem-sucedido. Se outras extensões dependerem de ter o conjunto completo de certificados instalados antes de serem iniciadas, habilitar essa configuração permitirá que essas extensões declarem uma dependência na extensão de Key Vault. Isso impedirá que essas extensões sejam iniciadas até que todos os certificados dos quais dependem tenham sido instalados. A extensão tentará novamente o download inicial de forma indefinida e permanecerá em um `Transitioning` estado.
+
+Para ativar isso, defina o seguinte:
+```
+"secretsManagementSettings": {
+    "requireInitialSync": true,
+    ...
+}
+```
+> Anotações O uso desse recurso não é compatível com um modelo ARM que cria uma identidade atribuída pelo sistema e atualiza uma política de acesso de Key Vault com essa identidade. Isso resultará em um deadlock, uma vez que a política de acesso do cofre não pode ser atualizada até que todas as extensões sejam iniciadas. Em vez disso, você deve usar uma *identidade de MSI atribuída por um único usuário* e pré-ACL de seus cofres com essa identidade antes da implantação.
 
 ## <a name="azure-powershell-deployment"></a>Implantação do Azure PowerShell
 > [!WARNING]

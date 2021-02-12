@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6fedefccf57364e690415542114030ba7ce12b49
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3f02c90dd6c751909434f3f2af9b8eb81ee1c4b9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974084"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488367"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Perguntas frequentes sobre Azure Disk Encryption para máquinas virtuais do Windows
 
@@ -55,15 +55,15 @@ Não, o Azure Disk Encryption criptografa apenas volumes montados.
 
 ## <a name="what-is-storage-server-side-encryption"></a>O que é criptografia do lado do servidor do Armazenamento?
 
-A criptografia do lado do servidor do Armazenamento criptografa discos gerenciados do Azure no Armazenamento do Microsoft Azure. Discos gerenciados são criptografados por padrão com criptografia do lado do servidor com chave gerenciada de plataforma (a partir de 10 de junho de 2017). Você pode gerenciar a criptografia de discos gerenciados com suas próprias chaves especificando uma chave gerenciada pelo cliente. Para saber mais, confira [Criptografia do lado do servidor dos discos gerenciados do Azure](disk-encryption.md).
+A criptografia do lado do servidor do Armazenamento criptografa discos gerenciados do Azure no Armazenamento do Microsoft Azure. Discos gerenciados são criptografados por padrão com criptografia do lado do servidor com chave gerenciada de plataforma (a partir de 10 de junho de 2017). Você pode gerenciar a criptografia de discos gerenciados com suas próprias chaves especificando uma chave gerenciada pelo cliente. Para saber mais, confira [Criptografia do lado do servidor dos discos gerenciados do Azure](../disk-encryption.md).
  
 ## <a name="how-is-azure-disk-encryption-different-from-storage-server-side-encryption-with-customer-managed-key-and-when-should-i-use-each-solution"></a>Qual é a diferença entre o Azure Disk Encryption e a criptografia do lado do servidor do Armazenamento com chave gerenciada pelo cliente e quando eu devo usar cada solução?
 
 O Azure Disk Encryption fornece criptografia de ponta a ponta para o disco do sistema operacional, discos de dados e o disco temporário com uma chave gerenciada pelo cliente.
 
 - Se seus requisitos incluírem todas as criptografias acima e de ponta a ponta, use o Azure Disk Encryption. 
-- Se seus requisitos incluírem a criptografia somente de dados em repouso com a chave gerenciada pelo cliente, use a [criptografia do lado do servidor com chaves gerenciadas pelo cliente](disk-encryption.md). Você não pode criptografar, ao mesmo tempo, um disco com o Azure Disk Encryption e a criptografia do lado do servidor do Armazenamento com chaves gerenciadas do cliente.
-- Se você estiver usando um cenário chamado em [cenários do Windows não compatíveis](disk-encryption-windows.md#unsupported-scenarios), considere [Criptografia do lado do servidor com chaves gerenciadas pelo cliente](disk-encryption.md). 
+- Se seus requisitos incluírem a criptografia somente de dados em repouso com a chave gerenciada pelo cliente, use a [criptografia do lado do servidor com chaves gerenciadas pelo cliente](../disk-encryption.md). Você não pode criptografar, ao mesmo tempo, um disco com o Azure Disk Encryption e a criptografia do lado do servidor do Armazenamento com chaves gerenciadas do cliente.
+- Se você estiver usando um cenário chamado em [cenários do Windows não compatíveis](disk-encryption-windows.md#unsupported-scenarios), considere [Criptografia do lado do servidor com chaves gerenciadas pelo cliente](../disk-encryption.md). 
 - Se a política da sua organização permitir criptografar conteúdo em repouso com uma chave gerenciada pelo Azure, nenhuma ação será necessária. O conteúdo será criptografado por padrão. Para discos gerenciados, o conteúdo no armazenamento é criptografado por padrão com a criptografia do lado do servidor com chave gerenciada por plataforma. A chave é gerenciada pelo serviço de Armazenamento do Microsoft Azure. 
 
 ## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>Como fazer revezar segredos ou chaves de criptografia?

@@ -3,12 +3,12 @@ title: Visão geral das Tarefas do ACR
 description: Uma introdução às tarefas do ACR, um conjunto de recursos no registro de contêiner do Azure que fornece criação de imagem de contêiner segura e automatizada, gerenciamento e aplicação de patches na nuvem.
 ms.topic: article
 ms.date: 08/12/2020
-ms.openlocfilehash: 14758e363e74450a10f1a2cbfc889f3e24782771
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: b6df415bd55979ef00f6921321dbc254ef7a7e59
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027659"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562847"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizar compilações de imagem de contêiner e manutenção com tarefas ACR
 
@@ -58,8 +58,8 @@ As tarefas ACR dão suporte aos seguintes gatilhos quando você define um reposi
 
 | Gatilho | Habilitado por padrão |
 | ------- | ------------------ |
-| Commit | Yes |
-| Solicitação de pull | No |
+| Commit | Sim |
+| Solicitação de pull | Não |
 
 Para configurar um gatilho de atualização de código-fonte, você precisa fornecer à tarefa um PAT (token de acesso pessoal) para definir o webhook no GitHub público ou privado ou no repositório DevOps do Azure.
 
@@ -70,7 +70,7 @@ Saiba como disparar builds na confirmação do código-fonte no segundo tutorial
 
 ## <a name="automate-os-and-framework-patching"></a>Automatizar sistema operacional e aplicação de patch de estrutura
 
-O poder das tarefas do ACR para aprimorar verdadeiramente seu fluxo de trabalho de Build de contêiner vem da sua capacidade de detectar uma atualização para uma *imagem de base* . Um recurso da maioria das imagens de contêiner, uma imagem de base é uma imagem pai na qual uma ou mais imagens de aplicativo se baseiam. As imagens básicas normalmente contêm o sistema operacional e, às vezes, estruturas de aplicativo. 
+O poder das tarefas do ACR para aprimorar verdadeiramente seu fluxo de trabalho de Build de contêiner vem da sua capacidade de detectar uma atualização para uma *imagem de base*. Um recurso da maioria das imagens de contêiner, uma imagem de base é uma imagem pai na qual uma ou mais imagens de aplicativo se baseiam. As imagens básicas normalmente contêm o sistema operacional e, às vezes, estruturas de aplicativo. 
 
 Você pode configurar uma tarefa ACR para rastrear uma dependência em uma imagem base ao criar uma imagem de aplicativo. Quando a imagem base atualizada é enviada para o registro ou uma imagem base é atualizada em um repositório público, como no Hub do Docker, as tarefas do ACR podem criar automaticamente qualquer imagem de aplicativo baseada nela.
 Com essa detecção e recriação automáticas, as Tarefas do ACR poupam o tempo e o esforço normalmente necessários para acompanhar e atualizar manualmente cada imagem de aplicativo que faz referência à imagem base atualizada.
@@ -105,7 +105,7 @@ A tabela a seguir mostra exemplos de locais de contexto com suporte para tarefas
 | Local do contexto | Descrição | Exemplo |
 | ---------------- | ----------- | ------- |
 | Sistema de arquivos local | Arquivos dentro de um diretório no sistema de arquivos local. | `/home/user/projects/myapp` |
-| Branch mestre do GitHub | Arquivos dentro da ramificação mestre (ou outro padrão) de um repositório GitHub público ou privado.  | `https://github.com/gituser/myapp-repo.git` |
+| Branch principal do GitHub | Arquivos dentro da ramificação principal (ou outro padrão) de um repositório GitHub público ou privado.  | `https://github.com/gituser/myapp-repo.git` |
 | Ramificação GitHub | Branch específico de um repositório GitHub público ou privado.| `https://github.com/gituser/myapp-repo.git#mybranch` |
 | Subpasta do GitHub | Arquivos dentro de uma subpasta em um repositório GitHub público ou privado. O exemplo mostra a combinação de uma especificação de ramificação e subpasta. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
 | Confirmação do GitHub | Confirmação específica em um repositório GitHub público ou privado. O exemplo mostra a combinação de uma especificação de hash de confirmação (SHA) e de subpasta. | `https://github.com/gituser/myapp-repo.git#git-commit-hash:myfolder` |

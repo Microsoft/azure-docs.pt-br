@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
-ms.openlocfilehash: e5d84616e70d2a28abf3937b485f4fcf5258c43e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: fdb609a243656e2c75159cd2d4e70e2f965ae896
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779400"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352109"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>Logs de diagnóstico-rede de distribuição de conteúdo do Azure
 
@@ -52,26 +52,26 @@ Siga estas etapas habilitar o registro em log para o ponto de extremidade da CDN
 
 3. Selecione **logs de diagnóstico** na seção **monitoramento** :
 
-    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Selecione ponto de extremidade CDN." border="true":::
+    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Selecione logs de diagnóstico." border="true":::
 
 ### <a name="enable-logging-with-azure-storage"></a>Habilitar registro em log com o Armazenamento do Azure
 
 Para usar uma conta de armazenamento para armazenar os logs, siga estas etapas:
 
  >[!NOTE] 
- >Uma conta de armazenamento é necessária para concluir estas etapas. Consulte: **[criar uma conta de armazenamento do Azure](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%252fazure%252fstorage%252fblobs%252ftoc.json)** para obter mais informações.
+ >Uma conta de armazenamento é necessária para concluir estas etapas. Consulte: **[criar uma conta de armazenamento do Azure](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)** para obter mais informações.
     
-1. Para **nome da configuração de diagnóstico** , insira um nome para as configurações de log de diagnóstico.
+1. Para **nome da configuração de diagnóstico**, insira um nome para as configurações de log de diagnóstico.
  
-2. Selecione **arquivo para uma conta de armazenamento** , em seguida, selecione **CoreAnalytics** . 
+2. Selecione **arquivo para uma conta de armazenamento**, em seguida, selecione **CoreAnalytics**. 
 
-3. Para **retenção (dias)** , escolha o número de dias de retenção. Uma retenção de zero dias armazena os logs indefinidamente. 
+3. Para **retenção (dias)**, escolha o número de dias de retenção. Uma retenção de zero dias armazena os logs indefinidamente. 
 
 4. Selecione a assinatura e a conta de armazenamento para os logs.
 
-    :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Selecione ponto de extremidade CDN." border="true":::
+    :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Logs de diagnóstico-armazenamento." border="true":::
 
-3. Clique em **Salvar** .
+3. Selecione **Salvar**.
 
 ### <a name="send-to-log-analytics"></a>Enviar para o Log Analytics
 
@@ -80,15 +80,15 @@ Para usar Log Analytics para os logs, siga estas etapas:
 >[!NOTE] 
 >Um espaço de trabalho do log Analytics é necessário para concluir estas etapas. Consulte: **[criar um log Analytics espaço de trabalho no portal do Azure](../azure-monitor/learn/quick-create-workspace.md)** para obter mais informações.
     
-1. Para **nome da configuração de diagnóstico** , insira um nome para as configurações de log de diagnóstico.
+1. Para **nome da configuração de diagnóstico**, insira um nome para as configurações de log de diagnóstico.
 
-2. Selecione **Enviar para log Analytics** e, em seguida, selecione **CoreAnalytics** . 
+2. Selecione **Enviar para log Analytics** e, em seguida, selecione **CoreAnalytics**. 
 
 3. Selecione a assinatura e Log Analytics espaço de trabalho para os logs.
 
-   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Selecione ponto de extremidade CDN." border="true":::
+   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Logs de diagnóstico-Log Analytics." border="true":::
 
-4. Clique em **Salvar** .
+4. Selecione **Salvar**.
 
 ### <a name="stream-to-an-event-hub"></a>Transmitir para um hub de eventos
 
@@ -97,15 +97,15 @@ Para usar um hub de eventos para os logs, siga estas etapas:
 >[!NOTE] 
 >Um hub de eventos é necessário para concluir estas etapas. Consulte: **[início rápido: criar um hub de eventos usando portal do Azure](../event-hubs/event-hubs-create.md)** para obter mais informações.
     
-1. Para **nome da configuração de diagnóstico** , insira um nome para as configurações de log de diagnóstico.
+1. Para **nome da configuração de diagnóstico**, insira um nome para as configurações de log de diagnóstico.
 
-2. Selecione **fluxo para um hub de eventos** e, em seguida, selecione **CoreAnalytics** . 
+2. Selecione **fluxo para um hub de eventos** e, em seguida, selecione **CoreAnalytics**. 
 
 3. Selecione a assinatura e o namespace do hub de eventos para os logs.
 
-   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Selecione ponto de extremidade CDN." border="true":::
+   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Logs de diagnóstico-Hub de eventos." border="true":::
 
-4. Clique em **Salvar** .
+4. Selecione **Salvar**.
 
 
 ## <a name="enable-logging-with-powershell"></a>Habilitar o registro em log com o PowerShell
@@ -190,8 +190,8 @@ Para baixar a ferramenta, consulte [Gerenciador de Armazenamento do Azure](https
 1.  Abrir **Gerenciador de armazenamento do Microsoft Azure**
 2.  Localize a conta de armazenamento
 3.  Expanda o nó **Blob Containers** sob esta conta de armazenamento.
-4.  Selecione o contêiner denominado *insights-logs-coreanalytics* .
-5.  Os resultados aparecem no painel direito, começando com o primeiro nível, como *resourceId =* . Continue selecionando cada nível até encontrar o arquivo *PT1H.json* . Para obter uma explicação do caminho, confira [Formato de caminho de blob](cdn-azure-diagnostic-logs.md#blob-path-format).
+4.  Selecione o contêiner denominado *insights-logs-coreanalytics*.
+5.  Os resultados aparecem no painel direito, começando com o primeiro nível, como *resourceId =*. Continue selecionando cada nível até encontrar o arquivo *PT1H.json*. Para obter uma explicação do caminho, confira [Formato de caminho de blob](cdn-azure-diagnostic-logs.md#blob-path-format).
 6.  Cada arquivo blob *PT1H.json* representa os logs de análise por uma hora para um ponto de extremidade CDN específico ou seu domínio personalizado.
 7.  O esquema do conteúdo desse arquivo JSON é descrito na seção Esquema dos logs de análise de núcleo.
 
@@ -229,7 +229,7 @@ Aqui está como você pode usar a ferramenta:
 
 ## <a name="log-data-delays"></a>Atrasos em dados de log
 
-A tabela a seguir mostra atrasos em dados de log para **CDN Standard do Azure da Microsoft** , **CDN Standard do Azure da Akamai** e da **CDN Standard/Premium do Azure da Verizon** .
+A tabela a seguir mostra atrasos em dados de log para **CDN Standard do Azure da Microsoft**, **CDN Standard do Azure da Akamai** e da **CDN Standard/Premium do Azure da Verizon**.
 
 Atrasos em dados de log da Microsoft | Atrasos em dados de log da Verizon | Atrasos em dados de log da Akamai
 --- | --- | ---
@@ -249,7 +249,7 @@ A tabela a seguir mostra uma lista de métricas disponíveis nos logs de anális
 Nem todas as métricas estão disponíveis de todos os provedores, embora essas diferenças sejam mínimas. A tabela também mostra se uma determinada métrica está disponível de um provedor. As métricas estão disponíveis somente para os terminais CDN que possuem tráfego neles.
 
 
-|Métrica                     | Descrição | Microsoft | Verizon | Akamai |
+|Metric                     | Descrição | Microsoft | Verizon | Akamai |
 |---------------------------|-------------|-----------|---------|--------|
 | RequestCountTotal         | Número total de ocorrências de solicitação durante esse período. | Sim | Sim |Sim |
 | RequestCountHttpStatus2xx | Contagem de todas as solicitações que resultaram em um código HTTP 2xx (por exemplo, 200, 202). | Sim | Sim |Sim |

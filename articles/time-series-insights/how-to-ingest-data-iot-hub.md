@@ -9,14 +9,14 @@ manager: diviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/02/2020
+ms.date: 01/21/2021
 ms.custom: seodec18
-ms.openlocfilehash: 28a1990155e1406bf9b79572b3e5307cadfb8076
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb13df0f87cd10719f33afe4ec080c4c785df720
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665915"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695553"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-azure-time-series-insight-environment"></a>Adicionar uma origem de evento do Hub IoT ao seu ambiente do Azure Time Series Insight
 
@@ -27,7 +27,7 @@ Este artigo descreve como usar o portal do Azure para adicionar uma origem do ev
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Crie um [ambiente de Azure Time Series insights](time-series-insights-update-create-environment.md).
+* Crie um [ambiente de Azure Time Series insights](./tutorials-set-up-tsi-environment.md).
 * Criar um [Hub IoT usando o portal do Azure](../iot-hub/iot-hub-create-through-portal.md).
 * O hub IoT precisa ter eventos de mensagem ativos enviados.
 * Crie um grupo de consumidores dedicado no Hub IoT para o ambiente do Azure Time Series Insight a ser consumido. Cada fonte de evento do Azure Time Series Insight deve ter seu próprio grupo de consumidores dedicado que não é compartilhado com nenhum outro consumidor. Se vários leitores consomem eventos do mesmo grupo de consumidores, é provável que todos os leitores apresentem falhas. Para obter detalhes, leia o [Guia do desenvolvedor do Hub IOT do Azure](../iot-hub/iot-hub-devguide.md).
@@ -40,7 +40,7 @@ Para adicionar um novo grupo de consumidores ao seu hub IoT:
 
 1. Na [portal do Azure](https://portal.azure.com), localize e abra o Hub IOT.
 
-1. Em **configurações**, selecione **pontos de extremidade internos**e, em seguida, selecione o ponto final de **eventos** .
+1. Em **configurações**, selecione **pontos de extremidade internos** e, em seguida, selecione o ponto final de **eventos** .
 
    [![Na página Pontos de Extremidade Internos, selecione o botão Eventos](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-connect-iot-hub.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-connect-iot-hub.png#lightbox)
 
@@ -54,7 +54,7 @@ Para adicionar um novo grupo de consumidores ao seu hub IoT:
 
 1. No menu do lado esquerdo, selecione **Todos os recursos**. Selecione seu ambiente do Azure Time Series Insight.
 
-1. Em **configurações**, selecione **origens do evento**e, em seguida, selecione **Adicionar**.
+1. Em **configurações**, selecione **origens do evento** e, em seguida, selecione **Adicionar**.
 
    [![Selecione Fontes de eventos e selecione o botão Adicionar](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-add-event-source.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-add-event-source.png#lightbox)
 
@@ -74,7 +74,7 @@ Para adicionar um novo grupo de consumidores ao seu hub IoT:
 
        | Propriedade | Descrição |
        | --- | --- |
-       | Subscription | A assinatura à qual o Hub IOT desejado pertence. |
+       | Assinatura | A assinatura à qual o Hub IOT desejado pertence. |
        | Nome do Hub IoT | O nome do Hub IOT selecionado. |
        | Nome da política do Hub IoT | Selecione a política de acesso compartilhado. Você pode encontrar a política de acesso compartilhado na guia Configurações do Hub IoT. Cada política de acesso compartilhado tem um nome, as permissões definidas por você e as chaves de acesso. A política de acesso compartilhado para a origem do evento *deve* ter permissões de **conexão de serviço**. |
        | Chave de política do Hub IoT | A chave é preenchida previamente. |
@@ -107,7 +107,7 @@ Para adicionar um novo grupo de consumidores ao seu hub IoT:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Definir as políticas de acesso de dados](time-series-insights-data-access.md) para proteger os dados.
+* [Definir as políticas de acesso de dados](./concepts-access-policies.md) para proteger os dados.
 
 * [Enviar eventos](time-series-insights-send-events.md) para a origem do evento.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 6b57428aeba702dc8cf06ec4ae7984854a94ac7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea66bb5bcdd6132809804632919a120f5c93353f
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449178"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132708"
 ---
 # <a name="container-security-in-security-center"></a>Segurança de contêineres na Central de Segurança
 
@@ -48,7 +48,7 @@ A captura de tela a seguir mostra a página de estoque de ativos e os diversos t
 
 Para monitorar imagens nos registros de contêiner do Azure baseados no Azure Resource Manager, habilite o [Azure Defender para Registros de Contêiner](defender-for-container-registries-introduction.md). A Central de Segurança verifica todas as imagens recebidas nos últimos 30 dias, enviadas por push ao registro ou importadas. O verificador integrado é fornecido pela Qualys, fornecedora líder do setor de verificação de vulnerabilidades.
 
-Quando forem encontrados problemas – seja pela Qualys ou pela Central de Segurança – você será notificado no [dashboard do Azure Defender](azure-defender-dashboard.md). Para cada vulnerabilidade, a Central de Segurança fornece recomendações práticas, juntamente com uma classificação de severidade e diretrizes sobre como corrigir o problema. Para obter detalhes das recomendações da Central de Segurança para contêineres, confira a [lista de referência de recomendações](recommendations-reference.md#recs-containers).
+Quando forem encontrados problemas – seja pela Qualys ou pela Central de Segurança – você será notificado no [dashboard do Azure Defender](azure-defender-dashboard.md). Para cada vulnerabilidade, a Central de Segurança fornece recomendações práticas, juntamente com uma classificação de severidade e diretrizes sobre como corrigir o problema. Para obter detalhes das recomendações da Central de Segurança para contêineres, confira a [lista de referência de recomendações](recommendations-reference.md#recs-compute).
 
 A Central de Segurança filtra e classifica as descobertas do verificador. Quando uma imagem está íntegra, a Central de Segurança marca a imagem como tal. A Central de Segurança gera recomendações de segurança apenas para as imagens que têm problemas a serem resolvidos. Notificando você apenas quando há problemas, a Central de Segurança reduz o potencial de alertas informativos indesejados.
 
@@ -60,7 +60,7 @@ A Central de Segurança do Azure identifica contêineres não gerenciados hosped
 
 A Central de Segurança inclui todo o conjunto de regras do benchmark do CIS do Docker e alerta você se os contêineres não atendem a nenhum dos controles. Quando encontra configurações incorretas, a Central de Segurança gera recomendações de segurança. Use a **página recomendações** da Central de Segurança para exibir recomendações e corrigir problemas. As verificações de benchmark do CIS não são executadas em instâncias gerenciadas pelo AKS ou em VMs gerenciadas pelo Databricks.
 
-Para obter detalhes sobre as recomendações relevantes da Central de Segurança que podem aparecer para esse recurso, consulte a [seção de contêiner](recommendations-reference.md#recs-containers) da tabela de referência de recomendações.
+Para obter detalhes sobre as recomendações relevantes da Central de Segurança que podem aparecer para esse recurso, confira a [seção de computação](recommendations-reference.md#recs-compute) da tabela de referência de recomendações.
 
 Quando você estiver explorando os problemas de segurança de uma VM, a Central de Segurança fornecerá informações adicionais sobre os contêineres no computador. Essas informações incluem a versão do Docker e o número de imagens em execução no host. 
 
@@ -74,15 +74,15 @@ O AKS fornece controles de segurança e visibilidade sobre a postura de seguran�
 * Monitorar constantemente a configuração de seus clusters AKS
 * Gerar recomendações de segurança alinhadas com os padrões do setor
 
-Para obter detalhes sobre as recomendações relevantes da Central de Segurança que podem aparecer para esse recurso, consulte a [seção de contêiner](recommendations-reference.md#recs-containers) da tabela de referência de recomendações.
+Para obter detalhes sobre as recomendações relevantes da Central de Segurança que podem aparecer para esse recurso, confira a [seção de computação](recommendations-reference.md#recs-compute) da tabela de referência de recomendações.
 
 ###  <a name="workload-protection-best-practices-using-kubernetes-admission-control"></a>Melhores práticas de proteção de cargas de trabalho usando o controle de admissão do Kubernetes
 
-Instale o **Complemento do Azure Policy para Kubernetes** a fim de obter um pacote de recomendações para proteger as cargas de trabalho dos contêineres do Kubernetes.
+Para obter um pacote de recomendações a fim de proteger as cargas de trabalho dos contêineres do Kubernetes, instale o **complemento do Azure Policy para Kubernetes**. Você também pode implantar automaticamente esse complemento, conforme explicado em [Habilitar o provisionamento automático de extensões](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions). Quando o provisionamento automático para o complemento é definido como "ativado", a extensão fica habilitada por padrão em todos os clusters existentes e futuros (que atendem aos requisitos de instalação do complemento).
 
 Conforme explicado [na página do Azure Policy para Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md), o complemento estende o software livre [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper) webhook controlador de admissão para [ Agente de política aberto](https://www.openpolicyagent.org/). Os controladores de admissão do Kubernetes são plug-ins que impõem como os clusters são usados. O complemento é registrado como um webhook para o controle de admissão do Kubernetes e possibilita a aplicação de imposições em escala e proteções nos clusters de maneira centralizada e consistente. 
 
-Quando você instalar o complemento no cluster do AKS, todas as solicitações para o servidor de API do Kubernetes serão monitoradas em relação ao conjunto predefinido de melhores práticas antes de serem persistidas no cluster. Em seguida, você pode configurá-lo para **impor** as melhores práticas e exigir o uso dele em cargas de trabalho futuras. 
+Com o complemento no cluster do AKS, todas as solicitações para o servidor de API do Kubernetes serão monitoradas em relação ao conjunto predefinido de melhores práticas antes de serem persistidas no cluster. Em seguida, você pode configurá-lo para **impor** as melhores práticas e exigir o uso dele em cargas de trabalho futuras. 
 
 Por exemplo, você poderá proibir a criação de contêineres privilegiados, e todas as futuras solicitações para fazer isso serão bloqueadas.
 

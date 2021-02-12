@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.custom: ''
 ms.date: 07/24/2020
 ms.author: inhenkel
-ms.openlocfilehash: 9d784e1697dfbcbfec509c1a51c9b832b533c97b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddd6a94015829a0b5dd4053f4d3a2fd6d2650d32
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87830743"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492647"
 ---
 # <a name="how-to-use-azure-portal-to-invoke-direct-methods"></a>Como usar portal do Azure para invocar métodos diretos
 
@@ -54,7 +54,7 @@ Use a chamada de método `GraphTopologyList` para recuperar uma lista de todas a
 1. Copie e cole o JSON abaixo no campo **Conteúdo**.
     ```json
     {
-    "@apiVersion":
+    "@apiVersion": "2.0"
     }
     ```
 1. Selecione o botão **Invocar Método** na parte superior da página.<br><br>

@@ -1,14 +1,17 @@
 ---
 title: Perguntas sobre descoberta, avaliação e análise de dependência em migrações para Azure
 description: Obtenha respostas para perguntas comuns sobre descoberta, avaliação e análise de dependência em migrações para Azure.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: cb1696c521f436280177f0263abd66aa2bfed7dc
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 944d867ef888e70faa659adcc0e2d4c02f003c97
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312929"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567407"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Descoberta, avaliação e análise de dependência-perguntas comuns
 
@@ -43,7 +46,8 @@ Você pode descobrir até 10.000 VMs VMware, até 5.000 VMs Hyper-V e até 1000 
 Para a avaliação “baseada em desempenho”, o relatório de avaliação exportado indica “PercentageOfCoresUtilizedMissing” ou “PercentageOfMemoryUtilizedMissing” quando o dispositivo de Migrações para Azure não pode coletar dados de desempenho das VMs locais. Verifique:
 
 - Se as VMs estão ativadas pelo tempo para o qual está criando a avaliação
-- Se apenas os contadores de memória estiverem ausentes e você estiver tentando avaliar as VMs do Hyper-V, verifique se você tem memória dinâmica habilitada nessas VMs. Há um problema conhecido atualmente devido ao qual o dispositivo de Migrações para Azure não pode coletar a utilização de memória para essas VMs.
+- Se apenas os contadores de memória estiverem ausentes e você estiver tentando avaliar as VMs do Hyper-V. Nesse cenário, habilite a memória dinâmica nas VMs e ' recalcule ' a avaliação para refletir as alterações mais recentes. O dispositivo pode coletar valores de utilização de memória para VMs do Hyper-V somente quando a VM tiver a memória dinâmica habilitada.
+
 - Se todos os contadores de desempenho estiverem ausentes, verifique se as conexões de saída nas portas 443 (HTTPS) são permitidas.
 
 Observação - se algum dos contadores de desempenho estiver ausente, as Migrações para Azure: A avaliação do servidor volta para os núcleos alocados/memória local e recomenda um tamanho de VM de acordo.
@@ -54,7 +58,12 @@ A classificação de confiança é calculada para avaliações de "baseadas em d
 
 - Você não criou o perfil do ambiente pelo tempo para o qual está criando a avaliação. Por exemplo, se você está criando uma avaliação com duração de desempenho definida como uma semana, precisa aguardar pelo menos uma semana após iniciar a descoberta para que todos os pontos de dados sejam coletados. Se não puder esperar tanto tempo, altere a execução para um período menor e “recalcule” a avaliação.
  
-- A avaliação do servidor não é capaz de coletar os dados de desempenho de algumas ou de todas as VMs no período de avaliação. Verifique se as VMs foram ligadas durante a avaliação e se as conexões de saída nas portas 443 são permitidas. Para VMs do Hyper-V, se a memória dinâmica estiver habilitada, os contadores de memória ficarão ausentes, levando a uma classificação de baixa confiança. “Recalcule” a avaliação para refletir as alterações mais recentes na classificação de confiança. 
+- A avaliação do servidor não é capaz de coletar os dados de desempenho de algumas ou de todas as VMs no período de avaliação. Para uma classificação de alta confiança, verifique se: 
+    - As VMs são ativadas durante a avaliação
+    - Conexões de saída nas portas 443 são permitidas
+    - Para VMs do Hyper-V, a memória dinâmica está habilitada 
+
+    “Recalcule” a avaliação para refletir as alterações mais recentes na classificação de confiança.
 
 - Algumas VMs foram criadas após o início da descoberta na Avaliação de Servidor. Por exemplo, se você estiver criando uma avaliação para o histórico de desempenho do último mês, mas algumas VMs foram criadas no ambiente somente há uma semana. Nesse caso, os dados de desempenho das novas VMs não estariam disponíveis durante todo o período e a classificação de confiança seria baixa.
 

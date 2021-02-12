@@ -6,13 +6,13 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
-ms.custom: devx-track-java
-ms.openlocfilehash: ea0887dd1d28bb958b27813df7f4c7a221470bac
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: d06a6eb8b504f2c5dd09de70d79f50a3ed5d89a3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088747"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844720"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Mapear um domínio personalizado existente para o Azure Spring Cloud
 

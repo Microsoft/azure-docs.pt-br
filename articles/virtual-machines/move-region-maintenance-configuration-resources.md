@@ -6,18 +6,18 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: shants
-ms.openlocfilehash: 38532fba2be1fedd275ed2e7f9dfc1bf5752499d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88082c441dafdc7571f2b9775bfc07ebe3ca5aa4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86501646"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730499"
 ---
 # <a name="move-resources-in-a-maintenance-control-configuration-to-another-region"></a>Mover recursos em uma configuração de controle de manutenção para outra região
 
 Siga este artigo para mover os recursos associados a uma configuração de controle de manutenção para uma região diferente do Azure. Talvez você queira mover uma configuração por vários motivos. Por exemplo, para aproveitar uma nova região, implantar recursos ou serviços disponíveis em uma região específica, para atender aos requisitos internos de políticas e governança, ou em resposta ao planejamento de capacidade.
 
-O controle de manutenção, com configurações de manutenção personalizadas, permite controlar como as atualizações de plataforma são aplicadas às VMs do [Windows](./maintenance-control-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json) e do [Linux](./maintenance-control-cli.md?toc=%2Fazure%2Fvirtual-machines%2Flinux%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Flinux%2Fbreadcrumb%2Ftoc.json&view=azure-java-stable) e aos hosts dedicados do Azure. Há alguns cenários para mover o controle de manutenção entre regiões:
+O [controle de manutenção](maintenance-control.md), com configurações de manutenção personalizadas, permite que você controle como as atualizações de plataforma são aplicadas às VMs e aos hosts dedicados do Azure. Há alguns cenários para mover o controle de manutenção entre regiões:
 
 - Para mover os recursos associados a uma configuração de manutenção, mas não a configuração em si, siga este artigo.
 - Para mover sua configuração de controle de manutenção, mas não os recursos associados à configuração, siga [estas instruções](move-region-maintenance-configuration.md).
@@ -49,7 +49,7 @@ Antes de começar a mover os recursos associados a uma configuração de control
     $adh | Nome de host dedicado | "myhost"
     $adhParentName | Nome do recurso pai | Hosts
     
-2. Para recuperar as configurações de manutenção usando o comando [Get-AZConfigurationAssignment](/powershell/module/az.maintenance/get-azconfigurationassignment?view=azps-3.5.0) do PowerShell:
+2. Para recuperar as configurações de manutenção usando o comando [Get-AZConfigurationAssignment](/powershell/module/az.maintenance/get-azconfigurationassignment) do PowerShell:
 
     - Para hosts dedicados do Azure, execute:
         ```
@@ -61,7 +61,7 @@ Antes de começar a mover os recursos associados a uma configuração de control
         ```
         Get-AzConfigurationAssignment -ResourceGroupName $rgName -ResourceName $vmName -ProviderName Microsoft.Compute -ResourceType virtualMachines | Format-Table Name
         ```
-3. Para recuperar as configurações de manutenção usando o comando de [atribuição de manutenção de AZ](/cli/azure/ext/maintenance/maintenance/assignment?view=azure-cli-latest) da CLI:
+3. Para recuperar as configurações de manutenção usando o comando de [atribuição de manutenção de AZ](/cli/azure/ext/maintenance/maintenance/assignment) da CLI:
 
     - Para hosts dedicados do Azure:
 

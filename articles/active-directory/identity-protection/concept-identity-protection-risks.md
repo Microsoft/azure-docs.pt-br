@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 01/05/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87239e361b518a85cf30352374e7a9b5e530928e
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 18e504579c750caf452ef74844c4a388ec96448a
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042616"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954478"
 ---
 # <a name="what-is-risk"></a>O que é risco?
 
@@ -24,14 +24,14 @@ As detecções de risco no Azure AD Identity Protection incluem quaisquer açõe
 
 A proteção de identidade fornece às organizações acesso a recursos avançados para ver e responder rapidamente a essas ações suspeitas. 
 
->**Observação:** A proteção de identidade gera detecções de risco somente quando as credenciais corretas são usadas. Se credenciais incorretas forem usadas em uma entrada, isso não representará o risco de comprometimento de credenciais.
-
 ![Visão geral de segurança mostrando usuários e entradas arriscadas](./media/concept-identity-protection-risks/identity-protection-security-overview.png)
 
+> [!NOTE]
+> A proteção de identidade gera detecções de risco somente quando as credenciais corretas são usadas. Se credenciais incorretas forem usadas em uma entrada, isso não representará o risco de comprometimento de credenciais.
 
 ## <a name="risk-types-and-detection"></a>Tipos de risco e detecção
 
-Há dois tipos de **usuário** de risco e **entrada** e dois tipos de detecção ou cálculo em **tempo real** e **offline** .
+Há dois tipos de **usuário** de risco e **entrada** e dois tipos de detecção ou cálculo em **tempo real** e **offline**.
 
 As detecções em tempo real podem não aparecer no relatório de cinco a dez minutos. As detecções offline podem não aparecer no relatório de duas a vinte e quatro horas.
 
@@ -63,6 +63,9 @@ Esses riscos podem ser calculados em tempo real ou calculados offline usando fon
 | Regras de manipulação de caixa de entrada suspeita | Offline | Essa detecção é descoberta pelo [Microsoft Cloud app Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-manipulation-rules). Essa detecção analisa o ambiente e dispara alertas quando regras suspeitas que excluem ou movem mensagens ou pastas são definidas na caixa de entrada de um usuário. Essa detecção pode indicar que a conta do usuário está comprometida, que as mensagens estão sendo intencionalmente ocultas e que a caixa de correio está sendo usada para distribuir spam ou malware na sua organização. |
 | Pulverização de senha | Offline | Um ataque de irrigação de senha é onde vários nomes de usuários são atacados usando senhas comuns em uma maneira de força bruta unificada para obter acesso não autorizado. Essa detecção de risco é disparada quando um ataque de irrigação de senha é executado. |
 | Viagem impossível | Offline | Essa detecção é descoberta pelo [Microsoft Cloud app Security (MCAS)](/cloud-app-security/anomaly-detection-policy#impossible-travel). Essa detecção identifica duas atividades do usuário (é uma única ou várias sessões) provenientes de locais geograficamente distantes em um período de tempo menor que o tempo que teria levado para o usuário viajar do primeiro local para o segundo, indicando que um usuário diferente está usando as mesmas credenciais. |
+| Novo país | Offline | Essa detecção é descoberta pelo [Microsoft Cloud app Security (MCAS)](/cloud-app-security/anomaly-detection-policy#activity-from-infrequent-country). Essa detecção considera os locais de atividades anteriores para determinar os locais novos e pouco frequentes. O mecanismo de detecção de anomalias armazena informações sobre locais anteriores usados por usuários na organização. |
+| Atividade de endereço IP anônimo | Offline | Essa detecção é descoberta pelo [Microsoft Cloud app Security (MCAS)](/cloud-app-security/anomaly-detection-policy#activity-from-anonymous-ip-addresses). Essa detecção identifica que os usuários estavam ativos com base em um endereço IP que foi identificado como um endereço IP de proxy anônimo. |
+| Encaminhamento suspeito da caixa de entrada | Offline | Essa detecção é descoberta pelo [Microsoft Cloud app Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-forwarding). Essa detecção procura regras de encaminhamento de email suspeito, por exemplo, se um usuário criou uma regra de caixa de entrada que encaminha uma cópia de todos os emails para um endereço externo. |
 
 ### <a name="other-risk-detections"></a>Outras detecções de risco
 
@@ -74,9 +77,13 @@ Esses riscos podem ser calculados em tempo real ou calculados offline usando fon
 
 ### <a name="risk-levels"></a>Níveis de risco
 
-O Identity Protection categoriza os riscos em três camadas: baixa, média e alta. 
+O Identity Protection categoriza os riscos em três camadas: baixa, média e alta. Ao configurar [políticas personalizadas de proteção de identidade](./concept-identity-protection-policies.md#custom-conditional-access-policy), você também pode configurá-lo para disparar **sem nenhum** nível de risco. Sem risco significa que não há nenhuma indicação ativa de que a identidade do usuário foi comprometida.
 
 Embora a Microsoft não forneça detalhes específicos sobre como o risco é calculado, diremos que cada nível traz uma maior confiança de que a entrada ou o usuário está comprometido. Por exemplo, algo como uma instância de propriedades de entrada desconhecidas para um usuário pode não ser tão ameaçador quanto as credenciais vazadas para outro usuário.
+
+### <a name="password-hash-synchronization"></a>Sincronização de hash de senha
+
+As detecções de risco como credenciais vazadas e a irrigação de senha exigem a presença de hashes de senha para que a detecção ocorra. Para obter mais informações sobre a sincronização de hash de senha, consulte o artigo [implementar a sincronização de hash de senha com Azure ad Connect sincronização](../hybrid/how-to-connect-password-hash-synchronization.md).
 
 ### <a name="leaked-credentials"></a>Credenciais vazadas
 

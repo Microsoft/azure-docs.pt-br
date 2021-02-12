@@ -1,19 +1,19 @@
 ---
 title: Solução do Azure VMware por CloudSimple-configurar o DNS para a nuvem privada do CloudSimple
 description: Descreve como configurar a resolução de nomes DNS para acesso ao vCenter Server em uma nuvem privada do CloudSimple de estações de trabalho locais
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8d982d06bd100313d643033294b6d14e6383d5df
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 63822050512421895b0cfed08fb141f77da20b03
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424703"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899245"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>Configurar o DNS para a resolução de nomes para acesso de vCenter de nuvem privada de estações de trabalho locais
 
@@ -44,6 +44,9 @@ Você pode configurar uma zona como uma zona de stub e apontar para os servidore
 O arquivo e os parâmetros específicos a serem configurados podem variar com base na configuração de DNS individual.
 
 Por exemplo, para a configuração de servidor BIND padrão, edite o arquivo/etc/named.conf no servidor DNS e adicione as informações de zona a seguir.
+
+> [!NOTE]
+>Este artigo contém referências ao termo "servidor subordinado", um termo que a Microsoft não usa mais. Quando o termo for removido do software, também o removeremos deste artigo.
 
 ```
 zone "az.cloudsimple.io"

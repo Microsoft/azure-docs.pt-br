@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2019
+ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d193637122cb388ea2c5012638526719d245f524
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bd7ec1f6cdfc8ecfe32de04f5d06b42f9492b88c
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90968973"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590895"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-virtual-machine-scale-sets-using-powershell"></a>Configurar identidades gerenciadas para recursos do Azure em conjuntos de escala de máquina virtual usando o PowerShell
 
@@ -29,6 +29,7 @@ ms.locfileid: "90968973"
 As identidades gerenciadas dos recursos do Azure fornecem aos serviços do Azure uma identidade gerenciada automaticamente no Azure Active Directory. Você pode usar essa identidade para autenticar em qualquer serviço que dá suporte à autenticação do Azure AD, incluindo o Key Vault, sem ter as credenciais no seu código. 
 
 Neste artigo, usando o PowerShell, você aprende como executar as identidades gerenciadas para operações de recursos do Azure em um conjunto de dimensionamento de máquina virtual:
+
 - Ativar e desativar a identidade gerenciada designada pelo sistema em um conjunto de dimensionamento de máquina virtual
 - Adicionar e remover uma identidade gerenciada atribuída pelo usuário em um conjunto de dimensionamento de máquina virtual
 
@@ -36,7 +37,7 @@ Neste artigo, usando o PowerShell, você aprende como executar as identidades ge
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção de visão geral](overview.md). ** Lembre-se de revisar a [diferença entre uma identidade atribuída designada pelo sistema e gerenciada pelo usuário](overview.md#managed-identity-types)**.
+- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção de visão geral](overview.md). **Lembre-se de revisar a [diferença entre uma identidade atribuída designada pelo sistema e gerenciada pelo usuário](overview.md#managed-identity-types)**.
 
 - Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 

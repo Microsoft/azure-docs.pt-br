@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 11/30/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5a983931bd372931eacff2f7b21f3358f536046
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8a249102de6a5bff7354e339e604b7d2efebd4fb
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362919"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546141"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Habilitar a Colaboração B2B externa e gerenciar quem pode enviar convites
 
@@ -44,16 +44,19 @@ Por padrão, todos os usuários, incluindo convidados, podem enviar convites.
 3. Selecione **Identidades Externas** > **Configurações de colaboração externa**.
 
 4. Em **restrições de acesso do usuário convidado (versão prévia)**, escolha o nível de acesso que você deseja que os usuários convidados tenham:
+  
+    ![Configurações de restrições de acesso do usuário convidado](./media/delegate-invitations/guest-user-access.png)
 
    - **Os usuários convidados têm o mesmo acesso que os membros (mais inclusivo)**: essa opção fornece aos convidados o mesmo acesso aos recursos do AD do Azure e aos dados de diretório como usuários membros.
 
    - **Os usuários convidados têm acesso limitado a propriedades e associações de objetos de diretório**: (padrão) essa configuração bloqueia convidados de determinadas tarefas de diretório, como a enumeração de usuários, grupos ou outros recursos de diretório. Os convidados podem ver a associação de todos os grupos não ocultos.
 
    - **O acesso do usuário convidado é restrito a propriedades e associações de seus próprios objetos de diretório (mais restritivos)**: com essa configuração, os convidados podem acessar somente seus próprios perfis. Os convidados não têm permissão para ver os perfis, grupos ou associações de grupo dos outros usuários.
-  
-    ![Configurações de restrições de acesso do usuário convidado](./media/delegate-invitations/guest-user-access.png)
+
 
 5. Em **configurações de convite de convidado**, escolha as configurações apropriadas:
+
+    ![Configurações de convite de convidado](./media/delegate-invitations/guest-invite-settings.png)
 
    - **Administradores e usuários na função de emissor de convites independente podem convidar**: Para permitir que administradores e usuários na função "Emissor de convites independente" enviem convites, defina essa política como **Sim**.
 
@@ -61,17 +64,31 @@ Por padrão, todos os usuários, incluindo convidados, podem enviar convites.
 
    - **Convidados podem convidar**: Para permitir que convidados convidem outros convidados, defina essa política como **Sim**.
 
-   - **Habilitar email One-Time senha para convidados (visualização)**: para obter mais informações sobre o recurso de senha de uso único, consulte [autenticação de senha de uso único de email (versão prévia)](one-time-passcode.md).
-
-   - **Habilitar inscrição de autoatendimento de convidado por meio de fluxos de usuário (visualização)**: para obter mais informações sobre essa configuração, consulte [Adicionar um fluxo de usuário de inscrição de autoatendimento a um aplicativo (versão prévia)](self-service-sign-up-user-flow.md).
-
    > [!NOTE]
    > Se **os membros puderem convidar** for definido como **não** e **Administradores e os usuários na função de convite do convidado puderem convidar** estiver definido como **Sim**, os usuários na função emissor de **convite do convidado** ainda poderão convidar convidados.
 
-    ![Configurações de convite de convidado](./media/delegate-invitations/guest-invite-settings.png)
+6. Em **senha de uso único de email para convidados**, escolha as configurações apropriadas (para obter mais informações, consulte [autenticação de senha de uso único de email](one-time-passcode.md)):
 
-6. Em **restrições de colaboração**, escolha se deseja permitir ou negar convites para os domínios que você especificar. Para obter mais informações, consulte [Permitir ou bloquear convites para usuários B2B de organizações específicas](allow-deny-list.md).
+   ![Configurações de senha de uso único de email](./media/delegate-invitations/email-otp-settings.png)
 
+   - **Habilite automaticamente a senha de uso único de email para convidados em março de 2021**. Os Se o recurso de senha de email de uso único já não estiver habilitado para seu locatário, ele será automaticamente ativado em março de 2021. Nenhuma ação adicional será necessária se você quiser habilitar o recurso no momento. Se você já tiver habilitado ou desabilitado o recurso, essa opção não estará disponível.
+
+   - **Habilite o email de senha de uso único para convidados em vigor agora**. Ativa o recurso de senha de uso único de email para seu locatário.
+
+   - **Desabilite a senha de uso único de email para convidados**. Desativa o recurso de senha de uso único de email para seu locatário e impede que o recurso seja ligado em março de 2021.
+
+   > [!NOTE]
+   > Em vez das opções acima, você verá a seguinte alternância se tiver habilitado ou desabilitado esse recurso ou se tiver optado anteriormente pela versão prévia:
+   >
+   >![Habilitar o email de senha de uso único aceito](media/delegate-invitations/enable-email-otp-opted-in.png)
+
+7. Em **habilitar inscrição de autoatendimento de convidado por meio de fluxos de usuário (visualização)**, selecione **Sim** se você deseja poder criar fluxos de usuário que permitem que os usuários se inscrevam em aplicativos. Para obter mais informações sobre essa configuração, consulte [Adicionar um fluxo de usuário de inscrição de autoatendimento a um aplicativo (versão prévia)](self-service-sign-up-user-flow.md).
+
+    ![Inscrição de autoatendimento por meio da configuração de fluxos de usuário](./media/delegate-invitations/self-service-sign-up-setting.png)
+
+7. Em **restrições de colaboração**, escolha se deseja permitir ou negar convites para os domínios que você especificar. Para obter mais informações, consulte [Permitir ou bloquear convites para usuários B2B de organizações específicas](allow-deny-list.md).
+
+    ![Configurações de restrições de colaboração](./media/delegate-invitations/collaboration-restrictions.png)
 ## <a name="assign-the-guest-inviter-role-to-a-user"></a>Atribuir a função Emissor de convites independente a um usuário
 
 Com a função Emissor de convites independente, você pode dar aos usuários individuais a capacidade de enviar convites sem atribuir a eles um administrador global ou outra função de administrador. Atribua a Função Emissor de convites independente às pessoas. Não se esqueça de definir **Administradores e usuários na função de emissor de convites independente podem convidar** como **Sim**.

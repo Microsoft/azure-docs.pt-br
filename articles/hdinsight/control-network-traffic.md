@@ -1,18 +1,15 @@
 ---
 title: Controle do tráfego de rede no Azure HDInsight
 description: Aprenda técnicas para controlar o tráfego de entrada e de saída para clusters do Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 348b9b80c74f085ce31ecce93753a253782fe3ea
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0cbda0b533a64e627bfeef9589ab95c4163ae73e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543161"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943362"
 ---
 # <a name="control-network-traffic-in-azure-hdinsight"></a>Controle do tráfego de rede no Azure HDInsight
 
@@ -40,7 +37,7 @@ Se você pretende usar **grupos de segurança de rede** para controlar o tráfeg
 
 3. Crie ou modifique os grupos de segurança de rede da sub-rede na qual você pretende instalar o HDInsight.
 
-    * __Grupos de segurança de rede__ : permita o tráfego de __entrada__ na porta __443__ dos endereços IP. Isso garantirá que os serviços de gerenciamento do HDInsight podem acessar o cluster de fora da rede virtual. Para clusters habilitados do __proxy REST do Kafka__ , permita tráfego de __entrada__ na porta __9400__ . Dessa maneira, o servidor proxy REST do Kafka fica acessível.
+    * __Grupos de segurança de rede__: permita o tráfego de __entrada__ na porta __443__ dos endereços IP. Isso garantirá que os serviços de gerenciamento do HDInsight podem acessar o cluster de fora da rede virtual. Para clusters habilitados do __proxy REST do Kafka__, permita tráfego de __entrada__ na porta __9400__. Dessa maneira, o servidor proxy REST do Kafka fica acessível.
 
 Para saber mais sobre os grupos de segurança de rede, confira [visão geral dos grupos de segurança de rede](../virtual-network/network-security-groups-overview.md).
 

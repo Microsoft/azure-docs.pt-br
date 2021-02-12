@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 02/01/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6aa31d0b8c68f38d2b4fc41a6bbaaeab8a3ffac
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6a764538ebc73927b1d274b2538e123ec90ce60e
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363599"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741551"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opções de relatórios para o gerenciamento de senhas do Azure AD
 
@@ -181,7 +181,7 @@ A seguinte lista explica essa atividade em detalhes:
 * [Quais são as opções de política com o SSPR?](concept-sspr-policy.md)
 * [O que é o write-back de senha e por que devo me importar com isso?](./tutorial-enable-sspr-writeback.md)
 * [Quais são todas as opções no SSPR e o que elas significam?](concept-sspr-howitworks.md)
-* [Acho que algo não está funcionando. Como faço para solucionar o problema no SSPR?](active-directory-passwords-troubleshoot.md)
+* [Acho que algo não está funcionando. Como faço para solucionar o problema no SSPR?](./troubleshoot-sspr.md)
 * [Tenho uma pergunta que não foi respondida em nenhum lugar](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Exemplo de logs de auditoria da atividade de SSPR no Azure AD"

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 77ea96b1bd1b1d661bb835e7bb48d58ce4c3e118
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 175c00440fe9723bbd389db39616f525c2b7f436
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309147"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805471"
 ---
 # <a name="azure-security-baseline-for-service-fabric"></a>Linha de base de segurança do Azure para Service Fabric
 
@@ -76,7 +76,7 @@ Considere implantar o WAF (firewall do aplicativo Web) do Azure na frente de apl
 
 **Orientação**: para proteger contra ataques de DDoS, habilite a proteção padrão do DDoS do Azure na rede virtual em que o cluster do Azure Service Fabric está implantado. Use a inteligência de ameaças integrada da central de segurança do Azure para negar comunicações com endereços IP de Internet mal-intencionados ou não utilizados conhecidos.
 
-* [Como configurar a proteção contra DDoS](../virtual-network/manage-ddos-protection.md)
+* [Como configurar a proteção contra DDoS](../ddos-protection/manage-ddos-protection.md)
 
 * [Compreender a inteligência contra ameaças integrada da Central de Segurança do Azure](../security-center/azure-defender.md)
 
@@ -144,7 +144,7 @@ Implante a solução de firewall de sua escolha em cada um dos limites de rede d
 
 **Orientação**: definir e implementar configurações de segurança padrão para recursos de rede relacionados ao cluster de Service Fabric do Azure. Use aliases de Azure Policy nos namespaces "Microsoft. onfabric" e "Microsoft. Network" para criar políticas personalizadas para auditar ou impor a configuração de rede do cluster de Service Fabric do Azure.
 
-Você também pode usar plantas do Azure para simplificar implantações do Azure de grande escala empacotando artefatos de ambiente-chave, como modelos de Azure Resource Manager, controles RBAC e políticas, em uma única definição de Blueprint. Aplique facilmente o blueprint a novas assinaturas e ambientes e ajuste o controle e o gerenciamento por meio do controle de versão.
+Você também pode usar plantas do Azure para simplificar implantações do Azure de grande escala ao empacotar artefatos de ambiente-chave, como modelos de Azure Resource Manager, controles RBAC do Azure e políticas, em uma única definição de Blueprint. Aplique facilmente o blueprint a novas assinaturas e ambientes e ajuste o controle e o gerenciamento por meio do controle de versão.
 
 * [Como exibir os aliases de Azure Policy disponíveis](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
@@ -380,7 +380,7 @@ Além disso, você pode usar as recomendações de gerenciamento de acesso e ide
 
 **Orientação**: Use PAWs (estações de trabalho com acesso privilegiado) com a MFA (autenticação multifator) configurada para fazer logon e configurar seus clusters de Service Fabric do Azure e recursos relacionados.
 
-* [Saiba mais sobre Estações de Trabalho com Acesso Privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Saiba mais sobre Estações de Trabalho com Acesso Privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [Como habilitar a MFA no Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -570,7 +570,7 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 **Diretrizes**: Use a criptografia em repouso em todos os recursos do Azure. A Microsoft recomenda permitir que o Azure gerencie suas chaves de criptografia, no entanto, há a opção de gerenciar suas próprias chaves em algumas instâncias.
 
-* [Entender a criptografia em repouso no Azure](../security/fundamentals/encryption-atrest.md)
+* [Noções básicas sobre a criptografia em repouso do Azure](../security/fundamentals/encryption-atrest.md)
 
 * [Como configurar chaves de criptografia gerenciadas pelo cliente](../storage/common/customer-managed-keys-configure-key-vault.md)
 
@@ -626,7 +626,7 @@ Como alternativa, para testar patches do sistema operacional antes de passar par
 
 * [Como atualizar as VMs com o modelo mais recente do conjunto de dimensionamento](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)
 
-* [Visão geral do Gerenciamento de Atualizações da Automação do Azure](../automation/update-management/update-mgmt-overview.md)
+* [Visão geral do Gerenciamento de Atualizações da Automação do Azure](../automation/update-management/overview.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -1094,7 +1094,7 @@ Além disso, marque as assinaturas usando marcas e crie um sistema de nomeação
 
 **Diretriz**: As informações de contato do incidente serão usadas pela Microsoft para contatá-lo se o MSRC (Microsoft Security Response Center) descobrir que seus dados foram acessados por uma pessoa não autorizada ou ilegal. Examine os incidentes após o fato para garantir que os problemas sejam resolvidos.
 
-* [Como definir o contato da segurança da central de segurança do Azure](../security-center/security-center-provide-security-contact-details.md)
+* [Como definir o contato de segurança da Central de Segurança do Azure](../security-center/security-center-provide-security-contact-details.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1102,7 +1102,7 @@ Além disso, marque as assinaturas usando marcas e crie um sistema de nomeação
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: incorporar alertas de segurança em seu sistema de resposta a incidentes
 
-**Diretriz**: exporte os alertas e recomendações da Central de Segurança do Azure usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da Central de Segurança do Azure para transmitir os alertas do Sentinel.
+**Diretriz**: exporte os alertas e recomendações da Central de Segurança do Azure usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da Central de Segurança do Azure para transmitir os alertas do Azure Sentinel.
 
 * [Como configurar a exportação contínua](../security-center/continuous-export.md)
 
@@ -1128,11 +1128,11 @@ Além disso, marque as assinaturas usando marcas e crie um sistema de nomeação
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: realize testes de penetração regulares de seus recursos do Azure e garanta a correção de todas as descobertas de segurança críticas
 
-**Diretrizes**: siga as regras de teste de penetração Microsoft Cloud do Engagement para garantir que seus testes de penetração não estejam violando as políticas da Microsoft. Use a estratégia da Microsoft e a execução de equipes vermelhas e testes de penetração de sites ativos em infraestrutura de nuvem, serviços e aplicativos gerenciados pela Microsoft.
+**Diretrizes**: siga as regras de teste de penetração Microsoft Cloud do Engagement para garantir que seus testes de penetração não estejam violando as políticas da Microsoft. Use a estratégia da Microsoft, a execução de Equipes Vermelhas e os testes de penetração de sites online na infraestrutura, nos serviços e nos aplicativos de nuvem gerenciados pela Microsoft.
 
-* [Regras de teste de penetração do Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+* [Regras de participação para testes de penetração](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [Microsoft Cloud o agrupamento vermelho](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+* [Equipes Vermelhas do Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 

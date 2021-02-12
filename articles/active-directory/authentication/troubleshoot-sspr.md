@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 08/26/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e661bd24acbb15ced9f5bb0a0fba7eec51eae06
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7099de23b825fa7af203dff9696bb53e23a099c8
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363531"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741109"
 ---
 # <a name="troubleshoot-self-service-password-reset-in-azure-active-directory"></a>Solucionar problemas de redefinição de senha de autoatendimento no Azure Active Directory
 

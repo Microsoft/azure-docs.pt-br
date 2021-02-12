@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: e3ecf29be94074f51ead3173f997154df6dfa88f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 995ae176a8eec58f8dc9522e6fac6fd78170014d
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785605"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628910"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migrar para compartilhamentos de Arquivos do Azure
 
@@ -134,7 +134,7 @@ Esta seção descreve as ferramentas que ajudam a planejar e executar migraçõe
 
 #### <a name="robocopy-from-microsoft-corporation"></a>RoboCopy da Microsoft Corporation
 
-O RoboCopy é uma das ferramentas mais aplicáveis às migrações de arquivos. Ele é fornecido como parte do Windows. A principal [documentação do Robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) é um recurso útil para as várias opções dessa ferramenta.
+O RoboCopy é uma das ferramentas mais aplicáveis às migrações de arquivos. Ele é fornecido como parte do Windows. A principal [documentação do Robocopy](/windows-server/administration/windows-commands/robocopy) é um recurso útil para as várias opções dessa ferramenta.
 
 #### <a name="treesize-from-jam-software-gmbh"></a>Árvores de EMPERRAmento da Software GmbH
 

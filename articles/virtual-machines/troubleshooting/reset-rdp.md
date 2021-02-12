@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 80bcac36271d86334e11cb3cd161cd96777e6fe5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 720d25079e1350315c9f403a8215f650db49ceb7
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87832443"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743076"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Redefinir os Serviços de Área de Trabalho Remota ou a senha de administrador em uma VM do Windows
 Se você não conseguir conectar-se a uma VM (máquina virtual) do Windows, poderá redefinir a senha de administrador local ou redefinir a configuração dos Serviços de Área de Trabalho Remota (sem suporte nos controladores de domínio do Windows). Para redefinir a senha, use o portal do Azure ou a extensão de acesso da VM no Azure PowerShell. Depois de entrar na VM, redefina a senha desse administrador local.  
@@ -86,14 +86,18 @@ Primeiro, verifique se você tem o [módulo do PowerShell mais recente instalado
     > [!TIP]
     > A qualquer momento, uma VM pode ter apenas um único agente de acesso de VM. Para definir as propriedades do agente de acesso da VM, use a opção `-ForceRerun`. Ao usar `-ForceRerun`, assegure-se de usar o mesmo nome do agente de acesso à VM que você pode ter usado em qualquer comando anterior.
 
-1. Se você ainda não conseguir conectar-se remotamente à máquina virtual, consulte [Solucionar problemas de conexões de Área de Trabalho Remota para uma máquina virtual do Azure baseada no Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Se você perder a conexão com o controlador de domínio do Windows, será necessário restaurá-la a partir de um backup do controlador de domínio.
+1. Se você ainda não conseguir conectar-se remotamente à máquina virtual, consulte [Solucionar problemas de conexões de Área de Trabalho Remota para uma máquina virtual do Azure baseada no Windows](troubleshoot-rdp-connection.md). Se você perder a conexão com o controlador de domínio do Windows, será necessário restaurá-la a partir de um backup do controlador de domínio.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Se a extensão de acesso à VM do Azure não responder e você não conseguir redefinir a senha, será possível [redefinir a senha do Windows local offline](reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Esse método é mais avançado e exige que você conecte o disco rígido virtual da VM problemática a outra VM. Primeiro siga as etapas documentadas neste artigo e somente se essas etapas não funcionarem tente o método de redefinição de senha offline.
 
-- [Saiba mais sobre os recursos e extensões de VM do Azure](../extensions/features-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Se a extensão de acesso à VM do Azure não for instalada, você poderá [solucionar problemas de extensão de VM](../extensions/troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
+- Se não for possível redefinir a senha usando a extensão de acesso à VM, você poderá [redefinir a senha do Windows local offline](reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Esse método é mais avançado e exige que você conecte o disco rígido virtual da VM problemática a outra VM. Primeiro siga as etapas documentadas neste artigo e somente se essas etapas não funcionarem tente o método de redefinição de senha offline.
+
+- [Saiba mais sobre os recursos e extensões de VM do Azure](../extensions/features-windows.md).
 
 - [Conecte-se a uma máquina virtual do Azure com RDP ou SSH](/previous-versions/azure/dn535788(v=azure.100)).
+
 
 - [Solucionar problemas de conexões área de trabalho remota a uma máquina virtual do Azure baseada no Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

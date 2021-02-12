@@ -1,29 +1,29 @@
 ---
-title: Solucionar problemas ao usar o emulador Cosmos do Azure
-description: Saiba como solucionar problemas de serviço indisponível, certificado, criptografia e controle de versão ao usar o emulador Cosmos do Azure.
+title: Solucionar problemas ao usar o emulador de Azure Cosmos DB
+description: Saiba como solucionar problemas de serviço indisponível, certificado, criptografia e controle de versão ao usar o emulador de Azure Cosmos DB.
 ms.service: cosmos-db
 ms.topic: troubleshooting
 author: markjbrown
 ms.author: mjbrown
 ms.date: 09/17/2020
-ms.custom: contperfq1
-ms.openlocfilehash: cf174d45f33c50ce93b45b19c6030cf42cb20983
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: bb07adafbc68ff1e9b7d3ee49bb7631dc4395d77
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081443"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033452"
 ---
-# <a name="troubleshoot-issues-when-using-the-azure-cosmos-emulator"></a>Solucionar problemas ao usar o emulador Cosmos do Azure
+# <a name="troubleshoot-issues-when-using-the-azure-cosmos-db-emulator"></a>Solucionar problemas ao usar o emulador de Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-O emulador Cosmos do Azure fornece um ambiente local que emula o serviço Azure Cosmos DB para fins de desenvolvimento. Use as dicas neste artigo para ajudar a solucionar problemas encontrados ao instalar ou usar o emulador Cosmos do Azure. 
+O Emulador do Azure Cosmos DB fornece um ambiente local que emula o serviço Azure Cosmos DB para fins de desenvolvimento. Use as dicas neste artigo para ajudar a solucionar problemas encontrados ao instalar ou usar o emulador de Azure Cosmos DB. 
 
-Se você tiver instalado uma nova versão do emulador e se houver erros, redefina os dados. Você pode redefinir seus dados clicando com o botão direito do mouse no ícone do emulador Cosmos do Azure na bandeja do sistema e, em seguida, clicando em Redefinir dados.... Se isso não corrigir os erros, você poderá desinstalar o emulador e qualquer versão mais antiga do emulador, se for encontrado, remover *C:\Program programas\azure Cosmos db diretório do emulador* e reinstalar o emulador. Veja [Desinstalar o emulador local](local-emulator.md#uninstall) para obter instruções. Como alternativa, se a redefinição dos dados não funcionar, navegue até `%LOCALAPPDATA%\CosmosDBEmulator` o local e exclua a pasta.
+Se você tiver instalado uma nova versão do emulador e se houver erros, redefina os dados. Você pode redefinir seus dados clicando com o botão direito do mouse no ícone do emulador de Azure Cosmos DB na bandeja do sistema e, em seguida, clicando em Redefinir dados.... Se isso não corrigir os erros, você poderá desinstalar o emulador e qualquer versão mais antiga do emulador, se for encontrado, remover *C:\Program programas\azure Cosmos db diretório do emulador* e reinstalar o emulador. Veja [Desinstalar o emulador local](local-emulator.md#uninstall) para obter instruções. Como alternativa, se a redefinição dos dados não funcionar, navegue até `%LOCALAPPDATA%\CosmosDBEmulator` o local e exclua a pasta.
 
 ## <a name="troubleshoot-corrupted-windows-performance-counters"></a>Solucionar problemas de contadores de desempenho do Windows corrompidos
 
-* Se o emulador Cosmos do Azure falhar, colete os arquivos de despejo da `%LOCALAPPDATA%\CrashDumps` pasta, compacte-os e abra um tíquete de suporte no [portal do Azure](https://portal.azure.com).
+* Se o emulador de Azure Cosmos DB falhar, colete os arquivos de despejo da `%LOCALAPPDATA%\CrashDumps` pasta, compacte-os e abra um tíquete de suporte no [portal do Azure](https://portal.azure.com).
 
 * Se você enfrentar falhas em `Microsoft.Azure.Cosmos.ComputeServiceStartupEntryPoint.exe`, isso pode ser um sintoma de onde os contadores de desempenho estão em um estado corrompido. Normalmente, executar o seguinte comando em um prompt de comando do administrador corrige o problema:
 
@@ -35,11 +35,11 @@ Se você tiver instalado uma nova versão do emulador e se houver erros, redefin
 
 * Se encontrar um problema de conectividade, [colete os arquivos de rastreamento](#trace-files), compacte-os e abra um tíquete de suporte no [portal do Azure](https://portal.azure.com).
 
-* Se você receber uma mensagem de **Serviço Indisponível** , o emulador poderá estar falhando em inicializar a pilha de rede. Verifique se você tem o cliente seguro Pulse ou o cliente de redes Juniper instalado, uma vez que seus drivers de filtro de rede podem causar o problema. Desinstalar os drivers de filtro de rede de terceiros geralmente corrige o problema. Como alternativa, inicie o emulador com /DisableRIO, que mudará a comunicação de rede do emulador para Winsock regular. 
+* Se você receber uma mensagem de **Serviço Indisponível**, o emulador poderá estar falhando em inicializar a pilha de rede. Verifique se você tem o cliente seguro Pulse ou o cliente de redes Juniper instalado, uma vez que seus drivers de filtro de rede podem causar o problema. Desinstalar os drivers de filtro de rede de terceiros geralmente corrige o problema. Como alternativa, inicie o emulador com /DisableRIO, que mudará a comunicação de rede do emulador para Winsock regular. 
 
-* Se você encontrar **"proibido", "mensagem": "a solicitação está sendo feita com um protocolo de criptografia proibido em trânsito ou codificação. Verificar a configuração de protocolo mínimo permitido por SSL/TLS da conta...** problemas de conectividade, isso pode ser causado por alterações globais no sistema operacional (por exemplo, Insider Preview versão 20170) ou as configurações do navegador que habilitam o TLS 1,3 como padrão. Pode ocorrer um erro semelhante ao usar o SDK para executar uma solicitação no emulador Cosmos, como **Microsoft.Azure.Documents.DocumentClientException: a solicitação está sendo feita com uma criptografia proibida no protocolo de trânsito ou na codificação. Verifique a configuração de protocolo mínimo permitido por SSL/TLS** . Isso é esperado no momento, pois o emulador Cosmos só aceita e funciona com o protocolo TLS 1.2. A solução alternativa recomendada é alterar as configurações e padrão para TLS 1,2; por exemplo, no Gerenciador do IIS, navegue até "sites"-> "sites padrão" e localize as "ligações do site" para a porta 8081 e edite-as para desabilitar o TLS 1,3. Uma operação semelhante pode ser realizada para o navegador da Web por meio das opções de "Configurações".
+* Se você encontrar **"proibido", "mensagem": "a solicitação está sendo feita com um protocolo de criptografia proibido em trânsito ou codificação. Verificar a configuração de protocolo mínimo permitido por SSL/TLS da conta...** problemas de conectividade, isso pode ser causado por alterações globais no sistema operacional (por exemplo, Insider Preview versão 20170) ou as configurações do navegador que habilitam o TLS 1,3 como padrão. Pode ocorrer um erro semelhante ao usar o SDK para executar uma solicitação no emulador Cosmos, como **Microsoft.Azure.Documents.DocumentClientException: a solicitação está sendo feita com uma criptografia proibida no protocolo de trânsito ou na codificação. Verifique a configuração de protocolo mínimo permitido por SSL/TLS**. Isso é esperado no momento, pois o emulador Cosmos só aceita e funciona com o protocolo TLS 1.2. A solução alternativa recomendada é alterar as configurações e padrão para TLS 1,2; por exemplo, no Gerenciador do IIS, navegue até "sites"-> "sites padrão" e localize as "ligações do site" para a porta 8081 e edite-as para desabilitar o TLS 1,3. Uma operação semelhante pode ser realizada para o navegador da Web por meio das opções de "Configurações".
 
-* Enquanto o emulador é executado, se o computador entrar em modo de suspensão ou executar atualizações do sistema operacional, talvez você veja uma mensagem **O serviço não disponível no momento** . Reinicie os dados do emulador clicando com o botão direito do mouse no ícone que aparece na bandeja de notificação do Windows e selecione **Redefinir dados** .
+* Enquanto o emulador é executado, se o computador entrar em modo de suspensão ou executar atualizações do sistema operacional, talvez você veja uma mensagem **O serviço não disponível no momento**. Reinicie os dados do emulador clicando com o botão direito do mouse no ícone que aparece na bandeja de notificação do Windows e selecione **Redefinir dados**.
 
 ## <a name="collect-trace-files"></a><a id="trace-files"></a>Coletar arquivos de rastreamento
 
@@ -51,7 +51,7 @@ Para coletar rastreamentos de depuração, execute os seguintes comandos em um p
    cd /d "%ProgramFiles%\Azure Cosmos DB Emulator"
    ```
 
-1. Desligue o emulador e observe a bandeja do sistema para verificar se o programa foi desligado. Pode levar um minuto para ser concluído. Você também pode selecionar **sair** na interface do usuário do emulador Cosmos do Azure.
+1. Desligue o emulador e observe a bandeja do sistema para verificar se o programa foi desligado. Pode levar um minuto para ser concluído. Você também pode selecionar **sair** na interface de usuário do emulador de Azure Cosmos DB.
 
    ```bash
    Microsoft.Azure.Cosmos.Emulator.exe /shutdown
@@ -85,5 +85,5 @@ Para coletar rastreamentos de depuração, execute os seguintes comandos em um p
 
 Neste artigo, você aprendeu a depurar problemas com o emulador local. Agora você pode prosseguir para os próximos artigos:
 
-* [Exportar os certificados do emulador Cosmos do Azure para uso com aplicativos Java, Python e Node.js](local-emulator-export-ssl-certificates.md)
+* [Exportar os certificados do emulador Azure Cosmos DB para uso com aplicativos Java, Python e Node.js](local-emulator-export-ssl-certificates.md)
 * [Usar parâmetros de linha de comando e comandos do PowerShell para controlar o emulador](emulator-command-line-parameters.md)

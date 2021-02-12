@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: a5c62c67cd401c043352b06e6e6070a7fc0f1296
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67171960"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995414"
 ---
 #### <a name="to-connect-through-the-serial-console"></a>Para conectar-se por meio do console serial
 1. Conecte o cabo serial ao dispositivo (diretamente ou por meio de um adaptador serial USB).

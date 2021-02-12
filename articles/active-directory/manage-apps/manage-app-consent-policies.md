@@ -3,7 +3,7 @@ title: Gerenciar políticas de consentimento do aplicativo no Azure AD
 description: Saiba como gerenciar políticas internas e personalizadas de consentimento de aplicativo para controlar quando o consentimento pode ser concedido.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,19 +11,19 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.custom: contperfq2
-ms.openlocfilehash: edcfa19ed93733c4d6b060ebcb5ff179708195aa
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 68ff89191a4e9b11c2d84ec016090f76b8ea11b7
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486915"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258109"
 ---
 # <a name="manage-app-consent-policies"></a>Gerenciar as políticas de consentimento do aplicativo
 
 Com o PowerShell do Azure AD, você pode exibir e gerenciar políticas de consentimento do aplicativo.
 
-Uma política de consentimento de aplicativo consiste em um ou mais conjuntos de condição "inclui" e zero ou mais conjuntos de condição "exclusões". Para que um evento seja considerado em uma política de consentimento de aplicativo, ele deve corresponder *a pelo menos* um conjunto de condições "includes" e não deve *ter muitas condições* de "exclusões" definidas.
+Uma política de consentimento de aplicativo consiste em um ou mais conjuntos de condição "inclui" e zero ou mais conjuntos de condição "exclusões". Para que um evento seja considerado em uma política de consentimento de aplicativo, ele deve corresponder *a pelo menos* um conjunto de condições de "inclusões" e não deve corresponder a *qualquer* condição de "exclusão" definida.
 
 Cada conjunto de condições consiste em várias condições. Para que um evento corresponda a um conjunto de condições, *todas as* condições no conjunto de condições devem ser atendidas.
 
@@ -31,7 +31,7 @@ As políticas de consentimento do aplicativo em que a ID começa com "Microsoft-
 
 ## <a name="pre-requisites"></a>Pré-requisitos
 
-1. Verifique se você está usando o módulo [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true). Esta etapa será importante se você tiver instalado os módulos [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) e [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true)).
+1. Verifique se você está usando o módulo [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview). Esta etapa será importante se você tiver instalado os módulos [AzureAD](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) e [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview)).
 
     ```powershell
     Remove-Module AzureAD -ErrorAction SilentlyContinue
@@ -133,7 +133,7 @@ A tabela a seguir fornece a lista de condições com suporte para políticas de 
 | Condição | Descrição|
 |:---------------|:----------|
 | PermissionClassification | A [classificação de permissão](configure-permission-classifications.md) para a permissão que está sendo concedida ou "All" para corresponder a qualquer classificação de permissão (incluindo permissões que não são classificadas). O padrão é "All". |
-| PermissionType | O tipo de permissão da permissão que está sendo concedida. Use "Application" para permissões de aplicativo (por exemplo, funções de aplicativo) ou "delegadas" para permissões delegadas. <br><br>**Observação**: o valor "delegatedUserConsentable" indica permissões delegadas que não foram configuradas pelo editor de API para exigir o consentimento do administrador — esse valor pode ser usado em políticas de concessão de permissão interna, mas não pode ser usado em políticas de concessão de permissão personalizada. Necessário. |
+| PermissionType | O tipo de permissão da permissão que está sendo concedida. Use "Application" para permissões de aplicativo (por exemplo, funções de aplicativo) ou "delegadas" para permissões delegadas. <br><br>**Observação**: o valor "delegatedUserConsentable" indica permissões delegadas que não foram configuradas pelo editor de API para exigir o consentimento do administrador — esse valor pode ser usado em políticas de concessão de permissão interna, mas não pode ser usado em políticas de concessão de permissão personalizada. Obrigatório. |
 | ResourceApplication | A **AppID** do aplicativo de recurso (por exemplo, a API) para o qual uma permissão está sendo concedida, ou "any" para corresponder a qualquer aplicativo de recurso ou API. O padrão é "any". |
 | Permissões | A lista de IDs de permissão para as permissões específicas a serem correspondidas ou uma lista com o valor único "All" para corresponder a qualquer permissão. O padrão é o único valor "All". <ul><li>As IDs de permissão delegadas podem ser encontradas na propriedade **OAuth2Permissions** do objeto de entidade de segurança da API.</li><li>As IDs de permissão de aplicativo podem ser encontradas na propriedade **AppRoles** do objeto SERVICEPRINCIPALNAME da API.</li></ol> |
 | ClientApplicationIds | Uma lista de valores de **AppID** para os aplicativos cliente a serem correspondidos, ou uma lista com o valor único "All" para corresponder a qualquer aplicativo cliente. O padrão é o único valor "All". |
@@ -149,7 +149,7 @@ Para saber mais:
 * [Configurar o fluxo de trabalho de consentimento do administrador](configure-admin-consent-workflow.md)
 * [Saiba como gerenciar o consentimento em aplicativos e avaliar solicitações de consentimento](manage-consent-requests.md)
 * [Conceder consentimento de administrador em todo o locatário para um aplicativo](grant-admin-consent.md)
-* [Permissões e consentimento na plataforma de identidade da Microsoft](../develop/active-directory-v2-scopes.md)
+* [Permissões e consentimento na plataforma de identidade da Microsoft](../develop/v2-permissions-and-consent.md)
 
 Para obter ajuda ou encontrar respostas às suas perguntas:
-* [Azure AD no StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Azure AD no Microsoft Q&A](https://docs.microsoft.com/answers/products/)

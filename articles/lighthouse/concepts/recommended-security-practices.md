@@ -3,12 +3,12 @@ title: Práticas de segurança recomendadas
 description: Ao usar o Azure Lighthouse, é importante considerar a segurança e o controle de acesso.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 097611837e3bba2d1a44ec521862e03cc467d707
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef2c41cf052e5f79ecf4abf01c8f3fab3dd1de14
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399373"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843716"
 ---
 # <a name="recommended-security-practices"></a>Práticas de segurança recomendadas
 
@@ -17,11 +17,11 @@ Ao usar o [Azure Lighthouse](../overview.md), é importante considerar a seguran
 > [!TIP]
 > Essas recomendações também se aplicam a [empresas que gerenciam vários locatários](enterprise.md) com o Azure Lighthouse.
 
-## <a name="require-azure-multi-factor-authentication"></a>Exigir autenticação multifator do Azure
+## <a name="require-azure-ad-multi-factor-authentication"></a>Exigir autenticação multifator do Azure AD
 
-A [autenticação multifator do Azure](../../active-directory/authentication/concept-mfa-howitworks.md) (também conhecida como verificação em duas etapas) ajuda a impedir que invasores obtenham acesso a uma conta exigindo várias etapas de autenticação. Você deve exigir a autenticação multifator para todos os usuários em seu locatário de gerenciamento, incluindo usuários que terão acesso a recursos de cliente delegados.
+A [autenticação multifator do Azure ad](../../active-directory/authentication/concept-mfa-howitworks.md) (também conhecida como verificação em duas etapas) ajuda a impedir que invasores obtenham acesso a uma conta exigindo várias etapas de autenticação. Você deve exigir a autenticação multifator para todos os usuários em seu locatário de gerenciamento, incluindo usuários que terão acesso a recursos de cliente delegados.
 
-Sugerimos que você solicite que seus clientes implementem a Autenticação Multifator do Azure em seus locatários também.
+Sugerimos que você faça com que seus clientes implementem a autenticação multifator do Azure AD em seus locatários também.
 
 ## <a name="assign-permissions-to-groups-using-the-principle-of-least-privilege"></a>Atribuir permissões a grupos usando o princípio de menor privilégio
 
@@ -47,5 +47,5 @@ Tenha em mente que, quando você [integrar clientes por meio de uma oferta públ
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Implantar Autenticação Multifator do Azure](../../active-directory/authentication/howto-mfa-getstarted.md).
+- [Implante a autenticação multifator do Azure ad](../../active-directory/authentication/howto-mfa-getstarted.md).
 - Saiba mais sobre as [experiências de gerenciamento entre locatários](cross-tenant-management-experience.md).

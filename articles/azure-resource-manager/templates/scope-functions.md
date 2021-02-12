@@ -3,12 +3,12 @@ title: Funções de modelo em implantações com escopo
 description: Descreve como as funções de modelo são resolvidas em implantações com escopo. O escopo pode ser um locatário, grupos de gerenciamento, assinaturas e grupos de recursos.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: cb02a3dc808604a80fd9943138c1cd0d8648904e
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f128448380612bc9b8d9114226e8a3036feeead8
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681395"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492086"
 ---
 # <a name="arm-template-functions-in-deployment-scopes"></a>Funções de modelo ARM em escopos de implantação
 
@@ -40,15 +40,15 @@ Ao implantar em escopos diferentes, há algumas considerações importantes:
 * Use a função [extensionResourceId ()](template-functions-resource.md#extensionresourceid) para recursos que são implementados como extensões do grupo de gerenciamento. As definições de política personalizadas que são implantadas no grupo de gerenciamento são extensões do grupo de gerenciamento.
 
   Para obter a ID de recurso para uma definição de política personalizada no nível do grupo de gerenciamento, use:
-  
+
   ```json
   "policyDefinitionId": "[extensionResourceId(variables('mgScope'), 'Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
   ```
 
-* Use a função [tenantResourceId](template-functions-resource.md#tenantresourceid) para obter a ID de um recurso implantado no locatário. As definições de política internas são recursos de nível de locatário. Ao atribuir uma política interna no nível do grupo de gerenciamento, use a função tenantResourceId.
+* Use a função [tenantResourceId ()](template-functions-resource.md#tenantresourceid) para obter a ID de um recurso implantado no locatário. As definições de política internas são recursos de nível de locatário. Ao atribuir uma política interna no nível do grupo de gerenciamento, use a função tenantResourceId.
 
   Para obter a ID de recurso para uma definição de política interna, use:
-  
+
   ```json
   "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
   ```
@@ -138,6 +138,6 @@ O resultado do exemplo anterior é:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para entender como definir parâmetros em seu modelo, confira [Noções básicas de estrutura e sintaxe dos modelos do Azure Resource Manager](template-syntax.md).
+* Para entender como definir parâmetros em seu modelo, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).
 * Para dicas sobre como resolver erros de implantação, consulte [Solução de erros comuns de implantação do Azure com o Azure Resource Manager](common-deployment-errors.md).
-* Para saber mais sobre como implantar um modelo que exija um token SAS, veja [Implantar o modelo particular com o token SAS](secure-template-with-sas-token.md).
+* Para obter informações sobre como implantar um modelo que requer um token SAS, consulte [implantar modelo de ARM privado com token SAS](secure-template-with-sas-token.md).

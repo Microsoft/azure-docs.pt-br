@@ -7,12 +7,13 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f560f16c6437b219dd1e7017d70976ff4650c2c0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 44cee2b47ae8f96e2852dfdb5aefe73a7af67ed6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544351"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98731327"
 ---
 # <a name="parse-and-validate-models-with-the-dtdl-parser-library"></a>Analisar e validar modelos com a biblioteca do analisador DTDL
 
@@ -36,7 +37,7 @@ Depois de criar um pacote autocontido e adicionar o executável ao seu caminho, 
 DTDLValidator
 ```
 
-Com as opções padrão, o exemplo procurará por `*.json` arquivos no diretório atual e em todos os subdiretórios. Você também pode adicionar a opção a seguir para fazer com que a pesquisa de exemplo no diretório indicado e todos os subdiretórios de arquivos com a extensão *. dtdl* :
+Com as opções padrão, o exemplo procurará por `*.json` arquivos no diretório atual e em todos os subdiretórios. Você também pode adicionar a opção a seguir para fazer com que a pesquisa de exemplo no diretório indicado e todos os subdiretórios de arquivos com a extensão *. dtdl*:
 
 ```cmd/sh
 DTDLValidator -d C:\Work\DTDL -e dtdl 
@@ -77,118 +78,11 @@ Você pode usar a biblioteca do analisador diretamente, para coisas como valida�
 
 Para dar suporte ao exemplo de código do analisador abaixo, considere vários modelos definidos em uma instância do gêmeos digital do Azure:
 
-```json
-[
-  {
-    "@context": "dtmi:dtdl:context;2",
-    "@id": "dtmi:com:contoso:coffeeMaker;1",
-    "@type": "Interface",
-    "contents": [
-      {
-        "@type": "Component",
-        "name": "coffeeMaker",
-        "schema": "dtmi:com:contoso:coffeeMakerInterface;1"
-      }
-    ]
-  },
-  {
-    "@context": "dtmi:dtdl:context;2",
-    "@id": "dtmi:com:contoso:coffeeMakerInterface;1",
-    "@type": "Interface",
-    "contents": [
-      {
-        "@type": "Property",
-        "name": "waterTemp",
-        "schema": "double"
-      }
-    ]
-  },
-  {
-    "@context": "dtmi:dtdl:context;2",
-    "@id": "dtmi:com:contoso:coffeeBar;1",
-    "@type": "Interface",
-    "contents": [
-      {
-        "@type": "Relationship",
-        "name": "foo",
-        "target": "dtmi:com:contoso:coffeeMaker;1"
-      },
-      {
-        "@type": "Property",
-        "name": "capacity",
-        "schema": "integer"
-      }
-    ]
-  }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/coffeeMaker-coffeeMakerInterface-coffeeBar.json":::
 
 O código a seguir mostra um exemplo de como usar a biblioteca do analisador para refletir sobre essas definições em C#:
 
-```csharp
-async void ParseDemo(DigitalTwinsClient client)
-{
-    try
-    {
-        AsyncPageable<ModelData> mdata = client.GetModelsAsync(null, true);
-        List<string> models = new List<string>();
-        await foreach (ModelData md in mdata)
-            models.Add(md.Model);
-        ModelParser parser = new ModelParser();
-        IReadOnlyDictionary<Dtmi, DTEntityInfo> dtdlOM = await parser.ParseAsync(models);
-
-        List<DTInterfaceInfo> interfaces = new List<DTInterfaceInfo>();
-        IEnumerable<DTInterfaceInfo> ifenum = 
-            from entity in dtdlOM.Values
-            where entity.EntityKind == DTEntityKind.Interface
-            select entity as DTInterfaceInfo;
-        interfaces.AddRange(ifenum);
-        foreach (DTInterfaceInfo dtif in interfaces)
-        {
-            PrintInterfaceContent(dtif, dtdlOM);
-        }
-
-    } catch (RequestFailedException rex)
-    {
-
-    }
-}
-
-void PrintInterfaceContent(DTInterfaceInfo dtif, IReadOnlyDictionary<Dtmi, DTEntityInfo> dtdlOM, int indent=0)
-{
-    StringBuilder sb = new StringBuilder();
-    for (int i = 0; i < indent; i++) sb.Append("  ");
-    Console.WriteLine($"{sb}Interface: {dtif.Id} | {dtif.DisplayName}");
-    SortedDictionary<string, DTContentInfo> contents = dtif.Contents;
-    foreach (DTContentInfo item in contents.Values)
-    {
-        switch (item.EntityKind)
-        {
-            case DTEntityKind.Property:
-                DTPropertyInfo pi = item as DTPropertyInfo;
-                Console.WriteLine($"{sb}--Property: {pi.Name} with schema {pi.Schema}");
-                break;
-            case DTEntityKind.Relationship:
-                DTRelationshipInfo ri = item as DTRelationshipInfo;
-                Console.WriteLine($"{sb}--Relationship: {ri.Name} with target {ri.Target}");
-                break;
-            case DTEntityKind.Telemetry:
-                DTTelemetryInfo ti = item as DTTelemetryInfo;
-                Console.WriteLine($"{sb}--Telemetry: {ti.Name} with schema {ti.Schema}");
-                break;
-            case DTEntityKind.Component:
-                DTComponentInfo ci = item as DTComponentInfo;
-                Console.WriteLine($"{sb}--Component: {ci.Id} | {ci.Name}");
-                dtdlOM.TryGetValue(ci.Id, out DTEntityInfo value);
-                DTInterfaceInfo component = value as DTInterfaceInfo;
-                PrintInterfaceContent(component, dtdlOM, indent + 1);
-                break;
-            default:
-                break;
-        }
-    }
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/parseModels.cs":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

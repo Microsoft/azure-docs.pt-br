@@ -12,22 +12,23 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 01169f3e73fb1d6ddf0ecaf4958c6121cb21c295
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 1ec046ca6b42a5ca8f33b0347c562c85abd42684
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216123"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756172"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Tutorial: Conectar usuários e chamar a API do Microsoft Graph de um SPA (aplicativo de página única) JavaScript usando o fluxo de código de autenticação
 
-Este tutorial mostra como criar um SPA (aplicativo de página única) JavaScript que usa a MSAL (Biblioteca de Autenticação da Microsoft) para JavaScript v 2.0 para:
+Neste tutorial, você criará um SPA (aplicativo de página única) JavaScript que conecta usuários e chama o Microsoft Graph usando o fluxo de código de autorização com PKCE. O SPA que você cria usa a MSAL (Biblioteca de Autenticação da Microsoft) para JavaScript v2.0.
 
+Neste tutorial:
 > [!div class="checklist"]
 > * Executar o fluxo do código de autorização do OAuth 2.0 com PKCE
 > * Entrar em contas Microsoft pessoais, bem como contas corporativas e de estudante
 > * Adquirir um token de acesso
-> * Chame a API do Microsoft Graph ou sua própria API que exige tokens de acesso obtidos do ponto de extremidade da plataforma de identidade da Microsoft
+> * Chame a API do Microsoft Graph ou a sua API que exige tokens de acesso obtidos da plataforma de identidade da Microsoft
 
 A MSAL.js 2.0 tem aprimoramentos com relação à MSAL.js 1.0, dando suporte ao fluxo do código de autorização no navegador em vez do fluxo de concessão implícita. A MSAL.js 2.0 **NÃO** dá suporte ao fluxo implícito.
 
@@ -40,11 +41,11 @@ A MSAL.js 2.0 tem aprimoramentos com relação à MSAL.js 1.0, dando suporte ao 
 
 :::image type="content" source="media/tutorial-v2-javascript-auth-code/diagram-01-auth-code-flow.png" alt-text="Diagrama mostrando o fluxo do código de autorização em um aplicativo de página única":::
 
-O aplicativo criado por neste tutorial permite que um SPA JavaScript consulte a API do Microsoft Graph adquirindo tokens de segurança do ponto de extremidade da plataforma de identidade da Microsoft. Nesse cenário, depois que um usuário se conecta, um token de acesso é adicionado às solicitações HTTP no cabeçalho de autorização. A aquisição e a renovação de tokens são manipuladas pela Biblioteca de Autenticação da Microsoft (MSAL.js) para JavaScript.
+O aplicativo criado neste tutorial permite que um SPA JavaScript consulte a API do Microsoft Graph adquirindo tokens de segurança da plataforma de identidade da Microsoft. Nesse cenário, depois que um usuário se conecta, um token de acesso é adicionado às solicitações HTTP no cabeçalho de autorização. A aquisição e a renovação de tokens são manipuladas pela Biblioteca de Autenticação da Microsoft (MSAL.js) para JavaScript.
 
 Este tutorial usa a seguinte biblioteca:
 
-[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) Biblioteca de Autenticação da Microsoft para o pacote de navegador do JavaScript v2.0
+[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) a Biblioteca de Autenticação da Microsoft para o pacote de navegador do JavaScript v2.0
 
 ## <a name="get-the-completed-code-sample"></a>Obter o exemplo de código concluído
 
@@ -350,7 +351,7 @@ Modifique os valores na seção `graphConfig` conforme descrito aqui:
 
 - `Enter_the_Graph_Endpoint_Here` é a instância da API do Microsoft Graph com a qual o aplicativo deve se comunicar.
   - Para o ponto de extremidade **global** da API do Microsoft Graph, substitua as duas instâncias dessa cadeia de caracteres por `https://graph.microsoft.com`.
-  - Para pontos de extremidade em implantações de nuvens **nacionais**, confira [Implantações de nuvens nacionais](https://docs.microsoft.com/graph/deployments) na documentação do Microsoft Graph.
+  - Para pontos de extremidade em implantações de nuvens **nacionais**, confira [Implantações de nuvens nacionais](/graph/deployments) na documentação do Microsoft Graph.
 
 Os valores de `graphMeEndpoint` e `graphMailEndpoint` em seu *graphConfig.js* deverão ser semelhantes ao seguinte se você estiver usando o ponto de extremidade global:
 
@@ -359,7 +360,7 @@ graphMeEndpoint: "https://graph.microsoft.com/v1.0/me",
 graphMailEndpoint: "https://graph.microsoft.com/v1.0/me/messages"
 ```
 
-## <a name="use-microsoft-authentication-library-msal-to-sign-in-user"></a>Use a MSAL (Biblioteca de Autenticação da Microsoft) para conectar o usuário
+## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-user"></a>Use a MSAL (Biblioteca de Autenticação da Microsoft) para conectar o usuário
 
 ### <a name="pop-up"></a>Pop-up
 
@@ -557,13 +558,13 @@ O SPA criado neste tutorial chama `acquireTokenSilent` e/ou `acquireTokenPopup` 
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de usuário interativamente
 
-Depois da entrada inicial, o aplicativo não deve solicitar que os usuários autentiquem novamente sempre que precisam acessar um recurso protegido (ou seja, solicitar um token). Para evitar essas solicitações de reautenticação, chame `acquireTokenSilent`. Entretanto, há algumas situações em que talvez seja necessário forçar os usuários a interagir com o ponto de extremidade da plataforma de identidade da Microsoft. Por exemplo:
+Depois da entrada inicial, o aplicativo não deve solicitar que os usuários autentiquem novamente sempre que precisam acessar um recurso protegido (ou seja, solicitar um token). Para evitar essas solicitações de reautenticação, chame `acquireTokenSilent`. Entretanto, há algumas situações em que talvez seja necessário forçar os usuários a interagir com a plataforma de identidade da Microsoft. Por exemplo:
 
 - Os usuários precisam reinserir suas credenciais, pois a senha expirou.
 - Seu aplicativo está solicitando acesso a um recurso e você precisa do consentimento do usuário.
 - A autenticação de dois fatores é necessária.
 
-Chamar `acquireTokenPopup` abre uma janela pop-up (ou `acquireTokenRedirect` redireciona os usuários para o ponto de extremidade da plataforma de identidade da Microsoft). Nessa janela, os usuários precisam interagir confirmando suas credenciais, concedendo consentimento ao recurso necessário ou concluindo a autenticação de dois fatores.
+Chamar `acquireTokenPopup` abre uma janela pop-up (ou `acquireTokenRedirect` redireciona usuários à plataforma de identidade da Microsoft). Nessa janela, os usuários precisam interagir confirmando suas credenciais, concedendo consentimento ao recurso necessário ou concluindo a autenticação de dois fatores.
 
 #### <a name="get-a-user-token-silently"></a>Obter um token de usuário no modo silencioso
 
@@ -617,25 +618,25 @@ Você concluiu a criação do aplicativo e agora está pronto para iniciar o ser
 
 ### <a name="sign-in-to-the-application"></a>Entrar no aplicativo
 
-Depois que o navegador carregar seu arquivo *index.html*, selecione **Entrar**. Você será solicitado a entrar com o ponto de extremidade da plataforma de identidade da Microsoft:
+Depois que o navegador carregar seu arquivo *index.html*, selecione **Entrar**. Você deverá entrar na plataforma de identidade da Microsoft:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Diagrama mostrando o fluxo do código de autorização em um aplicativo de página única":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Navegador da Web exibindo caixa de diálogo de entrada":::
 
 ### <a name="provide-consent-for-application-access"></a>Fornecer autorização para acesso de aplicativo
 
 Na primeira vez que entrar no aplicativo, você será solicitado a conceder acesso ao seu perfil e a conectá-lo:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-02-consent-dialog.png" alt-text="Diagrama mostrando o fluxo do código de autorização em um aplicativo de página única":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-02-consent-dialog.png" alt-text="Caixa de diálogo de conteúdo exibida no navegador da Web":::
 
 Se você concordar com as permissões solicitadas, os aplicativos Web exibirão seu nome de usuário, indicando um logon bem-sucedido:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-03-signed-in.png" alt-text="Diagrama mostrando o fluxo do código de autorização em um aplicativo de página única":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-03-signed-in.png" alt-text="Resultados de uma entrada bem-sucedida no navegador da Web":::
 
 ### <a name="call-the-graph-api"></a>Chamar a API do Graph
 
 Depois de entrar, selecione **Ver Perfil** para exibir as informações do perfil do usuário retornadas na resposta da chamada à API do Microsoft Graph:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-04-see-profile.png" alt-text="Diagrama mostrando o fluxo do código de autorização em um aplicativo de página única":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-04-see-profile.png" alt-text="Informações de perfil do Microsoft Graph exibidas no navegador":::
 
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Mais informações sobre escopos e permissões delegadas
 

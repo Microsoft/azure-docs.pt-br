@@ -1,30 +1,30 @@
 ---
 title: Atribuir variáveis
-description: Neste artigo, você encontrará dicas essenciais para atribuir variáveis T-SQL no pool do SQL.
+description: Neste artigo, você encontrará dicas essenciais para atribuir variáveis T-SQL para pools de SQL dedicados no Azure Synapse Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 0cbadc10fb817c70bd259397c840aae68abc2d54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 87448ea737c11af13a52632e5bf4f67dc54d9ae3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213322"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459233"
 ---
-# <a name="assign-variables-in-synapse-sql-pool"></a>Atribuir variáveis no pool do SQL Synapse
+# <a name="assign-variables-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Atribuir variáveis para pools de SQL dedicados no Azure Synapse Analytics
 
-Neste artigo, você encontrará dicas essenciais para atribuir variáveis T-SQL no pool do SQL.
+Neste artigo, você encontrará dicas essenciais para atribuir variáveis T-SQL no pool SQL dedicado.
 
 ## <a name="set-variables-with-declare"></a>Definir variáveis com DECLARE
 
-As variáveis no pool SQL são definidas usando a `DECLARE` instrução ou a `SET` instrução. Inicializar variáveis com DECLARE é uma das maneiras mais flexíveis de definir um valor de variável no pool do SQL.
+As variáveis no pool SQL dedicado são definidas usando a `DECLARE` instrução ou a `SET` instrução. Inicializar variáveis com DECLARE é uma das maneiras mais flexíveis de definir um valor de variável no pool do SQL.
 
 ```sql
 DECLARE @v  int = 0

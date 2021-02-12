@@ -4,19 +4,19 @@ description: Transferir dados com o AzCopy e o armazenamento de arquivos. AzCopy
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: a19cca515bafa1d06f93d71b4868011a7c922354
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7bca683ea075710aa6fc677fcf457ceb2e0e5098
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792830"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881004"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Transferir dados com o AzCopy e o Armazenamento de Arquivos 
 
-AzCopy é um utilitário de linha de comando que você pode usar para copiar blobs ou arquivos de ou para uma conta de armazenamento. Este artigo contém comandos de exemplo que funcionam com os arquivos do Azure.
+AzCopy é um utilitário de linha de comando que você pode usar para copiar arquivos de ou para uma conta de armazenamento. Este artigo contém comandos de exemplo que funcionam com os arquivos do Azure.
 
 Antes de começar, consulte o artigo [introdução ao AzCopy](storage-use-azcopy-v10.md) para baixar o AzCopy e se familiarizar com a ferramenta.
 
@@ -41,7 +41,7 @@ Você pode usar o comando [azcopy Copy](storage-ref-azcopy-copy.md) para carrega
 Esta seção contém os seguintes exemplos:
 
 > [!div class="checklist"]
-> * Fazer upload de um arquivo
+> * Carregar um arquivo
 > * Carregar um diretório
 > * Carregar o conteúdo de um diretório
 > * Carregar um arquivo específico
@@ -53,15 +53,13 @@ Esta seção contém os seguintes exemplos:
 > |---|---|
 > |Copie listas de controle de acesso (ACLs) junto com os arquivos.|**--preserve-SMB-permissões** = \[ verdadeiro \| falso\]|
 > |Copie informações de propriedade SMB junto com os arquivos.|**--preserve-SMB-info** = \[ verdadeiro \| falso\]|
-> |Carregue arquivos como blobs de acréscimo ou blobs de páginas.|**--tipo** = \[ de BLOB BlockBlob \| PageBlob \| AppendBlob\]|
-> |Carregue para uma camada de acesso específica (como a camada de arquivo).|**--bloco-blob-camada** = \[ Nenhum \| \| arquivo frio \| quente\]|
 > 
 > Para obter uma lista completa, consulte [Opções](storage-ref-azcopy-copy.md#options).
 
 > [!NOTE]
 > AzCopy não calcula e armazena automaticamente o código hash MD5 do arquivo. Se você quiser que o AzCopy faça isso, anexe o `--put-md5` sinalizador a cada comando de cópia. Dessa forma, quando o arquivo for baixado, AzCopy calculará um hash MD5 para dados baixados e verificará se o hash MD5 armazenado na Propriedade do arquivo `Content-md5` corresponde ao hash calculado.
 
-### <a name="upload-a-file"></a>Fazer upload de um arquivo
+### <a name="upload-a-file"></a>Carregar um arquivo
 
 |    |     |
 |--------|-----------|
@@ -184,7 +182,7 @@ Este exemplo resulta em um diretório chamado `C:\myDirectory\myFileShareDirecto
 
 ### <a name="download-the-contents-of-a-directory"></a>Baixar o conteúdo de um diretório
 
-Você pode baixar o conteúdo de um diretório sem copiar o próprio diretório contido usando o símbolo curinga (*).
+Você pode fazer download do conteúdo de um diretório sem copiar o próprio diretório usando o símbolo curinga (*).
 
 |    |     |
 |--------|-----------|
@@ -207,7 +205,7 @@ Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a `--include-path` o
 | **Sintaxe** | `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-or-directory-name><SAS-token>' '<local-directory-path>'  --include-path <semicolon-separated-file-list>` |
 | **Exemplo** | `azcopy copy 'https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'C:\myDirectory'  --include-path 'photos;documents\myFile.txt' --recursive` |
 
-Neste exemplo, AzCopy transfere o `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos` diretório e o `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/documents/myFile.txt` arquivo. Você precisa incluir a `--recursive` opção para transferir todos os arquivos no `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos` diretório.
+Neste exemplo, AzCopy transfere o `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos` diretório e o `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/documents/myFile.txt` arquivo. Inclua a `--recursive` opção para transferir todos os arquivos no `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos` diretório.
 
 Você também pode excluir arquivos usando a `--exclude-path` opção. Para saber mais, consulte [azcopy Copy](storage-ref-azcopy-copy.md) Reference docs.
 
@@ -217,8 +215,8 @@ Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a `--include-pattern
 
 |    |     |
 |--------|-----------|
-| **Sintaxe** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name><SAS-token>' '<local-directory-path>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>` |
-| **Exemplo** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'C:\myDirectory'  --include-pattern 'myFile*.txt;*.pdf*'` |
+| **Sintaxe** | `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-or-directory-name><SAS-token>' '<local-directory-path>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>` |
+| **Exemplo** | `azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'C:\myDirectory'  --include-pattern 'myFile*.txt;*.pdf*'` |
 
 Você também pode excluir arquivos usando a `--exclude-pattern` opção. Para saber mais, consulte [azcopy Copy](storage-ref-azcopy-copy.md) Reference docs.
 
@@ -236,11 +234,24 @@ Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a `--include-after` 
 
 Para referência detalhada, consulte os documentos de referência de [cópia do azcopy](storage-ref-azcopy-copy.md) .
 
+#### <a name="download-from-a-share-snapshot"></a>Baixar de um instantâneo de compartilhamento
+
+Você pode baixar uma versão específica de um arquivo ou diretório referenciando o valor **DateTime** de um instantâneo de compartilhamento. Para saber mais sobre instantâneos de compartilhamento, confira [visão geral de instantâneos de compartilhamento para arquivos do Azure](../files/storage-snapshots-files.md). 
+
+|    |     |
+|--------|-----------|
+| **Sintaxe** | `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-name>/<file-path-or-directory-name><SAS-token>&sharesnapshot=<DateTime-of-snapshot>' '<local-file-or-directory-path>'` |
+| **Exemplo** (baixar um arquivo) | `azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'C:\myDirectory\myTextFile.txt'` |
+| **Exemplo** (baixar um diretório) | `azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'C:\myDirectory'  --recursive`|
+
+
 ## <a name="copy-files-between-storage-accounts"></a>Copiar arquivos entre as contas de armazenamento
 
 Você pode usar o AzCopy para copiar arquivos para outras contas de armazenamento. A operação de cópia é síncrona, portanto, quando o comando retorna, isso indica que todos os arquivos foram copiados.
 
 O AzCopy usa [APIs](/rest/api/storageservices/put-page-from-url)de [servidor para servidor](/rest/api/storageservices/put-block-from-url) , portanto, os dados são copiados diretamente entre os servidores de armazenamento. Essas operações de cópia não usam a largura de banda de rede do seu computador. Você pode aumentar a taxa de transferência dessas operações definindo o valor da `AZCOPY_CONCURRENCY_VALUE` variável de ambiente. Para saber mais, consulte [otimizar a taxa de transferência](storage-use-azcopy-configure.md#optimize-throughput).
+
+Você também pode copiar versões específicas de um arquivo referenciando o valor **DateTime** de um instantâneo de compartilhamento. Para saber mais sobre instantâneos de compartilhamento, confira [visão geral de instantâneos de compartilhamento para arquivos do Azure](../files/storage-snapshots-files.md). 
 
 Esta seção contém os seguintes exemplos:
 
@@ -257,8 +268,6 @@ Esta seção contém os seguintes exemplos:
 > |---|---|
 > |Copie listas de controle de acesso (ACLs) junto com os arquivos.|**--preserve-SMB-permissões** = \[ verdadeiro \| falso\]|
 > |Copie informações de propriedade SMB junto com os arquivos.|**--preserve-SMB-info** = \[ verdadeiro \| falso\]|
-> |Copie arquivos como BLOBs de acréscimo ou BLOBs de página.|**--tipo** = \[ de BLOB BlockBlob \| PageBlob \| AppendBlob\]|
-> |Copie para uma camada de acesso específica (como a camada de arquivo morto).|**--bloco-blob-camada** = \[ Nenhum \| \| arquivo frio \| quente\]|
 > 
 > Para obter uma lista completa, consulte [Opções](storage-ref-azcopy-copy.md#options).
 
@@ -268,13 +277,16 @@ Esta seção contém os seguintes exemplos:
 |--------|-----------|
 | **Sintaxe** | `azcopy copy 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name>/<file-path><SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name>/<file-path><SAS-token>'` |
 | **Exemplo** | `azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D'` |
+| **Exemplo** (instantâneo de compartilhamento) | `azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'https://mydestinationaccount.file.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D'` |
 
 ### <a name="copy-a-directory-to-another-storage-account"></a>Copiar um diretório para outra conta de armazenamento
 
 |    |     |
 |--------|-----------|
 | **Sintaxe** | `azcopy copy 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name>/<directory-path><SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' --recursive` |
-| **Exemplo** | `azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
+| **Exemplo** | `azcopy copy 'https://mysourceaccount.file.core.windows.net/myFileShare/myFileDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
+| **Exemplo** (instantâneo de compartilhamento) | `azcopy copy 'https://mysourceaccount.file.core.windows.net/myFileShare/myFileDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'https://mydestinationaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
+
 
 ### <a name="copy-a-file-share-to-another-storage-account"></a>Copiar um compartilhamento de arquivos para outra conta de armazenamento
 
@@ -282,6 +294,8 @@ Esta seção contém os seguintes exemplos:
 |--------|-----------|
 | **Sintaxe** | `azcopy copy 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' --recursive` |
 | **Exemplo** | `azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
+| **Exemplo** (instantâneo de compartilhamento) | `azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'https://mydestinationaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
+
 
 ### <a name="copy-all-file-shares-directories-and-files-to-another-storage-account"></a>Copiar todos os compartilhamentos de arquivos, diretórios e arquivos para outra conta de armazenamento
 
@@ -289,17 +303,19 @@ Esta seção contém os seguintes exemplos:
 |--------|-----------|
 | **Sintaxe** | `azcopy copy 'https://<source-storage-account-name>.file.core.windows.net/<SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<SAS-token>' --recursive'` |
 | **Exemplo** | `azcopy copy 'https://mysourceaccount.file.core.windows.net?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
+| **Exemplo** (instantâneo de compartilhamento) | `azcopy copy 'https://mysourceaccount.file.core.windows.net?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'https://mydestinationaccount.file.core.windows.net?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
+
 
 ## <a name="synchronize-files"></a>Sincronizar arquivos
 
-Você pode sincronizar o conteúdo de um compartilhamento de arquivos com outro compartilhamento de arquivos. Você também pode sincronizar o conteúdo de um diretório em um compartilhamento de arquivos com o conteúdo de um diretório localizado em outro compartilhamento de arquivos. A sincronização é unidirecional. Em outras palavras, você escolhe quais desses dois pontos de extremidade são a origem e qual deles é o destino. A sincronização também usa APIs de servidor para servidor.
+Você pode sincronizar o conteúdo de um compartilhamento de arquivos com outro compartilhamento de arquivos. Você também pode sincronizar o conteúdo de um diretório em um compartilhamento de arquivos com o conteúdo de um diretório localizado em outro compartilhamento de arquivos. A sincronização é de uma maneira. Em outras palavras, você escolhe quais desses dois pontos de extremidade são a origem e qual deles é o destino. A sincronização também usa APIs de servidor para servidor.
 
 > [!NOTE]
 > Atualmente, esse cenário tem suporte apenas para contas que não têm um namespace hierárquico. A versão atual do AzCopy não é sincronizada entre os arquivos do Azure e o armazenamento de BLOBs.
 
 O comando [Sync](storage-ref-azcopy-sync.md) compara os nomes de arquivo e os últimos carimbos de data/hora. Defina o `--delete-destination` sinalizador opcional como um valor de `true` ou `prompt` para excluir arquivos no diretório de destino se esses arquivos não existirem mais no diretório de origem.
 
-Se você definir o `--delete-destination` sinalizador como `true` AzCopy exclui arquivos sem fornecer um prompt. Se você quiser que um prompt apareça antes de AzCopy excluir um arquivo, defina o `--delete-destination` sinalizador como `prompt` .
+Se você definir o `--delete-destination` sinalizador como `true` , AzCopy excluirá os arquivos sem fornecer um prompt. Se você quiser que um prompt apareça antes de AzCopy excluir um arquivo, defina o `--delete-destination` sinalizador como `prompt` .
 
 > [!TIP]
 > Você pode ajustar a operação de sincronização usando sinalizadores opcionais. Aqui estão alguns exemplos.
@@ -348,8 +364,6 @@ Encontre mais exemplos em qualquer um destes artigos:
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
 
-- [Transferir dados com o AzCopy e o Armazenamento de Blobs](storage-use-azcopy-blobs.md)
-
-- [Transferir dados com o AzCopy e os buckets do Amazon S3](storage-use-azcopy-s3.md)
+- [Transferir dados](storage-use-azcopy-v10.md#transfer-data)
 
 - [Configurar, otimizar e solucionar problemas do AzCopy](storage-use-azcopy-configure.md)

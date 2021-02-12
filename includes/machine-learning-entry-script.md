@@ -6,12 +6,12 @@ ms.subservice: core
 ms.topic: include
 ms.date: 07/31/2020
 ms.author: gopalv
-ms.openlocfilehash: 4975bb2a8ad384b8abc28f1d1835c2c9e98b8c54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95acb028867caf6f497dd99ad3082efcaab09c7b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91315415"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325273"
 ---
 O script de entrada recebe os dados enviados para um serviço Web implantado e os transmite ao modelo. Em seguida, ele envia de volta ao cliente a resposta retornada pelo modelo. *O script é específico para seu modelo*. Ele deve entender os dados esperados e retornados pelo modelo.
 
@@ -49,7 +49,7 @@ import os
 model = open(os.path.join('.', 'models', 'model1.onnx'))
 ```
 
-#### <a name="writing-run"></a>Gravação de execução ()
+### <a name="writing-run"></a>Gravação de execução ()
 
 `run()` é executado toda vez que seu modelo recebe uma solicitação de Pontuação e espera que o corpo da solicitação seja um documento JSON com a seguinte estrutura:
 

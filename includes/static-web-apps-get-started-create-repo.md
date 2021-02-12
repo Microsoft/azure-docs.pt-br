@@ -4,12 +4,12 @@ ms.service: static-web-apps
 ms.topic: include
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 102e2f8685128f42350dd775e600fb82cc7d6722
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 06a54456a076ae425866c1fa502bd97c505e41c6
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88752645"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96356436"
 ---
 ## <a name="create-a-repository"></a>Criar um repositório
 
@@ -17,8 +17,8 @@ Este artigo usa um repositório de modelos do GitHub para facilitar a introduç�
 
 # <a name="no-framework"></a>[Nenhuma estrutura](#tab/vanilla-javascript)
 
-1. Verifique se você está conectado ao GitHub e procure a seguinte localização para criar um repositório:
-    1. https://github.com/staticwebdev/vanilla-basic/generate
+1. Navegue até a seguinte localização para criar um repositório:
+    1. [https://github.com/staticwebdev/vanilla-basic/generate](https://github.com/login?return_to=/staticwebdev/vanilla-basic/generate)
 1. Nomeie seu repositório **my-first-static-web-app**
 
 > [!NOTE]
@@ -26,20 +26,20 @@ Este artigo usa um repositório de modelos do GitHub para facilitar a introduç�
 
 # <a name="angular"></a>[Angular](#tab/angular)
 
-1. Verifique se você está conectado ao GitHub e procure a seguinte localização para criar um repositório:
-    1. https://github.com/staticwebdev/angular-basic/generate
+1. Navegue até a seguinte localização para criar um repositório:
+    1. [https://github.com/staticwebdev/angular-basic/generate](https://github.com/login?return_to=%2Fstaticwebdev%2Fangular-basic%2Fgenerate)
 1. Nomeie seu repositório **my-first-static-web-app**
 
 # <a name="react"></a>[React](#tab/react)
 
-1. Verifique se você está conectado ao GitHub e procure a seguinte localização para criar um repositório:
-    1. https://github.com/staticwebdev/react-basic/generate
+1. Navegue até a seguinte localização para criar um repositório:
+    1. [https://github.com/staticwebdev/react-basic/generate](https://github.com/login?return_to=%2Fstaticwebdev%2Freact-basic%2Fgenerate)
 1. Nomeie seu repositório **my-first-static-web-app**
 
 # <a name="vue"></a>[Vue](#tab/vue)
 
-1. Verifique se você está conectado ao GitHub e procure a seguinte localização para criar um repositório:
-    1. https://github.com/staticwebdev/vue-basic/generate
+1. Navegue até a seguinte localização para criar um repositório:
+    1. [https://github.com/staticwebdev/vue-basic/generate](https://github.com/login?return_to=%2Fstaticwebdev%2Fvue-basic%2Fgenerate)
 1. Nomeie seu repositório **my-first-static-web-app**
 
 ---

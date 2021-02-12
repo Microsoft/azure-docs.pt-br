@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: victorh
-ms.openlocfilehash: ff97aa6c6f04ad41ba6e1b986f3cc0734ec7a326
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 4c7c68bf690097004f2f3310a8d89ce954d7f87f
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92526151"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98612919"
 ---
 | Recurso | Limite | Observação |
 | --- | --- | --- |
@@ -32,6 +32,9 @@ ms.locfileid: "92526151"
 | Mapas de URL por ouvinte |1 | |
 | Regras com base em caminho máximo por mapa de URL|100||
 | Configurações de redirecionamento |100<sup>1</sup>| |
+| Número de conjuntos de regras de regravação |400| |
+| Número de configurações de Cabeçalho ou URL por conjunto de regras de regravação|40| |
+| Número de condições por conjunto de regras de regravação|40| |
 | Conexões WebSocket Simultâneas |Gateways médios 20 mil<br> Gateways grandes 50 mil| |
 | Tamanho máximo da URL|32 KB| |
 | Tamanho máximo do cabeçalho para HTTP/2 |4 KB| |

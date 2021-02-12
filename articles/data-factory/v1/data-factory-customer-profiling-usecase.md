@@ -3,20 +3,20 @@ title: Caso de uso - Criação de perfil de cliente
 description: Saiba como o Azure Data Factory é usado para criar um fluxo de trabalho orientado a dados (pipeline) para criar o perfil de clientes de jogos.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 63c31312070fbac99959d833344ccf04760bb8e4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 313050035694eaeabaefc8e09383ec3a887eb32b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637880"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495915"
 ---
 # <a name="use-case---customer-profiling"></a>Caso de uso - Criação de perfil de cliente
 O Azure Data Factory é um dos muitos serviços usados para implementar o Cortana Intelligence Suite de aceleradores de solução.  Para obter mais informações sobre o Cortana Intelligence, visite [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics). Neste documento, descrevemos um caso de uso simples para ajudá-lo a começar a entender como o Azure Data Factory pode resolver problemas comuns de análise.
@@ -32,10 +32,10 @@ Nesta solução, a Contoso deseja avaliar a eficiência de uma campanha de marke
 Tudo o que você precisa para acessar e testar este caso de uso simples é uma [assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/), uma [Conta de Armazenamento de Blobs do Azure](../../storage/common/storage-account-create.md) e um [Banco de Dados SQL do Azure](../../azure-sql/database/single-database-create-quickstart.md). Implante o pipeline de criação de perfil do cliente do bloco **Pipelines de exemplo** na página inicial de sua fábrica de dados.
 
 1. Crie uma data factory ou abra uma existente. Consulte [Copiar dados do Armazenamento de Blobs para o Banco de Dados SQL usando o Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter as etapas para criar um data factory.
-2. Na folha **DATA FACTORY** para a data factory em questão, clique no bloco **Pipelines de exemplo** .
+2. Na folha **DATA FACTORY** para a data factory em questão, clique no bloco **Pipelines de exemplo**.
 
     ![Bloco Pipelines de exemplo](./media/data-factory-samples/SamplePipelinesTile.png)
-3. Na folha **Pipelines de exemplo** , clique na **Criação de perfil do cliente** que você deseja implantar.
+3. Na folha **Pipelines de exemplo**, clique na **Criação de perfil do cliente** que você deseja implantar.
 
     ![Folha Pipelines de exemplo](./media/data-factory-samples/SampleTile.png)
 4. Especifique definições de configuração para o exemplo. Por exemplo, o nome e a chave da conta de armazenamento do Azure, nome lógico do SQL Server, banco de dados, ID de usuário e senha.
@@ -45,8 +45,8 @@ Tudo o que você precisa para acessar e testar este caso de uso simples é uma [
 6. Você verá o status da implantação do bloco de exemplo em que você clicou anteriormente na folha **Pipelines de exemplo** .
 
     ![Status da Implantação](./media/data-factory-samples/DeploymentStatus.png)
-7. Quando você vir a mensagem **Implantação bem-sucedida** no bloco para o exemplo, feche a folha **Pipelines de exemplo** .  
-8. Na folha **DATA FACTORY** , você verá que os pipelines, conjuntos de dados e serviços vinculados são adicionados à sua data factory.  
+7. Quando você vir a mensagem **Implantação bem-sucedida** no bloco para o exemplo, feche a folha **Pipelines de exemplo**.  
+8. Na folha **DATA FACTORY**, você verá que os pipelines, conjuntos de dados e serviços vinculados são adicionados à sua data factory.  
 
     ![Folha Data Factory](./media/data-factory-samples/DataFactoryBladeAfter.png)
 

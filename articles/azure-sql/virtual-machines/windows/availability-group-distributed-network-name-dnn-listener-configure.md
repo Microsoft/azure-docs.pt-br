@@ -7,6 +7,7 @@ author: MashaMSFT
 manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -14,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: abfcd6a13bc5e8ad262fe47111eb680ad00a34df
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 07ce01304f27ded4e0a566777fcf7027f7a15e4b
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168784"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359431"
 ---
 # <a name="configure-a-dnn-listener-for-an-availability-group"></a>Configurar um ouvinte de DNN para um grupo de disponibilidade
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -36,7 +37,7 @@ Para obter uma opção de conectividade alternativa, considere um [ouvinte VNN e
 
 Um ouvinte DNN (nome de rede distribuída) substitui o ouvinte do grupo de disponibilidade VNN (nome de rede virtual) tradicional quando usado com [grupos de disponibilidade Always on em VMs SQL Server](availability-group-overview.md). Isso nega a necessidade de um Azure Load Balancer rotear o tráfego, simplificar a implantação, a manutenção e melhorar o failover. 
 
-Use o ouvinte DNN para substituir um ouvinte VNN existente ou, como alternativa, use-o em conjunto com um ouvinte VNN existente para que seu grupo de disponibilidade tenha dois pontos de conexão distintos: um usando o nome do ouvinte VNN (e a porta se não for padrão) e um usando o nome e a porta do ouvinte DNN. 
+Use o ouvinte DNN para substituir um ouvinte VNN existente ou, como alternativa, use-o em conjunto com um ouvinte VNN existente para que o seu grupo de disponibilidade tenha dois pontos de conexão distintos: um que usa o nome do ouvinte VNN (e a porta, se ela não for padrão) e outro que usa o nome e a porta do ouvinte DNN. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -136,7 +137,7 @@ SELECT * FROM SYS.AVAILABILITY_GROUP_LISTENERS
 
 Um valor de `1` for `is_distributed_network_name` indica que o ouvinte é um ouvinte de DNN (nome de rede distribuída): 
 
-:::image type="content" source="media/availability-group-distributed-network-name-dnn-listener-configure/dnn-listener-tsql.png" alt-text="Exibir o ouvinte DNN em ouvintes do grupo de disponibilidade no SQL Server Management Studio (SSMS)":::
+:::image type="content" source="media/availability-group-distributed-network-name-dnn-listener-configure/dnn-listener-tsql.png" alt-text="Use sys.availability_group_listeners para identificar ouvintes DNN que têm um valor de 1 em is_distributed_network_name":::
 
 
 ## <a name="update-connection-string"></a>Atualizar cadeia de conexão

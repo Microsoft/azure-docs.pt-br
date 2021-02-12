@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: d23702a71bababec2e172181c8e75c26241d0460
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 81842fb3a9a68e818a3e8c94aa6db690cb1d94f5
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91347791"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95486272"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-machine-learning-studio-classic"></a>Início Rápido: Crie seu primeiro experimento de ciência de dados no Machine Learning Studio (clássico)
 
-**APLICA-SE A:**  ![sim](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico)   ![não](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APLICA-SE A:**  ![Essa é uma marca de seleção, o que significa que este artigo se aplica ao Machine Learning Studio (clássico).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico) ![Este é um X, o que significa que este artigo se aplica ao Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
@@ -99,7 +99,7 @@ Primeiro, vamos adicionar um módulo que remova a coluna **normalized-losses** c
 
    - À esquerda, clique em **Com regras**
    - Em **Começa com**, clique em **Todas as colunas**. Essas regras instruem o módulo [Selecionar Colunas no Conjunto de Dados][select-columns] a passar por todas as colunas (exceto aquelas que estamos prestes a excluir).
-   - Nos menus suspensos, selecione **Excluir** e **nomes da coluna** e clique dentro da caixa de texto. Uma lista de colunas é exibida. Selecione **normalized-losses**e ela será adicionada à caixa de texto.
+   - Nos menus suspensos, selecione **Excluir** e **nomes da coluna** e clique dentro da caixa de texto. Uma lista de colunas é exibida. Selecione **normalized-losses** e ela será adicionada à caixa de texto.
    - Clique no botão de marca de seleção (OK) para fechar o seletor de coluna (no canto inferior direito).
 
      ![Inicie o seletor de coluna e exclua a coluna "normalized-losses"](./media/create-experiment/launch-column-selector.png)
@@ -245,10 +245,10 @@ Neste início rápido, você criou um teste simples usando um conjunto de dados 
 > [Tutorial: Desenvolver uma solução preditiva no Studio (clássico)](tutorial-part1-credit-risk.md)
 
 <!-- Module References -->
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
-[clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[linear-regression]: /azure/machine-learning/studio-module-reference/linear-regression
+[clean-missing-data]: /azure/machine-learning/studio-module-reference/clean-missing-data
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[train-model]: /azure/machine-learning/studio-module-reference/train-model

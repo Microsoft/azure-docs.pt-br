@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fde2052078e0131e720411f91aa8ae7484338252
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59cc50274b291c23aeec4620ec7a09312cc0c1fb
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91295015"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762261"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory logon único contínuo: início rápido
 
@@ -37,7 +37,7 @@ Verifique se os seguintes pré-requisitos estão em vigor:
 
 * **Configurar seu servidor do Azure AD Connect**: se você usa a [Autenticação de Passagem](how-to-connect-pta.md) como seu método de entrada, não é necessária nenhuma verificação de pré-requisitos adicional. Se você usar a [sincronização de hash de senha](how-to-connect-password-hash-synchronization.md) como seu método de entrada e se houver um firewall entre Azure ad Connect e o Azure AD, verifique se:
    - Está usando a versão 1.1.644.0 ou superior do Azure AD Connect. 
-   - Se o firewall ou o proxy permitir, adicione as conexões à lista de permissões para URLs ** \* . msappproxy.net** pela porta 443. Caso contrário, permita o acesso aos [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), os quais são atualizados semanalmente. Esse pré-requisito é aplicável somente quando você habilita o recurso. Não é obrigatório para logons de usuário real.
+   - Se o firewall ou o proxy permitir, adicione as conexões à lista de permissões para URLs **\* . msappproxy.net** pela porta 443. Se você precisar de uma URL específica em vez de um curinga para a configuração de proxy, poderá configurar **tenantid.Registration.msappproxy.net**, em que tenantid é o GUID do locatário no qual você está configurando o recurso. Se as exceções de proxy baseadas em URL não forem possíveis em sua organização, você poderá, em vez disso, permitir o acesso aos [intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), que são atualizados semanalmente. Esse pré-requisito é aplicável somente quando você habilita o recurso. Não é obrigatório para logons de usuário real.
 
     >[!NOTE]
     >As versões 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 do Azure AD Connect têm um problema relacionado à sincronização de hash de senha. Se você _não_ pretende usar a sincronização de hash de senha em conjunto com a autenticação de passagem, leia as [notas de versão Azure ad Connect](./reference-connect-version-history.md) para saber mais.
@@ -107,7 +107,7 @@ Você pode gradualmente implantar o SSO Contínuo para seus usuários utilizando
 Além disso, você precisa habilitar uma configuração da política de Zona de intranet chamada **Permitir atualizações à barra de status por meio de script** usando a Política de Grupo. 
 
 >[!NOTE]
-> As instruções a seguir só funcionam para o Internet Explorer e o Google Chrome no Windows (se ele usa o mesmo conjunto de URLs de sites confiáveis que o Internet Explorer). Leia a próxima seção para obter instruções sobre como configurar o Mozilla Firefox e o Google Chrome no macOS.
+> As instruções a seguir funcionam apenas para o Internet Explorer, o Microsoft Edge e o Google Chrome no Windows (se ele compartilhar um conjunto de URLs de sites confiáveis com o Internet Explorer). Leia a próxima seção para obter instruções sobre como configurar o Mozilla Firefox e o Google Chrome no macOS.
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Por que você precisa modificar as configurações de Zona da Intranet dos usuários?
 
@@ -124,7 +124,7 @@ Há duas maneiras de modificar as configurações de zona de Intranet dos usuár
 
 1. Abra a ferramenta Editor de Gerenciamento de Política de Grupo.
 2. Edite a política de grupo que é aplicada a alguns ou todos os seus usuários. Este exemplo usa a **Política de domínio padrão**.
-3. Navegue até política de **configuração de usuário**  >  **Policy**  >  **modelos administrativos**  >  **componentes do Windows**  >  **Internet Explorer**  >  **Internet Control Panel**  >  **página segurança**do painel de controle Internet do Internet Explorer. Em seguida, selecione **Lista de atribuição de sites a zonas**.
+3. Navegue até políticas de **configuração do usuário**  >    >  **modelos administrativos**  >  **componentes do Windows**  >    >    >  **página segurança** do painel de controle Internet do Internet Explorer. Em seguida, selecione **Lista de atribuição de sites a zonas**.
     ![Captura de tela que mostra a "página de segurança" com "lista de atribuição de site a zona" selecionada.](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Habilite a política e insira os valores a seguir na caixa de diálogo:
    - **Nome do valor**: a URL do Azure Active Directory para as quais os tíquetes Kerberos são encaminhados.
@@ -144,7 +144,7 @@ Há duas maneiras de modificar as configurações de zona de Intranet dos usuár
 
     ![Captura de tela que mostra a janela "Mostrar conteúdo" com uma atribuição de zona selecionada.](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Navegue até a política de **configuração de usuário**  >  **Policy**  >  **modelos administrativos**  >  **componentes do Windows**  >  **Internet Explorer**  >  segurança da área de rede do painel de**controle**  >  **Security Page**  >  **da**Internet. Em seguida, selecione **Permitir atualizações à barra de status por meio de script**.
+6. Navegue até as políticas de **configuração do usuário**  >    >  **modelos administrativos**  >  **componentes do Windows**  >  **Internet Explorer**  >    >  **segurança** da  >  **área** de rede do painel de controle da Internet. Em seguida, selecione **Permitir atualizações à barra de status por meio de script**.
 
     ![Captura de tela que mostra a página "zona da intranet" com a seleção de "permitir atualizações na barra de status por meio do script".](./media/how-to-connect-sso-quick-start/sso11.png)
 
@@ -156,15 +156,15 @@ Há duas maneiras de modificar as configurações de zona de Intranet dos usuár
 
 1. Abra a ferramenta Editor de Gerenciamento de Política de Grupo.
 2. Edite a política de grupo que é aplicada a alguns ou todos os seus usuários. Este exemplo usa a **Política de domínio padrão**.
-3. Navegue até **User Configuration**  >  **preferências**configuração do usuário  >  **configurações**  >  **do Windows registro**  >  **novo**  >  **item do registro**.
+3. Navegue até   >  **preferências** configuração do usuário  >  **configurações**  >  **do Windows registro**  >  **novo**  >  **item do registro**.
 
     ![Captura de tela que mostra "registro" selecionado e "item do registro" selecionado.](./media/how-to-connect-sso-quick-start/sso15.png)
 
 4. Insira os seguintes valores nos campos apropriados e clique em **OK**.
-   - **Caminho da Chave**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
-   - **Nome do valor**: ***https***
-   - **Tipo de valor**: ***REG_DWORD***
-   - **Dados do valor**: ***00000001***
+   - **Caminho da chave**: **_Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-SSO.com\autologon_* _
+   - _* Nome do valor * *: **_https_*_
+   - _* Tipo de valor * *: **_REG_DWORD_*_
+   - _* Dados de valor * *: **_00000001_*_
  
      ![Captura de tela que mostra a janela "novas propriedades do registro".](./media/how-to-connect-sso-quick-start/sso16.png)
  
@@ -176,7 +176,7 @@ Há duas maneiras de modificar as configurações de zona de Intranet dos usuár
 
 O Mozilla Firefox não usa a autenticação Kerberos automaticamente. Cada usuário precisa adicionar manualmente as URLs do Azure Active Directory às configurações do Firefox com as seguintes etapas:
 1. Execute o Firefox e digite `about:config` na barra de endereços. Ignore as notificações que aparecerem.
-2. Pesquise a preferência **network.negotiate-auth.trusted-uris**. Esta preferência lista os sites confiáveis do Firefox para a autenticação Kerberos.
+2. Procure a preferência _ *Network. Negotiate-auth. Trusted-URIs**. Esta preferência lista os sites confiáveis do Firefox para a autenticação Kerberos.
 3. Clique com o botão direito do mouse e selecione **Modificar**.
 4. Insira `https://autologon.microsoftazuread-sso.com` no campo.
 5. Selecione **OK** e, em seguida, reabra o navegador.

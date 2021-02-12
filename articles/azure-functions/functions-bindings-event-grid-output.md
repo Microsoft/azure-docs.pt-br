@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
-ms.openlocfilehash: 6bd4d5d82af213063b2000693e46d22744604480
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 888afdc2764fed9f0b2c8b548c3e2b1c48e9a31e
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88214116"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094669"
 ---
 # <a name="azure-event-grid-output-binding-for-azure-functions"></a>Associação de saída da Grade de Eventos do Azure para Azure Functions
 
@@ -100,6 +100,10 @@ public static void Run(TimerInfo myTimer, ICollector<EventGridEvent> outputEvent
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+A associação de saída da Grade de Eventos não está disponível para Java.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 O exemplo a seguir mostra os dados de associação de saída da Grade de Eventos no arquivo *function.json*.
@@ -160,6 +164,70 @@ module.exports = function(context) {
 };
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+O exemplo a seguir demonstra como configurar uma função para gerar uma mensagem de evento de grade de eventos. A seção em que é configurada `type` para configurar `eventGrid` os valores necessários para estabelecer uma associação de saída de grade de eventos.
+
+```powershell
+{
+  "bindings": [
+    {
+      "type": "eventGrid",
+      "name": "outputEvent",
+      "topicEndpointUri": "MyEventGridTopicUriSetting",
+      "topicKeySetting": "MyEventGridTopicKeySetting",
+      "direction": "out"
+    },
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "Request",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "Response"
+    }
+  ]
+}
+```
+
+Em sua função, use o `Push-OutputBinding` para enviar um evento para um tópico personalizado por meio da Associação de saída da grade de eventos.
+
+```powershell
+using namespace System.Net
+
+# Input bindings are passed in via param block.
+param($Request, $TriggerMetadata)
+
+# Write to the Azure Functions log stream.
+Write-Host "PowerShell HTTP trigger function processed a request."
+
+# Interact with query parameters or the body of the request.
+$message = $Request.Query.Message
+
+Push-OutputBinding -Name outputEvent -Value  @{
+    id = "1"
+    EventType = "testEvent"
+    Subject = "testapp/testPublish"
+    EventTime = "2020-08-27T21:03:07+00:00"
+    Data = @{
+        Message = $message
+    }
+    DataVersion = "1.0"
+}
+
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+    StatusCode = 200
+    Body = "OK"
+})
+```
+
 # <a name="python"></a>[Python](#tab/python)
 
 O exemplo a seguir mostra uma associação de gatilho em um arquivo *function.json* e uma [função Python](functions-reference-python.md) que usa a associação. Em seguida, ele envia em um evento para o tópico personalizado, conforme especificado pelo `topicEndpointUri` .
@@ -194,7 +262,6 @@ import logging
 import azure.functions as func
 import datetime
 
-
 def main(eventGridEvent: func.EventGridEvent, 
          outputEvent: func.Out[func.EventGridOutputEvent]) -> None:
 
@@ -209,10 +276,6 @@ def main(eventGridEvent: func.EventGridEvent,
             event_time=datetime.datetime.utcnow(),
             data_version="1.0"))
 ```
-
-# <a name="java"></a>[Java](#tab/java)
-
-A associação de saída da Grade de Eventos não está disponível para Java.
 
 ---
 
@@ -239,17 +302,21 @@ Para ver um exemplo completo, confira o [exemplo](#example).
 
 O script C# não dá suporte a atributos.
 
+# <a name="java"></a>[Java](#tab/java)
+
+A associação de saída da Grade de Eventos não está disponível para Java.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 O JavaScript não dá suporte a atributos.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Não há suporte para atributos pelo PowerShell.
+
 # <a name="python"></a>[Python](#tab/python)
 
 A associação de saída da Grade de Eventos não está disponível para Python.
-
-# <a name="java"></a>[Java](#tab/java)
-
-A associação de saída da Grade de Eventos não está disponível para Java.
 
 ---
 
@@ -280,17 +347,21 @@ Envie mensagens usando um parâmetro de método, como `out EventGridEvent paramN
 
 Envie mensagens usando um parâmetro de método, como `out EventGridEvent paramName`. No script do C#, `paramName` é o valor especificado na propriedade `name` de *function.json*. Para gravar várias mensagens, você pode usar `ICollector<EventGridEvent>` ou `IAsyncCollector<EventGridEvent>` no lugar de `out EventGridEvent`.
 
+# <a name="java"></a>[Java](#tab/java)
+
+A associação de saída da Grade de Eventos não está disponível para Java.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Acesse o evento de saída usando `context.bindings.<name>`, em que `<name>` é o valor especificado na propriedade `name` de *function.json*.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Acesse o evento de saída usando o `Push-OutputBinding` commandlet para enviar um evento para a associação de saída da grade de eventos.
+
 # <a name="python"></a>[Python](#tab/python)
 
 A associação de saída da Grade de Eventos não está disponível para Python.
-
-# <a name="java"></a>[Java](#tab/java)
-
-A associação de saída da Grade de Eventos não está disponível para Java.
 
 ---
 

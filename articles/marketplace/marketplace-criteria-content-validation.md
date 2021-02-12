@@ -4,15 +4,15 @@ description: Este artigo explica os requisitos e as diretrizes para listar novas
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 09/04/2020
-ms.openlocfilehash: 75bf1e3d81b466098884a354826019aa94a94174
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 08c5b5d8351105744f7a912b352a940df3b4baa7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126100"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462139"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Diretrizes de listagem do Azure Marketplace
 
@@ -32,7 +32,7 @@ Este artigo explica os requisitos e as diretrizes para listar novas ofertas e se
 | 8 | Status da lista (opções de listagem) | <ul><li>Deve ter um rótulo de um dos tipos a seguir: <ul><li>*Entrar em contato comigo*</li><li>*Avaliação*/*Obter avaliação gratuita agora*/*Iniciar avaliação*/*Test Drive*</li><li>*Compre agora*/*Obtenha agora*</li></ul></ul> | O cliente pode entender facilmente quais são as próximas etapas: <ol><li>Experimentar a avaliação gratuita.</li><li>Comprar agora.</li><li>Entre em contato por email ou número de telefone para providenciar a Prova de Conceito, Avaliação ou Resumo.</li></ol> | 
 | 9 | Preço da solução | É necessário ter uma guia de preço da solução/detalhes, e o preço deve estar na moeda local da oferta de solução do parceiro. | Várias opções de cobrança devem estar disponíveis com faixa de preço para dar opções ao cliente. |
 | 10 | Saiba mais | Os links na parte inferior (na descrição, não os links do Azure Marketplace à esquerda) conduzem a mais informações sobre a solução, estão disponíveis ao público e são exibidos corretamente. |    Links para itens específicos (por exemplo, páginas de especificações no site de parceiros) e não apenas a página inicial do parceiro. | 
-| 11 | Suporte e ajuda da solução | Link para pelo menos uma das opções a seguir: <ul><li>Números de telefone</li><li>Suporte por email</li><li>Agentes de chat</li><li>Fóruns comunitários |<ul><li>Todos os métodos de suporte são listados.</li><li>Suporte pago oferecido gratuitamente durante o período da *avaliação gratuita* ou do *test drive* . |
+| 11 | Suporte e ajuda da solução | Link para pelo menos uma das opções a seguir: <ul><li>Números de telefone</li><li>Suporte por email</li><li>Agentes de chat</li><li>Fóruns comunitários |<ul><li>Todos os métodos de suporte são listados.</li><li>Suporte pago oferecido gratuitamente durante o período da *avaliação gratuita* ou do *test drive*. |
 | 12 | Legal | As políticas ou termos estão disponíveis por meio de uma URL pública. |  |
 |||
 
@@ -40,7 +40,7 @@ Este artigo explica os requisitos e as diretrizes para listar novas ofertas e se
 
 | Não. | Elemento de listagem | Requisito base | Requisito ideal | 
 |:--- |:--- |:--- |:--- |
-|  | Status da lista (opção de listagem) | O link deve levar à experiência de *avaliação gratuita* conduzida pelo cliente. | Outras opções de listagem (por exemplo, *comprar agora* ) também estão disponíveis. | 
+|  | Status da lista (opção de listagem) | O link deve levar à experiência de *avaliação gratuita* conduzida pelo cliente. | Outras opções de listagem (por exemplo, *comprar agora*) também estão disponíveis. | 
 |||
 
 ## <a name="saas-application-requirements"></a>Requisitos do aplicativo SaaS
@@ -48,7 +48,7 @@ Este artigo explica os requisitos e as diretrizes para listar novas ofertas e se
 | Não. | Elemento de listagem | Requisito base | Requisito ideal | 
 |:--- |:--- |:--- |:--- |
 | 1 | Título da oferta |<ul><li>Precisa conter somente letras minúsculas, caracteres alfanuméricos, traços ou sublinhados. O título não pode ser modificado depois de ser publicado.</li><li>Descreve a oferta da solução.</li><li>Corresponde à promoção online da solução no site do parceiro. | Contém palavras-chave de pesquisa. |
-| 2 | Informações técnicas: Configuração |<ul><li>Para um aplicativo SaaS (software como serviço), escolha se você quer apenas listar seu aplicativo ou se deseja permitir que os clientes comprem seu aplicativo por meio do Azure.</li><li>Selecione o texto que você deseja no botão de aquisição da oferta: *gratuito* , *avaliação gratuita* ou *entre em contato comigo* .</li><li>Na janela pop-up, selecione apenas um produto aplicável se seu aplicativo utiliza a tecnologia: Cortana Intelligence, Power BI Solution Templates ou Power Apps. |  |
+| 2 | Informações técnicas: Configuração |<ul><li>Para um aplicativo SaaS (software como serviço), escolha se você quer apenas listar seu aplicativo ou se deseja permitir que os clientes comprem seu aplicativo por meio do Azure.</li><li>Selecione o texto que você deseja no botão de aquisição da oferta: *gratuito*, *avaliação gratuita* ou *entre em contato comigo*.</li><li>Na janela pop-up, selecione apenas um produto aplicável se seu aplicativo utiliza a tecnologia: Cortana Intelligence, Power BI Solution Templates ou Power Apps. |  |
 | 3 | Test drive | Selecione *Sim* ou *Não* | O cliente pode entender facilmente quais são as próximas etapas: <ol><li>Experimentar a avaliação gratuita.</li><li>Comprar agora.</li><li>Entre em contato por email ou número de telefone para providenciar a Prova de Conceito, Avaliação ou Resumo.</li></ol> |
 | 4 | Detalhes da loja online: Resumo da oferta | Aparecerá na página de pesquisa do seu aplicativo e tem no máximo 100 caracteres. | |
 | 5 | Detalhes da loja online: setores | Setores (máx. de 2): Selecione os setores aos quais seu aplicativo é mais adequado e aplicável. | |
@@ -56,7 +56,7 @@ Este artigo explica os requisitos e as diretrizes para listar novas ofertas e se
 | 7 | Artefatos de marketing | Os logotipos são exibidos corretamente. | <ul><li>Logotipos: pequeno (48 x 48 px, optional), Medium (90 x 90 px, optional) e Large (de 216 x 216 a 350 x 350 px, required).</li><li>Captura de tela (máx. 5): requer um. Imagem PNG com uma resolução de 1280x720 pixels. |
 | 8 | Categorias e setores | <ul><li>As categorias correspondem aos recursos da oferta de solução.</li><li>Selecione pelo menos um item na janela pop-up.</li><li>Não selecione categorias para as quais a solução não se ajusta.</li><li>Setor ideal ou todos os setores selecionados, se não forem os setores ideais. | Máx. Três categorias selecionadas, se aplicável. |
 | 9 | Gerenciamento de clientes potenciais | Selecione o sistema no qual seus clientes potenciais serão armazenados. Confira [obter clientes potenciais](./partner-center-portal/commercial-marketplace-get-customer-leads.md) para conectar seu sistema CRM. |  |
-| 10 | Contatos: Suporte e ajuda da solução | <ul><li>Nome do contato de engenharia: O nome do contato de engenharia do aplicativo. Esse contato receberá comunicações técnicas da Microsoft.</li><li>Email de contato de engenharia: O endereço de email do contato de engenharia.</li><li>Telefone de contato de engenharia: Número de telefone do contato de engenharia. Há suporte para [notações de número de telefone ISO.](https://en.wikipedia.org/wiki/E.123)</li><li>Nome do contato de suporte: O nome do contato de suporte do aplicativo. Esse contato receberá comunicações relacionadas a suporte da Microsoft.</li><li>Email do contato de suporte: O endereço de email do contato de suporte do aplicativo.</li><li>Telefone do contato de suporte: O número de telefone do contato de suporte. Há suporte para [notações de número de telefone ISO.](https://en.wikipedia.org/wiki/E.123)</li><li>URL do suporte: A URL da página de suporte. | <ul><li>Todos os métodos de suporte são listados.</li><li>Suporte pago oferecido gratuitamente durante o período da *avaliação gratuita* ou do *test drive* . |
+| 10 | Contatos: Suporte e ajuda da solução | <ul><li>Nome do contato de engenharia: O nome do contato de engenharia do aplicativo. Esse contato receberá comunicações técnicas da Microsoft.</li><li>Email de contato de engenharia: O endereço de email do contato de engenharia.</li><li>Telefone de contato de engenharia: Número de telefone do contato de engenharia. Há suporte para [notações de número de telefone ISO.](https://en.wikipedia.org/wiki/E.123)</li><li>Nome do contato de suporte: O nome do contato de suporte do aplicativo. Esse contato receberá comunicações relacionadas a suporte da Microsoft.</li><li>Email do contato de suporte: O endereço de email do contato de suporte do aplicativo.</li><li>Telefone do contato de suporte: O número de telefone do contato de suporte. Há suporte para [notações de número de telefone ISO.](https://en.wikipedia.org/wiki/E.123)</li><li>URL do suporte: A URL da página de suporte. | <ul><li>Todos os métodos de suporte são listados.</li><li>Suporte pago oferecido gratuitamente durante o período da *avaliação gratuita* ou do *test drive*. |
 | 11 | Legal |<ul><li>URL da política de privacidade: A URL da política de privacidade do aplicativo no campo URL da Política de Privacidade no CPP.</li><li>Termos de uso: Os termos de uso do aplicativo. Os clientes precisam aceitar esses termos antes de poderem testar o aplicativo. |    As políticas ou termos estão disponíveis por meio de um site com URL pública. |
 |||
 
@@ -78,7 +78,7 @@ Este artigo explica os requisitos e as diretrizes para listar novas ofertas e se
 | 2 | Descrição da oferta  |<ul><li>Garanta o uso adequado dos [nomes de produtos da Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/en-us.aspx).</li><li>Ofertas marcadas como *Preço: Estimado* devem ter uma anotação na parte superior ou inferior para explicar a variabilidade (viagem até o cliente, número de servidores que estão sendo migrados e assim por diante).</li><li>Cada tipo de oferta tem os requisitos de descrição a seguir: <ul><li>Os resumos precisam de pelo menos quatro ou cinco marcadores, com informações sobre tópicos a serem abordados.</li><li>Todos os workshops precisam de uma agenda.</li><li>Todas as agendas precisam ser divididas por dia ou semana, dependendo da duração do workshop.</li><li>As ofertas de implementação de avaliação, prova de conceito, workshops sem treinamento precisam de produtos finais.</li><li>Os workshops de treinamento não precisam de produtos finais, mas necessitam de uma agenda detalhada com os tópicos que serão abordados.</li></ul></ul> | <ul><li>Toda oferta tem agenda e produtos finais.</li><li>Na seção superior, a oferta inclui um parágrafo com contexto sobre a empresa que presta o serviço.</li><li>A oferta inclui um parágrafo sobre o valor do próprio serviço como uma seção superior. |
 | 3 | Formatação Markdown  | Todas as ofertas devem usar a formatação Markdown para serem renderizadas adequadamente quando convertidas em HTML.  |  |
 | 4 | Categorias e setores | As categorias não são relevantes. |  | 
-| 5 | Status da lista (opção de listagem) | Listado automaticamente como *Entre em contato comigo* . |  | 
+| 5 | Status da lista (opção de listagem) | Listado automaticamente como *Entre em contato comigo*. |  | 
 | 6 | Suporte e ajuda da solução  | Suporte e ajuda não são necessários.  | | 
 | 7 | Política de privacidade e termos de uso disponíveis  |  As políticas ou termos não são necessários.  | | 
 | 8 | Tipos de serviços | Verifique se o tipo de serviço corresponde ao título. | |
@@ -93,5 +93,5 @@ Este artigo explica os requisitos e as diretrizes para listar novas ofertas e se
 * Saiba mais sobre os vários tipos de oferta no Azure Marketplace:
   * [Aplicativos SaaS](./plan-saas-offer.md)
   * [Contêineres](./marketplace-containers.md)
-  * [Serviços de consultoria](./consulting-services.md)
+  * [Serviços de consultoria](./plan-consulting-service-offer.md)
 * [Determinar a opção de publicação](./determine-your-listing-type.md)

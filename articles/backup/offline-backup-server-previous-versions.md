@@ -3,12 +3,12 @@ title: Backup offline para Data Protection Manager (DPM) e Backup do Microsoft A
 description: Com o backup do Azure, você pode enviar dados da rede usando o serviço de importação/exportação do Azure. Este artigo explica o fluxo de trabalho de backup offline para versões anteriores do DPM e Servidor de Backup do Azure.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: b747fd3c682dc1caf7312ba7279470a1e6b38bd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0405ab66b7714f00349419e94bb064267ca711a6
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88890086"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702178"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Fluxo de trabalho de backup offline para o DPM e o Servidor de Backup do Azure (versões anteriores)
 
@@ -17,7 +17,7 @@ ms.locfileid: "88890086"
 
 O Backup do Azure tem vários mecanismos internos eficientes que reduzem os custos de armazenamento e de rede durante os primeiros backups 'completos' de dados no Azure. Os backups completos iniciais normalmente transferem grandes quantidades de dados e exigem mais largura de banda de rede em comparação com os backups subsequentes que transferem apenas os deltas/incrementais. O backup do Azure compacta os backups iniciais. Com o processo de propagação offline, o backup do Azure pode usar discos para carregar os dados de backup offline inicial compactado no Azure.
 
-O processo de propagação offline do backup do Azure é totalmente integrado ao serviço de [importação/exportação do Azure](../storage/common/storage-import-export-service.md). Você pode usar esse serviço para transferir dados para o Azure usando discos. Se você tiver terabytes (TBs) de dados de backup inicial que precisam ser transferidos por uma rede de alta latência e baixa largura de banda, você poderá usar o fluxo de trabalho de propagação offline para enviar a cópia de backup inicial em um ou mais discos rígidos para um datacenter do Azure. Este artigo fornece uma visão geral e etapas adicionais que concluem esse fluxo de trabalho para o System Center Data Protection Manager (DPM) e o Backup do Microsoft Azure Server (MABS).
+O processo de propagação offline do backup do Azure é totalmente integrado ao serviço de [importação/exportação do Azure](../import-export/storage-import-export-service.md). Você pode usar esse serviço para transferir dados para o Azure usando discos. Se você tiver terabytes (TBs) de dados de backup inicial que precisam ser transferidos por uma rede de alta latência e baixa largura de banda, você poderá usar o fluxo de trabalho de propagação offline para enviar a cópia de backup inicial em um ou mais discos rígidos para um datacenter do Azure. Este artigo fornece uma visão geral e etapas adicionais que concluem esse fluxo de trabalho para o System Center Data Protection Manager (DPM) e o Backup do Microsoft Azure Server (MABS).
 
 > [!NOTE]
 > O processo de backup offline para o agente de Serviços de Recuperação do Microsoft Azure (MARS) é diferente do DPM e do MABS. Para obter informações sobre como usar o backup offline com o agente MARS, consulte [fluxo de trabalho de backup offline no backup do Azure](backup-azure-backup-import-export.md). O backup offline não tem suporte para backups de estado do sistema feito usando o agente de backup do Azure.
@@ -66,7 +66,7 @@ Verifique se os pré-requisitos a seguir foram atendidos antes de iniciar o flux
   ![Criar uma conta de armazenamento com o desenvolvimento do Gerenciador de recursos](./media/offline-backup-dpm-mabs-previous-versions/storage-account-resource-manager.png)
 
 * Um local de preparo, que pode ser um compartilhamento de rede ou qualquer unidade adicional no computador, interna ou externa, com espaço em disco suficiente para manter a cópia inicial, é criado. Por exemplo, se você quiser fazer backup de um servidor de arquivos de 500 GB, verifique se a área de preparação tem pelo menos 500 GB. (Uma quantidade menor é usada devido à compactação.)
-* Para discos enviados para o Azure, certifique-se de que apenas discos rígidos internos de SSD de 2,5 polegadas ou de 2,5 polegadas ou 3,5 pol. SATA II/III sejam usados. Você pode usar discos rígidos de até 10 TB. Verifique a [documentação de serviço de Importação/Exportação do Azure](../storage/common/storage-import-export-requirements.md#supported-hardware) para obter o conjunto mais recente de unidades às quais o serviço dá suporte.
+* Para discos enviados para o Azure, certifique-se de que apenas discos rígidos internos de SSD de 2,5 polegadas ou de 2,5 polegadas ou 3,5 pol. SATA II/III sejam usados. Você pode usar discos rígidos de até 10 TB. Verifique a [documentação de serviço de Importação/Exportação do Azure](../import-export/storage-import-export-requirements.md#supported-hardware) para obter o conjunto mais recente de unidades às quais o serviço dá suporte.
 * As unidades SATA precisam estar conectadas a um computador (conhecido como *computador de cópia*) de onde é realizada a cópia de dados de backup do local de preparo para as unidades SATA. Verifique se o BitLocker está habilitado no computador de cópia.
 
 ## <a name="prepare-the-server-for-the-offline-backup-process"></a>Preparar o servidor para o processo de backup offline
@@ -108,7 +108,7 @@ Siga estas etapas para carregar manualmente o certificado de backup offline para
 1. Selecione o aplicativo. Em **gerenciar** no painel esquerdo, vá para **certificados & segredos**.
 1. Verifique se há certificados ou chaves públicas pré-existentes. Se não houver nenhum, você poderá excluir com segurança o aplicativo selecionando o botão **excluir** na página **visão geral** do aplicativo. Em seguida, você pode repetir as etapas para [preparar o servidor para o processo de backup offline](#prepare-the-server-for-the-offline-backup-process) e ignorar as etapas a seguir. Caso contrário, continue seguindo estas etapas da instância do DPM ou do servidor de backup do Azure em que você deseja configurar o backup offline.
 1. Em **início** – **executar**, digite *Certlm. msc*. Na janela **certificados-computador local** , selecione a guia **certificados – computador local**  >  **pessoal** . procure o certificado com o nome `CB_AzureADCertforOfflineSeeding_<ResourceId>` .
-1. Selecione o certificado, clique com o botão direito do mouse em **todas as tarefas**e selecione **Exportar**, sem uma chave privada, no formato. cer.
+1. Selecione o certificado, clique com o botão direito do mouse em **todas as tarefas** e selecione **Exportar**, sem uma chave privada, no formato. cer.
 1. Vá para o aplicativo de backup offline do Azure na portal do Azure.
 1. Selecione **gerenciar**  >  **certificados & segredos**  >  **carregar certificado**. Carregue o certificado exportado na etapa anterior.
 
@@ -116,7 +116,7 @@ Siga estas etapas para carregar manualmente o certificado de backup offline para
 
 1. No servidor, abra o registro digitando **regedit** na janela Executar.
 1. Acesse a entrada do registro *Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider*.
-1. Clique com o botão direito do mouse em **CloudBackupProvider**e adicione um novo valor de cadeia de caracteres com o nome `AzureADAppCertThumbprint_<Azure User Id>` .
+1. Clique com o botão direito do mouse em **CloudBackupProvider** e adicione um novo valor de cadeia de caracteres com o nome `AzureADAppCertThumbprint_<Azure User Id>` .
 
     >[!NOTE]
     > Para localizar a ID de usuário do Azure, execute uma das seguintes etapas:
@@ -125,7 +125,7 @@ Siga estas etapas para carregar manualmente o certificado de backup offline para
     >* Vá para o caminho do registro `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup; Name: CurrentUserId;` .
 
 1. Clique com o botão direito do mouse na cadeia de caracteres adicionada na etapa anterior e selecione **Modificar**. No valor, forneça a impressão digital do certificado que você exportou na etapa 7. Depois, selecione **OK**.
-1. Para obter o valor da impressão digital, clique duas vezes no certificado. Selecione a guia **detalhes** e role para baixo até ver o campo impressão digital. Selecione **impressão digital**e copie o valor.
+1. Para obter o valor da impressão digital, clique duas vezes no certificado. Selecione a guia **detalhes** e role para baixo até ver o campo impressão digital. Selecione **impressão digital** e copie o valor.
 
     ![Copiar valor do campo impressão digital](./media/offline-backup-dpm-mabs-previous-versions/thumbprint-field.png)
 
@@ -133,7 +133,7 @@ Siga estas etapas para carregar manualmente o certificado de backup offline para
 
 ## <a name="workflow"></a>Fluxo de trabalho
 
-As informações nesta seção ajudam a concluir o fluxo de trabalho de backup offline para que seus dados possam ser entregues a um datacenter do Azure e carregados no armazenamento do Azure. Se você tiver dúvidas sobre o serviço de importação ou qualquer aspecto do processo, consulte a [documentação de visão geral do serviço de importação](../storage/common/storage-import-export-service.md) referenciada anteriormente.
+As informações nesta seção ajudam a concluir o fluxo de trabalho de backup offline para que seus dados possam ser entregues a um datacenter do Azure e carregados no armazenamento do Azure. Se você tiver dúvidas sobre o serviço de importação ou qualquer aspecto do processo, consulte a [documentação de visão geral do serviço de importação](../import-export/storage-import-export-service.md) referenciada anteriormente.
 
 ### <a name="initiate-offline-backup"></a>Iniciar o backup offline
 
@@ -271,7 +271,7 @@ Para verificar o status do trabalho de importação:
 
     ![Verificar o status do trabalho de importação](./media/offline-backup-dpm-mabs-previous-versions/import-job-status-reporting.png)<br/>
 
-Para obter mais informações sobre os vários Estados do trabalho de importação do Azure, consulte [Exibir o status dos trabalhos de importação/exportação do Azure](../storage/common/storage-import-export-view-drive-status.md).
+Para obter mais informações sobre os vários Estados do trabalho de importação do Azure, consulte [Exibir o status dos trabalhos de importação/exportação do Azure](../import-export/storage-import-export-view-drive-status.md).
 
 ### <a name="finish-the-workflow"></a>Concluir o fluxo de trabalho
 
@@ -283,4 +283,4 @@ No horário do próximo backup agendado, o Backup do Azure executa o backup incr
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para dúvidas sobre o fluxo de trabalho do serviço de importação/exportação do Azure, consulte [usar o serviço de importação/exportação do Microsoft Azure para transferir dados para o armazenamento de BLOBs](../storage/common/storage-import-export-service.md).
+* Para dúvidas sobre o fluxo de trabalho do serviço de importação/exportação do Azure, consulte [usar o serviço de importação/exportação do Microsoft Azure para transferir dados para o armazenamento de BLOBs](../import-export/storage-import-export-service.md).

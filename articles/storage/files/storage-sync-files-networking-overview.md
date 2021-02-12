@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/03/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b291bd45b4003dd2241f40c810ed9d78af9f8bc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76d97e3312c1df51193d8a881f3ee07fcd155d75
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267781"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629352"
 ---
 # <a name="azure-file-sync-networking-considerations"></a>Considerações de rede para Sincronização de Arquivos do Azure
 Você pode se conectar a um compartilhamento de arquivo do Azure de duas maneiras:
@@ -55,7 +55,7 @@ A Sincronização de Arquivos do Azure requer os intervalos de endereços IP par
 | Azure Resource Manager | O Azure Resource Manager é a interface de gerenciamento do Azure. Todas as chamadas de gerenciamento, incluindo o registro do Sincronização de Arquivos do Azure Server e as tarefas de servidor de sincronização contínua, são feitas por meio do Azure Resource Manager. | `AzureResourceManager` |
 | Azure Active Directory | O Azure Active Directory, ou Azure AD, contém as entidades de usuário necessárias para autorizar o registro do servidor em um serviço de sincronização de armazenamento e as entidades de serviço necessárias para que Sincronização de Arquivos do Azure seja autorizado a acessar seus recursos de nuvem. | `AzureActiveDirectory` |
 
-Se você estiver usando a Sincronização de Arquivos do Azure no Azure, mesmo que esteja em uma região diferente, poderá usar o nome da marca de serviço diretamente no grupo de segurança de rede para permitir o tráfego para esse serviço. Para saber mais sobre como fazer isso, confira [Grupos de segurança de rede](../../virtual-network/security-overview.md). 
+Se você estiver usando a Sincronização de Arquivos do Azure no Azure, mesmo que esteja em uma região diferente, poderá usar o nome da marca de serviço diretamente no grupo de segurança de rede para permitir o tráfego para esse serviço. Para saber mais sobre como fazer isso, confira [Grupos de segurança de rede](../../virtual-network/network-security-groups-overview.md). 
 
 Se você estiver usando a Sincronização de Arquivos do Azure local, poderá usar a API de marca de serviço para obter intervalos de endereços IP específicos para a lista de permissões do firewall. Há dois métodos para obter essas informações:
 
@@ -65,9 +65,9 @@ Se você estiver usando a Sincronização de Arquivos do Azure local, poderá us
     - [Azure China:](https://www.microsoft.com/download/details.aspx?id=57062)
     - [Azure Alemanha](https://www.microsoft.com/download/details.aspx?id=57064)
 - A API de descoberta de marca de serviço (versão prévia) permite a recuperação programática da lista atual de marcas de serviço. Na versão prévia, a API de descoberta de marca de serviço pode retornar informações menos atualizadas do que as retornadas pelos documentos JSON publicados no centro de download da Microsoft. Você pode usar a superfície da API conforme sua preferência de automação:
-    - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
-    - [PowerShell do Azure](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag)
-    - [CLI do Azure](https://docs.microsoft.com/cli/azure/network#az-network-list-service-tags)
+    - [REST API](/rest/api/virtualnetwork/servicetags/list)
+    - [PowerShell do Azure](/powershell/module/az.network/Get-AzNetworkServiceTag)
+    - [CLI do Azure](/cli/azure/network#az-network-list-service-tags)
 
 Para saber mais sobre como usar a API de marca de serviço para recuperar os endereços de seus serviços, confira [Lista de permissões para endereços IP da Sincronização de Arquivos do Azure](storage-sync-files-firewall-and-proxy.md#allow-list-for-azure-file-sync-ip-addresses).
 

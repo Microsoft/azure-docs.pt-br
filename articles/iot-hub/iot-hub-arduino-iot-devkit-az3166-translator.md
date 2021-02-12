@@ -10,11 +10,11 @@ ms.date: 12/19/2018
 ms.author: liydu
 ms.custom: devx-track-csharp
 ms.openlocfilehash: be26c6fe03dac9b9ff9dbff4a2bdce391ec0837e
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147865"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024156"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-functions-and-cognitive-services-to-make-a-language-translator"></a>Usar o Kit de Desenvolvimento da IoT AZ3166 com um Azure Functions e os Serviços Cognitivos para criar um tradutor de idiomas
 
@@ -72,7 +72,7 @@ Para concluir as etapas neste tutorial, faça primeiro as tarefas a seguir:
 1. Verifique se a implantação foi bem-sucedida.
    ![Implantar o sucesso](media/iot-hub-arduino-iot-devkit-az3166-translator/deploy-success.png)
 
-1. No portal do Azure, acesse a sessão **Aplicativos de funções** e localize o aplicativo de funções do Azure que acabou de criar. Clique em `devkit_translator`, depois clique em ** </> Obter URL de função** para copiar a URL.
+1. No portal do Azure, acesse a sessão **Aplicativos de funções** e localize o aplicativo de funções do Azure que acabou de criar. Clique em `devkit_translator`, depois clique em **</> Obter URL de função** para copiar a URL.
    ![Copiar URL de função](media/iot-hub-arduino-iot-devkit-az3166-translator/get-function-url.png)
 
 1. Cole a URL no arquivo `azure_config.h`.
@@ -85,7 +85,7 @@ Para concluir as etapas neste tutorial, faça primeiro as tarefas a seguir:
 
 1. Alternar o DevKit no **modo de configuração** para:
    * Mantenha pressionado o botão **A**.
-   * Pressione e solte a o botão**Redefinir**.
+   * Pressione e solte a o botão **Redefinir**.
 
    A tela exibe a ID do Kit de Desenvolvimento e **Configuração**.
 

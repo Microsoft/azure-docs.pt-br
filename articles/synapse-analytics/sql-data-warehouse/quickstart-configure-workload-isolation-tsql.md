@@ -11,14 +11,14 @@ ms.date: 04/27/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 9132c9609961053e7f60344dc387b2a8d01bd6b9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9d69c1708e73ad7ce5610a0683835e9f304c3f54
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85212982"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679747"
 ---
-# <a name="quickstart-configure-workload-isolation-using-t-sql"></a>Início Rápido: Configurar isolamento da carga de trabalho com o T-SQL
+# <a name="quickstart-configure-workload-isolation-in-a-dedicated-sql-pool-using-t-sql"></a>Início rápido: Configurar o isolamento de carga de trabalho em um pool de SQL dedicado usando T-SQL
 
 Neste guia de início rápido, você criará rapidamente um classificador e um grupo de cargas de trabalho para reservar recursos para o carregamento de dados. O grupo de cargas de trabalho alocará 20% dos recursos do sistema para os carregamentos de dados.  O classificador de cargas de trabalho atribuirá solicitações ao grupo de cargas de trabalho do carregamento de dados.  Com 20% de reserva para carregamento de dados, esses recursos garantem a conformidade com os SLAs.
 
@@ -29,11 +29,11 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este início rápido pressupõe que você já tem uma instância do SQL do Synapse no Azure Synapse e que você tem permissões de CONTROLE SOBRE O BANCO DE DADOS. Se precisar, use [Criar e conectar – portal](create-data-warehouse-portal.md) para criar um data warehouse chamado **mySampleDataWarehouse**.
+Este início rápido pressupõe que você já tem uma instância do SQL do Synapse no Azure Synapse e que você tem permissões de CONTROLE SOBRE O BANCO DE DADOS. Se precisar criar, use [Criar e conectar – portal](create-data-warehouse-portal.md) para criar um pool de SQL dedicado chamado **mySampleDataWarehouse**.
 
 ## <a name="create-login-for-dataloads"></a>Criar logon para carregamento de dados
 
-Crie um logon de autenticação do SQL Server no banco de dados `master` usando [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para "ELTLogin".
+Crie um logon de autenticação do SQL Server no banco de dados `master` usando [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para "ELTLogin".
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.sql_logins WHERE name = 'ELTLogin')
@@ -45,7 +45,7 @@ END
 
 ## <a name="create-user"></a>Criar usuário
 
-[Create user](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), "ELTLogin", no mySampleDataWarehouse
+[Create user](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), "ELTLogin", no mySampleDataWarehouse
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = 'ELTLogin')
@@ -57,7 +57,7 @@ END
 
 ## <a name="create-a-workload-group"></a>Criar um grupo de cargas de trabalho
 
-Crie um [grupo de cargas de trabalho](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) com 20% de reserva para carregamento de dados.
+Crie um [grupo de cargas de trabalho](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) com 20% de reserva para carregamento de dados.
 
 ```sql
 CREATE WORKLOAD GROUP DataLoads
@@ -69,7 +69,7 @@ WITH ( MIN_PERCENTAGE_RESOURCE = 20
 
 ## <a name="create-a-workload-classifier"></a>Criar um classificador de carga de trabalho
 
-Crie um [classificador de cargas de trabalho](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) a fim de mapear o ELTLogin para o grupo de cargas de trabalho do carregamento de dados.
+Crie um [classificador de cargas de trabalho](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) a fim de mapear o ELTLogin para o grupo de cargas de trabalho do carregamento de dados.
 
 ```sql
 CREATE WORKLOAD CLASSIFIER [wgcELTLogin]
@@ -103,12 +103,12 @@ DROP USER [ELTLogin]
 ;
 ```
 
-Você está sendo cobrado por unidades de data warehouse e pelos dados armazenados em seu data warehouse. Esses recursos de computação e armazenamento são cobrados separadamente.
+Você está sendo cobrado por unidades de data warehouse e pelos dados armazenados em seu pool de SQL dedicado. Esses recursos de computação e armazenamento são cobrados separadamente.
 
-- Se desejar manter os dados no armazenamento, será possível pausar a computação quando você não estiver usando o pool de SQL. Ao pausar a computação, você será cobrado apenas pelo armazenamento de dados. Quando você estiver pronto para trabalhar com os dados, retome a computação.
-- Se desejar remover encargos futuros, será possível excluir o data warehouse.
+- Se desejar manter os dados no armazenamento, será possível pausar a computação quando você não estiver usando o pool de SQL dedicado. Ao pausar a computação, você será cobrado apenas pelo armazenamento de dados. Quando você estiver pronto para trabalhar com os dados, retome a computação.
+- Se você quiser remover encargos futuros, poderá excluir o pool de SQL dedicado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Você acabou de criar um grupo de cargas de trabalho. Execute algumas consultas como ELTLogin para ver o desempenho delas. Confira [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para exibir as consultas e o grupo de cargas de trabalho atribuído.
+- Você acabou de criar um grupo de cargas de trabalho. Execute algumas consultas como ELTLogin para ver o desempenho delas. Confira [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para exibir as consultas e o grupo de cargas de trabalho atribuído.
 - Para saber mais sobre o gerenciamento de cargas de trabalho SQL do Synapse, confira [Gerenciamento de Cargas de Trabalho](sql-data-warehouse-workload-management.md) e [Isolamento de Cargas de Trabalho](sql-data-warehouse-workload-isolation.md).

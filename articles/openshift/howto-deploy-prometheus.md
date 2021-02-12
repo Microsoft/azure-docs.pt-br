@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 06/17/2019
 keywords: Prometheus, aro, openshift, métricas, Red Hat
 ms.openlocfilehash: 42ed8c90b35eba57fdc3db1f0ed93d44cf9a5e41
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218605"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996841"
 ---
 # <a name="deploy-a-standalone-prometheus-instance-in-an-azure-red-hat-openshift-cluster"></a>Implantar uma instância Prometheus autônoma em um cluster do Azure Red Hat OpenShift
 
@@ -36,7 +36,7 @@ Você preparará alguns arquivos de configuração Prometheus localmente. Crie u
 
 ## <a name="sign-in-to-the-cluster-by-using-the-oc-tool"></a>Entre no cluster usando a ferramenta OC
 
-1. Abra um navegador da Web e vá para o console Web do seu cluster ( https://openshift .* Random-ID*. *Region*. azmosa.IO).
+1. Abra um navegador da Web e vá para o console Web do seu cluster ( https://openshift .*Random-ID*. *Region*. azmosa.IO).
 2. Entre com suas credenciais do Azure.
 3. Selecione seu nome de usuário no canto superior direito e, em seguida, selecione o **comando copiar logon**.
 4. Cole seu nome de usuário no terminal que você usará.
@@ -188,7 +188,7 @@ oc process -f prometheus-sdrole.yml | oc apply -f - -n prometheus-project
 
 ## <a name="optional-deploy-example-application"></a>Opcional: implantar aplicativo de exemplo
 
-Tudo está funcionando, mas não há fontes de métricas. Vá para a URL do Prometheus ( https://prom-prometheus-project.apps .* Random-ID*. *Region*. azmosa.IO/). Você pode encontrá-lo usando o seguinte comando:
+Tudo está funcionando, mas não há fontes de métricas. Vá para a URL do Prometheus ( https://prom-prometheus-project.apps .*Random-ID*. *Region*. azmosa.IO/). Você pode encontrá-lo usando o seguinte comando:
 
 ```
 oc get route prom -n prometheus-project

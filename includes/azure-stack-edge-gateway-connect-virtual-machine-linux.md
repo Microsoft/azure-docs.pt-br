@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 08/03/2020
 ms.author: alkohli
-ms.openlocfilehash: caa17a02305c9e9fcba30cf8c39c4288d83d3da9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92688051cf591470246094dd0d8ea1d436a8efb1
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89419377"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99500206"
 ---
 Conecte-se à VM usando o IP privado que você passou durante a criação da VM.
 
@@ -17,7 +17,7 @@ Abra uma sessão SSH para se conectar com o endereço IP.
 
 `ssh -l <username> <ip address>`
 
-Quando solicitado, forneça a senha que você usou ao criar a VM.
+Quando solicitado, informe a senha usada durante a criação da VM.
 
 Se você precisar fornecer a chave SSH, use este comando.
 
@@ -70,4 +70,4 @@ Se você usou um endereço IP público durante a criação da VM, poderá usar e
 ```powershell
 $publicIp = Get-AzureRmPublicIpAddress -Name <Public IP> -ResourceGroupName <Resource group name>
 ```
-O IP público, nesse caso, será o mesmo que o IP privado passado durante a criação da interface de rede virtual.
+O IP público, nesse caso, será o mesmo que o IP privado que você passou durante a criação da interface de rede virtual.

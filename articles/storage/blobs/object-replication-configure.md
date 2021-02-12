@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 11/09/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: bca960100ee0c9d7e2a779dc86030fc59949dca5
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 226601eadf922a9d834ab84520fd1edf964348fa
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055963"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762929"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Configurar a replicação de objeto para BLOBs de blocos
 
@@ -45,7 +45,7 @@ Se você tiver acesso às contas de armazenamento de origem e de destino, poder�
 
 Antes de configurar a replicação de objeto no portal do Azure, crie os contêineres de origem e de destino nas respectivas contas de armazenamento se eles ainda não existirem. Além disso, habilite o controle de versão do blob e o feed de alterações na conta de origem e habilite o controle de versão do blob na conta de destino.
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 O portal do Azure cria automaticamente a política na conta de origem depois de configurá-la para a conta de destino.
 
@@ -65,19 +65,19 @@ Para criar uma política de replicação no portal do Azure, siga estas etapas:
 
     A imagem a seguir mostra filtros que restringem quais blobs são copiados como parte de uma regra de replicação.
 
-    :::image type="content" source="media/object-replication-configure/configure-replication-copy-prefix.png" alt-text="Captura de tela mostrando regras de replicação no portal do Azure":::
+    :::image type="content" source="media/object-replication-configure/configure-replication-copy-prefix.png" alt-text="Captura de tela mostrando filtros para uma regra de replicação":::
 
 1. Por padrão, o escopo de cópia é definido para copiar somente objetos novos. Para copiar todos os objetos no contêiner ou para copiar objetos de uma data e hora personalizadas, selecione o link **alterar** e configure o escopo de cópia para o par de contêineres.
 
     A imagem a seguir mostra um escopo de cópia personalizado que copia objetos de uma data e hora especificadas em diante.
 
-    :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="Captura de tela mostrando regras de replicação no portal do Azure":::
+    :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="Captura de tela mostrando o escopo de cópia personalizados para a replicação de objeto":::
 
 1. Selecione **Salvar e aplicar** para criar a política de replicação e iniciar a replicação de dados.
 
 Depois de configurar a replicação de objeto, o portal do Azure exibe a política de replicação e as regras, conforme mostrado na imagem a seguir.
 
-:::image type="content" source="media/object-replication-configure/object-replication-policies-portal.png" alt-text="Captura de tela mostrando regras de replicação no portal do Azure":::
+:::image type="content" source="media/object-replication-configure/object-replication-policies-portal.png" alt-text="Captura de tela mostrando a política de replicação de objeto no portal do Azure":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -158,11 +158,7 @@ az login
 az storage account blob-service-properties update \
     --resource-group <resource-group> \
     --account-name <source-storage-account> \
-    --enable-versioning
-
-az storage account blob-service-properties update \
-    --resource-group <resource-group> \
-    --account-name <source-storage-account> \
+    --enable-versioning \
     --enable-change-feed
 
 az storage account blob-service-properties update \
@@ -272,7 +268,7 @@ O exemplo a seguir define uma política de replicação na conta de destino com 
 }
 ```
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Para configurar a replicação de objeto na conta de destino com um arquivo JSON no portal do Azure, siga estas etapas:
 
@@ -284,7 +280,7 @@ Para configurar a replicação de objeto na conta de destino com um arquivo JSON
 1. Selecione **carregar regras de replicação**.
 1. Carregue o arquivo JSON. O portal do Azure exibe a política e as regras que serão criadas, conforme mostrado na imagem a seguir.
 
-    :::image type="content" source="media/object-replication-configure/replication-rules-upload-portal.png" alt-text="Captura de tela mostrando regras de replicação no portal do Azure":::
+    :::image type="content" source="media/object-replication-configure/replication-rules-upload-portal.png" alt-text="Captura de tela mostrando como carregar um arquivo JSON para definir uma política de replicação":::
 
 1. Selecione **carregar** para criar a política de replicação na conta de destino.
 
@@ -293,7 +289,7 @@ Em seguida, você pode baixar um arquivo JSON que contém a definição de polí
 1. Navegue até as configurações de **replicação de objeto** da conta de destino na portal do Azure.
 1. Selecione o botão **mais** ao lado da política que você deseja baixar e, em seguida, selecione **baixar regras**, conforme mostrado na imagem a seguir.
 
-    :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="Captura de tela mostrando regras de replicação no portal do Azure":::
+    :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="Captura de tela mostrando como baixar regras de replicação para um arquivo JSON":::
 
 1. Salve o arquivo JSON em seu computador local para compartilhar com outro usuário para configurar a política na conta de origem.
 
@@ -314,7 +310,7 @@ $destPolicy = Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 $destPolicy | ConvertTo-Json -Depth 5 > c:\temp\json.txt
 ```
 
-Para usar o arquivo JSON para configurar a política de replicação na conta de origem com o PowerShell, recupere o arquivo local e converta de JSON em um objeto. Em seguida, chame o comando [set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) para configurar a política na conta de origem, conforme mostrado no exemplo a seguir. Lembre-se de substituir valores entre colchetes angulares e o caminho do arquivo pelos seus próprios valores:
+Para usar o arquivo JSON para definir a política de replicação na conta de origem com o PowerShell, recupere o arquivo local e converta de JSON em um objeto. Em seguida, chame o comando [set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) para configurar a política na conta de origem, conforme mostrado no exemplo a seguir. Lembre-se de substituir valores entre colchetes angulares e o caminho do arquivo pelos seus próprios valores:
 
 ```powershell
 $object = Get-Content -Path C:\temp\json.txt | ConvertFrom-Json
@@ -353,7 +349,7 @@ az storage account or-policy create \
 
 Você pode verificar o status de replicação de um blob na conta de origem usando o portal do Azure, o PowerShell ou o CLI do Azure. As propriedades de replicação de objeto não são populadas até que a replicação seja concluída ou falhou.
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Para verificar o status de replicação de um blob na conta de origem no portal do Azure, siga estas etapas:
 
@@ -361,7 +357,7 @@ Para verificar o status de replicação de um blob na conta de origem no portal 
 1. Localize o contêiner que inclui o blob de origem.
 1. Selecione o blob para exibir suas propriedades. Se o blob tiver sido replicado com êxito, você verá na seção **replicação de objeto** que o status está definido como *concluído*. A ID da política de replicação e a ID da regra que governa a replicação de objeto para esse contêiner também são listadas.
 
-:::image type="content" source="media/object-replication-configure/check-replication-status-source.png" alt-text="Captura de tela mostrando regras de replicação no portal do Azure":::
+:::image type="content" source="media/object-replication-configure/check-replication-status-source.png" alt-text="Captura de tela mostrando o status de replicação para um blob na conta de origem":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -391,6 +387,12 @@ az storage blob show \
 ```
 
 ---
+
+Se o status de replicação de um blob na conta de origem indicar falha, investigue as seguintes causas possíveis:
+
+- Verifique se a política de replicação de objeto está configurada na conta de destino.
+- Verifique se o contêiner de destino ainda existe.
+- Se o blob de origem tiver sido criptografado com uma chave fornecida pelo cliente como parte de uma operação de gravação, a replicação do objeto falhará. Para obter mais informações sobre chaves fornecidas pelo cliente, consulte [fornecer uma chave de criptografia em uma solicitação para o armazenamento de BLOBs](encryption-customer-provided-keys.md).
 
 ## <a name="remove-a-replication-policy"></a>Remover uma política de replicação
 

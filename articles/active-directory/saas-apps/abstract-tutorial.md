@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 233af68e4109e53b6bd841f298e9c2728ca5b116
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: e1c3236c4c1957b4d0daee8d30c71f03fb8674dd
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92313489"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587784"
 ---
 # <a name="tutorial-integrate-abstract-with-azure-active-directory"></a>Tutorial: Integrar o Abstract ao Azure Active Directory
 
@@ -130,7 +130,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 1. Na lista de aplicativos, selecione **Abstract**.
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
 
-   ![O link “Usuários e grupos”](common/users-groups-blade.png)
+    ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
 1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
@@ -146,7 +146,7 @@ Para testar o SSO no Abstract:
 
 1. Abra o [aplicativo Web Abstrato](https://app.abstract.com/).
 2. Vá para a página **Permissões** na barra do lado esquerdo.
-3. Clique em **Testar com minha Conta**. Se o teste falhar, [entre em contato com nossa equipe de suporte](https://www.abstract.com/help/contact/).
+3. Clique em **Testar com minha Conta**. Se o teste falhar, [entre em contato com nossa equipe de suporte](https://help.abstract.com/hc/).
 
 >[!Note]
 >Será necessário autenticar-se com uma conta do administrador da organização para acessar as configurações de SSO no Abstract.

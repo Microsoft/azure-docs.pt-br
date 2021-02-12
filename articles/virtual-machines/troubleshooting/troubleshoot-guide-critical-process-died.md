@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: c04f3b27c7214dcf821c7698796bfaea399b947d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8279aee4a0df8155b23e6f984d259bf92555dc95
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86509096"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632826"
 ---
 # <a name="windows-stop-error---0x000000ef-critical-process-died"></a>Erro de parada do Windows-#0x000000EF "processo crítico morreu"
 
@@ -27,7 +27,7 @@ Este artigo fornece etapas para resolver problemas em que um processo crítico �
 
 ## <a name="symptom"></a>Sintoma
 
-Ao usar o [diagnóstico de inicialização](./boot-diagnostics.md) para exibir a captura de tela da VM, você verá que a captura de tela exibe o erro *#0x000000EF* com o *processo crítico*da mensagem morreu.
+Ao usar o [diagnóstico de inicialização](./boot-diagnostics.md) para exibir a captura de tela da VM, você verá que a captura de tela exibe o erro *#0x000000EF* com o *processo crítico* da mensagem morreu.
 
 !["Seu computador teve um problema e precisa ser reiniciado. Estamos apenas coletando algumas informações sobre o erro e, em seguida, você pode reiniciá-lo. (# #% concluído) Se você quiser saber mais, poderá pesquisar online mais tarde para este erro: 0x000000EF "](media/troubleshoot-guide-critical-process-died/1.jpg)
 
@@ -38,6 +38,9 @@ Normalmente, isso ocorre devido a um processo de sistema crítico falhar durante
 ## <a name="solution"></a>Solução
 
 ### <a name="process-overview"></a>Visão geral do processo:
+
+> [!TIP]
+> Se você tiver um backup recente da VM, poderá tentar [restaurar a VM do backup](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema de inicialização.
 
 1. Criar e acessar uma VM de reparo.
 2. Corrija qualquer dano do sistema operacional.
@@ -86,7 +89,7 @@ Se o problema persistir após a execução do SFC, a análise de um arquivo de d
 Para habilitar a coleta de despejo de memória e o console serial, execute o seguinte script:
 
 1. Abra uma sessão de prompt de comandos com privilégios elevados (Executar como administrador).
-2. Execute os comandos a seguir:
+2. Execute os seguintes comandos:
 
    Habilitar console serial
 

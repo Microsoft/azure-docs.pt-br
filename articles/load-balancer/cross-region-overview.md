@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: d55f52b5e99a7a617e2bec8bea4d6e6ef687730a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89bf920a5a5dd833425f1b41bd206beaae9d30fd
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336523"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946257"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Balanceador de carga entre regiões (visualização)
 
@@ -35,7 +35,7 @@ O Azure Standard Load Balancer dá suporte ao balanceamento de carga entre regi�
 * [Criar uma solução de balanceador de carga existente](#build-cross-region-solution-on-existing-azure-load-balancer) sem curva de aprendizado
 
 > [!IMPORTANT]
-> O balanceador de carga entre regiões está atualmente em visualização e não está disponível para o público geral.  Para acessar a visualização para o balanceador de carga entre regiões, contate: [crossregionlb@microsoft.com](mailto:crossregionlb@microsoft.com) . </br> </br>
+> O balanceador de carga entre regiões está atualmente em visualização e pode ser implantado no Portal. Entre no **https://preview.portal.azure.com** para exibir e implantar o recurso.. </br> </br>
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O balanceamento de carga entre regiões oferece os mesmos benefícios de alto desempenho e baixa latência como balanceador de carga Standard regional. 
@@ -45,17 +45,17 @@ A configuração de IP de front-end do balanceador de carga entre regiões é es
 :::image type="content" source="./media/cross-region-overview/cross-region-load-balancer.png" alt-text="Diagrama de balanceador de carga entre regiões." border="true":::
 
 > [!NOTE]
-> A porta de back-end da carga de sua regra de balanceamento no balanceador de carga entre regiões deve corresponder à porta de front-end da regra de NAT de entrada/regra de balanceamento de carga no balanceador de carga Standard regional. 
+> A porta de back-end de sua regra de balanceamento de carga no balanceador de carga entre regiões deve corresponder à porta de front-end da regra de NAT de entrada/regra de balanceamento de carga no balanceador de carga Standard regional. 
 
 ### <a name="regional-redundancy"></a>Redundância regional
 
 Configure a redundância regional adicionando um endereço IP público de front-end global para os balanceadores de carga existentes. 
 
-Se uma região falhar, o tráfego será roteado para o balanceador de carga regional mais próximo em boas condições.  
+Se uma região falhar, o tráfego será roteado para o balanceador de carga regional íntegro mais próximo.  
 
 A investigação de integridade do balanceador de carga entre regiões coleta informações sobre a disponibilidade a cada 20 segundos. Se um balanceador de carga regional descartar sua disponibilidade para 0, o balanceador de carga entre regiões detectará a falha. O balanceador de carga regional é então retirado da rotação. 
 
-:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagrama de balanceador de carga entre regiões." border="true":::
+:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagrama da exibição de tráfego de região global." border="true":::
 
 ### <a name="ultra-low-latency"></a>Latência ultra baixa
 
@@ -74,7 +74,7 @@ O balanceador de carga entre regiões do Azure usa o algoritmo de balanceamento 
 
 O modo de distribuição de carga configurado dos balanceadores de carga regionais é usado para fazer a decisão de roteamento final quando vários balanceadores de carga regionais são usados para a proximidade geográfica.
 
-Para saber mais, confira [Configurar o modo de distribuição para o Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-distribution-mode).
+Para saber mais, confira [Configurar o modo de distribuição para o Azure Load Balancer](./load-balancer-distribution-mode.md).
 
 
 ### <a name="ability-to-scale-updown-behind-a-single-endpoint"></a>Capacidade de escalar verticalmente por trás de um único ponto de extremidade
@@ -84,7 +84,7 @@ Ao expor o ponto de extremidade global de um balanceador de carga entre regiões
 <!---To learn about how to add or remove a regional deployment from the backend, read more [here](TODO: Insert CLI doc here).--->
 
 ### <a name="static-ip"></a>IP Estático
-O balanceador de carga entre regiões é fornecido com um IP público estático, o que garante que o endereço IP permaneça o mesmo. Para saber mais sobre o IP estático, leia mais [aqui](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#allocation-method)
+O balanceador de carga entre regiões é fornecido com um IP público estático, o que garante que o endereço IP permaneça o mesmo. Para saber mais sobre o IP estático, leia mais [aqui](../virtual-network/public-ip-addresses.md#allocation-method)
 
 ### <a name="client-ip-preservation"></a>Preservação de IP do cliente
 O balanceador de carga entre regiões é um balanceador de carga de rede de passagem de camada 4. Essa passagem preserva o IP original do pacote.  O IP original está disponível para o código em execução na máquina virtual. Essa preservação permite que você aplique lógica específica a um endereço IP.
@@ -143,12 +143,14 @@ O balanceador de carga entre regiões roteia o tráfego para o balanceador de ca
 
 * Uma investigação de integridade não pode ser configurada no momento. Uma investigação de integridade padrão coleta automaticamente informações de disponibilidade sobre o balanceador de carga regional a cada 20 segundos. 
 
+* Atualmente, o serviço de kubernetes do Azure (AKS) não pode ser integrado com Load Balancer entre regiões. A perda de conectividade deve ser esperada ao configurar uma Load Balancer de região cruzada na frente de uma Load Balancer pública implantada com AKS.
+
 ## <a name="pricing-and-sla"></a>Preço e SLA
 O balanceador de carga entre regiões compartilha o [SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/ ) do balanceador de carga padrão.
 
  
 ## <a name="next-steps"></a>Próximas etapas
 
-- Consulte [criar um balanceador de carga padrão público](quickstart-load-balancer-standard-public-portal.md) para começar a usar um balanceador de carga.
+- Consulte [tutorial: criar um balanceador de carga entre regiões usando o portal do Azure](tutorial-cross-region-portal.md) para criar um balanceador de carga entre regiões.
+- Consulte [criar um balanceador de carga padrão público](quickstart-load-balancer-standard-public-portal.md) para criar um balanceador de carga regional padrão.
 - Saiba mais sobre o [Azure Load Balancer](load-balancer-overview.md).
-- [Perguntas frequentes](load-balancer-faqs.md) do balanceador de carga

@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: 41389bc5ed8580cd80dbc40e771c7f15241f5ae7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59e4111b6dda386777e820c9be16ace9ff01135c
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85479395"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064908"
 ---
 # <a name="microsoft-authentication-library-for-ios-and-macos-differences"></a>Diferenças da Biblioteca de Autenticação da Microsoft para iOS e macOS
 

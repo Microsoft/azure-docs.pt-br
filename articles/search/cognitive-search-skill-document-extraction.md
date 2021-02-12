@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: chalton
-ms.openlocfilehash: f209be383e445e3b0c011e0bfb4266a191a8d931
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6dd2b891cb3bf9ebb5442f541021c20a34ce1a1
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85080872"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99474839"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Habilidade cognitiva de extração de documentos
 
@@ -34,10 +34,10 @@ Microsoft.Skills.Util.DocumentExtractionSkill
 
 Os parâmetros diferenciam maiúsculas de minúsculas.
 
-| Entradas            | Valores Permitidos | Descrição |
+| Entradas | Valores Permitidos | Descrição |
 |-----------------|----------------|-------------|
 | `parsingMode`   | `default` <br/> `text` <br/> `json`  | Defina como `default` para extração de documentos de arquivos que não são texto puro ou JSON. Defina como `text` para melhorar o desempenho em arquivos de texto sem formatação. Defina como `json` para extrair conteúdo estruturado de arquivos JSON. Se `parsingMode` não for definido explicitamente, ele será definido como `default` . |
-| `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | Defina como `contentAndMetadata` para extrair todos os metadados e conteúdo textual de cada arquivo. Defina como `allMetadata` para extrair somente os [metadados específicos do tipo de conteúdo](search-howto-indexing-azure-blob-storage.md#ContentSpecificMetadata) (por exemplo, metadados exclusivos para arquivos apenas. png). Se `dataToExtract` não for definido explicitamente, ele será definido como `contentAndMetadata` . |
+| `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | Defina como `contentAndMetadata` para extrair todos os metadados e conteúdo textual de cada arquivo. Defina como `allMetadata` para extrair somente as [Propriedades de metadados para o tipo de conteúdo](search-blob-metadata-properties.md) (por exemplo, metadados exclusivos para arquivos apenas. png). Se `dataToExtract` não for definido explicitamente, ele será definido como `contentAndMetadata` . |
 | `configuration` | Veja abaixo. | Um dicionário de parâmetros opcionais que ajustam como a extração de documento é executada. Consulte a tabela abaixo para obter descrições das propriedades de configuração com suporte. |
 
 | Parâmetro de configuração   | Valores Permitidos | Descrição |
@@ -100,11 +100,11 @@ Esse objeto de referência de arquivo pode ser gerado de uma das três maneiras:
     "outputs": [
       {
         "name": "content",
-        "targetName": "content"
+        "targetName": "extracted_content"
       },
       {
         "name": "normalized_images",
-        "targetName": "normalized_images"
+        "targetName": "extracted_normalized_images"
       }
     ]
   }

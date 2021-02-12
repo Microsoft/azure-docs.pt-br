@@ -9,15 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 11/08/2017
 ms.author: apimpm
-ms.openlocfilehash: 4241ba55c464169257ec0a4b2d20eaa5e76534d5
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 1c4e64251390936e8a63ee904ec69f173cac6114
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092691"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146698"
 ---
 # <a name="edit-an-api"></a>Editar uma API
 

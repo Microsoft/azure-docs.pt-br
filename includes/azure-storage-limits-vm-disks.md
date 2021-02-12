@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
-ms.openlocfilehash: 10599b47d55a0b4ea1eb79cda3c31a2479efb7c0
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: ffb07220267a2c192b4aad2405185c80bd9abbc0
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755594"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94523901"
 ---
 Você pode anexar um número de discos de dados a uma máquina virtual do Azure. Com base nas metas de escalabilidade e de desempenho dos discos de dados de uma VM, você pode determinar o número e o tipo de disco necessários para atender aos seus requisitos de desempenho e capacidade.
 
@@ -31,7 +31,7 @@ A tabela a seguir ilustra os limites padrão e máximo do número de recursos po
 
 **Para contas de armazenamento Standard:** uma conta de armazenamento Standard tem uma taxa de solicitação total máxima de 20.000 IOPS. A IOPS total de todos os discos da máquina virtual de uma conta de armazenamento Standard não deve exceder esse limite.
   
-    You can roughly calculate the number of highly utilized disks supported by a single Standard storage account based on the request rate limit. For example, for a Basic tier VM, the maximum number of highly utilized disks is about 66, which is 20,000/300 IOPS per disk. The maximum number of highly utilized disks for a Standard tier VM is about 40, which is 20,000/500 IOPS per disk. 
+Basicamente, você calcula o número de discos altamente utilizados compatíveis com uma conta de armazenamento Standard com base no limite da taxa de solicitação. Por exemplo, para uma VM do nível Básico, o número máximo de discos altamente utilizados é de cerca de 66, sendo 20.000/300 IOPS por disco. O número máximo de discos altamente utilizados para uma VM de nível Standard é de cerca de 40, sendo 20.000/500 IOPS por disco. 
 
 **Para contas de armazenamento Premium:** uma conta de armazenamento Premium tem uma taxa de transferência total máxima de 50 Gbps. A taxa de transferência total de todos os discos da VM não deve exceder esse limite.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cynthn
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 58f38f5fe5544f01636d5fd2b2393025e5cb01ab
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 9556b20ba0ceac2d4c1ad92897e6f9d46293387f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92756018"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027658"
 ---
 ## <a name="create-an-image-gallery"></a>Criar uma galeria de imagens 
 
@@ -21,7 +21,7 @@ Uma galeria de imagens é o principal recurso usado para habilitar o compartilha
 
 Caracteres permitidos para o nome da galeria são letras maiúsculas ou minúsculas, dígitos, pontos e pontos finais. O nome da galeria não pode conter traços.   Os nomes das galerias devem ser exclusivos dentro de sua assinatura. 
 
-Criar uma galeria de imagens usando [az sig create](/cli/azure/sig#az-sig-create). O exemplo a seguir cria um grupo de recursos da galeria chamado *myGalleryRG* no *Leste dos EUA* , bem como uma galeria chamada *myGallery* .
+Criar uma galeria de imagens usando [az sig create](/cli/azure/sig#az-sig-create). O exemplo a seguir cria um grupo de recursos da galeria chamado *myGalleryRG* no *Leste dos EUA*, bem como uma galeria chamada *myGallery*.
 
 ```azurecli-interactive
 az group create --name myGalleryRG --location eastus
@@ -50,4 +50,4 @@ az role assignment create \
    --scope <gallery ID>
 ```
 
-Para obter mais informações de como compartilhar recursos usando o RBAC, confira [Gerenciar o acesso usando a CLI do Azure e RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli).
+Para obter mais informações de como compartilhar recursos usando o RBAC, confira [Gerenciar o acesso usando a CLI do Azure e RBAC](../articles/role-based-access-control/role-assignments-cli.md).

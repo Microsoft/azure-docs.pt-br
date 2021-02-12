@@ -4,14 +4,14 @@ description: Configure o BYOS (Traga seu próprio armazenamento) para o profiler
 ms.topic: conceptual
 author: renatosalas
 ms.author: regutier
-ms.date: 04/14/2020
+ms.date: 01/14/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: 719f0cfa0a1f80568acf3231ce3ffab441e5f6b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f82432c1dd8c66e8ce845831ff35d534a34e3e04
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87117384"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202531"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Configure o BYOS (Traga seu próprio armazenamento) para Application Insights Profiler e Depurador de Instantâneos
 
@@ -31,7 +31,7 @@ Com o traga seu próprio armazenamento, esses artefatos são carregados em uma c
 1. Quando você exibir os rastreamentos do criador de perfil ou a análise do depurador de instantâneo, o serviço buscará os resultados da análise do armazenamento de BLOBs.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Certifique-se de criar sua conta de armazenamento no mesmo local que o recurso de Application Insights. Ex.: Se o recurso de Application Insights estiver no oeste dos EUA 2, sua conta de armazenamento também deverá estar no oeste dos EUA 2. 
+* Certifique-se de criar sua conta de armazenamento no mesmo local que o recurso de Application Insights. Exemplo: Se o recurso de Application Insights estiver no oeste dos EUA 2, sua conta de armazenamento também deverá estar no oeste dos EUA 2. 
 * Conceda a função "colaborador de dados de blob de armazenamento" ao aplicativo do AAD "acesso de armazenamento confiável dos serviços de diagnóstico" em sua conta de armazenamento por meio da interface de usuário do controle de acesso (IAM).
 * Se o link privado estiver habilitado, defina a configuração adicional para permitir a conexão com o nosso serviço confiável da Microsoft de sua rede virtual. 
 
@@ -53,11 +53,11 @@ Etapas:
 1. Pesquise & selecione o aplicativo "acesso ao armazenamento confiável dos serviços de diagnóstico" 
 1. Salvar alterações
 
-_ ![ Figura 1,0](media/profiler-bring-your-own-storage/figure-10.png)_ 
+_![ Figura 1,0](media/profiler-bring-your-own-storage/figure-10.png)_ 
  _Figura 1,0_ 
 
 Depois de adicionar a função, ela será exibida na seção "atribuições de função", como a figura abaixo 1,1. 
-_ ![ Figura 1,1](media/profiler-bring-your-own-storage/figure-11.png)_ 
+_![ Figura 1,1](media/profiler-bring-your-own-storage/figure-11.png)_ 
  _Figura 1,1_ 
 
 Se você também estiver usando o link privado, será necessária uma configuração adicional para permitir a conexão com o nosso serviço confiável da Microsoft de sua rede virtual. Consulte a [documentação de segurança de rede de armazenamento](../../storage/common/storage-network-security.md#trusted-microsoft-services).
@@ -91,7 +91,7 @@ Para configurar o BYOS para diagnósticos de nível de código (criador de perfi
 
     Padrão:
     ```powershell
-    $appInsights = Get-AzApplicationInsights -ResourceGroupName "{resource_group_name}" -Name "{storage_account_name}"
+    $appInsights = Get-AzApplicationInsights -ResourceGroupName "{resource_group_name}" -Name "{application_insights_name}"
     Remove-AzApplicationInsightsLinkedStorageAccount -ResourceId $appInsights.Id
     ```
 
@@ -226,7 +226,7 @@ Para configurar o BYOS para diagnósticos de nível de código (criador de perfi
     DeploymentDebugLogLevel :
     ```
 
-1. Habilite o diagnóstico de nível de código (criador de perfil/depurador) na carga de trabalho de interesse por meio do portal do Azure. (Application Insights de > do serviço de aplicativo) _ ![ Figura 2,0](media/profiler-bring-your-own-storage/figure-20.png)_ 
+1. Habilite o diagnóstico de nível de código (criador de perfil/depurador) na carga de trabalho de interesse por meio do portal do Azure. (Application Insights de > do serviço de aplicativo) _![ Figura 2,0](media/profiler-bring-your-own-storage/figure-20.png)_ 
  _Figura 2,0_
 
 ## <a name="troubleshooting"></a>Solução de problemas

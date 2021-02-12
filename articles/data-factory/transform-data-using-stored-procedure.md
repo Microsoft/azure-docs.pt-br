@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 11/27/2018
-ms.openlocfilehash: 4d62619fe2641ec1aded39650b47b53cf4269d8b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f20af5ea9628dd6c8aa732ac1d09625156eed0c4
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368869"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387534"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformar dados usando a atividade de procedimento armazenado do SQL Server no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -33,7 +33,7 @@ Use atividades de transformação de dados em um [pipeline](concepts-pipelines-a
 Use a Atividade de Procedimento Armazenado para invocar um procedimento armazenado em um dos seguintes armazenamentos de dados em sua empresa ou em uma VM (máquina virtual) do Azure: 
 
 - Banco de Dados SQL do Azure
-- Azure Synapse Analytics (antigo SQL Data Warehouse)
+- Azure Synapse Analytics
 - Banco de Dados do SQL Server.  Se estiver usando o SQL Server, instale o Integration Runtime (auto-hospedado) no mesmo computador que hospeda o banco de dados ou em um computador separado com acesso ao banco de dados. O Integration Runtime (auto-hospedado) é um componente que conecta fontes de dados locais ou em uma VM do Azure aos serviços de nuvem de maneira segura e gerenciada. Confira o artigo de [tempo de execução de integração auto-hospedado](create-self-hosted-integration-runtime.md) para obter detalhes.
 
 > [!IMPORTANT]
@@ -80,7 +80,7 @@ A seguinte tabela descreve essas propriedades JSON:
 ## <a name="parameter-data-type-mapping"></a>Mapeamento de tipo de dados de parâmetro
 O tipo de dados especificado para o parâmetro é o tipo de Azure Data Factory que é mapeado para o tipo de dados na fonte de dados que você está usando. Você pode encontrar os mapeamentos de tipo de dados para sua fonte de dados na área conectores. Alguns exemplos são
 
-| fonte de dados          | Mapeamento de tipo de dados |
+| Fonte de dados          | Mapeamento de tipo de dados |
 | ---------------------|-------------------|
 | Azure Synapse Analytics | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
 | Banco de Dados SQL do Azure   | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#data-type-mapping-for-azure-sql-database | 
@@ -88,9 +88,7 @@ O tipo de dados especificado para o parâmetro é o tipo de Azure Data Factory q
 | SQL Server           | https://docs.microsoft.com/azure/data-factory/connector-sql-server#data-type-mapping-for-sql-server |
 
 
-## <a name="error-info"></a>Informações de Erro
 
-Quando um procedimento armazenado falha e retorna detalhes do erro, não é possível capturar as informações de erro diretamente na saída da atividade. No entanto, o Data Factory bombeia todos os seus eventos de execução de atividade para o Azure Monitor. Entre os eventos que o Data Factory bombeia para o Azure Monitor, ele envia detalhes do erro para lá. Você pode, por exemplo, configurar alertas de e-mail desses eventos. Para obter mais informações, consulte [Alertar e monitorar os data factories usando o Azure Monitor](monitor-using-azure-monitor.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte os seguintes artigos que explicam como transformar dados de outras maneiras: 
@@ -102,5 +100,5 @@ Consulte os seguintes artigos que explicam como transformar dados de outras mane
 * [Atividade de streaming do Hadoop](transform-data-using-hadoop-streaming.md)
 * [Atividade do Spark](transform-data-using-spark.md)
 * [Atividade personalizada do .NET](transform-data-using-dotnet-custom-activity.md)
-* [Atividade de execução de lote Azure Machine Learning Studio (clássica)](transform-data-using-machine-learning.md)
+* [Atividade de execução em lotes do Azure Machine Learning Studio (clássico)](transform-data-using-machine-learning.md)
 * [Stored procedure activity](transform-data-using-stored-procedure.md) (Atividade de procedimento armazenado)

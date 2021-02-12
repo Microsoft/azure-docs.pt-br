@@ -3,16 +3,17 @@ title: Migrar da biblioteca de executores em massa para o suporte em massa em Az
 description: Saiba como migrar seu aplicativo do usando a biblioteca de executores em massa para o suporte em massa no Azure Cosmos DB SDK v3
 author: ealsur
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: maquaran
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: f7f51f6944de48e58ff53e7685164df3a04afe56
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 24d6b475964e4bf7745495e9c41d0e89bb76f7e9
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075578"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341273"
 ---
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>Migrar da biblioteca de executores em massa para o suporte em massa em Azure Cosmos DB SDK do .NET v3
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -35,15 +36,15 @@ Por exemplo, se a entrada inicial for uma lista de itens em que cada item tem o 
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="Model":::
 
-Se desejar fazer a importação em massa (semelhante ao uso de BulkExecutor. BulkImportAsync), você precisará ter chamadas simultâneas para `CreateItemAsync` . Por exemplo: 
+Se desejar fazer a importação em massa (semelhante ao uso de BulkExecutor. BulkImportAsync), você precisará ter chamadas simultâneas para `CreateItemAsync` . Por exemplo:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkImport":::
 
-Se desejar fazer uma *atualização* em massa (semelhante ao uso de [BulkExecutor. BulkUpdateAsync](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkupdateasync)), você precisará ter chamadas simultâneas para `ReplaceItemAsync` o método depois de atualizar o valor do item. Por exemplo: 
+Se desejar fazer uma *atualização* em massa (semelhante ao uso de [BulkExecutor. BulkUpdateAsync](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkupdateasync)), você precisará ter chamadas simultâneas para `ReplaceItemAsync` o método depois de atualizar o valor do item. Por exemplo:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkUpdate":::
 
-E se desejar fazer a *exclusão* em massa (semelhante ao uso de [BulkExecutor. BulkDeleteAsync](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)), você precisará ter chamadas simultâneas para `DeleteItemAsync` , com a `id` chave de partição e de cada item. Por exemplo: 
+E se desejar fazer a *exclusão* em massa (semelhante ao uso de [BulkExecutor. BulkDeleteAsync](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)), você precisará ter chamadas simultâneas para `DeleteItemAsync` , com a `id` chave de partição e de cada item. Por exemplo:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkDelete":::
 

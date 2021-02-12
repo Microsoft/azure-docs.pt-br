@@ -8,11 +8,11 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 08/30/2019
 ms.openlocfilehash: 7310c67ef20a4134d4f613ea969c96802958bf62
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219200"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015223"
 ---
 # <a name="test-your-azure-data-lake-analytics-code"></a>Testar o código do Azure Data Lake Analytics
 
@@ -52,7 +52,7 @@ A interface `Run()` retorna um resultado de execução de trabalho. *0* signific
 
 ### <a name="run-test-cases-in-visual-studio"></a>Executar casos de teste no Visual Studio
 
-Um projeto de teste de script U-SQL é compilado sobre uma estrutura de teste de unidade do C#. Depois de criar o projeto, selecione **testar**o Gerenciador de testes do  >  **Windows**  >  **Test Explorer**. Você pode executar casos de teste no **Gerenciador de testes**. Como alternativa, clique com o botão direito do mouse no arquivo. cs em seu teste de unidade e selecione **executar testes**.
+Um projeto de teste de script U-SQL é compilado sobre uma estrutura de teste de unidade do C#. Depois de criar o projeto, selecione **testar** o Gerenciador de testes do  >  **Windows**  >  **Test Explorer**. Você pode executar casos de teste no **Gerenciador de testes**. Como alternativa, clique com o botão direito do mouse no arquivo. cs em seu teste de unidade e selecione **executar testes**.
 
 ## <a name="test-c-udos"></a>Testar UDOs de C#
 
@@ -105,7 +105,7 @@ Após chamar funções UDO, será possível verificar os resultados por meio da 
 
 ### <a name="run-test-cases-in-visual-studio"></a>Executar casos de teste no Visual Studio
 
-Depois de criar o projeto, selecione **testar**o Gerenciador de testes do  >  **Windows**  >  **Test Explorer**. Você pode executar casos de teste no **Gerenciador de testes**. Como alternativa, clique com o botão direito do mouse no arquivo. cs em seu teste de unidade e selecione **executar testes**.
+Depois de criar o projeto, selecione **testar** o Gerenciador de testes do  >  **Windows**  >  **Test Explorer**. Você pode executar casos de teste no **Gerenciador de testes**. Como alternativa, clique com o botão direito do mouse no arquivo. cs em seu teste de unidade e selecione **executar testes**.
 
 ## <a name="run-test-cases-in-azure-pipelines"></a>Executar casos de teste no Azure Pipelines<a name="run-test-cases-in-azure-devops"></a>
 

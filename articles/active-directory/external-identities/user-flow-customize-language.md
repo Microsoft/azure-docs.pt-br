@@ -1,6 +1,6 @@
 ---
 title: Personalização de idioma nos fluxos dos usuários do Azure AD
-description: Saiba como personalizar a experiência de idioma nos seus fluxos dos usuários.
+description: Saiba mais sobre como personalizar a experiência de idioma em seus fluxos de usuário em Azure Active Directory.
 services: active-directory
 author: msmimart
 manager: celestedg
@@ -11,12 +11,12 @@ ms.date: 05/06/2020
 ms.author: mimart
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c73a5491c0ad543d57a6721f37d81ae661c0a653
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7cddb40a6a43c38079906699d9fa4865c4daf558
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441429"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837083"
 ---
 # <a name="language-customization-in-azure-active-directory-preview"></a>Personalização de idioma no Azure Active Directory (versão prévia)
 
@@ -146,7 +146,7 @@ Ambos Chrome e o Firefox solicitam o idioma definido. Se for um idioma com supor
 
 ## <a name="supported-languages"></a>Idiomas com suporte
 
-O Azure AD inclui suporte para os idiomas a seguir. Os idiomas do fluxo do usuário são fornecidos pelo Azure AD. Os idiomas de notificação da MFA (autenticação multifator) são fornecidos pelo [MFA do Azure](../authentication/concept-mfa-howitworks.md).
+O Azure AD inclui suporte para os idiomas a seguir. Os idiomas do fluxo do usuário são fornecidos pelo Azure AD. As linguagens de notificação da MFA (autenticação multifator) são fornecidas pelo [Azure ad MFA](../authentication/concept-mfa-howitworks.md).
 
 | Linguagem              | Código de idioma | Fluxos de usuário         | Notificações da MFA  |
 |-----------------------| :-----------: | :----------------: | :----------------: |

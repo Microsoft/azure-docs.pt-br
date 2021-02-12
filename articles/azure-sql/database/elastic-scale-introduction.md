@@ -9,12 +9,12 @@ ms.custom: sqldbrb=1
 author: stevestein
 ms.author: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 2eb7984097b4edf34ed2f0214e1453246e12916f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3f00b2c1a8a8264267aa8ae68d80890adeb642ea
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786744"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059102"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Escalando horizontalmente com o Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -23,7 +23,7 @@ Você pode expandir facilmente os bancos de dados no banco de dados SQL do Azure
 
 * [Biblioteca de cliente do Banco de Dados Elástico](elastic-database-client-library.md): a biblioteca de cliente é um recurso que permite criar e manter bancos de dados fragmentados.  Consulte [Introdução às ferramentas do Banco de Dados Elástico](elastic-scale-get-started.md).
 * [Ferramenta de mesclagem/divisão do Banco de Dados Elástico](elastic-scale-overview-split-and-merge.md): move dados entre bancos de dados fragmentados. Essa ferramenta é útil para mover dados de um banco de dados multilocatário para um banco de dados de locatário único (ou vice-versa). Consulte [Tutorial de ferramenta da Divisão de Mesclagem do Banco de Dados Elástico](elastic-scale-configure-deploy-split-and-merge.md).
-* [Trabalhos de banco de dados elástico](elastic-jobs-overview.md): Use trabalhos para gerenciar um grande número de bancos de dados no banco de dados SQL do Azure. Execute operações administrativas facilmente, como alterações de esquema, gerenciamento de credenciais, atualizações de dados de referência, desempenho de coleta de dados ou coleção de telemetria do locatário (cliente), usando trabalhos.
+* [Trabalhos de banco de dados elástico](elastic-jobs-overview.md) (versão prévia): Use trabalhos para gerenciar um grande número de bancos de dados no Azure SQL Database. Execute operações administrativas facilmente, como alterações de esquema, gerenciamento de credenciais, atualizações de dados de referência, desempenho de coleta de dados ou coleção de telemetria do locatário (cliente), usando trabalhos.
 * [Consulta do Banco de Dados Elástico](elastic-query-overview.md) (visualização): permite executar uma consulta Transact-SQL que abranja vários bancos de dados. Isso permite a conexão com ferramentas de relatório, como Excel, Power BI, Tableau, etc.
 * [Transações elásticas](elastic-transactions-overview.md): esse recurso permite que você execute transações que abrangem vários bancos de dados. As transações de banco de dados elástico estão disponíveis para aplicativos .NET usando ADO .NET e se integram à experiência de programação conhecida usando as [classes System.Transaction](/dotnet/api/system.transactions).
 
@@ -33,7 +33,7 @@ Neste gráfico, as cores do banco de dados representam esquemas. Bancos de dados
 
 1. Um conjunto de **bancos de dados SQL** é hospedado no Azure usando a arquitetura de fragmentação.
 2. A **biblioteca de clientes do Banco de Dados Elástico** é usada para gerenciar um conjunto de fragmentos.
-3. Um subconjunto dos bancos de dados é colocado em um **pool elástico** . (Consulte [O que é um pool?](elastic-pool-overview.md)).
+3. Um subconjunto dos bancos de dados é colocado em um **pool elástico**. (Consulte [O que é um pool?](elastic-pool-overview.md)).
 4. Um **trabalho de Banco de Dados Elástico** executa scripts T-SQL agendados ou ad-hoc em todos os bancos de dados.
 5. A **ferramenta de divisão e mesclagem** é usada para mover dados de um fragmento para outro.
 6. A **consulta ao Banco de Dados Elástico** permite gravar uma consulta que se estenda por todos os bancos de dados no conjunto de fragmentos.

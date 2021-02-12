@@ -1,14 +1,14 @@
 ---
 title: O Lote do Azure executa grandes trabalhos paralelos na nuvem
 description: Saiba mais sobre o uso do serviço Lote do Azure para cargas de trabalho paralelas e HPC em larga escala.
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 07/30/2020
-ms.openlocfilehash: a88c5a2577456e188beb83d13ae0e5667b31180c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: dbd27dc1a00966a2d71952335cfb47c7ca55bc24
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87447126"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743093"
 ---
 # <a name="what-is-azure-batch"></a>O que é o Lote do Azure?
 
@@ -74,6 +74,9 @@ O diagrama a seguir mostra etapas em um fluxo de trabalho do Lote comum, com um 
 Tenha em mente que o fluxo de trabalho descrito acima é apenas um modo de usar o Lote e há muitos outros recursos e opções. Por exemplo, você pode executar [várias tarefas em paralelo](batch-parallel-node-tasks.md) em cada nó de computação. Ou você pode usar as [tarefas de preparação e de conclusão do trabalho](batch-job-prep-release.md) para preparar os nós para os trabalhos e limpá-los posteriormente.
 
 Consulte [Fluxo de trabalho e recursos do serviço de Lote](batch-service-workflow-features.md) para obter uma visão geral dos recursos como pools, nós, trabalhos e tarefas. Confira também as [atualizações de serviço Lote](https://azure.microsoft.com/updates/?product=batch) mais recentes.
+
+## <a name="in-region-data-residency"></a>Residência de dados na região
+O Lote do Azure não move nem armazena dados do cliente fora da região em que ele está implantado. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

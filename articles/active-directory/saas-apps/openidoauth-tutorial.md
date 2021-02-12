@@ -12,20 +12,20 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.custom: has-adal-ref
-ms.openlocfilehash: ce4cccba678a934780dc987f1441ea658a70f8eb
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 32f79f24df6fe705146b39750c710450ef8f1f7b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996619"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735916"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configurar um aplicativo OpenID/OAuth da galeria de aplicativo do Azure AD
 
 ## <a name="process-of-adding-an-openid-application-from-the-gallery"></a>Processo para adicionar um aplicativo OpenID da galeria
 
-1. No [Portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory**.
+1. No [portal do Azure](https://portal.azure.com), selecione **Azure Active Directory**.
 
-    ![O botão Azure Active Directory](common/select-azuread.png))
+    ![O botão Azure Active Directory](common/select-azuread.png)
 
 2. Acesse **Aplicativos empresariais** > **Todos os aplicativos**.
 
@@ -39,17 +39,23 @@ ms.locfileid: "91996619"
 
     ![OpenID na lista de resultados](common/search-new-app.png)
 
-    > [!NOTE]
-    > Para os aplicativos OpenID Connect e OAuth, o botão **Adicionar** está desabilitado por padrão. Aqui o administrador de locatário deve selecionar o botão para se inscrever e dar o consentimento ao aplicativo. Em seguida, o aplicativo é adicionado ao locatário do cliente, onde você pode definir as configurações. Não é necessário adicionar o aplicativo explicitamente.
+
+1. Na página Nome do aplicativo, clique no botão **Inscrever-se**.
 
     ![Botão Adicionar](./media/openidoauth-tutorial/addbutton.png)
 
-5. Ao selecionar o link de inscrição, você será redirecionado para a página do Azure Active Directory (Azure AD) para inserir as credenciais de entrada.
+    > [!NOTE]
+    > Aqui o administrador de locatário deve selecionar o botão para se inscrever e dar o consentimento ao aplicativo. Em seguida, o aplicativo é adicionado ao locatário do cliente, onde você pode definir as configurações. Não é necessário adicionar o aplicativo explicitamente.
+
+5. Você será redirecionado para a página Logon do Aplicativo ou para a página do Azure AD (Azure Active Directory) das credenciais de entrada.
 
 6. Após a autenticação bem-sucedida, você deve aceitar o consentimento da página de consentimento. Depois disso, é exibida a home page do aplicativo.
 
     > [!NOTE]
     > Você só pode adicionar uma instância do aplicativo. Caso já tenha adicionado uma e tenha tentado fornecer o consentimento novamente, ela não será adicionada outra vez no locatário. Portanto, logicamente, só é possível usar uma instância de aplicativo no locatário.
+
+1. Siga o vídeo abaixo para adicionar um aplicativo OpenID por meio da galeria.
+    >[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
 
 ## <a name="authentication-flow-using-openid-connect"></a>Fluxo de autenticação usando o OpenID Connect
 
@@ -151,3 +157,7 @@ Um administrador de locatários pode desabilitar a capacidade dos usuários regu
 O parâmetro *prompt=admin_consent* também pode ser usado por aplicativos que solicitam permissões que não necessitam do consentimento do administrador. Um exemplo é um aplicativo que exige uma experiência na qual o administrador de locatários "se inscreve" uma vez, e não é solicitado o consentimento de nenhum outro usuário desse ponto em diante.
 
 Imagine que um aplicativo exige o consentimento do administrador e que um administrador entra sem o parâmetro *prompt = admin_consent* ser enviado. Quando o administrador fornece consentimento ao aplicativo com sucesso, este se aplica somente à sua conta de usuário. Os usuários normais ainda não poderão entrar ou dar consentimento ao aplicativo. Esse recurso é útil se você quiser conceder ao administrador de locatários a capacidade de explorar seu aplicativo antes de permitir o acesso de outros usuários.
+
+## <a name="next-steps"></a>Próximas etapas
+
+[Configurar o SSO (logon único) baseado em OIDC para um aplicativo no locatário do Azure AD (Azure Active Directory)](../manage-apps/add-application-portal-setup-oidc-sso.md)

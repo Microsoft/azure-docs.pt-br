@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: configurar o coda para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configurar o Coda para provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
 description: Saiba como provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o Coda.
 services: active-directory
 documentationcenter: ''
@@ -12,68 +12,68 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: Zhchia
-ms.openlocfilehash: aa377dae5d80da39faf6ac2e70926301004024e8
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: MT
+ms.openlocfilehash: 8df1588a78829252d55f82349d6889c754c989e6
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455673"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673217"
 ---
-# <a name="tutorial-configure-coda-for-automatic-user-provisioning"></a>Tutorial: configurar o coda para provisionamento automático de usuário
+# <a name="tutorial-configure-coda-for-automatic-user-provisioning"></a>Tutorial: Configurar o Coda para o provisionamento automático de usuário
 
-Este tutorial descreve as etapas que você precisa executar tanto no Coda quanto no Azure Active Directory (Azure AD) para configurar o provisionamento automático de usuário. Quando configurado, o Azure AD provisiona e desprovisiona automaticamente os usuários para [Coda](https://coda.io/) usando o serviço de provisionamento do Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../app-provisioning/user-provisioning.md).
+Este tutorial descreve as etapas que você precisa executar no Coda e no Azure Active Directory (Azure AD) para configurar o provisionamento automático de usuário. Quando configurado, o Azure AD provisiona e desprovisiona automaticamente usuários para o [Coda](https://coda.io/) usando o serviço de provisionamento do Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 
 ## <a name="capabilities-supported"></a>Funcionalidades com suporte
 > [!div class="checklist"]
-> * Criar usuários em coda
-> * Remover usuários em coda quando eles não precisam mais de acesso
+> * Criar usuários no Coda
+> * Remover usuários no Coda quando eles não precisarem mais de acesso
 > * Manter os atributos de usuário sincronizados entre o Azure AD e o Coda
-> * [Logon único](./coda-tutorial.md) para Coda (recomendado)
+> * [Logon único](./coda-tutorial.md) para o Coda (recomendado)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
 * [Um locatário do Azure AD](../develop/quickstart-create-new-tenant.md)
-* Uma conta de usuário no Azure AD com [permissão](../users-groups-roles/directory-assign-admin-roles.md) para configurar o provisionamento (por exemplo, Administrador de Aplicativo, Administrador de aplicativos de nuvem, Proprietário de Aplicativo ou Administrador global).
-* Uma conta de administrador [corporativo Coda](https://help.coda.io/en/articles/3520174-getting-started-with-sso) .
+* Uma conta de usuário no Azure AD com [permissão](../roles/permissions-reference.md) para configurar o provisionamento (por exemplo, Administrador de Aplicativo, Administrador de aplicativos de nuvem, Proprietário de Aplicativo ou Administrador global).
+* Uma conta de administrador do [Coda Enterprise](https://help.coda.io/en/articles/3520174-getting-started-with-sso).
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Etapa 1. Planeje a implantação do provisionamento
 1. Saiba mais sobre [como funciona o serviço de provisionamento](../app-provisioning/user-provisioning.md).
 2. Determine quem estará no [escopo de provisionamento](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-3. Determine quais dados [mapeados entre o Azure AD e o Coda](../app-provisioning/customize-application-attributes.md).
+3. Determine quais dados [mapear entre o Azure AD e o Coda](../app-provisioning/customize-application-attributes.md).
 
-## <a name="step-2-configure-coda-to-support-provisioning-with-azure-ad"></a>Etapa 2. Configurar coda para dar suporte ao provisionamento com o Azure AD
+## <a name="step-2-configure-coda-to-support-provisioning-with-azure-ad"></a>Etapa 2. Configurar o Coda para dar suporte ao provisionamento com o Azure AD
 
-1. Abra o console de administração da sua organização selecionando configurações da organização em... menu abaixo do seu espaço de trabalho.
+1. Abra o Console de Administrador da sua Organização selecionando Configurações da Organização no menu … embaixo do seu workspace.
 
-    ![Configurações de SCIM do coda Enterprise Organization](media/coda-provisioning-tutorial/coda-scim-enable.png)
+    ![Configurações do SCIM da Organização do Coda Enterprise](media/coda-provisioning-tutorial/coda-scim-enable.png)
 
-2. Verifique se o provisionamento com SCIM está habilitado.
-3. Observe a URL base do SCIM e o token de portador SCIM. Se não houver nenhum token de portador, clique em gerar novo token.
+2. Verifique se Fazer o provisionamento com o SCIM está habilitado.
+3. Anote a URL Base do SCIM e o Token de Portador do SCIM. Se não houver nenhum Token de Portador, clique em Gerar Novo Token.
 
-## <a name="step-3-add-coda-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicionar Coda da Galeria de aplicativos do Azure AD
+## <a name="step-3-add-coda-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicionar o Coda da galeria de aplicativos do Azure AD
 
-Adicione o Coda da Galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento para Coda. Se você tiver configurado anteriormente o coda para SSO, poderá usar o mesmo aplicativo. No entanto, recomendamos que você crie um aplicativo diferente ao testar a integração no início. Saiba mais sobre como adicionar um aplicativo da galeria [aqui](../manage-apps/add-application-portal.md).
+Adicione o Coda da galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento para ele. Se você já tiver configurado o Coda para SSO, poderá usar o mesmo aplicativo. No entanto, recomendamos que você crie um aplicativo diferente ao testar a integração no início. Saiba mais sobre como adicionar um aplicativo da galeria [aqui](../manage-apps/add-application-portal.md).
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Etapa 4. Defina quem estará no escopo de provisionamento
 
-O serviço de provisionamento do Azure AD permite o escopo que será provisionado com base na atribuição ao aplicativo e ou com base em atributos do usuário. Se você optar por definir o escopo que será provisionado em seu aplicativo com base na atribuição, poderá usar as [etapas](../manage-apps/assign-user-or-group-access-portal.md) a seguir para atribuir usuários ao aplicativo. Se você optar pelo escopo que será provisionado com base apenas em atributos do usuário, poderá usar um filtro de escopo conforme descrito [aqui](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+No Azure AD, é possível definir quem estará no escopo de provisionamento com base na atribuição ao aplicativo ou nos atributos do usuário. Se você optar por definir quem estará no escopo de provisionamento com base na atribuição, poderá usar as [etapas](../manage-apps/assign-user-or-group-access-portal.md) a seguir para atribuir usuários ao aplicativo. Se você optar por definir quem estará no escopo de provisionamento com base somente em atributos do usuário, poderá usar um filtro de escopo, conforme descrito [aqui](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-* Ao atribuir usuários ao Coda, você deve selecionar uma função diferente de **acesso padrão**. Os usuários com a função Acesso Padrão são excluídos do provisionamento e serão marcados como "Não qualificado efetivamente" nos logs de provisionamento. Se a única função disponível no aplicativo for a de acesso padrão, você poderá [atualizar o manifesto do aplicativo](../develop/howto-add-app-roles-in-azure-ad-apps.md) para adicionar outras funções.
+* Ao atribuir usuários ao Coda, é preciso selecionar uma função diferente do **Acesso Padrão**. Os usuários com a função Acesso Padrão são excluídos do provisionamento e serão marcados como "Não qualificado efetivamente" nos logs de provisionamento. Se a única função disponível no aplicativo for a de acesso padrão, você poderá [atualizar o manifesto do aplicativo](../develop/howto-add-app-roles-in-azure-ad-apps.md) para adicionar outras funções.
 
-* Comece pequeno. Teste com um pequeno conjunto de usuários antes de distribuir para todos. Quando o escopo do provisionamento é definido como usuários atribuídos, você pode controlar isso atribuindo um ou dois usuários ao aplicativo. Quando o escopo é definido como todos os usuários, você pode especificar um [filtro de escopo baseado em atributo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+* Comece pequeno. Faça o teste com um pequeno conjunto de usuários antes de implementar para todos. Quando o escopo de provisionamento é definido para usuários atribuídos, é possível controlar isso atribuindo um ou dois usuários ao aplicativo. Quando o escopo é definido para todos os usuários, é possível especificar um [atributo com base no filtro de escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 
-## <a name="step-5-configure-automatic-user-provisioning-to-coda"></a>Etapa 5. Configurar o provisionamento automático de usuário para Coda
+## <a name="step-5-configure-automatic-user-provisioning-to-coda"></a>Etapa 5. Configurar o provisionamento automático de usuário para o Coda
 
-Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários no TestApp com base nas atribuições de usuário no Azure AD.
+Nesta seção, você verá orientações para seguir as etapas de configuração do serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários no TestApp com base em atribuições de usuário no Azure AD.
 
-### <a name="to-configure-automatic-user-provisioning-for-coda-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para Coda no Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-coda-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para o Coda no Azure AD:
 
 1. Entre no [portal do Azure](https://portal.azure.com). Selecione **Aplicativos Empresariais** e **Todos os Aplicativos**.
 
@@ -81,19 +81,19 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 2. Na lista de aplicativos, selecione **Coda**.
 
-    ![O link do coda na lista de aplicativos](common/all-applications.png)
+    ![O link do Coda na lista de aplicativos](common/all-applications.png)
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
+    ![Captura de tela das opções Gerenciar com a opção Provisionamento destacada.](common/provisioning.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa Modo de Provisionamento com a opção Automático destacada.](common/provisioning-automatic.png)
 
-5. Na seção **credenciais de administrador** , insira a URL do locatário Coda e o token secreto recuperados anteriormente na etapa 2. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao Coda. Se a conexão falhar, verifique se sua conta Coda tem permissões de administrador e tente novamente.
+5. Na seção **Credenciais de Administrador**, insira a URL do Locatário do Conda e o Token Secreto recuperados anteriormente na Etapa 2. Clique em **Testar Conectividade** para verificar se o Azure AD pode se conectar ao Coda. Se a conexão falhar, verifique se a sua conta do Coda tem permissões de Administrador e tente novamente.
 
-    ![Captura de tela mostra a caixa de diálogo credenciais de administrador, em que é possível inserir seu locatário U R L e token secreto.](./media/coda-provisioning-tutorial/provisioning.png)
+     ![Captura de tela mostrando a caixa de diálogo Credenciais de Administrador, em que você pode inserir a URL do Locatário e o Token Secreto.](./media/coda-provisioning-tutorial/provisioning.png)
 
 6. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
 
@@ -101,9 +101,9 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 7. Clique em **Salvar**.
 
-8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para Coda**.
+8. Na seção **Mapeamentos**, selecione **Sincronizar Usuários do Azure Active Directory com o Coda**.
 
-9. Examine os atributos de usuário que são sincronizados do Azure AD para o Coda na seção de **mapeamento de atributo** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário em coda para operações de atualização. Se você optar por alterar o [atributo de destino correspondente](../app-provisioning/customize-application-attributes.md), será necessário garantir que a API Coda dê suporte à filtragem de usuários com base nesse atributo. Selecione o botão **Salvar** para confirmar as alterações.
+9. Examine os atributos de usuário sincronizados do Azure AD com o Coda na seção **Mapeamento de Atributos**. Os atributos selecionados como propriedades **Correspondentes** são usados para fazer a correspondência das contas de usuário no Coda para operações de atualização. Se você optar por alterar o [atributo de destino correspondente](../app-provisioning/customize-application-attributes.md), precisará verificar se a API do Coda é compatível com a filtragem de usuários com base nesse atributo. Selecione o botão **Salvar** para confirmar as alterações.
 
    |Atributo|Type|
    |---|---|
@@ -115,11 +115,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 10. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Para habilitar o serviço de provisionamento do Azure AD para Coda, altere o **status de provisionamento** para **ativado** na seção **configurações** .
+11. Para habilitar o serviço de provisionamento do Azure AD no Coda, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**.
 
     ![Status do provisionamento ativado](common/provisioning-toggle-on.png)
 
-12. Defina os usuários que você deseja provisionar para Coda escolhendo os valores desejados no **escopo** na seção **configurações** .
+12. Defina os usuários que você gostaria de provisionar para o Coda escolhendo os valores desejados em **Escopo** na seção **Configurações**.
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
@@ -127,7 +127,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Salvando a configuração de provisionamento](common/provisioning-configuration-save.png)
 
-Essa operação inicia o ciclo de sincronização inicial de todos os usuários definidos no **escopo** na seção **configurações** . O ciclo inicial leva mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução.
+Essa operação inicia o ciclo de sincronização inicial de todos os usuários definidos em **Escopo**, na seção **Configurações**. O ciclo inicial leva mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução.
 
 ## <a name="step-6-monitor-your-deployment"></a>Etapa 6. Monitorar a implantação
 Depois de configurar o provisionamento, use os seguintes recursos para monitorar a implantação:

@@ -7,17 +7,17 @@ author: KumudD
 manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/20/2019
+ms.date: 12/15/2020
 ms.author: kumud
-ms.openlocfilehash: 1fbb683754aed5b2a2e6e9c022713b7e87ad9ba9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2801aa6b2e2b72df815b170200587c49ec0bae14
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329200"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538985"
 ---
 # <a name="what-is-subnet-delegation"></a>O que é delegação de sub-rede?
 
@@ -52,6 +52,7 @@ Cada serviço do Azure define seu próprio modelo de implantação, no qual eles
 - determina o espaço de endereço IP na sub-rede delegada para ser do espaço de endereço IP privado (10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12).
 - determina que a configuração de DNS personalizada tem uma entrada DNS do Azure.
 - requer que a delegação seja removida antes que a sub-rede ou rede virtual possa ser excluída.
+- Não poderá ser usado com um ponto de extremidade privado se a sub-rede for delegada.
 
 Os serviços injetados também podem adicionar suas próprias políticas da seguinte maneira:
 - **Políticas de segurança**: coleção de regras de segurança necessária para que um determinado serviço funcione.

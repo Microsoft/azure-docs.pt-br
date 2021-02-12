@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2018
 ms.author: alkohli
-ms.openlocfilehash: 55103d6307614f8796c41c35d6345e1fc3aca261
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df4722a4232686b0d981c190bdc154f0d1bec62e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60789630"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960187"
 ---
 # <a name="storsimple-virtual-array-update-11-release-notes"></a>Notas de versão do StorSimple Virtual Array Update 1.1
 
@@ -51,7 +51,7 @@ A tabela a seguir fornece um resumo dos problemas corrigidos nesta versão.
 | Não. | Recurso | Problema |
 | --- | --- | --- |
 | 1 |Backups| Esta versão contém alterações que melhoraram as falhas de backup, aumentando a resiliência a falhas na nuvem e o alto uso da CPU.|
-| 2 |Registro em log| Esta versão contém alterações no registro enquanto o dispositivo está na sessão Suporte no modo detalhado.|
+| 2 |Registrando em log| Esta versão contém alterações no registro enquanto o dispositivo está na sessão Suporte no modo detalhado.|
 
 
 ## <a name="known-issues-in-update-11"></a>Problemas conhecidos na atualização 1.1
@@ -91,4 +91,4 @@ Procurando uma nota de versão mais antiga? Acesse:
 * [Notas de versão da atualização 0,4 do StorSimple virtual array](storsimple-virtual-array-update-04-release-notes.md)
 * [Notas de versão da atualização 0,3 do StorSimple virtual array](storsimple-ova-update-03-release-notes.md)
 * [Notas de versão as Atualizações 0.1 e 0.2 do StorSimple Virtual Array](storsimple-ova-update-01-release-notes.md)
-* [Notas de versão de disponibilidade geral do StorSimple Virtual Array](storsimple-ova-pp-release-notes.md)
+* [Notas de versão de disponibilidade geral do StorSimple Virtual Array](./storsimple-virtual-array-update-06-release-notes.md)

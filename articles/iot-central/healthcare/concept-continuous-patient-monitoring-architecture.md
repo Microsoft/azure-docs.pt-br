@@ -3,17 +3,17 @@ title: Arquitetura contínua de monitoramento de pacientes no Azure IoT Central 
 description: Tutorial – saiba mais sobre uma arquitetura de uma solução de monitoramento contínuo de pacientes.
 author: philmea
 ms.author: philmea
-ms.date: 09/14/2020
-ms.topic: overview
+ms.date: 12/11/2020
+ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 3ef4790f9f7a3b3488dade9312203de41be1ff75
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 9a38a14033fe295c36cf8ac17239b0b8e53f75dc
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122144"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831171"
 ---
 # <a name="continuous-patient-monitoring-architecture"></a>Arquitetura do monitoramento contínuo do paciente
 

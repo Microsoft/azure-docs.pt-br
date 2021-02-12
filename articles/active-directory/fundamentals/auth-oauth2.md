@@ -1,6 +1,6 @@
 ---
 title: Autenticação OAUTH 2,0 com Azure Active Directory
-description: Diretrizes arquitetônicas sobre como atingir esse padrão de autenticação
+description: Diretrizes arquitetônicas sobre a obtenção de autenticação OAUTH 2,0 com Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea22c4e5b363eaa3ecc2a736dfef714666310062
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: c1604d79ce5eb9949028cd677b340bf3d4b09f6c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114056"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172832"
 ---
 # <a name="oauth-20-authentication-with-azure-active-directory"></a>Autenticação OAuth 2,0 com Azure Active Directory
 
@@ -44,10 +44,9 @@ Para clientes avançados & cenários de aplicativos modernos e acesso à API Web
 
 ## <a name="implement-oauth-20-with-azure-ad"></a>Implementar o OAuth 2,0 com o Azure AD
 
-* [Integrando aplicativos com o AD do Azure](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) 
+* [Integrando aplicativos com o AD do Azure](../saas-apps/tutorial-list.md) 
 
-* [Protocolos OAuth 2,0 e OpenID Connect na plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols) 
+* [Protocolos OAuth 2,0 e OpenID Connect na plataforma de identidade da Microsoft](../develop/active-directory-v2-protocols.md) 
 
-* [Tipos de aplicativos e OAuth2](https://docs.microsoft.com/azure/active-directory/develop/v2-app-types) 
+* [Tipos de aplicativos e OAuth2](../develop/v2-app-types.md) 
 
- 

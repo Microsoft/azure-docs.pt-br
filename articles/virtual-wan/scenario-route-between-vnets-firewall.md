@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 301bc64bee291fa25506e7f435e923be7e244cd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d083607782f96744ecbd7d23976f77ee53fec49d
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267509"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515562"
 ---
 # <a name="scenario-azure-firewall---custom"></a>Cenário: Firewall do Azure-personalizado
 
@@ -28,10 +28,10 @@ Para descobrir quantas tabelas de rotas serão necessárias, você pode criar um
 
 | De           | Para:      | *VNets*      | *Branches*    | *Internet*   |
 |---             |---       |---           |---            |---           |
-| **VNets**      |   &#8594;|     X        |     AzFW      |     AzFW     |
-| **Branches**   |   &#8594;|    AzFW      |       X       |       X      |
+| **VNets**      |   &#8594;|    Direto    |     AzFW      |     AzFW     |
+| **Branches**   |   &#8594;|    AzFW      |    Direto     |    Direto    |
 
-Na tabela anterior, um "X" representa a conectividade direta entre duas conexões sem o tráfego atravessando o Firewall do Azure na WAN virtual e "AzFW" indica que o fluxo passará pelo firewall do Azure. Como há dois padrões distintos de conectividade na matriz, precisaremos de duas tabelas de rotas que serão configuradas da seguinte maneira:
+Na tabela anterior, um "direto" representa a conectividade direta entre duas conexões sem o tráfego atravessando o Firewall do Azure na WAN virtual e "AzFW" indica que o fluxo passará pelo firewall do Azure. Como há dois padrões distintos de conectividade na matriz, precisaremos de duas tabelas de rotas que serão configuradas da seguinte maneira:
 
 * Redes virtuais:
   * Tabela de rotas associada: **RT_VNet**
@@ -51,7 +51,7 @@ Nesse cenário, você deseja rotear o tráfego por meio do firewall do Azure par
 
 As conexões VPN, ExpressRoute e VPN de usuário são chamadas coletivamente de ramificações e associadas à mesma tabela de rotas (padrão). Todas as conexões VPN, ExpressRoute e VPN de usuário propagam rotas para o mesmo conjunto de tabelas de rotas. Para configurar esse cenário, leve em consideração as seguintes etapas:
 
-1. Crie uma **RT_VNet**de tabela de rotas personalizada.
+1. Crie uma **RT_VNet** de tabela de rotas personalizada.
 1. Crie uma rota para ativar VNet a Internet e VNet a Branch: 0.0.0.0/0 com o próximo salto apontando para o Firewall do Azure. Na seção de propagação, você garantirá que VNets sejam selecionados, o que garantiria rotas mais específicas, permitindo assim o fluxo de tráfego direto de VNet para VNet.
 
    * Em **associação:** selecione VNets que implicará que o VNets alcançará o destino de acordo com as rotas desta tabela de rotas.

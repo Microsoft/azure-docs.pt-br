@@ -5,14 +5,15 @@ description: Saiba mais sobre a modelagem de dados em bancos de dados NoSQL, dif
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 0868b0d3e917b857d09c89e3a35d03872c42a23e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a141177846def9c94216684c1083d0d336eeda1e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096641"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333232"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Modelagem de dados no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -36,7 +37,7 @@ Para comparação, vamos ver primeiro como podemos modelar dados em um banco de 
 
 :::image type="content" source="./media/sql-api-modeling-data/relational-data-model.png" alt-text="Modelo de banco de dados relacional" border="false":::
 
-Quando se trabalha com bancos de dados relacionais, a estratégia é normalizar todos os seus próprios. Normalizar seus dados normalmente envolve pegar uma entidade, como uma pessoa, e dividi-la em componentes discretos. No exemplo acima, uma pessoa pode ter vários registros de detalhes de contato, bem como vários registros de endereço. Os detalhes de contato podem ser divididos mais detalhadamente com a extração de campos comuns como um tipo. O mesmo se aplica ao endereço, cada registro pode ser do tipo *Home* ou *Business* .
+Quando se trabalha com bancos de dados relacionais, a estratégia é normalizar todos os seus próprios. Normalizar seus dados normalmente envolve pegar uma entidade, como uma pessoa, e dividi-la em componentes discretos. No exemplo acima, uma pessoa pode ter vários registros de detalhes de contato, bem como vários registros de endereço. Os detalhes de contato podem ser divididos mais detalhadamente com a extração de campos comuns como um tipo. O mesmo se aplica ao endereço, cada registro pode ser do tipo *Home* ou *Business*.
 
 A premissa que orienta a normalização de dados é **evitar armazenar dados redundantes** em cada registro e, em vez disso, referir-se a eles. Neste exemplo, para ler uma pessoa, com todos os seus detalhes e endereços de contato, você precisa usar junções para compor de forma efetiva (ou desnormalizar) seus dados em tempo de execução.
 
@@ -86,9 +87,9 @@ De modo geral, use modelos de dados inseridos quando:
 
 * Há relações **contidas** entre entidades.
 * Houver relações **de um para poucos** entre entidades.
-* Houver dados inseridos que são **alterados com pouca frequência** .
-* Há dados inseridos que não serão aumentados **sem limite** .
-* Há dados inseridos que são **consultados frequentemente em conjunto** .
+* Houver dados inseridos que são **alterados com pouca frequência**.
+* Há dados inseridos que não serão aumentados **sem limite**.
+* Há dados inseridos que são **consultados frequentemente em conjunto**.
 
 > [!NOTE]
 > De modo geral, modelos de dados desnormalizados oferecem melhor desempenho de **leitura** .
@@ -242,8 +243,8 @@ De modo geral, use modelos de dados normalizados quando:
 
 * Representar relações de **um para muitos** .
 * Representar relações de **muitos para muitos** .
-* Dados relacionados **mudarem com frequência** .
-* Dados referenciados podem ser **ilimitados** .
+* Dados relacionados **mudarem com frequência**.
+* Dados referenciados podem ser **ilimitados**.
 
 > [!NOTE]
 > De moro geral, normalizar traz melhor desempenho de **gravação** .
@@ -300,7 +301,7 @@ No exemplo acima, tiramos a coleção ilimitada do documento da editora. Em vez 
 Em um banco de dados relacional, relações *muitos:muitos* frequentemente são modeladas com tabelas de junção, que simplesmente reúnem os registros de outras tabelas.
 
 
-:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="Modelo de banco de dados relacional" border="false":::
+:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="Associar tabelas" border="false":::
 
 Você pode ficar tentado a fazer a mesma coisa usando documentos e produzir um modelo de dados semelhante ao seguinte.
 
@@ -403,7 +404,7 @@ Com certeza, se o nome do autor for alterado ou quisessem atualizar sua foto, pr
 
 No exemplo, há valores de **agregações previamente calculados** para salvar o processamento caro em uma operação de leitura. No exemplo, alguns dos dados inseridos no documento do autor são calculados em tempo de execução. Sempre que um novo livro é publicado, um documento de livro é criado **e** o campo countOfBooks, relativo à contagem de livros, é definido como um valor calculado com base no número de documentos de livros que existem para um dado autor. Essa otimização seria útil em sistemas com grandes volumes de leitura nos quais podemos computar as gravações para otimizar as leituras.
 
-A capacidade de ter um modelo com campos pré-calculados é possibilitada porque o Azure Cosmos DB dá suporte a **transações de vários documentos** . Muitos repositórios NoSQL não podem fazer transações entre documentos e por isso defendem decisões de design, como "sempre inserir tudo", devido a essa limitação. Com o Azure Cosmos DB, você pode usar gatilhos do lado do servidor ou procedimentos armazenados, que inserem manuais e atualizam autores, tudo isso em uma transação ACID. Você não **precisa** inserir tudo em um documento para garantir a consistência de seus dados.
+A capacidade de ter um modelo com campos pré-calculados é possibilitada porque o Azure Cosmos DB dá suporte a **transações de vários documentos**. Muitos repositórios NoSQL não podem fazer transações entre documentos e por isso defendem decisões de design, como "sempre inserir tudo", devido a essa limitação. Com o Azure Cosmos DB, você pode usar gatilhos do lado do servidor ou procedimentos armazenados, que inserem manuais e atualizam autores, tudo isso em uma transação ACID. Você não **precisa** inserir tudo em um documento para garantir a consistência de seus dados.
 
 ## <a name="distinguishing-between-different-document-types"></a>Diferenciando entre diferentes tipos de documento
 

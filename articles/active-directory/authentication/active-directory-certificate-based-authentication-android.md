@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bbc17bc3dfff4a9cc3d90386b4cae62611e4b15
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1001d5524fe99783cda4d5b77bdaceacc6791848
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965838"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861361"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Autenticação baseada em certificado do Azure Active Directory no Android
 
@@ -67,7 +67,7 @@ Como melhor prática, é necessário atualizar as páginas de erro de ADFS da or
 Para obter mais informações, consulte [Personalizando as páginas de entrada do AD FS](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11)).
 
 Alguns aplicativos do Office (com autenticação moderna habilitada) enviam '*prompt = logon*' ao Azure AD em sua solicitação. Por padrão, o Azure AD traduz '*prompt = logon*' na solicitação para ADFS como '*wauth = usernamepassworduri*' (solicita que o ADFS faça a autenticação U/P) e '*wfresh = 0*' (solicita que o ADFS ignore o estado do SSO e faça uma nova autenticação). Se você quiser habilitar a autenticação baseada em certificado para esses aplicativos, precisará modificar o comportamento padrão do Azure AD. Defina '*PromptLoginBehavior*' nas configurações de domínio federado como '*Disabled*'.
-Você pode usar o cmdlet [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) para executar essa tarefa:
+Você pode usar o cmdlet [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings) para executar essa tarefa:
 
 `Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`
 

@@ -10,19 +10,19 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 564af32b724c8b4883cd27d01813e246e5fa4901
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a114cb24d79189f9e370fae1962f60ca97241d90
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100194"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351360"
 ---
 # <a name="news-search-api-upgrade-guide"></a>Guia de atualização da API de Pesquisa de Notícias
 
 > [!WARNING]
-> APIs de Pesquisa do Bing estão mudando de serviços cognitivas para serviços Pesquisa do Bings. A partir de **30 de outubro de 2020** , todas as novas instâncias do pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
-> APIs de Pesquisa do Bing provisionado usando serviços cognitivas terão suporte nos próximos três anos ou até o final do seu Enterprise Agreement, o que ocorrer primeiro.
-> Para obter instruções de migração, consulte [serviços de pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Este guia de atualização identifica as alterações entre a versão 5 e a versão 7 da API de Pesquisa de Notícias do Bing. Use este guia para ajudá-lo a identificar as partes do aplicativo que você precisa atualizar para usar a versão 7.
 
@@ -75,24 +75,24 @@ Bloqueado|InvalidRequest.Blocked
 
 ### <a name="object-changes"></a>Alterações de objeto
 
-- Adicionado o campo `contractualRules` ao objeto [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle). O campo `contractualRules` contém uma lista de regras que você deve seguir (por exemplo, a atribuição de artigo). Você deve aplicar a atribuição fornecida em `contractualRules` em vez de usar `provider`. O artigo inclui `contractualRules` somente quando a resposta da [API de Pesquisa na Web](../bing-web-search/search-the-web.md) contém uma resposta de notícias.
+- Adicionado o campo `contractualRules` ao objeto [NewsArticle](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle). O campo `contractualRules` contém uma lista de regras que você deve seguir (por exemplo, a atribuição de artigo). Você deve aplicar a atribuição fornecida em `contractualRules` em vez de usar `provider`. O artigo inclui `contractualRules` somente quando a resposta da [API de Pesquisa na Web](../bing-web-search/overview.md) contém uma resposta de notícias.
 
 ## <a name="non-breaking-changes"></a>Alterações contínuas
 
 ### <a name="query-parameters"></a>Parâmetros de consulta
 
-- Produtos adicionados como um valor possível ao qual você pode definir o parâmetro de consulta [categoria](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category). Consulte [Categorias por mercados](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).
+- Produtos adicionados como um valor possível ao qual você pode definir o parâmetro de consulta [categoria](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category). Consulte [Categorias por mercados](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).
 
-- Adicionado o parâmetro de consulta [SortBy](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortby), que retorna tópicos populares classificados por data com o mais recentes primeiro.
+- Adicionado o parâmetro de consulta [SortBy](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortby), que retorna tópicos populares classificados por data com o mais recentes primeiro.
 
-- Adicionado o parâmetro de consulta [Desde](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#since), que retorna tópicos populares que foram descobertos pelo Bing em ou após o carimbo de hora Unix especificado.
+- Adicionado o parâmetro de consulta [Desde](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#since), que retorna tópicos populares que foram descobertos pelo Bing em ou após o carimbo de hora Unix especificado.
 
 ### <a name="object-changes"></a>Alterações de objeto
 
-- Adicionado o campo `mentions` ao objeto [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle). O campo `mentions` contém uma lista de entidades (pessoas ou locais) que foram encontrados no artigo.
+- Adicionado o campo `mentions` ao objeto [NewsArticle](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle). O campo `mentions` contém uma lista de entidades (pessoas ou locais) que foram encontrados no artigo.
 
-- Adicionado o campo `video` ao objeto [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle). O campo `video` contém um vídeo que está relacionado ao artigo de notícias. O vídeo é um \<iframe\> que você pode inserir ou uma miniatura de movimento.
+- Adicionado o campo `video` ao objeto [NewsArticle](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle). O campo `video` contém um vídeo que está relacionado ao artigo de notícias. O vídeo é um \<iframe\> que você pode inserir ou uma miniatura de movimento.
 
-- Adicionado o campo `sort` ao objeto [News](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news). O campo `sort` mostra a ordem de classificação dos artigos. Por exemplo, os artigos são classificados por relevância (padrão) ou data.
+- Adicionado o campo `sort` ao objeto [News](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news). O campo `sort` mostra a ordem de classificação dos artigos. Por exemplo, os artigos são classificados por relevância (padrão) ou data.
 
-- Adicionado o objeto [SortValue](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortvalue), que define uma ordem de classificação. O campo `isSelected` indica se a resposta usou a ordem de classificação. Se **true** , a resposta usou a ordem de classificação. Se `isSelected` é **false** , você pode usar a URL no campo `url` para solicitar uma ordem de classificação diferente.
+- Adicionado o objeto [SortValue](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortvalue), que define uma ordem de classificação. O campo `isSelected` indica se a resposta usou a ordem de classificação. Se **true**, a resposta usou a ordem de classificação. Se `isSelected` é **false**, você pode usar a URL no campo `url` para solicitar uma ordem de classificação diferente.

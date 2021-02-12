@@ -109,14 +109,20 @@
           href: unresponsive-vm-apply-group-policy.md
         - name: A VM não responde ao aplicar a política de segurança
           href: unresponsive-vm-apply-security-policy.md
+        - name: A VM não está respondendo ao aguardar o Gerenciador de Sessão Local
+          href: vm-unresponsive-wait-local-session-manager.md
         - name: Erro do gerenciador de inicialização do Windows – status de hash de imagem inválido
           href: windows-boot-error-invalid-image-hash.md
         - name: Erro de parada do Windows – Informações de Configuração do Sistema Incorretas
           href: windows-stop-error-bad-system-config-info.md
+        - name: Erro de parada do Windows – Problema de hardware
+          href: windows-stop-error-hardware-malfunction.md
         - name: Erro de parada do Windows – Status sem memória
           href: troubleshoot-windows-stop-error.md
         - name: Erro de parada do Windows – Processo do sistema encerrado
           href: windows-stop-error-system-process-terminated.md
+        - name: Erro de parada do Windows – Exceção de thread do sistema não tratada
+          href: windows-stop-error-system-thread-exception-not-handled.md
 - name: Não é possível conectar-se à minha VM
   items:
     - name: RDP
@@ -145,7 +151,7 @@
         - name: Solucionar problemas de erro geral
           href: troubleshoot-rdp-general-error.md
         - name: Solucionar problemas dos erros de autenticação
-          href: troubleshoot-authentication-error-rdp-vm.md
+          href: /troubleshoot/azure/virtual-machines/cannot-connect-rdp-azure-vm
         - name: Solucionar problemas de conexão de RDP da VM do Azure por ID do Evento
           href: event-id-troubleshoot-vm-rdp-connecton.md
         - name: Solucionar erros de RDP na VM por causa do IP estático
@@ -254,6 +260,8 @@
       href: install-vm-agent-offline.md
     - name: Solucionar problemas do agente de VM do Windows
       href: windows-azure-guest-agent.md
+    - name: Solucionar problemas do agente de VM Linux
+      href: linux-azure-guest-agent.md
 - name: Backup e restauração
   items:
     - name: Solucionar problemas de falhas de backup na VM do Azure
@@ -334,7 +342,7 @@
 - name: Problemas de migração e movimentação
   items:
     - name: Perguntas frequentes sobre a migração do Azure Resource Manager (ASM para ARM)
-      href: ../windows/migration-classic-resource-manager-overview.md
+      href: ../migration-classic-resource-manager-overview.md
 - name: Manutenção planejada
   items:
     - name: Visão geral

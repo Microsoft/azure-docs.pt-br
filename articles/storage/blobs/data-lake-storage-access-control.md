@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 80c27613ad3956d565b858b02ed32ac13af3a62c
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2a1455c5956297a19d640146879f93b61d035139
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320466"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185896"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>ACLs (listas de controle de acesso) no Azure Data Lake Storage Gen2
 
@@ -23,7 +23,7 @@ Azure Data Lake Storage Gen2 implementa um modelo de controle de acesso que dá 
 
 ## <a name="about-acls"></a>Sobre ACLs
 
-Você pode associar uma [entidade de segurança](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) a um nível de acesso para arquivos e diretórios. Essas associações são capturadas em uma *ACL (lista de controle de acesso)*. Cada arquivo e diretório na sua conta de armazenamento tem uma lista de controle de acesso. Quando uma entidade de segurança tenta uma operação em um arquivo ou diretório, uma verificação de ACL determina se a entidade de segurança (usuário, grupo, entidade de serviço ou identidade gerenciada) tem o nível de permissão correto para executar a operação.
+Você pode associar uma [entidade de segurança](../../role-based-access-control/overview.md#security-principal) a um nível de acesso para arquivos e diretórios. Essas associações são capturadas em uma *ACL (lista de controle de acesso)*. Cada arquivo e diretório na sua conta de armazenamento tem uma lista de controle de acesso. Quando uma entidade de segurança tenta uma operação em um arquivo ou diretório, uma verificação de ACL determina se a entidade de segurança (usuário, grupo, entidade de serviço ou identidade gerenciada) tem o nível de permissão correto para executar a operação.
 
 > [!NOTE]
 > As ACLs se aplicam somente a entidades de segurança no mesmo locatário e não se aplicam a usuários que usam a autenticação de token de chave compartilhada ou de assinatura de acesso compartilhado (SAS). Isso porque nenhuma identidade está associada ao chamador e, portanto, a autorização baseada em permissão de entidade de segurança não pode ser executada.  
@@ -40,7 +40,7 @@ Para definir permissões de nível de arquivo e diretório, consulte qualquer um
 |Python|[Use o Python para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md#manage-access-control-lists-acls)|
 |PowerShell|[Use o PowerShell para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-powershell.md#manage-access-control-lists-acls)|
 |CLI do Azure|[Usar a CLI do Azure para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-cli.md#manage-access-control-lists-acls)|
-|API REST |[Caminho-atualizar](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
+|API REST |[Caminho-atualizar](/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
 > Se a entidade de segurança for uma entidade de *serviço* , é importante usar a ID de objeto da entidade de serviço e não a ID de objeto do registro do aplicativo relacionado. Para obter a ID de objeto da entidade de serviço, abra o CLI do Azure e, em seguida, use este comando: `az ad sp show --id <Your App ID> --query objectId` . Certifique-se de substituir o `<Your App ID>` espaço reservado pela ID do aplicativo do registro do aplicativo.
@@ -60,7 +60,7 @@ As ACLs de Acesso e as ACLs Padrão têm a mesma estrutura.
 
 ## <a name="levels-of-permission"></a>Níveis de permissão
 
-As permissões em um objeto de contêiner são de **leitura**, **gravação**e **execução**, e podem ser usadas em arquivos e diretórios, conforme mostrado na tabela a seguir:
+As permissões em diretórios e arquivos em um contêiner são **ler**, **gravar** e **executar** e podem ser usadas em arquivos e diretórios, conforme mostrado na tabela a seguir:
 
 |            |    Arquivo     |   Diretório |
 |------------|-------------|----------|
@@ -69,11 +69,11 @@ As permissões em um objeto de contêiner são de **leitura**, **gravação**e *
 | **Executar (X)** | Não significa nada no contexto do Azure Data Lake Storage Gen2 | Necessário para percorrer os itens filhos de um diretório |
 
 > [!NOTE]
-> Se você estiver concedendo permissões usando somente ACLs (sem RBAC do Azure), para conceder a uma entidade de segurança acesso de leitura ou de gravação a um arquivo, você precisará fornecer permissões de **execução** da entidade de segurança para o contêiner e para cada pasta na hierarquia de pastas que levam ao arquivo.
+> Se você estiver concedendo permissões usando somente ACLs (sem RBAC do Azure), para conceder uma entidade de segurança de acesso de leitura ou de gravação a um arquivo, você precisará fornecer permissões de **execução** da entidade de segurança para a pasta raiz do contêiner e para cada pasta na hierarquia de pastas que levam ao arquivo.
 
 ### <a name="short-forms-for-permissions"></a>Formatos abreviados para permissões
 
-**RWX**é usado para indicar **Ler + Gravar + Executar**. Existe um formato numérico mais condensado na qual **Ler = 4**, **Gravar = 2** e **Executar = 1** e sua soma representa as permissões. Estes são alguns exemplos:
+**RWX** é usado para indicar **Ler + Gravar + Executar**. Existe um formato numérico mais condensado na qual **Ler = 4**, **Gravar = 2** e **Executar = 1** e sua soma representa as permissões. Estes são alguns exemplos:
 
 | Formato numérico | Formato curto |      O que significa     |
 |--------------|------------|------------------------|
@@ -90,9 +90,10 @@ No modelo de estilo POSIX usado pelo Data Lake Storage Gen2, as permissões para
 
 A tabela a seguir mostra as entradas de ACL necessárias para habilitar uma entidade de segurança para executar as operações listadas na coluna **operação** . 
 
-Esta tabela mostra uma coluna que representa cada nível de uma hierarquia de diretório fictícia. Há uma coluna para o diretório raiz do contêiner ( `\` ), um subdiretório chamado **Oregon**, um subdiretório do diretório Oregon chamado **Portland**e um arquivo de texto no diretório de Portland chamado **Data.txt**. 
+Esta tabela mostra uma coluna que representa cada nível de uma hierarquia de diretório fictícia. Há uma coluna para o diretório raiz do contêiner ( `\` ), um subdiretório chamado **Oregon**, um subdiretório do diretório Oregon chamado **Portland** e um arquivo de texto no diretório de Portland chamado **Data.txt**. 
 
-> [! IMPORANT] Esta tabela pressupõe que você está usando **somente** ACLs sem nenhuma atribuição de função de RBAC do Azure. Para ver uma tabela semelhante que combina o RBAC do Azure junto com ACLs, consulte [tabela de permissões: combinando o RBAC e a ACL do Azure](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
+> [!IMPORTANT]
+> Esta tabela pressupõe que você está usando **somente** ACLs sem nenhuma atribuição de função do Azure. Para ver uma tabela semelhante que combina o RBAC do Azure junto com ACLs, consulte [tabela de permissões: combinando o RBAC e a ACL do Azure](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
 
 |    Operação             |    /    | Oregon/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
@@ -161,36 +162,36 @@ def access_check( user, desired_perms, path ) :
   # path is the file or directory
   # Note: the "sticky bit" isn't illustrated in this algorithm
   
-# Handle super users.
+  # Handle super users.
   if (is_superuser(user)) :
     return True
 
-# Handle the owning user. Note that mask isn't used.
-entry = get_acl_entry( path, OWNER )
-if (user == entry.identity)
-    return ( (desired_perms & entry.permissions) == desired_perms )
+  # Handle the owning user. Note that mask isn't used.
+  entry = get_acl_entry( path, OWNER )
+  if (user == entry.identity)
+      return ( (desired_perms & entry.permissions) == desired_perms )
 
-# Handle the named users. Note that mask IS used.
-entries = get_acl_entries( path, NAMED_USER )
-for entry in entries:
-    if (user == entry.identity ) :
-        mask = get_mask( path )
-        return ( (desired_perms & entry.permissions & mask) == desired_perms)
+  # Handle the named users. Note that mask IS used.
+  entries = get_acl_entries( path, NAMED_USER )
+  for entry in entries:
+      if (user == entry.identity ) :
+          mask = get_mask( path )
+          return ( (desired_perms & entry.permissions & mask) == desired_perms)
 
-# Handle named groups and owning group
-member_count = 0
-perms = 0
-entries = get_acl_entries( path, NAMED_GROUP | OWNING_GROUP )
-mask = get_mask( path )
-for entry in entries:
-if (user_is_member_of_group(user, entry.identity)) :
-    if ((desired_perms & entry.permissions & mask) == desired_perms)
-        return True 
+  # Handle named groups and owning group
+  member_count = 0
+  perms = 0
+  entries = get_acl_entries( path, NAMED_GROUP | OWNING_GROUP )
+  mask = get_mask( path )
+  for entry in entries:
+    if (user_is_member_of_group(user, entry.identity)) :
+        if ((desired_perms & entry.permissions & mask) == desired_perms)
+            return True 
         
-# Handle other
-perms = get_perms_for_other(path)
-mask = get_mask( path )
-return ( (desired_perms & perms & mask ) == desired_perms)
+  # Handle other
+  perms = get_perms_for_other(path)
+  mask = get_mask( path )
+  return ( (desired_perms & perms & mask ) == desired_perms)
 ```
 
 ### <a name="the-mask"></a>A máscara
@@ -203,7 +204,7 @@ Para um novo contêiner Data Lake Storage Gen2, a máscara para a ACL de acesso 
 |--|--|--|
 |Usuário proprietário|`rwx`|`r-w`|
 |Grupo proprietário|`r-x`|`r--`|
-|Outros|`---`|`---`|
+|Outro|`---`|`---`|
 
 Arquivos não recebem o bit X uma vez que é irrelevante para arquivos em um sistema de armazenamento somente. 
 
@@ -270,7 +271,7 @@ Se o HNS for desativado, as regras de autorização do RBAC do Azure ainda serã
 
 Para saber como o sistema avalia o RBAC e as ACLs do Azure juntos para tomar decisões de autorização para recursos de conta de armazenamento, consulte [como as permissões são avaliadas](data-lake-storage-access-control-model.md#how-permissions-are-evaluated).
 
-### <a name="what-are-the-limits-for-azure-rbac-role-assignments-and-acl-entries"></a>Quais são os limites para as atribuições de função do RBAC do Azure e entradas de ACL?
+### <a name="what-are-the-limits-for-azure-role-assignments-and-acl-entries"></a>Quais são os limites para as atribuições de função do Azure e as entradas de ACL?
 
 A tabela a seguir fornece uma exibição resumida dos limites a serem considerados ao usar o RBAC do Azure para gerenciar permissões "de alta granularidade" (permissões que se aplicam a contêineres ou contas de armazenamento) e usando ACLs para gerenciar permissões "refinadas" (permissões que se aplicam a arquivos e diretórios). Use grupos de segurança para atribuições de ACL. Usando grupos, você tem menor probabilidade de exceder o número máximo de atribuições de função por assinatura e o número máximo de entradas de ACl por arquivo ou diretório. 
 
@@ -330,7 +331,7 @@ Quando você tiver o OID correto para a entidade de serviço, vá para a página
 
 Não. Um contêiner não tem uma ACL. No entanto, você pode definir a ACL do diretório raiz do contêiner. Cada contêiner tem um diretório raiz e compartilha o mesmo nome que o contêiner. Por exemplo, se o contêiner for nomeado `my-container` , o diretório raiz será nomeado `myContainer/` . 
 
-A API REST do armazenamento do Azure contém uma operação denominada [set container ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl), mas essa operação não pode ser usada para definir a ACL de um contêiner ou o diretório raiz de um contêiner. Em vez disso, essa operação é usada para indicar se os BLOBs em um contêiner [podem ser acessados publicamente](anonymous-read-access-configure.md). 
+A API REST do armazenamento do Azure contém uma operação denominada [set container ACL](/rest/api/storageservices/set-container-acl), mas essa operação não pode ser usada para definir a ACL de um contêiner ou o diretório raiz de um contêiner. Em vez disso, essa operação é usada para indicar se os BLOBs em um contêiner [podem ser acessados publicamente](anonymous-read-access-configure.md). 
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Onde posso saber mais sobre o modelo de controle de acesso do POSIX?
 

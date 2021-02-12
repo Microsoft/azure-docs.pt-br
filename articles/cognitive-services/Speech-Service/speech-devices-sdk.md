@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: 560c156c8e2c3d69c099b2ad573fa0d214f3f80b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0309329b37436022dc88f8951853c4bb09a2c080
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91355067"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015266"
 ---
 # <a name="what-is-the-speech-devices-sdk"></a>O que é o SDK dos dispositivos de fala?
 
@@ -29,9 +29,9 @@ O SDK de dispositivos de fala pode ajudá-lo:
 
 O SDK de dispositivos de fala consome os [Speech SDK](speech-sdk.md). Usando nossos algoritmos avançados de processamento de áudio com a matriz de microfone do dispositivo para enviar o áudio para o [serviço de fala](overview.md). Ele fornece [reconhecimento de fala](speech-to-text.md) de campo muito preciso por meio de supressão de ruído, cancelamento de eco, beamforming e dereverberation.
 
-Você também pode usar o SDK de dispositivos de fala para criar dispositivos de ambiente que tenham sua própria [palavra-chave personalizada](speech-devices-sdk-create-kws.md). Uma palavra-chave personalizada fornece uma indicação que inicia uma interação do usuário que é exclusiva de sua marca.
+Você também pode usar o SDK de dispositivos de fala para criar dispositivos de ambiente que tenham sua própria [palavra-chave personalizada](./custom-keyword-basics.md). Uma palavra-chave personalizada fornece uma indicação que inicia uma interação do usuário que é exclusiva de sua marca.
 
-O SDK dos dispositivos de fala permite uma variedade de cenários habilitados para voz, como [assistentes de voz](https://aka.ms/bots/speech/va), sistemas de pedidos de unidade, [transcrição de conversa](conversation-transcription-service.md)e palestrantes inteligentes. Você pode responder aos usuários com texto, falar com eles com uma [voz padrão](how-to-customize-voice-font.md) ou personalizada, apresentar resultados de pesquisa, [traduzir](speech-translation.md) para outros idiomas e muito mais. Estamos ansiosos para ver suas criações.
+O SDK dos dispositivos de fala permite uma variedade de cenários habilitados para voz, como [assistentes de voz](./voice-assistants.md), sistemas de pedidos de unidade, [transcrição de conversa](./conversation-transcription.md)e palestrantes inteligentes. Você pode responder aos usuários com texto, falar com eles com uma [voz padrão](./how-to-custom-voice-create-voice.md) ou personalizada, apresentar resultados de pesquisa, [traduzir](speech-translation.md) para outros idiomas e muito mais. Estamos ansiosos para ver suas criações.
 
 ## <a name="get-the-speech-devices-sdk"></a>Obter SDK dos dispositivos de fala
 

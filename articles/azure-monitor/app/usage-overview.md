@@ -3,12 +3,12 @@ title: Usar análise com o Azure Application Insights | Microsoft Docs
 description: Compreenda seus usuários e o que eles fazem com o seu aplicativo.
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 4f4954451bfa195b07c580ffa451b8cb333eb32c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 633d35ec16f5eb9de664421c38cd4c824dc240cf
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532096"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233841"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Análise de uso com o Application Insights
 
@@ -65,7 +65,7 @@ Os insights à direita indicam padrões interessantes no conjunto de dados.
 
 ## <a name="retention---how-many-users-come-back"></a>Retenção – quantos usuários voltam?
 
-A retenção o ajuda a entender com que frequência os usuários voltam para usar o aplicativo, com base em coortes de usuários que executaram alguma ação de negócios durante um determinado bucket de tempo. 
+A retenção o ajuda a entender com que frequência os usuários voltam para usar o aplicativo, com base em coortes de usuários que executaram alguma ação de negócios durante um determinado bucket de tempo. 
 
 - Entenda quais recursos específicos fazem com que alguns usuários voltem mais que outros 
 - Forme hipóteses com base em dados de usuários reais 
@@ -79,7 +79,9 @@ Os controles de retenção na parte superior permitem que você defina eventos e
 
 ## <a name="custom-business-events"></a>Eventos de negócios personalizados
 
-Para obter uma compreensão clara do que os usuários fazem com seu aplicativo, é útil inserir linhas de código para registrar eventos personalizados. Esses eventos podem controlar qualquer coisa, desde ações detalhadas do usuário, como clicar em botões específicos, até eventos de negócios mais significativos, como fazer uma compra ou vencer um jogo. 
+Para obter uma compreensão clara do que os usuários fazem com seu aplicativo, é útil inserir linhas de código para registrar eventos personalizados. Esses eventos podem controlar qualquer coisa, desde ações detalhadas do usuário, como clicar em botões específicos, até eventos de negócios mais significativos, como fazer uma compra ou vencer um jogo.
+
+Você também pode usar o [plug-in de análise automática do clique](javascript-click-analytics-plugin.md) para coletar eventos personalizados.
 
 Embora em alguns casos as exibições de página possam representar eventos úteis, de modo geral não é esse o caso. Um usuário pode abrir uma página de produto sem adquirir o produto. 
 

@@ -4,20 +4,20 @@ description: Este artigo descreve como codificar atualizações de modelo para o
 author: chrislound
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 12/01/2020
 ms.author: chlound
-ms.openlocfilehash: fe811c81d0774393f40dc5c8403d1af8b22da109
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 7c801511b6f24cf5ef04d55bb195e3a4c62d7b6d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019130"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491240"
 ---
 # <a name="refresh-with-azure-automation"></a>Atualizar com Automação do Azure
 
 Usando a Automação do Azure e os runbooks do PowerShell, você pode executar operações automatizadas de atualização de dados em seus modelos de tabela do Azure Analysis.  
 
-O exemplo neste artigo usa o [módulo do SqlServer PowerShell](/powershell/module/sqlserver/?view=sqlserver-ps). Um exemplo de runbook do PowerShell, que demonstra a atualização de um modelo é fornecido posteriormente neste artigo.  
+O exemplo neste artigo usa o [módulo do SqlServer PowerShell](/powershell/module/sqlserver/?view=sqlserver-ps&preserve-view=true). Um exemplo de runbook do PowerShell, que demonstra a atualização de um modelo é fornecido posteriormente neste artigo.  
 
 ## <a name="authentication"></a>Autenticação
 
@@ -119,7 +119,7 @@ Para consumir o runbook usando o Azure Data Factory, primeiro crie um **Webhook*
 > [!IMPORTANT]
 > Para criar um **Webhook**, o status do runbook deve ser **Publicado**.
 
-1. Em seu runbook de Automação, clique em **Webhooks**e, em seguida, clique em **Adicionar Webhook**.
+1. Em seu runbook de Automação, clique em **Webhooks** e, em seguida, clique em **Adicionar Webhook**.
 
    ![Adicionar Webhook](./media/analysis-services-refresh-azure-automation/17.png)
 
@@ -202,7 +202,7 @@ $_Credential = Get-AutomationPSCredential -Name "ServicePrincipal"
 
 # If runbook was called from Webhook, WebhookData will not be null.
 if ($WebhookData)
-{ 
+{ 
     # Retrieve AAS details from Webhook request body
     $atmParameters = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
     Write-Output "CredentialName: $($atmParameters.CredentialName)"

@@ -15,11 +15,11 @@ ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mazha
 ms.openlocfilehash: 21ef06f37e6840df08b1477f9c0ff24f6e15d1a3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778014"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95978023"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Proteger ativos da CDN do Azure com autenticação de token
 
@@ -78,11 +78,11 @@ O fluxograma a seguir descreve como a CDN do Azure valida a solicitação do cli
 
       Para evitar tempo de inatividade, crie uma chave primária e uma de backup. Uma chave de backup fornece acesso ininterrupto ao seu conteúdo quando sua chave primária está sendo atualizada.
     
-   2. Insira uma chave de criptografia exclusiva na caixa **Chave Primária** e, opcionalmente, insira uma chave de backup na caixa **Chave de Backup** .
+   2. Insira uma chave de criptografia exclusiva na caixa **Chave Primária** e, opcionalmente, insira uma chave de backup na caixa **Chave de Backup**.
 
-   3. Selecione a versão mínima de criptografia para cada chave da lista **Versão Mínima de Criptografia** e, em seguida, selecione **Atualizar** :
-      - **V2** : Indica que a chave pode ser usada para gerar tokens de versão 2.0 e 3.0. Use esta opção somente se estiver em transição de uma chave de criptografia legado versão 2.0 para uma chave de versão 3.0.
-      - **V3** : (Recomendado) Indica que a chave só pode ser usada para gerar tokens de versão 3.0.
+   3. Selecione a versão mínima de criptografia para cada chave da lista **Versão Mínima de Criptografia** e, em seguida, selecione **Atualizar**:
+      - **V2**: Indica que a chave pode ser usada para gerar tokens de versão 2.0 e 3.0. Use esta opção somente se estiver em transição de uma chave de criptografia legado versão 2.0 para uma chave de versão 3.0.
+      - **V3**: (Recomendado) Indica que a chave só pode ser usada para gerar tokens de versão 3.0.
 
       ![Chave de configuração de autenticação de token da CDN](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
     
@@ -90,7 +90,7 @@ O fluxograma a seguir descreve como a CDN do Azure valida a solicitação do cli
 
       ![Ferramenta de criptografia da CDN](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
 
-      Insira valores para um ou mais dos seguintes parâmetros de criptografia na seção da **Ferramenta de Criptografia** : 
+      Insira valores para um ou mais dos seguintes parâmetros de criptografia na seção da **Ferramenta de Criptografia**: 
 
       > [!div class="mx-tdCol2BreakAll"] 
       > <table>
@@ -156,28 +156,28 @@ O fluxograma a seguir descreve como a CDN do Azure valida a solicitação do cli
       > </tr>
       > </table>
 
-   5. Depois de terminar de inserir valores de parâmetro de criptografia, selecione uma chave para criptografar (se você tiver criado uma chave principal e uma chave de backup) da lista **Chave a Criptografar** .
+   5. Depois de terminar de inserir valores de parâmetro de criptografia, selecione uma chave para criptografar (se você tiver criado uma chave principal e uma chave de backup) da lista **Chave a Criptografar**.
     
-   6. Selecione uma versão de criptografia na lista **Versão de Criptografia** : **V2** para a versão 2 ou **V3** para a versão 3 (recomendado). 
+   6. Selecione uma versão de criptografia na lista **Versão de Criptografia**: **V2** para a versão 2 ou **V3** para a versão 3 (recomendado). 
 
    7. Selecione **Criptografar** para gerar o token.
 
-      Depois que o token é gerado, ele será exibido na caixa **Tokens Gerados** . Para usar o token, acrescente-o como uma cadeia de consulta ao final do arquivo no caminho da sua URL. Por exemplo, `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
+      Depois que o token é gerado, ele será exibido na caixa **Tokens Gerados**. Para usar o token, acrescente-o como uma cadeia de consulta ao final do arquivo no caminho da sua URL. Por exemplo, `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
-   8. Como opção, teste seu token com a ferramenta de descriptografia para que você possa exibir os parâmetros do token. Cole o valor do token na caixa **Token a Descriptografar** . Selecione a de chave de criptografia para usar na lista **Chave a Descriptografar** e, em seguida, selecione **Descriptografar** .
+   8. Como opção, teste seu token com a ferramenta de descriptografia para que você possa exibir os parâmetros do token. Cole o valor do token na caixa **Token a Descriptografar**. Selecione a de chave de criptografia para usar na lista **Chave a Descriptografar** e, em seguida, selecione **Descriptografar**.
 
-      Depois que o token for descriptografado, seus parâmetros são exibidos na caixa **Parâmetros Originais** .
+      Depois que o token for descriptografado, seus parâmetros são exibidos na caixa **Parâmetros Originais**.
 
-   9. Opcionalmente, personalize o tipo de código de resposta retornado quando uma solicitação é negada. Selecione **Habilitado** , em seguida, selecione o código de resposta da lista **Código de Resposta** . **Nome do Cabeçalho** é definido automaticamente como **Local** . Selecione **Salvar** para implementar o novo código de resposta. Para determinados códigos de resposta, você também deve inserir o URL da sua página de erro na caixa **Valor do Cabeçalho** . O código de resposta **403** (Proibido) é selecionado por padrão. 
+   9. Opcionalmente, personalize o tipo de código de resposta retornado quando uma solicitação é negada. Selecione **Habilitado**, em seguida, selecione o código de resposta da lista **Código de Resposta**. **Nome do Cabeçalho** é definido automaticamente como **Local**. Selecione **Salvar** para implementar o novo código de resposta. Para determinados códigos de resposta, você também deve inserir o URL da sua página de erro na caixa **Valor do Cabeçalho**. O código de resposta **403** (Proibido) é selecionado por padrão. 
 
-3. Em **HTTP Grande** , selecione **Mecanismo de Regras** . Você usa o mecanismo de regras para definir os caminhos para aplicar o recurso, habilitar o recurso de autenticação de token e habilitar funcionalidades adicionais relacionadas à autenticação de token. Para obter mais informações, consulte [Referência do mecanismo de regras](./cdn-verizon-premium-rules-engine-reference.md).
+3. Em **HTTP Grande**, selecione **Mecanismo de Regras**. Você usa o mecanismo de regras para definir os caminhos para aplicar o recurso, habilitar o recurso de autenticação de token e habilitar funcionalidades adicionais relacionadas à autenticação de token. Para obter mais informações, consulte [Referência do mecanismo de regras](./cdn-verizon-premium-rules-engine-reference.md).
 
    1. Selecione uma regra existente ou crie uma nova regra para definir o ativo ou o caminho ao qual você deseja aplicar a autenticação de token. 
-   2. Para habilitar a autenticação de token em uma regra, selecione **[Autenticação de Token](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth.htm)** na lista **Recursos** e, em seguida, selecione **Habilitado** . Selecione **Atualizar** , se você estiver atualizando uma regra ou **Adicionar** , se você estiver criando uma regra.
+   2. Para habilitar a autenticação de token em uma regra, selecione **[Autenticação de Token](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth.htm)** na lista **Recursos** e, em seguida, selecione **Habilitado**. Selecione **Atualizar**, se você estiver atualizando uma regra ou **Adicionar**, se você estiver criando uma regra.
         
       ![Exemplo de habilitação de autenticação de token do mecanismo de regras da CDN](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
-4. O mecanismo de regras, você também pode habilitar recursos adicionais relacionados à autenticação de token. Para habilitar qualquer um dos recursos a seguir, selecione-o na lista **Recursos** e, em seguida, selecione **Habilitado** .
+4. O mecanismo de regras, você também pode habilitar recursos adicionais relacionados à autenticação de token. Para habilitar qualquer um dos recursos a seguir, selecione-o na lista **Recursos** e, em seguida, selecione **Habilitado**.
     
    - **[Código de Negação de Autenticação de Token](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Denial-Code.htm)** : Determina o tipo de resposta que é retornado a um usuário quando uma solicitação é negada. As regras definidas aqui substituem o código de resposta definido na seção **Tratamento de Negação Personalizado** na página de autenticação baseada em token.
 

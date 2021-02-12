@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: ce438ad0725aff677f897a635a0cd32d92bbbdbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bef5942707c1ded22ba82bdb0d945b9fdb23fffa
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265462"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349343"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Configurar declarações de grupo para aplicativos com Azure Active Directory
 
@@ -58,7 +58,7 @@ No entanto, se um aplicativo existente espera consumir informações de grupo po
 
 - Ao usar a associação de grupo para fins de autorização no aplicativo, é preferível usar o ObjectID do grupo. O ObjectID do grupo é imutável e exclusivo em Azure Active Directory e está disponível para todos os grupos.
 - Se estiver usando o sAMAccountName do grupo local para autorização, use nomes qualificados do domínio;  Há menos chances de nomes conflitantes. sAMAccountName pode ser exclusivo em um domínio Active Directory, mas se mais de um domínio Active Directory for sincronizado com um locatário Azure Active Directory, haverá a possibilidade de que mais de um grupo tenha o mesmo nome.
-- Considere o uso de [funções de aplicativo](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) para fornecer uma camada de indireção entre a associação de grupo e o aplicativo.   Em seguida, o aplicativo faz decisões de autorização interna com base em no token.
+- Considere o uso de [funções de aplicativo](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) para fornecer uma camada de indireção entre a associação de grupo e o aplicativo.   O aplicativo então faz decisões de autorização interna com base em declarações de função no token.
 - Se o aplicativo estiver configurado para obter atributos de grupo que são sincronizados a partir de Active Directory e um grupo não contiver esses atributos, ele não será incluído nas declarações.
 - As declarações de grupo em tokens incluem grupos aninhados, exceto ao usar a opção para restringir as declarações de grupo a grupos atribuídos ao aplicativo.  Se um usuário for membro de GroupB e GroupB for um membro de GroupA, as declarações de grupo para o usuário conterão GroupA e GroupB. Quando os usuários de uma organização têm um grande número de associações de grupo, o número de grupos listados no token pode aumentar o tamanho do token.  Azure Active Directory limita o número de grupos que será emitido em um token para 150 para asserções SAML e 200 para JWT.  Se um usuário for membro de um número maior de grupos, os grupos serão omitidos e um link para o ponto de extremidade do grafo para obter informações sobre o grupo será incluído em seu lugar.
 
@@ -74,7 +74,7 @@ Há duas etapas para configurar Azure Active Directory para emitir nomes de grup
 
 ## <a name="add-group-claims-to-tokens-for-saml-applications-using-sso-configuration"></a>Adicionar declarações de grupo a tokens para aplicativos SAML usando a configuração de SSO
 
-Para configurar declarações de grupo para um aplicativo SAML de galeria ou não Galeria, abra **aplicativos empresariais**, clique no aplicativo na lista, selecione **configuração de logon único**e, em seguida, selecione **atributos de usuário & declarações**.
+Para configurar declarações de grupo para um aplicativo SAML de galeria ou não Galeria, abra **aplicativos empresariais**, clique no aplicativo na lista, selecione **configuração de logon único** e, em seguida, selecione **atributos de usuário & declarações**.
 
 Clique em **Adicionar uma declaração de grupo**  
 
@@ -144,8 +144,9 @@ Os valores válidos são:
 |----------|-------------|
 | **Os** | Emite grupos de segurança, listas de distribuição e funções |
 | **“SecurityGroup”** | Emite grupos de segurança dos quais o usuário é membro na declaração de grupos |
-| **"DirectoryRole** | Se o usuário tiver funções de diretório atribuídas, elas serão emitidas como uma declaração ' wids ' (a declaração de grupos não será emitida) |
-| **"The Application** | Emite apenas os grupos atribuídos explicitamente ao aplicativo e o usuário é um membro de |
+| **“DirectoryRole”** | Se o usuário tiver funções de diretório atribuídas, elas serão emitidas como uma declaração ' wids ' (a declaração de grupos não será emitida) |
+| **ApplicationGroup** | Emite apenas os grupos atribuídos explicitamente ao aplicativo e o usuário é um membro de |
+| **None** | Nenhum grupo é retornado. (Não diferencia maiúsculas de minúsculas, isso não funciona bem e pode ser definido diretamente no manifesto do aplicativo.) |
 
    Por exemplo:
 

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 055448eacf1cc12c6d021c6571a0478cb35442ba
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 32027695f914257ef245d920f00fc1d1976fa791
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89566886"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956223"
 ---
 O manifesto de implantação define quais módulos são implantados em um dispositivo de borda. Ele também define as configurações desses módulos. 
 
@@ -14,6 +14,13 @@ Siga estas etapas para gerar o manifesto no arquivo de modelo e implantá-lo no 
 1. Ao lado do painel **HUB IOT DO AZURE**, selecione o ícone **Mais ações** para definir a cadeia de conexão do Hub IoT. Copie a cadeia de caracteres do arquivo *src/cloud-to-device-console-app/appsettings.json*. 
 
     ![Definir a cadeia de conexão de IoT](../../../media/quickstarts/set-iotconnection-string.png)
+
+> [!NOTE]
+> Talvez você precise fornecer informações do ponto de extremidade interno para o Hub IoT. Para obter essas informações, no portal do Azure, navegue até o Hub IoT e procure a opção **Pontos de extremidade internos** no painel de navegação à esquerda. Clique nele e procure o **Ponto de extremidade compatível com hub de eventos** na seção **Ponto de extremidade compatível com hub de eventos**. Copie e use o texto na caixa. O ponto de extremidade será algo parecido com isto:  
+    ```
+    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+    ```
+
 1. Clique com o botão direito do mouse em **src/edge/deployment.template.json** e selecione **Gerar Manifesto de Implantação do IoT Edge**.
 
     ![Gerar o manifesto de implantação do IoT Edge](../../../media/quickstarts/generate-iot-edge-deployment-manifest.png)

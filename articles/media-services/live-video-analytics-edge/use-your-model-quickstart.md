@@ -4,18 +4,16 @@ description: Neste guia de início rápido, você aplicará a Pesquisa Visual Co
 ms.topic: quickstart
 ms.date: 04/27/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 07661fb1e9496aacff6f108a840e0c357f068d41
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d3ba937abcc7bbfd9bb2afe7b15aec28ebb57446
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91336455"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508467"
 ---
 # <a name="quickstart-analyze-live-video-by-using-your-own-http-model"></a>Início Rápido: Análise Dinâmica de Vídeo usando o próprio modelo HTTP
 
 Este início rápido mostra como usar a Análise Dinâmica de Vídeo no IoT Edge para analisar um feed de vídeo ao vivo de uma câmera IP (simulada). Você verá como aplicar um modelo pesquisa visual computacional para detectar objetos. Um subconjunto dos quadros no feed de vídeo ao vivo é enviado para um serviço de inferência. Os resultados são enviados ao Hub do IoT Edge. 
-
-Este início rápido usa uma VM do Azure como dispositivo do IoT Edge e um fluxo de vídeo ao vivo simulado. Ele é baseado em um código de exemplo escrito em C# e no início rápido [Detectar movimento e emitir eventos](detect-motion-emit-events-quickstart.md). 
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [header](includes/analyze-live-video-your-http-model-quickstart/csharp/header.md)]
@@ -86,4 +84,4 @@ Se você pretende experimentar outros inícios rápidos, mantenha os recursos cr
 Examine os desafios adicionais para usuários avançados:
 
 * Use uma [câmera IP](https://en.wikipedia.org/wiki/IP_camera) compatível com RTSP em vez de usar o simulador RTSP. Pesquise pelas câmeras IP compatíveis com RTSP na página [Produtos em conformidade com ONVIF](https://www.onvif.org/conformant-products/). Procure dispositivos em conformidade com os perfis G, S ou T.
-* Use um dispositivo Linux AMD64 ou x64 em vez de usar uma VM Linux do Azure. Esse dispositivo precisa estar na mesma rede que a câmera IP. Siga as instruções em [Instalar o runtime do Azure IoT Edge no Linux](../../iot-edge/how-to-install-iot-edge-linux.md). Depois, registre o dispositivo no Hub IoT do Azure seguindo as instruções em [Implantar seu primeiro módulo do IoT Edge em um dispositivo virtual Linux](../../iot-edge/quickstart-linux.md).
+* Use um dispositivo Linux AMD64 ou x64 em vez de usar uma VM Linux do Azure. Esse dispositivo precisa estar na mesma rede que a câmera IP. Siga as instruções em [Instalar o runtime do Azure IoT Edge no Linux](../../iot-edge/how-to-install-iot-edge.md). Depois, registre o dispositivo no Hub IoT do Azure seguindo as instruções em [Implantar seu primeiro módulo do IoT Edge em um dispositivo virtual Linux](../../iot-edge/quickstart-linux.md).

@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: f8b555c4022fcf2532a7350839d2357c96562f4c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 50d78e83bbbeb4b0252c83f9f52e94599ea6946c
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791844"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787953"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -120,11 +120,10 @@ Você pode usar o [Portal do Azure](https://portal.azure.com) para exibir a inte
 
 O [Portal do Azure](https://portal.azure.com) pode também fornecer notificações de incidentes que afetam os diversos serviços do Azure.
 Observação: essa informação estava disponível anteriormente, juntamente com os dados históricos, no [Painel de Serviços do Azure](https://status.azure.com).
-
-Enquanto o [Portal do Azure](https://portal.azure.com) coleta informações sobre integridade de dentro dos centros de dados do Azure (monitoramento inside-out), você também pode considerar a adoção de uma abordagem outside-in para gerar transações sintéticas que acessam periodicamente o seu aplicativo Web hospedado no Azure de vários locais. Os serviços oferecidos pelo [Dynatrace](https://www.dynatrace.com/en/synthetic-monitoring) e Application Insights no Azure DevOps são exemplos dessa abordagem. Para obter mais informações sobre o Application Insights para Azure DevOps, veja o "[Apêndice 5: Monitoramento com o Application Insights no Azure DevOps](#appendix-5)".
+Para obter mais informações sobre o Application Insights para Azure DevOps, veja o "[Apêndice 5: Monitoramento com o Application Insights no Azure DevOps](#appendix-5)".
 
 ### <a name="monitoring-capacity"></a><a name="monitoring-capacity"></a>Monitoramento de capacidade
-As métricas de armazenamento apenas armazena as métricas de capacidade do serviço blob porque os blobs normalmente são responsáveis pela maior proporção dos dados armazenados (no momento em que se escreve, não é possível usar as métricas de armazenamento para monitorar a capacidade de suas tabelas e filas). Você pode encontrar esses dados na tabela **$MetricsCapacityBlob** se você tiver habilitado o monitoramento para o serviço blob. As métricas de armazenamento registram esses dados uma vez ao dia e você pode usar o valor do **RowKey** para determinar se uma linha contém uma entidade que se relaciona aos **dados** do usuário (dados do valor) ou dados analíticos (valor **analítico** ). Cada entidade armazenada contém informações sobre a quantidade de armazenamento usada ( **Capacidade** medida em bytes) e o número atual de contêineres ( **ContainerCount** ) e blobs ( **ObjectCount** ) em uso em cada conta de armazenamento. Para saber mais sobre as métricas de capacidade armazenadas na tabela **$MetricsCapacityBlob** , consulte [Esquema da tabela de métricas da análise de armazenamento](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema).
+As métricas de armazenamento apenas armazena as métricas de capacidade do serviço blob porque os blobs normalmente são responsáveis pela maior proporção dos dados armazenados (no momento em que se escreve, não é possível usar as métricas de armazenamento para monitorar a capacidade de suas tabelas e filas). Você pode encontrar esses dados na tabela **$MetricsCapacityBlob** se você tiver habilitado o monitoramento para o serviço blob. As métricas de armazenamento registram esses dados uma vez ao dia e você pode usar o valor do **RowKey** para determinar se uma linha contém uma entidade que se relaciona aos **dados** do usuário (dados do valor) ou dados analíticos (valor **analítico**). Cada entidade armazenada contém informações sobre a quantidade de armazenamento usada (**Capacidade** medida em bytes) e o número atual de contêineres (**ContainerCount**) e blobs (**ObjectCount**) em uso em cada conta de armazenamento. Para saber mais sobre as métricas de capacidade armazenadas na tabela **$MetricsCapacityBlob** , consulte [Esquema da tabela de métricas da análise de armazenamento](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema).
 
 > [!NOTE]
 > Monitore esses valores por meio de um aviso antecipado de que você está se aproximando dos limites de capacidade de sua conta de armazenamento. No Portal do Azure, você pode adicionar as regras de alertas para notificá-lo se o uso de armazenamento agregado excede ou está abaixo dos limites que você especificou.
@@ -134,9 +133,9 @@ As métricas de armazenamento apenas armazena as métricas de capacidade do serv
 Para ajudar na estimativa do tamanho dos diversos objetos de armazenamento, tais como os blobs, consulte a postagem no blog [Compreendendo a cobrança do Armazenamento do Azure – Largura de banda, transações e capacidade](/archive/blogs/patrick_butler_monterde/azure-storage-understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity).
 
 ### <a name="monitoring-availability"></a><a name="monitoring-availability"></a>Monitoramento de disponibilidade
-Monitore a disponibilidade dos serviços de monitoramento em sua conta de armazenamento monitorando os valores na coluna de **Disponibilidade** nas tabelas métricas de hora em hora ou de minuto em minuto — **$MetricsHourPrimaryTransactionsBlob** , **$MetricsHourPrimaryTransactionsTable** , **$MetricsHourPrimaryTransactionsQueue** , **$MetricsMinutePrimaryTransactionsBlob** , **$MetricsMinutePrimaryTransactionsTable** , **$MetricsMinutePrimaryTransactionsQueue** , **$MetricsCapacityBlob** . A coluna **Disponibilidade** contém um valor percentual que indica a disponibilidade do serviço ou da operação API representada pela linda (a **RowKey** mostra se uma linha contém as métricas para o serviço como um todo ou para uma operação API específica).
+Monitore a disponibilidade dos serviços de monitoramento em sua conta de armazenamento monitorando os valores na coluna de **Disponibilidade** nas tabelas métricas de hora em hora ou de minuto em minuto — **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$MetricsCapacityBlob**. A coluna **Disponibilidade** contém um valor percentual que indica a disponibilidade do serviço ou da operação API representada pela linda (a **RowKey** mostra se uma linha contém as métricas para o serviço como um todo ou para uma operação API específica).
 
-Qualquer valor inferior a 100% indica que houve falha em algumas solicitações de armazenamento. Você pode ver porque estão falhando ao examinar as outras colunas nos dados de métricas que mostras os números de solicitações com diferentes tipos de erros, tais como **ServerTimeoutError** . Espere para ver a **Disponibilidade** cair temporariamente abaixo de 100% devido a razões como tempo limite do servidor transitório enquanto o serviço muda as partições para melhor balancear a carga da solicitação; a lógica de nova tentativa no aplicativo do seu cliente deve lidar com tais condições intermitentes. O artigo [Operações registradas e mensagens de status da análise de armazenamento](/rest/api/storageservices/Storage-Analytics-Logged-Operations-and-Status-Messages) lista os tipos de transação que as Métricas de armazenamento incluem em seu cálculo de **Disponibilidade** .
+Qualquer valor inferior a 100% indica que houve falha em algumas solicitações de armazenamento. Você pode ver porque estão falhando ao examinar as outras colunas nos dados de métricas que mostras os números de solicitações com diferentes tipos de erros, tais como **ServerTimeoutError**. Espere para ver a **Disponibilidade** cair temporariamente abaixo de 100% devido a razões como tempo limite do servidor transitório enquanto o serviço muda as partições para melhor balancear a carga da solicitação; a lógica de nova tentativa no aplicativo do seu cliente deve lidar com tais condições intermitentes. O artigo [Operações registradas e mensagens de status da análise de armazenamento](/rest/api/storageservices/Storage-Analytics-Logged-Operations-and-Status-Messages) lista os tipos de transação que as Métricas de armazenamento incluem em seu cálculo de **Disponibilidade** .
 
 No [Portal do Azure](https://portal.azure.com), você pode adicionar as regras de alertas para notificá-lo se a **Disponibilidade** de um serviço está abaixo dos limites que você especificou.
 
@@ -183,7 +182,7 @@ Após ter identificado o possível local da causa do problema de desempenho a pa
 A seção "[Diretrizes de solução de problemas]" posteriormente nesse guia dará mais detalhes para alguns dos problemas mais comuns que você pode encontrar.
 
 ### <a name="diagnosing-errors"></a><a name="diagnosing-errors"></a>Diagnóstico de erros
-Usuários do seu aplicativo podem notificá-lo de erros registrados pelo aplicativo do cliente. Métricas de armazenamento também registram contagens de diferentes tipos de erros do seus serviços de armazenamento, tais como **NetworkError** , **ClientTimeoutError** ou **AuthorizationError** . Enquanto as métricas de armazenamento apenas registram as contagens de diferentes tipos de erros, você obter mais detalhes sobre solicitações individuais ao examinar os logs do servidor, do cliente e da rede. Normalmente, o código de status HTTP que voltam para o serviço de armazenamento darão uma indicação da razão da falha da solicitação.
+Usuários do seu aplicativo podem notificá-lo de erros registrados pelo aplicativo do cliente. Métricas de armazenamento também registram contagens de diferentes tipos de erros do seus serviços de armazenamento, tais como **NetworkError**, **ClientTimeoutError** ou **AuthorizationError**. Enquanto as métricas de armazenamento apenas registram as contagens de diferentes tipos de erros, você obter mais detalhes sobre solicitações individuais ao examinar os logs do servidor, do cliente e da rede. Normalmente, o código de status HTTP que voltam para o serviço de armazenamento darão uma indicação da razão da falha da solicitação.
 
 > [!NOTE]
 > Lembre-se de que você deve esperar ver alguns erros intermitentes: por exemplo, erros devido a condições transitórias da rede ou erros de aplicativo.
@@ -232,7 +231,7 @@ Ao exibir os logs dos aplicativos do cliente, rastreamento de rede e log de arma
 A Biblioteca de Clientes de Armazenamento gera automaticamente uma ID de solicitação do cliente exclusiva para cada solicitação.
 
 * No log do lado do cliente criado pela Biblioteca de Clientes de Armazenamento, a ID de solicitação do cliente aparece no campo **ID de solicitação do cliente** de cada entrada de log relacionada à solicitação.
-* No rastreamento da rede tal como uma capturada pelo Fiddler, a ID de solicitação do cliente está visível em mensagens de solicitação como o valor do cabeçalho HTTP **x-ms-client-request-id** .
+* No rastreamento da rede tal como uma capturada pelo Fiddler, a ID de solicitação do cliente está visível em mensagens de solicitação como o valor do cabeçalho HTTP **x-ms-client-request-id**.
 * No log de armazenamento do lado do servidor, a ID de solicitação do cliente aparece na coluna ID da solicitação do cliente.
 
 > [!NOTE]
@@ -243,8 +242,8 @@ A Biblioteca de Clientes de Armazenamento gera automaticamente uma ID de solicit
 ### <a name="server-request-id"></a><a name="server-request-id"></a>ID de solicitação do servidor
 O serviço de armazenamento gera automaticamente IDs de solicitação do servidor.
 
-* No log de armazenamento do lado do servidor, a ID de solicitação do servidor aparece na coluna **Cabeçalho da ID de solicitação** .
-* Em um rastreamento de rede tal como um capturado pelo Fiddler, a ID de solicitação do servidor aparece em mensagens de solicitação como o valor do cabeçalho HTTP **x-ms-request-id** .
+* No log de armazenamento do lado do servidor, a ID de solicitação do servidor aparece na coluna **Cabeçalho da ID de solicitação**.
+* Em um rastreamento de rede tal como um capturado pelo Fiddler, a ID de solicitação do servidor aparece em mensagens de solicitação como o valor do cabeçalho HTTP **x-ms-request-id**.
 * No log do lado do cliente criado pela Biblioteca de Clientes de Armazenamento, a ID de solicitação do cliente aparece na coluna **Texto de Operação** para a entrada de log mostrando detalhes da resposta do servidor.
 
 > [!NOTE]
@@ -252,15 +251,15 @@ O serviço de armazenamento gera automaticamente IDs de solicitação do servido
 >
 >
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 O exemplo de código abaixo demonstra como usar uma ID de solicitação de cliente personalizada. 
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_UseCustomRequestID":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
-Se a biblioteca do cliente de armazenamento aciona uma **StorageException** no cliente, a propriedade **RequestInformation** contém um objeto **RequestResult** que inclui uma propriedade **ServiceRequestID** . Você também pode acessar um objeto **RequestResult** a partir de uma instância de **OperationContext** .
+Se a biblioteca do cliente de armazenamento aciona uma **StorageException** no cliente, a propriedade **RequestInformation** contém um objeto **RequestResult** que inclui uma propriedade **ServiceRequestID**. Você também pode acessar um objeto **RequestResult** a partir de uma instância de **OperationContext**.
 
 O exemplo de código abaixo demonstra como definir um valor personalizado de **ClientRequestId** ao anexar um objeto **OperationContext** à solicitação para o serviço de armazenamento. Isso também mostra como recuperar p valor de **ServerRequestId** de uma mensagem de resposta.
 
@@ -348,11 +347,11 @@ O seu problema está relacionado à disponibilidade de um dos serviços de armaz
 
 ---
 ### <a name="metrics-show-high-averagee2elatency-and-low-averageserverlatency"></a><a name="metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency"></a>As métricas mostram alta AverageE2ELatency e baixa AverageServerLatency
-A figura abaixo da ferramenta de monitoramento do [portal do Azure](https://portal.azure.com) mostra um exemplo em que a **AverageE2ELatency** é significantemente mais alta que a **AverageServerLatency** .
+A figura abaixo da ferramenta de monitoramento do [portal do Azure](https://portal.azure.com) mostra um exemplo em que a **AverageE2ELatency** é significantemente mais alta que a **AverageServerLatency**.
 
 ![Ilustração do portal do Azure que mostra um exemplo em que o AverageE2ELatency é significativamente maior do que o AverageServerLatency.][4]
 
-O serviço de armazenamento calcula apenas a métrica **AverageE2ELatency** para solicitações bem-sucedidas e, ao contrário de **AverageServerLatency** , inclui o tempo que o cliente leva para enviar os dados e receber a confirmação do serviço de armazenamento. Portanto, a diferença entre a **AverageE2ELatency** e a **AverageServerLatency** pode ser ou devido a lentidão de resposta do aplicativo do cliente ou devido às condições da rede.
+O serviço de armazenamento calcula apenas a métrica **AverageE2ELatency** para solicitações bem-sucedidas e, ao contrário de **AverageServerLatency**, inclui o tempo que o cliente leva para enviar os dados e receber a confirmação do serviço de armazenamento. Portanto, a diferença entre a **AverageE2ELatency** e a **AverageServerLatency** pode ser ou devido a lentidão de resposta do aplicativo do cliente ou devido às condições da rede.
 
 > [!NOTE]
 > Você também pode exibir **E2ELatency** e **ServerLatency** das operações de armazenamento individual nos dados de registro do log de Armazenamento.
@@ -362,13 +361,13 @@ O serviço de armazenamento calcula apenas a métrica **AverageE2ELatency** para
 #### <a name="investigating-client-performance-issues"></a>Investigação dos problemas de desempenho do cliente
 Entre as possíveis razões para a lentidão de resposta do cliente estão: ter um número limitado de conexões ou threads disponíveis ou ter poucos recursos, como CPU, memória ou largura de banda de rede. Você pode ser capaz de resolver os problemas ao modificar o código do cliente para ser mais eficiente (por exemplo ao usar chamadas assíncronas para o serviço de armazenamento) ou usar uma máquina virtual maior (com mais cores e mais memória).
 
-Para os serviços Tabela e Fila, o algoritmo Nagle também pode causar **AverageE2ELatency** alta em comparação com **AverageServerLatency** : para saber mais, confira a postagem [Nagle’s Algorithm is Not Friendly towards Small Requests](/archive/blogs/windowsazurestorage/nagles-algorithm-is-not-friendly-towards-small-requests) (Algoritmo Nagle não é amigável a solicitações pequenas). Você pode desabilitar o algoritmo de Nagle em código ao usar a classe **ServicePointManager** no namespace **System.Net** . Faça isso antes de fazer qualquer chamada para os serviços de tabela ou fila no seu aplicativo já que isso não afeta as conexões que já estão abertas. O exemplo a seguir vem do método **Application_Start** em uma função de trabalho.
+Para os serviços Tabela e Fila, o algoritmo Nagle também pode causar **AverageE2ELatency** alta em comparação com **AverageServerLatency**: para saber mais, confira a postagem [Nagle’s Algorithm is Not Friendly towards Small Requests](/archive/blogs/windowsazurestorage/nagles-algorithm-is-not-friendly-towards-small-requests) (Algoritmo Nagle não é amigável a solicitações pequenas). Você pode desabilitar o algoritmo de Nagle em código ao usar a classe **ServicePointManager** no namespace **System.Net**. Faça isso antes de fazer qualquer chamada para os serviços de tabela ou fila no seu aplicativo já que isso não afeta as conexões que já estão abertas. O exemplo a seguir vem do método **Application_Start** em uma função de trabalho.
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_DisableNagle":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);
@@ -459,14 +458,14 @@ Suas métricas mostram um aumento em **PercentTimeoutError** para um dos seus se
 >
 >
 
-A métrica **PercentTimeoutError** é uma agregação das seguintes métricas: **ClientTimeoutError** , **AnonymousClientTimeoutError** , **SASClientTimeoutError** , **ServerTimeoutError** , **AnonymousServerTimeoutError** e **SASServerTimeoutError** .
+A métrica **PercentTimeoutError** é uma agregação das seguintes métricas: **ClientTimeoutError**, **AnonymousClientTimeoutError**, **SASClientTimeoutError**, **ServerTimeoutError**, **AnonymousServerTimeoutError** e **SASServerTimeoutError**.
 
-Os tempos limites do servidor são causados por um erro no servidor. Os tempos limites do cliente acontecem porque uma operação no servidor excedeu o tempo limite especificado pelo cliente; por exemplo, um cliente usando a biblioteca do cliente de armazenamento pode definir um tempo limite para uma operação usando a propriedade **ServerTimeout** da classe **QueueRequestOptions** .
+Os tempos limites do servidor são causados por um erro no servidor. Os tempos limites do cliente acontecem porque uma operação no servidor excedeu o tempo limite especificado pelo cliente; por exemplo, um cliente usando a biblioteca do cliente de armazenamento pode definir um tempo limite para uma operação usando a propriedade **ServerTimeout** da classe **QueueRequestOptions**.
 
 Os tempos limites indicam um problema com o serviço de armazenamento que requer uma investigação detalhada. Você pode usar as métricas para ver se você está atingindo os limites de escalabilidade do servidor e para identificar quaisquer picos de tráfego que pode estar causando esse problema. Se o problema for intermitente, pode ser devido à atividade de balanceamento de carga no serviço. Se o problema for persistente e não for causado por atingir os limites de escalabilidade do serviço, acione um problema de suporte. Para os tempos limites do cliente, você deve decidir se os tempos limites estão definidos com um valor apropriado no cliente e alterar o valor definido para o tempo limite no cliente ou investigar como você pode melhorar o desempenho das operações no serviço de armazenamento, por exemplo, otimizando suas consultas de tabela ou reduzindo o tamanho de suas mensagens.
 
 ### <a name="metrics-show-an-increase-in-percentnetworkerror"></a><a name="metrics-show-an-increase-in-PercentNetworkError"></a>As métricas mostram um aumento em PercentNetworkError
-Suas métricas mostram um aumento em **PercentNetworkError** para um dos seus serviços de armazenamento. A métrica **PercentNetworkError** é uma agregação das seguintes métricas: **NetworkError** , **AnonymousNetworkError** e **SASNetworkError** . Eles ocorrem quando o serviço de armazenamento detecta um erro de rede quando o cliente faz uma solicitação de armazenamento.
+Suas métricas mostram um aumento em **PercentNetworkError** para um dos seus serviços de armazenamento. A métrica **PercentNetworkError** é uma agregação das seguintes métricas: **NetworkError**, **AnonymousNetworkError** e **SASNetworkError**. Eles ocorrem quando o serviço de armazenamento detecta um erro de rede quando o cliente faz uma solicitação de armazenamento.
 
 A causa mais comum desse erro é um cliente desconectando antes do tempo limite expirar no serviço de armazenamento. Investigue o código no cliente para entender porque e quando o cliente desconecta do serviço de armazenamento. Você também pode usar o Wireshark ou o Tcping para investigar problemas de conectividade de rede do cliente. Essas ferramentas estão descritas nos [Anexos].
 
@@ -489,7 +488,7 @@ Nesse cenário, você deve investigar porque o token de SAS está expirando ante
 
 * Normalmente, você não deveria definir um tempo de início quando você cria uma SAS para um cliente para usar imediatamente. Se houver pequenas diferenças entre os relógios do hospedeiro que gera o SAS usando o horário atual e o serviço de armazenamento, então é possível que o serviço de armazenamento receba uma SAS que não seja válida.
 * Não defina um tempo de expiração muito curto em uma SAS. Novamente, pequenas diferenças entre os relógios do hospedeiro gerando a SAS e o serviço de armazenamento pode levar a uma SAS aparentemente expirando mais cedo do que esperado.
-* Os parâmetros da versão na chave SAS (por exemplo **sv=2015-04-05** ) correspondem à versão da Biblioteca do Cliente de Armazenamento usada? Recomendamos usar sempre a versão mais recente da [Biblioteca de Cliente de Armazenamento](https://www.nuget.org/packages/WindowsAzure.Storage/).
+* Os parâmetros da versão na chave SAS (por exemplo **sv=2015-04-05**) correspondem à versão da Biblioteca do Cliente de Armazenamento usada? Recomendamos usar sempre a versão mais recente da [Biblioteca de Cliente de Armazenamento](https://www.nuget.org/packages/WindowsAzure.Storage/).
 * Se você regenerar suas chaves de acesso de armazenamento, isso poderá invalidar quaisquer tokens de SAS existentes. Esse problema poderá surgir se você gerar tokens de SAS com um tempo de expiração longo para aplicativos de cliente para o cache.
 
 Se você estiver usando a biblioteca do cliente de armazenamento para gerar tokens de SAS, então será fácil compilar um token válido. Entretanto, se você estiver usando a API REST de Armazenamento e compilando tokens de SAS manualmente, consulte [Delegando acesso com uma Assinatura de Acesso Compartilhado](/rest/api/storageservices/delegate-access-with-shared-access-signature).
@@ -602,11 +601,11 @@ Para resolver o problema JavaScript, configure o compartilhamento de recursos en
 
 O código a seguir mostra como configurar seu serviço blob para permitir que o JavaScript execute o domínio Contoso para acessar um blob no seu serviço de armazenamento de blob:
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_ConfigureCORS":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 ```csharp
 CloudBlobClient client = new CloudBlobClient(blobEndpoint, new StorageCredentials(accountName, accountKey));
@@ -633,12 +632,12 @@ Os detalhes da exceção no cliente incluem a ID da solicitação (7e84f12d...) 
 
 O log do lado do servidor inclui também uma outra entrada com o mesmo valor **client-request-id** (813ea74f…) para uma operação de exclusão com sucesso para a mesma entidade e do mesmo cliente. A operação de exclusão com êxito aconteceu um pouco antes da solicitação de exclusão falhar.
 
-A causa mais provável desse cenário é que o cliente enviou uma solicitação de exclusão para a entidade para o serviço tabela, que teve êxito, mas não recebeu uma confirmação do servidor (talvez devido a um problema de rede temporário). O cliente repetiu a operação automaticamente (usando o mesmo **client-request-id** ) e essa tentativa falhou porque a entidade já tinha sido excluída.
+A causa mais provável desse cenário é que o cliente enviou uma solicitação de exclusão para a entidade para o serviço tabela, que teve êxito, mas não recebeu uma confirmação do servidor (talvez devido a um problema de rede temporário). O cliente repetiu a operação automaticamente (usando o mesmo **client-request-id**) e essa tentativa falhou porque a entidade já tinha sido excluída.
 
 Se esse problema ocorrer com frequência, você deve investigar por que o cliente está falhando em receber confirmações do serviço tabela. Se o problema for intermitente, intercepte o erro "HTTP (404) Não encontrado" e log no cliente, mas permita que o cliente continue.
 
 ### <a name="the-client-is-receiving-http-409-conflict-messages"></a><a name="the-client-is-receiving-409-messages"></a>O cliente está recebendo mensagens HTTP 409 (Conflito)
-A tabela a seguir mostra um trecho do log do lado do servidor para duas operações de cliente: **DeleteIfExists** seguida imediatamente por **CreateIfNotExists** usando o mesmo nome de contêiner de blob. Cada operação do cliente resulta em duas solicitações enviadas para o servidor, primeiro uma solicitação **GetContainerProperties** para verificar se o contêiner existe, seguida por uma solicitação de **DeleteContainer** ou **CreateContainer** .
+A tabela a seguir mostra um trecho do log do lado do servidor para duas operações de cliente: **DeleteIfExists** seguida imediatamente por **CreateIfNotExists** usando o mesmo nome de contêiner de blob. Cada operação do cliente resulta em duas solicitações enviadas para o servidor, primeiro uma solicitação **GetContainerProperties** para verificar se o contêiner existe, seguida por uma solicitação de **DeleteContainer** ou **CreateContainer**.
 
 | Timestamp | Operação | Result | Nome do contêiner | ID de solicitação do cliente |
 | --- | --- | --- | --- | --- |
@@ -652,7 +651,7 @@ O código no aplicativo cliente exclui e, em seguida, recria imediatamente um co
 O aplicativo do cliente deve usar nomes de contêiner exclusivos sempre que criar novos contêineres caso o padrão excluir/recriar for comum.
 
 ### <a name="metrics-show-low-percentsuccess-or-analytics-log-entries-have-operations-with-transaction-status-of-clientothererrors"></a><a name="metrics-show-low-percent-success"></a>As métricas mostram uma baixa PercentSuccess ou as entradas de log analíticas têm operações com status de transação de ClientOtherErrors
-As métricas de **PercentSuccess** capturam a porcentagem das operações que tiveram êxito com base nos códigos de status HTTP. As operações com códigos de status 2XX contam como bem-sucedidas, enquanto as operações com código de status de intervalos 3XX, 4XX e 5XX são contadas como sem sucesso e inferiores aos valores de métricas **PercentSuccess** . Nos arquivos de log do lado do servidor, essas operações são registradas com um status de transação de **ClientOtherErrors** .
+As métricas de **PercentSuccess** capturam a porcentagem das operações que tiveram êxito com base nos códigos de status HTTP. As operações com códigos de status 2XX contam como bem-sucedidas, enquanto as operações com código de status de intervalos 3XX, 4XX e 5XX são contadas como sem sucesso e inferiores aos valores de métricas **PercentSuccess**. Nos arquivos de log do lado do servidor, essas operações são registradas com um status de transação de **ClientOtherErrors**.
 
 É importante observar que essas operações foram concluídas com sucesso e por isso não afetam as outras métricas como a de disponibilidade. Alguns exemplos de operações que executam com sucesso, mas que podem resultar em códigos de status HTTP sem sucesso incluem:
 
@@ -733,7 +732,7 @@ Esse anexo dá um breve passo a passo de como configurar o Fiddler para capturar
 Após você ter iniciado o Fiddler, ele começará capturar o tráfego HTTP e HTTPS da sua máquina local. A seguir há alguns comandos úteis para controlar o Fiddler:
 
 * Parar e iniciar a captura de tráfego. No menu principal, vá para **Arquivo** e clique em **Capturar Tráfego** para alternar entre captura ativada e desativada.
-* Salve os dados de tráfego capturados. No menu principal, vá até **Arquivo** , clique em **Salvar** e, em seguida, clique em **Todas as Sessões** : isso permite que você salve o tráfego em um arquivo de sessão. Você pode recarregar um Session Archive mais tarde para análise ou enviá-lo se solicitado pelo suporte Microsoft.
+* Salve os dados de tráfego capturados. No menu principal, vá até **Arquivo**, clique em **Salvar** e, em seguida, clique em **Todas as Sessões**: isso permite que você salve o tráfego em um arquivo de sessão. Você pode recarregar um Session Archive mais tarde para análise ou enviá-lo se solicitado pelo suporte Microsoft.
 
 Para limitar o valor de tráfego que o Fiddler captura, você pode usar filtros que você configura na guia **Filtros** . A seguinte captura de tela mostra um filtro que captura apenas o tráfego enviado para o ponto de extremidade de armazenamento **contosoemaildist.table.core.windows.net** :
 
@@ -746,19 +745,19 @@ O procedimento a seguir mostra como capturar informações detalhadas de pacote 
 
 1. Habilite o Wireshark no seu computador local.
 2. Na seção **Iniciar** , selecione a interface de rede local ou as interfaces que estão conectadas à Internet.
-3. Clique em **Opções de Captura** .
-4. Adicione um filtro à caixa de texto **Filtro de Captura** . Por exemplo, o **host contosoemaildist.table.core.windows.net** configurará o Wireshark para capturar apenas os pacotes enviados para ou a partir do ponto de extremidade de serviço tabela na conta de armazenamento **contosoemaildist** . Confira a [Lista completa de filtros de captura](https://wiki.wireshark.org/CaptureFilters).
+3. Clique em **Opções de Captura**.
+4. Adicione um filtro à caixa de texto **Filtro de Captura** . Por exemplo, o **host contosoemaildist.table.core.windows.net** configurará o Wireshark para capturar apenas os pacotes enviados para ou a partir do ponto de extremidade de serviço tabela na conta de armazenamento **contosoemaildist**. Confira a [Lista completa de filtros de captura](https://wiki.wireshark.org/CaptureFilters).
 
    ![Captura de tela que mostra como adicionar um filtro à caixa de texto filtro de captura.][6]
-5. Clique em **Iniciar** . O Wireshark capturará agora todos pacotes enviados para ou a partir do ponto de extremidade do serviço de tabela enquanto você usa o aplicativo do cliente no seu computador local.
-6. Quando você tiver terminado, no menu principal clique em **Capturar** e em **Parar** .
-7. Para salvar os dados capturados no arquivo de captura do Wireshark, no menu principal clique em **Arquivo** e em **Salvar** .
+5. Clique em **Iniciar**. O Wireshark capturará agora todos pacotes enviados para ou a partir do ponto de extremidade do serviço de tabela enquanto você usa o aplicativo do cliente no seu computador local.
+6. Quando você tiver terminado, no menu principal clique em **Capturar** e em **Parar**.
+7. Para salvar os dados capturados no arquivo de captura do Wireshark, no menu principal clique em **Arquivo** e em **Salvar**.
 
-O Wireshark irá realçar qualquer erro que existir na janela **packetlist** . Você também pode usar a janela **Informações do Especialista** (clique em **Analisar** e em **Informações do Especialista** ) para exibir um resumo dos erros e avisos.
+O Wireshark irá realçar qualquer erro que existir na janela **packetlist** . Você também pode usar a janela **Informações do Especialista** (clique em **Analisar** e em **Informações do Especialista**) para exibir um resumo dos erros e avisos.
 
 ![Captura de tela que mostra a janela informações de especialista, em que você pode exibir um resumo de erros e avisos.][7]
 
-Você também pode escolher exibir os dados de TCP conforme vistos pela camada de aplicativo, clicando com o botão direito do mouse nos dados de TCP e selecionando **Seguir o Fluxo TCP** . Isso será útil se você tiver capturado o despejo sem o filtro de captura. Para saber mais, confira [Como seguir fluxos TCP](https://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
+Você também pode escolher exibir os dados de TCP conforme vistos pela camada de aplicativo, clicando com o botão direito do mouse nos dados de TCP e selecionando **Seguir o Fluxo TCP**. Isso será útil se você tiver capturado o despejo sem o filtro de captura. Para saber mais, confira [Como seguir fluxos TCP](https://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
 
 ![Captura de tela que mostra como exibir os dados TCP conforme a camada de aplicativo o vê.][8]
 
@@ -768,15 +767,15 @@ Você também pode escolher exibir os dados de TCP conforme vistos pela camada d
 >
 
 ### <a name="appendix-4-using-excel-to-view-metrics-and-log-data"></a><a name="appendix-4"></a>Apêndice 4: Usando o Excel para exibir as métricas e os dados de log
-Muitas ferramentas permitem que você baixe os dados de métricas de armazenamento a partir do armazenamento de tabela do Azure em um formato delimitado que o torna fácil para se carregado no Excel para exibição e análise. Os dados de log de armazenamento do armazenamento de blob do Azure já estão em um formato delimitado que pode ser carregado no Excel. Entretanto, você precisará adicionar cabeçalhos apropriados às colunas com base na informação no [Formato de Log Analítico de Armazenamento](/rest/api/storageservices/Storage-Analytics-Log-Format) e no [Esquema de Tabela de Métricas Analíticas de Armazenamento](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema).
+Muitas ferramentas permitem que você baixe os dados de métricas de armazenamento a partir do armazenamento de tabela do Azure em um formato delimitado que o torna fácil para se carregado no Excel para exibição e análise. Os dados de log de armazenamento do armazenamento de BLOBs do Azure já estão em um formato delimitado que você pode carregar no Excel. Entretanto, você precisará adicionar cabeçalhos apropriados às colunas com base na informação no [Formato de Log Analítico de Armazenamento](/rest/api/storageservices/Storage-Analytics-Log-Format) e no [Esquema de Tabela de Métricas Analíticas de Armazenamento](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema).
 
 Para importar os dados de log de armazenamento para o Excel após ter baixado do armazenamento de blob:
 
-* No menu **Dados** , clique em **Do Texto** .
-* Procure o arquivo de log que deseja exibir e clique em **Importar** .
-* Na etapa 1 do **Assistente de Importação de Texto** , selecione **Delimitado** .
+* No menu **Dados**, clique em **Do Texto**.
+* Procure o arquivo de log que deseja exibir e clique em **Importar**.
+* Na etapa 1 do **Assistente de Importação de Texto**, selecione **Delimitado**.
 
-Na etapa 1 do **Assistente de Importação de Texto** , selecione **Ponto e vírgula** como o único delimitador e escolha aspas duplas como **Qualificador de texto** . Clique em **Concluir** e escolha onde colocar os dados na sua pasta de trabalho.
+Na etapa 1 do **Assistente de Importação de Texto**, selecione **Ponto e vírgula** como o único delimitador e escolha aspas duplas como **Qualificador de texto**. Clique em **Concluir** e escolha onde colocar os dados na sua pasta de trabalho.
 
 ### <a name="appendix-5-monitoring-with-application-insights-for-azure-devops"></a><a name="appendix-5"></a>Apêndice 5: Monitoramento com o Application Insights no Azure DevOps
 Você pode também usar o recurso Application Insights no Azure DevOps como parte do seu monitoramento de desempenho e disponibilidade. Essa ferramenta pode:

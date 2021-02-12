@@ -1,18 +1,17 @@
 ---
-title: Aumento de limite de rede | Microsoft Docs
+title: Aumento de limite de rede
 description: Aumento de limite de rede
 author: anavinahar
 ms.author: anavin
 ms.date: 01/23/2020
 ms.topic: how-to
-ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: acb05da0255445de31e08f2724dcb484a3e05b17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e945dec2ce8514c3e4f1edecdecd13c5c43f7c75
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764258"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745444"
 ---
 # <a name="networking-limit-increase"></a>Aumento de limite de rede
 
@@ -75,7 +74,7 @@ Siga estas instruções para criar uma solicitação de suporte usando o **uso +
 
 1. Selecione a assinatura que precisa de uma cota maior.
 
-    ![Selecionar uma assinatura](./media/networking-quota-request/select-subscription-change-quota.png)
+    ![Selecionar assinatura](./media/networking-quota-request/select-subscription-change-quota.png)
 
 1. Selecionar **uso + cotas**
 

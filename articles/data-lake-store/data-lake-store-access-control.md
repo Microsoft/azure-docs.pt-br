@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 11629338a808ae0f83ac513b6475dce7a53814da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48ff32655b107958a3e8e42dbd7de0f405a6fffa
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88190161"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094855"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Controle de acesso no Azure Data Lake Storage Gen1
 
@@ -33,8 +33,6 @@ Há dois tipos de listas de controle de acesso (ACLs), **ACLs de Acesso** e **AC
 
 
 As ACLs de Acesso e as ACLs Padrão têm a mesma estrutura.
-
-
 
 > [!NOTE]
 > Alterar a ACL Padrão em um pai não afeta o a ACL de Acesso ou a ACL Padrão de itens filhos já existentes.
@@ -53,7 +51,7 @@ As permissões em um objeto do sistema de arquivos são **Ler**, **Gravar** e **
 
 ### <a name="short-forms-for-permissions"></a>Formatos abreviados para permissões
 
-**RWX**é usado para indicar **Ler + Gravar + Executar**. Existe um formato numérico mais condensado na qual **Ler = 4**, **Gravar = 2** e **Executar = 1** e sua soma representa as permissões. Estes são alguns exemplos:
+**RWX** é usado para indicar **Ler + Gravar + Executar**. Existe um formato numérico mais condensado na qual **Ler = 4**, **Gravar = 2** e **Executar = 1** e sua soma representa as permissões. Estes são alguns exemplos:
 
 | Formato numérico | Formato curto |      O que significa     |
 |--------------|------------|------------------------|
@@ -74,7 +72,7 @@ A seguir estão alguns cenários comuns para ajudá-lo a compreender quais permi
 | Operação | Objeto              |    /      | Seattle/   | Portland/   | Data.txt       |
 |-----------|---------------------|-----------|------------|-------------|----------------|
 | Ler      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
-| Acrescentar a | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| Acrescentar a | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `-W-`          |
 | Excluir    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Criar    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Lista      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
@@ -216,7 +214,7 @@ Quando um novo arquivo ou pasta é criado em uma pasta existente, a ACL Padrão 
 
 ### <a name="umask"></a>umask
 
-Ao criar um arquivo ou uma pasta, o umask é usado para modificar como as ACLs padrão são definidas no item filho. umask é um valor de 9 bits em pastas pai que contém um valor de RWX para **usuário proprietário**, **grupo proprietário**e **outros**.
+Ao criar um arquivo ou uma pasta, o umask é usado para modificar como as ACLs padrão são definidas no item filho. umask é um valor de 9 bits em pastas pai que contém um valor de RWX para **usuário proprietário**, **grupo proprietário** e **outros**.
 
 O umask para Azure Data Lake Storage Gen1 é um valor constante definido como 007. Esse valor é convertido em
 
@@ -280,7 +278,11 @@ As entradas nas ACLs são armazenadas como GUIDs que correspondem aos usuários 
 
 ### <a name="why-do-i-sometimes-see-guids-in-the-acls-when-im-using-the-azure-portal"></a>Por que, às vezes, vejo GUIDs nas ACLs ao usar o portal do Azure?
 
-Um GUID é mostrado quando o usuário não existe mais no Azure AD. Geralmente isso acontece se o usuário tiver deixado a empresa ou se sua conta tiver sido excluída no Azure AD.
+Um GUID é mostrado quando o usuário não existe mais no Azure AD. Geralmente isso acontece se o usuário tiver deixado a empresa ou se sua conta tiver sido excluída no Azure AD. Além disso, verifique se você está usando a ID correta para definir ACLs (detalhes em questão abaixo).
+
+### <a name="when-using-service-principal-what-id-should-i-use-to-set-acls"></a>Ao usar a entidade de serviço, qual ID devo usar para definir ACLs?
+
+No portal do Azure, vá para **Azure Active Directory-> aplicativos empresariais** e selecione seu aplicativo. A guia **visão geral** deve exibir uma ID de objeto e isso é o que deve ser usado ao adicionar ACLs para acesso a dados (e não a ID do aplicativo).
 
 ### <a name="does-data-lake-storage-gen1-support-inheritance-of-acls"></a>O Data Lake Storage Gen1 dá suporte à herança de ACLs?
 

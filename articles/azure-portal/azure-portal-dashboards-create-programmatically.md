@@ -1,23 +1,14 @@
 ---
 title: Criar de maneira programática Painéis do Azure
 description: Use um Dashboard no portal do Azure como um modelo para criar programaticamente painéis do Azure. Inclui referência JSON.
-services: azure-portal
-documentationcenter: ''
-author: adamabmsft
-manager: mtillman
-ms.service: azure-portal
-ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 03/23/2020
-ms.author: mblythe
-ms.openlocfilehash: 7f52bd94a0286ea50d09ab7c77dce339e8a3ebf3
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.date: 12/4/2020
+ms.openlocfilehash: e69d3f3cea0ff63f94e797047eb10b9583678b1b
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089359"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745801"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Criar de maneira programática Painéis do Azure
 
@@ -35,7 +26,7 @@ Independentemente das ferramentas usadas, para criar um Dashboard programaticame
 
 A maneira mais prática de criar esse documento JSON é usar o portal do Azure. Você pode adicionar e posicionar seus blocos interativamente. Em seguida, exporte o JSON e crie um modelo do resultado para uso posterior em scripts, programas e ferramentas de implantação.
 
-## <a name="create-a-dashboard"></a>Criar um dashboard
+## <a name="create-a-dashboard"></a>Criar um painel
 
 Para criar um painel, selecione **painel** no menu [portal do Azure](https://portal.azure.com) e, em seguida, selecione **novo painel**.
 
@@ -658,3 +649,49 @@ Este exemplo implanta um painel por si só, mas a linguagem do modelo permite qu
 ```
 
 Agora que você viu um exemplo de como usar um modelo com parâmetros para implantar um painel, você pode tentar implantar o modelo usando as [APIs REST do Azure Resource Manager](/rest/api/), os comandos [CLI do Azure](/cli/azure)ou [Azure PowerShell](/powershell/azure/get-started-azureps).
+
+## <a name="programmatically-create-a-dashboard-by-using-azure-cli"></a>Criar programaticamente um painel usando CLI do Azure
+
+Prepare seu ambiente para a CLI do Azure.
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- Esses exemplos usam o seguinte painel: [portal-dashboard-template-testvm.jsem](https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json). Substitua o conteúdo por colchetes angulares pelos seus valores.
+
+Execute o comando [AZ portal Dashboard Create](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_create) para criar um painel:
+
+```azurecli
+az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' \
+   --input-path portal-dashboard-template-testvm.json --location centralus
+```
+
+Você pode atualizar um painel usando o comando [AZ portal Dashboard Update](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update) :
+
+```azurecli
+az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' \
+--input-path portal-dashboard-template-testvm.json --location centralus
+```
+
+Consulte os detalhes de um painel executando o comando [AZ portal Dashboard show](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_show) :
+
+```azurecli
+az portal dashboard show --resource-group myResourceGroup --name 'Simple VM Dashboard'
+```
+
+Para ver todos os painéis para a assinatura atual, use a [lista AZ portal Dashboard](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_list):
+
+```azurecli
+az portal dashboard list
+```
+
+Você também pode ver todos os painéis de um grupo de recursos:
+
+```azurecli
+az portal dashboard list --resource-group myResourceGroup
+```
+
+## <a name="next-steps"></a>Próximas etapas
+
+Para obter mais informações sobre áreas de trabalho, consulte [Manage portal do Azure Settings and Preferences](set-preferences.md).
+
+Para obter mais informações sobre CLI do Azure suporte para painéis, consulte [AZ portal Dashboard](/cli/azure/ext/portal/portal/dashboard).

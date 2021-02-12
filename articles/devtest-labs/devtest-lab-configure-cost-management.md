@@ -3,12 +3,12 @@ title: Exibir a tendência de custo estimado mensal do laboratório no Azure Dev
 description: Este artigo fornece informações sobre como controlar o custo do seu laboratório (gráfico de tendência de custo estimado mensalmente) em Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 220cbd1bc793e4bcfdf03a184d7463114506e6e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a2a9bef9e54ef7deda123aad34cf0c576fd158f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87283819"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98892330"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Acompanhe os custos associados a um laboratório no Azure DevTest Labs
 Este artigo fornece informações sobre como controlar o custo do seu laboratório. Ele mostra como exibir a tendência de custo estimado para o mês do calendário atual para o laboratório. O artigo também mostra como exibir o custo acumulado no mês por recurso no laboratório.
@@ -38,7 +38,7 @@ Para exibir o gráfico Tendência de custo estimado mensal, siga estas etapas:
 
      Os seguintes custos *não* estão incluídos no cálculo de custo:
 
-   * As assinaturas do CSP e do Dreamspark não têm suporte atualmente, pois o Azure DevTest Labs usa as [APIs de cobrança do Azure](../cost-management-billing/manage/usage-rate-card-overview.md) para calcular o custo do laboratório e essas APIs não dão suporte a assinaturas do Dreamspark ou do CSP.
+   * As assinaturas do CSP e do Dreamspark não têm suporte atualmente, pois o Azure DevTest Labs usa as APIs de cobrança do Azure para calcular o custo do laboratório e essas APIs não dão suporte a assinaturas do Dreamspark ou do CSP.
    * Suas tarifas da oferta. No momento, não é possível usar as tarifas de oferta (mostradas em sua assinatura) que você negociou com a Microsoft ou parceiros Microsoft. Somente as tarifas pagas conforme o uso são usadas.
    * Seus impostos
    * Seus descontos

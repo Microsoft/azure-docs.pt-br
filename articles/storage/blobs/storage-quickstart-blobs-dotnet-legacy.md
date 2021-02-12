@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 434093df3465e363d95fb79342d1854b99583d08
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: effb193e54be7331c9dc2874a4a34ef55442ed30
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091416"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96021734"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>Início Rápido: Biblioteca de clientes do Armazenamento do Blob v11 para .NET
 
@@ -33,7 +33,7 @@ Use a biblioteca de clientes do Armazenamento de Blobs do Azure para .NET para:
 
 Recursos adicionais:
 
-* [Documentação de referência da API](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
+* [Documentação de referência da API](/dotnet/api/overview/azure/storage)
 * [Código-fonte da biblioteca](https://github.com/Azure/azure-storage-net/tree/master/Blob)
 * [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
 * [Amostras](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
@@ -43,7 +43,7 @@ Recursos adicionais:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
-* Conta de armazenamento do Azure - [criar uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Conta de armazenamento do Azure - [criar uma conta de armazenamento](../common/storage-account-create.md)
 * O [SDK do .NET Core](https://dotnet.microsoft.com/download/dotnet-core) atual para o seu sistema operacional. Obtenha o SDK e não o runtime.
 
 ## <a name="setting-up"></a>Configurando
@@ -248,7 +248,7 @@ Para criar o contêiner, primeiro crie uma instância do objeto [CloudBlobClient
 Nesse caso, o código chama o método [CreateAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync) para criar o contêiner. Um valor de GUID é acrescentado ao nome do contêiner para garantir que ele seja exclusivo. Em um ambiente de produção, geralmente é preferível usar o método [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync) para criar um contêiner somente se ele ainda não existir.
 
 > [!IMPORTANT]
-> Os nomes de contêiner devem estar em minúsculas. Para saber mais sobre como nomear contêineres e blobs, veja [Nomenclatura e referência de contêineres, blobs e metadados](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+> Os nomes de contêiner devem estar em minúsculas. Para saber mais sobre como nomear contêineres e blobs, veja [Nomenclatura e referência de contêineres, blobs e metadados](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 ```csharp
 // Create the CloudBlobClient that represents the 

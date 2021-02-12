@@ -1,6 +1,6 @@
 ---
-title: APIs REST do PowerShell &
-description: Encontre os principais cmdlets do PowerShell para o pool do SQL do Azure Synapse Analytics, incluindo como pausar e retomar um banco de dados.
+title: PowerShell & APIs REST para o pool SQL dedicado (anteriormente conhecido como SQL DW)
+description: Os principais cmdlets do PowerShell para pool de SQL dedicado (anteriormente conhecido como SQL DW) na análise de Synapse do Azure, incluindo como pausar e retomar um banco de dados.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.openlocfilehash: aaf290fac71fec0ff4106e3f8a1895dd65b94e09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb26ac0071a50095f8e93ce0cc25da0055bdbac8
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89072869"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448223"
 ---
-# <a name="powershell--rest-apis-for-azure-synapse-analytics-sql-pool"></a>PowerShell & APIs REST para o pool SQL do Azure Synapse Analytics
+# <a name="powershell--rest-apis-for-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>PowerShell & APIs REST para o pool SQL dedicado (anteriormente conhecido como SQL DW) no Azure Synapse Analytics 
 
-Muitas tarefas administrativas do pool SQL do Azure Synapse Analytics podem ser gerenciadas usando cmdlets Azure PowerShell ou APIs REST.  Abaixo estão alguns exemplos de como usar comandos do PowerShell para automatizar tarefas comuns em seu pool do SQL.  Para obter alguns bons exemplos de REST, consulte o artigo [Gerenciar escalabilidade com REST](sql-data-warehouse-manage-compute-rest-api.md).
+Muitas tarefas administrativas dedicadas do pool SQL podem ser gerenciadas usando cmdlets Azure PowerShell ou APIs REST.  Abaixo estão alguns exemplos de como usar comandos do PowerShell para automatizar tarefas comuns em seu pool SQL dedicado (anteriormente conhecido como SQL DW).  Para obter alguns bons exemplos de REST, consulte o artigo [Gerenciar escalabilidade com REST](sql-data-warehouse-manage-compute-rest-api.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

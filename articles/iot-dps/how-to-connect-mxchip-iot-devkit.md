@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
-ms.openlocfilehash: 2a030d9ca5422e12856dcb81b29f8327e684c97e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6b6649d03da319171b24baa24983972bf270679
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90528646"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954538"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Use o provisionamento automático do Serviço de Provisionamento de Dispositivos no Hub IoT do Azure para registrar o MXChip IoT DevKit com o Hub IoT
 
-Este artigo descreve como usar o serviço de provisionamento de dispositivos no Hub IoT do Azure para [provisionar](about-iot-dps.md#provisioning-process) o MXChip IOT devkit para um hub IOT do Azure. Neste tutorial, você aprenderá a:
+Este artigo descreve como usar o serviço de provisionamento de dispositivos no Hub IoT do Azure para [provisionar](about-iot-dps.md#provisioning-process) o MXChip IOT devkit para um hub IOT do Azure. Neste tutorial, você aprenderá como:
 
 * Configure o terminal global do serviço de provisionamento de dispositivos em um dispositivo.
 * Use UDS (Unique Device Secret) para gerar um certificado X.509.
@@ -30,9 +30,9 @@ O [ Kit de Desenvolvimento da IoT para MXChip](https://aka.ms/iot-devkit) é uma
 
 Para concluir as etapas neste tutorial, faça primeiro as tarefas a seguir:
 
-* Configure o Wi-Fi do seu DevKit e prepare seu ambiente de desenvolvimento seguindo as etapas da seção "preparar o ambiente de desenvolvimento" em [conectar o IOT DEVKIT AZ3166 ao Hub IOT do Azure na nuvem](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment).
+* Configure o Wi-Fi do seu DevKit e prepare seu ambiente de desenvolvimento seguindo as etapas da seção "preparar o ambiente de desenvolvimento" em [conectar o IOT DEVKIT AZ3166 ao Hub IOT do Azure na nuvem](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md#prepare-the-development-environment).
 * Atualize para o firmware mais recente (1.3.0 ou posterior) com o tutorial [Atualização do firmware do Kit de Desenvolvimento](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/).
-* Crie e vincule um Hub IoT a uma instância do serviço de provisionamento de dispositivo seguindo as etapas em [Configurar o serviço de provisionamento de dispositivo do Hub IoT com o portal do Azure](/azure/iot-dps/quick-setup-auto-provision).
+* Crie e vincule um Hub IoT a uma instância do serviço de provisionamento de dispositivo seguindo as etapas em [Configurar o serviço de provisionamento de dispositivo do Hub IoT com o portal do Azure](./quick-setup-auto-provision.md).
 
 ## <a name="open-sample-project"></a>Abra um projeto de exemplo
 
@@ -74,7 +74,7 @@ Salvar uma UDS no Kit de desenvolvimento:
 
 ## <a name="update-the-global-device-endpoint-and-id-scope"></a>Atualizar o ponto de extremidade do dispositivo Global e o escopo da ID
 
-No código de dispositivo, você precisará especificar o [ponto de extremidade de provisionamento de dispositivos](/azure/iot-dps/concepts-service#device-provisioning-endpoint) e escopo da ID para garantir o isolamento de locatários.
+No código de dispositivo, você precisará especificar o [ponto de extremidade de provisionamento de dispositivos](./concepts-service.md#device-provisioning-endpoint) e escopo da ID para garantir o isolamento de locatários.
 
 1. No portal do Azure, selecione o painel **visão geral** do serviço de provisionamento de dispositivos e anote os valores do **ponto de extremidade do dispositivo global** e do **escopo da ID** .
   ![Endpoint global e escopo de ID do serviço de provisionamento de dispositivo](media/how-to-connect-mxchip-iot-devkit/dps-global-endpoint.png)
@@ -90,7 +90,7 @@ No código de dispositivo, você precisará especificar o [ponto de extremidade 
 
 ## <a name="generate-x509-certificate"></a>Gerar certificado X.509
 
-O [mecanismo de atestado](/azure/iot-dps/concepts-device#attestation-mechanism) usado por este exemplo é o certificado X.509. Você precisa usar um utilitário para gerá-lo.
+O [mecanismo de atestado](./concepts-service.md#attestation-mechanism) usado por este exemplo é o certificado X.509. Você precisa usar um utilitário para gerá-lo.
 
 1. No VS Code, clique em `F1`, digite e selecione **abrir Terminal novo** para abrir a janela de terminal.
 
@@ -141,4 +141,3 @@ Em resumo, você aprendeu a:
 > * Verifique se o dispositivo está registrado.
 
 Saiba como [Criar e provisionar um dispositivo simulado](./quick-create-simulated-device.md).
-

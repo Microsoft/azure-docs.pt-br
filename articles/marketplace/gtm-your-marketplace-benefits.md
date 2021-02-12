@@ -4,15 +4,15 @@ description: Go-To-Market Services – os recursos da Microsoft que os publicado
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 09/24/2020
+ms.date: 01/13/2021
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: da3194559ef5ec4c325f7dc15591f57c0d9c38c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07535add495484abae06fc6ac8ac435d84bccc52
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91368222"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246240"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Benefícios do marketplace comercial
 
@@ -26,7 +26,7 @@ As Recompensas do Marketplace foram projetadas para dar suporte a você em seu e
 
 O programa cria um loop de comentários positivo: os benefícios em cada estágio de crescimento são projetados para você avançar para o próximo estágio, permitindo que seu negócio cresça com os clientes da Microsoft, com o campo da Microsoft e por meio do canal da Microsoft, utilizando o marketplace comercial como sua plataforma.
 
-Seus benefícios são diferenciados com base no seu tipo de oferta: [Lista, Avaliação ou Transação](determine-your-listing-type.md#choose-a-listing-option).
+Seus benefícios são diferenciados com base no seu tipo de oferta: [Lista, Avaliação ou Transação](determine-your-listing-type.md).
 
 Com base em sua qualificação, você será contatado por um membro da equipe de recompensas quando sua oferta ficar ativa.
 
@@ -65,7 +65,7 @@ Se você publicar uma prova de conceito, implementação ou workshop de avaliaç
 
 A tabela a seguir resume os requisitos de qualificação para as ofertas de lista, avaliação e consultoria:
 
-![Benefícios de Entrada no Mercado](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
+![Benefícios de Entrada no Mercado](./media/marketplace-publishers-guide/go-to-market-gtm-eligibility-requirements.png)
 
 Descrições detalhadas de todos os esses benefícios podem ser encontradas no [Conjunto do programa de Recompensas do Marketplace](https://aka.ms/marketplacerewards).
 
@@ -104,16 +104,16 @@ Os editores de [Lista e Avaliação](determine-your-listing-type.md) podem aceit
 
 A Microsoft se reserva o direito de revogar e encerrar os benefícios de Recompensas do Marketplace para os editores que:
 
-* Envolva atividades ilegais usando a listagem do Marketplace.
-* Receba uma compra conhecida ou acreditada como fraudulenta.
-* Estão listadas no Marketplace comercial.
-* Use sua oferta para mostrar marketing ou outro conteúdo que viole as leis de direitos autorais ou marcas comerciais.
-* Viole as políticas do programa de [patrocínio do Azure](https://azure.microsoft.com/offers/ms-azr-0036p/), incluindo, mas não se limitando a, usando o financiamento de patrocínio do Azure para suas próprias operações internas ou mineração de Bitcoin.
+- Envolva atividades ilegais usando a listagem do Marketplace.
+- Receba uma compra conhecida ou acreditada como fraudulenta.
+- Estão listadas no Marketplace comercial.
+- Use sua oferta para mostrar marketing ou outro conteúdo que viole as leis de direitos autorais ou marcas comerciais.
+- Viole as políticas do programa de [patrocínio do Azure](https://azure.microsoft.com/offers/ms-azr-0036p/), incluindo, mas não se limitando a, usando o financiamento de patrocínio do Azure para suas próprias operações internas ou mineração de Bitcoin.
 
 A Microsoft se reserva o direito de revogar e encerrar recompensas do Marketplace quando:
 
-* O cliente que faz a compra foi feito de forma acidental e deseja cancelar a compra.
-* O cliente cancela antes de usar o produto do parceiro.
+- O cliente que faz a compra foi feito de forma acidental e deseja cancelar a compra.
+- O cliente cancela antes de usar o produto do parceiro.
 
 ### <a name="offer-availability"></a>Disponibilidade da oferta
 

@@ -7,12 +7,12 @@ ms.author: vkukke
 ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
-ms.openlocfilehash: b3babfe93012fae15e79362ba34f3f48856bc833
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8314447e7d5d282eb428ec9316c4eef6844a7423
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86171730"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682372"
 ---
 # <a name="event-grid-concepts"></a>Conceitos da Grade de Eventos
 
@@ -48,7 +48,7 @@ Consulte a [documentação da API REST](api.md) sobre como gerenciar assinaturas
 
 ## <a name="event-handlers"></a>Manipuladores de eventos
 
-Sob a perspectiva de uma Grade de Eventos, um manipulador de eventos é o local em que o evento é enviado. O manipulador executa uma ação adicional para processar o evento. Grade de eventos do Azure dá suporte a vários tipos de manipulador. Você pode usar um serviço do Azure com suporte ou seu próprio gancho da Web como o manipulador. Dependendo do tipo de manipulador, a Grade de Eventos segue diferentes mecanismos para assegurar a entrega do evento. Se o manipulador de eventos de destino for um gancho da Web HTTP, o evento será repetido quando o manipulador retornar um código de status `200 – OK` . Para o Hub do Edge, se o evento for entregue sem nenhuma exceção, ele será considerado com êxito.
+Sob a perspectiva de uma Grade de Eventos, um manipulador de eventos é o local em que o evento é enviado. O manipulador executa uma ação adicional para processar o evento. Grade de eventos do Azure dá suporte a vários tipos de manipulador. Você pode usar um serviço do Azure com suporte ou seu próprio gancho da Web como o manipulador. Dependendo do tipo de manipulador, a Grade de Eventos segue diferentes mecanismos para assegurar a entrega do evento. Se o manipulador de eventos de destino for um gancho da Web HTTP, o evento será repetido até que o manipulador retorne um código de status `200 – OK` . Para o Hub do Edge, se o evento for entregue sem nenhuma exceção, ele será considerado com êxito.
 
 ## <a name="security"></a>Segurança
 
@@ -58,6 +58,6 @@ A Grade de Eventos proporciona segurança na assinatura em tópicos e na publica
 
 Se a Grade de Eventos não puder confirmar que um evento foi recebido pelo ponto de extremidade do assinante, ela repetirá a entrega do evento. Para saber mais, confira [Event Grid message delivery and retry](delivery-retry.md) (Entrega e repetição de mensagens da Grade de Eventos).
 
-## <a name="batching"></a>Envio em lote
+## <a name="batching"></a>Separação em lotes
 
 Ao usar um tópico personalizado, os eventos sempre devem ser publicados em uma matriz. Para cenários de baixa taxa de transferência, a matriz terá apenas um valor. Para casos de uso de alto volume, é recomendável que você execute vários eventos em lote por publicação para obter maior eficiência. Lotes podem ter até 1 MB. Cada evento ainda deve ser maior que 1 MB (versão prévia).

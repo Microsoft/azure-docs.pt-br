@@ -1,14 +1,14 @@
 ---
 title: Entender ciclo de vida de um blueprint
 description: Saiba mais sobre o ciclo de vida que uma definição do plano gráfico passa e detalhes sobre cada estágio, incluindo a atualização e a remoção de atribuições de plano gráfico.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: c1de2cf869362154b112c3eef74ed1fb0db3a993
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 721a198b5732af01c6712e86bc0c8e8ef543b404
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049699"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918510"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Entender o ciclo de vida de um Blueprint do Azure
 

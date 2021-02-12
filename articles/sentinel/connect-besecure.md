@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2020
+ms.date: 01/12/2021
 ms.author: yelevin
-ms.openlocfilehash: f6fd6920fafe4c1080cb5539e4e0222d9d6e18cd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 313f201aeabd470850b27d979dc5253f80e82a55
+ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102771"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541148"
 ---
 # <a name="connect-your-beyond-security-besecure-to-azure-sentinel"></a>Conecte-se à segurança mais segura para o Azure Sentinel
 
 > [!IMPORTANT]
-> O conector de dados de segurança mais seguro no Azure Sentinel está atualmente em visualização pública. Esse recurso é fornecido sem um contrato de nível de serviço. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> No momento, o conector do Security besecure está em versão **prévia**. Consulte os [termos de uso suplementares para Microsoft Azure visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de termos legais adicionais que se aplicam aos recursos do Azure que estão em versão beta, visualização ou, de outra forma, ainda não foram lançadas em disponibilidade geral.
 
-Além da segurança, o conector do SECURE Security permite que você conecte facilmente todos os seus logs de solução de segurança comseguros com sua Sentinela do Azure, para exibir painéis, criar alertas personalizados e melhorar a investigação. A integração entre o beseguro e o Azure Sentinel usa a API REST.
+O conector para além da segurança se tornar seguro permite que você conecte facilmente todos os seus logs de solução de segurança comseguros com sua Sentinela do Azure, para exibir painéis, criar alertas personalizados e melhorar a investigação. A integração entre o beseguro e o Azure Sentinel usa a API REST.
 
 > [!NOTE]
 > Os dados serão armazenados na localização geográfica do espaço de trabalho no qual você está executando o Azure Sentinel.
@@ -36,7 +36,9 @@ Além da segurança, o conector do SECURE Security permite que você conecte fac
 
 o beseguro pode integrar e exportar logs diretamente para o Azure Sentinel.
 
-1. No portal do Azure Sentinel, clique em **conectores de dados** e selecione além da segurança se comportar **(versão prévia)** e **abra a página conector** .
+1. No menu de navegação do Azure Sentinel, selecione **conectores de dados**.
+
+1. Na Galeria de **conectores de dados** , selecione além da segurança se comparada **(versão prévia)** e **abra a página conector**.
 
 1. Siga as etapas abaixo para configurar sua solução de besegurança para enviar resultados da verificação, status da verificação e logs de trilha de auditoria para o Azure Sentinel.
 
@@ -49,23 +51,26 @@ o beseguro pode integrar e exportar logs diretamente para o Azure Sentinel.
 
     1. Habilitar o Azure Sentinel 
 
-    **Forneça as configurações do adseguro com o Azure Sentinel.**
-      - Copie a *ID do espaço de trabalho* e os valores de *chave primária* da página do conector do Azure Sentinel, Cole-os na configuração de besegurança e clique em **Modificar** .
+    **Forneça as configurações do adseguro com o Azure Sentinel:**
+
+      Copie a *ID do espaço de trabalho* e os valores de *chave primária* da página do conector do Azure Sentinel, Cole-os na configuração de besegurança e clique em **Modificar**.
+      
+      :::image type="content" source="media/connectors/workspace-id-primary-key.png" alt-text="{ID do espaço de trabalho e chave primária}":::
 
 ## <a name="find-your-data"></a>Encontre seus dados
 
-Depois que uma conexão bem-sucedida é estabelecida, os dados aparecem nos **logs** , na seção **CustomLogs** , em uma ou mais das seguintes tabelas:
+Depois que uma conexão bem-sucedida é estabelecida, os dados aparecem nos **logs**, na seção **CustomLogs** , em uma ou mais das seguintes tabelas:
   - `beSECURE_ScanResults_CL`
   - `beSECURE_ScanEvents_CL`
   - `beSECURE_Audit_CL`
 
-Para consultar os logs do comseguro no Log Analytics, insira um dos nomes de tabela acima na parte superior da janela de consulta.
+Para consultar os logs do comseguro nas regras de análise, procurando consultas, investigações ou em qualquer outro lugar no Azure Sentinel, insira um dos nomes de tabela acima na parte superior da janela de consulta.
 
 ## <a name="validate-connectivity"></a>Validar a conectividade
 Pode levar até 20 minutos até que os logs comecem a aparecer na Log Analytics.
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu a se conectar ao adseguro ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
-- Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
+- Saiba como [obter visibilidade de seus dados e ameaças em potencial](quickstart-get-visibility.md).
 - Comece a [detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).
 - [Use pastas de trabalho](tutorial-monitor-your-data.md) para monitorar seus dados.

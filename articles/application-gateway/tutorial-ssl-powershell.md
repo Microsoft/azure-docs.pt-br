@@ -9,33 +9,33 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 67d22535f44d4d1b39b6c305fa0670d2d08be0c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bd57344f0bd7f3b97c523f9378a5820c1a90a84
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595794"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396543"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-azure-powershell"></a>Criar um gateway de aplicativo com terminação TLS usando Azure PowerShell
 
-Você pode usar Azure PowerShell para criar um [Gateway de aplicativo](overview.md) com um certificado para [terminação TLS/SSL](ssl-overview.md) que usa um [conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para servidores de back-end. Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que são adicionadas ao pool de back-end padrão do gateway de aplicativo. 
+Você pode usar Azure PowerShell para criar um [Gateway de aplicativo](overview.md) com um certificado para [terminação TLS/SSL](ssl-overview.md) que usa um [conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/overview.md) para servidores de back-end. Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que são adicionadas ao pool de back-end padrão do gateway de aplicativo. 
 
 Neste artigo, você aprenderá como:
 
-* Crie um certificado autoassinado
+* Criará um certificado autoassinado
 * Configurar uma rede
 * Criar um gateway de aplicativo com o certificado
 * Criar um conjunto de dimensionamento de máquinas virtuais com o pool de back-end padrão
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Este artigo requer o módulo Azure PowerShell versão 1.0.0 ou posterior. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzAccount` para criar uma conexão com o Azure.
 
-## <a name="create-a-self-signed-certificate"></a>Crie um certificado autoassinado
+## <a name="create-a-self-signed-certificate"></a>Criará um certificado autoassinado
 
-Para uso em produção, você deve importar um certificado válido assinado por um fornecedor confiável. Para este artigo, você cria um certificado autoassinado usando [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). Você pode usar o [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) com a impressão digital que foi retornada para exportar um arquivo pfx do certificado.
+Para uso em produção, você deve importar um certificado válido assinado por um fornecedor confiável. Para este artigo, você cria um certificado autoassinado usando [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). Você pode usar o [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate) com a impressão digital que foi retornada para exportar um arquivo pfx do certificado.
 
 ```powershell
 New-SelfSignedCertificate `

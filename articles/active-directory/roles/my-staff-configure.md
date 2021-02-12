@@ -3,22 +3,22 @@ title: Usar minha equipe para delegar o gerenciamento de usuários (visualizaç�
 description: Delegar o gerenciamento de usuários usando minha equipe e unidades administrativas
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.date: 05/08/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 927d1f6dff9a24fb8427bb9c353e6cc61ac6a1f0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 501fe17734be1e73ffc516a7b94300445c331e86
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374251"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090936"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Gerenciar seus usuários com minha equipe (versão prévia)
 
@@ -89,7 +89,7 @@ As seguintes funções têm permissão para redefinir a senha de um usuário:
 
 - [Administrador de autenticação](permissions-reference.md#authentication-administrator)
 - [Administrador de autenticação privilegiada](permissions-reference.md#privileged-authentication-administrator)
-- [Administrador global](permissions-reference.md#global-administrator--company-administrator)
+- [Administrador global](permissions-reference.md#global-administrator)
 - [Administrador de assistência técnica](permissions-reference.md#helpdesk-administrator)
 - [Administrador de usuários](permissions-reference.md#user-administrator)
 - [Administrador de senhas](permissions-reference.md#password-administrator)
@@ -117,9 +117,9 @@ Para gerenciar o número de telefone de um usuário, você deve receber uma das 
 
 - [Administrador de autenticação](permissions-reference.md#authentication-administrator)
 - [Administrador de autenticação privilegiada](permissions-reference.md#privileged-authentication-administrator)
-- [Administrador global](permissions-reference.md#global-administrator--company-administrator)
+- [Administrador global](permissions-reference.md#global-administrator)
 
-## <a name="search"></a>Search
+## <a name="search"></a>Pesquisar
 
 Você pode pesquisar a AUs e os usuários em sua organização usando a barra de pesquisa na minha equipe. Você pode pesquisar em toda a AUs e todos os usuários em sua organização, mas só pode fazer alterações aos usuários que estão em uma AU sobre a qual você recebeu permissões de administrador.
 

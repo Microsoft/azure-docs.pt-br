@@ -1,20 +1,20 @@
 ---
 title: Autenticar Azure Stream Analytics para Azure Data Lake Storage Gen1
 description: Este artigo descreve como usar identidades gerenciadas para autenticar seu trabalho do Azure Stream Analytics para a saída do Azure Data Lake Storage Gen1.
-author: mamccrea
-ms.author: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 551f0065f1547e94d93993a38795234f455b9eef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7e9b1ecef9cfda804b89f0ba1beeb54d7d48b98
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044389"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020342"
 ---
-# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Autenticar Stream Analytics para Azure Data Lake Storage Gen1 usando identidades gerenciadas
+# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Autenticar Stream Analytics para Azure Data Lake Storage Gen1 usando identidades gerenciadas (versão prévia)
 
 O Azure Stream Analytics dá suporte à autenticação de identidade gerenciada com a saída do ADLS (Azure Data Lake Storage) Gen1. A identidade é um aplicativo gerenciado registrado no Azure Active Directory que representa um determinado trabalho do Stream Analytics e pode ser usada para autenticar um recurso almejado. Identidades gerenciadas eliminam as limitações dos métodos de autenticação baseados em usuário, como a necessidade de autenticar novamente devido a alterações de senha ou expirações de token de usuário que ocorrem a cada 90 dias. Além disso, as identidades gerenciadas ajudam com a automação de implantações de trabalho do Stream Analytics que produzem saída para o Azure Data Lake Storage Gen1.
 
@@ -84,7 +84,7 @@ Este artigo mostra três maneiras de habilitar a identidade gerenciada para um t
 
    * Definem automaticamente as permissões **Escrever** e **Executar** para o caminho de prefixo do ADLS Gen1 usado no trabalho e o atribui a essa pasta e todos os filhos.
 
-5. Gere os modelos do Resource Manager com a propriedade a seguir usando [o pacote Nuget CI/CD do Stream Analytics](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/) versão 1.5.0 ou superior em um computador de build (fora do Visual Studio). Siga as etapas de implantação de modelo do Resource Manager na próxima seção para obter a entidade de serviço e permitir acesso a ela por meio do PowerShell.
+5. Você pode gerar os modelos do Resource Manager com a seguinte propriedade usando [Stream Analytics pacote NuGet CI.CD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/) versão 1.5.0 ou superior em um computador de compilação (fora do Visual Studio). Siga as etapas de implantação de modelo do Resource Manager na próxima seção para obter a entidade de serviço e permitir acesso a ela por meio do PowerShell.
 
 ## <a name="resource-manager-template-deployment"></a>Implantação de modelo do Resource Manager
 
@@ -174,6 +174,10 @@ Este artigo mostra três maneiras de habilitar a identidade gerenciada para um t
    ```
 
    Para saber mais sobre o comando do PowerShell acima, consulte a documentação do [set-AzDataLakeStoreItemAclEntry](/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) .
+
+## <a name="remove-managed-identity"></a>Remover identidade gerenciada
+
+A identidade gerenciada criada para um trabalho de Stream Analytics é excluída somente quando o trabalho é excluído. Não é possível excluir a identidade gerenciada sem excluir o trabalho. Se você não quiser mais usar a identidade gerenciada, poderá alterar o método de autenticação para a saída. A identidade gerenciada continuará existindo até que o trabalho seja excluído e será usado se você decidir usar a autenticação de identidade gerenciada novamente.
 
 ## <a name="limitations"></a>Limitações
 Este recurso não oferece suporte ao seguinte:

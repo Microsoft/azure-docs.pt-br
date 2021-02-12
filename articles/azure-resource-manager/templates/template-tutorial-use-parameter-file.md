@@ -1,17 +1,17 @@
 ---
 title: Tutorial – usar um arquivo de parâmetro para implantar o modelo
-description: Use arquivos de parâmetro que contenham os valores a serem usados para implantar seu modelo do Azure Resource Manager.
+description: Use arquivos de parâmetro que contenham os valores a serem usados para implantar seu modelo do ARM (modelo do Azure Resource Manager).
 author: mumian
 ms.date: 09/10/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: de72f9f32a3b08ad1742ee2055efce5b93cab899
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6257161017afc9dab692c43fcc64e5d961a90ba
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90069502"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368419"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-arm-template"></a>Tutorial: Usar arquivos de parâmetro para implantar seu modelo do ARM
 
@@ -41,23 +41,25 @@ Você não precisa fornecer um valor para cada parâmetro. Se um parâmetro não
 
 Não é possível especificar um nome de parâmetro no arquivo de parâmetros que não corresponda a um nome de parâmetro no modelo. Você receberá um erro quando forem fornecidos parâmetros desconhecidos.
 
-No VS Code, crie um arquivo com o seguinte conteúdo. Salve o arquivo com o nome **azuredeploy.parameters.dev.json**.
+No Visual Studio Code, crie um arquivo com o conteúdo a seguir. Salve o arquivo com o nome _azuredeploy.parameters.dev.json_.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.dev.json":::
 
-Esse arquivo é seu arquivo de parâmetro para o ambiente de desenvolvimento. Observe que ele usa Standard_LRS para a conta de armazenamento, nomeia recursos com um prefixo **dev** e define a tag **Ambiente** como **Dev**.
+Esse arquivo é seu arquivo de parâmetro para o ambiente de desenvolvimento. Observe que ele usa **Standard_LRS** para a conta de armazenamento, nomeia recursos com um prefixo **dev** e define a marca `Environment` como **Desenvolvimento**.
 
-Novamente, crie um arquivo com o conteúdo a seguir. Salve o arquivo com o nome **azuredeploy.parameters.prod.json**.
+Novamente, crie um arquivo com o conteúdo a seguir. Salve o arquivo com o nome _azuredeploy.parameters.prod.json_.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.prod.json":::
 
-Esse arquivo é seu arquivo de parâmetro para o ambiente de produção. Observe que ele usa Standard_GRS para a conta de armazenamento, nomeia recursos com um prefixo **contoso** e define uma tag **Ambiente** como **Produção**. Em um ambiente de produção real, também seria conveniente usar um serviço de aplicativo com um SKU que não seja gratuito, mas continuaremos usando esse SKU para este tutorial.
+Esse arquivo é seu arquivo de parâmetro para o ambiente de produção. Observe que ele usa **Standard_GRS** para a conta de armazenamento, nomeia recursos com um prefixo **contoso** e define a marca `Environment` como **Produção**. Em um ambiente de produção real, também seria conveniente usar um serviço de aplicativo com um SKU que não seja gratuito, mas continuaremos usando esse SKU para este tutorial.
 
 ## <a name="deploy-template"></a>Implantar modelo
 
 Use a CLI do Azure ou o Azure PowerShell para implantar o modelo.
 
 Como um teste final do seu modelo, vamos criar dois novos grupos de recursos. Um para o ambiente de desenvolvimento e outro para o ambiente de produção.
+
+Para as variáveis de modelo e parâmetro, substitua `{path-to-the-template-file}`, `{path-to-azuredeploy.parameters.dev.json}`, `{path-to-azuredeploy.parameters.prod.json}` e as chaves `{}` pelos caminhos de modelo e arquivo de parâmetro.
 
 Primeiro, implantaremos no ambiente de desenvolvimento.
 
@@ -128,7 +130,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Se a implantação falhar, use a opção **Detalhado** para obter informações sobre os recursos que estão sendo criados. Use a opção **Depurar** para obter mais informações de depuração.
+> Se a implantação falhar, use a opção `verbose` para obter informações sobre os recursos que estão sendo criados. Use a opção `debug` para obter mais informações de depuração.
 
 ## <a name="verify-deployment"></a>Verificar implantação
 
@@ -142,7 +144,7 @@ Você pode verificar a implantação explorando os grupos de recursos do portal 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
 1. No portal do Azure, escolha **Grupos de recursos** do menu à esquerda.
-2. No campo **Filtrar por nome**, insira o nome do grupo de recursos. Se tiver concluído essa série, você terá três grupos de recursos para excluir – myResourceGroup, myResourceGroupDev e myResourceGroupProd.
+2. No campo **Filtrar por nome**, insira o nome do grupo de recursos. Se tiver concluído essa série, você terá três grupos de recursos para excluir: **myResourceGroup**, **myResourceGroupDev** e **myResourceGroupProd**.
 3. Selecione o nome do grupo de recursos.
 4. Escolha **Excluir grupo de recursos** no menu superior.
 

@@ -13,14 +13,15 @@ ms.custom:
 - seo-javascript-september2019
 - seo-python-october2019
 - devx-track-python
-ms.openlocfilehash: aa23f6d5d7b81e93145fd7db3fb5b45e46918d21
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c74da5e612609ce6a0525b24e5868059f06da179
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487578"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078774"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Início Rápido: criar um aplicativo do Python usando uma conta de API de SQL do Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -57,7 +58,7 @@ Neste início rápido, você criará e gerenciará uma conta da API do SQL para 
 
 Agora, você pode usar a ferramenta Data Explorer no portal do Azure para criar um banco de dados e um contêiner. 
 
-1. Selecione **Data Explorer** > **Novo Contêiner** . 
+1. Selecione **Data Explorer** > **Novo Contêiner**. 
     
     A área **Adicionar Contêiner** é exibida à extrema direita; talvez seja necessário rolar a página para a direita para vê-la.
 
@@ -74,7 +75,7 @@ Agora, você pode usar a ferramenta Data Explorer no portal do Azure para criar 
     
     Além das configurações anteriores, opcionalmente, você pode adicionar **Chaves exclusivas** ao contêiner. Vamos deixar o campo vazio neste exemplo. As chaves exclusivas oferecem aos desenvolvedores a capacidade de adicionar uma camada de integridade dos dados ao seu banco de dados. Ao criar uma política de chave exclusiva durante a criação de um contêiner, você garante a exclusividade de um ou mais valores por chave de partição. Para obter mais informações, consulte o artigo [Chaves exclusivas no Azure Cosmos DB](unique-keys.md).
     
-    Selecione **OK** . O Data Explorer exibe o novo banco de dados e o contêiner.
+    Selecione **OK**. O Data Explorer exibe o novo banco de dados e o contêiner.
 
 ## <a name="add-sample-data"></a>Adicionar dados de exemplo
 
@@ -117,25 +118,25 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
 1. Em sua conta do Azure Cosmos DB no [portal do Azure](https://portal.azure.com/), selecione **Chaves** no painel de navegação esquerdo. Use os botões de cópia do lado direito da tela para copiar o **URI** e a **Chave Primária** para o arquivo *cosmos_get_started.py* na próxima etapa.
 
-    :::image type="content" source="./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png" alt-text="O Data Explorer do portal do Azure, painel Adicionar Contêiner":::
+    :::image type="content" source="./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png" alt-text="Obter uma chave de acesso e um URI nas configurações de chaves no portal do Azure":::
 
-2. No Visual Studio Code, abra o arquivo *cosmos_get_started.py* em *\git-samples\azure-cosmos-db-python-getting-started* .
+2. No Visual Studio Code, abra o arquivo *cosmos_get_started.py* em *\git-samples\azure-cosmos-db-python-getting-started*.
 
-3. Copie o valor do **URI** do portal (usando o botão de cópia) e transforme-o no valor da variável do **ponto de extremidade** em *cosmos_get_started.py* . 
+3. Copie o valor do **URI** do portal (usando o botão de cópia) e transforme-o no valor da variável do **ponto de extremidade** em *cosmos_get_started.py*. 
 
     `endpoint = 'https://FILLME.documents.azure.com',`
 
-4. Em seguida, copie o valor da **CHAVE PRIMÁRIA** do portal e transforme-o no valor da **chave** em *cosmos_get_started.py* . Agora, você atualizou o aplicativo com todas as informações necessárias para se comunicar com o Azure Cosmos DB. 
+4. Em seguida, copie o valor da **CHAVE PRIMÁRIA** do portal e transforme-o no valor da **chave** em *cosmos_get_started.py*. Agora, você atualizou o aplicativo com todas as informações necessárias para se comunicar com o Azure Cosmos DB. 
 
     `key = 'FILLME'`
 
-5. Salve o arquivo *cosmos_get_started.py* .
+5. Salve o arquivo *cosmos_get_started.py*.
 
 ## <a name="review-the-code"></a>Examine o código
 
 Esta etapa é opcional. Saiba mais sobre os recursos de banco de dados criados no código ou vá para [Atualizar a cadeia de conexão](#update-your-connection-string).
 
-Todos os snippets de código a seguir foram retirados do arquivo *cosmos_get_started.py* .
+Todos os snippets de código a seguir foram retirados do arquivo *cosmos_get_started.py*.
 
 * O CosmosClient é inicializado. Atualize os valores do "ponto de extremidade" e da "chave" conforme descrito na seção [Atualizar sua cadeia de conexão](#update-your-connection-string). 
 
@@ -163,7 +164,7 @@ Todos os snippets de código a seguir foram retirados do arquivo *cosmos_get_sta
    
 ## <a name="run-the-app"></a>Executar o aplicativo
 
-1. No Visual Studio Code, selecione **Exibir** > **Paleta de Comandos** . 
+1. No Visual Studio Code, selecione **Exibir** > **Paleta de Comandos**. 
 
 2. No prompt, digite **Python: Selecione Interpretador** e, em seguida, selecione a versão do Python a ser usada.
 
@@ -171,7 +172,7 @@ Todos os snippets de código a seguir foram retirados do arquivo *cosmos_get_sta
 
 3. Selecione **Exibir** > **Terminal Integrado** para abrir o terminal integrado do Visual Studio Code.
 
-4. Na janela do terminal integrada, verifique se você está na pasta *azure-cosmos-db-python-getting-started* . Se não estiver, execute o comando a seguir para alternar para a pasta raiz. 
+4. Na janela do terminal integrada, verifique se você está na pasta *azure-cosmos-db-python-getting-started*. Se não estiver, execute o comando a seguir para alternar para a pasta raiz. 
 
     ```cmd
     cd "\git-samples\azure-cosmos-db-python-getting-started"`
@@ -191,7 +192,7 @@ Todos os snippets de código a seguir foram retirados do arquivo *cosmos_get_sta
     python cosmos_get_started.py
     ```
 
-7. Para confirmar se os novos itens foram criados e salvos, no portal do Azure, selecione **Data Explorer** > **AzureSampleFamilyDatabase** > **Itens** . Exiba os itens que foram criados. Por exemplo, aqui está um exemplo de documento JSON para a família Andersen:
+7. Para confirmar se os novos itens foram criados e salvos, no portal do Azure, selecione **Data Explorer** > **AzureSampleFamilyDatabase** > **Itens**. Exiba os itens que foram criados. Por exemplo, aqui está um exemplo de documento JSON para a família Andersen:
    
    ```json
    {

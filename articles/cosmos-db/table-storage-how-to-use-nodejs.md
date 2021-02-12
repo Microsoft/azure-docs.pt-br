@@ -9,14 +9,15 @@ ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-js
-ms.openlocfilehash: 43ac175e2c1caa39bfe88a7c1a5f42318db343fb
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2d40b70d49b1934c9dd2d911369245b1b2e4f2ff
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477276"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079692"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Como usar o Armazenamento de Tabelas do Azure e a API da Tabela do Azure Cosmos DB do Node.js
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
@@ -268,7 +269,7 @@ Inspecione as operações adicionadas a um lote exibindo a propriedade `operatio
 
 ## <a name="retrieve-an-entity-by-key"></a>Recuperar uma entidade por chave
 
-Para retornar uma entidade específica com base em **PartitionKey** e **RowKey** , use o método **retrieveEntity** .
+Para retornar uma entidade específica com base em **PartitionKey** e **RowKey** , use o método **retrieveEntity**.
 
 ```javascript
 tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
@@ -299,7 +300,7 @@ var query = new azure.TableQuery()
   .where('PartitionKey eq ?', 'hometasks');
 ```
 
-Como **select** não é usado, todos os campos retornam. Para realizar a consulta em uma tabela, use **queryEntities** . O exemplo a seguir usa essa consulta para retornar entidades de 'mytable'.
+Como **select** não é usado, todos os campos retornam. Para realizar a consulta em uma tabela, use **queryEntities**. O exemplo a seguir usa essa consulta para retornar entidades de 'mytable'.
 
 ```javascript
 tableSvc.queryEntities('mytable',query, null, function(error, result, response) {
@@ -314,7 +315,7 @@ Se for bem-sucedido, `result.entries` conterá uma matriz de entidades que corre
 ### <a name="query-a-subset-of-entity-properties"></a>consultar um subconjunto de propriedades da entidade
 
 Uma consulta a uma tabela pode recuperar apenas alguns campos de uma entidade.
-Isso reduz a largura de banda e pode melhorar o desempenho da consulta, principalmente em grandes entidades. Use a cláusula **select** e transmita os nomes dos campos a serem retornados. Por exemplo, a consulta a seguir retorna apenas os campos **description** e **dueDate** .
+Isso reduz a largura de banda e pode melhorar o desempenho da consulta, principalmente em grandes entidades. Use a cláusula **select** e transmita os nomes dos campos a serem retornados. Por exemplo, a consulta a seguir retorna apenas os campos **description** e **dueDate**.
 
 ```javascript
 var query = new azure.TableQuery()
@@ -357,7 +358,7 @@ tableSvc.deleteTable('mytable', function(error, response){
 });
 ```
 
-Se você não tiver certeza de que a tabela existe, use **deleteTableIfExists** .
+Se você não tiver certeza de que a tabela existe, use **deleteTableIfExists**.
 
 ## <a name="use-continuation-tokens"></a>Usar tokens de continuação
 
@@ -455,7 +456,7 @@ var sharedAccessPolicy = {
 };
 ```
 
-O exemplo a seguir obtém a ACL atual para a tabela **hometasks** e adiciona as novas políticas usando **setTableAcl** . Essa abordagem permite:
+O exemplo a seguir obtém a ACL atual para a tabela **hometasks** e adiciona as novas políticas usando **setTableAcl**. Essa abordagem permite:
 
 ```javascript
 var extend = require('extend');

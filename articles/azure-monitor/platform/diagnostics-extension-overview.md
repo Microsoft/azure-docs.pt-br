@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 6201a4e0551f0f75dde65b2bc4b8b560a0f5ea20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d424a22a26119dcb3ef6a0e5c4f3dc0c13b1aa4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87007989"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927579"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Visão geral da extensão de Diagnóstico do Azure
 A extensão de Diagnóstico do Azure é um [agente no Azure Monitor](agents-overview.md) que coleta dados de monitoramento do sistema operacional convidado de recursos de computação do Azure, incluindo máquinas virtuais. Este artigo fornece uma visão geral da extensão de Diagnóstico do Azure, incluindo funcionalidades específicas às quais ele dá suporte e opções para instalação e configuração. 
@@ -50,7 +50,7 @@ As tabelas a seguir listam os dados que podem ser coletados pela extensão de di
 | Contadores de desempenho | Valores numéricos que medem o desempenho de diferentes aspectos do sistema operacional e das cargas de trabalho. |
 | Logs IIS             | Informações de uso para sites do IIS em execução no sistema operacional convidado. |
 | Logs de aplicativo     | Rastreio de mensagens gravadas pelo seu aplicativo. |
-| Logs do .NET EventSource |Eventos de gravação de código usando a classe [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) do .NET |
+| Logs do .NET EventSource |Eventos de gravação de código usando a classe [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource) do .NET |
 | [Logs do ETW baseados no manifesto](/windows/desktop/etw/about-event-tracing) |Rastreamento de eventos para eventos do Windows gerados por qualquer processo. |
 | Despejos de memória (logs)   | Informações sobre o estado do processo se um aplicativo falhar. |
 | Logs baseados em arquivo    | Logs criados por seu aplicativo ou serviço. |

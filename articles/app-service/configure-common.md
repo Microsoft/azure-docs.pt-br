@@ -1,21 +1,21 @@
 ---
 title: Configurar aplicativos no portal
-description: Saiba como definir configurações comuns para um aplicativo do serviço de aplicativo no portal do Azure. Configurações do aplicativo, cadeias de conexão, plataforma, pilha de idiomas, contêiner, etc.
+description: Saiba como definir configurações comuns para um aplicativo do serviço de aplicativo no portal do Azure. Configurações do aplicativo, configuração do aplicativo, cadeias de conexão, plataforma, pilha de idiomas, contêiner, etc.
 keywords: serviço de aplicativo do Azure, aplicativo Web, configurações de aplicativo, variáveis de ambiente
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
-ms.date: 08/13/2019
+ms.date: 12/07/2020
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 86f9f227c0ea92b7b52a3037759426cc87f6d937
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ec9e3b6ca4b07003852681523a21b87ab7b8671b
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152045"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825954"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar um aplicativo do serviço de aplicativo no portal do Azure
 
-Este tópico explica como definir configurações comuns para aplicativos Web, back-end móvel ou aplicativo de API usando o [portal do Azure].
+Este artigo explica como definir configurações comuns para aplicativos Web, back-end móvel ou aplicativo de API usando o [portal do Azure].
 
 ## <a name="configure-app-settings"></a>Definir configurações de aplicativo
 
@@ -25,11 +25,11 @@ No [Azure portal], pesquise e selecione **Serviços de Aplicativos** e, em segui
 
 ![Pesquisar serviços de aplicativos](./media/configure-common/search-for-app-services.png)
 
-No menu à esquerda do aplicativo, selecione **Configuration**  >  **configurações do aplicativo**de configuração.
+No menu à esquerda do aplicativo, selecione   >  **configurações do aplicativo** de configuração.
 
 ![Configurações do aplicativo](./media/configure-common/open-ui.png)
 
-Para os desenvolvedores de ASP.NET e ASP.NET Core, definir configurações de aplicativo no serviço de aplicativo é como configurá-los em `<appSettings>` *Web.config* ou *appsettings.jsem*, mas os valores no serviço de aplicativo substituem aqueles em *Web.config* ou *appsettings.jsem*. Você pode manter as configurações de desenvolvimento (por exemplo, senha do MySQL local) em *Web.config* ou *appsettings.js*, mas os segredos de produção (por exemplo, a senha do banco de dados MySQL do Azure) são seguros no serviço de aplicativo. O mesmo código usa suas configurações de desenvolvimento quando você depura localmente e usa seus segredos de produção quando implantado no Azure.
+Para os desenvolvedores de ASP.NET e ASP.NET Core, definir configurações de aplicativo no serviço de aplicativo é como configurá-los em `<appSettings>` *Web.config* ou *appsettings.jsem*, mas os valores no serviço de aplicativo substituem aqueles em *Web.config* ou *appsettings.jsem*. Você pode manter as configurações de desenvolvimento (por exemplo, a senha do MySQL local) em *Web.config* ouappsettings.jsos segredos *de* produção e do Azure (por exemplo, a senha do banco de dados MySQL) com segurança no serviço de aplicativo. O mesmo código usa suas configurações de desenvolvimento quando você depura localmente e usa seus segredos de produção quando implantado no Azure.
 
 Outras pilhas de idiomas, da mesma forma, obtêm as configurações do aplicativo como variáveis de ambiente no tempo de execução. Para obter as etapas específicas da pilha de idiomas, consulte:
 
@@ -112,13 +112,16 @@ Você pode usar o CLI do Azure para criar e gerenciar configurações na linha d
 
 ## <a name="configure-connection-strings"></a>Configurar cadeias de conexão
 
-No [Azure portal], pesquise e selecione **Serviços de Aplicativos** e, em seguida, selecione o nome do seu aplicativo. No menu à esquerda do aplicativo, selecione **Configuration**  >  **configurações do aplicativo**de configuração.
+No [Azure portal], pesquise e selecione **Serviços de Aplicativos** e, em seguida, selecione o nome do seu aplicativo. No menu à esquerda do aplicativo, selecione   >  **configurações do aplicativo** de configuração.
 
 ![Configurações do aplicativo](./media/configure-common/open-ui.png)
 
 Para desenvolvedores de ASP.NET e ASP.NET Core, definir cadeias de conexão no serviço de aplicativo é como configurá-los em `<connectionStrings>` no *Web.config*, mas os valores definidos no serviço de aplicativo substituem aqueles em *Web.config*. Você pode manter as configurações de desenvolvimento (por exemplo, um arquivo de banco de dados) em *Web.config* e os segredos de produção (por exemplo, credenciais do banco de dados SQL) com segurança no serviço de aplicativo. O mesmo código usa suas configurações de desenvolvimento quando você depura localmente e usa seus segredos de produção quando implantado no Azure.
 
-Para outras pilhas de idiomas, é melhor usar [as configurações do aplicativo](#configure-app-settings) , pois as cadeias de conexão exigem formatação especial nas chaves variáveis para acessar os valores. Aqui está uma exceção. no entanto: certos tipos de banco de dados do Azure são submetidos a backup junto com o aplicativo se você configurar suas cadeias de conexão em seu aplicativo. Para obter mais informações, consulte [o que é feito](manage-backup.md#what-gets-backed-up)backup. Se você não precisar desse backup automatizado, use as configurações do aplicativo.
+Para outras pilhas de idiomas, é melhor usar [as configurações do aplicativo](#configure-app-settings) , pois as cadeias de conexão exigem formatação especial nas chaves variáveis para acessar os valores. 
+
+> [!NOTE]
+> Há um caso em que você talvez queira usar cadeias de conexão em vez de configurações do aplicativo para idiomas non-.NET: certos tipos de banco de dados do Azure são submetidos a backup junto com o aplicativo _somente_ se você configurar uma cadeia de conexão para o banco de dados em seu aplicativo do serviço de aplicativo. Para obter mais informações, consulte [o que é feito](manage-backup.md#what-gets-backed-up)backup. Se você não precisar desse backup automatizado, use as configurações do aplicativo.
 
 Em tempo de execução, as cadeias de conexão estão disponíveis como variáveis de ambiente, prefixadas com os seguintes tipos de conexão:
 
@@ -197,7 +200,7 @@ Aqui, você pode definir algumas configurações comuns para o aplicativo. Algum
     ![Configurações gerais para contêineres do Linux](./media/configure-common/open-general-linux.png)
 
 - **Configurações de plataforma**: permite que você defina as configurações para a plataforma de hospedagem, incluindo:
-    - Bit de **bits: 32**bits ou 64 bits.
+    - Bit de **bits: 32** bits ou 64 bits.
     - **Protocolo WebSocket**: para [ASP.net signalr] ou [Socket.Io](https://socket.io/), por exemplo.
     - **Always on**: mantém o aplicativo carregado mesmo quando não há tráfego. Ele é necessário para trabalhos Web contínuos ou para trabalhos Web que são disparados usando uma expressão CRON.
       > [!NOTE]
@@ -224,25 +227,31 @@ Se o aplicativo usa módulos que roteiam com base na URL em vez de fornecer cont
 
 ## <a name="configure-path-mappings"></a>Configurar mapeamentos de caminho
 
-No [Azure portal], pesquise e selecione **Serviços de Aplicativos** e, em seguida, selecione o nome do seu aplicativo. No menu à esquerda do aplicativo, selecione **Configuration**  >  **mapeamentos de caminho**de configuração.
+No [Azure portal], pesquise e selecione **Serviços de Aplicativos** e, em seguida, selecione o nome do seu aplicativo. No menu à esquerda do aplicativo, selecione   >  **mapeamentos de caminho** de configuração.
 
 ![Mapeamentos de caminho](./media/configure-common/open-path.png)
 
-A página **mapeamentos de caminho** mostra diferentes coisas com base no tipo de sistema operacional.
+> [!NOTE] 
+> A guia **mapeamentos de caminho** pode exibir configurações específicas do sistema operacional que diferem do exemplo mostrado aqui.
 
 ### <a name="windows-apps-uncontainerized"></a>Aplicativos do Windows (não-contêinered)
 
 Para aplicativos do Windows, você pode personalizar os mapeamentos de manipulador do IIS e os diretórios e aplicativos virtuais.
 
-Mapeamentos de manipulador permitem que você adicione processadores de script personalizados para manipular solicitações para extensões de arquivo específicas. Para adicionar um manipulador personalizado, clique em **novo manipulador**. Configure o manipulador da seguinte maneira:
+Mapeamentos de manipulador permitem que você adicione processadores de script personalizados para manipular solicitações para extensões de arquivo específicas. Para adicionar um manipulador personalizado, clique em **novo mapeamento de manipulador**. Configure o manipulador da seguinte maneira:
 
-- **Extensão**. A extensão de arquivo que você deseja manipular, como * \* . php* ou *Handler. fcgi*.
+- **Extensão**. A extensão de arquivo que você deseja manipular, como *\* . php* ou *Handler. fcgi*.
 - **Processador de script**. O caminho absoluto do processador de script para você. As solicitações para arquivos que correspondem à extensão de arquivo são processadas pelo processador de script. Use o caminho `D:\home\site\wwwroot` para se referir ao diretório raiz do seu aplicativo.
 - **Argumentos**. Argumentos de linha de comando opcionais para o processador de script.
 
-Cada aplicativo tem o caminho raiz padrão ( `/` ) mapeado para `D:\home\site\wwwroot` , onde seu código é implantado por padrão. Se a raiz do aplicativo estiver em uma pasta diferente ou se o repositório tiver mais de um aplicativo, você poderá editar ou adicionar diretórios e aplicativos virtuais aqui. Clique em **novo aplicativo virtual ou diretório**.
+Cada aplicativo tem o caminho raiz padrão ( `/` ) mapeado para `D:\home\site\wwwroot` , onde seu código é implantado por padrão. Se a raiz do aplicativo estiver em uma pasta diferente ou se o repositório tiver mais de um aplicativo, você poderá editar ou adicionar diretórios e aplicativos virtuais aqui. 
 
-Para configurar aplicativos e diretórios virtuais, especifique cada diretório virtual e seu caminho físico correspondente em relação à raiz do site ( `D:\home` ). Opcionalmente, você pode marcar a caixa de seleção **Aplicativo** para marcar um diretório virtual como um aplicativo.
+Na guia **mapeamentos de caminho** , clique em **novo aplicativo virtual ou diretório**. 
+
+- Para mapear um diretório virtual para um caminho físico, deixe a caixa de seleção **diretório** marcada. Especifique o diretório virtual e o caminho relativo (físico) correspondente para a raiz do site ( `D:\home` ).
+- Para marcar um diretório virtual como um aplicativo Web, desmarque a caixa de seleção **diretório** .
+  
+  ![Caixa de seleção de diretório](./media/configure-common/directory-check-box.png)
 
 ### <a name="containerized-apps"></a>Aplicativos em contêineres
 

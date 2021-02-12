@@ -1,24 +1,24 @@
 ---
-title: 'Início Rápido: Usar o SQL sob demanda'
-description: Neste início rápido, você verá e aprenderá como é fácil consultar vários tipos de arquivos usando o SQL sob demanda (versão prévia).
+title: 'Início Rápido: Usar o pool de SQL sem servidor'
+description: Neste início rápido, você verá e aprenderá como é fácil consultar vários tipos de arquivos usando o pool de SQL sem servidor.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: fe07192b0077518cdd73092f53342c298034cfa8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ffa9e7b5685f9a200f6a403045687626f67f66f4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86274162"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218290"
 ---
-# <a name="quickstart-use-sql-on-demand"></a>Início Rápido: Usar o SQL sob demanda
+# <a name="quickstart-use-serverless-sql-pool"></a>Início Rápido: Usar o pool de SQL sem servidor
 
-O Synapse SQL sob demanda (versão prévia) é um serviço de consulta sem servidor que permite executar as consultas SQL em arquivos colocados no Armazenamento do Azure. Neste início rápido, você aprenderá a consultar vários tipos de arquivos usando o SQL sob demanda. Os formatos compatíveis são listados em [OPENROWSET](sql/develop-openrowset.md).
+O pool de SQL sem servidor do Azure Synapse é um serviço de consulta sem servidor que permite executar as consultas SQL em arquivos colocados no Armazenamento do Azure. Neste início rápido, você aprenderá a consultar vários tipos de arquivos usando o pool de SQL sem servidor. Os formatos compatíveis são listados em [OPENROWSET](sql/develop-openrowset.md).
 
 Este início rápido mostra a consulta de: arquivos CSV, Apache Parquet e JSON.
 
@@ -26,7 +26,7 @@ Este início rápido mostra a consulta de: arquivos CSV, Apache Parquet e JSON.
 
 Escolha um cliente SQL para emitir consultas:
 
-- O [Azure Synapse Studio](quickstart-synapse-studio.md) é uma ferramenta da Web que pode ser usada para procurar arquivos no armazenamento e criar consultas SQL.
+- O [Azure Synapse Studio](./get-started-create-workspace.md) é uma ferramenta da Web que pode ser usada para procurar arquivos no armazenamento e criar consultas SQL.
 - O [Azure Data Studio](sql/get-started-azure-data-studio.md) é uma ferramenta de cliente que permite executar consultas SQL e notebooks no banco de dados sob demanda.
 - O [SQL Server Management Studio](sql/get-started-ssms.md) é uma ferramenta de cliente que permite executar consultas SQL no banco de dados sob demanda.
 
@@ -34,8 +34,8 @@ Parâmetros para o início rápido:
 
 | Parâmetro                                 | Descrição                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| Endereço do ponto de extremidade de serviço do SQL sob demanda    | Usado como o nome do servidor                                   |
-| Região do ponto de extremidade de serviço do SQL sob demanda     | Usada para determinar qual armazenamento será usado nas amostras |
+| Endereço do ponto de extremidade de serviço do pool de SQL sem servidor    | Usado como o nome do servidor                                   |
+| Região do ponto de extremidade de serviço do pool de SQL sem servidor     | Usada para determinar qual armazenamento será usado nas amostras |
 | Nome de usuário e senha para acesso de ponto de extremidade | Usado para acessar o ponto de extremidade                               |
 | O banco de dados usado para criar exibições         | Banco de dados usado como ponto de partida nas amostras       |
 
@@ -44,7 +44,7 @@ Parâmetros para o início rápido:
 Antes de usar os exemplos:
 
 - Criar um banco de dados para as exibições (caso você queira usar exibições)
-- Criar credenciais a serem usadas pelo SQL sob demanda para acessar arquivos no armazenamento
+- Criar credenciais a serem usadas pelo pool de SQL sem servidor para acessar arquivos no armazenamento
 
 ### <a name="create-database"></a>Criar banco de dados
 
@@ -62,7 +62,7 @@ CREATE DATABASE mydbname
 
 ### <a name="create-data-source"></a>Criar a fonte de dados
 
-Para executar consultas usando o SQL sob demanda, crie uma fonte de dados para uso pelo SQL sob demanda para acessar arquivos no armazenamento.
+Para executar consultas usando o pool de SQL sem servidor, crie uma fonte de dados que o pool de SQL sem servidor possa usar para acessar os arquivos no armazenamento.
 Execute o seguinte snippet de código para criar a fonte de dados usada nos exemplos nesta seção:
 
 ```sql
@@ -115,7 +115,7 @@ Para obter mais exemplos, confira como [consultar um arquivo CSV](sql/query-sing
 A amostra a seguir apresenta as funcionalidades de inferência automática de esquemas para consulta de arquivos Parquet. Ela retorna o número de linhas em setembro de 2017 sem especificar o esquema.
 
 > [!NOTE]
-> Você não precisa especificar colunas na cláusula `OPENROWSET WITH` ao ler arquivos Parquet. Nesse caso, o SQL sob demanda utiliza os metadados do arquivo Parquet e associa as colunas por nome.
+> Você não precisa especificar colunas na cláusula `OPENROWSET WITH` ao ler arquivos Parquet. Nesse caso, o pool de SQL sem servidor utiliza os metadados do arquivo Parquet e associa as colunas por nome.
 
 ```sql
 SELECT COUNT_BIG(*)
@@ -153,7 +153,7 @@ Os arquivos são armazenados no contêiner *json* e na pasta *books* e contêm u
 
 ### <a name="query-json-files"></a>Consultar arquivos JSON
 
-A seguinte consulta mostra como usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar valores escalares (título, editor) de um livro com o título *Probabilística e métodos estatísticos em criptologia, uma introdução com artigos selecionados*:
+A seguinte consulta mostra como usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para recuperar valores escalares (título, editor) de um livro com o título *Probabilística e métodos estatísticos em criptologia, uma introdução com artigos selecionados*:
 
 ```sql
 SELECT

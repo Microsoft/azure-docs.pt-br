@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2020
 ms.author: rkarlin
-ms.openlocfilehash: 38e78b80fd14aec7557b563b2b33faf7d51bd114
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 321c8d2b9e58aba943c5bf19adf54d6359c5be96
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759725"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351769"
 ---
 # <a name="quickstart-security-module-for-azure-rtos-preview"></a>Início Rápido: Módulo de Segurança para o Azure RTOS (versão prévia)
 
-Este artigo fornece uma explicação dos pré-requisitos antes de começar e explica como habilitar o Módulo de Segurança para o serviço do Azure RTOS em um Hub IoT. Se você não tiver, no momento, um Hub IoT, confira [Criar um Hub IoT usando o portal do Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) para começar a usar.
+Este artigo fornece uma explicação dos pré-requisitos antes de começar e explica como habilitar o Módulo de Segurança para o serviço do Azure RTOS em um Hub IoT. Se você não tiver, no momento, um Hub IoT, confira [Criar um Hub IoT usando o portal do Azure](../iot-hub/iot-hub-create-through-portal.md) para começar a usar.
 
 > [!NOTE]
 > O Módulo de Segurança para o Azure RTOS tem suporte apenas em Hubs IoT da camada Standard.
@@ -63,10 +63,10 @@ A ingestão do Log Analytics no Hub IoT fica desativada por padrão na solução
 1. Selecione **Coleção de Dados**. 
 1. Na opção **Configuração do workspace**, alterne a opção para **Ativado**. 
 1. Crie um workspace do Log Analytics ou anexe um existente. Verifique se a opção **Acesso a dados de segurança brutos** está selecionada. 
- :::image type="content" source="media/quickstart/azure-rtos-data-collection-on.png" alt-text="Acesso à opção de coleta de dados para o Azure RTOS":::
+ :::image type="content" source="media/quickstart/azure-rtos-data-collection-on.png" alt-text="Configuração do Azure RTOS mostrando as opções de coleta de dados e de dados de segurança brutos selecionadas":::
 1. Selecione **Salvar**
 1. Volte para a lista de recursos do Azure e confirme se você vê o workspace do Log Analytics que criou ou anexou habilitado para o Hub IoT.
-    :::image type="content" source="media/quickstart/verify-azure-resource-list.png" alt-text="Acesso à opção de coleta de dados para o Azure RTOS"::: 
+    :::image type="content" source="media/quickstart/verify-azure-resource-list.png" alt-text="Verifique sua lista de recursos do Azure para confirmar a adição do workspace correto do Log Analytics a um Hub IoT"::: 
 
 ## <a name="next-steps"></a>Próximas etapas
 

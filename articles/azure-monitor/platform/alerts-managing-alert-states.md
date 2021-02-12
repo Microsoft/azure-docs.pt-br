@@ -5,16 +5,16 @@ ms.subservice: alerts
 ms.topic: conceptual
 author: anantr
 ms.date: 09/24/2018
-ms.openlocfilehash: b91c3d59a5a37457d67fdfbc646334fccb331df5
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: fa1701c59f099f5222ab6454cc67b9dc20d1e7e7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104794"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186670"
 ---
 # <a name="manage-alert-and-smart-group-states"></a>Gerenciar alertas e estados de grupos inteligentes
 
-Os alertas no Azure Monitor agora têm um [estado de alerta e uma condição do monitor](./alerts-overview.md) e, da mesma forma, os Grupos Inteligentes têm um [estado do grupo inteligente](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json). As alterações no estado agora são capturadas no histórico associado ao respectivo grupo inteligente ou de alerta. Este artigo orienta você pelo processo de alteração do estado, para um grupo inteligente e de alerta.
+Os alertas no Azure Monitor agora têm um [estado de alerta e uma condição do monitor](./alerts-overview.md) e, da mesma forma, os Grupos Inteligentes têm um [estado do grupo inteligente](./alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json). As alterações no estado agora são capturadas no histórico associado ao respectivo grupo inteligente ou de alerta. Este artigo orienta você pelo processo de alteração do estado, para um grupo inteligente e de alerta.
 
 ## <a name="change-the-state-of-an-alert"></a>Alterar o estado de um alerta
 

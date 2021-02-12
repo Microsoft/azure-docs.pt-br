@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/27/2020
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 1f36f2f26b65fc6078b99a43b6f0bae9a8a8e9f5
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 736ab630b035ae1a668332eb5ab5aa9530ef0e88
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578369"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972395"
 ---
 1. Em uma nova janela do navegador, entre no [Portal do Azure](https://portal.azure.com/).
 
@@ -37,6 +37,7 @@ ms.locfileid: "91578369"
     Nome da Conta|Insira um nome exclusivo|Insira um nome exclusivo para identificar a conta do Azure Cosmos DB. O URI da sua conta será *gremlin.azure.com* acrescentado ao nome da conta exclusivo.<br><br>O nome da conta pode usar apenas letras minúsculas, números e hifens (-) e deve ter de 3 a 31 caracteres.
     API|Gremlin (grafo)|A API determina o tipo de conta a ser criada. O Azure Cosmos DB fornece cinco APIs: Core (SQL) para bancos de dados de documentos, Gremlin para bancos de dados de grafos, MongoDB para bancos de dados de documentos, Tabela do Azure e Cassandra. É necessário criar uma conta separada para cada API. <br><br>Selecione **Gremlin (grafo)**, porque neste início rápido você está criando uma tabela que funciona com a API do Gremlin. <br><br>[Saiba mais sobre a API do Gremlin](../articles/cosmos-db/graph-introduction.md).|
     Location|Selecione a região mais próxima de seus usuários|Selecione uma localização geográfica para hospedar a sua conta do Azure Cosmos DB. Use o local mais próximo dos usuários para fornecer a eles acesso mais rápido aos dados.
+    Modo de capacidade|Taxa de transferência provisionada ou sem servidor|Selecione **Taxa de transferência provisionada** para criar uma conta no modo [taxa de transferência provisionada](../articles/cosmos-db/set-throughput.md). Selecione **Sem servidor** para criar uma conta no modo [sem servidor](../articles/cosmos-db/serverless.md).
 
     Selecione **Revisar + Criar**. Você pode ignorar as seções **Rede** e **Marcas**. 
 

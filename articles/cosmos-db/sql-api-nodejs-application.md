@@ -9,14 +9,15 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: fb8d1cd2e3b481969059883919b9dc888955307e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 49cf54bda985f7d97b2db6a3ada7859aee829cff
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478109"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359533"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Tutorial: Compilar um aplicativo Web do Node.js usando o SDK do JavaScript para gerenciar uma conta de API do SQL no Azure Cosmos DB 
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -64,7 +65,7 @@ Agora vamos aprender a criar um projeto Olá, Mundo em Node.js básico usando a 
 
 1. Navegue até o diretório no qual você deseja armazenar o novo aplicativo.
 
-1. Use o gerador expresso para gerar um novo aplicativo chamado **tarefas** .
+1. Use o gerador expresso para gerar um novo aplicativo chamado **tarefas**.
 
    ```bash
    express todo
@@ -103,11 +104,11 @@ O arquivo **package.json** é um dos arquivos criados na raiz do projeto. Esse a
 Agora que você concluiu a instalação e a configuração iniciais, escreverá o código exigido pelo aplicativo de lista de tarefas pendentes para se comunicar com o Azure Cosmos DB.
 
 ### <a name="create-the-model"></a>Criar o modelo
-1. Na raiz do diretório do projeto, crie um novo diretório chamado **modelos** .  
+1. Na raiz do diretório do projeto, crie um novo diretório chamado **modelos**.  
 
-2. No diretório **models** , criar um novo arquivo chamado **taskDao.js** . Esse arquivo contém o código necessário para criar o banco de dados e o contêiner. Ele também define métodos para ler, atualizar, criar e localizar as tarefas no Azure Cosmos DB. 
+2. No diretório **models**, criar um novo arquivo chamado **taskDao.js**. Esse arquivo contém o código necessário para criar o banco de dados e o contêiner. Ele também define métodos para ler, atualizar, criar e localizar as tarefas no Azure Cosmos DB. 
 
-3. Copie o código a seguir para o arquivo **taskDao.js** :
+3. Copie o código a seguir para o arquivo **taskDao.js**:
 
    ```javascript
     // @ts-check
@@ -188,9 +189,9 @@ Agora que você concluiu a instalação e a configuração iniciais, escreverá 
 
 ### <a name="create-the-controller"></a>Criar o controlador
 
-1. No diretório **rotas** do projeto, crie um novo arquivo chamado **tasklist.js** .  
+1. No diretório **rotas** do projeto, crie um novo arquivo chamado **tasklist.js**.  
 
-2. Adicione os seguintes códigos ao **tasklist.js** . Esse código carrega os módulos CosmosClient e assíncrono que são usados pelo **tasklist.js** . Ele também define a classe **TaskList** que é transmitida a uma instância do objeto **TaskDao** definido anteriormente:
+2. Adicione os seguintes códigos ao **tasklist.js**. Esse código carrega os módulos CosmosClient e assíncrono que são usados pelo **tasklist.js**. Ele também define a classe **TaskList** que é transmitida a uma instância do objeto **TaskDao** definido anteriormente:
    
    ```javascript
     const TaskDao = require("../models/TaskDao");
@@ -249,9 +250,9 @@ Agora que você concluiu a instalação e a configuração iniciais, escreverá 
 
 ### <a name="add-configjs"></a>Adicionar config.js
 
-1. Na raiz do diretório do projeto, crie um novo arquivo chamado **config.js** . 
+1. Na raiz do diretório do projeto, crie um novo arquivo chamado **config.js**. 
 
-2. Adicione o código a seguir ao arquivo **config.js** . Esse código define as configurações e valores necessários para nosso aplicativo.
+2. Adicione o código a seguir ao arquivo **config.js**. Esse código define as configurações e valores necessários para nosso aplicativo.
    
    ```javascript
    const config = {};
@@ -272,7 +273,7 @@ Agora que você concluiu a instalação e a configuração iniciais, escreverá 
    module.exports = config;
    ```
 
-3. No arquivo **config.js** , atualize os valores de HOST e de AUTH_KEY usando os valores encontrados na página Chaves de sua conta do Azure Cosmos DB no [portal do Azure](https://portal.azure.com). 
+3. No arquivo **config.js**, atualize os valores de HOST e de AUTH_KEY usando os valores encontrados na página Chaves de sua conta do Azure Cosmos DB no [portal do Azure](https://portal.azure.com). 
 
 4. Salve e feche o arquivo **config.js** .
 
@@ -280,7 +281,7 @@ Agora que você concluiu a instalação e a configuração iniciais, escreverá 
 
 1. No diretório do projeto, abra o arquivo **app.js** . Esse arquivo foi criado anteriormente, quando o aplicativo Web Express foi criado.  
 
-2. Adicione o código a seguir ao arquivo **app.js** . Esse código define o arquivo de configuração a ser usado e carrega os valores para algumas variáveis que você usará nas próximas seções. 
+2. Adicione o código a seguir ao arquivo **app.js**. Esse código define o arquivo de configuração a ser usado e carrega os valores para algumas variáveis que você usará nas próximas seções. 
    
    ```javascript
     const CosmosClient = require('@azure/cosmos').CosmosClient
@@ -355,13 +356,13 @@ Agora que você concluiu a instalação e a configuração iniciais, escreverá 
     module.exports = app
    ```
 
-3. Por fim, salve e feche o arquivo **app.js** .
+3. Por fim, salve e feche o arquivo **app.js**.
 
 ## <a name="build-a-user-interface"></a><a name="_Toc395783181"></a>Criar uma interface do usuário
 
 Agora vamos criar a interface do usuário para que um usuário possa interagir com o aplicativo. O aplicativo Express que criamos na seção anterior usa **Jade** como o mecanismo de exibição.
 
-1. O arquivo **layout.jade** no diretório **views** é usado como um modelo global para outros arquivos **.jade** . Nesta etapa você o modificará para usar Twitter Bootstrap, um kit de ferramentas usado para projetar sites da Web.  
+1. O arquivo **layout.jade** no diretório **views** é usado como um modelo global para outros arquivos **.jade**. Nesta etapa você o modificará para usar Twitter Bootstrap, um kit de ferramentas usado para projetar sites da Web.  
 
 2. Abra o arquivo **layout.jade** encontrado na pasta **views** e substitua o conteúdo pelo seguinte código:
 
@@ -383,7 +384,7 @@ Agora vamos criar a interface do usuário para que um usuário possa interagir c
 
     Esse código instrui o mecanismo **Jade** a renderizar um HTML para nosso aplicativo e cria um **bloco** chamado **content** em que podemos fornecer o layout para nossas páginas de conteúdo. Salve e feche o arquivo **layout.jade** .
 
-3. Agora, abra o arquivo **index.jade** , o modo de exibição que será usado pelo nosso aplicativo, e substitua o conteúdo do arquivo pelo seguinte código:
+3. Agora, abra o arquivo **index.jade**, o modo de exibição que será usado pelo nosso aplicativo, e substitua o conteúdo do arquivo pelo seguinte código:
 
    ```html
    extends layout
@@ -427,7 +428,7 @@ Agora vamos criar a interface do usuário para que um usuário possa interagir c
           button.btn(type="submit") Add item
    ```
 
-Esse código estende o layout e fornece conteúdo para o espaço reservado **content** que vimos anteriormente no arquivo **layout.jade** . Nesse layout, criamos dois formulários HTML.
+Esse código estende o layout e fornece conteúdo para o espaço reservado **content** que vimos anteriormente no arquivo **layout.jade**. Nesse layout, criamos dois formulários HTML.
 
 O primeiro formulário contém uma tabela para nossos dados e um botão que permite atualizar itens ao ser lançado o método **/completeTask** do controlador.
     
@@ -439,18 +440,18 @@ Agora que você criou o aplicativo, pode executá-lo localmente usando as seguin
 
 1. Para testar o aplicativo no computador local, execute `npm start` no terminal para iniciar o aplicativo e atualize a página do navegador `http://localhost:3000`. A página agora deve se parecer com a seguinte captura de tela:
    
-    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png" alt-text="Aprender Node.js – captura de tela do aplicativo Olá, Mundo em uma janela do navegador":::
+    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png" alt-text="Captura de tela do aplicativo MyTodo List em uma janela do navegador":::
 
     > [!TIP]
     > Se receber um erro sobre o recuo no arquivo layout.jade ou o arquivo index.jade, verifique se as duas primeiras linhas em ambos os arquivos estão justificadas à esquerda, sem espaços. Se houver espaços antes das duas primeiras linhas, remova-os, salve os dois arquivos e atualize a janela do navegador. 
 
-2. Use os campos Item, Nome do Item e Categoria para inserir uma nova tarefa e marque **Adicionar Item** . Isso cria um documento no Azure Cosmos DB com essas propriedades. 
+2. Use os campos Item, Nome do Item e Categoria para inserir uma nova tarefa e marque **Adicionar Item**. Isso cria um documento no Azure Cosmos DB com essas propriedades. 
 
 3. A página deverá ser atualizada para exibir o item recém-criado na lista de Tarefas Pendentes.
    
-    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png" alt-text="Aprender Node.js – captura de tela do aplicativo Olá, Mundo em uma janela do navegador":::
+    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png" alt-text="Captura de tela do aplicativo com um novo item na lista de Tarefas pendentes":::
 
-4. Para concluir uma tarefa, marque a caixa de seleção na coluna Concluir e escolha **Atualizar tarefas** . Isso atualiza o documento que você já criou e o remove da exibição.
+4. Para concluir uma tarefa, marque a caixa de seleção na coluna Concluir e escolha **Atualizar tarefas**. Isso atualiza o documento que você já criou e o remove da exibição.
 
 5. Para interromper o aplicativo, pressione CTRL+C na janela do terminal e marque **Y** para finalizar o trabalho em lotes.
 
@@ -469,7 +470,7 @@ Depois que seu aplicativo for bem-sucedido localmente, você poderá implantá-l
 3. Implante o aplicativo efetuando push para o computador remoto.
    
    ```bash
-   git push azure master
+   git push azure main
    ```
 
 4. Em poucos segundos, seu aplicativo Web será publicado e iniciado em um navegador.

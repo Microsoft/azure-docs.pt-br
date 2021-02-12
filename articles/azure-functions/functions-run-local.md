@@ -1,16 +1,16 @@
 ---
 title: Trabalhar com o Azure Functions Core Tools
-description: Saiba como codificar e testar o Azure Functions do prompt de comando ou terminal no computador local antes de executá-las no Azure Functions.
+description: Saiba como codificar e testar Azure Functions no prompt de comando ou terminal no computador local antes de executá-los em Azure Functions.
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: 17daef18d87c4b5c906694ab1394694b32b6b130
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: efb91c7b26c67a3672abb3f9cc8992fd45971a25
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164849"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932448"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com o Azure Functions Core Tools
 
@@ -155,7 +155,7 @@ As etapas a seguir usma [APT](https://wiki.debian.org/Apt) para instalar as ferr
 
 ## <a name="create-a-local-functions-project"></a>Criar um projeto de funções local
 
-Um diretório de projeto de funções contém os arquivos [host. JSON](functions-host-json.md) e [local.settings.json](#local-settings-file), ao longo de subpastas que contêm o código para funções individuais. Esse diretório é o equivalente ao de um aplicativo de funções no Azure. Para saber mais sobre a estrutura de pastas do Functions, consulte o [guia de desenvolvedores do Azure Functions](functions-reference.md#folder-structure).
+Um diretório de projeto do Functions contém os arquivos [host.js](functions-host-json.md) e [local.settings.jsem](#local-settings-file), juntamente com as subpastas que contêm o código para funções individuais. Esse diretório é o equivalente ao de um aplicativo de funções no Azure. Para saber mais sobre a estrutura de pastas do Functions, consulte o [guia de desenvolvedores do Azure Functions](functions-reference.md#folder-structure).
 
 A versão 3. x/2. x exige que você selecione um idioma padrão para seu projeto quando ele for inicializado. Na versão 3. x/2. x, todas as funções adicionadas usam modelos de idioma padrão. Na versão 1.x, você especifica a linguagem cada vez que você criar uma função.
 
@@ -166,7 +166,7 @@ func init MyFunctionProj
 ```
 
 >[!IMPORTANT]
-> O Java usa um arquétipo Maven para criar o projeto de funções locais, juntamente com sua primeira função disparada por HTTP. Use o seguinte comando para criar seu projeto Java: `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype` . Para obter um exemplo usando o arquétipo do Maven, consulte o guia de [início rápido da linha de comando](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java).  
+> O Java usa um arquétipo Maven para criar o projeto de funções locais, juntamente com sua primeira função disparada por HTTP. Use o seguinte comando para criar seu projeto Java: `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype` . Para obter um exemplo usando o arquétipo do Maven, consulte o guia de [início rápido da linha de comando](./create-first-function-cli-java.md).  
 
 Quando você fornece um nome de projeto, uma nova pasta com esse nome é criada e inicializada. Caso contrário, a pasta atual é inicializada.  
 Na versão 3. x/2. x, ao executar o comando, você deve escolher um tempo de execução para seu projeto. 
@@ -179,7 +179,7 @@ python
 powershell
 </pre>
 
-Use cima/para baixo de teclas de direção para escolher um idioma, em seguida, pressione Enter. Se você planeja desenvolver funções JavaScript ou TypeScript, escolha **nó**e, em seguida, selecione o idioma. O TypeScript tem [alguns requisitos adicionais](functions-reference-node.md#typescript). 
+Use cima/para baixo de teclas de direção para escolher um idioma, em seguida, pressione Enter. Se você planeja desenvolver funções JavaScript ou TypeScript, escolha **nó** e, em seguida, selecione o idioma. O TypeScript tem [alguns requisitos adicionais](functions-reference-node.md#typescript). 
 
 A saída se parece com o seguinte exemplo para um projeto JavaScript:
 
@@ -250,7 +250,7 @@ Mesmo ao usar o Emulador de Armazenamento do Microsoft Azure para desenvolviment
 - No [portal do Azure], procure e selecione contas de **armazenamento**. 
   ![Selecionar contas de armazenamento de portal do Azure](./media/functions-run-local/select-storage-accounts.png)
   
-  Selecione sua conta de armazenamento, selecione **chaves de acesso** em **configurações**e, em seguida, copie um dos valores da cadeia de **conexão** .
+  Selecione sua conta de armazenamento, selecione **chaves de acesso** em **configurações** e, em seguida, copie um dos valores da cadeia de **conexão** .
   ![Copiar cadeia de conexão do portal do Azure](./media/functions-run-local/copy-storage-connection-portal.png)
 
 - Use o [Gerenciador de Armazenamento do Azure](https://storageexplorer.com/) para conectar-se à sua conta do Azure. No **Gerenciador**, expanda sua assinatura, expanda **contas de armazenamento**, selecione sua conta de armazenamento e copie a cadeia de conexão primária ou secundária.
@@ -357,7 +357,7 @@ func start
 ```
 func start
 ```
-Esse comando deve ser [executado em um ambiente virtual](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python#create-venv).
+Esse comando deve ser [executado em um ambiente virtual](./create-first-function-cli-python.md).
 
 # <a name="typescript"></a>[TypeScript](#tab/ts)
 
@@ -593,7 +593,7 @@ Para arquivar uma solicitação de bug ou recurso, [abra um problema do GitHub](
 <!-- LINKS -->
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
-[Azure portal]: https://portal.azure.com 
+[Portal do Azure]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage

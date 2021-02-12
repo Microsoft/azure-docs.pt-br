@@ -1,19 +1,16 @@
 ---
 title: Planejar uma rede virtual para o Azure HDInsight
 description: Saiba como planejar uma implantação de rede virtual do Azure para conectar o HDInsight a outros recursos de nuvem ou recursos em seu datacenter.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
-ms.date: 05/04/2020
-ms.openlocfilehash: 60bb16b0a4fd2e710d0d5fddc6cf82916f2f66af
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 01/12/2021
+ms.openlocfilehash: fe974a96b7f349c9d525d0cd0bb01a83ace57a4f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741418"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939284"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planejar uma rede virtual para o Azure HDInsight
 
@@ -51,7 +48,8 @@ Estas são as perguntas que você deve responder ao planejar a instalação do H
 Use as etapas descritas nesta seção para descobrir como adicionar um novo HDInsight a uma Rede Virtual do Azure existente.
 
 > [!NOTE]  
-> Não é possível adicionar um cluster HDInsight existente a uma rede virtual.
+> - Não é possível adicionar um cluster HDInsight existente a uma rede virtual.
+> - A VNET e o cluster que está sendo criado devem estar na mesma assinatura.
 
 1. Você está usando um modelo de implantação clássico ou do Resource Manager para a rede virtual?
 
@@ -69,7 +67,7 @@ Use as etapas descritas nesta seção para descobrir como adicionar um novo HDIn
 
     Para encontrar a configuração de segurança existente, use os seguintes comandos do Azure PowerShell ou da CLI do Azure:
 
-    * Grupos de Segurança de Rede
+    * Grupos de segurança de rede
 
         Substitua `RESOURCEGROUP` pelo nome do grupo de recursos que contém a rede virtual e, em seguida, insira o comando:
 
@@ -148,7 +146,7 @@ Para permitir a resolução de nomes entre a rede virtual e os recursos em redes
 
          * Encaminhe todas as outras solicitações para o servidor DNS local. O DNS local manipula todas as outras solicitações de resolução de nomes, até mesmo solicitações de recursos da Internet, como Microsoft.com.
 
-     * __DNS local__ : encaminhe solicitações do sufixo DNS da rede virtual para o servidor DNS personalizado. Em seguida, o servidor DNS personalizado encaminha-as para o resolvedor recursivo do Azure.
+     * __DNS local__: encaminhe solicitações do sufixo DNS da rede virtual para o servidor DNS personalizado. Em seguida, o servidor DNS personalizado encaminha-as para o resolvedor recursivo do Azure.
 
        Essa configuração encaminha as solicitações de nomes de domínio totalmente qualificados que contêm o sufixo DNS da rede virtual para o servidor DNS personalizado. Todas as outras solicitações (até mesmo para endereços da Internet pública) são manipuladas pelo servidor DNS local.
 
@@ -212,4 +210,4 @@ Quando você cria um cluster HDInsight, um balanceador de carga também é criad
 * Para obter mais informações sobre redes virtuais do Azure, consulte a [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
 * Para obter mais informações sobre os Grupos de Segurança de Rede, veja [Grupos de segurança de rede](../virtual-network/network-security-groups-overview.md).
 * Para obter mais informações sobre as rotas definidas pelo usuário, confira [Rotas definidas pelo usuário e encaminhamento IP](../virtual-network/virtual-networks-udr-overview.md).
-* Para obter mais informações sobre como controlar o tráfego, consulte [controlar o tráfego de rede](./control-network-traffic.md).
+* Para obter mais informações sobre como controlar o tráfego, incluindo a integração de firewall, consulte [controlar o tráfego de rede](./control-network-traffic.md).

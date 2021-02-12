@@ -4,17 +4,16 @@ description: Saiba como os tipos de nó do Azure Service Fabric estão relaciona
 ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
-ms.custom: sfrev
-ms.openlocfilehash: 870467760a2baaa887b06fb8e01335f225f04d6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e30c02de54806006a1881448bcb9f788a57310c
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90561883"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095246"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipos de nó do Service Fabric e os conjuntos de dimensionamento da máquina virtual
 
-[Conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/index.yml) são um recurso de computação do Azure. Você pode usar os conjuntos de dimensionamento para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó que você define em um cluster do Azure Service Fabric define exatamente um conjunto de dimensionamento: vários tipos de nó não podem ser apoiados pelo mesmo conjunto de dimensionamento e um tipo de nó não deve (na maioria dos casos) ser apoiado por vários conjuntos de dimensionamento. Uma exceção a isso é na rara situação do [dimensionamento vertical](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations) de um tipo de nó, quando você tem temporariamente dois conjuntos de dimensionamento com o mesmo `nodeTypeRef` valor enquanto as réplicas são migradas do original para o conjunto de dimensionamento atualizado.
+[Conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/index.yml) são um recurso de computação do Azure. Você pode usar os conjuntos de dimensionamento para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó que você define em um cluster do Azure Service Fabric define exatamente um conjunto de dimensionamento: vários tipos de nó não podem ser apoiados pelo mesmo conjunto de dimensionamento e um tipo de nó não deve ser apoiado por vários conjuntos de dimensionamento.
 
 O tempo de execução do Service Fabric é instalado em cada máquina virtual no conjunto de dimensionamento pela extensão da máquina virtual *Microsoft. Azure. perfabric* . Cada tipo de nó pode ser escalado vertical ou horizontalmente de forma independente, ter a SKU de sistema operacional em execução em cada nó de cluster, ter conjuntos diferentes de portas abertas e usar métricas de capacidade diferentes.
 
@@ -75,18 +74,18 @@ A seguir estão as descrições de propriedade:
 | **Nome** | **Valores permitidos** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 | name | string | Nome exclusivo para a extensão |
-| type | "ServiceFabricLinuxNode" ou "ServiceFabricWindowsNode" | Identifica o sistema operacional Service Fabric está carregando para |
+| tipo | "ServiceFabricLinuxNode" ou "ServiceFabricWindowsNode" | Identifica o sistema operacional Service Fabric está carregando para |
 | autoUpgradeMinorVersion | true ou false | Habilitar a atualização automática de versões secundárias do Runtime da it |
 | editor | Microsoft. Azure. infabric | Nome do editor de extensão de Service Fabric |
-| clusterEndpont | cadeia de caracteres | URI: porta para ponto de extremidade de gerenciamento |
-| nodeTypeRef | cadeia de caracteres | Nome do nodeType |
+| clusterEndpont | string | URI: porta para ponto de extremidade de gerenciamento |
+| nodeTypeRef | string | Nome do nodeType |
 | durabilityLevel | bronze, prata, ouro, platina | Tempo permitido para pausar a infraestrutura imutável do Azure |
 | enableParallelJobs | true ou false | Habilitar computação ParallelJobs como remover VM e reinicializar VM no mesmo conjunto de dimensionamento em paralelo |
-| nicPrefixOverride | cadeia de caracteres | Prefixo de sub-rede como "10.0.0.0/24" |
+| nicPrefixOverride | string | Prefixo de sub-rede como "10.0.0.0/24" |
 | Osnames | string[] | Nomes comuns de certificados de cluster instalados |
-| x509StoreName | cadeia de caracteres | Nome do repositório onde o certificado de cluster instalado está localizado |
+| x509StoreName | string | Nome do repositório onde o certificado de cluster instalado está localizado |
 | typeHandlerVersion | 1,1 | Versão da extensão. 1,0 a versão clássica da extensão é recomendada para atualizar para o 1,1 |
-| Caminho | cadeia de caracteres | Caminho para a unidade usada para salvar o estado de Service Fabric serviços do sistema e dados de aplicativo.
+| Caminho | string | Caminho para a unidade usada para salvar o estado de Service Fabric serviços do sistema e dados de aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

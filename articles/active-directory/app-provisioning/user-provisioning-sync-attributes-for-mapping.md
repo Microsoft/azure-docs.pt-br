@@ -3,19 +3,19 @@ title: Sincronizar atributos com o Azure AD para mapeamento
 description: Saiba como sincronizar atributos do seu Active Directory local com o Azure AD. Ao configurar o provisionamento de usuário para aplicativos SaaS, use o recurso de extensão de diretório para adicionar atributos de origem que não são sincronizados por padrão.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 05/13/2019
 ms.author: kenwith
-ms.openlocfilehash: cecdda27139aa1dd0733b50898db9db70aa34dc3
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 62d035b85850f8ac455a85fd93e4d081bbd386e1
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040983"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256078"
 ---
 # <a name="sync-an-attribute-from-your-on-premises-active-directory-to-azure-ad-for-provisioning-to-an-application"></a>Sincronizar um atributo do seu Active Directory local com o Azure AD para provisionamento para um aplicativo
 
@@ -27,13 +27,13 @@ Se os dados necessários para o provisionamento estiverem em Active Directory, m
  
 ## <a name="sync-an-attribute"></a>Sincronizar um atributo 
 
-1. Abra o assistente de Azure AD Connect, escolha tarefas e, em seguida, escolha **Personalizar opções de sincronização** .
+1. Abra o assistente de Azure AD Connect, escolha tarefas e, em seguida, escolha **Personalizar opções de sincronização**.
 
    ![Página tarefas adicionais do assistente de Azure Active Directory Connect](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-customize.png)
  
 2. Entre como um administrador global do Azure AD. 
 
-3. Na página **recursos opcionais** , selecione a **extensão de diretório sincronização de atributos** .
+3. Na página **recursos opcionais** , selecione a **extensão de diretório sincronização de atributos**.
  
    ![Página de recursos opcionais do assistente de Azure Active Directory Connect](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-directory-extension-attribute-sync.png)
 
@@ -50,7 +50,7 @@ Se os dados necessários para o provisionamento estiverem em Active Directory, m
    ![Página de seleção de extensões de diretório do assistente de Azure Active Directory Connect](./media/user-provisioning-sync-attributes-for-mapping/attribute-mapping-extensions.png)
 
 > [!NOTE]
-> Atualmente, não há suporte para a capacidade de provisionar atributos de referência do AD local, como **ManagedBy** ou **DN/distinguishedName** . Você pode solicitar esse recurso no [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory). 
+> Atualmente, não há suporte para a capacidade de provisionar atributos de referência do AD local, como **ManagedBy** ou **DN/distinguishedName**. Você pode solicitar esse recurso no [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 11/25/2020
 ms.author: jingwang
-ms.openlocfilehash: 6699178e514f4d25666305f3251e8eaf9d28e6dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6d6c830eec8e711e700733a90611c353b68439d
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81417451"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030791"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Copiar dados do Concur usando o Azure Data Factory (visualização)
 
@@ -36,8 +36,6 @@ Este conector do concur tem suporte para as seguintes atividades:
 
 Você pode copiar dados de um Concur para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como origens/coletores da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Azure Data Factory fornece um driver interno para habilitar a conectividade, portanto, não é necessário instalar manualmente qualquer driver usando esse conector.
-
 > [!NOTE]
 > No momento, não há suporte para conta do parceiro.
 
@@ -53,15 +51,54 @@ As propriedades a seguir têm suporte para o serviço vinculado do Concur:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **Concur** | Sim |
-| clientId | Client_id do aplicativo fornecido pelo Concur App Management.  | Sim |
-| Nome de Usuário | O nome de usuário que você usa para acessar o Serviço Concur.  | Sim |
+| type | A propriedade type deve ser definida como: **Concur** | Yes |
+| connectionProperties | Um grupo de propriedades que define como se conectar ao concur. | Yes |
+| **_Em `connectionProperties` :_* _ | | |
+| authenticationType | Os valores permitidos são `OAuth_2.0_Bearer` e `OAuth_2.0` (Herdado). A opção de autenticação OAuth 2,0 funciona com a antiga API concur, que foi preterida desde 2017 de fevereiro. | Sim |
+| host | O ponto de extremidade do servidor concur, por exemplo, `implementation.concursolutions.com` .  | Yes |
+| baseUrl | A URL base da URL de autorização do seu concur. | Sim para `OAuth_2.0_Bearer` autenticação |
+| clientId | ID do cliente do aplicativo fornecida pelo gerenciamento de aplicativo concur.  | Yes |
+| clientSecret | O segredo do cliente correspondente à ID do cliente. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim para `OAuth_2.0_Bearer` autenticação |
+| Nome de Usuário | O nome de usuário que você usa para acessar o serviço concur. | Sim |
 | password | A senha correspondente ao nome de usuário fornecido no campo de nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
-| useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | Não |
-| useHostVerification | Especifica se deve ser necessário o nome do host no certificado do servidor para corresponder ao nome do host do servidor ao se conectar via TLS. O valor padrão é true.  | Não |
-| usePeerVerification | Especifica se a identidade do servidor deve ser verificada ao se conectar via TLS. O valor padrão é true.  | Não |
+| useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | No |
+| useHostVerification | Especifica se deve ser necessário o nome do host no certificado do servidor para corresponder ao nome do host do servidor ao se conectar via TLS. O valor padrão é true.  | No |
+| usePeerVerification | Especifica se a identidade do servidor deve ser verificada ao se conectar via TLS. O valor padrão é true.  | No |
 
-**Exemplo:**
+_ *Exemplo:**
+
+```json
+{ 
+    "name": "ConcurLinkedService", 
+    "properties": {
+        "type": "Concur",
+        "typeProperties": {
+            "connectionProperties": {
+                "host":"<host e.g. implementation.concursolutions.com>",
+                "baseUrl": "<base URL for authorization e.g. us-impl.api.concursolutions.com>",
+                "authenticationType": "OAuth_2.0_Bearer",
+                "clientId": "<client id>",
+                "clientSecret": {
+                    "type": "SecureString",
+                    "value": "<client secret>"
+                },
+                "username": "fakeUserName",
+                "password": {
+                    "type": "SecureString",
+                    "value": "<password>"
+                },
+                "useEncryptedEndpoints": true,
+                "useHostVerification": true,
+                "usePeerVerification": true
+            }
+        }
+    }
+} 
+```
+
+**Exemplo (Herdado):**
+
+Observe que este é um modelo de serviço vinculado herdado sem `connectionProperties` e usando a `OAuth_2.0` autenticação do.
 
 ```json
 {

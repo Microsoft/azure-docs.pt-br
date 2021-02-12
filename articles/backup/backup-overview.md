@@ -4,12 +4,12 @@ description: Fornece uma visão geral do serviço de Backup do Azure e como impl
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: 537605498fe166b24bd4e24673cfa1542bc449ea
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 6a30e31dd1462e427faf64966a38c94f9fa56df6
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172476"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624465"
 ---
 # <a name="what-is-the-azure-backup-service"></a>O que é o serviço de Backup do Azure?
 
@@ -21,6 +21,7 @@ O serviço de Backup do Azure fornece soluções simples, seguras e econômicas 
 
 - **Local** – faça backup de arquivos, de pastas e do estado do sistema usando o [agente MARS (Serviços de Recuperação do Microsoft Azure)](backup-support-matrix-mars-agent.md). Ou, então, use o Agente do DPM ou do MABS (Servidor de Backup do Azure) para proteger as VMs locais ([Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) e [VMware](backup-azure-backup-server-vmware.md)) e outras [cargas de trabalho locais](backup-mabs-protection-matrix.md)
 - **VMs do Azure** - [Faça backup de VMs do Windows/Linux inteiras](backup-azure-vms-introduction.md) (usando extensões de backup) ou faça backup de arquivos, de pastas e do estado do sistema usando o [agente MARS](backup-azure-manage-mars.md).
+- **Azure Managed Disks** - [Backup do Azure Managed Disks (em versão prévia)](backup-managed-disks.md)
 - **Compartilhamentos dos Arquivos do Azure** - [Faça backup de compartilhamentos dos Arquivos do Azure para uma conta de armazenamento](backup-afs.md)
 - **SQL Server em VMs do Azure** -  [Faça backup de bancos de dados do SQL Server em execução nas VMs do Azure](backup-azure-sql-database.md)
 - **Bancos de dados do SAP HANA em VMs do Azure** - [Faça backup de bancos de dados do SAP HANA em execução nas VMs do Azure](backup-azure-sap-hana-database.md)
@@ -43,7 +44,7 @@ O Backup do Azure oferece estes principais benefícios:
 - **Obtenha backups consistentes com aplicativo**: Um backup consistente com aplicativo significa que um ponto de recuperação tem todos os dados necessários para restaurar a cópia de backup. O Backup do Azure fornece backups consistentes com aplicativos, garantindo que correções adicionais não sejam necessárias para restaurar os dados. Restaurar dados consistentes com aplicativos reduz o tempo de restauração, permitindo que você rapidamente retorne ao estado de execução.
 - **Manter os dados de curto e longo prazo**: Use os [cofres dos Serviços de Recuperação](backup-azure-recovery-services-vault-overview.md) para retenção de dados de curto e longo prazo.
 - **Gerenciamento automático de armazenamento** - ambientes híbridos geralmente exigem armazenamento heterogêneo, alguns locais e alguns na nuvem. Com o Backup do Azure, não há nenhum custo para o uso de dispositivos de armazenamento local. O Backup do Azure aloca e gerencia automaticamente o armazenamento de backup, com um modelo de pagamento conforme o uso. Você só pagará pelo armazenamento que consumir. [ Saiba mais ](https://azure.microsoft.com/pricing/details/backup) sobre preços.
-- **Várias opções de armazenamento** – o Backup do Azure oferece dois tipos de replicação para manter seu armazenamento/seus dados altamente disponíveis.
+- **Várias opções de armazenamento** – o Backup do Azure oferece três tipos de replicação para manter seu armazenamento/seus dados altamente disponíveis.
   - O [LRS (armazenamento com redundância local)](../storage/common/storage-redundancy.md#locally-redundant-storage) replica seus dados três vezes (ele cria três cópias dos dados) em uma unidade de escala de armazenamento em um datacenter. Todas as cópias dos dados existem na mesma região. O LRS é uma opção de baixo custo para proteger seus dados contra falhas de hardware local.
   - O [GRS (armazenamento com redundância geográfica)](../storage/common/storage-redundancy.md#geo-redundant-storage) é a opção de replicação padrão e recomendada. O GRS replica seus dados para uma região secundária (a centenas de quilômetros da região primária dos dados de origem). O GRS é mais caro do que o LRS, mas fornece um nível mais alto de durabilidade para seus dados, mesmo quando há uma interrupção regional.
   - [O ZRS (armazenamento com redundância de zona)](../storage/common/storage-redundancy.md#zone-redundant-storage) replica seus dados em [zonas de disponibilidade](../availability-zones/az-overview.md#availability-zones), garantindo a residência de dados e a resiliência na mesma região. O ZRS não tem tempo de inatividade. Portanto, suas cargas de trabalho críticas que exigem [residências de dados](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) e não devem ter nenhum tempo de inatividade, podem ter o backup feito em ZRS.

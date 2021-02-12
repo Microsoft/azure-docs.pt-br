@@ -1,17 +1,17 @@
 ---
 title: 'Tipos de preço: Banco de Dados do Azure para MySQL'
 description: Saiba mais sobre os vários tipos de preço do banco de dados do Azure para MySQL, incluindo gerações de computação, tipo de armazenamento, tamanho de armazenamento, vCores, memória e períodos de retenção de backup.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 1d1a7e760a709c7068f16ca415a00de424b7e339
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: c70e4a097a56b76089a26510bcf33b4c7c24c266
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124076"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018708"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Tipos de preço no Banco de Dados do Azure para MySQL
 
@@ -29,7 +29,7 @@ Para escolher um tipo de preço, use a tabela a seguir como ponto de partida.
 
 | Tipo de preço | Cargas de trabalho de destino |
 |:-------------|:-----------------|
-| Basic | Cargas de trabalho que exigem desempenho de E/S e computação leve. Os exemplos incluem servidores usados para desenvolvimento ou teste ou aplicativos de pequena escala usados com pouca frequência. |
+| Básico | Cargas de trabalho que exigem desempenho de E/S e computação leve. Os exemplos incluem servidores usados para desenvolvimento ou teste ou aplicativos de pequena escala usados com pouca frequência. |
 | Uso Geral | A maioria das cargas de trabalho que exigem a computação e a memória balanceadas com a taxa de transferência de E/S escalonável. Os exemplos incluem servidores para hospedar aplicativos Web e móveis e outros aplicativos empresariais.|
 | Otimizado para memória | Cargas de trabalho de banco de dados de alto desempenho que exigem desempenho na memória para o processamento de transações mais rápido e com simultaneidade mais alta. Os exemplos incluem servidores para o processamento de dados em tempo real e aplicativos analíticos ou transacionais de alto desempenho.|
 
@@ -43,7 +43,7 @@ Os recursos de computação são fornecidos como vCores, que representam a CPU l
 
 O armazenamento provisionado é a quantidade de capacidade de armazenamento disponível para o Banco de Dados do Azure para servidor MySQL. O armazenamento é usado para os arquivos de banco de dados, os logs de transações e os logs do servidor MySQL. A quantidade total de armazenamento que você provisiona também define a capacidade disponível para o servidor.
 
-| Atributo de armazenamento   | Basic | Propósito geral | Otimizado para memória |
+| Atributo de armazenamento   | Básico | Propósito geral | Otimizado para memória |
 |:---|:----------|:--------------------|:---------------------|
 | Tipo de armazenamento | Armazenamento básico | Armazenamento Uso Geral | Armazenamento Uso Geral |
 | Tamanho de armazenamento | 5 GB a 1 TB | 5 GB a 16 TB | 5 GB a 16 TB |
@@ -59,7 +59,7 @@ O armazenamento provisionado é a quantidade de capacidade de armazenamento disp
 Você pode adicionar capacidade de armazenamento adicional durante e após a criação do servidor e permitir que o sistema aumente o armazenamento automaticamente com base no consumo de armazenamento de sua carga de trabalho. 
 
 >[!NOTE]
-> O armazenamento só pode ser escalado verticalmente, não inativo.
+> O armazenamento só pode ser escalado verticalmente, não horizontalmente.
 
 A camada Básico não oferece garantia de IOPS. Nos tipos de preço Uso Geral e Otimizado para Memória, o IOPS é dimensionado com o tamanho de armazenamento provisionado a uma taxa de 3:1.
 

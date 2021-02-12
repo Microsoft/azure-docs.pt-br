@@ -5,15 +5,15 @@ ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: 98a0ddd828c3d72fdead0ccc2fb1daabf7548de1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67712517"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001127"
 ---
 A configuração `Eula` indica que você aceitou a licença para o contêiner. Você deve especificar um valor para essa definição de configuração e o valor deve ser definido como `accept`.
 
-|Obrigatório| Nome | Tipo de dados | Descrição |
+|Obrigatório| Name | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
 |Sim| `Eula` | String | Aceitação da licença<br><br>Exemplo:<br>`Eula=accept` |
 

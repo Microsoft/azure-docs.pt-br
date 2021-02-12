@@ -10,17 +10,17 @@ ms.topic: reference
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3471b9988b154ccb38dc56545e769a7179a4026f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7cdfd6cb8947fb3b56fcbfe92874c8b9b27a8db1
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258703"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108120"
 ---
 # <a name="legacy-user-flow-versions-in-azure-active-directory-b2c"></a>Versões de fluxo de usuário herdadas no Azure Active Directory B2C
 
 > [!IMPORTANT]
-> Este artigo descreve o método de controle de versão herdado para fluxos de usuário, que oferece versões V1 (prontas para produção) e versões V 1.1 e v2 (visualização) de fluxos de usuário. Ambientes diferentes da nuvem pública do Azure continuarão a usar esse método de controle de versão herdado. Na nuvem pública do Azure, esse método está sendo substituído por [novas versões **recomendadas** e de **Visualização** ](user-flow-versions.md).
+> Este artigo descreve o método de controle de versão herdado para fluxos de usuário, que oferece versões V1 (prontas para produção) e versões V 1.1 e v2 (visualização) de fluxos de usuário. Ambientes diferentes da nuvem pública do Azure continuarão a usar esse método de controle de versão herdado. Na nuvem pública do Azure, esse método está sendo substituído por [novas versões **recomendadas** e de **Visualização**](user-flow-versions.md).
 > 
 O usuário flui em Azure Active Directory B2C (Azure AD B2C) ajuda a configurar políticas comuns que descrevem totalmente [as](user-flow-overview.md) experiências de identidade do cliente. Essas experiências incluem inscrição, entrada, redefinição de senha ou edição de perfil.
 
@@ -30,25 +30,25 @@ Na tabela a seguir, a menos que um fluxo de usuário seja identificado como **re
 
 | Fluxo de usuário | Recomendadas | Descrição |
 | --------- | ----------- | ----------- |
-| Redefinição de senha | Sim | Permite que um usuário escolha uma nova senha após verificar seu email. Usando este fluxo de usuário, você pode configurar: <ul><li>[Autenticação multifator](custom-policy-multi-factor-authentication.md)</li><li>Configurações de compatibilidade de token</li><li>[Requisitos de complexidade de senha](user-flow-password-complexity.md)</li></ul> |
+| Redefinição de senha | Sim | Permite que um usuário escolha uma nova senha após verificar seu email. Usando este fluxo de usuário, você pode configurar: <ul><li>[Autenticação multifator](multi-factor-authentication.md)</li><li>Configurações de compatibilidade de token</li><li>[Requisitos de complexidade de senha](password-complexity.md)</li></ul> |
 | Edição de perfil | Sim | Permite que o usuário configure seus atributos de usuário. Usando este fluxo de usuário, você pode configurar: <ul><li>[Tempo de vida do token](tokens-overview.md)</li><li>Configurações de compatibilidade de token</li><li>Comportamento da sessão</li></ul> |
 | Entrar usando ROPC | Não | Permite que um usuário com uma conta local entre diretamente em aplicativos nativos (nenhum navegador necessário). Usando este fluxo de usuário, você pode configurar: <ul><li>[Tempo de vida do token](tokens-overview.md)</li><li>Configurações de compatibilidade de token</li></ul> |
-| Entrar | Não | Permite que um usuário entre em sua conta. Usando este fluxo de usuário, você pode configurar: <ul><li>[Autenticação multifator](custom-policy-multi-factor-authentication.md)</li><li>[Tempo de vida do token](tokens-overview.md)</li><li>Configurações de compatibilidade de token</li><li>Comportamento da sessão</li><li>Entrar no bloco</li><li>Forçar redefinição de senha</li><li>Manter-me conectado (KMSI)</ul><br>Não é possível personalizar a interface do usuário com este fluxo de usuário. |
-| Inscrição | Não | Permite que um usuário crie uma conta. Usando este fluxo de usuário, você pode configurar: <ul><li>[Autenticação multifator](custom-policy-multi-factor-authentication.md)</li><li>[Tempo de vida do token](tokens-overview.md)</li><li>Configurações de compatibilidade de token</li><li>Comportamento da sessão</li><li>[Requisitos de complexidade de senha](user-flow-password-complexity.md)</li></ul> |
-| Inscrever-se e entrar | Sim | Permite que um usuário crie uma conta ou entre em sua conta. Usando este fluxo de usuário, você pode configurar: <ul><li>[Autenticação multifator](custom-policy-multi-factor-authentication.md)</li><li>[Tempo de vida do token](tokens-overview.md)</li><li>Configurações de compatibilidade de token</li><li>Comportamento da sessão</li><li>[Requisitos de complexidade de senha](user-flow-password-complexity.md)</li></ul>|
+| Entrar | Não | Permite que um usuário entre em sua conta. Usando este fluxo de usuário, você pode configurar: <ul><li>[Autenticação multifator](multi-factor-authentication.md)</li><li>[Tempo de vida do token](tokens-overview.md)</li><li>Configurações de compatibilidade de token</li><li>Comportamento da sessão</li><li>Entrar no bloco</li><li>Forçar redefinição de senha</li><li>Manter-me conectado (KMSI)</ul><br>Não é possível personalizar a interface do usuário com este fluxo de usuário. |
+| Inscrição | Não | Permite que um usuário crie uma conta. Usando este fluxo de usuário, você pode configurar: <ul><li>[Autenticação multifator](multi-factor-authentication.md)</li><li>[Tempo de vida do token](tokens-overview.md)</li><li>Configurações de compatibilidade de token</li><li>Comportamento da sessão</li><li>[Requisitos de complexidade de senha](password-complexity.md)</li></ul> |
+| Inscrever-se e entrar | Sim | Permite que um usuário crie uma conta ou entre em sua conta. Usando este fluxo de usuário, você pode configurar: <ul><li>[Autenticação multifator](multi-factor-authentication.md)</li><li>[Tempo de vida do token](tokens-overview.md)</li><li>Configurações de compatibilidade de token</li><li>Comportamento da sessão</li><li>[Requisitos de complexidade de senha](password-complexity.md)</li></ul>|
 
 ## <a name="v11"></a>V1.1
 
 | Fluxo de usuário | Recomendadas | Descrição |
 | --------- | ----------- | ----------- |
-| Redefinição de senha v 1.1 | Não | Permite que um usuário escolha uma nova senha depois de verificar seu email (novo layout de página disponível). Usando este fluxo de usuário, você pode configurar: <ul><li>[Autenticação multifator](custom-policy-multi-factor-authentication.md)</li><li>Configurações de compatibilidade de token</li><li>[Requisitos de complexidade de senha](user-flow-password-complexity.md)</li></ul> |
+| Redefinição de senha v 1.1 | Não | Permite que um usuário escolha uma nova senha depois de verificar seu email (novo layout de página disponível). Usando este fluxo de usuário, você pode configurar: <ul><li>[Autenticação multifator](multi-factor-authentication.md)</li><li>Configurações de compatibilidade de token</li><li>[Requisitos de complexidade de senha](password-complexity.md)</li></ul> |
 
 ## <a name="v2"></a>V2
 
 | Fluxo de usuário | Recomendadas | Descrição |
 | --------- | ----------- | ----------- |
-| Redefinição de senha v2 | Não | Permite que um usuário escolha uma nova senha após verificar seu email. Usando este fluxo de usuário, você pode configurar: <ul><li>[Autenticação multifator](custom-policy-multi-factor-authentication.md)</li><li>Configurações de compatibilidade de token</li><li>[Restrição de idade](basic-age-gating.md)</li><li>[requisitos de complexidade de senha](user-flow-password-complexity.md)</li></ul> |
+| Redefinição de senha v2 | Não | Permite que um usuário escolha uma nova senha após verificar seu email. Usando este fluxo de usuário, você pode configurar: <ul><li>[Autenticação multifator](multi-factor-authentication.md)</li><li>Configurações de compatibilidade de token</li><li>[Restrição de idade](basic-age-gating.md)</li><li>[requisitos de complexidade de senha](password-complexity.md)</li></ul> |
 | Edição de perfil v2 | Sim | Permite que o usuário configure seus atributos de usuário. Usando este fluxo de usuário, você pode configurar: <ul><li>[Tempo de vida do token](tokens-overview.md)</li><li>Configurações de compatibilidade de token</li><li>Comportamento da sessão</li></ul> |
-| Entrar v2 | Não | Permite que um usuário entre em sua conta. Usando este fluxo de usuário, você pode configurar: <ul><li>[Autenticação multifator](custom-policy-multi-factor-authentication.md)</li><li>[Tempo de vida do token](tokens-overview.md)</li><li>Configurações de compatibilidade de token</li><li>Comportamento da sessão</li><li>[Restrição de idade](basic-age-gating.md)</li><li>Personalização da página de entrada</li></ul> |
-| Inscrever v2 | Não | Permite que um usuário crie uma conta. Usando este fluxo de usuário, você pode configurar: <ul><li>[Autenticação multifator](custom-policy-multi-factor-authentication.md)</li><li>[Tempo de vida do token](tokens-overview.md)</li><li>Configurações de compatibilidade de token</li><li>Comportamento da sessão</li><li>[Restrição de idade](basic-age-gating.md)</li><li>[Requisitos de complexidade de senha](user-flow-password-complexity.md)</li></ul> |
-| Inscrever-se e entrar v2 | Não | Permite que um usuário crie uma conta ou entre em sua conta. Usando este fluxo de usuário, você pode configurar: <ul><li>[Autenticação multifator](custom-policy-multi-factor-authentication.md)</li><li>[Restrição de idade](basic-age-gating.md)</li><li>[Requisitos de complexidade de senha](user-flow-password-complexity.md)</li></ul> |
+| Entrar v2 | Não | Permite que um usuário entre em sua conta. Usando este fluxo de usuário, você pode configurar: <ul><li>[Autenticação multifator](multi-factor-authentication.md)</li><li>[Tempo de vida do token](tokens-overview.md)</li><li>Configurações de compatibilidade de token</li><li>Comportamento da sessão</li><li>[Restrição de idade](basic-age-gating.md)</li><li>Personalização da página de entrada</li></ul> |
+| Inscrever v2 | Não | Permite que um usuário crie uma conta. Usando este fluxo de usuário, você pode configurar: <ul><li>[Autenticação multifator](multi-factor-authentication.md)</li><li>[Tempo de vida do token](tokens-overview.md)</li><li>Configurações de compatibilidade de token</li><li>Comportamento da sessão</li><li>[Restrição de idade](basic-age-gating.md)</li><li>[Requisitos de complexidade de senha](password-complexity.md)</li></ul> |
+| Inscrever-se e entrar v2 | Não | Permite que um usuário crie uma conta ou entre em sua conta. Usando este fluxo de usuário, você pode configurar: <ul><li>[Autenticação multifator](multi-factor-authentication.md)</li><li>[Restrição de idade](basic-age-gating.md)</li><li>[Requisitos de complexidade de senha](password-complexity.md)</li></ul> |

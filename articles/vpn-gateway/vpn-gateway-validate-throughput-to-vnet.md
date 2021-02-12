@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: d2347c0688ca58698831019a193d03fe2c6721e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d5b51e8cfbfcb5f771e9da524231f8ddfc40a9e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89398500"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660926"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Como validar a taxa de transferência VPN para uma rede virtual
 
@@ -119,7 +119,7 @@ Baixe o [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Para
 1. Depois de concluir as etapas anteriores, execute as mesmas etapas com as funções invertidas, de modo que o nó do servidor agora será o nó do cliente e vice-versa.
 
 > [!Note]
-> Iperf não é a única ferramenta. [NTTTCP é uma solução alternativa para teste](https://docs.microsoft.com/azure/virtual-network/virtual-network-bandwidth-testing).
+> Iperf não é a única ferramenta. [NTTTCP é uma solução alternativa para teste](../virtual-network/virtual-network-bandwidth-testing.md).
 
 ## <a name="test-vms-running-windows"></a>Testar VMs que executam o Windows
 
@@ -225,7 +225,7 @@ Em particular, a análise dos rastreamentos de captura de pacotes (Wireshark/Mon
 
 Mesmo que a taxa de transferência geral avaliada com as etapas anteriores (iPERF/NTTTCP/etc.) tenha sido boa, você pode experimentar um pouco de ping de arquivo ao usar o Windows Explorer ou arrastar e soltar por uma sessão RDP. Esse problema normalmente ocorre devido a um ou ambos os seguintes fatores:
 
-* Os aplicativos de cópia de arquivo, como o Windows Explorer e o RDP não usam múltiplos threads ao copiar arquivos. Para obter melhor desempenho, use um aplicativo de cópia de arquivo multi-threaded como o [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx) para copiar arquivos usando 16 ou 32 threads. Para alterar o número de thread para cópia de arquivo em RichCopy, clique em **ação**  >  **copiar opções**  >  **Copiar arquivo**.
+* Os aplicativos de cópia de arquivo, como o Windows Explorer e o RDP não usam múltiplos threads ao copiar arquivos. Para obter melhor desempenho, use um aplicativo de cópia de arquivo multi-threaded como o [Richcopy](/previous-versions/technet-magazine/dd547088(v=msdn.10)) para copiar arquivos usando 16 ou 32 threads. Para alterar o número de thread para cópia de arquivo em RichCopy, clique em **ação**  >  **copiar opções**  >  **Copiar arquivo**.
 
    ![Problemas com cópia de arquivo lenta](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 
@@ -233,7 +233,7 @@ Mesmo que a taxa de transferência geral avaliada com as etapas anteriores (iPER
    > Nem todos os trabalhos do aplicativo são iguais, e nem todos os aplicativos/processo utilizam todos os threads. Se você executar o teste, poderá ver alguns threads sendo vazios e não fornecerá resultados precisos da taxa de transferência.
    > Para verificar o desempenho da transferência de arquivos do aplicativo, use vários threads aumentando o número de threads em sucessão ou diminuição para encontrar a taxa de transferência ideal do aplicativo ou transferência de arquivo.
 
-* Velocidade de leitura/gravação de disco de VM insuficiente. Para obter mais informações, consulte [Solução de Problemas de Armazenamento do Azure](../storage/common/storage-e2e-troubleshooting.md).
+* Velocidade de leitura/gravação de disco de VM insuficiente. Para obter mais informações, consulte [Solução de Problemas de Armazenamento do Azure](/previous-versions/azure/storage/common/storage-e2e-troubleshooting).
 
 ## <a name="on-premises-device-external-facing-interface"></a>Interface externa do dispositivo local
 

@@ -1,14 +1,14 @@
 ---
 title: Exemplos de consulta inicial
 description: Use o Azure Resource Graph para executar algumas consultas iniciais, incluindo contagem de recursos, ordenação de recursos ou por uma marca específica.
-ms.date: 10/14/2020
+ms.date: 01/21/2021
 ms.topic: sample
-ms.openlocfilehash: 013e865f543f966d88132d2dc6aca6102d52d20c
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: f751481a1596e78a2e04a7cb65403b72924768cd
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057103"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663843"
 ---
 # <a name="starter-resource-graph-query-samples"></a>Exemplos de consultas iniciais do Resource Graph
 
@@ -27,8 +27,7 @@ Vamos percorrer as seguintes consultas iniciais:
 - [Recursos de contagem que têm endereços IP configurados por assinatura](#count-resources-by-ip)
 - [Listar de recursos com um valor de marca específica](#list-tag)
 - [Listar todas as contas de armazenamento com o valor de marca específica](#list-specific-tag)
-- [Mostrar aliases para um recurso de máquina virtual](#show-aliases)
-- [Mostrar valores distintos para um alias específico](#distinct-alias-values)
+- [Listar todas as marcas e os respectivos valores](#list-all-tag-values)
 - [Mostrar grupos de segurança de rede não associados](#unassociated-nsgs)
 - [Obter resumo de economia de custos do Assistente do Azure](#advisor-savings)
 - [Contar computadores no escopo de políticas de Configuração de Convidado](#count-gcmachines)
@@ -463,69 +462,49 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Storage/storageAccou
 > [!NOTE]
 > Este exemplo usa `==` para a correspondência em vez do `=~` condicional. `==` é uma correspondência que diferencia maiusculas de minúsculas.
 
-## <a name="show-aliases-for-a-virtual-machine-resource"></a><a name="show-aliases"></a>Mostrar aliases para um recurso de máquina virtual
+## <a name="list-all-tags-and-their-values"></a><a name="list-all-tag-values"></a>Listar todas as marcas e os respectivos valores
 
-[Aliases do Azure Policy](../../policy/concepts/definition-structure.md#aliases) são usados pelo Azure Policy para gerenciar a conformidade do recurso. O Azure Resource Graph pode retornar os _aliases_ de um tipo de recurso. Esses valores são úteis para comparar o valor atual dos aliases ao criar uma definição de política personalizada. A matriz de _aliases_ não é fornecida por padrão nos resultados de uma consulta. Use `project aliases` para adicioná-la explicitamente aos resultados.
+Essa consulta lista as marcas em grupos de gerenciamento, assinaturas e recursos, junto com os respectivos valores.
+A consulta primeiro limita os recursos em que as marcas `isnotempty()`, limita os campos incluídos incluindo apenas _marcas_ no `project` e `mvexpand` e `extend` para obter os dados emparelhados do recipiente de propriedades. Depois, ela usa `union` para combinar os resultados de _ResourceContainers_ com os mesmos resultados de _Resources_, proporcionando ampla cobertura para quais marcas são buscadas. Por fim, ela limita os resultados aos dados emparelhados `distinct` e exclui as marcas ocultas do sistema.
 
 ```kusto
-Resources
-| where type =~ 'Microsoft.Compute/virtualMachines'
-| limit 1
-| project aliases
+ResourceContainers 
+| where isnotempty(tags)
+| project tags
+| mvexpand tags
+| extend tagKey = tostring(bag_keys(tags)[0])
+| extend tagValue = tostring(tags[tagKey])
+| union (
+    resources
+    | where isnotempty(tags)
+    | project tags
+    | mvexpand tags
+    | extend tagKey = tostring(bag_keys(tags)[0])
+    | extend tagValue = tostring(tags[tagKey])
+)
+| distinct tagKey, tagValue
+| where tagKey !startswith "hidden-"
 ```
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli-interactive
-az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | limit 1 | project aliases"
+az graph query -q "ResourceContainers | where isnotempty(tags) | project tags | mvexpand tags | extend tagKey = tostring(bag_keys(tags)[0]) | extend tagValue = tostring(tags[tagKey]) | union (resources | where notempty(tags) | project tags | mvexpand tags | extend tagKey = tostring(bag_keys(tags)[0]) | extend tagValue = tostring(tags[tagKey]) ) | distinct tagKey, tagValue | where tagKey !startswith "hidden-""
 ```
 
 # <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | limit 1 | project aliases" | ConvertTo-Json
+Search-AzGraph -Query "ResourceContainers | where isnotempty(tags) | project tags | mvexpand tags | extend tagKey = tostring(bag_keys(tags)[0]) | extend tagValue = tostring(tags[tagKey]) | union (resources | where notempty(tags) | project tags | mvexpand tags | extend tagKey = tostring(bag_keys(tags)[0]) | extend tagValue = tostring(tags[tagKey]) ) | distinct tagKey, tagValue | where tagKey !startswith "hidden-""
 ```
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 :::image type="icon" source="../media/resource-graph-small.png"::: Experimente usar esta consulta no Azure Resource Graph Explorer:
 
-- Portal do Azure: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%27Microsoft.Compute%2FvirtualMachines%27%0D%0A%7C%20limit%201%0D%0A%7C%20project%20aliases" target="_blank">portal.azure.com <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- Portal do Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%27Microsoft.Compute%2FvirtualMachines%27%0D%0A%7C%20limit%201%0D%0A%7C%20project%20aliases" target="_blank">portal.azure.us <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- Portal do Azure China 21Vianet: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%27Microsoft.Compute%2FvirtualMachines%27%0D%0A%7C%20limit%201%0D%0A%7C%20project%20aliases" target="_blank">portal.azure.cn <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-
----
-
-## <a name="show-distinct-values-for-a-specific-alias"></a><a name="distinct-alias-values"></a>Mostrar valores distintos para um alias específico
-
-Ver o valor de aliases em um único recurso é útil, mas não mostra o valor real de usar o Azure Resource Graph para fazer consultas entre assinaturas. Este exemplo examina todos os valores de um alias específico e retorna os valores distintos.
-
-```kusto
-Resources
-| where type=~'Microsoft.Compute/virtualMachines'
-| extend alias = aliases['Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.storageAccountType']
-| distinct tostring(alias)
-```
-
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
-
-```azurecli-interactive
-az graph query -q "Resources | where type=~'Microsoft.Compute/virtualMachines' | extend alias = aliases['Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.storageAccountType'] | distinct tostring(alias)"
-```
-
-# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azure-powershell)
-
-```azurepowershell-interactive
-Search-AzGraph -Query "Resources | where type=~'Microsoft.Compute/virtualMachines' | extend alias = aliases['Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.storageAccountType'] | distinct tostring(alias)"
-```
-
-# <a name="portal"></a>[Portal](#tab/azure-portal)
-
-:::image type="icon" source="../media/resource-graph-small.png"::: Experimente usar esta consulta no Azure Resource Graph Explorer:
-
-- Portal do Azure: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%3D~%27Microsoft.Compute%2FvirtualMachines%27%0D%0A%7C%20extend%20alias%20%3D%20aliases%5B%27Microsoft.Compute%2FvirtualMachines%2FstorageProfile.osDisk.managedDisk.storageAccountType%27%5D%0D%0A%7C%20distinct%20tostring%28alias%29" target="_blank">portal.azure.com <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- Portal do Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%3D~%27Microsoft.Compute%2FvirtualMachines%27%0D%0A%7C%20extend%20alias%20%3D%20aliases%5B%27Microsoft.Compute%2FvirtualMachines%2FstorageProfile.osDisk.managedDisk.storageAccountType%27%5D%0D%0A%7C%20distinct%20tostring%28alias%29" target="_blank">portal.azure.us <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- Portal do Azure China 21Vianet: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%3D~%27Microsoft.Compute%2FvirtualMachines%27%0D%0A%7C%20extend%20alias%20%3D%20aliases%5B%27Microsoft.Compute%2FvirtualMachines%2FstorageProfile.osDisk.managedDisk.storageAccountType%27%5D%0D%0A%7C%20distinct%20tostring%28alias%29" target="_blank">portal.azure.cn <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- Portal do Azure: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/ResourceContainers%20%0A%7C%20where%20isnotempty%28tags%29%0A%7C%20project%20tags%0A%7C%20mvexpand%20tags%0A%7C%20extend%20tagKey%20%3D%20tostring%28bag_keys%28tags%29%5B0%5D%29%0A%7C%20extend%20tagValue%20%3D%20tostring%28tags%5BtagKey%5D%29%0A%7C%20union%20%28%0A%20%20%20%20resources%0A%20%20%20%20%7C%20where%20isnotempty%28tags%29%0A%20%20%20%20%7C%20project%20tags%0A%20%20%20%20%7C%20mvexpand%20tags%0A%20%20%20%20%7C%20extend%20tagKey%20%3D%20tostring%28bag_keys%28tags%29%5B0%5D%29%0A%20%20%20%20%7C%20extend%20tagValue%20%3D%20tostring%28tags%5BtagKey%5D%29%0A%29%0A%7C%20distinct%20tagKey%2C%20tagValue%0A%7C%20where%20tagKey%20%21startswith%20%22hidden-%22" target="_blank">portal.azure.com <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- Portal do Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/ResourceContainers%20%0A%7C%20where%20isnotempty%28tags%29%0A%7C%20project%20tags%0A%7C%20mvexpand%20tags%0A%7C%20extend%20tagKey%20%3D%20tostring%28bag_keys%28tags%29%5B0%5D%29%0A%7C%20extend%20tagValue%20%3D%20tostring%28tags%5BtagKey%5D%29%0A%7C%20union%20%28%0A%20%20%20%20resources%0A%20%20%20%20%7C%20where%20isnotempty%28tags%29%0A%20%20%20%20%7C%20project%20tags%0A%20%20%20%20%7C%20mvexpand%20tags%0A%20%20%20%20%7C%20extend%20tagKey%20%3D%20tostring%28bag_keys%28tags%29%5B0%5D%29%0A%20%20%20%20%7C%20extend%20tagValue%20%3D%20tostring%28tags%5BtagKey%5D%29%0A%29%0A%7C%20distinct%20tagKey%2C%20tagValue%0A%7C%20where%20tagKey%20%21startswith%20%22hidden-%22" target="_blank">portal.azure.us <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- Portal do Azure China 21Vianet: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/ResourceContainers%20%0A%7C%20where%20isnotempty%28tags%29%0A%7C%20project%20tags%0A%7C%20mvexpand%20tags%0A%7C%20extend%20tagKey%20%3D%20tostring%28bag_keys%28tags%29%5B0%5D%29%0A%7C%20extend%20tagValue%20%3D%20tostring%28tags%5BtagKey%5D%29%0A%7C%20union%20%28%0A%20%20%20%20resources%0A%20%20%20%20%7C%20where%20isnotempty%28tags%29%0A%20%20%20%20%7C%20project%20tags%0A%20%20%20%20%7C%20mvexpand%20tags%0A%20%20%20%20%7C%20extend%20tagKey%20%3D%20tostring%28bag_keys%28tags%29%5B0%5D%29%0A%20%20%20%20%7C%20extend%20tagValue%20%3D%20tostring%28tags%5BtagKey%5D%29%0A%29%0A%7C%20distinct%20tagKey%2C%20tagValue%0A%7C%20where%20tagKey%20%21startswith%20%22hidden-%22" target="_blank">portal.azure.cn <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 ---
 

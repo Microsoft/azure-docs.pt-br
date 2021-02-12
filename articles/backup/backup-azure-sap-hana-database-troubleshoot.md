@@ -3,12 +3,12 @@ title: Solucionar erros de backup de bancos de dados SAP HANA
 description: Descreve como solucionar erros comuns que podem ocorrer ao usar o Backup do Microsoft Azure nos bancos de dados SAP HANA.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 5cdad55ef849b9ced31646466e2c2c170ebf0827
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9fa73ee38e337a547816432212bc68d419f40bb
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89377677"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95411318"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Solucionar problemas de backup dos bancos de dados SAP HANA no Azure
 
@@ -153,7 +153,7 @@ Atualizações no sistema operacional, alterações de versão do SDC ou altera�
 - Verifique se a nova versão do sistema operacional, SDC ou MDC é [aceita pelo Backup do Azure](sap-hana-backup-support-matrix.md#scenario-support) no momento
 - [Pare a proteção com retenção de dados](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) para o banco de dados
 - Realize o upgrade ou a atualização
-- Execute novamente o script de pré-registro. Normalmente, o processo de atualização remove as funções necessárias. Executar o script de pré-registro ajuda a verificar todas as funções necessárias
+- Execute novamente o script de pré-registro. Geralmente, o processo de atualização pode remover [as funções necessárias](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does). A execução do script de pré-registro ajudará a verificar todas as funções necessárias.
 - Retome a proteção para um banco de dados SQL
 
 ## <a name="sdc-to-mdc-upgrade-with-no-change-in-sid"></a>Atualização de SDC para MDC sem alteração no SID

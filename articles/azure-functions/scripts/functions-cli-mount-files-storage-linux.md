@@ -4,12 +4,12 @@ description: Crie um aplicativo de funções Python sem servidor e monte um comp
 ms.topic: sample
 ms.date: 03/01/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 63ab9ba3219dc600187e73bbf124d62d3f51317a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00bf0ecc9db3cf369fd75b427dcfba686aed0ed5
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87498201"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035114"
 ---
 # <a name="mount-a-file-share-to-a-python-function-app-using-azure-cli"></a>Montar um compartilhamento de arquivo para um aplicativo de funções Python usando a CLI do Azure
 
@@ -20,15 +20,15 @@ Este script de exemplo do Azure Functions cria um aplicativo de funções e um c
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se você optar por instalar e usar a CLI localmente, este artigo exigirá que seja executada a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). Os exemplos são escritos para o shell Bash e devem ser modificados para serem executados em um prompt de comando do Windows. 
+ - Este tutorial exige a versão 2.0 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada. 
 
 ## <a name="sample-script"></a>Exemplo de script
 
-Esse script cria um Aplicativo de funções do Azure usando o [Plano de consumo](../functions-scale.md#consumption-plan).
+Esse script cria um aplicativo de funções no Azure Functions usando o [Plano de consumo](../consumption-plan.md).
 
-[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/functions-cli-mount-files-storage-linux/functions-cli-mount-files-storage-linux.sh "Create an Azure Function on a Consumption plan")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/functions-cli-mount-files-storage-linux/functions-cli-mount-files-storage-linux.sh "Create a function app on a Consumption plan")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 

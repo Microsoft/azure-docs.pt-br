@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 0be75b3b0a7b9b5aaec0da1d9f41f67a7108e77a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c20bf1c5856276c4c7ee0e37ed4ef2120d1d93d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085303"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322044"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Criar recursos para dados no SQL Server usando o SQL e o Python
 Este documento mostra como gerar recursos para os dados armazenados em uma VM do SQL Server no Azure que ajudam os algoritmos a aprender com mais eficiência com base nos dados. Você pode usar o SQL ou uma linguagem de programação como o Python para realizar esta tarefa. Ambas as abordagens são demonstradas aqui.
 
-Essa tarefa é uma etapa no [TDSP (Processo de Ciência de Dados de Equipe)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Essa tarefa é uma etapa no [TDSP (Processo de Ciência de Dados de Equipe)](./index.yml).
 
 > [!NOTE]
 > Para obter um exemplo prático, você poderá usar o [conjunto de dados NYC Taxi](https://www.andresmh.com/nyctaxitrips/) e consultar o IPNB intitulado [NYC Data wrangling using IPython Notebook and SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) (Realizar a disputa de dados de NYC usando o IPython Notebook e o SQL Server) para obter um passo a passo completo.
@@ -99,12 +99,12 @@ Os recursos baseados em localização podem ser usados ainda para gerar recursos
 
 > [!TIP]
 > É possível inserir os registros com programação usando a linguagem de sua escolha. Talvez seja necessário inserir os dados em partes para melhorar a eficiência de gravação. [Aqui está um exemplo de como fazer isso usando pyodbc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
-> Outra alternativa é inserir dados no banco de dados usando o [utilitário BCP](https://msdn.microsoft.com/library/ms162802.aspx)
+> Outra alternativa é inserir dados no banco de dados usando o [utilitário BCP](/sql/tools/bcp-utility)
 > 
 > 
 
 ### <a name="connecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Conectando ao Azure Machine Learning
-O recurso recém-gerado pode ser adicionado como uma coluna a uma tabela existente ou armazenado em uma nova tabela e unido com a tabela original para o aprendizado de máquina. Recursos poderão ser gerados ou acessados se já foram criados, usando o módulo [Importar Dados](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) no AM do Azure conforme mostrado abaixo:
+O recurso recém-gerado pode ser adicionado como uma coluna a uma tabela existente ou armazenado em uma nova tabela e unido com a tabela original para o aprendizado de máquina. Recursos poderão ser gerados ou acessados se já foram criados, usando o módulo [Importar Dados](/azure/machine-learning/studio-module-reference/import-data) no AM do Azure conforme mostrado abaixo:
 
 ![Leitores de Azure ML](./media/sql-server-virtual-machine/reader_db_featurizedinput.png)
 
@@ -126,5 +126,4 @@ A [biblioteca pandas](https://pandas.pydata.org/) no Python fornece um rico conj
 data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)
 ```
 
-Agora, você pode trabalhar com o quadro de dados Pandas como abordado nos tópicos [Criar recursos para os dados de armazenamento de blobs do Azure usando o Panda](create-features-blob.md).
-
+Agora, você pode trabalhar com o quadro de dados Pandas como abordado nos tópicos [Criar recursos para os dados de armazenamento de blobs do Azure usando o Panda](./explore-data-blob.md).

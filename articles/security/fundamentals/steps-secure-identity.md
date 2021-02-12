@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 43974258008e3813a368ab31891251db15060aff
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: ffc5bafca305086b0c524c76eb91b8aec2e2655d
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127052"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602445"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco etapas para proteger sua infraestrutura de identidade
 
@@ -42,13 +42,13 @@ As recomendações neste documento estão alinhadas com a [Classificação de Se
 ![Classificação de segurança de identidade](./media/steps-secure-identity/azure-ad-sec-steps0.png)
 
 > [!NOTE]
-> Muitos dos recursos descritos aqui exigem uma assinatura Azure AD Premium, enquanto outros são gratuitos. Examine nossos [preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/) e a [lista de verificação de implantação do Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-checklist-p2) para obter mais informações.
+> Muitos dos recursos descritos aqui exigem uma assinatura Azure AD Premium, enquanto outros são gratuitos. Examine nossos [preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/) e a [lista de verificação de implantação do Azure AD](../../active-directory/fundamentals/active-directory-deployment-checklist-p2.md) para obter mais informações.
 
 ## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>Antes de começar: Proteja contas com privilégios com MFA
 
 Antes de iniciar esta lista de verificação, certifique-se de que não seja comprometido enquanto lê essa lista. Você precisa primeiro proteger suas contas com privilégios.
 
-Os invasores que obtêm o controle de contas com privilégios podem causar danos tremendos, portanto, é essencial proteger essas contas primeiro. Habilite e exija a [MFA (Autenticação Multifator) do Azure](../../active-directory/authentication/multi-factor-authentication.md) para todos os administradores na organização usando os [Padrões de Segurança do Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md) ou o [Acesso Condicional](../../active-directory/conditional-access/plan-conditional-access.md). Se você ainda não implementou a MFA, faça isso agora! Isso é realmente importante.
+Os invasores que obtêm o controle de contas com privilégios podem causar danos tremendos, portanto, é essencial proteger essas contas primeiro. Habilite e exija a MFA ( [autenticação multifator) do Azure ad](../../active-directory/authentication/concept-mfa-howitworks.md) para todos os administradores em sua organização usando os [padrões de segurança do Azure ad](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md) ou o [acesso condicional](../../active-directory/conditional-access/plan-conditional-access.md). Se você ainda não implementou a MFA, faça isso agora! Isso é realmente importante.
 
 Tudo pronto? Vamos começar a trabalhar na lista de verificação.
 
@@ -59,9 +59,9 @@ A maioria das violações de segurança empresariais são originadas com uma con
 
 ### <a name="make-sure-your-organization-uses-strong-authentication"></a>Verifique se sua organização usa autenticação forte
 
-Considerando a frequência com que as senhas são adivinhadas, obtidas por phishing, roubadas com malware ou reutilizadas, é fundamental auxiliar a senha com alguma forma de credencial forte, saiba mais sobre a [Autenticação Multifator do Azure](../../active-directory/authentication/multi-factor-authentication.md).
+Dada a frequência de adivinhação de senhas, phishinged, furtos com malware ou reutilizado, é essencial voltar à senha com alguma forma de credencial forte – saiba mais sobre a [autenticação multifator do Azure ad](../../active-directory/authentication/concept-mfa-howitworks.md).
 
-Para habilitar facilmente o nível básico de segurança de identidade, você pode usar a habilitação em um clique com os [Padrões de Segurança do Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md). Os padrões de segurança impõem o MFA do Azure para todos os usuários em um locatário e bloqueiam as entradas de protocolos herdados em todo o locatário.
+Para habilitar facilmente o nível básico de segurança de identidade, você pode usar a habilitação em um clique com os [Padrões de Segurança do Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md). Os padrões de segurança impõem o Azure AD MFA para todos os usuários em um locatário e bloqueia as entradas de protocolos herdados em todo o locatário.
 
 ### <a name="start-banning-commonly-attacked-passwords-and-turn-off-traditional-complexity-and-expiration-rules"></a>Comece a proibir senhas comumente atacadas e desative a complexidade tradicional e as regras de expiração.
 
@@ -75,14 +75,14 @@ A Microsoft recomenda adotar a seguinte política de senha moderna com base nas 
 2. Desabilitar regras de expiração, que motivam os usuários a criarem senhas fáceis de descobrir como, por exemplo, **Primavera2019!**
 3. Desabilitar os requisitos de composição de caracteres e impedir que os usuários escolham senhas atacadas mais comumente, pois eles fazem com que os usuários escolham substituições de caracteres previsíveis nas senhas.
 
-Você poderá usar o [PowerShell para impedir que as senhas expirem](../../active-directory/authentication/concept-sspr-policy.md) para os usuários, se você criar identidades diretamente no Azure AD. As organizações híbridas devem implementar essas políticas usando as [configurações de política de grupo do domínio](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) ou [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
+Você poderá usar o [PowerShell para impedir que as senhas expirem](../../active-directory/authentication/concept-sspr-policy.md) para os usuários, se você criar identidades diretamente no Azure AD. As organizações híbridas devem implementar essas políticas usando as [configurações de política de grupo do domínio](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) ou [Windows PowerShell](/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
 
 ### <a name="protect-against-leaked-credentials-and-add-resilience-against-outages"></a>Proteger contra credenciais vazadas e adicionar resiliência contra falhas
 
 Se a organização usar uma solução de identidade híbrida com autenticação de passagem ou federação, então, você deverá habilitar a sincronização de hash de senha pelos dois motivos a seguir:
 
-* O relatório [Usuários com credenciais vazadas](../../active-directory/reports-monitoring/concept-risk-events.md) no gerenciamento do Azure AD alerta sobre pares de nome de usuário e senha que foram expostos na “dark Web”. Um volume incrível de senhas vazou por meio de phishing, malware e reutilização de senhas em sites de terceiros que posteriormente são violados. A Microsoft localizará muitas dessas credenciais vazadas e indicará, nesse relatório, se elas correspondem às credenciais da sua organização, mas somente se você [habilitar a sincronização de hash de senha](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)!
-* No caso de uma interrupção local (por exemplo, em um ataque de ransomware), você pode alternar para usar a autenticação de [nuvem usando a sincronização de hash de senha](choose-ad-authn.md). Esse método de autenticação de backup permitirá que você continue acessando aplicativos configurados para autenticação com Azure Active Directory, incluindo Microsoft 365. Nesse caso, a equipe de TI não precisará recorrer a contas de email pessoal para compartilhar dados até que a interrupção local seja resolvida.
+* O relatório [Usuários com credenciais vazadas](../../active-directory/identity-protection/overview-identity-protection.md) no gerenciamento do Azure AD alerta sobre pares de nome de usuário e senha que foram expostos na “dark Web”. Um volume incrível de senhas vazou por meio de phishing, malware e reutilização de senhas em sites de terceiros que posteriormente são violados. A Microsoft encontra muitas dessas credenciais vazadas e informará, neste relatório, se elas corresponderem às credenciais em sua organização – mas somente se você [habilitar a sincronização de hash de senha](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md) ou se tiver identidades somente de nuvem!
+* No caso de uma interrupção local (por exemplo, em um ataque de ransomware), você pode alternar para usar a autenticação de [nuvem usando a sincronização de hash de senha](../../active-directory/hybrid/choose-ad-authn.md). Esse método de autenticação de backup permitirá que você continue acessando aplicativos configurados para autenticação com Azure Active Directory, incluindo Microsoft 365. Nesse caso, a equipe de TI não precisará recorrer a contas de email pessoal para compartilhar dados até que a interrupção local seja resolvida.
 
 Saiba mais sobre como a [sincronização de hash de senha](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md) funciona.
 
@@ -91,11 +91,11 @@ Saiba mais sobre como a [sincronização de hash de senha](../../active-director
 
 ### <a name="implement-ad-fs-extranet-smart-lockout"></a>Implementar bloqueio inteligente de extranet do AD FS
 
-As organizações, que configuram aplicativos para que se autentiquem diretamente no Azure AD se beneficiam do [bloqueio inteligente do Azure AD](../../active-directory/authentication/concept-sspr-howitworks.md). Se você usar o AD FS no Windows Server 2012 R2, implementar o AD FS [proteção de bloqueio de extranet](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). Se você usar o AD FS no Windows Server 2016 R2, implemente a [proteção de bloqueio de extranet](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). O bloqueio de extranet AD FS protege contra ataques de força bruta, que tem como alvo o AD FS enquanto evita que os usuários sejam bloqueados no Active Directory.
+As organizações, que configuram aplicativos para que se autentiquem diretamente no Azure AD se beneficiam do [bloqueio inteligente do Azure AD](../../active-directory/authentication/concept-sspr-howitworks.md). Se você usar o AD FS no Windows Server 2012 R2, implementar o AD FS [proteção de bloqueio de extranet](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). Se você usar o AD FS no Windows Server 2016 R2, implemente a [proteção de bloqueio de extranet](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). O bloqueio de extranet AD FS protege contra ataques de força bruta, que tem como alvo o AD FS enquanto evita que os usuários sejam bloqueados no Active Directory.
 
 ### <a name="take-advantage-of-intrinsically-secure-easier-to-use-credentials"></a>Aproveitar credenciais intrinsecamente seguras fáceis de usar
 
-Usando [Windows Hello](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification), você pode substituir as senhas com forte autenticação de dois fatores em computadores e dispositivos móveis. Essa autenticação consiste em um novo tipo de credencial de usuário que é vinculado com segurança a um dispositivo e usa um PIN ou biométrico.
+Usando [Windows Hello](/windows/security/identity-protection/hello-for-business/hello-identity-verification), você pode substituir as senhas com forte autenticação de dois fatores em computadores e dispositivos móveis. Essa autenticação consiste em um novo tipo de credencial de usuário que é vinculado com segurança a um dispositivo e usa um PIN ou biométrico.
 
 ## <a name="step-2---reduce-your-attack-surface"></a>Etapa 2: reduzir a superfície de ataque
 
@@ -105,8 +105,8 @@ Considerando a propagação do comprometimento de senha, minimizar a superfície
 
 Os aplicativos que usam seus próprios métodos herdados para realizar a autenticação com o Azure AD e acessar dados da empresa representam outro risco para as organizações. Exemplos de aplicativos que usam autenticação herdada são clientes POP3, IMAP4 ou SMTP. Os aplicativos de autenticação herdados realizam a autenticação em nome do usuário e impedem que o Azure AD realize avaliações de segurança avançadas. A autenticação moderna alternativa reduzirá seu risco de segurança, pois é compatível com o Acesso Condicional e com a autenticação multifator. Recomendamos as três ações a seguir:
 
-1. Bloquear a [autenticação herdada se você usar o AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
-2. Configurar o [SharePoint Online e o Exchange Online para usar a autenticação moderna](../../active-directory/conditional-access/conditional-access-for-exo-and-spo.md).
+1. Bloquear a [autenticação herdada se você usar o AD FS](/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
+2. Configurar o [SharePoint Online e o Exchange Online para usar a autenticação moderna](../../active-directory/conditional-access/block-legacy-authentication.md).
 3. Se você tiver Azure AD Premium, use políticas de acesso condicional para [bloquear a autenticação herdada](../../active-directory/conditional-access/howto-conditional-access-policy-block-legacy.md); caso contrário, use os [Padrões de Segurança do Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
 
 ### <a name="block-invalid-authentication-entry-points"></a>Bloquear pontos de entrada de autenticação inválidos
@@ -143,13 +143,13 @@ O Azure Active Directory tem muitos recursos que interceptam automaticamente ata
 
 ### <a name="implement-user-risk-security-policy-using-azure-ad-identity-protection"></a>Implementar a política de segurança de risco do usuário usando o Azure AD Identity Protection
 
-O risco do usuário indica a probabilidade de a identidade de um usuário ter sido comprometida, que é calculada com base nas [detecções de risco do usuário](../../active-directory/identity-protection/overview.md) associadas à identidade de um determinado usuário. Uma política de risco do usuário é uma política de acesso condicional que avalia o nível de risco para um grupo ou usuário específico. Com base no nível de risco Baixo, Médio ou Alto, é possível configurar uma política para bloquear o acesso ou exigir uma mudança de senha segura usando a autenticação multifator. A recomendação da Microsoft é a de exigir uma mudança de senha segura para usuários com risco alto.
+O risco do usuário indica a probabilidade de a identidade de um usuário ter sido comprometida, que é calculada com base nas [detecções de risco do usuário](../../active-directory/identity-protection/overview-identity-protection.md) associadas à identidade de um determinado usuário. Uma política de risco do usuário é uma política de acesso condicional que avalia o nível de risco para um grupo ou usuário específico. Com base no nível de risco Baixo, Médio ou Alto, é possível configurar uma política para bloquear o acesso ou exigir uma mudança de senha segura usando a autenticação multifator. A recomendação da Microsoft é a de exigir uma mudança de senha segura para usuários com risco alto.
 
 ![Captura de tela mostra os usuários sinalizados para risco, com um usuário selecionado.](./media/steps-secure-identity/azure-ad-sec-steps1.png)
 
 ### <a name="implement-sign-in-risk-policy-using-azure-ad-identity-protection"></a>Implementar a política de risco de entrada usando o Azure AD Identity Protection
 
-O risco de entrada é a probabilidade de alguém que não o proprietário da conta estar tentando entrar usando a identidade. Uma [política de risco de entrada](../../active-directory/identity-protection/overview.md) é uma política de acesso condicional que avalia o nível de risco para um grupo ou usuário específico. Com base no nível de risco (baixo/médio/alto), é possível configurar uma política para bloquear o acesso ou forçar a autenticação multifator. Certifique-se de forçar a autenticação multifator em entradas de risco Médio ou acima.
+O risco de entrada é a probabilidade de alguém que não o proprietário da conta estar tentando entrar usando a identidade. Uma [política de risco de entrada](../../active-directory/identity-protection/overview-identity-protection.md) é uma política de acesso condicional que avalia o nível de risco para um grupo ou usuário específico. Com base no nível de risco (baixo/médio/alto), é possível configurar uma política para bloquear o acesso ou forçar a autenticação multifator. Certifique-se de forçar a autenticação multifator em entradas de risco Médio ou acima.
 
 ![Entrada de IPs anônimos](./media/steps-secure-identity/azure-ad-sec-steps2.png)
 
@@ -169,7 +169,7 @@ O [Monitoramento do AD FS com Azure AD Connect Health](../../active-directory/hy
 
 ### <a name="monitor-azure-ad-identity-protection-events"></a>Monitorar eventos do Azure AD Identity Protection
 
-O [Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) é uma ferramenta de notificação, monitoramento e relatórios que você pode usar para detectar possíveis vulnerabilidades que afetam as identidades da organização. Ele detecta detecções de risco, como credenciais vazadas, viagem impossível e entradas de dispositivos infectados, endereços IP anônimos, endereços IP associados à atividade suspeita e localizações desconhecidas. Habilite os alertas de notificação para receber email de usuários em risco e/ou um email de resumo semanal.
+O [Azure AD Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) é uma ferramenta de notificação, monitoramento e relatórios que você pode usar para detectar possíveis vulnerabilidades que afetam as identidades da organização. Ele detecta detecções de risco, como credenciais vazadas, viagem impossível e entradas de dispositivos infectados, endereços IP anônimos, endereços IP associados à atividade suspeita e localizações desconhecidas. Habilite os alertas de notificação para receber email de usuários em risco e/ou um email de resumo semanal.
 
 O Azure AD Identity Protection fornece dois relatórios importantes que devem ser monitorados diariamente:
 1. Os relatórios de entradas arriscadas exibirão as atividades de entrada do usuário que você deve investigar, pois o proprietário legítimo pode não ter sido verificado na entrada.
@@ -179,9 +179,9 @@ O Azure AD Identity Protection fornece dois relatórios importantes que devem se
 
 ### <a name="audit-apps-and-consented-permissions"></a>Auditar aplicativos e permissões de consentimento
 
-Os usuários podem ser induzidos a navegar para um site ou aplicativos comprometidos que terão acesso às informações do perfil e aos dados dos usuários, como o email deles. Um ator mal-intencionado pode usar as permissões consentidas que recebeu para criptografar o conteúdo da caixa de correio e exigir um resgate para recuperar os dados da caixa de correio. [Os administradores devem examinar e auditar](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) as permissões fornecidas pelos usuários ou desabilitar a capacidade dos usuários de dar consentimento por padrão.
+Os usuários podem ser induzidos a navegar para um site ou aplicativos comprometidos que terão acesso às informações do perfil e aos dados dos usuários, como o email deles. Um ator mal-intencionado pode usar as permissões consentidas que recebeu para criptografar o conteúdo da caixa de correio e exigir um resgate para recuperar os dados da caixa de correio. [Os administradores devem examinar e auditar](/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) as permissões fornecidas pelos usuários ou desabilitar a capacidade dos usuários de dar consentimento por padrão.
 
-Além de auditar as permissões fornecidas pelos usuários, você pode [localizar aplicativos OAuth arriscados ou indesejados](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth) em ambientes premium.
+Além de auditar as permissões fornecidas pelos usuários, você pode [localizar aplicativos OAuth arriscados ou indesejados](/cloud-app-security/investigate-risky-oauth) em ambientes premium.
 
 ## <a name="step-5---enable-end-user-self-service"></a>Etapa 5 – Habilitar o autoatendimento do usuário final
 
@@ -189,7 +189,7 @@ Você vai querer balancear a segurança com a produtividade o máximo possível.
 
 ### <a name="implement-self-service-password-reset"></a>Implementar a redefinição de senha por autoatendimento
 
-A [SSPR (redefinição de senha por autoatendimento)](../../active-directory/authentication/quickstart-sspr.md) do Azure AD oferece um meio simples para os administradores de TI permitirem que os usuários redefinam ou desbloqueiem suas senhas ou contas sem suporte técnico nem intervenção do administrador. O sistema inclui relatórios detalhados que acompanham quando os usuários redefinem as respectivas senhas, junto com notificações para alertá-lo sobre uso indevido ou abuso.
+A [SSPR (redefinição de senha por autoatendimento)](../../active-directory/authentication/tutorial-enable-sspr.md) do Azure AD oferece um meio simples para os administradores de TI permitirem que os usuários redefinam ou desbloqueiem suas senhas ou contas sem suporte técnico nem intervenção do administrador. O sistema inclui relatórios detalhados que acompanham quando os usuários redefinem as respectivas senhas, junto com notificações para alertá-lo sobre uso indevido ou abuso.
 
 ### <a name="implement-self-service-group-and-application-access"></a>Implementar acesso self-service a aplicativos e grupos
 
@@ -213,6 +213,6 @@ Apreciamos a seriedade com que você encara a Segurança de Identidade e esperam
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se precisar de ajuda para planejar e implantar as recomendações, confira os [planos de implantação de projeto do Azure AD](https://aka.ms/deploymentplans) para obter ajuda.
+Se precisar de ajuda para planejar e implantar as recomendações, confira os [planos de implantação de projeto do Azure AD](../../active-directory/fundamentals/active-directory-deployment-plans.md) para obter ajuda.
 
 Se você tiver certeza de que todas essas etapas estão concluídas, use a [classificação de segurança de identidade da Microsoft](../../active-directory/fundamentals/identity-secure-score.md), que manterá você atualizado com as ameaças de segurança e [melhores práticas mais recentes](identity-management-best-practices.md).

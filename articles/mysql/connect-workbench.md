@@ -1,18 +1,18 @@
 ---
 title: 'Início Rápido: Conectar – MySQL Workbench – Banco de Dados do Azure para MySQL'
 description: Este guia de início rápido fornece as etapas para usar o MySQL Workbench para se conectar e consultar dados do Banco de Dados do Azure para MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 5ec6aab8aaa63b848131d44f78867100f154d251
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5e27cfec0a3f0a58c1e94a822e0c831f4efa1b32
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90896333"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535530"
 ---
 # <a name="quickstart-use-mysql-workbench-to-connect-and-query-data-in-azure-database-for-mysql"></a>Início Rápido: Usar o MySQL Workbench para se conectar e consultar dados no Banco de Dados do Azure para MySQL
 
@@ -49,7 +49,7 @@ Para se conectar ao Servidor MySQL do Azure usando a ferramenta de GUI MySQL Wor
 
 2.    Na caixa de diálogo **Configurar Nova Conexão**, insira as seguintes informações na guia **Parâmetros**:
 
-:::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="Nome do servidor do Banco de Dados do Azure para MySQL":::
+:::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="configurar nova conexão":::
 
 | **Configuração** | **Valor sugerido** | **Descrição do campo** |
 |---|---|---|
@@ -103,13 +103,23 @@ Para se conectar ao Servidor MySQL do Azure usando a ferramenta de GUI MySQL Wor
 
     A captura de tela mostra um exemplo do código SQL no SQL Workbench e a saída após sua execução.
     
-    :::image type="content" source="media/connect-workbench/3-workbench-sql-tab.png" alt-text="Nome do servidor do Banco de Dados do Azure para MySQL":::
+    :::image type="content" source="media/connect-workbench/3-workbench-sql-tab.png" alt-text="Guia de SQL do MySQL Workbench para executar código SQL de exemplo":::
 
 2. Para executar o código SQL de exemplo, clique no ícone de raio na barra de ferramentas da guia **Arquivo SQL**.
 3. Observe os resultados em três guias na seção **Grade de Resultados** no meio da página. 
 4. Observe a lista de **Saída** na parte inferior da página. O status de cada comando é mostrado. 
 
 Agora, você se conectou ao Banco de Dados do Azure para MySQL usando o MySQL Workbench e consultou dados usando a linguagem SQL.
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Para limpar todos os recursos usados durante este guia de início rápido, exclua o grupo de recursos usando o seguinte comando:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]

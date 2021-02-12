@@ -1,32 +1,42 @@
 ---
-title: Solicitar dados meteorológicos em tempo real e previsão usando os serviços meteorológicos do Azure Maps
-description: Saiba como solicitar dados meteorológicos em tempo real (atuais) e previstos (minuto, por hora, diariamente) usando Microsoft Azure mapear serviços meteorológicos
+title: Solicitar dados meteorológicos em tempo real e previsão usando os serviços meteorológicos do Azure Maps (versão prévia)
+description: Saiba como solicitar dados meteorológicos em tempo real (atuais) e previstos (minuto, por hora, diariamente) usando Microsoft Azure mapear os serviços meteorológicos (versão prévia)
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 10/27/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b5db19a6549e7e4675213973554ff18bf46dda1e
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: fe1b337fe3e1dcf499f9a7428f66543108d0c050
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92915383"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680410"
 ---
-# <a name="request-real-time-and-forecasted-weather-data-using-azure-maps-weather-services"></a>Solicitar dados meteorológicos em tempo real e previsão usando os serviços meteorológicos do Azure Maps
+# <a name="request-real-time-and-forecasted-weather-data-using-azure-maps-weather-services-preview"></a>Solicitar dados meteorológicos em tempo real e previsão usando os serviços meteorológicos do Azure Maps (versão prévia) 
 
-O [serviço meteorológico](https://docs.microsoft.com/rest/api/maps/weather) do Azure Maps é um conjunto de APIs RESTful que permite aos desenvolvedores integrar dados de clima históricos, em tempo real e previstos e visualizações em suas soluções. Neste artigo, mostraremos como solicitar dados meteorológicos em tempo real e previsão.
+> [!IMPORTANT]
+> O serviço Clima do Azure Mapas está em versão prévia pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Os [serviços meteorológicos](/rest/api/maps/weather) do Azure Maps são um conjunto de APIs RESTful que permite aos desenvolvedores integrar dados de clima históricos, em tempo real e previstos e visualizações em suas soluções. Neste artigo, mostraremos como solicitar dados meteorológicos em tempo real e previsão.
 
 Neste artigo, você aprenderá a:
 
-* Solicite dados meteorológicos (atuais) em tempo real usando a [API obter condições atuais](https://docs.microsoft.com/rest/api/maps/weather/getcurrentconditionspreview).
-* Solicite alertas de clima severos usando a [API obter alertas meteorológicos severas](https://docs.microsoft.com/rest/api/maps/weather/getsevereweatheralertspreview).
-* Solicite previsões diárias usando a [API obter previsão diária](https://docs.microsoft.com/rest/api/maps/weather/getdailyforecastpreview).
-* Solicitar previsões por hora usando a [API obter previsão por hora](https://docs.microsoft.com/rest/api/maps/weather/gethourlyforecastpreview).
-* Solicite previsões de minuto por minuto usando a [API de previsão de obter minuto](https://docs.microsoft.com/rest/api/maps/weather/getminuteforecastpreview).
+* Solicite dados meteorológicos (atuais) em tempo real usando a [API obter condições atuais](/rest/api/maps/weather/getcurrentconditionspreview).
+* Solicite alertas de clima severos usando a [API obter alertas meteorológicos severas](/rest/api/maps/weather/getsevereweatheralertspreview).
+* Solicite previsões diárias usando a [API obter previsão diária](/rest/api/maps/weather/getdailyforecastpreview).
+* Solicitar previsões por hora usando a [API obter previsão por hora](/rest/api/maps/weather/gethourlyforecastpreview).
+* Solicite previsões de minuto por minuto usando a [API de previsão de obter minuto](/rest/api/maps/weather/getminuteforecastpreview).
+
+Este vídeo fornece exemplos para fazer chamadas REST para os serviços meteorológicos do Azure Maps.
+
+</br>
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps-Weather-services-for-developers/player?format=ny]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,19 +44,19 @@ Neste artigo, você aprenderá a:
 2. [Obtenha uma chave de assinatura primária](quick-demo-map-app.md#get-the-primary-key-for-your-account), também conhecida como a chave primária ou a chave de assinatura. Para obter mais informações sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](./how-to-manage-authentication.md).
 
     >[!IMPORTANT]
-    >A [API obter previsão de minutos](https://docs.microsoft.com/rest/api/maps/weather/getminuteforecastpreview) requer uma chave de tipo de preço S1. Todas as outras APIs exigem uma chave de tipo de preço S0.
+    >A [API obter previsão de minutos](/rest/api/maps/weather/getminuteforecastpreview) requer uma chave de tipo de preço S1. Todas as outras APIs exigem uma chave de tipo de preço S0.
 
 Este tutorial usa o aplicativo [Postman](https://www.postman.com/), mas você pode escolher um ambiente de desenvolvimento de API diferente.
 
 ## <a name="request-real-time-weather-data"></a>Solicitar dados meteorológicos em tempo real
 
-A [API obter condições atuais](https://docs.microsoft.com/rest/api/maps/weather/getcurrentconditionspreview) retorna condições de clima detalhadas, como precipitação, temperatura e vento para um determinado local de coordenadas. Além disso, as observações das últimas 6 ou 24 horas para um local específico podem ser recuperadas. A resposta inclui detalhes como data e hora de observação, breve descrição das condições de clima, ícone de clima, sinalizadores de indicador precipitação e temperatura. O índice RealFeel™ temperatura e Ultraviolet (UV) também são retornados.
+A [API obter condições atuais](/rest/api/maps/weather/getcurrentconditionspreview) retorna condições de clima detalhadas, como precipitação, temperatura e vento para um determinado local de coordenadas. Além disso, as observações das últimas 6 ou 24 horas para um local específico podem ser recuperadas. A resposta inclui detalhes como data e hora de observação, breve descrição das condições de clima, ícone de clima, sinalizadores de indicador precipitação e temperatura. O índice RealFeel™ temperatura e Ultraviolet (UV) também são retornados.
 
-Neste exemplo, você usará a [API obter condições atuais](https://docs.microsoft.com/rest/api/maps/weather/getcurrentconditionspreview) para recuperar as condições do clima atual em coordenadas localizadas em Seattle, WA.
+Neste exemplo, você usará a [API obter condições atuais](/rest/api/maps/weather/getcurrentconditionspreview) para recuperar as condições do clima atual em coordenadas localizadas em Seattle, WA.
 
-1. Abra o aplicativo Postman. Próximo à parte superior do aplicativo Postman, selecione **Novo** . Na janela **Criar** , selecione **Coleção** .  Nomeie a coleção e selecione o botão **Criar** . Você usará essa coleção para o restante dos exemplos neste documento.
+1. Abra o aplicativo Postman. Próximo à parte superior do aplicativo Postman, selecione **Novo**. Na janela **Criar**, selecione **Coleção**.  Nomeie a coleção e selecione o botão **Criar**. Você usará essa coleção para o restante dos exemplos neste documento.
 
-2. Para criar a solicitação, selecione **Novo** outra vez. Na janela **Criar** , selecione **Solicitação** . Insira um **Nome de solicitação** para a solicitação. Selecione a coleção que você criou na etapa anterior e clique em **Salvar** .
+2. Para criar a solicitação, selecione **Novo** outra vez. Na janela **Criar**, selecione **Solicitação**. Insira um **Nome de solicitação** para a solicitação. Selecione a coleção que você criou na etapa anterior e clique em **Salvar**.
 
 3. Selecione o método http **Get** na guia Construtor e insira a URL a seguir. Para essa solicitação e outras solicitações mencionadas neste artigo, substitua `{Azure-Maps-Primary-Subscription-key}` pela sua chave de assinatura primária.
 
@@ -229,14 +239,14 @@ Neste exemplo, você usará a [API obter condições atuais](https://docs.micros
 
 ## <a name="request-severe-weather-alerts"></a>Solicitar alertas de clima severos
 
-A [API de obtenção de alertas meteorológicos do Azure Maps](https://docs.microsoft.com/rest/api/maps/weather/getsevereweatheralertspreview) retorna os alertas de clima severas que estão disponíveis em todo o mundo de órgãos de aeródromo governamentais oficiais e provedores de alerta de clima global a regional. O serviço pode retornar detalhes como tipo de alerta, categoria, nível e descrições detalhadas sobre os alertas graves ativos para o local solicitado, como furacões, thunderstorms, relâmpago, ondas de calor ou incêndios de florestas. Por exemplo, gerentes de logística podem visualizar severas condições de clima em um mapa, juntamente com locais de negócios e rotas planejadas, além de coordenar ainda mais com os drivers e os funcionários locais.
+A [API de obtenção de alertas meteorológicos do Azure Maps](/rest/api/maps/weather/getsevereweatheralertspreview) retorna os alertas de clima severas que estão disponíveis em todo o mundo de órgãos de aeródromo governamentais oficiais e provedores de alerta de clima global a regional. O serviço pode retornar detalhes como tipo de alerta, categoria, nível e descrições detalhadas sobre os alertas graves ativos para o local solicitado, como furacões, thunderstorms, relâmpago, ondas de calor ou incêndios de florestas. Por exemplo, gerentes de logística podem visualizar severas condições de clima em um mapa, juntamente com locais de negócios e rotas planejadas, além de coordenar ainda mais com os drivers e os funcionários locais.
 
-Neste exemplo, você usará a [API obter alertas meteorológicos severas](https://docs.microsoft.com/rest/api/maps/weather/getsevereweatheralertspreview) para recuperar as condições do clima atual em coordenadas localizadas em Cheyenne, WY.
+Neste exemplo, você usará a [API obter alertas meteorológicos severas](/rest/api/maps/weather/getsevereweatheralertspreview) para recuperar as condições do clima atual em coordenadas localizadas em Cheyenne, WY.
 
 >[!NOTE]
 >Este exemplo recupera alertas de clima severos no momento da redação deste artigo. É provável que não haja mais nenhum alerta de clima severo no local solicitado. Para recuperar dados de alerta graves reais ao executar este exemplo, você precisará recuperar dados em um local de coordenadas diferente.
 
-1. Abra o aplicativo do postmaster, clique em **novo** e selecione **solicitação** . Insira um **Nome de solicitação** para a solicitação. Selecione a coleção que você criou na seção anterior ou criou uma nova e, em seguida, selecione **salvar** .
+1. Abra o aplicativo do postmaster, clique em **novo** e selecione **solicitação**. Insira um **Nome de solicitação** para a solicitação. Selecione a coleção que você criou na seção anterior ou criou uma nova e, em seguida, selecione **salvar**.
 
 2. Selecione o método http **Get** na guia Construtor e insira a URL a seguir. Para essa solicitação e outras solicitações mencionadas neste artigo, substitua `{Azure-Maps-Primary-Subscription-key}` pela sua chave de assinatura primária.
 
@@ -281,14 +291,14 @@ Neste exemplo, você usará a [API obter alertas meteorológicos severas](https:
 
 ## <a name="request-daily-weather-forecast-data"></a>Solicitar dados de previsão do clima diário
 
-A [API obter previsão diária](https://docs.microsoft.com/rest/api/maps/weather/getdailyforecastpreview) retorna uma previsão do tempo diário detalhada, como temperatura e vento. A solicitação pode especificar quantos dias para retornar: 1, 5, 10, 15, 25 ou 45 dias para um determinado local de coordenadas. A resposta inclui detalhes como temperatura, vento, precipitação, qualidade do ar e índice UV.  Neste exemplo, solicitamos cinco dias por configuração `duration=5` .
+A [API obter previsão diária](/rest/api/maps/weather/getdailyforecastpreview) retorna uma previsão do tempo diário detalhada, como temperatura e vento. A solicitação pode especificar quantos dias para retornar: 1, 5, 10, 15, 25 ou 45 dias para um determinado local de coordenadas. A resposta inclui detalhes como temperatura, vento, precipitação, qualidade do ar e índice UV.  Neste exemplo, solicitamos cinco dias por configuração `duration=5` .
 
 >[!IMPORTANT]
 >No tipo de preço S0, você pode solicitar uma previsão diária para os próximos 1, 5, 10 e 15 dias. No tipo de preço S1, você também pode solicitar uma previsão diária para os próximos 25 dias e 45 dias.
 
-Neste exemplo, você usará a [API obter previsão diária](https://docs.microsoft.com/rest/api/maps/weather/getdailyforecastpreview) para recuperar a previsão do tempo de cinco dias para as coordenadas localizadas em Seattle, WA.
+Neste exemplo, você usará a [API obter previsão diária](/rest/api/maps/weather/getdailyforecastpreview) para recuperar a previsão do tempo de cinco dias para as coordenadas localizadas em Seattle, WA.
 
-1. Abra o aplicativo do postmaster, clique em **novo** e selecione **solicitação** . Insira um **Nome de solicitação** para a solicitação. Selecione a coleção que você criou na seção anterior ou criou uma nova e, em seguida, selecione **salvar** .
+1. Abra o aplicativo do postmaster, clique em **novo** e selecione **solicitação**. Insira um **Nome de solicitação** para a solicitação. Selecione a coleção que você criou na seção anterior ou criou uma nova e, em seguida, selecione **salvar**.
 
 2. Selecione o método http **Get** na guia Construtor e insira a URL a seguir. Para essa solicitação e outras solicitações mencionadas neste artigo, substitua `{Azure-Maps-Primary-Subscription-key}` pela sua chave de assinatura primária.
 
@@ -529,14 +539,14 @@ Neste exemplo, você usará a [API obter previsão diária](https://docs.microso
 
 ## <a name="request-hourly-weather-forecast-data"></a>Solicitar dados de previsão do clima por hora
 
-A [API obter previsão por hora](https://docs.microsoft.com/rest/api/maps/weather/gethourlyforecastpreview) retorna a previsão do tempo detalhada por hora para os próximos 1, 12, 24 (1 dia), 72 (3 dias), 120 (5 dias) e 240 horas (10 dias) para o local de coordenadas fornecido. A API retorna detalhes como temperatura, umidade, vento, precipitação e índice UV.
+A [API obter previsão por hora](/rest/api/maps/weather/gethourlyforecastpreview) retorna a previsão do tempo detalhada por hora para os próximos 1, 12, 24 (1 dia), 72 (3 dias), 120 (5 dias) e 240 horas (10 dias) para o local de coordenadas fornecido. A API retorna detalhes como temperatura, umidade, vento, precipitação e índice UV.
 
 >[!IMPORTANT]
 >No tipo de preço S0, você pode solicitar uma previsão por hora para as próximas 1, 12, 24 horas (1 dia) e 72 horas (3 dias). No tipo de preço S1, você também pode solicitar uma previsão por hora para os próximos 120 (5 dias) e 240 horas (10 dias).
 
-Neste exemplo, você usará a [API obter previsão por hora](https://docs.microsoft.com/rest/api/maps/weather/gethourlyforecastpreview) para recuperar a previsão do tempo por hora das próximas 12 horas nas coordenadas localizadas em Seattle, WA.
+Neste exemplo, você usará a [API obter previsão por hora](/rest/api/maps/weather/gethourlyforecastpreview) para recuperar a previsão do tempo por hora das próximas 12 horas nas coordenadas localizadas em Seattle, WA.
 
-1. Abra o aplicativo do postmaster, clique em **novo** e selecione **solicitação** . Insira um **Nome de solicitação** para a solicitação. Selecione a coleção que você criou na seção anterior ou criou uma nova e, em seguida, selecione **salvar** .
+1. Abra o aplicativo do postmaster, clique em **novo** e selecione **solicitação**. Insira um **Nome de solicitação** para a solicitação. Selecione a coleção que você criou na seção anterior ou criou uma nova e, em seguida, selecione **salvar**.
 
 2. Selecione o método http **Get** na guia Construtor e insira a URL a seguir. Para essa solicitação e outras solicitações mencionadas neste artigo, substitua `{Azure-Maps-Primary-Subscription-key}` pela sua chave de assinatura primária.
 
@@ -639,11 +649,11 @@ Neste exemplo, você usará a [API obter previsão por hora](https://docs.micros
     ```
 ## <a name="request-minute-by-minute-weather-forecast-data"></a>Solicitar dados de previsão do tempo de minuto a minuto
 
- A [API obter previsão de minutos](https://docs.microsoft.com/rest/api/maps/weather/getminuteforecastpreview) retorna previsões de minuto a minuto para um determinado local nos próximos 120 minutos. Os usuários podem solicitar previsões do tempo em intervalos de 1, 5 e 15 minutos. A resposta inclui detalhes como o tipo de precipitação (incluindo chuva, neve ou uma mistura de ambos), hora de início e valor de intensidade de precipitação (dBZ).
+ A [API obter previsão de minutos](/rest/api/maps/weather/getminuteforecastpreview) retorna previsões de minuto a minuto para um determinado local nos próximos 120 minutos. Os usuários podem solicitar previsões do tempo em intervalos de 1, 5 e 15 minutos. A resposta inclui detalhes como o tipo de precipitação (incluindo chuva, neve ou uma mistura de ambos), hora de início e valor de intensidade de precipitação (dBZ).
 
-Neste exemplo, você usará a [API obter previsão de minutos](https://docs.microsoft.com/rest/api/maps/weather/getminuteforecastpreview) para recuperar a previsão do tempo por minuto nas coordenadas localizadas em Seattle, WA. A previsão do tempo é dada para os próximos 120 minutos. Nossa consulta solicita que a previsão seja fornecida em intervalos de 15 minutos, mas você pode ajustar o parâmetro para ser 1 ou 5 minutos.
+Neste exemplo, você usará a [API obter previsão de minutos](/rest/api/maps/weather/getminuteforecastpreview) para recuperar a previsão do tempo por minuto nas coordenadas localizadas em Seattle, WA. A previsão do tempo é dada para os próximos 120 minutos. Nossa consulta solicita que a previsão seja fornecida em intervalos de 15 minutos, mas você pode ajustar o parâmetro para ser 1 ou 5 minutos.
 
-1. Abra o aplicativo do postmaster, clique em **novo** e selecione **solicitação** . Insira um **Nome de solicitação** para a solicitação. Selecione a coleção que você criou na seção anterior ou criou uma nova e, em seguida, selecione **salvar** .
+1. Abra o aplicativo do postmaster, clique em **novo** e selecione **solicitação**. Insira um **Nome de solicitação** para a solicitação. Selecione a coleção que você criou na seção anterior ou criou uma nova e, em seguida, selecione **salvar**.
 
 2. Selecione o método http **Get** na guia Construtor e insira a URL a seguir. Para essa solicitação e outras solicitações mencionadas neste artigo, substitua `{Azure-Maps-Primary-Subscription-key}` pela sua chave de assinatura primária.
 
@@ -745,8 +755,7 @@ Neste exemplo, você usará a [API obter previsão de minutos](https://docs.micr
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Conceitos do serviço meteorológico do Azure Maps](https://docs.microsoft.com/azure/azure-maps/weather-services-concepts)
+> [Conceitos dos serviços meteorológicos do Azure Maps (versão prévia)](./weather-services-concepts.md)
 
 > [!div class="nextstepaction"]
-> [API REST do serviço de clima do Azure Maps](https://docs.microsoft.com/rest/api/maps/weather
-)
+> [API REST dos serviços meteorológicos do Azure Maps (versão prévia)](/rest/api/maps/weather)

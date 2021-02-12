@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 122e76e4bde96823ff18207bc24df4a8e91afb1c
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8e51d7d00120f6facb0fb53a8e379d157ae79ea4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517961"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938571"
 ---
 # <a name="scenario-route-traffic-through-nvas-by-using-custom-settings"></a>Cenário: rotear o tráfego por meio de NVAs usando configurações personalizadas
 
@@ -32,7 +32,7 @@ A tabela a seguir resume as conexões com suporte neste cenário:
 | De          | Para|Spokes|VNet de serviço|Branches|Internet|
 |---|---|:---:|:---:|:---:|:---:|:---:|
 | **Spokes**| ->| diretamente |diretamente | por meio da VNet de serviço |por meio da VNet do perímetro |
-| **VNet de serviço**| ->| diretamente |N/D| diretamente | |
+| **VNet de serviço**| ->| diretamente |n/a| diretamente | |
 | **Branches** | ->| por meio da VNet de serviço |diretamente| diretamente |  |
 
 Cada uma das células na matriz de conectividade descreve se a conectividade flui diretamente pela WAN virtual ou por uma das redes virtuais com um NVA. 
@@ -57,6 +57,9 @@ Há três padrões distintos de conectividade, que se traduz em três tabelas de
 * Filia
   * Tabela de rotas associada: **padrão**
   * Propagando para tabelas de rotas: **RT_SHARED** e **padrão**
+
+> [!NOTE] 
+> Verifique se os VNets spoke não estão se propagando para o rótulo padrão. Isso garante que o tráfego de branches para spoke VNets será encaminhado para o NVAs.
 
 Essas rotas estáticas garantem que o tráfego de e para a rede virtual e a ramificação passe pelo NVA na VNet do serviço (VNet 4):
 
@@ -120,7 +123,7 @@ Para configurar o roteamento via NVA, aqui estão as etapas a serem consideradas
 
    * **Propagação de:** Verifique se a opção de branches (VPN/ER/P2S) está selecionada, garantindo que as conexões locais estejam propagando rotas para a tabela de rotas padrão.
 
-:::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="Diagrama da arquitetura de rede." lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
+:::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="Diagrama de fluxo de trabalho." lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 69eefce50cefe9f54ed931c96ccbe94b2057cae4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb87afcc6edc02d241dca763aff9ecdd594e4711
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362360"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310085"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Suplemento do Excel para serviços Web Azure Machine Learning Studio (clássico)
 
-**APLICA-SE A:**  ![Aplica-se a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico) ![Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APLICA-SE A:**  ![Aplica-se a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico) ![Não se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 O Excel torna fácil chamar serviços Web diretamente, sem a necessidade de escrever nenhum código.
@@ -38,7 +38,7 @@ O Excel torna fácil chamar serviços Web diretamente, sem a necessidade de escr
     ![Selecionar o serviço Web](./media/excel-add-in-for-web-services/image1.png)
 3. Isso levará você à seção **Prever**.  Esta pasta de trabalho já contém dados de exemplo, mas para uma pasta de trabalho em branco você pode selecionar uma célula no Excel e clicar em **Usar dados de exemplo**.
 4. Selecione os dados com cabeçalhos e clique no ícone de intervalo de dados de entrada.  Verifique se a caixa "Meus dados contêm cabeçalhos" está marcada.
-5. Em **Saída**, insira o número da célula em que você deseja colocar a saída, por exemplo, "H1" aqui.
+5. Em **Saída** , insira o número da célula em que você deseja colocar a saída, por exemplo, "H1" aqui.
 6. Clique em **Prever**. Se você marcar a caixa de seleção "Previsão automática", qualquer alteração nas áreas selecionadas (aquelas especificadas como entrada) disparará uma solicitação e uma atualização das células de saída sem a necessidade de você pressionar o botão de previsão.
    
     ![Seção Prever](./media/excel-add-in-for-web-services/image1.png)
@@ -65,7 +65,7 @@ Obtenha a chave de API para o seu serviço Web. O local em que você executa ess
 
 **Usar um novo serviço Web**
 
-1. No portal de [Serviços Web do Azure Machine Learning](https://services.azureml.net) , clique em **Serviços Web**e selecione seu serviço Web. 
+1. No portal de [Serviços Web do Azure Machine Learning](https://services.azureml.net) , clique em **Serviços Web** e selecione seu serviço Web. 
 2. Clique em **Consumo**.
 3. Procure a seção **Informações básicas de consumo** . Copie e salve a **Chave primária** e a URL de **solicitação-resposta**.
 
@@ -88,4 +88,4 @@ Obtenha a chave de API para o seu serviço Web. O local em que você executa ess
 ## <a name="sharing-your-workbook"></a>Compartilhar sua pasta de trabalho
 Se você salvar sua pasta de trabalho, as chaves de API/primária dos serviços Web adicionados também serão salvas. Isso significa que você só deve compartilhar a pasta de trabalho com pessoas confiáveis.
 
-Faça suas perguntas na seção de comentário abaixo ou em nosso [fórum](https://docs.microsoft.com/answers/topics/azure-machine-learning.html).
+Faça suas perguntas na seção de comentário abaixo ou em nosso [fórum](/answers/topics/azure-machine-learning.html).

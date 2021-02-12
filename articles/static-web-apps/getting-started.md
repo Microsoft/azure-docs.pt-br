@@ -1,20 +1,20 @@
 ---
-title: 'Início Rápido: Como criar seu primeiro aplicativo Web estático com os Aplicativos Web Estáticos do Azure'
-description: Saiba como criar um site dos Aplicativos Web Estáticos do Azure.
+title: 'Início Rápido: Como criar seu primeiro site estático com os Aplicativos Web Estáticos do Azure'
+description: Saiba como implantar um site estático nos Aplicativos Web Estáticos do Azure.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: db3836e6171d187539b8615efcb5ab782c368020
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: eb2356451c349f894c9ca74b1359f6a02d0e002a
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88752424"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562507"
 ---
-# <a name="quickstart-building-your-first-static-web-app"></a>Início Rápido: Como criar seu primeiro aplicativo Web estático
+# <a name="quickstart-building-your-first-static-site-with-azure-static-web-apps"></a>Início Rápido: Como criar seu primeiro site estático com os Aplicativos Web Estáticos do Azure
 
 Os Aplicativos Web Estáticos do Azure publicam um site em um ambiente de produção por meio da criação de aplicativos por meio de um repositório GitHub. Neste guia de início rápido, você implantará um aplicativo Web nos Aplicativos Web Estáticos do Azure usando a extensão do Visual Studio Code.
 
@@ -44,27 +44,27 @@ Em seguida, abra o Visual Studio Code e acesse **Arquivo > Abrir Pasta** para ab
 
 1. Posicione o mouse sobre o rótulo _Aplicativos Web Estáticos_ e escolha o **sinal de adição**.
 
-    :::image type="content" source="media/getting-started/extension-create-button.png" alt-text="Logotipo do Azure":::
+    :::image type="content" source="media/getting-started/extension-create-button.png" alt-text="Nome do aplicativo":::
 
 1. A paleta de comandos será aberta na parte superior do editor e solicitará a você que nomeie o aplicativo.
 
     Digite **my-first-static-web-app** e clique em **ENTER**.
 
-    :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Logotipo do Azure":::
+    :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Criar Aplicativo Web Estático":::
 
-1. Selecione o branch **mestre** e clique em **ENTER**.
+1. Selecione o branch **main** e pressione **Enter**.
 
-    :::image type="content" source="media/getting-started/extension-branch.png" alt-text="Logotipo do Azure":::
+    :::image type="content" source="media/getting-started/extension-branch.png" alt-text="Nome do branch":::
 
 1. Selecione **/** como a localização do código do aplicativo e clique em **ENTER**.
 
-    :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Logotipo do Azure":::
+    :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Localização do código do aplicativo":::
 
 1. A extensão procura a localização da API no aplicativo. Este artigo não implementa uma API.
 
     Selecione **Ignorar por enquanto** e clique em **ENTER**.
 
-    :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="Logotipo do Azure":::
+    :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="Localização da API":::
 
 1. Selecione a localização em que os arquivos são criados para produção no aplicativo.
 
@@ -72,39 +72,39 @@ Em seguida, abra o Visual Studio Code e acesse **Arquivo > Abrir Pasta** para ab
 
     Desmarque a caixa e clique em **ENTER**.
 
-    :::image type="content" source="media/getting-started/extension-artifact-no-framework.png" alt-text="Logotipo do Azure":::
+    :::image type="content" source="media/getting-started/extension-artifact-no-framework.png" alt-text="Caminho dos arquivos do aplicativo":::
 
     # <a name="angular"></a>[Angular](#tab/angular)
 
     Digite **dist/angular-basic** e clique em **ENTER**.
 
-    :::image type="content" source="media/getting-started/extension-artifact-angular.png" alt-text="Logotipo do Azure":::
+    :::image type="content" source="media/getting-started/extension-artifact-angular.png" alt-text="Caminho dos arquivos do aplicativo Angular":::
 
     # <a name="react"></a>[React](#tab/react)
 
     Digite **build** e clique em **ENTER**.
 
-    :::image type="content" source="media/getting-started/extension-artifact-react.png" alt-text="Logotipo do Azure":::
+    :::image type="content" source="media/getting-started/extension-artifact-react.png" alt-text="Caminho dos arquivos do aplicativo React":::
 
     # <a name="vue"></a>[Vue](#tab/vue)
 
     Digite **dist** e clique em **ENTER**.
 
-    :::image type="content" source="media/getting-started/extension-artifact-vue.png" alt-text="Logotipo do Azure":::
+    :::image type="content" source="media/getting-started/extension-artifact-vue.png" alt-text="Caminho dos arquivos do aplicativo Vue":::
 
     ---
 
 1. Selecione uma localização mais próxima e clique em **ENTER**.
 
-    :::image type="content" source="media/getting-started/extension-location.png" alt-text="Logotipo do Azure":::
+    :::image type="content" source="media/getting-started/extension-location.png" alt-text="Localização do recurso":::
 
 1. Depois que o aplicativo é criado, uma notificação de confirmação é mostrada no Visual Studio Code.
 
-    :::image type="content" source="media/getting-started/extension-confirmation.png" alt-text="Logotipo do Azure":::
+    :::image type="content" source="media/getting-started/extension-confirmation.png" alt-text="Confirmação criada":::
 
-1. Na janela do Visual Studio Code Explorer, volte à seção _Aplicativos Web Estáticos_, clique com o botão direito do mouse em **Produção** e selecione **Abrir no Portal** para ver o aplicativo no portal do Azure.
+1. Na janela do Explorador do Visual Studio Code, navegue até o nó que tem o nome da sua assinatura e expanda-o. Pode levar vários minutos para que a implantação seja concluída. Em seguida, retorne à seção Aplicativos Web Estáticos e selecione o nome do aplicativo, depois clique com o botão direito do mouse em my-first-static-web-app e selecione Abrir no Portal para ver o aplicativo no portal do Azure.
 
-    :::image type="content" source="media/getting-started/extension-open-in-portal.png" alt-text="Logotipo do Azure":::
+    :::image type="content" source="media/getting-started/extension-open-in-portal.png" alt-text="Abrir portal":::
 
 [!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
 
@@ -114,7 +114,7 @@ Se você não pretende continuar usando esse aplicativo, exclua a instância dos
 
 Na janela do Visual Studio Code Explorer, volte à seção _Aplicativos Web Estáticos_, clique com o botão direito do mouse em **my-first-static-web-app** e selecione **Excluir**.
 
-:::image type="content" source="media/getting-started/extension-delete.png" alt-text="Logotipo do Azure":::
+:::image type="content" source="media/getting-started/extension-delete.png" alt-text="Excluir aplicativo":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

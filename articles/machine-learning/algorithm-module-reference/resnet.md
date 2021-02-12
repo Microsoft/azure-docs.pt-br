@@ -1,7 +1,7 @@
 ---
 title: ResNet
 titleSuffix: Azure Machine Learning
-description: Saiba como criar um modelo de classificação de imagem usando o algoritmo ResNet.
+description: Saiba como criar um modelo de classificação de imagem no designer de Azure Machine Learning usando o algoritmo ResNet.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
-ms.openlocfilehash: bd0431a8e503605c6137d948cf207c1bd2fa45b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88a820d0f1fa9515b4f2992a8305a2d1065e0987
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442041"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421202"
 ---
 # <a name="resnet"></a>ResNet
 
@@ -34,9 +34,9 @@ Consulte [Este artigo](https://pytorch.org/docs/stable/torchvision/models.html?h
 
 1.  Adicione o módulo **ResNet** ao seu pipeline no designer.  
 
-2.  Para **nome do modelo**, especifique o nome de uma determinada estrutura ResNet e você pode selecionar entre ResNet com suporte: ' resnet18 ', ' resnet34 ', ' resnet50 ', ' resnet101 ', ' resnet152 ', ' resnet152 ', ' resnext50 \_ 32x4d ', ' resnext101 \_ 32x8d ', ' wide_resnet50 \_ 2 ', ' wide_resnet101 \_ 2 '.
+2.  Para **nome do modelo** , especifique o nome de uma determinada estrutura ResNet e você pode selecionar entre ResNet com suporte: ' resnet18 ', ' resnet34 ', ' resnet50 ', ' resnet101 ', ' resnet152 ', ' resnet152 ', ' resnext50 \_ 32x4d ', ' resnext101 \_ 32x8d ', ' wide_resnet50 \_ 2 ', ' wide_resnet101 \_ 2 '.
 
-3.  Para pré- **treinado**, especifique se deseja usar um modelo previamente treinado em ImageNet. Se selecionado, você pode ajustar o modelo com base no modelo pretreinado selecionado; Se estiver desmarcada, você poderá treinar do zero.
+3.  Para pré- **treinado** , especifique se deseja usar um modelo previamente treinado em ImageNet. Se selecionado, você pode ajustar o modelo com base no modelo pretreinado selecionado; Se estiver desmarcada, você poderá treinar do zero.
 
 4.  Conecte a saída do módulo **DenseNet** módulo do conjunto de módulos de imagem, treinamento e validação ao [modelo Train Pytorch](train-pytorch-model.md). 
 
@@ -50,15 +50,15 @@ Após a execução do pipeline ser concluída, para usar o modelo de pontuação
 
 ###  <a name="module-parameters"></a>Parâmetros do módulo  
 
-| Nome       | Intervalo | Type    | Padrão           | Descrição                              |
+| Name       | Intervalo | Type    | Padrão           | Descrição                              |
 | ---------- | ----- | ------- | ----------------- | ---------------------------------------- |
-| Nome do modelo | Qualquer   | Modo    | resnext101 \_ 32x8d | Nome de uma determinada estrutura ResNet       |
+| Nome do modelo | Qualquer   | Mode    | resnext101 \_ 32x8d | Nome de uma determinada estrutura ResNet       |
 | Pré-treinados | Qualquer   | Booliano | verdadeiro              | Se deve ser usado um modelo previamente treinado em ImageNet |
 |            |       |         |                   |                                          |
 
 ###  <a name="output"></a>Saída  
 
-| Nome            | Type                    | Descrição                              |
+| Nome            | Tipo                    | Descrição                              |
 | --------------- | ----------------------- | ---------------------------------------- |
 | Modelo não treinado | UntrainedModelDirectory | Um modelo de ResNet não treinado que pode ser conectado ao modelo Train Pytorch. |
 

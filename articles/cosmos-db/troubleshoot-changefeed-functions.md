@@ -3,16 +3,17 @@ title: Solucionar problemas ao usar o gatilho de Azure Functions para Cosmos DB
 description: Problemas comuns, soluções alternativas e etapas de diagnóstico, ao usar o gatilho de Azure Functions para Cosmos DB
 author: ealsur
 ms.service: cosmos-db
-ms.date: 03/13/2020
+ms.subservice: cosmosdb-sql
+ms.date: 12/29/2020
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 9da07dc76bdd9273b70f68ee1abcddfa04519fda
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1b7b82ea07b7e00d281739011c9c9f83ab4dff73
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101027"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825618"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnosticar e solucionar problemas ao usar o gatilho de Azure Functions para Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -32,7 +33,7 @@ Este artigo sempre fará referência a Azure Functions v2 sempre que o tempo de 
 
 A principal funcionalidade do pacote de extensão é fornecer suporte para o gatilho de Azure Functions e associações para Cosmos DB. Ele também inclui o [SDK do .net Azure Cosmos DB](sql-api-sdk-dotnet-core.md), que é útil se você deseja interagir com Azure Cosmos DB programaticamente sem usar o gatilho e as associações.
 
-Se quiser usar o SDK do Azure Cosmos DB, certifique-se de não adicionar ao seu projeto outra referência de pacote NuGet. Em vez disso, **permita que a referência do SDK seja resolvida por meio do pacote de extensão do Azure Functions** . Consumir o SDK do Azure Cosmos DB separadamente do gatilho e das associações
+Se quiser usar o SDK do Azure Cosmos DB, certifique-se de não adicionar ao seu projeto outra referência de pacote NuGet. Em vez disso, **permita que a referência do SDK seja resolvida por meio do pacote de extensão do Azure Functions**. Consumir o SDK do Azure Cosmos DB separadamente do gatilho e das associações
 
 Além disso, se você estiver criando manualmente sua própria instância do [cliente SDK do Azure Cosmos DB](./sql-api-sdk-dotnet-core.md), deverá seguir o padrão de ter apenas uma instância do cliente [usando uma abordagem de padrão singleton](../azure-functions/manage-connections.md#documentclient-code-example-c). Esse processo evitará os problemas de soquete em potencial em suas operações.
 
@@ -44,7 +45,7 @@ A função do Azure falha com a mensagem de erro "a coleção de origem ' Collec
 
 Isso significa que um ou ambos os contêineres Cosmos do Azure necessários para o gatilho funcionar não existem ou não estão acessíveis para a função do Azure. **O erro em si informará qual banco de dados e contêiner do Azure cosmos é o gatilho procurando** com base em sua configuração.
 
-1. Verifique o `ConnectionStringSetting` atributo e se ele **faz referência a uma configuração existente no aplicativo de funções do Azure** . O valor nesse atributo não deve ser a própria cadeia de conexão, mas o nome do parâmetro de configuração.
+1. Verifique o `ConnectionStringSetting` atributo e se ele **faz referência a uma configuração existente no aplicativo de funções do Azure**. O valor nesse atributo não deve ser a própria cadeia de conexão, mas o nome do parâmetro de configuração.
 2. Verifique se o `databaseName` e o `collectionName` existem em sua conta do Azure Cosmos. Se você estiver usando a substituição automática de valor (usando `%settingName%` padrões), verifique se o nome da configuração existe em sua aplicativo de funções do Azure.
 3. Se você não especificar um `LeaseCollectionName/leaseCollectionName` , o padrão será "concessões". Verifique se esse contêiner existe. Opcionalmente, você pode definir o `CreateLeaseCollectionIfNotExists` atributo em seu gatilho para `true` para criá-lo automaticamente.
 4. Verifique a [configuração de firewall da sua conta do Azure Cosmos](how-to-configure-firewall.md) para ver se não está bloqueando a função do Azure.
@@ -84,18 +85,20 @@ O conceito de uma "alteração" é uma operação em um documento. Os cenários 
 
 ### <a name="some-changes-are-missing-in-my-trigger"></a>Algumas alterações estão ausentes no meu gatilho
 
-Se você descobrir que algumas das alterações que ocorreram em seu contêiner Cosmos do Azure não estão sendo coletadas pela função do Azure, há uma etapa de investigação inicial que precisa ocorrer.
+Se você descobrir que algumas das alterações que ocorreram em seu contêiner Cosmos do Azure não estão sendo coletadas pela função do Azure ou algumas alterações estão ausentes no destino quando você a estiver copiando, siga as etapas abaixo.
 
 Quando sua função do Azure recebe as alterações, ele geralmente as processa e, opcionalmente, envia o resultado para outro destino. Quando você estiver investigando alterações ausentes, certifique-se de **que você meça quais alterações estão sendo recebidas no ponto de ingestão** (quando a função do Azure é iniciada), não no destino.
 
 Se algumas alterações estiverem ausentes no destino, isso pode significar que o erro ocorre durante a execução da função do Azure depois que as alterações foram recebidas.
 
-Nesse cenário, o melhor curso de ação é adicionar `try/catch` blocos em seu código e dentro dos loops que podem estar processando as alterações, para detectar qualquer falha em um determinado subconjunto de itens e tratá-los de forma adequada (enviá-los para outro armazenamento para análise posterior ou repetição). 
+Nesse cenário, o melhor curso de ação é adicionar `try/catch` blocos em seu código e dentro dos loops que podem estar processando as alterações, para detectar qualquer falha em um determinado subconjunto de itens e tratá-los de forma adequada (enviá-los para outro armazenamento para análise posterior ou repetição).
 
 > [!NOTE]
 > Por padrão, o gatilho de Azure Functions para Cosmos DB não repetirá um lote de alterações se houver uma exceção sem tratamento durante a execução do código. Isso significa que o motivo pelo qual as alterações não chegaram no destino é porque você está falhando em processá-las.
 
-Se você achar que algumas alterações não foram recebidas por seu gatilho, o cenário mais comum é que há **outra função do Azure em execução** . Pode ser outra função do Azure implantada no Azure ou uma função do Azure em execução localmente na máquina de um desenvolvedor que tenha **exatamente a mesma configuração** (mesmo contêineres monitorados e de concessão), e essa função do Azure está roubando um subconjunto das alterações que você esperaria que sua função do Azure processasse.
+Se o destino for outro contêiner Cosmos e você estiver executando operações Upsert para copiar os itens, **Verifique se a definição de chave de partição no contêiner monitorado e de destino são iguais**. As operações Upsert podem estar salvando vários itens de origem como um no destino devido a essa diferença de configuração.
+
+Se você achar que algumas alterações não foram recebidas por seu gatilho, o cenário mais comum é que há **outra função do Azure em execução**. Pode ser outra função do Azure implantada no Azure ou uma função do Azure em execução localmente na máquina de um desenvolvedor que tenha **exatamente a mesma configuração** (mesmo contêineres monitorados e de concessão), e essa função do Azure está roubando um subconjunto das alterações que você esperaria que sua função do Azure processasse.
 
 Além disso, o cenário pode ser validado, se você souber quantas instâncias do Azure Aplicativo de funções você está executando. Se você inspecionar o contêiner de concessões e contar o número de itens de concessão no, os valores distintos da `Owner` Propriedade neles devem ser iguais ao número de instâncias de seu aplicativo de funções. Se houver mais proprietários do que as instâncias conhecidas do Azure Aplicativo de funções, isso significa que esses proprietários extras são aqueles que "roubam" as alterações.
 

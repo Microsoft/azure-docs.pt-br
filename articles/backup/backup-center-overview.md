@@ -3,14 +3,14 @@ title: Visão geral do centro de backup
 description: Este artigo fornece uma visão geral do centro de backup do Azure.
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 7eab2e8f9694ca83d0e050f55bc6f6dd802a7331
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: b42fcc782eb50c061ab7617ea0ef1f3344fee4e9
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173727"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893602"
 ---
-# <a name="overview-of-backup-center"></a>Visão geral do centro de backup
+# <a name="overview-of-backup-center-preview"></a>Visão geral do centro de backup (visualização)
 
 O centro de backup fornece uma **única experiência de gerenciamento unificada** no Azure para empresas para controlar, monitorar, operar e analisar backups em grande escala. Como tal, é consistente com as experiências de gerenciamento nativo do Azure.
 
@@ -22,7 +22,7 @@ Alguns dos principais benefícios do centro de backup incluem:
 
 ## <a name="supported-scenarios"></a>Cenários com suporte
 
-* O centro de backup tem suporte no momento para backup de VM do Azure e backup do servidor do banco de dados do Azure para PostgreSQL.
+* O centro de backup tem suporte no momento para backup de VM do Azure, SQL no backup de VM do Azure, SAP HANA no backup de VM do Azure, backup de arquivos do Azure e banco de dados do Azure para backup do servidor PostgreSQL.
 * Consulte a [matriz de suporte](backup-center-support-matrix.md) para obter uma lista detalhada de cenários com e sem suporte.
 
 ## <a name="get-started"></a>Introdução

@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/03/2020
+ms.date: 12/05/2020
 ms.author: apimpm
-ms.openlocfilehash: 1a1e9c394f3665845b1f2bbbd605322b43f5f25d
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 223d119786d99eac611ece597fc0e8de4fcaf6bd
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787220"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762408"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação de desastre usando o backup de serviço e restaurar no Gerenciamento de API no Azure
 
@@ -61,28 +61,28 @@ Todas as tarefas realizadas em recursos com o Azure Resource Manager precisam se
     > [!NOTE]
     > Se o diretório padrão do Active Directory do Azure não é visível para sua conta, contate o administrador da assinatura do Azure para conceder as permissões necessárias para sua conta.
 
-3. Clique em **Novo registro de aplicativo** .
+3. Clique em **Novo registro de aplicativo**.
 
     A janela **Criar** é exibida à direita. É nela em que você pode inserir as informações relevantes do aplicativo do AAD.
 
 4. Insira um nome para o aplicativo.
-5. Para o tipo de aplicativo, selecione **Nativo** .
-6. Insira uma URL de espaço reservado como `http://resources` para o **URI de redirecionamento** , que é um campo obrigatório, mas o valor não é usado posteriormente. Clique na caixa de seleção para salvar o aplicativo.
-7. Clique em **Criar** .
+5. Para o tipo de aplicativo, selecione **Nativo**.
+6. Insira uma URL de espaço reservado como `http://resources` para o **URI de redirecionamento**, que é um campo obrigatório, mas o valor não é usado posteriormente. Clique na caixa de seleção para salvar o aplicativo.
+7. Clique em **Criar**.
 
 ### <a name="add-an-application"></a>Adicionar um aplicativo
 
-1. Depois que o aplicativo for criado, clique em **permissões de API** .
-2. Clique em **+ Adicionar uma permissão** .
-4. Pressione **selecionar APIs da Microsoft** .
-5. Escolha **Gerenciamento de serviços do Azure** .
-6. Pressione **Selecionar** .
+1. Depois que o aplicativo for criado, clique em **permissões de API**.
+2. Clique em **+ Adicionar uma permissão**.
+4. Pressione **selecionar APIs da Microsoft**.
+5. Escolha **Gerenciamento de serviços do Azure**.
+6. Pressione **Selecionar**.
 
     ![Adicionar permissões](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
 
-7. Clique em **Permissões Delegadas** ao lado do aplicativo recém-adicionado e marque a caixa de **Acessar o Gerenciamento de Serviços do Azure (versão prévia)** .
-8. Pressione **Selecionar** .
-9. Clique em **Conceder Permissões** .
+7. Clique em **Permissões Delegadas** ao lado do aplicativo recém-adicionado e marque a caixa de **Acessar o Gerenciamento de Serviços do Azure (versão prévia)**.
+8. Pressione **Selecionar**.
+9. Clique em **Conceder Permissões**.
 
 ### <a name="configuring-your-app"></a>Configurar seu aplicativo
 
@@ -115,11 +115,11 @@ namespace GetTokenResourceManagerRequests
 
 Substitua `{tenant id}`, `{application id}` e `{redirect uri}` usando as seguintes instruções:
 
-1. Substitua `{tenant id}` pela ID de locatário do aplicativo do Azure Active Directory criado. Você pode acessar a ID clicando em **registros de aplicativo**  ->  **pontos de extremidade** .
+1. Substitua `{tenant id}` pela ID de locatário do aplicativo do Azure Active Directory criado. Você pode acessar a ID clicando em **registros de aplicativo**  ->  **pontos de extremidade**.
 
     ![Pontos de extremidade][api-management-endpoint]
 
-2. Substitua `{application id}` pelo valor obtido navegando para a página **Configurações** .
+2. Substitua `{application id}` pelo valor obtido navegando para a página **Configurações**.
 3. Substitua a guia `{redirect uri}` com o valor das **URIs de Redirecionamento** pelo aplicativo do Azure Active Directory.
 
     Depois que os valores são especificados, o exemplo de código deve retornar um token semelhante ao seguinte exemplo:
@@ -169,26 +169,6 @@ Defina o valor do cabeçalho de solicitação `Content-Type` para `application/j
 
 O backup é uma operação longa de execução que pode levar mais de um minuto para concluir. Se a solicitação foi bem-sucedida e o processo de backup foi iniciado, você receberá uma `202 Accepted` resposta com um cabeçalho `Location`. Faça solicitações “GET” para a URL no cabeçalho do `Location` para descobrir o status da operação. Enquanto o backup está em andamento, você continua recebendo um código de status “202 Aceito”. Um Código de resposta `200 OK` indica a conclusão bem-sucedida da operação de backup.
 
-#### <a name="constraints-when-making-backup-or-restore-request"></a>Restrições ao fazer backup ou solicitação de restauração
-
--   O **contêiner** especificado no corpo solicitado **tem que existir** .
--   Enquanto o backup está em andamento, **Evite alterações de gerenciamento no serviço** , como atualização de SKU ou downgrade, alteração no nome de domínio e muito mais.
--   A restauração de um **backup é garantida somente por 30 dias** desde o momento de sua criação.
--   As **alterações** feitas na configuração do serviço (por exemplo, APIs, políticas, aparência do portal do desenvolvedor) enquanto uma operação de backup está em andamento **podem não ser incluídas no backup e, portanto, serão perdidas** .
--   **Permitir** o acesso do plano de controle à conta de armazenamento do Azure se ele tiver o [Firewall][azure-storage-ip-firewall] habilitado. O cliente deve abrir o conjunto de [endereços IP do plano de controle de gerenciamento de API do Azure][control-plane-ip-address] em sua conta de armazenamento para backup ou restauração. Isso ocorre porque as solicitações para o armazenamento do Azure não são no modo SNAT a um IP público do > de computação (plano de controle de gerenciamento de API do Azure). A solicitação de armazenamento entre regiões será no modo SNAT.
-
-#### <a name="what-is-not-backed-up"></a>O que não é feito backup
--   Os **Dados de uso** utilizados para a criação de relatórios de análise **não estão incluídos** no backup. Use o [API REST de Gerenciamento de API do Azure][azure api management rest api] para recuperar periodicamente os relatórios analíticos por questões de segurança.
--   Certificados [TLS/SSL de domínio personalizado](configure-custom-domain.md)
--   [Certificado de autoridade de certificação personalizado](api-management-howto-ca-certificates.md) que inclui certificados intermediários ou raiz carregados pelo cliente
--   Configurações de integração de [rede virtual](api-management-using-with-vnet.md) .
--   Configuração de [identidade gerenciada](api-management-howto-use-managed-service-identity.md) .
--   [Diagnóstico de Azure monitor](api-management-howto-use-azure-monitor.md) Configuração.
--   [Protocolos e configurações de codificação](api-management-howto-manage-protocols-ciphers.md) .
--   Conteúdo do [portal do desenvolvedor](api-management-howto-developer-portal.md#is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management) .
-
-A frequência com que você executa backups de serviço afeta seu objetivo de ponto de recuperação. Para minimizar, aconselhamos a implementação de backups regulares e realizar backups sob demanda depois de fazer as mudanças ao seu serviço de Gerenciamento de API.
-
 ### <a name="restore-an-api-management-service"></a><a name="step2"> </a>Restaurar um serviço de Gerenciamento de API
 
 Para restaurar um serviço de Gerenciamento de API de um backup criado anteriormente, faça a seguinte solicitação HTTP:
@@ -222,12 +202,34 @@ Restaure uma operação longa de execução que pode levar até 30 minutos ou ma
 > [!IMPORTANT]
 > **A SKU** do serviço que está sendo restaurada **precisa corresponder** à SKU do serviço copiado em backup que está sendo restaurada.
 >
-> As **alterações** feitas na configuração do serviço (por exemplo, APIs, políticas, aparência do portal do desenvolvedor) enquanto uma operação de restauração está em andamento **podem ser substituídas** .
+> As **alterações** feitas na configuração do serviço (por exemplo, APIs, políticas, aparência do portal do desenvolvedor) enquanto uma operação de restauração está em andamento **podem ser substituídas**.
 
 <!-- Dummy comment added to suppress markdown lint warning -->
 
 > [!NOTE]
 > As operações de backup e restauração também podem ser executadas com os comandos [_backup-AzApiManagement_](/powershell/module/az.apimanagement/backup-azapimanagement) e [_Restore-AzApiManagement_](/powershell/module/az.apimanagement/restore-azapimanagement) do PowerShell, respectivamente.
+
+## <a name="constraints-when-making-backup-or-restore-request"></a>Restrições ao fazer backup ou solicitação de restauração
+
+-   O **contêiner** especificado no corpo solicitado **tem que existir**.
+-   Enquanto o backup está em andamento, **Evite alterações de gerenciamento no serviço** , como atualização de SKU ou downgrade, alteração no nome de domínio e muito mais.
+-   A restauração de um **backup é garantida somente por 30 dias** desde o momento de sua criação.
+-   **As alterações** feitas na configuração do serviço (por exemplo, APIs, políticas e aparência do portal do desenvolvedor) enquanto a operação de backup está em processo **podem ser excluídas do backup e serão perdidas**.
+-   Se a conta de armazenamento do Azure estiver habilitada para [Firewall][azure-storage-ip-firewall] , o cliente deverá **permitir** o conjunto de [endereços IP do plano de controle de gerenciamento de API do Azure][control-plane-ip-address] em sua conta de armazenamento para backup ou restauração do para o trabalho. A conta de armazenamento do Azure pode estar em qualquer região do Azure, exceto aquela em que o serviço de gerenciamento de API está localizado. Por exemplo, se o serviço de gerenciamento de API estiver no oeste dos EUA, a conta de armazenamento do Azure pode estar no oeste dos EUA 2 e o cliente precisa abrir o IP do plano de controle 13.64.39.16 (IP do plano de controle de gerenciamento de API do oeste dos EUA) no firewall. Isso ocorre porque as solicitações para o armazenamento do Azure não são no modo SNAT a um IP público de computação (plano de controle de API do Azure) na mesma região do Azure. A solicitação de armazenamento entre regiões será no modo SNAT para o endereço IP público.
+-   O [CORS (compartilhamento de recursos entre origens)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) **não** deve ser habilitado no serviço blob na conta de armazenamento do Azure.
+-   **A SKU** do serviço que está sendo restaurada **precisa corresponder** à SKU do serviço copiado em backup que está sendo restaurada.
+
+## <a name="what-is-not-backed-up"></a>O que não é feito backup
+-   Os **Dados de uso** utilizados para a criação de relatórios de análise **não estão incluídos** no backup. Use o [API REST de Gerenciamento de API do Azure][azure api management rest api] para recuperar periodicamente os relatórios analíticos por questões de segurança.
+-   Certificados [TLS/SSL de domínio personalizado](configure-custom-domain.md) .
+-   [Certificado de autoridade de certificação personalizado](api-management-howto-ca-certificates.md), que inclui certificados intermediários ou raiz carregados pelo cliente.
+-   Configurações de integração de [rede virtual](api-management-using-with-vnet.md) .
+-   Configuração de [identidade gerenciada](api-management-howto-use-managed-service-identity.md) .
+-   [Diagnóstico de Azure monitor](api-management-howto-use-azure-monitor.md) Configuração.
+-   [Protocolos e configurações de codificação](api-management-howto-manage-protocols-ciphers.md) .
+-   Conteúdo do [portal do desenvolvedor](api-management-howto-developer-portal.md#is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management) .
+
+A frequência com que você executa backups de serviço afeta seu objetivo de ponto de recuperação. Para minimizar, aconselhamos a implementação de backups regulares e realizar backups sob demanda depois de fazer as mudanças ao seu serviço de Gerenciamento de API.
 
 ## <a name="next-steps"></a>Próximas etapas
 

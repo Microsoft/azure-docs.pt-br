@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 08/19/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 690d4761657b8bf6e5ba63ddfbce7163584e64e2
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ea034974e85febcffeb2494d87b666a39e524eb1
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964563"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743268"
 ---
 # <a name="troubleshooting-for-hybrid-deployments-of-fido2-security-keys-in-azure-ad-preview"></a>Solução de problemas para implantações híbridas de chaves de segurança do FIDO2 no Azure AD (versão prévia)
 
@@ -76,9 +76,9 @@ Para coletar dados que ajudam a solucionar problemas de entrada no Windows ou de
 
 1. Selecione a categoria *segurança e privacidade* e, em seguida, a subcategoria *Fido* .
 1. Alterne a caixa de seleção para *enviar arquivos anexados e diagnósticos à Microsoft juntamente com meus comentários*.
-1. Selecione *recriar meus problemas*e *Iniciar captura*.
+1. Selecione *recriar meus problemas* e *Iniciar captura*.
 1. Bloqueie e desbloqueie a máquina com a chave de segurança FIDO2. Se o problema ocorrer, tente desbloquear com outras credenciais.
-1. Retorne ao **Hub de comentários**, selecione **parar captura**e envie seus comentários.
+1. Retorne ao **Hub de comentários**, selecione **parar captura** e envie seus comentários.
 1. Vá para a página de *comentários* e, em seguida, a guia *meus comentários* . Selecione seus comentários enviados recentemente.
 1. Selecione o botão *compartilhar* no canto superior direito para obter um link para os comentários. Inclua este link ao abrir um caso de suporte ou responda ao engenheiro atribuído a um caso de suporte existente.
 
@@ -145,7 +145,7 @@ O primeiro conjunto de propriedades é dos objetos no ambiente de AD DS local. A
 
 | Propriedade           | Descrição  |
 |--------------------|--------------|
-| ID                 | A *ID* exclusiva do objeto do controlador de domínio AD DS. |
+| Id                 | A *ID* exclusiva do objeto do controlador de domínio AD DS. |
 | DomainDnsName      | O nome de domínio DNS do domínio de AD DS. |
 | ComputerAccount    | O objeto de conta de computador do objeto de servidor Kerberos do Azure AD (o DC). |
 | UserAccount        | O objeto de conta de usuário desabilitado que contém a chave de criptografia de TGT do servidor Kerberos do Azure AD. O DN dessa conta é *CN = krbtgt_AzureAD, cn = users <Domain-DN>* |

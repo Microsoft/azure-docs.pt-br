@@ -2,7 +2,7 @@
 title: Habilitar o serviço de perfil de usuário do SharePoint com o Azure AD DS | Microsoft Docs
 description: Saiba como configurar um domínio gerenciado Azure Active Directory Domain Services para dar suporte à sincronização de perfil para o SharePoint Server
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: joflore
-ms.openlocfilehash: 7bd63ece1ec32e5e4cecfd2a458124a4f24ccaa6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 8fbde10ccf5a7f083f5fbddaadd6668d880a1fac
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962472"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619820"
 ---
 # <a name="configure-azure-active-directory-domain-services-to-support-user-profile-synchronization-for-sharepoint-server"></a>Configurar Azure Active Directory Domain Services para dar suporte à sincronização de perfil de usuário para o SharePoint Server
 
@@ -64,7 +64,7 @@ Em sua VM de gerenciamento de AD DS do Azure, conclua as seguintes etapas:
 1. Para gerenciar a associação de grupo, selecione **centro administrativo do Active Directory** na lista de ferramentas administrativas.
 1. No painel esquerdo, escolha seu domínio gerenciado, como *aaddscontoso.com*. Uma lista de UOs e recursos existentes é mostrada.
 1. Selecione a UO **usuários** e, em seguida, escolha o grupo de segurança *contas de serviço do AAD DC* .
-1. Selecione **Membros**e, em seguida, escolha **Adicionar...**.
+1. Selecione **Membros** e, em seguida, escolha **Adicionar...**.
 1. Insira o nome da conta de serviço do SharePoint e, em seguida, selecione **OK**. No exemplo a seguir, a conta de serviço do SharePoint é chamada de *admin*:
 
     ![Adicionar a conta de serviço do SharePoint ao grupo de segurança contas de serviço de DC do AAD](./media/deploy-sp-profile-sync/add-member-to-aad-dc-service-accounts-group.png)

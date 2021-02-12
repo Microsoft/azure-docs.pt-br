@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: fb409673e028375812551ec146b43c27e3755d2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3f6f6a5ac1068f2eabca351e85376b8e16d1058
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91595533"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016744"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Práticas recomendadas para escolher uma ID do Time Series
 
@@ -32,11 +32,11 @@ A seleção de uma ID de série temporal apropriada é crítica. Escolher uma ID
 > * Uma propriedade *imutável* : uma vez criada, ela não pode ser alterada.
 
 > [!TIP]
-> Se a origem do evento for um hub IoT, a ID da série temporal provavelmente será ***iothub-Connection-Device-ID***.
+> Se a origem do evento for um hub IoT, a ID da série temporal provavelmente será ***iothub-Connection-Device-ID** _.
 
 As principais práticas recomendadas a serem seguidas incluem:
 
-* Escolha uma chave de partição com muitos valores distintos (por exemplo, centenas ou milhares). Em muitos casos, essa pode ser a ID do dispositivo, ID do sensor ou ID de marca em seu JSON.
+_ Escolha uma chave de partição com muitos valores distintos (por exemplo, centenas ou milhares). Em muitos casos, essa pode ser a ID do dispositivo, ID do sensor ou ID de marca em seu JSON.
 * A ID do Time Series deve ser exclusiva no nível do nó folha do seu [Modelo do Time Series](./concepts-model-overview.md).
 * O limite de caracteres para a cadeia de caracteres do nome da propriedade da ID da série temporal é 128. Para o valor da propriedade da ID da série temporal, o limite de caracteres é 1.024.
 * Se um valor de propriedade exclusivo para a ID da série temporal estiver ausente, ele será tratado como um valor nulo e seguirá a mesma regra da restrição de exclusividade.
@@ -59,9 +59,9 @@ Os cenários a seguir descrevem a seleção de mais de uma propriedade de chave 
 ### <a name="example-2-time-series-id-with-a-composite-key"></a>Exemplo 2: ID de série temporal com uma chave composta
 
 * Você precisa que várias propriedades sejam exclusivas dentro do mesma frota de ativos.
-* Você é um fabricante de prédios inteligentes e implanta sensores em todas as salas. Em cada sala, você normalmente tem os mesmos valores para **sensorid**. Os exemplos são **sensor1**, **sensor2**e **sensor3**.
-* Seu edifício tem sobreposição de piso e números de sala entre sites na propriedade **flrRm**. Esses números têm valores como **1a**, **2B**e **3a**.
-* Você tem uma propriedade, **local**, que contém valores como **Redmond**, **Barcelona**e **Tokyo**. Para criar a exclusividade, você designa as três propriedades a seguir como suas chaves de ID de série temporal: **sensorid**, **flrRm**e **local**.
+* Você é um fabricante de prédios inteligentes e implanta sensores em todas as salas. Em cada sala, você normalmente tem os mesmos valores para **sensorid**. Os exemplos são **sensor1**, **sensor2** e **sensor3**.
+* Seu edifício tem sobreposição de piso e números de sala entre sites na propriedade **flrRm**. Esses números têm valores como **1a**, **2B** e **3a**.
+* Você tem uma propriedade, **local**, que contém valores como **Redmond**, **Barcelona** e **Tokyo**. Para criar a exclusividade, você designa as três propriedades a seguir como suas chaves de ID de série temporal: **sensorid**, **flrRm** e **local**.
 
 Exemplo de evento bruto:
 
@@ -86,4 +86,4 @@ Na portal do Azure, você pode inserir a chave composta da seguinte maneira:
 
 * Leia as [regras de saída e mesclagem JSON](./concepts-json-flattening-escaping-rules.md) para entender como os eventos serão armazenados.
 
-* Planeje seu [ambiente de Azure Time Series insights Gen2](./time-series-insights-update-plan.md).
+* Planeje seu [ambiente de Azure Time Series insights Gen2](./how-to-plan-your-environment.md).

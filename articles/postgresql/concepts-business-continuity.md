@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.openlocfilehash: 5fb82c6098352076307f71eee022074a247e3cd9
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: cf3c07f32f15ff176974219bd8143a1ea315c945
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629333"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93423038"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Visão geral da continuidade de negócios com o banco de dados do Azure para PostgreSQL-servidor único
 
@@ -21,9 +21,14 @@ Esta visão geral descreve os recursos que o Banco de Dados do Azure para Postgr
 
 Na medida em que você desenvolve o plano de continuidade dos negócios, será necessário entender qual é o tempo máximo aceitável antes que o aplicativo recupere-se completamente após o evento interruptivo - esse é o RTO (Objetivo do Tempo de Recuperação). Além disso, será necessário entender a quantidade máxima de atualizações de dados recentes (intervalo de tempo) que o aplicativo poderá tolerar perder durante a recuperação após um evento interruptivo - esse é o RPO (Objetivo de Ponto de Recuperação).
 
-O banco de dados do Azure para PostgreSQL fornece recursos de continuidade de negócios que incluem backups com redundância geográfica com a capacidade de iniciar a restauração geográfica e a implantação de réplicas de leitura em uma região diferente. Cada uma tem características diferentes para o tempo de recuperação e a potencial perda de dados. Com o recurso de [restauração geográfica](concepts-backup.md) , um novo servidor é criado usando os dados de backup replicados de outra região. O tempo geral necessário para restaurar e recuperar depende do tamanho do banco de dados e da quantidade de logs a serem recuperados. O tempo geral para estabelecer o servidor varia de alguns minutos a algumas horas. Com [réplicas de leitura](concepts-read-replicas.md), os logs de transações do primário são transmitidos de forma assíncrona para a réplica. A latência entre o primário e a réplica depende da latência entre os sites e também da quantidade de dados a serem transmitidos. No caso de uma falha de site primário, como falha de zona de disponibilidade, promover a réplica fornece um RTO mais curto e menor perda de dados. 
+O banco de dados do Azure para PostgreSQL fornece recursos de continuidade de negócios que incluem backups com redundância geográfica com a capacidade de iniciar a restauração geográfica e a implantação de réplicas de leitura em uma região diferente. Cada uma tem características diferentes para o tempo de recuperação e a potencial perda de dados. Com o recurso de [restauração geográfica](concepts-backup.md) , um novo servidor é criado usando os dados de backup replicados de outra região. O tempo geral necessário para restaurar e recuperar depende do tamanho do banco de dados e da quantidade de logs a serem recuperados. O tempo geral para estabelecer o servidor varia de alguns minutos a algumas horas. Com [réplicas de leitura](concepts-read-replicas.md), os logs de transações do primário são transmitidos de forma assíncrona para a réplica. No caso de uma interrupção do banco de dados primário devido a uma falha no nível da zona ou no nível da região, o failover para a réplica fornece um RTO mais curto e menor perda de dados.
 
-A tabela a seguir compara RTO e RPO em um cenário típico:
+> [!NOTE]
+> O atraso entre o primário e a réplica depende da latência entre os sites, da quantidade de dados a serem transmitidos e mais importante na carga de trabalho de gravação do servidor primário. Cargas de trabalho de gravação pesadas podem gerar um atraso significativo. 
+>
+> Devido à natureza assíncrona da replicação usada para réplicas de leitura, elas **não devem** ser consideradas como uma solução de ha (alta disponibilidade), uma vez que o retardo mais alto pode significar RTO e RPO maiores. Somente para cargas de trabalho em que o retardo permanece menor por meio do horário de pico e horário fora da carga de trabalho, as réplicas de leitura podem atuar como uma alternativa de alta disponibilidade. Caso contrário, réplicas de leitura destinam-se a uma escala de leitura real para cargas de trabalho pesadas e para cenários de DR de (recuperação de desastre).
+
+A tabela a seguir compara RTO e RPO em um cenário **típico de carga de trabalho** :
 
 | **Funcionalidade** | **Basic** | **Uso Geral** | **Memória otimizada** |
 | :------------: | :-------: | :-----------------: | :------------------: |
@@ -31,7 +36,7 @@ A tabela a seguir compara RTO e RPO em um cenário típico:
 | Restauração geográfica de backups replicados geograficamente | Sem suporte | RTO – varia <br/>RPO < 1 h | RTO – varia <br/>RPO < 1 h |
 | Réplicas de leitura | RTO-minutos * <br/>RPO < 5 min * | RTO-minutos * <br/>RPO < 5 min *| RTO-minutos * <br/>RPO < 5 min *|
 
-\* O RTO e o RPO podem ser muito maiores em alguns casos, dependendo de vários fatores, incluindo a carga de trabalho do banco de dados principal e a latência entre regiões. 
+ \* O RTO e o RPO **podem ser muito mais altos** em alguns casos, dependendo de vários fatores, incluindo a latência entre os sites, a quantidade de dados a serem transmitidos e a maior parte da carga de trabalho de gravação do banco de dado principal. 
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Recuperar um servidor após um erro de aplicativo ou usuário
 
@@ -56,7 +61,7 @@ O recurso de restauração geográfica restaura o servidor usando backups com re
 > A restauração geográfica somente será possível se o servidor foi provisionado com armazenamento de backup com redundância geográfica. Se você deseja alternar de backups redundantes localmente para redundantes geo-ativos para um servidor existente, você deve fazer um dump usando o pg_dump do seu servidor existente e restaurá-lo em um servidor recém-criado configurado com backups geo-redundantes.
 
 ## <a name="cross-region-read-replicas"></a>Réplicas de leitura entre regiões
-Você pode usar réplicas de leitura entre regiões para aprimorar sua continuidade de negócios e planejamento de recuperação de desastre. As réplicas de leitura são atualizadas assincronamente usando a tecnologia de replicação física do PostgreSQL. Saiba mais sobre réplicas de leitura, regiões disponíveis e como fazer failover do [artigo conceitos de leitura de réplicas](concepts-read-replicas.md). 
+Você pode usar réplicas de leitura entre regiões para aprimorar sua continuidade de negócios e planejamento de recuperação de desastre. As réplicas de leitura são atualizadas assincronamente usando a tecnologia de replicação física do PostgreSQL e podem atrasar a primária. Saiba mais sobre réplicas de leitura, regiões disponíveis e como fazer failover do [artigo conceitos de leitura de réplicas](concepts-read-replicas.md). 
 
 ## <a name="faq"></a>Perguntas frequentes
 ### <a name="where-does-azure-database-for-postgresql-store-customer-data"></a>Onde o Azure Database para PostgreSQL armazena dados do cliente?

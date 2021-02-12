@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 11bbc30179cc27f4799b1fd2869cb312dfa34473
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c96f2cc37c47c77b82ca86d5fd0295f0c66a896
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87093061"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009476"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Implantação sem tempo de inatividade para Durable Functions
 
@@ -54,7 +54,7 @@ Use o procedimento a seguir para configurar esse cenário.
 
 1. Para cada slot, crie uma nova configuração de aplicativo, por exemplo, `DurableManagementStorage` . Defina seu valor como a cadeia de conexão de contas de armazenamento diferentes. Essas contas de armazenamento são usadas pela extensão de Durable Functions para [execução confiável](./durable-functions-orchestrations.md). Use uma conta de armazenamento separada para cada slot. Não marque essa configuração como uma configuração de slot de implantação.
 
-1. Em seu aplicativo de funções [host.jsna seção durableTask do arquivo](durable-functions-bindings.md#hostjson-settings), especifique `azureStorageConnectionStringName` como o nome da configuração do aplicativo que você criou na etapa 3.
+1. Em seu aplicativo de funções [host.jsna seção durableTask do arquivo](durable-functions-bindings.md#hostjson-settings), especifique `connectionStringName` (durável 2. x) ou `azureStorageConnectionStringName` (durável 1. x) como o nome da configuração do aplicativo que você criou na etapa 3.
 
 O diagrama a seguir mostra a configuração descrita de Slots de implantação e contas de armazenamento. Nesse cenário potencial de pré-implantação, a versão 2 de um aplicativo de funções está em execução no slot de produção, enquanto a versão 1 permanece no slot de preparo.
 
@@ -71,7 +71,10 @@ Os fragmentos JSON a seguir são exemplos da configuração da cadeia de conexã
   "version": 2.0,
   "extensions": {
     "durableTask": {
-      "azureStorageConnectionStringName": "DurableManagementStorage"
+      "hubName": "MyTaskHub",
+      "storageProvider": {
+        "connectionStringName": "DurableManagementStorage"
+      }
     }
   }
 }

@@ -7,12 +7,12 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: c8d2304017a8fccd83c9c64559b8c5edf48481b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6de0fc52ae265a47ca7f52d46e5f44b74c1277aa
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91604240"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530911"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Conceitos básicos sobre a Autenticação do Key Vault
 
@@ -24,8 +24,8 @@ Como administrador, você pode controlar rigidamente quais usuários e aplicativ
 
 Este documento pressupõe que você esteja familiarizado com os conceitos a seguir. Se você não estiver familiarizado com nenhum desses conceitos, siga os links da ajuda antes de continuar.
 
-* Azure Active Directory [link](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
-* [Link](https://docs.microsoft.com/azure/key-vault/general/authentication#app-identity-and-security-principals) de entidades de segurança
+* Azure Active Directory [link](../../active-directory/fundamentals/active-directory-whatis.md)
+* [Link](./authentication.md#app-identity-and-security-principals) de entidades de segurança
 
 ## <a name="key-vault-configuration-steps-summary"></a>Resumo das etapas de configuração do Key Vault
 
@@ -42,12 +42,12 @@ Quando um usuário ou aplicativo faz uma solicitação para o cofre de chaves, a
 Siga os links de documentação abaixo para entender como registrar um usuário ou aplicativo no Azure Active Directory.
 **Certifique-se de criar uma senha para o registro de usuário e um segredo do cliente ou uma credencial de certificado de cliente para aplicativos.**
 
-* Registrando um usuário no Azure Active Directory [link](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory)
-* Registrando um aplicativo no Azure Active Directory [link](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)
+* Registrando um usuário no Azure Active Directory [link](../../active-directory/fundamentals/add-users-azure-active-directory.md)
+* Registrando um aplicativo no Azure Active Directory [link](../../active-directory/develop/quickstart-register-app.md)
 
-## <a name="assign-your-security-principal-a-role-in-azure-active-directory"></a>Atribua sua entidade de segurança a uma função no Azure Active Directory
+## <a name="assign-your-security-principal-a-role"></a>Atribuir sua entidade de segurança a uma função
 
-O Azure Active Directory usa o RBAC (controle de acesso baseado em função) para atribuir permissões a entidades de segurança. Essas permissões são chamadas de atribuições de função.
+Você pode usar o controle de acesso baseado em função do Azure (RBAC do Azure) para atribuir permissões a entidades de segurança. Essas permissões são chamadas de atribuições de função.
 
 No contexto do cofre de chaves, essas atribuições de função determinam o nível de acesso da entidade de segurança ao plano de gerenciamento (também conhecido como plano de controle) do cofre de chaves. Essas atribuições de função não fornecem acesso aos segredos do plano de dados diretamente, mas fornecem acesso para gerenciar Propriedades do cofre de chaves. Por exemplo, um usuário ou aplicativo atribuído a uma **função de leitor** não terá permissão para fazer alterações nas configurações de firewall do Key Vault, enquanto um usuário ou aplicativo atribuído a uma **função colaborador** pode fazer alterações. Nenhuma função terá acesso direto para executar operações em segredos, chaves e certificados, como criar ou recuperar seu valor até receber acesso ao plano de dados do cofre de chaves. Isso é abordado na próxima etapa.
 
@@ -57,8 +57,8 @@ No contexto do cofre de chaves, essas atribuições de função determinam o ní
 >[!NOTE]
 > Quando você atribui uma atribuição de função a um usuário no nível de Azure Active Directory locatário, esse conjunto de permissões será trickledo a todas as assinaturas, grupos de recursos e recursos dentro do escopo da atribuição. Para seguir a entidade de privilégio mínimo, você pode fazer essa atribuição de função em um escopo mais granular. Por exemplo, você pode atribuir um usuário a uma função de leitor no nível de assinatura e uma função de proprietário para um único cofre de chaves. Vá para as configurações de IAM (gerenciamento de acesso de identidade) de uma assinatura, grupo de recursos ou cofre de chaves para fazer uma atribuição de função em um escopo mais granular.
 
-* Para saber mais sobre Azure Active Directory [link](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) de funções
-* Para saber mais sobre como atribuir ou remover o [link](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) de atribuições de função
+* Para saber mais sobre o [link](../../role-based-access-control/built-in-roles.md) de funções do Azure
+* Para saber mais sobre como atribuir ou remover o [link](../../role-based-access-control/role-assignments-portal.md) de atribuições de função
 
 ## <a name="configure-key-vault-access-policies-for-your-security-principal"></a>Configurar políticas de acesso do cofre de chaves para sua entidade de segurança
 
@@ -91,7 +91,7 @@ O acesso ao plano de dados ou o acesso para executar operações em chaves, segr
 As políticas de acesso do cofre de chaves concedem aos usuários e aplicativos acesso para executar operações de plano de dados em um cofre de chaves.
 
 > [!NOTE]
-> Este modelo de acesso não é compatível com o RBAC do Key Vault (opção 2) documentado abaixo. Você deve escolher um. Você terá a oportunidade de fazer essa seleção ao clicar na guia política de acesso do cofre de chaves.
+> Este modelo de acesso não é compatível com o RBAC do Azure para o Key Vault (opção 2) documentado abaixo. Você deve escolher um. Você terá a oportunidade de fazer essa seleção ao clicar na guia política de acesso do cofre de chaves.
 
 As políticas de acesso clássico são granulares, o que significa que você pode permitir ou negar a capacidade de cada usuário ou aplicativo individual executar operações individuais em um cofre de chaves. Veja alguns exemplos:
 
@@ -104,25 +104,23 @@ No entanto, as políticas de acesso clássico não permitem permissões de níve
 > [!IMPORTANT]
 > As políticas de acesso do cofre de chaves clássicas e as atribuições de função Azure Active Directory são independentes umas das outras. Atribuir uma entidade de segurança a uma função de ' colaborador ' em um nível de assinatura não permitirá automaticamente que a entidade de segurança possa executar operações de plano de dados em cada cofre de chaves dentro do escopo da assinatura. A entidade de segurança ainda deve ser concedida ou conceder permissões de política de acesso para executar operações de plano de dados.
 
-### <a name="data-plane-access-option-2--key-vault-rbac-preview"></a>Opção de acesso do plano de dados 2: Key Vault RBAC (versão prévia)
+### <a name="data-plane-access-option-2--azure-rbac-for-key-vault-preview"></a>Opção de acesso do plano de dados 2: RBAC do Azure para Key Vault (versão prévia)
 
-Uma nova maneira de conceder acesso ao plano de dados do cofre de chaves é por meio do RBAC (controle de acesso baseado em função) do cofre de chaves.
+Uma nova maneira de conceder acesso ao plano de dados do cofre de chaves é por meio do controle de acesso baseado em função do Azure (RBAC do Azure) para o Key Vault.
 
 > [!NOTE]
 > Este modelo de acesso não é compatível com as políticas de acesso clássico do Key Vault mostradas acima. Você deve escolher um. Você terá a oportunidade de fazer essa seleção ao clicar na guia política de acesso do cofre de chaves.
 
 Key Vault atribuições de função são um conjunto de atribuições de função internas do Azure que abrangem conjuntos comuns de permissões usadas para acessar chaves, segredos e certificados. Esse modelo de permissão também habilita recursos adicionais que não estão disponíveis no modelo de política de acesso do cofre de chaves clássico.
 
-* As permissões de RBAC podem ser gerenciadas em escala, permitindo que os usuários tenham essas funções atribuídas em uma assinatura, grupo de recursos ou nível de cofre de chave individual. Um usuário terá as permissões de plano de dados para todos os cofres de chaves dentro do escopo da atribuição de RBAC. Isso elimina a necessidade de atribuir permissões de política de acesso individuais por usuário/aplicativo por cofre de chaves.
+* As permissões do RBAC do Azure podem ser gerenciadas em escala, permitindo que os usuários tenham essas funções atribuídas em uma assinatura, grupo de recursos ou nível de cofre de chaves individuais. Um usuário terá as permissões de plano de dados para todos os cofres de chaves dentro do escopo da atribuição de RBAC do Azure. Isso elimina a necessidade de atribuir permissões de política de acesso individuais por usuário/aplicativo por cofre de chaves.
 
-* As permissões de RBAC são compatíveis com Privileged Identity Management ou PIM. Isso permite que você configure controles de acesso just-in-time para funções com privilégios como administrador de Key Vault. Essa é uma prática recomendada de segurança e segue a entidade de privilégio mínimo, eliminando o acesso à sua chave para seus cofres de chaves.
+* As permissões do RBAC do Azure são compatíveis com Privileged Identity Management ou PIM. Isso permite que você configure controles de acesso just-in-time para funções com privilégios como administrador de Key Vault. Essa é uma prática recomendada de segurança e segue a entidade de privilégio mínimo, eliminando o acesso à sua chave para seus cofres de chaves.
 
-* As permissões de RBAC são compatíveis com permissões granulares por objeto, para que você possa restringir um usuário de executar operações apenas em alguns dos objetos do cofre de chaves. Isso permite que vários aplicativos compartilhem um único cofre de chaves enquanto ainda isolam o acesso entre aplicativos.
+Para saber mais sobre o RBAC do Azure para Key Vault, consulte os seguintes documentos:
 
-Para saber mais sobre o Key Vault RBAC, consulte os seguintes documentos:
-
-* Azure Key Vault [vincular](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#management-plane-and-azure-rbac) o RBAC
-* Azure Key Vault o [link](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-administrator-preview) de funções RBAC (versão prévia)
+* [Link](./secure-your-key-vault.md#management-plane-and-azure-rbac) do Azure RBAC para Key Vault
+* [Link](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) do Azure RBAC para funções de Key Vault (versão prévia)
 
 ## <a name="configure-key-vault-firewall"></a>Configurar Key Vault firewall
 
@@ -132,9 +130,9 @@ Para habilitar o Firewall do Key Vault, clique na guia rede no portal do cofre d
 
 * Adicione os endereços IPv4 à lista de permissões do firewall do cofre de chaves. Essa opção funciona melhor para aplicativos que têm endereços IP estáticos.
 
-* Adicione uma rede virtual ao firewall do cofre de chaves. Essa opção funciona melhor para recursos do Azure que têm endereços IP dinâmicos, como máquinas virtuais. Você pode adicionar recursos do Azure a uma rede virtual e adicionar a rede virtual à lista de permissões do firewall do cofre de chaves. Essa opção usa um ponto de extremidade de serviço que é um endereço IP privado dentro da rede virtual. Isso fornece uma camada adicional de proteção, portanto, nenhum tráfego entre o Key Vault e sua rede virtual é roteado pela Internet pública. Para saber mais sobre o ponto de extremidade de serviço, consulte a documentação a seguir. [criar](https://docs.microsoft.com/azure/key-vault/general/network-security)
+* Adicione uma rede virtual ao firewall do cofre de chaves. Essa opção funciona melhor para recursos do Azure que têm endereços IP dinâmicos, como máquinas virtuais. Você pode adicionar recursos do Azure a uma rede virtual e adicionar a rede virtual à lista de permissões do firewall do cofre de chaves. Essa opção usa um ponto de extremidade de serviço que é um endereço IP privado dentro da rede virtual. Isso fornece uma camada adicional de proteção, portanto, nenhum tráfego entre o Key Vault e sua rede virtual é roteado pela Internet pública. Para saber mais sobre o ponto de extremidade de serviço, consulte a documentação a seguir. [criar](./network-security.md)
 
-* Adicione uma conexão de link privado ao cofre de chaves. Essa opção conecta sua rede virtual diretamente a uma instância específica do Key Vault, trazendo efetivamente seu cofre de chaves dentro de sua rede virtual. Para saber mais sobre como configurar uma conexão de ponto de extremidade privado com o Key Vault, consulte o [link](https://docs.microsoft.com/azure/key-vault/general/private-link-service) a seguir
+* Adicione uma conexão de link privado ao cofre de chaves. Essa opção conecta sua rede virtual diretamente a uma instância específica do Key Vault, trazendo efetivamente seu cofre de chaves dentro de sua rede virtual. Para saber mais sobre como configurar uma conexão de ponto de extremidade privado com o Key Vault, consulte o [link](./private-link-service.md) a seguir
 
 ## <a name="test-your-service-principals-ability-to-access-key-vault"></a>Testar a capacidade da sua entidade de serviço de acessar o cofre de chaves
 
@@ -142,11 +140,11 @@ Depois de ter seguido todas as etapas acima, você poderá definir e recuperar s
 
 ### <a name="authentication-process-for-users-examples"></a>Processo de autenticação para usuários (exemplos)
 
-* Os usuários podem fazer logon no portal do Azure para usar o Key Vault. [Início rápido do portal do Key Vault](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal)
+* Os usuários podem fazer logon no portal do Azure para usar o Key Vault. [Início rápido do portal do Key Vault](./quick-create-portal.md)
 
-* O usuário pode usar CLI do Azure para usar o Key Vault. [Guia de início rápido do Key Vault CLI do Azure](https://docs.microsoft.com/azure/key-vault/general/quick-create-cli)
+* O usuário pode usar CLI do Azure para usar o Key Vault. [Guia de início rápido do Key Vault CLI do Azure](./quick-create-cli.md)
 
-* O usuário pode usar Azure PowerShell para usar o Key Vault. [Guia de início rápido do Key Vault Azure PowerShell](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell)
+* O usuário pode usar Azure PowerShell para usar o Key Vault. [Guia de início rápido do Key Vault Azure PowerShell](./quick-create-powershell.md)
 
 ### <a name="azure-active-directory-authentication-process-for-applications-or-services-examples"></a>Azure Active Directory processo de autenticação para aplicativos ou serviços (exemplos)
 
@@ -156,7 +154,7 @@ Depois de ter seguido todas as etapas acima, você poderá definir e recuperar s
 
 * Um recurso do Azure usa a autenticação MSI para obter um token Azure Active Directory. 
 
-* Saiba mais sobre o [link](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) de autenticação do MSI
+* Saiba mais sobre o [link](../../active-directory/managed-identities-azure-resources/overview.md) de autenticação do MSI
 
 ### <a name="authentication-process-for-application-python-example"></a>Processo de autenticação para o aplicativo (exemplo de Python)
 
@@ -172,7 +170,7 @@ from azure.keyvault.secrets import SecretClient
 tenant_id = "{ENTER YOUR TENANT ID HERE}"                          ##ENTER AZURE TENANT ID
 vault_url = "https://{ENTER YOUR VAULT NAME}.vault.azure.net/"     ##ENTER THE URL OF YOUR KEY VAULT
 client_id = "{ENTER YOUR CLIENT ID HERE}"                          ##ENTER THE CLIENT ID OF YOUR SERVICE PRINCIPAL
-cert_path = "{ENTER YOUR CLIEND SECRET HERE}"                      ##ENTER THE CLIENT SECRET OF YOUR SERVICE PRINCIPAL
+cert_path = "{ENTER YOUR CLIENT SECRET HERE}"                      ##ENTER THE CLIENT SECRET OF YOUR SERVICE PRINCIPAL
 
 def main():
 
@@ -196,4 +194,4 @@ if __name__ == "__main__":
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre a autenticação do Key Vault mais detalhadamente, consulte o documento a seguir. [Autenticação do cofre de chaves](https://docs.microsoft.com/azure/key-vault/general/authentication)
+Para saber mais sobre a autenticação do Key Vault mais detalhadamente, consulte o documento a seguir. [Autenticação do cofre de chaves](./authentication.md)

@@ -9,14 +9,17 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 18bf8d865a5bb4d96fb55199137b38ec30861dbe
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3bced101516e91259ea9018fe3c4aa44f867cbe6
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793034"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96023101"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Gerenciar chaves de conta de armazenamento com o Key Vault e o Azure PowerShell
+> [!IMPORTANT]
+> Recomendamos usar a integração do Armazenamento do Azure ao Azure AD (Azure Active Directory), o serviço de gerenciamento de identidades e acesso baseado em nuvem da Microsoft. A integração do Azure AD está disponível para [blobs e filas do Azure](../../storage/common/storage-auth-aad.md) e fornece acesso baseado em token OAuth2 ao Armazenamento do Azure (assim como o Azure Key Vault).
+> O Azure AD permite que você autentique seu aplicativo cliente usando uma identidade de aplicativo ou de usuário, em vez das credenciais da conta de armazenamento. Você pode usar uma [identidade gerenciada do Azure AD](../../active-directory/managed-identities-azure-resources/index.yml) durante a execução no Azure. As identidades gerenciadas eliminam a necessidade de autenticação de cliente e do armazenamento de credenciais no ou com o seu aplicativo. Use a solução abaixo apenas quando a autenticação do Azure AD não for possível.
 
 Uma conta de armazenamento do Azure usa credenciais compostas por um nome de conta e uma chave. A chave é gerada automaticamente e serve como uma senha, em vez de como uma chave de criptografia. O Key Vault gerencia as chaves de conta de armazenamento regenerando-as periodicamente na conta de armazenamento e fornece tokens de Assinatura de Acesso Compartilhado para acesso delegado aos recursos na sua conta de armazenamento.
 
@@ -29,17 +32,11 @@ Ao usar o recurso de chave de conta de armazenamento gerenciada, considere os se
 - Um só objeto do Key Vault deve gerenciar as chaves de conta de armazenamento. Não permita o gerenciamento de chaves em vários objetos.
 - Regenere as chaves usando apenas o Key Vault. Não regenere manualmente as chaves da conta de armazenamento.
 
-Recomendamos usar a integração do Armazenamento do Azure ao Azure AD (Azure Active Directory), o serviço de gerenciamento de identidades e acesso baseado em nuvem da Microsoft. A integração do Azure AD está disponível para [blobs e filas do Azure](../../storage/common/storage-auth-aad.md) e fornece acesso baseado em token OAuth2 ao Armazenamento do Azure (assim como o Azure Key Vault).
-
-O Azure AD permite que você autentique seu aplicativo cliente usando uma identidade de aplicativo ou de usuário, em vez das credenciais da conta de armazenamento. Você pode usar uma [identidade gerenciada do Azure AD](../../active-directory/managed-identities-azure-resources/index.yml) durante a execução no Azure. As identidades gerenciadas eliminam a necessidade de autenticação de cliente e do armazenamento de credenciais no ou com o seu aplicativo.
-
-O Azure AD usa o RBAC (controle de acesso baseado em função) para gerenciar a autorização, que também é compatível com o Key Vault.
-
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="service-principal-application-id"></a>ID do aplicativo da entidade de serviço
 
-Um locatário do Azure AD fornece a cada aplicativo registrado uma [entidade de serviço](../../active-directory/develop/developer-glossary.md#service-principal-object). A entidade de serviço serve como a ID do aplicativo, que é usada durante a configuração de autorização para acesso a outros recursos do Azure por meio do RBAC.
+Um locatário do Azure AD fornece a cada aplicativo registrado uma [entidade de serviço](../../active-directory/develop/developer-glossary.md#service-principal-object). A entidade de serviço serve como a ID do aplicativo, que é usada durante a configuração de autorização para acesso a outros recursos do Azure por meio do Azure RBAC.
 
 O Key Vault é um aplicativo da Microsoft que é pré-registrado em todos os locatários do Azure AD. O Key Vault é registrado na mesma ID do Aplicativo em cada nuvem do Azure.
 
@@ -256,14 +253,20 @@ Content Type : application/vnd.ms-sastoken-storage
 Tags         :
 ```
 
-Agora você pode usar o cmdlet [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret) e a propriedade `Name` do segredo para ver o conteúdo desse segredo.
+Agora você pode usar o cmdlet [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret) com os parâmetros `VaultName` e `Name` para ver o conteúdo desse segredo.
 
 ```azurepowershell-interactive
-Write-Host (Get-AzKeyVaultSecret -VaultName <YourKeyVaultName> -Name <SecretName>).SecretValue | ConvertFrom-SecureString -AsPlainText
+$secret = Get-AzKeyVaultSecret -VaultName <YourKeyVaultName> -Name <SecretName>
+$ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue)
+try {
+   $secretValueText = [System.Runtime.InteropServices.Marshal]::PtrToStringBSTR($ssPtr)
+} finally {
+   [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ssPtr)
+}
+Write-Output $secretValueText
 ```
 
 A saída desse comando mostrará a cadeia de caracteres de definição de SAS.
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

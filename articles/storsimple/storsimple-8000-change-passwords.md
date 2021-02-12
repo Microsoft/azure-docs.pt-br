@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 038084ba9ae43e14bc2eb42bf258912be27d062c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86527856"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023747"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-change-your-storsimple-passwords"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple para alterar suas senhas do StorSimple
 

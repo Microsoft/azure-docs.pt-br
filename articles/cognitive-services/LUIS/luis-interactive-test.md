@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/02/2020
-ms.openlocfilehash: b6fcc294c2b8c131d9a4a058c653ae1f64652ccf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31885eba16d59e2e48a08f84c56271b84e6c565f
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324851"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790911"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testar seu aplicativo LUIS no portal do LUIS
 
@@ -119,7 +119,7 @@ Se tiver vários pontos de extremidade LUIS, use o link **Configurações Adicio
 
 
 ## <a name="batch-testing"></a>Teste em lote
-Confira os [conceitos](luis-concept-batch-test.md) de teste do lote e saiba [como](luis-how-to-batch-test.md) testar um lote de declarações.
+Confira os [conceitos](./luis-how-to-batch-test.md) de teste do lote e saiba [como](luis-how-to-batch-test.md) testar um lote de declarações.
 
 ## <a name="next-steps"></a>Próximas etapas
 

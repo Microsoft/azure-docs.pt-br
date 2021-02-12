@@ -3,16 +3,17 @@ title: Dados geoespaciais e de localização geojson em Azure Cosmos DB
 description: Entenda como criar objetos espaciais com Azure Cosmos DB e a API do SQL.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 10882a0f4daf5c0d9aa1d4aeb53b2f14f9d1dea0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a2e4e14927932575c9da42392329eea279f922fe
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100821"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336139"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Dados geoespaciais e de localização geojson em Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

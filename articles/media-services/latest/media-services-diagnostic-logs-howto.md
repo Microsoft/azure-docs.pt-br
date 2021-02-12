@@ -1,5 +1,5 @@
 ---
-title: Monitorar logs de diagnóstico dos serviços de mídia via Azure Monitor | Microsoft Docs
+title: Monitorar logs de diagnóstico por meio de Azure Monitor
 description: Este artigo demonstra como rotear e exibir logs de diagnóstico por meio de Azure Monitor.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e756ff0133e3d3f0f86ea2f592005f2f2986488e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d9252a5fdf7b1c68c1bb64bd22ede8640184a0c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707754"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98953947"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Monitorar logs de diagnóstico dos serviços de mídia
 
@@ -94,7 +94,7 @@ Talvez seja necessário aguardar até cinco minutos antes que o evento seja exib
 
 1. No portal, navegue para a seção **Contas de Armazenamento** localizando-a na barra de navegação à esquerda.
 1. Identifique a conta de armazenamento criada na seção anterior e clique nela.
-1. Clique em **BLOBs**e, em seguida, no contêiner rotulado como **insights-logs-keydeliveryrequests**. Esse é o contêiner que tem seus logs. Os dados de monitoramento são divididos em contêineres por ID de recurso e, em seguida, por data e hora.
+1. Clique em **BLOBs** e, em seguida, no contêiner rotulado como **insights-logs-keydeliveryrequests**. Esse é o contêiner que tem seus logs. Os dados de monitoramento são divididos em contêineres por ID de recurso e, em seguida, por data e hora.
 1. Navegue para o arquivo PT1H.json clicando nos contêineres, em ID de recurso, data e hora. Clique no arquivo PT1H.json e clique em **Baixar**.
 
  Agora você pode exibir o evento do JSON armazenado na conta de armazenamento.
@@ -181,7 +181,7 @@ Talvez seja necessário aguardar até cinco minutos antes que o evento seja exib
 
 * O Widevine é um serviço fornecido pela Google Inc. e está sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [Métricas do Azure Monitor](../../azure-monitor/platform/data-platform.md)
 * [Azure Monitor logs de diagnóstico](../../azure-monitor/platform/platform-logs-overview.md)

@@ -3,15 +3,15 @@ title: Conectores de Aplicativos Lógicos do Azure
 description: Automatizar fluxos de trabalho com conectores para aplicativos lógicos do Azure, como o interno, gerenciado, local, conta de integração, ISE e conectores empresariais
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 06/11/2020
-ms.openlocfilehash: 23e6834f4850cc8f44f563a12f4704fec2e13ef7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/07/2021
+ms.openlocfilehash: c2b89450c0e474f5030f8812e888890f1fedde7e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400801"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019628"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores de Aplicativos Lógicos do Azure
 
@@ -28,7 +28,7 @@ Os conectores estão disponíveis como gatilhos e ações internas ou como conec
 
 <a name="built-in"></a>
 
-* [**Interno**](#built-ins): gatilhos internos e ações são "nativos" para aplicativos lógicos do Azure e ajudam a executar essas tarefas para seus aplicativos lógicos:
+* [**Interno**](#built-ins): gatilhos internos e ações executadas nativamente em aplicativos lógicos do Azure para que não exijam a criação de uma conexão antes de você usá-los e ajudá-lo a executar essas tarefas para seus aplicativos lógicos:
 
   * Executar em agendas personalizadas e avançadas.
 
@@ -66,7 +66,7 @@ Para aplicativos lógicos que precisam de acesso direto a recursos em uma rede v
 > [!NOTE]
 > Os aplicativos lógicos que são executados em um ISE e seus conectores, independentemente de onde esses conectores são executados, seguem um plano de preços fixo versus o plano de preços baseado em consumo. Para obter mais informações, consulte [modelo de preços dos aplicativos lógicos](../logic-apps/logic-apps-pricing.md) e [detalhes de preços dos aplicativos lógicos](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-| Label | Exemplo | Descrição |
+| Rotular | Exemplo | Descrição |
 |-------|---------|-------------|
 | **CORE** | ![Conector principal de exemplo](./media/apis-list/example-core-connector.png) | Gatilhos e ações internos com esse rótulo são executados no mesmo ISE que seus aplicativos lógicos. |
 | **ISE** | ![Conector do ISE de exemplo](./media/apis-list/example-ise-connector.png) | Conectores gerenciados com esse rótulo são executados no mesmo ISE que seus aplicativos lógicos. Se você tiver um sistema local conectado a uma rede virtual do Azure, um ISE permitirá que seus aplicativos lógicos acessem diretamente esse sistema sem o [Gateway de dados local](../logic-apps/logic-apps-gateway-connection.md). Em vez disso, você pode usar o conector do **ISE** do sistema, se disponível, uma ação http ou um [conector personalizado](#custom). Para sistemas locais que não têm conectores do **ISE** , use o gateway de dados local. Para examinar os conectores do ISE disponíveis, consulte [conectores do ISE](#ise-connectors). |
@@ -81,13 +81,13 @@ Os aplicativos lógicos fornecem gatilhos e ações internas para que você poss
 
 | Nome | Descrição |
 |------|-------------|
-| [![Agendar ][schedule-icon]<br> **Schedule** agendamento do conector interno][schedule-doc] | -Executar um aplicativo lógico em uma recorrência especificada, variando de programação básica para avançada com o gatilho de [ **recorrência** ][schedule-recurrence-doc]. <br>-Executar um aplicativo lógico que precisa manipular dados em partes contínuas com o gatilho de [ **janela deslizante** ][schedule-sliding-window-doc]. <br>-Pause seu aplicativo lógico por uma duração especificada com a [ação de **atraso** ][schedule-delay-doc]. <br>-Pause seu aplicativo lógico até a data e a hora especificadas com a ação de [ **atraso até** ][schedule-delay-until-doc]. |
-| [![Lote do conector interno do ][batch-icon]<br> **Batch** lote][batch-doc] | - Processe mensagens em lotes com o gatilho **Mensagens em lote**. <br>- Chame aplicativos lógicos que possuem gatilhos de lote existentes com a ação **Enviar mensagens para lote**. |
-| [![Http do conector interno HTTP ][http-icon]<br> **HTTP**][http-doc] | Chame pontos de extremidade HTTP ou HTTPS com gatilhos e ações para HTTP. Outros gatilhos internos HTTP e ações incluem o [conector interno http + Swagger][http-swagger-doc] e [http + webhook][http-webhook-doc]. |
-| [![Solicitar solicitação interna do conector ][http-request-icon]<br> **Request**][http-request-doc] | - Faça com que seu aplicativo lógico possa ser chamado de outros aplicativos ou serviços, gatilho em eventos de recursos da Grade de Eventos ou gatilho em respostas aos alertas da Central de Segurança do Azure com o gatilho **Solicitar**. <br>- Envie respostas para um aplicativo ou serviço com a ação **Resposta**. |
-| [![Conector interno de gerenciamento de API do Azure ][azure-api-management-icon]<br> ** <br> Gerenciamento de API do Azure**][azure-api-management-doc] | Chame os gatilhos e ações definidos por suas próprias APIs que você gerencia e publica com o Gerenciamento de API do Azure. |
-| [![][azure-app-services-icon]<br>** <br> Serviços de Azure app** do conector interno do Azure app Services][azure-app-services-doc] | Chame Aplicativos de API do Azure ou Aplicativos Web, hospedado no Serviço de Aplicativo do Azure. Os gatilhos e ações definidos por esses aplicativos são exibidos como quaisquer outros gatilhos e ações de primeira classe quando o Swagger é incluído. |
-| [![Aplicativo lógico do Azure conector interno ][azure-logic-apps-icon]<br> ** <br> aplicativos lógicos do Azure**][nested-logic-app-doc] | Chame outros aplicativos lógicos que comecem com o gatilho de **solicitação** . |
+| [![Agendar ][schedule-icon]<br>  agendamento do conector interno][schedule-doc] | -Executar um aplicativo lógico em uma recorrência especificada, variando de programação básica para avançada com o gatilho de [ **recorrência**][schedule-recurrence-doc]. <br>-Executar um aplicativo lógico que precisa manipular dados em partes contínuas com o gatilho de [ **janela deslizante**][schedule-sliding-window-doc]. <br>-Pause seu aplicativo lógico por uma duração especificada com a [ação de **atraso**][schedule-delay-doc]. <br>-Pause seu aplicativo lógico até a data e a hora especificadas com a ação de [ **atraso até**][schedule-delay-until-doc]. |
+| [![Lote do conector interno do ][batch-icon]<br>  lote][batch-doc] | - Processe mensagens em lotes com o gatilho **Mensagens em lote**. <br>- Chame aplicativos lógicos que possuem gatilhos de lote existentes com a ação **Enviar mensagens para lote**. |
+| [![Http do conector interno HTTP ][http-icon]<br> ][http-doc] | Chame pontos de extremidade HTTP ou HTTPS com gatilhos e ações para HTTP. Outros gatilhos internos HTTP e ações incluem o [conector interno http + Swagger][http-swagger-doc] e [http + webhook][http-webhook-doc]. |
+| [![Solicitar solicitação interna do conector ][http-request-icon]<br> ][http-request-doc] | - Faça com que seu aplicativo lógico possa ser chamado de outros aplicativos ou serviços, gatilho em eventos de recursos da Grade de Eventos ou gatilho em respostas aos alertas da Central de Segurança do Azure com o gatilho **Solicitar**. <br>- Envie respostas para um aplicativo ou serviço com a ação **Resposta**. |
+| [![Conector interno de gerenciamento de API do Azure ][azure-api-management-icon]<br> **<br> Gerenciamento de API do Azure**][azure-api-management-doc] | Chame os gatilhos e ações definidos por suas próprias APIs que você gerencia e publica com o Gerenciamento de API do Azure. |
+| [![][azure-app-services-icon]<br>**<br> Serviços de Azure app** do conector interno do Azure app Services][azure-app-services-doc] | Chame Aplicativos de API do Azure ou Aplicativos Web, hospedado no Serviço de Aplicativo do Azure. Os gatilhos e ações definidos por esses aplicativos são exibidos como quaisquer outros gatilhos e ações de primeira classe quando o Swagger é incluído. |
+| [![Aplicativo lógico do Azure conector interno ][azure-logic-apps-icon]<br> **<br> aplicativos lógicos do Azure**][nested-logic-app-doc] | Chame outros aplicativos lógicos que comecem com o gatilho de **solicitação** . |
 |||
 
 ### <a name="run-code-from-logic-apps"></a>Executar código de aplicativos lógicos
@@ -97,7 +97,7 @@ Os aplicativos lógicos fornecem ações internas para executar seu próprio có
 | Nome | Descrição |
 |------|-------------|
 | [![Azure Functions conector interno ][azure-functions-icon]<br> **Azure Functions**][azure-functions-doc] | Chame funções do Azure que executam snippets de códigos personalizados (C# ou Node.js) de seus aplicativos lógicos. |
-| [![Código ][inline-code-icon]<br> **Inline code** embutido do conector interno de código embutido][inline-code-doc] | Adicione e execute trechos de código JavaScript de seus aplicativos lógicos. |
+| [![Código ][inline-code-icon]<br>  embutido do conector interno de código embutido][inline-code-doc] | Adicione e execute trechos de código JavaScript de seus aplicativos lógicos. |
 |||
 
 ### <a name="control-workflow"></a>Controlar o fluxo de trabalho
@@ -106,11 +106,11 @@ Os aplicativos lógicos fornecem ações internas para estruturar e controlar as
 
 | Nome | Descrição |
 |------|-------------|
-| [![Condição de ação interna de ][condition-icon]<br> **Condition** condição][condition-doc] | Avalie uma condição e execute ações diferentes com base em se a condição é verdadeira ou falsa. |
+| [![Condição de ação interna de ][condition-icon]<br>  condição][condition-doc] | Avalie uma condição e execute ações diferentes com base em se a condição é verdadeira ou falsa. |
 | [![Para cada ação interna ][for-each-icon]<br> **para cada**][for-each-doc] | Execute as mesmas ações em cada item em uma matriz. |
-| [![Escopo da ação interna do ][scope-icon]<br> **Scope** escopo][scope-doc] | Agrupe ações em *Escopos*, que obtém seus próprios status após as ações no escopo concluírem a execução. |
-| [![Alternar opção de ação interna ][switch-icon]<br> **Switch**][switch-doc] | Agrupe ações em *Casos*, que recebem valores exclusivos, exceto para o caso padrão. Execute somente esse caso cujo valor atribuído coincide com o resultado de uma expressão, objeto ou token. Se nenhuma correspondência existir, execute o caso padrão. |
-| [![Terminar término da ação interna ][terminate-icon]<br> **Terminate**][terminate-doc] | Pare um fluxo de trabalho de aplicativo lógico ativamente em execução. |
+| [![Escopo da ação interna do ][scope-icon]<br>  escopo][scope-doc] | Agrupe ações em *Escopos*, que obtém seus próprios status após as ações no escopo concluírem a execução. |
+| [![Alternar opção de ação interna ][switch-icon]<br> ][switch-doc] | Agrupe ações em *Casos*, que recebem valores exclusivos, exceto para o caso padrão. Execute somente esse caso cujo valor atribuído coincide com o resultado de uma expressão, objeto ou token. Se nenhuma correspondência existir, execute o caso padrão. |
+| [![Terminar término da ação interna ][terminate-icon]<br> ][terminate-doc] | Pare um fluxo de trabalho de aplicativo lógico ativamente em execução. |
 | [![Até a ação interna ][until-icon]<br> **até**][until-doc] | Repita ações até que a condição especificada seja verdadeira ou algum estado seja alterado. |
 |||
 
@@ -120,9 +120,9 @@ Os aplicativos lógicos fornecem ações internas para trabalhar com saídas de 
 
 | Nome | Descrição |
 |------|-------------|
-| [![Operações de dados de ação internas de operações de dados ][data-operations-icon]<br> **Data Operations**][data-operations-doc] | Execute operações com dados: <p>- **Compor**: crie uma única saída de várias entradas com vários tipos. <br>- **Criar tabela CSV**: crie uma tabela CSV (separada por valores vírgula) de uma matriz com objetos JSON. <br>- **Criar tabela HTML**: crie uma tabela HTML de uma matriz com objetos JSON. <br>- **Matriz de filtro**: crie uma matriz de itens na outra matriz que atendem aos seus critérios. <br>- **Juntar-se**: crie uma cadeia de caracteres de todos os itens em uma matriz e separe esses itens com o delimitador especificado. <br>- **Analisar JSON**: Crie tokens amigáveis de propriedades e seus valores no conteúdo JSON para que você possa usar essas propriedades em seu fluxo de trabalho. <br>- **Selecionar**: crie uma matriz com objetos JSON transformando itens ou valores em outra matriz e mapeando esses itens para propriedades especificadas. |
+| [![Operações de dados de ação internas de operações de dados ][data-operations-icon]<br> ][data-operations-doc] | Execute operações com dados: <p>- **Compor**: crie uma única saída de várias entradas com vários tipos. <br>- **Criar tabela CSV**: crie uma tabela CSV (separada por valores vírgula) de uma matriz com objetos JSON. <br>- **Criar tabela HTML**: crie uma tabela HTML de uma matriz com objetos JSON. <br>- **Matriz de filtro**: crie uma matriz de itens na outra matriz que atendem aos seus critérios. <br>- **Juntar-se**: crie uma cadeia de caracteres de todos os itens em uma matriz e separe esses itens com o delimitador especificado. <br>- **Analisar JSON**: Crie tokens amigáveis de propriedades e seus valores no conteúdo JSON para que você possa usar essas propriedades em seu fluxo de trabalho. <br>- **Selecionar**: crie uma matriz com objetos JSON transformando itens ou valores em outra matriz e mapeando esses itens para propriedades especificadas. |
 | ![Ação interna de data e hora][date-time-icon]<br>**Data e hora** | Execute operações com carimbos de data/hora: <p>- **Adicionar horário**: adicionar número especificado de unidades a um carimbo de data/hora. <br>- **Converter fuso horário**: converter um carimbo de data/hora do fuso horário de origem para o fuso horário de destino. <br>- **Horário atual**: retornar o carimbo de data/hora atual como uma cadeia de caracteres. <br>- **Obter horário futuro**: retornar o carimbo de data/hora atual mais as unidades de tempo especificadas. <br>- **Obter horário passado**: retornar o carimbo de data/hora atual menos as unidades de tempo especificadas. <br>- **Subtrair de horário**: subtrair um número de unidades de tempo de um carimbo de data/hora. |
-| [![Variáveis de ação internas de ][variables-icon]<br> **Variables** variáveis][variables-doc] | Execute operações com variáveis: <p>- **Acrescentar à variável de matriz**: inserir um valor como o último item em uma matriz armazenada por uma variável. <br>- **Acrescentar à variável de matriz**: inserir um valor como o último caractere em uma cadeia de caracteres armazenada por uma variável. <br>- **Diminuir variável**: diminuir uma variável em um valor constante. <br>- **Incrementar variável**: aumentar uma variável em um valor constante. <br>- **Inicializar variável**: criar uma variável e declarar seu tipo de dados e o valor inicial. <br>- **Definir a variável**: atribuir um valor diferente em uma variável existente. |
+| [![Variáveis de ação internas de ][variables-icon]<br>  variáveis][variables-doc] | Execute operações com variáveis: <p>- **Acrescentar à variável de matriz**: inserir um valor como o último item em uma matriz armazenada por uma variável. <br>- **Acrescentar à variável de matriz**: inserir um valor como o último caractere em uma cadeia de caracteres armazenada por uma variável. <br>- **Diminuir variável**: diminuir uma variável em um valor constante. <br>- **Incrementar variável**: aumentar uma variável em um valor constante. <br>- **Inicializar variável**: criar uma variável e declarar seu tipo de dados e o valor inicial. <br>- **Definir a variável**: atribuir um valor diferente em uma variável existente. |
 |||
 
 <a name="managed-api-connectors"></a>
@@ -135,30 +135,32 @@ Os aplicativos lógicos fornecem esses conectores padrão populares para automat
 |------|-------------|
 | [![Conector gerenciado do barramento de serviço do Azure ][azure-service-bus-icon]<br> **barramento de serviço do Azure**][azure-service-bus-doc] | Gerencie mensagens assíncronas, sessões e assinaturas de tópico com o conector mais comumente usado em Aplicativos Lógicos. |
 | [![SQL Server conector gerenciado ][sql-server-icon]<br> **SQL Server**][sql-server-doc] | Conecte-se ao seu SQL Server local ou a um banco de dados SQL do Azure na nuvem para que você possa gerenciar registros, executar procedimentos armazenados ou executar consultas. |
-| [![Conector gerenciado do armazenamento de BLOBs do Azure ][azure-blob-storage-icon]<br> ** <br> armazenamento de BLOBs do Azure**][azure-blob-storage-doc] | Conecte-se à sua conta de armazenamento para que você possa criar e gerenciar conteúdo de BLOB. |
+| [![Conector gerenciado do armazenamento de BLOBs do Azure ][azure-blob-storage-icon]<br> **<br> armazenamento de BLOBs do Azure**][azure-blob-storage-doc] | Conecte-se à sua conta de armazenamento para criar e gerenciar o conteúdo do blob. |
 | [![Office 365 Outlook Managed Connector ][office-365-outlook-icon]<br> **Office 365 <br> Outlook**][office-365-outlook-doc] | Conecte-se à sua conta de email corporativa ou de estudante para que você possa criar e gerenciar emails, tarefas, eventos de calendário e reuniões, contatos, solicitações e muito mais. |
-| [![SFTP-conector gerenciado do SSH ][sftp-ssh-icon]<br> **SFTP-SSH**][sftp-ssh-doc] | Conecte-se a servidores SFTP que você pode acessar da Internet usando o SSH para que você possa trabalhar com seus arquivos e pastas. |
+| [![SFTP-conector gerenciado do SSH ][sftp-ssh-icon]<br> **SFTP-SSH**][sftp-ssh-doc] | Conecte-se aos servidores SFTP que você pode acessar da Internet ao usar SSH para poder trabalhar com seus arquivos e pastas. |
 | [![Conector gerenciado do SharePoint Online ][sharepoint-online-icon]<br> **SharePoint <br> online**][sharepoint-online-doc] | Conecte-se ao SharePoint Online para que você possa gerenciar arquivos, anexos, pastas e muito mais. |
-| [![Filas ][azure-queues-icon]<br> **do Azure <br> ** conector gerenciado de filas do Azure][azure-queues-doc] | Conecte-se à sua conta de armazenamento do Azure para que você possa criar e gerenciar filas e mensagens. |
-| [![FTP do conector gerenciado FTP ][ftp-icon]<br> **FTP**][ftp-doc] | Conecte-se a servidores FTP que você pode acessar pela Internet para que você possa trabalhar com seus arquivos e pastas. |
-| [![][file-system-icon]<br>** <br> Sistema de arquivos** do conector gerenciado do sistema de arquivos][file-system-doc] | Conecte-se ao seu compartilhamento de arquivos local para que você possa criar e gerenciar arquivos. |
+| [![Filas ][azure-queues-icon]<br> **do Azure <br>** conector gerenciado de filas do Azure][azure-queues-doc] | Conecte-se à sua conta de armazenamento do Azure para que você possa criar e gerenciar filas e mensagens. |
+| [![FTP do conector gerenciado FTP ][ftp-icon]<br> ][ftp-doc] | Conecte-se a servidores FTP que você pode acessar pela Internet para que você possa trabalhar com seus arquivos e pastas. |
+| [![][file-system-icon]<br>**<br> Sistema de arquivos** do conector gerenciado do sistema de arquivos][file-system-doc] | Conecte-se ao seu compartilhamento de arquivos local para que você possa criar e gerenciar arquivos. |
 | [![][azure-event-hubs-icon]<br>**Hubs de eventos do** Azure conector gerenciado dos hubs de eventos do Azure][azure-event-hubs-doc] | Como consumir e publicar eventos por meio de um Hub de Eventos. Por exemplo, obtenha uma saída do seu aplicativo lógico com os Hubs de Eventos e, em seguida, envie essa saída para um provedor de análise em tempo real. |
-| [![Grade de ][azure-event-grid-icon]<br> **eventos do Azure** <br> **Grid** conector gerenciado da grade de eventos do Azure][azure-event-grid-doc] | Monitore eventos publicados por uma grade de eventos, por exemplo, quando recursos do Azure ou recursos de terceiros são alterados. |
-| [![Salesforce do conector gerenciado do Salesforce ][salesforce-icon]<br> **Salesforce**][salesforce-doc] | Conecte-se à sua conta do Salesforce para que você possa criar e gerenciar itens como registros, trabalhos, objetos e muito mais. |
+| [![Grade de ][azure-event-grid-icon]<br> **eventos do Azure** <br>  conector gerenciado da grade de eventos do Azure][azure-event-grid-doc] | Monitore eventos publicados por uma grade de eventos, por exemplo, quando recursos do Azure ou recursos de terceiros são alterados. |
+| [![Salesforce do conector gerenciado do Salesforce ][salesforce-icon]<br> ][salesforce-doc] | Conecte-se à sua conta do Salesforce para que você possa criar e gerenciar itens como registros, trabalhos, objetos e muito mais. |
 |||
 
 <a name="on-premises-connectors"></a>
 
 ## <a name="on-premises-connectors"></a>Conectores locais
 
-Aqui estão alguns conectores padrão comumente usados que os aplicativos lógicos fornecem para acessar dados e recursos em sistemas locais. Antes de criar uma conexão com um sistema local, você deve primeiro [fazer o download, instalar e configurar um gateway de dados local][gateway-doc]. Esse gateway fornece um canal de comunicação seguro sem ter que configurar a infraestrutura de rede necessária.
+Antes de criar uma conexão com um sistema local, você deve primeiro [fazer o download, instalar e configurar um gateway de dados local][gateway-doc]. Esse gateway fornece um canal de comunicação seguro sem ter que configurar a infraestrutura de rede necessária. 
+
+Aqui estão *alguns* conectores padrão comumente usados que os aplicativos lógicos fornecem para acessar dados e recursos em sistemas locais. Para obter a lista de conectores locais, consulte [fontes de dados com suporte](../logic-apps/logic-apps-gateway-connection.md#supported-connections).
 
 :::row:::
     :::column:::
-        [![][biztalk-server-icon]<br>**BizTalk** <br> **Servidor BizTalk do** conector de BizTalk Server][biztalk-server-doc]
+        [![][biztalk-server-icon]<br> <br> **Servidor BizTalk do** conector de BizTalk Server][biztalk-server-doc]
     :::column-end:::
     :::column:::
-        [![][file-system-icon]<br>** <br> Sistema de arquivos** do conector do sistema de arquivos][file-system-doc]
+        [![][file-system-icon]<br>**<br> Sistema de arquivos** do conector do sistema de arquivos][file-system-doc]
     :::column-end:::
     :::column:::
         [![Conector DB2 ][ibm-db2-icon]<br> **IBM DB2**][ibm-db2-doc]
@@ -175,10 +177,10 @@ Aqui estão alguns conectores padrão comumente usados que os aplicativos lógic
         [![Conector de Oracle DB ][oracle-db-icon]<br> **Oracle DB**][oracle-db-doc]
     :::column-end:::
     :::column:::
-        [![PostgreSQL Connector do conector ][postgre-sql-icon]<br> **PostgreSQL**][postgre-sql-doc]
+        [![PostgreSQL Connector do conector ][postgre-sql-icon]<br> ][postgre-sql-doc]
     :::column-end:::
     :::column:::
-        [![][sharepoint-server-icon]<br>** <br> Servidor SharePoint** do SharePoint Server Connector][sharepoint-server-doc]
+        [![][sharepoint-server-icon]<br>**<br> Servidor SharePoint** do SharePoint Server Connector][sharepoint-server-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -204,30 +206,30 @@ Os aplicativos lógicos fornecem conectores padrão para a criação de Soluçõ
 
 :::row:::
     :::column:::
-        [![][as2-icon]<br>** <br> Decodificação AS2** da ação de decodificação AS2][as2-doc]
+        [![][as2-icon]<br>**<br> Decodificação AS2** da ação de decodificação AS2][as2-doc]
     :::column-end:::
     :::column:::
-        [![][as2-icon]<br>** <br> Codificação AS2** da ação de codificação AS2][as2-doc]
+        [![][as2-icon]<br>**<br> Codificação AS2** da ação de codificação AS2][as2-doc]
     :::column-end:::
     :::column:::
         [![Decodificação de EDIFACT ação ][edifact-icon]<br> **EDIFACT <br> decodificação**][edifact-decode-doc]
     :::column-end:::
     :::column:::
-        [![][edifact-icon]<br>** <br> Codificação EDIFACT** de ação de codificação EDIFACT][edifact-encode-doc]
+        [![][edifact-icon]<br>**<br> Codificação EDIFACT** de ação de codificação EDIFACT][edifact-encode-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        [![Decodificação de arquivo simples de ação de decodificação de arquivo simples ][flat-file-decode-icon]<br> ** <br> **][flat-file-decode-doc]
+        [![Decodificação de arquivo simples de ação de decodificação de arquivo simples ][flat-file-decode-icon]<br> **<br>**][flat-file-decode-doc]
     :::column-end:::
     :::column:::
-        [![][flat-file-encode-icon]<br>** <br> Codificação de arquivo simples** de ação de codificação de arquivo simples][flat-file-encode-doc]
+        [![][flat-file-encode-icon]<br>**<br> Codificação de arquivo simples** de ação de codificação de arquivo simples][flat-file-encode-doc]
     :::column-end:::
     :::column:::
-        [![][integration-account-icon]<br>** <br> Conta de integração** de ação da conta de integração][integration-account-doc]
+        [![][integration-account-icon]<br>**<br> Conta de integração** de ação da conta de integração][integration-account-doc]
     :::column-end:::
     :::column:::
-        [![Transformações líquidas ][liquid-icon]<br> **Liquid** da ação de <br> **transformações** líquidas][json-liquid-transform-doc]
+        [![Transformações líquidas ][liquid-icon]<br>  da ação de <br> **transformações** líquidas][json-liquid-transform-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -235,13 +237,13 @@ Os aplicativos lógicos fornecem conectores padrão para a criação de Soluçõ
         [![Decodificação de X12 ação ][x12-icon]<br> **X12 <br> decodificação**][x12-decode-doc]
     :::column-end:::
     :::column:::
-        [![][x12-icon]<br>** <br> Codificação X12** de ação de codificação X12][x12-encode-doc]
+        [![][x12-icon]<br>**<br> Codificação X12** de ação de codificação X12][x12-encode-doc]
     :::column-end:::
     :::column:::
-        [![Transformações de XML ][xml-transform-icon]<br> **XML** de ação de transformações <br> **transforms** XML][xml-transform-doc]
+        [![Transformações de XML ][xml-transform-icon]<br>  de ação de transformações <br>  XML][xml-transform-doc]
     :::column-end:::
     :::column:::
-        [![][xml-validate-icon]<br>** <br> Validação XML** de ação de validação XML][xml-validate-doc]
+        [![][xml-validate-icon]<br>**<br> Validação XML** de ação de validação XML][xml-validate-doc]
     :::column-end:::
 :::row-end:::
 
@@ -274,13 +276,13 @@ Para aplicativos lógicos que você cria e executa em um [ambiente dedicado do s
 
 :::row:::
     :::column:::
-        [![AS2 do conector de ISE do AS2 ][as2-icon]<br> **AS2**][as2-doc]
+        [![AS2 do conector de ISE do AS2 ][as2-icon]<br> ][as2-doc]
     :::column-end:::
     :::column:::
-        [![][azure-automation-icon]<br>** <br> Automação do Azure** do conector ISE da automação do Azure][azure-automation-doc]
+        [![][azure-automation-icon]<br>**<br> Automação do Azure** do conector ISE da automação do Azure][azure-automation-doc]
     :::column-end:::
     :::column:::
-        [![Conector do ISE do armazenamento de blob do Azure ][azure-blob-storage-icon]<br> ** <br> armazenamento de BLOBs do Azure**][azure-blob-storage-doc]
+        [![Conector do ISE do armazenamento de blob do Azure ][azure-blob-storage-icon]<br> **<br> armazenamento de BLOBs do Azure**][azure-blob-storage-doc]
     :::column-end:::
     :::column:::
         [![Azure Cosmos DB o ][azure-cosmos-db-icon]<br> **Azure Cosmos <br> DB** no conector ISE][azure-cosmos-db-doc]
@@ -288,16 +290,16 @@ Para aplicativos lógicos que você cria e executa em um [ambiente dedicado do s
 :::row-end:::
 :::row:::
     :::column:::
-        [![Hubs de eventos do Azure conector ][azure-event-hubs-icon]<br> **do <br> ** ISE dos hubs de eventos][azure-event-hubs-doc]
+        [![Hubs de eventos do Azure conector ][azure-event-hubs-icon]<br> **do <br>** ISE dos hubs de eventos][azure-event-hubs-doc]
     :::column-end:::
     :::column:::
-        [![][azure-event-grid-icon]<br>** <br> Grade de eventos do Azure conector do** ISE da grade de eventos do Azure][azure-event-grid-doc]
+        [![][azure-event-grid-icon]<br>**<br> Grade de eventos do Azure conector do** ISE da grade de eventos do Azure][azure-event-grid-doc]
     :::column-end:::
     :::column:::
-        [![Conector do ISE do armazenamento de arquivos do Azure ][azure-file-storage-icon]<br> ** <br> armazenamento de arquivos do Azure**][azure-file-storage-doc]
+        [![Conector do ISE do armazenamento de arquivos do Azure ][azure-file-storage-icon]<br> **<br> armazenamento de arquivos do Azure**][azure-file-storage-doc]
     :::column-end:::
     :::column:::
-        [![Azure Key Vault o ][azure-key-vault-icon]<br> ** <br> cofre de chaves do Azure conector do** ISE][azure-key-vault-doc]
+        [![Azure Key Vault o ][azure-key-vault-icon]<br> **<br> cofre de chaves do Azure conector do** ISE][azure-key-vault-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -305,27 +307,27 @@ Para aplicativos lógicos que você cria e executa em um [ambiente dedicado do s
         [![Logs do Azure Monitor conector do ISE ][azure-monitor-logs-icon]<br> **Azure monitor <br> log**][azure-monitor-logs-doc]
     :::column-end:::
     :::column:::
-        [![Conector do ISE do barramento de serviço do Azure ][azure-service-bus-icon]<br> ** <br> barramento de serviço do Azure**][azure-service-bus-doc]
+        [![Conector do ISE do barramento de serviço do Azure ][azure-service-bus-icon]<br> **<br> barramento de serviço do Azure**][azure-service-bus-doc]
     :::column-end:::
     :::column:::
         [![Conector do ISE do Azure Synapse Analytics ][azure-sql-data-warehouse-icon]<br> **Azure SQL Data <br> warehouse**][azure-sql-data-warehouse-doc]
     :::column-end:::
     :::column:::
-        [![Conector do ISE do armazenamento de tabelas do Azure ][azure-table-storage-icon]<br> ** <br> armazenamento de tabelas do Azure**][azure-table-storage-doc]
+        [![Conector do ISE do armazenamento de tabelas do Azure ][azure-table-storage-icon]<br> **<br> armazenamento de tabelas do Azure**][azure-table-storage-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        [![Filas ][azure-queues-icon]<br> **do Azure <br> ** conector ISE de filas do Azure][azure-queues-doc]
+        [![Filas ][azure-queues-icon]<br> **do Azure <br>** conector ISE de filas do Azure][azure-queues-doc]
     :::column-end:::
     :::column:::
         [![Conector EDIFACT ISE ][edifact-icon]<br> **EDIFACT**][edifact-doc]
     :::column-end:::
     :::column:::
-        [![][file-system-icon]<br>** <br> Sistema de arquivos** do conector do ISE do sistema de arquivos][file-system-doc]
+        [![][file-system-icon]<br>**<br> Sistema de arquivos** do conector do ISE do sistema de arquivos][file-system-doc]
     :::column-end:::
     :::column:::
-        [![FTP do conector do ISE FTP ][ftp-icon]<br> **FTP**][ftp-doc]
+        [![FTP do conector do ISE FTP ][ftp-icon]<br> ][ftp-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -347,7 +349,7 @@ Para aplicativos lógicos que você cria e executa em um [ambiente dedicado do s
         [![SFTP-SSH conector do ISE ][sftp-ssh-icon]<br> **SFTP-SSH**][sftp-ssh-doc]
     :::column-end:::
     :::column:::
-        [![SMTP do conector do ISE SMTP ][smtp-icon]<br> **SMTP**][smtp-doc]
+        [![SMTP do conector do ISE SMTP ][smtp-icon]<br> ][smtp-doc]
     :::column-end:::
     :::column:::
         [![SQL Server o ][sql-server-icon]<br> **SQL <br> Server do** conector ISE][sql-server-doc]
@@ -367,7 +369,7 @@ Para saber mais, consulte esses tópicos:
 
 ## <a name="triggers-and-action-types"></a>Gatilhos e tipos de ação
 
-Os conectores podem fornecer *gatilhos*, *ações*ou ambos. Um *gatilho* é a primeira etapa em qualquer aplicativo lógico, geralmente especificando o evento que dispara o gatilho e começa a executar seu aplicativo lógico. Por exemplo, o conector de FTP tem um gatilho que inicia seu aplicativo lógico "quando um arquivo é adicionado ou modificado". Alguns gatilhos verificam regularmente o evento ou os dados especificados e, em seguida, são acionados quando detectam o evento ou os dados especificados. Outros gatilhos esperam, mas são imediatamente acionados quando um evento específico ocorre ou quando novos dados estão disponíveis. Os gatilhos também passam todos os dados necessários para seu aplicativo lógico. Seu aplicativo lógico pode ler e usar esses dados em todo o fluxo de trabalho. Por exemplo, o conector do Outlook do Office 365 tem um gatilho "quando um novo email chega", que pode passar o conteúdo desse email para o fluxo de trabalho do seu aplicativo lógico.
+Os conectores podem fornecer *gatilhos*, *ações* ou ambos. Um *gatilho* é a primeira etapa em qualquer aplicativo lógico, geralmente especificando o evento que dispara o gatilho e começa a executar seu aplicativo lógico. Por exemplo, o conector de FTP tem um gatilho que inicia seu aplicativo lógico "quando um arquivo é adicionado ou modificado". Alguns gatilhos verificam regularmente o evento ou os dados especificados e, em seguida, são acionados quando detectam o evento ou os dados especificados. Outros gatilhos esperam, mas são imediatamente acionados quando um evento específico ocorre ou quando novos dados estão disponíveis. Os gatilhos também passam todos os dados necessários para seu aplicativo lógico. Seu aplicativo lógico pode ler e usar esses dados em todo o fluxo de trabalho. Por exemplo, o conector do Outlook do Office 365 tem um gatilho "quando um novo email chega", que pode passar o conteúdo desse email para o fluxo de trabalho do seu aplicativo lógico.
 
 Depois que um gatilho é disparado, o aplicativo lógico do Azure cria uma instância de sua aplicação lógica e começa a executar as *ações* no fluxo de trabalho do seu aplicativo lógico. As ações são as etapas que seguem o gatilho e executam tarefas no fluxo de trabalho do aplicativo lógico. Por exemplo, você pode criar um aplicativo lógico que obtém dados do cliente de um banco de dado SQL e processa esses dados em ações posteriores.
 
@@ -388,6 +390,54 @@ Os gatilhos e as ações de cada conector fornecem suas próprias propriedades p
 Para conectores que usam Azure Active Directory (Azure AD) OAuth, criar uma conexão significa entrar no serviço, como o Office 365, Salesforce ou GitHub, em que seu token de acesso é [criptografado](../security/fundamentals/encryption-overview.md) e armazenado com segurança em um repositório de segredo do Azure. Outros conectores, como FTP e SQL, exigem uma conexão com detalhes de configuração, como o endereço do servidor, o nome de usuário e a senha. Esses detalhes de configuração de conexão também são criptografados e armazenados com segurança. Saiba mais sobre [criptografia no Azure](../security/fundamentals/encryption-overview.md).
 
 As conexões podem acessar o serviço ou sistema de destino pelo tempo que o serviço ou o sistema permitir. Para serviços que usam conexões OAuth do Azure AD, como o Office 365 e Dynamics, os aplicativos lógicos do Azure atualizam os tokens de acesso indefinidamente. Outros serviços podem ter limites de quanto tempo os aplicativos lógicos do Azure podem usar um token sem Atualizar. Em geral, algumas ações invalidam todos os tokens de acesso, como alterar sua senha.
+
+<a name="recurrence-behavior"></a>
+
+## <a name="recurrence-behavior"></a>Comportamento de recorrência
+
+O comportamento de gatilhos internos recorrentes que são executados nativamente nos aplicativos lógicos do Azure, como o [gatilho de recorrência](../connectors/connectors-native-recurrence.md), difere do comportamento para gatilhos com base em conexão recorrentes, em que você precisa criar uma conexão primeiro, como o gatilho do conector do SQL.
+
+No entanto, para os dois tipos de gatilhos, se uma recorrência não especificar uma data e hora de início específicas, a primeira recorrência será executada imediatamente quando você salvar ou implantar o aplicativo lógico, apesar da configuração de recorrência do gatilho. Para evitar esse comportamento, forneça uma data e hora de início para quando desejar que a primeira recorrência seja executada.
+
+<a name="recurrence-built-in"></a>
+
+### <a name="recurrence-for-built-in-triggers"></a>Recorrência para gatilhos internos
+
+Os gatilhos internos recorrentes respeitam o agendamento que você definiu, incluindo qualquer fuso horário que você especificar. No entanto, se uma recorrência não especificar nenhuma outra opção de agendamento avançada, como horários específicos para executar recorrências futuras, essas recorrências serão baseadas na última execução do gatilho. Como resultado, as horas de início para essas recorrências podem ser desligadas devido a fatores como latência durante chamadas de armazenamento. Além disso, se você não selecionar um fuso horário, o horário de Verão poderá afetar quando os gatilhos forem executados, por exemplo, deslocando a hora de início uma hora para a frente quando o horário de verão for iniciado e uma hora para trás quando o horário de verão terminar.
+
+Para garantir que seu aplicativo lógico seja executado na hora de início especificada e não perca uma recorrência, especialmente quando a frequência estiver em dias ou mais, tente estas soluções:
+
+* Certifique-se de selecionar um fuso horário para que seu aplicativo lógico seja executado na hora de início especificada. Caso contrário, o DST pode afetar quando os gatilhos são executados, por exemplo, deslocando a hora de início uma hora para a frente quando o DST começa e uma hora para trás quando o horário de verão termina.
+
+  Ao agendar trabalhos, os aplicativos lógicos colocam a mensagem para processamento na fila e especifica quando essa mensagem se torna disponível, com base na hora UTC em que o último trabalho foi executado e na hora UTC em que o trabalho seguinte está agendado para ser executado. Ao especificar um fuso horário, a hora UTC para seu aplicativo lógico também muda para combater a alteração de horário sazonal. No entanto, algumas vezes o Windows pode causar problemas quando o tempo muda. Para obter mais informações e exemplos, consulte [recorrência para horário de verão e horário padrão](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-saving-standard-time).
+
+* Use o gatilho de recorrência e forneça uma data e hora de início para a recorrência mais os horários específicos para quando executar recorrências subsequentes usando as propriedades nomeadas nessas **horas** e a **esses minutos**, que estão disponíveis apenas para as frequências de **dia** e **semana** .
+
+* Use o [gatilho de janela deslizante](../connectors/connectors-native-sliding-window.md), em vez do gatilho de recorrência.
+
+<a name="recurrence-connection-based"></a>
+
+### <a name="recurrence-for-connection-based-triggers"></a>Recorrência de gatilhos baseados em conexão
+
+Em gatilhos baseados em conexão recorrentes, como SQL ou SFTP-SSH, o agendamento não é o único driver que controla a execução, e o fuso horário só determina a hora de início inicial. As execuções subsequentes dependem da agenda de recorrência, da última execução do gatilho *e* de outros fatores que podem causar tempos de execução para descompasso ou produzir um comportamento inesperado, por exemplo:
+
+* Se o gatilho acessa um servidor que tem mais dados, que o gatilho tenta buscar imediatamente.
+
+* Falhas ou novas tentativas que o gatilho incorre.
+
+* Latência durante chamadas de armazenamento.
+
+* Não manter o agendamento especificado quando o horário de verão é iniciado e encerrado.
+
+* Outros fatores que podem afetar quando ocorre o próximo tempo de execução.
+
+Para resolver ou solucionar esses problemas, experimente estas soluções:
+
+* Para garantir que a hora da recorrência não mude quando o DST entrar em vigor, ajuste manualmente a recorrência para que seu aplicativo lógico continue a ser executado no tempo esperado. Caso contrário, a hora de início mudará uma hora para frente quando o horário de verão for iniciado e uma hora para trás quando o horário de verão terminar.
+
+* Use o gatilho de recorrência para que você possa especificar um fuso horário, uma data e hora de início, *além* das ocasiões específicas em que executar as recorrências subsequentes usando as propriedades nomeadas nessas **horas** e a **esses minutos**, que estão disponíveis apenas para as frequências de **dia** e **semana** . No entanto, algumas vezes o Windows ainda poderá causar problemas quando o tempo mudar. Para obter mais informações e exemplos, consulte [recorrência para horário de verão e horário padrão](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-saving-standard-time).
+
+* Para evitar recorrências perdidas, use o [gatilho de janela deslizante](../connectors/connectors-native-sliding-window.md), em vez do gatilho de recorrência.
 
 <a name="custom"></a>
 

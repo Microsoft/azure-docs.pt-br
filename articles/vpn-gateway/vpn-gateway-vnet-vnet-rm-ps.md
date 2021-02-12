@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: edd9f9f3127178f168f6c768b092a7ec6311e7bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7de83302dd91d7d679b9c35718d184a9767ba436
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440922"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655350"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurar uma conexão gateway de VPN de Vnet pra VNet usando o PowerShell
 
@@ -364,7 +364,7 @@ Esta etapa deve ser feita no contexto da nova assinatura. Esta parte pode ser ex
    ```azurepowershell-interactive
    Select-AzSubscription -SubscriptionName $Sub5
    ```
-3. Criar um grupo de recursos.
+3. Crie um novo grupo de recursos.
 
    ```azurepowershell-interactive
    New-AzResourceGroup -Name $RG5 -Location $Location5
@@ -483,5 +483,5 @@ Neste exemplo, como os gateways estão em assinaturas diferentes, dividirmos est
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Consulte a [Documentação sobre Máquinas Virtuais](https://docs.microsoft.com/azure/) para obter mais informações.
+* Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Consulte a [Documentação sobre Máquinas Virtuais](../index.yml) para obter mais informações.
 * Para obter informações sobre o BGP, consulte a [Visão Geral do BGP](vpn-gateway-bgp-overview.md) e [Como configurar o BGP](vpn-gateway-bgp-resource-manager-ps.md).

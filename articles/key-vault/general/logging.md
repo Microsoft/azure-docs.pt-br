@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 08/12/2019
+ms.date: 12/18/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 162e40555e11dff716b58eec4b1168728257693e
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: bc9601dbea5c73c6909bd658f322c345143a526c
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131166"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790267"
 ---
 # <a name="azure-key-vault-logging"></a>Log do Azure Key Vault
 
@@ -23,10 +23,10 @@ Depois de criar um ou mais cofres de chaves, provavelmente você desejará monit
 
 Você pode acessar suas informações de log 10 minutos (no máximo) após a operação do cofre de chaves. Na maioria dos casos, será mais rápido do que isso.  Cabe a você gerenciar os logs em sua conta de armazenamento:
 
-* Use os métodos de controle de acesso padrão do Azure para proteger seus logs ao restringir quem pode acessá-los.
+* Use os métodos padrões de controle de acesso do Azure na sua conta de armazenamento para proteger seus logs ao restringir quem pode acessá-los.
 * Exclua os logs que você não deseja manter em sua conta de armazenamento.
 
-Para obter informações de visão geral sobre o Key Vault, consulte [O que é o Azure Key Vault?](overview.md). Para obter informações sobre onde o Key Vault está disponível, consulte a [página de preços](https://azure.microsoft.com/pricing/details/key-vault/). Para obter informações sobre como usar o [Azure Monitor para Key Vault](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview).
+Para obter informações de visão geral sobre o Key Vault, consulte [O que é o Azure Key Vault?](overview.md). Para obter informações sobre onde o Key Vault está disponível, consulte a [página de preços](https://azure.microsoft.com/pricing/details/key-vault/). Para obter informações sobre como usar o [Azure Monitor para Key Vault](../../azure-monitor/insights/key-vault-insights-overview.md).
 
 ## <a name="interpret-your-key-vault-logs"></a>Interpretar os logs do Cofre de Chave
 
@@ -85,42 +85,105 @@ A tabela a seguir lista os valores de **operationName** e os comandos da API RES
 
 ### <a name="operation-names-table"></a>Tabela de nomes de operação
 
+# <a name="vault"></a>[Cofre](#tab/Vault)
+
 | operationName | Comando da API REST |
 | --- | --- |
 | **Autenticação** |Autenticação via ponto de extremidade do Azure Active Directory |
-| **VaultGet** |[Obter informações sobre um cofre de chaves](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
-| **VaultPut** |[Criar ou atualizar um cofre de chaves](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| **VaultDelete** |[Excluir um cofre de chaves](https://msdn.microsoft.com/library/azure/mt620022.aspx) |
-| **VaultPatch** |[Atualizar um cofre da chave](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| **VaultList** |[Listar todos os cofres de chaves em um grupo de recursos](https://msdn.microsoft.com/library/azure/mt620027.aspx) |
-| **KeyCreate** |[Criar uma chave](https://msdn.microsoft.com/library/azure/dn903634.aspx) |
-| **KeyGet** |[Obter informações sobre uma chave](https://msdn.microsoft.com/library/azure/dn878080.aspx) |
-| **KeyImport** |[Importar uma chave para um cofre](https://msdn.microsoft.com/library/azure/dn903626.aspx) |
-| **KeyBackup** |[Fazer backup de uma chave](https://msdn.microsoft.com/library/azure/dn878058.aspx) |
-| **KeyDelete** |[Excluir uma chave](https://msdn.microsoft.com/library/azure/dn903611.aspx) |
-| **KeyRestore** |[Restaurar uma chave](https://msdn.microsoft.com/library/azure/dn878106.aspx) |
-| **KeySign** |[Assinar com uma chave](https://msdn.microsoft.com/library/azure/dn878096.aspx) |
-| **KeyVerify** |[Verificar com uma chave](https://msdn.microsoft.com/library/azure/dn878082.aspx) |
-| **KeyWrap** |[Encapsular uma chave](https://msdn.microsoft.com/library/azure/dn878066.aspx) |
-| **KeyUnwrap** |[Desencapsular uma chave](https://msdn.microsoft.com/library/azure/dn878079.aspx) |
-| **KeyEncrypt** |[Criptografar com uma chave](https://msdn.microsoft.com/library/azure/dn878060.aspx) |
-| **KeyDecrypt** |[Descriptografar com uma chave](https://msdn.microsoft.com/library/azure/dn878097.aspx) |
-| **KeyUpdate** |[Atualizar uma chave](https://msdn.microsoft.com/library/azure/dn903616.aspx) |
-| **KeyList** |[Listar as chaves em um cofre](https://msdn.microsoft.com/library/azure/dn903629.aspx) |
-| **KeyListVersions** |[Listar as versões de uma chave](https://msdn.microsoft.com/library/azure/dn986822.aspx) |
-| **SecretSet** |[Criar um segredo](https://msdn.microsoft.com/library/azure/dn903618.aspx) |
-| **SecretGet** |[Obter um segredo](https://msdn.microsoft.com/library/azure/dn903633.aspx) |
-| **SecretUpdate** |[Atualizar um segredo](https://msdn.microsoft.com/library/azure/dn986818.aspx) |
-| **SecretDelete** |[Excluir um segredo](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
-| **SecretList** |[Listar segredos em um cofre](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
-| **SecretListVersions** |[Listar versões de um segredo](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
+| **VaultGet** |[Obter informações sobre um cofre de chaves](/rest/api/keyvault/vaults) |
+| **VaultPut** |[Criar ou atualizar um cofre de chaves](/rest/api/keyvault/vaults) |
+| **VaultDelete** |[Excluir um cofre de chaves](/rest/api/keyvault/vaults) |
+| **VaultPatch** |[Atualizar um cofre da chave](/rest/api/keyvault/vaults) |
+| **VaultList** |[Listar todos os cofres de chaves em um grupo de recursos](/rest/api/keyvault/vaults) |
+| **VaultPurge** |[Limpar um cofre excluído](/rest/api/keyvault/vaults/purgedeleted) |
+| **VaultRecover** |Recuperar um cofre excluído|
+| **VaultGetDeleted** |[Obter um cofre excluído](/rest/api/keyvault/vaults/getdeleted) |
+| **VaultListDeleted** |[Listar os cofres excluídos](/rest/api/keyvault/vaults/listdeleted) |
 | **VaultAccessPolicyChangedEventGridNotification** | Evento de alteração da política de acesso ao cofre publicado |
-| **SecretNearExpiryEventGridNotification** |Evento de segredo próximo do vencimento publicado |
-| **SecretExpiredEventGridNotification** |Evento de segredo vencido publicado |
+
+# <a name="keys"></a>[Chaves](#tab/Keys)
+
+| operationName | Comando da API REST |
+| --- | --- |
+| **KeyCreate** |[Criar uma chave](/rest/api/keyvault/createkey) |
+| **KeyGet** |[Obter informações sobre uma chave](/rest/api/keyvault/getkey) |
+| **KeyImport** |[Importar uma chave para um cofre](/rest/api/keyvault/vaults) |
+| **KeyDelete** |[Excluir uma chave](/rest/api/keyvault/deletekey) |
+| **KeySign** |[Assinar com uma chave](/rest/api/keyvault/sign) |
+| **KeyVerify** |[Verificar com uma chave](/rest/api/keyvault/vaults) |
+| **KeyWrap** |[Encapsular uma chave](/rest/api/keyvault/wrapkey) |
+| **KeyUnwrap** |[Desencapsular uma chave](/rest/api/keyvault/unwrapkey) |
+| **KeyEncrypt** |[Criptografar com uma chave](/rest/api/keyvault/encrypt) |
+| **KeyDecrypt** |[Descriptografar com uma chave](/rest/api/keyvault/decrypt) |
+| **KeyUpdate** |[Atualizar uma chave](/rest/api/keyvault/updatekey) |
+| **KeyList** |[Listar as chaves em um cofre](/rest/api/keyvault/getkeys) |
+| **KeyListVersions** |[Listar as versões de uma chave](/rest/api/keyvault/getkeyversions) |
+| **KeyPurge** |[Limpar uma chave](/rest/api/keyvault/purgedeletedkey) |
+| **KeyBackup** |[Fazer backup de uma chave](/rest/api/keyvault/backupkey) |
+| **KeyRestore** |[Restaurar uma chave](/rest/api/keyvault/restorekey) |
+| **KeyRecover** |[Recuperar uma chave](/rest/api/keyvault/recoverdeletedkey) |
+| **KeyGetDeleted** |[Obter uma chave excluída](/rest/api/keyvault/getdeletedkey) |
+| **KeyListDeleted** |[Listar as chaves excluídas em um cofre](/rest/api/keyvault/getdeletedkeys) |
 | **KeyNearExpiryEventGridNotification** |Evento de chave próxima do vencimento publicado |
 | **KeyExpiredEventGridNotification** |Evento de chave vencida publicado |
+
+# <a name="secrets"></a>[Segredos](#tab/Secrets)
+
+| operationName | Comando da API REST |
+| --- | --- |
+| **SecretSet** |[Criar um segredo](/rest/api/keyvault/updatecertificate) |
+| **SecretGet** |[Obter um segredo](/rest/api/keyvault/getsecret) |
+| **SecretUpdate** |[Atualizar um segredo](/rest/api/keyvault/updatesecret) |
+| **SecretDelete** |[Excluir um segredo](/rest/api/keyvault/deletesecret) |
+| **SecretList** |[Listar segredos em um cofre](/rest/api/keyvault/getsecrets) |
+| **SecretListVersions** |[Listar versões de um segredo](/rest/api/keyvault/getsecretversions) |
+| **SecretPurge** |[Limpar um segredo](/rest/api/keyvault/purgedeletedsecret) |
+| **SecretBackup** |[Fazer backup de um segredo](/rest/api/keyvault/backupsecret) |
+| **SecretRestore** |[Restaurar um segredo](/rest/api/keyvault/restoresecret) |
+| **SecretRecover** |[Recuperar um segredo](/rest/api/keyvault/recoverdeletedsecret) |
+| **SecretGetDeleted** |[Obter um segredo excluído](/rest/api/keyvault/getdeletedsecret) |
+| **SecretListDeleted** |[Listar os segredos excluídos em um cofre](/rest/api/keyvault/getdeletedsecrets) |
+| **SecretNearExpiryEventGridNotification** |Evento de segredo próximo do vencimento publicado |
+| **SecretExpiredEventGridNotification** |Evento de segredo vencido publicado |
+
+# <a name="certificates"></a>[Certificados](#tab/Cerificates)
+
+| operationName | Comando da API REST |
+| --- | --- |
+| **CertificateGet** |[Obter informações sobre um certificado](/rest/api/keyvault/getcertificate) |
+| **CertificateCreate** |[Criar um certificado](/rest/api/keyvault/createcertificate) |
+| **CertificateImport** |[Importar um certificado em um cofre](/rest/api/keyvault/importcertificate) |
+| **CertificateUpdate** |[Atualizar um certificado](/rest/api/keyvault/updatecertificate) |
+| **CertificateList** |[Listar os certificados em um cofre](/rest/api/keyvault/getcertificates) |
+| **CertificateListVersions** |[Listar as versões de um certificado](/rest/api/keyvault/getcertificateversions) |
+| **CertificateDelete** |[Excluir um certificado](/rest/api/keyvault/deletecertificate) |
+| **CertificatePurge** |[Limpar um certificado](/rest/api/keyvault/purgedeletedcertificate) |
+| **CertificateBackup** |[Fazer backup de um certificado](/rest/api/keyvault/backupcertificate) |
+| **CertificateRestore** |[Restaurar um certificado](/rest/api/keyvault/restorecertificate) |
+| **CertificateRecover** |[Recuperar um certificado](/rest/api/keyvault/recoverdeletedcertificate) |
+| **CertificateGetDeleted** |[Obter um certificado excluído](/rest/api/keyvault/getdeletedcertificate) |
+| **CertificateListDeleted** |[Listar os certificados excluídos em um cofre](/rest/api/keyvault/getdeletedcertificates) |
+| **CertificatePolicyGet** |[Obter uma política de certificação](/rest/api/keyvault/getcertificatepolicy) |
+| **CertificatePolicyUpdate** |[Atualizar uma política de certificação](/rest/api/keyvault/updatecertificatepolicy) |
+| **CertificatePolicySet** |[Criar uma política de certificação](/rest/api/keyvault/createcertificate) |
+| **CertificateContactsGet** |[Obter contatos de certificado](/rest/api/keyvault/getcertificatecontacts) |
+| **CertificateContactsSet** |[Definir contatos de certificado](/rest/api/keyvault/setcertificatecontacts) |
+| **CertificateContactsDelete** |[Excluir contatos de certificado](/rest/api/keyvault/deletecertificatecontacts) |
+| **CertificateIssuerGet** |[Obter o emissor do certificado](/rest/api/keyvault/getcertificateissuer) |
+| **CertificateIssuerSet** |[Definir o emissor do certificado](/rest/api/keyvault/setcertificateissuer) |
+| **CertificateIssuerUpdate** |[Atualizar o emissor do certificado](/rest/api/keyvault/updatecertificateissuer) |
+| **CertificateIssuerDelete** |[Excluir o emissor do certificado](/rest/api/keyvault/deletecertificateissuer) |
+| **CertificateIssuersList** |[Listar os emissores do certificado](/rest/api/keyvault/getcertificateissuers) |
+| **CertificateEnroll** |Registrar um certificado |
+| **CertificateRenew** |{1&gt;Renovar um certificado&lt;1} |
+| **CertificatePendingGet** |Recuperar certificado pendente |
+| **CertificatePendingMerge** |Colocar uma mesclagem de certificado como pendente |
+| **CertificatePendingUpdate** |Colocar uma atualização de certificado como pendente |
+| **CertificatePendingDelete** |Excluir certificado pendente |
 | **CertificateNearExpiryEventGridNotification** |Evento de certificado próximo do vencimento publicado |
 | **CertificateExpiredEventGridNotification** |Evento de certificado vencido publicado |
+
+---
 
 ## <a name="use-azure-monitor-logs"></a>Usar os logs do Azure Monitor
 
@@ -131,6 +194,7 @@ Para obter mais informações, incluindo como configurar isso, confira [Azure Ke
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Como habilitar o registro em log do Key Vault](howto-logging.md)
+- [Azure Monitor](../../azure-monitor/index.yml)
 - Para obter um tutorial que usa o Azure Key Vault em um aplicativo Web .NET, confira [Usar o Azure Key Vault em um aplicativo Web](tutorial-net-create-vault-azure-web-app.md).
 - Para referências de programação, consulte [Guia do desenvolvedor do Cofre da Chave do Azure](developers-guide.md).
 - Para obter uma lista dos cmdlets do Azure PowerShell 1.0 para o Azure Key Vault, confira [Cmdlets do Azure Key Vault](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault).

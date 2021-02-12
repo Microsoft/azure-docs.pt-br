@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: ramakk
-ms.openlocfilehash: 50669dcce044988f2e45acc2a17ae43c140d1ab5
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 96d8ba058a33d408ec2ee2a1adfba9011f393da9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930298"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184477"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Diretrizes para planejamento de rede do Azure NetApp Files
 
@@ -116,7 +116,7 @@ O diagrama a seguir ilustra um ambiente híbrido:
 
 ![Ambiente de rede híbrida](../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png)
 
-No cenário híbrido, os aplicativos de data centers locais precisam de acesso aos recursos no Azure.  Esse é o caso que você deseja estender seu datacenter para o Azure, ou você deseja usar os serviços nativos do Azure ou para a recuperação de desastres. Consulte [Opções de planejamento de gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%252fazure%252fvirtual-network%252ftoc.json#planningtable) para obter informações sobre como conectar vários recursos locais a recursos no Azure por meio de uma VPN site a site ou um ExpressRoute.
+No cenário híbrido, os aplicativos de data centers locais precisam de acesso aos recursos no Azure.  Esse é o caso que você deseja estender seu datacenter para o Azure, ou você deseja usar os serviços nativos do Azure ou para a recuperação de desastres. Consulte [Opções de planejamento de gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) para obter informações sobre como conectar vários recursos locais a recursos no Azure por meio de uma VPN site a site ou um ExpressRoute.
 
 Em uma topologia de hub-spoke híbrida, a VNet do Hub no Azure atua como um ponto central de conectividade para sua rede local. Os spokes são VNets emparelhados com o Hub e podem ser usados para isolar cargas de trabalho.
 

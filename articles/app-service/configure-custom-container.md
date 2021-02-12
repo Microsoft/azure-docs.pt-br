@@ -4,12 +4,12 @@ description: Saiba como configurar um contêiner personalizado no serviço Azure
 ms.topic: article
 ms.date: 09/22/2020
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 9f71efbf7cc606efd598880e90ade3a549402245
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a7582bbb866a63820abbd959e06628eda5d57e29
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787050"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007629"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Configurar um contêiner personalizado para o Serviço de Aplicativo do Azure
 
@@ -139,7 +139,17 @@ Você pode usar o diretório *C:\home* no sistema de arquivos do seu aplicativo 
 
 Quando o armazenamento persistente é desabilitado, as gravações no `C:\home` diretório não são mantidas. Os [logs de host do Docker e os logs de contêiner](#access-diagnostic-logs) são salvos em um armazenamento compartilhado persistente padrão que não está anexado ao contêiner. Quando o armazenamento persistente está habilitado, todas as gravações no `C:\home` diretório são persistidas e podem ser acessadas por todas as instâncias de um aplicativo expandido e o log pode ser acessado em `C:\home\LogFiles` .
 
-Por padrão, o armazenamento persistente está *desabilitado* e a configuração não é exposta nas configurações do aplicativo. Para habilitá-lo, defina a `WEBSITES_ENABLE_APP_SERVICE_STORAGE` configuração do aplicativo por meio do [Cloud Shell](https://shell.azure.com). No bash:
+::: zone-end
+
+::: zone pivot="container-linux"
+
+Você pode usar o diretório */Home* no sistema de arquivos do seu aplicativo para manter os arquivos entre as reinicializações e compartilhá-los entre instâncias. O `/home` em seu aplicativo é fornecido para permitir que seu aplicativo de contêiner acesse o armazenamento persistente.
+
+Quando o armazenamento persistente é desabilitado, as gravações no `/home` diretório não são mantidas entre as reinicializações do aplicativo ou entre várias instâncias. A única exceção é o `/home/LogFiles` diretório, que é usado para armazenar os logs do Docker e do contêiner. Quando o armazenamento persistente está habilitado, todas as gravações no `/home` diretório são persistidas e podem ser acessadas por todas as instâncias de um aplicativo expandido.
+
+::: zone-end
+
+Por padrão, o armazenamento persistente está desabilitado e a configuração não é exposta nas configurações do aplicativo. Para habilitá-lo, defina a `WEBSITES_ENABLE_APP_SERVICE_STORAGE` configuração do aplicativo por meio do [Cloud Shell](https://shell.azure.com). No bash:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=true
@@ -150,28 +160,6 @@ No PowerShell:
 ```azurepowershell-interactive
 Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITES_ENABLE_APP_SERVICE_STORAGE"=true}
 ```
-
-::: zone-end
-
-::: zone pivot="container-linux"
-
-Você pode usar o diretório */Home* no sistema de arquivos do seu aplicativo para manter os arquivos entre as reinicializações e compartilhá-los entre instâncias. O `/home` em seu aplicativo é fornecido para permitir que seu aplicativo de contêiner acesse o armazenamento persistente.
-
-Quando o armazenamento persistente é desabilitado, as gravações no `/home` diretório não são mantidas entre as reinicializações do aplicativo ou entre várias instâncias. A única exceção é o `/home/LogFiles` diretório, que é usado para armazenar os logs do Docker e do contêiner. Quando o armazenamento persistente está habilitado, todas as gravações no `/home` diretório são persistidas e podem ser acessadas por todas as instâncias de um aplicativo expandido.
-
-Por padrão, o armazenamento persistente é *habilitado* e a configuração não é exposta nas configurações do aplicativo. Para desabilitá-lo, defina a `WEBSITES_ENABLE_APP_SERVICE_STORAGE` configuração do aplicativo por meio do [Cloud Shell](https://shell.azure.com). No bash:
-
-```azurecli-interactive
-az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
-```
-
-No PowerShell:
-
-```azurepowershell-interactive
-Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITES_ENABLE_APP_SERVICE_STORAGE"=false}
-```
-
-::: zone-end
 
 > [!NOTE]
 > Você também pode [configurar seu próprio armazenamento persistente](configure-connect-to-azure-storage.md).
@@ -212,7 +200,7 @@ Há várias maneiras de acessar os logs do Docker:
 
 ### <a name="in-azure-portal"></a>No Portal do Azure
 
-Os logs do Docker são exibidos no portal, na página **configurações de contêiner** do seu aplicativo. Os logs são truncados, mas você pode baixar todos os logs clicando em **baixar** . 
+Os logs do Docker são exibidos no portal, na página **configurações de contêiner** do seu aplicativo. Os logs são truncados, mas você pode baixar todos os logs clicando em **baixar**. 
 
 ### <a name="from-the-kudu-console"></a>No console do kudu
 
@@ -290,7 +278,7 @@ A tabela a seguir mostra os valores possíveis:
 
 | Valor | Descrições |
 | - | - |
-| **Reparar** | Reiniciar o contêiner após três verificações de disponibilidade consecutivas |
+| **Corrige** | Reiniciar o contêiner após três verificações de disponibilidade consecutivas |
 | **ReportOnly** | O valor padrão. Não reinicie o contêiner, mas o relatório nos logs do Docker para o contêiner após três verificações de disponibilidade consecutivas. |
 | **Desativado** | Não Verifique a disponibilidade. |
 
@@ -357,7 +345,7 @@ O SSH permite a comunicação segura entre um contêiner e um cliente. Para que 
 
 Aplicativos de vários contêineres, como o WordPress, precisam de armazenamento persistente para funcionar corretamente. Para habilitá-lo, sua configuração de Docker Compose deve apontar para um local de armazenamento *fora* do contêiner. Os locais de armazenamento dentro de seu contêiner não mantêm as alterações além da reinicialização do aplicativo.
 
-Habilite o armazenamento persistente definindo a `WEBSITES_ENABLE_APP_SERVICE_STORAGE` configuração do aplicativo, usando o comando [AZ webapp config appSettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) no [Cloud Shell](https://shell.azure.com).
+Habilite o armazenamento persistente definindo a `WEBSITES_ENABLE_APP_SERVICE_STORAGE` configuração do aplicativo, usando o comando [AZ webapp config appSettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) no [Cloud Shell](https://shell.azure.com).
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE

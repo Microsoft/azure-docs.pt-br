@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/28/2020
-ms.openlocfilehash: 8937cfa5a48903ab53f3015b056a4915240bc525
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/24/2020
+ms.openlocfilehash: e32b93c669bffd382b1eb648111f9b8931b07eac
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633120"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221135"
 ---
 # <a name="copy-data-to-and-from-azure-databricks-delta-lake-by-using-azure-data-factory"></a>Copiar dados de e para Azure Databricks o Delta Lake usando Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de e para o Azure Databricks Delta Lake. Ele se baseia na [atividade de cópia no artigo Azure data Factory](copy-activity-overview.md) , que apresenta uma visão geral da atividade de cópia.
 
@@ -41,20 +41,20 @@ Em geral, Azure Data Factory dá suporte ao Delta Lake com os seguintes recursos
 
 Para usar este Azure Databricks o conector Delta Lake, você precisa configurar um cluster no Azure Databricks.
 
-- Para copiar dados para o Delta Lake, a atividade de cópia invoca Azure Databricks cluster para ler dados de um armazenamento do Azure, que é a fonte original ou uma área de preparação para onde Data Factory grava em primeiro lugar os dados de origem por meio de cópia em etapas internas. Saiba mais no [Delta Lake como a origem](#delta-lake-as-source).
-- Da mesma forma, para copiar dados do Delta Lake, a atividade de cópia invoca Azure Databricks cluster para gravar dados em um armazenamento do Azure, que é o seu coletor original ou uma área de preparo de onde Data Factory continuará gravando dados no coletor final por meio de cópia em etapas internas. Saiba mais no [Delta Lake como o coletor](#delta-lake-as-sink).
+- Para copiar dados para o Delta Lake, a atividade de cópia invoca Azure Databricks cluster para ler dados de um armazenamento do Azure, que é a fonte original ou uma área de preparação para onde Data Factory grava em primeiro lugar os dados de origem por meio de cópia em etapas internas. Saiba mais no [Delta Lake como o coletor](#delta-lake-as-sink).
+- Da mesma forma, para copiar dados do Delta Lake, a atividade de cópia invoca Azure Databricks cluster para gravar dados em um armazenamento do Azure, que é o seu coletor original ou uma área de preparo de onde Data Factory continuará gravando dados no coletor final por meio de cópia em etapas internas. Saiba mais no [Delta Lake como a origem](#delta-lake-as-source).
 
 O cluster do databricks precisa ter acesso ao blob do Azure ou Azure Data Lake Storage Gen2 conta, tanto o contêiner de armazenamento/sistema de arquivos usado para origem/coletor/preparo quanto para o sistema de contêiner/arquivo no qual você deseja gravar as tabelas Delta Lake.
 
-- Para usar **Azure data Lake Storage Gen2** , você pode configurar uma **chave de acesso da conta de armazenamento** ou da entidade de **serviço** no cluster do databricks como parte da configuração do Apache Spark. Siga as etapas em [acessar diretamente com a entidade de serviço](/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-with-service-principal-and-oauth-20) ou [o acesso diretamente usando a chave de acesso da conta de armazenamento](/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-using-the-storage-account-access-key).
+- Para usar **Azure data Lake Storage Gen2**, você pode configurar uma **chave de acesso da conta de armazenamento** ou da entidade de **serviço** no cluster do databricks como parte da configuração do Apache Spark. Siga as etapas em [acessar diretamente com a entidade de serviço](/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-with-service-principal-and-oauth-20) ou [o acesso diretamente usando a chave de acesso da conta de armazenamento](/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-using-the-storage-account-access-key).
 
-- Para usar o **armazenamento de BLOBs do Azure** , você pode configurar uma **chave de acesso da conta de armazenamento** ou um **token SAS** no cluster do databricks como parte da configuração do Apache Spark. Siga as etapas em [acessar o armazenamento de BLOBs do Azure usando a API RDD](/azure/databricks/data/data-sources/azure/azure-storage#access-azure-blob-storage-using-the-rdd-api).
+- Para usar o **armazenamento de BLOBs do Azure**, você pode configurar uma **chave de acesso da conta de armazenamento** ou um **token SAS** no cluster do databricks como parte da configuração do Apache Spark. Siga as etapas em [acessar o armazenamento de BLOBs do Azure usando a API RDD](/azure/databricks/data/data-sources/azure/azure-storage#access-azure-blob-storage-using-the-rdd-api).
 
 Durante a execução da atividade de cópia, se o cluster configurado tiver sido encerrado, Data Factory o iniciará automaticamente. Se você criar pipeline usando a interface do usuário de criação Data Factory, para operações como visualização de dados, você precisa ter um cluster ativo, Data Factory não iniciará o cluster em seu nome.
 
 #### <a name="specify-the-cluster-configuration"></a>Especificar a configuração do cluster
 
-1. Na lista suspensa **modo de cluster** , selecione **padrão** .
+1. Na lista suspensa **modo de cluster** , selecione **padrão**.
 
 2. Na lista suspensa **Databricks Runtime versão** , selecione uma versão de tempo de execução do databricks.
 
@@ -81,7 +81,7 @@ As propriedades a seguir têm suporte para um Azure Databricks serviço vinculad
 
 | Propriedade    | Descrição                                                  | Obrigatório |
 | :---------- | :----------------------------------------------------------- | :------- |
-| type        | A propriedade Type deve ser definida como **AzureDatabricksDeltaLake** . | Sim      |
+| type        | A propriedade Type deve ser definida como **AzureDatabricksDeltaLake**. | Sim      |
 | domínio      | Especifique a URL do espaço de trabalho Azure Databricks, por exemplo, `https://adb-xxxxxxxxx.xx.azuredatabricks.net` . |          |
 | clusterId   | Especifique a ID do cluster de um cluster existente. Deve ser um cluster interativo já criado. <br>Você pode encontrar a ID do cluster de um cluster interativo no workspace do Databricks -&gt; Clusters -&gt; Nome do Cluster Interativo -&gt; Configuração -&gt; Marcas. [Saiba mais](/azure/databricks/clusters/configure#cluster-tags). |          |
 | accessToken | O token de acesso é necessário para que o Data Factory autentique-se no Azure Databricks. O token de acesso precisa ser gerado a partir do workspace do Databricks. Etapas mais detalhadas para encontrar o token de acesso podem ser encontradas [aqui](/azure/databricks/dev-tools/api/latest/authentication#generate-token). |          |
@@ -114,7 +114,7 @@ As propriedades a seguir têm suporte para o conjunto de Azure Databricks do Del
 
 | Propriedade  | Descrição                                                  | Obrigatório                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
-| type      | A propriedade Type do conjunto de conjuntos deve ser definida como **AzureDatabricksDeltaLakeDataset** . | Sim                         |
+| type      | A propriedade Type do conjunto de conjuntos deve ser definida como **AzureDatabricksDeltaLakeDataset**. | Sim                         |
 | Banco de Dados | Nome do banco de dados. |Não para fonte, sim para coletor  |
 | tabela | Nome da tabela Delta. |Não para fonte, sim para coletor  |
 
@@ -148,13 +148,13 @@ Para copiar dados do Azure Databricks Delta Lake, há suporte para as propriedad
 
 | Propriedade                     | Descrição                                                  | Obrigatório |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
-| type                         | A propriedade Type da fonte da atividade de cópia deve ser definida como **AzureDatabricksDeltaLakeSource** . | Sim      |
-| Consulta          | Especifique a consulta SQL para ler os dados. Para o controle de viagem de tempo, siga o padrão abaixo:<br>- `SELECT * FROM events TIMESTAMP AS OF timestamp_expression`<br>- `SELECT * FROM events VERSION AS OF version` | Não       |
-| exportSettings | Configurações avançadas usadas para recuperar dados da tabela Delta. | Não       |
+| type                         | A propriedade Type da fonte da atividade de cópia deve ser definida como **AzureDatabricksDeltaLakeSource**. | Sim      |
+| Consulta          | Especifique a consulta SQL para ler os dados. Para o controle de viagem de tempo, siga o padrão abaixo:<br>- `SELECT * FROM events TIMESTAMP AS OF timestamp_expression`<br>- `SELECT * FROM events VERSION AS OF version` | No       |
+| exportSettings | Configurações avançadas usadas para recuperar dados da tabela Delta. | No       |
 | ***Em `exportSettings` :** _ |  |  |
-| tipo | O tipo de comando de exportação, definido como _ * AzureDatabricksDeltaLakeExportCommand * *. | Sim |
-| dateFormat | Formate o tipo de data como cadeia de caracteres com um formato de data. Formatos de data personalizados seguem os formatos no [padrão DateTime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Se não for especificado, ele usará o valor padrão `yyyy-MM-dd` . | Não |
-| timestampFormat | Formate o tipo TIMESTAMP como cadeia de caracteres com um formato de carimbo de hora. Formatos de data personalizados seguem os formatos no [padrão DateTime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Se não for especificado, ele usará o valor padrão `yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]` . | Não |
+| tipo | O tipo de comando de exportação, definido como _ * AzureDatabricksDeltaLakeExportCommand * *. | Yes |
+| dateFormat | Formate o tipo de data como cadeia de caracteres com um formato de data. Formatos de data personalizados seguem os formatos no [padrão DateTime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Se não for especificado, ele usará o valor padrão `yyyy-MM-dd` . | No |
+| timestampFormat | Formate o tipo TIMESTAMP como cadeia de caracteres com um formato de carimbo de hora. Formatos de data personalizados seguem os formatos no [padrão DateTime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Se não for especificado, ele usará o valor padrão `yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]` . | No |
 
 #### <a name="direct-copy-from-delta-lake"></a>Cópia direta do Delta Lake
 
@@ -162,14 +162,14 @@ Se o armazenamento e o formato de dados do coletor atenderem aos critérios desc
 
 - O **serviço vinculado do coletor** é o [armazenamento de BLOBs do Azure](connector-azure-blob-storage.md) ou [Azure data Lake Storage Gen2](connector-azure-data-lake-storage.md). A credencial da conta deve ser pré-configurada na configuração do cluster Azure Databricks, saiba mais em [pré-requisitos](#prerequisites).
 
-- O **formato de dados do coletor** é de **parquet** , **texto delimitado** ou **Avro** com as seguintes configurações e aponta para uma pasta em vez de arquivo.
+- O **formato de dados do coletor** é de **parquet**, **texto delimitado** ou **Avro** com as seguintes configurações e aponta para uma pasta em vez de arquivo.
 
-    - Para o formato **parquet** , o codec de compactação é **None** , **encaixado** ou **gzip** .
+    - Para o formato **parquet** , o codec de compactação é **None**, **encaixado** ou **gzip**.
     - Para o formato de **texto delimitado** :
         - `rowDelimiter` é qualquer caractere único.
-        - `compression` pode ser **None** , **bzip2** , **gzip** .
+        - `compression` pode ser **None**, **bzip2**, **gzip**.
         - `encodingName` Não há suporte para UTF-7.
-    - Para o formato **Avro** , o codec de compactação é **nenhum** , **desinflado** ou **instantâneo** .
+    - Para o formato **Avro** , o codec de compactação é **nenhum**, **desinflado** ou **instantâneo**.
 
 - Na origem da atividade de cópia, `additionalColumns` não está especificado.
 - Se a cópia de dados para um texto delimitado, no coletor da atividade de cópia, `fileExtension` precisa ser ". csv".
@@ -262,13 +262,13 @@ Para copiar dados para Azure Databricks Delta Lake, as propriedades a seguir tê
 
 | Propriedade      | Descrição                                                  | Obrigatório |
 | :------------ | :----------------------------------------------------------- | :------- |
-| type          | A propriedade Type do coletor da atividade de cópia, definida como **AzureDatabricksDeltaLakeSink** . | Sim      |
-| preCopyScript | Especifique uma consulta SQL para que a atividade de cópia seja executada antes de gravar dados na tabela Delta do databricks em cada execução. Você pode usar essa propriedade para limpar os dados pré-carregados ou adicionar uma tabela Truncate ou uma instrução de aspiração. | Não       |
-| importSettings | Configurações avançadas usadas para gravar dados na tabela Delta. | Não |
+| type          | A propriedade Type do coletor da atividade de cópia, definida como **AzureDatabricksDeltaLakeSink**. | Yes      |
+| preCopyScript | Especifique uma consulta SQL para que a atividade de cópia seja executada antes de gravar dados na tabela Delta do databricks em cada execução. Você pode usar essa propriedade para limpar os dados pré-carregados ou adicionar uma tabela Truncate ou uma instrução de aspiração. | No       |
+| importSettings | Configurações avançadas usadas para gravar dados na tabela Delta. | No |
 | **_Em `importSettings` :_* _ |                                                              |  |
-| tipo | O tipo de comando de importação, definido como _ * AzureDatabricksDeltaLakeImportCommand * *. | Sim |
-| dateFormat | Formatar cadeia de caracteres para tipo de data com um formato de data. Formatos de data personalizados seguem os formatos no [padrão DateTime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Se não for especificado, ele usará o valor padrão `yyyy-MM-dd` . | Não |
-| timestampFormat | Formatar cadeia de caracteres para tipo TIMESTAMP com um formato de carimbo de data/hora. Formatos de data personalizados seguem os formatos no [padrão DateTime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Se não for especificado, ele usará o valor padrão `yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]` . | Não |
+| tipo | O tipo de comando de importação, definido como _ * AzureDatabricksDeltaLakeImportCommand * *. | Yes |
+| dateFormat | Formatar cadeia de caracteres para tipo de data com um formato de data. Formatos de data personalizados seguem os formatos no [padrão DateTime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Se não for especificado, ele usará o valor padrão `yyyy-MM-dd` . | No |
+| timestampFormat | Formatar cadeia de caracteres para tipo TIMESTAMP com um formato de carimbo de data/hora. Formatos de data personalizados seguem os formatos no [padrão DateTime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Se não for especificado, ele usará o valor padrão `yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]` . | No |
 
 #### <a name="direct-copy-to-delta-lake"></a>Cópia direta para o Delta Lake
 
@@ -276,14 +276,14 @@ Se o armazenamento e o formato de dados de origem atenderem aos critérios descr
 
 - O **serviço vinculado de origem** é o [armazenamento de BLOBs do Azure](connector-azure-blob-storage.md) ou [Azure data Lake Storage Gen2](connector-azure-data-lake-storage.md). A credencial da conta deve ser pré-configurada na configuração do cluster Azure Databricks, saiba mais em [pré-requisitos](#prerequisites).
 
-- O **formato de dados de origem** é de **parquet** , **texto delimitado** ou **Avro** com as seguintes configurações e aponta para uma pasta em vez de arquivo.
+- O **formato de dados de origem** é de **parquet**, **texto delimitado** ou **Avro** com as seguintes configurações e aponta para uma pasta em vez de arquivo.
 
-    - Para o formato **parquet** , o codec de compactação é **None** , **encaixado** ou **gzip** .
+    - Para o formato **parquet** , o codec de compactação é **None**, **encaixado** ou **gzip**.
     - Para o formato de **texto delimitado** :
         - `rowDelimiter` é padrão, ou qualquer caractere único.
-        - `compression` pode ser **None** , **bzip2** , **gzip** .
+        - `compression` pode ser **None**, **bzip2**, **gzip**.
         - `encodingName` Não há suporte para UTF-7.
-    - Para o formato **Avro** , o codec de compactação é **nenhum** , **desinflado** ou **instantâneo** .
+    - Para o formato **Avro** , o codec de compactação é **nenhum**, **desinflado** ou **instantâneo**.
 
 - Na fonte da atividade de cópia: 
 

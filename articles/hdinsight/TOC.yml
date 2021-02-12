@@ -278,6 +278,8 @@
           href: /rest/api/hdinsightspark/
         - name: Modelo do Resource Manager
           href: /azure/templates/microsoft.hdinsight/allversions
+        - name: Itens internos do Azure Policy
+          href: ./policy-reference.md
     - name: Recursos
       items:
         - name: Lançamentos
@@ -355,6 +357,8 @@
               href: ./spark/optimize-cluster-configuration.md
         - name: Migrar para o Spark 2.3 ou 2.4
           href: ./spark/migrate-versions.md
+        - name: Atualizar .NET para Apache Spark para a versão 1.0
+          href: ./spark/spark-dotnet-version-update.md
     - name: Guias de instruções
       items:
         - name: Usar ferramentas
@@ -419,9 +423,9 @@
               href: ./spark/apache-spark-improve-performance-iocache.md
             - name: Usar blocos de anotações com o Apache Spark
               items:
-                - name: Usar um bloco de anotações Jupyter local
+                - name: Usar um Jupyter Notebook local
                   href: ./spark/apache-spark-jupyter-notebook-install-locally.md
-                - name: Kernels de bloco de anotações do Jupyter
+                - name: Kernels do Jupyter Notebook
                   href: ./spark/apache-spark-jupyter-notebook-kernels.md
                 - name: Usar pacotes externos com o Jupyter usando uma célula mágica
                   href: ./spark/apache-spark-jupyter-notebook-use-external-packages.md
@@ -437,7 +441,7 @@
                   href: ./spark/apache-spark-run-machine-learning-automl.md
         - name: Solucionar problemas
           items:
-            - name: Não é possível criar um notebook Jupyter
+            - name: Não é possível criar um Jupyter Notebook
               href: ./spark/troubleshoot-jupyter-notebook-convert.md
             - name: Exceção OutOfMemoryError
               href: ./spark/apache-spark-troubleshoot-outofmemory.md
@@ -688,6 +692,10 @@
       items:
         - name: Usar Apache HBase no HDInsight
           href: ./hbase/apache-hbase-tutorial-get-started-linux.md
+    - name: Conceitos
+      items:
+        - name: Otimizar para recomendações do assistente
+          href: ./hbase/apache-hbase-advisor.md
     - name: Guias de instruções
       items:
         - name: Desenvolver

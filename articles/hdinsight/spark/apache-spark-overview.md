@@ -1,19 +1,16 @@
 ---
 title: O que é o Apache Spark – Azure HDInsight
 description: Este artigo fornece uma introdução ao Spark no HDInsight e aos diferentes cenários em que você pode usar o cluster Spark no HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: f581f7bc2f67093afc26dd2c2f15916841a106e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fdc3a94c081d8a02725f145fc6b20ace4c1731ce
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91854334"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090546"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>O que é o Apache Spark no Azure HDInsight
 
@@ -32,7 +29,7 @@ Os clusters Spark no HDInsight oferecem um serviço Spark totalmente gerenciado.
 | Recurso | Descrição |
 | --- | --- |
 | Criação facilitada |Você pode criar um novo cluster do Spark no HDInsight em minutos usando o portal do Azure, o Azure PowerShell ou o SDK .NET do HDInsight. Confira [Introdução ao cluster do Apache Spark no HDInsight](apache-spark-jupyter-spark-sql-use-portal.md). |
-| Fácil de uso |O cluster Spark no HDInsight inclui Jupyter e Apache Zeppelin notebooks. Você pode usar esses blocos de anotações para processar e visualizar dados interativamente. Confira [Usar notebooks do Apache Zeppelin com o Apache Spark](apache-spark-zeppelin-notebook.md) e [Carregar dados e executar consultas em um cluster do Apache Spark](apache-spark-load-data-run-query.md).|
+| Fácil de uso |O cluster Spark no HDInsight inclui Jupyter Notebooks e Apache Zeppelin Notebooks. Você pode usar esses blocos de anotações para processar e visualizar dados interativamente. Confira [Usar notebooks do Apache Zeppelin com o Apache Spark](apache-spark-zeppelin-notebook.md) e [Carregar dados e executar consultas em um cluster do Apache Spark](apache-spark-load-data-run-query.md).|
 | APIs REST |Os clusters Spark no HDInsight incluem [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), um servidor de trabalho do Spark baseado em API REST para enviar e monitorar trabalhos remotamente. Veja [Usar a API REST do Apache Spark para enviar trabalhos remotos para um cluster do HDInsight Spark](apache-spark-livy-rest-interface.md).|
 | Suporte para o Armazenamento do Azure | Os clusters Spark no HDInsight podem usar o Azure Data Lake Storage Gen1/Gen2 como o armazenamento primário ou um armazenamento adicional. Para obter mais informações sobre o Data Lake Storage Gen1, confira [Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-overview.md). Para obter mais informações sobre o Data Lake Storage Gen2, confira [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md).|
 | Integração com serviços do Azure |O cluster Spark no HDInsight é fornecido com um conector para Hubs de Eventos do Azure. Você pode criar aplicativos de streaming usando os Hubs de Eventos. Isso inclui o Apache Kafka, que já está disponível como parte do Spark. |
@@ -50,10 +47,10 @@ Os clusters do Apache Spark no HDInsight incluem os seguintes componentes que es
 * [Núcleo do Spark](https://spark.apache.org/docs/latest/). Inclui Spark Core, Spark SQL, APIs de streaming do Spark, GraphX e MLlib.
 * [Anaconda](https://docs.continuum.io/anaconda/)
 * [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)
-* [Bloco de anotações do Jupyter](https://jupyter.org)
+* [Jupyter Notebook](https://jupyter.org)
 * [Bloco de anotações do Apache Zeppelin](http://zeppelin-project.org/)
 
-Os clusters Spark no HDInsight contam com um [driver ODBC](https://go.microsoft.com/fwlink/?LinkId=616229) para conectividade de ferramentas de BI, como o Microsoft Power BI.
+Os clusters Spark no HDInsight contam com um [driver ODBC](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver15) para conectividade de ferramentas de BI, como o Microsoft Power BI.
 
 ## <a name="spark-cluster-architecture"></a>Arquitetura do cluster Spark
 

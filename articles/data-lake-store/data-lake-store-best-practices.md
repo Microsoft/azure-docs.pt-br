@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 291a5850540ea7d7d24a4a544c1eb65183df8ffb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a5c5f9a4033b70a664071d6077a69f38c905093
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667734"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452228"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Melhores práticas para utilizar o Microsoft Azure Data Lake Storeage Gen1
 
@@ -49,7 +49,7 @@ Um Data Lake Storage Gen1 dá suporte para a opção de ativar um firewall e lim
 
 ![Configurações de firewall no Data Lake Storage Gen1](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Configurações de firewall no Data Lake Storage Gen1")
 
-Quando o firewall está habilitado, somente os serviços do Azure, como HDInsight, Data Factory, Azure Synapse Analytics (anteriormente SQL Data Warehouse), etc. têm acesso ao Data Lake Storage Gen1. Devido à conversão de endereços de rede interna utilizadas pelo Azure, o firewall do Data Lake Storage Gen1 não fornece suporte para restringir serviços por IP específicos e é destinado apenas para restrições de pontos de extremidade fora do Azure, como locais.
+Quando o firewall está habilitado, somente os serviços do Azure, como HDInsight, Data Factory, Azure Synapse Analytics, etc. têm acesso ao Data Lake Storage Gen1. Devido à conversão de endereços de rede interna utilizadas pelo Azure, o firewall do Data Lake Storage Gen1 não fornece suporte para restringir serviços por IP específicos e é destinado apenas para restrições de pontos de extremidade fora do Azure, como locais.
 
 ## <a name="performance-and-scale-considerations"></a>Considerações de desempenho e escala
 
@@ -98,11 +98,11 @@ Para a resiliência de dados com o Data Lake Storage Gen1, é recomendável real
 
 A seguir, são apresentadas as três principais opções recomendadas para orquestrar a replicação entre as contas do Data Lake Storage Gen1 e as principais diferenças entre cada uma delas.
 
-|  |Distcp  |Azure Data Factory  |AdlCopy  |
+|  |Distcp  |Fábrica de dados do Azure  |AdlCopy  |
 |---------|---------|---------|---------|
 |**Limites de escala**     | Limitado por nós de trabalho        | Limitado por unidades de Movimentação de Dados de Nuvem        | Limitado por unidades do Analytics        |
 |**Oferece suporte à cópia deltas**     |   Sim      | Não         | Não         |
-|**Orquestração interna**     |  Não (utilize trabalhos cron ou ventilação excessiva Oozie)       | Sim        | Não (utilize a Automação do Azure ou o Agendador de Tarefas do Windows)         |
+|**Orquestração interna**     |  Não (utilize trabalhos cron ou ventilação excessiva Oozie)       | Yes        | Não (utilize a Automação do Azure ou o Agendador de Tarefas do Windows)         |
 |**Com suporte para sistemas de arquivos**     | ADL, HDFS, WASB, S3, GS, CFS        |Vários, consulte [Conectores](../data-factory/connector-azure-blob-storage.md).         | ADL para ADL, WASB para ADL (mesma região somente)        |
 |**Suporte SO**     |Qualquer SO executando Hadoop         | N/D          | Windows 10         |
 
@@ -114,7 +114,7 @@ Trabalhos de cópia podem ser disparados por fluxos de trabalho do Apache Oozie 
 
 ### <a name="use-azure-data-factory-to-schedule-copy-jobs"></a>Usar Azure Data Factory para agendar trabalhos de cópia
 
-Azure Data Factory também pode ser usado para agendar trabalhos de cópia usando uma **atividade de cópia**e pode até mesmo ser configurado em uma frequência por meio do **Assistente de cópia**. Tenha em mente que o Azure Data Factory possui um limite de DMUs (unidades de movimentação de dados na nuvem) e, eventualmente, eleva a taxa de transferência/computação para cargas de trabalho de dados grandes. Além disso, o Azure Data Factory atualmente não oferece atualizações delta entre as contas do Data Lake Storage Gen1, de modo que pastas como as tabelas de Hive exigiriam uma cópia completa para serem replicadas. Consulte o [Guia de ajuste da atividade de cópia](../data-factory/copy-activity-performance.md) para obter mais informações sobre como copiar com o Data Factory.
+Azure Data Factory também pode ser usado para agendar trabalhos de cópia usando uma **atividade de cópia** e pode até mesmo ser configurado em uma frequência por meio do **Assistente de cópia**. Tenha em mente que o Azure Data Factory possui um limite de DMUs (unidades de movimentação de dados na nuvem) e, eventualmente, eleva a taxa de transferência/computação para cargas de trabalho de dados grandes. Além disso, o Azure Data Factory atualmente não oferece atualizações delta entre as contas do Data Lake Storage Gen1, de modo que pastas como as tabelas de Hive exigiriam uma cópia completa para serem replicadas. Consulte o [Guia de ajuste da atividade de cópia](../data-factory/copy-activity-performance.md) para obter mais informações sobre como copiar com o Data Factory.
 
 ### <a name="adlcopy"></a>AdlCopy
 

@@ -4,13 +4,13 @@ description: Saiba como usar o Azure Application Insights com o Azure Functions 
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.custom: devx-track-csharp, fasttrack-edit, contperfq2, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: b27fb14341e07683d66418485158a94c18e7a997
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: devx-track-csharp, fasttrack-edit, contperf-fy21q2, devx-track-js
+ms.openlocfilehash: 637f09c5ee52928631b965dfa6caea9368b44991
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748152"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550752"
 ---
 # <a name="monitor-azure-functions"></a>Monitorar Azure Functions
 
@@ -33,7 +33,7 @@ A lista completa de recursos de Application Insights disponíveis para seu aplic
 
 ## <a name="application-insights-integration"></a>Integração do Application Insights
 
-Normalmente, você cria uma instância de Application Insights ao criar seu aplicativo de funções. Nesse caso, a chave de instrumentação necessária para a integração já está definida como uma configuração de aplicativo chamada *APPINSIGHTS_INSTRUMENTATIONKEY* . Se, por algum motivo, seu aplicativo de funções não tiver o conjunto de chaves de instrumentação, você precisará [habilitar a integração de Application insights](configure-monitoring.md#enable-application-insights-integration).  
+Normalmente, você cria uma instância de Application Insights ao criar seu aplicativo de funções. Nesse caso, a chave de instrumentação necessária para a integração já está definida como uma configuração de aplicativo chamada *APPINSIGHTS_INSTRUMENTATIONKEY*. Se, por algum motivo, seu aplicativo de funções não tiver o conjunto de chaves de instrumentação, você precisará [habilitar a integração de Application insights](configure-monitoring.md#enable-application-insights-integration).  
 
 ## <a name="collecting-telemetry-data"></a>Coletando dados de telemetria
 
@@ -89,15 +89,19 @@ Consulte o guia do desenvolvedor para sua linguagem para saber mais sobre como g
 + [PowerShell](functions-reference-powershell.md#logging)
 + [Python](functions-reference-python.md#logging)
 
+## <a name="analyze-data"></a>Analisar dados
+
+Por padrão, os dados coletados do seu aplicativo de funções são armazenados em Application Insights. Na [portal do Azure](https://portal.azure.com), Application insights fornece um amplo conjunto de visualizações de seus dados de telemetria. Você pode analisar logs de erros e consultar métricas e eventos. Para saber mais, incluindo exemplos básicos de como exibir e consultar os dados coletados, consulte [analisar Azure Functions telemetria no Application insights](analyze-telemetry-data.md). 
+
 ## <a name="streaming-logs"></a>Logs de streaming
 
 Ao desenvolver um aplicativo, muitas vezes você deseja ver o que está sendo gravado nos logs quase em tempo real durante a execução no Azure.
 
 Há duas maneiras de exibir um fluxo dos dados de log que estão sendo gerados por suas execuções de função.
 
-* **Streaming de log interno** : a plataforma do Serviço de Aplicativo permite exibir um fluxo dos arquivos de log do aplicativo. Esse fluxo é equivalente à saída vista quando você depura suas funções durante o [desenvolvimento local](functions-develop-local.md) e quando você usa a guia **teste** no Portal. Todas as informações baseadas em log são exibidas. Para obter mais informações, consulte [Streaming de logs](../app-service/troubleshoot-diagnostic-logs.md#stream-logs). Esse método de streaming é compatível com apenas uma única instância e não pode ser usado com um aplicativo executado no Linux em um plano de Consumo.
+* **Streaming de log interno**: a plataforma do Serviço de Aplicativo permite exibir um fluxo dos arquivos de log do aplicativo. Esse fluxo é equivalente à saída vista quando você depura suas funções durante o [desenvolvimento local](functions-develop-local.md) e quando você usa a guia **teste** no Portal. Todas as informações baseadas em log são exibidas. Para obter mais informações, consulte [Streaming de logs](../app-service/troubleshoot-diagnostic-logs.md#stream-logs). Esse método de streaming é compatível com apenas uma única instância e não pode ser usado com um aplicativo executado no Linux em um plano de Consumo.
 
-* **Live Metrics Stream** : quando seu aplicativo de funções está [conectado ao Application insights](configure-monitoring.md#enable-application-insights-integration), você pode exibir dados de log e outras métricas quase em tempo real no portal do Azure usando [Live Metrics Stream](../azure-monitor/app/live-stream.md). Use esse método ao monitorar funções em execução em várias instâncias ou no Linux em um plano de Consumo. Esse método usa [dados amostrados](configure-monitoring.md#configure-sampling).
+* **Live Metrics Stream**: quando seu aplicativo de funções está [conectado ao Application insights](configure-monitoring.md#enable-application-insights-integration), você pode exibir dados de log e outras métricas quase em tempo real no portal do Azure usando [Live Metrics Stream](../azure-monitor/app/live-stream.md). Use esse método ao monitorar funções em execução em várias instâncias ou no Linux em um plano de Consumo. Esse método usa [dados amostrados](configure-monitoring.md#configure-sampling).
 
 Os fluxos de log podem ser exibidos no portal e na maioria dos ambientes de desenvolvimento local. Para saber como habilitar fluxos de log, consulte [Habilitar logs de execução de streaming no Azure Functions](streaming-logs.md).
 
@@ -113,7 +117,7 @@ Como as funções também se integram com o Azure Monitor, você também pode us
 
 _Este recurso está em versão prévia._ 
 
-O [controlador de escala de Azure Functions](./functions-scale.md#runtime-scaling) monitora instâncias do host Azure Functions no qual seu aplicativo é executado. Esse controlador toma decisões sobre quando adicionar ou remover instâncias com base no desempenho atual. Você pode fazer com que o controlador de escala emita logs para Application Insights para entender melhor as decisões que o controlador de escala está fazendo para seu aplicativo de funções. Você também pode armazenar os logs gerados no armazenamento de BLOBs para análise por outro serviço. 
+O [controlador de escala de Azure Functions](./event-driven-scaling.md#runtime-scaling) monitora instâncias do host Azure Functions no qual seu aplicativo é executado. Esse controlador toma decisões sobre quando adicionar ou remover instâncias com base no desempenho atual. Você pode fazer com que o controlador de escala emita logs para Application Insights para entender melhor as decisões que o controlador de escala está fazendo para seu aplicativo de funções. Você também pode armazenar os logs gerados no armazenamento de BLOBs para análise por outro serviço. 
 
 Para habilitar esse recurso, você adiciona uma configuração de aplicativo chamada `SCALE_CONTROLLER_LOGGING_ENABLED` às configurações do aplicativo de funções. Para saber como, consulte [Configurar Logs do controlador de escala](configure-monitoring.md#configure-scale-controller-logs).
 

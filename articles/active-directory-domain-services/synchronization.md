@@ -2,7 +2,7 @@
 title: Como funciona a sincronização no Azure AD Domain Services | Microsoft Docs
 description: Saiba como o processo de sincronização funciona para objetos e credenciais de um locatário do Azure AD ou de um ambiente de Active Directory Domain Services local para um Azure Active Directory Domain Services domínio gerenciado.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
 ms.service: active-directory
@@ -10,19 +10,21 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 683a6c9f31947355a5415a5b8b57b621f717af91
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 41ba337765b4a0a93be52f08ae6656707cf7aa73
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967657"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618800"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-active-directory-domain-services-managed-domain"></a>Como os objetos e as credenciais são sincronizados em um domínio gerenciado Azure Active Directory Domain Services
 
 Os objetos e as credenciais em um domínio gerenciado Azure Active Directory Domain Services (Azure AD DS) podem ser criados localmente no domínio ou sincronizados de um locatário do Azure Active Directory (AD do Azure). Ao implantar pela primeira vez o Azure AD DS, uma sincronização unidirecional automática é configurada e iniciada para replicar os objetos do Azure AD. Essa sincronização unidirecional continua a ser executada em segundo plano para manter o domínio gerenciado AD DS do Azure atualizado com qualquer alteração do Azure AD. Nenhuma sincronização ocorre no Azure AD DS de volta para o Azure AD.
 
 Em um ambiente híbrido, os objetos e as credenciais de um domínio AD DS local podem ser sincronizados com o Azure AD usando Azure AD Connect. Depois que esses objetos forem sincronizados com êxito com o Azure AD, a sincronização automática em segundo plano disponibilizará esses objetos e as credenciais para os aplicativos que usam o domínio gerenciado.
+
+Se AD DS local e o Azure AD estiverem configurados para autenticação federada usando o ADFS, não haverá nenhum hash de senha (atual/válido) disponível no Azure DS. As contas de usuário do Azure AD criadas antes da autenticação alimentada foi implementada podem ter um hash de senha antigo, mas isso provavelmente não corresponde a um hash de sua senha local. Portanto, o Azure AD DS não conseguirá validar as credenciais dos usuários.
 
 O diagrama a seguir ilustra como funciona a sincronização entre o Azure AD DS, o Azure AD e um ambiente de AD DS local opcional:
 

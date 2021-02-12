@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: b82193fda64f2cf265c879c5cda9141be1b576f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5bfdf90ddbd500fd9d1c504bd37ed4ac35d8bf70
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627883"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752755"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Tutorial: Chamar a API do Microsoft Graph em um aplicativo da Área de Trabalho do Windows
 
-Este guia demonstra como um aplicativo .NET da Área de Trabalho do Windows (XAML) nativo usa um token de acesso para chamar a API do Microsoft Graph. O aplicativo também pode acessar outras APIs que exigem tokens de acesso da plataforma de identidade da Microsoft.
+Neste tutorial, você criará um aplicativo nativo .NET da Área de Trabalho do Windows (XAML) que conecta usuários e obtém um token de acesso para chamar a API do Microsoft Graph. 
 
 Depois de concluir o guia, seu aplicativo poderá chamar uma API protegida que usa contas pessoais (incluindo o outlook.com, live.com e outros). O aplicativo também usará contas corporativas e de estudante de qualquer empresa ou organização que usa o Azure Active Directory.
 
@@ -47,7 +47,7 @@ O aplicativo de exemplo que você cria com este guia habilita um aplicativo da �
 
 ## <a name="handling-token-acquisition-for-accessing-protected-web-apis"></a>Manipulando a aquisição de token para acessar APIs Web protegidas
 
-Após a autenticação do usuário, o aplicativo de exemplo receberá um token que pode ser usado para consultar a API do Microsoft Graph ou uma API Web protegida pela plataforma de identidade da Microsoft para desenvolvedores.
+Após a autenticação do usuário, o aplicativo de exemplo receberá um token que pode ser usado para consultar a API do Microsoft Graph ou uma API Web protegida pela plataforma de identidade da Microsoft.
 
 APIs, como o Microsoft Graph, exigem um token para permitir o acesso a recursos específicos. Por exemplo, um token é necessário para ler o perfil ou acessar o calendário de um usuário, ou enviar um email. O aplicativo pode solicitar um token de acesso usando a MSAL para acessar esses recursos especificando escopos de API. Esse token de acesso é então adicionado ao cabeçalho de Autorização HTTP de cada chamada feita no recurso protegido.
 
@@ -97,25 +97,24 @@ Você pode registrar seu aplicativo de duas maneiras.
 ### <a name="option-1-express-mode"></a>Opção 1: Modo Expresso
 
 Registre rapidamente seu aplicativo fazendo o seguinte:
-1. Vá para o [portal do Azure – Registro de Aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
+1. Acesse a experiência de início rápido do <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs" target="_blank">portal do Azure – Registros de aplicativo<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Insira um nome para seu aplicativo e selecione **Registrar**.
 1. Siga as instruções para baixar e configurar automaticamente o novo aplicativo com apenas um clique.
 
 ### <a name="option-2-advanced-mode"></a>Opção 2: Modo Avançado
 
 Para registrar seu aplicativo e adicionar suas informações de registro de aplicativo à sua solução, faça o seguinte:
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito e defina sua sessão do portal para o locatário desejado do Azure AD.
-1. Navegue até a página [Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) da plataforma de identidade da Microsoft para desenvolvedores.
-1. Selecione **Novo registro**.
-   - Na seção **Nome**, insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo, por exemplo, `Win-App-calling-MsGraph`.
-   - Na seção **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)** .
-   - Selecione **Registrar** para criar o aplicativo.
-1. Na lista de páginas para o aplicativo, selecione **Autenticação**.
-   1. Na seção **URIs de Redirecionamento** na lista de URIs de Redirecionamento:
-   1. Na coluna **TIPO**, selecione **Cliente público/nativo (dispositivo móvel e desktop)** .
-   1. Insira `https://login.microsoftonline.com/common/oauth2/nativeclient` na coluna **URI DE REDIRECIONAMENTO**
+1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
+1. Pesquise **Azure Active Directory** e selecione-o.
+1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
+1. Insira um **Nome** para seu aplicativo, por exemplo, `Win-App-calling-MsGraph`. Os usuários do seu aplicativo podem ver esse nome e você pode alterá-lo mais tarde.
+1. Na seção **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional (Qualquer diretório do Azure AD – Multilocatário) e contas Microsoft pessoais (por exemplo, Skype, Xbox)** .
 1. Selecione **Registrar**.
+1. Em **Gerenciar**, escolha **Autenticação** > **Adicionar uma plataforma**.
+1. Selecione **Aplicativos móveis e da área de trabalho**.
+1. Na seção **URIs de Redirecionamento**, selecione **https://login.microsoftonline.com/common/oauth2/nativeclient** .
+1. Selecione **Configurar**.
 1. Vá para o Visual Studio, abra o arquivo *App.xaml.cs* e, depois, substitua `Enter_the_Application_Id_here` no snippet de código abaixo pela ID do aplicativo que você acabou de registrar e copiar.
 
     ```csharp
@@ -259,6 +258,7 @@ Nesta seção, você usará a MSAL para obter um token da API do Microsoft Graph
                 DisplayBasicTokenInfo(authResult);
                 this.SignOutButton.Visibility = Visibility.Visible;
             }
+        }
         }
     ```
 

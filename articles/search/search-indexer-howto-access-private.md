@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: ff8aa6688d8a838fa2e06d2eef546025cdd9213f
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 762db9d165358f3347fc9b7f3aaaf39f0c762308
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340046"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063189"
 ---
 # <a name="make-indexer-connections-through-a-private-endpoint"></a>Fazer conexões do indexador por meio de um ponto de extremidade privado
 
@@ -47,7 +47,7 @@ A tabela a seguir lista os recursos do Azure para os quais você pode criar pont
 
 Você também pode consultar os recursos do Azure para os quais há suporte para conexões de ponto de extremidade privadas de saída usando a [lista de APIs com suporte](/rest/api/searchmanagement/privatelinkresources/listsupported).
 
-No restante deste artigo, uma combinação de APIs [ARMClient](https://github.com/projectkudu/ARMClient) e [postmaster](https://www.postman.com/) é usada para demonstrar as chamadas à API REST.
+No restante deste artigo, uma combinação dos [CLI do Azure](https://docs.microsoft.com/cli/azure/) (ou [ARMClient](https://github.com/projectkudu/ARMClient) se preferir) e o [postmaster](https://www.postman.com/) (ou qualquer outro cliente http, como a [ondulação](https://curl.se/) , se preferir) é usado para demonstrar as chamadas à API REST.
 
 > [!NOTE]
 > Os exemplos neste artigo baseiam-se nas seguintes suposições:
@@ -69,7 +69,11 @@ Configure a conta de armazenamento para [permitir o acesso somente de sub-redes 
 
 ### <a name="step-1-create-a-shared-private-link-resource-to-the-storage-account"></a>Etapa 1: criar um recurso de link privado compartilhado para a conta de armazenamento
 
-Para solicitar que o Azure Pesquisa Cognitiva crie uma conexão de ponto de extremidade privada de saída para a conta de armazenamento, faça a seguinte chamada de API: 
+Para solicitar que o Azure Pesquisa Cognitiva crie uma conexão de ponto de extremidade privada de saída para a conta de armazenamento, faça a seguinte chamada de API, por exemplo, com o [CLI do Azure](https://docs.microsoft.com/cli/azure/): 
+
+`az rest --method put --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01 --body @create-pe.json`
+
+Ou, se você preferir usar [ARMClient](https://github.com/projectkudu/ARMClient):
 
 `armclient PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01 create-pe.json`
 
@@ -100,6 +104,10 @@ Como em todas as operações assíncronas do Azure, a `PUT` chamada retorna um `
 
 Você pode sondar esse URI periodicamente para obter o status da operação. Antes de prosseguir, recomendamos que você aguarde até que o status da operação de recurso de vínculo privado compartilhado tenha atingido um estado de terminal (ou seja, o status da operação seja *bem-sucedido*).
 
+`az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01`
+
+Ou usando ARMClient:
+
 `armclient GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01"`
 
 ```json
@@ -119,7 +127,7 @@ Você pode sondar esse URI periodicamente para obter o status da operação. Ant
 
    ![Captura de tela da portal do Azure, mostrando o painel "conexões de ponto de extremidade privado".](media\search-indexer-howto-secure-access\storage-privateendpoint-approval.png)
 
-1. Selecione o ponto de extremidade privado que o Azure Pesquisa Cognitiva criado. Na coluna **ponto de extremidade privado** , identifique a conexão de ponto de extremidade particular pelo nome especificado na API anterior, selecione **aprovar**e, em seguida, insira uma mensagem apropriada. O conteúdo da mensagem não é significativo. 
+1. Selecione o ponto de extremidade privado que o Azure Pesquisa Cognitiva criado. Na coluna **ponto de extremidade privado** , identifique a conexão de ponto de extremidade particular pelo nome especificado na API anterior, selecione **aprovar** e, em seguida, insira uma mensagem apropriada. O conteúdo da mensagem não é significativo. 
 
    Certifique-se de que a conexão de ponto de extremidade particular apareça conforme mostrado na captura de tela a seguir. Pode levar de um a dois minutos para que o status seja atualizado no Portal.
 
@@ -130,6 +138,10 @@ Depois que a solicitação de conexão de ponto de extremidade particular é apr
 ### <a name="step-2b-query-the-status-of-the-shared-private-link-resource"></a>Etapa 2B: consultar o status do recurso de link privado compartilhado
 
 Para confirmar se o recurso de link privado compartilhado foi atualizado após a aprovação, obtenha seu status usando a [API Get](/rest/api/searchmanagement/sharedprivatelinkresources/get).
+
+`az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01`
+
+Ou usando ARMClient:
 
 `armclient GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01`
 

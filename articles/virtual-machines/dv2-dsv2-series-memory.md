@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 3e5f00695ee6f823cf36625f41b25ad9e273481e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6f99f1f58faece3ab286b2bc3cb571cdcba87de
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91649612"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99088897"
 ---
 # <a name="memory-optimized-dv2-and-dsv2-series"></a>Dv2 com otimização de memória e série Dsv2
 
@@ -28,6 +28,8 @@ Os tamanhos da série Dv2 são executados no Intel® Xeon® Platinum 8272CL (Cas
 [Migração ao vivo](maintenance-and-updates.md): com suporte<br>
 [Atualizações de preservação de memória](maintenance-and-updates.md): com suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
 <br> 
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Taxa de transferência máxima de armazenamento temporário: IOPS/MBps de leitura/MBps de gravação | Máximo de discos de dados/taxa de transferência: IOPS | Máximo de NICs|Largura de banda de rede esperada (Mbps) |
@@ -51,6 +53,8 @@ Os tamanhos da série DSv2 são executados no Intel® Xeon® Platinum 8272CL (Ca
 [Migração ao vivo](maintenance-and-updates.md): com suporte<br>
 [Atualizações de preservação de memória](maintenance-and-updates.md): com suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): com suporte <br>
 <br> 
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento em cache e temporária: IOPS/MBps (tamanho do cache em GiB) | Taxa de transferência de disco sem cache: IOPS/MBps | Máximo de NICs|Largura de banda de rede esperada (Mbps) |

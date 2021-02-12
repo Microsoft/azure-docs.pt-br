@@ -12,12 +12,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
-ms.openlocfilehash: 2ce0e34032d8f0d07af3a7dcd3c47558814be7bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf1ab01b39d594002bc5e677ffe6c3049fbb91ce
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826814"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521012"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-php"></a>Como usar o Twilio para obter recursos de voz e SMS no PHP
 Este guia demonstra como executar tarefas comuns de programação com o serviço de API do Twilio no Azure. Os cenários abrangidos incluem fazer uma chamada telefônica e enviar uma mensagem serviço de mensagem curta (SMS). Para obter mais informações sobre o Twilio e o uso de voz e SMS em seus aplicativos, consulte a seção [Próximas etapas](#NextSteps) .
@@ -38,20 +38,20 @@ A API do Twilio é uma API RESTful que fornece os recursos de voz e SMS para apl
 Principais aspectos da API do Twilio são Twilio verbos e linguagem de marcação de Twilio (TwiML).
 
 ### <a name="twilio-verbs"></a><a id="Verbs"></a>Verbos twilio
-A API utiliza verbos twilio; por exemplo, o verbo ** &lt; digamos &gt; ** instrui o twilio a forma audível a entregar uma mensagem em uma chamada.
+A API utiliza verbos twilio; por exemplo, o verbo **&lt; digamos &gt;** instrui o twilio a forma audível a entregar uma mensagem em uma chamada.
 
 A seguir está uma lista de verbos do Twilio. Saiba mais sobre os outros verbos e recursos na [Documentação da linguagem de marcação da Twilio](https://www.twilio.com/docs/api/twiml).
 
-* ** &lt; Discar &gt; **: conecta o chamador a outro telefone.
-* ** &lt; Coletar &gt; **: coleta dígitos numéricos inseridos no teclado do telefone.
-* ** &lt; Desligamento &gt; **: encerra uma chamada.
-* ** &lt; Play &gt; **: reproduz um arquivo de áudio.
-* ** &lt; Pausa &gt; **: aguarda silenciosamente por um número especificado de segundos.
-* ** &lt; Registro &gt; **: registra a voz do chamador e retorna uma URL de um arquivo que contém a gravação.
-* ** &lt; Redirect &gt; **: transfere o controle de uma chamada ou SMS para o TwiML em uma URL diferente.
-* ** &lt; Rejeitar &gt; **: rejeita uma chamada recebida para o número do twilio sem cobrança
-* ** &lt; Digamos &gt; **: converte o texto em fala que é feito em uma chamada.
-* ** &lt; SMS &gt; **: envia uma mensagem SMS.
+* **&lt; Discar &gt;**: conecta o chamador a outro telefone.
+* **&lt; Coletar &gt;**: coleta dígitos numéricos inseridos no teclado do telefone.
+* **&lt; Desligamento &gt;**: encerra uma chamada.
+* **&lt; Play &gt;**: reproduz um arquivo de áudio.
+* **&lt; Pausa &gt;**: aguarda silenciosamente por um número especificado de segundos.
+* **&lt; Registro &gt;**: registra a voz do chamador e retorna uma URL de um arquivo que contém a gravação.
+* **&lt; Redirect &gt;**: transfere o controle de uma chamada ou SMS para o TwiML em uma URL diferente.
+* **&lt; Rejeitar &gt;**: rejeita uma chamada recebida para o número do twilio sem cobrança
+* **&lt; Digamos &gt;**: converte o texto em fala que é feito em uma chamada.
+* **&lt; SMS &gt;**: envia uma mensagem SMS.
 
 ### <a name="twiml"></a><a id="TwiML"></a>TwiML
 TwiML é um conjunto de instruções em XML com base nos verbos do Twilio que informam o Twilio como processar uma chamada ou SMS.
@@ -262,7 +262,7 @@ Agora que você já conhece os princípios do serviço Twilio, acesse estes link
 [howto_phonecall_php]: partner-twilio-php-make-phone-call.md
 [twilio_voice_request]: https://www.twilio.com/docs/api/twiml/twilio_request
 [twilio_sms_request]: https://www.twilio.com/docs/api/twiml/sms/twilio_request
-[misc_role_config_settings]: https://msdn.microsoft.com/library/windowsazure/hh690945.aspx
+[misc_role_config_settings]: /previous-versions/azure/hh690945(v=azure.100)
 [twimlet_message_url]: https://twimlets.com/message
 [twimlet_message_url_hello_world]: https://twimlets.com/message?Message%5B0%5D=Hello%20World
 [twiml_reference]: https://www.twilio.com/docs/api/twiml

@@ -1,24 +1,24 @@
 ---
-title: 'Tutorial: Dimensionar um aplicativo no Azure Spring Cloud | Microsoft Docs'
+title: Dimensionar um aplicativo no Azure Spring Cloud | Microsoft Docs
 description: Aprende a dimensionar um aplicativo com o Azure Spring Cloud no portal do Azure
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 33d25edafa9249300406365699930ded1c8ec75b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5632f9a6126615255306cc89425bd08a9ffa9753
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906857"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531795"
 ---
-# <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>Tutorial: Dimensionar um aplicativo no Azure Spring Cloud
+# <a name="scale-an-application-in-azure-spring-cloud"></a>Dimensionar um aplicativo no Azure Spring Cloud
 
 **Este artigo aplica-se a:** ✔️ Java ✔️ C#
 
-Este tutorial demonstra como dimensionar qualquer aplicativo de microsserviço usando o painel do Azure Spring Cloud no portal do Azure.
+Esta documentação demonstra como escalar qualquer aplicativo de microsserviço usando o painel do Azure Spring Cloud no portal do Azure.
 
 Escale e reduza verticalmente seu aplicativo modificando o número de vCPUs (CPUs virtuais) e a quantidade de memória. Reduza horizontalmente e expanda seu aplicativo modificando o número de instâncias do aplicativo.
 
@@ -67,7 +67,7 @@ Se você estiver na camada básica e restringido por um ou mais desses [limites]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a dimensionar manualmente um aplicativo Azure Spring Cloud. Para aprender a monitorar um aplicativo configurando alertas, prossiga para o próximo tutorial.
+Este exemplo explicou como escalar manualmente um aplicativo do Azure Spring Cloud. Para aprender a monitorar um aplicativo configurando alertas, confira [Configurar o dimensionamento automático](spring-cloud-tutorial-setup-autoscale.md).
 
 > [!div class="nextstepaction"]
 > [Aprenda a configurar alertas](spring-cloud-tutorial-alerts-action-groups.md)

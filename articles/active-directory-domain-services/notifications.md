@@ -2,7 +2,7 @@
 title: Notificações por email para Azure AD Domain Services | Microsoft Docs
 description: Saiba como configurar notificações por email para alertar sobre problemas em um domínio gerenciado Azure Active Directory Domain Services
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: b9af1792-0b7f-4f3e-827a-9426cdb33ba6
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: c273b1a6c497ec8dcb8c5bc5f50ccfccc9fce155
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 4242092af86f8bc06ef9c9eba068ce07725de01f
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968010"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619157"
 ---
 # <a name="configure-email-notifications-for-issues-in-azure-active-directory-domain-services"></a>Configurar notificações por email para problemas no Azure Active Directory Domain Services
 
@@ -76,7 +76,7 @@ Se um alerta for resolvido, o alerta será removido da portal do Azure. O motivo
 
 Se não for possível acessar a página de configurações de notificação no portal do Azure, você não terá as permissões para editar o domínio gerenciado. Contate um administrador global para obter permissões para editar o recurso de AD DS do Azure ou ser removido da lista de destinatários.
 
-### <a name="i-dont-seem-to-be-receiving-email-notifications-even-though-i-provided-my-email-address-why"></a>Apesar de ter fornecido meu endereço de email, não estou recebendo as notificações por email. Por que?
+### <a name="i-dont-seem-to-be-receiving-email-notifications-even-though-i-provided-my-email-address-why"></a>Apesar de ter fornecido meu endereço de email, não estou recebendo as notificações por email. Por quê?
 
 Verifique sua pasta de spam ou lixo eletrônico em seu email para a notificação e certifique-se de permitir o remetente do `azure-noreply@microsoft.com` .
 

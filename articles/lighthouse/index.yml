@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: JnHs
   ms.author: jenhayes
-  ms.date: 07/20/2020
-  ms.openlocfilehash: bdfb4f0a31f655cf71b6117e9c0ef73be18c8e45
-  ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+  ms.date: 01/26/2021
+  ms.openlocfilehash: 08c6275a9202f8d52e4e3f72f18822633cd113bc
+  ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/14/2020
-  ms.locfileid: "92018722"
+  ms.lasthandoff: 01/27/2021
+  ms.locfileid: "98881764"
 landingContent:
 - title: Sobre o Azure Lighthouse
   linkLists:
@@ -35,18 +35,22 @@ landingContent:
     links:
     - text: Integrar um cliente ao Azure Lighthouse
       url: ./how-to/onboard-customer.md
+    - text: Exibir e gerenciar clientes
+      url: ./how-to/view-manage-customers.md
     - text: Vincular sua ID de parceiro
       url: ./how-to/partner-earned-credit.md
   - linkListType: concept
     links:
     - text: Práticas de segurança recomendadas
       url: ./concepts/recommended-security-practices.md
+    - text: Locatários, funções e usuários
+      url: ./concepts/tenants-users-roles.md
     - text: Considerações sobre o programa Provedor de Soluções na Nuvem
       url: ./concepts/cloud-solution-provider.md
     - text: Cenários empresariais
       url: ./concepts/enterprise.md
-    - text: Locatários, funções e usuários
-      url: ./concepts/tenants-users-roles.md
+    - text: Cenários ISV
+      url: ./concepts/isv-scenarios.md
 - title: Ofertas do Marketplace
   linkLists:
   - linkListType: how-to-guide
@@ -57,6 +61,14 @@ landingContent:
     links:
     - text: Ofertas de serviços gerenciados no Azure Marketplace
       url: ./concepts/managed-services-offers.md
+- title: Experiências do cliente
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Exibir e gerenciar provedores de serviços
+      url: ./how-to/view-manage-service-providers.md
+    - text: Exibir atividade do provedor de serviços
+      url: ./how-to/view-service-provider-activity.md
 - title: Exemplos e modelos
   linkLists:
   - linkListType: deploy
@@ -65,14 +77,6 @@ landingContent:
       url: https://github.com/Azure/Azure-Lighthouse-samples/
     - text: Índice de exemplos do Azure Lighthouse
       url: ./samples/index.md
-- title: Experiências do portal do Azure
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Exibir e gerenciar clientes
-      url: ./how-to/view-manage-customers.md
-    - text: Exibir e gerenciar provedores de serviços
-      url: ./how-to/view-manage-service-providers.md
 - title: Trabalhar com os serviços do Azure em escala
   linkLists:
   - linkListType: how-to-guide
@@ -89,6 +93,8 @@ landingContent:
       url: ./how-to/deploy-policy-remediation.md
     - text: Gerenciar computadores híbridos com o Azure Arc
       url: ./how-to/manage-hybrid-infrastructure-arc.md
+    - text: Gerenciar projetos de migração
+      url: ./how-to/migration-at-scale.md
 - title: Referência – SDKs
   linkLists:
   - linkListType: reference
@@ -105,6 +111,8 @@ landingContent:
       url: /python/api/azure-mgmt-managedservices
     - text: Terraform
       url: https://www.terraform.io/docs/providers/azurerm/r/lighthouse_assignment.html
+    - text: Ansible
+      url: https://docs.ansible.com/ansible/latest/collections/azure/azcollection/index.html#plugins-in-azure-azcollection
 - title: Referência – Downloads
   linkLists:
   - linkListType: download

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: jeedes
-ms.openlocfilehash: d529123b52e0e90702839f6822a586cf53dffa52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 456348f5492af44274a37a6400fb8d95e9bd55a4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546701"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015138"
 ---
 # <a name="tutorial-integrate-mvision-cloud-azure-ad-sso-configuration-with-azure-active-directory"></a>Tutorial: Integrar a Configuração de SSO do Azure AD do MVISION Cloud ao Azure Active Directory
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá a integrar a Configuração de SSO do Azure AD 
 * Permitir que os usuários sejam conectados automaticamente à Configuração de SSO do Azure AD do MVISION Cloud com as respectivas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,7 +41,7 @@ Para começar, você precisará dos seguintes itens:
 Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
 * A Configuração de SSO do Azure AD do MVISION Cloud é compatível com SSO iniciado por **SP e IDP**
-* Depois de configurar o Dropbox, você poderá impor o controle de sessão, que fornece proteção contra exportação e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Depois de configurar o Dropbox, você poderá impor o controle de sessão, que fornece proteção contra exportação e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-mvision-cloud-azure-ad-sso-configuration-from-the-gallery"></a>Como adicionar a Configuração de SSO do Azure AD do MVISION Cloud por meio da galeria
 
@@ -161,22 +161,22 @@ Para configurar o logon único no lado da **Configuração de SSO do Azure AD do
 
 ### <a name="create-mvision-cloud-azure-ad-sso-configuration-test-user"></a>Criar um usuário de teste da Configuração de SSO do Azure AD do MVISION Cloud
 
-Nesta seção, você criará um usuário chamado B.Fernandes na Configuração de SSO do Azure AD do MVISION Cloud. Trabalhe com a [equipe de suporte da Configuração de SSO do Azure AD do MVISION Cloud](mailto:support@skyhighnetworks.com) para adicionar os usuários na plataforma de Configuração de SSO do Azure AD do MVISION Cloud. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado B.Fernandes na Configuração de SSO do Azure AD do MVISION Cloud. Trabalhe com a [equipe de suporte da Configuração de SSO do Azure AD do MVISION Cloud](mailto:support@skyhighnetworks.com) para adicionar os usuários na plataforma da Configuração de SSO do Azure AD do MVISION Cloud. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="test-sso"></a>Testar o SSO 
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco da Configuração de SSO do Azure AD do MVISION Cloud no Painel de Acesso, você deverá ser conectado automaticamente à Configuração de SSO do Azure AD do MVISION Cloud para a qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco da Configuração de SSO do Azure AD do MVISION Cloud no Painel de Acesso, você deverá ser conectado automaticamente à Configuração de SSO do Azure AD do MVISION Cloud para a qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimente a Configuração de SSO do Azure AD do MVISION Cloud com o Azure AD](https://aad.portal.azure.com/)
 
-- [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [O que é controle de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)

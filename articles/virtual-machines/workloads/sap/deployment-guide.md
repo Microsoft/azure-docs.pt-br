@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 1c4f1951-3613-4a5a-a0af-36b85750c84e
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: 4494af89ac35a391f7dc6097b14d135a911d99dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c70de186468eb3efacc82c1d5c8802612475fd4d
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91359601"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232787"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implantação de Máquinas Virtuais do Azure para SAP NetWeaver
 
@@ -72,7 +73,7 @@ ms.locfileid: "91359601"
 [2367194]:https://launchpad.support.sap.com/#/notes/2367194
 
 [azure-cli]:../../../cli-install-nodejs.md
-[azure-cli-2]:https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli-2]:https://docs.microsoft.com/cli/azure/install-azure-cli
 [azure-portal]:https://portal.azure.com
 [azure-ps]:/powershell/azure/
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
@@ -911,8 +912,8 @@ Para saber mais sobre as rotas definidas pelo usuário, confira [Rotas definidas
 ### <a name="configure-the-azure-extension-for-sap"></a><a name="d98edcd3-f2a1-49f7-b26a-07448ceb60ca"></a>Configurar a Extensão para SAP do Azure
 
 > [!NOTE]
-> Instrução de suporte geral: sempre abra um incidente com o SAP no componente BC-OP-NT-AZR para Windows ou BC-OP-LNX-AZR se você precisar de suporte para a extensão do Azure para SAP.
-> Há engenheiros de suporte dedicados da Microsoft trabalhando no sistema de suporte SAP para ajudar nossos clientes em conjunto.
+> Instrução de suporte geral:  
+> O suporte para a extensão do Azure para SAP é fornecido por meio de canais de suporte do SAP. Se você precisar de assistência com a extensão do Azure para SAP, abra um caso de suporte com o [suporte do SAP](https://support.sap.com/). 
 
 Quando você tiver preparado a VM conforme descrito em [Cenários de implantação de VMs para SAP no Azure][deployment-guide-3], o agente estará instalado na máquina virtual. A próxima etapa é implantar a Extensão para SAP do Azure, que está disponível no Repositório de extensões do Azure em data centers globais do Azure. Para obter mais informações, confira [Planejamento e implementação de Máquinas Virtuais do Azure para SAP NetWeaver][planning-guide-9.1].
 
@@ -1069,8 +1070,14 @@ A nova extensão de VM para SAP usa uma identidade gerenciada atribuída à VM p
     Exemplo:
 
     ```azurecli
+    # Azure CLI on Linux
     spID=$(az resource show -g <resource-group-name> -n <vm name> --query identity.principalId --out tsv --resource-type Microsoft.Compute/virtualMachines)
     rgId=$(az group show -g <resource-group-name> --query id --out tsv)
+    az role assignment create --assignee $spID --role 'Reader' --scope $rgId
+
+    # Azure CLI on Windows/PowerShell
+    $spID=az resource show -g <resource-group-name> -n <vm name> --query identity.principalId --out tsv --resource-type Microsoft.Compute/virtualMachines
+    $rgId=az group show -g <resource-group-name> --query id --out tsv
     az role assignment create --assignee $spID --role 'Reader' --scope $rgId
     ```
 
@@ -1078,11 +1085,19 @@ A nova extensão de VM para SAP usa uma identidade gerenciada atribuída à VM p
     Atualmente, a extensão só tem suporte no AzureCloud. O Azure China 21Vianet, o Azure governamental ou qualquer um dos outros ambientes especiais ainda não tem suporte.
 
     ```azurecli
-    # For Linux machines
+    # Azure CLI on Linux
+    ## For Linux machines
     az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Linux --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{"system":"SAP"}'
 
-    #For Windows machines
+    ## For Windows machines
     az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Windows --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{"system":"SAP"}'
+
+    # Azure CLI on Windows/PowerShell
+    ## For Linux machines
+    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Linux --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{\"system\":\"SAP\"}'
+
+    ## For Windows machines
+    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Windows --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{\"system\":\"SAP\"}'
     ```
 
 ## <a name="checks-and-troubleshooting"></a><a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Verificações e solução de problemas

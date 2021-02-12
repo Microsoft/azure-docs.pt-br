@@ -3,12 +3,12 @@ title: Segurança e autenticação da Grade de Eventos do Azure
 description: Descreve a Grade de Eventos do Azure e seus conceitos.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 5a1e4af17c2f4335ed26490bfc2408c66f4aee6b
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 24954ce0a0dc54a04720c0d0b495d14e950a2f71
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328718"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109582"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Autorizando o acesso aos recursos da grade de eventos
 A grade de eventos do Azure permite que você controle o nível de acesso fornecido a diferentes usuários para realizar várias **operações de gerenciamento** , como listar assinaturas de evento, criar novos e gerar chaves. A grade de eventos usa o controle de acesso baseado em função do Azure (RBAC do Azure).
@@ -17,17 +17,18 @@ A grade de eventos do Azure permite que você controle o nível de acesso fornec
 > EventGrid não dá suporte ao RBAC do Azure para publicar eventos em domínios ou tópicos da grade de eventos. Use uma chave de SAS (assinatura de acesso compartilhado) ou um token para autenticar clientes que publicam eventos. Para obter mais informações, consulte [autenticar clientes de publicação](security-authenticate-publishing-clients.md). 
 
 ## <a name="operation-types"></a>Tipos de operação
+Para obter uma lista de operações com suporte pela grade de eventos do Azure, execute o seguinte comando de CLI do Azure: 
 
-Grade de eventos suporta as seguintes ações:
+```azurecli-interactive
+az provider operation show --namespace Microsoft.EventGrid
+```
 
-* Microsoft.EventGrid/*/read
-* Microsoft.EventGrid/*/write
-* Microsoft.EventGrid/*/delete
+As operações a seguir retornam informações potencialmente secretas, que são filtradas de operações de leitura normais. É recomendável que você restrinja o acesso a essas operações. 
+
 * Microsoft.EventGrid/eventSubscriptions/getFullUrl/action
 * Microsoft.EventGrid/topics/listKeys/action
 * Microsoft.EventGrid/topics/regenerateKey/action
 
-As últimas três operações retornam informações possivelmente secretas, as quais são filtradas dentre operações de leitura normais. É recomendável que você restrinja o acesso a essas operações. 
 
 ## <a name="built-in-roles"></a>Funções internas
 

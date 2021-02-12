@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 36e61c8d1e0e41fd981f5483eff1f30814b22b92
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 8de95a56f3da928997a97ff216b13d522c82afca
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905045"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814186"
 ---
 # <a name="azure-ddos-rapid-response"></a>Resposta rápida do DDoS do Azure
 
-Durante um acesso ativo, os clientes padrão da proteção contra DDoS do Azure têm acesso à equipe de reação rápida a DDoS (DRR), que pode ajudar com a investigação de ataque durante um ataque, bem como a análise após o ataque.
+Durante um acesso ativo, os clientes padrão da proteção contra DDoS do Azure têm acesso à equipe de reação rápida a DDoS (DRR), que pode ajudar na investigação de ataques durante uma análise de ataque e de ataque.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,7 +38,7 @@ Você só deve envolver DRR se:
 ## <a name="engage-drr-during-an-active-attack"></a>Envolver o DRR durante um ataque ativo
 
 1. Em portal do Azure ao criar uma nova solicitação de suporte, escolha **tipo de problema** como técnico.
-2. Escolha **serviço** como **proteção contra DDoS** .
+2. Escolha **serviço** como **proteção contra DDoS**.
 3. Escolha um recurso no menu suspenso de recursos. _Você deve selecionar um plano de DDoS vinculado à rede virtual que está sendo protegida pela proteção contra DDoS Standard para envolver o DRR._
 
     ![Escolher recurso](./media/ddos-rapid-response/choose-resource.png)
@@ -51,10 +51,10 @@ Você só deve envolver DRR se:
 
 DRR segue o modelo de suporte Azure Rapid Response. Consulte o [escopo de suporte e a capacidade de resposta](https://azure.microsoft.com/en-us/support/plans/response/) para obter mais informações sobre resposta rápida.
 
-Para saber mais, leia a [documentação padrão de proteção contra DDoS](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
+Para saber mais, leia a [documentação padrão de proteção contra DDoS](./ddos-protection-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como [testar por meio de simulações](test-through-simulations.md).
-- Saiba como [Exibir e configurar a telemetria de proteção contra DDoS](telemetry-monitoring-alerting.md).
-- Saiba como [configurar relatórios de mitigação de ataque de DDoS e logs de fluxo](reports-and-flow-logs.md).
+- Saiba como [Exibir e configurar a telemetria de proteção contra DDoS](telemetry.md).
+- Saiba como [Exibir e configurar o log de diagnóstico de DDoS](diagnostic-logging.md).

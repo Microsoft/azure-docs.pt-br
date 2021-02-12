@@ -4,12 +4,12 @@ description: Fornece um resumo das configurações de suporte e limitações ao 
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.custom: references_regions
-ms.openlocfilehash: b189eceb6b5a7f2e508387c0b91b238ff5fcb088
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 78436981c515b95ccda763d8ac916738b4364953
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174054"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734786"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Matriz de suporte para backup SQL Server em VMs do Azure
 
@@ -39,7 +39,7 @@ Você pode usar o backup do Azure para fazer backup de bancos de dados SQL Serve
 * O Backup do SQL Server pode ser configurado no portal do Azure ou **PowerShell**. Não há suporte para a CLI.
 * A solução é compatível em ambos os tipos de [implantações](../azure-resource-manager/management/deployment-models.md) – VMs do Azure Resource Manager e VMs clássicas.
 * Há suporte para todos os tipos de backup (completo/diferencial/log) e modelos de recuperação (simples/completo/bulk-logged).
-* Os tipos de backup completo e somente cópia são compatíveis com bancos de dados **somente leitura** .
+* Para bancos de dados **somente leitura** : backups completos e somente cópia são os únicos tipos de backup com suporte.
 * A compactação nativa do SQL tem suporte se habilitada explicitamente pelo usuário na política de backup. O backup do Azure substitui os padrões em nível de instância pela cláusula COMPRESSION/NO_COMPRESSION, dependendo do valor desse controle, conforme definido pelo usuário.
 * Há suporte para backup de banco de dados habilitado para TDE. Para restaurar um banco de dados criptografado com TDE para outro SQL Server, primeiro você precisa [restaurar o certificado para o servidor de destino](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server). A compactação de backup para bancos de dados habilitados para TDE para o SQL Server 2016 e versões mais recentes está disponível, mas com tamanho de transferência mais baixo, conforme explicado [aqui](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593).
 * Não há suporte para operações de backup e restauração para bancos de dados de espelho e instantâneos do banco de dados.
@@ -64,7 +64,7 @@ Dependendo da preferência de backup e os tipos de backups (completo/diferencial
 --- | ---
 Completo | Primário
 Diferencial | Primário
-Log |  Primário
+Registro |  Primário
 Completo somente de cópia |  Primário
 
 #### <a name="backup-preference-secondary-only"></a>Preferência de backup: somente secundário
@@ -73,7 +73,7 @@ Completo somente de cópia |  Primário
 --- | ---
 Completo | Primário
 Diferencial | Primário
-Log |  Secundário
+Registro |  Secundário
 Completo somente de cópia |  Secundário
 
 #### <a name="backup-preference-secondary"></a>Preferência de backup: secundária
@@ -82,7 +82,7 @@ Completo somente de cópia |  Secundário
 --- | ---
 Completo | Primário
 Diferencial | Primário
-Log |  Secundário
+Registro |  Secundário
 Completo somente de cópia |  Secundário
 
 #### <a name="no-backup-preference"></a>Nenhuma preferência de Backup
@@ -91,7 +91,7 @@ Completo somente de cópia |  Secundário
 --- | ---
 Completo | Primário
 Diferencial | Primário
-Log |  Secundário
+Registro |  Secundário
 Completo somente de cópia |  Secundário
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: 5f1332255ae83a32f9b71d24d812b00fad9b7fa1
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 34fd595a03f67201b303c94764668bf86a6c244b
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637914"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796890"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Solucionar problemas de gerenciamento de Integration Runtime do SSIS no Azure Data Factory
 
@@ -151,7 +151,7 @@ O IR do SSIS será atualizado automaticamente regularmente. Um novo pool do lote
 
 Se o provisionamento de IR do SSIS falhar, todos os recursos que foram criados serão excluídos. No entanto, se houver um bloqueio de exclusão de recurso no nível de assinatura ou grupo de recursos, os recursos de rede virtual não serão excluídos conforme o esperado. Para corrigir esse erro, remova o bloqueio de exclusão e reinicie o IR.
 
-### <a name="vnetresourcegrouplockedduringstop"></a>VNetResourceGroupLockedDuringStop
+### <a name="vnetresourcegrouplockedduringstopvnetdeletelock"></a>VNetResourceGroupLockedDuringStop/VNetDeleteLock
 
 Quando você parar o IR do SSIS, todos os recursos relacionados à rede virtual serão excluídos. Mas a exclusão poderá falhar se houver um bloqueio de exclusão de recurso no nível de assinatura ou grupo de recursos. Aqui também, o cliente controla e define o bloqueio de exclusão. Portanto, eles devem remover o bloqueio de exclusão e parar o IR do SSIS novamente.
 

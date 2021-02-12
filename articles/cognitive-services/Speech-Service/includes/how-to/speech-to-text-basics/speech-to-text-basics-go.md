@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/15/2020
 ms.author: trbye
-ms.openlocfilehash: 7cebceed534531849e46e527e470bfc41b03348a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bced384e8ba88fb83499e78c4e0d60e811ae32df
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91376279"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99214072"
 ---
 Um dos principais recursos do serviço de Fala é a capacidade de reconhecer e transcrever a fala humana (frequentemente denominada conversão de fala em texto). Neste guia de início rápido, você aprende a usar o SDK de Fala em seus aplicativos e produtos para executar uma conversão de fala em texto de alta qualidade.
 
@@ -23,13 +23,15 @@ Este artigo pressupõe que você tem uma conta do Azure e uma assinatura do Serv
 
 ## <a name="install-the-speech-sdk"></a>Instalar o SDK de Fala
 
-Antes de fazer qualquer coisa, instale o [SDK de Fala para Go](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=dotnet%2Cwindows%2Cjre%2Cbrowser&pivots=programming-language-go).
+Antes de fazer qualquer coisa, instale o [SDK de Fala para Go](../../../quickstarts/setup-platform.md?pivots=programming-language-go&tabs=dotnet%252cwindows%252cjre%252cbrowser).
 
 ## <a name="speech-to-text-from-microphone"></a>Conversão de fala em texto de um microfone
 
 Use o exemplo de código a seguir para executar o reconhecimento de fala por meio do microfone do dispositivo padrão. Substitua as variáveis `subscription` e `region` pelas chaves assinatura e região. A execução do script iniciará uma sessão de reconhecimento no microfone padrão e no texto de saída.
 
 ```go
+package main
+
 import (
     "bufio"
     "fmt"
@@ -97,13 +99,29 @@ func main() {
 }
 ```
 
-Consulte os documentos de referência para obter informações detalhadas sobre as classes [`SpeechConfig`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.13.0/speech#SpeechConfig) e [`SpeechRecognizer`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.13.0/speech#SpeechRecognizer).
+Execute os comandos a seguir para criar um arquivo go.mod vinculado aos componentes hospedados no Github.
+
+```cmd
+go mod init quickstart
+go get github.com/Microsoft/cognitive-services-speech-sdk-go
+```
+
+Agora compile e execute o código.
+
+```cmd
+go build
+go run quickstart
+```
+
+Consulte os documentos de referência para obter informações detalhadas sobre as classes [`SpeechConfig`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.15.0/speech#SpeechConfig) e [`SpeechRecognizer`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.15.0/speech#SpeechRecognizer).
 
 ## <a name="speech-to-text-from-audio-file"></a>Conversão de fala em texto de um arquivo de áudio
 
 Use o exemplo a seguir para executar o reconhecimento de fala de um arquivo de áudio. Substitua as variáveis `subscription` e `region` pelas chaves assinatura e região. Além disso, substitua a variável `file` por um caminho para um arquivo .wav. A execução do script reconhecerá a fala do arquivo e produzirá como saída o resultado de texto.
 
 ```go
+package main
+
 import (
     "fmt"
     "time"
@@ -161,4 +179,18 @@ func main() {
 }
 ```
 
-Consulte os documentos de referência para obter informações detalhadas sobre as classes [`SpeechConfig`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.13.0/speech#SpeechConfig) e [`SpeechRecognizer`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.13.0/speech#SpeechRecognizer).
+Execute os comandos a seguir para criar um arquivo go.mod vinculado aos componentes hospedados no Github.
+
+```cmd
+go mod init quickstart
+go get github.com/Microsoft/cognitive-services-speech-sdk-go
+```
+
+Agora compile e execute o código.
+
+```cmd
+go build
+go run quickstart
+```
+
+Consulte os documentos de referência para obter informações detalhadas sobre as classes [`SpeechConfig`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.15.0/speech#SpeechConfig) e [`SpeechRecognizer`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.15.0/speech#SpeechRecognizer).

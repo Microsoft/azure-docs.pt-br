@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
-ms.date: 03/03/2020
-ms.openlocfilehash: 400dd66827e82c1ede496526c49977e6f5383487
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 02/03/2021
+ms.openlocfilehash: c6faa1703b0935d66d291281f33027b3a66a59d4
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780182"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526815"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>FAQ de hiperescala do banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -118,7 +118,7 @@ O hiperscale dá suporte a todas as cargas de trabalho de SQL Server, mas é ess
 
 Se você estiver executando consultas de análise interativas usando SQL Server como um data warehouse, o hiperescala é uma ótima opção, pois você pode hospedar data warehouses de pequeno e médio porte (como alguns TB de até 100 TB) a um custo mais baixo e migrar suas cargas de trabalho de SQL Server data warehouse para hiperescala com alterações mínimas de código T-SQL.
 
-Se você estiver executando a análise de dados em uma grande escala com consultas complexas e taxas de ingestão sustentadas maiores que 100 MB/s ou usando o PDW (Parallel data warehouse), Teradata ou outros data warehouses de processamento paralelo (MPP), o Azure Synapse Analytics (anteriormente SQL Data Warehouse) pode ser a melhor opção.
+Se você estiver executando a análise de dados em uma grande escala com consultas complexas e taxas de ingestão sustentadas maiores que 100 MB/s ou usando o PDW (Parallel data warehouse), Teradata ou outros data warehouses de processamento paralelo (MPP), o Azure Synapse Analytics poderá ser a melhor opção.
   
 ## <a name="hyperscale-compute-questions"></a>Perguntas de computação de hiperescala
 
@@ -166,7 +166,7 @@ O tamanho do seu banco de dados aumenta automaticamente à medida que você inse
 
 ### <a name="what-is-the-smallest-database-size-that-hyperscale-supports-or-starts-with"></a>Qual é o menor tamanho de banco de dados que o hiperscale dá suporte ou começa com
 
-40 GB. Um banco de dados de hiperescala é criado com um tamanho inicial de 10 GB. Em seguida, ele começa crescendo 10 GB a cada 10 minutos até atingir o tamanho de 40 GB. Cada um desses 10 GB Chuck é alocado em um servidor de página diferente para fornecer mais IOPS e um paralelismo de e/s maior. Por causa dessa otimização, mesmo se você escolher o tamanho inicial do banco de dados menor que 40 GB, o banco de dados aumentará para pelo menos 40 GB automaticamente.
+40 GB. Um banco de dados de hiperescala é criado com um tamanho inicial de 10 GB. Em seguida, ele começa crescendo 10 GB a cada 10 minutos até atingir o tamanho de 40 GB. Cada uma dessas partes de 10 GB é alocada em um servidor de página diferente para fornecer mais IOPS e um paralelismo de e/s maior. Por causa dessa otimização, mesmo se você escolher o tamanho inicial do banco de dados menor que 40 GB, o banco de dados aumentará para pelo menos 40 GB automaticamente.
 
 ### <a name="in-what-increments-does-my-database-size-grow"></a>Em que incrementos o tamanho do meu banco de dados aumenta?
 
@@ -233,7 +233,7 @@ O hiperscale é capaz de consumir 100 MB/s de dados novos/alterados, mas o tempo
 
 Você pode fazer com que um aplicativo cliente leia dados do armazenamento do Azure e carregue a carga de dados em um banco de dados de hiperescala (assim como você pode com qualquer outro banco de dado no banco de dados SQL do Azure). Atualmente, o polybase não tem suporte no banco de dados SQL do Azure. Como alternativa para fornecer carga rápida, você pode usar [Azure data Factory](../../data-factory/index.yml)ou usar um trabalho do spark no [Azure Databricks](/azure/azure-databricks/) com o [conector do Spark para SQL](spark-connector.md). O conector do Spark SQL dá suporte à inserção em massa.
 
-Também é possível ler em massa dados do armazenamento de BLOBs do Azure usando BULK INSERT ou OPENROWSET: [exemplos de acesso em massa aos dados no armazenamento de BLOBs do Azure](/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
+Também é possível ler em massa dados do armazenamento de BLOBs do Azure usando BULK INSERT ou OPENROWSET: [exemplos de acesso em massa aos dados no armazenamento de BLOBs do Azure](/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
 
 A recuperação simples ou o modelo de log em massa não é suportada na Hiperescala. O modelo de recuperação completa é necessário para fornecer alta disponibilidade e recuperação pontual. No entanto, a arquitetura de log de hiperescala fornece uma melhor taxa de ingestão de dados em comparação com outras camadas de serviço do Azure SQL Database.
 

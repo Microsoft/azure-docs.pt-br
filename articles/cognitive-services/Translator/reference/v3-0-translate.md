@@ -3,25 +3,25 @@ title: Método de conversão de Tradutor
 titleSuffix: Azure Cognitive Services
 description: Entenda os parâmetros, os cabeçalhos e as mensagens de corpo do método translate do tradutor de serviços cognitivas do Azure para traduzir texto.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 08/06/2020
-ms.author: swmachan
-ms.openlocfilehash: 59e064dc2b9d33bda966eb50544c8383b0394dd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: lajanuar
+ms.openlocfilehash: d46fef0159b983f2685be40e2a0ab5471b96883b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566595"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895434"
 ---
 # <a name="translator-30-translate"></a>Tradutor 3,0: traduzir
 
 Traduz texto.
 
-## <a name="request-url"></a>URL de Solicitação
+## <a name="request-url"></a>URL da solicitação
 
 Envie uma solicitação `POST` para:
 
@@ -43,7 +43,7 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
     <td><em>Parâmetro obrigatório</em>.<br/>Versão da API solicitada pelo cliente. O valor precisa ser <code>3.0</code>.</td>
   </tr>
   <tr>
-    <td>para</td>
+    <td>como</td>
     <td><em>Parâmetro obrigatório</em>.<br/>Especifica o idioma do texto de saída. O idioma de destino deve ser um dos <a href="./v3-0-languages.md">idiomas com suporte</a> incluídos no escopo <code>translation</code>. Por exemplo, use <code>to=de</code> para traduzir para alemão.<br/>É possível traduzir para vários idiomas simultaneamente, repetindo o parâmetro na cadeia de caracteres de consulta. Por exemplo, use <code>to=de&to=it</code> para traduzir para alemão e italiano.</td>
   </tr>
 </table>
@@ -55,7 +55,7 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
   <th>Descrição</th>
   <tr>
     <td>de</td>
-    <td><em>Parâmetro opcional</em>.<br/>Especifica o idioma do texto de entrada. Localize quais idiomas estão disponíveis para tradução, consultando <a href="./v3-0-languages.md">idiomas com suporte</a> usando o escopo <code>translation</code>. Se o parâmetro <code>from</code> não for especificado, a detecção automática de idioma será aplicada para determinar o idioma de origem. <br/><br/>Você deve usar o <code>from</code> parâmetro em vez da detecção automática ao usar o recurso de <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dicionário dinâmico</a> .</td>
+    <td><em>Parâmetro opcional</em>.<br/>Especifica o idioma do texto de entrada. Localize quais idiomas estão disponíveis para tradução, consultando <a href="./v3-0-languages.md">idiomas com suporte</a> usando o escopo <code>translation</code>. Se o parâmetro <code>from</code> não for especificado, a detecção automática de idioma será aplicada para determinar o idioma de origem. <br/><br/>Você deve usar o <code>from</code> parâmetro em vez da detecção automática ao usar o recurso de <a href="/azure/cognitive-services/translator/dynamic-dictionary">dicionário dinâmico</a> .</td>
   </tr>  
   <tr>
     <td>textType</td>
@@ -63,7 +63,7 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
   </tr>
   <tr>
     <td>category</td>
-    <td><em>Parâmetro opcional</em>.<br/>Uma cadeia de caracteres especificando a categoria (domínio) da tradução. Esse parâmetro é usado para obter traduções de um sistema personalizado compilado com <a href="../customization.md">Tradutor Personalizado</a>. Adicione a ID da categoria de seus <a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">detalhes do projeto</a> do tradutor personalizado a esse parâmetro para usar seu sistema personalizado implantado. O valor padrão é: <code>general</code>.</td>
+    <td><em>Parâmetro opcional</em>.<br/>Uma cadeia de caracteres especificando a categoria (domínio) da tradução. Esse parâmetro é usado para obter traduções de um sistema personalizado compilado com <a href="../customization.md">Tradutor Personalizado</a>. Adicione a ID da categoria de seus <a href="/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">detalhes do projeto</a> do tradutor personalizado a esse parâmetro para usar seu sistema personalizado implantado. O valor padrão é: <code>general</code>.</td>
   </tr>
   <tr>
     <td>profanityAction</td>
@@ -107,7 +107,7 @@ Os cabeçalhos de solicitação incluem:
   <th>Descrição</th>
   <tr>
     <td>Cabeçalhos de autenticação</td>
-    <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>.</td>
+    <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>Veja <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>.</td>
   </tr>
   <tr>
     <td>Tipo de conteúdo</td>
@@ -234,7 +234,7 @@ Veja a seguir os possíveis códigos de status HTTP retornados por uma solicita�
   </tr>
 </table> 
 
-Se ocorrer um erro, a solicitação também retornará uma resposta de erro JSON. O código de erro é um número de 6 dígitos que combina o código de status HTTP de 3 dígitos seguido por um número de 3 dígitos para categorizar ainda mais o erro. Códigos de erro comuns podem ser encontrados na [página de referência do tradutor v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Se ocorrer um erro, a solicitação também retornará uma resposta de erro JSON. O código de erro é um número de 6 dígitos que combina o código de status HTTP de 3 dígitos seguido por um número de 3 dígitos para categorizar ainda mais o erro. Códigos de erro comuns podem ser encontrados na [página de referência do tradutor v3](./v3-0-reference.md#errors). 
 
 ## <a name="examples"></a>Exemplos
 
@@ -367,7 +367,7 @@ Se você quiser evitar conteúdo ofensivo na tradução, independentemente da pr
   <th>Ação</th>
   <tr>
     <td><code>NoAction</code></td>
-    <td>Esse é o comportamento padrão. O conteúdo ofensivo passará da origem para o destino.<br/><br/>
+    <td>Este é o comportamento padrão. O conteúdo ofensivo passará da origem para o destino.<br/><br/>
     <strong>Origem de exemplo (japonês)</strong>: 彼はジャッカスです。<br/>
     <strong>Tradução de exemplo (inglês)</strong>: Ele é um idiota.
     </td>

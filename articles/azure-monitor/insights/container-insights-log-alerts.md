@@ -2,13 +2,13 @@
 title: Alertas de log de Azure Monitor para contêineres | Microsoft Docs
 description: Este artigo descreve como criar alertas de log personalizados para utilização de memória e CPU de Azure Monitor para contêineres.
 ms.topic: conceptual
-ms.date: 01/07/2020
-ms.openlocfilehash: ddf898978bdaf51cb81a95c3209855c51212280f
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.date: 01/05/2021
+ms.openlocfilehash: 131f5ebc0f72afce381b4b82d6fe50a5d5e37123
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995252"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901497"
 ---
 # <a name="how-to-create-log-alerts-from-azure-monitor-for-containers"></a>Como criar alertas de log de Azure Monitor para contêineres
 
@@ -17,7 +17,7 @@ Azure Monitor para contêineres monitora o desempenho de cargas de trabalho de c
 - Quando a utilização de CPU ou memória em nós de cluster excede um limite
 - Quando a utilização de CPU ou memória em qualquer contêiner dentro de um controlador excede um limite em comparação com um limite definido no recurso correspondente
 - Contagens de nós de status *não lidos*
-- Contagens de fase-Pod *com falha*, *pendentes*, *desconhecidas*ou *com* *êxito*
+- Contagens de fase-Pod *com falha*, *pendentes*, *desconhecidas* ou *com* *êxito*
 - Quando o espaço livre em disco em nós de cluster excede um limite
 
 Para alertar sobre alta utilização de CPU ou memória ou pouco espaço livre em disco em nós de cluster, use as consultas que são fornecidas para criar um alerta de métrica ou um alerta de medição de métrica. Embora os alertas de métrica tenham menor latência que os alertas de log, os alertas de log fornecem consulta avançada e maior sofisticação. As consultas de alerta de log comparam um DateTime com o presente usando o operador *Now* e retornando uma hora. (Azure Monitor para contêineres armazena todas as datas no formato UTC (tempo Universal Coordenado).)
@@ -210,11 +210,11 @@ KubeNodeInventory
 A consulta a seguir retorna contagens de fase de Pod com base em todas as fases: *falha*, *pendente*, *desconhecido*, *em execução ou com* *êxito*.  
 
 ```kusto
-let endDateTime = now();
-    let startDateTime = ago(1h);
-    let trendBinSize = 1m;
-    let clusterName = '<your-cluster-name>';
-    KubePodInventory
+let endDateTime = now(); 
+let startDateTime = ago(1h);
+let trendBinSize = 1m;
+let clusterName = '<your-cluster-name>';
+KubePodInventory
     | where TimeGenerated < endDateTime
     | where TimeGenerated >= startDateTime
     | where ClusterName == clusterName
@@ -224,13 +224,13 @@ let endDateTime = now();
         KubePodInventory
         | where TimeGenerated < endDateTime
         | where TimeGenerated >= startDateTime
-        | distinct ClusterName, Computer, PodUid, TimeGenerated, PodStatus
+        | summarize PodStatus=any(PodStatus) by TimeGenerated, PodUid, ClusterName
         | summarize TotalCount = count(),
                     PendingCount = sumif(1, PodStatus =~ 'Pending'),
                     RunningCount = sumif(1, PodStatus =~ 'Running'),
                     SucceededCount = sumif(1, PodStatus =~ 'Succeeded'),
                     FailedCount = sumif(1, PodStatus =~ 'Failed')
-                 by ClusterName, bin(TimeGenerated, trendBinSize)
+                by ClusterName, bin(TimeGenerated, trendBinSize)
     ) on ClusterName, TimeGenerated
     | extend UnknownCount = TotalCount - PendingCount - RunningCount - SucceededCount - FailedCount
     | project TimeGenerated,
@@ -244,7 +244,7 @@ let endDateTime = now();
 ```
 
 >[!NOTE]
->Para alertar sobre determinadas fases de Pod, como *pendente*, *com falha*ou *desconhecido*, modifique a última linha da consulta. Por exemplo, para alertar sobre o uso do *FailedCount* : <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
+>Para alertar sobre determinadas fases de Pod, como *pendente*, *com falha* ou *desconhecido*, modifique a última linha da consulta. Por exemplo, para alertar sobre o uso do *FailedCount* : <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
 
 A consulta a seguir retorna discos de nós de cluster que excedem 90% de espaço livre usado. Para obter a ID do cluster, primeiro execute a seguinte consulta e copie o valor da `ClusterId` Propriedade:
 
@@ -292,8 +292,8 @@ Esta seção percorre a criação de uma regra de alerta de medição de métric
 9. Configure o alerta da seguinte maneira:
 
     1. Na lista suspensa **com base em** , selecione medição de **métrica**. Uma medida métrica cria um alerta para cada objeto na consulta que tem um valor acima do nosso limite especificado.
-    1. Para **condição**, selecione **maior que**e insira **75** como um **limite** de linha de base inicial para os alertas de utilização de CPU e memória. Para o alerta de pouco espaço em disco, insira **90**. Ou insira um valor diferente que atenda aos seus critérios.
-    1. No **alerta de gatilho com base na** seção, selecione **violações consecutivas**. Na lista suspensa, selecione **maior que**e digite **2**.
+    1. Para **condição**, selecione **maior que** e insira **75** como um **limite** de linha de base inicial para os alertas de utilização de CPU e memória. Para o alerta de pouco espaço em disco, insira **90**. Ou insira um valor diferente que atenda aos seus critérios.
+    1. No **alerta de gatilho com base na** seção, selecione **violações consecutivas**. Na lista suspensa, selecione **maior que** e digite **2**.
     1. Para configurar um alerta para utilização de CPU ou memória de contêiner, em **agregar em**, selecione **ContainerName**. Para configurar o alerta de baixo disco do nó do cluster, selecione **clusterid**.
     1. Na seção **avaliado com base em** , defina o valor do **período** como **60 minutos**. A regra será executada a cada 5 minutos e retornará os registros que foram criados na última hora a partir da hora atual. Definir o período de tempo para uma ampla janela de contas para uma possível latência de dados. Ele também garante que a consulta retorne dados para evitar um falso negativo no qual o alerta nunca é acionado.
 

@@ -7,12 +7,12 @@ ms.topic: include
 ms.author: trbye
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 83e2c0486c193608739b78665d9dbbc3a52afc9e
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 0cbe7e1aa5657de45f304dcec6df2a957ce47b5a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470883"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948397"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -46,14 +46,14 @@ Antes de inicializar um objeto `IntentRecognizer`, é preciso criar uma configur
 Insira esse código no método `RecognizeIntentAsync()`. Atualize estes valores:
 
 * Substitua `"YourLanguageUnderstandingSubscriptionKey"` pela sua chave de previsão do LUIS.
-* Substitua `"YourLanguageUnderstandingServiceRegion"` pelo seu local do LUIS. Use **identificador de região** da [região](https://aka.ms/speech/sdkregion).
+* Substitua `"YourLanguageUnderstandingServiceRegion"` pelo seu local do LUIS. Use **identificador de região** da [região](../../../../regions.md).
 
 >[!TIP]
 > Se precisar de ajuda para encontrar esses valores, confira [Criar um aplicativo LUIS para reconhecimento de intenção](#create-a-luis-app-for-intent-recognition).
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=26)]
 
-Esta amostra usa o método `FromSubscription()` para criar o `SpeechConfig`. Para ver uma lista completa dos métodos disponíveis, confira a [Classe SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true).
+Esta amostra usa o método `FromSubscription()` para criar o `SpeechConfig`. Para ver uma lista completa dos métodos disponíveis, confira a [Classe SpeechConfig](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig).
 
 O SDK de Fala usará como padrão o reconhecimento do uso de en-us como o idioma; confira [Especificar o idioma de origem para conversão de fala em texto](../../../../how-to-specify-source-language.md) para obter informações sobre como escolher o idioma de origem.
 
@@ -73,6 +73,13 @@ Você precisa associar um `LanguageUnderstandingModel` ao reconhecedor de inten�
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=33-35)]
 
 Este exemplo usa a função `AddIntent()` para adicionar intenções individualmente. Se você quiser adicionar todas as intenções de um modelo, use `AddAllIntents(model)` e passe o modelo. 
+
+> [!NOTE]
+> O SDK de Fala é compatível somente com os pontos de extremidade do LUIS v2.0.
+> Você deve modificar manualmente a URL do ponto de extremidade v3.0 encontrada no campo de consulta de exemplo a fim de usar um padrão de URL v2.0.
+> Os pontos de extremidade do LUIS v2.0 sempre seguem um destes dois padrões:
+> * `https://{AzureResourceName}.cognitiveservices.azure.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
+> * `https://{Region}.api.cognitive.microsoft.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
 
 ## <a name="recognize-an-intent"></a>Reconhecer uma intenção
 
@@ -103,9 +110,9 @@ Neste momento, seu código deverá ter a seguinte aparência:
 
 Agora está tudo pronto para você compilar o aplicativo e testar o reconhecimento de fala usando o serviço de fala.
 
-1. **Compilar o código** : na barra de menus do Visual Studio, escolha **Compilar** > **Compilar Solução** .
-2. **Iniciar o aplicativo** : na barra de menus, escolha **Depurar** > **Iniciar Depuração** ou pressione <kbd>F5</kbd>.
-3. **Iniciar o reconhecimento** : ele solicitará que você fale uma frase em inglês. Sua fala é enviada ao Serviço de Fala, transcrita como texto e renderizada no console.
+1. **Compilar o código**: na barra de menus do Visual Studio, escolha **Compilar** > **Compilar Solução**.
+2. **Iniciar o aplicativo**: na barra de menus, escolha **Depurar** > **Iniciar Depuração** ou pressione <kbd>F5</kbd>.
+3. **Iniciar o reconhecimento**: ele solicitará que você fale uma frase em inglês. Sua fala é enviada ao Serviço de Fala, transcrita como texto e renderizada no console.
 
 ## <a name="next-steps"></a>Próximas etapas
 

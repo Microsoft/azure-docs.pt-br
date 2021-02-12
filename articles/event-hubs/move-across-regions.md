@@ -4,11 +4,11 @@ description: Este artigo mostra como mover um namespace de hubs de eventos do Az
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.openlocfilehash: b177c3916919e3d97325f9d8c6b6027c00cb476f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89375186"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019915"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Mover um namespace de hubs de eventos do Azure para outra região
 Este artigo mostra como exportar um modelo de Azure Resource Manager para um namespace de hubs de eventos existente e, em seguida, usar o modelo para criar um namespace com as mesmas definições de configuração em outra região. No entanto, esse processo não move eventos que ainda não foram processados. Você precisa processar os eventos do namespace original antes de excluí-lo.
@@ -26,7 +26,7 @@ Para começar, exporte um modelo do Resource Manager. Este modelo contém config
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 2. Selecione **todos os recursos** e, em seguida, selecione seu namespace de hubs de eventos.
-3. Selecione **configurações**de >  >  **modelo de exportação**.
+3. Selecione **configurações** de >  >  **modelo de exportação**.
 4. Escolha **baixar** na página **Exportar modelo** .
 
     ![Baixar modelo do Resource Manager](./media/move-across-regions/download-template.png)
@@ -41,13 +41,13 @@ Implante o modelo para criar um namespace de hubs de eventos na região de desti
 
 
 1. Na portal do Azure, selecione **criar um recurso**.
-2. Em **Pesquisar no Marketplace**, digite **implantação de modelo**e selecione **implantação de modelo (implantar usando modelos personalizados)**.
+2. Em **Pesquisar no Marketplace**, digite **implantação de modelo** e selecione **implantação de modelo (implantar usando modelos personalizados)**.
 5. Selecione **Criar seu próprio modelo no editor**.
-6. Selecione **carregar arquivo**e siga as instruções para carregar o **template.jsno** arquivo que você baixou na última seção.
+6. Selecione **carregar arquivo** e siga as instruções para carregar o **template.jsno** arquivo que você baixou na última seção.
 1. Atualize o valor da `location` propriedade para apontar para a nova região. Para obter códigos de localização, consulte [locais do Azure](https://azure.microsoft.com/global-infrastructure/locations/). O código de uma região é o nome da região sem espaços, por exemplo, `West US` é igual a `westus` .
 1. Selecione **salvar** para salvar o modelo. 
 1. Na página **implantação personalizada** , siga estas etapas: 
-    1. Selecione uma **assinatura**do Azure. 
+    1. Selecione uma **assinatura** do Azure. 
     2. Selecione um **grupo de recursos** existente ou crie um. Se o namespace de origem estava em um cluster de hubs de eventos, selecione o grupo de recursos que contém o cluster na região de destino. 
     3. Selecione o **local** ou a região de destino. Se você selecionou um grupo de recursos existente, essa configuração será somente leitura. 
     4. Na seção **configurações** , execute as seguintes etapas:    
@@ -68,17 +68,17 @@ Implante o modelo para criar um namespace de hubs de eventos na região de desti
     1. Na página **revisar + criar** , examine as configurações e, em seguida, selecione **criar**.   
 
 ## <a name="discard-or-clean-up"></a>Descartar ou limpar
-Após a implantação, se você quiser começar novamente, poderá excluir o namespace de **hubs de eventos de destino**e repetir as etapas descritas nas seções [preparar](#prepare) e [mover](#move) deste artigo.
+Após a implantação, se você quiser começar novamente, poderá excluir o namespace de **hubs de eventos de destino** e repetir as etapas descritas nas seções [preparar](#prepare) e [mover](#move) deste artigo.
 
 Para confirmar as alterações e concluir a movimentação de um namespace de hubs de eventos, exclua o **namespace de hubs de eventos** na região original. Certifique-se de que você processou todos os eventos no namespace antes de excluir o namespace. 
 
 Para excluir um namespace de hubs de eventos (origem ou destino) usando o portal do Azure:
 
-1. Na janela de pesquisa na parte superior de portal do Azure, digite **hubs de eventos**e selecione **hubs de eventos** nos resultados da pesquisa. Você vê os namespaces dos hubs de eventos em uma lista.
+1. Na janela de pesquisa na parte superior de portal do Azure, digite **hubs de eventos** e selecione **hubs de eventos** nos resultados da pesquisa. Você vê os namespaces dos hubs de eventos em uma lista.
 2. Selecione o namespace de destino a ser excluído e selecione **excluir** na barra de ferramentas. 
 
     ![Excluir namespace-botão](./media/move-across-regions/delete-namespace-button.png)
-3. Na página **excluir namespace** , confirme a exclusão digitando o **nome do namespace**e, em seguida, selecione **excluir**. 
+3. Na página **excluir namespace** , confirme a exclusão digitando o **nome do namespace** e, em seguida, selecione **excluir**. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

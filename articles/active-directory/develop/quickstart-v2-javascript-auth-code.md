@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 45a6843c5ce55dca7ff72731752f3c1f24a5db6b
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 98110723063ee2a2c9deb75fc931655e18e5bc95
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216650"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938058"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Início Rápido: Conectar usuários e obter um token de acesso em um SPA JavaScript usando o fluxo de código de autenticação
 
-Neste início rápido, você aprenderá a executar um exemplo de código que demonstra como um SPA (aplicativo de página única) JavaScript pode conectar usuários de contas pessoais, contas corporativas e de estudante usando o fluxo de código de autorização. O exemplo de código também demonstra como obter um token de acesso para chamar uma API Web, nesse caso, a API do Microsoft Graph. Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.
+Neste guia de início rápido, você baixará e executará um exemplo de código que demonstra como um SPA (aplicativo de página única) JavaScript pode conectar usuários e chamar o Microsoft Graph usando o fluxo de código de autorização. O exemplo de código demonstra como obter um token de acesso para chamar a API do Microsoft Graph ou qualquer API Web. 
+
+Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.
 
 Este início rápido usa o MSAL.js 2.0 com o fluxo de código de autorização. Para ver um início rápido semelhante que usa o MSAL.js 1.0 com o fluxo implícito, confira [Início rápido: Conectar usuários em aplicativos de página única JavaScript](./quickstart-v2-javascript.md).
 
@@ -37,9 +39,7 @@ Este início rápido usa o MSAL.js 2.0 com o fluxo de código de autorização. 
 >
 > ### <a name="option-1-express-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1 (Expresso): Registrar e configurar o aplicativo automaticamente e, em seguida, baixar seu exemplo de código
 >
-> 1. Entre no [portal do Azure](https://portal.azure.com).
-> 1. Se sua conta fornecer acesso a mais de um locatário, selecione a conta na parte superior direita e defina sua sessão do portal para o locatário do Azure Active Directory que deseja usar.
-> 1. Selecione [Registros do Aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs).
+> 1. Acesse o <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">portal do Azure – Registros de aplicativo<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 > 1. Insira um nome para seu aplicativo.
 > 1. Em **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft**.
 > 1. Selecione **Registrar**.
@@ -49,21 +49,21 @@ Este início rápido usa o MSAL.js 2.0 com o fluxo de código de autorização. 
 >
 > #### <a name="step-1-register-your-application"></a>Etapa 1: Registre seu aplicativo
 >
-> 1. Entre no [portal do Azure](https://portal.azure.com).
-> 1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta na parte superior direita e defina sua sessão do portal para o locatário Azure AD que deseja usar.
-> 1. Selecione [Registros do Aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908).
-> 1. Selecione **Novo registro**.
-> 1. Quando a página **Registrar um aplicativo** aparecer, insira um nome para o seu aplicativo.
+> 1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
+> 1. Pesquise **Azure Active Directory** e selecione-o.
+> 1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
+> 1. Insira um **Nome** para seu aplicativo. Os usuários do seu aplicativo podem ver esse nome e você pode alterá-lo mais tarde.
 > 1. Em **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft**.
 > 1. Selecione **Registrar**. Na página **Visão geral** do aplicativo, anote o valor de **ID do aplicativo (cliente)** para uso posterior.
-> 1. No painel esquerdo do aplicativo registrado, selecione **Autenticação**.
+> 1. Em **Gerenciar**, selecione **Autenticação**.
 > 1. Em **Configurações da plataforma**, selecione **Adicionar uma plataforma**. No painel que é aberto, selecione **Aplicativo de página única**.
 > 1. Defina o valor do **URI de Redirecionamento** como `http://localhost:3000/`.
 > 1. Selecione **Configurar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Etapa 1: Configurar seu aplicativo no portal do Azure
-> Para tornar o exemplo de código neste trabalho de início rápido, você precisa adicionar um `redirectUri` como `http://localhost:3000/`.
+> O código de exemplo deste guia de início rápido exige um **URI de redirecionamento** igual a `http://localhost:3000/`.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer essas alterações para mim]()
 >
@@ -200,4 +200,4 @@ npm install @azure/msal-browser
 Para obter um guia passo a passo mais detalhado sobre como criar o aplicativo usado neste início rápido, confira o seguinte tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial para entrar no MS Graph e chamá-lo >](./tutorial-v2-javascript-auth-code.md)
+> [Tutorial para entrar e chamar o MS Graph](./tutorial-v2-javascript-auth-code.md)

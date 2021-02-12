@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 981697211cf8ee0aff1ac0e3d0db6000c1089c00
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 801c2fe1710952a12584bf10dd8e5c77de3b839c
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896842"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625091"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutorial: Criar um localizador de lojas usando o Azure Mapas
 
@@ -76,18 +76,18 @@ Você pode [baixar a pasta de trabalho do Excel](https://github.com/Azure-Sample
 
 Observando a captura de tela dos dados, podemos fazer as seguintes observações:
 
-* As informações de lugar são armazenadas usando as colunas **AddressLine** , **City** , **Municipality** (região), **AdminDivision** (estado/província), **PostCode** (CEP) e **Country** .  
+* As informações de lugar são armazenadas usando as colunas **AddressLine**, **City**, **Municipality** (região), **AdminDivision** (estado/província), **PostCode** (CEP) e **Country**.  
 * As colunas **Latitude** e **Longitude** contêm as coordenadas de cada loja da Contoso Coffee. Se você não tiver informações sobre as coordenadas, poderá usar os serviços de pesquisa do Azure Mapas para determinar as coordenadas de lugar.
 * Algumas colunas adicionais contêm metadados relacionados às cafeterias: um número de telefone, colunas de boolianos e horários de abertura e fechamento no formato de 24 horas. As colunas de boolianos referem-se à acessibilidade a cadeira de rodas e Wi-Fi. Você pode criar suas próprias colunas com os metadados mais relevantes para seus dados de localização.
 
 > [!NOTE]
-> O Azure Mapas processa dados na projeção Mercator esférica "EPSG:3857", mas lê os dados em "EPSG:4325" que usam a datum WGS84.
+> O Azure Mapas renderiza dados na projeção Mercator esférica "EPSG:3857", mas lê os dados em "EPSG:4326", que usa a datum WGS84.
 
 Há muitas maneiras de expor o conjunto de dados ao aplicativo. Uma abordagem é carregar os dados em um banco de dados e expor um serviço Web que consulta os dados. Em seguida, você poderá enviar os resultados ao navegador do usuário. Essa opção é ideal para grandes conjuntos de dados ou para conjuntos de dados que são atualizados com frequência. No entanto, essa opção exige mais trabalho de desenvolvimento e tem um custo mais alto.
 
 Outra abordagem é converter esse conjunto de dados em um arquivo de texto simples que o navegador possa analisar com facilidade. O arquivo em si pode ser hospedado com o resto do aplicativo. Essa opção mantém as coisas simples, mas só é uma boa opção para conjuntos de dados menores, pois o usuário baixa todos os dados. Usamos o arquivo de texto simples para este conjunto de dados porque o arquivo de dados tem menos de 1 MB.  
 
-Para converter a pasta de trabalho em um arquivo de texto simples, salve a pasta de trabalho como um arquivo delimitado por tabulação. Cada coluna é delimitada por um caractere de tabulação, o que facilita a análise das colunas em nosso código. Você pode usar o formato CSV (valores delimitados por vírgula), mas essa opção requer mais lógica de análise. Qualquer campo abrangido por vírgula seria encapsulado com aspas. Para exportar esses dados como um arquivo delimitado por tabulação no Excel, selecione **Salvar como** . Na lista suspensa **Salvar como tipo** , selecione **Texto (delimitado por tabulação)(*.txt)** . Nomeie o arquivo *ContosoCoffee.txt* .
+Para converter a pasta de trabalho em um arquivo de texto simples, salve a pasta de trabalho como um arquivo delimitado por tabulação. Cada coluna é delimitada por um caractere de tabulação, o que facilita a análise das colunas em nosso código. Você pode usar o formato CSV (valores delimitados por vírgula), mas essa opção requer mais lógica de análise. Qualquer campo abrangido por vírgula seria encapsulado com aspas. Para exportar esses dados como um arquivo delimitado por tabulação no Excel, selecione **Salvar como**. Na lista suspensa **Salvar como tipo**, selecione **Texto (delimitado por tabulação)(*.txt)** . Nomeie o arquivo *ContosoCoffee.txt*.
 
 ![Captura de tela da caixa de diálogo Salvar como tipo](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)
 
@@ -97,15 +97,15 @@ Se você abrir o arquivo de texto no Bloco de Notas, ele será mais ou menos ass
 
 ## <a name="set-up-the-project"></a>Configurar o projeto
 
-Para criar o projeto, você pode usar o [Visual Studio](https://visualstudio.microsoft.com) ou o editor de código de sua preferência. Na pasta do projeto, crie três arquivos: *index.html* , *CSS* e *index.js* . Esses arquivos definem o layout, o estilo e a lógica do aplicativo. Crie uma pasta chamada *data* e adicione *ContosoCoffee.txt* à pasta. Crie outra pasta chamada *images* . Usamos 10 imagens neste aplicativo para ícones, botões e marcadores no mapa. Você pode [baixar estas imagens](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). A pasta do projeto agora deve ficar mais ou menos assim:
+Para criar o projeto, você pode usar o [Visual Studio](https://visualstudio.microsoft.com) ou o editor de código de sua preferência. Na pasta do projeto, crie três arquivos: *index.html*, *CSS* e *index.js*. Esses arquivos definem o layout, o estilo e a lógica do aplicativo. Crie uma pasta chamada *data* e adicione *ContosoCoffee.txt* à pasta. Crie outra pasta chamada *images*. Usamos 10 imagens neste aplicativo para ícones, botões e marcadores no mapa. Você pode [baixar estas imagens](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). A pasta do projeto agora deve ficar mais ou menos assim:
 
 ![Captura de tela da pasta do projeto Simple Store Locator](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)
 
 ## <a name="create-the-user-interface"></a>Criar a interface do usuário
 
-Para criar a interface do usuário, adicione código ao *index.html* :
+Para criar a interface do usuário, adicione código ao *index.html*:
 
-1. Adicione as seguintes marcas `meta` ao `head` de *index.html* . A marca `charset` define o conjunto de caracteres (UTF-8). O valor `http-equiv` instrui o Internet Explorer e o Microsoft Edge a usar as últimas versões do navegador. A última marca `meta` especifica um visor que funciona bem para layouts dinâmicos.
+1. Adicione as seguintes marcas `meta` ao `head` de *index.html*. A marca `charset` define o conjunto de caracteres (UTF-8). O valor `http-equiv` instrui o Internet Explorer e o Microsoft Edge a usar as últimas versões do navegador. A última marca `meta` especifica um visor que funciona bem para layouts dinâmicos.
 
     ```HTML
     <meta charset="utf-8">
@@ -126,7 +126,7 @@ Para criar a interface do usuário, adicione código ao *index.html* :
     <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
     ```
 
-1. Adicione referências para *index.js* e *index.css* :
+1. Adicione referências para *index.js* e *index.css*:
 
     ```HTML
     <link rel="stylesheet" href="index.css" type="text/css">
@@ -385,7 +385,7 @@ Tudo agora está configurado na interface do usuário. Ainda precisamos adiciona
     var map, popup, datasource, iconLayer, centerMarker, searchURL;
     ```
 
-1. Adicione código ao *index.js* . O código a seguir inicializa o mapa. Adicionamos um [ouvinte de eventos](/javascript/api/azure-maps-control/atlas.map#events) para aguardar até que a página termine de ser carregada. Em seguida, conectamos eventos para monitorar o carregamento do mapa e fornecemos funcionalidade aos botões Pesquisar e Minha localização.
+1. Adicione código ao *index.js*. O código a seguir inicializa o mapa. Adicionamos um [ouvinte de eventos](/javascript/api/azure-maps-control/atlas.map#events) para aguardar até que a página termine de ser carregada. Em seguida, conectamos eventos para monitorar o carregamento do mapa e fornecemos funcionalidade aos botões Pesquisar e Minha localização.
 
    Quando o usuário seleciona o botão de pesquisa ou digita uma localização na caixa de pesquisa e, em seguida, seleciona ENTER, uma pesquisa difusa é iniciada na consulta do usuário. Transmita uma matriz de valores de país/região ISO 2 para a opção `countrySet` a fim de limitar os resultados da pesquisa a esses países/regiões. Limitar os países/regiões a serem pesquisados ajuda a aumentar a precisão dos resultados retornados. 
   
@@ -432,7 +432,7 @@ Tudo agora está configurado na interface do usuário. Ainda precisamos adiciona
             }
         };
 
-        //If the user selects the My Location button, use the Geolocation API to get the user's location. Center and zoom the map on that location.
+        //If the user selects the My Location button, use the Geolocation API (Preview) to get the user's location. Center and zoom the map on that location.
         document.getElementById('myLocationBtn').onclick = setMapToUserLocation;
 
         //Wait until the map resources are ready.
@@ -472,7 +472,7 @@ Tudo agora está configurado na interface do usuário. Ainda precisamos adiciona
     function setMapToUserLocation() {
         //Request the user's location.
         navigator.geolocation.getCurrentPosition(function(position) {
-            //Convert the Geolocation API position to a longitude and latitude position value that the map can interpret and center the map over it.
+            //Convert the Geolocation API (Preview) position to a longitude and latitude position value that the map can interpret and center the map over it.
             map.setCamera({
                 center: [position.coords.longitude, position.coords.latitude],
                 zoom: maxClusterZoomLevel + 1
@@ -935,6 +935,10 @@ Neste tutorial, você aprendeu a criar um localizador de lojas básico usando o 
  * Armazene seus dados em um banco de dados e pesquise lugares mais próximos. Para obter mais informações, consulte a [Visão geral de tipos de dados espaciais do SQL Server](/sql/relational-databases/spatial/spatial-data-types-overview?preserve-view=true&view=sql-server-2017) e [Consultar dados espaciais sobre o vizinho mais próximo](/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?preserve-view=true&view=sql-server-2017).
 
 Você pode [Exibir o código-fonte completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator), [Exibir exemplo ao vivo](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator) e saber mais sobre a cobertura e as funcionalidades do Azure Mapas usando [Níveis de zoom e grade de blocos](zoom-levels-and-tile-grid.md). Você também pode [Usar expressões de estilo controladas por dados](data-driven-style-expressions-web-sdk.md) para aplicar à sua lógica de negócios.
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Não há recursos que exijam limpeza.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,157 +1,188 @@
 ---
-title: O Azure Service Fabric hospedando o ciclo de vida de ativação e desativação
-description: Explica o ciclo de vida do aplicativo e do pacote de pacotes em um nó
+title: Ciclo de vida de ativação e desativação do Azure Service Fabric hospedando
+description: Saiba mais sobre o ciclo de vida de um aplicativo e um pacote de pacotes em um nó.
 author: tugup
 ms.topic: conceptual
-ms.date: 05/1/2020
+ms.date: 05/01/2020
 ms.author: tugup
-ms.openlocfilehash: a39aecf16d1c3303c0a590b389ba2aa69d4472f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8585d0b39e4a4ef9cf77f40ea878ddb47bcb0de
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87405119"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831815"
 ---
-# <a name="azure-service-fabric-hosting-lifecycle"></a>Ciclo de vida de hospedagem Service Fabric do Azure
-Este artigo fornece uma visão geral dos eventos que ocorrem quando um aplicativo é ativado em um nó e várias configurações de cluster usadas para controlar o comportamento.
+# <a name="azure-service-fabric-hosting-life-cycle"></a>Ciclo de vida de hospedagem do Azure Service Fabric
 
-Antes de continuar, certifique-se de compreender os vários conceitos e relacionamentos explicados em [Modelar um aplicativo no Service Fabric][a1]. 
+Este artigo fornece uma visão geral dos eventos que ocorrem no Azure Service Fabric quando um aplicativo é ativado em um nó. Ele explica várias configurações de cluster que controlam o comportamento.
+
+Antes de continuar, certifique-se de entender os conceitos e as relações explicados em [modelar um aplicativo no Service Fabric][a1]. 
 
 > [!NOTE]
-> Neste artigo, a menos que seja explicitamente mencionado como significando algo diferente:
+> Este artigo usa algumas terminologias de maneiras especializadas. Salvo indicação em contrário:
 >
-> - A *réplica* refere-se a uma réplica de um serviço com estado e uma instância de um serviço sem estado.
-> - *CodePackage* é tratado como equivalente a um processo de *ServiceHost* que registra um *ServiceType*e hospeda réplicas de serviços desse *ServiceType*.
+> - *Réplica* refere-se tanto a uma réplica de um serviço com estado como a uma instância de um serviço sem estado.
+> - *CodePackage* é tratado como equivalente a um processo de ServiceHost que registra um ServiceType. Ele hospeda réplicas de serviços do ServiceType.
 >
 
-## <a name="activation-of-applicationservicepackage"></a>Ativação do aplicativo/pacote de pacotes
+## <a name="activate-an-applicationpackage-or-servicepackage"></a>Ativar um ApplicationPackage ou um pacote de pacotes
 
-O pipeline para ativação é o seguinte:
+Para ativar um ApplicationPackage ou um pacote de pacotes:
 
-1. Baixe o ApplicationPackage. Por exemplo: ApplicationManifest.xml etc.
-2. Configurar o ambiente para o aplicativo para ex: criar usuários etc.
-3. Iniciar o rastreamento de aplicativo para desativação.
-4. Baixe o pacote de pacotes. Por exemplo: ServiceManifest.xml, código, config, pacotes de dados etc.
-5. Configurar o ambiente do pacote de serviço para ex: instalar o firewall, alocar portas para pontos de extremidade, etc.
-6. Comece a controlar o pacote de pacotes para desativação.
-7. Inicie o SetupEntryPoint de CodePackages e aguarde a conclusão.
-8. Iniciar MainEntryPoint de CodePackages.
+1. Baixe o ApplicationPackage (por exemplo, *ApplicationManifest.xml*).
+2. Configure um ambiente para o aplicativo. As etapas incluem, por exemplo, a criação de usuários.
+3. Comece a controlar o aplicativo para desativação.
+4. Baixe o arquivo de pacote (por exemplo, *ServiceManifest.xml*, código, arquivos de configuração e pacotes de dados).
+5. Configure um ambiente para o pacote de pacotes. As etapas incluem, por exemplo, a configuração de um firewall e a alocação de portas para pontos de extremidade.
+6. Inicie o rastreamento do pacote de pacotes para desativação.
+7. Inicie o SetupEntryPoint para o CodePackages e aguarde a conclusão.
+8. Inicie o MainEntryPoint para o CodePackages.
 
 ### <a name="servicetype-blocklisting"></a>Inclusão na lista do ServiceType
-**ServiceTypeDisableFailureThreshold** determina o número de falhas (ativação, download, falhas de CodePackage) após o qual o ServiceType está agendado para o inclusão na lista. Portanto, a primeira falha de ativação/download, ou falha CodePackage, deve disparar a agenda do ServiceType inclusão na lista. A configuração **ServiceTypeDisableGraceInterval** determina o intervalo de carência após o qual ServiceType é finalmente marcado como incluídos nesse nó. Observe que, para que isso aconteça, a reinicialização de ativação/download/CodePackage ainda deve estar no modo de repetição interno e sendo acompanhado pelo subsistema de hospedagem. Tentar novamente, significa, por exemplo: CodePackage será agendado para iniciar novamente após a falha, ou Service Fabric tentará baixar pacotes novamente.
-Depois de incluídos, você deverá ver um erro "System. Hosting" relatado para a propriedade ' ServiceTypeRegistration: ServiceType '. O ServiceType foi desabilitado no nó. "
+`ServiceTypeDisableFailureThreshold` determina o número de falhas de ativação, download e CodePackage permitidas. Depois que o limite for atingido, o ServiceType será agendado para inclusão na lista. A primeira falha de ativação, falha de download ou falha de CodePackage agenda o ServiceType inclusão na lista. 
 
-O ServiceType será habilitado novamente no nó 
-- Se a operação de ativação for realizada com êxito ou atingir **ActivationMaxFailureCount** repetições após a falha.
-- Se a operação de download for realizada com êxito ou atingir **DeploymentMaxFailureCount** repetições após a falha.
-- Se um CodePackage que tenha falhado iniciar o backup e registrar o ServiceType com êxito.
+A `ServiceTypeDisableGraceInterval` configuração determina o intervalo de carência antes que ServiceType seja incluídos no nó. À medida que esse processo é reproduzido, a ativação, o download e a reinicialização do CodePackage são repetidas em paralelo. Tentar novamente significa, por exemplo, que o CodePackage está agendado para iniciar novamente após a falha ou Service Fabric tentará baixar pacotes novamente.
 
-O motivo para habilitar o ServiceType novamente após **ActivationMaxFailureCount** / **DeploymentMaxFailureCount** repetições é o máximo de tentativas Service Fabric será executado para ativar/baixar um aplicativo em um nó. Se não for bem sucedido, a operação atual não será repetida e, como Service Fabric deseja dar ao serviço outra oportunidade de ativação, o que pode ser bem sucedido, resultando na renovação automática do problema, ele está vinculado ao ciclo de vida da operação de ativação/download. Uma nova operação de ativação/download disparada pelo posicionamento de uma réplica pode disparar o ServiceType inclusão na lista novamente ou pode ter sucesso.
+Quando ServiceType for incluídos, você verá um erro de integridade: `'System.Hosting' reported Error for property 'ServiceTypeRegistration:ServiceType'. The ServiceType was disabled on the node.`
+
+O ServiceType será habilitado novamente no nó se ocorrer algum dos seguintes eventos:
+- Ativação realizada com sucesso. Ou, se falhar, atingirá o `ActivationMaxFailureCount` número máximo de tentativas.
+- O download é executado com sucesso. Ou, se falhar, atingirá o `DeploymentMaxFailureCount` número máximo de tentativas.
+- Um CodePackage que falhou inicia e registra com êxito o ServiceType.
+
+`ActivationMaxFailureCount` e `DeploymentMaxFailureCount` são o número máximo de tentativas que Service Fabric fará para ativar ou baixar um aplicativo em um nó. Depois que o máximo for atingido, Service Fabric habilitará o ServiceType para ativação novamente. 
+
+Esses limites dão ao serviço outra oportunidade de ativação. Se a ativação for realizada com sucesso, o problema será automaticamente reparado. 
+
+Uma réplica colocada ou ativada recentemente pode disparar uma nova operação de ativação ou de download. Essa ação terá sucesso ou disparará o ServiceType inclusão na lista novamente.
 
 > [!NOTE]
-> Se seu CodePackage que não registra um ServiceType estiver falhando, ele não afetará o ServiceType. Somente o CodePackage que hospeda uma falha de réplica afetará o ServiceType.
+> Um CodePackage de falha que não registra um ServiceType não afeta o ServiceType. Somente um CodePackage de falha que hospeda uma réplica afeta o ServiceType.
 >
 
 ### <a name="codepackage-crash"></a>Falha de CodePackage
-Quando uma falha CodePackage, o Service Fabric usa um back-off para iniciá-lo novamente e o back-off é independente de o pacote de códigos ter registrado um tipo conosco ou não.
+Quando um CodePackage falha, o Service Fabric usa uma retirada para iniciá-lo novamente. A retirada é aplicada independentemente de o CodePackage ter registrado um tipo com o tempo de execução Service Fabric.
 
-O valor de retirada sempre é mín. (RetryTime, **ActivationMaxRetryInterval**) e esse valor pode ser constante, linear ou exponencial com base na configuração de **ActivationRetryBackoffExponentiationBase** .
+O valor de retirada é `Min(RetryTime, ActivationMaxRetryInterval)` . O valor é incrementado em valores constantes, lineares ou exponenciais com base na `ActivationRetryBackoffExponentiationBase` definição de configuração:
 
-- Constante: se **ActivationRetryBackoffExponentiationBase** = = 0, tente novamente = **ActivationRetryBackoffInterval**;
-- Linear: se  **ActivationRetryBackoffExponentiationBase** = = 0, tente novamente = ContinuousFailureCount * **ActivationRetryBackoffInterval** , em que ContinousFailureCount é o número de vezes que um CodePackage falha ou falha ao ser ativado.
-- Exponencial: RetryTime = (**ActivationRetryBackoffInterval** em segundos) * (**ActivationRetryBackoffExponentiationBase** ^ ContinuousFailureCount);
+- **Constante**: se `ActivationRetryBackoffExponentiationBase == 0` , então `RetryTime = ActivationRetryBackoffInterval` .
+- **Linear**: se  `ActivationRetryBackoffExponentiationBase == 0` , em `RetryTime = ContinuousFailureCount ActivationRetryBackoffInterval` que `ContinuousFailureCount` é o número de vezes que um CodePackage falha ou falha ao ser ativado.
+- **Exponencial**: `RetryTime = (ActivationRetryBackoffInterval in seconds) * (ActivationRetryBackoffExponentiationBase ^ ContinuousFailureCount)` .
     
-Você pode controlar o comportamento conforme desejar, como reinícios rápidos. Vamos falar sobre linear. Isso significa que, se um CodePackage falhar, o intervalo de início será após 10, 20, 30 40 s até que o CodePackage seja desativado. 
+Você pode controlar o comportamento alterando os valores. Por exemplo, se você quiser várias tentativas de reinicialização rápida, poderá usar valores lineares definindo `ActivationRetryBackoffExponentiationBase` como `0` e definindo `ActivationRetryBackoffInterval` como `10` . Portanto, se um CodePackage falhar, o intervalo de início será após 10 segundos. Se o pacote continuar a falhar, a retirada mudará para 20 segundos, 30 segundos, 40 segundos e assim por diante, até que a ativação do CodePackage tenha sucesso ou o CodePackage seja desativado. 
     
-A quantidade máxima de tempo Service Fabric faz logoff (espera) depois que uma falha é regida pelo **ActivationMaxRetryInterval**
+A quantidade máxima de tempo que Service Fabric faz logoff (ou seja, espera) depois que uma falha é regida pelo `ActivationMaxRetryInterval` .
     
-Se o CodePackage falhar e voltar, ele precisará permanecer ativo para que o **CodePackageContinuousExitFailureResetInterval** para Service Fabric a considerar como íntegro em que ponto ele substituirá o relatório de integridade como OK e redefinirá o ContinousFailureCount.
+Se o CodePackage falhar e voltar, ele precisará permanecer ativo para o período de tempo especificado pelo `CodePackageContinuousExitFailureResetInterval` . Após esse intervalo, Service Fabric considera o CodePackage íntegro. Em seguida, Service Fabric substitui o relatório de integridade de erro anterior como OK e redefine o `ContinuousFailureCount` .
 
 ### <a name="codepackage-not-registering-servicetype"></a>CodePackage não registrando ServiceType
-Se um CodePackage permanecer vivo e for esperado registrar um ServiceType conosco, mas nunca faz isso, nesse caso Service Fabric gerará um aviso HealthReport depois de **ServiceTypeRegistrationTimeout** dizer que ServiceType não está sendo configurado dentro do tempo limite.
+Se um CodePackage permanecer ativo e for esperado registrar um ServiceType, mas não o Service Fabric gerará um relatório de integridade de aviso após o `ServiceTypeRegistrationTimeout` . O relatório indica que o ServiceType não foi registrado dentro do período de tempo esperado.
 
 ### <a name="activation-failure"></a>Falha na ativação
-Service Fabric sempre usa uma retirada linear (igual à falha CodePackage) quando encontra um erro durante a ativação. Isso significa que a operação de ativação será exibida após (0 + 10 + 20 + 30 + 40) = 100 s (primeira tentativa é imediata). Depois que essa ativação não for repetida.
+Quando Service Fabric encontra um erro durante a ativação, ele sempre usa uma retirada linear, como faz com uma falha de CodePackage. A operação de ativação é exibida após novas tentativas nestes intervalos: (0 + 10 + 20 + 30 + 40) = 100 segundos. (A primeira tentativa é imediata.) Após essa sequência, a ativação não é repetida.
     
-A retirada de ativação máxima pode ser **ActivationMaxRetryIntervalda** e tentar novamente **ActivationMaxFailureCount**.
+A retirada de ativação máxima pode ser `ActivationMaxRetryInterval` . A repetição pode ser `ActivationMaxFailureCount` .
 
 ### <a name="download-failure"></a>Falha no download
-Service Fabric sempre usa um retirada linear quando encontra um erro durante o download. Isso significa que a operação de ativação será exibida após (0 + 10 + 20 + 30 + 40) = 100 s (primeira tentativa é imediata). Depois que esse download não for repetido. A retirada linear para download é igual a ContinuousFailureCount ***DeploymentRetryBackoffInterval** e pode ser retirada máxima para **DeploymentMaxRetryInterval**. Assim como as ativações, a operação de download pode tentar novamente por **ActivationMaxFailureCount**.
+Service Fabric sempre usa uma retirada linear quando encontra um erro durante um download. A operação de ativação é exibida após novas tentativas nestes intervalos: (0 + 10 + 20 + 30 + 40) = 100 segundos. (A primeira tentativa é imediata.) Após essa sequência, o download não será repetido. 
+
+A retirada linear para um download é igual a `ContinuousFailureCount`  *  `DeploymentRetryBackoffInterval` . A retirada máxima pode ser `DeploymentMaxRetryInterval` . Assim como as ativações, as operações de download podem tentar novamente o `ActivationMaxFailureCount` limite.
 
 > [!NOTE]
-> Antes de alterar as configurações, aqui estão alguns exemplos que você deve ter em mente.
-
-* Se o CodePackage continuar falhando e fizer o logoff, o ServiceType será desabilitado. Mas se a configuração de ativações for tal que ela tenha uma reinicialização rápida, o CodePackage poderá chegar algumas vezes antes de poder ver o desativação do ServiceType. Por exemplo: Suponha que seu CodePackage apareça, registra o ServiceType com Service Fabric e, em seguida, falha. Nesse caso, uma vez que a hospedagem recebe um registro de tipo, o período de **ServiceTypeDisableGraceInterval** é cancelado. E isso pode ser repetido até que o CodePackage faça o backup de um valor maior que  **ServiceTypeDisableGraceInterval** e, depois, o ServiceType será desabilitado no nó. Portanto, pode ser um pouco antes de o ServiceType estar desabilitado no nó.
-
-* No caso de ativações, quando Service Fabric sistema precisa posicionar uma réplica em um nó, a RA (ReconfigurationAgent) solicita que o subsistema de hospedagem ative o aplicativo e repete a solicitação de ativação a cada 15 segundos (**RAPMessageRetryInterval**). Para Service Fabric sistema saber que o ServiceType foi desabilitado, a operação de ativação na hospedagem precisa residir por um período mais longo do que o intervalo de repetição e **ServiceTypeDisableGraceInterval**. Por exemplo: Deixe que o cluster tenha as configurações **ActivationMaxFailureCount** definidas como 5 e **ActivationRetryBackoffInterval** definidas como 1 s. Isso significa que a operação de ativação será exibida após (0 + 1 + 2 + 3 + 4) = 10 s (primeira repetição é imediata) e, depois disso, a hospedagem será repetida. Nesse caso, a operação de ativação será concluída e não tentará novamente após 15 segundos. Isso aconteceu porque Service Fabric esgotou todas as repetições dentro de 15 segundos. Assim, todas as tentativas do ReconfigurationAgent criarão uma nova operação de ativação no subsistema de hospedagem e o padrão continuará repetindo e o ServiceType nunca será desabilitado no nó. Como o ServiceType não será desabilitado no nó, a FM (Failovermanager) do componente do sistema da it não moverá a réplica para um nó diferente.
+> Antes de alterar essas configurações, tenha em mente os seguintes exemplos:
+>
+>* Se o CodePackage continuar falhando e fazendo o backup, o ServiceType será desabilitado. Mas se a configuração de ativação tiver uma reinicialização rápida, o CodePackage poderá acabar algumas vezes antes que o ServiceType seja realmente incluídos. 
+>
+>    Por exemplo, digamos que seu CodePackage Venha, registra o ServiceType com Service Fabric e, em seguida, falha. Nesse caso, após a hospedagem receber um registro de tipo, o `ServiceTypeDisableGraceInterval` período será cancelado. Esse processo pode ser repetido até que seu CodePackage faça o logoff para um valor maior que o `ServiceTypeDisableGraceInterval` período. Em seguida, o ServiceType será incluídos no nó. O ServiceType inclusão na lista pode levar mais tempo do que o esperado.
+>
+>* No caso de ativações, quando um sistema de Service Fabric precisa posicionar uma réplica em um nó, o agente de reconfiguração solicita que o subsistema de hospedagem ative o aplicativo. Ele tenta novamente a solicitação de ativação a cada 15 segundos. (A duração é regida pela definição de `RAPMessageRetryInterval` configuração.) Service Fabric não pode saber que ServiceType foi incluídos, a menos que a operação de ativação na hospedagem esteja ativa por um período mais longo do que o intervalo de repetição e o `ServiceTypeDisableGraceInterval` . 
+>
+>    Por exemplo, suponha que o cluster `ActivationMaxFailureCount` está definido como 5 e `ActivationRetryBackoffInterval` está definido como 1 segundo. Nesse caso, a operação de ativação é exibida após intervalos de (0 + 1 + 2 + 3 + 4) = 10 segundos. (A primeira tentativa é imediata.) Após essa sequência, a hospedagem dará repetição. A operação de ativação é concluída e não tentará novamente após 15 segundos. 
+>
+>    Service Fabric esgotou todas as tentativas permitidas dentro de 15 segundos. Assim, cada repetição do agente de reconfiguração cria uma nova operação de ativação no subsistema de hospedagem e o padrão continua repetindo. Como resultado, o ServiceType nunca é incluídos no nó. Como o ServiceType não será incluídos no nó, a réplica não será movida e tentada em um nó diferente.
 > 
 
 ## <a name="deactivation"></a>Desativação
 
-Quando um pacote de pacotes é ativado em um nó, ele é acompanhado para desativação. O desativador é a entidade que controla a ti.
-O desativador funciona de duas maneiras:
+Quando um pacote de pacotes é ativado em um nó, ele é acompanhado para desativação. A desativação funciona de duas maneiras:
 
-1.  Periodicamente: a cada **DeactivationScanInterval**, ele verifica os pacotes de itens que nunca hospedaram uma réplica e as marca como candidatos para desativação.
-2.  ReplicaClose: se uma réplica for fechada, o desativador obterá um DecrementUsageCount. Se a contagem chegar a 0, isso significa que o pacote de pacotes não está hospedando nenhuma réplica e, portanto, é um candidato para desativação.
+- **Desativação periódica**: em cada `DeactivationScanInterval` , o sistema verifica se há pacotes de serviço que *nunca* hospedaram uma réplica e os marca como candidatos para desativação.
+- **Desativação de ReplicaClose**: se uma réplica for fechada, o desativador Obtém um `DecrementUsageCount` . Uma contagem é em 0 quando o pacote de pacotes não hospeda nenhuma réplica, portanto, o pacote de pacotes é um candidato para desativação.
 
- Com base no modo de ativação [exclusivo/compartilhado][a2], os candidatos para desativação são agendados após **DeactivationGraceInterval** para sharedmode/ **ExclusiveModeDeactivationGraceInterval** para exclusivemode. Se, nesse momento, um novo posicionamento de réplica chegar em seguida, a desativação será cancelada.
+O modo de ativação determina quando os candidatos são agendados para desativação. No modo compartilhado, os candidatos à desativação são agendados após o `DeactivationGraceInterval` . Em modo exclusivo, eles são agendados após o `ExclusiveModeDeactivationGraceInterval` . Se um novo posicionamento de réplica chegar entre esses horários, a desativação será cancelada. 
 
-### <a name="periodically"></a>Regularmente
-Exemplo 1: digamos que o desativador faça uma verificação no tempo T (**DeactivationScanInterval**). Sua próxima verificação será em 2T. Suponha que uma ativação do pacote de pacotes ocorreu em T + 1. Esse pacote de pacotes não está hospedando uma réplica e, portanto, precisa ser desativado. Para que o pacote de pacotes seja um candidato para desativação, ele precisa estar no estado de nenhuma réplica por pelo menos T time. Isso significa que ele será elegível para desativação em 2T + 1. Portanto, a verificação em 2T não encontrará esse pacote como um candidato para desativação. O próximo ciclo de desativação 3T agendará este pacote para desativação, pois agora ele não está no estado de réplica para o tempo T.  
+Para obter mais informações, consulte modo [exclusivo e compartilhado][a2].
 
-Exemplo 2: digamos que um pacote de pacotes é ativado no momento em que T-1 e o desativador faz uma verificação em T. O pacote de pacotes não hospeda uma réplica. Em seguida, na próxima verificação 2T, este pacote de pacotes será encontrado como um candidato para desativação e, portanto, será agendado para desativação.  
+### <a name="periodic-deactivation"></a>Desativação periódica
+Aqui estão alguns exemplos de desativação periódica:
 
-Exemplo 3: digamos que um pacote de pacotes seja ativado em T – 1 e o desativador faz uma verificação em T. O pacote de pacotes não hospeda uma réplica ainda. Agora, em T + 1, uma réplica é colocada, ou seja, A hospedagem Obtém um IncrementUsageCount, o que significa que uma réplica é criada. Agora, em 2T, este pacote de pacotes não será agendado para desativação. Agora, a desativação será movida para a lógica ReplicaClose explicada abaixo.
+* **Exemplo 1**: digamos que o desativador inicie uma verificação no tempo T (o `DeactivationScanInterval` ). Sua próxima verificação será em 2T. Suponha que uma ativação do pacote de pacotes ocorreu em T + 1. Esse pacote de pacotes não hospeda uma réplica, portanto, precisa ser desativado. 
 
-Exemplo 4: digamos que seu pacote de pacotes seja grande, como 10 GB, pode demorar um pouco de tempo para baixar no nó. Depois que um aplicativo é ativado, o desativador rastreia seu ciclo de vida. Agora, se você tiver o **DeactivationScanInterval** config Small, poderá encontrar problemas em que o seu pacote de pacotes não está recebendo tempo para ser ativado no nó porque o tempo todo foi atingido no download. Para superar o problema, você pode [baixar previamente o pacote de pacotes no nó][p1]. 
+    Para ser um candidato à desativação, o pacote de pacotes precisa não hospedar nenhuma réplica por pelo menos T time. Ele será elegível para desativação em 2T + 1. Portanto, a verificação em 2T não identificará esse pacote como um candidato para desativação. 
+
+    O próximo ciclo de desativação, 3T, agendará este pacote de desativação porque agora o pacote está em um estado de não réplica para o tempo T.  
+
+* **Exemplo 2**: digamos que um pacote de pacotes seja ativado na hora T-1 e o desativador inicie uma verificação em t. O pacote de pacotes não hospeda uma réplica. Na próxima verificação, 2T, o pacote de pacotes será identificado como um candidato para desativação, portanto, ele será agendado para desativação.  
+
+* **Exemplo 3**: digamos que um pacote de pacotes é ativado em T – 1, e o desativador inicia uma verificação em t. O pacote de pacotes não hospeda uma réplica ainda. Agora em T + 1, uma réplica é colocada. Ou seja, a hospedagem Obtém um `IncrementUsageCount` , o que significa que uma réplica é criada. 
+
+    Em 2T, esse pacote de pacotes não será agendado para desativação. Como o pacote contém uma réplica, a desativação seguirá a lógica ReplicaClose, como explica a próxima seção neste artigo.
+
+* **Exemplo 4**: digamos que seu pacote de pacotes seja de 10 GB. Como o pacote é grande, demora um tempo para baixar no nó. Quando um aplicativo é ativado, o desativador rastreia seu ciclo de vida. Se o `DeactivationScanInterval` for definido como um valor pequeno, seu pacote de pacotes poderá não ter tempo para ser ativado no nó devido ao tempo necessário para o download. Para resolver esse problema, você pode [baixar o pacote de progresso com antecedência no nó][p1] ou aumentar o `DeactivationScanInterval` . 
 
 > [!NOTE]
-> Portanto, um pacote de pacotes pode ser desativado em qualquer lugar entre (**DeactivationScanInterval** para 2 ***DeactivationScanInterval**) + **DeactivationGraceInterval** / **ExclusiveModeDeactivationGraceInterval**. 
+> Um pacote de pacotes pode ser desativado em qualquer lugar entre ( `DeactivationScanInterval` até 2 * `DeactivationScanInterval` ) + `DeactivationGraceInterval` / `ExclusiveModeDeactivationGraceInterval` . 
 >
 
-### <a name="replica-close"></a>Fechamento de réplica:
-O deactivator mantém a contagem de réplicas que um pacote de pacotes mantém. Se um pacote de pacotes estiver mantendo uma réplica e a réplica estiver fechada/inativa, a hospedagem obterá um DecrementUsageCount. Quando uma réplica é aberta, a hospedagem Obtém um IncrementUsageCount. O decréscimo significa que o pacote de pacotes agora está hospedando uma réplica less e quando a contagem cai para 0, então o pacote de pacotes está agendado para desativação e o tempo após o qual ele será desativado é **DeactivationGraceInterval** / **ExclusiveModeDeactivationGraceInterval**. 
-
-Por exemplo: Vamos dizer que um decréscimo ocorre em T e o pacote está agendado para desativar em 2T + X (**DeactivationGraceInterval** / **ExclusiveModeDeactivationGraceInterval**). Se, durante esse tempo, a hospedagem obtiver um IncrementUsage significando que uma réplica foi criada, a desativação será cancelada.
+### <a name="replicaclose-deactivation"></a>Desativação de ReplicaClose
 
 > [!NOTE]
->Então, o que essa configuração basicamente significa: **DeactivationGraceInterval** / **ExclusiveModeDeactivationGraceInterval**: o tempo fornecido a um pacote de pacotes para hospedar novamente outra réplica depois de ter hospedado qualquer réplica. 
-**DeactivationScanInterval**: o tempo mínimo dado ao pacote de pacotes para hospedar uma réplica se nunca tiver hospedado nenhuma réplica, ou seja, Se não for usado.
+> Esta seção refere-se às seguintes definições de configuração:
+> - **DeactivationGraceInterval** / **ExclusiveModeDeactivationGraceInterval**: o tempo dado a um pacote de pacotes para hospedar outra réplica se já tiver hospedado qualquer réplica. 
+> - **DeactivationScanInterval**: o tempo mínimo dado a um pacote de pacotes para hospedar uma réplica se *nunca* tiver hospedado nenhuma réplica, ou seja, se não tiver sido usada.
 >
 
-### <a name="ctrlc"></a>Ctrl+C
-Após um pacote de pacotes passar o **DeactivationGraceInterval** / **ExclusiveModeDeactivationGraceInterval** e ainda não estiver hospedando uma réplica, a desativação não poderá ser cancelada. CodePackage são emitidos um manipulador CTRL + C que significa que agora o pipeline de desativação precisa passar por cima para reduzir o processo. Durante esse tempo, se uma nova réplica para o mesmo pacote de pacotes estiver tentando ser colocada, ela falhará porque não podemos fazer a transição da desativação para a ativação.
+O sistema mantém a contagem das réplicas que um pacote de pacotes mantém. Se um pacote de pacotes estiver mantendo uma réplica e a réplica estiver fechada ou inativa, a hospedagem obterá um `DecrementUsageCount` . Quando uma réplica é aberta, a hospedagem Obtém um `IncrementUsageCount` . 
 
-## <a name="cluster-configs"></a>Configurações de cluster
+O decréscimo indica que o número de réplicas que o pacote de pacotes está hospedando foi reduzido por uma réplica. Quando a contagem cai para 0, o pacote de pacotes é agendado para desativação. O tempo após o qual ele será desativado é `DeactivationGraceInterval` / `ExclusiveModeDeactivationGraceInterval` . 
 
-Configurações com padrões que afetam a ativação/decativation.
+Por exemplo, digamos que um decréscimo ocorra em T, e o pacote de pacotes está agendado para desativar em 2T + X ( `DeactivationGraceInterval` / `ExclusiveModeDeactivationGraceInterval` ). Durante esse tempo, se a hospedagem obtiver um `IncrementUsage` porque uma réplica é criada, a desativação será cancelada.
+
+### <a name="ctrl--c"></a>Ctrl + C
+Se um pacote de pacotes passar no `DeactivationGraceInterval` / `ExclusiveModeDeactivationGraceInterval` e ainda não estiver hospedando uma réplica, a desativação não poderá ser cancelada. CodePackages receber um manipulador CTRL + C. Agora, o pipeline de desativação precisa ser concluído para reduzir o processo. 
+
+Durante esse tempo, se uma nova réplica para o mesmo pacote de pacotes estiver tentando ser colocada, ela falhará porque o processo não pode fazer a transição da desativação para a ativação.
+
+## <a name="cluster-configurations"></a>Configurações de cluster
+
+Esta seção lista as configurações que têm padrões que afetam a ativação e a desativação.
 
 ### <a name="servicetype"></a>ServiceType
-**ServiceTypeDisableFailureThreshold**: padrão 1. O limite para a contagem de falhas após o qual o FM (Failovermanager) é notificado para desabilitar o tipo de serviço nesse nó e tentar um nó diferente para posicionamento.
-**ServiceTypeDisableGraceInterval**: padrão de 30 s. Intervalo de tempo após o qual o tipo de serviço pode ser desabilitado.
-**ServiceTypeRegistrationTimeout**: padrão de 300 s. O tempo limite para o ServiceType se registrar com Service Fabric.
+- **ServiceTypeDisableFailureThreshold**: padrão: 1. Limite para a contagem de falhas; Depois que esse limite for atingido, o Failovermanager será notificado para desabilitar o tipo de serviço no nó e tentar um nó diferente para posicionamento.
+- **ServiceTypeDisableGraceInterval**: padrão: 30 segundos. Intervalo de tempo após o qual o tipo de serviço pode ser desabilitado.
+- **ServiceTypeRegistrationTimeout**: padrão: 300 segundos. Tempo limite para o ServiceType se registrar com Service Fabric.
 
 ### <a name="activation"></a>Ativação
-**ActivationRetryBackoffInterval**: padrão de 10 segundos Intervalo de retirada em todas as falhas de ativação.
-**ActivationMaxFailureCount**: padrão 20. Contagem máxima para a qual o sistema tentará novamente a ativação com falha antes de desistir. 
-**ActivationRetryBackoffExponentiationBase**: padrão 1,5.
-**ActivationMaxRetryInterval**: padrão de 3600 s. Retirada máxima para ativação em caso de falhas.
-**CodePackageContinuousExitFailureResetInterval**: padrão de 300 s. O tempo limite para redefinir a contagem de falhas de saída contínua para CodePackage.
+- **ActivationRetryBackoffInterval**: padrão: 10 segundos. Intervalo de retirada para cada falha de ativação.
+- **ActivationMaxFailureCount**: padrão: 20. Contagem máxima para a qual o sistema tentará novamente uma falha de ativação antes de desistir. 
+- **ActivationRetryBackoffExponentiationBase**: padrão: 1,5.
+- **ActivationMaxRetryInterval**: padrão: 3.600 segundos. Intervalo máximo de tentativas de retirada para ativação após falhas.
+- **CodePackageContinuousExitFailureResetInterval**: padrão: 300 segundos. Intervalo de tempo limite para redefinir a contagem de falhas de saída contínua para o CodePackage.
 
 ### <a name="download"></a>Baixar
-**DeploymentRetryBackoffInterval**: o padrão é 10. Intervalo de retirada da falha de implantação.
-**DeploymentMaxRetryInterval**: padrão de 3600 s. Retirada máxima para a implantação em falhas.
-**DeploymentMaxFailureCount**: padrão 20. A implantação de aplicativo será repetida por DeploymentMaxFailureCount vezes antes que a implantação desse aplicativo no nó falhe.
+- **DeploymentRetryBackoffInterval**: padrão: 10. Intervalo de retirada para a falha de implantação.
+- **DeploymentMaxRetryInterval**: padrão: 3.600 segundos. Intervalo de retirada máximo para a implantação após falhas.
+- **DeploymentMaxFailureCount**: padrão: 20. A implantação do aplicativo será repetida por `DeploymentMaxFailureCount` momentos antes de falhar na implantação desse aplicativo no nó.
 
 ### <a name="deactivation"></a>Desativação
-**DeactivationScanInterval**: padrão de 600 s. Tempo mínimo dado ao pacote de pacotes para hospedar uma réplica se nunca tiver hospedado nenhuma réplica, ou seja, Se não for usado.
-**DeactivationGraceInterval**: padrão de 60 s. O tempo dado a um pacote de pacotes para hospedar novamente outra réplica depois de ter hospedado qualquer réplica no caso do modelo de processo **compartilhado** .
-**ExclusiveModeDeactivationGraceInterval**: padrão 1 s. O tempo dado a um pacote de pacotes para hospedar novamente outra réplica depois de ter hospedado qualquer réplica no caso de um modelo de processo **exclusivo** .
+- **DeactivationScanInterval**: padrão: 600 segundos. Tempo mínimo fornecido ao pacote de pacotes para hospedar uma réplica se nunca tiver hospedado nenhuma réplica (ou seja, se não for usado).
+- **DeactivationGraceInterval**: padrão: 60 segundos. Em um modelo de processo *compartilhado* , o tempo fornecido a um pacote para hospedar novamente outra réplica depois que ele já tiver hospedado qualquer réplica.
+- **ExclusiveModeDeactivationGraceInterval**: padrão: 1 segundo. Em um modelo de processo *exclusivo* , o tempo fornecido a um pacote para hospedar novamente outra réplica depois que ele já tiver hospedado qualquer réplica.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Empacotar um aplicativo][a3] e prepará-lo para a implantação.
 
-[Implantar e remover aplicativos][a4]. Esse artigo descreve como usar o PowerShell para gerenciar instâncias do aplicativo.
+- [Empacotar um aplicativo][a3] e prepará-lo para a implantação.
+- [Implantar e remover aplicativos][a4] no PowerShell.
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [a1]: service-fabric-application-model.md

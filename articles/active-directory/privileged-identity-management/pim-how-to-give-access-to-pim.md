@@ -14,19 +14,19 @@ ms.date: 08/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95f8991d5ba9efb8e3223dd44a8d037acf2de849
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fba46ee5632f7411c433e4bba29201c59c552f21
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009555"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835196"
 ---
 # <a name="delegate-access-to-privileged-identity-management"></a>Delegar acesso a Privileged Identity Management
 
 Para delegar acesso ao Privileged Identity Management (PIM), um administrador global pode atribuir outros usuários à função de administrador de função privilegiada. Por padrão, os administradores de segurança e os leitores de segurança têm acesso somente leitura ao Privileged Identity Management. Para conceder acesso ao Privileged Identity Management, o primeiro usuário pode atribuir outras pessoas à função de **administrador de função com privilégios** . A função de administrador de função com privilégios é necessária para gerenciar somente funções do Azure AD. Permissões de administrador de função com privilégios não são necessárias para gerenciar configurações de recursos do Azure.
 
 > [!NOTE]
-> O gerenciamento de Privileged Identity Management requer a autenticação multifator do Azure. Como as contas da Microsoft não podem se registrar para a autenticação multifator do Azure, um usuário que entra com um conta Microsoft não pode acessar Privileged Identity Management.
+> O gerenciamento de Privileged Identity Management requer a autenticação multifator do Azure AD. Como as contas da Microsoft não podem se registrar para a autenticação multifator do Azure AD, um usuário que entra com um conta Microsoft não pode acessar Privileged Identity Management.
 
 Certifique-se de que haja sempre pelo menos dois usuários em uma função de Administrador com Função com Privilégios, no caso de um usuário ser bloqueado ou a conta ser excluída.
 

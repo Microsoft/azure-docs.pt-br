@@ -3,7 +3,7 @@ title: Conceder consentimento de administrador em todo o locatário para um apli
 description: Saiba como conceder consentimento em todo o locatário a um aplicativo para que os usuários finais não sejam solicitados a fornecer consentimento ao entrar em um aplicativo.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9680c9bee6d0cf5c9605ce7b6009a500abd81ffb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 66a6317b0cb59d656cdb2e402c5ade1b78ed60aa
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369090"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258313"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Conceder consentimento de administrador em todo o locatário para um aplicativo
 
@@ -27,10 +27,10 @@ Para obter mais informações sobre o consentimento de aplicativos, consulte a [
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Conceder consentimento de administrador em todo o locatário exige que você entre como [administrador global](../roles/permissions-reference.md#global-administrator--company-administrator), [administrador de aplicativos](../roles/permissions-reference.md#application-administrator)ou administrador de [aplicativos de nuvem](../roles/permissions-reference.md#cloud-application-administrator).
+Conceder consentimento de administrador em todo o locatário exige que você entre como [administrador global](../roles/permissions-reference.md#global-administrator), [administrador de aplicativos](../roles/permissions-reference.md#application-administrator)ou administrador de [aplicativos de nuvem](../roles/permissions-reference.md#cloud-application-administrator).
 
 > [!IMPORTANT]
-> Quando um aplicativo recebe o consentimento do administrador em todo o locatário, todos os usuários poderão entrar no aplicativo, a menos que tenham sido configurados para exigir a atribuição de usuário. Para restringir quais usuários podem entrar em um aplicativo, exija a atribuição de usuário e, em seguida, atribua usuários ou grupos ao aplicativo. Para obter mais informações, confira [Métodos para atribuir usuários e grupos](methods-for-assigning-users-and-groups.md).
+> Quando um aplicativo recebe o consentimento do administrador em todo o locatário, todos os usuários poderão entrar no aplicativo, a menos que tenham sido configurados para exigir a atribuição de usuário. Para restringir quais usuários podem entrar em um aplicativo, exija a atribuição de usuário e, em seguida, atribua usuários ou grupos ao aplicativo. Para obter mais informações, confira [Métodos para atribuir usuários e grupos](./assign-user-or-group-access-portal.md).
 >
 > A função de administrador global é necessária para fornecer consentimento de administrador para permissões de aplicativo para a API de Microsoft Graph.
 
@@ -47,7 +47,7 @@ Você pode conceder consentimento de administrador em todo o locatário por meio
 
 Para conceder consentimento de administrador em todo o locatário para um aplicativo listado em **aplicativos empresariais**:
 
-1. Entre no [portal do Azure](https://portal.azure.com) como um [administrador global](../roles/permissions-reference.md#global-administrator--company-administrator), um administrador de [aplicativos](../roles/permissions-reference.md#application-administrator)ou um administrador de [aplicativos na nuvem](../roles/permissions-reference.md#cloud-application-administrator).
+1. Entre no [portal do Azure](https://portal.azure.com) como um [administrador global](../roles/permissions-reference.md#global-administrator), um administrador de [aplicativos](../roles/permissions-reference.md#application-administrator)ou um administrador de [aplicativos na nuvem](../roles/permissions-reference.md#cloud-application-administrator).
 2. Selecione **Azure Active Directory** **aplicativos empresariais**.
 3. Selecione o aplicativo ao qual você deseja conceder consentimento de administrador em todo o locatário.
 4. Selecione **permissões** e clique em **conceder consentimento do administrador**.
@@ -63,7 +63,7 @@ Para aplicativos que sua organização desenvolveu ou que estão registrados dir
 
 Para conceder consentimento de administrador em todo o locatário do **registros de aplicativo**:
 
-1. Entre no [portal do Azure](https://portal.azure.com) como um [administrador global](../roles/permissions-reference.md#global-administrator--company-administrator), um administrador de [aplicativos](../roles/permissions-reference.md#application-administrator)ou um administrador de [aplicativos na nuvem](../roles/permissions-reference.md#cloud-application-administrator).
+1. Entre no [portal do Azure](https://portal.azure.com) como um [administrador global](../roles/permissions-reference.md#global-administrator), um administrador de [aplicativos](../roles/permissions-reference.md#application-administrator)ou um administrador de [aplicativos na nuvem](../roles/permissions-reference.md#cloud-application-administrator).
 2. Selecione **Azure Active Directory** , em seguida, **registros de aplicativo**.
 3. Selecione o aplicativo ao qual você deseja conceder consentimento de administrador em todo o locatário.
 4. Selecione **permissões de API** e clique em **conceder consentimento de administrador**.
@@ -83,7 +83,7 @@ A URL de consentimento do administrador em todo o locatário segue o seguinte fo
 https://login.microsoftonline.com/{tenant-id}/adminconsent?client_id={client-id}
 ```
 
-onde:
+em que:
 
 * `{client-id}` é a ID do cliente do aplicativo (também conhecida como ID do aplicativo).
 * `{tenant-id}` é a ID de locatário da sua organização ou qualquer nome de domínio verificado.
@@ -99,6 +99,6 @@ Como sempre, examine atentamente as permissões que um aplicativo solicita antes
 
 [Configurar o fluxo de trabalho de consentimento do administrador](configure-admin-consent-workflow.md)
 
-[Permissões e consentimento na plataforma de identidade da Microsoft](../develop/active-directory-v2-scopes.md)
+[Permissões e consentimento na plataforma de identidade da Microsoft](../develop/v2-permissions-and-consent.md)
 
-[Azure AD no StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[Azure AD no Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)

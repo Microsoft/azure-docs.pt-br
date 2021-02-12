@@ -7,13 +7,13 @@ ms.topic: article
 author: emuench
 ms.author: mingshen
 ms.date: 10/15/2020
-ms.custom: contperfq2
-ms.openlocfilehash: c4fdf8e986b9c98588689a57bde8ca9464667abe
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 748b6c3506127de8fce153a77571664ea531ffa1
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129534"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601356"
 ---
 # <a name="azure-consumption-commitment-benefit"></a>Benefício do compromisso de consumo do Azure
 
@@ -24,14 +24,14 @@ Um conjunto selecionado de ofertas do Microsoft Commercial Marketplace contribui
 
 Validamos todas as ofertas que participam deste programa para garantir que você receba soluções de alta qualidade.
 
-Para aproveitar esse benefício, basta comprar uma oferta de qualificação no Azure Marketplace usando uma assinatura relacionada ao seu contrato do Azure. Os compromissos de pagamento antecipado e monetário do Azure não são elegíveis para esse benefício.
+Para aproveitar esse benefício, basta comprar uma oferta de qualificação no Azure Marketplace usando uma assinatura relacionada ao seu contrato do Azure. O pagamento antecipado do Azure (anteriormente chamado de compromisso monetário) não está qualificado para esse benefício.
 
 > [!IMPORTANT]
 > As exclusões podem se aplicar a contratos CtC assinados antes deste benefício do Marketplace. Se você tiver dúvidas sobre elegibilidade, entre em contato com seu conta Microsoft Executive.
 
 ## <a name="determine-if-your-organization-has-an-azure-consumption-commitment-maccctc"></a>Determinar se sua organização tem um compromisso de consumo do Azure (MACC/CtC)
 
-Se você não tiver certeza se sua organização tem um contrato qualificado, entre na experiência do Marketplace dentro do [portal do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home) em um locatário associado à sua organização. Se você vir a opção de **benefício do Azure elegível** dentro do filtro de preços, terá um compromisso de consumo do Azure qualificado. A qualificação de compras do Azure Marketplace contribuirá para o compromisso de consumo do Azure da sua organização, se adquirido diretamente por meio do Azure Marketplace.
+Se você não tiver certeza se sua organização tem um contrato qualificado, entre na experiência do Marketplace dentro do [portal do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home) em um locatário associado à sua organização. Se você vir a opção de selecionar o **benefício do Azure qualificado apenas** como uma opção de filtro, terá um compromisso de consumo do Azure qualificado. A qualificação de compras do Azure Marketplace contribuirá para o compromisso de consumo do Azure da sua organização, se adquirido diretamente por meio do Azure Marketplace.
 
 [![Opção de menu elegível do benefício do Azure.](media/azure-benefit/azure-benefit-eligible.png)](media/azure-benefit/azure-benefit-eligible.png#lightbox)
 
@@ -45,10 +45,10 @@ Se você não tiver certeza se sua organização tem um contrato qualificado, en
  
 3. As ofertas serão feitas com o **benefício do Azure qualificado** para indicar ainda mais que os custos de software/IP associados a essa oferta contribuirão para o compromisso de consumo do Azure da sua organização sobre os serviços do Azure cobrados em sua organização.
 
-    :::image type="content" source="media/azure-benefit/azure-benefit-eligible-badge.png" alt-text="Notificação qualificada do benefício do Azure.&quot;:::
+    :::image type="content" source="media/azure-benefit/azure-benefit-eligible-badge.png" alt-text="Notificação qualificada do benefício do Azure.":::
 
    > [!NOTE]
-   > Os serviços Microsoft Azure faturados para sua organização por meio de uma implantação do Azure Marketplace contribuirão inerentemente para o compromisso de sua organização. O benefício adicional para as ofertas de &quot;benefício do Azure elegível" é que os custos de software/IP passados pelo fornecedor de terceiros também irão contribuir a 100% de sua fatura do Azure Marketplace.
+   > Os serviços Microsoft Azure faturados para sua organização por meio de uma implantação do Azure Marketplace contribuirão inerentemente para o compromisso de sua organização. O benefício adicional para as ofertas de "benefício do Azure elegível" é que os custos de software/IP passados pelo fornecedor de terceiros também irão contribuir a 100% de sua fatura do Azure Marketplace.
 
 4. Compre/crie a oferta diretamente por meio do Azure Marketplace. A Microsoft contribuirá com 100% de compras de oferta para o compromisso de consumo do Azure de sua organização em cada período de fatura, incluindo custos de software/IP.
 

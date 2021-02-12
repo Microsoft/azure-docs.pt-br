@@ -1,19 +1,16 @@
 ---
 title: 'Tutorial: Usar o Apache HBase no Azure HDInsight'
 description: Siga este tutorial do Apache HBase para começar a usar o hadoop no HDInsight. Criar tabelas a partir do shell do HBase e consultá-las usando o Hive.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 04/14/2020
-ms.openlocfilehash: d24c63e3a2989173e718cd27fa43cecc50181047
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.date: 01/22/2021
+ms.openlocfilehash: 05e40dd38fc7111521b600908cda38084249e4de
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533488"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936062"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Tutorial: Usar o Apache HBase no Azure HDInsight
 
@@ -42,7 +39,7 @@ O procedimento a seguir usa um modelo do Azure Resource Manager para criar um cl
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
-2. Na caixa de diálogo **Implantação personalizada** , insira os seguintes valores:
+2. Na caixa de diálogo **Implantação personalizada**, insira os seguintes valores:
 
     |Propriedade |Descrição |
     |---|---|
@@ -50,14 +47,14 @@ O procedimento a seguir usa um modelo do Azure Resource Manager para criar um cl
     |Resource group|Crie um grupo de gerenciamento de recursos do Azure ou use um existente.|
     |Location|Especifique o local do grupo de recursos. |
     |ClusterName|Insira um nome para o cluster HBase.|
-    |Nome e senha de logon do cluster|O nome padrão de logon é **admin** .|
-    |Nome de usuário e senha SSH|O nome de usuário padrão é **sshuser** .|
+    |Nome e senha de logon do cluster|O nome padrão de logon é **admin**.|
+    |Nome de usuário e senha SSH|O nome de usuário padrão é **sshuser**.|
 
     Outros parâmetros são opcionais.  
 
     Cada cluster tem uma dependência de conta de Armazenamento do Azure. Depois que você excluir um cluster, os dados ficarão na conta de armazenamento. O nome de conta de armazenamento padrão do cluster é o nome do cluster com "store" acrescentado. Eles são embutidos no código na seção de variáveis do modelo.
 
-3. Selecione **Concordo com os termos e condições declarados acima** e selecione **Comprar** . Demora cerca de 20 minutos para criar um cluster.
+3. Selecione **Concordo com os termos e condições declarados acima** e selecione **Comprar**. Demora cerca de 20 minutos para criar um cluster.
 
 Depois que um cluster HBase for excluído, você pode criar outro cluster HBase usando o mesmo contêiner de blob padrão. O novo cluster seleciona as tabelas HBase criadas por você no cluster original. É recomendável desabilitar as tabelas HBase antes de excluir o cluster para evitar inconsistências.
 
@@ -228,7 +225,7 @@ Os dados do HBase também podem ser consultados no Hive usando o HBase habilitad
 
 A API REST é protegida por meio de [autenticação básica](https://en.wikipedia.org/wiki/Basic_access_authentication). Você deve sempre fazer solicitações usando HTTPS (HTTP seguro) para ajudar a garantir que suas credenciais sejam enviadas com segurança para o servidor.
 
-1. Para habilitar as APIs REST do HBase no cluster do HDInsight, adicione o script de inicialização personalizado a seguir à seção **Ação de Script** . Você pode adicionar o script de inicialização ao criar o cluster ou após ele ter sido criado. Para **Tipo de Nó** , selecione **Servidores de Região** para garantir que o script seja executado somente nos Servidores de Região do HBase.
+1. Para habilitar as APIs REST do HBase no cluster do HDInsight, adicione o script de inicialização personalizado a seguir à seção **Ação de Script**. Você pode adicionar o script de inicialização ao criar o cluster ou após ele ter sido criado. Para **Tipo de Nó**, selecione **Servidores de Região** para garantir que o script seja executado somente nos Servidores de Região do HBase.
 
 
     ```bash
@@ -332,7 +329,7 @@ O HBase em HDInsight é fornecido com uma interface do usuário da Web para moni
 
 1. Selecione **HBase** no menu à esquerda.
 
-1. Selecione **Links Rápidos** no topo da página, aponte para o link do nó ativo do Zookeeper e, em seguida, selecione **Interface do usuário HBase Master** .  A interface do usuário é aberta em outra guia do navegador:
+1. Selecione **Links Rápidos** no topo da página, aponte para o link do nó ativo do Zookeeper e, em seguida, selecione **Interface do usuário HBase Master**.  A interface do usuário é aberta em outra guia do navegador:
 
    ![Interface do usuário do HBase HMaster do HDInsight Apache](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
@@ -344,15 +341,21 @@ O HBase em HDInsight é fornecido com uma interface do usuário da Web para moni
    - tarefas
    - atributos de software
 
+## <a name="cluster-recreation"></a>Recriação de clusters
+
+Depois que um cluster HBase for excluído, você pode criar outro cluster HBase usando o mesmo contêiner de blob padrão. O novo cluster seleciona as tabelas HBase criadas por você no cluster original. No entanto, é recomendável desabilitar as tabelas HBase antes de excluir o cluster para evitar inconsistências. 
+
+Use o comando `disable 'Contacts'` do HBase. 
+
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-É recomendável desabilitar as tabelas HBase antes de excluir o cluster para evitar inconsistências. Use o comando `disable 'Contacts'` do HBase. Se não for continuar usando este aplicativo, exclua o cluster do HBase que você criou seguindo estas etapas:
+Se não for continuar usando este aplicativo, exclua o cluster do HBase que você criou seguindo estas etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
-1. Na caixa **Pesquisar** na parte superior, digite **HDInsight** .
-1. Selecione **Clusters do HDInsight** em **Serviços** .
+1. Na caixa **Pesquisar** na parte superior, digite **HDInsight**.
+1. Selecione **Clusters do HDInsight** em **Serviços**.
 1. Na lista de clusters do HDInsight que aparece, clique em **…** ao lado do cluster que você criou para este tutorial.
-1. Clique em **Excluir** . Clique em **Sim** .
+1. Clique em **Excluir**. Clique em **Sim**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

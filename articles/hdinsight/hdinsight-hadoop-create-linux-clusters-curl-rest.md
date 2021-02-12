@@ -1,19 +1,16 @@
 ---
 title: Criar clusters do Apache Hadoop usando a API de REST do Azure - Azure
 description: Saiba como criar clusters do HDInsight enviando os modelos do Azure Resource Manager para a API REST do Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 12/10/2019
-ms.openlocfilehash: 3ce104e9340c3e93d64b68dcab6f5bd6d2f62493
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: fa5675104d9614e1bd917585ea537c92dddd88cc
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748735"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945783"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Criar clusters do Apache Hadoop usando a API REST do Azure
 
@@ -227,7 +224,7 @@ Siga as etapas documentadas em [Introdução à CLI do Azure](/cli/azure/get-sta
    az account list --query '[].{Subscription_ID:id,Tenant_ID:tenantId,Name:name}'  --output table
    ```
 
-    Na lista, selecione a assinatura que você deseja usar e observe as colunas **Subscription_ID** e __Tenant_ID__ . Salve esses valores.
+    Na lista, selecione a assinatura que você deseja usar e observe as colunas **Subscription_ID** e __Tenant_ID__. Salve esses valores.
 
 2. Use o comando a seguir para criar um aplicativo no Azure Active Directory.
 
@@ -242,15 +239,15 @@ Siga as etapas documentadas em [Introdução à CLI do Azure](/cli/azure/get-sta
 
    O valor retornado deste comando é a __ID do aplicativo__ do novo aplicativo. Salve esse valor.
 
-3. Use o comando a seguir para criar uma entidade de serviço usando a **ID do aplicativo** .
+3. Use o comando a seguir para criar uma entidade de serviço usando a **ID do aplicativo**.
 
    ```azurecli
    az ad sp create --id <App ID> --query 'objectId'
    ```
 
-     O valor retornado deste comando é a __ID de Objeto__ . Salve esse valor.
+     O valor retornado deste comando é a __ID de Objeto__. Salve esse valor.
 
-4. Atribua a função **Proprietário** à entidade de serviço usando o valor da **ID de Objeto** . Use o valor **ID da assinatura** obtido anteriormente.
+4. Atribua a função **Proprietário** à entidade de serviço usando o valor da **ID de Objeto**. Use o valor **ID da assinatura** obtido anteriormente.
 
    ```azurecli
    az role assignment create --assignee <Object ID> --role Owner --scope /subscriptions/<Subscription ID>/
@@ -274,7 +271,7 @@ Defina `$TENANTID`, `$APPID` e `$PASSWORD` para os valores obtidos ou usado ante
 
 Se essa solicitação for bem-sucedida, você receberá uma resposta do 200 series, e o corpo da resposta conterá um documento JSON.
 
-O documento JSON retornado por esta solicitação contém um elemento denominado **access_token** . O valor de **access_token** é usado para solicitações de autenticação para a API REST.
+O documento JSON retornado por esta solicitação contém um elemento denominado **access_token**. O valor de **access_token** é usado para solicitações de autenticação para a API REST.
 
 ```json
 {

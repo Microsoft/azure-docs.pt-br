@@ -12,12 +12,12 @@ ms.date: 04/24/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: b02329d624eda440230fb99e02e08c841c5580f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77a4e7389952b81df13dae929dc1aec664fcc0b7
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705989"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755639"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glossário do desenvolvedor da plataforma de identidade da Microsoft
 
@@ -34,7 +34,7 @@ Os tokens de acesso às vezes são chamados de "Usuário+Aplicativo" ou "Somente
 * [Concessão de autorização de "código de autorização"](#authorization-grant), o usuário final é autenticado primeiro como o proprietário do recurso, delegando a autorização ao cliente para acessar o recurso. O cliente é autenticado depois, ao obter o token de acesso. Às vezes, o token pode ser chamado mais especificamente de token de "Usuário+Aplicativo", que representa o usuário que autorizou o aplicativo cliente e o aplicativo.
 * [Concessão de autorização de "credenciais de cliente"](#authorization-grant), o cliente fornece a única autenticação, funcionando sem a autenticação/autorização do proprietário do recurso. Portanto, às vezes o token pode ser chamado de token "Somente de Aplicativo".
 
-Consulte [referência de token da plataforma de identidade da Microsoft][AAD-Tokens-Claims] para obter mais detalhes.
+Consulte a [referência de token da plataforma Microsoft Identity][AAD-Tokens-Claims] para obter mais detalhes.
 
 ## <a name="application-id-client-id"></a>ID do aplicativo (ID do cliente)
 
@@ -95,7 +95,7 @@ No caso da integração de aplicativos da plataforma de identidade da Microsoft,
 
 Um [token de segurança](#security-token) contêm declarações, que fornecem asserções sobre uma entidade (como um [aplicativo cliente](#client-application) ou um [proprietário de recursos](#resource-owner)) para outra entidade (como o [servidor de recursos](#resource-server)). As declarações são pares de nome/valor que transmitem fatos sobre a entidade do token (por exemplo, a entidade de segurança que foi autenticada pelo [servidor de autorização](#authorization-server)). As declarações presentes em um token específico dependem de diversas variáveis, incluindo o tipo de token, o tipo de credencial usado para autenticar a entidade, a configuração de aplicativo etc.
 
-Consulte [referência de token da plataforma de identidade da Microsoft][AAD-Tokens-Claims] para obter mais detalhes.
+Consulte a [referência de token da plataforma Microsoft Identity][AAD-Tokens-Claims] para obter mais detalhes.
 
 ## <a name="client-application"></a>aplicativo cliente
 
@@ -113,11 +113,11 @@ Veja [estrutura de consentimento](consent-framework.md) para obter mais informa�
 
 Um [token de segurança](#security-token) do [OpenID Connect][OpenIDConnect-ID-Token] fornecido por um [ponto de extremidade de autorização](#authorization-endpoint) [do servidor de autorização](#authorization-server) , que contém [declarações](#claim) referentes à autenticação de um [proprietário de recurso](#resource-owner)do usuário final. Assim como um token de acesso, os tokens de ID também são representados como um [JWT (Token Web JSON)][JWT] assinado digitalmente. Diferentemente de um token de acesso, as declarações de um token de ID não são usadas para fins relacionados ao acesso a recursos e ao controle de acesso especificamente.
 
-Consulte [referência de token da plataforma de identidade da Microsoft][AAD-Tokens-Claims] para obter mais detalhes.
+Consulte a [referência de token da plataforma Microsoft Identity][AAD-Tokens-Claims] para obter mais detalhes.
 
 ## <a name="microsoft-identity-platform"></a>Plataforma de identidade da Microsoft
 
-A plataforma de identidade da Microsoft é uma evolução da plataforma de desenvolvedor e serviço de identidade do Azure AD (Azure Active Directory). Ela permite que os desenvolvedores criem aplicativos que se conectam a todas as identidades da Microsoft e obtenham tokens para chamar o Microsoft Graph, outras APIs da Microsoft ou APIs que os desenvolvedores criaram. Trata-se de uma plataforma completa que consiste em um serviço de autenticação, bibliotecas, registro de aplicativo e configuração, documentação completa do desenvolvedor, exemplos de código e outros conteúdos do desenvolvedor. A plataforma de identidade da Microsoft dá suporte a protocolos padrão do setor, como OAuth 2.0 e OpenID Connect.
+A plataforma de identidade da Microsoft é uma evolução do serviço de identidade do Azure Active Directory (AD do Azure) e da plataforma de desenvolvedor. Ela permite que os desenvolvedores criem aplicativos que se conectam a todas as identidades da Microsoft e obtenham tokens para chamar o Microsoft Graph, outras APIs da Microsoft ou APIs que os desenvolvedores criaram. Trata-se de uma plataforma completa que consiste em um serviço de autenticação, bibliotecas, registro de aplicativo e configuração, documentação completa do desenvolvedor, exemplos de código e outros conteúdos do desenvolvedor. A plataforma de identidade da Microsoft dá suporte a protocolos padrão do setor, como OAuth 2.0 e OpenID Connect.
 
 ## <a name="multi-tenant-application"></a>Aplicativos multilocatários
 
@@ -222,7 +222,7 @@ Um tipo de [aplicativo cliente](#client-application) que executa todo o código 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-O [Guia do desenvolvedor da plataforma de identidade da Microsoft][AAD-Dev-Guide] é a página de aterrissagem a ser usada para todos os tópicos relacionados ao desenvolvimento da plataforma de identidade da Microsoft, incluindo uma visão geral da [integração de aplicativos][AAD-How-To-Integrate] e os conceitos básicos da [autenticação da plataforma Microsoft Identity e dos cenários de autenticação com suporte][AAD-Auth-Scenarios]. Você também pode encontrar exemplos de código & tutoriais sobre como entrar em funcionamento rapidamente no [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
+O [Guia do desenvolvedor da plataforma de identidade da Microsoft][AAD-Dev-Guide] é a página de aterrissagem a ser usada para todos os tópicos relacionados ao desenvolvimento da plataforma Microsoft Identity, incluindo uma visão geral da [integração de aplicativos][AAD-How-To-Integrate] e os conceitos básicos da [autenticação da plataforma Microsoft Identity e dos cenários de autenticação com suporte][AAD-Auth-Scenarios]. Você também pode encontrar exemplos de código & tutoriais sobre como entrar em funcionamento rapidamente no [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 Use a seção de comentários a seguir para fornecer comentários e ajudar a refinar e moldar esse conteúdo, incluindo solicitações de novas definições ou atualizando as existentes!
 
@@ -235,7 +235,7 @@ Use a seção de comentários a seguir para fornecer comentários e ajudar a ref
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
 [Graph-Perm-Scopes]: /graph/permissions-reference
 [Graph-App-Resource]: /graph/api/resources/application
-[Graph-Sp-Resource]: /graph/api/resources/serviceprincipal?view=graph-rest-beta
+[Graph-Sp-Resource]: /graph/api/resources/serviceprincipal?view=graph-rest-beta&preserve-view=true
 [Graph-User-Resource]: /graph/api/resources/user
 [AAD-How-Subscriptions-Assoc]:../fundamentals/active-directory-how-subscriptions-associated-directory.md
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md

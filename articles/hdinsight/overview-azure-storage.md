@@ -1,19 +1,16 @@
 ---
 title: Visão geral do armazenamento do Azure no HDInsight
 description: Visão geral do armazenamento do Azure no HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 40e1fdae5cdb1ec806e67dcacc70510a63093a82
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f171ab9619f2bcb8ecf15c4bfb3b17146ab5a0ff
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539455"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938952"
 ---
 # <a name="azure-storage-overview-in-hdinsight"></a>Visão geral do armazenamento do Azure no HDInsight
 
@@ -21,7 +18,7 @@ O Armazenamento do Azure é uma solução robusta de armazenamento de uso geral 
 
 É recomendável usar contêineres de armazenamento separados para o armazenamento de cluster padrão e seus dados corporativos. A separação é isolar os logs do HDInsight e os arquivos temporários de seus próprios dados corporativos. Também é recomendável excluir o contêiner de blob padrão, que contém logs do aplicativo e do sistema, após cada uso para reduzir o custo de armazenamento. Certifique-se de recuperar os logs antes de excluir o contêiner.
 
-Se você optar por proteger sua conta de armazenamento com as restrições de **redes virtuais e firewalls** em **redes selecionadas** , certifique-se de habilitar a exceção **permitir serviços confiáveis da Microsoft...** . A exceção é para que o HDInsight possa acessar sua conta de armazenamento.
+Se você optar por proteger sua conta de armazenamento com as restrições de **redes virtuais e firewalls** em **redes selecionadas**, certifique-se de habilitar a exceção **permitir serviços confiáveis da Microsoft...**. A exceção é para que o HDInsight possa acessar sua conta de armazenamento.
 
 ## <a name="hdinsight-storage-architecture"></a>Arquitetura de armazenamento do HDInsight
 

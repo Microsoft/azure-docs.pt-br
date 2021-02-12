@@ -1,19 +1,16 @@
 ---
 title: Criar clusters Apache Hadoop usando o navegador da Web, Azure HDInsight
 description: Aprenda a criar clusters Apache Hadoop, Apache HBase, Apache Storm ou Apache Spark no HDInsight. Use o navegador da Web e o portal do Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 08/06/2020
-ms.openlocfilehash: ebfd5c456d3658c6339e5174c9c4ab33f6c52d4d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c68d342cf21d69fa97ba3d5171ba596662fd845f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541699"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945810"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Criar clusters baseados em Linux no HDInsight usando o portal do Azure
 
@@ -33,27 +30,27 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-1. No menu superior, selecione **+ Criar um recurso** .
+1. No menu superior, selecione **+ Criar um recurso**.
 
     ![Criar um novo cluster no portal do Azure](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-create-resource.png "Criando um novo cluster no portal do Azure")
 
-1. Selecione **Análise** > **Azure HDInsight** para acessar a página **Criar cluster HDInsight** .
+1. Selecione **Análise** > **Azure HDInsight** para acessar a página **Criar cluster HDInsight**.
 
-## <a name="basics"></a>Informações básicas
+## <a name="basics"></a>Noções básicas
 
 ![Conceitos básicos de criação de cluster do HDInsight](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-basics.png "Criando um novo cluster no portal do Azure")
 
-Na guia **Informações Básicas** , forneça as seguintes informações:
+Na guia **Informações Básicas**, forneça as seguintes informações:
 
 |Propriedade |Descrição |
 |---|---|
 |Subscription|Na lista suspensa, selecione a assinatura do Azure usada para o cluster.|
-|Resource group|Na lista suspensa, selecione o grupo de recursos existente ou selecione **Criar** .|
+|Resource group|Na lista suspensa, selecione o grupo de recursos existente ou selecione **Criar**.|
 |Nome do cluster|Insira um nome global exclusivo.|
 |Região|Na lista suspensa, selecione uma região em que o cluster foi criado.|
 |Tipo de cluster|Clique em **Selecionar tipo de cluster** para abrir uma lista. Na lista, selecione o tipo de cluster desejado. Os clusters HDInsight são fornecidos em tipos diferentes. Eles correspondem à carga de trabalho ou tecnologia para a qual o cluster está sintonizado. Não há nenhum método com suporte para criar um cluster que combine vários tipos.|
-|Versão|Na lista suspensa, selecione uma **versão** . Use a versão padrão se não souber o que escolher. Para obter mais informações, consulte [Versões de cluster do HDInsight](hdinsight-component-versioning.md).|
-|Nome de usuário de logon do cluster|Forneça o nome de usuário, o padrão é **admin** .|
+|Versão|Na lista suspensa, selecione uma **versão**. Use a versão padrão se não souber o que escolher. Para obter mais informações, consulte [Versões de cluster do HDInsight](hdinsight-component-versioning.md).|
+|Nome de usuário de logon do cluster|Forneça o nome de usuário, o padrão é **admin**.|
 |Senha de logon do cluster|Forneça a senha.|
 |Confirmar senha de logon do cluster|Insira a senha novamente|
 |Nome de usuário do Secure Shell (SSH)|Forneça o nome de usuário, o padrão é **sshuser**|
@@ -70,13 +67,13 @@ Selecione **Avançar: >>de armazenamento** para avançar para a próxima guia.
 
 ### <a name="primary-storage"></a>Armazenamento primário
 
-Na lista suspensa para **tipo de armazenamento primário** , selecione o tipo de armazenamento padrão. Os campos posteriores a serem concluídos variarão com base na sua seleção. Para o **armazenamento do Azure** :
+Na lista suspensa para **tipo de armazenamento primário**, selecione o tipo de armazenamento padrão. Os campos posteriores a serem concluídos variarão com base na sua seleção. Para o **armazenamento do Azure**:
 
-1. Para o **método de seleção** , escolha **selecionar na lista** ou **usar a tecla de acesso** .
-    * Para **selecionar na lista** , selecione sua **conta de armazenamento principal** na lista suspensa ou selecione **criar nova** .
-    * Para **usar chave de acesso** , insira o **nome da conta de armazenamento** . Em seguida, forneça a **chave de acesso** .
+1. Para o **método de seleção**, escolha **selecionar na lista** ou **usar a tecla de acesso**.
+    * Para **selecionar na lista**, selecione sua **conta de armazenamento principal** na lista suspensa ou selecione **criar nova**.
+    * Para **usar chave de acesso**, insira o **nome da conta de armazenamento**. Em seguida, forneça a **chave de acesso**.
 
-1. Para **contêiner** , aceite o valor padrão ou insira um novo.
+1. Para **contêiner**, aceite o valor padrão ou insira um novo.
 
 ### <a name="additional-azure-storage"></a>Armazenamento do Azure adicional
 
@@ -87,7 +84,7 @@ Opcional: selecione **Adicionar armazenamento do Azure** para armazenamento de c
 Opcional: especifique um banco de dados SQL existente para salvar os metadados Apache Hive, Apache Oozie e, ou Apache Ambari fora do cluster. O banco de dados SQL do Azure que é usado para o metastore deve permitir a conectividade com outros serviços do Azure, incluindo o Azure HDInsight. Ao criar um metastore, não use traços nem hifens para nomear um banco de dados. Esses caracteres podem causar falha no processo de criação do cluster.
 
 > [!IMPORTANT]
-> Para formas de cluster que dão suporte a metastores, o metastore padrão fornece um banco de dados SQL do Azure com um **limite de DTU básico de camada 5 (não atualizável)** ! Adequado para fins de teste básico. Para cargas de trabalho grandes ou de produção, é recomendável migrar para um metastore externo.
+> Para formas de cluster que dão suporte a metastores, o metastore padrão fornece um banco de dados SQL do Azure com um **limite de DTU básico de camada 5 (não atualizável)**! Adequado para fins de teste básico. Para cargas de trabalho grandes ou de produção, é recomendável migrar para um metastore externo.
 
 Selecione **Avançar: segurança + rede >>** para avançar para a próxima guia.
 
@@ -99,7 +96,7 @@ Na guia **segurança + rede** , forneça as seguintes informações:
 
 |Propriedade |Descrição |
 |---|---|
-|Pacote de segurança empresarial|Opcional: marque a caixa de seleção para usar **Enterprise Security Package** . Para obter mais informações, consulte [configurar um cluster HDInsight com Enterprise Security Package usando Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).|
+|Pacote de segurança empresarial|Opcional: marque a caixa de seleção para usar **Enterprise Security Package**. Para obter mais informações, consulte [configurar um cluster HDInsight com Enterprise Security Package usando Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).|
 |TLS|Opcional: selecione uma versão de TLS na lista suspensa. Para obter mais informações, confira [Protocolo TLS](./transport-layer-security.md).|
 |Rede virtual|Opcional: selecione uma rede virtual e uma sub-rede existentes na lista suspensa. Para obter informações, consulte [planejar uma implantação de rede virtual para clusters do Azure HDInsight](hdinsight-plan-virtual-network-deployment.md). O artigo inclui requisitos de configuração específicos para a rede virtual.|
 |Configurações de criptografia de disco|Opcional: marque a caixa de seleção para usar criptografia. Para obter mais informações, confira [Criptografia de disco de chave gerenciada pelo cliente](./disk-encryption.md).|
@@ -134,7 +131,7 @@ Levará algum tempo para que o cluster seja criado, geralmente, cerca de 20 minu
 
 ## <a name="post-creation"></a>Pós-criação
 
-Após o término do processo de criação, selecione **Ir para Recurso** na notificação **Implantação com êxito** . A janela do cluster fornece as informações a seguir.
+Após o término do processo de criação, selecione **Ir para Recurso** na notificação **Implantação com êxito**. A janela do cluster fornece as informações a seguir.
 
 ![Visão geral do cluster de portal do Azure de HDI](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-completed.png "Propriedades do cluster")
 

@@ -4,7 +4,7 @@ description: Como desabilitar um aplicativo empresarial para que nenhum usuário
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c6fc9a4716f1427257b3bbf18e5fa653567e141
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 783de636d4520f48f624f3380f811f1f18366330
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763373"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259229"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Desabilitar entradas de usuário em um aplicativo empresarial no Azure Active Directory
 
@@ -31,15 +31,15 @@ ms.locfileid: "84763373"
 
 1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
 1. Selecione **todos os serviços**, insira **Azure Active Directory** na caixa de texto e, em seguida, selecione **Enter**.
-1. No painel **Azure Active Directory**  -   ***DirectoryName*** (ou seja, o painel do Azure ad para o diretório que você está gerenciando), selecione **aplicativos empresariais**.
+1. No painel **Azure Active Directory**  -   **_DirectoryName_*_ (ou seja, o painel do Azure ad para o diretório que você está gerenciando), selecione _* aplicativos empresariais**.
 1. No painel **aplicativos empresariais – todos os aplicativos** , você vê uma lista dos aplicativos que você pode gerenciar. Selecione um aplicativo.
-1. No painel ***nomedoaplicativo*** (ou seja, o painel com o nome do aplicativo selecionado no título), selecione **Propriedades**.
-1. No painel ***appname***  -  **Propriedades** de AppName, selecione **não** para **habilitado para os usuários entrarem?**.
+1. No painel **_AppName_*_ (ou seja, o painel com o nome do aplicativo selecionado no título), selecione _* Propriedades**.
+1. No painel **Propriedades de _AppName_*_-_*** , selecione **não** para **habilitado para os usuários entrarem?**.
 1. Escolha o comando **Salvar** .
 
 ## <a name="use-azure-ad-powershell-to-disable-an-unlisted-app"></a>Usar o PowerShell do Azure AD para desabilitar um aplicativo não listado
 
-Se você souber a AppId de um aplicativo que não aparece na lista de aplicativos empresariais (por exemplo, porque você excluiu o aplicativo ou a entidade de serviço ainda não foi criada porque o aplicativo está autorizado previamente pela Microsoft), você poderá criar manualmente a entidade de serviço para o aplicativo e, em seguida, desabilitá-lo usando o [cmdlet do PowerShell do AzureAD](https://docs.microsoft.com/powershell/module/azuread/New-AzureADServicePrincipal?view=azureadps-2.0).
+Se você souber a AppId de um aplicativo que não aparece na lista de aplicativos empresariais (por exemplo, porque você excluiu o aplicativo ou a entidade de serviço ainda não foi criada porque o aplicativo está autorizado previamente pela Microsoft), você poderá criar manualmente a entidade de serviço para o aplicativo e, em seguida, desabilitá-lo usando o [cmdlet do PowerShell do AzureAD](/powershell/module/azuread/New-AzureADServicePrincipal).
 
 ```PowerShell
 # The AppId of the app to be disabled
@@ -60,5 +60,5 @@ if ($servicePrincipal) {
 
 * [Ver todos os meus grupos](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Atribuir um usuário ou um grupo a um aplicativo empresarial](assign-user-or-group-access-portal.md)
-* [Remover uma atribuição de usuário ou de grupo de um aplicativo empresarial](remove-user-or-group-access-portal.md)
-* [Alterar o nome ou logotipo de um aplicativo empresarial](change-name-or-logo-portal.md)
+* [Remover uma atribuição de usuário ou de grupo de um aplicativo empresarial](./assign-user-or-group-access-portal.md)
+* [Alterar o nome ou logotipo de um aplicativo empresarial](./add-application-portal-configure.md)

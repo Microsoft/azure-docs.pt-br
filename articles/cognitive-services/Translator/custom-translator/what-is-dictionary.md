@@ -2,25 +2,25 @@
 title: O que é um dicionário? - Tradutor Personalizado
 titleSuffix: Azure Cognitive Services
 description: Um dicionário é um documento alinhado que especifica uma lista de frases ou sentenças (e suas traduções) que você sempre quer que o Microsoft Translator traduza da mesma maneira. Os dicionários às vezes também são chamados de glossários ou bases de termos.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 08/17/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: f4c3d23f6abbdc20d210e5ddda6c527d27654bb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 160aa372cec2d018d5a3558f99e079624d965098
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510752"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895553"
 ---
 # <a name="what-is-a-dictionary"></a>O que é um dicionário?
 
 Um dicionário é um par de documentos alinhados que especifica uma lista de frases ou sentenças e suas respectivas traduções. Use um dicionário no seu treinamento, quando quiser que o Microsoft Translator sempre traduza quaisquer instâncias da frase ou sentença de origem, usando a tradução que você forneceu no dicionário. Dicionários são às vezes chamados de glossários ou bases de termos. Você pode pensar no dicionário como uma força bruta “copiar e substituir” para todos os termos listados. Além disso, o serviço Tradutor personalizado da Microsoft cria e usa seus próprios dicionários de uso geral para melhorar a qualidade de sua tradução. No entanto, um dicionário fornecido pelo cliente usa o precedente e será pesquisado primeiro em palavras ou sentenças de pesquisa.
 
-Os dicionários só funcionam para projetos em pares de idiomas que tenham um modelo de rede neural geral da Microsoft totalmente compatível por trás deles. [Exiba a lista completa de idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
+Os dicionários só funcionam para projetos em pares de idiomas que tenham um modelo de rede neural geral da Microsoft totalmente compatível por trás deles. [Exiba a lista completa de idiomas](../language-support.md#customization).
 
 ## <a name="phrase-dictionary"></a>Dicionário de frase
 O dicionário de frases diferencia maiúsculas de minúsculas. É uma operação exata de localizar e substituir. Quando você inclui um dicionário de frases no treinamento do seu modelo, qualquer palavra ou frase listada é traduzida da maneira que você especificou. O resto da frase é traduzido como de costume. Você pode usar um dicionário de frases para especificar frases que não devem ser traduzidas, fornecendo a mesma frase não traduzida no arquivo de origem e de destino no dicionário.

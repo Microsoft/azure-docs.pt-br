@@ -5,15 +5,15 @@ description: Este artigo fornece uma visão geral do WAF (Firewall do Aplicativo
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 09/16/2020
+ms.date: 12/04/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 659e7fcdbd2284110282d14fc89bd4d8d5ac2472
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2de8a47b841a4a5c82aaeb92419ec3d9714268ea
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267016"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879420"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>O que é o Firewall do aplicativo Web do Azure no Gateway de Aplicativo do Azure?
 
@@ -22,9 +22,6 @@ O Firewall do aplicativo Web (WAF) no Gateway de Aplicativo Azure fornece prote�
 O WAF no Gateway de Aplicativo é baseado [Conjunto de Regras Principais](https://owasp.org/www-project-modsecurity-core-rule-set/) 3.1, 3.0 ou 2.2.9 do OWASP (Open Web Application Security Project). O WAF é atualizado automaticamente para incluir proteção contra novas vulnerabilidades, sem necessidade de configuração adicional. 
 
 Todos os recursos de WAF listados abaixo existem dentro de uma política de WAF. Você poderá criar várias políticas e elas poderão ser associadas a um Gateway de Aplicativo, a ouvintes individuais ou a regras de roteamento baseadas em caminhos em um Gateway de Aplicativo. Dessa forma, você pode ter políticas separadas para cada site por trás do seu Gateway de Aplicativo, se necessário. Para obter mais informações sobre políticas de WAF, consulte [Criar uma política de WAF](create-waf-policy-ag.md).
-
-   > [!NOTE]
-   > As políticas de WAF por URI estão em versão prévia pública. Isso significa que esse recurso está sujeito aos Termos de Uso Suplementares da Microsoft. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![Diagrama do WAF do Gateway de Aplicativo](../media/ag-overview/waf1.png)
 
@@ -74,6 +71,7 @@ Esta seção descreve os principais benefícios oferecidos pelo WAF no Gateway d
 - Crie regras personalizadas para atender às necessidades específicas dos seus aplicativos.
 - Filtre o tráfego pela geografia para permitir ou impedir que determinados países/regiões tenham acesso a seus aplicativos. (versão prévia)
 - Proteja seus aplicativos de bots com o conjunto de regras de mitigação de bots. (versão prévia)
+- Inspecionar JSON e XML no corpo da solicitação
 
 ## <a name="waf-policy-and-rules"></a>Política e regras do WAF
 
@@ -145,7 +143,7 @@ No modo de Pontuação de anomalias, o tráfego que corresponde a qualquer regra
 Há um limite de 5 para a pontuação de anomalias bloquear o tráfego. Portanto, uma única correspondência de regra *Crítica* é suficiente para que o WAF do Gateway de Aplicativo bloqueie uma solicitação, mesmo no modo de Prevenção. Mas uma correspondência de regra de *Aviso* aumenta apenas a pontuação de anomalias em 3, o que não é suficiente para bloquear o tráfego.
 
 > [!NOTE]
-> A mensagem registrada quando uma regra WAF corresponde ao tráfego inclui o valor de ação "Bloqueado". Mas o tráfego é, na verdade, bloqueado apenas para uma pontuação de anomalias de 5 ou mais.  
+> A mensagem registrada quando uma regra WAF corresponde ao tráfego inclui o valor de ação "Bloqueado". Mas o tráfego é, na verdade, bloqueado apenas para uma pontuação de anomalias de 5 ou mais. Para obter mais informações, confira [Solucionar problemas de WAF (Firewall de Aplicativo Web) no Gateway de Aplicativo do Azure](web-application-firewall-troubleshoot.md#understanding-waf-logs). 
 
 ### <a name="waf-monitoring"></a>Monitoramento de WAF
 
@@ -159,7 +157,7 @@ Os logs do Gateway de Aplicativo são integrados ao [Azure Monitor](../../azure-
 
 #### <a name="azure-security-center"></a>Central de Segurança do Azure
 
-A [Central de Segurança](../../security-center/security-center-intro.md) ajuda você a evitar, detectar e responder a ameaças. Ela proporciona a você maior visibilidade e controle da segurança de seus recursos do Azure. O Gateway de Aplicativo é [integrado à Central de Segurança](../../application-gateway/application-gateway-integration-security-center.md). A Central de Segurança verifica seu ambiente para detectar aplicativos Web desprotegidos. Ela pode recomendar o WAF de Gateway de Aplicativo para proteger esses recursos vulneráveis. Você cria os firewalls diretamente na Central de Segurança. Essas instâncias do WAF estão integradas à Central de Segurança. Elas enviam informações de alertas e de integridade para a Central de Segurança com a finalidade de geração de relatórios.
+A [Central de Segurança](../../security-center/security-center-introduction.md) ajuda você a evitar, detectar e responder a ameaças. Ela proporciona a você maior visibilidade e controle da segurança de seus recursos do Azure. O Gateway de Aplicativo é [integrado à Central de Segurança](../../security-center/security-center-partner-integration.md#integrated-azure-security-solutions). A Central de Segurança verifica seu ambiente para detectar aplicativos Web desprotegidos. Ela pode recomendar o WAF de Gateway de Aplicativo para proteger esses recursos vulneráveis. Você cria os firewalls diretamente na Central de Segurança. Essas instâncias do WAF estão integradas à Central de Segurança. Elas enviam informações de alertas e de integridade para a Central de Segurança com a finalidade de geração de relatórios.
 
 ![Janela de Visão geral da Central de Segurança](../media/ag-overview/figure1.png)
 

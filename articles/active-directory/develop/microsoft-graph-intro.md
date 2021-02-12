@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/13/2020
 ms.author: davidmu
 ms.custom: aaddev
-ms.openlocfilehash: 13cbeca909b445d75fcbcf7b3751183421479d42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a799d7c32ad632303931adf838ca8e2e715b2adc
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90052555"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860177"
 ---
 # <a name="microsoft-graph-api"></a>API do Microsoft Graph
 
@@ -34,7 +34,7 @@ O Microsoft Graph atualmente dá suporte a duas versões: v 1.0 e beta. A versã
 
 Para começar a usar as APIs beta, consulte [referência de ponto de extremidade do Microsoft Graph beta](/graph/api/overview?view=graph-rest-beta)
 
-Para começar a usar as APIs v 1.0, confira [Microsoft Graph referência da API REST v 1.0](/graph/api/overview?view=graph-rest-1.0)
+Para começar a usar as APIs v 1.0, confira [Microsoft Graph referência da API REST v 1.0](/graph/api/overview)
 
 ## <a name="get-started"></a>Introdução
 

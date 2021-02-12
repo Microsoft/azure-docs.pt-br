@@ -16,12 +16,12 @@ ms.custom:
 - devx-track-js
 - devx-track-azurecli
 ms.date: 06/21/2019
-ms.openlocfilehash: 0452e117b733d4e5363fe4a6d6a94ee45c34d57d
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7aa95e2117dc3bb2e837e62ef42e3a770f2266d5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748587"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842117"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>Início Rápido: Enviar a telemetria de um dispositivo para um hub IoT e lê-la com um back-end (Node.js)
 
@@ -29,31 +29,23 @@ ms.locfileid: "92748587"
 
  Neste início rápido, você envia telemetria de um aplicativo de dispositivo simulado, por meio do Hub IoT do Azure, para um aplicativo de back-end para processamento. O Hub IoT é um serviço do Azure que permite a ingestão de grandes volumes de telemetria de seus dispositivos IoT pela nuvem para processamento ou armazenamento. Este início rápido usa dois aplicativos Node.js previamente escritos, um para enviar a telemetria e outro para ler a telemetria do hub. Antes de executar esses dois aplicativos, você cria um hub IoT e registra um dispositivo com o hub.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma conta do Azure com uma assinatura ativa. [Crie um gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-
 * [Node.js 10+](https://nodejs.org). Se você estiver usando o Azure Cloud Shell, não atualize a versão instalada do Node.js. O Azure Cloud Shell já tem a versão mais recente do Node.js.
+
+    Você pode verificar a versão atual do Node.js no computador de desenvolvimento usando o seguinte comando:
+
+    ```cmd/sh
+    node --version
+    ```
 
 * [Um projeto de exemplo do Node.js](https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip).
 
 * Porta 8883 aberta no firewall. A amostra de dispositivo deste início rápido usa o protocolo MQTT, que se comunica pela porta 8883. Essa porta poderá ser bloqueada em alguns ambientes de rede corporativos e educacionais. Para obter mais informações e maneiras de resolver esse problema, confira [Como se conectar ao Hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-Você pode verificar a versão atual do Node.js no computador de desenvolvimento usando o seguinte comando:
-
-```cmd/sh
-node --version
-```
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-### <a name="add-azure-iot-extension"></a>Adicionar Extensão do Azure IoT
-
-Execute o comando a seguir para adicionar a Extensão do Microsoft Azure IoT para a CLI do Azure à instância do Cloud Shell. A Extensão de IoT adiciona comandos específicos do Hub IoT, do IoT Edge e do DPS (Serviço de Provisionamento de Dispositivos IoT) à CLI do Azure.
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -67,9 +59,9 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
 
 1. Execute o comando a seguir no Azure Cloud Shell para criar a identidade do dispositivo.
 
-   **YourIoTHubName** : substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
+   **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
 
-   **MyNodeDevice** : esse é o nome do dispositivo que está sendo registrado. É recomendável usar **MyNodeDevice** conforme mostrado. Se você escolher um nome diferente para seu dispositivo, você também precisará usar esse nome ao longo deste artigo e atualizar o nome de dispositivo nos aplicativos de exemplo antes de executá-los.
+   **MyNodeDevice**: esse é o nome do dispositivo que está sendo registrado. É recomendável usar **MyNodeDevice** conforme mostrado. Se você escolher um nome diferente para seu dispositivo, você também precisará usar esse nome ao longo deste artigo e atualizar o nome de dispositivo nos aplicativos de exemplo antes de executá-los.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyNodeDevice
@@ -77,7 +69,7 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
 
 1. Execute o seguinte comando no Azure Cloud Shell para obter a _cadeia de conexão de dispositivo_ referente ao dispositivo que você acabou de registrar:
 
-   **YourIoTHubName** : substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
+   **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
 
     ```azurecli-interactive
     az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyNodeDevice --output table
@@ -89,9 +81,9 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
 
     Você usará esse valor posteriormente no início rápido.
 
-1. Você também precisa do _ponto de extremidade compatível com Hubs de Evento_ , do _caminho compatível dos Hubs de Eventos_ e da _chave primária de serviço_ de seu hub IoT para ativar o aplicativo back-end a fim de se conectar ao seu hub IoT e recuperar as mensagens. Os comandos a seguir recuperam esses valores para o seu hub IoT:
+1. Você também precisa do _ponto de extremidade compatível com Hubs de Evento_, do _caminho compatível dos Hubs de Eventos_ e da _chave primária de serviço_ de seu hub IoT para ativar o aplicativo back-end a fim de se conectar ao seu hub IoT e recuperar as mensagens. Os comandos a seguir recuperam esses valores para o seu hub IoT:
 
-   **YourIoTHubName** : substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
+   **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
 
     ```azurecli-interactive
     az iot hub show --query properties.eventHubEndpoints.events.endpoint --name {YourIoTHubName}
@@ -107,11 +99,11 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
 
 O aplicativo de dispositivo simulado se conecta a um ponto de extremidade específico do dispositivo em seu hub IoT e envia telemetria simulada de temperatura e umidade.
 
-1. Abra a janela do terminal local e navegue até a pasta raiz do projeto Node.js de exemplo. Em seguida, navegue até a pasta **iot-hub\Quickstarts\simulated-device** .
+1. Abra a janela do terminal local e navegue até a pasta raiz do projeto Node.js de exemplo. Em seguida, navegue até a pasta **iot-hub\Quickstarts\simulated-device**.
 
 1. Abra o arquivo **SimulatedDevice.js** em seu editor de texto preferido.
 
-    Substitua o valor da variável `connectionString` pela cadeia de conexão do dispositivo que você anotou anteriormente. Salve suas alterações em **SimulatedDevice.js** .
+    Substitua o valor da variável `connectionString` pela cadeia de conexão do dispositivo que você anotou anteriormente. Salve suas alterações em **SimulatedDevice.js**.
 
 1. Na janela do terminal local, execute os seguintes comandos para instalar as bibliotecas necessárias e executar o aplicativo de dispositivo simulado:
 
@@ -128,7 +120,7 @@ O aplicativo de dispositivo simulado se conecta a um ponto de extremidade espec�
 
 O aplicativo de back-end se conecta ao ponto de extremidade **Eventos** do lado do serviço em seu Hub IoT. O aplicativo recebe as mensagens do dispositivo para a nuvem, enviadas de seu dispositivo simulado. Um aplicativo de back-end do Hub IoT normalmente é executado na nuvem para receber e processar as mensagens do dispositivo para a nuvem.
 
-1. Abra outra janela do terminal local e navegue até a pasta raiz do projeto Node.js de exemplo. Em seguida, navegue até a pasta **iot-hub\Quickstarts\read-d2c-messages** .
+1. Abra outra janela do terminal local e navegue até a pasta raiz do projeto Node.js de exemplo. Em seguida, navegue até a pasta **iot-hub\Quickstarts\read-d2c-messages**.
 
 1. Abra o arquivo **ReadDeviceToCloudMessages.js** em seu editor de texto preferido. Atualize as variáveis a seguir e salve suas alterações no arquivo.
 

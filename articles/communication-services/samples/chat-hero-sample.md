@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d244ed92cceb385f9f80690ae630e617e952c481
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 80fdedb29f70c961431c987558a42d5fa46dfa7d
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124578"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760805"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Introdução ao exemplo de destaque de chat de grupo
 
@@ -25,12 +25,14 @@ ms.locfileid: "92124578"
 > links to our Hero Sample repo need to be updated when the sample is publicly available.
 ---->
 
+> [!IMPORTANT]
+> [Este exemplo está disponível no GitHub.](https://github.com/Azure-Samples/communication-services-web-chat-hero)
+
+
 O **Exemplo de Destaque de Chat em Grupo** dos Serviços de Comunicação do Azure demonstra como a biblioteca de clientes Web de chat dos Serviços de Comunicação pode ser usada para criar uma experiência de chamada em grupo.
 
 Neste guia de início rápido de Exemplo, aprenderemos como o exemplo funciona antes de o executarmos no computador local. Em seguida, implantaremos o exemplo no Azure usando seus próprios recursos de Serviços de Comunicação do Azure.
 
-> [!IMPORTANT]
-> [Baixar o exemplo do GitHub](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 ## <a name="overview"></a>Visão geral
 
@@ -42,11 +44,11 @@ Aqui está um exemplo:
 
 Quando você pressiona o botão "Iniciar um Chat", o aplicativo Web busca um token de acesso do usuário do aplicativo do lado do servidor. Esse token é usado para conectar o aplicativo cliente aos Serviços de Comunicação do Azure. Depois que o token é recuperado, você é solicitado a especificar seu nome e emoji que vão representá-lo no chat. 
 
-:::image type="content" source="./media/chat/pre-chat.png" alt-text="Captura de tela mostrando a página de aterrissagem do aplicativo de exemplo.":::
+:::image type="content" source="./media/chat/pre-chat.png" alt-text="Captura de tela mostrando o chat do aplicativo.":::
 
 Depois de configurar seu nome de exibição e emoji, você pode ingressar na sessão de chat. Agora, você verá a tela de chat principal na qual reside a experiência de chat central.
 
-:::image type="content" source="./media/chat/main-app.png" alt-text="Captura de tela mostrando a página de aterrissagem do aplicativo de exemplo.":::
+:::image type="content" source="./media/chat/main-app.png" alt-text="Captura de tela mostrando o exemplo principal do aplicativo de exemplo.":::
 
 Componentes da tela principal de chat:
 
@@ -75,7 +77,7 @@ Você pode testar o exemplo localmente abrindo várias sessões do navegador com
 ## <a name="before-running-the-sample-for-the-first-time"></a>Antes de executar o exemplo pela primeira vez
 
 1. Abra uma instância do PowerShell, terminal do Windows, prompt de comando ou equivalente e navegue até o diretório para o qual você deseja clonar o exemplo.
-2. `git clone https://github.com/Azure/Communication.git`
+2. `git clone https://github.com/Azure-Samples/communication-services-web-chat-hero.git`
 3. Obtenha a `Connection String` do portal do Azure. Para obter mais informações sobre cadeias de conexão, confira [Criar Recursos de Comunicação do Azure](../quickstarts/create-communication-resource.md)
 4. Depois de obter a `Connection String`, adicione a cadeia de conexão ao arquivo **Chat/appsettings.json** encontrado na pasta Chat. Insira a cadeia de conexão na variável: `ResourceConnectionString`.
 
@@ -109,6 +111,7 @@ Para obter mais informações, consulte os seguintes artigos:
 
 - Saiba mais sobre os [conceitos de chat](../concepts/chat/concepts.md)
 - Familiarize-se com a [biblioteca de clientes de chat](../concepts/chat/sdk-features.md)
+- Examinar o exemplo [Contoso Med App](https://github.com/Azure-Samples/communication-services-contoso-med-app)
 
 ## <a name="additional-reading"></a>Leituras adicionais
 
@@ -116,4 +119,4 @@ Para obter mais informações, consulte os seguintes artigos:
 - [Redux](https://redux.js.org/) – gerenciamento de estado do lado do cliente
 - [FluentUI](https://aka.ms/fluent-ui) – biblioteca de interface do usuário da Microsoft
 - [React](https://reactjs.org/) – biblioteca para criar interfaces do usuário
-- [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true) – Estrutura para criar aplicativos Web
+- [ASP.NET Core](/aspnet/core/introduction-to-aspnet-core?preserve-view=true&view=aspnetcore-3.1) – Estrutura para criar aplicativos Web

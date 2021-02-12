@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/26/2020
 ms.author: dapine
-ms.openlocfilehash: 85dfedc75807e273240066460a58b79380050e58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f36e6ecbd0050566b60efcbc13d029cf1d8631d2
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80656693"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97582599"
 ---
 | Linguagem de programação | Plataforma                                                                           | Referência do SDK              |
 |----------------------|------------------------------------------------------------------------------------|----------------------------|
@@ -24,9 +24,9 @@ ms.locfileid: "80656693"
 
 <sup>2 o SDK de fala do Java também está disponível como parte do [SDK dos dispositivos de fala](../articles/cognitive-services/speech-service/speech-devices-sdk.md).</sup>
 
-[net-sdk]: https://aka.ms/csspeech/csharpref
-[cpp-sdk]: https://aka.ms/csspeech/cppref
-[javasdk]: https://aka.ms/csspeech/javaref
-[ecmasdk]: https://aka.ms/csspeech/javascriptref
-[obj-sdk]: https://aka.ms/csspeech/objectivecref
+[net-sdk]: /dotnet/api/overview/azure/cognitiveservices/client/speechservice
+[cpp-sdk]: /cpp/cognitive-services/speech/
+[javasdk]: /java/api/com.microsoft.cognitiveservices.speech
+[ecmasdk]: /javascript/api/microsoft-cognitiveservices-speech-sdk/
+[obj-sdk]: /objectivec/cognitive-services/speech/
 [pyt-sdk]: https://aka.ms/csspeech/pythonref

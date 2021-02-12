@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 8fd23e52f045ba007d4b3b48b5e2e4269df53975
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b47498127996698d53946eb2aaf54368132ae7f9
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336098"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98877978"
 ---
 # <a name="create-a-scale-set-from-a-specialized-image-using-powershell"></a>Criar um conjunto de dimensionamento de uma imagem especializada usando o PowerShell 
 
-Crie uma VM com base em uma versão de imagem especializada armazenada em uma [Galeria de imagens compartilhada](shared-image-galleries.md) usando Azure PowerShell. Se desejar criar um conjunto de dimensionamento usando uma versão de imagem generalizada, consulte [criar instâncias de conjunto de dimensionamento de uma versão de imagem generalizada](instance-generalized-image-version-powershell.md).
+Crie uma VM com base em uma versão de imagem especializada armazenada em uma [Galeria de imagens compartilhada](../virtual-machines/shared-image-galleries.md) usando Azure PowerShell. Se desejar criar um conjunto de dimensionamento usando uma versão de imagem generalizada, consulte [criar instâncias de conjunto de dimensionamento de uma versão de imagem generalizada](instance-generalized-image-version-powershell.md).
 
 Quando você tiver uma imagem especializada em sua galeria, poderá criar um conjunto de dimensionamento de máquinas virtuais usando o cmdlet [New-AzVmss](/powershell/module/az.compute/new-azvmss) . 
 
@@ -134,7 +134,7 @@ New-AzVmss `
 Leva alguns minutos para criar e configurar todos os recursos e as VMs do conjunto de dimensionamento.
 
 ## <a name="next-steps"></a>Próximas etapas
-O [Construtor de imagens do Azure (visualização)](../virtual-machines/linux/image-builder-overview.md) pode ajudar a automatizar a criação da versão da imagem, até mesmo usá-la para atualizar e [criar uma nova versão da imagem a partir de uma versão de imagem existente](../virtual-machines/linux/image-builder-gallery-update-image-version.md).  
+O [Construtor de imagens do Azure (visualização)](../virtual-machines/image-builder-overview.md) pode ajudar a automatizar a criação da versão da imagem, até mesmo usá-la para atualizar e [criar uma nova versão da imagem a partir de uma versão de imagem existente](../virtual-machines/linux/image-builder-gallery-update-image-version.md).  
 
 Você também pode criar um recurso de Galeria de imagens compartilhadas usando modelos. Há vários Modelos de Início Rápido do Azure disponíveis: 
 
@@ -142,5 +142,4 @@ Você também pode criar um recurso de Galeria de imagens compartilhadas usando 
 - [Criar uma Definição de Imagem em uma Galeria de Imagens Compartilhadas](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [Criar uma Versão da Imagem em uma Galeria de Imagens Compartilhadas](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 
-Para obter mais informações sobre galerias de imagens compartilhadas, confira a [Visão geral](shared-image-galleries.md). Se você enfrentar problemas, confira [Solução de problemas de galerias de imagens compartilhadas](../virtual-machines/troubleshooting-shared-images.md).
-
+Para obter mais informações sobre galerias de imagens compartilhadas, confira a [Visão geral](../virtual-machines/shared-image-galleries.md). Se você enfrentar problemas, confira [Solução de problemas de galerias de imagens compartilhadas](../virtual-machines/troubleshooting-shared-images.md).

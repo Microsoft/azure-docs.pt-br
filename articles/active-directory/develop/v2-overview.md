@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
-ms.custom: identityplatformtop40
-ms.openlocfilehash: e63d2cac97a16674c4e2e880f94373b0af1510de
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.custom: identityplatformtop40, contperf-fy21q2
+ms.openlocfilehash: 662523b1544fe3ca9e8bda993efa7b578b9f69cc
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056405"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752581"
 ---
 # <a name="what-is-the-microsoft-identity-platform"></a>O que é a plataforma de identidade da Microsoft?
 
@@ -78,7 +78,7 @@ Saiba como os principais conceitos de autenticação do Azure AD se aplicam à p
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você tem uma conta do Azure, isso significa que já tem acesso a um locatário do Azure Active Directory, mas a maioria dos desenvolvedores da plataforma de identidade da Microsoft precisa ter os próprios locatários do Azure AD deles para uso durante o desenvolvimento de aplicativos, um "locatário de desenvolvimento".
+Se você tem uma conta do Azure, isso significa que já tem acesso a um locatário do Azure Active Directory, mas a maioria dos desenvolvedores da plataforma de identidade da Microsoft precisa ter os próprios locatários do Azure AD para uso durante o desenvolvimento de aplicativos, um "locatário de desenvolvimento".
 
 Saiba como criar seu locatário para uso ao criar seus aplicativos:
 

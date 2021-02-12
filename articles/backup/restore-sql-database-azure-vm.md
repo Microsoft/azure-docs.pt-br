@@ -3,12 +3,12 @@ title: Restaurar bancos de dados SQL Server em uma VM do Azure
 description: Este artigo descreve como restaurar SQL Server bancos de dados que estão em execução em uma VM do Azure e cujo backup é feito com o backup do Azure. Você também pode usar a restauração entre regiões para restaurar seus bancos de dados para uma região secundária.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: bbafd179f4b2f4e91a4bf19da41ffc14e4775e5c
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 7dd8d8d54fa7d33bb4a0935357597d19dd2368c5
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172177"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734395"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurar bancos de dados do SQL Server em VMs do Azure
 
@@ -23,12 +23,13 @@ O backup do Azure pode restaurar SQL Server bancos de dados que estão em execu�
 - Restaurar para uma data ou hora específica (para o segundo) usando backups de log de transações. O backup do Azure determina automaticamente o backup diferencial completo apropriado e a cadeia de backups de log que são necessários para restaurar com base na hora selecionada.
 - Restaure um backup completo ou diferencial específico para restaurar para um ponto de recuperação específico.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="restore-prerequisites"></a>Pré-requisitos de restauração
 
 Antes de restaurar um banco de dados, observe o seguinte:
 
 - Você pode restaurar o banco de dados para uma instância de um SQL Server na mesma região do Azure.
 - O servidor de destino precisa ser registrado no mesmo cofre que a fonte.
+- Se você tiver várias instâncias em execução em um servidor, todas as instâncias deverão estar ativas e em execução. Caso contrário, o servidor não aparecerá na lista de servidores de destino para os quais você deseja restaurar o banco de dados. Para obter mais informações, consulte [as etapas de solução de problemas](backup-sql-server-azure-troubleshoot.md#faulty-instance-in-a-vm-with-multiple-sql-server-instances).
 - Para restaurar um banco de dados criptografado com TDE para outro SQL Server, primeiro você precisa [restaurar o certificado para o servidor de destino](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
 - Bancos de dados habilitados para [CDC](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) devem ser restaurados usando a opção [restaurar como arquivos](#restore-as-files) .
 - Antes de restaurar o banco de dados "mestre", inicie a instância de SQL Server no modo de usuário único usando a opção de inicialização **-m AzureWorkloadBackup**.
@@ -36,7 +37,6 @@ Antes de restaurar um banco de dados, observe o seguinte:
   - Somente o nome do cliente especificado pode abrir a conexão.
 - Para todos os bancos de dados do sistema (modelo, mestre, msdb), interrompa o serviço de SQL Server Agent antes de disparar a restauração.
 - Feche todos os aplicativos que possam tentar fazer uma conexão com qualquer um desses bancos de dados.
-- Se você tiver várias instâncias em execução em um servidor, todas as instâncias deverão estar ativas e em execução, caso contrário, o servidor não aparecerá na lista de servidores de destino para os quais você deseja restaurar o banco de dados.
 
 ## <a name="restore-a-database"></a>Restaurar um banco de dados
 
@@ -85,7 +85,7 @@ Restaure da seguinte maneira:
 1. Selecione o nome do SQL Server e a instância na qual você deseja restaurar o banco de dados.
 1. Na caixa **Nome do Banco de Dados Restaurado**, digite o nome do banco de dados de destino.
 1. Se aplicável, selecione **Substituir se o BD com o mesmo nome já existir na instância do SQL selecionada**.
-1. Selecione **ponto de restauração**e selecione se deseja [restaurar para um ponto específico no tempo](#restore-to-a-specific-point-in-time) ou para [restaurar para um ponto de recuperação específico](#restore-to-a-specific-restore-point).
+1. Selecione **ponto de restauração** e selecione se deseja [restaurar para um ponto específico no tempo](#restore-to-a-specific-point-in-time) ou para [restaurar para um ponto de recuperação específico](#restore-to-a-specific-restore-point).
 
     ![Selecionar ponto de restauração](./media/backup-azure-sql-database/select-restore-point.png)
 
@@ -134,7 +134,7 @@ Para restaurar os dados de backup como arquivos. bak, em vez de em um banco de d
 
     ![Selecione restaurar como arquivos](./media/backup-azure-sql-database/restore-as-files.png)
 
-1. Selecione **ponto de restauração**e selecione se deseja [restaurar para um ponto específico no tempo](#restore-to-a-specific-point-in-time) ou para [restaurar para um ponto de recuperação específico](#restore-to-a-specific-restore-point).
+1. Selecione **ponto de restauração** e selecione se deseja [restaurar para um ponto específico no tempo](#restore-to-a-specific-point-in-time) ou para [restaurar para um ponto de recuperação específico](#restore-to-a-specific-restore-point).
 
 1. Todos os arquivos de backup associados ao ponto de recuperação selecionado são despejados no caminho de destino. Você pode restaurar os arquivos como um banco de dados em qualquer computador em que estejam presentes usando SQL Server Management Studio.
 

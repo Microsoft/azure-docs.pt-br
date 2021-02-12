@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 61c21aed76cfaac5621b234b32c90877ef6faa9f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 223fdc215bc391bea5cad5d4cb9999b9d14ba570
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966314"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878775"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Trazer e criar imagens do Linux no Azure
 
@@ -29,7 +29,7 @@ O Azure permite que você coloque um VHD na plataforma ou use como um [Disco Ger
 
 Os discos gerenciados do Azure são VHDs únicos. É possível usar um VHD existente e criar um disco gerenciado com base nele ou criar um disco gerenciado vazio do zero. É possível criar VMs com base em discos gerenciados anexando o disco à VM, mas você só pode usar um VHD com uma VM. Não é possível modificar nenhuma propriedade do sistema operacional; o Azure tentará ligar a VM e inicializar usando esse disco. 
 
-As imagens do Azure podem ser compostas por vários discos do sistema operacional e de dados. Quando você usa uma imagem gerenciada para criar uma VM, a plataforma faz uma cópia da imagem e a usa para criar a VM, de modo que a imagem gerenciada dá suporte à reutilização da mesma imagem para várias VMs. O Azure também fornece funcionalidades avançadas de gerenciamento para imagens, como replicação global, e controle de versão por meio da [Galeria de Imagens Compartilhadas](shared-image-galleries.md). 
+As imagens do Azure podem ser compostas por vários discos do sistema operacional e de dados. Quando você usa uma imagem gerenciada para criar uma VM, a plataforma faz uma cópia da imagem e a usa para criar a VM, de modo que a imagem gerenciada dá suporte à reutilização da mesma imagem para várias VMs. O Azure também fornece funcionalidades avançadas de gerenciamento para imagens, como replicação global, e controle de versão por meio da [Galeria de Imagens Compartilhadas](../shared-image-galleries.md). 
 
 
 
@@ -65,7 +65,7 @@ No entanto, os agentes de provisionamento não são necessários para essas imag
 Ao trazer sua imagem do Linux, você tem duas opções:
 
 - Imagens gerenciadas para criação de VM simples em um ambiente de desenvolvimento e teste.
-- [Galeria de Imagens Compartilhadas](shared-image-galleries.md) para criar e compartilhar imagens em escala.
+- [Galeria de Imagens Compartilhadas](../shared-image-galleries.md) para criar e compartilhar imagens em escala.
 
 
 ### <a name="managed-images"></a>Imagens gerenciadas
@@ -76,14 +76,14 @@ As imagens gerenciadas podem ser usadas para ambientes de desenvolvimento e test
 
 ### <a name="azure-shared-image-gallery-sig"></a>SIG (Galeria de Imagens Compartilhadas) do Azure
 
-As [Galerias de Imagens Compartilhadas](shared-image-galleries.md) são recomendadas para criar, gerenciar e compartilhar imagens em escala. A galeria de imagens compartilhadas ajuda você a criar a estrutura e a organização em torno das suas imagens gerenciadas.  
+As [Galerias de Imagens Compartilhadas](../shared-image-galleries.md) são recomendadas para criar, gerenciar e compartilhar imagens em escala. A galeria de imagens compartilhadas ajuda você a criar a estrutura e a organização em torno das suas imagens gerenciadas.  
 
 - Suporte para imagens generalizadas e especializadas.
 - Suporte para imagens da geração 1 e 2.
 - Replicação global de imagens.
 - Agrupamento e controle de versão de imagens para facilitar o gerenciamento.
 - Imagens altamente disponíveis com ZRS (Armazenamento com Redundância de Zona) em regiões que dão suporte a Zonas de Disponibilidade. O ZRS oferece maior resiliência contra falhas em zonas.
-- Compartilhamento entre assinaturas e até mesmo entre locatários do AD (Active Directory), usando o RBAC.
+- Compartilhamento entre assinaturas e até mesmo entre locatários do AD (Active Directory) usando o Azure RBAC.
 - Dimensionamento das suas implantações com réplicas de imagem em cada região.
 
 Em um alto nível, você cria um SIG e ele é composto por:

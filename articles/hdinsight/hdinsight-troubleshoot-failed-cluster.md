@@ -1,19 +1,16 @@
 ---
 title: Solucionar problemas de um trabalho lento ou com falha no cluster HDInsight do Azure
 description: Diagnostique e solucione problemas de um trabalho lento ou com falha em um cluster do Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 4fea7719d0aa375aad3d2795d240006222b6486c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: de5fa6c881f808bcd580f6fae3329d579573d876
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535086"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931524"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Solucionar problemas de um trabalho do cluster do HDInsight lento ou com falha
 
@@ -115,7 +112,7 @@ O [painel de interface do usuário do Ambari](#view-cluster-configuration-settin
 
 ### <a name="check-your-webhcat-service"></a>Verificar seu serviço WebHCat
 
-Um cenário comum para falha nos trabalhos no Apache Hive, Apache Pig ou Apache Sqoop é uma falha com o serviço do [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md) (ou *Templeton* ). O WebHCat é uma interface REST para execução de trabalho remota, como o Hive, Pig e MapReduce. O WebHCat converte as solicitações de envio de trabalho em aplicativos de YARN do Apache Hadoop e retorna um status derivado do status do aplicativo YARN.  As seções a seguir descrevem códigos comuns de status HTTP do WebHCat.
+Um cenário comum para falha nos trabalhos no Apache Hive, Apache Pig ou Apache Sqoop é uma falha com o serviço do [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md) (ou *Templeton*). O WebHCat é uma interface REST para execução de trabalho remota, como o Hive, Pig e MapReduce. O WebHCat converte as solicitações de envio de trabalho em aplicativos de YARN do Apache Hadoop e retorna um status derivado do status do aplicativo YARN.  As seções a seguir descrevem códigos comuns de status HTTP do WebHCat.
 
 #### <a name="badgateway-502-status-code"></a>BadGateway (código de status 502)
 
@@ -172,7 +169,7 @@ No nível do YARN, há dois tipos de tempos limite:
 
     Se você abrir o `/var/log/webhcat/webhcat.log` arquivo de log e pesquisar "trabalho em fila", você poderá ver várias entradas em que o tempo de execução é excessivamente longo (> 2000 ms), com entradas mostrando tempos de espera crescentes.
 
-    O tempo para os trabalhos em fila continua a aumentar porque a taxa de envio de novos trabalhos é maior do que a taxa de conclusão de trabalhos antigos. Quando a memória de YARN atinge o nível de 100% de uso, a *fila joblauncher* não pode usar emprestada a capacidade da *fila padrão* . Portanto, nenhum novo trabalho pode ser aceito na fila de joblauncher. Esse comportamento pode fazer com que o tempo de espera se torne cada vez maior, causando um erro de tempo limite que é geralmente seguido por muitos outros.
+    O tempo para os trabalhos em fila continua a aumentar porque a taxa de envio de novos trabalhos é maior do que a taxa de conclusão de trabalhos antigos. Quando a memória de YARN atinge o nível de 100% de uso, a *fila joblauncher* não pode usar emprestada a capacidade da *fila padrão*. Portanto, nenhum novo trabalho pode ser aceito na fila de joblauncher. Esse comportamento pode fazer com que o tempo de espera se torne cada vez maior, causando um erro de tempo limite que é geralmente seguido por muitos outros.
 
     A imagem a seguir mostra a fila joblauncher com um uso excessivo de 714.4%. Isso é aceitável desde que ainda haja capacidade livre para ser emprestada na fila padrão. No entanto, quando o cluster é totalmente utilizado e a memória do YARN está na capacidade máxima de 100%, novos trabalhos devem aguardar, fazendo com os tempos limite expirem.
 
@@ -206,7 +203,7 @@ Para diagnosticar esses problemas:
 
 ## <a name="step-4-review-the-environment-stack-and-versions"></a>Etapa 4: Revisar as versões e a pilha de ambiente
 
-A página da **Pilha e Versão** da interface de usuário do Ambari fornece informações sobre configuração dos serviços de cluster e histórico de versão do serviço.  Versões incorretas da biblioteca de serviço do Hadoop podem ser uma causa de falha no cluster.  Na interface de usuário do Ambari, selecione o menu **Admin** e, em seguida, **Pilhas e Versões** .  Selecione a guia **Versões** na página para ver as informações de versão do serviço:
+A página da **Pilha e Versão** da interface de usuário do Ambari fornece informações sobre configuração dos serviços de cluster e histórico de versão do serviço.  Versões incorretas da biblioteca de serviço do Hadoop podem ser uma causa de falha no cluster.  Na interface de usuário do Ambari, selecione o menu **Admin** e, em seguida, **Pilhas e Versões**.  Selecione a guia **Versões** na página para ver as informações de versão do serviço:
 
 ![Pilha e versões do Apache Ambari](./media/hdinsight-troubleshoot-failed-cluster/ambari-stack-versions.png)
 
@@ -228,7 +225,7 @@ Os logs de ação de script permanecem no `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAIN
 
 ### <a name="view-hdinsight-logs-using-ambari-quick-links"></a>Exibir logs de HDInsight usando os Links Rápidos do Ambari
 
-A interface do usuário do HDInsight Ambari inclui uma série de seções de **Links rápidos** .  Para acessar os links de log para um serviço específico em seu cluster HDInsight, abra a interface de usuário do Ambari para seu cluster e, em seguida, selecione o link do serviço na lista à esquerda. Selecione os **Links rápidos** suspensos, em seguida, o nó do HDInsight de interesse e, em seguida, selecione o link para seu log associado.
+A interface do usuário do HDInsight Ambari inclui uma série de seções de **Links rápidos**.  Para acessar os links de log para um serviço específico em seu cluster HDInsight, abra a interface de usuário do Ambari para seu cluster e, em seguida, selecione o link do serviço na lista à esquerda. Selecione os **Links rápidos** suspensos, em seguida, o nó do HDInsight de interesse e, em seguida, selecione o link para seu log associado.
 
 Por exemplo, para logs HDFS:
 

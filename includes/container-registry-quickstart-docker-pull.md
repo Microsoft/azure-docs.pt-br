@@ -9,11 +9,11 @@ ms.date: 08/04/2020
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: c99bfd9fb69beb7b5b7088ebea84082d744b12e9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88031754"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019984"
 ---
 ## <a name="run-image-from-registry"></a>Executar a imagem do Registro
 

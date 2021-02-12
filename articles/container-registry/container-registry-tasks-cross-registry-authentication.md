@@ -3,12 +3,12 @@ title: Autenticação entre registros da tarefa do ACR
 description: Configurar uma Tarefa do ACR (Tarefa de Registro de Contêiner do Azure) para acessar outro registro privado de contêiner do Azure, usando uma identidade gerenciada para os recursos Azure
 ms.topic: article
 ms.date: 07/06/2020
-ms.openlocfilehash: 9a460102eafa5c1eda2f37330887d985387d5df5
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 789d2c141f8b7c3f2eb8daa31d99090e3d028a43
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026251"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915821"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Autenticação entre registros em uma tarefa do ACR usando uma identidade gerenciada do Azure 
 
@@ -30,8 +30,8 @@ Em um cenário real, uma organização pode manter um conjunto de imagens base u
 
 Para este artigo, você precisa de dois registros de contêiner do Azure:
 
-* Você usa o primeiro registro para criar e executar tarefas do ACR. Neste artigo, esse registro é nomeado *myregistry* . 
-* O segundo registro hospeda uma imagem base usada para que a tarefa compile uma imagem. Neste artigo, o segundo registro é nomeado *mybaseregistry* . 
+* Você usa o primeiro registro para criar e executar tarefas do ACR. Neste artigo, esse registro é nomeado *myregistry*. 
+* O segundo registro hospeda uma imagem base usada para que a tarefa compile uma imagem. Neste artigo, o segundo registro é nomeado *mybaseregistry*. 
 
 Substitua por seus próprios nomes de registro em etapas posteriores.
 
@@ -43,8 +43,8 @@ Para fins de demonstração, como uma operação única, execute [AZ ACR Import]
 
 ```azurecli
 az acr import --name mybaseregistry \
-  --source docker.io/library/node:9-alpine \
-  --image baseimages/node:9-alpine 
+  --source docker.io/library/node:15-alpine \
+  --image baseimages/node:15-alpine 
 ```
 
 ## <a name="define-task-steps-in-yaml-file"></a>Definir as etapas de tarefa no arquivo YAML
@@ -55,7 +55,7 @@ As etapas para o exemplo [tarefa de várias etapas](container-registry-tasks-mul
 version: v1.1.0
 steps:
 # Replace mybaseregistry with the name of your registry containing the base image
-  - build: -t $Registry/hello-world:$ID  https://github.com/Azure-Samples/acr-build-helloworld-node.git -f Dockerfile-app --build-arg REGISTRY_NAME=mybaseregistry.azurecr.io
+  - build: -t $Registry/hello-world:$ID  https://github.com/Azure-Samples/acr-build-helloworld-node.git#main -f Dockerfile-app --build-arg REGISTRY_NAME=mybaseregistry.azurecr.io
   - push: ["$Registry/hello-world:$ID"]
 ```
 
@@ -84,7 +84,7 @@ az acr task create \
 
 ### <a name="give-identity-pull-permissions-to-the-base-registry"></a>Dar permissões de pull de identidade para o registro base
 
-Nesta seção, dê as permissões de identidade gerenciada para efetuar pull do registro base, *mybaseregistry* .
+Nesta seção, dê as permissões de identidade gerenciada para efetuar pull do registro base, *mybaseregistry*.
 
 Use o comando [az acr show][az-acr-show] para obter a ID do recurso do registro base e armazená-la em uma variável:
 
@@ -123,7 +123,7 @@ az acr task create \
 
 ### <a name="give-identity-pull-permissions-to-the-base-registry"></a>Dar permissões de pull de identidade para o registro base
 
-Nesta seção, dê as permissões de identidade gerenciada para efetuar pull do registro base, *mybaseregistry* .
+Nesta seção, dê as permissões de identidade gerenciada para efetuar pull do registro base, *mybaseregistry*.
 
 Use o comando [az acr show][az-acr-show] para obter a ID do recurso do registro base e armazená-la em uma variável:
 
@@ -190,8 +190,8 @@ Waiting for an agent...
 2019/06/14 22:47:45 Launching container with name: acb_step_0
 Sending build context to Docker daemon   25.6kB
 Step 1/6 : ARG REGISTRY_NAME
-Step 2/6 : FROM ${REGISTRY_NAME}/baseimages/node:9-alpine
-9-alpine: Pulling from baseimages/node
+Step 2/6 : FROM ${REGISTRY_NAME}/baseimages/node:15-alpine
+15-alpine: Pulling from baseimages/node
 [...]
 Successfully built 41b49a112663
 Successfully tagged myregistry.azurecr.io/hello-world:cf10
@@ -211,7 +211,7 @@ The push refers to repository [myregistry.azurecr.io/hello-world]
   runtime-dependency:
     registry: mybaseregistry.azurecr.io
     repository: baseimages/node
-    tag: 9-alpine
+    tag: 15-alpine
     digest: sha256:e8e92cffd464fce3be9a3eefd1b65dc9cbe2484da31c11e813a4effc6105c00f
   git:
     git-head-revision: 0f988779c97fe0bfc7f2f74b88531617f4421643
@@ -219,7 +219,7 @@ The push refers to repository [myregistry.azurecr.io/hello-world]
 Run ID: cf10 was successful after 32s
 ```
 
-Execute o comando [az acr repository show-tags][az-acr-repository-show-tags] para verificar se a imagem foi compilada e se foi enviada por push com sucesso para *myregistry* :
+Execute o comando [az acr repository show-tags][az-acr-repository-show-tags] para verificar se a imagem foi compilada e se foi enviada por push com sucesso para *myregistry*:
 
 ```azurecli
 az acr repository show-tags --name myregistry --repository hello-world --output tsv

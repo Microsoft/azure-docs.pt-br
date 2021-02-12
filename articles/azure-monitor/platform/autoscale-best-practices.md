@@ -4,12 +4,12 @@ description: Padrões de dimensionamento automático no Azure para Aplicativos W
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 414716fbbb36167e52c4f3b98c70ae7696ffea8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fdb3588833dd9bcf989e020cd1dd861c6e28f37
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327048"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95745309"
 ---
 # <a name="best-practices-for-autoscale"></a>Práticas recomendadas para Dimensionamento Automático
 O dimensionamento automático do Azure Monitor aplica-se somente aos [Conjuntos de Dimensionamento de Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machine-scale-sets/), aos [Serviços de Nuvem](https://azure.microsoft.com/services/cloud-services/), ao [Serviço de Aplicativo – Aplicativos Web](https://azure.microsoft.com/services/app-service/web/) e aos [Serviços de Gerenciamento de API](../../api-management/api-management-key-concepts.md).
@@ -73,6 +73,9 @@ Nesse caso
 3. Agora suponha que, ao longo do tempo, o percentual de CPU caia para 60.
 4. A regra de redução horizontal do dimensionamento automático estimaria o estado final se fosse necessário fazer a redução horizontal. Por exemplo, 60 x 3 (contagem de instância atual) = 180 / 2 (número final de instâncias quando reduzido verticalmente) = 90 threads. Portanto, o dimensionamento automático não reduz horizontalmente, pois ele teria que escalar horizontalmente novamente imediatamente. Em vez disso, ele ignora a redução vertical.
 5. Na próxima verificação do dimensionamento automático, a CPU continuará a cair para 50. Ele estima novamente - instância de 3 x 50 = 150 / 2 instâncias = 75, que está abaixo do limite de escala horizontal de 80, portanto ele reduz horizontalmente para que ele é dimensionado em com êxito para 2 instâncias.
+
+> [!NOTE]
+> Se o mecanismo de dimensionamento automático detectar a oscilação pode ocorrer como resultado do dimensionamento para o número de instâncias de destino, ele também tentará Dimensionar para um número diferente de instâncias entre a contagem atual e a contagem de destino. Se a oscilação não ocorrer nesse intervalo, o dimensionamento automático continuará a operação de dimensionamento com o novo destino.
 
 ### <a name="considerations-for-scaling-threshold-values-for-special-metrics"></a>Considerações sobre valores de dimensionamento de limite para métricas especiais
  Para métricas especiais, como a métrica do comprimento da Fila do Barramento de Serviço ou de Armazenamento, o limite é o número médio de mensagens disponíveis por número atual de instâncias. Opte por escolher cuidadosamente o valor de limite para esta métrica.
@@ -143,6 +146,8 @@ O dimensionamento automático registrará no Log de atividades se qualquer das s
 * O serviço de dimensionamento automático não pode executar uma ação de dimensionamento.
 * As métricas não estão disponíveis para o serviço de dimensionamento automático tomar uma decisão de escala.
 * As métricas estão disponíveis (recuperação) novamente para tomar uma decisão de escala.
+* O dimensionamento automático detecta oscilação e anula a tentativa de dimensionamento. Você verá um tipo de log de `Flapping` nessa situação. Se você vir isso, considere se os limites são muito estreitos.
+* O dimensionamento automático detecta oscilação, mas ainda pode ser dimensionado com êxito. Você verá um tipo de log de `FlappingOccurred` nessa situação. Se você vir isso, o mecanismo de dimensionamento automático tentou dimensionar (por exemplo, de 4 instâncias para 2), mas determinou que isso causaria oscilação. Em vez disso, o mecanismo de dimensionamento automático foi dimensionado para um número diferente de instâncias (por exemplo, usando três instâncias em vez de 2), o que não causa mais oscilação, portanto, ele foi dimensionado para esse número de instâncias.
 
 Você também pode usar um alerta do Log de Atividades para monitorar a integridade do mecanismo de dimensionamento automático. Aqui estão exemplos para [criar um Alerta de Log de Atividades para monitorar todas as operações do mecanismo de dimensionamento automático em sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert) ou [criar um Alerta de Log de Atividades para monitorar todas as operações de escalar horizontalmente/reduzir horizontalmente com falha na sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
 

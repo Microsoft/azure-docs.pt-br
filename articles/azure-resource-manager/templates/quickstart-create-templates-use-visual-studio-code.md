@@ -1,20 +1,20 @@
 ---
 title: Criar modelo – Visual Studio Code
-description: Use a extensão de ferramentas do Visual Studio Code e do Azure Resource Manager para trabalhar em modelos do Resource Manager.
+description: Use a extensão de ferramentas do Visual Studio Code e do Azure Resource Manager para trabalhar em modelos do ARM (Azure Resource Manager).
 author: neilpeterson
 ms.date: 08/09/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: 5375fedcd05aefa5d23ee872325373ce631d43bb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d8fd44a1e4c1ddfd78b2afa3280bb05c8fde91e3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88034967"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350136"
 ---
-# <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Início Rápido: Criar modelos do Azure Resource Manager usando o Visual Studio Code
+# <a name="quickstart-create-arm-templates-with-visual-studio-code"></a>Início rápido: Criar modelos do ARM com o Visual Studio Code
 
-As ferramentas do Azure Resource Manager para o Visual Studio Code fornecem suporte à linguagem, snippets de recursos e preenchimento automático de recursos. Essas ferramentas ajudam a criar e validar modelos do Azure Resource Manager. Neste início rápido, você usará a extensão para criar um modelo do Azure Resource Manager do zero. Ao fazer isso, você experimenta as funcionalidades de extensões, como snippets de modelos do Resource Manager, validação, conclusões e suporte ao arquivo de parâmetro.
+As ferramentas do Azure Resource Manager para o Visual Studio Code fornecem suporte à linguagem, snippets de recursos e preenchimento automático de recursos. Essas ferramentas ajudam a criar e validar modelos do ARM (Azure Resource Manager). Neste guia de início rápido, você usará a extensão para criar um modelo do ARM do zero. Ao fazer isso, você experimenta as funcionalidades de extensões, como snippets de modelos do Resource Manager, validação, conclusões e suporte ao arquivo de parâmetro.
 
 Para concluir este início rápido, você precisa do [Visual Studio Code](https://code.visualstudio.com/), com a instalação da [extensão das ferramentas do Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). Você também precisa da [CLI do Azure](/cli/azure/?view=azure-cli-latest) ou do [módulo do Azure PowerShell](/powershell/azure/new-azureps-module-az?view=azps-3.7.0) instalado e autenticado.
 
@@ -54,7 +54,7 @@ A tecla **tab** pode ser usada para tabular pelas propriedades configuráveis na
 
 ## <a name="completion-and-validation"></a>Conclusão e validação
 
-Uma das funcionalidades mais poderosas da extensão é a integração com os esquemas do Azure. Os esquemas do Azure fornecem à extensão as funcionalidades de validação e de conclusão com reconhecimento de recursos. Vamos modificar a conta de armazenamento para ver a validação e a conclusão em ação. 
+Uma das funcionalidades mais poderosas da extensão é a integração com os esquemas do Azure. Os esquemas do Azure fornecem à extensão as funcionalidades de validação e de conclusão com reconhecimento de recursos. Vamos modificar a conta de armazenamento para ver a validação e a conclusão em ação.
 
 Primeiro, atualize o tipo de conta de armazenamento para um valor inválido, como `megaStorage`. Observe que esta ação produz um aviso indicando que `megaStorage` não é um valor válido.
 
@@ -80,7 +80,7 @@ Os nomes da conta de armazenamento do Azure têm um comprimento mínimo de 3 car
 
 ![Imagem mostrando minLength e maxLength sendo adicionados a um parâmetro de modelo do Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/11.png)
 
-Agora, no recurso de armazenamento, atualize a propriedade nome para usar o parâmetro. Para fazer isso, remova o nome atual. Insira aspas duplas e um colchete de abertura `[`, que produz uma lista de funções de modelo do Resource Manager. Selecione *parâmetros* na lista. 
+Agora, no recurso de armazenamento, atualize a propriedade nome para usar o parâmetro. Para fazer isso, remova o nome atual. Insira aspas duplas e um colchete de abertura `[`, que produz uma lista de funções de modelo do Resource Manager. Selecione *parâmetros* na lista.
 
 ![Imagem mostrando o preenchimento automático ao usar parâmetros em recursos do modelo do Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/12.png)
 

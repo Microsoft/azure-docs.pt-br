@@ -9,14 +9,15 @@ ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: 0f53958f8d7b0c5c12d78940b30f88b49d667c1e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a9f5a307bfefedf74f884e39b482bd90454fc5c8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487527"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096862"
 ---
 # <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Início Rápido: Criar um aplicativo de API de Tabela com Node.js e Azure Cosmos DB
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -137,7 +138,7 @@ Esta etapa é opcional. Se você estiver interessado em aprender como os recurso
 
 Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo. Isso permite que seu aplicativo se comunique com o banco de dados hospedado. 
 
-1. Em sua conta do Azure Cosmos DB no [portal do Azure](https://portal.azure.com/), selecione **Cadeia de Conexão** . 
+1. Em sua conta do Azure Cosmos DB no [portal do Azure](https://portal.azure.com/), selecione **Cadeia de Conexão**. 
 
     :::image type="content" source="./media/create-table-nodejs/connection-string.png" alt-text="Exibir e copiar as informações necessárias da cadeia de conexão do painel da Cadeia de Conexão":::
 
@@ -149,7 +150,7 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
     > Se o ponto de extremidade usa documents.azure.com, isso significa que você tem uma conta de versão prévia, e você precisa criar um [nova conta de API de tabela](#create-a-database-account) para trabalhar com o SDK de API de tabela geralmente disponível.
     >
 
-3. Salve o arquivo *app.config* .
+3. Salve o arquivo *app.config*.
 
 Agora, você atualizou o aplicativo com todas as informações necessárias para se comunicar com o Azure Cosmos DB. 
 
@@ -161,7 +162,7 @@ Agora, você atualizou o aplicativo com todas as informações necessárias para
     cd "C:\git-samples\storage-table-node-getting-started"
     ```
 
-2. Execute o comando a seguir para instalar os módulos [azure], [node-uuid], [nconf] e [async] localmente e salvar uma entrada para eles no arquivo *package.json* .
+2. Execute o comando a seguir para instalar os módulos [azure], [node-uuid], [nconf] e [async] localmente e salvar uma entrada para eles no arquivo *package.json*.
 
    ```
    npm install azure-storage node-uuid async nconf --save

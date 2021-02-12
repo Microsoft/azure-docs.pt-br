@@ -3,18 +3,20 @@ title: Publicar aplicativo-LUIS
 titleSuffix: Azure Cognitive Services
 description: Quando terminar de compilar e testar seu aplicativo LUIS ativo, disponibilize-o ao seu aplicativo cliente publicando-o no ponto de extremidade.
 services: cognitive-services
+author: aahill
 manager: nitinme
+ms.author: aahi
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/17/2020
-ms.openlocfilehash: b72f1fd64cca0fa77ebc486670a512c5228e1146
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/12/2021
+ms.openlocfilehash: 8db0f5fa39c7f489db0e30e98ee2684c74eee7e8
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541468"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180023"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publicar seu aplicativo ativo, treinado em um ponto de extremidade de preparo ou produção
 
@@ -55,7 +57,7 @@ Por exemplo, para um aplicativo criado em [www.Luis.ai](https://www.luis.ai), se
 Depois de selecionar o slot, defina as configurações de publicação para:
 
 * Análise de sentimento
-* [Correção ortográfica](luis-tutorial-bing-spellcheck.md) -somente ponto de extremidade de previsão v2
+* [Correção ortográfica](luis-tutorial-bing-spellcheck.md)
 * Preparação da fala
 
 Depois de publicar, essas configurações estarão disponíveis para análise na página **gerenciar** configurações de **publicação** da seção. Você pode alterar as configurações com cada publicação. Se você cancelar uma publicação, as alterações feitas durante a publicação também serão canceladas.
@@ -80,7 +82,32 @@ Para obter mais informações sobre a resposta do ponto de extremidade JSON com 
 
 ## <a name="spelling-correction"></a>Correção ortográfica
 
-[!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
+A API de previsão v3 agora dá suporte à API de verificação ortográfica do Bing. Você pode adicionar a verificação ortográfica ao seu aplicativo, incluindo a chave para o recurso de pesquisa do Bing no cabeçalho de suas solicitações. Você pode usar um recurso existente do Bing se você já tiver um ou [criar um novo](https://portal.azure.com/#create/Microsoft.BingSearch) para usar esse recurso. 
+
+|Chave de cabeçalho|Valor do cabeçalho|
+|--|--|
+|`mkt-bing-spell-check-key`|Chaves encontradas em **chaves e** folha de ponto de extremidade do recurso|
+
+Exemplo de saída de previsão para uma consulta grafada incorretamente:
+
+```json
+{
+  "query": "bouk me a fliht to kayro",
+  "prediction": {
+    "alteredQuery": "book me a flight to cairo",
+    "topIntent": "book a flight",
+    "intents": {
+      "book a flight": {
+        "score": 0.9480589
+      }
+      "None": {
+        "score": 0.0332136229
+      }
+    },
+    "entities": {}
+  }
+}
+```
 
 As correções de ortografia são feitas antes da previsão de expressão do usuário LUIS. Você pode ver quaisquer alterações no expressão original, incluindo a ortografia, na resposta.
 

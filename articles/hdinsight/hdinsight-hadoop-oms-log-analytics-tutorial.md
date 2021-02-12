@@ -1,19 +1,16 @@
 ---
 title: Uso de logs do Azure Monitor para monitorar clusters do Azure HDInsight
 description: Saiba como usar os logs do Azure Monitor para monitorar trabalhos sendo executados em um cluster HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 05/13/2020
-ms.openlocfilehash: 775e2fad573832dd29fc45985c6d6bd0a50fdf3c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5f849248021de3c17b69517d214f6f3fd6e4ee3a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546085"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945631"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Uso de logs do Azure Monitor para monitorar clusters do HDInsight
 
@@ -53,13 +50,13 @@ Nesta seção, você configurará um cluster HDInsight Hadoop existente para usa
 
 1. No [portal do Azure](https://portal.azure.com/), selecione o cluster. O cluster abre em uma nova página do portal.
 
-1. No lado esquerdo, em **Monitoramento** , selecione **Azure Monitor** .
+1. No lado esquerdo, em **Monitoramento**, selecione **Azure Monitor**.
 
-1. No modo de exibição principal, em **Integração do Azure Monitor** , selecione **Habilitar** .
+1. No modo de exibição principal, em **Integração do Azure Monitor**, selecione **Habilitar**.
 
-1. Na lista suspensa **Selecionar espaço de trabalho** , selecione um espaço de trabalho do Log Analytics existente.
+1. Na lista suspensa **Selecionar espaço de trabalho**, selecione um espaço de trabalho do Log Analytics existente.
 
-1. Clique em **Salvar** .  Levará alguns minutos para salvar a configuração.
+1. Clique em **Salvar**.  Levará alguns minutos para salvar a configuração.
 
     ![Habilitar monitoramento para clusters do HDInsight](./media/hdinsight-hadoop-oms-log-analytics-tutorial/azure-portal-monitoring.png "Habilitar monitoramento para clusters do HDInsight")
 
@@ -139,7 +136,7 @@ Soluções de HDInsight disponíveis:
 * Monitoramento do Spark no HDInsight
 * Monitoramento do Storm no HDInsight
 
-Para obter instruções sobre uma solução de gerenciamento, veja [Soluções de gerenciamento no Azure](../azure-monitor/insights/solutions.md#install-a-monitoring-solution). Para fazer um experimento, instale uma solução de monitoramento do HDInsight Hadoop. Quando estiver pronto, você verá um bloco **HDInsightHadoop** listado em **Resumo** . Selecione a peça **HDInsightHadoop** . A solução HDInsightHadoop é semelhante a:
+Para obter instruções sobre uma solução de gerenciamento, veja [Soluções de gerenciamento no Azure](../azure-monitor/insights/solutions.md#install-a-monitoring-solution). Para fazer um experimento, instale uma solução de monitoramento do HDInsight Hadoop. Quando estiver pronto, você verá um bloco **HDInsightHadoop** listado em **Resumo**. Selecione a peça **HDInsightHadoop**. A solução HDInsightHadoop é semelhante a:
 
 ![Modo de exibição de solução de monitoramento do HDInsight](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
 

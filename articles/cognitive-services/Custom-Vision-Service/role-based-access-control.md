@@ -10,29 +10,29 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: 096946a1a63c0826381875cd3ce4eaf0129a85df
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d265b6698a87c1c651dff1413cf48dd4984cd606
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146367"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616885"
 ---
 # <a name="azure-role-based-access-control"></a>Controle de acesso baseado em função do Azure
 
-A Visão Personalizada dá suporte ao RBAC (controle de acesso baseado em função) do Azure, um sistema de autorização para gerenciar o acesso individual aos recursos do Azure. Usando o RBAC do Azure, você atribui diferentes níveis diferentes de permissões de membros da equipe para seus projetos de Visão Personalizada. Para obter mais informações sobre o RBAC do Azure, consulte a [documentação do RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/).
+A Visão Personalizada dá suporte ao RBAC (controle de acesso baseado em função) do Azure, um sistema de autorização para gerenciar o acesso individual aos recursos do Azure. Usando o RBAC do Azure, você atribui diferentes níveis diferentes de permissões de membros da equipe para seus projetos de Visão Personalizada. Para obter mais informações sobre o RBAC do Azure, consulte a [documentação do RBAC do Azure](../../role-based-access-control/index.yml).
 
 ## <a name="add-role-assignment-to-custom-vision-resource"></a>Adicionar atribuição de função a Visão Personalizada recurso
 
 O RBAC do Azure pode ser atribuído a um recurso de Visão Personalizada. Para conceder acesso a um recurso do Azure, você adiciona uma atribuição de função.
 1. No [portal do Azure](https://ms.portal.azure.com/), selecione **Todos os serviços**. 
-1. Em seguida, selecione os **Serviços cognitivas**e navegue até o recurso específico de treinamento visão personalizada.
+1. Em seguida, selecione os **Serviços cognitivas** e navegue até o recurso específico de treinamento visão personalizada.
    > [!NOTE]
    > Você também pode configurar o RBAC do Azure para grupos de recursos, assinaturas ou grupos de gerenciamento inteiros. Faça isso selecionando o nível de escopo desejado e, em seguida, navegando até o item desejado (por exemplo, selecionando **grupos de recursos** e, em seguida, clicando até o grupo de recursos desejado).
 1. Selecione **controle de acesso (iam)** no painel de navegação à esquerda.
 1. Selecione a guia **atribuições de função** para exibir as atribuições de função para esse escopo.
 1. Selecione **Adicionar**  ->  **Adicionar atribuição de função**.
 1. Na lista suspensa **função** , selecione uma função que você deseja adicionar.
-1. Na lista **Selecionar**, selecione um usuário, grupo, entidade de serviço ou identidade gerenciada. Se você não vir a entidade de segurança na lista, poderá digitar a caixa Selecionar para pesquisar o diretório em busca de nomes de exibição, endereços de email e identificadores de objeto.
+1. Na lista **Selecionar** , selecione um usuário, grupo, entidade de serviço ou identidade gerenciada. Se você não vir a entidade de segurança na lista, poderá digitar a caixa Selecionar para pesquisar o diretório em busca de nomes de exibição, endereços de email e identificadores de objeto.
 1. Selecione **Salvar** para atribuir a função.
 
 Em alguns minutos, o destino será atribuído à função selecionada no escopo selecionado.

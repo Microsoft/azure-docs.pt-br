@@ -1,14 +1,14 @@
 ---
 title: Atualizar uma atribuição existente do portal
 description: Saiba mais sobre o mecanismo de atualização de uma atribuição de Blueprint existente do portal em plantas do Azure.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: how-to
-ms.openlocfilehash: ddaac8110885d817bc96745965c1af7e522b1919
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c383ebedaf83b3a52062c91f98b816c3baf6618e
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651372"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919386"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Como atualizar uma atribuição de blueprint existente
 
@@ -32,17 +32,17 @@ Quando um blueprint é atribuído, a atribuição pode ser atualizada. Há vári
 
 1. Na página de detalhes de atribuição atualizada, veja o novo status. Neste exemplo, adicionamos **Bloqueio** à atribuição.
 
-   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Captura de tela da página de atribuição do Blueprint com o botão ' atualizar atribuição ' realçado." border="false":::
+   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Captura de tela de uma atribuição de plano gráfico atualizada mostrando o modo de bloqueio alterado." border="false":::
 
 1. Explore os detalhes sobre outras **operações de atribuição** usando a lista suspensa. A tabela de atualizações de **recursos gerenciados** por operação de atribuição selecionada.
 
-   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Captura de tela da página de atribuição do Blueprint com o botão ' atualizar atribuição ' realçado." border="false":::
+   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Captura de tela de uma atribuição de plano gráfico atualizada mostrando as operações de atribuição e seu status." border="false":::
 
 ## <a name="rules-for-updating-assignments"></a>Regras para atualizar atribuições
 
 A implantação das atribuições atualizadas segue algumas regras importantes. Essas regras determinam o que acontece com os recursos já implantados. A alteração solicitada e o tipo de artefato de recurso que está sendo implantado ou atualizado determinam quais ações são executadas.
 
-- Atribuições de Funções
+- Atribuições de função
   - Se a função ou o destinatário da função (usuário, grupo ou aplicativo) for alterado, uma nova atribuição de função será criada. A atribuição de função já implantada permanece em vigor.
 - Atribuições de Políticas
   - Se os parâmetros da atribuição de política forem alterados, a atribuição existente será atualizada.

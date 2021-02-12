@@ -1,14 +1,17 @@
 ---
 title: Suporte para migração do Hyper-V em migrações para Azure
 description: Saiba mais sobre o suporte para migração do Hyper-V com migrações para Azure.
+author: bsiva
+ms.author: bsiva
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 4ba8b8cea784167ad045c5635ce512a68b48d897
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90da16789344754c02d46022160db71ee261a056
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442309"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754055"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Matriz de suporte para migração do Hyper-V
 
@@ -32,7 +35,7 @@ Você pode selecionar até 10 VMs de uma só vez para replicação. Se você qui
 | **Espaço livre em disco (disco de retenção)** |  600 GB |
 
 
-## <a name="hyper-v-vms"></a>VMs Hyper-V
+## <a name="hyper-v-vms"></a>VMs do Hyper-V
 
 | **Suporte**                  | **Detalhes**               
 | :----------------------------- | :------------------- |

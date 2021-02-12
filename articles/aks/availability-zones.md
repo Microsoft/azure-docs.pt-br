@@ -5,12 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 09/04/2020
-ms.openlocfilehash: 2f7132ffa1fa55d1dfd8043677bf9695a589b7af
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 319e56f5cec6df07230ded22277bc74c2a430133
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043031"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99561977"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Criar um cluster do AKS (Serviço de Kubernetes do Azure) que usa zonas de disponibilidade
 
@@ -31,12 +31,14 @@ Atualmente, os clusters do AKS podem ser criados usando zonas de disponibilidade
 * Leste da Austrália
 * Canadá Central
 * Centro dos EUA
+* Leste dos EUA 
 * Leste dos EUA 2
-* Leste dos EUA
 * França Central
+* Centro-Oeste da Alemanha
 * Leste do Japão
 * Norte da Europa
 * Sudeste Asiático
+* Centro-Sul dos Estados Unidos
 * Sul do Reino Unido
 * Europa Ocidental
 * Oeste dos EUA 2
@@ -60,7 +62,7 @@ As zonas de disponibilidade são uma oferta de alta disponibilidade que protege 
 
 Para saber mais, confira [O que são zonas de disponibilidade no Azure?][az-overview].
 
-Os clusters do AKS implantados usando zonas de disponibilidade podem distribuir nós em várias zonas em uma única região. Por exemplo, um cluster na região  *Leste dos EUA 2* pode criar nós em todas as três zonas de disponibilidade no *Leste dos EUA 2* . Essa distribuição de recursos de cluster do AKS melhora a disponibilidade do cluster, pois eles são resilientes à falha de uma zona específica.
+Os clusters do AKS implantados usando zonas de disponibilidade podem distribuir nós em várias zonas em uma única região. Por exemplo, um cluster na região  *Leste dos EUA 2* pode criar nós em todas as três zonas de disponibilidade no *Leste dos EUA 2*. Essa distribuição de recursos de cluster do AKS melhora a disponibilidade do cluster, pois eles são resilientes à falha de uma zona específica.
 
 ![Distribuição de nó do AKS entre zonas de disponibilidade](media/availability-zones/aks-availability-zones.png)
 
@@ -72,7 +74,7 @@ Quando você cria um cluster usando o comando [az aks create][az-aks-create], o 
 
 Se você não definir zonas para o pool de agente padrão ao criar um cluster do AKS, os componentes de plano de controle não serão garantidos para serem difundidos entre as zonas de disponibilidade. Você pode adicionar pools de nós extras usando o comando [az aks nodepool add][az-aks-nodepool-add] e especificar `--zones` para novos nós, mas ele não alterará a forma como o plano de controle foi difundido entre zonas. As configurações de zona de disponibilidade só podem ser definidas no tempo de criação do cluster ou do pool de nós.
 
-O exemplo abaixo cria um cluster do AKS chamado *myAKSCluster* no grupo de recursos chamado *myResourceGroup* . Um total de *3* nós são criados – um agente na zona *1* , um em *2* e, em seguida, um em *3* .
+O exemplo abaixo cria um cluster do AKS chamado *myAKSCluster* no grupo de recursos chamado *myResourceGroup*. Um total de *3* nós são criados – um agente na zona *1*, um em *2* e, em seguida, um em *3*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus2
@@ -204,4 +206,4 @@ Este artigo detalha como criar um cluster do AKS que usa zonas de disponibilidad
 
 <!-- LINKS - external -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
-[kubectl-well_known_labels]: https://kubernetes.io/docs/reference/kubernetes-api/labels-annotations-taints/
+[kubectl-well_known_labels]: https://kubernetes.io/docs/reference/labels-annotations-taints/

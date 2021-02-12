@@ -1,20 +1,20 @@
 ---
 title: Tutorial – Ferramentas Spark e Hive para VSCode (aplicativo Spark)
-description: Tutorial – Use as Ferramentas Spark e Hive para VSCode a fim de desenvolver aplicativos Spark escritos em Python e enviá-los a um Pool do Apache Spark (versão prévia).
+description: Tutorial – Use as Ferramentas Spark e Hive para VSCode a fim de desenvolver aplicativos Spark escritos em Python e enviá-los a um Pool do Apache Spark sem servidor.
 services: synapse-analytics
-author: hrasheed-msft
+author: jejiang
 ms.author: jejiang
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 09/03/2020
-ms.openlocfilehash: 6778d78ff5e342d97c1c9bc477c1a88eca42a10a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5d335ee14709ec330405419f5be8ac5fbd6ce75
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91337579"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943777"
 ---
 # <a name="tutorial-create-an-apache-spark-applications-with-vscode-using-a-synapse-workspace"></a>Tutorial: criar aplicativos Apache Spark com o VSCode usando um workspace do Azure Synapse
 
@@ -26,7 +26,7 @@ As Ferramentas Spark e Hive podem ser instaladas em plataformas compatíveis com
 
 Os itens a seguir são necessários para concluir as etapas neste artigo:
 
-- Um pool do Apache Spark. Para criar um Pool do Apache Spark, confira [Criar um Pool do Apache Spark usando o portal do Azure](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
+- Um Pool do Apache Spark sem servidor. Para criar um Pool do Apache Spark sem servidor, confira [Criar um Pool do Apache Spark usando o portal do Azure](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
 - [Visual Studio Code](https://code.visualstudio.com/).
 - [Mono](https://www.mono-project.com/docs/getting-started/install/). O Mono é necessário apenas para Linux e macOS.
 - [Um ambiente do PySpark interativo para Visual Studio Code](../../hdinsight/set-up-pyspark-interactive-environment.md).

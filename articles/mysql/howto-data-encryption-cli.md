@@ -1,18 +1,18 @@
 ---
 title: Data Encryption-CLI do Azure-banco de dados do Azure para MySQL
 description: Saiba como configurar e gerenciar a criptografia de dados para o banco de dado do Azure para MySQL usando o CLI do Azure.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: eb83cd4fe7e98b1cde6dcee5d3f25fa5e35f1d2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d9abc67035b4581a028d8e59ef080b4f1ffa5b9
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87799812"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519035"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Criptografia de dados para o Azure Database para MySQL usando o CLI do Azure
 
@@ -24,7 +24,7 @@ Saiba como usar o CLI do Azure para configurar e gerenciar a criptografia de dad
 * Crie um cofre de chaves e uma chave para usar para uma chave gerenciada pelo cliente. Habilite também a proteção de limpeza e a exclusão reversível no cofre de chaves.
 
   ```azurecli-interactive
-  az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true -enable-purge-protection true
+  az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true --enable-purge-protection true
   ```
 
 * No Azure Key Vault criado, crie a chave que será usada para a criptografia de dados do banco de dado do Azure para MySQL.
@@ -46,11 +46,23 @@ Saiba como usar o CLI do Azure para configurar e gerenciar a criptografia de dad
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
     ```
+  * Dias de retenção definidos como 90 dias
+  ```azurecli-interactive
+    az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --retention-days 90
+    ```
 
 * A chave deve ter os seguintes atributos para usar como uma chave gerenciada pelo cliente:
   * Sem data de validade
   * Não desabilitado
-  * Executar operações **Get**, **Wrap**e **Unwrap**
+  * Executar operações **Get**, **Wrap** e **Unwrap**
+  * atributo recoverylevel definido como **recuperável** (isso requer a exclusão reversível habilitada com o período de retenção definido como 90 dias)
+  * Limpeza de proteção habilitada
+
+Você pode verificar os atributos acima da chave usando o seguinte comando:
+
+```azurecli-interactive
+az keyvault key show --vault-name <key_vault_name> -n <key_name>
+```
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>Definir as permissões corretas para operações de chave
 

@@ -1,14 +1,14 @@
 ---
 title: Gerenciando o agente de servidores habilitados para Arc do Azure
 description: Este artigo descreve as diferentes tarefas de gerenciamento que você normalmente executará durante o ciclo de vida do agente de computador conectado de servidores habilitados para Arc do Azure.
-ms.date: 10/30/2020
+ms.date: 01/21/2021
 ms.topic: conceptual
-ms.openlocfilehash: 63db1177b193cad66208964ec377fab0779f23ba
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 27712dcd30857ca8c677de4f99dc4ed7e2e7b292
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130962"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662119"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gerenciando e mantendo o agente do Connected Machine
 
@@ -34,7 +34,74 @@ Para servidores ou máquinas que você não deseja mais gerenciar com os servido
 
     * Usando o [CLI do Azure](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-cli#delete-resource) ou [Azure PowerShell](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-powershell#delete-resource). Para o `ResourceType` uso do parâmetro `Microsoft.HybridCompute/machines` .
 
-3. Desinstale o agente do computador ou servidor. Siga as etapas abaixo.
+3. [Desinstale o agente](#remove-the-agent) do computador ou servidor seguindo as etapas abaixo.
+
+## <a name="renaming-a-machine"></a>Renomeando um computador
+
+Quando você altera o nome do computador Linux ou Windows conectado aos servidores habilitados para Arc do Azure, o novo nome não é reconhecido automaticamente porque o nome do recurso no Azure é imutável. Assim como acontece com outros recursos do Azure, você precisa excluir o recurso e recriá-lo para usar o novo nome.
+
+Para servidores habilitados para Arc, antes de renomear o computador, é necessário remover as extensões de VM antes de continuar.
+
+> [!NOTE]
+> Embora as extensões instaladas continuem a ser executadas e executem sua operação normal após a conclusão desse procedimento, você não poderá gerenciá-las. Se você tentar reimplantar as extensões no computador, poderá ocorrer um comportamento imprevisível.
+
+> [!WARNING]
+> Recomendamos que você evite renomear o nome do computador da máquina e executar esse procedimento apenas se for absolutamente necessário.
+
+As etapas a seguir resumem o procedimento de renomeação do computador.
+
+1. Auditar as extensões de VM instaladas no computador e anotar sua configuração, usando o [CLI do Azure](manage-vm-extensions-cli.md#list-extensions-installed) ou usando [Azure PowerShell](manage-vm-extensions-powershell.md#list-extensions-installed).
+
+2. Remova as extensões de VM usando o PowerShell, a CLI do Azure ou da portal do Azure.
+
+    > [!NOTE]
+    > Se você tiver implantado o agente do Azure Monitor para VMs (insights) ou o agente do Log Analytics usando uma política de configuração de convidado Azure Policy, os agentes serão reimplantados após o próximo [ciclo de avaliação](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers) e, depois que o computador renomeado for registrado em servidores habilitados para Arc.
+
+3. Desconecte o computador dos servidores habilitados para ARC usando o PowerShell, o CLI do Azure ou do Portal.
+
+4. Renomeie o computador.
+
+5. Conecte o computador a servidores habilitados para ARC usando a `Azcmagent` ferramenta para registrar e criar um novo recurso no Azure.
+
+6. Implante extensões de VM instaladas anteriormente no computador de destino.
+
+Use as etapas a seguir para concluir esta tarefa.
+
+1. Remova as extensões de VM instaladas do [portal do Azure](manage-vm-extensions-portal.md#uninstall-extension), usando o [CLI do Azure](manage-vm-extensions-cli.md#remove-an-installed-extension)ou usando [Azure PowerShell](manage-vm-extensions-powershell.md#remove-an-installed-extension).
+
+2. Use um dos métodos a seguir para desconectar o computador do arco do Azure. Desconectar o computador de servidores habilitados para ARC não remove o agente de computador conectado e você não precisa remover o agente como parte desse processo. Todas as extensões de VM implantadas no computador continuam a funcionar durante esse processo.
+
+    # <a name="azure-portal"></a>[Portal do Azure](#tab/azure-portal)
+
+    1. No navegador, acesse o [portal do Azure](https://portal.azure.com).
+    1. No portal, navegue até **servidores – Azure Arc** e selecione seu computador híbrido na lista.
+    1. No servidor habilitado para Arc registrado selecionado, selecione **excluir** na barra superior para excluir o recurso no Azure.
+
+    # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+    
+    ```azurecli
+    az resource delete \
+      --resource-group ExampleResourceGroup \
+      --name ExampleArcMachine \
+      --resource-type "Microsoft.HybridCompute/machines"
+    ```
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+    ```powershell
+    Remove-AzResource `
+     -ResourceGroupName ExampleResourceGroup `
+     -ResourceName ExampleArcMachine `
+     -ResourceType Microsoft.HybridCompute/machines
+    ```
+
+3. Renomeie o nome do computador da máquina.
+
+### <a name="after-renaming-operation"></a>Após a renomeação da operação
+
+Depois que um computador for renomeado, o agente da máquina conectada precisará ser registrado novamente com servidores habilitados para Arc. Execute a `azcmagent` ferramenta com o parâmetro [Connect](#connect) para concluir esta etapa.
+
+Reimplante as extensões de VM que foram originalmente implantadas no computador de servidores habilitados para Arc. Se você tiver implantado o agente do Azure Monitor para VMs (insights) ou o agente do Log Analytics usando uma política de configuração de convidado Azure Policy, os agentes serão reimplantados após o próximo [ciclo de avaliação](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
 
 ## <a name="upgrading-agent"></a>Atualizando o agente
 
@@ -61,10 +128,10 @@ O pacote de atualização para o agente do Connected Machine para Windows está 
 
 * [Pacote do Windows Installer do agente do Windows](https://aka.ms/AzureConnectedMachineAgent) do Centro de Download da Microsoft.
 
-O agente pode ser atualizado de acordo com uma variedade de métodos para dar suporte ao seu processo de gerenciamento de atualização de software. Tirando a obtenção do Microsoft Update, você pode baixar e executar manualmente do prompt de comando, de um script ou de outra solução de automação, ou do assistente de interface do usuário quando executa `AzureConnectedMachine.msi`.
+O agente pode ser atualizado seguindo vários métodos para dar suporte ao processo de gerenciamento de atualização de software. Tirando a obtenção do Microsoft Update, você pode baixar e executar manualmente do prompt de comando, de um script ou de outra solução de automação, ou do assistente de interface do usuário quando executa `AzureConnectedMachine.msi`.
 
 > [!NOTE]
-> * Para atualizar o agente, você deve ter permissões de *Administrador* .
+> * Para atualizar o agente, você deve ter permissões de *Administrador*.
 > * Para fazer upgrade manualmente, você precisará primeiro baixar e copiar o pacote do instalador para uma pasta no servidor de destino ou de uma pasta de rede compartilhada. 
 
 Se você não estiver familiarizado com as opções de linha de comando para pacotes do Windows Installer, examine [Opções de linha de comando msiexec](/windows/win32/msi/standard-installer-command-line-options) e [Opções de linha de comando msiexec](/windows/win32/msi/command-line-options).
@@ -148,26 +215,26 @@ As ações do comando [zypper](https://en.opensuse.org/Portal:Zypper), como a in
 
 A ferramenta Azcmagent (Azcmagent.exe) é usada para configurar o agente de máquina conectado de servidores habilitados para o Azure Arc durante a instalação ou para modificar a configuração inicial do agente após a instalação. O Azcmagent.exe fornece parâmetros de linha de comando para personalizar o agente e exibir seu status:
 
-* **Connect** : para conectar o computador ao Azure Arc
+* **Connect**: para conectar o computador ao Azure Arc
 
-* **Disconnect** : para desconectar o computador do Azure Arc
+* **Disconnect**: para desconectar o computador do Azure Arc
 
-* **Show** : exiba o status do agente e suas propriedades de configuração (nome do grupo de recursos, ID da assinatura, versão, etc.), o que pode ajudar ao solucionar um problema com ele. Inclua o `-j` parâmetro para gerar os resultados no formato JSON.
+* **Show**: exiba o status do agente e suas propriedades de configuração (nome do grupo de recursos, ID da assinatura, versão, etc.), o que pode ajudar ao solucionar um problema com ele. Inclua o `-j` parâmetro para gerar os resultados no formato JSON.
 
 * **Logs** – cria um arquivo. zip no diretório atual que contém os logs para ajudá-lo durante a solução de problemas.
 
 * **Versão** -mostra a versão do agente do computador conectado.
 
-* **-h ou --help** : mostra os parâmetros de linha de comando disponíveis
+* **-h ou --help**: mostra os parâmetros de linha de comando disponíveis
 
-    Por exemplo, para ver a ajuda detalhada sobre o parâmetro **Reconnect** , digite `azcmagent reconnect -h`. 
+    Por exemplo, para ver a ajuda detalhada para o parâmetro **Connect** , digite `azcmagent connect -h` . 
 
-* **-v ou --verbose** : para habilitar o log detalhado
+* **-v ou --verbose**: para habilitar o log detalhado
 
 Você pode executar uma **conexão** e **Desconectar** manualmente enquanto estiver conectado interativamente, ou automatizar usando a mesma entidade de serviço usada para carregar vários agentes ou com um [token de acesso](../../active-directory/develop/access-tokens.md)da plataforma de identidade da Microsoft. Se você não usou uma entidade de serviço para registrar a máquina com os servidores habilitados para Arc do Azure, consulte o [artigo](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) a seguir para criar uma entidade de serviço.
 
 >[!NOTE]
->Você deve ter permissões de acesso à *raiz* em computadores Linux para executar o **azcmagent** .
+>Você deve ter permissões de acesso à *raiz* em computadores Linux para executar o **azcmagent**.
 
 ### <a name="connect"></a>Connect
 
@@ -189,7 +256,7 @@ Para se conectar com suas credenciais de logon com privilégios elevados (intera
 
 ### <a name="disconnect"></a>Disconnect
 
-Esse parâmetro especifica um recurso no Azure Resource Manager que representa o computador e é excluído no Azure. Ele não exclui o agente do computador; isso deve ser feito em uma etapa separada. Depois que o computador estiver desconectado, se você quiser registrá-lo novamente com os servidores habilitados para Arc do Azure, use para que `azcmagent connect` um novo recurso seja criado para ele no Azure.
+Esse parâmetro especifica um recurso no Azure Resource Manager que representa o computador e é excluído no Azure. Ele não remove o agente do computador, você desinstala o agente separadamente. Depois que o computador estiver desconectado, se você quiser registrá-lo novamente com os servidores habilitados para Arc do Azure, use para que `azcmagent connect` um novo recurso seja criado para ele no Azure.
 
 > [!NOTE]
 > Se você tiver implantado uma ou mais extensões de VM do Azure em seu servidor habilitado para Arc e excluir seu registro no Azure, as extensões ainda serão instaladas. É importante entender que, dependendo da extensão instalada, ele executa ativamente sua função. Os computadores que se destinam a serem desativados ou que não são mais gerenciados por servidores habilitados para Arc devem primeiro ter as extensões removidas antes de remover seu registro do Azure.
@@ -208,7 +275,7 @@ Para se desconectar com suas credenciais de logon com privilégios elevados (int
 
 ## <a name="remove-the-agent"></a>Remova o agente
 
-Execute um dos métodos a seguir para desinstalar o agente do Connected Machine do Windows ou do Linux do computador. A remoção do agente não cancela o registro da máquina com servidores habilitados para ARC ou remove as extensões de VM do Azure instaladas. Você precisa executar essas etapas separadamente quando não precisar mais gerenciar o computador no Azure e eles devem ser concluídos antes da desinstalação do agente.
+Execute um dos métodos a seguir para desinstalar o agente do Connected Machine do Windows ou do Linux do computador. A remoção do agente não cancela o registro da máquina com servidores habilitados para ARC ou remove as extensões de VM do Azure instaladas. Cancele o registro da máquina e remova as extensões de VM instaladas separadamente quando você não precisar mais gerenciar o computador no Azure, e essas etapas deverão ser concluídas antes da desinstalação do agente.
 
 ### <a name="windows-agent"></a>Agente do Windows
 
@@ -219,11 +286,11 @@ Os dois métodos a seguir removem o agente, mas não removem a pasta *C:\Program
 1. Para desinstalar o agente do Windows do computador, faça o seguinte:
 
     a. Entre no computador com uma conta que tenha permissões de administrador.  
-    b. No **Painel de Controle** , selecione **Programas e Recursos** .  
-    c. Em **Programas e Recursos** , selecione **Agente do Azure Connected Machine** , **Desinstalar** e, em seguida, **Sim** .  
+    b. No **Painel de Controle**, selecione **Programas e Recursos**.  
+    c. Em **Programas e Recursos**, selecione **Agente do Azure Connected Machine**, **Desinstalar** e, em seguida, **Sim**.  
 
     >[!NOTE]
-    > Execute também o assistente de instalação do agente clicando duas vezes no pacote do instalador **AzureConnectedMachineAgent.msi** .
+    > Execute também o assistente de instalação do agente clicando duas vezes no pacote do instalador **AzureConnectedMachineAgent.msi**.
 
 #### <a name="uninstall-from-the-command-line"></a>Desinstalar usando a linha de comando
 
@@ -281,11 +348,15 @@ Se você estiver planejando parar de gerenciar o computador com serviços de sup
 
 1. Abra os servidores habilitados para Arc do Azure acessando o [portal do Azure](https://aka.ms/hybridmachineportal).
 
-2. Selecione o computador na lista, selecione as reticências ( **...** ) e, em seguida, selecione **Excluir** .
+2. Selecione o computador na lista, selecione as reticências ( **...** ) e, em seguida, selecione **Excluir**.
 
 ## <a name="update-or-remove-proxy-settings"></a>Atualizar ou remover configurações de proxy
 
 Para configurar o agente a fim de se comunicar com o serviço por meio de um servidor proxy ou remover essa configuração após a implantação, use um dos métodos a seguir para concluir a tarefa.
+
+> [!NOTE]
+> Os servidores habilitados para ARC não dão suporte ao uso de um [Gateway de log Analytics](../../azure-monitor/platform/gateway.md) como proxy para o agente de computador conectado.
+>
 
 ### <a name="windows"></a>Windows
 

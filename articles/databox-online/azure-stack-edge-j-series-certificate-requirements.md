@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/12/2020
+ms.date: 11/17/2020
 ms.author: alkohli
-ms.openlocfilehash: e67b507baf1c3271a7fe32318597722e52fd3890
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de41bd030ea73ac68bfac5fbfbd03ae14cf7980f
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891386"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874229"
 ---
 # <a name="certificate-requirements"></a>Requisitos de certificado
 
@@ -30,12 +30,13 @@ Os requisitos de emissão de certificado são os seguintes:
 * O campo *emitido para:* do certificado não deve ser o mesmo que o *emitido por:* campo, exceto para certificados de autoridade de certificação raiz.
 
 
-
 ## <a name="certificate-algorithms"></a>Algoritmos de certificado
 
 Os algoritmos de certificado devem ter os seguintes requisitos:
 
 * Os certificados devem usar o algoritmo de chave RSA.
+
+* Somente certificados RSA com o provedor de criptografia RSA/Schannel da Microsoft têm suporte.
 
 * O algoritmo de assinatura do certificado não pode ser SHA1.
 
@@ -56,7 +57,7 @@ Os certificados devem ter o seguinte nome de assunto e requisitos de nome altern
     |Type |Nome da entidade (SN)  |SAN (nome alternativo da entidade)  |Exemplo de nome da entidade |
     |---------|---------|---------|---------|
     |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
-    |Armazenamento de blobs|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
+    |Armazenamento de blob|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
     |Interface do usuário local| `<Device name>.<DnsDomain>`|`<Device name>.<DnsDomain>`| `mydevice1.microsoftdatabox.com` |
     |Certificado único de várias SANs para ambos os pontos de extremidade|`<Device name>.<dnsdomain>`|`<Device name>.<dnsdomain>`<br>`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
     |Nó|`<NodeSerialNo>.<DnsDomain>`|`*.<DnsDomain>`<br><br>`<NodeSerialNo>.<DnsDomain>`|`mydevice1.microsoftdatabox.com` |
@@ -74,13 +75,15 @@ Os certificados PFX instalados em seu dispositivo Azure Stack Edge pro devem ate
 
 * A criptografia PFX do certificado deve ser 3DES. Essa é a criptografia padrão usada ao exportar de um cliente do Windows 10 ou do repositório de certificados do Windows Server 2016. Para obter mais informações relacionadas ao 3DES, consulte [Triple DES](https://en.wikipedia.org/wiki/Triple_DES).
 
-* Os arquivos PFX de certificado devem ter uma *assinatura digital* válida e valores de *KeyEncipherment* em seu campo *uso de chave* .
+* Os arquivos PFX de certificado devem ter uma *assinatura digital* válida e valores de *KeyEncipherment* no campo *uso de chave* .
 
 * Os arquivos PFX de certificado devem ter valores de *autenticação de servidor (1.3.6.1.5.5.7.3.1)* e *autenticação de cliente (1.3.6.1.5.5.7.3.2)* no campo *uso avançado de chave* .
 
 * As senhas para todos os arquivos PFX de certificado devem ser as mesmas no momento da implantação se você estiver usando a ferramenta Azure Stack Readiness Checker. Para obter mais informações, consulte [criar certificados para seu Azure Stack Edge pro usando a ferramenta Verificador de prontidão do Hub do Azure Stack](azure-stack-edge-j-series-create-certificates-tool.md).
 
 * A senha para o PFX do certificado deve ser uma senha complexa. Anote essa senha porque ela é usada como um parâmetro de implantação.
+
+* Use somente certificados RSA com o provedor de criptografia RSA/Schannel da Microsoft.
 
 Para obter mais informações, consulte [Exportar certificados PFX com a chave privada](azure-stack-edge-j-series-manage-certificates.md#export-certificates-as-pfx-format-with-private-key).
 

@@ -3,17 +3,16 @@ title: Evitar interrupções de serviço nos trabalhos do Azure Stream Analytics
 description: Este artigo descreve as diretrizes para tornar o upgrade dos trabalhos do Stream Analytics mais resiliente.
 author: jseb225
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 889e298f64689748340713de6318f8ffcd181001
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f4eda779b1bc719706f9eb42cf805a7d5ce864aa
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123839"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020325"
 ---
 # <a name="guarantee-stream-analytics-job-reliability-during-service-updates"></a>Garantir a confiabilidade do trabalho do Stream Analytics durante atualizações do serviço
 
@@ -23,7 +22,7 @@ A capacidade de introduzir novos aprimoramentos e funcionalidades de serviço em
 
 O Stream Analytics garante que os trabalhos em regiões emparelhadas sejam atualizados em lotes separados. Como resultado, há um intervalo de tempo suficiente entre as atualizações para identificar possíveis problemas e corrigi-los.
 
-_Com exceção da Índia central_ (cuja região emparelhada, sul da Índia, não tem a presença do Stream Analytics), não ocorrerá a implantação de uma atualização simultânea do Stream Analytics em um conjunto de regiões emparelhadas. Implantações em várias regiões **no mesmo grupo de** podem ocorrer **ao mesmo tempo** .
+_Com exceção da Índia central_ (cuja região emparelhada, sul da Índia, não tem a presença do Stream Analytics), não ocorrerá a implantação de uma atualização simultânea do Stream Analytics em um conjunto de regiões emparelhadas. Implantações em várias regiões **no mesmo grupo de** podem ocorrer **ao mesmo tempo**.
 
 O artigo em **[regiões de disponibilidade e emparelhadas](../best-practices-availability-paired-regions.md)** tem as informações mais atualizadas sobre quais regiões são emparelhadas.
 

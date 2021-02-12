@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 16ad757fc00439bb390a7e0dea902901c468dd1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31a454c93ad5192f387306a8ec557c4e4d3ae991
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90929167"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395284"
 ---
 # <a name="deploy-an-azure-sql-edge-container-in-kubernetes"></a>Implantar um contêiner do SQL do Azure no Edge no Kubernetes
 
@@ -48,7 +48,7 @@ No diagrama a seguir, o nó que hospeda o contêiner `azure-sql-edge` falhou. O 
 * **Cluster do Kubernetes**
    - O tutorial requer um cluster do Kubernetes. As etapas usam [kubectl](https://kubernetes.io/docs/user-guide/kubectl/) para gerenciar o cluster. 
 
-   - Para os fins deste tutorial, usaremos o Serviço de Kubernetes do Azure para implantar o SQL do Azure no Edge. Confira [Implantar um cluster do AKS (Serviço de Kubernetes do Azure)](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-deploy-cluster) para criar e conectar-se a um cluster Kubernetes de nó único no AKS com `kubectl`. 
+   - Para os fins deste tutorial, usaremos o Serviço de Kubernetes do Azure para implantar o SQL do Azure no Edge. Confira [Implantar um cluster do AKS (Serviço de Kubernetes do Azure)](../aks/tutorial-kubernetes-deploy-cluster.md) para criar e conectar-se a um cluster Kubernetes de nó único no AKS com `kubectl`. 
 
    >[!NOTE]
    >Para proteger contra falhas de nó, um cluster Kubernetes requer mais de um nó.
@@ -108,7 +108,7 @@ Configure um [volume persistente](https://kubernetes.io/docs/concepts/storage/pe
          storage: 8Gi
    ```
 
-   Salve o arquivo (por exemplo, **pvc.yaml**).
+   Salve o arquivo (por exemplo, **pvc.yaml** ).
 
 2. Crie a declaração de volume persistente no Kubernetes.
 
@@ -241,7 +241,7 @@ spec:
    >[!NOTE]
    >Usando o tipo de serviço `LoadBalancer`, a instância do SQL do Azure no Edge pode ser acessada remotamente (pela Internet) na porta 1433.
 
-   Salve o arquivo (por exemplo, **sqledgedeploy.yaml**).
+   Salve o arquivo (por exemplo, **sqledgedeploy.yaml** ).
 
 2. Crie a implantação.
 
@@ -318,8 +318,7 @@ Neste tutorial, você aprendeu a implantar contêineres do SQL do Azure no Edge 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Introdução ao Kubernetes](https://docs.microsoft.com/azure/aks/intro-kubernetes)
+- [Introdução ao Kubernetes](../aks/intro-kubernetes.md)
 - [Machine learning e inteligência artificial com o ONNX no SQL no Edge](onnx-overview.md).
 - [Como criar uma solução de IoT de ponta a ponta com o SQL no Edge usando o IoT Edge](tutorial-deploy-azure-resources.md).
 - [Streaming de dados no SQL do Azure no Edge](stream-data.md)
-

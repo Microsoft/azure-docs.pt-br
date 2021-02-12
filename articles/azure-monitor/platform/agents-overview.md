@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/20/2020
-ms.openlocfilehash: 66d420a902cbfb56ece75646ee39bbba774b6208
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 11/21/2020
+ms.openlocfilehash: 8b9a79ee32d7a81fee64e40b85272877b7d87589
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312424"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674191"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Visão geral dos agentes de Azure Monitor
 
@@ -32,9 +32,9 @@ As tabelas a seguir fornecem uma comparação rápida dos agentes de Azure Monit
 
 ### <a name="windows-agents"></a>Agentes do Windows
 
-| | Agente de Azure Monitor (versão prévia) | Diagnósticos<br>extensão (WAD) | Log Analytics<br>agente | Dependência<br>agente |
+| | Agente do Azure Monitor (versão prévia) | Diagnósticos<br>extensão (WAD) | Log Analytics<br>agente | Dependência<br>agente |
 |:---|:---|:---|:---|:---|
-| **Ambientes com suporte** | Azure | Azure | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local | 
+| **Ambientes com suporte** | Azure<br>Outra nuvem (arco do Azure)<br>Local (Azure ARC)  | Azure | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local | 
 | **Requisitos do agente**  | Nenhum | Nenhum | Nenhum | Requer agente de Log Analytics |
 | **Dados coletados** | Logs de eventos<br>Desempenho | Logs de eventos<br>eventos ETW<br>Desempenho<br>Logs baseados em arquivo<br>Logs IIS<br>Logs do aplicativo .NET<br>Despejos de memória<br>Logs de diagnóstico do agente | Logs de eventos<br>Desempenho<br>Logs baseados em arquivo<br>Logs IIS<br>Insights e soluções<br>Outros serviços | Dependências de processo<br>Métricas de conexão de rede |
 | **Dados enviados para** | Logs do Azure Monitor<br>Métricas do Azure Monitor | Armazenamento do Azure<br>Métricas do Azure Monitor<br>Hub de evento | Logs do Azure Monitor | Logs do Azure Monitor<br>(por meio do agente de Log Analytics) |
@@ -42,21 +42,21 @@ As tabelas a seguir fornecem uma comparação rápida dos agentes de Azure Monit
 
 ### <a name="linux-agents"></a>Agentes do Linux
 
-| | Agente de Azure Monitor (versão prévia) | Diagnósticos<br>extensão (LAD) | Telegraf<br>agente | Log Analytics<br>agente | Dependência<br>agente |
+| | Agente do Azure Monitor (versão prévia) | Diagnósticos<br>extensão (LAD) | Telegraf<br>agente | Log Analytics<br>agente | Dependência<br>agente |
 |:---|:---|:---|:---|:---|:---|
-| **Ambientes com suporte** | Azure | Azure | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local |
+| **Ambientes com suporte** | Azure<br>Outra nuvem (arco do Azure)<br>Local (arco ARC) | Azure | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local |
 | **Requisitos do agente**  | Nenhum | Nenhum | Nenhum | Nenhum | Requer agente de Log Analytics |
 | **Dados coletados** | syslog<br>Desempenho | syslog<br>Desempenho | Desempenho | syslog<br>Desempenho| Dependências de processo<br>Métricas de conexão de rede |
 | **Dados enviados para** | Logs do Azure Monitor<br>Métricas do Azure Monitor | Armazenamento do Azure<br>Hub de evento | Métricas do Azure Monitor | Logs do Azure Monitor | Logs do Azure Monitor<br>(por meio do agente de Log Analytics) |
 | **Serviços e**<br>**Features**<br>**porta** | Log Analytics<br>Metrics Explorer | | Metrics Explorer | Azure Monitor para VMs<br>Log Analytics<br>Automação do Azure<br>Central de Segurança do Azure<br>Azure Sentinel | Azure Monitor para VMs<br>Mapa do Serviço |
 
 
-## <a name="azure-monitor-agent-preview"></a>Agente de Azure Monitor (versão prévia)
+## <a name="azure-monitor-agent-preview"></a>Agente do Azure Monitor (versão prévia)
 O [agente de Azure monitor](azure-monitor-agent-overview.md) está atualmente em visualização e substituirá o agente de log Analytics e o agente Telegraf para máquinas virtuais Windows e Linux. Ele pode enviar dados para os logs de Azure Monitor e Azure Monitor métricas e usa [as regras de coleta de dados (DCR)](data-collection-rule-overview.md) , que fornecem um método mais escalonável de configurar a coleta e os destinos de dados para cada agente.
 
 Use o agente de Azure Monitor se você precisar:
 
-- Coletar logs e métricas de convidado de qualquer máquina virtual no Azure, em outras nuvens ou localmente. (Azure somente em versão prévia.)
+- Coletar logs e métricas de convidado de qualquer máquina virtual no Azure, em outras nuvens ou localmente. (Arco do Azure necessário para máquinas virtuais fora do Azure.) 
 - Envie dados para Azure Monitor logs e métricas de Azure Monitor para análise com Azure Monitor. 
 - Envie dados para o armazenamento do Azure para arquivamento.
 - Envie dados para ferramentas de terceiros usando [hubs de eventos do Azure](diagnostics-extension-stream-event-hubs.md).
@@ -81,8 +81,8 @@ Use o agente de Log Analytics se você precisar:
 * Colete logs e dados de desempenho de máquinas virtuais ou físicas dentro ou fora do Azure. 
 * Envie dados para um espaço de trabalho Log Analytics para aproveitar os recursos com suporte dos [logs de Azure monitor](data-platform-logs.md) , como [consultas de log](../log-query/log-query-overview.md).
 * Use [Azure monitor para VMs](../insights/vminsights-overview.md) que permite monitorar suas máquinas virtuais em escala e monitora seus processos e dependências em outros recursos e processos externos.  
-* Gerencie a segurança de suas máquinas virtuais usando a [central de segurança do Azure](../../security-center/security-center-intro.md)  ou o [Azure Sentinel](../../sentinel/overview.md).
-* Use o [Gerenciamento de atualizações da automação do Azure](../../automation/update-management/update-mgmt-overview.md), a [configuração de estado da automação do azure](../../automation/automation-dsc-overview.md)ou a [controle de alterações de automação do Azure e o inventário](../../automation/change-tracking/overview.md) para fornecer gerenciamento abrangente de suas VMs do Azure
+* Gerencie a segurança de suas máquinas virtuais usando a [central de segurança do Azure](../../security-center/security-center-introduction.md)  ou o [Azure Sentinel](../../sentinel/overview.md).
+* Use o [Gerenciamento de atualizações da automação do Azure](../../automation/update-management/overview.md), a [configuração de estado da automação do azure](../../automation/automation-dsc-overview.md)ou a [controle de alterações de automação do Azure e o inventário](../../automation/change-tracking/overview.md) para fornecer gerenciamento abrangente de suas VMs do Azure
 * Use [soluções](../monitor-reference.md#insights-and-core-solutions) diferentes para monitorar um determinado serviço ou aplicativo.
 
 As limitações do agente de Log Analytics incluem:
@@ -169,6 +169,7 @@ As tabelas a seguir listam os sistemas operacionais que têm suporte dos agentes
 | Debian 8                                                 |   | X | X | X |
 | Debian 7                                                 |   |   |   | X |
 | OpenSUSE 13.1+                                           |   |   |   | X |
+| Oracle Linux 8                                           |   | X |   |   |
 | Oracle Linux 7                                           | X | X |   | X |
 | Oracle Linux 6                                           |   | X |   |   |
 | Oracle Linux 6.4+                                        |   | X |   | X |
@@ -176,6 +177,7 @@ As tabelas a seguir listam os sistemas operacionais que têm suporte dos agentes
 | Red Hat Enterprise Linux Server 7                        | X | X | X | X |
 | Red Hat Enterprise Linux Server 6                        |   | X | X |   |
 | Red Hat Enterprise Linux Server 6.7 +                     |   | X | X | X |
+| SUSE Linux Enterprise Server 15,1                        |   | X |   |   |
 | SUSE Linux Enterprise Server 15                          | X | X |   |   |
 | SUSE Linux Enterprise Server 12                          | X | X | X | X |
 | Ubuntu 20.04 LTS                                         |   | X |   |   |
@@ -190,13 +192,13 @@ Como o Dependency Agent funciona no nível do kernel, o suporte também depende 
 | Distribuição | Versão do SO | Versão do kernel |
 |:---|:---|:---|
 |  Red Hat Linux 7   | 7.6     | 3.10.0-957  |
-|                    | 7.5     | 3.10.0-862  |
+|                    | 7,5     | 3.10.0-862  |
 |                    | 7.4     | 3.10.0-693  |
 | Red Hat Linux 6    | 6.10    | 2.6.32-754 |
 |                    | 6.9     | 2.6.32-696  |
 | CentOSPlus         | 6.10    | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
 |                    | 6.9     | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
-| Ubuntu Server      | 18.04   | 5.3.0-1020<br>5,0 (inclui kernel ajustado pelo Azure)<br>4,18* <br> 4,15* |
+| Ubuntu Server      | 18.04   | 5.3.0-1020<br>5,0 (inclui kernel ajustado pelo Azure)<br>4,18 *<br> 4,15* |
 |                    | 16.04.3 | 4,15. * |
 |                    | 16.04   | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
 | SUSE Linux 12 Enterprise Server | 12 SP4 | 4,12. * (inclui kernel ajustado para o Azure) |

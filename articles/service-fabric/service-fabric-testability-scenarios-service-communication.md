@@ -1,16 +1,14 @@
 ---
 title: 'Capacidade de teste: comunicação de serviço'
 description: As comunicação entre serviços é um ponto de integração essencial de um aplicativo da Malha do Serviço. Este artigo aborda as considerações de design e as técnicas de teste.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
-ms.openlocfilehash: 87b922cb9655588a22c739d26c9ce9e49d35781a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbf889422d69d031d777acd80cf3becfb3184568
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75465554"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575917"
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>Cenários de Possibilidade de Teste do Service Fabric: Comunicação do serviço
 Os estilos de arquitetura orientada a serviços e microsserviços surgem naturalmente no Azure Service Fabric. Nesses tipos de arquiteturas distribuídas, os aplicativos de microsserviço divididos em componentes são compostos normalmente por vários serviços que precisam se comunicar. Mesmo nos casos mais simples, há geralmente pelo menos um serviço Web sem estado e um serviço de armazenamento de dados com estado que precisam se comunicar.

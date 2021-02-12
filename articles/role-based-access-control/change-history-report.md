@@ -15,12 +15,12 @@ ms.date: 07/27/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 0ad60e72300e381b57deb00f3db010e69a006441
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 3e4d75c59d0e3c97b0900dd72a27d4afbf4015c9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742944"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492311"
 ---
 # <a name="view-activity-logs-for-azure-rbac-changes"></a>Exibir logs de atividade para alterações do RBAC do Azure
 
@@ -48,7 +48,7 @@ O log de atividades no portal tem vários filtros. Aqui estão os filtros relaci
 | Categoria de evento | <ul><li>Administrativa</li></ul> |
 | Operação | <ul><li>Criar atribuição de função</li><li>Excluir atribuição de função</li><li>Criar ou atualizar definição de função personalizada</li><li>Excluir definição de função personalizada</li></ul> |
 
-Para obter mais informações sobre logs de atividade, consulte [Exibir logs de atividades para monitorar ações em recursos](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
+Para obter mais informações sobre logs de atividade, consulte [Exibir logs de atividades para monitorar ações em recursos](../azure-resource-manager/management/view-activity-logs.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -122,7 +122,7 @@ az monitor activity-log list --namespace "Microsoft.Authorization" --start-time 
 
 ## <a name="azure-monitor-logs"></a>Logs do Azure Monitor
 
-[Os logs de Azure monitor](../log-analytics/log-analytics-overview.md) é outra ferramenta que você pode usar para coletar e analisar as alterações do RBAC do Azure para todos os seus recursos do Azure. Os logs de Azure Monitor têm os seguintes benefícios:
+[Os logs de Azure monitor](../azure-monitor/log-query/log-query-overview.md) é outra ferramenta que você pode usar para coletar e analisar as alterações do RBAC do Azure para todos os seus recursos do Azure. Os logs de Azure Monitor têm os seguintes benefícios:
 
 - Escrever consultas complexas e lógica
 - Integrar com alertas, Power BI e outras ferramentas
@@ -133,13 +133,13 @@ Aqui estão as etapas básicas para começar:
 
 1. [Crie um espaço de trabalho log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
-1. [Configurar a solução Análise do Log de Atividades](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution) para seu workspace.
+1. [Configurar a solução Análise do Log de Atividades](../azure-monitor/platform/activity-log.md#activity-log-analytics-monitoring-solution) para seu workspace.
 
-1. [Exibir os logs de atividade](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution). Uma maneira rápida de navegar até a página de visão geral da solução Análise do Log de Atividades é clicar na opção **logs** .
+1. [Exibir os logs de atividade](../azure-monitor/platform/activity-log.md#activity-log-analytics-monitoring-solution). Uma maneira rápida de navegar até a página de visão geral da solução Análise do Log de Atividades é clicar na opção **logs** .
 
    ![Opção de logs de Azure Monitor no portal](./media/change-history-report/azure-log-analytics-option.png)
 
-1. Opcionalmente, use o [Azure Monitor log Analytics](../azure-monitor/log-query/get-started-portal.md) para consultar e exibir os logs. Para obter mais informações, consulte Introdução [às consultas de log de Azure monitor](../azure-monitor/log-query/get-started-queries.md).
+1. Opcionalmente, use o [Azure Monitor log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) para consultar e exibir os logs. Para obter mais informações, consulte Introdução [às consultas de log de Azure monitor](../azure-monitor/log-query/get-started-queries.md).
 
 Aqui está uma consulta que retorna novas atribuições de função organizadas por provedor de recursos de destino:
 
@@ -162,5 +162,5 @@ AzureActivity
 ![Logs de atividade usando o portal Advanced Analytics - captura de tela](./media/change-history-report/azure-log-analytics.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Exibir eventos no log de atividades](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
-* [Monitorar a atividade da assinatura com o Log de Atividades do Azure](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
+* [Exibir eventos no log de atividades](../azure-resource-manager/management/view-activity-logs.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
+* [Monitorar a atividade da assinatura com o Log de Atividades do Azure](../azure-monitor/platform/platform-logs-overview.md)

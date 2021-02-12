@@ -4,14 +4,14 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 05/04/2020
 ms.author: glenga
-ms.openlocfilehash: 37a61e270f95ffdc420536046e0ce1eda1e489b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa75d1d57f44bb1a4d6513823ac97ac9917b260f
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85391461"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934451"
 ---
-| Recurso |[Plano de Consumo](../articles/azure-functions/functions-scale.md#consumption-plan)|[Plano Premium](../articles/azure-functions/functions-scale.md#premium-plan)|[Plano dedicado](../articles/azure-functions/functions-scale.md#app-service-plan)|[ASE](../articles/app-service/environment/intro.md)| [Kubernetes](../articles/aks/quotas-skus-regions.md) |
+| Recurso |[Plano de Consumo](../articles/azure-functions/consumption-plan.md)|[Plano Premium](../articles/azure-functions/functions-premium-plan.md)|[Plano dedicado](../articles/azure-functions/dedicated-plan.md)|[ASE](../articles/app-service/environment/intro.md)| [Kubernetes](../articles/aks/quotas-skus-regions.md) |
 | --- | --- | --- | --- | --- | --- |
 |[Duração padrão do tempo limite](../articles/azure-functions/functions-scale.md#timeout) (min) |5 | 30 |30<sup>1</sup> | 30 | 30 |
 |[Duração máxima do tempo limite](../articles/azure-functions/functions-scale.md#timeout) (min) |10 | não associado<sup>7</sup> | não associado<sup>2</sup> | não associado | não associado |
@@ -19,7 +19,7 @@ ms.locfileid: "85391461"
 | Tamanho máximo da solicitação (MB)<sup>3</sup> | 100 | 100 | 100 | 100 | Depende do cluster |
 | Comprimento máximo da cadeia de caracteres de consulta<sup>3</sup> | 4096 | 4096 | 4096 | 4096 | Depende do cluster |
 | Comprimento máximo da URL de solicitação<sup>3</sup> | 8192 | 8192 | 8192 | 8192 | Depende do cluster |
-|[ACU](../articles/virtual-machines/windows/acu.md) por instância | 100 | 210-840 | 100-840 | 210-250<sup>8</sup> | [Preços do AKS](https://azure.microsoft.com/pricing/details/container-service/) |
+|[ACU](../articles/virtual-machines/acu.md) por instância | 100 | 210-840 | 100-840 | 210-250<sup>8</sup> | [Preços do AKS](https://azure.microsoft.com/pricing/details/container-service/) |
 | Memória máxima (GB por instância) | 1.5 | 3,5-14 | 1,75-14 | 3,5-14 | Todos os nós são compatíveis |
 | Aplicativos de funções por plano |100 |100 |não associado<sup>4</sup> | não associado | não associado |
 | [Planos do Serviço de Aplicativo](../articles/app-service/overview-hosting-plans.md) | 100 por [região](https://azure.microsoft.com/global-infrastructure/regions/) |100 por grupo de recursos |100 por grupo de recursos | - | - |
@@ -28,10 +28,10 @@ ms.locfileid: "85391461"
 | domínio personalizado [Suporte a SSL](../articles/app-service/configure-ssl-bindings.md) |conexão SSL SNI não associada incluída | conexões SSL SNI e 1 IP SSL não associadas incluídas |conexões SSL SNI e 1 IP SSL não associadas incluídas | conexões SSL SNI e 1 IP SSL não associadas incluídas | n/a |
 
 <sup>1</sup> Por padrão, o tempo limite do runtime do Functions 1.x em um plano do Serviço de Aplicativo não é associado.  
-<sup>2</sup> Requer que o plano do Serviço de Aplicativo seja definido como [Always On](../articles/azure-functions/functions-scale.md#always-on). Pagamento com [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão.  
+<sup>2</sup> Requer que o plano do Serviço de Aplicativo seja definido como [Always On](../articles/azure-functions/dedicated-plan.md#always-on). Pagamento com [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão.  
 <sup>3</sup> Esses limites são [definidos no host](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/web.config).  
 <sup>4</sup> O número real de aplicativos de funções que você pode hospedar dependerá da atividade dos aplicativos, do tamanho das instâncias do computador e da utilização de recursos correspondente.  
 <sup>5</sup> O limite de armazenamento é o tamanho total do conteúdo no armazenamento temporário em todos os aplicativos no mesmo plano do Serviço de Aplicativo. O plano de consumo usa os Arquivos do Azure para obter um armazenamento temporário.  
-<sup>6</sup> Quando seu aplicativo de funções estiver hospedado em um [Plano de consumo](../articles/azure-functions/functions-scale.md#consumption-plan), somente a opção CNAME será compatível. Para obter aplicativos de funções em um [plano Premium](../articles/azure-functions/functions-scale.md#premium-plan) ou [plano do Serviço de Aplicativo](../articles/azure-functions/functions-scale.md#app-service-plan), você poderá mapear um domínio personalizado usando um CNAME ou registro A.  
+<sup>6</sup> Quando seu aplicativo de funções estiver hospedado em um [Plano de consumo](../articles/azure-functions/consumption-plan.md), somente a opção CNAME será compatível. Para obter aplicativos de funções em um [plano Premium](../articles/azure-functions/functions-premium-plan.md) ou [plano do Serviço de Aplicativo](../articles/azure-functions/dedicated-plan.md), você poderá mapear um domínio personalizado usando um CNAME ou registro A.  
 <sup>7</sup> Garantido por até 60 minutos.  
 <sup>8</sup> As funções de trabalho são funções que hospedam aplicativos de clientes. As funções de trabalho estão disponíveis em três tamanhos fixos: Um vCPU/3,5 GB de RAM, dois vCPUs/7 GB de RAM e quatro vCPUs/14 GB de RAM.

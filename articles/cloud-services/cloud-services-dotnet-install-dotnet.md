@@ -1,24 +1,25 @@
 ---
-title: Instalar o .NET em funções dos Serviços de Nuvem do Azure | Microsoft Docs
+title: Instalar o .NET em funções de serviços de nuvem do Azure (clássico) | Microsoft Docs
 description: Este artigo descreve como instalar manualmente o .NET Framework em funções de trabalho e web de seu serviço de nuvem
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-manager: carmonm
-ms.service: cloud-services
-ms.devlang: dotnet
-ms.custom: devx-track-dotnet
 ms.topic: article
-ms.date: 06/22/2018
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 6de4b79560557fc86edb9e1a25e32a6a1983ceb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: aa05fc9f02c26192762ed34db54b60b4760bf3bf
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88932229"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99061844"
 ---
-# <a name="install-net-on-azure-cloud-services-roles"></a>Instalar o .NET em funções dos Serviços de Nuvem do Azure
+# <a name="install-net-on-azure-cloud-services-classic-roles"></a>Instalar o .NET em funções de serviços de nuvem do Azure (clássico)
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
+
 Este artigo descreve como instalar versões do .NET Framework que não são fornecidas com o SO convidado do Azure. Você pode usar o .NET no SO convidado para configurar as funções Web e de trabalho de seu serviço de nuvem.
 
 Por exemplo, você pode instalar .NET Framework 4.6.2 na família de sistemas operacionais convidados 4, que não vem com nenhuma versão do .NET Framework 4,6. (A família de sistemas operacionais convidados 5 vem com .NET Framework 4,6.) Para obter as informações mais recentes sobre as versões do sistema operacional convidado do Azure, consulte [notícias de versão do SO convidado do Azure](cloud-services-guestos-update-matrix.md). 
@@ -31,7 +32,7 @@ Para instalar o .NET em suas funções web e de trabalho, inclua o instalador We
 ## <a name="add-the-net-installer-to-your-project"></a>Adicione o instalador do .NET ao seu projeto
 Para baixar o instalador da Web para o .NET Framework, escolha a versão que você deseja instalar:
 
-* [Instalador da Web do .NET Framework 4,8](https://dotnet.microsoft.com/download/thank-you/net48)
+* [Instalador da Web do .NET Framework 4,8](https://go.microsoft.com/fwlink/?LinkId=2150985)
 * [Instalador da Web do .NET Framework 4.7.2](https://go.microsoft.com/fwlink/?LinkId=863262)
 * [Instalador da Web do .NET Framework 4.6.2](https://www.microsoft.com/download/details.aspx?id=53345)
 

@@ -1,21 +1,21 @@
 ---
 title: Transformar dados usando um fluxo de dados de mapeamento
 description: Este tutorial fornece instruções passo a passo para usar Azure Data Factory para transformar dados com o fluxo de dados de mapeamento
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/07/2019
-ms.openlocfilehash: 0119d134861b54ac14c6fe22b638ab459344c5ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2019
+ms.openlocfilehash: b0f564f68a638e7efd1cd1ce9116a26f4d19f277
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569882"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497037"
 ---
-# <a name="transform-data-using-mapping-data-flows"></a>Transformar dados usando o mapeamento de fluxos de dados
+# <a name="transform-data-using-mapping-data-flows"></a>Transformar dados usando fluxos de dados de mapeamento
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -43,7 +43,7 @@ O arquivo que estamos transformando neste tutorial é MoviesDB.csv, que pode ser
 Nesta etapa, você cria um data factory e abre o Data Factory UX para criar um pipeline no data factory.
 
 1. Abra o **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
-2. No menu à esquerda, selecione **Criar um recurso** > **Analytics** > **Data Factory**:
+2. No menu à esquerda, selecione **Criar um recurso** > **Integração** > **Data Factory**:
 
    ![Seleção de Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -55,9 +55,9 @@ Nesta etapa, você cria um data factory e abre o Data Factory UX para criar um p
 4. Selecione a **assinatura** do Azure na qual deseja criar o data factory.
 5. Em **Grupo de Recursos**, use uma das seguintes etapas:
 
-    a. Selecione **Usar existente**e selecione um grupo de recursos existente na lista suspensa.
+    a. Selecione **Usar existente** e selecione um grupo de recursos existente na lista suspensa.
 
-    b. Selecione **Criar novo**e insira o nome de um grupo de recursos. 
+    b. Selecione **Criar novo** e insira o nome de um grupo de recursos. 
          
     Para saber mais sobre grupos de recursos, confira [Usar grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md). 
 6. Em **Versão**, selecione **V2**.
@@ -147,7 +147,7 @@ Depois de criar o fluxo de dados, você será enviado automaticamente para a tel
 1. Vá para a guia **agregações** . Na caixa de texto à esquerda, nomeie a coluna de agregação **AverageComedyRating**. Clique na caixa de expressão à direita para inserir a expressão de agregação por meio do construtor de expressões.
 
     ![Captura de tela que mostra a opção year na guia Agregações em configurações de agregação.](media/tutorial-data-flow/agg3.png)
-1. Para obter a média de **classificação**de coluna, use a ```avg()``` função de agregação. Como a **classificação** é uma cadeia de caracteres e ```avg()``` usa uma entrada numérica, devemos converter o valor em um número por meio da ```toInteger()``` função. Essa expressão é semelhante a:
+1. Para obter a média de **classificação** de coluna, use a ```avg()``` função de agregação. Como a **classificação** é uma cadeia de caracteres e ```avg()``` usa uma entrada numérica, devemos converter o valor em um número por meio da ```toInteger()``` função. Essa expressão é semelhante a:
 
     ```avg(toInteger(Rating))```
 
@@ -160,7 +160,7 @@ Depois de criar o fluxo de dados, você será enviado automaticamente para a tel
 1. Em seguida, você deseja adicionar uma transformação de **coletor** em **destino**.
 
     ![Captura de tela que mostra onde adicionar uma transformação de coletor em destino.](media/tutorial-data-flow/sink1.png)
-1. Nomeie o **coletor**do coletor. Clique em **novo** para criar o conjunto de seus conjuntos de coleta.
+1. Nomeie o **coletor** do coletor. Clique em **novo** para criar o conjunto de seus conjuntos de coleta.
 
     ![Captura de tela que mostra onde você pode nomear seu coletor e criar um novo conjunto de um.](media/tutorial-data-flow/sink2.png)
 1. Escolha **Azure data Lake Storage Gen2**. Clique em Continuar.
@@ -169,7 +169,7 @@ Depois de criar o fluxo de dados, você será enviado automaticamente para a tel
 1. Escolha **DelimitedText**. Clique em Continuar.
 
     ![Dataset](media/tutorial-data-flow/dataset2.png)
-1. Nomeie seu conjunto de **MoviesSink**de banco de seu coletor. Para o serviço vinculado, escolha o serviço vinculado ADLS Gen2 que você criou na etapa 6. Insira uma pasta de saída na qual os dados são gravados. Neste tutorial, estamos gravando na pasta ' output ' no contêiner ' sample-data '. A pasta não precisa existir com antecedência e pode ser criada dinamicamente. Defina **a primeira linha como o cabeçalho** como verdadeiro e selecione **nenhum** para o **esquema de importação**. Clique em Concluir.
+1. Nomeie seu conjunto de **MoviesSink** de banco de seu coletor. Para o serviço vinculado, escolha o serviço vinculado ADLS Gen2 que você criou na etapa 6. Insira uma pasta de saída na qual os dados são gravados. Neste tutorial, estamos gravando na pasta ' output ' no contêiner ' sample-data '. A pasta não precisa existir com antecedência e pode ser criada dinamicamente. Defina **a primeira linha como o cabeçalho** como verdadeiro e selecione **nenhum** para o **esquema de importação**. Clique em Concluir.
 
     ![Coletor](media/tutorial-data-flow/sink3.png)
 

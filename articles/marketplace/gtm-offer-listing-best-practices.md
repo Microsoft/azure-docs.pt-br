@@ -4,15 +4,15 @@ description: Conheça as melhores práticas de listagem de entrada no mercado pa
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 07/06/2020
-ms.openlocfilehash: 33198f95ef0309cada6f5f11c809811f23d7f826
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ea6a0035a9f9354be5c14699936c6a07dea1150
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708638"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94492082"
 ---
 # <a name="offer-listing-best-practices"></a>Práticas recomendadas de listagem de ofertas
 
@@ -34,7 +34,7 @@ As categorias e os setores de uma loja online diferente serão aplicáveis a dif
 
 | Loja online | Categorias <br>por loja online | Categorias <br>por loja online | Setores <br> para AppSource |
 | :------------------- |:----------------:|:------:|:-------------:|
-| **Tipo de Oferta**   |  **Azure Marketplace**  | **AppSource**  |
+| **Tipo de oferta**   |  **Azure Marketplace**  | **AppSource**  |
 | Aplicativo do Azure | X | |
 | Contêiner | X | |
 | Serviços de Consultoria | | | X |
@@ -96,7 +96,7 @@ A seleção do setor só se aplica a ofertas publicadas no AppSource e serviços
 | **Educação** | Ensino superior <br> Primário &do edu/K-12 <br> Bibliotecas & museus |
 | **Serviços financeiros** | Mercados bancários & capital <br> Seguro | 
 | **Governo** |  Inteligência de & de defesa <br> Governo civis <br> Segurança pública & justiça |
-| **Assistência médica** | Pagador de integridade <br> Provedor de integridade <br> Produtos farmacêuticos | 
+| **Serviços de saúde** | Pagador de integridade <br> Provedor de integridade <br> Produtos farmacêuticos | 
 | **Hospedagem & viagem** | Viagem e Transporte <br> Hotéis & lazer <br> Serviços de restaurantes & Food | 
 | **Recursos de produção &** | Agrochemical de química & <br> Fabricação discreta <br> Energia | 
 | **Comunicações de & de mídia** | Entretenimento de mídia & <br> Telecomunicações | 
@@ -130,8 +130,8 @@ Palavras-chave podem ajudar os clientes a encontrarem sua oferta ao pesquisarem 
 ## <a name="link-to-your-offer-page-from-your-website"></a>Vincular a sua página de oferta do seu site
 
 Ao vincular do AppSource ou do selo do Azure Marketplace em seu site à sua listagem no Marketplace comercial, você pode dar suporte à análise e aos relatórios de alta segurança, incluindo os seguintes parâmetros de consulta no final da URL:
-* **src**: Inclua a origem da qual o tráfego é roteado para o AppSource (por exemplo, site, LinkedIn ou Facebook).
-* **mktcmpid**: Sua ID de campanha de marketing, que pode conter até 16 caracteres em qualquer combinação de letras, números, sublinhados e hifens (por exemplo, *blogpost_12*).
+* **src** : Inclua a origem da qual o tráfego é roteado para o AppSource (por exemplo, site, LinkedIn ou Facebook).
+* **mktcmpid** : Sua ID de campanha de marketing, que pode conter até 16 caracteres em qualquer combinação de letras, números, sublinhados e hifens (por exemplo, *blogpost_12* ).
 
 O exemplo de URL a seguir contém os dois parâmetros de consulta anteriores: `https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 

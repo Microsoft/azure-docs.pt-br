@@ -11,14 +11,19 @@ ms.topic: quickstart
 ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 99f2197732a332e860af421f46d1049c2388043c
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: a0a77faba971f328c6ae1c5a03f8faf7ccfcf60d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221223"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351479"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Início Rápido: Enviar uma solicitação de pesquisa para a API REST da Pesquisa de Entidade do Bing usando o C#
+
+> [!WARNING]
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Use este início rápido para fazer sua primeira chamada à API de Pesquisa de Entidade do Bing e exibir a resposta JSON. Este aplicativo C# simples envia uma consulta de pesquisa de notícias para a API e exibe a resposta. O código-fonte desse aplicativo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingEntitySearchv7.cs).
 
@@ -38,8 +43,8 @@ Embora esse aplicativo seja escrito em C#, a API é um serviço Web RESTful comp
 
 1. Crie uma solução de console C# no Visual Studio. 
 1. Adicione o pacote NuGet [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/).
-    1. Clique com o botão direito do mouse no projeto no **Gerenciador de Soluções** .
-    2. Selecione **Gerenciar Pacotes NuGet** .
+    1. Clique com o botão direito do mouse no projeto no **Gerenciador de Soluções**.
+    2. Selecione **Gerenciar Pacotes NuGet**.
     3. Pesquise e selecione *Newtonsoft.Json* e, em seguida, instale o pacote.
 1. Então, adicione os seguintes namespaces no arquivo de código principal:
     
@@ -180,4 +185,4 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 > [Criar um aplicativo Web de página única](../tutorial-bing-entities-search-single-page-app.md)
 
 * [O que é a API de Pesquisa de Entidade do Bing?](../overview.md )
-* [Referência da API de Pesquisa de Entidade do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).
+* [Referência da API de Pesquisa de Entidade do Bing](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

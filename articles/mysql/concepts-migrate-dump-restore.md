@@ -1,17 +1,17 @@
 ---
 title: Migrar usando despejo e restauração - Banco de Dados do Azure para MySQL
 description: Este artigo descreve duas maneiras comuns de fazer backup e restaurar bancos de dados no seu Banco de dados do Azure para MySQL, usando ferramentas, como mysqldump, MySQL Workbench e PHPMyAdmin.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/30/2020
-ms.openlocfilehash: 336021792b7e5340e35a0c59e0f113d4dad9307d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f21587fe6a48d042ed98c126beb2a7dcaa39b7d8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128956"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537910"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrar seu banco de dados MySQL para o Banco de Dados do Azure para MySQL usando despejo e restauração
 
@@ -73,7 +73,7 @@ Para se conectar, localize as informações de conexão na página **Visão Gera
 
 Adicione as informações de conexão ao MySQL Workbench.
 
-:::image type="content" source="./media/concepts-migrate-dump-restore/2_setup-new-connection.png" alt-text="Encontrar as informações de conexão no portal do Azure":::
+:::image type="content" source="./media/concepts-migrate-dump-restore/2_setup-new-connection.png" alt-text="Cadeia de Conexão do MySQL Workbench":::
 
 ## <a name="preparing-the-target-azure-database-for-mysql-server-for-fast-data-loads"></a>Preparar o servidor do Banco de Dados do Azure para MySQL de destino para cargas de dados rápidas
 Para preparar o servidor do Banco de Dados do Azure para MySQL de destino para carregamentos de dados mais rápidos, os parâmetros de servidor e a configuração a seguir precisam ser alterados.
@@ -151,10 +151,10 @@ Siga estas etapas para despejar e restaurar um banco de dados usando o PHPMyadmi
 Para exportar, você pode usar a ferramenta phpMyAdmin que você pode já ter instalado localmente em seu ambiente. Para exportar o banco de dados MySQL usando PHPMyAdmin:
 1. Abra o phpMyAdmin.
 2. Selecione o banco de dados. Clique no nome do banco de dados na lista à esquerda.
-3. Clique no link **Exportar** . Aparece uma nova página para exibir o despejo do banco de dados.
+3. Clique no link **Exportar**. Aparece uma nova página para exibir o despejo do banco de dados.
 4. Na área de Exportação, clique no link **Selecionar Tudo** para selecionar as tabelas no banco de dados.
 5. Na área de opções do SQL, clique nas opções apropriadas.
-6. Clique na opção **Salvar como arquivo** e na opção de compactação correspondente e, em seguida, clique no botão **Ir** . Uma caixa de diálogo deve aparecer solicitando que você salve o arquivo localmente.
+6. Clique na opção **Salvar como arquivo** e na opção de compactação correspondente e, em seguida, clique no botão **Ir**. Uma caixa de diálogo deve aparecer solicitando que você salve o arquivo localmente.
 
 ### <a name="import-using-phpmyadmin"></a>Importar usando PHPMyAdmin
 Importar o banco de dados é semelhante à exportação. As seguintes ações ocorrem:

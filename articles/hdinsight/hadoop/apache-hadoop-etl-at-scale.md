@@ -1,19 +1,16 @@
 ---
 title: Extrair, transformar e carregar (ETL) em escala - Azure HDInsight
 description: Saiba como extrair, transformar e carregar (ETL) é usado no HDInsight com o Apache Hadoop.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: bb978f30104b1e38bd8930ccb058c4057d394e51
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: fc488cecb762ff13bcb2999bb06521ebb70b44fb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899666"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946586"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extrair, transformar e carregar (ETL) em escala
 
@@ -82,11 +79,11 @@ Para carregar conjuntos de valores no intervalo de terabytes, a latência de red
 
 - **Azure ExpressRoute:** Crie conexões privadas entre os datacenters do Azure e a infraestrutura local. Essas conexões proporcionam uma opção confiável para transferir grandes quantidades de dados. Para obter mais informações, confira a [documentação do ExpressRoute do Azure](../../expressroute/expressroute-introduction.md).
 
-- **Upload de dados de unidades de disco rígido:** Você poderá usar o [serviço de Importação/Exportação do Azure](../../storage/common/storage-import-export-service.md) para enviar unidades de disco rígido com seus dados para um datacenter do Azure. Seus dados são carregados pela primeira vez no armazenamento de blobs do Azure. Em seguida, você poderá usar o Azure Data Factory ou a ferramenta AdlCopy para copiar os dados do armazenamento de blobs do Azure para o Data Lake Storage.
+- **Upload de dados de unidades de disco rígido:** Você poderá usar o [serviço de Importação/Exportação do Azure](../../import-export/storage-import-export-service.md) para enviar unidades de disco rígido com seus dados para um datacenter do Azure. Seus dados são carregados pela primeira vez no armazenamento de blobs do Azure. Em seguida, você poderá usar o Azure Data Factory ou a ferramenta AdlCopy para copiar os dados do armazenamento de blobs do Azure para o Data Lake Storage.
 
 ### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
-O Azure Synapse Analytics (anteriormente conhecido como SQL DW) é uma opção apropriada para armazenar resultados preparados. Você pode usar o Azure HDInsight para executar esses serviços para o Azure Synapse Analytics.
+O Azure Synapse Analytics é uma opção apropriada para armazenar resultados preparados. Você pode usar o Azure HDInsight para executar esses serviços para o Azure Synapse Analytics.
 
 O Azure Synapse Analytics é um repositório de banco de dados relacional otimizado para cargas de trabalho analíticas. Ele é escalado com base em tabelas particionadas. Tabelas podem ser particionadas em vários nós. Os nós são selecionados no momento da criação. Eles podem ser dimensionados após o fato, mas isso é um processo ativo que pode exigir a movimentação de dados. Para obter mais informações, consulte [gerenciar computação no Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 

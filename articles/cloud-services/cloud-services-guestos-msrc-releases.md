@@ -10,47 +10,213 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/19/2020
+ms.date: 2/5/2021
 ms.author: yohaddad
-ms.openlocfilehash: 3f088d248037ecf552bf7130e3fe4c86d7430695
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: d5892d0b2ae2004f8604333294411e849dc8394b
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207981"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805877"
 ---
 # <a name="azure-guest-os"></a>Sistema operacional convidado do Azure
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] específica na qual foram introduzidas.
 
-## <a name="october-2020-guest-os"></a>SO convidado de outubro de 2020
->[!NOTE] 
-
->O sistema operacional convidado de outubro está sendo implantado nas VMs do Cloud Service que estão configuradas para atualizações automáticas. Quando a distribuição estiver concluída, essa versão será disponibilizada para atualizações manuais por meio do portal do Azure e dos arquivos de configuração. Os seguintes patches estão incluídos no sistema operacional outubro Guest. Esta lista está sujeita a alterações. 
+## <a name="january-2021-guest-os"></a>SO convidado de janeiro de 2021
 
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-|  Rel 20-10 |  [4577010]  |  Atualização cumulativa do IE | 2,103, 3,90, 4,83 | 8 de setembro de 2020 |
-|  Rel 20-10 |  [4580325]  |  Atualização do flash | 3,90, 4,83, 5,48, 6,24 | 13 de outubro de 2020 |
-|  Rel 20-10 |  [4577668]  |  Atualização cumulativa mais recente | 6,24 | 13 de outubro de 2020 |
-|  Rel 20-10 |  [4580346]  |  Atualização cumulativa mais recente | 5,48 | 13 de outubro de 2020 |
-|  Rel 20-10 |  [4580970]  |  Atualização da pilha de manutenção | 2,103 | 13 de outubro de 2020 |
-|  Rel 20-10 |  [4580345]  |  Rollup mensal | 2,103 | 13 de outubro de 2020 |
-|  Rel 20-10 |  [4578952]  |  ROLLUP de segurança e qualidade do .NET Framework 3.5.1 | 2,103 | 13 de outubro de 2020 |
-|  Rel 20-10 |  [4578955]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2 | 2,103 | 13 de outubro de 2020 |
-|  Rel 20-10 |  [4566426]  |  Atualização da pilha de manutenção | 3,90 | 14 de julho de 2020 |
-|  Rel 20-10 |  [4580382]  |  Rollup mensal | 3,90 | 13 de outubro de 2020 |
-|  Rel 20-10 |  [4578950]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5 | 3,90 | 13 de outubro de 2020 |
-|  Rel 20-10 |  [4578954]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2 | 3,90 | 13 de outubro de 2020 |
-|  Rel 20-10 |  [4566425]  |  Atualização da pilha de manutenção | 4,83 | 14 de julho de 2020 |
-|  Rel 20-10 |  [4580347]  |  Rollup mensal | 4,83 | 13 de outubro de 2020 |
-|  Rel 20-10 |  [4578953]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5 | 4,83 | 13 de outubro de 2020 |
-|  Rel 20-10 |  [4578956]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2 | 4,83 | 13 de outubro de 2020 |
-|  Rel 20-10 |  [4578013]  |  Atualização de segurança autônoma | 4,83 | 19 de agosto de 2020 |
-|  Rel 20-10 |  [4576750]  |  Atualização da pilha de manutenção | 5,48 | 8 de setembro de 2020 |
-|  Rel 20-10 |  [4494175]  |  Microcódigo | 5,48 | 1 de setembro de 2020 |
-|  Rel 20-10 |  [4577667]  |  Atualização da Pilha de Manutenção | 6,24 | 13 de outubro de 2020 |
-|  Rel 20-10 |  [4578966]  |  Atualização cumulativa do .NET Framework 3,5 e 4.7.2 | 6,24 | 13 de outubro de 2020 |
-|  Rel 20-10 |  [4494174]  |  Microcódigo | 6,24 | 3 de setembro de 2020 |
+|  Rel 21-01 |  [4598230]  |  Atualização cumulativa mais recente (LCU) | [6,27] | 12 de janeiro de 2021 |
+|  Rel 21-01 |  [4580325]  |  Atualização do flash | [3,93], [4,86], [5,51], [6,27] | 13 de outubro de 2020 |
+|  Rel 21-01 |  [4586768]  |  Atualizações cumulativas do IE | [2,106], [3,93], [4,86] | 10 de novembro de 2020 |
+|  Rel 21-01 |  [4598243]  |  Atualização cumulativa mais recente (LCU) | [5,51] | 12 de janeiro de 2021 |
+|  Rel 21-01 |  [4578952]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5 | [2,106] | 12 de janeiro de 2021 |
+|  Rel 21-01 |  [4578955]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2 | [2,106] | 12 de janeiro de 2021 |
+|  Rel 21-01 |  [4578953]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5 | [4,86] | 12 de janeiro de 2021 |
+|  Rel 21-01 |  [4578956]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2 | [4,86] | 12 de janeiro de 2021 |
+|  Rel 21-01 |  [4578950]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5 | [3,93] | 12 de janeiro de 2021 |
+|  Rel 21-01 |  [4578954]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2 | [3,93] | 12 de janeiro de 2021 |
+|  Rel 21-01 |  [4578966]  |  Atualização cumulativa do .NET Framework 3,5 e 4.7.2 | [6,27] | 13 de outubro de 2020 |
+|  Rel 21-01 |  [4598279]  |  Rollup mensal | [2,106] | 12 de janeiro de 2020 |
+|  Rel 21-01 |  [4598278]  |  Rollup mensal | [3,93] | 12 de janeiro de 2020 |
+|  Rel 21-01 |  [4598285]  |  Rollup mensal | [4,86] | 12 de janeiro de 2020 |
+|  Rel 21-01 |  [4566426]  |  Atualização da pilha de manutenção | [3,93] | 14 de julho de 2020 |
+|  Rel 21-01 |  [4566425]  |  Atualização da pilha de manutenção | [4,86] | 14 de julho de 2020 |
+|  OOB 21-01 rel |  [4578013]  |  Atualização de segurança autônoma | [4,86] | 19 de agosto de 2020 |
+|  Rel 21-01 |  [4576750]  |  Atualização da pilha de manutenção | [5,51] | 8 de setembro de 2020 |
+|  Rel 21-01 |  [4592510]  |  Atualização da pilha de manutenção | [2,106] | 8 de dezembro de 2020 |
+|  Rel 21-01 |  [4598480]  |  Atualização da pilha de manutenção | [6,27] | 12 de janeiro de 2021 |
+|  Rel 21-01 |  [4494175]  |  Microcódigo | [5,51] | 1 de setembro de 2020 |
+|  Rel 21-01 |  [4494174]  |  Microcódigo | [6,27] | 3 de setembro de 2020 |
+
+[4598230]: https://support.microsoft.com/kb/4598230
+[4580325]: https://support.microsoft.com/kb/4580325
+[4586768]: https://support.microsoft.com/kb/4586768
+[4598243]: https://support.microsoft.com/kb/4598243
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4578966]: https://support.microsoft.com/kb/4578966
+[4598279]: https://support.microsoft.com/kb/4598279
+[4598278]: https://support.microsoft.com/kb/4598278
+[4598285]: https://support.microsoft.com/kb/4598285
+[4566426]: https://support.microsoft.com/kb/4566426
+[4566425]: https://support.microsoft.com/kb/4566425
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4592510]: https://support.microsoft.com/kb/4592510
+[4598480]: https://support.microsoft.com/kb/4598480
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+[2,106]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3,93]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4,86]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5,51]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6,27]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+
+## <a name="december-2020-guest-os"></a>SO convidado de dezembro de 2020
+
+| Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| --- | --- | --- | --- | --- |
+|  Rel 20-12 |  [4592440]  |  Atualização cumulativa mais recente | [6,26] | 8 de dezembro de 2020 |
+|  Rel 20-12 |  [4580325]  |  Atualização do flash | [3,92], [4,85], [5,50], [6,26] | 13 de outubro de 2020 |
+|  Rel 20-12 |  [4586768]  |  Atualizações cumulativas do IE | [2,105], [3,92], [4,85] | 10 de novembro de 2020 |
+|  Rel 20-12 |  [4593226]  |  Atualização cumulativa mais recente | [5,50] | 8 de dezembro de 2020 |
+|  Rel 20-12 |  [4052623]  |  Defender | [5,50], [6,26] | 13 de dezembro de 2020 |
+|  Rel 20-12 |  [4578952]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5 | [2,105] | 10 de novembro de 2020 |
+|  Rel 20-12 |  [4578955]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2 | [2,105] | 10 de novembro de 2020 |
+|  Rel 20-12 |  [4578953]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5 | [4,85] | 10 de novembro de 2020 |
+|  Rel 20-12 |  [4578956]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2 | [4,85] | 10 de novembro de 2020 |
+|  Rel 20-12 |  [4578950]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5 | [3,92] | 10 de novembro de 2020 |
+|  Rel 20-12 |  [4578954]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2 | [3,92] | 10 de novembro de 2020 |
+|  Rel 20-12 |  [4578966]  |  Atualização cumulativa do .NET Framework 3,5 e 4.7.2 | [6,26] | 13 de outubro de 2020 |
+|  Rel 20-12 |  [4592471]  |  Rollup mensal | [2,105] | 8 de dezembro de 2020 |
+|  Rel 20-12 |  [4592468]  |  Rollup mensal | [3,92] | 8 de dezembro de 2020 |
+|  Rel 20-12 |  [4592484]  |  Rollup mensal | [4,85] | 8 de dezembro de 2020 |
+|  Rel 20-12 |  [4566426]  |  Atualização da pilha de manutenção | [3,92] | 14 de julho de 2020 |
+|  Rel 20-12 |  [4566425]  |  Atualização da pilha de manutenção | [4,85] | 14 de julho de 2020 |
+|  OOB 20-12 rel |  [4578013]  |  Atualização de segurança autônoma | [4,85] | 19 de agosto de 2020 |
+|  Rel 20-12 |  [4576750]  |  Atualização da pilha de manutenção | [5,50] | 8 de setembro de 2020 |
+|  Rel 20-12 |  [4592510]  |  Atualização da pilha de manutenção | [2,105] | 8 de dezembro de 2020 |
+|  Rel 20-12 |  [4587735]  |  Atualização da pilha de manutenção | [6,26] | 10 de novembro de 2020 |
+|  Rel 20-12 |  [4494175]  |  Microcódigo | [5,50] | 1 de setembro de 2020 |
+|  Rel 20-12 |  [4494174]  |  Microcódigo | [6,26] | 3 de setembro de 2020 |
+
+[4592440]: https://support.microsoft.com/kb/4592440
+[4580325]: https://support.microsoft.com/kb/4580325
+[4586768]: https://support.microsoft.com/kb/4586768
+[4593226]: https://support.microsoft.com/kb/4593226
+[4052623]: https://support.microsoft.com/kb/4052623
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4578966]: https://support.microsoft.com/kb/4578966
+[4592471]: https://support.microsoft.com/kb/4592471
+[4592468]: https://support.microsoft.com/kb/4592468
+[4592484]: https://support.microsoft.com/kb/4592484
+[4566426]: https://support.microsoft.com/kb/4566426
+[4566425]: https://support.microsoft.com/kb/4566425
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4592510]: https://support.microsoft.com/kb/4592510
+[4587735]: https://support.microsoft.com/kb/4587735
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+[2,105]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3,92]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4,85]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5,50]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6,26]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+
+## <a name="november-2020-guest-os"></a>SO convidado de novembro de 2020
+
+| Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| --- | --- | --- | --- | --- |
+|  OOB 20-11 rel |  [4594442]  |  Atualização cumulativa mais recente | [6,25] | 17 de novembro de 2020 |
+|  OOB 20-11 rel |  [4594441]  |  Atualização cumulativa mais recente | [5,49] | 19 de novembro de 2020 |
+|  Rel 20-11 |  [4580325]  |  Atualização do flash | [3,91], [4,84], [5,49], [6,25] | 13 de outubro de 2020 |
+|  Rel 20-11 |  [4586768]  |  Atualização cumulativa do IE | [2,104], [3,91], [4,84] | 10 de novembro de 2020 |
+|  Rel 20-11 |  [4578952]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5 | [2,104] | 10 de novembro de 2020 |
+|  Rel 20-11 |  [4578955]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2 | [2,104] | 10 de novembro de 2020 |
+|  Rel 20-11 |  [4578953]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5 | [4,84] | 10 de novembro de 2020 |
+|  Rel 20-11 |  [4578956]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2 | [4,84] | 10 de novembro de 2020 |
+|  Rel 20-11 |  [4578950]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5 | [3,91] | 10 de novembro de 2020 |
+|  Rel 20-11 |  [4578954]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2 | [3,91] | 10 de novembro de 2020 |
+|  Rel 20-11 |  [4578966]  |  Atualização cumulativa do .NET Framework 3,5 e 4.7.2 | [6,25] | 13 de outubro de 2020 |
+|  Rel 20-11 |  [4586827]  |  Rollup mensal | [2,104] | 10 de novembro de 2020 |
+|  Rel 20-11 |  [4586834]  |  Rollup mensal | [3,91] | 10 de novembro de 2020 |
+|  Rel 20-11 |  [4586845]  |  Rollup mensal | [4,84] | 10 de novembro de 2020 |
+|  Rel 20-11 |  [4566426]  |  Atualização da pilha de manutenção | [3,91] | 14 de julho de 2020 |
+|  Rel 20-11 |  [4566425]  |  Atualização da pilha de manutenção | [4,84] | 14 de julho de 2020 |
+|  OOB 20-11 rel |  [4578013]  |  Atualização de segurança autônoma | [4,84] | 19 de agosto de 2020 |
+|  Rel 20-11 |  [4576750]  |  Atualização da pilha de manutenção | [5,49] | 8 de setembro de 2020 |
+|  Rel 20-11 |  [4580970]  |  Atualização da pilha de manutenção | [2,104] | 13 de outubro de 2020 |
+|  Rel 20-11 |  [4587735]  |  Atualização da pilha de manutenção | [6,25] | 10 de novembro de 2020 |
+|  Rel 20-11 |  [4494175]  |  Microcódigo | [5,49] | 1 de setembro de 2020 |
+|  Rel 20-11 |  [4494174]  |  Microcódigo | [6,25] | 3 de setembro de 2020 |
+
+[4594442]: https://support.microsoft.com/kb/4594442
+[4594441]: https://support.microsoft.com/kb/4594441
+[4580325]: https://support.microsoft.com/kb/4580325
+[4586768]: https://support.microsoft.com/kb/4586768
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4578966]: https://support.microsoft.com/kb/4578966
+[4586827]: https://support.microsoft.com/kb/4586827
+[4586834]: https://support.microsoft.com/kb/4586834
+[4586845]: https://support.microsoft.com/kb/4586845
+[4566426]: https://support.microsoft.com/kb/4566426
+[4566425]: https://support.microsoft.com/kb/4566425
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4580970]: https://support.microsoft.com/kb/4580970
+[4587735]: https://support.microsoft.com/kb/4587735
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+[2,104]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3,91]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4,84]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5,49]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6,25]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+
+
+
+## <a name="october-2020-guest-os"></a>SO convidado de outubro de 2020
+
+| Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| --- | --- | --- | --- | --- |
+|  Rel 20-10 |  [4577010]  |  Atualização cumulativa do IE | [2,103], [3,90], [4,83] | 8 de setembro de 2020 |
+|  Rel 20-10 |  [4580325]  |  Atualização do flash | [3,90], [4,83], [5,48], [6,24] | 13 de outubro de 2020 |
+|  Rel 20-10 |  [4577668]  |  Atualização cumulativa mais recente | [6,24] | 13 de outubro de 2020 |
+|  Rel 20-10 |  [4580346]  |  Atualização cumulativa mais recente | [5,48] | 13 de outubro de 2020 |
+|  Rel 20-10 |  [4580970]  |  Atualização da pilha de manutenção | [2,103] | 13 de outubro de 2020 |
+|  Rel 20-10 |  [4580345]  |  Rollup mensal | [2,103] | 13 de outubro de 2020 |
+|  Rel 20-10 |  [4578952]  |  ROLLUP de segurança e qualidade do .NET Framework 3.5.1 | [2,103] | 13 de outubro de 2020 |
+|  Rel 20-10 |  [4578955]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2 | [2,103] | 13 de outubro de 2020 |
+|  Rel 20-10 |  [4566426]  |  Atualização da pilha de manutenção | [3,90] | 14 de julho de 2020 |
+|  Rel 20-10 |  [4580382]  |  Rollup mensal | [3,90] | 13 de outubro de 2020 |
+|  Rel 20-10 |  [4578950]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5 | [3,90] | 13 de outubro de 2020 |
+|  Rel 20-10 |  [4578954]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2 | [3,90] | 13 de outubro de 2020 |
+|  Rel 20-10 |  [4566425]  |  Atualização da pilha de manutenção | [4,83] | 14 de julho de 2020 |
+|  Rel 20-10 |  [4580347]  |  Rollup mensal | [4,83] | 13 de outubro de 2020 |
+|  Rel 20-10 |  [4578953]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5 | [4,83] | 13 de outubro de 2020 |
+|  Rel 20-10 |  [4578956]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2 | [4,83] | 13 de outubro de 2020 |
+|  Rel 20-10 |  [4578013]  |  Atualização de segurança autônoma | [4,83] | 19 de agosto de 2020 |
+|  Rel 20-10 |  [4576750]  |  Atualização da pilha de manutenção | [5,48] | 8 de setembro de 2020 |
+|  Rel 20-10 |  [4494175]  |  Microcódigo | [5,48] | 1 de setembro de 2020 |
+|  Rel 20-10 |  [4577667]  |  Atualização da Pilha de Manutenção | [6,24] | 13 de outubro de 2020 |
+|  Rel 20-10 |  [4578966]  |  Atualização cumulativa do .NET Framework 3,5 e 4.7.2 | [6,24] | 13 de outubro de 2020 |
+|  Rel 20-10 |  [4494174]  |  Microcódigo | [6,24] | 3 de setembro de 2020 |
 
 
 [4577010]: https://support.microsoft.com/kb/4577010
@@ -75,6 +241,11 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 [4577667]: https://support.microsoft.com/kb/4577667
 [4578966]: https://support.microsoft.com/kb/4578966
 [4494174]: https://support.microsoft.com/kb/4494174
+[2,103]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3,90]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4,83]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5,48]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6,24]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 
 ## <a name="september-2020-guest-os"></a>SO convidado de setembro de 2020
@@ -85,24 +256,24 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 |  Rel 20-09 |  [4561600]  |  Atualização do flash | [3,89], [4,82], [5,47], [6,23] | 8 de setembro de 2020 |
 |  Rel 20-09 |  [4577015]  |  Atualização cumulativa mais recente (LCU) | [5,47] | 8 de setembro de 2020 |
 |  Rel 20-09 |  [4570333]  |  Atualização cumulativa mais recente (LCU) | [6,23] | 8 de setembro de 2020 |
-|  Rel 20-09 |  [4570673]  |  Atualização da pilha de manutenção | [2,102] | 8 de setembro de 2020 |
-|  Rel 20-09 |  [4577051]  |  Rollup mensal | [2,102] | 8 de setembro de 2020 |
-|  Rel 20-09 |  [4569767]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5 | [2,102] | 8 de setembro de 2020 |
-|  Rel 20-09 |  [4569780]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2 | [2,102] | 8 de setembro de 2020 |
-|  Rel 20-09 |  [4566426]  |  Atualização da pilha de manutenção | [3,89] | 8 de setembro de 2020 |
-|  Rel 20-09 |  [4577038]  |  Rollup mensal | [3,89] | 8 de setembro de 2020 |
-|  Rel 20-09 |  [4569765]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5 | [3,89] | 8 de setembro de 2020 |
-|  Rel 20-09 |  [4569779]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2 | [3,89] | 8 de setembro de 2020 |
-|  Rel 20-09 |  [4566425]  |  Atualização da pilha de manutenção | [2,102] | 8 de setembro de 2020 |
-|  Rel 20-09 |  [4577066]  |  Rollup mensal | [2,102] | 8 de setembro de 2020 |
-|  Rel 20-09 |  [4569768]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5 | [2,102] | 8 de setembro de 2020 |
-|  Rel 20-09 |  [4569778]  |  ROLLUP de qualidade e segurança do 4.5.2 do .NET Framework | [2,102] | 8 de setembro de 2020 |
-|  Rel 20-09 |  [4578013]  |  Atualização de segurança | [2,102] | 8 de setembro de 2020 |
-|  Rel 20-09 |  [4576750]  |  Atualização da pilha de manutenção | [5,47] | 8 de setembro de 2020 |
-|  Rel 20-09 |  [4494175]  |  Microcódigo | [5,47] | 8 de setembro de 2020 |
-|  Rel 20-09 |  [4570332]  |  Atualização da pilha de manutenção | [6,23] | 8 de setembro de 2020 |
-|  Rel 20-09 |  [4570720]  |  Atualização cumulativa do .NET Framework 3,5 e 4.7.2 | [6,23] | 8 de setembro de 2020 |
-|  Rel 20-09 |  [4494174]  |  Microcódigo | [6,23] | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4570673]  |  Atualização da pilha de manutenção | [2,102] | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4577051]  |  Rollup mensal | [2,102] | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4569767]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5 | [2,102] | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4569780]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2 | [2,102] | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4566426]  |  Atualização da pilha de manutenção | [3,89] | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4577038]  |  Rollup mensal | [3,89] | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4569765]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5 | [3,89] | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4569779]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2 | [3,89] | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4566425]  |  Atualização da pilha de manutenção | [2,102] | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4577066]  |  Rollup mensal | [2,102] | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4569768]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5 | [2,102] | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4569778]  |  ROLLUP de qualidade e segurança do 4.5.2 do .NET Framework | [2,102] | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4578013]  |  Atualização de segurança | [2,102] | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4576750]  |  Atualização da pilha de manutenção | [5,47] | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4494175]  |  Microcódigo | [5,47] | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4570332]  |  Atualização da pilha de manutenção | [6,23] | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4570720]  |  Atualização cumulativa do .NET Framework 3,5 e 4.7.2 | [6,23] | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4494174]  |  Microcódigo | [6,23] | 8 de setembro de 2020 |
 
 [4577010]: https://support.microsoft.com/kb/4577010
 [4561600]: https://support.microsoft.com/kb/4561600
@@ -126,11 +297,11 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 [4570332]: https://support.microsoft.com/kb/4570332
 [4570720]: https://support.microsoft.com/kb/4570720
 [4494174]: https://support.microsoft.com/kb/4494174
-[2,102]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
-[3,89]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[4,82]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[5,47]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[6,23]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[2,102]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3,89]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4,82]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5,47]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6,23]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 ## <a name="august-2020-guest-os"></a>SO convidado de agosto de 2020
 
@@ -145,10 +316,10 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 |  Rel 20-08 |  [4571729]  |  Rollup mensal | [2,101] | 11 de agosto de 2020 |
 |  Rel 20-08 |  [4569767]  |  ROLLUP de segurança e qualidade do .NET Framework 3.5.1 | [2,101] | 11 de agosto de 2020 |
 |  Rel 20-08 |  [4569780]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2 | [2,101] | 11 de agosto de 2020 |
-|  Rel 20-08 |  [4569765]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5 | [3.88] | 11 de agosto de 2020 |
-|  Rel 20-08 |  [4569779]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2 | [3.88] | 11 de agosto de 2020 |
-|  Rel 20-08 |  [4566426]  |  Atualização da Pilha de Manutenção | [3.88] | 14 de julho de 2020 |
-|  Rel 20-08 |  [4571736]  |  Rollup mensal | [3.88] | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4569765]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5 | [3,88] | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4569779]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2 | [3,88] | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4566426]  |  Atualização da Pilha de Manutenção | [3,88] | 14 de julho de 2020 |
+|  Rel 20-08 |  [4571736]  |  Rollup mensal | [3,88] | 11 de agosto de 2020 |
 |  Rel 20-08 |  [4566425]  |  Atualização da Pilha de Manutenção | [4,81] | 14 de julho de 2020 |
 |  Rel 20-08 |  [4571703]  |  Rollup mensal | [4,81] | 11 de agosto de 2020 |
 |  Rel 20-08 |  [4569768]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5 | [4,81] | 11 de agosto de 2020 |
@@ -180,7 +351,7 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 [4569776]: https://support.microsoft.com/kb/4569776
 [4566424]: https://support.microsoft.com/kb/4566424
 [2,101]: ./cloud-services-guestos-update-matrix.md#family-2-releases
-[3.88]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[3,88]: ./cloud-services-guestos-update-matrix.md#family-3-releases
 [4,81]: ./cloud-services-guestos-update-matrix.md#family-4-releases
 [5,46]: ./cloud-services-guestos-update-matrix.md#family-5-releases
 [6,22]: ./cloud-services-guestos-update-matrix.md#family-6-releases
@@ -248,7 +419,7 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | --- | --- | --- | --- | --- |
 |  Rel 20-06  |  [4561603]  |  Internet Explorer  |  [2,99], [3,86], [4,79]  |  9 de junho de 2020  |
 |  Rel 20-06  |  [4561616]  |  Atualização cumulativa mais recente (LCU)  |  [5.44]  |  9 de junho de 2020  |
-|  Rel 20-06  |  [4561608]  |  Atualização cumulativa mais recente (LCU)  |  [6.20]  |  9 de junho de 2020  |
+|  Rel 20-06  |  [4561608]  |  Atualização cumulativa mais recente (LCU)  |  [6,20]  |  9 de junho de 2020  |
 |  Rel 20-06  |  [4562030]  |  Atualização da pilha de manutenção  |  [2,99]  |  9 de junho de 2020  |
 |  Rel 20-06  |  [4561643]  |  Rollup mensal  |  [2,99]  |  9 de junho de 2020  |
 |  Rel 20-06  |  [4562252]  |  Atualização da pilha de manutenção  |  [3,86]  |  9 de junho de 2020  |
@@ -257,7 +428,7 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 |  Rel 20-06  |  [4562253]  |  Atualização da pilha de manutenção  |  [4,79]  |  9 de junho de 2020  |
 |  Rel 20-06  |  [4561666]  |  Rollup mensal  |  [4,79]  |  9 de junho de 2020  |
 |  Rel 20-06  |  [4562561]  |  Atualização da pilha de manutenção  |  [5.44]  |  9 de junho de 2020  |
-|  Rel 20-06  |  [4562562]  |  Atualização da pilha de manutenção  |  [6.20]  |  9 de junho de 2020  |
+|  Rel 20-06  |  [4562562]  |  Atualização da pilha de manutenção  |  [6,20]  |  9 de junho de 2020  |
 
 
 
@@ -277,7 +448,7 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 [3,86]: ./cloud-services-guestos-update-matrix.md#family-3-releases
 [4,79]: ./cloud-services-guestos-update-matrix.md#family-4-releases
 [5.44]: ./cloud-services-guestos-update-matrix.md#family-5-releases
-[6.20]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[6,20]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 
 ## <a name="may-2020-guest-os"></a>SO convidado de maio de 2020
@@ -285,22 +456,22 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-|  Rel 20-05  |  [4556798]  |  Internet Explorer   |  [2,98],  [3,85], [4,78]  |  12 de maio de 2020  |
-|  Rel 20-05  |  [4556813]  |  Atualização cumulativa mais recente (LCU)   |  [5.43]  |  12 de maio de 2020  |
-|  Rel 20-05  |  [4551853]  |  Atualização cumulativa mais recente (LCU)   |  [6.19]  |  12 de maio de 2020  |
-|  Rel 20-05  |  [4552940]  |  Rollup mensal   |  [2.98]  |  12 de maio de 2020  |
-|  Rel 20-05  |  [4556836]  |  Rollup mensal   |  [2.98]  |  12 de maio de 2020  |
-|  Rel 20-05  |  [4555449]  |  Atualização da pilha de manutenção   |  [2.98]  |  12 de maio de 2020  |
-|  Rel 20-05  |  [4552920]  |  Rollup mensal   |  [2.98]  |  12 de maio de 2020  |
-|  Rel 20-05  |  [4552979]  |  Rollup mensal   |  [3.85]  |  12 de maio de 2020  |
-|  Rel 20-05  |  [4556840]  |  Rollup mensal   |  [3.85]  |  12 de maio de 2020  |
-|  Rel 20-05  |  [4552947]  |  Rollup mensal   |  [3.85]  |  12 de maio de 2020  |
-|  Rel 20-05  |  [4552982]  |  Rollup mensal   |  [3.85]  |  12 de maio de 2020  |
-|  Rel 20-05  |  [4552946]  |  Rollup mensal   |  [4.78]  |  12 de maio de 2020  |
-|  Rel 20-05  |  [4556846]  |  Rollup mensal   |  [4.78]  |  12 de maio de 2020  |
-|  Rel 20-05  |  [4550994]  |  Atualização da pilha de manutenção   |  [5.43]  |  14 de abril de 2020  |
-|  Rel 20-05  |  [4552924]  |  Rollup mensal   |  [6.19]  |  12 de maio de 2020  |
-|  Rel 20-05  |  [4549947]  |  Atualização da pilha de manutenção   |  [6.19]  |  14 de abril de 2020  |
+|  Rel 20-05  |  [4556798]  |  Internet Explorer   |  [2,98],  [3,85], [4,78]  |  12 de maio de 2020  |
+|  Rel 20-05  |  [4556813]  |  Atualização cumulativa mais recente (LCU)   |  [5.43]  |  12 de maio de 2020  |
+|  Rel 20-05  |  [4551853]  |  Atualização cumulativa mais recente (LCU)   |  [6.19]  |  12 de maio de 2020  |
+|  Rel 20-05  |  [4552940]  |  Rollup mensal   |  [2.98]  |  12 de maio de 2020  |
+|  Rel 20-05  |  [4556836]  |  Rollup mensal   |  [2.98]  |  12 de maio de 2020  |
+|  Rel 20-05  |  [4555449]  |  Atualização da pilha de manutenção   |  [2.98]  |  12 de maio de 2020  |
+|  Rel 20-05  |  [4552920]  |  Rollup mensal   |  [2.98]  |  12 de maio de 2020  |
+|  Rel 20-05  |  [4552979]  |  Rollup mensal   |  [3.85]  |  12 de maio de 2020  |
+|  Rel 20-05  |  [4556840]  |  Rollup mensal   |  [3.85]  |  12 de maio de 2020  |
+|  Rel 20-05  |  [4552947]  |  Rollup mensal   |  [3.85]  |  12 de maio de 2020  |
+|  Rel 20-05  |  [4552982]  |  Rollup mensal   |  [3.85]  |  12 de maio de 2020  |
+|  Rel 20-05  |  [4552946]  |  Rollup mensal   |  [4.78]  |  12 de maio de 2020  |
+|  Rel 20-05  |  [4556846]  |  Rollup mensal   |  [4.78]  |  12 de maio de 2020  |
+|  Rel 20-05  |  [4550994]  |  Atualização da pilha de manutenção   |  [5.43]  |  14 de abril de 2020  |
+|  Rel 20-05  |  [4552924]  |  Rollup mensal   |  [6.19]  |  12 de maio de 2020  |
+|  Rel 20-05  |  [4549947]  |  Atualização da pilha de manutenção   |  [6.19]  |  14 de abril de 2020  |
 
 
 [4556798]: https://support.microsoft.com/kb/4556798
@@ -319,7 +490,7 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 [4550994]: https://support.microsoft.com/kb/4550994
 [4552924]: https://support.microsoft.com/kb/4552924
 [4549947]: https://support.microsoft.com/kb/4549947
-[2.98]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[2,98]: ./cloud-services-guestos-update-matrix.md#family-2-releases
 [3.85]: ./cloud-services-guestos-update-matrix.md#family-3-releases
 [4.78]: ./cloud-services-guestos-update-matrix.md#family-4-releases
 [5.43]: ./cloud-services-guestos-update-matrix.md#family-5-releases
@@ -331,20 +502,20 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-|  Rel 20-04   |  [4550965]  |  Segurança do Windows   |  [2.97]  |  14 de abril de 2020  |
-|  Rel 20-04   |  [4550905]  |  Internet Explorer   |  [2.97], [3.84], [4.77]  |  14 de abril de 2020  |
-|  Rel 20-04   |  [4550971]  |  Segurança do Windows   |  [3.84]  |  14 de abril de 2020  |
-|  Rel 20-04   |  [4550970]  |  Segurança do Windows   |  [4.77]  |  14 de abril de 2020  |
-|  Rel 20-04   |  [4550929]  |  Atualização cumulativa mais recente (LCU)   |  [5.42]  |  14 de abril de 2020  |
-|  Rel 20-04   |  [4549949]  |  Atualização cumulativa mais recente (LCU)   |  [6.18]  |  14 de abril de 2020  |
-|  Rel 20-04   |  [4540688]  |  Rollup mensal   |  [2.97]  |  10 de março de 2020  |
-|  Rel 20-04   |  [4550735]  |  Atualização da pilha de manutenção   |  [2.97]  |  10 de março de 2020  |
-|  Rel 20-04   |  [4540726]  |  Atualização da pilha de manutenção   |  [3.84]  |  10 de março de 2020  |
-|  Rel 20-04   |  [4541510]  |  Rollup mensal   |  [3.84]  |  10 de março de 2020  |
-|  Rel 20-04   |  [4541509]  |  Rollup mensal   |  [4.77]  |  10 de março de 2020  |
-|  Rel 20-04   |  [4540725]  |  Atualização da pilha de manutenção   |  [4.77]  |  10 de março de 2020  |
-|  Rel 20-04   |  [4540723]  |  Atualização da pilha de manutenção   |  [5.42]  |  10 de março de 2020  |
-|  Rel 20-04   |  [4539571]  |  Atualização da pilha de manutenção   |  [6.18]  |  10 de março de 2020  |
+|  Rel 20-04   |  [4550965]  |  Segurança do Windows   |  [2.97]  |  14 de abril de 2020  |
+|  Rel 20-04   |  [4550905]  |  Internet Explorer   |  [2.97], [3.84], [4.77]  |  14 de abril de 2020  |
+|  Rel 20-04   |  [4550971]  |  Segurança do Windows   |  [3.84]  |  14 de abril de 2020  |
+|  Rel 20-04   |  [4550970]  |  Segurança do Windows   |  [4.77]  |  14 de abril de 2020  |
+|  Rel 20-04   |  [4550929]  |  Atualização cumulativa mais recente (LCU)   |  [5.42]  |  14 de abril de 2020  |
+|  Rel 20-04   |  [4549949]  |  Atualização cumulativa mais recente (LCU)   |  [6.18]  |  14 de abril de 2020  |
+|  Rel 20-04   |  [4540688]  |  Rollup mensal   |  [2.97]  |  10 de março de 2020  |
+|  Rel 20-04   |  [4550735]  |  Atualização da pilha de manutenção   |  [2.97]  |  10 de março de 2020  |
+|  Rel 20-04   |  [4540726]  |  Atualização da pilha de manutenção   |  [3.84]  |  10 de março de 2020  |
+|  Rel 20-04   |  [4541510]  |  Rollup mensal   |  [3.84]  |  10 de março de 2020  |
+|  Rel 20-04   |  [4541509]  |  Rollup mensal   |  [4.77]  |  10 de março de 2020  |
+|  Rel 20-04   |  [4540725]  |  Atualização da pilha de manutenção   |  [4.77]  |  10 de março de 2020  |
+|  Rel 20-04   |  [4540723]  |  Atualização da pilha de manutenção   |  [5.42]  |  10 de março de 2020  |
+|  Rel 20-04   |  [4539571]  |  Atualização da pilha de manutenção   |  [6.18]  |  10 de março de 2020  |
 
 
 [4550965]: https://support.microsoft.com/kb/4550965
@@ -446,25 +617,25 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-|  Rel 20-01  |  [4532960]  |  Segurança do Windows  | [2.94] | 14 de janeiro de 2020 |
-|  Rel 20-01  |  [4534251]  |  Internet Explorer  | [2.94] | 14 de janeiro de 2020 |
-|  Rel 20-01  |  [4534314]  |  Segurança do Windows  | [2.94] | 14 de janeiro de 2020 |
-|  Rel 20-01  |  [4532958]  |  Segurança do Windows  | [3.81] | 14 de janeiro de 2020 |
-|  Rel 20-01  |  [4532963]  |  Segurança do Windows  | [3.81] | 14 de janeiro de 2020 |
-|  Rel 20-01  |  [4534251]  |  Internet Explorer  | [3.81] | 14 de janeiro de 2020 |
-|  Rel 20-01  |  [4534288]  |  Segurança do Windows  | [3.81] | 14 de janeiro de 2020 |
-|  Rel 20-01  |  [4532961]  |  Segurança do Windows  | [4.74] | 14 de janeiro de 2020 |
-|  Rel 20-01  |  [4532962]  |  Segurança do Windows  | [4.74] | 14 de janeiro de 2020 |
-|  Rel 20-01  |  [4534251]  |  Internet Explorer  | [4.74] | 14 de janeiro de 2020 |
-|  Rel 20-01  |  [4534309]  |  Segurança do Windows  | [4.74] | 14 de janeiro de 2020 |
-|  Rel 20-01  |  [4494175]  |  Microcódigo v3  | [5.39] | 29 de agosto de 2019 |
-|  Rel 20-01  |  [4534271]  |  LCU  | [5.39] | 14 de janeiro de 2020 |
-|  Rel 20-01  |  [4494174]  |  Microcódigo v4  | [6.15] | 29 de agosto de 2019 |
-|  Rel 20-01  |  [4532947]  |  Segurança do Windows  | [6.15] | 14 de janeiro de 2020 |
-|  Rel 20-01  |  [4534273]  |  LCU  | [6.15] | 14 de janeiro de 2020 |
-|  Rel 20-01  |  [4530734]  |  Rollup mensal  | [2.94] | 10 de dezembro de 2019 |
-|  Rel 20-01  |  [4530691]  |  Rollup mensal   | [3.81] | 10 de dezembro de 2019 |
-|  Rel 20-01  |  [4530702]  |  Rollup mensal  | [4.74] | 10 de dezembro de 2019 |
+|  Rel 20-01  |  [4532960]  |  Segurança do Windows  | [2.94] | 14 de janeiro de 2020 |
+|  Rel 20-01  |  [4534251]  |  Internet Explorer  | [2.94] | 14 de janeiro de 2020 |
+|  Rel 20-01  |  [4534314]  |  Segurança do Windows  | [2.94] | 14 de janeiro de 2020 |
+|  Rel 20-01  |  [4532958]  |  Segurança do Windows  | [3.81] | 14 de janeiro de 2020 |
+|  Rel 20-01  |  [4532963]  |  Segurança do Windows  | [3.81] | 14 de janeiro de 2020 |
+|  Rel 20-01  |  [4534251]  |  Internet Explorer  | [3.81] | 14 de janeiro de 2020 |
+|  Rel 20-01  |  [4534288]  |  Segurança do Windows  | [3.81] | 14 de janeiro de 2020 |
+|  Rel 20-01  |  [4532961]  |  Segurança do Windows  | [4.74] | 14 de janeiro de 2020 |
+|  Rel 20-01  |  [4532962]  |  Segurança do Windows  | [4.74] | 14 de janeiro de 2020 |
+|  Rel 20-01  |  [4534251]  |  Internet Explorer  | [4.74] | 14 de janeiro de 2020 |
+|  Rel 20-01  |  [4534309]  |  Segurança do Windows  | [4.74] | 14 de janeiro de 2020 |
+|  Rel 20-01  |  [4494175]  |  Microcódigo v3  | [5.39] | 29 de agosto de 2019 |
+|  Rel 20-01  |  [4534271]  |  LCU  | [5.39] | 14 de janeiro de 2020 |
+|  Rel 20-01  |  [4494174]  |  Microcódigo v4  | [6.15] | 29 de agosto de 2019 |
+|  Rel 20-01  |  [4532947]  |  Segurança do Windows  | [6.15] | 14 de janeiro de 2020 |
+|  Rel 20-01  |  [4534273]  |  LCU  | [6.15] | 14 de janeiro de 2020 |
+|  Rel 20-01  |  [4530734]  |  Rollup mensal  | [2.94] | 10 de dezembro de 2019 |
+|  Rel 20-01  |  [4530691]  |  Rollup mensal   | [3.81] | 10 de dezembro de 2019 |
+|  Rel 20-01  |  [4530702]  |  Rollup mensal  | [4.74] | 10 de dezembro de 2019 |
 
 [4532960]: https://support.microsoft.com/kb/4532960
 [4534251]: https://support.microsoft.com/kb/4534251
@@ -496,22 +667,22 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-|  Rel 19-12  |  [4530692]  |  Segurança do Windows  | [2.93] | 10 de dezembro de 2019 |
-|  Rel 19-12  |  [4530677]  |  Internet Explorer  | [2.93] | 10 de dezembro de 2019 |
-|  Rel 19-12  |  [4530677]  |  Internet Explorer  | [3.80] | 10 de dezembro de 2019 |
-|  Rel 19-12  |  [4530698]  |  Segurança do Windows  | [3.80] | 10 de dezembro de 2019 |
-|  Rel 19-12  |  [4530730]  |  Segurança do Windows  | [4.73] | 10 de dezembro de 2019 |
-|  Rel 19-12  |  [4530677]  |  Internet Explorer  | [4.73] | 10 de dezembro de 2019 |
-|  Rel 19-12  |  [4530689]  |  Atualização cumulativa mais recente  | [5.38] | 10 de dezembro de 2019 |
-|  Rel 19-12  |  [4530715]  |  Atualização cumulativa mais recente  | [6.14] | 10 de dezembro de 2019 |
-|  Rel 19-12  |  [4525235]  |  Não segurança  | [2.93] | 12 de novembro de 2019 |
-|  Rel 19-12  |  [4531786]  |  Atualização da Pilha de Manutenção  | [2.93] | 10 de dezembro de 2019 |
-|  Rel 19-12  |  [4525246]  |  Não segurança  | [3.80] | 12 de novembro de 2019 |
-|  Rel 19-12  |  [4523208]  |  Atualização da Pilha de Manutenção  | [3.80] | 12 de novembro de 2019 |
-|  Rel 19-12  |  [4525243]  |  Não segurança  | [4.73] | 12 de novembro de 2019 |
-|  Rel 19-12  |  [4524445]  |  Atualização da Pilha de Manutenção  | [4.73] | 12 de novembro de 2019 |
-|  Rel 19-12  |  [4520724]  |  Atualização da Pilha de Manutenção  | [5.38] | 12 de novembro de 2019 |
-|  Rel 19-12  |  [4523204]  |  ServicingStackUpdate  | [6.14] | 12 de novembro de 2019 |
+|  Rel 19-12  |  [4530692]  |  Segurança do Windows  | [2.93] | 10 de dezembro de 2019 |
+|  Rel 19-12  |  [4530677]  |  Internet Explorer  | [2.93] | 10 de dezembro de 2019 |
+|  Rel 19-12  |  [4530677]  |  Internet Explorer  | [3.80] | 10 de dezembro de 2019 |
+|  Rel 19-12  |  [4530698]  |  Segurança do Windows  | [3.80] | 10 de dezembro de 2019 |
+|  Rel 19-12  |  [4530730]  |  Segurança do Windows  | [4.73] | 10 de dezembro de 2019 |
+|  Rel 19-12  |  [4530677]  |  Internet Explorer  | [4.73] | 10 de dezembro de 2019 |
+|  Rel 19-12  |  [4530689]  |  Atualização cumulativa mais recente  | [5.38] | 10 de dezembro de 2019 |
+|  Rel 19-12  |  [4530715]  |  Atualização cumulativa mais recente  | [6.14] | 10 de dezembro de 2019 |
+|  Rel 19-12  |  [4525235]  |  Não segurança  | [2.93] | 12 de novembro de 2019 |
+|  Rel 19-12  |  [4531786]  |  Atualização da Pilha de Manutenção  | [2.93] | 10 de dezembro de 2019 |
+|  Rel 19-12  |  [4525246]  |  Não segurança  | [3.80] | 12 de novembro de 2019 |
+|  Rel 19-12  |  [4523208]  |  Atualização da Pilha de Manutenção  | [3.80] | 12 de novembro de 2019 |
+|  Rel 19-12  |  [4525243]  |  Não segurança  | [4.73] | 12 de novembro de 2019 |
+|  Rel 19-12  |  [4524445]  |  Atualização da Pilha de Manutenção  | [4.73] | 12 de novembro de 2019 |
+|  Rel 19-12  |  [4520724]  |  Atualização da Pilha de Manutenção  | [5.38] | 12 de novembro de 2019 |
+|  Rel 19-12  |  [4523204]  |  ServicingStackUpdate  | [6.14] | 12 de novembro de 2019 |
 
 [4530692]: https://support.microsoft.com/kb/4530692
 [4530677]: https://support.microsoft.com/kb/4530677
@@ -541,21 +712,21 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  [2.92]  |  12 de novembro de 2019  |
-|  Rel 19-11   |  [4525233]  |  Segurança do Windows   |  [2.92]  |  12 de novembro de 2019  |
-|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  [3.79]  |  12 de novembro de 2019  |
-|  Rel 19-11   |  [4525253]  |  Segurança do Windows   |  [3.79]  |  12 de novembro de 2019  |
-|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  [4.72]  |  12 de novembro de 2019  |
-|  Rel 19-11   |  [4525250]  |  Segurança do Windows   |  [4.72]  |  12 de novembro de 2019  |
-|  Rel 19-11   |  [4525236]  |  Atualização cumulativa mais recente   |  [5.37]  |  12 de novembro de 2019  |
-|  Rel 19-11   |  [4523205]  |  Atualização cumulativa mais recente   |  [6.13]  |  12 de novembro de 2019  |
-|  Rel 19-11   |  [4519976]  |  Não segurança   |  [2.92]  |  8 de outubro de 2019  |
-|  Rel 19-11   |  [4520007]  |  Não segurança   |  [3.79]  |  8 de outubro de 2019  |
-|  Rel 19-11   |  [4521857]  |  ServicingStackUpdate   |  [3.79]  |  8 de outubro de 2019  |
-|  Rel 19-11   |  [4520005]  |  Não segurança   |  [4.72]  |  8 de outubro de 2019  |
-|  Rel 19-11   |  [4521864]  |  ServicingStackUpdate   |  [4.72]  |  8 de outubro de 2019  |
-|  Rel 19-11   |  [4521858]  |  ServicingStackUpdate   |  [5.37]  |  8 de outubro de 2019  |
-|  Rel 19-11   |  [4521862]  |  ServicingStackUpdate   |  [6.13]  |  8 de outubro de 2019  |
+|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  [2.92]  |  12 de novembro de 2019  |
+|  Rel 19-11   |  [4525233]  |  Segurança do Windows   |  [2.92]  |  12 de novembro de 2019  |
+|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  [3.79]  |  12 de novembro de 2019  |
+|  Rel 19-11   |  [4525253]  |  Segurança do Windows   |  [3.79]  |  12 de novembro de 2019  |
+|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  [4.72]  |  12 de novembro de 2019  |
+|  Rel 19-11   |  [4525250]  |  Segurança do Windows   |  [4.72]  |  12 de novembro de 2019  |
+|  Rel 19-11   |  [4525236]  |  Atualização cumulativa mais recente   |  [5.37]  |  12 de novembro de 2019  |
+|  Rel 19-11   |  [4523205]  |  Atualização cumulativa mais recente   |  [6.13]  |  12 de novembro de 2019  |
+|  Rel 19-11   |  [4519976]  |  Não segurança   |  [2.92]  |  8 de outubro de 2019  |
+|  Rel 19-11   |  [4520007]  |  Não segurança   |  [3.79]  |  8 de outubro de 2019  |
+|  Rel 19-11   |  [4521857]  |  ServicingStackUpdate   |  [3.79]  |  8 de outubro de 2019  |
+|  Rel 19-11   |  [4520005]  |  Não segurança   |  [4.72]  |  8 de outubro de 2019  |
+|  Rel 19-11   |  [4521864]  |  ServicingStackUpdate   |  [4.72]  |  8 de outubro de 2019  |
+|  Rel 19-11   |  [4521858]  |  ServicingStackUpdate   |  [5.37]  |  8 de outubro de 2019  |
+|  Rel 19-11   |  [4521862]  |  ServicingStackUpdate   |  [6.13]  |  8 de outubro de 2019  |
 
 [4525106]: https://support.microsoft.com/kb/4525106
 [4525233]: https://support.microsoft.com/kb/4525233
@@ -583,24 +754,24 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-|  Rel 19-10   |  [4520003]  |  Segurança do Windows   |  [2.91]  |  8 de outubro de 2019  |
-|  Rel 19-10   |  [4519985]  |  Segurança do Windows   |  [3.78]  |  8 de outubro de 2019  |
-|  Rel 19-10   |  [4519990]  |  Segurança do Windows   |  [4.71]  |  8 de outubro de 2019  |
-|  Rel 19-10   |  [4519998]  |  Atualização cumulativa mais recente   |  [5.36]  |  8 de outubro de 2019  |
-|  Rel 19-10   |  [4519338]  |  Atualização cumulativa mais recente   |  [6.12]  |  8 de outubro de 2019  |
-|  Rel 19-10   |  [4519974]  |  Internet Explorer   |  [2.91], [3.78], [4.71]  |  8 de outubro de 2019  |
-|  Rel 19-10   |  [4516065]  |  Não segurança   |  [2.91]  |  10 de setembro de 2019  |
-|  Rel 19-10   |  [4516655]  |  SSU   |  [2.91]  |  10 de setembro de 2019  |
-|  Rel 19-10   |  [4516055]  |  Não segurança   |  [3.78]  |  10 de setembro de 2019  |
-|  Rel 19-10   |  [4512939]  |  SSU   |  [3.78]  |  10 de setembro de 2019  |
-|  Rel 19-10   |  [4514370]  |  .Net Framework 3.5   |  [3.78]  |  10 de setembro de 2019  |
-|  Rel 19-10   |  [4514368]  |  .Net Framework 4.5.2   |  [3.78]  |  10 de setembro de 2019  |
-|  Rel 19-10   |  [4516067]  |  Não segurança   |  [4.71]  |  10 de setembro de 2019  |
-|  Rel 19-10   |  [4512938]  |  SSU   |  [4.71]  |  10 de setembro de 2019  |
-|  Rel 19-10   |  [4514371]  |  .Net Framework 3.5   |  [4.71]  |  10 de setembro de 2019  |
-|  Rel 19-10   |  [4514367]  |  .Net Framework 4.5.2   |  [4.71]  |  10 de setembro de 2019  |
-|  Rel 19-10   |  [4512574]  |  SSU   |  [5.36]  |  10 de setembro de 2019  |
-|  Rel 19-10   |  [4512577]  |  SSU   |  [6.12]  |  10 de setembro de 2019  |
+|  Rel 19-10   |  [4520003]  |  Segurança do Windows   |  [2.91]  |  8 de outubro de 2019  |
+|  Rel 19-10   |  [4519985]  |  Segurança do Windows   |  [3.78]  |  8 de outubro de 2019  |
+|  Rel 19-10   |  [4519990]  |  Segurança do Windows   |  [4.71]  |  8 de outubro de 2019  |
+|  Rel 19-10   |  [4519998]  |  Atualização cumulativa mais recente   |  [5.36]  |  8 de outubro de 2019  |
+|  Rel 19-10   |  [4519338]  |  Atualização cumulativa mais recente   |  [6.12]  |  8 de outubro de 2019  |
+|  Rel 19-10   |  [4519974]  |  Internet Explorer   |  [2.91], [3.78], [4.71]  |  8 de outubro de 2019  |
+|  Rel 19-10   |  [4516065]  |  Não segurança   |  [2.91]  |  10 de setembro de 2019  |
+|  Rel 19-10   |  [4516655]  |  SSU   |  [2.91]  |  10 de setembro de 2019  |
+|  Rel 19-10   |  [4516055]  |  Não segurança   |  [3.78]  |  10 de setembro de 2019  |
+|  Rel 19-10   |  [4512939]  |  SSU   |  [3.78]  |  10 de setembro de 2019  |
+|  Rel 19-10   |  [4514370]  |  .Net Framework 3.5   |  [3.78]  |  10 de setembro de 2019  |
+|  Rel 19-10   |  [4514368]  |  .Net Framework 4.5.2   |  [3.78]  |  10 de setembro de 2019  |
+|  Rel 19-10   |  [4516067]  |  Não segurança   |  [4.71]  |  10 de setembro de 2019  |
+|  Rel 19-10   |  [4512938]  |  SSU   |  [4.71]  |  10 de setembro de 2019  |
+|  Rel 19-10   |  [4514371]  |  .Net Framework 3.5   |  [4.71]  |  10 de setembro de 2019  |
+|  Rel 19-10   |  [4514367]  |  .Net Framework 4.5.2   |  [4.71]  |  10 de setembro de 2019  |
+|  Rel 19-10   |  [4512574]  |  SSU   |  [5.36]  |  10 de setembro de 2019  |
+|  Rel 19-10   |  [4512577]  |  SSU   |  [6.12]  |  10 de setembro de 2019  |
 
 [4520003]: https://support.microsoft.com/kb/4520003
 [4519985]: https://support.microsoft.com/kb/4519985
@@ -632,21 +803,21 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-|  Rel 19-09   |  [4516046]  |  Internet Explorer   |  [2.90], [3.77], [4.70]  |  10 de setembro de 2019  |
-|  Rel 19-09   |  [4516115]  |  Piscando   |  [2.90], [3.77], [4.70], [5.35], [6.11]  |  10 de setembro de 2019  |
-|  Rel 19-09   |  [4512578]  |  Atualização cumulativa mais recente   |  [6.11]  |  10 de setembro de 2019  |
-|  Rel 19-09   |  [4514366]  |  .NET Framework 3.5 e 4.7.2   |  [6.11]  |  10 de setembro de 2019  |
-|  Rel 19-09   |  [4516044]  |  Atualização cumulativa mais recente   |  [5.35]  |  10 de setembro de 2019  |
-|  Rel 19-09   |  [4516064]  |  Segurança do Windows   |  [4.70]  |  10 de setembro de 2019  |
-|  Rel 19-09   |  [4514350]  |  .NET Framework 3.5   |  [4.70]  |  10 de setembro de 2019  |
-|  Rel 19-09   |  [4514341]  |  .NET Framework 4.5.2   |  [4.70]  |  10 de setembro de 2019  |
-|  Rel 19-09   |  [4516062]  |  Segurança do Windows   |  [3.77]  |  10 de setembro de 2019  |
-|  Rel 19-09   |  [4514349]  |  .NET Framework 3.5   |  [3.77]  |  10 de setembro de 2019  |
-|  Rel 19-09   |  [4514342]  |  .NET Framework 4.5.2   |  [3.77]  |  10 de setembro de 2019  |
-|  Rel 19-09   |  [4516033]  |  Segurança do Windows   |  [2.90]  |  12 de setembro de 2019  |
-|  Rel 19-09   |  [4512488]  |  Não segurança   |  [4.70]  |  13 de agosto de 2019  |
-|  Rel 19-09   |  [4512518]  |  Não segurança   |  [3.77]  |  13 de agosto de 2019  |
-|  Rel 19-09   |  [4512506]  |  Não segurança   |  [2.90]  |  13 de agosto de 2019  |
+|  Rel 19-09   |  [4516046]  |  Internet Explorer   |  [2.90], [3.77], [4.70]  |  10 de setembro de 2019  |
+|  Rel 19-09   |  [4516115]  |  Piscando   |  [2.90], [3.77], [4.70], [5.35], [6.11]  |  10 de setembro de 2019  |
+|  Rel 19-09   |  [4512578]  |  Atualização cumulativa mais recente   |  [6.11]  |  10 de setembro de 2019  |
+|  Rel 19-09   |  [4514366]  |  .NET Framework 3.5 e 4.7.2   |  [6.11]  |  10 de setembro de 2019  |
+|  Rel 19-09   |  [4516044]  |  Atualização cumulativa mais recente   |  [5.35]  |  10 de setembro de 2019  |
+|  Rel 19-09   |  [4516064]  |  Segurança do Windows   |  [4.70]  |  10 de setembro de 2019  |
+|  Rel 19-09   |  [4514350]  |  .NET Framework 3.5   |  [4.70]  |  10 de setembro de 2019  |
+|  Rel 19-09   |  [4514341]  |  .NET Framework 4.5.2   |  [4.70]  |  10 de setembro de 2019  |
+|  Rel 19-09   |  [4516062]  |  Segurança do Windows   |  [3.77]  |  10 de setembro de 2019  |
+|  Rel 19-09   |  [4514349]  |  .NET Framework 3.5   |  [3.77]  |  10 de setembro de 2019  |
+|  Rel 19-09   |  [4514342]  |  .NET Framework 4.5.2   |  [3.77]  |  10 de setembro de 2019  |
+|  Rel 19-09   |  [4516033]  |  Segurança do Windows   |  [2.90]  |  12 de setembro de 2019  |
+|  Rel 19-09   |  [4512488]  |  Não segurança   |  [4.70]  |  13 de agosto de 2019  |
+|  Rel 19-09   |  [4512518]  |  Não segurança   |  [3.77]  |  13 de agosto de 2019  |
+|  Rel 19-09   |  [4512506]  |  Não segurança   |  [2.90]  |  13 de agosto de 2019  |
 
 [4516046]: https://support.microsoft.com/kb/4516046
 [4516115]: https://support.microsoft.com/kb/4516115
@@ -674,28 +845,28 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-|  Rel 19-08   |  [4512482]  |  Segurança do Windows   |  [3.76]  |  13 de agosto de 2019  |
-|  Rel 19-08   |  [4494175]  |  Atualização de microcódigo   |  [5.34]  |  18 de junho de 2019  |
-|  Rel 19-08   |  [4512517]  |  Atualização cumulativa mais recente   |  [5.34]  |  13 de agosto de 2019  |
-|  Rel 19-08   |  [4494174]  |  Atualização de microcódigo   |  [6.1]  |  18 de junho de 2019  |
-|  Rel 19-08   |  [4511553]  |  Atualização cumulativa mais recente   |  [6.1]  |  13 de agosto de 2019  |
-|  Rel 19-08   |  [4512486]  |  Segurança do Windows   |  [2.89]  |  13 de agosto de 2019  |
-|  Rel 19-08   |  [4512489]  |  Segurança do Windows   |  [4.69]  |  13 de agosto de 2019  |
-|  Rel 19-08   |  [4511872]  |  Internet Explorer    |  [2.89], [3.76], [4.69]  |  15 de agosto de 2019  |
-|  Rel 19-08   |  [4507449]  |  Não segurança   |  [2.89]  |  9 de julho de 2019  |
-|  Rel 19-08   |  [4507000]  |  .NET 4.5.2 (não segurança)   |  [3.76]  |  12 de agosto de 2019  |
-|  Rel 19-08   |  [4507002]  |  .NET 3.5 (não segurança)   |  [3.76]  |  12 de agosto de 2019  |
-|  Rel 19-08   |  [4507462]  |  Não segurança   |  [3.76]  |  9 de julho de 2019  |
-|  Rel 19-08   |  [4506999]  |  .NET 4.5.2 (não segurança)    |  [4.69]  |  12 de agosto de 2019  |
-|  Rel 19-08   |  [4507005]  |  .NET 3.5 (não segurança)    |  [4.69]  |  12 de agosto de 2019  |
-|  Rel 19-08   |  [4507448]  |  Não segurança   |  [4.69]  |  9 de julho de 2019  |
-|  Rel 19-08   |  [4509091]  |  Atualização da Pilha de Manutenção   |  [5.34]  |  9 de julho de 2019  |
-|  Rel 19-08   |  [4509095]  |  Atualização da Pilha de Manutenção   |  [6.1]  |  9 de julho de 2019  |
-|  Rel 19-08   |  [4512937]  |  Atualização da Pilha de Manutenção   |  [6.1]  |  29 de julho de 2019  |
-|  Rel 19-08   |  [4507004]  |  .NET 3.5.1 (não segurança)    |  [2.89]  |  12 de agosto de 2019  |
-|  Rel 19-08   |  [4504418]  |  Atualização da Pilha de Manutenção   |  [3.76], [4.69]  |  11 de julho de 2019  |
-|  Rel 19-08   |  [4507001]  |  .NET 4.5.2 (não segurança)   |  [2.89]  |  12 de agosto de 2019  |
-|  Rel 19-08   |  [4507704]  |  Configuração de horário de verão no Windows para o Brasil e o Marrocos   |  [2.89], [3.76], [4.69], [5.34]  |  13 de agosto de 2019  |
+|  Rel 19-08   |  [4512482]  |  Segurança do Windows   |  [3.76]  |  13 de agosto de 2019  |
+|  Rel 19-08   |  [4494175]  |  Atualização de microcódigo   |  [5.34]  |  18 de junho de 2019  |
+|  Rel 19-08   |  [4512517]  |  Atualização cumulativa mais recente   |  [5.34]  |  13 de agosto de 2019  |
+|  Rel 19-08   |  [4494174]  |  Atualização de microcódigo   |  [6.1]  |  18 de junho de 2019  |
+|  Rel 19-08   |  [4511553]  |  Atualização cumulativa mais recente   |  [6.1]  |  13 de agosto de 2019  |
+|  Rel 19-08   |  [4512486]  |  Segurança do Windows   |  [2.89]  |  13 de agosto de 2019  |
+|  Rel 19-08   |  [4512489]  |  Segurança do Windows   |  [4.69]  |  13 de agosto de 2019  |
+|  Rel 19-08   |  [4511872]  |  Internet Explorer    |  [2.89], [3.76], [4.69]  |  15 de agosto de 2019  |
+|  Rel 19-08   |  [4507449]  |  Não segurança   |  [2.89]  |  9 de julho de 2019  |
+|  Rel 19-08   |  [4507000]  |  .NET 4.5.2 (não segurança)   |  [3.76]  |  12 de agosto de 2019  |
+|  Rel 19-08   |  [4507002]  |  .NET 3.5 (não segurança)   |  [3.76]  |  12 de agosto de 2019  |
+|  Rel 19-08   |  [4507462]  |  Não segurança   |  [3.76]  |  9 de julho de 2019  |
+|  Rel 19-08   |  [4506999]  |  .NET 4.5.2 (não segurança)    |  [4.69]  |  12 de agosto de 2019  |
+|  Rel 19-08   |  [4507005]  |  .NET 3.5 (não segurança)    |  [4.69]  |  12 de agosto de 2019  |
+|  Rel 19-08   |  [4507448]  |  Não segurança   |  [4.69]  |  9 de julho de 2019  |
+|  Rel 19-08   |  [4509091]  |  Atualização da Pilha de Manutenção   |  [5.34]  |  9 de julho de 2019  |
+|  Rel 19-08   |  [4509095]  |  Atualização da Pilha de Manutenção   |  [6.1]  |  9 de julho de 2019  |
+|  Rel 19-08   |  [4512937]  |  Atualização da Pilha de Manutenção   |  [6.1]  |  29 de julho de 2019  |
+|  Rel 19-08   |  [4507004]  |  .NET 3.5.1 (não segurança)    |  [2.89]  |  12 de agosto de 2019  |
+|  Rel 19-08   |  [4504418]  |  Atualização da Pilha de Manutenção   |  [3.76], [4.69]  |  11 de julho de 2019  |
+|  Rel 19-08   |  [4507001]  |  .NET 4.5.2 (não segurança)   |  [2.89]  |  12 de agosto de 2019  |
+|  Rel 19-08   |  [4507704]  |  Configuração de horário de verão no Windows para o Brasil e o Marrocos   |  [2.89], [3.76], [4.69], [5.34]  |  13 de agosto de 2019  |
 
 [4512482]: https://support.microsoft.com/kb/4512482
 [4494175]: https://support.microsoft.com/kb/4494175
@@ -731,19 +902,19 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-|  Rel 19-07   |  [4507434]  |  Internet Explorer   |  2.88, 3.75, 4.68  |  9 de julho de 2019  |
-|  Rel 19-07   |  [4506966]  |  .NET 4.5.2 (segurança)   |  2.88  |  9 de julho de 2019  |
-|  Rel 19-07   |  [4506976]  |  .NET 3.5.1 (segurança)   |  2.88  |  9 de julho de 2019  |
-|  Rel 19-07   |  [4507456]  |  Segurança do Windows   |  2.88  |  9 de julho de 2019  |
-|  Rel 19-07   |  [4506965]  |  .NET 4.5.2 (segurança)   |  3,75  |  9 de julho de 2019  |
-|  Rel 19-07   |  [4506974]  |  .NET 3.5 (segurança)   |  3,75  |  9 de julho de 2019  |
-|  Rel 19-07   |  [4507464]  |  Segurança do Windows   |  3,75  |  9 de julho de 2019  |
-|  Rel 19-07   |  [4506964]  |  .NET 4.5.2 (segurança)   |  4.68  |  9 de julho de 2019  |
-|  Rel 19-07   |  [4506977]  |  .NET 3.5 (segurança)   |  4.68  |  9 de julho de 2019  |
-|  Rel 19-07   |  [4507457]  |  Segurança do Windows   |  4.68  |  9 de julho de 2019  |
-|  Rel 19-07   |  [4507460]  |  Segurança do Windows   |  5.33  |  9 de julho de 2019  |
-|  Rel 19-07   |  [4506998]  |  .NET 3.5 e 4.7.2 (segurança)   |  6.9  |  9 de julho de 2019  |
-|  Rel 19-07   |  [4507469]  |  Segurança do Windows   |  6.9  |  9 de julho de 2019  |
+|  Rel 19-07   |  [4507434]  |  Internet Explorer   |  2.88, 3.75, 4.68  |  9 de julho de 2019  |
+|  Rel 19-07   |  [4506966]  |  .NET 4.5.2 (segurança)   |  2.88  |  9 de julho de 2019  |
+|  Rel 19-07   |  [4506976]  |  .NET 3.5.1 (segurança)   |  2.88  |  9 de julho de 2019  |
+|  Rel 19-07   |  [4507456]  |  Segurança do Windows   |  2.88  |  9 de julho de 2019  |
+|  Rel 19-07   |  [4506965]  |  .NET 4.5.2 (segurança)   |  3,75  |  9 de julho de 2019  |
+|  Rel 19-07   |  [4506974]  |  .NET 3.5 (segurança)   |  3,75  |  9 de julho de 2019  |
+|  Rel 19-07   |  [4507464]  |  Segurança do Windows   |  3,75  |  9 de julho de 2019  |
+|  Rel 19-07   |  [4506964]  |  .NET 4.5.2 (segurança)   |  4.68  |  9 de julho de 2019  |
+|  Rel 19-07   |  [4506977]  |  .NET 3.5 (segurança)   |  4.68  |  9 de julho de 2019  |
+|  Rel 19-07   |  [4507457]  |  Segurança do Windows   |  4.68  |  9 de julho de 2019  |
+|  Rel 19-07   |  [4507460]  |  Segurança do Windows   |  5.33  |  9 de julho de 2019  |
+|  Rel 19-07   |  [4506998]  |  .NET 3.5 e 4.7.2 (segurança)   |  6.9  |  9 de julho de 2019  |
+|  Rel 19-07   |  [4507469]  |  Segurança do Windows   |  6.9  |  9 de julho de 2019  |
 |  N/D  |  [4503537]  |  Atualização da pilha de manutenção de junho de 2019 para (Server 2016)   |  5.33  |  14 de maio de 2019  |
 |  N/D  |  [4504369]  |  Atualização da pilha de manutenção de junho de 2019 para (Server 2019)   |  6.9  |  14 de maio de 2019  |
 |  N/D  |  [4503292]  |  Não segurança de junho de 2019 (Server 2008 R2)   |  2.88  |  20 de maio de 2019  |
@@ -775,15 +946,15 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-|  Rel 19-06   |  [4503327]  |  Segurança do Windows 10   |  6,8  |  11 de junho de 2019  |
-|  Rel 19-06   |  [4503267]  |  Segurança do Windows 10   |  5.32  |  11 de junho de 2019  |
-|  Rel 19-06   |  [4503290]  |  Segurança do Windows   |  4.67  |  11 de junho de 2019  |
-|  Rel 19-06   |  [4503263]  |  Segurança do Windows   |  3.74  |  11 de junho de 2019  |
-|  Rel 19-06   |  [4503269]  |  Segurança do Windows   |  2.87  |  11 de junho de 2019  |
-|  Rel 19-06   |  [4494174]  |  Atualização de microcódigo   |  6,8  |  11 de junho de 2019  |
-|  Rel 19-06   |  [4494175]  |  Atualização de microcódigo   |  5.32  |  3 de junho de 2019  |
-|  Rel 19-06   |  [4503308]  |  Piscando   |  3.74, 4.67, 5.32, 6.8  |  11 de junho de 2019  |
-|  Rel 19-06   |  [4503259]  |  Internet Explorer   |  2.87, 3.74, 4.67  |  13 de junho de 2019  |
+|  Rel 19-06   |  [4503327]  |  Segurança do Windows 10   |  6,8  |  11 de junho de 2019  |
+|  Rel 19-06   |  [4503267]  |  Segurança do Windows 10   |  5.32  |  11 de junho de 2019  |
+|  Rel 19-06   |  [4503290]  |  Segurança do Windows   |  4.67  |  11 de junho de 2019  |
+|  Rel 19-06   |  [4503263]  |  Segurança do Windows   |  3.74  |  11 de junho de 2019  |
+|  Rel 19-06   |  [4503269]  |  Segurança do Windows   |  2.87  |  11 de junho de 2019  |
+|  Rel 19-06   |  [4494174]  |  Atualização de microcódigo   |  6,8  |  11 de junho de 2019  |
+|  Rel 19-06   |  [4494175]  |  Atualização de microcódigo   |  5.32  |  3 de junho de 2019  |
+|  Rel 19-06   |  [4503308]  |  Piscando   |  3.74, 4.67, 5.32, 6.8  |  11 de junho de 2019  |
+|  Rel 19-06   |  [4503259]  |  Internet Explorer   |  2.87, 3.74, 4.67  |  13 de junho de 2019  |
 |  N/D  |  [4499164]  |  Maio de 2019 (não segurança)  |  2.87  |  14 de maio de 2019  |
 |  N/D  |  [4495606]  |  .NET 3.5 de maio de 2019 (não segurança)  |  2.87  |  14 de maio de 2019  |
 |  N/D  |  [4495596]  |  .NET 4.5 de maio de 2019 (não segurança)  |  2.87  |  20 de maio de 2019  |
@@ -821,26 +992,26 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-|  Rel 19-05   |  [4498206]  |  Rollup do IE de maio   |  2.86, 3.73, 4.66  |  14 de maio de 2019  |
-|  Rel 19-05   |  [4505050]  |  Rollup do IE de maio   |  2.86, 3.73, 4.66  |  18 de maio de 2019  |
-|  Rel 19-05   |  [4497932]  |  Atualização do Flash de maio   |  3.73, 4.66, 5.31  |  14 de maio de 2019  |
-|  Rel 19-05   |  [4499175]  |  Rollup de segurança de maio   |  2.86  |  14 de maio de 2019  |
-|  Rel 19-05   |  [4495612]  |  Rollup de segurança de maio .NET 3.5   |  2.86  |  14 de maio de 2019  |
-|  Rel 19-05   |  [4495593]  |  Rollup de segurança de maio .NET 4.5.2   |  2.86  |  14 de maio de 2019  |
-|  Rel 19-05   |  [4499158]  |  Rollup de segurança de maio   |  3.73  |  14 de maio de 2019  |
-|  Rel 19-05   |  [4495607]  |  Rollup de segurança de maio .NET 3.5   |  3.73  |  14 de maio de 2019  |
-|  Rel 19-05   |  [4495591]  |  Rollup de segurança de maio .NET 4.5.2   |  3.73  |  14 de maio de 2019  |
-|  Rel 19-05   |  [4492872]  |  Rollup do IE   |  3.73  |  16 de abril de 2019  |
-|  Rel 19-05   |  [4499165]  |  Rollup de segurança de março   |  4.66  |  14 de maio de 2019  |
-|  Rel 19-05   |  [4495615]  |  Rollup de segurança de maio .NET 3.5   |  4.66  |  14 de maio de 2019  |
-|  Rel 19-05   |  [4495589]  |  Rollup de segurança de maio .NET 4.5.2   |  4.66  |  14 de maio de 2019  |
-|  Rel 19-05   |  [4498947]  |  SSU de maio   |  5.31  |  14 de maio de 2019  |
-|  Rel 19-05   |  [4494175]  |  Atualização de microcódigo de maio   |  5.31  |  14 de maio de 2019  |
-|  Rel 19-05   |  [4505052]  |  Rollup de segurança de maio   |  5.31  |  19 de maio de 2019  |
-|  Rel 19-05   |  [4499728]  |  SSU de maio   |  6.7  |  19 de maio de 2019  |
-|  Rel 19-05   |  [4505056]  |  Rollup de segurança de maio   |  6.7  |  19 de maio de 2019  |
-|  Rel 19-05   |  [4494174]  |  Atualização de microcódigo de maio   |  6.7  |  14 de maio de 2019  |
-|  Rel 19-05   |  [4495590]  |  Rollup de segurança de maio .NET   |  6.7  |  14 de maio de 2019  |
+|  Rel 19-05   |  [4498206]  |  Rollup do IE de maio   |  2.86, 3.73, 4.66  |  14 de maio de 2019  |
+|  Rel 19-05   |  [4505050]  |  Rollup do IE de maio   |  2.86, 3.73, 4.66  |  18 de maio de 2019  |
+|  Rel 19-05   |  [4497932]  |  Atualização do Flash de maio   |  3.73, 4.66, 5.31  |  14 de maio de 2019  |
+|  Rel 19-05   |  [4499175]  |  Rollup de segurança de maio   |  2.86  |  14 de maio de 2019  |
+|  Rel 19-05   |  [4495612]  |  Rollup de segurança de maio .NET 3.5   |  2.86  |  14 de maio de 2019  |
+|  Rel 19-05   |  [4495593]  |  Rollup de segurança de maio .NET 4.5.2   |  2.86  |  14 de maio de 2019  |
+|  Rel 19-05   |  [4499158]  |  Rollup de segurança de maio   |  3.73  |  14 de maio de 2019  |
+|  Rel 19-05   |  [4495607]  |  Rollup de segurança de maio .NET 3.5   |  3.73  |  14 de maio de 2019  |
+|  Rel 19-05   |  [4495591]  |  Rollup de segurança de maio .NET 4.5.2   |  3.73  |  14 de maio de 2019  |
+|  Rel 19-05   |  [4492872]  |  Rollup do IE   |  3.73  |  16 de abril de 2019  |
+|  Rel 19-05   |  [4499165]  |  Rollup de segurança de março   |  4.66  |  14 de maio de 2019  |
+|  Rel 19-05   |  [4495615]  |  Rollup de segurança de maio .NET 3.5   |  4.66  |  14 de maio de 2019  |
+|  Rel 19-05   |  [4495589]  |  Rollup de segurança de maio .NET 4.5.2   |  4.66  |  14 de maio de 2019  |
+|  Rel 19-05   |  [4498947]  |  SSU de maio   |  5.31  |  14 de maio de 2019  |
+|  Rel 19-05   |  [4494175]  |  Atualização de microcódigo de maio   |  5.31  |  14 de maio de 2019  |
+|  Rel 19-05   |  [4505052]  |  Rollup de segurança de maio   |  5.31  |  19 de maio de 2019  |
+|  Rel 19-05   |  [4499728]  |  SSU de maio   |  6.7  |  19 de maio de 2019  |
+|  Rel 19-05   |  [4505056]  |  Rollup de segurança de maio   |  6.7  |  19 de maio de 2019  |
+|  Rel 19-05   |  [4494174]  |  Atualização de microcódigo de maio   |  6.7  |  14 de maio de 2019  |
+|  Rel 19-05   |  [4495590]  |  Rollup de segurança de maio .NET   |  6.7  |  14 de maio de 2019  |
 
 [4498206]: https://support.microsoft.com/kb/4498206
 [4505050]: https://support.microsoft.com/kb/4505050
@@ -1058,8 +1229,8 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | Rel 18-12 | [4470199] | Internet Explorer  | 2.81, 3.68, 4.61 | 11 de dezembro de 2018 |
 | N/D | [4468323] | Atualização de fuso horário    | 2.81, 3.68, 4.61 | 13 de dezembro de 2018 |
 | N/D | [4467107] | Pacote cumulativo de atualizações não relacionado à segurança de novembro   | 2.81 | 13 de novembro de 2018 |
-| N/D | [4467701] | Pacote cumulativo de atualizações não relacionado à segurança de novembro     | 3.68 | 13 de novembro de 2018 |
-| N/D | [4467697] | Pacote cumulativo de atualizações não relacionado à segurança de novembro     | 4.61 | 13 de novembro de 2018 |
+| N/D | [4467701] | Pacote cumulativo de atualizações não relacionado à segurança de novembro | 3.68 | 13 de novembro de 2018 |
+| N/D | [4467697] | Pacote cumulativo de atualizações não relacionado à segurança de novembro | 4.61 | 13 de novembro de 2018 |
 
 [4471321]: https://support.microsoft.com/kb/4471321
 [4471328]: https://support.microsoft.com/kb/4471328
@@ -1409,7 +1580,7 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | N/D | [4014511] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |2.63 |9 de maio de 2017 |
 | N/D | [4014514] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |2.63 |9 de maio de 2017 |
 | N/D | [4019216] |Pacote cumulativo de atualizações não relacionado à segurança de maio |3.50 |9 de maio de 2017 |
-| N/D | [4014503] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |3.50 |9 de maio de 2017 |
+| N/D | 4014503 |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |3.50 |9 de maio de 2017 |
 | N/D | [4014506] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |3.50 |9 de maio de 2017 |
 | N/D | [4014509] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |3.50 |9 de maio de 2017 |
 | N/D | [4014513] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |3.50 |9 de maio de 2017 |
@@ -2158,7 +2329,6 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 [4014511]: https://support.microsoft.com/kb/4014511
 [4014514]: https://support.microsoft.com/kb/4014514
 [4019216]: https://support.microsoft.com/kb/4019216
-[4014503]: https://support.microsoft.com/kb/4014503
 [4014506]: https://support.microsoft.com/kb/4014506
 [4014509]: https://support.microsoft.com/kb/4014509
 [4014513]: https://support.microsoft.com/kb/4014513
@@ -2510,7 +2680,7 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 [3035126]: https://support.microsoft.com/kb/3035126
 
 [3049563]:https://support.microsoft.com/kb/3049563
-[3057110]:https://support.microsoft.com/kb/3057110
+[3057110]:https://mskb.pkisolutions.com/kb/3057110
 [3046002]:https://support.microsoft.com/kb/3046002
 [3057134]:https://support.microsoft.com/kb/3057134
 [3055642]:https://support.microsoft.com/kb/3055642
@@ -2520,7 +2690,7 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 [3051768]:https://support.microsoft.com/kb/3051768
 [3061518]:https://support.microsoft.com/kb/3061518
 
-[3038314]:https://support.microsoft.com/kb/3038314
+[3038314]:https://web.archive.org/web/20180920122209/https:/support.microsoft.com/en-us/help/3038314/ms15-032-cumulative-security-update-for-internet-explorer-april-14-201
 [3042553]:https://support.microsoft.com/kb/3042553
 [3046306]:https://support.microsoft.com/kb/3046306
 [3046269]:https://support.microsoft.com/kb/3046269

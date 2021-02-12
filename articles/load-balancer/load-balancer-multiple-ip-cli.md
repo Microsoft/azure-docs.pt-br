@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: bc1e477882f3d065dfe89e8511259732129cec30
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 06dfa65236bf1aa5cfde626c5574ffdf487eb045
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746036"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698352"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-azure-cli"></a>Balanceamento de carga em várias configurações de IP usando a CLI do Azure
 
@@ -30,7 +30,7 @@ Este artigo descreve como usar o Azure Load Balancer com vários endereços IP e
 
 Para obter o cenário descrito neste artigo conclua as seguintes etapas:
 
-1. [Instale e configure a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) seguindo as etapas no artigo vinculado e faça logon em sua conta do Azure.
+1. [Instale e configure a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) seguindo as etapas no artigo vinculado e faça logon em sua conta do Azure.
 2. [Crie um grupo de recursos](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-group) chamado *contosofabrikam* da seguinte maneira:
 
     ```azurecli
@@ -43,14 +43,14 @@ Para obter o cenário descrito neste artigo conclua as seguintes etapas:
     az vm availability-set create --resource-group contosofabrikam --location westcentralus --name myAvailabilitySet
     ```
 
-4. [Crie uma rede virtual](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-network-and-subnet) chamada *myVNet* , e uma sub-rede chamada *mySubnet* :
+4. [Crie uma rede virtual](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-network-and-subnet) chamada *myVNet*, e uma sub-rede chamada *mySubnet*:
 
     ```azurecli
     az network vnet create --resource-group contosofabrikam --name myVnet --address-prefixes 10.0.0.0/16  --location westcentralus --subnet-name MySubnet --subnet-prefix 10.0.0.0/24
 
     ```
 
-5. [Crie o balanceador de carga](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json) chamado *mylb* :
+5. [Crie o balanceador de carga](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json) chamado *mylb*:
 
     ```azurecli
     az network lb create --resource-group contosofabrikam --location westcentralus --name mylb
@@ -64,14 +64,14 @@ Para obter o cenário descrito neste artigo conclua as seguintes etapas:
     az network public-ip create --resource-group contosofabrikam --location westcentralus --name PublicIp2 --domain-name-label fabrikam --allocation-method Dynamic
     ```
 
-7. Crie as duas configurações de IP de front-end, *contosofe* e *fabrikamfe* , respectivamente:
+7. Crie as duas configurações de IP de front-end, *contosofe* e *fabrikamfe*, respectivamente:
 
     ```azurecli
     az network lb frontend-ip create --resource-group contosofabrikam --lb-name mylb --public-ip-name PublicIp1 --name contosofe
     az network lb frontend-ip create --resource-group contosofabrikam --lb-name mylb --public-ip-name PublicIp2 --name fabrkamfe
     ```
 
-8. Crie seus pools de endereço back-end - *contosopool* e *fabrikampool* , uma [investigação](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json) - *HTTP* , e suas regras de balanceamento de carga - *HTTPc* e *HTTPf* :
+8. Crie seus pools de endereço back-end - *contosopool* e *fabrikampool*, uma [investigação](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json) - *HTTP*, e suas regras de balanceamento de carga - *HTTPc* e *HTTPf*:
 
     ```azurecli
     az network lb address-pool create --resource-group contosofabrikam --lb-name mylb --name contosopool
@@ -89,7 +89,7 @@ Para obter o cenário descrito neste artigo conclua as seguintes etapas:
     az network lb show --resource-group contosofabrikam --name mylb
     ```
 
-10. [Crie um IP público](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-public-ip-address), *myPublicIp* e uma [conta de armazenamento](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json), *mystorageaccont1* , para sua primeira máquina virtual VM1 da seguinte maneira:
+10. [Crie um IP público](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-public-ip-address), *myPublicIp* e uma [conta de armazenamento](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json), *mystorageaccont1*, para sua primeira máquina virtual VM1 da seguinte maneira:
 
     ```azurecli
     az network public-ip create --resource-group contosofabrikam --location westcentralus --name myPublicIP --domain-name-label mypublicdns345 --allocation-method Dynamic

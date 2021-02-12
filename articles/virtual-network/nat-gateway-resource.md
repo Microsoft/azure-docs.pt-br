@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2020
+ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: 62c1b323899f03a043904f4b10d5fe3bb551e0f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c1f52fda2edfa0a03caa72fcd7fa8dc02d0a607
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441755"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954657"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Criar redes virtuais com recursos de gateway de NAT
 
@@ -60,7 +60,7 @@ O diagrama a seguir mostra as referências graváveis entre os diferentes recurs
 
 A NAT é recomendada para a maioria das cargas de trabalho, a menos que você tenha uma dependência específica de [conectividade de saída do Load Balancer baseada em pool](../load-balancer/load-balancer-outbound-connections.md).  
 
-Você pode migrar de cenários de um Standard Load Balancer, incluindo [regras de saída](../load-balancer/load-balancer-outbound-rules-overview.md), para um gateway da NAT. Para migrar, mova os recursos de prefixo de IP público e prefixo de IP público dos front-ends do balanceador de carga para o gateway da NAT. Não são necessários novos endereços IP para o gateway da NAT. Recursos de endereço IP público Standard e o recurso de prefixo de IP público podem ser reutilizados, desde que o total não exceda 16 endereços IP. Planeje a migração considerando a interrupção do serviço durante a transição.  Automatizando o processo, você pode minimizar a interrupção. Teste a migração primeiro em um ambiente de preparo.  Durante a transição, fluxos originados em entrada não são afetados.
+Você pode migrar de cenários de um Standard Load Balancer, incluindo [regras de saída](../load-balancer/load-balancer-outbound-connections.md#outboundrules), para um gateway da NAT. Para migrar, mova os recursos de prefixo de IP público e prefixo de IP público dos front-ends do balanceador de carga para o gateway da NAT. Não são necessários novos endereços IP para o gateway da NAT. Recursos de endereço IP público Standard e o recurso de prefixo de IP público podem ser reutilizados, desde que o total não exceda 16 endereços IP. Planeje a migração considerando a interrupção do serviço durante a transição.  Automatizando o processo, você pode minimizar a interrupção. Teste a migração primeiro em um ambiente de preparo.  Durante a transição, fluxos originados em entrada não são afetados.
 
 
 O exemplo a seguir é um trecho de um modelo do Azure Resource Manager.  Este modelo implanta vários recursos, incluindo um gateway de NAT.  O modelo tem os seguintes parâmetros neste exemplo:
@@ -230,7 +230,7 @@ Embora o cenário pareça funcionar, o modelo de integridade e o modo de falha s
 
 Cada recurso de gateway da NAT pode fornecer até 50 Gbps de taxa de transferência. Você pode dividir suas implantações em várias sub-redes e atribuir a cada sub-rede ou grupos de sub-redes um gateway da NAT para escalar horizontalmente.
 
-Cada gateway de NAT pode dar suporte a fluxos de 64.000 para TCP e UDP, respectivamente por endereço IP de saída atribuído.  Examine a seção a seguir sobre a SNAT (conversão de endereços de rede de origem) para obter detalhes, bem como o [artigo de solução de problemas](https://docs.microsoft.com/azure/virtual-network/troubleshoot-nat) para obter diretrizes específicas sobre a resolução de problemas.
+Cada gateway de NAT pode dar suporte a fluxos de 64.000 para TCP e UDP, respectivamente por endereço IP de saída atribuído.  Examine a seção a seguir sobre a SNAT (conversão de endereços de rede de origem) para obter detalhes, bem como o [artigo de solução de problemas](./troubleshoot-nat.md) para obter diretrizes específicas sobre a resolução de problemas.
 
 ## <a name="source-network-address-translation"></a>Conversão de endereços de rede de origem
 
@@ -264,7 +264,7 @@ Os gateways NAT reutilizam as portas de origem (SNAT) de modo oportuno.  O segui
 |:---:|:---:|:---:|
 | 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
 
-Um gateway NAT provavelmente converterá o fluxo 4 em uma porta que também pode ser usada para outros destinos.  Consulte [dimensionamento](https://docs.microsoft.com/azure/virtual-network/nat-gateway-resource#scaling) para obter mais discussões sobre como dimensionar corretamente seu provisionamento de endereço IP.
+Um gateway NAT provavelmente converterá o fluxo 4 em uma porta que também pode ser usada para outros destinos.  Consulte [dimensionamento](#scaling) para obter mais discussões sobre como dimensionar corretamente seu provisionamento de endereço IP.
 
 | Flow | Tupla de origem | Dupla de origem em que a SNAT foi realizada | Tupla de destino | 
 |:---:|:---:|:---:|:---:|
@@ -307,7 +307,7 @@ Os recursos de gateway NAT reutilizam as portas de origem (SNAT) de modo oportun
 
 As portas SNAT para destinos diferentes provavelmente serão reutilizadas quando possível. E como as abordagens de esgotamento de porta SNAT, os fluxos podem não ter sucesso.  
 
-Consulte [conceitos básicos de SNAT](https://docs.microsoft.com/azure/virtual-network/nat-gateway-resource#source-network-address-translation) , por exemplo.
+Consulte [conceitos básicos de SNAT](#source-network-address-translation) , por exemplo.
 
 
 ### <a name="protocols"></a>Protocolos
@@ -339,6 +339,7 @@ Uma porta de SNAT está disponível para reutilização para o mesmo endereço I
 - A NAT é compatível com recursos de prefixo de IP público, IP público de SKU e balanceador de carga de nível Standard.   Os recursos Básicos (por exemplo, um balanceador de carga básico) e produtos derivados deles não são compatíveis com a NAT.  Os recursos básicos precisam ser colocados em uma sub-rede não configurada com NAT.
 - A família de endereços IPv4 é compatível.  A NAT não interage com a família de endereços IPv6.  A NAT não pode ser implantada em uma sub-rede com o prefixo IPv6.
 - A NAT não pode abranger várias redes virtuais.
+- Não há suporte para a fragmentação de IP.
 
 ## <a name="suggestions"></a>Sugestões
 
@@ -359,10 +360,10 @@ Desejamos saber como podemos aprimorar o serviço. Sente falta de alguma funcion
   - [Portal](./quickstart-create-nat-gateway-portal.md)
   - [Modelo](./quickstart-create-nat-gateway-template.md)
 * Saiba mais sobre a API do recurso do Gateway da NAT
-  - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
-  - [CLI do Azure](https://docs.microsoft.com/cli/azure/network/nat/gateway)
-  - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway)
+  - [REST API](/rest/api/virtualnetwork/natgateways)
+  - [CLI do Azure](/cli/azure/network/nat/gateway)
+  - [PowerShell](/powershell/module/az.network/new-aznatgateway)
 * Saiba mais sobre as [zonas de disponibilidade](../availability-zones/az-overview.md).
-* Saiba mais sobre o [Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md).
+* Saiba mais sobre o [Standard Load Balancer](../load-balancer/load-balancer-overview.md).
 * Saiba mais sobre as [zonas de disponibilidade e o Standard Load Balancer](../load-balancer/load-balancer-standard-availability-zones.md).
 * [Diga-nos o que criar em seguida para a NAT de Rede Virtual no UserVoice](https://aka.ms/natuservoice).

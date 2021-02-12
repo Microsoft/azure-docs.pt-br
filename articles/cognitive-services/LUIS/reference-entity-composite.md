@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
-ms.openlocfilehash: 97bd079034a39f158e3ca438c484929cb6f00363
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d936555a4d9a9c80718a24ba892c762f5a8354a
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542250"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608385"
 ---
 # <a name="composite-entity"></a>Entidade composta
 
@@ -171,7 +171,6 @@ Esse é o JSON se `verbose=true` estiver definido na cadeia de caracteres de con
 ```
 
 * * *
-
 
 |Objeto de dados|Nome da entidade|Valor|
 |--|--|--|

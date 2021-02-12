@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 9c2ea7cae26ac00c9c647704de8de1f39ebce8f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d2ff583b032ff1f9aa5dbc9706ea6c981fc7265
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90600814"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "96009969"
 ---
 # <a name="upgrade-an-ipv4-application-to-ipv6-in-azure-virtual-network---powershell"></a>Atualizar um aplicativo IPv4 para IPv6 na rede virtual do Azure-PowerShell
 
@@ -116,7 +116,7 @@ Adicione intervalos de endereços IPv6 à rede virtual e à sub-rede que hospeda
 $vnet = Get-AzVirtualNetwork  -ResourceGroupName $rg.ResourceGroupName -Name "myVnet" 
 
 #Add IPv6 prefix to the VNET
-$vnet.addressspace.addressprefixes.add("ace:cab:deca::/48")
+$vnet.addressspace.addressprefixes.add("fd00:db8:deca::/48")
 
 #Update the running VNET
 $vnet |  Set-AzVirtualNetwork
@@ -125,7 +125,7 @@ $vnet |  Set-AzVirtualNetwork
 $subnet= $vnet.subnets[0]
 
 #Add IPv6 prefix to the Subnet (subnet of the VNET prefix, of course)
-$subnet.addressprefix.add("ace:cab:deca::/64")
+$subnet.addressprefix.add("fd00:db8:deca::/64")
 
 #Update the running VNET with the new subnet configuration
 $vnet |  Set-AzVirtualNetwork
@@ -142,15 +142,15 @@ $NIC_2 = Get-AzNetworkInterface -Name "myNic2" -ResourceGroupName $rg.ResourceGr
 $NIC_3 = Get-AzNetworkInterface -Name "myNic3" -ResourceGroupName $rg.ResourceGroupName
 
 #Add an IPv6 IPconfig to NIC_1 and update the NIC on the running VM
-$NIC_1 | Add-AzNetworkInterfaceIpConfig -Name MyIPv6Config -Subnet $vnet.Subnets[0]  -PrivateIpAddressVersion IPv6 -LoadBalancerBackendAddressPool $backendPoolv6 
+$NIC_1 | Add-AzNetworkInterfaceIpConfig -Name MyIPv6Config -Subnet $vnet.Subnets[0]  -PrivateIpAddressVersion IPv6 -LoadBalancerBackendAddressPool $backendPoolv6 
 $NIC_1 | Set-AzNetworkInterface
 
 #Add an IPv6 IPconfig to NIC_2 and update the NIC on the running VM
-$NIC_2 | Add-AzNetworkInterfaceIpConfig -Name MyIPv6Config -Subnet $vnet.Subnets[0]  -PrivateIpAddressVersion IPv6 -LoadBalancerBackendAddressPool $backendPoolv6 
+$NIC_2 | Add-AzNetworkInterfaceIpConfig -Name MyIPv6Config -Subnet $vnet.Subnets[0]  -PrivateIpAddressVersion IPv6 -LoadBalancerBackendAddressPool $backendPoolv6 
 $NIC_2 | Set-AzNetworkInterface
 
 #Add an IPv6 IPconfig to NIC_3 and update the NIC on the running VM
-$NIC_3 | Add-AzNetworkInterfaceIpConfig -Name MyIPv6Config -Subnet $vnet.Subnets[0]  -PrivateIpAddressVersion IPv6 -LoadBalancerBackendAddressPool $backendPoolv6 
+$NIC_3 | Add-AzNetworkInterfaceIpConfig -Name MyIPv6Config -Subnet $vnet.Subnets[0]  -PrivateIpAddressVersion IPv6 -LoadBalancerBackendAddressPool $backendPoolv6 
 $NIC_3 | Set-AzNetworkInterface
 ```
 

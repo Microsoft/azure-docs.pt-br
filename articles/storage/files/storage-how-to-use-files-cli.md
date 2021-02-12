@@ -8,23 +8,23 @@ ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9c569e65546853c4e9c8c460d29041e4bb829c09
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: dd07c09c4ed5be311bf5a485b9bff938c976a2f5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564195"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659226"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Início Rápido: Criar e gerenciar compartilhamentos de arquivos do Azure usando a CLI do Azure
 Este guia percorre os fundamentos de trabalhar com [compartilhamentos de arquivos do Azure](storage-files-introduction.md) usando a CLI do Azure. Os compartilhamentos de arquivos do Azure são iguais a outros compartilhamentos de arquivos, mas são armazenados na nuvem e compatíveis com a plataforma do Azure. Os compartilhamentos dos Arquivos do Azure dão suporte ao protocolo SMB padrão e ao protocolo NFS (Network File System – versão prévia) e habilita o compartilhamento de arquivos entre vários computadores, aplicativos e instâncias. 
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se você decidir instala e usar a CLI do Azure localmente, para as etapas neste artigo, você deve estar executando a versão 2.0.4 ou posterior da CLI do Azure. Execute **az --version** para saber qual é a versão da sua CLI do Azure. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). 
+- Este artigo exige a versão 2.0.4 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
-Por padrão, os comandos da CLI do Azure são em JavaScript Object Notation (JSON). JSON é a forma padrão de enviar e receber mensagens a partir de APIs REST. Para facilitar o trabalho com as respostas em JSON, alguns dos exemplos neste artigo usam o parâmetro *query* nos comandos da CLI do Azure. Esse parâmetro utiliza a [linguagem de consulta JMESPath](http://jmespath.org/) para a análise do JSON. Você pode aprender mais sobre como usar os resultados dos comandos da CLI do Azure seguindo a linguagem de consulta JMESPath, consulte o [Tutorial de JMESPath](http://jmespath.org/tutorial.html).
+- Por padrão, os comandos da CLI do Azure são em JavaScript Object Notation (JSON). JSON é a forma padrão de enviar e receber mensagens a partir de APIs REST. Para facilitar o trabalho com as respostas em JSON, alguns dos exemplos neste artigo usam o parâmetro *query* nos comandos da CLI do Azure. Esse parâmetro utiliza a [linguagem de consulta JMESPath](http://jmespath.org/) para a análise do JSON. Você pode aprender mais sobre como usar os resultados dos comandos da CLI do Azure seguindo a linguagem de consulta JMESPath, consulte o [Tutorial de JMESPath](http://jmespath.org/tutorial.html).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Se você ainda não tiver um grupo de recursos do Azure, pode usar o comando [az group create](/cli/azure/group) para criar um. 
@@ -87,10 +87,10 @@ az storage share create \
     --output none
 ```
 
-Os nomes de compartilhamento podem conter somente letras em minúsculas, números e hifens (mas não podem começar com um hífen). Para obter detalhes completos sobre como nomear arquivos e compartilhamentos de arquivos, confira [Nomenclatura e referência de compartilhamentos, diretórios, arquivos e metadados](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
+Os nomes de compartilhamento podem conter somente letras em minúsculas, números e hifens (mas não podem começar com um hífen). Para obter detalhes completos sobre como nomear arquivos e compartilhamentos de arquivos, confira [Nomenclatura e referência de compartilhamentos, diretórios, arquivos e metadados](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
 ## <a name="use-your-azure-file-share"></a>Usar o compartilhamento de arquivos do Azure
-Os Arquivos do Azure fornecem dois métodos para trabalhar com arquivos e pastas dentro do seu compartilhamento de arquivos do Azure: o padrão do setor [protocolo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) e o [protocolo REST de arquivo](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api). 
+Os Arquivos do Azure fornecem dois métodos para trabalhar com arquivos e pastas dentro do seu compartilhamento de arquivos do Azure: o padrão do setor [protocolo SMB (Server Message Block)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) e o [protocolo REST de arquivo](/rest/api/storageservices/file-service-rest-api). 
 
 Para montar um compartilhamento de arquivos com SMB, consulte o documento abaixo com base em seu sistema operacional:
 - [Linux](storage-how-to-use-files-linux.md)
@@ -212,7 +212,7 @@ Outra tarefa útil que você pode fazer com um compartilhamento de arquivos do A
 
 - Instantâneos do [LVM (Gerenciador de Volumes Lógicos)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) para sistemas Linux.
 - Instantâneos do [APFS (Sistema de arquivos da Apple)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) para macOS.
-- [VSS (Serviço de Cópias de Sombra de Volume)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) para sistemas de arquivos Windows, como NTFS e ReFS.
+- [VSS (Serviço de Cópias de Sombra de Volume)](/windows/desktop/VSS/volume-shadow-copy-service-portal) para sistemas de arquivos Windows, como NTFS e ReFS.
  
 Você pode criar um instantâneo de compartilhamento usando o comando [`az storage share snapshot`](/cli/azure/storage/share):
 

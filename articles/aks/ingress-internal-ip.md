@@ -5,12 +5,12 @@ description: Aprenda a instalar e configurar um controlador de entrada NGINX par
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 8ef83c25f4af85fcf8dbb1ee78bd3f797e5a3581
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 976c5581ad217064da37b0b092d2d634d30cb7e5
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131132"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98729154"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Criar um controlador de entrada para uma rede virtual interna no AKS (Serviço de Kubernetes do Azure)
 
@@ -35,7 +35,7 @@ Este artigo também requer que você esteja executando o CLI do Azure versão 2.
 
 Por padrão, um controlador de entrada NGINX é criado com uma atribuição dinâmica de endereço IP público. Um requisito de configuração comum é usar um endereço IP e uma rede privada interna. Essa abordagem permite restringir o acesso a seus serviços a usuários internos, sem acesso externo.
 
-Crie um arquivo chamado *internal-ingress.yaml* usando o arquivo de manifesto de exemplo a seguir. Este exemplo atribui *10.240.0.42* ao recurso *loadBalancerIP* . Forneça seu próprio endereço IP interno para uso com o controlador de entrada. Certifique-se de que esse endereço IP não esteja em uso em sua rede virtual. Além disso, se você estiver usando uma rede virtual e uma sub-rede existentes, deverá configurar o cluster AKS com as permissões corretas para gerenciar a rede virtual e a sub-rede. Consulte [usar a rede kubenet com seus próprios intervalos de endereços IP no AKs (serviço kubernetes do Azure)][aks-configure-kubenet-networking] ou [Configurar a rede CNI do Azure no serviço kubernetes do Azure (AKs)][aks-configure-advanced-networking] para obter mais informações.
+Crie um arquivo chamado *internal-ingress.yaml* usando o arquivo de manifesto de exemplo a seguir. Este exemplo atribui *10.240.0.42* ao recurso *loadBalancerIP*. Forneça seu próprio endereço IP interno para uso com o controlador de entrada. Certifique-se de que esse endereço IP não esteja em uso em sua rede virtual. Além disso, se você estiver usando uma rede virtual e uma sub-rede existentes, deverá configurar o cluster AKS com as permissões corretas para gerenciar a rede virtual e a sub-rede. Consulte [usar a rede kubenet com seus próprios intervalos de endereços IP no AKs (serviço kubernetes do Azure)][aks-configure-kubenet-networking] ou [Configurar a rede CNI do Azure no serviço kubernetes do Azure (AKs)][aks-configure-advanced-networking] para obter mais informações.
 
 ```yaml
 controller:
@@ -50,10 +50,10 @@ Agora, implemente o gráfico *nginx -gresso* com o Helm. Para usar o arquivo de 
 O controlador de entrada também precisa ser agendado em um nó do Linux. Os nós do Windows Server não devem executar o controlador de entrada. Um seletor de nó é especificado usando o parâmetro `--set nodeSelector` para instruir o agendador do Kubernetes a executar o controlador de entrada NGINX em um nó baseado em Linux.
 
 > [!TIP]
-> O exemplo a seguir cria um namespace kubernetes para os recursos de entrada chamados *ingress-Basic* . Especifique um namespace para seu próprio ambiente, conforme necessário. Se o cluster AKS não estiver habilitado para RBAC, adicione `--set rbac.create=false` aos comandos Helm.
+> O exemplo a seguir cria um namespace kubernetes para os recursos de entrada chamados *ingress-Basic*. Especifique um namespace para seu próprio ambiente, conforme necessário. Se o cluster AKS não for kubernetes RBAC habilitado, adicione `--set rbac.create=false` aos comandos Helm.
 
 > [!TIP]
-> Se você quiser habilitar a [preservação de IP de origem do cliente][client-source-ip] para solicitações a contêineres em seu cluster, adicione `--set controller.service.externalTrafficPolicy=Local` ao comando Helm install. O IP de origem do cliente é armazenado no cabeçalho da solicitação em *X-forwardd-for* . Ao usar um controlador de entrada com preservação de IP de origem do cliente habilitada, a passagem TLS não funcionará.
+> Se você quiser habilitar a [preservação de IP de origem do cliente][client-source-ip] para solicitações a contêineres em seu cluster, adicione `--set controller.service.externalTrafficPolicy=Local` ao comando Helm install. O IP de origem do cliente é armazenado no cabeçalho da solicitação em *X-forwardd-for*. Ao usar um controlador de entrada com preservação de IP de origem do cliente habilitada, a passagem TLS não funcionará.
 
 ```console
 # Create a namespace for your ingress resources
@@ -68,7 +68,8 @@ helm install nginx-ingress ingress-nginx/ingress-nginx \
     -f internal-ingress.yaml \
     --set controller.replicaCount=2 \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
-    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
 Quando o serviço de balanceador de carga do kubernetes é criado para o controlador de entrada do NGINX, seu endereço IP interno é atribuído. Para obter o endereço IP público, use `kubectl get service` o comando de serviço kubectl get.
@@ -292,7 +293,7 @@ Como alternativa, uma abordagem mais granular é excluir os recursos individuais
 helm list --namespace ingress-basic
 ```
 
-Procure gráficos nomeados *nginx -gresso* e *aks-helloworld* , conforme mostrado na saída do exemplo a seguir:
+Procure gráficos nomeados *nginx -gresso* e *aks-helloworld*, conforme mostrado na saída do exemplo a seguir:
 
 ```
 $ helm list --namespace ingress-basic

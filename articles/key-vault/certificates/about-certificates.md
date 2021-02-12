@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3e5476b01ac78af992f548efbeb87de5104dead0
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 66f077028b9f9f7a7644a318d4447eeaaab19e98
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126766"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919923"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Sobre certificados do Azure Key Vault
 
@@ -44,8 +44,17 @@ Quando um certificado de Key Vault é criado, ele pode ser recuperado do segredo
 
 A chave endereçável fica mais relevante com certificados KV não exportáveis. As operações da chave KV endereçável são mapeadas do campo *keyusage* da política de certificação KV usada para criar o certificado KV.  
 
- - Tipos de chave com suporte: RSA, RSA-HSM, EC, EC-HSM, oct (listadas [aqui](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)). A exportação só é permitida com RSA e EC. As chaves HSM seriam não exportáveis.
+O tipo de par de chaves para dar suporte a certificados
 
+ - Tipos de chave com suporte: RSA, RSA-HSM, EC, EC-HSM, oct (listadas [aqui](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)). A exportação só é permitida com RSA e EC. As chaves HSM seriam não exportáveis.
+
+|Tipo de chave|Sobre|Segurança|
+|--|--|--|
+|**RSA**| chave RSA "protegida por software"|FIPS 140-2 Nível 1|
+|**RSA-HSM**| Chave RSA "protegida por HSM" (somente SKU Premium)|HSM FIPS 140-2 Nível 2|
+|**EC**| chave de Curva Elíptica "protegida por software"|FIPS 140-2 Nível 1|
+|**EC-HSM**| "Chave de curva elíptica "protegida por HSM" (somente SKU Premium)|HSM FIPS 140-2 Nível 2|
+|||
 
 ## <a name="certificate-attributes-and-tags"></a>Marcas e atributos de certificado
 
@@ -57,14 +66,14 @@ Os atributos de certificado são espelhados para atributos de chave endereçáve
 
 Um certificado do Cofre de Chaves tem os seguintes atributos:  
 
--   *habilitado* : booliano, opcional, o padrão é **true** . Pode ser especificado para indicar se os dados de certificado podem ser recuperados como segredo ou operável como uma chave. Também usado em conjunto com *nbf* e *exp* quando ocorre uma operação entre *nbf* e *exp* e só será permitido se ”habilitado” estiver definido como true. As operações fora da janela *nbf* e *exp* são proibidas automaticamente.  
+-   *habilitado*: booliano, opcional, o padrão é **true**. Pode ser especificado para indicar se os dados de certificado podem ser recuperados como segredo ou operável como uma chave. Também usado em conjunto com *nbf* e *exp* quando ocorre uma operação entre *nbf* e *exp* e só será permitido se ”habilitado” estiver definido como true. As operações fora da janela *nbf* e *exp* são proibidas automaticamente.  
 
 Há mais atributos somente leitura que são incluídos em resposta:
 
--   *criado* : IndDate indica quando esta versão do certificado foi criada.  
--   *atualizado* : IndDate indica quando esta versão do certificado foi atualizada.  
--   *exp* : IntDate: contém o valor da data de expiração do certificado x509.  
--   *nbf* : IntDate: contém o valor da data do certificado x509.  
+-   *criado*: IndDate indica quando esta versão do certificado foi criada.  
+-   *atualizado*: IndDate indica quando esta versão do certificado foi atualizada.  
+-   *exp*: IntDate: contém o valor da data de expiração do certificado x509.  
+-   *nbf*: IntDate: contém o valor da data do certificado x509.  
 
 > [!Note] 
 > Se um certificado do Key Vault expirar, a chave e o certificado endereçáveis ficarão inoperantes.  
@@ -82,11 +91,11 @@ Uma política de certificado contém informações sobre como criar e gerenciar 
 
 Quando um certificado do Key Vault é criado do zero, uma política precisa ser fornecida. A política especifica como criar esta versão do certificado do Key Vault ou a versão seguinte do certificado do Key Vault. Após o estabelecimento de uma política, não é necessária operações sucessivas para criar as próximas versões. Há apenas uma instância de uma política para todas as versões de um certificado de Key Vault.  
 
-Em um alto nível, uma política de certificação contém as seguintes informações (encontre as definições [aqui](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0)):  
+Em um alto nível, uma política de certificação contém as seguintes informações (encontre as definições [aqui](/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0)):  
 
 -   Propriedades do Certificado X509: Contém o nome da entidade, os nomes alternativos da entidade e outras propriedades usadas para criar uma solicitação de certificado x509.  
 -   Propriedades de Chave: contém os campos de tipo de chave, tamanho da chave e exportáveis e ReuseKeyOnRenewal. Esses campos instruem o Cofre de Chaves sobre como gerar uma chave. 
-     - Tipos de chave com suporte: RSA, RSA-HSM, EC, EC-HSM, oct (listadas [aqui](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) 
+     - Tipos de chave com suporte: RSA, RSA-HSM, EC, EC-HSM, oct (listadas [aqui](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) 
 -   Propriedades de segredo: contém propriedades secretas como tipo de conteúdo de segredo endereçável para gerar o valor de segredo, para recuperar o certificado como um segredo.  
 -   Ações de tempo de vida: contém ações de tempo de vida do certificado KV. Cada ação de tempo de vida contém:  
 
@@ -133,7 +142,7 @@ Antes que um emissor de certificado possa ser criado em um Cofre de Chaves, as s
 
     -   Fornece a configuração a ser usado para criar um objeto de emissor do provedor no cofre de chaves  
 
-Para obter mais informações sobre como criar objetos de emissor do portal de certificados, consulte o [blog de certificados de Cofre de Chave](https://aka.ms/kvcertsblog)  
+Para obter mais informações sobre como criar objetos de emissor do portal de certificados, consulte o [blog de certificados de Cofre de Chave](/archive/blogs/kv/manage-certificates-via-azure-key-vault)  
 
 O Cofre de Chaves permite a criação de vários objetos de emissor com configuração de provedor de emissor diferente. Quando um objeto de emissor é criado, seu nome pode ser referenciado em uma ou várias políticas de certificado. Referenciar o objeto emissor instrui o Cofre de Chaves para usar a configuração conforme especificado no objeto emissor ao solicitar o certificado x509 do provedor de autoridade de certificação durante a criação e renovação do certificado.  
 

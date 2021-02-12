@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: erhopf
-ms.openlocfilehash: 2897fe2e0cc8aeb929b0a33f5cdaba9c60f2a244
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a44ff15300d05713e812f5c60ad3bf00d9f13104
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81261577"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526849"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Gravar amostras de voz para criar uma voz personalizada
 
@@ -24,6 +24,14 @@ Criar uma voz personalizada de produção de alta qualidade a partir do zero nã
 Antes de poder fazer essas gravações, é necessário ter um script: as palavras que serão faladas pelo ator de voz para criar as amostras de áudio. Para obter melhores resultados, o script deve ter boa cobertura fonética e variedade suficiente para treinar o modelo de voz personalizado.
 
 Muitos detalhes pequenos, mas importantes, envolvem a criação de uma gravação de voz profissional. Este guia é um roteiro para um processo que irá ajudá-lo a obter resultados bons e consistentes.
+
+> [!NOTE]
+> Se você quiser treinar uma voz neural, deverá especificar um perfil de talento de voz com o arquivo de consentimento de áudio fornecido pelo talento da voz confirmando o uso de seus dados de fala para treinar um modelo de voz personalizado. Ao preparar o script de gravação, certifique-se de incluir a sentença abaixo. 
+
+> "I [declare seu nome e sobrenome] estou ciente de que as gravações da minha voz serão usadas por [estado o nome da empresa] para criar e usar uma versão sintética da minha voz".
+Esta sentença será usada para verificar se os dados de treinamento são feitos pela mesma pessoa que faz o consentimento. Leia mais sobre a [verificação de talento de voz](https://aka.ms/CNV-data-privacy) aqui.
+
+> A voz neural personalizada está disponível com acesso limitado. Certifique-se de entender os [requisitos de ia do ai](https://aka.ms/gating-overview) e [aplicar o acesso aqui](https://aka.ms/customneural). 
 
 > [!TIP]
 > Para obter resultados da mais alta qualidade, considere envolver a Microsoft para ajudar a desenvolver a voz personalizada. A Microsoft tem uma vasta experiência na produção de vozes de alta qualidade para seus próprios produtos, incluindo Cortana e Office.
@@ -56,7 +64,7 @@ O ator de voz é a outra metade da equação. Eles devem ser capazes de falar co
 
 Gravar amostras de voz personalizada pode ser mais exaustivo que outros tipos de trabalho com voz. A maioria dos talentos de voz pode gravar por duas ou três horas por dia. Se possível, limite as sessões a três ou quatro por semana, com um dia de folga entre as seções.
 
-As gravações feitas para um modelo de voz devem ser emocionalmente neutras. Ou seja, um enunciado triste não deve ser lido de maneira triste. O humor poderá ser adicionado à fala sintetizada posteriormente por meio de controles de prosódia. Trabalhe com o ator de voz para desenvolver uma "persona" que defina o tom emocional e sonoro geral da voz personalizada. No processo, você identificará o que será "neutro" para essa persona.
+Trabalhe com o ator de voz para desenvolver uma "persona" que defina o tom emocional e sonoro geral da voz personalizada. No processo, você identificará o que será "neutro" para essa persona. Usando o recurso de voz neural personalizada, você pode treinar um modelo que fala com emoções. Defina os "estilos de fala" e peça ao talento da sua voz para ler o script de uma maneira que repercussão os estilos desejados.  
 
 Uma persona pode ter, por exemplo, uma personalidade naturalmente otimista. Portanto, a voz "dela" poderá conter uma nota de otimismo mesmo quando ela falar de modo neutro. No entanto, esse traço de personalidade deve ser sutil e consistente. Ouça as leituras de vozes existentes para ter uma ideia do que você está procurando.
 
@@ -211,7 +219,7 @@ Ouça cada arquivo atentamente. Nessa fase, é possível editar pequenos sons in
 
 Converta cada arquivo em 16 bits e uma taxa de amostragem de 16 kHz antes de salvar e, se registrou a conversa no estúdio, remova o segundo canal. Salve cada arquivo no formato WAV, nomeando os arquivos com o número do enunciado no script.
 
-Por fim, crie a *transcrição* que associa cada arquivo WAV a uma versão em texto do enunciado correspondente. [Criar fontes de voz personalizada](how-to-customize-voice-font.md) inclui detalhes do formato necessário. É possível copiar o texto diretamente do script. Em seguida, crie um arquivo zip dos arquivos WAV e a transcrição do texto.
+Por fim, crie a *transcrição* que associa cada arquivo WAV a uma versão em texto do enunciado correspondente. A [criação de vozes personalizadas](./how-to-custom-voice-create-voice.md) inclui detalhes do formato necessário. É possível copiar o texto diretamente do script. Em seguida, crie um arquivo zip dos arquivos WAV e a transcrição do texto.
 
 Arquive as gravações originais em um local seguro, caso precise delas posteriormente. Guarde também o script e as anotações.
 
@@ -220,4 +228,4 @@ Arquive as gravações originais em um local seguro, caso precise delas posterio
 Você está pronto para fazer upload as gravações e criar a voz personalizada.
 
 > [!div class="nextstepaction"]
-> [Criar fontes de voz personalizadas](how-to-customize-voice-font.md)
+> [Criar fontes de voz personalizadas](./how-to-custom-voice-create-voice.md)

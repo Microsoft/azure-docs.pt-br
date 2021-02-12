@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: 1eed12593168975b1dfda6e51b07b256cbd0c246
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 3cfe75edcf338f5248baf396147a5b77803fbfb3
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92145815"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655927"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>Consultar dados Avro usando a análise do Azure Data Lake Analytics
 
@@ -56,7 +56,7 @@ Nesta seção, você consulta os dados Avro e exporta em um arquivo CSV no armaz
 
 6. No Visual Studio, crie um projeto de U-SQL.
 
-   !Criar um projeto U-SQL](./media/iot-hub-query-avro-data/query-avro-data-6.png)
+   ![Crie um projeto U-SQL](./media/iot-hub-query-avro-data/query-avro-data-6.png)
 
 7. Cole o conteúdo do script a seguir e cole- arquivo no arquivo recém-criado. Modifique as três seções realçadas: sua conta do Data Lake Analytics, caminhos das DLLs associadas e o caminho correto para sua conta de armazenamento.
 
@@ -154,10 +154,10 @@ Nesta seção, você consulta os dados Avro e exporta em um arquivo CSV no armaz
         
         @cnt =
             SELECT message["message"] AS iotmessage,
-                   message["event"] AS msgevent,
-                   message["object"] AS msgobject,
-                   message["status"] AS msgstatus,
-                   message["host"] AS msghost
+                message["event"] AS msgevent,
+                message["object"] AS msgobject,
+                message["status"] AS msgstatus,
+                message["host"] AS msghost
             FROM @jsonify;
             
         OUTPUT @cnt TO @output_file USING Outputters.Text();

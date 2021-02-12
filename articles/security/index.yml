@@ -13,13 +13,13 @@ metadata:
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
-  ms.date: 08/29/2019
-  ms.openlocfilehash: 26968a6cdc7682c7e94d3276832ae6cbd418294b
-  ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+  ms.date: 02/05/2021
+  ms.openlocfilehash: 2e50e273841b93d2ecc742f26069c0e3017b3692
+  ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/30/2020
-  ms.locfileid: "93042742"
+  ms.lasthandoff: 02/07/2021
+  ms.locfileid: "99807777"
 highlightedContent:
   items:
   - title: Introdução à segurança do Azure
@@ -52,9 +52,9 @@ conceptualContent:
     - url: ./develop/secure-dev-overview.md
       itemType: overview
       text: Melhores práticas de desenvolvimento seguro
-    - url: /previous-versions/azure/security/develop/secure-web-app
+    - url: ./develop/secure-develop.md
       itemType: tutorial
-      text: Desenvolver um aplicativo Web seguro
+      text: Desenvolver aplicativos e segurança
     - url: ./develop/threat-modeling-tool.md
       itemType: concept
       text: Ferramenta de Modelagem de Ameaças da Microsoft
@@ -163,10 +163,10 @@ conceptualContent:
       text: Alertas de segurança na Central de Segurança do Azure
     - url: ../storage/common/azure-defender-storage-configure.md
       itemType: concept
-      text: Proteção Avançada contra Ameaças do Armazenamento do Azure
+      text: Azure Defender para Armazenamento
     - url: ../azure-sql/database/threat-detection-overview.md
       itemType: concept
-      text: Proteção Avançada contra Ameaças para o Banco de Dados SQL do Azure
+      text: Azure Defender para SQL
     footerLink:
       url: ./fundamentals/threat-detection.md
       text: Ver mais
@@ -189,7 +189,7 @@ conceptualContent:
     - url: ./fundamentals/network-best-practices.md
       itemType: concept
       text: Melhores práticas de segurança
-    - url: /azure/ddos-protection/fundamental-best-practices
+    - url: ../ddos-protection/fundamental-best-practices.md
       itemType: concept
       text: Proteção contra DDoS
   - title: Segurança da infraestrutura

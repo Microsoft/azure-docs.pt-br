@@ -8,17 +8,17 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/30/2020
 ms.author: mbullwin
-ms.openlocfilehash: 74e5373ebafbd39748f8b002069eaa6d732be069
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5148114da7fcc654b1f0af431440ce74c7bc8d31
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018417"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94371751"
 ---
 ### <a name="create-an-environment-variable"></a>Criar uma variável de ambiente
 
 >[!NOTE]
-> Os pontos de extremidade para recursos que não são de avaliação criados após 1º de julho de 2019 usam o formato de subdomínio personalizado mostrado abaixo. Para saber mais e para obter uma lista completa de pontos de extremidade regionais, confira [Nomes de subdomínio personalizados para Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
+> Os pontos de extremidade para recursos que não são de avaliação criados após 1º de julho de 2019 usam o formato de subdomínio personalizado mostrado abaixo. Para saber mais e para obter uma lista completa de pontos de extremidade regionais, confira [Nomes de subdomínio personalizados para Serviços Cognitivos](../../cognitive-services-custom-subdomains.md). 
 
 Usando a chave e o ponto de extremidade do recurso criado, crie duas variáveis de ambiente para autenticação:
 

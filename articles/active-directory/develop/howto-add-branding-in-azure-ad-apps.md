@@ -13,12 +13,12 @@ ms.date: 08/31/2020
 ms.author: ryanwi
 ms.reviewer: arielgo, jiml
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 3ee59226853f4ea5aabf57a8866ba014aa874774
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 236e82ab97244e1428441f83295f6a5d4ed56350
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706193"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581985"
 ---
 # <a name="branding-guidelines-for-applications"></a>Diretrizes de identidade visual para aplicativos
 
@@ -27,7 +27,7 @@ Ao desenvolver aplicativos com a plataforma de identidade da Microsoft, você pr
 Neste artigo, você irá:
 
 - Saber sobre os dois tipos de contas de usuário gerenciadas pela Microsoft e como fazer referência às contas do Azure AD em seu aplicativo
-- Descubra o que você precisa fazer para adicionar o logotipo da Microsoft para uso em seu aplicativo
+- Conheça os requisitos para usar o logotipo da Microsoft em seu aplicativo
 - Baixar as imagens oficiais de **Entrar** ou **Entrar com a conta da Microsoft** a serem usadas em seu aplicativo
 - Saber sobre as regras de identidade visual e navegação
 

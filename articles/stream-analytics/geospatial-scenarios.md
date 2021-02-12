@@ -1,17 +1,17 @@
 ---
 title: Isolamento geográfico e agregação geoespacial com Azure Stream Analytics
 description: Este artigo descreve como usar Azure Stream Analytics para a unificação geográfica e agregação geoespacial.
-author: mamccrea
-ms.author: mamccrea
+author: krishna0815
+ms.author: krishmam
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/02/2019
-ms.openlocfilehash: 90d8c70ac0a34470e8121d2234fd6b898cfed1ab
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 7f83fe3a8443ac1b9339a0ddb91ee95414eef437
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130588"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016296"
 ---
 # <a name="geofencing-and-geospatial-aggregation-scenarios-with-azure-stream-analytics"></a>Cenários geoespaciais e de agregação geoespacial com Azure Stream Analytics
 

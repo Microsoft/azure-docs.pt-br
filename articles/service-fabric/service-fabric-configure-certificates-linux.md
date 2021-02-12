@@ -4,12 +4,12 @@ description: Configurar certificados para seu aplicativo com o runtime do Servic
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: pepogors
-ms.openlocfilehash: a97c8b8315fe3be405aed9c6570004afb8fafd1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70f9cc38d84681f68c10882889214648a4dd2624
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258663"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785559"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Certificados e segurança em clusters do Linux
 
@@ -21,11 +21,11 @@ Malha do serviço espera geralmente certificados x. 509 no */var/lib/sfcerts* di
 
 Para clusters do Linux, o Service Fabric espera certificados deve existir como um arquivo. PEM que contém o certificado e a chave privada ou como um arquivo. crt que contém o certificado e um arquivo de chave que contém a chave privada. Todos os arquivos devem estar no formato PEM. 
 
-Se você instalar o certificado do Cofre de chaves do Azure usando um [modelo do Gerenciador de recursos](./service-fabric-cluster-creation-create-template.md) ou [PowerShell](/powershell/module/az.servicefabric/?view=azps-2.6.0) comandos, o certificado é instalado no formato correto no */var/ lib/sfcerts* diretório em cada nó. Se você instalar um certificado por outro método, você deve garantir que o certificado está instalado corretamente em nós de cluster.
+Se você instalar o certificado do Cofre de chaves do Azure usando um [modelo do Gerenciador de recursos](./service-fabric-cluster-creation-create-template.md) ou [PowerShell](/powershell/module/az.servicefabric/) comandos, o certificado é instalado no formato correto no */var/ lib/sfcerts* diretório em cada nó. Se você instalar um certificado por outro método, você deve garantir que o certificado está instalado corretamente em nós de cluster.
 
 ## <a name="certificates-referenced-in-the-application-manifest"></a>Certificados referenciados no manifesto de aplicativo
 
-Os certificados especificados no manifesto do aplicativo, por exemplo, por meio dos elementos [** SecretsCertificate **](./service-fabric-service-model-schema-elements.md#secretscertificate-element) ou [** EndpointCertificate **](./service-fabric-service-model-schema-elements.md#endpointcertificate-element), devem estar presentes no diretório */var/lib/sfcerts*. Os elementos usados para especificar certificados no manifesto do aplicativo não usam um atributo de caminho, portanto, os certificados devem estar presentes no diretório padrão. Estes elementos tomam um atributo **X509StoreName** opcional. O padrão é "My", que aponta para o diretório */var/lib/sfcerts* nos nós do Linux. Qualquer outro valor é indefinido em um clister Linux. Recomendamos que você omita o atributo **X509StoreName** para aplicativos executados em clusters do Linux. 
+Os certificados especificados no manifesto do aplicativo, por exemplo, por meio dos elementos [**SecretsCertificate**](./service-fabric-service-model-schema-elements.md#secretscertificate-element) ou [**EndpointCertificate**](./service-fabric-service-model-schema-elements.md#endpointcertificate-element), devem estar presentes no diretório */var/lib/sfcerts*. Os elementos usados para especificar certificados no manifesto do aplicativo não usam um atributo de caminho, portanto, os certificados devem estar presentes no diretório padrão. Estes elementos tomam um atributo **X509StoreName** opcional. O padrão é "My", que aponta para o diretório */var/lib/sfcerts* nos nós do Linux. Qualquer outro valor é indefinido em um clister Linux. Recomendamos que você omita o atributo **X509StoreName** para aplicativos executados em clusters do Linux. 
 
 ## <a name="certificates-referenced-in-the-configuration-package-settingsxml"></a>Certificados referenciados no pacote de configuração (Settings.xml)
 
@@ -43,7 +43,7 @@ A referência **X509** localiza o certificado em um armazenamento de certificado
     <Parameter Name="CertificateStoreName" Value="My" />
 ```
 
-Para um serviço em execução no Linux, a **LocalMachine** / **My** aponta para o local padrão para certificados, o diretório */var/lib/sfcerts* . Para Linux, quaisquer outras combinações de **CertificateStoreLocation** e **CertificateStoreName** são indefinidas. 
+Para um serviço em execução no Linux, a **LocalMachine** /  aponta para o local padrão para certificados, o diretório */var/lib/sfcerts* . Para Linux, quaisquer outras combinações de **CertificateStoreLocation** e **CertificateStoreName** são indefinidas. 
 
 Sempre especificar **LocalMachine** para o parâmetro **CertificateStoreLocation**. Não há necessidade de especificar o parâmetro **CertificateStoreName** porque ele tem como padrão “My”. Com uma referência **X509**, os arquivos de certificado devem estar localizados no diretório */var/lib/sfcerts* no nó do cluster.  
 

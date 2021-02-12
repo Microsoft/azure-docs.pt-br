@@ -3,12 +3,12 @@ title: Cria políticas de maneira programática
 description: Este artigo orienta você na criação e gerenciamento por meio de programação de políticas no Azure Policy com a CLI do Azure, o Azure PowerShell e a API REST.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 9b0c2e50536a847555dfa5cc6b9c823cfc1a4cfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c3a503e8d48573441093879511490608437b1e1
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89047047"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033856"
 ---
 # <a name="programmatically-create-policies"></a>Cria políticas de maneira programática
 
@@ -92,10 +92,10 @@ A primeira etapa para obter melhor visibilidade de seus recursos é criar e atri
 
    - Recurso: `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Grupo de recursos – `/subscriptions/{subId}/resourceGroups/{rgName}`
-   - Assinatura – `/subscriptions/{subId}/`
+   - Assinatura – `/subscriptions/{subId}`
    - Grupo de gerenciamento – `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-Para obter mais informações sobre como gerenciar políticas de recursos usando o módulo do PowerShell do Gerenciador de recursos, consulte [AZ. Resources](/powershell/module/az.resources/#policies).
+Para obter mais informações sobre como gerenciar políticas de recursos usando o módulo do PowerShell do Gerenciador de recursos, consulte [AZ. Resources](/powershell/module/az.resources/#policy).
 
 ### <a name="create-and-assign-a-policy-definition-using-armclient"></a>Criar e atribuir uma definição de política usando ARMClient
 
@@ -203,7 +203,7 @@ Para criar uma definição de política, use o procedimento a seguir:
    ```
 
    O comando cria uma definição de política denominada _Auditar Contas de Armazenamento Abertas para Redes Públicas_.
-   Para saber mais sobre outros parâmetros que você pode usar, confira [Criar definição de política do az](/cli/azure/policy/definition#az-policy-definition-create).
+   Para saber mais sobre outros parâmetros que você pode usar, confira [Criar definição de política do az](/cli/azure/policy/definition#az_policy_definition_create).
 
    Quando chamado sem parâmetros de local, `az policy definition creation` é padronizado para salvar a definição de política na assinatura selecionada do contexto de sessões. Para salvar a definição para um local diferente, use os seguintes parâmetros:
 
@@ -242,7 +242,7 @@ Para obter mais informações sobre como gerenciar políticas de recursos com a 
 Examine os seguintes artigos para obter mais informações sobre os comandos e consultas neste artigo.
 
 - [Recursos da API REST do Azure](/rest/api/resources/)
-- [Módulos do Azure PowerShell](/powershell/module/az.resources/#policies)
+- [Módulos do Azure PowerShell](/powershell/module/az.resources/#policy)
 - [Comandos de Política da CLI do Azure](/cli/azure/policy)
 - [Referência da API REST do provedor de recursos do Azure Policy Insights](/rest/api/policy-insights)
 - [Organizar seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md).

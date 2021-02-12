@@ -9,7 +9,7 @@
 - name: Inícios rápidos
   expanded: true
   items:
-    - name: Criar um cluster AKS
+    - name: Implantar um cluster do AKS
       expanded: true
       items:
         - name: Usar a CLI do Azure
@@ -142,18 +142,24 @@
           href: upgrade-cluster.md
         - name: Usar o SLA de Tempo de Atividade
           href: uptime-sla.md
-        - name: Usar grupos de posicionamento de proximidade (versão prévia)
+        - name: Usar grupos de posicionamento de proximidade
           href: reduce-latency-ppg.md
         - name: Atualizar a imagem do nó
           href: node-image-upgrade.md
+        - name: Atualizar a imagem do nó automaticamente com GitHub Actions
+          href: node-upgrade-github-actions.md
         - name: Atualizações do SO para nó do processo
           href: node-updates-kured.md
         - name: Configurar um cluster do AKS
           href: cluster-configuration.md
+        - name: Configuração do nó personalizada (versão prévia)
+          href: custom-node-configuration.md
         - name: Integrar um ACR a um cluster do AKS
           href: cluster-container-registry-integration.md
         - name: Criar nós virtuais
           items:
+            - name: Usar nós virtuais
+              href: virtual-nodes.md
             - name: Usar a CLI do Azure
               href: virtual-nodes-cli.md
             - name: Use o Portal do Azure
@@ -166,14 +172,14 @@
           items:
             - name: Usar vários pools de nós
               href: use-multiple-node-pools.md
-            - name: Usar pools de nós de ponto (versão prévia)
+            - name: Usar pools de nós spot
               href: spot-node-pool.md
             - name: Usar pools de nós do sistema
               href: use-system-pools.md
         - name: Implantar AKS com Terraform
           href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
           maintainContext: true
-        - name: Usar o visualizador de recursos do Kubernetes (versão prévia)
+        - name: Exibição de recursos do Kubernetes no portal do Azure
           href: kubernetes-portal.md
         - name: Usar o painel do Kubernetes
           href: kubernetes-dashboard.md
@@ -250,6 +256,8 @@
           href: kubernetes-service-principal.md
         - name: Usar identidades gerenciadas
           href: use-managed-identity.md
+        - name: Usar a identidade do pod do AAD (versão prévia)
+          href: use-azure-ad-pod-identity.md
         - name: Limitar o acesso ao arquivo de configuração de cluster
           href: control-kubeconfig-access.md
         - name: Proteger o tráfego de pod com políticas de rede
@@ -288,8 +296,8 @@
         - name: Azure Monitor para contêineres
           href: ../azure-monitor/insights/container-insights-overview.md
           maintainContext: true
-        - name: Exibir os logs do componente mestre
-          href: view-master-logs.md
+        - name: Ver os logs de componente do painel de controle
+          href: view-control-plane-logs.md
         - name: Exibir os logs de kubelet
           href: kubelet-logs.md
         - name: Exibir dados de contêiner em tempo real
@@ -325,9 +333,13 @@
           href: spark-job.md
         - name: Usar GPUs
           href: gpu-cluster.md
-        - name: Usar o Banco de Dados do Azure para PostgreSQL
-          href: ../postgresql/concepts-aks.md
+        - name: Criar um aplicativo com PostgreSQL
+          href: ../postgresql/flexible-server/tutorial-django-aks-database.md
+        - name: Criar um aplicativo com MySQL
+          href: ../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md
           maintainContext: true
+        - name: Implantar um aplicativo do Open Liberty ou do WebSphere Liberty
+          href: howto-deploy-java-liberty-app.md
         - name: Usar gerenciamento de API do Azure
           href: ../api-management/api-management-kubernetes.md
           maintainContext: true

@@ -11,14 +11,14 @@ ms.topic: conceptual
 author: monhaber
 ms.author: ronmat
 ms.reviewer: vanto, sstein
-ms.date: 09/21/2020
+ms.date: 12/01/2020
 tags: azure-synapse
-ms.openlocfilehash: f83b9515e16fcf2c2158586297545206d57e1a6e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 931e914cd3c184136395a9bb9a7e148a90e9fb91
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785112"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461922"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Proteção avançada contra ameaças para o banco de dados SQL do Azure, o SQL Instância Gerenciada e o Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -35,7 +35,7 @@ Para uma experiência de investigação completa, é recomendável habilitar a a
 
 ## <a name="alerts"></a>Alertas
 
-A Proteção Avançada contra Ameaças para o Banco de Dados SQL do Azure detecta atividades anômalas que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar bancos de dados. Para obter uma lista de alertas para o banco de dados SQL do Azure, consulte os [alertas para o banco de dados SQL e o Azure Synapse Analytics (anteriormente SQL data warehouse) na central de segurança do Azure](../../security-center/alerts-reference.md#alerts-sql-db-and-warehouse).
+A Proteção Avançada contra Ameaças para o Banco de Dados SQL do Azure detecta atividades anômalas que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar bancos de dados. Para obter uma lista de alertas para o banco de dados SQL do Azure, consulte os [alertas para o banco de dados SQL e o Azure Synapse Analytics na central de segurança do Azure](../../security-center/alerts-reference.md#alerts-sql-db-and-warehouse).
 
 ## <a name="explore-detection-of-a-suspicious-event"></a>Explorar a detecção de um evento suspeito
 
@@ -58,6 +58,10 @@ Você receberá uma notificação por email na detecção das atividades anormai
 A proteção avançada contra ameaças integra seus alertas à [central de segurança do Azure](https://azure.microsoft.com/services/security-center/). Blocos de proteção avançada contra ameaças do SQL Live no banco de dados e SQL Azure as lâminas do defender no portal do Azure acompanhar o status das ameaças ativas.
 
 Clique em **alerta de proteção avançada contra ameaças** para iniciar a página de alertas da central de segurança do Azure e obtenha uma visão geral das ameaças do SQL ativas detectadas no banco de dados.
+
+:::image type="content" source="media/azure-defender-for-sql/advanced-threat-protection-alerts.png" alt-text="Visão geral de alertas da proteção avançada contra ameaças no banco de dados":::
+
+:::image type="content" source="media/azure-defender-for-sql/advanced-threat-protection.png" alt-text="proteção avançada contra ameaças na central de segurança":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -14,9 +14,7 @@
           href: Quickstarts/create-publish-knowledge-base.md
         - name: Consultar uma base de dados de conhecimento
           href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
-    - name: Usar o REST
-      href: Quickstarts/quickstart-rest-curl.md
-    - name: Usando o SDK
+    - name: Usar as bibliotecas de cliente ou a API REST
       href: Quickstarts/quickstart-sdk.md
 - name: Tutoriais
   items:
@@ -32,6 +30,8 @@
       href: Concepts/azure-resources.md
     - name: Fontes de dados e conteúdo
       href: Concepts/data-sources-and-content.md
+    - name: RBAC do Azure (controle de acesso baseado em função do Azure)
+      href: Concepts/role-based-access-control.md
     - name: Processo do classificador
       displayName: 'DefaultAnswer, Default answer'
       href: Concepts/query-knowledge-base.md
@@ -48,7 +48,7 @@
     - name: Gerenciar recursos do Azure
       href: How-To/set-up-qnamaker-service-azure.md
       displayName: 'azure, resource, key, upgrade, pricing, tier,'
-    - name: Gerenciar o aplicativo QnA Maker
+    - name: Gerenciar o acesso aos recursos do QnA Maker
       href: How-To/manage-qna-maker-app.md
     - name: Ativar o aprendizado ativo
       href: How-To/use-active-learning.md
@@ -67,6 +67,8 @@
       items:
         - name: Editar par do QnA
           href: How-To/edit-knowledge-base.md
+        - name: Adicionar marcas de metadados
+          href: Quickstarts/add-question-metadata-portal.md
         - name: Adicionar avisos de acompanhamento
           href: How-To/multiturn-conversation.md
           displayName: 'multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question'
@@ -92,8 +94,8 @@
       href: Concepts/confidence-score.md
     - name: Solução de problemas
       href: troubleshooting.md
-    - name: Pares de pergunta e resposta
-      href: Concepts/question-answer-set.md
+    - name: Resposta precisa
+      href: reference-precise-answering.md
     - name: Adicionar arquivos protegidos do SharePoint
       href: How-To/add-sharepoint-datasources.md
       displayName: 'Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication'
@@ -101,34 +103,28 @@
       href: How-To/change-default-answer.md
     - name: Configuração de serviço
       href: reference-app-service.md
-    - name: Formatos de dados e de conteúdo
-      items:
-        - name: Diretrizes para formato de conteúdo
-          href: reference-document-format-guidelines.md
-        - name: URLs
-          href: reference-document-type-url.md
-        - name: Diretrizes para importação e exportação de dados
-          href: reference-data-guidelines.md
+    - name: Diretrizes para formato de conteúdo
+      href: reference-document-format-guidelines.md
     - name: Formato de exibição
       href: reference-markdown-format.md
+    - name: Links Privados
+      href: reference-private-endpoint.md
     - name: Formato de teste em lote
       href: reference-tsv-format-batch-testing.md
     - name: Criptografia
       href: qna-maker-encryption-of-data-at-rest.md
     - name: referência da API REST
       items:
-        - name: APIs de criação
-          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase'
-        - name: API do GenerateAnswer
-          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer'
-        - name: API de treinamento
-          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train'
+        - name: QnA Maker 4.0
+          href: /rest/api/cognitiveservices/qnamaker4.0/alterations
+        - name: QnA Maker 5.0 Versão Prévia 1
+          href: /rest/api/cognitiveservices/qnamakerv5.0-preview.1/alterations
     - name: SDKs
       items:
         - name: C#
           items:
             - name: Documentação de referência
-              href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet'
+              href: /dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet
             - name: Pacote NuGet
               href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/'
             - name: Exemplos
@@ -144,7 +140,7 @@
         - name: JavaScript
           items:
             - name: Documentação de referência
-              href: 'https://docs.microsoft.com/javascript/api/%40azure/cognitiveservices-qnamaker/index?view=azure-node-latest'
+              href: /javascript/api/%40azure/cognitiveservices-qnamaker/index?view=azure-node-latest
             - name: NPM – criação
               href: 'https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker'
             - name: NPM – runtime de consulta
@@ -154,7 +150,7 @@
         - name: Python
           items:
             - name: Documentação de referência
-              href: 'https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python'
+              href: /python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python
             - name: Pip
               href: 'https://pypi.org/project/azure-cognitiveservices-knowledge-qnamaker/'
             - name: Exemplos
@@ -176,7 +172,7 @@
     - name: Preços e limites
       href: 'https://aka.ms/qnamaker-pricing'
     - name: Search
-      href: 'https://docs.microsoft.com/search/index?search=QnAMaker'
+      href: /search/index?search=QnAMaker
     - name: Blog
       href: 'https://blog.botframework.com/category/QnAMaker/'
 - name: Portal do QnA Maker

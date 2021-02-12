@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 528fe5dea533faf9447e03dd901568d783891ce9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ddc94301ae8954fb0a35827ebd21e090c9dfe89
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88718927"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734691"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>Tutorial – Gerenciar discos do Azure com o Azure PowerShell
 
@@ -64,7 +64,7 @@ Embora a tabela acima identifique a IOPS máxima por disco, um nível mais alto 
 
 Para concluir o exemplo neste tutorial, você deverá ter uma máquina virtual. Se necessário, crie uma máquina virtual com os seguintes comandos.
 
-Defina o nome de usuário e a senha necessários para a conta de administrador na máquina virtual com [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1):
+Defina o nome de usuário e a senha necessários para a conta de administrador na máquina virtual com [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 
 Crie a máquina virtual com [New-AzVM](/powershell/module/az.compute/new-azvm). Você será solicitado a inserir um nome de usuário e senha para a conta de administradores para a VM.

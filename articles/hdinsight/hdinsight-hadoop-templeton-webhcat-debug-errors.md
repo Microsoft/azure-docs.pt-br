@@ -1,19 +1,16 @@
 ---
 title: Entenda e resolva erros do WebHCat no Azure HDInsight
 description: Saiba sobre erros comuns retornados pelo WebHCat no HDInsight e como resolvê-los.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
-ms.openlocfilehash: dbae7254949eaa642b8344b4e550de4a44b2f33f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ce7a21a2b5401c68c6b58bc934fb20b0225ba8ad
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545966"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945457"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Entenda e resolva erros recebidos do WebHCat no HDInsight
 
@@ -39,7 +36,7 @@ Se os seguintes valores padrão forem excedidos, isso poderá prejudicar o desem
 
 ## <a name="too-many-requests"></a>Número excessivo de solicitações
 
-**Código de status HTTP** : 429
+**Código de status HTTP**: 429
 
 | Causa | Resolução |
 | --- | --- |
@@ -47,7 +44,7 @@ Se os seguintes valores padrão forem excedidos, isso poderá prejudicar o desem
 
 ## <a name="server-unavailable"></a>Servidor indisponível
 
-**Código de status HTTP** : 503
+**Código de status HTTP**: 503
 
 | Causa | Resolução |
 | --- | --- |
@@ -55,7 +52,7 @@ Se os seguintes valores padrão forem excedidos, isso poderá prejudicar o desem
 
 ## <a name="bad-request-content-could-not-find-job"></a>Conteúdo de solicitação inválido: Não foi possível localizar o trabalho
 
-**Código de status HTTP** : 400
+**Código de status HTTP**: 400
 
 | Causa | Resolução |
 | --- | --- |
@@ -65,7 +62,7 @@ Se os seguintes valores padrão forem excedidos, isso poderá prejudicar o desem
 
 ## <a name="bad-gateway"></a>Gateway inválido
 
-**Código de status HTTP** : 502
+**Código de status HTTP**: 502
 
 | Causa | Resolução |
 | --- | --- |
@@ -77,13 +74,7 @@ Se os seguintes valores padrão forem excedidos, isso poderá prejudicar o desem
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
-
-* Obtenha respostas de especialistas do Azure por meio do [Suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
-
-* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Como se conectar à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
-
-* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte** . Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]
 
 [maximum-applications]: https://docs.cloudera.com/HDPDocuments/HDP2/HDP-2.1.3/bk_system-admin-guide/content/setting_application_limits.html
 [max-procs]: https://cwiki.apache.org/confluence/display/Hive/WebHCat+Configure#WebHCatConfigure-WebHCatConfiguration

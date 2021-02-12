@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: f0ec9d2a3794ea910339b4d329bb28f23c5a76b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4baca7f261aa7544b54992a5e1ddf620794774f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91297351"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962273"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Solucionar problemas e erros comuns do serviço de migração de banco de dados do Azure
 
@@ -25,7 +25,7 @@ Este artigo descreve alguns problemas comuns e erros que os usuários do serviç
 > [!NOTE]
 > Comunicação livre de desvio
 >
-> A Microsoft dá suporte a um ambiente diversificado e de inclusão. Este artigo contém referências à palavra _subordinada_. O [Guia de estilo da Microsoft para comunicação sem tendência](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) reconhece isso como uma palavra de exclusão. A palavra é usada neste artigo para fins de consistência porque, atualmente, ela é a palavra que aparece no software. Quando o software for atualizado para remover a palavra, este artigo será atualizado para estar em alinhamento.
+> A Microsoft é compatível com um ambiente diversificado e inclusivo. Este artigo contém referências à palavra _escravo_. O [guia de estilo para comunicação sem desvios](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) da Microsoft reconhece esse termo como uma palavra excludente. A palavra é usada neste artigo para fins de consistência, uma vez que, atualmente, é a palavra que aparece no software. Quando o software for atualizado e esta palavra for removida, este artigo será atualizado para manter o alinhamento.
 >
 
 ## <a name="migration-activity-in-queued-state"></a>Atividade de migração no estado enfileirado
@@ -54,7 +54,7 @@ Quando você migra do MySQL para o banco de dados do Azure para MySQL usando o s
 
 | Causa         | Resolução |
 | ------------- | ------------- |
-| Esse erro pode ocorrer quando o usuário que está fazendo a migração não tem a função ReplicationAdmin e/ou privilégios de cliente de replicação, réplica de replicação e SUPER (versões anteriores ao MySQL 5.6.6).<br><br><br><br><br><br><br><br><br><br><br><br><br> | Verifique se os [privilégios de pré-requisito](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#prerequisites) para a conta de usuário estão configurados com precisão na instância do banco de dados do Azure para MySQL. Por exemplo, as etapas a seguir podem ser seguidas para criar um usuário chamado ' Migrateuser ' com os privilégios necessários:<br>1. criar migrateuser@ de usuário '% ' identificado por ' Secret '; <br>2. conceder todos os privilégios em db_name. * para ' Migrateuser ' @ '% ' identificado por ' Secret '; Repita esta etapa para conceder acesso a mais bancos de dados <br>3. conceda a replicação subordinada em *.* para ' Migrateuser ' @ '% ' identificado por ' Secret ';<br>4. conceda o cliente de replicação no *.* para ' Migrateuser ' @ '% ' identificado por ' Secret ';<br>5. liberar privilégios; |
+| Esse erro pode ocorrer quando o usuário que está fazendo a migração não tem a função ReplicationAdmin e/ou privilégios de cliente de replicação, réplica de replicação e SUPER (versões anteriores ao MySQL 5.6.6).<br><br><br><br><br><br><br><br><br><br><br><br><br> | Verifique se os [privilégios de pré-requisito](./tutorial-mysql-azure-mysql-online.md#prerequisites) para a conta de usuário estão configurados com precisão na instância do banco de dados do Azure para MySQL. Por exemplo, as etapas a seguir podem ser seguidas para criar um usuário chamado ' Migrateuser ' com os privilégios necessários:<br>1. criar migrateuser@ de usuário '% ' identificado por ' Secret '; <br>2. conceder todos os privilégios em db_name. * para ' Migrateuser ' @ '% ' identificado por ' Secret '; Repita esta etapa para conceder acesso a mais bancos de dados <br>3. conceda a replicação subordinada em *.* para ' Migrateuser ' @ '% ' identificado por ' Secret ';<br>4. conceda o cliente de replicação no *.* para ' Migrateuser ' @ '% ' identificado por ' Secret ';<br>5. liberar privilégios; |
 
 ## <a name="error-when-attempting-to-stop-azure-database-migration-service"></a>Erro ao tentar parar o serviço de migração de banco de dados do Azure
 
@@ -84,7 +84,7 @@ Quando você executa uma migração online do SQL Server para o SQL Instância G
 
 | Causa         | Resolução    |
 | ------------- | ------------- |
-| Esse erro indica que a entidade de segurança de aplicativo que está sendo usada para migração online do SQL Server para o SQL Instância Gerenciada não tem permissão de colaboração na assinatura. Determinadas chamadas à API com Instância Gerenciada no momento exigem essa permissão na assinatura para a operação de restauração. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | Use o `Get-AzureADServicePrincipal` cmdlet do PowerShell com `-ObjectId` disponível na mensagem de erro para listar o nome de exibição da ID do aplicativo que está sendo usada.<br><br> Valide as permissões para esse aplicativo e verifique se ele tem a [função de colaborador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) no nível da assinatura. <br><br> A equipe de engenharia do serviço de migração de banco de dados do Azure está trabalhando para restringir o acesso necessário da função atual do Contribute na assinatura. Se você tiver um requisito de negócios que não permita o uso da função do Contribute, entre em contato com o suporte do Azure para obter ajuda adicional. |
+| Esse erro indica que a entidade de segurança de aplicativo que está sendo usada para migração online do SQL Server para o SQL Instância Gerenciada não tem permissão de colaboração na assinatura. Determinadas chamadas à API com Instância Gerenciada no momento exigem essa permissão na assinatura para a operação de restauração. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | Use o `Get-AzureADServicePrincipal` cmdlet do PowerShell com `-ObjectId` disponível na mensagem de erro para listar o nome de exibição da ID do aplicativo que está sendo usada.<br><br> Valide as permissões para esse aplicativo e verifique se ele tem a [função de colaborador](../role-based-access-control/built-in-roles.md#contributor) no nível da assinatura. <br><br> A equipe de engenharia do serviço de migração de banco de dados do Azure está trabalhando para restringir o acesso necessário da função atual do Contribute na assinatura. Se você tiver um requisito de negócios que não permita o uso da função do Contribute, entre em contato com o suporte do Azure para obter ajuda adicional. |
 
 ## <a name="error-when-deleting-nic-associated-with-azure-database-migration-service"></a>Erro ao excluir a NIC associada ao serviço de migração de banco de dados do Azure
 
@@ -102,7 +102,7 @@ Quando você tenta se conectar à fonte no assistente de projeto de serviço de 
 
 | Causa         | Resolução    |
 | ------------- | ------------- |
-| Ao usar o [ExpressRoute](https://azure.microsoft.com/services/expressroute/), o serviço de migração de banco de dados do Azure [requer](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) o provisionamento de três pontos de extremidade de serviço na sub-rede da rede virtual associada ao serviço:<br> --Ponto de extremidade do barramento de serviço<br> --Ponto de extremidade de armazenamento<br> --Ponto de extremidade do banco de dados de destino (por exemplo, ponto Cosmos DB de extremidade SQL, ponto de extremidade<br><br><br><br><br> | [Habilite](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) os pontos de extremidade de serviço necessários para conectividade de ExpressRoute entre o serviço de migração de banco de dados de origem e do Azure. <br><br><br><br><br><br><br><br> |
+| Ao usar o [ExpressRoute](https://azure.microsoft.com/services/expressroute/), o serviço de migração de banco de dados do Azure [requer](./tutorial-sql-server-azure-sql-online.md) o provisionamento de três pontos de extremidade de serviço na sub-rede da rede virtual associada ao serviço:<br> --Ponto de extremidade do barramento de serviço<br> --Ponto de extremidade de armazenamento<br> --Ponto de extremidade do banco de dados de destino (por exemplo, ponto Cosmos DB de extremidade SQL, ponto de extremidade<br><br><br><br><br> | [Habilite](./tutorial-sql-server-azure-sql-online.md) os pontos de extremidade de serviço necessários para conectividade de ExpressRoute entre o serviço de migração de banco de dados de origem e do Azure. <br><br><br><br><br><br><br><br> |
 
 ## <a name="lock-wait-timeout-error-when-migrating-a-mysql-database-to-azure-db-for-mysql"></a>Erro de tempo limite de espera de bloqueio ao migrar um banco de dados MySQL para o BD do Azure para MySQL
 
@@ -126,13 +126,13 @@ Quando você tenta conectar o serviço de migração de banco de dados do Azure 
 
 ## <a name="additional-known-issues"></a>Problemas conhecidos adicionais
 
-* [Problemas conhecidos/limitações de migração com migrações online para o banco de dados SQL do Azure](https://docs.microsoft.com/azure/dms/known-issues-azure-sql-online)
-* [Problemas conhecidos/limitações de migração com migrações online para o banco de dados do Azure para MySQL](https://docs.microsoft.com/azure/dms/known-issues-azure-mysql-online)
-* [Problemas conhecidos/limitações de migração com migrações online para o banco de dados do Azure para PostgreSQL](https://docs.microsoft.com/azure/dms/known-issues-azure-postgresql-online)
+* [Problemas conhecidos/limitações de migração com migrações online para o banco de dados SQL do Azure](./known-issues-azure-sql-online.md)
+* [Problemas conhecidos/limitações de migração com migrações online para o banco de dados do Azure para MySQL](./known-issues-azure-mysql-online.md)
+* [Problemas conhecidos/limitações de migração com migrações online para o banco de dados do Azure para PostgreSQL](./known-issues-azure-postgresql-online.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Exiba o artigo [PowerShell do serviço de migração de banco de dados do Azure](https://docs.microsoft.com/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration).
-* Exiba o artigo [como configurar parâmetros de servidor no banco de dados do Azure para MySQL usando o portal do Azure](https://docs.microsoft.com/azure/mysql/howto-server-parameters).
-* Veja o artigo [visão geral dos pré-requisitos para usar o serviço de migração de banco de dados do Azure](https://docs.microsoft.com/azure/dms/pre-reqs).
-* Consulte as [perguntas frequentes sobre como usar o serviço migração de banco de dados do Azure](https://docs.microsoft.com/azure/dms/faq).
+* Exiba o artigo [PowerShell do serviço de migração de banco de dados do Azure](/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration).
+* Exiba o artigo [como configurar parâmetros de servidor no banco de dados do Azure para MySQL usando o portal do Azure](../mysql/howto-server-parameters.md).
+* Veja o artigo [visão geral dos pré-requisitos para usar o serviço de migração de banco de dados do Azure](./pre-reqs.md).
+* Consulte as [perguntas frequentes sobre como usar o serviço migração de banco de dados do Azure](./faq.md).

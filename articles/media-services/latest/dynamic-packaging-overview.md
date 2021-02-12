@@ -1,6 +1,5 @@
 ---
 title: Empacotamento dinâmico nos Serviços de Mídia do Azure v3
-titleSuffix: Azure Media Services
 description: Este artigo apresenta uma visão geral do empacotamento dinâmico nos Serviços de Mídia do Azure.
 author: myoungerman
 manager: femila
@@ -14,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: 7941d542ca2cab1637b9edaef057f740a9a1b7ef
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: ed2c5b4175745fa14864b2d360bcbf5e5237a495
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016818"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897638"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Empacotamento dinâmico nos Serviços de Mídia v3
 

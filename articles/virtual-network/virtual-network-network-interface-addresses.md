@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: allensu
-ms.openlocfilehash: 265ed0f4cb58a321bde78714f36123bf197d42f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fd0cfe644ad78059e25d5386cd1a01f56ad9fba
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84710993"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216981"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Adicionar, alterar ou remover endereços IP para um adaptador de rede do Azure
 
@@ -54,10 +54,10 @@ Você pode adicionar quantos endereços [IPv4](#ipv4) [públicos](#public) e [pr
 
    |Configuração|Necessário?|Detalhes|
    |---|---|---|
-   |Nome|Sim|Deve ser exclusivo ao adaptador de rede|
-   |Type|Sim|Como você está adicionando uma configuração de IP a um adaptador de rede existente, e cada adaptador de rede deve ter uma configuração de IP [primária](#primary), sua única opção é **Secundária**.|
-   |Método de atribuição de endereço IP privado|Sim|[**Dinâmico**](#dynamic): o Azure atribui o próximo endereço disponível para o intervalo de endereços de sub-rede na qual o adaptador de rede está implantado. [**Estático**](#static): você atribui um endereço não utilizado ao intervalo de endereços de sub-rede na qual o adaptador de rede está implantado.|
-   |Endereço IP público|Não|**Desabilitado:** no momento, nenhum recurso de endereço IP público está associado à configuração de IP. **Habilitado:** selecione um endereço IP público IPv4 existente ou crie um novo. Para saber como criar um endereço IP público, leia o artigo [Endereços IP públicos](virtual-network-public-ip-address.md#create-a-public-ip-address).|
+   |Nome|Yes|Deve ser exclusivo ao adaptador de rede|
+   |Tipo|Yes|Como você está adicionando uma configuração de IP a um adaptador de rede existente, e cada adaptador de rede deve ter uma configuração de IP [primária](#primary), sua única opção é **Secundária**.|
+   |Método de atribuição de endereço IP privado|Yes|[**Dinâmico**](#dynamic): o Azure atribui o próximo endereço disponível para o intervalo de endereços de sub-rede na qual o adaptador de rede está implantado. [**Estático**](#static): você atribui um endereço não utilizado ao intervalo de endereços de sub-rede na qual o adaptador de rede está implantado.|
+   |Endereço IP público|No|**Desabilitado:** no momento, nenhum recurso de endereço IP público está associado à configuração de IP. **Habilitado:** selecione um endereço IP público IPv4 existente ou crie um novo. Para saber como criar um endereço IP público, leia o artigo [Endereços IP públicos](virtual-network-public-ip-address.md#create-a-public-ip-address).|
 6. Adicione manualmente endereços IP privados secundários ao sistema operacional da máquina virtual seguindo as instruções do artigo [Como atribuir vários endereços IP a sistemas operacionais de máquina virtual](virtual-network-multiple-ip-addresses-portal.md#os-config). Confira endereços IP [privados](#private) para ver considerações especiais antes de adicionar manualmente os endereços IP ao sistema operacional de uma máquina virtual. Não adicione endereços IP públicos ao sistema operacional da máquina virtual.
 
 **Comandos**
@@ -130,7 +130,7 @@ Além de uma configuração de IP primário, um adaptador de rede pode ter vári
 
 Você pode atribuir os seguintes tipos de endereços IP a uma [configuração de IP](#ip-configurations):
 
-### <a name="private"></a>Particular
+### <a name="private"></a>Privado
 
 Os endereços [IPv4](#ipv4) ou IPv6 privados permitem que uma máquina virtual se comunique com outros recursos em uma rede virtual ou em outras redes conectadas. 
 
@@ -200,7 +200,7 @@ Não é possível atribuir um endereço IPv6 público a uma configuração de IP
 Um endereço IP público é criado com o SKU Básico ou Standard. Para obter mais informações sobre as diferenças em SKUs, consulte [Gerenciar endereços IP públicos](virtual-network-public-ip-address.md).
 
 > [!NOTE]
-> Quando você atribui um endereço IP público de SKU padrão ao adaptador de rede de uma máquina virtual, deve permitir explicitamente o tráfego pretendido com um [grupo de segurança de rede](security-overview.md#network-security-groups). A comunicação com o recurso falha até que você crie e associe um grupo de segurança de rede e permita o tráfego desejado explicitamente.
+> Quando você atribui um endereço IP público de SKU padrão ao adaptador de rede de uma máquina virtual, deve permitir explicitamente o tráfego pretendido com um [grupo de segurança de rede](./network-security-groups-overview.md#network-security-groups). A comunicação com o recurso falha até que você crie e associe um grupo de segurança de rede e permita o tráfego desejado explicitamente.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para criar uma máquina virtual com diferentes configurações de IP, leia os seguintes artigos:

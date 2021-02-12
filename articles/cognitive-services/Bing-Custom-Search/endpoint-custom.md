@@ -10,19 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: a7aa2b75a6f6e95bdeff4176ee2ad852de3d7169
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 35dd147574eb7820debba55b105deed001be80fb
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090691"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96338479"
 ---
 # <a name="custom-search"></a>Pesquisa Personalizada
 
 > [!WARNING]
-> APIs de Pesquisa do Bing estão mudando de serviços cognitivas para serviços Pesquisa do Bings. A partir de **30 de outubro de 2020** , todas as novas instâncias do pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
-> APIs de Pesquisa do Bing provisionado usando serviços cognitivas terão suporte nos próximos três anos ou até o final do seu Enterprise Agreement, o que ocorrer primeiro.
-> Para obter instruções de migração, consulte [serviços de pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 A Pesquisa Personalizada do Bing permite que você crie experiências de pesquisa personalizada para os tópicos importantes para você. Os usuários veem os resultados da pesquisa personalizados ao conteúdo importante para eles, em vez de terem que acessar os resultados da pesquisa com conteúdo irrelevante.
 
 ## <a name="custom-search-endpoint"></a>Ponto de Extremidade da Pesquisa Personalizada do Bing
@@ -33,10 +33,10 @@ Ponto de extremidade: retorna as sugestões de pesquisa como resultados JSON rel
  GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search  
 ```
 
-Para obter exemplos que descrevem como configurar fontes de Pesquisa Personalizada, veja o [tutorial](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page). Para obter detalhes sobre cabeçalhos, parâmetros, códigos de mercado, objetos de resposta, erros etc., veja a referência [API de Pesquisa Personalizada do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference).
+Para obter exemplos que descrevem como configurar fontes de Pesquisa Personalizada, veja o [tutorial](./tutorials/custom-search-web-page.md). Para obter detalhes sobre cabeçalhos, parâmetros, códigos de mercado, objetos de resposta, erros etc., veja a referência [API de Pesquisa Personalizada do Bing v7](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference).
 
 ## <a name="custom-search-response-json"></a>JSON de Resposta da Pesquisa Personalizada
-Uma solicitação de pesquisa personalizada retorna resultados como objetos JSON, veja [Objetos de resposta](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#response-objects). 
+Uma solicitação de pesquisa personalizada retorna resultados como objetos JSON, veja [Objetos de resposta](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#response-objects). 
 
 ## <a name="custom-autosuggest"></a>Sugestão Automática Personalizada
 A API de sugestão automática personalizada permite que você envie um termo de consulta de pesquisa parcial com o Bing e obtenha uma lista de consultas sugeridas que podem ser configuradas. Com a Sugestão Automática Personalizada, você adiciona as sugestões retornadas pela API e opcionalmente especifique se as sugestões geradas pelo Bing devem ser incluídas.
@@ -60,10 +60,10 @@ Para solicitar imagens de sua instância da Pesquisa Personalizada, envie uma so
 https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/images/search
 ```
 
-Para saber mais sobre como configurar uma instância da Pesquisa Personalizada, veja [Configurar sua experiência de pesquisa personalizada](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/define-your-custom-view).
+Para saber mais sobre como configurar uma instância da Pesquisa Personalizada, veja [Configurar sua experiência de pesquisa personalizada](./define-your-custom-view.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 As APIs do **Bing** dão suporte a ações de pesquisa que retornam os resultados de acordo com seu tipo. Todos os pontos de extremidade de pesquisa retornam os resultados como objetos de resposta JSON.  Todos os pontos de extremidade dão suporte a consultas que retornam um idioma e/ou um local específico por longitude, latitude e raio de pesquisa.
 
 Para obter informações completas sobre os parâmetros compatíveis com cada ponto de extremidade, confira as páginas de referência de cada tipo.
-Para obter exemplos de solicitações básicas usando a API de Pesquisa Personalizada, veja [Inícios rápidos sobre a Pesquisa Personalizada](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/)
+Para obter exemplos de solicitações básicas usando a API de Pesquisa Personalizada, veja [Inícios rápidos sobre a Pesquisa Personalizada](/azure/cognitive-services/bing-custom-search/)

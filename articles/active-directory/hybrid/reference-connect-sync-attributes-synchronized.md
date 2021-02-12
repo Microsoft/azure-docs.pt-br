@@ -16,12 +16,12 @@ ms.date: 04/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9411c22183620f883b4d2819eb3078e49837e578
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ec05c4160c6502904644bf7035bda0bed66cc33
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90016071"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413183"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Sincronização do Azure AD Connect: atributos sincronizados com o Active Directory do Azure
 Este tópico lista os atributos que são sincronizados pela sincronização do Azure AD Connect.  
@@ -373,7 +373,7 @@ Nesse caso, comece com a lista de atributos neste tópico e identifique os atrib
 Esse grupo é um conjunto de atributos usados como os atributos mínimos necessários para uma carga de trabalho ou um aplicativo genérico. Ele pode ser usado para uma carga de trabalho não listada em outra seção ou para um aplicativo não Microsoft. Explicitamente, ele é usado para o seguinte:
 
 * Yammer (somente o Usuário é consumido)
-* [Cenários de colaboração híbrida entre organizações B2B (entre empresas) oferecidos por recursos como o SharePoint](https://go.microsoft.com/fwlink/?LinkId=747036)
+* [Cenários de colaboração híbrida entre organizações B2B (entre empresas) oferecidos por recursos como o SharePoint](/sharepoint/create-b2b-extranet)
 
 Esse grupo é um conjunto de atributos que podem ser usados se o diretório do Azure AD não for usado para dar suporte a Microsoft 365, Dynamics ou Intune. Ele tem um pequeno conjunto de atributos principais. Observe que o logon único ou o provisionamento para alguns aplicativos de terceiros requer a configuração da sincronização de atributos, além dos atributos descritos aqui. Os requisitos do aplicativo são descritos no tutorial do aplicativo [SaaS](../saas-apps/tutorial-list.md) para cada aplicativo.
 

@@ -4,12 +4,12 @@ description: Saiba o que há de novo no serviço Blockchain do Azure, como as ú
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
-ms.openlocfilehash: 47e0da5a729519f2af3c5b2a2fd3e0f7485624cf
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 6a3113a2d28e704b188d701da13493ecd8263cab
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948452"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335019"
 ---
 # <a name="whats-new-in-azure-blockchain-service"></a>O que há de novo no serviço Blockchain do Azure?
 
@@ -27,7 +27,7 @@ O serviço Blockchain do Azure recebe melhorias em uma base contínua. Para se m
 
 ### <a name="version-upgrades"></a>Atualizações de versão
 
-- Atualização da versão de quorum para 2.6.0. Com a versão 2.6.0, você pode enviar transações privadas assinadas. Para obter mais informações sobre como enviar transações privadas, consulte a [documentação da API de quorum](https://docs.goquorum.com/en/latest/Getting%20Started/api/).
+- Atualização da versão de quorum para 2.6.0. Com a versão 2.6.0, você pode enviar transações privadas assinadas. Para obter mais informações sobre como enviar transações privadas, consulte a [documentação da API de quorum](https://docs.goquorum.consensys.net/en/latest/Reference/APIs/ContractExtensionAPIs/#apis).
 - Atualização da versão do Tessera para 0.10.5.
 
 ### <a name="contract-size-and-transaction-size-increased-to-128-kb"></a>Tamanho do contrato e tamanho da transação aumentados para 128 KB
@@ -69,7 +69,7 @@ Duas fases ajudam a otimizar cenários em que um membro está sendo criado em um
 No quorum v 2.6.0, as chamadas para a função *ETH. estimateGas* sem fornecer o parâmetro de *valor* adicional causam uma falha na exceção do *manipulador de método* . A equipe de quorum foi notificada e uma correção é esperada no final de julho de 2020. Você pode usar as seguintes soluções alternativas até que uma correção esteja disponível:
 
 - Evite usar *ETH. estimateGas* , já que ele pode afetar o desempenho. Para obter mais informações sobre problemas de desempenho ETH. estimateGas, consulte [chamando a função ETH. estimateGas reduz o desempenho](#calling-ethestimategas-function-reduces-performance). Inclua um valor de gás para cada transação. A maioria das bibliotecas chamará ETH. estimateGas se um valor de gás não for fornecido, fazendo com que o quorum v 2.6.0 falhe.
-- Se você precisar chamar *ETH. estimateGas*, a equipe de quorum sugere que você passe o *valor* de parâmetro adicional como *0* como uma solução alternativa.
+- Se você precisar chamar *ETH. estimateGas* , a equipe de quorum sugere que você passe o *valor* de parâmetro adicional como *0* como uma solução alternativa.
 
 ### <a name="mining-stops-if-fewer-than-four-validator-nodes"></a>A mineração será interrompida se menos de quatro nós de validação
 
@@ -123,9 +123,9 @@ Se possível, use um valor de gás conservador para enviar transações e minimi
 
 ### <a name="unbounded-loops-in-smart-contracts-reduces-performance"></a>Loops não associados em contratos inteligentes reduzem o desempenho
 
-Evite loops não associados em contratos inteligentes, pois eles podem reduzir o desempenho. Para saber mais, consulte os recursos a seguir:
+Evite loops não associados em contratos inteligentes, pois eles podem reduzir o desempenho. Para obter mais informações, consulte os seguintes recursos:
 
 - [Evitar loops não associados](https://blog.b9lab.com/getting-loopy-with-solidity-1d51794622ad )
 - [Práticas recomendadas de segurança de contrato inteligente](https://github.com/ConsenSys/smart-contract-best-practices)
-- [Diretrizes de contrato inteligente fornecidas pelo quorum](http://docs.goquorum.com/en/latest/Security/Framework/Decentralized%20Application/Smart%20Contracts%20Security/)
+- [Diretrizes de contrato inteligente fornecidas pelo quorum](https://docs.goquorum.consensys.net/en/stable/Concepts/Security/Framework/DecentralizedApplication/SmartContractsSecurity/)
 - [Diretrizes sobre limites e loops de gás fornecidos pela solidez](https://solidity.readthedocs.io/en/develop/security-considerations.html#gas-limit-and-loops)

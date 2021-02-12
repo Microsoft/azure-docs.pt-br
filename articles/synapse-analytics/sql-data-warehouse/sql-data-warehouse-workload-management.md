@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: e54e0ed1a3292cee400774d02f61514f54370151
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5640c1e254c4738ab53881544a09808b4894a462
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85208528"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676962"
 ---
 # <a name="what-is-workload-management"></a>O que é o gerenciamento de carga de trabalho?
 
@@ -42,9 +42,9 @@ No passado, para o SQL do Synapse no Azure Synapse, você gerenciou o desempenho
 
 Por exemplo, conceder uma associação da função de usuário ad hoc ao smallrc permitia que o usuário consumisse 100% da memória no sistema.  Com as classes de recursos, não há como reservar e garantir que os recursos estejam disponíveis para cargas de trabalho críticas.
 
-O gerenciamento da carga de trabalho do pool de SQL do Synapse no Azure Synapse consiste em três conceitos de alto nível: [Classificação da carga de trabalho](sql-data-warehouse-workload-classification.md), [Importância da carga de trabalho](sql-data-warehouse-workload-importance.md) e [Isolamento da carga de trabalho](sql-data-warehouse-workload-isolation.md).  Esses recursos oferecem mais controle sobre como sua carga de trabalho utiliza os recursos do sistema.
+O gerenciamento de carga de trabalho do pool SQL dedicado no Azure Synapse consiste em três conceitos de alto nível: [classificação de carga de trabalho](sql-data-warehouse-workload-classification.md), importância da [carga](sql-data-warehouse-workload-importance.md)de trabalho e [isolamento da carga](sql-data-warehouse-workload-isolation.md)de trabalho  Esses recursos oferecem mais controle sobre como sua carga de trabalho utiliza os recursos do sistema.
 
-A classificação da carga de trabalho é o conceito de atribuir uma solicitação a um grupo de carga de trabalho e definir níveis de importância.  Historicamente, essa atribuição foi feita por meio de associação da função usando [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Agora essa ação pode ser feita por meio do [CREATE WORKLOAD CLASSIFER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  O recurso de classificação fornece um conjunto mais avançado de opções, como rótulo, sessão e tempo para classificar solicitações.
+A classificação da carga de trabalho é o conceito de atribuir uma solicitação a um grupo de carga de trabalho e definir níveis de importância.  Historicamente, essa atribuição foi feita por meio de associação da função usando [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Agora essa ação pode ser feita por meio do [CREATE WORKLOAD CLASSIFER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  O recurso de classificação fornece um conjunto mais avançado de opções, como rótulo, sessão e tempo para classificar solicitações.
 
 A importância da carga de trabalho influencia a ordem em que uma solicitação obtém acesso aos recursos.  Em um sistema ocupado, uma solicitação com maior importância acessa os recursos primeiro.  A importância também pode garantir o acesso ordenado a bloqueios.
 

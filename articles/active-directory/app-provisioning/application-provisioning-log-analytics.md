@@ -3,7 +3,7 @@ title: Entenda como o provisionamento se integra com os logs de Azure Monitor no
 description: Entenda como o provisionamento se integra com os logs de Azure Monitor no Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 68e47fe3cc674542a807ecbabd37cc6b624d5c03
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 454d44eecd4eaa6d5c1f50edbd7edb1024ace041
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145583"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256874"
 ---
 # <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>Entenda como o provisionamento se integra aos logs de Azure Monitor
 
@@ -30,13 +30,13 @@ Depois de configurar o monitoramento do Azure, você pode habilitar logs para pr
 
 :::image type="content" source="media/application-provisioning-log-analytics/diagnostic-settings.png" alt-text="Configurações de diagnóstico de acesso" lightbox="media/application-provisioning-log-analytics/diagnostic-settings.png":::
 
-:::image type="content" source="media/application-provisioning-log-analytics/enable-log-analytics.png" alt-text="Configurações de diagnóstico de acesso" lightbox="media/application-provisioning-log-analytics/enable-log-analytics.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/enable-log-analytics.png" alt-text="Habilitar logs de provisionamento de aplicativos" lightbox="media/application-provisioning-log-analytics/enable-log-analytics.png":::
 
 > [!NOTE]
 > Se você acabou de provisionar um espaço de trabalho recentemente, pode levar algum tempo para poder enviar logs para ele. Se você receber um erro de que a assinatura não está registrada para usar *o Microsoft. insights* , então, verifique novamente após alguns minutos.
  
 ## <a name="understanding-the-data"></a>Compreendendo os dados
-O fluxo de dados subjacente que o provisionamento envia para os visualizadores de log é quase idêntico. Os logs de Azure Monitor recebem quase o mesmo fluxo que a interface do usuário do portal do Azure e a API do Azure. Há apenas algumas **diferenças** nos campos de log, conforme descrito na tabela a seguir. Para saber mais sobre esses campos, consulte [list provisioningObjectSummary](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http&preserve-view=true).
+O fluxo de dados subjacente que o provisionamento envia para os visualizadores de log é quase idêntico. Os logs de Azure Monitor recebem quase o mesmo fluxo que a interface do usuário do portal do Azure e a API do Azure. Há apenas algumas **diferenças** nos campos de log, conforme descrito na tabela a seguir. Para saber mais sobre esses campos, consulte [list provisioningObjectSummary](/graph/api/provisioningobjectsummary-list?preserve-view=true&tabs=http&view=graph-rest-beta).
 
 |Logs do Azure Monitor   |Interface do usuário do portal do Azure   |API do Azure |
 |----------|-----------|------------|
@@ -45,15 +45,15 @@ O fluxo de dados subjacente que o provisionamento envia para os visualizadores d
 |activityDateTime |TimeGenerated |TimeGenerated |
 
 
-## <a name="azure-monitor-workbooks"></a>Azure Monitor pastas de trabalho
+## <a name="azure-monitor-workbooks"></a>Pastas de trabalho do Azure Monitor
 
 Azure Monitor pastas de trabalho fornecem uma tela flexível para análise de dados. Eles também fornecem a criação de relatórios visuais avançados dentro do portal do Azure. Para saber mais, consulte [visão geral de Azure monitor pastas de trabalho](../../azure-monitor/platform/workbooks-overview.md).
 
 O provisionamento de aplicativos vem com um conjunto de pastas de trabalho criadas previamente. Você pode encontrá-los na página pastas de trabalho. Para exibir os dados, você precisará garantir que todos os filtros (timerange, jobID, appName) sejam preenchidos. Você também precisará certificar-se de ter provisionado um aplicativo, caso contrário, não haverá nenhum dado nos logs.
 
-:::image type="content" source="media/application-provisioning-log-analytics/workbooks.png" alt-text="Configurações de diagnóstico de acesso" lightbox="media/application-provisioning-log-analytics/workbooks.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/workbooks.png" alt-text="Pastas de trabalho de provisionamento de aplicativos" lightbox="media/application-provisioning-log-analytics/workbooks.png":::
 
-:::image type="content" source="media/application-provisioning-log-analytics/report.png" alt-text="Configurações de diagnóstico de acesso" lightbox="media/application-provisioning-log-analytics/report.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/report.png" alt-text="Painel de provisionamento de aplicativos" lightbox="media/application-provisioning-log-analytics/report.png":::
 
 ## <a name="custom-queries"></a>Consultas personalizadas
 
@@ -100,15 +100,15 @@ Para saber mais sobre alertas, confira [responder a eventos com Azure monitor al
 
 Alertar quando houver um pico nas falhas. Substitua o jobID pelo jobID para seu aplicativo.
 
-:::image type="content" source="media/application-provisioning-log-analytics/alert1.png" alt-text="Configurações de diagnóstico de acesso" lightbox="media/application-provisioning-log-analytics/alert1.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/alert1.png" alt-text="Alertar quando houver um pico nas falhas." lightbox="media/application-provisioning-log-analytics/alert1.png":::
 
 Pode haver um problema que fez com que o serviço de provisionamento parasse de ser interrompido. Use o alerta a seguir para detectar quando não há eventos de provisionamento durante um determinado intervalo de tempo.
 
-:::image type="content" source="media/application-provisioning-log-analytics/alert2.png" alt-text="Configurações de diagnóstico de acesso" lightbox="media/application-provisioning-log-analytics/alert2.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/alert2.png" alt-text="Pode haver um problema que fez com que o serviço de provisionamento parasse de ser interrompido." lightbox="media/application-provisioning-log-analytics/alert2.png":::
 
 Alertar quando houver um pico em desabilitações ou exclusões.
 
-:::image type="content" source="media/application-provisioning-log-analytics/alert3.png" alt-text="Configurações de diagnóstico de acesso" lightbox="media/application-provisioning-log-analytics/alert3.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/alert3.png" alt-text="Alertar quando houver um pico em desabilitações ou exclusões." lightbox="media/application-provisioning-log-analytics/alert3.png":::
 
 
 ## <a name="community-contributions"></a>Contribuições da comunidade
@@ -121,4 +121,4 @@ Estamos adotando uma abordagem de software livre e baseada na Comunidade para co
 - [Introdução às consultas de log do Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 - [Criar e gerenciar grupos de alertas no portal do Azure](../../azure-monitor/platform/action-groups.md)
 - [Instalar e usar os modos de exibição do Log Analytics do Azure Active Directory](../reports-monitoring/howto-install-use-log-analytics-views.md)
-- [API de logs de provisionamento](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta.md&preserve-view=true)
+- [API de logs de provisionamento](/graph/api/resources/provisioningobjectsummary?preserve-view=true&view=graph-rest-beta.md)

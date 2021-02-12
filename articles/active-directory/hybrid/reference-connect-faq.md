@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f6c75337c27e14fb77161cf641cde0a582901e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1fa195fd8d40c6b67a9c446f0b2320fe47d75259
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90014626"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092658"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Perguntas frequentes do Azure Active Directory Connect
 
@@ -162,8 +162,8 @@ Os usuários sincronizados podem ser criados ou controlados localmente. Se a con
 **P: Por que o atributo userPrincipalName (UPN) do Azure AD não corresponde ao UPN local?**  
 Para obter informações, consulte estes artigos:
 
-* [Os nomes de acesso no Microsoft 365, no Azure ou no Intune não correspondem ao UPN local ou à ID de logon alternativa](https://support.microsoft.com/kb/2523192)
-* [As alterações não são sincronizadas pela ferramenta de sincronização do Azure Active Directory depois que você altera o UPN de uma conta de usuário para usar um domínio federado diferente](https://support.microsoft.com/kb/2669550)
+* [Os nomes de acesso no Microsoft 365, no Azure ou no Intune não correspondem ao UPN local ou à ID de logon alternativa](https://mskb.pkisolutions.com/kb/2523192)
+* [As alterações não são sincronizadas pela ferramenta de sincronização do Azure Active Directory depois que você altera o UPN de uma conta de usuário para usar um domínio federado diferente](https://mskb.pkisolutions.com/kb/2669550)
 
 Você também pode configurar o Azure AD para permitir que o mecanismo de sincronização atualize da forma descrita em [Azure AD Connect sync service features (Recursos do serviço de sincronização do Azure AD Connect)](how-to-connect-syncservice-features.md).
 
@@ -261,7 +261,7 @@ Se precisar de ajuda para atualizar para uma versão mais recente do Azure AD Co
 ## <a name="operational-best-practice"></a>Prática recomendada operacional    
 Abaixo estão algumas práticas recomendadas que você deve implementar ao sincronizar entre o Windows Server Active Directory e o Azure Active Directory.
 
-**Aplicar a autenticação multifator para todas as contas sincronizadas** A autenticação multifator do Azure ajuda a proteger o acesso a dados e aplicativos, mantendo a simplicidade para os usuários. Ele fornece segurança adicional exigindo uma segunda forma de autenticação e fornece autenticação forte por meio de uma variedade de métodos de autenticação fáceis de usar. Os usuários podem ou não ser desafiados para MFA com base em decisões de configuração tomadas por um administrador. Você pode ler mais sobre o MFA aqui: https://www.microsoft.com/security/business/identity/mfa?rtc=1
+**Aplicar a autenticação multifator para todas as contas sincronizadas** A autenticação multifator do Azure AD ajuda a proteger o acesso a dados e aplicativos, mantendo a simplicidade para os usuários. Ele fornece segurança adicional exigindo uma segunda forma de autenticação e fornece autenticação forte por meio de uma variedade de métodos de autenticação fáceis de usar. Os usuários podem ou não ser desafiados para MFA com base em decisões de configuração tomadas por um administrador. Você pode ler mais sobre o MFA aqui: https://www.microsoft.com/security/business/identity/mfa?rtc=1
 
 **Siga as diretrizes de segurança do Azure ad Connect Server** O servidor de Azure AD Connect contém dados de identidade críticos e deve ser tratado como um componente da camada 0, conforme documentado no [modelo de camada administrativa Active Directory](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material). Consulte também nossas [diretrizes para proteger seu servidor AADConnect](./how-to-connect-install-prerequisites.md#azure-ad-connect-server).
 

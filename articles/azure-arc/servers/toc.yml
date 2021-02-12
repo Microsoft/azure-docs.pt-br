@@ -37,11 +37,13 @@
           href: onboard-service-principal.md
         - name: Conectar computadores ao Azure Arc com o DSC do PowerShell
           href: onboard-dsc.md
+        - name: Conectar computadores do Windows Admin Center
+          href: onboard-windows-admin-center.md
         - name: Conectar computadores ao Azure Arc com o PowerShell
           href: onboard-powershell.md
     - name: Gerenciar
       items:
-        - name: Extensões de VM do Azure
+        - name: Extensões de VM
           items:
             - name: Visão geral
               href: manage-vm-extensions.md
@@ -53,8 +55,16 @@
               href: manage-vm-extensions-powershell.md
             - name: Implantar extensões usando o modelo do ARM
               href: manage-vm-extensions-template.md
+        - name: Usar identidades gerenciadas no servidor
+          href: managed-identity-authentication.md
         - name: Gerenciar agente
           href: manage-agent.md
+    - name: Cenários
+      items:
+        - name: Fazer a integração ao Azure Sentinel
+          href: scenario-onboard-azure-sentinel.md
+        - name: Fazer a integração à Central de Segurança do Azure
+          href: ../../security-center/quickstart-onboard-machines.md
     - name: Solução de problemas
       items:
         - name: Problemas de conexão do agente
@@ -71,12 +81,14 @@
       href: /powershell/module/az.connectedmachine
     - name: .NET
       href: /dotnet/api/overview/azure/hybridcompute/management
+    - name: REST do Azure Stack HCI
+      href: /rest/api/stackhci
     - name: REST
       href: /rest/api/hybridcompute
     - name: Go
       href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/hybridcompute/mgmt/2020-08-02/hybridcompute'
     - name: Java
-      href: /java/api/overview/azure/hybridcompute/management
+      href: /java/api/overview/azure/compute/resourcemanagement
     - name: JavaScript
       href: /javascript/api/%40azure/arm-hybridcompute
     - name: Python
@@ -87,4 +99,4 @@
 - name: Recursos
   items:
     - name: Ponto de partida do Azure Arc
-      href: 'https://github.com/microsoft/azure_arc'
+      href: 'https://azurearcjumpstart.io'

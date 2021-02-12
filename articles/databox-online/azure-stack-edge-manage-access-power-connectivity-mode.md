@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 9636c76caf2302b872a2ecbb8e2e4bacfc1408a6
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 6455e4c9fa9460e47e3be7c860f89be540a514b0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952124"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453065"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro"></a>Gerencie o modo de acesso, energia e conectividade para seu Azure Stack Edge pro
 
@@ -68,7 +68,7 @@ Ao gerar a chave de ativação para o Azure Stack dispositivo pro Edge ou execut
 
 Você deve ter `User` acesso ao Active Directory locatário, pois precisa ser capaz de fazer isso `Read all directory objects` . Você não pode ser um usuário convidado, pois não tem permissões para `Read all directory objects` . Se você for um convidado, as operações, como a geração de uma chave de ativação, a criação de um compartilhamento no dispositivo Azure Stack Edge pro, a criação de um usuário, a configuração da função de computação de borda, falharão ao redefinir a senha do dispositivo.
 
-Para obter mais informações sobre como fornecer acesso aos usuários para Microsoft Graph API, consulte [referência de permissões de Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
+Para obter mais informações sobre como fornecer acesso aos usuários para Microsoft Graph API, consulte [referência de permissões de Microsoft Graph](/graph/permissions-reference).
 
 ### <a name="register-resource-providers"></a>Registrar provedores de recursos
 
@@ -114,7 +114,7 @@ Além do modo totalmente conectado padrão, o dispositivo também pode ser execu
 Para alterar o modo de dispositivo, siga estas etapas:
 
 1. Na interface do usuário da web local do seu dispositivo, acesse **Configuração> Configurações da nuvem**.
-2. Na lista suspensa, selecione o modo no qual você deseja operar o dispositivo. Você pode selecionar entre **totalmente**conectado, **parcialmente conectado**e **totalmente desconectado**. Para executar o dispositivo no modo desconectado parcialmente, habilite **gerenciamento do portal do Azure**.
+2. Na lista suspensa, selecione o modo no qual você deseja operar o dispositivo. Você pode selecionar entre **totalmente** conectado, **parcialmente conectado** e **totalmente desconectado**. Para executar o dispositivo no modo desconectado parcialmente, habilite **gerenciamento do portal do Azure**.
 
     ![Modo de conectividade](media/azure-stack-edge-manage-access-power-connectivity-mode/connectivity-mode.png)
  

@@ -7,11 +7,11 @@ ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 6a9f2c62d8e7f17f6ea8377982c79fef3dfbb97c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88002816"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016821"
 ---
 # <a name="create-a-profile-container-with-azure-netapp-files-and-ad-ds"></a>Criar um contêiner de perfil com Azure NetApp Files e AD DS
 
@@ -123,7 +123,7 @@ Depois disso, você precisa ingressar em uma conexão de Active Directory.
 
 Em seguida, você precisará criar um novo volume.
 
-1. Selecione **volumes**e, em seguida, selecione **Adicionar volume**.
+1. Selecione **volumes** e, em seguida, selecione **Adicionar volume**.
 
 2. Quando a guia **criar um volume** for aberta, insira os seguintes valores:
 
@@ -133,7 +133,7 @@ Em seguida, você precisará criar um novo volume.
     - Para **rede virtual**, selecione uma rede virtual existente que tenha conectividade com o controlador de domínio no menu suspenso.
     - Em **sub-rede**, selecione **criar novo**. Tenha em mente que essa sub-rede será delegada a Azure NetApp Files.
 
-3.  Selecione **Avançar: protocolo \> \> ** para abrir a guia Protocolo e configurar os parâmetros de acesso ao volume.
+3.  Selecione **Avançar: protocolo \> \>** para abrir a guia Protocolo e configurar os parâmetros de acesso ao volume.
 
 ## <a name="configure-volume-access-parameters"></a>Configurar parâmetros de acesso ao volume
 

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: cshoe
-ms.openlocfilehash: e3bad12362358620d0f2dc105bb2820dfb691d00
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 673852f8f9aa81c838a7c1db68681bb9ee0b7e0b
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92000219"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862011"
 ---
 # <a name="tutorial-publish-a-jekyll-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicar um site do Jekyll na Versão Prévia dos Aplicativos Web Estáticos do Azure
 
@@ -118,7 +118,7 @@ As etapas a seguir mostram como criar um novo aplicativo de site estático e imp
 
 1. Para _Branch_, selecione **master**.
 
-    :::image type="content" source="./media/publish-jekyll/completed-github-info.png" alt-text="Detalhes preenchidos":::
+    :::image type="content" source="./media/publish-jekyll/completed-github-info.png" alt-text="Informações do GitHub concluídas":::
 
 ### <a name="build"></a>Build
 
@@ -150,7 +150,7 @@ Em seguida, você adiciona as definições de configuração que o processo de c
 
     ```yml
     - name: Set up Ruby
-      uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
+      uses: ruby/setup-ruby@v1.59.1
       with:
         ruby-version: 2.6
     - name: Install dependencies
@@ -171,7 +171,7 @@ Em seguida, você adiciona as definições de configuração que o processo de c
 
 1. Na janela _Visão geral_ do portal do Azure, clique no link da _URL_ para abrir o aplicativo implantado.
 
-   :::image type="content" source="./media/publish-jekyll/deployed-app.png" alt-text="Detalhes preenchidos":::
+   :::image type="content" source="./media/publish-jekyll/deployed-app.png" alt-text="Aplicativo implantado":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

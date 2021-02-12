@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 01/19/2021
 ms.author: alkohli
-ms.openlocfilehash: 225cb9a31b73f330d8b4ed5790caacc4fa729477
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d40d26e8fab0832a37a43c353e11189f8f193f14
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839938"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573319"
 ---
 # <a name="technical-specifications-and-compliance-for-azure-stack-edge-pro-with-gpu"></a>Especificações técnicas e conformidade para Azure Stack o Edge pro com GPU 
 
@@ -26,7 +26,7 @@ O dispositivo pro Edge Azure Stack tem as seguintes especificações para comput
 | Especificação           | Valor                  |
 |-------------------------|----------------------------|
 | CPU                     | 2 X CPU Intel Xeon Silver 4214 (Cascadey Lake)            |
-| Memória                  | 128 (8x16 GB) GB de RAM                     |
+| Memória                  | 128 (8x16 GB) GB de RAM <br> Compatível com Dell 16 GB PC4-23400 DDR4-2933Mhz 2Rx8 1.2 v ECC registrado RDIMM       |
 
 
 ## <a name="compute-acceleration-specifications"></a>Especificações de aceleração de computação
@@ -56,7 +56,7 @@ O dispositivo pro Edge Azure Stack tem seis interfaces de rede, PORT1-PORT6.
 
 | Especificação           | Descrição                 |
 |-------------------------|----------------------------|
-|  Interfaces de rede    | **interfaces 2 X 1 GbE** – 1 a porta 1 da interface de gerenciamento é usada para configuração inicial e é estática por padrão. Depois que a configuração inicial for concluída, você poderá usar a interface para dados com qualquer endereço IP. No entanto, ao redefinir, a interface reverte de volta para o IP estático. <br>A outra porta 2 da interface é configurável pelo usuário, pode ser usada para transferência de dados e é DHCP por padrão. <br>**4 X 25 interfaces GbE** – essas interfaces de dados, a porta 3 até a porta 6, podem ser configuradas pelo usuário como DHCP (padrão) ou estática. Elas também podem operar como interfaces de 10 GbE.  | 
+|  Interfaces de rede    | **interfaces 2 X 1 GbE** – 1 a porta 1 da interface de gerenciamento é usada para configuração inicial e é estática por padrão. Depois que a configuração inicial for concluída, você poderá usar a interface para dados com qualquer endereço IP. No entanto, ao redefinir, a interface reverte de volta para o IP estático. <br>A outra porta 2 da interface é configurável pelo usuário, pode ser usada para transferência de dados e é DHCP por padrão. <br>**4 X 25 interfaces GbE** – essas interfaces de dados, a porta 3 até a porta 6, podem ser configuradas pelo usuário como DHCP (padrão) ou estática. Eles também podem operar como interfaces de 10 GbE.  | 
 
 O dispositivo pro Edge Azure Stack tem o seguinte hardware de rede:
 
@@ -67,8 +67,8 @@ Estes são os detalhes da placa Mellanox:
 
 | Parâmetro           | Descrição                 |
 |-------------------------|----------------------------|
-| Modelar    | Placa de interface de rede ConnectX®-4 LX                      |
-| Descrição do modelo               | 25GbE Dual-Port SFP28; PCIe 3.0 x8; R6 DE ROHS                    |
+| Modelo    | Placa de interface de rede ConnectX®-4 LX                      |
+| Descrição do modelo               | 25 GbE de porta dupla SFP28; PCIe 3.0 x8; R6 DE ROHS                    |
 | Número de peça do dispositivo (R640) | MCX4121A-ACAT  |
 | PSID (R640)           | MT_2420110034                         |
 
@@ -88,11 +88,9 @@ Os dispositivos Azure Stack Edge pro têm cinco 2,5 de SSDs de P4610 do controla
 |    SSD (unidades de estado sólido) SATA de inicialização      |    1                  |
 |    Capacidade SSD de inicialização                       |    240 GB             |
 |    Capacidade total                          |    8,0 TB             |
-|    Capacidade total utilizável*                  |    ~ 4,19 TB          |
+|    Capacidade utilizável total                   |    ~ 4,19 TB          |
+|    Configuração de RAID                      |    Espaços de Armazenamento Diretos com uma combinação de espelhamento e paridade  |
 |    Controlador SAS                          |    HBA330 12 Gbps     |
-
-
-**Após a resiliência de paridade e reserva de espaço para uso interno.*
 
 <!--Remove based on feedback from Ravi
 ## Other hardware specifications
@@ -150,7 +148,8 @@ Esta seção lista as especificações relacionadas ao ambiente de compartimento
 |     Compartimento                           |     Especificações operacionais                                                                                                                                                                                         |
 |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    Fluxo de ar                              |    O ar do sistema flui da frente para a traseira. O sistema deve ser operado com uma instalação de exaustão traseira de baixa pressão. <!--Back pressure created by rack doors and obstacles should not exceed 5 pascals (0.5 mm water gauge).-->    |
-|    Altitude operacional máxima        |    3048 metros (10.000 pés) com a temperatura de operação máxima desclassificada determinada pelo [especificações de temperatura operacional](#operating-temperature-de-rating-specifications).                                                                                |
+| Proteção de entrada (IP)                 |    Esse tipo de equipamento montado em rack para uso interno normalmente não é testado para proteção de entrada (proteção contra sólidos e liquids para um compartimento elétrico). A avaliação de segurança do fabricante mostra IPXO (sem proteção de entrada).  |
+|    Altitude operacional máxima        |    3048 metros (10.000 pés) com a temperatura operacional máxima desclassificada determinada pelas [especificações de desclassificação de temperatura operacional](#operating-temperature-de-rating-specifications).                                                                                |
 |    Altitude máxima não operacional    |    12.000 metros (39.370 pés)                                                                                                                                                                                         |
 |    Choque, operacional                   |    6 G por 11 milissegundos em 6 orientações                                                                                                                                                                         |
 |    Choque, não operacional               |    71 G por 2 milissegundos em 6 orientações                                                                                                                                                                           |

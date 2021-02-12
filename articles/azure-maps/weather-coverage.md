@@ -1,22 +1,27 @@
 ---
-title: Cobertura do clima em mapas de Microsoft Azure
-description: Saiba mais sobre a cobertura do clima em mapas de Microsoft Azure.
+title: Microsoft Azure mapeia a cobertura dos serviços meteorológicos (versão prévia)
+description: Saiba mais sobre a cobertura de serviços meteorológicos do Microsoft Azure Maps (versão prévia)
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/17/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 ms.custom: references_regions
 manager: philmea
-ms.openlocfilehash: 61e529e44f48343027457f18ba503e4bbb5930f1
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 6c4e9eb765a72b7a0b495f81a954b484ef6aa2b7
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896609"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905478"
 ---
-# <a name="azure-maps-weather-coverage"></a>Cobertura do clima do Azure Maps
+# <a name="azure-maps-weather-services-preview-coverage"></a>Cobertura dos serviços meteorológicos do Azure Maps (versão prévia)
+
+> [!IMPORTANT]
+> Os serviços meteorológicos do Azure Maps estão atualmente em visualização pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Este artigo fornece informações de cobertura para os [serviços meteorológicos](/rest/api/maps/weather)do Azure Maps. Os serviços de clima do Azure Maps retorna detalhes como blocos de radar, condições do clima atual, previsões do tempo e o clima ao longo de uma rota.
 
@@ -298,5 +303,5 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | Suíça            | ✓ | ✓ | ✓| ✓| 
 | Turquia                 | ✓ |   | | ✓| 
 | Ucrânia                | ✓ |   | | ✓| 
-| United Kingdom         | ✓ | ✓ | ✓| ✓| 
+| Reino Unido         | ✓ | ✓ | ✓| ✓| 
 | Cidade do Vaticano           | ✓ |   |✓ | ✓|

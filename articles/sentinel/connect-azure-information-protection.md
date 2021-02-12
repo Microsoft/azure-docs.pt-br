@@ -1,6 +1,6 @@
 ---
 title: Conectar a proteção de informações do Azure ao Azure Sentinel
-description: Transmita informações de log da proteção de informações do Azure para o Azure Sentinel Configurando o conector de dados da proteção de informações do Azure. 
+description: Transmita informações de log da proteção de informações do Azure para o Azure Sentinel Configurando o conector de dados da proteção de informações do Azure.
 services: sentinel
 author: yelevin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: 160912ef53b5c079d026c5d16230f49eadf66366
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82ea47037902ce3a9449f71a9edf62cb80863d4b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88794430"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655979"
 ---
 # <a name="connect-data-from-azure-information-protection"></a>Conectar dados da proteção de informações do Azure
 
@@ -25,7 +25,7 @@ ms.locfileid: "88794430"
 
 Você pode transmitir informações de log da [proteção de informações do Azure](https://azure.microsoft.com/services/information-protection/) para o Azure Sentinel Configurando o conector de dados da proteção de informações do Azure. A proteção de informações do Azure ajuda a controlar e proteger seus dados confidenciais, sejam eles armazenados na nuvem ou no local.
 
-Se o [relatório central da proteção de informações do Azure](https://docs.microsoft.com/azure/information-protection/reports-aip) já estiver configurado para que as informações de log desse serviço sejam armazenadas no mesmo espaço de trabalho log Analytics que você selecionou atualmente para o Azure Sentinel, você poderá ignorar a configuração desse conector de dados. As informações de log da proteção de informações do Azure já estão disponíveis para o Azure Sentinel.
+Se o [relatório central da proteção de informações do Azure](/azure/information-protection/reports-aip) já estiver configurado para que as informações de log desse serviço sejam armazenadas no mesmo espaço de trabalho log Analytics que você selecionou atualmente para o Azure Sentinel, você poderá ignorar a configuração desse conector de dados. As informações de log da proteção de informações do Azure já estão disponíveis para o Azure Sentinel.
 
 No entanto, se as informações de log da proteção de informações do Azure estiverem indo para um espaço de trabalho Log Analytics diferente daquele selecionado no momento para o Azure Sentinel, siga um destes procedimentos:
 
@@ -51,7 +51,7 @@ No entanto, se as informações de log da proteção de informações do Azure e
 
 - Permissões para ler e gravar no espaço de trabalho de Log Analytics que você está usando para o Azure Sentinel e a proteção de informações do Azure.
 
-- A proteção de informações do Azure foi adicionada ao portal do Azure. Se precisar de ajuda com esta etapa, consulte [Adicionar proteção de informações do Azure ao portal do Azure](https://docs.microsoft.com/azure/information-protection/quickstart-viewpolicy#add-azure-information-protection-to-the-azure-portal).
+- A proteção de informações do Azure foi adicionada ao portal do Azure. Se precisar de ajuda com esta etapa, consulte [Adicionar proteção de informações do Azure ao portal do Azure](/azure/information-protection/quickstart-viewpolicy#add-azure-information-protection-to-the-azure-portal).
 
 ## <a name="connect-to-azure-information-protection"></a>Conectar-se à proteção de informações do Azure
 
@@ -69,7 +69,7 @@ Use as instruções a seguir se você não tiver configurado um espaço de traba
 
 6. Os dados de relatório da proteção de informações do Azure são armazenados na tabela **InformationProtectionLogs_CL** no espaço de trabalho selecionado. 
     
-    Para usar o esquema relevante no Azure Monitor para esses dados de relatório, procure **InformationProtectionEvents**. Para obter informações sobre essas funções de evento, consulte a seção [referência de esquema amigável para funções de evento](https://docs.microsoft.com/azure/information-protection/reports-aip#friendly-schema-reference-for-event-functions) da documentação da proteção de informações do Azure.
+    Para usar o esquema relevante no Azure Monitor para esses dados de relatório, procure **InformationProtectionEvents**. Para obter informações sobre essas funções de evento, consulte a seção [referência de esquema amigável para funções de evento](/azure/information-protection/reports-aip#friendly-schema-reference-for-event-functions) da documentação da proteção de informações do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 

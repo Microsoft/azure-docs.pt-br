@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 03/02/2018
 tags: connectors
 ms.openlocfilehash: b67d2e860e8c69f6f2f43441144ef2f60ed3a104
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75378442"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999529"
 ---
 # <a name="monitor-and-manage-your-github-repo-by-using-azure-logic-apps"></a>Monitorar e gerenciar seu repositório GitHub usando aplicativos lógicos do Azure
 
@@ -26,7 +26,7 @@ Para usar o conector do GitHub em um aplicativo lógico, é necessário primeiro
 
 | Propriedade | Obrigatório | Descrição | 
 | -------- | -------- | ----------- | 
-| Token | Sim | Forneça as credenciais do GitHub. |
+| Token | Yes | Forneça as credenciais do GitHub. |
 
 Após criar a conexão, será possível executar as ações e ouvir os gatilhos descritos neste artigo.
 

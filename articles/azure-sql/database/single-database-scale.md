@@ -7,16 +7,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=1, references_regions
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
 ms.date: 09/16/2020
-ms.openlocfilehash: d24143a440c0d30c3abcd6eb5efd454033b8f71c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: da3c70baccc3c86f2ac57d61539456464e3042b6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791470"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493399"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Escalar recursos de banco de dados individual no Banco de Dados SQL do Azure
 
@@ -46,7 +46,7 @@ Alterar a camada de serviço ou o tamanho da computação envolve principalmente
 > [!IMPORTANT]
 > Nenhum dado é perdido durante qualquer etapa no fluxo de trabalho. Verifique se você implementou alguma [lógica de repetição](troubleshoot-common-connectivity-issues.md) nos aplicativos e componentes que estão usando o banco de dados SQL do Azure enquanto a camada de serviço é alterada.
 
-## <a name="latency"></a>Latency
+## <a name="latency"></a>Latência
 
 A latência estimada para alterar a camada de serviço, dimensionar o tamanho de computação de um único banco de dados ou pool elástico, mover um banco de dados para dentro/para fora de um pool elástico ou mover um banco de dados entre pools elásticos é parametrizada da seguinte maneira:
 
@@ -84,7 +84,7 @@ Na folha visão geral do banco de dados, navegue até **notificações** e cliqu
 
 ![Operação em andamento](./media/single-database-scale/ongoing-operations.png)
 
-Em seguida, clique no botão rotulado **cancelar esta operação** .
+Em seguida, clique no botão rotulado **cancelar esta operação**.
 
 ![Cancelar operação em andamento](./media/single-database-scale/cancel-ongoing-operation.png)
 
@@ -107,7 +107,7 @@ else {
 
 - Se você estiver atualizando para uma camada de serviço ou tamanho de computação superior, o tamanho máximo do banco de dados não aumentará a menos que você especifique explicitamente um tamanho maior (MaxSize).
 - Para fazer downgrade de um banco de dados, o espaço usado dele deve ter um tamanho menor do que o máximo permitido para a camada de serviço e o tamanho da computação de destino.
-- Ao fazer o downgrade da camada **Premium** para a camada **Standard** , um custo de armazenamento extra será aplicado se (1) o tamanho máximo do banco de dados tiver suporte no tamanho da computação de destino e (2) o tamanho máximo ultrapassar a quantidade de armazenamento incluída de tamanho da computação de destino. Por exemplo, se um banco de dados P1 com um tamanho máximo de 500 GB for reduzido para S3, um custo de armazenamento extra será aplicado, pois o S3 dá suporte a um tamanho máximo de 1 TB e seu valor de armazenamento incluído é de apenas 250 GB. Assim, a quantidade de armazenamento extra será 500 GB – 250 GB = 250 GB. Para obter o preço do armazenamento extra, consulte [preços do banco de dados SQL do Azure](https://azure.microsoft.com/pricing/details/sql-database/). Se a quantidade real de espaço usado for menor do que a quantidade de armazenamento incluído, esse custo extra poderá ser evitado por meio da redução do tamanho máximo do banco de dados para a quantidade incluída.
+- Ao fazer o downgrade da camada **Premium** para a camada **Standard**, um custo de armazenamento extra será aplicado se (1) o tamanho máximo do banco de dados tiver suporte no tamanho da computação de destino e (2) o tamanho máximo ultrapassar a quantidade de armazenamento incluída de tamanho da computação de destino. Por exemplo, se um banco de dados P1 com um tamanho máximo de 500 GB for reduzido para S3, um custo de armazenamento extra será aplicado, pois o S3 dá suporte a um tamanho máximo de 1 TB e seu valor de armazenamento incluído é de apenas 250 GB. Assim, a quantidade de armazenamento extra será 500 GB – 250 GB = 250 GB. Para obter o preço do armazenamento extra, consulte [preços do banco de dados SQL do Azure](https://azure.microsoft.com/pricing/details/sql-database/). Se a quantidade real de espaço usado for menor do que a quantidade de armazenamento incluído, esse custo extra poderá ser evitado por meio da redução do tamanho máximo do banco de dados para a quantidade incluída.
 - Ao atualizar um banco de dados com [replicação geográfica](active-geo-replication-configure-portal.md) habilitada, atualize seus bancos de dados secundários para a camada de serviço e o tamanho da computação desejados antes de atualizar o banco de dados primário (orientação geral para o melhor desempenho). Ao atualizar para uma edição diferente, é um requisito de que o banco de dados secundário seja atualizado primeiro.
 - Ao fazer downgrade de um banco de dados com [replicação geográfica](active-geo-replication-configure-portal.md) habilitada, faça downgrade dos seus bancos de dados primários para a camada de serviço e o tamanho da computação desejados antes de atualizar o banco de dados secundário (orientação geral para o melhor desempenho). Ao fazer downgrade para uma edição diferente, é um requisito de que o banco de dados primário seja rebaixado primeiro.
 - As ofertas de serviço de restauração são diferentes para as várias camadas de serviço. Se você estiver fazendo downgrade para a camada **básica** , haverá um período de retenção de backup menor. Consulte [Backups de Banco de Dados SQL do Azure](automated-backups-overview.md).

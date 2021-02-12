@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 457910f30830db06f148282a32551a400255f7e1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3f2b059bb6ae63d7f427ce970b2538da922e2dec
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965906"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837256"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>O que é um Token de atualização principal?
 
@@ -85,7 +85,7 @@ Um PRT é renovado por meio de dois métodos:
 * **Plug-in CloudAP do Azure AD a cada 4 horas**: o plug-in CloudAP renova o PRT a cada 4 horas durante a entrada no Windows. Caso o usuário esteja sem uma conexão com a Internet nesse momento, o plug-in CloudAP renovará o PRT depois que o dispositivo estiver conectado à Internet.
 * **Plug-in WAM do Azure AD durante solicitações de token de aplicativo**: o plug-in WAM habilita o SSO em dispositivos Windows 10 por meio da habilitação de solicitações de token silencioso para aplicativos. O plug-in WAM pode renovar o PRT durante essas solicitações de token de duas maneiras:
    * Um aplicativo solicita o WAM a um token de acesso silenciosamente, mas não há um token de atualização disponível para esse aplicativo. Nesse caso, o WAM usa o PRT para solicitar um token para o aplicativo e retorna um novo PRT na resposta.
-   * Um aplicativo solicita o WAM a um token de acesso, mas o PRT é inválido ou o Azure AD requer autorização adicional (por exemplo, Autenticação Multifator do Microsoft Azure). Nesse cenário, o WAM inicia um logon interativo que requer que o usuário seja reautenticado ou forneça uma verificação adicional, e um novo PRT é emitido na autenticação bem-sucedida.
+   * Um aplicativo solicita o WAM para um token de acesso, mas o PRT é inválido ou o Azure AD requer autorização adicional (por exemplo, autenticação multifator do Azure AD). Nesse cenário, o WAM inicia um logon interativo que requer que o usuário seja reautenticado ou forneça uma verificação adicional, e um novo PRT é emitido na autenticação bem-sucedida.
 
 Em um ambiente do ADFS, a linha de visão direta para o controlador de domínio não é necessária para renovar o PRT. A renovação de PRT requer apenas pontos de extremidade/ADFS/Services/Trust/2005/usernamemixed e/ADFS/Services/Trust/13/usernamemixed habilitados no proxy usando WS-Trust protocolo.
 

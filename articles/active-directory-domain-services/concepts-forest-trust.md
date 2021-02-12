@@ -2,20 +2,20 @@
 title: Como as relações de confiança funcionam para Azure AD Domain Services | Microsoft Docs
 description: Saiba mais sobre como a relação de confiança de floresta funciona com Azure AD Domain Services
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 50b400ffa047d3865a9df77912da187de1ce9cc9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 5c72ab7d085de558ee95f3c602ccc6be6160b322
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962608"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620198"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Como as relações de confiança funcionam para florestas de recursos no Azure Active Directory Domain Services
 
@@ -170,7 +170,7 @@ O diagrama e as etapas a seguir fornecem uma descrição detalhada do processo d
 
 1. O *Usuário1* entra na *EstaçãoDeTrabalho1* usando credenciais do domínio *Europe.tailspintoys.com* . Em seguida, o usuário tenta acessar um recurso compartilhado no *FileServer1* localizado na floresta *usa.wingtiptoys.com* .
 
-2. A *EstaçãoDeTrabalho1* entra em contato com o KDC do Kerberos em um controlador de domínio em seu domínio, *ChildDC1*e solicita um tíquete de serviço para o SPN do *FileServer1* .
+2. A *EstaçãoDeTrabalho1* entra em contato com o KDC do Kerberos em um controlador de domínio em seu domínio, *ChildDC1* e solicita um tíquete de serviço para o SPN do *FileServer1* .
 
 3. O *ChildDC1* não encontra o SPN em seu banco de dados de domínio e consulta o catálogo global para ver se algum domínio na floresta *TAILSPINTOYS.com* contém esse SPN. Como um catálogo global é limitado a sua própria floresta, o SPN não é encontrado.
 
@@ -190,7 +190,7 @@ O diagrama e as etapas a seguir fornecem uma descrição detalhada do processo d
 
 9. A *EstaçãoDeTrabalho1* entra em contato com o KDC no *ChildDC2* e negocia o tíquete do *Usuário1* para obter acesso ao *FileServer1*.
 
-10. Depois que a *EstaçãoDeTrabalho1* tiver um tíquete de serviço, ele enviará o tíquete de serviço para *FileServer1*, que lerá as credenciais de segurança de *Usuário1*e construirá um token de acesso de acordo.
+10. Depois que a *EstaçãoDeTrabalho1* tiver um tíquete de serviço, ele enviará o tíquete de serviço para *FileServer1*, que lerá as credenciais de segurança de *Usuário1* e construirá um token de acesso de acordo.
 
 ## <a name="trusted-domain-object"></a>Objeto de domínio confiável
 
@@ -253,7 +253,7 @@ O serviço de logon de rede mantém um canal protegido de um computador baseado 
 
 * Configuração e gerenciamento de confiança-o logon de rede ajuda a manter senhas de confiança, coleta informações de confiança e verifica relações de confiança interagindo com o processo LSA e o TDO.
 
-    Para relações de confiança de floresta, as informações de confiança incluem o registro*FTInfo*(informações de confiança de floresta), que inclui o conjunto de namespaces que uma floresta confiável alega gerenciar, anotada com um campo que indica se cada declaração é confiável pela floresta confiante.
+    Para relações de confiança de floresta, as informações de confiança incluem o registro *FTInfo*(informações de confiança de floresta), que inclui o conjunto de namespaces que uma floresta confiável alega gerenciar, anotada com um campo que indica se cada declaração é confiável pela floresta confiante.
 
 * Autenticação – fornece as credenciais do usuário em um canal protegido para um controlador de domínio e retorna os SIDs de domínio e os direitos de usuário para o usuário.
 

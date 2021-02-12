@@ -5,12 +5,12 @@ ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/29/2018
-ms.openlocfilehash: afa21e6aae769e69e8bc83b9fa0d4f9b76396f7e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 2f56fc285ed263b4b58985b5df620740a33cb3f5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220305"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092344"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Gerenciar a Análise Azure Data Lake usando o Azure PowerShell
 
@@ -114,7 +114,7 @@ Get-AdlAnalyticsAccount -Name $adla
 Test-AdlAnalyticsAccount -Name $adla
 ```
 
-## <a name="manage-data-sources"></a>Gerenciar as fontes de dados
+## <a name="manage-data-sources"></a>Gerenciar fontes de dados
 
 No momento, o Azure Data Lake Analytics dá suporte às seguintes fontes de dados:
 
@@ -240,9 +240,9 @@ Get-AdlJob -Account $adla -State Accepted,Compiling,New,Paused,Scheduling,Start
 Utilize o parâmetro `-Result` para detectar se os trabalhos finalizados foram concluídos com êxito. O parâmetro possui esses valores:
 
 * Cancelado
-* Failed (Falha)
+* Com falha
 * Nenhum
-* Êxito
+* Com sucesso
 
 ``` powershell
 # List Successful jobs.
@@ -298,7 +298,7 @@ Wait-AdlJob -Account $adla -JobId $job.JobId
 
 ## <a name="analyzing-job-history"></a>Analisar o histórico do trabalho
 
-Usar o Azure PowerShell para analisar o histórico de trabalhos que foram executados no Data Lake Analytics é uma técnica poderosa. Você pode usá-lo para obter informações sobre o uso e o custo. Você pode saber mais examinando o [repositório de exemplo de análise do histórico do trabalho](https://github.com/Azure-Samples/data-lake-analytics-powershell-job-history-analysis)  
+Usar o Azure PowerShell para analisar o histórico de trabalhos que foram executados no Data Lake Analytics é uma técnica poderosa. Você pode usá-lo para obter informações sobre o uso e o custo. Você pode saber mais examinando o [repositório de exemplo de análise do histórico do trabalho](https://github.com/jpalbright31/data-lake-analytics-powershell-job-history-analysis)  
 
 ## <a name="list-job-pipelines-and-recurrences"></a>Listar pipelines e recorrências do trabalho
 

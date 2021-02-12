@@ -9,22 +9,26 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: ec7459a356221fb7b599cbbc02f1cb825920b5b3
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: b6fcf39e05c4649503f0b7a80aadaaa16df24674
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890659"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599555"
 ---
 # <a name="show-traffic-on-the-map"></a>Mostrar tráfego no mapa
 
 Há dois tipos de dados de tráfego disponíveis no Azure Mapas:
 
 - Dados de incidentes – consistem em dados baseados em ponto e em linha para coisas como obras, fechamentos de estrada e acidentes.
-- Dados de fluxo – fornecem métricas sobre o fluxo do tráfego nas estradas. Os dados de fluxo de tráfego são frequentemente usados para colorir as estradas. As cores são baseadas no quanto o tráfego está diminuindo o fluxo, em relação ao limite de velocidade ou a outra métrica. Os dados de fluxo de tráfego no Azure Mapas têm três métricas diferentes de medida:
-    - `relative` – é relativo à velocidade da estrada com fluxo livre.
-    - `absolute` – é a velocidade absoluta de todos os veículos na estrada.
-    - `relative-delay` – exibe áreas em que o trânsito está mais lento do que o atraso médio esperado.
+- Dados de fluxo – fornecem métricas sobre o fluxo do tráfego nas estradas. Os dados de fluxo de tráfego são frequentemente usados para colorir as estradas. As cores são baseadas no quanto o tráfego está diminuindo o fluxo, em relação ao limite de velocidade ou a outra métrica. Há quatro valores que podem ser passados para a `flow` opção de tráfego do mapa.
+
+    |Valor do fluxo | Descrição|
+    | :-- | :-- |
+    | `none` | Não exibe dados de tráfego no mapa |
+    | `relative` | Mostra os dados de tráfego relativos à velocidade de fluxo livre da estrada |
+    | `relative-delay` | Exibe áreas que são mais lentas do que o atraso médio esperado |
+    | `absolute` | Mostra a velocidade absoluta de todos os veículos em trânsito |
 
 O código a seguir mostra como exibir dados de tráfego no mapa.
 

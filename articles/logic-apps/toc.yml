@@ -57,6 +57,14 @@
           href: security-baseline.md
 - name: Guias de instruções
   items:
+    - name: Versão prévia dos Aplicativos Lógicos do Azure
+      items:
+        - name: Visão geral da versão prévia dos Aplicativos Lógicos do Azure
+          href: logic-apps-overview-preview.md
+        - name: Criar fluxos de trabalho com e sem estado – portal do Azure
+          href: create-stateful-stateless-workflows-azure-portal.md
+        - name: Criar fluxos de trabalho com e sem estado – Visual Studio Code
+          href: create-stateful-stateless-workflows-visual-studio-code.md
     - name: Desenvolver
       items:
         - name: Criar a partir de modelos predefinidos
@@ -67,8 +75,6 @@
           href: logic-apps-move-from-mabs.md
         - name: Exportar fluxos do Power Automate e implantar no Aplicativos Lógicos do Azure
           href: export-from-microsoft-flow-logic-app-template.md
-        - name: Criar fluxos de trabalho com ou sem estado no Visual Studio Code
-          href: create-stateful-stateless-workflows-visual-studio-code.md
         - name: Chamar aplicativos lógicos do Power Automate e do Power Apps
           href: call-from-power-automate-power-apps.md
         - name: Controlar a execução do fluxo de trabalho
@@ -101,7 +107,7 @@
           href: logic-apps-batch-process-send-receive-messages.md
         - name: Enviar mensagens em ordem – comboio sequencial
           href: send-related-messages-sequential-convoy.md
-        - name: Criar definições JSON
+        - name: Criar definições de fluxo de trabalho em JSON
           href: logic-apps-author-definitions.md
         - name: Lidar com tipos de conteúdo
           href: logic-apps-content-type.md
@@ -109,6 +115,8 @@
           href: logic-apps-exception-handling.md
         - name: Processar mensagens grandes
           href: logic-apps-handle-large-messages.md
+        - name: Manipular procedimentos armazenados de longa execução para o conector do SQL
+          href: handle-long-running-stored-procedures-sql-connector.md
         - name: Tratar problemas de limitação ou erros do tipo 429
           href: handle-throttling-problems-429-errors.md
         - name: Desenvolver conectores personalizados
@@ -145,6 +153,7 @@
       items:
         - name: Criar conta de integração
           href: logic-apps-enterprise-integration-create-integration-account.md
+          displayName: 'Azure CLI, az logic integration-account create, integration-account'
         - name: Parceiros comerciais
           href: logic-apps-enterprise-integration-partners.md
         - name: Contratos
@@ -321,6 +330,8 @@
           href: logic-apps-enterprise-integration-create-integration-account.md
         - name: Gerenciar ambientes de serviço de integração
           href: ise-manage-integration-service-environment.md
+        - name: Planejar e gerenciar custos
+          href: plan-manage-costs.md
         - name: Mover recursos do aplicativo lógico
           href: move-logic-app-resources.md
         - name: Migrar para o esquema mais recente
@@ -343,6 +354,8 @@
           href: monitor-logic-apps.md
         - name: Monitorar aplicativos lógicos com os logs do Azure Monitor
           href: monitor-logic-apps-log-analytics.md
+        - name: Monitorar aplicativos lógicos na Central de Segurança do Azure
+          href: healthy-unhealthy-resource.md
         - name: Monitorar mensagens B2B com os logs do Azure Monitor
           href: monitor-b2b-messages-log-analytics.md
         - name: Criar consultas de monitoramento e acompanhamento

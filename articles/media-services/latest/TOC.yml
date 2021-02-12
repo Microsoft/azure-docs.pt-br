@@ -45,6 +45,10 @@
           href: manage-assets-quickstart.md
         - name: Usar o portal para criptografar conteúdo
           href: encrypt-content-quickstart.md
+    - name: Usar um modelo ARM
+      items:
+        - name: Criar uma conta com o ARM
+          href: quickstart-arm-template-account.md
 - name: Tutoriais
   items:
     - name: .NET
@@ -68,8 +72,8 @@
       items:
         - name: Codificar e transmitir um REST de arquivo remoto
           href: stream-files-tutorial-with-rest.md
-        - name: Chaves gerenciadas pelo cliente com os Serviços de Mídia
-          href: tutorial-byok.md
+        - name: Chaves gerenciadas pelo cliente com o API REST
+          href: tutorial-byok-postman.md
     - name: CLI
       items:
         - name: Codificar e transmitir uma CLI de arquivo remoto
@@ -80,6 +84,8 @@
           href: stream-files-nodejs-quickstart.md
     - name: Portal do Azure
       items:
+        - name: Chaves gerenciadas pelo cliente ou tutorial BYOK
+          href: tutorial-byok-portal.md
         - name: Armazenar eventos do AMS no Azure Log Analytics
           href: tutorial-events-log-analytics.md
 - name: Exemplos
@@ -102,6 +108,13 @@
         - name: Conta de armazenamento
           href: storage-account-concept.md
           displayName: Storage side encryption
+        - name: Identidades gerenciadas e serviços de mídia
+          displayName: content protection
+          href: concept-managed-identities.md
+        - name: Armazenamento confiável
+          href: concept-trusted-storage.md
+        - name: Chaves gerenciadas do cliente
+          href: concept-use-customer-managed-keys-byok.md
     - name: Ativos
       items:
         - name: Ativos
@@ -178,8 +191,6 @@
         - name: Criptografia dinâmica e entrega de chaves
           displayName: 'content protection, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, custom'
           href: content-protection-overview.md
-        - name: Chaves gerenciadas do cliente
-          href: concept-use-customer-managed-keys-byok.md
         - name: Design de sistema com vários DRMs
           displayName: 'drm, access control'
           href: design-multi-drm-system-with-access-control.md
@@ -231,6 +242,9 @@
         - name: Vídeo por demanda
           displayName: 'failover, bcdr, HA, high availability'
           href: media-services-high-availability-encoding.md
+    - name: Arquiteturas dos Serviços de Mídia
+      displayName: architectures
+      href: architectures-concept.md
     - name: Solução de problemas
       items:
         - name: Perguntas frequentes
@@ -246,14 +260,49 @@
               href: job-error-codes.md
         - name: Redefinir credenciais de conta
           href: cli-reset-account-credentials.md
-    - name: Migração da v2 para a v3
+    - name: Guia de migração
+      displayName: migration
       items:
-        - name: v2 versus v3
-          displayName: 'migrate, v2 to v3'
-          href: media-services-v2-vs-v3.md
-        - name: Guia de migração
-          href: migrate-from-v2-to-v3.md
-          displayName: naming
+        - name: Introdução ao guia de migração
+          href: migrate-v-2-v-3-migration-introduction.md
+          displayName: migration
+        - name: Etapa 1 – Benefícios
+          href: migrate-v-2-v-3-migration-benefits.md
+          displayName: 'migration, benefits'
+        - name: Etapa 2 – Diferenças
+          items:
+            - name: Acesso à API
+              href: migrate-v-2-v-3-differences-api-access.md
+              displayName: 'migration, api'
+            - name: Lacunas de recursos
+              href: migrate-v-2-v-3-differences-feature-gaps.md
+              displayName: 'migration, features'
+            - name: Alterações de terminologia e entidade
+              href: migrate-v-2-v-3-differences-terminology.md
+              displayName: 'migration, entity, api'
+        - name: Etapa 3 – Instalação do SDK
+          href: migrate-v-2-v-3-migration-setup.md
+          displayName: 'migration, SDK`'
+        - name: Etapa 4 – Diretrizes de migração baseadas em cenário
+          items:
+            - name: Codificação
+              href: migrate-v-2-v-3-migration-scenario-based-encoding.md
+              displayName: 'migration, encoding'
+            - name: Transmissão ao vivo
+              href: migrate-v-2-v-3-migration-scenario-based-live-streaming.md
+              displayName: 'migration, live streaming'
+            - name: Empacotamento e entrega
+              href: migrate-v-2-v-3-migration-scenario-based-publishing.md
+              displayName: 'migration, packaging, delivery, publishing'
+            - name: Proteção de conteúdo
+              href: migrate-v-2-v-3-migration-scenario-based-content-protection.md
+              displayName: 'migration, content protection, DRM, digital rights management'
+            - name: MRU (unidades reservadas para mídia)
+              href: migrate-v-2-v-3-migration-scenario-based-media-reserved-units.md
+              displayName: 'migration, media reserved units'
+        - name: Comparação de exemplos
+          href: migrate-v-2-v-3-migration-samples.md
+          displayName: 'migration, samples'
 - name: Guias de instruções
   items:
     - name: Criar ativos e carregar mídia
@@ -265,9 +314,13 @@
     - name: Criar transformações e trabalhos
       items:
         - name: Criar transformações
-          href: cli-create-transform.md
+          href: how-to-create-transform.md
         - name: Criar uma transformação de áudio básica com REST
           href: how-to-create-basic-audio-transform.md
+        - name: Criar uma transformação copyAllBitrateNonInterleaved com REST
+          href: how-to-create-copyallbitratenoninterleaved-transform.md
+        - name: Copiar vídeos sem codificação com REST
+          href: how-to-create-copy-video-audio-transform.md
         - name: Criar trabalhos
           href: cli-create-jobs.md
         - name: Criar entrada de trabalho com um arquivo local e o .NET
@@ -408,7 +461,8 @@
       displayName: 'forums, twitter, feedback'
       href: media-services-community.md
     - name: Roteiro do Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
+      displayName: azure updates
+      href: 'https://azure.microsoft.com/updates/?category=media'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/media-services/'
     - name: vídeos
@@ -437,5 +491,7 @@
       href: limits-quotas-constraints.md
     - name: Nuvens e regiões do Azure
       href: azure-clouds-regions.md
+    - name: Nomes de código regionais e pontos de extremidade
+      href: azure-regions-code-names.md
     - name: Atualizações na documentação
       href: docs-release-notes.md

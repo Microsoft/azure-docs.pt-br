@@ -3,15 +3,15 @@ title: Configurar a autenticação multifator do Azure para a área de trabalho 
 description: Como configurar a autenticação multifator do Azure para aumentar a segurança na área de trabalho virtual do Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/20/2020
+ms.date: 12/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 35af8191cfe237175cbd6669797d1744ac3ecd49
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 00aba5d169a05eab25dcc63ca813955e71d09598
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312661"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092373"
 ---
 # <a name="enable-azure-multifactor-authentication-for-windows-virtual-desktop"></a>Habilitar a autenticação multifator do Azure para área de trabalho virtual do Windows
 
@@ -67,7 +67,7 @@ Veja como criar uma política de acesso condicional que requer autenticação mu
    > 
    > Se você estiver usando a área de trabalho virtual do Windows (clássico), se a política de acesso condicional bloquear todo o acesso e excluir somente as IDs do aplicativo de área de trabalho virtual do Windows, você poderá corrigir isso adicionando a ID do aplicativo 9cdead84-A844-4324-93f2-b2e6bb768d07 à política. Não adicionar essa ID de aplicativo bloqueará a descoberta de feed de recursos de área de trabalho virtual do Windows (clássico).
 
-10. Vá para **condições**  >  **aplicativos de cliente**e selecione para onde deseja aplicar a política:
+10. Vá para **condições**  >  **aplicativos de cliente** e selecione para onde deseja aplicar a política:
     
     - Selecione **navegador** se você quiser que a política se aplique ao cliente Web.
     - Selecione **aplicativos móveis e clientes de área de trabalho** se você quiser aplicar a política a outros clientes.
@@ -76,7 +76,7 @@ Veja como criar uma política de acesso condicional que requer autenticação mu
     > [!div class="mx-imgBorder"]
     > ![Uma captura de tela da página de aplicativos cliente. O usuário marcou a caixa de seleção aplicativos móveis e clientes de área de trabalho.](media/select-apply.png)
 
-11. Depois de selecionar seu aplicativo, escolha **selecionar**e, em seguida, selecione **concluído**.
+11. Depois de selecionar seu aplicativo, escolha **selecionar** e, em seguida, selecione **concluído**.
 
     > [!div class="mx-imgBorder"]
     > ![Uma captura de tela da página de aplicativos ou ações na nuvem. Os aplicativos cliente de área de trabalho virtual do Windows e área de trabalho virtual do Windows são realçados em vermelho.](media/cloud-apps-enterprise.png)
@@ -84,10 +84,13 @@ Veja como criar uma política de acesso condicional que requer autenticação mu
     >[!NOTE]
     >Para localizar a ID do aplicativo que você deseja selecionar, vá para **aplicativos empresariais** e selecione aplicativos da **Microsoft** no menu suspenso tipo de aplicativo.
 
-12. Em **Access controls**  >  **concessão**de controles de acesso, selecione **conceder acesso**, **exigir autenticação multifator**e, em seguida, **selecione**.
-13. Em **Access controls**  >  **sessão**de controles de acesso, selecione **frequência de entrada**, defina o valor para a hora desejada entre os prompts e selecione **selecionar**. Por exemplo, definir o valor como **1** e a unidade para **horas**, exigirá autenticação multifator se uma conexão for iniciada uma hora após a última.
+12. Em   >  **concessão** de controles de acesso, selecione **conceder acesso**, **exigir autenticação multifator** e, em seguida, **selecione**.
+13. Em   >  **sessão** de controles de acesso, selecione **frequência de entrada**, defina o valor para a hora desejada entre os prompts e selecione **selecionar**. Por exemplo, definir o valor como **1** e a unidade para **horas**, exigirá autenticação multifator se uma conexão for iniciada uma hora após a última.
 14. Confirme suas configurações e defina **Habilitar política** como **Ativado**.
 15. Selecione **criar** para habilitar sua política.
+
+>[!NOTE]
+>Quando você usa o cliente Web para entrar na área de trabalho virtual do Windows por meio do navegador, o log listará a ID do aplicativo cliente como a85cf173-4192-42F8-81fa-777a763e6e2c (cliente de área de trabalho virtual do Windows). Isso ocorre porque o aplicativo cliente está internamente vinculado à ID do aplicativo do servidor em que a política de acesso condicional foi definida. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

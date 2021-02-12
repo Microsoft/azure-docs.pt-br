@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 17616a223292ec07186b0a3fba264400423977ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ee27f429dbfd1e550a45bbc26413a1c259c4fbe
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87058767"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092361"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Habilitar ou desabilitar uma regra de firewall em um sistema operacional convidado da VM do Azure
 
@@ -95,11 +95,11 @@ Se a VM estiver on-line e puder ser acessada em outra VM na mesma rede virtual, 
 
 #### <a name="mitigation-4-remote-registry"></a>Mitigação 4: Registro remoto
 
-Se a VM estiver on-line e puder ser acessada em outra VM na mesma rede virtual, você poderá usar [Registro Remoto](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry) na outra VM.
+Se a VM estiver on-line e puder ser acessada em outra VM na mesma rede virtual, você poderá usar [Registro Remoto](https://www.betaarchive.com/wiki/index.php?title=Microsoft_KB_Archive/314837) na outra VM.
 
 1.  Na VM de solução de problemas, inicie o editor do registro (regedit.exe) e selecione **arquivo**  >  **conectar registro de rede**.
 
-2.  Abra a ramificação \System do *computador de destino*e especifique os seguintes valores:
+2.  Abra a ramificação \System do *computador de destino* e especifique os seguintes valores:
 
     * Para habilitar uma regra, abra o seguinte valor do Registro:
     
@@ -142,7 +142,7 @@ Antes de seguir estas etapas, tire um instantâneo do disco do sistema da VM afe
 7.  Localize e abra o arquivo\windows\system32\config\SYSTEM. 
 
     > [!Note]
-    > Você será solicitado para um nome. Insira **BROKENSYSTEM**e, em seguida, expanda **HKEY_LOCAL_MACHINE**. Agora, você verá uma chave adicional chamada **BROKENSYSTEM**. Para essa solução de problemas, estamos montando essas seções de problema como **BROKENSYSTEM**.
+    > Você será solicitado para um nome. Insira **BROKENSYSTEM** e, em seguida, expanda **HKEY_LOCAL_MACHINE**. Agora, você verá uma chave adicional chamada **BROKENSYSTEM**. Para essa solução de problemas, estamos montando essas seções de problema como **BROKENSYSTEM**.
 
 8.  Faça as seguintes alterações no branch BROKENSYSTEM:
 
@@ -164,7 +164,7 @@ Antes de seguir estas etapas, tire um instantâneo do disco do sistema da VM afe
         
         `v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
 
-9.  Realce **BROKENSYSTEM**e, em seguida, selecione **arquivo**  >  **Descarregar Hive** no menu.
+9.  Realce **BROKENSYSTEM** e, em seguida, selecione **arquivo**  >  **Descarregar Hive** no menu.
 
 10. [Desanexe o disco do sistema e recrie a VM](troubleshoot-recovery-disks-portal-windows.md).
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: d37152f7dec78d5f5db21fdde9a8ec25c36c4e05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e009369f6223e171984d1142419101fdd82879b0
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899473"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804907"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-storageclass-on-your-azure-stack-edge-pro-gpu-device"></a>Use kubectl para executar um aplicativo com estado kubernetes com StorageClass em seu dispositivo de Azure Stack Edge pro GPU
 
@@ -24,7 +24,7 @@ Esse procedimento destina-se a aqueles que revisaram o [armazenamento kubernetes
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de implantar o aplicativo com estado, verifique se você concluiu os seguintes pré-requisitos no seu dispositivo e o cliente que será usado para acessar o dispositivo:
+Antes de implantar o aplicativo com estado, conclua os seguintes pré-requisitos no seu dispositivo e o cliente que será usado para acessar o dispositivo:
 
 ### <a name="for-device"></a>Para dispositivo
 
@@ -35,7 +35,7 @@ Antes de implantar o aplicativo com estado, verifique se você concluiu os segui
 ### <a name="for-client-accessing-the-device"></a>Para cliente que acessa o dispositivo
 
 - Você tem um sistema cliente Windows que será usado para acessar o dispositivo Azure Stack Edge pro.
-    - O cliente está executando o Windows PowerShell 5,0 ou posterior. Para baixar a versão mais recente do Windows PowerShell, acesse [instalar o Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+    - O cliente está executando o Windows PowerShell 5,0 ou posterior. Para baixar a versão mais recente do Windows PowerShell, acesse [instalar o Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7&preserve-view=true).
     
     - Você também pode ter qualquer outro cliente com um [sistema operacional com suporte](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) . Este artigo descreve o procedimento ao usar um cliente do Windows. 
     
@@ -66,7 +66,7 @@ Todos os `kubectl` comandos que você usa para criar e gerenciar implantações 
    kubectl get pods -n <your-namespace>
    ```
     
-   Aqui está um exemplo de uso do comando:
+   Aqui está um exemplo de uso de comando:
     
    ```powershell
     C:\Users\user>kubectl get pods -n "userns1"
@@ -157,7 +157,7 @@ Todos os `kubectl` comandos que você usa para criar e gerenciar implantações 
     persistentvolumeclaim/mysql-pv-claim-sc created
     C:\Users\user>
     ```
-   Observe o nome do PVC criado, aqui é `mysql-pv-claim-sc` . Você irá usá-lo em uma etapa posterior. 
+   Observe o nome do PVC criado – neste exemplo, `mysql-pv-claim-sc` . Você irá usá-lo em uma etapa posterior.
 
 4. Implante o conteúdo do `mysql-deployment.yml` arquivo.
 

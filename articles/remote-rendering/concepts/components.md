@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a17bfe4dac2007d3ad136598c3c4e335e2397293
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 9679be03c69090a0c11d007cfc542bae70bd3cbc
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203714"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592187"
 ---
 # <a name="components"></a>Componentes
 
@@ -27,8 +27,8 @@ Todos esses componentes usam a transformação (posição, rotação, escala) da
 
 ```cs
 // create a point light component
-AzureSession session = GetCurrentlyConnectedSession();
-PointLightComponent lightComponent = session.Actions.CreateComponent(ObjectType.PointLightComponent, ownerEntity) as PointLightComponent;
+RenderingSession session = GetCurrentlyConnectedSession();
+PointLightComponent lightComponent = session.Connection.CreateComponent(ObjectType.PointLightComponent, ownerEntity) as PointLightComponent;
 
 lightComponent.Color = new Color4Ub(255, 150, 20, 255);
 lightComponent.Intensity = 11;
@@ -42,9 +42,9 @@ lightComponent = null;
 
 ```cpp
 // create a point light component
-ApiHandle<AzureSession> session = GetCurrentlyConnectedSession();
+ApiHandle<RenderingSession> session = GetCurrentlyConnectedSession();
 
-ApiHandle<PointLightComponent> lightComponent = session->Actions()->CreateComponent(ObjectType::PointLightComponent, ownerEntity)->as<PointLightComponent>();
+ApiHandle<PointLightComponent> lightComponent = session->Connection()->CreateComponent(ObjectType::PointLightComponent, ownerEntity)->as<PointLightComponent>();
 
 // ...
 
@@ -64,10 +64,10 @@ A integração do Unity tem funções de extensão adicionais para interação c
 ## <a name="api-documentation"></a>Documentação da API
 
 * [ComponentBase C#](/dotnet/api/microsoft.azure.remoterendering.componentbase)
-* [C# remotamente. CreateComponent ()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.createcomponent)
+* [C# RenderingConnection. CreateComponent ()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.createcomponent)
 * [Entidade C#. FindComponentOfType ()](/dotnet/api/microsoft.azure.remoterendering.entity.findcomponentoftype)
 * [C++ ComponentBase](/cpp/api/remote-rendering/componentbase)
-* [C++ Remotemanager:: CreateComponent ()](/cpp/api/remote-rendering/remotemanager#createcomponent)
+* [C++ RenderingConnection:: CreateComponent ()](/cpp/api/remote-rendering/renderingconnection#createcomponent)
 * [Entidade C++:: FindComponentOfType ()](/cpp/api/remote-rendering/entity#findcomponentoftype)
 
 ## <a name="next-steps"></a>Próximas etapas

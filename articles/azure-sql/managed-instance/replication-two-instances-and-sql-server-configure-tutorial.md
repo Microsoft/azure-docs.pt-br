@@ -6,16 +6,16 @@ ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 11/21/2019
-ms.openlocfilehash: 8173d53a5d4cac899b22f51a001f6e373f102236
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d2b45f5b51f4656294632aa46f679a7a09c06ed3
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790790"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593919"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Tutorial: Configurar a replicação transacional entre a Instância Gerenciada de SQL do Azure e o SQL Server
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -69,7 +69,7 @@ New-AzResourceGroup -Name  $ResourceGroupName -Location $Location
 Crie duas instâncias gerenciadas nesse novo grupo de recursos usando o [portal do Azure](https://portal.azure.com).
 
 - O nome da instância gerenciada do publicador deve ser `sql-mi-publisher` (juntamente com alguns caracteres para aleatoriedade), e o nome da rede virtual deve ser `vnet-sql-mi-publisher`.
-- O nome da instância gerenciada do distribuidor deve ser `sql-mi-distributor` (juntamente com alguns caracteres para aleatoriedade), e a instância deve estar _na mesma rede virtual da instância gerenciada do publicador_ .
+- O nome da instância gerenciada do distribuidor deve ser `sql-mi-distributor` (juntamente com alguns caracteres para aleatoriedade), e a instância deve estar _na mesma rede virtual da instância gerenciada do publicador_.
 
    ![Usar a VNet do publicador para o distribuidor](./media/replication-two-instances-and-sql-server-configure-tutorial/use-same-vnet-for-distributor.png)
 
@@ -155,11 +155,11 @@ Uma zona DNS privada permite o roteamento DNS entre as instâncias gerenciadas e
 
    ![Criar uma zona DNS privado](./media/replication-two-instances-and-sql-server-configure-tutorial/create-private-dns-zone.png)
 
-1. Selecione **Examinar + criar** . Examine os parâmetros da zona DNS privado e, em seguida, selecione **Criar** para criar o recurso.
+1. Selecione **Examinar + criar**. Examine os parâmetros da zona DNS privado e, em seguida, selecione **Criar** para criar o recurso.
 
 ### <a name="create-an-a-record"></a>Criar um registro A
 
-1. Acesse a nova **Zona DNS privado** e selecione **Visão geral** .
+1. Acesse a nova **Zona DNS privado** e selecione **Visão geral**.
 1. Selecione **+ Conjunto de registros** para criar um registro A.
 1. Forneça o nome da VM do SQL Server, bem como o endereço IP interno privado.
 
@@ -169,11 +169,11 @@ Uma zona DNS privada permite o roteamento DNS entre as instâncias gerenciadas e
 
 ### <a name="link-the-virtual-network"></a>Vincular a rede virtual
 
-1. Acesse a nova **Zona DNS privado** e selecione **Links de rede virtual** .
-1. Selecione **+ Adicionar** .
+1. Acesse a nova **Zona DNS privado** e selecione **Links de rede virtual**.
+1. Selecione **+ Adicionar**.
 1. Forneça um nome para o link, como `Pub-link`.
 1. Selecione a sua assinatura na lista suspensa e, em seguida, a rede virtual da instância gerenciada do publicador.
-1. Marque a caixa ao lado de **Habilitar o registro automático** .
+1. Marque a caixa ao lado de **Habilitar o registro automático**.
 
    ![Criar um link da VNet](./media/replication-two-instances-and-sql-server-configure-tutorial/configure-vnet-link.png)
 
@@ -283,19 +283,19 @@ Depois que a distribuição for configurada, você poderá criar a publicação.
 
 1. Inicialize o SQL Server Management Studio no SQL Server.
 1. Conecte-se à instância gerenciada do `sql-mi-publisher`.
-1. No **Pesquisador de Objetos** , expanda o nó **Replicação** e clique com o botão direito do mouse na pasta **Publicação Local** . Selecione **Nova Publicação...** .
+1. No **Pesquisador de Objetos**, expanda o nó **Replicação** e clique com o botão direito do mouse na pasta **Publicação Local**. Selecione **Nova Publicação...** .
 1. Selecione **Avançar** para ir para a página inicial.
-1. Na página **Banco de Dados de Publicação** , selecione o banco de dados `ReplTutorial` criado anteriormente. Selecione **Avançar** .
-1. Na página **Tipo de publicação** , selecione **Publicação transacional** . Selecione **Avançar** .
-1. Na página **Artigos** , marque a caixa ao lado de **Tabelas** . Selecione **Avançar** .
-1. Na página **Filtrar Linhas da Tabela** , selecione **Avançar** sem adicionar nenhum filtro.
-1. Na página **Agente de Instantâneo** , marque a caixa ao lado de **Criar instantâneo imediatamente e manter o instantâneo disponível para inicializar assinaturas** . Selecione **Avançar** .
-1. Na página **Segurança do Agente** , selecione **Configurações de Segurança...** . Forneça as credenciais de logon do SQL Server a serem usadas para o Agente de Instantâneo e para se conectar ao publicador. Selecione **OK** para fechar a página **Segurança do Agente de Instantâneo** . Selecione **Avançar** .
+1. Na página **Banco de Dados de Publicação**, selecione o banco de dados `ReplTutorial` criado anteriormente. Selecione **Avançar**.
+1. Na página **Tipo de publicação**, selecione **Publicação transacional**. Selecione **Avançar**.
+1. Na página **Artigos**, marque a caixa ao lado de **Tabelas**. Selecione **Avançar**.
+1. Na página **Filtrar Linhas da Tabela**, selecione **Avançar** sem adicionar nenhum filtro.
+1. Na página **Agente de Instantâneo**, marque a caixa ao lado de **Criar instantâneo imediatamente e manter o instantâneo disponível para inicializar assinaturas**. Selecione **Avançar**.
+1. Na página **Segurança do Agente**, selecione **Configurações de Segurança...** . Forneça as credenciais de logon do SQL Server a serem usadas para o Agente de Instantâneo e para se conectar ao publicador. Selecione **OK** para fechar a página **Segurança do Agente de Instantâneo**. Selecione **Avançar**.
 
    ![Configurar a segurança do Agente de Instantâneo](./media/replication-two-instances-and-sql-server-configure-tutorial/snapshot-agent-security.png)
 
-1. Na página **Ações do Assistente** , escolha **Criar a publicação** e (opcionalmente) escolha **Gerar um arquivo de script com etapas para criar a publicação** , caso deseje salvar esse script para uso posterior.
-1. Na página **Concluir o Assistente** , nomeie a publicação `ReplTest` e selecione **Avançar** para criar a publicação.
+1. Na página **Ações do Assistente**, escolha **Criar a publicação** e (opcionalmente) escolha **Gerar um arquivo de script com etapas para criar a publicação**, caso deseje salvar esse script para uso posterior.
+1. Na página **Concluir o Assistente**, nomeie a publicação `ReplTest` e selecione **Avançar** para criar a publicação.
 1. Depois que a publicação for criada, atualize o nó **Replicação** no **Pesquisador de Objetos** e expanda **Publicações Locais** para ver a nova publicação.
 
 ## <a name="create-the-subscription"></a>Criar a assinatura
@@ -352,10 +352,10 @@ INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
 1. Procure o grupo de recursos no [portal do Azure](https://portal.azure.com).
-1. Selecione as instâncias gerenciadas e, em seguida, selecione **Excluir** . Digite `yes` na caixa de texto para confirmar se deseja excluir o recurso e, em seguida, selecione **Excluir** . Esse processo poderá levar algum tempo para ser concluído em segundo plano e, até que ele seja concluído, você não poderá excluir o *cluster virtual* nem os outros recursos dependentes. Monitore a exclusão na guia **Atividade** para confirmar se a instância gerenciada foi excluída.
-1. Depois que a instância gerenciada for excluída, exclua o *cluster virtual* selecionando-o no grupo de recursos e, em seguida, escolhendo **Excluir** . Digite `yes` na caixa de texto para confirmar se deseja excluir o recurso e, em seguida, selecione **Excluir** .
-1. Exclua todos os recursos restantes. Digite `yes` na caixa de texto para confirmar se deseja excluir o recurso e, em seguida, selecione **Excluir** .
-1. Exclua o grupo de recursos selecionando **Excluir grupo de recursos** , digitando o nome do grupo de recursos, `myResourceGroup`, e, em seguida, selecionando **Excluir** .
+1. Selecione as instâncias gerenciadas e, em seguida, selecione **Excluir**. Digite `yes` na caixa de texto para confirmar se deseja excluir o recurso e, em seguida, selecione **Excluir**. Esse processo poderá levar algum tempo para ser concluído em segundo plano e, até que ele seja concluído, você não poderá excluir o *cluster virtual* nem os outros recursos dependentes. Monitore a exclusão na guia **Atividade** para confirmar se a instância gerenciada foi excluída.
+1. Depois que a instância gerenciada for excluída, exclua o *cluster virtual* selecionando-o no grupo de recursos e, em seguida, escolhendo **Excluir**. Digite `yes` na caixa de texto para confirmar se deseja excluir o recurso e, em seguida, selecione **Excluir**.
+1. Exclua todos os recursos restantes. Digite `yes` na caixa de texto para confirmar se deseja excluir o recurso e, em seguida, selecione **Excluir**.
+1. Exclua o grupo de recursos selecionando **Excluir grupo de recursos**, digitando o nome do grupo de recursos, `myResourceGroup`, e, em seguida, selecionando **Excluir**.
 
 ## <a name="known-errors"></a>Erros conhecidos
 
@@ -397,7 +397,7 @@ Soluções possíveis:
 
 ### <a name="no-publications-to-which-you-can-subscribe"></a>Não há publicações que você pode assinar
 
-Ao adicionar uma nova assinatura usando o assistente de **Nova Assinatura** , na página **Publicação** , você poderá achar que não há publicações e bancos de dados listados como opções disponíveis e ver a seguinte mensagem de erro:
+Ao adicionar uma nova assinatura usando o assistente de **Nova Assinatura**, na página **Publicação**, você poderá achar que não há publicações e bancos de dados listados como opções disponíveis e ver a seguinte mensagem de erro:
 
 `There are no publications to which you can subscribe, either because this server has no publications or because you do not have sufficient privileges to access the publications.`
 

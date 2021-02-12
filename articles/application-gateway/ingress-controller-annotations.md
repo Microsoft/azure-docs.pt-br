@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: f54381ddcd11a2e4a24d30d812468da85b5403de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f570f9f18f9c9d484a9bc9c1a5c64d42dbdc714
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80335816"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397443"
 ---
 # <a name="annotations-for-application-gateway-ingress-controller"></a>Anotações para o controlador de entrada do gateway de aplicativo 
 
@@ -72,7 +72,7 @@ No exemplo acima, definimos um recurso de entrada chamado `go-server-ingress-bkp
 
 ## <a name="tls-redirect"></a>Redirecionamento de TLS
 
-O gateway de aplicativo [pode ser configurado](https://docs.microsoft.com/azure/application-gateway/application-gateway-redirect-overview) para redirecionar automaticamente URLs HTTP para seus correspondentes HTTPS. Quando essa anotação estiver presente e o TLS estiver configurado corretamente, o controlador de entrada do kubernetes criará uma [regra de roteamento com uma configuração de redirecionamento](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal#add-a-routing-rule-with-a-redirection-configuration) e aplicará as alterações ao seu gateway de aplicativo. O redirecionamento criado será o HTTP `301 Moved Permanently` .
+O gateway de aplicativo [pode ser configurado](./redirect-overview.md) para redirecionar automaticamente URLs HTTP para seus correspondentes HTTPS. Quando essa anotação estiver presente e o TLS estiver configurado corretamente, o controlador de entrada do kubernetes criará uma [regra de roteamento com uma configuração de redirecionamento](./redirect-http-to-https-portal.md#add-a-routing-rule-with-a-redirection-configuration) e aplicará as alterações ao seu gateway de aplicativo. O redirecionamento criado será o HTTP `301 Moved Permanently` .
 
 ### <a name="usage"></a>Uso
 

@@ -3,17 +3,16 @@ title: Usar fluxos de trabalho do Hadoop Oozie no HDInsight baseado em Linux
 description: Usar o Oozie do Hadoop no HDInsight baseado em Linux. Saiba como definir um fluxo de trabalho do Oozie e enviar um trabalho do Oozie.
 author: omidm1
 ms.author: omidm
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 7b0d3ac4775ca057856c28ab42197bb734f149d6
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 41c42009252169c141bec5d3dc2ea5c6308d6812
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534933"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931297"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Usar o Apache Oozie com o Apache Hadoop para definir e executar um fluxo de trabalho no Azure HDInsight baseado no Linux
 
@@ -31,11 +30,11 @@ Você também pode usar o Oozie para agendar trabalhos específicos para um sist
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Um cluster Hadoop no HDInsight** . Consulte [Introdução ao HDInsight no Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
+* **Um cluster Hadoop no HDInsight**. Consulte [Introdução ao HDInsight no Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-* **Um cliente SSH** . Consulte [conectar-se ao HDInsight (Apache Hadoop) usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Um cliente SSH**. Consulte [conectar-se ao HDInsight (Apache Hadoop) usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* **Um banco de dados SQL do Azure** .  Consulte [criar um banco de dados no banco de dados SQL do Azure no portal do Azure](../azure-sql/database/single-database-create-quickstart.md).  Este artigo usa um banco de dados chamado **oozietest** .
+* **Um banco de dados SQL do Azure**.  Consulte [criar um banco de dados no banco de dados SQL do Azure no portal do Azure](../azure-sql/database/single-database-create-quickstart.md).  Este artigo usa um banco de dados chamado **oozietest**.
 
 * O esquema de URI do seu armazenamento primário de clusters. `wasb://` para o armazenamento do Azure, `abfs://` por Azure data Lake Storage Gen2 ou `adl://` para Azure data Lake Storage Gen1. Se a transferência segura estiver habilitada para o Armazenamento do Azure, o URI será `wasbs://`. Confira também [Transferência segura](../storage/common/storage-require-secure-transfer.md).
 
@@ -130,7 +129,7 @@ Use as etapas a seguir para criar um script de HiveQL (linguagem de consulta Hiv
 
      O arquivo de definição de fluxo de trabalho, workflow.xml neste artigo, passa esses valores para esse script HiveQL em tempo de execução.
 
-1. Para salvar o arquivo, selecione **Ctrl + X** , digite **Y** e, em seguida, selecione **Enter** .  
+1. Para salvar o arquivo, selecione **Ctrl + X**, digite **Y** e, em seguida, selecione **Enter**.  
 
 1. Use o seguinte comando para copiar `useooziewf.hql` para `wasbs:///tutorials/useoozie/useooziewf.hql` :
 
@@ -215,7 +214,7 @@ As definições de fluxo de trabalho do Oozie são codificadas em hPDL (linguage
 
      Observe também a entrada `<archive>mssql-jdbc-7.0.0.jre8.jar</archive>` na seção Sqoop. Essa entrada instrui o Oozie a disponibilizar esse arquivo morto ao Sqoop quando essa ação é executada.
 
-3. Para salvar o arquivo, selecione **Ctrl + X** , digite **Y** e, em seguida, selecione **Enter** .  
+3. Para salvar o arquivo, selecione **Ctrl + X**, digite **Y** e, em seguida, selecione **Enter**.  
 
 4. Use o seguinte comando para copiar o arquivo `workflow.xml` para `/tutorials/useoozie/workflow.xml`:
 
@@ -382,7 +381,7 @@ A definição de trabalho descreve o local em que o workflow.xml se encontra. El
 
 4. Depois que o editor do nano for aberto, Cole o XML editado como o conteúdo do arquivo.
 
-5. Para salvar o arquivo, selecione **Ctrl + X** , digite **Y** e, em seguida, selecione **Enter** .
+5. Para salvar o arquivo, selecione **Ctrl + X**, digite **Y** e, em seguida, selecione **Enter**.
 
 ## <a name="submit-and-manage-the-job"></a>Enviar e gerenciar o trabalho
 
@@ -489,9 +488,9 @@ Para obter mais informações sobre o comando do Oozie, consulte [Ferramenta de 
 
 Com a API REST do Oozie, você pode criar suas próprias ferramentas que funcionem com Oozie. As seguintes informações específicas do HDInsight sobre o uso da API REST do amOozie:
 
-* **URI** : você pode acessar a API REST de fora do cluster em `https://CLUSTERNAME.azurehdinsight.net/oozie`.
+* **URI**: você pode acessar a API REST de fora do cluster em `https://CLUSTERNAME.azurehdinsight.net/oozie`.
 
-* **Autenticação** : para fazer a autenticação, use a API com a conta (administrador) e a senha do cluster HTTP. Por exemplo:
+* **Autenticação**: para fazer a autenticação, use a API com a conta (administrador) e a senha do cluster HTTP. Por exemplo:
 
     ```bash
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
@@ -517,11 +516,11 @@ Para acessar a interface do usuário do Oozie da Web, conclua as seguintes etapa
 
 2. Depois de criar um túnel, abra a interface do usuário da Web do amAmbari no seu navegador da Web usando o URI `http://headnodehost:8080` .
 
-3. No lado esquerdo da página, selecione **Oozie**  >  **links rápidos**  >  **Oozie interface do usuário da Web** .
+3. No lado esquerdo da página, selecione **Oozie**  >  **links rápidos**  >  **Oozie interface do usuário da Web**.
 
     ![Etapas da interface do usuário da Web do Apache Ambari oozie](./media/hdinsight-use-oozie-linux-mac/hdi-oozie-web-ui-steps.png)
 
-4. A interface do usuário da Web do Oozie assume como padrão a exibição de trabalhos do fluxo de trabalho em execução. Para ver todos os trabalhos de fluxo de trabalho, selecione **Todos os trabalhos** .
+4. A interface do usuário da Web do Oozie assume como padrão a exibição de trabalhos do fluxo de trabalho em execução. Para ver todos os trabalhos de fluxo de trabalho, selecione **Todos os trabalhos**.
 
     ![Trabalhos de fluxo de trabalho do console Web do Oozie](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-jobs.png)
 
@@ -529,27 +528,27 @@ Para acessar a interface do usuário do Oozie da Web, conclua as seguintes etapa
 
     ![Informações do trabalho do Apache Oozie do HDInsight](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-info.png)
 
-6. Na guia **Informações do Trabalho** , veja informações básicas sobre o trabalho, bem como as ações individuais dentro do trabalho. Você pode usar as guias na parte superior para exibir a **Definição de Trabalho** , a **Configuração de Trabalho** , acessar o **Log de Trabalho** ou ver um DAG (grafo direcionado acíclico) do trabalho em **DAG do Trabalho** .
+6. Na guia **Informações do Trabalho**, veja informações básicas sobre o trabalho, bem como as ações individuais dentro do trabalho. Você pode usar as guias na parte superior para exibir a **Definição de Trabalho**, a **Configuração de Trabalho**, acessar o **Log de Trabalho** ou ver um DAG (grafo direcionado acíclico) do trabalho em **DAG do Trabalho**.
 
-   * **Log de trabalho** : selecione o botão **Obter Logs** para obter todos os logs do trabalho ou use o campo **Inserir Filtro de Pesquisa** para filtrar os logs.
+   * **Log de trabalho**: selecione o botão **Obter Logs** para obter todos os logs do trabalho ou use o campo **Inserir Filtro de Pesquisa** para filtrar os logs.
 
        ![Log de trabalho do Apache Oozie no HDInsight](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-log.png)
 
-   * **DAG do Trabalho** : o DAG é uma visão geral gráfica dos caminhos de dados percorridos pelo fluxo de trabalho.
+   * **DAG do Trabalho**: o DAG é uma visão geral gráfica dos caminhos de dados percorridos pelo fluxo de trabalho.
 
        ![' DAG do trabalho HDInsight Apache Oozie '](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-dag.png)
 
-7. Se você selecionar uma das ações na guia **Informações do Trabalho** , ela exibirá informações para a ação. Por exemplo, selecione a ação **RunSqoopExport** .
+7. Se você selecionar uma das ações na guia **Informações do Trabalho**, ela exibirá informações para a ação. Por exemplo, selecione a ação **RunSqoopExport**.
 
     ![Informações de ação de trabalho do HDInsight oozie](./media/hdinsight-use-oozie-linux-mac/oozie-job-action-info.png)
 
-8. Você pode ver detalhes da ação, como um link para a **URL do Console** . Use este link para exibir informações do rastreador de trabalho para o trabalho.
+8. Você pode ver detalhes da ação, como um link para a **URL do Console**. Use este link para exibir informações do rastreador de trabalho para o trabalho.
 
 ## <a name="schedule-jobs"></a>Agendar trabalhos
 
 Você pode usar o coordenador para especificar um início, um fim e a frequência da ocorrência dos trabalhos. Para definir uma agenda para o fluxo de trabalho, conclusa as seguintes etapas:
 
-1. Use o seguinte comando para criar um arquivo chamado **coordinator.xml** :
+1. Use o seguinte comando para criar um arquivo chamado **coordinator.xml**:
 
     ```bash
     nano coordinator.xml
@@ -576,7 +575,7 @@ Você pode usar o coordenador para especificar um início, um fim e a frequênci
     > * `${coordTimezone}`: os trabalhos do coordenador estão em um fuso horário fixo sem horário de verão, geralmente representado com o uso do UTC. Esse fuso horário é chamado de *Oozie de processamento de fuso horário.*
     > * `${wfPath}`: o caminho para workflow.xml.
 
-2. Para salvar o arquivo, selecione **Ctrl + X** , digite **Y** e, em seguida, selecione **Enter** .
+2. Para salvar o arquivo, selecione **Ctrl + X**, digite **Y** e, em seguida, selecione **Enter**.
 
 3. Para copiar o arquivo para o diretório de trabalho para este trabalho, use o seguinte comando:
 
@@ -631,7 +630,7 @@ Você pode usar o coordenador para especificar um início, um fim e a frequênci
 
        Esses valores definem a hora de início como 12:00 PM em 10 de maio de 2018 e a hora de término como 12 de maio de 2018. O intervalo para execução desse trabalho é definido como diário. A frequência está em minutos, então 24 horas x 60 minutos = 1440 minutos. Por fim, o fuso horário é definido como UTC.
 
-5. Para salvar o arquivo, selecione **Ctrl + X** , digite **Y** e, em seguida, selecione **Enter** .
+5. Para salvar o arquivo, selecione **Ctrl + X**, digite **Y** e, em seguida, selecione **Enter**.
 
 6. Para enviar e iniciar o trabalho, use o seguinte comando:
 
@@ -639,7 +638,7 @@ Você pode usar o coordenador para especificar um início, um fim e a frequênci
     oozie job -config job.xml -run
     ```
 
-7. Se você acessar a interface do usuário da Web do Oozie e selecionar a guia **Trabalhos do Coordenador** , verá informações semelhantes à seguinte imagem:
+7. Se você acessar a interface do usuário da Web do Oozie e selecionar a guia **Trabalhos do Coordenador**, verá informações semelhantes à seguinte imagem:
 
     ![Guia de trabalhos do coordenador do console Web do Oozie](./media/hdinsight-use-oozie-linux-mac/coordinator-jobs-tab.png)
 
@@ -650,7 +649,7 @@ Você pode usar o coordenador para especificar um início, um fim e a frequênci
     ![Informações do trabalho do coordenador do Apache Oozie](./media/hdinsight-use-oozie-linux-mac/coordinator-job-info.png)
 
     > [!NOTE]  
-    > Essa imagem mostra apenas as execuções bem-sucedidas do trabalho, não as ações individuais do fluxo de trabalho agendado. Para ver as ações individuais, selecione uma das entradas em **Ação** .
+    > Essa imagem mostra apenas as execuções bem-sucedidas do trabalho, não as ações individuais do fluxo de trabalho agendado. Para ver as ações individuais, selecione uma das entradas em **Ação**.
 
     ![Guia de informações do trabalho do console Web do OOzie](./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png)
 

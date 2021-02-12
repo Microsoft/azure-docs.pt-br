@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 60dff717fbd86fa83821575ac90c9dac36dbc4d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34bc50f5f95725b59c0d2b30b529e12abb6aa7fa
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85383964"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661146"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrar usuários para Azure AD B2C
 
-Migrar de outro provedor de identidade para Azure Active Directory B2C (Azure AD B2C) também pode exigir a migração de contas de usuário existentes. Dois *métodos de migração* são discutidos aqui, pré-migração migração e *migração ininterrupta*. Com qualquer abordagem, você precisa escrever um aplicativo ou script que usa a [API Microsoft Graph](manage-user-accounts-graph-api.md) para criar contas de usuário no Azure ad B2C.
+Migrar de outro provedor de identidade para Azure Active Directory B2C (Azure AD B2C) também pode exigir a migração de contas de usuário existentes. Dois *métodos de migração* são discutidos aqui, pré-migração migração e *migração ininterrupta*. Com qualquer abordagem, você precisa escrever um aplicativo ou script que usa a [API Microsoft Graph](microsoft-graph-operations.md) para criar contas de usuário no Azure ad B2C.
 
 ## <a name="pre-migration"></a>Pré-migração
 
@@ -34,7 +34,7 @@ Use o fluxo de pré-migração em uma destas duas situações:
 - Você tem acesso às credenciais de texto não criptografado de um usuário (seu nome e senha).
 - As credenciais são criptografadas, mas você pode descriptografá-las.
 
-Para obter informações sobre como criar contas de usuário programaticamente, consulte [gerenciar contas de usuário Azure ad B2C com Microsoft Graph](manage-user-accounts-graph-api.md).
+Para obter informações sobre como criar contas de usuário programaticamente, consulte [gerenciar contas de usuário Azure ad B2C com Microsoft Graph](microsoft-graph-operations.md).
 
 ## <a name="seamless-migration"></a>Migração direta
 
@@ -90,14 +90,14 @@ Nem todas as informações no provedor de identidade herdado devem ser migradas 
 
 Antes de iniciar o processo de migração, aproveite a oportunidade de limpar seu diretório.
 
-- Identifique o conjunto de atributos de usuário a ser armazenado em Azure AD B2C e migre apenas o que você precisa. Se necessário, você pode criar [atributos personalizados](custom-policy-custom-attributes.md) para armazenar mais dados sobre um usuário.
+- Identifique o conjunto de atributos de usuário a ser armazenado em Azure AD B2C e migre apenas o que você precisa. Se necessário, você pode criar [atributos personalizados](user-flow-custom-attributes.md) para armazenar mais dados sobre um usuário.
 - Se você estiver migrando de um ambiente com várias fontes de autenticação (por exemplo, cada aplicativo tem seu próprio diretório de usuário), migre para uma conta unificada no Azure AD B2C.
 - Se vários aplicativos tiverem nomes de usuário diferentes, você poderá armazená-los em uma conta do Azure AD B2C, usando a coleção de identidades. Em relação à senha, permita que o usuário escolha um e defina-o no diretório. Por exemplo, com a migração direta, somente a senha escolhida deve ser armazenada na conta de Azure AD B2C.
 - Remova as contas de usuário não usadas antes da migração ou não migre contas obsoletas.
 
 ### <a name="password-policy"></a>Política de senha
 
-Se as contas que você está migrando tiverem uma intensidade de senha mais fraca do que a [força de senha forte](../active-directory/authentication/concept-sspr-policy.md) imposta pelo Azure ad B2C, você poderá desabilitar o requisito de senha forte. Para obter mais informações, consulte [propriedade de política de senha](manage-user-accounts-graph-api.md#password-policy-property).
+Se as contas que você está migrando tiverem uma intensidade de senha mais fraca do que a [força de senha forte](../active-directory/authentication/concept-sspr-policy.md) imposta pelo Azure ad B2C, você poderá desabilitar o requisito de senha forte. Para obter mais informações, consulte [propriedade de política de senha](user-profile-attributes.md#password-policy-attribute).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3f2171d3271a4ffc4770dd0c9faea16c23e44d02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01f4f52acaa5b461e2b058f112f26dafda86dcb7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88005495"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025020"
 ---
 # <a name="tutorial-set-up-service-alerts-for-windows-virtual-desktop-classic"></a>Tutorial: Configurar alertas de serviço para a Área de Trabalho Virtual do Windows (clássica)
 
@@ -25,7 +25,7 @@ Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
 > * Criar e configurar os alertas de serviço.
 
-Para saber mais, veja a [documentação de Integridade do Serviço do Azure](https://docs.microsoft.com/azure/service-health/).
+Para saber mais, veja a [documentação de Integridade do Serviço do Azure](../../service-health/index.yml).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -52,7 +52,7 @@ Para configurar os alertas de serviço:
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 2. Selecione **Integridade do Serviço do Azure**.
-3. Use as instruções em [Criar alertas do log de atividades em notificações de serviço](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2Fazure%2Fservice-health%2Ftoc.json#alert-and-new-action-group-using-azure-portal) para configurar os alertas e as notificações.
+3. Use as instruções em [Criar alertas do log de atividades em notificações de serviço](../../service-health/alerts-activity-log-service-notifications-portal.md?toc=%2fazure%2fservice-health%2ftoc.json) para configurar os alertas e as notificações.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 7/13/2020
-ms.openlocfilehash: fac0db7f8c94113ff87d1c0a3091e4c0cbd5ed2b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f8840d5115cb552ed203705d37f8c692b3418947
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489839"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492328"
 ---
 # <a name="logs-in-azure-database-for-postgresql---hyperscale-citus"></a>Logs no banco de dados do Azure para PostgreSQL-Citus (hiperescala)
 
@@ -24,15 +24,15 @@ Para acessar os logs do PostgreSQL para um coordenador ou nó de trabalho de hip
 
 :::image type="content" source="media/howto-hyperscale-logging/choose-node.png" alt-text="lista de nós":::
 
-Para o nó selecionado, abra **configurações de diagnóstico**e clique em **+ Adicionar configuração de diagnóstico**.
+Para o nó selecionado, abra **configurações de diagnóstico** e clique em **+ Adicionar configuração de diagnóstico**.
 
-:::image type="content" source="media/howto-hyperscale-logging/diagnostic-settings.png" alt-text="lista de nós":::
+:::image type="content" source="media/howto-hyperscale-logging/diagnostic-settings.png" alt-text="Botão Adicionar configurações de diagnóstico":::
 
 Escolha um nome para as novas configurações de diagnóstico e marque a caixa **PostgreSQLLogs** .  Escolha quais destinos devem receber os logs.
 
-:::image type="content" source="media/howto-hyperscale-logging/diagnostic-create-setting.png" alt-text="lista de nós":::
+:::image type="content" source="media/howto-hyperscale-logging/diagnostic-create-setting.png" alt-text="Escolher logs do PostgreSQL":::
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Introdução às consultas do log Analytics](../azure-monitor/log-query/get-started-portal.md)
+- [Introdução às consultas do log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 - Saiba mais sobre os [hubs de eventos do Azure](../event-hubs/event-hubs-about.md)

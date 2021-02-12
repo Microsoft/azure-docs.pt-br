@@ -28,6 +28,10 @@
           href: resource-network-topologies.md
         - name: Funções personalizadas
           href: resource-custom-roles-sql-db-managed-instance.md
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
 - name: Tutoriais
   expanded: true
   items:
@@ -85,8 +89,10 @@
       items:
         - name: o SQL Server para o Banco de Dados SQL
           href: howto-sql-server-to-azure-sql-powershell.md
-        - name: o SQL Server para a Instância Gerenciada de SQL
-          href: howto-sql-server-to-azure-sql-mi-powershell.md
+        - name: SQL Server para a MI do SQL (online)
+          href: howto-sql-server-to-azure-sql-managed-instance-powershell-online.md
+        - name: SQL Server para a MI do SQL (offline)
+          href: howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md
     - name: Reimplantar pacote do SSIS para
       items:
         - name: Banco de Dados SQL do Azure
@@ -112,11 +118,11 @@
         - name: Guia de Migração de Banco de Dados do Azure
           href: 'https://aka.ms/datamigration'
         - name: Assistente de Migração de Dados
-          href: 'https://aka.ms/dma'
+          href: /sql/dma/dma-overview
         - name: Assistente de Migração do SQL Server
-          href: 'https://aka.ms/ssma'
+          href: /sql/ssma/sql-server-migration-assistant
         - name: Assistente para Experimentos de Banco de Dados
-          href: 'https://aka.ms/dea-docs'
+          href: /sql/dea/database-experimentation-assistant-overview
         - name: Kit de ferramentas de migração de acesso a dados
           href: 'https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit'
     - name: Solução de problemas e problemas conhecidos
@@ -133,17 +139,17 @@
               href: known-issues-dms-hybrid-mode.md
         - name: Problemas de migração conhecidos
           items:
-            - name: para o Banco de Dados SQL
+            - name: Banco de Dados SQL
               href: known-issues-azure-sql-online.md
             - name: Instância Gerenciada do SQL
               href: known-issues-azure-sql-db-managed-instance-online.md
-            - name: para o BD do Azure para MySQL
+            - name: Banco de dados do Azure para MySQL
               href: known-issues-azure-mysql-online.md
-            - name: do PostgreSQL para o BD do Azure para PostgreSQL
+            - name: PostgreSQL para o BD do Azure para PostgreSQL
               href: known-issues-azure-postgresql-online.md
-            - name: do Oracle para o BD do Azure para PostgreSQL
+            - name: Oracle para o BD do Azure para PostgreSQL
               href: known-issues-oracle-azure-postgresql-online.md
-            - name: do MongoDB para a API do Azure Cosmos DB para MongoDB
+            - name: MongoDB para a API do Azure Cosmos DB para MongoDB
               href: known-issues-mongo-cosmos-db.md
     - name: vídeos
       items:

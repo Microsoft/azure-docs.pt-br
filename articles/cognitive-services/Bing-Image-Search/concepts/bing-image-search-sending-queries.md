@@ -11,19 +11,19 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: f697449fffe6c93d8e5082b210678d3f51c0c736
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2566b2cf950df915f8ea843c34ea1fb6f8e7ea21
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084403"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341998"
 ---
 # <a name="customize-and-suggest-image-search-queries"></a>Personalizar e sugerir consultas de pesquisa de imagem
 
 > [!WARNING]
-> APIs de Pesquisa do Bing estão mudando de serviços cognitivas para serviços Pesquisa do Bings. A partir de **30 de outubro de 2020** , todas as novas instâncias do pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
-> APIs de Pesquisa do Bing provisionado usando serviços cognitivas terão suporte nos próximos três anos ou até o final do seu Enterprise Agreement, o que ocorrer primeiro.
-> Para obter instruções de migração, consulte [serviços de pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Use este artigo para aprender a personalizar consultas e sugerir termos de pesquisa para enviar para o API de Pesquisa de Imagem do Bing.
 
@@ -33,9 +33,9 @@ Se o aplicativo tiver uma caixa de pesquisa em que os termos de pesquisa são in
 
 ## <a name="pivot-the-query"></a>Dinamizar a consulta
 
-Se o Bing conseguir segmentar a consulta de pesquisa original, o objeto [Imagens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) contém `pivotSuggestions`. Dinamizar sugestões pode ser exibido como termos de pesquisa opcional para o usuário. Por exemplo, se a consulta original foi *Microsoft Surface* , o Bing pode segmentar a consulta entre *Microsoft* e *Surface* e fornecer pivôs sugeridos para cada um. Essas sugestões podem ser exibidas como termos de pesquisa opcionais para o usuário.
+Se o Bing conseguir segmentar a consulta de pesquisa original, o objeto [Imagens](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) contém `pivotSuggestions`. Dinamizar sugestões pode ser exibido como termos de pesquisa opcional para o usuário. Por exemplo, se a consulta original foi *Microsoft Surface*, o Bing pode segmentar a consulta entre *Microsoft* e *Surface* e fornecer pivôs sugeridos para cada um. Essas sugestões podem ser exibidas como termos de pesquisa opcionais para o usuário.
 
-O exemplo a seguir mostra as sugestões dinâmicas para o *Microsoft Surface* :  
+O exemplo a seguir mostra as sugestões dinâmicas para o *Microsoft Surface*:  
 
 ```json
 {
@@ -94,7 +94,7 @@ O exemplo a seguir mostra as sugestões dinâmicas para o *Microsoft Surface* :
 }
 ```
 
-O campo `pivotSuggestions` contém a lista de segmentos (dinâmicas) em que a consulta original foi dividida. Para cada tipo de dinâmica, a resposta contém uma lista de objetos de [Consulta](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query_obj) que contem consultas sugeridas. O `text` campo contém a consulta sugerida. O campo `displayText` contém a consulta sugerida, e o campo contém o termo que substitui a dinâmica na consulta original. Por exemplo, data de lançamento do Surface.
+O campo `pivotSuggestions` contém a lista de segmentos (dinâmicas) em que a consulta original foi dividida. Para cada tipo de dinâmica, a resposta contém uma lista de objetos de [Consulta](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query_obj) que contem consultas sugeridas. O `text` campo contém a consulta sugerida. O campo `displayText` contém a consulta sugerida, e o campo contém o termo que substitui a dinâmica na consulta original. Por exemplo, data de lançamento do Surface.
 
 Se a cadeia de caracteres de consulta dinâmica é o que o usuário está procurando, use o `text` e `thumbnail` cadeias de caracteres de consulta de campos a serem exibidas na dinamização. Tornar o texto e a miniatura clicável usando a `webSearchUrl` URL ou a `searchLink` URL. Use `webSearchUrl` para enviar o usuário para os resultados da pesquisa do Bing. Se você fornecer sua própria página de resultados, use `searchLink`.
 
@@ -106,13 +106,13 @@ The following shows an example of the pivot queries.
 
 ## <a name="expand-the-query"></a>Expanda a consulta
 
-Se o Bing conseguir expandir a consulta para restringir a pesquisa original, o objeto [Imagens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) contém o campo `queryExpansions`. Por exemplo, se a consulta foi *Microsoft Surface* , as consultas expandidas podem ser:
-- Microsoft Surface **Pro 3** .
-- Microsoft Surface **RT** .
-- Microsoft Surface **Phone** .
-- Microsoft Surface **Hub** .
+Se o Bing conseguir expandir a consulta para restringir a pesquisa original, o objeto [Imagens](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) contém o campo `queryExpansions`. Por exemplo, se a consulta foi *Microsoft Surface*, as consultas expandidas podem ser:
+- Microsoft Surface **Pro 3**.
+- Microsoft Surface **RT**.
+- Microsoft Surface **Phone**.
+- Microsoft Surface **Hub**.
 
-O exemplo a seguir mostra as consultas expandidas do *Microsoft Surface* .
+O exemplo a seguir mostra as consultas expandidas do *Microsoft Surface*.
 
 ```json
 {
@@ -152,7 +152,7 @@ O exemplo a seguir mostra as consultas expandidas do *Microsoft Surface* .
 }
 ```
 
-O campo `queryExpansions` contém uma lista de objetos de [Consulta](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query_obj). O campo `text` contém a consulta sugerida. O campo `displayText` contém ao termo de expansão. Se a cadeia de caracteres de consulta expandida é o que o usuário está procurando, use os campos `text` e `thumbnail` para exibir as cadeias de caracteres de consulta expandida. Tornar o texto e a miniatura clicável usando a `webSearchUrl` URL ou a `searchLink` URL. Use `webSearchUrl` para enviar o usuário para os resultados da pesquisa do Bing. Se você fornecer sua própria página de resultados, use `searchLink`.
+O campo `queryExpansions` contém uma lista de objetos de [Consulta](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query_obj). O campo `text` contém a consulta sugerida. O campo `displayText` contém ao termo de expansão. Se a cadeia de caracteres de consulta expandida é o que o usuário está procurando, use os campos `text` e `thumbnail` para exibir as cadeias de caracteres de consulta expandida. Tornar o texto e a miniatura clicável usando a `webSearchUrl` URL ou a `searchLink` URL. Use `webSearchUrl` para enviar o usuário para os resultados da pesquisa do Bing. Se você fornecer sua própria página de resultados, use `searchLink`.
 
 <!-- Removing until we can replace with a sanitized image.
 The following shows an example Bing implementation that uses expanded queries. If the user clicks the Microsoft Surface Pro 3 link, they're taken to the Bing search results page, which shows them images of the Pro 3.

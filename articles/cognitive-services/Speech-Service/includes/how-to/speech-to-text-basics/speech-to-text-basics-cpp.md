@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/06/2020
 ms.author: trbye
-ms.openlocfilehash: 65340bfcab76bd35901d1b3a9f3b4a8736205706
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: de1266d9086cd3b2472db2552210f24d9a51add7
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91377230"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96912268"
 ---
 Um dos principais recursos do serviço de Fala é a capacidade de reconhecer e transcrever a fala humana (frequentemente denominada conversão de fala em texto). Neste guia de início rápido, você aprende a usar o SDK de Fala em seus aplicativos e produtos para executar uma conversão de fala em texto de alta qualidade.
 
@@ -31,74 +31,68 @@ Antes de fazer qualquer coisa, você precisará instalar o SDK de Fala. Dependen
 
 ## <a name="create-a-speech-configuration"></a>Criar uma configuração de fala
 
-Para chamar o serviço de Fala usando o SDK de Fala, você precisa criar um [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig). Essa classe inclui informações sobre sua assinatura, como sua chave e região, ponto de extremidade, host ou token de autorização associados.
+Para chamar o serviço de Fala usando o SDK de Fala, você precisa criar um [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig). Essa classe inclui informações sobre sua assinatura, como sua chave e região, ponto de extremidade, host ou token de autorização associados. Crie [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig) usando sua chave e região. Confira a página [Localizar chaves e região](../../../overview.md#find-keys-and-region) para localizar o par chave-região.
 
-> [!NOTE]
-> Independentemente se você estiver executando o reconhecimento de fala, a síntese de fala, tradução ou reconhecimento de intenção, você sempre criará uma configuração.
+```cpp
+using namespace std;
+using namespace Microsoft::CognitiveServices::Speech;
 
-Há algumas maneiras de inicializar um [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig):
+auto config = SpeechConfig::FromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
+```
 
-* Com uma assinatura: passe uma chave e a região associada.
+Há algumas outras maneiras de inicializar um [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig):
+
 * Com um ponto de extremidade: passe um ponto de extremidade do serviço de Fala. Uma chave ou um token de autorização é opcional.
 * Com um host: passe um endereço de host. Uma chave ou um token de autorização é opcional.
 * Com um token de autorização: passe um token de autorização e a região associada.
 
-Veja como criar um [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) com a chave e a região. Confira a página [suporte a regiões](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) para encontrar o identificador de sua região.
+> [!NOTE]
+> Independentemente se você estiver executando o reconhecimento de fala, a síntese de fala, tradução ou reconhecimento de intenção, você sempre criará uma configuração.
 
-```cpp
-auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
-```
+## <a name="recognize-from-microphone"></a>Reconhecer do microfone
 
-## <a name="initialize-a-recognizer"></a>Inicializar um reconhecedor
-
-Depois de criar um [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig), a próxima etapa é inicializar um [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer). Ao inicializar um [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer), você precisará passar `speech_config` para ele. Isso fornece as credenciais necessárias ao serviço de fala para validar sua solicitação.
-
-```cpp
-auto recognizer = SpeechRecognizer::FromConfig(config);
-```
-
-## <a name="recognize-from-microphone-or-file"></a>Reconhecer do microfone ou do arquivo
-
-Se quiser especificar o dispositivo de entrada de áudio, você precisará criar um [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig) e passá-lo como um parâmetro ao inicializar o [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer).
-
-Para reconhecer fala usando o microfone de seu dispositivo, crie um `AudioConfig` usando `FromDefaultMicrophoneInput()` e passe a configuração de áudio ao criar o objeto `SpeechRecognizer`.
+Para reconhecer fala usando o microfone do dispositivo, crie um `AudioConfig` usando `FromDefaultMicrophoneInput()`. Em seguida, inicialize um [`SpeechRecognizer`](/cpp/cognitive-services/speech/speechrecognizer), passando `audioConfig` e `config`.
 
 ```cpp
 using namespace Microsoft::CognitiveServices::Speech::Audio;
 
 auto audioConfig = AudioConfig::FromDefaultMicrophoneInput();
 auto recognizer = SpeechRecognizer::FromConfig(config, audioConfig);
+
+cout << "Speak into your microphone." << std::endl;
+auto result = recognizer->RecognizeOnceAsync().get();
+cout << "RECOGNIZED: Text=" << result->Text << std::endl;
 ```
 
-> [!TIP]
-> [Saiba como obter a identificação do dispositivo de entrada de áudio](../../../how-to-select-audio-input-devices.md).
+Se você quiser usar um dispositivo de entrada de áudio *específico*, será necessário especificar a ID do dispositivo no `AudioConfig`. Saiba [como obter a identificação do dispositivo](../../../how-to-select-audio-input-devices.md) de entrada de áudio.
 
-Se desejar reconhecer fala de um arquivo de áudio em vez de usar um microfone, você ainda precisará criar um `AudioConfig`. No entanto, ao criar o [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig), em vez de chamar `FromDefaultMicrophoneInput()`, você chamará `FromWavFileInput()` e passará o parâmetro `filename`.
+## <a name="recognize-from-file"></a>Reconhecer do arquivo
+
+Se desejar reconhecer fala de um arquivo de áudio em vez de usar um microfone, você ainda precisará criar um `AudioConfig`. No entanto, ao criar o [`AudioConfig`](/cpp/cognitive-services/speech/audio-audioconfig), em vez de chamar `FromDefaultMicrophoneInput()`, você chamará `FromWavFileInput()` e passará o caminho do arquivo.
 
 ```cpp
+using namespace Microsoft::CognitiveServices::Speech::Audio;
+
 auto audioInput = AudioConfig::FromWavFileInput("YourAudioFile.wav");
 auto recognizer = SpeechRecognizer::FromConfig(config, audioInput);
+
+auto result = recognizer->RecognizeOnceAsync().get();
+cout << "RECOGNIZED: Text=" << result->Text << std::endl;
 ```
 
 ## <a name="recognize-speech"></a>Reconhecer fala
 
-A [classe Reconhecedor](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) do SDK de Fala do C++ expõe alguns métodos que você pode usar para o reconhecimento de fala.
-
-* Reconhecimento pontual (assíncrono): realiza o reconhecimento em um modo sem bloqueios (assíncrono). Reconhecerá um único enunciado. O fim de um único enunciado é determinado pela escuta de silêncio no fim ou até o máximo de 15 segundos de áudio processado.
-* Reconhecimento contínuo (assíncrono): inicia de modo assíncrono a operação de reconhecimento contínuo. O usuário precisa se conectar ao evento de identificador para receber os resultados de reconhecimento. Para interromper o reconhecimento contínuo assíncrono, chame [`StopContinuousRecognitionAsync`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#stopcontinuousrecognitionasync).
-
-> [!NOTE]
-> Saiba mais sobre como [escolher um modo de reconhecimento de fala](../../../how-to-choose-recognition-mode.md).
+A [classe Reconhecedor](/cpp/cognitive-services/speech/speechrecognizer) do SDK de Fala do C++ expõe alguns métodos que você pode usar para o reconhecimento de fala.
 
 ### <a name="single-shot-recognition"></a>Reconhecimento pontual
 
-Veja um exemplo de reconhecimento pontual assíncrono com [`RecognizeOnceAsync`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#recognizeonceasync):
+O reconhecimento pontual reconhece de forma assíncrona um único enunciado. O fim de um único enunciado é determinado pela escuta de silêncio no fim ou até o máximo de 15 segundos de áudio processado. Veja um exemplo de reconhecimento pontual assíncrono com [`RecognizeOnceAsync`](/cpp/cognitive-services/speech/speechrecognizer#recognizeonceasync):
 
 ```cpp
 auto result = recognizer->RecognizeOnceAsync().get();
 ```
 
-Será necessário escrever código para lidar com o resultado. Este exemplo avalia o [`result->Reason`](https://docs.microsoft.com/cpp/cognitive-services/speech/recognitionresult#reason):
+Será necessário escrever código para lidar com o resultado. Este exemplo avalia o [`result->Reason`](/cpp/cognitive-services/speech/recognitionresult#reason):
 
 * Imprime o resultado de reconhecimento: `ResultReason::RecognizedSpeech`
 * Se não houver correspondência com o reconhecimento, informe o usuário: `ResultReason::NoMatch`
@@ -132,9 +126,9 @@ switch (result->Reason)
 
 ### <a name="continuous-recognition"></a>Reconhecimento contínuo
 
-O reconhecimento contínuo é um pouco mais complexo que o pontual. É necessário assinar os eventos `Recognizing`, `Recognized` e `Canceled` para obter os resultados do reconhecimento. Para interromper o reconhecimento, você deve chamar [StopContinuousRecognitionAsync](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#stopcontinuousrecognitionasync). Veja um exemplo de como o reconhecimento contínuo é realizado em um arquivo de entrada de áudio.
+O reconhecimento contínuo é um pouco mais complexo que o pontual. É necessário assinar os eventos `Recognizing`, `Recognized` e `Canceled` para obter os resultados do reconhecimento. Para interromper o reconhecimento, você deve chamar [StopContinuousRecognitionAsync](/cpp/cognitive-services/speech/speechrecognizer#stopcontinuousrecognitionasync). Veja um exemplo de como o reconhecimento contínuo é realizado em um arquivo de entrada de áudio.
 
-Comece definindo a entrada e inicializando um [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer):
+Comece definindo a entrada e inicializando um [`SpeechRecognizer`](/cpp/cognitive-services/speech/speechrecognizer):
 
 ```cpp
 auto audioInput = AudioConfig::FromWavFileInput("YourAudioFile.wav");
@@ -147,12 +141,12 @@ Em seguida, crie uma variável para gerenciar o estado do reconhecimento de fala
 promise<void> recognitionEnd;
 ```
 
-Assine os eventos enviados do [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer).
+Assine os eventos enviados do [`SpeechRecognizer`](/cpp/cognitive-services/speech/speechrecognizer).
 
-* [`Recognizing`](https://docs.microsoft.com/cpp/cognitive-services/speech/asyncrecognizer#recognizing): sinal para os eventos que contêm resultados de reconhecimento intermediários.
-* [`Recognized`](https://docs.microsoft.com/cpp/cognitive-services/speech/asyncrecognizer#recognized): sinal para eventos que contêm resultados de reconhecimento finais (indicando uma tentativa de reconhecimento bem-sucedida).
-* [`SessionStopped`](https://docs.microsoft.com/cpp/cognitive-services/speech/asyncrecognizer#sessionstopped): sinal para eventos que indicam o fim de uma sessão de reconhecimento (operação).
-* [`Canceled`](https://docs.microsoft.com/cpp/cognitive-services/speech/asyncrecognizer#canceled): sinal para eventos que contêm resultados de reconhecimento cancelados (indicando uma tentativa de reconhecimento que foi cancelada em decorrência de uma solicitação de cancelamento direta ou uma falha de transporte ou protocolo).
+* [`Recognizing`](/cpp/cognitive-services/speech/asyncrecognizer#recognizing): sinal para os eventos que contêm resultados de reconhecimento intermediários.
+* [`Recognized`](/cpp/cognitive-services/speech/asyncrecognizer#recognized): sinal para eventos que contêm resultados de reconhecimento finais (indicando uma tentativa de reconhecimento bem-sucedida).
+* [`SessionStopped`](/cpp/cognitive-services/speech/asyncrecognizer#sessionstopped): sinal para eventos que indicam o fim de uma sessão de reconhecimento (operação).
+* [`Canceled`](/cpp/cognitive-services/speech/asyncrecognizer#canceled): sinal para eventos que contêm resultados de reconhecimento cancelados (indicando uma tentativa de reconhecimento que foi cancelada em decorrência de uma solicitação de cancelamento direta ou uma falha de transporte ou protocolo).
 
 ```cpp
 recognizer->Recognizing.Connect([](const SpeechRecognitionEventArgs& e)
@@ -193,7 +187,7 @@ recognizer->SessionStopped.Connect([&recognitionEnd](const SessionEventArgs& e)
     });
 ```
 
-Com tudo configurado, chame [`StopContinuousRecognitionAsync`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#startcontinuousrecognitionasync).
+Com tudo configurado, chame [`StopContinuousRecognitionAsync`](/cpp/cognitive-services/speech/speechrecognizer#startcontinuousrecognitionasync).
 
 ```cpp
 // Starts continuous recognition. Uses StopContinuousRecognitionAsync() to stop recognition.
@@ -210,7 +204,7 @@ recognizer->StopContinuousRecognitionAsync().get();
 
 Ao usar o reconhecimento contínuo, você pode habilitar o processamento de ditado usando a função "habilitar ditado" correspondente. Esse modo fará a instância de configuração de fala interpretar as descrições das estruturas de frase, como pontuação. Por exemplo, o enunciado "Você mora na cidade ponto de interrogação" seria interpretado como o texto "Você mora na cidade?".
 
-Para habilitar o modo de ditado, use o método [`EnableDictation`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#enabledictation) no [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig).
+Para habilitar o modo de ditado, use o método [`EnableDictation`](/cpp/cognitive-services/speech/speechconfig#enabledictation) no [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig).
 
 ```cpp
 config->EnableDictation();
@@ -218,24 +212,28 @@ config->EnableDictation();
 
 ## <a name="change-source-language"></a>Alterar idioma de origem
 
-Uma tarefa comum no reconhecimento de fala é especificar o idioma da entrada (ou origem). Veja como você alteraria o idioma de entrada para alemão. No código, localize [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) e adicione esta linha logo abaixo.
+Uma tarefa comum no reconhecimento de fala é especificar o idioma da entrada (ou origem). Veja como você alteraria o idioma de entrada para alemão. No código, localize [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig) e adicione esta linha logo abaixo.
 
 ```cpp
 config->SetSpeechRecognitionLanguage("de-DE");
 ```
 
-[`SetSpeechRecognitionLanguage`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setspeechrecognitionlanguage) é um parâmetro que usa uma cadeia de caracteres como argumento. Você pode fornecer qualquer valor na lista de [localidades/idiomas](../../../language-support.md) compatíveis.
+[`SetSpeechRecognitionLanguage`](/cpp/cognitive-services/speech/speechconfig#setspeechrecognitionlanguage) é um parâmetro que usa uma cadeia de caracteres como argumento. Você pode fornecer qualquer valor na lista de [localidades/idiomas](../../../language-support.md) compatíveis.
 
 ## <a name="improve-recognition-accuracy"></a>Aprimorar a precisão do reconhecimento
 
-Existem algumas maneiras de aprimorar a precisão do reconhecimento com o SDK de Fala. Vamos examinar Listas de Frases. As Listas de Frases são usadas para identificar frases conhecidas nos dados do áudio, como o nome de uma pessoa ou um local específico. Palavras ou frases completas podem ser adicionadas a uma Lista de Frases. Durante o reconhecimento, uma entrada em uma lista de frases será usada se uma correspondência exata à frase inteira estiver incluída no áudio. Se uma correspondência exata à frase não for encontrada, o reconhecimento não será assistido.
+As Listas de Frases são usadas para identificar frases conhecidas nos dados do áudio, como o nome de uma pessoa ou um local específico. Ao fornecer uma lista de frases, você melhora a precisão do reconhecimento de fala.
+
+Por exemplo, se você tiver um comando "Mover para" e um possível destino de "Ala" que pode ser falado, você poderá adicionar uma entrada "Mover para a Ala". A adição de uma frase aumentará a probabilidade de quando o áudio for reconhecido, que ele será reconhecido como "Mover para a Ala" em vez de "Ir para"
+
+Palavras ou frases completas podem ser adicionadas a uma Lista de Frases. Durante o reconhecimento, uma entrada em uma lista de frases é usada para aumentar o reconhecimento das palavras e frases na lista, mesmo quando as entradas aparecem no meio do enunciado. 
 
 > [!IMPORTANT]
-> O recurso Lista de Frases só está disponível em inglês.
+> O recurso Lista de Frases está disponível nos seguintes idiomas: en-US, de-DE, en-AU, en-CA, en-GB, es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, ko-KR, pt-BR, zh-CN
 
-Para usar uma lista de frases, primeiro crie um objeto [`PhraseListGrammar`](https://docs.microsoft.com/cpp/cognitive-services/speech/phraselistgrammar). Em seguida, adicione palavras e frases específicas com [`AddPhrase`](https://docs.microsoft.com/cpp/cognitive-services/speech/phraselistgrammar#addphrase).
+Para usar uma lista de frases, primeiro crie um objeto [`PhraseListGrammar`](/cpp/cognitive-services/speech/phraselistgrammar). Em seguida, adicione palavras e frases específicas com [`AddPhrase`](/cpp/cognitive-services/speech/phraselistgrammar#addphrase).
 
-Todas as alterações em [`PhraseListGrammar`](https://docs.microsoft.com/cpp/cognitive-services/speech/phraselistgrammar) entrarão em vigor no próximo reconhecimento ou após uma reconexão com o serviço de Fala.
+Todas as alterações em [`PhraseListGrammar`](/cpp/cognitive-services/speech/phraselistgrammar) entrarão em vigor no próximo reconhecimento ou após uma reconexão com o serviço de Fala.
 
 ```cpp
 auto phraseListGrammar = PhraseListGrammar::FromRecognizer(recognizer);
@@ -252,5 +250,5 @@ phraseListGrammar->Clear();
 
 As listas de frases são só uma opção para aprimorar a precisão do reconhecimento. Também é possível: 
 
-* [Aprimorar a precisão com a Fala Personalizada](../../../how-to-custom-speech.md)
+* [Aprimorar a precisão com a Fala Personalizada](../../../custom-speech-overview.md)
 * [Aprimorar a precisão com modelos de locatário](../../../tutorial-tenant-model.md)

@@ -4,15 +4,16 @@ description: Com a TTL, o Microsoft Azure Cosmos DB fornece a capacidade de limp
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 11/04/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d4815f4be3c8ef1a2c262d6715756776a537eac1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: cf9d0aea9ab9e79a5f184a42e1bb785b6fb870a7
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101044"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360081"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Vida útil no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -21,7 +22,7 @@ Com **a vida útil ou** TTL, Azure Cosmos DB fornece a capacidade de excluir ite
 
 A exclusão de itens expirados é uma tarefa em segundo plano que consome [unidades de solicitação](request-units.md)restantes, que são unidades de solicitação que não foram consumidas por solicitações do usuário. Mesmo após o TTL expirar, se o contêiner estiver sobrecarregado com solicitações e se não houver RU suficiente disponível, a exclusão de dados será atrasada. Os dados são excluídos quando há um RUs suficiente disponível para executar a operação de exclusão. Embora a exclusão de dados seja atrasada, os dados não são retornados por nenhuma consulta (por qualquer API) após o tempo de vida expirar.
 
-> Este conteúdo está relacionado a Azure Cosmos DB TTL de repositório transacional. Se você estiver procurando por TTL da loja Analitycal, que habilita cenários NoETL HTAP por meio [do link Synapse do Azure](./synapse-link.md), clique [aqui](./analytical-store-introduction.md#analytical-ttl).
+> Este conteúdo está relacionado a Azure Cosmos DB TTL de repositório transacional. Se você estiver procurando por TTL do repositório analítico, que habilita cenários NoETL HTAP por meio [do link Synapse do Azure](./synapse-link.md), clique [aqui](./analytical-store-introduction.md#analytical-ttl).
 
 ## <a name="time-to-live-for-containers-and-items"></a>Vida Útil para contêineres e itens
 
@@ -33,7 +34,7 @@ O valor de vida útil é definido em segundos e é interpretado como um Delta de
 
    - Se presente e o valor for definido como "-1", ele será igual ao infinito e os itens não expirarão por padrão.
 
-   - Se presente e o valor for definido como algum número *"n"* – os itens expirarão em *"n"* segundos após a hora da última modificação.
+   - Se presente e o valor for definido como algum número *diferente de zero* , *"n"* – os itens expirarão em *"n"* segundos após a hora da última modificação.
 
 2. **Vida Útil em um item** (definir usando `ttl`):
 
@@ -43,11 +44,11 @@ O valor de vida útil é definido em segundos e é interpretado como um Delta de
 
 ## <a name="time-to-live-configurations"></a>Configurações de Vida Útil
 
-* Se TTL for definido como *"n"* em um contêiner, os itens nesse contêiner expirarão após *n* segundos.  Se houver itens no mesmo contêiner que tenham sua própria vida útil, defina como-1 (indicando que eles não expiram) ou se alguns itens tiverem substituído a configuração de vida útil com um número diferente, esses itens expirarão com base em seu próprio valor de TTL configurado. 
+- Se TTL for definido como *"n"* em um contêiner, os itens nesse contêiner expirarão após *n* segundos.  Se houver itens no mesmo contêiner que tenham sua própria vida útil, defina como-1 (indicando que eles não expiram) ou se alguns itens tiverem substituído a configuração de vida útil com um número diferente, esses itens expirarão com base em seu próprio valor de TTL configurado.
 
-* Se a TTL não estiver definida em um contêiner, o tempo de vida de um item nesse contêiner não terá efeito. 
+- Se a TTL não estiver definida em um contêiner, o tempo de vida de um item nesse contêiner não terá efeito.
 
-* Se a TTL em um contêiner for definida como -1, um item nesse contêiner que tenha a vida útil definida como n expirará após n segundos, e os itens restantes não expirarão.
+- Se a TTL em um contêiner for definida como -1, um item nesse contêiner que tenha a vida útil definida como n expirará após n segundos, e os itens restantes não expirarão.
 
 ## <a name="examples"></a>Exemplos
 
@@ -59,10 +60,9 @@ TTL no contêiner é definido como nulo (DefaultTimeToLive = NULL)
 
 |TTL no item| Resultado|
 |---|---|
-|TTL = nulo|    O TTL está desabilitado. O item nunca expirará (padrão).|
-|TTL =-1   |O TTL está desabilitado. O item nunca expirará.|
-|TTL = 2000 |O TTL está desabilitado. O item nunca expirará.|
-
+|TTL = nulo|O TTL está desabilitado. O item nunca expirará (padrão).|
+|TTL =-1|O TTL está desabilitado. O item nunca expirará.|
+|TTL = 2000|O TTL está desabilitado. O item nunca expirará.|
 
 ### <a name="example-2"></a>Exemplo 2
 
@@ -70,23 +70,22 @@ TTL no contêiner é definido como-1 (DefaultTimeToLive =-1)
 
 |TTL no item| Resultado|
 |---|---|
-|TTL = nulo |O TTL está habilitado. O item nunca expirará (padrão).|
-|TTL =-1   |O TTL está habilitado. O item nunca expirará.|
-|TTL = 2000 |O TTL está habilitado. O item expirará após 2000 segundos.|
+|TTL = nulo|O TTL está habilitado. O item nunca expirará (padrão).|
+|TTL =-1|O TTL está habilitado. O item nunca expirará.|
+|TTL = 2000|O TTL está habilitado. O item expirará após 2000 segundos.|
 
-
-### <a name="example-3"></a>Exemplo 3:
+### <a name="example-3"></a>Exemplo 3
 
 TTL no contêiner é definido como 1000 (DefaultTimeToLive = 1000)
 
 |TTL no item| Resultado|
 |---|---|
-|TTL = nulo|    O TTL está habilitado. O item expirará após 1000 segundos (padrão).|
-|TTL =-1   |O TTL está habilitado. O item nunca expirará.|
-|TTL = 2000 |O TTL está habilitado. O item expirará após 2000 segundos.|
+|TTL = nulo|O TTL está habilitado. O item expirará após 1000 segundos (padrão).|
+|TTL =-1|O TTL está habilitado. O item nunca expirará.|
+|TTL = 2000|O TTL está habilitado. O item expirará após 2000 segundos.|
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba como configurar a vida útil nos seguintes artigos:
 
-* [Como configurar a Vida Útil](how-to-time-to-live.md)
+- [Como configurar a Vida Útil](how-to-time-to-live.md)

@@ -1,5 +1,6 @@
 ---
-title: Cenário de aplicativo de página única JavaScript – plataforma Microsoft Identity | Azure
+title: Cenário de aplicativo de página única JavaScript
+titleSuffix: Microsoft identity platform
 description: Saiba como criar um aplicativo de página única (visão geral do cenário) usando a plataforma de identidade da Microsoft.
 services: active-directory
 author: navyasric
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 658e7f206f892c9dc241aab228aa933884f95b94
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 47b8c8c074a5e0ce3ed73a2a9a4b06aa307cdff3
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675633"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756417"
 ---
 # <a name="scenario-single-page-application"></a>Cenário: Aplicativo de página única
 
@@ -34,11 +35,11 @@ Muitos aplicativos Web modernos são criados como aplicativos de página única 
 
 A plataforma Microsoft Identity fornece **duas** opções para habilitar aplicativos de página única para conectar usuários e obter tokens para acessar serviços de back-end ou APIs da Web:
 
-- [Fluxo do código de autorização do OAuth 2.0 (com PKCE)](./v2-oauth2-auth-code-flow.md). O fluxo de código de autorização permite que o aplicativo troque um código de autorização para tokens de **ID** representarem o usuário autenticado e tokens de **Acesso** necessários para chamar APIs protegidas. Além disso, ele retorna tokens de **Atualização** que fornecem acesso de longo prazo a recursos em nome de usuários sem exigir interação com esses usuários. Essa é a abordagem **recomendada** .
+- [Fluxo do código de autorização do OAuth 2.0 (com PKCE)](./v2-oauth2-auth-code-flow.md). O fluxo de código de autorização permite que o aplicativo troque um código de autorização para tokens de **ID** representarem o usuário autenticado e tokens de **Acesso** necessários para chamar APIs protegidas. Além disso, ele retorna tokens de **Atualização** que fornecem acesso de longo prazo a recursos em nome de usuários sem exigir interação com esses usuários. Essa é a abordagem **recomendada**.
 
 ![Aplicativos de página única – autenticação](./media/scenarios/spa-app-auth.svg)
 
-- [Fluxo implícito do OAuth 2.0](./v2-oauth2-implicit-grant-flow.md). O fluxo de concessão implícita permite que o aplicativo obtenha os tokens de **ID** e **Acesso** . Diferentemente do fluxo de código de autorização, o fluxo de concessão implícita não retorna um **token de Atualização** .
+- [Fluxo implícito do OAuth 2.0](./v2-oauth2-implicit-grant-flow.md). O fluxo de concessão implícita permite que o aplicativo obtenha os tokens de **ID** e **Acesso**. Diferentemente do fluxo de código de autorização, o fluxo de concessão implícita não retorna um **token de Atualização**.
 
 ![Aplicativo de página única – implícito](./media/scenarios/spa-app.svg)
 
@@ -58,5 +59,4 @@ Para habilitar esse cenário para seu aplicativo, você precisa de:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Registro de aplicativo](scenario-spa-app-registration.md)
+Vá para o próximo artigo neste cenário, registro de [aplicativo](scenario-spa-app-registration.md).

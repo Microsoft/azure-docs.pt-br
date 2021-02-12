@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
 ms.openlocfilehash: 330bffebb870635fd473e88a8eadb300eed40b9b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518289"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012128"
 ---
 # <a name="migrate-from-media-indexer-and-media-indexer-2-to-video-indexer"></a>Migrar do indexador de mídia e do indexador de mídia 2 para Video Indexer
 

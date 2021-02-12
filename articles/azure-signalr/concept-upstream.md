@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
-ms.openlocfilehash: 1d51f5e8d2fac1e2b180a608c840d0a322e76271
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 6752a9564dc0d9351d1c21f5be14eb626186ac0d
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143242"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724046"
 ---
 # <a name="upstream-settings"></a>Configurações de upstream
 
@@ -34,7 +34,7 @@ Quando o evento especificado ocorre, as regras de um item são verificadas uma a
 
 Você pode parametrizar a URL para dar suporte a vários padrões. Há três parâmetros predefinidos:
 
-|Parâmetro predefinido|Description|
+|Parâmetro predefinido|Descrição|
 |---------|---------|
 |82801ER| Um hub é um conceito do serviço de Signaler do Azure. Um hub é uma unidade de isolamento. O escopo de usuários e a entrega de mensagens é restrito a um Hub.|
 |Categorias| Uma categoria pode ser um dos seguintes valores: <ul><li>**conexões**: eventos de tempo de vida da conexão. Ele é acionado quando uma conexão de cliente é conectada ou desconectada. Ele inclui eventos conectados e desconectados.</li><li>**mensagens**: acionadas quando os clientes invocam um método de Hub. Ele inclui todos os outros eventos, exceto aqueles na categoria **conexões** .</li></ul>|
@@ -53,16 +53,29 @@ Quando um cliente no Hub "chat" invoca o método de Hub `broadcast` , uma mensag
 http://host.com/chat/api/messages/broadcast
 ```
 
+### <a name="key-vault-secret-reference-in-url-template-settings"></a>Key Vault referência de segredo nas configurações de modelo de URL
+
+A URL de upstream não é criptografia em repouso. Se você tiver informações confidenciais, é recomendável usar Key Vault para salvá-las onde o controle de acesso tem melhor seguro. Basicamente, você pode habilitar a identidade gerenciada do serviço do Azure Signalr e, em seguida, conceder permissão de leitura em uma instância de Key Vault e usar Key Vault referência em vez de texto não criptografado no padrão de URL upstream.
+
+1. Adicione uma identidade atribuída pelo sistema ou uma identidade atribuída pelo usuário. Veja [como adicionar identidade gerenciada no portal do Azure](./howto-use-managed-identity.md#add-a-system-assigned-identity)
+
+2. Conceda permissão de leitura de segredo para a identidade gerenciada nas políticas de acesso no Key Vault. Consulte [atribuir uma política de acesso de Key Vault usando o portal do Azure](../key-vault/general/assign-access-policy-portal.md)
+
+3. Substitua o texto confidencial pela sintaxe `{@Microsoft.KeyVault(SecretUri=<secret-identity>)}` no padrão de URL upstream.
+
+> [!NOTE]
+> O conteúdo secreto só é relido quando você altera as configurações de upstream ou altera a identidade gerenciada. Verifique se você concedeu permissão de leitura de segredo para a identidade gerenciada antes de usar a referência de segredo Key Vault.
+
 ### <a name="rule-settings"></a>Configurações de regra
 
-Você pode definir regras para *regras de Hub*, *regras de categoria*e *regras de evento* separadamente. A regra de correspondência oferece suporte a três formatos. Tome as regras de evento como exemplo:
+Você pode definir regras para *regras de Hub*, *regras de categoria* e *regras de evento* separadamente. A regra de correspondência oferece suporte a três formatos. Tome as regras de evento como exemplo:
 - Use um asterisco (*) para corresponder a qualquer evento.
 - Use uma vírgula (,) para unir vários eventos. Por exemplo, `connected, disconnected` corresponde aos eventos conectados e desconectados.
 - Use o nome do evento completo para corresponder ao evento. Por exemplo, `connected` corresponde ao evento conectado.
 
 > [!NOTE]
-> Se você estiver usando Azure Functions e o [disparador de sinalização](../azure-functions/functions-bindings-signalr-service-trigger.md), o gatilho do signalr irá expor um único ponto de extremidade no seguinte formato: `https://<APP_NAME>.azurewebsites.net/runtime/webhooks/signalr?code=<API_KEY>` .
-> Você pode apenas configurar o modelo de URL para essa URL.
+> Se você estiver usando Azure Functions e o [disparador de sinalização](../azure-functions/functions-bindings-signalr-service-trigger.md), o gatilho do signalr irá expor um único ponto de extremidade no seguinte formato: `<Function_App_URL>/runtime/webhooks/signalr?code=<API_KEY>` .
+> Você pode apenas definir **as configurações de modelo de URL** para essa URL e manter **as configurações de regra** padrão. Consulte [integração do serviço signalr](../azure-functions/functions-bindings-signalr-service-trigger.md#signalr-service-integration) para obter detalhes sobre como localizar `<Function_App_URL>` e `<API_KEY>` .
 
 ### <a name="authentication-settings"></a>Configurações de autenticação
 
@@ -80,9 +93,9 @@ Ao selecionar `ManagedIdentity` , você deve habilitar uma identidade gerenciada
     :::image type="content" source="media/concept-upstream/upstream-portal.png" alt-text="Configurações de upstream":::
 
 3. Adicione URLs sob o **padrão de URL upstream**. Em seguida, as configurações como **regras de Hub** mostrarão o valor padrão.
-4. Para definir configurações para **regras de Hub**, **regras de evento**, **regras de categoria**e autenticação de **upstream**, selecione o valor de **regras de Hub**. É exibida uma página que permite que você edite as configurações:
+4. Para definir configurações para **regras de Hub**, **regras de evento**, **regras de categoria** e autenticação de **upstream**, selecione o valor de **regras de Hub**. É exibida uma página que permite que você edite as configurações:
 
-    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Configurações de upstream":::
+    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Detalhes da configuração upstream":::
 
 5. Para definir a **autenticação upstream**, verifique se você habilitou uma identidade gerenciada primeiro. Em seguida, selecione **usar identidade gerenciada**. De acordo com suas necessidades, você pode escolher qualquer opção em **ID do recurso de autenticação**. Consulte [identidades gerenciadas para o serviço de signaler do Azure](howto-use-managed-identity.md) para obter detalhes.
 
@@ -115,7 +128,7 @@ Para criar configurações de upstream usando um [modelo de Azure Resource Manag
 
 ## <a name="serverless-protocols"></a>Protocolos sem servidor
 
-O serviço de sinalizador do Azure envia mensagens para pontos de extremidade que seguem os seguintes protocolos.
+O serviço de sinalizador do Azure envia mensagens para pontos de extremidade que seguem os seguintes protocolos. Você pode usar a [Associação de gatilho de serviço de signalr](../azure-functions/functions-bindings-signalr-service-trigger.md) com aplicativo de funções, que manipula esses protocolos para você.
 
 ### <a name="method"></a>Método
 
@@ -123,7 +136,7 @@ POST
 
 ### <a name="request-header"></a>Cabeçalho da solicitação
 
-|Name |Descrição|
+|Nome |Descrição|
 |---------|---------|
 |X-ASRS-Connection-ID |A ID de conexão para a conexão do cliente.|
 |X-ASRS-Hub |O Hub ao qual a conexão do cliente pertence.|
@@ -145,7 +158,7 @@ Content-Type: application/json
 
 Tipo de conteúdo: `application/json`
 
-|Nome  |Tipo  |Description  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |Erro |string |A mensagem de erro de uma conexão fechada. Vazio quando as conexões fecham sem erros.|
 
@@ -153,11 +166,11 @@ Tipo de conteúdo: `application/json`
 
 Tipo de conteúdo: `application/json` ou `application/x-msgpack`
 
-|Nome  |Tipo  |Description  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |InvocationId |string | Uma cadeia de caracteres opcional que representa uma mensagem de invocação. Encontre detalhes em [invocações](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocations).|
 |Destino |string | O mesmo que o evento e o mesmo que o destino em uma [mensagem de invocação](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding). |
-|Arguments |Matriz de objeto |Uma matriz que contém argumentos a serem aplicados ao método referido em `Target` . |
+|Argumentos |Matriz de objeto |Uma matriz que contém argumentos a serem aplicados ao método referido em `Target` . |
 
 ### <a name="signature"></a>Assinatura
 
@@ -170,3 +183,5 @@ Hex_encoded(HMAC_SHA256(accessKey, connection-id))
 
 - [Identidades gerenciadas para o serviço de Signaler do Azure](howto-use-managed-identity.md)
 - [Desenvolvimento de funções do Azure e a configuração com o serviço do Azure SignalR](signalr-concept-serverless-development-config.md)
+- [Manipular mensagens do serviço de sinalização (Associação de gatilho)](../azure-functions/functions-bindings-signalr-service-trigger.md)
+- [Exemplo de associação de gatilho de serviço signalr](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BidirectionChat)

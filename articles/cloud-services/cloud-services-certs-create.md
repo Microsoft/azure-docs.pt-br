@@ -1,21 +1,25 @@
 ---
-title: Serviços de nuvem e certificados de gerenciamento | Microsoft Docs
+title: Serviços de nuvem (clássicos) e certificados de gerenciamento | Microsoft Docs
 description: Saiba mais sobre como criar e implantar certificados para serviços de nuvem e para autenticação com a API de gerenciamento no Azure.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 04/19/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 8650b8670c61cab15b26163dd5108145b8509434
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: c73f9812f344eecf4e51f43405b48693ddfa191b
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072417"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98739727"
 ---
-# <a name="certificates-overview-for-azure-cloud-services"></a>Visão geral sobre certificados para os Serviços de Nuvem do Azure
+# <a name="certificates-overview-for-azure-cloud-services-classic"></a>Visão geral de certificados para serviços de nuvem do Azure (clássico)
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
+
 Os certificados são usados no Azure para serviços de nuvem ([certificados de serviço](#what-are-service-certificates)) e para a autenticação com o gerenciamento de API ([certificados de gerenciamento](#what-are-management-certificates)). Esse tópico fornece uma visão geral de ambos os tipos de certificado, como [criá-los](#create) e implantá-los no Azure.
 
 Os certificados usados no Azure são certificados x.509 v3, que podem ser assinados por outro certificado confiável ou ser autoassinados. Um certificado autoassinado é assinado por seu próprio criador, portanto não é considerado confiável por padrão. A maioria dos navegadores pode ignorar esse problema. Você só deve usar certificados autoassinados ao desenvolver e testar seus serviços de nuvem. 

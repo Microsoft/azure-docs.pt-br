@@ -1,19 +1,17 @@
 ---
 title: 'Armazenamento: migrar Apache Hadoop locais para o Azure HDInsight'
 description: Aprenda as práticas de armazenamento para migrar clusters do Hadoop locais para o Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: 0594774533f306421f6f3d1260d074bd92b9c919
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8d87d2164a5131b71a2000243c37553610497750
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544861"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944847"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Migrar clusters de Apache Hadoop locais para o Azure HDInsight
 
@@ -98,15 +96,15 @@ Um recurso fundamental do Data Lake Storage Gen2 é a adição de um [namespace 
 
 No passado, a análise baseada na nuvem tinha que se comprometer em áreas de desempenho, gerenciamento e segurança. Os principais recursos do ADLS (Azure Data Lake Storage) Gen2 são os seguintes:
 
-- **Acesso compatível com Hadoop** : o Azure data Lake Storage Gen2 permite que você gerencie e acesse dados da mesma forma que faria com um [sistema de arquivos distribuído do Hadoop (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). O novo [Driver ABFS](../../storage/blobs/data-lake-storage-abfs-driver.md) está disponível em todos os ambientes de Apache Hadoop incluídos no [Azure HDInsight](../index.yml). Esse driver permite que você acesse dados armazenados no Data Lake Storage Gen2.
+- **Acesso compatível com Hadoop**: o Azure data Lake Storage Gen2 permite que você gerencie e acesse dados da mesma forma que faria com um [sistema de arquivos distribuído do Hadoop (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). O novo [Driver ABFS](../../storage/blobs/data-lake-storage-abfs-driver.md) está disponível em todos os ambientes de Apache Hadoop incluídos no [Azure HDInsight](../index.yml). Esse driver permite que você acesse dados armazenados no Data Lake Storage Gen2.
 
-- **Um superconjunto de permissões POSIX** : o modelo de segurança para o Data Lake Gen2 é totalmente compatível com as permissões ACL e POSIX, juntamente com alguma granularidade extra específica para o Data Lake Storage Gen2. As configurações podem ser definidas por meio de ferramentas de administração ou por meio de estruturas, como Hive e Spark.
+- **Um superconjunto de permissões POSIX**: o modelo de segurança para o Data Lake Gen2 é totalmente compatível com as permissões ACL e POSIX, juntamente com alguma granularidade extra específica para o Data Lake Storage Gen2. As configurações podem ser definidas por meio de ferramentas de administração ou por meio de estruturas, como Hive e Spark.
 
-- **Econômico** : Data Lake Storage O Gen2 apresenta capacidade de armazenamento e transações de baixo custo. À medida que os dados são transferidos por meio de seu ciclo de vida completo, as taxas de cobrança mudam para minimizar os custos por meio de recursos internos, como o [ciclo de vida do armazenamento de BLOBs do Azure](../../storage/blobs/storage-lifecycle-management-concepts.md).
+- **Econômico**: Data Lake Storage O Gen2 apresenta capacidade de armazenamento e transações de baixo custo. À medida que os dados são transferidos por meio de seu ciclo de vida completo, as taxas de cobrança mudam para minimizar os custos por meio de recursos internos, como o [ciclo de vida do armazenamento de BLOBs do Azure](../../storage/blobs/storage-lifecycle-management-concepts.md).
 
-- **Funciona com ferramentas, estruturas e aplicativos de armazenamento do Blob** : Data Lake Storage O Gen2 continua a trabalhar com uma grande variedade de ferramentas, estruturas e aplicativos que existem hoje para o armazenamento do Blob.
+- **Funciona com ferramentas, estruturas e aplicativos de armazenamento do Blob**: Data Lake Storage O Gen2 continua a trabalhar com uma grande variedade de ferramentas, estruturas e aplicativos que existem hoje para o armazenamento do Blob.
 
-- **Driver otimizado** : o ABFS (driver de sistema de arquivos de blob do Azure) é [otimizado especificamente](../../storage/blobs/data-lake-storage-abfs-driver.md) para análise de Big Data. As APIs REST correspondentes são exibidas por meio do ponto de extremidade DFS, dfs.core.windows.net.
+- **Driver otimizado**: o ABFS (driver de sistema de arquivos de blob do Azure) é [otimizado especificamente](../../storage/blobs/data-lake-storage-abfs-driver.md) para análise de Big Data. As APIs REST correspondentes são exibidas por meio do ponto de extremidade DFS, dfs.core.windows.net.
 
 Um dos formatos a seguir pode ser usado para acessar dados armazenados no ADLS Gen2:
 - `abfs:///`: Acessar o Data Lake Storage padrão para o cluster.
@@ -171,13 +169,13 @@ Por padrão, o HDInsight tem acesso completo aos dados nas contas de Armazenamen
 
 5. Para limitar o acesso a um contêiner com Assinatura de Acesso Compartilhado, adicione uma entrada personalizada à configuração do site central para o cluster na propriedade Adicionar do site central de Configurações Avançadas Personalizadas do Ambari HDFS.
 
-6. Use os valores a seguir para os campos **Chave** e **Valor** :
+6. Use os valores a seguir para os campos **Chave** e **Valor**:
 
-    **Chave** : `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **valor** : a chave SAS retornada pelo aplicativo Python da etapa 4 acima.
+    **Chave**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **valor**: a chave SAS retornada pelo aplicativo Python da etapa 4 acima.
 
-7. Clique no botão **Adicionar** para salvar essa chave e esse valor e clique no botão **Salvar** para salvar as alterações de configuração. Quando solicitado, adicione uma descrição da alteração ("adicionando acesso de armazenamento SAS", por exemplo) e, em seguida, clique em **salvar** .
+7. Clique no botão **Adicionar** para salvar essa chave e esse valor e clique no botão **Salvar** para salvar as alterações de configuração. Quando solicitado, adicione uma descrição da alteração ("adicionando acesso de armazenamento SAS", por exemplo) e, em seguida, clique em **salvar**.
 
-8. Na interface do usuário da Web do Ambari, selecione HDFS na lista à esquerda e, em seguida, selecione **Reiniciar Todos os Afetados** na lista suspensa Ações de Serviço à direita. Quando solicitado, selecione **Confirmar Reiniciar Tudo** .
+8. Na interface do usuário da Web do Ambari, selecione HDFS na lista à esquerda e, em seguida, selecione **Reiniciar Todos os Afetados** na lista suspensa Ações de Serviço à direita. Quando solicitado, selecione **Confirmar Reiniciar Tudo**.
 
 9. Repita esse processo para MapReduce2 e YARN.
 

@@ -11,25 +11,26 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 0d9d28bacac02326ee781ca56309b7a72e921960
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d160040620fcaa60a8adc955efcc54ac3ca2609e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289162"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321447"
 ---
 # <a name="group-by-options-in-synapse-sql"></a>Opções de agrupar por no Synapse SQL
+
 O Synapse SQL permite desenvolver soluções implementando diferentes opções agrupar por. 
 
-## <a name="what-does-group-by-do"></a>O que o GROUP BY faz
+## <a name="what-group-by-does"></a>O que o GROUP BY faz
 
 A cláusula T-SQL [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) agrega dados a um conjunto de linhas de resumo.
 
-O SQL sob demanda dá suporte a todo o intervalo de opções agrupar por. O pool SQL dá suporte a um número limitado de opções GROUP BY.
+O pool SQL sem servidor dá suporte a todo o intervalo de opções agrupar por. O pool SQL dedicado dá suporte a um número limitado de opções agrupar por.
 
-## <a name="group-by-options-supported-in-sql-pool"></a>Opções de agrupar por com suporte no pool do SQL
+## <a name="group-by-options-supported-in-dedicated-sql-pool"></a>Opções de agrupar por com suporte no pool SQL dedicado
 
-GROUP BY tem algumas opções para as quais o pool do SQL não dá suporte. Essas opções têm soluções alternativas, que são as seguintes:
+GROUP BY tem algumas opções que o pool SQL dedicado não dá suporte. Essas opções têm soluções alternativas, que são as seguintes:
 
 * GROUP BY com ROLLUP
 * GROUPING SETS
@@ -58,7 +59,7 @@ Usando ROLLUP, o exemplo anterior solicita as agregações a seguir:
 
 * país e região
 * País
-* Total Geral
+* Grande Total
 
 Para substituir o ROLLUP e retornar os mesmos resultados, você pode usar UNION ALL e especificar explicitamente as agregações necessárias:
 

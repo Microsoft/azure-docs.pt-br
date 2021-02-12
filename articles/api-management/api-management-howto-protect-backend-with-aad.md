@@ -8,20 +8,20 @@ ms.service: api-management
 ms.topic: article
 ms.date: 09/23/2020
 ms.author: apimpm
-ms.custom: contperfq1
-ms.openlocfilehash: 9892c311651df39b882c3aa38596a905d22a42ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: face4beab450e92be76b2bb90e45625e025de6ee
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618770"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027910"
 ---
 # <a name="protect-a-web-api-backend-in-azure-api-management-by-using-oauth-20-authorization-with-azure-ad"></a>Proteger um back-end de API da Web no gerenciamento de API do Azure usando a autorização OAuth 2,0 com o Azure AD 
 
 Este guia mostra como configurar sua instância do [Gerenciamento de API do Azure](api-management-key-concepts.md) para proteger uma API, usando o [protocolo OAuth 2,0 com o Azure Active Directory (AD do Azure)](../active-directory/develop/active-directory-v2-protocols.md). 
 
 > [!NOTE]
-> Esse recurso está disponível nas camadas **Developer**, **Basic**, **Standard**e **Premium** do gerenciamento de API.
+> Esse recurso está disponível nas camadas **Developer**, **Basic**, **Standard** e **Premium** do gerenciamento de API.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -93,7 +93,7 @@ Para registrar outro aplicativo no Azure AD para representar o console do desenv
 
 1. Crie um segredo do cliente para este aplicativo usar em uma etapa subsequente.
 
-   1. Na lista de páginas para seu aplicativo cliente, selecione **certificados & segredos**e selecione **novo segredo do cliente**.
+   1. Na lista de páginas para seu aplicativo cliente, selecione **certificados & segredos** e selecione **novo segredo do cliente**.
 
    1. Em **Adicionar um segredo do cliente**, forneça uma **Descrição**. Escolha quando a chave deve expirar e selecione **Adicionar**.
 
@@ -109,7 +109,7 @@ Agora que você registrou dois aplicativos para representar a API e o console do
 
 1. Selecione **Adicionar uma permissão**.
 
-1. Em **selecionar uma API**, selecione **minhas APIs**e, em seguida, localize e selecione seu aplicativo de back-end.
+1. Em **selecionar uma API**, selecione **minhas APIs** e, em seguida, localize e selecione seu aplicativo de back-end.
 
 1. Em **permissões delegadas**, selecione as permissões apropriadas para seu aplicativo de back-end e, em seguida, selecione **adicionar permissões**.
 
@@ -157,7 +157,7 @@ Neste exemplo, o Console do Desenvolvedor é o aplicativo cliente. As etapas a s
 
 1. Volte para o registro do aplicativo cliente no Azure Active Directory e selecione **autenticação**.
 
-1. Em **configurações de plataforma** , clique em **Adicionar uma plataforma**e selecione o tipo **como Web**, Cole o **redirect_url** em **URI de redirecionamento**e, em seguida, clique no botão **Configurar** para salvar.
+1. Em **configurações de plataforma** , clique em **Adicionar uma plataforma** e selecione o tipo **como Web**, Cole o **redirect_url** em **URI de redirecionamento** e, em seguida, clique no botão **Configurar** para salvar.
 
 Agora que você já configurou um servidor de autorização OAuth 2.0, o Console do Desenvolvedor pode obter tokens de acesso do Azure AD. 
 
@@ -171,7 +171,7 @@ A próxima etapa é habilitar a autorização de usuário do OAuth 2.0 para a su
 
 1. Em **Segurança**, escolha **OAuth 2.0** e selecione o servidor OAuth 2.0 configurado anteriormente. 
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ## <a name="successfully-call-the-api-from-the-developer-portal"></a>Chamar com êxito a API do portal do desenvolvedor
 

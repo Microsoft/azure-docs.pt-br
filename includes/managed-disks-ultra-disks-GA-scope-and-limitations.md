@@ -1,6 +1,6 @@
 ---
-title: arquivo de inclusão
-description: arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7b41105bafedb8eeaffe5f266f5dd824957c57e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26a5537496d9e881ece135437c403baf4a4fd67c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441204"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016618"
 ---
 Por enquanto, ultra discos têm limitações adicionais, como a seguir:
 
@@ -26,7 +26,7 @@ A tabela a seguir descreve as regiões em que os ultra discos estão disponívei
 
 |Regiões  |Opções de redundância  |
 |---------|---------|
-|Sul do Brasil     |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
+|Brazil South     |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
 |Índia Central     |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
 |Leste da Ásia     |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
 |Centro-Oeste da Alemanha     |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
@@ -34,6 +34,7 @@ A tabela a seguir descreve as regiões em que os ultra discos estão disponívei
 |Centro-Sul dos Estados Unidos    |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
 |Governo dos EUA do Arizona     |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
 |Gov. dos EUA – Virgínia     |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
+|Governo dos EUA do Texas     |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
 |Oeste dos EUA     |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)        |
 |Austrália Central    |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
 |Leste da Austrália     |Três zonas de disponibilidade         |
@@ -66,7 +67,7 @@ A tabela a seguir descreve as regiões em que os ultra discos estão disponívei
     - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
 - Nem todo tamanho de VM está disponível em todas as regiões com suporte com ultra discos.
 - Estão disponíveis somente como discos de dados. 
-- Suporte ao tamanho de setor físico de 4K por padrão. o tamanho do setor 512E está disponível como uma oferta geralmente disponível, mas você deve [se inscrever nele](https://aka.ms/ultradisk512e). A maioria dos aplicativos é compatível com tamanhos de setor de 4K, mas alguns exigem tamanhos de setor de 512 bytes. Um exemplo seria Oracle Database, que requer a versão 12,2 ou posterior para dar suporte aos discos nativos de 4K. Para versões mais antigas do Oracle DB, é necessário o tamanho do setor de 512 bytes.
+- Suporte ao tamanho de setor físico de 4K por padrão. o tamanho do setor 512E está disponível como uma oferta geralmente disponível (nenhuma inscrição é necessária), mas só está disponível no momento usando a CLI ou o PowerShell. A maioria dos aplicativos é compatível com tamanhos de setor de 4K, mas alguns exigem tamanhos de setor de 512 bytes. Um exemplo seria Oracle Database, que requer a versão 12,2 ou posterior para dar suporte aos discos nativos de 4K. Para versões mais antigas do Oracle DB, é necessário o tamanho do setor de 512 bytes.
 - Só pode ser criado como discos vazios.
 - Atualmente, o não oferece suporte a instantâneos de disco, imagens de VM, conjuntos de disponibilidade, hosts dedicados do Azure ou Azure Disk Encryption.
 - Atualmente, o não oferece suporte à integração com o backup do Azure ou Azure Site Recovery.

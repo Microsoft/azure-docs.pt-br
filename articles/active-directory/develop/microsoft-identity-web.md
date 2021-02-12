@@ -13,12 +13,12 @@ ms.date: 10/09/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 77cb3b0c13a6bfe41c6f7a1a5a0f9d7278aea1db
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: b82e300128a41f8315132e1ff93af33c853edb15
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930145"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173508"
 ---
 # <a name="microsoft-identity-web-authentication-library"></a>Biblioteca de autenticação na Web do Microsoft Identity
 
@@ -58,14 +58,14 @@ dotnet new --install Microsoft.Identity.Web.ProjectTemplates::1.0.0
 
 O diagrama a seguir mostra uma exibição de alto nível dos tipos de aplicativos com suporte e seus argumentos relevantes:
 
-:::image type="content" source="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" lightbox="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" alt-text="Diagrama dos modelos de projeto net CLI do ponto disponível para o Microsoft Identity Web&quot;:::
+:::image type="content" source="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" lightbox="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" alt-text="Diagrama dos modelos de projeto net CLI do ponto disponível para o Microsoft Identity Web":::
 <br /><sup><b>*</b></sup>`MultiOrg`não tem suporte com o `webapi2` , mas pode ser habilitado no *appsettings.js* ao definir o locatário como `common` ou`organizations`
 <br /><sup><b>**</b></sup>`--calls-graph`não tem suporte para Azure ad B2C
 
 Este exemplo de comando da CLI do .NET, extraído do nosso [tutorial de servidor](tutorial-blazor-server.md)de nossa maioria, gera um novo projeto de servidor de mais novos, que inclui os pacotes corretos e o código inicial (valores de espaço reservado mostrados):
 
 ```dotnetcli
-dotnet new blazorserver2 --auth SingleOrg --calls-graph --client-id &quot;00000000-0000-0000-0000-000000000000&quot; --tenant-id &quot;11111111-1111-1111-1111-111111111111" --output my-blazor-app
+dotnet new blazorserver2 --auth SingleOrg --calls-graph --client-id "00000000-0000-0000-0000-000000000000" --tenant-id "11111111-1111-1111-1111-111111111111" --output my-blazor-app
 ```
 
 #### <a name="github"></a>GitHub
@@ -82,7 +82,7 @@ O Microsoft Identity Web inclui vários recursos não fornecidos se você usar o
 |------------------------------------------------------------------------------------------|----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 | [Conectar usuários](scenario-web-app-sign-user-app-configuration.md) em aplicativos Web             | <li>Contas corporativas ou de estudante<li>Identidades sociais (com Azure AD B2C) | <li>Contas corporativas ou de estudante<li>Contas Microsoft pessoais<li>Identidades sociais (com Azure AD B2C)     |
 | [Proteger APIs Web](scenario-protected-web-api-app-configuration.md#microsoftidentityweb) | <li>Contas corporativas ou de estudante<li>Identidades sociais (com Azure AD B2C) | <li>Contas corporativas ou de estudante<li>Contas Microsoft pessoais<li>Identidades sociais (com Azure AD B2C)     |
-| Validação do emissor em aplicativos multilocatários                                                   | Não                                                                   | Sim, para [todas as nuvens](authentication-national-cloud.md) e [Azure ad B2C](/azure/active-directory-b2c) |
+| Validação do emissor em aplicativos multilocatários                                                   | Não                                                                   | Sim, para [todas as nuvens](authentication-national-cloud.md) e [Azure ad B2C](../../active-directory-b2c/index.yml) |
 | Aplicativo Web/API [chama o Microsoft Graph] [cenário-API-Call-Graph]                             | Não                                                                   | Sim                                                                                                     |
 | Aplicativo Web/API [chama API Web] [cenário-API-Call-API]                                       | Não                                                                   | Sim                                                                                                     |
 | Dá suporte a credenciais de certificado                                                         | Não                                                                   | Sim, incluindo Azure Key Vault                                                                          |

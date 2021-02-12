@@ -1,19 +1,16 @@
 ---
 title: Python UDF com Apache Hive e Apache Pig - Azure HDInsight
 description: Aprenda a usar as Funções Definidas pelo Usuário Python (UDF) do Apache Hive e do Apache Pig no HDInsight, a pilha da tecnologia Apache Hadoop no Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python
-ms.openlocfilehash: 0179fd10e75af0ced55b4bb41f9525dc26b3efe5
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 593b809813f949cd1d0bcc17e1d1b7255ea19130
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540373"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944279"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Usar funções definidas pelo usuário (UDF) do Python com o Apache Hive e o Apache Pig no HDInsight
 
@@ -27,8 +24,8 @@ O HDInsight também inclui o Jython, que é uma implementação do Python gravad
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Um cluster Hadoop no HDInsight** . Consulte [Introdução ao HDInsight no Linux](apache-hadoop-linux-tutorial-get-started.md).
-* **Um cliente SSH** . Para saber mais, confira [Conectar-se ao HDInsight (Apache Hadoop) usando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Um cluster Hadoop no HDInsight**. Consulte [Introdução ao HDInsight no Linux](apache-hadoop-linux-tutorial-get-started.md).
+* **Um cliente SSH**. Para saber mais, confira [Conectar-se ao HDInsight (Apache Hadoop) usando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 * O [esquema de URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) do seu armazenamento primário de clusters. Isso seria `wasb://` para o armazenamento do Azure, `abfs://` por Azure Data Lake Storage Gen2 ou adl://para Azure data Lake Storage Gen1. Se a transferência segura estiver habilitada para o armazenamento do Azure, o URI seria wasbs://.  Confira também [Transferência segura](../../storage/common/storage-require-secure-transfer.md).
 * **Alteração possível na configuração de armazenamento.**  Consulte [configuração de armazenamento](#storage-configuration) se estiver usando o tipo de conta de armazenamento `BlobStorage` .
 * Opcional.  Se estiver planejando usar o PowerShell, você precisará do [módulo AZ](/powershell/azure/new-azureps-module-az) instalado.
@@ -300,8 +297,8 @@ Um script Python pode ser utilizado como um UDF do Pig por meio da instrução `
 
 Para especificar o interpretador do Python, use `register` ao referenciar o script do Python. Os exemplos a seguir registram os scripts com o Pig como `myfuncs`:
 
-* **Para usar o Jython** : `register '/path/to/pigudf.py' using jython as myfuncs;`
-* **Para usar o Python C** : `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
+* **Para usar o Jython**: `register '/path/to/pigudf.py' using jython as myfuncs;`
+* **Para usar o Python C**: `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
 > [!IMPORTANT]  
 > Ao usar Jython, o caminho para o arquivo de pig_jython pode ser um caminho local ou um caminho WASBS://. No entanto, ao usar o Python C, você deve fazer referência a um arquivo no sistema de arquivos local do nó que está usando para enviar o trabalho de Pig.
@@ -343,7 +340,7 @@ def create_structure(input):
 
 No exemplo de Pig Latin, a `LINE` entrada é definida como um matriz porque não há esquema consistente para a entrada. O script Python transforma os dados em um esquema consistente para a saída.
 
-1. A instrução `@outputSchema` define o formato dos dados que são retornados ao Pig. Nesse caso, é uma **mala de dados** , que é um tipo de dado do Pig. A mala contém os campos a seguir, todos eles sendo matrizes de caracteres (cadeias de caracteres):
+1. A instrução `@outputSchema` define o formato dos dados que são retornados ao Pig. Nesse caso, é uma **mala de dados**, que é um tipo de dado do Pig. A mala contém os campos a seguir, todos eles sendo matrizes de caracteres (cadeias de caracteres):
 
    * date - a data em que a entrada de log foi criada
    * time - o horário em que a entrada de log foi criada
@@ -563,7 +560,7 @@ A saída para o trabalho **Pig** deve ser parecida com os seguintes dados:
 ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
 ```
 
-## <a name="troubleshooting"></a><a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a><a name="troubleshooting"></a>Solução
 
 ### <a name="errors-when-running-jobs"></a>Erros durante a execução de trabalhos
 

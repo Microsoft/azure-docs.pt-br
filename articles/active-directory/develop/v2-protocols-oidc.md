@@ -13,16 +13,16 @@ ms.date: 05/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 71e930898f1f86622357f9e02da69be7bf2f8088
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de1fcdc259de3f72e35feb411bcc836354352eb4
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91256578"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752585"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plataforma de identidade da Microsoft e protocolo OpenID Connect
 
-O OpenID Connect (OIDC) é um protocolo de autenticação criado no OAuth 2,0 que você pode usar para conectar com segurança um usuário a um aplicativo. Quando você usa a implementação do ponto de extremidade da plataforma de identidade da Microsoft do OpenID Connect, você pode adicionar entrada e acesso à API para seus aplicativos. Este artigo mostra como fazer isso independentemente do idioma e descreve como enviar e receber mensagens HTTP sem usar nenhuma [biblioteca de código-fonte aberto da Microsoft](reference-v2-libraries.md).
+O OpenID Connect (OIDC) é um protocolo de autenticação criado no OAuth 2,0 que você pode usar para conectar com segurança um usuário a um aplicativo. Quando você usa a implementação da plataforma de identidade da Microsoft do OpenID Connect, você pode adicionar entrada e acesso à API para seus aplicativos. Este artigo mostra como fazer isso independentemente do idioma e descreve como enviar e receber mensagens HTTP sem usar nenhuma [biblioteca de código-fonte aberto da Microsoft](reference-v2-libraries.md).
 
 O [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) estende o protocolo de *autorização* OAuth 2,0 para uso como um protocolo de *autenticação* , para que você possa fazer logon único usando OAuth. O OpenID Connect apresenta o conceito de um *token de ID*, que é um token de segurança que permite ao cliente verificar a identidade do usuário. O token de ID também obtém informações de perfil básico sobre o usuário. Ele também apresenta o [ponto de extremidade de UserInfo](userinfo.md), uma API que retorna informações sobre o usuário. 
 
@@ -88,7 +88,7 @@ Os metadados são um documento JSON (JavaScript Object Notation) simples. Veja o
 
 Se seu aplicativo tiver chaves de assinatura personalizadas como resultado do uso do recurso [claims-mapping](active-directory-claims-mapping.md), será necessário acrescentar um `appid`parâmetro de consulta contendo a ID do aplicativo para obter um `jwks_uri` apontando para as informações de chave de assinatura do aplicativo. Por exemplo: `https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contém uma `jwks_uri` de `https://login.microsoftonline.com/{tenant}/discovery/v2.0/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
-Normalmente, você usaria este documento de metadados para configurar uma biblioteca do OpenID Connect ou o SDK. A biblioteca usaria os metadados para fazer seu trabalho. No entanto, se você não estiver usando uma biblioteca de pré-compilação do OpenID Connect, é possível seguir as etapas no restante deste artigo para iniciar uma sessão em um aplicativo Web usando o ponto de extremidade da plataforma de identidade da Microsoft.
+Normalmente, você usaria este documento de metadados para configurar uma biblioteca do OpenID Connect ou o SDK. A biblioteca usaria os metadados para fazer seu trabalho. No entanto, se você não estiver usando uma biblioteca pré-criada do OpenID Connect, poderá seguir as etapas no restante deste artigo para fazer logon em um aplicativo Web usando a plataforma de identidade da Microsoft.
 
 ## <a name="send-the-sign-in-request"></a>Enviar a solicitação de conexão
 
@@ -126,13 +126,13 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `nonce` | Obrigatório | Um valor incluído na solicitação, gerado pelo aplicativo, que será incluído no valor do id_token resultante como uma declaração. O aplicativo pode verificar esse valor para reduzir os ataques de reprodução de token. Normalmente, o valor é uma cadeia de caracteres aleatória e exclusiva que pode ser usada para identificar a origem da solicitação. |
 | `response_mode` | Recomendadas | Especifica o método que deve ser usado para enviar o authorization_code resultante de volta ao aplicativo. Pode ser `form_post` ou `fragment`. Para aplicativos Web, é recomendável usar `response_mode=form_post` para garantir a transferência mais segura de tokens para seu aplicativo. |
 | `state` | Recomendadas | Um valor incluído na solicitação também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Um valor exclusivo gerado aleatoriamente que normalmente é usado para [impedir ataques de solicitação entre sites forjada](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
-| `prompt` | Opcional | Indica o tipo de interação do usuário que é necessário. Os únicos valores válidos no momento são `login`, `none`, e `consent`. A declaração `prompt=login` força o usuário a digitar suas credenciais na solicitação, o que nega o logon único. A declaração `prompt=none` é o oposto. Essa declaração garante que o usuário não seja apresentado a nenhum prompt interativo. Se a solicitação não puder ser concluída silenciosamente por meio de logon único, o ponto de extremidade da plataforma de identidade da Microsoft retornará um erro. A declaração `prompt=consent` aciona a caixa de diálogo de consentimento de OAuth depois que o usuário faz logon. A caixa de diálogo pede ao usuário para conceder permissões para o aplicativo. |
+| `prompt` | Opcional | Indica o tipo de interação do usuário que é necessário. Os únicos valores válidos no momento são `login`, `none`, e `consent`. A declaração `prompt=login` força o usuário a digitar suas credenciais na solicitação, o que nega o logon único. A declaração `prompt=none` é o oposto. Essa declaração garante que o usuário não seja apresentado a nenhum prompt interativo. Se a solicitação não puder ser concluída silenciosamente por meio do logon único, a plataforma de identidade da Microsoft retornará um erro. A declaração `prompt=consent` aciona a caixa de diálogo de consentimento de OAuth depois que o usuário faz logon. A caixa de diálogo pede ao usuário para conceder permissões para o aplicativo. |
 | `login_hint` | Opcional | Você pode usar esse parâmetro para preencher previamente o campo de nome de usuário/endereço de email da página de entrada do usuário, se você souber o nome de usuário com antecedência. Muitas vezes, os aplicativos usam esse parâmetro durante a reautenticação, depois de já terem extraído o nome de usuário de uma entrada anterior usando a declaração `preferred_username`. |
 | `domain_hint` | Opcional | O realm do usuário em um diretório federado.  Ele ignorará o processo de descoberta baseada em email que o usuário passa na página de entrada para uma experiência de usuário um pouco mais simples. Para locatários federados por meio de um diretório local, como AD FS, isso geralmente resulta em uma entrada direta devido à sessão de logon existente. |
 
-Nesse ponto, será solicitado que o usuário insira suas credenciais e conclua a autenticação. O ponto de extremidade da plataforma de identidade da Microsoft verifica se o usuário consentiu com as permissões indicadas no parâmetro de consulta `scope`. Se o usuário não tiver dado nenhuma dessas permissões, o ponto de extremidade da plataforma de identidade da Microsoft solicitará que o usuário dê as permissões necessárias. Leia mais sobre [aplicativos multilocatários, autorização e permissões](v2-permissions-and-consent.md).
+Nesse ponto, será solicitado que o usuário insira suas credenciais e conclua a autenticação. A plataforma de identidade da Microsoft verifica se o usuário consentiu as permissões indicadas no `scope` parâmetro de consulta. Se o usuário não consentiu em nenhuma dessas permissões, a plataforma de identidade da Microsoft solicitará que o usuário consentisse nas permissões necessárias. Leia mais sobre [aplicativos multilocatários, autorização e permissões](v2-permissions-and-consent.md).
 
-Depois que o usuário se autentica e dá consentimento, o ponto de extremidade da plataforma de identidade da Microsoft retorna uma resposta ao aplicativo no URI de redirecionamento indicado usando o método especificado no parâmetro `response_mode`.
+Depois que o usuário é autenticado e concede consentimento, a plataforma de identidade da Microsoft retorna uma resposta ao seu aplicativo no URI de redirecionamento indicado usando o método especificado no `response_mode` parâmetro.
 
 ### <a name="successful-response"></a>Resposta bem-sucedida
 
@@ -184,7 +184,7 @@ A tabela a seguir descreve os códigos de erro que podem ser retornados no parâ
 
 ## <a name="validate-the-id-token"></a>Validar o token de ID
 
-Apenas receber um id_token nem sempre é suficiente para autenticar o usuário; Talvez você também precise validar a assinatura do id_token e verificar as declarações no token de acordo com os requisitos do aplicativo. Como todas as plataformas OIDC, o ponto de extremidade da plataforma Microsoft Identity usa [JWTs (token Web JSON)](https://tools.ietf.org/html/rfc7519) e a criptografia de chave pública para assinar tokens de ID e verificar se eles são válidos.
+Apenas receber um id_token nem sempre é suficiente para autenticar o usuário; Talvez você também precise validar a assinatura do id_token e verificar as declarações no token de acordo com os requisitos do aplicativo. Como todas as plataformas OIDC, a plataforma de identidade da Microsoft usa [JWTs (tokens Web JSON)](https://tools.ietf.org/html/rfc7519) e criptografia de chave pública para assinar tokens de ID e verificar se eles são válidos.
 
 Nem todos os aplicativos se beneficiam da verificação do token de ID-aplicativos nativos e aplicativos de página única, por exemplo, raramente se beneficiam da validação do token de ID.  Alguém com acesso físico ao dispositivo (ou navegador) pode ignorar a validação de várias maneiras – desde editar o tráfego da Web para o dispositivo para fornecer tokens falsos e chaves para simplesmente depurar o aplicativo para ignorar a lógica de validação.  Por outro lado, os aplicativos Web e as APIs que usam um token de ID para autorização devem validar o token de ID com cuidado, pois eles recebem acesso aos dados.
 
@@ -283,7 +283,7 @@ Examine a [documentação do UserInfo](userinfo.md#calling-the-api) para ver com
 
 ## <a name="send-a-sign-out-request"></a>Enviar uma solicitação de saída
 
-Quando você deseja desconectar o usuário do aplicativo, não é suficiente limpar os cookies do aplicativo ou encerrar a sessão do usuário. Também é preciso redirecionar o usuário para o ponto de extremidade da plataforma de identidade da Microsoft para desconexão. Se você não fizer isso, o usuário poderá se reautenticar no seu aplicativo sem inserir as credenciais novamente, pois continuará em uma sessão de logon único válida com o ponto de extremidade da plataforma de identidade da Microsoft.
+Quando você deseja desconectar o usuário do aplicativo, não é suficiente limpar os cookies do aplicativo ou encerrar a sessão do usuário. Você também deve redirecionar o usuário para a plataforma de identidade da Microsoft para sair. Se você não fizer isso, o usuário se reautenticará em seu aplicativo sem inserir suas credenciais novamente, pois ele terá uma sessão de logon único válida com a plataforma de identidade da Microsoft.
 
 Você pode redirecionar o usuário para o `end_session_endpoint` listado no documento de metadados do OpenID Connect:
 
@@ -294,11 +294,11 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 | Parâmetro | Condição | Descrição |
 | ----------------------- | ------------------------------- | ------------ |
-| `post_logout_redirect_uri` | Recomendadas | A URL para a qual o usuário é redirecionado após o logout bem-sucedido. Se o parâmetro não for incluído, o usuário receberá uma mensagem genérica gerada pelo ponto de extremidade da plataforma de identidade da Microsoft. Esta URL deve corresponder exatamente a um redirecionamento de URIs registrado para seu aplicativo no portal de registro de aplicativo. |
+| `post_logout_redirect_uri` | Recomendadas | A URL para a qual o usuário é redirecionado depois de sair com êxito. Se o parâmetro não estiver incluído, o usuário será mostrado uma mensagem genérica gerada pela plataforma de identidade da Microsoft. Esta URL deve corresponder exatamente a um redirecionamento de URIs registrado para seu aplicativo no portal de registro de aplicativo. |
 
 ## <a name="single-sign-out"></a>Logout único
 
-Quando você redireciona o usuário para o `end_session_endpoint`, o ponto de extremidade da plataforma de identidade da Microsoft limpa a sessão do usuário do navegador. No entanto, o usuário pode ainda entrar em outros aplicativos que usam contas da Microsoft para autenticação. Para permitir que esses aplicativos desconectem o usuário simultaneamente, o ponto de extremidade da plataforma de identidade da Microsoft envia uma solicitação HTTP GET para o `LogoutUrl` registrado de todos os aplicativos aos quais o usuário está atualmente conectado. Os aplicativos devem responder a essa solicitação, limpando as sessões que identificam o usuário e retornando uma resposta `200`. Se você deseja dar suporte um logout único em seu aplicativo, deve implementar um `LogoutUrl` no código do aplicativo. Você pode configurar a `LogoutUrl` no portal de registro do aplicativo.
+Quando você redireciona o usuário para o `end_session_endpoint` , a plataforma de identidade da Microsoft limpa a sessão do usuário no navegador. No entanto, o usuário pode ainda entrar em outros aplicativos que usam contas da Microsoft para autenticação. Para permitir que esses aplicativos desconectem o usuário simultaneamente, a plataforma de identidade da Microsoft envia uma solicitação HTTP GET para o registrado `LogoutUrl` de todos os aplicativos aos quais o usuário está conectado no momento. Os aplicativos devem responder a essa solicitação, limpando as sessões que identificam o usuário e retornando uma resposta `200`. Se você deseja dar suporte um logout único em seu aplicativo, deve implementar um `LogoutUrl` no código do aplicativo. Você pode configurar a `LogoutUrl` no portal de registro do aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

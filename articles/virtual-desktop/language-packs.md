@@ -3,15 +3,15 @@ title: Instalar pacotes de idiomas em VMs do Windows 10 na área de trabalho vir
 description: Como instalar pacotes de idiomas para VMs de várias sessões do Windows 10 na área de trabalho virtual do Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/21/2020
+ms.date: 12/03/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fbc2aba21212a83bd73d5664f4fe288017954c0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 780324d1a6f7d9edfb552377c3e966e6a186c231
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90084202"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347924"
 ---
 # <a name="add-language-packs-to-a-windows-10-multi-session-image"></a>Adicionar pacotes de idiomas a uma imagem de várias sessões do Windows 10
 
@@ -34,15 +34,25 @@ Você precisa dos seguintes itens para personalizar suas imagens de várias sess
      
      - Idioma ISO:
         - [ISO do pacote de idiomas do Windows 10, versão 1903 ou 1909](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
-        - [Windows 10, versão 2004 do pacote de idiomas ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
+        - [Windows 10, versão 2004 ou 20H2 Language Pack ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
 
      - ISO FOD disco 1:
         - [Windows 10, versão 1903 ou 1909 FOD disco 1 ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
-        - [Windows 10, versão 2004 FOD disco 1 ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
+        - [Windows 10, versão 2004 ou 20H2 FOD disco 1 ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
         
      - ISO dos aplicativos da caixa de entrada:
         - [ISO aplicativos da caixa de entrada do Windows 10, versão 1903 ou 1909](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_InboxApps.iso)
         - [ISO aplicativos da caixa de entrada do Windows 10, versão 2004](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_InboxApps.iso)
+        - [Windows 10, versão 20H2 aplicativos de caixa de entrada ISO](https://software-download.microsoft.com/download/pr/19041.508.200905-1327.vb_release_svc_prod1_amd64fre_InboxApps.iso)
+     
+     - Se você usar arquivos ISO do LXP (pacote de experiência local) para localizar suas imagens, também será necessário baixar o ISO LXP apropriado para a melhor experiência de linguagem
+        - Se você estiver usando o Windows 10, versão 1903 ou 1909:
+          - [Windows 10, versão 1903 ou 1909 LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_1903_32_64_ARM64_MultiLng_LngPkAll_LXP_ONLY.iso)
+        - Se você estiver usando o Windows 10, versão 2004 ou 20H2, use as informações em [adicionando idiomas no Windows 10: problemas conhecidos](/windows-hardware/manufacture/desktop/language-packs-known-issue) para descobrir qual dos seguintes LXP ISOs é ideal para você:
+          - [Windows 10, versão 2004 ou 20H2 **9B** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_64_ARM64_MultiLang_LangPckAll_LIP_LXP_ONLY)
+          - [Windows 10, versão 2004 ou 20H2 **9c** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_32_64_ARM64_MultiLng_LngPkAll_LIP_9C_LXP_ONLY)
+          - [Windows 10, versão 2004 ou 20H2 **10C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2010C.iso)
+          - [Windows 10, versão 2004 ou 20H2 **11C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2011C.iso)
 
 - Um compartilhamento de arquivos do Azure ou um compartilhamento de arquivos em uma máquina virtual do servidor de arquivos do Windows
 
@@ -164,7 +174,7 @@ Set-WinUserLanguageList $LanguageList -force
 
 O script pode demorar um pouco dependendo do número de idiomas que você precisa instalar.
 
-Após a conclusão da execução do script, verifique se os pacotes de idiomas foram instalados corretamente acessando configurações de **início**  >  **Settings**  >  **hora &** idioma do idioma  >  **Language**. Se os arquivos de idioma estiverem lá, você estará pronto.
+Após a conclusão da execução do script, verifique se os pacotes de idiomas foram instalados corretamente acessando configurações de **início**  >    >  **hora &** idioma do idioma  >  . Se os arquivos de idioma estiverem lá, você estará pronto.
 
 Depois de adicionar outros idiomas à imagem do Windows, os aplicativos da caixa de entrada também precisam ser atualizados para dar suporte às linguagens adicionadas. Isso pode ser feito atualizando os aplicativos pré-instalados com o conteúdo do ISO dos aplicativos da caixa de entrada. Para executar essa atualização em um ambiente desconectado (sem acesso à Internet da VM possível), você pode usar a seguinte amostra de script do PowerShell para automatizar o processo.
 

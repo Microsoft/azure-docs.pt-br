@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 05/01/2020
-ms.openlocfilehash: 10e98cd2f0ad4793aa43f9bb3316c522b44f1d2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57a03b107678f83200b11f408784f6455cbceffd
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91303529"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579284"
 ---
 # <a name="configure-the-personalizer-learning-behavior"></a>Configurar o comportamento de aprendizagem do personalizador
 
@@ -37,13 +37,13 @@ Para adicionar o personalizador ao seu aplicativo, você precisa chamar as APIs 
 
 1. Adicione a chamada à [API de classificação](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank) após o ponto em sua lógica de aplicativo existente onde você determina a lista de ações e seus recursos. A primeira ação na lista de ações precisa ser a ação selecionada pela lógica existente.
 
-1. Configure seu código para exibir a ação associada à **ID da ação de recompensa**da resposta da API de classificação.
+1. Configure seu código para exibir a ação associada à **ID da ação de recompensa** da resposta da API de classificação.
 
 ### <a name="configure-your-application-to-call-reward-api"></a>Configurar seu aplicativo para chamar a API de recompensa
 
 1. Use a lógica de negócios existente para calcular a **recompensa** da ação exibida. O valor precisa estar no intervalo de 0 a 1. Envie este prêmio ao personalizador usando a [API de recompensa](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward). O valor de recompensa não é esperado imediatamente e pode ser atrasado em um período de tempo, dependendo de sua lógica de negócios.
 
-1. Se você não retornar a recompensa dentro do **tempo de espera de recompensa**configurado, a recompensa padrão será usada em seu lugar.
+1. Se você não retornar a recompensa dentro do **tempo de espera de recompensa** configurado, a recompensa padrão será usada em seu lugar.
 
 ## <a name="evaluate-apprentice-mode"></a>Avaliar o modo aprendiz
 
@@ -52,14 +52,10 @@ Na portal do Azure, na página **avaliações** do recurso personalizado, examin
 > [!div class="mx-imgBorder"]
 > ![Captura de tela da revisão da avaliação do comportamento de aprendizado do modo aprendiz no portal do Azure](media/settings/evaluate-apprentice-mode.png)
 
-O modo aprendiz fornece as seguintes **métricas de avaliação**:
-* **Linha de base – recompensa média**: recompensas médias do padrão do aplicativo (linha de base).
-* **Personalizador – recompensa média**: a média do personalizador de recompensas pode ter atingido potencialmente.
-* **Recompensa a taxa de realização por meio dos eventos 1000 mais recentes**: taxa de linha de base e recompensa de personalizador – normalizado sobre os eventos 1000 mais recentes.
-
-## <a name="evaluate-apprentice-mode-features"></a>Avaliar os recursos do modo aprendiz
-
-Avalie os recursos usando uma [avaliação offline](how-to-offline-evaluation.md).
+O modo aprendiz fornece as seguintes **métricas de avaliação** :
+* **Linha de base – recompensa média** : recompensas médias do padrão do aplicativo (linha de base).
+* **Personalizador – recompensa média** : a média do personalizador de recompensas pode ter atingido potencialmente.
+* **Recompensa a taxa de realização por meio dos eventos 1000 mais recentes** : taxa de linha de base e recompensa de personalizador – normalizado sobre os eventos 1000 mais recentes.
 
 ## <a name="switch-behavior-to-online-mode"></a>Alternar comportamento para o modo online
 

@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
-ms.openlocfilehash: badf10da8af0ed3829deb2498b51b5d5c8ce6a93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e746c7d09bb568d457ab1037b56c7c2973b29ad7
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91604224"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117241"
 ---
 # <a name="steps-to-add-a-role-assignment"></a>Etapas para adicionar uma atribuição de função
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Este artigo descreve as etapas de alto nível para adicionar uma atribuição de função usando o [portal do Azure](role-assignments-portal.md), [Azure PowerShell](role-assignments-powershell.md), [CLI do Azure](role-assignments-cli.md)ou a [API REST](role-assignments-rest.md).
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] Este artigo descreve as etapas de alto nível para adicionar uma atribuição de função usando o [portal do Azure](role-assignments-portal.md), [Azure PowerShell](role-assignments-powershell.md), [CLI do Azure](role-assignments-cli.md)ou a [API REST](role-assignments-rest.md).
 
 ## <a name="step-1-determine-who-needs-access"></a>Etapa 1: determinar quem precisa de acesso
 
@@ -26,12 +26,12 @@ Primeiro, você precisa determinar quem precisa de acesso. Você pode atribuir u
 
 ![Entidade de segurança para uma atribuição de função](./media/shared/rbac-security-principal.png)
 
-- Usuário – Um indivíduo que tem um perfil no Azure Active Directory. Você também pode atribuir funções a usuários em outros locatários. Para obter informações sobre usuários de outras organizações, consulte [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
+- Usuário – Um indivíduo que tem um perfil no Azure Active Directory. Você também pode atribuir funções a usuários em outros locatários. Para obter informações sobre usuários de outras organizações, consulte [Azure Active Directory B2B](../active-directory/external-identities/what-is-b2b.md).
 - Grupo - Um grupo de usuários criados no Azure Active Directory. Quando você atribuir uma função a um grupo, todos os usuários dentro desse grupo têm essa função. 
 - Entidade de serviço - Uma identidade de segurança usada por aplicativos ou serviços para acessar recursos específicos do Azure. Você pode pensar nela como uma *identidade do usuário* (nome de usuário e senha ou certificado) para um aplicativo.
 - Identidade gerenciada - uma identidade no Azure Active Directory que é gerenciada automaticamente pelo Azure. Normalmente, você usa [identidades gerenciadas](../active-directory/managed-identities-azure-resources/overview.md) durante o desenvolvimento de aplicativos em nuvem para gerenciar as credenciais de autenticação nos serviços do Azure.
 
-## <a name="step-2-find-the-appropriate-role"></a>Etapa 2: localizar a função apropriada
+## <a name="step-2-select-the-appropriate-role"></a>Etapa 2: selecionar a função apropriada
 
 As permissões são agrupadas em uma *definição de função*. Normalmente ela é chamada apenas de *função*. Você pode selecionar em uma lista de várias funções internas. Se as funções internas não atenderem às necessidades específicas da sua organização, você poderá criar suas próprias funções personalizadas.
 

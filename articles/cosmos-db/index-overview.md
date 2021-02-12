@@ -1,17 +1,18 @@
 ---
 title: Indexação no Azure Cosmos DB
-description: Entenda como a indexação funciona no Azure Cosmos DB, tipos diferentes de índices, como índices de intervalo, espaciais e compostos com suporte.
+description: Entenda como a indexação funciona em Azure Cosmos DB, tipos diferentes de índices, como intervalos, espaciais e índices compostos com suporte.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: acb0396ece32c568a4d8c384bebcbabd7480eb09
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b7349a08b93810dcc3befd6058302d6c4573ab8d
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101452"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019203"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Gerenciar indexação no Azure Cosmos DB – Visão geral
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -63,9 +64,9 @@ Vejamos os caminhos para cada propriedade do item de exemplo descrito acima:
 
 Quando um item é gravado, o Azure Cosmos DB indexa efetivamente o caminho de cada propriedade e seu valor correspondente.
 
-## <a name="index-kinds"></a>Tipos de índice
+## <a name="types-of-indexes"></a><a id="index-types"></a>Tipos de índices
 
-No momento, o Azure Cosmos DB é compatível com três tipos de índices.
+O Azure Cosmos DB atualmente dá suporte a três tipos de índices. Você pode configurar esses tipos de índice ao definir a política de indexação.
 
 ### <a name="range-index"></a>Índice de intervalo
 
@@ -121,7 +122,7 @@ O índice de **intervalo** se baseia em uma estrutura ordenada de árvore. O tip
    SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'
    ```
 
-Os índices de intervalo podem ser usados em valores escalares (cadeia de caracteres ou número).
+Os índices de intervalo podem ser usados em valores escalares (cadeia de caracteres ou número). A política de indexação padrão para contêineres recém-criados impõe os índices de intervalo para qualquer cadeia de caracteres ou número. Para saber como configurar índices de intervalo, consulte [exemplos de política de indexação de intervalo](how-to-manage-indexing-policy.md#range-index)
 
 ### <a name="spatial-index"></a>Índice espacial
 
@@ -145,7 +146,7 @@ Os índices **espaciais** permitem consultas eficientes em objetos geoespaciais,
    SELECT * FROM c WHERE ST_INTERSECTS(c.property, { 'type':'Polygon', 'coordinates': [[ [31.8, -5], [32, -5], [31.8, -5] ]]  })  
    ```
 
-Os índices espaciais podem ser usados em objetos do [GeoJSON](./sql-query-geospatial-intro.md) formatados corretamente. Pontos, LineStrings, polígonos e multipolígonos atualmente têm suporte.
+Os índices espaciais podem ser usados em objetos do [GeoJSON](./sql-query-geospatial-intro.md) formatados corretamente. Pontos, LineStrings, polígonos e multipolígonos atualmente têm suporte. Para usar esse tipo de índice, defina usando a `"kind": "Range"` propriedade ao configurar a política de indexação. Para saber como configurar índices espaciais, consulte [exemplos de política de indexação espacial](how-to-manage-indexing-policy.md#spatial-index)
 
 ### <a name="composite-indexes"></a>Índices compostos
 
@@ -169,11 +170,13 @@ Os índices **compostos** aumentam a eficiência quando você está executando o
  SELECT * FROM container c WHERE c.property1 = 'value' AND c.property2 > 'value'
 ```
 
-Desde que um predicado de filtro use um dos tipos de índice, o mecanismo de consulta vai avaliá-lo primeiro antes de verificar o restante. Por exemplo, se você tiver uma consulta SQL como `SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
+Desde que um predicado de filtro use um dos tipos de índice, o mecanismo de consulta avaliará isso primeiro antes de verificar o restante. Por exemplo, se você tiver uma consulta SQL como `SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
 
 * Usando o índice, a consulta acima primeiro filtrará as entradas em que firstName = "Andrew". Em seguida, ela passa todas as entradas firstName = "Andrew" por meio de um pipeline subsequente para avaliar o predicado de filtro CONTAINS.
 
 * Você pode acelerar as consultas e evitar verificações de contêiner completas ao usar funções que não usam o índice (por exemplo, CONTAINS). Para isso, adicione predicados de filtro adicionais que usam o índice. A ordem das cláusulas de filtro não é importante. O mecanismo de consulta descobrirá quais predicados são mais seletivos e executará a consulta de acordo.
+
+Para saber como configurar índices compostos, consulte [exemplos de política de indexação composta](how-to-manage-indexing-policy.md#composite-index)
 
 ## <a name="querying-with-indexes"></a>Consultar com índices
 
@@ -181,7 +184,7 @@ Os caminhos extraídos ao indexar dados facilitam a pesquisa do índice durante 
 
 Por exemplo, considere a consulta abaixo: `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. O predicado de consulta (filtragem em itens, onde qualquer local tenha "França" como seu país/região) corresponderia ao caminho realçado em vermelho abaixo:
 
-:::image type="content" source="./media/index-overview/matching-path.png" alt-text="O item anterior representado como uma árvore" border="false":::
+:::image type="content" source="./media/index-overview/matching-path.png" alt-text="Correspondência de um caminho específico em uma árvore" border="false":::
 
 > [!NOTE]
 > Uma cláusula `ORDER BY` ordenada por uma única propriedade *sempre* precisa de um índice de intervalo e falhará se o caminho que ele referencia não tiver um. Da mesma forma, uma consulta `ORDER BY` ordenada por várias propriedades *sempre* precisa de um índice composto.

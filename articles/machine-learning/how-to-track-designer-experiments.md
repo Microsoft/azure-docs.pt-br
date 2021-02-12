@@ -8,15 +8,15 @@ ms.author: keli19
 ms.reviewer: peterlu
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 07/30/2020
+ms.date: 01/11/2021
 ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: bffbf32cf5faa936a00444f1f39facaf226b8ef2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: designer
+ms.openlocfilehash: b940f5c9bd14bcec404827daaef666da802d969b
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90885968"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065245"
 ---
 # <a name="enable-logging-in-azure-machine-learning-designer-pipelines"></a>Habilitar o log em pipelines do designer de Azure Machine Learning
 
@@ -27,7 +27,7 @@ Para obter mais informações sobre as métricas de log usando a experiência de
 
 ## <a name="enable-logging-with-execute-python-script"></a>Habilitar log com script de execução de Python
 
-Use o módulo __Executar script Python__ para habilitar o registro em pipelines do designer. Embora você possa registrar qualquer valor com esse fluxo de trabalho, é especialmente útil registrar métricas do módulo __modelo de avaliação__ para controlar o desempenho do modelo entre as execuções.
+Use o módulo [Executar script Python](./algorithm-module-reference/execute-python-script.md) para habilitar o registro em pipelines do designer. Embora você possa registrar qualquer valor com esse fluxo de trabalho, é especialmente útil registrar métricas do módulo __modelo de avaliação__ para controlar o desempenho do modelo entre as execuções.
 
 O exemplo a seguir mostra como registrar em log o erro de quadrado médio de dois modelos treinados usando os módulos avaliar modelo e executar script Python.
 
@@ -49,13 +49,13 @@ O exemplo a seguir mostra como registrar em log o erro de quadrado médio de doi
         # Log the mean absolute error to the parent run to see the metric in the run details page.
         # Note: 'run.parent.log()' should not be called multiple times because of performance issues.
         # If repeated calls are necessary, cache 'run.parent' as a local variable and call 'log()' on that variable.
-
+        parent_run = Run.get_context().parent
+        
         # Log left output port result of Evaluate Model. This also works when evaluate only 1 model.
-        run.parent.log(name='Mean_Absolute_Error (left port)', value=dataframe1['Mean_Absolute_Error'][0])
+        parent_run.log(name='Mean_Absolute_Error (left port)', value=dataframe1['Mean_Absolute_Error'][0])
+        # Log right output port result of Evaluate Model. The following line should be deleted if you only connect one Score Module to the` left port of Evaluate Model module.
+        parent_run.log(name='Mean_Absolute_Error (right port)', value=dataframe1['Mean_Absolute_Error'][1])
 
-        # Log right output port result of Evaluate Model.
-        run.parent.log(name='Mean_Absolute_Error (right port)', value=dataframe1['Mean_Absolute_Error'][1])
-    
         return dataframe1,
     ```
     
@@ -81,3 +81,4 @@ Neste artigo, você aprendeu a usar os logs no designer. Para as próximas etapa
 
 * Saiba como solucionar problemas de pipelines de designer, consulte [Debug & solucionar problemas de pipelines de ml](how-to-debug-pipelines.md#azure-machine-learning-designer).
 * Saiba como usar o SDK do Python para registrar métricas na experiência de criação do SDK, consulte [habilitar o log nas execuções de treinamento do Azure ml](how-to-track-experiments.md).
+* Saiba como usar o [script Python em execução](./algorithm-module-reference/execute-python-script.md) no designer.

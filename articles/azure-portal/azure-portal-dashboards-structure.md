@@ -1,23 +1,14 @@
 ---
-title: A estrutura de Painéis do Azure | Microsoft Docs
+title: A estrutura de Painéis do Azure
 description: Percorra a estrutura JSON de um painel do Azure usando um painel de exemplo. Inclui referência a propriedades de recurso.
-services: azure-portal
-documentationcenter: ''
-author: adamabmsft
-manager: mtillman
-ms.service: azure-portal
-ms.devlang: NA
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 12/20/2019
-ms.author: mblythe
-ms.openlocfilehash: 014463fb0a5af639ff0da5f8db2805f9796fd928
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: d37e2fd9c9f6ef6e7ddea6dea002f26f20cd66a7
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072468"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745954"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>A estrutura de Painéis do Azure
 Este documento explica a estrutura de um painel do Azure, usando o painel a seguir como exemplo:

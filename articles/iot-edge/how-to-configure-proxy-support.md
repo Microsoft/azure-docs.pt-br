@@ -9,13 +9,13 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
-- contperfq1
-ms.openlocfilehash: ae0c4c69cf500fb352cc889e068888084d1d8f8b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+- contperf-fy21q1
+ms.openlocfilehash: fb7cb0638ca86ea736749e6fb35e2295128162aa
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045951"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032976"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configurar um dispositivo IoT Edge para se comunicar por meio de um servidor proxy
 
@@ -85,7 +85,7 @@ As etapas a seguir demonstram um exemplo de instalação do Windows usando o `-p
    . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; Initialize-IoTEdge
    ```
 
-Se tiver credenciais complicadas para o servidor proxy que não podem ser incluídas na URL, use o `-ProxyCredential` parâmetro em `-InvokeWebRequestParameters`. Por exemplo,
+Se tiver credenciais complicadas para o servidor proxy que não podem ser incluídas na URL, use o `-ProxyCredential` parâmetro em `-InvokeWebRequestParameters`. Por exemplo:
 
 ```powershell
 $proxyCredential = (Get-Credential).GetNetworkCredential()
@@ -270,6 +270,12 @@ Se você incluiu a variável de ambiente **UpstreamProtocol** no arquivo confige
     }
 }
 ```
+
+## <a name="working-with-traffic-inspecting-proxies"></a>Trabalhando com proxies de inspeção de tráfego
+
+Se o proxy que você está tentando usar executar a inspeção de tráfego em conexões protegidas por TLS, é importante observar que a autenticação com certificados X. 509 não funciona. IoT Edge estabelece um canal TLS criptografado de ponta a ponta com o certificado e a chave fornecidos. Se esse canal for interrompido para a inspeção de tráfego, o proxy não poderá restabelecer o canal com as credenciais apropriadas, e o Hub IoT e o serviço de provisionamento de dispositivos do Hub IoT retornarão um `Unauthorized` erro.
+
+Para usar um proxy que executa a inspeção de tráfego, você deve usar a autenticação de assinatura de acesso compartilhado ou o Hub IoT e o serviço de provisionamento de dispositivos no Hub IoT adicionado a umalist de permissão para evitar a inspeção.
 
 ## <a name="next-steps"></a>Próximas etapas
 

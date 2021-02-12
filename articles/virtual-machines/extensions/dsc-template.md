@@ -8,17 +8,18 @@ tags: azure-resource-manager
 keywords: dsc
 ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: dc73b5b9f05d24de206b25095ea7eaf93f035298
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b862238c0c04fae72659d644dbaf882d00cca19
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511153"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735683"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extensão de configuração de estado desejado com os modelos do Azure Resource Manager
 
@@ -31,13 +32,13 @@ Este artigo descreve o modelo do Azure Resource Manager para o [manipulador de e
 
 O snippet a seguir vai na seção **Recursos** do modelo.
 A extensão de DSC herda propriedades de extensão padrão.
-Para obter mais informações, consulte a [classe VirtualMachineExtension](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet).
+Para obter mais informações, consulte a [classe VirtualMachineExtension](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension).
 
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "Microsoft.Powershell.DSC",
-  "apiVersion": "2018-06-30",
+  "apiVersion": "2018-06-01",
   "location": "[parameters('location')]",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
@@ -84,7 +85,7 @@ Um nó de conjunto de dimensionamento de máquinas virtuais tem uma seção **pr
 Em **extensões**, adicione os detalhes para a extensão de DSC.
 
 A extensão de DSC herda propriedades de extensão padrão.
-Para obter mais informações, consulte a [classe VirtualMachineScaleSetExtension](/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
+Para obter mais informações, consulte a [classe VirtualMachineScaleSetExtension](/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension).
 
 ```json
 "extensionProfile": {

@@ -8,12 +8,12 @@ ms.subservice: extensions
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 66675f77d480ce8d9f21e5ffb507c475337c9dab
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c6a071956565a8bbc31e5be362c41a7c39d8f551
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490723"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98738043"
 ---
 # <a name="azure-backup-for-sql-server-running-in-azure-vm"></a>Backup do Azure para SQL Server em execução na VM do Azure
 
@@ -87,7 +87,7 @@ O JSON a seguir mostra o esquema para a extensão WorkloadBackup.
 
 Nome | Valor/exemplo | Tipo de dados
  --- | --- | ---
-locale | pt-br  |  string
+localidade | pt-br  |  string
 taskId | "1c0ae461-9d3b-418c-a505-bb31dfe2095d"  | string
 objectStr <br/> PublicSettings  | "eyJjb250YWluZXJQcm9wZXJ0aWVzIjp7IkNvbnRhaW5lcklEIjoiMzVjMjQxYTItOGRjNy00ZGE5LWI4NTMtMjdjYTJhNDZlM2ZkIiwiSWRNZ210Q29udGFpbmVySWQiOjM0NTY3ODg5LCJSZXNvdXJjZUlkIjoiMDU5NWIwOGEtYzI4Zi00ZmFlLWE5ODItOTkwOWMyMGVjNjVhIiwiU3Vic2NyaXB0aW9uSWQiOiJkNGEzOTliNy1iYjAyLTQ2MWMtODdmYS1jNTM5ODI3ZTgzNTQiLCJVbmlxdWVDb250 YWluZXJOYW1lIjoiODM4MDZjODUtNTQ4OS00NmNhLWEyZTctNWMzNzNhYjg3OTcyIn0sInN0YW1wTGlzdCI6W3siU2VydmljZU5hbWUiOjUsIlNlcnZpY2VTdGFtcFVybCI6Imh0dHA6XC9cL015V0xGYWJTdmMuY29tIn1dfQ = =" | string
 commandStartTimeUTCTicks | "636967192566036845"  | string
@@ -102,14 +102,14 @@ Recomendamos adicionar a extensão AzureBackupWindowsWorkload a uma máquina vir
 
 ## <a name="powershell-deployment"></a>Implantação do PowerShell
 
-Você precisa ' Registrar ' a VM do Azure que contém o aplicativo SQL com um cofre dos serviços de recuperação. Durante o registro, a extensão AzureBackupWindowsWorkload é instalada na VM. Use o cmdlet [Register-AzRecoveryServicesBackupContainerPS](/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer?view=azps-1.5.0) para registrar a VM.
+Você precisa ' Registrar ' a VM do Azure que contém o aplicativo SQL com um cofre dos serviços de recuperação. Durante o registro, a extensão AzureBackupWindowsWorkload é instalada na VM. Use o cmdlet [Register-AzRecoveryServicesBackupContainerPS](/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer) para registrar a VM.
 
 ```powershell
 $myVM = Get-AzVM -ResourceGroupName <VMRG Name> -Name <VMName>
 Register-AzRecoveryServicesBackupContainer -ResourceId $myVM.ID -BackupManagementType AzureWorkload -WorkloadType MSSQL -VaultId $targetVault.ID -Force
 ```
 
-O comando retornará um **contêiner de backup** desse recurso e o status será **registrado** .
+O comando retornará um **contêiner de backup** desse recurso e o status será **registrado**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

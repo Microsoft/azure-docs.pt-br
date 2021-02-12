@@ -7,17 +7,18 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 6f216a7f0851661efc61a771fc35feb71e77fd1f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 33be57832d9364b859042cd38349c2437bcfcb18
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792473"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358139"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instâncias de cluster de failover com o SQL Server nas Máquinas Virtuais do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,11 +47,11 @@ Em ambientes clusterizados tradicionais locais, um cluster de failover do Window
 
 O SQL Server nas VMs do Azure oferece várias opções como solução de armazenamento compartilhado para uma implantação de instâncias de cluster de failover do SQL Server: 
 
-||[Discos compartilhados do Azure](../../../virtual-machines/windows/disks-shared.md)|[Compartilhamentos de arquivos Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[S2D (Espaços de Armazenamento Diretos)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
+||[Discos compartilhados do Azure](../../../virtual-machines/disks-shared.md)|[Compartilhamentos de arquivos Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[S2D (Espaços de Armazenamento Diretos)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
 |**Versão mínima do SO**| Todos |Windows Server 2012|Windows Server 2016|
 |**Versão mínima do SQL Server**|Todos|SQL Server 2012|SQL Server 2016|
-|**Disponibilidade de VM com suporte** |Conjuntos de disponibilidade com grupos de posicionamento por proximidade |Conjuntos de disponibilidade e zonas de disponibilidade|Conjuntos de disponibilidade |
+|**Disponibilidade de VM com suporte** |Conjuntos de disponibilidade com grupos de posicionamento por proximidade (para SSD Premium) </br> Mesma zona de disponibilidade (para SSD Ultra) |Conjuntos de disponibilidade e zonas de disponibilidade|Conjuntos de disponibilidade |
 |**Dá suporte ao FileStream**|Sim|Não|Sim |
 |**Cache de blob do Azure**|Não|Não|Sim|
 
@@ -58,10 +59,10 @@ O restante desta seção lista os benefícios e as limitações de cada opção 
 
 ### <a name="azure-shared-disks"></a>Discos compartilhados do Azure
 
-Os [discos compartilhados do Azure](../../../virtual-machines/windows/disks-shared.md) são um recurso dos [discos gerenciados do Azure](../../../virtual-machines/managed-disks-overview.md). O Clustering de failover do Windows Server dá suporte ao uso de discos compartilhados do Azure com uma instância de cluster de failover. 
+Os [discos compartilhados do Azure](../../../virtual-machines/disks-shared.md) são um recurso dos [discos gerenciados do Azure](../../../virtual-machines/managed-disks-overview.md). O Clustering de failover do Windows Server dá suporte ao uso de discos compartilhados do Azure com uma instância de cluster de failover. 
 
-**SO com suporte** : Todos   
-**Versão do SQL com suporte** : Todos     
+**SO com suporte**: Todos   
+**Versão do SQL com suporte**: Todos     
 
 **Benefícios:** 
 - útil para aplicativos que buscam migrar para o Azure mantendo sua arquitetura de HADR (alta disponibilidade e recuperação de desastres) como está. 
@@ -69,12 +70,16 @@ Os [discos compartilhados do Azure](../../../virtual-machines/windows/disks-shar
 - Dá suporte ao SSD Premium do Azure compartilhado e ao armazenamento de Disco Ultra do Azure.
 - Pode usar um só disco compartilhado ou distribuir vários discos compartilhados para criar um pool de armazenamento compartilhado. 
 - Dá suporte ao FileStream.
+- Conjuntos de disponibilidade de suporte de SSDs Premium. 
 
 
-**Limitações** : 
-- as máquinas virtuais precisam ser colocadas no mesmo conjunto de disponibilidade e no mesmo grupo de posicionamento por proximidade.
-- Não há suporte para zonas de disponibilidade.
+**Limitações**: 
+- é recomendável colocar as máquinas virtuais no mesmo conjunto de disponibilidade e no mesmo grupo de posicionamento por proximidade.
+- Discos Ultra não dão suporte a conjuntos de disponibilidade. 
+- As zonas de disponibilidade têm suporte para Discos Ultra, mas as VMs precisam estar na mesma zona de disponibilidade, o que reduz a disponibilidade da máquina virtual. 
+- Independentemente da solução de disponibilidade de hardware escolhida, a disponibilidade do cluster de failover sempre será de 99,9% quando usar os Discos Compartilhados do Azure. 
 - Não há suporte para o cache de disco SSD Premium.
+
  
 Para começar, confira [Instância de cluster de failover do SQL Server com discos compartilhados do Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md). 
 
@@ -82,8 +87,8 @@ Para começar, confira [Instância de cluster de failover do SQL Server com disc
 
 Os [Espaços de Armazenamento Diretos](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) são um recurso do Windows Server que têm suporte com clustering de failover nas Máquinas Virtuais do Azure. Ele fornece uma SAN virtual baseada em software.
 
-**SO com suporte** : Windows Server 2016 e posterior   
-**Versão do SQL com suporte** : SQL Server 2016 e posterior   
+**SO com suporte**: Windows Server 2016 e posterior   
+**Versão do SQL com suporte**: SQL Server 2016 e posterior   
 
 
 **Benefícios:** 
@@ -104,8 +109,8 @@ Para começar, confira [Instância de cluster de failover do SQL Server com os E
 
 Os [compartilhamentos de arquivos Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) são um recurso dos [Arquivos do Azure](../../../storage/files/index.yml). Os compartilhamentos de arquivos Premium têm suporte de SSD e têm baixa latência de maneira consistente. Eles têm suporte total para uso com as instâncias de cluster de failover para o SQL Server 2012 ou posterior no Windows Server 2012 ou posterior. Os compartilhamentos de arquivo Premium proporcionam maior flexibilidade, porque você pode redimensionar e escalar um compartilhamento de arquivo sem nenhum tempo de inatividade.
 
-**SO com suporte** : Windows Server 2012 e posterior   
-**Versão do SQL com suporte** : SQL Server 2012 e posterior   
+**SO com suporte**: Windows Server 2012 e posterior   
+**Versão do SQL com suporte**: SQL Server 2012 e posterior   
 
 **Benefícios:** 
 - única solução de armazenamento compartilhado para máquinas virtuais espalhadas em várias zonas de disponibilidade. 
@@ -122,8 +127,8 @@ Para começar, confira [Instância de cluster de failover do SQL Server com um c
 
 Há soluções de clustering de parceiros com armazenamento com suporte. 
 
-**SO com suporte** : Todos   
-**Versão do SQL com suporte** : Todos   
+**SO com suporte**: Todos   
+**Versão do SQL com suporte**: Todos   
 
 Um exemplo usa o SIOS DataKeeper como armazenamento. Para obter mais informações, confira a entrada de blog [Clustering de failover e SIOS DataKeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).
 
@@ -131,8 +136,8 @@ Um exemplo usa o SIOS DataKeeper como armazenamento. Para obter mais informaçõ
 
 Você também pode expor um armazenamento em bloco compartilhado de destino iSCSI por meio do Azure ExpressRoute. 
 
-**SO com suporte** : Todos   
-**Versão do SQL com suporte** : Todos   
+**SO com suporte**: Todos   
+**Versão do SQL com suporte**: Todos   
 
 Por exemplo, o NPS (Armazenamento Privado do NetApp) expõe um destino iSCSI por meio do ExpressRoute com o Equinix para VMs do Azure.
 
@@ -148,10 +153,11 @@ Para obter mais detalhes sobre as opções de conectividade de cluster, confira 
 
 Considere as limitações a seguir das instâncias de cluster de failover com o SQL Server nas Máquinas Virtuais do Azure. 
 
-### <a name="lightweight-resource-provider"></a>Provedor de recursos leve   
-No momento, há suporte para as instâncias de cluster de failover do SQL Server somente em máquinas virtuais do Azure no [modo de gerenciamento leve](sql-vm-resource-provider-register.md#management-modes) da [Extensão SQL Server IaaS Agent](sql-server-iaas-agent-extension-automate-management.md). Para alterar do modo de extensão completo para leve, exclua o recurso **máquina virtual do SQL** para as VMs correspondentes e registre-as no provedor de recursos de VM do SQL no modo leve. Ao excluir o recurso **máquina virtual do SQL** usando o portal do Azure, desmarque a caixa de seleção ao lado da máquina virtual correta. 
+### <a name="lightweight-extension-support"></a>Suporte de extensão leve   
 
-A extensão completa dá suporte a recursos como backup automatizado, aplicação de patch e gerenciamento avançado do portal. Esses recursos não funcionarão em VMs do SQL Server depois que o agente for reinstalado no modo de gerenciamento leve.
+No momento, as instâncias de cluster de failover do SQL Server em máquinas virtuais do Azure têm suporte somente com o [modo de gerenciamento leve](sql-server-iaas-agent-extension-automate-management.md#management-modes) da Extensão SQL Server IaaS Agent. Para alterar do modo de extensão completo para leve, exclua o recurso **máquina virtual do SQL** das VMs correspondentes e registre-as na extensão SQL IaaS Agent no modo leve. Ao excluir o recurso **máquina virtual do SQL** usando o portal do Azure, desmarque a caixa de seleção ao lado da máquina virtual correta para evitar a exclusão da máquina virtual. 
+
+A extensão completa dá suporte a recursos como backup automatizado, aplicação de patch e gerenciamento avançado do portal. Esses recursos não funcionarão para VMs do SQL Server registradas no modo de gerenciamento leve.
 
 ### <a name="msdtc"></a>MSDTC 
 

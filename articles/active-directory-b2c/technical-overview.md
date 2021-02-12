@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 80ae79f73a55d5feb1aede7ccc7d3b2b64682a24
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fef192ab273a0e53958cda315932f91b427a5d7d
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364075"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108376"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Visão geral técnica e de recursos do Azure Active Directory B2C
 
@@ -33,10 +33,10 @@ Os principais recursos com os quais você trabalha em um locatário do Azure AD 
   * Use os *fluxos dos usuários* para configuração rápida e habilitação de tarefas de identidade comuns, como inscrever, entrar e edição de perfil.
   * Use *políticas personalizadas* para habilitar experiências de usuário não apenas para tarefas de identidade comuns, mas também para criar suporte para fluxos de trabalho de identidade complexos exclusivos para sua organização, seus clientes, funcionários, parceiros e cidadãos.
 * **Provedores de identidade** – Configurações de federação para:
-  * Provedores de identidade *social* , como Facebook, LinkedIn ou Twitter, a que você deseja dar suporte em seus aplicativos.
+  * Provedores de identidade *social*, como Facebook, LinkedIn ou Twitter, a que você deseja dar suporte em seus aplicativos.
   * Provedores de identidade *externos* que dão suporte a protocolos de identidade padrão como OAuth 2.0, OpenID Connect e muito mais.
   * As contas *locais* que permitem que os usuários se inscrevam e entrem com um nome de usuário (ou endereço de email ou outra ID) e senha.
-* **Chaves** : adicione e gerencie chaves de criptografia para assinar e validar tokens, segredos do cliente, certificados e senhas.
+* **Chaves**: adicione e gerencie chaves de criptografia para assinar e validar tokens, segredos do cliente, certificados e senhas.
 
 Um locatário do Azure AD B2C é o primeiro recurso que você precisa criar para começar a usar o Azure AD B2C. Saiba como em [Tutorial: Criar um locatário do Azure Active Directory B2C](tutorial-create-tenant.md).
 
@@ -52,12 +52,12 @@ O Azure AD B2C define vários tipos de contas de usuário. O Azure Active Direct
 
 ### <a name="consumer-accounts"></a>Contas de consumidor
 
-Com uma conta de *consumidor* , os usuários podem entrar nos aplicativos que você protegeu com o Azure AD B2C. No entanto, os usuários com contas de consumidor não podem acessar recursos do Azure, por exemplo, o portal do Azure.
+Com uma conta de *consumidor*, os usuários podem entrar nos aplicativos que você protegeu com o Azure AD B2C. No entanto, os usuários com contas de consumidor não podem acessar recursos do Azure, por exemplo, o portal do Azure.
 
 Uma conta de consumidor pode ser associada a estes tipos de identidade:
 
-* Identidade **local** , com o nome de usuário e a senha armazenados localmente no diretório Azure AD B2C. Geralmente, nos referimos a essas identidades como "contas locais".
-* Identidades **sociais** ou **empresariais** , em que a identidade do usuário é gerenciada por um provedor de identidade federado, como Facebook, Microsoft, ADFS ou Salesforce.
+* Identidade **local**, com o nome de usuário e a senha armazenados localmente no diretório Azure AD B2C. Geralmente, nos referimos a essas identidades como "contas locais".
+* Identidades **sociais** ou **empresariais**, em que a identidade do usuário é gerenciada por um provedor de identidade federado, como Facebook, Microsoft, ADFS ou Salesforce.
 
 Um usuário com uma conta de consumidor pode entrar com várias identidades, por exemplo, nome de usuário, email, ID do funcionário, ID do governo e outros. Uma única conta pode ter várias identidades locais e sociais.
 
@@ -91,17 +91,17 @@ No Azure AD B2C, há dois caminhos principais que você pode tomar para fornecer
 
 * **Políticas personalizadas** permitem que você crie seus próprios percursos do usuário para cenários de experiência de identidade complexos.
 
-Os fluxos dos usuários e as políticas personalizadas são alimentados pelo *Identity Experience Framework* , o mecanismo de orquestração de política do Azure AD B2C.
+Os fluxos dos usuários e as políticas personalizadas são alimentados pelo *Identity Experience Framework*, o mecanismo de orquestração de política do Azure AD B2C.
 
 ### <a name="user-flow"></a>Fluxo de usuário
 
-Para ajudá-lo a configurar rapidamente as tarefas de identidade mais comuns, o portal do Azure inclui diversas políticas predefinidas e configuráveis chamadas *fluxos dos usuários* .
+Para ajudá-lo a configurar rapidamente as tarefas de identidade mais comuns, o portal do Azure inclui diversas políticas predefinidas e configuráveis chamadas *fluxos dos usuários*.
 
 Você pode definir configurações de fluxo de usuário como essas para controlar os comportamentos de experiência de identidade em seus aplicativos:
 
 * Tipos de conta usados para entrar, por exemplo, contas sociais como as do Facebook ou locais que usam um endereço de email e uma senha para entrada
 * Atributos a serem coletados do consumidor, tais como nome, código postal ou país/região de residência
-* MFA (Autenticação Multifator) do Azure
+* MFA (Autenticação Multifator) do Azure AD
 * Personalização da interface do usuário
 * Conjunto de declarações em um token que seu aplicativo recebe depois que o usuário conclui o fluxo do usuário
 * Gerenciamento da sessão
@@ -148,13 +148,13 @@ O seguinte diagrama mostra como o Azure AD B2C pode se comunicar usando uma vari
 
 ## <a name="application-integration"></a>Integração de aplicativos
 
-Quando um usuário deseja entrar em seu aplicativo, seja ele da Web, móvel, de área de trabalho ou um SPA (aplicativo de página única), o aplicativo inicia uma solicitação de autorização para um fluxo de usuário ou um ponto de extremidade fornecido pela política personalizada. O fluxo do usuário ou a política personalizada define e controla a experiência do usuário. Ao concluir um fluxo de usuário, por exemplo, o fluxo de *inscrição ou entrada* , o Azure AD B2C gera um token e redireciona o usuário de volta para seu aplicativo.
+Quando um usuário deseja entrar em seu aplicativo, seja ele da Web, móvel, de área de trabalho ou um SPA (aplicativo de página única), o aplicativo inicia uma solicitação de autorização para um fluxo de usuário ou um ponto de extremidade fornecido pela política personalizada. O fluxo do usuário ou a política personalizada define e controla a experiência do usuário. Ao concluir um fluxo de usuário, por exemplo, o fluxo de *inscrição ou entrada*, o Azure AD B2C gera um token e redireciona o usuário de volta para seu aplicativo.
 
 ![Aplicativo móvel com setas mostrando o fluxo entre a página de entrada do Azure AD B2C](media/technical-overview/app-integration.png)
 
 Vários aplicativos podem usar o mesmo fluxo de usuário ou a mesma política personalizada. Um único aplicativo pode usar vários fluxos dos usuários ou políticas personalizadas.
 
-Por exemplo, para entrar em um aplicativo, o aplicativo usa o fluxo de usuário de *inscrição ou entrada* . Depois que o usuário tiver entrado, talvez queira editar seu perfil, para que o aplicativo inicie outra solicitação de autorização, desta vez usando o fluxo de usuário de *edição de perfil* .
+Por exemplo, para entrar em um aplicativo, o aplicativo usa o fluxo de usuário de *inscrição ou entrada*. Depois que o usuário tiver entrado, talvez queira editar seu perfil, para que o aplicativo inicie outra solicitação de autorização, desta vez usando o fluxo de usuário de *edição de perfil*.
 
 ## <a name="seamless-user-experiences"></a>Experiências de usuário integrada
 
@@ -162,7 +162,7 @@ No Azure AD B2C, você pode criar experiências de identidade dos usuários. Ass
 
 ![Capturas de tela da página de entrada de inscrição personalizada da marca](media/technical-overview/seamless-ux.png)
 
-Para obter informações sobre personalização da interface do usuário, confira [Sobre a personalização da interface do usuário no Azure Active Directory B2C](customize-ui-overview.md).
+Para obter informações sobre personalização da interface do usuário, confira [Sobre a personalização da interface do usuário no Azure Active Directory B2C](customize-ui-with-html.md).
 
 ## <a name="localization"></a>Localização
 
@@ -170,7 +170,7 @@ A personalização de idioma no Azure AD B2C permite acomodar diferentes idiomas
 
 ![Três páginas de entrada de inscrição mostrando o texto da interface do usuário em idiomas diferentes](media/technical-overview/localization.png)
 
-Veja como a localização funciona em [Personalização de idioma no Azure Active Directory B2C](user-flow-language-customization.md).
+Veja como a localização funciona em [Personalização de idioma no Azure Active Directory B2C](language-customization.md).
 
 ## <a name="add-your-own-business-logic"></a>Adicionar sua própria lógica de negócios
 
@@ -221,7 +221,7 @@ Para obter mais informações sobre as funções do Azure AD, incluindo suporte 
 
 A MFA (Autenticação Multifator) do Azure AD B2C ajuda a proteger o acesso a dados e aplicativos enquanto mantém a simplicidade para os usuários. Ela fornece segurança adicional exigindo uma segunda forma de autenticação e fornece autenticação forte por meio de uma variedade de métodos de autenticação fáceis de usar. Seus usuários podem ou não ser desafiados para MFA com base em decisões de configuração que você pode tomar como administrador.
 
-Veja como habilitar a MFA nos fluxos dos usuários em [Habilitar a autenticação multifator no Azure Active Directory B2C](custom-policy-multi-factor-authentication.md).
+Veja como habilitar a MFA nos fluxos dos usuários em [Habilitar a autenticação multifator no Azure Active Directory B2C](multi-factor-authentication.md).
 
 ### <a name="smart-account-lockout"></a>Bloqueio de conta inteligente
 
@@ -235,7 +235,7 @@ Para obter mais informações sobre como gerenciar configurações de proteção
 
 Durante a inscrição ou redefinição de senha, seus usuários devem fornecer uma senha que atenda às regras de complexidade. Por padrão, o Azure AD B2C impõe uma política de senha forte. O Azure AD B2C também fornece opções de configuração para especificar os requisitos de complexidade das senhas que seus clientes usam.
 
-Você pode configurar os requisitos de complexidade de senha em [fluxos dos usuários](user-flow-password-complexity.md) e [políticas personalizadas](custom-policy-password-complexity.md).
+Você pode configurar os requisitos de complexidade de senha em [fluxos dos usuários](password-complexity.md) e [políticas personalizadas](password-complexity.md).
 
 ## <a name="auditing-and-logs"></a>Auditoria e logs
 

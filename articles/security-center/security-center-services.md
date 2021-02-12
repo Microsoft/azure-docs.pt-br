@@ -1,6 +1,6 @@
 ---
-title: Recursos com suporte disponíveis na Central de Segurança do Azure | Microsoft Docs
-description: Este documento fornece uma lista dos serviços que têm suporte da Central de Segurança do Azure.
+title: Recursos da Central de Segurança do Azure de acordo com o sistema operacional, tipo de computador e nuvem
+description: Saiba quais recursos da Central de Segurança do Azure estão disponíveis de acordo com o sistema operacional, tipo e implantação na nuvem.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2020
+ms.date: 02/08/2021
 ms.author: memildin
-ms.openlocfilehash: 67c52728b72f0941ae3c9b39552ca398c12c67a2
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: e827178d8ccb0f7de8d32433d03502a7412d1139
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425147"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834036"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recursos para computadores
 
@@ -35,7 +35,7 @@ As duas guias abaixo mostram os recursos da Central de Segurança do Azure dispo
 |[Alertas de segurança sem arquivo](alerts-reference.md#alerts-windows)|✔|✔|✔|Sim|
 |[Alertas de segurança baseados em rede](other-threat-protections.md#network-layer)|✔|✔|-|Sim|
 |[Acesso à VM Just-In-Time](security-center-just-in-time.md)|✔|-|-|Sim|
-|[Avaliação de vulnerabilidades nativa](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Sim|
+|[Avaliação de vulnerabilidades nativa](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|✔|Sim|
 |[Monitoramento de integridade do arquivo](security-center-file-integrity-monitoring.md)|✔|✔|✔|Sim|
 |[Controles de aplicativo adaptáveis](security-center-adaptive-application.md)|✔|-|✔|Sim|
 |[Mapa de rede](security-center-network-recommendations.md#network-map)|✔|✔|-|Sim|
@@ -46,7 +46,7 @@ As duas guias abaixo mostram os recursos da Central de Segurança do Azure dispo
 |Avaliação de configurações incorretas de segurança|✔|✔|✔|Azure: Não<br><br>Habilitado para Arc: Sim|
 |[Avaliação da proteção de ponto de extremidade](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: Não<br><br>Habilitado para Arc: Sim|
 |Avaliação da criptografia de disco|✔</br>(para [cenários compatíveis](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Não|
-|Avaliação de vulnerabilidades de terceiros|✔|-|-|Não|
+|Avaliação de vulnerabilidades de terceiros|✔|-|✔|Não|
 |[Avaliação de segurança de rede](security-center-network-recommendations.md)|✔|✔|-|Não|
 
 
@@ -54,12 +54,12 @@ As duas guias abaixo mostram os recursos da Central de Segurança do Azure dispo
 
 |**Recurso**|**Máquinas Virtuais do Azure**|**Conjuntos de dimensionamento de máquina virtual do Azure**|**Computadores habilitados para o Azure Arc**|**Azure Defender necessário**
 |----|:----:|:----:|:----:|:----:|
-|[Integração do Microsoft Defender para Ponto de Extremidade](security-center-wdatp.md)|-|-|-|Sim|
+|[Integração do Microsoft Defender para Ponto de Extremidade](security-center-wdatp.md)|-|-|-|-|
 |[Análise comportamental de máquina virtual (e alertas de segurança)](./azure-defender.md)|✔</br>(em versões compatíveis)|✔</br>(em versões compatíveis)|✔|Sim|
 |[Alertas de segurança sem arquivo](alerts-reference.md#alerts-windows)|-|-|-|Sim|
 |[Alertas de segurança baseados em rede](other-threat-protections.md#network-layer)|✔|✔|-|Sim|
 |[Acesso à VM Just-In-Time](security-center-just-in-time.md)|✔|-|-|Sim|
-|[Avaliação de vulnerabilidades nativa](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Sim|
+|[Avaliação de vulnerabilidades nativa](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|✔|Sim|
 |[Monitoramento de integridade do arquivo](security-center-file-integrity-monitoring.md)|✔|✔|✔|Sim|
 |[Controles de aplicativo adaptáveis](security-center-adaptive-application.md)|✔|-|✔|Sim|
 |[Mapa de rede](security-center-network-recommendations.md#network-map)|✔|✔|-|Sim|
@@ -70,7 +70,7 @@ As duas guias abaixo mostram os recursos da Central de Segurança do Azure dispo
 |Avaliação de configurações incorretas de segurança|✔|✔|✔|Azure: Não<br><br>Habilitado para Arc: Sim|
 |[Avaliação da proteção de ponto de extremidade](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Não|
 |Avaliação da criptografia de disco|✔</br>(para [cenários compatíveis](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Não|
-|Avaliação de vulnerabilidades de terceiros|✔|-|-|Não|
+|Avaliação de vulnerabilidades de terceiros|✔|-|✔|Não|
 |[Avaliação de segurança de rede](security-center-network-recommendations.md)|✔|✔|-|Não|
 
 --- 
@@ -96,13 +96,49 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 | Trend Micro – Deep Security | Família Windows Server  | Não | Sim |
 | Symantec v12.1.1100+| Família Windows Server  | Não | Sim |
 | McAfee v10+ | Família Windows Server  | Não | Sim |
-| McAfee v10+ | Família de servidores Linux  | Não | Sim * *\** _ |
-| Sophos V9 e posterior| Família de servidores Linux  | Não | Sim _*\**_  |
+| McAfee v10+ | Família de servidores Linux  | Não | Sim **\*** |
+| Sophos V9 e posterior| Família de servidores Linux  | Não | Sim **\***  |
 
- _ *\** * O estado de cobertura e os dados de suporte estão disponíveis apenas no workspace do Log Analytics associado às assinaturas protegidas. Ele não é refletido no portal da Central de Segurança do Azure.
+ **\*** O estado de cobertura e os dados de suporte estão atualmente disponíveis apenas no workspace do Log Analytics associado às assinaturas protegidas. Ele não é refletido no portal da Central de Segurança do Azure.
 
 > [!NOTE]
 > A detecção do SCEP (System Center Endpoint Protection) em uma máquina virtual do Windows Server 2008 R2 exige a instalação do SCEP após o PowerShell (v3.0 ou mais recente).
+
+
+
+## <a name="feature-support-in-government-clouds"></a>Suporte a recursos em nuvens governamentais
+
+| Serviço/Recurso | Gov dos EUA | Governo da China |
+|------|:----:|:----:|
+|[Acesso à VM Just-In-Time](security-center-just-in-time.md) (1)|✔|✔|
+|[Monitoramento de Integridade do arquivo](security-center-file-integrity-monitoring.md) (1)|✔|✔|
+|[Controles de aplicativos adaptáveis](security-center-adaptive-application.md) (1)|✔|✔|
+|[Proteção de rede adaptável](security-center-adaptive-network-hardening.md) (1)|-|-|
+|[Proteção de host do Docker](harden-docker-hosts.md) (1)|✔|✔|
+|[Avaliação de vulnerabilidades integrada para computadores](deploy-vulnerability-assessment-vm.md) (1)|-|-|
+|[Microsoft Defender para Ponto de extremidade](harden-docker-hosts.md) (1)|✔|-|
+|[Conectar à conta da AWS](quickstart-onboard-aws.md) (1)|-|-|
+|[Conectar contas GCP](quickstart-onboard-gcp.md) (1)|-|-|
+|[Exportação contínua](continuous-export.md)|✔|✔ (2)|
+|[Automação do fluxo de trabalho](workflow-automation.md)|✔|✔|
+|[Regras de isenção de recomendação](exempt-resource.md)|-|-|
+|[Regras de supressão de alertas](alerts-suppression-rules.md)|✔|✔|
+|[Notificações por email para alertas de segurança](security-center-provide-security-contact-details.md)|✔|✔|
+|[Inventário de ativos](asset-inventory.md)|✔|✔|
+|[Azure Defender for Serviço de Aplicativo](defender-for-app-service-introduction.md)|-|-|
+|[Azure Defender para Armazenamento](defender-for-storage-introduction.md)|✔|-|
+|[Azure Defender para SQL](defender-for-sql-introduction.md)|✔|✔ (2)|
+|[Azure Defender para Key Vault](defender-for-key-vault-introduction.md)|-|-|
+|[Azure Defender para Resource Manager](defender-for-resource-manager-introduction.md)|-|-|
+|[Azure Defender para DNS](defender-for-dns-introduction.md)|-|-|
+|[Azure Defender para registros de contêiner](defender-for-container-registries-introduction.md)|✔ (2)|✔ (2)|
+|[Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)|✔|✔|
+|[Proteção de cargas de trabalho do Kubernetes](kubernetes-workload-protections.md)|-|-|
+|||
+
+(1) Exige o **Azure Defender para servidores**
+
+(2) Parcial
 
 
 ## <a name="next-steps"></a>Próximas etapas

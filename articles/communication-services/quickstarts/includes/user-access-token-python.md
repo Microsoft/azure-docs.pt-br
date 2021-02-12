@@ -2,20 +2,20 @@
 title: incluir arquivo
 description: incluir arquivo
 services: azure-communication-services
-author: matthewrobertson
-manager: nimag
+author: tomaschladek
+manager: nmurav
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
-ms.author: marobert
-ms.openlocfilehash: 4be8821a949527fefcc9005b1de7f4f7c438c568
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.author: tchladek
+ms.openlocfilehash: 472129be5baa865365b49894b705d84c23e9cd04
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90943236"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97506334"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,17 +30,17 @@ ms.locfileid: "90943236"
 1. Abra o terminal ou a janela de comando para criar um diretório para seu aplicativo e navegue até ele.
 
    ```console
-   mkdir user-tokens-quickstart && cd user-tokens-quickstart
+   mkdir access-tokens-quickstart && cd access-tokens-quickstart
    ```
 
-1. Use um editor de texto para criar um arquivo chamado **issue-tokens.py** no diretório raiz do projeto e adicione a estrutura do programa, incluindo a manipulação de exceção básica. Você adicionará todo o código-fonte deste guia de início rápido a esse arquivo nas seções a seguir.
+1. Use um editor de texto para criar um arquivo chamado **issue-access-tokens.py** no diretório raiz do projeto e adicione a estrutura do programa, incluindo a manipulação de exceção básica. Você adicionará todo o código-fonte deste guia de início rápido a esse arquivo nas seções a seguir.
 
    ```python
    import os
    from azure.communication.administration import CommunicationIdentityClient
 
    try:
-      print('Azure Communication Services - User Access Tokens Quickstart')
+      print('Azure Communication Services - Access Tokens Quickstart')
       # Quickstart code goes here
    except Exception as ex:
       print('Exception:')
@@ -54,8 +54,6 @@ Ainda no diretório do aplicativo, instale o pacote da biblioteca de clientes da
 ```console
 pip install azure-communication-administration
 ```
-
-[!INCLUDE [User Access Tokens Object Model](user-access-tokens-object-model.md)]
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
@@ -72,51 +70,61 @@ connection_string = os.environ['COMMUNICATION_SERVICES_CONNECTION_STRING']
 client = CommunicationIdentityClient.from_connection_string(connection_string)
 ```
 
-## <a name="create-a-user"></a>Criar um usuário
+## <a name="create-an-identity"></a>Criar uma identidade
 
-Os Serviços de Comunicação do Azure mantêm um diretório de identidade leve. Use o método `create_user` para criar uma entrada no diretório com um `Id` exclusivo. Você deve manter um mapeamento entre os usuários do aplicativo e as entidades geradas dos Serviços de Comunicação (por exemplo, armazenando-os em seu banco de dados do servidor de aplicativos).
+Os Serviços de Comunicação do Azure mantêm um diretório de identidade leve. Use o método `create_user` para criar uma entrada no diretório com um `Id` exclusivo. Armazene a identidade recebida com o mapeamento para os usuários do aplicativo. Por exemplo, armazenando-os no banco de dados do servidor de aplicativos. A identidade é necessária posteriormente para emitir tokens de acesso.
 
 ```python
-user = client.create_user()
-print("\nCreated a user with ID: " + user.identifier + ":")
+identity = client.create_user()
+print("\nCreated an identity with ID: " + identity.identifier + ":")
 ```
 
-## <a name="issue-user-access-tokens"></a>Emitir tokens de acesso do usuário
+## <a name="issue-access-tokens"></a>Emitir tokens de acesso
 
-Use o método `issue_token` para emitir um token de acesso para um usuário dos Serviços de Comunicação. Se você não fornecer o parâmetro `user` opcional, um usuário será criado e retornado com o token.
+Use o método `issue_token` a fim de emitir um token de acesso para uma identidade existente dos Serviços de Comunicação. O parâmetro `scopes` define o conjunto de primitivos, que autorizará esse token de acesso. Confira a [lista de ações compatíveis](../../concepts/authentication.md). A nova instância do parâmetro `communicationUser` pode ser construída com base na representação da cadeia de caracteres da identidade do Serviço de Comunicação do Azure.
 
 ```python
-# Issue an access token with the "voip" scope for a new user
-token_result = client.issue_token(user, ["voip"])
+# Issue an access token with the "voip" scope for an identity
+token_result = client.issue_token(identity, ["voip"])
 expires_on = token_result.expires_on.strftime('%d/%m/%y %I:%M %S %p')
-print("\nIssued a token with 'voip' scope that expires at " + expires_on + ":")
+print("\nIssued an access token with 'voip' scope that expires at " + expires_on + ":")
 print(token_result.token)
 ```
 
-Os tokens de acesso do usuário são credenciais de curta duração que precisam ser reemitidas para impedir que os usuários tenham interrupções de serviço. A propriedade de resposta `expires_on` indica o tempo de vida do token.
+Os tokens de acesso são credenciais de curta duração que precisam ser reemitidas. Deixar de fazer isso pode causar a interrupção da experiência dos usuários do aplicativo. A propriedade de resposta `expires_on` indica o tempo de vida do token de acesso.
 
-## <a name="revoke-user-access-tokens"></a>Revogar tokens de acesso do usuário
+## <a name="refresh-access-tokens"></a>Tokens de acesso de atualização
 
-Em alguns casos, talvez seja necessário revogar explicitamente os tokens de acesso do usuário, por exemplo, quando um usuário altera a senha que eles usam para se autenticar no serviço. Essa funcionalidade está disponível por meio da biblioteca de clientes da Administração dos Serviços de Comunicação do Azure.
+Para atualizar um token de acesso, use o objeto `CommunicationUser` para reemitir:
 
 ```python  
-client.revoke_tokens(user)
-print("\nSuccessfully revoked all tokens for user with ID: " + user.identifier)
+# Value existingIdentity represents identity of Azure Communication Services stored during identity creation
+identity = CommunicationUser(existingIdentity)
+token_result = client.issue_token( identity, ["voip"])
 ```
 
-## <a name="delete-a-user"></a>Excluir um usuário
+## <a name="revoke-access-tokens"></a>Revogar tokens de acesso
 
-A exclusão de uma identidade revoga todos os tokens ativos e impede que você emita tokens subsequentes para as identidades. Ele também remove todo o conteúdo persistente associado ao usuário.
+Em alguns casos, você pode revogar explicitamente os tokens de acesso. Por exemplo, quando o usuário de um aplicativo altera a senha usada para realizar a autenticação no serviço. O método `revoke_tokens` invalida todos os tokens de acesso ativos que foram emitidos para a identidade.
+
+```python  
+client.revoke_tokens(identity)
+print("\nSuccessfully revoked all access tokens for identity with ID: " + identity.identifier)
+```
+
+## <a name="delete-an-identity"></a>Excluir uma identidade
+
+A exclusão de uma identidade revoga todos os tokens de acesso ativos e impede que você emita novos tokens de acesso para a identidade. Isso também remove todo o conteúdo persistente associado à identidade.
 
 ```python
-client.delete_user(user)
-print("\nDeleted the user with ID: " + user.identifier)
+client.delete_user(identity)
+print("\nDeleted the identity with ID: " + identity.identifier)
 ```
 
 ## <a name="run-the-code"></a>Executar o código
 
-Em um prompt de console, navegue até o diretório que contém o arquivo *issue-token.py* e execute o comando `python` para executar o aplicativo.
+De um prompt de um console, navegue até o diretório que contém o arquivo *issue-access-token.py* e execute o comando `python` a seguir para executar o aplicativo.
 
 ```console
-python ./issue-token.py
+python ./issue-access-token.py
 ```

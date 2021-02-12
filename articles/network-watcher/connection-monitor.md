@@ -12,17 +12,20 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 01/04/2021
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: acdaf2318c3082db876ed9c69b704d3d00cd4c90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24b1549b2e460bc0e72fb76f5437b15838604949
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76834647"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97896355"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: Monitorar a comunicação de rede entre as duas máquinas virtuais usando o portal do Azure
+
+> [!NOTE]
+> Este tutorial aborda o Monitor da Conexão (clássico). Teste o novo e aprimorado [Monitor da Conexão](connection-monitor-overview.md) para experimentar um monitoramento avançado da conectividade
 
 Comunicação bem-sucedida entre uma máquina virtual (VM) e um ponto de extremidade como outra VM, pode ser importante para sua organização. Às vezes, as alterações de configuração são introduzidas o que pode interromper a comunicação. Neste tutorial, você aprenderá como:
 
@@ -33,6 +36,8 @@ Comunicação bem-sucedida entre uma máquina virtual (VM) e um ponto de extremi
 > * Diagnosticar um problema de comunicação entre as duas VMs e saiba como você pode resolvê-lo
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -45,7 +50,7 @@ Criar duas VMs.
 ### <a name="create-the-first-vm"></a>Criar a primeira VM
 
 1. Selecione **+ Criar um recurso** localizado no canto superior esquerdo do Portal do Azure.
-2. Selecione **Computação**e, em seguida, selecione um sistema operacional. Neste tutorial, **Datacenter do Windows Server 2016** é usado.
+2. Selecione **Computação** e, em seguida, selecione um sistema operacional. Neste tutorial, **Datacenter do Windows Server 2016** é usado.
 3. Insira, ou selecione, as informações a seguir, aceite os padrões para as configurações restantes e, em seguida, selecione **OK**:
 
     |Configuração|Valor|
@@ -58,11 +63,11 @@ Criar duas VMs.
     |Location| Selecione **Leste dos EUA**|
 
 4. Selecione um tamanho para a VM e selecione **Selecionar**.
-5. Em **Configurações**, selecione **Extensões**. Selecione **Adicionar extensão**e selecione **Agente Observador de Rede para Windows**, conforme mostrado na figura a seguir:
+5. Em **Configurações**, selecione **Extensões**. Selecione **Adicionar extensão** e selecione **Agente Observador de Rede para Windows**, conforme mostrado na figura a seguir:
 
     ![Extensão do Agente do Observador de Rede](./media/connection-monitor/nw-agent-extension.png)
 
-6. Em **Agente Observador de Rede para Windows**, selecione **Criar**, em **Instalar extensão** selecione **Ok**e, em seguida, em **Extensões**, selecione **Ok**.
+6. Em **Agente Observador de Rede para Windows**, selecione **Criar**, em **Instalar extensão** selecione **Ok** e, em seguida, em **Extensões**, selecione **Ok**.
 7. Aceite os padrões para as **Configurações** restantes e clique em **OK**
 8. Em **Criar** do **Resumo**, selecione **Criar** para iniciar a implantação da VM.
 
@@ -70,13 +75,13 @@ Criar duas VMs.
 
 Conclua as etapas em [Criar a primeira VM](#create-the-first-vm) novamente, com as seguintes alterações:
 
-|Etapa|Configuração|Valor|
+|Etapa|Setting|Valor|
 |---|---|---|
 | 1 | Selecionar uma versão do **Ubuntu Server** |                                                                         |
 | 3 | Nome                                  | myVm2                                                                   |
-| 3 | Tipo de autenticação                   | Cole sua chave pública SSH ou selecione **Senha**e digite uma senha. |
+| 3 | Tipo de autenticação                   | Cole sua chave pública SSH ou selecione **Senha** e digite uma senha. |
 | 3 | Resource group                        | Selecione **Usar existente** e, em seguida, **myResourceGroup**.                 |
-| 6 | Extensões                            | **Agente do Observador de Rede para Linux**                                             |
+| 6 | Extensões do                            | **Agente do Observador de Rede para Linux**                                             |
 
 A VM demora alguns minutos para implantar. Aguarde até que a VM conclua a implantação antes de continuar com as etapas restantes.
 
@@ -90,7 +95,7 @@ Criar uma comunicação de monitor para monitor de conexão usando a porta TCP 2
 4. Selecione **+ Adicionar**.
 5. Digite ou selecione as informações para a conexão que você deseja monitorar e selecione **Adicionar**. No exemplo mostrado na figura a seguir, a conexão monitorada é da VM *myVm1* e para a VM *myVm2* pela porta 22:
 
-    | Configuração                  | Valor               |
+    | Setting                  | Valor               |
     | ---------                | ---------           |
     | Nome                     | myVm1-myVm2(22)     |
     | Fonte                   |                     |
@@ -108,7 +113,7 @@ Criar uma comunicação de monitor para monitor de conexão usando a porta TCP 2
 
     ![Monitores de conexão](./media/connection-monitor/connection-monitors.png)
 
-2. Selecione o monitor com o nome **myVm1-myVm2(22)** , conforme mostrado na figura anterior, para ver os detalhes para o monitor, conforme mostrado na figura a seguir:
+2. Selecione o monitor com o nome **myVm1-myVm2(22)**, conforme mostrado na figura anterior, para ver os detalhes para o monitor, conforme mostrado na figura a seguir:
 
     ![Detalhes do monitor](./media/connection-monitor/vm-monitor.png)
 
@@ -126,10 +131,10 @@ Criar uma comunicação de monitor para monitor de conexão usando a porta TCP 2
 Alertas são criados por regras de alerta no Azure Monitor e podem executar automaticamente consultas salvas ou pesquisas de logs personalizadas em intervalos regulares. Um alerta gerado pode executar automaticamente uma ou mais ações, como notificar alguém ou iniciar outro processo. Ao definir uma regra de alerta, o recurso de destino determina a lista de métrica disponível que você pode usar para gerar alertas.
 
 1. No portal do Azure, selecione o serviço **Monitor** e selecione **Alertas** > **Nova regra de alerta**.
-2. Clique em **Selecionar destino**e selecione os recursos aos quais você deseja direcionar. Selecione a **Assinatura**e defina o **Tipo de recurso** para filtrar pelo Monitor de Conexão que você deseja usar.
+2. Clique em **Selecionar destino** e selecione os recursos aos quais você deseja direcionar. Selecione a **Assinatura** e defina o **Tipo de recurso** para filtrar pelo Monitor de Conexão que você deseja usar.
 
     ![tela de alerta com o destino selecionado](./media/connection-monitor/set-alert-rule.png)
-1. Depois de selecionar um recurso para direcionamento, selecione **Adicionar critérios**. O Observador de Rede tem [métrica que pode servir de base para alertas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#metrics-and-dimensions-supported). Defina **Sinais disponíveis** para as métricas ProbesFailedPercent e AverageRoundtripMs:
+1. Depois de selecionar um recurso para direcionamento, selecione **Adicionar critérios**. O Observador de Rede tem [métrica que pode servir de base para alertas](../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported). Defina **Sinais disponíveis** para as métricas ProbesFailedPercent e AverageRoundtripMs:
 
     ![página de alerta com sinais selecionados](./media/connection-monitor/set-alert-signals.png)
 1. Preencha os detalhes do alerta, como nome da regra de alerta, descrição e gravidade. Você também pode adicionar um grupo de ação ao alerta para automatizar e personalizar a resposta de alerta.
@@ -146,14 +151,14 @@ Por padrão, o Azure permite comunicação por todas as portas entre VMs na mesm
 
 4. A regra padrão que permite a comunicação entre todas as VMs em uma rede virtual é a regra nomeada **AllowVnetInBound**. Criar uma regra com uma prioridade mais alta (número menor) que o **AllowVnetInBound** regra que nega a comunicação de entrada pela porta 22. Insira ou selecione as informações a seguir, aceite os padrões restantes e selecione **Adicionar**:
 
-    | Configuração                 | Valor          |
+    | Setting                 | Valor          |
     | ---                     | ---            |
     | Intervalos de portas de destino | 22             |
     | Ação                  | Negar           |
     | Prioridade                | 100            |
     | Nome                    | DenySshInbound |
 
-5. Desde que o monitor de conexão testes em intervalos de 60 segundos, aguarde alguns minutos e, em seguida, no lado esquerdo do portal, selecione **Observador de Rede**, em seguida, **monitor de Conexão**e, em seguida, selecione o  **myVm1-myVm2(22)** monitorar novamente. Os resultados são diferentes agora, conforme mostrado na figura a seguir:
+5. Desde que o monitor de conexão testes em intervalos de 60 segundos, aguarde alguns minutos e, em seguida, no lado esquerdo do portal, selecione **Observador de Rede**, em seguida, **monitor de Conexão** e, em seguida, selecione o **myVm1-myVm2(22)** monitorar novamente. Os resultados são diferentes agora, conforme mostrado na figura a seguir:
 
     ![Falha nos detalhes do monitor](./media/connection-monitor/vm-monitor-fault.png)
 

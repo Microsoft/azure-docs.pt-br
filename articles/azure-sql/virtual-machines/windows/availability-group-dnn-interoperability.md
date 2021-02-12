@@ -7,17 +7,18 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/08/2020
 ms.author: mathoma
-ms.openlocfilehash: 567e1696bb06b3237c30c45384b8049ff82b5848
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 19b4b7407468b19419e2f85193b1f8fb6ace39c3
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168775"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359397"
 ---
 # <a name="feature-interoperability-with-ag-and-dnn-listener"></a>Interoperabilidade de recursos com o AG e o ouvinte DNN 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

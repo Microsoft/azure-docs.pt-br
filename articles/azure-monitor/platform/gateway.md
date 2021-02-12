@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
 ms.openlocfilehash: dc4d1b852b0a498de0834731b2b1cd1225b9748b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107769"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008847"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Conectar computadores sem acesso à Internet usando o gateway de Log Analytics no Azure Monitor
 
@@ -192,7 +192,7 @@ Você pode configurar o gateway para alta disponibilidade usando o NLB (balancea
 Para saber como projetar e implantar um cluster de balanceamento de carga de rede Windows Server 2016, confira [Balanceamento de carga de rede](/windows-server/networking/technologies/network-load-balancing). As etapas a seguir descrevem como configurar uma cluster de balanceamento de carga de rede Microsoft Network.  
 
 1. Entre no servidor Windows que seja membro do cluster NLB com uma conta administrativa.  
-2. Abra o Gerenciador de Balanceamento de Carga de Rede no gerenciador de servidores, clique em **Ferramentas**e clique em **Gerenciador de Balanceamento de Carga de Rede**.
+2. Abra o Gerenciador de Balanceamento de Carga de Rede no gerenciador de servidores, clique em **Ferramentas** e clique em **Gerenciador de Balanceamento de Carga de Rede**.
 3. Para conectar um servidor do gateway do Log Analytics ao Microsoft Monitoring Agent instalado, clique com o botão direito no endereço IP do cluster e clique em **Adicionar Host ao Cluster**. 
 
     ![Gerenciador de Balanceamento de Carga de Rede – Adicionar Host ao Cluster](./media/gateway/nlb02.png)
@@ -206,7 +206,7 @@ Para saber como projetar e implantar um cluster de balanceamento de carga de red
 Para saber como projetar e implantar um Azure Load Balancer, consulte [o que é Azure Load Balancer?](../../load-balancer/load-balancer-overview.md). Para implantar um balanceador de carga básico, siga as etapas descritas neste guia de [início rápido](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) , excluindo as etapas descritas na seção **criar servidores back-end**.   
 
 > [!NOTE]
-> Configurar o Azure Load Balancer usando o **SKU básico**requer que as máquinas virtuais do Azure pertençam a um conjunto de disponibilidade. Para saber mais sobre conjuntos de disponibilidade, confira [gerenciar a disponibilidade de máquinas virtuais do Windows no Azure](../../virtual-machines/manage-availability.md). Para adicionar máquinas virtuais existentes a um conjunto de disponibilidade, consulte [definir Azure Resource Manager conjunto de disponibilidade da VM](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4).
+> Configurar o Azure Load Balancer usando o **SKU básico** requer que as máquinas virtuais do Azure pertençam a um conjunto de disponibilidade. Para saber mais sobre conjuntos de disponibilidade, confira [gerenciar a disponibilidade de máquinas virtuais do Windows no Azure](../../virtual-machines/manage-availability.md). Para adicionar máquinas virtuais existentes a um conjunto de disponibilidade, consulte [definir Azure Resource Manager conjunto de disponibilidade da VM](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4).
 > 
 
 Depois que o balanceador de carga é criado, um pool de back-end precisa ser criado, o que distribui o tráfego para um ou mais servidores de gateway. Siga as etapas descritas na seção do artigo de início rápido [criar recursos para o balanceador de carga](../../load-balancer/quickstart-load-balancer-standard-public-portal.md).  
@@ -262,7 +262,7 @@ Para configurar a integração, atualize a configuração de proxy do sistema us
 
 Depois de concluir a integração com o Log Analytics, remova a alteração executando `netsh winhttp reset proxy` . Em seguida, no console de operações, use a opção **Configurar servidor proxy** para especificar o servidor gateway log Analytics. 
 
-1. No console do Operations Manager, em **Operations Management Suite**, selecione **conexão**e, em seguida, selecione **Configurar servidor proxy**.
+1. No console do Operations Manager, em **Operations Management Suite**, selecione **conexão** e, em seguida, selecione **Configurar servidor proxy**.
 
    ![Captura de tela de Operations Manager, mostrando a seleção configurar servidor proxy](./media/gateway/scom01.png)
 
@@ -332,7 +332,7 @@ Um erro na etapa 3 significa que o módulo não foi importado. O erro pode ocorr
 | `Get-OMSGatewayConfig` |Chave |Obtém a configuração do serviço |`Get-OMSGatewayConfig` |  
 | `Set-OMSGatewayConfig` |Chave (obrigatória) <br> Valor |Altera a configuração do serviço |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |Obtém o endereço do proxy de retransmissão (upstream) |`Get-OMSGatewayRelayProxy` |  
-| `Set-OMSGatewayRelayProxy` |Endereço<br> Nome de Usuário<br> Senha (cadeia de caracteres segura) |Define o endereço (e as credenciais) do proxy de retransmissão (upstream) |1. Defina um proxy de retransmissão e uma credencial:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Defina um proxy de retransmissão que não precise de autenticação: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. desmarque a configuração de proxy de retransmissão:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
+| `Set-OMSGatewayRelayProxy` |Endereço<br> Nome de usuário<br> Senha (cadeia de caracteres segura) |Define o endereço (e as credenciais) do proxy de retransmissão (upstream) |1. Defina um proxy de retransmissão e uma credencial:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Defina um proxy de retransmissão que não precise de autenticação: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. desmarque a configuração de proxy de retransmissão:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
 | `Get-OMSGatewayAllowedHost` | |Obtém o host atualmente permitido (somente o host permitido configurado localmente, os hosts permitidos que não foram baixados automaticamente) |`Get-OMSGatewayAllowedHost` | 
 | `Add-OMSGatewayAllowedHost` |Host (obrigatório) |Adiciona o host à lista de permissões |`Add-OMSGatewayAllowedHost -Host www.test.com` |  
 | `Remove-OMSGatewayAllowedHost` |Host (obrigatório) |Remove o host da lista de permissões |`Remove-OMSGatewayAllowedHost`<br> `-Host www.test.com` |  

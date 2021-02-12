@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 052418924e73252a780689aea33e84d5bfdbc3f6
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 98510132b2341736664dfafa52e9567df95652be
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927644"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561090"
 ---
 # <a name="custom-commands-concepts-and-definitions"></a>Conceitos e definições de comandos personalizados
 
@@ -40,7 +40,7 @@ Regras de interação são regras adicionais para lidar com situações mais esp
 
 Os parâmetros são informações requeridas por comandos para concluir uma tarefa. Em cenários complexos, os parâmetros também podem ser usados para definir condições que disparam ações personalizadas.
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nome
 Um parâmetro é identificado pela propriedade Name. Você sempre deve fornecer um nome descritivo para um parâmetro. Um parâmetro pode ser referenciado em diferentes seções, por exemplo, quando você constrói condições, respostas de fala ou outras ações.
  
 ### <a name="isglobal"></a>Caso IsGlobal
@@ -49,20 +49,22 @@ Essa caixa de seleção indica se o escopo desse parâmetro é compartilhado ent
 ### <a name="required"></a>Obrigatório
 Essa caixa de seleção indica se um valor para esse parâmetro é necessário para preenchimento ou conclusão de comando. Você deve configurar as respostas para solicitar que o usuário forneça um valor se um parâmetro for marcado como obrigatório.
 
+Observe que, se você configurou um **parâmetro obrigatório** para ter um **valor padrão** , o sistema ainda solicitará explicitamente o valor do parâmetro.
+
 ### <a name="type"></a>Tipo
 Os comandos personalizados oferecem suporte aos seguintes tipos de parâmetro:
 
-* Datetime
+* DateTime
 * painel Geografia do app&#39;s selecionado
 * Número
-* String
+* Cadeia de caracteres
 
-Todos esses tipos de parâmetro dão suporte à configuração de valor padrão, que pode ser configurada no portal do Azure.
+Todos esses tipos de parâmetro, exceto a geografia, dão suporte à configuração de valor padrão, que pode ser configurada no Portal.
 
 ### <a name="configuration"></a>Configuração
 A configuração é uma propriedade de parâmetro definida somente para a cadeia de caracteres de tipo. Os seguintes valores têm suporte:
 
-* **None** .
+* **None**.
 * **Aceitar entrada completa** : Quando habilitada, um parâmetro aceita qualquer expressão de entrada. Essa opção é útil quando o usuário precisa de um parâmetro com o expressão completo. Um exemplo são os endereços postais.
 * **Aceitar valores de entrada predefinidos de um catálogo externo** : esse valor é usado para configurar um parâmetro que pode assumir uma grande variedade de valores. Um exemplo é um catálogo de vendas. Nesse caso, o catálogo é hospedado em um ponto de extremidade da Web externo e pode ser configurado de forma independente.
 * **Aceitar valores de entrada predefinidos do catálogo interno** : esse valor é usado para configurar um parâmetro que pode assumir alguns valores. Nesse caso, os valores devem ser configurados no Speech Studio.
@@ -71,11 +73,11 @@ A configuração é uma propriedade de parâmetro definida somente para a cadeia
 ### <a name="validation"></a>Validação
 Validações são construções aplicáveis a determinados tipos de parâmetro que permitem configurar restrições no valor de um parâmetro. Atualmente, os comandos personalizados oferecem suporte a validações nos seguintes tipos de parâmetro:
 
-* Datetime
+* DateTime
 * Número
 
 ## <a name="rules-configuration"></a>Configuração de regras
-Uma regra em comandos personalizados é definida por um conjunto de *condições* que, quando atendidas, executam um conjunto de *ações* . As regras também permitem que você configure o *estado de pós-execução* e as *expectativas* para a próxima vez.
+Uma regra em comandos personalizados é definida por um conjunto de *condições* que, quando atendidas, executam um conjunto de *ações*. As regras também permitem que você configure o *estado de pós-execução* e as *expectativas* para a próxima vez.
 
 ### <a name="types"></a>Tipos
 Os comandos personalizados oferecem suporte às seguintes categorias de regra:

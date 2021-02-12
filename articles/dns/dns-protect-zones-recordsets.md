@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 2/20/2020
 ms.author: allensu
-ms.openlocfilehash: 52cb1f144608202739dc46f2053950b38d810631
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 8163fcb3b349e298bc89f06523e3e784bdc4ed49
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330148"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965656"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Proteger registros e zonas DNS
 
@@ -34,7 +34,7 @@ O grupo de recursos *MyResource* Group contém cinco zonas para a Contoso Corpor
 
 A maneira mais simples de atribuir permissões de RBAC do Azure é [por meio do portal do Azure](../role-based-access-control/role-assignments-portal.md).  
 
-Abra o **controle de acesso (iam)** para o grupo de recursos, selecione **Adicionar**e, em seguida, selecione a função **colaborador de zona DNS** . Selecione os usuários ou grupos necessários para conceder permissões.
+Abra o **controle de acesso (iam)** para o grupo de recursos, selecione **Adicionar** e, em seguida, selecione a função **colaborador de zona DNS** . Selecione os usuários ou grupos necessários para conceder permissões.
 
 ![Azure RBAC no nível do grupo de recursos por meio do portal do Azure](./media/dns-protect-zones-recordsets/rbac1.png)
 
@@ -202,7 +202,7 @@ Bloqueios de recurso em nível de zona podem ser criados via Portal do Azure.  N
 
 ![Bloqueios de recurso em nível de zona via Portal do Azure](./media/dns-protect-zones-recordsets/locks1.png)
 
-Bloqueios de recursos de nível de zona também podem ser criados por meio de [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcelock?view=latest):
+Bloqueios de recursos de nível de zona também podem ser criados por meio de [Azure PowerShell](/powershell/module/az.resources/new-azresourcelock?view=latest):
 
 ```azurepowershell
 # Lock a DNS zone
@@ -216,7 +216,7 @@ $rsg = "<resource group name>"
 New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rsc -ResourceType $rty -ResourceGroupName $rsg
 ```
 
-O comando equivalente também está [disponível por meio da CLI do Azure](https://docs.microsoft.com/cli/azure/lock?view=azure-cli-latest#az-lock-create):
+O comando equivalente também está [disponível por meio da CLI do Azure](/cli/azure/lock?view=azure-cli-latest#az-lock-create):
 
 ```azurecli
 # Lock a DNS zone

@@ -9,17 +9,17 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/01/2020
+ms.date: 01/05/2021
 ms.author: yelevin
-ms.openlocfilehash: ba14e2c475611ed77661060d6e17ae0bcbf0a6ca
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f9fb1c917a0719cb9d250b997329d3415b5872eb
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744217"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747467"
 ---
 # <a name="step-3-validate-connectivity"></a>ETAPA 3: validar a conectividade
 
@@ -29,27 +29,27 @@ Depois de implantar o encaminhador de log (na etapa 1) e configurar sua soluçã
 
 - Você deve ter permissões elevadas (sudo) em seu computador do encaminhador de log.
 
-- Você deve ter o **python 2,7** instalado no computador do encaminhador de log.<br>
+- Você deve ter o **python 2,7** ou **3** instalado em seu computador do encaminhador de log.<br>
 Use o `python –version` comando para verificar.
 
-- Talvez seja necessário a ID do espaço de trabalho e a chave primária do espaço de trabalho em algum momento nesse processo. Você pode encontrá-los no recurso de espaço de trabalho, em **Gerenciamento de agentes** .
+- Talvez seja necessário a ID do espaço de trabalho e a chave primária do espaço de trabalho em algum momento nesse processo. Você pode encontrá-los no recurso de espaço de trabalho, em **Gerenciamento de agentes**.
 
 ## <a name="how-to-validate-connectivity"></a>Como validar a conectividade
 
-1. No menu de navegação do Azure Sentinel, abra **logs** . Execute uma consulta usando o esquema **CommonSecurityLog** para ver se você está recebendo logs de sua solução de segurança.<br>
-Lembre-se de que pode levar cerca de 20 minutos até que os logs comecem a aparecer na **log Analytics** . 
+1. No menu de navegação do Azure Sentinel, abra **logs**. Execute uma consulta usando o esquema **CommonSecurityLog** para ver se você está recebendo logs de sua solução de segurança.<br>
+Lembre-se de que pode levar cerca de 20 minutos até que os logs comecem a aparecer na **log Analytics**. 
 
 1. Se você não vir nenhum resultado da consulta, verifique se os eventos estão sendo gerados de sua solução de segurança ou tente gerar alguns e verifique se eles estão sendo encaminhados para o computador do Encaminhador do syslog que você designou. 
 
 1. Execute o script a seguir no encaminhador de log (aplicando a ID do espaço de trabalho no lugar do espaço reservado) para verificar a conectividade entre sua solução de segurança, o encaminhador de log e o Azure Sentinel. Esse script verifica se o daemon está escutando nas portas corretas, se o encaminhamento está configurado corretamente e se nada está bloqueando a comunicação entre o daemon e o agente de Log Analytics. Ele também envia as mensagens de simulação ' TestCommonEventFormat ' para verificar a conectividade de ponta a ponta. <br>
 
     ```bash
-    sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]` 
+    sudo wget -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]
     ```
 
-   - Você pode receber uma mensagem direcionando para executar um comando para corrigir um problema com o **mapeamento do campo *computador*** . Consulte a [explicação no script de validação](#mapping-command) para obter detalhes.
+   - Você pode receber uma mensagem direcionando para executar um comando para corrigir um problema com o **mapeamento do campo *computador***. Consulte a [explicação no script de validação](#mapping-command) para obter detalhes.
 
-    - Você pode receber uma mensagem direcionando para executar um comando para corrigir um problema com a **análise dos logs do firewall do Cisco ASA** . Consulte a [explicação no script de validação](#parsing-command) para obter detalhes.
+    - Você pode receber uma mensagem direcionando para executar um comando para corrigir um problema com a **análise dos logs do firewall do Cisco ASA**. Consulte a [explicação no script de validação](#parsing-command) para obter detalhes.
 
 ## <a name="validation-script-explained"></a>Script de validação explicado
 
@@ -207,8 +207,7 @@ O script de validação executa as seguintes verificações:
     - Arquivo de configuração: `/etc/syslog-ng/conf.d/security-config-omsagent.conf`
 
         ```bash
-        filter f_oms_filter {match(\"CEF\|ASA\" ) ;};
-        destination oms_destination {tcp(\"127.0.0.1\" port("25226"));};
+        filter f_oms_filter {match(\"CEF\|ASA\" ) ;};destination oms_destination {tcp(\"127.0.0.1\" port(25226));};
         log {source(s_src);filter(f_oms_filter);destination(oms_destination);};
         ```
 
@@ -245,8 +244,8 @@ O script de validação executa as seguintes verificações:
 ---
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Neste documento, você aprendeu a conectar os dispositivos CEF ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
-- Comece a [detectar ameaças com o Azure Sentinel](tutorial-detect-threats.md).
+- Comece a [detectar ameaças com o Azure Sentinel](./tutorial-detect-threats-built-in.md).
 - [Use pastas de trabalho](tutorial-monitor-your-data.md) para monitorar seus dados.
-

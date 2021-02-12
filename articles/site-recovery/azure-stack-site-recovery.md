@@ -4,11 +4,11 @@ description: Saiba como configurar a recuperação de desastre para VMs do Azure
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.openlocfilehash: 36e11bfe5354644f9ef6603ffe20cb2e86074323
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370518"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016890"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicar VMs do Azure Stack para Azure
 
@@ -38,7 +38,7 @@ Com essas etapas concluídas, será possível executar um failover completo no A
 
 ![O diagrama mostra cofres dos serviços de recuperação para dois locatários em nuvens associadas a assinaturas de locatário em uma infraestrutura de Azure Stack comum.](./media/azure-stack-site-recovery/architecture.png)
 
-**Local** | **Componente** |**Detalhes**
+**Localidade** | **Componente** |**Detalhes**
 --- | --- | ---
 **Servidor de configuração** | Funciona em uma única VM do Azure Stack. | Em cada assinatura, você configura uma VM do servidor de configuração. Essa VM executa os seguintes componentes do Site Recovery:<br/><br/> - Servidor de configuração: coordena as comunicações entre o local e o Azure e gerencia a replicação de dados. - Servidor de processo: atua como um gateway de replicação. Ele recebe dados de replicação, otimiza com cache, compactação e criptografia e envia para o armazenamento do Azure.<br/><br/> Se as VMs que você quer replicar excederem os limites indicados abaixo, você poderá configurar um servidor de processo independente separado. [Saiba mais](vmware-azure-set-up-process-server-scale.md).
 **Serviço de mobilidade** | Instalado em cada VM que você quer replicar. | Nas etapas deste artigo, preparamos uma conta para que o serviço de Mobilidade seja instalado automaticamente em uma VM quando a replicação estiver habilitada. Se você não quiser instalar o serviço automaticamente, há vários outros métodos que poderão ser utilizados. [Saiba mais](vmware-azure-install-mobility-service.md).
@@ -137,7 +137,7 @@ Para cada máquina que você quer replicar, localize o endereço IP:
 
 ## <a name="step-2-create-a-vault-and-select-a-replication-goal"></a>Etapa 2: criar um cofre e selecionar uma meta de replicação
 
-1. Na portal do Azure, selecione **criar um recurso**  >  **ferramentas de gerenciamento**de  >  **backup e site Recovery**.
+1. Na portal do Azure, selecione **criar um recurso**  >  **ferramentas de gerenciamento** de  >  **backup e site Recovery**.
 2. Em **Nome**, digite um nome amigável para identificar o cofre.
 3. Em **Grupo de recursos**, crie ou selecione um grupo de recursos. Nós estamos usando **contosoRG**.
 4. Em **Localização**, insira a região do Azure. Estamos usando **Europa Ocidental**.
@@ -186,7 +186,7 @@ Agora instale o servidor de configuração:
 > [!NOTE]
 > O servidor de configuração também pode ser instalado a partir da linha de comando. [Saiba mais](physical-manage-configuration-server.md#install-from-the-command-line).
 >
-> Pode levar 15 minutos ou mais para que o nome da conta apareça no portal. Para atualizar imediatamente, selecione **servidores de configuração**  >  **_nome do servidor_*_ > _* atualizar servidor**.
+> Pode levar 15 minutos ou mais para que o nome da conta apareça no portal. Para atualizar imediatamente, selecione **Servidores de Configuração** > **_nome do servidor_ *_ > _* Atualizar Servidor**.
 
 ## <a name="step-4-set-up-the-target-environment"></a>Etapa 4: Configurar o ambiente de origem
 
@@ -201,7 +201,7 @@ Selecione e verifique os recursos de destino.
 
 ### <a name="create-a-replication-policy"></a>Criar uma política de replicação
 
-1. Clique em **preparar**  >  **configurações de replicação**de infraestrutura.
+1. Clique em **preparar**  >  **configurações de replicação** de infraestrutura.
 2. Em **Criar política de replicação**, especifique um nome de política.
 3. Em **Limite de RPO**, especifique o limite de RPO (objetivo de pontos de recuperação).
     - Os pontos de recuperação para dados replicados são criados de acordo com o tempo definido.

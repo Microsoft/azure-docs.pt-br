@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
-ms.openlocfilehash: 61617777efa8241c93b2b5ffe42fc1d914b6ebcf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: feea2d54edd8a93e6e0effbef03389ef895d5ffb
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531863"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216743"
 ---
 # <a name="virtual-network-peering"></a>Emparelhamento de rede virtual
 
@@ -48,7 +48,7 @@ A latência de rede entre as máquinas virtuais em redes virtuais emparelhadas n
 O tráfego entre as máquinas virtuais nas redes virtuais emparelhadas é roteado diretamente pela infraestrutura de backbone da Microsoft, não por um gateway ou pela Internet pública.
 
 Você pode aplicar grupos de segurança de rede em qualquer rede virtual para bloquear o acesso a outras redes virtuais ou sub-redes.
-Ao configurar o emparelhamento de rede virtual, abra ou feche as regras do grupo de segurança de rede entre as redes virtuais. Se você abrir a conectividade completa entre redes virtuais emparelhadas, poderá aplicar grupos de segurança de rede para bloquear ou negar acesso específico. A conectividade completa é a opção padrão. Para saber mais sobre grupos de segurança de rede, consulte [grupos de segurança](security-overview.md).
+Ao configurar o emparelhamento de rede virtual, abra ou feche as regras do grupo de segurança de rede entre as redes virtuais. Se você abrir a conectividade completa entre redes virtuais emparelhadas, poderá aplicar grupos de segurança de rede para bloquear ou negar acesso específico. A conectividade completa é a opção padrão. Para saber mais sobre grupos de segurança de rede, consulte [grupos de segurança](./network-security-groups-overview.md).
 
 ## <a name="service-chaining"></a>Encadeamento de serviços
 

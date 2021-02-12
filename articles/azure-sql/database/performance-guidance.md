@@ -8,16 +8,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer: jrasnick
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: 773f011e0c79dc7b246ddc4a737914c15fe0f2f6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 40657ad2f3b69d62e0e0d9c7d9e0f0be7343547b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789532"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490594"
 ---
 # <a name="tune-applications-and-databases-for-performance-in-azure-sql-database-and-azure-sql-managed-instance"></a>Ajustar aplicativos e bancos de dados para desempenho no banco de dados SQL do Azure e Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -230,7 +230,7 @@ ORDER BY start_time DESC
 > [!NOTE]
 > Embora o volume neste exemplo seja propositalmente pequeno, o efeito de parâmetros de qualidade inferior pode ser significativo, especialmente em bancos de dados maiores. A diferença, em casos extremos, pode ficar entre segundos, para casos rápidos, e horas, para casos lentos.
 
-Você pode examinar **sys.resource_stats** para determinar se o recurso para um teste usa mais ou menos recursos do que outro teste. Ao comparar dados, separe os testes por tempo de modo que eles não fiquem na mesma janela de tempo de 5 minutos na exibição **sys.resource_stats** . O objetivo deste exercício é minimizar a quantidade total de recursos usados, não minimizar os recursos de pico. Em geral, a otimização de uma parte do código de latência também reduz o consumo de recursos. Certifique-se de que as alterações feitas em um aplicativo sejam necessárias e de que elas não afetem negativamente a experiência do cliente para alguém que possa estar usando dicas de consulta no aplicativo.
+Você pode examinar **sys.resource_stats** para determinar se o recurso para um teste usa mais ou menos recursos do que outro teste. Ao comparar dados, separe os testes por tempo de modo que eles não fiquem na mesma janela de tempo de 5 minutos na exibição **sys.resource_stats**. O objetivo deste exercício é minimizar a quantidade total de recursos usados, não minimizar os recursos de pico. Em geral, a otimização de uma parte do código de latência também reduz o consumo de recursos. Certifique-se de que as alterações feitas em um aplicativo sejam necessárias e de que elas não afetem negativamente a experiência do cliente para alguém que possa estar usando dicas de consulta no aplicativo.
 
 Se uma carga de trabalho tem um conjunto de consultas repetidas, normalmente faz sentido capturar e validar a natureza ideal dessas opções de plano, pois ela orienta a unidade de tamanho mínima de recursos necessária para hospedar o banco de dados. Depois de validar, volte a examinar os planos periodicamente para ter certeza de que eles não degradaram. Saiba mais sobre [dicas de consulta (Transact-SQL)](/sql/t-sql/queries/hints-transact-sql-query).
 

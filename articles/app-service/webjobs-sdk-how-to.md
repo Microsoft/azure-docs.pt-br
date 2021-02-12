@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: b97ae5d4ba4295ebbb51c960e4cbb76c53dc88a8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5666a489cfd0f0d92120c9ec7e3c8d3c2d083b5e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148069"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737262"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Como usar o SDK do Azure WebJobs para o processamento em segundo plano controlado por evento
 
@@ -66,7 +66,8 @@ static void Main(string[] args)
 }
 ```
 
-Porque a versão 3.*x* usa as APIs de configuração padrão do .NET Core, não há API para alterar os nomes da cadeia de conexão.
+> [!NOTE]
+> Porque a versão 3.*x* usa as APIs de configuração padrão do .NET Core, não há API para alterar os nomes da cadeia de conexão. Consulte [desenvolver e implantar trabalhos Web usando o Visual Studio](webjobs-dotnet-deploy-vs.md)
 
 ### <a name="host-development-settings"></a>Configurações de desenvolvimento do host
 
@@ -793,7 +794,7 @@ public static void RemoveItem([QueueTrigger("remove-item")] string message)
 
 ### <a name="viewing-lease-blobs"></a>Exibição de blobs de concessão
 
-O WebJobs SDK usa [concessões de blob do Azure](../storage/common/storage-concurrency.md#pessimistic-concurrency-for-blobs) nos bastidores para implementar o bloqueio distribuído. Os blobs de concessão usados pelo Singleton podem ser encontrados no contêiner `azure-webjobs-host` na conta de armazenamento `AzureWebJobsStorage` no caminho “bloqueios”. Por exemplo, o caminho de blob de concessão para o primeiro exemplo `ProcessImage` mostrado anteriormente pode ser `locks/061851c758f04938a4426aa9ab3869c0/WebJobs.Functions.ProcessImage`. Todos os caminhos incluem a ID de JobHost, 061851c758f04938a4426aa9ab3869c0 neste caso.
+O WebJobs SDK usa [concessões de blob do Azure](../storage/blobs/concurrency-manage.md#pessimistic-concurrency-for-blobs) nos bastidores para implementar o bloqueio distribuído. Os blobs de concessão usados pelo Singleton podem ser encontrados no contêiner `azure-webjobs-host` na conta de armazenamento `AzureWebJobsStorage` no caminho “bloqueios”. Por exemplo, o caminho de blob de concessão para o primeiro exemplo `ProcessImage` mostrado anteriormente pode ser `locks/061851c758f04938a4426aa9ab3869c0/WebJobs.Functions.ProcessImage`. Todos os caminhos incluem a ID de JobHost, 061851c758f04938a4426aa9ab3869c0 neste caso.
 
 ## <a name="async-functions"></a>Funções assíncronas
 

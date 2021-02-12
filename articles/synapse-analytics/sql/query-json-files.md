@@ -1,24 +1,24 @@
 ---
-title: Consultar arquivos JSON usando o SQL sob demanda (versão prévia)
-description: Esta seção explica como ler arquivos JSON usando o SQL sob demanda no Azure Synapse Analytics.
+title: Consultar arquivos JSON usando o pool SQL sem servidor
+description: Esta seção explica como ler arquivos JSON usando o pool SQL sem servidor no Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 86ed3f005788627166c65b30398279f04388546c
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 8dc07a3aa954a74ba594eb99da1ea3ee59610c9b
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930842"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678314"
 ---
-# <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Consultar arquivos JSON usando o SQL sob demanda (versão prévia) no Azure Synapse Analytics
+# <a name="query-json-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Consultar arquivos JSON usando o pool SQL sem servidor no Azure Synapse Analytics
 
-Neste artigo, você aprenderá a escrever uma consulta usando o SQL sob demanda (versão prévia) no Azure Synapse Analytics. O objetivo da consulta é ler arquivos JSON usando [OPENROWSET](develop-openrowset.md). 
+Neste artigo, você aprenderá a escrever uma consulta usando o pool SQL sem servidor no Azure Synapse Analytics. O objetivo da consulta é ler arquivos JSON usando [OPENROWSET](develop-openrowset.md). 
 - Arquivos JSON padrão em que vários documentos JSON são armazenados como uma matriz JSON.
 - Arquivos JSON delimitados por linha, onde os documentos JSON são separados por caractere de nova linha. As extensões comuns para esses tipos de arquivos são `jsonl` , `ldjson` e `ndjson` .
 
@@ -126,7 +126,7 @@ Os exemplos de consulta lêem arquivos *JSON* contendo documentos com a seguinte
 
 ### <a name="query-json-files-using-json_value"></a>Consultar arquivos JSON usando JSON_VALUE
 
-A consulta a seguir mostra como usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar valores escalares (título, editor) de documentos JSON:
+A consulta a seguir mostra como usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para recuperar valores escalares (título, editor) de documentos JSON:
 
 ```sql
 select
@@ -146,7 +146,7 @@ order by JSON_VALUE(doc, '$.geo_id') desc
 
 ### <a name="query-json-files-using-openjson"></a>Consultar arquivos JSON usando OPENJSON
 
-A consulta a seguir usa [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Ele recuperará as estatísticas de COVID relatadas na Sérvia:
+A consulta a seguir usa [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Ele recuperará as estatísticas de COVID relatadas na Sérvia:
 
 ```sql
 select

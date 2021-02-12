@@ -1,19 +1,16 @@
 ---
 title: Analisar & processo JSON com Apache Hive-Azure HDInsight
 description: Saiba como usar documentos JSON e analisá-los usando Apache Hive no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 9a7d3992ecd2c74947eaa1071b97b2032000c749
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5bc9acea219e5d111700840149a26c127b47514d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547598"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943059"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Processar e analisar documentos JSON usando o Apache Hive no HDInsight do Azure
 
@@ -88,13 +85,13 @@ SELECT * FROM StudentsOneLine
 
 O arquivo JSON bruto está localizado em `wasb://processjson@hditutorialdata.blob.core.windows.net/`. A tabela Hive **StudentsRaw** aponta para o documento JSON bruto que não é achatado.
 
-A tabela **StudentsOneLine** do Hive armazena os dados no sistema de arquivos padrão do HDInsight no caminho **/json/students/** .
+A tabela **StudentsOneLine** do Hive armazena os dados no sistema de arquivos padrão do HDInsight no caminho **/json/students/**.
 
 A instrução **INSERT** preenche a tabela **StudentOneLine** com os dados JSON nivelados.
 
 A instrução **SELECT** retorna apenas uma linha.
 
-Veja abaixo a saída da instrução **SELECT** :
+Veja abaixo a saída da instrução **SELECT**:
 
 ![O HDInsight mescla o documento JSON](./media/using-json-in-hive/hdinsight-flatten-json.png)
 
@@ -129,7 +126,7 @@ Há limitações do UDF get_json_object:
 * Uma vez que cada campo na consulta requer uma nova análise da consulta, o desempenho é afetado.
 * **GET\_JSON_OBJECT()** retorna a representação da cadeia de caracteres de uma matriz. Para converter essa matriz em uma matriz do Hive, você precisará usar expressões regulares para substituir os colchetes “[” e “]” e depois também realizar a divisão para obter a matriz.
 
-Essa conversão é o motivo pelo qual o wiki do hive recomenda que você use **json_tuple** .  
+Essa conversão é o motivo pelo qual o wiki do hive recomenda que você use **json_tuple**.  
 
 ### <a name="use-the-json_tuple-udf"></a>Usar o json_tuple UDF
 
@@ -146,7 +143,7 @@ A saída deste script no console do Hive:
 
 ![Apache Hive resultados da consulta JSON](./media/using-json-in-hive/hdinsight-json-tuple.png)
 
-O `json_tuple` UDF usa a sintaxe de [exibição lateral](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) no hive, que permite que a \_ tupla JSON crie uma tabela virtual aplicando a função UDT a cada linha da tabela original. JSONs complexos se tornam muito complicados devido ao uso repetido de **LATERAL VIEW** . Além disso, **JSON_TUPLE** não pode manipular jsons aninhados.
+O `json_tuple` UDF usa a sintaxe de [exibição lateral](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) no hive, que permite que a \_ tupla JSON crie uma tabela virtual aplicando a função UDT a cada linha da tabela original. JSONs complexos se tornam muito complicados devido ao uso repetido de **LATERAL VIEW**. Além disso, **JSON_TUPLE** não pode manipular jsons aninhados.
 
 ### <a name="use-a-custom-serde"></a>Usar um SerDe personalizado
 
@@ -154,7 +151,7 @@ SerDe é a melhor opção para análise de documentos JSON aninhados. Ele permit
 
 ## <a name="summary"></a>Resumo
 
-O tipo de operador JSON no hive que você escolher dependerá do seu cenário. Com um documento JSON simples e um campo para pesquisar, escolha o **GET_JSON_OBJECT** UDF do hive. Se você tiver mais de uma chave para pesquisar, poderá usar **json_tuple** . Para documentos aninhados, use o **SerDe JSON** .
+O tipo de operador JSON no hive que você escolher dependerá do seu cenário. Com um documento JSON simples e um campo para pesquisar, escolha o **GET_JSON_OBJECT** UDF do hive. Se você tiver mais de uma chave para pesquisar, poderá usar **json_tuple**. Para documentos aninhados, use o **SerDe JSON**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

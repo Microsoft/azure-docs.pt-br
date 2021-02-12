@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 739be373992fcd994f085f8571675779e450bfee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca24a781f4f3ad5c210813dabbb896de35056ed6
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87090205"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588702"
 ---
 # <a name="collaborative-coding-with-git"></a>Codificação colaborativa com o Git
 
@@ -39,7 +39,7 @@ Você também pode criar uma nova ramificação usando o seguinte comando git ba
 git checkout -b <new branch name> <base branch name>
 
 ```
-Se você não especificar um \<base branch name> , a nova ramificação se baseará em `master` . 
+Se você não especificar um \<base branch name> , a nova ramificação se baseará em `main` . 
 
 Para alternar para o Branch de trabalho, execute o seguinte comando: 
 
@@ -47,7 +47,7 @@ Para alternar para o Branch de trabalho, execute o seguinte comando:
 git checkout <working branch name>
 ```
 
-Depois de alternar para o Branch de trabalho, você pode começar a desenvolver o código ou artefatos de documentação para concluir o item de trabalho. Executar `git checkout master` o comutador de volta para a `master` ramificação.
+Depois de alternar para o Branch de trabalho, você pode começar a desenvolver o código ou artefatos de documentação para concluir o item de trabalho. Executar `git checkout main` o comutador de volta para a `main` ramificação.
 
 É uma boa prática criar uma ramificação git para cada item de trabalho de história de usuário. Em seguida, para cada item de trabalho de tarefa, você pode criar uma ramificação com base na ramificação de história de usuário. Organize as ramificações em uma hierarquia que corresponde à relação de Story-Task de usuário quando você tem várias pessoas trabalhando em histórias de usuário diferentes para o mesmo projeto ou em tarefas diferentes para a mesma história de usuário. Você pode minimizar conflitos fazendo com que cada membro da equipe trabalhe em uma ramificação diferente ou em código diferente ou em outros artefatos ao compartilhar uma ramificação. 
 
@@ -76,7 +76,7 @@ git push origin script
 
 Após uma ou mais confirmações e envios por push, quando estiver pronto para mesclar seu Branch de trabalho atual em sua ramificação base, você poderá criar e enviar uma *solicitação de pull* no Azure repos. 
 
-Na página principal do seu projeto DevOps do Azure, aponte para **Repos**  >  **solicitações de pull** do repositórios no painel de navegação esquerdo. Em seguida, selecione um dos novos botões de **solicitação de pull** ou o link **criar uma solicitação de pull** .
+Na página principal do seu projeto DevOps do Azure, aponte para   >  **solicitações de pull** do repositórios no painel de navegação esquerdo. Em seguida, selecione um dos novos botões de **solicitação de pull** ou o link **criar uma solicitação de pull** .
 
 ![6](./media/collaborative-coding-with-git/6-spring-create-pull-request.png)
 
@@ -90,7 +90,7 @@ Depois de criar a solicitação de pull, seus revisores receberão uma notifica�
 
 ![8](./media/collaborative-coding-with-git/8-add_comments.png)
 
-Depois que os revisores aprovarem as alterações, você ou outra pessoa com permissões de mesclagem podem mesclar a ramificação de trabalho com sua ramificação base. Selecione **concluir**e, em seguida, selecione **mesclagem completa** na caixa de diálogo **concluir solicitação de pull** . Você pode optar por excluir o Branch de trabalho depois que ele tiver sido mesclado. 
+Depois que os revisores aprovarem as alterações, você ou outra pessoa com permissões de mesclagem podem mesclar a ramificação de trabalho com sua ramificação base. Selecione **concluir** e, em seguida, selecione **mesclagem completa** na caixa de diálogo **concluir solicitação de pull** . Você pode optar por excluir o Branch de trabalho depois que ele tiver sido mesclado. 
 
 ![10](./media/collaborative-coding-with-git/10-spring-complete-pullrequest.png)
 
@@ -105,7 +105,7 @@ Ao voltar para **repositórios** no painel de navegação esquerdo, você pode v
 Você também pode usar os seguintes comandos do git bash para mesclar o `script` Branch de trabalho para sua ramificação base e excluir o Branch de trabalho após a mesclagem:
 
 ```bash
-git checkout master
+git checkout main
 git merge script
 git branch -d script
 ```

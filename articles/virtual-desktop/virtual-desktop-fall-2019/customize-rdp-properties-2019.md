@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 260125b5e7aa4537c6e204d93263b65be042793a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5110e97e52939ea2115bb839768cc7ab96802961
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540737"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020701"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a--windows-virtual-desktop-classic-host-pool"></a>Personalizar propriedades de protocolo RDP para um pool de hosts da área de trabalho virtual do Windows (clássico)
 
@@ -20,7 +20,7 @@ ms.locfileid: "91540737"
 
 Personalizar as propriedades de protocolo RDP (RDP) de um pool de hosts, como experiência de vários monitores e redirecionamento de áudio, permite que você forneça uma experiência ideal para seus usuários com base em suas necessidades. Você pode personalizar as propriedades de RDP na área de trabalho virtual do Windows usando o parâmetro **-CustomRdpProperty** no cmdlet **set-RdsHostPool** .
 
-Consulte [configurações de arquivo RDP com suporte](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context) para obter uma lista completa das propriedades com suporte e seus valores padrão.
+Consulte [configurações de arquivo RDP com suporte](/windows-server/remote/remote-desktop-services/clients/rdp-files?context=%2fazure%2fvirtual-desktop%2fcontext%2fcontext) para obter uma lista completa das propriedades com suporte e seus valores padrão.
 
 Primeiro, [baixe e importe o módulo do PowerShell da Área de Trabalho Virtual do Windows](/powershell/windows-virtual-desktop/overview/) para usá-lo na sessão do PowerShell, caso ainda não tenha feito isso. Depois disso, execute o seguinte cmdlet para entrar em sua conta:
 
@@ -34,7 +34,7 @@ Por padrão, os arquivos RDP publicados contêm as seguintes propriedades:
 
 |Propriedades de RDP | Desktops | RemoteApps |
 |---|---| --- |
-| Modo de vários monitores | Habilitada | N/D |
+| Modo de vários monitores | habilitado | N/D |
 | Redirecionamentos de unidade habilitados | Unidades, área de transferência, impressoras, portas COM, dispositivos USB e cartões inteligentes| Unidades, área de transferência e impressoras |
 | Modo de áudio remoto | Reproduzir localmente | Reproduzir localmente |
 

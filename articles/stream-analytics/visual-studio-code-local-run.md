@@ -6,12 +6,12 @@ author: su-jie
 ms.author: sujie
 ms.date: 11/10/2019
 ms.topic: how-to
-ms.openlocfilehash: 0122e67714efb201584a52f1cb763528dbb0b925
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbd83fb3ef3225fc19c48bb4c5962d6559cf32f8
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903786"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708442"
 ---
 # <a name="test-stream-analytics-queries-locally-with-sample-data-using-visual-studio-code"></a>Testar consultas do Stream Analytics localmente com os dados de exemplo usando o Visual Studio Code
 
@@ -55,7 +55,7 @@ Primeiro, você precisa preparar arquivos de dados de entrada de exemplo. Se voc
 
     ![Adicionar um novo alias de entrada local do ASA](./media/vscode-local-run/new-local-input-alias.png)
 
-5. NaLocalInput_Input.jsgerada recentemente ** no** arquivo, insira o caminho do arquivo no qual o arquivo de dados local está localizado.
+5. NaLocalInput_Input.jsgerada recentemente **no** arquivo, insira o caminho do arquivo no qual o arquivo de dados local está localizado.
 
     ![Insira o caminho do arquivo local no Visual Studio](./media/vscode-local-run/local-file-path.png)
 

@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/16/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2ebf383c1a904027d3ff5a1864ea9f50e87a5fa8
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ddd19c90c8c47016497e2c3b00e04595a94e7715
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093286"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543061"
 ---
 # <a name="list-blobs-with-net"></a>Listar blobs com .NET
 
@@ -51,11 +51,7 @@ As sobrecargas para esses métodos fornecem opções adicionais para gerenciar o
 
 ### <a name="manage-how-many-results-are-returned"></a>Gerenciar quantos resultados são retornados
 
-Por padrão, uma operação de listagem retorna até 5000 resultados por vez, mas você pode especificar o número de resultados que você deseja que cada operação de listagem retorne. Os exemplos apresentados neste artigo mostram como fazer isso.
-
-Se uma operação de listagem retornar mais de 5000 BLOBs ou se o número de BLOBs disponíveis exceder o número especificado, o armazenamento do Azure retornará um token de *continuação* com a lista de BLOBs. Um token de continuação é um valor opaco que você pode usar para recuperar o próximo conjunto de resultados do Armazenamento do Azure.
-
-Em seu código, verifique o valor do token de continuação para determinar se ele é nulo. Quando o token de continuação é nulo, significa que o conjunto de resultados está concluído. Se o token de continuação não for nulo, chame a operação de listagem novamente, passando o token de continuação para recuperar o próximo conjunto de resultados até que o token de continuação seja nulo.
+Por padrão, uma operação de listagem retorna até 5000 resultados por vez, mas você pode especificar o número de resultados que você deseja que cada operação de listagem retorne. Os exemplos apresentados neste artigo mostram como retornar resultados em páginas.
 
 ### <a name="filter-results-with-a-prefix"></a>Filtrar resultados com um prefixo
 
@@ -63,11 +59,15 @@ Para filtrar a lista de BLOBs, especifique uma cadeia de caracteres para o `pref
 
 ### <a name="return-metadata"></a>Retornar metadados
 
-Você pode retornar metadados de blob com os resultados. 
+Você pode retornar metadados de blob com os resultados.
 
-- Se você estiver usando o SDK do .NET V12, especifique o valor de **metadados** para a enumeração [BlobTraits](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobtraits) .
+- Se você estiver usando o SDK do .NET V12, especifique o valor de **metadados** para a enumeração [BlobTraits](/dotnet/api/azure.storage.blobs.models.blobtraits) .
 
 - Se você estiver usando o SDK do .NET v11, especifique o valor de **metadados** para a enumeração [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) . O Armazenamento do Azure inclui metadados com cada blob retornado, portanto, você não precisa chamar nenhum dos métodos **FetchAttributes** neste contexto para recuperar os metadados do blob.
+
+### <a name="list-blob-versions-or-snapshots"></a>Listar versões de BLOB ou instantâneos
+
+Para listar versões de BLOB ou instantâneos com a biblioteca de cliente .NET V12, especifique o parâmetro [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates) com a **versão** ou o campo de **instantâneo** . As versões e os instantâneos são listados do mais antigo para o mais recente. Para obter mais informações sobre versões de listagem, consulte [listar versões de blob](versioning-enable.md#list-blob-versions).
 
 ### <a name="flat-listing-versus-hierarchical-listing"></a>Listagem plana versus listagem hierárquica
 
@@ -90,6 +90,10 @@ Se você tiver habilitado o recurso de namespace hierárquico em sua conta, os d
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsFlatListing":::
 
 # <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+
+Se uma operação de listagem retornar mais de 5000 BLOBs ou se o número de BLOBs disponíveis exceder o número especificado, o armazenamento do Azure retornará um token de *continuação* com a lista de BLOBs. Um token de continuação é um valor opaco que você pode usar para recuperar o próximo conjunto de resultados do Armazenamento do Azure.
+
+Em seu código, verifique o valor do token de continuação para determinar se ele é nulo. Quando o token de continuação é nulo, significa que o conjunto de resultados está concluído. Se o token de continuação não for nulo, chame a operação de listagem novamente, passando o token de continuação para recuperar o próximo conjunto de resultados até que o token de continuação seja nulo.
 
 ```csharp
 private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container, int? segmentSize)

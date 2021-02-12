@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 0745957620aab7ed4d08cb016c706b56e6da1c5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb1242189f4c5a38421a7f44e8f5e738c44970b6
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708961"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705516"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Criar um pool compartilhado de Máquinas Virtuais de Ciência de Dados
 
@@ -27,7 +27,7 @@ Você pode usar vários métodos e tecnologias para criar um pool de DSVMs. Este
 
 Um pool de VMs interativas compartilhadas por toda a equipe de IA/ciência de dados permite que os usuários façam logon em uma instância disponível da DSVM em vez de ter uma instância dedicada para cada conjunto de usuários. Essa configuração permite uma melhor disponibilidade e uma utilização mais eficaz dos recursos.
 
-Você usa a tecnologia de [conjuntos de dimensionamento de máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/) para criar um pool de VMs interativo. Você pode usar os conjuntos de dimensionamento para criar e gerenciar um grupo de VMs idênticas, com balanceamento de carga e dimensionamento automático.
+Você usa a tecnologia de [conjuntos de dimensionamento de máquinas virtuais do Azure](../../virtual-machine-scale-sets/index.yml) para criar um pool de VMs interativo. Você pode usar os conjuntos de dimensionamento para criar e gerenciar um grupo de VMs idênticas, com balanceamento de carga e dimensionamento automático.
 
 O usuário faz logon no endereço IP ou DNS do pool principal. O conjunto de dimensionamento roteia automaticamente a sessão para uma DSVM disponível no conjunto de dimensionamento. Como os usuários desejam um ambiente consistente e familiar, independentemente da VM em que estão fazendo logon, todas as instâncias da VM no conjunto de dimensionamento montam uma unidade de rede compartilhada, como um compartilhamento de arquivos do Azure ou um compartilhamento NFS (sistema de arquivos de rede). O workspace compartilhado do usuário normalmente é mantido no armazenamento de arquivos compartilhado montado em cada uma das instâncias.
 
@@ -37,7 +37,7 @@ Você pode criar o conjunto de dimensionamento do modelo de Azure Resource Manag
 
 ```azurecli-interactive
 az group create --name [[NAME OF RESOURCE GROUP]] --location [[ Data center. For eg: "West US 2"]
-az group deployment create --resource-group  [[NAME OF RESOURCE GROUP ABOVE]]  --template-uri https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.json --parameters @[[PARAMETER JSON FILE]]
+az deployment group create --resource-group  [[NAME OF RESOURCE GROUP ABOVE]]  --template-uri https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.json --parameters @[[PARAMETER JSON FILE]]
 ```
 
 Os comandos anteriores consideram que você tenha:
@@ -53,7 +53,7 @@ O modelo anterior habilita o SSH e a porta do JupyterHub do conjunto de dimensio
 
 O [script que monta o compartilhamento de Arquivos do Azure](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Extensions/General/mountazurefiles.sh) também está disponível no repositório DataScienceVM do Azure no GitHub. O script monta o compartilhamento de Arquivos do Azure no ponto de montagem especificado no arquivo de parâmetro. O script também cria links flexíveis com a unidade montada no diretório base do usuário inicial. Um diretório de bloco de anotações específico do usuário no compartilhamento de arquivos do Azure é vinculado de forma flexível ao `$HOME/notebooks/remote` diretório para que os usuários possam acessar, executar e salvar seus notebooks Jupyter. A mesma convenção pode ser usada ao criar usuários adicionais na VM para apontar o workspace do Jupyter de cada usuário para o compartilhamento de Arquivos do Azure.
 
-Os Conjuntos de Dimensionamento de Máquinas Virtuais são compatíveis com o dimensionamento automático. Você pode definir regras sobre quando criar instâncias adicionais e quando reduzir instâncias. Por exemplo, você pode reduzir verticalmente até zero instâncias para economizar em custos de uso de hardware de nuvem quando as VMs não estão sendo usadas. As páginas de documentação dos Conjuntos de Dimensionamento de Máquinas Virtuais fornecem as etapas detalhadas para realizar o [dimensionamento automático](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview).
+Os Conjuntos de Dimensionamento de Máquinas Virtuais são compatíveis com o dimensionamento automático. Você pode definir regras sobre quando criar instâncias adicionais e quando reduzir instâncias. Por exemplo, você pode reduzir verticalmente até zero instâncias para economizar em custos de uso de hardware de nuvem quando as VMs não estão sendo usadas. As páginas de documentação dos Conjuntos de Dimensionamento de Máquinas Virtuais fornecem as etapas detalhadas para realizar o [dimensionamento automático](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: d46aacc441b412a117d906e0201a9bed6046a338
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7178b8079bbb2411e0b38c3ef59a9981fb2d55be
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961598"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97005232"
 ---
 # <a name="open-an-ssh-session-to-a-linux-container-in-azure-app-service"></a>Abrir uma sessão SSH para um contêiner do Linux no serviço Azure App
 
@@ -39,9 +39,9 @@ Consulte [Configurar o ssh em um contêiner personalizado](configure-custom-cont
 
 Usando o túnel TCP, você pode criar uma conexão de rede entre o computador de desenvolvimento e o Aplicativo Web para contêineres em uma conexão autenticada do WebSocket. Isso permite que você abra uma sessão SSH com o contêiner em execução no serviço de Serviço de Aplicativo do Azure do cliente de sua escolha.
 
-Para começar, você precisa instalar a [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Para ver como funciona sem instalar a CLI do Azure, abra [Azure Cloud Shell](../cloud-shell/overview.md). 
+Para começar, você precisa instalar a [CLI do Azure](/cli/azure/install-azure-cli). Para ver como funciona sem instalar a CLI do Azure, abra [Azure Cloud Shell](../cloud-shell/overview.md). 
 
-Abra uma conexão remota para seu aplicativo usando o comando [criar az webapp remoto-conexão](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create). Especifique _\<subscription-id>_ , _\<group-name>_ e \_ \<app-name> _ para seu aplicativo.
+Abra uma conexão remota para seu aplicativo usando o comando [criar az webapp remoto-conexão](/cli/azure/ext/webapp/webapp/remote-connection#ext-webapp-az-webapp-remote-connection-create). Especifique _\<subscription-id>_ , _\<group-name>_ e \_ \<app-name> _ para seu aplicativo.
 
 ```azurecli-interactive
 az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &

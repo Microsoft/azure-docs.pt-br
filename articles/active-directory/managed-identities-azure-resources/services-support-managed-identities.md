@@ -4,19 +4,19 @@ description: Lista de serviços que dão suporte a identidades gerenciadas para 
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 10/07/2020
+ms.date: 01/28/2021
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 7e971b4afe0719d74c8aa32c5f5103c4be971d9b
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 31ca126c75d5c2e3fa7fd91f3398202fad418183
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426434"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555608"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que dão suporte a identidades gerenciadas para recursos do Azure
 
@@ -45,8 +45,8 @@ Veja a lista a seguir para configurar a identidade gerenciada para Gerenciamento
 
 | Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Atribuído pelo sistema | ![Disponível][check] | ![Disponível][check] | Não disponível | Não disponível |
-| Atribuído pelo usuário | ![Disponível][check] | ![Disponível][check]  | Não disponível  | Não disponível |
+| Atribuído pelo sistema | ![Disponível][check] | ![Disponível][check] | Não disponível | ![Disponível][check] |
+| Atribuído pelo usuário | ![Disponível][check] | ![Disponível][check]  | Não disponível  | ![Disponível][check] |
 
 Consulte a lista a seguir para configurar a identidade gerenciada para Azure App configuração (em regiões onde estiver disponível):
 
@@ -70,10 +70,20 @@ Veja a lista a seguir para configurar a identidade gerenciada para Serviço de A
 
 | Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Atribuído pelo sistema | Visualização | Não disponível | Não disponível | Não disponível | 
+| Atribuído pelo sistema | Visualização | Não disponível | Não disponível | Não disponível |
 | Atribuído pelo usuário | Não disponível | Não disponível | Não disponível | Não disponível |
 
 O kubernetes habilitado para Arc do Azure atualmente [dá suporte à identidade atribuída pelo sistema](../../azure-arc/kubernetes/connect-cluster.md#azure-arc-agents-for-kubernetes). O certificado de identidade de serviço gerenciado é usado por todos os agentes kubernetes habilitados para o Azure ARC para comunicação com o Azure.
+
+### <a name="azure-automanage"></a>Autogerenciamento do Azure
+
+| Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Atribuído pelo sistema | Visualização | Não disponível | Não disponível | Não disponível |
+| Atribuído pelo usuário | Não disponível | Não disponível | Não disponível | Não disponível |
+
+Consulte o documento a seguir para reconfigurar uma identidade gerenciada se você moveu sua assinatura para um novo locatário:
+* [Reparar uma conta de autogerenciamento quebrada](../../automanage/repair-automanage-account.md)
 
 ### <a name="azure-blueprints"></a>Azure Blueprints
 
@@ -88,7 +98,7 @@ Veja a lista a seguir para usar uma identidade gerenciada com o [Azure Blueprint
 - [API REST – atribuição de blueprint](../../governance/blueprints/create-blueprint-rest-api.md#assign-a-blueprint)
 
 
-### <a name="azure-cognitive-search"></a>Pesquisa Cognitiva do Azure
+### <a name="azure-cognitive-search"></a>Azure Cognitive Search
 
 Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -101,6 +111,14 @@ Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões
 | --- | :-: | :-: | :-: | :-: |
 | Atribuído pelo sistema | ![Disponível][check] | ![Disponível][check] | Não disponível | ![Disponível][check] |
 | Atribuído pelo usuário | Não disponível | Não disponível | Não disponível | Não disponível |
+
+
+### <a name="azure-communication-services"></a>Serviços de Comunicação do Azure
+
+Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Atribuído pelo sistema | ![Disponível][check] | Não disponível | Não disponível | Não disponível |
+| Atribuído pelo usuário | ![Disponível][check] | Não disponível | Não disponível | Não disponível |
 
 
 ### <a name="azure-container-instances"></a>Instâncias de Contêiner do Azure
@@ -149,22 +167,30 @@ Veja a lista a seguir para configurar a identidade gerenciada para Azure Data Fa
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
 - [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
 
+### <a name="azure-digital-twins"></a>Gêmeos Digitais do Azure
 
+Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Atribuído pelo sistema | ![Disponível][check] | Não disponível | Não disponível | Não disponível |
+| Atribuído pelo usuário | Não disponível | Não disponível | Não disponível | Não disponível |
 
-### <a name="azure-event-grid"></a>Grade de Eventos do Azure 
+Consulte a lista a seguir para configurar a identidade gerenciada para o gêmeos digital do Azure (em regiões onde disponível):
+
+- [Portal do Azure](~/articles/digital-twins/how-to-enable-managed-identities.md)
+
+### <a name="azure-event-grid"></a>Grade de Eventos do Azure
 
 Tipo de identidade gerenciada |Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | Atribuído pelo sistema | Visualização | Visualização | Não disponível | Visualização |
 | Atribuído pelo usuário | Não disponível | Não disponível  | Não disponível  | Não disponível |
 
+### <a name="azure-firewall-policy"></a>Política de firewall do Azure
 
-
-
-
-
-
-
+Tipo de identidade gerenciada |Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Atribuído pelo sistema | Não disponível | Não disponível | Não disponível | Não disponível |
+| Atribuído pelo usuário | Visualização | Não disponível  | Não disponível  | Não disponível |
 
 ### <a name="azure-functions"></a>Funções do Azure
 
@@ -202,8 +228,8 @@ Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões
 
 | Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Atribuído pelo sistema | ![Disponível][check] | ![Disponível][check] | Não disponível | ![Disponível][check] | 
-| Atribuído pelo usuário | ![Disponível][check] | ![Disponível][check] | Não disponível | ![Disponível][check] |
+| Atribuído pelo sistema | ![Disponível][check] | ![Disponível][check] | Não disponível | Não disponível |
+| Atribuído pelo usuário | Visualização | Não disponível | Não disponível | Não disponível |
 
 
 Para obter mais informações, confira [Usar identidades gerenciadas no Serviço de Kubernetes do Azure](../../aks/use-managed-identity.md).
@@ -222,7 +248,7 @@ Veja a lista a seguir para configurar a identidade gerenciada para Aplicativos L
 - [Azure portal](../../logic-apps/create-managed-service-identity.md#enable-system-assigned-identity-in-azure-portal)
 - [Modelo do Azure Resource Manager](../../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 
-### <a name="azure-machine-learning"></a>Azure Machine Learning 
+### <a name="azure-machine-learning"></a>Azure Machine Learning
 
 Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -242,7 +268,7 @@ Consulte a lista a seguir para configurar a identidade gerenciada para Azure Pol
 
 - [Azure portal](../../governance/policy/tutorials/create-and-manage.md#assign-a-policy)
 - [PowerShell](../../governance/policy/how-to/remediate-resources.md#create-managed-identity-with-powershell)
-- [CLI do Azure](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
+- [CLI do Azure](/cli/azure/policy/assignment#az-policy-assignment-create)
 - [Modelos do Gerenciador de Recursos do Azure](/azure/templates/microsoft.authorization/policyassignments)
 - [REST](/rest/api/resources/policyassignments/create)
 
@@ -264,7 +290,7 @@ Veja a lista a seguir para configurar a identidade gerenciada para aplicativos d
 
 | Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Atribuído pelo sistema | ![Disponível][check] | Não disponível | Não disponível | Não disponível | 
+| Atribuído pelo sistema | ![Disponível][check] | Não disponível | Não disponível | ![Disponível][check] |
 | Atribuído pelo usuário | Não disponível | Não disponível | Não disponível | Não disponível |
 
 
@@ -281,8 +307,8 @@ Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões
 
 |Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Atribuído pelo sistema | ![Disponível][check] | Visualização | Visualização | Visualização |
-| Atribuído pelo usuário | ![Disponível][check] | Visualização | Visualização | Visualização |
+| Atribuído pelo sistema | ![Disponível][check] | ![Disponível][check] | ![Disponível][check] | ![Disponível][check] |
+| Atribuído pelo usuário | ![Disponível][check] | ![Disponível][check] | ![Disponível][check] | ![Disponível][check] |
 
 Veja a lista a seguir para configurar a identidade gerenciada para Conjuntos de Dimensionamento de Máquinas Virtuais do Azure (em regiões em que estiverem disponíveis):
 
@@ -298,8 +324,8 @@ Veja a lista a seguir para configurar a identidade gerenciada para Conjuntos de 
 
 | Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Atribuído pelo sistema | ![Disponível][check] | ![Disponível][check] | Visualização | Visualização | 
-| Atribuído pelo usuário | ![Disponível][check] | ![Disponível][check] | Visualização | Visualização |
+| Atribuído pelo sistema | ![Disponível][check] | ![Disponível][check] | ![Disponível][check] | ![Disponível][check] |
+| Atribuído pelo usuário | ![Disponível][check] | ![Disponível][check] | ![Disponível][check] | ![Disponível][check] |
 
 Veja a lista a seguir para configurar a identidade gerenciada para Máquinas Virtuais do Azure (em regiões em que estiverem disponíveis):
 
@@ -315,10 +341,10 @@ Veja a lista a seguir para configurar a identidade gerenciada para Máquinas Vir
 
 | Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Atribuído pelo sistema | Não disponível | Não disponível | Não disponível | Não disponível | 
-| Atribuído pelo usuário | [Disponível em regiões com suporte](../../virtual-machines/windows/image-builder-overview.md#regions) | Não disponível | Não disponível | Não disponível |
+| Atribuído pelo sistema | Não disponível | Não disponível | Não disponível | Não disponível |
+| Atribuído pelo usuário | [Disponível em regiões com suporte](../../virtual-machines/image-builder-overview.md#regions) | Não disponível | Não disponível | Não disponível |
 
-Para saber como configurar a identidade gerenciada para o construtor de imagem de VM do Azure (em regiões onde disponível), consulte a [visão geral do Image Builder](../../virtual-machines/windows/image-builder-overview.md#permissions).
+Para saber como configurar a identidade gerenciada para o construtor de imagem de VM do Azure (em regiões onde disponível), consulte a [visão geral do Image Builder](../../virtual-machines/image-builder-overview.md#permissions).
 ### <a name="azure-signalr-service"></a>Serviço Azure SignalR
 
 Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
@@ -376,6 +402,15 @@ Veja a lista a seguir para configurar o acesso ao Azure Resource Manager:
 | Azure Government | `https://database.usgovcloudapi.net/` | ![Disponível][check] |
 | Azure Alemanha | `https://database.cloudapi.de/` | ![Disponível][check] |
 | Azure China 21Vianet | `https://database.chinacloudapi.cn/` | ![Disponível][check] |
+
+### <a name="azure-data-explorer"></a>Azure Data Explorer
+
+| Nuvem | ID de Recurso | Status |
+|--------|------------|:-:|
+| Azure Global | `https://<account>.<region>.kusto.windows.net` | ![Disponível][check] |
+| Azure Government | `https://<account>.<region>.kusto.usgovcloudapi.net` | ![Disponível][check] |
+| Azure Alemanha | `https://<account>.<region>.kusto.cloudapi.de` | ![Disponível][check] |
+| Azure China 21Vianet | `https://<account>.<region>.kusto.chinacloudapi.cn` | ![Disponível][check] |
 
 ### <a name="azure-event-hubs"></a>Hubs de eventos do Azure
 

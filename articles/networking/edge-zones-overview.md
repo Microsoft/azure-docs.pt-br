@@ -2,17 +2,17 @@
 title: Sobre a visualização da zona do Azure Edge
 description: 'Saiba mais sobre as ofertas de computação de borda da Microsoft: zona de borda do Azure.'
 services: vnf-manager
-author: ganesr
+author: cherylmc
 ms.service: vnf-manager
 ms.topic: article
-ms.date: 07/07/2020
-ms.author: ganesr
-ms.openlocfilehash: 68aa3342ab09be73a82f4f896ffdff99d15a5350
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/13/2021
+ms.author: cherylmc
+ms.openlocfilehash: 04555303d5128db6c183d27a0c5fcb69063fdc28
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329558"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185403"
 ---
 # <a name="about-azure-edge-zone-preview"></a>Sobre a visualização da zona do Azure Edge
 
@@ -38,7 +38,7 @@ Há três tipos de zonas de borda do Azure:
 
 ![Azure Edge Zone](./media/edge-zones-overview/edge-zones.png "Azure Edge Zone")
 
-As zonas do Azure Edge são extensões de pequena superfície do Azure colocadas em centros de população que estão longe das regiões do Azure. As zonas do Azure Edge dão suporte a VMs, contêineres e um conjunto selecionado de serviços do Azure que permitem que você execute aplicativos sensíveis à latência e com uso intensivo de taxa de transferência próximos aos usuários finais. As zonas do Azure Edge fazem parte da rede global da Microsoft. Eles fornecem conectividade segura, confiável e de alta largura de banda entre aplicativos executados na zona de borda perto do usuário. E eles oferecem o conjunto completo de serviços do Azure em execução nas regiões do Azure. As zonas do Azure Edge são de propriedade e operadas pela Microsoft. Você pode usar o mesmo conjunto de ferramentas do Azure e o mesmo portal para gerenciar e implantar serviços em zonas de borda.
+As zonas do Azure Edge são extensões de pequena superfície do Azure colocadas em centros de população que estão longe das regiões do Azure. As zonas do Azure Edge dão suporte a VMs, contêineres e um conjunto selecionado de serviços do Azure que permitem que você execute aplicativos sensíveis à latência e com uso intensivo de taxa de transferência próximos aos usuários finais. As zonas do Azure Edge fazem parte da rede global da Microsoft. Eles fornecem conectividade segura, confiável e de alta largura de banda entre aplicativos executados na zona de borda perto do usuário. As zonas do Azure Edge são de propriedade e operadas pela Microsoft. Você pode usar o mesmo conjunto de ferramentas do Azure e o mesmo portal para gerenciar e implantar serviços em zonas de borda.
 
 Os casos de uso típicos incluem:
 
@@ -61,7 +61,7 @@ As zonas do Azure Edge estarão disponíveis nas seguintes áreas de metrô:
 
 As zonas do Azure Edge com a transportadora são extensões de pequena superfície do Azure que são colocadas nos datacenters dos operadores móveis em centros de população. A zona de borda do Azure com a infraestrutura da transportadora é colocada um salto para fora da rede 5G da operadora móvel. Esse posicionamento oferece latência de menos de 10 milissegundos para aplicativos de dispositivos móveis.
 
-As zonas de borda do Azure com a transportadora são implantadas nos data centers dos operadores móveis e conectadas à rede global da Microsoft. Eles fornecem conectividade segura, confiável e de alta largura de banda entre aplicativos que são executados perto do usuário. E eles oferecem o conjunto completo de serviços do Azure em execução nas regiões do Azure. Os desenvolvedores podem usar o mesmo conjunto de ferramentas familiares para criar e implantar serviços nas zonas de borda.
+As zonas de borda do Azure com a transportadora são implantadas nos data centers dos operadores móveis e conectadas à rede global da Microsoft. Eles fornecem conectividade segura, confiável e de alta largura de banda entre aplicativos que são executados perto do usuário. Os desenvolvedores podem usar o mesmo conjunto de ferramentas familiares para criar e implantar serviços nas zonas de borda.
 
 Os casos de uso típicos incluem:
 
@@ -128,7 +128,7 @@ Temos um rico ecossistema de fornecedores de VNF, ISVs e parceiros MSP para perm
 ##### <a name="sd-wan-vendors"></a><a name="sdwan-vendors"></a>SD-fornecedores de WAN
 
 - [128 Technology](https://www.128technology.com/)
-- [NetFoundry](https://netfoundry.io/)
+- [](https://netfoundry.io/)
 - [Redes Nuage da Nokia](https://www.nuagenetworks.net/)
 - [Redes versas](https://www.versa-networks.com/)
 - [VMware SD – WAN por Velocloud](https://www.velocloud.com/)

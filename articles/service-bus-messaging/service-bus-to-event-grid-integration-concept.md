@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: f0aaa82db61b5f40e42d6dad641bc09d5add9d0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71ee21c971b71c4000a123d1561e7e93d21203e1
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078326"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629140"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Visão geral da integração do Barramento de Serviço com a Grade de Eventos
 
@@ -39,7 +39,9 @@ Vá para o namespace do barramento de serviço e selecione **controle de acesso 
 Hoje, o Barramento de Serviço envia eventos para dois cenários:
 
 * [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
-* DeadletterMessagesAvailable
+* [DeadletterMessagesAvailable](#deadletter-messages-available-event)
+* [ActiveMessagesAvailablePeriodicNotifications](#active-messages-available-periodic-notifications)
+* [DeadletterMessagesAvailablePeriodicNotifications](#deadletter-messages-available-periodic-notifications)
 
 Além disso, o Barramento de Serviço usa a segurança padrão da Grade de Eventos e [mecanismos de autenticação](../event-grid/security-authentication.md).
 
@@ -71,7 +73,7 @@ O esquema desse evento é este:
 }
 ```
 
-#### <a name="dead-letter-messages-available-event"></a>Evento Mensagens Mortas Disponíveis
+#### <a name="deadletter-messages-available-event"></a>Evento de mensagens mortas disponíveis
 
 Você tem pelo menos um evento por fila de mensagens mortas, que tem mensagens e receptores não ativos.
 
@@ -82,6 +84,58 @@ O esquema desse evento é este:
   "topic": "/subscriptions/<subscription id>/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/<YOUR SERVICE BUS NAMESPACE WILL SHOW HERE>",
   "subject": "topics/<service bus topic>/subscriptions/<service bus subscription>",
   "eventType": "Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener",
+  "eventTime": "2018-02-14T05:12:53.4133526Z",
+  "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
+  "data": {
+    "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
+    "requestUri": "https://YOUR-SERVICE-BUS-NAMESPACE-WILL-SHOW-HERE.servicebus.windows.net/TOPIC-NAME/subscriptions/SUBSCRIPTIONNAME/$deadletterqueue/messages/head",
+    "entityType": "subscriber",
+    "queueName": "QUEUE NAME IF QUEUE",
+    "topicName": "TOPIC NAME IF TOPIC",
+    "subscriptionName": "SUBSCRIPTION NAME"
+  },
+  "dataVersion": "1",
+  "metadataVersion": "1"
+}]
+```
+
+#### <a name="active-messages-available-periodic-notifications"></a>Notificações periódicas disponíveis de mensagens ativas
+
+Esse evento será gerado periodicamente se você tiver mensagens ativas na fila ou assinatura específica, mesmo se houver ouvintes ativos nessa fila ou assinatura específica.
+
+O esquema para o evento é o seguinte.
+
+```json
+[{
+  "topic": "/subscriptions/<subscription id>/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/<YOUR SERVICE BUS NAMESPACE WILL SHOW HERE>",
+  "subject": "topics/<service bus topic>/subscriptions/<service bus subscription>",
+  "eventType": "Microsoft.ServiceBus.ActiveMessagesAvailablePeriodicNotifications",
+  "eventTime": "2018-02-14T05:12:53.4133526Z",
+  "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
+  "data": {
+    "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
+    "requestUri": "https://YOUR-SERVICE-BUS-NAMESPACE-WILL-SHOW-HERE.servicebus.windows.net/TOPIC-NAME/subscriptions/SUBSCRIPTIONNAME/messages/head",
+    "entityType": "subscriber",
+    "queueName": "QUEUE NAME IF QUEUE",
+    "topicName": "TOPIC NAME IF TOPIC",
+    "subscriptionName": "SUBSCRIPTION NAME"
+  },
+  "dataVersion": "1",
+  "metadataVersion": "1"
+}]
+```
+
+#### <a name="deadletter-messages-available-periodic-notifications"></a>Notificações periódicas disponíveis de mensagens mortas
+
+Esse evento será gerado periodicamente se você tiver mensagens mortas na fila ou assinatura específica, mesmo se houver ouvintes ativos na entidade de mensagens mortas dessa fila ou assinatura específica.
+
+O esquema para o evento é o seguinte.
+
+```json
+[{
+  "topic": "/subscriptions/<subscription id>/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/<YOUR SERVICE BUS NAMESPACE WILL SHOW HERE>",
+  "subject": "topics/<service bus topic>/subscriptions/<service bus subscription>",
+  "eventType": "Microsoft.ServiceBus.DeadletterMessagesAvailablePeriodicNotifications",
   "eventTime": "2018-02-14T05:12:53.4133526Z",
   "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
   "data": {
@@ -132,7 +186,7 @@ Para criar uma nova assinatura da Grade de Eventos, faça o seguinte:
 
 ## <a name="azure-cli-instructions"></a>Instruções da CLI do Azure
 
-Primeiro, certifique-se de que tenha a CLI do Azure versão 2.0 ou posterior instalada. [Baixe o instalador](/cli/azure/install-azure-cli?view=azure-cli-latest). Selecione **Windows + X**e, em seguida, abra um novo console do PowerShell com permissões de administrador. Como alternativa, use um shell de comando dentro do Portal do Azure.
+Primeiro, certifique-se de que tenha a CLI do Azure versão 2.0 ou posterior instalada. [Baixe o instalador](/cli/azure/install-azure-cli). Selecione **Windows + X** e, em seguida, abra um novo console do PowerShell com permissões de administrador. Como alternativa, use um shell de comando dentro do Portal do Azure.
 
 Execute o seguinte código:
 
@@ -172,7 +226,7 @@ Daqui em diante, você poderá explorar as outras opções de instalação ou te
 
 * Obter [exemplos](service-bus-to-event-grid-integration-example.md) de Barramento de Serviço e da Grade de Eventos.
 * Saiba mais sobre a [grade de eventos](../event-grid/index.yml).
-* Saiba mais sobre [Funções do Azure](../azure-functions/index.yml).
+* Saiba mais sobre o [Azure Functions](../azure-functions/index.yml).
 * Saiba mais sobre o [Aplicativos Lógicos](../logic-apps/index.yml).
 * Saiba mais sobre o [Barramento de Serviço](/azure/service-bus/).
 

@@ -4,12 +4,12 @@ description: Saiba mais sobre o backup do banco de dados do Azure para PostgreSQ
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: edbfdb6ea741cdb344a121acdbee3b8bd4bc743c
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 1e2d83d4a5e21ed747ec9d4dcf2fa03d1e3935cc
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927882"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737565"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Banco de dados do Azure para PostgreSQL backup com retenção de longo prazo (versão prévia)
 
@@ -31,7 +31,7 @@ Você pode usar essa solução independentemente ou além da solução de backup
 
 |Suporte  |Detalhes  |
 |---------|---------|
-|Implantações com suporte   |  Banco de dados do Azure para PostgreSQL servidor único autônomo     |
+|Implantações com suporte   |  [Banco de Dados do Azure para PostgreSQL – Servidor Único](../postgresql/overview.md#azure-database-for-postgresql---single-server)     |
 |Regiões do Azure com suporte |  Leste dos EUA, leste dos EUA 2, EUA Central, Sul EUA Central, oeste dos EUA, oeste dos EUA 2, Oeste EUA Central, sul do Brasil, central do Canadá, Europa Setentrional, Europa Ocidental, Sul do Reino Unido, Oeste do Reino Unido, Centro-oeste da Alemanha, Norte da Suíça, Oeste da Suíça, Ásia Oriental, Sul Ásia Oriental, leste do Japão, oeste do Japão, centro da Coreia, sul da Coreia, Índia central, leste da Austrália, Austrália Central  |
 |Versões do Azure PostgreSQL com suporte    |   9,5, 9,6, 10, 11      |
 
@@ -55,7 +55,7 @@ Você pode usar essa solução independentemente ou além da solução de backup
   
 5. Depois que você disparar configurar a proteção nos bancos de dados selecionados, o serviço de backup configurará o coordenador com os agendamentos de backup e outros detalhes da política.
 
-6. No horário agendado, o coordenador se comunica com o plug-in e começa a transmitir os dados de backup do servidor postgres usando **pg_dump** .
+6. No horário agendado, o coordenador se comunica com o plug-in e começa a transmitir os dados de backup do servidor postgres usando **pg_dump**.
 
 7. O plug-in envia os dados diretamente para o cofre de backup, eliminando a necessidade de um local de preparo. Os dados são criptografados usando chaves gerenciadas pela Microsoft e armazenados pelo serviço de backup do Azure em contas de armazenamento.
 
@@ -71,25 +71,25 @@ As instruções a seguir são um guia passo a passo para configurar o backup nos
 
 1. Há duas maneiras de iniciar o processo:
 
-    1. Vá para o [centro de backup](backup-center-overview.md)  ->  **visão geral**  ->  **backup** .
+    1. Vá para o [centro de backup](backup-center-overview.md)  ->  **visão geral**  ->  **backup**.
 
         ![Ir para o centro de backup](./media/backup-azure-database-postgresql/backup-center.png)
 
-        Em **Iniciar: configurar backup** , selecione o **tipo de DataSource** como **banco de dados do Azure para PostgreSQL** .
+        Em **Iniciar: configurar backup**, selecione o **tipo de DataSource** como **banco de dados do Azure para PostgreSQL**.
 
         ![Em Iniciar: configurar backup, selecione o tipo de fonte de tipos](./media/backup-azure-database-postgresql/initiate-configure-backup.png)
 
-    1. Como alternativa, você pode ir diretamente para backup de [cofres de backup](backup-vault-overview.md)  ->  **Backup** .
+    1. Como alternativa, você pode ir diretamente para backup de [cofres de backup](backup-vault-overview.md)  ->  .
 
         ![Ir para cofres de backup](./media/backup-azure-database-postgresql/backup-vaults.png)
 
         ![Selecionar backup no cofre de backup](./media/backup-azure-database-postgresql/backup-backup-vault.png)
 
-1. Em **Configurar backup** , selecione o **cofre de backup** para o qual você deseja fazer backup dos bancos de dados do Postgres. Essas informações serão preenchidas previamente se você já estiver no contexto do cofre.
+1. Em **Configurar backup**, selecione o **cofre de backup** para o qual você deseja fazer backup dos bancos de dados do Postgres. Essas informações serão preenchidas previamente se você já estiver no contexto do cofre.
 
     ![Selecione o cofre de backup em configurar backup](./media/backup-azure-database-postgresql/configure-backup.png)
 
-1. Selecione ou crie uma **política de backup** .
+1. Selecione ou crie uma **política de backup**.
 
     ![Escolher política de backup](./media/backup-azure-database-postgresql/backup-policy.png)
 
@@ -121,7 +121,7 @@ As instruções a seguir são um guia passo a passo para configurar o backup nos
 
 ## <a name="create-backup-policy"></a>Criar política de backup
 
-1. Vá para o **centro de backup**  ->  **políticas de backup**  ->  **Adicionar** . Como alternativa, você pode acessar o **cofre de backup**  ->  **política de backup**  ->  **Adicionar** .
+1. Vá para o **centro de backup**  ->  **políticas de backup**  ->  **Adicionar**. Como alternativa, você pode acessar o **cofre de backup**  ->  **política de backup**  ->  **Adicionar**.
 
     ![Adicionar política de backup](./media/backup-azure-database-postgresql/add-backup-policy.png)
 
@@ -135,15 +135,15 @@ As instruções a seguir são um guia passo a passo para configurar o backup nos
 
 1. Defina as configurações de **retenção** . Você pode adicionar uma ou mais regras de retenção. Cada regra de retenção assume entradas para backups específicos e a duração da retenção e do armazenamento de dados para esses backups.
 
-1. Você pode optar por armazenar seus backups em um dos dois armazenamentos de dados (ou camadas): **armazenamento de dados de backup** (camada quente) ou armazenamento de dados de **arquivo morto** (em versão prévia). Você pode escolher entre **duas opções de camadas** para definir quando os backups são em camadas entre os dois repositórios de armazenamento:
+1. Você pode optar por armazenar seus backups em um dos dois repositórios de dados (ou camadas): **armazenamento de dados de backup** (camada Standard) ou armazenamento de dados de **arquivo morto** (em versão prévia). Você pode escolher entre **duas opções de camadas** para definir quando os backups são em camadas entre os dois repositórios de armazenamento:
 
     - Escolha copiar **imediatamente** se preferir ter uma cópia de backup em armazenamentos de dados de backup e de arquivo simultaneamente.
     - Opte por mover **-se durante a expiração** se preferir mover o backup para o armazenamento de dados de arquivamento após sua expiração no armazenamento de dados de backup.
 
 1. A **regra de retenção padrão** é aplicada na ausência de qualquer outra regra de retenção e tem um valor padrão de três meses.
 
-    - A duração da retenção varia de sete dias a 10 anos no **armazenamento de dados de backup** .
-    - A duração da retenção varia de seis meses a 10 anos no **repositório de dados de arquivo morto** .
+    - A duração da retenção varia de sete dias a 10 anos no **armazenamento de dados de backup**.
+    - A duração da retenção varia de seis meses a 10 anos no **repositório de dados de arquivo morto**.
 
     ![Editar duração da retenção](./media/backup-azure-database-postgresql/edit-retention.png)
 
@@ -157,15 +157,15 @@ Você pode restaurar um banco de dados para qualquer servidor PostgreSQL do Azur
 Siga este guia passo a passo para disparar uma restauração:
 
 1. Há duas maneiras de iniciar o processo de restauração:
-    1. Vá para o [centro de backup](backup-center-overview.md)  ->  **visão geral**  ->  **restaurar** .
+    1. Vá para o [centro de backup](backup-center-overview.md)  ->  **visão geral**  ->  **restaurar**.
 
     ![Selecione restaurar no centro de backup](./media/backup-azure-database-postgresql/backup-center-restore.png)
 
-    Em **Iniciar: restaurar** , selecione o **tipo DataSource** como **banco de dados do Azure para PostgreSQL** . Selecione a **instância de backup** .
+    Em **Iniciar: restaurar**, selecione o **tipo DataSource** como **banco de dados do Azure para PostgreSQL**. Selecione a **instância de backup**.
 
     ![Selecione o tipo de fonte de origem em Iniciar: restaurar](./media/backup-azure-database-postgresql/initiate-restore.png)
 
-    1. Como alternativa, você pode acessar diretamente as instâncias de backup do **cofre de backup**  ->  **Backup Instances** . Selecione **instância de backup** correspondente ao banco de dados que você deseja restaurar.
+    1. Como alternativa, você pode acessar diretamente as instâncias de backup do **cofre de backup**  ->  . Selecione **instância de backup** correspondente ao banco de dados que você deseja restaurar.
 
     ![Instâncias de backup para restauração](./media/backup-azure-database-postgresql/backup-instances-restore.png)
 
@@ -179,25 +179,25 @@ Siga este guia passo a passo para disparar uma restauração:
 
     ![Lista de pontos de recuperação](./media/backup-azure-database-postgresql/list-recovery-points.png)
 
-1. **Parâmetros de restauração** de entrada. Neste ponto, você pode selecionar entre dois tipos de restaurações: **restaurar como banco de dados** e **restaurar como arquivos** .
+1. **Parâmetros de restauração** de entrada. Neste ponto, você pode selecionar entre dois tipos de restaurações: **restaurar como banco de dados** e **restaurar como arquivos**.
 
-1. **Restore as Database** : Restore The backup data para criar um novo banco de dados no servidor PostgreSQL de destino.
+1. **Restore as Database**: Restore The backup data para criar um novo banco de dados no servidor PostgreSQL de destino.
 
     - O servidor de destino pode ser o mesmo que o servidor de origem. No entanto, não há suporte para a substituição do banco de dados original.
     - Você pode escolher entre o servidor em todas as assinaturas, mas na mesma região que o cofre.
-    - Selecione **revisão + restaurar** . Isso irá disparar a validação para verificar se o serviço tem as permissões de restauração apropriadas no servidor de destino.
+    - Selecione **revisão + restaurar**. Isso irá disparar a validação para verificar se o serviço tem as permissões de restauração apropriadas no servidor de destino.
 
     ![Restaurar como banco de dados](./media/backup-azure-database-postgresql/restore-as-database.png)
 
-1. **Restaurar como arquivos** : despeja os arquivos de backup para a conta de armazenamento de destino (BLOBs).
+1. **Restaurar como arquivos**: despeja os arquivos de backup para a conta de armazenamento de destino (BLOBs).
 
     - Você pode escolher entre as contas de armazenamento em todas as assinaturas, mas na mesma região que o cofre.
     - Selecione o contêiner de destino na lista de contêineres filtrada para a conta de armazenamento selecionada.
-    - Selecione **revisão + restaurar** . Isso irá disparar a validação para verificar se o serviço tem as permissões de restauração apropriadas no servidor de destino.
+    - Selecione **revisão + restaurar**. Isso irá disparar a validação para verificar se o serviço tem as permissões de restauração apropriadas no servidor de destino.
 
     ![Restaurar como arquivos](./media/backup-azure-database-postgresql/restore-as-files.png)
 
-1. Examine as informações e selecione **restaurar** . Isso irá disparar um trabalho de restauração correspondente que pode ser acompanhado em **trabalhos de backup** .
+1. Examine as informações e selecione **restaurar**. Isso irá disparar um trabalho de restauração correspondente que pode ser acompanhado em **trabalhos de backup**.
 
 ## <a name="prerequisite-permissions-for-configure-backup-and-restore"></a>Permissões de pré-requisito para configurar backup e restauração
 
@@ -207,11 +207,11 @@ O backup do Azure segue diretrizes de segurança estritas. Embora seja um servi�
 
 ## <a name="manage-the-backed-up-azure-postgresql-databases"></a>Gerenciar os bancos de dados do Azure PostgreSQL com backup
 
-Essas são as operações de gerenciamento que você pode executar nas **instâncias de backup** :
+Essas são as operações de gerenciamento que você pode executar nas **instâncias de backup**:
 
 ### <a name="on-demand-backup"></a>Backup sob demanda
 
-Para disparar um backup que não está no agendamento especificado na política, acesse fazer backup das **instâncias de backup**  ->  **agora** .
+Para disparar um backup que não está no agendamento especificado na política, acesse fazer backup das **instâncias de backup**  ->  **agora**.
 Escolha na lista de regras de retenção que foram definidas na política de backup associada.
 
 ![Disparar o backup agora](./media/backup-azure-database-postgresql/backup-now.png)
@@ -228,7 +228,7 @@ Você pode interromper a proteção em um item de backup. Isso também excluirá
 
 Você pode alterar a política associada com uma instância de backup.
 
-1. Selecione a política de alteração de **instância de backup**  ->  **Change Policy** .
+1. Selecione a política de alteração de **instância de backup**  ->  .
 
     ![Alterar política](./media/backup-azure-database-postgresql/change-policy.png)
 
@@ -254,7 +254,7 @@ Etapas:
 
     ![Painel de controle de acesso](./media/backup-azure-database-postgresql/access-control-pane.png)
 
-1. Selecione **Adicionar uma atribuição de função** .
+1. Selecione **Adicionar uma atribuição de função**.
 
     ![Adicionar atribuição de função](./media/backup-azure-database-postgresql/add-role-assignment.png)
 
@@ -280,7 +280,7 @@ Etapas:
 
 Adicione um administrador de Active Directory ao servidor OSS:
 
-Essa etapa é necessária para se conectar ao banco de dados por meio de um usuário que pode autenticar com Azure Active Directory em vez de uma senha. O usuário administrador do Azure AD no banco de dados do Azure para PostgreSQL terá a função **azure_ad_admin** . Somente uma função **azure_ad_admin** pode criar novos usuários de banco de dados que podem ser autenticados com o Azure AD.
+Essa etapa é necessária para se conectar ao banco de dados por meio de um usuário que pode autenticar com Azure Active Directory em vez de uma senha. O usuário administrador do Azure AD no banco de dados do Azure para PostgreSQL terá a função **azure_ad_admin**. Somente uma função **azure_ad_admin** pode criar novos usuários de banco de dados que podem ser autenticados com o Azure AD.
 
 1. Vá para a guia Active Directory admin no painel de navegação à esquerda da exibição do servidor e adicione você mesmo (ou outra pessoa) como o administrador do Active Directory.
 
@@ -294,7 +294,7 @@ Consulte [este documento](https://download.microsoft.com/download/7/4/d/74d689aa
 
 ### <a name="usererrormissingnetworksecuritypermissions"></a>UserErrorMissingNetworkSecurityPermissions
 
-Estabeleça a linha de visão da rede habilitando o sinalizador **permitir acesso aos serviços do Azure** na exibição do servidor. Na exibição do servidor, no painel **segurança da conexão** , defina o sinalizador **permitir acesso aos serviços do Azure** como **Sim** .
+Estabeleça a linha de visão da rede habilitando o sinalizador **permitir acesso aos serviços do Azure** na exibição do servidor. Na exibição do servidor, no painel **segurança da conexão** , defina o sinalizador **permitir acesso aos serviços do Azure** como **Sim**.
 
 ![Permitir acesso aos serviços do Azure](./media/backup-azure-database-postgresql/allow-access-to-azure-services.png)
 
@@ -303,7 +303,7 @@ Estabeleça a linha de visão da rede habilitando o sinalizador **permitir acess
 #### <a name="permission-to-restore-to-a-storage-account-container-when-restoring-as-files"></a>Permissão para restaurar para um contêiner de conta de armazenamento ao restaurar como arquivos
 
 1. Forneça ao cofre de backup o MSI a permissão para acessar os contêineres da conta de armazenamento usando o portal do Azure.
-    1. Vá para controle de acesso da **conta de armazenamento**  ->  **Access Control**  ->  **Adicionar atribuição de função** .
+    1. Vá para controle de acesso da **conta de armazenamento**  ->    ->  **Adicionar atribuição de função**.
     1. Atribua a função de **colaborador de dados de blob de armazenamento** ao msi do cofre de backup.
 
     ![Atribuir função de colaborador de dados de blob de armazenamento](./media/backup-azure-database-postgresql/assign-storage-blog-data-contributor-role.png)
@@ -315,7 +315,7 @@ Estabeleça a linha de visão da rede habilitando o sinalizador **permitir acess
     ```
 
     1. Substitua o parâmetro de atribuição com a **ID do aplicativo** do MSI do cofre e o parâmetro de escopo para se referir ao seu contêiner específico.
-    1. Para obter a **ID do aplicativo** do MSI do cofre, selecione **todos os aplicativos** em **tipo de aplicativo** :
+    1. Para obter a **ID do aplicativo** do MSI do cofre, selecione **todos os aplicativos** em **tipo de aplicativo**:
 
         ![Selecionar todos os aplicativos](./media/backup-azure-database-postgresql/select-all-applications.png)
 

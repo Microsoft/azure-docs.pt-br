@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 3032585c6f0a5cc6143eee06b12b6def50cd7cd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dcaa83980210a1f5449e8a2e0982cb8e39ff03d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80297716"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966183"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Requisitos de software, de alta disponibilidade e de rede do StorSimple série 8000
 
@@ -65,14 +65,14 @@ Seu dispositivo StorSimple é um dispositivo bloqueado. No entanto, é preciso a
 
 | Nº da porta<sup>1,2</sup> | Entrada ou saída | Escopo da porta | Obrigatório | Observações |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP)<sup>3</sup> |Saída |WAN |Não |<ul><li>A porta de saída é usada para acesso à Internet para recuperar atualizações.</li><li>O proxy Web de saída é configurável pelo usuário.</li><li>Para permitir atualizações do sistema, esta porta também deve estar aberta para o IPs fixos do controlador.</li></ul> |
-| TCP 443 (HTTPS)<sup>3</sup> |Saída |WAN |Sim |<ul><li>A porta de saída é usada para acessar dados na nuvem.</li><li>O proxy Web de saída é configurável pelo usuário.</li><li>Para permitir atualizações do sistema, esta porta também deve estar aberta para o IPs fixos do controlador.</li><li>Esta porta também é usada em ambos os controladores para coleta de lixo.</li></ul> |
+| TCP 80 (HTTP)<sup>3</sup> |Saída |WAN |No |<ul><li>A porta de saída é usada para acesso à Internet para recuperar atualizações.</li><li>O proxy Web de saída é configurável pelo usuário.</li><li>Para permitir atualizações do sistema, esta porta também deve estar aberta para o IPs fixos do controlador.</li></ul> |
+| TCP 443 (HTTPS)<sup>3</sup> |Saída |WAN |Yes |<ul><li>A porta de saída é usada para acessar dados na nuvem.</li><li>O proxy Web de saída é configurável pelo usuário.</li><li>Para permitir atualizações do sistema, esta porta também deve estar aberta para o IPs fixos do controlador.</li><li>Esta porta também é usada em ambos os controladores para coleta de lixo.</li></ul> |
 | UDP 53 (DNS) |Saída |WAN |Em alguns casos; consulte as observações. |Esta porta só será necessária se você estiver usando um servidor DNS baseado na Internet. |
 | UDP 123 (NTP) |Saída |WAN |Em alguns casos; consulte as observações. |Esta porta é necessária apenas se você estiver usando um servidor NTP baseado na Internet. |
-| TCP 9354 |Saída |WAN |Sim |A porta de saída é usada pelo dispositivo StorSimple para se comunicar com o serviço StorSimple Device Manager. |
-| 3260 (iSCSI) |Em |LAN |Não |Esta porta é usada para acessar dados em iSCSI. |
-| 5985 |Em |LAN |Não |A porta de entrada é usada pelo StorSimple Snapshot Manager para se comunicar com o dispositivo do StorSimple.<br>Essa porta também é usada quando você se conecta remotamente ao Windows PowerShell para o StorSimple via HTTP. |
-| 5986 |Em |LAN |Não |Esta porta é usada quando você se conecta remotamente ao Windows PowerShell para StorSimple via HTTPS. |
+| TCP 9354 |Saída |WAN |Yes |A porta de saída é usada pelo dispositivo StorSimple para se comunicar com o serviço StorSimple Device Manager. |
+| 3260 (iSCSI) |Em |LAN |No |Esta porta é usada para acessar dados em iSCSI. |
+| 5985 |Em |LAN |No |A porta de entrada é usada pelo StorSimple Snapshot Manager para se comunicar com o dispositivo do StorSimple.<br>Essa porta também é usada quando você se conecta remotamente ao Windows PowerShell para o StorSimple via HTTP. |
+| 5986 |Em |LAN |No |Esta porta é usada quando você se conecta remotamente ao Windows PowerShell para StorSimple via HTTPS. |
 
 <sup>1</sup> Nenhuma porta de entrada precisa estar aberta na Internet pública.
 
@@ -122,7 +122,7 @@ Os administradores de rede geralmente podem configurar regras avançadas de fire
 
 Uma métrica de roteamento é associada às interfaces e ao gateway que encaminha os dados para as redes especificadas. A métrica de roteamento é usada pelo protocolo de roteamento para calcular o melhor caminho para um determinado destino, se ela detecta que existem vários caminhos para o mesmo destino. Quanto menor a métrica de roteamento, maior será a preferência.
 
-No contexto do StorSimple, se vários gateways e interfaces de rede estiverem configurados para encaminhar o tráfego, a métrica de roteamento entrará em ação para determinar a ordem relativa em que as interfaces serão usadas. A métrica de roteamento não pode ser alterada pelo usuário. No entanto, você pode usar o cmdlet `Get-HcsRoutingTable` para imprimir a tabela de roteamento (e as métricas) em seu dispositivo do StorSimple. Mais informações sobre o cmdlet Get-HcsRoutingTable em [Troubleshooting StorSimple deployment](storsimple-troubleshoot-deployment.md)(Solucionando problemas de implantação do StorSimple).
+No contexto do StorSimple, se vários gateways e interfaces de rede estiverem configurados para encaminhar o tráfego, a métrica de roteamento entrará em ação para determinar a ordem relativa em que as interfaces serão usadas. A métrica de roteamento não pode ser alterada pelo usuário. No entanto, você pode usar o cmdlet `Get-HcsRoutingTable` para imprimir a tabela de roteamento (e as métricas) em seu dispositivo do StorSimple. Mais informações sobre o cmdlet Get-HcsRoutingTable em [Troubleshooting StorSimple deployment](./storsimple-8000-troubleshoot-deployment.md)(Solucionando problemas de implantação do StorSimple).
 
 O algoritmo da métrica de roteamento usado para a Atualização 2 e versões posteriores pode ser explicado da seguinte maneira.
 
@@ -201,7 +201,7 @@ Os dispositivos StorSimple incluem módulos de controlador redundantes e interca
 * Não remova os dois módulos de controlador ao mesmo tempo. Se estiver ocorrendo um failover do controlador, não desligue o módulo do controlador em espera ou o remova do chassi.
 * Após o failover do controlador, aguarde pelo menos cinco minutos antes de remover um dos módulos de controlador.
 
-#### <a name="network-interfaces"></a>Interfaces de rede
+#### <a name="network-interfaces"></a>Adaptadores de rede
 
 Cada módulo de controlador do dispositivo StorSimple tem quatro interfaces de rede Ethernet de 1 Gigabit e duas de 10 Gigabits.
 
@@ -250,4 +250,4 @@ Leia com atenção essas práticas recomendadas para garantir a alta disponibili
 * [Saiba como implantar sua solução StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
 
 <!--Reference links-->
-[1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
+[1]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731844(v=ws.10)

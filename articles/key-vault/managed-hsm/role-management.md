@@ -8,17 +8,17 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 370be4501a113403a9b1db14571f5a021ac15517
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 594dd2fd154b37eed49c069cef1b539e13ca6876
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149109"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094235"
 ---
 # <a name="managed-hsm-role-management"></a>Gerenciamento de função do HSM Gerenciado
 
 > [!NOTE]
-> O Key Vault é compatível com dois tipos de recurso: cofres e HSMs Gerenciados. Este artigo é sobre o **HSM Gerenciado** . Se você quiser aprender como gerenciar um cofre, confira [Gerenciar o Key Vault usando a CLI do Azure](../general/manage-with-cli2.md).
+> O Key Vault é compatível com dois tipos de recurso: cofres e HSMs Gerenciados. Este artigo é sobre o **HSM Gerenciado**. Se você quiser aprender como gerenciar um cofre, confira [Gerenciar o Key Vault usando a CLI do Azure](../general/manage-with-cli2.md).
 
 Para obter uma visão geral do HSM Gerenciado, confira [O que é o HSM Gerenciado?](overview.md). Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -60,7 +60,7 @@ az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Cr
 
 ### <a name="assign-role-for-a-specific-key"></a>Atribuir função para uma chave específica
 
-Use o comando `az keyvault role assignment create` para atribuir a função de **Responsável pela Criptografia do HSM Gerenciado** ao usuário identificado pelo nome UPN **user2\@contoso.com** para uma chave específica chamada **myrsakey** .
+Use o comando `az keyvault role assignment create` para atribuir a função de **Responsável pela Criptografia do HSM Gerenciado** ao usuário identificado pelo nome UPN **user2\@contoso.com** para uma chave específica chamada **myrsakey**.
 
 ```azurecli-interactive
 az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys/myrsakey
@@ -82,7 +82,10 @@ Todas as atribuições de função no nível do HSM para um usuário específico
 az keyvault role assignment list --hsm-name ContosoMHSM --assignee user@contoso.com
 ```
 
-Todas as atribuições de função para um usuário específico **user2@contoso.com** para uma chave específica chamada **myrsakey** .
+> [!NOTE]
+> Quando o escopo for / (ou /chaves), o comando listará apenas todas as atribuições de função no nível superior e não mostrará as atribuições de função no nível de chave individual.
+
+Todas as atribuições de função para um usuário específico **user2@contoso.com** para uma chave específica chamada **myrsakey**.
 
 ```azurecli-interactive
 az keyvault role assignment list --hsm-name ContosoMHSM --assignee user2@contoso.com --scope /keys/myrsakey
@@ -97,7 +100,7 @@ az keyvault role assignment list --hsm-name ContosoMHSM --assignee user2@contoso
 
 ## <a name="delete-a-role-assignment"></a>Excluir uma atribuição de função
 
-Use o comando `az keyvault role assignment delete` para excluir a função de **Responsável pela Criptografia do HSM Gerenciado** atribuída ao usuário **user2\@contoso.com** para a chave **user2contoso** .
+Use o comando `az keyvault role assignment delete` para excluir a função de **Responsável pela Criptografia do HSM Gerenciado** atribuída ao usuário **user2\@contoso.com** para a chave **user2contoso**.
 
 ```azurecli-interactive
 az keyvault role assignment delete --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys/myrsakey2
@@ -113,7 +116,7 @@ az keyvault role definition list --hsm-name ContosoMHSM
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Confira uma visão geral do [RBAC (controle de acesso baseado em função) do Azure](../../role-based-access-control/overview.md).
+- Obtenha uma visão geral do [RBAC do Azure (controle de acesso baseado em função do Azure)](../../role-based-access-control/overview.md).
 - Confira um tutorial sobre [Gerenciamento de funções no HSM Gerenciado](role-management.md)
 - Saiba mais sobre o [modelo de controle de acesso do HSM Gerenciado](access-control.md)
 - Confira todas as [funções internas para RBAC local do HSM Gerenciado](built-in-roles.md)

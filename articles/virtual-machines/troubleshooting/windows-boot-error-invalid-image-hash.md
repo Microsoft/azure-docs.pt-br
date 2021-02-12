@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/03/2020
 ms.author: v-miegge
-ms.openlocfilehash: e58e349d7b7385ec913986c39462c17deadcb61d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 22db9c7966b6f988ca0ea799104275f3f86c77ea
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969595"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629565"
 ---
 # <a name="windows-boot-manager-error---0xc0000428-status-invalid-image-hash"></a>Erro do Gerenciador de inicialização do Windows-hash de imagem inválido do status 0xC0000428
 
@@ -66,6 +66,9 @@ Você não pode estender a data de validade de uma imagem de versão prévia. Qu
 
 ## <a name="solution"></a>Solução
 
+> [!TIP]
+> Se você tiver um backup recente da VM, poderá tentar [restaurar a VM do backup](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema de inicialização.
+
 Se a imagem for uma imagem de visualização, não será possível estender a data de expiração da imagem usada, você precisará [implantar uma nova VM](../windows/quick-create-portal.md) usando uma imagem que não seja de visualização. As etapas a seguir ajudarão você a identificar se você usou uma imagem de visualização, bem como fornecer recursos para ajudá-lo a transferir dados dessa VM para uma nova VM. Se você identificou positivamente a imagem como uma imagem de visualização, a imagem não será recuperável, pois agora ela expirou.
 
 Dependendo da sua preferência, você pode usar Azure PowerShell ou CLI do Azure para consultar sua imagem para determinar se ela é uma imagem de visualização. Você pode usar esses comandos para confirmar que a imagem é uma imagem de visualização.
@@ -73,7 +76,7 @@ Dependendo da sua preferência, você pode usar Azure PowerShell ou CLI do Azure
 ### <a name="query-using-azure-powershell"></a>Consultar usando Azure PowerShell
 
 1. Abra o aplicativo do Windows PowerShell.
-1. Execute os comandos a seguir:
+1. Execute os seguintes comandos:
 
    ```powershell
    $locName = "<LOCATION>" 

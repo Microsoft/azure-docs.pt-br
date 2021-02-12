@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 1773e1345e9410f54a0364b586c3afca5b648b4c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 90f0cd913a191f345afd8acc3f3449b87e4cbfaf
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341525"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918599"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoramento de integridade de arquivo na central de segurança do Azure
 Saiba como configurar o FIM (monitoramento de integridade de arquivo) na central de segurança do Azure usando este passo a passos.
@@ -28,10 +28,10 @@ Saiba como configurar o FIM (monitoramento de integridade de arquivo) na central
 
 |Aspecto|Detalhes|
 |----|:----|
-|Estado da versão:|GA (em disponibilidade geral)|
+|Estado da versão:|GA (Disponibilidade Geral)|
 |Preço:|Requer o [Azure defender para servidores](defender-for-servers-introduction.md).<br>O FIM carrega dados no espaço de trabalho do Log Analytics. Encargos de dados se aplicam, com base na quantidade de dados que você carregar. Consulte [Preço do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) para saber mais.|
 |Funções e permissões necessárias:|O **proprietário do espaço de trabalho** pode habilitar/desabilitar o fim (para obter mais informações, consulte [funções do Azure para log Analytics](/services-hub/health/azure-roles#azure-roles)).<br>O **leitor** pode exibir os resultados.|
-|Nuvens:|![Sim ](./media/icons/yes-icon.png) nuvens comerciais<br>![Sim ](./media/icons/yes-icon.png) US gov<br>![Nenhuma ](./media/icons/no-icon.png) China gov, outros gov<br>Com suporte apenas em regiões em que a solução de controle de alterações da automação do Azure está disponível.<br>Consulte [regiões com suporte para o espaço de trabalho log Analytics vinculado](../automation/how-to/region-mappings.md).<br>[Saiba mais sobre o controle de alterações](../automation/change-tracking/overview.md).|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim ](./media/icons/yes-icon.png) nacional/soberanas (US gov, China gov, outros gov)<br>Com suporte apenas em regiões em que a solução de controle de alterações da automação do Azure está disponível.<br>Consulte [regiões com suporte para o espaço de trabalho log Analytics vinculado](../automation/how-to/region-mappings.md).<br>[Saiba mais sobre o controle de alterações](../automation/change-tracking/overview.md).|
 |||
 
 ## <a name="what-is-fim-in-security-center"></a>O que é FIM na Central de Segurança?
@@ -124,7 +124,7 @@ O FIM só está disponível nas páginas da central de segurança na portal do A
 
     - ![Ícone Habilitar][3] Habilite o FIM em todos os computadores no espaço de trabalho e configure as opções do FIM. Este ícone indica que o FIM não está habilitado para o espaço de trabalho.
 
-        :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-list-fim.png" alt-text="Iniciando o FIM":::
+        :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-list-fim.png" alt-text="Habilitando o FIM para um espaço de trabalho específico":::
 
 
     > [!TIP]
@@ -133,7 +133,7 @@ O FIM só está disponível nas páginas da central de segurança na portal do A
 
 1. Selecione **habilitar**. Os detalhes do espaço de trabalho, incluindo o número de computadores Windows e Linux, no espaço de trabalho, são mostrados.
 
-    :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-fim-status.png" alt-text="Iniciando o FIM":::
+    :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-fim-status.png" alt-text="Página de detalhes do espaço de trabalho do FIM":::
 
    As configurações recomendadas para Windows e Linux também são listadas.  Expanda **Arquivos do Windows**, **Registro** e **Arquivos do Linux** para ver a lista completa de itens recomendados.
 
@@ -150,7 +150,7 @@ O FIM só está disponível nas páginas da central de segurança na portal do A
 
 O painel do **Monitoramento de integridade de arquivo** é exibido para workspaces em que o FIM está habilitado. O painel do FIM é aberto depois que você habilita o FIM em um espaço de trabalho ou quando seleciona um espaço de trabalho na janela **monitoramento de integridade de arquivo** que já tem o fim habilitado.
 
-:::image type="content" source="./media/security-center-file-integrity-monitoring/fim-dashboard.png" alt-text="Iniciando o FIM":::
+:::image type="content" source="./media/security-center-file-integrity-monitoring/fim-dashboard.png" alt-text="O painel do FIM e seus vários painéis informativos":::
 
 O painel do FIM de um espaço de trabalho exibe os seguintes detalhes:
 
@@ -161,7 +161,7 @@ O painel do FIM de um espaço de trabalho exibe os seguintes detalhes:
 
 Selecione **Filtrar** na parte superior do painel para alterar o período de tempo para o qual as alterações são mostradas.
 
-:::image type="content" source="./media/security-center-file-integrity-monitoring/dashboard-filter.png" alt-text="Iniciando o FIM":::
+:::image type="content" source="./media/security-center-file-integrity-monitoring/dashboard-filter.png" alt-text="Filtro de período de tempo para o painel do FIM":::
 
 A guia **servidores** lista os computadores que se reportam a este espaço de trabalho. Para cada computador, o painel lista:
 
@@ -236,7 +236,7 @@ Em **Editar para Controle de Alterações** você pode:
 
    ![Definir Habilitado como false][19]
 
-6. Clique em **Salvar**.
+6. Selecione **Salvar**.
 
 ## <a name="folder-and-path-monitoring-using-wildcards"></a>Pasta e o caminho de monitoramento usando caracteres curinga
 

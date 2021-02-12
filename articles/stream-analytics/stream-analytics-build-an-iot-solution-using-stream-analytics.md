@@ -1,19 +1,18 @@
 ---
 title: Compilar uma solução de IoT usando o Azure Stream Analytics
 description: Tutorial de introdução da solução de IoT Stream Analytics de um cenário de pedágio
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 87ec59d19fb442293fb7f14d110cf513015ec9f7
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: ddec53b18cd6f374a5665298b43b46122bcfa143
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130792"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016143"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilar uma solução de IoT usando o Stream Analytics
 
@@ -134,7 +133,7 @@ Há vários recursos que podem ser facilmente implantados em um grupo de recurso
 
 9. Selecione **Comprar** para implantar o modelo de exemplo.
 
-10. Após alguns instantes, uma notificação será exibida para confirmar a **Implantação com êxito** .
+10. Após alguns instantes, uma notificação será exibida para confirmar a **Implantação com êxito**.
 
 ### <a name="review-the-azure-stream-analytics-tollapp-resources"></a>Examinar os recursos do TollApp do Azure Stream Analytics
 
@@ -176,20 +175,20 @@ Há vários recursos que podem ser facilmente implantados em um grupo de recurso
 ## <a name="start-the-tollapp-streaming-job"></a>Iniciar o trabalho de streaming do TollApp
 Siga estas etapas para iniciar o trabalho de streaming:
 
-1. Na página **Visão geral** do trabalho, selecione **Iniciar** .
+1. Na página **Visão geral** do trabalho, selecione **Iniciar**.
 
-2. No painel **Iniciar trabalho** , selecione **Agora** .
+2. No painel **Iniciar trabalho**, selecione **Agora**.
 
-3. Após alguns instantes, quando o trabalho estiver em execução, na página **Visão geral** do trabalho de streaming, exiba o gráfico de **Monitoramento** . O gráfico deve mostrar vários milhares de eventos de entrada e dezenas de eventos de saída.
+3. Após alguns instantes, quando o trabalho estiver em execução, na página **Visão geral** do trabalho de streaming, exiba o gráfico de **Monitoramento**. O gráfico deve mostrar vários milhares de eventos de entrada e dezenas de eventos de saída.
 
 ## <a name="review-the-cosmosdb-output-data"></a>Examinar os dados de saída CosmosDB
 1. Localize o grupo de recursos que contém os recursos do TollApp.
 
-2. Selecione a conta do Azure Cosmos DB com o nome padrão **tollapp\<random\>-cosmos** .
+2. Selecione a conta do Azure Cosmos DB com o nome padrão **tollapp\<random\>-cosmos**.
 
 3. Selecione o cabeçalho **Data Explorer** para abrir a página do Data Explorer.
 
-4. Expanda os documentos do **tollAppDatabase**  >  **tollAppCollection**  >  **Documents** .
+4. Expanda os documentos do **tollAppDatabase**  >  **tollAppCollection**  >  .
 
 5. Na lista de IDs, vários documentos serão mostrados quando a saída estiver disponível.
 
@@ -201,7 +200,7 @@ Siga estas etapas para iniciar o trabalho de streaming:
 ## <a name="report-total-time-for-each-car"></a>Relatar o tempo total de cada carro
 O tempo médio necessário para um carro passar pela cabine de pedágio ajuda a avaliar a eficiência do processo e a experiência do cliente.
 
-Para localizar o tempo total, faça a junção do fluxo EntryTime com o fluxo ExitTime. Junte os dois fluxos de entrada nas colunas TollId e LicencePlate de correspondência igual. O operador **JOIN** exige a especificação de um espaço de manobra temporal que descreve a diferença de tempo aceitável entre os eventos associados. Use a função **DATEDIFF** para especificar que os eventos não deverão ter mais de 15 minutos um do outro. Aplique também a função **DATEDIFF** para sair e os tempos de entrada para calcular o tempo real que um carro passa na estação de pedágio. Observe a diferença do uso da **DATEDIFF** quando usada em uma instrução **SELECT** em comparação com uma condição **JOIN** .
+Para localizar o tempo total, faça a junção do fluxo EntryTime com o fluxo ExitTime. Junte os dois fluxos de entrada nas colunas TollId e LicencePlate de correspondência igual. O operador **JOIN** exige a especificação de um espaço de manobra temporal que descreve a diferença de tempo aceitável entre os eventos associados. Use a função **DATEDIFF** para especificar que os eventos não deverão ter mais de 15 minutos um do outro. Aplique também a função **DATEDIFF** para sair e os tempos de entrada para calcular o tempo real que um carro passa na estação de pedágio. Observe a diferença do uso da **DATEDIFF** quando usada em uma instrução **SELECT** em comparação com uma condição **JOIN**.
 
 ```sql
 SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute, EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes
@@ -214,7 +213,7 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 ### <a name="to-update-the-tollapp-streaming-job-query-syntax"></a>Para atualizar a sintaxe de consulta do trabalho de streaming do TollApp:
 
-1. Na página **Visão geral** do trabalho, selecione **Parar** .
+1. Na página **Visão geral** do trabalho, selecione **Parar**.
 
 2. Aguarde alguns instantes pela notificação de que o trabalho parou.
 
@@ -224,9 +223,9 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 5. Selecione **Salvar** para salvar a consulta. Confirme **Sim** para salvar as alterações.
 
-6. Na página **Visão geral** do trabalho, selecione **Iniciar** .
+6. Na página **Visão geral** do trabalho, selecione **Iniciar**.
 
-7. No painel **Iniciar trabalho** , selecione **Agora** .
+7. No painel **Iniciar trabalho**, selecione **Agora**.
 
 ### <a name="review-the-total-time-in-the-output"></a>Examinar o tempo total na saída
 Repita as etapas na seção anterior para examinar os dados de saída do CosmosDB do trabalho de streaming. Examinar os últimos documentos JSON.
@@ -301,9 +300,9 @@ Para escalar verticalmente o trabalho de streaming para mais unidades de streami
 
 2. Atualize a sintaxe de consulta na página **< > Consulta** e salve as alterações.
 
-3. No cabeçalho CONFIGURE no trabalho de streaming, selecione **Escalar** .
+3. No cabeçalho CONFIGURE no trabalho de streaming, selecione **Escalar**.
 
-4. Deslize o controle deslizante de **Unidades de streaming** de 1 a 6. As unidades de streaming definem a quantidade de potência de computação que o trabalho pode receber. Selecione **Salvar** .
+4. Deslize o controle deslizante de **Unidades de streaming** de 1 a 6. As unidades de streaming definem a quantidade de potência de computação que o trabalho pode receber. Selecione **Salvar**.
 
 5. **Inicie** o trabalho de streaming para demonstrar a escala adicional. O Azure Stream Analytics distribui o trabalho em mais recursos de computação e obtém melhor taxa de transferência, particionando o trabalho entre os recursos usando a coluna designada na cláusula PARTITION BY.
 
@@ -319,7 +318,7 @@ Você também pode acessar **Logs de Atividade** na área **Configurações** do
 
 2. Localize o grupo de recursos que contém oito recursos relacionados ao modelo do TollApp.
 
-3. Selecione **Excluir grupo de recursos** . Digite o nome do grupo de recursos para confirmar a exclusão.
+3. Selecione **Excluir grupo de recursos**. Digite o nome do grupo de recursos para confirmar a exclusão.
 
 ## <a name="conclusion"></a>Conclusão
 Esta solução apresentou o serviço do Azure Stream Analytics. Ele demonstrou como configurar entradas e saídas para o trabalho do Stream Analytics. Usando o cenário de Toll Data, a solução explicou tipos comuns de problemas que surgem no espaço de dados em movimento e como eles podem ser resolvidos com consultas simples como SQL no Azure Stream Analytics. A solução descreveu constructos de extensão de SQL para trabalhar com dados temporais. Ele mostrou como combinar transmissões de dados, como aprimorar a transmissão de dados com os dados de referência estáticos e como escalar horizontalmente uma consulta para aumentar a taxa de transferência.

@@ -7,12 +7,12 @@ ms.topic: include
 author: mingshen-ms
 ms.author: krsh
 ms.date: 10/20/2020
-ms.openlocfilehash: ecbafe0d3f39b1bd6f7c494695ea17e067f0c79e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: addc18a0ebf9e49d3474d3f40cb1e2a6e0f0b272
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129262"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97826617"
 ---
 ## <a name="generalize-the-image"></a>Generalizar a imagem
 
@@ -41,47 +41,47 @@ O processo a seguir generalizará uma VM do Linux e a reimplantará como uma VM 
 ### <a name="take-a-snapshot-of-the-vm-disk"></a>Tirar um instantâneo do disco da VM
 
 1. Entre no [portal do Azure](https://ms.portal.azure.com/).
-2. Começando no canto superior esquerdo, selecione **criar um recurso** , em seguida, pesquise e selecione **instantâneo** .
-3. Na folha instantâneo, selecione  **criar** .
+2. Começando no canto superior esquerdo, selecione **criar um recurso**, em seguida, pesquise e selecione **instantâneo**.
+3. Na folha instantâneo, selecione  **criar**.
 4. Insira um **Nome** para o instantâneo.
 5. Selecione um grupo de recursos existente ou insira o nome de um novo.
-6. Para **Disco de origem** , selecione o disco gerenciado para instantâneo.
-7. Escolha o **Tipo de conta** a ser usado para armazenar o instantâneo. Use **HD Standard** , a menos que você precise dele armazenado em um SSD de alto desempenho.
-8. Selecione **Criar** .
+6. Para **Disco de origem**, selecione o disco gerenciado para instantâneo.
+7. Escolha o **Tipo de conta** a ser usado para armazenar o instantâneo. Use **HD Standard**, a menos que você precise dele armazenado em um SSD de alto desempenho.
+8. Selecione **Criar**.
 
 #### <a name="extract-the-vhd"></a>Extrair o VHD
 
 Use o script a seguir para exportar o instantâneo para um VHD em sua conta de armazenamento.
 
-```JSON
+```azurecli-interactive
 #Provide the subscription Id where the snapshot is created
-subscriptionId=yourSubscriptionId
+$subscriptionId=yourSubscriptionId
 
 #Provide the name of your resource group where the snapshot is created
-resourceGroupName=myResourceGroupName
+$resourceGroupName=myResourceGroupName
 
 #Provide the snapshot name
-snapshotName=mySnapshot
+$snapshotName=mySnapshot
 
 #Provide Shared Access Signature (SAS) expiry duration in seconds (such as 3600)
 #Know more about SAS here: https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1
-sasExpiryDuration=3600
+$sasExpiryDuration=3600
 
 #Provide storage account name where you want to copy the underlying VHD file. 
-storageAccountName=mystorageaccountname
+$storageAccountName=mystorageaccountname
 
 #Name of the storage container where the downloaded VHD will be stored.
-storageContainerName=mystoragecontainername
+$storageContainerName=mystoragecontainername
 
 #Provide the key of the storage account where you want to copy the VHD 
-storageAccountKey=mystorageaccountkey
+$storageAccountKey=mystorageaccountkey
 
 #Give a name to the destination VHD file to which the VHD will be copied.
-destinationVHDFileName=myvhdfilename.vhd
+$destinationVHDFileName=myvhdfilename.vhd
 
 az account set --subscription $subscriptionId
 
-sas=$(az snapshot grant-access --resource-group $resourceGroupName --name $ snapshotName --duration-in-seconds $sasExpiryDuration --query [accessSas] -o tsv)
+sas=$(az snapshot grant-access --resource-group $resourceGroupName --name $snapshotName --duration-in-seconds $sasExpiryDuration --query [accessSas] -o tsv)
 
 az storage blob copy start --destination-blob $destinationVHDFileName --destination-container $storageContainerName --account-name $storageAccountName --account-key $storageAccountKey --source-uri $sas
 ```

@@ -3,7 +3,7 @@ title: Use o SCIM, o Microsoft Graph e o Azure AD para provisionar usuários e e
 description: Usando o SCIM e o Microsoft Graph em conjunto para provisionar usuários e enriquecer seu aplicativo com os dados de que precisa.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/26/2020
 ms.author: kenwith
 ms.reviewer: arvinh, celested
-ms.openlocfilehash: b69e2c9b12b2db34f3eb70e54d2c6aede6b54784
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a5d84585f28f6d13cbceb1fec41d6cdabf6d08c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88235495"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255620"
 ---
 # <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>Usando o SCIM e o Microsoft Graph juntos para provisionar usuários e enriquecer seu aplicativo com os dados de que precisa
 
@@ -62,7 +62,7 @@ POST /Users
     "roles": []
 }
 ```
-    
+
 ## <a name="scenario-2-automatically-remove-users-from-my-app"></a>Cenário 2: remover automaticamente os usuários do meu aplicativo
 Os clientes que usam meu aplicativo são focados em segurança e têm requisitos de governança para remover contas quando os funcionários não precisam mais delas. Como é possível automatizar o desprovisionamento do meu aplicativo?
 

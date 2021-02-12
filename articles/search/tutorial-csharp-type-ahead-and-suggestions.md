@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/05/2020
+ms.date: 01/22/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 202a7f6b01423045fe7c72db5b42c29ae58f648d
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 06c0b25bcf64cfce01b4144550ef69da8c96ee0e
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91739656"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785847"
 ---
 # <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>Tutorial: Adicionar preenchimento automático e sugestões usando o SDK do .NET
 
@@ -151,7 +151,7 @@ Vamos começar com o caso mais simples de oferta de alternativas para o usuário
 
 4. No script de exibição, defina **&fuzzy** como true e execute o aplicativo novamente. Agora, insira "po". Observe que a pesquisa pressupõe que você errou uma letra.
  
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png" alt-text="Digitar *po* revela duas sugestões" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png" alt-text="Digitando *pa* com a pesquisa difusa definida como true" border="false":::
 
     Se você estiver interessado, [Sintaxe de consulta Lucene na Pesquisa Cognitiva do Azure](./query-lucene-syntax.md) descreve em detalhes a lógica usada em pesquisas difusas.
 
@@ -196,7 +196,7 @@ Podemos melhorar a aparência das sugestões ao usuário definindo o parâmetro 
 
 1. Execute o aplicativo novamente e você deverá ver o texto inserido em negrito nas sugestões. Tente digitar "pa".
  
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-highlight.png" alt-text="Digitar *po* revela duas sugestões" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-highlight.png" alt-text="Digitando *pa* com realce" border="false":::
 
    A lógica usada no script de realce acima não é infalível. Se você inserir um termo que aparece duas vezes no mesmo nome, os resultados em negrito não serão exatamente o que você gostaria. Tente digitar "mo".
 
@@ -255,7 +255,7 @@ Outra variação, levemente diferente das sugestões, é o preenchimento automá
 
 1. Execute o aplicativo. Observe como a gama de opções exibidas na lista suspensa consiste em palavras individuais. Tente digitar palavras que começam com "re". Observe como o número de opções diminui conforme mais letras são digitadas.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocompletebasic.png" alt-text="Digitar *po* revela duas sugestões" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocompletebasic.png" alt-text="Como digitar com preenchimento automático básico" border="false":::
 
     Como está, o script de sugestões que você executou anteriormente é provavelmente mais útil do que este script de preenchimento automático. Para tornar o preenchimento automático mais amigável, considere usá-lo com resultados sugeridos.
 
@@ -451,7 +451,7 @@ Há bibliotecas que oferecem essa funcionalidade, frequentemente chamada de "pre
 
 1. Agora, execute o aplicativo. Insira "pa" na caixa de pesquisa. Você obtém "palace" como a sugestão de preenchimento automático, junto com dois hotéis que contêm "pa"?
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocomplete.png" alt-text="Digitar *po* revela duas sugestões" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocomplete.png" alt-text="Como digitar com sugestões e preenchimento automático embutido" border="false":::
 
 1. Tente usar a tecla Tab para aceitar a sugestão de preenchimento automático e tente selecionar sugestões usando as teclas de direção e a tecla Tab, então tente novamente usando o mouse e um único clique. Verifique se o script trata de todas essas situações de modo adequado.
 

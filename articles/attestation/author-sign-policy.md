@@ -1,20 +1,20 @@
 ---
-title: Como criar e assinar uma política do Atestado do Azure
-description: Uma explicação de como criar e assinar uma política de atestado.
+title: Como criar uma política do Atestado do Azure
+description: Uma explicação sobre como criar uma política de atestado.
 services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c8ffdcd0615913649e80b20f6873d005f4ad4410
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 3e36de62b79788e2efdc3e9abf711924c4fba0c4
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675988"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341800"
 ---
-# <a name="how-to-author-and-sign-an-attestation-policy"></a>Como criar e assinar uma política de atestado
+# <a name="how-to-author-an-attestation-policy"></a>Como criar uma política de atestado
 
 A política de atestado é um arquivo carregado no Atestado do Microsoft Azure. O Atestado do Azure oferece a flexibilidade para carregar uma política em um formato de política específico de atestado. Como alternativa, uma versão codificada da política, na Assinatura da Web JSON, também pode ser carregada. O administrador da política é responsável por escrever a política de atestado. Na maioria dos cenários de atestado, a terceira parte confiável funciona como o administrador da política. O cliente que faz a chamada de atestado envias a evidência de atestado, que o serviço analisa e converte em declarações de entrada (conjunto de propriedades, valor). Em seguida, o serviço processa as declarações, com base no que está definido na política, e retorna o resultado calculado.
 
@@ -44,7 +44,7 @@ Um arquivo de política tem três segmentos, conforme visto acima:
 
     Atualmente, a única versão compatível é 1.0.
 
-- **authorizationrules** : uma coleção de regras de declaração que será verificada primeiro para determinar se o Atestado do Azure deve prosseguir para **issuancerules** . As regras de declaração se aplicam na ordem em que são definidas.
+- **authorizationrules** : uma coleção de regras de declaração que será verificada primeiro para determinar se o Atestado do Azure deve prosseguir para **issuancerules**. As regras de declaração se aplicam na ordem em que são definidas.
 
 - **issuancerules** : uma coleção de regras de declaração que será avaliada para adicionar outras informações ao resultado do atestado, conforme definido na política. As regras de declaração se aplicam na ordem em que são definidas e também são opcionais.
 
@@ -54,7 +54,7 @@ Confira [Declaração e regras de declaração](claim-rule-grammar.md) para obte
 
 1. Crie um arquivo.
 1. Adicione a versão ao arquivo.
-1. Adicione seções a **authorizationrules** e **issuancerules** .
+1. Adicione seções a **authorizationrules** e **issuancerules**.
 
   ```
   version=1.0;
@@ -84,9 +84,9 @@ Confira [Declaração e regras de declaração](claim-rule-grammar.md) para obte
   };
   ```
 
-  Se o conjunto de declarações de entrada contiver uma declaração correspondente ao tipo, ao valor e ao emissor, a ação permit() instruirá o mecanismo de política a processar as **issuancerules** .
+  Se o conjunto de declarações de entrada contiver uma declaração correspondente ao tipo, ao valor e ao emissor, a ação permit() instruirá o mecanismo de política a processar as **issuancerules**.
   
-5. Adicione regras de declaração a **issuancerules** .
+5. Adicione regras de declaração a **issuancerules**.
 
   ```
   version=1.0;
@@ -134,41 +134,6 @@ Depois de criar um arquivo de política, para carregar uma política no formato 
 3. Carregue o JWS e valide a política.
      - Se o arquivo de política estiver livre de erros de sintaxe, o arquivo de política será aceito pelo serviço.
      - Se o arquivo de política contiver erros de sintaxe, o arquivo de política será rejeitado pelo serviço.
-
-## <a name="signing-the-policy"></a>Como assinar a política
-
-Veja abaixo um exemplo de script Python de como executar a operação de assinatura de política
-
-```python
-from OpenSSL import crypto
-import jwt
-import getpass
-       
-def cert_to_b64(cert):
-              cert_pem = crypto.dump_certificate(crypto.FILETYPE_PEM, cert)
-              cert_pem_str = cert_pem.decode('utf-8')
-              return ''.join(cert_pem_str.split('\n')[1:-2])
-       
-print("Provide the path to the PKCS12 file:")
-pkcs12_path = str(input())
-pkcs12_password = getpass.getpass("\nProvide the password for the PKCS12 file:\n")
-pkcs12_bin = open(pkcs12_path, "rb").read()
-pkcs12 = crypto.load_pkcs12(pkcs12_bin, pkcs12_password.encode('utf8'))
-ca_chain = pkcs12.get_ca_certificates()
-ca_chain_b64 = []
-for chain_cert in ca_chain:
-   ca_chain_b64.append(cert_to_b64(chain_cert))
-   signing_cert_pkey = crypto.dump_privatekey(crypto.FILETYPE_PEM, pkcs12.get_privatekey())
-signing_cert_b64 = cert_to_b64(pkcs12.get_certificate())
-ca_chain_b64.insert(0, signing_cert_b64)
-
-print("Provide the path to the policy text file:")
-policy_path = str(input())
-policy_text = open(policy_path, "r").read()
-encoded = jwt.encode({'text': policy_text }, signing_cert_pkey, algorithm='RS256', headers={'x5c' : ca_chain_b64})
-print("\nAttestation Policy JWS:")
-print(encoded.decode('utf-8'))
-```
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Configurar o Atestado do Azure usando o PowerShell](quickstart-powershell.md)

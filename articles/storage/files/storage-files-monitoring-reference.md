@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 11f89a0a42a42fd84d1dc0c8606128f5af9e751e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a3f4faf8278553153ae2186ea74d20702c603b3
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91711172"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780919"
 ---
 # <a name="azure-files-monitoring-data-reference"></a>Referência de dados de monitoramento de arquivos do Azure
 
@@ -26,7 +26,7 @@ As tabelas a seguir listam as métricas de plataforma coletadas para os arquivos
 
 ### <a name="capacity-metrics"></a>Métricas de capacidade
 
-Os valores de métricas de capacidade são enviados para o Azure Monitor a cada hora. Os valores são atualizados diariamente. O intervalo de agregação define o intervalo de tempo para o qual os valores das métricas são apresentados. O intervalo de agregação compatível com todas as métricas de capacidade é uma hora (PT1H).
+Os valores de métricas de capacidade são atualizados diariamente (até 24 horas). O intervalo de agregação define o intervalo de tempo para o qual os valores das métricas são apresentados. O intervalo de agregação compatível com todas as métricas de capacidade é uma hora (PT1H).
 
 Os arquivos do Azure fornecem as seguintes métricas de capacidade no Azure Monitor.
 
@@ -36,7 +36,7 @@ Os arquivos do Azure fornecem as seguintes métricas de capacidade no Azure Moni
 
 #### <a name="azure-files"></a>Arquivos do Azure
 
-Esta tabela mostra as [métricas de arquivos do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsfileservices).
+Esta tabela mostra as [métricas de arquivos do Azure](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsfileservices).
 
 | Métrica | Descrição |
 | ------------------- | ----------------- |
@@ -68,7 +68,7 @@ Os arquivos do Azure dão suporte às seguintes dimensões para métricas no Azu
 ## <a name="resource-logs-preview"></a>Logs de recurso (versão prévia)
 
 > [!NOTE]
-> Os logs do Armazenamento do Microsoft Azure no Azure Monitor estão em versão preliminar pública e disponíveis para teste de versão preliminar em todas as regiões de nuvem pública. Para se inscrever na versão preliminar, veja [esta página](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).  Essa versão preliminar habilita logs para blobs (incluindo o Azure Data Lake Storage Gen2), arquivos, filas, tabelas, contas de armazenamento Premium nas contas de armazenamento GPv1 e GPv2. Não há suporte para contas de armazenamento clássicas.
+> Os logs do Armazenamento do Microsoft Azure no Azure Monitor estão em versão preliminar pública e disponíveis para teste de versão preliminar em todas as regiões de nuvem pública. Essa versão preliminar habilita logs para blobs (incluindo o Azure Data Lake Storage Gen2), arquivos, filas, tabelas, contas de armazenamento Premium nas contas de armazenamento GPv1 e GPv2. Não há suporte para contas de armazenamento clássicas.
 
 A tabela a seguir lista as propriedades dos logs de recursos do armazenamento do Azure quando eles são coletados nos logs de Azure Monitor ou no armazenamento do Azure. As propriedades descrevem a operação, o serviço e o tipo de autorização que foi usado para executar a operação.
 

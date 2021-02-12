@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5c49a46dfcd97f5feb43b0b910476ef3ad6f402a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99c7f4ab92e4cce3937a933fec97008c281a0eae
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742240"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018283"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Fazer backup de volumes ou compartilhamentos no StorSimple Virtual Array
 
@@ -28,7 +28,7 @@ ms.locfileid: "91742240"
 
 O StorSimple Virtual Array é um dispositivo virtual local de armazenamento em nuvem híbrida que pode ser configurado como servidor de arquivos ou um servidor iSCSI. A matriz virtual permite ao usuário criar backups agendados e manuais de todos os volumes ou compartilhamentos no dispositivo. Quando configurado como um servidor de arquivos, ele também permite a recuperação em nível de item. Este tutorial descreve como criar backups agendados e manuais e realizar a recuperação em nível de item para restaurar um arquivo excluído na matriz virtual.
 
-Este tutorial se aplica somente a Matrizes Virtuais StorSimple. Para obter informações sobre a série 8000, acesse [Criar um backup para dispositivo da série 8000](storsimple-manage-backup-policies-u2.md)
+Este tutorial se aplica somente a Matrizes Virtuais StorSimple. Para obter informações sobre a série 8000, acesse [Criar um backup para dispositivo da série 8000](./storsimple-8000-manage-backup-policies-u2.md)
 
 ## <a name="back-up-shares-and-volumes"></a>Fazer backup de compartilhamentos e volumes
 
@@ -58,7 +58,7 @@ a Matriz Virtual StorSimple tem uma política de backup padrão que é iniciada 
    
     ![navegar até as políticas de backup](./media/storsimple-virtual-array-backup/changebuschedule5.png)
 
-4. Clique em **Salvar**.
+4. Clique em **Save** (Salvar).
 
 ### <a name="take-a-manual-backup"></a>Fazer um backup manual
 
@@ -115,4 +115,3 @@ Execute as etapas a seguir no portal do Azure para exibir os backups existentes.
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre a [administração de sua StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-

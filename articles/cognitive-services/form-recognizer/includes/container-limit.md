@@ -3,15 +3,15 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 07/14/2020
+ms.date: 02/04/2021
 ms.author: aahi
-ms.openlocfilehash: f8918766174d77ea2a9c50d9c97d9feae2d9f64a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f620789e4224f5c278187ea3359752a6f7705be
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86512743"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99579784"
 ---
-> [!IMPORTANT]
-> * O limite para usuários do contêiner do reconhecedor de formulário foi atingido. No momento, não estamos aceitando novos aplicativos para o contêiner do Reconhecimento de Formulários. 
-> * No momento, os contêineres do reconhecedor de formulário usam a versão 1,0 da API do reconhecedor de formulário. Você pode acessar a versão mais recente da API usando o serviço gerenciado em vez disso.
+> [!CAUTION]
+> * O contêiner do formulário reconhecedor v 1.0 está sendo desativado. Este artigo é apenas para referência. 
+> * Você pode acessar a versão mais recente da API com a API REST e o SDK.

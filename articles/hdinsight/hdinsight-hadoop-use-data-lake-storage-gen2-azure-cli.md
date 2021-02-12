@@ -3,17 +3,16 @@ title: Criar Azure HDInsight-Azure Data Lake Storage Gen2-CLI do Azure
 description: Saiba como usar Azure Data Lake Storage Gen2 com clusters do Azure HDInsight usando CLI do Azure.
 author: guyhay
 ms.author: guyhay
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020
+ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 09/17/2020
-ms.openlocfilehash: e8cfe55f4843439743535b978483d8518bd020fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbc1cd27d5c16eddd3aaad748c34445e5017e209
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91858742"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945500"
 ---
 # <a name="create-a-cluster-with-data-lake-storage-gen2-using-azure-cli"></a>Criar um cluster com Data Lake Storage Gen2 usando CLI do Azure
 
@@ -77,13 +76,13 @@ Em seguida, entre no Portal. Adicione a nova identidade gerenciada atribuída pe
  > Verifique se sua conta de armazenamento tem a identidade atribuída pelo usuário com permissões de função de **colaborador de dados de blob de armazenamento** . caso contrário, haverá falha na criação do cluster.
 
 ```azurecli
-az group deployment create --name HDInsightADLSGen2Deployment \
+az deployment group create --name HDInsightADLSGen2Deployment \
     --resource-group <RESOURCEGROUPNAME> \
     --template-file hdinsight-adls-gen2-template.json \
     --parameters parameters.json
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Após a conclusão do artigo, convém excluir o cluster. Com o HDInsight, seus dados são armazenados no Armazenamento do Azure, assim você poderá excluir, com segurança, um cluster quando ele não estiver em uso. Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estiverem em uso.
 

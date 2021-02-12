@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 2f6051277f1ddb89e67ce8013c78571a2a7314b7
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 56644ab6cacfd811a23fb89b9bf6a10c87542db3
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089121"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876776"
 ---
 # <a name="quickstart-set-up-azure-spring-cloud-configuration-server"></a>Início Rápido: Configurar o servidor de configuração do Azure Spring Cloud
 
@@ -57,9 +57,19 @@ O procedimento a seguir configura o Config Server usando o portal do Azure para 
 
 2. Na seção **Repositório padrão**, defina **URI** como "https://github.com/Azure-Samples/piggymetrics-config".
 
-3. Selecione **Aplicar** para salvar as alterações.
+3. Clique em **Validar**.
 
-    ![Captura de tela do portal do ASC](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+    ![Navegar até o servidor de configuração](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+
+4. Quando a validação for concluída, clique em **Aplicar** para salvar as alterações.
+
+    ![Validar o servidor de configuração](media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
+
+5. A atualização da configuração pode levar alguns minutos.
+ 
+    ![Atualizar o servidor de configuração](media/spring-cloud-quickstart-launch-app-portal/updating-config.png) 
+
+6. Você deverá receber uma notificação quando a configuração for concluída.
 
 #### <a name="cli"></a>[CLI](#tab/Azure-CLI)
 
@@ -70,9 +80,36 @@ Configurar o config-server com a localização do repositório git do projeto:
 ```azurecli
 az spring-cloud config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/piggymetrics-config
 ```
-
 ---
 ::: zone-end
+
+> [!TIP]
+> Se estiver usando um repositório privado para o servidor de configuração, veja nosso [tutorial sobre como configurar a autenticação](./spring-cloud-tutorial-config-server.md).
+
+## <a name="troubleshooting-of-azure-spring-cloud-config-server"></a>Solução de problemas do Config Server do Azure Spring Cloud
+
+O procedimento a seguir explica como solucionar problemas de configurações do Config Server.
+
+1. No portal do Azure, acesse a página **Visão Geral** do serviço e selecione **Logs**. 
+1. Selecione **Consultas** e **Mostrar os logs de aplicativo que contêm os termos "erro" ou "exceção"** . 
+1. Clique em **Executar**. 
+1. Se você encontrar o erro **java.lang.illegalStateException** nos logs, isso indica que o serviço Spring Cloud não foi capaz de localizar as propriedades do Config Server.
+
+    [ ![Consulta de execução do portal do ASC](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png)
+
+1. Vá para a página **Visão Geral** do serviço.
+1. Selecione **Diagnosticar e solucionar problemas**. 
+1. Selecione o detector do **Config Server**.
+
+    [ ![Problemas de diagnóstico do portal do ASC](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png)
+
+3. Clique em **Verificação de Integridade do Config Server**.
+
+    [ ![Gênio do portal do ASC](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png)
+
+4. Clique em **Status do Config Server** para ver mais detalhes por meio do detector.
+
+    [ ![Status da integridade do portal do ASC](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 036c40395e5da5ebc09a87e420893d7dbd2ec668
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6a7bf24571660d8e728c1acba29af2504539a18
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116794"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219953"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Melhores práticas e recomendações da plataforma de identidade da Microsoft
 
@@ -28,11 +28,11 @@ Se você estiver apenas começando, confira a [documentação da plataforma de i
 Use a seguinte lista de verificação para garantir que seu aplicativo seja efetivamente integrado à [plataforma de identidade da Microsoft](./index.yml).
 
 > [!TIP]
-> O *Assistente de integração* no portal do Azure pode ajudá-lo a aplicar muitas dessas práticas recomendadas e recomendações. Selecione qualquer um dos seus [registros de aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) no portal do Azure e, em seguida, selecione o item de menu assistente de **integração (versão prévia)** para começar a usar o assistente.
+> O *Assistente de integração* no portal do Azure pode ajudá-lo a aplicar muitas dessas práticas recomendadas e recomendações. Selecione qualquer um dos seus [registros de aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) no portal do Azure e, em seguida, selecione o item de menu assistente de **integração** para começar a usar o assistente.
 
 ## <a name="basics"></a>Noções básicas
 
-![caixa ](./media/active-directory-integration-checklist/checkbox-two.svg) de seleção ler e entender as [políticas da plataforma Microsoft](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409). Verifique se seu aplicativo segue os termos descritos como foram projetados para proteger os usuários e a plataforma.
+![caixa ](./media/active-directory-integration-checklist/checkbox-two.svg) de seleção ler e entender as [políticas da plataforma Microsoft](/legal/microsoft-identity-platform/terms-of-use). Verifique se seu aplicativo segue os termos descritos como foram projetados para proteger os usuários e a plataforma.
 
 ## <a name="ownership"></a>Propriedade
 
@@ -68,9 +68,9 @@ Use a seguinte lista de verificação para garantir que seu aplicativo seja efet
 
 ![](./media/active-directory-integration-checklist/checkbox-two.svg)a caixa de seleção usa soluções de autenticação modernas (OAuth 2,0, [OpenID Connect](v2-protocols-oidc.md)) para conectar usuários com segurança.
 
-![a caixa de seleção ](./media/active-directory-integration-checklist/checkbox-two.svg) não programa diretamente em protocolos como o OAuth 2,0 e o Open ID. Em vez disso, aproveite a [MSAL (biblioteca de autenticação da Microsoft)](msal-overview.md). As bibliotecas MSAL encapsulam com segurança protocolos de segurança em uma biblioteca fácil de usar e você obtém suporte interno para cenários de [acesso condicional](../conditional-access/overview.md) , [SSO (logon único)](../manage-apps/what-is-single-sign-on.md)de todo o dispositivo e suporte interno a cache de tokens. Para obter mais informações, consulte a lista de [bibliotecas de clientes](reference-v2-libraries.md#microsoft-supported-client-libraries) e [bibliotecas de middleware](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries) com suporte da Microsoft e a lista de bibliotecas de clientes de terceiros [compatíveis](reference-v2-libraries.md#compatible-client-libraries).<br/><br/>Se você precisar distribuir o código para os protocolos de autenticação, deverá seguir uma metodologia como o [Microsoft SDL](https://www.microsoft.com/sdl/default.aspx). Preste muita atenção às considerações de segurança nas especificações de padrões para cada protocolo.
+![a caixa de seleção ](./media/active-directory-integration-checklist/checkbox-two.svg) não programa diretamente em protocolos como o OAuth 2,0 e o Open ID. Em vez disso, aproveite a [MSAL (biblioteca de autenticação da Microsoft)](msal-overview.md). As bibliotecas MSAL encapsulam com segurança protocolos de segurança em uma biblioteca fácil de usar e você obtém suporte interno para cenários de [acesso condicional](../conditional-access/overview.md) , [SSO (logon único)](../manage-apps/what-is-single-sign-on.md)de todo o dispositivo e suporte interno a cache de tokens. Para obter mais informações, consulte a lista de bibliotecas de [cliente](reference-v2-libraries.md)com suporte da Microsoft. Se você precisar codificar manualmente os protocolos de autenticação, deverá seguir o SDL da [Microsoft](https://www.microsoft.com/sdl/default.aspx) ou a metodologia de desenvolvimento semelhante. Preste muita atenção às considerações de segurança nas especificações de padrões para cada protocolo.
 
-![caixa ](./media/active-directory-integration-checklist/checkbox-two.svg) de seleção migrar aplicativos existentes da [Adal (biblioteca de autenticação Azure Active Directory)](../azuread-dev/active-directory-authentication-libraries.md) para a [biblioteca de autenticação da Microsoft](msal-overview.md). A MSAL é a mais recente solução de plataforma de identidade da Microsoft e é preferida à ADAL. Ele está disponível em .NET, JavaScript, Android, iOS, macOS e também está em visualização pública para Python e Java. Leia mais sobre como migrar aplicativos [Adal.net](msal-net-migration.md), [ADAL.js](msal-compare-msal-js-and-adal-js.md)e [Adal.net e Ios Broker](msal-net-migration-ios-broker.md) .
+![a caixa ](./media/active-directory-integration-checklist/checkbox-two.svg) de seleção migrar aplicativos existentes da [Adal (biblioteca de autenticação Azure Active Directory)](../azuread-dev/active-directory-authentication-libraries.md) para a [biblioteca de autenticação da Microsoft](msal-overview.md). A MSAL é a mais recente solução de plataforma de identidade da Microsoft e é preferida à ADAL. Ele está disponível em .NET, JavaScript, Android, iOS, macOS e também está em visualização pública para Python e Java. Leia mais sobre como migrar aplicativos [Adal.net](msal-net-migration.md), [ADAL.js](msal-compare-msal-js-and-adal-js.md)e [Adal.net e Ios Broker](msal-net-migration-ios-broker.md) .
 
 ![caixa de seleção](./media/active-directory-integration-checklist/checkbox-two.svg) Para aplicativos móveis, configure cada plataforma usando a experiência de registro do aplicativo. Para que seu aplicativo aproveite o Microsoft Authenticator ou o Microsoft Portal da Empresa para logon único, seu aplicativo precisa de um "URI de redirecionamento do Broker" configurado. Isso permite que a Microsoft retorne o controle ao seu aplicativo após a autenticação. Ao configurar cada plataforma, a experiência de registro do aplicativo orientará você pelo processo. Use o guia de início rápido para baixar um exemplo de trabalho. No iOS, use agentes e WebView do sistema sempre que possível.
 
@@ -104,7 +104,7 @@ Use a seguinte lista de verificação para garantir que seu aplicativo seja efet
 
 Explore informações detalhadas sobre a v2.0:
 
-* [Plataforma Microsoft Identity (visão geral do v 2.0)](v2-overview.md)
+* [Plataforma Microsoft Identity (visão geral)](v2-overview.md)
 * [Referência de protocolos da plataforma Microsoft Identity](active-directory-v2-protocols.md)
 * [Referência de tokens de acesso](access-tokens.md)
 * [Referência de tokens de ID](id-tokens.md)

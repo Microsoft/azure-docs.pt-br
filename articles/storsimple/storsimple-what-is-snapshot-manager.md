@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7e9d73fa94acd2f31452de05ef3caee92d5cf3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2214f085c30419cefb3f6f84139d5592873173f7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055496"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017977"
 ---
 # <a name="an-introduction-to-storsimple-snapshot-manager"></a>Uma introdução ao StorSimple Snapshot Manager
 
@@ -79,7 +79,7 @@ Com o StorSimple Snapshot Manager, você cria volumes e em seguida os configura 
 
 O StorSimple Snapshot Manager usa grupos de volumes para criar cópias de backup consistentes com o aplicativo. A consistência com aplicativos existe quando todos os arquivos e bancos de dados relacionados são sincronizados e representam o estado real de um aplicativo em um momento específico. Os grupos de volumes (que também são conhecidos como *grupos de consistência*) formam a base de um trabalho de backup ou de restauração.
 
-Grupos de volumes e contêineres de volume são coisas distintas. Um contêiner de volume contém um ou mais volumes que compartilham uma conta de armazenamento em nuvem e outros atributos, como o consumo de largura de banda e criptografia. Um contêiner de volume único pode conter até 256 volumes do StorSimple escassamente provisionados. Para obter mais informações sobre contêineres de volume, vá para [Gerenciar contêineres de volume](storsimple-manage-volume-containers.md). Grupos de volumes são conjuntos de volumes que você configura para facilitar as operações de backup. Se você selecionar dois volumes que pertencem a diferentes contêineres de volumes, coloque-os em um único grupo de volumes e, em seguida, crie uma política de backup para ele; será feito backup de cada volume no contêiner de volume apropriado, usando a conta de armazenamento apropriada.
+Grupos de volumes e contêineres de volume são coisas distintas. Um contêiner de volume contém um ou mais volumes que compartilham uma conta de armazenamento em nuvem e outros atributos, como o consumo de largura de banda e criptografia. Um contêiner de volume único pode conter até 256 volumes do StorSimple escassamente provisionados. Para obter mais informações sobre contêineres de volume, vá para [Gerenciar contêineres de volume](./storsimple-8000-manage-volume-containers.md). Grupos de volumes são conjuntos de volumes que você configura para facilitar as operações de backup. Se você selecionar dois volumes que pertencem a diferentes contêineres de volumes, coloque-os em um único grupo de volumes e, em seguida, crie uma política de backup para ele; será feito backup de cada volume no contêiner de volume apropriado, usando a conta de armazenamento apropriada.
 
 > [!NOTE]
 > Todos os volumes em um grupo de volumes devem vir de um único provedor de serviço de nuvem.
@@ -140,4 +140,3 @@ Para obter informações sobre como monitorar trabalhos de backup, vá para [Usa
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [como usar o StorSimple Snapshot Manager para administrar sua solução do StorSimple](storsimple-snapshot-manager-admin.md).
 * Baixar [snapshot Manager do StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
-

@@ -4,6 +4,15 @@
   items:
     - name: O que é a WAN virtual?
       href: virtual-wan-about.md
+- name: Inícios rápidos
+  expanded: true
+  items:
+    - name: Modelos de ARM
+      expanded: true
+      items:
+        - name: Roteamento de qualquer ponto a qualquer ponto
+          displayName: Resource Manager Any-to-any routing
+          href: quickstart-any-to-any-template.md
 - name: Tutoriais
   expanded: true
   items:
@@ -41,22 +50,24 @@
       items:
         - name: Sobre o roteamento de hub virtual
           href: about-virtual-hub-routing.md
-        - name: Cenários de roteamento
-          items:
-            - name: De qualquer ponto a qualquer ponto
-              href: scenario-any-to-any.md
-            - name: Isolar VNets
-              href: scenario-isolate-vnets.md
-            - name: Isolar VNets – Personalizado
-              href: scenario-isolate-vnets-custom.md
-            - name: VNets de serviços compartilhados
-              href: scenario-shared-services-vnet.md
-            - name: Rotear por meio de um NVA
-              href: scenario-route-through-nva.md
-            - name: Rotear por meio de um NVA – Personalizado
-              href: scenario-route-through-nvas-custom.md
-            - name: Firewall do Azure – Personalizado
-              href: scenario-route-between-vnets-firewall.md
+    - name: Cenários de roteamento
+      items:
+        - name: De qualquer ponto a qualquer ponto
+          href: scenario-any-to-any.md
+        - name: Isolar VNets
+          href: scenario-isolate-vnets.md
+        - name: Isolar VNets – Personalizado
+          href: scenario-isolate-vnets-custom.md
+        - name: Isolar redes virtuais e ramificações
+          href: scenario-isolate-virtual-networks-branches.md
+        - name: VNets de serviços compartilhados
+          href: scenario-shared-services-vnet.md
+        - name: Rotear por meio de um NVA
+          href: scenario-route-through-nva.md
+        - name: Rotear por meio de um NVA – Personalizado
+          href: scenario-route-through-nvas-custom.md
+        - name: Firewall do Azure – Personalizado
+          href: scenario-route-between-vnets-firewall.md
     - name: Monitoramento
       items:
         - name: Sobre insights do Azure Monitor para WAN Virtual
@@ -67,6 +78,10 @@
           href: virtual-wan-ipsec.md
         - name: Vários links ISP – Seleção de caminho do Azure
           href: path-selection-multiple-links.md
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
     - name: Conceitos de preços
       href: pricing-concepts.md
     - name: Sobre NVA em um hub virtual
@@ -101,24 +116,34 @@
           href: certificates-point-to-site.md
         - name: Configurar um locatário do Azure AD
           href: openvpn-azure-ad-tenant.md
-        - name: Perfil de cliente
-          href: about-vpn-profile-download.md
-        - name: Perfil global e baseado em hub
-          href: global-hub-profile.md
-        - name: Configurar clientes do OpenVPN
-          href: howto-openvpn-clients.md?
-        - name: Configurar um túnel de usuário de VPN Always On
-          href: howto-always-on-user-tunnel.md
-        - name: Configurar um túnel de dispositivo VPN Always On
-          href: howto-always-on-device-tunnel.md
-        - name: Habilitar a MFA (Autenticação Multifator)
-          href: openvpn-azure-ad-mfa.md
-        - name: Configurar a autenticação do Azure AD
-          href: virtual-wan-point-to-site-azure-ad.md
-        - name: Configurar um Cliente VPN do Azure para Windows 10
-          href: openvpn-azure-ad-client.md
-        - name: Configurar a autenticação multiaplicativo do Azure AD
-          href: openvpn-azure-ad-tenant-multi-app.md
+        - name: Perfis de cliente
+          items:
+            - name: Baixar perfis globais e baseados em hub
+              href: global-hub-profile.md
+            - name: Extrair e exibir informações de perfil
+              href: about-vpn-profile-download.md
+            - name: Implantar perfis usando o Intune
+              href: vpn-profile-intune.md
+        - name: Clientes VPN
+          items:
+            - name: Windows 10
+              href: openvpn-azure-ad-client.md
+            - name: OpenVPN
+              href: howto-openvpn-clients.md?
+        - name: Configurar túneis Always On
+          items:
+            - name: Túnel do usuário
+              href: howto-always-on-user-tunnel.md
+            - name: Túnel do dispositivo
+              href: howto-always-on-device-tunnel.md
+        - name: Autenticação
+          items:
+            - name: MFA (autenticação multifator)
+              href: openvpn-azure-ad-mfa.md
+            - name: Autenticação do Azure AD
+              href: virtual-wan-point-to-site-azure-ad.md
+            - name: Autenticação multiaplicativo do Azure AD
+              href: openvpn-azure-ad-tenant-multi-app.md
     - name: Roteamento
       items:
         - name: Como configurar um roteamento de hub virtual
@@ -137,6 +162,8 @@
           href: howto-firewall.md
         - name: Configurar a conectividade de Link Privado
           href: howto-private-link.md
+        - name: Gerenciar acesso a recursos – P2S de VNet Spoke
+          href: manage-secure-access-resources-spoke-p2s.md
     - name: Monitoramento
       items:
         - name: Logs e métricas

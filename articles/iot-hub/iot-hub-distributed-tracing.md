@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - fasttrack-edit
 - iot
-ms.openlocfilehash: efc4d07e9e3a64a36f2ecf3fa0000379bef380f9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f8d37cf8f23de1d0535c7a9ff4a95ac217eddf74
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538571"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452390"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Rastrear mensagens de dispositivo para a nuvem do IoT do Azure com o rastreamento distribuído (versão prévia)
 
@@ -55,19 +55,19 @@ Nesta seção, você configurará um Hub IoT para registrar atributos de rastrea
 
 1. Navegue até o Hub IoT no [portal do Azure](https://portal.azure.com/).
 
-1. No painel esquerdo do hub IoT, role para baixo até a seção **Monitoramento** e clique em **Configurações de diagnóstico** .
+1. No painel esquerdo do hub IoT, role para baixo até a seção **Monitoramento** e clique em **Configurações de diagnóstico**.
 
-1. Clique em **Adicionar configuração de diagnóstico** .
+1. Clique em **Adicionar configuração de diagnóstico**.
 
-1. No campo **Nome** , insira um nome para uma nova configuração de diagnóstico. Por exemplo, **DistributedTracingSettings** .
+1. No campo **Nome**, insira um nome para uma nova configuração de diagnóstico. Por exemplo, **DistributedTracingSettings**.
 
 1. Escolha uma ou mais das seguintes opções que determinam o local para onde o registro em log será enviado:
 
-    - **Arquivar em uma conta de armazenamento** : Configure uma conta de armazenamento para conter as informações de log.
-    - **Transmitir para um hub de eventos** : Configure um hub de eventos para conter as informações de log.
-    - **Enviar para log Analytics** : Configure um espaço de trabalho do log Analytics para conter as informações de log.
+    - **Arquivar em uma conta de armazenamento**: Configure uma conta de armazenamento para conter as informações de log.
+    - **Transmitir para um hub de eventos**: Configure um hub de eventos para conter as informações de log.
+    - **Enviar para log Analytics**: Configure um espaço de trabalho do log Analytics para conter as informações de log.
 
-1. Na seção **Log** , escolha as operações para as quais você deseja registrar informações do registro em log.
+1. Na seção **Log**, escolha as operações para as quais você deseja registrar informações do registro em log.
 
     Certifique-se de incluir **DistributedTracing** e de configurar uma **Retenção** com a quantidade de dias que deseja que o registro em log seja retido. A retenção de logs afeta os custos de armazenamento.
 
@@ -169,7 +169,7 @@ Essas instruções servem para compilar o exemplo no Windows. Para outros ambien
     cmake --build . --target iothub_ll_telemetry_sample --config Debug
     ```
 
-1. Executar o aplicativo. O dispositivo envia telemetria que dá suporte ao rastreamento distribuído.
+1. Execute o aplicativo. O dispositivo envia telemetria que dá suporte ao rastreamento distribuído.
 
     ```cmd
     Debug/iothub_ll_telemetry_sample.exe
@@ -183,7 +183,7 @@ Essas instruções servem para compilar o exemplo no Windows. Para outros ambien
 
 Não é **trivial** Visualizar o recurso de rastreamento distribuído sem usar o SDK do C. Portanto, essa abordagem não é recomendada.
 
-Primeiro, você deve implementar todos os primitivos de protocolo do Hub IoT em suas mensagens seguindo o guia de desenvolvimento [criar e ler mensagens do Hub IOT](iot-hub-devguide-messages-construct.md). Em seguida, edite as propriedades de protocolo nas mensagens MQTT/AMQP para adicionar `tracestate` como **Propriedade do sistema** . Especificamente:
+Primeiro, você deve implementar todos os primitivos de protocolo do Hub IoT em suas mensagens seguindo o guia de desenvolvimento [criar e ler mensagens do Hub IOT](iot-hub-devguide-messages-construct.md). Em seguida, edite as propriedades de protocolo nas mensagens MQTT/AMQP para adicionar `tracestate` como **Propriedade do sistema**. Especificamente:
 
 * Para MQTT, adicione `%24.tracestate=timestamp%3d1539243209` ao tópico da mensagem, onde `1539243209` deve ser substituído pelo horário de criação da mensagem no formato de carimbo de data/hora do UNIX. Por exemplo, consulte a implementação [no SDK do C](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761)
 * Para AMQP, adicione `key("tracestate")` e `value("timestamp=1539243209")` como anotação de mensagem. Para obter uma implementação de referência, consulte [aqui](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527).
@@ -196,19 +196,19 @@ Para alterar a porcentagem de mensagens que serão rastreadas na nuvem, você de
 
 ### <a name="update-using-the-portal"></a>Atualizar usando o portal
 
-1. Navegue até seu Hub IoT no [portal do Azure](https://portal.azure.com/) e clique em **Dispositivos IoT** .
+1. Navegue até seu Hub IoT no [portal do Azure](https://portal.azure.com/) e clique em **Dispositivos IoT**.
 
 1. Clique em seu dispositivo.
 
-1. Procure pela opção **Habilitar rastreamento distribuído (versão prévia)** e, em seguida, escolha **Habilitar** .
+1. Procure pela opção **Habilitar rastreamento distribuído (versão prévia)** e, em seguida, escolha **Habilitar**.
 
     ![Habilitar o rastreamento distribuído no portal do Azure](./media/iot-hub-distributed-tracing/azure-portal.png)
 
 1. Escolha uma **taxa de amostragem** entre 0% e 100%.
 
-1. Clique em **Salvar** .
+1. Clique em **Save** (Salvar).
 
-1. Aguarde alguns segundos e pressione **Atualizar** , Em seguida, se for confirmado com sucesso pelo dispositivo, um ícone de sincronização com uma marca de seleção será exibido.
+1. Aguarde alguns segundos e pressione **Atualizar**, Em seguida, se for confirmado com sucesso pelo dispositivo, um ícone de sincronização com uma marca de seleção será exibido.
 
 1. Volte para a janela do console do aplicativo de mensagens de telemetria. Você verá mensagens sendo enviadas com `tracestate` nas propriedades do aplicativo.
 
@@ -222,7 +222,7 @@ Para alterar a porcentagem de mensagens que serão rastreadas na nuvem, você de
 
 1. Abra o VS Code e [configure a cadeia de conexão do Hub IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit#user-content-prerequisites).
 
-1. Expanda o dispositivo e procure **Configuração do rastreamento distribuído (versão prévia)** . Nesse ponto, clique em **Atualizar a configuração do rastreamento distribuído (versão prévia)** do subnó.
+1. Expanda o dispositivo e procure **Configuração do rastreamento distribuído (versão prévia)**. Nesse ponto, clique em **Atualizar a configuração do rastreamento distribuído (versão prévia)** do subnó.
 
     ![Habilitar o rastreamento distribuído na extensão do Hub IoT do Azure](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-1.png)
 
@@ -295,7 +295,7 @@ Essa imagem abaixo mostra o rastreamento distribuído no Mapa de aplicativo com 
 
 ### <a name="context"></a>Contexto
 
-Muitas soluções de IoT, incluindo nossa própria [arquitetura de referência](https://aka.ms/iotrefarchitecture) (somente em inglês), geralmente seguem uma variante da [arquitetura de microsserviços](/azure/architecture/microservices/). À medida que uma solução de IoT se torna mais complexa, você acaba por usar 12 ou mais microsserviços. Esses microsserviços podem ou não ser do Azure. Identifique onde as mensagens de IoT são soltas ou a diminuição da velocidade poderá se tornar um desafio. Por exemplo, você tem uma solução de IoT que usa 5 serviços diferentes do Azure e 1500 dispositivos ativos. Cada dispositivo envia 10 mensagens de dispositivo para nuvem/segundo (para um total de 15.000 mensagens/segundo), mas você percebe que seu aplicativo Web vê apenas 10.000 mensagens/segundo. Onde está o problema? Consegue encontrar o culpado?
+Muitas soluções de IoT, incluindo nossa própria [arquitetura de referência](/azure/architecture/reference-architectures/iot) (somente em inglês), geralmente seguem uma variante da [arquitetura de microsserviços](/azure/architecture/microservices/). À medida que uma solução de IoT se torna mais complexa, você acaba por usar 12 ou mais microsserviços. Esses microsserviços podem ou não ser do Azure. Identifique onde as mensagens de IoT são soltas ou a diminuição da velocidade poderá se tornar um desafio. Por exemplo, você tem uma solução de IoT que usa 5 serviços diferentes do Azure e 1500 dispositivos ativos. Cada dispositivo envia 10 mensagens de dispositivo para nuvem/segundo (para um total de 15.000 mensagens/segundo), mas você percebe que seu aplicativo Web vê apenas 10.000 mensagens/segundo. Onde está o problema? Consegue encontrar o culpado?
 
 ### <a name="distributed-tracing-pattern-in-microservice-architecture"></a>Padrão do rastreamento distribuído na arquitetura de microsserviços
 

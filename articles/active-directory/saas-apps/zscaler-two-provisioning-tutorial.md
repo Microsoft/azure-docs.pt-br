@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: fcbe2101f85678414d4496977d9a0a1d41a71ea5
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 1c63639321966cbb73f5c47524f408d17ba46c3a
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517490"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936544"
 ---
 # <a name="tutorial-configure-zscaler-two-for-automatic-user-provisioning"></a>Tutorial: Configurar o Zscaler Two para o provisionamento automático de usuário
 
@@ -40,11 +40,11 @@ Para concluir as etapas deste tutorial, você precisará do seguinte:
 
 Antes de configurar o Zscaler Two para o provisionamento automático de usuário com o Azure AD, é necessário adicionar o Zscaler Two por meio da galeria de aplicativos do Azure AD à lista de aplicativos SaaS gerenciados.
 
-No [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory** :
+No [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory**:
 
 ![Selecione Azure Active Directory](common/select-azuread.png)
 
-Acesse **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos** :
+Acesse **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**:
 
 ![Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -52,7 +52,7 @@ Para adicionar um aplicativo, selecione **Novo aplicativo** na parte superior da
 
 ![Selecionar Novo aplicativo](common/add-new-app.png)
 
-Na caixa de pesquisa, insira **Zscaler Two** . Selecione **Zscaler Two** nos resultados e, em seguida, selecione **Adicionar** .
+Na caixa de pesquisa, insira **Zscaler Two**. Selecione **Zscaler Two** nos resultados e, em seguida, selecione **Adicionar**.
 
 ![Lista de resultados](common/search-new-app.png)
 
@@ -75,75 +75,78 @@ Esta seção descreve as etapas de configuração do serviço de provisionamento
 > [!TIP]
 > Talvez você também deseje habilitar o logon único baseado no SAML para o Zscaler Two. Se você fizer isso, siga as instruções descritas no [tutorial de logon único do Zscaler Two](zscaler-two-tutorial.md). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora os dois recursos sejam complementares.
 
-1. Entre no [portal do Azure](https://portal.azure.com) e selecione **Aplicativos empresariais** > **Todos os aplicativos** > **Zscaler Two** :
+> [!NOTE]
+> Quando os usuários e grupos são provisionados ou desprovisionados, é recomendável reiniciar periodicamente o provisionamento para garantir que as associações de grupo sejam atualizadas corretamente. A realização de uma reinicialização forçará nosso serviço a reavaliar todos os grupos e atualizar as associações. 
+
+1. Entre no [portal do Azure](https://portal.azure.com) e selecione **Aplicativos empresariais** > **Todos os aplicativos** > **Zscaler Two**:
 
     ![Aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **Zscaler Two** :
+2. Na lista de aplicativos, selecione **Zscaler Two**:
 
     ![Lista Aplicativos](common/all-applications.png)
 
-3. Selecione a guia **Provisionamento** :
+3. Selecione a guia **Provisionamento**:
 
     ![Provisionamento do Zscaler Two](./media/zscaler-two-provisioning-tutorial/provisioning-tab.png)
 
-4. Defina o **Modo de Provisionamento** como **Automático** :
+4. Defina o **Modo de Provisionamento** como **Automático**:
 
     ![Definir o modo de provisionamento](./media/zscaler-two-provisioning-tutorial/provisioning-credentials.png)
 
-5. Na seção **Credenciais de Administrador** , insira a **URL do Locatário** e o **Token Secreto** da conta do Zscaler Two, conforme descrito na próxima etapa.
+5. Na seção **Credenciais de Administrador**, insira a **URL do Locatário** e o **Token Secreto** da conta do Zscaler Two, conforme descrito na próxima etapa.
 
-6. Para obter a **URL do Locatário** e o **Token Secreto** , acesse **Administração** > **Configurações de Autenticação** no portal do Zscaler Two e selecione **SAML** em **Tipo de Autenticação** :
+6. Para obter a **URL do Locatário** e o **Token Secreto**, acesse **Administração** > **Configurações de Autenticação** no portal do Zscaler Two e selecione **SAML** em **Tipo de Autenticação**:
 
     ![Configurações de autenticação do Zscaler Two](./media/zscaler-two-provisioning-tutorial/secret-token-1.png)
 
-    Selecione **Configurar o SAML** para abrir a janela **Configurar o SAML** :
+    Selecione **Configurar o SAML** para abrir a janela **Configurar o SAML**:
 
     ![Configurar a janela do SAML](./media/zscaler-two-provisioning-tutorial/secret-token-2.png)
 
-    Selecione **Habilitar o Provisionamento Baseado no SCIM** , copie a **URL Base** e o **Token de Portador** e, em seguida, salve as configurações. No portal do Azure, cole a **URL Base** na caixa **URL do Locatário** e o **Token de Portador** na caixa **Token Secreto** .
+    Selecione **Habilitar o Provisionamento Baseado no SCIM**, copie a **URL Base** e o **Token de Portador** e, em seguida, salve as configurações. No portal do Azure, cole a **URL Base** na caixa **URL do Locatário** e o **Token de Portador** na caixa **Token Secreto**.
 
-7. Depois de inserir os valores nas caixas **URL do Locatário** e **Token Secreto** , selecione **Testar Conectividade** para garantir que o Azure AD possa se conectar ao Zscaler Two. Se a conexão falhar, verifique se a sua conta do Zscaler Two tem permissões de administrador e tente novamente.
+7. Depois de inserir os valores nas caixas **URL do Locatário** e **Token Secreto**, selecione **Testar Conectividade** para garantir que o Azure AD possa se conectar ao Zscaler Two. Se a conexão falhar, verifique se a sua conta do Zscaler Two tem permissões de administrador e tente novamente.
 
     ![Testar a conexão](./media/zscaler-two-provisioning-tutorial/test-connection.png)
 
-8. Na caixa **Email de Notificação** , insira o endereço de email de uma pessoa ou um grupo que deve receber as notificações do erro de provisionamento. Selecione **Enviar uma notificação por email quando ocorrer uma falha** :
+8. Na caixa **Email de Notificação**, insira o endereço de email de uma pessoa ou um grupo que deve receber as notificações do erro de provisionamento. Selecione **Enviar uma notificação por email quando ocorrer uma falha**:
 
     ![Configurar o email de notificação](./media/zscaler-two-provisioning-tutorial/notification.png)
 
-9. Clique em **Salvar** .
+9. Clique em **Salvar**.
 
-10. Na seção **Mapeamentos** , selecione **Sincronizar Usuários do Azure Active Directory com o Zscaler Two** :
+10. Na seção **Mapeamentos**, selecione **Sincronizar Usuários do Azure Active Directory com o Zscaler Two**:
 
     ![Sincronizar usuários do Azure AD](./media/zscaler-two-provisioning-tutorial/user-mappings.png)
 
-11. Examine os atributos de usuário que são sincronizados do Azure AD para o Zscaler Two na seção **Mapeamentos de Atributo** . Os atributos selecionados como propriedades **Correspondentes** são usados para fazer a correspondência das contas de usuário no Zscaler Two em operações de atualização. Para confirmar eventuais alterações, selecione **Salvar** .
+11. Examine os atributos de usuário que são sincronizados do Azure AD para o Zscaler Two na seção **Mapeamentos de Atributo**. Os atributos selecionados como propriedades **Correspondentes** são usados para fazer a correspondência das contas de usuário no Zscaler Two em operações de atualização. Para confirmar eventuais alterações, selecione **Salvar**.
 
     ![Captura de tela da seção Mapeamentos de Atributos com sete mapeamentos exibidos.](./media/zscaler-two-provisioning-tutorial/user-attribute-mappings.png)
 
-12. Na seção **Mapeamentos** , selecione **Sincronizar Grupos do Azure Active Directory com o Zscaler Two** :
+12. Na seção **Mapeamentos**, selecione **Sincronizar Grupos do Azure Active Directory com o Zscaler Two**:
 
     ![Sincronizar grupos do Azure AD](./media/zscaler-two-provisioning-tutorial/group-mappings.png)
 
-13. Examine os atributos de grupo que são sincronizados do Azure AD para o Zscaler Two na seção **Mapeamentos de Atributo** . Os atributos selecionados como propriedades **Correspondentes** são usados para fazer a correspondência dos grupos no Zscaler Two em operações de atualização. Para confirmar eventuais alterações, selecione **Salvar** .
+13. Examine os atributos de grupo que são sincronizados do Azure AD para o Zscaler Two na seção **Mapeamentos de Atributo**. Os atributos selecionados como propriedades **Correspondentes** são usados para fazer a correspondência dos grupos no Zscaler Two em operações de atualização. Para confirmar eventuais alterações, selecione **Salvar**.
 
     ![Captura de tela da seção Mapeamentos de Atributos com três mapeamentos exibidos.](./media/zscaler-two-provisioning-tutorial/group-attribute-mappings.png)
 
 14. Para configurar filtros de escopo, veja as instruções fornecidas no [tutorial sobre filtros de escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-15. Para habilitar o serviço de provisionamento do Azure AD no Zscaler Two, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações** :
+15. Para habilitar o serviço de provisionamento do Azure AD no Zscaler Two, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**:
 
     ![Status de provisionamento](./media/zscaler-two-provisioning-tutorial/provisioning-status.png)
 
-16. Defina os usuários e/ou os grupos que deseja provisionar para o Zscaler Two escolhendo os valores desejados em **Escopo** na seção **Configurações** :
+16. Defina os usuários e/ou os grupos que deseja provisionar para o Zscaler Two escolhendo os valores desejados em **Escopo** na seção **Configurações**:
 
     ![Valores de escopo](./media/zscaler-two-provisioning-tutorial/scoping.png)
 
-17. Quando estiver pronto para fazer o provisionamento, selecione **Salvar** :
+17. Quando estiver pronto para fazer o provisionamento, selecione **Salvar**:
 
     ![Selecionar Salvar](./media/zscaler-two-provisioning-tutorial/save-provisioning.png)
 
-Essa operação inicia a sincronização inicial de todos os usuários e grupos definidos em **Escopo** na seção **Configurações** . A sincronização inicial leva mais tempo do que as sincronizações seguintes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. Monitore o progresso na seção **Detalhes de Sincronização** . Você também pode seguir os links para um relatório de atividades de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no Zscaler Two.
+Essa operação inicia a sincronização inicial de todos os usuários e grupos definidos em **Escopo** na seção **Configurações**. A sincronização inicial leva mais tempo do que as sincronizações seguintes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. Monitore o progresso na seção **Detalhes de Sincronização**. Você também pode seguir os links para um relatório de atividades de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no Zscaler Two.
 
 Para obter informações sobre como ler os logs de provisionamento do Azure AD, confira [Relatórios sobre o provisionamento automático de contas de usuário](../app-provisioning/check-status-user-account-provisioning.md).
 

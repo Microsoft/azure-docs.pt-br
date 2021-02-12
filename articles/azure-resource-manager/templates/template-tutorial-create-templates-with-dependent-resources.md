@@ -1,20 +1,20 @@
 ---
 title: Modelo com recursos dependentes
-description: Saiba como criar um modelo do Azure Resource Manager com vários recursos e como implantá-lo usando o portal do Azure
+description: Saiba como criar um modelo do ARM (modelo do Azure Resource Manager) com vários recursos e como implantá-lo usando o portal do Azure
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3ed653c511dbd775d124e1abd6f4bb02923edb25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a77f64e51a26e1f916f9f96704c55412a870a509
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86102065"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673929"
 ---
 # <a name="tutorial-create-arm-templates-with-dependent-resources"></a>Tutorial: Criar modelos do ARM com recursos dependentes
 
-Saiba como criar um modelo do ARM (Azure Resource Manager) para implantar vários recursos e configurar o pedido de implantação. Depois de criar o modelo, você poderá implantá-lo usando o Cloud Shell no portal do Azure.
+Saiba como criar um modelo do ARM (modelo do Azure Resource Manager) para implantar vários recursos e configurar a ordem de implantação. Depois de criar o modelo, você poderá implantá-lo usando o Cloud Shell no portal do Azure.
 
 Neste tutorial, você criará uma conta de armazenamento, uma máquina virtual, uma rede virtual e alguns outros recursos dependentes. Alguns recursos não podem ser implantados até que outro recurso exista. Por exemplo, não é possível criar a máquina virtual enquanto a conta de armazenamento e o adaptador de rede não existirem. Defina essa relação marcando um recurso como dependente dos outros. O Gerenciador de Recursos avalia as dependências entre os recursos e os implanta na ordem de dependência. Quando os recursos não dependem uns dos outros, o Gerenciador de Recursos os implanta paralelamente. Para obter mais informações, consulte [Definir a ordem de implantação dos recursos em modelos do ARM](./define-resource-dependency.md).
 
@@ -29,11 +29,13 @@ Este tutorial cobre as seguintes tarefas:
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
+Para obter um módulo do Microsoft Learn que aborda as dependências de recursos, confira [Gerenciar implantações de nuvem complexas usando recursos avançados do modelo do ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este artigo, você precisa do seguinte:
 
-* Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Início Rápido: Criar modelos do Azure Resource Manager com o Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Início Rápido: Criar modelos do ARM com o Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * Para aumentar a segurança, use uma senha gerada para a conta de administrador da máquina virtual. Veja um exemplo para gerar uma senha:
 
     ```console
@@ -46,7 +48,7 @@ Para concluir este artigo, você precisa do seguinte:
 
 Modelos de Início Rápido do Azure é um repositório de modelos do ARM. Em vez de criar um modelo do zero, você pode encontrar um exemplo de modelo e personalizá-lo. O modelo usado neste tutorial é chamado [Implantar uma VM Windows simples](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
-1. No Visual Studio Code, escolha **Arquivo**>**Abrir Arquivo**.
+1. No Visual Studio Code, escolha **Arquivo** > **Abrir Arquivo**.
 2. Em **Nome do arquivo**, cole a seguinte URL:
 
     ```url
@@ -54,20 +56,20 @@ Modelos de Início Rápido do Azure é um repositório de modelos do ARM. Em vez
     ```
 
 3. Escolha **Abrir** para abrir o arquivo.
-4. Selecione **Arquivo**>**Salvar como** para salvar uma cópia do arquivo no computador local com o nome **azuredeploy.json**.
+4. Selecione **Arquivo** > **Salvar como** para salvar uma cópia do arquivo no computador local com o nome _azuredeploy.json_.
 
 ## <a name="explore-the-template"></a>Explorar o modelo
 
 Ao explorar o modelo nesta seção, tente responder a essas perguntas:
 
 * Quantos recursos do Azure estão definidos nesse modelo?
-* Um dos recursos é uma conta de armazenamento do Azure.  A definição se parece com a usada no último tutorial?
+* Um dos recursos é uma conta de armazenamento do Azure. A definição se parece com a usada no último tutorial?
 * Você consegue encontrar as referências de modelo para os recursos definidos neste modelo?
 * Você consegue encontrar as dependências dos recursos?
 
-1. No Visual Studio Code, recolha os elementos até ver apenas os elementos de primeiro nível e os elementos de segundo nível dentro dos **recursos**:
+1. No Visual Studio Code, recolha os elementos até ver apenas os elementos de primeiro nível e os elementos de segundo nível dentro dos `resources`:
 
-    ![Modelos do Azure Resource Manager no Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
+    ![Modelos do ARM no Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
     Há seis recursos definidos pelo modelo:
 
@@ -78,25 +80,25 @@ Ao explorar o modelo nesta seção, tente responder a essas perguntas:
    * [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces).
    * [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines).
 
-     É útil examinar a referência do modelo antes de personalizar um modelo.
+     É útil examinar a referência do modelo antes de personalizá-lo.
 
 1. Expanda o primeiro recurso. Trata-se de uma conta de armazenamento. Compare a definição de recurso com a [referência de modelo](/azure/templates/Microsoft.Storage/storageAccounts).
 
-    ![Definição da conta de armazenamento do Azure Resource Manager no Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
+    ![Definição da conta de armazenamento dos modelos do ARM no Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
 
 1. Expanda o segundo recurso. O tipo de recurso é `Microsoft.Network/publicIPAddresses`. Compare a definição de recurso com a [referência de modelo](/azure/templates/microsoft.network/publicipaddresses).
 
-    ![Definição do endereço IP do Azure Resource Manager no Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
+    ![Definição do endereço IP público dos modelos do ARM no Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
 
 1. Expanda o terceiro recurso. O tipo de recurso é `Microsoft.Network/networkSecurityGroups`. Compare a definição de recurso com a [referência de modelo](/azure/templates/microsoft.network/networksecuritygroups).
 
-    ![Definição de grupo de segurança de rede dos modelos do Azure Resource Manager no Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-network-security-group-definition.png)
+    ![Definição do grupo de segurança de rede dos modelos do ARM no Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-network-security-group-definition.png)
 
 1. Expanda o quarto recurso. O tipo de recurso é `Microsoft.Network/virtualNetworks`:
 
-    ![dependsOn da rede virtual dos modelos do Azure Resource Manager no Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
+    ![Elemento dependsOn da rede virtual dos modelos do ARM no Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
 
-    O elemento dependsOn permite definir um recurso como dependente de um ou mais recursos. O recurso depende de um outro recurso:
+    O elemento `dependsOn` permite definir um recurso como dependente de um ou mais recursos. O recurso depende de um outro recurso:
 
     * `Microsoft.Network/networkSecurityGroups`
 
@@ -112,7 +114,7 @@ Ao explorar o modelo nesta seção, tente responder a essas perguntas:
 
 O diagrama a seguir ilustra os recursos e as informações de dependência para o modelo:
 
-![Diagrama dos modelos do Azure Resource Manager no Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependency-diagram.png)
+![Diagrama de dependência dos modelos do ARM no Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependency-diagram.png)
 
 Ao especificar as dependências, o Gerenciador de Recursos implanta a solução eficientemente. Ele implanta a conta de armazenamento, o endereço IP público e a rede virtual em paralelo porque eles não têm dependências. Depois que o endereço IP público e a rede virtual são implantados, o adaptador de rede é criado. Quando todos os outros recursos são implantados, o Gerenciador de Recursos implanta a máquina virtual.
 
@@ -124,7 +126,7 @@ Ao especificar as dependências, o Gerenciador de Recursos implanta a solução 
 
     ![Carregar arquivo do Cloud Shell no portal do Azure](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Escolha **Carregar/fazer o download dos arquivos** e, em seguida, escolha **Carregar**. Consulte a captura de tela anterior. Selecione o arquivo que você salvou anteriormente. Após carregar o arquivo, você pode usar o comando **ls** e o comando **cat** para verificar se o arquivo foi carregado com êxito.
+1. Escolha **Carregar/fazer o download dos arquivos** e, em seguida, escolha **Carregar**. Consulte a captura de tela anterior. Selecione o arquivo que você salvou anteriormente. Depois de carregar o arquivo, use os comandos `ls` e `cat` para verificar se o arquivo foi carregado com êxito.
 
 1. Execute o script do PowerShell a seguir para implantar o modelo.
 

@@ -4,15 +4,15 @@ description: Saiba como implantar Sincronização de Arquivos do Azure, do iníc
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/19/2018
+ms.date: 11/05/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a57956de574f74308747edd463851eb1ea4dbb42
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 4814a12a870d5317ad91c3514327ba0daad7ed69
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489482"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225363"
 ---
 # <a name="deploy-azure-file-sync"></a>Implantar a Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -48,7 +48,7 @@ Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos
     > [!Important]  
     > Se você planeja usar a interface do usuário de registro do servidor, em vez de registrá-la diretamente do PowerShell, você deve usar o PowerShell 5,1.
 
-1. Se você tiver optado por usar o PowerShell 5,1, verifique se pelo menos o .NET 4.7.2 está instalado. Saiba mais sobre [as versões do .NET Framework e as dependências](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) em seu sistema.
+1. Se você tiver optado por usar o PowerShell 5,1, verifique se pelo menos o .NET 4.7.2 está instalado. Saiba mais sobre [as versões do .NET Framework e as dependências](/dotnet/framework/migration-guide/versions-and-dependencies) em seu sistema.
 
     > [!Important]  
     > Se você estiver instalando o .NET 4.7.2 + no Windows Server Core, será necessário instalar o com os `quiet` `norestart` sinalizadores e ou a instalação falhará. Por exemplo, se estiver instalando o .NET 4,8, o comando seria semelhante ao seguinte:
@@ -56,7 +56,7 @@ Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos
     > Start-Process -FilePath "ndp48-x86-x64-allos-enu.exe" -ArgumentList "/q /norestart" -Wait
     > ```
 
-1. O módulo AZ PowerShell, que pode ser instalado seguindo as instruções aqui: [instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+1. O módulo AZ PowerShell, que pode ser instalado seguindo as instruções aqui: [instalar e configurar o Azure PowerShell](/powershell/azure/install-Az-ps).
      
     > [!Note]  
     > O módulo AZ. StorageSync agora é instalado automaticamente quando você instala o módulo AZ PowerShell.
@@ -70,13 +70,13 @@ Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos
 
 1. [Instalar a CLI do Azure](/cli/azure/install-azure-cli)
 
-   Se preferir, você também pode usar Azure Cloud Shell para concluir as etapas neste tutorial.  Azure Cloud Shell é um ambiente de shell interativo que você usa por meio de seu navegador.  Inicie Cloud Shell usando um destes métodos:
+   Se preferir, você também pode usar o Azure Cloud Shell para concluir as etapas deste tutorial.  O Azure Cloud Shell é um ambiente de shell interativo usado por meio do navegador.  Inicie o Cloud Shell usando um destes métodos:
 
    - Selecione **Experimente** no canto superior direito de um bloco de código. **Tente** abrir Azure cloud Shell, mas ele não copiará o código automaticamente para Cloud Shell.
 
-   - Abra Cloud Shell acessando [https://shell.azure.com](https://shell.azure.com)
+   - Abra o Cloud Shell acessando [https://shell.azure.com](https://shell.azure.com)
 
-   - Selecione o botão **Cloud Shell** na barra de menus no canto superior direito da [portal do Azure](https://portal.azure.com)
+   - Selecione o botão **Cloud Shell** na barra de menus, no canto superior direito do [portal do Azure](https://portal.azure.com)
 
 1. Entrar.
 
@@ -153,7 +153,7 @@ A implantação da Sincronização de Arquivos do Azure começa com a colocaçã
 > O serviço de sincronização de armazenamento herda as permissões de acesso da assinatura e do grupo de recursos em que foi implantado. É recomendável verificar cuidadosamente quem tem acesso a ele. Entidades com acesso de gravação podem começar a sincronizar novos conjuntos de arquivos de servidores registrados nesse serviço de sincronização de armazenamento e fazer com que os dados fluam para o armazenamento do Azure que está acessível para elas.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-Para implantar um serviço de sincronização de armazenamento, vá para o [portal do Azure](https://portal.azure.com/), clique em *criar um recurso* e procure por sincronização de arquivos do Azure. Nos resultados da pesquisa, selecione **sincronização de arquivos do Azure**e, em seguida, selecione **criar** para abrir a guia **implantar sincronização de armazenamento** .
+Para implantar um serviço de sincronização de armazenamento, vá para o [portal do Azure](https://portal.azure.com/), clique em *criar um recurso* e procure por sincronização de arquivos do Azure. Nos resultados da pesquisa, selecione **sincronização de arquivos do Azure** e, em seguida, selecione **criar** para abrir a guia **implantar sincronização de armazenamento** .
 
 No novo painel que será aberta, insira as seguintes informações:
 
@@ -418,6 +418,7 @@ No painel **Adicionar ponto de extremidade do servidor** , insira as informaçõ
 - **Caminho**: o caminho do Windows Server a ser sincronizado como parte do grupo de sincronização.
 - **Nuvem em camadas**: uma opção para habilitar ou desabilitar a nuvem camadas. Com nuvem em camadas, arquivos raramente usados ou acessados de nuvem podem ter várias camada para arquivos do Azure.
 - **Espaço livre no volume**: a quantidade de espaço livre a ser reservada no volume no qual o ponto de extremidade do servidor está localizado. Por exemplo, se o espaço livre do volume estiver definido como 50% em um volume com um único ponto de extremidade do servidor, aproximadamente metade da quantidade de dados será disposta em camadas para os Arquivos do Azure. Independentemente de as camadas na nuvem estarem habilitadas, o Compartilhamento de Arquivos do Azure sempre terá uma cópia completa dos dados no Grupo de Sincronização.
+- **Modo de download inicial**: essa é uma seleção opcional, começando com o Agent versão 11, que pode ser útil quando há arquivos no compartilhamento de arquivos do Azure, mas não no servidor. Essa situação pode existir, por exemplo, se você criar um ponto de extremidade do servidor para adicionar outro servidor de filial a um grupo de sincronização ou quando você recuperar um servidor com falha de desastre. Se a disposição em camadas da nuvem estiver habilitada, o padrão será apenas recuperar o namespace, nenhum conteúdo de arquivo inicialmente. Isso é útil se você acredita que, em vez disso, as solicitações de acesso do usuário devem decidir qual conteúdo de arquivo é rechamado para o servidor. Se a disposição em camadas da nuvem estiver desabilitada, o padrão é que o namespace será baixado primeiro e, em seguida, os arquivos serão rechamados com base no carimbo de data/hora da última modificação até que a capacidade local tenha sido atingida. No entanto, você pode alterar o modo de download inicial somente para namespace. Um terceiro modo só poderá ser usado se a disposição em camadas da nuvem estiver desabilitada para este ponto de extremidade do servidor. Esse modo evita a rechamada do namespace primeiro. Os arquivos só serão exibidos no servidor local se tiverem a oportunidade de baixar totalmente. Esse modo será útil se, por exemplo, um aplicativo exigir que os arquivos completos estejam presentes e não puder tolerar arquivos em camadas no namespace.
 
 Para adicionar o ponto de extremidade do servidor, selecione **criar**. Os arquivos agora serão mantidos em sincronia entre o Compartilhamento de Arquivos do Azure e o Windows Server. 
 
@@ -428,6 +429,8 @@ Execute os comandos do PowerShell a seguir para criar o ponto de extremidade do 
 $serverEndpointPath = "<your-server-endpoint-path>"
 $cloudTieringDesired = $true
 $volumeFreeSpacePercentage = <your-volume-free-space>
+# Optional property. Choose from: [NamespaceOnly] default when cloud tiering is enabled. [NamespaceThenModifiedFiles] default when cloud tiering is disabled. [AvoidTieredFiles] only available when cloud tiering is disabled.
+$initialDownloadPolicy = NamespaceOnly
 
 if ($cloudTieringDesired) {
     # Ensure endpoint path is not the system volume
@@ -444,14 +447,16 @@ if ($cloudTieringDesired) {
         -ServerResourceId $registeredServer.ResourceId `
         -ServerLocalPath $serverEndpointPath `
         -CloudTiering `
-        -VolumeFreeSpacePercent $volumeFreeSpacePercentage
+        -VolumeFreeSpacePercent $volumeFreeSpacePercentage `
+        -InitialDownloadPolicy $initialDownloadPolicy
 } else {
     # Create server endpoint
     New-AzStorageSyncServerEndpoint `
         -Name $registeredServer.FriendlyName `
         -SyncGroup $syncGroup `
         -ServerResourceId $registeredServer.ResourceId `
-        -ServerLocalPath $serverEndpointPath
+        -ServerLocalPath $serverEndpointPath `
+        -InitialDownloadPolicy $initialDownloadPolicy
 }
 ```
 
@@ -478,6 +483,7 @@ az storagesync sync-group server-endpoint create --resource-group myResourceGrou
                                                  --cloud-tiering on \
                                                  --volume-free-space-percent 85 \
                                                  --tier-files-older-than-days 15 \
+                                                 --initial-download-policy NamespaceOnly [OR] NamespaceThenModifiedFiles [OR] AvoidTieredFiles
                                                  --offline-data-transfer on \
                                                  --offline-data-transfer-share-name myfilesharename \
 
@@ -500,7 +506,7 @@ Se você quiser configurar a sincronização de arquivos do Azure para trabalhar
 ![Definindo configurações de rede virtual e de firewall para trabalhar com a sincronização de arquivos do Azure](media/storage-sync-files-deployment-guide/firewall-and-vnet.png)
 
 ## <a name="onboarding-with-azure-file-sync"></a>Integração com a Sincronização de arquivos do Azure
-As etapas recomendadas para se integrar à Sincronização de arquivos do Azure pela primeira vez com zero tempo de inatividade e ainda preservar a fidelidade do arquivo completo e a lista de controle de acesso (ACL) são as seguintes:
+As etapas recomendadas para a integração em Sincronização de Arquivos do Azure pela primeira vez sem tempo de inatividade, enquanto preserva a fidelidade de arquivo completo e a ACL (lista de controle de acesso) são as seguintes:
  
 1. Implantar um Serviço de sincronização de armazenamento.
 1. Criar um grupo de sincronização.
@@ -567,8 +573,42 @@ No entanto, se você alterar o agendamento de uma maneira que resultará em um i
 
 O número máximo padrão de instantâneos VSS por volume (64), bem como o agendamento padrão para levá-los, resulta em um máximo de 45 dias de versões anteriores que um operador de informações pode restaurar, dependendo de quantos instantâneos VSS você pode armazenar em seu volume.
 
-Se o máximo de 64 instantâneos do VSS por volume não for a configuração correta para você, você poderá [alterar esse valor por meio de uma chave do registro](https://docs.microsoft.com/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
+Se o máximo de 64 instantâneos do VSS por volume não for a configuração correta para você, você poderá [alterar esse valor por meio de uma chave do registro](/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
 Para que o novo limite entre em vigor, você precisa executar novamente o cmdlet para habilitar a compatibilidade de versão anterior em cada volume que foi habilitado anteriormente, com o sinalizador-Force para obter o novo número máximo de instantâneos do VSS por volume em conta. Isso resultará em um número calculado recentemente de dias compatíveis. Observe que essa alteração só entrará em vigor em arquivos em camadas recentemente e substituirá as personalizações na agenda do VSS que você tenha feito.
+
+<a id="proactive-recall"></a>
+## <a name="proactively-recall-new-and-changed-files-from-an-azure-file-share"></a>Recuperar proativamente arquivos novos e alterados de um compartilhamento de arquivos do Azure
+
+Com o Agent versão 11, um novo modo fica disponível em um ponto de extremidade do servidor. Esse modo permite que empresas distribuídas globalmente tenham o cache de servidor em uma região remota preenchida previamente antes de os usuários locais acessarem qualquer arquivo. Quando habilitado em um ponto de extremidade do servidor, esse modo fará com que esse servidor Relembre os arquivos que foram criados ou alterados no compartilhamento de arquivos do Azure.
+
+### <a name="scenario"></a>Cenário
+
+Uma empresa distribuída globalmente tem filiais nos EUA e na Índia. Nos operadores de informações de manhã (horário dos EUA), eles criam uma nova pasta e novos arquivos para um projeto totalmente novo e trabalham o dia todo. Sincronização de Arquivos do Azure sincronizará a pasta e os arquivos com o compartilhamento de arquivos do Azure (ponto de extremidade de nuvem). Os operadores de informações na Índia continuarão a trabalhar no projeto em seu fuso horário. Quando chegam na manhã, o servidor local Sincronização de Arquivos do Azure habilitado na Índia precisa ter esses novos arquivos disponíveis localmente, de modo que a equipe da Índia possa trabalhar com eficiência em um cache local. Habilitar esse modo impede que o acesso inicial do arquivo seja mais lento devido a uma recall sob demanda e permite que o servidor retorne proativamente os arquivos assim que eles foram alterados ou criados no compartilhamento de arquivos do Azure.
+
+> [!IMPORTANT]
+> É importante perceber que o controle de alterações no compartilhamento de arquivos do Azure que em mais detalhes no servidor pode aumentar o tráfego de saída e a cobrança do Azure. Se os arquivos recuperados para o servidor não forem realmente necessários localmente, a recuperação desnecessária no servidor poderá ter consequências negativas. Use esse modo quando você souber preencher previamente o cache em um servidor com alterações recentes na nuvem terá um efeito positivo sobre os usuários ou aplicativos que usam os arquivos nesse servidor.
+
+### <a name="enable-a-server-endpoint-to-proactively-recall-what-changed-in-an-azure-file-share"></a>Habilitar um ponto de extremidade do servidor para se lembrar de forma proativa o que mudou em um compartilhamento de arquivos do Azure
+
+# <a name="portal"></a>[Portal](#tab/proactive-portal)
+
+1. No [portal do Azure](https://portal.azure.com/), acesse o serviço de sincronização de armazenamento, selecione o grupo de sincronização correto e, em seguida, identifique o ponto de extremidade do servidor para o qual você deseja controlar as alterações no compartilhamento de arquivos do Azure (ponto de extremidade de nuvem).
+1. Na seção camadas de nuvem, localize o tópico "download do compartilhamento de arquivos do Azure". Você verá o modo selecionado no momento e poderá alterá-lo para controlar as alterações do compartilhamento de arquivos do Azure mais de maneira mais minuciosa e refazê-las proativamente no servidor.
+
+:::image type="content" source="media/storage-sync-files-deployment-guide/proactive-download.png" alt-text="Uma imagem que mostra o comportamento de download do compartilhamento de arquivos do Azure para um ponto de extremidade de servidor atualmente em vigor e um botão para abrir um menu que permite alterá-lo.":::
+
+# <a name="powershell"></a>[PowerShell](#tab/proactive-powershell)
+
+Você pode modificar as propriedades de ponto de extremidade do servidor no PowerShell por meio do cmdlet [set-AzStorageSyncServerEndpoint](/powershell/module/az.storagesync/set-azstoragesyncserverendpoint) .
+
+```powershell
+# Optional parameter. Default: "UpdateLocallyCachedFiles", alternative behavior: "DownloadNewAndModifiedFiles"
+$recallBehavior = "DownloadNewAndModifiedFiles"
+
+Set-AzStorageSyncServerEndpoint -InputObject <PSServerEndpoint> -LocalCacheMode $recallBehavior
+```
+
+---
 
 ## <a name="migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync"></a>Migrar uma implantação de replicação do DFS (DFS-R) para sincronização de arquivos do Azure
 Para migrar uma implantação de DFS-R para sincronização de arquivos do Azure:

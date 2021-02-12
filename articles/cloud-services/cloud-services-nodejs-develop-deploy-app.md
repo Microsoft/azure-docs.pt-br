@@ -1,23 +1,24 @@
 ---
 title: Guia de introdução ao Node.js
 description: Saiba como criar um aplicativo Web simples do Node.js e implantá-lo em um serviço de nuvem do Azure.
-services: cloud-services
-documentationcenter: nodejs
-author: tgore03
+ms.topic: article
 ms.service: cloud-services
-ms.devlang: nodejs
-ms.topic: conceptual
-ms.date: 08/17/2017
+ms.date: 10/14/2020
 ms.author: tagore
-ms.custom: devx-track-js
-ms.openlocfilehash: 86bc968c922bcfb90da9ae2babd456ce4db81cb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 9889e0e95db84b4dbc5856ba6425f0f303161068
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327469"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741614"
 ---
-# <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Criar e implantar um aplicativo Node.js para um Serviço de Nuvem do Azure
+# <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service-classic"></a>Criar e implantar um aplicativo Node.js em um serviço de nuvem do Azure (clássico)
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
 
 Este tutorial mostra como criar um aplicativo simples do Node.js em execução em um Serviço de Nuvem do Azure. Os Serviços de Nuvem são os blocos de construção de aplicativos de nuvem escalonáveis no Azure. Eles permitem a separação e o gerenciamento independente e o dimensionamento dos componentes de front-end e back-end de seu aplicativo.  Os serviços de nuvem fornecem uma máquina virtual exclusiva robusta para hospedar cada função confiável.
 
@@ -179,7 +180,7 @@ Para saber mais, confira o [Centro de desenvolvedores do Node.js].
 
 [Comparação de Sites do Azure, Serviços de Nuvem e Máquinas virtuais]: /azure/architecture/guide/technology-choices/compute-decision-tree
 [usar um aplicativo Web leve]: ../app-service/quickstart-nodejs.md
-[PowerShell do Azure]: /powershell/azure/
+[Azure PowerShell]: /powershell/azure/
 [Azure SDK for .NET 3.0]: https://www.microsoft.com/download/details.aspx?id=54917
 [Conecte o PowerShell]: /powershell/azure/
 [nodejs.org]: https://nodejs.org/

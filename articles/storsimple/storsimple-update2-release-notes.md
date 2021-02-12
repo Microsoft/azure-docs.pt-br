@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 53be638c46685dd46a5afb5ed56f9a76ed7b5fd6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b68e338c2675a3aeefda390d12ab2d82ea1c7a9f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055853"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956646"
 ---
 # <a name="storsimple-8000-series-update-2-release-notes"></a>Notas de versão da Atualização 2 da série 8000 do StorSimple
 
@@ -66,7 +66,7 @@ A tabela a seguir fornece um resumo dos problemas que foram corrigidos nas Atual
 
 | Não. | Recurso | Problema | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
 | --- | --- | --- | --- | --- |
-| 1 |Interfaces de rede |Após uma atualização para a Atualização 1, o serviço do StorSimple Manager relatou que as portas Data2 e Data3 falharam em um controlador. Esse problema foi corrigido. |Sim |Não |
+| 1 |Adaptadores de rede |Após uma atualização para a Atualização 1, o serviço do StorSimple Manager relatou que as portas Data2 e Data3 falharam em um controlador. Esse problema foi corrigido. |Sim |Não |
 | 2 |Atualizações |Após atualizar para a Atualização 1, ocorreram alertas de alarme audível no portal clássico do Azure em vários dispositivos. Esse problema foi corrigido. |Sim |Não |
 | 3 |Autenticação Openstack |Ao usar o Openstack como seu provedor de serviços de nuvem, você poderá receber um erro informando que sua cadeia de caracteres de autenticação de nuvem é muito longa. Esse problema foi corrigido. |Sim |Não |
 
@@ -80,7 +80,7 @@ A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.
 | 3 |Contas de armazenamento |Usar o serviço de Armazenamento para excluir a conta de armazenamento é um cenário sem suporte. Isso levará a uma situação na qual os dados do usuário não podem ser recuperados. | |Sim |Sim |
 | 4 |Failover de dispositivo |Não há suporte para vários failovers de um contêiner de volume do mesmo dispositivo de origem para diferentes dispositivos de destino. O failover de um único dispositivo inativo para vários dispositivos fará com que os contêineres de volume no primeiro dispositivo com failover percam a propriedade dos dados. Após o failover, esses contêineres de volume serão exibidos ou se comportarão de maneira diferente quando forem exibidos no Portal clássico do Azure. | |Sim |Não |
 | 5 |Instalação |Durante o Adaptador StorSimple para instalação do SharePoint, você precisa fornecer um IP do dispositivo para que a instalação seja concluída com êxito. | |Sim |Não |
-| 6 |Proxy Web |Se a configuração de proxy Web tiver HTTPS como o protocolo especificado, a comunicação de serviço do dispositivo será afetada e o dispositivo ficará offline. Pacotes de suporte também serão gerados no processo, consumindo recursos significativos em seu dispositivo. |Verifique se a URL do proxy Web possui HTTP como o protocolo especificado. Para obter mais informações, visite [Configurar proxy da Web para seu dispositivo](storsimple-configure-web-proxy.md). |Sim |Não |
+| 6 |Proxy Web |Se a configuração de proxy Web tiver HTTPS como o protocolo especificado, a comunicação de serviço do dispositivo será afetada e o dispositivo ficará offline. Pacotes de suporte também serão gerados no processo, consumindo recursos significativos em seu dispositivo. |Verifique se a URL do proxy Web possui HTTP como o protocolo especificado. Para obter mais informações, visite [Configurar proxy da Web para seu dispositivo](./storsimple-8000-configure-web-proxy.md). |Sim |Não |
 | 7 |Proxy Web |Ao configurar e habilitar o proxy Web em um dispositivo registrado, você precisará reiniciar o controlador ativo em seu dispositivo. | |Sim |Não |
 | 8 |Latência de nuvem alta e alta carga de trabalho de E/S |Quando seu dispositivo StorSimple encontra uma combinação de latências de nuvem muito altas (ordem de segundos) e alta carga de trabalho de E/S, os volumes do dispositivo entram em um estado degradado e as E/Ss podem falhar com o erro "o dispositivo não está pronto". |Você precisará reiniciar os controladores de dispositivo manualmente ou executar um failover do dispositivo para se recuperar dessa situação. |Sim |Não |
 | 9 |Azure PowerShell |Quando você usa o cmdlet StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** para selecionar o primeiro objeto para que possa criar um novo objeto **VolumeContainer**, o cmdlet retorna todos os objetos. |Coloque o cmdlet entre parênteses da seguinte maneira: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** |Sim |Sim |
@@ -107,5 +107,4 @@ Essa versão atualiza o driver e o firmware de disco no dispositivo.
 Esta atualização não pode ser aplicada ao dispositivo virtual. Novos dispositivos virtuais precisarão ser criados. 
 
 ## <a name="next-step"></a>Próxima etapa
-Saiba como [instalar a Atualização 2](storsimple-install-update-2.md) no seu dispositivo StorSimple.
-
+Saiba como [instalar a Atualização 2](./storsimple-8000-install-update-5.md) no seu dispositivo StorSimple.

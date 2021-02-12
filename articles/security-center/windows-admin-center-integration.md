@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: memildin
-ms.openlocfilehash: 36f519ce41ccfbfb48ca696ed2a61c6131a75998
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca3dd410474af0a42a3cd5b4217c3bba90b8ff1a
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906347"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511977"
 ---
 # <a name="protect-windows-admin-center-resources-with-security-center"></a>Proteger os recursos do centro de administração do Windows com a central de segurança
 

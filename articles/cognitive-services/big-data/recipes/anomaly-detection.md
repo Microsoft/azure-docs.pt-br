@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
-ms.openlocfilehash: 4f6fa73130e3e78b573a866dbb6524acbc88c50c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2995f39bc61ae5bb87abafd674f411271e57ca2
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88691455"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366274"
 ---
 # <a name="recipe-predictive-maintenance-with-the-cognitive-services-for-big-data"></a>Receita: manutenção preditiva com os serviços cognitivas para Big data
 
-Esta receita mostra como você pode usar o Azure Synapse Analytics e serviços cognitivas no Spark para a manutenção preditiva de dispositivos IoT. Acompanharemos o exemplo de [link CosmosDB e Synapse](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples) . Para manter as coisas simples, nesta receita, vamos ler os dados diretamente de um arquivo CSV em vez de obter dados transmitidos por meio do link CosmosDB e Synapse. É altamente recomendável que você examine o exemplo de link Synapse.
+Esta receita mostra como você pode usar o Azure Synapse Analytics e serviços cognitivas em Apache Spark para manutenção preditiva de dispositivos IoT. Acompanharemos o exemplo de [link CosmosDB e Synapse](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples) . Para manter as coisas simples, nesta receita, vamos ler os dados diretamente de um arquivo CSV em vez de obter dados transmitidos por meio do link CosmosDB e Synapse. É altamente recomendável que você examine o exemplo de link Synapse.
 
 ## <a name="hypothetical-scenario"></a>Cenário hipotético
 
@@ -31,13 +31,13 @@ Pode haver exceções nos dados em frequência aleatória. Nessas situações, o
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
-* [Espaço de trabalho Synapse do Azure](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) configurado com um [pool do Spark](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool)
+* [Espaço de trabalho do Azure Synapse](../../../synapse-analytics/quickstart-create-workspace.md) configurado com um [pool de Apache Spark sem servidor](../../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
 
-## <a name="setup"></a>Instalação
+## <a name="setup"></a>Configuração
 
 ### <a name="create-an-anomaly-detector-resource"></a>Criar um recurso do Detector de Anomalias
 
-Os Serviços Cognitivos do Azure são representados por recursos do Azure que você assina. Crie um recurso para o tradutor usando o [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli). Também é possível:
+Os Serviços Cognitivos do Azure são representados por recursos do Azure que você assina. Crie um recurso para o tradutor usando o [portal do Azure](../../cognitive-services-apis-create-account.md) ou [CLI do Azure](../../cognitive-services-apis-create-account-cli.md). Também é possível:
 
 - Exiba um recurso existente no  [portal do Azure](https://portal.azure.com/).
 

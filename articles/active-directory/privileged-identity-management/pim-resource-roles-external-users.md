@@ -16,11 +16,11 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f4e2e18f3bb9d1c972d805a60493897d605921e4
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365520"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010632"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-privileged-identity-management"></a>Convide usuários convidados e atribua funções de recursos do Azure no Privileged Identity Management
 
@@ -157,7 +157,7 @@ Você pode exibir os logs de auditoria para controlar o que os convidados estão
 
     ![Recursos do Azure – página de auditoria de recursos listando a hora, o solicitante e a ação](./media/pim-resource-roles-external-users/audit-resource.png)
 
-1. Para exibir a atividade para o convidado, selecione **Azure Active Directory**  >  nome de convidado**dos usuários**  >  *guest name*.
+1. Para exibir a atividade para o convidado, selecione **Azure Active Directory**  >  nome de convidado **dos usuários**  >  *guest name*.
 
 1. Selecione **logs de auditoria** para ver os logs de auditoria da organização. Se necessário, você pode especificar os filtros.
 

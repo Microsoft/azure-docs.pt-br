@@ -12,11 +12,11 @@ ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 8d727bc8bdc8f015504baa57f9596b3bacac9712
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651626"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022863"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Solucionar problemas de erros de exclusão de recursos de armazenamento
 
@@ -97,7 +97,7 @@ Se o VHD for um disco de dados, desanexe o VHD da VM para remover a concessão:
 
      ![Captura de tela do portal, com o painel de armazenamento "metadados de blob" aberto e realça o ícone de desanexação do disco de dados a ser excluído.](./media/troubleshoot-vhds/utd-vm-disks-edit.png)
 
-9. Selecione **Salvar**. Agora, o disco está desconectado da VM, e o VHD não é mais concedido. Talvez demore alguns minutos para o serviço ser liberado. Para verificar se a concessão foi liberada, navegue até o local do blob e, no painel **Propriedades do blob**, o valor **Status de concessão** deve ser **Desbloqueado** ou **Disponível**.
+9. Clique em **Salvar**. Agora, o disco está desconectado da VM, e o VHD não é mais concedido. Talvez demore alguns minutos para o serviço ser liberado. Para verificar se a concessão foi liberada, navegue até o local do blob e, no painel **Propriedades do blob**, o valor **Status de concessão** deve ser **Desbloqueado** ou **Disponível**.
 
 [Storage deletion errors in Resource Manager deployment]: #storage-delete-errors-in-rm
 

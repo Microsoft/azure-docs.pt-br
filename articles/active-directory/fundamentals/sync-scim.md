@@ -1,6 +1,6 @@
 ---
 title: Sincronização de SCIM com Azure Active Directory
-description: Diretrizes arquitetônicas sobre como atingir esse padrão de sincronização
+description: Diretrizes arquitetônicas sobre a obtenção de sincronização SCIM com Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1dda465dd675e0f5f519f86289df2621be0b9bb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b95aac504bc6ee72c353faecad25384e2dc90840
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367849"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172411"
 ---
 # <a name="scim-synchronization-with-azure-active-directory"></a>Sincronização de SCIM com Azure Active Directory
 
@@ -45,11 +45,10 @@ Você deseja provisionar automaticamente as informações do usuário de um sist
 
 ## <a name="implement-scim-with-azure-ad"></a>Implementar o SCIM com o Azure AD 
 
-* [Como o provisionamento funciona no Azure AD ](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works)
+* [Como o provisionamento funciona no Azure AD ](../app-provisioning/how-provisioning-works.md)
 
-* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais no portal do Azure ](https://docs.microsoft.com/azure/active-directory/app-provisioning/configure-automatic-user-provisioning-portal)
+* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais no portal do Azure ](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 
-* [Criar um ponto de extremidade SCIM e configurar o provisionamento de usuário com o Azure AD  ](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups)
+* [Criar um ponto de extremidade SCIM e configurar o provisionamento de usuário com o Azure AD  ](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 
-* [Conformidade do protocolo SCIM 2,0 do serviço de provisionamento do Azure AD](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-scim-compatibility)
-
+* [Conformidade do protocolo SCIM 2,0 do serviço de provisionamento do Azure AD](../app-provisioning/application-provisioning-config-problem-scim-compatibility.md)

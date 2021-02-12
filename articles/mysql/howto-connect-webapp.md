@@ -1,17 +1,17 @@
 ---
 title: Conectar-se ao serviço de Azure App-banco de dados do Azure para MySQL
 description: Instruções sobre como conectar corretamente um Serviço de Aplicativo do Azure ao Banco de Dados do Azure para MySQL
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: deb99ea4f674c901974ca219a0e1bf831f5b4e51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6355afe6ce5decbed029db4536b1b1b19f5a876c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905853"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541497"
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>Conectar um Serviço de Aplicativo do Azure existente ao Banco de Dados do Azure para MySQL server
 Este tópico explica como conectar um Serviço de Aplicativo do Azure existente ao Banco de Dados do Azure para o servidor MySQL.
@@ -28,19 +28,19 @@ O Banco de Dados do Azure para MySQL fornece segurança de acesso usando um fire
 
    :::image type="content" source="./media/howto-connect-webapp/1-connection-security.png" alt-text="Portal do Azure - clique em Segurança de Conexão":::
 
-2. Selecione **ATIVAR** em **Permitir o acesso aos serviços do Azure**, depois **Salvar**.
-   :::image type="content" source="./media/howto-connect-webapp/allow-azure.png" alt-text="Portal do Azure - clique em Segurança de Conexão":::
+2. Selecione **ATIVAR** em **Permitir o acesso aos serviços do Azure** , depois **Salvar**.
+   :::image type="content" source="./media/howto-connect-webapp/allow-azure.png" alt-text="Portal do Azure – Permitir acesso ao Azure":::
 
 ## <a name="solution-2---create-a-firewall-rule-to-explicitly-allow-outbound-ips"></a>Solução 2: Criar uma regra de firewall para permitir explicitamente IPs de saída
 Você pode adicionar explicitamente todos os IPs de saída do Serviço de Aplicativo do Azure.
 
 1. Na folha Propriedades do Serviço de Aplicativo, exiba o **ENDEREÇO IP DE SAÍDA**.
 
-   :::image type="content" source="./media/howto-connect-webapp/2_1-outbound-ip-address.png" alt-text="Portal do Azure - clique em Segurança de Conexão":::
+   :::image type="content" source="./media/howto-connect-webapp/2_1-outbound-ip-address.png" alt-text="Portal do Azure – exibir IPs de saída":::
 
 2. Na folha Segurança de Conexão do MySQL, adicione os IPs de saída individualmente.
 
-   :::image type="content" source="./media/howto-connect-webapp/2_2-add-explicit-ips.png" alt-text="Portal do Azure - clique em Segurança de Conexão":::
+   :::image type="content" source="./media/howto-connect-webapp/2_2-add-explicit-ips.png" alt-text="Portal do Azure – adicionar IPs explícitos":::
 
 3. Lembre-se de **Salvar** as regras de firewall.
 

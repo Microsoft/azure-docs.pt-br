@@ -1,19 +1,16 @@
 ---
 title: Use o Apache Hadoop Hive com o Curl no HDInsight - Azure
 description: Saiba como enviar remotamente trabalhos do Apache Pig para o Azure HDInsight usando a rotação.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/06/2020
-ms.openlocfilehash: 956406ec5ac99be5973f1928bbb89db10e68b339
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 124661c57f779b9f8a639debcc093ed15e717694
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533760"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946455"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Executar consultas do Apache Hive com o Apache Hadoop no HDInsight usando a REST
 
@@ -31,7 +28,7 @@ Aprenda a usar a API REST do WebHCat para executar consultas do Apache Hive com 
 
 ## <a name="base-uri-for-rest-api"></a>URI de base para a API REST
 
-O URI (Uniform Resource Identifier base) para a API REST no HDInsight é `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME` , em que `CLUSTERNAME` é o nome do cluster.  Os nomes de cluster nos URIs diferenciam **maiúsculas de minúsculas** .  Embora o nome do cluster na parte do FQDN (nome de domínio totalmente qualificado) do URI ( `CLUSTERNAME.azurehdinsight.net` ) não diferencia maiúsculas de minúsculas, outras ocorrências no URI diferenciam maiúsculas de minúsculas.
+O URI (Uniform Resource Identifier base) para a API REST no HDInsight é `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME` , em que `CLUSTERNAME` é o nome do cluster.  Os nomes de cluster nos URIs diferenciam **maiúsculas de minúsculas**.  Embora o nome do cluster na parte do FQDN (nome de domínio totalmente qualificado) do URI ( `CLUSTERNAME.azurehdinsight.net` ) não diferencia maiúsculas de minúsculas, outras ocorrências no URI diferenciam maiúsculas de minúsculas.
 
 ## <a name="authentication"></a>Autenticação
 
@@ -120,7 +117,7 @@ $clusterName
     {"module":"hive","version":"1.2.1000.2.6.5.3008-11"}
     ```
 
-1. Use o seguinte para criar uma tabela chamada **log4jLogs** :
+1. Use o seguinte para criar uma tabela chamada **log4jLogs**:
 
     ```bash
     jobid=$(curl -s -u admin:$password -d user.name=admin -d execute="DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/rest" https://$clusterName.azurehdinsight.net/templeton/v1/hive | jq -r .id)
@@ -156,7 +153,7 @@ $clusterName
 
    * `ROW FORMAT` – o modo como os dados são formatados. Os campos em cada log são separados por um espaço.
    * `STORED AS TEXTFILE LOCATION` -Onde os dados são armazenados (o diretório de exemplo/dados) e que são armazenados como texto.
-   * `SELECT` – Seleciona uma contagem de todas as linhas em que a coluna **T4** contém o valor **[ERROR]** . Essa instrução retorna um valor de **3** , visto que há três linhas que contêm esse valor.
+   * `SELECT` – Seleciona uma contagem de todas as linhas em que a coluna **T4** contém o valor **[ERROR]**. Essa instrução retorna um valor de **3**, visto que há três linhas que contêm esse valor.
 
      > [!NOTE]  
      > Observe que os espaços entre as instruções HiveQL são substituídos pelo caractere `+` quando usados com o Curl. Os valores entre aspas que contêm um espaço, como o delimitador, não devem ser substituídos por `+`.
@@ -181,9 +178,9 @@ $clusterName
     (ConvertFrom-Json $fixDup).status.state
     ```
 
-    Se o trabalho foi concluído, o estado será **SUCCEEDED** .
+    Se o trabalho foi concluído, o estado será **SUCCEEDED**.
 
-1. Depois que o estado do trabalho for alterado para **SUCCEEDED** , você poderá recuperar os resultados do trabalho no Armazenamento de Blobs do Azure. O parâmetro `statusdir` transmitido com a consulta contém a localização do arquivo de saída; nesse caso, `/example/rest`. Esse endereço armazena a saída do diretório `example/curl` no armazenamento padrão de clusters.
+1. Depois que o estado do trabalho for alterado para **SUCCEEDED**, você poderá recuperar os resultados do trabalho no Armazenamento de Blobs do Azure. O parâmetro `statusdir` transmitido com a consulta contém a localização do arquivo de saída; nesse caso, `/example/rest`. Esse endereço armazena a saída do diretório `example/curl` no armazenamento padrão de clusters.
 
     Você pode listar e baixar esses arquivos usando a [CLI do Azure](/cli/azure/install-azure-cli). Para obter mais informações sobre como usar a CLI do Azure com o Armazenamento do Azure, consulte o documento [Usar a CLI do Azure com o Armazenamento do Azure](../../storage/blobs/storage-quickstart-blobs-cli.md).
 

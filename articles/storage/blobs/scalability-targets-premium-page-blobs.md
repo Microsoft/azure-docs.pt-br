@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2c238bf3911283db5d09fdd5679d784c5e5401f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23a176bfa5e3861dbc4ad5c03ea54fc847d3f56b
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654796"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922533"
 ---
 # <a name="scalability-and-performance-targets-for-premium-page-blob-storage-accounts"></a>Escalabilidade e metas de desempenho para contas de armazenamento de blob de página Premium
 

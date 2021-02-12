@@ -9,12 +9,12 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
-ms.openlocfilehash: 1d720aed44358dd314bc4226adb9ad517139cd18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2b36dd600efa864913e0087c49bffd556e8330d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836302"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912392"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Usando a CLI do HDFS com o Data Lake Storage Gen2
 
@@ -29,7 +29,7 @@ Para obter mais informações sobre a CLI do HDFS, consulte a [documentação of
 
 ## <a name="use-the-hdfs-cli-with-an-hdinsight-hadoop-cluster-on-linux"></a>Usar a CLI do HDFS com um cluster HDInsight Hadoop no Linux
 
-Primeiro, estabeleça o [acesso remoto aos serviços](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-information#remote-access-to-services). Se você escolher [SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) o código de exemplo do PowerShell seria semelhante ao seguinte:
+Primeiro, estabeleça o [acesso remoto aos serviços](../../hdinsight/hdinsight-hadoop-linux-information.md#remote-access-to-services). Se você escolher [SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md) o código de exemplo do PowerShell seria semelhante ao seguinte:
 
 ```powershell
 #Connect to the cluster via SSH.
@@ -120,4 +120,4 @@ Consulte [chmod](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoo
 
 * [ Use uma conta compatível com o Azure Data Lake Gen2 em bancos de dados do Azure ](./data-lake-storage-quickstart-create-databricks-account.md)
 
-* [Saiba mais sobre as listas de controle de acesso em arquivos e diretórios](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
+* [Saiba mais sobre as listas de controle de acesso em arquivos e diretórios](./data-lake-storage-access-control.md)

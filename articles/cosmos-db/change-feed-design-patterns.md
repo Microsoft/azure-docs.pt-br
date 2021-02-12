@@ -4,14 +4,15 @@ description: Visão geral dos padrões de design comuns do feed de alterações
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 0c890d50bbfe498f9d90698394b2cc2d373c0d8b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 443d00e61e593daacca04a4451b90bb78cc7d854
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93072987"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334558"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Padrões de design do feed de alterações no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -39,7 +40,7 @@ Você também pode disparar seletivamente uma notificação ou enviar uma chamad
 O feed de alterações do Azure Cosmos DB pode ser usado para processamento de fluxo em tempo real para IoT ou processamento de análise em tempo real em dados operacionais.
 Por exemplo, você pode receber e armazenar dados de evento de dispositivos, sensores, infraestrutura e aplicativos, além de processar esses eventos em tempo real, usando o [Spark](../hdinsight/spark/apache-spark-overview.md). A seguinte imagem mostra como você pode implementar uma arquitetura lambda usando o Azure Cosmos DB por meio do feed de alterações:
 
-:::image type="content" source="./media/change-feed/lambda.png" alt-text="Usando o feed de alterações do Azure Cosmos DB para capacitar a análise em tempo real e cenários de computação orientada a eventos" border="false":::
+:::image type="content" source="./media/change-feed/lambda.png" alt-text="Pipeline lambda baseado no Azure Cosmos DB para ingestão e consulta" border="false":::
 
 Em muitos casos, as implementações do processamento de fluxo recebem primeiro um alto volume de dados de entrada em uma fila de mensagens temporária como o Hub de Eventos do Azure ou o Apache Kafka. O feed de alterações é uma ótima alternativa devido à capacidade do Azure Cosmos DB de dar suporte a uma alta taxa sustentada de ingestão de dados com baixa latência de leitura e gravação garantida. As vantagens do feed de alterações do Azure Cosmos DB em uma fila de mensagens incluem:
 

@@ -9,12 +9,12 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 6e2443014f6788504a11784945078187a5a72de4
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 37ba4f10365fca4292171c3bd2d9a3e7d00045bb
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311118"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985862"
 ---
 # <a name="configure-azure-arc-enabled-sql-managed-instance"></a>Configurar instância gerenciada SQL do Arc habilitada para o Azure
 
@@ -60,13 +60,13 @@ Para alterar uma dessas configurações, siga estas etapas:
    traceflag0 = 1204
    ```
 
-1. Copie o arquivo `mssql-custom.conf` para `/var/opt/mssql` no contêiner `mssql-miaa` no pod `master-0`. Substitua `<namespaceName>` pelo nome do cluster de Big Data.
+1. Copie o arquivo `mssql-custom.conf` para `/var/opt/mssql` no contêiner `arc-sqlmi` no pod `master-0`. Substituir `<namespaceName>` pelo namespace no qual esta instância está implantada.
 
    ```bash
    kubectl cp mssql-custom.conf master-0:/var/opt/mssql/mssql-custom.conf -c mssql-server -n <namespaceName>
    ```
 
-1. Reinicie a Instância do SQL Server.  Substitua `<namespaceName>` pelo nome do cluster de Big Data.
+1. Reinicie a instância gerenciada do SQL.  Substituir `<namespaceName>` pelo namespace no qual esta instância está implantada.
 
    ```bash
    kubectl exec -it master-0  -c mssql-server -n <namespaceName> -- /bin/bash

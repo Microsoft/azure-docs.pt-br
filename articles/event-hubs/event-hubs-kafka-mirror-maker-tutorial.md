@@ -2,23 +2,25 @@
 title: Usar o MirrorMaker do Apache Kafka - Hubs de Eventos do Azure | Microsoft Docs
 description: Este artigo fornece informações sobre como usar o Kafka MirrorMaker para espelhar um cluster do Kafka no AzureEvent Hubs.
 ms.topic: how-to
-ms.date: 06/23/2020
-ms.openlocfilehash: d1ec20a32ef27856483492212608e20e82725f58
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 01/04/2021
+ms.openlocfilehash: 654e9e19dfde0d0c58d00e41cf8ab0ba8e1484d7
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369515"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97860998"
 ---
-# <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Use Kafka MirrorMaker com Hubs de Eventos para o Apache Kafka
+# <a name="use-apache-kafka-mirrormaker-with-event-hubs"></a>Usar Apache Kafka MirrorMaker com hubs de eventos
 
-Este tutorial mostra como espelhar um agente do Kafka em um hub de eventos usando o Kafka MirrorMaker.
+Este tutorial mostra como espelhar um agente do Kafka em um hub de eventos do Azure usando o Kafka MirrorMaker. Se você estiver hospedando Apache Kafka em kubernetes usando o operador CNCF Strimzi, poderá consultar o tutorial nesta [postagem de blog](https://strimzi.io/blog/2020/06/09/mirror-maker-2-eventhub/) para saber como configurar o Kafka com o Strimzi e o Mirror Maker 2. 
 
    ![MirrorMaker Kafka com Hubs de Eventos](./media/event-hubs-kafka-mirror-maker-tutorial/evnent-hubs-mirror-maker1.png)
 
 > [!NOTE]
 > Este exemplo está disponível no [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/mirror-maker)
 
+> [!NOTE]
+> Este artigo contém referências ao termo *lista de permissões*, um termo que a Microsoft não usa mais. Quando o termo for removido do software, também o removeremos deste artigo.
 
 Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
@@ -29,9 +31,11 @@ Neste tutorial, você aprenderá como:
 > * Executar o Kafka MirrorMaker
 
 ## <a name="introduction"></a>Introdução
-Uma consideração importante para aplicativos de escala de nuvem modernos é a capacidade de atualizar, melhorar e alterar a infraestrutura sem interromper o serviço. Este tutorial mostra como um hub de eventos e Kafka MirrorMaker podem integrar um pipeline Kafka existente ao Azure por meio do "espelhamento" do fluxo de entrada Kafka no serviço de hubs de eventos. 
+Este tutorial mostra como um hub de eventos e Kafka MirrorMaker podem integrar um pipeline Kafka existente ao Azure por meio do "espelhamento" do fluxo de entrada Kafka no serviço de hubs de eventos, que permite a integração de fluxos de Apache Kafka usando vários [padrões de Federação](event-hubs-federation-overview.md). 
 
-Um ponto de extremidade Kafka dos Hubs de Eventos do Azure permite que você se conecte aos Hubs de Eventos do Azure usando o protocolo Kafka (ou seja, clientes Kafka). Ao fazer alterações mínimas em um aplicativo do Kafka, você pode se conectar aos Hubs de Eventos do Azure e aproveitar os benefícios do ecossistema do Azure. Atualmente, os hubs de eventos dão suporte às versões 1,0 e posteriores do Kafka.
+Um ponto de extremidade Kafka dos Hubs de Eventos do Azure permite que você se conecte aos Hubs de Eventos do Azure usando o protocolo Kafka (ou seja, clientes Kafka). Ao fazer alterações mínimas em um aplicativo do Kafka, você pode se conectar aos Hubs de Eventos do Azure e aproveitar os benefícios do ecossistema do Azure. Atualmente, os hubs de eventos dão suporte ao protocolo de Apache Kafka versões 1,0 e posteriores.
+
+Você pode usar a MirrorMaker 1 do Apache Kafka de uma unidirecional de Apache Kafka para os hubs de eventos. MirrorMaker 2 pode ser usado em ambas as direções, mas as [ `MirrorCheckpointConnector` e `MirrorHeartbeatConnector` que são configuráveis no MirrorMaker 2](https://cwiki.apache.org/confluence/display/KAFKA/KIP-382%3A+MirrorMaker+2.0) devem ser configuradas para apontar para o agente de Apache Kafka e não para os hubs de eventos. Este tutorial mostra a configuração de MirrorMaker 1.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -47,7 +51,7 @@ Para concluir este tutorial, verifique se você tem:
 * [Git](https://www.git-scm.com/downloads)
     * No Ubuntu, você pode executar `sudo apt-get install git` para instalar o Git.
 
-## <a name="create-an-event-hubs-namespace"></a>Criar um namespace dos hubs de eventos
+## <a name="create-an-event-hubs-namespace"></a>Criar um namespace de Hubs de Eventos
 
 É necessário um namespace do Hubs de Eventos para enviar e receber de qualquer serviço de Hub de Eventos. Consulte [criando um hub de eventos](event-hubs-create.md) para obter instruções para criar um namespace e um hub de eventos. Certifique-se de copiar a cadeia de caracteres de conexão dos Hubs de Eventos para uso posterior.
 
@@ -102,7 +106,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 ```
 
 > [!IMPORTANT]
-> Substitua `{YOUR.EVENTHUBS.CONNECTION.STRING}` pela cadeia de conexão do seu namespace dos Hubs de Eventos. Para obter instruções sobre como obter a cadeia de conexão, consulte [obter uma cadeia de conexão de hubs de eventos](event-hubs-get-connection-string.md). Aqui está um exemplo de configuração: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+> Substitua `{YOUR.EVENTHUBS.CONNECTION.STRING}` pela cadeia de conexão do seu namespace dos Hubs de Eventos. Para ver as instruções sobre como obter uma cadeia de conexão, confira [Obter cadeia de conexão para Hubs de Eventos](event-hubs-get-connection-string.md). Aqui está um exemplo de configuração: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
 
 ## <a name="run-kafka-mirrormaker"></a>Executar o Kafka MirrorMaker
 

@@ -1,23 +1,25 @@
 ---
-title: Lidando com uma interrupção de serviço do Azure que afeta os serviços de nuvem do Azure
-titleSuffix: Azure Cloud Services
+title: Lidando com uma interrupção de serviço do Azure que afeta os serviços de nuvem do Azure (clássico)
 description: Saiba o que fazer no caso uma interrupção de serviço do Azure que afete os Serviços de Nuvem do Azure.
-services: cloud-services
-documentationcenter: ''
-author: mmccrory
-ms.service: cloud-services
-ms.workload: cloud-services
 ms.topic: article
-ms.date: 04/04/2017
-ms.author: memccror
-ms.openlocfilehash: 6ae1509d552de1d5473c7d995af2db68d7113e79
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: cdd6c9da5a1895d4aadd73133734cd4c8204ecf1
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077517"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742158"
 ---
-# <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>O que fazer no caso de uma interrupção de serviço do Azure que afete os Serviços de Nuvem do Azure
+# <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services-classic"></a>O que fazer no caso de uma interrupção de serviço do Azure impactar os serviços de nuvem do Azure (clássico)
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
+
 Na Microsoft, trabalhamos muito para garantir que nossos serviços estejam sempre disponíveis quando você precisar deles. Às vezes, forças além do nosso controle nos afetam de formas que causam interrupções de serviço não planejadas.
 
 A Microsoft fornece um SLA (Contrato de Nível de Serviço) para seus serviços como um compromisso com o tempo de atividade e a conectividade. O SLA para serviços individuais do Azure pode ser encontrado em [Contratos de Nível de Serviço do Azure](https://azure.microsoft.com/support/legal/sla/).

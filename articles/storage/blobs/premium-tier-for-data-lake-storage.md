@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 10/30/2020
 ms.author: normesta
-ms.openlocfilehash: dc0b620629b5dce651e02e5fe95b0619c1d42a78
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: be440407fb6f4d9715ba80c584af023a5f662394
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131149"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324221"
 ---
 # <a name="premium-tier-for-azure-data-lake-storage"></a>Camada Premium para Azure Data Lake Storage
 
@@ -57,7 +57,7 @@ Alguns recursos de armazenamento de BLOBs podem não estar disponíveis ou podem
 
 ## <a name="enabling-the-premium-performance-tier"></a>Habilitando o nível de desempenho premium 
 
-Você pode usar a camada Premium para Azure Data Lake Storage criando uma conta BlockBlobStorage com a configuração de **namespace hierárquico** **habilitada** . Para obter orientação completa, consulte [criar uma conta de conta do BlockBlobStorage](storage-blob-create-account-block-blob.md) .
+Você pode usar a camada Premium para Azure Data Lake Storage criando uma conta BlockBlobStorage com a configuração de **namespace hierárquico** **habilitada**. Para obter orientação completa, consulte [criar uma conta de conta do BlockBlobStorage](storage-blob-create-account-block-blob.md) .
 
 Ao criar a conta, certifique-se de escolher a opção de desempenho **Premium** e o tipo de conta **BlockBlobStorage** .
 
@@ -97,9 +97,18 @@ A camada Premium para Azure Data Lake Storage está disponível nas regiões a s
 |Índia Central|LRS|
 |Oeste da Índia|LRS|
 |Norte dos EAU|LRS|
-|Japan East|LRS|
+|Leste do Japão|LRS|
 |Oeste do Japão|LRS|
 |Sudeste da Ásia|LRS, ZRS|
 |Leste da Austrália|LRS, ZRS|
 |Sudeste da Austrália|LRS|
-|Brazil South|LRS|
+|Sul do Brasil|LRS|
+
+## <a name="next-steps"></a>Próximas etapas
+
+Use a camada Premium para Azure Data Lake Storage com seu serviço de análise favorito, como Azure Databricks, Azure HDInsight e Azure Synapse Analytics. 
+
+- [Tutorial: Azure Data Lake Storage Gen2, Azure Databricks e Spark](data-lake-storage-use-databricks-spark.md) 
+- [Usar Azure data Lake Storage Gen2 com clusters do Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) Atualmente, o HDInsight dá suporte a uma conta que usa o nível de desempenho premium junto com um cluster HBase com gravações aceleradas habilitadas.
+- [Início Rápido: Criar um workspace do Synapse](../../synapse-analytics/quickstart-create-workspace.md)
+

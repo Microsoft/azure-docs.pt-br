@@ -8,12 +8,12 @@ ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 56f98d41fc73cdd2be0923de66a5af09c875a050
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 31910e92ba4d5cbb1f133eaff6880fafb809b772
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013586"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054086"
 ---
 # <a name="manage-database-roles-and-users"></a>Gerenciar usuários e funções de banco de dados
 
@@ -29,6 +29,8 @@ As permissões de função incluem:
 Ao criar um projeto de modelo de tabela, você cria funções e adiciona usuários ou grupos a essas funções usando o Gerenciador de funções no Visual Studio com projetos Analysis Services. Quando implantado em um servidor, use SQL Server Management Studio (SSMS), [Analysis Services cmdlets do PowerShell](/analysis-services/powershell/analysis-services-powershell-reference)ou TMSL ( [linguagem de script de modelo de tabela](/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) ) para adicionar ou remover funções e membros do usuário.
 
 Ao adicionar um **grupo de segurança**, use `obj:groupid@tenantid` .
+
+Ao adicionar uma **entidade de serviço** , use `app:appid@tenantid` .
 
 ## <a name="to-add-or-manage-roles-and-users-in-visual-studio"></a>Para adicionar ou gerenciar funções e usuários no Visual Studio  
   

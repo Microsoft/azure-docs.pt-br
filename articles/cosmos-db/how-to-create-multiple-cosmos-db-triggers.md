@@ -3,16 +3,17 @@ title: Criar vários gatilhos de Azure Functions independentes para Cosmos DB
 description: Saiba como configurar vários gatilhos independentes do Azure Functions para o Cosmos DB a fim de criar arquiteturas orientadas a eventos.
 author: ealsur
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 14c18d0cae335f96cc2d95c79bcf39bf85ef6a2b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 78fff48a97965f0b80456cd3e56ed1507bc784fc
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101537"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336666"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Criar vários gatilhos do Azure Functions para o Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -29,7 +30,7 @@ Conforme criar fluxos sem servidor com base em eventos usando o [Gatilho do Azur
 
 ## <a name="optimizing-containers-for-multiple-triggers"></a>Otimizando contêineres para vários gatilhos
 
-Dados os *requisitos* do gatilho do Azure Functions para o Cosmos DB, precisamos de um segundo contêiner para armazenar o estado, também chamado de *contêiner de concessões* . Isso significa que você precisa de um contêiner de concessões separado para cada Azure Function?
+Dados os *requisitos* do gatilho do Azure Functions para o Cosmos DB, precisamos de um segundo contêiner para armazenar o estado, também chamado de *contêiner de concessões*. Isso significa que você precisa de um contêiner de concessões separado para cada Azure Function?
 
 Aqui você tem duas opções:
 

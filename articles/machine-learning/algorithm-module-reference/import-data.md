@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 5fe1c3e344705b6cde9791f889b22be53a9e8c76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/13/2020
+ms.openlocfilehash: 69d27c102ca059974da87224e44f0ad7aa103fff
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372588"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592627"
 ---
 # <a name="import-data-module"></a>Importar módulo de dados
 
@@ -24,7 +24,7 @@ Use este módulo para carregar dados em um pipeline de Machine Learning dos serv
 
 > [!Note]
 > Toda a funcionalidade fornecida por esse módulo pode ser feita pelo **armazenamento de datastore** e por **conjuntos de valores** na página de aterrissagem espaço. É recomendável que você use o **armazenamento** de dados e o **DataSet** , que inclui recursos adicionais, como o monitoramento de dados. Para obter mais informações, consulte [o artigo como acessar dados](../how-to-access-data.md) e [como registrar os DataSets](../how-to-create-register-datasets.md) .
-> Depois de registrar um conjunto de registros, você pode encontrá-lo na categoria **conjuntos**de os  ->  **meus conjuntos** de valores na interface do designer. Este módulo é reservado para usuários do Studio (clássicos) para uma experiência familiar. 
+> Depois de registrar um conjunto de registros, você pode encontrá-lo na categoria **conjuntos** de os  ->  **meus conjuntos** de valores na interface do designer. Este módulo é reservado para usuários do Studio (clássicos) para uma experiência familiar. 
 >
 
 O módulo **importar dados** dá suporte à leitura de dados das seguintes fontes:
@@ -54,15 +54,23 @@ Se os dados de origem forem alterados, você poderá atualizar o conjunto de dad
 
 1. Selecione o módulo para abrir o painel direito.
 
-1. Selecione **fonte de dados**e escolha o tipo de fonte de dados. Pode ser HTTP ou datastore.
+1. Selecione **fonte de dados** e escolha o tipo de fonte de dados. Pode ser HTTP ou datastore.
 
     Se você escolher repositório de armazenamento, poderá selecionar os repositórios de armazenamento existentes que já estão registrados em seu espaço de trabalho Azure Machine Learning ou criar um novo repositório de armazenamento. Em seguida, defina o caminho dos dados a serem importados no datastore. Você pode navegar facilmente pelo caminho clicando em **procurar caminho** ![ captura de tela mostra o link procurar caminho, que abre a caixa de diálogo seleção de caminho.](media/module/import-data-path.png)
+
+    > [!NOTE]
+    > O módulo **importar dados** destina-se somente a dados **tabulares** .
+    > Se você quiser importar vários arquivos de dados de tabela uma vez, ele exigirá as seguintes condições; caso contrário, ocorrerão erros:
+    > 1. Para incluir todos os arquivos de dados na pasta, você precisa inserir `folder_name/**` o **caminho**.
+    > 2. Todos os arquivos de dados devem ser codificados em Unicode-8.
+    > 3. Todos os arquivos de dados devem ter os mesmos números de coluna e nomes de coluna.
+    > 4. O resultado da importação de vários arquivos de dados é concatenar todas as linhas de vários arquivos na ordem.
 
 1. Selecione o esquema de visualização para filtrar as colunas que você deseja incluir. Você também pode definir configurações avançadas como delimitador nas opções de análise.
 
     ![importação-dados-visualização](media/module/import-data.png)
 
-1. A caixa de seleção, **regenerar saída**, decide se o módulo deve ser executado para regenerar a saída em tempo de execução. 
+1. A caixa de seleção, **regenerar saída** , decide se o módulo deve ser executado para regenerar a saída em tempo de execução. 
 
     Ele é, por padrão, desmarcado, o que significa que, se o módulo tiver sido executado com os mesmos parâmetros anteriormente, o sistema reutilizará a saída da última execução para reduzir o tempo de execução. 
 
@@ -79,9 +87,9 @@ Se os dados de origem forem alterados, você poderá atualizar o conjunto de dad
 
 ## <a name="results"></a>Resultados
 
-Quando a importação for concluída, clique no conjunto de dados de saída e selecione **Visualizar** para ver se os dados foram importados com êxito.
+Quando a importação for concluída, clique com o botão direito do mouse no conjunto de dados de saída e selecione **Visualizar** para ver se os dados foram importados com êxito.
 
-Se você quiser salvar os dados para reutilização, em vez de importar um novo conjunto de dados cada vez que o pipeline for executado, selecione o ícone **registrar conjunto de registros** na guia **saídas** no painel direito do módulo. Escolha um nome para o conjunto de um. O DataSet salvo preserva os dados no momento de salvá-los, o DataSet não é atualizado quando o pipeline é executado novamente, mesmo que o conjunto de dados no pipeline seja alterado. Isso pode ser útil para tirar instantâneos de dados.
+Se você quiser salvar os dados para reutilização, em vez de importar um novo conjunto de dados cada vez que o pipeline for executado, selecione o ícone **registrar conjunto de registros** na guia **saídas + logs** no painel direito do módulo. Escolha um nome para o conjunto de um. O DataSet salvo preserva os dados no momento de salvá-los, o DataSet não é atualizado quando o pipeline é executado novamente, mesmo que o conjunto de dados no pipeline seja alterado. Isso pode ser útil para tirar instantâneos de dados.
 
 Depois de importar os dados, talvez sejam necessários alguns preparativos adicionais para modelagem e análise:
 

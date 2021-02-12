@@ -5,14 +5,14 @@ description: Consulte Como habilitar alertas em métricas de gêmeos digitais do
 author: baanders
 ms.author: baanders
 ms.date: 7/28/2020
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ae7e85624f5da06603ddc2675787b84203bc987b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 057a1b08095a71e2fca6119f5b63bfdc787eea88
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90087194"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616595"
 ---
 # <a name="troubleshooting-azure-digital-twins-alerts"></a>Solução de problemas do Azure digital gêmeos: alertas
 
@@ -44,17 +44,17 @@ Para obter uma explicação orientada sobre como preencher esses campos, consult
 
 Aqui está um trecho do processo de *seleção de condição* que ilustra quais tipos de sinais de alerta estão disponíveis para o gêmeos digital do Azure. Nessa página, você pode filtrar o tipo de sinal e selecionar o sinal desejado em uma lista.
 
-:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic.png" alt-text="Captura de tela mostrando a página Criar regra de alerta com seções para escopo, condição, grupo de ações e detalhes da regra de alerta":::
+:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic.png" alt-text="Captura de tela mostrando a primeira página de lógica de sinal de configuração. Há um realce na caixa tipo de sinal para selecionar métricas ou logs de atividade e uma lista de métricas abaixo que pode ser selecionada":::
 
 Depois de selecionar um sinal, você será solicitado a configurar a lógica do alerta. Você pode filtrar em uma dimensão, definir um valor de limite para o alerta e definir a frequência de verificações para a condição. Aqui está um exemplo de configuração de um alerta para quando a métrica de taxa média de falhas de roteamento é superior a 5%.
 
-:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Captura de tela mostrando a página Criar regra de alerta com seções para escopo, condição, grupo de ações e detalhes da regra de alerta":::
+:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Captura de tela mostrando a segunda página Configurar lógica de sinal. A página mostra o histórico de métricas, tem uma área para filtrar em uma dimensão, como operações de grade de eventos, e uma seção para definir a lógica de alerta como ' média é maior que 5 '":::
 
 ### <a name="verify-success"></a>Verificar êxito
 
 Depois de configurar os alertas, eles aparecerão de volta na página de *alertas* para sua instância.
  
-:::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="Captura de tela mostrando a página Criar regra de alerta com seções para escopo, condição, grupo de ações e detalhes da regra de alerta" lightbox="media/troubleshoot-alerts/alerts-post.png":::
+:::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="Captura de tela mostrando a página alertas e o botão a ser adicionado. Há um alerta configurado" lightbox="media/troubleshoot-alerts/alerts-post.png":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

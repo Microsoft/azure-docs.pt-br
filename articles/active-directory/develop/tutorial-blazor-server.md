@@ -8,18 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: 429d0b9c3a118061d713484a7db3aca376a24d04
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 5a631d9ae7a7d1792e3c4e4a2cbf8281e1168283
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873176"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226010"
 ---
 # <a name="tutorial-create-a-blazor-server-app-that-uses-the-microsoft-identity-platform-for-authentication"></a>Tutorial: Criar um aplicativo Blazor Server que usa a plataforma de identidade da Microsoft para autenticação
 
-O Blazor Server dá suporte para hospedar os componentes do Razor no servidor em um aplicativo ASP.NET Core. Neste tutorial, você aprenderá a implementar a autenticação e a recuperar dados do Microsoft Graph em um aplicativo Blazor Server com a plataforma de identidade da Microsoft.
+Neste tutorial, você criará um aplicativo Blazor Server que conecta os usuários e obtém dados do Microsoft Graph usando a plataforma de identidade da Microsoft e registrando seu aplicativo no Azure AD (Azure Active Directory).
 
-Neste tutorial, você aprenderá como:
+Também temos um tutorial para o [Blazor WASM](tutorial-blazor-webassembly.md).
+
+Neste tutorial:
 
 > [!div class="checklist"]
 > * Criar um aplicativo Blazor Server configurado para usar o Azure AD (Azure Active Directory) para autenticação
@@ -38,7 +40,7 @@ Todo aplicativo que usar o Azure AD (Azure Active Directory) para autenticação
 - Para **Tipos de contas com suporte**, selecione **Contas somente neste diretório organizacional**.
 - Deixe a lista suspensa **URI de Redirecionamento** definida como **Web** e digite `https://localhost:5001/signin-oidc`. A porta padrão para um aplicativo em execução no Kestrel é 5001. Se o aplicativo estiver disponível em uma porta diferente, especifique o número da porta em vez de `5001`.
 
-Em **Autenticação** > **Concessão implícita**, marque as caixas de seleção para **Tokens de acesso** e **Tokens de ID** e selecione o botão **Salvar**.
+Em **Gerenciar**, selecione **Autenticação** > **Concessão implícita e fluxos híbridos**. Selecione **Tokens de acesso** e **Tokens de ID** e escolha **Salvar**.
 
 Por fim, como o aplicativo chama uma API protegida (nesse caso, o Microsoft Graph), ele precisa de um segredo do cliente para verificar a identidade ao solicitar um token de acesso para chamar essa API.
 
@@ -69,7 +71,7 @@ dotnet new blazorserver2 --auth SingleOrg --calls-graph -o {APP NAME} --client-i
 Agora, navegue até o novo aplicativo Blazor em seu editor e adicione o segredo do cliente ao arquivo *appsettings.json*, substituindo o texto "secret-from-app-registration".
 
 ```json
-"ClientSecret": "xkAlNiG70000000_UI~d.OS4Dl.-Cy-1m3",
+"ClientSecret": "secret-from-app-registration",
 ```
 
 ## <a name="test-the-app"></a>Testar o aplicativo

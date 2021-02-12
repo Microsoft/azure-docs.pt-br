@@ -1,19 +1,16 @@
 ---
 title: 'Tutorial: Usar R em um contexto de computação do Spark Azure HDInsight'
 description: Tutorial-introdução ao R e ao Spark em um cluster de serviços de Machine Learning do Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/21/2019
-ms.openlocfilehash: 6e727bc7ad8b7f0b8a04c48f3abd1f1ac0806c66
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: bd6015529fb521e3b157e46ee808aea43e993dee
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545898"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935664"
 ---
 # <a name="tutorial-use-r-in-a-spark-compute-context-in-azure-hdinsight"></a>Tutorial: Usar R em um contexto de computação do Spark Azure HDInsight
 
@@ -33,7 +30,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster de serviços de Machine Learning do Azure HDInsight. Acesse [Criar clusters do Apache Hadoop usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e, para **Tipo de cluster** , selecione **Serviços de ML** .
+* Um cluster de serviços de Machine Learning do Azure HDInsight. Acesse [Criar clusters do Apache Hadoop usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e, para **Tipo de cluster**, selecione **Serviços de ML**.
 
 ## <a name="connect-to-rstudio-server"></a>Conectar-se ao RStudio Server
 
@@ -43,7 +40,7 @@ O RStudio Server é executado no nó de borda do cluster. Vá para o site a segu
 https://CLUSTERNAME.azurehdinsight.net/rstudio/
 ```
 
-Na primeira vez em que você se conecta, você se autentica duas vezes. No primeiro prompt de autenticação, forneça o nome de usuário e senha do administrador do cluster (o padrão é *admin* ). No segundo prompt de autenticação, forneça o nome de usuário e senha do SSH (o padrão é *sshuser* ). As entradas subsequentes exigirão apenas as credenciais do SSH.
+Na primeira vez em que você se conecta, você se autentica duas vezes. No primeiro prompt de autenticação, forneça o nome de usuário e senha do administrador do cluster (o padrão é *admin*). No segundo prompt de autenticação, forneça o nome de usuário e senha do SSH (o padrão é *sshuser*). As entradas subsequentes exigirão apenas as credenciais do SSH.
 
 ## <a name="download-the-sample-data-to-local-storage"></a>Baixar os dados de exemplo para o armazenamento local
 
@@ -57,7 +54,7 @@ O *Conjunto de Dados no Horário de Companhias Aéreas para 2012* consiste em 12
     remoteDir <- "https://packages.revolutionanalytics.com/datasets/AirOnTimeCSV2012" # location of data
     ```
 
-1. No painel à direita, selecione a guia **Ambiente** . As variáveis são exibidas em **Valores** .
+1. No painel à direita, selecione a guia **Ambiente**. As variáveis são exibidas em **Valores**.
 
     ![Console Web do HDInsight R Studio](./media/ml-services-tutorial-spark-compute/hdinsight-rstudio-image.png)
 

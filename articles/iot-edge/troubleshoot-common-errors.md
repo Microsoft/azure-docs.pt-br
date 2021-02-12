@@ -4,19 +4,19 @@ description: Use este artigo para resolver problemas comuns encontrados ao impla
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/27/2020
+ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: ed93d24bc06a6622a8ace2b0ab6b44582da001c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98ee865a3ddf6c26ffe9cb77767f3872b42018d8
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82783741"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442354"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas comuns e resoluções para o Azure IoT Edge
 
@@ -151,7 +151,7 @@ Se o dispositivo de IoT Edge estiver funcionando como um dispositivo de gateway,
 
 Se você não precisar usar o dispositivo IoT Edge como um gateway, poderá remover as associações de porta das opções de criação de módulo do edgeHub. Você pode alterar as opções de criação no portal do Azure ou diretamente no deployment.jsno arquivo.
 
-No Portal do Azure:
+No portal do Azure:
 
 1. Navegue até o Hub IoT e selecione **IOT Edge**.
 
@@ -222,7 +222,7 @@ Quando você vir esse erro, você pode resolvê-lo a configurar o nome DNS de su
    ![Configurar o nome DNS da máquina virtual](./media/troubleshoot/configure-dns.png)
 
 3. Forneça um valor para **rótulo do nome DNS** e selecione **Salvar**.
-4. Copie o novo nome DNS, que deve estar no formato ** \<DNSnamelabel\> . \<vmlocation\> . cloudapp.azure.com**.
+4. Copie o novo nome DNS, que deve estar no formato **\<DNSnamelabel\> . \<vmlocation\> . cloudapp.azure.com**.
 5. Dentro da máquina virtual, use o comando a seguir para configurar o runtime do IoT Edge com seu nome DNS:
 
    * No Linux:
@@ -274,9 +274,9 @@ O Hub de IoT Edge, que faz parte do tempo de execução do IoT Edge, é otimizad
 
 Para o Hub de IoT Edge, defina uma variável de ambiente **OptimizeForPerformance** como **false**. Há duas maneiras de definir variáveis de ambiente:
 
-No Portal do Azure:
+No portal do Azure:
 
-No Hub IOT, selecione o dispositivo IOT Edge e, na página detalhes do dispositivo e selecione **definir**  >  **configurações de tempo de execução**de módulos. Crie uma variável de ambiente para o módulo Hub de IoT Edge chamado *OptimizeForPerformance* que está definido como *false*.
+No Hub IOT, selecione o dispositivo IOT Edge e, na página detalhes do dispositivo e selecione **definir**  >  **configurações de tempo de execução** de módulos. Crie uma variável de ambiente para o módulo Hub de IoT Edge chamado *OptimizeForPerformance* que está definido como *false*.
 
 ![OptimizeForPerformance definido como false](./media/troubleshoot/optimizeforperformance-false.png)
 
@@ -331,6 +331,25 @@ Se uma implantação automática se destinar a um dispositivo, ela terá priorid
 Use apenas um tipo de mecanismo de implantação por dispositivo, uma implantação automática ou implantações de dispositivo individuais. Se você tiver várias implantações automáticas direcionadas a um dispositivo, poderá alterar a prioridade ou as descrições de destino para certificar-se de que a correta se aplica a um determinado dispositivo. Você também pode atualizar o dispositivo de atualização para não corresponder mais à descrição de destino da implantação automática.
 
 Para saber mais, veja [Noções básicas sobre implantações automáticas do IoT Edge para dispositivos únicos ou em escala](module-deployment-monitoring.md).
+
+<!-- <1.2> -->
+::: moniker range=">=iotedge-2020-11"
+
+## <a name="iot-edge-behind-a-gateway-cannot-perform-http-requests-and-start-edgeagent-module"></a>IoT Edge por trás de um gateway não pode executar solicitações HTTP e iniciar o módulo edgeAgent
+
+**Comportamento observado:**
+
+O daemon IoT Edge está ativo com um arquivo de configuração válido, mas não pode iniciar o módulo edgeAgent. O comando `iotedge list` retorna uma lista vazia. O relatório de logs do IoT Edge daemon `Could not perform HTTP request` .
+
+**Causa raiz:**
+
+IoT Edge dispositivos atrás de um gateway, obtenha suas imagens de módulo do dispositivo de IoT Edge pai especificado no `parent_hostname` campo do arquivo config. YAML. O `Could not perform HTTP request` erro significa que o dispositivo filho não consegue acessar seu dispositivo pai via http.
+
+**Resolução:**
+
+Verifique se o dispositivo de IoT Edge pai pode receber solicitações de entrada do dispositivo de IoT Edge filho. Abra o tráfego de rede nas portas 443 e 6617 para solicitações provenientes do dispositivo filho.
+
+:::moniker-end
 
 ## <a name="next-steps"></a>Próximas etapas
 

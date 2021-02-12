@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2019
 ms.author: mlottner
-ms.openlocfilehash: 822e9dc237dd6f4d73e1860c6a0b240fb94c3105
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3e48ed870bf405a82441678b5e8c01d199e7ebff
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90943201"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97834999"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Início Rápido: Criar um módulo gêmeo azureiotsecurity
 
@@ -31,7 +31,7 @@ Para soluções de IoT criadas no Azure, dispositivos gêmeos desempenham um pap
 O Defender para IoT oferece integração completa à plataforma de gerenciamento de dispositivos IoT que você já tem, permitindo gerenciar seu status de segurança de dispositivo e fazer uso das funcionalidades existentes de controle de dispositivo.
 A integração do Defender para IoT é obtida por meio do uso do mecanismo gêmeo do Hub IoT.
 
-Veja [módulos gêmeos do Hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) para saber mais sobre o conceito geral dos módulos gêmeos no Hub IoT do Azure.
+Veja [módulos gêmeos do Hub IoT](../iot-hub/iot-hub-devguide-module-twins.md) para saber mais sobre o conceito geral dos módulos gêmeos no Hub IoT do Azure.
 
 O Defender para IoT usa o mecanismo de módulo gêmeo e mantém um módulo gêmeo de segurança chamado _azureiotsecurity_ para cada um dos seus dispositivos.
 
@@ -65,10 +65,10 @@ Para verificar a existência de um módulo gêmeo de segurança para um disposit
 
 1. No seu Hub IoT do Azure, selecione **Dispositivos IoT** no menu **Explorers**.
 1. Insira a ID do dispositivo ou selecione uma opção no **Campo de dispositivo de consulta** e clique em **Dispositivos de consulta**.
-    ![Dispositivos de consulta](./media/quickstart/verify-security-module-twin.png)
+    :::image type="content" source="./media/quickstart/verify-security-module-twin.png" alt-text="Dispositivos de consulta":::
 1. Selecione o dispositivo ou clique nele duas vezes para abrir a página de detalhes do Dispositivo.
 1. Selecione o menu **Identidades do módulo** e confirme a existência do módulo **ascforiotsecurity** na lista de identidades de módulo associadas ao dispositivo.
-    ![Módulos associados a um dispositivo](./media/quickstart/verify-security-module-twin-3.png)
+    :::image type="content" source="./media/quickstart/verify-security-module-twin-3.png" alt-text="Módulos associados a um dispositivo":::
 
 Para saber mais sobre como personalizar propriedades de módulos gêmeos do Defender para IoT, confira [Configuração do agente](how-to-agent-configuration.md).
 

@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: mbullwin
-ms.openlocfilehash: ae987a4239f478162e1e1f251e0d6607d63e02c5
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: c175a52259e9cfe5b4d03ce0279bbe24d16a48ae
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019742"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363707"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Configurar contêineres do Detector de Anomalias
 
@@ -28,13 +28,13 @@ Esse contêiner tem as seguintes configurações:
 |Obrigatório|Configuração|Finalidade|
 |--|--|--|
 |Sim|[ApiKey](#apikey-configuration-setting)|Usado para rastrear informações de cobrança.|
-|No|[ApplicationInsights](#applicationinsights-setting)|Permite que você adicione suporte a dados telemétricos do [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) para seu contêiner.|
+|Não|[ApplicationInsights](#applicationinsights-setting)|Permite que você adicione suporte a dados telemétricos do [Azure Application Insights](/azure/application-insights) para seu contêiner.|
 |Sim|[Billing](#billing-configuration-setting)|Especifica o URI do ponto de extremidade do recurso de serviços no Azure.|
 |Sim|[Eula](#eula-setting)| Indica que você aceitou a licença para o contêiner.|
-|No|[Fluentd](#fluentd-settings)|Gravar log e, opcionalmente, dados telemétricos em um servidor do Fluentd.|
-|No|[Proxy http](#http-proxy-credentials-settings)|Configure um proxy HTTP para fazer solicitações de saída.|
-|No|[Logging](#logging-settings)|Fornece suporte a registro de log do ASP.NET Core para seu contêiner. |
-|No|[Mounts](#mount-settings)|Lê e grava dados do computador host para o contêiner e do contêiner de volta para o computador host.|
+|Não|[Fluentd](#fluentd-settings)|Gravar log e, opcionalmente, dados telemétricos em um servidor do Fluentd.|
+|Não|[Proxy http](#http-proxy-credentials-settings)|Configure um proxy HTTP para fazer solicitações de saída.|
+|Não|[Logging](#logging-settings)|Fornece suporte a registro de log do ASP.NET Core para seu contêiner. |
+|Não|[Mounts](#mount-settings)|Lê e grava dados do computador host para o contêiner e do contêiner de volta para o computador host.|
 
 > [!IMPORTANT]
 > As [`ApiKey`](#apikey-configuration-setting) [`Billing`](#billing-configuration-setting) configurações,, e [`Eula`](#eula-setting) são usadas juntas, e você deve fornecer valores válidos para todos os três; caso contrário, o contêiner não será iniciado. Para obter mais informações sobre como usar essas configurações para instanciar um contêiner, consulte [Faturamento](anomaly-detector-container-howto.md#billing).
@@ -59,7 +59,7 @@ Essa configuração pode ser localizada no seguinte local:
 
 * Portal do Azure: visão geral **do detector de anomalias** , rotulado `Endpoint`
 
-|Obrigatório| Name | Tipo de dados | Descrição |
+|Obrigatório| Nome | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
 |Sim| `Billing` | String | URI do ponto de extremidade de cobrança. Para obter mais informações sobre como obter o URI de cobrança, consulte [coletando parâmetros necessários](anomaly-detector-container-howto.md#gathering-required-parameters). Para saber mais e para obter uma lista completa de pontos de extremidade regionais, confira [Nomes de subdomínio personalizados para Serviços Cognitivos](../cognitive-services-custom-subdomains.md). |
 
@@ -88,17 +88,17 @@ Os contêineres do detector de anomalias não usam montagens de entrada ou saíd
 
 A sintaxe exata do local da montagem do host varia de acordo com o sistema operacional do host. Além disso, a localização de montagem do [computador host](anomaly-detector-container-howto.md#the-host-computer) pode não estar acessível devido a um conflito entre as permissões usadas pela conta de serviço do Docker e as permissões da localização de montagem do host. 
 
-|Opcional| Name | Tipo de dados | Descrição |
+|Opcional| Nome | Tipo de dados | Descrição |
 |-------|------|-----------|-------------|
-|Não permitido| `Input` | Cadeia de caracteres | Os contêineres do detector de anomalias não usam isso.|
+|Não permitido| `Input` | String | Os contêineres do detector de anomalias não usam isso.|
 |Opcional| `Output` | Cadeia de caracteres | O destino de montagem de saída. O valor padrão é `/output`. Esse é o local dos logs. Isso inclui logs de contêiner. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandos docker run de exemplo 
 
 Os exemplos a seguir usam as definições de configuração para ilustrar como escrever e usar comandos `docker run`.  Quando em execução, o contêiner continuará a ser executado até que você o [pare](anomaly-detector-container-howto.md#stop-the-container).
 
-* **Caractere de continuação de linha**: os comandos do Docker nas seções a seguir usam a barra invertida, `\` , como um caractere de continuação de linha para um shell bash. Substitua ou remova essa barra com base nos requisitos do sistema operacional de seu computador host. Por exemplo, o caractere de continuação de linha para o Windows é um acento circunflexo, `^`. Substitua a barra invertida pelo acento circunflexo. 
-* **Ordem do argumento**: não altere a ordem dos argumentos, a menos que você esteja muito familiarizado com contêineres do Docker.
+* **Caractere de continuação de linha** : os comandos do Docker nas seções a seguir usam a barra invertida, `\` , como um caractere de continuação de linha para um shell bash. Substitua ou remova essa barra com base nos requisitos do sistema operacional de seu computador host. Por exemplo, o caractere de continuação de linha para o Windows é um acento circunflexo, `^`. Substitua a barra invertida pelo acento circunflexo. 
+* **Ordem do argumento** : não altere a ordem dos argumentos, a menos que você esteja muito familiarizado com contêineres do Docker.
 
 Substitua o valor entre colchetes, `{}` , com seus próprios valores:
 

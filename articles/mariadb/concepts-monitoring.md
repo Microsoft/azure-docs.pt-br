@@ -1,18 +1,18 @@
 ---
 title: Monitoramento-banco de dados do Azure para MariaDB
 description: Este artigo descreve as métricas de monitoramento e alerta do Banco de Dados do Azure para MariaDB, incluindo estatísticas de CPU, armazenamento e conexão.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 10/21/2020
-ms.openlocfilehash: d2d34e95642308dcdacba20879945f2c965db955
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 3d2cf88dba44a7f18f73fbafb66381d2ef8b29c5
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425208"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664275"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Monitorando no Banco de Dados do Azure para MariaDB
 Monitorar os dados dos seus servidores ajuda a solucionar problemas e otimizar sua carga de trabalho. O Banco de Dados do Azure para MariaDB fornece várias métricas que fornecem informações sobre o comportamento do seu servidor.
@@ -25,7 +25,7 @@ Para obter diretrizes passo a passo, consulte [How to set up alerts](howto-alert
 ### <a name="list-of-metrics"></a>Lista de métricas
 Essas métricas estão disponíveis para o Banco de Dados do Azure para MariaDB:
 
-|Métrica|Nome de exibição da métrica|Unit|Descrição|
+|Métrica|Nome de exibição da métrica|Unidade|Descrição|
 |---|---|---|---|
 |cpu_percent|Porcentagem de CPU|Porcentagem|O percentual de CPU em uso.|
 |memory_percent|Porcentagem de memória|Porcentagem|O percentual de memória em uso.|
@@ -67,7 +67,6 @@ Saiba mais sobre como configurar notificações no documento de [notificações 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter mais informações sobre como acessar e exportar métricas usando o Portal do Azure, a API REST ou a CLI, consulte a [Visão geral das métricas no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+- Para obter mais informações sobre como acessar e exportar métricas usando o Portal do Azure, a API REST ou a CLI, consulte a [Visão geral das métricas no Microsoft Azure](../azure-monitor/platform/data-platform.md).
 - Consulte [Como configurar alertas](howto-alert-metric.md) para obter orientação sobre como criar um alerta em uma métrica.
 - Saiba mais sobre [notificações de manutenção planejada](./concepts-planned-maintenance-notification.md) no banco de dados do Azure para MariaDB.
-

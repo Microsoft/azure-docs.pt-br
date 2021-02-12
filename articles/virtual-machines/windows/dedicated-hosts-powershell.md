@@ -5,15 +5,15 @@ author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 08/01/2019
+ms.date: 11/12/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 884a9e82dacb2a0dfc6763809a2ccfd2b886df1a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2f8f2d9eb14e1272af126c9a6d6663f41aaee33f
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974168"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97005079"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Implantar VMs em hosts dedicados usando o Azure PowerShell
 
@@ -53,10 +53,6 @@ $hostGroup = New-AzHostGroup `
 
 Adicione o `-SupportAutomaticPlacement true` parâmetro para que suas VMs e instâncias do conjunto de dimensionamento sejam colocadas automaticamente nos hosts, dentro de um grupo de hosts. Para obter mais informações, consulte [manual versus posicionamento automático ](../dedicated-hosts.md#manual-vs-automatic-placement).
 
-> [!IMPORTANT]
-> O posicionamento automático está atualmente em visualização pública.
-> Para participar da versão prévia, conclua a pesquisa de integração de visualização em [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="create-a-host"></a>Criar um host
 
@@ -173,12 +169,7 @@ Location               : eastus
 Tags                   : {}
 ```
 
-## <a name="create-a-scale-set-preview"></a>Criar um conjunto de dimensionamento (visualização)
-
-> [!IMPORTANT]
-> Os conjuntos de dimensionamento de máquinas virtuais em hosts dedicados estão atualmente em visualização pública.
-> Para participar da versão prévia, conclua a pesquisa de integração de visualização em [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## <a name="create-a-scale-set"></a>Criar um conjunto de escala 
 
 Ao implantar um conjunto de dimensionamento, você especifica o grupo de hosts.
 

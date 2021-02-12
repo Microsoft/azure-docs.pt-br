@@ -7,15 +7,15 @@ ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 08/20/2020
+ms.topic: how-to
+ms.date: 10/28/2020
 ms.author: banders
-ms.openlocfilehash: c24af5a9fb1367e00d9a014b1e10f750a38ad30b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e380aa1f4d50e6ced34254ceca9d899022142f6d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270892"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911283"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Baixar ou exibir a fatura de cobrança e os dados de uso diário do Azure
 
@@ -41,7 +41,7 @@ Para a maioria das assinaturas, você pode baixar sua fatura do portal do Azure.
 
     ![Captura de tela que mostra a opção de Cobrança e Uso](./media/download-azure-invoice-daily-usage-date/billingandusage.png)
 
-3. Clique no botão Baixar para baixar uma cópia de sua fatura em PDF e, em seguida, selecione **Baixar fatura**. Se o resultado for **Não disponível**, veja [Por que não encontro uma fatura do último período de cobrança?](#noinvoice)
+3. Clique no botão Baixar para baixar uma cópia de sua fatura em PDF e, em seguida, selecione **Baixar fatura**. Se o resultado for **Não disponível** , veja [Por que não encontro uma fatura do último período de cobrança?](#noinvoice)
 
     ![Captura de tela que mostra os períodos de cobrança, a opção de download e as cobranças totais para cada período de cobrança](./media/download-azure-invoice-daily-usage-date/downloadinvoice.png)
 
@@ -107,8 +107,8 @@ Se você tiver um Contrato de Cliente da Microsoft, poderá aceitar receber sua 
 
 1. Pesquise **Gerenciamento de Custos + Cobrança**.
 1. Selecione um perfil de cobrança.
-1. Em **Configurações**, selecione **Propriedades**.
-1. Em **Fatura por Email**, selecione **Atualizar preferência de fatura por email**.
+1. Em **Configurações** , selecione **Propriedades**.
+1. Em **Fatura por Email** , selecione **Atualizar preferência de fatura por email**.
 1. Selecione **Aceitar**.
 1. Clique em **Atualizar**.
 
@@ -136,9 +136,7 @@ Para exibir e baixar os dados de uso como cliente do EA, você deverá ser admin
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Pesquise *Gerenciamento de Custos + Cobrança*.
-
-    ![Captura de tela que mostra a pesquisa do portal do Azure](./media/download-azure-invoice-daily-usage-date/portal-cm-billing-search.png)
-
+1. Se você tiver acesso a várias contas de cobrança, selecione o escopo do orçamento para sua conta de cobrança do EA.
 1. Selecione **uso + encargos**.
 1. No mês que você deseja fazer o download, selecione **fazer o download**.
 
@@ -161,14 +159,10 @@ Também é possível baixar o uso do mês atual para o período de cobrança atu
 
 1. Pesquise **Gerenciamento de Custos + Cobrança**.
 2. Selecione um perfil de cobrança.
-3. Na folha **Visão geral**, clique em **Baixar uso e encargos do Azure**.
+3. Na folha **Visão geral** , clique em **Baixar uso e encargos do Azure**.
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso ao Contrato de Cliente da Microsoft
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
-
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco
-
-Caso tenha dúvidas ou precise de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Próximas etapas
 

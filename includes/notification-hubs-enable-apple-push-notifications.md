@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/10/2020
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: 1cb7753f54e9c1334e35635c227f776041631f1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b5034f2163e8478d7ddb7b9271402b094a809d7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88864905"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95554816"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Gerar o arquivo de solicitação de assinatura de certificado
 
@@ -78,9 +78,9 @@ Para enviar notificações por push para um aplicativo iOS, registre seu aplicat
 Um certificado é necessário para habilitar que o hub de notificação funcione com **APNs**. Isso pode ser feito de duas maneiras:
 
 1. Crie um **.p12** que possa ser carregado diretamente no Hub de Notificação.  
-2. Crie um **.p8** que possa ser usado para a [autenticação baseada em token](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-http2-token-authentification) (*abordagem mais recente*).
+2. Crie um **.p8** que possa ser usado para a [autenticação baseada em token](../articles/notification-hubs/notification-hubs-push-notification-http2-token-authentication.md) (*abordagem mais recente*).
 
-A abordagem mais recente tem vários benefícios (em comparação ao uso de certificados), conforme documentado em [Autenticação baseada em token (HTTP/2) para APNs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-http2-token-authentification). No entanto, foram fornecidas etapas para ambas as abordagens. 
+A abordagem mais recente tem vários benefícios (em comparação ao uso de certificados), conforme documentado em [Autenticação baseada em token (HTTP/2) para APNs](../articles/notification-hubs/notification-hubs-push-notification-http2-token-authentication.md). No entanto, foram fornecidas etapas para ambas as abordagens. 
 
 ### <a name="option-1-creating-a-p12-push-certificate-that-can-be-uploaded-directly-to-notification-hub"></a>OPÇÃO UM: Crie um certificado push .p12 que possa ser carregado diretamente no Hub de Notificação
 

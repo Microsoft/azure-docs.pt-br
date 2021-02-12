@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
-ms.openlocfilehash: 2705e3d724530e879dd02346392f17fda274913a
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: bb28c517e353af6b8c1ee0cad788ff41b971918c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675327"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460880"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>Obter dados meteorológicos de parceiros meteorológicos
 
@@ -94,18 +94,18 @@ Para começar a obter dados meteorológicos em seu FarmBeats Datahub:
 
    Leva cerca de 10 a 15 minutos para provisionar os recursos.
 
-3. Verifique o status do objeto/Partner que você criou na etapa anterior. Para verificar o status, faça uma solicitação GET na API/Partner e verifique o status do objeto de parceiro. Depois que o FarmBeats provisiona o parceiro com êxito, o status é definido como **ativo** .
+3. Verifique o status do objeto/Partner que você criou na etapa anterior. Para verificar o status, faça uma solicitação GET na API/Partner e verifique o status do objeto de parceiro. Depois que o FarmBeats provisiona o parceiro com êxito, o status é definido como **ativo**.
 
-4. Na API do/JobType, faça uma solicitação GET. Verifique os trabalhos meteorológicos que você criou anteriormente no processo de adição de parceiro. Nos trabalhos meteorológicos, o campo **pipelinename** tem o seguinte formato: **Partner-name_partner-type_job-Name** .
+4. Na API do/JobType, faça uma solicitação GET. Verifique os trabalhos meteorológicos que você criou anteriormente no processo de adição de parceiro. Nos trabalhos meteorológicos, o campo **pipelinename** tem o seguinte formato: **Partner-name_partner-type_job-Name**.
 
       Agora, sua instância do FarmBeats tem um parceiro de dados meteorológico ativo. Você pode executar trabalhos para solicitar dados meteorológicos para um local específico (Latitude e longitude) e um intervalo de datas. Os tipos de trabalho terão detalhes sobre quais parâmetros são necessários para executar trabalhos meteorológicos.
 
       Por exemplo, para DTN, os seguintes tipos de trabalho serão criados:
    
-      - **get_dtn_daily_observations** : Obtenha observações diárias para um local e um período de tempo.
-      - **get_dtn_daily_forecasts** : Obtenha previsões diárias para um local e um período de tempo.
-      - **get_dtn_hourly_observations** : obter observações por hora para um local e um período de tempo.
-      - **get_dtn_hourly_forecasts** : obter previsões por hora para um local e um período de tempo.
+      - **get_dtn_daily_observations**: Obtenha observações diárias para um local e um período de tempo.
+      - **get_dtn_daily_forecasts**: Obtenha previsões diárias para um local e um período de tempo.
+      - **get_dtn_hourly_observations**: obter observações por hora para um local e um período de tempo.
+      - **get_dtn_hourly_forecasts**: obter previsões por hora para um local e um período de tempo.
 
 6. Anote a ID e os parâmetros dos tipos de trabalho.
 
@@ -125,7 +125,7 @@ Para começar a obter dados meteorológicos em seu FarmBeats Datahub:
        }
    ```
 
-   Por exemplo, para executar **get_dtn_daily_observations** , use a seguinte carga:
+   Por exemplo, para executar **get_dtn_daily_observations**, use a seguinte carga:
 
    ```json
    { 
@@ -141,7 +141,7 @@ Para começar a obter dados meteorológicos em seu FarmBeats Datahub:
    }
    ```
 
-8. A etapa anterior executa os trabalhos meteorológicos conforme definido no Docker de parceiro e ingere dados meteorológicos no FarmBeats. Você pode verificar o status do trabalho fazendo uma solicitação GET em/Jobs. Na resposta, procure **CurrentState** . Quando você terminar, **CurrentState** será definido como **Succeeded** .
+8. A etapa anterior executa os trabalhos meteorológicos conforme definido no Docker de parceiro e ingere dados meteorológicos no FarmBeats. Você pode verificar o status do trabalho fazendo uma solicitação GET em/Jobs. Na resposta, procure **CurrentState**. Quando você terminar, **CurrentState** será definido como **Succeeded**.
 
 ## <a name="query-ingested-weather-data"></a>Consultar dados meteorológicos ingeridos
 
@@ -221,7 +221,7 @@ Para solucionar problemas de falhas de trabalho, [Verifique os logs de trabalho]
 |     DockerDetails-imageName         |          Nome da imagem do Docker. Por exemplo, docker.io/mydockerimage (imagem em hub.docker.com) ou myazureacr.azurecr.io/mydockerimage (imagem no registro de contêiner do Azure) e assim por diante. Se nenhum registro for fornecido, o padrão será hub.docker.com.      |
 |          DockerDetails - imageTag             |         Nome da marca da imagem do Docker. O padrão é "mais recente".     |
 |  DockerDetails-credenciais      |  Credenciais para acessar o Docker privado. O parceiro fornece as credenciais.   |
-|  DockerDetails - azureBatchVMDetails - batchVMSKU     |    SKU de VM do lote do Azure. Para obter mais informações, consulte [todas as máquinas virtuais Linux disponíveis](../../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json). <BR> <BR> Os valores válidos são ' Small ', ' ExtraLarge ', ' Large ', ' A8 ', ' a9 ', ' Medium ', ' a5 ', ' a6 ', ' a7 ', ' STANDARD_D1 ', ' STANDARD_D2 ', ' STANDARD_D3 ', ' STANDARD_D4 ', ' STANDARD_D11 ', ' STANDARD_D12 ', ' STANDARD_D13 ', ' STANDARD_D14 ', ' A10 ', ' a11 ', ' STANDARD_D1_V2 ', ' STANDARD_D2_V2 ', ' STANDARD_D3_V2 ', ' STANDARD_D4_V2 ', ' STANDARD_D11_V2 ', ' STANDARD_D12_V2 ', ' STANDARD_D13_V2 ', ' STANDARD_D14_V2 ', ' STANDARD_G1 ', ' STANDARD_G2 ', ' STANDARD_G3 ', ' STANDARD_G4 ' , ' STANDARD_G5 ', ' STANDARD_D5_V2 ', ' BASIC_A1 ', ' BASIC_A2 ', ' BASIC_A3 ', ' BASIC_A4 ', ' STANDARD_A1 ', ' STANDARD_A2 ', ' STANDARD_A3 ', ' STANDARD_A4 ', ' STANDARD_A5 ', ' STANDARD_A6 ', ' STANDARD_A7 ', ' STANDARD_A8 ', ' STANDARD_A9 ', ' STANDARD_A10 ', ' STANDARD_A11 ', ' STANDARD_D15_V2 ', ' STANDARD_F1 ', ' STANDARD_F2 ', ' STANDARD_F4 ', ' STANDARD_F8 ', ' STANDARD_F16 ', ' STANDARD_NV6 ', ' STANDARD_NV12 ', ' STANDARD_NV24 ', ' STANDARD_NC6 ', ' STANDARD_NC12 ', ' STANDARD_NC24 ', ' STANDARD_NC24r ' , ' STANDARD_H8 ', ' STANDARD_H8m ', ' STANDARD_H16 ', ' STANDARD_H16m ', ' STANDARD_H16mr ', ' STANDARD_H16r ', ' STANDARD_A1_V2 ', ' STANDARD_A2_V2 ', ' STANDARD_A4_V2 ', ' STANDARD_A8_V2 ', ' STANDARD_A2m_V2 ', ' STANDARD_A4m_V2 ', ' STANDARD_A8m_V2 ', ' STANDARD_M64ms ', ' STANDARD_M128s ' e ' STANDARD_D2_V3 '. *O padrão é ' STANDARD_D2_V2 '.*  |
+|  DockerDetails - azureBatchVMDetails - batchVMSKU     |    SKU de VM do lote do Azure. Para obter mais informações, consulte [todas as máquinas virtuais Linux disponíveis](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). <BR> <BR> Os valores válidos são ' Small ', ' ExtraLarge ', ' Large ', ' A8 ', ' a9 ', ' Medium ', ' a5 ', ' a6 ', ' a7 ', ' STANDARD_D1 ', ' STANDARD_D2 ', ' STANDARD_D3 ', ' STANDARD_D4 ', ' STANDARD_D11 ', ' STANDARD_D12 ', ' STANDARD_D13 ', ' STANDARD_D14 ', ' A10 ', ' a11 ', ' STANDARD_D1_V2 ', ' STANDARD_D2_V2 ', ' STANDARD_D3_V2 ', ' STANDARD_D4_V2 ', ' STANDARD_D11_V2 ', ' STANDARD_D12_V2 ', ' STANDARD_D13_V2 ', ' STANDARD_D14_V2 ', ' STANDARD_G1 ', ' STANDARD_G2 ', ' STANDARD_G3 ', ' STANDARD_G4 ' , ' STANDARD_G5 ', ' STANDARD_D5_V2 ', ' BASIC_A1 ', ' BASIC_A2 ', ' BASIC_A3 ', ' BASIC_A4 ', ' STANDARD_A1 ', ' STANDARD_A2 ', ' STANDARD_A3 ', ' STANDARD_A4 ', ' STANDARD_A5 ', ' STANDARD_A6 ', ' STANDARD_A7 ', ' STANDARD_A8 ', ' STANDARD_A9 ', ' STANDARD_A10 ', ' STANDARD_A11 ', ' STANDARD_D15_V2 ', ' STANDARD_F1 ', ' STANDARD_F2 ', ' STANDARD_F4 ', ' STANDARD_F8 ', ' STANDARD_F16 ', ' STANDARD_NV6 ', ' STANDARD_NV12 ', ' STANDARD_NV24 ', ' STANDARD_NC6 ', ' STANDARD_NC12 ', ' STANDARD_NC24 ', ' STANDARD_NC24r ' , ' STANDARD_H8 ', ' STANDARD_H8m ', ' STANDARD_H16 ', ' STANDARD_H16m ', ' STANDARD_H16mr ', ' STANDARD_H16r ', ' STANDARD_A1_V2 ', ' STANDARD_A2_V2 ', ' STANDARD_A4_V2 ', ' STANDARD_A8_V2 ', ' STANDARD_A2m_V2 ', ' STANDARD_A4m_V2 ', ' STANDARD_A8m_V2 ', ' STANDARD_M64ms ', ' STANDARD_M128s ' e ' STANDARD_D2_V3 '. *O padrão é ' STANDARD_D2_V2 '.*  |
 |    DockerDetails - azureBatchVMDetails - dedicatedComputerNodes   |  Número de nós de computador dedicados por pool do lote. O valor padrão é 1. |
 |    DockerDetails - azureBatchVMDetails - nodeAgentSKUID          |    ID de SKU do agente de nó do lote do Azure. Atualmente, há suporte apenas para o agente de nó do lote "Batch. Node. Ubuntu 18, 4".    |
 | DockerDetails - partnerCredentials | Credenciais para chamar a API de parceiro no Docker. O parceiro fornece essas informações com base no mecanismo de autorização com suporte; por exemplo, nome de usuário e senha ou chaves de API. |

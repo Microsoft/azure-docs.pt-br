@@ -1,19 +1,16 @@
 ---
 title: Spark Streaming no Azure HDInsight
 description: Como usar Apache Spark aplicativos de streaming em clusters Spark do HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: a88d4893daa12ff2c35ee7cf8f4e5b7569f854f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bde6c5b2bad12df8642dd3c9b4a49548f7bc9a6d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086187"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929512"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Visão geral de Streaming do Apache Spark
 

@@ -36,14 +36,16 @@
   items:
     - name: Nuvens e clusters privados
       href: concepts-private-clouds-clusters.md
-    - name: Rede de nuvem privada e interconectividade
+    - name: Rede e interconectividade de nuvem privada
       href: concepts-networking.md
     - name: Armazenamento em nuvens privadas
       href: concepts-storage.md
     - name: Acesso e identidade para nuvens privadas
       href: concepts-identity.md
-    - name: Controle de acesso baseado em função
+    - name: Controle de acesso baseado em função do vSphere
       href: concepts-role-based-access-control.md
+    - name: Monitorar e reparar nuvens privadas
+      href: concepts-monitor-repair-private-cloud.md
     - name: Upgrades de nuvem privada
       href: concepts-upgrades.md
 - name: Guias de instruções
@@ -72,6 +74,8 @@
           href: concepts-api-management.md
         - name: Hub e spoke
           href: concepts-hub-and-spoke.md
+        - name: Central de Segurança do Azure
+          href: azure-security-integration.md
         - name: Servidor de Backup do Azure
           items:
             - name: Configurar Servidor de Backup
@@ -80,6 +84,8 @@
               href: backup-azure-vmware-solution-virtual-machines.md
         - name: Gerenciamento do ciclo de vida de VMs
           href: lifecycle-management-of-azure-vmware-solution-vms.md
+        - name: Azure NetApp Files
+          href: netapp-files-with-azure-vmware-solution.md
         - name: Gateway de Aplicativo
           href: protect-azure-vmware-solution-with-application-gateway.md
         - name: Gerenciador de Tráfego
@@ -98,11 +104,13 @@
   items:
     - name: Solução de problemas
       items:
-        - name: Obter ajuda com a implantação ou com falhas de provisionamento
+        - name: Abrir uma solicitação de suporte para falhas de implantação
           href: fix-deployment-provisioning-failures.md
     - name: Perguntas frequentes
-      href: faq.md
+      href: faq.yml
 - name: Referência
   items:
+    - name: CLI do Azure
+      href: /cli/azure/ext/vmware/vmware
     - name: Azure PowerShell
-      href: 'https://docs.microsoft.com/powershell/module/az.vmware/'
+      href: /powershell/module/az.vmware/

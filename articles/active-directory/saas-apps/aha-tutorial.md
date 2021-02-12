@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/09/2019
+ms.date: 01/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 0e5b9b9ba71412244d42204f6cad712b939d7c15
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: a8a33290c7fa904fc16b728a6e2411bd5b42683f
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318990"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259631"
 ---
 # <a name="tutorial-integrate-aha-with-azure-active-directory"></a>Tutorial: Integre o Aha! ao Azure Active Directory
 
@@ -25,8 +25,6 @@ Neste tutorial, você aprende a integrar o Aha! ao Azure AD (Azure Active Direct
 * Controlar no Azure AD quem tem acesso ao Aha!.
 * Permitir que os usuários se conectem automaticamente ao Aha! com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
-
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,22 +43,22 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 * Aha! é compatível com o SSO iniciado por **SP**
 * Aha! é compatível com o provisionamento de usuário **Just In Time**
 
-## <a name="adding-aha-from-the-gallery"></a>Adicionando o Aha! por meio da galeria
+## <a name="add-aha-from-the-gallery"></a>Adicionar o Aha! por meio da galeria
 
 Para configurar a integração do Aha! ao Azure AD, você precisa adicionar o Aha! à lista de aplicativos SaaS gerenciados por meio da galeria.
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
 1. Na seção **Adicionar da galeria**, digite **Aha!** na caixa de pesquisa.
 1. Selecione **Aha!** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-aha"></a>Configurar e testar logon único do Azure AD para o Aha!
+## <a name="configure-and-test-azure-ad-sso-for-aha"></a>Configurar e testar o SSO do Azure AD para o Aha!
 
 Configurar e testar o SSO do Azure AD com o Aha! usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Aha!.
 
-Para configurar e testar o SSO do Azure AD com o Aha!, conclua os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o Aha!, execute as seguintes etapas:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
     1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
@@ -73,11 +71,11 @@ Para configurar e testar o SSO do Azure AD com o Aha!, conclua os seguintes bloc
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **Aha!** , localize a seção **Gerenciar** e selecione **Logon único**.
+1. No portal do Azure, na página de integração do aplicativo **Aha!** , localize a seção **Gerenciar** e selecione **Logon único**.
 1. Na página **Escolher um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o Logon Único com SAML**, clique no ícone editar/de caneta da **Configuração Básica de SAML** para editar as configurações.
+1. Na página **Configurar o Logon Único com o SAML**, clique no ícone de caneta da **Configuração Básica do SAML** para editar as configurações.
 
-   ![Editar a Configuração Básica de SAML](common/edit-urls.png)
+    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
 1. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
@@ -115,15 +113,9 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
 1. Na lista de aplicativos, selecione **Aha!** .
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
-
-    ![O link “Usuários e grupos”](common/users-groups-blade.png)
-
 1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
-
-    ![O link Adicionar Usuário](common/add-assign-user.png)
-
 1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-aha-sso"></a>Configurar o Aha! SSO
@@ -140,23 +132,23 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 4. No menu na parte superior, clique em **Configurações**.
 
-    ![Configurações](./media/aha-tutorial/IC798950.png "Configurações")
+    ![Configurações](./media/aha-tutorial/setting.png "Configurações")
 
 5. Clique em **Conta**.
-  
-    ![Perfil](./media/aha-tutorial/IC798951.png "Perfil")
+
+    ![Perfil](./media/aha-tutorial/account.png "Perfil")
 
 6. Clique em **Segurança e logon único**.
 
-    ![Captura de tela que realça a opção de menu Segurança e logon único.](./media/aha-tutorial/IC798952.png "Segurança e logon único")
+    ![Captura de tela que realça a opção de menu Segurança e logon único.](./media/aha-tutorial/security.png "Segurança e logon único")
 
 7. Na seção **Logon Único**, como **Provedor de Identidade**, selecione **SAML2.0**.
 
-    ![Segurança e logon único](./media/aha-tutorial/IC798953.png "Segurança e logon único")
+    ![Segurança e logon único](./media/aha-tutorial/saml.png "Segurança e logon único")
 
 8. Na página de configuração **Logon Único** , realize as seguintes etapas:
 
-    ![Logon único](./media/aha-tutorial/IC798954.png "Logon Único")
+    ![Logon único](./media/aha-tutorial/sso.png "Logon Único")
 
     a. Na caixa de texto **Nome** , digite um nome para a sua configuração.
 
@@ -172,14 +164,14 @@ Nesta seção, um usuário chamado B.Fernandes será criado no Aha!. Aha! dá su
 
 ## <a name="test-sso"></a>Testar o SSO 
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir. 
 
-Quando clicar no bloco Aha! no Painel de Acesso, você deverá ser conectado automaticamente ao Aha! para o qual configurou o logon único. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
+* Clique em **Testar este aplicativo** no portal do Azure. Isso redirecionará você para a URL de Logon do Aha!, na qual você poderá iniciar o fluxo de logon. 
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Acesse a URL de Logon do Aha! diretamente e inicie o fluxo de logon de lá.
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](./tutorial-list.md)
+* Você pode usar os Meus Aplicativos da Microsoft. Quando clicar no bloco Aha! em Meus Aplicativos, isso redirecionará você para a URL de Logon URL de logon. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Próximas etapas
 
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
+Depois de configurar o Aha!, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

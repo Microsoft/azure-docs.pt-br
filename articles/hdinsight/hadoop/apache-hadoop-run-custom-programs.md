@@ -1,19 +1,16 @@
 ---
 title: Executar programas MapReduce personalizados - HDInsight do Azure
 description: Quando e como executar programas do Apache MapReduce personalizados em clusters do Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
-ms.openlocfilehash: 1dcc2a944fc527e4cbc8c7c1072503377ecb5798
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f7a3676db14dbf61d3976690c8f9c71a660f889
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505260"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943233"
 ---
 # <a name="run-custom-mapreduce-programs"></a>Executar programas de MapReduce personalizados
 

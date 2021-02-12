@@ -4,11 +4,11 @@ description: Saiba como se conectar remotamente a uma instância de conjunto de 
 ms.topic: conceptual
 ms.date: 03/23/2018
 ms.openlocfilehash: 98d573af4fc2026134e75d4caf24a09e57e52c87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268087"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012537"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Conectar remotamente a uma instância do conjunto de dimensionamento de máquinas virtuais ou a um nó de cluster
 Em um cluster do Service Fabric em execução no Azure, cada tipo de nó de cluster que você definir [configura um dimensionamento de máquina virtual separada](service-fabric-cluster-nodetypes.md).  Você pode conectar remotamente a instâncias de definição de dimensionamento específico (nós do cluster).  Ao contrário das máquinas virtuais de instância única, as instâncias de conjunto de dimensionamento da VM não recebem um endereço IP virtual próprio. Isso pode ser complicado quando você um endereço IP e uma porta que você queira usar para fazer a conexão remota com uma instância específica.

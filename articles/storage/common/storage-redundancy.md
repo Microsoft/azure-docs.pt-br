@@ -6,22 +6,21 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 01/19/2021
 ms.author: tamram
-ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: fbc24db21ee43e3c2aef3d0164e8510a79508fd2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7214a1eb41e4434818123ee26765ceb10ad551a5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658579"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094902"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 
-A redundância do Armazenamento do Azure sempre armazena várias cópias dos seus dados para que eles sejam protegidos contra eventos planejados e não planejados, incluindo falhas de hardware transitórias, interrupções de energia ou rede e desastres naturais de grandes proporções. A redundância garante que sua conta de armazenamento atenda ao [SLA (Contrato de Nível de Serviço) do Armazenamento do Azure](https://azure.microsoft.com/support/legal/sla/storage/) mesmo diante de falhas.
+A redundância do Armazenamento do Azure sempre armazena várias cópias dos seus dados para que eles sejam protegidos contra eventos planejados e não planejados, incluindo falhas de hardware transitórias, interrupções de energia ou rede e desastres naturais de grandes proporções. A redundância garante que sua conta de armazenamento atenda às suas metas de disponibilidade e durabilidade mesmo diante de falhas.
 
-Ao decidir qual opção de redundância é melhor para seu cenário, considere os benefícios comparativos entre custos menores e maior disponibilidade e durabilidade. Os fatores que ajudam a determinar qual opção de redundância você deve escolher incluem:  
+Ao decidir qual opção de redundância é melhor para seu cenário, considere as compensações entre custos menores e maior disponibilidade. Os fatores que ajudam a determinar qual opção de redundância você deve escolher incluem:  
 
 - Como os dados são replicados na região primária
 - Se seus dados são replicados para uma segunda região que está geograficamente distante para a região primária, para proteger contra desastres regionais
@@ -36,11 +35,15 @@ Os dados em uma conta de Armazenamento do Azure são sempre replicados três vez
 
 ### <a name="locally-redundant-storage"></a>Armazenamento com redundância local
 
-O armazenamento com redundância local (LRS) replica seus dados três vezes em um único local físico na região primária. O armazenamento com redundância local (LRS) fornece pelo menos 99,999999999% (11 noves) de durabilidade dos objetos em um determinado ano.
+O LRS (armazenamento com redundância local) Replica seus dados três vezes em um único data center na região primária. O armazenamento com redundância local (LRS) fornece pelo menos 99,999999999% (11 noves) de durabilidade dos objetos em um determinado ano.
 
 O LRS é a opção de redundância de menor custo e oferece a menor durabilidade em comparação com outras opções. O LRS protege seus dados contra falhas de unidade e rack do servidor. No entanto, caso ocorra um desastre no data center, como um incêndio ou uma inundação, todas as réplicas de uma conta de armazenamento que use o LRS poderão ser perdidas ou se tornarem irrecuperáveis. Para atenuar esse risco, a Microsoft recomenda usar o [armazenamento com redundância de zona](#zone-redundant-storage) (ZRS), o [armazenamento com redundância geográfica](#geo-redundant-storage) (GRS) ou o [armazenamento com redundância de zona geográfica](#geo-zone-redundant-storage) (GZRS).
 
 Uma solicitação de gravação para uma conta de armazenamento que está usando o LRS ocorre de forma síncrona. A operação de gravação retorna com êxito somente depois que os dados são gravados em todas as três réplicas.
+
+O diagrama a seguir mostra como os dados são replicados em um único data center com LRS:
+
+:::image type="content" source="media/storage-redundancy/locally-redundant-storage.png" alt-text="Diagrama mostrando como os dados são replicados em um único data center com LRS":::
 
 O LRS é uma boa opção para os seguintes cenários:
 
@@ -51,11 +54,15 @@ O LRS é uma boa opção para os seguintes cenários:
 
 O armazenamento com redundância de zona (ZRS) replica seus dados do Armazenamento do Azure de forma síncrona em três zonas de disponibilidade do Azure na região primária. Cada zona de disponibilidade é um local físico separado com energia, resfriamento e rede independentes. O ZRS oferece durabilidade para objetos de dados do Armazenamento do Azure de, pelo menos, 99,9999999999% (doze noves) em um dado ano.
 
-Com o ZRS, seus dados ainda podem ser acessados por operações de leitura e de gravação, mesmo em caso de não disponibilidade de uma zona. Se uma zona ficar indisponível, o Azure assumirá as atualizações de rede, como a reapontação de DNS. Essas atualizações podem afetar seu aplicativo se você estiver acessando os dados antes que as atualizações sejam concluídas. Ao criar aplicativos para ZRS, siga práticas para manipulação de falha transitórias, incluindo a implementação de políticas de novas tentativas com retirada exponencial.
+Com o ZRS, seus dados ainda podem ser acessados por operações de leitura e de gravação, mesmo em caso de não disponibilidade de uma zona. Se uma zona se tornar indisponível, o Azure realizará atualizações da rede, como a reposição de DNS. Essas atualizações podem afetar seu aplicativo se você estiver acessando os dados antes que as atualizações sejam concluídas. Ao criar aplicativos para ZRS, siga práticas para manipulação de falha transitórias, incluindo a implementação de políticas de novas tentativas com retirada exponencial.
 
 Uma solicitação de gravação para uma conta de armazenamento que está usando o ZRS ocorre de forma síncrona. A operação de gravação retorna com êxito somente depois que os dados são gravados em todas as réplicas nas três zonas de disponibilidade.
 
-A Microsoft recomenda usar o ZRS na região primária para cenários que exigem consistência, durabilidade e alta disponibilidade. Também recomendamos o uso de ZRS se você quiser restringir um aplicativo para replicar dados somente em um país ou região devido aos requisitos de governança de dados.
+A Microsoft recomenda usar o ZRS na região primária para cenários que exigem consistência, durabilidade e alta disponibilidade. O ZRS também é recomendado para restringir a replicação de dados para dentro de um país ou região para atender aos requisitos de governança de dados.
+
+O diagrama a seguir mostra como os dados são replicados entre as zonas de disponibilidade na região primária com ZRS:
+
+:::image type="content" source="media/storage-redundancy/zone-redundant-storage.png" alt-text="Diagrama mostrando como os dados são replicados na região primária com ZRS":::
 
 O ZRS fornece desempenho excelente, baixa latência e resiliência para seus dados se eles ficarem temporariamente indisponíveis. Entretanto, por si só, o ZRS não pode proteger seus dados contra um desastre regional em que várias zonas permanentemente são afetadas. Para proteção contra desastres regionais, a Microsoft recomenda o uso do [armazenamento com redundância de zona geográfica](#geo-zone-redundant-storage) (GZRS), que usa o ZRS na região primária e também replica geograficamente seus dados para uma região secundária.
 
@@ -64,8 +71,8 @@ A tabela a seguir mostra quais tipos de contas de armazenamento dão suporte ao 
 | Tipo de conta de armazenamento | Regiões com suporte | Serviços com suporte |
 |--|--|--|
 | Uso geral v2<sup>1</sup> | Sudeste da Ásia<br /> Leste da Austrália<br /> Norte da Europa<br />  Europa Ocidental<br /> França Central<br /> Leste do Japão<br /> Norte da África do Sul<br /> Sul do Reino Unido<br /> EUA Central<br /> Leste dos EUA<br /> Leste dos EUA 2<br /> Oeste dos EUA 2 | Blobs de bloco<br /> Blobs de páginas<sup>2</sup><br /> Compartilhamentos de arquivos (padrão)<br /> Tabelas<br /> Filas<br /> |
-| BlockBlobStorage<sup>1</sup> | Sudeste da Ásia<br /> Leste da Austrália<br /> Norte da Europa<br /> Europa Ocidental<br /> Leste dos EUA <br /> Leste dos EUA 2 <br /> Oeste dos EUA 2| Somente blobs de blocos Premium |
-| FileStorage | Sudeste da Ásia<br /> Leste da Austrália<br /> Norte da Europa<br /> Europa Ocidental<br /> Leste dos EUA <br /> Leste dos EUA 2 <br /> Oeste dos EUA 2 | Somente compartilhamentos de arquivos Premium |
+| BlockBlobStorage<sup>1</sup> | Sudeste da Ásia<br /> Leste da Austrália<br /> Norte da Europa<br /> Europa Ocidental<br /> França Central <br /> Leste do Japão<br /> Sul do Reino Unido <br /> Leste dos EUA <br /> Leste dos EUA 2 <br /> Oeste dos EUA 2| Somente blobs de blocos Premium |
+| FileStorage | Sudeste da Ásia<br /> Leste da Austrália<br /> Norte da Europa<br /> Europa Ocidental<br /> França Central <br /> Leste do Japão<br /> Sul do Reino Unido <br /> Leste dos EUA <br /> Leste dos EUA 2 <br /> Oeste dos EUA 2 | Somente compartilhamentos de arquivos Premium |
 
 <sup>1</sup> A camada de arquivamento não tem suporte atualmente para contas de ZRS.<br />
 <sup>2</sup> Contas de armazenamento que contêm discos gerenciados do Azure para máquinas virtuais sempre usam LRS. Os discos não gerenciados do Azure também devem usar LRS. É possível criar uma conta de armazenamento para discos não gerenciados do Azure que usam GRS, mas isso não é recomendável devido a possíveis problemas de consistência em relação à replicação geográfica assíncrona. Os discos gerenciados ou não gerenciados dão suporte a ZRS ou GZRS. Para saber mais sobre discos gerenciados, confira [Preços para discos gerenciados do Azure](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -98,11 +105,19 @@ O armazenamento com redundância geográfica (GRS) copia seus dados de forma sí
 
 Uma operação de gravação primeiro é confirmada para o local primário e replicados usando o LRS. A atualização, em seguida, é replicada assincronamente para a região secundária. Quando dados são gravados para o local secundário, ela também é replicada dentro desse local usando o LRS.
 
+O diagrama a seguir mostra como os dados são replicados com GRS ou RA-GRS:
+
+:::image type="content" source="media/storage-redundancy/geo-redundant-storage.png" alt-text="Diagrama mostrando como os dados são replicados com GRS ou RA-GRS":::
+
 ### <a name="geo-zone-redundant-storage"></a>Armazenamento com redundância de zona geográfica
 
 O armazenamento com redundância de zona geográfica (GZRS) combina a alta disponibilidade fornecida pela redundância entre zonas de disponibilidade com a proteção contra interrupções regionais fornecidas pela replicação geográfica. Os dados em uma conta de armazenamento GZRS são copiados entre três [zonas de disponibilidade do Azure](../../availability-zones/az-overview.md) na região primária e também são replicados para uma região geográfica secundária para proteção contra desastres regionais. A Microsoft recomenda o uso do GZRS para aplicativos que exigem consistência, durabilidade e disponibilidade máximas, excelente desempenho e resiliência para recuperação de desastres.
 
 Com uma conta de armazenamento GZRS, você pode continuar lendo e gravando dados se uma zona de disponibilidade ficar indisponível ou não puder ser recuperada. Além disso, seus dados também serão duráveis no caso de uma interrupção regional completa ou um desastre no qual a região primária não possa ser recuperada. O GZRS foi projetado para fornecer pelo menos 99,99999999999999% (dezesseis noves) de durabilidade dos objetos durante um determinado ano.
+
+O diagrama a seguir mostra como os dados são replicados com GZRS ou RA-GZRS:
+
+:::image type="content" source="media/storage-redundancy/geo-zone-redundant-storage.png" alt-text="Diagrama mostrando como os dados são replicados com GZRS ou RA-GZRS":::
 
 Somente contas de armazenamento para uso geral v2 dão suporte ao GZRS e ao RA-GZRS. Para obter mais informações sobre os tipos de conta de armazenamento, consulte [Visão geral da conta de armazenamento do Azure](storage-account-overview.md). O GZRS e o RA-GZRS dão suporte a blobs de blocos, blobs de páginas (exceto discos VHD), arquivos, tabelas e filas.
 
@@ -153,11 +168,10 @@ A tabela a seguir descreve os principais parâmetros para cada opção de redund
 
 | Parâmetro | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|:-|
-| Porcentagem de durabilidade dos objetos em um determinado ano<sup>1</sup> | no mínimo 99,999999999% (11 9's) | no mínimo 99,9999999999% (12 9's) | no mínimo 99,99999999999999% (16 9's) | no mínimo 99,99999999999999% (16 9's) |
-| SLA de disponibilidade para solicitações de leitura<sup>1</sup> | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) para o GRS<br /><br />Pelo menos 99,99% (99,9% para a camada de acesso esporádico) para o RA-GRS | Pelo menos 99,9% (99% para a camada de acesso esporádico) para o GZRS<br /><br />Pelo menos 99,99% (99.9% para a camada de acesso esporádico) para o RA-GZRS |
-| SLA de disponibilidade para solicitações de gravação<sup>1</sup> | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) |
-
-<sup>1</sup> Para obter informações sobre as garantias do Armazenamento do Azure para durabilidade e disponibilidade, confira o [SLA do Armazenamento do Azure](https://azure.microsoft.com/support/legal/sla/storage/).
+| Porcentagem de durabilidade dos objetos em um determinado ano | no mínimo 99,999999999% (11 9's) | no mínimo 99,9999999999% (12 9's) | no mínimo 99,99999999999999% (16 9's) | no mínimo 99,99999999999999% (16 9's) |
+| Disponibilidade para solicitações de leitura | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) para o GRS<br /><br />Pelo menos 99,99% (99,9% para a camada de acesso esporádico) para o RA-GRS | Pelo menos 99,9% (99% para a camada de acesso esporádico) para o GZRS<br /><br />Pelo menos 99,99% (99.9% para a camada de acesso esporádico) para o RA-GZRS |
+| Disponibilidade para solicitações de gravação | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) |
+| Número de cópias de dados mantidos em nós separados | Três cópias em uma única região | Três cópias em zonas de disponibilidade separadas em uma única região | Total de seis cópias, incluindo três na região primária e três na região secundária | Total de seis cópias, incluindo três em zonas de disponibilidade separadas na região primária e três cópias localmente redundantes na região secundária |
 
 ### <a name="durability-and-availability-by-outage-scenario"></a>Cenário de durabilidade e disponibilidade durante interrupções
 

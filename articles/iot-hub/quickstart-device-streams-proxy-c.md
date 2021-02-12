@@ -1,20 +1,20 @@
 ---
-title: Início rápido de C para fluxos de dispositivos do Hub IoT do Azure para SSH e RDP
+title: Guia de Início Rápido – C para fluxos de dispositivos do Hub IoT do Azure para SSH e RDP
 description: Neste início rápido, você executará um aplicativo C de exemplo que funciona como um proxy para habilitar cenários de SSH e RDP em fluxos de dispositivos do Hub IoT.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
-ms.custom: mvc, devx-track-azurecli
+ms.custom: references_regions
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 35c120b6d7715ac6fefe0e8712040108568ee8de
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2305a87b91160b5de90f4cbfbc9418adc50bb92a
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747432"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624398"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Início Rápido: Habilitar o SSH e o RDP em fluxos de dispositivos do Hub IoT usando o aplicativo proxy do C (versão prévia)
 
@@ -25,6 +25,22 @@ Atualmente, o Hub IoT do Azure dá suporte a fluxos de dispositivos como uma [ve
 Os [fluxos de dispositivos do Hub IoT](./iot-hub-device-streams-overview.md) permitem que aplicativos de serviço e dispositivo se comuniquem de maneira segura e simples para o firewall. Para obter uma visão geral da configuração, confira [a página Amostra de proxy local](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp).
 
 Este início rápido descreve a configuração para passar o tráfego SSH por um túnel (usando a porta 22) por meio de fluxos de dispositivos. A configuração do tráfego RDP (protocolo RDP) é semelhante e exige uma simples alteração na configuração. Como os fluxos de dispositivos são independentes de protocolo e de aplicativo, você pode modificar este início rápido para acomodar outros tipos de tráfego do aplicativo.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* Atualmente, a versão prévia dos fluxos de dispositivos só é compatível com hubs IoT criados nas seguintes regiões:
+
+  * Centro dos EUA
+  * EUA Central EUAP
+  * Norte da Europa
+  * Sudeste Asiático
+
+* Instale o [Visual Studio 2019](https://www.visualstudio.com/vs/) com a carga de trabalho [Desenvolvimento para desktop com C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) habilitada.
+* Instale a versão mais recente do [Git](https://git-scm.com/download/).
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="how-it-works"></a>Como ele funciona
 
@@ -46,29 +62,7 @@ A figura a seguir ilustra como os programas proxy locais do dispositivo e do ser
 > [!NOTE]
 > O tráfego SSH enviado por um fluxo de dispositivos é passado por um túnel pelo ponto de extremidade de streaming do hub IoT, em vez de ser enviado diretamente entre o serviço e o dispositivo. Para obter mais informações, confira os [benefícios do uso de fluxos de dispositivos do Hub IoT](iot-hub-device-streams-overview.md#benefits). Além disso, a figura ilustra o daemon SSH em execução no mesmo dispositivo (ou computador) do proxy local do dispositivo. Neste início rápido, o fornecimento do endereço IP do daemon SSH permite que o daemon e o proxy local do dispositivo também sejam executados em computadores diferentes.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-* Atualmente, a versão prévia dos fluxos de dispositivos só é compatível com hubs IoT criados nas seguintes regiões:
-
-  * Centro dos EUA
-  * EUA Central EUAP
-  * Norte da Europa
-  * Sudeste Asiático
-
-* Instale o [Visual Studio 2019](https://www.visualstudio.com/vs/) com a carga de trabalho [Desenvolvimento para desktop com C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) habilitada.
-* Instale a versão mais recente do [Git](https://git-scm.com/download/).
-
-* Execute o comando a seguir para adicionar a Extensão do Azure IoT para a CLI do Azure à instância do Cloud Shell. A Extensão de IoT adiciona comandos específicos do Hub IoT, do IoT Edge e do DPS (Serviço de Provisionamento de Dispositivos IoT) à CLI do Azure.
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prepare-the-development-environment"></a>Preparar o ambiente de desenvolvimento
 
@@ -76,7 +70,7 @@ Neste início rápido, você usará o [SDK do dispositivo IoT do Azure para C](i
 
 1. Baixe o [sistema de build CMake](https://cmake.org/download/).
 
-    É importante que os pré-requisitos do Visual Studio (Visual Studio e a carga de trabalho *Desenvolvimento para desktop com C++* ) estejam instalados no computador, *antes* de iniciar a instalação do CMake. Após a implementação dos pré-requisitos e a verificação do download, instale o sistema de build CMake.
+    É importante que os pré-requisitos do Visual Studio (Visual Studio e a carga de trabalho *Desenvolvimento para desktop com C++*) estejam instalados no computador, *antes* de iniciar a instalação do CMake. Após a implementação dos pré-requisitos e a verificação do download, instale o sistema de build CMake.
 
 1. Abra um prompt de comando ou o shell Bash do Git. Execute o seguinte comando para clonar o repositório do GitHub do [SDK de C do IoT do Azure](https://github.com/Azure/azure-iot-sdk-c):
 
@@ -88,7 +82,7 @@ Neste início rápido, você usará o [SDK do dispositivo IoT do Azure para C](i
 
     Essa operação pode levar alguns minutos.
 
-1. Crie um subdiretório *cmake* no diretório raiz do repositório git e navegue até essa pasta. Execute os seguintes comandos no diretório *azure-iot-sdk-c* :
+1. Crie um subdiretório *cmake* no diretório raiz do repositório git e navegue até essa pasta. Execute os seguintes comandos no diretório *azure-iot-sdk-c*:
 
     ```cmd/sh
     mkdir cmake
@@ -104,7 +98,7 @@ Neste início rápido, você usará o [SDK do dispositivo IoT do Azure para C](i
       make -j
       ```
 
-   * No Windows, execute os comandos a seguir no Prompt de Comando do Desenvolvedor para o Visual Studio 2015 ou 2017. Uma solução do Visual Studio para o dispositivo simulado será gerada no diretório *cmake* .
+   * No Windows, execute os comandos a seguir no Prompt de Comando do Desenvolvedor para o Visual Studio 2015 ou 2017. Uma solução do Visual Studio para o dispositivo simulado será gerada no diretório *cmake*.
 
       ```cmd
       rem For VS2015
@@ -126,7 +120,7 @@ Neste início rápido, você usará o [SDK do dispositivo IoT do Azure para C](i
 
 ## <a name="register-a-device"></a>Registrar um dispositivo
 
-Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Nesta seção, você usará o Azure Cloud Shell com a [extensão de IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) para registrar um dispositivo simulado.
+Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Nesta seção, você usará o Azure Cloud Shell com a [extensão de IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest&preserve-view=true) para registrar um dispositivo simulado.
 
 1. Para criar a identidade do dispositivo, execute o seguinte comando no Cloud Shell:
 
@@ -144,7 +138,7 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Nesta 
    > Substitua o espaço reservado *YourIoTHubName* com o nome escolhido para o hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
+    az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
     Anote a cadeia de conexão de dispositivo retornada para uso posterior neste início rápido. Ela se parece com o seguinte exemplo:

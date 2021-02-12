@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: c707f6108c73a268bcac18c45afb70ae17185bb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 877200cbafbe68fa6161025572abfddad651e172
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308105"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490713"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Entendimento conceitual de certificados de AC X.509 no setor de IoT
 
@@ -40,6 +40,8 @@ Um atributo distinto da autenticação de AC X.509 é uma relação de um para m
 Outro atributo importante da autenticação de AC X.509 é a simplificação da logística da cadeia de fornecimento. A autenticação segura de dispositivos requer que cada dispositivo tenha um segredo único como uma chave como base para a relação de confiança. Na autenticação baseada em certificados, esse segredo é uma chave privada. Um fluxo de dados de fabricação de dispositivo típico envolve várias etapas e responsáveis. Gerenciar com segurança chaves privadas de dispositivo em vários responsáveis e manter a confiança é difícil e caro. Usar autoridades de certificação resolve esse problema, inscrevendo cada responsável em uma cadeia de confiança de criptografia em vez de confiar a confiança deles com chaves privadas de dispositivo. Cada responsável, por sua vez, inscreve dispositivos em sua respectiva etapa do processo do fluxo de fabricação. O resultado geral é uma cadeia de fornecimento ideal com responsabilidade interna por meio do uso da cadeia de confiança de criptografia. Vale a pena observar que esse processo resulta na maior parte da segurança quando os dispositivos protegem suas chaves privadas exclusivas. Para esse fim, recomendamos enfaticamente o uso de HSM (Módulos Seguros de Hardware) capaz de gerar internamente chaves privadas que nunca verão a luz do dia.
 
 Este artigo oferece uma exibição de ponta a ponta do uso da autenticação de AC X.509, da configuração da cadeia de fornecimento à conexão do dispositivo, ao fazer uso de um exemplo do mundo real para solidificar a compreensão.
+
+Você também pode usar grupos de registro com o serviço de provisionamento de dispositivos do Hub IoT do Azure (DPS) para lidar com o provisionamento de dispositivos em hubs. Para obter mais informações sobre como usar o DPS para provisionar dispositivos de certificado X. 509, consulte [tutorial: provisionar vários dispositivos x. 509 usando grupos de registro](../iot-dps/tutorial-custom-hsm-enrollment-group-x509.md).
 
 ## <a name="introduction"></a>Introdução
 
@@ -75,7 +77,7 @@ O processo para criar um Self-Signed certificado de autoridade de certificação
 
 ## <a name="register-the-x509-certificate-to-iot-hub"></a>Registrar o certificado X.509 no Hub IoT
 
-A Empresa X precisa registrar a AC X.509 no Hub IoT onde ela servirá para autenticar o Widget inteligente X como à medida que ele se conecta. Este é um processo único que habilita a capacidade de autenticar e gerenciar qualquer quantidade de dispositivos de Widget inteligente X. Esse processo é único devido a uma relação de um para muitos entre dispositivos e o certificado de autoridade e também é uma das principais vantagens de usar o método de autenticação de AC X.509. A alternativa é carregar impressões digitais do certificado individuais para cada dispositivo do Widget inteligente X, aumentando assim os custos operacionais.
+A Empresa X precisa registrar a AC X.509 no Hub IoT onde ela servirá para autenticar o Widget inteligente X como à medida que ele se conecta. Este é um processo único que habilita a capacidade de autenticar e gerenciar qualquer quantidade de dispositivos de Widget inteligente X. Esse é um processo único devido a uma relação um-para-muitos entre o certificado de autoridade de certificação e os certificados de dispositivo assinados pelo certificado de autoridade de certificação ou um certificado intermediário. Essa relação constitui uma das principais vantagens de usar o método de autenticação de autoridade de certificação X. 509. A alternativa é carregar impressões digitais do certificado individuais para cada dispositivo do Widget inteligente X, aumentando assim os custos operacionais.
 
 Registrar o Certificado de Autoridade de Certificação X.509 é um processo de duas etapas, o upload do certificado e prova de posse do certificado.
 

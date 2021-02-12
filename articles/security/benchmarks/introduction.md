@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f3b492534bedde50d2413b88fa38cd6325ed5df7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32aa64a9343a8e3c62af4322b3320b28ce805064
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328251"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369184"
 ---
 # <a name="azure-security-benchmark-introduction"></a>Introdução ao benchmark de segurança do Azure
 
@@ -27,7 +27,7 @@ O benchmark de segurança do Azure inclui uma coleção de recomendações de se
 - **Linhas de base de serviço**: elas aplicam os controles aos serviços individuais do Azure para fornecer recomendações sobre a configuração de segurança desse serviço.
 
 ## <a name="implement-the-azure-security-benchmark"></a>Implementar o benchmark de segurança do Azure
-- **Planeje** a implementação do benchmark de segurança do Azure examinando a [documentação](overview.md) dos controles corporativos e das linhas de base específicas do serviço para planejar sua estrutura de controle e como ela é MAPEADA para orientação como CIS (controles v 7.1) e estrutura NIST (SP800-53).
+- **Planeje** a implementação do benchmark de segurança do Azure examinando a [documentação](overview.md) dos controles corporativos e das linhas de base específicas do serviço para planejar sua estrutura de controle e como ela é MAPEADA para orientação como CIS (controles v 7.1) e estrutura NIST (SP 800-53).
 - **Monitore** sua conformidade com o status de benchmark de segurança do Azure (e outros conjuntos de controle) usando o [painel de conformidade regulatória](../../security-center/security-center-compliance-dashboard.md)da central de segurança do Azure.
 - **Estabeleça o guardrails** para automatizar as configurações seguras e impor a conformidade com o benchmark de segurança do Azure (e outros requisitos em sua organização) com os planos gráficos e Azure Policy do Azure.
  

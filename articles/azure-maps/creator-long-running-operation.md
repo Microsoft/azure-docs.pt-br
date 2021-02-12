@@ -3,22 +3,26 @@ title: API de execução prolongada do Azure Mapas
 description: Saiba mais sobre o processamento em segundo plano assíncrono prolongado no Azure Mapas
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 69c5b9d15c0ba3c7c8b6b01643beac1905c404ad
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: f5fb7c8059c8b98e8ec514a4159e96f48db7b1ad
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895861"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906192"
 ---
-# <a name="creator-long-running-operation-api"></a>API de execução prolongada do criador
+# <a name="creator-preview-long-running-operation-api"></a>API de operação do criador (versão prévia) Long-Running
 
-Algumas APIs no Azure Mapas usam um [padrão de solicitação assíncrona-resposta](/azure/architecture/patterns/async-request-reply). Esse padrão permite que o Azure Mapas forneça serviços altamente disponíveis e responsivos. Este artigo explica a implementação específica do processamento em segundo plano assíncrono de execução prolongada do Azure Mapa.
+> [!IMPORTANT]
+> Os serviços do Azure Maps Creator estão atualmente em visualização pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Algumas APIs no Azure Maps usam um [padrão de Request-Reply assíncrona](/azure/architecture/patterns/async-request-reply). Esse padrão permite que o Azure Mapas forneça serviços altamente disponíveis e responsivos. Este artigo explica a implementação específica do processamento em segundo plano assíncrono de execução prolongada do Azure Mapa.
 
 ## <a name="submitting-a-request"></a>Enviando uma solicitação
 

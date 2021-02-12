@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 7098744fe012c994e311696a376cd7ed0dc9ac53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1155b4274b97f540fd97bf39e51fd41c37bc9627
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89076609"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730614"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adicionar um disco a uma VM do Linux
 
@@ -21,7 +21,7 @@ Este artigo mostra a você como anexar um disco persistente à sua VM para que v
 
 ## <a name="attach-a-new-disk-to-a-vm"></a>Anexar um novo disco a uma VM
 
-Se você quiser adicionar um disco de dados novo vazio em sua VM, use o comando [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest) com o parâmetro `--new`. Se a VM estiver em uma zona de disponibilidade, o disco será criado automaticamente na mesma zona que a VM. Para obter mais informações, consulte [Visão geral de zonas de disponibilidade](../../availability-zones/az-overview.md). O exemplo a seguir cria um disco chamado *myDataDisk* que tem tamanho de 50 Gb:
+Se você quiser adicionar um disco de dados novo vazio em sua VM, use o comando [az vm disk attach](/cli/azure/vm/disk) com o parâmetro `--new`. Se a VM estiver em uma zona de disponibilidade, o disco será criado automaticamente na mesma zona que a VM. Para obter mais informações, consulte [Visão geral de zonas de disponibilidade](../../availability-zones/az-overview.md). O exemplo a seguir cria um disco chamado *myDataDisk* que tem tamanho de 50 Gb:
 
 ```azurecli
 az vm disk attach \
@@ -34,7 +34,7 @@ az vm disk attach \
 
 ## <a name="attach-an-existing-disk"></a>Anexar um disco existente
 
-Para anexar um disco existente, localize a ID do disco e passe-a para o comando [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest). A exemplo a seguir consulta em busca de um disco chamado *myDataDisk* em *myResourceGroup*, em seguida, anexa-o à VM denominada *myVM*:
+Para anexar um disco existente, localize a ID do disco e passe-a para o comando [az vm disk attach](/cli/azure/vm/disk). A exemplo a seguir consulta em busca de um disco chamado *myDataDisk* em *myResourceGroup*, em seguida, anexa-o à VM denominada *myVM*:
 
 ```azurecli
 diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
@@ -70,7 +70,7 @@ sdb     1:0:1:0      14G
 sdc     3:0:0:0      50G
 ```
 
-Aqui `sdc` está o disco que desejamos, porque ele é 50g. Se você não tiver certeza de qual disco ele se baseia apenas no tamanho, poderá ir para a página VM no portal, selecionar **discos**e verificar o número de LUN para o disco em **discos de dados**. 
+Aqui `sdc` está o disco que desejamos, porque ele é 50g. Se você não tiver certeza de qual disco ele se baseia apenas no tamanho, poderá ir para a página VM no portal, selecionar **discos** e verificar o número de LUN para o disco em **discos de dados**. 
 
 
 ### <a name="format-the-disk"></a>Formatar o disco
@@ -181,5 +181,5 @@ Há duas maneiras de habilitar o suporte a TRIM em sua VM do Linux. Como de cost
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para garantir que a VM Linux seja configurada corretamente, leia as recomendações em [Otimizar sua VM do Linux no Azure](optimization.md) .
-* Expanda a capacidade de armazenamento adicionando mais discos e [configure o RAID](configure-raid.md) para obter desempenho adicional.
+* Para garantir que a VM Linux seja configurada corretamente, leia as recomendações em [Otimizar sua VM do Linux no Azure](/previous-versions/azure/virtual-machines/linux/optimization) .
+* Expanda a capacidade de armazenamento adicionando mais discos e [configure o RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) para obter desempenho adicional.

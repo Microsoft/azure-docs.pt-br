@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cynthn
-ms.openlocfilehash: 9d9a9c878c96c7f5a38466c494e4b90287c984da
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 0ae4a311bc4f5084ff930b97d68482d64671a782
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92734941"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695762"
 ---
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>Gerenciar a disponibilidade de máquinas virtuais do Linux
 
@@ -22,7 +22,7 @@ Aprenda como configurar e gerenciar várias máquinas virtuais para garantir a a
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Entender as reinicializações de VM - manutenção vs. tempo de inatividade
 Há três cenários que podem afetar a máquina virtual no Azure: manutenção de hardware não planejada, tempo de inatividade inesperado e manutenção planejada.
 
-* O **Evento de Manutenção de Hardware Não Planejado** ocorre quando a plataforma do Azure prevê que o hardware ou qualquer componente de plataforma associado a um computador físico está prestes a falhar. Quando a plataforma previr uma falha, ela emitirá um evento de manutenção de hardware não planejada para reduzir o impacto em máquinas virtuais hospedadas no hardware. O Azure usa a tecnologia de [Migração ao Vivo](./maintenance-and-updates.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json%252c%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json%253ftoc%253d%252fazure%252fvirtual-machines%252flinux%252ftoc.json) para migrar as Máquinas Virtuais do hardware com falha para um computador físico íntegro. A Migração ao Vivo é uma operação de preservação de VM que só pausa a Máquina Virtual por um curto período. A memória, os arquivos abertos e as conexões de rede são mantidos, mas o desempenho pode ser reduzido antes e/ou depois do evento. Em casos em que a Migração ao Vivo não puder ser usada, a VM terá um Tempo de Inatividade Inesperado, conforme descrito abaixo.
+* O **Evento de Manutenção de Hardware Não Planejado** ocorre quando a plataforma do Azure prevê que o hardware ou qualquer componente de plataforma associado a um computador físico está prestes a falhar. Quando a plataforma previr uma falha, ela emitirá um evento de manutenção de hardware não planejada para reduzir o impacto em máquinas virtuais hospedadas no hardware. O Azure usa a tecnologia de [Migração ao Vivo](./maintenance-and-updates.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json%252c%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json%253ftoc%253d%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para migrar as Máquinas Virtuais do hardware com falha para um computador físico íntegro. A Migração ao Vivo é uma operação de preservação de VM que só pausa a Máquina Virtual por um curto período. A memória, os arquivos abertos e as conexões de rede são mantidos, mas o desempenho pode ser reduzido antes e/ou depois do evento. Em casos em que a Migração ao Vivo não puder ser usada, a VM terá um Tempo de Inatividade Inesperado, conforme descrito abaixo.
 
 
 * **Um Tempo de Inatividade Inesperado** é quando o hardware ou a infraestrutura física para a máquina virtual falha inesperadamente. Isso inclui falhas na rede local, falhas no disco local ou outras falhas no nível de rack. Quando detectada, a plataforma do Azure migra automaticamente (repara) a máquina virtual para um computador físico íntegro no mesmo datacenter. Durante o procedimento de recuperação, as máquinas virtuais ficarão inativas (reinicialização) e, em alguns casos, perderão a unidade temporária. O sistema operacional e os discos de dados anexados são sempre preservados.
@@ -40,13 +40,12 @@ Para reduzir o impacto do tempo de inatividade devido a um ou mais desses evento
 * Usar eventos agendados para responder de forma proativa a eventos que afetam a VM
 * Configurar cada camada de aplicativo em conjuntos de disponibilidade separados
 * Combinar o balanceador de carga com conjuntos ou zonas de disponibilidade
-* Usar as zonas de disponibilidade para se proteger contra falhas no nível do datacenter
 
 ## <a name="use-availability-zones-to-protect-from-datacenter-level-failures"></a>Usar as zonas de disponibilidade para se proteger contra falhas no nível do datacenter
 
 [Zonas de disponibilidade](../availability-zones/az-overview.md) expandem o nível de controle de que você precisa para manter a disponibilidade dos aplicativos e dos dados em suas VMs. As Zonas de Disponibilidade são locais físicos exclusivos em uma região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. A separação física das Zonas de Disponibilidade dentro de uma região protege os aplicativos e dados contra falhas do datacenter. Serviços com redundância de zona replicam os aplicativos e dados entre Zonas de Disponibilidade para proteger dos pontos únicos de falha.
 
-Uma zona de disponibilidade em uma região do Azure é uma combinação de um **domínio de falha** e um **domínio de atualização** . Por exemplo, se você criar três ou mais VMs em três zonas em uma região do Azure, as VMs serão efetivamente distribuídas em três domínios de falha e três domínios de atualização. A plataforma do Azure reconhece essa distribuição nos domínios de atualização para garantir que as VMs em diferentes zonas não sejam atualizadas ao mesmo tempo.
+Uma zona de disponibilidade em uma região do Azure é uma combinação de um **domínio de falha** e um **domínio de atualização**. Por exemplo, se você criar três ou mais VMs em três zonas em uma região do Azure, as VMs serão efetivamente distribuídas em três domínios de falha e três domínios de atualização. A plataforma do Azure reconhece essa distribuição nos domínios de atualização para garantir que as VMs em diferentes zonas não sejam atualizadas ao mesmo tempo.
 
 Com Zonas de Disponibilidade, o Azure oferece o melhor SLA de tempo de atividade da VM de 99,99% do setor. Ao arquitetar suas soluções para usar VMs replicadas em zonas, você pode proteger seus aplicativos e dados contra a perda de um datacenter. Se uma zona for comprometida, os aplicativos e os dados replicados ficarão instantaneamente disponíveis em outra zona.
 
@@ -70,7 +69,7 @@ Os domínios de falha definem o grupo de máquinas virtuais que compartilham uma
    ![Desenho conceitual da configuração de domínio de falha e domínio de atualização](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>Usar discos gerenciados para VMs no conjunto de disponibilidade
-Se você estiver usando VMs com discos não gerenciados, é altamente recomendável que você aborde de discos não gerenciados para [Linux](./linux/convert-unmanaged-to-managed-disks.md) e [Windows](./windows/convert-unmanaged-to-managed-disks.md).
+Se você estiver usando VMs com discos não gerenciados, é altamente recomendável converter de não gerenciado para discos gerenciados para [Linux](./linux/convert-unmanaged-to-managed-disks.md) e [Windows](./windows/convert-unmanaged-to-managed-disks.md).
 
 Os [discos gerenciados](./managed-disks-overview.md) fornecem melhor confiabilidade para os Conjuntos de Disponibilidade, assegurando que os discos das VMs em um Conjunto de Disponibilidade estejam suficientemente isolados entre si para evitar pontos únicos de falha. Ele faz isso automaticamente colocando os discos em domínios de falha de armazenamento diferentes (clusters de armazenamento) e alinhando-os com o domínio de falha da VM. Se um domínio de falha do armazenamento falhar devido a uma falha de hardware ou software, somente a instância de VM com discos no domínio de falha do armazenamento falhará.
 ![FDs de discos gerenciados](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
@@ -87,7 +86,7 @@ az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Lo
 ```
 
 > [!NOTE]
-> Em determinadas circunstâncias, duas VMs no mesmo conjunto de disponibilidade podem compartilhar um domínio de falha. Você pode confirmar um domínio de falha compartilhado acessando o seu conjunto de disponibilidade e verificando a coluna **Domínio de Falha** . Um domínio de falha compartilhado poderá ser causado pela conclusão da seguinte sequência quando você tiver implantado as VMs:
+> Em determinadas circunstâncias, duas VMs no mesmo conjunto de disponibilidade podem compartilhar um domínio de falha. Você pode confirmar um domínio de falha compartilhado acessando o seu conjunto de disponibilidade e verificando a coluna **Domínio de Falha**. Um domínio de falha compartilhado poderá ser causado pela conclusão da seguinte sequência quando você tiver implantado as VMs:
 > 1. Implantar a primeira VM.
 > 1. Parar/desalocar a primeira VM.
 > 1. Implantar a segunda VM.

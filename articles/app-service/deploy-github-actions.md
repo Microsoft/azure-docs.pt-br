@@ -6,22 +6,22 @@ ms.topic: article
 ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.custom: devx-track-python, github-actions-azure
-ms.openlocfilehash: 6c768df964d46364a8ca501c078dbecaf1aaa21f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
+ms.openlocfilehash: 59eb56dd188edf258c3631cde957c0864454ad76
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095553"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762666"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Implantação no Serviço de Aplicativo usando o GitHub Actions
 
-Introdução às [ações do GitHub](https://help.github.com/en/articles/about-github-actions) para automatizar o fluxo de trabalho e implantá-lo no [serviço Azure app](overview.md) do github. 
+Introdução às [ações do GitHub](https://docs.github.com/en/actions/learn-github-actions) para automatizar o fluxo de trabalho e implantá-lo no [serviço Azure app](overview.md) do github. 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Uma conta do GitHub. Se você não tiver uma, Inscreva-se [gratuitamente](https://github.com/join).  
+- Uma conta do GitHub. Caso ainda não tenha uma, inscreva-se [gratuitamente](https://github.com/join).  
 - Um aplicativo de serviço de Azure App de trabalho. 
     - .NET: [criar um aplicativo web ASP.NET Core no Azure](quickstart-dotnetcore.md)
     - ASP.NET: [criar um aplicativo Web do ASP.NET Framework no Azure](quickstart-dotnet-framework.md)
@@ -38,7 +38,7 @@ O arquivo tem três seções:
 |Seção  |Tarefas  |
 |---------|---------|
 |**Autenticação** | 1. definir uma entidade de serviço ou um perfil de publicação. <br /> 2. Criar um segredo do GitHub. |
-|**Compilar** | 1. configurar o ambiente. <br /> 2. Compile o aplicativo Web. |
+|**Build** | 1. configurar o ambiente. <br /> 2. Compile o aplicativo Web. |
 |**Implantar** | 1. implante o aplicativo Web. |
 
 ## <a name="use-the-deployment-center"></a>Usar a central de implantação
@@ -47,7 +47,7 @@ Você pode começar rapidamente com as ações do GitHub usando o centro de impl
 
 1. Navegue até seu webapp no portal do Azure
 1. No lado esquerdo, clique em **central de implantação**
-1. Em **implantação contínua (CI/CD)** , selecione **GitHub**
+1. Em **implantação contínua (CI/CD)**, selecione **GitHub**
 1. Em seguida, selecione **ações do GitHub**
 1. Use os menus suspensos para selecionar o repositório, a ramificação e a pilha de aplicativos do GitHub
     - Se a ramificação selecionada estiver protegida, você ainda poderá continuar a adicionar o arquivo de fluxo de trabalho. Certifique-se de examinar suas proteções de Branch antes de continuar.
@@ -55,7 +55,7 @@ Você pode começar rapidamente com as ações do GitHub usando o centro de impl
 
 Isso confirmará o arquivo de fluxo de trabalho para o repositório. O fluxo de trabalho para compilar e implantar seu aplicativo será iniciado imediatamente.
 
-## <a name="set-up-a-work-manually"></a>Configurar um trabalho manualmente
+## <a name="set-up-a-workflow-manually"></a>Configurar um fluxo de trabalho manualmente
 
 Você também pode implantar um fluxo de trabalho sem usar a central de implantação. Para fazer isso, você precisará primeiro gerar as credenciais de implantação. 
 
@@ -71,16 +71,16 @@ Um perfil de publicação é uma credencial no nível do aplicativo. Configure s
 
 1. Vá para o serviço de aplicativo no portal do Azure. 
 
-1. Na página **visão geral** , selecione **obter perfil de publicação** .
+1. Na página **visão geral** , selecione **obter perfil de publicação**.
 
 1. Salve o arquivo baixado. Você usará o conteúdo do arquivo para criar um segredo do GitHub.
 
 > [!NOTE]
-> A partir de outubro de 2020, os aplicativos Web do Linux precisarão da configuração do aplicativo `WEBSITE_WEBDEPLOY_USE_SCM` definida como `true` **antes de baixar o perfil de publicação** . Esse requisito será removido no futuro.
+> A partir de outubro de 2020, os aplicativos Web do Linux precisarão da configuração do aplicativo `WEBSITE_WEBDEPLOY_USE_SCM` definida como `true` **antes de baixar o perfil de publicação**. Esse requisito será removido no futuro.
 
 # <a name="service-principal"></a>[Entidade de serviço](#tab/userlevel)
 
-Crie uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) na [CLI do Azure](/cli/azure/). Execute esse comando com o [Azure Cloud Shell](https://shell.azure.com/) no portal do Azure ou selecionando o botão **Experimentar** .
+Crie uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) na [CLI do Azure](/cli/azure/). Execute esse comando com o [Azure Cloud Shell](https://shell.azure.com/) no portal do Azure ou selecionando o botão **Experimentar**.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \
@@ -88,7 +88,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor \
                             --sdk-auth
 ```
 
-No exemplo acima, substitua os espaços reservados pela sua ID de assinatura, pelo nome do grupo de recursos e pelo nome do aplicativo. A saída é um objeto JSON com as credenciais de atribuição de função que fornecem acesso ao seu aplicativo do serviço de aplicativo semelhante ao mostrado abaixo. Copie este objeto JSON para mais tarde.
+No exemplo acima, substitua os espaços reservados pela sua ID de assinatura, pelo nome do grupo de recursos e pelo nome do aplicativo. A saída é um objeto JSON com as credenciais de atribuição de função que fornecem acesso ao aplicativo do Serviço de Aplicativo semelhante ao mostrado abaixo. Copie esse objeto JSON para uso posterior.
 
 ```output 
   {
@@ -110,11 +110,11 @@ No exemplo acima, substitua os espaços reservados pela sua ID de assinatura, pe
 
 # <a name="publish-profile"></a>[Perfil de publicação](#tab/applevel)
 
-No [GitHub](https://github.com/), procure seu repositório, selecione **configurações > segredos > adicionar um novo segredo** .
+No [GitHub](https://github.com/), procure seu repositório, selecione **configurações > segredos > adicionar um novo segredo**.
 
 Para usar [credenciais de nível de aplicativo](#generate-deployment-credentials), Cole o conteúdo do arquivo de perfil de publicação baixado no campo valor do segredo. Nomeie o segredo `AZURE_WEBAPP_PUBLISH_PROFILE` .
 
-Ao configurar o fluxo de trabalho do GitHub, você usa o `AZURE_WEBAPP_PUBLISH_PROFILE` na ação implantar aplicativo Web do Azure. Por exemplo: 
+Ao configurar o fluxo de trabalho do GitHub, você usa o `AZURE_WEBAPP_PUBLISH_PROFILE` na ação implantar aplicativo Web do Azure. Por exemplo:
     
 ```yaml
 - uses: azure/webapps-deploy@v2
@@ -124,7 +124,7 @@ Ao configurar o fluxo de trabalho do GitHub, você usa o `AZURE_WEBAPP_PUBLISH_P
 
 # <a name="service-principal"></a>[Entidade de serviço](#tab/userlevel)
 
-No [GitHub](https://github.com/), procure seu repositório, selecione **configurações > segredos > adicionar um novo segredo** .
+No [GitHub](https://github.com/), procure seu repositório, selecione **configurações > segredos > adicionar um novo segredo**.
 
 Para usar [credenciais de nível de usuário](#generate-deployment-credentials), Cole toda a saída JSON do comando CLI do Azure no campo valor do segredo. Dê ao segredo o nome `AZURE_CREDENTIALS`.
 
@@ -192,7 +192,7 @@ jobs:
     name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
     - name: Use Node.js ${{ env.NODE_VERSION }}
       uses: actions/setup-node@v1
       with:
@@ -305,7 +305,7 @@ jobs:
 
     steps:
       # Checkout the repo
-      - uses: actions/checkout@master
+      - uses: actions/checkout@main
       
       # Setup .NET Core SDK
       - name: Setup .NET Core
@@ -349,7 +349,7 @@ jobs:
     runs-on: windows-latest
     steps:
 
-    - uses: actions/checkout@master  
+    - uses: actions/checkout@main  
     
     - name: Install Nuget
       uses: nuget/setup-nuget@v1
@@ -435,7 +435,7 @@ jobs:
     name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
     - name: Use Node.js ${{ env.NODE_VERSION }}
       uses: actions/setup-node@v1
       with:
@@ -516,7 +516,7 @@ jobs:
 
     steps:
       # Checkout the repo
-      - uses: actions/checkout@master
+      - uses: actions/checkout@main
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
@@ -567,7 +567,7 @@ jobs:
     steps:
 
     # checkout the repo
-    - uses: actions/checkout@master  
+    - uses: actions/checkout@main
     
     - uses: azure/login@v1
       with:
@@ -657,7 +657,7 @@ jobs:
     steps:
     # checkout the repo
     - name: 'Checkout GitHub Action' 
-      uses: actions/checkout@master
+      uses: actions/checkout@main
    
     - uses: azure/login@v1
       with:
@@ -746,7 +746,7 @@ Encontre nosso conjunto de ações agrupadas em diferentes repositórios no GitH
 
 - [Logon/logoff do Docker](https://github.com/Azure/docker-login)
 
-- [Eventos que disparam fluxos de trabalho](https://help.github.com/en/articles/events-that-trigger-workflows)
+- [Eventos que disparam fluxos de trabalho](https://docs.github.com/en/actions/reference/events-that-trigger-workflows)
 
 - [Implantação do K8s](https://github.com/Azure/k8s-deploy)
 

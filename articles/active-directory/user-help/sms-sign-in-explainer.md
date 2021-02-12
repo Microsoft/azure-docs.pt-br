@@ -1,5 +1,5 @@
 ---
-title: Experiência de entrada do usuário através de SMS para números de telefone (versão prévia) – Azure AD
+title: Experiência do usuário de entrada do SMS para número de telefone-Azure AD
 description: Saiba mais sobre a experiência de entrada do usuário através de SMS para números de telefone novos ou existentes
 services: active-directory
 author: curtand
@@ -8,18 +8,18 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 04/14/2020
+ms.date: 01/21/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: a4dcb6774990c03ce3d55fb6c519b0600a1086f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a50f2032a978a552205d1bba602249f34f0478a
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536878"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661578"
 ---
-# <a name="use-your-phone-number-as-a-user-name-preview"></a>Uso do número de telefone como um nome de usuário (versão prévia)
+# <a name="use-your-phone-number-as-a-user-name"></a>Use seu número de telefone como um nome de usuário
 
 Registrar um dispositivo permite que o telefone acesse os serviços da sua organização, mas não permite que sua organização acesse seu dispositivo. Se você for um administrador, poderá encontrar mais informações em [Configuração e habilitação de usuários para autenticação baseada em SMS](../authentication/howto-authentication-sms-signin.md).
 
@@ -36,7 +36,7 @@ Se você tiver um novo telefone ou um novo número e você o registra em uma org
 1. Será exibido um aviso que diz “SMS verificado. O telefone foi registrado com êxito.”
 
 > [!Important]
-> Devido a um problema conhecido na versão prévia, por um curto período de tempo, adicionar um número de telefone não registrará o número para entrada através de SMS. Você precisará entrar com o número adicionado e, em seguida, seguir os prompts para registrar o número para entrada através de SMS.
+> Devido a um problema conhecido, por um curto período, adicionar um número de telefone não registrará o número para entrar no SMS. Você precisará entrar com o número adicionado e, em seguida, seguir os prompts para registrar o número para entrada através de SMS.
 
 ### <a name="when-the-phone-number-is-in-use"></a>Quando o número de telefone está sendo usado
 

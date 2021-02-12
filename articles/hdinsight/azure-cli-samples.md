@@ -1,19 +1,16 @@
 ---
 title: 'Azure HDInsight: Exemplos da CLI do Azure'
 description: Exemplos da CLI do Azure para tarefas comuns no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 09/23/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a289a0d963c8e20a3b861ff9964e8afd6665de22
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 9367c1b4d82e984b2b4200768a3f83f9245c7f0f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542345"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946893"
 ---
 # <a name="azure-hdinsight-azure-cli-samples"></a>Azure HDInsight: Exemplos da CLI do Azure
 

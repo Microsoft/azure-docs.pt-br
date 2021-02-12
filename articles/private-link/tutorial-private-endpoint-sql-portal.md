@@ -1,20 +1,20 @@
 ---
-title: Tutorial – Conectar-se a um SQL Server do Azure usando um Ponto de Extremidade Privado do Azure
-description: Use este tutorial para aprender a criar um SQL Server do Azure com um ponto de extremidade privado.
+title: Tutorial – Conectar-se a um SQL Server do Azure usando um Ponto de Extremidade Privado do Azure – Portal
+description: Use este tutorial para aprender como criar um SQL Server do Azure com um ponto de extremidade privado usando o portal do Azure.
 services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/20/2020
 ms.author: allensu
-ms.openlocfilehash: d12b377d053ac546efef05d5594568c1c1dbcd0e
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: a7eca29dc9390306ac6ad4e66eec75a25c2d33ff
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92344747"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522151"
 ---
-# <a name="tutorial---connect-to-an-azure-sql-server-using-an-azure-private-endpoint"></a>Tutorial – Conectar-se a um SQL Server do Azure usando um Ponto de Extremidade Privado do Azure
+# <a name="tutorial---connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-portal"></a>Tutorial – Conectar-se a um SQL Server do Azure usando um Ponto de Extremidade Privado do Azure – Portal do Azure
 
 Um ponto de extremidade privado do Azure é o bloco de construção básico para o Link Privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem em modo privado com os recursos do Link Privado.
 
@@ -43,7 +43,7 @@ O bastion host será usado para se conectar com segurança à máquina virtual p
 
 1. No canto superior esquerdo da tela, selecione **Criar um recurso > Rede > Rede virtual** ou pesquise por **Rede virtual** na caixa de pesquisa.
 
-2. Em **Criar rede virtual** , insira ou selecione estas informações na guia **Básico** :
+2. Em **Criar rede virtual**, insira ou selecione estas informações na guia **Básico**:
 
     | **Configuração**          | **Valor**                                                           |
     |------------------|-----------------------------------------------------------------|
@@ -56,37 +56,37 @@ O bastion host será usado para se conectar com segurança à máquina virtual p
 
 3. Selecione a guia **Endereços IP** ou selecione o botão **Avançar: Endereços IP** na parte inferior da página.
 
-4. Na guia **Endereços IP** , insira estas informações:
+4. Na guia **Endereços IP**, insira estas informações:
 
     | Configuração            | Valor                      |
     |--------------------|----------------------------|
     | Espaço de endereço IPv4 | Insira **10.1.0.0/16** |
 
-5. Em **Nome da sub-rede** , selecione a palavra **padrão** .
+5. Em **Nome da sub-rede**, selecione a palavra **padrão**.
 
-6. Em **Editar sub-rede** , insira estas informações:
+6. Em **Editar sub-rede**, insira estas informações:
 
     | Configuração            | Valor                      |
     |--------------------|----------------------------|
     | Nome da sub-rede | Insira **mySubnet** |
     | Intervalo de endereços da sub-rede | Insira **10.1.0.0/24** |
 
-7. Clique em **Salvar** .
+7. Clique em **Salvar**.
 
-8. Selecione a guia **Segurança** .
+8. Selecione a guia **Segurança**.
 
-9. Em **BastionHost** , selecione **Habilitar** . Insira estas informações:
+9. Em **BastionHost**, selecione **Habilitar**. Insira estas informações:
 
     | Configuração            | Valor                      |
     |--------------------|----------------------------|
     | Nome do bastion | Insira **myBastionHost** |
     | Espaço de endereço da AzureBastionSubnet | Insira **10.1.1.0/24** |
-    | Endereço IP público | Selecione **Criar novo** . </br> Em **Nome** , insira **myBastionIP** . </br> Selecione **OK** . |
+    | Endereço IP público | Selecione **Criar novo**. </br> Em **Nome**, insira **myBastionIP**. </br> Selecione **OK**. |
 
 
-8. Selecione a guia **Revisar + criar** ou o botão **Revisar + criar** .
+8. Selecione a guia **Revisar + criar** ou o botão **Revisar + criar**.
 
-9. Selecione **Criar** .
+9. Selecione **Criar**.
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
@@ -94,7 +94,7 @@ Nesta seção, você criará uma máquina virtual que será usada para testar o 
 
 1. No lado superior esquerdo do portal, selecione **Criar um recurso** > **Computação** > **Máquina virtual** ou pesquise **Máquina virtual** na caixa de pesquisa.
    
-2. Em **Criar uma máquina virtual** , digite ou selecione os valores na guia **Informações Básicas** :
+2. Em **Criar uma máquina virtual**, digite ou selecione os valores na guia **Informações Básicas**:
 
     | Configuração | Valor                                          |
     |-----------------------|----------------------------------|
@@ -113,7 +113,7 @@ Nesta seção, você criará uma máquina virtual que será usada para testar o 
     | Senha | Insira uma senha |
     | Confirmar senha | Insira novamente a senha |
 
-3. Selecione a guia **Rede** ou selecione **Avançar: Discos** , em seguida, **Avançar: Rede** .
+3. Selecione a guia **Rede** ou selecione **Avançar: Discos**, em seguida, **Avançar: Rede**.
   
 4. Na guia Rede, selecione ou insira:
 
@@ -122,74 +122,74 @@ Nesta seção, você criará uma máquina virtual que será usada para testar o 
     | **Interface de rede** |  |
     | Rede virtual | **myVNet** |
     | Sub-rede | **mySubnet** |
-    | IP público | Selecione **Nenhum** . |
+    | IP público | Selecione **Nenhum**. |
     | Grupo de segurança de rede da NIC | **Basic**|
-    | Porta de entrada públicas | Selecione **Nenhum** . |
+    | Porta de entrada públicas | Selecione **Nenhum**. |
    
-5. Selecione **Examinar + criar** . 
+5. Selecione **Examinar + criar**. 
   
-6. Examine as configurações e selecione **Criar** .
+6. Examine as configurações e selecione **Criar**.
 
 ## <a name="create-an-azure-sql-server-and-private-endpoint"></a><a name ="create-a-private-endpoint"></a>Criar um SQL Server do Azure e um ponto de extremidade privado
 
 Nesta seção, você criará um SQL Server no Azure. 
 
-1. No lado superior esquerdo da tela no portal do Azure, selecione **Criar um recurso** > **Bancos de Dados** > **Banco de Dados SQL** .
+1. No lado superior esquerdo da tela no portal do Azure, selecione **Criar um recurso** > **Bancos de Dados** > **Banco de Dados SQL**.
 
-1. Na guia **Básico** de **Criar Banco de Dados SQL** , insira ou selecione estas informações:
+1. Na guia **Básico** de **Criar Banco de Dados SQL**, insira ou selecione estas informações:
 
     | Configuração | Valor |
     | ------- | ----- |
     | **Detalhes do projeto** | |
     | Subscription | Selecione sua assinatura. |
-    | Resource group | Selecione **CreateSQLEndpointTutorial** . Você criou esse grupo de recursos na seção anterior.|
+    | Resource group | Selecione **CreateSQLEndpointTutorial**. Você criou esse grupo de recursos na seção anterior.|
     | **Detalhes do banco de dados** |  |
-    | Nome do banco de dados  | Insira **mysqldatabase** . Se esse nome já estiver sendo usado, crie um nome exclusivo. |
-    | Servidor | Selecione **Criar novo** . |
+    | Nome do banco de dados  | Insira **mysqldatabase**. Se esse nome já estiver sendo usado, crie um nome exclusivo. |
+    | Servidor | Selecione **Criar novo**. |
 
-6. Em **Novo servidor** , insira ou selecione estas informações:
+6. Em **Novo servidor**, insira ou selecione estas informações:
 
     | Configuração | Valor |
     | ------- | ----- |
-    | Nome do servidor  | Insira **mysqlserver** . Se esse nome já estiver sendo usado, crie um nome exclusivo.|
+    | Nome do servidor  | Insira **mysqlserver**. Se esse nome já estiver sendo usado, crie um nome exclusivo.|
     | Logon de administrador do servidor | Insira um nome de administrador de sua escolha. |
     | Senha | Insira uma senha de sua escolha. A senha deve ter no mínimo 8 caracteres e atender a requisitos complexidade definidos. |
     | Location | Selecione **Leste dos EUA** |
     
-7. Selecione **OK** .
+7. Selecione **OK**.
 
-8. Selecione a guia **Rede** ou escolha o botão **Avançar: Rede** .
+8. Selecione a guia **Rede** ou escolha o botão **Avançar: Rede**.
 
-9. Na guia **Rede** , insira ou selecione estas informações:
+9. Na guia **Rede**, insira ou selecione estas informações:
 
     | Configuração | Valor |
     | ------- | ----- |
     | **Conectividade de rede** | |
-    | Método de conectividade | Selecione **Ponto de extremidade privado** . |
+    | Método de conectividade | Selecione **Ponto de extremidade privado**. |
    
-10. Selecione **+ Adicionar ponto de extremidade privado** em **Pontos de extremidade privados** .
+10. Selecione **+ Adicionar ponto de extremidade privado** em **Pontos de extremidade privados**.
 
-11. Em **Criar ponto de extremidade privado** , insira ou selecione estas informações:
+11. Em **Criar ponto de extremidade privado**, insira ou selecione estas informações:
 
     | Configuração | Valor |
     | ------- | ----- |
     | Subscription | Selecione sua assinatura. |
-    | Resource group | Selecione **CreateSQLEndpointTutorial** . |
-    | Location | Selecione **Leste dos EUA** . |
-    | Nome | Insira **myPrivateSQLendpoint** . |
-    | Sub-recurso de destino | Selecione **SQLServer** . |
+    | Resource group | Selecione **CreateSQLEndpointTutorial**. |
+    | Location | Selecione **Leste dos EUA**. |
+    | Nome | Insira **myPrivateSQLendpoint**. |
+    | Sub-recurso de destino | Selecione **SQLServer**. |
     | **Rede** |  |
-    | Rede virtual | Selecione **myVNet** . |
-    | Sub-rede | Selecione **mySubnet** . |
+    | Rede virtual | Selecione **myVNet**. |
+    | Sub-rede | Selecione **mySubnet**. |
     | **Integração de DNS privado** | |
-    | Integrar com a zona DNS privado | Mantenha o padrão **Sim** . |
-    | Zona DNS privado | Mantenha o padrão **(Novo) privatelink.database.windows.net** . |
+    | Integrar com a zona DNS privado | Mantenha o padrão **Sim**. |
+    | Zona DNS privado | Mantenha o padrão **(Novo) privatelink.database.windows.net**. |
 
-12. Selecione **OK** . 
+12. Selecione **OK**. 
 
-13. Selecione **Examinar + criar** .
+13. Selecione **Examinar + criar**.
 
-14. Selecione **Criar** .
+14. Selecione **Criar**.
 
 ## <a name="test-connectivity-to-private-endpoint"></a>Testar a conectividade com o ponto de extremidade privado
 
@@ -197,13 +197,13 @@ Nesta seção, você usará a máquina virtual criada na etapa anterior para se 
 
 1. Selecione **Grupos de recursos** no painel de navegação à esquerda.
 
-2. Selecione **CreateSQLEndpointTutorial** .
+2. Selecione **CreateSQLEndpointTutorial**.
 
-3. Selecione **myVM** .
+3. Selecione **myVM**.
 
-4. Na página de visão geral de **myVM** , escolha **Conectar** e **Bastion** .
+4. Na página de visão geral de **myVM**, escolha **Conectar** e **Bastion**.
 
-5. Selecione o botão azul **Usar Bastion** .
+5. Selecione o botão azul **Usar Bastion**.
 
 6. Insira o nome de usuário e a senha que você inseriu durante a criação da máquina virtual.
 
@@ -224,31 +224,31 @@ Nesta seção, você usará a máquina virtual criada na etapa anterior para se 
     O endereço IP privado **10.1.0.5** é retornado para o nome do SQL Server.  Esse endereço está na sub-rede da rede virtual criada anteriormente.
 
 
-9. Instale o [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017&preserve-view=true) em **myVM** .
+9. Instale o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?preserve-view=true&view=sql-server-2017) em **myVM**.
 
-10. Abra o **SQL Server Management Studio** .
+10. Abra o **SQL Server Management Studio**.
 
-4. Em **Conectar-se ao servidor** , insira ou selecione estas informações:
+4. Em **Conectar-se ao servidor**, insira ou selecione estas informações:
 
     | Configuração | Valor |
     | ------- | ----- |
-    | Tipo de servidor | Selecione **Mecanismo de Banco de Dados** .|
+    | Tipo de servidor | Selecione **Mecanismo de Banco de Dados**.|
     | Nome do servidor | Insira **\<sqlserver-name>.database.windows.net** |
-    | Autenticação | Selecione **Autenticação do SQL Server** . |
+    | Autenticação | Selecione **Autenticação do SQL Server**. |
     | Nome de usuário | Insira o nome de usuário que você inseriu durante a criação do servidor |
     | Senha | Insira a senha que você inseriu durante a criação do servidor |
     | Lembrar senha | Selecione **Sim** na barra superior. |
 
-1. Selecione **Conectar** .
+1. Selecione **Conectar**.
 2. Procurar bancos de dados no menu à esquerda.
-3. (Opcional) Crie ou consulte informações em **mysqldatabase** .
-4. Feche a Conexão da Área de Trabalho Remota com **myVM** . 
+3. (Opcional) Crie ou consulte informações em **mysqldatabase**.
+4. Feche a Conexão da Área de Trabalho Remota com **myVM**. 
 
 ## <a name="clean-up-resources"></a>Limpar os recursos 
 Quando terminar de usar o ponto de extremidade privado, o SQL Server e a VM, exclua o grupo de recursos e todos os recursos que ele contém: 
 1. Insira **CreateSQLEndpointTutorial** na caixa de **Pesquisa** na parte superior do portal e selecione **CreateSQLEndpointTutorial** nos resultados da pesquisa. 
-2. Selecione **Excluir grupo de recursos** . 
-3. Insira CreateSQLEndpointTutorial em **DIGITAR O NOME DO GRUPO DE RECURSOS** e selecione **Excluir** .
+2. Selecione **Excluir grupo de recursos**. 
+3. Insira CreateSQLEndpointTutorial em **DIGITAR O NOME DO GRUPO DE RECURSOS** e selecione **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

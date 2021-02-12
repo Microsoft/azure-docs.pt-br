@@ -1,24 +1,24 @@
 ---
-title: Gerenciar as contas de administrador de acesso de emergência - Azure AD | Microsoft Docs
+title: Gerenciar contas de administrador de acesso de emergência-Azure AD
 description: Este artigo descreve como usar contas de acesso de emergência para ajudar a evitar ser inadvertidamente bloqueado da sua organização do Azure Active Directory (Azure AD).
 services: active-directory
 author: markwahl-msft
 manager: daveba
-ms.author: curtand
-ms.date: 11/08/2019
+ms.author: rolyon
+ms.date: 11/05/2020
 ms.topic: conceptual
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ffcbd77997e230b9b21ed29b47e37236de025f6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d6a1e4b3b44004ec6d03c293bbd10617b3d3af69
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374737"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740815"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gerenciar contas de acesso de emergência no Microsoft Azure Active Directory
 
@@ -33,7 +33,7 @@ Este artigo fornece diretrizes para gerenciar contas de acesso de emergência no
 Uma organização pode precisar usar uma conta de acesso de emergência nas seguintes situações:
 
 - As contas de usuário são federadas e a federação está indisponível no momento devido a uma interrupção de rede celular ou uma interrupção do provedor de identidade. Por exemplo, se o host de provedor de identidade em seu ambiente foi desligado, os usuários podem não conseguir entrar quando o Azure AD redireciona para seu provedor de identidade.
-- Os administradores são registrados por meio da Autenticação Multifator do Azure e todos os seus dispositivos individuais ou o serviço não estão disponíveis. Os usuários podem não conseguir concluir a Autenticação Multifator para ativar uma função. Por exemplo, uma interrupção de rede celular está impedindo que eles atendam a chamadas telefônicas ou recebam mensagens de texto, os dois únicos dois mecanismos de autenticação registrados para os dispositivos.
+- Os administradores são registrados por meio da autenticação multifator do Azure AD, e todos os seus dispositivos individuais ficam indisponíveis ou o serviço não está disponível. Os usuários podem não conseguir concluir a Autenticação Multifator para ativar uma função. Por exemplo, uma interrupção de rede celular está impedindo que eles atendam a chamadas telefônicas ou recebam mensagens de texto, os dois únicos dois mecanismos de autenticação registrados para os dispositivos.
 - A pessoa com acesso administrativo global mais recente saiu da organização. O Microsoft Azure Active Directory impede que a conta do último Administrador Global seja excluída, mas não impede que a conta seja excluída ou desabilitada localmente. Qualquer situação pode fazer com que a organização não consiga recuperar a conta.
 - Circunstâncias imprevisíveis, como uma emergência de desastre natural, em que um telefone celular ou outras redes podem não estar disponíveis. 
 
@@ -44,7 +44,7 @@ Crie duas ou mais contas de acesso de emergência. Elas devem ser contas somente
 Ao configurar essas contas, os seguintes requisitos devem ser atendidos:
 
 - As contas de emergência não devem ser associadas a nenhum usuário individual na organização. Certifique-se de que suas contas não estejam conectadas a nenhum telefone celular fornecido pelo funcionário, tokens de hardware que viajam com funcionários específicos ou outras credenciais específicas do funcionário. Essa precaução abrange instâncias em que um funcionário individual está inacessível quando a credencial é necessária. É importante garantir que todos os dispositivos registrados sejam mantidos em uma localização segura e conhecida que tenha vários meios de comunicação com o Azure AD.
-- O mecanismo de autenticação usado para uma conta de acesso de emergência deve ser diferente do usado por outras contas administrativas, incluindo outras contas de acesso de emergência.  Por exemplo, se sua entrada normal no administrador é por meio da Autenticação Multifator do Microsoft Azure (MFA) local, o Azure MFA seria um mecanismo diferente.  No entanto, se Azure MFA é a parte primária de autenticação para suas contas administrativas, considere uma abordagem diferente para elas, como o uso de Acesso Condicional com um provedor MFA de terceiros via Controles personalizados.
+- O mecanismo de autenticação usado para uma conta de acesso de emergência deve ser diferente do usado por outras contas administrativas, incluindo outras contas de acesso de emergência.  Por exemplo, se sua entrada de administrador normal for por meio de MFA local, a MFA do Azure AD será um mecanismo diferente.  No entanto, se o Azure AD MFA for sua parte principal da autenticação para suas contas administrativas, considere uma abordagem diferente para eles, como usar o acesso condicional com um provedor de MFA de terceiros por meio de controles personalizados.
 - O dispositivo ou a credencial não deve expirar ou estar no escopo de limpeza automatizado devido à falta de uso.  
 - A atribuição de função de Administrador Global deve ser permanente para suas contas de acesso de emergência. 
 
@@ -60,7 +60,7 @@ Durante uma emergência, não é desejável uma política para bloquear o acesso
 
 ## <a name="federation-guidance"></a>Diretrizes de federação
 
-Uma opção adicional para organizações que usam os serviços de domínio do domínio do aplicativo (AD) e do Sistema de Arquivos Distribuído do Azure (ADFS) ou o provedor de identidade semelhante para federar ao Microsoft Azure Active Directory, é configurar uma conta de acesso de emergência cuja declaração da MFA pode ser fornecida por ser um provedor de identidade.  Por exemplo, a conta de acesso de emergência pode ser feita por um certificado e um par de chaves como uma armazenada em um cartão inteligente.  Quando o usuário é autenticado para o AD, o ADFS pode fornecer uma declaração ao Microsoft Azure Active Directory que indica que o usuário atende aos requisitos da MFA.  Mesmo com essa abordagem, as organizações ainda devem ter contas de acesso de emergência baseadas em nuvem no caso da federação não poder ser estabelecida. 
+Algumas organizações usam os serviços de domínio do AD e o ADFS ou o provedor de identidade semelhante para federar ao Azure AD. [Não deve haver contas locais com privilégios administrativos](../fundamentals/protect-m365-from-on-premises-attacks.md). A autenticação de mestre e ou de fornecimento para contas com privilégio administrativo fora do Azure AD adiciona risco desnecessário no caso de uma interrupção ou comprometimento desses sistemas.
 
 ## <a name="store-account-credentials-safely"></a>Armazenar com segurança as credenciais da conta
 

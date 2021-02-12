@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/21/2020
+ms.date: 02/02/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 638ab84658c36536966ef990570684a047521ee6
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 542eed34f2be05cce3829baab2f07a5c58413ba0
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257451"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526289"
 ---
 ::: zone target="docs"
 
@@ -63,27 +63,27 @@ Execute as seguintes etapas se estiver devolvendo o dispositivo nos EUA ou Canad
 
     - Ligue para a UPS local (linha gratuita específica do país/região).
     - Em sua chamada, mencione a remessa inversa, conforme mostrado na etiqueta impressa de número de controle.
-    - Se o número de controle não está entre aspas, o serviço de no-break exigirá que você pague um encargo adicional durante a retirada.
+    - Se o número de rastreamento não for mencionado, a UPS exigirá que você pague uma taxa adicional durante a retirada.
     - Em vez de agendar a retirada, você também pode descartar o Data Box Disk no local mais próximo de redistribuição.
 
-### <a name="europe"></a>[Europa](#tab/in-europe)
 
-Execute as seguintes etapas se estiver devolvendo o dispositivo na Europa.
+### <a name="europe-or-uk"></a>[Europa ou Reino Unido](#tab/in-europe-or-uk)
+
+Execute as etapas a seguir se estiver devolvendo o dispositivo na Europa ou no Reino Unido.
 
 1. Use a etiqueta de remessa de devolução que tem a capa de plástico transparente afixada à caixa. Se o rótulo estiver danificado ou tiver sido perdido:
     - Acesse **Visão Geral > Baixar etiqueta de remessa** e baixe uma etiqueta de remessa de devolução.
     - Afixe o rótulo ao dispositivo.
 
 2. Lacre a caixa de envio e verifique se a etiqueta de remessa de devolução está visível.
-3. Se você estiver devolvendo o dispositivo na Europa com a DHL, solicite a retirada da DHL visitando o site e especificando o número da carta de porte aéreo.
-4. Acesse o site da DHL Express do país/região e escolha **Agendar a recolha pelo serviço de correio > Remessa de eReturn**.
-5. Especifique o número da carta de porte e clique em **Agendar retirada** para organizar a retirada.
+3. Acesse o site da DHL Express do país/da região e selecione **Agendar uma Retirada**. Em **Você precisa de uma etiqueta de remessa?** , selecione **Não** > **Tenho um número de carta de porte da DHL**.
+4. Especifique o número da carta de porte e clique em **Agendar Retirada** para organizar a retirada.
 
 ### <a name="australia"></a>[Austrália](#tab/in-australia)
 
 Datacenters do Azure na Austrália têm uma notificação de segurança adicional. Todas as remessas de entrada devem ter uma notificação avançada. Execute as seguintes etapas para retirada na Austrália.
 
-1. Use a etiqueta de remessa de devolução fornecida e verifique se o código TAU (número de referência) está escrito nela. Caso não tenha mais a etiqueta de remessa fornecida ou tenha qualquer outro problema, envie um email para [Operações do Data Box na Ásia](mailto:adbo@microsoft.com). Forneça o nome do pedido no assunto do cabeçalho e os detalhes do problema que você está enfrentando.
+1. Use a etiqueta de remessa de devolução fornecida e verifique se o código TAU (número de referência) está escrito nela. Caso não tenha mais a etiqueta de remessa fornecida ou tenha qualquer outro problema, envie um email para [Operações do Data Box na Ásia](mailto:adbo@microsoft.com). Forneça o nome do pedido no assunto do cabeçalho e os detalhes do problema.
 2. Afixe a etiqueta à caixa.
 3. Agende online no link https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference uma retirada.
 
@@ -119,12 +119,12 @@ Se necessário, você poderá contatar o Suporte da Quantium Solutions (em japon
 1. Inclua a nota de consignação de devolução.
 2. Para solicitar a retirada quando houver nota de consignação:
     1. Ligue para a linha direta da *Quantium Solutions International* em 070-8231 1418 durante o horário de expediente (das 10h às 17h, de segunda a sexta-feira). Mencione *Retirada do Microsoft Azure* e o número da solicitação de serviço para providenciar uma retirada.  
-    2. Se a linha direta estiver ocupada, envie um email para `microsoft@rocketparcel.com` com o assunto *Retirada do Microsoft Azure* e o número da solicitação de serviço como referência.
+    2. Se a linha direta estiver ocupada, envie um email para [microsoft@rocketparcel.com](mailto:microsoft@rocketparcel.com) com o assunto *Retirada do Microsoft Azure* e o número da solicitação de serviço para referência.
     3. Se a transportadora não chegar para a coleta, ligue para a linha direta da *Quantium Solutions International* para providências alternativas.
     4. Você receberá um email de confirmação para o agendamento da retirada.
-3. Siga esta etapa somente se não houver nota de consignação. Para solicitar retirada:
-    1. Ligue para a linha direta da *Quantium Solutions International* em 070-8231 1418 durante o horário de expediente (das 10h às 17h, de segunda a sexta-feira). Mencione *Retirada do Microsoft Azure* e o número da solicitação de serviço para providenciar uma retirada. Especifique que você precisa de uma nova nota de consignação para providenciar uma retirada. Forneça o remetente (cliente), as informações de destinatário (datacenter do Azure) e o número de referência (número da solicitação de serviço). 
-    2. Se a linha direta estiver ocupada, envie um email para `microsoft@rocketparcel.com` com o assunto *Retirada do Microsoft Azure* e o número da solicitação de serviço como referência.
+3. Siga esta etapa somente se não houver uma nota de consignação. Para solicitar retirada:
+    1. Ligue para a linha direta da *Quantium Solutions International* em 070-8231 1418 durante o horário de expediente (das 10h às 17h, de segunda a sexta-feira). Mencione *Retirada do Microsoft Azure* e o número da solicitação de serviço para providenciar uma retirada. Especifique que você precisa de uma nova nota de consignação para providenciar uma retirada. Forneça o remetente (cliente), as informações de destinatário (datacenter do Azure) e o número de referência (número da solicitação de serviço).
+    2. Se a linha direta estiver ocupada, envie um email para [microsoft@rocketparcel.com](mailto:microsoft@rocketparcel.com) com o assunto *Retirada do Microsoft Azure* e o número da solicitação de serviço como referência.
     3. Se a transportadora não chegar para a coleta, ligue para a linha direta da *Quantium Solutions International* para providências alternativas.
     4. Você recebe uma confirmação verbal se a solicitação for feita por telefone.
 
@@ -152,7 +152,7 @@ Se necessário, você poderá contatar o Suporte da Quantium Solutions (em japon
    > * Antes das 15:00, a retirada ocorrerá no dia útil a seguir, entre 9:00 e 13:00.
    > * Após às 15:00, a retirada ocorrerá no dia útil a seguir, entre 14:00 e 18:00.
 
-   Se tiver problemas, entre em contato com as Operações do Data Box na Ásia pelo email adbo@microsoft.com. Forneça o nome do trabalho no cabeçalho de assunto e o problema encontrado.
+   Caso você tenha problemas, entre em contato com as Operações do Data Box na Ásia pelo email [adbo@microsoft.com](mailto:adbo@microsoft.com). Forneça o nome do trabalho no cabeçalho de assunto e o problema encontrado.
 
 3. Passe para a transportadora.
 
@@ -164,23 +164,28 @@ Siga as etapas a seguir se estiver devolvendo o dispositivo na África do Sul.
 
 2. Lacre a caixa de envio e verifique se a etiqueta de remessa de devolução está visível.
 
-3. Para agendar uma retirada com a DHL:
+3. Solicite um código de retorno à equipe de Operações do Azure Data Box. Um código de retorno é necessário para entregar o pacote de volta ao datacenter. Envie um email para [adbops@microsoft.com](mailto:adbops@microsoft.com). Anote esse código na etiqueta de remessa ao lado do endereço de retorno para que ele fique bem visível.
 
-    * Ligue para o centro de contato do atendimento ao cliente em +27 (0) 11 9213600, selecione a opção 1 e especifique o número da nota de entrega.
-    * Você deve ligar antes das 14h pelo horário padrão da África do Sul (ZA) para agendar uma retirada.  
-    * Envie um email para [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) para providenciar a retirada usando o seguinte modelo de email:
+4. Agende a retirada com a DHL usando um dos seguintes métodos:
+   * Agende uma retirada online acessando [DHL Express South Africa, **Agendar uma Retirada**](https://mydhl.express.dhl/za/en/schedule-pickup.html#/schedule-pickup#label-reference).
+   * Envie um email para [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) usando o seguinte modelo:
 
-    ```output
-    To: Priority.Support@dhl.com
-    Subject:Pickup request for Microsoft Azure
-    Body:  Need pick up for the below shipment
-    *  DHL tracking number (reference number/waybill number)
-    *  Requested pickup date：yyyy/mm/dd; time: HH MM
-    ```
+     ```output
+     To: Priority.Support@dhl.com
+     Subject: Pickup request for Microsoft Azure
+     Body: Need pick up for the below shipment
+       *  DHL tracking number: (reference number/waybill number)
+       *  Requested pickup date: yyyy/mm/dd;time:HH MM
+       *  Shipper contact: (company name)
+       *  Contact person: 
+       *  Phone number: 
+       *  Full physical address: 
+       *  Item to be collected: Azure Dt
+     ```
 
-    * Como alternativa, você pode deixar o pacote no ponto de serviço da DHL mais próximo.
+    * Ou deixe o pacote no ponto de serviço da DHL mais próximo.
 
-4. Se você encontrar algum problema, envie um email para [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) com detalhes dos problemas encontrados e coloque o número da nota de entrega na linha Assunto:. Você também pode ligar para +27 (0) 119213902.
+5. Se você encontrar problemas, envie um email para [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) com detalhes dos problemas e coloque o número da nota de entrega na linha Assunto:. Você também pode ligar para +27 (0) 119213902.
 
 ### <a name="china"></a>[China](#tab/in-china)
 
@@ -200,7 +205,7 @@ Siga as etapas a seguir se estiver devolvendo o dispositivo na China.
 
 3. Receba uma confirmação de email do FedEx após a conclusão da retirada da reserva.  
 
-4. Se você encontrar algum problema, envie um email [DL-DC-SHA@oe.21vianet.com](mailto:DL-DC-SHA@oe.21vianet.com) com detalhes do problema encontrado e o assunto mencionando o nome do pedido.
+4. Caso você tenha problemas, envie um email para [DL-DC-SHA@oe.21vianet.com](mailto:DL-DC-SHA@oe.21vianet.com) com detalhes dos problemas e coloque o nome do pedido na linha Assunto:.
 
 #### <a name="premier-customer-care-contact-information"></a>Informações de contato do Atendimento ao Cliente Premier
 
@@ -224,7 +229,7 @@ Siga as etapas a seguir se estiver devolvendo o dispositivo na China.
 
 ### <a name="self-managed"></a>[Autogerenciado](#tab/in-selfmanaged)
 
-Se você estiver usando o Data Box Disk no US Government, no Japão, em Singapura, na Coreia do Sul, no Oeste da Europa, na África do Sul ou na Índia e tiver selecionado a opção de remessa autogerenciada durante a criação do pedido, siga estas instruções.
+Se estiver usando o Data Box Disk no US Government, no Japão, em Singapura, na Coreia do Sul, no Reino Unido, no Oeste da Europa, na Austrália, na África do Sul ou na Índia e tiver selecionado a opção de remessa autogerenciada durante a criação do pedido, siga estas instruções.
 
 1. Vá para a folha **Visão geral** de seu pedido no portal do Azure. Examine as instruções que são exibidas ao selecionar **Agendar retirada**. Você deverá ver um código de Autorização, que será usado no momento de entrega do pedido.
 
@@ -235,9 +240,9 @@ Se você estiver usando o Data Box Disk no US Government, no Japão, em Singapur
     Subject: Request for Azure Data Box Disk drop-off for order: 'orderName'
     Body:
      a. Order name
-     b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
+     b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop-off.
     ```
-3. A equipe de Operações do Azure Data Box trabalhará com você para organizar a devolução para o Datacenter do Azure.
+3. A equipe de Operações do Azure Data Box trabalhará com você para marcar a devolução para o datacenter do Azure.
 
 ---
 
@@ -251,7 +256,7 @@ Neste tutorial, você aprendeu sobre tópicos do Azure Data Box Disk, como:
 >
 > * Enviar o Data Box Disk para a Microsoft
 
-Avance para as próximas instruções para saber como verificar o upload de dados do Data Box Disk para a conta do Armazenamento do Azure.
+Avance para as próximas instruções para saber como verificar o upload de dados do Data Box Disk na conta de armazenamento do Azure.
 
 > [!div class="nextstepaction"]
 > [Verificar o upload de dados do Azure Data Box Disk](./data-box-disk-deploy-upload-verify.md)

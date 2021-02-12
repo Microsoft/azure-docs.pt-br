@@ -11,21 +11,21 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
-ms.date: 06/26/2020
-ms.openlocfilehash: d0242ceec62db6548d91e5e58c21981a4f0246a0
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 01/25/2021
+ms.openlocfilehash: 07303e3eea7e63f7c153db771168b8a741183362
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672504"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576491"
 ---
-# <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Banco de dados SQL do Azure e arquitetura de conectividade do Azure Synapse Analytics
+# <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Banco de Dados SQL do Azure e arquitetura de conectividade do Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 Este artigo explica a arquitetura de vários componentes que direcionam o tráfego de rede para um servidor no banco de dados SQL do Azure ou no Azure Synapse Analytics. Ele também explica políticas de conexão diferentes e como isso afeta os clientes que se conectam de dentro do Azure e os clientes que se conectam de fora do Azure.
 
 > [!IMPORTANT]
-> Este artigo *não* se aplica à **Instância Gerenciada de SQL do Azure** . Consulte [arquitetura de conectividade para uma instância gerenciada](../managed-instance/connectivity-architecture-overview.md).
+> Este artigo *não* se aplica à **Instância Gerenciada de SQL do Azure**. Consulte [arquitetura de conectividade para uma instância gerenciada](../managed-instance/connectivity-architecture-overview.md).
 
 ## <a name="connectivity-architecture"></a>Arquitetura de conectividade
 
@@ -66,7 +66,7 @@ Se você estiver se conectando de fora do Azure, as conexões terão uma políti
 ![Diagrama que mostra como a sessão TCP é estabelecida por meio do gateway do banco de dados SQL do Azure e todos os pacotes subsequentes fluem por meio do gateway.](./media/connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
-> Além disso, abra as portas TCP 1434 e 14000-14999 para habilitar a [conexão com o DAC](/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
+> Além disso, abra as portas TCP 1434 e 14000-14999 para habilitar a [conexão com o DAC](/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators#connecting-with-dac)
 
 ## <a name="gateway-ip-addresses"></a>Endereços IP do gateway
 
@@ -76,31 +76,32 @@ Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões 
 
 | Nome da região          | Endereços IP do gateway |
 | --- | --- |
-| Austrália Central    | 20.36.105.0 |
-| Central2 da Austrália   | 20.36.113.0 |
+| Austrália Central    | 20.36.105.0, 20.36.104.6, 20.36.104.7 |
+| Austrália Central 2   | 20.36.113.0, 20.36.112.6 |
 | Leste da Austrália       | 13.75.149.87, 40.79.161.1, 13.70.112.9 |
 | Sudeste da Austrália | 191.239.192.109, 13.73.109.251, 13.77.48.10 |
-| Sul do Brasil         | 104.41.11.5, 191.233.200.14 |
+| Brazil South         | 104.41.11.5, 191.233.200.14, 191.234.144.16, 191.234.152.3 |
 | Canadá Central       | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
-| Leste do Canadá          | 40.86.226.166, 52.242.30.154 |
-| Centro dos EUA           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 |
+| Leste do Canadá          | 40.86.226.166, 52.242.30.154, 40.69.105.9 , 40.69.105.10 |
+| Centro dos EUA           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1, 13.89.169.20 |
 | Leste da China           | 139.219.130.35     |
 | Leste da China 2         | 40.73.82.1         |
 | Norte da China          | 139.219.15.17      |
 | Norte da China 2        | 40.73.50.0         |
-| Leste da Ásia            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
+| Leste da Ásia            | 191.234.2.139, 52.175.33.150, 13.75.32.4, 13.75.32.14 |
 | Leste dos EUA              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
 | Leste dos EUA 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3 |
-| França Central       | 40.79.137.0, 40.79.129.1 |
+| França Central       | 40.79.137.0, 40.79.129.1, 40.79.137.8, 40.79.145.12 |
+| Sul da França         | 40.79.177.0, 40.79.177.10 ,40.79.177.12 |
 | Alemanha Central      | 51.4.144.100       |
 | Nordeste da Alemanha   | 51.5.144.179       |
 | Centro-Oeste da Alemanha | 51.116.240.0, 51.116.248.0, 51.116.152.0 |
-| Centro da Índia        | 104.211.96.159     |
+| Centro da Índia        | 104.211.96.159, 104.211.86.30 , 104.211.86.31 |
 | Sul da Índia          | 104.211.224.146    |
-| Oeste da Índia           | 104.211.160.80     |
-| Leste do Japão           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 |
+| Oeste da Índia           | 104.211.160.80, 104.211.144.4 |
+| Japan East           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 |
 | Oeste do Japão           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 |
-| Coreia Central        | 52.231.32.42       |
+| Coreia Central        | 52.231.32.42, 52.231.17.22 ,52.231.17.23 |
 | Sul da Coreia          | 52.231.200.86      |
 | Centro-Norte dos EUA     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
 | Norte da Europa         | 40.113.93.91, 191.235.193.75, 52.138.224.1, 13.74.104.113 |

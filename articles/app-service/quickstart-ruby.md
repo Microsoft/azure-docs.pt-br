@@ -6,12 +6,12 @@ ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.topic: quickstart
 ms.date: 07/11/2019
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 49f2100386af21cee8f76403d7a2d2e4ac6b8f63
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 45c87f690c24e989a797cbd82147b9125e447e79
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88961322"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561776"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service"></a>Criar um aplicativo Ruby on Rails no Serviço de Aplicativo
 
@@ -85,7 +85,7 @@ Execute os seguintes comandos para implantar o aplicativo local em seu aplicativ
 
 ```bash
 git remote add azure <Git deployment URL from above>
-git push azure master
+git push azure main
 ```
 
 Confirme que as operações de implantação remota relatam êxito. Os comandos produzem uma saída semelhante ao texto a seguir:
@@ -104,7 +104,7 @@ remote: Running post deployment command(s)...
 remote: Deployment successful.
 remote: App container will begin restart within 10 seconds.
 To https://<app-name>.scm.azurewebsites.net/<app-name>.git
-   a6e73a2..ae34be9  master -> master
+   a6e73a2..ae34be9  main -> main
 ```
 
 Após a implantação ser concluída, aguarde cerca de 10 segundos para que o aplicativo Web seja reiniciado e, em seguida, navegue até ele e verifique os resultados.

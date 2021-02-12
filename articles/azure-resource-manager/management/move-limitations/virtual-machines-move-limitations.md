@@ -2,13 +2,13 @@
 title: Mover VMs do Azure para uma nova assinatura ou grupo de recursos
 description: Use Azure Resource Manager para mover máquinas virtuais para um novo grupo de recursos ou assinatura.
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: 219a8b438d2715f6e97085a527b386e51759ec2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/01/2020
+ms.openlocfilehash: b1032b5a632bcac82cb9ae1f1b3df7b49f5463f5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317099"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456318"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Mover diretrizes para máquinas virtuais
 
@@ -19,8 +19,8 @@ Este artigo descreve os cenários que atualmente não têm suporte e as etapas p
 Ainda não há suporte para os cenários a seguir:
 
 * Conjuntos de dimensionamento de máquinas virtuais com Load Balancer SKU padrão ou IP público SKU Standard não podem ser movidos.
-* As máquinas virtuais criadas por meio de recursos do Marketplace com planos anexados não podem ser movidas entre assinaturas. Desprovisionar a máquina virtual na assinatura atual e implantá-la novamente na nova assinatura.
 * As máquinas virtuais em uma rede virtual existente não podem ser movidas para uma nova assinatura quando você não está movendo todos os recursos na rede virtual.
+* As máquinas virtuais criadas por meio de recursos do Marketplace com planos anexados não podem ser movidas entre assinaturas. Para obter uma possível solução alternativa, consulte [máquinas virtuais com planos do Marketplace](#virtual-machines-with-marketplace-plans).
 * As máquinas virtuais de baixa prioridade e os conjuntos de dimensionamento de máquinas virtuais de baixa prioridade não podem ser movidos entre grupos de recursos ou assinaturas.
 * As máquinas virtuais em um conjunto de disponibilidade não podem ser movidas individualmente.
 
@@ -36,6 +36,24 @@ az vm encryption disable --resource-group demoRG --name myVm1
 Disable-AzVMDiskEncryption -ResourceGroupName demoRG -VMName myVm1
 ```
 
+## <a name="virtual-machines-with-marketplace-plans"></a>Máquinas virtuais com planos do Marketplace
+
+As máquinas virtuais criadas por meio de recursos do Marketplace com planos anexados não podem ser movidas entre assinaturas. Para contornar essa limitação, você pode desprovisionar a máquina virtual na assinatura atual e implantá-la novamente na nova assinatura. As etapas a seguir ajudam a recriar a máquina virtual na nova assinatura. No entanto, eles podem não funcionar para todos os cenários. Se o plano não estiver mais disponível no Marketplace, essas etapas não funcionarão.
+
+1. Copie informações sobre o plano.
+
+1. Clone o disco do sistema operacional para a assinatura de destino ou mova o disco original após excluir a máquina virtual da assinatura de origem.
+
+1. Na assinatura de destino, aceite os termos do Marketplace para seu plano. Você pode aceitar os termos executando o seguinte comando do PowerShell:
+
+   ```azurepowershell
+   Get-AzMarketplaceTerms -Publisher {publisher} -Product {product/offer} -Name {name/SKU} | Set-AzMarketplaceTerms -Accept
+   ```
+
+   Ou, você pode criar uma nova instância de uma máquina virtual com o plano por meio do Portal. Você pode excluir a máquina virtual depois de aceitar os termos na nova assinatura.
+
+1. Na assinatura de destino, recrie a máquina virtual do disco do sistema operacional clonado usando o PowerShell, a CLI ou um modelo de Azure Resource Manager. Inclua o plano do Marketplace que está anexado ao disco. As informações sobre o plano devem corresponder ao plano que você comprou na nova assinatura.
+
 ## <a name="virtual-machines-with-azure-backup"></a>Máquinas virtuais com o backup do Azure
 
 Para mover as máquinas virtuais configuradas com o backup do Azure, você deve excluir os pontos de restauração do cofre.
@@ -44,7 +62,7 @@ Se a [exclusão reversível](../../../backup/backup-azure-security-feature-cloud
 
 ### <a name="portal"></a>Portal
 
-1. Interrompa temporariamente o backup e retenha os dados de backup.
+1. Pare temporariamente o backup e mantenha os dados de backup.
 2. Para mover as máquinas virtuais configuradas com o backup do Azure, execute as seguintes etapas:
 
    1. Localize o local da sua máquina virtual.

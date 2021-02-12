@@ -1,7 +1,7 @@
 ---
 title: O que é treinamento distribuído?
 titleSuffix: Azure Machine Learning
-description: Saiba mais sobre o treinamento distribuído e como Azure Machine Learning dá suporte a ele.
+description: Saiba que tipo de treinamento distribuído Azure Machine Learning dá suporte e integrações de estrutura de software livre disponíveis para treinamento distribuído.
 services: machine-learning
 ms.service: machine-learning
 author: nibaccam
@@ -9,12 +9,12 @@ ms.author: nibaccam
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 62edee6a882191551ce2409646ea8b617576c059
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e1972e0530656bf6cc0e6319191ab4ebbfbfddb
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651161"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358568"
 ---
 # <a name="distributed-training-with-azure-machine-learning"></a>Treinamento distribuído com o Azure Machine Learning
 
@@ -24,9 +24,9 @@ No treinamento distribuído, a carga de trabalho para treinar um modelo é divid
 
 ## <a name="deep-learning-and-distributed-training"></a>Aprendizado avançado e treinamento distribuído 
 
-Há dois tipos principais de treinamento distribuído: [paralelismo de dados](#data-parallelism) e [paralelismo de modelo](#model-parallelism). Para treinamento distribuído sobre modelos de aprendizado profundo, o [SDK do Azure Machine Learning no Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) dá suporte a integrações com estruturas populares, PyTorch e TensorFlow. Ambas as estruturas empregam o paralelismo de dados para treinamento distribuído e podem aproveitar o [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) para otimizar as velocidades de computação. 
+Há dois tipos principais de treinamento distribuído: [paralelismo de dados](#data-parallelism) e [paralelismo de modelo](#model-parallelism). Para treinamento distribuído sobre modelos de aprendizado profundo, o [SDK do Azure Machine Learning no Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) dá suporte a integrações com estruturas populares, PyTorch e TensorFlow. Ambas as estruturas empregam o paralelismo de dados para treinamento distribuído e podem aproveitar o [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) para otimizar as velocidades de computação. 
 
-* [Treinamento distribuído com o PyTorch](how-to-train-pytorch.md#distributed-training)
+* [Treinamento distribuído com PyTorch](how-to-train-pytorch.md#distributed-training)
 
 * [Treinamento distribuído com o TensorFlow](how-to-train-tensorflow.md#distributed-training)
 
@@ -51,6 +51,6 @@ No paralelismo de modelo, os nós de trabalho precisam apenas sincronizar os par
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba como [usar destinos de computação para treinamento de modelo](how-to-set-up-training-targets.md) com o SDK do Python.
-* Para obter um exemplo técnico, consulte o [cenário de arquitetura de referência](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/training-deep-learning).
+* Para obter um exemplo técnico, consulte o [cenário de arquitetura de referência](/azure/architecture/reference-architectures/ai/training-deep-learning).
 * [Treinar modelos de ml com TensorFlow](how-to-train-tensorflow.md).
-* [Treinar modelos de ml com PyTorch](how-to-train-pytorch.md). 
+* [Treinar modelos de ml com PyTorch](how-to-train-pytorch.md).

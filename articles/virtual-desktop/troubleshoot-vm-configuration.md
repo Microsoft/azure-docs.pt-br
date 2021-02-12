@@ -6,17 +6,17 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 31e9b4b065b2acb8378c2eeac332341f48b28165
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84a49ea2f6ce4a5119af024ab3de67fa2b89c02e
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88005220"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539737"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuração da máquina virtual do host da sessão
 
 >[!IMPORTANT]
->Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica) sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/troubleshoot-vm-configuration-2019.md).
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica), sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/troubleshoot-vm-configuration-2019.md).
 
 Use este artigo para solucionar problemas que você está tendo ao configurar as VMs (máquinas virtuais) do host de sessão de área de trabalho virtual do Windows.
 
@@ -82,7 +82,7 @@ A maneira recomendada para provisionar VMs é usar o modelo de criação de port
 
 Siga estas instruções para confirmar se os componentes estão instalados e para verificar se há mensagens de erro.
 
-1. Confirme se os dois componentes estão instalados marcando em **painel de controle**  >  **programas**programas  >  **e recursos**. Se o **agente de área de trabalho virtual do Windows** e o carregador de inicialização do **Windows Virtual Desktop Agent** não estiverem visíveis, eles não serão instalados na VM.
+1. Confirme se os dois componentes estão instalados marcando em **painel de controle**  >  **programas** programas  >  **e recursos**. Se o **agente de área de trabalho virtual do Windows** e o carregador de inicialização do **Windows Virtual Desktop Agent** não estiverem visíveis, eles não serão instalados na VM.
 2. Abra o **Explorador de arquivos** e navegue até **C:\Windows\Temp\ScriptLog.log**. Se o arquivo estiver ausente, isso indica que a DSC do PowerShell que instalou os dois componentes não pôde ser executada no contexto de segurança fornecido.
 3. Se o arquivo **C:\Windows\Temp\ScriptLog.log** estiver presente, abra-o e verifique se há mensagens de erro.
 
@@ -348,6 +348,7 @@ Para saber mais sobre essa política, consulte [Permitir logon por meio de servi
 - Confira uma visão geral da solução de problemas da Área de Trabalho Virtual do Windows e das faixas de escalonamento em [Visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview.md).
 - Para solucionar problemas durante a criação de um pool de hosts em um ambiente de área de trabalho virtual do Windows, consulte [ambiente e criação de pool de hosts](troubleshoot-set-up-issues.md).
 - Confira como solucionar problemas ao configurar uma VM (máquina virtual) na Área de Trabalho Virtual do Windows em [Configuração da máquina virtual do host da sessão](troubleshoot-vm-configuration.md).
+- Para solucionar problemas relacionados ao agente de área de trabalho virtual do Windows ou conectividade de sessão, consulte [solucionar problemas comuns do agente de área de trabalho virtual do Windows](troubleshoot-agent.md).
 - Para solucionar problemas com conexões de cliente de área de trabalho virtual do Windows, consulte [conexões do serviço área de trabalho virtual do Windows](troubleshoot-service-connection.md).
 - Para solucionar problemas com clientes Área de Trabalho Remota, consulte [solucionar problemas do cliente área de trabalho remota](troubleshoot-client.md)
 - Veja como solucionar problemas ao usar o PowerShell com a Área de Trabalho Virtual do Windows em [PowerShell da Área de Trabalho Virtual do Windows](troubleshoot-powershell.md).

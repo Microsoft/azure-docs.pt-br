@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: aad4cdfe38ee9dd7530cb8ebe21cded18cb0a1ec
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: c4c9808813de80beea55e083c5bd80667ae2861f
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128525"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033112"
 ---
 # <a name="communication-services-logs"></a>Logs dos Serviços de Comunicação
 
@@ -22,7 +22,7 @@ Os Serviços de Comunicação do Azure oferecem funcionalidades de log que você
 
 ## <a name="enable-diagnostic-logs-in-your-resource"></a>Habilitar os logs de diagnóstico no seu recurso
 
-O log é desativado por padrão quando um recurso é criado. Para habilitar o log, acesse a folha **Configurações de diagnóstico** no menu de recursos, na seção **Monitoramento** . Depois, clique em **Adicionar configuração de diagnóstico** .
+O log é desativado por padrão quando um recurso é criado. Para habilitar o log, acesse a folha **Configurações de diagnóstico** no menu de recursos, na seção **Monitoramento**. Depois, clique em **Adicionar configuração de diagnóstico**.
 
 Em seguida, selecione o destino de arquivo desejado. Atualmente, damos suporte a contas de armazenamento e ao Log Analytics como destinos de arquivos. Depois de selecionar os tipos de logs que deseja capturar, salve as configurações de diagnóstico.
  
@@ -30,15 +30,16 @@ As novas configurações terão efeito em aproximadamente dez minutos. Os logs c
 
 :::image type="content" source="./media/diagnostic-settings.png" alt-text="Opções de configurações de diagnóstico do ACS.":::
 
-Para obter mais informações sobre como configurar um diagnóstico, confira a visão geral dos [logs de recursos do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview).
+Para obter mais informações sobre como configurar um diagnóstico, confira a visão geral dos [logs de recursos do Azure](../../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="resource-log-categories"></a>Categorias de log de recursos
 
 Os Serviços de Comunicação oferecem três tipos de logs que você pode habilitar:
 
-* **Logs de uso** : fornecem dados de uso associados a cada oferta de serviço cobrada
-* **Logs operacionais de chat** : fornecem informações básicas relacionadas ao serviço de chat
-* **Logs operacionais de SMS** : fornecem informações básicas relacionadas ao serviço de SMS
+* **Logs de uso**: fornecem dados de uso associados a cada oferta de serviço cobrada
+* **Logs operacionais de chat**: fornecem informações básicas relacionadas ao serviço de chat
+* **Logs operacionais de SMS**: fornecem informações básicas relacionadas ao serviço de SMS
+* **Logs operacionais de autenticação** – fornece informações básicas relacionadas ao serviço de Autenticação
 
 ### <a name="usage-logs-schema"></a>Esquema de logs de uso
 
@@ -100,3 +101,23 @@ Os Serviços de Comunicação oferecem três tipos de logs que você pode habili
 | SdkType | O tipo de SDK usado na solicitação. |
 | PlatformType | O tipo de plataforma usado na solicitação. |
 | Método | O método usado na solicitação. |
+
+### <a name="authentication-operational-logs"></a>Logs operacionais de autenticação
+
+| Propriedade | Descrição |
+| -------- | ---------------|
+| TimeGenerated | O carimbo de data/hora (UTC) de quando o log foi gerado. |
+| OperationName | A operação associada ao registro de log. |
+| CorrelationID | A ID de eventos correlacionados. Pode ser usada para identificar os eventos correlacionados entre várias tabelas. |
+| OperationVersion | A `api-version` associada à operação, caso o `operationName` tenha sido executado com uma API. Se não houver nenhuma API que corresponde a essa operação, a versão representará a versão dessa operação, caso as propriedades associadas à operação sejam alteradas no futuro. |
+| Categoria | A categoria de log do evento. Categoria é a granularidade na qual você pode habilitar ou desabilitar os logs em determinado recurso. As propriedades exibidas no blob de propriedades de um evento são as mesmas em uma categoria de log e um tipo de recurso específicos. |
+| ResultType | O status da operação. |
+| ResultSignature | O substatus da operação. Se essa operação corresponder a uma chamada à API REST, esse campo será o código de status HTTP da chamada REST correspondente. |
+| DurationMs | A duração da operação em milissegundos. |
+| CallerIpAddress | O endereço IP do chamador, caso a operação corresponda a uma chamada à API proveniente de uma entidade com um endereço IP disponível publicamente. |
+| Nível | O nível de severidade do evento. |
+| URI | O URI da solicitação. |
+| SdkType | O tipo de SDK usado na solicitação. |
+| PlatformType | O tipo de plataforma usado na solicitação. |
+| Identidade | A identidade dos Serviços de Comunicação relacionados à operação. |
+| Escopos | Os escopos dos Serviços de Comunicação presentes no token de acesso. |

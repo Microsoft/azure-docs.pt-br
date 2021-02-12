@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 6646b8a563cfe156a23b47011a769c6df015a286
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 64b39dfa581b242fbb490d61b388f2bf260976ef
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340335"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460423"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guia de solução de problemas da Central de Segurança do Azure
 
@@ -29,7 +29,7 @@ Tipos de alerta:
 
 * Análise de Comportamento da Máquina Virtual (VMBA)
 * Análise de Rede
-* Análise do banco de dados SQL e do Azure Synapse Analytics (anteriormente SQL Data Warehouse)
+* Análise do banco de dados SQL e do Azure Synapse Analytics
 * Informações Contextuais
 
 Dependendo dos tipos de alerta, é possível que os clientes tenham acesso às informações necessárias para investigar o alerta usando os seguintes recursos:

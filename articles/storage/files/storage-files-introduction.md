@@ -7,15 +7,15 @@ ms.topic: overview
 ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2b5fa5211ad8d4de01f2b63e8267e297e13c4485
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: f0dcd763240205bd396fc8cd0301c2046098473b
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570021"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070126"
 ---
 # <a name="what-is-azure-files"></a>O que são os Arquivos do Azure?
-Os Arquivos do Azure oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio do [Protocolo SMB](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) ou do [Protocolo NFS (Network File System)](https://en.wikipedia.org/wiki/Network_File_System) padrão do setor. Os compartilhamentos de arquivos do Azure podem ser montados de maneira simultânea por implantações locais ou na nuvem. É possível acessar os compartilhamentos de arquivos do protocolo SMB dos Arquivos do Azure em clientes Windows, Linux e macOS. É possível acessar os compartilhamentos de arquivos do protocolo NFS dos Arquivos do Azure em clientes Linux e macOS. Além disso, os compartilhamentos de arquivos do protocolo SMB dos Arquivos do Azure podem ser armazenados em cache nos Windows Servers com a Sincronização de Arquivos do Azure para acesso rápido perto de onde os dados estão sendo usados.
+Os Arquivos do Azure oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio do [Protocolo SMB](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) ou do [Protocolo NFS (Network File System)](https://en.wikipedia.org/wiki/Network_File_System) padrão do setor. Os compartilhamentos de arquivos do Azure podem ser montados de maneira simultânea por implantações locais ou na nuvem. É possível acessar os compartilhamentos de arquivos do protocolo SMB dos Arquivos do Azure em clientes Windows, Linux e macOS. É possível acessar os compartilhamentos de arquivos do protocolo NFS dos Arquivos do Azure em clientes Linux e macOS. Além disso, os compartilhamentos de arquivos do protocolo SMB dos Arquivos do Azure podem ser armazenados em cache nos Windows Servers com a Sincronização de Arquivos do Azure para acesso rápido perto de onde os dados estão sendo usados.
 
 ## <a name="videos"></a>vídeos
 | Introdução à Sincronização de Arquivos do Azure | Arquivos do Azure com Sincronização (Ignite 2019)  |
@@ -51,9 +51,9 @@ Os compartilhamentos de arquivos do Azure podem ser usados para:
 ## <a name="key-benefits"></a>Principais benefícios
 * **Acesso compartilhado**. Os compartilhamentos de arquivos do Azure são compatíveis com os protocolos SMB e NFS padrão. Isso significa que você pode substituir facilmente seus compartilhamentos de arquivos locais pelos do Azure sem se preocupar com a compatibilidade do aplicativo. Poder compartilhar um sistema de arquivos em vários computadores, aplicativos e instâncias é uma vantagem significativa com os Arquivos do Azure para aplicativos que precisam de compartilhamento. 
 * **Totalmente gerenciado**. Os compartilhamentos de arquivos do Azure podem ser criados sem a necessidade de gerenciar um sistema operacional ou hardware. Isso significa que você não precisa lidar com a correção do sistema operacional do servidor com atualizações críticas de segurança ou com a substituição de discos rígidos com defeito.
-* **Scripts e ferramentas**. Os cmdlets do PowerShell e a CLI do Azure podem ser usados para criar, montar e gerenciar compartilhamentos dos Arquivos do Azure como parte da administração dos aplicativos do Azure. Você pode criar e gerenciar compartilhamentos de Arquivos do Azure usando o Portal do Azure e o Gerenciador de Armazenamento do Azure. 
+* **Scripts e ferramentas**. Os cmdlets do PowerShell e a CLI do Azure podem ser usados para criar, montar e gerenciar compartilhamentos de arquivos do Azure como parte da administração de aplicativos do Azure. Você pode criar e gerenciar compartilhamentos de arquivos do Azure usando o portal do Azure e o Gerenciador de Armazenamento do Azure. 
 * **Resiliência**. O serviço Arquivos do Azure foi criado do zero para estar sempre disponível. Substituir os compartilhamentos de arquivos locais pelos Arquivos do Azure significa que não é preciso estar ativado para lidar com interrupções locais de energia ou problemas de rede. 
-* **Programação familiar**. Os aplicativos executados no Azure podem acessar dados no compartilhamento por meio de [APIs de E/S do sistema](https://msdn.microsoft.com/library/system.io.file.aspx) de arquivos. Os desenvolvedores podem, portanto, utilizar seus códigos e habilidades existentes para migrar aplicativos existentes. Além das APIs de E/S do sistema, você pode usar as [Bibliotecas do Cliente de Armazenamento do Azure](https://msdn.microsoft.com/library/azure/dn261237.aspx) ou a [API de REST do Armazenamento do Azure](/rest/api/storageservices/file-service-rest-api).
+* **Programação familiar**. Os aplicativos executados no Azure podem acessar dados no compartilhamento por meio de [APIs de E/S do sistema](/dotnet/api/system.io.file) de arquivos. Os desenvolvedores podem, portanto, utilizar seus códigos e habilidades existentes para migrar aplicativos existentes. Além das APIs de E/S do sistema, você pode usar as [Bibliotecas do Cliente de Armazenamento do Azure](/previous-versions/azure/dn261237(v=azure.100)) ou a [API de REST do Armazenamento do Azure](/rest/api/storageservices/file-service-rest-api).
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Saiba mais sobre os protocolos de compartilhamento de arquivo disponíveis](storage-files-compare-protocols.md)

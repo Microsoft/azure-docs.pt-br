@@ -7,12 +7,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0de1f1c1012315d2b9e6dd0297443f2633440869
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03536bbfedc7f5ecf2fe8d8bb6bd3035f27b72c7
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970973"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737873"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Criar e configurar um cofre de chaves para Azure Disk Encryption
 
@@ -45,7 +45,7 @@ Embora o portal possa ser acessado através do navegador, a CLI do Azure e o Azu
 
 ### <a name="connect-to-your-azure-account"></a>Conectar-se à sua conta do Azure
 
-Antes de usar a CLI do Azure ou o Azure PowerShell, é necessário se conectar a sua assinatura do Azure. Você faz isso [Entrando com a CLI do Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest), [Entrando com Azure Powershell](/powershell/azure/authenticate-azureps?view=azps-2.5.0) ou fornecendo suas credenciais para o portal do Azure quando solicitado.
+Antes de usar a CLI do Azure ou o Azure PowerShell, é necessário se conectar a sua assinatura do Azure. Você faz isso [Entrando com a CLI do Azure](/cli/azure/authenticate-azure-cli), [Entrando com Azure Powershell](/powershell/azure/authenticate-azureps) ou fornecendo suas credenciais para o portal do Azure quando solicitado.
 
 ```azurecli-interactive
 az login

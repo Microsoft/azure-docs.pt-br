@@ -5,20 +5,20 @@ author: Rodrigossz
 ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 11/30/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d25cd7418ec34b8c4a4a53dba4892e85ed1a66d5
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ed909cf3feb17930b045dee1031ed5a6209b63d2
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098069"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98029008"
 ---
-# <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>O que é o Link do Azure Synapse para Azure Cosmos DB (versão prévia)?
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
+# <a name="what-is-azure-synapse-link-for-azure-cosmos-db"></a>O que é o Link do Azure Synapse para Azure Cosmos DB?
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 > [!IMPORTANT]
-> O Link do Azure Synapse no Azure Cosmos DB está em versão prévia atualmente. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte os [Termos de uso complementares de versões prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> O suporte do pool SQL sem servidor Synapse para o link Synapse do Azure para Azure Cosmos DB está atualmente em versão prévia. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte os [Termos de uso complementares de versões prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O Link do Azure Synapse para Azure Cosmos DB é uma funcionalidade de HTAP (processamento transacional híbrido e analítico) nativa de nuvem que permite executar análises quase em tempo real sobre dados operacionais. O Link do Azure Synapse cria uma integração perfeita entre o Azure Cosmos DB e o Azure Synapse Analytics.
 
@@ -36,7 +36,7 @@ Em comparação com as soluções tradicionais baseadas em ETL, o Link do Azure 
 
 ### <a name="reduced-complexity-with-no-etl-jobs-to-manage"></a>Complexidade reduzida sem trabalhos de ETL para gerenciar
 
-O Link do Azure Synapse permite que você acesse diretamente o repositório analítico do Azure Cosmos DB usando o Azure Synapse Analytics sem movimentação de dados complexa. Quaisquer atualizações feitas nos dados operacionais são visíveis no repositório analítico quase em tempo real sem ETL ou trabalhos de feed de alterações. Você pode executar análises em larga escala em relação ao repositório analítico, no Synapse Analytics, sem transformação de dados adicional.
+O Link do Azure Synapse permite que você acesse diretamente o repositório analítico do Azure Cosmos DB usando o Azure Synapse Analytics sem movimentação de dados complexa. Quaisquer atualizações feitas nos dados operacionais são visíveis no repositório analítico quase em tempo real sem ETL ou trabalhos de feed de alterações. Você pode executar análises em larga escala no repositório analítico, do Azure Synapse Analytics, sem transformação de dados adicional.
 
 ### <a name="near-real-time-insights-into-your-operational-data"></a>Insights quase em tempo real sobre seus dados operacionais
 
@@ -75,13 +75,13 @@ Se você tiver uma conta do Azure Cosmos DB distribuída globalmente, depois de 
 
 ### <a name="integration-with-azure-synapse-analytics"></a><a id="synapse-link-integration"></a>Integração com o Azure Synapse Analytics
 
-Com o Link do Synapse, agora você pode se conectar diretamente aos seus contêineres do Azure Cosmos DB do Azure Synapse Analytics e acessar o repositório analítico sem conectores separados. A análise de Synapse do Azure atualmente dá suporte ao link Synapse com [Synapse Apache Spark](../synapse-analytics/spark/apache-spark-concepts.md) e [Synapse SQL Server](../synapse-analytics/sql/on-demand-workspace-overview.md).
+Com o Link do Synapse, agora você pode se conectar diretamente aos seus contêineres do Azure Cosmos DB do Azure Synapse Analytics e acessar o repositório analítico sem conectores separados. A análise de Synapse do Azure atualmente dá suporte ao link Synapse com [Synapse Apache Spark](../synapse-analytics/spark/apache-spark-concepts.md) e [pool de SQL sem servidor](../synapse-analytics/sql/on-demand-workspace-overview.md).
 
 Você pode consultar os dados do repositório analítico do Azure Cosmos DB simultaneamente com a interoperabilidade entre diferentes tempos de execução de análise suportados pelo Azure Synapse Analytics. Não é necessária nenhuma transformação de dados adicional para analisar os dados operacionais. Você pode consultar e analisar os dados do repositório analítico usando:
 
 * Synapse Apache Spark com suporte completo para Scala, Python, SparkSQL e C#. O Synapse Spark é fundamental para cenários de engenharia de dados e ciência de dados
 
-* O SQL sem servidor com linguagem T-SQL e suporte para ferramentas de BI familiares (por exemplo, Power BI Premium etc.)
+* Pool SQL sem servidor com linguagem T-SQL e suporte para ferramentas de BI familiares (por exemplo, Power BI Premium, etc.)
 
 > [!NOTE]
 > No Azure Synapse Analytics, você pode acessar repositórios analíticos e transacionais em seu contêiner do Azure Cosmos DB. No entanto, se você quiser executar análises ou exames em larga escala em seus dados operacionais, recomendamos o uso do repositório analítico para evitar o impacto no desempenho em cargas de trabalho transacionais.
@@ -117,13 +117,15 @@ O Link do Synapse não será recomendado se você estiver procurando requisitos 
 
 ## <a name="limitations"></a>Limitações
 
-* Atualmente, há compatibilidade do Link do Azure Synapse para Azure Cosmos DB com a API do SQL e a API do Azure Cosmos DB para MongoDB. Não há compatibilidade com a API Gremlin e com a API de Tabela. O suporte para API do Cassandra está em versão prévia privada, para obter mais informações, entre em contato com a [equipe do Azure Synapse link](mailto:cosmosdbsynapselink@microsoft.com).  
+* O link Synapse do Azure para Azure Cosmos DB tem suporte para API do SQL e API do Azure Cosmos DB para MongoDB. Não há suporte para a API Gremlin, API do Cassandra e API de Tabela. 
 
-* Atualmente, o repositório analítico só pode ser habilitado para novos contêineres. Para usar o repositório analítico para contêineres existentes, migre dados de seus contêineres existentes para novos contêineres usando [Azure Cosmos DB ferramentas de migração](cosmosdb-migrationchoices.md). Você pode habilitar o link Synapse em contas de Azure Cosmos DB novas e existentes.
+* O repositório analítico só pode ser habilitado para novos contêineres. Para usar o repositório analítico para contêineres existentes, migre dados de seus contêineres existentes para novos contêineres usando [Azure Cosmos DB ferramentas de migração](cosmosdb-migrationchoices.md). Você pode habilitar o link Synapse em contas de Azure Cosmos DB novas e existentes.
 
 * Para os contêineres com o repositório analítico ativado, o backup automático e a restauração de seus dados no repositório analítico não têm suporte no momento. Quando o link do Synapse estiver habilitado em uma conta de banco de dados, Azure Cosmos DB continuará a [fazer backups](./online-backup-and-restore.md) de seus dados automaticamente no armazenamento transacional (somente) de contêineres no intervalo de backup agendado, como sempre. É importante observar que, quando um contêiner com o armazenamento analítico ativado é restaurado para uma nova conta, o contêiner será restaurado somente com armazenamento transacional e nenhum repositório analítico habilitado. 
 
 * O acesso ao repositório analítico do Azure Cosmos DB com o SQL do Synapse não está disponível atualmente.
+
+* No momento, não há suporte para o isolamento de rede para o armazenamento analítico do Azure Cosmso DB, usando pontos de extremidade privados gerenciados no Azure Synapse Analytics.
 
 ## <a name="pricing"></a>Preços
 

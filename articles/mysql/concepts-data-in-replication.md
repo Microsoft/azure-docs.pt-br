@@ -1,17 +1,17 @@
 ---
 title: Replicação de dados do Azure para MySQL
 description: Saiba mais sobre como usar a replicação de dados para sincronizar de um servidor externo no banco de dados do Azure para o serviço MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 8/7/2020
-ms.openlocfilehash: e84f0c9beaee8a755499467925d28a83ba3139fc
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 99beddba470f73d6eadb448dfe1b77453ce6426d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544045"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996212"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Replicar dados no Banco de Dados do Azure para MySQL
 
@@ -44,9 +44,9 @@ Consulte a [documentação do MySQL](https://dev.mysql.com/doc/refman/8.0/en/rep
 - Se o servidor de origem tiver o SSL habilitado, verifique se o certificado de autoridade de certificação SSL fornecido para o domínio foi incluído no `mysql.az_replication_change_master` procedimento armazenado. Consulte os [exemplos](./howto-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication) a seguir e o `master_ssl_ca` parâmetro.
 - Verifique se o endereço IP do servidor de origem foi adicionado ao banco de dados do Azure para as regras de firewall do servidor de réplica do MySQL. Atualizar regras de firewall usando o [Portal do Azure](./howto-manage-firewall-using-portal.md) ou a [CLI do Azure](./howto-manage-firewall-using-cli.md).
 - Verifique se o computador que hospeda o servidor de origem permite o tráfego de entrada e de saída na porta 3306.
-- Verifique se o servidor de origem tem um **endereço IP público** , se o DNS está acessível publicamente ou se tem um FQDN (nome de domínio totalmente qualificado).
+- Verifique se o servidor de origem tem um **endereço IP público**, se o DNS está acessível publicamente ou se tem um FQDN (nome de domínio totalmente qualificado).
 
-### <a name="other"></a>Outros
+### <a name="other"></a>Outro
 - A replicação de dados têm suporte apenas em tipos de preços de Uso Geral e Otimizados para Memória.
 - O GTID (identificadores de transação globais) não são compatíveis.
 

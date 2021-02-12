@@ -8,17 +8,17 @@ ms.date: 04/05/2019
 ms.author: rogarana
 ms.subservice: tables
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e643a7ce5ccf4aa5107df1e505d90a0767517350
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a7502d48095fe18b983c1971d5145f51e766c95
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89070404"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93306898"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Executar operações de armazenamento de Tabelas do Azure com o Azure PowerShell 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
-O armazenamento de Tabelas do Azure é um armazenamento de dados NoSQL que pode ser usado para armazenar e consultar grandes conjuntos de dados estruturados e não relacionais. Os principais componentes do serviço são tabelas, entidades e propriedades. Uma tabela é uma coleção de entidades. Uma entidade é um conjunto de propriedades. Cada entidade pode ter até 252 propriedades, que são todas pares de nome-valor. Este artigo pressupõe que você já esteja familiarizado com os conceitos do Serviço de Armazenamento de Tabelas do Azure. Para obter informações detalhadas, confira [Understanding the Table Service Data Model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) (Noções básicas do modelo de dados do serviço Tabela) e [Introdução ao Armazenamento de Tabelas do Azure usando o .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md).
+O armazenamento de Tabelas do Azure é um armazenamento de dados NoSQL que pode ser usado para armazenar e consultar grandes conjuntos de dados estruturados e não relacionais. Os principais componentes do serviço são tabelas, entidades e propriedades. Uma tabela é uma coleção de entidades. Uma entidade é um conjunto de propriedades. Cada entidade pode ter até 252 propriedades, que são todas pares de nome-valor. Este artigo pressupõe que você já esteja familiarizado com os conceitos do Serviço de Armazenamento de Tabelas do Azure. Para obter informações detalhadas, confira [Understanding the Table Service Data Model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) (Noções básicas do modelo de dados do serviço Tabela) e [Introdução ao Armazenamento de Tabelas do Azure usando o .NET](../../cosmos-db/tutorial-develop-table-dotnet.md).
 
 Este artigo de instruções abrange operações comuns do armazenamento de Tabelas do Azure. Você aprenderá como: 
 
@@ -38,7 +38,7 @@ Os exemplos exigem os módulos AZ PowerShell `Az.Storage (1.1.0 or greater)` e `
 > Usar esse recurso do Azure do PowerShell exige que você tenha o módulo `Az` instalado. A versão atual do `AzTable` não é compatível com o módulo AzureRM mais antigo.
 > Siga as [instruções de instalação mais recentes para instalar o módulo AZ](/powershell/azure/install-az-ps) , se necessário.
 
-Após a instalação ou atualização do Azure PowerShell, você deve instalar o módulo **AzTable**, que tem os comandos para gerenciar as entidades. Para instalar esse módulo, execute o PowerShell como administrador e use o comando **Install-Module**.
+Após a instalação ou atualização do Azure PowerShell, você deve instalar o módulo **AzTable** , que tem os comandos para gerenciar as entidades. Para instalar esse módulo, execute o PowerShell como administrador e use o comando **Install-Module**.
 
 > [!IMPORTANT]
 > Para fins de compatibilidade de nome de módulo, ainda estamos publicando esse mesmo módulo com o nome antigo `AzureRmStorageTables` em Galeria do PowerShell. Este documento fará referência apenas ao novo nome.
@@ -120,7 +120,7 @@ $storageTable = Get-AzStorageTable –Name $tableName –Context $ctx
 > [!IMPORTANT]
 > O uso de Cloudtable é obrigatório ao trabalhar com o módulo do PowerShell do **AzTable** . Chame o comando **Get-AzStorageTable** para obter a referência a esse objeto. Esse comando também criará a tabela se ela ainda não existir.
 
-Para executar operações em uma tabela usando **AzTable**, você precisa de uma referência à propriedade cloudtable de uma tabela específica.
+Para executar operações em uma tabela usando **AzTable** , você precisa de uma referência à propriedade cloudtable de uma tabela específica.
 
 ```powershell
 $cloudTable = (Get-AzStorageTable –Name $tableName –Context $ctx).CloudTable

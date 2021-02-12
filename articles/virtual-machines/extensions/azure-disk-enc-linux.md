@@ -8,17 +8,18 @@ manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: ejarvi
-ms.openlocfilehash: cc82109c60ac077d9e92e4d4a52abdaf8577771f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 61f8fd3d671bbd66d2dc5656e9a467b06798d280
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971176"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968410"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Azure Disk Encryption para Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
@@ -148,18 +149,18 @@ Usando `AADClientCertificate`:
 | type | AzureDiskEncryptionForLinux | string |
 | typeHandlerVersion | 1,1, 0,1 | INT |
 | (esquema 0,1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
-| (esquema 0,1) AADClientSecret | password | cadeia de caracteres |
-| (esquema 0,1) AADClientCertificate | thumbprint | cadeia de caracteres |
-| adicional (esquema 0,1) Senha | password | cadeia de caracteres |
+| (esquema 0,1) AADClientSecret | password | string |
+| (esquema 0,1) AADClientCertificate | thumbprint | string |
+| adicional (esquema 0,1) Senha | password | string |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | Dicionário JSON |
-| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | cadeia de caracteres | 
-| (opcional-padrão RSA-OAEP) KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | cadeia de caracteres |
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
+| (opcional-padrão RSA-OAEP) KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
 | KeyVaultURL | url | string |
 | KeyVaultResourceId | url | string |
 | adicional KeyEncryptionKeyURL | url | string |
 | adicional KekVaultResourceId | url | string |
-| adicional SequenceVersion | UNIQUEIDENTIFIER | cadeia de caracteres |
-| VolumeType | Sistema operacional, Dados, Tudo | cadeia de caracteres |
+| adicional SequenceVersion | UNIQUEIDENTIFIER | string |
+| VolumeType | Sistema operacional, Dados, Tudo | string |
 
 ## <a name="template-deployment"></a>Implantação de modelo
 

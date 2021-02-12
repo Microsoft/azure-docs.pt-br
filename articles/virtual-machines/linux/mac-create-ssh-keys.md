@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 33ba816227db4cf958fd30c9dac1a0745505c504
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a6971bce2ba4cb3e18455aad34e2d10b73dc066
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87513682"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203415"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Etapas rápidas: Criar e usar um par de chaves SSH pública e privada para VMs Linux no Azure
 
@@ -47,9 +47,9 @@ az vm create --name VMname --resource-group RGname --image UbuntuLTS --generate-
 
 Para criar uma VM do Linux que use chaves SSH para autenticação, especifique sua chave pública SSH ao criar a VM usando o portal do Azure, a CLI do Azure, os modelos do Azure Resource Manager ou outros métodos:
 
-* [Criar uma máquina virtual Linux com o Portal do Azure](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Criar uma máquina virtual Linux com a CLI do Azure](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Criar uma VM Linux usando um modelo do Azure](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Criar uma máquina virtual Linux com o Portal do Azure](quick-create-portal.md)
+* [Criar uma máquina virtual Linux com a CLI do Azure](quick-create-cli.md)
+* [Criar uma VM Linux usando um modelo do Azure](create-ssh-secured-vm-from-template.md)
 
 Se você não estiver familiarizado com o formato de uma chave SSH pública, exiba sua chave pública com o seguinte comando `cat`, substituindo `~/.ssh/id_rsa.pub` pelo caminho e o nome de arquivo do seu próprio arquivo de chave pública, se necessário:
 

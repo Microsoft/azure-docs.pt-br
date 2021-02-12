@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/17/2020
 ms.author: baanders
-ms.openlocfilehash: 8a3efc9ba8fc8ffd8c0eca4340e1948c388c0a13
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: c1d1efce656bea02385cb20ac11ab90ca5664e60
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494967"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026609"
 ---
 Para começar a trabalhar com os Gêmeos Digitais do Azure em uma janela aberta do [Azure Cloud Shell](https://shell.azure.com), faça logon e defina o contexto do shell da sua assinatura para esta sessão. Execute estes comandos no seu Cloud Shell:
 
@@ -27,7 +27,7 @@ Se esta é a primeira vez que você usa essa assinatura com os Gêmeos Digitais 
 az provider register --namespace 'Microsoft.DigitalTwins'
 ```
 
-Em seguida, você adicionará a [**Extensão de IoT do Microsoft Azure para a CLI do Azure**](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest&preserve-view=true) ao seu Cloud Shell para habilitar comandos para interagir com os Gêmeos Digitais do Azure e com outros serviços de IoT. 
+Em seguida, você adicionará a [**Extensão de IoT do Microsoft Azure para a CLI do Azure**](/cli/azure/ext/azure-iot/iot?preserve-view=true&view=azure-cli-latest) ao seu Cloud Shell para habilitar comandos para interagir com os Gêmeos Digitais do Azure e com outros serviços de IoT. 
 
 [!INCLUDE [digital-twins-cloud-shell-extensions.md](digital-twins-cloud-shell-extensions.md)]
 

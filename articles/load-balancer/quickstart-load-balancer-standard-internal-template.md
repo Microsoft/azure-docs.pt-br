@@ -5,15 +5,15 @@ services: load-balancer
 author: asudbring
 ms.service: load-balancer
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 ms.author: allensu
 ms.date: 09/14/2020
-ms.openlocfilehash: aa68dad2f8f018a9f3f70f2f02fd5e989ccbad4e
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 749b233b827c27d2c998cfd6be66cf79cf48089d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047753"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831643"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>'Início Rápido: Criar um balanceador de carga interno para balancear a carga de VMs usando um modelo do ARM
 
@@ -21,7 +21,11 @@ Este início rápido descreve como usar um modelo do ARM (Azure Resource Manager
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos:
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
+
+[![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-2-vms-internal-load-balancer%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -49,7 +53,7 @@ Para encontrar mais modelos relacionados ao Azure Load Balancer, confira [Modelo
 ```azurecli-interactive
 read -p "Enter the location (i.e. westcentralus): " location
 resourceGroupName="myResourceGroupLB"
-templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json" 
+templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json"
 
 az group create \
 --name $resourceGroupName \
@@ -64,11 +68,11 @@ az deployment group create \
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-2. Escolha **Grupos de recursos** no painel esquerdo.
+1. Escolha **Grupos de recursos** no painel esquerdo.
 
-3. Selecione o grupo de recursos criado na seção anterior. O nome do grupo de recursos padrão é **myResourceGroupLB**
+1. Selecione o grupo de recursos criado na seção anterior. O nome do grupo de recursos padrão é **myResourceGroupLB**
 
-4. Verifique se os seguintes recursos foram criados no grupo de recursos:
+1. Verifique se os seguintes recursos foram criados no grupo de recursos:
 
 :::image type="content" source="media/quickstart-load-balancer-standard-internal-template/verify-creation.png" alt-text="Portal do Azure de usuário para verificar a criação de recursos." border="true":::
 
@@ -76,7 +80,7 @@ az deployment group create \
 
 Quando não for mais necessário, você poderá usar o comando [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos e todos os recursos contidos nele.
 
-```azurecli-interactive 
+```azurecli-interactive
   az group delete \
     --name myResourceGroupLB
 ```
@@ -86,4 +90,4 @@ Quando não for mais necessário, você poderá usar o comando [az group delete]
 Para obter um tutorial passo a passo que orienta você durante o processo de criação de um modelo, confira:
 
 > [!div class="nextstepaction"]
-> Criar e implantar seu primeiro modelo do Resource Manager[
+> [Tutorial: Criar e implantar seu primeiro modelo do Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

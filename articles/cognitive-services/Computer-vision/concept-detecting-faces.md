@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: d10e4c98d3e2f00e7139063c8263e65ffd015d7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3aa8f9057c3c9e3a141824a9d23e9be8d0bbe4b2
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80244691"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532628"
 ---
 # <a name="face-detection-with-computer-vision"></a>Detecção facial com Pesquisa Visual Computacional
 
 A Pesquisa Visual Computacional pode detectar rostos humanos em uma imagem e gerar a idade, o sexo e um retângulo para cada rosto detectado. 
 
 > [!NOTE]
-> Esse recurso também é oferecido pelo serviço Azure [Face](/azure/cognitive-services/face/). Consulte essa alternativa para obter uma análise de rosto mais detalhada, incluindo identificação de face e detecção de pose. 
+> Esse recurso também é oferecido pelo serviço Azure [Face](../face/index.yml). Consulte essa alternativa para obter uma análise de rosto mais detalhada, incluindo identificação de face e detecção de pose. 
 
 ## <a name="face-detection-examples"></a>Exemplos de detecção facial
 
@@ -113,7 +113,6 @@ O próximo exemplo demonstra a resposta JSON retornada de uma imagem contendo v�
 
 ## <a name="use-the-api"></a>Usar a API
 
-O recurso de detecção facial faz parte da API de [análise de imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) . Você pode chamar essa API por meio de um SDK nativo ou por meio de chamadas REST. Inclua `Faces` no parâmetro de consulta **visualFeatures** . Em seguida, quando você obtém a resposta JSON completa, simplesmente analise a cadeia de caracteres para o conteúdo da `"faces"` seção.
+O recurso de detecção facial faz parte da API de [análise de imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) . Você pode chamar essa API por meio de um SDK nativo ou por meio de chamadas REST. Inclua `Faces` no parâmetro de consulta **visualFeatures** . Em seguida, quando você obtém a resposta JSON completa, simplesmente analise a cadeia de caracteres para o conteúdo da `"faces"` seção.
 
-* [Início rápido: SDK do .NET Pesquisa Visual Computacional](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-* [Início rápido: analisar uma imagem (API REST)](./quickstarts/csharp-analyze.md)
+* [Início rápido: Pesquisa Visual Computacional bibliotecas de cliente ou API REST](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)

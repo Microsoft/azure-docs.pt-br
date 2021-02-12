@@ -1,6 +1,6 @@
 ---
 title: Criar um volume SMB para o Azure NetApp Files | Microsoft Docs
-description: Este artigo mostra como criar um volume SMBv3 no Azure NetApp Files. Saiba mais sobre os requisitos para conexões de Active Directory e serviços de domínio.
+description: Este artigo mostra como criar um volume SMB3 no Azure NetApp Files. Saiba mais sobre os requisitos para conexões de Active Directory e serviços de domínio.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 12/01/2020
 ms.author: b-juche
-ms.openlocfilehash: d0a16dc639fb3206b480c1091a66686955cbb11d
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 48ee05eebd91c60fa2cfecc80898d3be54367269
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932338"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762675"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Criar um volume SMB para o Azure NetApp Files
 
-O Azure NetApp Files dá suporte à criação de volumes usando NFS (NFSv3 e NFSv 4.1), SMBv3 ou protocolo duplo (NFSv3 e SMB). O consumo de capacidade de um volume conta contra a capacidade provisionada do pool desse volume. Este artigo mostra como criar um volume SMBv3.
+O Azure NetApp Files dá suporte à criação de volumes usando NFS (NFSv3 e NFSv 4.1), SMB3 ou protocolo duplo (NFSv3 e SMB). O consumo de capacidade de um volume conta contra a capacidade provisionada do pool desse volume. Este artigo mostra como criar um volume SMB3.
 
 ## <a name="before-you-begin"></a>Antes de começar 
 Você deve já configurou um pool de capacidade.   
@@ -74,7 +74,7 @@ Uma sub-rede deve ser delegada ao Azure NetApp Files.
 
     Confira [Projetando a topologia do site](/windows-server/identity/ad-ds/plan/designing-the-site-topology) sobre serviços e sites do AD. 
     
-* Você pode habilitar a criptografia AES para um volume SMB marcando a caixa **criptografia AES** na janela [ingressar Active Directory](#create-an-active-directory-connection) . O Azure NetApp Files dá suporte aos tipos de criptografia DES, Kerberos AES 128 e Kerberos AES 256 (do menos seguro para o mais seguro). Se você habilitar a criptografia AES, as credenciais de usuário usadas para ingressar Active Directory devem ter a opção de conta correspondente mais alta habilitada que corresponde aos recursos habilitados para seu Active Directory.    
+* Você pode habilitar a criptografia AES para autenticação do AD marcando a caixa **criptografia AES** na janela [ingressar Active Directory](#create-an-active-directory-connection) . O Azure NetApp Files dá suporte aos tipos de criptografia DES, Kerberos AES 128 e Kerberos AES 256 (do menos seguro para o mais seguro). Se você habilitar a criptografia AES, as credenciais de usuário usadas para ingressar Active Directory devem ter a opção de conta correspondente mais alta habilitada que corresponde aos recursos habilitados para seu Active Directory.    
 
     Por exemplo, se o Active Directory tiver apenas o recurso AES-128, você deverá habilitar a opção de conta AES-128 para as credenciais do usuário. Se o Active Directory tiver o recurso AES-256, você deverá habilitar a opção de conta AES-256 (que também dá suporte a AES-128). Se o seu Active Directory não tiver nenhum recurso de criptografia Kerberos, o Azure NetApp Files usará DES por padrão.  
 
@@ -84,7 +84,7 @@ Uma sub-rede deve ser delegada ao Azure NetApp Files.
 
 * O Azure NetApp Files dá suporte à [assinatura LDAP](/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server), que permite a transmissão segura de tráfego LDAP entre o serviço de Azure NetApp Files e os [controladores de domínio de Active Directory](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)de destino. Se você estiver seguindo as diretrizes do Microsoft Advisory [ADV190023](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023) para autenticação LDAP, habilite o recurso de assinatura ldap no Azure NetApp files marcando a caixa **assinatura LDAP** na janela [ingressar Active Directory](#create-an-active-directory-connection) . 
 
-    A configuração de [Associação de canal LDAP](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) não tem nenhum efeito no serviço de Azure NetApp files. 
+    A configuração de [Associação de canal LDAP](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) sozinha não tem nenhum efeito no serviço de Azure NetApp files. No entanto, se você usar a associação de canal LDAP e o LDAP seguro (por exemplo, LDAPs ou `start_tls` ), a criação do volume SMB falhará.
 
 Confira as [Perguntas frequentes sobre SMB](./azure-netapp-files-faqs.md#smb-faqs) do Azure NetApp Files para obter informações adicionais sobre o AD. 
 
@@ -146,7 +146,7 @@ Essa configuração é definida em **Conexões do Active Directory** em **Conta 
     * **Nome de Domínio DNS do AD**  
         É o nome de domínio do Active Directory Domain Services em que você deseja ingressar.
     * **Nome do site do AD**  
-        Esse é o nome do site ao qual a descoberta do controlador de domínio será limitada.
+        Esse é o nome do site ao qual a descoberta do controlador de domínio será limitada. Isso deve corresponder ao nome do site em Active Directory sites e serviços.
     * **Prefixo do Servidor SMB (conta do computador)**  
         É o prefixo de nomenclatura da conta do computador no Active Directory que o Azure NetApp Files usará para criar novas contas.
 

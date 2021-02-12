@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 41a97c639d9148f2bff3e4f530363ea05a65a7b8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095944"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018233"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Dimensionar automaticamente uma instância do Gerenciamento de API do Azure  
 
@@ -62,11 +62,11 @@ Siga as etapas abaixo para configurar o dimensionamento automático em um servi�
 
 3. Localize o serviço de Gerenciamento de API do Azure com base nos filtros nos menus suspensos.
 4. Selecione a instância desejada do Serviço de Gerenciamento de API do Azure.
-5. Na seção de abertos recentemente, clique no botão **Habilitar dimensionamento automático** .
+5. Na seção de abertos recentemente, clique no botão **Habilitar dimensionamento automático**.
 
     ![Ativar o dimensionamento automático do Azure Monitor](media/api-management-howto-autoscale/03.png)
 
-6. Na seção **Regras** , clique em **+ Adicionar uma regra** .
+6. Na seção **Regras**, clique em **+ Adicionar uma regra**.
 
     ![Adicionar regra de dimensionamento automático do Azure Monitor](media/api-management-howto-autoscale/04.png)
 
@@ -93,7 +93,7 @@ Siga as etapas abaixo para configurar o dimensionamento automático em um servi�
 
     ![Regra de escala horizontal do Azure Monitor](media/api-management-howto-autoscale/05.png)
 
-9. Clique novamente em **+ Adicionar uma regra** .
+9. Clique novamente em **+ Adicionar uma regra**.
 
     Nesse momento, uma regra de redução horizontal precisa ser definida. Isso garantirá que os recursos não estarão sendo desperdiçados quando o uso das APIs diminuir.
 
@@ -127,7 +127,7 @@ Siga as etapas abaixo para configurar o dimensionamento automático em um servi�
 
     ![Captura de tela que realça onde definir o número máximo de unidades de gerenciamento de API do Azure.](media/api-management-howto-autoscale/07.png)
 
-13. Clique em **Salvar** . O dimensionamento automático foi configurado.
+13. Clique em **Save** (Salvar). O dimensionamento automático foi configurado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

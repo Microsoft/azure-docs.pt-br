@@ -3,17 +3,16 @@ title: Criar um cluster do Azure HDInsight – dicionário de erros
 description: Saiba como solucionar erros que ocorrem durante a criação de clusters do Azure HDInsight
 author: karkrish
 ms.author: v-todmc
-ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 08/24/2020
-ms.openlocfilehash: 97cad12ad1854df37b54ff663385fe79ca15b7c2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 6b8c0069d619d3ebd87e3c54b4f653812199f590
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543093"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943343"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: erros de criação de cluster
 
@@ -24,7 +23,7 @@ Este artigo descreve as resoluções para erros que podem surgir durante a cria�
 
 ## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Código de erro: falha na validação de DeploymentDocument ' CsmDocument_2_0 '
 
-**Erro** : "o local da ação de script não pode ser acessado URI: \<SCRIPT ACTION URL\> "
+**Erro**: "o local da ação de script não pode ser acessado URI: \<SCRIPT ACTION URL\> "
 
 ### <a name="error-message-1"></a>Mensagem de erro 1
 
@@ -161,7 +160,7 @@ Você não forneceu as permissões necessárias para gerenciar a identidade. A i
 
 1. Abra o portal do Azure.
 1. Vá até sua conta de armazenamento.
-1. Procure em **controle de acesso (iam)** .
+1. Procure em **controle de acesso (iam)**.
 1. Verifique se o usuário tem a função de colaborador de dados do blob de armazenamento ou a função de proprietário de dados do blob de armazenamento atribuída a ele.
 
 Para obter mais informações, consulte [configurar permissões para a identidade gerenciada na conta de data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md).

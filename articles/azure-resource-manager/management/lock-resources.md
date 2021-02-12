@@ -1,19 +1,21 @@
 ---
 title: Bloqueio de recursos para prevenir alterações
-description: Impeça que os usuários atualizem ou excluam recursos críticos do Azure ao aplicar um bloqueio a todos os usuários e funções.
+description: Impedir que os usuários atualizem ou excluam recursos do Azure aplicando um bloqueio para todos os usuários e funções.
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 02/01/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3830c7e78cf3cc607c7abfca63e6ae74f89b7aff
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 912c7e86d253aa18b9a6c60717ceaa70e32fcf0e
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281739"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428310"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloquear recursos para evitar alterações inesperadas
 
-Como administrador, talvez você precise bloquear uma assinatura, um recurso ou grupo de recursos para impedir que outros usuários em sua organização excluam ou modifiquem acidentalmente recursos críticos. É possível definir o nível de bloqueio como **CanNotDelete** ou **ReadOnly**. No portal, os bloqueios são chamados **Excluir** e **Somente leitura** respectivamente.
+Como administrador, você pode bloquear uma assinatura, um grupo de recursos ou um recurso para impedir que outros usuários em sua organização excluam ou modifiquem acidentalmente recursos críticos. O bloqueio substitui todas as permissões que o usuário possa ter.
+
+É possível definir o nível de bloqueio como **CanNotDelete** ou **ReadOnly**. No portal, os bloqueios são chamados **Excluir** e **Somente leitura** respectivamente.
 
 * **CanNotDelete** significa que os usuários autorizados ainda poderão ler e modificar um recurso, mas não poderão excluir o recurso.
 * **ReadOnly** significa que os usuários autorizados poderão ler um recurso, mas não poderão excluir ou atualizar o recurso. Aplicar esse bloqueio é semelhante ao restringir todos os usuários autorizados para as permissões concedidas pela função **Leitor**.
@@ -24,11 +26,11 @@ Quando você aplica um bloqueio a um escopo pai, todos os recursos filho herdam 
 
 Ao contrário do controle de acesso baseado em função, é possível usar bloqueios de gerenciamento para aplicar uma restrição a todos os usuários e a todas as funções. Para saber mais sobre como definir permissões para usuários e funções, consulte [controle de acesso baseado em função do Azure (RBAC do Azure)](../../role-based-access-control/role-assignments-portal.md).
 
-Bloqueios do Resource Manager se aplicam apenas às operações que ocorrem no plano de gerenciamento, que consistem em operações enviadas para `https://management.azure.com`. Os bloqueios não restringem a maneira como os recursos executam suas próprias funções. Alterações de recursos são restritas, mas as operações de recursos não são restritas. Por exemplo, um bloqueio de ReadOnly em um banco de dados SQL impede que você de exclua ou modifique o banco de dados. Ele não impede você de criar, atualizar ou excluir dados no banco de dados. As transações de dados são permitidas porque essas operações não são enviadas para `https://management.azure.com`.
+Bloqueios do Resource Manager se aplicam apenas às operações que ocorrem no plano de gerenciamento, que consistem em operações enviadas para `https://management.azure.com`. Os bloqueios não restringem a maneira como os recursos executam suas próprias funções. Alterações de recursos são restritas, mas as operações de recursos não são. Por exemplo, um bloqueio ReadOnly em um servidor lógico do banco de dados SQL impede que você exclua ou modifique o servidor. Ele não impede que você crie, atualize ou exclua dados nos bancos de dado nesse servidor. As transações de dados são permitidas porque essas operações não são enviadas para `https://management.azure.com`.
 
 ## <a name="considerations-before-applying-locks"></a>Considerações antes da aplicação de bloqueios
 
-A aplicação de bloqueios pode gerar resultados inesperados porque algumas operações que não parecem modificar o recurso, na verdade, exigem ações impedidas pelo bloqueio. Alguns exemplos comuns de operações que são impedidas por bloqueios são:
+A aplicação de bloqueios pode gerar resultados inesperados porque algumas operações que não parecem modificar o recurso, na verdade, exigem ações impedidas pelo bloqueio. Os bloqueios impedirão qualquer operação que exija uma solicitação POST para a API Azure Resource Manager. Alguns exemplos comuns de operações que são impedidas por bloqueios são:
 
 * Um bloqueio do tipo somente leitura em uma **conta de armazenamento** impede que todos os usuários listem as chaves. A operação de lista de chaves é tratada por meio de uma solicitação POST, pois as chaves retornadas estão disponíveis para operações de gravação.
 
@@ -38,7 +40,7 @@ A aplicação de bloqueios pode gerar resultados inesperados porque algumas oper
 
 * Um bloqueio de não-exclusão em um **grupo de recursos** impede que Azure Resource Manager [exclua automaticamente as implantações](../templates/deployment-history-deletions.md) no histórico. Se você alcançar as implantações 800 no histórico, suas implantações falharão.
 
-* Um bloqueio do tipo não excluir no **grupo de recursos** criado pelo **Serviço de Backup do Azure** causa falha nos backups. O serviço dá suporte a um máximo de 18 pontos de restauração. Quando bloqueado, o serviço de backup não consegue limpar os pontos de restauração. Para obter mais informações, veja [Perguntas frequentes sobre Backup de VMs do Azure](../../backup/backup-azure-vm-backup-faq.md).
+* Um bloqueio do tipo não excluir no **grupo de recursos** criado pelo **Serviço de Backup do Azure** causa falha nos backups. O serviço dá suporte a um máximo de 18 pontos de restauração. Quando bloqueado, o serviço de backup não consegue limpar os pontos de restauração. Para obter mais informações, veja [Perguntas frequentes sobre Backup de VMs do Azure](../../backup/backup-azure-vm-backup-faq.yml).
 
 * Um bloqueio do tipo somente leitura em uma **assinatura** impede que **Assistente do Azure** funcione corretamente. O Assistente não consegue armazenar os resultados de suas consultas.
 
@@ -74,19 +76,91 @@ Para excluir tudo para o serviço, incluindo o grupo de recursos de infraestrutu
 
 ### <a name="arm-template"></a>Modelo de ARM
 
-Quando usar um modelo do Resource Manager para implantar um bloqueio, use valores diferentes para o nome e tipo, dependendo do escopo do bloqueio.
+Ao usar um modelo de Azure Resource Manager (modelo ARM) para implantar um bloqueio, você precisa estar ciente do escopo do bloqueio e do escopo da implantação. Para aplicar um bloqueio no escopo de implantação, como bloquear um grupo de recursos ou uma assinatura, não defina a propriedade escopo. Ao bloquear um recurso dentro do escopo de implantação, defina a Propriedade Scope.
 
-Quando aplicar um bloqueio a um **recurso**, use os seguintes formatos:
+O modelo a seguir aplica um bloqueio ao grupo de recursos no qual ele é implantado. Observe que não há uma propriedade de escopo no recurso de bloqueio porque o escopo do bloqueio corresponde ao escopo da implantação. Este modelo é implantado no nível do grupo de recursos.
 
-* nome - `{resourceName}/Microsoft.Authorization/{lockName}`
-* tipo - `{resourceProviderNamespace}/{resourceType}/providers/locks`
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {  
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/locks",
+            "apiVersion": "2016-09-01",
+            "name": "rgLock",
+            "properties": {
+                "level": "CanNotDelete",
+                "notes": "Resource Group should not be deleted."
+            }
+        }
+    ]
+}
+```
 
-Quando aplicar um bloqueio a um **grupo de recursos** ou **assinatura**, use os seguintes formatos:
+Para criar um grupo de recursos e bloqueá-lo, implante o modelo a seguir no nível da assinatura.
 
-* nome - `{lockName}`
-* tipo - `Microsoft.Authorization/locks`
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "rgName": {
+            "type": "string"
+        },
+        "rgLocation": {
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2019-10-01",
+            "name": "[parameters('rgName')]",
+            "location": "[parameters('rgLocation')]",
+            "properties": {}
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "lockDeployment",
+            "resourceGroup": "[parameters('rgName')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Resources/resourceGroups/', parameters('rgName'))]"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Authorization/locks",
+                            "apiVersion": "2016-09-01",
+                            "name": "rgLock",
+                            "properties": {
+                                "level": "CanNotDelete",
+                                "notes": "Resource group and its resources should not be deleted."
+                            }
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
 
-O exemplo a seguir mostra um modelo que cria um plano de serviço de aplicativo, um site da Web e um bloqueio no site da Web. O tipo de recurso do bloqueio é o tipo de recurso do recurso a ser bloqueado e **/providers/bloqueios**. O nome do bloqueio é criado por meio da concatenação do nome do recurso com **/Microsoft.Authorization/** e o nome do bloqueio.
+Ao aplicar um bloqueio a um **recurso** dentro do grupo de recursos, adicione a Propriedade Scope. Defina escopo como o nome do recurso a ser bloqueado.
+
+O exemplo a seguir mostra um modelo que cria um plano de serviço de aplicativo, um site da Web e um bloqueio no site da Web. O escopo do bloqueio é definido para o site.
 
 ```json
 {
@@ -95,6 +169,10 @@ O exemplo a seguir mostra um modelo que cria um plano de serviço de aplicativo,
   "parameters": {
     "hostingPlanName": {
       "type": "string"
+    },
+    "location": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]"
     }
   },
   "variables": {
@@ -103,9 +181,9 @@ O exemplo a seguir mostra um modelo que cria um plano de serviço de aplicativo,
   "resources": [
     {
       "type": "Microsoft.Web/serverfarms",
-      "apiVersion": "2019-08-01",
+      "apiVersion": "2020-06-01",
       "name": "[parameters('hostingPlanName')]",
-      "location": "[resourceGroup().location]",
+      "location": "[parameters('location')]",
       "sku": {
         "tier": "Free",
         "name": "f1",
@@ -117,9 +195,9 @@ O exemplo a seguir mostra um modelo que cria um plano de serviço de aplicativo,
     },
     {
       "type": "Microsoft.Web/sites",
-      "apiVersion": "2019-08-01",
+      "apiVersion": "2020-06-01",
       "name": "[variables('siteName')]",
-      "location": "[resourceGroup().location]",
+      "location": "[parameters('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
       ],
@@ -128,9 +206,10 @@ O exemplo a seguir mostra um modelo que cria um plano de serviço de aplicativo,
       }
     },
     {
-      "type": "Microsoft.Web/sites/providers/locks",
+      "type": "Microsoft.Authorization/locks",
       "apiVersion": "2016-09-01",
-      "name": "[concat(variables('siteName'), '/Microsoft.Authorization/siteLock')]",
+      "name": "siteLock",
+      "scope": "[concat('Microsoft.Web/sites/', variables('siteName'))]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/sites', variables('siteName'))]"
       ],
@@ -142,8 +221,6 @@ O exemplo a seguir mostra um modelo que cria um plano de serviço de aplicativo,
   ]
 }
 ```
-
-Para obter um exemplo de como definir um bloqueio em um grupo de recursos, veja [Criação e bloqueio de um grupo de recursos](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments/create-rg-lock-role-assignment).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -179,10 +256,17 @@ Para obter todos os bloqueios de um grupo de recursos, use:
 Get-AzResourceLock -ResourceGroupName exampleresourcegroup
 ```
 
-Para excluir um bloqueio, use:
+Para excluir um bloqueio de um recurso, use:
 
 ```azurepowershell-interactive
 $lockId = (Get-AzResourceLock -ResourceGroupName exampleresourcegroup -ResourceName examplesite -ResourceType Microsoft.Web/sites).LockId
+Remove-AzResourceLock -LockId $lockId
+```
+
+Para excluir um bloqueio de um grupo de recursos, use:
+
+```azurepowershell-interactive
+$lockId = (Get-AzResourceLock -ResourceGroupName exampleresourcegroup).LockId
 Remove-AzResourceLock -LockId $lockId
 ```
 
@@ -220,10 +304,17 @@ Para obter todos os bloqueios de um grupo de recursos, use:
 az lock list --resource-group exampleresourcegroup
 ```
 
-Para excluir um bloqueio, use:
+Para excluir um bloqueio de um recurso, use:
 
 ```azurecli
 lockid=$(az lock show --name LockSite --resource-group exampleresourcegroup --resource-type Microsoft.Web/sites --resource-name examplesite --output tsv --query id)
+az lock delete --ids $lockid
+```
+
+Para excluir um bloqueio de um grupo de recursos, use:
+
+```azurecli
+lockid=$(az lock show --name LockSite --resource-group exampleresourcegroup  --output tsv --query id)
 az lock delete --ids $lockid
 ```
 

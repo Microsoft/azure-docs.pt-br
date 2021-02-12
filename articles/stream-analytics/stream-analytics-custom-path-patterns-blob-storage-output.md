@@ -1,19 +1,18 @@
 ---
 title: Particionamento de saída de blob personalizado do Azure Stream Analytics
 description: Este artigo descreve os padrões de caminho DateTime personalizados e os recursos de campo ou de atributos personalizados para a saída do armazenamento de blobs de trabalhos do Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 12/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: b6d6838779d4f219a8ce10b2cf3ae6cd620762a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb9d8edd24dcc8809f2b207a4db80653b0e140e4
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317847"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014029"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Particionamento de saída de blob personalizado do Azure Stream Analytics
 
@@ -25,7 +24,13 @@ Campo personalizado ou atributos de entrada melhoram os fluxos de trabalho de pr
 
 ### <a name="partition-key-options"></a>Opções de chave de partição
 
-A chave de partição ou o nome da coluna, usado para particionar dados de entrada, pode conter caracteres alfanuméricos com espaços, sublinhados e hifens. Não é possível usar campos aninhados como uma chave de partição, a menos que usados em conjunto com aliases. A chave de partição deve ser NVARCHAR(MAX).
+A chave de partição, ou o nome da coluna, usada para particionar dados de entrada pode conter qualquer caractere aceito para [nomes de blob](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata). Não é possível usar campos aninhados como uma chave de partição, a menos que sejam usados em conjunto com aliases, mas você pode usar determinados caracteres para criar uma hierarquia de arquivos. Por exemplo, você pode usar a consulta a seguir para criar uma coluna que combina dados de duas outras colunas para criar uma chave de partição exclusiva.
+
+```sql
+SELECT name, id, CONCAT(name, "/", id) AS nameid
+```
+
+A chave de partição deve ser NVARCHAR (MAX), BIGINT, FLOAT ou BIT (nível de compatibilidade 1,2 ou superior). Os tipos DateTime, array e registros não têm suporte, mas podem ser usados como chaves de partição se forem convertidos em cadeias de caracteres. Para obter mais informações, consulte [Azure Stream Analytics tipos de dados](/stream-analytics-query/data-types-azure-stream-analytics).
 
 ### <a name="example"></a>Exemplo
 
@@ -62,6 +67,8 @@ Observe que cada registro no blob tem uma coluna **client_id** correspondendo ao
 2. Chaves de partição diferenciam maiúsculas de minúsculas, portanto, as chaves de partição, como "John" e "john" são equivalentes. Além disso, as expressões não podem ser usadas como chaves de partição. Por exemplo, **{columnA + columnB}** não funciona.  
 
 3. Quando um fluxo de entrada consiste em registros com uma cardinalidade de chave de partição abaixo de 8000, os registros serão acrescentados a blobs existentes e apenas criarão novos quando necessário. Se a cardinalidade for superior a 8000, não haverá nenhuma garantia de que os blobs existentes serão gravados e novos blobs não serão criados para um número arbitrário de registros com a mesma chave de partição.
+
+4. Se a saída de blob for [configurada como imutável](../storage/blobs/storage-blob-immutable-storage.md), Stream Analytics criará um novo BLOB cada vez que os dados forem enviados.
 
 ## <a name="custom-datetime-path-patterns"></a>Padrões de caminho de DateTime personalizados
 

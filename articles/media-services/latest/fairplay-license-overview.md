@@ -1,5 +1,5 @@
 ---
-title: Suporte de licença do Apple FairPlay e Serviços de Mídia - Azure | Microsoft Docs
+title: Suporte de licença do Apple FairPlay dos serviços de mídia
 description: Este tópico fornece uma visão geral de uma configuração e dos requisitos de licença do Apple FairPlay.
 author: IngridAtMicrosoft
 manager: femila
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 09068064f24594ef35a8a1bf64213b48d83873ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a00ba8000f33e8e50b1a5d01f40a68a7fe2442d
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89296856"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956184"
 ---
 # <a name="apple-fairplay-license-requirements-and-configuration"></a>Requisitos e configuração de licença do Apple FairPlay
 

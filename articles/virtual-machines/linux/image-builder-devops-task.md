@@ -3,16 +3,16 @@ title: Tarefa DevOps do serviço do construtor de imagem do Azure
 description: A tarefa do Azure DevOps para injetar artefatos de compilação em uma imagem de VM para que você possa instalar e configurar seu aplicativo e sistema operacional.
 author: danielsollondon
 ms.author: danis
-ms.date: 08/10/2020
+ms.date: 01/27/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 88bbd83d7ac5b834255c9b4d46d7cef4394f15d3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 56f1e78e0f2bbba15b50664b88bd8808731e6836
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968660"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807607"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Tarefa DevOps do serviço do construtor de imagem do Azure
 
@@ -69,12 +69,12 @@ Selecione no menu suspenso a assinatura que você deseja que o construtor de ima
 
 Use o grupo de recursos em que o artefato do modelo de imagem temporária será armazenado. Ao criar um artefato de modelo, um grupo de recursos de construtor de imagem temporário adicional `IT_<DestinationResourceGroup>_<TemplateName>_guid` é criado. O grupo de recursos temporários armazena os metadados da imagem, como scripts. No final da tarefa, o artefato do modelo de imagem e o grupo de recursos do construtor de imagem temporário são excluídos.
  
-### <a name="location"></a>Localização
+### <a name="location"></a>Location
 
-O local é a região em que o construtor de imagem será executado. Há suporte apenas para um número definido de [regiões](../windows/image-builder-overview.md#regions) . As imagens de origem devem estar presentes neste local. Por exemplo, se você estiver usando a Galeria de imagens compartilhadas, uma réplica deverá existir nessa região.
+O local é a região em que o construtor de imagem será executado. Há suporte apenas para um número definido de [regiões](../image-builder-overview.md#regions) . As imagens de origem devem estar presentes neste local. Por exemplo, se você estiver usando a Galeria de imagens compartilhadas, uma réplica deverá existir nessa região.
 
 ### <a name="managed-identity-required"></a>Identidade gerenciada (obrigatória)
-O Image Builder requer uma identidade gerenciada, que ela usa para ler imagens personalizadas de origem, conectar-se ao armazenamento do Azure e criar imagens personalizadas. Veja [aqui](./image-builder-overview.md#permissions) para obter mais detalhes.
+O Image Builder requer uma identidade gerenciada, que ela usa para ler imagens personalizadas de origem, conectar-se ao armazenamento do Azure e criar imagens personalizadas. Veja [aqui](../image-builder-overview.md#permissions) para obter mais detalhes.
 
 ### <a name="vnet-support"></a>Suporte VNET
 
@@ -139,7 +139,7 @@ Selecione o botão **Compilar caminho** para escolher a pasta de Build que você
 
 O exemplo a seguir explica como isso funciona:
 
-:::image type="content" source="./media/image-builder-devops-task/build-artifacts.png" alt-text="Selecionando Adicionar um artefato no pipeline de lançamento.":::
+:::image type="content" source="./media/image-builder-devops-task/build-artifacts.png" alt-text="Uma estrutura de diretório que mostra A hierarquia.":::
 
 
 * Os arquivos do Windows existem no `C:\` . Um diretório chamado `buildArtifacts` é criado, o que inclui o `webapp` diretório.
@@ -154,6 +154,12 @@ O exemplo a seguir explica como isso funciona:
     & 'c:\buildArtifacts\webapp\webconfig.ps1'
     ```
 
+   Você pode fazer referência a vários scripts ou adicionar mais comandos, por exemplo:
+
+    ```PowerShell
+    & 'c:\buildArtifacts\webapp\webconfig.ps1'
+    & 'c:\buildArtifacts\webapp\installAgent.ps1'
+    ```
 * Linux – em sistemas Linux, os artefatos de compilação são colocados no `/tmp` diretório. No entanto, em muitos sistemas operacionais Linux, em uma reinicialização, o conteúdo do diretório/tmp é excluído. Se você quiser que os artefatos existam na imagem, deverá criar outro diretório e copiá-los.  Por exemplo:
 
     ```bash
@@ -194,7 +200,7 @@ O exemplo a seguir explica como isso funciona:
     
 #### <a name="total-length-of-image-build"></a>Comprimento total da compilação da imagem
 
-O comprimento total não pode ser alterado na tarefa de pipeline DevOps ainda. Ele usa o padrão de 240 minutos. Se você quiser aumentar o [buildTimeoutInMinutes](./image-builder-json.md?bc=%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#properties-buildtimeoutinminutes), poderá usar uma tarefa AZ CLI no pipeline de lançamento. Configure a tarefa para copiar um modelo e enviá-lo. Para obter um exemplo, consulte esta [solução](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder)ou use AZ PowerShell.
+O comprimento total não pode ser alterado na tarefa de pipeline DevOps ainda. Ele usa o padrão de 240 minutos. Se você quiser aumentar o [buildTimeoutInMinutes](./image-builder-json.md#properties-buildtimeoutinminutes), poderá usar uma tarefa AZ CLI no pipeline de lançamento. Configure a tarefa para copiar um modelo e enviá-lo. Para obter um exemplo, consulte esta [solução](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder)ou use AZ PowerShell.
 
 
 #### <a name="storage-account"></a>Conta de armazenamento
@@ -314,7 +320,7 @@ Se houver uma falha de compilação, a tarefa DevOps não excluirá o grupo de r
 
 Você verá um erro no log do DevOps para a tarefa do construtor de imagens de VM e verá o local de personalização. log. Por exemplo:
 
-:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Selecionando Adicionar um artefato no pipeline de lançamento.":::
+:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Exemplo de erro de tarefa DevOps que mostra uma falha.":::
 
 Para obter mais informações sobre solução de problemas, consulte [solucionar problemas do serviço do construtor de imagem do Azure](image-builder-troubleshoot.md). 
 
@@ -330,9 +336,9 @@ template name:  t_1556938436xxx
 
 ```
 
-O artefato de recurso do modelo de imagem está no grupo de recursos especificado inicialmente na tarefa. Quando você terminar de solucionar o problema, exclua o artefato. Se estiver excluindo usando o portal do Azure, dentro do grupo de recursos, selecione **Mostrar tipos ocultos**para exibir o artefato.
+O artefato de recurso do modelo de imagem está no grupo de recursos especificado inicialmente na tarefa. Quando você terminar de solucionar o problema, exclua o artefato. Se estiver excluindo usando o portal do Azure, dentro do grupo de recursos, selecione **Mostrar tipos ocultos** para exibir o artefato.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações, consulte [visão geral do construtor de imagens do Azure](image-builder-overview.md).
+Para obter mais informações, consulte [visão geral do construtor de imagens do Azure](../image-builder-overview.md).

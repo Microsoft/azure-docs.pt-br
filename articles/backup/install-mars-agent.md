@@ -3,12 +3,12 @@ title: Instalar o agente de Serviços de Recuperação do Microsoft Azure (MARS)
 description: Saiba como instalar o agente de Serviços de Recuperação do Microsoft Azure (MARS) para fazer backup de computadores Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: fb59c245c469791233ce973b00426a127b116535
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: acf38fdf338fcdd0cd7902d4295f0f03310543a8
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975301"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986863"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Instalar o agente MARS do backup do Azure
 
@@ -88,6 +88,9 @@ Para usar o emparelhamento público, primeiro garanta o acesso aos seguintes dom
 * `.WindowsAzure.com`
 * `.microsoftonline.com`
 * `.windows.net`
+* Endereços IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 Para usar o emparelhamento da Microsoft, selecione os seguintes serviços, regiões e valores de comunidade relevantes:
 
@@ -127,7 +130,7 @@ Se você já tiver instalado o agente em qualquer computador, certifique-se de e
 
 1. No menu baixar, selecione **salvar**. Por padrão, o arquivo *MARSagentinstaller.exe* será salvo em sua pasta Downloads.
 
-1. Selecione **já baixar ou usar o agente de serviços de recuperação mais recente**e, em seguida, baixe as credenciais do cofre.
+1. Selecione **já baixar ou usar o agente de serviços de recuperação mais recente** e, em seguida, baixe as credenciais do cofre.
 
     ![Baixar as credenciais do cofre](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
@@ -151,7 +154,7 @@ Se você já tiver instalado o agente em qualquer computador, certifique-se de e
 
 1. Para **instalação**, examine os pré-requisitos e selecione **instalar**.
 1. Depois que o agente for instalado, selecione **prosseguir para o registro**.
-1. Na identificação do cofre do **Assistente para servidor de registro**  >  **Vault Identification**, navegue até e selecione o arquivo de credenciais que você baixou. Em seguida, selecione **Avançar**.
+1. Na identificação do cofre do **Assistente para servidor de registro**  >  , navegue até e selecione o arquivo de credenciais que você baixou. Em seguida, selecione **Avançar**.
 
     ![Adicionar credenciais do cofre usando o assistente para registrar servidor](./media/backup-configure-vault/register1.png)
 

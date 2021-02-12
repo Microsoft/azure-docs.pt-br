@@ -1,6 +1,6 @@
 ---
 title: Copiar dados no Armazenamento de Blobs usando o Azure Data Factory
-description: Crie um Azure Data Factory usando o PowerShell para copiar dados de uma localização no Armazenamento de Blobs do Azure para outra localização.
+description: Crie um Azure Data Factory usando o PowerShell para copiar dados de uma localização no Armazenamento de Blobs do Azure para outra.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,14 +13,14 @@ ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 04/10/2020
 ms.author: jingwang
-ms.openlocfilehash: 1377743fbaefdb812f18768307421fdae637ed54
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: a7fcb4be47e0e1e62c190a9b089243a178df8e7a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637574"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013336"
 ---
-# <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Início Rápido: Criar um Azure Data Factory usando o PowerShell
+# <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Início rápido: Criar um Azure Data Factory usando o PowerShell
 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -99,15 +99,15 @@ Instale os módulos mais recentes do Azure PowerShell seguindo as instruções e
 
 Observe os seguintes pontos:
 
-* O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber o erro a seguir, altere o nome e tente novamente.
+* O nome do Azure Data Factory deve ser globalmente exclusivo. Se você receber o erro a seguir, altere o nome e tente novamente.
 
     ```
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 
-* Para criar instâncias de Data Factory, a conta de usuário usada para fazer logon no Azure deve ser um membro das funções **colaborador** ou **proprietário** , ou um **administrador** da assinatura do Azure.
+* Para criar instâncias de Data Factory, a conta de usuário usada para fazer logon no Azure deve ser um membro das funções **colaborador** ou **proprietário**, ou um **administrador** da assinatura do Azure.
 
-* Para obter uma lista de regiões do Azure no qual o Data Factory está disponível no momento, selecione as regiões que relevantes para você na página a seguir e, em seguida, expanda **Análise** para localizar **Data Factory** : [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
+* Para obter uma lista de regiões do Azure no qual o Data Factory está disponível no momento, selecione as regiões que relevantes para você na página a seguir e, em seguida, expanda **Análise** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
 
 
 ## <a name="create-a-linked-service"></a>Criar um serviço vinculado
@@ -115,7 +115,7 @@ Observe os seguintes pontos:
 Crie serviços vinculados em um data factory para vincular seus armazenamentos de dados e serviços de computação ao data factory. Neste guia de início rápido, você cria um serviço vinculado do Armazenamento do Azure que é usado como armazenamento de origem e do coletor. O serviço vinculado tem as informações de conexão que o serviço do Data Factory usa no runtime para se conectar a ele.
 
 >[!TIP]
->Neste início rápido, você usa a *Chave de conta* como o tipo de autenticação para o armazenamento de dados, mas você pode escolher outros métodos de autenticação compatíveis: *URI de SAS* , *Entidade de Serviço* e *Identidade Gerenciada* se necessário. Veja as seções correspondentes [neste artigo](./connector-azure-blob-storage.md#linked-service-properties) para obter detalhes.
+>Neste início rápido, você usa a *Chave de conta* como o tipo de autenticação para o armazenamento de dados, mas você pode escolher outros métodos de autenticação compatíveis: *URI de SAS*, *Entidade de Serviço* e *Identidade Gerenciada* se necessário. Veja as seções correspondentes [neste artigo](./connector-azure-blob-storage.md#linked-service-properties) para obter detalhes.
 >Para armazenar segredos de armazenamentos de dados com segurança, também é recomendável usar um Azure Key Vault. Veja [este artigo](./store-credentials-in-key-vault.md) para obter ilustrações detalhadas.
 
 1. Crie um arquivo JSON chamado **AzureStorageLinkedService.json** na pasta **C:\ADFv2QuickStartPSH** com o seguinte conteúdo: (Crie a pasta ADFv2QuickStartPSH se ela ainda não existir.).
@@ -136,15 +136,15 @@ Crie serviços vinculados em um data factory para vincular seus armazenamentos d
     }
     ```
 
-    Se você estiver usando o Bloco de Notas, selecione **Todos os arquivos** para o **Salvar como tipo** preenchido na caixa de diálogo **Salvar como** . Caso contrário, ele pode adicionar a extensão `.txt` para o arquivo. Por exemplo, `AzureStorageLinkedService.json.txt`. Se você criar o arquivo no Explorador de arquivos antes de abri-lo no Bloco de Notas, você não poderá ver a extensão `.txt`, já que a opção **Ocultar extensões de tipos de arquivos conhecidos** será definida por padrão. Remova a extensão `.txt` antes de prosseguir para a próxima etapa.
+    Se você estiver usando o Bloco de Notas, selecione **Todos os arquivos** para o **Salvar como tipo** preenchido na caixa de diálogo **Salvar como**. Caso contrário, ele pode adicionar a extensão `.txt` para o arquivo. Por exemplo, `AzureStorageLinkedService.json.txt`. Se você criar o arquivo no Explorador de arquivos antes de abri-lo no Bloco de Notas, você não poderá ver a extensão `.txt`, já que a opção **Ocultar extensões de tipos de arquivos conhecidos** será definida por padrão. Remova a extensão `.txt` antes de prosseguir para a próxima etapa.
 
-2. No **PowerShell** , mude para a pasta **ADFv2QuickStartPSH** .
+2. No **PowerShell**, mude para a pasta **ADFv2QuickStartPSH**.
 
     ```powershell
     Set-Location 'C:\ADFv2QuickStartPSH'
     ```
 
-3. Execute o cmdlet **Set-AzDataFactoryV2LinkedService** para criar o serviço vinculado: **AzureStorageLinkedService** .
+3. Execute o cmdlet **Set-AzDataFactoryV2LinkedService** para criar o serviço vinculado: **AzureStorageLinkedService**.
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $DataFactory.DataFactoryName `
@@ -163,9 +163,9 @@ Crie serviços vinculados em um data factory para vincular seus armazenamentos d
 
 ## <a name="create-datasets"></a>Criar conjuntos de dados
 
-Neste procedimento, você criará dois conjuntos de dados: **InputDataset** e **OutputDataset** . Esses conjuntos de dados são do tipo **Binário** . Eles se referem ao Serviço vinculado do Armazenamento do Azure que você criou na seção anterior.
-O conjunto de dados de entrada representa os dados de origem na pasta de entrada. Na definição de conjunto de dados de entrada, especifique o contêiner de blob ( **adftutorial** ), a pasta ( **entrada** ) e o arquivo ( **emp.txt** ) que contém os dados de origem.
-Esse conjunto de dados de saída representa os dados que são copiados para o destino. Na definição de conjunto de dados de saída, especifique o contêiner de blob ( **adftutorial** ), a pasta ( **saída** ) e o arquivo para o qual os dados são copiados. 
+Neste procedimento, você criará dois conjuntos de dados: **InputDataset** e **OutputDataset**. Esses conjuntos de dados são do tipo **Binário**. Eles se referem ao Serviço vinculado do Armazenamento do Azure que você criou na seção anterior.
+O conjunto de dados de entrada representa os dados de origem na pasta de entrada. Na definição de conjunto de dados de entrada, especifique o contêiner de blob (**adftutorial**), a pasta (**entrada**) e o arquivo (**emp.txt**) que contém os dados de origem.
+Esse conjunto de dados de saída representa os dados que são copiados para o destino. Na definição de conjunto de dados de saída, especifique o contêiner de blob (**adftutorial**), a pasta (**saída**) e o arquivo para o qual os dados são copiados. 
 1. Crie um arquivo JSON chamado **InputDataset.json** na pasta **C:\ADFv2QuickStartPSH** com o seguinte conteúdo:
 
     ```json
@@ -190,7 +190,7 @@ Esse conjunto de dados de saída representa os dados que são copiados para o de
     }
     ```
 
-2. Para criar o conjunto de dados: **InputDataset** ; execute o cmdlet **Set-AzDataFactoryV2Dataset** .
+2. Para criar o conjunto de dados: **InputDataset**; execute o cmdlet **Set-AzDataFactoryV2Dataset**.
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName `
@@ -231,7 +231,7 @@ Esse conjunto de dados de saída representa os dados que são copiados para o de
     }
     ```
 
-4. Execute o cmdlet **Set-AzDataFactoryV2Dataset** para criar o **OutDataset** .
+4. Execute o cmdlet **Set-AzDataFactoryV2Dataset** para criar o **OutDataset**.
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName `
@@ -306,7 +306,7 @@ Neste procedimento, você criará um pipeline com uma atividade de cópia que us
     }
     ```
 
-2. Para criar o pipeline: **Adfv2QuickStartPipeline** , execute o cmdlet **Set-AzDataFactoryV2Pipeline** .
+2. Para criar o pipeline: **Adfv2QuickStartPipeline**, execute o cmdlet **Set-AzDataFactoryV2Pipeline**.
 
     ```powershell
     $DFPipeLine = Set-AzDataFactoryV2Pipeline `

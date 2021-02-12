@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: acb85a04b8a1ca491058702510079a36b93fc657
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3d69b72012819e3d9099e447b9048fe07aea86d3
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151037"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858698"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Desenvolvimento de funções do Azure e a configuração com o serviço do Azure SignalR
 
@@ -43,17 +43,17 @@ Use uma função do Azure disparada por HTTP e a associação de entrada *Signal
 
 Com o [modelo baseado em classe](#class-based-model) em C#, você não precisa de associação de entrada *SignalRConnectionInfo* e pode adicionar declarações personalizadas muito mais facilmente. Consulte [negociar experiência em modelo baseado em classe](#negotiate-experience-in-class-based-model)
 
-Para obter mais informações sobre como criar a função Negotiate, consulte a referência de associação de entrada do [ *SignalRConnectionInfo* ](../azure-functions/functions-bindings-signalr-service-input.md).
+Para obter mais informações sobre como criar a função Negotiate, consulte a referência de associação de entrada do [ *SignalRConnectionInfo*](../azure-functions/functions-bindings-signalr-service-input.md).
 
 Para saber mais sobre como criar um token autenticado, consulte [usando a autenticação do serviço de aplicativo](#using-app-service-authentication).
 
 ### <a name="handle-messages-sent-from-signalr-service"></a>Tratar mensagens enviadas do serviço Signalr
 
-Use a associação de *gatilho de sinalização* para lidar com mensagens enviadas do serviço signalr. Você pode ser disparado quando os clientes enviam mensagens ou os clientes são conectados ou desconectados.
+Use a associação de *gatilho de sinalização* para lidar com mensagens enviadas do serviço signalr. Você pode ser notificado quando os clientes enviam mensagens ou os clientes são conectados ou desconectados.
 
-Para obter mais informações, consulte a referência de associação de [ *gatilho do signalr* ](../azure-functions/functions-bindings-signalr-service-trigger.md).
+Para obter mais informações, consulte a referência de associação de [ *gatilho do signalr*](../azure-functions/functions-bindings-signalr-service-trigger.md).
 
-Você também precisa configurar seu ponto de extremidade de função como um upstream para que o serviço dispare a função onde há mensagem do cliente. Para obter mais informações sobre como configurar upstream, consulte este [documento](concept-upstream.md).
+Você também precisa configurar seu ponto de extremidade de função como um upstream para que o serviço dispare a função quando houver mensagem do cliente. Para obter mais informações sobre como configurar upstream, consulte este [documento](concept-upstream.md).
 
 ### <a name="sending-messages-and-managing-group-membership"></a>Enviando mensagens e gerenciando a associação de grupo
 
@@ -61,7 +61,7 @@ Use a associação de saída do *signalr* para enviar mensagens aos clientes con
 
 Os usuários podem ser adicionados a um ou mais grupos. Você também pode usar a associação de saída do *signalr* para adicionar ou remover usuários de/para grupos.
 
-Para obter mais informações, consulte a referência de associação de saída do [ *signalr* ](../azure-functions/functions-bindings-signalr-service-output.md).
+Para obter mais informações, consulte a referência de associação de saída do [ *signalr*](../azure-functions/functions-bindings-signalr-service-output.md).
 
 ### <a name="signalr-hubs"></a>Hubs de sinalização
 
@@ -111,7 +111,7 @@ Todas as funções que desejam aproveitar o modelo baseado em classe precisam se
 
 ### <a name="define-hub-method"></a>Definir método de Hub
 
-Todos os métodos de Hub **devem** ter um argumento `InvocationContext` decorado por `[SignalRTrigger]` atributo e usar um construtor sem parâmetros. Em seguida, o **nome do método** é tratado como um **evento**de parâmetro.
+Todos os métodos de Hub **devem** ter um argumento `InvocationContext` decorado por `[SignalRTrigger]` atributo e usar um construtor sem parâmetros. Em seguida, o **nome do método** é tratado como um **evento** de parâmetro.
 
 Por padrão, `category=messages` exceto que o nome do método é um dos seguintes nomes:
 

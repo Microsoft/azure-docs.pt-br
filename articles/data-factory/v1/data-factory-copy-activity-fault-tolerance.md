@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 742c69709eee19a37abdb3e5330cd7fb8ce315b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65584b2a6a3bdfbb863c26dac688b20279c4b54d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89436384"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452296"
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Adicionar tolerância a falhas na Atividade de Cópia ignorando linhas incompatíveis
 
@@ -48,7 +48,7 @@ A Atividade de Cópia dá suporte a três cenários para detectar, ignorar e reg
     Por exemplo:  Copiar dados de um servidor SQL para um banco de dados SQL. Uma chave primária é definida no banco de dados SQL do coletor, mas nenhuma chave primária é definida no SQL Server de origem. As linhas duplicadas que existem na origem não podem ser copiadas no coletor. A Atividade de Cópia copia apenas a primeira linha dos dados de origem no coletor. As linhas da origem subsequentes que contêm o valor de chave primária duplicado são detectadas como incompatíveis e ignoradas.
 
 >[!NOTE]
->Este recurso não se aplica quando a atividade de cópia está configurada para invocar o mecanismo de carregamento de dados externos, incluindo o [Azure Synapse Analytics (anteriormente SQL data warehouse) polybase](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics) ou o [descarregamento do Amazon redshift](data-factory-amazon-redshift-connector.md#use-unload-to-copy-data-from-amazon-redshift). Para carregar dados no Azure Synapse Analytics usando o polybase, use o suporte nativo a tolerância a falhas do polybase especificando "[polyBaseSettings](data-factory-azure-sql-data-warehouse-connector.md#sqldwsink)" na atividade de cópia.
+>Este recurso não se aplica quando a atividade de cópia está configurada para invocar o mecanismo de carregamento de dados externos, incluindo o [Azure Synapse Analytics polybase](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics) ou o [redshift do Amazon](data-factory-amazon-redshift-connector.md#use-unload-to-copy-data-from-amazon-redshift). Para carregar dados no Azure Synapse Analytics usando o polybase, use o suporte nativo a tolerância a falhas do polybase especificando "[polyBaseSettings](data-factory-azure-sql-data-warehouse-connector.md#sqldwsink)" na atividade de cópia.
 
 ## <a name="configuration"></a>Configuração
 O seguinte exemplo fornece uma definição de JSON que configura a omissão de linhas incompatíveis na Atividade de Cópia:
@@ -73,7 +73,7 @@ O seguinte exemplo fornece uma definição de JSON que configura a omissão de l
 | --- | --- | --- | --- |
 | **enableSkipIncompatibleRow** | Habilite ou não a omissão das linhas incompatíveis durante a cópia. | True<br/>False (padrão) | Não |
 | **redirectIncompatibleRowSettings** | Um grupo de propriedades que poderá ser especificado quando você desejar registrar as linhas incompatíveis. | &nbsp; | Não |
-| **linkedServiceName** | O serviço vinculado do Armazenamento do Azure para armazenar o log que contém as linhas ignoradas. | O nome de um serviço vinculado [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service), que se refere à instância de armazenamento que você deseja usar para armazenar o arquivo de log. | Não |
+| **linkedServiceName** | O serviço vinculado do Armazenamento do Azure para armazenar o log que contém as linhas ignoradas. | O nome de um serviço vinculado [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service), que se refere à instância de armazenamento que você deseja usar para armazenar o arquivo de log. | No |
 | **path** | O caminho do arquivo de log que contém as linhas ignoradas. | Especifique o caminho de armazenamento de Blobs que você deseja usar para registrar em log os dados incompatíveis. Se você não fornecer um caminho, o serviço criará um contêiner para você. | Não |
 
 ## <a name="monitoring"></a>Monitoramento

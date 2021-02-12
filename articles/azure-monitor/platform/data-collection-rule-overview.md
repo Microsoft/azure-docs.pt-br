@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/19/2020
-ms.openlocfilehash: 64dfc7400380505c882979e68a3bf0adcb8942a0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.date: 01/19/2021
+ms.openlocfilehash: 7013a4ab1becd6108d30d8369f1f72bcb3e55c37
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107956"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611059"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Regras de coleta de dados no Azure Monitor (versão prévia)
 As regras de coleta de dados (DCR) definem os dados que chegam ao Azure Monitor e especificam onde esses dados devem ser enviados ou armazenados. Este artigo fornece uma visão geral das regras de coleta de dados, incluindo seu conteúdo e estrutura, e como você pode criar e trabalhar com elas.
@@ -49,26 +49,24 @@ Cada fonte de dados tem um tipo de fonte de dados. Cada tipo define um conjunto 
 
 
 ## <a name="limits"></a>Limites
-A tabela a seguir lista os limites que atualmente se aplicam a cada regra de coleta de dados.
-
-| Limite | Valor |
-|:---|:---|
-| Número máximo de fontes de dados | 10 |
-| Número máximo de especificadores de contador no contador de desempenho | 100 |
-| Número máximo de nomes de instalações no syslog | 20 |
-| Número máximo de consultas XPath no log de eventos | 100 |
-| Número máximo de fluxos de dados | 10 |
-| Número máximo de fluxos de dados | 10 |
-| Número máximo de extensões | 10 |
-| Tamanho máximo das configurações de extensão | 32 KB |
-| Número máximo de espaços de trabalho de Log Analytics | 10 |
+Para os limites que se aplicam a cada regra de coleta de dados, consulte [limites de serviço Azure monitor](../service-limits.md#data-collection-rules).
 
 
 ## <a name="create-a-dcr"></a>Criar um DCR
-Atualmente, há dois métodos disponíveis para criar um DCR:
+No momento, você pode usar qualquer um dos seguintes métodos para criar um DCR:
 
 - [Use o portal do Azure](data-collection-rule-azure-monitor-agent.md) para criar uma regra de coleta de dados e fazer com que ela seja associada a uma ou mais máquinas virtuais.
 - Edite diretamente a regra de coleta de dados em JSON e [envie usando a API REST](/rest/api/monitor/datacollectionrules).
+- Crie DCR e associações com [CLI do Azure](https://github.com/Azure/azure-cli-extensions/blob/master/src/monitor-control-service/README.md).
+- Crie DCR e associações com Azure PowerShell.
+  - [Get-AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Get-AzDataCollectionRule.md)
+  - [New-AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/New-AzDataCollectionRule.md)
+  - [Set-AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Set-AzDataCollectionRule.md)
+  - [Update-AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Update-AzDataCollectionRule.md)
+  - [Remove-AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Remove-AzDataCollectionRule.md)
+  - [Get-AzDataCollectionRuleAssociation](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Get-AzDataCollectionRuleAssociation.md)
+  - [New-AzDataCollectionRuleAssociation](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/New-AzDataCollectionRuleAssociation.md)
+  - [Remove-AzDataCollectionRuleAssociation](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Remove-AzDataCollectionRuleAssociation.md)
 
 ## <a name="sample-data-collection-rule"></a>Regra de coleta de dados de exemplo
 A regra de coleta de dados de exemplo abaixo é para máquinas virtuais com o agente de gerenciamento do Azure e tem os seguintes detalhes:

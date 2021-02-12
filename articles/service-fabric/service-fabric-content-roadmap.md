@@ -3,12 +3,12 @@ title: Saiba mais sobre o Azure Service Fabric
 description: Saiba mais sobre os principais conceitos e as principais áreas do Azure Service Fabric. Fornece uma visão geral estendida do Service Fabric e como criar microsserviços.
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: 6cbc99b56df18448add47a70b42742aa8dabbeb5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 36215dd3419050cf498a749b5caf927c3c4e275a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461491"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485443"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Então você deseja saber mais sobre o Service Fabric?
 O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, implantação e gerenciamento de microsserviços escalonáveis e confiáveis.  No entanto, o Service Fabric tem uma área de superfície grande, e há muito a aprender.  Este artigo fornece um resumo do Service Fabric e descreve os principais conceitos, modelos de programação, ciclo de vida do aplicativo, teste, clusters e monitoramento de integridade. Leia a [Visão geral](service-fabric-overview.md) e [O que são microsserviços?](service-fabric-overview-microservices.md) para obter uma introdução e saber como o Service Fabric pode ser usado para criar microsserviços. Este artigo não contém uma lista abrangente de conteúdo, mas vincula a visão geral e os artigos de introdução de cada área do Service Fabric. 
@@ -51,7 +51,7 @@ O [particionamento](service-fabric-concepts-partitioning.md) não é exclusivo p
 
 As réplicas de cada partição são distribuídas entre os nós do cluster, o que permite que o estado do serviço nomeado seja [escalonado](service-fabric-concepts-scalability.md). Conforme os dados precisam crescer, as partições crescem e o Service Fabric redistribui as partições entre os nós para fazer uso eficiente dos recursos de hardware. Se você adicionar novos nós ao cluster, o Service Fabric reequilibrará as réplicas de partição entre o número aumentado de nós. O desempenho geral do aplicativo é melhorado e a contenção para o acesso à memória é reduzida. Se os nós no cluster não estiverem sendo usados com eficiência, você poderá diminuir o número de nós no cluster. O Service Fabric redistribui novamente as réplicas de partição entre o número reduzido de nós, para fazer melhor uso do hardware em cada nó.
 
-Dentro de uma partição, serviços nomeados sem estado têm instâncias, enquanto serviços nomeados com estado têm réplicas. Normalmente, os serviços nomeados sem monitoração de Estado têm apenas uma partição, já que não têm estado interno, embora [haja exceções](https://docs.microsoft.com/azure/service-fabric/service-fabric-concepts-partitioning#partition-service-fabric-stateless-services). As instâncias de partição fornecem [disponibilidade](service-fabric-availability-services.md). Se uma instância falha, outras instâncias continuam a funcionar normalmente e, em seguida, o Service Fabric cria uma nova instância. Os serviços nomeados com estado mantêm seu estado dentro de réplicas e cada partição tem seu próprio conjunto de réplicas. As operações de leitura e gravação são realizadas em uma réplica (chamada de Primária). As alterações no estado, devidas a operações de gravação, são replicadas para outras réplicas (chamadas de Secundárias Ativas). Caso uma réplica falhe, o Service Fabric compila uma nova réplica a partir das réplicas existentes.
+Dentro de uma partição, serviços nomeados sem estado têm instâncias, enquanto serviços nomeados com estado têm réplicas. Normalmente, os serviços nomeados sem monitoração de Estado têm apenas uma partição, já que não têm estado interno, embora [haja exceções](./service-fabric-concepts-partitioning.md#partition-service-fabric-stateless-services). As instâncias de partição fornecem [disponibilidade](service-fabric-availability-services.md). Se uma instância falha, outras instâncias continuam a funcionar normalmente e, em seguida, o Service Fabric cria uma nova instância. Os serviços nomeados com estado mantêm seu estado dentro de réplicas e cada partição tem seu próprio conjunto de réplicas. As operações de leitura e gravação são realizadas em uma réplica (chamada de Primária). As alterações no estado, devidas a operações de gravação, são replicadas para outras réplicas (chamadas de Secundárias Ativas). Caso uma réplica falhe, o Service Fabric compila uma nova réplica a partir das réplicas existentes.
 
 ## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>Microsserviços com e sem estado para o Service Fabric
 O Service Fabric permite compilar aplicativos que consistam em microsserviços ou contêineres. Os microsserviços sem estado (como gateways de protocolo e proxies Web) não mantêm um estado mutável fora de uma solicitação e sua resposta do serviço. As funções de trabalho dos Serviços de Nuvem do Azure são um exemplo de serviço sem estado. Os microsserviços com estado (como contas de usuário, bancos de dados, dispositivos, carrinhos de compra e filas) mantêm um estado mutável e autoritativo além da solicitação e sua resposta. Os aplicativos em escala da Internet de hoje consistem em uma combinação de microsserviços com e sem estado. 
@@ -131,7 +131,7 @@ Os clusters sempre devem ser protegidos para evitar que usuários não autorizad
 Os cenários de segurança do cluster são:
 * Segurança de nó para nó
 * Segurança de cliente para nó
-* RBAC (Controle de Acesso Baseado em Função)
+* Controle de acesso baseado em função Service Fabric
 
 Para obter mais informações, leia [Proteger um cluster](service-fabric-cluster-security.md).
 

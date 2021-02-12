@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 65db3bcbad905626a47b617c3c34935ec5cd0e88
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: MT
+ms.openlocfilehash: edb21287b30f8ba77d6312ec6b456e20aa260598
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455413"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358204"
 ---
 # <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Tutorial: Configurar Concur para provisionamento automático de usuário
 
@@ -96,7 +96,7 @@ Essa ação não deve ser feita com o perfil usado para a administração normal
 
 9. Defina o **Modo de Provisionamento** como **Automático**. 
  
-    ![Captura de tela da guia provisionamento para concur no portal do Azure. O modo de provisionamento é definido como automático e o botão testar conexão é realçado.](./media/concur-provisioning-tutorial/provisioning.png)
+    ![Captura de tela da guia Provisionamento para o Concur no portal do Azure. O Modo de Provisionamento é definido como Automático e o botão Testar Conectividade é realçado.](./media/concur-provisioning-tutorial/provisioning.png)
 
 10. Na seção **Credenciais do Administrador**, insira o **nome de usuário** e a **senha** do administrador do Concur.
 
@@ -120,4 +120,4 @@ Agora você pode criar uma conta de teste. Aguarde 20 minutos para verificar se 
 
 * [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configurar logon único](concur-tutorial.md)
+* [Configurar Logon Único](concur-tutorial.md)

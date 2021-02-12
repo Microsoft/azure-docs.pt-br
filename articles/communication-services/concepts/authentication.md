@@ -9,12 +9,12 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 939c36cd62dab4362232aef0da8701b34a88c6ff
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 4d6e02852dcd2d30a764417a4b5e0e012a1d2ab5
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202949"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571089"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Autenticar nos serviços de comunicação do Azure
 
@@ -58,9 +58,9 @@ Se você não estiver usando uma biblioteca de cliente para fazer solicitações
     URLPathAndQuery + "\n"
     DateHeaderValue + ";" + HostHeaderValue + ";" + ContentHashHeaderValue
     ```
-1. Gere uma assinatura HMAC-256 da cadeia de caracteres codificada em UTF-8 que você criou na etapa anterior. Em seguida, codifique os resultados como Base64. Observe que também é necessário decodificar a chave da conta de armazenamento em base64. Use o seguinte formato (mostrado como pseudocódigo):
+1. Gere uma assinatura HMAC-256 da cadeia de caracteres codificada em UTF-8 que você criou na etapa anterior. Em seguida, codifique os resultados como Base64. Observe que você também precisará decodificar a chave de acesso em base64. Use o seguinte formato (mostrado como pseudocódigo):
     ```
-    Signature=Base64(HMAC-SHA256(UTF8(StringToSign), Base64.decode(<your_azure_storage_account_shared_key>)))
+    Signature=Base64(HMAC-SHA256(UTF8(StringToSign), Base64.decode(<your_access_key>)))
     ```
 1. Especifique o cabeçalho de autorização da seguinte maneira:
     ```
@@ -72,11 +72,11 @@ Se você não estiver usando uma biblioteca de cliente para fazer solicitações
 
 Os tokens de acesso do usuário permitem que os aplicativos cliente sejam autenticados diretamente nos serviços de comunicação do Azure. Para fazer isso, você deve configurar um serviço confiável que autentica os usuários do aplicativo e emite tokens de acesso do usuário com a biblioteca do cliente de administração. Visite a documentação conceitual da [arquitetura do cliente e do servidor](./client-and-server-architecture.md) para saber mais sobre nossas considerações de arquitetura.
 
-A `CommunicationClientCredential` classe contém a lógica para fornecer credenciais de token de acesso do usuário para as bibliotecas de cliente e gerenciar seu ciclo de vida.
+A `CommunicationUserCredential` classe contém a lógica para fornecer credenciais de token de acesso do usuário para as bibliotecas de cliente e gerenciar seu ciclo de vida.
 
 ### <a name="initialize-the-client-libraries"></a>Inicializar as bibliotecas de cliente
 
-Para inicializar as bibliotecas de cliente dos serviços de comunicação do Azure que exigem autenticação de token de acesso do usuário, primeiro crie uma instância da `CommunicationClientCredential` classe e, em seguida, use-a para inicializar um cliente de API.
+Para inicializar as bibliotecas de cliente dos serviços de comunicação do Azure que exigem autenticação de token de acesso do usuário, primeiro crie uma instância da `CommunicationUserCredential` classe e, em seguida, use-a para inicializar um cliente de API.
 
 Os trechos de código a seguir mostram como inicializar a biblioteca de cliente de chat com um token de acesso do usuário:
 

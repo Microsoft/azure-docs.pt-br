@@ -5,18 +5,18 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: 629c27602df14c0b35e2063d8db2d0b13bbff99a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 12/17/2020
+ms.openlocfilehash: b5b0f6dcef728f0597e7eac8ba57c8fd240d19c9
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635891"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680303"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração e entrega contínuas no Azure Data Factory
 
@@ -28,7 +28,7 @@ Integração contínua é a prática de testar cada alteração feita em sua bas
 
 No Azure Data Factory, CI/CD (integração e entrega contínuas) significa mover pipelines do Data Factory de um ambiente (desenvolvimento, teste, produção) para outro. O Azure Data Factory utiliza [modelos do Azure Resource Manager](../azure-resource-manager/templates/overview.md) para armazenar a configuração de suas várias entidades do ADF (pipelines, conjuntos de dados, fluxos e assim por diante). Há dois métodos sugeridos para promover um data factory para outro ambiente:
 
--    Implantação automatizada usando a integração do Data Factory com o [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)
+-    Implantação automatizada usando a integração do Data Factory com o [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 -    Carregue manualmente um modelo do Resource Manager usando a integração da UX do Data Factory ao Azure Resource Manager.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -41,9 +41,9 @@ Abaixo há uma visão geral de exemplo do ciclo de vida de CI/CD em um Azure Dat
 
 1.  Um desenvolvedor [cria um branch de recurso](source-control.md#creating-feature-branches) para fazer uma alteração. Ele depura as execuções do pipeline com as alterações mais recentes. Para obter mais informações sobre como depurar uma execução de pipeline, confira [Desenvolvimento iterativo e depuração com o Azure Data Factory](iterative-development-debugging.md).
 
-1.  Depois que um desenvolvedor estiver satisfeito com as alterações, poderá criar uma solicitação de pull do branch de recurso para o branch mestre ou de colaboração para que as alterações sejam examinadas por pares.
+1.  Depois que um desenvolvedor estiver satisfeito com suas alterações, ele criará uma solicitação de pull de sua ramificação de recursos para a ramificação principal ou de colaboração para que suas alterações sejam revisadas por colegas.
 
-1.  Depois que uma solicitação de pull for aprovada e as alterações forem mescladas no branch mestre, as alterações serão publicadas no alocador de desenvolvimento.
+1.  Depois que uma solicitação de pull é aprovada e as alterações são mescladas no Branch principal, as alterações são publicadas na fábrica de desenvolvimento.
 
 1.  Quando a equipe estiver pronta para implantar as alterações em uma fábrica de teste ou UAT (teste de aceitação do usuário), a equipe vai para o Azure Pipelines versão e implanta a versão desejada da fábrica de desenvolvimento em UAT. Essa implantação ocorre como parte de uma tarefa do Azure Pipelines e usa parâmetros do modelo do Resource Manager para aplicar a configuração apropriada.
 
@@ -72,50 +72,50 @@ A seguir há um guia para configurar uma versão do Azure Pipelines que automati
 
 1.  Em [Azure DevOps](https://dev.azure.com/), abra o projeto configurado com seu data factory.
 
-1.  No lado esquerdo da página, selecione **Pipelines** e, em seguida, selecione **Versões** .
+1.  No lado esquerdo da página, selecione **Pipelines** e, em seguida, selecione **Versões**.
 
     ![Selecionar Pipelines, Versões](media/continuous-integration-deployment/continuous-integration-image6.png)
 
-1.  Selecione **Novo pipeline** ou, se tiver pipelines existentes, selecione **Novo** e, em seguida, **Novo pipeline de lançamento** .
+1.  Selecione **Novo pipeline** ou, se tiver pipelines existentes, selecione **Novo** e, em seguida, **Novo pipeline de lançamento**.
 
-1.  Selecione o modelo **Trabalho vazio** .
+1.  Selecione o modelo **Trabalho vazio**.
 
     ![Selecionar Trabalho vazio](media/continuous-integration-deployment/continuous-integration-image13.png)
 
-1.  Na caixa **Nome da fase** , insira o nome do seu ambiente.
+1.  Na caixa **Nome da fase**, insira o nome do seu ambiente.
 
-1.  Selecione **Adicionar artefato** e, em seguida, selecione o repositório do git configurado com seu data factory de desenvolvimento. Selecione o [branch de publicação](source-control.md#configure-publishing-settings) do repositório para o **Branch padrão** . Por padrão, esse branch de publicação é `adf_publish`. Para a **Versão padrão** , selecione **Mais recente do branch padrão** .
+1.  Selecione **Adicionar artefato** e, em seguida, selecione o repositório do git configurado com seu data factory de desenvolvimento. Selecione o [branch de publicação](source-control.md#configure-publishing-settings) do repositório para o **Branch padrão**. Por padrão, esse branch de publicação é `adf_publish`. Para a **Versão padrão**, selecione **Mais recente do branch padrão**.
 
     ![Adicionar um artefato](media/continuous-integration-deployment/continuous-integration-image7.png)
 
 1.  Adicione uma tarefa de Implantação do Azure Resource Manager:
 
-    a.  No modo de exibição de fase, selecione **Exibir tarefas da fase** .
+    a.  No modo de exibição de fase, selecione **Exibir tarefas da fase**.
 
     ![Exibição de fase](media/continuous-integration-deployment/continuous-integration-image14.png)
 
-    b.  Crie uma tarefa. Pesquise **implantação de modelo ARM** e, em seguida, selecione **Adicionar** .
+    b.  Crie uma tarefa. Pesquise **implantação de modelo ARM** e, em seguida, selecione **Adicionar**.
 
     c.  Na Tarefa de implantação, selecione a assinatura, o grupo de recursos e a localização do data factory de destino. Forneça as credenciais, se necessário.
 
-    d.  Na lista **Ação** , selecione **Criar ou atualizar grupo de recursos** .
+    d.  Na lista **Ação**, selecione **Criar ou atualizar grupo de recursos**.
 
-    e.  Selecione o botão de reticências ( **…** ) ao lado da caixa **Modelo** . Procure o modelo do Azure Resource Manager gerado no branch de publicação do repositório do git configurado. Procure o arquivo `ARMTemplateForFactory.json` na pasta <FactoryName> do branch adf_publish.
+    e.  Selecione o botão de reticências ( **…** ) ao lado da caixa **Modelo**. Procure o modelo do Azure Resource Manager gerado no branch de publicação do repositório do git configurado. Procure o arquivo `ARMTemplateForFactory.json` na pasta <FactoryName> do branch adf_publish.
 
     f.  Selecione **...** ao lado da caixa **Parâmetros do modelo** para escolher o arquivo de parâmetros. Procure o arquivo `ARMTemplateParametersForFactory.json` na pasta <FactoryName> do branch adf_publish.
 
     g.  Selecione **...** ao lado da caixa **Substituir parâmetros de modelo** e insira os valores de parâmetro desejados para o data factory de destino. Para as credenciais provenientes do Azure Key Vault, insira o nome do segredo entre aspas duplas. Por exemplo, se o nome do segredo for cred1, insira **"$(cred1)"** para esse valor.
 
-    h. Selecione **Incremental** para o **Modo de implantação** .
+    h. Selecione **Incremental** para o **Modo de implantação**.
 
     > [!WARNING]
-    > No modo de implantação completa, os recursos existentes no grupo de recursos, mas não são especificados no novo modelo do Resource Manager, serão **excluídos** . Para obter mais informações, consulte [Azure Resource Manager modos de implantação](../azure-resource-manager/templates/deployment-modes.md)
+    > No modo de implantação completa, os recursos existentes no grupo de recursos, mas não são especificados no novo modelo do Resource Manager, serão **excluídos**. Para obter mais informações, consulte [Azure Resource Manager modos de implantação](../azure-resource-manager/templates/deployment-modes.md)
 
     ![Implantação de Produção do Data Factory](media/continuous-integration-deployment/continuous-integration-image9.png)
 
 1.  Salve o pipeline de lançamento.
 
-1. Para disparar uma versão, selecione **Criar versão** . Para automatizar a criação de versões, confira [Gatilhos de versão do Azure DevOps](/azure/devops/pipelines/release/triggers?view=azure-devops)
+1. Para disparar uma versão, selecione **Criar versão**. Para automatizar a criação de versões, confira [Gatilhos de versão do Azure DevOps](/azure/devops/pipelines/release/triggers)
 
    ![Selecionar Criar versão](media/continuous-integration-deployment/continuous-integration-image10.png)
 
@@ -153,7 +153,7 @@ Há duas maneiras de lidar cos segredos:
 
 1. Adicione uma [tarefa do Azure Key Vault](/azure/devops/pipelines/tasks/deploy/azure-key-vault) antes da tarefa de Implantação do Azure Resource Manager descrita na seção anterior:
 
-    1.  Na guia **Tarefas** , crie uma tarefa. Procure **Azure Key Vault** e adicione-o.
+    1.  Na guia **Tarefas**, crie uma tarefa. Procure **Azure Key Vault** e adicione-o.
 
     1.  Na tarefa do Key Vault, selecione a assinatura na qual você criou o cofre de chaves. Forneça as credenciais, se necessário, e selecione o cofre de chaves.
 
@@ -167,7 +167,7 @@ A tarefa do Azure Key Vault poderá falhar com um erro de Acesso Negado se as pe
 
 A implantação poderá falhar se você tentar atualizar gatilhos ativos. Para atualizar os gatilhos ativos, você precisa interrompê-los manualmente e iniciá-los após a implantação. Faça isso usando uma tarefa do Azure PowerShell:
 
-1.  Na guia **Tarefas** da versão, adicione uma tarefa do **Azure PowerShell** . Escolha a versão da tarefa 4.*. 
+1.  Na guia **Tarefas** da versão, adicione uma tarefa do **Azure PowerShell**. Escolha a versão da tarefa 4.*. 
 
 1.  Selecione a assinatura em que seu factory está.
 
@@ -185,11 +185,11 @@ A equipe do data factory forneceu um [script pré e pós-implantação de exempl
 
 ## <a name="manually-promote-a-resource-manager-template-for-each-environment"></a>Promover manualmente um modelo do Resource Manager para cada ambiente
 
-1. Na lista do **Modelo do ARM** , selecione **Exportar Modelo do ARM** para exportar o modelo do Resource Manager para seu data factory no ambiente de desenvolvimento.
+1. Na lista do **Modelo do ARM**, selecione **Exportar Modelo do ARM** para exportar o modelo do Resource Manager para seu data factory no ambiente de desenvolvimento.
 
    ![Exportar um modelo do Resource Manager](media/continuous-integration-deployment/continuous-integration-image1.png)
 
-1. Em suas data factories de teste e produção, selecione **Importar Modelo do ARM** . Essa ação leva você até o Portal do Azure, onde você pode importar o modelo exportado. Selecione **Criar seu modelo no editor** para abrir o editor de modelo do Resource Manager.
+1. Em suas data factories de teste e produção, selecione **Importar Modelo do ARM**. Essa ação leva você até o Portal do Azure, onde você pode importar o modelo exportado. Selecione **Criar seu modelo no editor** para abrir o editor de modelo do Resource Manager.
 
    ![Criar seu modelo](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
 
@@ -208,6 +208,12 @@ Se o seu alocador de desenvolvimento tiver um repositório do git associado, voc
 * Você usa CI/CD automatizadas e deseja alterar algumas propriedades durante a implantação do Resource Manager, mas as propriedades não são parametrizadas por padrão.
 * Seu alocador é tão grande que o modelo padrão do Resource Manager é inválido porque ele tem mais do que os parâmetros máximos permitidos (256).
 
+    Para lidar com o limite 256 do parâmetro personalizado, há três opções:    
+  
+    * Use o arquivo de parâmetro personalizado e remova as propriedades que não precisam de parametrização, ou seja, propriedades que podem manter um valor padrão e, portanto, diminuir a contagem de parâmetros.
+    * Refatorar lógica no fluxo de os para reduzir parâmetros, por exemplo, todos os parâmetros de pipeline têm o mesmo valor, você pode usar apenas parâmetros globais em vez disso.
+    * Divida um data factory em vários fluxos de dados.
+
 Para substituir o modelo de parametrização padrão, vá para o Hub de gerenciamento e selecione **modelo de parametrização** na seção controle do código-fonte. Selecione **Editar modelo** para abrir o editor de código de modelo de parametrização. 
 
 ![Gerenciar parâmetros personalizados](media/author-management-hub/management-hub-custom-parameters.png)
@@ -225,7 +231,7 @@ Ao exportar um modelo do Resource Manager, o Data Factory lê esse arquivo de qu
 
 ### <a name="custom-parameter-syntax"></a>Sintaxe do parâmetro personalizado
 
-Veja a seguir algumas diretrizes a serem seguidas ao criar o arquivo de parâmetros personalizados, **arm-template-parameters-definition.json** . O arquivo é composto por uma seção para cada tipo de entidade: gatilho, pipeline, serviço vinculado, conjunto de dados, runtime de integração e fluxo de dados.
+Veja a seguir algumas diretrizes a serem seguidas ao criar o arquivo de parâmetros personalizados, **arm-template-parameters-definition.json**. O arquivo é composto por uma seção para cada tipo de entidade: gatilho, pipeline, serviço vinculado, conjunto de dados, runtime de integração e fluxo de dados.
 
 * Insira o caminho da propriedade sob o tipo de entidade relevante.
 * Definir um nome de propriedade para `*` indicar que você deseja parametrizar todas as propriedades abaixo dele (somente até o primeiro nível, não recursivamente). Você também pode fornecer exceções a essa configuração.
@@ -235,7 +241,7 @@ Veja a seguir algumas diretrizes a serem seguidas ao criar o arquivo de parâmet
       * `-` significa que não mantenha o valor padrão para o parâmetro.
       * `|` é um caso especial para segredos de Azure Key Vault para cadeias de conexão ou chaves.
    * `<name>` é o nome do parâmetro. Se estiver em branco, será usado o nome da propriedade. Se o valor começar com um caractere `-`, o nome será abreviado. Por exemplo, `AzureStorage1_properties_typeProperties_connectionString` seria abreviado como `AzureStorage1_connectionString`.
-   * `<stype>` é o tipo de parâmetro. Se `<stype>` estiver em branco, o tipo padrão será `string` . Os valores com suporte são: `string`, `bool`, `number`, `object` e `securestring`.
+   * `<stype>` é o tipo de parâmetro. Se `<stype>` estiver em branco, o tipo padrão será `string` . Valores com suporte:,,,, `string` `securestring` `int` `bool` `object` `secureobject` e `array` .
 * Especificar uma matriz no arquivo de definição indica que a propriedade correspondente no modelo é uma matriz. O Data Factory itera todos os objetos na matriz usando a definição especificada no objeto do runtime de integração da matriz. O segundo objeto, uma cadeia de caracteres, torna-se o nome da propriedade, que é usada como o nome do parâmetro para cada iteração.
 * Uma definição não pode ser específica a uma instância de recurso. Qualquer definição se aplica a todos os recursos desse tipo.
 * Por padrão, todas as cadeias de caracteres seguras, como segredos do Key Vault, e cadeias de caracteres seguras, como cadeias de conexão, chaves e tokens, são parametrizadas.
@@ -250,7 +256,7 @@ Veja um exemplo de como seria um modelo de parametrização:
         "properties": {
             "activities": [{
                 "typeProperties": {
-                    "waitTimeInSeconds": "-::number",
+                    "waitTimeInSeconds": "-::int",
                     "headers": "=::object"
                 }
             }]
@@ -268,7 +274,7 @@ Veja um exemplo de como seria um modelo de parametrização:
             "typeProperties": {
                 "recurrence": {
                     "*": "=",
-                    "interval": "=:triggerSuffix:number",
+                    "interval": "=:triggerSuffix:int",
                     "frequency": "=:-freq"
                 },
                 "maxConcurrency": "="
@@ -317,7 +323,7 @@ Esta é uma explicação de como o modelo anterior é construído, dividido por 
 #### <a name="triggers"></a>Gatilhos
 
 * Em `typeProperties`, duas propriedades são parametrizadas. A primeira é `maxConcurrency`, que é especificada para ter um valor padrão e é do tipo`string`. Ela tem o nome de parâmetro padrão `<entityName>_properties_typeProperties_maxConcurrency`.
-* A propriedade `recurrence` também é parametrizada. Nela, todas as propriedades nesse nível são especificadas para serem parametrizadas como cadeias de caracteres, com valores padrão e nomes de parâmetro. Uma exceção é a propriedade `interval`, parametrizada como tipo `number`. O nome do parâmetro tem sufixo `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Da mesma forma, a propriedade `freq` é uma cadeia de caracteres e é parametrizada como uma cadeia de caracteres. No entanto, a propriedade `freq` é parametrizada sem um valor padrão. O nome é abreviado e sufixado. Por exemplo, `<entityName>_freq`.
+* A propriedade `recurrence` também é parametrizada. Nela, todas as propriedades nesse nível são especificadas para serem parametrizadas como cadeias de caracteres, com valores padrão e nomes de parâmetro. Uma exceção é a propriedade `interval`, parametrizada como tipo `int`. O nome do parâmetro tem sufixo `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Da mesma forma, a propriedade `freq` é uma cadeia de caracteres e é parametrizada como uma cadeia de caracteres. No entanto, a propriedade `freq` é parametrizada sem um valor padrão. O nome é abreviado e sufixado. Por exemplo, `<entityName>_freq`.
 
 #### <a name="linkedservices"></a>LinkedServices
 
@@ -607,7 +613,7 @@ Para usar modelos vinculados em vez do modelo completo do Resource Manager, atua
 
 Lembre-se de adicionar os scripts do Data Factory no pipeline de CI/CD antes e depois a tarefa de implantação.
 
-Se o Git não tiver sido configurado, você poderá acessar os modelos vinculados por meio de **Exportar modelo do ARM** na lista de **Modelo do ARM** .
+Se o Git não tiver sido configurado, você poderá acessar os modelos vinculados por meio de **Exportar modelo do ARM** na lista de **Modelo do ARM**.
 
 ## <a name="hotfix-production-environment"></a>Ambiente de produção de hotfix
 
@@ -633,19 +639,31 @@ Se você implantar um alocador na produção e perceber que há um bug que preci
 
 10.   Adicione as alterações do hotfix ao branch de desenvolvimento para que as versões posteriores não incluam o mesmo bug.
 
+Consulte o vídeo abaixo um tutorial em vídeo detalhado sobre como corrigir seus ambientes. 
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4I7fi]
+
+## <a name="exposure-control-and-feature-flags"></a>Controle de exposição e sinalizadores de recurso
+
+Ao trabalhar em uma equipe, há instâncias em que você pode mesclar alterações, mas não quer que elas sejam executadas em ambientes elevados, como PROD e QA. Para lidar com esse cenário, a equipe do ADF recomenda [o conceito de DevOps de uso de sinalizadores de recursos](/azure/devops/migrate/phase-features-with-feature-flags). No ADF, você pode combinar [parâmetros globais](author-global-parameters.md) e a [atividade If Condition](control-flow-if-condition-activity.md) para ocultar conjuntos de lógica com base nesses sinalizadores de ambiente.
+
+Para saber como configurar um sinalizador de recurso, consulte o tutorial de vídeo abaixo:
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4IxdW]
+
 ## <a name="best-practices-for-cicd"></a>Práticas recomendadas para CI/CD
 
 Se você está usando a integração do Git ao seu data factory e tem um pipeline de CI/CD que migra suas alterações do desenvolvimento para o teste e para a produção, recomendamos estas melhores práticas:
 
--   **Integração do Git** . Configure somente seu data factory de desenvolvimento com a integração do Git. Alterações no teste e na produção são implantadas por CI/CD e não precisam da integração do Git.
+-   **Integração do Git**. Configure somente seu data factory de desenvolvimento com a integração do Git. Alterações no teste e na produção são implantadas por CI/CD e não precisam da integração do Git.
 
--   **Script pré e pós-implantação** . Antes da etapa de implantação do Resource Manager na CI/CD, você precisa concluir determinadas tarefas, como parar e reiniciar gatilhos e executar a limpeza. Recomendamos que você use scripts do PowerShell antes e depois da tarefa de implantação. Para obter mais informações, confira [Atualizar gatilhos ativos](#updating-active-triggers). A equipe de data factory [forneceu um script](#script) para uso localizado na parte inferior desta página.
+-   **Script pré e pós-implantação**. Antes da etapa de implantação do Resource Manager na CI/CD, você precisa concluir determinadas tarefas, como parar e reiniciar gatilhos e executar a limpeza. Recomendamos que você use scripts do PowerShell antes e depois da tarefa de implantação. Para obter mais informações, confira [Atualizar gatilhos ativos](#updating-active-triggers). A equipe de data factory [forneceu um script](#script) para uso localizado na parte inferior desta página.
 
--   **Runtimes de integração e compartilhamento** . Os runtimes de integração não são alterados com frequência e são semelhantes em todas as fases em sua CI/CD. Portanto, o Data Factory espera que você tenha o mesmo nome e tipo de runtime de integração em todas as fases da CI/CD. Se desejar compartilhar runtimes de integração em todas as fases, considere usar um alocador ternário apenas para conter os runtimes de integração compartilhados. Você pode usar esse alocador compartilhado em todos os seus ambientes como um tipo de runtime de integração vinculado.
+-   **Runtimes de integração e compartilhamento**. Os runtimes de integração não são alterados com frequência e são semelhantes em todas as fases em sua CI/CD. Portanto, o Data Factory espera que você tenha o mesmo nome e tipo de runtime de integração em todas as fases da CI/CD. Se desejar compartilhar runtimes de integração em todas as fases, considere usar um alocador ternário apenas para conter os runtimes de integração compartilhados. Você pode usar esse alocador compartilhado em todos os seus ambientes como um tipo de runtime de integração vinculado.
 
--   **Implantação de ponto de extremidade privada gerenciado** . Se um ponto de extremidade privado já existir em uma fábrica e você tentar implantar um modelo de ARM que contenha um ponto de extremidade privado com o mesmo nome, mas com propriedades modificadas, a implantação falhará. Em outras palavras, você pode implantar com êxito um ponto de extremidade privado, contanto que ele tenha as mesmas propriedades que o que já existe na fábrica. Se qualquer propriedade for diferente entre ambientes, você poderá substituí-la parametrizando essa propriedade e fornecendo o respectivo valor durante a implantação.
+-   **Implantação de ponto de extremidade privada gerenciado**. Se um ponto de extremidade privado já existir em uma fábrica e você tentar implantar um modelo de ARM que contenha um ponto de extremidade privado com o mesmo nome, mas com propriedades modificadas, a implantação falhará. Em outras palavras, você pode implantar com êxito um ponto de extremidade privado, contanto que ele tenha as mesmas propriedades que o que já existe na fábrica. Se qualquer propriedade for diferente entre ambientes, você poderá substituí-la parametrizando essa propriedade e fornecendo o respectivo valor durante a implantação.
 
--   **Key Vault** . Quando você usa serviços vinculados cujas informações de conexão são armazenadas no Azure Key Vault, é recomendável manter cofres de chaves separados para ambientes diferentes. Você também pode configurar níveis de permissão separados para cada cofre de chaves. Por exemplo, talvez você não queira que os membros da sua equipe tenham permissões para os segredos de produção. Se você seguir essa abordagem, recomendamos que você mantenha os mesmos nomes de segredo em todas as fases. Se você mantiver os mesmos nomes de segredo, não precisará parametrizar cada cadeia de conexão em ambientes de CI/CD porque a única coisa que é alterada é o nome do cofre de chaves, que é um parâmetro separado.
+-   **Key Vault**. Quando você usa serviços vinculados cujas informações de conexão são armazenadas no Azure Key Vault, é recomendável manter cofres de chaves separados para ambientes diferentes. Você também pode configurar níveis de permissão separados para cada cofre de chaves. Por exemplo, talvez você não queira que os membros da sua equipe tenham permissões para os segredos de produção. Se você seguir essa abordagem, recomendamos que você mantenha os mesmos nomes de segredo em todas as fases. Se você mantiver os mesmos nomes de segredo, não precisará parametrizar cada cadeia de conexão em ambientes de CI/CD porque a única coisa que é alterada é o nome do cofre de chaves, que é um parâmetro separado.
 
 -  **Nomeação de recursos** Devido a restrições de modelo do ARM, podem surgir problemas na implantação se os recursos contiverem espaços no nome. A equipe de Azure Data Factory recomenda usar caracteres ' _ ' ou '-' em vez de espaços para recursos. Por exemplo, ' Pipeline_1 ' seria um nome preferível sobre ' pipeline 1 '.
 
@@ -656,7 +674,7 @@ Se você está usando a integração do Git ao seu data factory e tem um pipelin
     - As entidades do data factory dependem umas das outras. Por exemplo, os gatilhos dependem de pipelines e os pipelines dependem de conjuntos de dados e de outros pipelines. A publicação seletiva de um subconjunto de recursos pode levar a comportamentos e erros inesperados.
     - Em raras ocasiões em que você precisa de publicação seletiva, considere usar um hotfix. Para obter mais informações, consulte [hotfix Production Environment](#hotfix-production-environment).
 
-- A equipe de Azure Data Factory não recomenda atribuir controles RBAC do Azure a entidades individuais (pipelines, conjuntos de valores, etc) em um data factory. Por exemplo, se um desenvolvedor tiver acesso a um pipeline ou a um conjunto de um, ele deverá ser capaz de acessar todos os pipelines ou conjuntos de valores no data factory. Se você achar que precisa implementar muitas funções do Azure em um data factory, examine a implantação de uma segunda data factory.
+- A equipe de Azure Data Factory não recomenda atribuir controles RBAC do Azure a entidades individuais (pipelines, conjuntos de valores, etc.) em um data factory. Por exemplo, se um desenvolvedor tiver acesso a um pipeline ou a um conjunto de dados, ele deverá conseguir acessar todos os pipelines ou conjuntos de dados no data factory. Se você achar que precisa implementar muitas funções do Azure em um data factory, examine a implantação de uma segunda data factory.
 
 -   Não é possível publicar de branches particulares.
 
@@ -666,12 +684,12 @@ Se você está usando a integração do Git ao seu data factory e tem um pipelin
 
 O script de exemplo a seguir pode ser usado para parar os gatilhos antes da implantação e reiniciá-los depois. O script também inclui código para excluir recursos que foram removidos. Salve o script em um repositório do git do Azure DevOps e referencie-o por meio de uma tarefa do Azure PowerShell versão 4.*.
 
-Ao executar um script pré-implantação, você precisará especificar uma variação dos parâmetros a seguir no campo **Argumentos de Script** .
+Ao executar um script pré-implantação, você precisará especificar uma variação dos parâmetros a seguir no campo **Argumentos de Script**.
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $true -deleteDeployment $false`
 
 
-Ao executar um script pós-implantação, você precisará especificar uma variação dos parâmetros a seguir no campo **Argumentos de Script** .
+Ao executar um script pós-implantação, você precisará especificar uma variação dos parâmetros a seguir no campo **Argumentos de Script**.
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $false -deleteDeployment $true`
 

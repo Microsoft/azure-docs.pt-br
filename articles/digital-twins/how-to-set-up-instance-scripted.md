@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5806ea094abd3431cd7e22064c6acd8ad150726a
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 1552401953a8cba9dda787a0f0e461adb7972920
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495022"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664445"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (com script)
 
@@ -20,7 +20,7 @@ ms.locfileid: "92495022"
 
 Este artigo aborda as etapas para **Configurar uma nova instância de gêmeos digital do Azure**, incluindo a criação da instância e a configuração da autenticação. Depois de concluir este artigo, você terá uma instância do gêmeos digital do Azure pronta para começar a programar.
 
-Esta versão deste artigo conclui essas etapas executando um exemplo de [ **script de implantação automatizado** ](/samples/azure-samples/digital-twins-samples/digital-twins-samples/) que simplifica o processo. 
+Esta versão deste artigo conclui essas etapas executando um exemplo de [ **script de implantação automatizado**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/) que simplifica o processo. 
 * Para exibir as etapas manuais da CLI em que o script é executado nos bastidores, consulte a versão da CLI deste artigo: [*como: configurar uma instância e autenticação (CLI)*](how-to-set-up-instance-cli.md).
 * Para exibir as etapas manuais de acordo com o portal do Azure, consulte a versão do portal deste artigo: [*como configurar uma instância e autenticação (Portal)*](how-to-set-up-instance-portal.md).
 
@@ -29,11 +29,13 @@ Esta versão deste artigo conclui essas etapas executando um exemplo de [ **scri
 
 ## <a name="prerequisites-download-the-script"></a>Pré-requisitos: baixar o script
 
-O script de exemplo é escrito no PowerShell. Ele faz parte dos [**exemplos de ponta a ponta do Azure digital gêmeos**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), que você pode baixar em seu computador navegando até esse link de exemplo e selecionando o botão *baixar zip* abaixo do título.
+O script de exemplo é escrito no PowerShell. Ele faz parte dos [**exemplos de ponta a ponta do Azure digital gêmeos**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), que você pode baixar em seu computador navegando até esse link de exemplo e selecionando o botão *Procurar código* abaixo do título. Isso o levará para o repositório do GitHub para os exemplos que você pode baixar como um *. ZIP* selecionando o botão de *código* e *baixando o zip*.
 
-Isso baixará o projeto de exemplo em seu computador como _**Azure_Digital_Twins_end_to_end_samples.zip**_. Navegue até a pasta em seu computador e descompacte-a para extrair os arquivos.
+:::image type="content" source="media/includes/download-repo-zip.png" alt-text="Exibição do repositório digital-gêmeos-Samples no GitHub. O botão código é selecionado, produzindo uma pequena caixa de diálogo na qual o botão baixar ZIP é realçado." lightbox="media/includes/download-repo-zip.png":::
 
-Na pasta descompactada, o script de implantação está localizado em _Azure_Digital_Twins_end_to_end_samples > scripts > **deploy.ps1** _.
+Isso fará o download de um *. Pasta ZIP* em seu computador como **digital-twins-samples-master.zip**. Navegue até a pasta em seu computador e descompacte-a para extrair os arquivos.
+
+Na pasta descompactada, o script de implantação está localizado em _digital-gêmeos-Samples-master > scripts > **deploy.ps1**_.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -50,15 +52,13 @@ Aqui estão as etapas para executar o script de implantação no Cloud Shell.
  
 2. Na barra de ícones Cloud Shell, verifique se o Cloud Shell está configurado para executar a versão do PowerShell.
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Janela Cloud Shell mostrando a seleção da versão do PowerShell&quot;:::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Janela Cloud Shell mostrando a seleção da versão do PowerShell":::
 
-1. Selecione o ícone &quot;carregar/baixar arquivos" e escolha "carregar".
+1. Selecione o ícone "carregar/baixar arquivos" e escolha "carregar".
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Janela Cloud Shell mostrando a seleção da versão do PowerShell&quot;:::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Janela Cloud Shell mostrando a seleção do ícone carregar":::
 
-1. Selecione o ícone &quot;carregar/baixar arquivos":::
-
-    Navegue até o arquivo de _**deploy.ps1**_ em seu computador (em _Azure_Digital_Twins_end_to_end_samples scripts de > > **deploy.ps1** _) e pressione "abrir". Isso carregará o arquivo para Cloud Shell para que você possa executá-lo na janela Cloud Shell.
+    Navegue até o arquivo de _**deploy.ps1**_ em seu computador (em _digital-gêmeos-Samples-master > scripts > **deploy.ps1**_) e pressione "abrir". Isso carregará o arquivo para Cloud Shell para que você possa executá-lo na janela Cloud Shell.
 
 4. Execute o script enviando o `./deploy.ps1` comando na janela Cloud Shell. Você pode copiar o comando abaixo (Lembre-se de que para colar em Cloud Shell, você pode usar **Ctrl + Shift + v** no Windows e Linux ou **cmd + shift + v** no MacOS. Você também pode usar o menu do botão direito do mouse.
 
@@ -72,13 +72,11 @@ Aqui estão as etapas para executar o script de implantação no Cloud Shell.
     * Para a instância: a *ID* da assinatura do Azure a ser usada
     * Para a instância: um *local* onde você gostaria de implantar a instância. Para ver quais regiões dão suporte ao Azure digital gêmeos, visite [*produtos do Azure disponíveis por região*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
     * Para a instância: um nome de *grupo de recursos* . Você pode usar um grupo de recursos existente ou inserir um novo nome de um para criar.
-    * Para a instância: um *nome* para sua instância de gêmeos digital do Azure. O nome da nova instância deve ser exclusivo na região da sua assinatura (ou seja, se sua assinatura tiver outra instância de gêmeos digital do Azure na região que já está usando o nome que você escolher, será solicitado que você escolha um nome diferente).
+    * Para a instância: um *nome* para sua instância de gêmeos digital do Azure. Se sua assinatura tiver outra instância de gêmeos digital do Azure na região que já está usando o nome especificado, você será solicitado a escolher um nome diferente.
 
 Aqui está um trecho do log de saída do script:
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="Janela Cloud Shell mostrando a seleção da versão do PowerShell&quot;:::
-
-1. Selecione o ícone &quot;carregar/baixar arquivos" lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="Janela Cloud Shell mostrando o log de entrada e saída por meio da execução do script de implantação" lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
 
 Se o script for concluído com êxito, a impressão final dirá `Deployment completed successfully` . Caso contrário, resolva a mensagem de erro e execute o script novamente. Ele ignorará as etapas que você já concluiu e começará a solicitar a entrada novamente no ponto em que você parou.
 
@@ -90,7 +88,7 @@ Se o script for concluído com êxito, a impressão final dirá `Deployment comp
 >
 >Você pode verificar a atribuição de função com a seção [*verificar atribuição de função de usuário*](#verify-user-role-assignment) posteriormente neste artigo e, se necessário, configurar a atribuição de função manualmente usando o [portal do Azure](how-to-set-up-instance-portal.md#set-up-user-access-permissions) ou a [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
 >
->Para obter mais detalhes sobre esse problema, consulte solução de problemas [*: problemas conhecidos no Azure digital gêmeos*](troubleshoot-known-issues.md#missing-role-assignment-after-scripted-setup).
+>Para obter mais detalhes sobre esse problema, confira [*Solução de problemas: Problemas conhecidos nos Gêmeos Digitais do Azure*](troubleshoot-known-issues.md#missing-role-assignment-after-scripted-setup).
 
 ## <a name="verify-success-and-collect-important-values"></a>Verificar o êxito e coletar valores importantes
 
@@ -108,11 +106,9 @@ Se a verificação não tiver sido bem-sucedida, você poderá repetir a criaç�
 
 ### <a name="collect-instance-values"></a>Coletar valores de instância
 
-Selecione o nome da instância na [página gêmeos do Azure digital](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) para abrir a página *visão geral* da instância. Anote seu *nome*, *grupo de recursos*e *nome do host*. Talvez você precise deles mais tarde para identificar e conectar-se à sua instância do.
+Selecione o nome da instância na [página gêmeos do Azure digital](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) para abrir a página *visão geral* da instância. Anote seu *nome*, *grupo de recursos* e *nome do host*. Talvez você precise deles mais tarde para identificar e conectar-se à sua instância do.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Janela Cloud Shell mostrando a seleção da versão do PowerShell&quot;:::
-
-1. Selecione o ícone &quot;carregar/baixar arquivos":::
+:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Realçando os valores importantes da página de visão geral da instância":::
 
 ### <a name="verify-user-role-assignment"></a>Verificar atribuição de função de usuário
 

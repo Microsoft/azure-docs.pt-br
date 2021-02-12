@@ -1,18 +1,18 @@
 ---
 title: Exemplos de CLI do Azure – Configuração de Aplicativos do Azure
 description: Informações sobre os scripts de exemplo fornecidos para a Configuração de Aplicativos do Azure
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: sample
 ms.date: 02/19/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d6e644a73a18cdfda71ae6a4e5360b713c08f4f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90782263d82a93e77fe45efa3ae0ef48fa2d11ae
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87504391"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929116"
 ---
 # <a name="azure-cli-samples"></a>Exemplos da CLI do Azure
 

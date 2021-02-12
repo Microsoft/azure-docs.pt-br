@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2427d974f96c0905ea2eb33daea7c89de277ec9
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: aef4ff77eb02723bcd95dcc99a55094bd10acd4c
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441803"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355470"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Resgate do convite de colaboração do Azure Active Directory B2B
 
@@ -25,7 +25,8 @@ Este artigo descreve como os usuários convidados podem acessar seus recursos e 
 Quando você adiciona um usuário convidado ao seu diretório, a conta de usuário convidado tem um status de consentimento (visível no PowerShell) que é inicialmente definido como **PendingAcceptance**. Essa configuração permanece até que o convidado aceite seu convite e concorde com a política de privacidade e os termos de uso. Depois disso, o status de consentimento muda para **Accepted** e as páginas de consentimento não são mais apresentadas ao convidado.
 
    > [!IMPORTANT]
-   > **A partir de 31 de março de 2021**, a Microsoft não dará mais suporte ao resgate de convites criando contas e locatários do Azure AD não gerenciado para cenários de colaboração B2B. Durante a preparação, incentivamos os clientes a aceitarem a [autenticação de senha avulsa por email](one-time-passcode.md). Agradecemos seus comentários sobre essa versão prévia do recurso pública e estamos empolgados em criar ainda mais maneiras de colaborar.
+   > - A **partir de 4 de janeiro de 2021**, o Google está [preterindo o suporte de entrada do WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Se você estiver usando a inscrição do Google Federation ou autoatendimento com o Gmail, deverá [testar seus aplicativos nativos de linha de negócios para compatibilidade](google-federation.md#deprecation-of-webview-sign-in-support).
+   > - **A partir de 31 de março de 2021**, a Microsoft não dará mais suporte ao resgate de convites criando contas e locatários do Azure AD não gerenciado para cenários de colaboração B2B. Durante a preparação, incentivamos os clientes a aceitarem a [autenticação de senha avulsa por email](one-time-passcode.md). Agradecemos seus comentários sobre essa versão prévia do recurso pública e estamos empolgados em criar ainda mais maneiras de colaborar.
 
 ## <a name="redemption-through-the-invitation-email"></a>Resgate por meio de email de convite
 
@@ -33,7 +34,7 @@ Quando você adiciona um usuário convidado ao seu diretório [por meio do porta
 
 1. O convidado recebe um [email de convite](./invitation-email-elements.md) enviado pelo **Microsoft Invitations**.
 2. Ele seleciona **Aceitar o convite** no email.
-3. O convidado usará suas próprias credenciais para entrar no seu diretório. Se ele não tiver uma conta que possa ser federada para o seu diretório e o recurso [enviar senha de uso único por email (OTP)](./one-time-passcode.md) não estiver habilitado; o convidado precisará criar uma [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) pessoal ou uma [conta de autoatendimento do Azure AD](../users-groups-roles/directory-self-service-signup.md). Consulte o [fluxo de resgate de convite](#invitation-redemption-flow) para obter detalhes.
+3. O convidado usará suas próprias credenciais para entrar no seu diretório. Se ele não tiver uma conta que possa ser federada para o seu diretório e o recurso [enviar senha de uso único por email (OTP)](./one-time-passcode.md) não estiver habilitado; o convidado precisará criar uma [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) pessoal ou uma [conta de autoatendimento do Azure AD](../enterprise-users/directory-self-service-signup.md). Consulte o [fluxo de resgate de convite](#invitation-redemption-flow) para obter detalhes.
 4. O convidado é guiado pela [experiência de consentimento](#consent-experience-for-the-guest) descrita abaixo.
 
 ## <a name="redemption-through-a-direct-link"></a>Resgate por meio de um link direto
@@ -74,9 +75,9 @@ Quando um usuário clica no link **Aceitar convite** em um [email de convite](in
 
 7. Se a opção [Enviar senha de uso único para convidados por email estiver habilitada](./one-time-passcode.md#when-does-a-guest-user-get-a-one-time-passcode), uma senha será enviada ao usuário pelo email convidado. O usuário vai recuperar e inserir essa senha na página de entrada do Azure AD.
 
-8. Se o email de senha de uso único para convidados estiver desabilitado, o Azure AD verificará o sufixo de domínio para determinar se ele pertence a uma conta de consumidor. Nesse caso, será solicitado que o usuário crie uma [conta Microsoft](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) pessoal. Caso contrário, o usuário será solicitado a criar uma [conta de autoatendimento do Azure AD](../users-groups-roles/directory-self-service-signup.md).
+8. Se o email de senha de uso único para convidados estiver desabilitado, o Azure AD verificará o sufixo de domínio para determinar se ele pertence a uma conta de consumidor. Nesse caso, será solicitado que o usuário crie uma [conta Microsoft](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) pessoal. Caso contrário, o usuário será solicitado a criar uma [conta de autoatendimento do Azure AD](../enterprise-users/directory-self-service-signup.md).
 
-9. O Azure AD tenta criar uma [conta de autoatendimento do Azure AD](../users-groups-roles/directory-self-service-signup.md) com a verificação do acesso ao email. A verificação da conta é feita como envio de um código por email e instruções para que o usuário a recupere e envie ao Azure AD. No entanto, se o locatário do usuário convidado for federado ou se o campo AllowEmailVerifiedUsers for definido como false no locatário do usuário convidado, ele não poderá concluir o resgate e o fluxo resultará em erro. Para obter mais informações, confira [Solução de problemas de colaboração B2B do Azure Active Directory](./troubleshoot.md#the-user-that-i-invited-is-receiving-an-error-during-redemption).
+9. O Azure AD tenta criar uma [conta de autoatendimento do Azure AD](../enterprise-users/directory-self-service-signup.md) com a verificação do acesso ao email. A verificação da conta é feita como envio de um código por email e instruções para que o usuário a recupere e envie ao Azure AD. No entanto, se o locatário do usuário convidado for federado ou se o campo AllowEmailVerifiedUsers for definido como false no locatário do usuário convidado, ele não poderá concluir o resgate e o fluxo resultará em erro. Para obter mais informações, confira [Solução de problemas de colaboração B2B do Azure Active Directory](./troubleshoot.md#the-user-that-i-invited-is-receiving-an-error-during-redemption).
 
 10. O usuário precisará criar uma conta [MSA (Microsoft)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) pessoal.
 

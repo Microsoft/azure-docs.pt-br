@@ -9,12 +9,12 @@ ms.date: 12/07/2017
 ms.author: msangapu
 ms.reviewer: cephalin
 ms.custom: mvc, seodec18
-ms.openlocfilehash: be6a0a5b700c4110acd4481b12130185c9878883
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8b7d20c3eee57d10a7025b05605603f82437cdb
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962748"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97006405"
 ---
 # <a name="restore-a-web-app-from-a-backup-using-cli"></a>Restaurar um aplicativo Web de um backup usando a CLI
 
@@ -38,8 +38,8 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 
 | Comando | Observações |
 |---|---|
-| [`az webapp config backup list`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-list) | Obtém uma lista de backups para um aplicativo Web. |
-| [`az webapp config backup restore`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-restore) | Restaura um aplicativo Web a partir de um backup. |
+| [`az webapp config backup list`](/cli/azure/webapp/config/backup#az-webapp-config-backup-list) | Obtém uma lista de backups para um aplicativo Web. |
+| [`az webapp config backup restore`](/cli/azure/webapp/config/backup#az-webapp-config-backup-restore) | Restaura um aplicativo Web a partir de um backup. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

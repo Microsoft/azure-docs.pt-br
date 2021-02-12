@@ -1,6 +1,6 @@
 ---
-title: Usar o modelo do ARM para publicar o Hub IoT e a conta de armazenamento e rotear mensagens
-description: Usar o modelo do ARM para publicar o Hub IoT e a conta de armazenamento e rotear mensagens
+title: Usar o modelo do ARM para publicar o Hub IoT do Azure, a conta de armazenamento, rotear mensagens
+description: Usar o modelo do ARM para publicar o Hub IoT do Azure, a conta de armazenamento, rotear mensagens
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,18 +8,22 @@ ms.topic: quickstart
 ms.date: 08/24/2020
 ms.author: robinsh
 ms.custom: mvc, subject-armqs
-ms.openlocfilehash: 7c53d720aef029d79d95cacd558c3bf9d35b4af6
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1b9c576ce03d808fe6a4d0cac5196dfcd1b73eab
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148918"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545473"
 ---
 # <a name="quickstart-deploy-an-azure-iot-hub-and-a-storage-account-using-an-arm-template"></a>Início Rápido: Implantar um Hub IoT do Azure e uma conta de armazenamento usando um modelo do ARM
 
 Neste guia de início rápido, você usará um modelo do ARM (Azure Resource Manager) para criar um Hub IoT que roteará mensagens para o Armazenamento do Azure e uma conta de armazenamento que armazenará as mensagens. Depois de adicionar manualmente um dispositivo IoT virtual ao hub para enviar as mensagens, configure essas informações de conexão em um aplicativo chamado *arm-read-write* para enviar mensagens do dispositivo para o hub. O hub é configurado para que as mensagens enviadas ao hub sejam automaticamente roteadas para a conta de armazenamento. Ao final deste guia de início rápido, você poderá abrir a conta de armazenamento e ver as mensagens enviadas.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
+
+[![Implantar no Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-iothub-auto-route-messages%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -31,9 +35,10 @@ O modelo usado neste início rápido é chamado `101-iothub-auto-route-messages`
 
 :::code language="json" source="~/quickstart-templates/101-iothub-auto-route-messages/azuredeploy.json":::
 
-Há dois recursos do Azure definidos no modelo: 
-* [Microsoft.Devices/Iothubs](/azure/templates/microsoft.devices/iothubs)
-* [Microsoft.Storage/](/azure/templates/microsoft.storage/allversions)
+Há dois recursos do Azure definidos no modelo:
+
+- [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
+- [Microsoft.Devices/IotHubs](/azure/templates/microsoft.devices/iothubs)
 
 ## <a name="deploy-the-template-and-run-the-sample-app"></a>Implantar o modelo e executar o aplicativo de exemplo
 
@@ -48,7 +53,7 @@ Esta seção fornece as etapas para implantar o modelo, criar um dispositivo vir
 
 1. Baixe e descompacte os [exemplos de C# IoT](/samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net/).
 
-1. Abra uma janela Comando e vá para a pasta na qual você descompactou os exemplos de C# IoT. Localize a pasta com o arquivo arm-read-write.csproj. Você cria as variáveis de ambiente nesta janela Comando. Faça logon no [portal do Azure](https://portal.azure.com ] para obter as chaves. Selecione **Grupos de Recursos** e selecione o grupo de recursos usado para este guia de início rápido.
+1. Abra uma janela Comando e vá para a pasta na qual você descompactou os exemplos de C# IoT. Localize a pasta com o arquivo arm-read-write.csproj. Você cria as variáveis de ambiente nesta janela Comando. Faça logon no [portal do Azure](https://portal.azure.com) para obter as chaves. Selecione **Grupos de Recursos** e selecione o grupo de recursos usado para este guia de início rápido.
 
    ![Selecionar o grupo de recursos](./media/horizontal-arm-route-messages/01-select-resource-group.png)
 
@@ -56,12 +61,12 @@ Esta seção fornece as etapas para implantar o modelo, criar um dispositivo vir
 
    ![Exibir os recursos no grupo de recursos](./media/horizontal-arm-route-messages/02-view-resources-in-group.png)
 
-1. Você precisa do **nome do hub**. Selecione o hub na lista de recursos. Copie o nome do hub da parte superior da seção Hub IoT para a área de transferência do Windows. 
- 
+1. Você precisa do **nome do hub**. Selecione o hub na lista de recursos. Copie o nome do hub da parte superior da seção Hub IoT para a área de transferência do Windows.
+
    ![Copiar o nome do hub](./media/horizontal-arm-route-messages/03-copy-hub-name.png)
 
     Substitua o nome do hub neste comando, no local indicado, e execute este comando na janela Comando:
-   
+
     ```cmd
     SET IOT_HUB_URI=<hub name goes here>.azure-devices-net;
     ```
@@ -72,11 +77,11 @@ Esta seção fornece as etapas para implantar o modelo, criar um dispositivo vir
    SET IOT_HUB_URI=ContosoTestHubdlxlud5h.azure-devices-net;
    ```
 
-1. A próxima variável de ambiente é a Chave do Dispositivo IoT. Adicione um novo dispositivo ao hub selecionando **Dispositivos IoT** no menu do Hub IoT para o hub. 
+1. A próxima variável de ambiente é a Chave do Dispositivo IoT. Adicione um novo dispositivo ao hub selecionando **Dispositivos IoT** no menu do Hub IoT para o hub.
 
    ![Selecionar Dispositivos IoT](./media/horizontal-arm-route-messages/04-select-iot-devices.png)
 
-1. No lado direito da tela, selecione **+ NOVO** para adicionar um novo dispositivo. 
+1. No lado direito da tela, selecione **+ NOVO** para adicionar um novo dispositivo.
 
    Preencha o nome do novo dispositivo. Este guia de início rápido usa um nome que começa com **Contoso-Test-Device**. Salve o dispositivo e abra essa tela novamente para recuperar a chave do dispositivo. (A chave é gerada para você quando você fecha o painel.) Selecione a chave primária ou secundária e copie-a para a área de transferência do Windows. Na janela Comando, defina o comando a ser executado e pressione **Enter**. O comando deve ter uma aparência semelhante a esta, mas com a chave do dispositivo colada:
 
@@ -84,10 +89,10 @@ Esta seção fornece as etapas para implantar o modelo, criar um dispositivo vir
    SET IOT_DEVICE_KEY=<device-key-goes-here>
    ```
 
-1. A última variável de ambiente é a **ID do Dispositivo**. Na janela Comando, configure o comando e execute-o. 
-   
+1. A última variável de ambiente é a **ID do Dispositivo**. Na janela Comando, configure o comando e execute-o.
+
    ```cms
-   SET IOT_DEVICE_ID=<device-id-goes-here> 
+   SET IOT_DEVICE_ID=<device-id-goes-here>
    ```
 
    que terá a aparência deste exemplo:
@@ -100,13 +105,13 @@ Esta seção fornece as etapas para implantar o modelo, criar um dispositivo vir
 
    ![Confira as variáveis de ambiente](./media/horizontal-arm-route-messages/06-environment-variables.png)
 
-Agora que as variáveis de ambiente estão definidas, execute o aplicativo na mesma janela Comando. Como você está usando a mesma janela, as variáveis estarão acessíveis na memória quando você executar o aplicativo.
+    Agora que as variáveis de ambiente estão definidas, execute o aplicativo na mesma janela Comando. Como você está usando a mesma janela, as variáveis estarão acessíveis na memória quando você executar o aplicativo.
 
 1. Para executar o aplicativo, digite o comando a seguir na janela Comando e pressione **Enter**.
 
     `dotnet run arm-read-write`
 
-   O aplicativo gera e exibe mensagens no console à medida que envia cada mensagem ao hub IoT. O hub foi configurado no modelo do ARM para ter o roteamento automatizado. As mensagens que contêm o texto "nível = armazenamento" são automaticamente roteadas para a conta de armazenamento. Deixe que o aplicativo seja executado por 10 a 15 minutos e pressione **Enter** uma ou duas vezes até que ele pare de ser executado.
+   O aplicativo gera e exibe mensagens no console à medida que envia cada mensagem ao hub IoT. O hub foi configurado no modelo do ARM para ter o roteamento automatizado. As mensagens que contêm o texto `level = storage` são automaticamente roteadas para a conta de armazenamento. Deixe que o aplicativo seja executado por 10 a 15 minutos e pressione **Enter** uma ou duas vezes até que ele pare de ser executado.
 
 ## <a name="review-deployed-resources"></a>Examinar os recursos implantados
 
@@ -116,7 +121,7 @@ Agora que as variáveis de ambiente estão definidas, execute o aplicativo na me
 
    ![Examinar os arquivos da conta de armazenamento](./media/horizontal-arm-route-messages/07-see-storage.png)
 
-1. Selecione um dos arquivos e selecione **Baixar** e baixe o arquivo para uma localização que você possa encontrar posteriormente. Ele terá um nome numérico, como 47. Adicione ".txt" ao final e clique duas vezes no arquivo para abri-lo.
+1. Selecione um dos arquivos e selecione **Baixar** e baixe o arquivo para uma localização que você possa encontrar posteriormente. Ele terá um nome numérico, como 47. Adicione _.txt_ ao final e clique duas vezes no arquivo para abri-lo.
 
 1. Quando você abre o arquivo, cada linha se destina a uma mensagem diferente; o corpo de cada mensagem também é criptografado. Ele deve estar em ordem que você possa executar consultas no corpo da mensagem.
 

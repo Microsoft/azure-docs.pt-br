@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: c36a47f99424b3d6e6b8ac6eca0d9dc5c6476e8b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 87007d3df3fe44ab04a330b09b8e495ec4b47e54
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92526147"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97865997"
 ---
 ## <a name="create-an-azure-container-instance-resource-from-the-azure-cli"></a>Criar um recurso de instância de contêiner do Azure no CLI do Azure
 
@@ -25,7 +25,7 @@ apiVersion: 2018-10-01
 location: # < Valid location >
 name: # < Container Group name >
 properties:
-  imageRegistryCredentials: # This is only required if you are pulling a non-public image that requires authentication to access.
+  imageRegistryCredentials: # This is only required if you are pulling a non-public image that requires authentication to access. For example Text Analytics for health.
   - server: containerpreview.azurecr.io
     username: # < The username for the preview container registry >
     password: # < The password for the preview container registry >
@@ -77,9 +77,9 @@ A saída do comando é `Running...` se válida, após algum tempo, a saída é a
 > [!TIP]
 > Preste muita atenção aos locais de ofertas de serviço cognitiva do Azure de visualização pública, pois o YAML precisará ser ajustado adequadamente para corresponder ao local.
 
-[azure-container-create]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-create
-[template-format]: https://docs.microsoft.com/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups#template-format
+[azure-container-create]: /cli/azure/container#az-container-create
+[template-format]: /azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups#template-format
 [aci-yaml-ref]: ../../../container-instances/container-instances-reference-yaml.md
-[repositories-and-images]: ../../cognitive-services-container-support.md#container-repositories-and-images
+[repositories-and-images]: ../container-image-tags.md
 [location-to-resource]: ../../../container-instances/container-instances-region-availability.md
 [secure-values]: ../../../container-instances/container-instances-environment-variables.md#secure-values

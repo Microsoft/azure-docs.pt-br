@@ -1,16 +1,16 @@
 ---
-title: Criar agendamento para laboratórios de salas de aula no Azure Lab Services | Microsoft Docs
-description: Saiba como criar agendamentos para laboratórios de sala de aula no Azure Lab Services para que as VMs nos laboratórios inicializem e desliguem em um horário especificado.
+title: Criar agenda para laboratórios no Azure Lab Services | Microsoft Docs
+description: Saiba como criar agendas para laboratórios em Azure Lab Services para que as VMs nos laboratórios sejam iniciadas e desligadas em um horário especificado.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4eb4e2459069b61990f51f8d8de76522b736723e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a827c3d9f3022cb7d27ee43c9c95227c44f97e7
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326432"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434016"
 ---
-# <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Criar e gerenciar agendamentos para laboratórios de sala de aula do Azure Lab Services 
+# <a name="create-and-manage-schedules-for-labs-in-azure-lab-services"></a>Criar e gerenciar agendas para laboratórios no Azure Lab Services 
 Agendamentos permitem que você configure um laboratório de sala de aula, de modo que as VMs no laboratório iniciam e desligam automaticamente em um horário especificado. Você pode definir um agendamento único ou recorrente. Os procedimentos a seguir fornecem as etapas para criar e gerenciar agendamentos para um laboratório de sala de aula: 
 
 > [!IMPORTANT]
@@ -77,4 +77,4 @@ Veja os artigos a seguir:
 - [Como administrador, crie e gerencie contas de laboratório](how-to-manage-lab-accounts.md)
 - [Como um proprietário de laboratório, crie e gerencie laboratórios](how-to-manage-classroom-labs.md)
 - [Como um proprietário de laboratório, configure e controle o uso de um laboratório](how-to-configure-student-usage.md)
-- [Como um usuário de laboratório, acesse os laboratórios de sala de aula](how-to-use-classroom-lab.md)
+- [Como usuário do laboratório, laboratórios de acesso](how-to-use-classroom-lab.md)

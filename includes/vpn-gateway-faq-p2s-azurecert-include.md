@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f322803d3484b4ec2d5449e19d67d75b35d6d92f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ef67580928a45609f50d3fe798eb9d054265c0a
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75751701"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376120"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
@@ -23,7 +23,7 @@ Desmarque **"Verificar a identidade do servidor validando o certificado"** ou **
 
 Não é recomendável ignorar a validação de identidade do servidor em geral, mas, com a autenticação de certificado do Azure, o mesmo certificado será usado para a validação do servidor no protocolo de túnel VPN (IKEv2/SSTP) e no protocolo EAP. Como o certificado do servidor e o FQDN já foram validados pelo protocolo de túnel VPN, é redundante validar a mesma coisa no EAP novamente.
 
-![ponto a site](./media/vpn-gateway-faq-p2s-all-include/servercert.png "Certificado de servidor")
+![autenticação ponto a site](./media/vpn-gateway-faq-p2s-all-include/servercert.png "Certificado de servidor")
 
 ### <a name="can-i-use-my-own-internal-pki-root-ca-to-generate-certificates-for-point-to-site-connectivity"></a>Posso usar minha AC raiz de PKI interna para gerar certificados para conectividade ponto a site?
 
@@ -39,11 +39,11 @@ Você pode usar sua solução de Enterprise PKI (sua PKI interna), Azure PowerSh
 
 ### <a name="are-there-instructions-for-certificate-settings-and-parameters"></a><a name="certsettings"></a>Há instruções para configurações e parâmetros de certificado?
 
-* **Solução PKI interna/Enterprise PKI **: ver as etapas para [Gerar certificados](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert).
+* **Solução PKI interna/Enterprise PKI** : ver as etapas para [Gerar certificados](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert).
 
 * **Azure PowerShell:** consulte o artigo [Azure PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md) para ver as etapas.
 
-* **MakeCert**: consulte o artigo [MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) para ver as etapas.
+* **MakeCert** : consulte o artigo [MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) para ver as etapas.
 
 * **OpenSSL:** 
 
@@ -52,4 +52,4 @@ Você pode usar sua solução de Enterprise PKI (sua PKI interna), Azure PowerSh
     * Para o certificado do cliente:
 
       * Ao criar a chave privada, especifique o período como 4096.
-      * Ao criar o certificado, para o parâmetro *-extensions*, especifique *usr_cert*.
+      * Ao criar o certificado, para o parâmetro *-extensions* , especifique *usr_cert*.

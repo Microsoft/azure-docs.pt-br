@@ -1,7 +1,7 @@
 ---
 title: 'Importância do recurso de permuta: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo importância do recurso de permuta no Azure Machine Learning para computar as pontuações de importância do recurso de permuta das variáveis de recurso, dado um modelo treinado e um conjunto de dados de teste.
+description: Saiba como usar o módulo de importância do recurso de permuta no designer para computar as pontuações de importância do recurso de permuta das variáveis de recurso.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/24/2020
-ms.openlocfilehash: ecf739ea838ad3742612eab7a1b42ac8c8ac455a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ae1e79922cc0f34e8b2d1f253fce5078df286d2
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905268"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421236"
 ---
 # <a name="permutation-feature-importance"></a>Importância do recurso de permuta
 
@@ -24,7 +24,7 @@ Neste módulo, os valores de recurso são aleatoriamente aleatórios, uma coluna
 
 As pontuações que o módulo retorna representam a *alteração* no desempenho de um modelo treinado, após a permutação. Normalmente, os recursos importantes são mais sensíveis ao processo de embaralhamento, portanto, eles resultarão em pontuações de importância mais alta. 
 
-Este artigo fornece uma visão geral do recurso de permuta, sua base teórica e seus aplicativos no aprendizado de máquina: [importância do recurso de permutação](https://blogs.technet.com/b/machinelearning/archive/2015/04/14/permutation-feature-importance.aspx).  
+Este artigo fornece uma visão geral do recurso de permuta, sua base teórica e seus aplicativos no aprendizado de máquina: [importância do recurso de permutação](/archive/blogs/machinelearning/permutation-feature-importance).  
 
 ## <a name="how-to-use-permutation-feature-importance"></a>Como usar a importância do recurso de permuta
 
@@ -36,11 +36,11 @@ A geração de um conjunto de pontuações de recursos requer que você tenha um
 
 3.  Na entrada à direita, conecte um conjunto de dados. Preferencialmente, escolha uma que seja diferente do conjunto de um que você usou para treinar o modelo. Esse DataSet é usado para pontuação com base no modelo treinado. Ele também é usado para avaliar o modelo após a alteração dos valores de recurso.  
 
-4.  Para **semente aleatória**, insira um valor a ser usado como semente para randomização. Se você especificar 0 (o padrão), um número será gerado com base no relógio do sistema.
+4.  Para **semente aleatória** , insira um valor a ser usado como semente para randomização. Se você especificar 0 (o padrão), um número será gerado com base no relógio do sistema.
 
      Um valor de semente é opcional, mas você deve fornecer um valor se quiser reprodução em execuções do mesmo pipeline.  
 
-5.  Para **métrica para medir o desempenho**, selecione uma única métrica a ser usada quando você estiver computando a qualidade do modelo após a permuta.  
+5.  Para **métrica para medir o desempenho** , selecione uma única métrica a ser usada quando você estiver computando a qualidade do modelo após a permuta.  
 
      O Azure Machine Learning designer dá suporte às seguintes métricas, dependendo se você está avaliando um modelo de classificação ou regressão:  
 
@@ -69,4 +69,4 @@ O motivo da diferença é que a importância do recurso de permuta não mede a a
   
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning.

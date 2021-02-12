@@ -7,12 +7,12 @@ ms.date: 9/23/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 711963a60d5c75031ff676a9c7f1db47f20fe895
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b7457e258cf8a9936e9a63ab9eec9edc0b54d3eb
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275255"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797734"
 ---
 # <a name="introduction-to-azure-defender-for-servers"></a>Introdução ao Azure Defender para servidores
 
@@ -20,7 +20,7 @@ O Azure Defender para servidores adiciona proteções avançadas e a detecção 
 
 No Windows, o Azure Defender integra-se aos serviços do Azure para monitorar e proteger seus computadores baseados no Windows. A Central de Segurança apresenta os alertas e as sugestões de correção de todos esses serviços em um formato fácil de usar.
 
-No Linux, o Azure Defender coleta os registros de auditoria dos computadores Linux usando o **auditd** , uma das estruturas de auditoria mais comuns do Linux. auditd reside no kernel principal. 
+No Linux, o Azure Defender coleta os registros de auditoria dos computadores Linux usando o **auditd**, uma das estruturas de auditoria mais comuns do Linux. auditd reside no kernel principal. 
 
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-servers"></a>Quais são os benefícios do Azure Defender para servidores?
@@ -34,7 +34,7 @@ As funcionalidades de detecção e proteção contra ameaças fornecidos no Azur
     > [!IMPORTANT]
     > O sensor do **Microsoft Defender para Ponto de Extremidade** é habilitado automaticamente em servidores Windows que usam a Central de Segurança.
 
-- **Verificação de avaliação de vulnerabilidades para VMs** : o verificador de vulnerabilidades incluído na Central de Segurança do Azure é fornecido pela Qualys. 
+- **Verificação de avaliação de vulnerabilidades para VMs**: o verificador de vulnerabilidades incluído na Central de Segurança do Azure é fornecido pela Qualys. 
 
     O verificador da Qualys é uma das ferramentas líder para a identificação em tempo real de vulnerabilidades nas suas Máquinas Virtuais do Azure. Você não precisa de uma licença do Qualys nem de uma conta do Qualys: tudo é tratado diretamente na Central de Segurança. [Saiba mais](deploy-vulnerability-assessment-vm.md).
 
@@ -54,7 +54,7 @@ As funcionalidades de detecção e proteção contra ameaças fornecidos no Azur
 
     A proteção de rede adaptável fornece recomendações para proteger ainda mais as regras NSG. Ela usa um algoritmo de machine learning que inclui o tráfego real, a configuração confiável conhecida, a inteligência contra ameaças e outros indicadores de comprometimento e, em seguida, fornece recomendações para permitir o tráfego somente de tuplas de IP/porta específicas. [Saiba mais](security-center-adaptive-network-hardening.md).
 
-- **Proteção de host do Docker** : a Central de Segurança do Azure identifica contêineres não gerenciados hospedados em VMs IaaS do Linux ou em outros computadores Linux que executam contêineres do Docker. A Central de Segurança avalia continuamente as configurações desses contêineres. Em seguida, ela as compara com o benchmark do CIS (Center for Internet Security) do Docker. A Central de Segurança inclui todo o conjunto de regras do benchmark do CIS do Docker e alerta você se os contêineres não atendem a nenhum dos controles. [Saiba mais](harden-docker-hosts.md).
+- **Proteção de host do Docker**: a Central de Segurança do Azure identifica contêineres não gerenciados hospedados em VMs IaaS do Linux ou em outros computadores Linux que executam contêineres do Docker. A Central de Segurança avalia continuamente as configurações desses contêineres. Em seguida, ela as compara com o benchmark do CIS (Center for Internet Security) do Docker. A Central de Segurança inclui todo o conjunto de regras do benchmark do CIS do Docker e alerta você se os contêineres não atendem a nenhum dos controles. [Saiba mais](harden-docker-hosts.md).
 
 - **Detecção de ataque sem arquivos (somente Windows)** : os ataques sem arquivos injetam conteúdo mal-intencionado na memória para evitar a detecção por técnicas de verificação baseadas em disco. Depois, o conteúdo do invasor persiste na memória de processos comprometidos e executa uma ampla gama de atividades mal-intencionadas.
 
@@ -97,4 +97,4 @@ Para obter material relacionado, consulte os seguintes artigos:
 - Seja um alerta for gerado pela Central de Segurança ou recebido pela Central de Segurança de um produto de segurança diferente, você poderá exportá-lo. Para exportar seus alertas para o Azure Sentinel, qualquer SIEM de terceiros ou qualquer outra ferramenta externa, siga as instruções em [Exportar alertas para um SIEM](continuous-export.md).
 
 - > [!div class="nextstepaction"]
-    > [Habilitar o Azure Defender](security-center-pricing.md)
+    > [Habilitar o Azure Defender](security-center-pricing.md#enable-azure-defender)

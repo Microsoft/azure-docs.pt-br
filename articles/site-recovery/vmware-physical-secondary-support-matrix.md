@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: c6f0f48df32db0beb9c0a57982d9bc87b26538d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac67e3cf8f057738b76b0de7cbcb821ef290e0cb
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86135138"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757569"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para um site secundário
 
@@ -121,7 +121,7 @@ Mover armazenamento, rede, VMs do Azure entre grupos de recursos (dentro de uma 
 
 O serviço de Mobilidade coordena a replicação entre servidores VMware locais ou servidores físicos e o site secundário. Ao configurar a replicação, certifique-se de que possui a última versão do serviço de mobilidade e de outros componentes.
 
-| **Atualização** | **Detalhes** |
+| **Atualizar** | **Detalhes** |
 | --- | --- |
 |Atualizações do Scout | As atualizações do Scout são cumulativas. <br/><br/> [Saiba mais e baixe](vmware-physical-secondary-disaster-recovery.md#updates) as últimas atualizações do Scout |
 |Atualizações de componentes | As atualizações do Scout incluem atualizações para todos os componentes, incluindo o servidor RX, servidor de configuração, servidores de destino mestre e processo, servidores vContinuum e servidores de origem que deseja proteger.<br/><br/> [Saiba mais](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).|

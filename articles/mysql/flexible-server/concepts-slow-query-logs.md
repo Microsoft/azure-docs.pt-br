@@ -1,17 +1,17 @@
 ---
 title: Logs de consulta lentos-banco de dados do Azure para MySQL-servidor flexível
 description: Descreve os logs de consulta lento disponíveis no banco de dados do Azure para MySQL servidor flexível.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 512a103f5ac116f1f4eb18631cdc8e4a8b9380c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dde9575a70ea80ad262bc01bb9d5d0015c803427
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399203"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543010"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql-flexible-server-preview"></a>Logs de consulta lentos no banco de dados do Azure para MySQL servidor flexível (versão prévia)
 
@@ -27,10 +27,10 @@ Por padrão, o log de consultas lentas está desabilitado. Para habilitar os log
 
 Outros parâmetros que você pode ajustar para controlar o comportamento de log de consulta lento incluem:
 
-- **long_query_time**: Registre uma consulta se demorar mais do que `long_query_time` (em segundos) para ser concluída. O padrão é 10 segundos.
-- **log_slow_admin_statements**: determina se instruções administrativas (ex. `ALTER_TABLE`, `ANALYZE_TABLE` ) são registrados.
-- **log_queries_not_using_indexes**: determina se as consultas que não usam índices são registradas.
-- **log_throttle_queries_not_using_indexes**: limita o número de consultas não indexadas que podem ser gravadas no log de consultas lentas. Esse parâmetro entra em vigor quando `log_queries_not_using_indexes` é definido como *on*
+- **long_query_time** : Registre uma consulta se demorar mais do que `long_query_time` (em segundos) para ser concluída. O padrão é 10 segundos.
+- **log_slow_admin_statements** : determina se instruções administrativas (ex. `ALTER_TABLE`, `ANALYZE_TABLE` ) são registrados.
+- **log_queries_not_using_indexes** : determina se as consultas que não usam índices são registradas.
+- **log_throttle_queries_not_using_indexes** : limita o número de consultas não indexadas que podem ser gravadas no log de consultas lentas. Esse parâmetro entra em vigor quando `log_queries_not_using_indexes` é definido como *on*
 
 > [!IMPORTANT]
 > Se as tabelas não estiverem indexadas, definir `log_queries_not_using_indexes` os `log_throttle_queries_not_using_indexes` parâmetros e como **on** pode afetar o desempenho do MySQL, pois todas as consultas em execução nessas tabelas não indexadas serão gravadas no log de consultas lentas.

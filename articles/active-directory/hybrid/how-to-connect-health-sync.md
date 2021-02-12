@@ -3,7 +3,7 @@ title: Uso do Azure AD Connect Health com sincronização | Microsoft Docs
 description: Esta é a página Azure AD Connect Health que discutirá como monitorar a sincronização do Azure Connect AD.
 services: active-directory
 documentationcenter: ''
-author: zhiweiwangmsft
+author: billmath
 manager: daveba
 ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efb332cf8d5e34a435010a39a12b38f87cff5875
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e803614a02e76d179579a2258abd563b5c58e63a
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91313358"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016976"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Monitorar a sincronização do Azure AD Connect com o Azure AD Connect Health
 A documentação a seguir é específica do monitoramento da sincronização do Azure AD Connect (Sync) com o Azure AD Connect Health.  Para saber mais sobre como monitorar o AD FS com o Azure AD Connect Health, consulte [Usando o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md). Além disso, para obter informações sobre como monitorar Active Directory Domain Services com Azure AD Connect Health consulte [usando Azure ad Connect Health com AD DS](how-to-connect-health-adds.md).
@@ -88,7 +88,7 @@ O relatório categoriza os erros de sincronização existentes nas seguintes cat
 | Falha na validação de dados |Erros devido a dados inválidos, como caracteres sem suporte em atributos essenciais como UserPrincipalName, formate os erros que falharam na validação antes de serem gravados no Azure AD. |
 | Alteração de Domínio Federado | Erros quando as contas usam um domínio federado diferente. |
 | Atributo grande |Erros quando um ou mais atributos são maiores do que o tamanho, o comprimento ou a contagem permitidos. |
-| Outros |Todos os outros erros que não se encaixam nas categorias acima. Com base nos comentários, essa categoria será dividida em subcategorias. |
+| Outro |Todos os outros erros que não se encaixam nas categorias acima. Com base nos comentários, essa categoria será dividida em subcategorias. |
 
 ![Resumo do relatório de erro de sincronização](./media/how-to-connect-health-sync/errorreport01.png)
 ![Categorias de relatório de erro de sincronização](./media/how-to-connect-health-sync/SyncErrorByTypes.PNG)

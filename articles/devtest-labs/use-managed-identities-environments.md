@@ -3,12 +3,12 @@ title: Usar identidades gerenciadas do Azure para criar ambientes no DevTest Lab
 description: Saiba como usar identidades gerenciadas no Azure para implantar ambientes em um laboratório no Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: e5bac4210afee6db1c7617dac1cd6d2ff9149439
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f3e4b4d7030eb26c25b291e03caaa430d1979c4
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88718962"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185777"
 ---
 # <a name="use-azure-managed-identities-to-deploy-environments-in-a-lab"></a>Usar identidades gerenciadas do Azure para implantar ambientes em um laboratório 
 
@@ -69,7 +69,7 @@ Para alterar a identidade gerenciada pelo usuário atribuída ao laboratório, r
     }
     ```
  
-    Aqui está um exemplo: 
+    Veja um exemplo: 
 
     ```json
     PUT https://management.azure.com/subscriptions/0000000000-0000-0000-0000-000000000000000/resourceGroups/exampleRG/providers/Microsoft.Devtestlab/labs/mylab/serviceRunners/sampleuseridentity

@@ -14,8 +14,6 @@
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
     - name: Cotas e limites
       href: speech-services-quotas-and-limits.md
-    - name: O que há de novo no Docs?
-      href: whats-new.md
 - name: Conversão de fala em texto
   items:
     - name: Documentação de conversão de fala em texto
@@ -28,8 +26,6 @@
       items:
         - name: Alterar o idioma de origem do reconhecimento de fala
           href: how-to-specify-source-language.md
-        - name: Melhorar a precisão com a Fala Personalizada
-          href: how-to-custom-speech.md
         - name: Usar formatos de entrada de áudio compactados
           href: how-to-use-codec-compressed-audio-input-streams.md
           displayName: 'codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk'
@@ -39,28 +35,28 @@
           href: how-to-automatic-language-detection.md
         - name: Usar a API de transcrição em lote
           href: batch-transcription.md
+        - name: Fazer a migração da v2.0 para a v3.0
+          href: migrate-v2-to-v3.md
+        - name: Avaliar pronúncia
+          href: how-to-pronunciation-assessment.md
     - name: Tutoriais
       items:
-        - name: Reconhecer uma fala armazenada no Armazenamento de Blobs
-          href: quickstarts/from-blob.md
         - name: Melhorar a precisão com modelos de locatário
           href: tutorial-tenant-model.md
     - name: Personalização
       items:
+        - name: O que é a Fala Personalizada?
+          href: custom-speech-overview.md
         - name: Testar um modelo usando arquivos de áudio no Estúdio de Fala
           href: quickstarts/speech-studio-test-model.md
         - name: Preparar dados para Fala Personalizada
           href: how-to-custom-speech-test-and-train.md
         - name: Inspecionar dados da Fala Personalizada
           href: how-to-custom-speech-inspect-data.md
-        - name: Avaliar a precisão da Fala Personalizada
+        - name: Avaliar e aprimorar a precisão da Fala Personalizada
           href: how-to-custom-speech-evaluate-data.md
-        - name: Aprimorar a precisão da Fala Personalizada
-          href: how-to-custom-speech-improve-accuracy.md
-        - name: Treinar um modelo para Fala Personalizada
+        - name: Treinar e implantar um modelo de Fala Personalizada
           href: how-to-custom-speech-train-model.md
-        - name: Implantar um modelo personalizado
-          href: how-to-custom-speech-deploy-model.md
         - name: CI/CD para Fala Personalizada
           href: how-to-custom-speech-continuous-integration-continuous-deployment.md
         - name: Criar transcrições rotuladas por humanos
@@ -69,22 +65,22 @@
       items:
         - name: C++
           displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/cppref'
+          href: /cpp/cognitive-services/speech/
         - name: C#
           displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/csharpref'
+          href: /dotnet/api/microsoft.cognitiveservices.speech
         - name: Java
           displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/javaref'
+          href: /java/api/com.microsoft.cognitiveservices.speech
         - name: JavaScript
           displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/javascriptref'
+          href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
         - name: Objective-C
           displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/objectivecref'
+          href: /objectivec/cognitive-services/speech/
         - name: Python
           displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/pythonref'
+          href: /python/api/azure-cognitiveservices-speech/
         - name: Notas de versão
           displayName: 'release notes,updates,what''s new,what is new,changes'
           href: releasenotes.md
@@ -115,22 +111,10 @@
           href: long-audio-api.md
     - name: Personalização
       items:
-        - name: Implantação responsável
-          items:
-            - name: Restrição da Voz Personalizada
-              href: concepts-gating-overview.md
-            - name: Implantação da tecnologia sintética
-              href: concepts-guidelines-responsible-deployment-synthetic.md
-            - name: Divulgação para ator de voz
-              href: 'https://aka.ms/disclosure-voice-talent'
-            - name: Diretrizes de design de divulgação
-              href: concepts-disclosure-guidelines.md
-            - name: Padrões de design de divulgação
-              href: concepts-disclosure-patterns.md
-            - name: Código de conduta
-              href: 'https://aka.ms/custom-neural-code-of-conduct'
         - name: Portal da Voz Personalizada
           items:
+            - name: O que é a Sintetização de Voz Personalizada?
+              href: custom-neural-voice.md
             - name: Introdução à Voz Personalizada
               displayName: 'custom voice, neural voice'
               href: how-to-custom-voice.md
@@ -144,26 +128,52 @@
           items:
             - name: Criação de Conteúdo de Áudio
               href: how-to-audio-content-creation.md
+    - name: Uso responsável da IA
+      items:
+        - name: Sintetização de Voz Personalizada
+          items:
+            - name: Observação de transparência
+              items:
+                - name: Casos de uso para Sintetização de Voz Personalizada
+                  href: /legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+                - name: Características e limitações
+                  href: /legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+            - name: Integração e uso responsável
+              items:
+                - name: Acesso limitado
+                  href: /legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+                - name: Implantação responsável da fala sintética
+                  href: concepts-guidelines-responsible-deployment-synthetic.md
+                - name: Divulgação para ator de voz
+                  href: /legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context
+                - name: Diretrizes de design de divulgação
+                  href: concepts-disclosure-guidelines.md
+                - name: Padrões de design de divulgação
+                  href: concepts-disclosure-patterns.md
+                - name: Código de conduta
+                  href: /legal/cognitive-services/speech-service/tts-code-of-conduct?context=/azure/cognitive-services/speech-service/context/context
+            - name: 'Dados, privacidade e segurança'
+              href: /legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
     - name: Referência
       items:
         - name: C++
           displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/cppref'
+          href: /cpp/cognitive-services/speech/
         - name: C#
           displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/csharpref'
+          href: /dotnet/api/microsoft.cognitiveservices.speech
         - name: Java
           displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/javaref'
+          href: /java/api/com.microsoft.cognitiveservices.speech
         - name: JavaScript
           displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/javascriptref'
+          href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
         - name: Objective-C
           displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/objectivecref'
+          href: /objectivec/cognitive-services/speech/
         - name: Python
           displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/pythonref'
+          href: /python/api/azure-cognitiveservices-speech/
         - name: Notas de versão
           displayName: 'release notes,updates,what''s new,what is new,changes'
           href: releasenotes.md
@@ -198,22 +208,22 @@
       items:
         - name: C++
           displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/cppref'
+          href: /cpp/cognitive-services/speech/
         - name: C#
           displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/csharpref'
+          href: /dotnet/api/microsoft.cognitiveservices.speech
         - name: Java
           displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/javaref'
+          href: /java/api/com.microsoft.cognitiveservices.speech
         - name: JavaScript
           displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/javascriptref'
+          href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
         - name: Objective-C
           displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/objectivecref'
+          href: /objectivec/cognitive-services/speech/
         - name: Python
           displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/pythonref'
+          href: /python/api/azure-cognitiveservices-speech/
         - name: Notas de versão
           displayName: 'release notes,updates,what''s new,what is new,changes'
           href: releasenotes.md
@@ -243,29 +253,29 @@
           items:
             - name: C++
               displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-              href: 'https://aka.ms/csspeech/cppref'
+              href: /cpp/cognitive-services/speech/
             - name: C#
               displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
-              href: 'https://aka.ms/csspeech/csharpref'
+              href: /dotnet/api/microsoft.cognitiveservices.speech
             - name: Java
               displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-              href: 'https://aka.ms/csspeech/javaref'
+              href: /java/api/com.microsoft.cognitiveservices.speech
             - name: JavaScript
               displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
-              href: 'https://aka.ms/csspeech/javascriptref'
+              href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
             - name: Objective-C
               displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
-              href: 'https://aka.ms/csspeech/objectivecref'
+              href: /objectivec/cognitive-services/speech/
             - name: Python
               displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
-              href: 'https://aka.ms/csspeech/pythonref'
+              href: /python/api/azure-cognitiveservices-speech/
             - name: Notas de versão
               displayName: 'release notes,updates,what''s new,what is new,changes'
               href: releasenotes.md
         - name: Serviço LUIS
           items:
             - name: Recursos para desenvolvedores do LUIS
-              href: 'https://docs.microsoft.com/azure/cognitive-services/luis/developer-reference-resource'
+              href: ../luis/developer-reference-resource.md
     - name: Recursos
       items:
         - name: Suporte ao idioma
@@ -281,7 +291,7 @@
     - name: Referência
       items:
         - name: API REST do Reconhecimento do Locutor
-          href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
+          href: /rest/api/speakerrecognition/
 - name: Palavra-chave personalizada
   items:
     - name: Visão geral de palavra-chave personalizada
@@ -314,22 +324,22 @@
                   items:
                     - name: C++
                       displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-                      href: 'https://aka.ms/csspeech/cppref'
+                      href: /cpp/cognitive-services/speech/
                     - name: C#
                       displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
-                      href: 'https://aka.ms/csspeech/csharpref'
+                      href: /dotnet/api/microsoft.cognitiveservices.speech
                     - name: Java
                       displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-                      href: 'https://aka.ms/csspeech/javaref'
+                      href: /java/api/com.microsoft.cognitiveservices.speech
                     - name: JavaScript
                       displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
-                      href: 'https://aka.ms/csspeech/javascriptref'
+                      href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
                     - name: Objective-C
                       displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
-                      href: 'https://aka.ms/csspeech/objectivecref'
+                      href: /objectivec/cognitive-services/speech/
                     - name: Python
                       displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
-                      href: 'https://aka.ms/csspeech/pythonref'
+                      href: /python/api/azure-cognitiveservices-speech/
                     - name: Notas de versão
                       displayName: 'release notes,updates,what''s new,what is new,changes'
                       href: releasenotes.md
@@ -348,11 +358,11 @@
                 - name: SDK de fala
                   items:
                     - name: C++
-                      href: 'https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-transcription-namespace'
+                      href: /cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-transcription-namespace
                     - name: C#
-                      href: 'https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.transcription'
+                      href: /dotnet/api/microsoft.cognitiveservices.speech.transcription
                     - name: Java
-                      href: 'https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.transcription'
+                      href: /java/api/com.microsoft.cognitiveservices.speech.transcription
     - name: Assistentes de voz
       items:
         - name: Documentação de assistentes de voz
@@ -365,25 +375,13 @@
               href: custom-commands.md
             - name: Inícios rápidos
               items:
-                - name: Criar um aplicativo de comandos personalizados
+                - name: Criar um aplicativo de Comandos Personalizados
                   href: quickstart-custom-commands-application.md
             - name: Guias de instruções
               items:
-                - name: Desenvolver
-                  items:
-                    - name: Criar aplicativo com comandos simples
-                      href: how-to-custom-commands-create-application-with-simple-commands.md
-                    - name: Adicionar parâmetros a comandos
-                      href: how-to-custom-commands-add-parameters-to-commands.md
-                    - name: Adicionar configurações aos parâmetros de comandos
-                      href: how-to-custom-commands-add-parameter-configuration.md
-                    - name: Adicionar regras de interação
-                      href: how-to-custom-commands-add-interaction-rules.md
-                    - name: Adicionar modelos de geração de linguagem para respostas de fala
-                      href: how-to-custom-commands-add-language-generation-templates.md
-                    - name: Usar a Voz Personalizada
-                      href: how-to-custom-commands-use-custom-voice.md
-                - name: Integração
+                - name: Desenvolver e personalizar aplicativos de Comandos Personalizados
+                  href: how-to-develop-custom-commands-application.md
+                - name: Integração aos aplicativos cliente
                   items:
                     - name: Integrar com um aplicativo cliente usando o SDK de Fala
                       href: how-to-custom-commands-setup-speech-sdk.md
@@ -393,34 +391,28 @@
                       href: how-to-custom-commands-setup-web-endpoints.md
                     - name: Exportar seu aplicativo de Comandos Personalizados como uma habilidade
                       href: how-to-custom-commands-integrate-remote-skills.md
-                - name: Implantar
-                  items:
-                    - name: Implantação contínua com o Azure DevOps
-                      href: how-to-custom-commands-deploy-cicd.md
-                - name: Teste
-                  items:
-                    - name: Teste seu aplicativo de comandos personalizados
-                      href: how-to-custom-commands-developer-flow-test.md
-                - name: Depurar
-                  items:
-                    - name: Erros de depuração ao criar o aplicativo
-                      href: how-to-custom-commands-debug-build-time.md
-                    - name: Erros de depuração ao executar o aplicativo
-                      href: how-to-custom-commands-debug-runtime.md
-                - name: Referências
-                  items:
-                    - name: Conceitos de comandos personalizados
-                      href: custom-commands-references.md
+                    - name: Atualizar um comando do aplicativo cliente
+                      href: how-to-custom-commands-update-command-from-client.md
+                    - name: Atualizar um comando de um ponto de extremidade da Web
+                      href: how-to-custom-commands-update-command-from-web-endpoint.md
+                - name: Implantação contínua com o Azure DevOps
+                  href: how-to-custom-commands-deploy-cicd.md
+                - name: Aplicativos de teste de Comandos Personalizados
+                  href: how-to-custom-commands-developer-flow-test.md
+                - name: Erros de depuração ao criar o aplicativo
+                  href: how-to-custom-commands-debug-build-time.md
+                - name: Erros de depuração ao executar o aplicativo
+                  href: how-to-custom-commands-debug-runtime.md
             - name: Recursos
               items:
+                - name: Conceitos de comandos personalizados
+                  href: custom-commands-references.md
                 - name: Exemplos de comandos personalizados (GitHub)
                   href: 'https://aka.ms/speech/cc-samples'
                 - name: Exemplos de Assistentes de Voz (GitHub)
                   href: 'http://aka.ms/speech/va-samples'
                 - name: Perguntas frequentes sobre assistentes de voz
                   href: faq-voice-assistants.md
-                - name: SDK de fala
-                  href: speech-sdk.md
                 - name: Criptografia de comandos personalizados de dados em repouso
                   href: custom-commands-encryption-of-data-at-rest.md
         - name: Direct Line Speech
@@ -470,40 +462,50 @@
         - name: Referência
           items:
             - name: C++
-              href: 'https://aka.ms/csspeech/cppref'
+              href: /cpp/cognitive-services/speech/
             - name: C#
-              href: 'https://aka.ms/csspeech/csharpref'
+              href: /dotnet/api/microsoft.cognitiveservices.speech
             - name: Java
-              href: 'https://aka.ms/csspeech/javaref'
+              href: /java/api/com.microsoft.cognitiveservices.speech
             - name: JavaScript
-              href: 'https://aka.ms/csspeech/javascriptref'
+              href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
             - name: Objective-C
-              href: 'https://aka.ms/csspeech/objectivecref'
+              href: /objectivec/cognitive-services/speech/
             - name: Python
-              href: 'https://aka.ms/csspeech/pythonref'
+              href: /python/api/azure-cognitiveservices-speech/
             - name: Go
               href: 'https://github.com/microsoft/cognitive-services-speech-sdk-go'
     - name: CLI de Fala
       displayName: SPX
       items:
         - name: Visão geral da CLI de Fala
-          displayName: What is SPX?
+          displayName: 'What is SPX?, spx, spx overview'
           href: spx-overview.md
-        - name: Noções básicas da CLI de Fala
-          displayName: SPX basics
+        - name: Início rápido da CLI de Fala
+          displayName: 'spx basics, spx quickstart, spx get started, speech cli get started'
           href: spx-basics.md
+        - name: Guias de instruções
+          items:
+            - name: Opções de configuração da CLI de Fala
+              displayName: 'SPX configuration options, speech cli config, speech cli data store, data store, datastore, speech cli datastore'
+              href: spx-data-store-configuration.md
+            - name: Operações de lote da CLI de Fala
+              displayName: 'spx batch, spx batch operations, speech batch, speech cli speech to text batch, speech cli tex to speech batch'
+              href: spx-batch-operations.md
     - name: Estúdio de Fala
       items:
         - name: Visão geral do Speech Studio
           href: 'https://speech.microsoft.com'
         - name: Criar um aplicativo de comandos personalizados com o Estúdio de Fala
-          href: quickstart-custom-speech-commands-create-new.md
+          href: ./quickstart-custom-commands-application.md
 - name: Implantar
   items:
     - name: Habilitar o registro em log
       href: how-to-use-logging.md
     - name: Acompanhar o uso de memória
       href: how-to-track-speech-sdk-memory-usage.md
+    - name: Habilitar ponto de extremidade privado
+      href: speech-services-private-link.md
     - name: Configurar o OpenSSL para Linux
       displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
       href: how-to-configure-openssl-linux.md
@@ -525,9 +527,12 @@
           href: speech-container-howto-on-premises.md
         - name: Contêineres de Fala em instâncias de contêiner do Azure
           displayName: 'ACI,azure container instances,container instances,containers'
-          href: deploy-speech-on-container-instances.md
+          maintainContext: true
+          href: ../containers/azure-container-instance-recipe.md
         - name: Perguntas frequentes sobre contêineres
           href: speech-container-faq.md
+        - name: Documentação sobre contêineres dos Serviços Cognitivos
+          href: ../containers/index.yml
 - name: Dispositivos
   items:
     - name: Documentação dos dispositivos de fala

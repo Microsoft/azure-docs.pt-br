@@ -1,6 +1,6 @@
 ---
 title: Dimensionar automaticamente instâncias de Apache Spark
-description: Usar o recurso Dimensionamento automático do Azure Synapse para dimensionar automaticamente instâncias do Apache Spark
+description: Usar o recurso de autoescala do Azure Synapse para dimensionar automaticamente as instâncias de Apache Spark
 author: euangMS
 ms.author: euang
 ms.reviewer: euang
@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 03/31/2020
-ms.openlocfilehash: c043941543088d9bdbfd535f372e2335e1ba55a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f34bcfa8b743fbee6ee3b78fc1a042d1df0abfde
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500344"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313630"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Dimensionar automaticamente pools do Apache Spark do Azure Synapse Analytics
 
@@ -49,11 +49,11 @@ Para reduzir verticalmente, com base no número de executores, mestres de aplica
 
 ## <a name="get-started"></a>Introdução
 
-### <a name="create-a-spark-pool-with-autoscaling"></a>Criar um pool do Spark com Dimensionamento automático
+### <a name="create-a-serverless-apache-spark-pool-with-autoscaling"></a>Criar um pool de Apache Spark sem servidor com dimensionamento automático
 
 Para habilitar o recurso Dimensionamento automático, execute as seguintes etapas como parte do processo normal de criação de pool:
 
-1. Na guia **Noções básicas**, marque a caixa de seleção **Habilitar dimensionamento automático**.
+1. Na guia **Noções básicas** , marque a caixa de seleção **Habilitar dimensionamento automático**.
 1. Insira os valores desejados para as seguintes propriedades:  
 
     * Número **mínimo** de nós.

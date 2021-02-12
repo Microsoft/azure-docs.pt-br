@@ -9,38 +9,38 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: a9bb3ac7d3028937a422f2cd94aca4f4f4f41b58
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 0fbf5c07b2d8fd5d754a46484d6b072cc9b682d6
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167528"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599840"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Usar tabelas externas com Synapse SQL
 
-Uma tabela externa aponta para dados localizados no Hadoop, no Azure Storage Blob ou no Azure Data Lake Storage. As tabelas externas são usadas para ler dados de arquivos ou gravar dados em arquivos no Armazenamento do Azure. Com o Synapse SQL, você pode usar tabelas externas para ler e gravar dados no pool de SQL ou no SQL sob demanda (versão prévia).
+Uma tabela externa aponta para dados localizados no Hadoop, no Azure Storage Blob ou no Azure Data Lake Storage. As tabelas externas são usadas para ler dados de arquivos ou gravar dados em arquivos no Armazenamento do Azure. Com o SQL do Synapse, você pode usar tabelas externas para ler e gravar dados no pool de SQL dedicado ou no pool de SQL sem servidor.
 
-## <a name="external-tables-in-synapse-sql-pool-and-on-demand"></a>Tabelas externas no pool de SQL do Synapse e sob demanda
+## <a name="external-tables-in-dedicated-sql-pool-and-serverless-sql-pool"></a>Tabelas externas no pool de SQL dedicado e no pool de SQL sem servidor
 
-### <a name="sql-pool"></a>[Pool de SQL](#tab/sql-pool) 
+### <a name="dedicated-sql-pool"></a>[Pool de SQL dedicado](#tab/sql-pool) 
 
-No pool de SQL, você pode usar uma tabela externa para:
+No pool de SQL dedicado, você pode usar uma tabela externa para:
 
 - Consultar o Armazenamento de Blobs do Azure e o Azure Data Lake Gen2 com instruções Transact-SQL.
-- Importar e armazenar dados do Armazenamento de Blobs do Azure e do Azure Data Lake Storage no pool de SQL.
+- Importar e armazenar dados do Armazenamento de Blobs do Azure e do Azure Data Lake Storage no pool de SQL dedicado.
 
 Quando usada em conjunto com a instrução [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), a seleção em uma tabela externa importa dados para uma tabela no pool de SQL. Além da [instrução COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), as tabelas externas são úteis para carregar dados. 
 
-Para ver um tutorial de carregamento, confira [Usar o PolyBase para carregar dados do Armazenamento de Blobs do Azure](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Para ver um tutorial de carregamento, confira [Usar o PolyBase para carregar dados do Armazenamento de Blobs do Azure](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
 
-### <a name="sql-on-demand"></a>[SQL sob demanda](#tab/sql-on-demand)
+### <a name="serverless-sql-pool"></a>[Pool de SQL sem servidor](#tab/sql-on-demand)
 
-Para o SQL sob demanda, você usará uma tabela externa para:
+No pool de SQL sem servidor, você poderá usar uma tabela externa para:
 
 - Consultar dados no Armazenamento de Blobs do Azure ou no Azure Data Lake Storage com instruções Transact-SQL
-- Armazene resultados da consulta SQL sob demanda em arquivos no Armazenamento de Blobs do Azure ou no Azure Data Lake Storage usando [CETAS](develop-tables-cetas.md)
+- Armazenar resultados da consulta do pool de SQL sem servidor em arquivos no Armazenamento de Blobs do Azure ou no Azure Data Lake Storage usando [CETAS](develop-tables-cetas.md)
 
-Você pode criar tabelas externas usando o SQL sob demanda por meio das seguintes etapas:
+Você pode criar tabelas externas usando o pool de SQL sem servidor por meio das seguintes etapas:
 
 1. CREATE EXTERNAL DATA SOURCE
 2. CREATE EXTERNAL FILE FORMAT
@@ -56,7 +56,7 @@ Acesso à tabela externa subjacente ao Armazenamento do Azure usando a credencia
 - A fonte de dados pode ter uma credencial que habilita as tabelas externas a acessarem somente os arquivos no Armazenamento do Azure usando o token SAS ou a Identidade Gerenciada do workspace – para ver exemplos, consulte o artigo [Desenvolver o controle de acesso ao armazenamento de arquivos](develop-storage-files-storage-access-control.md#examples).
 
 > [!IMPORTANT]
-> No pool de SQL, a fonte de dados sem credencial habilita o usuário do Azure AD a acessar arquivos de armazenamento usando sua identidade do Azure AD. No SQL sob demanda, você precisa criar uma fonte de dados com a credencial com escopo do banco de dados que tem a propriedade `IDENTITY='User Identity'` – consulte [exemplos aqui](develop-storage-files-storage-access-control.md#examples).
+> No pool de SQL dedicado, a fonte de dados criada sem uma credencial permite que os usuários do Azure AD acessem os arquivos de armazenamento usando a identidade do Azure AD. No pool de SQL sem servidor, você precisa criar uma fonte de dados com a credencial com escopo do banco de dados que tem a propriedade `IDENTITY='User Identity'`. Confira [exemplos aqui](develop-storage-files-storage-access-control.md#examples).
 
 ## <a name="create-external-data-source"></a>CREATE EXTERNAL DATA SOURCE
 
@@ -64,7 +64,7 @@ Fontes de dados externas são usadas para se conectar a contas de armazenamento.
 
 ### <a name="syntax-for-create-external-data-source"></a>Sintaxe de CREATE EXTERNAL DATA SOURCE
 
-#### <a name="sql-pool"></a>[Pool de SQL](#tab/sql-pool)
+#### <a name="dedicated-sql-pool"></a>[Pool de SQL dedicado](#tab/sql-pool)
 
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
@@ -76,7 +76,7 @@ WITH
 [;]
 ```
 
-#### <a name="sql-on-demand"></a>[SQL sob demanda](#tab/sql-on-demand)
+#### <a name="serverless-sql-pool"></a>[Pool de SQL sem servidor](#tab/sql-on-demand)
 
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
@@ -110,16 +110,16 @@ O prefixo `https:` permite que você use subpasta no caminho.
 #### <a name="credential"></a>Credencial
 CREDENTIAL = `<database scoped credential>` é uma credencial opcional que será usada para autenticar no Armazenamento do Azure. A fonte de dados externa sem credencial pode acessar a conta do armazenamento público. 
 
-Fontes de dados externas sem credencial no pool de SQL também podem usar a identidade dos chamadores do Azure AD para acessar arquivos no armazenamento. Fontes de dados externas com credencial usam a identidade especificada na credencial para acessar os arquivos.
-- No pool de SQL, a credencial com escopo do banco de dados pode especificar a identidade do aplicativo personalizada, a Identidade Gerenciada do workspace ou a chave SAK. 
-- No SQL sob demanda, a credencial com escopo do banco de dados pode especificar a identidade do Azure AD do chamador, a Identidade Gerenciada do workspace ou a chave SAS. 
+As fontes de dados externas sem uma credencial no pool de SQL dedicado também usarão a identidade dos chamadores do Azure AD para acessar arquivos no armazenamento. Uma fonte de dados externa para o pool de SQL sem servidor com as credenciais `IDENTITY='User Identity'` usará a identidade do Azure AD do chamador para acessar arquivos.
+- No pool de SQL dedicado, a credencial com escopo do banco de dados pode especificar a identidade do aplicativo personalizada, a Identidade Gerenciada do workspace ou a chave SAK. 
+- No pool de SQL sem servidor, a credencial com escopo do banco de dados pode especificar a identidade do Azure AD do chamador, a Identidade Gerenciada do workspace ou a chave SAS. 
 
 #### <a name="type"></a>TYPE
-TYPE = `HADOOP` é a opção obrigatória no pool de SQL e especifica que a tecnologia do Polybase é usada para acessar arquivos subjacentes. Esse parâmetro não pode ser usado no serviço SQL sob demanda que usa o leitor nativo interno.
+TYPE = `HADOOP` é a opção obrigatória no pool de SQL dedicado e especifica que a tecnologia do Polybase é usada para acessar arquivos subjacentes. Esse parâmetro não pode ser usado no pool de SQL sem servidor que usa o leitor nativo interno.
 
 ### <a name="example-for-create-external-data-source"></a>Exemplo de CREATE EXTERNAL DATA SOURCE
 
-#### <a name="sql-pool"></a>[Pool de SQL](#tab/sql-pool)
+#### <a name="dedicated-sql-pool"></a>[Pool de SQL dedicado](#tab/sql-pool)
 
 O seguinte exemplo cria uma fonte de dados externa para o Azure Data Lake Gen2 apontando para o conjunto de dados de Nova York:
 
@@ -133,7 +133,7 @@ WITH
   ) ;
 ```
 
-#### <a name="sql-on-demand"></a>[SQL sob demanda](#tab/sql-on-demand)
+#### <a name="serverless-sql-pool"></a>[Pool de SQL sem servidor](#tab/sql-on-demand)
 
 O seguinte exemplo cria uma fonte de dados externa para o Azure Data Lake Gen2 que pode ser acessada usando a credencial SAS:
 
@@ -195,7 +195,7 @@ WITH (
 }
 ```
 
-#### <a name="sql-on-demand"></a>[SQL sob demanda](#tab/sql-on-demand)
+#### <a name="serverless-sql-pool"></a>[Pool de SQL sem servidor](#tab/sql-on-demand)
 
 ```syntaxsql
 -- Create an external file format for PARQUET files.  
@@ -266,7 +266,7 @@ TRUE – Se estiver recuperando dados do arquivo de texto, armazene cada valor a
 
 FALSE – Armazene todos os valores ausentes como NULL. Todos os valores NULL que estão armazenados usando a palavra NULL no arquivo de texto delimitado são importados como a cadeia de caracteres 'NULL'.
 
-Encoding = {'UTF8' | 'UTF16'} – O SQL sob demanda pode ler arquivos de texto delimitados de codificação UTF8 e UTF16.
+Encoding = {'UTF8' | 'UTF16'} – O pool de SQL sem servidor pode ler arquivos de texto delimitados de codificação UTF8 e UTF16.
 
 DATA_COMPRESSION = *data_compression_method* – Esse argumento especifica o método de compactação de dados para os dados externos. 
 
@@ -321,9 +321,9 @@ column_name <data_type>
 
 *{ database_name.schema_name.table_name | schema_name.table_name | table_name }*
 
-O nome de uma a três partes da tabela a ser criada. Para uma tabela externa, o SQL sob demanda armazena apenas os metadados da tabela. Nenhum dado real é movido ou armazenado no SQL sob demanda.
+O nome de uma a três partes da tabela a ser criada. Para uma tabela externa, o pool de SQL sem servidor armazena apenas os metadados da tabela. Nenhum dado real é movido ou armazenado no pool de SQL sem servidor.
 
-<column_definition>, ... *n* ]
+<column_definition>, ...*n* ]
 
 O CREATE EXTERNAL TABLE é compatível com a configuração de nome de coluna, tipo de dados, nulidade e ordenação. Não é possível usar a DEFAULT CONSTRAINT em tabelas externas.
 
@@ -332,16 +332,16 @@ O CREATE EXTERNAL TABLE é compatível com a configuração de nome de coluna, t
 
 Ao ler em arquivos Parquet, você pode especificar apenas as colunas que deseja ler e ignorar o restante.
 
-LOCATION = ' *folder_or_filepath* '
+LOCATION = '*folder_or_filepath*'
 
 Especifica a pasta ou o caminho do arquivo e o nome de arquivo para os dados reais no Armazenamento de Blobs do Azure. O local inicia da pasta raiz. A pasta raiz é o local de dados especificado na fonte de dados externa.
 
-Se você especificar uma LOCALIZAÇÃO de pasta, uma consulta SQL sob demanda será selecionada na tabela externa e recuperará os arquivos da pasta.
+Se você especifica a LOCATION da pasta, uma consulta do pool de SQL sem servidor é selecionada na tabela externa e recupera os arquivos da pasta.
 
 > [!NOTE]
-> Ao contrário do Hadoop e do PolyBase, o SQL sob demanda não retorna subpastas. Ele retorna arquivos cujos nomes de arquivo começam com um sublinhado (_) ou um ponto final (.).
+> Ao contrário do Hadoop e do PolyBase, o pool de SQL sem servidor não retorna subpastas. Ele retorna arquivos cujos nomes de arquivo começam com um sublinhado (_) ou um ponto final (.).
 
-Neste exemplo, se 'LOCATION='/webdata/', uma consulta SQL sob demanda retornará linhas de mydata.txt e _hidden.txt. Ele não retornará mydata2.txt e mydata3.txt porque eles estão localizados em uma subpasta.
+Neste exemplo, se 'LOCATION='/webdata/', uma consulta do pool de SQL sem servidor retornará linhas de mydata.txt e _hidden.txt. Ele não retornará mydata2.txt e mydata3.txt porque eles estão localizados em uma subpasta.
 
 ![Dados recursivos para tabelas externas](./media/develop-tables-external-tables/folder-traversal.png)
 
@@ -381,7 +381,7 @@ SELECT TOP 1 * FROM census_external_table
 
 ## <a name="create-and-query-external-tables-from-a-file-in-azure-data-lake"></a>Criar e consultar tabelas externas de um arquivo no Azure Data Lake
 
-Usando os recursos de exploração do Data Lake, agora você pode criar e consultar uma tabela externa usando o pool de SQL ou o SQL sob demanda com um simples clique com o botão direito do mouse no arquivo.
+Usando as funcionalidades de exploração do Data Lake, agora você pode criar e consultar uma tabela externa usando o pool de SQL dedicado ou o pool de SQL sem servidor com um simples clique com o botão direito do mouse no arquivo. Só há suporte para o gesto de único clique para criar tabelas externas da conta de armazenamento do ADLS Gen2 para arquivos Parquet. 
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
@@ -389,13 +389,11 @@ Usando os recursos de exploração do Data Lake, agora você pode criar e consul
 
 - Você deve ter pelo menos [permissões para criar](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#permissions-2&preserve-view=true) e consultar tabelas externas no pool de SQL ou no SQL OD (SQL sob demanda)
 
-- O serviço vinculado associado à conta do ADLS Gen2 **deve ter acesso ao arquivo** . Por exemplo, se o mecanismo de autenticação do serviço vinculado for uma Identidade Gerenciada, a Identidade Gerenciada do workspace deverá ter, pelo menos, a permissão Leitor de blob de armazenamento na conta de armazenamento
-
 No painel Dados, selecione o arquivo do qual você gostaria de criar a tabela externa:
 > [!div class="mx-imgBorder"]
 >![externaltable1](./media/develop-tables-external-tables/external-table-1.png)
 
-Uma janela de diálogo será aberta. Selecione pool de SQL ou SQL sob demanda, dê um nome à tabela e selecione abrir script:
+Uma janela de diálogo será aberta. Selecione o pool de SQL dedicado ou o pool de SQL sem servidor, dê um nome à tabela e selecione abrir script:
 
 > [!div class="mx-imgBorder"]
 >![externaltable2](./media/develop-tables-external-tables/external-table-2.png)

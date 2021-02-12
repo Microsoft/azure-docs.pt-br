@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 4fe3744f3f8cb39a7493ce788ee9badc1b31b75e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cfd479382cb69e7355b033312e165699223fdbf0
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396171"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756301"
 ---
 # <a name="a-web-app-that-calls-web-apis-acquire-a-token-for-the-app"></a>Um aplicativo Web que chama APIs da Web: adquirir um token para o aplicativo
 
@@ -203,5 +203,4 @@ def graphcall():
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Chamar uma API da Web](scenario-web-app-call-api-call-api.md)
+Vá para o próximo artigo neste cenário, [chame uma API da Web](scenario-web-app-call-api-call-api.md).

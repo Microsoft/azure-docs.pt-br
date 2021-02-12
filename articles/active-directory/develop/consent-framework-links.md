@@ -11,12 +11,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: ryanwi
-ms.openlocfilehash: 15270a998aff174c04acf2969d984eb022852635
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: cd55375f2c5970ff0620e753923f369d40478cef
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88117355"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052018"
 ---
 # <a name="how-application-consent-works"></a>Como o consentimento de aplicativo funciona
 
@@ -30,4 +31,4 @@ Este artigo o ajuda a aprender mais sobre como a estrutura de consentimento do A
 - Para se aprofundar, veja [como o consentimento tem suporte na camada de protocolo OAuth 2.0 durante o fluxo de concessão de código de autorização.](../azuread-dev/v1-protocols-oauth-code.md#request-an-authorization-code)
 
 ## <a name="next-steps"></a>Próximas etapas
-[StackOverflow do AzureAD](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[AzureAD Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)

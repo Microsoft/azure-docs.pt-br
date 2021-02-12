@@ -1,20 +1,15 @@
 ---
-title: Visão geral do Portal do Azure | Microsoft Docs
+title: Visão geral do portal do Azure
 description: O portal do Azure é uma interface gráfica do usuário que você pode usar para gerenciar seus serviços do Azure. Saiba como navegar e localizar recursos no portal do Azure.
-services: azure-portal
 keywords: portal
-author: mgblythe
-ms.author: mblythe
 ms.date: 12/20/2019
 ms.topic: overview
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: 24b249d1098788e518f5eda2d1b0d421d4e5e6bb
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 1e9cf1a9609b9d4f30e51094f1d0542335ead0e2
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072383"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745920"
 ---
 # <a name="azure-portal-overview"></a>Visão geral do portal do Azure
 
@@ -42,7 +37,7 @@ Se você escolher o modo encaixado para o menu do portal, ele sempre estará vis
 
 Como novo assinante dos serviços do Azure, a primeira coisa que você vê depois de [entrar no portal](https://portal.azure.com) é a **Página Inicial do Azure**. Esta página compila os recursos que ajudam você a aproveitar ao máximo sua assinatura do Azure. Incluímos links para cursos online gratuitos, a documentação, os serviços principais e sites úteis para permanecer atualizado e administrar mudanças para sua organização. Para oferecer acesso rápido e fácil ao trabalho em andamento, também mostramos uma lista dos recursos visitados mais recentemente. Você não pode personalizar esta página, mas pode escolher se deseja ver a **Página Inicial do Azure** ou o **Painel do Azure** como sua exibição padrão. Na primeira vez que você entra, há um prompt na parte superior da página em que você pode salvar sua preferência.
 
-![Captura de tela mostrando o seletor de exibição padrão](./media/azure-portal-overview/azure-portal-default-view.png)
+![Captura de tela mostrando onde salvar sua preferência.](./media/azure-portal-overview/azure-portal-default-view.png)
 
 O menu do portal do Azure e o modo a exibição padrão do Azure podem ser alterados nas **Configurações do portal**. Se você alterar a seleção, a alteração será aplicada imediatamente.
 

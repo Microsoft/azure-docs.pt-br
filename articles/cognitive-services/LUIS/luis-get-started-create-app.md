@@ -4,13 +4,13 @@ description: Neste início rápido, crie um aplicativo LUIS que use o domínio p
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/05/2020
-ms.openlocfilehash: 28bf79b61c0278a3f45820a23cd2c69f0b609700
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/13/2020
+ms.openlocfilehash: 2048079a9b1eb5234d03c6fe57073228bd892d53
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91316471"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019153"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Início Rápido: usar aplicativo de automação Inicial predefinido
 
@@ -23,20 +23,23 @@ Neste início rápido, crie um aplicativo LUIS que use o domínio predefinido `H
 ## <a name="create-a-new-app"></a>Criar um novo aplicativo
 Você pode criar e gerenciar seus aplicativos em **Meus Aplicativos**.
 
-1. Na lista Meus aplicativos, selecione **+ Novo aplicativo para conversa**, então na lista de opções, escolha **+ Novo aplicativo para conversa** novamente.
+### <a name="create-an-application"></a>Criar um aplicativo
 
-1. Na caixa de diálogo, dê um nome ao aplicativo `Home Automation`.
-1. Selecione **Inglês** como a cultura.
-1. Insira uma descrição opcional.
-1. Não selecione um recurso de previsão se você ainda não criou o recurso. Para usar o ponto de extremidade de previsão do aplicativo (preparo ou produção), você precisa atribuir um recurso de previsão.
-1. Selecione **Concluído**.
+Para criar um aplicativo, clique em **+ Novo aplicativo**. 
 
-    LUIS cria o aplicativo.
+Na janela exibida, insira as seguintes informações:
 
-    ![Na caixa de diálogo, dê ao seu aplicativo o nome `Automação Residencial`](./media/create-new-app-details.png)
+|Nome  |Descrição  |
+|---------|---------|
+|AName     | Um nome para o seu aplicativo. Por exemplo, "automação residencial".        |
+|Cultura     | O idioma que o seu aplicativo compreende e fala.   |
+|Descrição | Uma descrição para o aplicativo.
+|Recurso de previsão | O recurso de previsão que receberá consultas. |
 
-    >[!NOTE]
-    >A cultura não poderá ser alterada depois que o aplicativo for criado.
+Selecione **Concluído**.
+
+>[!NOTE]
+>A cultura não poderá ser alterada depois que o aplicativo for criado.
 
 ## <a name="add-prebuilt-domain"></a>Adicionar domínio predefinido
 
@@ -51,10 +54,7 @@ Você pode criar e gerenciar seus aplicativos em **Meus Aplicativos**.
 
 ## <a name="intents-and-entities"></a>Intenções e entidades
 
-1. Selecione **intenções** para examinar as intenções do domínio HomeAutomation. As intenções de domínio predefinidas têm enunciados de exemplo.
-
-    > [!div class="mx-imgBorder"]
-    > ![Captura de tela da lista de intenções de HomeAutomation](media/luis-quickstart-new-app/home-automation-intents.png "Captura de tela da lista de intenções de HomeAutomation")
+1. Selecione **Intenções** no menu de navegação à esquerda para ver as intenções do domínio HomeAutomation. Ele tem exemplos de enunciados, como `HomeAutomation.QueryState` e `HomeAutomation.SetDevice`.
 
     > [!NOTE]
     > **None** é uma intenção fornecida por todos os aplicativos LUIS. Você pode usá-la para lidar com enunciados que não correspondem à funcionalidade que seu aplicativo fornece.
@@ -63,6 +63,10 @@ Você pode criar e gerenciar seus aplicativos em **Meus Aplicativos**.
 
     > [!div class="mx-imgBorder"]
     > [![Captura de tela da intenção HomeAutomation.TurnOff](media/luis-quickstart-new-app/home-automation-turnoff.png "Captura de tela da intenção HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnoff.png)
+
+1. Caso deseje ver as entidades do aplicativo, selecione **Entidades**. Se você clicar em uma das entidades, como **HomeAutomation.DeviceName**, verá uma lista de valores associados a ela. 
+ 
+    :::image type="content" source="media/luis-quickstart-new-app/entities-page.png" alt-text="Texto Alt da imagem" lightbox="media/luis-quickstart-new-app/entities-page.png":::
 
 ## <a name="train-the-luis-app"></a>Treinar o aplicativo LUIS
 
@@ -73,11 +77,7 @@ Depois de treinar o aplicativo, você pode testá-lo.
 
 1. Selecione **Teste** no menu de navegação superior direito.
 
-1. Digite um enunciado de teste, como `Turn off the lights` no painel de teste interativo e pressione Enter.
-
-    ```
-    Turn off the lights
-    ```
+1. Digite um enunciado de teste, como `Turn off the lights` no painel de teste interativo e pressione Enter. Por exemplo, *Desligar as luzes*.
 
     Neste exemplo, `Turn off the lights` é identificado corretamente como a intenção de pontuação superior de **HomeAutomation.TurnOff**.
 
@@ -94,7 +94,18 @@ Depois de treinar o aplicativo, você pode testá-lo.
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicar o aplicativo para obter a URL do ponto de extremidade
 
-[!INCLUDE [LUIS How to Publish steps](./includes/howto-publish.md)]
+Para receber uma previsão do LUIS em um chatbot ou em outro aplicativo cliente, publique o aplicativo no ponto de extremidade de previsão.
+
+1. Selecione **Publicar** no canto superior direito da janela.
+
+1. Selecione o slot de **Produção** e **Concluído**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Captura de tela da publicação do LUIS para o ponto de extremidade](media/howto-publish/publish-app-popup.png)
+
+1. Selecione o link **Acessar as URLs do ponto de extremidade** na notificação para ir à página **Recursos do Azure**. As URLs do ponto de extremidade são listadas como a **Consulta de Exemplo**.
+
+<!-- [!INCLUDE [LUIS How to Publish steps](./includes/howto-publish.md)] -->
 
 <a name="query-the-v2-api-prediction-endpoint"></a>
 
@@ -212,4 +223,4 @@ Depois de treinar o aplicativo, você pode testá-lo.
 Você pode chamar o ponto de extremidade do código:
 
 > [!div class="nextstepaction"]
-> [Chamar um ponto de extremidade do LUIS usando código](luis-get-started-cs-get-intent.md)
+> [Chamar um ponto de extremidade do LUIS usando código](./luis-get-started-get-intent-from-rest.md)

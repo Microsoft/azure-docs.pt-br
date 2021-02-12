@@ -1,26 +1,28 @@
 ---
 title: Script da CLI – Criar servidor – Banco de Dados do Azure para MariaDB
 description: Este exemplo de script da CLI cria um servidor do Banco de Dados do Azure para MariaDB e configura uma regra de firewall no nível do servidor.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 11/28/2018
-ms.openlocfilehash: b3a646e7f59f4002892edf9210658a966cbc051f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b414b5d483f4662bf8fdeb144a9cc8ef99d02dd
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87498643"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664608"
 ---
 # <a name="create-a-mariadb-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Criar um servidor MariaDB e configurar uma regra de firewall usando a CLI do Azure
 Este exemplo de script da CLI cria um servidor do Banco de Dados do Azure para MariaDB e configura uma regra de firewall no nível do servidor. Após o script ser executado com êxito, o servidor MariaDB será acessível por todos os serviços do Azure e pelo endereço IP configurado.
 
-[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-Se você optar por executar a CLI localmente, este artigo exigirá a CLI do Azure versão 2.0 ou posterior. Verifique a versão executando `az --version`. Confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli) para instalar ou atualizar sua versão da CLI do Azure.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+
+- Este artigo exige a versão 2.0 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="sample-script"></a>Exemplo de script
 Neste script de exemplo, edite as linhas destacadas para atualizar o nome de usuário administrador e a senha com os seus próprios.

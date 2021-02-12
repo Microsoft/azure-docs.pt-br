@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 08/26/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9664518a7e8ec505a2823cdd5f17d6fa8a7db8b
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 0620304de1866d24719b137836419502cd25bee9
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92925791"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682230"
 ---
 # <a name="troubleshoot-self-service-password-reset-writeback-in-azure-active-directory"></a>Solucionar problemas de write-back de redefinição de senha Azure Active Directory de autoatendimento
 
@@ -43,6 +43,11 @@ Para Azure AD Connect versão *1.1.443.0* e posterior, o acesso *https de saída
 * *\*. passwordreset.microsoftonline.com*
 * *\*. servicebus.windows.net*
 
+[Pontos de extremidade](../../azure-government/compare-azure-government-global-azure.md#guidance-for-developers)do Azure gov:
+
+* *\*. passwordreset.microsoftonline.us*
+* *\*. servicebus.usgovcloudapi.net*
+
 Se precisar de mais granularidade, consulte a [lista de intervalos de IP do datacenter Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Essa lista é atualizada todas as quartas-feiras e entra em vigor na próxima segunda-feira.
 
 Para obter mais informações, consulte os [pré-requisitos de conectividade para Azure ad Connect](../hybrid/how-to-connect-install-prerequisites.md).
@@ -51,9 +56,9 @@ Para obter mais informações, consulte os [pré-requisitos de conectividade par
 
 Para resolver problemas de conectividade ou outros problemas transitórios com o serviço, conclua as seguintes etapas para reiniciar o serviço de sincronização de Azure AD Connect:
 
-1. Como administrador no servidor que executa o Azure AD Connect, selecione **Iniciar** .
-1. Insira *services.msc* no campo de pesquisa e selecione **Enter** .
-1. Procure a entrada *Microsoft Azure AD Sync* .
+1. Como administrador no servidor que executa o Azure AD Connect, selecione **Iniciar**.
+1. Insira *services.msc* no campo de pesquisa e selecione **Enter**.
+1. Procure a entrada *Microsoft Azure AD Sync*.
 1. Clique com o botão direito do mouse na entrada do serviço, selecione **reiniciar** e aguarde a conclusão da operação.
 
     :::image type="content" source="./media/troubleshoot-sspr-writeback/service-restart.png" alt-text="Reiniciar o serviço Azure AD Sync usando a GUI" border="false":::
@@ -66,15 +71,15 @@ Se a reinicialização do serviço de sincronização de Azure AD Connect não r
 
 Para continuar a solucionar problemas, conclua as seguintes etapas para desabilitar e reabilitar o recurso de write-back de senha:
 
-1. Como administrador no servidor que executa o Azure AD Connect, abra o **Assistente de configuração do Azure ad Connect** .
-1. Em **Conectar-se ao Azure AD** , insira suas credenciais de administrador global do Azure AD.
-1. Em **conectar a AD DS** , insira suas credenciais de administrador de Active Directory Domain Services local.
-1. Em **Identificando seus usuários com exclusividade** , selecione o botão **Avançar** .
-1. Em **Recursos opcionais** , desmarque a caixa de seleção **write-back de senha** .
-1. Selecione **Avançar** nas páginas de diálogo restantes sem alterar nada até chegar à página **Pronto para configurar** .
-1. Verifique se a **página pronto para configurar** mostra a opção de *write-back de senha* como *desabilitada* . Selecione o botão verde **Configurar** para confirmar suas alterações.
-1. Em **Concluído** , desmarque a opção **Sincronizar agora** e selecione **Concluir** para fechar o assistente.
-1. Reabra o **Assistente de configuração do Azure ad Connect** .
+1. Como administrador no servidor que executa o Azure AD Connect, abra o **Assistente de configuração do Azure ad Connect**.
+1. Em **Conectar-se ao Azure AD**, insira suas credenciais de administrador global do Azure AD.
+1. Em **conectar a AD DS**, insira suas credenciais de administrador de Active Directory Domain Services local.
+1. Em **Identificando seus usuários com exclusividade**, selecione o botão **Avançar**.
+1. Em **Recursos opcionais**, desmarque a caixa de seleção **write-back de senha**.
+1. Selecione **Avançar** nas páginas de diálogo restantes sem alterar nada até chegar à página **Pronto para configurar**.
+1. Verifique se a **página pronto para configurar** mostra a opção de *write-back de senha* como *desabilitada*. Selecione o botão verde **Configurar** para confirmar suas alterações.
+1. Em **Concluído**, desmarque a opção **Sincronizar agora** e selecione **Concluir** para fechar o assistente.
+1. Reabra o **Assistente de configuração do Azure ad Connect**.
 1. Repita as etapas 2-8, desta vez selecionando a opção *write-back de senha* na página **recursos opcionais** para reabilitar o serviço.
 
 Essas etapas restabelecem a conexão com o Azure AD e devem resolver seus problemas de conectividade.
@@ -101,32 +106,32 @@ Se a instalação da versão mais recente do Azure AD Connect Server não resolv
 
 Azure AD Connect requer AD DS permissão de **redefinição de senha** para executar o Write-back de senha. Para verificar se Azure AD Connect tem a permissão necessária para uma determinada conta de usuário local AD DS, use o recurso de **permissão efetiva do Windows** :
 
-1. Faça o logon no servidor do Azure AD Connect e inicie o **Synchronization Service Manager** selecionando **Iniciar** > **Serviço de Sincronização** .
-1. Na guia **Conectores** , selecione o conector do **Active Directory Domain Services** local e selecione **Propriedades** .
+1. Faça o logon no servidor do Azure AD Connect e inicie o **Synchronization Service Manager** selecionando **Iniciar** > **Serviço de Sincronização**.
+1. Na guia **Conectores**, selecione o conector do **Active Directory Domain Services** local e selecione **Propriedades**.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager.png" alt-text="Reiniciar o serviço Azure AD Sync usando a GUI" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager.png" alt-text="Synchronization Service Manager mostrando como editar propriedades" border="false":::
   
-1. Na janela pop-up, selecione **Conectar-se à Floresta do Active Directory** e anote a propriedade **User name** . Essa propriedade é a conta de AD DS usada pelo Azure AD Connect para executar a sincronização de diretório.
+1. Na janela pop-up, selecione **Conectar-se à Floresta do Active Directory** e anote a propriedade **User name**. Essa propriedade é a conta de AD DS usada pelo Azure AD Connect para executar a sincronização de diretório.
 
     Para que o Azure AD Connect execute o write-back de senha, a conta do AD DS deve ter permissão para redefinir senha. Você verifica as permissões nessa conta de usuário nas etapas a seguir.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager-properties.png" alt-text="Reiniciar o serviço Azure AD Sync usando a GUI" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager-properties.png" alt-text="Localizar a conta de usuário do Active Directory do serviço de sincronização" border="false":::
   
-1. Entre em um controlador de domínio local e inicie o aplicativo **Usuários e Computadores do Active Directory** .
+1. Entre em um controlador de domínio local e inicie o aplicativo **Usuários e Computadores do Active Directory**.
 1. Selecione **Exibir** e verifique se a opção **Recursos Avançados** está habilitada.  
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-advanced-features.png" alt-text="Reiniciar o serviço Azure AD Sync usando a GUI" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-advanced-features.png" alt-text="Computadores e usuários do Active Directory mostram recursos avançados" border="false":::
   
-1. Procure a conta de usuário AD DS que você deseja verificar. Clique com o botão direito do mouse na conta e selecione **Propriedades** .  
-1. Na janela pop-up, vá para a guia **Segurança** e selecione **Avançado** .  
-1. Na janela **Configurações de segurança Avançadas para o Administrador** , vá para a guia **Acesso Efetivo** .
-1. Escolha **selecionar um usuário** , selecione a conta de AD DS usada pelo Azure ad Connect e, em seguida, selecione **exibir acesso efetivo** .
+1. Procure a conta de usuário AD DS que você deseja verificar. Clique com o botão direito do mouse na conta e selecione **Propriedades**.  
+1. Na janela pop-up, vá para a guia **Segurança** e selecione **Avançado**.  
+1. Na janela **Configurações de segurança Avançadas para o Administrador**, vá para a guia **Acesso Efetivo**.
+1. Escolha **selecionar um usuário**, selecione a conta de AD DS usada pelo Azure ad Connect e, em seguida, selecione **exibir acesso efetivo**.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-effective-access.png" alt-text="Reiniciar o serviço Azure AD Sync usando a GUI" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-effective-access.png" alt-text="Guia Acesso Efetivo mostrando a conta de sincronização" border="false":::
   
-1. Role para baixo e procure **Redefinir senha** . Se a entrada tem uma marca de seleção, a conta do AD DS tem permissão para redefinir a senha da conta de usuário do Active Directory selecionada.  
+1. Role para baixo e procure **Redefinir senha**. Se a entrada tem uma marca de seleção, a conta do AD DS tem permissão para redefinir a senha da conta de usuário do Active Directory selecionada.  
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/check-permissions.png" alt-text="Reiniciar o serviço Azure AD Sync usando a GUI" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/check-permissions.png" alt-text="Verificar se a conta de sincronização tem a permissão Redefinir senha" border="false":::
 
 ## <a name="common-password-writeback-errors"></a>Erros comuns de write-back de senha
 
@@ -135,7 +140,7 @@ Os seguintes problemas mais específicos podem ocorrer com o Write-back de senha
 | Erro | Solução |
 | --- | --- |
 | O serviço de redefinição de senha não é iniciado localmente. O erro 6800 aparece no log de eventos do aplicativo do Azure AD Connect Machine. <br> <br> Após a integração, os usuários federados, com autenticação de passagem ou sincronizados com hash de senha não conseguem redefinir suas senhas. | Quando o write-back de senha é habilitado, o mecanismo de sincronização chama a biblioteca de write-back para realizar a configuração (integração) comunicando-se com o serviço de integração em nuvem. Os erros encontrados durante a integração ou ao iniciar o ponto de extremidade do WCF (Windows Communication Foundation) para o write-back de senha resultam em erros no log de eventos e no computador do Azure AD Connect. <br> <br> Durante a reinicialização do serviço ADSync (Sincronização do Azure AD), se o write-back tiver sido configurado, o ponto de extremidade do WCF será inicializado. Mas, se a inicialização do ponto de extremidade falhar, registraremos o evento 6800 e permitiremos que o serviço de sincronização seja inicializado. A presença desse evento significa que o ponto de extremidade de write-back de senha não foi iniciado. Os detalhes do log de eventos desse evento (6800) juntamente com as entradas do log de eventos geradas pelo componente PasswordResetService indicam por que não é possível iniciar o ponto de extremidade. Examine esses erros de log de eventos e tente reiniciar o Azure AD Connect se o Write-back de senha ainda não estiver funcionando. Se o problema persistir, tente desabilitar e reabilitar o write-back de senha.
-| Quando um usuário tenta redefinir uma senha ou desbloquear uma conta com write-back de senha habilitada, a operação falha. <br> <br> Além disso, você verá um evento no log de eventos Azure AD Connect que contém: "o mecanismo de sincronização retornou um erro HR = 800700CE, Message = o nome do arquivo ou a extensão é muito longa" após a operação de desbloqueio ocorrer. | Encontre a conta do Active Directory no Azure AD Connect e redefina a senha para que contenha no máximo 256 caracteres. Em seguida, abra o **serviço de sincronização** no menu **Iniciar** . Navegue para **Conectores** e localize o **Active Directory Connector** . Selecione-o e, em seguida, selecione **Propriedades** . Navegue até a página **Credenciais** e digite a nova senha. Selecione **OK** para fechar a página. |
+| Quando um usuário tenta redefinir uma senha ou desbloquear uma conta com write-back de senha habilitada, a operação falha. <br> <br> Além disso, você verá um evento no log de eventos Azure AD Connect que contém: "o mecanismo de sincronização retornou um erro HR = 800700CE, Message = o nome do arquivo ou a extensão é muito longa" após a operação de desbloqueio ocorrer. | Encontre a conta do Active Directory no Azure AD Connect e redefina a senha para que contenha no máximo 256 caracteres. Em seguida, abra o **serviço de sincronização** no menu **Iniciar** . Navegue para **Conectores** e localize o **Active Directory Connector**. Selecione-o e, em seguida, selecione **Propriedades**. Navegue até a página **Credenciais** e digite a nova senha. Selecione **OK** para fechar a página. |
 | Na última etapa do processo de instalação do Azure AD Connect, você verá um erro que indica que não é possível configurar o write-back de senha. <br> <br> O log de eventos do aplicativo Azure AD Connect contém o erro 32009 com o texto "erro ao obter o token de autenticação". | Esse erro ocorre nos seguintes casos: <br><ul><li>Você especificou uma senha incorreta para a conta de administrador global fornecida no início do processo de instalação do Azure AD Connect.</li><li>Você tentou usar um usuário federado para a conta de administrador global especificada no início do processo de instalação do Azure AD Connect.</li></ul> Para corrigir esse problema, certifique-se de que você não está usando uma conta federada para o administrador global que você especificou no início do processo de instalação e que a senha especificada está correta. |
 | O log de eventos do computador do Azure AD Connect contém o erro 32002, lançado pela execução de PasswordResetService. <br> <br> O erro diz: "erro ao conectar-se ao ServiceBus. O provedor de token não pôde fornecer um token de segurança. " | O ambiente local não pode se conectar ao ponto de extremidade do Barramento de Serviço do Azure na nuvem. Esse erro normalmente é causado por uma regra de firewall que bloqueia uma conexão de saída com uma porta ou um endereço web específico. Consulte [Pré-requisitos de conectividade](../hybrid/how-to-connect-install-prerequisites.md) para saber mais. Depois de atualizar essas regras, reinicie o servidor de Azure AD Connect e o Write-back de senha deve começar a funcionar novamente. |
 | Após trabalhar um pouco, os usuários federados, com autenticação de passagem ou sincronizados com hash de senha não conseguem redefinir suas senhas. | Em alguns casos raros, o serviço write-back de senha poderá falhar ao reiniciar quando o Azure AD Connect for reiniciado. Nesses casos, primeiro verifique se o Write-back de senha está habilitado localmente. Você pode verificar usando o assistente de Azure AD Connect ou o PowerShell. Se o recurso parecer estar habilitado, tente habilitar ou desabilitar o recurso novamente. Se essa etapa de solução de problemas não funcionar, tente uma desinstalação completa e reinstale o Azure AD Connect. |
@@ -213,22 +218,22 @@ Caso não encontre a resposta para um problema, nossas equipes de suporte sempre
 
 Para uma assistência adequada, solicitamos que você forneça o máximo de detalhes possíveis ao abrir um caso. Esses detalhes incluem o seguinte:
 
-* **Descrição geral do erro** : Qual é o erro? Qual foi o comportamento observado? Como podemos reproduzir o erro? Forneça o máximo de detalhes possível.
-* **Página** : Em qual página você estava quando observou o erro? Se possível, inclua a URL e uma captura de tela da página.
-* **Código de suporte** : Qual foi o código de suporte gerado quando o usuário viu o erro?
+* **Descrição geral do erro**: Qual é o erro? Qual foi o comportamento observado? Como podemos reproduzir o erro? Forneça o máximo de detalhes possível.
+* **Página**: Em qual página você estava quando observou o erro? Se possível, inclua a URL e uma captura de tela da página.
+* **Código de suporte**: Qual foi o código de suporte gerado quando o usuário viu o erro?
    * Para encontrar o código, reproduza o erro, selecione o link **Código de Suporte** na parte inferior da tela e envie o GUID resultante ao engenheiro de suporte.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-support-code.png" alt-text="Reiniciar o serviço Azure AD Sync usando a GUI":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-support-code.png" alt-text="O código de suporte está localizado na parte inferior direita da janela do navegador da Web.":::
 
   * Se você estiver em uma página sem um código de suporte na parte inferior, selecione F12 para o SID e o CID e envie esses dois resultados para o engenheiro de suporte.
-* **Data, hora e fuso horário** : Inclua a data e a hora exatas *com o fuso horário* em que ocorreu o erro.
-* **ID de Usuário** : Qual usuário viu o erro? Um exemplo é *user\@contoso.com* .
+* **Data, hora e fuso horário**: Inclua a data e a hora exatas *com o fuso horário* em que ocorreu o erro.
+* **ID de Usuário**: Qual usuário viu o erro? Um exemplo é *user\@contoso.com*.
    * Trata-se de um usuário federado?
    * Trata-se de um usuário de autenticação de passagem?
    * Um usuário sincronizado com hash de senha?
    * Ou de um usuário somente de nuvem?
-* **Licenciamento** : O usuário tem uma licença do Azure AD atribuída?
-* **Log de eventos do aplicativo** : Se estiver usando o write-back de senha e o erro estiver na infraestrutura local, inclua uma cópia compactada do log de eventos do aplicativo por meio do servidor do Azure AD Connect.
+* **Licenciamento**: O usuário tem uma licença do Azure AD atribuída?
+* **Log de eventos do aplicativo**: Se estiver usando o write-back de senha e o erro estiver na infraestrutura local, inclua uma cópia compactada do log de eventos do aplicativo por meio do servidor do Azure AD Connect.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -4,13 +4,13 @@ description: Use essas melhores práticas para melhorar a base de dados de conhe
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 02/15/2020
-ms.openlocfilehash: 15cb1391cb6482401c2a091a4d5c0e9d819ba52d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 8a6189a613c9a6768428a13e35e0e009894b8b3f
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777013"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988038"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Melhores práticas de uma base de dados de conhecimento do QnA Maker
 
@@ -18,7 +18,7 @@ O [ciclo de vida de desenvolvimento da base de dados de conhecimento](../Concept
 
 ## <a name="extraction"></a>Extração
 
-O serviço QnA Maker está melhorando continuamente os algoritmos que extraem perguntas e respostas do conteúdo e está expandindo a lista de formatos de arquivo e de HTML com suporte. Siga as [diretrizes](../Concepts/content-types.md) de extração de dados com base em seu tipo de documento.
+O serviço QnA Maker está melhorando continuamente os algoritmos que extraem perguntas e respostas do conteúdo e está expandindo a lista de formatos de arquivo e de HTML com suporte. Siga as [diretrizes](../index.yml) de extração de dados com base em seu tipo de documento.
 
 Em geral, as páginas de perguntas frequentes devem ser independentes e não combinadas com outras informações. Manuais de produtos devem ter títulos claros e, de preferência, uma página de índice.
 
@@ -116,11 +116,17 @@ Por padrão, QnA Maker pesquisa perguntas e respostas. Se você quiser pesquisar
 Os [metadados](../How-To/edit-knowledge-base.md) adicionam a capacidade de um aplicativo cliente saber que ele não deve receber todas as respostas, mas sim restringir os resultados de uma consulta de usuário com base nas marcas de metadados. A resposta da base de dados de conhecimento poderá variar com base na marca de metadados, mesmo se a consulta for a mesma. Por exemplo, *"onde o estacionamento está localizado"* pode ter uma resposta diferente se o local da ramificação do restaurante for diferente, ou seja, os metadados forem *Localização: Seattle* versus *local: Redmond*.
 
 ### <a name="use-synonyms"></a>Usar sinônimos
-Embora haja suporte para sinônimos no idioma inglês, use as alterações de palavras que não diferenciam maiúsculas de minúsculas por meio da [API de alterações](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) para adicionar sinônimos a palavras-chave que usam um formulário diferente. Os sinônimos são adicionados no nível de serviço QnA Maker e compartilhados por todas as bases de conhecimento no serviço.
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versão estável)](#tab/v1)
+Embora haja suporte para sinônimos no idioma inglês, use as alterações de palavras que não diferenciam maiúsculas de minúsculas por meio da [API de alterações](/rest/api/cognitiveservices/qnamaker/alterations/replace) para adicionar sinônimos a palavras-chave que usam diferentes formas. Os sinônimos são adicionados no nível de serviço QnA Maker e **compartilhados por todas as bases de conhecimento no serviço**.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
+Embora haja suporte para sinônimos no idioma inglês, use as alterações de palavras que não diferenciam maiúsculas de minúsculas por meio da [API de alterações](/rest/api/cognitiveservices/qnamaker/alterations/replace) para adicionar sinônimos a palavras-chave que usam diferentes formas. Os sinônimos em QnA Maker gerenciados (versão prévia) são **adicionados por base de dados de conhecimento**.
 
 |Palavra original|Sinônimos|
 |--|--|
 |comprar|comprar<br>NET-Banking<br>Internet banking|
+
+---
 
 ### <a name="use-distinct-words-to-differentiate-questions"></a>Use palavras distintas para diferenciar perguntas
 O algoritmo de classificação do QnA Maker, que corresponde uma consulta de usuário a uma pergunta na base de conhecimento, funciona melhor se cada pergunta atende a uma necessidade diferente. A repetição do mesmo conjunto de palavras entre as perguntas reduz a probabilidade da resposta correta ser escolhida para uma determinada consulta de usuário com essas palavras.
@@ -134,8 +140,8 @@ Por exemplo, você pode ter duas perguntas e respostas separadas com as seguinte
 
 Uma vez que essas perguntas e respostas são formuladas com palavras muito semelhantes, essa semelhança poderia levar a pontuações muito semelhantes para muitas consultas do usuário formuladas como *"qual é a localização de `<x>`"*. Em vez disso, tente diferenciar claramente usando consultas como *"onde fica o estacionamento"* e *"onde fica o caixa eletrônico"*, evitando palavras como "localização", que poderiam estar em muitas perguntas em sua base de dados.
 
-## <a name="collaborate"></a>Colaborar
-O QnA Maker permite que os usuários [colaborem](../How-to/collaborate-knowledge-base.md) em uma base de dados de conhecimento. Os usuários precisam de acesso ao grupo de recursos do QnA Maker do Azure para acessar as bases de dados de conhecimento. Algumas organizações podem querer terceirizar a edição e manutenção da base de dados de conhecimento e ainda proteger o acesso aos recursos do Azure. Esse modelo de editor-aprovador é realizado configurando dois [serviços do QnA Maker](../How-to/set-up-qnamaker-service-azure.md) idênticos em assinaturas diferentes e designando um deles para o ciclo de teste e edição. Quando o teste estiver concluído, o conteúdo da base de dados de conhecimento será transferido com um processo de [importação-exportação](../Tutorials/migrate-knowledge-base.md) para o serviço do QnA Maker do aprovador que, por fim, publicará a base de dados de conhecimento e atualizará o ponto de extremidade.
+## <a name="collaborate"></a>Colaboração
+O QnA Maker permite que os usuários colaborem em uma base de dados de conhecimento. Os usuários precisam de acesso ao grupo de recursos do QnA Maker do Azure para acessar as bases de dados de conhecimento. Algumas organizações podem querer terceirizar a edição e manutenção da base de dados de conhecimento e ainda proteger o acesso aos recursos do Azure. Esse modelo de editor-aprovador é realizado configurando dois [serviços do QnA Maker](../How-to/set-up-qnamaker-service-azure.md) idênticos em assinaturas diferentes e designando um deles para o ciclo de teste e edição. Quando o teste estiver concluído, o conteúdo da base de dados de conhecimento será transferido com um processo de [importação-exportação](../Tutorials/migrate-knowledge-base.md) para o serviço do QnA Maker do aprovador que, por fim, publicará a base de dados de conhecimento e atualizará o ponto de extremidade.
 
 
 

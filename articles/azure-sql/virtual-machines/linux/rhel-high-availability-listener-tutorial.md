@@ -2,18 +2,17 @@
 title: Configurar um ouvinte do grupo de disponibilidade para SQL Server em máquinas virtuais RHEL no Azure – máquinas virtuais do Linux | Microsoft Docs
 description: Aprenda a configurar um ouvinte do grupo de disponibilidade no SQL Server em máquinas virtuais do RHEL no Azure
 ms.service: virtual-machines-linux
-ms.subservice: ''
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
-ms.openlocfilehash: 01501b99d5d7c42af98d0397cf6ff8cbca14b07b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83fde9e957cb2011ce585603e51d331be171bc08
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89485781"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586203"
 ---
 # <a name="tutorial-configure-an-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configurar um ouvinte do grupo de disponibilidade para o SQL Server em máquinas virtuais do RHEL no Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -136,7 +135,7 @@ As regras de balanceamento de carga configuram como o balanceador de carga encam
    | **Tempo limite de ociosidade (minutos)** |*4* |
    | **IP flutuante (retorno de servidor direto)** |**Enabled** |
 
-   :::image type="content" source="media/rhel-high-availability-listener-tutorial/add-load-balancing-rule.png" alt-text="Adicionar pool de back-end":::
+   :::image type="content" source="media/rhel-high-availability-listener-tutorial/add-load-balancing-rule.png" alt-text="Adicionar regra de balanceamento de carga":::
 
 4. Clique em **OK**. 
 5. O Azure configura a regra de balanceamento de carga. Agora, o balanceador de carga está configurado para rotear o tráfego para a instância do SQL Server que hospeda o ouvinte para o grupo de disponibilidade. 
@@ -263,6 +262,10 @@ Neste ponto, o grupo de recursos tem um balanceador de carga que se conecta em t
     ```
 
 1. Verifique os recursos de cluster usando o comando `sudo pcs resource`; você verá que a instância primária agora é `<VM2>`.
+
+    > [!NOTE]
+    > Este artigo contém referências ao termo "servidor subordinado", um termo que a Microsoft não usa mais. Quando o termo for removido do software, também o removeremos deste artigo.
+
 
     ```output
     [<username>@<VM1> ~]$ sudo pcs resource

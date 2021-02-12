@@ -1,6 +1,6 @@
 ---
-title: Como usar OPENROWSET no SQL sob demanda (versão prévia)
-description: Este artigo descreve a sintaxe de OPENROWSET no SQL sob demanda (versão prévia) e explica como usar argumentos.
+title: Como usar a OPENROWSET no pool de SQL sem servidor
+description: Este artigo descreve a sintaxe da OPENROWSET no pool de SQL sem servidor e explica como usar argumentos.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e541a5620d4f263e5e1379b364d7c7dd9a97a331
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9fd10d6a4fb748a61b5e1d9e27777c2fa1134039
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91289014"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225606"
 ---
-# <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Como usar OPENROWSET com o SQL sob demanda (versão prévia)
+# <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Como usar a OPENROWSET usando o pool de SQL sem servidor no Azure Synapse Analytics
 
-A função `OPENROWSET(BULK...)` permite que você acesse arquivos no Armazenamento do Azure. A função `OPENROWSET` lê o conteúdo de uma fonte de dados remota (por exemplo, o arquivo) e retorna o conteúdo como um conjunto de linhas. No recurso do SQL sob demanda (versão prévia), o provedor de conjuntos de linhas em massa OPENROWSET é acessado por meio de uma chamada à função OPENROWSET e a especificação da opção BULK.  
+A função `OPENROWSET(BULK...)` permite que você acesse arquivos no Armazenamento do Azure. A função `OPENROWSET` lê o conteúdo de uma fonte de dados remota (por exemplo, o arquivo) e retorna o conteúdo como um conjunto de linhas. No recurso do pool de SQL sem servidor, o provedor de conjuntos de linhas em massa da OPENROWSET é acessado por meio de uma chamada à função OPENROWSET e da especificação da opção BULK.  
 
 A função `OPENROWSET` pode ser referenciada na cláusula `FROM` de uma consulta como se fosse um nome de tabela `OPENROWSET`. Ela também dá suporte a operações em massa por meio de um provedor BULK interno que permite que os dados de um arquivo sejam lidos e retornados como um conjunto de linhas.
 
@@ -84,7 +84,7 @@ OPENROWSET
     FORMAT = 'CSV'
     [ <bulk_options> ] }  
 )  
-WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })  
+WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })  
 [AS] table_alias(column_alias,...n)
  
 <bulk_options> ::=  
@@ -95,6 +95,8 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
 [ , FIELDQUOTE = 'quote_characters' ]
 [ , DATA_COMPRESSION = 'data_compression_method' ]
 [ , PARSER_VERSION = 'parser_version' ]
+[ , HEADER_ROW = { TRUE | FALSE } ]
+[ , DATAFILETYPE = { 'char' | 'widechar' } ]
 ```
 
 ## <a name="arguments"></a>Argumentos
@@ -111,7 +113,7 @@ O unstructured_data_path que estabelece um caminho para os dados pode ser um cam
 - O caminho absoluto no formato '\<prefix>://\<storage_account_path>/\<storage_path>' permite que um usuário leia os arquivos diretamente.
 - Caminho relativo no formato '<caminho_de_armazenamento>' que deve ser usado com o parâmetro `DATA_SOURCE` e descreve o padrão de arquivo dentro do local <caminho_da_conta_de_armazenamento> definido no `EXTERNAL DATA SOURCE`. 
 
- Abaixo você encontrará os valores <storage account path> relevantes que serão vinculados à fonte de dados externa específica. 
+Abaixo você encontrará os valores <storage account path> relevantes que serão vinculados à fonte de dados externa específica. 
 
 | Fonte de dados externa       | Prefixo | Caminho da conta de armazenamento                                 |
 | -------------------------- | ------ | ---------------------------------------------------- |
@@ -119,23 +121,25 @@ O unstructured_data_path que estabelece um caminho para os dados pode ser um cam
 | Armazenamento do Blobs do Azure         | wasb[s]  | \<container>@\<storage_account>.blob.core.windows.net/path/file |
 | Azure Data Lake Storage Gen1 | http[s]  | \<storage_account>.azuredatalakestore.net/webhdfs/v1 |
 | Azure Data Lake Storage Gen2 | http[s]  | \<storage_account>.dfs.core.windows.net /path/file   |
-| Azure Data Lake Storage Gen2 | aufs[s]  | [\<file_system>@\<account_name>.dfs.core.windows.net/path/file](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
+| Azure Data Lake Storage Gen2 | abfs[s]  | [\<file_system>@\<account_name>.dfs.core.windows.net/path/file](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
 ||||
 
 '\<storage_path>'
 
- Especifica um caminho no armazenamento que aponta para a pasta ou o arquivo que você deseja ler. Se o caminho apontar para um contêiner ou uma pasta, todos os arquivos serão lidos nessa pasta ou nesse contêiner específico. Os arquivos nas subpastas não serão incluídos. 
+Especifica um caminho no armazenamento que aponta para a pasta ou o arquivo que você deseja ler. Se o caminho apontar para um contêiner ou uma pasta, todos os arquivos serão lidos nessa pasta ou nesse contêiner específico. Os arquivos nas subpastas não serão incluídos. 
 
- Use curingas para direcionar vários arquivos ou várias pastas. O uso de vários curingas não consecutivos é permitido.
+Use curingas para direcionar vários arquivos ou várias pastas. O uso de vários curingas não consecutivos é permitido.
 Veja abaixo um exemplo que lê todos os arquivos *csv* que começam com *population* de todas as pastas que começam com */csv/population*:  
 `https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv`
 
-Se você especificar o unstructured_data_path para ser uma pasta, uma consulta do SQL sob demanda recuperará os arquivos dessa pasta. 
+Se você especificar o unstructured_data_path para ser uma pasta, uma consulta do pool de SQL sem servidor vai recuperar os arquivos dessa pasta. 
+
+Você pode instruir o pool de SQL sem servidor a percorrer as pastas especificando /* ao final do caminho, como no exemplo: `https://sqlondemandstorage.blob.core.windows.net/csv/population/**`
 
 > [!NOTE]
-> Ao contrário do Hadoop e do PolyBase, o SQL sob demanda não retorna subpastas. Além disso, ao contrário do Hadoop e do PolyBase, o SQL sob demanda retorna arquivos para os quais o nome do arquivo começa com um sublinhado (_) ou um ponto final (.).
+> Ao contrário do Hadoop e do PolyBase, o pool de SQL sem servidor não retorna subpastas, a menos que você especifique /** ao final do caminho. Além disso, ao contrário do Hadoop e do PolyBase, o pool de SQL sem servidor retorna os arquivos cujo nome começa com um sublinhado (_) ou um ponto final (.).
 
-No exemplo abaixo, se o unstructured_data_path=`https://mystorageaccount.dfs.core.windows.net/webdata/`, uma consulta SQL sob demanda retornará linhas de mydata.txt e _hidden.txt. Ele não retornará mydata2.txt e mydata3.txt porque eles estão localizados em uma subpasta.
+No exemplo abaixo, se o unstructured_data_path=`https://mystorageaccount.dfs.core.windows.net/webdata/`, uma consulta do pool de SQL sem servidor retornará linhas do mydata.txt e do _hidden.txt. Ele não retornará mydata2.txt e mydata3.txt porque eles estão localizados em uma subpasta.
 
 ![Dados recursivos para tabelas externas](./media/develop-openrowset/folder-traversal.png)
 
@@ -143,15 +147,16 @@ No exemplo abaixo, se o unstructured_data_path=`https://mystorageaccount.dfs.cor
 
 A cláusula WITH permite que você especifique as colunas que deseja ler dos arquivos.
 
-- Em arquivos de dados CSV, para ler todas as colunas, forneça nomes de colunas e os respectivos tipos de dados. Se você quiser um subconjunto de colunas, use números ordinais para escolher as colunas dos arquivos de dados de origem por ordinal. As colunas serão vinculadas à designação ordinal. 
-
-    > [!IMPORTANT]
-    > A cláusula WITH é obrigatória para arquivos CSV.
-    >
+- Em arquivos de dados CSV, para ler todas as colunas, forneça nomes de colunas e os respectivos tipos de dados. Se você quiser um subconjunto de colunas, use números ordinais para escolher as colunas dos arquivos de dados de origem por ordinal. As colunas serão vinculadas à designação ordinal. Se HEADER_ROW = TRUE for usado, então a associação de coluna será feita pelo nome da coluna em vez da posição ordinal.
+    > [!TIP]
+    > Também é possível omitir a cláusula WITH para arquivos CSV. Os tipos de dados serão inferidos automaticamente do conteúdo do arquivo. Você pode usar o argumento HEADER_ROW para especificar a existência da linha de cabeçalho e, nesse caso, os nomes das colunas serão lidos dessa linha. Para obter detalhes, confira a [descoberta automática de esquema](#automatic-schema-discovery).
     
-- Em arquivos de dados Parquet, forneça nomes de colunas que correspondam aos nomes de colunas nos arquivos de dados de origem. As colunas serão vinculadas ao nome. Se a cláusula WITH for omitida, todas as colunas de arquivos Parquet serão retornadas.
+- Em arquivos de dados Parquet, forneça nomes de colunas que correspondam aos nomes de colunas nos arquivos de dados de origem. As colunas serão vinculadas ao nome e diferenciarão maiúsculas de minúsculas. Se a cláusula WITH for omitida, todas as colunas de arquivos Parquet serão retornadas.
+    > [!IMPORTANT]
+    > Os nomes de coluna nos arquivos Parquet diferenciam maiúsculas de minúsculas. Se você especificar o nome da coluna com as configurações de maiúsculas e minúsculas diferentes do nome da coluna no arquivo Parquet, valores nulos serão retornados para essa coluna.
 
-column_name = nome da coluna de saída. Se for fornecido, esse nome substituirá o nome da coluna no arquivo de origem.
+
+column_name = nome da coluna de saída. Se fornecido, esse nome substitui o nome da coluna no arquivo de origem e o nome da coluna fornecido no caminho JSON, se houver um. Se json_path não for fornecido, ele será adicionado automaticamente como '$.column_name'. Verifique o argumento json_path para ver o comportamento.
 
 column_type = tipo de dados da coluna de saída. A conversão de tipo de dados implícita ocorrerá aqui.
 
@@ -165,6 +170,11 @@ WITH (
     --[population] bigint
 )
 ```
+
+json_path = [expressão do caminho JSON](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true) para a coluna ou propriedade aninhada. O [modo de caminho](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true#PATHMODE) padrão é incerto.
+
+> [!NOTE]
+> Em modo estrito, a consulta falhará com erro se o caminho fornecido não existir. No modo incerto, a consulta será bem-sucedida e a expressão de caminho JSON for avaliada como NULL.
 
 **\<bulk_options>**
 
@@ -192,9 +202,9 @@ Especifica um caractere que será usado como o caractere de aspas no arquivo CSV
 
 DATA_COMPRESSION = 'data_compression_method'
 
-Especifica o método de compactação. Há suporte para o seguinte método de compactação:
+Especifica o método de compactação. Com suporte somente em PARSER_VERSION='1.0'. Há suporte para o seguinte método de compactação:
 
-- org.apache.hadoop.io.compress.GzipCodec
+- GZIP
 
 PARSER_VERSION = 'parser_version'
 
@@ -205,29 +215,112 @@ Especifica a versão do analisador a ser usada ao ler arquivos. As versões do a
 
 O analisador CSV versão 1.0 é o padrão e conta com muitos recursos. A versão 2.0 foi criada para ter um desempenho aprimorado e não dá suporte a todas as opções e codificações. 
 
+Especificações do analisador CSV versão 1.0:
+
+- As opções a seguir não têm suporte: HEADER_ROW.
+
 Especificações do analisador CSV versão 2.0:
 
 - não há suporte para todos os tipos de dados.
+- O tamanho máximo da coluna de caracteres é 8.000.
 - O limite de tamanho máximo de linha é de 8 MB.
 - As opções a seguir não têm suporte: DATA_COMPRESSION.
 - A cadeia de caracteres vazia entre aspas ("") é interpretada como cadeia de caracteres vazia.
+- Formato com suporte para o tipo de dados DATE: AAAA-MM-DD
+- Formato com suporte para o tipo de dados TIME: HH:MM:SS[.segundos fracionários]
+- Formato com suporte para o tipo de dados DATETIME2: AAAA-MM-DD HH:MM:SS[.segundos fracionários]
+
+HEADER_ROW = { TRUE | FALSE }
+
+Especifica se o arquivo CSV contém a linha de cabeçalho. O padrão é FALSE. Com suporte em PARSER_VERSION='2.0'. Se for TRUE, os nomes de coluna serão lidos da primeira linha, de acordo com o argumento FIRSTROW. Se TRUE e esquema forem especificados usando WITH, a associação de nomes de colunas será feita por nome da coluna, não posições ordinais.
+
+DATAFILETYPE = { 'char' | 'widechar' }
+
+Especifica a codificação: char é usado para arquivos UTF8 e widechar é usado para arquivos UTF16.
+
+## <a name="fast-delimited-text-parsing"></a>Análise rápida de texto delimitado
+
+Há duas versões do analisador de texto delimitado que você pode usar. O analisador CSV versão 1.0 é padrão e repleto de recursos, enquanto o analisador versão 2.0 foi criado para desempenho. A melhoria de desempenho do analisador 2.0 vem de técnicas de análise avançadas e do multithreading. A diferença de velocidade será maior conforme aumentar o tamanho do arquivo.
+
+## <a name="automatic-schema-discovery"></a>Descoberta automática de esquema
+
+Você pode consultar com facilidade arquivos CSV e Parquet sem conhecer ou especificar o esquema omitindo a cláusula WITH. Os nomes de coluna e os tipos de dados serão inferidos dos arquivos.
+
+Os arquivos Parquet contêm metadados de coluna que serão lidos, mapeamentos de tipo podem ser encontrados nos [mapeamentos de tipo do Parquet](#type-mapping-for-parquet). Confira [como ler os arquivos Parquet sem especificar o esquema](#read-parquet-files-without-specifying-schema) para obter exemplos.
+
+Para arquivos CSV, os nomes das colunas podem ser lidos na linha de cabeçalho. Você pode especificar se a linha de cabeçalho existe usando o argumento HEADER_ROW. Se HEADER_ROW=FALSE, serão usados nomes de coluna genéricos: C1, C2, ... Cn, em que n corresponde ao número total de colunas contidas no arquivo. Os tipos de dados serão inferidos das primeiras 100 linhas de dados. Confira [como ler os arquivos CSV sem especificar o esquema](#read-csv-files-without-specifying-schema) para obter exemplos.
+
+> [!IMPORTANT]
+> Há casos em que o tipo de dados apropriado não pode ser inferido devido à falta de informações e um tipo de dados mais abrangente é usado. Isso causa uma sobrecarga de desempenho e é particularmente significativo para colunas de caracteres que serão inferidas como varchar (8000). Para obter um desempenho ideal, [confira os tipos de dados inferidos](best-practices-sql-on-demand.md#check-inferred-data-types) e [use os tipos de dados apropriados](best-practices-sql-on-demand.md#use-appropriate-data-types).
+
+### <a name="type-mapping-for-parquet"></a>Mapeamento de tipos para Parquet
+
+Os arquivos Parquet contêm descrições de tipo para cada coluna. A tabela a seguir descreve como os tipos Parquet são mapeados para tipos nativos do SQL.
+
+| Tipo do Parquet | Tipo lógico do Parquet (anotação) | Tipo de dados SQL |
+| --- | --- | --- |
+| BOOLEAN | | bit |
+| BINARY/BYTE_ARRAY | | varbinary |
+| DOUBLE | | FLOAT |
+| FLOAT | | real |
+| INT32 | | INT |
+| INT64 | | BIGINT |
+| INT96 | |datetime2 |
+| FIXED_LEN_BYTE_ARRAY | |binary |
+| BINARY |UTF8 |varchar \*(ordenação UTF8) |
+| BINARY |STRING |varchar \*(ordenação UTF8) |
+| BINARY |ENUM|varchar \*(ordenação UTF8) |
+| FIXED_LEN_BYTE_ARRAY |UUID |UNIQUEIDENTIFIER |
+| BINARY |DECIMAL |decimal |
+| BINARY |JSON |varchar(8000) \*(ordenação UTF8) |
+| BINARY |BSON | Sem suporte |
+| FIXED_LEN_BYTE_ARRAY |DECIMAL |decimal |
+| BYTE_ARRAY |INTERVAL | Sem suporte |
+| INT32 |INT(8, true) |SMALLINT |
+| INT32 |INT(16, true) |SMALLINT |
+| INT32 |INT(32, true) |INT |
+| INT32 |INT(8, false) |TINYINT |
+| INT32 |INT(16, false) |INT |
+| INT32 |INT(32, false) |BIGINT |
+| INT32 |DATE |date |
+| INT32 |DECIMAL |decimal |
+| INT32 |TIME (MILLIS)|time |
+| INT64 |INT(64, true) |BIGINT |
+| INT64 |INT(64, false) |decimal(20,0) |
+| INT64 |DECIMAL |decimal |
+| INT64 |TIME (MICROS) |time – TIME(NANOS) não compatível |
+|INT64 |TIMESTAMP (MILLIS/MICROS/NANOS) |datetime2 – TIMESTAMP(NANOS) não compatível |
+|[Tipo complexo](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |LISTA |varchar(8000), serializado em JSON |
+|[Tipo complexo](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAP|varchar(8000), serializado em JSON |
 
 ## <a name="examples"></a>Exemplos
 
-O exemplo a seguir retorna apenas duas colunas com números ordinais 1 e 4 dos arquivos population*.csv. Como não há nenhuma linha de cabeçalho nos arquivos, ele inicia a leitura na primeira linha:
+### <a name="read-csv-files-without-specifying-schema"></a>Ler arquivos CSV sem especificar o esquema
+
+O seguinte exemplo lê o arquivo CSV que contém a linha de cabeçalho sem especificar os nomes das colunas ou os tipos de dados: 
 
 ```sql
-SELECT * 
+SELECT 
+    *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population*.csv',
-        FORMAT = 'CSV',
-        FIRSTROW = 1
-    )
-WITH (
-    [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2 1,
-    [population] bigint 4
-) AS [r]
+    BULK 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv',
+    FORMAT = 'CSV',
+    PARSER_VERSION = '2.0',
+    HEADER_ROW = TRUE) as [r]
 ```
+
+O seguinte exemplo lê o arquivo CSV que não contém a linha de cabeçalho sem especificar os nomes das colunas ou os tipos de dados: 
+
+```sql
+SELECT 
+    *
+FROM OPENROWSET(
+    BULK 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv',
+    FORMAT = 'CSV',
+    PARSER_VERSION = '2.0') as [r]
+```
+
+### <a name="read-parquet-files-without-specifying-schema"></a>Ler arquivos Parquet sem especificar o esquema
 
 O seguinte exemplo retorna todas as colunas da primeira linha do conjunto de dados de censo no formato Parquet, sem especificar nomes de colunas nem tipos de dados: 
 
@@ -241,6 +334,68 @@ FROM
     ) AS [r]
 ```
 
+### <a name="read-specific-columns-from-csv-file"></a>Ler colunas específicas do arquivo CSV
+
+O exemplo a seguir retorna apenas duas colunas com números ordinais 1 e 4 dos arquivos population*.csv. Como não há nenhuma linha de cabeçalho nos arquivos, ele inicia a leitura na primeira linha:
+
+```sql
+SELECT 
+    * 
+FROM OPENROWSET(
+        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population*.csv',
+        FORMAT = 'CSV',
+        FIRSTROW = 1
+    )
+WITH (
+    [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2 1,
+    [population] bigint 4
+) AS [r]
+```
+
+### <a name="read-specific-columns-from-parquet-file"></a>Ler colunas específicas do arquivo Parquet
+
+O exemplo seguinte retorna apenas duas colunas da primeira linha do conjunto de dados do censo em formato Parquet: 
+
+```sql
+SELECT 
+    TOP 1 *
+FROM  
+    OPENROWSET(
+        BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        FORMAT='PARQUET'
+    )
+WITH (
+    [stateName] VARCHAR (50),
+    [population] bigint
+) AS [r]
+```
+
+### <a name="specify-columns-using-json-paths"></a>Especificar colunas usando caminhos JSON
+
+O seguinte exemplo mostra como você pode usar [expressões de caminho JSON](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true) na cláusula WITH e demonstra a diferença entre os modos de caminho estrito e incerto: 
+
+```sql
+SELECT 
+    TOP 1 *
+FROM  
+    OPENROWSET(
+        BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        FORMAT='PARQUET'
+    )
+WITH (
+    --lax path mode samples
+    [stateName] VARCHAR (50), -- this one works as column name casing is valid - it targets the same column as the next one
+    [stateName_explicit_path] VARCHAR (50) '$.stateName', -- this one works as column name casing is valid
+    [COUNTYNAME] VARCHAR (50), -- STATEname column will contain NULLs only because of wrong casing - it targets the same column as the next one
+    [countyName_explicit_path] VARCHAR (50) '$.COUNTYNAME', -- STATEname column will contain NULLS only because of wrong casing and default path mode being lax
+
+    --strict path mode samples
+    [population] bigint 'strict $.population' -- this one works as column name casing is valid
+    --,[population2] bigint 'strict $.POPULATION' -- this one fails because of wrong casing and strict path mode
+)
+AS [r]
+```
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais amostras, confira o [Início Rápido: Consultar o armazenamento de dados](query-data-storage.md) para saber como usar `OPENROWSET` para ler formatos de arquivo [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md) e [JSON](query-json-files.md). Você também pode aprender a salvar os resultados de sua consulta no Armazenamento do Azure usando [CETAS](develop-tables-cetas.md).
+Para obter mais amostras, confira o [Início Rápido: Consultar o armazenamento de dados](query-data-storage.md) para saber como usar `OPENROWSET` para ler formatos de arquivo [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md) e [JSON](query-json-files.md). Confira as [melhores práticas](best-practices-sql-on-demand.md) para alcançar o desempenho ideal. Você também pode aprender a salvar os resultados de sua consulta no Armazenamento do Azure usando [CETAS](develop-tables-cetas.md).

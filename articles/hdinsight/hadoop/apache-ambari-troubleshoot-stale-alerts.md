@@ -1,18 +1,15 @@
 ---
 title: Alertas obsoletos do Apache Ambari no Azure HDInsight
 description: Discussão e análise de possíveis razões e soluções para alertas obsoletos do Apache Ambari no HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
-ms.openlocfilehash: 9564e149055dcabf205694b3cf6c3ddc03163037
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: e31e5d5a5b27f4dcb267905eae6329666fc3292c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533828"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946717"
 ---
 # <a name="scenario-apache-ambari-stale-alerts-in-azure-hdinsight"></a>Cenário: alertas obsoletos do Apache Ambari no Azure HDInsight
 
@@ -46,17 +43,17 @@ Você pode aumentar o valor de um intervalo de alerta individual, com base no te
 
 1. Na interface do usuário do Apache Ambari, selecione a guia **alertas** .
 1. Selecione o nome de definição de alerta desejado.
-1. Na definição, selecione **Editar** .
-1. Aumente o valor do **intervalo de verificação** e, em seguida, selecione **salvar** .
+1. Na definição, selecione **Editar**.
+1. Aumente o valor do **intervalo de verificação** e, em seguida, selecione **salvar**.
 
 ### <a name="increase-the-alert-interval-time-for-ambari-server-alerts"></a>Aumentar o tempo de intervalo de alerta para alertas do servidor Ambari
 
 1. Na interface do usuário do Apache Ambari, selecione a guia **alertas** .
-1. Na lista suspensa **grupos** , selecione **AMBARI padrão** .
+1. Na lista suspensa **grupos** , selecione **AMBARI padrão**.
 1. Selecione o alerta de **alertas do servidor Ambari** .
-1. Na definição, selecione **Editar** .
+1. Na definição, selecione **Editar**.
 1. Aumente o valor do **intervalo de verificação** .
-1. Aumente o valor **multiplicador de intervalo** e, em seguida, selecione **salvar** .
+1. Aumente o valor **multiplicador de intervalo** e, em seguida, selecione **salvar**.
 
 ### <a name="disable-and-reenable-the-alert"></a>Desabilitar e reabilitar o alerta
 
@@ -65,10 +62,10 @@ Para descartar um alerta obsoleto, desabilite-o e habilite-o novamente:
 1. Na interface do usuário do Apache Ambari, selecione a guia **alertas** .
 1. Selecione o nome de definição de alerta desejado.
 1. Na definição, selecione **habilitado** na parte extrema direita da interface do usuário.
-1. Na janela pop-up de **confirmação** , selecione **confirmar desabilitar** .
+1. Na janela pop-up de **confirmação** , selecione **confirmar desabilitar**.
 1. Aguarde alguns segundos para que todas as "instâncias" de alerta mostradas na página sejam limpas.
 1. Na definição, selecione **desabilitado** na parte extrema direita da interface do usuário.
-1. Na janela pop-up de **confirmação** , selecione **confirmar habilitar** .
+1. Na janela pop-up de **confirmação** , selecione **confirmar habilitar**.
 
 ### <a name="increase-the-alert-grace-period"></a>Aumentar o período de carência do alerta
 
@@ -84,6 +81,6 @@ Se o problema não tiver sido mencionado aqui ou se você não puder solucioná-
 
 * Conecte-se ao [@AzureSupport](https://twitter.com/azuresupport) no Twitter. Essa é a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Ele conecta a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, envie uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Para chegar lá, selecione ajuda ( **?** ) no menu do portal ou abra o painel **ajuda + suporte** . Para obter mais informações, consulte [como criar uma solicitação de suporte do Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). 
+* Se precisar de mais ajuda, envie uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Para chegar lá, selecione ajuda (**?**) no menu do portal ou abra o painel **ajuda + suporte** . Para obter mais informações, consulte [como criar uma solicitação de suporte do Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
   O suporte para gerenciamento de assinaturas e cobrança está incluído na sua assinatura do Microsoft Azure. O suporte técnico está disponível por meio dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

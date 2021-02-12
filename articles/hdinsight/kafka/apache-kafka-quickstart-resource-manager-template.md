@@ -1,19 +1,16 @@
 ---
 title: 'Início Rápido: Apache Kafka usando o Azure Resource Manager – HDInsight'
 description: Neste início rápido, você aprenderá a criar um cluster Apache Kafka no Azure HDInsight usando o modelo do Azure Resource Manager. Você também aprenderá sobre tópicos, assinantes e consumidores de Kafka.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: 12988feeb26bc5821e8f08db3e688a2e1c429e19
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 1bd4a3bfc2ba208371ed71720cc8c89a796ad9a2
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92532621"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940816"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-arm-template"></a>Início Rápido: Criar um cluster do Apache Kafka no Azure HDInsight usando um modelo do Resource Manager
 
@@ -23,7 +20,7 @@ Neste guia de início rápido, você usará um modelo do Azure Resource Manager 
 
 A API do Kafka só pode ser acessada por recursos dentro da mesma rede virtual. Neste início rápido, você acessará o cluster diretamente no SSH. Para conectar a outros serviços, redes ou máquinas virtuais ao Kafka, primeiro crie uma rede virtual e, depois, crie os recursos na rede. Para saber mais, confira o documento [Conectar-se ao Apache Kafka usando uma rede virtual](apache-kafka-connect-vpn-gateway.md).
 
-Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure** . O modelo será aberto no portal do Azure.
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implantar no Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-kafka%2Fazuredeploy.json)
 
@@ -53,25 +50,25 @@ Há dois recursos do Azure definidos no modelo:
     |Propriedade |Descrição |
     |---|---|
     |Subscription|Na lista suspensa, selecione a assinatura do Azure usada para o cluster.|
-    |Resource group|Na lista suspensa, selecione o grupo de recursos existente ou selecione **Criar** .|
+    |Resource group|Na lista suspensa, selecione o grupo de recursos existente ou selecione **Criar**.|
     |Location|O valor será preenchido automaticamente com o local usado para o grupo de recursos.|
     |Nome do cluster|Insira um nome global exclusivo. Para este modelo, use apenas letras minúsculas e números.|
-    |Nome de usuário de logon do cluster|Forneça o nome de usuário, o padrão é **admin** .|
+    |Nome de usuário de logon do cluster|Forneça o nome de usuário, o padrão é **admin**.|
     |Senha de logon do cluster|Forneça uma senha. A senha precisa ter no mínimo 10 caracteres e precisa conter pelo menos um dígito, uma letra maiúscula, uma minúscula e um caractere não alfanumérico (exceto pelos caracteres ' " ` ). |
     |Nome de Usuário SSH|Forneça o nome de usuário, o padrão é **sshuser**|
     |Senha SSH|Forneça a senha.|
 
     ![Uma captura de tela das propriedades do modelo](./media/apache-kafka-quickstart-resource-manager-template/resource-manager-template-kafka.png)
 
-1. Examine os **TERMOS E CONDIÇÕES** . Em seguida, selecione **Concordo com os termos e condições declarados acima** e **Comprar** . Você receberá uma notificação de que a implantação está em andamento. Demora cerca de 20 minutos para criar um cluster.
+1. Examine os **TERMOS E CONDIÇÕES**. Em seguida, selecione **Concordo com os termos e condições declarados acima** e **Comprar**. Você receberá uma notificação de que a implantação está em andamento. Demora cerca de 20 minutos para criar um cluster.
 
 ## <a name="review-deployed-resources"></a>Examinar os recursos implantados
 
-Depois que o cluster for criado, você receberá uma notificação de **Implantação bem-sucedida** com um link **Ir para o recurso** . A página do Grupo de recursos listará o novo cluster HDInsight e o armazenamento padrão associado a ele. Cada cluster tem uma dependência na conta do [Armazenamento de Blobs do Azure](../hdinsight-hadoop-use-blob-storage.md), do [Azure Data Lake Storage Gen1](../hdinsight-hadoop-use-data-lake-storage-gen1.md) ou do [`Azure Data Lake Storage Gen2`](../hdinsight-hadoop-use-data-lake-storage-gen2.md). Ela é conhecida como a conta de armazenamento padrão. O cluster do HDInsight e sua conta de armazenamento padrão devem estar colocados na mesma região do Azure. A exclusão dos clusters não exclui a conta de armazenamento.
+Depois que o cluster for criado, você receberá uma notificação de **Implantação bem-sucedida** com um link **Ir para o recurso**. A página do Grupo de recursos listará o novo cluster HDInsight e o armazenamento padrão associado a ele. Cada cluster tem uma dependência na conta do [Armazenamento de Blobs do Azure](../hdinsight-hadoop-use-blob-storage.md), do [Azure Data Lake Storage Gen1](../hdinsight-hadoop-use-data-lake-storage-gen1.md) ou do [`Azure Data Lake Storage Gen2`](../hdinsight-hadoop-use-data-lake-storage-gen2.md). Ela é conhecida como a conta de armazenamento padrão. O cluster do HDInsight e sua conta de armazenamento padrão devem estar colocados na mesma região do Azure. A exclusão dos clusters não exclui a conta de armazenamento.
 
 ## <a name="get-the-apache-zookeeper-and-broker-host-information"></a>Obter as informações de host do Apache Zookeeper e do Broker
 
-Ao trabalhar com Kafka, você deve conhecer os hosts do *Apache Zookeeper* e *Broker* . Esses hosts são usados com a API Kafka e muitos dos utilitários fornecidos com o Kafka.
+Ao trabalhar com Kafka, você deve conhecer os hosts do *Apache Zookeeper* e *Broker*. Esses hosts são usados com a API Kafka e muitos dos utilitários fornecidos com o Kafka.
 
 Nesta seção, você obtém as informações do host da API REST Ambari no cluster.
 
@@ -133,15 +130,15 @@ Nesta seção, você obtém as informações do host da API REST Ambari no clust
 
 ## <a name="manage-apache-kafka-topics"></a>Gerenciar tópicos do Apache Kafka
 
-O Kafka armazena fluxos de dados em *tópicos* . Você pode usar o utilitário `kafka-topics.sh` para gerenciar tópicos.
+O Kafka armazena fluxos de dados em *tópicos*. Você pode usar o utilitário `kafka-topics.sh` para gerenciar tópicos.
 
-* **Para criar um tópico** , use o seguinte comando para criar uma conexão SSH:
+* **Para criar um tópico**, use o seguinte comando para criar uma conexão SSH:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
     ```
 
-    Esse comando se conecta ao Zookeeper usando as informações de host armazenadas em `$KAFKAZKHOSTS`. Depois, ele cria um tópico Kafka chamado **teste** .
+    Esse comando se conecta ao Zookeeper usando as informações de host armazenadas em `$KAFKAZKHOSTS`. Depois, ele cria um tópico Kafka chamado **teste**.
 
     * Os dados armazenados neste tópico são particionados em oito partições.
 
@@ -163,7 +160,7 @@ O Kafka armazena fluxos de dados em *tópicos* . Você pode usar o utilitário `
 
         * Você escalar um cluster verticalmente
 
-* **Para listar os tópicos** , use o seguinte comando:
+* **Para listar os tópicos**, use o seguinte comando:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS
@@ -171,7 +168,7 @@ O Kafka armazena fluxos de dados em *tópicos* . Você pode usar o utilitário `
 
     Esse comando lista os tópicos disponíveis no cluster Kafka.
 
-* **Para excluir um tópico** , use o seguinte comando:
+* **Para excluir um tópico**, use o seguinte comando:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic topicname --zookeeper $KAFKAZKHOSTS
@@ -190,7 +187,7 @@ Para saber mais sobre os comandos disponíveis com o utilitário `kafka-topics.s
 
 ## <a name="produce-and-consume-records"></a>Produzir e consumir registros
 
-O Kafka armazena *registros* nos tópicos. Os registros são produzidos por *produtores* e consumidos por *consumidores* . Os produtores e consumidores se comunicam com o serviço *Agente de Kafka* . Cada nó de trabalho no cluster HDInsight é um host de agente do Kafka.
+O Kafka armazena *registros* nos tópicos. Os registros são produzidos por *produtores* e consumidos por *consumidores*. Os produtores e consumidores se comunicam com o serviço *Agente de Kafka*. Cada nó de trabalho no cluster HDInsight é um host de agente do Kafka.
 
 Para armazenar registros no tópico teste criado anteriormente e lê-los usando um consumidor, use as seguintes etapas:
 
@@ -222,11 +219,11 @@ Você também pode criar programaticamente produtores e consumidores. Para obter
 
 Após concluir o início rápido, poderá ser conveniente excluir o cluster. Com o HDInsight, seus dados são armazenados no Armazenamento do Azure, assim você poderá excluir, com segurança, um cluster quando ele não estiver em uso. Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estiverem em uso.
 
-No portal do Azure, navegue até seu cluster e selecione **Excluir** .
+No portal do Azure, navegue até seu cluster e selecione **Excluir**.
 
 ![HBase do modelo do Resource Manager](./media/apache-kafka-quickstart-resource-manager-template/azure-portal-delete-kafka.png)
 
-Também é possível selecionar o nome do grupo de recursos para abrir a página do grupo de recursos, e depois selecionar **Excluir grupo de recursos** . Ao excluir o grupo de recursos, você exclui o cluster HDInsight e a conta de armazenamento padrão.
+Também é possível selecionar o nome do grupo de recursos para abrir a página do grupo de recursos, e depois selecionar **Excluir grupo de recursos**. Ao excluir o grupo de recursos, você exclui o cluster HDInsight e a conta de armazenamento padrão.
 
 ## <a name="next-steps"></a>Próximas etapas
 

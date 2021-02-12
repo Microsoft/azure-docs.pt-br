@@ -7,14 +7,14 @@ ms.author: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, data4ml
 ms.date: 05/14/2020
-ms.openlocfilehash: 7f21d3ed3d5e71c2f87777316e7584011490043a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a4f15a1a0911e5a33da8b5f9445709cb42e7e10e
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757768"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981503"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Criar e explorar conjunto de dados do Azure Machine Learning com rótulos
 
@@ -27,8 +27,8 @@ Nós nos referimos a Azure Machine Learning conjuntos de valores com rótulos co
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://aka.ms/AMLFree) antes de começar.
-* O [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) ou acesso ao [Azure Machine Learning Studio](https://ml.azure.com/).
-    * Instalar o pacote [azure-contrib-dataset](https://docs.microsoft.com/python/api/azureml-contrib-dataset/?view=azure-ml-py&preserve-view=true)
+* O [SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) ou acesso ao [Azure Machine Learning Studio](https://ml.azure.com/).
+    * Instalar o pacote [azure-contrib-dataset](/python/api/azureml-contrib-dataset/?preserve-view=true&view=azure-ml-py)
 * Um Workspace do Machine Learning. Confira [Criar um Workspace do Azure Machine Learning](how-to-manage-workspace.md).
 * Acesso a um projeto de rotulagem de dados do Azure Machine Learning. Se você não tiver um projeto de rotulagem, crie um com [estas etapas](how-to-create-labeling-projects.md).
 
@@ -39,6 +39,9 @@ Ao concluir um projeto de rotulagem de dados, você pode exportar os dados do r�
 ### <a name="coco"></a>COCO 
 
  O arquivo COCO é criado no armazenamento de blobs padrão do Workspace do Azure Machine Learning em uma pasta dentro de *export/coco*. 
+ 
+>[!NOTE]
+>Em projetos de detecção de objetos, os valores exportados "bbox": [x, y, Width e Height] "no arquivo COCO são normalizados. Eles são dimensionados para 1. Exemplo: uma caixa delimitadora em (10, 10) local, com largura de 30 pixels, 60 pixels de altura, em uma imagem de 640x480 pixel será anotada como (0, 15625. 0, 2083, 0, 46875, 0,125). Como as coordintes são normalizadas, elas serão mostradas como ' 0,0 ' como "width" e "Height" para todas as imagens. A largura e a altura reais podem ser obtidas usando a biblioteca do Python como OpenCV ou Pillow (PIL).
 
 ### <a name="azure-machine-learning-dataset"></a>Conjunto de dados do Azure Machine Learning
 
@@ -52,7 +55,7 @@ Carregue seus conjuntos de dados rotulados em um dataframe do Pandas ou conjunto
 
 ### <a name="pandas-dataframe"></a>Dataframe do Pandas
 
-Você pode carregar conjuntos de dados rotulados para um dataframe do Pandas com o método [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=trueto-pandas-dataframe-on-error--null---out-of-range-datetime--null--) da classe `azureml-contrib-dataset`. Instale a classe com o seguinte comando de shell: 
+Você pode carregar conjuntos de dados rotulados para um dataframe do Pandas com o método [`to_pandas_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueto-pandas-dataframe-on-error--null---out-of-range-datetime--null--) da classe `azureml-contrib-dataset`. Instale a classe com o seguinte comando de shell: 
 
 ```shell
 pip install azureml-contrib-dataset
@@ -87,7 +90,7 @@ imgplot = plt.imshow(img)
 
 ### <a name="torchvision-datasets"></a>Conjuntos de dados Torchvision
 
-Você pode carregar conjuntos de dados rotulados para o conjunto de dados Torchvision com o método [to_torchvision()](https://docs.microsoft.com/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=trueto-torchvision--) também da classe `azureml-contrib-dataset`. Para usar esse método, você precisa ter o [PyTorch](https://pytorch.org/) instalado. 
+Você pode carregar conjuntos de dados rotulados para o conjunto de dados Torchvision com o método [to_torchvision()](/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueto-torchvision--) também da classe `azureml-contrib-dataset`. Para usar esse método, você precisa ter o [PyTorch](https://pytorch.org/) instalado. 
 
 No código a seguir, o `animal_labels` conjunto de resultados é a saída de um projeto de rotulagem salvo anteriormente no espaço de trabalho.
 

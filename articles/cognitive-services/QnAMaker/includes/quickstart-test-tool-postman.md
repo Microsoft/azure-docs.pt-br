@@ -4,16 +4,16 @@ description: incluir arquivo
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: luis
+ms.subservice: qna-maker
 ms.topic: include
 ms.custom: include file
-ms.date: 04/27/2020
-ms.openlocfilehash: fabd79829425147667c46f686a1ec1ceb6a29b00
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 11/09/2020
+ms.openlocfilehash: fa497b69b067d5556f11effdb52505895ecc3bdd
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87132868"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386637"
 ---
 Este Início Rápido baseado no Postman fornece uma orientação para obtenção de uma resposta de uma base de dados de conhecimento.
 
@@ -28,6 +28,8 @@ Este Início Rápido baseado no Postman fornece uma orientação para obtenção
 > Quando você estiver pronto para gerar uma resposta a uma pergunta da base de dados de conhecimento, precisará [treinar](../Quickstarts/create-publish-knowledge-base.md#save-and-train) e [publicar](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) a base de dados de conhecimento. Quando sua base de dados de conhecimento for publicada, a página **Publicar** exibirá as configurações de solicitação HTTP para gerar uma resposta. A guia **Postman** mostra as configurações necessárias para gerar uma resposta.
 
 ## <a name="set-up-postman-for-requests"></a>Configurar o Postman para solicitações
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versão estável)](#tab/v1)
 
 Este início rápido usará as mesmas configurações para a solicitação **POST** do Postman e, em seguida, vai configurar para executar POST do JSON do corpo enviado ao serviço com base no que você está tentando consultar.
 
@@ -44,6 +46,25 @@ Use este procedimento para configurar o Postman e, em seguida, leia cada seção
     ||`{"question":"<Your question>"}`|O corpo da solicitação POST como um objeto JSON. Esse valor será alterado em cada seção a seguir, dependendo do que a consulta pretender fazer.|
 
 1. Abra o Postman e crie uma solicitação **POST** básica com as configurações da base de dados de conhecimento publicada. Nas seções a seguir, altere o JSON do corpo do POST para alterar a consulta à base de dados de conhecimento.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
+
+Este início rápido usará as mesmas configurações para a solicitação **POST** do Postman e, em seguida, vai configurar para executar POST do JSON do corpo enviado ao serviço com base no que você está tentando consultar.
+
+Use este procedimento para configurar o Postman e, em seguida, leia cada seção seguinte para configurar o POST do JSON do corpo.
+
+1. Na página **Configurações** da base de dados de conhecimento, selecione a guia **Postman** para ver a configuração usada para gerar uma resposta usando a base de dados de conhecimento. Copie as informações a seguir a serem usadas no Postman.
+
+    |Nome|Configuração|Finalidade e valor|
+    |--|--|--|
+    |`POST`| `/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer`|Esse é o método HTTP e a rota para a URL.|
+    |`Host`|`https://YOUR-RESOURCE_NAME.cognitiveservices.azure.com/qnamaker`|Este é o host da URL. Concatene os valores de Host e POST para obter a URL completa de generateAnswer.|
+    |`Ocp-Apim-Subscription-Key`|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`|O valor do cabeçalho para autorizar a solicitação. |
+    |`Content-type`|`application/json`|O valor do cabeçalho para o conteúdo.|
+    ||`{"question":"<Your question>"}`|O corpo da solicitação POST como um objeto JSON. Esse valor será alterado em cada seção a seguir, dependendo do que a consulta pretender fazer.|
+
+1. Abra o Postman e crie uma solicitação **POST** básica com as configurações da base de dados de conhecimento publicada. Nas seções a seguir, altere o JSON do corpo do POST para alterar a consulta à base de dados de conhecimento.
+---
 
 ## <a name="use-metadata-to-filter-answer"></a>Usar metadados para filtrar a resposta
 

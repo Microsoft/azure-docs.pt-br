@@ -1,15 +1,18 @@
 ---
 title: Descubra, avalie e migre as VMs EC2 do AWS (Amazon Web Services) para o Azure
 description: Este artigo descreve como migrar VMs AWS para o Azure com as Migrações para Azure.
+author: deseelam
+ms.author: deseelam
+ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 62bfad2cc92e7af61a10360878ebaa3093897e97
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 430ece58bd3dc1651ac391ba0e29515085ee507b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310731"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878182"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Descubra, avalie e migre as VMs AWS (Amazon Web Services) para o Azure
 
@@ -77,7 +80,7 @@ Preparar o Azure para a migração com a ferramenta Migrações para Azure: Ferr
 
 **Tarefa** | **Detalhes**
 --- | ---
-**Criar um projeto de Migrações para Azure** | Sua conta do Azure precisa de permissões de Colaborador ou de Proprietário para criar um projeto.
+**Criar um projeto de Migrações para Azure** | Sua conta do Azure precisa de permissões de Colaborador ou de Proprietário para [criar um projeto](./create-manage-projects.md).
 **Verificar as permissões para sua conta do Azure** | Sua conta do Azure precisa de permissões para criar uma VM e gravar em um disco gerenciado do Azure.
 
 ### <a name="assign-permissions-to-create-project"></a>Atribuir permissões para criar o projeto
@@ -125,30 +128,6 @@ Prepare-se para implantação do dispositivo, conforme mostrado a seguir:
 
 - O dispositivo de replicação usa o MySQL. Examine as [opções](migrate-replication-appliance.md#mysql-installation) para instalar o MySQL no dispositivo.
 - Examine as URLs do Azure necessárias para que o dispositivo de replicação acesse as nuvens [públicas](migrate-replication-appliance.md#url-access) e [governamentais](migrate-replication-appliance.md#azure-government-url-access).
-
-## <a name="add-the-server-migration-tool"></a>Adicionar a Ferramenta de Servidor
-
-Configure um projeto de Migrações para Azure e adicione a ferramenta de Migração de Servidor a ele.
-
-1. No portal do Azure > **Todos os serviços**, pesquise **Migrações para Azure**.
-2. Em **Serviços**, selecione **Migrações para Azure**.
-3. Em **Visão Geral**, clique em **Avaliar emigrar servidores**.
-4. Em **Descobrir, avaliar e migrar servidores**, clique em **Avaliar e migrar servidores**.
-
-    ![Descobrir e avaliar servidores](./media/tutorial-migrate-physical-virtual-machines/assess-migrate.png)
-
-5. Em **Descobrir, avaliar e migrar servidores**, clique em **Adicionar ferramentas**.
-6. Em **Migrar projeto**, selecione sua assinatura do Azure e crie um grupo de recursos, caso não tenha um.
-7. Em **Detalhes do Projeto**, especifique o nome do projeto e a geografia em que deseja criar o projeto e clique em **Avançar**. Examine as geografias compatíveis para [nuvens públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais](migrate-support-matrix.md#supported-geographies-azure-government).
-    - A geografia do projeto é usada apenas para armazenar os metadados coletados de VMs AWS.
-    - Você pode selecionar qualquer região de destino ao executar uma migração.
-
-    ![Criar um projeto das Migrações para Azure](./media/tutorial-migrate-physical-virtual-machines/migrate-project.png)
-
-8. Em **Selecionar ferramenta de avaliação**, selecione **Ignorar a adição de uma ferramenta de avaliação por enquanto** > **Avançar**.
-9. Em **Selecionar ferramenta de migração**, selecione **Migrações para Azure: Migração de Servidor** > **Avançar**.
-10. Em **Examinar + adicionar ferramentas**, examine as configurações e clique em **Adicionar ferramentas**
-11. Depois de adicionar a ferramenta, ela aparecerá no projeto de Migrações para Azure > **Servidores** > **Ferramentas de migração**.
 
 ## <a name="set-up-the-replication-appliance"></a>Configurar o dispositivo de replicação
 
@@ -270,13 +249,23 @@ Um agente do serviço Mobilidade deve ser instalado nas VMs AWS de origem a sere
     -  Zona de Disponibilidade para fixar o computador migrado para uma Zona de Disponibilidade específica na região. Use essa opção para distribuir servidores que formam uma camada de aplicativo de vários nós entre Zonas de Disponibilidade diferentes. Se você selecionar essa opção, precisará especificar a zona de disponibilidade a ser usada para cada computador selecionado na guia Computação. Essa opção só estará disponível se a região de destino selecionada para a migração der suporte a Zonas de Disponibilidade
     -  Conjunto de Disponibilidade para colocar o computador migrado em um conjunto de disponibilidade. O grupo de recursos de destino selecionado precisa ter um ou mais conjuntos de disponibilidade para que possa usar essa opção.
     - Nenhuma opção de redundância de infraestrutura será necessária se você não precisar de nenhuma dessas configurações de disponibilidade para os computadores migrados.
-11. Em **Benefício Híbrido do Azure**:
+    
+11. Em **Tipo de criptografia de disco**, selecione:
+    - Criptografia em repouso com chave de criptografia gerenciada pela plataforma
+    - Criptografia em repouso com a chave gerenciada pelo cliente
+    - Criptografia dupla com chaves gerenciadas por plataforma e gerenciadas pelo cliente
+
+   > [!NOTE]
+   > Para replicar VMs com a CMK, você precisará [criar um conjunto de criptografia de disco](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) no grupo de recursos de destino. Um objeto de conjunto de criptografia de disco mapeia o Managed Disks para um Key Vault que contém a CMK a ser usada para a SSE.
+  
+12. Em **Benefício Híbrido do Azure**:
+
     - Selecione **Não** se não desejar aplicar o Benefício Híbrido do Azure. Em seguida, clique em **Próximo**.
     - Selecione **Sim** se você tiver computadores Windows Server cobertos com assinaturas ativas do Software Assurance ou do Windows Server e quiser aplicar o benefício aos computadores que estão sendo migrados. Em seguida, clique em **Próximo**.
 
-    ![Configurações de destino](./media/tutorial-migrate-physical-virtual-machines/target-settings.png)
+    ![Configurações de destino](./media/tutorial-migrate-vmware/target-settings.png)
 
-12. Em **Computação**, examine o nome da VM, o tamanho, o tipo de disco do SO e a configuração de disponibilidade (se selecionado na etapa anterior). As VMs devem estar em conformidade com os [requisitos do Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
+13. Em **Computação**, examine o nome da VM, o tamanho, o tipo de disco do SO e a configuração de disponibilidade (se selecionado na etapa anterior). As VMs devem estar em conformidade com os [requisitos do Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
 
     - **Tamanho da VM**: se você estiver usando recomendações de avaliação, o menu suspenso de tamanho da VM mostrará o tamanho recomendado. Caso contrário, as Migrações para Azure escolherão um tamanho com base na correspondência mais próxima na assinatura do Azure. Como alternativa, escolha um tamanho manual em **Tamanho da VM do Azure**.
     - **Disco do SO**: especifique o disco do sistema operacional (inicialização) para a VM. O disco do sistema operacional é o disco que tem o carregador de inicialização e o instalador do sistema operacional.
@@ -285,13 +274,13 @@ Um agente do serviço Mobilidade deve ser instalado nas VMs AWS de origem a sere
 
 ![Configurações de computação](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
 
-13. Em **Discos**, especifique se os discos da VM devem ser replicados para o Azure e selecione o tipo de disco (discos gerenciados HDD/SSD standard ou premium) no Azure. Em seguida, clique em **Próximo**.
+14. Em **Discos**, especifique se os discos da VM devem ser replicados para o Azure e selecione o tipo de disco (discos gerenciados HDD/SSD standard ou premium) no Azure. Em seguida, clique em **Próximo**.
     - Você pode excluir discos da replicação.
     - Se você excluir os discos, eles não estarão presentes na VM do Azure após a migração. 
 
     ![Configurações de disco](./media/tutorial-migrate-physical-virtual-machines/disks.png)
 
-14. Em **Examinar e iniciar a replicação**, examine as configurações e clique em **Replicar** para iniciar a replicação inicial dos servidores.
+15. Em **Examinar e iniciar a replicação**, examine as configurações e clique em **Replicar** para iniciar a replicação inicial dos servidores.
 
 > [!NOTE]
 > É possível atualizar as configurações de replicação a qualquer momento antes do início da replicação em **Gerenciar** > **Computadores em replicação**. Não é possível alterar as configurações após o início da replicação.

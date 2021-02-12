@@ -1,19 +1,22 @@
 ---
 title: Migrar VMs VMware com a migração baseada em agente das Migrações para Azure
 description: Saiba como executar uma migração baseada em agente de VMs VMware com as Migrações para Azure.
+author: rahulg1190
+ms.author: rahugup
+ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: ffdbdba0aeae33b04195c5a6bf6aeaff5658424b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 15bf8f4fde2128181664fa7b94f2479bac7ad5b9
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314712"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881510"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrar VMs VMware para o Azure (com base em agente)
 
-Este artigo mostra como migrar as VMs VMware locais para o Azure usando a ferramenta [Migrações para Azure: Migração de Servidor](migrate-services-overview.md#azure-migrate-server-migration-tool), com a migração baseada em agente.  Você também pode migrar VMs VMware usando a migração baseada em agente. [Compare](server-migrate-overview.md#compare-migration-methods) os métodos.
+Este artigo mostra como migrar as VMs VMware locais para o Azure usando a ferramenta [Migrações para Azure: Migração de Servidor](migrate-services-overview.md#azure-migrate-server-migration-tool), com a migração baseada em agente.  Também é possível migrar VMs VMware usando uma migração sem agente. [Compare](server-migrate-overview.md#compare-migration-methods) os métodos.
 
 
  Neste tutorial, você aprenderá como:
@@ -134,36 +137,6 @@ Verifique se os servidores e as VMs VMware cumprem os requisitos para a migraç�
 > [!NOTE]
 > A migração baseada em agente com a Migração de Servidor de Migrações para Azure baseia-se nos recursos do serviço do Azure Site Recovery. Alguns requisitos podem ser vinculados à documentação do Site Recovery.
 
-
-
-## <a name="add-the-azure-migrateserver-migration-tool"></a>Adicionar a ferramenta Migração de Servidor das Migrações para Azure
-
-Se você ainda não tiver um projeto de Migrações para Azure, [configure-o](how-to-add-tool-first-time.md) agora e adicione a ferramenta Migração de Servidor.
-
-Se você tiver um projeto, adicione a ferramenta da seguinte maneira:
-
-1. No portal do Azure > **Todos os serviços**, pesquise **Migrações para Azure**.
-2. Em **Serviços**, selecione **Migrações para Azure**.
-
-    ![Configurar Migrações para Azure](./media/tutorial-migrate-vmware-agent/azure-migrate-search.png)
-
-3. Em **Visão Geral**, clique em **Avaliar emigrar servidores**.
-4. Em **Descobrir, avaliar e migrar servidores**, clique em **Avaliar e migrar servidores**.
-
-    ![Descobrir e avaliar servidores](./media/tutorial-migrate-vmware-agent/assess-migrate.png)
-
-1. Em **Descobrir, avaliar e migrar servidores**, clique em **Adicionar ferramentas**.
-2. Em **Migrar projeto**, selecione sua assinatura do Azure e crie um grupo de recursos, caso não tenha um.
-3. Em **Detalhes do Projeto**, especifique o nome do projeto e a geografia em que deseja criar o projeto e clique em **Próximo**. Examine as geografias compatíveis para [nuvens públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais](migrate-support-matrix.md#supported-geographies-azure-government).
-
-    ![Criar um projeto das Migrações para Azure](./media/tutorial-migrate-vmware-agent/migrate-project.png)
-
-
-4. Em **Selecionar ferramenta de avaliação**, selecione **Ignorar a adição de uma ferramenta de avaliação por enquanto** > **Avançar**.
-5. Em **Selecionar ferramenta de migração**, selecione **Migrações para Azure: Migração de Servidor** > **Avançar**.
-6. Em **Examinar + adicionar ferramentas**, examine as configurações e clique em **Adicionar ferramentas**
-7. Depois de adicionar a ferramenta, ela aparecerá no projeto de Migrações para Azure > **Servidores** > **Ferramentas de migração**.
-
 ## <a name="set-up-the-replication-appliance"></a>Configurar o dispositivo de replicação
 
 Este procedimento descreve como configurar o dispositivo com um modelo do OVA (Open Virtualization Application) baixado. Se você não puder usar esse método, poderá configurar o dispositivo [usando um script](tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance). 
@@ -277,24 +250,33 @@ Selecione as VMs para migração.
     -  Zona de Disponibilidade para fixar o computador migrado para uma Zona de Disponibilidade específica na região. Use essa opção para distribuir servidores que formam uma camada de aplicativo de vários nós entre Zonas de Disponibilidade diferentes. Se você selecionar essa opção, precisará especificar a zona de disponibilidade a ser usada para cada computador selecionado na guia Computação. Essa opção só estará disponível se a região de destino selecionada para a migração der suporte a Zonas de Disponibilidade
     -  Conjunto de Disponibilidade para colocar o computador migrado em um conjunto de disponibilidade. O grupo de recursos de destino selecionado precisa ter um ou mais conjuntos de disponibilidade para que possa usar essa opção.
     - Nenhuma opção de redundância de infraestrutura será necessária se você não precisar de nenhuma dessas configurações de disponibilidade para os computadores migrados.
-    
-13. Em **Benefício Híbrido do Azure**:
+13. Em **Tipo de criptografia de disco**, selecione:
+    - Criptografia em repouso com chave de criptografia gerenciada pela plataforma
+    - Criptografia em repouso com a chave gerenciada pelo cliente
+    - Criptografia dupla com chaves gerenciadas por plataforma e gerenciadas pelo cliente
+
+   > [!NOTE]
+   > Para replicar VMs com a CMK, você precisará [criar um conjunto de criptografia de disco](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) no grupo de recursos de destino. Um objeto de conjunto de criptografia de disco mapeia o Managed Disks para um Key Vault que contém a CMK a ser usada para a SSE.
+  
+14. Em **Benefício Híbrido do Azure**:
 
     - Selecione **Não** se não desejar aplicar o Benefício Híbrido do Azure. Em seguida, clique em **Próximo**.
     - Selecione **Sim** se você tiver computadores Windows Server cobertos com assinaturas ativas do Software Assurance ou do Windows Server e quiser aplicar o benefício aos computadores que estão sendo migrados. Em seguida, clique em **Próximo**.
 
-14. Em **Computação**, examine o nome da VM, o tamanho, o tipo de disco do SO e a configuração de disponibilidade (se selecionado na etapa anterior). As VMs devem estar em conformidade com os [requisitos do Azure](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
+    ![Configurações de destino](./media/tutorial-migrate-vmware/target-settings.png)
+
+15. Em **Computação**, examine o nome da VM, o tamanho, o tipo de disco do SO e a configuração de disponibilidade (se selecionado na etapa anterior). As VMs devem estar em conformidade com os [requisitos do Azure](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
    - **Tamanho da VM**: se você estiver usando recomendações de avaliação, o menu suspenso de tamanho da VM mostrará o tamanho recomendado. Caso contrário, as Migrações para Azure escolherão um tamanho com base na correspondência mais próxima na assinatura do Azure. Como alternativa, escolha um tamanho manual em **Tamanho da VM do Azure**. 
     - **Disco do SO**: especifique o disco do sistema operacional (inicialização) para a VM. O disco do sistema operacional é o disco que tem o carregador de inicialização e o instalador do sistema operacional. 
     - **Zona de Disponibilidade**: especifique a zona de disponibilidade a ser usada.
     - **Conjunto de disponibilidade**: especifique o conjunto de disponibilidade a ser usado.
 
-15. Em **Discos**, especifique se os discos da VM devem ser replicados para o Azure e selecione o tipo de disco (discos gerenciados HDD/SSD standard ou premium) no Azure. Em seguida, clique em **Próximo**.
+16. Em **Discos**, especifique se os discos da VM devem ser replicados para o Azure e selecione o tipo de disco (discos gerenciados HDD/SSD standard ou premium) no Azure. Em seguida, clique em **Próximo**.
     - Você pode excluir discos da replicação.
     - Se você excluir os discos, eles não estarão presentes na VM do Azure após a migração. 
 
-16. Em **Examinar e iniciar a replicação**, examine as configurações e clique em **Replicar** para iniciar a replicação inicial dos servidores.
+17. Em **Examinar e iniciar a replicação**, examine as configurações e clique em **Replicar** para iniciar a replicação inicial dos servidores.
 
 > [!NOTE]
 > É possível atualizar as configurações de replicação a qualquer momento antes do início da replicação em **Gerenciar** > **Computadores em replicação**. Não é possível alterar as configurações após o início da replicação.

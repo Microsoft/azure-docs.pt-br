@@ -11,12 +11,12 @@ ms.date: 05/25/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3e1d76c5ef1f003fe9e01b866343ef7de7ab4166
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 430da23986fc36a0e94c049512ef716aff1fed5c
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92214916"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660243"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>A nova experiência de Registros de aplicativo para Azure Active Directory B2C
 
@@ -63,12 +63,13 @@ Na experiência herdada, os aplicativos eram sempre criados como aplicativos vol
 > [!NOTE]
 > Essa opção é necessária para poder executar Azure AD B2C fluxos de usuário para autenticar usuários para este aplicativo. Saiba [como registrar um aplicativo para uso com fluxos de usuário.](tutorial-register-applications.md)
 
-Você também pode usar essa opção para usar Azure AD B2C como um provedor de serviços SAML. [Saiba mais](identity-provider-adfs2016-custom.md).
+Você também pode usar essa opção para usar Azure AD B2C como um provedor de serviços SAML. [Saiba mais](identity-provider-adfs.md).
 
 ## <a name="applications-for-devops-scenarios"></a>Aplicativos para cenários de DevOps
+
 Você pode usar os outros tipos de conta para criar um aplicativo para gerenciar seus cenários de DevOps, como usar Microsoft Graph para carregar políticas de estrutura de experiência de identidade ou provisionar usuários. Saiba [como registrar um aplicativo Microsoft Graph para gerenciar Azure ad B2C recursos](microsoft-graph-get-started.md).
 
-Talvez você não veja todas as permissões de Microsoft Graph, pois muitas dessas permissões não se aplicam aos usuários do consumidor do Azure B2C. [Leia mais sobre como gerenciar usuários usando Microsoft Graph](manage-user-accounts-graph-api.md).
+Talvez você não veja todas as permissões de Microsoft Graph, pois muitas dessas permissões não se aplicam aos usuários do consumidor do Azure B2C. [Leia mais sobre como gerenciar usuários usando Microsoft Graph](microsoft-graph-operations.md).
 
 ## <a name="admin-consent-and-offline_accessopenid-scopes"></a>Consentimento de administrador e offline_access + escopos de OpenID
 <!-- Azure AD B2C doesn't support user consent. That is, when a user signs into an application, the user doesn't see a screen requesting consent for the application permissions. All permissions have to be granted through admin consent.  -->
@@ -97,8 +98,8 @@ Na nova experiência, em vez de **chaves**, você usa a folha **certificados & s
 ## <a name="features-not-applicable-in-azure-ad-b2c-tenants"></a>Recursos não aplicáveis em locatários Azure AD B2C
 Os seguintes recursos de registro de aplicativo do Azure AD não são aplicáveis ou estão disponíveis em locatários Azure AD B2C:
 - **Funções e administradores** – não disponíveis no momento para Azure ad B2C.
-- **Identidade visual** – a personalização da interface do usuário/UX é configurada na experiência de **identidade visual da empresa** ou como parte de um fluxo de usuário. Saiba como [Personalizar a interface do usuário no Azure Active Directory B2C](customize-ui-overview.md).
-- **Verificação de domínio do Publicador** -seu aplicativo está registrado em *. onmicrosoft.com*, que não é um domínio verificado. Além disso, o domínio do Publicador é usado principalmente para conceder o consentimento do usuário, que não se aplica a aplicativos Azure AD B2C para autenticação de usuário. [Saiba mais sobre o domínio do Publicador](https://docs.microsoft.com/azure/active-directory/develop/howto-configure-publisher-domain).
+- **Identidade visual** – a personalização da interface do usuário/UX é configurada na experiência de **identidade visual da empresa** ou como parte de um fluxo de usuário. Saiba como [Personalizar a interface do usuário no Azure Active Directory B2C](customize-ui-with-html.md).
+- **Verificação de domínio do Publicador** -seu aplicativo está registrado em *. onmicrosoft.com*, que não é um domínio verificado. Além disso, o domínio do Publicador é usado principalmente para conceder o consentimento do usuário, que não se aplica a aplicativos Azure AD B2C para autenticação de usuário. [Saiba mais sobre o domínio do Publicador](../active-directory/develop/howto-configure-publisher-domain.md).
 - **Configuração de token** -o token é configurado como parte de um fluxo de usuário em vez de um aplicativo.
 - A experiência de **guias de início rápido** não está disponível atualmente para locatários Azure ad B2C.
 <!-- - The **Integration assistant** blade is currently not available for Azure AD B2C tenants. -->
@@ -116,5 +117,5 @@ Para começar a usar a nova experiência de registro de aplicativo:
 * Saiba [como registrar uma API da Web](add-web-api-application.md).
 * Saiba [como registrar um aplicativo cliente nativo](add-native-application.md).
 * Saiba [como registrar um aplicativo Microsoft Graph para gerenciar Azure ad B2C recursos](microsoft-graph-get-started.md).
-* Saiba [como usar Azure ad B2C como um provedor de serviços SAML.](identity-provider-adfs2016-custom.md)
+* Saiba [como usar Azure ad B2C como um provedor de serviços SAML.](identity-provider-adfs.md)
 * Saiba mais sobre os [tipos de aplicativos](application-types.md).

@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
 ms.openlocfilehash: f691eb6433907ed10737329de3edd78547f130f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258862"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008269"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introdução ao monitoramento da integridade do Service Fabric
 O Service Fabric do Azure introduz um modelo de integridade que fornece avaliação e relatório de integridade avançados, flexíveis e extensíveis. O modelo permite o monitoramento do estado quase em tempo real do cluster e dos serviços que são executados nele. Você pode obter as informações sobre integridade facilmente e corrigir possíveis problemas antes que eles se espalhem e causem interrupções massivas. No modelo comum, os serviços enviam relatórios com base na respectiva exibição local e as informações são agregadas para fornecer uma exibição geral no nível de cluster.
@@ -187,7 +187,7 @@ Os [relatórios de integridade](/dotnet/api/system.fabric.health.healthreport) d
 * **SourceID**. Uma cadeia de caracteres que identifica exclusivamente o relator do evento de integridade.
 * **Identificador de entidade**. Identifica a entidade na qual o relatório é aplicado. Varia de acordo com o [tipo de entidade](service-fabric-health-introduction.md#health-entities-and-hierarchy):
   
-  * Cluster. Nenhum.
+  * Cluster. nenhuma.
   * Nó. Nome do nó (cadeia de caracteres).
   * Console. Nome do aplicativo (URI). Representa o nome da instância do aplicativo implantado no cluster.
   * Serviço. Nome do serviço (URI). Representa o nome da instância do serviço implantado no cluster.

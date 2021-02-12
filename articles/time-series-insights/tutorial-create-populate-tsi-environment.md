@@ -9,12 +9,12 @@ ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6037ece7f4cbe0edc9cf44bded3ee34815f76a48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 982ca04237d16979d65260a040f5aed783822ac7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91620198"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023217"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-gen1-environment"></a>Tutorial: Criar um ambiente do Azure Time Series Insights Gen1
 
@@ -36,7 +36,7 @@ Este tutorial orientará você pelo processo de criação de um ambiente do Azur
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Sua conta de entrada do Azure também precisa ser um membro da função **Proprietário** da assinatura. Para obter mais informações, leia [Gerenciar o acesso usando o controle de acesso baseado em função e o portal do Azure](../role-based-access-control/role-assignments-portal.md).
+* Sua conta de entrada do Azure também precisa ser um membro da função **Proprietário** da assinatura. Para obter mais informações, leia [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="review-video"></a>Ver um vídeo
 
@@ -101,7 +101,7 @@ Em segundo lugar, crie um ambiente do Azure Time Series Insights na sua assinatu
 
    Parâmetro|Descrição
    ---|---
-   **Nome do ambiente** | Escolha um nome exclusivo para o ambiente do Azure Time Series Insights. Os nomes são usados pelo Gerenciador do Azure Time Series Insights e pelas [APIs de Consulta](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query).
+   **Nome do ambiente** | Escolha um nome exclusivo para o ambiente do Azure Time Series Insights. Os nomes são usados pelo Gerenciador do Azure Time Series Insights e pelas [APIs de Consulta](/rest/api/time-series-insights/gen1-query).
    **Assinatura** | As assinaturas são contêineres para recursos do Azure. Escolha uma assinatura para criar o ambiente do Azure Time Series Insights.
    **Grupo de recursos** | Um grupo de recursos é um contêiner para os recursos do Azure. Escolha um grupo de recursos existente ou crie um para o recurso de ambiente do Azure Time Series Insights.
    **Localidade** | Escolha uma região do data center para o seu ambiente do Azure Time Series Insights. Para evitar latência adicional, crie o ambiente do Azure Time Series Insights na mesma região que outros recursos de IoT.

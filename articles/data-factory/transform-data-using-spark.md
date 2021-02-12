@@ -1,6 +1,6 @@
 ---
 title: Transformar dados usando a atividade do Spark
-description: Saiba como transformar dados executando programas Spark em um pipeline do Azure Data Factory usando a atividade do Spark.
+description: Saiba como transformar dados executando programas Spark de um pipeline Azure Data Factory usando a atividade do Spark.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 05/08/2020
-ms.openlocfilehash: d8cc934ebe8b465bc43e37d0d3a3fc58feda8c0a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: cac64b17e7aad9aa2bf88386f21d5f82b3013fa3
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637710"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566768"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformar dados usando a atividade do Spark no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -77,7 +77,7 @@ A tabela a seguir descreve as propriedades JSON usadas na definição de JSON:
 ## <a name="folder-structure"></a>Estrutura de pastas
 Os trabalhos do Spark são mais extensíveis do que os trabalhos do Pig/Hive. Para trabalhos do Spark, você pode fornecer várias dependências, como pacotes jar (colocados no CLASSPATH de java), arquivos do python (colocados no PYTHONPATH) e outros arquivos.
 
-Crie a seguinte estrutura de pastas no armazenamento de Blobs do Azure referenciado pelo serviço vinculado ao HDInsight. Depois, carregue os arquivos dependentes nas subpastas apropriadas na pasta raiz, representada por **entryFilePath** . Por exemplo, carregue arquivos do python na subpasta pyFiles e os arquivos jar na subpasta jars da pasta raiz. Em runtime, o serviço Data Factory espera a seguinte estrutura de pastas no Armazenamento de Blobs do Azure:     
+Crie a seguinte estrutura de pastas no armazenamento de Blobs do Azure referenciado pelo serviço vinculado ao HDInsight. Depois, carregue os arquivos dependentes nas subpastas apropriadas na pasta raiz, representada por **entryFilePath**. Por exemplo, carregue arquivos do python na subpasta pyFiles e os arquivos jar na subpasta jars da pasta raiz. Em runtime, o serviço Data Factory espera a seguinte estrutura de pastas no Armazenamento de Blobs do Azure:     
 
 | Caminho                  | Descrição                              | Obrigatório | Type   |
 | --------------------- | ---------------------------------------- | -------- | ------ |

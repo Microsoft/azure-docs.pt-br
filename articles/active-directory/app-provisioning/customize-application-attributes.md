@@ -1,25 +1,29 @@
 ---
-title: Personalizar mapeamentos de atributos no Azure AD | Microsoft Docs
+title: Tutorial – Personalizar mapeamentos de atributo do Azure Active Directory
 description: Saiba quais são os mapeamentos de atributo para aplicativos SaaS no Active Directory do Azure e como você pode modificá-los para atender às necessidades de negócios.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: how-to
-ms.date: 10/26/2020
+ms.topic: tutorial
+ms.date: 02/08/2021
 ms.author: kenwith
-ms.openlocfilehash: aaafd3833c63458f8403dfeb3620d76f631315b5
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
-ms.translationtype: MT
+ms.openlocfilehash: 03eacf4405217ee883689a088499d86d6f2262b5
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899188"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99830695"
 ---
-# <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizar mapeamentos de atributos do provisionamento de usuário para aplicativos SaaS no Azure Active Directory
+# <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutorial – Personalizar mapeamentos de atributos do provisionamento de usuário para aplicativos SaaS no Azure Active Directory
 
 O Microsoft Azure AD dá suporte ao provisionamento de usuário para aplicativos SaaS de terceiros, como o Salesforce e o G Suite, entre outros. Se você habilitar o provisionamento de usuário para um aplicativo SaaS de terceiros, o portal do Azure controlará os valores de seus atributos por meio do mapeamento de atributos.
+
+Antes de começar, verifique se você está familiarizado com os conceitos de gerenciamento de aplicativo e de **SSO (Logon único)** , confira os seguintes links:
+- [Série de guias de início rápido sobre gerenciamento de aplicativo no Azure AD](../manage-apps/view-applications-portal.md)
+- [O que é SSO (logon único)?](../manage-apps/what-is-single-sign-on.md)
 
 Há um conjunto pré-configurado de atributos e mapeamentos de atributos entre objetos de usuário do Azure AD e objetos de usuário de cada aplicativo SaaS. Alguns aplicativos gerenciam outros tipos de objetos em conjunto com os Usuários, como Grupos.
 
@@ -43,7 +47,7 @@ Siga estas etapas para acessar o recurso **Mapeamentos** do provisionamento de u
 
    Nesta captura de tela, você pode ver que o atributo **Nome de usuário** de um objeto gerenciado no Salesforce é preenchido com o valor **userPrincipalName** do Objeto do Azure Active Directory vinculado.
 
-1. Selecione um **Mapeamento de Atributos** existente para abrir a tela **Editar Atributo** . Aqui, é possível editar e exibir os atributos de usuário que fluem entre o Azure AD e o aplicativo de destino.
+1. Selecione um **Mapeamento de Atributos** existente para abrir a tela **Editar Atributo**. Aqui, é possível editar e exibir os atributos de usuário que fluem entre o Azure AD e o aplicativo de destino.
 
    ![Usar Editar Atributo para editar atributos de usuário](./media/customize-application-attributes/23.png)
 
@@ -75,7 +79,7 @@ Além dessa propriedade, os mapeamentos de atributos também dão suporte aos se
   - **Somente durante a criação** – aplicar esse mapeamento somente a ações de criação de usuário.
 
 ## <a name="matching-users-in-the-source-and-target--systems"></a>Usuários correspondentes nos sistemas de origem e destino
-O serviço de provisionamento do Azure AD pode ser implantado em cenários "greenfield" (em que os usuários não existem no sistema de destino) e em cenários "brownfield" (em que os usuários já existem no sistema de destino). Para dar suporte aos dois cenários, o serviço de provisionamento usa o conceito de atributos correspondentes. Os atributos correspondentes permitem que você determine como identificar de maneira exclusiva um usuário na origem e faça a correspondência com o usuário no destino. Como parte do planejamento de sua implantação, defina o atributo que pode ser usado para identificar de maneira exclusiva um usuário nos sistemas de origem e destino. Aspectos a considerar:
+O serviço de provisionamento do Azure AD pode ser implantado em cenários "green field" (em que os usuários não existem no sistema de destino) e em cenários "brownfield" (em que os usuários já existem no sistema de destino). Para dar suporte aos dois cenários, o serviço de provisionamento usa o conceito de atributos correspondentes. Os atributos correspondentes permitem que você determine como identificar de maneira exclusiva um usuário na origem e faça a correspondência com o usuário no destino. Como parte do planejamento de sua implantação, defina o atributo que pode ser usado para identificar de maneira exclusiva um usuário nos sistemas de origem e destino. Aspectos a considerar:
 
 - **Atributos correspondentes devem ser exclusivos:** os clientes costumam usar atributos como userPrincipalName, email ou a ID do objeto como o atributo correspondente.
 - **Vários atributos podem ser usados como atributos correspondentes:** você pode definir vários atributos a serem avaliados ao fazer a correspondência entre os usuários, bem como a ordem em que eles são avaliados (precedência de correspondência na interface do usuário). Se, por exemplo, você definir três atributos como correspondentes e um usuário for considerado correspondente com exclusividade após avaliar os dois primeiros atributos, o serviço não avaliará o terceiro. O serviço vai avaliar os atributos correspondentes na ordem especificada e interromper a avaliação quando uma correspondência for encontrada.  
@@ -90,7 +94,7 @@ Um número seleto de aplicativos, como o ServiceNow, o Box e o G Suite, dão sup
 
 ![Exemplo mostra o ServiceNow com objetos de Grupo e Usuário provisionados](./media/customize-application-attributes/24.png)
 
-O provisionamento de grupo pode, opcionalmente, ser habilitado ou desabilitado selecionando o mapeamento de grupo em **Mapeamentos** e configurando **Habilitado** como a opção desejada na tela **Mapeamento de Atributos** .
+O provisionamento de grupo pode, opcionalmente, ser habilitado ou desabilitado selecionando o mapeamento de grupo em **Mapeamentos** e configurando **Habilitado** como a opção desejada na tela **Mapeamento de Atributos**.
 
 Os atributos provisionados como parte dos objetos de Grupo podem ser personalizados da mesma maneira como os objetos de Usuário, como descrito anteriormente. 
 
@@ -107,15 +111,15 @@ Os aplicativos e sistemas que dão suporte à personalização da lista de atrib
 
 - Salesforce
 - ServiceNow
-- WORKDAY para Active Directory/workday a Azure Active Directory
-- SuccessFactors para Active Directory/SuccessFactors Azure Active Directory
+- Workday para o Active Directory/Workday para o Azure Active Directory
+- SuccessFactors para o Active Directory/SuccessFactors para o Azure Active Directory
 - Active Directory do Azure ([atributos do Azure AD Graph API padrão](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) e há suporte para extensões de diretório personalizado)
-- Aplicativos que dão suporte ao [SCIM 2.0](https://tools.ietf.org/html/rfc7643), onde os atributos definidos no [esquema principal](https://tools.ietf.org/html/rfc7643) precisam ser adicionados
-- Para Azure Active Directory write-back para workday ou SuccessFactors, há suporte para atualizar metadados relevantes para atributos com suporte (XPATH e JSONPath), mas não há suporte para adicionar novos atributos workday ou SuccessFactors além daqueles incluídos no esquema padrão
+- Aplicativos compatíveis com [SCIM 2.0](https://tools.ietf.org/html/rfc7643)
+- O write-back do Azure Active Directory para Workday ou SuccessFactors dá suporte para atualizar metadados relevantes para atributos com suporte (XPATH e JSONPath), mas não dá suporte para adicionar novos atributos do Workday ou do SuccessFactors além daqueles incluídos no esquema padrão
 
 
 > [!NOTE]
-> Editar a lista de atributos com suporte é recomendado apenas para os administradores que personalizaram o esquema de seus aplicativos e sistemas e que tenham conhecimento de antemão de como seus atributos personalizados foram definidos. Às vezes, isso requer familiaridade com as APIs e as ferramentas dos desenvolvedores fornecidas por um aplicativo ou sistema.
+> Editar a lista de atributos com suporte é recomendado apenas para os administradores que personalizaram o esquema de seus aplicativos e sistemas e que tenham conhecimento de antemão de como seus atributos personalizados foram definidos. Às vezes, isso requer familiaridade com as APIs e as ferramentas dos desenvolvedores fornecidas por um aplicativo ou sistema. A capacidade de editar a lista de atributos compatíveis está bloqueada por padrão, mas os clientes podem habilitar a funcionalidade navegando até a seguinte URL: https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true. Em seguida, acesse seu aplicativo para ver a lista de atributos, conforme descrito [acima](#editing-the-list-of-supported-attributes). 
 
 Ao editar a lista de atributos com suporte, as seguintes propriedades são fornecidas:
 
@@ -136,17 +140,17 @@ Ao editar a lista de atributos com suporte, as seguintes propriedades são forne
 
 #### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Provisionar um atributo de extensão personalizado para um aplicativo em conformidade com SCIM
 O RFC do SCIM define um esquema de usuário e grupo principal, permitindo também que as extensões do esquema atendam às necessidades de seu aplicativo. Para adicionar um atributo personalizado a um aplicativo SCIM:
-   1. Entre no [portal do Azure Active Directory](https://aad.portal.azure.com), selecione **Aplicativos Empresariais** , selecione seu aplicativo e, em seguida, selecione **Provisionamento** .
-   2. Em **Mapeamentos** , selecione o objeto (usuário ou grupo) para o qual deseja adicionar um atributo personalizado.
-   3. Na parte inferior da página, selecione **Mostrar opções avançadas** .
-   4. Selecione **Editar lista de atributos do AppName** .
-   5. Na parte inferior da lista de atributos, insira informações sobre o atributo personalizado nos campos fornecidos. Em seguida, selecione **Adicionar Atributo** .
+   1. Entre no [portal do Azure Active Directory](https://aad.portal.azure.com), selecione **Aplicativos Empresariais**, selecione seu aplicativo e, em seguida, selecione **Provisionamento**.
+   2. Em **Mapeamentos**, selecione o objeto (usuário ou grupo) para o qual deseja adicionar um atributo personalizado.
+   3. Na parte inferior da página, selecione **Mostrar opções avançadas**.
+   4. Selecione **Editar lista de atributos do AppName**.
+   5. Na parte inferior da lista de atributos, insira informações sobre o atributo personalizado nos campos fornecidos. Em seguida, selecione **Adicionar Atributo**.
 
-Para aplicativos SCIM, o nome do atributo deve seguir o padrão mostrado no exemplo abaixo. O "CustomExtensionName" e o "CustomAttribute" podem ser personalizados de acordo com os requisitos do seu aplicativo, por exemplo: urn: IETF: params: SCIM: schemas: Extension: CustomExtensionName: 2.0: usuário: CustomAttribute 
+Para aplicativos SCIM, o nome do atributo deve seguir o padrão mostrado no exemplo abaixo. O "CustomExtensionName" e o "CustomAttribute" podem ser personalizados de acordo com os requisitos do seu aplicativo, por exemplo: urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:CustomAttribute 
 
 Essas instruções são aplicáveis somente a aplicativos habilitados para o SCIM. Aplicativos como o ServiceNow e o Salesforce não são integrados ao Azure AD usando o SCIM e, portanto, não exigem esse namespace específico ao adicionar um atributo personalizado.
 
-Atributos personalizados não podem ser atributos de referência nem atributos com vários valores. Atualmente, atributos de extensão com vários valores personalizados têm suporte apenas para aplicativos na galeria.  
+Atributos personalizados não podem ser atributos de referência, nem atributos com vários valores e com tipo complexo. Atualmente, atributos de extensão com vários valores e com tipo complexo personalizados têm suporte apenas nos aplicativos na galeria.  
  
 **Exemplo de representação de um usuário com um atributo de extensão:**
 
@@ -156,6 +160,7 @@ Atributos personalizados não podem ser atributos de referência nem atributos c
       "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
       "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User"],
      "userName":"bjensen",
+     "id": "48af03ac28ad4fb88478",
      "externalId":"bjensen",
      "name":{
        "formatted":"Ms. Barbara J Jensen III",
@@ -202,7 +207,7 @@ Use as etapas abaixo para provisionar funções para um usuário em seu aplicati
   - **Aspectos a considerar**
     - Certifique-se de que não sejam atribuídas várias funções a um usuário. Não podemos garantir qual função será provisionada.
     
-  - **Saída de exemplo** 
+  - **Solicitação de exemplo (POST)** 
 
    ```json
     {
@@ -226,6 +231,21 @@ Use as etapas abaixo para provisionar funções para um usuário em seu aplicati
    }
    ```
   
+  - **Exemplo de saída (PATCH)** 
+    
+   ```
+   "Operations": [
+   {
+   "op": "Add",
+   "path": "roles",
+   "value": [
+   {
+   "value": "{\"id\":\"06b07648-ecfe-589f-9d2f-6325724a46ee\",\"value\":\"25\",\"displayName\":\"Role1234\"}"
+   }
+   ]
+   ```  
+Os formatos de solicitação no PATCH e no POST são diferentes. Para garantir que o POST e o PATCH sejam enviados no mesmo formato, você pode usar o sinalizador de recurso descrito [aqui](./application-provisioning-config-problem-scim-compatibility.md#flags-to-alter-the-scim-behavior). 
+
 - **AppRoleAssignmentsComplex** 
   - **Quando usar:** use a expressão AppRoleAssignmentsComplex para provisionar várias funções para um usuário. 
   - **Como configurar:** edite a lista de atributos com suporte conforme descrito acima para incluir um novo atributo para as funções: 
@@ -316,7 +336,7 @@ A seleção dessa opção efetivamente forçará uma ressincronização de todos
 - O serviço de provisionamento do Azure AD não dá suporte ao provisionamento de valores nulos.
 - A chave primária, normalmente "ID", não deve ser incluída como um atributo de destino em seus mapeamentos de atributo. 
 - O atributo de função normalmente precisa ser mapeado usando uma expressão em vez de um mapeamento direto. Confira a seção acima para obter mais detalhes sobre o mapeamento de funções. 
-- Embora você possa desabilitar grupos de seus mapeamentos, não há suporte para desabilitar usuários. 
+- Embora você possa desabilitar os grupos dos seus mapeamentos, não há suporte para a desabilitação de usuários. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

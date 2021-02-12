@@ -3,28 +3,28 @@ title: Verificar erros no pool e nos nós
 description: Este artigo aborda as operações em segundo plano que podem ocorrer, além de erros a verificar e como evitá-los ao criar pools e nós.
 author: mscurrell
 ms.author: markscu
-ms.date: 08/23/2019
+ms.date: 02/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 519b357e4e5fde30221f7dc804bb848ecec9704c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b67eada5dfa89f95e2c9ae045c6bbe3fa0bb1ce
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85979910"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576305"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Verificar erros no pool e nos nós
 
-Ao criar e gerenciar os pools do Lote do Microsoft Azure, algumas operações acontecem imediatamente. No entanto, algumas operações são assíncronas e executadas em segundo plano e levam vários minutos para serem concluídas.
+Ao criar e gerenciar os pools do Lote do Microsoft Azure, algumas operações acontecem imediatamente. A detecção de falhas para essas operações é normalmente simples, pois elas são retornadas imediatamente pela API, CLI ou interface do usuário. No entanto, algumas operações são assíncronas e executadas em segundo plano e levam vários minutos para serem concluídas.
 
-A detecção de falhas para operações que ocorrem imediatamente é simples, uma vez que quaisquer falhas serão retornadas imediatamente pela API, CLI ou interface do usuário.
+Verifique se você definiu seus aplicativos para implementar a verificação de erros abrangente, especialmente para operações assíncronas. Isso pode ajudá-lo a identificar e diagnosticar imediatamente os problemas.
 
-Este artigo aborda as operações em segundo plano que podem ocorrer para pools e nós de pool. Ele especifica como se pode detectar e evitar falhas.
+Este artigo descreve maneiras de detectar e evitar falhas nas operações em segundo plano que podem ocorrer para pools e nós de pool.
 
 ## <a name="pool-errors"></a>Erros do pool
 
 ### <a name="resize-timeout-or-failure"></a>Redimensionar tempo limite ou falha
 
-Ao criar um novo pool ou redimensionar um existente, o número de destino de nós é especificado.  A operação de criação ou redimensionamento é concluída imediatamente, mas a alocação real de novos nós ou a remoção de nós existentes pode levar vários minutos.  Especifique o tempo limite de redimensionamento em [crie](/rest/api/batchservice/pool/add) ou [redimensionar](/rest/api/batchservice/pool/resize) a API. Se o Lote não puder obter o número de nós de destino durante o período de tempo limite do redimensionamento, o pool entrará em um estado estável e reportará erros de redimensionamento.
+Ao criar um novo pool ou redimensionar um existente, o número de destino de nós é especificado. A operação de criação ou redimensionamento é concluída imediatamente, mas a alocação real de novos nós ou a remoção de nós existentes pode levar vários minutos. Você pode especificar o tempo limite de redimensionamento na API de [criação](/rest/api/batchservice/pool/add) ou [redimensionamento](/rest/api/batchservice/pool/resize) . Se o lote não puder obter o número de destino de nós durante o período de tempo limite de redimensionamento, o pool entrará em um estado estável e redimensionará os erros.
 
 A propriedade [ResizeError](/rest/api/batchservice/pool/get#resizeerror) da avaliação mais recente lista os erros ocorridos.
 
@@ -44,23 +44,25 @@ As causas comuns dos erros de redimensionamento incluem:
 
 ### <a name="automatic-scaling-failures"></a>Falhas de dimensionamento automático
 
-Também se pode definir o Lote do Microsoft Azure para dimensionar automaticamente o número de nós em um pool. Defina os parâmetros da [fórmula de dimensionamento automático para um pool](./batch-automatic-scaling.md). O serviço de lote usa a fórmula para avaliar o número de nós no pool periodicamente e definir um novo número de destino. Os tipos de problemas a seguir podem ocorrer:
+Você pode definir o lote do Azure para dimensionar automaticamente o número de nós em um pool. Defina os parâmetros da [fórmula de dimensionamento automático para um pool](./batch-automatic-scaling.md). Em seguida, o serviço de lote usará a fórmula para avaliar periodicamente o número de nós no pool e definir um novo número de destino.
+
+Os seguintes tipos de problemas podem ocorrer ao usar o dimensionamento automático:
 
 - A fórmula de dimensionamento automático falhar.
 - A operação de redimensionamento resultante pode falhar e atingir o tempo limite.
 - Um problema com a fórmula de dimensionamento automático pode resultar em valores de destino de nó incorretos. O redimensionamento funcionar ou atingir o tempo limite.
 
-Obtenha informações sobre a última avaliação do dimensionamento automático usando a propriedade [autoScaleRun](/rest/api/batchservice/pool/get#autoscalerun). Essa propriedade informa o tempo de avaliação, os valores, o resultado e quaisquer erros de desempenho.
+Para obter informações sobre a última avaliação de dimensionamento automático, use a propriedade [autoScaleRun](/rest/api/batchservice/pool/get#autoscalerun) . Essa propriedade informa o tempo de avaliação, os valores, o resultado e quaisquer erros de desempenho.
 
 Informações sobre todas as avaliações são capturadas automaticamente por um [evento completo de redimensionamento de pool](./batch-pool-resize-complete-event.md).
 
-### <a name="delete"></a>Excluir
+### <a name="pool-deletion-failures"></a>Falhas de exclusão de pool
 
-Ao excluir um pool que contém nós, o primeiro lote exclui os nós. Em seguida, ele exclui o próprio objeto do pool. A exclusão dos nós do pool pode levar alguns minutos para ser concluída.
+Ao excluir um pool que contém nós, o primeiro lote exclui os nós. Isso pode demorar vários minutos. Depois disso, o lote exclui o objeto de pool em si.
 
 O lote define o [estado do pool](/rest/api/batchservice/pool/get#poolstate) será definido como **excluindo** durante o processo de exclusão. O aplicativo de chamada pode detectar se a exclusão do pool está demorando demais usando as propriedades **state** e **stateTransitionTime**.
 
-## <a name="pool-compute-node-errors"></a>Erros do nó de computação do pool
+## <a name="node-errors"></a>Erros de nó
 
 Mesmo quando o Lote aloca com êxito os nós em um pool, diversos problemas podem fazer com que alguns dos nós sejam não íntegros e não consigam executar tarefas. Esses nós ainda incorrem em encargos, portanto, é importante detectar problemas para evitar o pagamento de nós que não podem ser usados. Além dos erros de nós comuns, é útil saber qual o [estado atual](/rest/api/batchservice/job/get#jobstate) do trabalho ao solucionar problemas.
 
@@ -74,7 +76,7 @@ Falhas na tarefa inicial podem ser detectadas usando as propriedades [result](/r
 
 Uma falha ao iniciar tarefa também faz com que o lote defina o nó [state](/rest/api/batchservice/computenode/get#computenodestate) em **starttaskfailed** se **waitForSuccess** estiver definido como **true**.
 
-Assim como acontece com qualquer tarefa, pode haver muitas causas para a falhar na tarefa inicial.  Para solucionar problemas, stdout, stderr e quaisquer arquivos de log de tarefas específicas adicionais devem ser verificados.
+Assim como ocorre com qualquer tarefa, pode haver muitas causas para uma falha de tarefa inicial. Para solucionar problemas, stdout, stderr e quaisquer arquivos de log de tarefas específicas adicionais devem ser verificados.
 
 As tarefas iniciais devem ser de reinserção, pois é possível que a tarefa inicial seja executada várias vezes no mesmo nó; a tarefa inicial é executada quando um nó é reinicializado ou tem a imagem refeita. Em casos raros, uma tarefa inicial será executada depois que um evento tiver causado uma reinicialização de nó, na qual foi refeita a imagem de um dos discos efêmeros ou de sistema operacional enquanto o outro não passou por isso. Como as tarefas de início do Lote (como todas as tarefas do Lote) são executadas a partir do disco efêmero, isso normalmente não é um problema, mas, em alguns casos em que a tarefa inicial está instalando um aplicativo no disco do sistema operacional e mantendo outros dados no disco efêmero, isso pode causar problemas porque as coisas estarão fora de sincronia. Proteja seu aplicativo adequadamente se você estiver usando ambos os discos.
 
@@ -87,6 +89,10 @@ Uma falha ao baixar e descompactar um pacote de aplicativos será relatada pela 
 ### <a name="container-download-failure"></a>Falha ao baixar contêiner
 
 Você pode especificar uma ou mais referências de contêiner em um pool. O Lote baixa os contêineres especificados para cada nó. A propriedade [erros](/rest/api/batchservice/computenode/get#computenodeerror) do nó relata uma falha ao baixar um contêiner e define o estado do nó como **inutilizável**.
+
+### <a name="node-os-updates"></a>Atualizações do so do nó
+
+Para pools do Windows, `enableAutomaticUpdates` é definido como `true` por padrão. É recomendável permitir atualizações automáticas, mas elas podem interromper o andamento da tarefa, especialmente se as tarefas forem de execução longa. Você pode definir esse valor como `false` se precisar garantir que uma atualização do sistema operacional não aconteça inesperadamente.
 
 ### <a name="node-in-unusable-state"></a>Nó em estado inutilizável
 
@@ -116,7 +122,7 @@ O processo do agente do Lote que é executado em cada nó do pool pode fornecer 
 
 ### <a name="node-disk-full"></a>Disco do nó cheio
 
-A unidade temporária de uma VM de nó de pool é usada pelo Lote para arquivos compartilhados, de trabalhos e de tarefas.
+A unidade temporária para uma VM de nó de pool é usada pelo lote para arquivos de trabalho, arquivos de tarefas e arquivos compartilhados, como o seguinte:
 
 - Arquivos de pacotes de aplicativos
 - Arquivos de recursos de tarefas
@@ -135,23 +141,17 @@ O tamanho da unidade temporária depende do tamanho da VM. Ao escolher um tamanh
 
 Para arquivos gravados por cada tarefa, é possível especificar um tempo de retenção para cada tarefa que determine por quanto tempo os arquivos de tarefa serão mantidos antes de serem limpos automaticamente. O tempo de retenção pode ser reduzido para diminuir os requisitos de armazenamento.
 
-
 Se o disco temporário ficar sem espaço (ou estiver muito perto de ficar sem espaço), o nó será movido para o estado [inutilizável](/rest/api/batchservice/computenode/get#computenodestate) e um erro de nó será relatado, informando que o disco está cheio.
 
-### <a name="what-to-do-when-a-disk-is-full"></a>O que fazer quando um disco está cheio
+Se você não tiver certeza do que está ocupando espaço no nó, tente comunicação remota com o nó e investigando manualmente onde o espaço foi feito. Você também pode usar a [API de Arquivos de Lista de Lote](/rest/api/batchservice/file/listfromcomputenode) para examinar arquivos em pastas gerenciadas do Lote (por exemplo, saídas de tarefas). Observe que essa API lista apenas os arquivos nos diretórios gerenciados do lote. Se suas tarefas criaram arquivos em outro lugar, você não os verá.
 
-Determine por que o disco está cheio: se você não tiver certeza do que está ocupando espaço no nó, é recomendável deixar o nó como remoto e investigar manualmente como o espaço acabou. Você também pode usar a [API de Arquivos de Lista de Lote](/rest/api/batchservice/file/listfromcomputenode) para examinar arquivos em pastas gerenciadas do Lote (por exemplo, saídas de tarefas). Observe que essa API só lista os arquivos nos diretórios gerenciados pelo Lote e, se suas tarefas criaram arquivos em outro lugar, você não os verá.
+Certifique-se de que todos os dados necessários foram recuperados do nó ou carregados em um repositório durável e, em seguida, exclua os dados conforme necessário para liberar espaço.
 
-Verifique se todos os dados necessários foram recuperados do nó ou carregados em um repositório durável. Resolver problemas de disco cheio sempre envolve a exclusão de dados para liberar espaço.
+Você pode excluir trabalhos antigos concluídos ou tarefas concluídas antigas cujos dados de tarefa ainda estão nos nós. Procure na [coleção RecentTasks](/rest/api/batchservice/computenode/get#taskinformation) no nó ou nos [arquivos do nó](/rest/api/batchservice/file/listfromcomputenode). A exclusão de um trabalho excluirá todas as tarefas no trabalho; a exclusão das tarefas no trabalho disparará os dados nos diretórios de tarefas no nó a ser excluído, liberando assim o espaço. Depois de liberar espaço suficiente, reinicialize o nó e ele deverá sair do estado "Inutilizável", retornando para "ocioso".
 
-### <a name="recovering-the-node"></a>Recuperação do nó
-
-1. Se o pool for um pool for de [C.loudServiceConfiguration](/rest/api/batchservice/pool/add#cloudserviceconfiguration), você poderá refazer a imagem do nó por meio da [API para refazer imagem do Lote](/rest/api/batchservice/computenode/reimage), o que limpará o disco inteiro. A ação de refazer imagem não tem suporte no momento para pools de [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration).
-
-2. Se o pool for de [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration), você poderá remover o nó do pool usando a [API para remover nós](/rest/api/batchservice/pool/removenodes). Em seguida, você pode aumentar novamente o pool para substituir o nó inadequado por um novo.
-
-3.  Exclua tarefas ou trabalhos antigos concluídos cujos dados de tarefa ainda estejam nos nós. Para obter uma dica sobre quais dados de trabalhos ou tarefas estão nos nós, você pode procurar na [coleção RecentTasks](/rest/api/batchservice/computenode/get#taskinformation) do nó ou nos [arquivos no nó](/rest/api/batchservice/file/listfromcomputenode). A exclusão do trabalho excluirá todas as tarefas no trabalho e a exclusão das tarefas no trabalho disparará os dados nos diretórios de tarefas no nó a ser excluído, dessa forma liberando o espaço. Depois de liberar espaço suficiente, reinicialize o nó e ele deverá sair do estado "Inutilizável", retornando para "ocioso".
+Para recuperar um nó inutilizável em pools [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration) , você pode remover um nó do pool usando a [API remover nós](/rest/api/batchservice/pool/removenodes). Em seguida, você pode aumentar novamente o pool para substituir o nó inadequado por um novo. Para pools de [CloudServiceConfiguration](/rest/api/batchservice/pool/add#cloudserviceconfiguration) , você pode recriar a imagem do nó por meio da [API de recriação do lote](/rest/api/batchservice/computenode/reimage). Isso limpará todo o disco. A ação de refazer imagem não tem suporte no momento para pools de [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Verifique se definiu seu aplicativo para implementar a verificação de erro abrangente, especialmente para operações assíncronas. Isso pode ser fundamental para detectar e diagnosticar problemas imediatamente.
+- Saiba mais sobre a [verificação de erros de trabalho e tarefa](batch-job-task-error-checking.md).
+- Saiba mais sobre [as práticas recomendadas](best-practices.md) para trabalhar com o lote do Azure.

@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 01/22/2021
 ms.author: jingwang
-ms.openlocfilehash: 182e04625f829304168bfdefe000bb8797646c75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 430b9a1e567d9a79093f50ae388b4b69119c057d
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87926885"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695866"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copiar dados do Teradata privilegiando usando Azure Data Factory
 
@@ -41,14 +41,14 @@ Você pode copiar dados do Teradata privilegiando para qualquer armazenamento de
 Especificamente, este conector do Teradata dá suporte a:
 
 - Teradata **versão 14,10, 15,0, 15,10, 16,0, 16,10 e 16,20**.
-- Copiar dados usando a autenticação **básica** ou do **Windows** .
+- Copiar dados usando a autenticação **básica**, **Windows** ou **LDAP** .
 - Cópia paralela de uma fonte Teradata. Consulte a seção [cópia paralela da Teradata](#parallel-copy-from-teradata) para obter detalhes.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-Se você usar Integration Runtime auto-hospedados, observe que ele fornece um driver integrado do Teradata a partir da versão 3,18. Você não precisa instalar nenhum driver manualmente. O driver requer "Visual C++ redistribuível 2012 atualização 4" no computador do Integration Runtime de hospedagem interna. Se você ainda não o tiver instalado, baixe-o [aqui](https://www.microsoft.com/en-sg/download/details.aspx?id=30679).
+Se você usar Integration Runtime auto-hospedados, observe que ele fornece um driver integrado do Teradata a partir da versão 3,18. Você não precisa instalar nenhum driver manualmente. O driver requer "Visual C++ redistribuível 2012 atualização 4" no computador do Integration Runtime de hospedagem interna. Se ele ainda não estiver instalado, baixe-o [aqui](https://www.microsoft.com/en-sg/download/details.aspx?id=30679).
 
 ## <a name="getting-started"></a>Introdução
 
@@ -72,9 +72,11 @@ Mais propriedades de conexão que você pode definir na cadeia de conexão por s
 
 | Propriedade | Descrição | Valor padrão |
 |:--- |:--- |:--- |
-| UseDataEncryption | Especifica se é para criptografar toda a comunicação com o banco de dados Teradata. Os valores permitidos são 0 ou 1.<br><br/>- **0 (desabilitado, padrão)**: criptografa somente informações de autenticação.<br/>- **1 (habilitado)**: criptografa todos os dados que são transmitidos entre o driver e o Database. | Não |
-| CharacterSet | O conjunto de caracteres a ser usado para a sessão. Por exemplo, `CharacterSet=UTF16` .<br><br/>Esse valor pode ser um conjunto de caracteres definido pelo usuário ou um dos seguintes conjuntos de caracteres predefinidos: <br/>-ASCII<br/>-UTF8<br/>-UTF16<br/>-LATIN1252_0A<br/>-LATIN9_0A<br/>-LATIN1_0A<br/>-Shift-JIS (Windows, compatível com DOS, KANJISJIS_0S)<br/>-EUC (compatível com UNIX, KANJIEC_0U)<br/>-IBM Mainframe (KANJIEBCDIC5035_0I)<br/>-KANJI932_1S0<br/>-BIG5 (TCHBIG5_1R0)<br/>-GB (SCHGB2312_1T0)<br/>-SCHINESE936_6R0<br/>-TCHINESE950_8R0<br/>-NetworkKorean (HANGULKSC5601_2R4)<br/>-HANGUL949_7R0<br/>-ARABIC1256_6A0<br/>-CYRILLIC1251_2A0<br/>-HEBREW1255_5A0<br/>-LATIN1250_1A0<br/>-LATIN1254_7A0<br/>-LATIN1258_8A0<br/>-THAI874_4A0 | O valor padrão é `ASCII`. |
-| MaxRespSize |O tamanho máximo do buffer de resposta para solicitações SQL, em kilobytes (KBs). Por exemplo, `MaxRespSize=‭10485760‬` .<br/><br/>Para o banco de dados Teradata versão 16, 0 ou posterior, o valor máximo é 7361536. Para conexões que usam versões anteriores, o valor máximo é 1048576. | O valor padrão é `65536`. |
+| TdmstPortNumber | O número da porta usada para acessar o banco de dados Teradata.<br>Não altere esse valor, a menos que seja instruído a fazer isso pelo suporte técnico. | 1025 |
+| UseDataEncryption | Especifica se é para criptografar toda a comunicação com o banco de dados Teradata. Os valores permitidos são 0 ou 1.<br><br/>- **0 (desabilitado, padrão)**: criptografa somente informações de autenticação.<br/>- **1 (habilitado)**: criptografa todos os dados que são transmitidos entre o driver e o Database. | `0` |
+| CharacterSet | O conjunto de caracteres a ser usado para a sessão. Por exemplo, `CharacterSet=UTF16` .<br><br/>Esse valor pode ser um conjunto de caracteres definido pelo usuário ou um dos seguintes conjuntos de caracteres predefinidos: <br/>-ASCII<br/>-UTF8<br/>-UTF16<br/>-LATIN1252_0A<br/>-LATIN9_0A<br/>-LATIN1_0A<br/>-Shift-JIS (Windows, compatível com DOS, KANJISJIS_0S)<br/>-EUC (compatível com UNIX, KANJIEC_0U)<br/>-IBM Mainframe (KANJIEBCDIC5035_0I)<br/>-KANJI932_1S0<br/>-BIG5 (TCHBIG5_1R0)<br/>-GB (SCHGB2312_1T0)<br/>-SCHINESE936_6R0<br/>-TCHINESE950_8R0<br/>-NetworkKorean (HANGULKSC5601_2R4)<br/>-HANGUL949_7R0<br/>-ARABIC1256_6A0<br/>-CYRILLIC1251_2A0<br/>-HEBREW1255_5A0<br/>-LATIN1250_1A0<br/>-LATIN1254_7A0<br/>-LATIN1258_8A0<br/>-THAI874_4A0 | `ASCII` |
+| MaxRespSize |O tamanho máximo do buffer de resposta para solicitações SQL, em kilobytes (KBs). Por exemplo, `MaxRespSize=‭10485760‬` .<br/><br/>Para o banco de dados Teradata versão 16, 0 ou posterior, o valor máximo é 7361536. Para conexões que usam versões anteriores, o valor máximo é 1048576. | `65536` |
+| Mecanismo de | Para usar o protocolo LDAP para autenticar a conexão, especifique `MechanismName=LDAP` . | N/D |
 
 **Exemplo usando a autenticação básica**
 
@@ -105,6 +107,24 @@ Mais propriedades de conexão que você pode definir na cadeia de conexão por s
             "connectionString": "DBCName=<server>",
             "username": "<username>",
             "password": "<password>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Exemplo usando a autenticação LDAP**
+
+```json
+{
+    "name": "TeradataLinkedService",
+    "properties": {
+        "type": "Teradata",
+        "typeProperties": {
+            "connectionString": "DBCName=<server>;MechanismName=LDAP;Uid=<username>;Pwd=<password>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",

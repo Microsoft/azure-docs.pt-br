@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
-ms.openlocfilehash: 73b116117530e5a2103b604efbf757d691006508
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4bff4ee7980002d911426ed46ffef6fc28c43e9
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84704515"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920747"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Tratar erros e exceções em Aplicativos Lógicos do Azure
 
@@ -32,10 +32,10 @@ Aqui estão os tipos de política de repetição:
 | **Default** | Essa política envia até quatro novas tentativas em intervalos *exponencialmente crescentes*, que são dimensionados em 7,5 segundos, mas são limitados entre 5 e 45 segundos. |
 | **Intervalo exponencial**  | Essa política aguarda um intervalo aleatório selecionado de um intervalo em crescimento exponencial antes de enviar a próxima solicitação. |
 | **Intervalo fixo**  | Essa política aguarda o intervalo especificado antes de enviar a próxima solicitação. |
-| **Nenhuma**  | Não reenvie o pedido. |
+| **Nenhum**  | Não reenvie o pedido. |
 |||
 
-Para obter informações sobre novos limites de política, consulte [Limites e configuração de aplicativos lógicos](../logic-apps/logic-apps-limits-and-config.md#request-limits).
+Para obter informações sobre novos limites de política, consulte [Limites e configuração de aplicativos lógicos](../logic-apps/logic-apps-limits-and-config.md#http-limits).
 
 ### <a name="change-retry-policy"></a>Política de repetição de alteração
 

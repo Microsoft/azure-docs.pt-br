@@ -1,29 +1,15 @@
 ---
-title: Pontos de extremidade de streaming (origem)
-titleSuffix: Azure Media Services
-description: Saiba mais sobre os pontos de extremidade de streaming (origem), um serviço de empacotamento dinâmico e streaming que fornece conteúdo diretamente a um aplicativo de player de cliente ou a uma CDN (rede de distribuição de conteúdo).
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: conceptual
-ms.date: 02/13/2020
-ms.author: inhenkel
-ms.openlocfilehash: 9f17e8a09715ce9ff51715f17a449ec0a5b3f770
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297188"
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Campos obrigatórios. Veja mais em aka.ms/skyeye/meta.
+Título: pontos de extremidade de streaming (origem): descrição dos serviços de mídia do Azure: Saiba mais sobre os pontos de extremidade de streaming (origem), um serviço de empacotamento dinâmico e streaming que fornece conteúdo diretamente a um aplicativo de Player cliente ou a uma CDN (rede de distribuição de conteúdo). serviços: Media-Services documentationcenter: ' ' autor: IngridAtMicrosoft gerente: femila editor: ' '
+
+MS. Service: Media-Services MS. Workload: MS. Topic: conceitual MS. Date: 02/13/2020 MS. Author: inhenkel
 ---
+
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Pontos de extremidade de streaming (origem) nos serviços de mídia do Azure
 
 No Serviços de Mídia do Microsoft Azure, um [ponto de extremidade de streaming](/rest/api/media/streamingendpoints) representa um serviço de empacotamento e origem (just-in-time) dinâmico que pode entregar seu conteúdo ao vivo e sob demanda diretamente a um aplicativo de player de cliente usando um dos protocolos de mídia de streaming comuns (HLS ou Dash). Além disso, o **ponto de extremidade de streaming** fornece criptografia dinâmica (just-in-time) para DRMs líderes do setor. 
 
-Quando você cria uma conta de Serviços de Mídia, um Ponto de Extremidade de Streaming **padrão** é criado em um estado parado. Não é possível excluir o ponto de extremidade de streaming **padrão** . Mais pontos de extremidade de streaming podem ser criados na conta (consulte [cotas e limites](limits-quotas-constraints.md)).
+Quando você cria uma conta de Serviços de Mídia, um Ponto de Extremidade de Streaming **padrão** é criado em um estado parado. Mais pontos de extremidade de streaming podem ser criados na conta (consulte [cotas e limites](limits-quotas-constraints.md)).
 
 > [!NOTE]
 > Para começar a transmitir vídeos, é necessário iniciar o **Ponto de extremidade de streaming** do qual deseja transmitir o vídeo.
@@ -51,9 +37,9 @@ O limite máximo de unidades de streaming é, em geral, 10. Entre em contato con
 
 A tabela descreve os tipos:
 
-|Type|Unidades de escala|Descrição|
+|Tipo|Unidades de escala|Descrição|
 |--------|--------|--------|  
-|**Padrão**|0|O ponto de extremidade de streaming padrão é um tipo **padrão** — ele pode ser alterado para o tipo Premium ajustando `scaleUnits` .|
+|**Standard**|0|O ponto de extremidade de streaming padrão é um tipo **padrão** — ele pode ser alterado para o tipo Premium ajustando `scaleUnits` .|
 |**Premium**|>0|**Premium** Os pontos de extremidade de streaming são adequados para cargas de trabalho avançadas e para fornecer capacidade de largura de banda dedicada e escalonável. Você passa para um tipo **Premium** ajustando `scaleUnits` (unidades de streaming). `scaleUnits` fornece capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Ao usar o tipo **Premium** , cada unidade habilitada fornece capacidade de largura de banda adicional para o aplicativo. |
 
 > [!NOTE]
@@ -156,7 +142,7 @@ Um único ponto de extremidade de streaming pode transmitir vídeos ao vivo e so
     
 ## <a name="scaling-streaming-with-cdn"></a>Dimensionando o streaming com CDN
 
-Confira os seguintes artigos:
+Veja os artigos a seguir:
 
 - [Visão geral da CDN](../../cdn/cdn-overview.md)
 - [Dimensionando o streaming com CDN](scale-streaming-cdn.md)

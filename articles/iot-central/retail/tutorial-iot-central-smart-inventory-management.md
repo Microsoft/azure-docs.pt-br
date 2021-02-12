@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 827d571a6545d0aaffb0f96134fcf094eaa5f26b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1b7069cb723bffd758c3603cc957329dd6d2a9b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90980600"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463266"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>Tutorial: Implantar e usar um modelo de aplicativo de gerenciamento de estoque inteligente
 
@@ -35,22 +35,19 @@ Para criar um aplicativo, faça o seguinte:
 
 1. Navegue até o site do Gerenciador de Aplicativos do Azure IoT Central. Selecione o **Build**, na barra de navegação à esquerda, e clique na guia **Varejo**.
 
-    > [!div class="mx-imgBorder"]
-    > ![Captura de tela mostrando como selecionar o modelo de aplicativo de gerenciamento de estoque inteligente](./media/tutorial-iot-central-smart-inventory-management/iotc_retail_homepage.png)
+    :::image type="content" source="media/tutorial-iot-central-smart-inventory-management/iotc_retail_homepage.png" alt-text="Captura de tela mostrando como selecionar o modelo de aplicativo de gerenciamento de estoque inteligente":::
 
 2. Selecione a guia **Varejo** e escolha **Criar aplicativo** sob **Gerenciamento de estoque inteligente**
 
 3. A opção **Criar aplicativo** abrirá o formulário Novo aplicativo e preencherá os detalhes solicitados, conforme mostrado abaixo.
-   **Nome do aplicativo**: use o nome sugerido padrão ou crie um nome de aplicativo amigável.
-   **URL**: use a URL sugerida padrão ou crie uma URL amigável exclusiva de fácil memorização. Em seguida, recomendamos usar a configuração padrão, caso você já tenha uma assinatura do Azure. Você pode começar com o plano de preço de avaliação gratuita de 7 dias e optar por converter em um plano de preço padrão a qualquer momento antes que a avaliação gratuita expire.
-   **Informações de Cobrança**: para provisionar os recursos, é necessário informar os detalhes em Diretório, Assinatura do Azure e Região.
-   **Criar**: selecione Criar, no final da página, para implantar o aplicativo.
+    **Nome do aplicativo**: use o nome sugerido padrão ou crie um nome de aplicativo amigável.
+    **URL**: use a URL sugerida padrão ou crie uma URL amigável exclusiva de fácil memorização. Em seguida, recomendamos usar a configuração padrão, caso você já tenha uma assinatura do Azure. Você pode começar com o plano de preço de avaliação gratuita de 7 dias e optar por converter em um plano de preço padrão a qualquer momento antes que a avaliação gratuita expire.
+    **Informações de Cobrança**: para provisionar os recursos, é necessário informar os detalhes em Diretório, Assinatura do Azure e Região.
+    **Criar**: selecione Criar, no final da página, para implantar o aplicativo.
 
-    > [!div class="mx-imgBorder"]
-    > ![Captura de tela mostrando como criar um aplicativo com base no modelo de aplicativo de gerenciamento de estoque inteligente](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png)
+    :::image type="content" source="media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png" alt-text="Captura de tela mostrando como criar um aplicativo com base no modelo de aplicativo de gerenciamento de estoque inteligente":::
 
-    > [!div class="mx-imgBorder"]
-    > ![Captura de tela mostrando as opções de cobrança quando você cria o aplicativo](./media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-app-create-billinginfo.png)
+    :::image type="content" source="media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-app-create-billinginfo.png" alt-text="Captura de tela mostrando as opções de cobrança quando você cria o aplicativo":::
 
 ## <a name="walk-through-the-application"></a>Explorar o aplicativo 
 

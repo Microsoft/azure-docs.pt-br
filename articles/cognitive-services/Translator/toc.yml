@@ -23,7 +23,7 @@
     - name: Guias de instruções
       items:
         - name: Inscrever-se no Tradutor
-          href: translator-text-how-to-signup.md
+          href: ./translator-how-to-signup.md
         - name: Migrar para a API de texto V3
           href: migrate-to-v3.md
         - name: Adicionar filtragem de baixo calão
@@ -56,30 +56,20 @@
       items:
         - name: Referência do Tradutor v3
           href: reference/v3-0-reference.md
-          items:
-            - name: Languages
-              href: reference/v3-0-languages.md
-            - name: Translate
-              href: reference/v3-0-translate.md
-            - name: Transliterate
-              href: reference/v3-0-transliterate.md
-            - name: Detect
-              href: reference/v3-0-detect.md
-            - name: BreakSentence
-              href: reference/v3-0-break-sentence.md
-            - name: Pesquisa no dicionário
-              href: reference/v3-0-dictionary-lookup.md
-            - name: Exemplos de dicionário
-              href: reference/v3-0-dictionary-examples.md
-        - name: Referência do Tradutor v2 (preterida)
-          href: reference/v2-0-reference.md
-          items:
-            - name: Texto de transformação
-              href: transform-text.md
-            - name: Como usar o relatório do CTF (Collaborative Translation Framework)
-              href: ctf-reporting.md
-            - name: Retornar traduções de N-Best
-              href: return-n-best-translations.md
+        - name: Languages
+          href: reference/v3-0-languages.md
+        - name: Translate
+          href: reference/v3-0-translate.md
+        - name: Transliterate
+          href: reference/v3-0-transliterate.md
+        - name: Detect
+          href: reference/v3-0-detect.md
+        - name: BreakSentence
+          href: reference/v3-0-break-sentence.md
+        - name: Pesquisa no dicionário
+          href: reference/v3-0-dictionary-lookup.md
+        - name: Exemplos de dicionário
+          href: reference/v3-0-dictionary-examples.md
         - name: Limites de solicitações
           href: request-limits.md
     - name: Recursos

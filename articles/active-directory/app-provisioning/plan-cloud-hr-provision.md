@@ -3,7 +3,7 @@ title: Planejar o aplicativo de RH de nuvem para Azure Active Directory provisio
 description: Este artigo descreve o processo de implantação de integração de sistemas de RH de nuvem, como workday e SuccessFactors, com Azure Active Directory. A integração do Azure AD ao seu sistema de RH na nuvem resulta em um sistema completo de gerenciamento do ciclo de vida da identidade.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
@@ -11,48 +11,48 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: ce8b792beb8652bedfddff470444240bc3edf148
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 9c896d4cccf898b8818b4c363c5bc891a8734ca5
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363650"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256704"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planejar o aplicativo de RH de nuvem para Azure Active Directory provisionamento de usuário
 
-Historicamente, a equipe de ti dependia de métodos manuais para criar, atualizar e excluir funcionários. Eles usaram métodos como carregar arquivos CSV ou scripts personalizados para sincronizar dados de funcionários. Esses processos de provisionamento são propensos a erros, inseguros e difíceis de gerenciar.
+Historicamente, a equipe de TI dependia de métodos manuais para criar, atualizar e excluir funcionários. Eles usavam métodos como upload de arquivos CSV ou scripts personalizados para sincronizar dados de funcionários. Esses processos de provisionamento são propensos a erros, inseguros e difíceis de gerenciar.
 
-Para gerenciar os ciclos de vida de identidade de funcionários, fornecedores ou funcionários contingentes, o [serviço de provisionamento de usuário do Azure Active Directory (Azure AD)](../app-provisioning/user-provisioning.md) oferece integração com aplicativos de RH (recursos humanos) baseados em nuvem. Exemplos de aplicativos incluem workday ou SuccessFactors.
+Para gerenciar os ciclos de vida de identidade de funcionários, fornecedores ou funcionários contingentes, o [serviço de provisionamento de usuários do Azure AD (Azure Active Directory)](../app-provisioning/user-provisioning.md) oferece integração a aplicativos de RH (recursos humanos) baseados em nuvem. Os aplicativos de exemplo incluem o Workday ou o SuccessFactors.
 
-O Azure AD usa essa integração para habilitar os seguintes fluxos de trabalho do aplicativo de RH de nuvem (aplicativo):
+O Azure AD usa essa integração para habilitar os seguintes fluxos de trabalho do aplicativo de RH na nuvem:
 
-- **Provisionar usuários para Active Directory:** Provisione conjuntos selecionados de usuários de um aplicativo de RH na nuvem em um ou mais domínios Active Directory.
-- **Provisionar usuários somente na nuvem para o Azure AD:** Em cenários em que Active Directory não é usado, Provisione usuários diretamente do aplicativo de RH de nuvem para o Azure AD.
-- **Write-back para o aplicativo de RH na nuvem:** Grave os endereços de email e os atributos de nome de usuário do Azure AD de volta para o aplicativo de RH na nuvem.
+- **Provisionar usuários para o Active Directory:** provisione conjuntos de usuários selecionados de um aplicativo de RH na nuvem em um ou mais domínios do Active Directory.
+- **Provisionar usuários somente na nuvem para o Azure AD:** em cenários em que o Active Directory não é usado, provisione usuários diretamente do aplicativo de RH na nuvem para o Azure AD.
+- **Fazer write-back para o aplicativo de RH na nuvem:** grave os endereços de email e os atributos de nome de usuário do Azure AD de volta no aplicativo de RH na nuvem.
 
 > [!NOTE]
 > Este plano de implantação mostra como implantar seus fluxos de trabalho de aplicativo de RH na nuvem com o provisionamento de usuário do Azure AD. Para obter informações sobre como implantar o provisionamento automático de usuário em aplicativos SaaS (software como serviço), consulte [planejar uma implantação de provisionamento de usuário automático](./plan-auto-user-provisioning.md).
 
 ## <a name="enabled-hr-scenarios"></a>Cenários de RH habilitados
 
-O serviço de provisionamento de usuários do Azure AD permite a automação dos seguintes cenários de gerenciamento de ciclo de vida de identidade com base em RH:
+O serviço de provisionamento de usuários do Azure AD permite a automação dos seguintes cenários de gerenciamento do ciclo de vida de identidades baseado em RH:
 
-- **Contratação de novo funcionário:** Quando um novo funcionário é adicionado ao aplicativo de RH na nuvem, uma conta de usuário é criada automaticamente no Active Directory e no Azure AD com a opção de gravar novamente o endereço de email e os atributos de nome de usuário no aplicativo de RH na nuvem.
-- **Atualizações de perfil e atributo de funcionário:** Quando um registro de funcionário, como nome, título ou gerente, é atualizado no aplicativo de RH de nuvem, sua conta de usuário é atualizada automaticamente no Active Directory e no Azure AD.
-- **Encerramentos de funcionários:** Quando um funcionário é encerrado no aplicativo de RH na nuvem, sua conta de usuário é desabilitada automaticamente no Active Directory e no Azure AD.
-- **Recontratação de funcionário:** Quando um funcionário é recontratado no aplicativo de RH na nuvem, sua conta antiga pode ser reativada automaticamente ou reprovisionada para o Active Directory e o Azure AD.
+- **Contratação de novos funcionários:** quando um novo funcionário é adicionado ao aplicativo de RH na nuvem, uma conta de usuário é criada automaticamente no Active Directory e no Azure AD com a opção de fazer write-back para o endereço de email e os atributos de nome de usuário no aplicativo de RH na nuvem.
+- **Atualizações de perfil e atributo de funcionário:** quando um registro de funcionário, como nome, cargo ou gerente, é atualizado no aplicativo de RH na nuvem, a conta de usuário dele é atualizada automaticamente no Active Directory e no Azure AD.
+- **Rescisão de funcionários:** quando um funcionário é encerrado no aplicativo de RH na nuvem, a conta de usuário dele é desabilitada automaticamente no Active Directory e no Azure AD.
+- **Recontratações de funcionário:** quando um funcionário é recontratado no aplicativo de RH na nuvem, a conta antiga dele ser reativada ou provisionada de novo automaticamente para o Active Directory e o Azure AD.
 
-## <a name="who-is-this-integration-best-suited-for"></a>A quem é essa integração mais adequada?
+## <a name="who-is-this-integration-best-suited-for"></a>Para quem é essa integração é mais adequada?
 
-A integração do aplicativo de RH de nuvem com o provisionamento de usuário do Azure AD é ideal para as organizações que:
+A integração do aplicativo de RH na nuvem com o provisionamento de usuários do Azure AD é ideal para as organizações que:
 
-- Deseja uma solução predefinida baseada em nuvem para o provisionamento de usuário de RH na nuvem.
-- Exigir o provisionamento direto de usuário do aplicativo de RH na nuvem para Active Directory ou o Azure AD.
-- Exigir que os usuários sejam provisionados usando os dados obtidos do aplicativo de RH na nuvem.
-- Exigir ingressar, mover e deixar os usuários serem sincronizados com um ou mais Active Directory florestas, domínios e UOs com base apenas nas informações de alteração detectadas no aplicativo de RH de nuvem.
+- Querem uma solução predefinida baseada em nuvem para o provisionamento de usuários de RH na nuvem.
+- Exigem o provisionamento direto de usuário do aplicativo de RH na nuvem para o Active Directory ou o Azure AD.
+- Exigem que os usuários sejam provisionados usando os dados obtidos do aplicativo de RH na nuvem.
+- Exigem que o ingresso, a movimentação e a saída de usuários sejam sincronizados com uma ou mais florestas, domínios e unidades organizacionais do Active Directory com base apenas em informações de mudança detectadas no aplicativo de RH na nuvem.
 - Use Microsoft 365 para email.
 
-## <a name="learn"></a>Saiba mais
+## <a name="learn"></a>Learn
 
 O provisionamento de usuário cria uma base para a governança de identidade contínua. Ele aprimora a qualidade dos processos de negócios que dependem de dados de identidade autoritativa.
 
@@ -66,12 +66,12 @@ Este artigo usa os seguintes termos:
 
 ### <a name="key-benefits"></a>Principais benefícios
 
-Esse recurso de provisionamento de ti controlado por RH oferece os seguintes benefícios de negócios significativos:
+Essa funcionalidade de provisionamento de TI controlada por RH oferece os seguintes benefícios de negócios significativos:
 
-- **Aumentar a produtividade:** Agora você pode automatizar a atribuição de contas de usuário e licenças de Microsoft 365 e fornecer acesso a grupos de chaves. A automação de atribuições dá ao novo contratado acesso imediato às suas ferramentas de trabalho e aumenta a produtividade.
-- **Gerenciar risco:** Você pode aumentar a segurança automatizando as alterações com base no status do funcionário ou em associações de grupo com dados que fluem do aplicativo de RH na nuvem. Automatizar as alterações garante que as identidades do usuário e o acesso a aplicativos de chave sejam atualizados automaticamente quando os usuários fizerem a transição ou a saída da organização.
-- **Atender à conformidade e governança:** O Azure AD dá suporte a logs de auditoria nativos para solicitações de provisionamento de usuário executadas por aplicativos de sistemas de origem e de destino. Com a auditoria, você pode controlar quem tem acesso aos aplicativos de uma única tela.
-- **Gerenciar custo:** O provisionamento automático reduz os custos, evitando ineficiências e erros humanos associados ao provisionamento manual. Ele reduz a necessidade de soluções de provisionamento de usuário desenvolvidas personalizadas criadas com o passar do tempo usando plataformas herdadas e desatualizadas.
+- **Aumentar a produtividade:** Agora você pode automatizar a atribuição de contas de usuário e licenças de Microsoft 365 e fornecer acesso a grupos de chaves. A automação de atribuições oferece a novos contratados acesso imediato a ferramentas de trabalho e aumenta a produtividade.
+- **Gerenciar riscos:** você pode aumentar a segurança automatizando as alterações com base no status do funcionário ou em associações de grupo com os dados que fluem do aplicativo de RH na nuvem. Automatizar as alterações garante que as identidades do usuário e o acesso a aplicativos de chave sejam atualizados automaticamente quando os usuários fizerem a transição ou saem da organização.
+- **Abordar a conformidade e a governança:** o Azure AD dá suporte a logs de auditoria nativos para solicitações de provisionamento de usuário executadas por aplicativos de sistemas de origem e de destino. Com a auditoria, você pode controlar quem tem acesso aos aplicativos de uma única tela.
+- **Gerenciar o custo:** o provisionamento automático reduz os custos evitando ineficiências e erros humanos associados ao provisionamento manual. Ele reduz a necessidade de soluções de provisionamento de usuário desenvolvidas personalizadas criadas ao longo do tempo usando plataformas herdadas e desatualizadas.
 
 ### <a name="licensing"></a>Licenciamento
 
@@ -92,7 +92,7 @@ Você também precisa de uma licença de assinatura Azure AD Premium P1 ou super
 
 | **Recursos** | **Link e descrição** |
 |:-|:-|
-| vídeos | [O que é o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/_ZjARPpI6NI) |
+| Vídeos | [O que é o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/_ZjARPpI6NI) |
 | | [Como implantar o provisionamento de usuário no Active Directory do Azure](https://youtu.be/pKzyts6kfrw) |
 | Tutoriais | [Lista de tutoriais sobre como integrar aplicativos SaaS ao Azure AD](../saas-apps/tutorial-list.md) |
 | | [Tutorial: Configurar o Workday para provisionamento automático do usuário](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
@@ -257,7 +257,7 @@ Por padrão, o aplicativo do conector de provisionamento mapeia o status do perf
 
 Ao iniciar o processo de Joiners-Leavers, reúna os seguintes requisitos.
 
-| Processar | Requisitos |
+| Processo | Requisitos |
 | - | - |
 | **Entradas** | De uma perspectiva do ciclo de vida da identidade, como lidar com recontratações? As recontratações mantêm suas IDs de funcionário antigas? |
 | | Você processa contratações no futuro e cria Active Directory contas com antecedência? Essas contas são criadas em um estado habilitado ou desabilitado? |
@@ -276,7 +276,7 @@ Cada aplicativo de RH na nuvem é fornecido com o aplicativo de RH de nuvem padr
 
 Ao iniciar o processo de Complementos-movimentadores-periões, reúna os seguintes requisitos.
 
-| Processar | Requisitos |
+| Processo | Requisitos |
 | - | - |
 | **Entradas** | O processo de criação de conta Active Directory manual, automatizado ou parcialmente automatizado? |
 | | Você planeja propagar atributos personalizados do aplicativo de RH de nuvem para Active Directory? |
@@ -404,9 +404,9 @@ Para solucionar quaisquer problemas que possam ser reativados durante o provisio
 
 - [Problema na configuração do provisionamento do usuário para um aplicativo de galeria do Azure AD](application-provisioning-config-problem.md)
 - [Sincronizar um atributo do seu Active Directory local com o Azure AD para provisionamento para um aplicativo](user-provisioning-sync-attributes-for-mapping.md)
-- [Problema para salvar as credenciais de administrador ao configurar o provisionamento do usuário para um aplicativo de galeria do Azure Active Directory](application-provisioning-config-problem-storage-limit.md)
+- [Problema para salvar as credenciais de administrador ao configurar o provisionamento do usuário para um aplicativo de galeria do Azure Active Directory](./user-provisioning.md)
 - [Nenhum usuário está sendo provisionado para um aplicativo de galeria do Azure AD](application-provisioning-config-problem-no-users-provisioned.md)
-- [O conjunto errado de usuários está sendo provisionado para um aplicativo da Galeria do Azure AD](application-provisioning-config-problem-wrong-users-provisioned.md)
+- [O conjunto errado de usuários está sendo provisionado para um aplicativo da Galeria do Azure AD](../manage-apps/add-application-portal-assign-users.md)
 - [Configurar o Visualizador de Eventos do Windows para solucionar problemas do agente](../saas-apps/workday-inbound-tutorial.md#setting-up-windows-event-viewer-for-agent-troubleshooting)
 - [Configurar os logs de auditoria do portal do Azure para solucionar problemas de serviço](../saas-apps/workday-inbound-tutorial.md#setting-up-azure-portal-audit-logs-for-service-troubleshooting)
 - [Entender logs para operações de criação da conta de usuário do AD](../saas-apps/workday-inbound-tutorial.md#understanding-logs-for-ad-user-account-create-operations)

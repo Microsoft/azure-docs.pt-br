@@ -8,19 +8,19 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: d84e1508dec4d4a5802f7a2ac8c0e6ada5a8044c
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 28c0be40387f411286230f94c19fa23a80e650af
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128684"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746396"
 ---
 # <a name="how-to-add-technical-details-for-your-saas-offer"></a>Como adicionar detalhes técnicos para sua oferta de SaaS
 
 Este artigo descreve como inserir detalhes técnicos que ajudam o Microsoft Commercial Marketplace a se conectar à sua solução. Essa conexão nos permite provisionar sua oferta para o cliente se ele optar por adquiri-lo e gerenciá-lo. Para obter mais detalhes sobre essas configurações, consulte [informações técnicas](plan-saas-offer.md#technical-information).
 
 > [!NOTE]
-> Se você optar por processar as transações de forma independente, essa opção não será exibida. Em vez disso, pule para [como comercializar sua oferta de SaaS](create-new-saas-offer-marketing.md).
+> Se você optar por processar as transações de forma independente, essa opção não será exibida. Em vez disso, pule para [como vender sua oferta de SaaS](create-new-saas-offer-marketing.md).
 
 ## <a name="technical-configuration"></a>Configurações técnicas
 

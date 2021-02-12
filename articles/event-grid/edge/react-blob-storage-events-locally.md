@@ -8,11 +8,11 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 230e158a970f8c815b1575403c013e30749124c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87462013"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005054"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Tutorial: reagir a eventos de armazenamento de BLOBs em IoT Edge (versão prévia)
 Este artigo mostra como implantar o armazenamento de BLOBs do Azure no módulo IoT, que atuaria como um editor de grade de eventos para enviar eventos sobre a criação de BLOB e exclusão de BLOB para a grade de eventos.  
@@ -337,16 +337,16 @@ Aqui está a lista de propriedades de eventos com suporte e seus tipos e descri�
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
 | api | string | A operação que disparou o evento. Pode ser um dos seguintes valores: <ul><li>BlobCreated-os valores permitidos são: `PutBlob` e `PutBlockList`</li><li>BlobDeleted-os valores permitidos `DeleteBlob` são `DeleteAfterUpload` e `AutoDelete` . <p>O `DeleteAfterUpload` evento é gerado quando o blob é excluído automaticamente porque a propriedade desejada deleteAfterUpload está definida como true. </p><p>`AutoDelete` o evento é gerado quando o blob é excluído automaticamente porque o valor da propriedade desejada deleteAfterMinutes expirou.</p></li></ul>|
 | clientRequestId | string | uma ID de solicitação fornecida pelo cliente para a operação da API de armazenamento. Essa ID pode ser usada para correlacionar os logs de diagnóstico do armazenamento do Azure usando o campo "Client-Request-ID" nos logs e pode ser fornecida em solicitações de cliente usando o cabeçalho "x-MS-Client-Request-ID". Para obter detalhes, consulte [formato de log](/rest/api/storageservices/storage-analytics-log-format). |
 | requestId | string | ID da solicitação gerada pelo serviço para a operação da API de armazenamento. Pode ser usada para correlacionar com os logs de diagnóstico do Armazenamento do Azure usando o campo "request-id-header" nos logs, e retornada pela inicialização da chamada á API no cabeçalho 'x-ms-request-id'. Consulte [Formato de Log](/rest/api/storageservices/storage-analytics-log-format). |
 | eTag | string | O valor que você pode usar para executar operações condicionalmente. |
 | contentType | string | O tipo de conteúdo especificado para o blob. |
-| contentLength | Número inteiro | O tamanho do blob em bytes. |
+| contentLength | inteiro | O tamanho do blob em bytes. |
 | BlobType | string | O tipo de blob. Os valores válidos são "BlockBlob" ou "PageBlob". |
-| url | string | O caminho para o blob. <br>Se o cliente usar uma API REST de BLOB, a URL terá essa estrutura: * \<storage-account-name\> . blob.Core.Windows.NET/ \<container-name\> / \<file-name\> *. <br>Se o cliente usar uma API REST Data Lake Storage, a URL terá essa estrutura: * \<storage-account-name\> . DFS.Core.Windows.NET/ \<file-system-name\> / \<file-name\> *. |
+| url | string | O caminho para o blob. <br>Se o cliente usar uma API REST de BLOB, a URL terá essa estrutura: *\<storage-account-name\> . blob.Core.Windows.NET/ \<container-name\> / \<file-name\>*. <br>Se o cliente usar uma API REST Data Lake Storage, a URL terá essa estrutura: *\<storage-account-name\> . DFS.Core.Windows.NET/ \<file-system-name\> / \<file-name\>*. |
 
 
 ## <a name="next-steps"></a>Próximas etapas

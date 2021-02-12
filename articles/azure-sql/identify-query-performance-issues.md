@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: troubleshooting
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: jrasnick, sstein
-ms.date: 03/10/2020
-ms.openlocfilehash: ce5bf86073b2c478108e264010bb3c213c214368
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.reviewer: wiassaf, sstein
+ms.date: 1/14/2021
+ms.openlocfilehash: 4d0f5404a64eae99ced0dd797954ba042b50060f
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791742"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217219"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Tipos detectáveis de gargalos de desempenho de consulta no Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -27,8 +27,8 @@ Você pode usar o banco de dados SQL do Azure [Intelligent insights](database/in
 
 ![Estados da carga de trabalho](./media/identify-query-performance-issues/workload-states.png)
 
-**Problemas relacionados à execução** : problemas relacionados à execução geralmente estão relacionados a problemas de compilação, resultando em um plano de consulta de qualidade inferior ou problemas de execução relacionados a recursos insuficientes ou superutilizados.
-**Problemas relacionados à espera** : problemas relacionados à espera geralmente estão relacionados a:
+**Problemas relacionados à execução**: problemas relacionados à execução geralmente estão relacionados a problemas de compilação, resultando em um plano de consulta de qualidade inferior ou problemas de execução relacionados a recursos insuficientes ou superutilizados.
+**Problemas relacionados à espera**: problemas relacionados à espera geralmente estão relacionados a:
 
 - Bloqueios (bloqueio)
 - E/S
@@ -68,7 +68,7 @@ Várias soluções alternativas podem reduzir os problemas de PSP. Cada soluçã
 
 - Use a dica de consulta [RECOMPILE](/sql/t-sql/queries/hints-transact-sql-query) em cada execução da consulta. Essa solução negocia o tempo de compilação e aumenta a CPU para melhorar a qualidade do plano. A `RECOMPILE` opção geralmente não é possível para cargas de trabalho que exigem uma alta taxa de transferência.
 - Use a dica de consulta [Option (Optimize for...)](/sql/t-sql/queries/hints-transact-sql-query) para substituir o valor do parâmetro real por um valor de parâmetro típico que produz um plano que é bom o suficiente para a maioria das possibilidades de valor de parâmetro. Essa opção requer uma boa compreensão dos valores de parâmetro ideais e características de plano associadas.
-- Use a dica de consulta [opção (otimizar para desconhecido)](/sql/t-sql/queries/hints-transact-sql-query) para substituir o valor real do parâmetro e, em vez disso, use a média do vetor de densidade. Você também pode fazer isso capturando os valores de parâmetro de entrada em variáveis locais e, em seguida, usando as variáveis locais dentro dos predicados em vez de usar os próprios parâmetros. Para essa correção, a densidade média deve ser *boa o suficiente* .
+- Use a dica de consulta [opção (otimizar para desconhecido)](/sql/t-sql/queries/hints-transact-sql-query) para substituir o valor real do parâmetro e, em vez disso, use a média do vetor de densidade. Você também pode fazer isso capturando os valores de parâmetro de entrada em variáveis locais e, em seguida, usando as variáveis locais dentro dos predicados em vez de usar os próprios parâmetros. Para essa correção, a densidade média deve ser *boa o suficiente*.
 - Desabilite a detecção de parâmetros inteiramente usando a dica de consulta [DISABLE_PARAMETER_SNIFFING](/sql/t-sql/queries/hints-transact-sql-query) .
 - Use a dica de consulta [KEEPFIXEDPLAN](/sql/t-sql/queries/hints-transact-sql-query) para evitar recompilações no cache. Essa solução alternativa pressupõe que o plano comum bom o suficiente é o já existente no cache. Você também pode desabilitar as atualizações automáticas de estatísticas para reduzir as chances de que o bom plano seja removido e um novo plano incorreto será compilado.
 - Force o plano usando explicitamente a dica de consulta [use Plan](/sql/t-sql/queries/hints-transact-sql-query) , reescrevendo a consulta e adicionando a dica no texto da consulta. Ou defina um plano específico usando Repositório de Consultas ou habilitando o [ajuste automático](../azure-sql/database/automatic-tuning-overview.md).
@@ -90,7 +90,7 @@ Aqui está um exemplo de uma consulta com parâmetros parcialmente:
 ```sql
 SELECT *
 FROM t1 JOIN t2 ON t1.c1 = t2.c1
-WHERE t1.c1 = @p1 AND t2.c2 = '961C3970-0E54-4E8E-82B6-5545BE897F8F'
+WHERE t1.c1 = @p1 AND t2.c2 = '961C3970-0E54-4E8E-82B6-5545BE897F8F';
 ```
 
 Neste exemplo, o `t1.c1` leva `@p1` , mas `t2.c2` continua a pegar o GUID como literal. Nesse caso, se você alterar o valor de `c2` , a consulta será tratada como uma consulta diferente e uma nova compilação ocorrerá. Para reduzir as compilações neste exemplo, você também parametrizaria o GUID.
@@ -115,7 +115,7 @@ WHERE
   rsi.start_time >= DATEADD(hour, -2, GETUTCDATE())
   AND query_parameterization_type_desc IN ('User', 'None')
 GROUP BY q.query_hash
-ORDER BY count (distinct p.query_id) DESC
+ORDER BY count (distinct p.query_id) DESC;
 ```
 
 ### <a name="factors-that-affect-query-plan-changes"></a>Fatores que afetam as alterações do plano de consulta
@@ -137,13 +137,13 @@ Se você usar uma dica de recompilação, um plano não será armazenado em cach
 
 Uma recompilação (ou uma nova compilação após a remoção do cache) ainda pode resultar na geração de um plano de execução de consulta que seja idêntico ao original. Quando o plano muda do plano anterior ou original, é provável que essas explicações sejam:
 
-- **Design físico alterado** : por exemplo, índices recém-criados abordam com mais eficiência os requisitos de uma consulta. Os novos índices podem ser usados em uma nova compilação se o otimizador de consulta decidir que usar esse novo índice é mais adequado do que usar a estrutura de dados que foi originalmente selecionada para a primeira versão da execução da consulta. Qualquer alteração física nos objetos referenciados pode resultar em uma nova opção de plano no momento da compilação.
+- **Design físico alterado**: por exemplo, índices recém-criados abordam com mais eficiência os requisitos de uma consulta. Os novos índices podem ser usados em uma nova compilação se o otimizador de consulta decidir que usar esse novo índice é mais adequado do que usar a estrutura de dados que foi originalmente selecionada para a primeira versão da execução da consulta. Qualquer alteração física nos objetos referenciados pode resultar em uma nova opção de plano no momento da compilação.
 
-- **Diferenças de recursos de servidor** : quando um plano em um sistema difere do plano em outro sistema, a disponibilidade de recursos, como o número de processadores disponíveis, pode influenciar qual plano é gerado. Por exemplo, se um sistema tiver mais processadores, um plano paralelo poderá ser escolhido.
+- **Diferenças de recursos de servidor**: quando um plano em um sistema difere do plano em outro sistema, a disponibilidade de recursos, como o número de processadores disponíveis, pode influenciar qual plano é gerado. Por exemplo, se um sistema tiver mais processadores, um plano paralelo poderá ser escolhido.
 
-- **Estatísticas diferentes** : as estatísticas associadas aos objetos referenciados podem ter sido alteradas ou podem ser materiais diferentes das estatísticas do sistema original. Se as estatísticas forem alteradas e uma recompilação ocorrer, o otimizador de consulta usará as estatísticas a partir de quando elas forem alteradas. As frequências e as distribuições de dados das estatísticas revisadas podem ser diferentes das da compilação original. Essas alterações são usadas para criar estimativas de cardinalidade. ( *Estimativas de cardinalidade* são o número de linhas que devem fluir por meio da árvore de consulta lógica.) As alterações nas estimativas de cardinalidade podem levá-lo a escolher diferentes operadores físicos e ordens associadas de operações. Até mesmo alterações secundárias em estatísticas podem resultar em um plano de execução de consulta alterado.
+- **Estatísticas diferentes**: as estatísticas associadas aos objetos referenciados podem ter sido alteradas ou podem ser materiais diferentes das estatísticas do sistema original. Se as estatísticas forem alteradas e uma recompilação ocorrer, o otimizador de consulta usará as estatísticas a partir de quando elas forem alteradas. As frequências e as distribuições de dados das estatísticas revisadas podem ser diferentes das da compilação original. Essas alterações são usadas para criar estimativas de cardinalidade. (*Estimativas de cardinalidade* são o número de linhas que devem fluir por meio da árvore de consulta lógica.) As alterações nas estimativas de cardinalidade podem levá-lo a escolher diferentes operadores físicos e ordens associadas de operações. Até mesmo alterações secundárias em estatísticas podem resultar em um plano de execução de consulta alterado.
 
-- **Nível de compatibilidade do banco de dados alterado ou versão do avaliador de cardinalidade** : alterações no nível de compatibilidade do banco de dados podem habilitar novas estratégias e recursos que podem resultar em um plano de execução de consulta diferente. Além do nível de compatibilidade do banco de dados, um sinalizador de rastreamento desabilitado ou habilitado 4199 ou um estado alterado da configuração no escopo do banco de dados QUERY_OPTIMIZER_HOTFIXES também pode influenciar as opções do plano de execução de consulta no momento da compilação. Os sinalizadores de rastreamento 9481 (forçar herança CE) e 2312 (forçar padrão CE) também afetam o plano.
+- **Nível de compatibilidade do banco de dados alterado ou versão do avaliador de cardinalidade**: alterações no nível de compatibilidade do banco de dados podem habilitar novas estratégias e recursos que podem resultar em um plano de execução de consulta diferente. Além do nível de compatibilidade do banco de dados, um sinalizador de rastreamento desabilitado ou habilitado 4199 ou um estado alterado da configuração no escopo do banco de dados QUERY_OPTIMIZER_HOTFIXES também pode influenciar as opções do plano de execução de consulta no momento da compilação. Os sinalizadores de rastreamento 9481 (forçar herança CE) e 2312 (forçar padrão CE) também afetam o plano.
 
 ## <a name="resource-limits-issues"></a>Problemas de limites de recursos
 
@@ -173,11 +173,11 @@ Em resumo, se o plano de execução de consulta não foi executado de forma dife
 
 Nem sempre é fácil identificar uma alteração de volume de carga de trabalho que está gerando um problema de CPU. Considere estes fatores:
 
-- **Uso de recursos alterado** : por exemplo, considere um cenário em que o uso da CPU aumentou para 80% por um longo período de tempo. O uso da CPU sozinho não significa que o volume da carga de trabalho foi alterado. As regressões no plano de execução de consulta e as alterações na distribuição de dados também podem contribuir para mais utilização de recursos, embora o aplicativo execute a mesma carga de trabalho.
+- **Uso de recursos alterado**: por exemplo, considere um cenário em que o uso da CPU aumentou para 80% por um longo período de tempo. O uso da CPU sozinho não significa que o volume da carga de trabalho foi alterado. As regressões no plano de execução de consulta e as alterações na distribuição de dados também podem contribuir para mais utilização de recursos, embora o aplicativo execute a mesma carga de trabalho.
 
-- **A aparência de uma nova consulta** : um aplicativo pode direcionar um novo conjunto de consultas em momentos diferentes.
+- **A aparência de uma nova consulta**: um aplicativo pode direcionar um novo conjunto de consultas em momentos diferentes.
 
-- **Um aumento ou uma diminuição no número de solicitações** : esse cenário é a medida mais óbvia de uma carga de trabalho. O número de consultas nem sempre corresponde a uma maior utilização de recursos. No entanto, essa métrica ainda é um sinal significativo, supondo que outros fatores não sejam alterados.
+- **Um aumento ou uma diminuição no número de solicitações**: esse cenário é a medida mais óbvia de uma carga de trabalho. O número de consultas nem sempre corresponde a uma maior utilização de recursos. No entanto, essa métrica ainda é um sinal significativo, supondo que outros fatores não sejam alterados.
 
 Use Intelligent Insights para detectar [aumentos de carga de trabalho](database/intelligent-insights-troubleshoot-performance.md#workload-increase) e [planejar regressões](database/intelligent-insights-troubleshoot-performance.md#plan-regression).
 
@@ -185,9 +185,9 @@ Use Intelligent Insights para detectar [aumentos de carga de trabalho](database/
 
 Depois de ter eliminado um plano de qualidade inferior e problemas *relacionados à espera* relacionados a problemas de execução, o problema de desempenho geralmente é que as consultas estão provavelmente aguardando algum recurso. Problemas relacionados à espera podem ser causados por:
 
-- **Bloqueio** :
+- **Bloqueio**:
 
-  Uma consulta pode manter o bloqueio em objetos no banco de dados enquanto outros tentam acessar os mesmos objetos. Você pode identificar consultas de bloqueio usando [DMVs](database/monitoring-with-dmvs.md#monitoring-blocked-queries) ou [Intelligent insights](database/intelligent-insights-troubleshoot-performance.md#locking).
+  Uma consulta pode manter o bloqueio em objetos no banco de dados enquanto outros tentam acessar os mesmos objetos. Você pode identificar consultas de bloqueio usando [DMVs](database/monitoring-with-dmvs.md#monitoring-blocked-queries) ou [Intelligent insights](database/intelligent-insights-troubleshoot-performance.md#locking). Para obter mais informações, consulte [entender e resolver problemas de bloqueio do SQL do Azure](database/understand-resolve-blocking.md).
 - **Problemas de e/s**
 
   As consultas podem estar aguardando que as páginas sejam gravadas nos arquivos de dados ou de log. Nesse caso, verifique as `INSTANCE_LOG_RATE_GOVERNOR` estatísticas, `WRITE_LOG` ou de `PAGEIOLATCH_*` espera no DMV. Consulte usando DMVs para [identificar problemas de desempenho de e/s](database/monitoring-with-dmvs.md#identify-io-performance-issues).

@@ -1,18 +1,17 @@
 ---
 title: Azure Cosmos DB saída de Azure Stream Analytics
 description: Este artigo descreve como gerar dados de saída de Azure Stream Analytics para Azure Cosmos DB.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: e322135cfdb7aaff331367e84c603e8344436528
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9382ac8dc71d1ccb3a85dc0a7a027c8e99296cc6
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906259"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016570"
 ---
 # <a name="azure-cosmos-db-output-from-azure-stream-analytics"></a>Azure Cosmos DB saída de Azure Stream Analytics
 
@@ -39,7 +38,7 @@ A tabela a seguir descreve as propriedades para a criação de uma saída do Azu
 
 ## <a name="partitioning"></a>Particionamento
 
-A chave de partição é baseada na cláusula PARTITION BY na consulta. O número de gravadores de saída segue o particionamento de entrada para [consultas totalmente paralelizadas](stream-analytics-scale-jobs.md). Stream Analytics converte a chave de partição de saída Cosmos DB em uma cadeia de caracteres. Por exemplo, se você tiver uma chave de partição com um valor de 1 do tipo bigint, ela será convertida em "1" do tipo cadeia de caracteres.
+A chave de partição é baseada na cláusula PARTITION BY na consulta. O número de gravadores de saída segue o particionamento de entrada para [consultas totalmente paralelizadas](stream-analytics-scale-jobs.md). Stream Analytics converte a chave de partição de saída Cosmos DB em uma cadeia de caracteres. Por exemplo, se você tiver uma chave de partição com um valor de 1 do tipo bigint, ela será convertida em "1" do tipo cadeia de caracteres. Essa conversão sempre acontece, independentemente de a propriedade de partição ser gravada em Cosmos DB.
 
 ## <a name="output-batch-size"></a>Tamanho do lote de saída
 

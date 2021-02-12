@@ -4,13 +4,13 @@ description: Práticas e fluxos de trabalho no registro de contêiner do Azure p
 author: dlepow
 ms.topic: article
 ms.author: danlep
-ms.date: 10/29/2020
-ms.openlocfilehash: e5fd70cdde6be431f7bb1950a42ca43e81b34e36
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 11/20/2020
+ms.openlocfilehash: 0c92899528d417f9c91f8f8930ca4932dc74e850
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130843"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024731"
 ---
 # <a name="manage-public-content-with-azure-container-registry"></a>Gerenciar conteúdo público com o registro de contêiner do Azure
 
@@ -25,16 +25,16 @@ Sem os controles adequados, ter dependências do conteúdo do registro público 
 
 ## <a name="authenticate-with-docker-hub"></a>Autenticar com o Hub do Docker
 
-Como uma primeira etapa, se você efetuar pull de imagens públicas do Hub do Docker como parte de um fluxo de trabalho de compilação ou implantação, recomendamos que você autentique usando uma conta de Hub do Docker em vez de fazer uma solicitação de pull anônima.
+Como uma primeira etapa, se você efetuar pull de imagens públicas do Hub do Docker como parte de um fluxo de trabalho de compilação ou implantação, recomendamos que você [autentique usando uma conta de Hub do Docker](https://docs.docker.com/docker-hub/download-rate-limit/#how-do-i-authenticate-pull-requests) em vez de fazer uma solicitação de pull anônima.
+
+Ao fazer solicitações de pull anônimas frequentes, você pode ver erros de Docker semelhantes `ERROR: toomanyrequests: Too Many Requests.` ou `You have reached your pull rate limit.` autenticados no Hub do Docker para evitar esses erros.
 
 > [!NOTE]
-> A partir de 2 de novembro de 2020, os limites de taxa de download se aplicam a solicitações anônimas e autenticadas ao Hub do Docker de contas de plano livre do Docker e são impostos pelo endereço IP. 
+> A partir de 2 de novembro de 2020, [os limites de taxa de download](https://docs.docker.com/docker-hub/download-rate-limit) se aplicam a solicitações anônimas e autenticadas ao Hub do Docker de contas de plano livre do Docker e são impostos pelo endereço IP e pela ID do Docker, respectivamente. 
 >
-> Ao estimar o número de solicitações pull, leve em conta que ao usar os serviços do provedor de nuvem ou trabalhando atrás de um NAT corporativo, vários usuários serão apresentados ao Hub do Docker em agregação como um subconjunto de endereços IP.  Adicionar a autenticação de conta paga do Docker às solicitações feitas ao Hub do Docker evitará possíveis interrupções de serviço devido à limitação de limite de taxa.
+> Ao estimar o número de solicitações pull, leve em conta que ao usar os serviços do provedor de nuvem ou trabalhando atrás de um NAT corporativo, vários usuários serão apresentados ao Hub do Docker em agregação como um subconjunto de endereços IP. Adicionar a autenticação de conta paga do Docker às solicitações feitas ao Hub do Docker evitará possíveis interrupções de serviço devido à limitação de limite de taxa.
 >
 > Para obter detalhes, consulte [preços e assinaturas do Docker](https://www.docker.com/pricing) e os [termos de serviço do Docker](https://www.docker.com/legal/docker-terms-service).
-
-Para exemplos de autenticação e cenários, consulte [limite de taxa de download](https://docs.docker.com/docker-hub/download-rate-limit/).
 
 ### <a name="docker-hub-access-token"></a>Token de acesso do Hub do Docker
 
@@ -48,21 +48,21 @@ Vários serviços do Azure, incluindo o serviço de aplicativo e as instâncias 
 
 **Serviço de Aplicativo**
 
-* **Origem da imagem** : Hub do Docker
-* **Acesso ao repositório** : privado
-* **Logon** : \<Docker Hub username>
-* **Senha** : \<Docker Hub token>
+* **Origem da imagem**: Hub do Docker
+* **Acesso ao repositório**: privado
+* **Logon**: \<Docker Hub username>
+* **Senha**: \<Docker Hub token>
 
 Para obter detalhes, consulte [pull autenticado do Hub do Docker no serviço de aplicativo](https://azure.github.io/AppService/2020/10/15/Docker-Hub-authenticated-pulls-on-App-Service.html).
 
 **Instâncias de Contêiner do Azure**
 
-* **Origem da imagem** : Hub do Docker ou outro registro
-* **Tipo de imagem** : privada
-* **Servidor de logon do registro de imagem** : Docker.Io
-* **Nome de usuário do registro de imagem** : \<Docker Hub username>
-* **Senha do registro de imagem** : \<Docker Hub token>
-* **Imagem** : Docker.Io/ \<repo name\> :\<tag>
+* **Origem da imagem**: Hub do Docker ou outro registro
+* **Tipo de imagem**: privada
+* **Servidor de logon do registro de imagem**: Docker.Io
+* **Nome de usuário do registro de imagem**: \<Docker Hub username>
+* **Senha do registro de imagem**: \<Docker Hub token>
+* **Imagem**: Docker.Io/ \<repo name\> :\<tag>
 
 ## <a name="import-images-to-an-azure-container-registry"></a>Importar imagens para um registro de contêiner do Azure
  

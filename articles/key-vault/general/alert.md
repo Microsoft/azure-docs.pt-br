@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
-ms.openlocfilehash: 9195bb59264731914740e1cca902707603e3502d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1b447e907bca3f8d21f522d888632aa687fd0f91
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427022"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070654"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Monitoramento e alertas para Azure Key Vault
 
@@ -25,8 +25,8 @@ ms.locfileid: "92427022"
 Depois de começar a usar o Key Vault para armazenar seus segredos de produção, é importante monitorar a integridade do cofre de chaves para garantir que o serviço funcione conforme o esperado. Conforme você começar a dimensionar o serviço, o número de solicitações enviadas para o cofre de chaves aumentará. Isso tem o potencial de aumentar a latência de suas solicitações e, em casos extremos, fazer com que suas solicitações sejam limitadas, o que afetará o desempenho de seu serviço. Você também precisará ser alertado se o cofre de chaves estiver enviando um número incomum de códigos de erro, para que você possa ser notificado rapidamente sobre qualquer política de acesso ou problemas de configuração de firewall. Este documento abordará os seguintes tópicos:
 
 + Métricas de Key Vault básicas para monitorar
-+ Como configurar métricas e criar um painel 
-+ Como criar alertas em limites especificados 
++ Como configurar métricas e criar um painel
++ Como criar alertas em limites especificados
 
 ## <a name="basic-key-vault-metrics-to-monitor"></a>Métricas de Key Vault básicas para monitorar
 
@@ -40,7 +40,7 @@ Depois de começar a usar o Key Vault para armazenar seus segredos de produção
 
 **Saturação do cofre** – o número de solicitações por segundo que um cofre de chaves pode atender é baseado no tipo de operação que está sendo executada. Algumas operações de cofre têm um limite menor de solicitações por segundo. Essa métrica agrega o uso total de seu cofre de chaves em todos os tipos de operação para surgir com um valor percentual que indica o uso atual do cofre de chaves. Para obter uma lista completa dos limites de serviço do cofre de chaves, consulte o documento a seguir. [Limites de serviços do Azure Key Vault](service-limits.md)
 
-**Latência da API de serviço** – essa métrica mostra a latência média de uma chamada para o cofre de chaves. Embora o cofre de chaves possa estar dentro dos limites de serviço, uma alta utilização do cofre de chaves pode introduzir latência que faz com que os aplicativos falhem. 
+**Latência da API de serviço** – essa métrica mostra a latência média de chamadas para o Key Vault, medida no serviço. Ele não inclui o tempo consumido pelo cliente ou pela rede entre o cliente e o serviço.
 
 **Total de acertos da API** -essa métrica mostra todas as chamadas feitas ao cofre de chaves. Isso ajudará a identificar quais aplicativos estão chamando o cofre de chaves. 
 
@@ -203,12 +203,13 @@ Consulte os parâmetros de configuração a seguir.
 
 7. Criar o alerta 
 
+### <a name="example-email-alert"></a>Alerta de email de exemplo 
+
+> [!div class="mx-imgBorder"]
+> ![Captura de tela que realça as informações necessárias para configurar um alerta de email.](../media/alert-20.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Parabéns, você criou com êxito um painel de monitoramento e configurou alertas para o cofre de chaves! Depois de ter seguido todas as etapas acima, você deverá receber alertas por email quando o cofre de chaves atender aos critérios de alerta configurados. Um exemplo é mostrado abaixo. Use as ferramentas que você configurou neste artigo para monitorar ativamente a integridade do cofre de chaves. 
 
-### <a name="example-email-alert"></a>Alerta de email de exemplo 
 
-> [!div class="mx-imgBorder"]
-> ![Captura de tela que realça as informações necessárias para configurar um alerta de email.](../media/alert-20.png)

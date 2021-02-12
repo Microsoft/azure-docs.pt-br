@@ -2,13 +2,13 @@
 title: O que é a Grade de Eventos do Azure?
 description: Envie dados de eventos de uma origem para manipuladores com a Grade de Eventos do Azure. Crie aplicativos baseados em eventos e integre com serviços do Azure.
 ms.topic: overview
-ms.date: 09/24/2020
-ms.openlocfilehash: 73d218058c5f95d8c2d2324f1a0e1e77b24f1364
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 01/28/2021
+ms.openlocfilehash: e53665c88c3860d37b3512c6498ab626b02a6400
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91326484"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055120"
 ---
 # <a name="what-is-azure-event-grid"></a>O que é a Grade de Eventos do Azure?
 
@@ -20,7 +20,7 @@ A Grade de Eventos do Azure é implantada para maximizar a disponibilidade distr
 
 Este artigo fornece uma visão geral da Grade de Eventos do Azure. Se você quiser começar a usar a Grade de Eventos, confira [Criar e rotear eventos personalizados com a Grade de Eventos do Azure](custom-event-quickstart.md). 
 
-:::image type="content" source="./media/overview/functional-model.png" alt-text="Modelo de Grade de Eventos de origens e manipuladores" lightbox="./media/overview/functional-model.png":::
+:::image type="content" source="./media/overview/functional-model.png" alt-text="Modelo de Grade de Eventos de origens e manipuladores" lightbox="./media/overview/functional-model-big.png":::
 
 Esta imagem mostra como a Grade de Eventos conecta origens e manipuladores, mas não é uma lista abrangente de integrações compatíveis.
 
@@ -42,6 +42,7 @@ Atualmente, os serviços do Azure a seguir dão suporte para envio de eventos à
 - [Barramento de Serviço do Azure](event-schema-service-bus.md)
 - [Azure SignalR](event-schema-azure-signalr.md)
 - [Assinaturas do Azure](event-schema-subscriptions.md)
+- [Cache Redis do Azure](event-schema-azure-cache.md)
 
 ## <a name="event-handlers"></a>Manipuladores de eventos
 
@@ -78,7 +79,7 @@ Aqui estão alguns dos principais recursos da Grade de Eventos do Azure:
 * **Fan-out**: assine vários pontos de extremidade no mesmo evento para enviar cópias do evento ao máximo de locais possível.
 * **Confiabilidade**: utilize repetição por 24 horas com retirada exponencial para garantir a entrega dos eventos.
 * **Pagamento por evento**: pague apenas pela quantidade usada da Grade de Eventos.
-* **Alta taxa de transferência**: crie cargas de trabalho de alto volume na Grade de Eventos com suporte para milhões de eventos por segundo.
+* **Alta taxa de transferência**: crie cargas de trabalho de alto volume na Grade de Eventos.
 * **Eventos internos**: comece a executar rapidamente com eventos internos definidos pelo recurso.
 * **Eventos Personalizados** – use a Grade de Eventos para rotear, filtrar e entregar de modo confiável eventos personalizados em seu aplicativo.
 

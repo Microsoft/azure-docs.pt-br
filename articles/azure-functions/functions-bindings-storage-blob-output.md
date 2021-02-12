@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 56d8078347b5de775b30c8db2c9412598070046c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 953a958d2a21dd9ffda07b208916a5ee01aa505f
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285359"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881048"
 ---
 # <a name="azure-blob-storage-output-binding-for-azure-functions"></a>Associação de saída do armazenamento de BLOBs do Azure para Azure Functions
 
@@ -123,108 +123,6 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 }
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-<!--Same example for input and output. -->
-
-O exemplo a seguir mostra uma associação de entrada e saída de blob em um arquivo *function.json* e [código JavaScript](functions-reference-node.md) que usa as associações. A função faz uma cópia de um blob. A função é disparada por uma mensagem da fila que contém o nome do blob para copiar. O novo BLOB é denominado *{originalblobname}-Copy*.
-
-No arquivo *function.json*, a `queueTrigger` propriedade de metadados é usada para especificar o nome do blob nas propriedades `path`:
-
-```json
-{
-  "bindings": [
-    {
-      "queueName": "myqueue-items",
-      "connection": "MyStorageConnectionAppSetting",
-      "name": "myQueueItem",
-      "type": "queueTrigger",
-      "direction": "in"
-    },
-    {
-      "name": "myInputBlob",
-      "type": "blob",
-      "path": "samples-workitems/{queueTrigger}",
-      "connection": "MyStorageConnectionAppSetting",
-      "direction": "in"
-    },
-    {
-      "name": "myOutputBlob",
-      "type": "blob",
-      "path": "samples-workitems/{queueTrigger}-Copy",
-      "connection": "MyStorageConnectionAppSetting",
-      "direction": "out"
-    }
-  ],
-  "disabled": false
-}
-```
-
-A seção [configuração](#configuration) explica essas propriedades.
-
-Aqui está o código JavaScript:
-
-```javascript
-module.exports = function(context) {
-    context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
-    context.bindings.myOutputBlob = context.bindings.myInputBlob;
-    context.done();
-};
-```
-
-# <a name="python"></a>[Python](#tab/python)
-
-<!--Same example for input and output. -->
-
-O exemplo a seguir mostra uma associação de entrada e de saída de blob em um arquivo *function.json* e um [código Python](functions-reference-python.md) que usa as associações. A função faz uma cópia de um blob. A função é disparada por uma mensagem da fila que contém o nome do blob para copiar. O novo BLOB é denominado *{originalblobname}-Copy*.
-
-No arquivo *function.json*, a `queueTrigger` propriedade de metadados é usada para especificar o nome do blob nas propriedades `path`:
-
-```json
-{
-  "bindings": [
-    {
-      "queueName": "myqueue-items",
-      "connection": "MyStorageConnectionAppSetting",
-      "name": "queuemsg",
-      "type": "queueTrigger",
-      "direction": "in"
-    },
-    {
-      "name": "inputblob",
-      "type": "blob",
-      "path": "samples-workitems/{queueTrigger}",
-      "connection": "MyStorageConnectionAppSetting",
-      "direction": "in"
-    },
-    {
-      "name": "outputblob",
-      "type": "blob",
-      "path": "samples-workitems/{queueTrigger}-Copy",
-      "connection": "MyStorageConnectionAppSetting",
-      "direction": "out"
-    }
-  ],
-  "disabled": false,
-  "scriptFile": "__init__.py"
-}
-```
-
-A seção [configuração](#configuration) explica essas propriedades.
-
-Aqui está o código Python:
-
-```python
-import logging
-import azure.functions as func
-
-
-def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
-         outputblob: func.Out[func.InputStream]):
-    logging.info('Python Queue trigger function processed %s', inputblob.name)
-    outputblob.set(inputblob)
-```
-
 # <a name="java"></a>[Java](#tab/java)
 
 Esta seção contém os seguintes exemplos:
@@ -292,6 +190,148 @@ Esta seção contém os seguintes exemplos:
 
  Na [biblioteca de runtime das funções Java](/java/api/overview/azure/functions/runtime) , use a anotação `@BlobOutput` nos parâmetros da função cujo valor seria gravado em um objeto no armazenamento de blobs.  O tipo de parâmetro deve ser `OutputBinding<T>`, onde T é qualquer tipo Java nativo ou um POJO.
 
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+<!--Same example for input and output. -->
+
+O exemplo a seguir mostra uma associação de entrada e saída de blob em um arquivo *function.json* e [código JavaScript](functions-reference-node.md) que usa as associações. A função faz uma cópia de um blob. A função é disparada por uma mensagem da fila que contém o nome do blob para copiar. O novo BLOB é denominado *{originalblobname}-Copy*.
+
+No arquivo *function.json*, a `queueTrigger` propriedade de metadados é usada para especificar o nome do blob nas propriedades `path`:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "myInputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    },
+    {
+      "name": "myOutputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+A seção [configuração](#configuration) explica essas propriedades.
+
+Aqui está o código JavaScript:
+
+```javascript
+module.exports = function(context) {
+    context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
+    context.bindings.myOutputBlob = context.bindings.myInputBlob;
+    context.done();
+};
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+O exemplo a seguir demonstra como criar uma cópia de um blob de entrada como a saída de uma [função do PowerShell](functions-reference-powershell.md).
+
+No arquivo de configuração da função (*function.jsem*), a `trigger` Propriedade Metadata é usada para especificar o nome do blob de saída nas `path` Propriedades.
+
+> [!NOTE]
+> Para evitar loops infinitos, verifique se os caminhos de entrada e saída são diferentes.
+
+```json
+{
+  "bindings": [
+    {
+      "name": "myInputBlob",
+      "path": "data/{trigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in",
+      "type": "blobTrigger"
+    },
+    {
+      "name": "myOutputBlob",
+      "type": "blob",
+      "path": "data/copy/{trigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Este é o código do PowerShell:
+
+```powershell
+# Input bindings are passed in via param block.
+param([byte[]] $myInputBlob, $TriggerMetadata)
+Write-Host "PowerShell Blob trigger function Processed blob Name: $($TriggerMetadata.Name)"
+Push-OutputBinding -Name myOutputBlob -Value $myInputBlob
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+<!--Same example for input and output. -->
+
+O exemplo a seguir mostra uma associação de entrada e de saída de blob em um arquivo *function.json* e um [código Python](functions-reference-python.md) que usa as associações. A função faz uma cópia de um blob. A função é disparada por uma mensagem da fila que contém o nome do blob para copiar. O novo BLOB é denominado *{originalblobname}-Copy*.
+
+No arquivo *function.json*, a `queueTrigger` propriedade de metadados é usada para especificar o nome do blob nas propriedades `path`:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "queuemsg",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "inputblob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    },
+    {
+      "name": "outputblob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false,
+  "scriptFile": "__init__.py"
+}
+```
+
+A seção [configuração](#configuration) explica essas propriedades.
+
+Aqui está o código Python:
+
+```python
+import logging
+import azure.functions as func
+
+
+def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
+         outputblob: func.Out[func.InputStream]):
+    logging.info('Python Queue trigger function processed %s', inputblob.name)
+    outputblob.set(inputblob)
+```
+
 ---
 
 ## <a name="attributes-and-annotations"></a>Atributos e anotações
@@ -328,17 +368,21 @@ public static void Run(
 
 O script C# não dá suporte a atributos.
 
+# <a name="java"></a>[Java](#tab/java)
+
+O `@BlobOutput` atributo fornece acesso ao blob que disparou a função. Se você usar uma matriz de bytes com o atributo, defina `dataType` como `binary` . Consulte o [exemplo de saída](#example) para obter detalhes.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 O JavaScript não dá suporte a atributos.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Não há suporte para atributos pelo PowerShell.
+
 # <a name="python"></a>[Python](#tab/python)
 
 O Python não dá suporte a atributos.
-
-# <a name="java"></a>[Java](#tab/java)
-
-O `@BlobOutput` atributo fornece acesso ao blob que disparou a função. Se você usar uma matriz de bytes com o atributo, defina `dataType` como `binary` . Consulte o [exemplo de saída](#example) para obter detalhes.
 
 ---
 
@@ -371,9 +415,17 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 [!INCLUDE [functions-bindings-blob-storage-output-usage.md](../../includes/functions-bindings-blob-storage-output-usage.md)]
 
+# <a name="java"></a>[Java](#tab/java)
+
+O `@BlobOutput` atributo fornece acesso ao blob que disparou a função. Se você usar uma matriz de bytes com o atributo, defina `dataType` como `binary` . Consulte o [exemplo de saída](#example) para obter detalhes.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Em JavaScript, acesse os dados do blob usando `context.bindings.<name from function.json>`.
+Acesse os dados de BLOB usando `context.bindings.<BINDING_NAME>` , onde o nome da associação é definido no _function.jsno_ arquivo.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Acesse os dados de blob por meio de um parâmetro que corresponde ao nome designado pelo parâmetro de nome da associação na _function.jsno_ arquivo.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -383,10 +435,6 @@ Você pode declarar parâmetros de função como os seguintes tipos para gravar 
 * Fluxos como `func.Out(func.InputStream)`
 
 Consulte o [exemplo de saída](#example) para obter detalhes.
-
-# <a name="java"></a>[Java](#tab/java)
-
-O `@BlobOutput` atributo fornece acesso ao blob que disparou a função. Se você usar uma matriz de bytes com o atributo, defina `dataType` como `binary` . Consulte o [exemplo de saída](#example) para obter detalhes.
 
 ---
 

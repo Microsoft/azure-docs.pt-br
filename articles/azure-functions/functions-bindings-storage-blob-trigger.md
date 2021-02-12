@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 67e1f1dff43939ce7ef279db57bee4b18bd12dc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6735b3377650c900a7b7d18933180991a6a2c9fd
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213955"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97930881"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Gatilho do armazenamento de BLOBs do Azure para Azure Functions
 
@@ -20,6 +20,16 @@ O gatilho de armazenamento de Blob inicia uma função quando é detectado um bl
 O gatilho do armazenamento de BLOBs do Azure requer uma conta de armazenamento de uso geral. Também há suporte para contas de armazenamento V2 com [namespaces hierárquicos](../storage/blobs/data-lake-storage-namespace.md) . Para usar uma conta somente de BLOB ou se seu aplicativo tiver necessidades especializadas, examine as alternativas para usar esse gatilho.
 
 Para obter informações sobre a instalação e detalhes de configuração, confira a [visão geral](./functions-bindings-storage-blob.md).
+
+## <a name="polling"></a>Sondagem
+
+A sondagem funciona como um híbrido entre a inspeção de logs e a execução de verificações de contêiner periódicas. Os BLOBs são verificados em grupos de 10.000 por vez com um token de continuação usado entre intervalos.
+
+> [!WARNING]
+> Além disso, [logs de armazenamento são criados da "melhor forma dentro do possível"](/rest/api/storageservices/About-Storage-Analytics-Logging). Não há nenhuma garantia de que todos os eventos são capturados. Sob algumas condições, logs poderão ser perdidos.
+> 
+> Se você precisar de um processamento de blob mais rápido ou confiável, crie uma [mensagem de fila](../storage/queues/storage-dotnet-how-to-use-queues.md) ao criar o blob. Em seguida, use um [gatilho de fila](functions-bindings-storage-queue.md) em vez de um gatilho de blob para processar o blob. Outra opção é usar a Grade de Eventos; consulte o tutorial [Automatize redimensionamento de imagens carregadas usando a Grade de Eventos](../event-grid/resize-images-on-storage-blob-upload-event.md).
+>
 
 ## <a name="alternatives"></a>Alternativas
 
@@ -104,6 +114,24 @@ public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+Essa função grava um log quando um blob é adicionado ou atualizado no `myblob` contêiner.
+
+```java
+@FunctionName("blobprocessor")
+public void run(
+  @BlobTrigger(name = "file",
+               dataType = "binary",
+               path = "myblob/{name}",
+               connection = "MyStorageAccountAppSetting") byte[] content,
+  @BindingName("name") String filename,
+  final ExecutionContext context
+) {
+  context.getLogger().info("Name: " + filename + " Size: " + content.length + " bytes");
+}
+```
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 O exemplo a seguir mostra uma associação de gatilho de blob em um arquivo *function.json* e [código JavaScript](functions-reference-node.md) que usa a associação. A função grava um log quando um blob é adicionado ou atualizado no `samples-workitems` contêiner.
@@ -136,6 +164,34 @@ module.exports = function(context) {
     context.log('Node.js Blob trigger function processed', context.bindings.myBlob);
     context.done();
 };
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+O exemplo a seguir demonstra como criar uma função que é executada quando um arquivo é adicionado ao `source` contêiner de armazenamento de BLOBs.
+
+O arquivo de configuração de função (_function.jsem_) inclui uma associação com o `type` de `blobTrigger` e `direction` definido como `in` .
+
+```json
+{
+  "bindings": [
+    {
+      "name": "InputBlob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "source/{name}",
+      "connection": "MyStorageAccountConnectionString"
+    }
+  ]
+}
+```
+
+Aqui está o código associado para o arquivo de _run.ps1_ .
+
+```powershell
+param([byte[]] $InputBlob, $TriggerMetadata)
+
+Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($InputBlob.Length) bytes"
 ```
 
 # <a name="python"></a>[Python](#tab/python)
@@ -175,24 +231,6 @@ def main(myblob: func.InputStream):
     logging.info('Python Blob trigger function processed %s', myblob.name)
 ```
 
-# <a name="java"></a>[Java](#tab/java)
-
-Essa função grava um log quando um blob é adicionado ou atualizado no `myblob` contêiner.
-
-```java
-@FunctionName("blobprocessor")
-public void run(
-  @BlobTrigger(name = "file",
-               dataType = "binary",
-               path = "myblob/{name}",
-               connection = "MyStorageAccountAppSetting") byte[] content,
-  @BindingName("name") String filename,
-  final ExecutionContext context
-) {
-  context.getLogger().info("Name: " + filename + " Size: " + content.length + " bytes");
-}
-```
-
 ---
 
 ## <a name="attributes-and-annotations"></a>Atributos e anotações
@@ -203,7 +241,7 @@ Em [bibliotecas de classe C#](functions-dotnet-class-library.md), use os seguint
 
 * [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobTriggerAttribute.cs)
 
-  O construtor do atributo usa uma cadeia de caracteres de caminho que indica o contêiner para inspecionar e, opcionalmente, um [padrão de nome de blob](#blob-name-patterns). Aqui está um exemplo:
+  O construtor do atributo usa uma cadeia de caracteres de caminho que indica o contêiner para inspecionar e, opcionalmente, um [padrão de nome de blob](#blob-name-patterns). Veja um exemplo:
 
   ```csharp
   [FunctionName("ResizeImage")]
@@ -257,17 +295,21 @@ A conta de armazenamento a ser usada é determinada na seguinte ordem:
 
 O script C# não dá suporte a atributos.
 
+# <a name="java"></a>[Java](#tab/java)
+
+O `@BlobTrigger` atributo é usado para fornecer acesso ao blob que disparou a função. Consulte o [exemplo de gatilho](#example) para obter detalhes.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 O JavaScript não dá suporte a atributos.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Não há suporte para atributos pelo PowerShell.
+
 # <a name="python"></a>[Python](#tab/python)
 
 O Python não dá suporte a atributos.
-
-# <a name="java"></a>[Java](#tab/java)
-
-O `@BlobTrigger` atributo é usado para fornecer acesso ao blob que disparou a função. Consulte o [exemplo de gatilho](#example) para obter detalhes.
 
 ---
 
@@ -295,23 +337,30 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]
 
+# <a name="java"></a>[Java](#tab/java)
+
+O `@BlobTrigger` atributo é usado para fornecer acesso ao blob que disparou a função. Consulte o [exemplo de gatilho](#example) para obter detalhes.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Acessar dados de BLOB usando `context.bindings.<NAME>` onde `<NAME>` corresponde ao valor definido em *function.jsem*.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Acesse os dados de blob por meio de um parâmetro que corresponde ao nome designado pelo parâmetro de nome da associação na _function.jsno_ arquivo.
+
 # <a name="python"></a>[Python](#tab/python)
 
-Acessar dados de blob por meio do parâmetro digitado como [InputStream](/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Consulte o [exemplo de gatilho](#example) para obter detalhes.
-
-# <a name="java"></a>[Java](#tab/java)
-
-O `@BlobTrigger` atributo é usado para fornecer acesso ao blob que disparou a função. Consulte o [exemplo de gatilho](#example) para obter detalhes.
+Acessar dados de blob por meio do parâmetro digitado como [InputStream](/python/api/azure-functions/azure.functions.inputstream?view=azure-python&preserve-view=true). Consulte o [exemplo de gatilho](#example) para obter detalhes.
 
 ---
 
 ## <a name="blob-name-patterns"></a>Padrões de nome de BLOB
 
 Você pode especificar um padrão de nome de blob na `path` propriedade em *function.json* ou no `BlobTrigger` construtor de atributo. O nome padrão pode ser uma [expressão de associação ou filtro](./functions-bindings-expressions-patterns.md). As seções a seguir fornecem exemplos.
+
+> [!TIP]
+> Um nome de contêiner não pode conter um resolvedor no padrão de nome.
 
 ### <a name="get-file-name-and-extension"></a>Obtenha o nome de arquivo e extensão
 
@@ -349,7 +398,7 @@ Para procurar as chaves em nomes de arquivos, escape as chaves usando duas chave
 "path": "images/{{20140101}}-{name}",
 ```
 
-Se o blob for nomeado * {20140101}-soundfile.mp3*, o `name` valor da variável no código de função será *soundfile.mp3*.
+Se o blob for nomeado *{20140101}-soundfile.mp3*, o `name` valor da variável no código de função será *soundfile.mp3*.
 
 ## <a name="metadata"></a>Metadados
 
@@ -361,6 +410,10 @@ Se o blob for nomeado * {20140101}-soundfile.mp3*, o `name` valor da variável n
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
 
+# <a name="java"></a>[Java](#tab/java)
+
+Os metadados não estão disponíveis em Java.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
@@ -370,13 +423,13 @@ module.exports = function (context, myBlob) {
 };
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Os metadados estão disponíveis por meio do `$TriggerMetadata` parâmetro.
+
 # <a name="python"></a>[Python](#tab/python)
 
 Os metadados não estão disponíveis no Python.
-
-# <a name="java"></a>[Java](#tab/java)
-
-Os metadados não estão disponíveis em Java.
 
 ---
 
@@ -386,11 +439,11 @@ O Azure Functions runtime garante que nenhuma função de gatilho de blob seja c
 
 O Azure Functions armazena recibos do blob em um contêiner denominado *azure-webjobs-hosts* na conta de armazenamento do Azure do seu aplicativo de funções (definido na configuração do aplicativo `AzureWebJobsStorage`). Um recebimento de blob tem as seguintes informações:
 
-* A função disparada ("* &lt; nome do aplicativo de funções>*. Funções. * &lt; nome da função>*", por exemplo:" MyFunctionApp. Functions. CopyBlob ")
+* A função disparada ( `<FUNCTION_APP_NAME>.Functions.<FUNCTION_NAME>` , por exemplo: `MyFunctionApp.Functions.CopyBlob` )
 * O nome do contêiner
-* O tipo de blob ("BlockBlob" ou "PageBlob")
+* O tipo de BLOB ( `BlockBlob` ou `PageBlob` )
 * O nome do blob
-* O ETag (um identificador de versão de blob, por exemplo: "0x8D1DC6E70A277EF")
+* A ETag (um identificador de versão de BLOB, por exemplo: `0x8D1DC6E70A277EF` )
 
 Para forçar o reprocessamento de um blob, exclua manualmente o recebimento desse blob do contêiner *azure-webjobs-hosts*. Embora o reprocessamento possa não ocorrer imediatamente, é garantido que ocorra em um momento posterior. Para reprocessar imediatamente, o blob *scaninfo* no *Azure-webjobs-hosts/blobscaninfo* pode ser atualizado. Todos os BLOBs com um carimbo de data/hora da última modificação após a `LatestScan` propriedade serão verificados novamente.
 
@@ -400,29 +453,19 @@ Quando uma função de gatilho de blob falhar para um determinado blob, o Azure 
 
 Se todas as cinco tentativas falharem, o Azure Functions adiciona uma mensagem para uma fila de armazenamento denominada *webjobs-blobtrigger-poison*. O número máximo de novas tentativas é configurável. A mesma MaxDequeueCount é usada para manipular blob suspeitos e manipular mensagens de filas suspeitas. A mensagem da fila para blobs suspeitos é um objeto JSON que contém as seguintes propriedades:
 
-* FunctionID (no nome do * &lt; aplicativo de funções *de formato>. Funções. * &lt; nome da função>*)
-* BlobType ("BlockBlob" ou "PageBlob")
+* FunctionID (no formato `<FUNCTION_APP_NAME>.Functions.<FUNCTION_NAME>` )
+* BlobType ( `BlockBlob` ou `PageBlob` )
 * ContainerName
 * BlobName
-* ETag (um identificador de versão de blob, por exemplo: "0x8D1DC6E70A277EF")
+* ETag (um identificador de versão de BLOB, por exemplo: `0x8D1DC6E70A277EF` )
 
 ## <a name="concurrency-and-memory-usage"></a>Uso de memória e simultaneidade
 
 O gatilho de blob usa uma fila internamente, portanto, o número máximo de invocações de função concorrente é controlado pela [configuração de filas em host.json](functions-host-json.md#queues). As configurações padrão limitam a concorrência a 24 invocações. Esse limite aplica-se separadamente a cada função que usa um gatilho de blob.
 
-[O plano de consumo](functions-scale.md#how-the-consumption-and-premium-plans-work) limita um aplicativo de funções em uma VM (máquina virtual) a 1,5 GB de memória. A memória é usada por cada instância de execução de execução simultânea e pelo próprio runtime de Funções. Se uma função disparada por blob carregar todo o blob na memória, a memória máxima usada por essa função apenas para blobs será tamanho máximo de blob 24 *. Por exemplo, um aplicativo de funções com três funções disparadas por blob e as configurações padrão teriam uma concorrência máxima por VM de 3*24 = 72 invocações de função.
+[O plano de consumo](event-driven-scaling.md) limita um aplicativo de funções em uma VM (máquina virtual) a 1,5 GB de memória. A memória é usada por cada instância de execução de execução simultânea e pelo próprio runtime de Funções. Se uma função disparada por blob carregar todo o blob na memória, a memória máxima usada por essa função apenas para blobs será tamanho máximo de blob 24 *. Por exemplo, um aplicativo de funções com três funções disparadas por blob e as configurações padrão teriam uma concorrência máxima por VM de 3*24 = 72 invocações de função.
 
 As funções JavaScript e Java carregam todo o blob na memória, e as funções C# fazem isso se você associar a `string` , ou `Byte[]` .
-
-## <a name="polling"></a>Sondagem
-
-A sondagem funciona como um híbrido entre a inspeção de logs e a execução de verificações de contêiner periódicas. Os BLOBs são verificados em grupos de 10.000 por vez com um token de continuação usado entre intervalos.
-
-> [!WARNING]
-> Além disso, [logs de armazenamento são criados da "melhor forma dentro do possível"](/rest/api/storageservices/About-Storage-Analytics-Logging). Não há nenhuma garantia de que todos os eventos são capturados. Sob algumas condições, logs poderão ser perdidos.
-> 
-> Se você precisar de um processamento de blob mais rápido ou confiável, crie uma [mensagem de fila](../storage/queues/storage-dotnet-how-to-use-queues.md) ao criar o blob. Em seguida, use um [gatilho de fila](functions-bindings-storage-queue.md) em vez de um gatilho de blob para processar o blob. Outra opção é usar a Grade de Eventos; consulte o tutorial [Automatize redimensionamento de imagens carregadas usando a Grade de Eventos](../event-grid/resize-images-on-storage-blob-upload-event.md).
->
 
 ## <a name="next-steps"></a>Próximas etapas
 

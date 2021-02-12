@@ -1,18 +1,18 @@
 ---
 title: Controles de Conformidade Regulatória do Azure Policy para as Mensagens do Barramento de Serviço do Azure
 description: Lista os controles de Conformidade Regulatória do Azure Policy disponíveis para as Mensagens do Barramento de Serviço do Azure. Estas definições de políticas internas fornecem abordagens comuns para gerenciar a conformidade dos seus recursos do Azure.
-ms.date: 10/20/2020
+ms.date: 01/29/2021
 ms.topic: sample
 author: spelluru
 ms.author: spelluru
 ms.service: service-bus-messaging
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 20f788c8c29b3bccca1df49acad0674432fbd813
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 763fede6ca471be7384d85890f066205cd74723a
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310419"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094252"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-service-bus-messaging"></a>Controles de Conformidade Regulatória do Azure Policy para as Mensagens do Barramento de Serviço do Azure
 

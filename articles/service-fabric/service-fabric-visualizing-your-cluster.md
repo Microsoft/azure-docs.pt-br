@@ -1,16 +1,14 @@
 ---
 title: Visualizando seu cluster usando o Azure Service Fabric Explorer
 description: O Azure Service Fabric Explorer é um aplicativo para inspecionar e gerenciar aplicativos em nuvem e nós em um cluster do Microsoft Azure Service Fabric.
-author: mikkelhegn
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.author: mikhegn
-ms.openlocfilehash: 5627aa614a7e2819b6f3cc1401c8458552e57219
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a45aff305f97610cb2660c2e3f4b4427b905d7d4
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085166"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574048"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizando o cluster com o Service Fabric Explorer
 
@@ -69,7 +67,7 @@ O cluster contém duas subárvores: uma para aplicativos e outra para nós.
 
 Você pode usar a exibição de aplicativos para navegar pela hierarquia lógica do Service Fabric: aplicativos, serviços, partições e réplicas.
 
-No exemplo abaixo, o aplicativo **MyApp** é composto por dois serviços, **MyStatefulService** e **WebService** . Como o **MyStatefulService** tem monitoração de estado, ele inclui uma partição com uma réplica principal e duas secundárias. Por outro lado, o WebSvcService é sem monitoração de estado e contém uma única instância.
+No exemplo abaixo, o aplicativo **MyApp** é composto por dois serviços, **MyStatefulService** e **WebService**. Como o **MyStatefulService** tem monitoração de estado, ele inclui uma partição com uma réplica principal e duas secundárias. Por outro lado, o WebSvcService é sem monitoração de estado e contém uma única instância.
 
 ![Exibição do aplicativo do Explorador do Service Fabric][sfx-application-tree]
 
@@ -83,7 +81,7 @@ A exibição de nós mostra o layout físico do cluster. Para um nó específico
 ## <a name="actions"></a>Ações
 O Explorador do Service Fabric oferece uma maneira rápida de invocar ações em nós, aplicativos e serviços no cluster.
 
-Por exemplo, para excluir uma instância do aplicativo, escolha o aplicativo na árvore à esquerda e, em seguida, escolha **ações**  >  **excluir aplicativo** .
+Por exemplo, para excluir uma instância do aplicativo, escolha o aplicativo na árvore à esquerda e, em seguida, escolha **ações**  >  **excluir aplicativo**.
 
 ![Excluir um aplicativo no Explorador do Service Fabric][sfx-delete-application]
 

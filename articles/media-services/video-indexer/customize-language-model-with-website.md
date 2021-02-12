@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 08/10/2020
 ms.author: kumud
-ms.openlocfilehash: f9eedba6c8aee5c8aab73e2ed598a4511b4c5982
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd8b36340deb6c785989107461dd420e7fc0d985
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020449"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722565"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-website"></a>Personalizar um modelo de Linguagem com o site do Video Indexer
 
@@ -28,34 +28,27 @@ Você pode usar o site do Video Indexer para criar e editar modelos de linguagem
 ## <a name="create-a-language-model"></a>Criar um modelo de Linguagem
 
 1. Acesse o site [Video indexer](https://www.videoindexer.ai/) e entre.
-2. Para personalizar um modelo em sua conta, selecione o botão **personalização do modelo de conteúdo** no canto superior direito da página.
+1. Para personalizar um modelo em sua conta, selecione o botão **personalização do modelo de conteúdo** à esquerda da página.
 
-   ![Personalizar o modelo de conteúdo no Video Indexer](./media/content-model-customization/content-model-customization.png)
-
-3. Selecione a guia **Linguagem**.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/customize-language-model/model-customization.png" alt-text="Personalizar o modelo de conteúdo no Video Indexer":::
+1. Selecione a guia **Linguagem**.
 
     Obtenha uma lista de linguagens de programação compatíveis.
-
-    ![Lista de modelos de idiomas no Video Indexer](./media/customize-language-model/customize-language-model.png)
-
-4. No idioma desejado, selecione **Adicionar modelo**.
-5. Digite o nome para o modelo de Linguagem e pressione Enter.
+1. No idioma desejado, selecione **Adicionar modelo**.
+1. Digite o nome para o modelo de Linguagem e pressione Enter.
 
     Esta etapa cria o modelo e dá a opção de carregar arquivos de texto para o modelo.
-
-6. Para adicionar um arquivo de texto, selecione **Adicionar arquivo**. O explorador de arquivos será aberto.
-
-7. Navegue até o arquivo de texto e selecione-o. Você pode adicionar vários arquivos de texto a um modelo de Linguagem.
+1. Para adicionar um arquivo de texto, selecione **Adicionar arquivo**. O explorador de arquivos será aberto.
+1. Navegue até o arquivo de texto e selecione-o. Você pode adicionar vários arquivos de texto a um modelo de Linguagem.
 
     Você também pode adicionar um arquivo de texto selecionando o botão **...** no lado direito do modelo de idioma e selecionando **Adicionar arquivo**.
-
-8. Quando terminar de carregar os arquivos de texto, selecione a opção de **trem** verde.
-
-    ![Treinar o modelo de idioma no Video Indexer](./media/customize-language-model/train-model.png)
+1. Quando terminar de carregar os arquivos de texto, selecione a opção de **trem** verde.
 
 O processo de treinamento pode levar alguns minutos. Depois que o treinamento for concluído, você verá o texto **Treinado** ao lado do modelo. Você pode visualizar, baixar e excluir o arquivo do modelo.
 
-![Modelo de idioma treinado no Video Indexer](./media/customize-language-model/preview-model.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/customize-language-model/customize-language-model.png" alt-text="Treinar o modelo":::
 
 ### <a name="using-a-language-model-on-a-new-video"></a>Usando um modelo de Linguagem em um novo vídeo
 
@@ -64,28 +57,22 @@ Para usar seu modelo de idioma em um novo vídeo, execute uma das seguintes aç�
 * Selecione o botão **carregar** na parte superior da página.
 
     ![Botão carregar Video Indexer](./media/customize-language-model/upload.png)
+* Descarte seu arquivo de áudio ou vídeo ou procure o arquivo.
 
-* Solte o arquivo de áudio ou vídeo no círculo ou procure pelo arquivo.
+Você tem a opção de selecionar o **idioma da fonte de vídeo**. Selecione o menu suspenso e selecione um modelo de idioma que você criou na lista. Ele deve indicar o idioma do seu modelo de Linguagem e o nome que você deu a ele entre parênteses. Por exemplo:
 
-    ![Carregar arquivo de mídia Video Indexer](./media/customize-language-model/upload2.png)
-
-Você tem a opção de selecionar o **idioma da fonte de vídeo**. Selecione o menu suspenso e selecione um modelo de idioma que você criou na lista. Ele deve indicar o idioma do seu modelo de Linguagem e o nome que você deu a ele entre parênteses.
+![Escolher idioma da fonte de vídeo — reindexe um vídeo com Video Indexer](./media/customize-language-model/reindex.png)
 
 Selecione a opção **carregar** na parte inferior da página e o novo vídeo será indexado usando seu modelo de linguagem.
 
 ### <a name="using-a-language-model-to-reindex"></a>Usando um modelo de Linguagem para reindexação
 
-Para usar seu modelo de Linguagem para reindexar um vídeo em sua coleção, vá para seu **Vídeos da conta** na página inicial do [Video Indexer](https://www.videoindexer.ai/) e passe o mouse sobre o nome do vídeo que você deseja reindexar.
+Para usar seu modelo de linguagem para reindexar um vídeo em sua coleção, siga estas etapas:
 
-Você verá opções para editar seu vídeo, excluir seu vídeo e reindexar seu vídeo. Selecione a opção para reindexar o vídeo.
-
-![Reindexar com Video Indexer](./media/customize-language-model/reindex1.png)
-
-Você tem a opção de selecionar o **idioma de origem do vídeo** com o qual reindexar o vídeo. Selecione o menu suspenso e selecione um modelo de idioma que você criou na lista. Ele deve indicar o idioma do seu modelo de linguagem e o nome que você deu a ele entre parênteses.
-
-![Escolher idioma da fonte de vídeo — reindexe um vídeo com Video Indexer](./media/customize-language-model/reindex.png)
-
-Selecione o botão **reindexar** e o vídeo será reindexado usando seu modelo de linguagem.
+1. Entre no home page de [Video indexer](https://www.videoindexer.ai/) .
+1. Clique no **botão no** vídeo e selecione **reindexar**.
+1. Você tem a opção de selecionar o **idioma de origem do vídeo** com o qual reindexar o vídeo. Selecione o menu suspenso e selecione um modelo de idioma que você criou na lista. Ele deve indicar o idioma do seu modelo de linguagem e o nome que você deu a ele entre parênteses.
+1. Selecione o botão **reindexar** e o vídeo será reindexado usando seu modelo de linguagem.
 
 ## <a name="edit-a-language-model"></a>Editar um modelo de Linguagem
 
@@ -145,8 +132,6 @@ O Video Indexer dá suporte à personalização automática de modelos de lingua
     > Somente correções textuais são usadas para a personalização. As correções que não envolvem palavras reais (por exemplo, marcas ou espaços de pontuação) não são incluídas.
     
 1. Você verá as correções de transcrição aparecerem na guia idioma da página personalização do modelo de conteúdo.
-
-    ![Personalizar o modelo de linguagem — Video Indexer](./media/customize-language-model/customize.png)
 
    Para examinar o arquivo "de edições de transcrição" para cada um dos seus modelos de idioma, selecione-o para abri-lo.
 

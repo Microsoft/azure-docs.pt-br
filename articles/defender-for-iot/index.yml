@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentação do Azure Defender para IoT
-summary: O Azure Defender para IoT é um serviço de segurança de nuvem baseado no Azure que fornece proteção abrangente contra ameaças em dispositivos IoT.
+summary: O Azure Defender para IoT fornece uma detecção de ameaças abrangente para ambientes de IoT/OT, com várias opções de implantação, incluindo totalmente locais, conectadas à nuvem ou híbridas.
 metadata:
   title: Documentação do Azure Defender para IoT
   description: Saiba como o Azure Defender para IoT, um serviço de segurança de nuvem baseado no Azure, fornece proteção abrangente contra ameaças em dispositivos IoT.
@@ -11,48 +11,58 @@ metadata:
   author: mlottner
   ms.author: mlottner
   ms.date: 09/07/2020
-  ms.openlocfilehash: 18f3f2f14d4e04c523a355f699eaf24b8c93bb81
-  ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+  ms.openlocfilehash: a56e82d81839d94029bc34dcdec30544e7158ea1
+  ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/15/2020
-  ms.locfileid: "92090005"
+  ms.lasthandoff: 01/26/2021
+  ms.locfileid: "98802677"
 landingContent:
-- title: Sobre o Azure Defender para IoT
+- title: Introdução ao Azure Defender para IoT
   linkLists:
   - linkListType: overview
     links:
     - text: O que é o Azure Defender para IoT?
       url: overview.md
-    - text: Módulo de segurança do Azure RTOS
-      url: iot-security-azure-rtos.md
-    - text: Planejar a solução
-      url: service-prerequisites.md
-  - linkListType: architecture
-    links:
-    - text: Entenda a arquitetura do Azure Defender para IoT
+    - text: Arquitetura da solução
       url: architecture.md
-    - text: Agentes do Azure Defender para IoT
-      url: security-agent-architecture.md
+    - text: Visão geral da instalação da solução
+      url: getting-started.md
+    - text: Novidades
+      url: release-notes.md
+- title: Configurar e integrar – solução sem agente
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Configurar sua rede
+      url: how-to-set-up-your-network.md
+    - text: Identificar os dispositivos necessários
+      url: how-to-identify-required-appliances.md
+    - text: Instalar o software
+      url: how-to-install-software.md
+- title: Monitorar sua rede – solução sem agente
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Exibir dispositivos conectados
+      url: how-to-work-with-the-sensor-device-map.md
+    - text: Exibir inventários de dispositivo
+      url: how-to-investigate-sensor-detections-in-a-device-inventory.md
+    - text: Investigar alertas
+      url: how-to-work-with-alerts-on-your-sensor.md
+    - text: Controlar qual tráfego é detectado
+      url: how-to-control-what-traffic-is-monitored.md
+    - text: Conectar-se ao Azure Sentinel
+      url: how-to-configure-with-sentinel.md
+- title: Azure Defender para IoT – solução baseada em agente
+  linkLists:
+  - linkListType: overview
+    links:
     - text: Módulo de segurança do Microsoft Edge
       url: security-edge-architecture.md
-- title: Integrar o Azure Defender para IoT ao Hub IoT
-  linkLists:
-  - linkListType: get-started
-    links:
-    - text: Introdução ao Azure Defender para IoT
-      url: getting-started.md
-    - text: Hub IoT
-      url: iot-hub-integration.md
-    - text: Introdução ao módulo de segurança do Azure RTOS
-      url: concept-rtos-security-module.md
-    - text: Agentes de segurança
-      url: security-agents.md
-- title: Configurar sua solução
-  linkLists:
   - linkListType: quickstart
     links:
-    - text: Habilitar o Azure Defender para IoT no Hub IoT
+    - text: Habilitar o Hub IoT – soluções baseadas em agente
       url: quickstart-onboard-iot-hub.md
     - text: Configurar sua solução de segurança da IoT
       url: quickstart-configure-your-solution.md
@@ -64,49 +74,13 @@ landingContent:
       url: quickstart-create-custom-alerts.md
     - text: Investigar alertas de segurança
       url: quickstart-investigate-security-alerts.md
-- title: Personalize sua solução
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Personalizar o módulo de segurança do Azure RTOS
-      url: how-to-azure-rtos-security-module.md
-    - text: Escolher um agente
-      url: how-to-deploy-agent.md
-    - text: Implantar um agente de segurança baseado em C# do Azure Defender para IoT para Windows
-      url: how-to-deploy-windows-cs.md
-    - text: Implantar um agente de segurança baseado em C# do Azure Defender para IoT para Linux
-      url: how-to-deploy-linux-cs.md
-    - text: Implantar um agente de segurança baseado em C do Azure Defender para IoT para Linux
-      url: how-to-deploy-linux-c.md
-    - text: Implantar módulo de segurança do Microsoft Edge
-      url: how-to-deploy-edge.md
-    - text: Configurar agentes de segurança
-      url: how-to-agent-configuration.md
-    - text: Enviar suas próprias mensagens de segurança
-      url: how-to-send-security-messages.md
-    - text: Acessar dados de segurança brutos
-      url: how-to-security-data-access.md
-    - text: Investigar um dispositivo
-      url: how-to-investigate-device.md
-- title: Solucionar problemas de um agente de segurança
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Guia de solução de problemas do agente de segurança (Linux)
-      url: troubleshoot-agent.md
-    - text: Noções básicas sobre o arquivo LocalConfiguration.json – agente do C
-      url: azure-iot-security-local-configuration-c.md
-    - text: Noções básicas sobre o arquivo de configuração local – agente do C#
-      url: azure-iot-security-local-configuration-csharp.md
 - title: Recursos da solução do Azure Defender para IoT
   linkLists:
   - linkListType: video
     links:
-    - text: Entendendo o Azure Defender para IoT
+    - text: Take
       url: https://myignite.microsoft.com/sessions/973175b0-2a2d-4b41-99f8-051e42ac575a
   - linkListType: reference
     links:
     - text: Perguntas frequentes
       url: resources-frequently-asked-questions.md
-    - text: Preços e custos associados
-      url: concept-pricing.md

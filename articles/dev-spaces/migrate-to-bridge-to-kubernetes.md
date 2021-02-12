@@ -5,12 +5,12 @@ ms.date: 10/21/2020
 ms.topic: conceptual
 description: Descreve o processo de migração do Azure Dev Spaces para a ponte para o kubernetes
 keywords: Azure Dev Spaces, espaços de desenvolvimento, Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, ponte para kubernetes
-ms.openlocfilehash: 7a7642d986d8490c5d0dc3c413e658b21b010798
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d48814df30c17f9b51d8642efa0960a26bbd24f4
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895249"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888514"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Migração para o Bridge to Kubernetes
 
@@ -85,7 +85,7 @@ A ponte para o kubernetes tem a flexibilidade de trabalhar com aplicativos em ex
 1. Se você estiver usando o Visual Studio, atualize o IDE do Visual Studio para a versão 16,7 ou superior e instale a ponte para a extensão kubernetes do [Visual Studio Marketplace][vs-marketplace]. Se você estiver usando Visual Studio Code, instale a [ponte para a extensão kubernetes][vsc-marketplace].
 1. Desabilite o controlador de Azure Dev Spaces usando o portal do Azure ou a [CLI do Azure dev Spaces][azds-delete].
 1. Use [Azure cloud Shell](https://shell.azure.com). Ou no Mac, Linux ou Windows com o bash instalado, abra um prompt de shell bash. Verifique se as seguintes ferramentas estão disponíveis no seu ambiente de linha de comando: CLI do Azure, Docker, kubectl, ondulação, tar e gunzip.
-1. Crie um registro de contêiner ou use um existente. Você pode criar um registro de contêiner no Azure usando o [registro de contêiner do Azure](../container-registry/index.yml) ou usando o [Hub do Docker](https://hub.docker.com/). Ao usar Azure Cloud Shell, somente o registro de contêiner do Azure está disponível para hospedar imagens do Docker.
+1. Crie um registro de contêiner ou use um existente. Você pode criar um registro de contêiner no Azure usando o [registro de contêiner do Azure](https://azure.microsoft.com/services/container-registry/) ou usando o [Hub do Docker](https://hub.docker.com/). Ao usar Azure Cloud Shell, somente o registro de contêiner do Azure está disponível para hospedar imagens do Docker.
 1. Execute o script de migração para converter os ativos de Azure Dev Spaces para ponte para ativos kubernetes. O script cria uma nova imagem compatível com a ponte para kubernetes, carrega-a no registro designado e, em seguida, usa [Helm](https://helm.sh) para atualizar o cluster com a imagem. Você deve fornecer o grupo de recursos, o nome do cluster AKS e um registro de contêiner. Há outras opções de linha de comando, conforme mostrado aqui:
 
    ```azure-cli
@@ -117,7 +117,7 @@ A ponte para o kubernetes tem a flexibilidade de trabalhar com aplicativos em ex
 
 Você também pode usar o roteamento específico do desenvolvedor com a ponte para kubernetes. O cenário de desenvolvimento de equipe Azure Dev Spaces usa vários namespaces kubernetes para isolar um serviço do restante do aplicativo usando o conceito de namespaces pai e filho. O Bridge to kubernetes oferece o mesmo recurso, mas com características de desempenho aprimoradas e dentro do mesmo namespace de aplicativo.
 
-Ambas as pontes para kubernetes e Azure Dev Spaces exigem que os cabeçalhos HTTP estejam presentes e propagados em todo o aplicativo. Se você já tiver configurado seu aplicativo para manipular a propagação de cabeçalho para Azure Dev Spaces, o cabeçalho precisará ser atualizado. Para fazer a transição para a ponte para o kubernetes da Azure Dev Spaces, atualize o cabeçalho configurado de *azds-Route-as* para *kubernetes-Route-as* .
+Ambas as pontes para kubernetes e Azure Dev Spaces exigem que os cabeçalhos HTTP estejam presentes e propagados em todo o aplicativo. Se você já tiver configurado seu aplicativo para manipular a propagação de cabeçalho para Azure Dev Spaces, o cabeçalho precisará ser atualizado. Para fazer a transição para a ponte para o kubernetes da Azure Dev Spaces, atualize o cabeçalho configurado de *azds-Route-as* para *kubernetes-Route-as*.
 
 ## <a name="evaluate-bridge-to-kubernetes"></a>Avaliar ponte para kubernetes
 

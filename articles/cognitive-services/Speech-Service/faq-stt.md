@@ -8,28 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 02/01/2021
 ms.author: panosper
-ms.openlocfilehash: 0fe5b1350fdcf53eeda11f6de430d8d02a24fdbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61768991fc4e72b44568bd92278427e6af398d52
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397752"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226549"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Perguntas frequentes sobre Conversão de Fala em Texto
 
-Se você não encontrar respostas para suas perguntas nas perguntas frequentes, verifique[outras opções de suporte](support.md).
+Se você não encontrar respostas para suas perguntas nas perguntas frequentes, verifique[outras opções de suporte](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 
 ## <a name="general"></a>Geral
 
 **P: Qual é a diferença entre um modelo de linha de base e um modelo personalizado de fala em texto?**
 
-**R**: Um modelo de linha de base foi treinado usando dados de propriedade da Microsoft e já está implantado na nuvem. Você pode usar um modelo personalizado a fim de adaptar um modelo para se adequar melhor a um ambiente específico que tenha determinado ruído ambiente ou linguagem. Chãos de fábrica, carros, ruas barulhentas exigiriam um modelo acústico adaptado. Tópicos como biologia, física, radiologia, nomes de produtos e acrônimos personalizados exigiriam um modelo de linguagem adaptado.
+**R**: Um modelo de linha de base foi treinado usando dados de propriedade da Microsoft e já está implantado na nuvem. Você pode usar um modelo personalizado a fim de adaptar um modelo para se adequar melhor a um ambiente específico que tenha determinado ruído ambiente ou linguagem. Chãos de fábrica, carros, ruas barulhentas exigiriam um modelo acústico adaptado. Tópicos como biologia, física, radiologia, nomes de produtos e acrônimos personalizados exigiriam um modelo de linguagem adaptado. Se você treinar um modelo personalizado, deverá começar com o texto relacionado para melhorar o reconhecimento de termos e frases especiais.
 
 **P: Por onde começar se eu quiser usar um modelo de linha de base?**
 
-**R**: Primeiro, obtenha uma [chave de assinatura](overview.md#try-the-speech-service-for-free). Se você quiser fazer chamadas REST para os modelos de linha de base pré-empregados, confira as [APIs REST](rest-apis.md). Se você quiser usar WebSockets, [baixe o SDK](speech-sdk.md).
+**R**: Primeiro, obtenha uma [chave de assinatura](overview.md#try-the-speech-service-for-free). Se você quiser fazer chamadas REST para os modelos de linha de base pré-empregados, confira as [APIs REST](./overview.md#reference-docs). Se você quiser usar WebSockets, [baixe o SDK](speech-sdk.md).
 
 **P: Preciso sempre criar um modelo de fala personalizado?**
 
@@ -49,9 +49,15 @@ Você pode implantar modelos personalizados e de linha de base no portal e, em s
 
 **R**: Atualmente você não pode reverter um processo de adaptação acústica ou de linguagem. Você pode excluir modelos e dados importados quando estão em um estado terminal.
 
-**P: Qual é a diferença entre o modelo de Pesquisa e Ditado e o modelo de Conversa?**
+**P: obtenho vários resultados para cada frase com o formato de saída detalhado. Qual deles devo usar?**
 
-**R**: Você pode escolher entre mais de um modelo de linha de base no serviço de Fala. O modelo de Conversa é útil para reconhecimento de fala em um estilo conversacional. Esse modelo é ideal para transcrever chamadas telefônicas. O modelo de Pesquisa e Ditado é ideal para aplicativos ativados por voz. O modelo Universal é um novo modelo que visa abordar ambos os cenários. Atualmente, o modelo Universal está no nível de qualidade ou acima do modelo de Conversação na maioria das localidades.
+**R**: sempre faça o primeiro resultado, mesmo que outro resultado ("N-melhor") possa ter um valor de confiança maior. O serviço de fala considera o primeiro resultado como o melhor. Ela também poderá ser uma cadeia de caracteres vazia se nenhuma fala for reconhecida.
+
+Os outros resultados provavelmente são piores e podem não ter total maiúscula e pontuação aplicada. Esses resultados são mais úteis em cenários especiais, como dar aos usuários a opção de escolher correções de uma lista ou manipular comandos reconhecidos incorretamente.
+
+**P: por que existem modelos de base diferentes?**
+
+**R**: você pode escolher entre mais de um modelo base no serviço de fala. Cada nome de modelo contém a data em que foi adicionado. Ao começar a treinar um modelo personalizado, use o modelo mais recente para obter a melhor precisão. Modelos básicos mais antigos ainda estão disponíveis por algum tempo quando um novo modelo é disponibilizado. Você pode continuar usando o modelo com o qual trabalhou até que ele seja desativado (consulte o [ciclo de vida do modelo](custom-speech-overview.md#model-lifecycle)). Ainda é recomendável mudar para o modelo base mais recente para obter uma maior precisão.
 
 **P: Posso atualizar meu modelo existente (modelo de empilhamento)?**
 
@@ -59,19 +65,27 @@ Você pode implantar modelos personalizados e de linha de base no portal e, em s
 
 O conjunto de dados antigo e o novo devem ser combinados em um único arquivo .zip (para dados acústicos) ou em um arquivo .txt (para dados de linguagem). Quando a adaptação for concluída, o novo modelo atualizado precisará ser reimplantado para a obtenção de um novo ponto de extremidade
 
-**P: quando uma nova versão de uma linha de base está disponível, minha implantação é atualizada automaticamente?**
+**P: quando uma nova versão de um modelo base está disponível, minha implantação é atualizada automaticamente?**
 
 **R**: As implantações NÃO serão atualizadas automaticamente.
 
-Se você tiver adaptado e implantado um modelo com a linha de base V1.0, essa implantação permanecerá como está. Os clientes podem desativar o modelo implantado, readaptar-se usando a versão mais recente da linha de base e reimplantar.
+Se você tiver adaptado e implantado um modelo, essa implantação permanecerá como está. Você pode encerrar o modelo implantado, readaptação usando a versão mais recente do modelo base e reimplantar para obter maior precisão.
+
+Os modelos básicos e os modelos personalizados serão desativados após algum tempo (consulte o [ciclo de vida do modelo](custom-speech-overview.md#model-lifecycle)).
 
 **Pergunta: Posso baixar meu modelo e executá-lo localmente?**
 
-**Resposta**: modelos não podem ser baixados e executados localmente.
+**R**: você pode executar um modelo personalizado localmente em um [contêiner do Docker](speech-container-howto.md?tabs=cstt).
+
+**P: posso copiar ou mover meus conjuntos de valores, modelos e implantações para outra região ou assinatura?**
+
+**R**: você pode usar a [API REST](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) para copiar um modelo personalizado para outra região ou assinatura. Não é possível copiar conjuntos de valores ou implantações. Você pode importar um conjunto de um DataSet novamente em outra assinatura e criar pontos de extremidade usando as cópias de modelo.
 
 **P: Minhas solicitações são registradas?**
 
-**R**: por padrão, as solicitações não são registradas (nem de áudio nem transcrição). Se necessário, você pode selecionar o *conteúdo de log dessa opção de ponto de extremidade* ao [criar um ponto de extremidade personalizado](how-to-custom-speech-deploy-model.md) para habilitar o rastreamento. Em seguida, as solicitações serão registradas no Azure no armazenamento seguro.
+**R**: por padrão, as solicitações não são registradas (nem de áudio nem transcrição). Se necessário, você pode selecionar *o conteúdo de log dessa opção de ponto de extremidade* ao [criar um ponto de extremidade personalizado](how-to-custom-speech-train-model.md#deploy-a-custom-model). Você também pode habilitar o log de áudio no [SDK de fala](how-to-use-logging.md) com base em cada solicitação sem criar um ponto de extremidade personalizado. Em ambos os casos, os resultados de áudio e de reconhecimento de solicitações serão armazenados no armazenamento seguro. Para assinaturas que usam o armazenamento de propriedade da Microsoft, elas estarão disponíveis por 30 dias.
+
+Você pode exportar os arquivos registrados na página de implantação no Speech Studio se usar um ponto de extremidade personalizado com *conteúdo de log desse ponto de extremidade* habilitado. Se o log de áudio estiver habilitado por meio do SDK, chame a [API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModelLogs) para acessar os arquivos.
 
 **Pergunta: são minhas solicitações limitadas?**
 
@@ -92,7 +106,7 @@ Consulte [cotas e limites de serviços de fala](speech-services-quotas-and-limit
 
 **P: Qual é o limite de tamanho de um conjunto de dados e por que é o limite?**
 
-**R**: o limite é devido à restrição do tamanho de um arquivo para carregamento http. Consulte [cotas e limites de serviços de fala](speech-services-quotas-and-limits.md) para o limite real.
+**R**: o limite é devido à restrição do tamanho de um arquivo para carregamento http. Consulte [cotas e limites de serviços de fala](speech-services-quotas-and-limits.md) para o limite real. Você pode dividir seus dados em vários conjuntos de dados e selecionar todos eles para treinar o modelo.
 
 **P: Posso compactar os arquivos de texto para poder carregar um arquivo de texto maior?**
 
@@ -118,21 +132,21 @@ Consulte [cotas e limites de serviços de fala](speech-services-quotas-and-limit
 
 **P: Preciso transcrever dados de adaptação?**
 
-**R**: Sim! Você pode transcrever você mesmo ou usar um serviço profissional de transcrição. Alguns usuários preferem transcritores profissionais, e outros usam crowdsourcing ou eles mesmos fazem as transcrições.
+**R**: Sim. Você pode transcrever você mesmo ou usar um serviço profissional de transcrição. Alguns usuários preferem transcritores profissionais, e outros usam crowdsourcing ou eles mesmos fazem as transcrições.
+
+**P: quanto tempo levará para treinar um modelo personalizado com dados de áudio?**
+
+**R**: treinar um modelo com dados de áudio pode ser um processo longo. Dependendo da quantidade de dados, pode levar vários dias para criar um modelo personalizado. Se ele não puder ser concluído em uma semana, o serviço poderá abortar a operação de treinamento e relatar o modelo como com falha.
+
+Para obter resultados mais rápidos, use uma das [regiões](custom-speech-overview.md#set-up-your-azure-account) em que o hardware dedicado está disponível para treinamento. Em geral, o serviço processa aproximadamente 10 horas de dados de áudio por dia em regiões com tal hardware. Ele só pode processar cerca de 1 hora de dados de áudio por dia em outras regiões. Você pode copiar o modelo totalmente treinado para outra região usando a [API REST](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription). O treinamento com apenas texto é muito mais rápido e geralmente termina em minutos.
+
+Alguns modelos de base não podem ser personalizados com dados de áudio. Para eles, o serviço usará apenas o texto da transcrição para treinamento e ignorará os dados de áudio. O treinamento será concluído com muito mais rapidez e os resultados serão os mesmos que o treinamento com apenas texto.
 
 ## <a name="accuracy-testing"></a>Teste de precisão
 
-**P: Posso realizar o teste offline do meu modelo acústico personalizado usando um modelo de linguagem personalizado?**
-
-**R**: Sim, basta selecionar o modelo de linguagem personalizado no menu suspenso ao configurar o teste offline.
-
-**P: Posso realizar o teste offline do meu modelo de linguagem personalizado usando um modelo acústico personalizado?**
-
-**R**: Sim, basta selecionar o modelo acústico personalizado no menu suspenso ao configurar o teste offline.
-
 **P: O que é o WER (Relatório de Erros do Windows) e como é calculado?**
 
-**R**: WER é a métrica de avaliação para o reconhecimento de fala. O WER é contado como o número total de erros, o que inclui inserções, exclusões e substituições, dividido pelo número total de palavras na transcrição de referência. Confira mais informações em [Relatório de Erros do Windows](https://en.wikipedia.org/wiki/Word_error_rate).
+**R**: WER é a métrica de avaliação para o reconhecimento de fala. O WER é contado como o número total de erros, o que inclui inserções, exclusões e substituições, dividido pelo número total de palavras na transcrição de referência. Para obter mais informações, consulte [avaliar a precisão de fala personalizada](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy).
 
 **P: Como faço para determinar se os resultados de um teste de precisão são adequados?**
 

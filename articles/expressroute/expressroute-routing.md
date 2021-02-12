@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: duau
-ms.openlocfilehash: 208fe9c5bfa20bf5b2daab296af9f955db67a33d
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 436e866969d620389818bcebca3c5c37b8805309
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204666"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629027"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de roteamento da Rota Expressa
 Para se conectar aos serviços de nuvem da Microsoft usando o ExpressRoute, você precisará configurar e gerenciar o roteamento. Alguns provedores de conectividade oferecem a configuração e o gerenciamento de roteamento como um serviço gerenciado. Verifique se o seu provedor de conectividade oferece esse serviço. Se não oferecer, você deverá atender aos requisitos a seguir:
@@ -229,9 +229,12 @@ Além disso, a Microsoft também marcará prefixos com base no serviço ao qual 
 | Azure Resource Manager |12076:5070 |
 | Outros serviços online do Office 365 * * | 12076:5100 |
 
-\* Os serviços globais do Azure incluem apenas DevOps do Azure no momento. \
-\*\* Autorização necessária da Microsoft, consulte [Configurar filtros de rota para o emparelhamento da Microsoft](how-to-routefilter-portal.md)\
-\*\*\* Essa comunidade também publica as rotas necessárias para os serviços do Microsoft Teams. \
+\* Os serviços globais do Azure incluem apenas DevOps do Azure no momento.
+
+\*\* Autorização necessária da Microsoft, consulte [Configurar filtros de rota para o emparelhamento da Microsoft](how-to-routefilter-portal.md)
+
+\*\*\* Essa comunidade também publica as rotas necessárias para os serviços do Microsoft Teams.
+
 \*\*\*\* O CRM Online dá suporte ao Dynamics v 8.2 e inferior. Para versões superiores, selecione a comunidade regional para suas implantações do Dynamics.
 
 > [!NOTE]

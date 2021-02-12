@@ -4,15 +4,15 @@ description: Este artigo descreve como o Azure Analysis Services usa o Azure AD 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 032b63700f2842826de916a8f077975689d56911
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 551bae56565140da3754e74a23b1cc18087f1171
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014895"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487432"
 ---
 # <a name="authentication-and-user-permissions"></a>Autenticação e permissões de usuário
 
@@ -24,7 +24,7 @@ O Azure Analysis Services dá suporte à [Colaboração B2B do Azure AD](../acti
 
 ## <a name="authentication"></a>Autenticação
 
-Todas as ferramentas e aplicativos cliente usam uma ou mais das [bibliotecas de cliente](/analysis-services/client-libraries?view=azure-analysis-services-current) do Analysis Services (AMO, MSOLAP, ADOMD) para se conectar a um servidor. 
+Todas as ferramentas e aplicativos cliente usam uma ou mais das [bibliotecas de cliente](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true) do Analysis Services (AMO, MSOLAP, ADOMD) para se conectar a um servidor. 
 
 Todas as três bibliotecas de cliente dão suporte ao fluxo interativo do Azure AD e métodos de autenticação não interativos. Os dois métodos não interativos, os métodos Senha do Active Directory e Autenticação Integrada do Active Directory, podem ser usados em aplicativos utilizando AMOMD e MSOLAP. Esses dois métodos nunca resultam em caixas de diálogo pop-up.
 
@@ -32,7 +32,7 @@ Aplicativos cliente como o Excel e o Power BI Desktop, e ferramentas como o SSMS
 
 Dependendo da ferramenta ou do aplicativo cliente usado, o tipo de autenticação e como você entra podem ser diferentes. Cada aplicativo pode dar suporte a recursos diferentes para se conectar a serviços de nuvem como o Azure Analysis Services.
 
-O Power BI Desktop, o Visual Studio e o SSMS dão suporte à Autenticação Universal do Active Directory, um método interativo que também dá suporte ao MFA (Autenticação Multifator do Azure). O MFA do Azure ajuda a proteger o acesso a dados e aplicativos, ao mesmo tempo que fornece um processo de entrada simples. Ele fornece uma autenticação forte com diversas opções de verificação (chamada telefônica, mensagem de texto, cartões inteligentes com PIN ou notificação por aplicativos móveis). O MFA interativo com o Azure AD pode resultar em uma caixa de diálogo pop-up para validação. **Recomenda-se a Autenticação Universal**.
+Power BI Desktop, o Visual Studio e o SSMS dão suporte Active Directory autenticação universal, um método interativo que também dá suporte à MFA (autenticação multifator) do Azure AD. O Azure AD MFA ajuda a proteger o acesso a dados e aplicativos ao mesmo tempo em que fornece um processo de entrada simples. Ele fornece uma autenticação forte com diversas opções de verificação (chamada telefônica, mensagem de texto, cartões inteligentes com PIN ou notificação por aplicativos móveis). O MFA interativo com o Azure AD pode resultar em uma caixa de diálogo pop-up para validação. **Recomenda-se a Autenticação Universal**.
 
 Se você estiver conectando-se ao Azure usando uma conta do Windows e a autenticação Universal não estiver selecionada ou disponível (Excel), [os Serviços de Federação do Active Directory (AD FS)](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs) serão necessários. Com a Federação, os usuários do Azure AD e do Microsoft 365 são autenticados usando credenciais locais e podem acessar recursos do Azure.
 
@@ -44,7 +44,7 @@ Os servidores do Azure Analysis Services dão suporte a conexões do [SSMS V17.1
 
 *  Dá suporte a usuários convidados de B2B do Azure no locatário do Azure AS. Ao se conectar a um servidor, os usuários convidados devem selecionar a Autenticação Universal do Active Directory ao se conectar ao servidor.
 
-*  Dá suporte à MFA (Autenticação Multifator). A MFA do Azure ajuda a proteger o acesso aos dados e aplicativos com uma variedade de opções de verificação: chamada telefônica, mensagem de texto, cartões inteligentes com PIN ou notificação por aplicativo móvel. O MFA interativo com o Azure AD pode resultar em uma caixa de diálogo pop-up para validação.
+*  Dá suporte à MFA (Autenticação Multifator). O Azure AD MFA ajuda a proteger o acesso a dados e aplicativos com uma variedade de opções de verificação: chamada telefônica, mensagem de texto, cartões inteligentes com PIN ou notificação de aplicativo móvel. O MFA interativo com o Azure AD pode resultar em uma caixa de diálogo pop-up para validação.
 
 ### <a name="visual-studio"></a>Visual Studio
 

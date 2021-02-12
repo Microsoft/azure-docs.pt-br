@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 33b4c59e14301e496d0eddafa7bdfdf201b7aa29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d6e738152e542617046834980d3e7c58e497093
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005898"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664674"
 ---
 # <a name="windows-stop-error---status-no-memory"></a>Erro de parada do Windows – Status sem memória
 
@@ -44,6 +44,9 @@ O disco do sistema operacional está cheio, muito fragmentado ou o sistema opera
 ## <a name="solution"></a>Solução
 
 ### <a name="process-overview"></a>Visão geral do processo:
+
+> [!TIP]
+> Se você tiver um backup recente da VM, poderá tentar [restaurar a VM do backup](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema de inicialização.
 
 1. Criar e acessar uma VM de reparo
 1. Liberar espaço no disco
@@ -175,7 +178,7 @@ Para habilitar a coleta de despejo de memória e o console serial, execute o seg
    
    - No comando, substitua `<LETTER OF THE EFI SYSTEM PARTITION>` pela letra da partição do sistema EFI.
    - Pode ser útil iniciar o console de gerenciamento de disco para identificar a partição de sistema apropriada rotulada como **partição do sistema EFI**.
-   - O identificador pode ser um GUID exclusivo ou pode ser o **bootmgr**padrão.
+   - O identificador pode ser um GUID exclusivo ou pode ser o **bootmgr** padrão.
 
 1. Execute os seguintes comandos para habilitar o console serial:
 

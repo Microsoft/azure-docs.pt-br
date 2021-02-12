@@ -7,13 +7,13 @@ ms.author: dobett
 ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
-ms.custom: device-developer
-ms.openlocfilehash: 6438b938dc007e8d157f6549b3ed164cd2a723e8
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.custom: device-developer, devx-track-azurecli
+ms.openlocfilehash: d1a7c94152b611ea0dbea249156add617178d7ca
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424476"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673227"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Solucionar problemas do motivo pelo qual os dispositivos não estão sendo exibidos no Azure IoT Central
 
@@ -35,11 +35,11 @@ Esta seção ajuda você a determinar se seus dados estão atingindo IoT Central
 
 Se você ainda não tiver feito isso, instale a `az cli` ferramenta e a `azure-iot` extensão.
 
-Para saber como instalar o `az cli` , consulte [instalar o CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Para saber como instalar o `az cli` , consulte [instalar o CLI do Azure](/cli/azure/install-azure-cli).
 
-Para [instalar](/cli/azure/azure-cli-reference-for-IoT?view=azure-cli-latest#extension-reference-installation) a `azure-iot` extensão, execute o seguinte comando:
+Para [instalar](/cli/azure/azure-cli-reference-for-IoT#extension-reference-installation) a `azure-iot` extensão, execute o seguinte comando:
 
-```cmd/bash
+```azurecli
 az extension add --name azure-iot
 ```
 
@@ -50,20 +50,20 @@ Quando você tiver instalado a `azure-iot` extensão, inicie o dispositivo para 
 
 Use os seguintes comandos para entrar na assinatura em que você tem seu aplicativo IoT Central:
 
-```cmd/bash
+```azurecli
 az login
 az set account --subscription <your-subscription-id>
 ```
 
 Para monitorar a telemetria que seu dispositivo está enviando, use o seguinte comando:
 
-```cmd/bash
+```azurecli
 az iot central diagnostics monitor-events --app-id <app-id> --device-id <device-name>
 ```
 
 Se o dispositivo tiver se conectado com êxito ao IoT Central, você verá uma saída semelhante à seguinte:
 
-```cmd/bash
+```output
 Monitoring telemetry.
 Filtering on device: device-001
 {
@@ -82,13 +82,13 @@ Filtering on device: device-001
 
 Para monitorar as atualizações de propriedade que seu dispositivo está trocando com IoT Central, use o seguinte comando de visualização:
 
-```cmd/bash
+```azurecli
 az iot central diagnostics monitor-properties --app-id <app-id> --device-id <device-name>
 ```
 
 Se o dispositivo enviar atualizações de propriedade com êxito, você verá uma saída semelhante à seguinte:
 
-```cmd/bash
+```output
 Changes in reported properties:
 version : 32
 {'state': 'true', 'name': {'value': {'value': 'Contoso'}, 'status': 'completed', 'desiredVersion': 7, 'ad': 'completed', 'av': 7, 'ac
@@ -106,7 +106,7 @@ Se você ainda não estiver vendo os dados aparecerem no seu terminal, é prová
 
 Se seus dados não estiverem aparecendo no monitor, verifique o status de provisionamento do seu dispositivo executando o seguinte comando:
 
-```cmd/bash
+```azurecli
 az iot central device registration-info --app-id <app-id> --device-id <device-name>
 ```
 
@@ -135,7 +135,7 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 | Provisionado | Nenhum problema imediatamente reconhecível. | N/D |
 | Registrada | O dispositivo ainda não se conectou ao IoT Central. | Verifique os logs do dispositivo para problemas de conectividade. |
 | Bloqueado | O dispositivo está impedido de se conectar ao IoT Central. | O dispositivo está impedido de se conectar ao aplicativo IoT Central. Desbloqueie o dispositivo no IoT Central e tente novamente. Para saber mais, confira [bloquear dispositivos](concepts-get-connected.md#device-status-values). |
-| Não aprovados | O dispositivo não está aprovado. | O dispositivo não está aprovado para se conectar ao aplicativo IoT Central. Aprove o dispositivo em IoT Central e tente novamente. Para saber mais, confira [aprovar dispositivos](concepts-get-connected.md#connect-without-registering-devices) |
+| Não aprovados | O dispositivo não está aprovado. | O dispositivo não está aprovado para se conectar ao aplicativo IoT Central. Aprove o dispositivo em IoT Central e tente novamente. Para saber mais, confira [aprovar dispositivos](concepts-get-connected.md#device-registration) |
 | Não associado | O dispositivo não está associado a um modelo de dispositivo. | Associe o dispositivo a um modelo de dispositivo para que IoT Central saiba como analisar os dados. |
 
 Saiba mais sobre os [códigos de status do dispositivo](concepts-get-connected.md#device-status-values).
@@ -176,13 +176,13 @@ Para detectar em quais categorias seu problema está, execute o comando mais apr
 
 - Para validar a telemetria, use o comando de visualização:
 
-    ```cmd/bash
+    ```azurecli
     az iot central diagnostics validate-messages --app-id <app-id> --device-id <device-name>
     ```
 
 - Para validar as atualizações de propriedade, use o comando Preview
 
-    ```cmd/bash
+    ```azurecli
     az iot central diagnostics validate-properties --app-id <app-id> --device-id <device-name>
     ```
 
@@ -190,7 +190,7 @@ Você pode ser solicitado a instalar a `uamqp` biblioteca na primeira vez em que
 
 A saída a seguir mostra o exemplo de mensagens de erro e de aviso do comando validar:
 
-```cmd/bash
+```output
 Validating telemetry.
 Filtering on device: v22upeoqx6.
 Exiting after 300 second(s), or 10 message(s) have been parsed (whichever happens first).

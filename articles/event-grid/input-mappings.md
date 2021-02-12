@@ -3,22 +3,16 @@ title: Mapear o campo personalizado para o esquema de Grade de Eventos do Azure
 description: Este artigo descreve como converter seu esquema personalizado para o esquema da grade de eventos do Azure quando os dados do evento não correspondem ao esquema da grade de eventos.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 836e7b340c5c89100207e2f9409710b8dfa5e3bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34381782c9337631b0aa04e47eb5897a8071139a
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86105516"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109191"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Mapear campos personalizados para o esquema de Grade de Eventos
 
 Se os dados do evento não corresponderem ao esperado [esquema de Grade de Eventos](event-schema.md), você ainda poderá usar a Grade de Eventos para rotear o evento para os assinantes. Este artigo descreve como mapear seu esquema para o esquema de Grade de Eventos.
-
-[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
-
-## <a name="install-preview-feature"></a>Instalar versão prévia do recurso
-
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="original-event-schema"></a>Esquema de evento original
 
@@ -40,7 +34,7 @@ Embora esse formato não corresponda ao esquema requerido, a Grade de Eventos pe
 
 Ao criar um tópico personalizado, especifique como mapear campos de seu evento original para o esquema de grade de eventos. Existem três valores que você usa para personalizar o mapeamento:
 
-* O valor do **esquema de entrada** especifica o tipo de esquema. As opções disponíveis são o esquema CloudEvents, o esquema de eventos personalizados ou o esquema de Grade de Eventos do Azure. O valor padrão é o esquema de Grade de Eventos do Azure. Ao criar um mapeamento personalizado entre seu esquema e o esquema de grade do evento, use o esquema de evento personalizado. Quando os eventos estão no esquema CloudEvents, use o esquema Cloudevents.
+* O valor do **esquema de entrada** especifica o tipo de esquema. As opções disponíveis são o esquema CloudEvents, o esquema de eventos personalizados ou o esquema de Grade de Eventos do Azure. O valor padrão é o esquema de Grade de Eventos do Azure. Ao criar um mapeamento personalizado entre seu esquema e o esquema de grade do evento, use o esquema de evento personalizado. Quando os eventos estiverem no formato CloudEvents, use o esquema CloudEvents.
 
 * O **mapeamento de valores padrão** propriedade especifica valores padrão para campos no esquema de Grade de Eventos do Azure. É possível definir valores padrão para `subject`, `eventtype` e `dataversion`. Normalmente, você usará esse parâmetro quando o esquema personalizado não incluir um campo que corresponder a um desses três campos. Por exemplo, você pode especificar que a versão dos dados é sempre definida como **1.0**.
 
@@ -49,10 +43,6 @@ Ao criar um tópico personalizado, especifique como mapear campos de seu evento 
 Para criar um tópico personalizado com CLI do Azure, use:
 
 ```azurecli-interactive
-# If you have not already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid topic create \
   -n demotopic \
   -l eastus2 \
@@ -65,11 +55,7 @@ az eventgrid topic create \
 Para o PowerShell, use:
 
 ```azurepowershell-interactive
-# If you have not already installed the module, do it now.
-# This module is required for preview features.
-Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
-
-New-AzureRmEventGridTopic `
+New-AzEventGridTopic `
   -ResourceGroupName myResourceGroup `
   -Name demotopic `
   -Location eastus2 `
@@ -107,9 +93,9 @@ az eventgrid event-subscription create \
 O exemplo a seguir assina um tópico da grade de eventos e usa o esquema Grade de Eventos do Azure. Para o PowerShell, use:
 
 ```azurepowershell-interactive
-$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName myResourceGroup -Name demoTopic).Id
+$topicid = (Get-AzEventGridTopic -ResourceGroupName myResourceGroup -Name demoTopic).Id
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName eventsub1 `
   -EndpointType webhook `
@@ -120,7 +106,7 @@ New-AzureRmEventGridSubscription `
 O exemplo a seguir usa o esquema de entrada do evento:
 
 ```azurepowershell-interactive
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName eventsub2 `
   -EndpointType webhook `
@@ -146,8 +132,8 @@ curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 Para o PowerShell, use:
 
 ```azurepowershell-interactive
-$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName myResourceGroup -Name demotopic).Endpoint
-$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName myResourceGroup -Name demotopic
+$endpoint = (Get-AzEventGridTopic -ResourceGroupName myResourceGroup -Name demotopic).Endpoint
+$keys = Get-AzEventGridTopicKey -ResourceGroupName myResourceGroup -Name demotopic
 
 $htbody = @{
     myEventTypeField="Created"

@@ -11,17 +11,20 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 11/13/2020
 ms.author: apimpm
-ms.openlocfilehash: cc258a0e790559cb343bfbf2eda0787962e2063e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 4db42d8fa8c676b20b236577ce6646b909df7c3a
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071261"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638879"
 ---
 # <a name="api-management-caching-policies"></a>Políticas de cache do Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](./api-management-policies.md).
+
+> [!IMPORTANT]
+> O cache interno é volátil e é compartilhado por todas as unidades na mesma região no mesmo serviço de gerenciamento de API.
 
 ## <a name="caching-policies"></a><a name="CachingPolicies"></a> Políticas de cache
 
@@ -283,7 +286,7 @@ Essa política pode ser usada nas [seções](./api-management-howto-policies.md#
 - **Seções da política:** entrada, saída, back-end, em caso de erro
 - **Escopos da política:** todos os escopos
 
-### <a name="remove-value-from-cache"></a><a name="RemoveCacheByKey"></a> Remover valor do cache
+## <a name="remove-value-from-cache"></a><a name="RemoveCacheByKey"></a> Remover valor do cache
 `cache-remove-value` exclui um item em cache identificado por sua chave. A chave pode ter um valor de cadeia de caracteres arbitrária e geralmente é fornecida usando uma expressão de política.
 
 #### <a name="policy-statement"></a>Declaração de política

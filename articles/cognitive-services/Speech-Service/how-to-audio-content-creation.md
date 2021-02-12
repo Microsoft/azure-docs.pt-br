@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: a04088fc1074949a1228794c22c1fa65a0b736a7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7d4d1acac591bfe6ce40efcf6166357d43718363
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370010"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024952"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Melhorar a síntese com a ferramenta de criação de conteúdo de áudio
 
@@ -33,13 +33,13 @@ A criação de conteúdo de áudio é uma ferramenta gratuita, mas você pagará
 
 ### <a name="step-1---create-an-azure-account"></a>Etapa 1-criar uma conta do Azure
 
-Para trabalhar com a criação de conteúdo de áudio, você precisa ter um [conta Microsoft](https://account.microsoft.com/account) e uma [conta do Azure](https://azure.microsoft.com/free/ai/). Siga estas instruções para [Configurar a conta](get-started.md#new-resource). 
+Para trabalhar com a criação de conteúdo de áudio, você precisa ter um [conta Microsoft](https://account.microsoft.com/account) e uma [conta do Azure](https://azure.microsoft.com/free/ai/). Siga estas instruções para [Configurar a conta](./overview.md#try-the-speech-service-for-free). 
 
 [Portal do Azure](https://portal.azure.com/) é o local centralizado para gerenciar sua conta do Azure. Você pode criar o recurso de fala, gerenciar o acesso ao produto e monitorar tudo, desde aplicativos Web simples até implantações de nuvem complexas. 
 
 ### <a name="step-2---create-a-speech-resource"></a>Etapa 2 – criar um recurso de fala
 
-Depois de se inscrever na conta do Azure, você precisará criar um recurso de fala em sua conta do Azure para acessar os serviços de fala. Veja as instruções sobre [como criar um recurso de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview#create-the-azure-resource). 
+Depois de se inscrever na conta do Azure, você precisará criar um recurso de fala em sua conta do Azure para acessar os serviços de fala. Veja as instruções sobre [como criar um recurso de fala](./overview.md#create-the-azure-resource). 
 
 São necessários alguns instantes para a implantação do novo recurso de Fala. Depois que a implantação for concluída, você poderá iniciar a jornada de criação de conteúdo de áudio. 
 
@@ -48,7 +48,7 @@ São necessários alguns instantes para a implantação do novo recurso de Fala.
  
 ### <a name="step-3---log-into-the-audio-content-creation-with-your-azure-account-and-speech-resource"></a>Etapa 3 – faça logon na criação de conteúdo de áudio com sua conta do Azure e o recurso de fala
 
-1. Depois **de obter a**conta do Azure e o recurso de fala, você pode fazer logon na criação de conteúdo de [áudio](https://aka.ms/audiocontentcreation) clicando em introdução.
+1. Depois **de obter a** conta do Azure e o recurso de fala, você pode fazer logon na criação de conteúdo de [áudio](https://aka.ms/audiocontentcreation) clicando em introdução.
 2. A página de **recursos de fala** será mostrada a você. Selecione o recurso de fala no qual você deseja trabalhar. Clique em **ir para Studio** para iniciar a criação de áudio. Você também pode criar um novo recurso de fala clicando em **criar novo**. Quando você fizer logon na ferramenta de criação de conteúdo de áudio pela próxima vez, iremos vinculá-lo diretamente aos arquivos de trabalho de áudio no recurso de fala atual. 
 3. Você pode modificar o recurso de fala a qualquer momento com a opção **configurações** , localizada na barra de navegação superior.
 
@@ -63,7 +63,7 @@ Este diagrama mostra as etapas necessárias para ajustar as saídas de conversã
 2. [Crie um arquivo de ajuste de áudio](#create-an-audio-tuning-file) usando texto sem formatação ou scripts de SSML. Digite ou carregue seu conteúdo na criação de conteúdo de áudio.
 3. Escolha a voz e o idioma para o conteúdo do script. A criação de conteúdo de áudio inclui todas as [vozes de texto em fala da Microsoft](language-support.md#text-to-speech). Você pode usar o padrão, neural ou sua própria voz personalizada.
    >[!NOTE]
-   > O acesso restrito está disponível para vozes neurais personalizadas, que permitem criar vozes de alta definição semelhantes à fala de som natural. Para obter mais detalhes, consulte o [processo de retenção](https://aka.ms/ignite2019/speech/ethics).
+   > O acesso restrito está disponível para vozes neurais personalizadas, que permitem criar vozes de alta definição semelhantes à fala de som natural. Para obter mais detalhes, consulte o [processo de retenção](./text-to-speech.md).
 
 4. Clique no ícone de **reprodução** (um triângulo) para visualizar a saída de síntese padrão. Em seguida, aumente a saída ajustando pronúncia, quebra, pitch, taxa, intonation, estilo de voz e muito mais. Para obter uma lista completa de opções, consulte [linguagem de marcação de síntese de fala](speech-synthesis-markup.md). Aqui está um [vídeo](https://www.youtube.com/watch?v=O1wIJ7mts_w) para mostrar como ajustar a saída de fala com a criação de conteúdo de áudio. 
 5. Salve e [exporte seu áudio ajustado](#export-tuned-audio). Ao salvar a faixa de ajuste no sistema, você pode continuar a trabalhar e iterar na saída. Quando estiver satisfeito com a saída, você poderá criar uma tarefa de criação de áudio com o recurso exportar. Você pode observar o status da tarefa de exportação e baixar a saída para uso com seus aplicativos e produtos.
@@ -118,7 +118,7 @@ Depois de revisar sua saída de áudio e ficar satisfeito com seu ajuste e ajust
 
 **Formatos com suporte de áudio**
 
-| Formato | taxa de amostragem de 16 kHz | taxa de amostragem de 24 kHz |
+| Formatar | taxa de amostragem de 16 kHz | taxa de amostragem de 24 kHz |
 |--------|--------------------|--------------------|
 | WAV | riff-16kHz-16 bits-mono-PCM | riff-24kHz-16 bits-mono-PCM |
 | mp3 | Audio-16kHz-128kbitrate-mono-mp3 | Audio-24kHz-160kbitrate-mono-mp3 |
@@ -131,14 +131,14 @@ Se mais de um usuário quiser usar a criação de conteúdo de áudio, você pod
 
 Siga estas etapas para adicionar um usuário a um recurso de fala para que eles possam usar a criação de conteúdo de áudio.
 
-1. Procure **Serviços cognitivas** no portal do Azure, selecione o recurso de fala ao qual você deseja adicionar usuários.
+1. Procure **Serviços cognitivas** no [portal do Azure](https://portal.azure.com/), selecione o recurso de fala ao qual você deseja adicionar usuários.
 2. Clique em **Controle de acesso (IAM)** . Clique na guia **Atribuições de funções** para visualizar todas as atribuições de função para essa assinatura.
-    :::image source="media/audio-content-creation/access-control-roles.png" alt-text="Um diagrama das etapas necessárias para ajustar as saídas de conversão de texto em fala":::
+    :::image source="media/audio-content-creation/access-control-roles.png" alt-text="Guia atribuição de função":::
 1. Clique em **Adicionar** > **Adicionar atribuição de função** para abrir o painel Adicionar atribuição de função. Na lista suspensa função, selecione a função de **usuário serviço cognitiva** . Se você quiser fornecer a propriedade do usuário desse recurso de fala, poderá selecionar a função **proprietário** .
 1. Na lista, selecione um usuário. Se você não vir o usuário na lista, poderá digitar na caixa Selecionar para pesquisar o diretório em busca de nomes de exibição e endereços de email. Se o usuário não estiver nesse diretório, você poderá inserir o [conta Microsoft](https://account.microsoft.com/account) do usuário (que é confiável pelo Azure Active Directory).
 1. Clique em **Salvar** para atribuir a função. Após alguns instantes, o usuário recebe a função de usuário de serviço cognitiva no escopo do recurso de fala.
 
-    :::image source="media/audio-content-creation/add-role-first.png" alt-text="Um diagrama das etapas necessárias para ajustar as saídas de conversão de texto em fala":::
+    :::image source="media/audio-content-creation/add-role-first.png" alt-text="Caixa de diálogo Adicionar função":::
 
 1. Os usuários que você adicionar receberão um email de convite. Depois que eles clicarem em **aceitar convite**  >  **Accept para ingressar no Azure**, eles poderão usar a [criação de conteúdo de áudio](https://aka.ms/audiocontentcreation).
 
@@ -148,19 +148,19 @@ Os usuários que estão no mesmo recurso de fala verão o trabalho deles no est�
 1. Procure **Serviços cognitivas** no portal do Azure, selecione o recurso de fala do qual você deseja remover os usuários.
 2. Clique em **Controle de acesso (IAM)** . Clique na guia **atribuições de função** para exibir todas as atribuições de função para este recurso de fala.
 3. Selecione os usuários que você deseja remover e clique em **remover**  >  **OK**.
-    :::image source="media/audio-content-creation/remove-user.png" alt-text="Um diagrama das etapas necessárias para ajustar as saídas de conversão de texto em fala":::
+    :::image source="media/audio-content-creation/remove-user.png" alt-text="Botão Remover":::
 
 ### <a name="enable-users-to-grant-access"></a>Habilitar os usuários a conceder acesso
 Se você quiser que um dos usuários forneça acesso a outros usuários, será necessário conceder ao usuário a função de proprietário do recurso de fala e definir o usuário como o leitor de diretório do Azure. 
 1. Adicione o usuário como o proprietário do recurso de fala. Consulte [como adicionar usuários a um recurso de fala](#add-users-to-a-speech-resource).
-    :::image source="media/audio-content-creation/add-role.png" alt-text="Um diagrama das etapas necessárias para ajustar as saídas de conversão de texto em fala":::
-1. Selecione o menu recolhido no canto superior esquerdo. Clique em **Azure Active Directory**e em **usuários**.
+    :::image source="media/audio-content-creation/add-role.png" alt-text="Campo de proprietário da função":::
+1. Selecione o menu recolhido no canto superior esquerdo. Clique em **Azure Active Directory** e em **usuários**.
 1. Pesquise o conta Microsoft do usuário e vá para a página de detalhes do usuário. Clique em **funções atribuídas**.
-1. Clique em **Adicionar atribuições**de  ->  **diretório leitores**.
+1. Clique em **Adicionar atribuições** de  ->  **diretório leitores**.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
-* [API de áudio longo](https://aka.ms/long-audio-api)
+* [API de áudio longo](./long-audio-api.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

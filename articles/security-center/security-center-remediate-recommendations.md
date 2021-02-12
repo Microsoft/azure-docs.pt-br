@@ -1,6 +1,6 @@
 ---
 title: Corrigir recomendações na central de segurança do Azure | Microsoft Docs
-description: Este artigo explica como corrigir recomendações na central de segurança do Azure para proteger seus recursos e obedecer às políticas de segurança.
+description: Este artigo explica como responder às recomendações na central de segurança do Azure para proteger seus recursos e satisfazer as políticas de segurança.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/08/2020
 ms.author: memildin
-ms.openlocfilehash: 4bad3227e08c0fbe0d280967e45bbef9d477e1b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dabd7e9e2c3c74225efc4611c7ad3523a6c76ba5
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569128"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97807983"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Recomendações de correção na Central de Segurança do Azure
 
@@ -26,34 +26,41 @@ As recomendações fornecem sugestões sobre como proteger melhor seus recursos.
 
 ## <a name="remediation-steps"></a>Etapas de correção <a name="remediation-steps"></a>
 
-Depois de examinar todas as recomendações, decida qual delas corrigir primeiro. Recomendamos que você use o [impacto de Pontuação segura](security-center-recommendations.md#monitor-recommendations) para ajudar a priorizar o que fazer primeiro.
+Depois de examinar todas as recomendações, decida qual delas corrigir primeiro. Recomendamos que você priorize os controles de segurança com o maior potencial para aumentar sua pontuação segura.
 
-1. Na lista, clique na recomendação.
+1. Na lista, selecione uma recomendação.
 
 1. Siga as instruções na seção **etapas de correção** . Cada recomendação tem seu próprio conjunto de instruções. A captura de tela a seguir mostra as etapas de correção para configurar aplicativos para permitir somente o tráfego por HTTPS.
 
-    ![Detalhes da recomendação](./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png)
+    :::image type="content" source="./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png" alt-text="Etapas de correção manual para uma recomendação" lightbox="./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png":::
 
-1. Depois de concluído, uma notificação será exibida informando se a correção foi bem-sucedida.
+1. Depois de concluído, uma notificação é exibida informando se o problema foi resolvido.
 
-## <a name="quick-fix-remediation"></a>Correção de correção rápida<a name="one-click"></a>
+## <a name="quick-fix-remediation"></a>Correção de correção rápida
 
-A correção rápida permite que você corrija rapidamente uma recomendação em vários recursos. Ele só está disponível para recomendações específicas. A correção rápida simplifica a correção e permite que você aumente rapidamente sua pontuação segura, melhorando a segurança do seu ambiente.
+Para simplificar a correção e melhorar a segurança do seu ambiente (e aumentar sua pontuação segura), muitas recomendações incluem uma opção de correção rápida.
 
-Para implementar a correção rápida de correção:
+A correção rápida ajuda a corrigir rapidamente uma recomendação em vários recursos.
 
-1. Na lista de recomendações que têm a **correção rápida!** , clique na recomendação.
+> [!TIP]
+> As soluções de correção rápida só estão disponíveis para recomendações específicas. Para encontrar as recomendações que têm uma correção rápida disponível, use o filtro **ações de resposta** para obter a lista de recomendações:
+> 
+> :::image type="content" source="media/security-center-remediate-recommendations/quick-fix-filter.png" alt-text="Use os filtros acima da lista de recomendações para encontrar recomendações que tenham a opção correção rápida":::
 
-    [![Selecione correção rápida!](media/security-center-remediate-recommendations/security-center-one-click-fix-select.png)](media/security-center-remediate-recommendations/security-center-one-click-fix-select.png#lightbox)
+Para implementar uma solução de correção rápida:
 
-1. Na guia **recursos não íntegros** , selecione os recursos em que você deseja implementar a recomendação e clique em **corrigir**.
+1. Na lista de recomendações que têm a **correção rápida!** rótulo, selecione uma recomendação.
+
+    [![Selecione correção rápida!](media/security-center-remediate-recommendations/security-center-quick-fix-select.png)](media/security-center-remediate-recommendations/security-center-quick-fix-select.png#lightbox)
+
+1. Na guia **recursos não íntegros** , selecione os recursos nos quais você deseja implementar a recomendação e selecione **corrigir**.
 
     > [!NOTE]
     > Alguns dos recursos listados podem estar desabilitados, pois você não tem as permissões apropriadas para modificá-los.
 
 1. Na caixa de confirmação, leia os detalhes e as implicações de correção.
 
-    ![Correção rápida](./media/security-center-remediate-recommendations/security-center-one-click-fix-view.png)
+    ![Correção rápida](./media/security-center-remediate-recommendations/security-center-quick-fix-view.png)
 
     > [!NOTE]
     > As implicações são listadas na caixa cinza na janela **corrigir recursos** que é aberta depois de clicar em **corrigir**. Eles listam as alterações que ocorrem ao prosseguir com a correção de correção rápida.
@@ -72,7 +79,7 @@ A operação de correção usa uma implantação de modelo ou chamada à API de 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste documento, você mostrou como corrigir recomendações na central de segurança. Para saber mais sobre a central de segurança, consulte os seguintes tópicos:
+Neste documento, você mostrou como corrigir recomendações na central de segurança. Para saber mais sobre a Central de Segurança, confira as páginas seguintes:
 
 * [Configurando políticas de segurança na central de segurança do Azure](tutorial-security-policy.md) -saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
 * [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md): saiba como monitorar a integridade dos recursos do Azure.

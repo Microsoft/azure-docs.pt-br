@@ -1,30 +1,34 @@
 ---
 title: Tutorial – Conectar usuários e chamar uma API protegida de um aplicativo Blazor WebAssembly
 titleSuffix: Microsoft identity platform
-description: Neste tutorial, conecte os usuários e chame uma API protegida usando a plataforma de identidade da Microsoft em um aplicativo Blazor WebAssembly.
+description: Neste tutorial, conecte os usuários e chame uma API protegida usando a plataforma de identidade da Microsoft em um aplicativo Blazor WASM (WebAssembly).
 author: knicholasa
 ms.author: nichola
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: ba3607c522191644ec0cc63db118de285d297c48
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 30b7f1054f7bfee8dc58638791f0b8a424de92a4
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221465"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226415"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>Tutorial: Conectar usuários e chamar uma API protegida de um aplicativo Blazor WebAssembly
 
-O [Blazor WebAssembly](/aspnet/core/blazor#blazor-webassembly) é uma estrutura de aplicativo de página única para criar aplicativos Web do lado do cliente interativos com o .NET. Neste tutorial, você criará um aplicativo que conecta os usuários e recupera dados de uma API protegida de um aplicativo Blazor WASM (Blazor WebAssembly) com a [plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/).
+Neste tutorial, você criará um aplicativo WebAssembly Blazor que conecta os usuários e obtém dados do Microsoft Graph usando a plataforma de identidade da Microsoft e registrando seu aplicativo no Azure AD (Azure Active Directory). 
 
-Neste tutorial, você irá:
+Neste tutorial:
 
 > [!div class="checklist"]
 >
 > * Criar um aplicativo Blazor WebAssembly configurado para usar o Azure AD (Azure Active Directory) para [autenticação e autorização](authentication-vs-authorization.md) usando a plataforma de identidade da Microsoft
-> * Recuperar dados de uma API Web protegida, neste caso, [Microsoft Graph](https://docs.microsoft.com/graph/overview)
+> * Recuperar dados de uma API Web protegida, neste caso, [Microsoft Graph](/graph/overview)
+
+Este tutorial usa o .NET Core 3.1. Os documentos do .NET contêm instruções sobre [como proteger um aplicativo Blazor WebAssembly](/aspnet/core/blazor/security/webassembly/graph-api) usando o ASP.NET Core 5.0. 
+
+Também temos um tutorial para o [Blazor Server](tutorial-blazor-server.md). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,10 +39,10 @@ Neste tutorial, você irá:
 
 Todo aplicativo que usar o Azure AD (Azure Active Directory) para autenticação precisará ser registrado no Azure AD. Siga as instruções em [Registrar um aplicativo](quickstart-register-app.md) com estas especificações:
 
-- Para **Tipos de contas com suporte** , selecione **Contas somente neste diretório organizacional** .
+- Para **Tipos de contas com suporte**, selecione **Contas somente neste diretório organizacional**.
 - Deixe a lista suspensa **URI de Redirecionamento** definida como **Web** e digite `https://localhost:5001/authentication/login-callback`. A porta padrão para um aplicativo em execução no Kestrel é 5001. Se o aplicativo estiver disponível em uma porta diferente, especifique o número da porta em vez de `5001`.
 
-Depois de registrado, em **Autenticação** > **Concessão implícita** , marque as caixas de seleção para **Tokens de acesso** e **Tokens de ID** e selecione o botão **Salvar** .
+Após registrá-lo, em **Gerenciar**, selecione **Autenticação** > **Concessão implícita e fluxos híbridos**. Selecione **Tokens de acesso** e **Tokens de ID** e escolha **Salvar**.
 
 ## <a name="create-the-app-using-the-net-core-cli"></a>Criar o aplicativo usando a CLI do .NET Core
 
@@ -72,9 +76,11 @@ No navegador, navegue até `https://localhost:5001` e faça logon usando uma con
 
 Os componentes desse modelo que habilitam logons com o Azure AD usando a plataforma de identidade da Microsoft são explicados no [documento do ASP.NET sobre esse tópico](/aspnet/core/blazor/security/webassembly/standalone-with-azure-active-directory#authentication-package).
 
-## <a name="retrieving-data-from-microsoft-graph"></a>Recuperar dados do Microsoft Graph
+## <a name="retrieving-data-from-a-protected-api-microsoft-graph"></a>Recuperar dados de uma API protegida (Microsoft Graph)
 
-O [Microsoft Graph](/graph/overview) oferece uma variedade de APIs que fornecem acesso aos dados do Microsoft 365 dos seus usuários em seu locatário. Usando a plataforma de identidade da Microsoft como o provedor de identidade para seu aplicativo, você tem acesso mais fácil a essas informações porque o Microsoft Graph dá suporte direto aos tokens emitidos pela plataforma de identidade da Microsoft. Nesta seção, você adicionará código que pode exibir os emails do usuário conectado na página "Buscar dados" do aplicativo.
+O [Microsoft Graph](/graph/overview) contém APIs que fornecem acesso a dados do Microsoft 365 para seus usuários e dá suporte aos tokens emitidos pela plataforma de identidade da Microsoft, o que o torna uma boa API protegida para usar como exemplo. Nesta seção, você adicionará código para chamar o Microsoft Graph e exibir os emails do usuário na página "Buscar dados" do aplicativo.
+
+Esta seção é escrita usando uma abordagem comum para chamar uma API protegida usando um cliente nomeado. O mesmo método pode ser usado para outras APIs protegidas que você deseja chamar. No entanto, se você planeja chamar o Microsoft Graph do seu aplicativo, pode usar o SDK do Graph para reduzir o texto clichê. Os documentos do .NET contêm instruções sobre [como usar o SDK do Graph](/aspnet/core/blazor/security/webassembly/graph-api?view=aspnetcore-5.0&preserve-view=true).
 
 Antes de começar, faça logoff do seu aplicativo, pois você fará alterações nas permissões necessárias e seu token atual não funcionará. Se você ainda não fez isso, execute o aplicativo novamente e selecione **Fazer logoff** antes de atualizar o código abaixo.
 
@@ -82,11 +88,11 @@ Agora, você atualizará o registro e o código do aplicativo para extrair os em
 
 Primeiro, adicione a permissão `Mail.Read` de API ao registro do aplicativo para que o Azure AD esteja ciente de que o aplicativo solicitará o acesso ao email dos usuários dele.
 
-1. No portal do Azure, selecione seu aplicativo em **Registros de aplicativo** .
-1. Em **Gerenciar** , selecione **Permissões de API** .
-1. Selecione **Adicionar uma permissão** > **Microsoft Graph** .
-1. Selecione **Permissões Delegadas** e procure e selecione a permissão **Mail.Read** .
-1. Escolha **Adicionar permissões** .
+1. No portal do Azure, selecione seu aplicativo em **Registros de aplicativo**.
+1. Em **Gerenciar**, selecione **Permissões de API**.
+1. Selecione **Adicionar uma permissão** > **Microsoft Graph**.
+1. Selecione **Permissões Delegadas** e procure e selecione a permissão **Mail.Read**.
+1. Escolha **Adicionar permissões**.
 
 Em seguida, adicione os itens a seguir ao arquivo *.csproj* do seu projeto em **ItemGroup** netstandard2.1. Isso permitirá que você crie o HttpClient personalizado na próxima etapa.
 
@@ -239,5 +245,5 @@ Depois de dar consentimento, navegue até a página "Buscar dados" para ler algu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Melhores práticas e recomendações da plataforma de identidade da Microsoft](./identity-platform-integration-checklist.md)
-- [Introdução ao Blazor do ASP.NET Core](/aspnet/core/blazor)
+> [!div class="nextstepaction"]
+> [Melhores práticas e recomendações da plataforma de identidade da Microsoft](./identity-platform-integration-checklist.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: 406371325ddf8b555ede481582e19635b85abe49
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b2b27da096ed18170ca8c9d70f31dc955fb74950
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461559"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352823"
 ---
 # <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>Coletar logs personalizados com o agente de Log Analytics no Azure Monitor
 
@@ -30,6 +30,7 @@ Os arquivos de log a serem coletados devem corresponder aos critérios a seguir.
 
 - O arquivo de log não deve permitir log circular ou rotação de log, em que o arquivo é substituído por novas entradas.
 - O arquivo de log deve usar a codificação ASCII ou UTF-8.  Não há suporte para outros formatos, como UTF-16.
+- Para o Linux, não há suporte para conversão de fuso horário em carimbos de data/hora nos logs.
 
 >[!NOTE]
 > Se houver entradas duplicadas no arquivo de log, o Azure Monitor irá coletá-los. No entanto, os resultados da consulta serão inconsistentes onde os resultados do filtro mostram mais eventos do que a contagem de resultados. É importante que você valide o log para determinar se o aplicativo que cria está causando o problema e resolvê-lo se possível, antes de criar a definição de coleção de log personalizado.  
@@ -91,8 +92,8 @@ A tabela a seguir fornece exemplos de padrões válidos para especificar diferen
 ### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Etapa 4. Fornecer um nome e descrição para o log
 O nome especificado será usado para o tipo de log, conforme descrito acima.  Ele sempre terminará com _CL para distingui-lo como um log personalizado.
 
-1. Digite um nome para o log.  O sufixo ** \_ CL** é fornecido automaticamente.
-2. Adicione uma **Descrição**opcional.
+1. Digite um nome para o log.  O sufixo **\_ CL** é fornecido automaticamente.
+2. Adicione uma **Descrição** opcional.
 3. Clique em **Próximo** para salvar a definição do log personalizado.
 
 ### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>Etapa 5. Validar que os logs personalizados estão sendo coletados

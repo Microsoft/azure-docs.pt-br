@@ -6,20 +6,22 @@ services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/14/2019
+ms.date: 11/20/2020
 ms.author: victorh
-ms.openlocfilehash: bfa6690c636e15fa933f50698cd81359600b5c05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b14bd60ab744be5a1735abc073f32f8ebc3e1ab1
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77368310"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301704"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>Criar e usar regras personalizadas do firewall do aplicativo Web no gateway de aplicativo
 
 O WAF (firewall do aplicativo Web) V2 no gateway Aplicativo Azure fornece proteção para aplicativos Web. Essa proteção é fornecida pelo CRS (conjunto de regras principais) do OWASP (projeto de segurança de aplicativo Web aberto). Em alguns casos, talvez seja necessário criar suas próprias regras personalizadas para atender às suas necessidades específicas. Para obter mais informações sobre regras personalizadas do WAF, consulte [visão geral das regras de firewall do aplicativo Web personalizado](custom-waf-rules-overview.md).
 
 Este artigo mostra alguns exemplos de regras personalizadas que você pode criar e usar com o WAF v2. Para saber como implantar um WAF com uma regra personalizada usando Azure PowerShell, consulte [configurar regras personalizadas do firewall do aplicativo Web usando Azure PowerShell](configure-waf-custom-rules.md).
+
+Os trechos de código JSON mostrados neste artigo são derivados de um recurso [ApplicationGatewayWebApplicationFirewallPolicies](/azure/templates/microsoft.network/applicationgatewaywebapplicationfirewallpolicies) .
 
 >[!NOTE]
 > Se o gateway de aplicativo não estiver usando a camada WAF, será exibida no painel direito a opção de atualizar o gateway de aplicativo para a camada WAF.
@@ -229,7 +231,7 @@ Regra de CRS correspondente: `SecRule REMOTE_ADDR "@ipMatch 192.168.5.0/24" "id:
 
 ## <a name="example-4"></a>Exemplo 4
 
-Para este exemplo, você deseja bloquear User-Agent *evilbot*e o tráfego no intervalo 192.168.5.0/24. Para fazer isso, você pode criar duas condições de correspondência separadas e colocá-las na mesma regra. Isso garante que se ambos os *evilbot* no cabeçalho de User-Agent **e** os endereços IP do intervalo 192.168.5.0/24 forem correspondidos, a solicitação será bloqueada.
+Para este exemplo, você deseja bloquear User-Agent *evilbot* e o tráfego no intervalo 192.168.5.0/24. Para fazer isso, você pode criar duas condições de correspondência separadas e colocá-las na mesma regra. Isso garante que se ambos os *evilbot* no cabeçalho de User-Agent **e** os endereços IP do intervalo 192.168.5.0/24 forem correspondidos, a solicitação será bloqueada.
 
 Lógica: p **e** q
 
@@ -301,7 +303,7 @@ Aqui está o JSON correspondente:
 
 ## <a name="example-5"></a>Exemplo 5
 
-Para este exemplo, você deseja bloquear se a solicitação estiver fora do intervalo de endereços IP *192.168.5.0/24*ou se a cadeia de caracteres do agente do usuário não for *Chrome* (o que significa que o usuário não está usando o navegador Chrome). Como essa lógica usa **ou**, as duas condições estão em regras separadas, como visto no exemplo a seguir. *myrule1* e *myrule2* precisam corresponder para bloquear o tráfego.
+Para este exemplo, você deseja bloquear se a solicitação estiver fora do intervalo de endereços IP *192.168.5.0/24* ou se a cadeia de caracteres do agente do usuário não for *Chrome* (o que significa que o usuário não está usando o navegador Chrome). Como essa lógica usa **ou**, as duas condições estão em regras separadas, como visto no exemplo a seguir. *myrule1* e *myrule2* precisam corresponder para bloquear o tráfego.
 
 Lógica: **not** (p **e** q) = **não** p **ou not** q.
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/23/2020
+ms.date: 01/18/2021
 ms.author: alkohli
-ms.openlocfilehash: 8ae95518bab5ed9bc100a5902acf1fd1db631dbe
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 31947ca4d5eb632998f5c50257c12ef9a52dfc66
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91617155"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570092"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-gpu"></a>O que é o Azure Stack Edge Pro com GPU?
 
@@ -25,7 +25,7 @@ O Azure Stack Edge Pro com GPU é uma solução de hardware como serviço. A Mic
 
 Aqui estão os vários cenários em que o Azure Stack Edge Pro pode ser usado para inferências rápidas de ML (Machine Learning) na borda e pré-processamento de dados, antes do envio para o Microsoft Azure.
 
-- **Inferência com o Azure Machine Learning** – com o Azure Stack Edge Pro, é possível executar modelos de ML para obter resultados rápidos que podem ser tratados, antes que os dados sejam enviados para a nuvem. O conjunto de dados completo pode ser transferido para continuar a treinar novamente e melhorar os modelos de ML. Para obter mais informações sobre como usar os modelos de aceleração de hardware do Azure ML no dispositivo Azure Stack Edge Pro, confira [Implantar modelos de aceleração de hardware do Azure ML no Azure Stack Edge Pro](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
+- **Inferência com o Azure Machine Learning** – com o Azure Stack Edge Pro, é possível executar modelos de ML para obter resultados rápidos que podem ser tratados, antes que os dados sejam enviados para a nuvem. O conjunto de dados completo pode ser transferido para continuar a treinar novamente e melhorar os modelos de ML. Para obter mais informações sobre como usar os modelos de aceleração de hardware do Azure ML no dispositivo Azure Stack Edge Pro, confira [Implantar modelos de aceleração de hardware do Azure ML no Azure Stack Edge Pro](../machine-learning/how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server).
 
 - **Pré-processar dados** – transformar dados antes de enviá-los ao Azure por meio de opções de computação, como cargas de trabalho em contêineres e máquinas virtuais, para criar um conjunto de dados mais acionável. O pré-processamento pode ser usado para: 
 
@@ -51,7 +51,7 @@ O Azure Stack Edge Pro tem as seguintes funcionalidades:
 |Atualização dedados     | Capacidade de atualizar arquivos locais com a versão mais recente da nuvem.|
 |Criptografia    | Suporte ao BitLocker para criptografar dados localmente e proteger a transferência de dados para a nuvem por meio do *https*.|
 |Limitação de largura de banda| Limitação para restringir o uso de largura de banda durante horários de pico.|
-<!--|ExpressRoute | Adição de segurança por meio do ExpressRoute. Use a configuração de emparelhamento, na qual o tráfego de dispositivos locais para os pontos de extremidade de armazenamento em nuvem viaja pelo ExpressRoute. Para obter mais informações, confira [Visão geral do ExpressRoute](../expressroute/expressroute-introduction.md).-->
+<!--|ExpressRoute | Adição de segurança por meio do ExpressRoute. Use a configuração de emparelhamento, na qual o tráfego de dispositivos locais para os pontos de extremidade de armazenamento em nuvem viaja pelo ExpressRoute. Para obter mais informações, confira [Visão geral do ExpressRoute](../expressroute/expressroute-introduction.md).|-->
 
 ## <a name="components"></a>Componentes
 
@@ -71,7 +71,7 @@ A solução Azure Stack Edge Pro inclui o recurso Azure Stack Edge, o dispositiv
 
 O dispositivo físico Azure Stack Edge Pro, o recurso do Microsoft Azure e a conta de armazenamento de destino para a qual os dados são transferidos não precisam estar na mesma região.
 
-- **Disponibilidade de recursos**: nesta versão prévia, o recurso está disponível nas regiões Leste dos EUA, Oeste da Europa e Sudeste da Ásia.
+- **Disponibilidade de recursos**: nesta versão, o recurso está disponível nas regiões Leste dos EUA, Oeste da Europa e Sudeste da Ásia.
 
 - **Disponibilidade do dispositivo**: para obter uma lista de todos os países e as regiões em que o dispositivo Azure Stack Edge Pro está disponível, acesse a seção **Disponibilidade** na guia **Azure Stack Edge Pro** de [Preço do Azure Stack Edge Pro](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
     

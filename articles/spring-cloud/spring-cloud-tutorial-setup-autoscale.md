@@ -1,20 +1,20 @@
 ---
-title: Tutorial – Configurar o dimensionamento automático para aplicativos de microsserviço
+title: Configurar o dimensionamento automático para aplicativos de microsserviço
 description: Este artigo descreve como configurar o Dimensionamento automático para seus aplicativos usando o portal do Microsoft Azure ou a CLI do Azure.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 6023d1ebd27ebaccacfce85ce0f49b7ef87e17ad
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: d59d5de0d98380be215747c7daa33721fcebf33c
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742660"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533818"
 ---
-# <a name="tutorial-set-up-autoscale-for-microservice-applications"></a>Tutorial: Configurar o dimensionamento automático para aplicativos de microsserviço
+# <a name="set-up-autoscale-for-microservice-applications"></a>Configurar o dimensionamento automático para aplicativos de microsserviço
 
 **Este artigo aplica-se a:** ✔️ Java ✔️ C#
 
@@ -34,7 +34,7 @@ Para seguir estes procedimentos, você precisará:
 2. Vá até a página **Visão geral** do Azure Spring Cloud.
 3. Escolha o grupo de recursos que contém o serviço.
 4. Selecione a guia **Aplicativos** em **Configurações** no menu no painel de navegação esquerdo.
-5. Selecione o aplicativo para o qual deseja configurar o Dimensionamento automático. Neste exemplo, selecione o aplicativo chamado **demonstração** . Em seguida, você deverá ver a página **Visão Geral** do aplicativo.
+5. Selecione o aplicativo para o qual deseja configurar o Dimensionamento automático. Neste exemplo, selecione o aplicativo chamado **demonstração**. Em seguida, você deverá ver a página **Visão Geral** do aplicativo.
 6. Selecione a guia **Escalar horizontalmente** em **Configurações** no menu no painel de navegação esquerdo.
 7. Selecione a implantação para a qual deseja configurar o Dimensionamento automático. Você deve ver as opções do Dimensionamento automático na próxima seção.
 
@@ -66,7 +66,7 @@ Você também pode definir modos do Dimensionamento automático usando a CLI do 
 
 ## <a name="upgrade-to-the-standard-tier"></a>Atualizar para a camada Standard
 
-Se você estiver na camada básica e restringido por um ou mais desses limites, poderá atualizar para a camada Standard. Para fazer isso, vá para o menu de tipo de **Preço** selecionando primeiro a coluna do tipo *Standard* e clicando no botão **Atualizar** .
+Se você estiver na camada básica e restringido por um ou mais desses limites, poderá atualizar para a camada Standard. Para fazer isso, vá para o menu de tipo de **Preço** selecionando primeiro a coluna do tipo *Standard* e clicando no botão **Atualizar**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

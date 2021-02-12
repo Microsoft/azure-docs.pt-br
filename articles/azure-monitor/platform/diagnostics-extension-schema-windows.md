@@ -6,12 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
-ms.openlocfilehash: d2b1afea746410e966b43bef01a039a8471d4ae7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eccd4010d796e541e4a0a2c0b0c485b5f18f0366
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87007921"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943719"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Esquema de extensão de diagnóstico do Windows
 Diagnóstico do Azure extensão é um agente no Azure Monitor que coleta dados de monitoramento do sistema operacional convidado e das cargas de trabalho dos recursos de computação do Azure. Este artigo detalha o esquema usado para a configuração da extensão de diagnóstico em máquinas virtuais do Windows e outros recursos de computação.
@@ -70,7 +70,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 ## <a name="diagnosticmonitorconfiguration-element"></a>Elemento DiagnosticMonitorConfiguration
  *Árvore: Raiz - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration*
 
- Obrigatório
+ Necessária
 
 |Atributos|Descrição|  
 |----------------|-----------------|  
@@ -85,7 +85,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 |--------------------|-----------------|  
 |**CrashDumps**|Veja a descrição em outro lugar nesta página.|  
 |**DiagnosticInfrastructureLogs**|Habilite a coleta de logs gerados pelo Diagnóstico do Azure. Os logs de infraestrutura de diagnóstico são úteis para solucionar problemas de sistema de diagnóstico. Os atributos opcionais são:<br /><br /> - **scheduledTransferLogLevelFilter** - configura o nível de severidade mínimo dos logs coletados.<br /><br /> - **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para o armazenamento arredondado para o minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
-|**Listas**|Veja a descrição em outro lugar nesta página.|  
+|**Diretórios**|Veja a descrição em outro lugar nesta página.|  
 |**EtwProviders**|Veja a descrição em outro lugar nesta página.|  
 |**Métricas**|Veja a descrição em outro lugar nesta página.|  
 |**PerformanceCounters**|Veja a descrição em outro lugar nesta página.|  
@@ -157,7 +157,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 
 |Elementos filho|Descrição|  
 |--------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|Configura a coleta de eventos gerados desde a [classe EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1). Atributo obrigatório:<br /><br /> **provider** - o nome da classe do evento EventSource.<br /><br /> Os atributos opcionais são:<br /><br /> - **scheduledTransferLogLevelFilter** - o nível mínimo de severidade a transferir para sua conta de armazenamento.<br /><br /> - **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para o armazenamento arredondado para o minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
+|**EtwEventSourceProviderConfiguration**|Configura a coleta de eventos gerados desde a [classe EventSource](/dotnet/api/system.diagnostics.tracing.eventsource). Atributo obrigatório:<br /><br /> **provider** - o nome da classe do evento EventSource.<br /><br /> Os atributos opcionais são:<br /><br /> - **scheduledTransferLogLevelFilter** - o nível mínimo de severidade a transferir para sua conta de armazenamento.<br /><br /> - **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para o armazenamento arredondado para o minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 |**EtwManifestProviderConfiguration**|Atributo obrigatório:<br /><br /> **provider** - o GUID do provedor de eventos<br /><br /> Os atributos opcionais são:<br /><br /> - **scheduledTransferLogLevelFilter** - o nível mínimo de severidade a transferir para sua conta de armazenamento.<br /><br /> - **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para o armazenamento arredondado para o minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 
 
@@ -165,7 +165,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 ## <a name="etweventsourceproviderconfiguration-element"></a>Elemento EtwEventSourceProviderConfiguration  
  *Árvore: Raiz - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders- EtwEventSourceProviderConfiguration*
 
- Configura a coleta de eventos gerados desde a [classe EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1).  
+ Configura a coleta de eventos gerados desde a [classe EventSource](/dotnet/api/system.diagnostics.tracing.eventsource).  
 
 |Elementos filho|Descrição|  
 |--------------------|-----------------|  
@@ -208,7 +208,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 
 |Elemento filho|Descrição|  
 |-------------------|-----------------|  
-|**PerformanceCounterConfiguration**|Os atributos a seguir são obrigatórios:<br /><br /> - **counterSpecifier** - o nome do contador de desempenho. Por exemplo, `\Processor(_Total)\% Processor Time`. Para obter uma lista de contadores de desempenho no seu host, execute o comando `typeperf`.<br /><br /> - **sampleRate** - Com que frequência o contador deve ser testado.<br /><br /> Atributo opcional:<br /><br /> **unidade** - a unidade de medida do contador. Os valores estão disponíveis na [classe UnitType](/dotnet/api/microsoft.azure.management.sql.models.unittype?view=azure-dotnet) |
+|**PerformanceCounterConfiguration**|Os atributos a seguir são obrigatórios:<br /><br /> - **counterSpecifier** - o nome do contador de desempenho. Por exemplo, `\Processor(_Total)\% Processor Time`. Para obter uma lista de contadores de desempenho no seu host, execute o comando `typeperf`.<br /><br /> - **sampleRate** - Com que frequência o contador deve ser testado.<br /><br /> Atributo opcional:<br /><br /> **unidade** - a unidade de medida do contador. Os valores estão disponíveis na [classe UnitType](/dotnet/api/microsoft.azure.management.sql.models.unittype) |
 |**coletores** | Adicionado em 1.5. Opcional. Aponta para um local de coletor para também enviar dados de diagnóstico. Por exemplo, o Azure Monitor ou o os Hubs de Eventos. Observação Você precisa adicionar a propriedade *ResourceId* sob o elemento de *métricas* se desejar que os eventos carregados nos hubs de eventos tenham uma ID de recurso.|    
 
 
@@ -293,7 +293,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 
  Define os locais para os quais os dados de diagnóstico devem ser enviados. Por exemplo, o serviço Application Insights.  
 
-|Atributos|Type|Descrição|  
+|Atributos|Tipo|Descrição|  
 |----------------|----------|-----------------|  
 |**logLevel**|**cadeia de caracteres**|Especifica o nível de severidade mínimo para as entradas de log transferidas. O valor padrão é **Indefinido**, que transfere todos os logs. Outros possíveis valores (na ordem de mais informações para menos) são **Detalhado**, **Informações**, **Aviso**, **Erro**, e **Crítico**.|  
 |**name**|**cadeia de caracteres**|Um nome exclusivo do canal que será mencionado|  
@@ -642,8 +642,8 @@ Os *PublicConfig* e *PrivateConfig* são separados porque, na maioria dos casos 
 
   </WadCfg>  
 
-  <StorageAccount>diagstorageaccount</StorageAccount>
-  <StorageType>TableAndBlob</StorageType> <!-- Added in 1.8 -->  
+  <StorageAccount>diagstorageaccount</StorageAccount>
+  <StorageType>TableAndBlob</StorageType> <!-- Added in 1.8 -->  
   </PublicConfig>  
 
   <PrivateConfig>  <!-- Added in 1.3 -->  

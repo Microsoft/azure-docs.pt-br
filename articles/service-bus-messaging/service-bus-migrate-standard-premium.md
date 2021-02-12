@@ -4,10 +4,10 @@ description: Guia para permitir a migração de namespaces padrão do barramento
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 1ed09a077f086390c658e6650171c552b361008d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "85340752"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrar namespaces padrão do barramento de serviço do Azure para a camada Premium
@@ -25,7 +25,7 @@ Alguns dos pontos a serem observados:
 - O namespace **Premium** não deve ter **nenhuma entidade** para que a migração tenha sucesso.
 - Todas as **entidades** no namespace padrão são **copiadas** para o namespace Premium durante o processo de migração.
 - A migração dá suporte a **1.000 entidades por unidade de mensagens** na camada Premium. Para identificar quantas unidades de mensagens você precisa, comece com o número de entidades que você tem em seu namespace padrão atual.
-- Não é possível migrar diretamente da **camada básica** para a **camada Premium**, mas você pode fazê-lo indiretamente migrando do básico para o Standard primeiro e, em seguida, do Standard para o Premium na próxima etapa.
+- Não é possível migrar diretamente da **camada básica** para a **camada Premium** , mas você pode fazê-lo indiretamente migrando do básico para o Standard primeiro e, em seguida, do Standard para o Premium na próxima etapa.
 
 ## <a name="migration-steps"></a>Etapas da migração
 

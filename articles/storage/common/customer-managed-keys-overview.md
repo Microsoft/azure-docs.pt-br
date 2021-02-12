@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 2b474ae184374a2c91dcba15517048556686ec35
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9afce964652d2bedbe105a8a750a93d2f37eef85
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782222"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179024"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Chaves gerenciadas pelo cliente para criptografia de armazenamento do Azure
 
@@ -78,7 +78,7 @@ Ao configurar a criptografia com chaves gerenciadas pelo cliente, você tem duas
 
     Quando a versão de chave é especificada explicitamente, você deve atualizar manualmente a conta de armazenamento para usar o novo URI de versão de chave quando uma nova versão é criada. Para saber como atualizar a conta de armazenamento para usar uma nova versão da chave, consulte [Configurar a criptografia com chaves gerenciadas pelo cliente armazenadas em Azure Key Vault](customer-managed-keys-configure-key-vault.md) ou [Configurar a criptografia com chaves gerenciadas pelo cliente armazenadas em Azure Key Vault HSM gerenciado (versão prévia)](customer-managed-keys-configure-key-vault-hsm.md).
 
-Atualizar a versão de chave para uma chave gerenciada pelo cliente não dispara a recriptografia de dados na conta de armazenamento. Não há nenhuma ação adicional necessária do usuário.
+Quando você atualiza a versão da chave, a proteção da chave de criptografia raiz é alterada, mas os dados em sua conta de armazenamento do Azure não são criptografados novamente. Não há nenhuma ação adicional necessária do usuário.
 
 > [!NOTE]
 > Para girar uma chave, crie uma nova versão da chave no cofre de chaves ou HSM gerenciado, de acordo com suas políticas de conformidade. Você pode girar a chave manualmente ou criar uma função para girá-la em um agendamento.
@@ -113,10 +113,10 @@ Para revogar o acesso às chaves gerenciadas pelo cliente, use o [PowerShell](./
 
 ## <a name="customer-managed-keys-for-azure-managed-disks"></a>Chaves gerenciadas pelo cliente para Azure Managed disks
 
-As chaves gerenciadas pelo cliente também estão disponíveis para gerenciar a criptografia de Azure Managed disks. Chaves gerenciadas pelo cliente se comportam de maneira diferente para discos gerenciados do que para recursos de armazenamento do Azure Para obter mais informações, consulte [criptografia no servidor de Azure Managed disks](../../virtual-machines/windows/disk-encryption.md) para Windows ou [criptografia do lado do servidor de Azure Managed disks](../../virtual-machines/linux/disk-encryption.md) para Linux.
+As chaves gerenciadas pelo cliente também estão disponíveis para gerenciar a criptografia de Azure Managed disks. Chaves gerenciadas pelo cliente se comportam de maneira diferente para discos gerenciados do que para recursos de armazenamento do Azure Para obter mais informações, consulte [criptografia no servidor de Azure Managed disks](../../virtual-machines/disk-encryption.md) para Windows ou [criptografia do lado do servidor de Azure Managed disks](../../virtual-machines/disk-encryption.md) para Linux.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Criptografia do Armazenamento do Azure para dados em repouso](storage-service-encryption.md)
-- [Configurar a criptografia com chaves gerenciadas pelo cliente armazenadas no Azure Key Vault](customer-managed-keys-configure-key-vault.md)
+- [Configurar a criptografia com as chaves gerenciadas pelo cliente armazenadas no Azure Key Vault](customer-managed-keys-configure-key-vault.md)
 - [Configurar a criptografia com chaves gerenciadas pelo cliente armazenadas em Azure Key Vault HSM gerenciado (versão prévia)](customer-managed-keys-configure-key-vault-hsm.md)

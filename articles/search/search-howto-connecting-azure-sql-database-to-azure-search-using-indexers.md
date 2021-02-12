@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: b1ad4ead83c9e07966f921a5b192f2791838e6ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04e4801c26b0ac8ef91af0b028d9dc2bb9a3cd1c
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530554"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358619"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Conectar e indexar conteúdo SQL do Azure usando um indexador Pesquisa Cognitiva do Azure
 
@@ -39,7 +39,7 @@ Um único indexador pode consumir apenas uma tabela ou exibição, mas você pod
 Você pode definir e configurar um indexador do SQL Azure usando:
 
 * Assistente para Importação de Dados no [portal do Azure](https://portal.azure.com)
-* SDK do [.net](/dotnet/api/microsoft.azure.search.models.indexer) pesquisa cognitiva do Azure
+* SDK do [.net](/dotnet/api/azure.search.documents.indexes.models.searchindexer) pesquisa cognitiva do Azure
 * [API REST](/rest/api/searchservice/indexer-operations) do Azure pesquisa cognitiva
 
 Neste artigo, usaremos a API REST para criar **indexadores** e **fontes de dados**.
@@ -320,7 +320,7 @@ O **softDeleteMarkerValue** deve ser uma cadeia de caracteres – use a represen
 | --- | --- | --- |
 | bit |Edm.Boolean, Edm.String | |
 | int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
-| BIGINT |Edm.Int64, Edm.String | |
+| bigint |Edm.Int64, Edm.String | |
 | real, float |Edm.Double, Edm.String | |
 | smallmoney, numérico decimal dinheiro |Edm.String |O Azure Pesquisa Cognitiva não dá suporte à conversão de tipos decimais em EDM. Double porque isso perderia a precisão |
 | char, nchar, varchar, nvarchar |Edm.String<br/>Collection(Edm.String) |Uma cadeia de caracteres SQL poderá ser usada para preencher um campo Collection(Edm.String) se a cadeia de caracteres representar uma matriz JSON de cadeias de caracteres: `["red", "white", "blue"]` |
@@ -335,7 +335,7 @@ O indexador do SQL expõe várias definições de configuração:
 
 | Configuração | Tipo de dados | Finalidade | Valor padrão |
 | --- | --- | --- | --- |
-| queryTimeout |cadeia de caracteres |Define o tempo limite de execução da consulta SQL |5 minutos ("00:05:00") |
+| queryTimeout |string |Define o tempo limite de execução da consulta SQL |5 minutos ("00:05:00") |
 | disableOrderByHighWaterMarkColumn |bool |Faz com que a consulta SQL usada pela política de marca d'água alta omita a cláusula ORDER BY. Consulte [Política de marca d'água alta](#HighWaterMarkPolicy) |false |
 
 Essas configurações são usadas no objeto `parameters.configuration` na definição do indexador. Por exemplo, para definir o tempo limite da consulta para 10 minutos, crie ou atualize o indexador com a seguinte configuração:

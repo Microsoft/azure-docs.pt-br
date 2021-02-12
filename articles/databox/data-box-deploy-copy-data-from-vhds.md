@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 10/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 28232981d007e7be04d520ec46739408d03d90b4
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 1394cf6511a65a0e406e51229953e8666d4d4d8d
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124006"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337671"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Tutorial: Usar o Data Box para importar dados como discos gerenciados no Azure
 
@@ -76,11 +76,11 @@ Se estiver usando um computador host do Windows Server, siga estas etapas para c
     > [!NOTE]
     > As credenciais para todos os compartilhamentos para discos gerenciados são idênticas.
 
-    ![Obter credenciais de compartilhamento](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
+    ![Conectar e copiar – Obter credenciais de compartilhamento](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
 
-2. Na caixa de diálogo Acessar compartilhamento e copiar dados, copie o **Nome de usuário** e a **Senha** para o compartilhamento. Clique em **OK**.
+2. Na caixa de diálogo **Acessar a opção compartilhar e copiar dados**, copie o **Nome de usuário** e a **Senha** para executar o compartilhamento. Clique em **OK**.
     
-    ![Obter as credenciais de compartilhamento 2](media/data-box-deploy-copy-data-from-vhds/get-share-credentials2.png)
+    ![Conectar e copiar – Copiar as credenciais de compartilhamento](media/data-box-deploy-copy-data-from-vhds/get-share-credentials2.png)
 
 3. Para acessar os compartilhamentos associados ao seu recurso (*mydbmdrg1* no exemplo a seguir) no computador host, abra uma janela Comando. No prompt de comando, digite:
 
@@ -100,26 +100,26 @@ Se estiver usando um computador host do Windows Server, siga estas etapas para c
     C: \>
     ```
 
-4. Pressione Windows + R. Na janela **Executar**, especifique o `\\<device IP address>\<ShareName>`. Clique em **OK** para abrir o Explorador de Arquivos.
+5. Pressione Windows + R. Na janela **Executar**, especifique o `\\<device IP address>\<ShareName>`. Clique em **OK** para abrir o Explorador de Arquivos.
     
     ![Conectar-se ao compartilhamento por meio do Explorador de Arquivos](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer1.png)
 
     Agora, você deve ver as pastas pré-criadas a seguir dentro de cada compartilhamento.
     
-    ![Conecte-se para compartilhar via File Explorer 2](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer2.png)
+    ![Conectar-se para compartilhar por meio do Explorador de Arquivos e pastas de compartilhamento](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer2.png)
 
 
 ### <a name="connect-to-data-box-via-nfs"></a>Conectar-se ao Data Box via NFS
 
 Se você estiver usando um computador host Linux, execute as seguintes etapas para configurar o Data Box para permitir o acesso aos clientes NFS.
 
-1. Forneça os endereços IP dos clientes permitidos que podem acessar o compartilhamento. Na interface do usuário da web local, acesse **Conectar e copiar** a página. Sob **as configurações de NFS**, clique em **acesso para cliente NFS**.
+1. Forneça os endereços IP dos clientes permitidos que podem acessar o compartilhamento. Na IU da Web local, acesse a página **Conectar e copiar**. Sob **as configurações de NFS**, clique em **acesso para cliente NFS**.
 
     ![Configurar o acesso do cliente NFS](media/data-box-deploy-copy-data-from-vhds/nfs-client-access1.png)
 
 2. Forneça o endereço IP do cliente NFS e clique em **Add**. Você pode configurar o acesso para vários clientes NFS repetindo essa etapa. Clique em **OK**.
 
-    ![Configurar o acesso do cliente NFS 2](media/data-box-deploy-copy-data-from-vhds/nfs-client-access2.png)
+    ![Configurar o endereço IP de cliente NFS](media/data-box-deploy-copy-data-from-vhds/nfs-client-access2.png)
 
 2. Assegure-se de que o computador host Linux tenha uma [versão suportada](data-box-system-requirements.md) do cliente NFS instalado. Use a versão específica para sua distribuição do Linux.
 

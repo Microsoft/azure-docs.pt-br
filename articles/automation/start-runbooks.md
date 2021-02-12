@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 52cb701312f598b1b8492226709a7d2767db9600
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5c5166785ad8c82c114fb7193cd49716536b408
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187261"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896589"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Inicie um runbook na Automação do Azure
 
@@ -145,13 +145,13 @@ jsmith
 
 ## <a name="start-a-runbook-with-powershell"></a>Iniciar um runbook com o PowerShell
 
-Use [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) para iniciar um runbook com o Windows PowerShell. O código de exemplo a seguir inicia um runbook chamado **Test-Runbook**.
+Use [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook) para iniciar um runbook com o Windows PowerShell. O código de exemplo a seguir inicia um runbook chamado **Test-Runbook**.
 
 ```azurepowershell-interactive
 Start-AzAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" -ResourceGroupName "ResourceGroup01"
 ```
 
-`Start-AzAutomationRunbook` retorna um objeto de trabalho que você pode usar para controlar o status depois que o runbook é iniciado. Você pode usar esse objeto de trabalho com [Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) para determinar o status do trabalho e [Get-AzAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput?view=azps-3.7.0) para recuperar sua saída. O código de exemplo a seguir inicia um runbook chamado **Test-Runbook**, aguarda até que ele seja concluído e exibe a sua saída.
+`Start-AzAutomationRunbook` retorna um objeto de trabalho que você pode usar para controlar o status depois que o runbook é iniciado. Você pode usar esse objeto de trabalho com [Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob) para determinar o status do trabalho e [Get-AzAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput) para recuperar sua saída. O código de exemplo a seguir inicia um runbook chamado **Test-Runbook**, aguarda até que ele seja concluído e exibe a sua saída.
 
 ```azurepowershell-interactive
 $runbookName = "Test-Runbook"

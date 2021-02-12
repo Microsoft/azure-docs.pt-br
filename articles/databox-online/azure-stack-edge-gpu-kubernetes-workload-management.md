@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: d9e0da9e24a0bd32047d029879c4f0e110dc0c16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef840b3d9db4e82eeecea37079a08ccb0858a77b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320788"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448530"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-pro-device"></a>Gerenciamento de carga de trabalho do kubernetes no dispositivo pro Edge Azure Stack
 
-Em seu dispositivo Azure Stack Edge pro, um cluster kubernetes é criado quando você configura a função de computação. Depois que o cluster kubernetes é criado, os aplicativos em contêineres podem ser implantados no cluster kubernetes em pods. Há maneiras distintas de implantar cargas de trabalho no cluster kubernetes. 
+Em seu dispositivo Azure Stack Edge pro, um cluster kubernetes é criado quando você configura a função de computação. Depois que o cluster kubernetes é criado, os aplicativos em contêineres podem ser implantados no cluster kubernetes em pods. Existem diferentes maneiras de implantar cargas de trabalho no cluster do Kubernetes. 
 
 Este artigo descreve os vários métodos que podem ser usados para implantar cargas de trabalho em seu dispositivo Azure Stack Edge pro.
 
@@ -53,7 +53,7 @@ Há três maneiras principais de implantar suas cargas de trabalho. Cada uma des
 
 - **Implantação de kubernetes habilitada para Arc do Azure**: o kubernetes habilitado para Arc do Azure é uma ferramenta de gerenciamento híbrido que permitirá que você implante aplicativos em seus clusters do kubernetes. Você se conecta ao cluster kubernetes em seu dispositivo Azure Stack Edge pro por meio do `azure-arc namespace` . Os agentes implantados nesse namespace são responsáveis pela conectividade com o Azure. Você aplica a configuração de implantação usando o gerenciamento de configuração baseado em GitOps. 
     
-    O kubernetes habilitado para Arc do Azure também permitirá que você use Azure Monitor para contêineres para exibir e monitorar o cluster. Para obter mais informações, acesse [o que é o Azure Arc habilitado kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
+    O kubernetes habilitado para Arc do Azure também permitirá que você use Azure Monitor para contêineres para exibir e monitorar o cluster. Para obter mais informações, acesse [o que é o Azure Arc habilitado kubernetes?](../azure-arc/kubernetes/overview.md).
 
 ## <a name="choose-the-deployment-type"></a>Escolher o tipo de implantação
 

@@ -1,19 +1,16 @@
 ---
 title: Instalar seus aplicativos de Apache Hadoop personalizados no Azure HDInsight
 description: Saiba como instalar aplicativos do HDInsight para Apache Hadoop clusters no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive, devx-track-azurecli
+ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: d110f4ee0248b6ea069c6033dd69840eec1a18f3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 9591551b7d5657803e770bd71b47acb141b40fb6
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741612"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942691"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Instalar aplicativos personalizados do Apache Hadoop no HDInsight do Azure
 
@@ -49,9 +46,9 @@ Arquivos necessários para implantar esse aplicativo (Hue):
 
 1. Insira o nome do cluster onde você deseja instalar o aplicativo. Esse cluster deve ser um cluster existente.
 
-1. Marque a caixa de seleção para **eu concordo com os termos e condições declarados acima** .
+1. Marque a caixa de seleção para **eu concordo com os termos e condições declarados acima**.
 
-1. Selecione **Comprar** .
+1. Selecione **Comprar**.
 
 Você pode ver o status da instalação no bloco ao painel do portal e na notificação no portal (clique no ícone de sino na parte superior do portal).  Demora cerca de 10 minutos para instalar o aplicativo.
 
@@ -73,13 +70,13 @@ Além do portal do Azure, você também pode usar o [Azure PowerShell](hdinsight
 
 Você pode verificar o status do aplicativo no portal do Azure para validar a instalação do aplicativo. Além disso, você também pode validar todos os pontos de extremidade HTTP fornecidos conforme o esperado e a página da Web, se houver.
 
-Para **matiz** , você pode usar as seguintes etapas:
+Para **matiz**, você pode usar as seguintes etapas:
 
 ### <a name="azure-portal"></a>Portal do Azure
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Selecione o cluster onde você instalou o aplicativo.
-1. No menu **configurações** , selecione **aplicativos** .
+1. No menu **configurações** , selecione **aplicativos**.
 1. Selecione **matiz** na lista para exibir as propriedades.  
 1. Selecione o link da página da Web para validar o site.
 
@@ -127,8 +124,8 @@ Se a instalação de um aplicativo falhar, você poderá ver as mensagens de err
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Selecione o cluster onde você instalou o aplicativo.
-1. No menu **configurações** , selecione **aplicativos** .
-1. Clique com o botão direito do mouse no aplicativo que você deseja remover e selecione **excluir** .
+1. No menu **configurações** , selecione **aplicativos**.
+1. Clique com o botão direito do mouse no aplicativo que você deseja remover e selecione **excluir**.
 1. Clique em **Sim** para confirmar.
 
 ### <a name="azure-cli"></a>CLI do Azure

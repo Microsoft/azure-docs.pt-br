@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: b-juche
-ms.openlocfilehash: e88cf0c063b3ba42dadd72c19c23be8fcf919b86
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 2cc9d3e0fb711a0662852ce4f2c5a08dc626f246
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930723"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854726"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Criar um volume NFS para o Azure NetApp Files
 
-O Azure NetApp Files dá suporte à criação de volumes usando NFS (NFSv3 e NFSv 4.1), SMBv3 ou protocolo duplo (NFSv3 e SMB). O consumo de capacidade de um volume conta contra a capacidade provisionada do pool desse volume. Este artigo mostra como criar um volume do NFS. 
+O Azure NetApp Files dá suporte à criação de volumes usando NFS (NFSv3 e NFSv 4.1), SMB3 ou protocolo duplo (NFSv3 e SMB). O consumo de capacidade de um volume conta contra a capacidade provisionada do pool desse volume. Este artigo mostra como criar um volume do NFS. 
 
 ## <a name="before-you-begin"></a>Antes de começar 
 * Você deve já configurou um pool de capacidade.  
@@ -56,7 +56,7 @@ O Azure NetApp Files dá suporte à criação de volumes usando NFS (NFSv3 e NFS
 
     ![Navegar até Volumes](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png) 
 
-2.  Na janela criar um volume, clique em **criar**e forneça informações para os seguintes campos na guia noções básicas:   
+2.  Na janela criar um volume, clique em **criar** e forneça informações para os seguintes campos na guia noções básicas:   
     * **Nome do volume**      
         Especifique o nome para o volume que você está criando.   
 

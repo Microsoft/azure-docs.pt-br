@@ -1,18 +1,15 @@
 ---
 title: Exceção ao executar consultas do modo de exibição de hive do Apache Ambari no Azure HDInsight
 description: Etapas de solução de problemas ao executar consultas de Apache Hive por meio da exibição de hive do Apache Ambari no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 12/23/2019
-ms.openlocfilehash: aeedda5c26a2e9dc0fa2b228285cfda45d880d29
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 40ef380cd2bd4743b92daf44a0a5b70ade1cbb35
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547377"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933006"
 ---
 # <a name="exception-when-running-queries-from-apache-ambari-hive-view-in-azure-hdinsight"></a>Exceção ao executar consultas do modo de exibição de hive do Apache Ambari no Azure HDInsight
 
@@ -54,13 +51,13 @@ Algumas recomendações gerais para melhorar a situação:
 
 * Se estiver usando um metastore externo do hive, verifique as métricas do BD e certifique-se de que o banco de dados não esteja sobrecarregado. Considere dimensionar a camada de banco de dados do metastore.
 
-* Verifique se a OPS paralela está ativada (isso permite que os threads do manipulador HTTP sejam executados em paralelo). Para verificar o valor, inicie o [Apache Ambari](../hdinsight-hadoop-manage-ambari.md) e navegue até configurações do **Hive**  >  **Configs**  >  **avançado**  >  **Custom Hive-site** . O valor de `hive.server2.parallel.ops.in.session` deve ser `true` .
+* Verifique se a OPS paralela está ativada (isso permite que os threads do manipulador HTTP sejam executados em paralelo). Para verificar o valor, inicie o [Apache Ambari](../hdinsight-hadoop-manage-ambari.md) e navegue até configurações do **Hive**  >    >  **avançado**  >  **Custom Hive-site**. O valor de `hive.server2.parallel.ops.in.session` deve ser `true` .
 
 * Verifique se a SKU da VM do cluster não é muito pequena para a carga. Considere a divisão do trabalho entre vários clusters. Para obter mais informações, consulte [escolher um tipo de cluster](../hdinsight-capacity-planning.md#choose-a-cluster-type).
 
 * Se o Ranger estiver instalado no cluster, verifique se há muitas políticas do Ranger que precisam ser avaliadas para cada consulta. Procure políticas duplicadas ou desnecessárias.
 
-* Verifique o valor do **tamanho do heap HiveServer2** de Ambari. Navegue até **Hive**  >  **configuração**  >  **configurações** do hive  >  **otimização** . Verifique se o valor é maior que 10 GB. Ajuste conforme necessário para otimizar o desempenho.
+* Verifique o valor do **tamanho do heap HiveServer2** de Ambari. Navegue até   >  **configuração**  >  **configurações** do hive  >  **otimização**. Verifique se o valor é maior que 10 GB. Ajuste conforme necessário para otimizar o desempenho.
 
 * Verifique se a consulta do hive está bem ajustada. Para obter mais informações, consulte [otimizar Apache Hive consultas no Azure HDInsight](../hdinsight-hadoop-optimize-hive-query.md).
 
@@ -72,4 +69,4 @@ Se você não encontrou seu problema ou não conseguiu resolver seu problema, vi
 
 * Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Como se conectar à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte** . Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

@@ -1,15 +1,15 @@
 ---
 title: Guia de Início Rápido do Azure – Executar seu primeiro trabalho do Lote no portal do Azure
-description: Saiba como usar o portal do Azure para criar uma conta do Lote, um pool de nós de computação e um trabalho que executa tarefas básicas no pool.
+description: Este guia de início rápido mostra como usar o portal do Azure para criar uma conta do Lote, um pool de nós de computação e um trabalho que executa tarefas básicas no pool.
 ms.topic: quickstart
 ms.date: 08/17/2020
 ms.custom: mvc
-ms.openlocfilehash: cf65a681764a848f8132ec44b8ba313ef1a83235
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d8584ecea8ddd5934771dbe5945a6172a28c801c
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88511364"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106466"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Início rápido: executar o primeiro trabalho do Lote no portal do Azure
 
@@ -97,7 +97,7 @@ Para criar uma segunda tarefa, repita as etapas acima. Insira outra **ID da tare
 
 As tarefas de exemplo que você criou serão concluídas em alguns minutos. Para ver a saída de uma tarefa concluída, selecione a tarefa e **Arquivos no nó**. Selecione o arquivo `stdout.txt` para ver a saída padrão da tarefa. O conteúdo é semelhante ao seguinte:
 
-:::image type="content" source="media/quick-create-portal/task-output.png" alt-text="Captura de tela do Serviço Lote no Azure Marketplace.":::
+:::image type="content" source="media/quick-create-portal/task-output.png" alt-text="Captura de tela da saída de uma tarefa concluída.":::
 
 O conteúdo mostra as variáveis de ambiente do Lote do Azure que são definidas no nó. Ao criar seus próprios trabalhos e tarefas do Lote, você pode consultar essas variáveis de ambiente nas linhas de comando da tarefa e nos aplicativos e scripts executados pelas linhas de comando.
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 01/25/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c297e1a4f6443e584f04914712314d33df23b119
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e322f78468c89a549955a01f73952e8cde7a13c8
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776095"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872817"
 ---
 # <a name="remediate-risks-and-unblock-users"></a>Corrigir riscos e desbloquear usuários
 
@@ -37,7 +37,7 @@ Os administradores têm as seguintes opções para corrigir:
 
 ### <a name="self-remediation-with-risk-policy"></a>Correção automática com política de risco
 
-Se você permitir que os usuários se recorrem automaticamente, com a MFA (autenticação multifator do Azure) e a SSPR (redefinição de senha de autoatendimento) em suas políticas de risco, eles poderão ser desbloqueados quando o risco for detectado. Essas detecções são consideradas fechadas. Os usuários devem ter registrado anteriormente para o Azure MFA e o SSPR para usar quando o risco for detectado.
+Se você permitir que os usuários sejam remediados automaticamente, com a MFA (autenticação multifator do Azure AD) e a SSPR (redefinição de senha por autoatendimento) em suas políticas de risco, eles poderão ser desbloqueados quando forem detectados riscos. Essas detecções são consideradas fechadas. Os usuários devem ter registrado anteriormente para MFA do Azure AD e SSPR para usar quando o risco for detectado.
 
 Algumas detecções podem não aumentar o risco para o nível em que uma AutoCorreção do usuário seria necessária, mas os administradores ainda devem avaliar essas detecções. Os administradores podem determinar que medidas adicionais são necessárias, como [bloquear o acesso de locais](../conditional-access/howto-conditional-access-policy-location.md) ou reduzir o risco aceitável em suas políticas.
 
@@ -49,7 +49,7 @@ Os administradores recebem duas opções ao redefinir uma senha para seus usuár
 
 - **Gerar uma senha temporária** – ao gerar uma senha temporária, você pode imediatamente deixar uma identidade em um estado seguro novamente. Esse método requer contato com os usuários afetados porque eles precisam saber qual é a senha temporária. Como a senha é temporária, o usuário é solicitado a alterar a senha para algo novo durante a próxima entrada.
 
-- **Exigir que o usuário redefina a senha** – exigir que os usuários redefinam senhas permite a autorrecuperação sem entrar em contato com o suporte técnico nem com o administrador. Esse método só se aplica a usuários que estão registrados para o Azure MFA e SSPR. Para usuários que não foram registrados, essa opção não está disponível.
+- **Exigir que o usuário redefina a senha** – exigir que os usuários redefinam senhas permite a autorrecuperação sem entrar em contato com o suporte técnico nem com o administrador. Esse método só se aplica a usuários registrados para o Azure AD MFA e SSPR. Para usuários que não foram registrados, essa opção não está disponível.
 
 ### <a name="dismiss-user-risk"></a>Ignorar o risco de usuário
 
@@ -91,7 +91,9 @@ Para desbloquear uma conta com base no risco de entrada, os administradores têm
 
 ## <a name="powershell-preview"></a>Visualização do PowerShell
 
-Usando o módulo SDK do Microsoft Graph PowerShell Preview, as organizações podem gerenciar riscos usando o PowerShell. Os módulos de visualização e o código de exemplo podem ser encontrados no [repositório GitHub do Azure ad](https://github.com/AzureAD/IdentityProtectionTools).
+Usando o módulo SDK do Microsoft Graph PowerShell Preview, as organizações podem gerenciar riscos usando o PowerShell. Os módulos de visualização e o código de exemplo podem ser encontrados no [repositório GitHub do Azure ad](https://github.com/AzureAD/IdentityProtectionTools). 
+
+O `Invoke-AzureADIPDismissRiskyUser.ps1` script incluído no repositório permite que as organizações descartam todos os usuários arriscados em seu diretório.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,17 +1,17 @@
 ---
 title: Personalizar Avaliações para a avaliação do servidor de migrações para Azure | Microsoft Docs
 description: Descreve como personalizar avaliações criadas com a avaliação de servidor de migrações para Azure
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.topic: article
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 07/15/2019
-ms.author: raynew
-ms.openlocfilehash: bcc6f41d7cc08764266ffb6705d1b8937d355199
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de90cffe8760a55aafebf079678d139c6f6f99e1
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86109715"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751097"
 ---
 # <a name="customize-an-assessment"></a>Personalizar uma avaliação
 

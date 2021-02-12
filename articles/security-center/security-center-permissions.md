@@ -6,20 +6,19 @@ cloud: na
 documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: ''
 ms.service: security-center
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/02/2020
+ms.date: 12/01/2020
 ms.author: memildin
-ms.openlocfilehash: 2edaf6dd139ed4612b91d3a19c3d1398d5afdec1
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 668fe1436feeb0888f7d871144da6cb6b8e3864e
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340352"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922604"
 ---
 # <a name="permissions-in-azure-security-center"></a>Permissões na Central de Segurança do Azure
 
@@ -56,7 +55,7 @@ A tabela a seguir exibe as funções e as ações permitidas na Central de Segur
 >
 
 ## <a name="next-steps"></a>Próximas etapas
-Este artigo explicou como a Central de Segurança usa o RBAC para atribuir permissões aos usuários e identificou as ações permitidas para cada função. Agora que você está familiarizado com as atribuições de função necessárias para monitorar o estado de segurança de sua assinatura, editar as políticas de segurança e aplicar recomendações, saiba como:
+Este artigo explicou como a Central de Segurança usa o Azure RBAC para atribuir permissões aos usuários e identificou as ações permitidas para cada função. Agora que você está familiarizado com as atribuições de função necessárias para monitorar o estado de segurança de sua assinatura, editar as políticas de segurança e aplicar recomendações, saiba como:
 
 - [Definir políticas de segurança na Central de Segurança](tutorial-security-policy.md)
 - [Gerenciando recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md)

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 5511551f240fe4fdd2f2aa3bc8a3a2615505f35f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 704763e8e6e7c5336d0ed3e1c28791fb96c77aba
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88936105"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97844948"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Habilidade cognitiva de pesquisa de entidade personalizada (versão prévia)
 
@@ -41,7 +41,9 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 | `entitiesDefinitionUri`    | Caminho para um arquivo JSON ou CSV que contém todo o texto de destino para correspondência. Esta definição de entidade é lida no início de uma execução de indexador; as atualizações para esse arquivo mid-Run não serão realizadas até as execuções subsequentes. Essa configuração deve ser acessível via HTTPS. Consulte formato de [definição de entidade personalizada](#custom-entity-definition-format) "abaixo para obter o esquema CSV ou JSON esperado.|
 |`inlineEntitiesDefinition` | Definições de entidade JSON embutida. Esse parâmetro substitui o parâmetro entitiesDefinitionUri, se presente. No máximo 10 KB de configuração podem ser fornecidos embutidos. Consulte a [definição de entidade personalizada](#custom-entity-definition-format) abaixo para obter o esquema JSON esperado. |
 |`defaultLanguageCode` |    Adicional Código de idioma do texto de entrada usado para indexar e delinear o texto de entrada. Há suporte para os seguintes idiomas: `da, de, en, es, fi, fr, it, ko, pt` . O padrão é inglês ( `en` ). Se você passar um formato languagecode-countrycode, somente a parte languagecode do formato é usada.  |
-
+|`globalDefaultCaseSensitive` | Adicional Valor padrão que diferencia maiúsculas de minúsculas para a habilidade. Se `defaultCaseSensitive` o valor de uma entidade não for especificado, esse valor se tornará o `defaultCaseSensitive` valor dessa entidade. |
+|`globalDefaultAccentSensitive` | Adicional Valor padrão sensível a acentos para a habilidade. Se `defaultAccentSensitive` o valor de uma entidade não for especificado, esse valor se tornará o `defaultAccentSensitive` valor dessa entidade. |
+|`globalDefaultFuzzyEditDistance` | Adicional Valor de distância de edição difusa padrão para a habilidade. Se `defaultFuzzyEditDistance` o valor de uma entidade não for especificado, esse valor se tornará o `defaultFuzzyEditDistance` valor dessa entidade. |
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
@@ -151,8 +153,10 @@ As tabelas a seguir descrevem mais detalhadamente os diferentes parâmetros de c
 | `subtype` | Adicional Esse campo pode ser usado como uma passagem para metadados personalizados sobre os textos correspondentes. O valor desse campo será exibido com cada correspondência de sua entidade na saída da habilidade. |
 | `id` | Adicional Esse campo pode ser usado como uma passagem para metadados personalizados sobre os textos correspondentes. O valor desse campo será exibido com cada correspondência de sua entidade na saída da habilidade. |
 | `caseSensitive` | Adicional O padrão é false. Valor booliano que indica se as comparações com o nome da entidade devem ser sensíveis à capitalização de caracteres. As correspondências que não diferenciam maiúsculas e minúsculas de "Microsoft" podem ser: Microsoft, microSoft, MICROSOFT |
+| `accentSensitive` | Adicional O padrão é false. Valor booliano indicando se letras acentuadas e não acentuadas, como ' T' e ' e ', devem ser idênticas. |
 | `fuzzyEditDistance` | Adicional O padrão é 0. Valor máximo de 5. Denota o número aceitável de caracteres divergentes que ainda constituem uma correspondência com o nome da entidade. A menor possibilidade de fuzzização possível para qualquer correspondência fornecida é retornada.  Por exemplo, se a distância de edição for definida como 3, "Windows 10" ainda corresponderia a "Windows", "Windows10" e "Windows 7". <br/> Quando a sensibilidade de maiúsculas e minúsculas é definida como false, as diferenças de maiúsculas e minúsculas não contam para a tolerância de fuzzing, mas sim. |
-| `defaultCaseSensitive` | Adicional Altera o valor de sensibilidade do caso padrão para esta entidade. Ele é usado para alterar o valor padrão de todos os aliases de todos os valores de caseSensitive. |
+| `defaultCaseSensitive` | Adicional Altera o valor de sensibilidade do caso padrão para esta entidade. Ele pode ser usado para alterar o valor padrão de todos os valores de aliases caseSensitive. |
+| `defaultAccentSensitive` | Adicional Altera o valor padrão de sensibilidade a acentos para esta entidade. Ele pode ser usado para alterar o valor padrão de todos os aliases accentSensitive valores.|
 | `defaultFuzzyEditDistance` | Adicional Altera o valor de distância de edição difusa padrão para esta entidade. Ele pode ser usado para alterar o valor padrão de todos os aliases fuzzyEditDistance valores. |
 | `aliases` | Adicional Uma matriz de objetos complexos que pode ser usada para especificar grafias alternativas ou sinônimos para o nome da entidade raiz. |
 
@@ -160,6 +164,7 @@ As tabelas a seguir descrevem mais detalhadamente os diferentes parâmetros de c
 |------------------|-------------|
 | `text`  | A grafia alternativa ou a representação de algum nome de entidade de destino.  |
 | `caseSensitive` | Adicional Age da mesma forma que o parâmetro "caseSensitive" da entidade raiz acima, mas aplica-se somente a esse alias. |
+| `accentSensitive` | Adicional Age da mesma forma que o parâmetro "accentSensitive" da entidade raiz acima, mas aplica-se somente a esse alias. |
 | `fuzzyEditDistance` | Adicional Age da mesma forma que o parâmetro "fuzzyEditDistance" da entidade raiz acima, mas aplica-se somente a esse alias. |
 
 

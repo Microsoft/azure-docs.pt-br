@@ -10,12 +10,12 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 7/16/2020
 ms.author: jonbeck
-ms.openlocfilehash: c763f761d77ac05d9f6b45e5656436faa5697e88
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d805fb926131e047572887758b10506e4edd5944
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310078"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183372"
 ---
 # <a name="tutorial-creating-a-new-child-dns-zone"></a>Tutorial: Criar uma Zona DNS filho
 
@@ -34,7 +34,7 @@ Neste tutorial, você aprenderá como:
 * Uma conta do Azure com uma assinatura ativa.  Caso não tenha uma conta, você pode [criar uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Zona DNS do Azure pai existente.  
 
-Para fins deste tutorial, usaremos contoso.com como a zona pai e subdomain.contoso.com como o nome de domínio filho.  Substitua *contoso.com* pelo seu nome de domínio pai e *subdomain* pelo seu domínio filho.  Se você ainda não tiver criado a zona DNS pai, confira as etapas para [criar uma zona DNS usando o portal do Azure](https://docs.microsoft.com/azure/dns/dns-getstarted-portal#create-a-dns-zone). 
+Para fins deste tutorial, usaremos contoso.com como a zona pai e subdomain.contoso.com como o nome de domínio filho.  Substitua *contoso.com* pelo seu nome de domínio pai e *subdomain* pelo seu domínio filho.  Se você ainda não tiver criado a zona DNS pai, confira as etapas para [criar uma zona DNS usando o portal do Azure](./dns-getstarted-portal.md#create-a-dns-zone). 
 
 
 ## <a name="sign-in-to-azure-portal"></a>Entre no portal do Azure
@@ -74,14 +74,14 @@ Você também pode criar uma zona DNS filho e delegá-la na zona DNS pai usando 
 1.  No portal do Azure, em **Todos os recursos**, abra a zona DNS *contoso.com* no grupo de recursos **MyResourceGroup**. Insira *contoso.com* na caixa **Filtrar por nome** para encontrá-la mais facilmente.
 1.  Na página de visão geral da zona DNS, selecione o botão **+ Zona Filho**.
 
-      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-inline.png" alt-text="Captura de tela da página Criar zona DNS." border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-expanded.png":::
+      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-inline.png" alt-text="Captura de tela do botão Zona Filho." border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-expanded.png":::
 
 1.  A página Criar zona DNS será aberta. A opção de zona filho já está marcada e a assinatura da zona pai e a zona pai já estão preenchidas para você nesta página.
 1.  Digite o nome como *child* para o exemplo deste tutorial. Observe que o nome da zona DNS pai, contoso.com, é adicionado automaticamente como prefixo ao nome.
 1.  Selecione **Avançar: Marcas** e, em seguida, **Avançar: Revisar + criar**.
 1.  Na guia **Examinar + criar**, examine o resumo, corrija os erros de validação e selecione **Criar**.
 
-    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-inline.png" alt-text="Captura de tela da página Criar zona DNS." border="true"  lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-expanded.png":::
+    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-inline.png" alt-text="Captura de tela da zona filho selecionada" border="true"  lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-expanded.png":::
 ## <a name="verify-child-dns-zone"></a>Verificar zona DNS filho
 Agora você criou uma zona DNS filho *subdomain.contoso.com*. Para verificar se a delegação ocorreu corretamente, verifique se os registros NS (nameserver) da zona filho estão na zona pai, conforme descrito abaixo.  
 
@@ -90,7 +90,7 @@ Agora você criou uma zona DNS filho *subdomain.contoso.com*. Para verificar se 
 1.  No portal do Azure, em **Todos os recursos**, abra a zona DNS *subdomain.contoso.com* no grupo de recursos **MyResourceGroup**. Insira *subdomain.contoso.com* na caixa **Filtrar por nome** para encontrá-la mais facilmente.
 1.  Recupere os servidores de nomes na página de visão geral da zona DNS. Neste exemplo, a zona contoso.com foi atribuída aos servidores de nomes *ns1-08.azure-dns.com, ns2-08.azure-dns.net, ns3-08.azure-dns.org* e *ns4-08.azure-dns.info*:
 
-      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-inline.png" alt-text="Captura de tela da página Criar zona DNS." border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-expanded.png":::
+      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-inline.png" alt-text="Captura de tela dos nameservers da zona filho" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-expanded.png":::
 **Verifique o registro NS na zona DNS pai:**
 
 Agora, nesta etapa, vamos até a zona DNS pai *contoso.com* e verificamos se a entrada do conjunto de registros NS dos nameservers das zonas filho foi criada.
@@ -99,7 +99,7 @@ Agora, nesta etapa, vamos até a zona DNS pai *contoso.com* e verificamos se a e
 1.  Na página de visão geral das zonas DNS do *contoso.com*, verifique os conjuntos de registros.
 1.  Você verá que o conjunto de registros do tipo NS e o nome subdomain já foi criado na zona DNS pai. Verifique se os valores deste conjunto de registros é semelhante à lista de nameserver que recuperamos da zona DNS filho na etapa acima.
 
-     :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-inline.png" alt-text="Captura de tela da página Criar zona DNS." border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-expanded.png":::
+     :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-inline.png" alt-text="Captura de tela da validação dos nameservers da zona filho" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-expanded.png":::
 ## <a name="clean-up-resources"></a>Limpar os recursos
 Quando você não precisar mais dos recursos criados neste tutorial, remova-os excluindo o grupo de recursos **MyResourceGroup**. Abra o grupo de recursos **MyResourceGroup** e selecione **Excluir grupo de recursos**.
 

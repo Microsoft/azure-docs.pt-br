@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/30/2020
+ms.date: 02/01/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a5cff53ee9e742e93a6183eb5d506bf8f1a08deb
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: b948de6ad9e07a650df98ef38104c02462ab532d
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130180"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428024"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de erro de autorização e autenticação do Azure AD
 
@@ -74,7 +74,7 @@ O `error` campo tem vários valores possíveis: examine os links de documentaç�
 ## <a name="lookup-current-error-code-information"></a>Pesquisar informações do código de erro atual
 Os códigos de erro e as mensagens estão sujeitos a alterações.  Para obter as informações mais atuais, dê uma olhada na [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) página para encontrar descrições de erro AADSTS, correções e algumas soluções alternativas sugeridas.  
 
-Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você recebeu o código de erro "AADSTS16000", faça uma pesquisa em [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) para "16000".  Você também pode vincular diretamente a um erro específico adicionando o número de código de erro à URL: [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000) .
+Por exemplo, se você recebeu o código de erro "AADSTS50058", faça uma pesquisa em [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) para "50058".  Você também pode vincular diretamente a um erro específico adicionando o número de código de erro à URL: [https://login.microsoftonline.com/error?code=50058](https://login.microsoftonline.com/error?code=50058) .
 
 ## <a name="aadsts-error-codes"></a>Códigos de erro AADSTS
 
@@ -95,6 +95,7 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 | AADSTS50000 | TokenIssuanceError - há um problema com o serviço de logon. [Abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) para resolver esse problema. |
 | AADSTS50001 | InvalidResource - O recurso está desabilitado ou não existe. Verifique o código do seu aplicativo para garantir que você especificou o URL exato do recurso que você está tentando acessar.  |
 | AADSTS50002 | NotAllowedTenant - O login falhou devido a um acesso de proxy restrito no locatário. Se essa for a própria política de locatário, você poderá alterar suas configurações de locatário restrito para corrigir esse problema. |
+| AADSTS500021 | Acesso negado ao locatário ' {Tenant} '. AADSTS500021 indica que o recurso de restrição de locatário está configurado e que o usuário está tentando acessar um locatário que não está na lista de locatários permitidos especificados no cabeçalho `Restrict-Access-To-Tenant` . Para obter mais informações, consulte [usar restrições de locatário para gerenciar o acesso a aplicativos de nuvem SaaS](/azure/active-directory/manage-apps/tenant-restrictions).|
 | AADSTS50003 | MissingSigningKey - O logon falhou devido a uma chave de assinatura ou certificado ausente. Isso pode ter ocorrido porque não havia uma chave de assinatura configurada no aplicativo. Confira as resoluções descritas em [.. /Manage-apps/application-Sign-in-problem-Federated-SSO-Gallery.MD # certificado-ou-chave não configurado](../manage-apps/application-sign-in-problem-federated-sso-gallery.md#certificate-or-key-not-configured). Se você ainda encontrar problemas, entre em contato com o proprietário do aplicativo ou com um administrador do aplicativo. |
 | AADSTS50005 | DevicePolicyError-o usuário tentou fazer logon em um dispositivo de uma plataforma que atualmente não tem suporte por meio da política de acesso condicional. |
 | AADSTS50006 | InvalidSignature - Falha na verificação da assinatura devido a uma assinatura inválida. |
@@ -251,7 +252,7 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 | AADSTS90051 | InvalidNationalCloudId - O identificador nacional da nuvem contém um identificador de nuvem inválido. |
 | AADSTS90055 | TenantThrottlingError - Há muitas solicitações recebidas. Esta exceção é lançada para inquilinos bloqueados. |
 | AADSTS90056 | BadResourceRequest - Para resgatar o código de um token de acesso, o aplicativo deve enviar uma solicitação POST para o endpoint `/token`. Além disso, antes disso, você deve fornecer um código de autorização e enviá-lo na solicitação POST para o nó de extremidade `/token`. Consulte este artigo para obter uma visão geral do fluxo de código de autorização do OAuth 2,0: [.. /azuread-dev/v1-Protocols-OAuth-Code.MD](../azuread-dev/v1-protocols-oauth-code.md). Direcione o usuário para o terminal `/authorize`, que retornará um código_de_ativação. Ao postar uma solicitação para o endpoint `/token`, o usuário obtém o token de acesso. Faça logon no portal do Azure e verifique **Registros do aplicativo> Endpoints** para confirmar se os dois pontos de extremidade foram configurados corretamente. |
-| AADSTS90072 | PassThroughUserMfaError - A conta externa com a qual o usuário se conecta não existe no locatário em que eles se conectaram; Assim, o usuário não pode satisfazer os requisitos de MFA para o locatário. A conta deve ser adicionada como um usuário externo no inquilino primeiro. Saia e faça login com uma conta de usuário diferente do AD do Azure. |
+| AADSTS90072 | PassThroughUserMfaError - A conta externa com a qual o usuário se conecta não existe no locatário em que eles se conectaram; Assim, o usuário não pode satisfazer os requisitos de MFA para o locatário. Esse erro também poderá ocorrer se os usuários forem sincronizados, mas houver uma incompatibilidade no atributo imutável (sourceAnchor) entre Active Directory e o Azure AD. A conta deve ser adicionada como um usuário externo no inquilino primeiro. Saia e faça login com uma conta de usuário diferente do AD do Azure. |
 | AADSTS90081 | OrgIdWsFederationMessageInvalid - Ocorreu um erro quando o serviço tentou processar uma mensagem do WS-Federation. A mensagem não é válida. |
 | AADSTS90082 | OrgIdWsFederationNotSupported - A política de autenticação selecionada para a solicitação não é atualmente suportada. |
 | AADSTS90084 | OrgIdWsFederationGuestNotAllowed - Contas de convidado não são permitidas para este site. |
@@ -315,7 +316,7 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 | AADSTS700022 | InvalidMultipleResourcesScope - O valor fornecido para o escopo do parâmetro de entrada não é válido porque contém mais de um recurso. |
 | AADSTS700023 | InvalidResourcelessScope - O valor fornecido para o escopo do parâmetro de entrada não é válido ao solicitar um token de acesso. |
 | AADSTS7000215 | Segredo do cliente inválido é fornecido. Erro do desenvolvedor-o aplicativo está tentando entrar sem os parâmetros de autenticação necessários ou corretos.|
-| AADSTS7000222 | InvalidClientSecretExpiredKeysProvided-as chaves secretas do cliente fornecidas expiraram. Visite a portal do Azure para criar novas chaves para seu aplicativo ou considere o uso de credenciais de certificado para segurança adicional: [https://aka.ms/certCreds](https://aka.ms/certCreds) |
+| AADSTS7000222 | InvalidClientSecretExpiredKeysProvided-as chaves secretas do cliente fornecidas expiraram. Visite a portal do Azure para criar novas chaves para seu aplicativo ou considere o uso de credenciais de certificado para segurança adicional: [https://aka.ms/certCreds](./active-directory-certificate-credentials.md) |
 | AADSTS700005 | O código de autorização fornecido pelo InvalidGrantRedeemAgainstWrongTenant deve ser usado em relação a outro locatário, portanto rejeitado. O código de autorização OAuth2 deve ser resgatado no mesmo locatário em que foi adquirido (/Common ou/{tenant-ID} conforme apropriado) |
 | AADSTS1000000 | UserNotBoundError - A API de vinculação exige que o usuário do AD do Azure também se autentique com um IDP externo, o que ainda não aconteceu. |
 | AADSTS1000002 | BindCompleteInterruptError - A ligação foi concluída com êxito, mas o usuário deve ser informado. |

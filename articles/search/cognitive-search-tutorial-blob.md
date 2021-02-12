@@ -7,28 +7,34 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 07/15/2020
-ms.openlocfilehash: 84defa0704c44bb0ed4564195725f7dd1c42312c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 11/17/2020
+ms.openlocfilehash: 21f0d141567f17c470732088c6a93a2ae7ed3c67
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788053"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94738043"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Use o REST e a IA para gerar conteúdo pesquisável em blobs do Azure
 
-Se você tiver um texto não estruturado ou imagens no Armazenamento de Blobs do Azure, um [pipeline de enriquecimento de IA](cognitive-search-concept-intro.md) poderá extrair informações e criar um conteúdo que seja útil para cenários de pesquisa de texto completo ou mineração de conhecimento. Embora um pipeline possa processar imagens, este tutorial do REST concentra-se no texto, aplicando detecção de idioma e processamento de idioma natural para criar campos que você pode usar em consultas, facetas e filtros.
+Se você tiver um texto não estruturado ou imagens no Armazenamento de Blobs do Azure, um [pipeline de enriquecimento de IA](cognitive-search-concept-intro.md) poderá extrair informações e criar um conteúdo com base nos blobs que são úteis para cenários de pesquisa de texto completo ou mineração de conhecimento. Embora um pipeline possa processar imagens, este tutorial do REST concentra-se no texto, aplicando detecção de idioma e processamento de idioma natural para criar campos que você pode usar em consultas, facetas e filtros.
 
 Este tutorial usa o Postman e as [APIs REST de Pesquisa](/rest/api/searchservice/) para executar as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Comece com documentos inteiros (texto não estruturado), como PDF, HTML, DOCX e PPTX no Armazenamento de Blobs do Azure.
-> * Defina um pipeline que extrai texto, detecta o idioma, reconhece entidades e detecta frases-chave.
-> * Defina um índice para armazenar a saída (conteúdo bruto, além de pares nome-valor gerados pelo pipeline).
-> * Execute o pipeline para começar com as transformações e a análise e para criar e carregar o índice.
+> * Configurar serviços e uma coleção do Postman.
+> * Criar um pipeline de enriquecimento que extrai texto, detecta o idioma, reconhece entidades e detecta frases-chave.
+> * Criar um índice para armazenar a saída (conteúdo bruto, além de pares nome-valor gerados pelo pipeline).
+> * Executar o pipeline para executar transformações e a análise e para carregar o índice.
 > * Explore os resultados usando a pesquisa de texto completo e uma sintaxe de consulta avançada.
 
 Caso não tenha uma assinatura do Azure, abra uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+## <a name="overview"></a>Visão geral
+
+Este tutorial usa C# e as APIs REST do Azure Cognitive Search para criar uma fonte de dados, um índice, um indexador e um conjunto de habilidades. Você começará com documentos inteiros (texto não estruturado) como PDF, HTML, DOCX e PPTX no Armazenamento de Blobs do Azure e, em seguida, os executará por meio de um conjunto de habilidades para extrair entidades, frases-chave e outros tipos de texto nos arquivos de conteúdo.
+
+Esse conjunto de habilidades usa habilidades internas baseadas na API de Serviços Cognitivos. As etapas no pipeline incluem a detecção de idioma em texto, extração de frases-chave e reconhecimento de entidades (organizações). Novas informações são armazenadas em novos campos que você pode aproveitar em consultas, facetas e filtros.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,7 +49,9 @@ Caso não tenha uma assinatura do Azure, abra uma [conta gratuita](https://azure
 
 1. Abra esta [pasta do OneDrive](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) e, no canto superior esquerdo, clique em **Baixar** para copiar os arquivos para o computador. 
 
-1. Clique com o botão direito do mouse no arquivo zip e selecione **Extrair Tudo** . Há 14 arquivos de vários tipos. Você usará sete para este exercício.
+1. Clique com o botão direito do mouse no arquivo zip e selecione **Extrair Tudo**. Há 14 arquivos de vários tipos. Você usará sete para este exercício.
+
+Opcionalmente, você também pode baixar o código-fonte, um arquivo de coleção do Postman, para este tutorial. O código-fonte pode ser encontrado em [https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Tutorial](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Tutorial).
 
 ## <a name="1---create-services"></a>1 – Criar serviços
 
@@ -53,7 +61,7 @@ Se possível, crie os dois na mesma região e no mesmo grupo de recursos para fa
 
 ### <a name="start-with-azure-storage"></a>Começar com o Armazenamento do Azure
 
-1. [Entre no portal do Azure](https://portal.azure.com/) e clique em **+ Criar Recurso** .
+1. [Entre no portal do Azure](https://portal.azure.com/) e clique em **+ Criar Recurso**.
 
 1. Pesquise *conta de armazenamento* e selecione a oferta Conta de Armazenamento da Microsoft.
 
@@ -61,21 +69,21 @@ Se possível, crie os dois na mesma região e no mesmo grupo de recursos para fa
 
 1. Na guia Informações Básicas, os itens a seguir são obrigatórios. Aceite os padrões para todo o restante.
 
-   + **Grupo de recursos** . Selecione um grupo existente ou crie um, mas use o mesmo grupo para todos os serviços, de modo que você possa gerenciá-los em conjunto.
+   + **Grupo de recursos**. Selecione um grupo existente ou crie um, mas use o mesmo grupo para todos os serviços, de modo que você possa gerenciá-los em conjunto.
 
-   + **Nome da conta de armazenamento** . Se acreditar que possa ter vários recursos do mesmo tipo, use o nome para desfazer a ambiguidade por tipo e região, por exemplo, *blobstoragewestus* . 
+   + **Nome da conta de armazenamento**. Se acreditar que possa ter vários recursos do mesmo tipo, use o nome para desfazer a ambiguidade por tipo e região, por exemplo, *blobstoragewestus*. 
 
-   + **Local** . Se possível, escolha a mesma localização usada para a Pesquisa Cognitiva do Azure e os Serviços Cognitivos. Uma única localização anula os encargos de largura de banda.
+   + **Local**. Se possível, escolha a mesma localização usada para a Pesquisa Cognitiva do Azure e os Serviços Cognitivos. Uma única localização anula os encargos de largura de banda.
 
-   + **Tipo de Conta** . Escolha o padrão, *StorageV2 (Uso Geral v2)* .
+   + **Tipo de Conta**. Escolha o padrão, *StorageV2 (Uso Geral v2)* .
 
 1. Clique em **Examinar + Criar** para criar o serviço.
 
 1. Após a criação, clique em **Ir para o recurso** para abrir a página Visão Geral.
 
-1. Clique em serviço **Blobs** .
+1. Clique em serviço **Blobs**.
 
-1. Clique em **+ Contêiner** para criar um contêiner e nomeie-o *cog-search-demo* .
+1. Clique em **+ Contêiner** para criar um contêiner e nomeie-o *cog-search-demo*.
 
 1. Selecione *cog-search-demo* e, em seguida, clique em **Upload** para abrir a pasta em que você salvou os arquivos de download. Selecione todos os arquivos que não sejam de imagem. Você deve ter sete arquivos. Clique em **OK** para fazer upload deles.
 
@@ -107,11 +115,11 @@ O terceiro componente é a Pesquisa Cognitiva do Azure, que pode ser [criada no 
 
 Assim como o Armazenamento de Blobs do Azure, reserve um momento para coletar a chave de acesso. Além disso, quando começar a estruturar as solicitações, você precisará fornecer a chave de API de administração e o ponto de extremidade usados para autenticar cada solicitação.
 
-### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Obter uma URL e uma chave de API de administração para a Pesquisa Cognitiva do Azure
+### <a name="copy-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Copiar uma URL e uma chave de API de administração para o Azure Cognitive Search
 
 1. [Entre no portal do Azure](https://portal.azure.com/) e, na página **Visão Geral** do serviço de pesquisa, obtenha o nome de seu serviço de pesquisa. Você pode confirmar o nome do serviço examinando a URL do ponto de extremidade. Se a URL do ponto de extremidade for `https://mydemo.search.windows.net`, o nome do serviço será `mydemo`.
 
-2. Em **Configurações** > **Chaves** , obtenha uma chave de administração para adquirir todos os direitos sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso seja necessário sobrepor uma. É possível usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
+2. Em **Configurações** > **Chaves**, obtenha uma chave de administração para adquirir todos os direitos sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso seja necessário sobrepor uma. É possível usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
 
    Obtenha a chave de consulta também. É uma melhor prática para emitir solicitações de consulta com acesso somente leitura.
 
@@ -121,17 +129,17 @@ Todas as solicitações exigem uma api-key no cabeçalho de cada solicitação e
 
 ## <a name="2---set-up-postman"></a>2 – Configurar o Postman
 
-Inicie o Postman e configure uma solicitação HTTP. Se não estiver familiarizado com essa ferramenta, consulte [Explorar APIs REST da Pesquisa Cognitiva do Azure usando Postman](search-get-started-postman.md).
+Inicie o Postman e configure uma solicitação HTTP. Se não estiver familiarizado com essa ferramenta, confira [Explorar APIs REST do Azure Cognitive Search](search-get-started-rest.md).
 
-Os métodos de solicitação usados neste tutorial são **POST** , **PUT** e **GET** . Você usará os métodos para fazer quatro chamadas à API ao serviço de pesquisa: criar uma fonte de dados, um conjunto de habilidades, um índice e um indexador.
+Os métodos de solicitação usados neste tutorial são **POST**, **PUT** e **GET**. Você usará os métodos para fazer quatro chamadas à API ao serviço de pesquisa: criar uma fonte de dados, um conjunto de habilidades, um índice e um indexador.
 
 Em Cabeçalhos, defina "Content-Type" como `application/json` e `api-key` como a chave de API de administração do serviço da Pesquisa Cognitiva do Azure. Depois de definir os cabeçalhos, você poderá usá-los para cada solicitação neste exercício.
 
-  ![URL e cabeçalho da solicitação do Postman](media/search-get-started-postman/postman-url.png "URL e cabeçalho da solicitação do Postman")
+  ![URL e cabeçalho da solicitação do Postman](media/search-get-started-rest/postman-url.png "URL e cabeçalho da solicitação do Postman")
 
 ## <a name="3---create-the-pipeline"></a>3 – Criar o pipeline
 
-Na Pesquisa Cognitiva do Azure, o processamento de IA ocorre durante a indexação (ou a ingestão de dados). Esta parte do passo a passo cria quatro objetos: fonte de dados, definição de índice, conjunto de habilidades e indexador. 
+No Azure Cognitive Search, o enriquecimento ocorre durante a indexação (ou a ingestão de dados). Esta parte do passo a passo cria quatro objetos: fonte de dados, definição de índice, conjunto de habilidades e indexador. 
 
 ### <a name="step-1-create-a-data-source"></a>Etapa 1: Criar uma fonte de dados
 
@@ -179,7 +187,7 @@ Um [objeto de conjunto de habilidades](/rest/api/searchservice/create-skillset) 
    |-----------------------|----------------|
    | [Reconhecimento de Entidade](cognitive-search-skill-entity-recognition.md) | Extrai os nomes de pessoas, organizações e localizações do conteúdo no contêiner de blobs. |
    | [Detecção de Idioma](cognitive-search-skill-language-detection.md) | Detecta o idioma do conteúdo. |
-   | [Divisão de Texto](cognitive-search-skill-textsplit.md)  | Divide um conteúdo grande em partes menores antes de chamar a habilidade de extração de frases-chave. Extração de frase-chave aceita entradas de 50.000 caracteres ou menos. Alguns dos arquivos de exemplo precisam dividir para se ajustar dentro desse limite. |
+   | [Divisão de texto](cognitive-search-skill-textsplit.md)  | Divide um conteúdo grande em partes menores antes de chamar a habilidade de extração de frases-chave. Extração de frase-chave aceita entradas de 50.000 caracteres ou menos. Alguns dos arquivos de exemplo precisam dividir para se ajustar dentro desse limite. |
    | [Extração de Frases-chave](cognitive-search-skill-keyphrases.md) | Extrai as principais frases-chave. |
 
    Cada uma delas executa no conteúdo do documento. Durante o processamento, a Pesquisa Cognitiva do Azure abre cada documento para ler o conteúdo de diferentes formatos de arquivo. Encontrado um texto de origem no arquivo de origem é colocado em um campo gerado ```content```, uma para cada documento. Dessa forma, a entrada se torna ```"/document/content"```.
@@ -350,7 +358,7 @@ Um [Indexador](/rest/api/searchservice/create-indexer) conduz o pipeline. Os tr�
 
     ```json
     {
-      "name":"cog-search-demo-idxr",    
+      "name":"cog-search-demo-idxr",
       "dataSourceName" : "cog-search-demo-ds",
       "targetIndexName" : "cog-search-demo-idx",
       "skillsetName" : "cog-search-demo-ss",

@@ -8,19 +8,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/07/2020
-ms.openlocfilehash: 9777e4f9b2205d2f6cdf6158b035e2a18403d69f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/08/2020
+ms.openlocfilehash: ea2b44d05d25756a16b6b84f0734966b1f579848
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541451"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007595"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Como melhorar o aplicativo LUIS examinando o ponto de extremidade declarações
 
 O processo de revisão do ponto de extremidade declarações para previsões corretas é chamado de [aprendizado ativo](luis-concept-review-endpoint-utterances.md). O aprendizado ativo captura consultas de ponto de extremidade e seleciona o ponto de extremidade do usuário declarações que não tem certeza de. Revise essas declarações para selecionar as entidades de intenção e marca para essas declarações reais. Aceite essas alterações no seu exemplo de enunciado e, em seguida, treine e publique. LUIS, em seguida, identifica declarações com mais precisão.
 
-## <a name="enable-active-learning"></a>Habilitar o aprendizado ativo
+## <a name="log-user-queries-to-enable-active-learning"></a>Registrar consultas de usuário para habilitar o aprendizado ativo
 
 Para habilitar o aprendizado ativo, você deve registrar as consultas de usuário. Isso é feito chamando a [consulta de ponto de extremidade](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) com o `log=true` parâmetro e o valor de QueryString.
 

@@ -1,21 +1,21 @@
 ---
 title: Importar dados para o designer
 titleSuffix: Azure Machine Learning
-description: Saiba como importar dados para o designer de Azure Machine Learning de várias fontes de dados.
+description: Saiba como importar dados para o designer de Azure Machine Learning usando conjuntos de dados do Azure Machine Learning e o módulo Import Data.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 15fca48327c46480546764be1b2ab40c1635e874
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2cc0840b7ba4b26cf9f5b1219fc189230870774
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985602"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739851"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>Importar dados para o designer de Azure Machine Learning
 
@@ -38,7 +38,7 @@ Além disso, é possível registrar o resultado de qualquer módulo do designer 
 
 1. Selecione o módulo que gera os dados que você deseja registrar.
 
-1. No painel Propriedades, selecione **saídas + logs**  >  **registrar conjunto**de registros.
+1. No painel Propriedades, selecione **saídas + logs**  >  **registrar conjunto** de registros.
 
     ![Captura de tela mostrando como navegar até a opção Registrar conjunto de dados](media/how-to-designer-import-data/register-dataset-designer.png)
 
@@ -47,12 +47,13 @@ Se os dados de saída do módulo estiverem em um formato tabular, você deverá 
  - O conjunto de registros de **arquivo** registra a pasta de saída do módulo como um conjunto de um arquivo. A pasta de saída contém um arquivo de dados e metadados que o designer usa internamente. Selecione esta opção se você quiser continuar a usar o conjunto de entrada registrado no designer. 
 
  - **DataSet tabular** registra apenas o arquivo de dados de saída do módulo como um DataSet tabular. Esse formato é facilmente consumido por outras ferramentas, por exemplo, no Machine Learning automatizado ou no SDK do Python. Selecione esta opção se você planeja usar o conjunto de DataSet registrado fora do designer.  
-
-
+ 
 
 ### <a name="use-a-dataset"></a>Usar um conjunto de dados
 
 Seus conjuntos de valores registrados podem ser encontrados na paleta de módulos, em **DataSets**. Para usar um conjunto de dados, arraste-o e solte-o na tela do pipeline. Em seguida, conecte a porta de saída do conjunto de resultados a outros módulos na tela. 
+
+Se você registrar um conjunto de registros de arquivo, o tipo de porta de saída do conjunto de registros será **AnyDirectory**. Se você registrar um conjunto de registros de tabela, o tipo de porta de saída do conjunto de resultados se **DataFrameDirectory**. Observe que se você conectar a porta de saída do conjunto de resultados a outros módulos no designer, o tipo de porta de conjuntos de valores e módulos precisarão ser alinhados.
 
 ![Captura de tela mostrando o local dos conjuntos de dados salvos na paleta do designer](media/how-to-designer-import-data/use-datasets-designer.png)
 
@@ -60,6 +61,14 @@ Seus conjuntos de valores registrados podem ser encontrados na paleta de módulo
 > [!NOTE]
 > O designer dá suporte ao [controle de versão do conjunto](how-to-version-track-datasets.md)de os. Especifique a versão do conjunto de módulos no painel de propriedades do módulo DataSet.
 
+### <a name="limitations"></a>Limitações 
+
+- No momento, você só pode visualizar o conjunto de tabelas tabular no designer. Se você registrar um conjunto de registros de arquivo fora do designer, não será possível visualizá-lo na tela do designer.
+- Seu conjunto de armazenamento é armazenado na rede virtual (VNet). Se você quiser Visualizar, precisará habilitar a identidade gerenciada do espaço de trabalho do repositório de armazenamento.
+    1. Vá para o repositório de armazenamento relacionado e clique em **Atualizar credenciais** 
+     :::image type="content" source="./media/resource-known-issues/datastore-update-credential.png" alt-text="Atualizar credenciais":::
+    1. Selecione **Sim** para habilitar a identidade gerenciada do espaço de trabalho.
+    :::image type="content" source="./media/resource-known-issues/enable-workspace-managed-identity.png" alt-text="Habilitar identidade gerenciada do espaço de trabalho":::
 
 ## <a name="import-data-using-the-import-data-module"></a>Importar dados usando o módulo Importar Dados
 

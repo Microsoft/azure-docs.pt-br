@@ -5,11 +5,11 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.custom: seodec18
 ms.openlocfilehash: fe2697c73f2a5f3f0b33cfb598f11f39420ed723
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108092"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994104"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Logs, alertas e métricas do Lote para avaliação e monitoramento de diagnóstico
 
@@ -33,7 +33,7 @@ Na portal do Azure, a página **visão geral** da conta mostrará as principais 
 
 Para exibir todas as métricas de conta do lote no portal do Azure:
 
-1. Na portal do Azure, selecione **todos os serviços**  >  **contas do lote**e, em seguida, selecione o nome da sua conta do lote.
+1. Na portal do Azure, selecione **todos os serviços**  >  **contas do lote** e, em seguida, selecione o nome da sua conta do lote.
 2. Em **Monitoramento**, selecione **Métricas**.
 3. Selecione **Adicionar métrica** e, em seguida, escolha uma métrica na lista suspensa.
 4. Selecione uma opção de **agregação** para a métrica. Para métricas baseadas em contagem (como "contagem de núcleos dedicados" ou "contagem de nós de baixa prioridade"), use a agregação **média** . Para métricas baseadas em evento (como "eventos de redimensionamento de pool concluídos"), use a agregação " **Count**".
@@ -62,8 +62,8 @@ Por exemplo, você pode configurar um alerta de métrica quando a contagem de n�
 Para configurar um alerta de métrica no portal do Azure:
 
 1. Selecione **Todos os serviços** > **Contas do Lote** e, em seguida, selecione o nome de sua conta do Lote.
-2. Em **monitoramento**, selecione **alertas**e, em seguida, selecione **nova regra de alerta**.
-3. Clique em **Selecionar condição**e escolha uma métrica. Confirme os valores do **período do gráfico**, do **tipo de limite**, do **operador**e do **tipo de agregação**e insira um **valor de limite**. Em seguida, selecione **Concluído**.
+2. Em **monitoramento**, selecione **alertas** e, em seguida, selecione **nova regra de alerta**.
+3. Clique em **Selecionar condição** e escolha uma métrica. Confirme os valores do **período do gráfico**, do **tipo de limite**, do **operador** e do **tipo de agregação** e insira um **valor de limite**. Em seguida, selecione **Concluído**.
 4. Adicione um grupo de ações ao alerta selecionando um grupo de ações existente ou criar um novo.
 5. Na seção **detalhes da regra de alerta** , insira um nome e uma **Descrição** da **regra de alerta** e selecione a **severidade**
 6. Selecione **Criar regra de alerta**.
@@ -97,12 +97,12 @@ Como alternativa, você pode:
 
 Para criar uma nova configuração de diagnóstico no portal do Azure, siga as etapas abaixo.
 
-1. Na portal do Azure, selecione **todos os serviços**  >  **contas do lote**e, em seguida, selecione o nome da sua conta do lote.
+1. Na portal do Azure, selecione **todos os serviços**  >  **contas do lote** e, em seguida, selecione o nome da sua conta do lote.
 2. Em **Monitoramento**, selecione **Configurações de diagnóstico**.
 3. Em **configurações de diagnóstico**, selecione **Adicionar configuração de diagnóstico**.
 4. Insira um nome para a configuração.
-5. Selecione um destino: **Enviar para log Analytics**, **arquivar em uma conta de armazenamento**ou **transmitir para um hub de eventos**. Se você selecionar uma conta de armazenamento, poderá, opcionalmente, definir uma política de retenção. Se você não especificar um número de dias para retenção, os dados serão retidos durante a vida útil da conta de armazenamento.
-6. Selecione **ServiceLog**, **biometria**ou ambos.
+5. Selecione um destino: **Enviar para log Analytics**, **arquivar em uma conta de armazenamento** ou **transmitir para um hub de eventos**. Se você selecionar uma conta de armazenamento, poderá, opcionalmente, definir uma política de retenção. Se você não especificar um número de dias para retenção, os dados serão retidos durante a vida útil da conta de armazenamento.
+6. Selecione **ServiceLog**, **biometria** ou ambos.
 7. Selecione **salvar** para criar a configuração de diagnóstico.
 
 Você também pode [habilitar a coleta por meio de Azure monitor no portal do Azure](../azure-monitor/platform/diagnostic-settings.md) para definir configurações de diagnóstico, usando um [modelo do Resource Manager](../azure-monitor/samples/resource-manager-diagnostic-settings.md)ou com Azure PowerShell ou CLI do Azure. Para obter mais informações, consulte [visão geral dos logs da plataforma Azure](../azure-monitor/platform/platform-logs-overview.md).

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: cc5a214d53441a5e1f30158a0264278b3cdc95a0
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: e971b02fb87440d4833c2eeba8897143f97a20dd
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455906"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97670402"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Tutorial: integração do Azure Active Directory ao Clear Review
 
@@ -52,11 +52,11 @@ Para configurar a integração do Clear Review com o Azure AD, você precisará 
 
 **Para adicionar o Clear Review por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory** .
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos** .
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -64,13 +64,13 @@ Para configurar a integração do Clear Review com o Azure AD, você precisará 
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Clear Review** , selecione **Clear Review** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Clear Review**, selecione **Clear Review** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-     ![Clear Review na lista de resultados](common/search-new-app.png)
+    ![Clear Review na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Clear Review com base em um usuário de teste chamado **Brenda Fernandes** .
+Nesta seção, você configurará e testará o logon único do Azure AD com o Clear Review com base em um usuário de teste chamado **Brenda Fernandes**.
 Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Clear Review.
 
 Para configurar e testar o logon único do Azure AD com o Clear Review, você precisará concluir os seguintes blocos de construção:
@@ -88,19 +88,19 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Clear Review, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativo do **Clear Review** , clique em **Logon único** .
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativo do **Clear Review**, clique em **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML** .
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração Básica do SAML** , caso deseje configurar o aplicativo no modo iniciado por **IDP** execute as seguintes etapas:
+4. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IDP** execute as seguintes etapas:
 
     ![Captura de tela que mostra a Configuração Básica de SAML, em que você pode inserir o Identificador e a URL de Resposta e selecionar Salvar.](common/idp-intiated.png)
 
@@ -112,32 +112,32 @@ Para configurar o logon único do Azure AD com o Clear Review, execute as seguin
 
     ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de logon** , digite um URL usando o seguinte padrão: `https://<customer name>.clearreview.com`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<customer name>.clearreview.com`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Entre em contato com a [equipe de suporte ao cliente do Clear Review](https://clearreview.com/contact/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-6. O aplicativo Clear Review espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão, em que **nameidentifier** é mapeado com **user.userprincipalname** . O aplicativo Clear Review espera que **nameidentifier** seja mapeado com **user.mail** . Portanto, você precisa editar o mapeamento de atributo clicando no ícone **Editar** e alterar o mapeamento de atributo.
+6. O aplicativo Clear Review espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão, em que **nameidentifier** é mapeado com **user.userprincipalname**. O aplicativo Clear Review espera que **nameidentifier** seja mapeado com **user.mail**. Portanto, você precisa editar o mapeamento de atributo clicando no ícone **Editar** e alterar o mapeamento de atributo.
 
     ![Captura de tela que mostra Atributos de usuário com o ícone Editar selecionado.](common/edit-attribute.png)
 
-7. Na caixa de diálogo **Atributos de Usuário** , realize as seguintes etapas:
+7. Na caixa de diálogo **Atributos de Usuário**, realize as seguintes etapas:
 
-    a. Clique no **ícone de edição** à direita do **valor do identificador de nome** .
+    a. Clique no **ícone de edição** à direita do **valor do identificador de nome**.
 
     ![Captura de tela que mostra Atributos e Declarações do Usuário, com o ícone Editar selecionado.](./media/clearreview-tutorial/attribute02.png)
 
     ![Captura de tela que mostra a caixa de diálogo Gerenciar declarações do usuário, na qual você pode inserir os valores descritos.](./media/clearreview-tutorial/attribute01.png)
 
-    b. Na lista **Atributo de origem** , selecione o valor do atributo **user.mail** para essa linha.
+    b. Na lista **Atributo de origem**, selecione o valor do atributo **user.mail** para essa linha.
 
     c. Clique em **Save** (Salvar).
 
-8. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+8. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-9. Na seção **Configurar o Clear Review** , copie as URLs apropriadas de acordo com suas necessidades.
+9. Na seção **Configurar o Clear Review**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -149,27 +149,27 @@ Para configurar o logon único do Azure AD com o Clear Review, execute as seguin
 
 ### <a name="configure-clear-review-single-sign-on"></a>Configurar o logon único do Clear Review
 
-1. Para configurar o logon único no **Clear Review** , abra o portal **Clear Review** com credenciais de administrador.
+1. Para configurar o logon único no **Clear Review**, abra o portal **Clear Review** com credenciais de administrador.
 
 2. Selecione **Admin** do painel de navegação esquerdo.
 
     ![A captura de tela mostra o portal de revisão clara com o administrador selecionado.](./media/clearreview-tutorial/tutorial_clearreview_app_admin1.png)
 
-3. Na seção **Integrações** na parte inferior da página, clique no botão **Alterar** à direita de **Configurações de Logon Único** .
+3. Na seção **Integrações** na parte inferior da página, clique no botão **Alterar** à direita de **Configurações de Logon Único**.
 
     ![A captura de tela mostra o botão de alteração de logon único.](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
 
-4. Na página **Configurações de Logon Único** , realize as seguintes etapas
+4. Na página **Configurações de Logon Único**, realize as seguintes etapas
 
     ![A captura de tela mostra a página de configurações de logon único, na qual você pode inserir as informações nesta etapa.](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
 
-    a. Na caixa de texto **URL do Emissor** , cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
+    a. Na caixa de texto **URL do Emissor**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
 
-    b. Na caixa de texto **Ponto de extremidade do SAML** , cole o valor da **URL de Logon** copiado do portal do Azure.  
+    b. Na caixa de texto **Ponto de extremidade do SAML**, cole o valor da **URL de Logon** copiado do portal do Azure.  
 
-    c. Na caixa de texto **Ponto de extremidade do SLO** , cole o valor da **URL de Logoff** copiado do portal do Azure.  
+    c. Na caixa de texto **Ponto de extremidade do SLO**, cole o valor da **URL de Logoff** copiado do portal do Azure.  
 
-    d. Abra o certificado baixado no Bloco de Notas, copie o conteúdo e cole-o na caixa de texto **Certificado x.509** .   
+    d. Abra o certificado baixado no Bloco de Notas, copie o conteúdo e cole-o na caixa de texto **Certificado x.509**.   
 
     e. Clique em **Save** (Salvar).
 
@@ -177,7 +177,7 @@ Para configurar o logon único do Azure AD com o Clear Review, execute as seguin
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários** .
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -189,40 +189,40 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes** .
-  
-    b. No campo **Nome de usuário** , digite **brendafernandes\@dominiodaempresa.extensao**  
+    a. No campo **Nome**, insira **BrendaFernandes**.
+
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permite que Britta Simon use o logon único do Azure concedendo acesso ao Clear Review.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, selecione **Clear Review** .
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, selecione **Clear Review**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **Clear Review** .
+2. Na lista de aplicativos, selecione **Clear Review**.
 
     ![O link do Clear Review na lista de Aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Usuários e grupos** .
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
     ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-clear-review-test-user"></a>Criar usuário de teste do Clear Review
 

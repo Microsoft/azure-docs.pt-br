@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: c0426c5359e4d82d0316613586b9298596d82605
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74d06d3d4aaa0d76b80257d2148fb62f71c3fdb0
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87009757"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093188"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Desativar o firewall do sistema operacional convidado na VM do Azure
 
@@ -47,7 +47,7 @@ Se você tiver um agente do Azure em funcionamento, você pode usar a [Extensão
 >   ```
 > * Se o firewall é definido por meio de uma política do Active Directory, você poderá executar o seguinte script para acesso temporário. 
 >   ```
->   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile' -name "EnableFirewall" -Value 0
+>   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile' -name "EnableFirewall" -Value 0
 >   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile' -name "EnableFirewall" -Value 0
 >   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\StandardProfile' -name "EnableFirewall" -Value 0
 >   Restart-Service -Name mpssvc
@@ -88,7 +88,7 @@ Se você tiver um agente do Azure em funcionamento, você pode usar a [Extensão
 
 #### <a name="mitigation-4-remote-registry"></a>Mitigação 4: Registro remoto 
 
-Siga estas etapas para usar o [Registro Remoto](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry).
+Siga estas etapas para usar o [Registro Remoto](https://www.betaarchive.com/wiki/index.php?title=Microsoft_KB_Archive/314837).
 
 1.  Na solução de problemas da VM, inicie o editor do registro e selecione **Arquivo** > **Conecte o Registro de Rede**.
 
@@ -126,7 +126,7 @@ Se você tiver uma situação em que você não pode alcançar a VM por meio de 
 
 4.  Antes de fazer qualquer alteração, crie uma cópia da pasta\windows\system32\config no caso de ser necessária uma reversão das alterações.
 
-5.  Na solução de problemas da VM, inicie o editor do registro (regedit.exe). 
+5.  Na solução de problemas da VM, inicie o editor do registro (regedit.exe). 
 
 6.  Para este procedimento de solução de problemas, nós estamos montando os hives como BROKENSYSTEM e BROKENSOFTWARE.
 

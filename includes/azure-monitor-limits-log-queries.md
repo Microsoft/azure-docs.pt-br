@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 07/22/2019
 ms.author: bwren
 ms.custom: include file
-ms.openlocfilehash: 83754842eeb4b5d609596045c11451e898960b9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff5d04a2923f16c763e1529ecb365f60d6275ca2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90064867"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026044"
 ---
 ### <a name="general-query-limits"></a>Limites de consulta geral
 
 | Limite | Descrição |
 |:---|:---|
-| Idioma de consulta | O Azure Monitor usa a mesma [linguagem de consulta Kusto](/azure/kusto/query/) que o Azure Data Explorer. Confira [Diferenças de linguagem de consulta de log do Azure Monitor](../articles/azure-monitor/log-query/data-explorer-difference.md) para elementos de linguagem KQL sem suporte no Azure Monitor. |
-| Regiões do Azure | As consultas de log podem enfrentar sobrecarga excessiva quando os dados abrangem workspaces do Log Analytics em várias regiões do Azure. Confira os [Limites de consulta](../articles/azure-monitor/log-query/scope.md#query-limits) para obter detalhes. |
+| Idioma de consulta | O Azure Monitor usa a mesma [linguagem de consulta Kusto](/azure/kusto/query/) que o Azure Data Explorer. Confira [Diferenças de linguagem de consulta de log do Azure Monitor](/azure/data-explorer/kusto/query/) para elementos de linguagem KQL sem suporte no Azure Monitor. |
+| Regiões do Azure | As consultas de log podem enfrentar sobrecarga excessiva quando os dados abrangem workspaces do Log Analytics em várias regiões do Azure. Confira os [Limites de consulta](../articles/azure-monitor/log-query/scope.md#query-scope-limits) para obter detalhes. |
 | Consultas entre recursos | Número máximo de recursos do Application Insights e workspaces do Log Analytics em uma consulta limitada a 100.<br>Não há suporte para a consulta entre recursos no Designer de Exibição.<br>A consulta de recursos cruzados nos alertas de log é compatível com a nova API scheduledQueryRules.<br>Confira [Limites de consulta entre recursos](../articles/azure-monitor/log-query/cross-workspace-query.md#cross-resource-query-limits) para obter detalhes. |
 
 ### <a name="user-query-throttling"></a>Limitação de consulta de usuário

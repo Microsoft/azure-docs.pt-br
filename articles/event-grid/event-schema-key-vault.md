@@ -3,12 +3,12 @@ title: Azure Key Vault como fonte da grade de eventos
 description: Descreve as propriedades e o esquema fornecido para eventos de Azure Key Vault com a grade de eventos do Azure
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: b3d961228429c1f84e45c1df9147fa1687ab5074
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 605502794f2f3aa4f4edd14b49efda5003b91146
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324069"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460402"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Azure Key Vault como fonte da grade de eventos
 
@@ -64,7 +64,7 @@ O exemplo a seguir mostra o esquema para **Microsoft. keyvault. SecretNewVersion
 
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Type | Descrição |
+| Propriedade | Tipo | Descrição |
 | ---------- | ----------- |---|
 | id | string | A ID do objeto que disparou este evento |
 | vaultName | string | O nome do cofre de chaves do objeto que disparou este evento |
@@ -85,5 +85,5 @@ Um evento tem os seguintes dados de nível superior:
 
 * Para obter uma introdução à grade de eventos do Azure, consulte [o que é a grade de eventos?](overview.md).
 * Para obter mais informações sobre como criar uma assinatura da grade de eventos do Azure, consulte [esquema de assinatura da grade de eventos](subscription-creation-schema.md).
-* Para obter mais informações sobre o Key VAult, consulte [o que é Azure Key Vault?](../key-vault/general/overview.md)
+* Para obter mais informações sobre Key Vault, consulte [o que é Azure Key Vault?](../key-vault/general/overview.md)
 

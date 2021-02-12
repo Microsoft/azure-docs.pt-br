@@ -1,16 +1,16 @@
 ---
-title: Renderizar uma cena do Blender usando o Lote do Azure e o Batch Explorer
+title: Tutorial – Renderizar uma cena do Blender usando o Lote do Azure e o Batch Explorer
 description: Tutorial – Como processar vários quadros de uma cena do Blender usando o Lote do Azure e o aplicativo cliente Batch Explorer
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 65baff827417cebe2289cc821df94acd38a1ae61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c015e4e83b0505a45690e92c1d732f74b6f6b0e
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85964797"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106454"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Tutorial: Renderizar uma cena do Blender usando o Batch Explorer
 
@@ -93,6 +93,7 @@ O status do pool e das VMs pode ser monitorado no modo de exibição 'Pools'. O 
 ## <a name="create-a-rendering-job"></a>Criar um trabalho de renderização
 
 Crie um trabalho de renderização para renderizar alguns quadros usando o pool que foi criado:
+
 * Selecione o item de menu 'Galeria' no menu principal à esquerda.
 * Selecione o item 'Blender' para obter a lista de itens do aplicativo.
 * Selecione os itens para renderizar quadros no Windows Server.
@@ -137,6 +138,18 @@ Quando todas as tarefas forem concluídas, o trabalho será marcado como conclu�
 * Clique com botão direito do mouse e clique em 'Excluir' ou selecione o ícone de Lixeira acima do pool
 
 ## <a name="next-steps"></a>Próximas etapas
-* Na seção 'Galeria', explore os aplicativos de renderização disponíveis no Batch Explorer.
-* Para cada aplicativo, existem vários modelos disponíveis, e essa lista aumentará com o tempo.  Por exemplo, para o Blender existem modelos que dividem uma única imagem em blocos, ou seja, partes de uma imagem podem ser processadas em paralelo.
-* Para obter uma descrição abrangente das funcionalidades de renderização, confira o conjunto de artigos [aqui](./batch-rendering-service.md).
+
+Neste tutorial, você aprendeu a:
+
+> [!div class="checklist"]
+> * Carregar uma cena do Blender no armazenamento do Azure
+> * Criar um pool do Lote com vários nós para executar a renderização
+> * Renderizar vários quadros
+> * Exibir e baixar os arquivos de quadro renderizados
+
+Continue explorando os aplicativos de renderização disponíveis por meio do Batch Explorer na seção **Galeria**. Para cada aplicativo, existem vários modelos disponíveis, e essa lista aumentará com o tempo. Por exemplo, para o Blender existem modelos que dividem uma única imagem em blocos, ou seja, partes de uma imagem podem ser processadas em paralelo.
+
+Para saber mais sobre a renderização em escala de nuvem, consulte as opções do Serviço de Renderização do Lote.
+
+> [!div class="nextstepaction"]
+> [Serviço de Renderização em Lotes](batch-rendering-service.md)

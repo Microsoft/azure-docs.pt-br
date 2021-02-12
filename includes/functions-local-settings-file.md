@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 04/14/2019
 ms.author: glenga
-ms.openlocfilehash: aae89e1c6f8db2fb657ac2a43c4bce0396ab3ddd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d944d1d3e9c72471fab2435430a7d13e1770e807
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91377616"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010430"
 ---
 ## <a name="local-settings-file"></a>Arquivo de configurações local
 
@@ -46,13 +46,13 @@ Essas configurações têm suporte quando você executa projetos localmente:
 | **`LocalHttpPort`** | Define a porta padrão usada ao executar o host local do Functions (`func host start` e `func run`). A opção de linha de comando `--port` tem precedência sobre essa configuração. |
 | **`CORS`** | Define as origens permitidas para [CORS (Compartilhamento de recurso entre origens)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). As origens são fornecidas como uma lista separada por vírgulas, sem espaços. Há suporte para o valor do caractere curinga (\*), que permite solicitações de qualquer origem. |
 | **`CORSCredentials`** |  Quando definido como `true`, `withCredentials` solicitações são permitidas. |
-| **`ConnectionStrings`** | Uma coleção. Não use essa coleção para as cadeias de conexão usadas por suas associações de função. Ela só é usada por estruturas que devem obter cadeias de conexão da seção `ConnectionStrings` de um arquivo de configuração, como o [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). As cadeias de caracteres de conexão neste objeto são adicionadas ao ambiente com o tipo de provedor de [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Os itens nesta coleção não são publicados no Azure com outras configurações de aplicativo. É necessário adicionar explicitamente esses valores à coleção `Connection strings` das configurações do aplicativo de funções. Se estiver criando um [`SqlConnection`](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) no código de função, você deverá armazenar o valor da cadeia de conexão com as outras conexões nas **Configurações de Aplicativos** no portal. |
+| **`ConnectionStrings`** | Uma coleção. Não use essa coleção para as cadeias de conexão usadas por suas associações de função. Ela só é usada por estruturas que devem obter cadeias de conexão da seção `ConnectionStrings` de um arquivo de configuração, como o [Entity Framework](/ef/ef6/). As cadeias de caracteres de conexão neste objeto são adicionadas ao ambiente com o tipo de provedor de [System.Data.SqlClient](/dotnet/api/system.data.sqlclient). Os itens nesta coleção não são publicados no Azure com outras configurações de aplicativo. É necessário adicionar explicitamente esses valores à coleção `Connection strings` das configurações do aplicativo de funções. Se estiver criando um [`SqlConnection`](/dotnet/api/system.data.sqlclient.sqlconnection) no código de função, você deverá armazenar o valor da cadeia de conexão com as outras conexões nas **Configurações de Aplicativos** no portal. |
 
 As seguintes configurações de aplicativo podem ser incluídas na matriz **`Values`** ao serem executadas localmente:
 
 | Configuração | Valores | Descrição |
 |-----|-----|-----|
-|**`AzureWebJobsStorage`**| Cadeia de conexão da conta de armazenamento, ou<br/>`UseDevelopmentStorage=true`| Contém a cadeia de conexão para uma conta de Armazenamento do Azure. Necessário quando são usados gatilhos diferentes de HTTP. Para obter mais informações, confira a referência do [`AzureWebJobsStorage`].<br/>Quando você tiver o [emulador de armazenamento do Azure](../articles/storage/common/storage-use-emulator.md) instalado localmente e configurar [`AzureWebJobsStorage`] em `UseDevelopmentStorage=true`, o Core Tools usará o emulador. O emulador é útil durante o desenvolvimento, mas você deve testar com uma conexão de armazenamento real antes da implantação.| 
+|**`AzureWebJobsStorage`**| Cadeia de conexão da conta de armazenamento, ou<br/>`UseDevelopmentStorage=true`| Contém a cadeia de conexão para uma conta de Armazenamento do Azure. Necessário quando são usados gatilhos diferentes de HTTP. Para obter mais informações, confira a referência do [`AzureWebJobsStorage`].<br/>Quando o [Emulador de Armazenamento do Azure](../articles/storage/common/storage-use-emulator.md) tiver sido instalado localmente e você configurar [`AzureWebJobsStorage`] em `UseDevelopmentStorage=true`, o Core Tools usará o emulador. O emulador é útil durante o desenvolvimento, mas você deve testar com uma conexão de armazenamento real antes da implantação.| 
 |**`AzureWebJobs.<FUNCTION_NAME>.Disabled`**| `true`\|`false` | Para desabilitar uma função durante a execução local, adicione `"AzureWebJobs.<FUNCTION_NAME>.Disabled": "true"` à coleção, em que `<FUNCTION_NAME>` é o nome da função. Para saber mais, confira [Como desabilitar funções no Azure Functions](../articles/azure-functions/disable-function.md#localsettingsjson) |
 |**`FUNCTIONS_WORKER_RUNTIME`** | `dotnet`<br/>`node`<br/>`java`<br/>`powershell`<br/>`python`| Indica a linguagem de destino do runtime do Functions. Necessário para a versão 2.x e versões superiores do runtime do Functions. Essa configuração é gerada para seu projeto pelo Core Tools. Para saber mais, confira a referência do [`FUNCTIONS_WORKER_RUNTIME`](../articles/azure-functions/functions-app-settings.md#functions_worker_runtime).|
 | **`FUNCTIONS_WORKER_RUNTIME_VERSION`** | `~7` |Indica que o PowerShell 7 será usado durante a execução local. Se não estiver definido, o PowerShell Core 6 será usado. Essa configuração é usada apenas durante a execução local. Durante a execução no Azure, a versão do runtime do PowerShell é determinada pela configuração de site do `powerShellVersion`, que pode ser [definida no portal](../articles/azure-functions/functions-reference-powershell.md#changing-the-powershell-version). | 

@@ -1,6 +1,6 @@
 ---
-title: Atualizar o firmware do dispositivo via Hub IoT do Azure | Microsoft Docs
-description: Saiba como implementar um processo de atualização de firmware de dispositivo que pode ser disparado em um aplicativo back-end conectado ao hub IoT.
+title: Tutorial – Atualizar o firmware do dispositivo por meio do Hub IoT do Azure | Microsoft Docs
+description: Tutorial – Saiba como implementar um processo de atualização de firmware do dispositivo que pode ser disparado em um aplicativo back-end conectado ao hub IoT.
 services: iot-hub
 author: wesmc7777
 ms.author: wesmc
@@ -15,18 +15,18 @@ ms.custom:
 - 'Role: IoT Device'
 - devx-track-js
 - devx-track-azurecli
-ms.openlocfilehash: 432cc733ee31bdaa18d555d9a6aeb6aee9879a44
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 807de3c41ec8026edd2b2d8859eb70863ae5697b
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748533"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621389"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Tutorial: Implementar um processo de atualização de firmware de dispositivos
 
 Talvez seja necessário atualizar o firmware dos dispositivos conectados ao seu Hub IoT. Por exemplo, talvez você queira adicionar novos recursos para o firmware ou aplicar patches de segurança. Em muitos cenários de IoT, é impraticável visitar fisicamente e depois aplicar manualmente atualizações de firmware para seus dispositivos. Este tutorial mostra como você pode iniciar e monitorar o processo de atualização de firmware remotamente por meio de um aplicativo de back-end conectado ao seu hub.
 
-Para criar e monitorar o processo de atualização de firmware, o aplicativo de back-end neste tutorial cria uma _configuração_ em seu Hub IoT. O [gerenciamento de dispositivo automático](./iot-hub-automatic-device-management.md) do Hub IoT usa essa configuração para atualizar um conjunto de _propriedades desejadas do dispositivo gêmeo_ em todos os seus dispositivos resfriadores. As propriedades desejadas especificam os detalhes da atualização de firmware necessária. Enquanto os dispositivos resfriadores estiverem executando o processo de atualização de firmware, eles relatam o status para o aplicativo de back-end usando _propriedades relatadas do dispositivo gêmeo_ . O aplicativo de back-end pode usar a configuração para monitorar as propriedades relatadas enviadas do dispositivo e acompanhar o processo de atualização do firmware para conclusão:
+Para criar e monitorar o processo de atualização de firmware, o aplicativo de back-end neste tutorial cria uma _configuração_ em seu Hub IoT. O [gerenciamento de dispositivo automático](./iot-hub-automatic-device-management.md) do Hub IoT usa essa configuração para atualizar um conjunto de _propriedades desejadas do dispositivo gêmeo_ em todos os seus dispositivos resfriadores. As propriedades desejadas especificam os detalhes da atualização de firmware necessária. Enquanto os dispositivos resfriadores estiverem executando o processo de atualização de firmware, eles relatam o status para o aplicativo de back-end usando _propriedades relatadas do dispositivo gêmeo_. O aplicativo de back-end pode usar a configuração para monitorar as propriedades relatadas enviadas do dispositivo e acompanhar o processo de atualização do firmware para conclusão:
 
 ![Processo de atualização de firmware](media/tutorial-firmware-update/Process.png)
 
@@ -38,11 +38,9 @@ Neste tutorial, você completa as seguintes tarefas:
 > * Simular o processo de atualização do firmware em um dispositivo.
 > * Receber atualizações de status enviadas pelo dispositivo durante o andamento da atualização do firmware.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 Os dois exemplos de aplicativo executados neste início rápido são escritos usando o Node.js. Você precisa do Node.js v10.x.x ou posterior em seu computador de desenvolvimento.
 
@@ -62,7 +60,7 @@ Verifique se a porta 8883 está aberta no firewall. A amostra de dispositivo des
 
 Para concluir este tutorial, a assinatura do Azure deve ter um Hub IoT com um dispositivo adicionado ao registro de identidade do dispositivo. A entrada no registro de identidade do dispositivo permite que o dispositivo simulado executado neste tutorial conecte-se ao hub.
 
-Se ainda não houver um Hub IoT configurado na assinatura, será possível configurar um com o script de CLI a seguir. Esse script usa o nome **tutorial-iot-hub** para o Hub IoT e será necessário substituir esse nome pelo nome exclusivo ao executá-lo. O script cria o grupo de recursos e o hub na região **Centro dos EUA** , a qual é possível alterar para uma região mais próxima a você. O script recupera a cadeia de conexão do serviço do Hub IoT, usada no aplicativo de exemplo de back-end para conectar ao seu Hub IoT:
+Se ainda não houver um Hub IoT configurado na assinatura, será possível configurar um com o script de CLI a seguir. Esse script usa o nome **tutorial-iot-hub** para o Hub IoT e será necessário substituir esse nome pelo nome exclusivo ao executá-lo. O script cria o grupo de recursos e o hub na região **Centro dos EUA**, a qual é possível alterar para uma região mais próxima a você. O script recupera a cadeia de conexão do serviço do Hub IoT, usada no aplicativo de exemplo de back-end para conectar ao seu Hub IoT:
 
 ```azurecli-interactive
 hubname=tutorial-iot-hub
@@ -82,7 +80,7 @@ az iot hub show-connection-string --name $hubname --policy-name service -o table
 
 ```
 
-Este tutorial usa um dispositivo simulado chamado **MyFirmwareUpdateDevice** . O script a seguir adiciona esse dispositivo ao seu registro de identidade do dispositivo, define um valor de marca e recupera sua cadeia de conexão:
+Este tutorial usa um dispositivo simulado chamado **MyFirmwareUpdateDevice**. O script a seguir adiciona esse dispositivo ao seu registro de identidade do dispositivo, define um valor de marca e recupera sua cadeia de conexão:
 
 ```azurecli-interactive
 # Set the name of your IoT hub
@@ -199,7 +197,7 @@ Como as configurações automáticas do dispositivo são executadas no momento d
 
 Se você planeja concluir o próximo tutorial, deixe o grupo de recursos e o Hub IoT e reutilize-os posteriormente.
 
-Se você não precisar mais do hub IoT, exclua-o junto com o grupo de recursos no portal. Para fazer isso, selecione o grupo de recursos **tutorial-iot-hub-rg** que contém o Hub IoT e clique em **Excluir** .
+Se você não precisar mais do hub IoT, exclua-o junto com o grupo de recursos no portal. Para fazer isso, selecione o grupo de recursos **tutorial-iot-hub-rg** que contém o Hub IoT e clique em **Excluir**.
 
 Como alternativa, use a CLI:
 

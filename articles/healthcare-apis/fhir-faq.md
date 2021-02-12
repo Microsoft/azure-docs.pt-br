@@ -2,18 +2,18 @@
 title: Perguntas frequentes sobre os serviços FHIRs no Azure – API do Azure para FHIR
 description: Obtenha respostas para perguntas frequentes sobre a API do Azure para FHIR, como o local de armazenamento de dados por trás de APIs do FHIR e suporte de versão.
 services: healthcare-apis
-author: matjazl
+author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 08/03/2020
-ms.author: matjazl
-ms.openlocfilehash: 20bf72c55a5b6d76a3b214f0a679e28da81e41e2
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.date: 1/21/2021
+ms.author: cavoeg
+ms.openlocfilehash: 4d071af6f72bfe6136296185e65007d2413ed2c4
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558560"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746706"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Perguntas frequentes sobre a API do Azure para FHIR
 
@@ -29,6 +29,9 @@ Sim, os dados são armazenados em bancos de dados gerenciados no Azure. A API do
 ### <a name="what-identity-provider-do-you-support"></a>A qual provedor de identidade você dá suporte?
 
 Atualmente, damos suporte a Microsoft Azure Active Directory como o provedor de identidade.
+
+### <a name="what-is-the-recovery-point-objective-rpo-for-the-azure-api-for-fhir"></a>Qual é o RPO (objetivo de ponto de recuperação) para a API do Azure para FHIR?
+A API do Azure para FHIR é apoiada por Cosmos DB como nosso provedor de persistência. Por isso, o RPO para o serviço é igual a [Cosmos dB (região única)](../cosmos-db/consistency-levels.md) e é < de 240 minutos.
 
 ### <a name="what-fhir-version-do-you-support"></a>A qual versão do FHIR você dá suporte?
 
@@ -52,7 +55,7 @@ Para ver algumas das novidades na API do Azure para FHIR, consulte a [versão](h
 
 ### <a name="in-which-regions-is-azure-api-for-fhir-available"></a>Em quais regiões a API do Azure para FHIR está disponível?
 
-Atualmente, temos disponibilidade geral para o público e o governo em [várias regiões geográficas](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir&regions=non-regional,us-east,us-east-2,us-central,us-north-central,us-south-central,us-west-central,us-west,us-west-2,canada-east,canada-central,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). Para obter informações sobre os serviços de nuvem do governo na Microsoft, confira os [Serviços do Azure por FedRAMP](https://docs.microsoft.com/azure/azure-government/compliance/azure-services-in-fedramp-auditscope).
+Atualmente, temos disponibilidade geral para o público e o governo em [várias regiões geográficas](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir&regions=non-regional,us-east,us-east-2,us-central,us-north-central,us-south-central,us-west-central,us-west,us-west-2,canada-east,canada-central,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). Para obter informações sobre os serviços de nuvem do governo na Microsoft, confira os [Serviços do Azure por FedRAMP](../azure-government/compliance/azure-services-in-fedramp-auditscope.md).
 
 ### <a name="where-can-i-see-what-is-releasing-into-the-azure-api-for-fhir"></a>Onde posso ver o que está lançando na API do Azure para FHIR?
 
@@ -62,6 +65,10 @@ Para ver algumas das novidades na API do Azure para FHIR, consulte a [versão](h
 
 SMART (aplicativos médicos substituíveis e tecnologia reutilizável) em FHIR é um conjunto de especificações abertas para integrar aplicativos de parceiros com servidores FHIR e outros sistemas de ti de saúde, como registros eletrônicos de integridade e trocas de informações de integridade. Ao criar um aplicativo inteligente no FHIR, você pode garantir que seu aplicativo possa ser acessado e utilizado por uma infinidade de sistemas diferentes.
 Autenticação e API do Azure para FHIR. Para saber mais sobre o SMART, visite o [Smart Health IT](https://smarthealthit.org/).
+
+### <a name="where-can-i-find-what-version-of-fhir-is-running-on-my-database"></a>Onde posso encontrar qual versão do FHIR está em execução no meu banco de dados. 
+
+Você pode encontrar a versão exata do FHIR exposta na instrução Capability na propriedade "fhirVersion".
 
 ## <a name="fhir-implementations-and-specifications"></a>Especificações e implementações de FHIR
 
@@ -97,17 +104,23 @@ Alguns exemplos disso estão abaixo:
 
 ### <a name="what-is-the-default-sort-when-searching-for-resources-in-azure-api-for-fhir"></a>Qual é a classificação padrão ao pesquisar recursos na API do Azure para FHIR?
 
-Damos suporte à classificação pela data da última atualização: _sort = _lastUpdated. Para obter mais informações sobre outros parâmetros de pesquisa com suporte, Confira nossa [página de recursos com suporte](https://docs.microsoft.com/azure/healthcare-apis/fhir-features-supported#search).
+Damos suporte à classificação pela data da última atualização: _sort = _lastUpdated. Para obter mais informações sobre outros parâmetros de pesquisa com suporte, Confira nossa [página de recursos com suporte](./fhir-features-supported.md#search).
+
+### <a name="does-the-azure-api-for-fhir-support-everything"></a>A API do Azure para FHIR dá suporte a $everything? 
+
+Não. Neste momento, não damos suporte a $everything. No entanto, isso pode ser obtido com duas chamadas à API. Por exemplo, para obter o paciente $ tudo, você pode primeiro pegar o registro do paciente usando/Patient/[ID] e, em seguida, uma segunda chamada para recuperar todos os dados do paciente usando/Patient/[ID]/*.
+
+Você pode ver mais detalhes nesta [postagem da Comunidade](https://chat.fhir.org/#narrow/stream/179166-implementers/topic/.24everything.20with.20_type). 
 
 ### <a name="how-does-export-work"></a>Como funciona $export?
 
-$export faz parte da especificação FHIR: https://hl7.org/fhir/uv/bulkdata/export/index.html . Se o serviço FHIR estiver configurado com uma identidade gerenciada e uma conta de armazenamento, e se a identidade gerenciada tiver acesso a essa conta de armazenamento, você poderá simplesmente chamar $export na API FHIR e todos os recursos do FHIR serão exportados para a conta de armazenamento. Para obter mais informações, confira nosso [artigo sobre $Export](https://docs.microsoft.com/azure/healthcare-apis/export-data).
+$export faz parte da especificação FHIR: https://hl7.org/fhir/uv/bulkdata/export/index.html . Se o serviço FHIR estiver configurado com uma identidade gerenciada e uma conta de armazenamento, e se a identidade gerenciada tiver acesso a essa conta de armazenamento, você poderá simplesmente chamar $export na API FHIR e todos os recursos do FHIR serão exportados para a conta de armazenamento. Para obter mais informações, confira nosso [artigo sobre $Export](./export-data.md).
 
 ## <a name="using-azure-api-for-fhir"></a>Usando a API do Azure para FHIR
 
 ### <a name="how-do-i-enable-log-analytics-for-azure-api-for-fhir"></a>Como fazer habilitar o log Analytics para a API do Azure para FHIR?
 
-Habilitamos o log de diagnóstico e permitimos a revisão de consultas de exemplo para esses logs. Para obter detalhes sobre como habilitar logs de auditoria e consultas de exemplo, confira [esta seção](https://docs.microsoft.com/azure/healthcare-apis/enable-diagnostic-logging). Se você quiser incluir informações adicionais nos logs, confira [usando cabeçalhos HTTP personalizados](https://docs.microsoft.com/azure/healthcare-apis/use-custom-headers).
+Habilitamos o log de diagnóstico e permitimos a revisão de consultas de exemplo para esses logs. Para obter detalhes sobre como habilitar logs de auditoria e consultas de exemplo, confira [esta seção](./enable-diagnostic-logging.md). Se você quiser incluir informações adicionais nos logs, confira [usando cabeçalhos HTTP personalizados](./use-custom-headers.md).
 
 ### <a name="where-can-i-see-some-examples-of-using-the-azure-api-for-fhir-within-a-workflow"></a>Onde posso ver alguns exemplos de como usar a API do Azure para FHIR em um fluxo de trabalho?
 
@@ -115,13 +128,13 @@ Temos uma coleção de arquiteturas de referência disponíveis na [página do G
 
 ### <a name="where-can-i-see-an-example-of-connecting-a-web-application-to-azure-api-for-fhir"></a>Onde posso ver um exemplo de como conectar um aplicativo Web à API do Azure para FHIR?
 
-Temos uma [página do GitHub de arquitetura de integridade](https://github.com/microsoft/health-architectures) que contém aplicativos de exemplo e cenários. Ele ilustra como conectar um aplicativo Web à API do Azure para FHIR.  
+Temos uma [página do GitHub de arquitetura de integridade](https://aka.ms/health-architectures) que contém aplicativos de exemplo e cenários. Ele ilustra como conectar um aplicativo Web à API do Azure para FHIR.  
 
 ## <a name="azure-api-for-fhir-features-and-services"></a>API do Azure para serviços e recursos do FHIR 
 
 ### <a name="is-there-a-way-to-encrypt-my-data-using-my-personal-key-not-a-default-key"></a>Há uma maneira de criptografar meus dados usando minha chave pessoal, não uma chave padrão?
 
-Sim, a API do Azure para FHIR permite configurar chaves gerenciadas pelo cliente, aproveitando o suporte do Cosmos DB. Para obter mais informações sobre como criptografar seus dados com uma chave pessoal, confira [esta seção](https://docs.microsoft.com/azure/healthcare-apis/customer-managed-key).
+Sim, a API do Azure para FHIR permite configurar chaves gerenciadas pelo cliente, aproveitando o suporte do Cosmos DB. Para obter mais informações sobre como criptografar seus dados com uma chave pessoal, confira [esta seção](./customer-managed-key.md).
 
 ## <a name="azure-api-for-fhir-preview-features"></a>API do Azure para FHIR: recursos de visualização
 

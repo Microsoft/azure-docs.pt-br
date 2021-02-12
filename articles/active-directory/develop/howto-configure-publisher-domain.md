@@ -13,12 +13,12 @@ ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
-ms.openlocfilehash: d62328534157a1e2d9e53830be9d6b87e08c9e40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d793ed912af1c6fdd6e0da417b8709cad8bf08b9
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87129263"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013627"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>Como configurar um domínio do Publicador de um aplicativo
 
@@ -48,7 +48,7 @@ Se seu aplicativo foi registrado antes de 21 de maio de 2019, o prompt de consen
 
 Para definir o domínio do Publicador do aplicativo, siga estas etapas.
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a> usando uma conta corporativa ou de estudante ou uma conta Microsoft pessoal.
 
 1. Se sua conta estiver presente em mais de um locatário do Azure AD:
    1. Selecione seu perfil no menu no canto superior direito da página e, em seguida, escolha **Alternar diretório**.

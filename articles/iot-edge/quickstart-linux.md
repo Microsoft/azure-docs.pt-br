@@ -4,17 +4,17 @@ description: Neste início rápido, aprenda a criar um dispositivo IoT Edge no L
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/30/2020
+ms.date: 12/02/2020
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3328fa7d71138ba75fac0c2aed11d7a85081d03a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ff9ba73e71e4525fe56a3cbb54626030f57e990b
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748724"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920794"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Início Rápido: Implantar seu primeiro módulo do IoT Edge em um dispositivo virtual Linux
 
@@ -33,23 +33,15 @@ Este Início Rápido orienta você pela criação de uma máquina virtual Linux 
 
 Se você não tiver uma assinatura do Azure ativa, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Você usa a CLI do Azure para concluir muitas das etapas neste guia de início rápido e o Azure IoT possui uma extensão para habilitar funcionalidades adicionais.
-
-Adicione a extensão de IoT do Azure à instância do Cloud Shell.
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
 ## <a name="prerequisites"></a>Pré-requisitos
+
+Prepare seu ambiente para a CLI do Azure.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 Recursos de nuvem:
 
-* Um grupo de recursos para gerenciar todos os recursos que você usará neste início rápido. Usamos o nome do grupo de recursos de exemplo **IoTEdgeResources** em todo este guia de início rápido e nos tutoriais a seguir.
+- Um grupo de recursos para gerenciar todos os recursos que você usará neste início rápido. Usamos o nome do grupo de recursos de exemplo **IoTEdgeResources** em todo este guia de início rápido e nos tutoriais a seguir.
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus2
@@ -63,13 +55,13 @@ Comece o início rápido criando um Hub IoT com a CLI do Azure.
 
 O nível gratuito do Hub IoT funciona para este guia de início rápido. Se você tiver usado o Hub IoT antes e já tiver um hub criado, poderá usar esse Hub IoT.
 
-O código a seguir cria um hub **F1** gratuito no grupo de recursos **IoTEdgeResources** . Substitua `{hub_name}` por um nome exclusivo para o Hub IoT. A criação de um Hub IoT pode demorar alguns minutos.
+O código a seguir cria um hub **F1** gratuito no grupo de recursos **IoTEdgeResources**. Substitua `{hub_name}` por um nome exclusivo para o Hub IoT. A criação de um Hub IoT pode demorar alguns minutos.
 
    ```azurecli-interactive
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 --partition-count 2
    ```
 
-   Se você receber um erro porque já exsite um hub gratuito na sua assinatura, altere o SKU para **S1** . Cada assinatura pode ter somente um hub IoT gratuito. Caso você receba um erro que o nome do Hub IoT não está disponível, isso significa que alguém já tem um hub com esse nome. Tente usar um novo nome.
+   Se você receber um erro porque já exsite um hub gratuito na sua assinatura, altere o SKU para **S1**. Cada assinatura pode ter somente um hub IoT gratuito. Caso você receba um erro que o nome do Hub IoT não está disponível, isso significa que alguém já tem um hub com esse nome. Tente usar um novo nome.
 
 ## <a name="register-an-iot-edge-device"></a>Registrar um dispositivo IoT Edge
 
@@ -116,7 +108,15 @@ Use o comando da CLI a seguir para criar seu dispositivo do IoT Edge com base no
 * Para os usuários do Bash ou do Cloud Shell, copie o seguinte comando em um editor de texto, substitua o texto do espaço reservado pelas suas informações e copie-as na janela do Bash ou do Cloud Shell:
 
    ```azurecli-interactive
-   az deployment group create --resource-group IoTEdgeResources --template-uri "https://aka.ms/iotedge-vm-deploy" --parameters dnsLabelPrefix='my-edge-vm' --parameters adminUsername='azureUser' --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) --parameters authenticationType='password' --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
+   az deployment group create \
+   --resource-group IoTEdgeResources \
+   --template-uri "https://aka.ms/iotedge-vm-deploy" \
+   --parameters dnsLabelPrefix='<REPLACE_WITH_VM_NAME>' \
+   --parameters adminUsername='azureUser' \
+   --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name
+   <REPLACE_WITH_HUB_NAME> -o tsv) \
+   --parameters authenticationType='password' \
+   --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
    ```
 
 * Para usuários do PowerShell, copie o seguinte comando para a janela do PowerShell e substitua o texto do espaço reservado pelas suas informações:
@@ -125,7 +125,7 @@ Use o comando da CLI a seguir para criar seu dispositivo do IoT Edge com base no
    az deployment group create `
    --resource-group IoTEdgeResources `
    --template-uri "https://aka.ms/iotedge-vm-deploy" `
-   --parameters dnsLabelPrefix='my-edge-vm1' `
+   --parameters dnsLabelPrefix='<REPLACE_WITH_VM_NAME>' `
    --parameters adminUsername='azureUser' `
    --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) `
    --parameters authenticationType='password' `
@@ -138,13 +138,13 @@ Este modelo usa os seguintes parâmetros:
 | --------- | ----------- |
 | **resource-group** | O grupo de recursos no qual os recursos serão criados. Use o **IoTEdgeResources** padrão que usamos neste artigo ou forneça o nome de um grupo de recursos em sua assinatura. |
 | **template-uri** | Um ponteiro para o modelo do Resource Manager que estamos usando. |
-| **dnsLabelPrefix** | Uma cadeia de caracteres que será usada para criar o nome de host da máquina virtual. Use o exemplo **my-edge-vm** ou forneça uma nova cadeia de caracteres. |
+| **dnsLabelPrefix** | Uma cadeia de caracteres que será usada para criar o nome de host da máquina virtual. Substitua o texto do espaço reservado por um nome para a sua máquina virtual. |
 | **adminUsername** | Um nome de usuário para a conta do administrador da máquina virtual. Use o exemplo **azureUser** ou fornecer um novo nome de usuário. |
 | **deviceConnectionString** | A cadeia de conexão da identidade do dispositivo no Hub IoT, que é usada para configurar o runtime do IoT Edge na máquina virtual. O comando da CLI dentro desse parâmetro captura a cadeia de conexão para você. Substitua o texto do espaço reservado pelo nome do hub IoT. |
-| **authenticationType** | O método de autenticação para a conta do administrador. Este guia de início rápido usa autenticação por **senha** , mas você também pode definir esse parâmetro como **sshPublicKey** . |
+| **authenticationType** | O método de autenticação para a conta do administrador. Este guia de início rápido usa autenticação por **senha**, mas você também pode definir esse parâmetro como **sshPublicKey**. |
 | **adminPasswordOrKey** | A senha ou o valor da chave SSH para a conta do administrador. Substitua o texto do espaço reservado por uma senha segura. Sua senha deve ter pelo menos 12 caracteres e ter três dos quatro seguintes itens: caracteres minúsculos, caracteres maiúsculos, dígitos e caracteres especiais. |
 
-Depois que a implantação for concluída, você deverá receber a saída formatada em JSON na CLI que contém as informações de SSH para se conectar à máquina virtual. Copie o valor da entrada **SSH público** da seção **saídas** :
+Depois que a implantação for concluída, você deverá receber a saída formatada em JSON na CLI que contém as informações de SSH para se conectar à máquina virtual. Copie o valor da entrada **SSH público** da seção **saídas**:
 
    ![Recuperar o valor de ssh público da saída](./media/quickstart-linux/outputs-public-ssh.png)
 
@@ -229,7 +229,7 @@ Se você tiver criado a sua máquina virtual e o Hub IoT em um novo grupo de rec
 > [!IMPORTANT]
 > A exclusão de um grupo de recursos é irreversível.
 
-Remova o grupo **IoTEdgeResources** . A exclusão de um grupo de recursos pode demorar alguns minutos.
+Remova o grupo **IoTEdgeResources**. A exclusão de um grupo de recursos pode demorar alguns minutos.
 
 ```azurecli-interactive
 az group delete --name IoTEdgeResources

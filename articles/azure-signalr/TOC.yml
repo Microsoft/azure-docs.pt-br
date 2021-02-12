@@ -54,6 +54,22 @@
           href: ../azure-functions/functions-bindings-signalr-service.md
         - name: Configurações de upstream
           href: concept-upstream.md
+    - name: Disponibilidade
+      items:
+        - name: Desligue normalmente o servidor de aplicativos.
+          href: server-graceful-shutdown.md
+    - name: Segurança
+      items:
+        - name: Autorização
+          items:
+            - name: Autorizar o acesso com o Azure Active Directory
+              href: authorize-access-azure-active-directory.md
+        - name: Autenticação
+          items:
+            - name: Autenticar a partir de um aplicativo
+              href: authenticate-application.md
+            - name: Autenticar com uma identidade gerenciada
+              href: authenticate-managed-identity.md
     - name: Alta disponibilidade
       items:
         - name: Resiliência e recuperação de desastre
@@ -66,6 +82,12 @@
       href: signalr-concept-authenticate-oauth.md
     - name: Manipulação de eventos
       href: signalr-concept-event-grid-integration.md
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
+        - name: Controles de segurança do Azure Policy
+          href: ./security-controls-policy.md
 - name: Guias de instruções
   items:
     - name: Escala
@@ -98,6 +120,12 @@
           href: signalr-howto-diagnostic-logs.md
         - name: Auditar a conformidade usando o Azure Policy
           href: signalr-howto-azure-policy.md
+    - name: Solução de problemas
+      items:
+        - name: Guias de solução de problemas
+          href: signalr-howto-troubleshoot-guide.md
+        - name: Métodos de solução de problemas
+          href: signalr-howto-troubleshoot-method.md
 - name: Referências
   items:
     - name: CLI do Azure

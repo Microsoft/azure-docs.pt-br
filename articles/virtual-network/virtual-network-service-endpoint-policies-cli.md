@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
-ms.openlocfilehash: 53f10996a7f15e32261f151600163f41df4e58ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ce1e320a93a834a938ce95f3931d885d2214faa
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666680"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216850"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Gerenciar vazamento de dados para contas de armazenamento do Azure com políticas de ponto de extremidade de serviço de rede virtual usando o CLI do Azure
 
@@ -37,11 +37,11 @@ Neste artigo, você aprenderá como:
 * Confirme o acesso à conta de armazenamento permitida da sub-rede.
 * Confirme se o acesso foi negado à conta de armazenamento não permitida da sub-rede.
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se você optar por instalar e usar a CLI localmente, este início rápido exigirá a execução da CLI do Azure versão 2.0.28 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
+- Este artigo exige a versão 2.0.28 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
@@ -114,7 +114,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-Cada grupo de segurança de rede contém várias [regras de segurança padrão](security-overview.md#default-security-rules). A regra a seguir substitui uma regra de segurança padrão que permite o acesso de saída a todos os endereços IP públicos. A `destination-address-prefix "Internet"` opção nega o acesso de saída a todos os endereços IP públicos. A regra anterior substitui essa regra, devido à sua prioridade mais alta, o que permite acesso aos endereços IP públicos do Armazenamento do Microsoft Azure.
+Cada grupo de segurança de rede contém várias [regras de segurança padrão](./network-security-groups-overview.md#default-security-rules). A regra a seguir substitui uma regra de segurança padrão que permite o acesso de saída a todos os endereços IP públicos. A `destination-address-prefix "Internet"` opção nega o acesso de saída a todos os endereços IP públicos. A regra anterior substitui essa regra, devido à sua prioridade mais alta, o que permite acesso aos endereços IP públicos do Armazenamento do Microsoft Azure.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -335,7 +335,7 @@ Você receberá o aviso `user@myVmPrivate:~$`. O compartilhamento de arquivos do
 
 ### <a name="confirm-access-is-denied-to-storage-account"></a>Confirmar que o acesso é negado para a conta de armazenamento
 
-No mesmo *myVmPrivate*de VM, crie um diretório para um ponto de montagem:
+No mesmo *myVmPrivate* de VM, crie um diretório para um ponto de montagem:
 
 ```bash
 sudo mkdir /mnt/MyAzureFileShare2
@@ -353,7 +353,7 @@ O acesso é negado e você recebe um `mount error(13): Permission denied` erro, 
 
 Saia da sessão SSH para a VM *myVmPublic*.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, use [az group delete](/cli/azure) para remover o grupo de recursos e todos os recursos que ele contém.
 

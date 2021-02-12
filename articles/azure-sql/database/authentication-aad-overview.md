@@ -1,6 +1,6 @@
 ---
 title: Autenticação do Azure Active Directory
-description: Saiba mais sobre como usar Azure Active Directory para autenticação com o banco de dados SQL do Azure, o SQL Instância Gerenciada do Azure e o Azure Synapse Analytics
+description: Saiba mais sobre como usar Azure Active Directory para autenticação com o banco de dados SQL do Azure, SQL Instância Gerenciada do Azure e SQL Synapse no Azure Synapse Analytics
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
@@ -11,18 +11,18 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 04/23/2020
-ms.openlocfilehash: a57de3d6beda5336f480f20137a9ccaa014b012d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a636c0e2a41b636f30ada14d4f16a022f2890b71
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675091"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454295"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Usar autenticação Azure Active Directory
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-A autenticação do Azure Active Directory (AD do Azure) é um mecanismo para se conectar ao [banco de dados SQL do](sql-database-paas-overview.md)Azure, [SQL instância gerenciada do Azure](../managed-instance/sql-managed-instance-paas-overview.md)e [análise de Synapse do Azure (anteriormente SQL data warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) usando identidades no Azure AD.
+A autenticação do Azure Active Directory (AD do Azure) é um mecanismo para se conectar ao [banco de dados SQL do](sql-database-paas-overview.md)Azure, [SQL instância gerenciada do Azure](../managed-instance/sql-managed-instance-paas-overview.md)e [Synapse SQL no Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) usando identidades no Azure AD.
 
 > [!NOTE]
 > Este artigo se aplica ao banco de dados SQL do Azure, ao SQL Instância Gerenciada e ao Azure Synapse Analytics.
@@ -61,7 +61,7 @@ As etapas de configuração incluem os procedimentos a seguir para configurar e 
 6. Conecte-se ao banco de dados usando identidades do Azure AD.
 
 > [!NOTE]
-> Para saber como criar e popular o Azure AD e, em seguida, configurar o Azure AD com o banco de dados SQL do Azure, o SQL Instância Gerenciada e o Azure Synapse, consulte [Configurar o Azure AD com o banco de dados SQL do Azure](authentication-aad-configure.md).
+> Para saber como criar e popular o Azure AD e, em seguida, configurar o Azure AD com o banco de dados SQL do Azure, o SQL Instância Gerenciada e o Synapse SQL no Azure Synapse Analytics, consulte [Configurar o Azure AD com o banco de dados SQL do Azure](authentication-aad-configure.md).
 
 ## <a name="trust-architecture"></a>Confiar na arquitetura
 
@@ -108,7 +108,7 @@ Para criar um usuário de banco de dados independente no banco de dados SQL do A
 
     `SQL Error [2760] [S0001]: The specified schema name 'user@mydomain.com' either does not exist or you do not have permission to use it.`
 
-    Conceda a função `db_owner` diretamente ao usuário individual do Azure AD para atenuar o problema de **CREATE DATABASE SCOPED CREDENTIAL** .
+    Conceda a função `db_owner` diretamente ao usuário individual do Azure AD para atenuar o problema de **CREATE DATABASE SCOPED CREDENTIAL**.
 
 - Estas funções do sistema retornam valores NULL quando executadas em entidades de segurança do Azure AD:
 
@@ -153,7 +153,7 @@ Os seguintes métodos de autenticação têm suporte para entidades de seguranç
   - A adição de entidades de segurança de servidor do Azure AD (logons) para o SQL Instância Gerenciada permite a possibilidade de criar várias entidades de segurança de servidor do Azure AD (logons) que podem ser adicionadas à `sysadmin` função.
 - Somente um administrador do Azure AD para o servidor pode inicialmente se conectar ao servidor ou à instância gerenciada usando uma conta de Azure Active Directory. O administrador do Active Directory pode configurar os próximos usuários do banco de dados do Azure AD.
 - É recomendável configurar o tempo limite da conexão para 30 segundos.
-- O SQL Server 2016 Management Studio e o SQL Server Data Tools para Visual Studio 2015 (versão 14.0.60311.1 de abril de 2016 ou posterior) dão suporte à autenticação do Azure Active Directory. (Há suporte para a autenticação do Azure AD no **Provedor de Dados .NET Framework para SqlServer** ; é necessária, no mínimo, a versão 4.6 do .NET Framework). Portanto, as versões mais recentes dessas ferramentas e aplicativos da camada de dados (DAC e BACPAC) podem usar a autenticação do Azure AD.
+- O SQL Server 2016 Management Studio e o SQL Server Data Tools para Visual Studio 2015 (versão 14.0.60311.1 de abril de 2016 ou posterior) dão suporte à autenticação do Azure Active Directory. (Há suporte para a autenticação do Azure AD no **Provedor de Dados .NET Framework para SqlServer**; é necessária, no mínimo, a versão 4.6 do .NET Framework). Portanto, as versões mais recentes dessas ferramentas e aplicativos da camada de dados (DAC e BACPAC) podem usar a autenticação do Azure AD.
 - A partir da versão 15.0.1, o [utilitário sqlcmd](/sql/tools/sqlcmd-utility) e o [utilitário bcp](/sql/tools/bcp-utility) suportam Active Directory autenticação interativa com autenticação multifator.
 - O SQL Server Data Tools para Visual Studio 2015 requer pelo menos a versão de abril de 2016 do Data Tools (versão 14.0.60311.1). Atualmente, os usuários do Azure AD não são mostrados no Pesquisador de objetos do SSDT. Como alternativa, exiba os usuários em [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql).
 - O [Microsoft JDBC Driver 6.0 para SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) dá suporte à autenticação do Azure AD. Confira também [Configuração das propriedades de conexão](/sql/connect/jdbc/setting-the-connection-properties).

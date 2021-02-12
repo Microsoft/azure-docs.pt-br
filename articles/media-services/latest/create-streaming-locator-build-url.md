@@ -1,5 +1,5 @@
 ---
-title: Criar um localizador de streaming e URLs de compilação-serviços de mídia do Azure
+title: Criar um localizador de streaming e criar URLs
 description: Este artigo demonstra como criar um localizador de streaming e URLs de compilação.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 916defd652ff9f4b3f372c609055d2a974126916
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ecbc42237326cb895c47e96eda13bbddcdeb558f
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295709"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956116"
 ---
 # <a name="create-a-streaming-locator-and-build-urls"></a>Criar um localizador de streaming e criar URLs
 
@@ -163,7 +163,7 @@ private static async Task<IList<string>> GetStreamingUrlsAsync(
 
 Consulte o exemplo de código completo: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [Criar filtros com o .NET](filters-dynamic-manifest-dotnet-howto.md)
 * [Criar filtros com o REST](filters-dynamic-manifest-rest-howto.md)

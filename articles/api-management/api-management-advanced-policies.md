@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 01d50f6228d63801f62ae933a8367f842d89ef97
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 3a37cde79cef59eaf9c3ef130bfbae9cff958bd7
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071363"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96919436"
 ---
 # <a name="api-management-advanced-policies"></a>Políticas avançadas de Gerenciamento de API
 
@@ -78,7 +78,7 @@ A segunda política de fluxo de controle está na seção de saída e aplica con
 ```xml
 <policies>
     <inbound>
-        <set-variable name="isMobile" value="@(context.Request.Headers["User-Agent"].Contains("iPad") || context.Request.Headers["User-Agent"].Contains("iPhone"))" />
+        <set-variable name="isMobile" value="@(context.Request.Headers.GetValueOrDefault("User-Agent","").Contains("iPad") || context.Request.Headers.GetValueOrDefault("User-Agent","").Contains("iPhone"))" />
         <base />
         <choose>
             <when condition="@(context.Variables.GetValueOrDefault<bool>("isMobile"))">
@@ -156,7 +156,7 @@ A política `forward-request` encaminha a solicitação de entrada para o servi�
 ### <a name="policy-statement"></a>Declaração de política
 
 ```xml
-<forward-request timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" fail-on-error-status-code="false | true"/>
+<forward-request timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" buffer-response="true | false" fail-on-error-status-code="false | true"/>
 ```
 
 ### <a name="examples"></a>Exemplos
@@ -255,6 +255,7 @@ Essa política de nível de operação não encaminha solicitações para o serv
 | timeout="integer"                             | A quantidade de tempo em segundos a aguardar que os cabeçalhos de resposta HTTP sejam retornados pelo serviço de back-end antes que um erro de tempo limite seja gerado. O valor mínimo é 0 segundos. Valores maiores que 240 segundos podem não ser respeitados, pois a infraestrutura de rede subjacente pode descartar conexões ociosas após esse tempo. | Não       | Nenhum    |
 | Siga-redirecionamentos = "falso &#124; verdadeiro"          | Especifica se os redirecionamentos do serviço de back-end são seguidos pelo gateway ou retornados ao chamador.                                                                                                                                                                                                    | Não       | false   |
 | buffer-Request-Body = "false &#124; true"       | Quando definido como "true", a solicitação é armazenada em buffer e será reutilizada na [nova tentativa](api-management-advanced-policies.md#Retry).                                                                                                                                                                                               | Não       | false   |
+| buffer-Response = "false &#124; true" | Afeta o processamento de respostas em partes. Quando definido como "false", cada parte recebida do back-end é retornada imediatamente para o chamador. Quando definido como partes "true" é armazenado em buffer (8 KB, a menos que o final do fluxo seja detectado) e, em seguida, retornado ao chamador. | Não | true |
 | falha-em-erro-status-código = "falso &#124; verdadeiro" | Quando definido como true triggers [On-Error](api-management-error-handling-policies.md) seção para códigos de resposta no intervalo de 400 a 599, inclusive.                                                                                                                                                                      | Não       | false   |
 
 ### <a name="usage"></a>Uso
@@ -853,7 +854,7 @@ A política `set-variable` declara uma variável de [contexto](api-management-po
 O exemplo a seguir demonstra uma política de definir a variável na seção de entrada. Esta política de variável de conjunto cria uma variável de [contexto](api-management-policy-expressions.md#ContextVariables)`isMobile` booliano, que é definida como true se o cabeçalho de solicitação `User-Agent` contiver o texto `iPad` ou `iPhone`.
 
 ```xml
-<set-variable name="IsMobile" value="@(context.Request.Headers["User-Agent"].Contains("iPad") || context.Request.Headers["User-Agent"].Contains("iPhone"))" />
+<set-variable name="IsMobile" value="@(context.Request.Headers.GetValueOrDefault("User-Agent","").Contains("iPad") || context.Request.Headers.GetValueOrDefault("User-Agent","").Contains("iPhone"))" />
 ```
 
 ### <a name="elements"></a>Elementos
@@ -945,7 +946,7 @@ A `trace` política adiciona um rastreamento personalizado à saída do Inspetor
 | Elemento  | Descrição                                                                                                                                          | Obrigatório |
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | rastreamento    | Elemento raiz.                                                                                                                                        | Sim      |
-| mensagem  | Uma cadeia de caracteres ou expressão a ser registrada.                                                                                                                 | Sim      |
+| message  | Uma cadeia de caracteres ou expressão a ser registrada.                                                                                                                 | Sim      |
 | metadata | Adiciona uma propriedade personalizada à telemetria de [rastreamento](../azure-monitor/app/data-model-trace-telemetry.md) de Application insights. | Não       |
 
 ### <a name="attributes"></a>Atributos

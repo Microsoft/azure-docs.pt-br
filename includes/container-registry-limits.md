@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 3f68ca0fc577e6cf3f896ede0418f11f59756701
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 089b1b6f1af2f19c16866858324bde2e151e8bdb
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86512599"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98052736"
 ---
 | Recurso | Basic | Standard | Premium |
 |---|---|---|---|
@@ -22,10 +22,11 @@ ms.locfileid: "86512599"
 | Tamanho máximo da camada de imagem (GiB) | 200 | 200 | 200 |
 | ReadOps por minuto<sup>2, 3</sup> | 1,000 | 3\.000 | 10.000 |
 | WriteOps por minuto<sup>2, 4</sup> | 100 | 500 | 2\.000 |
-| MBps de largura de banda de download<sup>2</sup> | 30 | 60 | 100 |
-| MBps de largura de banda de upload<sup>2</sup> | 10 | 20 | 50 |
+| Largura de banda para download <sup>2</sup> (Mbps) | 30 | 60 | 100 |
+| Largura de banda para upload <sup>2</sup> (Mbps) | 10 | 20 | 50 |
 | Webhooks | 2 | 10 | 500 |
 | Replicação geográfica | N/D | N/D | [Com suporte][geo-replication] |
+| Zonas de disponibilidade | N/D | N/D | [Visualização][zones] |
 | Confiança em conteúdo | N/D | N/D | [Com suporte][content-trust] |
 | Link privado com pontos de extremidade privados | N/D | N/D | [Com suporte][plink] |
 | &bull; Pontos de extremidade privados | N/D | N/D | 10 |
@@ -37,7 +38,7 @@ ms.locfileid: "86512599"
 | &bull; Repositórios por mapa de escopo | N/D | N/D | 500 |
 
 
-<sup>1</sup> Armazenamento incluído na taxa diária de cada camada. Para obter um armazenamento adicional, será cobrada uma taxa diária adicional por GiB, até o limite de armazenamento. Para obter informações de taxa, confira [Preço de Registro de Contêiner do Azure][pricing].
+<sup>1</sup> Armazenamento incluído na taxa diária de cada camada. Um armazenamento adicional pode ser usado a uma taxa diária adicional por GiB, até o limite de armazenamento de registro. Para obter informações de taxa, confira [Preço de Registro de Contêiner do Azure][pricing]. Se você precisar de armazenamento além do limite do armazenamento de registro, entre em contato com o Suporte do Azure.
 
 <sup>2</sup>*ReadOps*, *WriteOps* e *Largura de Banda* são estimativas mínimas. O Registro de Contêiner do Azure se esforça para aprimorar o desempenho conforme os requisitos de uso.
 
@@ -55,3 +56,4 @@ ms.locfileid: "86512599"
 [plink]: ../articles/container-registry/container-registry-private-link.md
 [cmk]: ../articles/container-registry/container-registry-customer-managed-keys.md
 [token]: ../articles/container-registry/container-registry-repository-scoped-permissions.md
+[zones]: ../articles/container-registry/zone-redundancy.md

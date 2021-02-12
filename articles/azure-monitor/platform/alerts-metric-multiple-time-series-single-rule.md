@@ -4,14 +4,14 @@ description: Alerta em escala usando uma única regra de alerta para várias sé
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 10/04/2020
+ms.date: 01/11/2021
 ms.subservice: alerts
-ms.openlocfilehash: 81e09e6d9c6a57339f1d6f1eb5ce4f494555fa19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47a2fb9240f6826ed862f7a857264c09b79de9bc
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704473"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071078"
 ---
 # <a name="monitor-multiple-time-series-in-a-single-metric-alert-rule"></a>Monitorar várias séries temporais em uma única regra de alerta de métrica
 
@@ -162,7 +162,8 @@ Para esta regra de alerta, seis séries temporais de métrica estão sendo monit
 
 1.  **Selecionando todas as dimensões atuais e futuras** – você pode optar por monitorar todos os valores possíveis de uma dimensão, incluindo valores futuros. Essa regra de alerta será dimensionada automaticamente para monitorar todos os valores da dimensão sem a necessidade de modificar a regra de alerta toda vez que um valor de dimensão for adicionado ou removido.
 2.  **Excluindo dimensões** – selecionar o operador ' ≠ ' (excluir) para um valor de dimensão é equivalente a selecionar todos os outros valores dessa dimensão, incluindo valores futuros.
-3.  **Dimensões novas e personalizadas** – os valores de dimensão exibidos no portal do Azure são baseados nos dados de métrica coletados nos últimos três dias. Se o valor de dimensão que você está procurando ainda não for emitido, você poderá adicionar um valor de dimensão personalizado.
+3.  **Dimensões novas e personalizadas** – os valores de dimensão exibidos no portal do Azure são baseados nos dados de métrica coletados no último dia. Se o valor de dimensão que você está procurando ainda não for emitido, você poderá adicionar um valor de dimensão personalizado.
+4. **Correspondência de dimensões com um prefixo** -você pode optar por monitorar todos os valores de dimensão que começam com um padrão específico, selecionando o operador "começa com" e inserindo um prefixo personalizado.
 
 ![Recursos avançados de várias dimensões](media/alerts-metric-multiple-time-series-single-rule/advanced-features.png)
 

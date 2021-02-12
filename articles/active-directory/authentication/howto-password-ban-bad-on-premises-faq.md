@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27075af51c8deb886a060c81927f30bb70b5f638
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f80990854fd0c584d8e6582fdf35108e67d9202b
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077652"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625120"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Perguntas frequentes locais sobre a proteção por senha do Azure AD
 
@@ -150,6 +150,146 @@ O modo de auditoria só tem suporte no ambiente de Active Directory local. O Azu
 **P: meus usuários veem a mensagem de erro tradicional do Windows quando uma senha é rejeitada pela proteção de senha do Azure AD. É possível personalizar essa mensagem de erro para que os usuários saibam o que realmente aconteceu?**
 
 Não. A mensagem de erro vista pelos usuários quando uma senha é rejeitada por um controlador de domínio é controlada pelo computador cliente, não pelo controlador de domínio. Esse comportamento ocorre quando uma senha é rejeitada pelo padrão Active Directory políticas de senha ou por uma solução baseada em filtro de senha, como a proteção de senha do Azure AD.
+
+## <a name="password-testing-procedures"></a>Procedimentos de teste de senha
+
+Talvez você queira fazer alguns testes básicos de várias senhas para validar a operação adequada do software e obter uma melhor compreensão do [algoritmo de avaliação de senha](concept-password-ban-bad.md#how-are-passwords-evaluated). Esta seção descreve um método para esse teste que foi projetado para produzir resultados repetíveis.
+
+Por que é necessário seguir essas etapas? Há vários fatores que dificultam o teste de senhas, que podem ser repetidas e reproduzíveis no ambiente de Active Directory local:
+
+* A política de senha é configurada e persistida no Azure, e as cópias da política são sincronizadas periodicamente pelos agentes do DC local usando um mecanismo de sondagem. A latência inerente a esse ciclo de sondagem pode causar confusão. Por exemplo, se você configurar a política no Azure, mas esquecer de sincronizá-la com o agente de DC, seus testes poderão não produzir os resultados esperados. No momento, o intervalo de sondagem é codificado uma vez por hora, mas a espera de uma hora entre as alterações de política é não ideal para um cenário de teste interativo.
+* Depois que uma nova política de senha é sincronizada com um controlador de domínio, mais latência ocorrerá enquanto ele é replicado para outros controladores de domínio. Esses atrasos podem causar resultados inesperados se você testar uma alteração de senha em um controlador de domínio que ainda não tenha recebido a versão mais recente da política.
+* O teste de alterações de senha por meio de uma interface do usuário dificulta a confiança nos resultados. Por exemplo, é fácil digitar incorretamente uma senha inválida em uma interface do usuário, especialmente desde que a maioria das interfaces de usuário de senha oculte a entrada do usuário (por exemplo, como o Windows Ctrl-Alt-Delete-> a interface do usuário alterar senha).
+* Não é possível controlar estritamente qual controlador de domínio é usado ao testar alterações de senha de clientes ingressados no domínio. O sistema operacional cliente do Windows seleciona um controlador de domínio com base em fatores como Active Directory atribuições de site e sub-rede, configuração de rede específica do ambiente, etc.
+
+Para evitar esses problemas, as etapas abaixo se baseiam no teste de linha de comando de redefinições de senha enquanto estiverem conectados a um controlador de domínio.
+
+> [!WARNING]
+> Esses procedimentos devem ser usados somente em um ambiente de teste, uma vez que todas as alterações de senha de entrada e redefinições serão aceitas sem validação enquanto o serviço de agente de DC for interrompido e também para evitar os maiores riscos inerentes ao logon em um controlador de domínio.
+
+As etapas a seguir pressupõem que você instalou o agente de DC em pelo menos um controlador de domínio, instalou pelo menos um proxy e registrou o proxy e a floresta.
+
+1. Faça logon em um controlador de domínio usando credenciais de administrador de domínio (ou outras credenciais que tenham privilégios suficientes para criar contas de usuário de teste e redefinir senhas), que tem o software de agente de controlador de domínio instalado e foi reinicializado.
+1. Abra Visualizador de Eventos e navegue até o [log de eventos administrador de agente do DC](howto-password-ban-bad-on-premises-monitor.md#dc-agent-admin-event-log).
+1. Abra uma janela de prompt de comando elevado.
+1. Criar uma conta de teste para fazer testes de senha
+
+   Há várias maneiras de criar uma conta de usuário, mas uma opção de linha de comando é oferecida aqui como uma maneira de torná-la mais fácil durante os ciclos de teste repetitivos:
+
+   ```text
+   net.exe user <testuseraccountname> /add <password>
+   ```
+
+   Para fins de discussão abaixo, suponha que criamos uma conta de teste chamada "ContosoUser", por exemplo:
+
+   ```text
+   net.exe user ContosoUser /add <password>
+   ```
+
+1. Abra um navegador da Web (talvez seja necessário usar um dispositivo separado em vez do controlador de domínio), entre no [portal do Azure](https://portal.azure.com)e navegue até Azure Active Directory > segurança > métodos de autenticação > proteção por senha.
+1. Modifique a política de proteção de senha do Azure AD conforme necessário para os testes que você deseja executar.  Por exemplo, você pode decidir configurar o modo imposto ou de auditoria, ou pode decidir modificar a lista de termos proibidos na sua lista de senhas excluídas personalizadas.
+1. Sincronize a nova política interrompendo e reiniciando o serviço de agente de controlador de domínio.
+
+   Essa etapa pode ser realizada de várias maneiras. Uma delas seria usar o console administrativo de gerenciamento de serviços clicando com o botão direito do mouse no serviço agente DC de proteção de senha do Azure AD e escolhendo "reiniciar". Outra maneira pode ser executada na janela de prompt de comando da seguinte forma:
+
+   ```text
+   net stop AzureADPasswordProtectionDCAgent && net start AzureADPasswordProtectionDCAgent
+   ```
+    
+1. Verifique o Visualizador de Eventos para verificar se uma nova política foi baixada.
+
+   Sempre que o serviço de agente de controlador de domínio for interrompido e iniciado, você verá os eventos 2 30006 emitidos em sucessão de fechamento. O primeiro evento 30006 refletirá a política que foi armazenada em cache no disco no compartilhamento do SYSVOL. O segundo evento 30006 (se presente) deve ter uma data de política de locatário atualizada e, se for, refletirá a política que foi baixada do Azure. O valor de data da política de locatário é codificado no momento para exibir o carimbo de data/hora aproximado de que a política foi baixada do Azure.
+   
+   Se o segundo evento 30006 não for exibido, você deverá solucionar o problema antes de continuar.
+   
+   Os eventos 30006 serão semelhantes a este exemplo:
+ 
+   ```text
+   The service is now enforcing the following Azure password policy.
+
+   Enabled: 1
+   AuditOnly: 0
+   Global policy date: ‎2018‎-‎05‎-‎15T00:00:00.000000000Z
+   Tenant policy date: ‎2018‎-‎06‎-‎10T20:15:24.432457600Z
+   Enforce tenant policy: 1
+   ```
+
+   Por exemplo, alterar entre o modo imposto e de auditoria resultará na modificação do sinalizador AuditOnly (a política acima com AuditOnly = 0 está no modo imposto); as alterações na lista de senhas excluídas personalizadas não são refletidas diretamente no evento 30006 acima (e não são registradas em nenhum outro lugar por motivos de segurança). O download da política do Azure após essa alteração também incluirá a lista de senhas excluídas personalizada modificada.
+
+1. Execute um teste tentando redefinir uma nova senha na conta de usuário de teste.
+
+   Esta etapa pode ser feita na janela de prompt de comando da seguinte maneira:
+
+   ```text
+   net.exe user ContosoUser <password>
+   ```
+
+   Depois de executar o comando, você pode obter mais informações sobre o resultado do comando examinando o Visualizador de eventos. Os eventos de resultado da validação de senha são documentados no tópico [log de eventos do administrador de agente do DC](howto-password-ban-bad-on-premises-monitor.md#dc-agent-admin-event-log) ; Você usará esses eventos para validar o resultado do teste, além da saída interativa dos comandos de net.exe.
+
+   Vamos experimentar um exemplo: tentando definir uma senha que é banida pela lista global da Microsoft (Observe que a lista não está [documentada](concept-password-ban-bad.md#global-banned-password-list) , mas podemos testá-la em relação a um termo banido conhecido). Este exemplo pressupõe que você configurou a política para estar no modo imposto e adicionou termos zero à lista de senhas excluídas personalizada.
+
+   ```text
+   net.exe user ContosoUser PassWord
+   The password does not meet the password policy requirements. Check the minimum password length, password complexity and password history requirements.
+
+   More help is available by typing NET HELPMSG 2245.
+   ```
+
+   De acordo com a documentação, como nosso teste foi uma operação de redefinição de senha, você deve ver um evento 10017 e 30005 para o usuário ContosoUser.
+
+   O evento 10017 deve ser semelhante a este exemplo:
+
+   ```text
+   The reset password for the specified user was rejected because it did not comply with the current Azure password policy. Please see the correlated event log message for more details.
+ 
+   UserName: ContosoUser
+   FullName: 
+   ```
+
+   O evento 30005 deve ser semelhante a este exemplo:
+
+   ```text
+   The reset password for the specified user was rejected because it matched at least one of the tokens present in the Microsoft global banned password list of the current Azure password policy.
+ 
+   UserName: ContosoUser
+   FullName: 
+   ```
+
+   Isso foi divertido – vamos tentar outro exemplo! Desta vez, tentaremos definir uma senha que é banida pela lista de proibidos personalizada enquanto a política está no modo de auditoria. Este exemplo pressupõe que você concluiu as seguintes etapas: configurada a política para estar no modo de auditoria, adicionou o termo "LACHRYMOSE" à lista de senhas excluídas personalizada e sincronizou a nova política resultante para o controlador de domínio, alternando o serviço de agente de DC conforme descrito acima.
+
+   Ok, defina uma variação da senha banida:
+
+   ```text
+   net.exe user ContosoUser LaChRymoSE!1
+   The command completed successfully.
+   ```
+
+   Lembre-se, desta vez, com êxito porque a política está em modo de auditoria. Você deverá ver um evento 10025 e 30007 para o usuário ContosoUser.
+
+   O evento 10025 deve ser semelhante a este exemplo:
+   
+   ```text
+   The reset password for the specified user would normally have been rejected because it did not comply with the current Azure password policy. The current Azure password policy is configured for audit-only mode so the password was accepted. Please see the correlated event log message for more details.
+ 
+   UserName: ContosoUser
+   FullName: 
+   ```
+
+   O evento 30007 deve ser semelhante a este exemplo:
+
+   ```text
+   The reset password for the specified user would normally have been rejected because it matches at least one of the tokens present in the per-tenant banned password list of the current Azure password policy. The current Azure password policy is configured for audit-only mode so the password was accepted.
+ 
+   UserName: ContosoUser
+   FullName: 
+   ```
+
+1. Continue testando várias senhas de sua escolha e verificando os resultados no Visualizador de eventos usando os procedimentos descritos nas etapas anteriores. Se você precisar alterar a política na portal do Azure, não se esqueça de sincronizar a nova política com o agente de DC, conforme descrito anteriormente.
+
+Abordamos procedimentos que permitem que você faça testes controlados do comportamento de validação de senha da proteção de senha do Azure AD. Redefinir senhas de usuário da linha de comando diretamente em um controlador de domínio pode parecer um meio estranho de fazer esses testes, mas conforme descrito anteriormente, ele foi projetado para produzir resultados repetíveis. Conforme você está testando várias senhas, mantenha o [algoritmo de avaliação de senha](concept-password-ban-bad.md#how-are-passwords-evaluated) em mente, pois pode ajudar a explicar os resultados que você não esperava.
+
+> [!WARNING]
+> Quando todos os testes forem concluídos, não se esqueça de excluir nenhuma conta de usuário criada para fins de teste!
 
 ## <a name="additional-content"></a>Conteúdo adicional
 

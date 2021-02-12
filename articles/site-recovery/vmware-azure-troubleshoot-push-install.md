@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 04/03/2020
-ms.openlocfilehash: 8ee6449f357a578b30809bb03723ac1556e4f459
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62c8240a4d2e50aa3b584f322baf7d2ee217c6d3
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816146"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127865"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>Solucionar problemas de instalação por push do serviço de mobilidade
 
@@ -106,7 +106,22 @@ Servidor de configuração/servidor de processo de expansão tenta se conectar �
 
 Para resolver o erro:
 
+* Verifique se a conta de usuário tem acesso administrativo no computador de origem, com uma conta local ou uma conta de domínio. Se você não estiver usando uma conta de domínio, será necessário desabilitar o controle de acesso de usuário remoto no computador local.
+  * Para adicionar manualmente uma chave do registro que desabilita o controle de acesso de usuário remoto:
+    * `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System`
+    * Adicione um novo `DWORD` : `LocalAccountTokenFilterPolicy`
+    * Defina o valor como `1`
+  * Para adicionar a chave do registro, em um prompt de comando, execute o seguinte comando:
+
+    `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
+
 * Verifique se você pode executar o ping no computador de origem do servidor de configuração. Se você tiver escolhido o servidor de processo de expansão durante a habilitação da replicação, verifique se você pode executar o ping do computador de origem no servidor de processo.
+
+* Verifique se o serviço de compartilhamento de arquivos e impressoras está habilitado em sua máquina virtual. Verifique as etapas [aqui](vmware-azure-troubleshoot-push-install.md#file-and-printer-sharing-services-check-errorid-95105--95106).
+
+* Verifique se o serviço WMI está habilitado em sua máquina virtual. Verifique as etapas [aqui](vmware-azure-troubleshoot-push-install.md#windows-management-instrumentation-wmi-configuration-check-error-code-95103).
+
+* Verifique se as pastas de rede compartilhadas na sua máquina virtual estão acessíveis no servidor de processo. Verifique as etapas [aqui](vmware-azure-troubleshoot-push-install.md#check-access-for-network-shared-folders-on-source-machine-errorid-9510595523).
 
 * Na linha de comando do computador do servidor de origem, use `Telnet` para executar o ping no servidor de configuração ou no servidor de processo de expansão na porta HTTPS 135, conforme mostrado no comando a seguir. Esse comando verifica se há problemas de conectividade de rede ou de bloqueio de porta de firewall.
 
@@ -165,7 +180,7 @@ Para **Windows 2008 R2 e versões anteriores**:
 
 * Para habilitar o compartilhamento de arquivos com o Política de Grupo:
   1. Vá para **Iniciar**, digite `gpmc.msc` e pesquise.
-  1. No painel de navegação, abra as seguintes pastas: configuração de usuário da **política de computador local**  >  **User Configuration**  >  **modelos administrativos**  >  **componentes do Windows**  >  **compartilhamento de rede**.
+  1. No painel de navegação, abra as seguintes pastas: configuração de usuário da **política de computador local**  >    >  **modelos administrativos**  >  **componentes do Windows**  >  **compartilhamento de rede**.
   1. No painel de detalhes, clique duas vezes **Impedir os usuários de compartilhamento de arquivos em seus perfis**.
 
      Para desabilitar a configuração de Política de Grupo e habilitar a capacidade do usuário de compartilhar arquivos, selecione **desabilitado**.
@@ -182,7 +197,7 @@ Após a verificação dos serviços de arquivo e impressora, habilite o serviço
 
 Para habilitar o WMI:
 
-1. Vá para segurança do **painel de controle**  >  **Security** e selecione **Firewall do Windows**.
+1. Vá para segurança do **painel de controle**  >   e selecione **Firewall do Windows**.
 1. Selecione **alterar configurações** e, em seguida, selecione a guia **exceções** .
 1. Na janela **exceções** , marque a caixa de seleção Instrumentação de gerenciamento do Windows (WMI) para habilitar o tráfego WMI por meio do firewall.
 
@@ -224,7 +239,7 @@ Antes da versão 9,20, uma partição raiz ou configuração de volume em vário
 
 ### <a name="possible-cause"></a>Causa possível
 
-Os arquivos de configuração do GRUB (carregador unificado geral) (_/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/boot/Grub2/grub.cfg_ou _/etc/default/grub_) podem conter o valor para a **raiz** dos parâmetros e **retomar** como os nomes de dispositivo reais em vez de um UUID (identificador universalmente exclusivo). Site Recovery exige a abordagem do UUID, pois os nomes dos dispositivos podem mudar na reinicialização da VM. Por exemplo, a VM pode não ficar online com o mesmo nome no failover e que resulte em problemas.
+Os arquivos de configuração do GRUB (carregador unificado geral) (_/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/boot/Grub2/grub.cfg_ ou _/etc/default/grub_) podem conter o valor para a **raiz** dos parâmetros e **retomar** como os nomes de dispositivo reais em vez de um UUID (identificador universalmente exclusivo). Site Recovery exige a abordagem do UUID, pois os nomes dos dispositivos podem mudar na reinicialização da VM. Por exemplo, a VM pode não ficar online com o mesmo nome no failover e que resulte em problemas.
 
 Por exemplo:
 
@@ -254,7 +269,7 @@ os nomes de dispositivo devem ser substituídos pelo UUID correspondente.
    /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3"
    ```
 
-1. Agora, substitua o nome do dispositivo pelo UUID no formato como `root=UUID=\<UUID>` . Por exemplo, se substituirmos os nomes de dispositivo com UUID para o parâmetro root e resume mencionado nos arquivos _/boot/Grub2/grub.cfg_, _/boot/Grub2/grub.cfg_ou _/etc/default/grub_ , as linhas nos arquivos se parecerão com a seguinte linha:
+1. Agora, substitua o nome do dispositivo pelo UUID no formato como `root=UUID=\<UUID>` . Por exemplo, se substituirmos os nomes de dispositivo com UUID para o parâmetro root e resume mencionado nos arquivos _/boot/Grub2/grub.cfg_, _/boot/Grub2/grub.cfg_ ou _/etc/default/grub_ , as linhas nos arquivos se parecerão com a seguinte linha:
 
    `kernel /boot/vmlinuz-3.0.101-63-default root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4 resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b splash=silent crashkernel=256M-:128M showopts vga=0x314`
 

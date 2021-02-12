@@ -1,6 +1,5 @@
 ---
-title: Usar mudança de tempo e saídas ao vivo para criar reprodução de vídeo sob demanda
-titleSuffix: Azure Media Services
+title: Usar a mudança de tempo para criar a reprodução de vídeo sob demanda
 description: Este artigo descreve como usar as saídas dinâmicas e de mudança de tempo para registrar fluxos ao vivo e criar a reprodução sob demanda.
 services: media-services
 documentationcenter: ''
@@ -14,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 11485ebac449cbde0a4f31e2a099a153476577b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2bb876c164f0df56a8b7f3c4a3666ff306e9416
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89289504"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955929"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>Usar mudança de tempo e saídas ao vivo para criar reprodução de vídeo sob demanda
 

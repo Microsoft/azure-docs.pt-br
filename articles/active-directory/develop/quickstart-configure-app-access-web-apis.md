@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/03/2020
 ms.author: marsma
-ms.custom: aaddev, contperfq1
+ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: fc2f3202ac88e3ee6c24db21dd9072a13a8deef9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fdaaf935dc458a6a5b2a87a81bb98a1392f1034a
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89442237"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012114"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Início Rápido: Configurar um aplicativo cliente para acessar uma API Web
 
@@ -42,7 +42,7 @@ Este diagrama mostra a relação entre os dois registros de aplicativo. Nesta se
 
 Depois de registrar o aplicativo cliente e a API Web e expor a API criando escopos, você pode configurar as permissões do cliente para a API seguindo estas etapas:
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário que contém o registro do aplicativo cliente.
 1. Selecione **Azure Active Directory** > **Registros de aplicativo** e selecione o aplicativo cliente (*não* sua API Web).
 1. Selecione **Permissões de API** > **Adicionar uma permissão** > **Minhas APIs**.
@@ -59,7 +59,7 @@ Depois de registrar o aplicativo cliente e a API Web e expor a API criando escop
 
 Depois de adicionar permissões à sua API, você deverá ver as permissões selecionadas em **Permissões configuradas**. A imagem a seguir mostra o exemplo de permissão delegada *Employees.Read.All* adicionada ao registro do aplicativo cliente.
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-02-configured-permissions-pane.png" alt-text="Diagrama de linha mostrando uma API Web com escopos expostos à direita e um aplicativo cliente à esquerda com esses escopos selecionados como permissões":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-02-configured-permissions-pane.png" alt-text="Painel Permissões configuradas no portal do Azure mostrando a permissão que acaba de ser adicionada":::
 
 Você também pode observar a permissão *User.Read* para a API do Microsoft Graph. Essa permissão é adicionada automaticamente quando você registra um aplicativo no portal do Azure.
 
@@ -71,7 +71,7 @@ Além de acessar sua própria API Web em nome do usuário conectado, seu aplicat
 
 Configure a permissão delegada para o Microsoft Graph para permitir que o aplicativo cliente execute operações em nome do usuário conectado, por exemplo, ler o email ou modificar o perfil dele. Por padrão, os usuários do seu aplicativo cliente são solicitados a entrar para dar consentimento às permissões delegadas que você configurou para ele.
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário que contém o registro do aplicativo cliente.
 1. Selecione **Azure Active Directory** > **Registros de aplicativo** e selecione o aplicativo cliente.
 1. Selecione **Permissões de API** > **Adicionar uma permissão** > **Microsoft Graph**
@@ -96,7 +96,7 @@ Configure permissões de aplicativo para um aplicativo que precisa autenticar-se
 
 Nas etapas a seguir, você concede a permissão *Files.Read.All* do Microsoft Graph como um exemplo.
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário que contém o registro do aplicativo cliente.
 1. Selecione **Azure Active Directory** > **Registros de aplicativo** e selecione o aplicativo cliente.
 1. Selecione **Permissões de API** > **Adicionar uma permissão** > **Microsoft Graph** > **Permissões de aplicativo**.
@@ -136,11 +136,11 @@ Você pode adicionar o conjunto completo de permissões de uma API ou permissõe
 
 O botão **Dar consentimento do administrador para {seu locatário}** permite que um administrador dê consentimento do administrador às permissões configuradas para o aplicativo. Quando você seleciona o botão, uma caixa de diálogo solicita que você confirme a ação de consentimento.
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-03-grant-admin-consent-button.png" alt-text="Diagrama de linha mostrando uma API Web com escopos expostos à direita e um aplicativo cliente à esquerda com esses escopos selecionados como permissões":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-03-grant-admin-consent-button.png" alt-text="Botão Dar consentimento do administrador realçado no painel Permissões configuradas no portal do Azure":::
 
 Depois de dar consentimento, as permissões que exigiam o consentimento do administrador são mostradas como tendo o consentimento:
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-04-admin-consent-granted.png" alt-text="Diagrama de linha mostrando uma API Web com escopos expostos à direita e um aplicativo cliente à esquerda com esses escopos selecionados como permissões":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-04-admin-consent-granted.png" alt-text="Configurar a tabela de permissões no portal do Azure mostrando o consentimento do administrador dado para a permissão Files.Read.All":::
 
 O botão **Dar consentimento do administrador** é *desabilitado* se você não é um administrador ou se nenhuma permissão foi configurada para o aplicativo. Se você tiver permissões que foram concedidas, mas ainda não foram configuradas, o botão de consentimento do administrador solicitará que você lide com essas permissões. Você pode adicioná-las a permissões configuradas ou removê-las.
 

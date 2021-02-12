@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: kumud
-ms.openlocfilehash: 664e3851370be812cd7a0e58cf9beb1fddb5d991
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8c38f4e84a6a653c3a4d887c82340409fc363af
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87290997"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220585"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Criar, alterar ou excluir uma tabela de rotas
 
@@ -169,7 +169,7 @@ Não é possível excluir uma tabela de rotas associada a nenhuma sub-rede. [Des
 
 1. Na lista tabela de rotas, escolha a tabela de rotas que você deseja excluir.
 
-1. Selecione **excluir**e, em seguida, selecione **Sim** na caixa de diálogo de confirmação.
+1. Selecione **excluir** e, em seguida, selecione **Sim** na caixa de diálogo de confirmação.
 
 ### <a name="delete-a-route-table---commands"></a>Excluir uma tabela de rotas – comandos
 
@@ -268,7 +268,7 @@ Uma tabela de rotas contém zero ou mais rotas. Para saber mais sobre as informa
 
 1. Escolha a rota que você deseja excluir.
 
-1. Selecione **excluir**e, em seguida, selecione **Sim** na caixa de diálogo de confirmação.
+1. Selecione **excluir** e, em seguida, selecione **Sim** na caixa de diálogo de confirmação.
 
 ### <a name="delete-a-route---commands"></a>Excluir um comando de rota
 
@@ -333,7 +333,7 @@ Após uma breve espera, o Azure informa o tipo do próximo salto e a ID da rota 
 
 Para realizar tarefas em tabelas de rota e rotas, sua conta deve ser atribuída à [função de colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que tenha atribuído as ações apropriadas listadas na tabela a seguir:
 
-| Ação                                                          |   Nome                                                  |
+| Ação                                                          |   Name                                                  |
 |--------------------------------------------------------------   |   -------------------------------------------           |
 | Microsoft.Network/routeTables/read                              |   Ler uma tabela de rotas                                    |
 | Microsoft.Network/routeTables/write                             |   Criar ou atualizar tabela de rotas                        |
@@ -348,4 +348,4 @@ Para realizar tarefas em tabelas de rota e rotas, sua conta deve ser atribuída 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Criar uma tabela de rotas usando o [PowerShell](powershell-samples.md) ou [CLI do Azure](cli-samples.md) scripts de exemplo ou modelos do Azure [Resource Manager](template-samples.md)
-- Criar e atribuir [definições de Azure Policy](policy-samples.md) para redes virtuais
+- Criar e atribuir [definições de Azure Policy](./policy-reference.md) para redes virtuais

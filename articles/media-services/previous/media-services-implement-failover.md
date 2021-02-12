@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 10976c91e781763264d73adcc54ba88ec8d07f54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68cd107b2606643d712c4de94b6d1a82e8ee614a
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89256524"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657253"
 ---
 # <a name="implement-failover-streaming-with-media-services-v2"></a>Implementar streaming de failover com os serviços de mídia v2
 
@@ -66,7 +66,7 @@ Nesta seção, você cria e configura um projeto de aplicativo de console em C#.
 
 1. Use o Visual Studio para criar uma nova solução que inclua o projeto de Aplicativo de Console em C#. Digite **HandleRedundancyForOnDemandStreaming** para o nome e clique em **OK**.
 2. Crie a pasta **SupportFiles** no mesmo nível que o arquivo de projeto **HandleRedundancyForOnDemandStreaming. csproj** . Na pasta **SupportFiles** , crie as pastas **OutputFiles** e **MP4Files** . Copie um arquivo. mp4 para a pasta **MP4Files**. (Neste exemplo, o arquivo de **ignite.mp4** é usado.) 
-3. Use o **NuGet** para adicionar referências a DLLs relacionadas aos serviços de mídia. No **menu principal do Visual Studio**, selecione **ferramentas**  >  **Gerenciador de pacotes NuGet**  >  **console do Gerenciador de pacotes**. Na janela do console, digite **install-Package WindowsAzure. mediaservices**e pressione Enter.
+3. Use o **NuGet** para adicionar referências a DLLs relacionadas aos serviços de mídia. No **menu principal do Visual Studio**, selecione **ferramentas**  >  **Gerenciador de pacotes NuGet**  >  **console do Gerenciador de pacotes**. Na janela do console, digite **install-Package WindowsAzure. mediaservices** e pressione Enter.
 4. Adicione outras referências que são necessárias para este projeto: System. Runtime. Serialization e System. Web.
 5. Substitua o **uso** de instruções que foram adicionadas ao arquivo **Programs.cs** por padrão com os seguintes itens:
 

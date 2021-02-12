@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/11/2020
+ms.date: 12/29/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 300b9b6279231079807f8c923570bddab657ff56
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 93bcbab9445d83bf17b37b6affc1d2bc70703bbf
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92095884"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814322"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Iniciar um failover de conta de armazenamento
 
@@ -38,6 +38,13 @@ Para poder executar um failover de conta em sua conta de armazenamento, verifiqu
 
 Para obter mais informações sobre a redundância do Armazenamento do Microsoft Azure, confira [Redundância no Armazenamento do Azure](storage-redundancy.md).
 
+Tenha em mente que os seguintes recursos e serviços não têm suporte para o failover de conta:
+
+- A Sincronização de Arquivos do Azure não oferece suporte ao failover de conta de armazenamento. Não deve ser realizado o failover das contas de armazenamento que contêm compartilhamentos de arquivos do Azure que estejam sendo usadas como pontos de extremidade de nuvem na Sincronização de Arquivos do Azure. Se isso for feito, a sincronização deixará de funcionar e poderá causar a perda inesperada de dados no caso de arquivos recentes em camadas.
+- ADLS Gen2 contas de armazenamento (contas que têm o namespace hierárquico habilitado) não têm suporte no momento.
+- Não é possível realizar failover em uma conta de armazenamento que contenha blob de blocos premium. As contas de armazenamento que dão suporte a blobs de bloco premium atualmente não são compatíveis com a redundância geográfica.
+- Não é possível fazer failover de uma conta de armazenamento contendo contêineres habilitados da [política de imutabilidade do worm](../blobs/storage-blob-immutable-storage.md) . A retenção baseada em tempo desbloqueada/bloqueada ou as políticas de manutenção legal impedem o failover para manter a conformidade.
+
 ## <a name="initiate-the-failover"></a>Iniciar o failover
 
 ## <a name="portal"></a>[Portal](#tab/azure-portal)
@@ -54,7 +61,7 @@ Para iniciar um failover da conta do portal do Azure, siga estas etapas:
 1. Selecione **Preparar para failover**.
 1. Revise a caixa de diálogo de confirmação. Quando você estiver pronto, insira **Sim** para confirmar e iniciar o failover.
 
-    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-confirm.png" alt-text="Captura de tela mostrando o status de failover e de replicação geográfica":::
+    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-confirm.png" alt-text="Caixa de diálogo de confirmação de que mostra a captura de tela de um failover de conta":::
 
 ## <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

@@ -8,16 +8,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/01/2020
 ms.author: pafarley
-ms.openlocfilehash: 346854d5990ac6861bd4eb93914bb1745b90bfa5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 555a6410418232ff164a441dbc90eb10236b9f36
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89321526"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947817"
 ---
-[Documentação de referência](https://docs.microsoft.com/java/api/com.microsoft.azure.management.cognitiveservices?view=azure-java-stable) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/mgmt-v2017_04_18/src/main/java/com/microsoft/azure/management/cognitiveservices/v2017_04_18) | [Pacote (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-mgmt-cognitiveservices)
+[Documentação de referência](/java/api/com.microsoft.azure.management.cognitiveservices) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/mgmt-v2017_04_18/src/main/java/com/microsoft/azure/management/cognitiveservices/v2017_04_18) | [Pacote (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-mgmt-cognitiveservices)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="java-prerequisites"></a>Pré-requisitos para usar o Java
 
 * Uma assinatura válida do Azure; [crie uma gratuitamente](https://azure.microsoft.com/free/).
 * A versão atual do [JDK (Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
@@ -94,7 +94,11 @@ Adicione o código a seguir ao método **Main** para listar os recursos disponí
 
 [!code-java[](~/cognitive-services-quickstart-code/java/azure_management_service/quickstart.java?name=snippet_calls)]
 
-## <a name="create-a-cognitive-services-resource"></a>Criar um recurso dos Serviços Cognitivos
+## <a name="create-a-cognitive-services-resource-java"></a>Criar um recurso dos Serviços Cognitivos (Java)
+
+Para criar e assinar um recurso dos Serviços Cognitivos, use o método **create**. Esse método adiciona um novo recurso que pode ser cobrado ao grupo de recursos que você passa. Ao criar o recurso, você precisará saber qual "tipo" de serviço deseja usar, bem como o tipo de preço (ou SKU) desejado e um local do Azure. O método a seguir usa todos esses argumentos e cria um recurso.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/azure_management_service/quickstart.java?name=snippet_create)]
 
 ### <a name="choose-a-service-and-pricing-tier"></a>Escolher um serviço e um tipo de preço
 
@@ -105,12 +109,6 @@ Ao criar um recurso, você precisará saber qual "tipo" de serviço deseja usar,
 [!INCLUDE [cognitive-services-subscription-types](../../../../includes/cognitive-services-subscription-types.md)]
 
 [!INCLUDE [SKUs and pricing](./sku-pricing.md)]
-
-## <a name="create-a-cognitive-services-resource"></a>Criar um recurso dos Serviços Cognitivos
-
-Para criar e assinar um recurso dos Serviços Cognitivos, use o método **create**. Esse método adiciona um novo recurso que pode ser cobrado ao grupo de recursos que você passa. Ao criar o recurso, você precisará saber qual "tipo" de serviço deseja usar, bem como o tipo de preço (ou SKU) desejado e um local do Azure. O método a seguir usa todos esses argumentos e cria um recurso.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/azure_management_service/quickstart.java?name=snippet_create)]
 
 ## <a name="view-your-resources"></a>Exibir os recursos
 
@@ -126,7 +124,7 @@ O método a seguir exclui o recurso especificado do grupo de recursos fornecido.
 
 ## <a name="see-also"></a>Veja também
 
-* [Documentação de referência do SDK de Gerenciamento do Azure](https://docs.microsoft.com/java/api/com.microsoft.azure.management.cognitiveservices?view=azure-java-stable)
-* [O que são os Serviços Cognitivos do Azure?](../../Welcome.md)
+* [Documentação de referência do SDK de Gerenciamento do Azure](/java/api/com.microsoft.azure.management.cognitiveservices)
+* [O que são os Serviços Cognitivos do Azure?](../../what-are-cognitive-services.md)
 * [Autenticar solicitações para os Serviços Cognitivos do Azure](../../authentication.md)
 * [Criar um recurso usando o portal do Azure](../../cognitive-services-apis-create-account.md)

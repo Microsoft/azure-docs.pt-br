@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 34f43d51bf0df488e04605f7f7c77e9c6dcfe9a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8954ad03bd5f539e9dcfbb4249f4e7cc1cf0bc7f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87374075"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685116"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Localizar imagens de VM do Linux no Azure Marketplace com a CLI do Azure
 
@@ -19,9 +19,49 @@ Este tópico descreve como usar a CLI do Azure para localizar imagens de VM no A
 
 Procure também imagens e ofertas disponíveis usando a vitrine do [Azure Marketplace](https://azuremarketplace.microsoft.com/), o [portal do Azure](https://portal.azure.com) ou o [Azure PowerShell](../windows/cli-ps-findimage.md). 
 
-Certifique-se de que você instalou a versão mais recente [CLI do Azure](/cli/azure/install-azure-cli) e são registrados uma conta do Azure (`az login`).
+Verifique se você está conectado a uma conta do Azure ( `az login` ).
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+
+## <a name="deploy-from-a-vhd-using-purchase-plan-parameters"></a>Implantar de um VHD usando parâmetros do plano de compra
+
+Se você tiver um VHD existente que foi criado usando uma imagem paga do Azure Marketplace, talvez seja necessário fornecer as informações do plano de compra ao criar uma nova VM a partir desse VHD. 
+
+Se você ainda tiver a VM original ou outra VM criada usando a mesma imagem do Marketplace, poderá obter o nome do plano, o editor e as informações do produto dele usando [AZ VM Get-Instance-View](/cli/azure/vm#az_vm_get_instance_view). Este exemplo obtém uma VM chamada *myVM* no grupo de recursos *MyResource* Group e, em seguida, exibe as informações do plano de compra.
+
+```azurepowershell-interactive
+az vm get-instance-view -g myResourceGroup -n myVM --query plan
+```
+
+Se você não obtiver as informações do plano antes da exclusão da VM original, poderá arquivar uma [solicitação de suporte](https://ms.portal.azure.com/#create/Microsoft.Support). Eles precisarão do nome da VM, da ID da assinatura e do carimbo de data/hora da operação de exclusão.
+
+Depois de ter as informações do plano, você pode criar a nova VM usando o `--attach-os-disk` parâmetro para especificar o VHD.
+
+```azurecli-interactive
+az vm create \
+   --resource-group myResourceGroup \
+  --name myNewVM \
+  --nics myNic \
+  --size Standard_DS1_v2 --os-type Linux \
+  --attach-os-disk myVHD \
+  --plan-name planName \
+  --plan-publisher planPublisher \
+  --plan-product planProduct 
+```
+
+## <a name="deploy-a-new-vm-using-purchase-plan-parameters"></a>Implantar uma nova VM usando parâmetros do plano de compra
+
+Se você já tiver informações sobre a imagem, poderá implantá-la usando o `az vm create` comando. Neste exemplo, implantamos uma VM com a imagem RabbitMQ certificada pela BitNami:
+
+```azurecli
+az group create --name myResourceGroupVM --location westus
+
+az vm create --resource-group myResourceGroupVM --name myVM --image bitnami:rabbitmq:rabbitmq:latest --plan-name rabbitmq --plan-product rabbitmq --plan-publisher bitnami
+```
+
+Se você receber uma mensagem sobre como aceitar os termos da imagem, consulte a seção [aceitar os termos](#accept-the-terms) mais adiante neste artigo.
 
 ## <a name="list-popular-images"></a>Listar imagens populares
 
@@ -33,7 +73,7 @@ az vm image list --output table
 
 A saída inclui o URN da imagem (o valor na coluna *Urn*). Ao criar uma VM com uma das imagens populares do Marketplace, você poderá especificar como alternativa o *UrnAlias*, uma forma abreviada, como *UbuntuLTS*.
 
-```
+```output
 You are viewing an offline list of images, use --all to retrieve an up-to-date list
 Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
 -------------  ----------------------  ------------------  --------------------------------------------------------------  -------------------  ---------
@@ -60,7 +100,7 @@ az vm image list --offer Debian --all --output table
 
 Resultado parcial: 
 
-```
+```output
 Offer              Publisher    Sku                  Urn                                                    Version
 -----------------  -----------  -------------------  -----------------------------------------------------  --------------
 Debian             credativ     7                    credativ:Debian:7:7.0.201602010                        7.0.201602010
@@ -110,7 +150,7 @@ az vm image list --location westeurope --offer Deb --publisher credativ --sku 8 
 
 Resultado parcial:
 
-```
+```output
 Offer    Publisher    Sku                Urn                                              Version
 -------  -----------  -----------------  -----------------------------------------------  -------------
 Debian   credativ     8                  credativ:Debian:8:8.0.201602010                  8.0.201602010
@@ -158,7 +198,7 @@ az vm image list-publishers --location westus --output table
 
 Resultado parcial:
 
-```
+```output
 Location    Name
 ----------  ----------------------------------------------------
 westus      128technology
@@ -194,7 +234,7 @@ az vm image list-offers --location westus --publisher Canonical --output table
 
 Saída:
 
-```
+```output
 Location    Name
 ----------  -------------------------
 westus      Ubuntu15.04Snappy
@@ -211,7 +251,7 @@ az vm image list-skus --location westus --publisher Canonical --offer UbuntuServ
 
 Saída:
 
-```
+```output
 Location    Name
 ----------  -----------------
 westus      12.04.3-LTS
@@ -242,7 +282,7 @@ az vm image list --location westus --publisher Canonical --offer UbuntuServer --
 
 Resultado parcial:
 
-```
+```output
 Offer         Publisher    Sku        Urn                                               Version
 ------------  -----------  ---------  ------------------------------------------------  ---------------
 UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201804262  18.04.201804262
@@ -286,7 +326,7 @@ az vm image show --location westus --urn Canonical:UbuntuServer:18.04-LTS:latest
 
 Saída:
 
-```
+```output
 {
   "dataDiskImages": [],
   "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/Canonical/ArtifactTypes/VMImage/Offers/UbuntuServer/Skus/18.04-LTS/Versions/18.04.201901220",
@@ -307,7 +347,7 @@ az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest
 ```
 Saída:
 
-```
+```output
 {
   "dataDiskImages": [],
   "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/bitnami/ArtifactTypes/VMImage/Offers/rabbitmq/Skus/rabbitmq/Versions/3.7.1901151016",
@@ -325,7 +365,7 @@ Saída:
 }
 ```
 
-### <a name="accept-the-terms"></a>Aceitar os termos
+## <a name="accept-the-terms"></a>Aceitar os termos
 
 Para exibir e aceitar os termos de licença, use o comando [az vm image accept-terms](/cli/azure/vm/image?). Quando aceita os termos, você habilita a implantação programática na sua assinatura. Você só precisa aceitar os termos uma vez por assinatura para a imagem. Por exemplo:
 
@@ -335,7 +375,7 @@ az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest
 
 A saída inclui um `licenseTextLink` para os termos da licença e indica que o valor de `accepted` é `true`:
 
-```
+```output
 {
   "accepted": true,
   "additionalProperties": {},
@@ -350,16 +390,6 @@ A saída inclui um `licenseTextLink` para os termos da licença e indica que o v
   "signature": "XXXXXXLAZIK7ZL2YRV5JYQXONPV76NQJW3FKMKDZYCRGXZYVDGX6BVY45JO3BXVMNA2COBOEYG2NO76ONORU7ITTRHGZDYNJNXXXXXX",
   "type": "Microsoft.MarketplaceOrdering/offertypes"
 }
-```
-
-### <a name="deploy-using-purchase-plan-parameters"></a>Implantar usando os parâmetros de plano de compra
-
-Depois de aceitar os termos da imagem, você pode implantar uma VM na assinatura. Para implantar a imagem usando o comando `az vm create`, forneça parâmetros para o plano de compra, além de um URN para a imagem. Por exemplo, para implantar uma VM com a imagem do RabbitMQ Certified by Bitnami:
-
-```azurecli
-az group create --name myResourceGroupVM --location westus
-
-az vm create --resource-group myResourceGroupVM --name myVM --image bitnami:rabbitmq:rabbitmq:latest --plan-name rabbitmq --plan-product rabbitmq --plan-publisher bitnami
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

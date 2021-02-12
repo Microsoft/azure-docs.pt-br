@@ -7,12 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 9a074be9bcc62d8c20635400f462f52fb796d2fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 97c3ead4dbdf0608c6b7cd1be6a9edf242ecd2b5
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294301"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510756"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Ações de webhook para regras de alerta do log
 
@@ -316,7 +316,6 @@ A seguinte carga de exemplo é para uma ação personalizada de webhook para qua
         }
     }
 ```
-
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre os [alertas de log nos alertas do Azure](alerts-unified-log.md).

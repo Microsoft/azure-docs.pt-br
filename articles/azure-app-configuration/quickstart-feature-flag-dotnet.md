@@ -3,8 +3,7 @@ title: Início Rápido para adicionar sinalizadores de recursos a aplicativos .N
 description: Um início rápido para adicionar sinalizadores de recursos a aplicativos .NET Framework e gerenciá-los na Configuração de Aplicativos do Azure
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
@@ -14,13 +13,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 10/19/2020
-ms.author: lcozzens
-ms.openlocfilehash: c379d3f99628c2d3fb32ae34ca0214f608d365c7
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.author: alkemper
+ms.openlocfilehash: 513c826e11ff9dfe6ea94349c67620da9d1bba48
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201250"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932040"
 ---
 # <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>Início Rápido: Adicionar sinalizadores de recursos a um aplicativo .NET Framework
 

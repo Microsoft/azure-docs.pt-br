@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 0af9d6906e038a4b9285a2c302fc0c98345fdbd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d957c5d6521010c7393e2297be16cd7bef41c35f
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90023747"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724061"
 ---
 # <a name="use-the-session-management-rest-api"></a>Usar a API REST de gerenciamento de sessão
 
@@ -37,11 +37,14 @@ $endPoint = "https://remoterendering.westus2.mixedreality.azure.com"
 
 Se você não tiver uma conta de renderização remota, [crie uma](create-an-account.md). Cada recurso é identificado por uma *AccountId*, que é usada em todas as APIs de sessão.
 
-### <a name="example-script-set-accountid-and-accountkey"></a>Script de exemplo: Set AccountId e accountKey
+### <a name="example-script-set-accountid-accountkey-and-account-domain"></a>Script de exemplo: Set AccountId, accountKey e domínio da conta
+
+Domínio da conta é o local da conta de renderização remota. Neste exemplo, o local da conta é região *lesteus*.
 
 ```PowerShell
 $accountId = "********-****-****-****-************"
 $accountKey = "*******************************************="
+$accountDomain = "eastus.mixedreality.azure.com"
 ```
 
 ## <a name="common-request-headers"></a>Cabeçalhos de solicitação comuns
@@ -52,7 +55,7 @@ $accountKey = "*******************************************="
 
 ```PowerShell
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
-$webResponse = Invoke-WebRequest -Uri "https://sts.mixedreality.azure.com/accounts/$accountId/token" -Method Get -ContentType "application/json" -Headers @{ Authorization = "Bearer ${accountId}:$accountKey" }
+$webResponse = Invoke-WebRequest -Uri "https://sts.$accountDomain/accounts/$accountId/token" -Method Get -ContentType "application/json" -Headers @{ Authorization = "Bearer ${accountId}:$accountKey" }
 $response = ConvertFrom-Json -InputObject $webResponse.Content
 $token = $response.AccessToken;
 ```
@@ -259,7 +262,7 @@ Esse comando para uma sessão. A VM alocada será recuperada logo após.
 
 | URI | Método |
 |-----------|:-----------|
-| /v1/accounts/*AccountId*/Sessions/*SessionID* | Delete (excluir) |
+| /v1/accounts/*AccountId*/Sessions/*SessionID* | DELETE |
 
 **Response**
 

@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: aahi
 ms.openlocfilehash: e65bb7c7d8fc04baec6b50a53519e689e748fbe1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90900294"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012162"
 ---
 # <a name="configure-speech-service-containers"></a>Configurar contêineres de serviço de fala
 
-Os contêineres de fala permitem que os clientes criem uma arquitetura de aplicativo de fala otimizada para aproveitar os recursos robustos de nuvem e a localidade de borda. Agora, os cinco contêineres de fala que damos suporte são, conversão de texto em **texto**, **personalizado de fala**para texto, **texto em fala**, **neural-Text-to-Speech** e **texto personalizado para fala**.
+Os contêineres de fala permitem que os clientes criem uma arquitetura de aplicativo de fala otimizada para aproveitar os recursos robustos de nuvem e a localidade de borda. Agora, os cinco contêineres de fala que damos suporte são, conversão de texto em **texto**, **personalizado de fala** para texto, **texto em fala**, **neural-Text-to-Speech** e **texto personalizado para fala**.
 
 O ambiente de tempo de execução do contêiner de **fala** é configurado usando os `docker run` argumentos do comando. Esse contêiner tem várias configurações obrigatórias e outras configurações opcionais. Há vários [exemplos](#example-docker-run-commands) do comando disponíveis. As configurações específicas do contêiner são as configurações de cobrança.
 
@@ -50,7 +50,7 @@ Essa configuração pode ser localizada no seguinte local:
 
 - Portal do Azure: visão geral **da fala** , rotulada `Endpoint`
 
-| Obrigatório | Nome | Tipo de dados | Descrição |
+| Obrigatório | Name | Tipo de dados | Descrição |
 | -------- | ---- | --------- | ----------- |
 | Sim | `Billing` | String | URI do ponto de extremidade de cobrança. Para obter mais informações sobre como obter o URI de cobrança, consulte [coletando parâmetros necessários](speech-container-howto.md#gathering-required-parameters). Para saber mais e para obter uma lista completa de pontos de extremidade regionais, confira [Nomes de subdomínio personalizados para Serviços Cognitivos](../cognitive-services-custom-subdomains.md). |
 
@@ -78,9 +78,9 @@ Os contêineres de fala padrão não usam montagens de entrada ou de saída para
 
 A sintaxe exata do local da montagem do host varia de acordo com o sistema operacional do host. Além disso, o local de montagem do [computador host](speech-container-howto.md#the-host-computer)pode não estar acessível devido a um conflito entre as permissões usadas pela conta de serviço do Docker e as permissões de local de montagem do host.
 
-| Opcional | Nome | Tipo de dados | Descrição |
+| Opcional | Name | Tipo de dados | Descrição |
 | -------- | ---- | --------- | ----------- |
-| Não permitido | `Input` | Cadeia de caracteres | Os contêineres de fala padrão não usam isso. Os contêineres de fala personalizados usam [montagens de volume](#volume-mount-settings).                                                                                    |
+| Não permitido | `Input` | String | Os contêineres de fala padrão não usam isso. Os contêineres de fala personalizados usam [montagens de volume](#volume-mount-settings).                                                                                    |
 | Opcional | `Output` | Cadeia de caracteres | O destino de montagem de saída. O valor padrão é `/output`. Esse é o local dos logs. Isso inclui logs de contêiner. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output` |
 
 ## <a name="volume-mount-settings"></a>Configurações de montagem de volume

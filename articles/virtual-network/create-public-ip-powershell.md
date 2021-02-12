@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 10de2a4a00b716656626082a24ecbd56d0fcc3a4
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: ff768bceaba57c119aa88d5d4d99b11608917695
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127294"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492018"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-azure-powershell"></a>Início rápido: criar um endereço IP público usando Azure PowerShell
 
-Este artigo mostra como criar um recurso de endereço IP público usando Azure PowerShell. Para obter mais informações sobre a quais recursos isso pode ser associado, a diferença entre o SKU básico e Standard e outras informações relacionadas, consulte [endereços IP públicos](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses).  Para este exemplo, nos concentraremos somente nos endereços IPv4; para obter mais informações sobre endereços IPv6, consulte [IPv6 para VNet do Azure](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).
+Este artigo mostra como criar um recurso de endereço IP público usando Azure PowerShell. Para obter mais informações sobre a quais recursos isso pode ser associado, a diferença entre o SKU básico e Standard e outras informações relacionadas, consulte [endereços IP públicos](./public-ip-addresses.md).  Para este exemplo, nos concentraremos somente nos endereços IPv4; para obter mais informações sobre endereços IPv6, consulte [IPv6 para VNet do Azure](./ipv6-overview.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,11 +45,13 @@ $loc = 'eastus2'
 
 New-AzResourceGroup -Name $rg -Location $loc
 ```
+## <a name="create-public-ip"></a>Criar IP público
+
 ---
 # <a name="standard-sku---using-zones"></a>[**SKU padrão-usando zonas**](#tab/option-create-public-ip-standard-zones)
 
 >[!NOTE]
->O comando a seguir funciona para a API versão 2020-08-01 ou posterior.  Para obter mais informações sobre a versão de API que está sendo usada no momento, consulte [provedores de recursos e tipos](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+>O comando a seguir funciona para o módulo AZ. Network versão 4.5.0 ou posterior.  Para obter mais informações sobre os módulos do PowerShell que estão sendo usados no momento, consulte a [documentação do PowerShellGet](https://docs.microsoft.com/powershell/module/powershellget/?view=powershell-7.1).
 
 Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) para criar um endereço IP público com redundância de zona padrão chamado **MyStandardZRPublicIP** no **myresourceproperties**.
 
@@ -65,7 +67,7 @@ $zone = 1,2,3
 New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $alloc -SKU $sku -zone $zone
 ```
 > [!IMPORTANT]
-> Para versões da API com mais de 2020-08-01, execute o comando acima sem especificar um parâmetro de zona para criar um endereço IP com redundância de zona. 
+> Para módulos AZ. Network com mais de 4.5.0, execute o comando acima sem especificar um parâmetro de zona para criar um endereço IP com redundância de zona. 
 >
 
 Para criar um endereço IP público de zona padrão no Zona 2 chamado **myStandardZonalPublicIP** no **MyResource**, use o seguinte comando:
@@ -82,12 +84,12 @@ $zone = 2
 New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $alloc -SKU $sku -zone $zone
 ```
 
-Observe que as opções acima para zonas são apenas seleções válidas em regiões com [zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).
+Observe que as opções acima para zonas são apenas seleções válidas em regiões com [zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
 # <a name="standard-sku---no-zones"></a>[**SKU padrão-sem zonas**](#tab/option-create-public-ip-standard)
 
 >[!NOTE]
->O comando a seguir funciona para a API versão 2020-08-01 ou posterior.  Para obter mais informações sobre a versão de API que está sendo usada no momento, consulte [provedores de recursos e tipos](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+>O comando a seguir funciona para o módulo AZ. Network versão 4.5.0 ou posterior.  Para obter mais informações sobre os módulos do PowerShell que estão sendo usados no momento, consulte a [documentação do PowerShellGet](https://docs.microsoft.com/powershell/module/powershellget/?view=powershell-7.1).
 
 Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) para criar um endereço IP público padrão como um recurso não zonal chamado **MyStandardPublicIP** no **myresourceproperties**.
 
@@ -102,7 +104,7 @@ $alloc = 'Static'
 New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $alloc -SKU $sku
 ```
 
-Essa seleção é válida em todas as regiões e é a seleção padrão para endereços IP públicos padrão em regiões sem [zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).
+Essa seleção é válida em todas as regiões e é a seleção padrão para endereços IP públicos padrão em regiões sem [zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
 # <a name="basic-sku"></a>[**SKU Básico**](#tab/option-create-public-ip-basic)
 
@@ -124,9 +126,9 @@ Se for aceitável que o endereço IP seja alterado ao longo do tempo, a atribui�
 
 ## <a name="additional-information"></a>Informações adicionais 
 
-Para obter mais detalhes sobre as variáveis individuais listadas acima, consulte [gerenciar endereços IP públicos](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#create-a-public-ip-address).
+Para obter mais detalhes sobre as variáveis individuais listadas acima, consulte [gerenciar endereços IP públicos](./virtual-network-public-ip-address.md#create-a-public-ip-address).
 
 ## <a name="next-steps"></a>Próximas etapas
-- Associar um [endereço IP público a uma máquina virtual](https://docs.microsoft.com/azure/virtual-network/associate-public-ip-address-vm#azure-portal)
-- Saiba mais sobre os [endereços IP públicos](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) no Azure.
+- Associar um [endereço IP público a uma máquina virtual](./associate-public-ip-address-vm.md#azure-portal)
+- Saiba mais sobre os [endereços IP públicos](./public-ip-addresses.md#public-ip-addresses) no Azure.
 - Saiba mais sobre todas as [configurações de endereço IP público](virtual-network-public-ip-address.md#create-a-public-ip-address).

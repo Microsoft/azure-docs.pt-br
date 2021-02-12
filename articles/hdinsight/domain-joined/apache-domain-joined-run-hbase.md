@@ -2,17 +2,14 @@
 title: Apache HBase e Enterprise Security Package – Azure HDInsight
 description: Tutorial - Aprenda a configurar as políticas do Apache Ranger para HBase no Azure HDInsight com o Enterprise Security Package.
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: 5747de399e7ae0cfe99ba013f8da376be0ba1b2a
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: deefda126602e9b276b74752330a14cc3eb2aa95
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544946"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933717"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Tutorial: Configurar políticas do Apache HBase no HDInsight com o Enterprise Security Package
 
@@ -45,7 +42,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="create-domain-users"></a>Crie usuários de domínio
 
-Visite [Criar um cluster do HDInsight com o Enterprise Security Package](./apache-domain-joined-configure-using-azure-adds.md) para saber como criar os usuários de domínio **sales_user1** e **marketing_user1** . Em um cenário de produção, os usuários do domínio vêm do seu locatário do Active Directory.
+Visite [Criar um cluster do HDInsight com o Enterprise Security Package](./apache-domain-joined-configure-using-azure-adds.md) para saber como criar os usuários de domínio **sales_user1** e **marketing_user1**. Em um cenário de produção, os usuários do domínio vêm do seu locatário do Active Directory.
 
 ## <a name="create-hbase-tables-and-import-sample-data"></a>Criar tabelas do HBase e importar dados de exemplo
 
@@ -93,17 +90,17 @@ Você pode usar o SSH para se conectar a clusters do HBase e, em seguida, usar o
 
 ## <a name="create-ranger-policies"></a>Criar políticas do Ranger
 
-Crie uma política do Ranger para **sales_user1** e **marketing_user1** .
+Crie uma política do Ranger para **sales_user1** e **marketing_user1**.
 
-1. Abra o **interface do usuário administrador do Ranger** . Clique em **\<ClusterName>_hbase** em **HBase** .
+1. Abra o **interface do usuário administrador do Ranger**. Clique em **\<ClusterName>_hbase** em **HBase**.
 
    ![Interface do usuário de administração do HDInsight Apache Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
 
-2. A tela **Lista de Políticas** exibirá todas as políticas do Ranger criadas para esse cluster. Uma política previamente configurada pode estar listada. Clique em **Adicionar Nova Política** .
+2. A tela **Lista de Políticas** exibirá todas as políticas do Ranger criadas para esse cluster. Uma política previamente configurada pode estar listada. Clique em **Adicionar Nova Política**.
 
     ![Lista de políticas do Apache Ranger HBase](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
 
-3. Na página **Criar Política** , insira os seguintes valores:
+3. Na página **Criar Política**, insira os seguintes valores:
 
    |**Configuração**  |**Valor sugerido**  |
    |---------|---------|
@@ -123,7 +120,7 @@ Crie uma política do Ranger para **sales_user1** e **marketing_user1** .
    ![Política de criação de vendas do Apache Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
 
    >[!NOTE]
-   >Aguarde alguns instantes para que o Ranger sincronize com o Azure AD se um usuário do domínio não for preenchido automaticamente para **Selecionar usuário** .
+   >Aguarde alguns instantes para que o Ranger sincronize com o Azure AD se um usuário do domínio não for preenchido automaticamente para **Selecionar usuário**.
 
 4. Clique em **Adicionar** para salvar a política.
 
@@ -191,7 +188,7 @@ Com base nas políticas do Ranger configuradas, **sales_user1** pode exibir todo
 
 ### <a name="access-data-as-marketing_user1"></a>Acessar dados como marketing_user1
 
-1. Abra uma nova conexão de SSH ao cluster. Use o seguinte comando para entrar como **marketing_user1** :
+1. Abra uma nova conexão de SSH ao cluster. Use o seguinte comando para entrar como **marketing_user1**:
 
    ```bash
    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -236,10 +233,10 @@ Com base nas políticas do Ranger configuradas, **sales_user1** pode exibir todo
 Se não for continuar usando este aplicativo, exclua o cluster do HBase que você criou seguindo estas etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
-2. Na caixa **Pesquisar** na parte superior, digite **HDInsight** . 
-1. Selecione **Clusters do HDInsight** em **Serviços** .
+2. Na caixa **Pesquisar** na parte superior, digite **HDInsight**. 
+1. Selecione **Clusters do HDInsight** em **Serviços**.
 1. Na lista de clusters do HDInsight que aparece, clique em **…** ao lado do cluster que você criou para este tutorial. 
-1. Clique em **Excluir** . Clique em **Sim** .
+1. Clique em **Excluir**. Clique em **Sim**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

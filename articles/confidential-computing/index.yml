@@ -10,12 +10,12 @@ metadata:
   author: JBCook
   ms.author: jencook
   ms.date: 09/22/2020
-  ms.openlocfilehash: 0d3a800b376edfe7f5c9380fd5b198d4a46362e6
-  ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+  ms.openlocfilehash: 4e35449f5dd34d366d0d6095830002690940e6ae
+  ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/16/2020
-  ms.locfileid: "92124336"
+  ms.lasthandoff: 02/08/2021
+  ms.locfileid: "99831460"
 landingContent:
 - title: Sobre a computação confidencial do Azure
   linkLists:
@@ -86,11 +86,11 @@ landingContent:
     - text: Amostras de contêiner confidencial (contêineres não modificados no SGX)
       url: https://github.com/Azure-Samples/confidential-container-samples
     - text: Amostras de contêiner com reconhecimento de enclave
-      url: https://github.com/Azure-Samples/enclave-aware-container-samples
+      url: https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/confidential-computing/enclave-aware-containers.md
   - linkListType: reference
     links:
     - text: Perguntas frequentes sobre os nós confidenciais no AKS
-      url: confidential-nodes-aks-overview.md
+      url: confidential-nodes-aks-faq.md
     - text: Sobre o AKS (Serviço de Kubernetes do Azure)
       url: ../aks/intro-kubernetes.md
 - title: Serviços de nuvem confidenciais
@@ -108,7 +108,7 @@ landingContent:
     - text: Demonstração de atendimento à saúde confidencial no AKS
       url: https://github.com/Azure-Samples/confidential-container-samples
     - text: TLS mútuo atestado com Open Enclave no AKS
-      url: https://github.com/Azure-Samples/enclave-aware-container-samples
+      url: https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/confidential-computing/enclave-aware-containers.md
   - linkListType: reference
     links:
     - text: SDK do OE (Open Enclave)

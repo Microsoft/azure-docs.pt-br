@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 815b1789c54d1ce505c16dc89e199d451ae9a588
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b294a56a523adaa2629a5d1e72a7ccef532956e0
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396120"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753293"
 ---
 # <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>Um aplicativo Web que chama APIs da Web: chamar uma API da Web
 
@@ -152,7 +152,7 @@ public async Task<IActionResult> Profile()
 > [!NOTE]
 > Você pode usar o mesmo princípio para chamar qualquer API da Web.
 >
-> A maioria das APIs da Web do Azure fornece um SDK que simplifica a chamada da API, como é o caso para Microsoft Graph. Consulte, por exemplo, [criar um aplicativo Web que autorize o acesso ao armazenamento de BLOBs com o Azure ad](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=dotnet) para obter um exemplo de um aplicativo Web usando Microsoft. Identity. Web e usando o SDK de armazenamento do Azure.
+> A maioria das APIs da Web do Azure fornece um SDK que simplifica a chamada da API, como é o caso para Microsoft Graph. Consulte, por exemplo, [criar um aplicativo Web que autorize o acesso ao armazenamento de BLOBs com o Azure ad](../../storage/common/storage-auth-aad-app.md?tabs=dotnet&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para obter um exemplo de um aplicativo Web usando Microsoft. Identity. Web e usando o SDK de armazenamento do Azure.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -199,5 +199,4 @@ def graphcall():
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Mover para ambiente de produção](scenario-web-app-call-api-production.md)
+Vá para o próximo artigo neste cenário, [vá para produção](scenario-web-app-call-api-production.md).

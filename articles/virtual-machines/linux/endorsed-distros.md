@@ -11,14 +11,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 01/03/2021
 ms.author: guybo
-ms.openlocfilehash: 0236644930af699180cf26b4baee7bb591d8bbaa
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9d278582840404702bfef3e5fc9af395f659d844
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978927"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898072"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Distribuições do Linux endossadas no Azure
 
@@ -36,7 +36,7 @@ O agente Linux do Azure já está pré-instalado nas imagens do Azure Marketplac
 | --- | --- | --- | --- |
 | CentOS por software de Wave não autorizado |CentOS 6. x, 7. x, 8. x |CentOS 6,3: [download do LIS](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4 +: no kernel |Pacote: no [repositório](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) em "WALinuxAgent" <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)<p> CoreOS agora é o [fim da vida](https://coreos.com/os/eol/) de 26 de maio de 2020. |Não está mais disponível | | |
-| Debian da Credativ |8.x, 9.x |No kernel |Pacote: no repositório, em "waagent"  <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| Debian da Credativ |8. x, 9. x, 10. x |No kernel |Pacote: no repositório, em "waagent"  <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
 |Flatcar contêiner Linux por Kinvolk| Pro, estável, beta| No kernel | o wa-Linux-Agent já está instalado em/usr/share/OEM/bin/waagent |
 | Oracle Linux pela Oracle |6.x, 7.x, 8.x |No kernel |Pacote: no repositório, em "WALinuxAgent"  <br/>Código-fonte: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | [Red Hat Enterprise Linux por Red Hat](../workloads/redhat/overview.md) |6.x, 7.x, 8.x |No kernel |Pacote: no repositório, em "WALinuxAgent"  <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
@@ -70,11 +70,11 @@ A Microsoft tem dois (2) canais de migração para usuários do CoreOS.
 - Flatcar by Kinvolk (consulte a entrada "flatcar contêiner Linux por Kinvolk".)
 - [Sistema operacional Fedora Core](https://docs.fedoraproject.org/en-US/fedora-coreos/provisioning-azure/) (os clientes devem carregar suas próprias imagens. Aqui está a [documentação de migração](https://docs.fedoraproject.org/en-US/fedora-coreos/migrate-cl/)).
 
-### <a name="credativ"></a>Credativ
+### <a name="credativ"></a>credativ
 
-[https://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure](https://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure)
+[https://www.credativ.de/en/portfolio/support/open-source-support-center/](https://www.credativ.de/en/portfolio/support/open-source-support-center/)
 
-A Credativ é uma empresa de serviços e consultoria independente, especializada no desenvolvimento e na implementação de soluções profissionais com o uso de software gratuito. A Credative, por ser especialista e líder em software gratuito, é reconhecida internacionalmente com vários departamentos de TI que usam o suporte que a empresa fornece. Em conjunto com a Microsoft, a Credativ está preparando imagens correspondentes do Debian para Debian 8 (Jessie) e Debian antes do 7 (Wheezy). As duas imagens são especialmente projetadas para execução no Azure e podem ser facilmente gerenciadas por meio da plataforma. A empresa também dará suporte a atualização e manutenção de longo prazo das imagens Debian para Azure por meio de seus Centros de Suporte de Software Livre.
+o credativ é uma empresa independente de consultoria e serviços que é especializada no desenvolvimento e na implementação de soluções profissionais usando software gratuito. Como especialistas de código-fonte aberto, a credativ tem reconhecimento internacional com muitos departamentos de ti que usam o seu suporte. Em conjunto com a Microsoft, o credativ está preparando imagens Debian. As imagens são especialmente projetadas para serem executadas no Azure e podem ser facilmente gerenciadas por meio da plataforma. o credativ também dará suporte à manutenção e à atualização de longo prazo das imagens Debian para o Azure por meio de seus centros de suporte de software livre.
 
 ### <a name="kinvolk"></a>Kinvolk
 [https://www.kinvolk.io/flatcar-container-linux/](https://www.kinvolk.io/flatcar-container-linux/)

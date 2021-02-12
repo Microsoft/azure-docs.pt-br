@@ -4,12 +4,12 @@ description: Entenda os serviços com suporte e o esquema de eventos para logs d
 ms.subservice: logs
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: 791f95dc75c55c7a5c7c26d0719e186245713fba
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 56de1f4f275eba46d5f8b146829e444a75eabb88
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543403"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955307"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Esquema comum e específico de serviço para logs de recursos do Azure
 
@@ -23,19 +23,19 @@ Uma combinação do tipo de recurso (disponível na propriedade `resourceId`) e 
 
 ## <a name="top-level-common-schema"></a>Esquema comum de nível superior
 
-| Nome | Obrigatório/Opcional | Descrição |
+| Name | Obrigatório/Opcional | Descrição |
 |---|---|---|
 | time | Obrigatório | O carimbo de data/hora (UTC) do evento. |
 | resourceId | Obrigatório | A ID do recurso que emitiu o evento. Para serviços de locatário, isso é o /tenants/tenant-id/providers/provider-name do formulário. |
 | tenantId | Necessário para os logs de locatário | A ID de locatário do que esse evento está vinculado ao locatário do Active Directory. Essa propriedade só é usada para logs de nível de locatário, ele não aparece nos logs de nível do recurso. |
-| operationName | Obrigatório | O nome da operação representada por esse evento. Se o evento representar uma operação RBAC, esse será o nome da operação RBAC (por exemplo, Microsoft. Storage/storageAccounts/blobservices/BLOBs/Read). Normalmente modeladas na forma de uma operação do Resource Manager, mesmo que não sejam as operações do Resource Manager documentadas reais (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
+| operationName | Obrigatório | O nome da operação representada por esse evento. Se o evento representar uma operação RBAC do Azure, esse será o nome da operação RBAC do Azure (por exemplo, Microsoft. Storage/storageAccounts/blobservices/BLOBs/Read). Normalmente modeladas na forma de uma operação do Resource Manager, mesmo que não sejam as operações do Resource Manager documentadas reais (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
 | operationVersion | Opcional | A versão de API associada à operação, se a operationName tiver sido executada usando uma API (por exemplo, `http://myservice.windowsazure.net/object?api-version=2016-06-01` ). Se não houver nenhuma API que corresponde a essa operação, a versão representará a versão dessa operação, caso as propriedades associadas à operação sejam alteradas no futuro. |
 | category | Obrigatório | A categoria de log do evento. Categoria é a granularidade na qual você pode habilitar ou desabilitar os logs em determinado recurso. As propriedades exibidas no blob de propriedades de um evento são as mesmas em uma categoria de log e um tipo de recurso específicos. As categorias de log típicas são "auditoria" "operacional" "execução" e "solicitação". |
 | resultType | Opcional | O status do evento. Os valores típicos incluem Iniciado, Em Andamento, Com Êxito, Com Falha, Ativo e Resolvido. |
 | resultSignature | Opcional | O substatus do evento. Se essa operação corresponder a uma chamada à API REST, esse campo será o código de status HTTP da chamada REST correspondente. |
 | resultDescription | Opcional | A descrição de texto estático dessa operação, por exemplo, "obter arquivo de armazenamento". |
 | durationMs | Opcional | A duração da operação em milissegundos. |
-| callerIpAddress | Opcional | O endereço IP do chamador, se a operação corresponder a uma chamada à API que venha de uma entidade com um endereço IP disponível publicamente. |
+| callerIpAddress | Opcional | O endereço IP do chamador, caso a operação corresponda a uma chamada à API proveniente de uma entidade com um endereço IP disponível publicamente. |
 | correlationId | Opcional | Um GUID usado para agrupar um conjunto de eventos relacionados. Normalmente, se dois eventos tiverem a mesma operationName, mas dois status diferentes (por exemplo, "iniciado" e "êxito"), eles compartilharão a mesma ID de correlação. Isso também pode representar outras relações entre os eventos. |
 | identidade | Opcional | Um blob JSON que descreve a identidade do usuário ou do aplicativo que realizou a operação. Normalmente, esse campo inclui a autorização e o token de declarações/JWT do Active Directory. |
 | Nível | Opcional | O nível de severidade do evento. Precisa ser Informativo, Aviso, Erro ou Crítico. |
@@ -49,8 +49,9 @@ O esquema para logs de recursos varia dependendo do recurso e da categoria de lo
 | Serviço | Esquema e Documentos |
 | --- | --- |
 | Azure Active Directory | [Visão geral](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), esquema de [log de auditoria](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) e [esquemas de entradas](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
-| Serviços de análise | [Log de diagnóstico da instalação do Azure Analysis Services](../../analysis-services/analysis-services-logging.md) |
+| Analysis Services | [Log de diagnóstico da instalação do Azure Analysis Services](../../analysis-services/analysis-services-logging.md) |
 | Gerenciamento de API | [Logs de recursos de gerenciamento de API](../../api-management/api-management-howto-use-azure-monitor.md#resource-logs) |
+| Serviço de Aplicativo | [Logs do serviço de aplicativo](../../app-service/troubleshoot-diagnostic-logs.md)
 | Gateways do Aplicativo |[Registro em log do gateway de aplicativo](../../application-gateway/application-gateway-diagnostics.md) |
 | Automação do Azure |[Análise de log para automação do Azure](../../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Lote do Azure |[Log do lote do Azure](../../batch/batch-diagnostics.md) |
@@ -76,10 +77,10 @@ O esquema para logs de recursos varia dependendo do recurso e da categoria de lo
 | Load Balancer |[Análise de log para Balanceador de Carga do Azure](../../load-balancer/load-balancer-monitor-log.md) |
 | Aplicativos Lógicos |[Esquema de acompanhamento personalizado dos Aplicativos Lógicos B2B](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Grupos de segurança de rede |[Log Analytics para grupos de segurança de rede (NSGs)](../../virtual-network/virtual-network-nsg-manage-log.md) |
-| Proteção contra DDOS | [Gerenciar Proteção contra DDoS do Azure Standard](../../virtual-network/manage-ddos-protection.md) |
+| Proteção contra DDoS | [Registro em log para o padrão de proteção contra DDoS do Azure](../../ddos-protection/diagnostic-logging.md#log-schemas) |
 | Power BI dedicado | [Registro em log para Power BI Embedded no Azure](/power-bi/developer/azure-pbie-diag-logs) |
 | Serviços de Recuperação | [Modelo de dados para o backup do Azure](../../backup/backup-azure-reports-data-model.md)|
-| Search |[Habilitação e uso da análise de tráfego de pesquisa](../../search/search-traffic-analytics.md) |
+| Pesquisar |[Habilitação e uso da análise de tráfego de pesquisa](../../search/search-traffic-analytics.md) |
 | Barramento de Serviço |[Logs do barramento de serviço do Azure](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | Banco de Dados SQL | [Log do banco de dados SQL do Azure](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Stream Analytics |[Logs de trabalho](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
@@ -89,7 +90,7 @@ O esquema para logs de recursos varia dependendo do recurso e da categoria de lo
 
 
 
-## <a name="next-steps"></a>Próximas Etapas
+## <a name="next-steps"></a>Próximas etapas
 
 * [Consulte as categorias de log de recursos que você pode coletar](resource-logs-categories.md)
 * [Saiba mais sobre os logs de recursos](./platform-logs-overview.md)

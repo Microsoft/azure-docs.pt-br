@@ -9,16 +9,16 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/17/2020
 ms.author: jingwang
-ms.openlocfilehash: 587cdd54f09be2761026c25ccd80fb67d3eb6bb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4207c4ddfcbab325b1ae119dcd200af30fc59f58
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84987049"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844925"
 ---
-# <a name="copy-data-from-hive-using-azure-data-factory"></a>Copiar dados do Hive usando o Azure Data Factory 
+# <a name="copy-and-transform-data-from-hive-using-azure-data-factory"></a>Copiar e transformar dados do hive usando o Azure Data Factory 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de e para o Hive. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
@@ -68,6 +68,7 @@ As propriedades a seguir têm suporte para o serviço vinculado de Hive:
 | allowHostNameCNMismatch | Especifica se deve ser necessário um nome de certificado TLS/SSL emitido pela autoridade de certificação para corresponder ao nome de host do servidor ao se conectar por TLS. O valor padrão é false.  | Não |
 | allowSelfSignedServerCert | Especifica se deve permitir os certificados autoassinados do servidor. O valor padrão é false.  | Não |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção [Pré-requisitos](#prerequisites). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
+| storageReference | Uma referência ao serviço vinculado da conta de armazenamento usada para preparar dados no fluxo de dados de mapeamento. Isso é necessário somente ao usar o serviço vinculado do hive no fluxo de dados de mapeamento | Não |
 
 **Exemplo:**
 
@@ -164,6 +165,53 @@ Para copiar dados de Hive, defina o tipo de fonte na atividade de cópia como **
     }
 ]
 ```
+
+## <a name="mapping-data-flow-properties"></a>Propriedades do fluxo de dados de mapeamento
+
+Há suporte para o conector do hive como uma fonte de conjunto de dados [embutida](data-flow-source.md#inline-datasets) no mapeamento de fluxos. Leia usando uma consulta ou diretamente de uma tabela Hive no HDInsight. Os dados do hive são preparados em uma conta de armazenamento como arquivos parquet antes de serem transformados como parte de um fluxo de dados. 
+
+### <a name="source-properties"></a>Propriedades de origem
+
+A tabela abaixo lista as propriedades com suporte por uma origem do hive. Você pode editar essas propriedades na guia **Opções de origem** .
+
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Repositório | O repositório deve ser `hive` | yes |  `hive` | store | 
+| Formatar | Se você está lendo de uma tabela ou consulta | yes | `table` ou `query` | format |
+| Nome do esquema | Se estiver lendo de uma tabela, o esquema da tabela de origem |  Sim, se o formato for `table` | Cadeia de caracteres | schemaName |
+| Nome da tabela | Se estiver lendo de uma tabela, o nome da tabela |   Sim, se o formato for `table` | Cadeia de caracteres | tableName |
+| Consulta | Se o formato for `query` , a consulta de origem no serviço vinculado do hive | Sim, se o formato for `query` | Cadeia de caracteres | Consulta |
+| Em etapas | A tabela do hive sempre será preparada. | yes | `true` | em etapas |
+| Contêiner de armazenamento | Contêiner de armazenamento usado para preparar dados antes de ler do hive ou gravar no hive. O cluster do hive deve ter acesso a esse contêiner. | yes | Cadeia de caracteres | storageContainer |
+| Banco de dados de preparo | O esquema/banco de dados ao qual a conta de usuário especificada no serviço vinculado tem acesso. Ela é usada para criar tabelas externas durante o preparo e descartadas posteriormente | no | `true` ou `false` | stagingDatabaseName |
+| Scripts anteriores do SQL | Código SQL a ser executado na tabela Hive antes de ler os dados | no | Cadeia de caracteres | preSQLs |
+
+#### <a name="source-example"></a>Exemplo de origem
+
+Veja abaixo um exemplo de configuração de origem do hive:
+
+![Exemplo de origem do hive](media/data-flow/hive-source.png "[Exemplo de origem do hive")
+
+Essas configurações são traduzidas para o seguinte script de fluxo de dados:
+
+```
+source(
+    allowSchemaDrift: true,
+    validateSchema: false,
+    ignoreNoFilesFound: false,
+    format: 'table',
+    store: 'hive',
+    schemaName: 'default',
+    tableName: 'hivesampletable',
+    staged: true,
+    storageContainer: 'khive',
+    storageFolderPath: '',
+    stagingDatabaseName: 'default') ~> hivesource
+```
+### <a name="known-limitations"></a>Limitações conhecidas
+
+* Tipos complexos, como matrizes, mapas, structs e uniões, não têm suporte para leitura. 
+* O conector do hive só dá suporte a tabelas Hive no Azure HDInsight da versão 4,0 ou superior (Apache Hive 3.1.0)
 
 ## <a name="lookup-activity-properties"></a>Pesquisar propriedades de atividade
 

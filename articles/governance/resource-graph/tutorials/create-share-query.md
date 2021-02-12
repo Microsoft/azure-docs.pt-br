@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Gerenciar consultas no portal do Azure'
 description: Neste tutorial, você cria uma consulta do Resource Graph e compartilha a nova consulta com outras pessoas no portal do Azure.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: tutorial
-ms.openlocfilehash: 98d4c7d0493686a45bdfef9d85823432cb637a66
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 7240a843cfa041137b28284e396c8a4b62a81926
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057919"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916672"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Tutorial: Criar e compartilhar uma consulta do Azure Resource Graph no portal do Azure
 
@@ -88,7 +88,7 @@ Ao contrário de uma consulta privada, uma consulta compartilhada é um recurso 
 
 1. Selecione **Salvar** na parte inferior do painel **Salvar consulta**. O título da guia muda de **Consulta 1** para **Contar VMs por SO**. Na primeira vez que o grupo de recursos **Resource-Graph-queries** é usado, o salvamento demora mais do que o esperado à medida que o grupo de recursos é criado.
    
-   :::image type="content" source="../media/create-share-query/save-shared-query-window.png" alt-text="Salvar a nova consulta usando o botão Salvar" border="false":::
+   :::image type="content" source="../media/create-share-query/save-shared-query-window.png" alt-text="Salvar a nova consulta como uma consulta compartilhada" border="false":::
 
    > [!NOTE] 
    > Se desejar fornecer o nome de um grupo de recursos existente no qual salvar a consulta compartilhada, você poderá desmarcar a caixa de seleção **Publicar no grupo de recursos resource-graph-queries**. Usar o grupo de recursos com o nome padrão para consultas torna as consultas compartilhadas mais fáceis de descobrir. Essa escolha também torna a finalidade desse grupo de recursos mais aparente. No entanto, você pode optar por selecionar um grupo de recursos existente por motivos de segurança, com base em permissões existentes.
@@ -97,7 +97,7 @@ Ao contrário de uma consulta privada, uma consulta compartilhada é um recurso 
 
 1. Selecione **Abrir uma consulta**. Verifique se o tipo está definido como **Consulta compartilhada** e a combinação de **Assinatura** e **Grupo de recursos** corresponde ao local em que você salvou a consulta. O item salvo **Contar VMs por sistema operacional** agora aparece na lista **Nome da Consulta**. Selecione o link de título da consulta salva para carregá-la em uma nova guia com o nome dessa consulta. Como uma consulta compartilhada, ela exibe um ícone na guia ao lado do título, o qual indica que ela é compartilhada.
 
-   :::image type="content" source="../media/create-share-query/show-saved-shared-query.png" alt-text="Salvar a nova consulta usando o botão Salvar" border="false":::
+   :::image type="content" source="../media/create-share-query/show-saved-shared-query.png" alt-text="Mostrar a consulta compartilhada com o ícone" border="false":::
 
    > [!NOTE] 
    > Quando uma consulta salva estiver aberta e a guia mostrar o nome dela, o botão **Salvar** atualizará a consulta com as alterações feitas. Para criar uma nova consulta salva, selecione **Salvar como** e prossiga como se você estivesse salvando uma consulta totalmente nova.

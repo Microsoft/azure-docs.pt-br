@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 4cc345eda8a8d51fb61cbbbd5cf0bf84633ccf0b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 7dccce597dcfbcedd5083befafa79b8ba6f3adac
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676083"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693483"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Artigos sobre a conexão ao Banco de Dados SQL do Azure e à Instância Gerenciada de SQL do Azure e a consulta deles
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -29,7 +29,7 @@ O documento a seguir inclui links para exemplos do Azure que mostram como se con
 | Guia de Início Rápido | Descrição |
 |---|---|
 |[SQL Server Management Studio](connect-query-ssms.md)|Este guia de início rápido demonstra como usar não só o SSMS para se conectar a um banco de dados, mas também as instruções T-SQL (Transact-SQL) para consultar, inserir, atualizar e excluir dados no banco de dados.|
-|[Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=%252fazure%252fsql-database%252ftoc.json)|Este guia de início rápido demonstra como usar não só o Azure Data Studio para se conectar a um banco de dados, mas também as instruções T-SQL para criar o TutorialDB usado nos tutoriais do Azure Data Studio.|
+|[Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=%2fazure%2fsql-database%2ftoc.json)|Este guia de início rápido demonstra como usar não só o Azure Data Studio para se conectar a um banco de dados, mas também as instruções T-SQL para criar o TutorialDB usado nos tutoriais do Azure Data Studio.|
 |[Azure portal](connect-query-portal.md)|Este guia de início rápido demonstra como usar não só o editor de consultas para se conectar a um banco de dados (somente no Banco de Dados SQL do Azure), mas também as instruções T-SQL para consultar, inserir, atualizar e excluir dados no banco de dados.|
 |[Visual Studio Code](connect-query-vscode.md)|Este guia de início rápido demonstra como usar não só o Visual Studio Code para se conectar a um banco de dados, mas também as instruções T-SQL para consultar, inserir, atualizar e excluir dados no banco de dados.|
 |[.NET com Visual Studio](connect-query-dotnet-visual-studio.md)|Este guia de início rápido demonstra como usar não só o .NET Framework para criar um programa C# com o Visual Studio e se conectar a um banco de dados, mas também as instruções T-SQL para consultar dados.|
@@ -42,6 +42,29 @@ O documento a seguir inclui links para exemplos do Azure que mostram como se con
 |[Ruby](connect-query-ruby.md)|Este guia de início rápido demonstra como usar não só o Ruby para criar um programa e se conectar a um banco de dados, mas também as instruções T-SQL para consultar dados.|
 |[R](connect-query-r.md)|Este guia de início rápido demonstra como usar não só o R com os Serviços de Machine Learning do Banco de Dados SQL do Azure para criar um programa e se conectar a um banco de dados no Banco de Dados SQL do Azure, mas também as instruções T-SQL para consultar dados.|
 |||
+
+## <a name="get-server-connection-information"></a>Obter informações de conexão do servidor
+
+Obtenha as informações de conexão necessárias para se conectar ao banco de dados no Banco de Dados SQL do Azure. Você precisará do nome totalmente qualificado do servidor ou do host, do nome do banco de dados e das informações de logon nos próximos procedimentos.
+
+1. Entre no [portal do Azure](https://portal.azure.com/).
+
+2. Navegue até a página **bancos de dados SQL** ou **Instâncias Gerenciadas de SQL**.
+
+3. Na página **Visão geral**, examine o nome do servidor totalmente qualificado ao lado de **Nome do servidor** para obter um banco de dados no Banco de Dados SQL do Azure ou o nome do servidor totalmente qualificado (ou endereço IP) ao lado de **Host** para obter uma instância gerenciada de SQL do Azure ou um SQL Server na VM do Azure. Para copiar o nome do servidor ou o nome do host, passe o mouse sobre ele e selecione o ícone **Copiar**.
+
+> [!NOTE]
+> Para obter informações de conexão do SQL Server na VM do Azure, confira [Conectar-se a uma Instância do SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server).
+
+## <a name="get-adonet-connection-information-optional---sql-database-only"></a>Obter informações de conexão do ADO.NET (opcional, somente no Banco de Dados SQL)
+
+1. Navegue até a folha do banco de dados no portal do Azure e, em **Configurações**, selecione **Cadeias de conexão**.
+
+2. Examine a cadeia de conexão **ADO.NET** completa.
+
+    ![Cadeia de conexão do ADO.NET](./media/connect-query-dotnet-core/adonet-connection-string2.png)
+
+3. Copie a cadeia de conexão **ADO.NET** se pretender usá-la.
 
 ## <a name="tls-considerations-for-database-connectivity"></a>Considerações sobre o TLS para a conectividade de banco de dados
 
@@ -60,7 +83,7 @@ Drivers não Microsoft não podem usar o TLS por padrão. Isso pode ser um fator
 
 Você pode usar várias bibliotecas e estruturas para se conectar ao Banco de Dados SQL do Azure ou à Instância Gerenciada de SQL do Azure. Confira nossos [Tutoriais de introdução](https://aka.ms/sqldev) para conhecer rapidamente as linguagens de programação como C#, Java, Node.js, PHP e Python. Em seguida, crie um aplicativo usando o SQL Server no Linux ou Windows ou o Docker no macOS.
 
-A tabela a seguir lista as bibliotecas de conectividade ou *drivers* que os aplicativos cliente podem usar de uma variedade de idiomas para conectar e usar o SQL Server em execução no local ou na nuvem. Você pode usá-los no Linux, no Windows ou no Docker para se conectar ao Banco de Dados SQL do Azure, à Instância Gerenciada de SQL do Azure e ao Azure Synapse Analytics (antigo SQL Data Warehouse).
+A tabela a seguir lista as bibliotecas de conectividade ou *drivers* que os aplicativos cliente podem usar de uma variedade de idiomas para conectar e usar o SQL Server em execução no local ou na nuvem. Você pode usá-los no Linux, no Windows ou no Docker para se conectar ao Banco de Dados SQL do Azure, à Instância Gerenciada de SQL do Azure e ao Azure Synapse Analytics.
 
 | Linguagem | Plataforma | Recursos adicionais | Baixar | Introdução |
 | :-- | :-- | :-- | :-- | :-- |

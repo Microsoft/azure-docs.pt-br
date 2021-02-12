@@ -11,52 +11,61 @@ ms.topic: how-to
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2020
+ms.date: 12/15/2020
 ms.author: memildin
-ms.openlocfilehash: 75ca0438336825bf8d4bbdc6e08eca109f430fde
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3f319c35631f8c85cab4613df0f1c14f98356caa
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785911"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563340"
 ---
-# <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Gerencie e responda a alertas de segurança na Central de Segurança do Azure
+# <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Gerenciar e responder a alertas de segurança na central de segurança do Azure
 
-Este tópico mostra como exibir e processar os alertas que você recebeu para proteger seus recursos. 
+> [!TIP]
+> As informações nesta página referem-se à nova experiência de alertas (versão prévia) disponível na faixa na parte superior da página alertas de segurança. 
+>
+> :::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Faixa com link para a nova experiência de visualização de alertas":::
 
-* Para saber mais sobre os diferentes tipos de alertas, consulte [tipos de alertas de segurança](alerts-reference.md).
-* Para obter uma visão geral de como a central de segurança gera alertas, consulte [como a central de segurança do Azure detecta e responde às ameaças](security-center-alerts-overview.md).
+Este tópico mostra como exibir e processar alertas da central de segurança e proteger seus recursos.
 
-> [!NOTE]
-> Para habilitar as detecções avançadas, habilite o Azure defender. Há uma avaliação gratuita disponível. Para atualizar, selecione tipo de preço na [política de segurança](tutorial-security-policy.md). Consulte [Preços da Central de Segurança do Azure](security-center-pricing.md) para saber mais.
+As detecções avançadas que disparam alertas de segurança só estão disponíveis com o Azure defender. Há uma avaliação gratuita disponível. Para atualizar, consulte [habilitar o Azure defender](security-center-pricing.md#enable-azure-defender).
 
 ## <a name="what-are-security-alerts"></a>O que são alertas de segurança?
 A Central de segurança coleta, analisa e integra automaticamente os dados de registro de seus recursos do Azure, da rede e das soluções de parceiros conectados, como firewall e soluções de proteção de ponto de extremidade, a fim de detectar ameaças reais e reduzir os falsos positivos. Uma lista priorizada de alertas de segurança é exibida na Central de Segurança, junto com as informações necessárias para investigar rapidamente o problema, e recomendações sobre como corrigir um ataque.
 
-> [!NOTE]
-> Para obter mais informações sobre como funcionam os recursos de detecção da central de segurança, consulte [como a central de segurança do Azure detecta e responde às ameaças](security-center-alerts-overview.md#detect-threats).
+Para saber mais sobre os diferentes tipos de alertas, consulte [Security Alerts-a Reference Guide](alerts-reference.md).
+
+Para obter uma visão geral de como a central de segurança gera alertas, consulte [como a central de segurança do Azure detecta e responde às ameaças](security-center-alerts-overview.md).
+
 
 ## <a name="manage-your-security-alerts"></a>Gerenciar seus alertas de segurança
 
-1. No painel da central de segurança, consulte o bloco  **proteção contra ameaças** para exibir e visão geral dos alertas.
+1. Na página Visão geral da central de segurança, selecione o bloco **alertas de segurança** na parte superior da página ou o link da barra lateral.
 
-    ![Bloco Alertas de segurança na Central de Segurança](./media/security-center-managing-and-responding-alerts/security-center-dashboard-alert.png)
+    :::image type="content" source="media/security-center-managing-and-responding-alerts/overview-page-alerts-links.png" alt-text="Introdução à página alertas de segurança na página Visão geral da central de segurança do Azure":::
 
-1. Para ver mais detalhes sobre os alertas, clique no bloco.
+    A página alertas de segurança é aberta.
 
-   ![Os Alertas de segurança na Central de Segurança](./media/security-center-managing-and-responding-alerts/security-center-manage-alerts.png)
+    :::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Lista de alertas de segurança da central de segurança do Azure":::
 
-1. Para filtrar os alertas mostrados, clique em **Filtrar** e, na folha **filtro** que é aberta, selecione as opções de filtro que você deseja aplicar. A lista é atualizada de acordo com o filtro selecionado. A filtragem pode ser muito útil. Por exemplo, convém lidar com os alertas de segurança que ocorreram nas últimas 24 horas, pois você está investigando uma possível falha no sistema.
+1. Para filtrar a lista de alertas, selecione qualquer um dos filtros relevantes. Opcionalmente, você pode adicionar outros filtros com a opção **Adicionar filtro** .
 
-    ![Filtragem de alertas na Central de Segurança](./media/security-center-managing-and-responding-alerts/security-center-filter-alerts.png)
+    :::image type="content" source="./media/security-center-managing-and-responding-alerts/alerts-adding-filters-small.png" alt-text="Adicionando filtros à exibição de alertas" lightbox="./media/security-center-managing-and-responding-alerts/alerts-adding-filters-large.png":::
+
+    A lista é atualizada de acordo com as opções de filtragem que você selecionou. A filtragem pode ser muito útil. Por exemplo, convém lidar com os alertas de segurança que ocorreram nas últimas 24 horas, pois você está investigando uma possível falha no sistema.
+
 
 ## <a name="respond-to-security-alerts"></a>Responder a alertas de segurança
 
-1. Na lista **alertas de segurança** , clique em um alerta de segurança. Os recursos envolvidos e as etapas que precisam ser tomadas para corrigir um ataque são mostrados.
+1. Na lista **alertas de segurança** , selecione um alerta. Um painel lateral é aberto e mostra uma descrição do alerta e todos os recursos afetados. 
 
-    ![Responder a alertas de segurança](./media/security-center-managing-and-responding-alerts/security-center-alert.png)
+    :::image type="content" source="./media/security-center-managing-and-responding-alerts/alerts-details-pane.png" alt-text="Exibição de mini detalhes de um alerta de segurança":::
 
-1. Depois de revisar as informações, clique em um recurso que foi atacado.
+    > [!TIP]
+    > Com esse painel lateral aberto, você pode examinar rapidamente a lista de alertas com as setas para cima e para baixo no teclado.
+
+1. Para obter mais informações, selecione **Exibir detalhes completos**.
 
     O painel esquerdo da página alerta de segurança mostra informações de alto nível sobre o alerta de segurança: título, severidade, status, tempo de atividade, descrição da atividade suspeita e o recurso afetado. Junto com o recurso afetado estão as marcas do Azure relevantes para o recurso. Use-os para inferir o contexto organizacional do recurso ao investigar o alerta.
 
@@ -81,3 +90,4 @@ Neste documento, você aprendeu a exibir alertas de segurança. Consulte as pág
 
 - [Configurar regras de supressão de alerta](alerts-suppression-rules.md)
 - [Automatizar respostas para gatilhos da central de segurança](workflow-automation.md)
+- [Alertas de segurança – um guia de referência](alerts-reference.md)

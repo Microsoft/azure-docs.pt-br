@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: eb20bf4164cb2153f6786dbec04f79453554fa25
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: bde1c503d0aaaff1afcee67a26245d5021c43bb4
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999749"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807743"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gerenciamento do Office 365 no Microsoft Azure | (Versão prévia)
 
@@ -95,7 +95,7 @@ ms.locfileid: "91999749"
 > - [Detecte ameaças prontas para uso](../../sentinel/tutorial-detect-threats-built-in.md)
 > - [Criar regras analíticas personalizadas para detectar ameaças suspeitas](../../sentinel/tutorial-detect-threats-custom.md)
 > - [Monitorar seus dados](../../sentinel/tutorial-monitor-your-data.md)
-> - [Investigue incidentes com o Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
+> - [Investigar incidentes com o Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
 > - [Configurar respostas de ameaças automatizadas no Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
 > - [Comunidade GitHub do Azure Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks)
 > 
@@ -109,7 +109,7 @@ ms.locfileid: "91999749"
 > - Se você não transferir sua solução manualmente até 31 de outubro, seus dados serão desconectados automaticamente e a tabela **OfficeActivity** será removida. Mesmo assim, você ainda poderá restaurar a tabela quando habilitar o conector do Office 365 no Azure Sentinel, conforme explicado abaixo.
 > 
 > ### <a name="q-will-my-data-transfer-to-the-new-solution"></a>P: meus dados serão transferidos para a nova solução?
-> Sim. Quando você remove a solução do **Office 365** do seu espaço de trabalho, seus dados ficarão temporariamente indisponíveis porque o esquema é removido. Quando você habilita o novo conector do **Office 365** no sentinela, o esquema é restaurado para o espaço de trabalho e todos os dados já coletados ficarão disponíveis. 
+> Sim. Quando você remove a solução do **Office 365** do seu espaço de trabalho, seus dados ficarão temporariamente indisponíveis porque o esquema é removido. Quando você habilita o novo conector do **Office 365** no Azure Sentinel, o esquema é restaurado para o espaço de trabalho e todos os dados já coletados ficarão disponíveis. 
  
 
 A solução de gerenciamento do Office 365 permite que você monitore o ambiente do Office 365 no Azure Monitor.
@@ -245,7 +245,7 @@ O painel inclui as colunas na tabela a seguir. Cada coluna lista os dez principa
 
 | Coluna | Descrição |
 |:--|:--|
-| Operations | Fornece informações sobre os usuários ativos de todas as suas assinaturas do Office 365 monitoradas. Você também poderá ver o número de atividades que ocorrem ao longo do tempo.
+| Operações | Fornece informações sobre os usuários ativos de todas as suas assinaturas do Office 365 monitoradas. Você também poderá ver o número de atividades que ocorrem ao longo do tempo.
 | Exchange | Mostra a análise das atividades do Exchange Server, como a permissão Add-Mailbox ou Set-Mailbox. |
 | SharePoint | Mostra as principais atividades que os usuários executam em documentos do SharePoint. Quando você faz drill down desse bloco, a página de pesquisa mostra os detalhes dessas atividades, como o documento de destino e o local dessa atividade. Por exemplo, para um evento acessado por arquivo, você poderá ver o documento que está sendo acessado, o nome da conta associada e o endereço IP. |
 | Azure Active Directory | Inclui as principais atividades do usuário, como Tentativas de Logon e de Redefinição de Senha do Usuário. Quando você fizer o drill down, poderá ver os detalhes dessas atividades como o Status do Resultado. Isso é mais útil se você desejar monitorar atividades suspeitas no Azure Active Directory. |
@@ -272,7 +272,7 @@ As propriedades a seguir são comuns a todos os registros do Office 365.
 | ResultStatus | Indica se a ação (especificada na propriedade Operation) foi bem-sucedida ou não. Os valores possíveis são Succeeded, PartiallySucceeded ou Failed. Para a atividade de administração do Exchange, o valor é True ou False. |
 | UserId | O nome UPN do usuário que executou a ação que resultou em o registro ser incluído em log. Por exemplo, my_name@my_domain_name. Observe que os registros para a atividade realizada por contas do sistema (como SHAREPOINT\system ou NTAUTHORITY\SYSTEM) também são incluídos. | 
 | UserKey | Uma ID alternativa para o usuário identificado na propriedade UserId.  Por exemplo, essa propriedade é preenchida com a PUID (ID exclusiva do passport) para eventos executadas por usuários no SharePoint, no OneDrive for Business e no Exchange. Essa propriedade também pode especificar o mesmo valor que a propriedade UserID para eventos que ocorrem em outros serviços e eventos executados por contas do sistema|
-| UserType | O tipo de usuário que realizou a operação.<br><br>Admin<br>Aplicativo<br>DcAdmin<br>Regular<br>Reservado<br>ServicePrincipal<br>Sistema |
+| UserType | O tipo de usuário que realizou a operação.<br><br>Administrador<br>Aplicativo<br>DcAdmin<br>Regular<br>Reservado<br>ServicePrincipal<br>Sistema |
 
 
 ### <a name="azure-active-directory-base"></a>Base do Azure Active Directory

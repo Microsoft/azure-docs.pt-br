@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: 348fb301d1a36c8df405c641f7644889417b11ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b106ebc5606c4e5a290e12728d4e2011e80f6a2
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91545548"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861819"
 ---
 ## <a name="azure-cognitive-services-container-security"></a>Segurança do contêiner de serviços cognitivas do Azure
 
@@ -33,7 +33,7 @@ Como uma abordagem alternativa e *segura* , os consumidores de contêineres de s
 
 ### <a name="container-networking"></a>Rede de contêineres
 
-Os contêineres de serviços cognitivas são necessários para enviar informações de medição para fins de cobrança. A única exceção é os *contêineres offline* , pois eles seguem uma metodologia de cobrança diferente. Falha ao permitir listar vários canais de rede dos quais os contêineres de serviços cognitivas dependem impedirão que o contêiner funcione.
+Os contêineres de serviços cognitivas são necessários para enviar informações de medição para fins de cobrança. Falha ao permitir listar vários canais de rede dos quais os contêineres de serviços cognitivas dependem impedirão que o contêiner funcione.
 
 #### <a name="allow-list-cognitive-services-domains-and-ports"></a>Permitir listar domínios e portas de serviços cognitivas
 
@@ -44,7 +44,7 @@ O host deve permitir a **porta** de lista 443 e os seguintes domínios:
 
 #### <a name="disable-deep-packet-inspection"></a>Desabilitar inspeção profunda de pacote
 
-> A [inspeção de pacotes profunda](https://en.wikipedia.org/wiki/Deep_packet_inspection) (DPI) é um tipo de processamento de dados que inspeciona em detalhes os dados que estão sendo enviados por uma rede de computadores e geralmente executa ações bloqueando, redirecionando ou registrando-os adequadamente.
+A [inspeção de pacotes profunda](https://en.wikipedia.org/wiki/Deep_packet_inspection) (DPI) é um tipo de processamento de dados que inspeciona em detalhes os dados que estão sendo enviados por uma rede de computadores e geralmente executa ações bloqueando, redirecionando ou registrando-os adequadamente.
 
 Desabilite o DPI nos canais seguros que os contêineres de serviços cognitivas criam aos servidores da Microsoft. Se não for feito, isso impedirá que o contêiner funcione corretamente.
 

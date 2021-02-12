@@ -1,19 +1,16 @@
 ---
 title: Opções de contexto de computação para o ML Services no Azure HDInsight
 description: Conheça as diferentes opções de contexto de computação disponíveis para usuários com o ML Services no HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 21781015aa91c9c953d716b9b3399851f25be9b5
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 71ce0d87faa33bd7d533242edfcf3b131c8f7e47
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536327"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943960"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Opções de contexto de computação para o ML Services no HDInsight
 
@@ -29,8 +26,8 @@ O [ML Services no Microsoft Azure HDInsight](r-server-overview.md) fornece os re
 
 Em geral, um script R executado no cluster do ML Services no nó de borda é executado no interpretador R nesse nó. As exceções são aquelas etapas que chamam uma função RevoScaleR. As chamadas de RevoScaleR são executadas em um ambiente de computação que é determinado pela configuração do contexto de computação do RevoScaleR.  Quando você executa o script R de um nó de borda, os valores possíveis de contexto de computação são:
 
-- local sequencial ( *local* )
-- local paralelo ( *localpar* )
+- local sequencial (*local*)
+- local paralelo (*localpar*)
 - Map Reduce
 - Spark
 
@@ -59,8 +56,8 @@ Com esses princípios, as seções a seguir oferecem algumas regras gerais para 
 
 ### <a name="local"></a>Local
 
-- Se a quantidade de dados a ser analisada for pequena e não exigir análise repetida, transmita-a diretamente para a rotina de análise usando *local* ou *localpar* .
-- Se a quantidade de dados a ser analisada for de pequeno ou médio porte e exigir a repetição da análise, copie-a para o sistema de arquivos local, importe-a para XDF e analise-a por meio de *local* ou *localpar* .
+- Se a quantidade de dados a ser analisada for pequena e não exigir análise repetida, transmita-a diretamente para a rotina de análise usando *local* ou *localpar*.
+- Se a quantidade de dados a ser analisada for de pequeno ou médio porte e exigir a repetição da análise, copie-a para o sistema de arquivos local, importe-a para XDF e analise-a por meio de *local* ou *localpar*.
 
 ### <a name="apache-spark"></a>Apache Spark
 

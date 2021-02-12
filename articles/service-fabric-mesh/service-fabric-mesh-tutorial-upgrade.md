@@ -6,14 +6,19 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-csharp
-ms.openlocfilehash: 2d74841e1873e5bd84d839122e0e662ef65ccd11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1020613eb43177ba159601f253848f8d03f385a8
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841995"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625425"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Tutorial: Aprenda como atualizar um aplicativo do Service Fabric usando o Visual Studio
+
+> [!IMPORTANT]
+> A visualização da malha de Service Fabric do Azure foi desativada. Novas implantações não serão mais permitidas por meio da API de malha Service Fabric. O suporte para implantações existentes continuará até 28 de abril de 2021.
+> 
+> Para obter detalhes, consulte desativação da [Visualização da malha de Service Fabric do Azure](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Este tutorial é a parte quatro de uma série e mostra como atualizar um aplicativo do Azure Service Fabric Mesh diretamente do Visual Studio. A atualização incluirá uma atualização de código e uma atualização de configuração. Você verá que as etapas para fazer upgrade e publicação no Visual Studio são as mesmas.
 
@@ -55,7 +60,7 @@ Vamos atualizar o parâmetro `WebFrontEnd_cpu` para atualizar os recursos de CPU
 
 2. Abra o arquivo **service.yaml** do projeto **WebFrontEnd** em **WebFrontEnd** > **Recursos do Serviço**.
 
-    Observe que na seção `resources:`, `cpu:` é definido como `"[parameters('WebFrontEnd_cpu')]"`. Se o projeto estiver sendo compilado para a nuvem, o valor para `'WebFrontEnd_cpu` será obtido do **Environments**  >  **Cloud**  >  arquivo**Parameters** de nuvem de ambientes. YAML e será `1.5` . Se o projeto estiver sendo criado para ser executado localmente, o valor será obtido do **Environments**  >  **Local**  >  arquivo**Parameters. YAML** de ambientes locais e será ' 0,5 '.
+    Observe que na seção `resources:`, `cpu:` é definido como `"[parameters('WebFrontEnd_cpu')]"`. Se o projeto estiver sendo compilado para a nuvem, o valor para `'WebFrontEnd_cpu` será obtido do   >    >  arquivo **Parameters** de nuvem de ambientes. YAML e será `1.5` . Se o projeto estiver sendo criado para ser executado localmente, o valor será obtido do   >    >  arquivo **Parameters. YAML** de ambientes locais e será ' 0,5 '.
 
 > [!Tip]
 > Por padrão, o arquivo de parâmetros que é um par do arquivo profile.yaml será usado para fornecer os valores para esse arquivo profile.yaml.
@@ -143,7 +148,7 @@ Na caixa de diálogo de publicação, pressione o botão **Publicar** para atual
 
 Depois que a imagem é compilada e enviada por push para o Registro de Contêiner do Azure, um link **Para status** será exibido na saída, onde você pode clicar para monitorar a implantação no portal do Azure.
 
-Quando a atualização for concluída, a saída ** Service Fabric Tools ** exibirá o endereço IP e a porta do seu aplicativo na forma de uma URL.
+Quando a atualização for concluída, a saída **Service Fabric Tools** exibirá o endereço IP e a porta do seu aplicativo na forma de uma URL.
 
 ```json
 The application was deployed successfully and it can be accessed at http://10.000.38.000:20000.

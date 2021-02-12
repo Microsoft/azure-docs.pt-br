@@ -5,12 +5,12 @@ ms.subservice: custom-vision
 ms.topic: include
 ms.date: 07/17/2019
 ms.author: pafarley
-ms.openlocfilehash: ce67062f83ad10703dfb1f0ee1f3741e698fb450
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5508199212b788e13a27b3c97b8fb7174dc92f32
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "70130060"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99532245"
 ---
 É recomendável usar pelo menos 30 imagens por marca no conjunto de treinamento inicial. Também é conveniente coletar algumas imagens adicionais para testar o seu modelo após o treinamento.
 
@@ -27,3 +27,6 @@ Além disso, certifique-se de que todas as suas imagens de treinamento atendam a
 * Formato .jpg, .png, .bmp ou .gif
 * não ultrapasse 6 MB em tamanho (4 MB para imagens de previsão)
 * não tenha menos de 256 pixels na borda mais curta; qualquer imagem menor que isso será escalada verticalmente de maneira automática pelo Serviço de Visão Personalizada
+
+> [!NOTE]
+> Você precisa de um conjunto mais amplo de imagens para concluir o treinamento? O Trove, um projeto da Microsoft Garage, permite coletar e comprar conjuntos de imagens para fins de treinamento. Depois de coletar suas imagens, você pode baixá-las e, em seguida, importá-las para seu projeto de Visão Personalizada da maneira usual. Visite a [página do Trove](https://www.microsoft.com/en-us/ai/trove?activetab=pivot1:primaryr3) para saber mais.

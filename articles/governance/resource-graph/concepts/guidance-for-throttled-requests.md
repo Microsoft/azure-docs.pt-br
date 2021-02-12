@@ -1,15 +1,15 @@
 ---
 title: Diretrizes para solicitações limitadas
 description: Aprenda a agrupar, escalonar, paginar e consultar em paralelo para evitar que as solicitações sejam limitadas pelo Azure Resource Graph.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4a8ba991d13b9be221e67f2ff1e393fb01f8a2d4
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: ddd3cf4d411733e831c94039c3bc9aeaf0e95271
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056167"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917700"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Diretrizes para solicitações limitadas no Azure Resource Graph
 
@@ -156,7 +156,7 @@ while (/* Need to query more? */)
 
 ### <a name="query-in-parallel"></a>Consulta em paralelo
 
-Embora o agrupamento seja recomendado em detrimento da paralelização, há ocasiões em que as consultas não podem ser agrupadas facilmente. Nesses casos, talvez seja melhor consultar o Azure Resource Graph enviando várias consultas de maneira paralela. Aqui está um exemplo de como fazer a _retirada_ com base em cabeçalhos de limitação em tais cenários:
+Embora o agrupamento seja recomendado em detrimento da paralelização, há ocasiões em que as consultas não podem ser agrupadas facilmente. Nesses casos, talvez seja melhor consultar o Azure Resource Graph enviando várias consultas de maneira paralela. Veja um exemplo de como fazer a _retirada_ com base em cabeçalhos de limitação em tais cenários:
 
 ```csharp
 IEnumerable<IEnumerable<string>> queryGroup = /* Groups of queries  */

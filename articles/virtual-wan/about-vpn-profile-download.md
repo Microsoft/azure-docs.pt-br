@@ -5,18 +5,22 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 02/08/2021
 ms.author: cherylmc
-ms.openlocfilehash: 116ec518f7788e620fc6bd177e535c8f6af99d10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d83b6ed2ae83db569d3c61e3cf4cd887f875eb25
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267764"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980908"
 ---
-# <a name="working-with-user-vpn-client-profiles"></a>Trabalhando com perfis de cliente VPN de usuário
+# <a name="working-with-user-vpn-client-profile-files"></a>Trabalhando com arquivos de perfil de cliente VPN de usuário
 
-O arquivo de perfil baixado contém informações necessárias para configurar uma conexão VPN. Este artigo ajuda você a obter e entender as informações necessárias para um perfil de cliente VPN de usuário.
+Os arquivos de perfil contêm informações necessárias para configurar uma conexão VPN. Este artigo ajuda você a obter e entender as informações necessárias para um perfil de cliente VPN de usuário.
+
+## <a name="download-the-profile"></a>Baixar o perfil
+
+Você pode usar as etapas no artigo [baixar perfis](global-hub-profile.md) para baixar o arquivo zip do perfil do cliente.
 
 [!INCLUDE [client profiles](../../includes/vpn-gateway-vwan-vpn-profile-download.md)]
 

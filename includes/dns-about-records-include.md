@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: victorh
 ms.openlocfilehash: 8ca054b3a3d5147b7d98a021ce1e26d02d5581b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86050500"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011550"
 ---
 ### <a name="record-names"></a>Nomes de registros
 

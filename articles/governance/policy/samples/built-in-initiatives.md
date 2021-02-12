@@ -1,15 +1,15 @@
 ---
 title: Lista de iniciativas de políticas internas
 description: Liste as iniciativas de políticas internas para o Azure Policy. As categorias incluem Conformidade a normas, Configuração de convidado e muito mais.
-ms.date: 10/20/2020
+ms.date: 01/29/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: cf685f10ba27064e650070a5e0a7fc44104f0bea
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 7bec632388c59e2e94e7c7bc31359450107f7674
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311608"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219767"
 ---
 # <a name="azure-policy-built-in-initiative-definitions"></a>Definições de iniciativa interna do Azure Policy
 

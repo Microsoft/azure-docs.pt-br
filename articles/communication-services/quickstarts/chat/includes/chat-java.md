@@ -10,17 +10,17 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 1675ad802f3a117c26ee10218f3b3bedad9b0a00
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: edf48bc75817b3510264d852eb9cc717ed022f33
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91779453"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94915218"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [JDK (Java Development Kit)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true) versão 8 ou superior.
+- [JDK (Java Development Kit)](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) versão 8 ou superior.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - Um recurso e uma cadeia de conexão dos Serviços de Comunicação implantados. [Crie um recurso dos Serviços de Comunicação](../../create-communication-resource.md).
 - Um [token de acesso do usuário](../../access-tokens.md). Defina o escopo como "chat" e anote a cadeia de caracteres do token, bem como a cadeia de caracteres da userId.
@@ -56,7 +56,7 @@ Em seu arquivo POM, referencie o pacote `azure-communication-chat` com as APIs d
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-chat</artifactId>
-    <version>1.0.0-beta.2</version> 
+    <version>1.0.0-beta.3</version> 
 </dependency>
 ```
 
@@ -66,7 +66,7 @@ Para autenticação, o cliente precisa fazer referência ao pacote `azure-commun
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-common</artifactId>
-    <version>1.0.0-beta.2</version> 
+    <version>1.0.0-beta.3</version> 
 </dependency>
 
 ```

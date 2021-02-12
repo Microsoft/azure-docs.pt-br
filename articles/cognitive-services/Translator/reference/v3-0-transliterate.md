@@ -3,25 +3,25 @@ title: Método transliterate do Tradutor
 titleSuffix: Azure Cognitive Services
 description: Converter texto em um idioma de um script para outro com o método de conversão do tradutor.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: swmachan
-ms.openlocfilehash: 8b811c57eb163931c39a311418ac9f1513e9393a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: lajanuar
+ms.openlocfilehash: 0d5a7f8df0c722ca52780ba254e9af9608f26b54
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83592246"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895417"
 ---
 # <a name="translator-30-transliterate"></a>Tradutor 3,0: transliteração
 
 Converte texto em um idioma de um script em outro script.
 
-## <a name="request-url"></a>URL de Solicitação
+## <a name="request-url"></a>URL da solicitação
 
 Envie uma solicitação `POST` para:
 
@@ -61,7 +61,7 @@ Os cabeçalhos de solicitação incluem:
   <th>Descrição</th>
   <tr>
     <td>Cabeçalhos de autenticação</td>
-    <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>.</td>
+    <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>Veja <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>.</td>
   </tr>
   <tr>
     <td>Tipo de conteúdo</td>
@@ -159,7 +159,7 @@ Veja a seguir os possíveis códigos de status HTTP retornados por uma solicita�
   </tr>
 </table> 
 
-Se ocorrer um erro, a solicitação também retornará uma resposta de erro JSON. O código de erro é um número de 6 dígitos que combina o código de status HTTP de 3 dígitos seguido por um número de 3 dígitos para categorizar ainda mais o erro. Códigos de erro comuns podem ser encontrados na [página de referência do tradutor v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Se ocorrer um erro, a solicitação também retornará uma resposta de erro JSON. O código de erro é um número de 6 dígitos que combina o código de status HTTP de 3 dígitos seguido por um número de 3 dígitos para categorizar ainda mais o erro. Códigos de erro comuns podem ser encontrados na [página de referência do tradutor v3](./v3-0-reference.md#errors). 
 
 ## <a name="examples"></a>Exemplos
 

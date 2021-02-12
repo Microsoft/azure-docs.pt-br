@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: ceaa04fdf8776d4fab1db4cfb1b3df4298f28de9
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f14ac72443dedc8e33e607a82b2145c7ebf95ad2
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152290"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368773"
 ---
 # <a name="azure-cognitive-services-security"></a>Segurança de serviços cognitivas do Azure
 
@@ -60,7 +60,7 @@ Crie e atribua a variável de ambiente persistente, dado o valor.
 setx ENVIRONMENT_VARIABLE_KEY="value"
 ```
 
-Em uma nova instância do **prompt de comando**, leia a variável de ambiente.
+Em uma nova instância do **prompt de comando** , leia a variável de ambiente.
 
 ```CMD
 :: Prints the env var value
@@ -76,7 +76,7 @@ Crie e atribua a variável de ambiente persistente, dado o valor.
 [System.Environment]::SetEnvironmentVariable('ENVIRONMENT_VARIABLE_KEY', 'value', 'User')
 ```
 
-Em uma nova instância do **Windows PowerShell**, leia a variável de ambiente.
+Em uma nova instância do **Windows PowerShell** , leia a variável de ambiente.
 
 ```powershell
 # Prints the env var value
@@ -92,7 +92,7 @@ Crie e atribua a variável de ambiente persistente, dado o valor.
 echo export ENVIRONMENT_VARIABLE_KEY="value" >> /etc/environment && source /etc/environment
 ```
 
-Em uma nova instância do **bash**, leia a variável de ambiente.
+Em uma nova instância do **bash** , leia a variável de ambiente.
 
 ```Bash
 # Prints the env var value
@@ -206,12 +206,12 @@ Sistema de Proteção de Dados do Cliente está disponível para este serviço c
 Para os serviços a seguir, os engenheiros da Microsoft não acessarão nenhum dado do cliente na camada E0: 
 
 * Reconhecimento Vocal
-* Detecção Facial
+* Face
 * Content Moderator
 * Personalizador
 
 > [!IMPORTANT]
-> Para o **reconhecedor de formulário**, os engenheiros da Microsoft não acessarão dados de clientes em recursos criados após 10 de julho de 2020.
+> Para o **reconhecedor de formulário** , os engenheiros da Microsoft não acessarão dados de clientes em recursos criados após 10 de julho de 2020.
 
 Para solicitar a capacidade de usar o SKU E0, preencha e envie este [formulário de solicitação](https://aka.ms/cogsvc-cmk). Levará aproximadamente 3-5 dias úteis para que o status da solicitação seja reproduzido. Dependendo da demanda, você pode ser colocado em uma fila e aprovado, pois o espaço se torna disponível. Depois de aprovado para usar o SKU E0 com LUIS, você precisará criar um novo recurso do portal do Azure e selecionar E0 como o tipo de preço. Os usuários não poderão atualizar do F0 para o novo SKU E0.
 
@@ -222,5 +222,5 @@ No momento, o serviço de fala não oferece suporte a Sistema de Proteção de D
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Explore os vários [Serviços cognitivas](welcome.md)
+* Explore os vários [Serviços cognitivas](./what-are-cognitive-services.md)
 * Saiba mais sobre [redes virtuais de serviços cognitivas](cognitive-services-virtual-networks.md)

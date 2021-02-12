@@ -10,12 +10,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: avgupta
-ms.openlocfilehash: 725beb50e55852e35ee4434539ff158f082059df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee262c0eb2431085e71d8ee0035bcdab9833d1cf
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88121977"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565765"
 ---
 # <a name="leverage-content-type-to-store-json-key-values-in-app-configuration"></a>Aproveitar o tipo de conteúdo para armazenar valores de chave JSON na configuração do aplicativo
 
@@ -25,9 +25,9 @@ Os dados são armazenados na configuração do aplicativo como valores de chave,
 ## <a name="overview"></a>Visão geral
 
 Em configuração de aplicativo, você pode usar o tipo de mídia JSON como o tipo de conteúdo de seus valores de chave para obter benefícios semelhantes, como:
-- **Gerenciamento de dados mais simples**: o gerenciamento de valores-chave, como matrizes, se tornará muito mais fácil na portal do Azure.
-- **Exportação de dados aprimorada**: tipos primitivos, matrizes e objetos JSON serão preservados durante a exportação de dados.
-- **Suporte nativo com o provedor de configuração de aplicativo**: valores de chave com tipo de conteúdo JSON funcionarão bem quando consumidos pelas bibliotecas de provedor de configuração de aplicativo em seus aplicativos.
+- **Gerenciamento de dados mais simples** : o gerenciamento de valores-chave, como matrizes, se tornará muito mais fácil na portal do Azure.
+- **Exportação de dados aprimorada** : tipos primitivos, matrizes e objetos JSON serão preservados durante a exportação de dados.
+- **Suporte nativo com o provedor de configuração de aplicativo** : valores de chave com tipo de conteúdo JSON funcionarão bem quando consumidos pelas bibliotecas de provedor de configuração de aplicativo em seus aplicativos.
 
 #### <a name="valid-json-content-type"></a>Tipo de conteúdo JSON válido
 
@@ -63,13 +63,11 @@ Neste tutorial, você aprenderá como:
 > * Consumir valores de chave JSON em seus aplicativos.
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- Assinatura do Azure – [Crie uma gratuitamente](https://azure.microsoft.com/free/).
-- Versão mais recente do CLI do Azure (2.10.0 ou posterior). Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver usando CLI do Azure, você deverá primeiro entrar usando `az login` . Você também pode usar o Azure Cloud Shell.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
+- Este tutorial requer a versão 2.10.0 ou posterior do CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-an-app-configuration-store"></a>Criar um repositório de Configuração de Aplicativos
 

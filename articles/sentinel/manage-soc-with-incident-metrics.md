@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 9d8d0fc46a463bda31595988d807854ef146d333
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 408913fed864ee5f966b96c81afbfee4b2dc8678
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88761706"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660722"
 ---
 # <a name="manage-your-soc-better-with-incident-metrics"></a>Gerenciar melhor seu SOC com métricas de incidentes
 
@@ -39,7 +39,7 @@ A tabela **SecurityIncident** é incorporada ao Azure Sentinel. Você o encontra
 
 Toda vez que você criar ou atualizar um incidente, uma nova entrada de log será adicionada à tabela. Isso permite que você acompanhe as alterações feitas em incidentes e permite métricas de SOC ainda mais poderosas, mas você precisa estar atento a isso ao construir consultas para essa tabela, pois talvez seja necessário remover entradas duplicadas de um incidente (dependendo da consulta exata que você está executando). 
 
-Por exemplo, se você quisesse retornar uma lista de todos os incidentes classificados por seu número de incidente, mas quisesse apenas retornar o log mais recente por incidente, você poderia fazer isso usando o [operador de resumo](https://docs.microsoft.com/azure/data-explorer/kusto/query/summarizeoperator) KQL com a `arg_max()` [função de agregação](https://docs.microsoft.com/azure/data-explorer/kusto/query/arg-max-aggfunction):
+Por exemplo, se você quisesse retornar uma lista de todos os incidentes classificados por seu número de incidente, mas quisesse apenas retornar o log mais recente por incidente, você poderia fazer isso usando o [operador de resumo](/azure/data-explorer/kusto/query/summarizeoperator) KQL com a `arg_max()` [função de agregação](/azure/data-explorer/kusto/query/arg-max-aggfunction):
 
 
 ```Kusto
@@ -82,9 +82,9 @@ Para complementar a tabela **SecurityIncidents** , fornecemos um modelo de pasta
 
 Você pode encontrar esse novo modelo de pasta de trabalho escolhendo **pastas de trabalho** no menu de navegação do Azure Sentinel e selecionando a guia **modelos** . Escolha a **eficiência das operações de segurança** na galeria e clique em um dos botões **Exibir pasta de trabalho salva** e **Exibir modelo** .
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="Tabela de incidentes de segurança":::
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="Galeria de pastas de trabalho de incidentes de segurança":::
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="Tabela de incidentes de segurança":::
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="Pasta de trabalho incidentes de segurança concluída":::
 
 Você pode usar o modelo para criar suas próprias pastas de trabalho personalizadas adaptadas às suas necessidades específicas.
 

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 8/10/2020
-ms.openlocfilehash: 628944f9763dc79148e0b64c97158064208412bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf9f9ca5b8690a38c6e5aa6f519378c0a2e3a4f2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88136727"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026428"
 ---
 # <a name="distribute-and-modify-tables"></a>Distribuir e modificar tabelas
 
@@ -140,7 +140,7 @@ Quando uma nova tabela não estiver relacionada a outras em seu grupo de colocal
 SELECT create_distributed_table('A', 'foo', colocate_with => 'none');
 ```
 
-Dividir tabelas não relacionadas em seus próprios grupos de colocalidades melhorará o desempenho de [rebalanceamento de fragmentos](howto-hyperscale-scaling.md#rebalance-shards) , pois os fragmentos no mesmo grupo precisam ser movidos juntos.
+Dividir tabelas não relacionadas em seus próprios grupos de colocalidades melhorará o desempenho de [rebalanceamento de fragmentos](howto-hyperscale-scale-rebalance.md) , pois os fragmentos no mesmo grupo precisam ser movidos juntos.
 
 Quando as tabelas estão de fato relacionadas (por exemplo, quando elas serão Unidas), pode fazer sentido para localizá-las explicitamente. Os ganhos da colocação apropriada são mais importantes do que qualquer sobrecarga de rebalanceamento.
 

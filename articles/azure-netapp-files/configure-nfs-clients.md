@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.author: b-juche
-ms.openlocfilehash: f4b8b4b56693023ede2ccf8ae7eeac7ed5e16824
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: c1cdeaa41dda11f2ab520cf8d31ddb2116587082
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216854"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409562"
 ---
 # <a name="configure-an-nfs-client-for-azure-netapp-files"></a>Configurar um cliente NFS para o Azure NetApp Files
 
@@ -75,7 +75,10 @@ Os exemplos nesta seção usam o seguinte nome de domínio e endereço IP:
     Por exemplo: 
 
     `sudo realm join CONTOSO.COM -U ad_admin --computer-ou="CN=Computers"`
-
+    
+    Certifique-se de que `default_realm` está definido para o realm fornecido no `/etc/krb5.conf` .  Caso contrário, adicione-o na `[libdefaults]` seção no arquivo, conforme mostrado no exemplo a seguir:
+    
+    `default_realm = CONTOSO.COM`
 
 7. Reinicie todos os serviços NFS:  
  
@@ -199,7 +202,7 @@ Os exemplos nesta seção usam o seguinte nome de domínio e endereço IP:
 
 5. O Ubuntu 18, 4 usa chrony por padrão. Seguindo as diretrizes de configuração no [Ubuntu Bionic: usando o chrony para configurar o NTP](https://ubuntu.com/blog/ubuntu-bionic-using-chrony-to-configure-ntp).
 
-6. Junte-se ao Domínio do Active Directory:   
+6. Ingresse no domínio de Active Directory:   
  
     `sudo realm join $DOMAIN.NAME -U $SERVICEACCOUNT --computer-ou="OU=$YOUROU"`
  

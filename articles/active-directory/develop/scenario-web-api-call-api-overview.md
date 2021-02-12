@@ -1,5 +1,6 @@
 ---
-title: Criar uma API Web que chama APIs da Web-plataforma de identidade da Microsoft | Azure
+title: Criar uma API Web que chama APIs da Web | Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como criar uma API Web que chama APIs da Web downstream (visão geral).
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 4dcf377797709b56b4db735dabf4d48cfae4fc06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a66f0a2de1d8239baffbe53dfb5d6f2dd275d448
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257156"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756335"
 ---
 # <a name="scenario-a-web-api-that-calls-web-apis"></a>Cenário: uma API Web que chama APIs da Web
 
@@ -40,5 +41,4 @@ A parte de registro do aplicativo relacionada às permissões de API é clássic
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Registro do aplicativo](scenario-web-api-call-api-app-registration.md)
+Vá para o próximo artigo neste cenário, registro de [aplicativo](scenario-web-api-call-api-app-registration.md).

@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 1f71c01d53a89ce1b459826689eb5b2e4899b3a2
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 26e39b8f0429995bfa336c4971c76f90d903ff55
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92886460"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99628933"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -78,6 +78,19 @@ android.content.Context appContext = this.getApplicationContext(); // From withi
 CallAgent callAgent = await callClient.createCallAgent((appContext, tokenCredential).get();
 DeviceManage deviceManager = await callClient.getDeviceManager().get();
 ```
+Para definir um nome de exibição para o chamador, use este método alternativo:
+
+```java
+String userToken = '<user token>';
+CallClient callClient = new CallClient();
+CommunicationUserCredential tokenCredential = new CommunicationUserCredential(userToken);
+android.content.Context appContext = this.getApplicationContext(); // From within an Activity for instance
+CallAgentOptions callAgentOptions = new CallAgentOptions();
+callAgentOptions.setDisplayName("Alice Bob");
+CallAgent callAgent = await callClient.createCallAgent((appContext, tokenCredential, callAgentOptions).get();
+DeviceManage deviceManager = await callClient.getDeviceManager().get();
+```
+
 
 ## <a name="place-an-outgoing-call-and-join-a-group-call"></a>Fazer uma chamada de saída e ingressar em uma chamada de grupo
 
@@ -98,7 +111,9 @@ call oneToOneCall = callAgent.call(appContext, participants, startCallOptions);
 
 ### <a name="place-a-1n-call-with-users-and-pstn"></a>Coloque uma chamada 1: n com usuários e PSTN
 > [!WARNING]
-> Atualmente, a chamada PSTN não está disponível para fazer uma chamada 1: n para um usuário e um número PSTN você precisa especificar o número de telefone do receptor.
+> Atualmente, a chamada PSTN não está disponível
+
+Para fazer uma chamada 1: n para um usuário e um número PSTN, você precisa especificar o número de telefone do receptor.
 O recurso de serviços de comunicação deve ser configurado para permitir a chamada de PSTN:
 ```java
 CommunicationUser acsUser1 = new CommunicationUser(<USER_ID>);
@@ -136,7 +151,7 @@ startCallOptions.setVideoOptions(videoOptions);
 Call call = callAgent.call(context, participants, startCallOptions);
 ```
 
-### <a name="join-a-group-call"></a>Ingressar em uma chamada de grupo
+### <a name="join-a-group-call"></a>Ingressar em um grupo
 Para iniciar uma nova chamada de grupo ou ingressar em uma chamada de grupo em andamento, você precisa chamar o método ' join ' e passar um objeto com uma `groupId` propriedade. O valor deve ser um GUID.
 ```java
 Context appContext = this.getApplicationContext();
@@ -146,6 +161,49 @@ JoinCallOptions joinCallOptions = new JoinCallOptions();
 call = callAgent.join(context, groupCallContext, joinCallOptions);
 ```
 
+### <a name="accept-a-call"></a>Aceitar uma chamada
+Para aceitar uma chamada, chame o método ' Accept ' em um objeto de chamada.
+
+```java
+Context appContext = this.getApplicationContext();
+Call incomingCall = retrieveIncomingCall();
+incomingCall.accept(context).get();
+```
+
+Para aceitar uma chamada com câmera de vídeo em:
+
+```java
+Context appContext = this.getApplicationContext();
+Call incomingCall = retrieveIncomingCall();
+AcceptCallOptions acceptCallOptions = new AcceptCallOptions();
+VideoDeviceInfo desiredCamera = callClient.getDeviceManager().get().getCameraList().get(0);
+acceptCallOptions.setVideoOptions(new VideoOptions(new LocalVideoStream(desiredCamera, appContext)));
+incomingCall.accept(context, acceptCallOptions).get();
+```
+
+A chamada de entrada pode ser obtida com a assinatura do `CallsUpdated` evento no `callAgent` objeto e o loop pelas chamadas adicionadas:
+
+```java
+// Assuming "callAgent" is an instance property obtained by calling the 'createCallAgent' method on CallClient instance 
+public Call retrieveIncomingCall() {
+    Call incomingCall;
+    callAgent.addOnCallsUpdatedListener(new CallsUpdatedListener() {
+        void onCallsUpdated(CallsUpdatedEvent callsUpdatedEvent) {
+            // Look for incoming call
+            List<Call> calls = callsUpdatedEvent.getAddedCalls();
+            for (Call call : calls) {
+                if (call.getState() == CallState.Incoming) {
+                    incomingCall = call;
+                    break;
+                }
+            }
+        }
+    });
+    return incomingCall;
+}
+```
+
+
 ## <a name="push-notifications"></a>Notificações por push
 
 ### <a name="overview"></a>Visão geral
@@ -153,7 +211,7 @@ As notificações de push móvel são as notificações pop-up que você vê em 
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Uma conta do firebase configurada com o FCM (mensagens de nuvem) habilitada e com o serviço de mensagens de nuvem firebase conectado a uma instância do hub de notificação do Azure. Consulte [notificações de serviços de comunicação](https://docs.microsoft.com/azure/communication-services/concepts/notifications) para obter mais informações.
+Uma conta do firebase configurada com o FCM (mensagens de nuvem) habilitada e com o serviço de mensagens de nuvem firebase conectado a uma instância do hub de notificação do Azure. Consulte [notificações de serviços de comunicação](../../../concepts/notifications.md) para obter mais informações.
 Além disso, o tutorial pressupõe que você esteja usando Android Studio versão 3,6 ou superior para compilar seu aplicativo.
 
 Um conjunto de permissões é necessário para o aplicativo Android a fim de receber mensagens de notificações do firebase Cloud Messaging. Em seu `AndroidManifest.xml` arquivo, adicione o seguinte conjunto de permissões logo após o *<manifesto... >* ou abaixo da *</application>* marca
@@ -573,7 +631,7 @@ DeviceManager deviceManager = callClient.getDeviceManager().get();
 
 ### <a name="enumerate-local-devices"></a>Enumerar dispositivos locais
 
-Para acessar dispositivos locais, você pode usar métodos de enumeração no Device Manager. A enumeração é uma ação síncrona.
+Para acessar dispositivos locais, você pode usar métodos de enumeração no Gerenciador de Dispositivos. A enumeração é uma ação síncrona.
 
 ```java
 //  Get a list of available video devices for use.

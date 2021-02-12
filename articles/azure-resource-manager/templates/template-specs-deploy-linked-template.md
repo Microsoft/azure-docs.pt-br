@@ -2,13 +2,13 @@
 title: Implantar uma especificação de modelo como um modelo vinculado
 description: Saiba como implantar uma especificação de modelo existente em uma implantação vinculada.
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: 4469e793a7da407f793bfe2885f7bb039e29d736
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/17/2020
+ms.openlocfilehash: b30a99a469ec010dcc2e128bbeb446b493631608
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91369103"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518865"
 ---
 # <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>Tutorial: implantar uma especificação de modelo como um modelo vinculado (versão prévia)
 
@@ -19,7 +19,7 @@ Saiba como implantar uma especificação de [modelo](template-specs.md) existent
 Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> As especificações de modelo estão atualmente em versão prévia. Para usá-lo, você deve [inscrever-se na versão prévia](https://aka.ms/templateSpecOnboarding).
+> As especificações de modelo estão atualmente em versão prévia. Para usá-lo com Azure PowerShell, você deve instalar a [versão 5.0.0 ou posterior](/powershell/azure/install-az-ps). Para usá-lo com CLI do Azure, use a [versão 2.14.2 ou posterior](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-template-spec"></a>Criar uma especificação de modelo
 
@@ -160,7 +160,10 @@ New-AzResourceGroup `
 
 New-AzResourceGroupDeployment `
   -ResourceGroupName webRG `
-  -TemplateFile "c:\Templates\deployTS\azuredeploy.json"
+  -TemplateFile "c:\Templates\deployTS\azuredeploy.json" `
+  -tsResourceGroup templateSpecRg `
+  -tsName storageSpec `
+  -tsVersion 1.0
 ```
 
 # <a name="cli"></a>[CLI](#tab/azure-cli)
@@ -172,8 +175,8 @@ az group create \
 
 az deployment group create \
   --resource-group webRG \
-  --template-file "c:\Templates\deployTS\azuredeploy.json"
-
+  --template-file "c:\Templates\deployTS\azuredeploy.json" \
+  --parameters tsResourceGroup=templateSpecRG tsName=storageSpec tsVersion=1.0
 ```
 
 ---

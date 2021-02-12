@@ -9,22 +9,23 @@ editor: ''
 tags: azure-resource-manager
 keywords: SAP, Azure, seja, HANA, Azure NetApp Files, instantâneo
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/28/2020
+ms.date: 01/23/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 02755c164e72e3149497ee8e3c1fdc19141fd54f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 906879c44a2d7a3248f3d3ac0c9fec7ced7f2a4f
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973624"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746536"
 ---
 # <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>Volumes NFS v4.1 no Azure NetApp Files para SAP HANA
 
-O Azure NetApp Files fornece compartilhamentos NFS nativos que podem ser usados para volumes **/Hana/Shared**, **/Hana/data**e **/Hana/log** . O uso de compartilhamentos NFS baseados em seja para os volumes **/Hana/data** e **/Hana/log** requer o uso do protocolo v 4.1 NFS. Não há suporte para o protocolo de NFS v3 para o uso de volumes **/Hana/data** e **/Hana/log** ao basear os compartilhamentos em seja. 
+O Azure NetApp Files fornece compartilhamentos NFS nativos que podem ser usados para volumes **/Hana/Shared**, **/Hana/data** e **/Hana/log** . O uso de compartilhamentos NFS baseados em seja para os volumes **/Hana/data** e **/Hana/log** requer o uso do protocolo v 4.1 NFS. Não há suporte para o protocolo de NFS v3 para o uso de volumes **/Hana/data** e **/Hana/log** ao basear os compartilhamentos em seja. 
 
 
 > [!IMPORTANT]
@@ -61,17 +62,23 @@ Importante entender é a relação de desempenho do tamanho e se há limites fí
 
 A tabela a seguir demonstra que pode fazer sentido criar um volume "padrão" grande para armazenar backups e que não faz sentido criar um volume "ultra" maior que 12 TB porque a capacidade de largura de banda física de um único LIF seria excedida. 
 
-A taxa de transferência máxima para um LIF e uma única sessão do Linux é entre 1,2 e 1,4 GB/s. 
+A taxa de transferência máxima para um LIF e uma única sessão do Linux é entre 1,2 e 1,4 GB/s. Se precisar de mais taxa de transferência para/Hana/data, você poderá usar SAP HANA particionamento de volume de dados para distribuir a atividade de e/s durante o recarregamento de dados ou os pontos de salvamento do HANA em vários arquivos de dados do HANA localizados em vários compartilhamentos NFS. Para obter mais detalhes sobre a distribuição de volume de dados do HANA, leia estes artigos:
+
+- [O guia do administrador do HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/40b2b2a880ec4df7bac16eae3daef756.html?q=hana%20data%20volume%20partitioning)
+- [Blog sobre SAP HANA – Particionando volumes de dados](https://blogs.sap.com/2020/10/07/sap-hana-partitioning-data-volumes/)
+- [Observação SAP #2400005](https://launchpad.support.sap.com/#/notes/2400005)
+- [Observação SAP #2700123](https://launchpad.support.sap.com/#/notes/2700123)
+
 
 | Tamanho  | Taxa de transferência padrão | Taxa de transferência Premium | Taxa de transferência Ultra |
 | --- | --- | --- | --- |
 | 1 TB | 16 MB/s | 64 MB/s | 128 MB/s |
 | 2 TB | 32 MB/s | 128 MB/s | 256 MB/s |
 | 4 TB | 64 MB/s | 256 MB/s | 512 MB/s |
-| 10 TB | 160 MB/s | 640 MB/s | 1,280 MB/s |
-| 15 TB | 240 MB/s | 960 MB/s | 1,400 MB/s |
-| 20 TB | 320 MB/s | 1,280 MB/s | 1,400 MB/s |
-| 40 TB | 640 MB/s | 1,400 MB/s | 1,400 MB/s |
+| 10 TB | 160 MB/s | 640 MB/s | 1.280 MB/s |
+| 15 TB | 240 MB/s | 960 MB/s | 1.400 MB/s |
+| 20 TB | 320 MB/s | 1.280 MB/s | 1.400 MB/s |
+| 40 TB | 640 MB/s | 1.400 MB/s | 1.400 MB/s |
 
 É importante entender que os dados são gravados no mesmo SSDs no back-end de armazenamento. A cota de desempenho do pool de capacidade foi criada para poder gerenciar o ambiente.
 Os KPIs de armazenamento são iguais para todos os tamanhos de banco de dados do HANA. Em quase todos os casos, essa suposição não reflete a realidade e a expectativa do cliente. O tamanho dos sistemas HANA não significa necessariamente que um pequeno sistema exige baixa taxa de transferência de armazenamento – e um sistema grande requer alta taxa de transferência de armazenamento. Mas, em geral, podemos esperar mais requisitos de taxa de transferência para instâncias de banco de dados HANA maiores. Como resultado das regras de dimensionamento do SAP para o hardware subjacente, essas instâncias mais grandes do HANA também fornecem mais recursos de CPU e maior paralelismo em tarefas como carregar dados após uma reinicialização de instâncias. Como resultado, os tamanhos de volume devem ser adotados para as expectativas e os requisitos do cliente. E não só é orientado por requisitos de capacidade puras.

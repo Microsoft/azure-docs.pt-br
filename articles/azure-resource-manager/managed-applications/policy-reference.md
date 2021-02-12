@@ -1,17 +1,17 @@
 ---
 title: Definições de políticas internas para o Aplicativos Gerenciados do Azure
 description: Lista as definições de políticas internas do Azure Policy para os Aplicativos Gerenciados do Azure. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 10/20/2020
+ms.date: 02/04/2021
 ms.topic: reference
 author: tfitzmac
 ms.author: tomfitz
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 2c3e7f6434823cc089bc70e66cfce58182b5a904
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 25a9fa785349e89eccd4f5ea4f9b08257fc9b375
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320698"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99556318"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-managed-applications"></a>Definições internas do Azure Policy para os Aplicativos Gerenciados do Azure
 

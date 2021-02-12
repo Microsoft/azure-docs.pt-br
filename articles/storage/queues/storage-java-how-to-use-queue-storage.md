@@ -2,27 +2,27 @@
 title: Como usar o armazenamento de fila do Java – armazenamento do Azure
 description: Saiba como usar o armazenamento de fila para criar e excluir filas. Aprenda a inserir, inspecionar, obter e excluir mensagens com a biblioteca de cliente de armazenamento do Azure para Java.
 author: mhopkins-msft
-ms.custom: devx-track-java
 ms.author: mhopkins
+ms.reviewer: dineshm
 ms.date: 08/19/2020
+ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
-ms.topic: how-to
-ms.reviewer: dineshm
-ms.openlocfilehash: 2f61fef58485a905b96bdada32b915106e60d1a8
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.custom: devx-track-java
+ms.openlocfilehash: 997a37ac4252813abf1b35877cd34e192ec3e2ae
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425137"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585710"
 ---
-# <a name="how-to-use-queue-storage-from-java"></a>Como usar o Armazenamento de Fila no Java
+# <a name="how-to-use-queue-storage-from-java"></a>Como usar o armazenamento de fila do Java
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 ## <a name="overview"></a>Visão geral
 
-Este guia mostrará como codificar para cenários comuns usando o serviço de armazenamento de filas do Azure. As amostras são escritas em Java e usam o [SDK de Armazenamento do Azure para Java][Azure Storage SDK for Java]. Os cenários incluem **inserção**, **exibição**, **obtenção**e **exclusão** de mensagens da fila. O código para **criar** e **excluir** filas também é abordado. Para obter mais informações sobre filas, consulte a seção [Próximas etapas](#next-steps) .
+Este guia mostrará como codificar para cenários comuns usando o serviço de armazenamento de filas do Azure. As amostras são escritas em Java e usam o [SDK de Armazenamento do Azure para Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage). Os cenários incluem **inserção**, **exibição**, **obtenção** e **exclusão** de mensagens da fila. O código para **criar** e **excluir** filas também é abordado. Para obter mais informações sobre filas, consulte a seção [Próximas etapas](#next-steps) .
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -32,11 +32,11 @@ Este guia mostrará como codificar para cenários comuns usando o serviço de ar
 
 # <a name="java-v12"></a>[Java V12](#tab/java)
 
-Primeiro, verifique se o sistema de desenvolvimento atende aos pré-requisitos listados na [biblioteca de cliente de armazenamento de filas do Azure para Java V12](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue).
+Primeiro, verifique se o sistema de desenvolvimento atende aos pré-requisitos listados na [biblioteca de cliente de armazenamento de filas do Azure V12 para Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue).
 
-Para criar um aplicativo Java chamado *filas-instruções-V12*:
+Para criar um aplicativo Java chamado `queues-how-to-v12` :
 
-1. Em uma janela de console (como cmd, PowerShell ou bash), use o Maven para criar um novo aplicativo de console com o nome *filas-instruções-V12*. Digite o comando **mvn** a seguir para criar um "Olá, Mundo!" Projeto Java.
+1. Em uma janela de console (como cmd, PowerShell ou bash), use o Maven para criar um novo aplicativo de console com o nome `queues-how-to-v12` . Digite o seguinte `mvn` comando para criar um projeto Java "Olá, mundo".
 
    ```bash
     mvn archetype:generate \
@@ -93,7 +93,7 @@ Para criar um aplicativo Java chamado *filas-instruções-V12*:
     [INFO] ------------------------------------------------------------------------
         ```
 
-1. Switch to the newly created *queues-howto-v12* directory.
+1. Switch to the newly created `queues-howto-v12` directory.
 
    ```console
    cd queues-howto-v12
@@ -101,7 +101,7 @@ Para criar um aplicativo Java chamado *filas-instruções-V12*:
 
 ### <a name="install-the-package"></a>Instalar o pacote
 
-Abra o arquivo *pom.xml* no seu editor de texto. Adicione o seguinte elemento de dependência ao grupo de dependências.
+Abra o `pom.xml` arquivo em seu editor de texto. Adicione o seguinte elemento de dependência ao grupo de dependências.
 
 ```xml
 <dependency>
@@ -117,9 +117,9 @@ Primeiro, verifique se o sistema de desenvolvimento atende aos pré-requisitos l
 
 ---
 
-## <a name="configure-your-application-to-access-queue-storage"></a>Configurar seu aplicativo para acessar o armazenamento de filas
+## <a name="configure-your-application-to-access-queue-storage"></a>Configurar seu aplicativo para acessar o Armazenamento de Filas
 
-Adicione as seguintes instruções de importação na parte superior do arquivo Java em que deseja usar as APIs de armazenamento do Azure para acessar as filas:
+Adicione as seguintes instruções de importação na parte superior do arquivo Java em que você deseja usar as APIs de armazenamento do Azure para acessar filas:
 
 # <a name="java-v12"></a>[Java V12](#tab/java)
 
@@ -135,9 +135,9 @@ import com.microsoft.azure.storage.queue.*;
 
 ---
 
-## <a name="set-up-an-azure-storage-connection-string"></a>Configurar uma cadeia de conexão de armazenamento do Azure
+## <a name="set-up-an-azure-storage-connection-string"></a>Configurar uma cadeia de conexão de Armazenamento do Azure
 
-Um cliente de armazenamento do Azure usa uma cadeia de conexão de armazenamento para acessar os serviços de gerenciamento de dados. Obtenha o nome e a chave de acesso primária para sua conta de armazenamento listada no [portal do Azure](https://portal.azure.com). Use-os como os valores *AccountName* e *AccountKey* na cadeia de conexão. Este exemplo mostra como você pode declarar um campo estático para armazenar a cadeia de conexão:
+Um cliente de armazenamento do Azure usa uma cadeia de conexão de armazenamento para acessar os serviços de gerenciamento de dados. Obtenha o nome e a chave de acesso primária para sua conta de armazenamento listada no [portal do Azure](https://portal.azure.com). Use-os como `AccountName` os `AccountKey` valores e na cadeia de conexão. Este exemplo mostra como você pode declarar um campo estático para armazenar a cadeia de conexão:
 
 # <a name="java-v12"></a>[Java V12](#tab/java)
 
@@ -152,7 +152,8 @@ final String storageConnectionString =
     "AccountName=your_storage_account;" +
     "AccountKey=your_storage_account_key";
 ```
-Você pode armazenar essa cadeia de caracteres no arquivo de configuração de serviço chamado Service *Configuration. cscfg*. Para um aplicativo em execução em uma função de Microsoft Azure, acesse a cadeia de conexão chamando **RoleEnvironment. getConfigurationSettings**. Aqui está um exemplo de como obter a cadeia de conexão de um elemento de **configuração** chamado *StorageConnectionString*:
+
+Você pode armazenar essa cadeia de caracteres no arquivo de configuração de serviço chamado `ServiceConfiguration.cscfg` . Para um aplicativo em execução em uma função de Microsoft Azure, acesse a cadeia de conexão chamando `RoleEnvironment.getConfigurationSettings` . Aqui está um exemplo de como obter a cadeia de conexão de um `Setting` elemento chamado `StorageConnectionString` :
 
 ```java
 // Retrieve storage account from connection-string.
@@ -162,21 +163,22 @@ String storageConnectionString =
 
 ---
 
-Os exemplos a seguir pressupõem que você tenha um objeto **String** contendo a cadeia de conexão de armazenamento.
+Os exemplos a seguir pressupõem que você tenha um `String` objeto que contém a cadeia de conexão de armazenamento.
 
 ## <a name="how-to-create-a-queue"></a>Como criar uma fila
 
 # <a name="java-v12"></a>[Java V12](#tab/java)
 
-Um objeto **QueueClient** contém as operações para interagir com uma fila. O código a seguir cria um objeto **QueueClient** . Use o objeto **QueueClient** para criar a fila que você deseja usar.
+Um `QueueClient` objeto contém as operações para interagir com uma fila. O código a seguir cria um `QueueClient` objeto. Use o `QueueClient` objeto para criar a fila que você deseja usar.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_CreateQueue":::
 
 # <a name="java-v8"></a>[V8 Java](#tab/java8)
 
-Um objeto **CloudQueueClient** permite que você obtenha objetos de referência para filas. O código a seguir cria um objeto **CloudQueueClient**. (Observação: existem outras maneiras de criar objetos **CloudStorageAccount**. Para saber mais, veja **CloudStorageAccount** na [Referência de SDK do cliente de armazenamento do Azure]).
+Um `CloudQueueClient` objeto permite que você obtenha objetos de referência para filas. O código a seguir cria um `CloudQueueClient` objeto que fornece uma referência à fila que você deseja usar. Você poderá criar a fila se ela não existir.
 
-Use o objeto **CloudQueueClient** para obter uma referência à fila que você deseja usar. Você poderá criar a fila se ela não existir.
+> [!NOTE]
+> Há outras maneiras de criar `CloudStorageAccount` objetos. Para obter mais informações, consulte `CloudStorageAccount` na [referência do SDK do cliente de armazenamento do Azure](https://azure.github.io/azure-sdk-for-java/storage.html).)
 
 ```java
 try
@@ -207,13 +209,13 @@ catch (Exception e)
 
 # <a name="java-v12"></a>[Java V12](#tab/java)
 
-Para inserir uma mensagem em uma fila existente, chame o método **SendMessage** . Uma mensagem pode ser uma cadeia de caracteres (em formato UTF-8) ou uma matriz de bytes. Aqui está o código que envia uma mensagem de cadeia de caracteres para a fila.
+Para inserir uma mensagem em uma fila existente, chame o `sendMessage` método. Uma mensagem pode ser uma cadeia de caracteres (em formato UTF-8) ou uma matriz de bytes. Aqui está o código que envia uma mensagem de cadeia de caracteres para a fila.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_AddMessage":::
 
 # <a name="java-v8"></a>[V8 Java](#tab/java8)
 
-Para inserir uma mensagem em uma fila existente, primeiro crie uma nova **CloudQueueMessage**. Em seguida, chame o método **addMessage** . Um **CloudQueueMessage** pode ser criado por meio de uma cadeia de caracteres (em formato UTF-8) ou de uma matriz de bytes. Aqui está o código que cria uma fila (se ela não existir) e insere a mensagem "Olá, mundo".
+Para inserir uma mensagem em uma fila existente, primeiro crie uma nova `CloudQueueMessage` . Em seguida, chame o `addMessage` método. Um `CloudQueueMessage` pode ser criado por meio de uma cadeia de caracteres (em formato UTF-8) ou de uma matriz de bytes. Aqui está o código que cria uma fila (se ela não existir) e insere a mensagem `Hello, World` .
 
 ```java
 try
@@ -246,7 +248,7 @@ catch (Exception e)
 
 ## <a name="how-to-peek-at-the-next-message"></a>Como inspecionar a próxima mensagem
 
-Você pode inspecionar a mensagem na frente de uma fila sem removê-la da fila chamando **peekMessages**.
+Você pode inspecionar a mensagem na frente de uma fila sem removê-la da fila chamando `peekMessage` .
 
 # <a name="java-v12"></a>[Java V12](#tab/java)
 
@@ -297,7 +299,7 @@ O exemplo de código a seguir pesquisa a fila de mensagens, localiza o primeiro 
 
 # <a name="java-v8"></a>[V8 Java](#tab/java8)
 
-O exemplo de código a seguir pesquisa a fila de mensagens, localiza o conteúdo da primeira mensagem que corresponde a "Olá, mundo", modifica o conteúdo da mensagem e sai.
+O exemplo de código a seguir pesquisa a fila de mensagens, localiza o primeiro conteúdo da mensagem que corresponde `Hello, world` , modifica o conteúdo da mensagem e sai.
 
 ```java
 try
@@ -393,13 +395,13 @@ Você pode obter uma estimativa do número de mensagens em uma fila.
 
 # <a name="java-v12"></a>[Java V12](#tab/java)
 
-O método **GetProperties** solicita ao serviço fila vários valores atuais. Um dos valores é uma contagem de quantas mensagens estão em uma fila. A contagem é aproximada apenas porque as mensagens podem ser adicionadas ou removidas após sua solicitação. O método **getApproximateMessageCount** retorna o último valor recuperado pela chamada para **GetProperties**, sem chamar o serviço fila.
+O `getProperties` método retorna vários valores, incluindo o número de mensagens atualmente em uma fila. A contagem é aproximada apenas porque as mensagens podem ser adicionadas ou removidas após sua solicitação. O `getApproximateMessageCount` método retorna o último valor recuperado pela chamada para `getProperties` , sem chamar o armazenamento de fila.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_GetQueueLength":::
 
 # <a name="java-v8"></a>[V8 Java](#tab/java8)
 
-O método **downloadattributes** solicita ao serviço fila vários valores atuais. Um dos valores é uma contagem de quantas mensagens estão em uma fila. A contagem é aproximada apenas porque as mensagens podem ser adicionadas ou removidas após sua solicitação. O método **getApproximateMessageCount** retorna o último valor recuperado pela chamada a **downloadAttributes** sem chamar o serviço Fila.
+O `downloadAttributes` método recupera vários valores, incluindo o número de mensagens atualmente em uma fila. A contagem é aproximada apenas porque as mensagens podem ser adicionadas ou removidas após sua solicitação. O `getApproximateMessageCount` método retorna o último valor recuperado pela chamada para `downloadAttributes` , sem chamar o armazenamento de fila.
 
 ```java
 try
@@ -436,13 +438,13 @@ catch (Exception e)
 
 # <a name="java-v12"></a>[Java V12](#tab/java)
 
-Seu código remove uma mensagem de um fila em duas etapas. Ao chamar **receiveMessage**, você obtém a próxima mensagem em uma fila. Uma mensagem retornada de **receiveMessage** torna-se invisível para qualquer outra mensagem de leitura de código dessa fila. Por padrão, essa mensagem permanece invisível por 30 segundos. Para concluir a remoção da mensagem da fila, você também deve chamar **deleteMessage**. Se o código não processar uma mensagem, esse processo de duas etapas garantirá que você possa obter a mesma mensagem e tentar novamente. Seu código chama **deleteMessage** logo após a mensagem ser processada.
+Seu código remove uma mensagem de um fila em duas etapas. Ao chamar `receiveMessage` , você receberá a próxima mensagem em uma fila. Uma mensagem retornada de `receiveMessage` torna-se invisível para todas as outras mensagens de leitura de código da fila. Por padrão, essa mensagem permanece invisível por 30 segundos. Para concluir a remoção da mensagem da fila, você também deve chamar `deleteMessage` . Se o código não processar uma mensagem, esse processo de duas etapas garantirá que você possa obter a mesma mensagem e tentar novamente. Seu código chama `deleteMessage` logo após a mensagem ser processada.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_DequeueMessage":::
 
 # <a name="java-v8"></a>[V8 Java](#tab/java8)
 
-Seu código remove uma mensagem de um fila em duas etapas. Quando você chama **retrieveMessage**, obtém a próxima mensagem em uma fila. As mensagens retornadas de **retrieveMessage** tornam-se invisíveis para todas as outras mensagens de leitura de código da fila. Por padrão, essa mensagem permanece invisível por 30 segundos. Para concluir a remoção da mensagem da fila, você também deve chamar **deleteMessage**. Se o código não processar uma mensagem, esse processo de duas etapas garantirá que você possa obter a mesma mensagem e tentar novamente. Seu código chama **deleteMessage** logo após a mensagem ser processada.
+Seu código remove uma mensagem de um fila em duas etapas. Ao chamar `retrieveMessage` , você receberá a próxima mensagem em uma fila. Uma mensagem retornada de `retrieveMessage` torna-se invisível para todas as outras mensagens de leitura de código da fila. Por padrão, essa mensagem permanece invisível por 30 segundos. Para concluir a remoção da mensagem da fila, você também deve chamar `deleteMessage` . Se o código não processar uma mensagem, esse processo de duas etapas garantirá que você possa obter a mesma mensagem e tentar novamente. Seu código chama `deleteMessage` logo após a mensagem ser processada.
 
 ```java
 try
@@ -481,13 +483,13 @@ Há duas maneiras de personalizar a recuperação da mensagem de uma fila. Prime
 
 # <a name="java-v12"></a>[Java V12](#tab/java)
 
-O exemplo de código a seguir usa o método **receiveMessages** para obter 20 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop **for** . Ele também define o tempo limite de invisibilidade como cinco minutos (300 segundos) para cada mensagem. O tempo limite é iniciado para todas as mensagens ao mesmo tempo. Quando cinco minutos tiverem passado desde a chamada para **receiveMessages**, todas as mensagens não excluídas ficarão visíveis novamente.
+O exemplo de código a seguir usa o método `receiveMessages` para receber 20 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop `for`. Ele também define o tempo limite de invisibilidade como cinco minutos (300 segundos) para cada mensagem. O tempo limite é iniciado para todas as mensagens ao mesmo tempo. Quando cinco minutos tiverem passado desde a chamada para `receiveMessages` , todas as mensagens não excluídas ficarão visíveis novamente.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_DequeueMessages":::
 
 # <a name="java-v8"></a>[V8 Java](#tab/java8)
 
-O exemplo de código a seguir usa o método **retrieveMessages** para obter 20 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop **for** . Ele também define o tempo limite de invisibilidade como cinco minutos (300 segundos) para cada mensagem. O tempo limite é iniciado para todas as mensagens ao mesmo tempo. Quando cinco minutos tiverem passado desde a chamada para **retrieveMessages**, todas as mensagens não excluídas ficarão visíveis novamente.
+O exemplo de código a seguir usa o método `retrieveMessages` para receber 20 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop `for`. Ele também define o tempo limite de invisibilidade como cinco minutos (300 segundos) para cada mensagem. O tempo limite é iniciado para todas as mensagens ao mesmo tempo. Quando cinco minutos tiverem passado desde a chamada para `retrieveMessages` , todas as mensagens não excluídas ficarão visíveis novamente.
 
 ```java
 try
@@ -522,13 +524,13 @@ catch (Exception e)
 
 # <a name="java-v12"></a>[Java V12](#tab/java)
 
-Para obter uma lista das filas atuais, chame o método **QueueServiceClient. listQueues ()** , que retornará uma coleção de objetos **QueueItem** .
+Para obter uma lista das filas atuais, chame o `QueueServiceClient.listQueues()` método, que retornará uma coleção de `QueueItem` objetos.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_ListQueues":::
 
 # <a name="java-v8"></a>[V8 Java](#tab/java8)
 
-Para obter uma lista das filas atuais, chame o método **CloudQueueClient.listQueues()**, que retornará uma coleção de objetos **CloudQueue**.
+Para obter uma lista das filas atuais, chame o `CloudQueueClient.listQueues()` método, que retornará uma coleção de `CloudQueue` objetos.
 
 ```java
 try
@@ -561,13 +563,13 @@ catch (Exception e)
 
 # <a name="java-v12"></a>[Java V12](#tab/java)
 
-Para excluir uma fila e todas as mensagens contidas nela, chame o método **delete** no objeto **QueueClient** .
+Para excluir uma fila e todas as mensagens contidas nela, chame o `delete` método no `QueueClient` objeto.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_DeleteMessageQueue":::
 
 # <a name="java-v8"></a>[V8 Java](#tab/java8)
 
-Para excluir uma fila e todas as mensagens contidas nela, chame o método **deleteIfExists** no objeto **CloudQueue**.
+Para excluir uma fila e todas as mensagens contidas nela, chame o `deleteIfExists` método no `CloudQueue` objeto.
 
 ```java
 try
@@ -598,15 +600,9 @@ catch (Exception e)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga estes links para saber mais sobre tarefas de armazenamento mais complexas.
+Agora que você aprendeu os conceitos básicos do armazenamento de filas, siga estes links para saber mais sobre tarefas de armazenamento mais complexas.
 
-* [SDK de Armazenamento do Azure para Java][Azure Storage SDK for Java]
-* [Referência de SDK do Cliente de Armazenamento do Azure][Azure Storage Client SDK Reference]
-* [API REST de serviços de armazenamento do Azure][Azure Storage Services REST API]
-* [Blog da equipe de Armazenamento do Azure][Azure Storage Team Blog]
-
-[Azure SDK for Java]: https://github.com/azure/azure-sdk-for-java
-[Azure Storage SDK for Java]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage
-[Referência de SDK do Cliente de Armazenamento do Azure]: https://azure.github.io/azure-sdk-for-java/storage.html
-[Azure Storage Services REST API]: /rest/api/storageservices/
-[Azure Storage Team Blog]: https://techcommunity.microsoft.com/t5/azure-storage/bg-p/AzureStorageBlog
+- [SDK de Armazenamento do Azure para Java](https://github.com/Azure/Azure-SDK-for-Java)
+- [Referência do SDK do cliente de armazenamento do Azure](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage)
+- [API REST dos serviços de armazenamento do Azure](/rest/api/storageservices/)
+- [Blog da equipe de armazenamento do Azure](https://techcommunity.Microsoft.com/t5/Azure-storage/bg-p/azurestorageblog)

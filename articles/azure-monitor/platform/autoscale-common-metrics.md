@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 12/6/2016
 ms.subservice: autoscale
 ms.openlocfilehash: e1a77fc1b40faca0a339c5e1aaceb71dec8de8bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327031"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004629"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Métricas comuns de dimensionamento automático do Azure Monitor
 
@@ -47,7 +47,7 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 
 Você pode criar um alerta para as métricas a seguir:
 
-| Nome da métrica | Unit |
+| Nome da métrica | Unidade |
 | --- | --- |
 | \Processador(_Total)\% Tempo do processador |Porcentagem |
 | \Processador(_Total)\% Tempo Privilegiado |Porcentagem |
@@ -88,7 +88,7 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 
  Você pode criar um alerta para as métricas a seguir:
 
-| Nome da métrica | Unit |
+| Nome da métrica | Unidade |
 | --- | --- |
 | \Memory\AvailableMemory |Bytes |
 | \Memory\PercentAvailableMemory |Porcentagem |
@@ -141,7 +141,7 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 
 Você pode alertar ou dimensionar com base nessas métricas.
 
-| Nome da métrica | Unit |
+| Nome da métrica | Unidade |
 | --- | --- |
 | CpuPercentage |Porcentagem |
 | MemoryPercentage |Porcentagem |

@@ -4,16 +4,15 @@ description: Este artigo descreve como configurar um pipeline de CI/CD (integra�
 services: stream-analytics
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: d9b6dfc977aab7d8907b5d3c3851a22f96227d78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b601a3586cfa971b2e8337a914f4e10bb0178ba0
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757751"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014239"
 ---
 # <a name="use-azure-devops-to-create-a-cicd-pipeline-for-a-stream-analytics-job"></a>Usar o Azure DevOps para criar um pipeline de CI/CD para um trabalho Stream Analytics
 
@@ -39,7 +38,7 @@ Nesta seção, você aprenderá a criar um pipeline de compilação. Você pode 
 
 1. Selecione o tipo de origem, o projeto de equipe e o repositório. Em seguida, selecione **continuar**.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/select-repo.png" alt-text="Criar novo pipeline do Azure":::
+   :::image type="content" source="media/set-up-cicd-pipeline/select-repo.png" alt-text="Selecionar Azure Stream Analytics projeto":::
 
 1. Na página **escolher um modelo** , selecione **trabalho vazio**.
 
@@ -47,15 +46,15 @@ Nesta seção, você aprenderá a criar um pipeline de compilação. Você pode 
 
 1. Na página **tarefas** , selecione o sinal de adição ao lado do **trabalho do agente 1**. Insira *NPM* na pesquisa de tarefa e selecione **NPM**.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/search-npm.png" alt-text="Criar novo pipeline do Azure":::
+   :::image type="content" source="media/set-up-cicd-pipeline/search-npm.png" alt-text="Selecionar tarefa NPM":::
 
-2. Dê um nome de **exibição**à tarefa. Altere a opção de **comando** para *personalizado* e insira o comando a seguir em **comando e argumentos**. Deixe as opções padrão restantes.
+2. Dê um nome de **exibição** à tarefa. Altere a opção de **comando** para *personalizado* e insira o comando a seguir em **comando e argumentos**. Deixe as opções padrão restantes.
 
    ```bash
    install -g azure-streamanalytics-cicd
    ```
 
-   :::image type="content" source="media/set-up-cicd-pipeline/npm-config.png" alt-text="Criar novo pipeline do Azure":::
+   :::image type="content" source="media/set-up-cicd-pipeline/npm-config.png" alt-text="Inserir configurações para a tarefa NPM":::
 
 ## <a name="add-a-build-task"></a>Adicionar uma tarefa de compilação
 
@@ -77,7 +76,7 @@ Nesta seção, você aprenderá a criar um pipeline de compilação. Você pode 
 
    A imagem abaixo usa um projeto Stream Analytics Visual Studio Code como um exemplo.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/command-line-config-build.png" alt-text="Criar novo pipeline do Azure":::
+   :::image type="content" source="media/set-up-cicd-pipeline/command-line-config-build.png" alt-text="Inserir configurações para a tarefa de linha de comando do Visual Studio Code":::
 
 ## <a name="add-a-test-task"></a>Adicionar uma tarefa de teste
 
@@ -87,7 +86,7 @@ Nesta seção, você aprenderá a criar um pipeline de compilação. Você pode 
    |-|-|
    |testPath|Teste|
 
-   :::image type="content" source="media/set-up-cicd-pipeline/pipeline-variables-test.png" alt-text="Criar novo pipeline do Azure":::
+   :::image type="content" source="media/set-up-cicd-pipeline/pipeline-variables-test.png" alt-text="Adicionar variáveis de pipeline":::
 
 2. Na página **tarefas** , selecione o sinal de adição ao lado do **trabalho do agente 1**. Pesquise por **linha de comando**.
 
@@ -99,7 +98,7 @@ Nesta seção, você aprenderá a criar um pipeline de compilação. Você pode 
    azure-streamanalytics-cicd test -project $(projectRootPath)/asaproj.json -outputpath $(projectRootPath)/$(outputPath)/$(testPath) -testConfigPath $(projectRootPath)/test/testConfig.json 
    ```
 
-   :::image type="content" source="media/set-up-cicd-pipeline/command-line-config-test.png" alt-text="Criar novo pipeline do Azure":::
+   :::image type="content" source="media/set-up-cicd-pipeline/command-line-config-test.png" alt-text="Inserir configurações para tarefa de linha de comando":::
 
 ## <a name="add-a-copy-files-task"></a>Adicionar uma tarefa copiar arquivos
 
@@ -116,7 +115,7 @@ Você precisa adicionar uma tarefa Copiar arquivo para copiar o arquivo de Resum
 
 2. Expanda **Opções de controle**. Selecione **mesmo que uma tarefa anterior tenha falhado, a menos que a compilação tenha sido cancelada** em **executar esta tarefa**.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/copy-config.png" alt-text="Criar novo pipeline do Azure":::
+   :::image type="content" source="media/set-up-cicd-pipeline/copy-config.png" alt-text="Inserir configurações para copiar tarefa":::
 
 ## <a name="add-a-publish-build-artifacts-task"></a>Adicionar uma tarefa publicar artefatos de compilação
 
@@ -124,7 +123,7 @@ Você precisa adicionar uma tarefa Copiar arquivo para copiar o arquivo de Resum
 
 2. Expanda **Opções de controle**. Selecione **mesmo que uma tarefa anterior tenha falhado, a menos que a compilação tenha sido cancelada** em **executar esta tarefa**.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/publish-config.png" alt-text="Criar novo pipeline do Azure":::
+   :::image type="content" source="media/set-up-cicd-pipeline/publish-config.png" alt-text="Inserir configurações para a tarefa de publicação":::
 
 ## <a name="save-and-run"></a>Salvar e Executar
 
@@ -134,9 +133,9 @@ Depois de concluir a adição das tarefas pacote NPM, linha de comando, copiar a
 
 O arquivo de Resumo de teste e os arquivos de modelo de Azure Resource Manager podem ser encontrados na pasta **publicada** .
 
-   :::image type="content" source="media/set-up-cicd-pipeline/check-build-test-result.png" alt-text="Criar novo pipeline do Azure":::
+   :::image type="content" source="media/set-up-cicd-pipeline/check-build-test-result.png" alt-text="Verificar compilação e resultado do teste":::
 
-   :::image type="content" source="media/set-up-cicd-pipeline/check-drop-folder.png" alt-text="Criar novo pipeline do Azure":::
+   :::image type="content" source="media/set-up-cicd-pipeline/check-drop-folder.png" alt-text="Verificar artefatos":::
 
 ## <a name="release-with-azure-pipelines"></a>Versão com Azure Pipelines
 
@@ -150,7 +149,7 @@ Abra um navegador da Web e navegue até seu Azure Stream Analytics Visual Studio
 
 3. Na caixa **artefatos** , selecione **+ Adicionar um artefato**. Em **origem**, selecione o pipeline de compilação que você criou e selecione **Adicionar**.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/build-artifact.png" alt-text="Criar novo pipeline do Azure":::
+   :::image type="content" source="media/set-up-cicd-pipeline/build-artifact.png" alt-text="Inserir artefato de pipeline de compilação":::
 
 4. Altere o nome do **estágio 1** para **implantar o trabalho no ambiente de teste**.
 
@@ -196,7 +195,7 @@ Abra um navegador da Web e navegue até seu Azure Stream Analytics Visual Studio
 
 Para criar uma versão, selecione **criar versão** no canto superior direito.
 
-:::image type="content" source="media/set-up-cicd-pipeline/create-release.png" alt-text="Criar novo pipeline do Azure":::
+:::image type="content" source="media/set-up-cicd-pipeline/create-release.png" alt-text="Criar uma versão usando Azure Pipelines":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

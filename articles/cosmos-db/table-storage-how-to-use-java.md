@@ -5,23 +5,28 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: Java
 ms.topic: sample
-ms.date: 07/23/2020
-author: sakash279
-ms.author: akshanka
+ms.date: 12/10/2020
+author: ThomasWeiss
+ms.author: thweiss
 ms.custom: devx-track-java
-ms.openlocfilehash: 4e9df3343a89097b192c51d3b9f093805afe6b87
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a5da5e1717f897d2236fd73f0fff525e157f7a0e
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477344"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093682"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Como usar o Armazenamento de Tabelas do Azure e a API da tabela do Azure Cosmos DB do Java
+
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-Este artigo mostra como criar tabelas, armazenar dados e realizar operações CRUD nos dados. Escolha o serviço Tabela do Azure ou a API de Tabela do Azure Cosmos DB. As amostras são escritas em Java e usam o [SDK de Armazenamento do Azure para Java][Azure Storage SDK for Java]. Os cenários abrangidos incluem **criar** , **listar** e **excluir** tabelas, além de **inserir** , **consultar** , **modificar** e **excluir** entidades em uma tabela. Para obter mais informações sobre tabelas, consulte a seção [Próximas etapas](#next-steps) .
+Este artigo mostra como criar tabelas, armazenar dados e realizar operações CRUD nos dados. Escolha o serviço Tabela do Azure ou a API de Tabela do Azure Cosmos DB. As amostras são escritas em Java e usam o [SDK de Armazenamento do Azure v8 para Java][Azure Storage SDK for Java]. Os cenários abrangidos incluem **criar**, **listar** e **excluir** tabelas, além de **inserir**, **consultar**, **modificar** e **excluir** entidades em uma tabela. Para obter mais informações sobre tabelas, consulte a seção [Próximas etapas](#next-steps) .
+
+> [!IMPORTANT]
+> A última versão do SDK de Armazenamento do Azure que dá suporte ao Armazenamento de Tabelas é [v8][Azure Storage SDK for Java]. Uma nova versão do SDK do Armazenamento de Tabelas para Java será disponibilizada em breve.
 
 > [!NOTE]
 > Um SDK está disponível para os desenvolvedores que usam o Armazenamento do Azure em dispositivos Android. Para obter mais informações, consulte [SDK de Armazenamento do Azure para Android][Azure Storage SDK for Android].
@@ -62,7 +67,7 @@ Você pode se conectar à conta de armazenamento do Azure ou à conta da API de 
 
 ### <a name="add-an-azure-storage-connection-string"></a>Adicionar uma cadeia de conexão de armazenamento do Azure
 
-Um cliente de armazenamento do Azure usa uma cadeia de conexão para armazenar pontos de extremidade e credenciais para acessar serviços de gerenciamento de dados. Ao executar um aplicativo cliente, é necessário fornecer a cadeia de conexão de armazenamento no formato a seguir, usando o nome de sua conta de armazenamento e a tecla de Acesso primário da conta de armazenamento listada no [portal do Azure](https://portal.azure.com) para os valores **AccountName** e **AccountKey** . 
+Um cliente de armazenamento do Azure usa uma cadeia de conexão para armazenar pontos de extremidade e credenciais para acessar serviços de gerenciamento de dados. Ao executar um aplicativo cliente, é necessário fornecer a cadeia de conexão de armazenamento no formato a seguir, usando o nome de sua conta de armazenamento e a tecla de Acesso primário da conta de armazenamento listada no [portal do Azure](https://portal.azure.com) para os valores **AccountName** e **AccountKey**. 
 
 Este exemplo mostra como você pode declarar um campo estático para armazenar a cadeia de conexão:
 
@@ -76,7 +81,7 @@ public static final String storageConnectionString =
 
 ### <a name="add-an-azure-cosmos-db-table-api-connection-string"></a>Adicionar uma cadeia de conexão da API de Tabela do Azure Cosmos DB
 
-Uma conta de banco de dados do Azure Cosmos DB usa uma cadeia de caracteres de conexão para armazenar o ponto de extremidade de tabela e suas credenciais. Ao executar um aplicativo cliente, é necessário fornecer a cadeia de conexão de armazenamento do Azure Cosmos DB no formato a seguir, usando o nome de sua conta do Azure Cosmos DB e a chave de Acesso primário da conta de armazenamento listada no [Portal do Azure](https://portal.azure.com) para os valores **AccountName** e **AccountKey** . 
+Uma conta de banco de dados do Azure Cosmos DB usa uma cadeia de caracteres de conexão para armazenar o ponto de extremidade de tabela e suas credenciais. Ao executar um aplicativo cliente, é necessário fornecer a cadeia de conexão de armazenamento do Azure Cosmos DB no formato a seguir, usando o nome de sua conta do Azure Cosmos DB e a chave de Acesso primário da conta de armazenamento listada no [Portal do Azure](https://portal.azure.com) para os valores **AccountName** e **AccountKey**. 
 
 Este exemplo mostra como você pode declarar um campo estático para armazenar a cadeia de conexão do Azure Cosmos DB:
 
@@ -88,7 +93,7 @@ public static final String storageConnectionString =
     "TableEndpoint=https://your_endpoint;" ;
 ```
 
-Em um aplicativo que esteja sendo executado no Azure, você pode armazenar essa cadeia no arquivo de configuração do serviço, *ServiceConfiguration.cscfg* , e você pode acessar com uma chamada para o método **RoleEnvironment.getConfigurationSettings** . Segue um exemplo de como obter a cadeia de conexão de um elemento **Setting** denominado *StorageConnectionString* no arquivo de configuração de serviço:
+Em um aplicativo que esteja sendo executado no Azure, você pode armazenar essa cadeia no arquivo de configuração do serviço, *ServiceConfiguration.cscfg*, e você pode acessar com uma chamada para o método **RoleEnvironment.getConfigurationSettings**. Segue um exemplo de como obter a cadeia de conexão de um elemento **Setting** denominado *StorageConnectionString* no arquivo de configuração de serviço:
 
 ```java
 // Retrieve storage account from connection-string.
@@ -434,7 +439,7 @@ catch (Exception e)
 
 ## <a name="modify-an-entity"></a>Modificar uma entidade
 
-Para modificar uma entidade, recupere-a do serviço Tabela, altere o objeto de entidade e, em seguida, salve as alterações novamente no serviço Tabela com uma operação de substituição ou mesclagem. O código a seguir altera o número de telefone de um cliente existente. Em vez de chamar **TableOperation.insert** como fizemos para inserir, esse código chama **TableOperation.replace** . O método **CloudTableClient.execute** chamará o serviço Tabela e a entidade será atualizada, a menos que outro aplicativo a tenha alterado desde o momento em que ela foi recuperada por esse aplicativo. Quando isso acontece, uma exceção é lançada e a entidade deve ser recuperada, modificada e salva novamente. Esse padrão de repetição de simultaneidade otimista é comum em um sistema de armazenamento distribuído.
+Para modificar uma entidade, recupere-a do serviço Tabela, altere o objeto de entidade e, em seguida, salve as alterações novamente no serviço Tabela com uma operação de substituição ou mesclagem. O código a seguir altera o número de telefone de um cliente existente. Em vez de chamar **TableOperation.insert** como fizemos para inserir, esse código chama **TableOperation.replace**. O método **CloudTableClient.execute** chamará o serviço Tabela e a entidade será atualizada, a menos que outro aplicativo a tenha alterado desde o momento em que ela foi recuperada por esse aplicativo. Quando isso acontece, uma exceção é lançada e a entidade deve ser recuperada, modificada e salva novamente. Esse padrão de repetição de simultaneidade otimista é comum em um sistema de armazenamento distribuído.
 
 ```java
 try
@@ -627,7 +632,7 @@ catch (Exception e)
 Para saber mais, visite [Azure para desenvolvedores Java](/java/azure).
 
 [Azure SDK for Java]: https://go.microsoft.com/fwlink/?LinkID=525671
-[Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
+[Azure Storage SDK for Java]: https://github.com/Azure/azure-storage-java/tree/v8.6.5
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [Referência de SDK do Cliente de Armazenamento do Azure]: https://azure.github.io/azure-storage-java/
 [Azure Storage REST API]: /rest/api/storageservices/

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2020
 ms.author: memildin
-ms.openlocfilehash: ce0858f61ca1fe3b81c3d0c8a3c97954827def80
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 31472b0a0eedee03d5cfcb6ff47a97033a8c78e0
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950611"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796076"
 ---
 # <a name="enable-security-center-on-all-subscriptions-in-a-management-group"></a>Habilitar a Central de Segurança em todas as assinaturas de um grupo de gerenciamento
 
@@ -31,19 +31,25 @@ Para integrar um grupo de gerenciamento e todas as respectivas assinaturas:
 
 1. Selecione **Atribuir** e defina o escopo para o nível do MG.
 
-    :::image type="content" source="./media/security-center-get-started/assign-policy.png" alt-text="A definição do Azure Policy Habilitar a Central de Segurança do Azure na sua assinatura":::
+    :::image type="content" source="./media/security-center-get-started/assign-policy.png" alt-text="Atribuindo a definição Habilitar a Central de Segurança do Azure na sua assinatura":::
 
     > [!TIP]
     > Além do escopo, não há nenhum parâmetro obrigatório.
 
 1. Selecione **Criar uma tarefa de correção** para garantir que todas as assinaturas existentes que não têm a Central de Segurança habilitada sejam integradas.
 
-    :::image type="content" source="./media/security-center-get-started/remediation-task.png" alt-text="A definição do Azure Policy Habilitar a Central de Segurança do Azure na sua assinatura" todas as assinaturas registradas (independentemente de terem o Azure Defender ativado ou desativado).
+    :::image type="content" source="./media/security-center-get-started/remediation-task.png" alt-text="Criando uma tarefa de correção para a definição do Azure Policy Habilitar a Central de Segurança do Azure na sua assinatura":::
+
+1. Quando for atribuída, a definição:
+
+    1. Detectará todas as assinaturas no MG que ainda não estão registradas na Central de Segurança.
+    1. Marcará essas assinaturas como "não compatível".
+    1. Marcará como "em conformidade" todas as assinaturas registradas (independentemente de terem o Azure Defender ativado ou desativado).
 
     A tarefa de correção habilitará a Central de Segurança gratuitamente nas assinaturas não compatíveis.
 
 > [!IMPORTANT]
-> A definição de política habilitará a Central de Segurança apenas em assinaturas **existentes**. Para registrar as assinaturas recém-criadas, abra a guia de conformidade, selecione as assinaturas não compatíveis pertinentes e crie uma tarefa de correção. Repita essa etapa quando você tiver uma ou mais assinaturas novas que deseja monitorar com a Central de Segurança.
+> A definição de política habilitará a Central de Segurança apenas em assinaturas **existentes**. Para registrar as assinaturas recém-criadas, abra a guia de conformidade, selecione as assinaturas não compatíveis pertinentes e crie uma tarefa de correção. Repita essa etapa quando você tiver uma ou mais assinaturas novas que desejar monitorar com a Central de Segurança.
 
 ## <a name="optional-modifications"></a>Modificações opcionais
 
@@ -92,4 +98,4 @@ Há várias opções para você modificar a definição do Azure Policy:
 Agora que você integrou um grupo de gerenciamento inteiro, habilite as proteções avançadas do Azure Defender. 
 
 > [!div class="nextstepaction"]
-> [Habilitar o Azure Defender](security-center-pricing.md)
+> [Habilitar o Azure Defender](security-center-pricing.md#enable-azure-defender)

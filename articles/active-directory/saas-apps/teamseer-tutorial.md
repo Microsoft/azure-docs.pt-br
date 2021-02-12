@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 815c738f1680c12f94aa97e91cd123237bf1b4f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6085ba5091b2b9973354280175aeb01f93ad7e28
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88542489"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521162"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>Tutorial: integração do Azure Active Directory ao TeamSeer
 
@@ -27,7 +27,7 @@ A integração do TeamSeer ao Azure AD oferece os seguintes benefícios:
 * É possível permitir que seus usuários entrem automaticamente no TeamSeer (logon único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -61,7 +61,7 @@ Para configurar a integração do TeamSeer ao Azure AD, é necessário adicionar
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **TeamSeer**, selecione **TeamSeer** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **TeamSeer** , selecione **TeamSeer** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![TeamSeer na lista de resultados](common/search-new-app.png)
 
@@ -85,32 +85,32 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o TeamSeer, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **TeamSeer**, selecione **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **TeamSeer** , selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
+3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
+4. Na seção **Configuração básica de SAML** , realize as seguintes etapas:
 
     ![Informações de logon único de Domínio e URLs do TeamSeer](common/sp-signonurl.png)
 
-    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://www.teamseer.com/<companyid>`
+    Na caixa de texto **URL de logon** , digite um URL usando o seguinte padrão: `https://www.teamseer.com/<companyid>`
 
     > [!NOTE]
     > O valor não é real. Atualize o valor com a URL de Logon real. Contate a [equipe de suporte ao cliente do TeamSeer](https://pages.theaccessgroup.com/solutions_business-suite_absence-management_contact.html) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-5. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+5. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-6. Na seção **Configurar o TeamSeer**, copie a URL apropriada, de acordo com suas necessidades.
+6. Na seção **Configurar o TeamSeer** , copie a URL apropriada, de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -126,7 +126,7 @@ Para configurar o logon único do Azure AD com o TeamSeer, execute as seguintes 
 
 1. Vá para **Administrador de RH**.
 
-    ![Administrador de RH](./media/teamseer-tutorial/ic789634.png "Administrador de RH")
+    ![A captura de tela mostra a opção Administrador de RH selecionada na janela do TeamSeer.](./media/teamseer-tutorial/ic789634.png "Administrador de RH")
 
 1. Clique em **Instalação**.
 
@@ -134,21 +134,21 @@ Para configurar o logon único do Azure AD com o TeamSeer, execute as seguintes 
 
 1. Clique em **Configurar detalhes do provedor de SAML**.
 
-    ![Configurações do SAML](./media/teamseer-tutorial/ic789636.png "Configurações do SAML")
+    ![A captura de tela mostra a opção Configurar detalhes do provedor de SAML selecionada.](./media/teamseer-tutorial/ic789636.png "Configurações do SAML")
 
 1. Na seção de detalhes do provedor de SAML, execute as seguintes etapas:
 
-    ![Configurações do SAML](./media/teamseer-tutorial/ic789637.png "Configurações do SAML")
+    ![Captura de tela que mostra os detalhes do provedor de SAML, em que você pode inserir os valores descritos.](./media/teamseer-tutorial/ic789637.png "Configurações do SAML")
 
-    a. Na caixa de texto **URL**, cole o valor **URL de Logon**, que você copiou do portal do Azure.
+    a. Na caixa de texto **URL** , cole o valor **URL de Logon** , que você copiou do portal do Azure.
 
     b. Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado Público do IdP**.
 
 1. Para concluir a configuração do provedor de SAML, execute as seguintes etapas:
 
-    ![Configurações do SAML](./media/teamseer-tutorial/ic789638.png "Configurações do SAML")
+    ![A captura de tela mostra a configuração do provedor de SAML, em que você pode inserir os valores descritos.](./media/teamseer-tutorial/ic789638.png "Configurações do SAML")
 
-    a. Nos **Endereços de Email de Teste**, digite o endereço de email do usuário de teste.
+    a. Nos **Endereços de Email de Teste** , digite o endereço de email do usuário de teste.
   
     b. Na caixa de texto **Emissor** , digite a URL do Emissor do provedor de serviços.
   
@@ -158,7 +158,7 @@ Para configurar o logon único do Azure AD com o TeamSeer, execute as seguintes 
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -170,9 +170,9 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome** , insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário** , digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -183,7 +183,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao TeamSeer.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **TeamSeer**.
+1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, **TeamSeer**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -199,11 +199,11 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
 
 ### <a name="create-teamseer-test-user"></a>Criar usuário de teste do TeamSeer
 
@@ -215,13 +215,13 @@ Para permitir que os usuários do Azure AD entrem no TeamSeer, eles devem ser pr
 
 1. Acesse **Usuários \> Administradores de RH** e, em seguida, clique em **Executar o Assistente de novo usuário**.
 
-    ![Administrador de RH](./media/teamseer-tutorial/ic789640.png "Administrador de RH")
+    ![A captura de tela mostra a guia Administrador de RH, em que você pode selecionar um assistente para ser executado.](./media/teamseer-tutorial/ic789640.png "Administrador de RH")
 
 1. Na seção **Detalhes do Usuário** , realize as seguintes etapas:
 
     ![Detalhes do Usuário](./media/teamseer-tutorial/ic789641.png "Detalhes do Usuário")
 
-    a. Digite o **Nome**, **Sobrenome** e **Nome de usuário (endereço de email)** de uma conta válida do Azure AD que você deseja provisionar nas caixas de texto relacionadas.
+    a. Digite o **Nome** , **Sobrenome** e **Nome de usuário (endereço de email)** de uma conta válida do Azure AD que você deseja provisionar nas caixas de texto relacionadas.
   
     b. Clique em **Próximo**.
 
@@ -234,12 +234,12 @@ Para permitir que os usuários do Azure AD entrem no TeamSeer, eles devem ser pr
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do TeamSeer no Painel de Acesso, você deverá entrar automaticamente no TeamSeer para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do TeamSeer no Painel de Acesso, você deverá entrar automaticamente no TeamSeer para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

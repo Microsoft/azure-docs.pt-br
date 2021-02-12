@@ -1,17 +1,17 @@
 ---
 title: Limitações-banco de dados do Azure para MySQL-servidor flexível
 description: Este artigo descreve as limitações no banco de dados do Azure para MySQL-servidor flexível, como o número de opções de mecanismo de armazenamento e conexão.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: 6fff7f22e7d265eb9b15bcec8604eeab692ac1c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3abde9092519be057dcd73ec63318f970fd5c74
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91650282"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543078"
 ---
 # <a name="limitations-in-azure-database-for-mysql---flexible-server-preview"></a>Limitações no banco de dados do Azure para MySQL – servidor flexível (visualização)
 
@@ -23,9 +23,9 @@ Este artigo descreve as limitações no serviço de servidor flexível do banco 
 ## <a name="server-parameters"></a>Parâmetros do Servidor
 
 > [!NOTE]
-> Se você estiver procurando por valores mínimos/máximos para parâmetros de servidor como `max_connections` e `innodb_buffer_pool_size` , essas informações foram movidas para os conceitos de parâmetros de servidor <!-- **[server parameters](./concepts-server-parameters.md)** --> .
+> Se você estiver procurando por valores mínimos/máximos para parâmetros de servidor como `max_connections` e `innodb_buffer_pool_size` , essas informações foram movidas para o artigo parâmetros de servidor conceitos [parâmetros de servidor](./concepts-server-parameters.md) .
 
-O banco de dados do Azure para MySQL dá suporte ao ajuste dos valores dos parâmetros do servidor. O valor mínimo e máximo de alguns parâmetros (ex. `max_connections`, `join_buffer_size` , `query_cache_size` ) é determinado pela camada de computação e o tamanho de computação do servidor. Consulte os conceitos de parâmetros do servidor <!-- [server parameters](./concepts-server-parameters.md)--> para obter mais informações sobre esses limites.
+O banco de dados do Azure para MySQL dá suporte ao ajuste dos valores dos parâmetros do servidor. O valor mínimo e máximo de alguns parâmetros (ex. `max_connections`, `join_buffer_size` , `query_cache_size` ) é determinado pela camada de computação e o tamanho de computação do servidor. Consulte [parâmetros do servidor](./concepts-server-parameters.md) para obter mais informações sobre esses limites.
 
 Os plug-ins de senha, como "validate_password" e "caching_sha2_password", não são suportados pelo serviço.
 
@@ -68,7 +68,7 @@ Os itens a seguir não têm suporte:
 - Sem suporte na camada de computação expansível.
 
 ### <a name="networking"></a>Rede
-- O método de conectividade não pode ser alterado após a criação do servidor. Se o servidor for criado com *acesso privado (integração VNet)*, ele não poderá ser alterado para *acesso público (endereços IP permitidos)* após Create e vice-versa
+- O método de conectividade não pode ser alterado após a criação do servidor. Se o servidor for criado com *acesso privado (integração VNet)* , ele não poderá ser alterado para *acesso público (endereços IP permitidos)* após Create e vice-versa
 - O TLS/SSL está habilitado por padrão e não pode ser desabilitado.
 - A versão mínima do TLS com suporte no servidor é TLS 1.2. Consulte [conectar-se usando TLS/SSL](./how-to-connect-tls-ssl.md) para saber mais.
 

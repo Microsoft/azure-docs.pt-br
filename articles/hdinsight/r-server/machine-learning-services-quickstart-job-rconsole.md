@@ -1,19 +1,16 @@
 ---
 title: 'Início Rápido: Script R em serviços de ML e o console de R – Azure HDInsight'
 description: No início rápido, você executa um script R em um cluster de serviços de ML no Azure HDInsight usando o console de R.
-author: hrasheed-msft
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/19/2019
-ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: af41a7569dedc9a56f67be8ae791d7185e0c7489
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: eac6fd14acfe12a0f505419a229bb78e423706d1
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "73241605"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935736"
 ---
 # <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-r-console"></a>Início Rápido: Executar um script R em um cluster de serviços de ML no Azure HDInsight usando o console de R
 
@@ -150,7 +147,7 @@ Neste início rápido, você aprende como executar um script R com o console de 
     
       ---
     
-      Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+      Signif. codes:  0 ‘**_’ 0.001 ‘_*’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
     
       Condition number of final variance-covariance matrix: 11904202
       Number of iterations: 7

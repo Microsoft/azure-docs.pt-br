@@ -1,18 +1,17 @@
 ---
 title: Avaliar grandes números de VMs do Hyper-V para migração para o Azure com migrações para Azure | Microsoft Docs
 description: Descreve como avaliar grandes números de VMs do Hyper-V para migração para o Azure usando o serviço migrações para Azure.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
-ms.topic: conceptual
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 07/10/2019
-ms.author: raynew
-ms.openlocfilehash: 393c58334f4a1bead7e089d0a64b2d165b67401d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 92c275ee3f8e00e71b80e448c9adb94f0b6d21dc
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317169"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753715"
 ---
 # <a name="assess-large-numbers-of-hyper-v-vms-for-migration-to-azure"></a>Avaliar grandes números de VMs do Hyper-V para migração para o Azure
 
@@ -75,7 +74,7 @@ De acordo com seus requisitos de planejamento, faça o seguinte:
 1. Criar projetos de migrações para Azure.
 2. Adicione a ferramenta de avaliação do servidor de migrações para projetos.
 
-[Saiba mais](how-to-add-tool-first-time.md)
+[Saiba mais](./create-manage-projects.md)
 
 ## <a name="create-and-review-an-assessment"></a>Criar e examinar uma avaliação
 

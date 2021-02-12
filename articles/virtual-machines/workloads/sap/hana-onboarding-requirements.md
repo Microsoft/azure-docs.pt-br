@@ -7,18 +7,19 @@ author: msjuergent
 manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/31/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 141a75a75a214ff4a6f136df7570d6e81f7f4e82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f72342a318e3436fb80fb06b2312f664c9d04969
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77617014"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967611"
 ---
 # <a name="onboarding-requirements"></a>Requisitos de integração
 
@@ -61,7 +62,7 @@ Para a matriz de compatibilidade do sistema operacional e as versões de firmwar
 > Para unidades do tipo II, somente a versão SLES 12 SP2 do sistema operacional tem suporte atualmente. 
 
 
-**Backup de banco de dados**
+**Banco de dados**
 
 - As licenças e os componentes de instalação de software para SAP HANA (plataforma ou enterprise edition).
 
@@ -70,7 +71,7 @@ Para a matriz de compatibilidade do sistema operacional e as versões de firmwar
 - Licenças e componentes de instalação de software para quaisquer aplicativos do SAP que conectam-se ao SAP HANA e contratos de suporte do SAP relacionados.
 - Licenças e os componentes de instalação de software para todos os aplicativos SAP não usado com o SAP HANA no ambiente do Azure (Instâncias Grandes) e relacionadas a contratos de suporte.
 
-**Conhecem**
+**Habilidades**
 
 - Experiência com e conhecimento da IaaS do Azure e seus componentes.
 - Experiência e conhecimento de como implantar uma carga de trabalho do SAP no Azure.

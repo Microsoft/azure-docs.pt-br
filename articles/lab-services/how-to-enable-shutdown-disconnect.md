@@ -3,19 +3,19 @@ title: Configurar o desligamento automático de VMs para um laboratório no Azur
 description: Saiba como habilitar ou desabilitar o desligamento automático de VMs quando uma conexão de área de trabalho remota for desconectada.
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 67b51941207fdd4913df9a92362959bbd468d336
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f9080f3b7b762d3b9fa448a903a4167cd2cec4a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91649874"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433937"
 ---
 # <a name="configure-automatic-shutdown-of-vms-for-a-lab"></a>Configurar o desligamento automático de VMs para um laboratório
 
 Este artigo mostra como você pode configurar o desligamento automático de VMs para um laboratório.
 
 Você pode habilitar vários recursos de controle de custos de desligamento automático para prevenir de forma proativa custos adicionais quando as máquinas virtuais não estiverem sendo usadas ativamente. A combinação dos seguintes três recursos automáticos de desligamento e desconexão captura a maioria dos casos em que os usuários deixam acidentalmente suas máquinas virtuais em execução:
- 
+ 
 * Desconectar automaticamente os usuários de máquinas virtuais que o sistema operacional considera ocioso.
 * Desligar automaticamente as máquinas virtuais quando os usuários se desconectarem.
 * Desligar automaticamente as máquinas virtuais que são iniciadas, mas os usuários não se conectam.
@@ -40,4 +40,4 @@ Certifique-se de examinar os detalhes sobre o desligamento automático na seçã
 > Se você desligar o sistema operacional Linux ou Windows (SO) em uma VM antes de desconectar uma sessão RDP para a VM, o recurso de desligamento automático não funcionará corretamente.  
 ## <a name="next-steps"></a>Próximas etapas
 
-[Painel para laboratórios de sala de aula](use-dashboard.md)
+[Painel para laboratórios](use-dashboard.md)

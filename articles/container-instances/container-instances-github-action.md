@@ -3,17 +3,17 @@ title: Implantar instância de contêiner por ação do GitHub
 description: Configurar uma ação do GitHub que automatiza etapas para compilar, enviar por push e implantar uma imagem de contêiner em instâncias de contêiner do Azure
 ms.topic: article
 ms.date: 08/20/2020
-ms.custom: github-actions-azure
-ms.openlocfilehash: c01075bcb64aa9b91869daba2e995957da74daf4
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.custom: github-actions-azure, devx-track-azurecli
+ms.openlocfilehash: 1409d8fc1430cd9bf67bd735d9826a74979d495b
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019181"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762967"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>Configurar uma ação do GitHub para criar uma instância de contêiner
 
-As [ações do GitHub](https://help.github.com/actions/getting-started-with-github-actions/about-github-actions) são um conjunto de recursos do GitHub para automatizar seus fluxos de trabalho de desenvolvimento de software no mesmo local em que você armazena código e colabora em solicitações de pull e problemas.
+As [ações do GitHub](https://docs.github.com/en/actions) são um conjunto de recursos do GitHub para automatizar seus fluxos de trabalho de desenvolvimento de software no mesmo local em que você armazena código e colabora em solicitações de pull e problemas.
 
 Use a ação do GitHub [implantar em instâncias de contêiner do Azure](https://github.com/azure/aci-deploy) para automatizar a implantação de um único contêiner para instâncias de contêiner do Azure. A ação permite definir propriedades para uma instância de contêiner semelhante àquelas no comando [AZ container Create][az-container-create] .
 
@@ -141,7 +141,7 @@ jobs:
         steps:
         # checkout the repo
         - name: 'Checkout GitHub Action'
-          uses: actions/checkout@master
+          uses: actions/checkout@main
           
         - name: 'Login via Azure CLI'
           uses: azure/login@v1
@@ -177,7 +177,7 @@ Depois de confirmar o arquivo de fluxo de trabalho, o fluxo de trabalho é dispa
 
 ![Exibir progresso do fluxo de trabalho](./media/container-instances-github-action/github-action-progress.png)
 
-Consulte [gerenciar um fluxo de trabalho executar](https://help.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run) para obter informações sobre como exibir o status e os resultados de cada etapa no fluxo de trabalho. Se o fluxo de trabalho não for concluído, consulte [Exibindo logs para diagnosticar falhas](https://docs.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run#viewing-logs-to-diagnose-failures).
+Consulte [exibindo o histórico de execução do fluxo de trabalho](https://docs.github.com/en/actions/managing-workflow-runs/viewing-workflow-run-history) para obter informações sobre como exibir o status e os resultados de cada etapa no fluxo de trabalho. Se o fluxo de trabalho não for concluído, consulte [Exibindo logs para diagnosticar falhas](https://docs.github.com/en/actions/managing-workflow-runs/using-workflow-run-logs#viewing-logs-to-diagnose-failures).
 
 Quando o fluxo de trabalho for concluído com êxito, obtenha informações sobre a instância de contêiner chamada *ACI-SampleApp* executando o comando [AZ container show][az-container-show] . Substitua o nome do seu grupo de recursos: 
 
@@ -220,7 +220,7 @@ az extension add \
 
 Para obter informações sobre como localizar, instalar e gerenciar extensões, consulte [usar extensões com CLI do Azure](/cli/azure/azure-cli-extensions-overview).
 
-### <a name="run-az-container-app-up"></a>Executar `az container app up`
+### <a name="run-az-container-app-up"></a>Execute `az container app up`
 
 Para executar o comando [AZ container app up][az-container-app-up] , forneça no mínimo:
 
@@ -237,7 +237,7 @@ az container app up \
 
 ### <a name="command-progress"></a>Progresso do comando
 
-* Quando solicitado, forneça suas credenciais do GitHub ou forneça um Pat ( [token de acesso pessoal](https://help.github.com/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) ) do GitHub que tenha escopos de *usuário* e *repositório* para autenticar com sua conta do github. Se você fornecer credenciais do GitHub, o comando criará uma PAT para você. Siga os prompts adicionais para configurar o fluxo de trabalho.
+* Quando solicitado, forneça suas credenciais do GitHub ou forneça um Pat ( [token de acesso pessoal](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) ) do GitHub que tenha escopos de *usuário* e *repositório* para autenticar com sua conta do github. Se você fornecer credenciais do GitHub, o comando criará uma PAT para você. Siga os prompts adicionais para configurar o fluxo de trabalho.
 
 * O comando cria segredos do repositório para o fluxo de trabalho:
 
@@ -258,7 +258,7 @@ Workflow succeeded
 Your app is deployed at:  http://acr-build-helloworld-node.eastus.azurecontainer.io:8080/
 ```
 
-Para exibir o status do fluxo de trabalho e os resultados de cada etapa na interface do usuário do GitHub, consulte [Gerenciando uma execução de fluxo de trabalho](https://help.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run).
+Para exibir o status do fluxo de trabalho e os resultados de cada etapa na interface do usuário do GitHub, consulte [exibindo histórico de execução do fluxo de trabalho](https://docs.github.com/en/actions/managing-workflow-runs/viewing-workflow-run-history).
 
 ### <a name="validate-workflow"></a>Validar fluxo de trabalho
 

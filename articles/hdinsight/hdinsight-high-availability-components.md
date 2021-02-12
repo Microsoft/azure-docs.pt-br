@@ -1,25 +1,22 @@
 ---
 title: Componentes de alta disponibilidade no Azure HDInsight
 description: Visão geral dos vários componentes de alta disponibilidade usados pelos clusters HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 1ff7932f0afb128f6e7568ecdae602c6471db0bd
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 336fe91174a8fc6d73d6e45c5fd1e2bf244eda52
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539710"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945305"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Serviços de alta disponibilidade com suporte do Azure HDInsight
 
 Para fornecer a você os níveis ideais de disponibilidade para seus componentes de análise, o HDInsight foi desenvolvido com uma arquitetura exclusiva para garantir alta disponibilidade (HA) de serviços críticos. Alguns componentes dessa arquitetura foram desenvolvidos pela Microsoft para fornecer failover automático. Outros componentes são componentes padrão do Apache que são implantados para dar suporte a serviços específicos. Este artigo explica a arquitetura do modelo de serviço de alta disponibilidade no HDInsight, como o HDInsight dá suporte a failover para serviços de HA e práticas recomendadas para recuperação de outras interrupções de serviço.
 
 > [!NOTE]
-> Este artigo contém referências ao termo *subordinado* , um termo que a Microsoft não usa mais. Quando o termo for removido do software, nós o removeremos deste artigo.
+> Este artigo contém referências ao termo *subordinado*, um termo que a Microsoft não usa mais. Quando o termo for removido do software, também o removeremos deste artigo.
 
 ## <a name="high-availability-infrastructure"></a>Infraestrutura de alta disponibilidade
 
@@ -49,7 +46,7 @@ As seções a seguir fornecerão mais detalhes sobre como esses serviços funcio
 
 ## <a name="hdinsight-high-availability-services"></a>Serviços de alta disponibilidade do HDInsight
 
-A Microsoft fornece suporte para os quatro serviços Apache na tabela a seguir em clusters HDInsight. Para diferenciá-los dos serviços de alta disponibilidade com suporte dos componentes do Apache, eles são chamados de *serviços de ha do HDInsight* .
+A Microsoft fornece suporte para os quatro serviços Apache na tabela a seguir em clusters HDInsight. Para diferenciá-los dos serviços de alta disponibilidade com suporte dos componentes do Apache, eles são chamados de *serviços de ha do HDInsight*.
 
 | Serviço | Nós de cluster | Tipos de cluster | Finalidade |
 |---|---|---|---|
@@ -65,7 +62,7 @@ A Microsoft fornece suporte para os quatro serviços Apache na tabela a seguir e
 
 Cada cluster HDInsight tem dois cabeçalho nos modos ativo e em espera, respectivamente. Os serviços de alta disponibilidade do HDInsight são executados somente no cabeçalho. Esses serviços devem estar sempre em execução no cabeçalho ativo e interrompidos e colocados no modo de manutenção no cabeçalho em espera.
 
-Para manter os Estados corretos dos serviços de HA e fornecer um failover rápido, o HDInsight utiliza Apache ZooKeeper, que é um serviço de coordenação para aplicativos distribuídos, para realizar eleição cabeçalho ativa. O HDInsight também provisiona alguns processos Java em segundo plano, que coordenam o procedimento de failover para os serviços de HA do HDInsight. Esses serviços são os seguintes: o controlador de failover mestre, o controlador de failover escravo, o *Master-ha-Service* e o *slave-ha-Service* .
+Para manter os Estados corretos dos serviços de HA e fornecer um failover rápido, o HDInsight utiliza Apache ZooKeeper, que é um serviço de coordenação para aplicativos distribuídos, para realizar eleição cabeçalho ativa. O HDInsight também provisiona alguns processos Java em segundo plano, que coordenam o procedimento de failover para os serviços de HA do HDInsight. Esses serviços são os seguintes: o controlador de failover mestre, o controlador de failover escravo, o *Master-ha-Service* e o *slave-ha-Service*.
 
 ### <a name="apache-zookeeper"></a>Apache ZooKeeper
 

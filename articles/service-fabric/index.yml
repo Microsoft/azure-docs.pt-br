@@ -7,12 +7,12 @@ metadata:
   author: erikadoyle
   ms.author: edoyle
   ms.date: 07/31/2020
-  ms.openlocfilehash: 9bce6570cef2703bf1ad63d92c55bb3794927a8b
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 2f9b7264fe8199cb25772b0598354e474196ca93
+  ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91408694"
+  ms.lasthandoff: 12/02/2020
+  ms.locfileid: "96499791"
 landingContent:
 - title: Experimentar clusters do Service Fabric (versão prévia)
   linkLists:
@@ -133,7 +133,7 @@ landingContent:
     - text: Segurança de cluster
       url: service-fabric-cluster-security.md
     - text: Controles de segurança para Service Fabric
-      url: service-fabric-security-controls.md
+      url: ./security-baseline.md
     - text: Repositório de segredos do Service Fabric
       url: service-fabric-application-secret-store.md
   - linkListType: how-to-guide

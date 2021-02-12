@@ -5,20 +5,20 @@ services: active-directory
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
-ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d27cd30d6543d967cca2648597854a06f8ea4eb7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5ffa937f91af7078b28331a655f99397d3821def
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374439"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545886"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integrar conexões de conta do LinkedIn no Azure Active Directory
 
@@ -96,7 +96,7 @@ Para usar o grupo da etapa dois como o grupo selecionado na configuração de co
   
    Estado | Efeito
    ------ | ------
-   **Enabled** | A configuração **Mostrar recursos do LinkedIn em aplicativos do Office** nas opções do Office 2016 está habilitada. Os usuários em sua organização podem usar os recursos do LinkedIn em seus aplicativos do Office 2016.
+   **Habilitado** | A configuração **Mostrar recursos do LinkedIn em aplicativos do Office** nas opções do Office 2016 está habilitada. Os usuários em sua organização podem usar os recursos do LinkedIn em seus aplicativos do Office 2016.
    **Desabilitado** | A configuração **Mostrar recursos do LinkedIn em aplicativos do Office** nas opções do Office 2016 está desabilitada e os usuários finais não podem alterar essa configuração. Os usuários em sua organização não podem usar recursos do LinkedIn nos seus aplicativos do Office 2016.
 
 Essa política de grupo afeta somente os aplicativos do Office 2016 para um computador local. Se os usuários desabilitarem o LinkedIn em seus aplicativos do Office 2016, eles ainda poderão ver os recursos do LinkedIn no Microsoft 365.

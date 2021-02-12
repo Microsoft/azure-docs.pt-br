@@ -9,14 +9,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/22/2020
+ms.date: 11/30/2020
 ms.author: allensu
-ms.openlocfilehash: 169889dbb87d00fdde44ff72c0d2004c331604ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c593cda7761ce1defa6bdb31e0dbb528b9e5eca
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87073045"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483981"
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Analisar os padrões de uso da CDN do Azure
 
@@ -31,7 +31,7 @@ Com um perfil padrão da Microsoft, você pode habilitar logs brutos e seleciona
 
 Com o Azure Log Analytics você pode exibir as métricas de monitoramento e configurar alertas. 
 
-Para obter mais informações, consulte [logs brutos de http da CDN do Azure](enable-raw-logs.md).
+Para obter mais informações, consulte [logs brutos de http da CDN do Azure](monitoring-and-access-log.md).
 
 
 ## <a name="core-analytics-via-azure-diagnostic-logs"></a>Análise de núcleo por meio de logs de diagnósticos do Azure
@@ -61,6 +61,4 @@ Neste artigo, você aprendeu sobre as diferentes opções para relatórios de an
 Para obter mais informações sobre a CDN do Azure e os outros serviços do Azure mencionados neste artigo, consulte:
 
 * [O que é a CDN do Azure?](cdn-overview.md)
-* [Logs brutos HTTP da CDN do Azure](enable-raw-logs.md)
-
-
+* [Logs brutos HTTP da CDN do Azure](monitoring-and-access-log.md)

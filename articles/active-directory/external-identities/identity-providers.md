@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a61eca3340985886ef782b28a59a1283c5f473ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ead05598c6ca4d096e1a68c8d640938ecd771c2
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265704"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355504"
 ---
 # <a name="identity-providers-for-external-identities"></a>Provedores de identidade para Identidades Externas
 
@@ -25,6 +25,9 @@ Um *provedor de identidade* cria, mantém e gerencia as informações de identid
 No entanto, você pode permitir que os usuários entrem com vários provedores de identidade.
 
 - **Google**: a Federação do Google permite que usuários externos resgatem convites de você entrando em seus aplicativos com as próprias contas do Gmail. A federação do Google também pode ser usada em seus fluxos de usuário de inscrição para autoatendimento.
+   > [!IMPORTANT]
+   > A **partir de 4 de janeiro de 2021**, o Google está [preterindo o suporte de entrada do WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Se você estiver usando a inscrição do Google Federation ou autoatendimento com o Gmail, deverá [testar seus aplicativos nativos de linha de negócios para compatibilidade](google-federation.md#deprecation-of-webview-sign-in-support).
+
    > [!NOTE]
    > Na versão prévia de inscrição para autoatendimento atual, se um fluxo de usuário estiver associado a um aplicativo e você enviar um convite desse aplicativo para um usuário, ele não poderá usar uma conta do Gmail para resgatar o convite. Como alternativa, o usuário pode passar pelo processo de inscrição de autoatendimento. Ou ele pode resgatar o convite acessando um aplicativo diferente ou usando o portal Meus Aplicativos em https://myapps.microsoft.com.
 

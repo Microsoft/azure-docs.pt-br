@@ -4,12 +4,12 @@ description: Saiba como conectar-se de forma privada a uma conta do lote do Azur
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.custom: references_regions
-ms.openlocfilehash: f797dbda7888eb8ea9f5c76e3b527fb98d896ee4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: d2e9d36e9e964f2e9f9a5a986fbf55d19b3069d8
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669024"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919996"
 ---
 # <a name="use-private-endpoints-with-azure-batch-accounts"></a>Usar pontos de extremidade privados com contas do Lote do Azure
 
@@ -20,7 +20,7 @@ Usando o [link privado do Azure](../private-link/private-link-overview.md), voc�
 O link privado permite que os usuários acessem uma conta do lote do Azure de dentro da rede virtual ou de qualquer rede virtual emparelhada. Os recursos mapeados para o link privado também podem ser acessados localmente no emparelhamento privado por meio de VPN ou [do Azure ExpressRoute](../expressroute/expressroute-introduction.md). Você pode se conectar a uma conta do lote do Azure configurada com o link privado usando o [método de aprovação automática ou manual](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow).
 
 > [!IMPORTANT]
-> O suporte para conectividade privada no lote do Azure está disponível atualmente para todas as regiões públicas, exceto Alemanha Central e Alemanha nordeste.
+> O suporte para conectividade privada no lote do Azure está disponível atualmente para todas as regiões, exceto Alemanha central, Alemanha nordeste, Leste da China, Leste da China 2, Norte da China e Norte da China 2.
 
 Este artigo descreve as etapas para criar uma conta do lote particular e acessá-la usando um ponto de extremidade privado.
 
@@ -28,29 +28,34 @@ Este artigo descreve as etapas para criar uma conta do lote particular e acessá
 
 Use as etapas a seguir para criar uma conta do lote particular usando o portal do Azure:
 
-1. No painel **criar um recurso** , escolha **serviço de lote** e, em seguida, selecione **criar** .
-2. Insira a assinatura, o grupo de recursos, a região e o nome da conta do lote na guia **noções básicas** e selecione **Avançar: avançado** .
-3. Na guia **avançado** , defina **acesso à rede pública** como **desabilitado** .
-4. Em **configurações** , selecione **conexões de ponto de extremidade privado** e, em seguida, selecione **+ ponto de extremidade privado** .
+1. No painel **criar um recurso** , escolha **serviço de lote** e, em seguida, selecione **criar**.
+2. Insira a assinatura, o grupo de recursos, a região e o nome da conta do lote na guia **noções básicas** e selecione **Avançar: avançado**.
+3. Na guia **avançado** , defina **acesso à rede pública** como **desabilitado**.
+4. Em **configurações**, selecione **conexões de ponto de extremidade privado** e, em seguida, selecione **+ ponto de extremidade privado**.
    :::image type="content" source="media/private-connectivity/private-endpoint-connections.png" alt-text="Conexões de ponto de extremidade privado":::
-5. No painel **noções básicas** , insira ou selecione a assinatura, o grupo de recursos, o nome do recurso do ponto de extremidade privado e os detalhes da região e, em seguida, selecione **Avançar: recurso** .
-6. No painel de **recursos** , defina o **tipo de recurso** como **Microsoft.Batch/batchAccounts** . Selecione a conta do lote particular que você deseja acessar e, em seguida, selecione **Avançar: configuração** .
-   :::image type="content" source="media/private-connectivity/create-private-endpoint.png" alt-text="Conexões de ponto de extremidade privado":::
+5. No painel **noções básicas** , insira ou selecione a assinatura, o grupo de recursos, o nome do recurso do ponto de extremidade privado e os detalhes da região e, em seguida, selecione **Avançar: recurso**.
+6. No painel de **recursos** , defina o **tipo de recurso** como **Microsoft.Batch/batchAccounts**. Selecione a conta do lote particular que você deseja acessar e, em seguida, selecione **Avançar: configuração**.
+   :::image type="content" source="media/private-connectivity/create-private-endpoint.png" alt-text="Criar um ponto de extremidade privado – painel de recursos":::
 7. No painel **configuração** , insira ou selecione estas informações:
-   - **Rede virtual** : selecione sua rede virtual.
-   - **Sub-rede** : selecione sua sub-rede.
-   - **Integrar com a zona DNS privada** : selecione **Sim** . Para se conectar em particular com o seu ponto de extremidade privado, você precisa de um registro DNS. Recomendamos que você integre seu ponto de extremidade privado a uma zona DNS privada. Você também pode usar seus próprios servidores DNS ou criar registros DNS usando os arquivos host em suas máquinas virtuais.
-   - **Zona de DNS privado** : selecione privatelink. \<region\> . batch.azure.com. A zona DNS privada é determinada automaticamente. Você não pode alterá-la usando o portal do Azure.
+   - **Rede virtual**: selecione sua rede virtual.
+   - **Sub-rede**: selecione sua sub-rede.
+   - **Integrar com a zona DNS privada**: selecione **Sim**. Para se conectar em particular com o seu ponto de extremidade privado, você precisa de um registro DNS. Recomendamos que você integre seu ponto de extremidade privado a uma zona DNS privada. Você também pode usar seus próprios servidores DNS ou criar registros DNS usando os arquivos host em suas máquinas virtuais.
+   - **Zona de DNS privado**: selecione privatelink. \<region\> . batch.azure.com. A zona DNS privada é determinada automaticamente. Você não pode alterá-la usando o portal do Azure.
 8. Selecione **revisar + criar** e aguarde até que o Azure valide sua configuração.
-9. Quando vir a mensagem **Validação aprovada** , selecione **Criar** .
+9. Quando vir a mensagem **Validação aprovada**, selecione **Criar**.
 
-Depois que o ponto de extremidade privado for provisionado, você poderá acessar a conta do lote de VMs na mesma rede virtual usando o ponto de extremidade privado. Para exibir o endereço IP do portal do Azure:
+Depois que o ponto de extremidade privado for provisionado, você poderá acessar a conta do lote de VMs na mesma rede virtual usando o ponto de extremidade privado.
 
-1. Selecione **Todos os recursos** .
+> [!IMPORTANT]
+> Executar operações fora da rede virtual em que o ponto de extremidade privado é provisionado resultará em uma mensagem "AuthorizationFailure" no portal do Azure.
+
+Para exibir o endereço IP do portal do Azure:
+
+1. Selecione **Todos os recursos**.
 2. Pesquise o ponto de extremidade privado que você criou anteriormente.
 3. Selecione a guia **Visão Geral** para ver as configurações de DNS e os endereços IP.
 
-:::image type="content" source="media/private-connectivity/access-private.png" alt-text="Conexões de ponto de extremidade privado":::
+:::image type="content" source="media/private-connectivity/access-private.png" alt-text="Configurações de DNS e endereços IP do ponto de extremidade privado":::
 
 ## <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
 

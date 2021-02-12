@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 50a1656fcb92d9777d4a9476ef2a4c1fd2f2efc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329475"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002741"
 ---
 # <a name="full-text-search-in-azure-cognitive-search"></a>Pesquisa de texto completo no Azure Pesquisa Cognitiva
 
@@ -393,7 +393,7 @@ Este artigo explorou a pesquisa de texto completo no contexto do Azure Pesquisa 
 
 + [Configurar analisadores personalizados](/rest/api/searchservice/custom-analyzers-in-azure-search) para o mínimo de processamento ou processamento especializado em campos específicos.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 [API REST para pesquisar documentos](/rest/api/searchservice/search-documents) 
 

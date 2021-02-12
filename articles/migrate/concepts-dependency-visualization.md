@@ -2,13 +2,16 @@
 title: Análise de dependência na avaliação do servidor de migrações para Azure
 description: Descreve como usar a análise de dependência para avaliação usando a avaliação de servidor de migrações para Azure.
 ms.topic: conceptual
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.date: 09/15/2020
-ms.openlocfilehash: a284d549f13595e0ce8a5d06cc017602e559b648
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 378a85ed77a6eedeb928dee541046db1909da553
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530243"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491984"
 ---
 # <a name="dependency-analysis"></a>dependency analysis
 
@@ -31,7 +34,7 @@ Há duas opções para implantar a análise de dependência
 **Opção** | **Detalhes** | **Nuvem pública** | **Azure Governamental**
 ----  |---- | ---- 
 **Sem agente** | Sonda dados de VMs VMware usando APIs vSphere.<br/><br/> Você não precisa instalar agentes em VMs.<br/><br/> Esta opção está atualmente em visualização, somente para VMs VMware. | Com suporte. | Com suporte.
-**Análise baseada em agente** | Usa a [solução mapa do serviço](../azure-monitor/insights/service-map.md) no Azure monitor para habilitar a visualização e a análise de dependência.<br/><br/> Você precisa instalar agentes em cada computador local que deseja analisar. | Com suporte | Não há suporte.
+**Análise baseada em agente** | Usa a [solução mapa do serviço](../azure-monitor/insights/service-map.md) no Azure monitor para habilitar a visualização e a análise de dependência.<br/><br/> Você precisa instalar agentes em cada computador local que deseja analisar. | Compatível | Não há suporte.
 
 
 ## <a name="agentless-analysis"></a>Análise sem agente

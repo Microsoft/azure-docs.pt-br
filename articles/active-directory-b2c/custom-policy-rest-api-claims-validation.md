@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 30273c0103d8a0fde12b1b7c6f66d16dd4ea84cb
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 761bc4db7760ef5e84e3fc3c8a5deea5d4508f51
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089512"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951920"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-to-validate-user-input"></a>Walkthrough: integrar as trocas de declarações da API REST em sua jornada do usuário Azure AD B2C para validar a entrada do usuário
 
@@ -65,7 +65,7 @@ Se a validação falhar, a API REST deverá retornar um HTTP 409 (conflito), com
 }
 ```
 
-A configuração do ponto de extremidade da API REST está fora do escopo deste artigo. Criamos um exemplo do [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference). Você pode acessar o código completo de função do Azure no [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
+A configuração do ponto de extremidade da API REST está fora do escopo deste artigo. Criamos um exemplo do [Azure Functions](../azure-functions/functions-reference.md). Você pode acessar o código completo de função do Azure no [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
 
 ## <a name="define-claims"></a>Definir declarações
 
@@ -233,7 +233,7 @@ Para retornar a declaração de código promocional de volta para o aplicativo d
 1. Verifique se você está usando o diretório que contém o locatário do Azure Active Directory escolhendo o filtro **Diretório + assinatura** no menu superior e escolhendo o diretório que contém o locatário do Azure Active Directory.
 1. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure e pesquise e selecione **Registros de aplicativo**.
 1. Selecione **Estrutura de Experiência de Identidade**.
-1. Selecione **carregar política personalizada**e, em seguida, carregue os arquivos de política que você alterou: *TrustFrameworkExtensions.xml*e *SignUpOrSignin.xml*. 
+1. Selecione **carregar política personalizada** e, em seguida, carregue os arquivos de política que você alterou: *TrustFrameworkExtensions.xml* e *SignUpOrSignin.xml*. 
 1. Selecione a política de inscrição ou de entrada carregada e clique no botão **Executar agora**.
 1. Você deverá conseguir se inscrever usando um endereço de email.
 1. Clique no link **inscrever-se agora** .

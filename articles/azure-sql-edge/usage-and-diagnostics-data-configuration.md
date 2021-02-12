@@ -8,12 +8,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 08/04/2020
-ms.openlocfilehash: 130e23c290ce493d3fb92f6dd0be4cd7c61a86fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81b2aabbae148faec06c9ab420bdfecde475b4bb
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888047"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97604984"
 ---
 # <a name="azure-sql-edge-usage-and-diagnostics-data-configuration"></a>Configuração de dados de diagnóstico e uso do Azure SQL Edge
 
@@ -32,28 +32,28 @@ Uma consulta de exemplo das consultas usadas para a coleta de dados de diagnóst
 ```sql
 select 
 count(*) as [count], sum(inputs) as inputs, sum(outputs) as outputs, sum(linked_to_job) 
-as linked_to_job, data_source_type  
+as linked_to_job, data_source_type
 from ( 
-select isnull(value,'unknown') as data_source_type, inputs, outputs, linked_to_job  
+select isnull(value,'unknown') as data_source_type, inputs, outputs, linked_to_job
 from 
     ( 
         select 
         convert(sysname, lower(substring(ds.location, 0, charindex('://', ds.location))), 1) as data_source_type, 
         isnull(inputs, 0) as inputs, isnull(outputs, 0) as outputs, isnull(js.stream_id/js.stream_id, 0) as linked_to_job 
-        from sys.external_streams es              
+        from sys.external_streams es
         join sys.external_data_sources ds 
-             on es.data_source_id = ds.data_source_id             
+             on es.data_source_id = ds.data_source_id
         left join 
             ( 
             select stream_id, max(cast(is_input as int)) inputs, max(cast(is_output as int)) outputs 
             from sys.external_job_streams group by stream_id 
-            ) js                
+            ) js
              on js.stream_id = es.object_id 
-    ) ds            
+    ) ds
 left join 
     (
         select value from string_split('edgehub,sqlserver,kafka', ',')) as known_ep on data_source_type = value 
-    ) known_ds        
+    ) known_ds
 group by data_source_type
 ```
 

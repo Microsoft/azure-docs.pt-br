@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 09/25/2020
+ms.date: 01/23/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e04c7da40719f77ca478f2ce577688af773f523d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2ca5f42120661b887d07e697596f41cb7a7fce4
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399220"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745760"
 ---
 # <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>Tutorial: Indexar dados SQL do Azure usando o SDK do .NET
 
@@ -69,7 +69,7 @@ Caso você tenha um recurso existente do Banco de Dados SQL do Azure, adicione a
 
 1. Selecione o arquivo e clique em **Abrir**. O script deve ser semelhante à captura de tela a seguir:
 
-   :::image type="content" source="media/search-indexer-tutorial/sql-script.png" alt-text="Página Novo banco de dados" border="false":::
+   :::image type="content" source="media/search-indexer-tutorial/sql-script.png" alt-text="Script SQL" border="false":::
 
 1. Clique em **Executar** para executar a consulta. No painel Resultados, você verá uma mensagem de consulta bem-sucedida, para 3 linhas.
 
@@ -99,7 +99,7 @@ As chamadas à API exigem a URL do serviço e uma chave de acesso. Um serviço d
 
 1. Em **Configurações** > **Chaves**, obtenha uma chave de administração para adquirir todos os direitos sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso seja necessário sobrepor uma. É possível usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
 
-   :::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="Página Novo banco de dados" border="false":::
+   :::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Obter um ponto de extremidade HTTP e uma chave de acesso" border="false":::
 
 ## <a name="2---set-up-your-environment"></a>2 – Configurar o ambiente
 
@@ -107,14 +107,14 @@ As chamadas à API exigem a URL do serviço e uma chave de acesso. Um serviço d
 
 1. No Gerenciador de Soluções, abra **appsettings.json** para fornecer informações de conexão.
 
-1. Para `searchServiceName`, se a URL completa for "https://my-demo-service.search.windows.net", o nome do serviço a ser fornecido será "my-demo-service".
+1. Para `SearchServiceEndPoint`, se a URL completa na página de visão geral do serviço for "https://my-demo-service.search.windows.net", então o valor a ser fornecido será essa URL.
 
 1. Por `AzureSqlConnectionString`, o formato da cadeia de caracteres é semelhante a este: `"Server=tcp:{your_dbname}.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"`
 
     ```json
     {
-      "SearchServiceName": "<placeholder-Azure-Search-service-name>",
-      "SearchServiceAdminApiKey": "<placeholder-admin-key-for-Azure-Search>",
+      "SearchServiceEndPoint": "<placeholder-search-url>",
+      "SearchServiceAdminApiKey": "<placeholder-admin-key-for-search-service>",
       "AzureSqlConnectionString": "<placeholder-ADO.NET-connection-string",
     }
     ```
@@ -130,11 +130,12 @@ Os indexadores exigem um objeto de fonte de dados e um índice. O código releva
 
 ### <a name="in-hotelcs"></a>Em hotel.cs
 
-O esquema de índice define a coleção de campos, incluindo atributos especificando as operações permitidas, por exemplo, se um campo é de texto completo que pode ser pesquisado, filtrado ou classificado, conforme mostrado na definição de campo a seguir para HotelName. 
+O esquema de índice define a coleção de campos, incluindo atributos especificando as operações permitidas, por exemplo, se um campo é de texto completo que pode ser pesquisado, filtrado ou classificado, conforme mostrado na definição de campo a seguir para HotelName. Um [SearchableField](/dotnet/api/azure.search.documents.indexes.models.searchablefield) pode ser pesquisado por texto completo por definição. Outros atributos são atribuídos explicitamente.
 
 ```csharp
 . . . 
-[IsSearchable, IsFilterable, IsSortable]
+[SearchableField(IsFilterable = true, IsSortable = true)]
+[JsonPropertyName("hotelName")]
 public string HotelName { get; set; }
 . . .
 ```
@@ -143,71 +144,85 @@ Um esquema também pode incluir outros elementos, incluindo perfis de pontuaçã
 
 ### <a name="in-programcs"></a>Em Program.cs
 
-O programa principal inclui lógica para a criação de um cliente, um índice, uma fonte de dados e um indexador. O código verifica e exclui os recursos existentes do mesmo nome, sob a suposição de que você pode executar este programa várias vezes.
+O programa principal inclui lógica para a criação de [um cliente indexador](/dotnet/api/azure.search.documents.indexes.models.searchindexer), um índice, uma fonte de dados e um indexador. O código verifica e exclui os recursos existentes do mesmo nome, sob a suposição de que você pode executar este programa várias vezes.
 
-O objeto de fonte de dados é definido com configurações específicas de recursos do Banco de Dados SQL do Azure, incluindo a [indexação parcial ou incremental](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) para aproveitar os [recursos internos de detecção de alterações](/sql/relational-databases/track-changes/about-change-tracking-sql-server) do SQL do Azure. O banco de dados de hotéis de demonstração no SQL Azure tem uma coluna de "exclusão reversível" chamada **IsDeleted**. Quando essa coluna está definida como true no banco de dados, o indexador remove o documento correspondente do índice da Pesquisa Cognitiva do Azure.
+O objeto de fonte de dados é definido com configurações específicas de recursos do Banco de Dados SQL do Azure, incluindo a [indexação parcial ou incremental](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) para aproveitar os [recursos internos de detecção de alterações](/sql/relational-databases/track-changes/about-change-tracking-sql-server) do SQL do Azure. O banco de dados de hotéis de demonstração de origem no SQL do Azure tem uma coluna de "exclusão reversível" chamada **IsDeleted**. Quando essa coluna está definida como true no banco de dados, o indexador remove o documento correspondente do índice da Pesquisa Cognitiva do Azure.
 
-  ```csharp
-  Console.WriteLine("Creating data source...");
+```csharp
+Console.WriteLine("Creating data source...");
 
-  DataSource dataSource = DataSource.AzureSql(
-      name: "azure-sql",
-      sqlConnectionString: configuration["AzureSQLConnectionString"],
-      tableOrViewName: "hotels",
-      deletionDetectionPolicy: new SoftDeleteColumnDeletionDetectionPolicy(
-          softDeleteColumnName: "IsDeleted",
-          softDeleteMarkerValue: "true"));
-  dataSource.DataChangeDetectionPolicy = new SqlIntegratedChangeTrackingPolicy();
+var dataSource =
+      new SearchIndexerDataSourceConnection(
+         "hotels-sql-ds",
+         SearchIndexerDataSourceType.AzureSql,
+         configuration["AzureSQLConnectionString"],
+         new SearchIndexerDataContainer("hotels"));
 
-  searchService.DataSources.CreateOrUpdateAsync(dataSource).Wait();
-  ```
+indexerClient.CreateOrUpdateDataSourceConnection(dataSource);
+```
 
-Um objeto de indexador é independente da plataforma, com invocação, a programação e a configuração sendo as mesmas independentemente da origem. Esse indexador de exemplo inclui uma agenda e uma opção de redefinir que limpa o histórico do indexador e chama um método para criar e executar o indexador imediatamente.
+Um objeto de indexador é independente da plataforma, com invocação, a programação e a configuração sendo as mesmas independentemente da origem. Esse indexador de exemplo inclui uma agenda e uma opção de redefinir que limpa o histórico do indexador e chama um método para criar e executar o indexador imediatamente. Para criar ou atualizar um indexador, use [CreateOrUpdateIndexerAsync](/dotnet/api/azure.search.documents.indexes.searchindexerclient.createorupdateindexerasync).
 
-  ```csharp
-  Console.WriteLine("Creating Azure SQL indexer...");
-  Indexer indexer = new Indexer(
-      name: "azure-sql-indexer",
-      dataSourceName: dataSource.Name,
-      targetIndexName: index.Name,
-      schedule: new IndexingSchedule(TimeSpan.FromDays(1)));
-  // Indexers contain metadata about how much they have already indexed
-  // If we already ran the sample, the indexer will remember that it already
-  // indexed the sample data and not run again
-  // To avoid this, reset the indexer if it exists
-  exists = await searchService.Indexers.ExistsAsync(indexer.Name);
-  if (exists)
-  {
-      await searchService.Indexers.ResetAsync(indexer.Name);
-  }
+```csharp
+Console.WriteLine("Creating Azure SQL indexer...");
 
-  await searchService.Indexers.CreateOrUpdateAsync(indexer);
+var schedule = new IndexingSchedule(TimeSpan.FromDays(1))
+{
+      StartTime = DateTimeOffset.Now
+};
 
-  // We created the indexer with a schedule, but we also
-  // want to run it immediately
-  Console.WriteLine("Running Azure SQL indexer...");
+var parameters = new IndexingParameters()
+{
+      BatchSize = 100,
+      MaxFailedItems = 0,
+      MaxFailedItemsPerBatch = 0
+};
 
-  try
-  {
-      await searchService.Indexers.RunAsync(indexer.Name);
-  }
-  catch (CloudException e) when (e.Response.StatusCode == (HttpStatusCode)429)
-  {
+// Indexer declarations require a data source and search index.
+// Common optional properties include a schedule, parameters, and field mappings
+// The field mappings below are redundant due to how the Hotel class is defined, but 
+// we included them anyway to show the syntax 
+var indexer = new SearchIndexer("hotels-sql-idxr", dataSource.Name, searchIndex.Name)
+{
+      Description = "Data indexer",
+      Schedule = schedule,
+      Parameters = parameters,
+      FieldMappings =
+      {
+         new FieldMapping("_id") {TargetFieldName = "HotelId"},
+         new FieldMapping("Amenities") {TargetFieldName = "Tags"}
+      }
+};
+
+await indexerClient.CreateOrUpdateIndexerAsync(indexer);
+```
+
+As execuções do indexador geralmente são agendadas, mas, durante o desenvolvimento, talvez seja interessante executar o indexador imediatamente usando [RunIndexerAsync](/dotnet/api/azure.search.documents.indexes.searchindexerclient.runindexerasync).
+
+```csharp
+Console.WriteLine("Running Azure SQL indexer...");
+
+try
+{
+      await indexerClient.RunIndexerAsync(indexer.Name);
+}
+catch (CloudException e) when (e.Response.StatusCode == (HttpStatusCode)429)
+{
       Console.WriteLine("Failed to run indexer: {0}", e.Response.Content);
-  }
-  ```
+}
+```
 
 ## <a name="4---build-the-solution"></a>4 – Compilar a solução
 
 Pressione F5 para compilar e executar sua solução. O programa é executado no modo de depuração. Uma janela de console relata o status de cada operação.
 
-   :::image type="content" source="media/search-indexer-tutorial/console-output.png" alt-text="Página Novo banco de dados" border="false":::
+   :::image type="content" source="media/search-indexer-tutorial/console-output.png" alt-text="Saída do console" border="false":::
 
 O código é executado localmente no Visual Studio, conectando-se ao serviço de pesquisa no Azure, que, por sua vez, conecta-se ao Banco de Dados SQL do Azure e recupera o conjunto de dados. Com essas muitas operações, há vários pontos potenciais de falha. Se você receber um erro, verifique as seguintes condições primeiro:
 
-+ As informações de conexão do serviço de pesquisa que você fornece são limitadas ao nome do serviço neste tutorial. Se você digitou a URL completa, as operações são interrompidas durante a criação do índice, com um erro de falha de conexão.
++ As informações de conexão do serviço de pesquisa fornecidas são a URL completa. Se você digitou somente o nome do serviço, as operações são interrompidas durante a criação do índice, com um erro de falha de conexão.
 
-+ Informações de conexão do banco de dados em **appsettings.json**. Elas devem ser limitadas à cadeia de conexão ADO.NET obtida no portal, modificadas para incluir um nome de usuário e senha válidos para o seu banco de dados. A conta de usuário deve ter permissão para recuperar dados. O endereço IP do cliente local precisa ter permissão de acesso.
++ Informações de conexão do banco de dados em **appsettings.json**. Elas devem ser limitadas à cadeia de conexão ADO.NET obtida no portal, modificadas para incluir um nome de usuário e senha válidos para o seu banco de dados. A conta de usuário deve ter permissão para recuperar dados. Seu endereço IP de cliente local precisa ter acesso de entrada permitido por meio do firewall.
 
 + Limites de recursos. Lembre-se de que a Camada gratuita tem um limite de três índices, indexadores e fontes de dados. Um serviço no limite máximo não pode criar novos objetos.
 
@@ -217,7 +232,7 @@ Use o portal do Azure para verificar a criação do objeto e, em seguida, use o 
 
 1. [Entre no portal do Azure](https://portal.azure.com/) e, na página **Visão geral** do serviço de pesquisa, abra cada lista por vez para verificar se o objeto foi criado. Os **Índices**, os **Indexadores** e as **Fontes de dados** terão "hotels", "azure-sql-indexer" e "azure-sql", respectivamente.
 
-   :::image type="content" source="media/search-indexer-tutorial/tiles-portal.png" alt-text="Página Novo banco de dados" border="false":::
+   :::image type="content" source="media/search-indexer-tutorial/tiles-portal.png" alt-text="Blocos de indexador e de fonte de dados" border="false":::
 
 1. Selecione o índice de hotéis. Na página de hotéis, o **Gerenciador de pesquisa** é a primeira guia. 
 
@@ -225,7 +240,7 @@ Use o portal do Azure para verificar a criação do objeto e, em seguida, use o 
 
    As três entradas no índice são retornadas como documentos JSON. O Gerenciador de pesquisa retorna documentos em JSON para que você possa exibir toda a estrutura.
 
-   :::image type="content" source="media/search-indexer-tutorial/portal-search.png" alt-text="Página Novo banco de dados" border="false":::
+   :::image type="content" source="media/search-indexer-tutorial/portal-search.png" alt-text="Consultar um índice" border="false":::
    
 1. Em seguida, insira uma cadeia de caracteres de pesquisa: `search=river&$count=true`. 
 

@@ -10,14 +10,15 @@ ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 2e77d76ddae540a311655eca36c53b23c418f5e3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+adobe-target: true
+ms.openlocfilehash: 0334e259f75440cae25f1e165c0621c85f7c7705
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744140"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803996"
 ---
-# <a name="configure-a-java-app-for-azure-app-service"></a>Configurar um aplicativo Java para o serviço Azure App
+# <a name="configure-a-java-app-for-azure-app-service"></a>Configurar um aplicativo Java para o Serviço de Aplicativo do Azure
 
 Azure App serviço permite que os desenvolvedores de Java compilem, implantem e dimensionem rapidamente seus aplicativos Web Java SE, Tomcat e JBoss em um serviço totalmente gerenciado. Implante aplicativos com plug-ins do Maven, na linha de comando ou em editores como IntelliJ, Eclipse ou Visual Studio Code.
 
@@ -25,7 +26,7 @@ Este guia fornece os principais conceitos e instruções para desenvolvedores Ja
 
 ## <a name="deploying-your-app"></a>Implantação do aplicativo
 
-Você pode usar o [plug-in do aplicativo Web do Azure para Maven](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) para implantar seus arquivos. War ou. jar. A implantação com IDEs populares também tem suporte com o [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/) ou [Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse).
+Você pode usar o [plug-in do aplicativo Web do Azure para Maven](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) para implantar seus arquivos. War ou. jar. A implantação com IDEs populares também tem suporte com o [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/) ou [Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse).
 
 Caso contrário, o método de implantação dependerá de seu tipo de arquivo:
 
@@ -68,11 +69,11 @@ Relatórios de desempenho, visualizações de tráfego e verificações de integ
 
 Para obter mais informações, confira [Logs de fluxo no Cloud Shell](troubleshoot-diagnostic-logs.md#in-cloud-shell).
 
+::: zone pivot="platform-linux"
+
 ### <a name="ssh-console-access"></a>Acesso ao console SSH
 
 [!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
-
-::: zone pivot="platform-linux"
 
 ### <a name="troubleshooting-tools"></a>Ferramentas de solução de problemas
 
@@ -191,7 +192,7 @@ Ao ajustar as configurações de heap do aplicativo, examine os detalhes do Plan
 
 ### <a name="turn-on-web-sockets"></a>Ativar os soquetes da Web
 
-Ative o suporte para soquetes da Web no portal do Azure, nas **Configurações de aplicativo** . Será necessário reiniciar o aplicativo para a configuração entrar em vigor.
+Ative o suporte para soquetes da Web no portal do Azure, nas **Configurações de aplicativo**. Será necessário reiniciar o aplicativo para a configuração entrar em vigor.
 
 Ative o suporte para soquete da Web usando a CLI do Azure com o seguinte comando:
 
@@ -231,11 +232,11 @@ Aplicativos Java em execução no serviço de aplicativo têm o mesmo conjunto d
 
 ### <a name="authenticate-users-easy-auth"></a>Autenticar usuários (autenticação fácil)
 
-Configure a autenticação de aplicativo no portal do Azure com a opção **Autenticação e Autorização** . Em seguida, será possível habilitar a autenticação usando o Azure Active Directory ou os logons de redes sociais, como Facebook, Google ou GitHub. A configuração do portal do Azure só funciona ao configurar um único provedor de autenticação. Para saber mais, confira [Configurar o aplicativo do Serviço de Aplicativo para usar o logon do Azure Active Directory](configure-authentication-provider-aad.md) e os artigos relacionados para outros provedores de identidade. Se você precisar habilitar vários provedores de entrada, siga as instruções no artigo [Personalizar a autenticação do Serviço de Aplicativo](app-service-authentication-how-to.md).
+Configure a autenticação de aplicativo no portal do Azure com a opção **Autenticação e Autorização**. Em seguida, será possível habilitar a autenticação usando o Azure Active Directory ou os logons de redes sociais, como Facebook, Google ou GitHub. A configuração do portal do Azure só funciona ao configurar um único provedor de autenticação. Para saber mais, confira [Configurar o aplicativo do Serviço de Aplicativo para usar o logon do Azure Active Directory](configure-authentication-provider-aad.md) e os artigos relacionados para outros provedores de identidade. Se você precisar habilitar vários provedores de entrada, siga as instruções no artigo [Personalizar a autenticação do Serviço de Aplicativo](app-service-authentication-how-to.md).
 
 #### <a name="java-se"></a>Java SE
 
-Os desenvolvedores do Spring Boot podem usar o [inicializador do Spring Boot do Azure Active Directory](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory) para proteger aplicativos usando APIs e anotações conhecidas do Spring Security. Lembre-se de aumentar o tamanho máximo do cabeçalho no arquivo *application.properties* . Sugerimos um valor igual a `16384`.
+Os desenvolvedores do Spring Boot podem usar o [inicializador do Spring Boot do Azure Active Directory](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory) para proteger aplicativos usando APIs e anotações conhecidas do Spring Security. Lembre-se de aumentar o tamanho máximo do cabeçalho no arquivo *application.properties*. Sugerimos um valor igual a `16384`.
 
 #### <a name="tomcat"></a>Tomcat
 
@@ -330,29 +331,29 @@ Esta seção mostra como conectar aplicativos Java implantados no Serviço de Ap
 ::: zone pivot="platform-windows"
 
 1. Criar uma conta de NewRelic em [NewRelic.com](https://newrelic.com/signup)
-2. Baixe o agente de Java do NewRelic; ele terá um nome de arquivo semelhante a *newrelic-java-x.x.x.zip* .
+2. Baixe o agente de Java do NewRelic; ele terá um nome de arquivo semelhante a *newrelic-java-x.x.x.zip*.
 3. Copie sua chave de licença, você precisará dela para configurar o agente mais tarde.
-4. [SSH em sua instância do Serviço de Aplicativo](configure-linux-open-ssh-session.md) e crie um diretório */home/site/wwwroot/apm* .
-5. Carregue os arquivos do agente NewRelic Java descompactados em um diretório em */home/site/wwwroot/apm* . Os arquivos do seu agente devem estar em */home/site/wwwroot/apm/newrelic* .
+4. [SSH em sua instância do Serviço de Aplicativo](configure-linux-open-ssh-session.md) e crie um diretório */home/site/wwwroot/apm*.
+5. Carregue os arquivos do agente NewRelic Java descompactados em um diretório em */home/site/wwwroot/apm*. Os arquivos do seu agente devem estar em */home/site/wwwroot/apm/newrelic*.
 6. Modifique o arquivo YAML em */home/site/wwwroot/apm/newrelic/newrelic.yml* e substitua o valor de licença de espaço reservado pela sua chave de licença.
 7. No portal do Azure, navegue até seu aplicativo no serviço de aplicativo e criar uma nova configuração de aplicativo.
 
     - Para aplicativos **Java se** , crie uma variável de ambiente chamada `JAVA_OPTS` com o valor `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
-    - Para o **tomcat** , crie uma variável de ambiente chamada `CATALINA_OPTS` com o valor `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
+    - Para o **tomcat**, crie uma variável de ambiente chamada `CATALINA_OPTS` com o valor `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
 
 ::: zone-end
 ::: zone pivot="platform-linux"
 
 1. Criar uma conta de NewRelic em [NewRelic.com](https://newrelic.com/signup)
-2. Baixe o agente de Java do NewRelic; ele terá um nome de arquivo semelhante a *newrelic-java-x.x.x.zip* .
+2. Baixe o agente de Java do NewRelic; ele terá um nome de arquivo semelhante a *newrelic-java-x.x.x.zip*.
 3. Copie sua chave de licença, você precisará dela para configurar o agente mais tarde.
-4. [SSH em sua instância do Serviço de Aplicativo](configure-linux-open-ssh-session.md) e crie um diretório */home/site/wwwroot/apm* .
-5. Carregue os arquivos do agente NewRelic Java descompactados em um diretório em */home/site/wwwroot/apm* . Os arquivos do seu agente devem estar em */home/site/wwwroot/apm/newrelic* .
+4. [SSH em sua instância do Serviço de Aplicativo](configure-linux-open-ssh-session.md) e crie um diretório */home/site/wwwroot/apm*.
+5. Carregue os arquivos do agente NewRelic Java descompactados em um diretório em */home/site/wwwroot/apm*. Os arquivos do seu agente devem estar em */home/site/wwwroot/apm/newrelic*.
 6. Modifique o arquivo YAML em */home/site/wwwroot/apm/newrelic/newrelic.yml* e substitua o valor de licença de espaço reservado pela sua chave de licença.
 7. No portal do Azure, navegue até seu aplicativo no serviço de aplicativo e criar uma nova configuração de aplicativo.
    
     - Para aplicativos **Java se** , crie uma variável de ambiente chamada `JAVA_OPTS` com o valor `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
-    - Para o **tomcat** , crie uma variável de ambiente chamada `CATALINA_OPTS` com o valor `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
+    - Para o **tomcat**, crie uma variável de ambiente chamada `CATALINA_OPTS` com o valor `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
 
 ::: zone-end
 
@@ -364,8 +365,8 @@ Esta seção mostra como conectar aplicativos Java implantados no Serviço de Ap
 
 1. Criar uma conta do AppDynamics em [AppDynamics.com](https://www.appdynamics.com/community/register/)
 2. Baixe o agente de Java do site do AppDynamics, o nome do arquivo será semelhante a *AppServerAgent-x.x.x.xxxxx.zip*
-3. Use o [console do kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) para criar um novo diretório */Home/site/wwwroot/APM* .
-4. Carregue os arquivos do agente de Java descompactados em um diretório em */home/site/wwwroot/apm* . Os arquivos do seu agente devem estar em */home/site/wwwroot/apm/appdynamics* .
+3. Use o [console do kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) para criar um novo diretório */Home/site/wwwroot/APM*.
+4. Carregue os arquivos do agente de Java descompactados em um diretório em */home/site/wwwroot/apm*. Os arquivos do seu agente devem estar em */home/site/wwwroot/apm/appdynamics*.
 5. No portal do Azure, navegue até seu aplicativo no serviço de aplicativo e criar uma nova configuração de aplicativo.
 
    - Para aplicativos **Java se** , crie uma variável de ambiente chamada `JAVA_OPTS` com o valor `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` em que `<app-name>` é o nome do serviço de aplicativo.
@@ -376,8 +377,8 @@ Esta seção mostra como conectar aplicativos Java implantados no Serviço de Ap
 
 1. Criar uma conta do AppDynamics em [AppDynamics.com](https://www.appdynamics.com/community/register/)
 2. Baixe o agente de Java do site do AppDynamics, o nome do arquivo será semelhante a *AppServerAgent-x.x.x.xxxxx.zip*
-3. [SSH em sua instância do Serviço de Aplicativo](configure-linux-open-ssh-session.md) e crie um diretório */home/site/wwwroot/apm* .
-4. Carregue os arquivos do agente de Java descompactados em um diretório em */home/site/wwwroot/apm* . Os arquivos do seu agente devem estar em */home/site/wwwroot/apm/appdynamics* .
+3. [SSH em sua instância do Serviço de Aplicativo](configure-linux-open-ssh-session.md) e crie um diretório */home/site/wwwroot/apm*.
+4. Carregue os arquivos do agente de Java descompactados em um diretório em */home/site/wwwroot/apm*. Os arquivos do seu agente devem estar em */home/site/wwwroot/apm/appdynamics*.
 5. No portal do Azure, navegue até seu aplicativo no serviço de aplicativo e criar uma nova configuração de aplicativo.
 
    - Para aplicativos **Java se** , crie uma variável de ambiente chamada `JAVA_OPTS` com o valor `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` em que `<app-name>` é o nome do serviço de aplicativo.
@@ -392,13 +393,13 @@ Esta seção mostra como conectar aplicativos Java implantados no Serviço de Ap
 
 ### <a name="java-se"></a>Java SE
 
-Para conectar-se a fontes de dados nos aplicativos Spring Boot, sugerimos criar cadeias de conexão e injetá-las no arquivo *application.properties* .
+Para conectar-se a fontes de dados nos aplicativos Spring Boot, sugerimos criar cadeias de conexão e injetá-las no arquivo *application.properties*.
 
 1. Na seção "Configuração" da página Serviço de Aplicativo, defina um nome para a cadeia de caracteres, cole sua cadeia de conexão JDBC no campo de valor e defina o tipo como "Personalizado". Opcionalmente, defina essa cadeia de conexão como configuração de slot.
 
     Essa cadeia de conexão é acessível ao nosso aplicativo como uma variável de ambiente nomeada `CUSTOMCONNSTR_<your-string-name>`. Por exemplo, a cadeia de conexão que criamos acima será nomeada `CUSTOMCONNSTR_exampledb`.
 
-2. No arquivo *application.properties* , faça referência a essa cadeia de conexão com o nome da variável de ambiente. Para o nosso exemplo, usaríamos o seguinte:
+2. No arquivo *application.properties*, faça referência a essa cadeia de conexão com o nome da variável de ambiente. Para o nosso exemplo, usaríamos o seguinte:
 
     ```yml
     app.datasource.url=${CUSTOMCONNSTR_exampledb}
@@ -437,7 +438,7 @@ Em seguida, determine se a fonte de dados deve estar disponível para um aplicat
 
 1. Crie um arquivo *context.xml* no diretório *META-INF/* do seu projeto. Crie o diretório *META-INF/* se ele não existir.
 
-2. Em *context.xml* , adicione um elemento `Context` para vincular a fonte de dados a um endereço JNDI. Substitua o espaço reservado `driverClassName` pelo nome de classe do seu driver da tabela acima.
+2. Em *context.xml*, adicione um elemento `Context` para vincular a fonte de dados a um endereço JNDI. Substitua o espaço reservado `driverClassName` pelo nome de classe do seu driver da tabela acima.
 
     ```xml
     <Context>
@@ -463,7 +464,7 @@ Em seguida, determine se a fonte de dados deve estar disponível para um aplicat
 
 #### <a name="finalize-configuration"></a>Finalizar a configuração
 
-Por fim, colocaremos os JARs do driver no classpath do Tomcat e reiniciaremos o serviço de aplicativo. Verifique se os arquivos do driver JDBC estão disponíveis para o carregador de classes do Tomcat colocando-os no diretório */home/tomcat/lib* . (Crie esse diretório se ele ainda não existir.) Para carregar esses arquivos na instância do Serviço de Aplicativo, siga estas etapas:
+Por fim, colocaremos os JARs do driver no classpath do Tomcat e reiniciaremos o serviço de aplicativo. Verifique se os arquivos do driver JDBC estão disponíveis para o carregador de classes do Tomcat colocando-os no diretório */home/tomcat/lib*. (Crie esse diretório se ele ainda não existir.) Para carregar esses arquivos na instância do Serviço de Aplicativo, siga estas etapas:
 
 1. No [Cloud Shell](https://shell.azure.com), instale a extensão do aplicativo da Web:
 
@@ -477,7 +478,7 @@ Por fim, colocaremos os JARs do driver no classpath do Tomcat e reiniciaremos o 
     az webapp remote-connection create --resource-group <resource-group-name> --name <app-name> --port <port-on-local-machine>
     ```
 
-3. Faça a conexão da porta de túnel local com o cliente SFTP e carregue os arquivos na pasta */home/tomcat/lib* .
+3. Faça a conexão da porta de túnel local com o cliente SFTP e carregue os arquivos na pasta */home/tomcat/lib*.
 
 Como alternativa, você pode usar um cliente de FTP para carregar o driver JDBC. Siga estas [instruções para obter suas credenciais FTP](deploy-configure-credentials.md).
 
@@ -515,7 +516,7 @@ Em seguida, determine se a fonte de dados deve estar disponível para um aplicat
 
 1. Crie um arquivo *context.xml* no diretório *META-INF/* do seu projeto. Crie o diretório *META-INF/* se ele não existir.
 
-2. Em *context.xml* , adicione um elemento `Context` para vincular a fonte de dados a um endereço JNDI. Substitua o espaço reservado `driverClassName` pelo nome de classe do seu driver da tabela acima.
+2. Em *context.xml*, adicione um elemento `Context` para vincular a fonte de dados a um endereço JNDI. Substitua o espaço reservado `driverClassName` pelo nome de classe do seu driver da tabela acima.
 
     ```xml
     <Context>
@@ -541,7 +542,7 @@ Em seguida, determine se a fonte de dados deve estar disponível para um aplicat
 
 #### <a name="shared-server-level-resources"></a>Recursos compartilhados no nível do servidor
 
-A adição de uma fonte de dados compartilhada no nível do servidor exigirá a edição do server.xml do Tomcat. Primeiro, carregue um [script de inicialização](faq-app-service-linux.md#built-in-images) e defina o caminho para o script em **Configuração** > **Comando de Inicialização** . Você pode carregar o script de inicialização usando o [FTP](deploy-ftp.md).
+A adição de uma fonte de dados compartilhada no nível do servidor exigirá a edição do server.xml do Tomcat. Primeiro, carregue um [script de inicialização](faq-app-service-linux.md#built-in-images) e defina o caminho para o script em **Configuração** > **Comando de Inicialização**. Você pode carregar o script de inicialização usando o [FTP](deploy-ftp.md).
 
 O script de inicialização fará uma [transformação de xsl](https://www.w3schools.com/xml/xsl_intro.asp) no arquivo server.xml e produzirá o arquivo xml resultante para `/usr/local/tomcat/conf/server.xml`. O script de inicialização deve instalar o libxslt via apk. O arquivo xsl e o script de inicialização podem ser carregados via FTP. Confira abaixo um exemplo de script de inicialização.
 
@@ -619,7 +620,7 @@ Um exemplo de arquivo xsl é fornecido abaixo. O arquivo xsl de exemplo adiciona
 
 Por fim, coloque os JARs do driver no classpath do Tomcat e reinicie o Serviço de Aplicativo.
 
-1. Verifique se os arquivos do driver JDBC estão disponíveis para o carregador de classes do Tomcat colocando-os no diretório */home/tomcat/lib* . (Crie esse diretório se ele ainda não existir.) Para carregar esses arquivos na instância do Serviço de Aplicativo, siga estas etapas:
+1. Verifique se os arquivos do driver JDBC estão disponíveis para o carregador de classes do Tomcat colocando-os no diretório */home/tomcat/lib*. (Crie esse diretório se ele ainda não existir.) Para carregar esses arquivos na instância do Serviço de Aplicativo, siga estas etapas:
 
     1. No [Cloud Shell](https://shell.azure.com), instale a extensão do aplicativo da Web:
 
@@ -633,7 +634,7 @@ Por fim, coloque os JARs do driver no classpath do Tomcat e reinicie o Serviço 
       az webapp remote-connection create --resource-group <resource-group-name> --name <app-name> --port <port-on-local-machine>
       ```
 
-    3. Faça a conexão da porta de túnel local com o cliente SFTP e carregue os arquivos na pasta */home/tomcat/lib* .
+    3. Faça a conexão da porta de túnel local com o cliente SFTP e carregue os arquivos na pasta */home/tomcat/lib*.
 
     Como alternativa, você pode usar um cliente de FTP para carregar o driver JDBC. Siga estas [instruções para obter suas credenciais FTP](deploy-configure-credentials.md).
 
@@ -678,7 +679,7 @@ Há três etapas principais ao [registrar uma fonte de dados com o JBoss EAP](ht
     ```
 
 1. Usando um cliente FTP de sua escolha, carregue seu driver JDBC, `jboss-cli-commands.cli` , `startup_script.sh` , e a definição do módulo para `/site/deployments/tools/` .
-2. Configure seu site para ser executado `startup_script.sh` quando o contêiner for iniciado. No portal do Azure, navegue até **configuração**  >  **configurações gerais**  >  **comando de inicialização** . Defina o campo de comando de inicialização como `/home/site/deployments/tools/startup_script.sh` . **Salve** suas alterações.
+2. Configure seu site para ser executado `startup_script.sh` quando o contêiner for iniciado. No portal do Azure, navegue até **configuração**  >  **configurações gerais**  >  **comando de inicialização**. Defina o campo de comando de inicialização como `/home/site/deployments/tools/startup_script.sh` . **Salve** suas alterações.
 
 Para confirmar que a fonte de fontes foi adicionada ao servidor JBoss, use SSH em seu webapp e execute `$JBOSS_HOME/bin/jboss-cli.sh --connect` . Quando você estiver conectado ao JBoss, execute o `/subsystem=datasources:read-resource` para imprimir uma lista de fontes de dados.
 
@@ -700,7 +701,7 @@ O protocolo JBoss só está disponível nas opções de hardware Premium e isola
 
 ### <a name="jdk-versions-and-maintenance"></a>Versões e manutenção do JDK
 
-O JDK (Java Development Kit) com suporte do Azure é o [Zulu](https://www.azul.com/downloads/azure-only/zulu/) fornecido pela [Azul Systems](https://www.azul.com/). Builds do Azul Zulu Enterprise do OpenJDK são uma distribuição sem custo, multiplataforma e pronta para produção do OpenJDK para Azure e Azure Stack da Microsoft e da Azul Systems. Eles contêm todos os componentes para criar e executar aplicativos Java SE. Você pode instalar o JDK a partir da [Instalação do Java JDK](https://aka.ms/azure-jdks).
+O JDK (Java Development Kit) com suporte do Azure é o [Zulu](https://www.azul.com/downloads/azure-only/zulu/) fornecido pela [Azul Systems](https://www.azul.com/). Builds do Azul Zulu Enterprise do OpenJDK são uma distribuição sem custo, multiplataforma e pronta para produção do OpenJDK para Azure e Azure Stack da Microsoft e da Azul Systems. Eles contêm todos os componentes para criar e executar aplicativos Java SE. Você pode instalar o JDK a partir da [Instalação do Java JDK](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 As atualizações da versão principal serão fornecidas por meio de novas opções de tempo de execução no serviço Azure App. Os clientes podem atualizar para essas versões mais recentes do Java configurando a implantação do Serviço de Aplicativo. Além disso, são responsáveis por testar e garantir que a atualização da versão principal atenda às suas necessidades.
 

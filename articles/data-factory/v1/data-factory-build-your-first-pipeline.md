@@ -3,20 +3,20 @@ title: 'Tutorial de Data Factory: primeiro pipeline de dados '
 description: Este tutorial do Azure Data Factory mostra como criar e agendar um data factory que processa os dados usando o script Hive em um cluster Hadoop.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 80644ed2d655544fa176a7be92aec3c01aa3bf14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a79872c11d76a74932fe232fa3f7818edc58ffcc
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75966082"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496204"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Tutorial: crie seu primeiro pipeline para processar dados usando cluster Hadoop
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ Neste tutorial, você executa as seguintes etapas:
 3. Criar **Serviços vinculados**. Crie um serviço vinculado para vincular um armazenamento de dados ou um serviço de computação ao data factory. Um armazenamento de dados, como o Armazenamento do Azure, armazena dados de entrada/saída de atividades no pipeline. Um serviço de computação, como o cluster de Hadoop do HDInsight, processa/transforma os dados.
 
     Neste tutorial, você deve criar dois serviços vinculados: **Armazenamento do Azure** e **Azure HDInsight**. O serviço vinculado de armazenamento do Azure vincula uma conta de armazenamento do Azure que contém os dados de entrada/saída para a data factory. O serviço vinculado do Azure HDInsight vincula um cluster Azure HDInsight que é usado para transformar dados em data factory.
-3. Crie **conjuntos**de dados de entrada e saída. Um conjunto de dados de entrada representa a entrada de uma atividade no pipeline e um conjunto de dados de saída representa a saída da atividade.
+3. Crie **conjuntos** de dados de entrada e saída. Um conjunto de dados de entrada representa a entrada de uma atividade no pipeline e um conjunto de dados de saída representa a saída da atividade.
 
     Neste tutorial, os conjuntos de dados de entrada e saída especificam locais de entrada e saída de dados no armazenamento de blobs do Azure. O serviço vinculado de armazenamento do Azure especifica qual conta de armazenamento do Azure é usada. Um conjunto de dados de entrada especifica o local em que os arquivos de entrada estão localizados e um conjunto de dados de saída especifica o local em que os arquivos de saída são colocados.
 

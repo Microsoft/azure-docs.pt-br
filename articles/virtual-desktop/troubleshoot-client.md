@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c6083dbcc270c0e9dde1da45ed01369d03146237
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 097c97d16cf62793d03ac42662267e0553383bc1
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108959"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539623"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Solucionar problemas do cliente do Área de Trabalho Remota
 
@@ -94,14 +94,15 @@ Se o feed do cliente do Windows não mostrar aplicativos da área de trabalho vi
 Se não for possível localizar a ID do aplicativo 9cdead84-A844-4324-93f2-b2e6bb768d07 na lista, você precisará registrar o provedor de recursos da área de trabalho virtual do Windows. Para registrar o provedor de recursos:
 
 1. Entre no portal do Azure.
-2. Acesse **assinatura**e selecione sua assinatura.
+2. Acesse **assinatura** e selecione sua assinatura.
 3. No menu no lado esquerdo da página, selecione **provedor de recursos**.
-4. Localize e selecione **Microsoft. DesktopVirtualization**e, em seguida, selecione **registrar novamente**.
+4. Localize e selecione **Microsoft. DesktopVirtualization** e, em seguida, selecione **registrar novamente**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Confira uma visão geral da solução de problemas da Área de Trabalho Virtual do Windows e das faixas de escalonamento em [Visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview.md).
 - Para solucionar problemas ao criar um ambiente de Área de Trabalho Virtual do Windows e pool de host em um ambiente da Área de Trabalho Virtual do Windows, consulte [Criação de ambiente e pool de host](troubleshoot-set-up-issues.md).
 - Veja como solucionar problemas ao configurar uma VM (máquina virtual) na Área de Trabalho Virtual do Windows em [Configuração da máquina virtual do host da sessão](troubleshoot-vm-configuration.md).
+- Para solucionar problemas relacionados ao agente de área de trabalho virtual do Windows ou conectividade de sessão, consulte [solucionar problemas comuns do agente de área de trabalho virtual do Windows](troubleshoot-agent.md).
 - Veja como solucionar problemas ao usar o PowerShell com a Área de Trabalho Virtual do Windows em [PowerShell da Área de Trabalho Virtual do Windows](troubleshoot-powershell.md).
 - Acompanhe um tutorial de solução de problemas em [Tutorial: Solucionar problemas de implantações de modelos do Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).

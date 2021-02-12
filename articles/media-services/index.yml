@@ -13,12 +13,12 @@ metadata:
   author: Juliako
   ms.author: juliako
   ms.date: 07//2020
-  ms.openlocfilehash: fb258b634ff5511a9e795e8c0990a62bf2d0d22d
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: b2fa1520bf73dcd1608c0f3494f4ccc1a3b13be2
+  ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "90056526"
+  ms.lasthandoff: 01/22/2021
+  ms.locfileid: "98695655"
 highlightedContent:
   items:
   - title: Sobre os Serviços de Mídia do Azure v3
@@ -44,7 +44,7 @@ highlightedContent:
     url: ./previous/media-services-overview.md
   - title: Migrar os Serviços de Mídia v2 para v3
     itemType: concept
-    url: ./latest/migrate-from-v2-to-v3.md
+    url: ./latest/migrate-v-2-v-3-migration-introduction.md
 conceptualContent:
   items:
   - title: Desenvolver com a API dos Serviços de Mídia v3

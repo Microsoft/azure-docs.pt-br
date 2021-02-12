@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: aahi
 ms.openlocfilehash: cedcf8a3fcd656c4af0ca7493c598791d35d20d9
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130554"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996111"
 ---
 # <a name="use-docker-compose-to-deploy-multiple-containers"></a>Usar o Docker Compose para implantar vários contêineres
 
@@ -39,7 +39,7 @@ Este procedimento requer várias ferramentas que devem ser instaladas e executad
 
 ## <a name="docker-compose-file"></a>Arquivo de Docker Compose
 
-O arquivo YAML define todos os serviços a serem implantados. Esses serviços dependem de um `DockerFile` ou de uma imagem de contêiner existente. Nesse caso, usaremos duas imagens de visualização. Copie e cole o seguinte arquivo YAML e salve-o como *Docker-Compose. YAML* . Forneça os valores apropriados de **apiKey** , **cobrança** e **EndpointUri** no arquivo.
+O arquivo YAML define todos os serviços a serem implantados. Esses serviços dependem de um `DockerFile` ou de uma imagem de contêiner existente. Nesse caso, usaremos duas imagens de visualização. Copie e cole o seguinte arquivo YAML e salve-o como *Docker-Compose. YAML*. Forneça os valores apropriados de **apiKey**, **cobrança** e **EndpointUri** no arquivo.
 
 ```yaml
 version: '3.7'

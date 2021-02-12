@@ -3,20 +3,20 @@ title: Monitorar e gerenciar pipelines usando o portal do Azure e o PowerShell
 description: Saiba como usar o Portal do Azure e o Azure PowerShell para monitorar e gerenciar as data factories e os pipelines do Azure que você criou.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 4473df318f65c0e0097aed298d0be57e3bca382b
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 2a30c755bc19849ad3a821cbbc75b787a3b0bb98
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636928"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495830"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorar e gerenciar os pipelines do Azure Data Factory usando o Portal do Azure e o PowerShell
 > [!div class="op_single_selector"]
@@ -47,10 +47,10 @@ Esta seção também descreve como uma fatia do conjunto de dados faz a transiç
 
 ### <a name="navigate-to-your-data-factory"></a>Navegue até sua data factory
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Clique em **Data factories** no menu à esquerda. Se você não o vir, clique em **Mais serviços >** e clique em **Data factories** na categoria **INTELIGÊNCIA + ANÁLISE** .
+2. Clique em **Data factories** no menu à esquerda. Se você não o vir, clique em **Mais serviços >** e clique em **Data factories** na categoria **INTELIGÊNCIA + ANÁLISE**.
 
    ![Procurar tudo > Data factories](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
-3. Na folha **Data factories** , selecione o data factory no qual você está interessado.
+3. Na folha **Data factories**, selecione o data factory no qual você está interessado.
 
     ![Selecionar o data factory](./media/data-factory-monitor-manage-pipelines/select-data-factory.png)
 
@@ -79,7 +79,7 @@ Você pode ampliar, reduzir, ajustar o nível de zoom, aplicar zoom para 100%, b
 ### <a name="view-the-state-of-each-activity-inside-a-pipeline"></a>Exibir o estado de cada atividade dentro de um pipeline
 Veja o estado atual de uma atividade exibindo o status de qualquer um dos conjuntos de dados produzidos pela atividade.
 
-Clicar duas vezes em **OutputBlobTable** no **Diagrama** exibirá todas as fatias produzidas por diferentes execuções de atividade dentro de um pipeline. Você pode ver que a atividade de cópia foi executada com êxito pelas últimas oito horas e produziu as fatias com estado **Pronto** .  
+Clicar duas vezes em **OutputBlobTable** no **Diagrama** exibirá todas as fatias produzidas por diferentes execuções de atividade dentro de um pipeline. Você pode ver que a atividade de cópia foi executada com êxito pelas últimas oito horas e produziu as fatias com estado **Pronto**.  
 
 ![Estado do pipeline](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
 
@@ -105,7 +105,7 @@ As fatias do conjunto de dados no data factory podem ter um dos seguintes status
 <td>ActivityResume</td><td>A atividade está em pausa e não pode executar as fatias até que a atividades seja retomada.</td>
 </tr>
 <tr>
-<td>Repetir</td><td>A execução da atividade está sendo repetida.</td>
+<td>Tentar novamente</td><td>A execução da atividade está sendo repetida.</td>
 </tr>
 <tr>
 <td>Validação</td><td>A validação ainda não foi iniciada.</td>
@@ -121,7 +121,7 @@ As fatias do conjunto de dados no data factory podem ter um dos seguintes status
 <td>A fatia está sendo processada.</td>
 </tr>
 <tr>
-<td rowspan="4">Failed (Falha)</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
+<td rowspan="4">Com falha</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
 </tr>
 <tr>
 <td>Canceled</td><td>A fatia foi cancelada por ação do usuário.</td>
@@ -152,7 +152,7 @@ Se a fatia tiver sido executada várias vezes, você verá várias linhas na lis
 
 ![Detalhes da execução da atividade](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
-Quando a fatia não está no estado **Pronto** , você pode ver as fatias upstream que não estão prontas e estão impedindo a execução da fatia atual na lista **Fatias upstream que não estão prontas** . Esse recurso é útil quando a fatia estiver no estado **Aguardando** e você quiser entender as dependências de upstream em que a fatia está aguardando.
+Quando a fatia não está no estado **Pronto**, você pode ver as fatias upstream que não estão prontas e estão impedindo a execução da fatia atual na lista **Fatias upstream que não estão prontas**. Esse recurso é útil quando a fatia estiver no estado **Aguardando** e você quiser entender as dependências de upstream em que a fatia está aguardando.
 
 ![Fatias de upstream que não estão prontas](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
 
@@ -163,9 +163,9 @@ Após a implantação de uma data factory e a atribuição de um período de ati
 
 O fluxo de transição de estado do conjunto de dados no data factory é o seguinte: Waiting-> In-Progress/In-Progress (Validating) -> Ready/Failed.
 
-A fatia começa em um estado de **Aguardando** , esperando pelo atendimento de pré-condições antes da execução. Depois disso, a atividade começa a ser executada e a fatia passa para um estado **Em Andamento** . A execução da atividade pode ser bem-sucedida ou falhar. A fatia é marcada como **pronta** ou **com falha** , com base no resultado da execução.
+A fatia começa em um estado de **Aguardando**, esperando pelo atendimento de pré-condições antes da execução. Depois disso, a atividade começa a ser executada e a fatia passa para um estado **Em Andamento** . A execução da atividade pode ser bem-sucedida ou falhar. A fatia é marcada como **pronta** ou **com falha**, com base no resultado da execução.
 
-Você pode redefinir a fatia para voltar do estado **Pronto** ou **Falha** para o estado **Aguardando** . Você também pode marcar o estado da fatia como **Ignorar** , o que impedirá a execução da atividade e não processará a fatia.
+Você pode redefinir a fatia para voltar do estado **Pronto** ou **Falha** para o estado **Aguardando**. Você também pode marcar o estado da fatia como **Ignorar**, o que impedirá a execução da atividade e não processará a fatia.
 
 ## <a name="pause-and-resume-pipelines"></a>Pausar e retomar pipelines
 Você pode gerenciar seus pipelines usando o Azure PowerShell. Por exemplo, você pode pausar e retomar pipelines executando cmdlets do Azure PowerShell. 
@@ -205,19 +205,19 @@ O Azure Data Factory fornece recursos avançados para depurar e solucionar probl
 Se a execução da atividade falhar em um pipeline, o conjunto de dados produzido pelo pipeline ficará em um estado de erro devido à falha. Você pode depurar e solucionar erros no Azure Data Factory usando os seguintes métodos.
 
 #### <a name="use-the-azure-portal-to-debug-an-error"></a>Usar o Portal do Azure para depurar um erro
-1. Na folha **Tabela** , clique na fatia de problema com o **Status** definido como **Falha** .
+1. Na folha **Tabela**, clique na fatia de problema com o **Status** definido como **Falha**.
 
    ![Folha de tabela com fatia com problema](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
-2. Na folha **Fatia de dados** , clique na execução de atividade com falha.
+2. Na folha **Fatia de dados**, clique na execução de atividade com falha.
 
    ![Fatia de dados com erro](./media/data-factory-monitor-manage-pipelines/dataslice-with-error.png)
-3. Na folha **Detalhes de execução da atividade** , você pode baixar os arquivos associados ao processamento do HDInsight. Clique em **baixar** para status/stderr para baixar o arquivo de log de erros que contém detalhes sobre o erro.
+3. Na folha **Detalhes de execução da atividade**, você pode baixar os arquivos associados ao processamento do HDInsight. Clique em **baixar** para status/stderr para baixar o arquivo de log de erros que contém detalhes sobre o erro.
 
    ![Folha de detalhes da execução da atividade com erro](./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png)     
 
 #### <a name="use-powershell-to-debug-an-error"></a>Usar o PowerShell para depurar um erro
-1. Inicie o **PowerShell** .
-2. Execute o comando **Get-AzDataFactorySlice** para ver as fatias e seus status. Você deve ver uma fatia com o status **Falha** .        
+1. Inicie o **PowerShell**.
+2. Execute o comando **Get-AzDataFactorySlice** para ver as fatias e seus status. Você deve ver uma fatia com o status **Falha**.        
 
     ```powershell   
     Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
@@ -309,7 +309,7 @@ Set-AzDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -Da
 
     ![Criar um novo alerta](media/data-factory-monitor-manage-pipelines/v1alerts-image2.png)
 
-3.  Definir a **Condição de alerta** . (Certifique-se de selecionar **Data factories** no campo **Filtrar por tipo de recurso** .) Você também pode especificar valores para **dimensões** .
+3.  Definir a **Condição de alerta**. (Certifique-se de selecionar **Data factories** no campo **Filtrar por tipo de recurso** .) Você também pode especificar valores para **dimensões**.
 
     ![Definir a condição de alerta - Selecionar destino](media/data-factory-monitor-manage-pipelines/v1alerts-image3.png)
 
@@ -317,11 +317,11 @@ Set-AzDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -Da
 
     ![Definir a condição de alerta - Adicionar lógica de alerta](media/data-factory-monitor-manage-pipelines/v1alerts-image5.png)
 
-4.  Defina os **detalhes do Alerta** .
+4.  Defina os **detalhes do Alerta**.
 
     ![Defina os Detalhes do Alerta](media/data-factory-monitor-manage-pipelines/v1alerts-image6.png)
 
-5.  Defina o **Grupo de Ação** .
+5.  Defina o **Grupo de Ação**.
 
     ![Definir o Grupo de Ação - criar um novo Grupo de Ação](media/data-factory-monitor-manage-pipelines/v1alerts-image7.png)
 

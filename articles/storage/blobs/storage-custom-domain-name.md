@@ -9,12 +9,12 @@ ms.date: 01/23/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 5e6289fb4e3b5bb695b79589d544d0ae475f9774
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: dcc6f3bca80cb5860679327226d3e034c3e9b14a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314664"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95996858"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Mapear um domínio personalizado para um ponto de extremidade do armazenamento de BLOBs do Azure
 
@@ -250,7 +250,7 @@ Depois que o domínio personalizado tiver sido removido com êxito, você verá 
 
 #### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para remover um registro de domínio personalizado, use o comando da CLI [az storage account](https://docs.microsoft.com/cli/azure/storage/account) e, em seguida, especifique uma cadeia vazia (`""`) para o valor do argumento `--custom-domain`.
+Para remover um registro de domínio personalizado, use o comando da CLI [az storage account](/cli/azure/storage/account) e, em seguida, especifique uma cadeia vazia (`""`) para o valor do argumento `--custom-domain`.
 
 * Formato do comando:
 
@@ -320,11 +320,11 @@ Para mapear um domínio personalizado e habilitar o acesso HTTPS, faça o seguin
 
 4. Adicional Examine as seguintes diretrizes:
 
-   * [Tokens de SAS (assinatura de acesso compartilhado) com a CDN do Azure](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#shared-access-signatures).
+   * [Tokens de SAS (assinatura de acesso compartilhado) com a CDN do Azure](../../cdn/cdn-storage-custom-domain-https.md#shared-access-signatures).
 
-   * [Redirecionamento de http para HTTPS com a CDN do Azure](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#http-to-https-redirection).
+   * [Redirecionamento de http para HTTPS com a CDN do Azure](../../cdn/cdn-storage-custom-domain-https.md#http-to-https-redirection).
 
-   * [Preços e cobrança ao usar o armazenamento de BLOBs com a CDN do Azure](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#http-to-https-redirection).
+   * [Preços e cobrança ao usar o armazenamento de BLOBs com a CDN do Azure](../../cdn/cdn-storage-custom-domain-https.md#http-to-https-redirection).
 
 ## <a name="next-steps"></a>Próximas etapas
 

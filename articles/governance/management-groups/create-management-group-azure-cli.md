@@ -4,12 +4,12 @@ description: Neste guia de início rápido, você usará a CLI do Azure para cri
 ms.date: 08/31/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f07ae46c95f9ab9cc1ad973204ac5c50320fdf46
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 54d7afbaa4bfe2799ca0d68927394a38d9845c53
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89236813"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920654"
 ---
 # <a name="quickstart-create-a-management-group-with-the-azure-cli"></a>Início Rápido: Criar um grupo de gerenciamento com a CLI do Azure
 
@@ -29,7 +29,7 @@ O primeiro grupo de gerenciamento criado no diretório pode levar até 15 minuto
 
 ### <a name="create-in-the-azure-cli"></a>Criação na CLI do Azure
 
-Na CLI do Azure, use o comando [az account management-group create](/cli/azure/account/management-group#az-account-management-group-create) para criar um grupo de gerenciamento. Neste exemplo, o **name** do grupo de gerenciamento é _Contoso_.
+Na CLI do Azure, use o comando [az account management-group create](/cli/azure/account/management-group#az_account_management_group_create) para criar um grupo de gerenciamento. Neste exemplo, o **name** do grupo de gerenciamento é _Contoso_.
 
 ```azurecli-interactive
 az account management-group create --name 'Contoso'
@@ -51,7 +51,7 @@ az account management-group create --name 'ContosoSubGroup' --parent 'Contoso'
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Para remover o grupo de gerenciamento criado acima, use o comando [az account management-group delete](/cli/azure/account/management-group#az-account-management-group-delete):
+Para remover o grupo de gerenciamento criado acima, use o comando [az account management-group delete](/cli/azure/account/management-group#az_account_management_group_delete):
 
 ```azurecli-interactive
 az account management-group delete --name 'Contoso'

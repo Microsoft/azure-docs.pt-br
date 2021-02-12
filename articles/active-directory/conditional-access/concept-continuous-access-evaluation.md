@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ca23c1503b01c1aa9523edc2576599d7b6ab458
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 562c90dcc4f802290b0ed8b4d544fce9d526fa10
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992809"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524661"
 ---
 # <a name="continuous-access-evaluation"></a>Avaliação contínua de acesso
 
@@ -26,7 +26,9 @@ Os clientes expressou preocupações sobre o atraso entre quando as condições 
 
 A resposta oportuna a violações de política ou problemas de segurança realmente requer uma "conversa" entre o emissor do token, como o Azure AD e a terceira parte confiável, como o Exchange Online. Essa conversa bidirecional nos dá dois recursos importantes. A terceira parte confiável pode observar quando as coisas foram alteradas, como um cliente proveniente de um novo local e informam ao emissor do token. Ele também fornece ao emissor do token uma maneira de dizer à terceira parte confiável para parar de respeitar os tokens de um determinado usuário devido a comprometimento da conta, à desabilitação ou a outras preocupações. O mecanismo para essa conversa é a Continuous Access Evaluation (CAE). O objetivo é que a resposta seja quase em tempo real, mas, em alguns casos, a latência de até 15 minutos pode ser observada devido ao tempo de propagação do evento.
 
-A implementação inicial da avaliação de acesso contínuo se concentra no Exchange, nas equipes e no SharePoint Online. 
+A implementação inicial da avaliação de acesso contínuo se concentra no Exchange, nas equipes e no SharePoint Online.
+
+Para preparar seus aplicativos para usar o CAE, consulte [como usar APIs habilitadas para avaliação de acesso contínuo em seus aplicativos](../develop/app-resilience-continuous-access-evaluation.md).
 
 ### <a name="key-benefits"></a>Principais benefícios
 
@@ -46,7 +48,7 @@ A avaliação de acesso contínuo é implementada habilitando serviços, como o 
 - A senha de um usuário é alterada ou redefinida
 - A autenticação multifator está habilitada para o usuário
 - O administrador revoga explicitamente todos os tokens de atualização para um usuário
-- Risco de usuário elevado detectado por Azure AD Identity Protection
+- Alto risco de usuário detectado por Azure AD Identity Protection
 
 Esse processo habilita o cenário em que os usuários perdem o acesso a arquivos, email, calendário ou tarefas organizacionais do SharePoint, e equipes de Microsoft 365 aplicativos cliente dentro de minutos após um desses eventos críticos. 
 
@@ -103,7 +105,7 @@ Se você não estiver usando clientes compatíveis com CAE, o tempo de vida do t
 
 1. Um cliente com capacidade de CAE apresenta credenciais ou um token de atualização para o Azure AD solicitando um token de acesso para algum recurso.
 1. Um token de acesso é retornado junto com outros artefatos para o cliente.
-1. Um administrador [revoga explicitamente todos os tokens de atualização para o usuário](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). Um evento de revogação será enviado para o provedor de recursos do Azure AD.
+1. Um administrador [revoga explicitamente todos os tokens de atualização para o usuário](/powershell/module/azuread/revoke-azureaduserallrefreshtoken). Um evento de revogação será enviado para o provedor de recursos do Azure AD.
 1. Um token de acesso é apresentado ao provedor de recursos. O provedor de recursos avalia a validade do token e verifica se há qualquer evento de revogação para o usuário. O provedor de recursos usa essas informações para decidir conceder acesso ao recurso ou não.
 1. Nesse caso, o provedor de recursos nega o acesso e envia um desafio de declaração 401 + de volta para o cliente.
 1. O cliente com capacidade de CAE compreende o desafio de declaração 401 +. Ele ignora os caches e volta para a etapa 1, enviando seu token de atualização junto com o desafio de declaração de volta para o Azure AD. O Azure AD reavaliará todas as condições e solicitará que o usuário se autentique novamente nesse caso.
@@ -126,7 +128,7 @@ No exemplo a seguir, um administrador de acesso condicional configurou uma polí
 ## <a name="enable-or-disable-cae-preview"></a>Habilitar ou desabilitar CAE (versão prévia)
 
 1. Entre no **portal do Azure** como administrador de acesso condicional, administrador de segurança ou administrador global
-1. Navegue até **Azure Active Directory**  >  **Security**  >  **avaliação de acesso contínuo à**segurança.
+1. Navegue até **Azure Active Directory**  >    >  **avaliação de acesso contínuo à** segurança.
 1. Escolha **habilitar visualização**.
 
 Nessa página, você pode, opcionalmente, limitar os usuários e grupos que estarão sujeitos à versão prévia.
@@ -140,7 +142,7 @@ Nessa página, você pode, opcionalmente, limitar os usuários e grupos que esta
 Para CAE, só temos informações sobre locais nomeados baseados em IP nomeados. Não temos informações sobre outras configurações de local como [IPs confiáveis MFA](../authentication/howto-mfa-mfasettings.md#trusted-ips) ou locais baseados em países. Quando o usuário vem de um IP confiável MFA ou locais confiáveis que incluem IPs confiáveis de MFA ou local de país, o CAE não será imposto depois que o usuário mudar para um local diferente. Nesses casos, emitiremos um token CAE de 1 hora sem verificação instantânea de imposição de IP.
 
 > [!IMPORTANT]
-> Ao configurar locais para avaliação de acesso contínuo, use apenas a [condição de local de acesso condicional baseado em IP](../conditional-access/location-condition.md#preview-features) e configure todos os endereços IP, **incluindo IPv4 e IPv6**, que podem ser vistos pelo provedor de identidade e provedor de recursos. Não use condições de localização de país ou o recurso de IPs confiáveis que está disponível na página de configurações de serviço da autenticação multifator do Azure.
+> Ao configurar locais para avaliação de acesso contínuo, use apenas a [condição de local de acesso condicional baseado em IP](../conditional-access/location-condition.md#preview-features) e configure todos os endereços IP, **incluindo IPv4 e IPv6**, que podem ser vistos pelo provedor de identidade e provedor de recursos. Não use condições de localização de país ou o recurso de IPs confiáveis que está disponível na página de configurações de serviço da autenticação multifator do Azure AD.
 
 ### <a name="ip-address-configuration"></a>Configuração do endereço IP
 

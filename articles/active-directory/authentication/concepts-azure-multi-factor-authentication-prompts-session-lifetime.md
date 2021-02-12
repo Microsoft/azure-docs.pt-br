@@ -1,24 +1,24 @@
 ---
-title: Solicitações de autenticação multifator do Azure e tempo de vida da sessão
-description: Saiba mais sobre a configuração recomendada para prompts de reautenticação com a autenticação multifator do Azure e como a vida útil da sessão é aplicada.
+title: Solicitações de autenticação multifator do Azure AD e tempo de vida da sessão
+description: Saiba mais sobre a configuração recomendada para prompts de reautenticação com a autenticação multifator do Azure AD e como a vida útil da sessão é aplicada.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 08/31/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a759d4e686f43133716cc1c40237db74a015210
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0033b6985313de351ffdaf7028d2c1e9bd76ba72
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964937"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963512"
 ---
-# <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>Otimizar prompts de reautenticação e entender o tempo de vida da sessão para a autenticação multifator do Azure
+# <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-ad-multi-factor-authentication"></a>Otimizar prompts de reautenticação e entender o tempo de vida da sessão para a autenticação multifator do Azure AD
 
 O Azure Active Directory (AD do Azure) tem várias configurações que determinam a frequência com que os usuários precisam ser autenticados novamente. Essa reautenticação pode ser com um primeiro fator, como senha, FIDO ou Microsoft Authenticator sem senha, ou para executar a autenticação multifator (MFA). Você pode definir essas configurações de reautenticação conforme necessário para seu próprio ambiente e a experiência do usuário que desejar.
 
@@ -41,7 +41,7 @@ Para dar aos usuários o equilíbrio certo de segurança e facilidade de uso sol
     * Mantenha a opção de *permanecer conectada* habilitada e Oriente seus usuários a aceitá-la.
 * Para cenários de dispositivos móveis, verifique se os usuários usam o aplicativo Microsoft Authenticator. Esse aplicativo é usado como um agente para outros aplicativos federados do Azure AD e reduz os prompts de autenticação no dispositivo.
 
-Nossa pesquisa mostra que essas configurações são certas para a maioria dos locatários. Algumas combinações dessas configurações, como lembrar a *MFA* e *permanecerem em*si, podem resultar em prompts para que os usuários se autentiquem com muita frequência. Os prompts de reautenticação regulares são inválidos para a produtividade do usuário e podem torná-los mais vulneráveis a ataques.
+Nossa pesquisa mostra que essas configurações são certas para a maioria dos locatários. Algumas combinações dessas configurações, como lembrar a *MFA* e *permanecerem em* si, podem resultar em prompts para que os usuários se autentiquem com muita frequência. Os prompts de reautenticação regulares são inválidos para a produtividade do usuário e podem torná-los mais vulneráveis a ataques.
 
 ## <a name="azure-ad-session-lifetime-configuration-settings"></a>Definições de configuração de tempo de vida da sessão do Azure AD
 
@@ -53,7 +53,7 @@ Sem nenhuma configuração de tempo de vida da sessão, não há cookies persist
 
 Um usuário pode ver vários prompts do MFA em um dispositivo que não tem uma identidade no Azure AD. Vários prompts resultam quando cada aplicativo tem seu próprio token de atualização OAuth que não é compartilhado com outros aplicativos cliente. Nesse cenário, a MFA solicita várias vezes, uma vez que cada aplicativo solicita que um token de atualização OAuth seja validado com MFA.
 
-No Azure AD, a política mais restritiva para o tempo de vida da sessão determina quando o usuário precisa autenticar novamente. Considere o cenário a seguir.
+No Azure AD, a política mais restritiva para o tempo de vida da sessão determina quando o usuário precisa autenticar novamente. Considere o seguinte cenário:
 
 * Você habilita o *permaneça conectado*, que usa um cookie de navegador persistente e
 * Você também permite *lembrar o MFA por 14 dias*
@@ -106,22 +106,22 @@ Para configurar ou examinar a opção *permanecer conectado* , conclua as seguin
 
 1. No portal do AD do Azure, procure e selecione *Azure Active Directory*.
 1. Selecione **identidade visual da empresa**, em seguida, para cada localidade, escolha **Mostrar opção para permanecer conectado**.
-1. Escolha *Sim*e, em seguida, selecione **salvar**.
+1. Escolha *Sim* e, em seguida, selecione **salvar**.
 
-Para lembrar as configurações de autenticação multifator, conclua as seguintes etapas:
+Para lembrar as configurações de autenticação multifator em dispositivos confiáveis, conclua as seguintes etapas:
 
 1. No portal do AD do Azure, procure e selecione *Azure Active Directory*.
-1. Selecione **segurança**e **MFA**.
+1. Selecione **segurança** e **MFA**.
 1. Em **Configurar**, selecione **configurações adicionais de MFA baseadas em nuvem**.
 1. Na página *configurações do serviço de autenticação multifator* , role para **lembrar configurações de autenticação multifator**. Desabilite a configuração desmarcando a caixa de seleção.
 
 Para configurar políticas de acesso condicional para a frequência de entrada e a sessão persistente do navegador, conclua as seguintes etapas:
 
 1. No portal do AD do Azure, procure e selecione *Azure Active Directory*.
-1. Selecione **segurança**e **acesso condicional**.
+1. Selecione **segurança** e **acesso condicional**.
 1. Configure uma política usando as opções de gerenciamento de sessão recomendadas detalhadas neste artigo.
 
-Para examinar os tempos de vida [do token, use o PowerShell do Azure ad para consultar as políticas do Azure ad](../develop/configure-token-lifetimes.md#prerequisites). Desabilite as políticas que você tiver em vigor.
+Para examinar os tempos de vida [do token, use o PowerShell do Azure ad para consultar as políticas do Azure ad](../develop/configure-token-lifetimes.md#get-started). Desabilite as políticas que você tiver em vigor.
 
 Se mais de uma configuração estiver habilitada em seu locatário, é recomendável atualizar suas configurações com base no licenciamento disponível para você. Por exemplo, se você tiver licenças do Azure AD Premium, você deve usar apenas a política de acesso condicional de *frequência de entrada* e *sessão de navegador persistente*. Se você tiver aplicativos Microsoft 365 ou licenças gratuitas do Azure AD, deverá usar a configuração *permanecer conectado?* .
 
@@ -136,4 +136,4 @@ A tabela a seguir resume as recomendações com base em licenças:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para começar, conclua o tutorial para [proteger eventos de entrada do usuário com a autenticação multifator do Azure](tutorial-enable-azure-mfa.md) ou [use as detecções de risco para entradas de usuário para disparar a autenticação multifator do Azure](tutorial-risk-based-sspr-mfa.md).
+Para começar, conclua o tutorial para [proteger eventos de entrada do usuário com a autenticação multifator do Azure ad](tutorial-enable-azure-mfa.md) ou [use as detecções de risco para entradas de usuário para disparar a autenticação multifator do Azure ad](tutorial-risk-based-sspr-mfa.md).

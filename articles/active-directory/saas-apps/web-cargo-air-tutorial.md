@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: jeedes
-ms.openlocfilehash: fd85b3f1e2319c80817da3376911d57263d187b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cca568245dfce01fb96d7a46590cb72349213ac
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450566"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591915"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-web-cargo-air"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Web Cargo Air
 
@@ -86,7 +86,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Resposta, o Identificador e a URL de Logon reais. Entre em contato com a [equipe de suporte ao Cliente do Web Cargo Air](mailto:support@webcargonet.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-1. . Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
@@ -124,7 +124,7 @@ Para configurar o logon único no lado do **Web Cargo Air**, será necessário e
 
 ### <a name="create-web-cargo-air-test-user"></a>Criar um usuário de teste do Web Cargo Air
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no Web Cargo Air. Trabalhe com a [equipe de suporte do Web Cargo Air](mailto:support@webcargonet.com) para adicionar usuários à plataforma do Web Cargo Air. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no Web Cargo Air. Trabalhe com a [equipe de suporte do Web Cargo Air](mailto:support@webcargonet.com) para adicionar usuários na plataforma do Web Cargo Air. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ## <a name="test-sso"></a>Testar o SSO 
 
@@ -134,10 +134,8 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 2. Acesse a URL de Logon do Web Cargo Air de diretamente e inicie o fluxo de logon nela.
 
-3. Use o Painel de Acesso da Microsoft. Ao clicar no bloco Web Cargo Air no Painel de Acesso, você será redirecionado para a URL de Logon do Web Cargo Air. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+3. Use o Painel de Acesso da Microsoft. Ao clicar no bloco Web Cargo Air no Painel de Acesso, você será redirecionado para a URL de Logon do Web Cargo Air. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de configurar o Web Cargo Air, será possível impor o controle de sessão, que protege contra a exfiltração e infiltração de dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Depois de configurar o Web Cargo Air, será possível impor o controle de sessão, que protege contra a exfiltração e infiltração de dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

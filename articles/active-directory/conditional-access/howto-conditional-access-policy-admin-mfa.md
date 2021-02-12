@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5917de03468b86b67520c0b4f04dfd732377a021
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 57826fcff03e79d5617c7eb69aac7d535d3c86f7
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366285"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915701"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>Acesso condicional: exigir MFA para administradores
 
@@ -31,6 +31,7 @@ A Microsoft recomenda que você exija MFA nas seguintes funções no mínimo:
 * Administrador global
 * Administrador de assistência técnica
 * Administrador de senha
+* Administrador de função com privilégios
 * Administrador de segurança
 * Administrador do SharePoint
 * Administrador de usuários

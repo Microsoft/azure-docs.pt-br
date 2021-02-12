@@ -11,16 +11,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: c48c59db2d9b830367276d39a82bc7fc8fdc34d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24e0fa530b370782af730a2383df1240bbf5c859
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357243"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308658"
 ---
 # <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Códigos de erro da API REST do Azure Machine Learning Studio (clássico)
 
-**APLICA-SE A:**  ![Aplica-se a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico) ![Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APLICA-SE A:**  ![Aplica-se a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico) ![Não se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Os códigos de erro a seguir podem ser retornados por uma operação em um serviço Web Azure Machine Learning Studio (clássico).
@@ -31,7 +31,7 @@ Argumento inválido fornecido.
  
 Essa classe de erros significa que um argumento fornecido em algum lugar foi inválido. Isso pode ser uma credencial ou um local de armazenamento do Azure para algo passado para o serviço Web. Consulte o campo "código" do erro na seção "detalhes" para diagnosticar qual argumento específico era inválido.
  
-| Código do erro | Mensagem do usuário |
+| Código de erro | Mensagem do usuário |
 | ---------- |--------------|
 | BadParameterValue | O valor do parâmetro fornecido não atende à regra de parâmetro no parâmetro |
 | BadSubscriptionId | A Id da assinatura usada para a pontuação não está presente no recurso |
@@ -82,7 +82,7 @@ Essa classe de erros significa que um argumento fornecido em algum lugar foi inv
  
 Argumento inválido do usuário fornecido.
  
-| Código do erro | Mensagem do usuário |
+| Código de erro | Mensagem do usuário |
 | ---------- |--------------|
 | InputMismatchError | Os dados de entrada não coincidem com o esquema da porta de entrada. |
 | InputParseError | Falha da análise do vetor de entrada.  Verifique se o vetor de entrada tem o número correto de colunas e tipos de dados.  Detalhes adicionais: {0}. |
@@ -94,7 +94,7 @@ Argumento inválido do usuário fornecido.
  
 A solicitação é inválida no contexto atual.
  
-| Código do erro | Mensagem do usuário |
+| Código de erro | Mensagem do usuário |
 | ---------- |--------------|
 | CannotStartJob | O trabalho não pode ser iniciado porque está no estado {0}. |
 | IncompatibleModel | O modelo é incompatível com a versão de solicitação. A versão de solicitação somente oferece suporte a modelos de saída datatable simples. |
@@ -114,7 +114,7 @@ A execução do módulo encontrou um erro.
  
 Pacote de serviço Web inválido. Verifique se o pacote do serviço Web fornecido está correto e tente novamente.
  
-| Código do erro | Mensagem do usuário |
+| Código de erro | Mensagem do usuário |
 | ---------- |--------------|
 | FormatError | O pacote do serviço Web está malformado. Detalhes: {0} |
 | RuntimesError | O grafo do pacote do serviço Web é inválido. Detalhes: {0} |
@@ -124,7 +124,7 @@ Pacote de serviço Web inválido. Verifique se o pacote do serviço Web fornecid
  
 A solicitação não está autorizada a acessar os recursos.
  
-| Código do erro | Mensagem do usuário |
+| Código de erro | Mensagem do usuário |
 | ---------- |--------------|
 | AdminRequestUnauthorized | Não Autorizado |
 | ManagementRequestUnauthorized | Não Autorizado |
@@ -134,7 +134,7 @@ A solicitação não está autorizada a acessar os recursos.
  
 Recurso não encontrado.
  
-| Código do erro | Mensagem do usuário |
+| Código de erro | Mensagem do usuário |
 | ---------- |--------------|
 | ModelPackageNotFound | Pacote do modelo não encontrado. Verifique se a Id do pacote do modelo está correta e tente novamente. |
 | WebServiceIdNotFoundInWorkspace | Serviço Web nesse workspace não encontrado. Há uma incompatibilidade entre webServiceId e workspaceId. Verifique se o serviço Web fornecido faz parte do workspace e tente novamente. |
@@ -145,7 +145,7 @@ Recurso não encontrado.
  
 A operação não pôde ser concluída dentro do tempo permitido ou do número máximo de tentativas possível.
  
-| Código do erro | Mensagem do usuário |
+| Código de erro | Mensagem do usuário |
 | ---------- |--------------|
 | RequestCanceled | A solicitação foi cancelada pelo cliente. |
 | ScoreRequestTimeout | Tempo limite da solicitação de execução. |
@@ -154,7 +154,7 @@ A operação não pôde ser concluída dentro do tempo permitido ou do número m
  
 O recurso já existe.
  
-| Código do erro | Mensagem do usuário |
+| Código de erro | Mensagem do usuário |
 | ---------- |--------------|
 | ModelOutputMetadataMismatch | Nome do parâmetro de saída inválido. Tente usar o módulo do editor de metadados para renomear as colunas e tente novamente. |
  
@@ -162,7 +162,7 @@ O recurso já existe.
  
 O modelo excedeu a cota de memória atribuída a ele.
  
-| Código do erro | Mensagem do usuário |
+| Código de erro | Mensagem do usuário |
 | ---------- |--------------|
 | OutOfMemoryLimit | O modelo consumiu mais memória do que era apropriado para ele. O máximo de memória permitido para o modelo é {0} MB. Verifique seu modelo quanto a problemas. |
  
@@ -170,7 +170,7 @@ O modelo excedeu a cota de memória atribuída a ele.
  
 A execução encontrou um erro interno.
  
-| Código do erro | Mensagem do usuário |
+| Código de erro | Mensagem do usuário |
 | ---------- |--------------|
 | AdminAuthenticationFailed |  |
 | BackendArgumentError |  |
@@ -223,7 +223,7 @@ Pacote do modelo inválido. Verifique se o pacote do modelo fornecido está corr
  
 Pacote de serviço Web inválido. Verifique se o pacote Web fornecido está correto e tente novamente.
  
-| Código do erro | Mensagem do usuário |
+| Código de erro | Mensagem do usuário |
 | ---------- |--------------|
 | ModuleError | O grafo do pacote do serviço Web é inválido. Detalhes: {0} |
  
@@ -236,7 +236,7 @@ A solicitação não pode ser executada quando os contêineres estão sendo inic
  
 O serviço está temporariamente indisponível.
  
-| Código do erro | Mensagem do usuário |
+| Código de erro | Mensagem do usuário |
 | ---------- |--------------|
 | NoMoreResources | Nenhum recurso disponível para a solicitação. |
 | RequestThrottled | A solicitação foi restringida para o ponto de extremidade {0}. A simultaneidade máxima do ponto de extremidade é {1}. |
@@ -248,8 +248,7 @@ O serviço está temporariamente indisponível.
  
 A operação não pôde ser concluída dentro do tempo permitido ou do número máximo de tentativas possível.
  
-| Código do erro | Mensagem do usuário |
+| Código de erro | Mensagem do usuário |
 | ---------- |--------------|
 | BackendInitializationTimeout | A inicialização do serviço Web não pôde ser concluída dentro do tempo permitido. |
 | BackendScoreTimeout | A execução de solicitação do serviço Web não pôde ser concluída no tempo permitido. |
- 

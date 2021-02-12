@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: ''
 ms.date: 07/11/2019
-ms.openlocfilehash: 7e7775f289e0221862d11c585ae85a5b0bc6cc27
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2761b97e595f5e11b00e75cd778ee269b12bfcae
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788543"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917793"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Migração de instância de SQL Server para o SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Neste artigo, você aprende sobre os métodos para migrar uma instância de versão SQL Server 2005 ou posterior para o [SQL instância gerenciada do Azure](sql-managed-instance-paas-overview.md). Para obter informações sobre como migrar para um banco de dados individual ou pool elástico, consulte [migrar para o banco de dados SQL](../database/migrate-to-database-from-sql-server.md). Para obter informações de migração sobre como migrar de outras plataformas, confira o [Guia de Migração de Banco de Dados do Azure](https://datamigration.microsoft.com/).
+Neste artigo, você aprende sobre os métodos para migrar uma instância de versão SQL Server 2005 ou posterior para o [SQL instância gerenciada do Azure](sql-managed-instance-paas-overview.md). Para obter informações sobre como migrar para um banco de dados individual ou pool elástico, consulte [visão geral da migração: SQL Server para o banco de dados SQL](../migration-guides/database/sql-server-to-sql-database-overview.md). Para obter informações de migração sobre como migrar de outras plataformas e diretrizes sobre ferramentas e opções, consulte [migrar para o SQL do Azure](../migration-guides/index.yml).
 
 > [!NOTE]
 > Se você quiser iniciar rapidamente e experimentar o Azure SQL Instância Gerenciada, talvez queira ir para o guia de [início rápido](quickstart-content-reference-guide.md) em vez desta página.

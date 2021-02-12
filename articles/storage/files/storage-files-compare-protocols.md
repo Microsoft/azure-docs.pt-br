@@ -4,38 +4,38 @@ description: Saiba mais sobre os protocolos disponíveis antes de criar um compa
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 5149024f8621754451520e0ae249ed61f0b07f99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e914bcece9a30270d12d5c2cc09d3fd1014783c6
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568464"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916500"
 ---
 # <a name="azure-file-share-protocols"></a>Protocolos de compartilhamento de arquivos do Azure
 
-Os arquivos do Azure oferecem dois protocolos para conectar e montar seus compartilhamentos de arquivos do Azure. [Protocolo SMB (Server Message](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) Protocol) e [protocolo NFS (sistema de arquivos de rede)](https://en.wikipedia.org/wiki/Network_File_System) (visualização). Atualmente, os arquivos do Azure não dão suporte ao acesso de vários protocolos, portanto, um compartilhamento pode ser apenas um compartilhamento NFS ou um compartilhamento SMB. Devido a isso, é recomendável determinar qual protocolo melhor atende às suas necessidades antes de criar compartilhamentos de arquivos do Azure.
+Os arquivos do Azure oferecem dois protocolos para conectar e montar seus compartilhamentos de arquivos do Azure. [Protocolo SMB (Server Message](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) Protocol) e [protocolo NFS (sistema de arquivos de rede)](https://en.wikipedia.org/wiki/Network_File_System) (visualização). Atualmente, os arquivos do Azure não dão suporte ao acesso de vários protocolos, portanto, um compartilhamento pode ser apenas um compartilhamento NFS ou um compartilhamento SMB. Devido a isso, é recomendável determinar qual protocolo melhor atende às suas necessidades antes de criar compartilhamentos de arquivos do Azure.
 
 ## <a name="differences-at-a-glance"></a>Diferenças em um relance
 
 |Recurso  |NFS (visualização)  |SMB  |
 |---------|---------|---------|
 |Protocolos de acesso     |NFS 4,1         |SMB 2,1, SMB 3,0         |
-|SO com suporte     |Kernel do Linux versão 4.3 +         |Windows 2008 R2 +, kernel do Linux versão 4.11 +         |
+|Sistema operacional recomendado     |Kernel do Linux versão 4.3 +         |Windows 2008 R2 +, kernel do Linux versão 4.11 +         |
 |[Camadas disponíveis](storage-files-planning.md#storage-tiers)     |Armazenamento Premium         |Armazenamento Premium, otimizado para transação, quente, frio         |
-|[Redundância](storage-files-planning.md#redundancy)     |LRS         |LRS, ZRS, GRS         |
+|[Redundância](storage-files-planning.md#redundancy)     |LRS, ZRS         |LRS, ZRS, GRS         |
 |Autenticação     |Somente autenticação baseada em host        |Autenticação baseada em identidade, autenticação baseada no usuário         |
 |Permissões     |Permissões de estilo UNIX         |Permissões de estilo NTFS         |
 |Semântica do sistema de arquivos     |Compatível com POSIX         |Não compatível com POSIX         |
 |Diferenciar maiúsculas de minúsculas     |Diferencia maiúsculas de minúsculas         |Não diferencia maiúsculas de minúsculas         |
-|Suporte a links físicos     |Com suporte         |Sem suporte         |
-|Suporte a links simbólicos     |Com suporte         |Sem suporte         |
-|Excluindo ou modificando arquivos abertos     |Com suporte         |Sem suporte         |
-|Bloqueio     |Advisory do intervalo de bytes do Gerenciador de bloqueio de rede         |Com suporte         |
-|Listagem segura de IP público | Sem suporte | Com suporte|
+|Suporte a links físicos     |Suportado         |Sem suporte         |
+|Suporte a links simbólicos     |Suportado         |Sem suporte         |
+|Excluindo ou modificando arquivos abertos     |Suportado         |Sem suporte         |
+|Bloqueio     |Advisory do intervalo de bytes do Gerenciador de bloqueio de rede         |Suportado         |
+|Listagem segura de IP público | Sem suporte | Suportado|
 |Interoperabilidade de protocolo| Sem suporte | Filerest|
 
 ## <a name="nfs-shares-preview"></a>Compartilhamentos NFS (visualização)
@@ -64,7 +64,7 @@ Todos os dados de arquivos do Azure são criptografados em repouso. Para criptog
 - [Um ponto de extremidade privado](storage-files-networking-overview.md#private-endpoints)
 - [Gateway de VPN do Azure](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
     - [VPN ponto a site (P2S)](../../vpn-gateway/point-to-site-about.md)
-    - [Site a site](https://docs.microsoft.com/azure/vpn-gateway/design#s2smulti)
+    - [Site a site](../../vpn-gateway/design.md#s2smulti)
 - [ExpressRoute](../../expressroute/expressroute-introduction.md)
 - [Um ponto de extremidade público restrito](storage-files-networking-overview.md#storage-account-firewall-settings)
 

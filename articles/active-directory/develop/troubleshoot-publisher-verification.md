@@ -1,5 +1,6 @@
 ---
-title: Solução de problemas de verificação do editor – Plataforma de identidade da Microsoft | Azure
+title: Solucionar problemas de verificação do Publicador | Azure
+titleSuffix: Microsoft identity platform
 description: Descreve como solucionar problemas de verificação do editor para a plataforma Microsoft Identity chamando Microsoft Graph APIs.
 services: active-directory
 author: rwike77
@@ -8,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 01/28/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 4a66db34adb4eb751abc741964b740b3b6f48c69
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 9ae5d2279baab69d762a71b2f6400009747c16fe
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073726"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584206"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Solucionar problemas de verificação do editor
 Se você não conseguir concluir o processo ou estiver experimentando um comportamento inesperado com a [verificação do Publicador](publisher-verification-overview.md), comece fazendo o seguinte se estiver recebendo erros ou observando um comportamento inesperado: 
@@ -51,8 +52,8 @@ Abaixo estão alguns problemas comuns que podem ocorrer durante o processo.
     1. Acesse o [perfil de parceiro](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) e verifique se: 
         - A ID do MPN está correta. 
         - Não há erros ou “ações pendentes” mostradas, e o status de verificação sob o perfil Negócio jurídico e as informações do Parceiro dizem “autorizado” ou “sucesso”.
-    1. Vá para a [página de Gerenciamento de locatários do MPN](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) e confirme se o locatário no qual o aplicativo está registrado e a conta de usuário que você está usando para entrar estão na lista de locatários associados. Se você precisar adicionar um locatário adicional, siga as instruções [aqui](https://docs.microsoft.com/partner-center/multi-tenant-account). Esteja ciente de que todos os administradores globais de qualquer locatário adicionado receberão privilégios de administrador global em sua conta do Partner Center.
-    1. Vá para a [página de gerenciamento de usuário do MPN](https://partner.microsoft.com/pcv/users) e confirme se o usuário no qual você está entrando é um administrador global, administrador do MPN ou administrador de contas. Se você precisar adicionar um usuário a uma função no Partner Center, siga as instruções [aqui](https://docs.microsoft.com/partner-center/create-user-accounts-and-set-permissions).
+    1. Vá para a [página de Gerenciamento de locatários do MPN](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) e confirme se o locatário no qual o aplicativo está registrado e a conta de usuário que você está usando para entrar estão na lista de locatários associados. Para adicionar um locatário adicional, siga as instruções [aqui](/partner-center/multi-tenant-account). Esteja ciente de que todos os administradores globais de qualquer locatário adicionado receberão privilégios de administrador global em sua conta do Partner Center.
+    1. Vá para a [página de gerenciamento de usuário do MPN](https://partner.microsoft.com/pcv/users) e confirme se o usuário no qual você está entrando é um administrador global, administrador do MPN ou administrador de contas. Para adicionar um usuário a uma função no Partner Center, siga as instruções [aqui](/partner-center/create-user-accounts-and-set-permissions).
 
 - **Quando eu entro no portal do Azure AD, não vejo nenhum aplicativo registrado. Por quê?** 
     Os registros do aplicativo podem ter sido criados usando uma conta de usuário diferente neste locatário, uma conta pessoal/de consumidor ou em um locatário diferente. Verifique se você está conectado com a conta correta no locatário onde os registros do aplicativo foram criados.
@@ -148,87 +149,95 @@ HTTP/1.1 200 OK
 
 Veja a seguir uma lista dos códigos de erro potenciais que você pode receber, seja ao solucionar problemas com Microsoft Graph ou durante o processo no portal de registro de aplicativo.
 
-### <a name="mpnaccountnotfoundornoaccess"></a>MPNAccountNotFoundOrNoAccess     
+### <a name="mpnaccountnotfoundornoaccess"></a>MPNAccountNotFoundOrNoAccess
 
-A ID de MPN fornecida (<MPNID>) não existe ou você não tem acesso a ela. Forneça uma ID de MPN válida e tente novamente.
+A ID de MPN fornecida (`MPNID`) não existe ou você não tem acesso a ela. Forneça uma ID de MPN válida e tente novamente.
     
 Geralmente causado pelo usuário conectado que não é membro da função apropriada para a conta do MPN no Partner Center-consulte [os requisitos](publisher-verification-overview.md#requirements) para obter uma lista de funções qualificadas e veja [problemas comuns](#common-issues) para obter mais informações. Também pode ser causado pelo locatário no qual o aplicativo está registrado não está sendo adicionado à conta MPN ou uma ID de MPN inválida.
 
-### <a name="mpnglobalaccountnotfound"></a>MPNGlobalAccountNotFound     
+### <a name="mpnglobalaccountnotfound"></a>MPNGlobalAccountNotFound
 
-A ID de MPN fornecida (<MPNID>) é inválida. Forneça uma ID de MPN válida e tente novamente.
+A ID de MPN fornecida (`MPNID`) é inválida. Forneça uma ID de MPN válida e tente novamente.
     
 Geralmente causado quando uma ID MPN é fornecida e corresponde a uma PLA (conta de local de parceiro). Somente contas globais do parceiro têm suporte. Confira [estrutura de conta do Partner Center](/partner-center/account-structure) para obter mais detalhes.
 
-### <a name="mpnaccountinvalid"></a>MPNAccountInvalid    
+### <a name="mpnaccountinvalid"></a>MPNAccountInvalid
 
-A ID de MPN fornecida (<MPNID>) é inválida. Forneça uma ID de MPN válida e tente novamente.
+A ID de MPN fornecida (`MPNID`) é inválida. Forneça uma ID de MPN válida e tente novamente.
     
 Geralmente causado pela ID de MPN incorreta que está sendo fornecida.
 
-### <a name="mpnaccountnotvetted"></a>MPNAccountNotVetted  
+### <a name="mpnaccountnotvetted"></a>MPNAccountNotVetted
 
-A ID de MPN (<MPNID>) fornecida não concluiu o processo de verificação. Conclua esse processo no Partner Center e tente novamente. 
+A ID de MPN (`MPNID`) fornecida não concluiu o processo de verificação. Conclua esse processo no Partner Center e tente novamente. 
     
 Geralmente causado pelo momento em que a conta MPN não concluiu o processo de [verificação](/partner-center/verification-responses) .
 
-### <a name="nopublisheridonassociatedmpnaccount"></a>NoPublisherIdOnAssociatedMPNAccount  
+### <a name="nopublisheridonassociatedmpnaccount"></a>NoPublisherIdOnAssociatedMPNAccount
 
-A ID de MPN fornecida (<MPNID>) é inválida. Forneça uma ID de MPN válida e tente novamente. 
+A ID de MPN fornecida (`MPNID`) é inválida. Forneça uma ID de MPN válida e tente novamente. 
    
 Geralmente causado pela ID de MPN incorreta que está sendo fornecida.
 
-### <a name="mpniddoesnotmatchassociatedmpnaccount"></a>MPNIdDoesNotMatchAssociatedMPNAccount    
+### <a name="mpniddoesnotmatchassociatedmpnaccount"></a>MPNIdDoesNotMatchAssociatedMPNAccount
 
-A ID de MPN fornecida (<MPNID>) é inválida. Forneça uma ID de MPN válida e tente novamente.
+A ID de MPN fornecida (`MPNID`) é inválida. Forneça uma ID de MPN válida e tente novamente.
     
 Geralmente causado pela ID de MPN incorreta que está sendo fornecida.
 
-### <a name="applicationnotfound"></a>ApplicationNotFound  
+### <a name="applicationnotfound"></a>ApplicationNotFound
 
-Não é possível localizar o aplicativo de destino (<AppId>). Forneça uma ID de aplicativo válida e tente novamente.
+Não é possível localizar o aplicativo de destino (`AppId`). Forneça uma ID de aplicativo válida e tente novamente.
     
 Geralmente causado quando a verificação está sendo executada via API do Graph, e a ID do aplicativo fornecido está incorreta. Observação-a ID do aplicativo deve ser fornecida, não a AppId/ClientId.
 
-### <a name="b2ctenantnotallowed"></a>B2CTenantNotAllowed  
+### <a name="b2ctenantnotallowed"></a>B2CTenantNotAllowed
 
-Não há suporte para essa funcionalidade em um locatário do Azure AD B2C. 
+Não há suporte para essa funcionalidade em um locatário do Azure AD B2C.
 
-### <a name="emailverifiedtenantnotallowed"></a>EmailVerifiedTenantNotAllowed    
+### <a name="emailverifiedtenantnotallowed"></a>EmailVerifiedTenantNotAllowed
 
-Não há suporte para essa funcionalidade em um locatário verificado por email. 
+Não há suporte para essa funcionalidade em um locatário verificado por email.
 
-### <a name="nopublisherdomainonapplication"></a>NoPublisherDomainOnApplication   
+### <a name="nopublisherdomainonapplication"></a>NoPublisherDomainOnApplication
 
-O aplicativo de destino ( \<AppId\> ) deve ter um conjunto de domínios do Publicador. Defina um domínio do editor e tente novamente.
+O aplicativo de destino ( `AppId` ) deve ter um conjunto de domínios do Publicador. Defina um domínio do editor e tente novamente.
 
 Ocorre quando um [domínio do Publicador](howto-configure-publisher-domain.md) não está configurado no aplicativo.
 
-### <a name="publisherdomainmismatch"></a>PublisherDomainMismatch  
+### <a name="publisherdomainmismatch"></a>PublisherDomainMismatch
 
-O domínio do editor do aplicativo (<publisherDomain>) não corresponde ao domínio usado para executar a verificação por email no Partner Center (<pcDomain>). Verifique se esses domínios correspondem e tente novamente. 
+O domínio do editor do aplicativo (`publisherDomain`) não corresponde ao domínio usado para executar a verificação por email no Partner Center (`pcDomain`). Verifique se esses domínios correspondem e tente novamente. 
     
 Ocorre quando nem o domínio do [Editor](howto-configure-publisher-domain.md) do aplicativo nem um dos [domínios personalizados](../fundamentals/add-custom-domain.md) adicionados ao locatário do Azure ad correspondem ao domínio usado para executar a verificação de email no Partner Center.
 
-### <a name="notauthorizedtoverifypublisher"></a>NotAuthorizedToVerifyPublisher   
+### <a name="notauthorizedtoverifypublisher"></a>NotAuthorizedToVerifyPublisher
 
-Você não está autorizado a definir a propriedade de editor verificado neste aplicativo (<AppId>) 
+Você não está autorizado a definir a propriedade do Publicador verificada no aplicativo (<`AppId` ) 
   
 Geralmente causado pelo usuário conectado que não é membro da função apropriada para a conta MPN no Azure AD – consulte [os requisitos](publisher-verification-overview.md#requirements) para obter uma lista de funções qualificadas e veja [problemas comuns](#common-issues) para obter mais informações.
 
-### <a name="mpnidwasnotprovided"></a>MPNIdWasNotProvided  
+### <a name="mpnidwasnotprovided"></a>MPNIdWasNotProvided
 
-A ID do MPN não foi fornecida no corpo da solicitação ou o tipo de conteúdo da solicitação não era “aplicativo/json”. 
+A ID do MPN não foi fornecida no corpo da solicitação ou o tipo de conteúdo da solicitação não era “aplicativo/json”.
 
-### <a name="msanotsupported"></a>MSANotSupported  
+### <a name="msanotsupported"></a>MSANotSupported 
 
 Não há suporte para esse recurso em contas de consumidor da Microsoft. Somente os aplicativos registrados no Azure AD por um usuário do Azure AD têm suporte.
 
 ### <a name="interactionrequired"></a>InteractionRequired
 
-Ocorre quando a autenticação multifator não foi executada antes de tentar adicionar um Publicador verificado ao aplicativo. Consulte [problemas comuns](#common-issues) para obter mais informações. Observação: a MFA deve ser executada na mesma sessão ao tentar adicionar um Publicador verificado. Se a MFA estiver habilitada, mas não precisar ser executada na sessão, a solicitação falhará.   
+Ocorre quando a autenticação multifator não foi executada antes de tentar adicionar um Publicador verificado ao aplicativo. Consulte [problemas comuns](#common-issues) para obter mais informações. Observação: a MFA deve ser executada na mesma sessão ao tentar adicionar um Publicador verificado. Se a MFA estiver habilitada, mas não precisar ser executada na sessão, a solicitação falhará. 
 
 A mensagem de erro exibida será: "devido a uma alteração de configuração feita pelo administrador, ou porque você moveu para um novo local, você deve usar a autenticação multifator para continuar".
+
+### <a name="unabletoaddpublisher"></a>UnableToAddPublisher
+
+A mensagem de erro exibida é: "um Publicador verificado não pode ser adicionado a este aplicativo. Entre em contato com o administrador para obter assistência. "
+
+Primeiro, verifique se você atendeu [aos requisitos de verificação do Publicador](publisher-verification-overview.md#requirements).
+
+Quando uma solicitação para adicionar um Publicador verificado é feita, um número de sinais é usado para fazer uma avaliação de risco de segurança. Se a solicitação for considerada arriscada, um erro será retornado. Por motivos de segurança, a Microsoft não divulga os critérios específicos usados para determinar se uma solicitação é arriscada ou não.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -4,7 +4,7 @@ description: Saiba como usar as opções avançadas de assinatura de certificado
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2625698ae1d76dbae3ed8a8855b88dd6ac7bb17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9dd6a7a34ac231f8af9d08aab99e3d552f33ea1d
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763679"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259614"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>As opções avançadas de assinatura de certificado no token SAML para aplicativos da galeria no Azure Active Directory
 
@@ -75,5 +75,5 @@ Em seguida, altere as opções de assinatura de certificado no token SAML para e
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Configurando logon único para aplicativos que não estão na galeria de aplicativo do Active Directory do Azure](configure-federated-single-sign-on-non-gallery-applications.md)
-* [Solução de problemas de logon único baseado em SAML](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+* [Configurando logon único para aplicativos que não estão na galeria de aplicativo do Active Directory do Azure](./configure-saml-single-sign-on.md)
+* [Solução de problemas de logon único baseado em SAML](./debug-saml-sso-issues.md)

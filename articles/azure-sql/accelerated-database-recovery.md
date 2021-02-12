@@ -7,23 +7,23 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=4
 ms.devlang: ''
 ms.topic: conceptual
-author: mashamsft
-ms.author: mathoma
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 05/19/2020
-ms.openlocfilehash: 4c679b6bb0f5645ea7a972be03ba3621b824a501
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd1b33b2f6b1b0e0bf94639b3991b6507a89f5a9
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327605"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400787"
 ---
 # <a name="accelerated-database-recovery-in-azure-sql"></a>Recuperação de banco de dados acelerada no SQL do Azure 
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 A **ADR (recuperação de banco de dados acelerada)** é um recurso de mecanismo de banco de dados SQL Server que melhora muito a disponibilidade do banco de dados, especialmente na presença de transações de longa execução, remodelando o processo de recuperação do mecanismo de banco de dados SQL Server. 
 
-O ADR está disponível no momento para o banco de dados SQL do Azure, o SQL Instância Gerenciada do Azure, bancos dados no Azure Synapse Analytics (atualmente em visualização) e SQL Server em VMs do Azure começando com SQL Server 2019. 
+O ADR está disponível no momento para o banco de dados SQL do Azure, Azure SQL Instância Gerenciada, bancos de dados no Azure Synapse Analytics e SQL Server em VMs do Azure a partir do SQL Server 2019. 
 
 > [!NOTE] 
 > ADR está habilitado por padrão no banco de dados SQL do Azure e no Azure SQL Instância Gerenciada e não há suporte para a desabilitação de ADR para qualquer produto. 

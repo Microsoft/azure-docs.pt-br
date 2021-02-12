@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d3d044be923e5d7a621b72a926db0b4ce9a09b72
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 2600ea3488c643bcf215b058425de42cd439dcff
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93122717"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660260"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Configurar a inscrição e a entrada do telefone com políticas personalizadas no Azure AD B2C
 
@@ -35,16 +35,16 @@ Com a inscrição e a entrada do telefone, o usuário pode se inscrever no aplic
 > [!NOTE]
 > É altamente recomendável que você inclua informações de consentimento em sua experiência de inscrição e de entrada semelhante ao texto de exemplo abaixo. Este texto de exemplo é apenas para fins informativos. Consulte o manual de monitoramento de código curto no [site do CTIA](https://www.ctia.org/programs) e consulte seus próprios especialistas legais ou de conformidade para obter orientação sobre sua configuração de texto final e recursos para atender às suas necessidades de conformidade:
 >
-> *Ao fornecer seu número de telefone, você concorda em receber uma senha de uso único enviada por mensagem de texto para ajudá-lo a entrar para *&lt; Inserir: &gt; o nome do aplicativo* . Taxas de mensagem e de dados padrão podem ser aplicadas.*
+> *Ao fornecer seu número de telefone, você concorda em receber uma senha de uso único enviada por mensagem de texto para ajudá-lo a entrar para *&lt; Inserir: &gt; o nome do aplicativo*. Taxas de mensagem e de dados padrão podem ser aplicadas.*
 >
 > *&lt;Inserir: um link para sua política de privacidade&gt;*<br/>*&lt;Inserir: um link para seus termos de serviço&gt;*
 
-Para adicionar suas próprias informações de consentimento, personalize o exemplo a seguir e inclua-o no LocalizedResources para o ContentDefinition usado pela página autodeclarada com o controle de exibição (o arquivo de Phone-Email-Base.xml no pacote de início de conexão & entrada de telefone):
+Para adicionar suas próprias informações de consentimento, personalize o exemplo a seguir. Inclua-o no `LocalizedResources` para o ContentDefinition usado pela página autodeclarada com o controle de exibição (o arquivo de *Phone_Email_Base.xml* no [pacote de início de inscrição e entrada do telefone][starter-pack-phone]):
 
 ```xml
 <LocalizedResources Id="phoneSignUp.en">        
     <LocalizedStrings>
-    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_msg_intro">By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign into {insert your application name}. Standard messsage and data rates may apply.</LocalizedString>          
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_msg_intro">By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign into {insert your application name}. Standard message and data rates may apply.</LocalizedString>          
     <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_1_text">Privacy Statement</LocalizedString>                
     <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_1_url">{insert your privacy statement URL}</LocalizedString>          
     <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_2_text">Terms and Conditions</LocalizedString>             
@@ -56,33 +56,33 @@ Para adicionar suas próprias informações de consentimento, personalize o exem
 
 ### <a name="phone-sign-up-experience"></a>Experiência de inscrição no telefone
 
-Se o usuário ainda não tiver uma conta para seu aplicativo, ele poderá criar uma escolhendo o link **inscrever-se agora** . Uma página de inscrição é exibida, onde o usuário seleciona seu **país** , insere seu número de telefone e seleciona **enviar código** .
+Se o usuário ainda não tiver uma conta para seu aplicativo, ele poderá criar uma escolhendo o link **inscrever-se agora** . Uma página de inscrição é exibida, onde o usuário seleciona seu **país**, insere seu número de telefone e seleciona **enviar código**.
 
 ![O usuário inicia a inscrição no telefone](media/phone-authentication/phone-signup-start.png)
 
-Um código de verificação único é enviado para o número de telefone do usuário. O usuário insere o **código de verificação** na página de inscrição e seleciona **verificar código** . (Se o usuário não conseguiu recuperar o código, ele pode selecionar **Enviar novo código** .)
+Um código de verificação único é enviado para o número de telefone do usuário. O usuário insere o **código de verificação** na página de inscrição e seleciona **verificar código**. (Se o usuário não conseguiu recuperar o código, ele pode selecionar **Enviar novo código**.)
 
 ![O usuário verifica o código durante a inscrição no telefone](media/phone-authentication/phone-signup-verify-code.png)
 
- O usuário insere todas as outras informações solicitadas na página de inscrição, por exemplo, **nome de exibição** , **nome** e **sobrenome** (país e número de telefone permanecem preenchidos). Se o usuário quiser usar um número de telefone diferente, ele poderá escolher **alterar número** para reiniciar a inscrição. Quando terminar, o usuário seleciona **continuar** .
+O usuário insere qualquer outra informação solicitada na página de inscrição. Por exemplo, **nome de exibição**, **nome fornecido** e **sobrenome** (país e número de telefone permanecem preenchidos). Se o usuário quiser usar um número de telefone diferente, ele poderá escolher **alterar número** para reiniciar a inscrição. Quando terminar, o usuário seleciona **continuar**.
 
 ![O usuário fornece informações adicionais](media/phone-authentication/phone-signup-additional-info.png)
 
-Em seguida, o usuário será solicitado a fornecer um email de recuperação. O usuário insere seu endereço de email e seleciona **enviar código de verificação** . Um código é enviado para a caixa de entrada de email do usuário, que pode ser recuperada e inserida no **código de verificação** . Em seguida, o usuário seleciona **verificar código** . 
+Em seguida, o usuário será solicitado a fornecer um email de recuperação. O usuário insere seu endereço de email e seleciona **enviar código de verificação**. Um código é enviado para a caixa de entrada de email do usuário, que pode ser recuperada e inserida no **código de verificação** . Em seguida, o usuário seleciona **verificar código**. 
 
-Depois que o código é verificado, o usuário seleciona **criar** para criar sua conta. Ou, se o usuário quiser usar um endereço de email diferente, ele poderá escolher **alterar email** .
+Depois que o código é verificado, o usuário seleciona **criar** para criar sua conta. Ou, se o usuário quiser usar um endereço de email diferente, ele poderá escolher **alterar email**.
 
 ![O usuário cria uma conta](media/phone-authentication/email-verification.png)
 
 ### <a name="phone-sign-in-experience"></a>Experiência de entrada no telefone
 
-Se o usuário tiver uma conta existente com número de telefone como seu identificador, o usuário inserirá seu número de telefone e selecionará **continuar** . Eles confirmam o país e o número de telefone selecionando **continuar** e um código de verificação ocasional é enviado para o telefone. O usuário insere o código de verificação e seleciona **continuar** para entrar.
+Se o usuário tiver uma conta existente com número de telefone como seu identificador, o usuário inserirá seu número de telefone e selecionará **continuar**. Eles confirmam o país e o número de telefone selecionando **continuar** e um código de verificação ocasional é enviado para o telefone. O usuário insere o código de verificação e seleciona **continuar** para entrar.
 
 ![Experiência do usuário de entrada no telefone](media/phone-authentication/phone-signin-screens.png)
 
 ## <a name="deleting-a-user-account"></a>Excluindo uma conta de usuário
 
-Em alguns casos, você pode precisar excluir um usuário e os dados associados de seu diretório Azure AD B2C. Para obter detalhes sobre como excluir uma conta de usuário por meio do portal do Azure, consulte [estas instruções](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure#step-5-delete). 
+Em alguns casos, você pode precisar excluir um usuário e os dados associados de seu diretório Azure AD B2C. Para obter detalhes sobre como excluir uma conta de usuário por meio do portal do Azure, consulte [estas instruções](/microsoft-365/compliance/gdpr-dsr-azure#step-5-delete). 
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -100,21 +100,19 @@ Você precisa dos seguintes recursos em vigor antes de configurar a OTP.
 
 Comece atualizando os arquivos de política personalizada de inscrição e entrada do telefone para trabalhar com seu locatário Azure AD B2C.
 
-As etapas a seguir pressupõem que você concluiu os [pré-requisitos](#prerequisites) e já clonou o repositório do [pacote de início de política personalizado][starter-pack] em seu computador local.
-
 1. Localize os [arquivos de política personalizada de inscrição e entrada do telefone][starter-pack-phone] no clone local do repositório do pacote inicial ou baixe-os diretamente. Os arquivos de política XML estão localizados no seguinte diretório:
 
     `active-directory-b2c-custom-policy-starterpack/scenarios/`**`phone-number-passwordless`**
 
-1. Em cada arquivo, substitua a cadeia de caracteres `yourtenant` pelo nome do seu locatário de Azure ad B2C. Por exemplo, se o nome do seu locatário B2C for *contosob2c* , todas as instâncias de `yourtenant.onmicrosoft.com` se tornarão `contosob2c.onmicrosoft.com` .
+1. Em cada arquivo, substitua a cadeia de caracteres `yourtenant` pelo nome do seu locatário de Azure ad B2C. Por exemplo, se o nome do seu locatário B2C for *contosob2c*, todas as instâncias de `yourtenant.onmicrosoft.com` se tornarão `contosob2c.onmicrosoft.com` .
 
-1. Conclua as etapas na seção [adicionar IDs de aplicativo à política personalizada](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) de introdução [às políticas personalizadas no Azure Active Directory B2C](custom-policy-get-started.md). Nesse caso, atualize `/phone-number-passwordless/` **`Phone_Email_Base.xml`** com as **IDs de aplicativo (cliente)** dos dois aplicativos que você registrou ao concluir os pré-requisitos, *IdentityExperienceFramework* e *ProxyIdentityExperienceFramework* .
+1. Conclua as etapas na seção [adicionar IDs de aplicativo à política personalizada](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) de introdução [às políticas personalizadas no Azure Active Directory B2C](custom-policy-get-started.md). Nesse caso, atualize `/phone-number-passwordless/` **`Phone_Email_Base.xml`** com as **IDs de aplicativo (cliente)** dos dois aplicativos que você registrou ao concluir os pré-requisitos, *IdentityExperienceFramework* e *ProxyIdentityExperienceFramework*.
 
 ## <a name="upload-the-policy-files"></a>Carregar os arquivos de política
 
 1. Entre no [portal do Azure](https://portal.azure.com) e navegue até o locatário do Azure ad B2C.
-1. Em **Políticas** , selecione **Identity Experience Framework** .
-1. Selecione **Carregar política personalizada** .
+1. Em **Políticas**, selecione **Identity Experience Framework**.
+1. Selecione **Carregar política personalizada**.
 1. Carregue os arquivos de política na seguinte ordem:
     1. *Phone_Email_Base.xml*
     1. *SignUpOrSignInWithPhone.xml*
@@ -128,17 +126,17 @@ As etapas a seguir pressupõem que você concluiu os [pré-requisitos](#prerequi
 
 ## <a name="test-the-custom-policy"></a>Teste a política personalizada
 
-1. Em **políticas personalizadas** , selecione **B2C_1A_SignUpOrSignInWithPhone** .
-1. Em **Selecionar aplicativo** , selecione o aplicativo *webapp1* que você registrou ao concluir os pré-requisitos.
-1. Para **selecionar URL de resposta** , escolha `https://jwt.ms` .
+1. Em **políticas personalizadas**, selecione **B2C_1A_SignUpOrSignInWithPhone**.
+1. Em **Selecionar aplicativo**, selecione o aplicativo *webapp1* que você registrou ao concluir os pré-requisitos.
+1. Para **selecionar URL de resposta**, escolha `https://jwt.ms` .
 1. Selecione **executar agora** e se inscrever usando um endereço de email ou um número de telefone.
 1. Selecione **executar agora** novamente e entre com a mesma conta para confirmar que você tem a configuração correta.
 
 ## <a name="get-user-account-by-phone-number"></a>Obter conta de usuário por número de telefone
 
-Um usuário que se inscreve com um número de telefone, mas não fornece um endereço de email de recuperação, é registrado no diretório Azure AD B2C com seu número de telefone como o nome de entrada. Se o usuário quiser alterar seu número de telefone, sua equipe de suporte ou assistência técnica deverá primeiro localizar sua conta e, em seguida, atualizar seu número de telefone.
+Um usuário que se inscreve com um número de telefone, sem um endereço de email de recuperação, é registrado no diretório Azure AD B2C com seu número de telefone como o nome de entrada. Para alterar o número de telefone, sua equipe de suporte ou assistência técnica deve primeiro localizar sua conta e, em seguida, atualizar seu número de telefone.
 
-Você pode encontrar um usuário pelo número de telefone (nome de entrada) usando [Microsoft Graph](manage-user-accounts-graph-api.md):
+Você pode encontrar um usuário pelo número de telefone (nome de entrada) usando [Microsoft Graph](microsoft-graph-operations.md):
 
 ```http
 GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+{phone number}' and c/issuer eq '{tenant name}.onmicrosoft.com')
@@ -153,7 +151,7 @@ GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssi
 ## <a name="next-steps"></a>Próximas etapas
 
 Você pode encontrar o pacote de início de política personalizada de inscrição e entrada do telefone (e outros pacotes de início) no GitHub: [Azure-Samples/Active-Directory-B2C-Custom-Policy-starterpack/Scenarios/número de telefone-sem senha][starter-pack-phone] os arquivos de política do pacote inicial usam perfis técnicos da autenticação multifator e as transformações de declarações de número de telefone:
-* [Definir um perfil técnico de autenticação multifator do Azure](multi-factor-auth-technical-profile.md)
+* [Definir um perfil técnico de autenticação multifator do Azure AD](multi-factor-auth-technical-profile.md)
 * [Definir transformações de declarações de número de telefone](phone-number-claims-transformations.md)
 
 <!-- LINKS - External -->

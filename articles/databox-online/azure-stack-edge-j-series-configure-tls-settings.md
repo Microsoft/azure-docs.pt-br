@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 9a6b0910fcfd2a632f2520a2fe683b15592017cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15e2d7a144b54f443b8298b20dbfacf78a50f9e1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891176"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447551"
 ---
 # <a name="configure-tls-12-on-windows-clients-accessing-azure-stack-edge-pro-device"></a>Configurar o TLS 1,2 em clientes Windows que acessam Azure Stack dispositivo pro Edge
 
@@ -38,11 +38,11 @@ Execute as etapas a seguir para configurar o TLS 1,2 em seu cliente.
 
 Se você quiser definir o TLS 1,2 de todo o sistema para o seu ambiente, siga as diretrizes nestes documentos:
 
-- [Geral-como habilitar o TLS 1,2](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12)
-- [Como habilitar o TLS 1.2 em clientes](https://docs.microsoft.com/configmgr/core/plan-design/security/enable-tls-1-2-client)
-- [Como habilitar o TLS 1.2 nos servidores do site e nos sistemas de sites remotos](https://docs.microsoft.com/configmgr/core/plan-design/security/enable-tls-1-2-server)
-- [Protocolos em TLS/SSL (Schannel SSP)](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-ecc-curve-order)
-- [Conjuntos de codificação](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12): [Configurando especificamente a ordem do conjunto de criptografia TLS](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order) , certifique-se de listar seus conjuntos de codificação atuais e preceder qualquer falta da seguinte lista:
+- [Geral-como habilitar o TLS 1,2](/windows-server/security/tls/tls-registry-settings#tls-12)
+- [Como habilitar o TLS 1.2 em clientes](/configmgr/core/plan-design/security/enable-tls-1-2-client)
+- [Como habilitar o TLS 1.2 nos servidores do site e nos sistemas de sites remotos](/configmgr/core/plan-design/security/enable-tls-1-2-server)
+- [Protocolos em TLS/SSL (Schannel SSP)](/windows-server/security/tls/manage-tls#configuring-tls-ecc-curve-order)
+- [Conjuntos de codificação](/windows-server/security/tls/tls-registry-settings#tls-12): [Configurando especificamente a ordem do conjunto de criptografia TLS](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order) , certifique-se de listar seus conjuntos de codificação atuais e preceder qualquer falta da seguinte lista:
 
     - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
     - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
@@ -68,7 +68,7 @@ Se você quiser definir o TLS 1,2 de todo o sistema para o seu ambiente, siga as
     New-ItemProperty -Path "$HklmSoftwarePath\Policies\Microsoft\Cryptography\Configuration\SSL\00010002" -Name "EccCurves" -PropertyType MultiString -Value @("NistP256", "NistP384")
     ```
     
-    - [Defina o tamanho mínimo de troca de chave RSA como 2048](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#keyexchangealgorithm---client-rsa-key-sizes).
+    - [Defina o tamanho mínimo de troca de chave RSA como 2048](/windows-server/security/tls/tls-registry-settings#keyexchangealgorithm---client-rsa-key-sizes).
 
 
 

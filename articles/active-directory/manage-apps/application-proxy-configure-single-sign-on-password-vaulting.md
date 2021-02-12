@@ -4,7 +4,7 @@ description: Ative o logon único para aplicativos locais publicados com o Proxy
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00b25f1b506228d2d80aecae3845467759a4bc4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0cb2830c019635e9020a4b586bdc370450fddb0
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88165032"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99253995"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Compartimentação de senhas para logon único com o Proxy de Aplicativo
 
@@ -45,7 +45,7 @@ Você já deve ter publicado e testado seu aplicativo com o Proxy de Aplicativo.
 
    ![Escolha Logon Único Baseado em Senha e digite a URL](./media/application-proxy-configure-single-sign-on-password-vaulting/password-sso.png)
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 1. Selecione **Proxy de Aplicativo**. 
 1. Altere o **tipo de pré-autenticação** para **Azure Active Directory** e selecione **salvar**. 
 1. Selecione **usuários e grupos**.

@@ -1,7 +1,7 @@
 ---
 title: Transformar dados no designer
 titleSuffix: Azure Machine Learning
-description: Saiba como transformar dados no designer do Azure Machine Learning para criar seus próprios conjuntos de dados.
+description: Saiba como importar e transformar dados no designer de Azure Machine Learning para criar seus próprios conjuntos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,19 +10,19 @@ ms.author: peterlu
 ms.date: 06/28/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 9124bbfc7300f3a5116c572d569b41e15356ab8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70f5e17c4cc42201e9aa3d36c9937f6ceb9527d0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983838"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880196"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer"></a>Transformar dados no designer de Azure Machine Learning
 
 
 Neste artigo, você aprenderá a transformar e salvar conjuntos de dados no designer de Azure Machine Learning para que possa preparar seus próprios dados para o machine learning.
 
-Você usará o conjunto de dados de exemplo de [Classificação Binária de Renda de Censo de Adulto](sample-designer-datasets.md) para preparar dois conjuntos de dados: um que inclui informações de censo somente de adultos residentes nos Estados Unidos e outro com informações de censo de adultos não residentes nos EUA.
+Você usará o conjunto de dados de exemplo de [Classificação Binária de Renda de Censo de Adulto](./samples-designer.md) para preparar dois conjuntos de dados: um que inclui informações de censo somente de adultos residentes nos Estados Unidos e outro com informações de censo de adultos não residentes nos EUA.
 
 Neste artigo, você aprenderá como:
 
@@ -52,11 +52,7 @@ Use as etapas a seguir para importar o conjunto de dados de exemplo.
 
 1. Arraste e solte o conjunto de dados **Classificação Binária de Renda de Censo de Adulto** na tela.
 
-1. Selecione o módulo do conjunto de dados **Renda de Censo de Adulto**.
-
-1. No painel de detalhes que aparece na parte direita da tela, selecione **Saídas**.
-
-1. Selecionar o ícone Visualizar ![ícone visualizar](media/how-to-designer-transform-data/visualize-icon.png).
+1. Clique com o botão direito do mouse no módulo conjunto de **censo de renda de adulto** e selecione **Visualizar**  >  **saída do conjunto de resultados**
 
 1. Use a janela de visualização de dados para explorar o conjunto de dados. Tome nota especial dos valores de coluna "native-country".
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 880ee0a4a1eb396312ea9692b7586d724d6fd410
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8789050257b8bc67649233760baefe7e2ee9adf
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75864087"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320156"
 ---
 # <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>Instruções SQL Server a ciência de dados usando R, Python e T-SQL
 
@@ -32,21 +32,21 @@ O guia de [uso SQL Server](sql-walkthrough.md) mostra como criar e implantar mod
 
 ## <a name="predict-taxi-tips-using-microsoft-r-with-sql-server"></a>Prever gorjetas de táxi usando o Microsoft R com o SQL Server 
 
-A instrução de [uso SQL Server R Services](https://msdn.microsoft.com/library/mt612857.aspx) mostra como criar e implantar um modelo de R para SQL Server. O passo a passo foi projetado para apresentar os desenvolvedores em R ao R Services (no banco de dados).
+A instrução de [uso SQL Server R Services](/sql/machine-learning/tutorials/walkthrough-data-science-end-to-end-walkthrough) mostra como criar e implantar um modelo de R para SQL Server. O passo a passo foi projetado para apresentar os desenvolvedores em R ao R Services (no banco de dados).
 
 
 ## <a name="predict-taxi-tips-using-r-from-t-sql-or-stored-procedures-with-sql-server"></a>Prever gorjetas de táxi usando R a partir do T-SQL ou de procedimentos armazenados com o SQL Server
 
-O [Passo a passo de ciência de dados para R e SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) proporciona aos programadores de SQL uma experiência de criar uma solução de análise avançada com o Transact-SQL usando os Serviços de R do SQL Server para operacionalizar uma solução de R. 
+O [Passo a passo de ciência de dados para R e SQL Server](/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) proporciona aos programadores de SQL uma experiência de criar uma solução de análise avançada com o Transact-SQL usando os Serviços de R do SQL Server para operacionalizar uma solução de R. 
 
 
 ## <a name="predict-taxi-tips-using-python-in-sql-server-stored-procedures"></a>Prever gorjetas de táxi usando Python em procedimentos armazenados do SQL Server
 
-O passo a passo [Utilizar o T-SQL com Serviços Python do SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) fornece aos programadores do SQL a experiência de criação de uma solução de Machine Learning no SQL Server. Ele demonstra como incorporar o Python em um aplicativo adicionando um código do Python aos procedimentos armazenados.
+O passo a passo [Utilizar o T-SQL com Serviços Python do SQL Server](/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) fornece aos programadores do SQL a experiência de criação de uma solução de Machine Learning no SQL Server. Ele demonstra como incorporar o Python em um aplicativo adicionando um código do Python aos procedimentos armazenados.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para uma discussão sobre os principais componentes do Processo de Ciência de Dados de Equipe, veja [Visão geral do Processo de Ciência de Dados de Equipe](overview.md).
 
-Para uma discussão sobre o ciclo de vida do Processo de Ciência de Dados de Equipe que você pode usar para estruturar seus projetos de ciência de dados, veja [Ciclo de vida do Processo de Ciência de Dados de Equipe](lifecycle.md). O ciclo de vida descreve as etapas, do início ao fim, que os projetos normalmente seguem quando são executados. 
+Para uma discussão sobre o ciclo de vida do Processo de Ciência de Dados de Equipe que você pode usar para estruturar seus projetos de ciência de dados, veja [Ciclo de vida do Processo de Ciência de Dados de Equipe](lifecycle.md). O ciclo de vida descreve as etapas, do início ao fim, que os projetos normalmente seguem quando são executados.

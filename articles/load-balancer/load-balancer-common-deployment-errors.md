@@ -10,12 +10,12 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.author: anavin
-ms.openlocfilehash: 527f71b1980b5a62d3db94fe89a1bce98142e31a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae3899a61e942695fed1e3da5fc543b298a42e24
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84221006"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695547"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-load-balancer"></a>Solucionar problemas de erros comuns de implantação do Azure com o Azure Load Balancer
 
@@ -35,11 +35,11 @@ Este artigo descreve alguns erros comuns de implantação do Azure Load Balancer
 |CannotUseInactiveHealthProbe| Você não pode ter uma investigação que não seja usada por nenhuma regra configurada para a integridade do conjunto de dimensionamento de máquinas virtuais. Verifique se a investigação configurada está sendo usada ativamente. |
 |VMScaleSetCannotUseMultipleLoadBalancersOfSameType| Você não pode ter vários Load Balancers do mesmo tipo (interno, público). Você pode ter um máximo de um Load Balancer interno e um público. |
 |VMScaleSetCannotReferenceLoadbalancerWhenLargeScaleOrCrossAZ | Não há suporte para Load Balancer básico para conjuntos de dimensionamento de máquinas virtuais de grupos de vários posicionamentos ou conjunto de dimensionamento de máquinas virtuais de zona de disponibilidade cruzada. Em vez disso, use o Standard Load Balancer. |
-|MarketplacePurchaseEligibilityFailed | Use para a conta administrativa correta para habilitar as compras devido à assinatura ser uma assinatura de EA. Leia mais [aqui](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase). |
+|MarketplacePurchaseEligibilityFailed | Use para a conta administrativa correta para habilitar as compras devido à assinatura ser uma assinatura de EA. Leia mais [aqui](../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase). |
 |ResourceDeploymentFailure| Se seu load balancer estiver em um estado de falha, siga estas etapas para recuperá-lo:<ol><li>Vá para https://resources.azure.com e entre com suas credenciais do portal do Azure.</li><li>Selecione **Leitura/Gravação**.</li><li>À esquerda, expanda **Assinaturas** e, em seguida, expanda a Assinatura com o Load Balancer que será atualizado.</li><li>Expanda **ResourceGroups** e, em seguida, expanda o grupo de recursos com o Load Balancer que será atualizado.</li><li>Selecione **Microsoft.Network** > **LoadBalancers** e, em seguida, selecione o Load Balancer que será atualizado, **LoadBalancer_1**.</li><li>Na página de exibição do **LoadBalancer_1**, selecione **GET** > **Editar**.</li><li>Atualize o valor **ProvisioningState** de **Com falha** para **Bem-sucedido**.</li><li>Selecione **PUT**.</li></ol>|
 |  |  |
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Consulte a [tabela de comparação do SKU](./skus.md) do Azure Load Balancer
-* Saiba mais sobre os [limites do Azure Load Balancer](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer)
+* Saiba mais sobre os [limites do Azure Load Balancer](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/02/2020
+ms.date: 12/21/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: ba903793844e44b26931a70183860c983adaf18a
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 830e0a8733d3f5a49cede09b331dc0298ee1ce4d
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743396"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734685"
 ---
 # <a name="tutorial-install-azure-stack-edge-pro-with-gpu"></a>Tutorial: instalar o Azure Stack Edge Pro com GPU
 
@@ -159,14 +159,14 @@ Localize os componentes para instalação do conjunto do kit de trilho:
 
 Passe os cabos e conecte o dispositivo. Os procedimentos a seguir explicam como cabear o dispositivo Azure Stack Edge Pro para energia e rede.
 
-Antes de começar o cabeamento do dispositivo, você precisará do seguinte:
+Antes de executar o cabeamento do dispositivo, será necessário obter o seguinte:
 
 - Seu dispositivo físico Azure Stack Edge Pro, desempacotado e montado em rack.
 - Dois cabos de alimentação.
 - Pelo menos um cabo de rede RJ-45 de 1 GbE para conectar-se à interface de gerenciamento. Há duas interfaces de rede de 1 GbE, uma de gerenciamento e uma de dados, no dispositivo.
 - Um cabo de cobre SFP+ de 25 GbE para cada interface de rede de dados a ser configurado. Pelo menos um adaptador de rede de dados da PORTA 2, PORTA 3, PORTA 4, PORTA 5 ou PORTA 6 precisa estar conectado à Internet (com conectividade com o Azure).  
 - Acesso a duas unidades de distribuição de energia (recomendado).
-- Pelo menos um comutador de rede de 1 GbE para conectar um adaptador de rede de 1 GbE à Internet para os dados. A IU da Web local não ficará acessível se o comutador conectado não tiver pelo menos 1-GbE. Se estiver usando uma interface 25/10 GbE para os dados, você precisará de um comutador de 25 GbE ou de 10 GbE. 
+- Pelo menos um comutador de rede de 1 GbE para conectar um adaptador de rede de 1 GbE à Internet para os dados. A IU da Web local não estará acessível caso o comutador conectado não tenha pelo menos 1 GbE. Caso esteja usando uma interface de 10/25 GbE para os dados, será necessário obter um comutador de 10 GbE ou 25 GbE.
 
 > [!NOTE]
 > - Se você está conectando somente um adaptador de rede de dados, recomendamos que você use um adaptador de rede de 25/10 GbE, como a PORTA 3, a PORTA 4, a PORTA 5 ou a PORTA 6, para enviar dados para o Azure. 
@@ -186,14 +186,14 @@ No dispositivo Azure Stack Edge Pro:
     - Quatro interfaces de 25 Gbps que também podem servir como interfaces de 10 Gbps.
     - Um controlador BMC.
 
-- O backplane tem dois cartões de rede correspondentes às seis portas:
+- O backplane tem duas placas de rede correspondentes às seis portas:
 
-    - **Adaptador NDC do Microsoft QLogic Cavium 25G personalizado** – da porta 1 até a porta 4.
+    - **Adaptador personalizado `Qlogic` Cavium 25G NDC da Microsoft** – Porta 1 a 4.
     - **Adaptador de rede de quatro canais Mellanox dual port 25G ConnectX-4** – porta 5 e porta 6.
 
 Para obter uma lista completa de cabos, comutadores e transceptores compatíveis com essas placas de rede, acesse:
 
-- [Matriz de interoperabilidade do adaptador QLogic Cavium 25G NDC](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
+- [Matriz de interoperabilidade do adaptador `Qlogic` Cavium 25G NDC](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
 - [Produtos compatíveis com o adaptador de rede de quatro canais Mellanox dual port 25G ConnectX-4](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).  
 
  
@@ -201,15 +201,15 @@ Execute as etapas a seguir para cabear o dispositivo para obter energia e rede.
 
 1. Identifique as várias portas no backplane do dispositivo. Você pode ter recebido um dos dispositivos a seguir da fábrica, dependendo do número de GPUs em seu dispositivo.
 
-    - Dispositivo com 2 slots PCI (Interconexão de componentes periféricos) e uma GPU
+    - Dispositivo com dois slots PCI (Peripheral Component Interconnect) e uma GPU
 
         ![Backplane de um dispositivo cabeado](./media/azure-stack-edge-gpu-deploy-install/ase-two-pci-slots.png)
 
-    - Dispositivo com 3 slots PCI e uma GPU
+    - Dispositivo com três slots PCI e uma GPU
 
         ![Plano traseiro de um dispositivo cabeado 2](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-one-gpu.png)
 
-    - Dispositivo com 3 slots PCI e duas GPU
+    - Dispositivo com três slots PCI e duas GPUs
 
         ![Plano traseiro de um dispositivo cabeado 3](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)
 
@@ -228,7 +228,7 @@ Execute as etapas a seguir para cabear o dispositivo para obter energia e rede.
 7. Conecte uma ou mais das portas (PORTA 2, PORTA 3, PORTA 4, PORTA 5 ou PORTA 6) ao rede do datacenter/Internet.
 
     - Se estiver conectando a PORTA 2, use o cabo de rede RJ-45 de 1-GbE.
-    - Para os adaptadores de rede de 10/25 GbE, use os cabos de cobre SFP+.
+    - Para os adaptadores de rede de 10/25 GbE, use a fibra ou os cabos de cobre SFP+. Se estiver usando fibra, use um adaptador óptico para SFP.
 
 ## <a name="next-steps"></a>Próximas etapas
 

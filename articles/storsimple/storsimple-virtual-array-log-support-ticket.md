@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 57cd9b55f529bde3f6bcb0a25a95c70333f6d8dd
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130945"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005768"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>Usar o serviço do Gerenciador de Dispositivos StorSimple para registrar uma solicitação de Suporte para a Matriz Virtual StorSimple
 
@@ -33,25 +33,25 @@ Dependendo do seu [plano de suporte](https://azure.microsoft.com/support/plans/)
 
 #### <a name="to-log-a-new-request"></a>Para fazer uma nova solicitação
 
-1. Vá até o seu serviço do Gerenciador de Dispositivos StorSimple. Nas configurações de resumo de serviço, vá até a seção **SUPORTE + SOLUÇÃO DE PROBLEMAS** e, em seguida, clique em **Nova solicitação de suporte** .
+1. Vá até o seu serviço do Gerenciador de Dispositivos StorSimple. Nas configurações de resumo de serviço, vá até a seção **SUPORTE + SOLUÇÃO DE PROBLEMAS** e, em seguida, clique em **Nova solicitação de suporte**.
    
     ![Captura de tela mostra o painel básico para uma nova solicitação de suporte.](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket1.png)
 
-2. Na folha **Básico** , faça o seguinte:
+2. Na folha **Básico**, faça o seguinte:
 
-    1. Na lista suspensa **Tipo de problema** , selecione **Técnico** . 
+    1. Na lista suspensa **Tipo de problema**, selecione **Técnico**. 
     
-    2. O tipo de **Assinatura** , **Serviço** e o **Recurso** (serviço de Gerenciador de Dispositivos StorSimple) atuais são automaticamente escolhidos. 
+    2. O tipo de **Assinatura**, **Serviço** e o **Recurso** (serviço de Gerenciador de Dispositivos StorSimple) atuais são automaticamente escolhidos. 
 
     3. Especifique um ou mais dispositivos registrados para o serviço que está com problemas.
 
     4. Escolha um **plano de suporte** apropriado se você tiver vários planos associados à sua assinatura. É necessário um plano de suporte pago para habilitar o Suporte Técnico.
 
-3. Em **Etapa 2** , escolha a **Severidade** e especifique se o problema está relacionado à matriz ou ao serviço do Gerenciador de Dispositivos StorSimple. Além disso, escolha uma **Categoria** para este problema e forneça mais **Detalhes** sobre o problema.
+3. Em **Etapa 2**, escolha a **Severidade** e especifique se o problema está relacionado à matriz ou ao serviço do Gerenciador de Dispositivos StorSimple. Além disso, escolha uma **Categoria** para este problema e forneça mais **Detalhes** sobre o problema.
    
     ![Captura de tela mostra o painel problema no qual você pode inserir o tipo de problema, a categoria e os detalhes da sua solicitação de suporte.](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket2.png)
 
-4. Na **Etapa 3** , forneça suas informações de contato. O Microsoft Support usará essas informações para entrar em contato com você para obter mais informações, diagnóstico e resolução.
+4. Na **Etapa 3**, forneça suas informações de contato. O Microsoft Support usará essas informações para entrar em contato com você para obter mais informações, diagnóstico e resolução.
    
     ![Captura de tela mostra o painel de informações de contato.](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket3.png)
 
@@ -61,7 +61,7 @@ Depois de criar um tíquete de suporte, você pode gerenciar o ciclo de vida do 
 
 #### <a name="to-manage-your-support-requests"></a>Para gerenciar suas solicitações de suporte
 
-Para acessar a página de ajuda e suporte navegue até **Procurar -> Ajuda + suporte** .
+Para acessar a página de ajuda e suporte navegue até **Procurar -> Ajuda + suporte**.
 
 ![Gerenciar solicitações de suporte](./media/storsimple-virtual-array-log-support-ticket/manage-support-tickets.png)
 

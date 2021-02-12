@@ -1,39 +1,39 @@
 ---
-title: Implantação segura entre regiões – Azure Deployment Manager
-description: Saiba como implantar um serviço em várias regiões com o Azure Deployment Manager e sobre práticas de implantação seguras.
+title: Implantação segura entre regiões – Azure Gerenciador de Implantação
+description: Saiba como implantar um serviço em várias regiões com o Azure Gerenciador de Implantação e sobre práticas de implantação seguras.
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8b950fdc36fe3fbea1ce9436bdd7f7372c64c055
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63553b0bbca031faa44e0d88480fcc08950a3e2c
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333198"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627492"
 ---
-# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Habilitar práticas de implantação segura com o Azure Deployment Manager (visualização pública)
+# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Habilitar práticas de implantação segura com o Azure Gerenciador de Implantação (visualização pública)
 
 Para implantar seu serviço em várias regiões e garantir que ele esteja sendo executado conforme o esperado em cada região, você pode usar o Azure Deployment Manager para coordenar uma implementação gradual do serviço. Assim como você faria em qualquer implantação do Azure, defina os recursos para seu serviço em [ modelos do Resource Manager ](template-syntax.md). Depois de criar os modelos, use o Deployment Manager para descrever a topologia do seu serviço e como ele deve ser implementado.
 
 Gerenciador de implantação é um recurso do Gerenciador de recursos. Ele expande seus recursos durante a implantação. Use o Gerenciador de implantação quando você tiver um serviço complexo que precisa ser implantado em várias regiões. Ao preparar a distribuição do seu serviço, você poderá encontrar problemas em potencial antes de ele ter sido implantado para todas as regiões. Se você não precisar das precauções extras de um lançamento gradual, use as [opções de implantação](deploy-portal.md) padrão para o Gerenciador de recursos. O Deployment Manager integra-se perfeitamente a todas as ferramentas de terceiros existentes que oferecem suporte a implantações do Resource Manager, como ofertas de integração contínua e entrega contínua (CI/CD).
 
-O Deployment Manager do Azure está em versão prévia. Ajude-nos a melhorar o recurso fornecendo [comentários](https://aka.ms/admfeedback).
+O Gerenciador de Implantação do Azure está em versão prévia. Ajude-nos a melhorar o recurso fornecendo [comentários](https://aka.ms/admfeedback).
 
 Para usar o Deployment Manager, você precisa criar quatro arquivos:
 
-* Modelo de topologia
-* Modelo de distribuição
-* Arquivo de parâmetro para a topologia
-* Arquivo de parâmetro para distribuição
+* Modelo de topologia.
+* Modelo de distribuição.
+* Arquivo de parâmetro para a topologia.
+* Arquivo de parâmetro para distribuição.
 
 Você implanta o modelo de topologia antes de implantar o modelo de implementação.
 
 Recursos adicionais:
 
-- A [referência à API REST do Gerenciador de Implantação do Azure](/rest/api/deploymentmanager/).
-- [Tutorial: usar o Azure Deployment Manager com modelos do Resource Manager](./deployment-manager-tutorial.md).
-- [Tutorial: Usar a verificação de integridade no Gerenciador de Implantação do Azure](./deployment-manager-tutorial-health-check.md).
-- [Um exemplo do Gerenciador de Implantação do Azure](https://github.com/Azure-Samples/adm-quickstart).
+* [Referência da API REST do Azure Gerenciador de implantação](/rest/api/deploymentmanager/).
+* [Tutorial: usar o Azure Gerenciador de implantação com modelos do Resource Manager](./deployment-manager-tutorial.md).
+* [Tutorial: Usar a verificação de integridade no Gerenciador de Implantação do Azure](./deployment-manager-tutorial-health-check.md).
+* [Exemplo de Gerenciador de implantação do Azure](https://github.com/Azure-Samples/adm-quickstart).
 
 ## <a name="identity-and-access"></a>Identidade e acesso
 
@@ -49,10 +49,10 @@ O modelo de topologia descreve os recursos do Azure que formam seu serviço e on
 
 O modelo de topologia inclui os seguintes recursos:
 
-* Origem do artefato - onde seus modelos do Resource Manager e os parâmetros são armazenados
-* Topologia de serviço - aponta para uma fonte de artefato
-  * Serviços - especifica o local e o ID de assinatura do Azure
-    * Unidades de serviço - especifica o grupo de recursos, o modo de implementação e o caminho para o modelo e o arquivo de parâmetros
+* Origem do artefato-onde os modelos e parâmetros do Resource Manager são armazenados.
+* Topologia de serviço – aponta para a origem do artefato.
+  * Serviços-especifica a localização e a ID da assinatura do Azure.
+    * Unidades de serviço-especifica o grupo de recursos, o modo de implantação e o caminho para os arquivos de modelo e parâmetro.
 
 Para entender o que acontece em cada nível, é útil ver quais valores você fornece.
 
@@ -87,7 +87,7 @@ Para obter mais informações, consulte [referência do modelo artifactSources](
 
 ### <a name="service-topology"></a>Topologia de serviço
 
-O exemplo a seguir mostra o formato geral do recurso de topologia de serviço. Você fornece o ID do recurso da origem do artefato que contém os modelos e arquivos de parâmetros. A topologia de serviço inclui todos os recursos de serviço. Para garantir que a fonte de artefato esteja disponível, a topologia de serviço depende disso.
+O exemplo a seguir mostra o formato geral do recurso de topologia de serviço. Você fornece o ID do recurso da origem do artefato que contém os modelos e arquivos de parâmetros. A topologia de serviço inclui todos os recursos de serviço. Verifique se a origem do artefato está disponível porque a topologia do serviço depende dela.
 
 ```json
 {
@@ -175,11 +175,11 @@ Para obter mais informações, consulte [referência de modelo serviceUnits](/az
 
 O modelo de lançamento descreve as etapas a serem seguidas ao implantar seu serviço. Você especifica a topologia de serviço para usar e definir a ordem de implantação de unidades de serviço. Inclui uma fonte de artefato para armazenar binários para a implementação. Em seu modelo de rollout, você define a seguinte hierarquia:
 
-* Origem do artefato
-* Etapa
-* Distribuição
-  * Grupos de etapas
-    * Operações de implantação
+* Origem do artefato.
+* Etapa.
+* Profundo.
+  * Grupos de etapas.
+    * Operações de implantação.
 
 A imagem a seguir mostra a hierarquia do modelo de lançamento:
 
@@ -193,9 +193,9 @@ No modelo de implementação, você cria uma fonte de artefato para os binários
 
 ### <a name="steps"></a>Etapas
 
-Você pode definir uma etapa a ser executada antes ou depois de sua operação de implantação. Atualmente, somente a etapa `wait` e a etapa ' HealthCheck ' estão disponíveis.
+Você pode definir uma etapa a ser executada antes ou depois de sua operação de implantação. Atualmente, somente a `wait` etapa e a `healthCheck` etapa estão disponíveis.
 
-A etapa de espera faz uma pausa na implantação antes de continuar. Ele permite que você verifique se seu serviço está sendo executado conforme o esperado antes de implantar a próxima unidade de serviço. O exemplo a seguir mostra o formato geral de uma etapa de espera.
+A `wait` etapa pausa a implantação antes de continuar. Ele permite que você verifique se seu serviço está sendo executado conforme o esperado antes de implantar a próxima unidade de serviço. O exemplo a seguir mostra o formato geral de uma `wait` etapa.
 
 ```json
 {
@@ -214,13 +214,13 @@ A etapa de espera faz uma pausa na implantação antes de continuar. Ele permite
 
 A propriedade duration usa [padrão ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). O exemplo anterior Especifica uma espera de um minuto.
 
-Para obter mais informações sobre a etapa de verificação de integridade, consulte [introduzir implantação de integração de integridade para o Azure Deployment Manager](./deployment-manager-health-check.md) e [tutorial: usar a verificação de integridade no Deployment Manager do Azure](./deployment-manager-tutorial-health-check.md).
+Para obter mais informações sobre verificações de integridade, consulte [introduzir a distribuição de integração de integridade para o Azure Gerenciador de implantação](./deployment-manager-health-check.md) e [tutorial: usar a verificação de integridade no Gerenciador de implantação do Azure](./deployment-manager-tutorial-health-check.md).
 
 Para obter mais informações, consulte [as etapas de referência de modelo](/azure/templates/Microsoft.DeploymentManager/steps).
 
 ### <a name="rollouts"></a>Distribuições
 
-Para garantir que a fonte do artefato esteja disponível, o lançamento depende disso. O rollout define grupos de etapas para cada unidade de serviço implantada. Você pode definir ações a serem executadas antes ou depois da implantação. Por exemplo, você pode especificar que a implantação de espera depois que a unidade do serviço foi implantada. Você pode definir a ordem dos grupos de etapa.
+Verifique se a origem do artefato está disponível porque a distribuição depende dela. O rollout define grupos de etapas para cada unidade de serviço implantada. Você pode definir ações a serem executadas antes ou depois da implantação. Por exemplo, você pode especificar a implantação a ser esperada após a implantação da unidade de serviço. Você pode definir a ordem dos grupos de etapa.
 
 O objeto de identidade especifica a [identidade gerenciada atribuída pelo usuário](#identity-and-access) que executa as ações de implantação.
 
@@ -270,7 +270,7 @@ Você cria dois arquivos de parâmetro. Um arquivo de parâmetro é usado ao imp
 
 Com implantações com versão, o caminho para seus artefatos muda a cada nova versão. Na primeira vez que você executa uma implementação, o caminho pode ser `https://<base-uri-blob-container>/binaries/1.0.0.0`. A segunda vez pode ser `https://<base-uri-blob-container>/binaries/1.0.0.1`. O Deployment Manager simplifica a obtenção do caminho raiz correto para a implementação atual usando a variável `$containerRoot`. Esse valor muda com cada versão e não é conhecido antes da implantação.
 
-Use a variável `$containerRoot` no arquivo de parâmetros do modelo para implantar os recursos do Azure. No momento da implementação, essa variável é substituída pelos valores reais do rollout.
+Use a `$containerRoot` variável no arquivo de parâmetro para o modelo que implanta os recursos do Azure. No momento da implementação, essa variável é substituída pelos valores reais do rollout.
 
 Por exemplo, durante o rollout, você cria uma fonte de artefatos para os artefatos binários.
 
@@ -296,7 +296,7 @@ Por exemplo, durante o rollout, você cria uma fonte de artefatos para os artefa
 
 Observe que o `artifactRoot` e `sasUri` propriedades. A raiz do artefato pode ser configurada para um valor como `binaries/1.0.0.0`. O URI do SAS é o URI para seu contêiner de armazenamento com um token SAS para acesso. O Deployment Manager constrói automaticamente o valor da variável `$containerRoot`. Ele combina esses valores no formato `<container>/<artifactRoot>`.
 
-Seu modelo e arquivo de parâmetros precisam conhecer o caminho correto para obter os binários com versão. Por exemplo, para implantar arquivos para um aplicativo da web, crie o seguinte arquivo de parâmetros com a variável $ containerRoot. Você deve usar duas barras invertidas (`\\`) para o caminho, porque o primeiro é um caractere de escape.
+Seu modelo e arquivo de parâmetros precisam conhecer o caminho correto para obter os binários com versão. Por exemplo, para implantar arquivos para um aplicativo Web, crie o seguinte arquivo de parâmetro com a `$containerRoot` variável. Você deve usar duas barras invertidas (`\\`) para o caminho, porque o primeiro é um caractere de escape.
 
 ```json
 {
@@ -330,7 +330,7 @@ Em seguida, use esse parâmetro em seu modelo:
 }
 ```
 
-Gerenciar implantações com controle de versão ao criar novas pastas e passar essa raiz durante a distribuição. O caminho fluem para o modelo que implanta os recursos.
+Você gerencia implantações com versão criando novas pastas e passando esse caminho raiz durante a distribuição. O caminho fluem para o modelo que implanta os recursos.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -339,4 +339,4 @@ Neste artigo, você aprendeu sobre o Deployment Manager. Vá para o próximo art
 > [!div class="nextstepaction"]
 > [Tutorial: Usar Gerenciador de implantação do Azure com modelos do Resource Manager](./deployment-manager-tutorial.md)
 >
-> [Início rápido: Experimente o Azure Deployment Manager em apenas alguns minutos](https://github.com/Azure-Samples/adm-quickstart)
+> [Início rápido: Experimente o Azure Gerenciador de Implantação em apenas alguns minutos](https://github.com/Azure-Samples/adm-quickstart)

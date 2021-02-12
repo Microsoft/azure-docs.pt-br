@@ -6,11 +6,11 @@ ms.topic: include
 ms.date: 07/17/2019
 ms.author: pafarley
 ms.openlocfilehash: 07e7cc991f127bf4bb4f466c0108962786e45bce
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "68423598"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018335"
 ---
 Observe o controle deslizante **Limite de Probabilidade** no painel à esquerda da guia **Desempenho**. Esse é o nível de confiança que uma previsão precisa ter para ser considerada correto (para fins de cálculo de precisão e recall). 
 

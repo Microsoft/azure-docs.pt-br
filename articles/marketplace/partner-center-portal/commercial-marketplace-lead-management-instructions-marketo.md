@@ -4,15 +4,15 @@ description: Saiba como usar o sistema de CRM Marketo para gerenciar clientes po
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 03/30/2020
-ms.openlocfilehash: be1f21f927b01d66e19dc5e97b38e5c35e6664cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbd12481312d310add15bf3d41e21e9c416f1c39
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86120255"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491068"
 ---
 # <a name="use-marketo-to-manage-commercial-marketplace-leads"></a>Use o Marketo para gerenciar clientes potenciais do marketplace comercial
 
@@ -34,13 +34,13 @@ Este artigo descreve como configurar seu sistema de CRM Marketo para processar o
 
     ![Criação de novo formulário no Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-3.png)
 
-1.  Na página **Detalhes do Campo**, selecione **Concluir**.
+1.  Na página **Detalhes do Campo** , selecione **Concluir**.
 
     ![Formulário de conclusão do Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-4.png)
 
 1.  Aprovar e fechar.
 
-1. Na guia **MarketplaceLeadBackend**, selecione **Código de Inserção**. 
+1. Na guia **MarketplaceLeadBackend** , selecione **Código de Inserção**. 
 
     ![Código de Inserção do Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-6.png)
 
@@ -60,7 +60,7 @@ Este artigo descreve como configurar seu sistema de CRM Marketo para processar o
     A seguir está outra maneira de descobrir esses valores:
 
     - A ID do servidor pode ser encontrada na URL da sua instância do Marketo, por exemplo, `serverID.marketo.com`.
-    - Obtenha a ID do Munchkin da sua assinatura acessando o menu **Admin** > **Munchkin** no campo **ID da Conta do Munchkin**, ou a partir da primeira parte do subdomínio do host da API REST do Marketo: `https://{Munchkin ID}.mktorest.com`.
+    - Obtenha a ID do Munchkin da sua assinatura acessando o menu **Admin** > **Munchkin** no campo **ID da Conta do Munchkin** , ou a partir da primeira parte do subdomínio do host da API REST do Marketo: `https://{Munchkin ID}.mktorest.com`.
     - ID do formulário é a ID do formulário de Código de Inserção criado na etapa 7 para encaminhar clientes potenciais do marketplace.
 
 ## <a name="configure-your-offer-to-send-leads-to-marketo"></a>Configuração da oferta para enviar clientes potenciais para o Marketo
@@ -71,20 +71,20 @@ Quando estiver pronto para configurar as informações de gerenciamento de clien
 
 1. Selecione sua oferta e vá até a guia **Configuração de oferta**.
 
-1. Na seção **Clientes potenciais**, selecione **Conectar**.
+1. Na seção **Clientes potenciais** , selecione **Conectar**.
 
     :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-marketo/customer-leads.png" alt-text="Clientes potenciais":::
 
-1. Na janela pop-up **Detalhes da conexão**, selecione **Marketo** para o **Destino do cliente potencial**.
+1. Na janela pop-up **Detalhes da conexão** , selecione **Marketo** para o **Destino do cliente potencial**.
 
     ![Escolha do destino do cliente potencial](./media/commercial-marketplace-lead-management-instructions-marketo/choose-lead-destination.png)
 
-1. Forneça a **ID do servidor**, a **ID da conta do Munchkin** e a **ID do formulário**.
+1. Forneça a **ID do servidor** , a **ID da conta do Munchkin** e a **ID do formulário**.
 
     > [!NOTE]
     > Conclua a configuração do restante da oferta e publique-a antes de receber clientes potenciais para a oferta. 
 
-1. Para **Emails de contato**, insira os endereços de email das pessoas em sua empresa que devem receber notificações por email quando um novo cliente potencial for recebido. Você pode inserir vários endereços de email separando-os com um sinal de ponto e vírgula.
+1. Para **Emails de contato** , insira os endereços de email das pessoas em sua empresa que devem receber notificações por email quando um novo cliente potencial for recebido. Você pode inserir vários endereços de email separando-os com um sinal de ponto e vírgula.
 
 1. Selecione **OK**.
 

@@ -3,17 +3,17 @@ title: Gerenciar os custos do Azure com automação
 description: Este artigo explica como você pode gerenciar os custos do Azure com automação.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/14/2020
+ms.date: 01/06/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: matrive
-ms.openlocfilehash: 939e621da414fc2d4d55d85e8b66a409b1338941
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.reviewer: adwise
+ms.openlocfilehash: 02215bace693ac5ac36f9fc29758215d45b23eb1
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131965"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051778"
 ---
 # <a name="manage-costs-with-automation"></a>Gerenciar os custos com a automação
 
@@ -57,17 +57,40 @@ Recomendamos que você faça _não mais de uma solicitação_ à API de Detalhes
 
 Use a API para obter todos os dados necessários no escopo de nível mais alto disponível. Aguarde até que todos os dados necessários sejam ingeridos antes de fazer qualquer filtragem, agrupamento ou análise agregada. A API é otimizada especificamente para fornecer grandes quantidades de dados de custo bruto não agregados. Para saber mais sobre escopos disponíveis no Gerenciamento de Custos, confira [Entender e trabalhar com escopos](./understand-work-scopes.md). Depois de baixar os dados necessários para um escopo, use o Excel para analisar ainda mais os dados com filtros e tabelas dinâmicas.
 
+### <a name="notes-about-pricing"></a>Observações sobre preço
+
+Se você quiser reconciliar o uso e os encargos com sua folha de preços ou fatura, observe as informações a seguir.
+
+Comportamento do preço da tabela de preços – os preços mostrados na tabela de preços são os que você recebe do Azure. A escala deles é ajustada para uma unidade de medida específica. Infelizmente, a unidade de medida nem sempre se alinha à unidade de medida na qual o uso real de recursos e os encargos são emitidos.
+
+Comportamento de preço de detalhes de uso – os arquivos de uso mostram informações com ajuste de escala que podem não coincidir precisamente com a tabela de preços. Especificamente:
+
+- Preço unitário – o preço é colocado em escala para corresponder à unidade de medida na qual os encargos são de fato emitidos pelos recursos do Azure. Se houver colocação em escala, o preço não corresponderá ao preço visto na tabela de preços.
+- Unidade de medida – representa a unidade de medida na qual os encargos são de fato emitidos pelos recursos do Azure.
+- Preço efetivo/taxa de preço – o preço representa a taxa real que você paga por unidade depois de considerar os descontos. É o preço que deve ser usado com a Quantidade para realizar os cálculos de Preço * Quantidade para reconciliar os encargos. O preço leva em consideração os cenários a seguir e o preço unitário com ajuste de escala que também está presente nos arquivos. Como resultado, pode ser diferente do preço unitário com ajuste de escala.
+  - Tipos de preço – por exemplo: US$ 10 para as primeiras 100 unidades, US$ 8 para as próximas 100 unidades.
+  - Quantidade incluída – por exemplo: As primeiras 100 unidades são gratuitas, então são cobrados US$ 10 por unidade.
+  - Reservas
+  - O arredondamento que ocorre durante o cálculo – o arredondamento leva em conta quantidade consumida, tipo de preço/quantidade incluída e o preço unitário com ajuste de escala.
+
 ## <a name="example-usage-details-api-requests"></a>Exemplos de solicitações de API de Detalhes de Uso
 
 As solicitações de exemplo a seguir são usadas pelos clientes da Microsoft para abordar os cenários comuns que você pode encontrar.
 
 ### <a name="get-usage-details-for-a-scope-during-specific-date-range"></a>Obter os Detalhes de Uso para um escopo durante um intervalo de datas específico
 
-Os dados retornados pela solicitação correspondem à data em que o uso foi recebido pelo sistema de cobrança. Ele pode incluir custos de várias notas fiscais.
+Os dados retornados pela solicitação correspondem à data em que o uso foi recebido pelo sistema de cobrança. Ele pode incluir custos de várias notas fiscais. A chamada a ser usada varia de acordo com seu tipo de assinatura.
+
+Para clientes herdados com uma assinatura EA (Contrato Enterprise) ou paga conforme o uso, use a seguinte chamada:
 
 ```http
 GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?$filter=properties%2FusageStart%20ge%20'2020-02-01'%20and%20properties%2FusageEnd%20le%20'2020-02-29'&$top=1000&api-version=2019-10-01
+```
 
+Para clientes modernos com um Contrato de Cliente da Microsoft, use a seguinte chamada:
+
+```http
+GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?startDate=2020-08-01&endDate=&2020-08-05$top=1000&api-version=2019-10-01
 ```
 
 ### <a name="get-amortized-cost-details"></a>Obter detalhes de custo amortizado
@@ -318,7 +341,7 @@ Você pode configurar orçamentos para iniciar ações automatizadas usando grup
 
 ## <a name="data-latency-and-rate-limits"></a>Latência de dados e limites de taxa
 
-Recomendamos que você chame as APIs não mais do que uma vez por dia. Os dados de gerenciamento de custos são atualizados a cada quatro horas à medida que novos dados de uso são recebidos dos provedores de recursos do Azure. Chamar com mais frequência não fornecerá dados adicionais. Em vez disso, criará uma carga maior. Para saber mais sobre a frequência com que os dados são alterados e como a latência de dados é manipulada, confira [Entender dados de gerenciamento de custos](understand-cost-mgt-data.md).
+Recomendamos que você chame as APIs não mais do que uma vez por dia. Os dados de gerenciamento de custos são atualizados a cada quatro horas à medida que novos dados de uso são recebidos dos provedores de recursos do Azure. Chamar com mais frequência não fornece mais dados. Em vez disso, cria uma carga maior. Para saber mais sobre a frequência com que os dados são alterados e como a latência de dados é manipulada, confira [Entender dados de gerenciamento de custos](understand-cost-mgt-data.md).
 
 ### <a name="error-code-429---call-count-has-exceeded-rate-limits"></a>Código de erro 429 – a contagem de chamadas excedeu os limites de taxa
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d7c02e413fdaa54db431cdac7a3cf7af0bddeb98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 580181aaaea975ee07bcec8108297079c5373b92
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331889"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007402"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>O Processo de Ciência de Dados de Equipe em ação: usando o SQL Server
 Neste tutorial, você obtém um passo a passo sobre como criar e implantar um modelo de aprendizado de máquina usando o SQL Server e um conjunto de dados disponível publicamente – [Corridas de Táxi em NYC](https://www.andresmh.com/nyctaxitrips/). O procedimento segue um fluxo de trabalho de ciência de dados padrão: ingerir e explorar os dados, projetar recursos para facilitar o aprendizado e, em seguida, criar e implantar um modelo.
@@ -57,7 +57,7 @@ A chave exclusiva para unir trip\_data e trip\_fare é composta pelos campos: me
 ## <a name="examples-of-prediction-tasks"></a><a name="mltasks"></a>Exemplos de tarefas de previsão
 Formularemos três problemas de previsão com base em *tip\_amount*, sendo eles:
 
-* Classificação binária: preveja se uma gorjeta foi paga ou não por uma corrida, ou seja, *um \_ valor Tip* maior que $0 é um exemplo positivo, enquanto um * \_ valor Tip* de $0 é um exemplo negativo.
+* Classificação binária: preveja se uma gorjeta foi paga ou não por uma corrida, ou seja, *um \_ valor Tip* maior que $0 é um exemplo positivo, enquanto um *\_ valor Tip* de $0 é um exemplo negativo.
 * Classificação multiclasse: prever o intervalo da gorjetas pagas pela corrida. Dividimos *tip\_amount* em cinco compartimentos ou classes:
 
    `Class 0 : tip_amount = $0`
@@ -84,7 +84,7 @@ Para configurar seu ambiente de Ciência de Dados do Azure:
 
 1. [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md)
 2. [Criar um workspace de Azure Machine Learning](../classic/create-workspace.md)
-3. [Provisione uma Máquina Virtual de Ciência de Dados](../data-science-virtual-machine/setup-sql-server-virtual-machine.md), que fornece um SQL Server e um servidor do IPython Notebook.
+3. [Provisione uma Máquina Virtual de Ciência de Dados](../data-science-virtual-machine/overview.md), que fornece um SQL Server e um servidor do IPython Notebook.
    
    > [!NOTE]
    > Os scripts de exemplo e IPython Notebook serão baixados para a máquina virtual de Ciência de Dados durante o processo de instalação. Quando o script de pós-instalação da VM for concluído, os exemplos estarão na biblioteca de documentos da VM:  
@@ -150,7 +150,7 @@ O desempenho de carregar/transferir grandes quantidades de dados para um banco d
    
     Você também pode selecionar o modo de autenticação, o padrão é a Autenticação do Windows. Clique na seta verde na barra de ferramentas para executar. O script iniciará 24 operações de importação em massa paralelas, 12 para cada tabela particionada. Você pode monitorar o progresso da importação de dados abrindo a pasta de dados padrão do SQL Server conforme definido acima.
 9. O script do PowerShell informa o início e término. Quando todas as importações em massa forem concluídas, a hora de término é relatada. Verifique a pasta de log de destino para verificar se as importações em massa foram bem-sucedidas, ou seja, se não há erros relatados na pasta de log de destino.
-10. O banco de dados agora está pronto para exploração, engenharia de recursos e outras operações conforme desejado. Como as tabelas são particionadas de acordo com o campo de ** \_ data de retirada** , as consultas que incluem condições de **retirada de \_ data/hora** na cláusula **Where** se beneficiarão do esquema de partição.
+10. O banco de dados agora está pronto para exploração, engenharia de recursos e outras operações conforme desejado. Como as tabelas são particionadas de acordo com o campo de **\_ data de retirada** , as consultas que incluem condições de **retirada de \_ data/hora** na cláusula **Where** se beneficiarão do esquema de partição.
 11. No **SQL Server Management Studio**, explore o script de exemplo fornecido **sample\_queries.sql**. Para executar qualquer uma das consultas de exemplo, realce as linhas de consulta e clique em **executar** na barra de ferramentas.
 12. Os dados de Corridas de Táxi em NYC são carregados em duas tabelas separadas. Para melhorar as operações de associação, é altamente recomendável indexá-las. O exemplo de script **create\_partitioned\_index.sql** cria índices particionados na chave de associação composta **medallion, hack\_license e pickup\_datetime**.
 
@@ -585,7 +585,7 @@ cursor.commit()
 ```
 
 #### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Recurso de engenharia: extrair recursos de local de latitude/longitude decimal
-Este exemplo divide a representação decimal de um campo de latitude e/ou longitude em vários campos de região de granularidade diferente, como país/região, cidade, cidade, bloco, etc. Os novos campos geográficos não são mapeados para locais reais. Para saber mais sobre o mapeamento de locais de codificação geográfica, veja [Serviços REST do Bing Mapas](https://msdn.microsoft.com/library/ff701710.aspx).
+Este exemplo divide a representação decimal de um campo de latitude e/ou longitude em vários campos de região de granularidade diferente, como país/região, cidade, cidade, bloco, etc. Os novos campos geográficos não são mapeados para locais reais. Para saber mais sobre o mapeamento de locais de codificação geográfica, veja [Serviços REST do Bing Mapas](/bingmaps/rest-services/locations/find-a-location-by-point).
 
 ```sql
 nyctaxi_one_percent_insert_col = '''
@@ -722,6 +722,6 @@ Este passo a passo do exemplo, os scripts que o acompanham e os IPython Notebook
 
 
 <!-- Module References -->
-[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[edit-metadata]: /azure/machine-learning/studio-module-reference/edit-metadata
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[import-data]: /azure/machine-learning/studio-module-reference/import-data

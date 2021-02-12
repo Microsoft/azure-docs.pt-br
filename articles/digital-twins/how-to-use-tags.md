@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 59f68909e2f3704fea5c38e3f1535f5996b284ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a1a55bdf21b74116450ca32f66d891f1aa206d3
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87096023"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045403"
 ---
 # <a name="add-tags-to-digital-twins"></a>Adicionar marcas ao gêmeos digital 
 
@@ -32,23 +32,7 @@ Marcas de marcador são modeladas como um mapa de [DTDL](https://github.com/Azur
 
 Aqui está um trecho de um modelo de entrelaçamento que implementa uma marca de marcador como uma propriedade:
 
-```json
-{
-  "@type": "Property",
-  "name": "tags",
-  "schema": {
-    "@type": "Map",
-    "mapKey": {
-      "name": "tagName",
-      "schema": "string"
-    },
-    "mapValue": {
-      "name": "tagValue",
-      "schema": "boolean"
-    }
-  }
-}
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/tags.json" range="2-16":::
 
 ### <a name="add-marker-tags-to-digital-twins"></a>Adicionar marcas de marcador ao gêmeos digital
 
@@ -56,11 +40,7 @@ Depois que a `tags` propriedade faz parte de um modelo de teledigital, você pod
 
 Aqui está um exemplo que popula o marcador `tags` para três gêmeos:
 
-```csharp
-entity-01: "tags": { "red": true, "round": true } 
-entity-02: "tags": { "blue": true, "round": true } 
-entity-03: "tags": { "red": true, "large": true } 
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesMarker":::
 
 ### <a name="query-with-marker-tags"></a>Consulta com marcas de marcador
 
@@ -68,15 +48,11 @@ Depois que as marcas forem adicionadas ao gêmeos digital, as marcas poderão se
 
 Aqui está uma consulta para obter todos os gêmeos que foram marcados como "vermelho": 
 
-```sql
-select * from digitaltwins where is_defined(tags.red) 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags1":::
 
 Você também pode combinar marcas para consultas mais complexas. Aqui está uma consulta para obter todos os gêmeos que estão redondos e não vermelho: 
 
-```sql
-select * from digitaltwins where not is_defined(tags.red) and is_defined(tags.round) 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags2":::
 
 ## <a name="value-tags"></a>Marcas de valor 
 
@@ -88,23 +64,7 @@ Marcas de valor são modeladas como um mapa de [DTDL](https://github.com/Azure/o
 
 Aqui está um trecho de um modelo de entrelaçamento que implementa uma marca de valor como uma propriedade:
 
-```json
-{
-  "@type": "Property",
-  "name": "tags",
-  "schema": {
-    "@type": "Map",
-    "mapKey": {
-      "name": "tagName",
-      "schema": "string"
-    },
-    "mapValue": {
-      "name": "tagValue",
-      "schema": "string"
-    }
-  }
-} 
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/tags.json" range="17-31":::
 
 ### <a name="add-value-tags-to-digital-twins"></a>Adicionar marcas de valor a gêmeos digital
 
@@ -112,11 +72,7 @@ Assim como nas marcas de marcador, você pode definir a marca de valor em um Fil
 
 Aqui está um exemplo que popula o valor `tags` para três gêmeos:
 
-```csharp
-entity-01: "tags": { "red": "", "size": "large" } 
-entity-02: "tags": { "purple": "", "size": "small" } 
-entity-03: "tags": { "red": "", "size": "small" } 
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesValue":::
 
 Observe que `red` e `purple` são usados como marcas de marcador neste exemplo.
 
@@ -124,17 +80,13 @@ Observe que `red` e `purple` são usados como marcas de marcador neste exemplo.
 
 Assim como nas marcas de marcador, você pode usar marcas de valor para filtrar o gêmeos em consultas. Você também pode usar marcas de valor e marcas de marcador juntos.
 
-No exemplo acima, `red` está sendo usado como uma marca de marcador. Aqui está uma consulta para obter todos os gêmeos que foram marcados como "vermelho": 
+No exemplo acima, `red` está sendo usado como uma marca de marcador. Lembre-se de que essa é uma consulta para obter todos os gêmeos que foram marcados como "vermelho": 
 
-```sql
-select * from digitaltwins where is_defined(tags.red) 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags1":::
 
 Aqui está uma consulta para obter todas as entidades que são pequenas (marca de valor) e não vermelho: 
 
-```sql
-select * from digitaltwins where not is_defined(tags.red) and tags.size = 'small' 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerValueTags":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

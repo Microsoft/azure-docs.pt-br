@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2020
-ms.author: duau
-ms.openlocfilehash: d533b8fed47b1790cc35429613179f440f1fac51
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.date: 11/23/2020
+ms.author: yuajia
+ms.openlocfilehash: cd99be40700ab1c34176f2bf7497e4debf5cd424
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961741"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483790"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Monitoramento de métricas e logs na porta frontal do Azure
 
@@ -29,7 +29,7 @@ Usando a porta frontal do Azure, você pode monitorar os recursos das seguintes 
 
 As métricas são um recurso para determinados recursos do Azure que permitem Exibir contadores de desempenho no Portal. A seguir estão as métricas de porta frontal disponíveis:
 
-| Métrica | Nome de exibição da métrica | Unit | Dimensões | Descrição |
+| Métrica | Nome de exibição da métrica | Unidade | Dimensões | Descrição |
 | --- | --- | --- | --- | --- |
 | RequestCount | Contagem de solicitações | Contagem | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | O número de solicitações de cliente atendidas pelo Front Door.  |
 | RequestSize | Tamanho da solicitação | Bytes | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | O número de bytes enviados como solicitações de clientes para o Front Door. |
@@ -61,7 +61,7 @@ Os logs de diagnóstico fornecem informações avançadas sobre operações e er
 
 Os logs de atividades fornecem informações sobre as operações realizadas nos recursos do Azure. Os logs de diagnóstico fornecem informações sobre as operações que o recurso fez. Para obter mais informações, consulte [Azure monitor logs de diagnóstico](../azure-monitor/platform/platform-logs-overview.md).
 
-:::image type="content" source="./media/front-door-diagnostics/diagnostic-log.png" alt-text="Log de atividades":::
+:::image type="content" source="./media/front-door-diagnostics/diagnostic-log.png" alt-text="Logs de diagnóstico":::
 
 Para configurar os logs de diagnóstico para sua porta frontal:
 
@@ -91,10 +91,11 @@ Atualmente, a porta frontal fornece logs de diagnóstico (em lote). Os logs de d
 | RulesEngineMatchNames | Os nomes das regras que a solicitação correspondeu. |
 | SecurityProtocol | A versão do protocolo TLS/SSL usada pela solicitação ou NULL se não houver criptografia. |
 | SentToOriginShield </br> (preterido) * **Veja observações sobre a reprovação na seção a seguir.**| Se for verdadeiro, significa que a solicitação foi respondida do cache da blindagem de origem em vez do pop de borda. A blindagem de origem é um cache pai usado para melhorar a taxa de acertos do cache. |
-| isReceivedFromClient | Se for true, significa que a solicitação veio do cliente. Se for false, a solicitação será um erro na borda (POP filho) e será respondida do escudo de origem (POP pai). 
+| isReceivedFromClient | Se for true, significa que a solicitação veio do cliente. Se for false, a solicitação será um erro na borda (POP filho) e será respondida do escudo de origem (POP pai). |
 | TimeTaken | O período de tempo do primeiro byte de solicitação na porta frontal até o último byte de resposta, em segundos. |
 | TrackingReference | A cadeia de caracteres de referência exclusiva que identifica uma solicitação atendida pela Front Door, também enviada como o cabeçalho X-Azure-Ref para o cliente. Necessário para pesquisar detalhes nos logs de acesso para uma solicitação específica. |
 | UserAgent | O tipo de navegador que o cliente usou. |
+| ErrorInfo | Este campo contém o tipo específico de erro para a solução de problemas. </br> Os valores possíveis incluem: </br> **NOERROR**: indica que nenhum erro foi encontrado. </br> **CertificateError**: erro de certificado SSL genérico.</br> **CertificateNameCheckFailed**: o nome do host no certificado SSL é inválido ou não corresponde. </br> **ClientDisconnected**: falha de solicitação devido à conexão de rede do cliente. </br> **UnspecifiedClientError**: erro de cliente genérico. </br> **InvalidRequest**: solicitação inválida. Pode ocorrer devido a cabeçalho, corpo e URL malformados. </br> **DNSFailure**: falha de DNS. </br> **DNSNameNotResolved**: não foi possível resolver o nome ou o endereço do servidor. </br> **OriginConnectionAborted**: a conexão com a origem foi interrompida abruptamente. </br> **OriginConnectionError**: erro de conexão de origem genérica. </br> **OriginConnectionRefused**: a conexão com a origem não foi capaz de estabelecer. </br> **OriginError**: erro de origem genérica. </br> **OriginInvalidResponse**: Origin retornou uma resposta inválida ou não reconhecida. </br> **OriginTimeout**: o período de tempo limite para a solicitação de origem expirou. </br> **ResponseHeaderTooBig**: a origem retornou muito grande de um cabeçalho de resposta. </br> **RestrictedIP**: a solicitação foi bloqueada devido ao IP restrito. </br> **SSLHandshakeError**: não é possível estabelecer a conexão com a origem devido a uma falha de mistura de SSL. </br> **UnspecifiedError**: ocorreu um erro que não se ajustou a nenhum dos erros na tabela. |
 
 ### <a name="sent-to-origin-shield-deprecation"></a>Enviado à substituição da blindagem de origem
 A propriedade de log bruto **isSentToOriginShield** foi preterida e substituída por um novo campo **isReceivedFromClient**. Use o novo campo se você já estiver usando o campo preterido. 
@@ -120,12 +121,12 @@ Se o valor for false, isso significa que a solicitação é respondida da blinda
 
 | Cenários | Contagem de entradas de log | POP | BackendHostname | isReceivedFromClient | CacheStatus |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| Regra de roteamento sem Caching habilitado | 1 | Código POP do Edge | Back-end em que a solicitação foi encaminhada | True | CONFIG_NOCACHE |
-| Regra de roteamento com Caching habilitado. Cache atingido no POP de borda | 1 | Código POP do Edge | Vazio | True | CONTADOR |
-| Regra de roteamento com Caching habilitado. Erro de cache no POP de borda, mas acesso ao cache no POP do cache pai | 2 | 1. código POP de borda</br>2. código POP do cache pai | 1. nome do host POP do cache pai</br>2. vazio | 1. verdadeiro</br>2. false | 1. PERDA</br>2. ATINGIR |
-| Regra de roteamento com Caching habilitado. Erro de cache no POP de borda, mas o impacto parcial do cache no POP do cache pai | 2 | 1. código POP de borda</br>2. código POP do cache pai | 1. nome do host POP do cache pai</br>2. back-end que ajuda a preencher o cache | 1. verdadeiro</br>2. false | 1. PERDA</br>2. PARTIAL_HIT |
+| Regra de roteamento sem Caching habilitado | 1 | Código POP do Edge | Back-end em que a solicitação foi encaminhada | Verdadeiro | CONFIG_NOCACHE |
+| Regra de roteamento com Caching habilitado. Cache atingido no POP de borda | 1 | Código POP do Edge | Vazio | Verdadeiro | CONTADOR |
+| Regra de roteamento com Caching habilitado. Erros de cache no POP de borda, mas acesso ao cache no POP do cache pai | 2 | 1. código POP de borda</br>2. código POP do cache pai | 1. nome do host POP do cache pai</br>2. vazio | 1. verdadeiro</br>2. false | 1. PERDA</br>2. ATINGIR |
+| Regra de roteamento com Caching habilitado. Perda de caches no POP de borda, mas acesso parcial ao cache no POP do cache pai | 2 | 1. código POP de borda</br>2. código POP do cache pai | 1. nome do host POP do cache pai</br>2. back-end que ajuda a preencher o cache | 1. verdadeiro</br>2. false | 1. PERDA</br>2. PARTIAL_HIT |
 | Regra de roteamento com Caching habilitado. Cache PARTIAL_HIT no POP de borda, mas acesso ao cache no POP do cache pai | 2 | 1. código POP de borda</br>2. código POP do cache pai | 1. código POP de borda</br>2. código POP do cache pai | 1. verdadeiro</br>2. false | 1. PARTIAL_HIT</br>2. ATINGIR |
-| Regra de roteamento com Caching habilitado. Perda de cache na borda e no pop-up de cache pai | 2 | 1. código POP de borda</br>2. código POP do cache pai | 1. código POP de borda</br>2. código POP do cache pai | 1. verdadeiro</br>2. false | 1. PERDA</br>2. PERDA |
+| Regra de roteamento com Caching habilitado. Erros de cache na borda e no pop-up de cache pai | 2 | 1. código POP de borda</br>2. código POP do cache pai | 1. código POP de borda</br>2. código POP do cache pai | 1. verdadeiro</br>2. false | 1. PERDA</br>2. PERDA |
 
 > [!NOTE]
 > Para cenários de cache, o valor do status do cache será partial_hit quando alguns dos bytes de uma solicitação forem atendidos do cache da borda da porta frontal ou da blindagem de origem, enquanto alguns dos bytes são atendidos da origem para objetos grandes.

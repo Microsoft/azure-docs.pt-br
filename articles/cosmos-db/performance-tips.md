@@ -3,16 +3,17 @@ title: Azure Cosmos DB dicas de desempenho para o SDK do .NET v2
 description: Aprenda as opções de configuração do cliente para melhorar o desempenho do SDK do .NET v2 Azure Cosmos DB.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: sngun
-ms.custom: devx-track-dotnet
-ms.openlocfilehash: 824c48646ab32e02c627fb623dbab60c3050ad96
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: devx-track-dotnet, contperf-fy21q2
+ms.openlocfilehash: 47e20e89c8eaef59b9acd6cf7e31244afd4bcf60
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080712"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359040"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Dicas de desempenho para o Azure Cosmos DB e .NET SDK v2
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -47,12 +48,12 @@ Recomendamos o processamento de host do Windows de 64 bits para melhorar o desem
 
 - Para projetos de teste baseados em VSTest, você pode alterar o processamento de host selecionando **testar**  >  **configurações**  >  **de teste arquitetura de processador padrão como x64** no menu de **teste** do Visual Studio.
 
-- Para aplicativos Web ASP.net implantados localmente, você pode alterar o processamento de host selecionando **usar a versão de 64 bits do IIS Express para sites e projetos** em **ferramentas**  >  **Opções**  >  **projetos e soluções**  >  **projetos da Web** .
+- Para aplicativos Web ASP.net implantados localmente, você pode alterar o processamento de host selecionando **usar a versão de 64 bits do IIS Express para sites e projetos** em **ferramentas**  >  **Opções**  >  **projetos e soluções**  >  **projetos da Web**.
 
 - Para aplicativos Web ASP.NET implantados no Azure, você pode alterar o processamento de host selecionando a plataforma de **64 bits** nas **configurações do aplicativo** na portal do Azure.
 
 > [!NOTE] 
-> Por padrão, novos projetos do Visual Studio são definidos para **qualquer CPU** . Recomendamos que você defina seu projeto como **x64** para que ele não mude para **x86** . Um projeto definido para **qualquer CPU** pode mudar facilmente para **x86** se uma dependência somente x86 for adicionada.<br/>
+> Por padrão, novos projetos do Visual Studio são definidos para **qualquer CPU**. Recomendamos que você defina seu projeto como **x64** para que ele não mude para **x86**. Um projeto definido para **qualquer CPU** pode mudar facilmente para **x86** se uma dependência somente x86 for adicionada.<br/>
 > ServiceInterop.dll precisa estar na pasta da qual a DLL do SDK está sendo executada. Isso deve ser uma preocupação apenas se você copiar DLLs manualmente ou se tiver sistemas de compilação/implantação personalizados.
     
 **Ativar coleta de lixo do lado do servidor (GC)**
@@ -132,7 +133,7 @@ Azure Cosmos DB solicitações são feitas por HTTPS/REST quando você usa o mod
 
 **Ajustar consultas paralelas para coleções particionadas**
 
-O SDK do SQL .NET 1.9.0 e versões posteriores dão suporte a consultas paralelas, que permitem consultar uma coleção particionada em paralelo. Para obter mais informações, consulte [exemplos de código](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) relacionados ao trabalho com os SDKs. As consultas paralelas são projetadas para fornecer melhor latência de consulta e taxa de transferência do que o equivalente em série. As consultas paralelas fornecem dois parâmetros que você pode ajustar para atender às suas necessidades: 
+O SDK do SQL .NET 1.9.0 e versões posteriores dão suporte a consultas paralelas, que permitem consultar uma coleção particionada em paralelo. Para obter mais informações, consulte [exemplos de código](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/Queries/Program.cs) relacionados ao trabalho com os SDKs. As consultas paralelas são projetadas para fornecer melhor latência de consulta e taxa de transferência do que o equivalente em série. As consultas paralelas fornecem dois parâmetros que você pode ajustar para atender às suas necessidades: 
 - `MaxDegreeOfParallelism` controla o número máximo de partições que podem ser consultadas em paralelo. 
 - `MaxBufferedItemCount` controla o número de resultados previamente buscados.
 
@@ -179,7 +180,7 @@ Para reduzir o número de viagens de ida e volta da rede necessárias para recup
 > [!NOTE] 
 > A `maxItemCount` propriedade não deve ser usada apenas para paginação. Seu principal uso é melhorar o desempenho das consultas, reduzindo o número máximo de itens retornados em uma única página.  
 
-Você também pode definir o tamanho da página usando os SDKs de Azure Cosmos DB disponíveis. A propriedade [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet&preserve-view=true) no `FeedOptions` permite que você defina o número máximo de itens a serem retornados na operação de enumeração. Quando `maxItemCount` é definido como-1, o SDK localiza automaticamente o valor ideal, dependendo do tamanho do documento. Por exemplo: 
+Você também pode definir o tamanho da página usando os SDKs de Azure Cosmos DB disponíveis. A propriedade [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet&preserve-view=true) no `FeedOptions` permite que você defina o número máximo de itens a serem retornados na operação de enumeração. Quando `maxItemCount` é definido como-1, o SDK localiza automaticamente o valor ideal, dependendo do tamanho do documento. Por exemplo:
     
 ```csharp
 IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });

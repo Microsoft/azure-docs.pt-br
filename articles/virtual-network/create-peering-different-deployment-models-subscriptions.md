@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2020
 ms.author: kumud
 ms.reviewer: anavin
-ms.openlocfilehash: 88e576231e0231a105cd9ec303f63307b5eaff89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29a64931ac92eacf8948ae067118b6b25198c85d
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87051626"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223458"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Criar um emparelhamento de rede virtual – modelos de implantação e assinaturas diferentes
 
@@ -57,7 +57,7 @@ Este tutorial usa contas diferentes para cada assinatura. Se você estiver usand
 6. Na folha **myVnetA – Controle de acesso (IAM)** exibida, clique em **+ Adicionar atribuição de função**.
 7. Na folha **Adicionar atribuição de função** exibida, selecione **Colaborador de rede** na caixa **Função**.
 8. Na caixa **selecionar** , selecione UserB ou digite o endereço de email de UserB para procurá-lo. A lista de usuários mostrada é do mesmo locatário do Azure Active Directory da rede virtual para a qual você está configurando o emparelhamento. Clique em UserB quando ele aparecer na lista.
-9. Clique em **Salvar**.
+9. Clique em **Save** (Salvar).
 10. Faça logoff do portal como UserA e faça logon como UserB.
 11. Clique em **+ Novo**, digite *Rede virtual* na caixa **Pesquisar no Marketplace** e, em seguida, clique em **Rede Virtual** nos resultados da pesquisa.
 12. Na folha **Rede Virtual** exibida, selecione **Clássico** na caixa **Selecionar um modelo de implantação** e clique em **Criar**.
@@ -186,7 +186,7 @@ Este tutorial usa contas diferentes para cada assinatura. Se você estiver usand
 1. Instale a versão mais recente dos módulos [Azure](https://www.powershellgallery.com/packages/Azure) e [AZ](https://www.powershellgallery.com/packages/Az) do PowerShell. Se você for novo no Azure PowerShell, consulte [Visão geral do Azure PowerShell](/powershell/azure/?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Inicie uma sessão do PowerShell.
 3. No PowerShell, faça logon na assinatura do UserB como UserB inserindo o comando `Add-AzureAccount`. A conta com a qual você faz logon deve ter as permissões necessárias para criar um emparelhamento de rede virtual. Para obter uma lista de permissões, consulte [Permissões de emparelhamento de rede virtual](virtual-network-manage-peering.md#permissions).
-4. Para criar uma rede virtual (clássico) com o PowerShell, você deve criar um arquivo de configuração de rede novo ou modificar um existente. Saiba como [exportar, atualizar e importar arquivos de configuração de rede](virtual-networks-using-network-configuration-file.md). O arquivo deve incluir o elemento **VirtualNetworkSite** a seguir para a rede virtual usada neste tutorial:
+4. Para criar uma rede virtual (clássico) com o PowerShell, você deve criar um arquivo de configuração de rede novo ou modificar um existente. Saiba como [exportar, atualizar e importar arquivos de configuração de rede](/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file). O arquivo deve incluir o elemento **VirtualNetworkSite** a seguir para a rede virtual usada neste tutorial:
 
     ```xml
     <VirtualNetworkSite name="myVnetB" Location="East US">
@@ -305,7 +305,7 @@ Ao concluir este tutorial, talvez você deseje excluir os recursos criados no tu
    Remove-AzResourceGroup -Name myResourceGroupA -Force
    ```
 
-2. Para excluir a rede virtual (clássico) com o PowerShell, você deve modificar um arquivo de configuração de rede existente. Saiba como [exportar, atualizar e importar arquivos de configuração de rede](virtual-networks-using-network-configuration-file.md). Remova o elemento VirtualNetworkSite a seguir para a rede virtual usada neste tutorial:
+2. Para excluir a rede virtual (clássico) com o PowerShell, você deve modificar um arquivo de configuração de rede existente. Saiba como [exportar, atualizar e importar arquivos de configuração de rede](/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file). Remova o elemento VirtualNetworkSite a seguir para a rede virtual usada neste tutorial:
 
    ```xml
    <VirtualNetworkSite name="myVnetB" Location="East US">

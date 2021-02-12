@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/09/2020
 ms.author: v-miegge
-ms.openlocfilehash: bde091b4a4559c3574ee122d74574d1f9477f3fd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6cb3467fec99bd12810ed058a61de1be7b39cdd0
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977041"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629582"
 ---
 # <a name="troubleshoot-windows-could-not-finish-configuring-the-system"></a>A solução de problemas do Windows não pôde concluir a configuração do sistema
 
@@ -39,5 +39,8 @@ Quando você usar o [diagnóstico de inicialização](./boot-diagnostics.md) par
 Esse erro é causado quando o sistema operacional (SO) não consegue concluir o [processo do Sysprep](/windows-hardware/manufacture/desktop/sysprep-process-overview). Esse erro ocorrerá quando você tentar uma inicialização inicial de uma VM generalizada. Se você encontrar esse problema, recrie a imagem generalizada, pois a imagem está em um estado não implantável e não pode ser recuperada.
 
 ## <a name="solution"></a>Solução
+
+> [!TIP]
+> Se você tiver um backup recente da VM, poderá tentar [restaurar a VM do backup](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema de inicialização.
 
 Para corrigir esse problema, siga as [diretrizes do Azure sobre como preparar/capturar uma imagem](../windows/upload-generalized-managed.md) e preparar uma nova imagem generalizada.

@@ -8,14 +8,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 08/20/2020
+ms.date: 01/28/2021
 ms.author: v-miegge
-ms.openlocfilehash: 91b3b7b71524c76006ad4d431774e05e47fd0266
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 015e6058236190a04df152573621f0e57030d23b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131064"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054154"
 ---
 # <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Solucionar problemas ao se inscrever para uma nova conta no portal do Azure ou no Centro de Contas do Azure
 
@@ -76,8 +76,8 @@ Para resolver esse problema, verifique se os seguintes itens:
 
 #### <a name="you-see-the-message-your-current-account-type-is-not-supported"></a>Você verá a mensagem "Não há suporte para seu tipo de conta atual"
 
-Esse problema poderá ocorrer se a conta estiver registrada em um [diretório não gerenciado do Azure AD](../../active-directory/users-groups-roles/directory-self-service-signup.md) e se não estiver no diretório do Azure AD da sua organização.
-Para resolver esse problema, inscreva-se na conta do Azure usando outra conta ou assuma o controle do diretório do AD não gerenciado. Para obter mais informações, confira [Controlar um diretório não gerenciado como administrador no Azure Active Directory](../../active-directory/users-groups-roles/domains-admin-takeover.md).
+Esse problema poderá ocorrer se a conta estiver registrada em um [diretório não gerenciado do Azure AD](../../active-directory/enterprise-users/directory-self-service-signup.md) e se não estiver no diretório do Azure AD da sua organização.
+Para resolver esse problema, inscreva-se na conta do Azure usando outra conta ou assuma o controle do diretório do AD não gerenciado. Para obter mais informações, confira [Controlar um diretório não gerenciado como administrador no Azure Active Directory](../../active-directory/enterprise-users/domains-admin-takeover.md).
 
 ## <a name="identity-verification-by-phone"></a>Verificação de identidade por telefone
 
@@ -139,19 +139,18 @@ Conclua o contrato.
 
 ## <a name="other-issues"></a>Outros problemas
 
-### <a name="cant-activate-azure-benefit-plan-like-msdn-bizspark-bizsparkplus-or-mpn"></a>Não consigo ativar um plano de benefícios do Azure como o MSDN, o BizSpark, o BizSparkPlus ou o MPN
+### <a name="cant-activate-azure-benefit-plan-like-visual-studio-bizspark-bizsparkplus-or-mpn"></a>Não consigo ativar um plano de benefícios do Azure como o Visual Studio, o BizSpark, o BizSparkPlus ou o MPN
 
 Verifique se você está usando as credenciais de conexão corretas. Em seguida, verifique o programa de benefícios e se você está qualificado.
-- MSDN
-  - Verifique o status de qualificação na [página da conta do MSDN](https://msdn.microsoft.com/subscriptions/manage/default.aspx).
-  - Se não conseguir verificar seu status, entre em contato com os [Centros de Atendimento ao Cliente das Assinaturas do MSDN](/previous-versions/mappoint/aa493452(v=msdn.10)).
+- Visual Studio
+  - Verifique seu status de qualificação na [página da conta do Visual Studio](https://my.visualstudio.com/Benefits).
+  - Se não puder verificar seu status, entre em contato com o [Suporte da Assinatura do Visual Studio](https://visualstudio.microsoft.com/subscriptions/support/).
 - Microsoft para Startups
   - Entre no [portal do Microsoft para Startups](https://startups.microsoft.com/#start-two) para verificar seu status de qualificação para o Microsoft para Startups.
   - Se não conseguir verificar seu status, você pode obter ajuda nos [fóruns do Microsoft para Startups](https://www.microsoftpartnercommunity.com/t5/Microsoft-for-Startups/ct-p/Microsoft_Startups).
 - MPN
   - Entre no [portal do MPN](https://mspartner.microsoft.com/Pages/Locale.aspx) para verificar seu status de qualificação. Se tiver as [Competências de Plataforma de Nuvem](https://mspartner.microsoft.com/pages/membership/cloud-platform-competency.aspx)adequadas, você poderá estar qualificado para receber outros benefícios.
   - Se não conseguir verificar seu status, entre em contato com o [suporte do MPN](https://mspartner.microsoft.com/Pages/Support/Premium/contact-support.aspx).
-
 
 ### <a name="cant-activate-new-azure-in-open-subscription"></a>Não consigo ativar uma nova assinatura do Azure via Open
 

@@ -10,16 +10,17 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: d89f9330947d1c5d0146b8531f265d86d0fd5160
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.custom: references_regions
+ms.openlocfilehash: ea32358aa86a6093cd72adf959d5fe731cf1e125
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329144"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786869"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Criar um assistente de voz usando comandos personalizados
 
-Neste guia de início rápido, você cria e testa um aplicativo básico de comandos personalizados usando o Speech Studio. Você também poderá acessar esse aplicativo de um aplicativo cliente do Windows. Os **comandos personalizados** facilitam a criação de aplicativos avançados de comando de voz otimizados para experiências de interação de voz primeiro. Ele fornece uma experiência de criação unificada, um modelo de hospedagem automático e complexidade relativamente menor, ajudando você a se concentrar na criação da melhor solução para seus cenários de comando de voz.
+Neste guia de início rápido, você cria e testa um aplicativo básico de comandos personalizados usando o Speech Studio. Você também poderá acessar esse aplicativo de um aplicativo cliente do Windows.
 
 ## <a name="region-availability"></a>Disponibilidade de região
 Neste momento, os comandos personalizados dão suporte a assinaturas de fala criadas nessas regiões:
@@ -27,12 +28,12 @@ Neste momento, os comandos personalizados dão suporte a assinaturas de fala cri
 * Oeste dos EUA 2
 * Leste dos EUA
 * Leste dos EUA 2
+* Centro-Oeste dos EUA
 * Norte da Europa
 * Europa Ocidental
-* Centro-Oeste dos EUA
-* Índia Central
 * Leste da Ásia
 * Sudeste Asiático
+* Índia Central
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -103,7 +104,7 @@ Antes de poder acessar esse aplicativo de fora do Speech Studio, você precisa p
 
 1. Selecione **configurações** no painel esquerdo e selecione  **recursos do Luis** no painel central.
 1. Selecione um recurso de previsão ou crie um selecionando **criar novo recurso**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
     
     > [!div class="mx-imgBorder"]
     > ![Definir recursos do LUIS](media/custom-commands/set-luis-resources.png)
@@ -115,7 +116,7 @@ Antes de poder acessar esse aplicativo de fora do Speech Studio, você precisa p
 
 Selecione  **publicar** na parte superior do painel direito. Quando a publicação for concluída, uma nova janela será exibida. Anote a **ID do aplicativo** e o valor da chave de **recurso de fala** a partir dela. Você precisará desses dois valores para poder acessar o aplicativo de fora do Speech Studio.
 
-Como alternativa, você também pode obter esses valores selecionando **configurações**  >  seção**geral** .
+Como alternativa, você também pode obter esses valores selecionando **configurações**  >  seção **geral** .
 
 ### <a name="access-application-from-client"></a>Acessar aplicativo do cliente
 
@@ -135,4 +136,4 @@ No escopo deste artigo, usaremos o cliente do assistente de voz do Windows que v
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você usou um aplicativo existente. Em seguida, nas [seções de instruções](how-to-custom-commands-create-application-with-simple-commands.md), você aprende a projetar, desenvolver, depurar, testar e integrar um aplicativo de comandos personalizados do zero.
+Neste artigo, você usou um aplicativo existente. Em seguida, nas [seções de instruções](./how-to-develop-custom-commands-application.md), você aprende a projetar, desenvolver, depurar, testar e integrar um aplicativo de comandos personalizados do zero.

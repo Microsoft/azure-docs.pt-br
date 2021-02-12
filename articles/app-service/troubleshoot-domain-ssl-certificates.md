@@ -8,19 +8,18 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 1cefb5a7b554b9a477f6a51eab3b22b0e8f55378
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 691cbd79e82432c8e919dcbb51642a76000296dc
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88958381"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607602"
 ---
 # <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>Solucionar problemas de domínio e TLS/certificado SSL no serviço Azure App
 
 Este artigo lista os problemas comuns que você pode encontrar ao configurar um domínio ou um certificado TLS/SSL para seus aplicativos Web no serviço Azure App. Adicionalmente, descreve as possíveis causas e soluções para esses problemas.
 
 Se você precisar de mais ajuda em qualquer ponto deste artigo, contate os especialistas do Azure nos [fóruns do Azure e do Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.
-
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -90,7 +89,7 @@ Esse problema pode ocorrer por qualquer um dos seguintes motivos:
 
     1. Entre no [portal do Azure](https://portal.azure.com).
     2. Vá para **Certificados do Serviço de Aplicativo** e selecione o certificado.
-    3. Selecione **configuração de certificado**  >  **etapa 2: verificar**a  >  **verificação de domínio**. Essa etapa envia uma notificação de email para o provedor de certificados do Azure para resolver o problema.
+    3. Selecione **configuração de certificado**  >  **etapa 2: verificar** a  >  **verificação de domínio**. Essa etapa envia uma notificação de email para o provedor de certificados do Azure para resolver o problema.
 
 ## <a name="custom-domain-problems"></a>Problemas de domínio personalizado
 
@@ -120,7 +119,7 @@ O navegador da Internet ainda pode estar armazenando o endereço IP antigo em ca
 
 **Solução para a Causa 2**
 
-Limpe o navegador. Para dispositivos do Windows, você pode executar o comando `ipconfig /flushdns`. Use [WhatsmyDNS.net](https://www.whatsmydns.net/) para verificar se o domínio aponta para o endereço IP do aplicativo. 
+Limpe o navegador. Para dispositivos do Windows, você pode executar o comando `ipconfig /flushdns`. Use [WhatsmyDNS.net](https://www.whatsmydns.net/) para verificar se o domínio aponta para o endereço IP do aplicativo.
 
 ### <a name="you-cant-add-a-subdomain"></a>Não é possível adicionar um subdomínio 
 
@@ -185,13 +184,13 @@ O certificado do Serviço de Aplicativo foi renovado, mas o aplicativo que usa o
 
 #### <a name="cause"></a>Causa 
 O serviço de aplicativo sincroniza automaticamente seu certificado dentro de 48 horas. Ao girar ou atualiza um certificado, às vezes, o aplicativo ainda está recuperando o certificado antigo e não o certificado atualizado recentemente. O motivo é que o trabalho para sincronizar o recurso de certificado ainda não foi executado. Clique em sincronizar. A operação de sincronização atualiza automaticamente as associações de nome de host para o certificado no serviço de aplicativo sem causar nenhum tempo de inatividade para seus aplicativos.
- 
+
 #### <a name="solution"></a>Solução
 
 Você pode forçar uma sincronização do certificado:
 
 1. Entre no [portal do Azure](https://portal.azure.com). Selecione os **Certificados do Serviço de Aplicativo** e, em seguida, selecione o certificado.
-2. Selecione **rechaveamento e sincronização**e, em seguida, selecione **sincronizar**. A sincronização leva algum tempo para ser concluída. 
+2. Selecione **rechaveamento e sincronização** e, em seguida, selecione **sincronizar**. A sincronização leva algum tempo para ser concluída. 
 3. Quando a sincronização for concluída, você verá a notificação a seguir: "Todos os recursos atualizados com êxito com o certificado mais recente."
 
 ### <a name="domain-verification-is-not-working"></a>A verificação de domínio não está funcionando 
@@ -201,17 +200,17 @@ O certificado do Serviço de Aplicativo requer a verificação de domínio antes
 
 #### <a name="solution"></a>Solução
 Verifique seu domínio manualmente adicionando um registro TXT:
- 
-1.  Acesse o provedor de Serviço de Nomes de Domínio (DNS) que hospeda o nome de domínio.
-2.  Adicione um registro TXT ao domínio que usa o valor do token de domínio exibido no portal do Azure. 
+
+1. Acesse o provedor de Serviço de Nomes de Domínio (DNS) que hospeda o nome de domínio.
+1. Adicione um registro TXT ao domínio que usa o valor do token de domínio exibido no portal do Azure. 
 
 Aguarde alguns minutos para que a propagação de DNS seja executada e, em seguida, selecione o botão **Atualizar** para disparar a verificação. 
 
 Como uma alternativa, é possível usar o método de páginas da Web em HTML para verificar o domínio manualmente. Esse método permite que a autoridade de certificação confirme a propriedade do domínio do domínio para o qual o certificado é emitido.
 
-1.  Crie um arquivo HTML nomeado {token de verificação de domínio}.html. O conteúdo desse arquivo deve ser o valor do token de verificação de domínio.
-3.  Carregue esse arquivo na raiz do servidor Web que hospeda o domínio.
-4.  Selecione **Atualizar** para verificar o status do certificado. Pode demorar alguns minutos até a verificação ser concluída.
+1. Crie um arquivo HTML nomeado {token de verificação de domínio}.html. O conteúdo desse arquivo deve ser o valor do token de verificação de domínio.
+1. Carregue esse arquivo na raiz do servidor Web que hospeda o domínio.
+1. Selecione **Atualizar** para verificar o status do certificado. Pode demorar alguns minutos até a verificação ser concluída.
 
 Por exemplo, se você estiver comprando um certificado padrão do azure.com utilizando o token de verificação de domínio 1234abcd, uma solicitação da Web feita para https://azure.com/1234abcd.html deverá retornar 1234abcd. 
 

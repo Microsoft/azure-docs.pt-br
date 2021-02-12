@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: alzam
-ms.openlocfilehash: 8fcc79991918aecfc26933f2ef5b6e80ea7fa88c
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: e25ef7f55492be4ee491b9ebbbef4aa1eb03c80b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043432"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898080"
 ---
 # <a name="create-an-azure-active-directory-ad-tenant-for-p2s-openvpn-protocol-connections"></a>Criar um locatário Azure Active Directory (AD) para conexões de protocolo P2S OpenVPN
 
@@ -55,7 +55,7 @@ Uma configuração P2S define os parâmetros para conexão de clientes remotos.
 
     ![A captura de tela mostra editar Hub virtual selecionado no menu.](media/openvpn-azure-ad-tenant-multi-app/p2s4.jpg)
 
-3. Clique em **Editar hub virtual** .
+3. Clique em **Editar hub virtual**.
 
 4. Marque a caixa de seleção **Incluir gateway ponto a site** e selecione a **Unidade de escala do gateway** desejada.
 
@@ -63,7 +63,7 @@ Uma configuração P2S define os parâmetros para conexão de clientes remotos.
 
 5. Insira o **Pool de endereços** do qual os endereços IP serão atribuídos aos clientes VPN.
 
-6. Clique em **Confirmar** .
+6. Clique em **Confirmar**.
 
 7. Essa operação pode levar até 30 minutos para ser concluída.
 
@@ -71,9 +71,9 @@ Uma configuração P2S define os parâmetros para conexão de clientes remotos.
 
 Use o perfil VPN para configurar seus clientes.
 
-1. Na página da sua WAN Virtual, clique em **Configurações de VPN do usuário** .
+1. Na página da sua WAN Virtual, clique em **Configurações de VPN do usuário**.
 
-2. Na parte superior da página, clique em **Baixar configurações de VPN do usuário** .
+2. Na parte superior da página, clique em **Baixar configurações de VPN do usuário**.
 
 3. Depois que o arquivo foi criado, você pode clicar no link para baixá-lo.
 
@@ -99,15 +99,15 @@ Use este [link](https://go.microsoft.com/fwlink/?linkid=2117554) para baixar o C
 
 #### <a name="to-import-a-client-profile"></a><a name="import"></a>Para importar um perfil de cliente
 
-1. Na página, selecione **Importar** .
+1. Na página, selecione **Importar**.
 
     ![A captura de tela mostra a importação selecionada no menu mais.](./media/openvpn-azure-ad-tenant-multi-app/import/import1.jpg)
 
-2. Navegue até o arquivo XML do perfil e selecione-o. Com o arquivo selecionado, selecione **Abrir** .
+2. Navegue até o arquivo XML do perfil e selecione-o. Com o arquivo selecionado, selecione **Abrir**.
 
     ![Captura de tela mostra uma caixa de diálogo aberta onde você pode selecionar um arquivo.](./media/openvpn-azure-ad-tenant-multi-app/import/import2.jpg)
 
-3. Especifique o nome do perfil e selecione **Salvar** .
+3. Especifique o nome do perfil e selecione **Salvar**.
 
     ![Captura de tela mostra o nome da conexão adicionado e o botão salvar selecionado.](./media/openvpn-azure-ad-tenant-multi-app/import/import3.jpg)
 
@@ -115,13 +115,13 @@ Use este [link](https://go.microsoft.com/fwlink/?linkid=2117554) para baixar o C
 
     ![Captura de tela mostra o botão conectar para a conexão que você acabou de criar.](./media/openvpn-azure-ad-tenant-multi-app/import/import4.jpg)
 
-5. Uma vez conectado, o ícone ficará verde e mostrará o texto **Conectado** .
+5. Uma vez conectado, o ícone ficará verde e mostrará o texto **Conectado**.
 
     ![Captura de tela mostra a conexão em um status conectado com a opção de desconectar.](./media/openvpn-azure-ad-tenant-multi-app/import/import5.jpg)
 
 #### <a name="to-delete-a-client-profile"></a><a name="delete"></a>Para excluir um perfil de cliente
 
-1. Selecione as reticências (...) ao lado do perfil do cliente que você deseja excluir. Em seguida, selecione **Remover** .
+1. Selecione as reticências (...) ao lado do perfil do cliente que você deseja excluir. Em seguida, selecione **Remover**.
 
     ![Captura de tela mostra remover selecionado no menu.](./media/openvpn-azure-ad-tenant-multi-app/delete/delete1.jpg)
 
@@ -131,11 +131,19 @@ Use este [link](https://go.microsoft.com/fwlink/?linkid=2117554) para baixar o C
 
 #### <a name="to-diagnose-connection-issues"></a><a name="diagnose"></a>Para diagnosticar problemas de conexão
 
-1. Para diagnosticar problemas de conexão, você pode usar a ferramenta **Diagnosticar** . Selecione as reticências (...) ao lado da conexão VPN que você deseja diagnosticar para revelar o menu. Em seguida, selecione **Diagnosticar** .
+1. Para diagnosticar problemas de conexão, você pode usar a ferramenta **Diagnosticar**. Selecione as reticências (...) ao lado da conexão VPN que você deseja diagnosticar para revelar o menu. Em seguida, selecione **Diagnosticar**.
 
     ![Captura de tela mostra o diagnóstico selecionado no menu.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose1.jpg)
 
-2. Na página **Propriedades de Conexão** , selecione **Executar Diagnóstico** .
+2. Na página **Propriedades de Conexão**, selecione **Executar Diagnóstico**.
+
+    ![Captura de tela mostra o botão Executar diagnóstico para uma conexão.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose2.jpg)
+
+3. Entre com suas credenciais.
+
+    ![diagnosticar 3](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose3.jpg)
+
+4. Exiba os resultados do diagnóstico.
 
     ![Captura de tela mostra o botão Executar diagnóstico para uma conexão.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose2.jpg)
 

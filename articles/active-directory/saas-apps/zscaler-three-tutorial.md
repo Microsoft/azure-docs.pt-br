@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/17/2019
+ms.date: 12/18/2020
 ms.author: jeedes
-ms.openlocfilehash: 00585105350e9858bbfd649a41273def162febcb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75d95ff77b48e7b1102900bc103e6930282e21e3
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88545770"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726186"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler-three"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Zscaler Three
 
@@ -26,7 +26,6 @@ Neste tutorial, você aprenderá a integrar o Zscaler Three ao Azure AD (Azure A
 * Permitir que os usuários sejam conectados automaticamente ao Zscaler Three com as contas do Azure AD deles.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -50,18 +49,18 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 
 Para configurar a integração do Zscaler Three ao Azure AD, é necessário adicionar o Zscaler Three da galeria à sua lista de aplicativos SaaS gerenciados.
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
 1. Na seção **Adicionar por meio da galeria**, digite **Zscaler Three** na caixa de pesquisa.
 1. Selecione **Zscaler Three** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-zscaler-three"></a>Configurar e testar o logon único do Azure AD para o Zscaler Three
+## <a name="configure-and-test-azure-ad-sso-for-zscaler-three"></a>Configurar e testar o SSO do Azure AD para o Zscaler Three
 
 Configure e teste o SSO do Azure AD com o Zscaler Three usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Zscaler Three.
 
-Para configurar e testar o SSO do Azure AD com o Zscaler Three, conclua os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o Zscaler Three, execute as seguintes etapas:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
     1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
@@ -74,9 +73,9 @@ Para configurar e testar o SSO do Azure AD com o Zscaler Three, conclua os segui
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Zscaler Three**, localize a seção **Gerenciar** e selecione **Logon único**.
+1. No portal do Azure, na página de integração de aplicativos do **Zscaler Three**, localize a seção **Gerenciar** e selecione **Logon único**.
 1. Na página **Selecionar um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
@@ -86,16 +85,16 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. O aplicativo Zscaler Three espera as declarações SAML em um formato específico, o que exige a adição de mapeamentos de atributo personalizado à configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
-    ![image](common/edit-attribute.png)
+    ![Captura de tela que mostra Atributos de usuário com o ícone Editar selecionado.](common/edit-attribute.png)
 
 6. Além do indicado acima, o aplicativo Zscaler Three espera que mais alguns atributos sejam passados novamente na resposta SAML, que são mostrados abaixo. Esses atributos também são pré-populados, mas você pode examiná-los de acordo com seu requisito.
-    
+
     | Nome | Atributo de Origem |
     | ---------| ------------ |
-    | memberOf     | user.assignedroles |
+    | memberOf | user.assignedroles |
 
     > [!NOTE]
-    > Clique [aqui](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) para saber como configurar a Função no Azure AD
+    > Clique [aqui](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview) para saber como configurar a Função no Azure AD.
 
 1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
@@ -125,15 +124,15 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 1. Na lista de aplicativos, selecione **Zscaler Three**.
 1. Na caixa de diálogo **Usuários e grupos**, selecione o usuário como **Brenda Fernandes** na lista e, em seguida, clique no botão **Selecionar** na parte inferior da tela.
 
-    ![image](./media/zscaler-three-tutorial/tutorial_zscalerthree_users.png)
+    ![A captura de tela mostra a caixa de diálogo Usuários e grupos na qual você pode selecionar um usuário.](./media/zscaler-three-tutorial/tutorial_zscalerthree_users.png)
 
 1. Na caixa de diálogo **Selecionar Função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-    ![image](./media/zscaler-three-tutorial/tutorial_zscalerthree_roles.png)
+    ![A captura de tela mostra a caixa de diálogo Selecionar Função na qual você pode escolher uma função de usuário.](./media/zscaler-three-tutorial/tutorial_zscalerthree_roles.png)
 
 1. Na caixa de diálogo **Adicionar Atribuição** selecione o botão **Atribuir**.
 
-    ![image](./media/zscaler-three-tutorial/tutorial_zscalerthree_assign.png)
+    ![A captura de tela mostra a caixa de diálogo Adicionar Atribuição na qual você pode selecionar Atribuir.](./media/zscaler-three-tutorial/tutorial_zscalerthree_assign.png)
 
 ## <a name="configure-zscaler-three-sso"></a>Configurar o SSO do Zscaler Three
 
@@ -148,17 +147,17 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 3. Se desejar configurar o Zscaler Three manualmente, abra uma nova janela do navegador da Web, entre no site empresarial do Zscaler Three como administrador e execute as seguintes etapas:
 
 4. Vá até **Administração > Autenticação > Configurações de Autenticação** e execute as seguintes etapas:
-   
-    ![Administração](./media/zscaler-three-tutorial/ic800206.png "Administração")
+
+    ![A captura de tela mostra o site do Zscaler One com etapas, conforme descrito.](./media/zscaler-three-tutorial/ic800206.png "Administração")
 
     a. Em Tipo de Autenticação, escolha **SAML**.
 
     b. Clique em **Configurar SAML**.
 
 5. Na janela **Editar SAML**, execute as seguintes etapas: e clique em Salvar.  
-            
+
     ![Gerenciar Usuários e Autenticação](./media/zscaler-three-tutorial/ic800208.png "Gerenciar Usuários e Autenticação")
-    
+
     a. Na caixa de texto **URL do Portal SAML**, cole o a **URL de Logon** copiada do portal do Azure.
 
     b. Na caixa de texto **Atributo de Nome de Logon**, insira **NameID**.
@@ -177,7 +176,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 6. Na página de caixa de diálogo **Configurar Autenticação de Usuário** , execute as seguintes etapas:
 
-    ![Administração](./media/zscaler-three-tutorial/ic800207.png)
+    ![A captura de tela mostra a caixa de diálogo Configurar Autenticação de Usuário com Ativar selecionado.](./media/zscaler-three-tutorial/ic800207.png)
 
     a. Passe o mouse sobre o menu **Ativação** na parte inferior esquerda.
 
@@ -189,17 +188,17 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 1. Inicie o **Internet Explorer**.
 
 2. Selecione **Opções da Internet** no menu **Ferramentas** para abrir a caixa de diálogo **Opções da Internet**.   
-    
+
      ![Opções da Internet](./media/zscaler-three-tutorial/ic769492.png "Opções da Internet")
 
 3. Clique na guia **Conexões** .   
-  
+
      ![Conexões](./media/zscaler-three-tutorial/ic769493.png "conexões")
 
 4. Clique em **Configurações da LAN** para abrir a caixa de diálogo **Configurações da LAN**.
 
 5. Na seção Servidor de proxy, execute as seguintes etapas:   
-   
+
     ![Servidor proxy](./media/zscaler-three-tutorial/ic769494.png "Servidor proxy")
 
     a. Selecione **Usar um servidor proxy para LAN**.
@@ -223,17 +222,15 @@ Nesta seção, um usuário chamado B.Fernandes será criado no Zscaler Three. O 
 
 ## <a name="test-sso"></a>Testar o SSO 
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir. 
 
-Ao clicar no bloco do Zscaler Three no Painel de Acesso, você deverá ser conectado automaticamente ao Zscaler Three, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Clique em **Testar este aplicativo** no portal do Azure. Isso redirecionará você à URL de Logon do Zscaler Three, na qual você poderá iniciar o fluxo de logon. 
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Acesse diretamente a URL de Logon do Zscaler Three e inicie o fluxo de logon de lá.
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* Você pode usar os Meus Aplicativos da Microsoft. Quando você clicar no bloco do Zscaler Three em Meus Aplicativos, isso redirecionará você à URL de Logon do Zscaler Three. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+## <a name="next-steps"></a>Próximas etapas
 
-- [Experimentar o Zscaler Three com o Azure AD](https://aad.portal.azure.com/)
-
+Depois de configurar o Zscaler Three, você poderá impor um controle de sessão, que fornece proteção contra a exfiltração e a infiltração de dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

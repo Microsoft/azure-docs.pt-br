@@ -12,21 +12,21 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/27/2020
-ms.openlocfilehash: 99703acc4965a38337a39fe23cc19cafddd1531d
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7f267b4909817e89444883403bef6662771332ad
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791113"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550871"
 ---
 # <a name="what-is-azure-sql"></a>O que é o SQL Azure? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
 
 O SQL do Azure é uma família de produtos gerenciados, seguros e inteligentes que usam o mecanismo de banco de dados do SQL Server na nuvem do Azure.
 
-- **Banco de Dados SQL do Azure** : Suporte a aplicativos de nuvem modernos em um serviço de banco de dados inteligente e gerenciado, que inclui computação sem servidor. 
-- **Instância Gerenciada de SQL do Azure** : modernize seus aplicativos SQL Server existentes em escala com uma instância como serviço inteligente totalmente gerenciada, com quase 100% de paridade de recursos com o mecanismo de banco de dados do SQL Server. A melhor para a maior parte das migrações para a nuvem.
-- **SQL Server em VMs do Azure** : faça lift-and-shift de suas cargas de trabalho do SQL Server com facilidade e mantenha 100% de compatibilidade com o SQL Server e acesso no nível do sistema operacional. 
+- **Banco de Dados SQL do Azure**: Suporte a aplicativos de nuvem modernos em um serviço de banco de dados inteligente e gerenciado, que inclui computação sem servidor. 
+- **Instância Gerenciada de SQL do Azure**: modernize seus aplicativos SQL Server existentes em escala com uma instância como serviço inteligente totalmente gerenciada, com quase 100% de paridade de recursos com o mecanismo de banco de dados do SQL Server. A melhor para a maior parte das migrações para a nuvem.
+- **SQL Server em VMs do Azure**: faça lift-and-shift de suas cargas de trabalho do SQL Server com facilidade e mantenha 100% de compatibilidade com o SQL Server e acesso no nível do sistema operacional. 
  
 O SQL do Azure é criado com base no já conhecido mecanismo do SQL Server, para que você possa migrar aplicativos com facilidade e continuar usando as ferramentas, as linguagens e os recursos que você conhece. Suas habilidades e sua experiência são transferidas para a nuvem. Assim, você pode fazer ainda mais com o que você já tem. 
 
@@ -53,7 +53,7 @@ Gaste mais tempo inovação e menos tempo aplicando patches, atualizando e fazen
 
 O Azure monitora constantemente seus dados em busca de ameaças. Com o SQL do Azure, você pode:
 
-- Corrigir ameaças em potencial em tempo real com [detecção avançada de ameaças](../security/fundamentals/threat-detection.md#advanced-threat-detection-features-other-azure-services) inteligente e alertas de avaliação proativa de vulnerabilidades. 
+- Corrigir ameaças em potencial em tempo real com [detecção avançada de ameaças](../security/fundamentals/threat-detection.md#threat-protection-features-other-azure-services) inteligente e alertas de avaliação proativa de vulnerabilidades. 
 - Obter a proteção de várias camadas e líder do setor com [controles de segurança internos](https://azure.microsoft.com/overview/security/), incluindo T-SQL, autenticação, rede e gerenciamento de chaves. 
 - Aproveitar a mais abrangente cobertura de [conformidade](https://azure.microsoft.com/overview/trusted-cloud/compliance/) de qualquer serviço de banco de dados de nuvem. 
 
@@ -132,9 +132,9 @@ No momento, o **Banco de Dados SQL** e a **Instância Gerenciada de SQL do Azure
 
 Além disso, você será cobrado pelo tráfego de Internet de saída a [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/)regulares. Você ajustar as camadas de serviço e os tamanhos da computação dinamicamente para atender à variação das necessidades de produtividade do aplicativo.
 
-Com o **Banco de Dados SQL** e a **Instância Gerenciada de SQL** , o software de banco de dados é automaticamente configurado, corrigido e atualizado pelo Azure, o que reduz os custos de administração. Além disso, seus recursos de [backup interno](database/automated-backups-overview.md) o ajudam a obter economia significativa, principalmente quando você tem um grande número de bancos de dados.
+Com o **Banco de Dados SQL** e a **Instância Gerenciada de SQL**, o software de banco de dados é automaticamente configurado, corrigido e atualizado pelo Azure, o que reduz os custos de administração. Além disso, seus recursos de [backup interno](database/automated-backups-overview.md) o ajudam a obter economia significativa, principalmente quando você tem um grande número de bancos de dados.
 
-Com o **SQL nas VMs do Azure** , você pode usar imagens do SQL Server fornecidas pela plataforma (que incluem uma licença) ou utilizar sua licença do SQL Server. Todas as versões com suporte do SQL Server (2008R2, 2012, 2014, 2016, 2017, 2019) e as edições (Developer, Express, Web, Standard e Enterprise) estão disponíveis. Além disso, as versões BYOL (Traga sua Própria Licença) das imagens estão disponíveis. Ao usar as imagens fornecidas pelo Azure, os custos operacionais dependem do tamanho da VM e da edição do SQL Server escolhida. Independentemente do tamanho da VM ou da edição do SQL Server, você paga o custo de licenciamento por minuto do SQL Server e do Linux ou do Windows Server, juntamente com o custo de Armazenamento do Azure para os discos de VM. A opção de cobrança por minuto permite que você use o SQL Server pelo tempo necessário, sem adquirir licenças adicionais do SQL Server. Se você usar sua própria licença do SQL Server no Azure, serão cobrados apenas os custos de armazenamento e de servidor. Para obter mais informações sobre como utilizar seu próprio licenciamento, consulte [Mobilidade de Licenças por meio do Software Assurance no Azure](https://azure.microsoft.com/pricing/license-mobility/). Além disso, você será cobrado pelo tráfego de Internet de saída a [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/)regulares.
+Com o **SQL nas VMs do Azure**, você pode usar imagens do SQL Server fornecidas pela plataforma (que incluem uma licença) ou utilizar sua licença do SQL Server. Todas as versões com suporte do SQL Server (2008R2, 2012, 2014, 2016, 2017, 2019) e as edições (Developer, Express, Web, Standard e Enterprise) estão disponíveis. Além disso, as versões BYOL (Traga sua Própria Licença) das imagens estão disponíveis. Ao usar as imagens fornecidas pelo Azure, os custos operacionais dependem do tamanho da VM e da edição do SQL Server escolhida. Independentemente do tamanho da VM ou da edição do SQL Server, você paga o custo de licenciamento por minuto do SQL Server e do Linux ou do Windows Server, juntamente com o custo de Armazenamento do Azure para os discos de VM. A opção de cobrança por minuto permite que você use o SQL Server pelo tempo necessário, sem adquirir licenças adicionais do SQL Server. Se você usar sua própria licença do SQL Server no Azure, serão cobrados apenas os custos de armazenamento e de servidor. Para obter mais informações sobre como utilizar seu próprio licenciamento, consulte [Mobilidade de Licenças por meio do Software Assurance no Azure](https://azure.microsoft.com/pricing/license-mobility/). Além disso, você será cobrado pelo tráfego de Internet de saída a [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/)regulares.
 
 #### <a name="calculating-the-total-application-cost"></a>Calculando o custo total do aplicativo
 
@@ -150,16 +150,16 @@ Para obter mais informações sobre preços, consulte os recursos a seguir:
 
 Para muitas empresas, a decisão de fazer a transição para um serviço de nuvem se refere à redução da complexidade de administração, além de seu custo. Com o IaaS e PaaS, o Azure administra a infraestrutura subjacente e replica automaticamente todos os dados para fornecer recuperação de desastre, configura e atualiza o software do banco de dados, gerencia o balanceamento de carga e faz o failover transparente quando há uma falha do servidor em um data center.
 
-- Com o **Banco de Dados SQL** e a **Instância Gerenciada de SQL** , você pode continuar administrando o banco de dados, mas não precisa mais gerenciar o mecanismo de banco de dados, o sistema operacional do servidor nem o hardware. Alguns exemplos de itens que você pode continuar a administrar são bancos de dados e logons, ajuste de índice e consulta e auditoria e segurança. Além disso, a configuração da alta disponibilidade para outro data center requer o mínimo de administração e configuração.
-- Com o **SQL na VM do Azure** , você tem controle total sobre o sistema operacional e a configuração da instância do SQL Server. Com uma VM, cabe a você decidir quando atualizar o sistema operacional e o software do banco de dados e quando instalar qualquer software adicional, como um antivírus. Alguns recursos automatizados são fornecidos para simplificar muito a aplicação de patches, backup e alta disponibilidade. Além disso, você pode controlar o tamanho da VM, o número de discos e as configurações de armazenamento desses discos. O Azure permite mudar o tamanho de uma VM quando necessário. Para obter informações, consulte [Tamanhos de Máquinas Virtuais e Serviço de Nuvem do Azure](../virtual-machines/sizes.md).
+- Com o **Banco de Dados SQL** e a **Instância Gerenciada de SQL**, você pode continuar administrando o banco de dados, mas não precisa mais gerenciar o mecanismo de banco de dados, o sistema operacional do servidor nem o hardware. Alguns exemplos de itens que você pode continuar a administrar são bancos de dados e logons, ajuste de índice e consulta e auditoria e segurança. Além disso, a configuração da alta disponibilidade para outro data center requer o mínimo de administração e configuração.
+- Com o **SQL na VM do Azure**, você tem controle total sobre o sistema operacional e a configuração da instância do SQL Server. Com uma VM, cabe a você decidir quando atualizar o sistema operacional e o software do banco de dados e quando instalar qualquer software adicional, como um antivírus. Alguns recursos automatizados são fornecidos para simplificar muito a aplicação de patches, backup e alta disponibilidade. Além disso, você pode controlar o tamanho da VM, o número de discos e as configurações de armazenamento desses discos. O Azure permite mudar o tamanho de uma VM quando necessário. Para obter informações, consulte [Tamanhos de Máquinas Virtuais e Serviço de Nuvem do Azure](../virtual-machines/sizes.md).
 
 ## <a name="service-level-agreement-sla"></a>SLA (Contrato de Nível de Serviço)
 
 Para vários departamentos de TI, atender às obrigações de tempo de atividade de um SLA (contrato de nível de serviço) é uma grande prioridade. Nesta seção, vamos examinar qual SLA se aplica a cada opção de hospedagem de banco de dados.
 
-Para o **Banco de Dados SQL do Azure** e a **Instância Gerenciada de SQL do Azure** , a Microsoft fornece um SLA de disponibilidade de 99,99%. Para obter as últimas informações, confira [Contrato de nível de serviço](https://azure.microsoft.com/support/legal/sla/sql-database/).
+Para o **Banco de Dados SQL do Azure** e a **Instância Gerenciada de SQL do Azure**, a Microsoft fornece um SLA de disponibilidade de 99,99%. Para obter as últimas informações, confira [Contrato de nível de serviço](https://azure.microsoft.com/support/legal/sla/sql-database/).
 
-Para o **SQL na VM do Azure** , a Microsoft fornece um SLA de disponibilidade de 99,95% que abrange apenas a máquina virtual. Esse SLA não abrange os processos (como o SQL Server) em execução na VM e exige que você hospede pelo menos duas instâncias de VM em um conjunto de disponibilidade. Para obter as últimas informações, consulte o [SLA de VM](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Para HA (alta disponibilidade) de banco de dados em VMs, você deve configurar uma das opções de alta disponibilidade com suporte no SQL Server, como os [Grupos de disponibilidade Always On](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server). Usar uma opção de alta disponibilidade com suporte não fornece um SLA adicional, mas permite que você atinja > 99,99% de disponibilidade do banco de dados.
+Para o **SQL na VM do Azure**, a Microsoft fornece um SLA de disponibilidade de 99,95% que abrange apenas a máquina virtual. Esse SLA não abrange os processos (como o SQL Server) em execução na VM e exige que você hospede pelo menos duas instâncias de VM em um conjunto de disponibilidade. Para obter as últimas informações, consulte o [SLA de VM](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Para HA (alta disponibilidade) de banco de dados em VMs, você deve configurar uma das opções de alta disponibilidade com suporte no SQL Server, como os [Grupos de disponibilidade Always On](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server). Usar uma opção de alta disponibilidade com suporte não fornece um SLA adicional, mas permite que você atinja > 99,99% de disponibilidade do banco de dados.
 
 ## <a name="time-to-move-to-azure"></a><a name="market"></a>Tempo para mover para o Azure
 

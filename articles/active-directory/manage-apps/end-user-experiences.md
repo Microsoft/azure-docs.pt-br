@@ -3,7 +3,7 @@ title: Experiências do usuário final para aplicativos-Azure Active Directory
 description: O Microsoft Azure Active Directory (Azure AD) fornece várias maneiras personalizáveis de implantar aplicativos para usuários finais em sua organização.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
 ms.reviewer: arvindh
-ms.openlocfilehash: 8968fd54968f3115641d2315a534ba61a247a06d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d3f1cab0637c7409cbc45f4f5a5374b2b5b6a77
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605117"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259246"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Experiências do usuário final para aplicativos no Active Directory Domain Services do Azure
 
@@ -37,13 +37,13 @@ Por padrão, todos os aplicativos são listados juntos em uma única página. Ma
 
 Meus aplicativos é separado da portal do Azure e não exige que os usuários tenham uma assinatura do Azure ou Microsoft 365 assinatura.
 
-Para obter mais informações sobre meus aplicativos do Azure AD, consulte a [introdução aos meus aplicativos](../user-help/active-directory-saas-access-panel-introduction.md).
+Para obter mais informações sobre meus aplicativos do Azure AD, consulte a [introdução aos meus aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="microsoft-365-application-launcher"></a>Microsoft 365 iniciador de aplicativo
 
 Para organizações que implantaram Microsoft 365, os aplicativos atribuídos aos usuários por meio do Azure AD também aparecerão no portal do Office 365 em [https://portal.office.com/myapps](https://portal.office.com/myapps) . Isso torna fácil e conveniente para os usuários em uma organização iniciarem seus aplicativos sem precisar usar um segundo portal e é a solução de inicialização de aplicativo recomendada para organizações que usam Microsoft 365.
 
-Para obter mais informações sobre o iniciador do aplicativo Office 365, consulte [Faça o seu aplicativo ser exibido no iniciador do aplicativo do Office 365](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
+Para obter mais informações sobre o iniciador do aplicativo Office 365, consulte [Faça o seu aplicativo ser exibido no iniciador do aplicativo do Office 365](/previous-versions/office/office-365-api/).
 
 ## <a name="direct-sign-on-to-federated-apps"></a>Logon direto a aplicativos federados
 

@@ -4,19 +4,19 @@ description: Criar um banco de dados individual no Banco de Dados SQL do Azure u
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: contperfq1, devx-track-azurecli
+ms.custom: contperf-fy21q1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/03/2020
-ms.openlocfilehash: ab920a05f255e38905f9ff79f08f2bfa0c6540b6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: cb7a441a6d86cd64847300d1e597cf6f86067282
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791504"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740939"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Início Rápido: Criar um banco de dados individual do Banco de Dados SQL do Azure
 
@@ -37,24 +37,24 @@ Este início rápido cria um banco de dados individual na [camada de computaçã
 Para criar um banco de dados individual no portal do Azure, este início rápido começa na página SQL do Azure.
 
 1. Navegue até a página [Selecionar uma opção de Implantação do SQL](https://portal.azure.com/#create/Microsoft.AzureSQL).
-1. Em **Bancos de dados SQL** , deixe **Tipo de recurso** definido como **Banco de dados individual** e selecione **Criar** .
+1. Em **Bancos de dados SQL**, deixe **Tipo de recurso** definido como **Banco de dados individual** e selecione **Criar**.
 
    ![Adicionar ao SQL Azure](./media/single-database-create-quickstart/select-deployment.png)
 
-1. Na guia **Noções básicas** do formulário **Criar Banco de Dados SQL** , em **Detalhes do projeto** , selecione a **Assinatura** do Azure desejada.
-1. Para **Grupo de recursos** , selecione **Criar** , insira *myResourceGroup* e selecione **OK** .
-1. Para **Nome do banco de dados** , insira *mySampleDatabase* .
-1. Para **Servidor** , selecione **Criar** e preencha o formulário **Novo servidor** com os seguintes valores:
-   - **Nome do servidor** : Insira *mysqlserver* e adicione caracteres para que o nome seja exclusivo. Não podemos fornecer um nome do servidor exato a ser usado porque os nomes dos servidores devem ser globalmente exclusivos para todos os servidores no Azure, não apenas para uma assinatura. Portanto, insira algo como mysqlserver12345 e o portal informará se esse nome está disponível ou não.
-   - **Logon de administrador do servidor** : insira *azureuser* .
-   - **Senha** : insira uma senha que atenda aos requisitos e insira-a novamente no campo **Confirmar senha** .
-   - **Localização** : Selecione uma localização na lista suspensa.
+1. Na guia **Noções básicas** do formulário **Criar Banco de Dados SQL**, em **Detalhes do projeto**, selecione a **Assinatura** do Azure desejada.
+1. Para **Grupo de recursos**, selecione **Criar**, insira *myResourceGroup* e selecione **OK**.
+1. Para **Nome do banco de dados**, insira *mySampleDatabase*.
+1. Para **Servidor**, selecione **Criar** e preencha o formulário **Novo servidor** com os seguintes valores:
+   - **Nome do servidor**: Insira *mysqlserver* e adicione caracteres para que o nome seja exclusivo. Não podemos fornecer um nome do servidor exato a ser usado porque os nomes dos servidores devem ser globalmente exclusivos para todos os servidores no Azure, não apenas para uma assinatura. Portanto, insira algo como mysqlserver12345 e o portal informará se esse nome está disponível ou não.
+   - **Logon de administrador do servidor**: insira *azureuser*.
+   - **Senha**: insira uma senha que atenda aos requisitos e insira-a novamente no campo **Confirmar senha**.
+   - **Localização**: Selecione uma localização na lista suspensa.
 
-   Selecione **OK** .
+   Selecione **OK**.
 
-1. Deixe **Deseja usar o pool elástico do SQL** definido como **Não** .
-1. Em **Computação + armazenamento** , selecione **Configurar banco de dados** .
-1. Este início rápido usa um banco de dados sem servidor, portanto, selecione **Sem servidor** e **Aplicar** . 
+1. Deixe **Deseja usar o pool elástico do SQL** definido como **Não**.
+1. Em **Computação + armazenamento**, selecione **Configurar banco de dados**.
+1. Este início rápido usa um banco de dados sem servidor, portanto, selecione **Sem servidor** e **Aplicar**. 
 
       ![configurar banco de dados sem servidor](./media/single-database-create-quickstart/configure-database.png)
 
@@ -62,19 +62,19 @@ Para criar um banco de dados individual no portal do Azure, este início rápido
 
    ![Novo banco de dados SQL – guia Básico](./media/single-database-create-quickstart/new-sql-database-basics.png)
 
-1. Na guia **Rede** , para **Método de conectividade** , selecione **Ponto de extremidade público** .
-1. Para **Regras de firewall** , defina **Adicionar endereço IP do cliente atual** como **Sim** . Deixe **Permitir que serviços e recursos do Azure acessem este servidor** definido como **Não** .
+1. Na guia **Rede**, para **Método de conectividade**, selecione **Ponto de extremidade público**.
+1. Para **Regras de firewall**, defina **Adicionar endereço IP do cliente atual** como **Sim**. Deixe **Permitir que serviços e recursos do Azure acessem este servidor** definido como **Não**.
 1. Selecione **Avançar: Configurações adicionais** na parte inferior da página.
 
    ![Guia Rede](./media/single-database-create-quickstart/networking.png)
   
 
-1. Na guia **Configurações adicionais** , na seção **Fonte de dados** , para **Usar dados existentes** , selecione **Exemplo** . Isso cria um banco de dados de exemplo AdventureWorksLT, de modo que há algumas tabelas e os dados a consultar e com os quais experimentar, em vez de um banco de dados em branco vazio.
+1. Na guia **Configurações adicionais**, na seção **Fonte de dados**, para **Usar dados existentes**, selecione **Exemplo**. Isso cria um banco de dados de exemplo AdventureWorksLT, de modo que há algumas tabelas e os dados a consultar e com os quais experimentar, em vez de um banco de dados em branco vazio.
 1. Selecione **Examinar + criar** na parte inferior da página:
 
    ![Guia Configurações adicionais](./media/single-database-create-quickstart/additional-settings.png)
 
-1. Na página **Examinar + criar** , após examinar, selecione **Criar** .
+1. Na página **Examinar + criar**, após examinar, selecione **Criar**.
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -107,7 +107,7 @@ endip=0.0.0.0
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus* :
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
 
 ```azurecli-interactive
 az group create --name $resourceGroupName --location $location
@@ -141,7 +141,7 @@ az sql server firewall-rule create \
 ```
 
 
-## <a name="create-a-single-database"></a>Criar um banco de dados individual
+## <a name="create-a-single-database-with-azure-cli"></a>Criar um banco de dados individual usando a CLI do Azure
 
 Crie um banco de dados com o comando [az sql db create](/cli/azure/sql/db). O código a seguir cria
 
@@ -230,7 +230,7 @@ Crie uma regra de firewall de servidor com o cmdlet [New-AzSqlServerFirewallRule
 ```
 
 
-## <a name="create-a-single-database"></a>Criar um banco de dados individual
+## <a name="create-a-single-database-with-powershell"></a>Criar um banco de dados individual usando o PowerShell
 
 Crie um banco de dados individual com o cmdlet [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase).
 
@@ -258,11 +258,11 @@ Depois que o banco de dados for criado, você poderá usar o **Editor de consult
 
 1. No portal, pesquise e selecione **bancos de dados SQL** e selecione seu banco de dados na lista.
 1. Na página para o seu banco de dados, selecione **Editor de consultas (versão prévia)** no menu à esquerda.
-1. Insira suas informações de logon do administrador do servidor e selecione **OK** .
+1. Insira suas informações de logon do administrador do servidor e selecione **OK**.
 
    ![Entrar no Editor de consultas](./media/single-database-create-quickstart/query-editor-login.png)
 
-1. Insira a consulta a seguir no painel **Editor de consultas** .
+1. Insira a consulta a seguir no painel **Editor de consultas**.
 
    ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
@@ -271,7 +271,7 @@ Depois que o banco de dados for criado, você poderá usar o **Editor de consult
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-1. Selecione **Executar** e, em seguida, examine os resultados da consulta no painel **Resultados** .
+1. Selecione **Executar** e, em seguida, examine os resultados da consulta no painel **Resultados**.
 
    ![Resultados do Editor de consultas](./media/single-database-create-quickstart/query-editor-results.png)
 
@@ -288,8 +288,8 @@ Quando você terminar de usar esses recursos, você poderá excluir o grupo de r
 Para excluir **myResourceGroup** e todos os recursos dele usando o portal do Azure:
 
 1. No portal, pesquise e selecione **Grupos de recursos** e, em seguidas, **myResourceGroup** na lista.
-1. Na página Grupo de recursos, selecione **Excluir grupo de recursos** .
-1. Em **Digite o nome do grupo de recursos** , insira *myResourceGroup* e selecione **Excluir** .
+1. Na página Grupo de recursos, selecione **Excluir grupo de recursos**.
+1. Em **Digite o nome do grupo de recursos**, insira *myResourceGroup* e selecione **Excluir**.
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 

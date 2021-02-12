@@ -7,12 +7,12 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: apimpm
-ms.openlocfilehash: 92d108304f788279a636b1dc5e1c4e6c103ede3d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 62f163b9ce649cd5ddb52b4325682570633dfb92
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088872"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183151"
 ---
 # <a name="cicd-for-api-management-using-azure-resource-manager-templates"></a>CI/CD para gerenciamento de API usando modelos de Azure Resource Manager
 
@@ -36,19 +36,19 @@ A imagem a seguir ilustra a abordagem proposta.
 
 :::image type="content" source="media/devops-api-development-templates/apim-devops.png" alt-text="Diagrama que ilustra o DevOps com o gerenciamento de API.":::
 
-Neste exemplo, há dois ambientes de implantação: *desenvolvimento* e *produção* . Cada uma tem sua própria instância de gerenciamento de API. 
+Neste exemplo, há dois ambientes de implantação: *desenvolvimento* e *produção*. Cada uma tem sua própria instância de gerenciamento de API. 
 
 * Os desenvolvedores de API têm acesso à instância de desenvolvimento e podem usá-lo para desenvolver e testar suas APIs. 
 * Uma equipe designada chamada *editores de API* gerencia a instância de produção.
 
-A chave nessa abordagem proposta é manter todas as configurações de gerenciamento de API em [modelos de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). A organização deve manter esses modelos em um sistema de controle do código-fonte, como o git. Conforme ilustrado na imagem, um repositório do Publicador contém todas as configurações da instância de gerenciamento de API de produção em uma coleção de modelos:
+A chave nessa abordagem proposta é manter todas as configurações de gerenciamento de API em [modelos de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). A organização deve manter esses modelos em um sistema de controle do código-fonte, como o git. Conforme ilustrado na imagem, um repositório do Publicador contém todas as configurações da instância de gerenciamento de API de produção em uma coleção de modelos:
 
 |Modelo  |Descrição  |
 |---------|---------|
 |Modelo de serviço     | Configurações de nível de serviço da instância de gerenciamento de API, como tipo de preço e domínios personalizados.         |
 |Modelos compartilhados     |  Recursos compartilhados em uma instância de gerenciamento de API, como grupos, produtos e agentes.    |
 |Modelos de API     |  Configurações de APIs e seus subrecursos: operações, políticas, configurações de diagnóstico.        |
-|Modelo mestre (principal)     |   Une tudo isso [vinculando](../azure-resource-manager/resource-group-linked-templates.md) -se a todos os modelos e implantando-os na ordem. Para implantar todas as configurações em uma instância de gerenciamento de API, implante o modelo principal. Você também pode implantar cada modelo individualmente.       |
+|Modelo mestre (principal)     |   Une tudo isso [vinculando](../azure-resource-manager/templates/linked-templates.md) -se a todos os modelos e implantando-os na ordem. Para implantar todas as configurações em uma instância de gerenciamento de API, implante o modelo principal. Você também pode implantar cada modelo individualmente.       |
 
 Os desenvolvedores de API criarão o bifurcação do repositório do Publicador para um repositório de desenvolvedores e trabalharão nas alterações de suas APIs. Na maioria dos casos, eles se concentram nos modelos de API para suas APIs e não precisam alterar os modelos de serviço ou compartilhados.
 

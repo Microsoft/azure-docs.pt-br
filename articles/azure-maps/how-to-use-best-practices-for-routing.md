@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 743710ea0d40eb31375236d4e59b0b138a217518
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 8174529def5e3924086e49f36c225f07a4da2648
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895538"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051644"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Práticas recomendadas para o serviço de rota do Azure Maps
 
@@ -59,10 +59,10 @@ Aqui está uma comparação para mostrar alguns recursos das direções de rota 
 
 | API do Azure Maps | Número máximo de consultas na solicitação | Evitar áreas | Roteamento de caminhão e de veículo elétrico | Marcos e otimização de vendas de viagens | Pontos de suporte |
 | :--------------: |  :--------------: |  :--------------: | :--------------: | :--------------: | :--------------: |
-| Obter Trajeto de Rota | 1 | | X | X | |
-| Pós-direções de rota | 1 | X | X | X | X |
-| Postar o lote de direções do roteiro | 700 | | X | X | |
-| Matrix de rota POST | 700 | | X | | |
+| Obter Trajeto de Rota | 1 | | ✔ | ✔ | |
+| Pós-direções de rota | 1 | ✔ | ✔ | ✔ | ✔ |
+| Postar o lote de direções do roteiro | 700 | | ✔ | ✔ | |
+| Matrix de rota POST | 700 | | ✔ | | |
 
 Para saber mais sobre os recursos de roteamento de veículo elétrico, confira nosso tutorial sobre como [rotear veículos elétricos usando o Azure notebooks com Python](tutorial-ev-routing.md).
 
@@ -113,7 +113,7 @@ No segundo exemplo abaixo, temos uma solicitação de roteamento em tempo real, 
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&query=47.6422356,-122.1389797:47.6641142,-122.3011268&travelMode=car&traffic=true&computeTravelTimeFor=all
 ```
 
-A resposta contém um resumo, conforme mostrado abaixo. Devido a congestionamentos, o valor de **trafficDelaysInSeconds** é maior que zero. Ele também é maior que **historicTrafficTravelTimeInSeconds** .
+A resposta contém um resumo, conforme mostrado abaixo. Devido a congestionamentos, o valor de **trafficDelaysInSeconds** é maior que zero. Ele também é maior que **historicTrafficTravelTimeInSeconds**.
 
 ```json
 "summary": {
@@ -140,7 +140,7 @@ Expanda o `point` elemento para ver a lista de coordenadas para o caminho:
 
 ![Elemento de pontos expandidos](media/how-to-use-best-practices-for-routing/points-list-img.png)
 
-As APIs de direção de rota dão suporte a formatos diferentes de instruções que podem ser usadas especificando o parâmetro de **instruções** . Para formatar instruções para facilitar o processamento do computador, use o **instruçõestype = codificado** . Use o **instruçõestype = marcado** para exibir instruções como texto para o usuário. Além disso, as instruções podem ser formatadas como texto em que alguns elementos das instruções são marcados e a instrução é apresentada com formatação especial. Para obter mais informações, consulte a [lista de tipos de instrução com suporte](/rest/api/maps/route/postroutedirections#routeinstructionstype).
+As APIs de direção de rota dão suporte a formatos diferentes de instruções que podem ser usadas especificando o parâmetro de **instruções** . Para formatar instruções para facilitar o processamento do computador, use o **instruçõestype = codificado**. Use o **instruçõestype = marcado** para exibir instruções como texto para o usuário. Além disso, as instruções podem ser formatadas como texto em que alguns elementos das instruções são marcados e a instrução é apresentada com formatação especial. Para obter mais informações, consulte a [lista de tipos de instrução com suporte](/rest/api/maps/route/postroutedirections#routeinstructionstype).
 
 Quando as instruções são solicitadas, a resposta retorna um novo elemento chamado `guidance` . O `guidance` elemento contém duas informações: instruções ativas e instruções resumidas.
 
@@ -214,7 +214,7 @@ Atualmente, o Azure Maps fornece duas formas de otimizações de rota:
 
 Para o roteamento de várias interrupções, até 150 marcos pode ser especificado em uma única solicitação de rota. Os locais de coordenadas inicial e final podem ser os mesmos, como seria o caso com uma viagem de ida e volta. Mas você precisa fornecer pelo menos um waypoint adicional para fazer o cálculo da rota. Marcos pode ser adicionado à consulta entre as coordenadas de origem e destino.
 
-Se você quiser otimizar a melhor ordem para visitar o Marcos fornecido, será necessário especificar **computeBestOrder = true** . Esse cenário também é conhecido como o problema de otimização do vendedor de viagem.
+Se você quiser otimizar a melhor ordem para visitar o Marcos fornecido, será necessário especificar **computeBestOrder = true**. Esse cenário também é conhecido como o problema de otimização do vendedor de viagem.
 
 ### <a name="sample-query"></a>Exemplo de consulta
 

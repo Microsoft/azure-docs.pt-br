@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 2e27b168087966701fb53cc8df19d264861257d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c2072d13cab9839a276c0437747d7075918e78a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448106"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696873"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Vários front-ends para Azure Load Balancer
 
 O Azure Load Balancer permite que você equilibre a carga de serviços em várias portas, vários endereços IP ou ambos. Você pode usar definições de balanceador de carga públicas e internas para fluxos de balanceamento de carga em um conjunto de VMs.
 
-Este artigo descreve os conceitos básicos dessa capacidade, conceitos importantes e restrições. Se você pretende expor serviços em um endereço IP, encontre instruções simplificadas para configurações do balanceador de carga [público](load-balancer-get-started-internet-portal.md) ou [interno](load-balancer-get-started-ilb-arm-portal.md). A adição de vários front-ends é um complemento a uma única configuração de front-end. Com os conceitos deste artigo, você pode expandir uma configuração simplificada quanto quiser.
+Este artigo descreve os conceitos básicos dessa capacidade, conceitos importantes e restrições. Se você pretende expor serviços em um endereço IP, encontre instruções simplificadas para configurações do balanceador de carga [público](./quickstart-load-balancer-standard-public-portal.md) ou [interno](./quickstart-load-balancer-standard-internal-portal.md). A adição de vários front-ends é um complemento a uma única configuração de front-end. Com os conceitos deste artigo, você pode expandir uma configuração simplificada quanto quiser.
 
 Quando você define um Azure Load Balancer, uma configuração de pool de front-end e back-end são conectadas às regras. A investigação de integridade referenciada pela regra é usada para determinar como os novos fluxos serão enviados para um nó no pool de back-end. O front-end (ou seja, VIP) é definido por uma tupla de 3 composta por um endereço IP (público ou interno), um protocolo de transporte (UDP ou TCP) e um número de porta da regra de balanceamento de carga. O pool de back-end é uma coleção de configurações de IP de Máquinas Virtuais (parte do recurso NIC) que referenciam o pool de back-end do Load Balancer.
 

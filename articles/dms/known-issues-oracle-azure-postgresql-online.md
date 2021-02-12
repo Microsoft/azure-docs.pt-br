@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 05/20/2020
-ms.openlocfilehash: 2316e0314c9d8f36aee123d4a516f382f58e83e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b331f8e0af452937028c63fba123cb92f57a6b0
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291649"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962409"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-oracle-to-azure-db-for-postgresql-single-server"></a>Problemas conhecidos/limitações de migração com migrações online da Oracle para o BD do Azure para PostgreSQL – servidor único
 
@@ -34,7 +34,7 @@ O Serviço de Migração de Banco de Dados do Azure não dá suporte à conexão
 
 ## <a name="postgresql-versions-supported-as-a-target-database"></a>Versões do PostgreSQL com suporte como um banco de dados de destino
 
-O Serviço de Migração de Banco de Dados do Azure dá suporte a migrações para o Banco de Dados do Azure para PostgreSQL – servidor único, versões 9.5, 9.6, 10 e 11 do servidor. Confira o artigo [versões do banco de dados PostgreSQL com suporte](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions) para obter informações atuais sobre o suporte de versão no Banco de Dados do Azure para PostgreSQL – servidor único.
+O Serviço de Migração de Banco de Dados do Azure dá suporte a migrações para o Banco de Dados do Azure para PostgreSQL – servidor único, versões 9.5, 9.6, 10 e 11 do servidor. Confira o artigo [versões do banco de dados PostgreSQL com suporte](../postgresql/concepts-supported-versions.md) para obter informações atuais sobre o suporte de versão no Banco de Dados do Azure para PostgreSQL – servidor único.
 
 ## <a name="datatype-limitations"></a>Limitações de tipo de dados
 

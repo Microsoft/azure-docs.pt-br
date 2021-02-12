@@ -8,12 +8,12 @@ ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4889ecd02be1b8f59c30550b7813ed5e5935f20f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0953d750ee8b59e9889512bb64cfd276a0bbeb53
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88924687"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654856"
 ---
 #   <a name="text-translation-cognitive-skill"></a>Habilidade cognitiva de tradução de texto
 
@@ -38,7 +38,7 @@ O tamanho máximo de um registro deve ser de 50.000 caracteres conforme medido p
 
 Os parâmetros diferenciam maiúsculas de minúsculas.
 
-| Entradas                | Descrição |
+| Entradas | Descrição |
 |---------------------|-------------|
 | defaultToLanguageCode | Necessária O código de idioma para converter documentos em para documentos que não especificam o idioma explicitamente. <br/> Consulte [Lista completa dos idiomas com suporte](../cognitive-services/translator/language-support.md). |
 | defaultFromLanguageCode | Adicional O código de idioma para converter documentos do para documentos que não especificam o idioma explicitamente.  Se o defaultFromLanguageCode não for especificado, a detecção automática de idioma fornecida pelo API de Tradução de Texto será usada para determinar o idioma de. <br/> Consulte [Lista completa dos idiomas com suporte](../cognitive-services/translator/language-support.md). |
@@ -54,7 +54,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 
 ## <a name="skill-outputs"></a>Saídas de habilidades
 
-| Nome de saída    | DESCRIÇÃO |
+| Nome de saída    | Descrição |
 |--------------------|-------------|
 | translatedText | O resultado da cadeia de caracteres da conversão de texto do translatedFromLanguageCode para o translatedToLanguageCode.|
 | translatedToLanguageCode  | Uma cadeia de caracteres que indica o código de idioma para o qual o texto foi traduzido. Útil se você estiver traduzindo para vários idiomas e quiser ser capaz de controlar qual texto é o idioma.|

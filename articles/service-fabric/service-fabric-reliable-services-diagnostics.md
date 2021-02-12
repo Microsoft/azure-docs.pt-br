@@ -3,15 +3,15 @@ title: Diagnóstico de Reliable Services com estado do Azure Service Fabric
 description: Funcionalidade de diagnóstico para Reliable Services com estado no Azure Service Fabric
 ms.topic: conceptual
 ms.date: 8/24/2018
-ms.openlocfilehash: 5a3831dd4f8d5402980fac3daf8c35d9884c852d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 774a771d0c9701076a5d6c070963bf6224a571dd
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840754"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789323"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funcionalidade de diagnóstico para Reliable Services com monitoração de estado
-A classe StatefulServiceBase dos Reliable Services com Estado do Azure Service Fabric emite eventos [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) que podem ser usados para depurar o serviço, fornecer informações sobre como o runtime está funcionando e ajudar a solucionar problemas.
+A classe StatefulServiceBase dos Reliable Services com Estado do Azure Service Fabric emite eventos [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource) que podem ser usados para depurar o serviço, fornecer informações sobre como o runtime está funcionando e ajudar a solucionar problemas.
 
 ## <a name="eventsource-events"></a>Eventos EventSource
 O nome do EventSource da classe StatefulServiceBase de Reliable Services com estado é "Microsoft-ServiceFabric-Services." Os eventos dessa origem de eventos aparecem na janela [Eventos de Diagnóstico](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) quando o serviço está sendo [depurado no Visual Studio](service-fabric-debugging-your-application.md).
@@ -25,7 +25,7 @@ Exemplos de ferramentas e tecnologias que ajudam a coletar e/ou exibir eventos E
 | StatefulRunAsyncCancellation |2 |Informativo |Emitido quando a tarefa RunAsync do serviço é cancelada |
 | StatefulRunAsyncCompletion |3 |Informativo |Emitido quando a tarefa RunAsync do serviço é concluída |
 | StatefulRunAsyncSlowCancellation |4 |Aviso |Emitido quando a tarefa RunAsync do serviço leva muito tempo para concluir o cancelamento |
-| StatefulRunAsyncFailure |5 |Erro do |Emitido quando a tarefa RunAsync do serviço lança uma exceção |
+| StatefulRunAsyncFailure |5 |Erro |Emitido quando a tarefa RunAsync do serviço lança uma exceção |
 
 ## <a name="interpret-events"></a>Interpretar eventos
 Os eventos StatefulRunAsyncInvocation, StatefulRunAsyncCompletion e StatefulRunAsyncCancellation são úteis para o gravador de serviço para entender o ciclo de vida de um serviço, bem como o tempo em que um serviço é iniciado, cancelado ou concluído. Essas informações podem ser úteis ao depurar problemas de serviço ou entender o ciclo de vida do serviço.
@@ -58,7 +58,7 @@ Para a categoria `Service Fabric Transactional Replicator`, os nomes da instânc
 
 `ServiceFabricPartitionId:ServiceFabricReplicaId`
 
-*ServiceFabricPartitionID* é a representação da cadeia de caracteres da ID da partição do Service Fabric à qual a instância do contador de desempenho está associada. A ID de partição é um GUID, e sua representação de cadeia de caracteres é gerada por meio do [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) especificador de formato "D".
+*ServiceFabricPartitionID* é a representação da cadeia de caracteres da ID da partição do Service Fabric à qual a instância do contador de desempenho está associada. A ID de partição é um GUID, e sua representação de cadeia de caracteres é gerada por meio do [`Guid.ToString`](/dotnet/api/system.guid.tostring#System_Guid_ToString_System_String_) especificador de formato "D".
 
 O *ServiceFabricReplicaId* é a ID associada a uma determinada réplica de um serviço confiável. A ID da réplica é incluída no nome da instância do contador de desempenho para garantir sua exclusividade e evitar conflitos com outras instâncias de contador de desempenho geradas pela mesma partição. Mais detalhes sobre réplicas e sua função de serviços confiáveis podem ser encontrados [aqui](service-fabric-concepts-replica-lifecycle.md).
 
@@ -73,7 +73,7 @@ Para a categoria `Service Fabric TStore`, os nomes da instância do contador est
 
 `ServiceFabricPartitionId:ServiceFabricReplicaId:StateProviderId_PerformanceCounterInstanceDifferentiator_StateProviderName`
 
-*ServiceFabricPartitionID* é a representação da cadeia de caracteres da ID da partição do Service Fabric à qual a instância do contador de desempenho está associada. A ID de partição é um GUID, e sua representação de cadeia de caracteres é gerada por meio do [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) especificador de formato "D".
+*ServiceFabricPartitionID* é a representação da cadeia de caracteres da ID da partição do Service Fabric à qual a instância do contador de desempenho está associada. A ID de partição é um GUID, e sua representação de cadeia de caracteres é gerada por meio do [`Guid.ToString`](/dotnet/api/system.guid.tostring#System_Guid_ToString_System_String_) especificador de formato "D".
 
 O *ServiceFabricReplicaId* é a ID associada a uma determinada réplica de um serviço confiável. A ID da réplica é incluída no nome da instância do contador de desempenho para garantir sua exclusividade e evitar conflitos com outras instâncias de contador de desempenho geradas pela mesma partição. Mais detalhes sobre réplicas e sua função de serviços confiáveis podem ser encontrados [aqui](service-fabric-concepts-replica-lifecycle.md).
 

@@ -3,12 +3,12 @@ title: Solucionar problemas SQL Server backup de banco de dados
 description: Informações de solução de problemas para fazer backup de bancos de dados do SQL Server em execução em VMs do Azure com o Backup do Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: f215b848bedae333979f0fed8eb7f216fb6e25f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cf0ed0200de9b2787f5d9f38bd343f93648bc78
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332773"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99557743"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Solucionar problemas SQL Server backup de banco de dados usando o backup do Azure
 
@@ -56,13 +56,47 @@ Se a VM do SQL precisar ser registrada no novo cofre, ele deverá ter o registro
 
 1. O SQL também oferece algumas diretrizes para trabalhar com programas antivírus. Consulte [Este artigo](https://support.microsoft.com/help/309422/choosing-antivirus-software-for-computers-that-run-sql-server) para obter detalhes.
 
+## <a name="faulty-instance-in-a-vm-with-multiple-sql-server-instances"></a>Instância com falha em uma VM com várias instâncias de SQL Server
+
+Você poderá restaurar para uma VM do SQL somente se todas as instâncias do SQL em execução na VM forem relatadas como íntegras. Se uma ou mais instâncias forem "defeituosas", a VM não aparecerá como um destino de restauração. Portanto, isso pode ser um possível motivo pelo qual uma VM de várias instâncias pode não aparecer na lista suspensa "servidor" durante a operação de restauração.
+
+Você pode validar a "prontidão de backup" de todas as instâncias do SQL na VM, em **Configurar backup**:
+
+![Validar preparação do backup](./media/backup-sql-server-azure-troubleshoot/backup-readiness.png)
+
+Se você quiser disparar uma restauração nas instâncias do SQL íntegras, execute as seguintes etapas:
+
+1. Entre na VM do SQL e vá para `C:\Program Files\Azure Workload Backup\bin` .
+1. Crie um arquivo JSON chamado `ExtensionSettingsOverrides.json` (se ainda não estiver presente). Se esse arquivo já estiver presente na VM, continue a usá-lo.
+1. Adicione o seguinte conteúdo ao arquivo JSON e salve o arquivo:
+
+    ```json
+    {
+                  "<ExistingKey1>":"<ExistingValue1>",
+                    …………………………………………………… ,
+              "whitelistedInstancesForInquiry": "FaultyInstance_1,FaultyInstance_2"
+            }
+            
+            Sample content:        
+            { 
+              "whitelistedInstancesForInquiry": "CRPPA,CRPPB "
+            }
+
+    ```
+
+1. Dispare a operação de **redescoberta de bancos** de servidores no servidor afetado do portal do Azure (o mesmo local em que a prontidão de backup pode ser vista). A VM começará a aparecer como destino para operações de restauração.
+
+    ![Redescobrir bancos de todos](./media/backup-sql-server-azure-troubleshoot/rediscover-dbs.png)
+
+1. Remova a entrada *whitelistedInstancesForInquiry* do ExtensionSettingsOverrides.jsno arquivo depois que a operação de restauração for concluída.
+
 ## <a name="error-messages"></a>Mensagens de erro
 
 ### <a name="backup-type-unsupported"></a>Tipo de backup sem suporte
 
-| Gravidade | Descrição | Possíveis causas | Ação recomendada |
+| Severidade | Descrição | Possíveis causas | Ação recomendada |
 |---|---|---|---|
-| Aviso | As configurações atuais deste banco de dados não dão suporte a determinados tipos de backup presentes na política associada. | <li>Somente uma operação de backup de banco de dados completa pode ser executada no banco de dados mestre. O backup diferencial de backup e de log de transações não é possível. </li> <li>Qualquer banco de dados no modelo de recuperação simples não permite o backup de logs de transações.</li> | Modificar as configurações do banco de dados SP todos os tipos de backup na política têm suporte. Ou altere a política atual para incluir apenas os tipos de backup com suporte. Caso contrário, os tipos de backup sem suporte serão ignorados durante o backup agendado ou o trabalho de backup falhará para o backup sob demanda.
+| Aviso | As configurações atuais deste banco de dados não dão suporte a determinados tipos de backup presentes na política associada. | <li>Somente uma operação de backup de banco de dados completa pode ser executada no banco de dados mestre. O backup diferencial de backup e de log de transações não é possível. </li> <li>Qualquer banco de dados no modelo de recuperação simples não permite o backup de logs de transações.</li> | Modifique as configurações do banco de dados para que todos os tipos de backup na política tenham suporte. Ou altere a política atual para incluir apenas os tipos de backup com suporte. Caso contrário, os tipos de backup sem suporte serão ignorados durante o backup agendado ou o trabalho de backup falhará para o backup sob demanda.
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 
@@ -168,22 +202,29 @@ A operação está bloqueada, pois você atingiu o limite de número de operaç�
 |---|---|---|
 A operação está bloqueada porque o cofre atingiu seu limite máximo para essas operações permitidas em um intervalo de 24 horas. | Quando você atingir o limite máximo permitido para uma operação em um intervalo de 24 horas, esse erro será exibido. Esse erro geralmente aparece quando há operações em escala, como modificar política ou proteção automática. Ao contrário do caso do CloudDosAbsoluteLimitReached, não há muito que você possa fazer para resolver esse estado. Na verdade, o serviço de backup do Azure tentará novamente as operações internamente para todos os itens em questão.<br> Por exemplo: se você tiver um grande número de fontes de fonte protegidas por uma política e tentar modificar essa política, ela irá disparar configurar trabalhos de proteção para cada um dos itens protegidos e, às vezes, poderá atingir o limite máximo permitido para essas operações por dia.| O serviço de backup do Azure repetirá essa operação automaticamente após 24 horas.
 
+### <a name="workloadextensionnotreachable"></a>WorkloadExtensionNotReachable
+
+| Mensagem de erro | Possíveis causas | Ação recomendada |
+|---|---|---|
+Falha na operação de extensão de carga de trabalho AzureBackup. | A VM está desligada ou a VM não pode entrar em contato com o serviço de backup do Azure devido a problemas de conectividade com a Internet.| <li> Verifique se a VM está em execução e se tem conectividade com a Internet.<li> [Registre novamente a extensão na VM SQL Server](manage-monitor-sql-database-backup.md#re-register-extension-on-the-sql-server-vm).
+
+
 ### <a name="usererrorvminternetconnectivityissue"></a>UserErrorVMInternetConnectivityIssue
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-A VM não é capaz de contatar o serviço de backup do Azure devido a problemas de conectividade com a Internet. | A VM precisa de conectividade de saída para o serviço de backup do Azure, o armazenamento do Azure ou os serviços Azure Active Directorys.| -Se você usar NSG para restringir a conectividade, deverá usar a marca de serviço *AzureBackup* para permitir o acesso de saída ao serviço de backup do Azure e, da mesma forma, para os serviços do Azure AD (*AzureActiveDirectory*) e armazenamento do Azure (*armazenamento*). Siga estas [etapas](./backup-sql-server-database-azure-vms.md#nsg-tags) para conceder acesso.<br>-Verifique se o DNS está resolvendo os pontos de extremidade do Azure.<br>-Verifique se a VM está atrás de um balanceador de carga bloqueando o acesso à Internet. Ao atribuir o IP público às VMs, a descoberta funcionará.<br>-Verifique se não há firewall/antivírus/proxy bloqueando chamadas para os três serviços de destino acima.
+A VM não é capaz de contatar o serviço de backup do Azure devido a problemas de conectividade com a Internet. | A VM precisa de conectividade de saída para o serviço de backup do Azure, o armazenamento do Azure ou os serviços Azure Active Directorys.| <li> Se você usar NSG para restringir a conectividade, deverá usar a marca de serviço *AzureBackup* para permitir o acesso de saída ao serviço de backup do Azure e, da mesma forma, para os serviços do Azure AD (*AzureActiveDirectory*) e armazenamento do Azure (*armazenamento*). Siga estas [etapas](./backup-sql-server-database-azure-vms.md#nsg-tags) para conceder acesso. <li> Verifique se o DNS está resolvendo os pontos de extremidade do Azure. <li> Verifique se a VM está atrás de um balanceador de carga bloqueando o acesso à Internet. Ao atribuir o IP público às VMs, a descoberta funcionará. <li> Verifique se não há firewall/antivírus/proxy bloqueando chamadas para os três serviços de destino acima.
 
 ## <a name="re-registration-failures"></a>Falhas no novo registro
 
 Verifique se um ou mais dos seguintes sintomas existem, antes de acionar a operação de novo registro:
 
-- Todas as operações (como backup, restauração e configuração de backup) estão falhando na VM com um dos seguintes códigos de erro: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
+- Todas as operações (como backup, restauração e configuração de backup) estão falhando na VM com um dos seguintes códigos de erro: **[WorkloadExtensionNotReachable](#workloadextensionnotreachable)**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
 - Se a área de **Status de backup** para o item de backup estiver mostrando **Não acessível**, descarte todas as outras causas que possam resultar no mesmo status:
 
   - Falta de permissão para executar operações relacionadas ao backup na VM.
   - Desligamento da VM, para que os backups não ocorram.
-  - Problemas de rede.
+  - [Problemas de rede](#usererrorvminternetconnectivityissue)
 
    ![Registrando novamente a VM](./media/backup-azure-sql-database/re-register-vm.png)
 
@@ -216,7 +257,7 @@ Agora, organize-os no seguinte formato:
 [{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]}
 ```
 
-Aqui está um exemplo:
+Veja um exemplo:
 
 ```json
 [{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]}
@@ -245,7 +286,7 @@ O conteúdo do arquivo deve estar neste formato:
 ]
 ```
 
-Aqui está um exemplo:
+Veja um exemplo:
 
 ```json
 [

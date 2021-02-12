@@ -4,12 +4,12 @@ description: Crie seu primeiro aplicativo de contêiner do Windows no Azure Serv
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 96a9eda23268bc06029292c3c5f10502216e3658
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 197423670ffe05f15fdc5bfd351efdfba33b53cd
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087053"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533767"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Como criar seu primeiro aplicativo de contêiner do Service Fabric no Windows
 
@@ -30,26 +30,21 @@ Executar um aplicativo existente em um contêiner do Windows em um cluster do Se
 * Um computador de desenvolvimento executando:
   * Visual Studio 2015 ou Visual Studio 2019.
   * [SDK e ferramentas do Service Fabric](service-fabric-get-started.md).
-  *  Docker para Windows. [Obter Docker CE para o Windows (estável)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Depois de instalar e iniciar o Docker, clique no ícone de bandeja e selecione **Alternar para contêineres do Windows** . Essa etapa é necessária para executar imagens do Docker com base no Windows.
+  *  Docker para Windows. [Obter Docker CE para o Windows (estável)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Depois de instalar e iniciar o Docker, clique no ícone de bandeja e selecione **Alternar para contêineres do Windows**. Essa etapa é necessária para executar imagens do Docker com base no Windows.
 
 * Um cluster do Windows com três ou mais nós em execução no Windows Server com contêineres. 
 
   Neste artigo, a versão (build) do Windows Server com contêineres em execução em nós do cluster deve corresponder em seu computador de desenvolvimento. Isso ocorre porque você compila a imagem do docker em seu computador de desenvolvimento e há restrições de compatibilidade entre versões do sistema operacional do contêiner e o sistema operacional do host no qual ele foi implantado. Para obter mais informações, consulte [Compatibilidade do sistema operacional do contêiner e do sistema operacional do host do Windows Server](#windows-server-container-os-and-host-os-compatibility). 
   
-Para determinar a versão do Windows Server com contêineres que você precisa para seu cluster, execute o comando `ver` em um prompt de comando do Windows no computador de desenvolvimento:
-
-* Se a versão contém *x.x.14323.x* , selecione *WindowsServer 2016-Datacenter-with-Containers* para o sistema operacional ao [criar um cluster](service-fabric-cluster-creation-via-portal.md).
-  * Se a versão contém *x.x.16299.x* , selecione *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers* para o sistema operacional ao [criar um cluster](service-fabric-cluster-creation-via-portal.md).
+    Para determinar a versão do Windows Server com contêineres necessários para o cluster, execute o `ver` comando em um prompt de comando do Windows em seu computador de desenvolvimento. Consulte o [so do contêiner do Windows Server e a compatibilidade do sistema operacional do host](#windows-server-container-os-and-host-os-compatibility) antes [de criar um cluster](service-fabric-cluster-creation-via-portal.md).
 
 * Um registro no Registro de Contêiner do Azure - [Crie um registro de contêiner](../container-registry/container-registry-get-started-portal.md) em sua assinatura do Azure.
 
 > [!NOTE]
 > A implantação de contêineres em um cluster do Service Fabric em execução no Windows 10 tem suporte.  Consulte [este artigo](service-fabric-how-to-debug-windows-containers.md) para obter informações sobre como configurar o Windows 10 para executar contêineres do Windows.
->   
 
 > [!NOTE]
-> O Service Fabric versões 6.2 e posteriores dá suporte para implantação de contêineres em clusters em execução no Windows Server versão 1709.  
-> 
+> O Service Fabric versões 6.2 e posteriores dá suporte para implantação de contêineres em clusters em execução no Windows Server versão 1709.
 
 ## <a name="define-the-docker-container"></a>Defina o contêiner Docker
 
@@ -85,7 +80,7 @@ CMD ["python", "app.py"]
 Leia a [referência do Dockerfile](https://docs.docker.com/engine/reference/builder/) para saber mais informações.
 
 ## <a name="create-a-basic-web-application"></a>Criar um aplicativo Web básico
-Crie um aplicativo Web Flask que escuta a porta 80 retornar `Hello World!`. No mesmo diretório, crie o arquivo *requirements.txt* . Adicione o seguinte e salve as alterações:
+Crie um aplicativo Web Flask que escuta a porta 80 retornar `Hello World!`. No mesmo diretório, crie o arquivo *requirements.txt*. Adicione o seguinte e salve as alterações:
 ```
 Flask
 ```
@@ -109,10 +104,18 @@ if __name__ == "__main__":
 ```
 
 <a id="Build-Containers"></a>
-## <a name="build-the-image"></a>Criar a imagem
-Execute o comando `docker build` para criar a imagem que executa o seu aplicativo web. Abra uma janela do PowerShell e acesse o diretório que contém o Dockerfile. Execute o seguinte comando:
+
+## <a name="login-to-docker-and-build-the-image"></a>Faça logon no Docker e crie a imagem
+
+Em seguida, criaremos a imagem que executa seu aplicativo Web. Ao obter imagens públicas do Docker (como `python:2.7-windowsservercore` em nosso Dockerfile), é uma prática recomendada autenticar com sua conta do Hub do Docker em vez de fazer uma solicitação de pull anônima.
+
+> [!NOTE]
+> Ao fazer solicitações de pull anônimas frequentes, você pode ver erros de Docker semelhantes `ERROR: toomanyrequests: Too Many Requests.` ou `You have reached your pull rate limit.` autenticados no Hub do Docker para evitar esses erros. Consulte [gerenciar conteúdo público com o registro de contêiner do Azure](../container-registry/buffer-gate-public-content.md) para obter mais informações.
+
+Abra uma janela do PowerShell e acesse o diretório que contém o Dockerfile. Em seguida, execute os comandos a seguir:
 
 ```
+docker login
 docker build -t helloworldapp .
 ```
 
@@ -190,11 +193,11 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 ## <a name="create-the-containerized-service-in-visual-studio"></a>Crie o serviço em contêineres no Visual Studio
 As ferramentas e o SDK do Service Fabric oferecem um modelo de serviço para ajudar você a criar um aplicativo em contêineres.
 
-1. Inicie o Visual Studio. Selecione **Arquivo** > **Novo** > **Projeto** .
-2. Selecione **Aplicativo do Service Fabric** , nomeie-o como "MyFirstContainer" e clique em **OK** .
-3. Selecione **Contêiner** na lista de **modelos de serviço** .
+1. Inicie o Visual Studio. Selecione **Arquivo** > **Novo** > **Projeto**.
+2. Selecione **Aplicativo do Service Fabric**, nomeie-o como "MyFirstContainer" e clique em **OK**.
+3. Selecione **Contêiner** na lista de **modelos de serviço**.
 4. Em **Nome da imagem** insira "myregistry.azurecr.io/samples/helloworldapp", a imagem é enviada para o seu repositório de contêiner.
-5. Dê um nome ao seu serviço e clique em **OK** .
+5. Dê um nome ao seu serviço e clique em **OK**.
 
 ## <a name="configure-communication"></a>Configurar a comunicação
 O serviço em contêineres precisa de um ponto de extremidade para comunicação. Adicione um elemento `Endpoint` com o protocolo, a porta e o tipo ao arquivo ServiceManifest.xml. Neste exemplo, uma porta fixa 8081 é usada. Se nenhuma porta for especificada, uma porta aleatória do intervalo de portas de aplicativo é escolhida. 
@@ -284,9 +287,9 @@ A [governança de recursos](service-fabric-resource-governance.md) restringe os 
 ```
 ## <a name="configure-docker-healthcheck"></a>Configurar o HEALTHCHECK do Docker 
 
-Iniciando a versão 6.1, o Service Fabric integra automaticamente os eventos do [HEALTHCHECK do Docker](https://docs.docker.com/engine/reference/builder/#healthcheck) em seu relatório de integridade do sistema. Isso significa que, se o contêiner tiver o **HEALTHCHECK** habilitado, o Service Fabric relatará a integridade sempre que o status de integridade do contêiner for alterado conforme relatado pelo Docker. Um relatório de integridade **OK** será exibido no [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) quando o *health_status* for *íntegro* e um **AVISO** aparecerá quando o *health_status* for *não íntegro* . 
+Iniciando a versão 6.1, o Service Fabric integra automaticamente os eventos do [HEALTHCHECK do Docker](https://docs.docker.com/engine/reference/builder/#healthcheck) em seu relatório de integridade do sistema. Isso significa que, se o contêiner tiver o **HEALTHCHECK** habilitado, o Service Fabric relatará a integridade sempre que o status de integridade do contêiner for alterado conforme relatado pelo Docker. Um relatório de integridade **OK** será exibido no [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) quando o *health_status* for *íntegro* e um **AVISO** aparecerá quando o *health_status* for *não íntegro*. 
 
-A partir da versão de atualização mais recente do v 6.4, você tem a opção de especificar que as avaliações do Docker HEALTHCHECK devem ser relatadas como um erro. Se essa opção estiver habilitada, um relatório de integridade **OK** será exibido quando *health_status* estiver *íntegro* e o **erro** será exibido quando *health_status* não estiver *íntegro* .
+A partir da versão de atualização mais recente do v 6.4, você tem a opção de especificar que as avaliações do Docker HEALTHCHECK devem ser relatadas como um erro. Se essa opção estiver habilitada, um relatório de integridade **OK** será exibido quando *health_status* estiver *íntegro* e o **erro** será exibido quando *health_status* não estiver *íntegro*.
 
 A instrução do **HEALTHCHECK** apontando para a verificação real que é executada para monitorar a integridade do contêiner deve estar presente no Dockerfile usado ao gerar a imagem de contêiner.
 
@@ -310,20 +313,20 @@ Você pode configurar o comportamento do **HEALTHCHECK** para cada contêiner es
     </Policies>
 </ServiceManifestImport>
 ```
-Por padrão, *IncludeDockerHealthStatusInSystemHealthReport* é definido como **true** , *RestartContainerOnUnhealthyDockerHealthStatus* é definido como **false** e *TreatContainerUnhealthyStatusAsError* é definido como **false** . 
+Por padrão, *IncludeDockerHealthStatusInSystemHealthReport* é definido como **true**, *RestartContainerOnUnhealthyDockerHealthStatus* é definido como **false** e *TreatContainerUnhealthyStatusAsError* é definido como **false**. 
 
-Se o *RestartContainerOnUnhealthyDockerHealthStatus* for definido como **true** , um contêiner relatando repetidamente um estado não íntegro será reiniciado (possivelmente em outros nós).
+Se o *RestartContainerOnUnhealthyDockerHealthStatus* for definido como **true**, um contêiner relatando repetidamente um estado não íntegro será reiniciado (possivelmente em outros nós).
 
-Se *TreatContainerUnhealthyStatusAsError* for definido como **true** , os relatórios de integridade de **erro** serão exibidos quando o *health_status* do contêiner não estiver *íntegro* .
+Se *TreatContainerUnhealthyStatusAsError* for definido como **true**, os relatórios de integridade de **erro** serão exibidos quando o *health_status* do contêiner não estiver *íntegro*.
 
-Se você deseja desabilitar a integração do **HEALTHCHECK** para todo o cluster do Service Fabric, precisará definir o [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) como **false** .
+Se você deseja desabilitar a integração do **HEALTHCHECK** para todo o cluster do Service Fabric, precisará definir o [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) como **false**.
 
 ## <a name="deploy-the-container-application"></a>Como implantar o aplicativo de contêiner
-Salve todas as suas alterações e compile o aplicativo. Para publicar o seu aplicativo, clique o botão direito do mouse em **MyFirstContainer** no Gerenciador de Soluções e selecione **Publicar** .
+Salve todas as suas alterações e compile o aplicativo. Para publicar o seu aplicativo, clique o botão direito do mouse em **MyFirstContainer** no Gerenciador de Soluções e selecione **Publicar**.
 
-Em **Ponto de Extremidade de Conexão** , insira o ponto de extremidade de gerenciamento para o cluster. Por exemplo, `containercluster.westus2.cloudapp.azure.com:19000`. Você pode encontrar o ponto de extremidade de conexão do cliente na guia de Visão geral para o cluster no [portal do Azure](https://portal.azure.com).
+Em **Ponto de Extremidade de Conexão**, insira o ponto de extremidade de gerenciamento para o cluster. Por exemplo, `containercluster.westus2.cloudapp.azure.com:19000`. Você pode encontrar o ponto de extremidade de conexão do cliente na guia de Visão geral para o cluster no [portal do Azure](https://portal.azure.com).
 
-Clique em **Publicar** .
+Clique em **Publicar**.
 
 O [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) é uma ferramenta baseada na Web para inspecionar e gerenciar aplicativos e nós em um cluster do Service Fabric. Abra um navegador e navegue até `http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/` e siga a implantação do aplicativo. O aplicativo é implantado, mas fica em estado de erro até que a imagem seja baixada nos nós de cluster (o que pode levar algum tempo, dependendo do tamanho da imagem): ![Erro][1]
 
@@ -344,7 +347,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 
 ## <a name="windows-server-container-os-and-host-os-compatibility"></a>Compatibilidade do sistema operacional do contêiner e do sistema operacional do host do Windows Server
 
-Os contêineres do Windows Server não são compatíveis em todas as versões de um sistema operacional do host. Por exemplo: 
+Os contêineres do Windows Server não são compatíveis em todas as versões de um sistema operacional do host. Por exemplo:
  
 - Os contêineres do Windows Server criados usando o Windows Server versão 1709 não funcionam em um host executando o Windows Server versão 2016. 
 - Os contêineres do Windows Server criados usando o Windows Server 2016 funcionam no modo de isolamento do Hyper-V somente em um host que executa o Windows Server versão 1709. 
@@ -352,7 +355,7 @@ Os contêineres do Windows Server não são compatíveis em todas as versões de
  
 Para obter mais informações, consulte [Compatibilidade de versão de contêiner do Windows](/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-Considere a compatibilidade do sistema operacional do host e do sistema operacional do contêiner ao compilar e implantar contêineres para o cluster do Service Fabric. Por exemplo: 
+Considere a compatibilidade do sistema operacional do host e do sistema operacional do contêiner ao compilar e implantar contêineres para o cluster do Service Fabric. Por exemplo:
 
 - Verifique se que você implanta os contêineres com um sistema operacional compatível com o sistema operacional nos nós do cluster.
 - Certifique-se de que o modo de isolamento especificado para o aplicativo de contêiner é consistente com o suporte para o sistema operacional do contêiner no nó onde ele está sendo implantado.
@@ -369,7 +372,7 @@ Recomendamos as seguintes práticas para certificar-se de que os contêineres s�
  
 ## <a name="specify-os-build-specific-container-images"></a>Especifique a compilação do sistema operacional das imagens de contêiner específicas 
 
-Os contêineres do Windows Server podem não ser compatíveis entre diferentes versões do sistema operacional. Por exemplo, os contêineres do Windows Server criados usando o Windows Server 2016 não funcionam na versão 1709 do Windows Server no modo de isolamento do processo. Portanto, se os nós do cluster forem atualizados para a versão mais recente, os serviços de contêiner criados com versões anteriores do sistema operacional poderão falhar. Para contornar isso com a versão 6.1 do runtime e mais recente, o Service Fabric oferece suporte à especificação de várias imagens do sistema operacional por contêiner e marca-as com as versões de compilação do sistema operacional no manifesto do aplicativo. Você pode obter a versão do sistema operacional executando `winver` em um prompt de comando do Windows. Atualize os manifestos do aplicativo e especificar as substituições de imagem por versão do sistema operacional antes de atualizar o sistema operacional nos nós. O snippet de código a seguir mostra como especificar várias imagens de contêiner no manifesto do aplicativo, **ApplicationManifest.xml** :
+Os contêineres do Windows Server podem não ser compatíveis entre diferentes versões do sistema operacional. Por exemplo, os contêineres do Windows Server criados usando o Windows Server 2016 não funcionam na versão 1709 do Windows Server no modo de isolamento do processo. Portanto, se os nós do cluster forem atualizados para a versão mais recente, os serviços de contêiner criados com versões anteriores do sistema operacional poderão falhar. Para contornar isso com a versão 6.1 do runtime e mais recente, o Service Fabric oferece suporte à especificação de várias imagens do sistema operacional por contêiner e marca-as com as versões de compilação do sistema operacional no manifesto do aplicativo. Você pode obter a versão do sistema operacional executando `winver` em um prompt de comando do Windows. Atualize os manifestos do aplicativo e especificar as substituições de imagem por versão do sistema operacional antes de atualizar o sistema operacional nos nós. O snippet de código a seguir mostra como especificar várias imagens de contêiner no manifesto do aplicativo, **ApplicationManifest.xml**:
 
 
 ```xml

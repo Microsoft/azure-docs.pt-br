@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 658d18ed3c9eefeedffd82bbccedbde0621fe748
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1b3b4da4e21bca421b76f820c04ba68375be5ca0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145527"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307775"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Acesso Condicional: Aplicativos na nuvem ou ações
 
@@ -36,7 +36,7 @@ Os administradores podem atribuir uma política de Acesso Condicional aos aplica
 - [Office 365](#office-365)
 - Azure Analysis Services
 - Azure DevOps
-- [Banco de Dados SQL do Azure e Data Warehouse](../../azure-sql/database/conditional-access-configure.md)
+- [Banco de dados SQL do Azure e análise de Synapse do Azure](../../azure-sql/database/conditional-access-configure.md)
 - Dynamics CRM Online
 - Análise do Microsoft Application Insights
 - [Proteção de Informações do Microsoft Azure](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
@@ -125,7 +125,7 @@ Além dos aplicativos Microsoft, os administradores podem adicionar qualquer apl
 
 ## <a name="user-actions"></a>Ações do usuário
 
-As ações do usuário são tarefas que podem ser executadas por um usuário. A única ação com suporte no momento é **Registrar informações de segurança**, que permite que a política de Acesso Condicional imponha quando os usuários habilitados para a tentativa de registro combinada registraram as informações de segurança deles. Mais informações podem ser encontradas no artigo [Registro de informações de segurança combinadas](../authentication/concept-registration-mfa-sspr-combined.md).
+As ações do usuário são tarefas que podem ser executadas por um usuário. A única ação com suporte no momento é **Registrar informações de segurança** , que permite que a política de Acesso Condicional imponha quando os usuários habilitados para a tentativa de registro combinada registraram as informações de segurança deles. Mais informações podem ser encontradas no artigo [Registro de informações de segurança combinadas](../authentication/concept-registration-mfa-sspr-combined.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

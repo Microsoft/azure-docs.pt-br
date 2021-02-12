@@ -9,19 +9,20 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 9d1759e5b809bc40e63fb6024fb7f107ad347da6
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 0c2deb1ae1d41f8daaed8856f97c4b458930c616
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094217"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484372"
 ---
-# <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Guia de planejamento e implementação da plataforma de BI do SAP BusinessObjects no Azure
+# <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Guia de planejamento e implementação da plataforma SAP BusinessObjects BI no Azure
 
 ## <a name="overview"></a>Visão geral
 
@@ -183,7 +184,7 @@ O banco de dados SQL do Azure oferece os três modelos de compra a seguir:
 
 O banco de dados do Azure para MySQL vem com três tipos de preço diferentes. Eles são diferenciados pela quantidade de computação em vCores, memória por vCore e a tecnologia de armazenamento usada para armazenar a data. Veja a seguir os detalhes de alto nível sobre as opções e para obter mais detalhes sobre atributos diferentes, consulte [camada de preços](../../../mysql/concepts-pricing-tiers.md) do banco de dados do Azure para MySQL.
 
-- Basic
+- Básico
 
   Ele é usado para as cargas de trabalho de destino que exigem desempenho de e/s e computação leve.
 
@@ -266,4 +267,4 @@ Para uma oferta de banco de dados como serviço, qualquer banco de dados criado 
 - [Implantação da plataforma de BI do SAP BusinessObjects no Linux](businessobjects-deployment-guide-linux.md)
 - [Planejamento e implementação de Máquinas Virtuais do Azure para o SAP](planning-guide.md)
 - [Implantação de Máquinas Virtuais do Azure para SAP](deployment-guide.md)
-- [Implantação do DBMS de Máquinas Virtuais do Azure para SAP](dbms-guide.md)
+- [Implantação do DBMS de Máquinas Virtuais do Azure para SAP](./dbms_guide_general.md)

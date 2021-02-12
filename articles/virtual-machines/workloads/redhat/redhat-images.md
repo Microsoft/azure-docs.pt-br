@@ -3,16 +3,17 @@ title: Visão geral das imagens de Red Hat Enterprise Linux no Azure
 description: Saiba mais sobre as imagens de Red Hat Enterprise Linux no Microsoft Azure.
 author: asinn826
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 02/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 46504f7d6d3a989119a3c851fc029bdf4494e01f
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 293245d6778a40e234cdca177905c15dc88dd04f
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994305"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737754"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Visão geral de imagens de Red Hat Enterprise Linux
 
@@ -21,7 +22,7 @@ Este artigo descreve as imagens disponíveis do Red Hat Enterprise Linux (RHEL) 
 Para obter informações sobre as políticas de suporte do Red Hat para todas as versões do RHEL, consulte [ciclo de vida Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata). Para obter detalhes de preços, consulte [calculadora de preços do Azure](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 >[!IMPORTANT]
-> As imagens RHEL atualmente disponíveis no Azure Marketplace dão suporte a BYOS (traga sua própria assinatura) ou a modelos de licenciamento pagos conforme o uso. O [benefício de uso híbrido do Azure](../../windows/hybrid-use-benefit-licensing.md) e a alternância dinâmica entre BYOS e licenciamento pago conforme o uso não têm suporte. Para alternar o modo de licenciamento, você deve reimplantar a VM da imagem correspondente.
+> As imagens RHEL atualmente disponíveis no Azure Marketplace dão suporte a BYOS (traga sua própria assinatura) ou a modelos de licenciamento pagos conforme o uso. A alternância dinâmica entre o BYOS e o licenciamento pago conforme o uso pode ser feita por meio [do benefício de utilização híbrida do Azure](../../linux/azure-hybrid-benefit-linux.md).
 
 >[!NOTE]
 > Para qualquer problema relacionado a imagens RHEL no Azure Marketplace, arquivo um tíquete de suporte com a Microsoft.
@@ -59,8 +60,8 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:8-LVM:lat
 ```
 
 >[!NOTE]
-> Em geral, a comparação de versões para determinar a versão mais recente segue as regras do [método CompareTo](/dotnet/api/system.version.compareto?view=netcore-3.1#system_version_compareto_system_version_).
-Essa comparação de versão de imagem é feita comparando os valores como um objeto de [versão](/dotnet/api/system.version.-ctor?view=netframework-4.8) , não como uma cadeia de caracteres.
+> Em geral, a comparação de versões para determinar a versão mais recente segue as regras do [método CompareTo](/dotnet/api/system.version.compareto#system_version_compareto_system_version_).
+Essa comparação de versão de imagem é feita comparando os valores como um objeto de [versão](/dotnet/api/system.version.-ctor) , não como uma cadeia de caracteres.
 
 ## <a name="rhel-6-image-types"></a>Tipos de imagem RHEL 6
 

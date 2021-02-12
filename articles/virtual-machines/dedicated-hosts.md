@@ -5,15 +5,15 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 07/28/2020
+ms.date: 12/07/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 3b407ae18316071d77cc87992a70a4fba857ab64
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4e29bb0fee496af6a8c0fd30d5559bf865123c39
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979012"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007884"
 ---
 # <a name="azure-dedicated-hosts"></a>Hosts dedicados do Azure
 
@@ -67,11 +67,6 @@ O modelo de exemplo do Resource Manager encontrado [aqui](https://github.com/Azu
 
 ## <a name="manual-vs-automatic-placement"></a>Posicionamento manual versus automático 
 
-> [!IMPORTANT]
-> O posicionamento automático está atualmente em visualização pública.
-> Para participar da versão prévia, conclua a pesquisa de integração de visualização em [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Ao criar uma VM no Azure, você pode selecionar qual host dedicado usar. Você também pode usar a opção para posicionar automaticamente suas VMs em hosts existentes em um grupo de hosts. 
 
 Ao criar um novo grupo de hosts, verifique se a configuração de posicionamento automático de VM está selecionada. Ao criar sua VM, selecione o grupo de hosts e permita que o Azure escolha o melhor host para sua VM. 
@@ -84,18 +79,12 @@ Problemas conhecidos e limitações ao usar o posicionamento automático da VM:
 
 - Você não poderá aplicar os benefícios híbridos do Azure em seus hosts dedicados.
 - Você não poderá reimplantar a VM. 
-- Você não poderá controlar a manutenção para seus hosts dedicados.
 - Não será possível usar VMs Lsv2, NVasv4, NVsv3, Msv2 ou série M com hosts dedicados 
 
 
 ## <a name="virtual-machine-scale-set-support"></a>Suporte ao conjunto de dimensionamento de máquinas virtuais
 
 Os conjuntos de dimensionamento de máquinas virtuais permitem que você trate um grupo de máquinas virtuais como um único recurso e aplique políticas de disponibilidade, gerenciamento, dimensionamento e orquestração como um grupo. Seus hosts dedicados existentes também podem ser usados para conjuntos de dimensionamento de máquinas virtuais. 
-
-> [!IMPORTANT]
-> Os conjuntos de dimensionamento de máquinas virtuais em hosts dedicados estão atualmente em visualização pública.
-> Para participar da versão prévia, conclua a pesquisa de integração de visualização em [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Ao criar um conjunto de dimensionamento de máquinas virtuais, você pode especificar um grupo de hosts existente para ter todas as instâncias de VM criadas em hosts dedicados.
 
@@ -110,7 +99,7 @@ Os seguintes requisitos se aplicam ao criar um conjunto de dimensionamento de m�
 - Os tamanhos de VM com suporte para seus hosts dedicados devem corresponder ao usado para seu conjunto de dimensionamento.
 
 Nem todas as configurações de orquestração e otimizações de conjunto de escala são suportadas por hosts dedicados. Aplique as seguintes configurações ao seu conjunto de dimensionamento: 
-- Desabilitar o provisionamento em excesso.
+- O provisionamento em excesso não é recomendado e está desabilitado por padrão. Você pode habilitar o provisionamento em excesso, mas a alocação do conjunto de dimensionamento falhará se o grupo de hosts não tiver capacidade para todas as VMs, incluindo as instâncias de provisionamento excessivo. 
 - Usar o modo de orquestração ScaleSetVM 
 - Não usar grupos de posicionamento de proximidade para colocalização
 
@@ -120,7 +109,7 @@ Nem todas as configurações de orquestração e otimizações de conjunto de es
 
 Às vezes, a infraestrutura de suporte às suas máquinas virtuais pode ser atualizada para melhorar a confiabilidade, o desempenho, a segurança e a inicialização de novos recursos. A plataforma Azure tenta minimizar o impacto da manutenção da plataforma sempre que possível, mas os clientes com cargas de trabalho *sensíveis à manutenção* não podem tolerar até poucos segundos que a VM precisa ser congelada ou desconectada para manutenção.
 
-O **controle de manutenção** fornece aos clientes uma opção para ignorar atualizações de plataforma regulares agendadas em seus hosts dedicados e, em seguida, aplicá-las no momento de sua escolha dentro de uma janela sem interrupção de 35 dias.
+O **controle de manutenção** fornece aos clientes uma opção para ignorar atualizações de plataforma regulares agendadas em seus hosts dedicados e, em seguida, aplicá-las no momento de sua escolha dentro de uma janela sem interrupção de 35 dias. Na janela de manutenção, você pode aplicar a manutenção diretamente no nível do host, em qualquer ordem. Depois que a janela de manutenção terminar, a Microsoft avançará e aplicará a manutenção pendente aos hosts em uma ordem que pode não seguir os domínios de falha definidos pelo usuário.
 
 Para obter mais informações, consulte [gerenciando atualizações de plataforma com o controle de manutenção](./maintenance-control.md).
 
@@ -166,6 +155,8 @@ O *tipo* é a geração de hardware. Tipos de hardware diferentes para a mesma s
 
 Os tamanhos e tipos de hardware variam por região. Consulte a [página de preços](https://aka.ms/ADHPricing) do host para saber mais.
 
+> [!NOTE]
+> Quando um host dedicado for provisionado, você não poderá alterar o tamanho ou o tipo. Se você precisar de um tamanho diferente do tipo, será necessário criar um novo host.  
 
 ## <a name="host-life-cycle"></a>Ciclo de vida do host
 

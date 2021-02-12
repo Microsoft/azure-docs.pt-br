@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f5421efc96b957f5ae96515bbcf17c8a773397c9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 9dad8ffc9971894a2777e8bda9bcf6d78eee00a9
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368240"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369269"
 ---
 # <a name="list-azure-role-definitions"></a>Listar definições de função do Azure
 
@@ -275,7 +275,7 @@ az role definition list --name "Contributor"
 
 ### <a name="list-permissions-of-a-role-definition"></a>Listar permissões de uma definição de função
 
-O exemplo a seguir lista apenas *actions* as ações *e as não ações da* função *colaborador* .
+O exemplo a seguir lista apenas  as ações *e as não ações da* função *colaborador* .
 
 ```azurecli
 az role definition list --name "Contributor" --output json --query '[].{actions:permissions[0].actions, notActions:permissions[0].notActions}'
@@ -351,7 +351,7 @@ Para listar definições de função, use as [definições de função-lista](/r
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Recurso |
 
-    No exemplo anterior, Microsoft. Web é um provedor de recursos que se refere a uma instância do serviço de aplicativo. Da mesma forma, você pode usar qualquer outro provedor de recursos e especificar o escopo. Para obter mais informações, consulte [provedores de recursos do Azure e tipos](../azure-resource-manager/management/resource-providers-and-types.md) e [operações de provedor de recursos Azure Resource Manager](resource-provider-operations.md)com suporte.  
+    No exemplo anterior, Microsoft. Web é um provedor de recursos que se refere a uma instância do serviço de aplicativo. Da mesma forma, você pode usar qualquer outro provedor de recursos e especificar o escopo. Para obter mais informações, consulte [provedores de recursos do Azure e tipos](../azure-resource-manager/management/resource-providers-and-types.md) e [operações do provedor de recursos do Azure](resource-provider-operations.md)com suporte.  
      
 1. Substitua *{Filter}* pela condição que você deseja aplicar para filtrar a lista de definições de função.
 

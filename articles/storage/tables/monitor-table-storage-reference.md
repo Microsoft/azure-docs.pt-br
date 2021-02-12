@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: e86be87faf6bb0c58674a15882e52dcef43fe42e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9920956a8983a1c71c1f91cd1c19a6e84be6aee
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91711146"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780290"
 ---
 # <a name="azure-table-storage-monitoring-data-reference"></a>Referência de dados de monitoramento do armazenamento de tabelas do Azure
 
@@ -36,7 +36,7 @@ O Armazenamento do Azure fornece as seguintes métricas de capacidade no Azure M
 
 #### <a name="table-storage"></a>Armazenamento de tabela
 
-Esta tabela mostra as [métricas de armazenamento de tabela](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountstableservices).
+Esta tabela mostra as [métricas de armazenamento de tabela](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountstableservices).
 
 | Métrica | Descrição |
 | ------------------- | ----------------- |
@@ -61,7 +61,7 @@ O Armazenamento do Azure oferece suporte às seguintes dimensões para métricas
 ## <a name="resource-logs-preview"></a>Logs de recurso (versão prévia)
 
 > [!NOTE]
-> Os logs do Armazenamento do Microsoft Azure no Azure Monitor estão em versão preliminar pública e disponíveis para teste de versão preliminar em todas as regiões de nuvem pública. Para se inscrever na versão preliminar, veja [esta página](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).  Essa versão preliminar habilita logs para blobs (incluindo o Azure Data Lake Storage Gen2), arquivos, filas, tabelas, contas de armazenamento Premium nas contas de armazenamento GPv1 e GPv2. Não há suporte para contas de armazenamento clássicas.
+> Os logs do Armazenamento do Microsoft Azure no Azure Monitor estão em versão preliminar pública e disponíveis para teste de versão preliminar em todas as regiões de nuvem pública. Essa versão preliminar habilita logs para blobs (incluindo o Azure Data Lake Storage Gen2), arquivos, filas, tabelas, contas de armazenamento Premium nas contas de armazenamento GPv1 e GPv2. Não há suporte para contas de armazenamento clássicas.
 
 A tabela a seguir lista as propriedades dos logs de recursos do armazenamento do Azure quando eles são coletados nos logs de Azure Monitor ou no armazenamento do Azure. As propriedades descrevem a operação, o serviço e o tipo de autorização que foi usado para executar a operação.
 

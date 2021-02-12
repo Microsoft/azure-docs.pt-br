@@ -16,12 +16,12 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96485dabd8cfb2ea9e3fb907940fccb05b5baee3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab425d0232310bd80d41c4028229c9da324a2bc9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89659343"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168229"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Considerações do design de identidade híbrida do Active Directory do Azure - próximas etapas
 Agora que você terminou de definir seus requisitos e examinou todas as opções para sua solução de gerenciamento de dispositivo móvel, você está pronto para executar as próximas etapas para implantar a infraestrutura de suporte que é ideal para você e sua organização.
@@ -31,7 +31,7 @@ Conceitos e procedimentos de planejamento, implantação e conteúdo de administ
 
 * [Microsoft System Center](/previous-versions/system-center/developer/cc817313(v=msdn.10)) podem ajudar a capturar e agregar conhecimento sobre sua infra-estrutura, políticas, processos e práticas recomendadas para que sua equipe de TI possa construir sistemas gerenciáveis e automatizar operações.
 * [Microsoft Intune](/mem/intune/) é um serviço de gerenciamento de dispositivo baseado em nuvem que ajuda a gerenciar seus computadores e dispositivos móveis para proteger as informações da empresa.
-* O [MDM para Microsoft 365](https://technet.microsoft.com/library/ms.o365.cc.devicepolicy.aspx) permite que você gerencie e proteja dispositivos móveis quando eles estão conectados à sua organização do Microsoft 365. Você pode usar o MDM para Microsoft 365 para definir políticas de segurança de dispositivo e regras de acesso e apagar dispositivos móveis se eles forem perdidos ou roubados.
+* O [MDM para Microsoft 365](/microsoft-365/admin/basic-mobility-security/overview) permite que você gerencie e proteja dispositivos móveis quando eles estão conectados à sua organização do Microsoft 365. Você pode usar o MDM para Microsoft 365 para definir políticas de segurança de dispositivo e regras de acesso e apagar dispositivos móveis se eles forem perdidos ou roubados.
 
 ## <a name="hybrid-identity-resources"></a>Recursos de identidade híbrida
 O monitoramento dos seguintes recursos geralmente fornece as últimas notícias e atualizações em soluções de gerenciamento de dispositivo móvel:

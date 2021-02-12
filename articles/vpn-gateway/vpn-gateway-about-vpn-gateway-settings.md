@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: cherylmc
-ms.openlocfilehash: 94ad0a05dafe2c405b1b9cb62242675aa54c4432
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1aba87b2139fb8a7d395fb3180d2074e47310fa9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424317"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010741"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Sobre definições de configuração do Gateway de VPN
 
@@ -176,7 +176,7 @@ Para obter recursos técnicos adicionais e requisitos de sintaxe específicos ao
 | **Clássico** | **Resource Manager** |
 | --- | --- |
 | [PowerShell](/powershell/module/az.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
-| [REST API](https://msdn.microsoft.com/library/jj154113) |[REST API](/rest/api/network/virtualnetworkgateways) |
+| [REST API](/previous-versions/azure/reference/jj154113(v=azure.100)) |[REST API](/rest/api/network/virtualnetworkgateways) |
 | Sem suporte | [CLI do Azure](/cli/azure/network/vnet-gateway)|
 
 ## <a name="next-steps"></a>Próximas etapas

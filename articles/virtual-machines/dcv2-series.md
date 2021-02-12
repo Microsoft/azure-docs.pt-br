@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 1809194ce551fc828389cc31f5c7d6f28a2cddd6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: fecd707d96b03eef4f093c0b256e32f11bb8a3f7
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972366"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095849"
 ---
 # <a name="dcsv2-series"></a>Série DCsv2
 
@@ -25,7 +25,9 @@ Exemplos de casos de uso incluem: compartilhamento de dados confidenciais entre 
 [Cache de armazenamento Premium](premium-storage-performance.md): com suporte<br>
 [Migração ao vivo](maintenance-and-updates.md): sem suporte<br>
 [Atualizações de preservação de memória](maintenance-and-updates.md): sem suporte<br>
-[Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
+[Suporte à geração de VM](generation-2.md): geração 2<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): com suporte <br>
 
 *Exceto para Standard_DC8_v2
 

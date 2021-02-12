@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fd2f7d46df09085d19b19709c7f45cd3d6566988
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 018d90db06948f3fd6a34b56c65088641a9ca874
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628653"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108970"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -24,7 +24,7 @@ ms.locfileid: "92628653"
 
 Você pode personalizar a aparência de qualquer [perfil técnico autodeclarado](self-asserted-technical-profile.md). Azure Active Directory B2C (Azure AD B2C) executa o código no navegador do cliente e usa uma abordagem moderna chamada CORS (compartilhamento de recursos entre origens).
 
-Para personalizar a interface do usuário, você pode especificar uma URL no elemento **ContentDefinition** com conteúdo personalizado em HTML. No perfil técnico autodeclarado ou **OrchestrationStep** , aponte para esse identificador de definição de conteúdo. A definição de conteúdo pode conter um elemento **LocalizedResourcesReferences** que especifica uma lista de recursos localizados a serem carregados. O Azure AD B2C mescla os elementos da interface do usuário com o conteúdo HTML carregado da URL e exibe a página ao usuário.
+Para personalizar a interface do usuário, você pode especificar uma URL no elemento **ContentDefinition** com conteúdo personalizado em HTML. No perfil técnico autodeclarado ou **OrchestrationStep**, aponte para esse identificador de definição de conteúdo. A definição de conteúdo pode conter um elemento **LocalizedResourcesReferences** que especifica uma lista de recursos localizados a serem carregados. O Azure AD B2C mescla os elementos da interface do usuário com o conteúdo HTML carregado da URL e exibe a página ao usuário.
 
 O elemento **ContentDefinitions** contém as URLs para modelos de HTML5 que podem ser usados em um percurso do usuário. O URI da página HTML5 é usado para uma etapa especificada da interface do usuário. Por exemplo, a redefinição de senha de entrada ou de inscrição ou páginas de erro. Você pode modificar a aparência substituindo o LoadUri pelo arquivo HTML5. Você pode criar definições de novo conteúdo de acordo com suas necessidades. Esse elemento pode conter uma referência de recursos localizados, como o identificador de localização especificado no elemento [localização](localization.md).
 
@@ -63,7 +63,7 @@ O elemento **ContentDefinition** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ID | Sim | Um identificador para uma definição de conteúdo. O valor é especificado na seção **ID de definição de conteúdo** mais adiante nesta página. |
+| Id | Sim | Um identificador para uma definição de conteúdo. O valor é especificado na seção **ID de definição de conteúdo** mais adiante nesta página. |
 
 O elemento **ContentDefinition** contém os seguintes elementos:
 
@@ -90,7 +90,7 @@ O elemento **DataUri** é usado para especificar o identificador de página. O A
 
 ### <a name="select-a-page-layout"></a>Selecionar um layout de página
 
-Você pode habilitar o [código do lado do cliente JavaScript](javascript-samples.md) inserindo `contract` entre `elements` e o tipo de página. Por exemplo, `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
+Você pode habilitar o [código do lado do cliente JavaScript](javascript-and-page-layout.md) inserindo `contract` entre `elements` e o tipo de página. Por exemplo, `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -111,7 +111,7 @@ O exemplo a seguir mostra o **DataUri** da `selfasserted` versão `1.2.0` :
 
 #### <a name="migrating-to-page-layout"></a>Migrando para o layout da página
 
-O formato do valor deve conter a palavra `contract` : _urn: com: Microsoft: AAD: B2C: elements:p **contract** age-Name: Version_ . Para especificar um layout de página em suas políticas personalizadas que usam um valor antigo de **DataUri** , use a tabela a seguir para migrar para o novo formato.
+O formato do valor deve conter a palavra `contract` : _urn: com: Microsoft: AAD: B2C: elements:page-Name: Version_. Para especificar um layout de página em suas políticas personalizadas que usam um valor antigo de **DataUri** , use a tabela a seguir para migrar para o novo formato.
 
 | Valor antigo de DataUri | Novo valor de DataUri |
 | ----------------- | ----------------- |
@@ -194,8 +194,8 @@ O elemento **LocalizedResourcesReference** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Linguagem | Sim | Uma cadeia de caracteres que contém uma linguagem com suporte para a política de acordo com a RFC 5646 – Marcas para identificar idiomas. |
-| LocalizedResourcesReferenceId | Sim | O identificador do elemento **LocalizedResources** . |
+| Idioma | Sim | Uma cadeia de caracteres que contém uma linguagem com suporte para a política de acordo com a RFC 5646 – Marcas para identificar idiomas. |
+| LocalizedResourcesReferenceId | Sim | O identificador do elemento **LocalizedResources**. |
 
 O exemplo a seguir mostra uma definição de conteúdo de entrada ou inscrição com uma referência à localização para inglês, francês e espanhol:
 
@@ -238,4 +238,4 @@ O atributo de ID do elemento **ContentDefinition** especifica o tipo de página 
 
 Para obter um exemplo de personalização da interface do usuário usando definições de conteúdo, consulte:
 
-[Personalizar a interface do usuário do seu aplicativo usando uma política personalizada](custom-policy-ui-customization.md)
+[Personalizar a interface do usuário do seu aplicativo usando uma política personalizada](customize-ui-with-html.md)

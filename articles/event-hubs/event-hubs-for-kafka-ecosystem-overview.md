@@ -3,12 +3,12 @@ title: Usar um hub de eventos do aplicativo Apache Kafka – Hubs de Eventos do 
 description: Este artigo fornece informações sobre a compatibilidade do Apache Kafka com os Hubs de Eventos do Azure.
 ms.topic: article
 ms.date: 09/25/2020
-ms.openlocfilehash: d9aa8af30d5ef5e1a985e4d73a9d4a8921ac7d45
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b0f0da76bba68f8a66695700d530e871cbd35e3c
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369583"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861344"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Usar Hubs de Eventos do Azure de aplicativos Apache Kafka
 Os hubs de eventos fornecem um ponto de extremidade compatível com o Apache Kafka® as APIs de produtor e consumidor que podem ser usadas pela maioria dos aplicativos cliente Apache Kafka existentes como uma alternativa à execução de seu próprio cluster Apache Kafka. Os hubs de eventos dão suporte aos clientes de produtor e APIs de consumidor do Apache Kafka na versão 1,0 e posteriores.
@@ -81,7 +81,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 ```
 
 > [!IMPORTANT]
-> Substitua `{YOUR.EVENTHUBS.CONNECTION.STRING}` pela cadeia de conexão do seu namespace dos Hubs de Eventos. Para obter instruções sobre como obter a cadeia de conexão, consulte [obter uma cadeia de conexão de hubs de eventos](event-hubs-get-connection-string.md). Aqui está um exemplo de configuração: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+> Substitua `{YOUR.EVENTHUBS.CONNECTION.STRING}` pela cadeia de conexão do seu namespace dos Hubs de Eventos. Para ver as instruções sobre como obter uma cadeia de conexão, confira [Obter cadeia de conexão para Hubs de Eventos](event-hubs-get-connection-string.md). Aqui está um exemplo de configuração: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
 
 > [!NOTE]
 > Ao usar a autenticação SAS com clientes Kafka, as conexões estabelecidas não são desconectadas quando a chave SAS é regenerada. 
@@ -104,7 +104,7 @@ O objetivo dos hubs de eventos para o Apache Kafka é fornecer acesso aos recurs
 
 Conforme explicado [acima](#is-apache-kafka-the-right-solution-for-your-workload), a frota de mensagens do Azure fornece cobertura avançada e robusta para uma infinidade de cenários de mensagens e, embora os recursos a seguir não tenham suporte no momento por meio do suporte de hubs de eventos para a API Apache Kafka, indicamos onde e como o recurso desejado está disponível.
 
-### <a name="transactions"></a>Transactions
+### <a name="transactions"></a>Transações
 
 O [barramento de serviço do Azure](../service-bus-messaging/service-bus-transactions.md) tem suporte de transação robusto que permite receber e liquidar mensagens e sessões ao enviar mensagens de saída resultantes do processamento de mensagens para várias entidades de destino sob a proteção de consistência de uma transação. O conjunto de recursos não só permite o processamento exatamente uma vez de cada mensagem em uma sequência, mas também evita o risco de outro consumidor reprocessar inadvertidamente as mesmas mensagens como seria o caso com Apache Kafka. O barramento de serviço é o serviço recomendado para cargas de trabalho de mensagens transacionais.
 
@@ -118,9 +118,7 @@ A carga de qualquer evento do hub de eventos é um fluxo de bytes e o conteúdo 
 
 ### <a name="log-compaction"></a>Compactação de log
 
-Apache Kafka o compactação de log é um recurso que permite remover todos, exceto o último registro de cada chave de uma partição, que efetivamente transforma um tópico de Apache Kafka em um repositório de chave-valor em que o último valor adicionado substitui o anterior. O padrão de repositório de valor-chave, mesmo com atualizações frequentes, tem suporte muito melhor pelos serviços de banco de dados como [Azure Cosmos DB](../cosmos-db/introduction.md).
-
-O recurso de compactação de log é usado pelas estruturas do cliente Kafka Connect e Kafka Streams.
+Apache Kafka o compactação de log é um recurso que permite remover todos, exceto o último registro de cada chave de uma partição, que efetivamente transforma um tópico de Apache Kafka em um repositório de chave-valor em que o último valor adicionado substitui o anterior. Este recurso não está implementado atualmente pelos hubs de eventos do Azure. O padrão de repositório de valor-chave, mesmo com atualizações frequentes, tem suporte muito melhor pelos serviços de banco de dados como [Azure Cosmos DB](../cosmos-db/introduction.md). Consulte o tópico [projeção de log](event-hubs-federation-overview.md#log-projections) nas diretrizes da Federação dos hubs de eventos para obter mais detalhes. 
 
 ### <a name="kafka-streams"></a>Kafka Streams
 

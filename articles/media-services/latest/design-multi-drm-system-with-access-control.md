@@ -1,5 +1,5 @@
 ---
-title: Um sistema de proteção de conteúdo de vários DRM-serviços de mídia do Azure v3
+title: Um sistema de proteção de conteúdo de vários DRM
 description: Este artigo fornece uma descrição detalhada de como criar um sistema de proteção de conteúdo de vários DRM com os serviços de mídia do Azure.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 58edf1e0257cf9de8d8f3a3b56f295dcaf1f6cbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e0104dd2761f74fbd84486aebbf8c3c4e128eb08
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89298191"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954894"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Criação de um sistema de proteção de conteúdo de DRM múltiplo com controle de acesso
 
@@ -137,7 +137,7 @@ A tabela abaixo mostra o mapeamento.
 | --- | --- |
 | **Jogador** |[Player de Mídia do Azure](https://azure.microsoft.com/services/media-services/media-player/) |
 | **IDP (provedor de identidade)** |Active Directory do Azure (Azure AD) |
-| **STS (Serviço de Token Seguro)** |AD do Azure |
+| **STS (Serviço de Token Seguro)** |Azure AD |
 | **Fluxo de trabalho de proteção de DRM** |Proteção dinâmica dos Serviços de Mídia do Azure |
 | **Entrega de licença do DRM** |* Entrega de licença dos Serviços de Mídia (PlayReady, Widevine, FairPlay) <br/>* Servidor de licença Axinom <br/>* Servidor de licença do PlayReady personalizado |
 | **Origem** |Ponto de extremidade dos Serviços de Mídia do Azure |

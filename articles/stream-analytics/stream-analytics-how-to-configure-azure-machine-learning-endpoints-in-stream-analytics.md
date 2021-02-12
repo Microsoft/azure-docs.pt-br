@@ -3,27 +3,26 @@ title: Usar pontos de extremidade Azure Machine Learning Studio (clássico) no A
 description: Este artigo descreve como usar funções definidas pelo usuário de Machine Learning no Azure Stream Analytics.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/11/2019
-ms.openlocfilehash: 236191710dac19a08db0e8ce94dc695d393009a7
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: a36162d24e18371fdf6b19835e4748e3043d1f24
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127120"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012518"
 ---
 # <a name="azure-machine-learning-studio-classic-integration-in-stream-analytics-preview"></a>Integração do Azure Machine Learning Studio (clássico) no Stream Analytics (versão prévia)
 O Stream Analytics oferece suporte a funções definidas pelo usuário que chamam pontos de extremidade do Azure Machine Learning Studio (clássico). O suporte da API REST para esse recurso é detalhado na [biblioteca de API REST do Stream Analytics](/rest/api/streamanalytics/). Este artigo fornece informações complementares necessárias para a implementação bem-sucedida desse recurso no Stream Analytics. Um tutorial também foi publicado e está disponível [aqui](stream-analytics-machine-learning-integration-tutorial.md).
 
 ## <a name="overview-azure-machine-learning-studio-classic-terminology"></a>Visão geral: Terminologia do Azure Machine Learning Studio (clássico)
-O Microsoft Azure Machine Learning Studio (clássico) oferece uma ferramenta colaborativa do tipo "arrastar e soltar", que você pode usar para criar, testar e implantar soluções de análise preditiva em seus dados. Essa ferramenta é chamada *de Azure Machine Learning Studio (clássico)* . O estúdio (clássico) é usado para interagir com os recursos do Machine Learning e criar, testar e iterar facilmente no design. Veja abaixo esses recursos e suas definições.
+O Microsoft Azure Machine Learning Studio (clássico) oferece uma ferramenta colaborativa do tipo "arrastar e soltar", que você pode usar para criar, testar e implantar soluções de análise preditiva em seus dados. Essa ferramenta é chamada *de Azure Machine Learning Studio (clássico)*. O estúdio (clássico) é usado para interagir com os recursos do Machine Learning e criar, testar e iterar facilmente no design. Veja abaixo esses recursos e suas definições.
 
-* **Espaço de trabalho** : o *espaço de trabalho* é um contêiner que contém todos os outros recursos de aprendizado de máquina juntos em um contêiner para gerenciamento e controle.
-* **Experimento** : Os *Experimentos* são criados por cientistas de dados a fim de usar conjuntos de dados e treinar um modelo de machine learning.
-* **Endpoint** : os *pontos* de extremidade são o objeto Studio (clássico) usado para executar recursos como entrada, aplicar um modelo de Machine Learning especificado e retornar a saída pontuada.
-* **Serviço Web de pontuação** : Um *serviço da Web de pontuação* é uma coleção de pontos de extremidade, conforme mencionado acima.
+* **Espaço de trabalho**: o *espaço de trabalho* é um contêiner que contém todos os outros recursos de aprendizado de máquina juntos em um contêiner para gerenciamento e controle.
+* **Experimento**: Os *Experimentos* são criados por cientistas de dados a fim de usar conjuntos de dados e treinar um modelo de machine learning.
+* **Endpoint**: os *pontos* de extremidade são o objeto Studio (clássico) usado para executar recursos como entrada, aplicar um modelo de Machine Learning especificado e retornar a saída pontuada.
+* **Serviço Web de pontuação**: Um *serviço da Web de pontuação* é uma coleção de pontos de extremidade, conforme mencionado acima.
 
 Cada ponto de extremidade tem APIs para execução em lote e execução síncrona. O Stream Analytics usa a execução síncrona. O serviço específico é chamado de [Serviço de Solicitação/Resposta](../machine-learning/classic/consume-web-services.md) no Azure Machine Learning Studio (clássico).
 

@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/13/2019
-author: keferna
-ms.author: keferna
-ms.openlocfilehash: bf253c4e3b273bc1500e5abbd4dfc045a7909ffd
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+author: trkeya
+ms.author: trkeya
+ms.openlocfilehash: 553eba3898a5ea42e5d478603e35e82c68abcab1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125675"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462903"
 ---
 # <a name="test-drive-technical-configuration"></a>Configuração técnica de test drive
 
@@ -34,11 +34,13 @@ A Microsoft pode remover a complexidade de configurar um test drive hospedando e
 
 - **URL da instância** (obrigatório) – a URL em que o cliente começará o test drive dele. Normalmente, a URL da instância do Dynamics 365 executando o aplicativo com os dados de exemplo instalados (por exemplo, `https://testdrive.crm.dynamics.com`).
 
-- **URL da API Web da instância** (necessária) – recupere a URL da API da Web para sua instância do Dynamics 365 fazendo logon em sua conta de Microsoft 365 e navegando até **configurações**  >  **personalização**  >  **recursos do desenvolvedor**  >  **instância API Web (URL raiz do serviço)** , copie a URL encontrada aqui (por exemplo, `https://testdrive.crm.dynamics.com/api/data/v9.0` ).
+- **URL da API Web da instância** (necessária) – recupere a URL da API da Web para sua instância do Dynamics 365 fazendo logon em sua conta de Microsoft 365 e navegando até **configurações**  >  **personalização**  >  **recursos do desenvolvedor**  >  **instância API Web (URL raiz do serviço)**, copie a URL encontrada aqui (por exemplo, `https://testdrive.crm.dynamics.com/api/data/v9.0` ).
 
 - **Nome da função** (obrigatório) – forneça o nome da função de segurança que você definiu em seu test drive personalizado do Dynamics 365, o qual será atribuído ao usuário durante o test drive (por exemplo, test-drive-role).
 
-Para obter ajuda sobre como configurar seu ambiente do Dynamics 365 para test drive e conceder permissão AppSource para provisionar e desprovisionar test drive usuários em seu locatário, siga [estas instruções](https://github.com/Microsoft/AppSource/blob/patch-1/Microsoft%20Hosted%20Test%20Drive/Setup-your-Azure-subscription-for-Dynamics365-Microsoft-Hosted-Test-Drives.md).
+Para obter ajuda sobre como configurar seu ambiente do Dynamics 365 para test drive e conceder permissão AppSource para provisionar e desprovisionar test drive usuários em seu locatário, siga [estas instruções](./test-drive-azure-subscription-setup.md).
+
+Para obter instruções passo a passo sobre como listar e configurar sua unidade de teste hospedada, visite a página [configuração detalhada para o Test Drive hospedado](./test-drive-hosted-detailed-config.md) .
 
 ## <a name="logic-app-test-drive"></a>test drive de aplicativo lógico
 
@@ -74,7 +76,7 @@ Para permitir que a Microsoft implante o test drive em seu nome, crie e forneça
 
 - **ID do aplicativo do Azure ad** (obrigatório) – Insira sua ID do [aplicativo](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)Azure Active Directory (AD)). Para localizar essa ID, entre no [portal do Azure](https://portal.azure.com/), selecione a guia Active Directory no menu à esquerda, selecione **registros de aplicativo** e procure o número de **ID do aplicativo** listado (como `50c464d3-4930-494c-963c-1e951d15360e` ).
 
-- **Segredo do cliente do aplicativo do Azure ad** (obrigatório) – Insira o [segredo do cliente](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)do aplicativo do Azure AD). Para encontrar esse valor, entre no [portal do Azure](https://portal.azure.com/). Selecione a guia **Azure Active Directory** no menu à esquerda, selecione **registros de aplicativo** e selecione seu aplicativo Test Drive. Em seguida, **Selecione certificados e segredos** , selecione **novo segredo do cliente** , insira uma descrição, selecione **nunca** em **expirar** e escolha **Adicionar** . Certifique-se de anotar o valor. Não navegue para fora da página antes de copiar o valor.
+- **Segredo do cliente do aplicativo do Azure ad** (obrigatório) – Insira o [segredo do cliente](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)do aplicativo do Azure AD). Para encontrar esse valor, entre no [portal do Azure](https://portal.azure.com/). Selecione a guia **Azure Active Directory** no menu à esquerda, selecione **registros de aplicativo** e selecione seu aplicativo Test Drive. Em seguida, **Selecione certificados e segredos**, selecione **novo segredo do cliente**, insira uma descrição, selecione **nunca** em **expirar** e escolha **Adicionar**. Certifique-se de anotar o valor. Não navegue para fora da página antes de copiar o valor.
 
 ## <a name="test-drive-listings"></a>Testar listagens de unidades
 
@@ -93,14 +95,12 @@ A opção **Test Drive listagens** encontrada na guia **Test Drive** no Partner 
 
 Se estiver criando seu test drive no Partner Center, selecione **salvar rascunho** antes de continuar.
 
-## <a name="next-steps"></a>Próximas etapas
-
-- [Práticas recomendadas do Test Drive](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [Visão geral](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)(PDF; Verifique se o bloqueador de pop-ups está desativado)
-- [Atualizar uma oferta existente no marketplace comercial](partner-center-portal/update-existing-offer.md)
+Para obter instruções passo a passo sobre como listar e configurar sua unidade de teste hospedada, visite a página [configuração detalhada para o Test Drive hospedado](./test-drive-hosted-detailed-config.md) .
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-## <a name="feedback"></a>Comentários
+## <a name="next-steps"></a>Próximas etapas
 
-Enviar e exibir comentários para [este produto](https://feedback.azure.com/forums/216369-azure-marketplace)
+- [Práticas recomendadas do Test Drive](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
+- [Visão geral](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF; Verifique se o bloqueador de pop-ups está desativado)
+- [Atualizar uma oferta existente no marketplace comercial](partner-center-portal/update-existing-offer.md)

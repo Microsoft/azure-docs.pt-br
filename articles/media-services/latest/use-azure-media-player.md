@@ -1,5 +1,5 @@
 ---
-title: Reprodução com o Player de Mídia do Azure – Azure | Microsoft Docs
+title: Reprodução com o Player de Mídia do Azure-Azure
 description: O Player de Mídia do Azure é um player de vídeo da Web criado para reproduzir conteúdo de mídia dos Serviços de Mídia do Microsoft Azure em uma grande variedade de navegadores e dispositivos.
 services: media-services
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: inhenkel
-ms.openlocfilehash: a3b32110a7236d47946c3a1f901aaedf51b47775
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf4916341a97868de757804b570212f1cc1105b2
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89253974"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898114"
 ---
 # <a name="playback-with-azure-media-player"></a>Reprodução com Player de Mídia do Azure
 

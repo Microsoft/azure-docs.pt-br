@@ -5,20 +5,20 @@ description: A API Content Moderator oferece bibliotecas de clientes que facilit
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-zone_pivot_groups: programming-languages-set-eleven
+zone_pivot_groups: programming-languages-set-conmod
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 09/15/2020
+ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: devx-track-python, devx-track-csharp, cog-serv-seo-aug-2020
 keywords: content moderator, azure content moderator, online moderator, content filtering software
-ms.openlocfilehash: b16363c351493d07231d4606ad6c614485c5298e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 37e7421c0847a8253b9e05aa5b8f7e75d78bd13b
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91332535"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561453"
 ---
 # <a name="quickstart-use-the-content-moderator-client-library"></a>Início Rápido: Usar a biblioteca de clientes do Content Moderator
 
@@ -37,5 +37,11 @@ ms.locfileid: "91332535"
 ::: zone pivot="programming-language-python"
 
 [!INCLUDE [Python quickstart](includes/quickstarts/python-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-rest-api"
+
+[!INCLUDE [REST API quickstart](includes/quickstarts/rest-api.md)]
 
 ::: zone-end

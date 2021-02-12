@@ -1,7 +1,7 @@
 ---
-title: Fluxo de entrada de aplicativos com a plataforma de identidade da Microsoft | Azure
+title: Fluxo de entrada do aplicativo com a plataforma de identidade da Microsoft | Azure
 titleSuffix: Microsoft identity platform
-description: Saiba mais sobre o fluxo de entrada de aplicativos Web, móveis e para desktop na plataforma de identidade da Microsoft (v2.0).
+description: Saiba mais sobre o fluxo de entrada de aplicativos Web, de área de trabalho e móveis na plataforma Microsoft Identity.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,14 +13,14 @@ ms.date: 05/18/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: af5b27dc85a276c731a61135ab59ab81f5aaf3c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f9f330ab140fa66b5a66a112c47ca2a68ba56bf
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83772192"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755693"
 ---
-# <a name="app-sign-in-flow-with-microsoft-identity-platform"></a>Fluxo de entrada de aplicativos com a plataforma de identidade da Microsoft
+# <a name="app-sign-in-flow-with-the-microsoft-identity-platform"></a>Fluxo de entrada do aplicativo com a plataforma de identidade da Microsoft
 
 Este tópico aborda o fluxo de entrada básico para aplicativos web, móveis e para desktop, usando a plataforma de identidade da Microsoft. Confira [Fluxos de autenticação e cenários de aplicativo](authentication-flows-app-scenarios.md) para saber mais sobre cenários de entrada compatíveis com a plataforma de identidade da Microsoft.
 
@@ -30,12 +30,12 @@ Quando um usuário acessa um aplicativo Web pelo navegador, acontece o seguinte:
 
 * O aplicativo Web determina se o usuário é autenticado.
 * Se o usuário não for autenticado, o aplicativo Web delegará ao Azure AD a entrada do usuário. Essa entrada será compatível com a política da organização, o que pode significar solicitar que o usuário insira suas credenciais, usando [autenticação multifator](../authentication/concept-mfa-howitworks.md) (às vezes chamada de autenticação de dois fatores ou 2FA) ou não usando uma senha (por exemplo, usando o Windows Hello).
-* O usuário deve ter permissão para acessar o aplicativo cliente de que necessita. É por isso que os aplicativos do cliente precisam ser registrados no Azure AD, para que a plataforma de identidade da Microsoft possa fornecer tokens que representem o acesso ao qual o usuário tem permissão.
+* O usuário deve ter permissão para acessar o aplicativo cliente de que necessita. É por isso que os aplicativos cliente precisam ser registrados com o Azure AD, para que a plataforma de identidade da Microsoft possa fornecer tokens que representem o acesso ao qual o usuário tenha consentido.
 
 Quando a autenticação do usuário é realizada:
 
 * A plataforma de identidade da Microsoft envia um token para o aplicativo Web.
-* No jar de cookie do navegador, é salvo um cookie, associado ao domínio do Azure AD, que contém a identidade do usuário. Na próxima vez que um aplicativo usar o navegador para acessar o ponto de extremidade de autorização da plataforma de identidade da Microsoft, o navegador apresentará o cookie para que o usuário não precise entrar novamente. Essa também é a maneira como o SSO (logon único) é obtido. O cookie é produzido pelo Azure AD e só é reconhecido pelo Azure AD.
+* No jar de cookie do navegador, é salvo um cookie, associado ao domínio do Azure AD, que contém a identidade do usuário. Na próxima vez que um aplicativo usar o navegador para navegar até o ponto de extremidade de autorização da plataforma de identidade da Microsoft, o navegador apresentará o cookie para que o usuário não precise entrar novamente. Essa também é a maneira como o SSO (logon único) é obtido. O cookie é produzido pelo Azure AD e só é reconhecido pelo Azure AD.
 * Em seguida, o aplicativo Web valida o token. Se a validação for realizada, o aplicativo Web exibirá a página protegida e salvará um cookie de sessão no jar do cookie do navegador. Quando o usuário navega para outra página, o aplicativo Web sabe que ele já foi autenticado com base no cookie da sessão.
 
 O diagrama de sequência a seguir resume essa interação:
@@ -48,12 +48,12 @@ Os desenvolvedores de aplicativos Web podem indicar se todas ou apenas determina
 
 Esse atributo faz com que o ASP.NET verifique se há um cookie de sessão com a identidade do usuário. Se não houver um cookie, o ASP.NET redirecionará a autenticação para o provedor de identidade especificado. Se o provedor de identidade for o Azure AD, o aplicativo Web redirecionará a autenticação para `https://login.microsoftonline.com`, que exibirá uma caixa de diálogo de entrada.
 
-### <a name="how-a-web-app-delegates-sign-in-to-microsoft-identity-platform-and-obtains-a-token"></a>Como um aplicativo Web delega a entrada à plataforma de identidade da Microsoft e obtém um token
+### <a name="how-a-web-app-delegates-sign-in-to-the-microsoft-identity-platform-and-obtains-a-token"></a>Como um aplicativo Web delega a entrada para a plataforma de identidade da Microsoft e Obtém um token
 
 A autenticação do usuário ocorre por meio do navegador. O protocolo OpenID usa mensagens do protocolo HTTP padrão.
 
 * O aplicativo Web envia um HTTP 302 (redirecionamento) para o navegador para usar a plataforma de identidade da Microsoft.
-* Quando o usuário é autenticado, a plataforma de identidade da Microsoft envia o token para o aplicativo Web, usando um redirecionamento por meio do navegador.
+* Quando o usuário é autenticado, a plataforma de identidade da Microsoft envia o token para o aplicativo Web usando um redirecionamento por meio do navegador.
 * O redirecionamento é fornecido pelo aplicativo Web na forma de um URI de redirecionamento. Esse URI de redirecionamento é registrado com o objeto de aplicativo do Azure AD. Pode haver vários URIs de redirecionamento, pois o aplicativo pode ser implantado em várias URLs. Portanto, o aplicativo Web também precisará especificar o URI de redirecionamento a ser usado.
 * O Azure AD verifica se o URI de redirecionamento enviado pelo aplicativo Web é um dos URIs de redirecionamento registrados no aplicativo.
 

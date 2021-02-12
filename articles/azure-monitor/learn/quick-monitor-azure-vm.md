@@ -7,12 +7,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 03/10/2020
-ms.openlocfilehash: 11475de159cf3d59923d6f2129aa46ddf0ef8f2c
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: bf38291e26c46d26bbf8cb110d18e9526fb3f777
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084423"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797172"
 ---
 # <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Monitorar uma máquina virtual do Azure com o Azure Monitor.
 O [Azure Monitor](../overview.md) inicia a coleta de dados das máquinas virtuais do Azure no momento em que elas são criadas. Neste guia de início rápido você obterá uma breve explicação dos dados que são coletados automaticamente para uma VM do Azure e como exibi-los no portal do Azure. Em seguida, você habilitará o [Azure Monitor para VMs](../insights/vminsights-overview.md) para sua VM, o que permitirá que os agentes na VM coletem e analisem dados do sistema operacional convidado, incluindo processos e suas dependências.
@@ -73,7 +73,7 @@ Quando você cria um workspace do Log Analytics, ele precisa ser configurado par
 
 ### <a name="data-collection-from-linux-vm"></a>Coleta de dados de VM Linux
 
-1. Selecione **Syslog**.  
+1. Selecione **Dados** e **Syslog**.
 
 2. Adicione um log de eventos digitando o nome do log.  Digite **Syslog** e, em seguida, selecione o sinal de adição **+**.  
 
@@ -107,4 +107,4 @@ Quando você cria um workspace do Log Analytics, ele precisa ser configurado par
 Neste guia de início rápido, você habilitou o Azure Monitor para VMs para uma máquina virtual e configurou o workspace do Log Analytics para coletar eventos para o sistema operacional convidado. Para saber como exibir e analisar os dados, continue lendo o tutorial.
 
 > [!div class="nextstepaction"]
-> [Exibir ou analisar dados no Log Analytics](../log-query/get-started-portal.md)
+> [Exibir ou analisar dados no Log Analytics](../log-query/log-analytics-tutorial.md)

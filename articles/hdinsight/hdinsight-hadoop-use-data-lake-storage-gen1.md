@@ -1,19 +1,16 @@
 ---
 title: Usar o Azure Data Lake Storage Gen1 com o Hadoop no Azure HDInsight
 description: Aprenda a consultar dados do Azure Data Lake Storage Gen1 e a armazenar os resultados da sua análise.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 5949bab7bdf11b11e0ff71f9054098ed83d95ab4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 35941f585a0ae5c0d3915c769db5b18737b299f0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539829"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945402"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Usar Data Lake Storage Gen1 com clusters Azure HDInsight
 
@@ -137,19 +134,19 @@ Para obter mais informações sobre o modelo de controle de acesso, consulte [Ac
 
 Há várias maneiras de acessar os arquivos no Data Lake Storage em um cluster HDInsight.
 
-* **Usando o nome totalmente qualificado** . Com essa abordagem, é necessário fornecer o caminho completo para o arquivo que você deseja acessar.
+* **Usando o nome totalmente qualificado**. Com essa abordagem, é necessário fornecer o caminho completo para o arquivo que você deseja acessar.
 
     ```
     adl://<data_lake_account>.azuredatalakestore.net/<cluster_root_path>/<file_path>
     ```
 
-* **Usando o formato de caminho encurtado** . Com essa abordagem, você substitui o caminho até a raiz do cluster com:
+* **Usando o formato de caminho encurtado**. Com essa abordagem, você substitui o caminho até a raiz do cluster com:
 
     ```
     adl:///<file path>
     ```
 
-* **Usando o caminho relativo** . Com essa abordagem, você só fornece o caminho relativo para o arquivo que deseja acessar.
+* **Usando o caminho relativo**. Com essa abordagem, você só fornece o caminho relativo para o arquivo que deseja acessar.
 
     ```
     /<file.path>/
@@ -214,7 +211,7 @@ LOCATION '/example/data/';
 
 ## <a name="identify-storage-path-from-ambari"></a>Identificar o caminho de armazenamento do Ambari
 
-Para identificar o caminho completo para o repositório padrão configurado, navegue até **HDFS**  >  **configurações** do HDFS e insira `fs.defaultFS` na caixa de entrada do filtro.
+Para identificar o caminho completo para o repositório padrão configurado, navegue até   >  **configurações** do HDFS e insira `fs.defaultFS` na caixa de entrada do filtro.
 
 ## <a name="create-hdinsight-clusters-with-access-to-data-lake-storage-gen1"></a>Criar clusters HDInsight com acesso ao Data Lake Storage Gen1
 

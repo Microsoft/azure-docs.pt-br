@@ -5,12 +5,12 @@ author: spelluru
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: d3dc63106e1ca5d9db2b14392ca1fb97e3a68289
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 749ba3d2947dfd7defdf2549305f2a61c16ba713
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88191542"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95803281"
 ---
 # <a name="use-the-azure-portal-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Usar o portal do Azure para criar um tópico do Barramento de Serviço e assinaturas para o tópico
 Neste Início Rápido, você usará o portal do Azure para criar um tópico do Barramento de Serviço e, em seguida, criará assinaturas para esse tópico. 
@@ -32,7 +32,11 @@ As assinaturas e os tópicos do Barramento de Serviço permitem o dimensionament
 > É possível gerenciar os recursos do Barramento de Serviço com o [Gerenciador de Barramento de Serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador de Barramento de Serviço permite que usuários se conectem a um namespace de serviço do Barramento de Serviço e administrem entidades de mensagens de uma maneira fácil. A ferramenta fornece recursos avançados, como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos. 
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber como enviar mensagens para um tópico e receber essas mensagens por meio de uma assinatura, confira o seguinte artigo: selecione a linguagem de programação no sumário. 
+Neste artigo, você criou um namespace do Barramento de Serviço, um tópico no namespace e três assinaturas do tópico. Para saber como publicar mensagens no tópico e assinar mensagens de uma assinatura, consulte um dos seguintes guias de início rápido na seção **Publicar e assinar mensagens**. 
 
-> [!div class="nextstepaction"]
-> [Publicar e assinar mensagens](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [.NET](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [Java](service-bus-java-how-to-use-topics-subscriptions.md)
+- [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions.md)
+- [Python](service-bus-python-how-to-use-topics-subscriptions.md)
+- [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
+- [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)

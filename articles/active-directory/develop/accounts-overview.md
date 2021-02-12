@@ -13,18 +13,18 @@ ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev, devx-track-java
 ms.reviewer: shoatman
-ms.openlocfilehash: 404ffbc09a69b623a421bd0c01550d72e5c03158
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fac66e8f82ea4c04e866b28fed5f8d0860ab81ef
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88115978"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755969"
 ---
 # <a name="accounts--tenant-profiles-android"></a>Contas e perfis de locatário (Android)
 
 Este artigo fornece uma visão geral do que `account` é uma na plataforma de identidade da Microsoft.
 
-A API da MSAL (biblioteca de autenticação da Microsoft) substitui o termo *usuário* pela *conta*do termo. Um dos motivos é que um usuário (agente humano ou de software) pode ter ou pode usar várias contas. Essas contas podem estar na própria organização do usuário e/ou em outras organizações das quais o usuário é membro.
+A API da MSAL (biblioteca de autenticação da Microsoft) substitui o termo *usuário* pela *conta* do termo. Um dos motivos é que um usuário (agente humano ou de software) pode ter ou pode usar várias contas. Essas contas podem estar na própria organização do usuário e/ou em outras organizações das quais o usuário é membro.
 
 Uma conta na plataforma Microsoft Identity consiste em:
 

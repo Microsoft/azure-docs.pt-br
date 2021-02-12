@@ -3,16 +3,17 @@ title: UDFs (funções definidas pelo usuário) no Azure Cosmos DB
 description: Saiba mais sobre as funções definidas pelo usuário no Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 82251cf803168c282e55438ca801ae1f30a2d019
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 98698264f0beb25a8b4f74861f1150ae889d7115
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93093700"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546328"
 ---
 # <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>UDFs (funções definidas pelo usuário) no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -143,4 +144,4 @@ Como mostram os exemplos anteriores, as UDFs integram o poder da linguagem JavaS
 
 - [Introdução ao Azure Cosmos DB](introduction.md)
 - [Funções do sistema](sql-query-system-functions.md)
-- [Agregações](sql-query-aggregates.md)
+- [Agregações](sql-query-aggregate-functions.md)

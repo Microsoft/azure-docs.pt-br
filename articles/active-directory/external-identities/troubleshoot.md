@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: troubleshooting
-ms.date: 03/19/2020
+ms.date: 12/11/2020
 tags: active-directory
 ms.author: mimart
 author: msmimart
@@ -14,19 +14,20 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 646bd2b6a8e22698e6fbcb44d2442e921c7850a5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: aa0d0d032c2ab6ae1d6c5e6b1c8b1793a6b3bd7c
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441497"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090630"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Solução de problemas de colaboração B2B do Azure Active Directory
 
 Confira aqui algumas correções para problemas comuns da colaboração B2B do Azure Active Directory (Azure AD).
 
    > [!IMPORTANT]
-   > **A partir de 31 de março de 2021**, a Microsoft não dará mais suporte ao resgate de convites criando contas e locatários do Azure AD não gerenciado para cenários de colaboração B2B. Durante a preparação, incentivamos os clientes a aceitarem a [autenticação de senha avulsa por email](one-time-passcode.md). Agradecemos seus comentários sobre essa versão prévia do recurso pública e estamos empolgados em criar ainda mais maneiras de colaborar.
+   > - **A partir de 4 de janeiro de 2021**, o Google está [preterindo o suporte de entrada do WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Se estiver usando a federação do Google ou a inscrição por autoatendimento com o Gmail, você deverá [testar seus aplicativos nativos de linha de negócios para garantir a compatibilidade](google-federation.md#deprecation-of-webview-sign-in-support).
+   > - **A partir de 31 de março de 2021**, a Microsoft não dará mais suporte ao resgate de convites criando contas e locatários do Azure AD não gerenciado para cenários de colaboração B2B. Durante a preparação, incentivamos os clientes a aceitarem a [autenticação de senha avulsa por email](one-time-passcode.md). Agradecemos seus comentários sobre essa versão prévia do recurso pública e estamos empolgados em criar ainda mais maneiras de colaborar.
 
 ## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>Adicionei um usuário externo, mas não consigo vê-lo em meu Catálogo de Endereços Global ou no seletor de pessoas
 
@@ -52,7 +53,7 @@ Os erros comuns incluem:
 
 ### <a name="invitees-admin-has-disallowed-emailverified-users-from-being-created-in-their-tenant"></a>O Admin do convidado não permite a criação de Usuários Verificados por Email em seu locatário
 
-Ao convidar usuários cuja organização está usando o Azure Active Directory onde a conta do usuário específico não existe (por exemplo, o usuário não existe no Azure AD contoso.com). O administrador de contoso.com pode ter uma política em vigor para impedir a criação de usuários. O usuário deve verificar com o administrador para determinar se os usuários externos são permitidos. A administração de usuário externo pode ter que permitir usuários verificados por email em seu domínio (consulte este [artigo](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) sobre como permitir Usuários de Email Verificados).
+Ao convidar usuários cuja organização está usando o Azure Active Directory onde a conta do usuário específico não existe (por exemplo, o usuário não existe no Azure AD contoso.com). O administrador de contoso.com pode ter uma política em vigor para impedir a criação de usuários. O usuário deve verificar com o administrador para determinar se os usuários externos são permitidos. A administração de usuário externo pode ter que permitir usuários verificados por email em seu domínio (consulte este [artigo](/powershell/module/msonline/set-msolcompanysettings) sobre como permitir Usuários de Email Verificados).
 
 ![Erro informando que o locatário não permite usuários verificados por email](media/troubleshoot/allow-email-verified-users.png)
 
@@ -91,13 +92,13 @@ Um usuário que tem uma conta de convidado não pode fazer logon e está receben
     AADSTS65005: Using application 'AppName' is currently not supported for your organization contoso.com because it is in an unmanaged state. An administrator needs to claim ownership of the company by DNS validation of contoso.com before the application AppName can be provisioned.
 ```
 
-O usuário tem uma conta de usuário do Azure e é um locatário viral que foi abandonado ou não gerenciado. Além disso, não há administradores globais ou de empresa no locatário.
+O usuário tem uma conta de usuário do Azure e é um locatário viral que foi abandonado ou não gerenciado. Além disso, não há administradores globais no locatário.
 
-Para resolver esse problema, você deve assumir o locatário abandonado. Consulte  [assumir um diretório não gerenciado como administrador em Azure Active Directory](../users-groups-roles/domains-admin-takeover.md). Você também deve acessar o DNS voltado para a Internet para o sufixo de domínio em questão a fim de fornecer evidências diretas de que você está no controle do namespace. Depois que o locatário for retornado a um estado gerenciado, discuta com o cliente se deixar os usuários e o nome de domínio verificado é a melhor opção para sua organização.
+Para resolver esse problema, você deve assumir o locatário abandonado. Consulte  [assumir um diretório não gerenciado como administrador em Azure Active Directory](../enterprise-users/domains-admin-takeover.md). Você também deve acessar o DNS voltado para a Internet para o sufixo de domínio em questão a fim de fornecer evidências diretas de que você está no controle do namespace. Depois que o locatário for retornado a um estado gerenciado, discuta com o cliente se deixar os usuários e o nome de domínio verificado é a melhor opção para sua organização.
 
 ## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>Um usuário convidado com um locatário just-in-time ou "viral" não pode redefinir sua senha
 
-Se o locatário de identidade for um locatário JIT (just-in-time) ou viral (ou seja, um locatário do Azure não gerenciado e separado), somente o usuário convidado poderá redefinir sua senha. Às vezes, uma organização [assumirá o gerenciamento de locatários virais](../users-groups-roles/domains-admin-takeover.md) que são criados quando os funcionários usam seus emails de trabalho para se inscrever em serviços. Depois que a organização assumir um locatário viral, somente um administrador da organização poderá redefinir a senha do usuário ou habilitar a SSPR. Se necessário, como a organização de convite, você pode remover a conta de usuário convidado do diretório e reenviar um convite.
+Se o locatário de identidade for um locatário JIT (just-in-time) ou viral (ou seja, um locatário do Azure não gerenciado e separado), somente o usuário convidado poderá redefinir sua senha. Às vezes, uma organização [assumirá o gerenciamento de locatários virais](../enterprise-users/domains-admin-takeover.md) que são criados quando os funcionários usam seus emails de trabalho para se inscrever em serviços. Depois que a organização assumir um locatário viral, somente um administrador da organização poderá redefinir a senha do usuário ou habilitar a SSPR. Se necessário, como a organização de convite, você pode remover a conta de usuário convidado do diretório e reenviar um convite.
 
 ## <a name="a-guest-user-is-unable-to-use-the-azuread-powershell-v1-module"></a>Um usuário convidado não pode usar o módulo AzureAD do PowerShell v1
 

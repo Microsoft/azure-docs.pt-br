@@ -4,18 +4,18 @@ description: Aprenda a controlar o acesso ao arquivo de configuração Kubernete
 services: container-service
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: c73c4a0ae46c3d2ac3a64543473bd6639d03b434
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77b9988557106ef460d3b222ef85eb29e08f31c8
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009283"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693994"
 ---
 # <a name="use-azure-role-based-access-control-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Use o controle de acesso baseado em função do Azure para definir o acesso ao arquivo de configuração kubernetes no serviço kubernetes do Azure (AKS)
 
 Você pode interagir com um cluster Kubernetes usando a ferramenta `kubectl`. A CLI do Azure fornece uma maneira fácil de obter as credenciais de acesso e informações de configuração para se conectar aos seus clusters do AKS usando o `kubectl`. Para limitar quem pode obter essas informações de configuração de kubernetes (*kubeconfig*) e limitar as permissões que elas têm, você pode usar o controle de acesso baseado em função do Azure (RBAC do Azure).
 
-Este artigo mostra como atribuir funções RBAC que limitam quem pode obter as informações de configuração para um cluster do AKS.
+Este artigo mostra como atribuir funções do Azure que limitam quem pode obter as informações de configuração para um cluster AKS.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -38,7 +38,7 @@ As duas funções internas são:
   * Permite acesso à chamada à API *Microsoft.ContainerService/managedClusters/listClusterUserCredential/action*. Essa chamada à API [lista as credenciais de usuário do cluster][api-cluster-user].
   * Baixa *kubeconfig* para a função *clusterUser*.
 
-Essas funções RBAC podem ser aplicadas a um usuário ou grupo Azure Active Directory (AD).
+Essas funções do Azure podem ser aplicadas a um usuário ou grupo Azure Active Directory (AD).
 
 > [!NOTE]
 > Em clusters que usam o Azure AD, os usuários com a função *clusterUser* têm um arquivo *kubeconfig* vazio que solicita um logon. Depois de conectado, os usuários têm acesso com base em suas configurações de usuário ou grupo do Azure AD. Os usuários com a função *clusterAdmin* têm acesso de administrador.
@@ -70,6 +70,22 @@ az role assignment create \
     --role "Azure Kubernetes Service Cluster Admin Role"
 ```
 
+> [!IMPORTANT]
+> Em alguns casos, o *User.Name* na conta é diferente do *userPrincipalName*, como com os usuários convidados do Azure AD:
+>
+> ```output
+> $ az account show --query user.name -o tsv
+> user@contoso.com
+> $ az ad user list --query "[?contains(otherMails,'user@contoso.com')].{UPN:userPrincipalName}" -o tsv
+> user_contoso.com#EXT#@contoso.onmicrosoft.com
+> ```
+>
+> Nesse caso, defina o valor de *ACCOUNT_UPN* para o *userPrincipalName* do usuário do Azure AD. Por exemplo, se sua conta *User.Name* for *user \@ contoso.com*:
+> 
+> ```azurecli-interactive
+> ACCOUNT_UPN=$(az ad user list --query "[?contains(otherMails,'user@contoso.com')].{UPN:userPrincipalName}" -o tsv)
+> ```
+
 > [!TIP]
 > Se você quiser atribuir permissões a um grupo do Azure AD, atualize o `--assignee` parâmetro mostrado no exemplo anterior com a ID de objeto para o *grupo* , em vez de um *usuário*. Para obter a ID de objeto para um grupo, use o comando [AZ ad Group show][az-ad-group-show] . O exemplo a seguir obtém a ID de objeto para o grupo do Azure AD chamado *AppDev*: `az ad group show --group appdev --query objectId -o tsv`
 
@@ -92,7 +108,7 @@ A saída de exemplo a seguir mostra que a atribuição de função foi criada co
 
 ## <a name="get-and-verify-the-configuration-information"></a>Obter e verificar as informações de configuração
 
-Com as funções RBAC atribuídas, use o comando [az aks get-credentials][az-aks-get-credentials] para obter a definição *kubeconfig* para o cluster do AKS. O exemplo a seguir obtém as credenciais *-- admin*, que funcionarão corretamente se a *função de administrador do cluster* tiver sido concedida ao usuário:
+Com as funções do Azure atribuídas, use o comando [AZ AKs Get-Credentials][az-aks-get-credentials] para obter a definição de *kubeconfig* para o cluster AKs. O exemplo a seguir obtém as credenciais *-- admin*, que funcionarão corretamente se a *função de administrador do cluster* tiver sido concedida ao usuário:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin

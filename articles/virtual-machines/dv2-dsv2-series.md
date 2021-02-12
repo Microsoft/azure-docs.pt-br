@@ -1,5 +1,5 @@
 ---
-title: Dv2 e série Dsv2-máquinas virtuais do Azure
+title: Dv2 e série DSv2-máquinas virtuais do Azure
 description: Especificações para as VMs da série Dv2 e Dsv2.
 author: joelpelley
 ms.service: virtual-machines
@@ -7,16 +7,16 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 785e72a47d68bf368e160b1f3bf2a6d762d1f100
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a3d0236fc70757d7d9a98449bc4f6fdbf3d8bef
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91649687"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99091992"
 ---
 # <a name="dv2-and-dsv2-series"></a>Séries Dv2 e DSv2
 
-A Dv2 e a série Dsv2, um acompanhamento da série D original, apresentam uma CPU mais potente e configuração ideal de CPU para memória, tornando-as adequadas para a maioria das cargas de trabalho de produção. A série Dv2 é aproximadamente 35% mais rápida do que a série D. Dv2-série de execução no Intel® Xeon® Platinum 8272CL (Cascadey Lake), Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) ou os processadores Intel® Xeon® E5-2673 v3 2,4 GHz (Haswell) com a tecnologia Intel Turbo Boost 2,0. A série Dv2 tem as mesmas configurações de memória e disco que a série D.
+A Dv2 e a série DSv2, um acompanhamento da série D original, apresentam uma CPU mais potente e configuração ideal de CPU para memória, tornando-as adequadas para a maioria das cargas de trabalho de produção. A série Dv2 é aproximadamente 35% mais rápida do que a série D. Dv2-série de execução no Intel® Xeon® Platinum 8272CL (Cascadey Lake), Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) ou os processadores Intel® Xeon® E5-2673 v3 2,4 GHz (Haswell) com a tecnologia Intel Turbo Boost 2,0. A série Dv2 tem as mesmas configurações de memória e disco que a série D.
 
 ## <a name="dv2-series"></a>Série Dv2
 
@@ -28,6 +28,8 @@ Os tamanhos da série Dv2 são executados no Intel® Xeon® Platinum 8272CL (Cas
 [Migração ao vivo](maintenance-and-updates.md): com suporte<br>
 [Atualizações de preservação de memória](maintenance-and-updates.md): com suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
 <br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Taxa de transferência máxima de armazenamento temporário: IOPS/MBps de leitura/MBps de gravação | Discos de dados máximos | Taxa de transferência: IOPS | Máximo de NICs | Largura de banda de rede esperada (Mbps) |
@@ -48,6 +50,8 @@ Os tamanhos da série DSv2 são executados no Intel® Xeon® Platinum 8272CL (Ca
 [Migração ao vivo](maintenance-and-updates.md): com suporte<br>
 [Atualizações de preservação de memória](maintenance-and-updates.md): com suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): com suporte <br>
 <br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento em cache e temporária: IOPS/MBps (tamanho do cache em GiB) | Taxa de transferência de disco sem cache: IOPS/MBps | Máximo de NICs|Largura de banda de rede esperada (Mbps) |

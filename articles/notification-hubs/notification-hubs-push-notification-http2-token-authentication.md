@@ -16,12 +16,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/13/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e8258aeef33be9192608f0d4cb29b46f08da64e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f8de6389a04448579672b84e91f0bb4dd0f4ce2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89010623"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460465"
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Autenticação baseada em token (HTTP/2) para APNS
 
@@ -78,7 +78,7 @@ As credenciais baseadas em token são compostas dos seguintes campos:
 
 * **ID da chave**: identificador da chave privada gerada no portal do desenvolvedor da Apple; por exemplo, `2USFGKSKLT` .
 * **ID da equipe**: também chamado de "prefixo" ou "prefixo do aplicativo". Este é o identificador para a organização no portal do desenvolvedor da Apple; por exemplo, `S4V3D7CHJR` .
-* **ID do pacote**: também chamado de "ID do aplicativo". Este é o identificador do pacote para o aplicativo; por exemplo, `com.example.myapp` . Observe que você pode usar uma chave para muitos aplicativos. Esse valor é mapeado para o `apns-topic` cabeçalho HTTP ao enviar uma notificação e é usado para direcionar o aplicativo específico. Observe que você não pode definir o valor de `apns-topic` explicitamente.
+* **ID do pacote**: também chamado de "ID do aplicativo". Este é o identificador do pacote para o aplicativo; por exemplo, `com.example.myapp` . Observe que você só pode usar uma chave para um aplicativo. Esse valor é mapeado para o `apns-topic` cabeçalho HTTP ao enviar uma notificação e é usado para direcionar o aplicativo específico. Você não pode definir o valor de `apns-topic` explicitamente.
 * **Token**: também chamado de "chave" ou "chave privada". Isso é obtido do arquivo. P8 gerado no portal do desenvolvedor da Apple. A chave deve ter o APNS habilitado (que está selecionado no portal do desenvolvedor da Apple ao gerar a chave). O valor deve ter o cabeçalho/rodapé PEM extraído dele ao fornecê-lo ao portal/API do NH.
 * **Ponto de extremidade**: é uma alternância na folha do portal de hubs de notificação e um campo de cadeia de caracteres na API. Os valores válidos são `https://api.development.push.apple.com:443/3/device` ou `https://api.sandbox.push.apple.com:443/3/device`. Os hubs de notificação usam esse valor para o ambiente de produção ou área restrita, para enviar notificações. Isso deve corresponder ao `aps-environment` direito no aplicativo, caso contrário, os tokens de dispositivo APNS gerados não corresponderão ao ambiente e as notificações falharão ao enviar.
 

@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 6a40ffab652a6ae8671d6cd1c0dd9336764ce2c4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 67c556e44f07240b1ad1bcde61f40042da46def8
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791929"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122211"
 ---
 # <a name="respond-to-azure-defender-for-key-vault-alerts"></a>Responder a alertas do Azure Defender para Key Vault
 Quando você recebe um alerta do Azure defender para Key Vault, recomendamos investigar e responder ao alerta conforme descrito abaixo. O Azure defender para Key Vault protege aplicativos e credenciais, portanto, mesmo que você esteja familiarizado com o aplicativo ou o usuário que disparou o alerta, é importante verificar a situação em torno de cada alerta.  
@@ -72,4 +72,4 @@ Esta página explicou o processo de responder a um alerta do Azure defender para
 
 - [Introdução ao Azure Defender para Key Vault](defender-for-key-vault-introduction.md)
 - [Suprimir alertas do Azure Defender](alerts-suppression-rules.md)
-- [Exportar continuamente os dados da central de segurança](continuous-export.md)
+- [Exportar continuamente os dados da Central de Segurança](continuous-export.md)

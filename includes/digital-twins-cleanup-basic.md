@@ -1,26 +1,24 @@
 ---
 author: baanders
-description: incluir arquivo para limpar uma instância básica dos Gêmeos Digitais do Azure
+description: incluir arquivo para limpar uma instância dos Gêmeos Digitais do Azure
 ms.service: digital-twins
 ms.topic: include
-ms.date: 8/13/2020
+ms.date: 2/4/2021
 ms.author: baanders
-ms.openlocfilehash: 29a07ffa917153c0cb062d34e2807d43d039a373
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: c3c1b814b357a2e4b724590261657e485852f99c
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494682"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575664"
 ---
-Se você não precisa mais dos recursos criados neste tutorial, siga estas etapas para excluí-los.
-
-Usando o [Azure Cloud Shell](https://shell.azure.com), exclua todos os recursos do Azure em um grupo de recursos com o comando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-delete). Isso removerá o grupo de recursos e a instância dos Gêmeos Digitais do Azure.
-
-> [!IMPORTANT]
-> A exclusão de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos contidos nele são excluídos permanentemente. Não exclua acidentalmente o grupo de recursos ou os recursos incorretos. 
-
-Abra um Azure Cloud Shell e execute o comando a seguir para excluir o grupo de recursos e tudo o que ele contém.
-
-```azurecli-interactive
-az group delete --name <your-resource-group>
-```
+* **Caso não precise de nenhum dos recursos criados neste tutorial**, você poderá excluir a instância dos Gêmeos Digitais do Azure e todos os outros recursos deste artigo com o comando [az group delete](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-delete). Isso exclui todos os recursos do Azure em um grupo de recursos, bem como o grupo de recursos em si.
+    
+    > [!IMPORTANT]
+    > A exclusão de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos contidos nele são excluídos permanentemente. Não exclua acidentalmente grupo de recursos ou recursos incorretos.
+    
+    Abra o [Azure Cloud Shell](https://shell.azure.com) e execute o comando a seguir para excluir o grupo de recursos e tudo o que ele contém.
+    
+    ```azurecli-interactive
+    az group delete --name <your-resource-group>
+    ```

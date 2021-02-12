@@ -7,15 +7,15 @@ ms.service: data-factory
 services: data-factory
 documentationcenter: ''
 ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
-ms.openlocfilehash: 40fa6bce67aa6c5643e4a153da610dce65907b56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30e07b645701cf560534b152ae42559213daf838
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88036327"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053764"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Funções e permissões do Azure Data Factory
 
@@ -56,6 +56,12 @@ As permissões no Azure Repos e no GitHub são independentes das permissões do 
 
 > [!IMPORTANT]
 > A implantação de modelo do Resource Manager com a função **Colaborador do Data Factory** não eleva as permissões. Por exemplo, se você implantar um modelo que cria uma máquina virtual do Azure e você não tiver permissão para criar máquinas virtuais, a implantação falhará com um erro de autorização.
+
+> [!IMPORTANT]
+> A permissão **Microsoft. datafactory/fábricas/Write** é necessária em ambos os modos dentro do contexto de publicação.
+
+- Essa permissão só é necessária no modo dinâmico quando o cliente modifica os parâmetros globais.
+- Essa permissão sempre é necessária no modo git, pois toda vez que o cliente é publicado, porque o objeto de fábrica com a última ID de confirmação é atualizado.
 
 ### <a name="custom-scenarios-and-custom-roles"></a>Cenários personalizados e funções personalizadas
 

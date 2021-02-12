@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Introdução à criação de um workspace do Synapse'
-description: Neste tutorial, você aprenderá a criar um workspace do Synapse, um pool de SQL e um Pool do Apache Spark.
+title: 'Início rápido: Introdução – criar um workspace do Azure Synapse'
+description: Neste tutorial, você aprenderá a criar um workspace do Azure Synapse, um pool de SQL dedicado e um Pool do Apache Spark sem servidor.
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
@@ -9,119 +9,79 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 10/07/2020
-ms.openlocfilehash: 1b33fa6ea3b5aa5933c1f969f1f1a07aaec79373
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.date: 12/31/2020
+ms.openlocfilehash: 3a2636ec73d20f3011d8413c794e68ef41b1829c
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173322"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209178"
 ---
 # <a name="creating-a-synapse-workspace"></a>Como criar um workspace do Azure Synapse
 
-Neste tutorial, você aprenderá a criar um workspace do Synapse, um pool de SQL e um Pool do Apache Spark. 
+Neste tutorial, você aprenderá a criar um workspace do Azure Synapse, um pool de SQL dedicado e um Pool do Apache Spark sem servidor. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para completar todas as etapas deste tutorial, você precisa ter acesso a um grupo de recursos no qual tenha a função de **Proprietário**. Crie o workspace do Synapse nesse grupo de recursos.
+Para concluir as etapas deste tutorial, você precisará ter acesso a um grupo de recursos no qual tenha a função **Proprietário**. Crie o workspace do Synapse nesse grupo de recursos.
 
 ## <a name="create-a-synapse-workspace-in-the-azure-portal"></a>Criar um workspace do Azure Synapse no portal do Azure
 
 1. Abra o [portal do Azure](https://portal.azure.com) e, na parte superior, procure por **Synapse**.
-1. Nos resultados da pesquisa em **Serviços**, selecione **Azure Synapse Analytics (versão prévia de workspaces)** .
+1. Nos resultados da pesquisa, em **Serviços**, selecione **Azure Synapse Analytics**.
 1. Selecione **Adicionar** para criar um workspace.
-1. Em **Conceitos básicos**, insira a **Assinatura**, o **Grupo de recursos**, a **Região** preferenciais e escolha um nome para o workspace. Neste tutorial, usaremos **myworkspace**.
-1. Você precisa de uma conta ADLSGEN2 e um contêiner nessa conta para criar um workspace. A opção mais simples é criar uma conta. Se você quiser reutilizar uma existente, será necessário executar algumas configurações adicionais. 
-    1. O workspace do Azure Synapse usará esse contêiner como o local padrão para armazenar logs e dados do Spark para tabelas do Spark.
-1. OPÇÃO 1 Criação de uma conta do ADLSGEN2 
-    1. Navegue até **Selecionar Data Lake Storage Gen 2**. 
-    1. Clique em **Criar Novo** e nomeie a conta como **contosolake**.
-    1. Clique em **Sistema de Arquivos** e nomeie a conta como **usuários**. Isso criará um contêiner chamado **usuários**
-1. OPÇÃO 2 Como usar uma conta existente do ADLSGEN2. Confira as instruções sobre **Como preparar uma Conta de Armazenamento do ADLSGEN2** na parte inferior deste documento.
-1. Seu workspace do Azure Synapse usará essa conta de armazenamento como a conta de armazenamento "primária" e o contêiner para armazenar dados do workspace. O workspace armazena dados em tabelas do Apache Spark. Ele armazena logs de aplicativo do Spark em uma pasta chamada **/synapse/nomedoworkspace**.
+1. Na guia **Informações Básicas**, em Detalhes do Projeto, insira **Assinatura**, **Grupo de recursos** e **Região** preferenciais e escolha um nome de workspace. Neste tutorial, usaremos **myworkspace**.
+1. Em **Selecionar Data Lake Storage Gen2**, clique no botão **Da assinatura**.
+1. Em **Nome da conta**, clique em **Criar** e nomeie a nova conta de armazenamento **contosolake** ou outro nome semelhante, pois esse nome precisa ser exclusivo.
+1. Em **Nome do sistema de arquivos**, clique em **Criar** e nomeie-o **usuários**. Isso criará um contêiner de armazenamento chamado **usuários**
+1. O workspace usará essa conta de armazenamento como a conta de armazenamento "primária" para os logs do aplicativo e as tabelas do Spark.
+1. Marque a caixa "Atribuir a função Colaborador de Dados do Blob de Armazenamento a mim mesmo na conta do Data Lake Storage Gen2". 
 1. Selecione **Examinar + criar** > **Criar**. Seu workspace fica pronto em alguns minutos.
+
+> [!NOTE]
+> Para habilitar recursos de workspace de um pool de SQL dedicado existente (antigo SQL DW), veja [Como habilitar um workspace para seu pool de SQL dedicado (antigo SQL DW)](./sql-data-warehouse/workspace-connected-create.md).
+
 
 ## <a name="open-synapse-studio"></a>Abrir o Synapse Studio
 
 Após criar o workspace do Azure Synapse, você tem duas maneiras de abrir o Synapse Studio:
 
-* Abra o workspace do Synapse no [portal do Azure](https://portal.azure.com). Na parte superior da seção **Visão Geral**, selecione **Iniciar o Synapse Studio**.
+* Abra o workspace do Azure Synapse no [portal do Azure](https://portal.azure.com) e, na seção **Visão geral** do workspace do Azure Synapse, selecione **Abrir** na caixa Abrir Synapse Studio.
 * Acesse `https://web.azuresynapse.net` e entre no seu workspace.
 
-## <a name="create-a-sql-pool"></a>Criar um pool de SQL
+
+## <a name="the-built-in-serverless-sql-pool"></a>O pool de SQL sem servidor interno
+
+Todo workspace é fornecido com um pool de SQL sem servidor predefinido chamado **Interno**. Esse pool não pode ser excluído. Os pools de SQL sem servidor permitem que você use o SQL sem precisar reservar a capacidade com pools de SQL dedicados. Ao contrário dos pools de SQL dedicados, a cobrança de um pool de SQL sem servidor se baseia no volume de dados examinados para executar a consulta, não no número de capacidade alocada para executá-lo.
+
+
+## <a name="create-a-dedicated-sql-pool"></a>Criar um pool de SQL dedicado
 
 1. No Synapse Studio, no painel do lado esquerdo, selecione **Gerenciar** > **Pools de SQL**.
-1. Selecione **Novo** e insira estas configurações:
+1. Selecione **Novo**
+1. Em **Nome do pool de SQL**, selecione **SQLPOOL1**
+1. Em **Nível de desempenho**, escolha **DW100C**
+1. Selecione **Examinar + criar** > **Criar**. Seu pool de SQL dedicado estará pronto em alguns minutos. O pool de SQL dedicado é associado a um banco de dados do pool de SQL dedicado também chamado **SQLPOOL1**.
 
-    |Configuração | Valor sugerido | 
-    |---|---|---|
-    |**Nome do pool de SQL**| **SQLDB1**|
-    |**Nível de desempenho**|**DW100C**|
-    |||
+Um pool de SQL dedicado consome recursos faturáveis desde que ele esteja ativo. Você pode pausar o pool posteriormente para reduzir custos.
 
-1. Selecione **Examinar + criar** > **Criar**. Seu pool de SQL estará pronto em alguns minutos. O pool de SQL é associado a um banco de dados do pool de SQL também chamado **SQLDB1**.
+> [!NOTE] 
+> Quando você criar um pool de SQL dedicado (antigo SQL DW) em seu workspace, a página de provisionamento do pool de SQL dedicado será aberta. O provisionamento ocorrerá no SQL Server lógico.
 
-Um pool de SQL consome recursos faturáveis desde que ele esteja ativo. Você pode pausar o pool posteriormente para reduzir custos.
 
-## <a name="create-an-apache-spark-pool"></a>Criar um Pool do Apache Spark
+## <a name="create-a-serverless-apache-spark-pool"></a>Criar um Pool do Apache Spark sem servidor
 
 1. No Synapse Studio, no painel do lado esquerdo, selecione **Gerenciar** > **Pools do Apache Spark**.
-1. Selecione **Novo** e insira estas configurações:
-
-    |Configuração | Valor sugerido | 
-    |---|---|---|
-    |**Nome do Pool do Apache Spark**|**Spark1**
-    |**Tamanho do nó**| **Pequeno**|
-    |**Número de nós**| Defina o mínimo como 3 e o máximo como 3|
-
+1. Selecione **Novo** 
+1. Em **Nome do Pool do Apache Spark**, insira **Spark1**.
+1. Em **Tamanho do nó**, insira **Pequeno**.
+1. Em **Número de nós**, defina o mínimo como 3 e o máximo como 3
 1. Selecione **Examinar + criar** > **Criar**. Seu Pool do Apache Spark estará pronto em alguns segundos.
 
-> [!NOTE]
-> Apesar do nome, um Pool do Apache Spark não é como um pool de SQL. São apenas alguns metadados básicos que você usa para informar ao workspace do Azure Synapse como interagir com o Spark.
-
-Como são metadados, os Pools do Spark não podem ser iniciados nem interrompidos.
-
-Ao realizar qualquer atividade do Spark no Azure Synapse, você especifica um Pool do Spark a ser usado. O pool informa ao Azure Synapse quantos recursos do Spark usar. Você paga somente pelos recursos que usa. Quando você parar ativamente de usar o pool, os recursos atingirão o tempo limite automaticamente e serão reciclados.
-
-> [!NOTE]
-> Os bancos de dados do Spark são criados independentemente dos Pools do Spark. Um workspace sempre tem um banco de dados Spark chamado **padrão**. Você pode criar bancos de dados do Spark adicionais.
-
-## <a name="the-sql-on-demand-pool"></a>O pool de SQL sob demanda
-
-Todo workspace é fornecido com um pool pré-criado chamado **SQL sob demanda**. Esse pool não pode ser excluído. O pool do SQL sob demanda permite que você trabalhe com o SQL sem precisar criar nem pensar sobre gerenciar um pool de SQL no Azure Synapse.
-
-Ao contrário dos outros tipos de pools, a cobrança pelo SQL sob demanda baseia-se na quantidade de dados examinados para executar a consulta e não no número de recursos usados para executar a consulta.
-
-* O SQL sob demanda tem seus próprios bancos de dados sob demanda do SQL que existem independentemente de qualquer pool do SQL sob demanda.
-* Um workspace sempre tem exatamente um pool do SQL sob demanda chamado **SQL sob demanda**.
-
-## <a name="preparing-a-adlsgen2-storage-account"></a>Como preparar uma conta de armazenamento do ADLSGEN2
-
-### <a name="perform-the-following-steps-before-you-create-your-workspace"></a>Execute as etapas a seguir ANTES de criar seu workspace
-
-1. Abra o [Portal do Azure](https://portal.azure.com).
-1. Navegue até a sua conta de armazenamento existente
-1. Selecione **Controle de acesso (IAM)** no painel esquerdo. 
-1. Atribua as funções a seguir ou certifique-se de que elas já estejam atribuídas:
-    * Atribua-se à função de **Proprietário**.
-    * Atribua-se à função de **Proprietário de Dados do Storage Blob**.
-1. No painel esquerdo, selecione **Contêineres** e crie um contêiner.
-1. Será possível nomear o contêiner. Neste documento, usaremos o nome **usuários**.
-1. Aceite a configuração padrão **Nível de acesso público** e, em seguida, selecione **Criar**.
-
-### <a name="perform-the-following-steps-after-you-create-your-workspace"></a>Execute as etapas a seguir DEPOIS de criar seu workspace
-
-Configure o acesso à conta de armazenamento em seu workspace. Identidades gerenciadas para seu workspace do Azure Synapse talvez já tenham acesso à conta de armazenamento. Siga estas etapas para se certificar:
-
-1. Abra o [portal do Azure](https://portal.azure.com) e a conta de armazenamento primária escolhida para seu workspace.
-1. Selecione **Controle de acesso (IAM)** no painel esquerdo.
-1. Atribua as funções a seguir ou verifique se elas já estão atribuídas. Usamos o mesmo nome para a identidade do workspace e o nome do workspace.
-    * Para a função de **Colaborador de Dados do Storage Blob** na conta de armazenamento, atribua **myworkspace** como a identidade do workspace.
-    * Atribua **myworkspace** como o nome do workspace.
-1. Clique em **Salvar**.
+O Pool do Spark informa o Azure Synapse sobre quantos recursos do Spark serão usados. Você paga somente pelos recursos que usa. Quando você parar ativamente de usar o pool, os recursos atingirão o tempo limite automaticamente e serão reciclados.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Análise por meio de um pool de SQL](get-started-analyze-sql-pool.md)
+> [Análise por meio de um pool de SQL dedicado](get-started-analyze-sql-pool.md)

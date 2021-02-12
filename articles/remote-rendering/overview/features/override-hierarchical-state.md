@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bb120a533e4d11b34bb9712bf0164cec5a7728ce
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 851a87885ac765c829e8c2be9fd1205e22906ca9
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207726"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445142"
 ---
 # <a name="hierarchical-state-override"></a>Substituição de estado hierárquico
 
@@ -28,26 +28,33 @@ Como exemplo, considere o modelo de um carro, o qual você deseja alternar compl
 
 O conjunto fixo de estados que podem ser substituídos é:
 
-* **`Hidden`**: As respectivas malhas no grafo de cena são ocultas ou mostradas.
-* **`Tint color`**: Um objeto renderizado pode ser colorido por cores com sua cor de tonalidade individual e peso de tonalidade. A imagem abaixo mostra a coloração do aro de uma roda.
+* **`Hidden`** : As respectivas malhas no grafo de cena são ocultas ou mostradas.
+* **`Tint color`** : Um objeto renderizado pode ser colorido por cores com sua cor de tonalidade individual e peso de tonalidade. A imagem abaixo mostra a coloração do aro de uma roda.
   
   ![Cor da tonalidade usada para transformar um objeto em verde](./media/color-tint.png)
 
-* **`See-through`**: A geometria é renderizada semitransparentemente, por exemplo, para revelar as partes internas de um objeto. A seguinte imagem mostra todo o carro sendo renderizado no modo de transparência, exceto a pinça de freio vermelha:
+* **`See-through`** : A geometria é renderizada semitransparentemente, por exemplo, para revelar as partes internas de um objeto. A seguinte imagem mostra todo o carro sendo renderizado no modo de transparência, exceto a pinça de freio vermelha:
 
   ![Modo de visualização usado para tornar os objetos selecionados transparentes](./media/see-through.png)
 
   > [!IMPORTANT]
   > O efeito de transparência só funciona quando é usado o [modo de renderização](../../concepts/rendering-modes.md) *TileBasedComposition*.
 
-* **`Selected`**: A geometria é renderizada com uma [estrutura de tópicos de seleção](outlines.md).
+* **`Shell`** : A geometria é renderizada como um shell transparente e dessaturado. Esse modo permite desbotar partes não importantes de uma cena enquanto ainda mantém uma noção de forma e posicionamento relativo. Para alterar a aparência da renderização do Shell, use o estado [ShellRenderingSettings](shell-effect.md) . Consulte a imagem a seguir para que o modelo de carro seja totalmente renderizado pelo shell, exceto pelas molas azuis:
+
+  ![Modo de shell usado para esmaecer objetos específicos](./media/shell.png)
+
+  > [!IMPORTANT]
+  > O efeito do shell só funciona quando o [modo de renderização](../../concepts/rendering-modes.md) *TileBasedComposition* é usado.
+
+* **`Selected`** : A geometria é renderizada com uma [estrutura de tópicos de seleção](outlines.md).
 
   ![Opção de estrutura de tópicos usada para realçar uma parte selecionada](./media/selection-outline.png)
 
-* **`DisableCollision`**: A geometria é isenta de [consultas espaciais](spatial-queries.md). O **`Hidden`** sinalizador não afeta o sinalizador de estado de colisão, portanto, esses dois sinalizadores geralmente são definidos juntos.
+* **`DisableCollision`** : A geometria é isenta de [consultas espaciais](spatial-queries.md). O **`Hidden`** sinalizador não afeta o sinalizador de estado de colisão, portanto, esses dois sinalizadores geralmente são definidos juntos.
 
-* **`UseCutPlaneFilterMask`**: Use uma máscara de bits de filtro individual para controlar a seleção do plano de recorte. Esse sinalizador determina se a máscara de filtro individual deve ser usada ou herdada de seu pai. A própria máscara de bit de filtro é definida por meio da `CutPlaneFilterMask` propriedade. Para obter informações detalhadas sobre como a filtragem funciona, consulte o [parágrafo planos de corte seletivo](cut-planes.md#selective-cut-planes).
-![Planos de corte seletivo](./media/selective-cut-planes.png)
+* **`UseCutPlaneFilterMask`** : Use uma máscara de bits de filtro individual para controlar a seleção do plano de recorte. Esse sinalizador determina se a máscara de filtro individual deve ser usada ou herdada de seu pai. A própria máscara de bit de filtro é definida por meio da `CutPlaneFilterMask` propriedade. Para obter informações detalhadas sobre como a filtragem funciona, consulte o [parágrafo planos de corte seletivo](cut-planes.md#selective-cut-planes). Consulte o exemplo a seguir onde apenas o aro e o rim são recortados enquanto o restante da cena permanece inalterado.
+![Planos de corte seletivo](./media/selective-cut-planes-hierarchical-override.png)
 
 
 > [!TIP]
@@ -101,7 +108,7 @@ A `tint color` substituição é um pouco especial, pois há um estado ligado/de
 
 Uma instância do `HierarchicalStateOverrideComponent` em si não adiciona muita sobrecarga de runtime. No entanto, é sempre uma boa prática manter um número baixo de componentes ativos. Por exemplo, ao implementar um sistema de seleção que realça o objeto selecionado, é recomendável excluir o componente quando o realce é removido. Manter os componentes com recursos neutros pode gerar acúmulo rapidamente.
 
-A renderização transparente coloca mais carga de trabalho nas GPUs do servidor do que a renderização padrão. Se grandes partes do grafo de cena forem alternadas para *see-through*, com muitas camadas de geometria ficando visíveis, ele poderá se tornar um gargalo de desempenho. O mesmo se dá para objetos com [contornos de seleção](../../overview/features/outlines.md#performance).
+A renderização transparente coloca mais carga de trabalho nas GPUs do servidor do que a renderização padrão. Se grandes partes do grafo de cena forem alternadas para *see-through* , com muitas camadas de geometria ficando visíveis, ele poderá se tornar um gargalo de desempenho. O mesmo é válido para objetos com [contornos de seleção](../../overview/features/outlines.md#performance) e para [renderização de shell](../../overview/features/shell-effect.md#performance) . 
 
 ## <a name="api-documentation"></a>Documentação da API
 

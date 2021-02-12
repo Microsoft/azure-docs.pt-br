@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: f395f96dfa48567f95a1c50cf5403d3cbb427cb7
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: cebe0e018b4483a9de1771fb3171effbbd5ca59c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91597823"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020054"
 ---
 # <a name="what-is-azure-time-series-insights-gen1"></a>O que é o Azure Time Series Insights Gen1?
 
@@ -33,7 +33,7 @@ O Azure Time Series Insights tem quatro trabalhos principais:
 - O Azure Time Series Insights fornece uma visualização pronta para uso por meio do Gerenciador do Azure Time Series Insights.
 - O Azure Time Series Insights fornece um serviço de consulta no Gerenciador do Azure Time Series Insights e pelas APIs que são fáceis de integrar para inserir dados de séries temporais em aplicativos personalizados.
 
-Se você estiver criando um aplicativo para consumo interno ou para a utilização de clientes externos, o Azure Time Series Insights poderá ser usado como um back-end. Você pode usá-lo para indexação, armazenamento e agregação de dados de série temporal. Para compilar uma visualização personalizada e uma experiência do usuário na parte superior usando o [SDK Cliente](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). O Azure Time Series Insights também está equipado com várias [APIs de Consulta](how-to-shape-query-json.md) para habilitar esses cenários personalizados.
+Se você estiver criando um aplicativo para consumo interno ou para a utilização de clientes externos, o Azure Time Series Insights poderá ser usado como um back-end. Você pode usá-lo para indexação, armazenamento e agregação de dados de série temporal. Para compilar uma visualização personalizada e uma experiência do usuário na parte superior usando o [SDK Cliente](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). O Azure Time Series Insights também está equipado com várias [APIs de Consulta](./concepts-json-flattening-escaping-rules.md) para habilitar esses cenários personalizados.
 
 Dados de série temporal representam como um processo ou um ativo é alterado ao longo do tempo. Os dados de série temporal são indexados por carimbos de data/hora e o tempo é o eixo mais significativo ao longo do qual esses dados são organizados. Normalmente, os dados de série temporal chegam em ordem sequencial e são tratados como uma inserção em vez de uma atualização do banco de dados.
 

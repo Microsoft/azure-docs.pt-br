@@ -2,27 +2,27 @@
 title: O que é o Tradutor Personalizado?
 titleSuffix: Azure Cognitive Services
 description: O Tradutor Personalizado oferece recursos semelhantes ao que o Hub do Microsoft Translator faz em relação à SMT (Tradução Automática Estatística), mas exclusivamente para sistemas de NMT (Tradução Automática Neural).
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 12/09/2019
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: overview
-ms.openlocfilehash: d84a0190e13d7bb7664e8792e0047338fe4bf5e2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 37d31d753812924607c4d31df6d4f4d5e7b32d69
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85961227"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98890706"
 ---
 # <a name="what-is-custom-translator"></a>O que é o Tradutor Personalizado?
 
-O [Tradutor Personalizado](https://portal.customtranslator.azure.ai) é um recurso do serviço Microsoft Translator que permite que as empresas de tradução, os desenvolvedores de aplicativos e prestadores de serviços de linguagem criem sistemas de NMT (Tradução Automática Neural). Os sistemas de tradução personalizada se integram aos aplicativos, fluxos de trabalho e sites existentes. O [Tradutor Personalizado](https://portal.customtranslator.azure.ai/) oferece recursos semelhantes ao que o [Hub do Microsoft Translator](https://hub.microsofttranslator.com/) faz em relação à SMT (Tradução Automática Estatística), mas exclusivamente para sistemas de NMT (Tradução Automática Neural).
+O [Tradutor Personalizado](https://portal.customtranslator.azure.ai) é um recurso do serviço Microsoft Translator que permite que as empresas de tradução, os desenvolvedores de aplicativos e prestadores de serviços de linguagem criem sistemas de NMT (Tradução Automática Neural). Os sistemas de tradução personalizada se integram aos aplicativos, fluxos de trabalho e sites existentes.
 
-Sistemas de tradução criados com o [Tradutor Personalizado](https://portal.customtranslator.azure.ai) estão disponíveis pela mesmo recurso [seguro](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality), baseado em nuvem, de alto desempenho e altamente escalonável que é a [API de Texto V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) do Microsoft Translator, que viabiliza bilhões de traduções todos os dias.
+Sistemas de tradução criados com o [Tradutor Personalizado](https://portal.customtranslator.azure.ai) estão disponíveis pela mesmo recurso [seguro](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality), baseado em nuvem, de alto desempenho e altamente escalonável que é a [API de Texto V3](../reference/v3-0-translate.md?tabs=curl) do Microsoft Translator, que viabiliza bilhões de traduções todos os dias.
 
-O Tradutor Personalizado dá suporte a mais de três dúzias de idiomas e mapeia diretamente para os idiomas disponíveis para NMT. Para obter uma lista completa, confira os [Idiomas do Microsoft Translator](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
+O Tradutor Personalizado dá suporte a mais de três dúzias de idiomas e mapeia diretamente para os idiomas disponíveis para NMT. Para obter uma lista completa, confira os [Idiomas do Microsoft Translator](../language-support.md#customization).
 
 ## <a name="features"></a>Recursos
 
@@ -34,7 +34,7 @@ O Tradutor Personalizado fornece recursos diferentes para criar e acessar um sis
 |[Criar sistemas que conhecem sua terminologia comercial](what-are-parallel-documents.md)     |  Personalize e crie sistemas de tradução usando documentos paralelos, que entendem as terminologias usadas em seus negócios e no setor.       |
 |[Usar um dicionário para criar seus modelos](what-is-dictionary.md)     |   Se você não tiver um conjunto de dados de treinamento, poderá treinar um modelo com dados de dicionário.       |
 |[Colaborar com outras pessoas](how-to-manage-settings.md#share-your-workspace)     |   Colabore com sua equipe compartilhando seu trabalho com pessoas diferentes.     |
-|[Acessar seu modelo de tradução personalizada](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl)     |  Seu modelo de tradução personalizada pode ser acessado a qualquer momento em seus aplicativos ou programas existentes por meio da API de Texto V3 do Microsoft Translator.       |
+|[Acessar seu modelo de tradução personalizada](../reference/v3-0-translate.md?tabs=curl)     |  Seu modelo de tradução personalizada pode ser acessado a qualquer momento em seus aplicativos ou programas existentes por meio da API de Texto V3 do Microsoft Translator.       |
 
 ## <a name="get-better-translations"></a>Obter melhores traduções
 

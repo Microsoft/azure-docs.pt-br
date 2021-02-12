@@ -7,12 +7,12 @@ ms.date: 05/14/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 66f0846ab8fcfc316c4b40ad9e51b402a37e874d
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 12485e07bc3cad9d420141ecc6ee66763ac010b7
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122902"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760766"
 ---
 # <a name="monitor-the-overall-health-of-the-devices-connected-to-an-iot-central-application"></a>Monitorar a integridade geral dos dispositivos conectados a um aplicativo IoT Central
 
@@ -31,7 +31,7 @@ Os aplicativos que usam o plano de avaliação gratuita não têm uma assinatura
 
 ## <a name="view-metrics-in-the-azure-portal"></a>Exibir métricas no portal do Azure
 
-As etapas a seguir pressupõem que você tenha um [aplicativo IOT central](./quick-deploy-iot-central.md) com alguns [dispositivos conectados](./tutorial-connect-device-nodejs.md).
+As etapas a seguir pressupõem que você tenha um [aplicativo IOT central](./quick-deploy-iot-central.md) com alguns [dispositivos conectados](./tutorial-connect-device.md).
 
 Para exibir IoT Central métricas no Portal:
 
@@ -60,4 +60,4 @@ As métricas podem ser diferentes dos números mostrados na sua fatura do Azure 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você aprendeu a usar modelos de aplicativos, a próxima etapa sugerida é aprender a [gerenciar IOT central da portal do Azure](howto-manage-iot-central-from-portal.md)
+Agora que você aprendeu a usar modelos de aplicativos, a próxima etapa sugerida é aprender a [gerenciar IOT central da portal do Azure](howto-manage-iot-central-from-portal.md).

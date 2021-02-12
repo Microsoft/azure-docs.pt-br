@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 26302fa67394e6c3122b159866c3814fb5677ba6
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 8e82f8974b53224b3e471d1628a1ca5819ce2955
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494982"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98044468"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (CLI)
 
@@ -35,12 +35,12 @@ Esta versão deste artigo percorre essas etapas manualmente, uma a uma, usando a
 ## <a name="create-the-azure-digital-twins-instance"></a>Criar a instância de gêmeos digital do Azure
 
 Nesta seção, você **criará uma nova instância do Azure digital gêmeos** usando o comando Cloud Shell. Você precisará fornecer:
-* Um grupo de recursos no qual implantá-lo. Se você ainda não tiver um grupo de recursos existente em mente, poderá criar um agora com este comando:
+* Um grupo de recursos em que a instância será implantada. Se você ainda não tiver um grupo de recursos existente em mente, poderá criar um agora com este comando:
     ```azurecli-interactive
     az group create --location <region> --name <name-for-your-resource-group>
     ```
 * Uma região para a implantação. Para ver quais regiões dão suporte ao Azure digital gêmeos, visite [*produtos do Azure disponíveis por região*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
-* Um nome para sua instância. O nome da nova instância deve ser exclusivo na região da sua assinatura (ou seja, se sua assinatura tiver outra instância de gêmeos digital do Azure na região que já está usando o nome que você escolher, será solicitado que você escolha um nome diferente).
+* Um nome para sua instância. Se sua assinatura tiver outra instância de gêmeos digital do Azure na região que já está usando o nome especificado, você será solicitado a escolher um nome diferente.
 
 Use esses valores no comando a seguir para criar a instância:
 
@@ -54,7 +54,7 @@ Se a instância foi criada com êxito, o resultado em Cloud Shell será semelhan
 
 :::image type="content" source="media/how-to-set-up-instance/cloud-shell/create-instance.png" alt-text="janela Comando com a criação bem-sucedida do grupo de recursos e a instância do gêmeos digital do Azure":::
 
-Anote o nome de *host*da instância do Azure digital gêmeos, *Name*e *resourcegroup* da saída. Esses são todos os valores importantes que podem ser necessários à medida que você continuar trabalhando com sua instância do gêmeos digital do Azure para configurar a autenticação e os recursos do Azure relacionados. Se outros usuários estiverem programando em relação à instância, você deverá compartilhar esses valores com eles.
+Anote o nome de **host** da instância do Azure digital gêmeos, **Name** e **resourcegroup** da saída. Esses são todos os valores importantes que podem ser necessários à medida que você continuar trabalhando com sua instância do gêmeos digital do Azure para configurar a autenticação e os recursos do Azure relacionados. Se outros usuários estiverem programando em relação à instância, você deverá compartilhar esses valores com eles.
 
 > [!TIP]
 > Você pode ver essas propriedades, juntamente com todas as propriedades de sua instância, a qualquer momento executando `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
@@ -78,9 +78,9 @@ O resultado desse comando são informações de saída sobre a atribuição de f
 >
 > Em vez disso, atribua a função usando a *ID de objeto* do usuário. Isso pode acontecer para usuários em contas pessoais da [Microsoft (MSAS)](https://account.microsoft.com/account). 
 >
-> Use a [página portal do Azure de Azure Active Directory usuários](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) para selecionar a conta de usuário e abrir seus detalhes. Copie o *ObjectID*do usuário:
+> Use a [página portal do Azure de Azure Active Directory usuários](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) para selecionar a conta de usuário e abrir seus detalhes. Copie o *ObjectID* do usuário:
 >
-> :::image type="content" source="media/includes/user-id.png" alt-text="janela Comando com a criação bem-sucedida do grupo de recursos e a instância do gêmeos digital do Azure" lightbox="media/includes/user-id.png":::
+> :::image type="content" source="media/includes/user-id.png" alt-text="Exibição da página do usuário no portal do Azure realçando o GUID no campo ' ID do objeto '" lightbox="media/includes/user-id.png":::
 >
 > Em seguida, repita o comando da lista de atribuição de função usando a *ID de objeto* do usuário para o `assignee` parâmetro acima.
 

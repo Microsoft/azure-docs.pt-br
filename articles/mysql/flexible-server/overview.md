@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 200f74ee8d99c80956f1d27599769401d30c3f95
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7841affc7a8988cb113af3b728ae117093000011
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537942"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257450"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Banco de Dados do Azure para MySQL – Servidor Flexível (versão prévia)
 
@@ -50,7 +50,7 @@ Se a alta disponibilidade com redundância de zona estiver configurada, o servi�
 
 Confira [conceitos de alta disponibilidade](concepts-high-availability.md) para obter mais detalhes.
 
-:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="Diagrama conceitual de alta disponibilidade de zona única"::: 
+:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="Diagrama conceitual de alta disponibilidade com redundância de zona"::: 
 
 ## <a name="automated-patching-with-managed-maintenance-window"></a>Aplicação de patch automatizada com janela de manutenção gerenciada
 
@@ -75,7 +75,7 @@ Você tem duas opções de rede para se conectar ao Servidor Flexível do Banco 
    * Usar a VPN ou o ExpressRoute para se conectar de recursos que não são do Azure com seu servidor flexível
    * Nenhum ponto de extremidade público
 
-* **Acesso público (endereços IP permitidos)** – você pode implantar seu servidor flexível com um ponto de extremidade público. O ponto de extremidade público é um endereço DNS que poderia ser resolvido publicamente. A frase "endereços IP permitidos" refere-se a um intervalo de IPs que você escolhe para conceder permissão para acessar o servidor. Essas permissões são chamadas **regras de firewall** .
+* **Acesso público (endereços IP permitidos)** – você pode implantar seu servidor flexível com um ponto de extremidade público. O ponto de extremidade público é um endereço DNS que poderia ser resolvido publicamente. A frase "endereços IP permitidos" refere-se a um intervalo de IPs que você escolhe para conceder permissão de acesso ao servidor. Essas permissões são chamadas **regras de firewall**.
 
 Confira os [Conceitos de rede](concepts-networking.md) para saber mais.
 
@@ -84,6 +84,17 @@ Confira os [Conceitos de rede](concepts-networking.md) para saber mais.
 O serviço de servidor flexível está disponível em três níveis de SKU: Expansível, Uso Geral e Otimizado para Memória. A camada Expansível é mais adequada para desenvolvimento de baixo custo e cargas de trabalho de simultaneidade baixa que não precisam da capacidade de computação completa continuamente. O Uso Geral e o Otimizado para Memória são mais adequados para cargas de trabalho de produção que exigem alta simultaneidade, escala e desempenho previsível. Você pode criar seu primeiro aplicativo em um banco de dados pequeno por alguns dólares por mês e, então, ajustar a escala para atender às necessidades da sua solução. A escala do armazenamento é online e dá suporte ao crescimento automático do armazenamento. A escalabilidade dinâmica permite que o banco de dados responda de forma transparente a mudanças rápidas nos requisitos de recursos. Você paga somente pelos recursos que consome. 
 
 Confira [Conceitos de computação e armazenamento](concepts-compute-storage.md) para saber mais.
+
+## <a name="scale-out-your-read-workload-with-up-to-10-read-replicas"></a>Expandir sua carga de trabalho de leitura com até 10 réplicas de leitura
+
+O MySQL é um dos mecanismos de banco de dados populares para a execução de aplicativos Web e móveis de escala da Internet. Muitos de nossos clientes o utilizam para os serviços de treinamento online, serviços de streaming de vídeo, soluções de pagamento digital, plataformas de comércio eletrônico, serviços de jogos, portais de notícias, governo e sites de saúde. Esses serviços são necessários para serem fornecidos e dimensionados conforme o tráfego no aplicativo Web ou móvel aumenta.
+
+No lado dos aplicativos, o aplicativo normalmente é desenvolvido em Java ou php e migrado para ser executado em [conjuntos de dimensionamento da máquinas virtuais do Azure](../../virtual-machine-scale-sets/overview.md) ou [Serviço de Aplicativo do Azure](../../app-service/overview.md) ou são colocados em contêineres para serem executados no [AKS (Serviço de Kubernetes do Azure)](../../aks/intro-kubernetes.md). Com o conjunto de dimensionamento de máquinas virtuais, o Serviço de Aplicativo ou o AKS como infraestrutura subjacente, a escala do aplicativo é simplificada provisionando instantaneamente novas VMs e replicando os componentes de aplicativos sem estado para atender às solicitações, mas geralmente o banco de dados acaba sendo um gargalo como componente com estado centralizado.
+
+O recurso de réplica de leitura permite replicar dados de um servidor flexível do Banco de Dados do Azure para MySQL para um servidor somente leitura. Você pode replicar do servidor de origem para **até 10 réplicas**. As réplicas são atualizadas de maneira assíncrona usando a [tecnologia de replicação baseada em posição do arquivo binário nativo (log binário)](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html) do mecanismo MySQL. Você pode usar uma solução de proxy de balanceador de carga como [ProxySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042) para expandir de modo ininterrupto sua carga de trabalho de aplicativo para réplicas de leitura sem nenhum custo de refatoração de aplicativo. 
+
+Confira [Conceitos de réplica de leitura](concepts-read-replicas.md) para saber mais. 
+
 
 ## <a name="stopstart-server-to-optimize-cost"></a>Parar/iniciar o servidor para otimizar o custo
 
@@ -121,20 +132,22 @@ O serviço executa a versão da comunidade do MySQL. Isso permite a compatibilid
 
 Uma das vantagens de executar sua carga de trabalho no Azure é obter um alcance global. Um servidor flexível para o Banco de Dados do Azure para MySQL está disponível atualmente nas seguintes regiões do Azure:
 
-- Europa Ocidental
-- Norte da Europa
-- Sul do Reino Unido
-- Leste dos EUA 2
-- Oeste dos EUA 2
-- Centro dos EUA
-- Leste dos EUA
-- Canadá Central
-- Sudeste Asiático
-- Coreia Central
-- Leste do Japão
-- Leste da Austrália
+| Região | Disponibilidade | HA com redundância de zona | 
+| --- | --- | --- |
+| Europa Ocidental | :heavy_check_mark: | :heavy_check_mark: |
+| Norte da Europa | :heavy_check_mark: | :heavy_check_mark: |
+| Sul do Reino Unido | :heavy_check_mark: | :x: | 
+| Leste dos EUA 2 | :heavy_check_mark: | :heavy_check_mark: |
+| Oeste dos EUA 2 | :heavy_check_mark: | :heavy_check_mark: |
+| Centro dos EUA | :heavy_check_mark: | :x: | 
+| Leste dos EUA | :heavy_check_mark: | :heavy_check_mark: |
+| Canadá Central | :heavy_check_mark: | :x: | 
+| Sudeste Asiático | :heavy_check_mark: | :heavy_check_mark: |
+| Coreia Central | :heavy_check_mark: | :x: | 
+| Japan East | :heavy_check_mark: | :x: | 
+| Leste da Austrália | :heavy_check_mark: | :heavy_check_mark: |
 
-Estamos trabalhando para adicionar novos servidores em breve.
+Estamos trabalhando para adicionar novas regiões em breve.
 
 ## <a name="contacts"></a>Contatos
 Para fazer perguntas ou enviar sugestões sobre o servidor flexível do Banco de Dados do Azure para MySQL, envie um email para a Equipe do Banco de Dados do Azure para MySQL ([@Ask BD do Azure para MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Esse endereço de email não é um alias de suporte técnico.

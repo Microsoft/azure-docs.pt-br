@@ -3,15 +3,16 @@ title: Perguntas frequentes sobre a API do Azure Cosmos DB para MongoDB
 description: Obtenha respostas para perguntas frequentes sobre a API do Azure Cosmos DB para MongoDB
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
-ms.openlocfilehash: 03c47b398a715a128a32fb6a6fd9d99564ccb891
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 08899018d03209dab09f61d4dd74feceee03b246
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096624"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018996"
 ---
 # <a name="frequently-asked-questions-about-the-azure-cosmos-dbs-api-for-mongodb"></a>Perguntas frequentes sobre a API do Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -20,7 +21,7 @@ A API do Azure Cosmos DB para MongoDB é uma camada de compatibilidade de protoc
 
 ## <a name="how-do-i-connect-to-my-database"></a>Como faço para me conectar com o meu banco de dados?
 
-A maneira mais rápida de se conectar a um banco de dados do Cosmos com a API do Azure Cosmos DB para MongoDB é acessar o [portal do Azure](https://portal.azure.com). Vá para sua conta e, em seguida, no menu de navegação à esquerda, clique em **Início Rápido** . O início rápido é a melhor maneira de obter trechos de código para se conectar ao banco de dados.
+A maneira mais rápida de se conectar a um banco de dados do Cosmos com a API do Azure Cosmos DB para MongoDB é acessar o [portal do Azure](https://portal.azure.com). Vá para sua conta e, em seguida, no menu de navegação à esquerda, clique em **Início Rápido**. O início rápido é a melhor maneira de obter trechos de código para se conectar ao banco de dados.
 
 O Azure Cosmos DB impõe padrões e requisitos de segurança rígidos. Azure Cosmos DB contas exigem autenticação e comunicação segura via TLS, portanto, certifique-se de usar o TLSv 1.2.
 
@@ -28,12 +29,7 @@ Para saber mais, veja [Conectar-se ao banco de dados do Cosmos com a API do Azur
 
 ## <a name="error-codes-while-using-azure-cosmos-dbs-api-for-mongodb"></a>Códigos de erro ao usar a API do Azure Cosmos DB para MongoDB?
 
-Junto com os códigos de erro do MongoDB comuns, a API do Azure Cosmos DB para MongoDB tem seus próprios códigos de erro específicos:
-
-| Erro               | Código  | Descrição  | Solução  |
-|---------------------|-------|--------------|-----------|
-| TooManyRequests     | 16500 | O número total de unidades de solicitação consumidas é maior que a taxa de unidade de solicitação provisionada para o contêiner e foi limitada. | Considere a possibilidade de dimensionar a taxa de transferência atribuída a um contêiner ou um conjunto de contêineres do portal do Azure ou tentar novamente. |
-| ExceededMemoryLimit | 16501 | Como um serviço multilocatário, a operação excedeu a alocação de memória do cliente. | Reduza o escopo da operação por meio de um critério de consulta mais restritivo ou entre em contato com o suporte no [Portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br> Exemplo: `db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |
+Junto com os códigos de erro comuns do MongoDB, a API do Azure Cosmos DB para MongoDB tem seus próprios códigos de erro específicos. Eles podem ser encontrados no [Guia de solução de problemas](mongodb-troubleshoot.md).
 
 ## <a name="supported-drivers"></a>Drivers com suporte
 

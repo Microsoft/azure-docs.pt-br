@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 6732fe364ba67bb2c4ea8fb2543c576166f8a110
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 48c6e1141a00635dd1fd82ef9053b2e77168e5e8
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91828769"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956227"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Examinar e editar os arquivos de exemplo
 
@@ -15,18 +15,18 @@ Como parte dos pré-requisitos, você baixou o código de exemplo para uma pasta
     O modelo de implantação se refere ao manifesto de implantação do dispositivo de borda. Ele inclui alguns valores de espaço reservado. O arquivo *.env* inclui os valores dessas variáveis.
 1. Vá até a pasta *src/cloud-to-device-console-app*. Aqui, você vê o arquivo *appsettings.json* e alguns outros arquivos:
 
-    * ***c2d-console-app.csproj*** – o arquivo de projeto para o Visual Studio Code.
-    * ***operations.json*** – uma lista das operações que você deseja que o programa execute.
-    * ***Program.cs*** – o código do programa de exemplo. Esse código:
+    * ***c2d-console-app.csproj** _ – o arquivo de projeto para o Visual Studio Code.
+    _ ***operations.json** _ – uma lista das operações que você deseja que o programa execute.
+    _ ***Program.cs** _ – o código do programa de exemplo. Esse código:
 
-        * Carrega as configurações do aplicativo.
+        _ Carrega as configurações do aplicativo.
         * Invoca métodos diretos expostos pelo módulo da Análise Dinâmica de Vídeo no IoT Edge. Use o módulo para analisar fluxos de vídeo ao vivo invocando seus [métodos diretos](../../../direct-methods.md).
         * Pausa para você examinar a saída do programa na janela **TERMINAL** e os eventos que foram gerados pelo módulo na janela **SAÍDA**.
         * Invoca métodos diretos para limpar recursos.
 1. Edite o arquivo *operations.json*:
     * Altere o link para a topologia do grafo:
 
-        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/topology.json"`
+        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/2.0/topology.json"`
 
     * Em `GraphInstanceSet`, edite o nome da topologia de grafo para corresponder ao valor no link anterior:
 
@@ -48,6 +48,13 @@ Como parte dos pré-requisitos, você baixou o código de exemplo para uma pasta
     Caso contrário, ao lado do painel **HUB IOT DO AZURE** no canto inferior esquerdo, selecione o ícone **Mais ações** e, em seguida, selecione **Definir Cadeia de Conexão do Hub IoT**. Você pode copiar a cadeia de caracteres do arquivo *appsettings.json*. Ou, para garantir que configurou o Hub IoT adequado dentro do Visual Studio Code, use o [comando Selecionar Hub IoT](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).
     
     ![Definir cadeia de conexão do Hub IoT](../../../media/quickstarts/set-iotconnection-string.png)
+
+> [!NOTE]
+> Talvez você precise fornecer informações do ponto de extremidade interno para o Hub IoT. Para obter essas informações, no portal do Azure, navegue até o Hub IoT e procure a opção **Pontos de extremidade internos** no painel de navegação à esquerda. Clique nele e procure o **Ponto de extremidade compatível com hub de eventos** na seção **Ponto de extremidade compatível com hub de eventos**. Copie e use o texto na caixa. O ponto de extremidade será algo parecido com isto:  
+    ```
+    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+    ```
+
 1. Clique com o botão direito do mouse em *src/edge/config/ deployment.yolov3.amd64.json* e selecione **Criar Implantação para Dispositivo Único**. 
 
     ![Criar implantação para dispositivo único](../../../media/quickstarts/create-deployment-single-device.png)
@@ -58,7 +65,7 @@ Como parte dos pré-requisitos, você baixou o código de exemplo para uma pasta
     * O módulo `rtspsim`, que simula um servidor RTSP e funciona como a origem de um feed de vídeo ao vivo.
 
         > [!NOTE]
-        > Se você estiver usando o próprio dispositivo de borda em vez de um provisionado pelo nosso script de instalação, acesse o dispositivo de borda e execute os seguintes comandos com **direitos de administrador**, para efetuar pull e armazenar o arquivo de vídeo de exemplo usado neste guia de início rápido:  
+        > As etapas acima pressupõem que você esteja usando a máquina virtual criada pelo script de instalação. Se estiver usando um dispositivo de borda próprio, acesse o dispositivo de borda e execute os seguintes comandos com **direitos de administrador** para efetuar pull do arquivo de vídeo de exemplo usado neste guia de início rápido e armazená-lo:  
         
         ```
         mkdir /home/lvaadmin/samples
@@ -80,7 +87,7 @@ Como parte dos pré-requisitos, você baixou o código de exemplo para uma pasta
 1. Pesquise e habilite “Mostrar Mensagem Detalhada”.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Configurações da Extensão":::
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Mostrar Mensagem Detalhada":::
 1. Clique com o botão direito do mouse no dispositivo de Análise Dinâmica de Vídeo e selecione **Iniciar Monitoramento de Ponto de Extremidade de Evento Interno**. Essa etapa é necessária para monitorar os eventos do Hub IoT na janela **SAÍDA** do Visual Studio Code. 
 
    ![Começar a monitorar](../../../media/quickstarts/start-monitoring-iothub-events.png) 
@@ -95,7 +102,7 @@ Como parte dos pré-requisitos, você baixou o código de exemplo para uma pasta
    Executing operation GraphTopologyList
    -----------------------  Request: GraphTopologyList  --------------------------------------------------
    {
-   "@apiVersion": "1.0"
+   "@apiVersion": "2.0"
    }
    ---------------  Response: GraphTopologyList - Status: 200  ---------------
    {
@@ -113,7 +120,7 @@ Como parte dos pré-requisitos, você baixou o código de exemplo para uma pasta
 
          ```
          {
-           "@apiVersion": "1.0",
+           "@apiVersion": "2.0",
            "name": "Sample-Graph-1",
            "properties": {
              "topologyName": "InferencingWithHttpExtension",

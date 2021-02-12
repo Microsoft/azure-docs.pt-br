@@ -1,18 +1,17 @@
 ---
 title: Saída de filas do barramento de serviço de Azure Stream Analytics
 description: Este artigo descreve as filas do barramento de serviço como saída para Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: bba7da0343f234d8cc057ac4ecfa2a4f2e5b7242
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9f71a0f9c6d3fdca4b81be3a69479c78236fcc31
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129874"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014205"
 ---
 # <a name="service-bus-queues-output-from-azure-stream-analytics"></a>Saída de filas do barramento de serviço de Azure Stream Analytics
 
@@ -34,7 +33,7 @@ A tabela a seguir lista os nomes de propriedade e suas descrições para a cria�
 | Formato de serialização do evento |O formato de serialização para dados de saída. Há suporte para JSON, CSV e Avro. |
 | Codificação |Para CSV e JSON, UTF-8 é o único formato de codificação com suporte no momento. |
 | Delimitador |Aplicável somente à serialização de CSV. O Stream Analytics é compatível com vários delimitadores comuns para serialização de dados no formato CSV. Os valores com suporte são vírgula, ponto e vírgula, espaço, tab e barra vertical. |
-| Formatar |Aplicável somente para o tipo JSON. Uma **Linha separada** especifica que a saída é formatada com cada objeto JSON separado por uma nova linha. Se você selecionar **Linha separada** , o JSON será lido um objeto por vez. O conteúdo inteiro por si só não seria um JSON válido. A **matriz** especifica que a saída é formatada como uma matriz de objetos JSON. |
+| Formatar |Aplicável somente para o tipo JSON. Uma **Linha separada** especifica que a saída é formatada com cada objeto JSON separado por uma nova linha. Se você selecionar **Linha separada**, o JSON será lido um objeto por vez. O conteúdo inteiro por si só não seria um JSON válido. A **matriz** especifica que a saída é formatada como uma matriz de objetos JSON. |
 | Colunas da propriedade | Opcional. Colunas separadas por vírgula que precisam ser anexadas como propriedades de usuário da mensagem de saída em vez do conteúdo. Há mais informações sobre esse recurso na seção [Propriedades de metadados personalizadas para saída](#custom-metadata-properties-for-output). |
 | Colunas da Propriedade do Sistema | Opcional. Pares de valor-chave das Propriedades do Sistema e nomes de colunas correspondentes que precisam ser anexados à mensagem de saída em vez do conteúdo.  |
 
@@ -66,13 +65,13 @@ No exemplo a seguir, os campos `DeviceId` e `DeviceStatus` são adicionados aos 
 
 A imagem a seguir é das propriedades de mensagem de saída esperadas inspecionadas no EventHub usando o [Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer).
 
-:::image type="content" source="media/service-bus-queues-output/custom-properties.png" alt-text="Colunas da propriedade":::
+:::image type="content" source="media/service-bus-queues-output/custom-properties.png" alt-text="Propriedades personalizadas do evento":::
 
 ## <a name="system-properties"></a>Propriedades do sistema
 
-Você pode anexar colunas de consulta como [propriedades do sistema](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) às suas mensagens da fila ou do tópico do Barramento de Serviço de saída.
+Você pode anexar colunas de consulta como [propriedades do sistema](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true#properties) às suas mensagens da fila ou do tópico do Barramento de Serviço de saída.
 
-Essas colunas não entram no conteúdo, em vez disso, a [propriedade do sistema](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) BrokeredMessage correspondente é preenchida com os valores da coluna de consulta.
+Essas colunas não entram no conteúdo, em vez disso, a [propriedade do sistema](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true#properties) BrokeredMessage correspondente é preenchida com os valores da coluna de consulta.
 Estas propriedades do sistema têm suporte: `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`.
 
 Os valores de cadeia de caracteres dessas colunas são analisados como o tipo de valor de propriedade do sistema correspondente, e quaisquer falhas de análise são tratadas como erros de dados.

@@ -1,23 +1,23 @@
 ---
 title: Link privado-portal do Azure-banco de dados do Azure para MariaDB
 description: Saiba como configurar o link privado para o banco de dados do Azure para MariaDB do portal do Azure
-author: kummanish
-ms.author: manishku
-ms.service: mariadb
+author: mksuni
+ms.author: sumuth
+ms.service: jroth
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: da54917d21d468f96b8e72ac362e030570fabaee
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 127a1c83525c4a9c457f551c05045a63a3c4347a
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426015"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98659617"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>Criar e gerenciar o link privado para o banco de dados do Azure para MariaDB usando o portal
 
 Um ponto de extremidade privado é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado.  Neste artigo, você aprenderá a usar o portal do Azure para criar uma VM em uma rede virtual do Azure e um banco de dados do Azure para MariaDB Server com um ponto de extremidade privado do Azure.
 
-Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 > [!NOTE]
 > O recurso de link privado só está disponível para o banco de dados do Azure para servidores MariaDB nos tipos de preço Uso Geral ou com otimização de memória. Verifique se o servidor de banco de dados está em um desses tipos de preço.
@@ -32,7 +32,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM qu
 ### <a name="create-the-virtual-network"></a>Criar a rede virtual
 Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM usada para acessar o recurso de Link Privado.
 
-1. No lado superior esquerdo da tela, selecione **criar um recurso**rede redes  >  **Networking**  >  **virtuais**.
+1. No lado superior esquerdo da tela, selecione **criar um recurso** rede redes  >    >  **virtuais**.
 2. Em **Criar rede virtual**, insira ou selecione estas informações:
 
     | Configuração | Valor |
@@ -41,7 +41,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM us
     | Espaço de endereço | Insira *10.1.0.0/16*. |
     | Subscription | Selecione sua assinatura.|
     | Resource group | Selecione **Criar novo** e insira *myResourceGroup*, depois selecione **OK**. |
-    | Localização | Selecione **Europa Ocidental**.|
+    | Location | Selecione **Europa Ocidental**.|
     | Sub-rede – Nome | Insira *mysubnet*. |
     | Sub-rede – Intervalo de endereços | Insira *10.1.0.0/24*. |
     |||
@@ -99,7 +99,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM us
 
 Nesta seção, você criará um banco de dados do Azure para o servidor MariaDB no Azure. 
 
-1. No lado superior esquerdo da tela na portal do Azure, selecione **criar um recurso**  >  **bancos**de  >  **dados do Azure para MariaDB**.
+1. No lado superior esquerdo da tela na portal do Azure, selecione **criar um recurso**  >  **bancos** de  >  **dados do Azure para MariaDB**.
 
 1. No **banco de dados do Azure para MariaDB** , forneça estas informações:
 
@@ -242,10 +242,10 @@ Depois de criar **myVm**, conecte-se a ela pela Internet da seguinte maneira:
 
 7. Feche a conexão de área de trabalho remota para myVm.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Quando você terminar de usar o ponto de extremidade privado, o servidor MariaDB e a VM, exclua o grupo de recursos e todos os recursos que ele contém:
 
-1. Insira *MyResource*   The na caixa de **pesquisa** na parte superior do portal e selecione *MyResource*   Bedos resultados da pesquisa.
+1. Insira  *MyResource*   The na caixa de **pesquisa** na parte superior do portal e selecione  *MyResource*   Bedos resultados da pesquisa.
 2. Selecione **Excluir grupo de recursos**.
 3. Insira MyResource GROUP para **digite o nome do grupo de recursos** e selecione **excluir**.
 

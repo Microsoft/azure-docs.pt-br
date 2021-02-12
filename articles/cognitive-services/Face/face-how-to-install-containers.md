@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: aahi
 keywords: local, Docker, contêiner, identificar
-ms.openlocfilehash: 0f6807f771510f85c5a20cfb2a160cfe1e8726a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64169069bc0a1ccd126d1b79ee89a5666e1caeb1
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461505"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861056"
 ---
 # <a name="install-and-run-face-containers-preview"></a>Instalar e executar contêineres de face (visualização)
 
@@ -32,9 +32,9 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Você deve atender aos seguintes pré-requisitos antes de usar os contêineres de serviço de face.
 
-|Obrigatório|Finalidade|
+|Necessária|Finalidade|
 |--|--|
-|Mecanismo do Docker| O mecanismo do Docker deve ser instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> No Windows, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
+|Mecanismo do Docker| O mecanismo do Docker deve ser instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> No Windows, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
 |Familiaridade com o Docker | Você precisa de uma compreensão básica dos conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner. Você também precisa de conhecimento dos `docker` comandos básicos.| 
 |Recurso facial |Para usar o contêiner, você deve ter:<br><br>Um recurso de **face** do Azure e a chave de API associada e o URI do ponto de extremidade. Os dois valores estão disponíveis nas páginas **visão geral** e **chaves** do recurso. Eles são necessários para iniciar o contêiner.<br><br>**{Api_key}**: uma das duas chaves de recurso disponíveis na página **chaves**<br><br>**{ENDPOINT_URI}**: o ponto de extremidade conforme fornecido na página **visão geral**
 
@@ -48,9 +48,9 @@ Você deve atender aos seguintes pré-requisitos antes de usar os contêineres d
 
 A tabela a seguir descreve os núcleos de CPU mínimos e recomendados e a memória a ser alocada para cada contêiner de serviço de face.
 
-| Contêiner | Mínimo | Recomendadas | Transações por segundo<br>(Mínimo, máximo)|
+| Contêiner | Mínimo | Recomendado | Transações por segundo<br>(Mínimo, máximo)|
 |-----------|---------|-------------|--|
-|Face | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |10, 20|
+|Detecção Facial | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |10, 20|
 
 * Cada núcleo deve ter pelo menos 2,6 GHz ou mais rápido.
 * Transações por segundo (TPS).
@@ -63,7 +63,7 @@ As imagens de contêiner para o serviço de face estão disponíveis.
 
 | Contêiner | Repositório |
 |-----------|------------|
-| Face | `containerpreview.azurecr.io/microsoft/cognitive-services-face:latest` |
+| Detecção Facial | `containerpreview.azurecr.io/microsoft/cognitive-services-face:latest` |
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -137,10 +137,6 @@ Os contêineres de serviço de face enviam informações de cobrança para o Azu
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Para obter mais informações sobre essas opções, consulte [Configurar contêineres](./face-resource-container-config.md).
-
-<!--blogs/samples/video coures -->
-
-[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>Resumo
 

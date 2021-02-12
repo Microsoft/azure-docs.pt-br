@@ -2,19 +2,19 @@
 title: Visualizar resultados de testes do sistema e implantação - Tradutor Personalizado
 titleSuffix: Azure Cognitive Services
 description: Quando seu treinamento for bem-sucedido, revise os testes do sistema para analisar seus resultados de treinamento. Se você estiver satisfeito com os resultados do treinamento, faça uma solicitação de implantação para o modelo treinado.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 08/17/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: d0899132f308c7069395738140b35b138571483d
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: cae2c95e56312c58d396d1e578f4677ce2b14aa2
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220849"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895927"
 ---
 # <a name="view-system-test-results"></a>Exibir resultados de teste do sistema
 
@@ -102,6 +102,6 @@ Para atualizar configurações de implantação:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Comece a usar o modelo de tradução personalizado implantado por meio da [API de Tradução de Texto V3 da Microsoft](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Comece a usar o modelo de tradução personalizado implantado por meio da [API de Tradução de Texto V3 da Microsoft](../reference/v3-0-translate.md?tabs=curl).
 - Saiba mais [como gerenciar configurações](how-to-manage-settings.md) para compartilhar seu workspace, gerenciar a chave de assinatura.
 - Aprenda [como migrar seu workspace e projeto](how-to-migrate.md) do [Microsoft Translator Hub](https://hub.microsofttranslator.com)

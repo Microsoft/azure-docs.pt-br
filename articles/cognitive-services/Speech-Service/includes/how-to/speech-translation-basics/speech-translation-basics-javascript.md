@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: v-demjoh
 ms.custom: devx-track-js
-ms.openlocfilehash: c63b55905ea16c0597e1f8f1179153229018ed32
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 25a3613f2aa45d31f47a8a4f288abbb1e9ee78fa
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470950"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948059"
 ---
 Um dos principais recursos do serviço de fala é a capacidade de reconhecer a fala humana e traduzi-la para outras linguagens. Neste início rápido, você aprende a usar o SDK de fala em seus aplicativos e produtos para executar a tradução de fala de alta qualidade. Este guia de início rápido aborda os tópicos, incluindo:
 
@@ -66,18 +66,18 @@ Para obter mais informações sobre `require`, confira <a href="https://nodejs.o
 
 ## <a name="create-a-translation-configuration"></a>Criar uma configuração de tradução
 
-Para chamar o serviço de tradução usando o SDK de fala, você precisa criar um [`SpeechTranslationConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechtranslationconfig?view=azure-node-latest&preserve-view=true) . Essa classe inclui informações sobre sua assinatura, como sua chave e região, ponto de extremidade, host ou token de autorização associados.
+Para chamar o serviço de tradução usando o SDK de fala, você precisa criar um [`SpeechTranslationConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechtranslationconfig) . Essa classe inclui informações sobre sua assinatura, como sua chave e região, ponto de extremidade, host ou token de autorização associados.
 
 > [!NOTE]
 > Independentemente se você estiver executando o reconhecimento de fala, a síntese de fala, tradução ou reconhecimento de intenção, você sempre criará uma configuração.
-Há algumas maneiras de inicializar um [`SpeechTranslationConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechtranslationconfig?view=azure-node-latest&preserve-view=true):
+Há algumas maneiras de inicializar um [`SpeechTranslationConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechtranslationconfig):
 
 * Com uma assinatura: passe uma chave e a região associada.
 * Com um ponto de extremidade: passe um ponto de extremidade do serviço de Fala. Uma chave ou um token de autorização é opcional.
 * Com um host: passe um endereço de host. Uma chave ou um token de autorização é opcional.
 * Com um token de autorização: passe um token de autorização e a região associada.
 
-Veja como criar um [`SpeechTranslationConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechtranslationconfig?view=azure-node-latest&preserve-view=true) com a chave e a região. Obtenha essas credenciais seguindo as etapas em [Experimente o serviço de fala gratuitamente](../../../overview.md#try-the-speech-service-for-free).
+Veja como criar um [`SpeechTranslationConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechtranslationconfig) com a chave e a região. Obtenha essas credenciais seguindo as etapas em [Experimente o serviço de Fala gratuitamente](../../../overview.md#try-the-speech-service-for-free).
 
 ```javascript
 const speechTranslationConfig = SpeechTranslationConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -85,15 +85,15 @@ const speechTranslationConfig = SpeechTranslationConfig.fromSubscription("YourSu
 
 ## <a name="initialize-a-translator"></a>Inicializar um tradutor
 
-Depois de criar um [`SpeechTranslationConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechtranslationconfig?view=azure-node-latest&preserve-view=true), a próxima etapa é inicializar um [`TranslationRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer?view=azure-node-latest&preserve-view=true). Ao inicializar um [`TranslationRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer?view=azure-node-latest&preserve-view=true), você precisará passar `speechTranslationConfig` para ele. Isso fornece as credenciais que o serviço de tradução requer para validar sua solicitação.
+Depois de criar um [`SpeechTranslationConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechtranslationconfig), a próxima etapa é inicializar um [`TranslationRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer). Ao inicializar um [`TranslationRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer), você precisará passar `speechTranslationConfig` para ele. Isso fornece as credenciais que o serviço de tradução requer para validar sua solicitação.
 
-Se você estiver traduzindo a fala fornecida por meio do microfone padrão do seu dispositivo, aqui está o que [`TranslationRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer?view=azure-node-latest&preserve-view=true) deve ser o seguinte:
+Se você estiver traduzindo a fala fornecida por meio do microfone padrão do seu dispositivo, aqui está o que [`TranslationRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer) deve ser o seguinte:
 
 ```javascript
 const translator = new TranslationRecognizer(speechTranslationConfig);
 ```
 
-Se você quiser especificar o dispositivo de entrada de áudio, precisará criar um [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest&preserve-view=true) e fornecer o parâmetro `audioConfig` ao inicializar o [`TranslationRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer?view=azure-node-latest&preserve-view=true).
+Se você quiser especificar o dispositivo de entrada de áudio, precisará criar um [`AudioConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig) e fornecer o parâmetro `audioConfig` ao inicializar o [`TranslationRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer).
 
 > [!TIP]
 > [Saiba como obter a identificação do dispositivo de entrada de áudio](../../../how-to-select-audio-input-devices.md).
@@ -104,7 +104,7 @@ const audioConfig = AudioConfig.fromDefaultMicrophoneInput();
 const recognizer = new TranslationRecognizer(speechTranslationConfig, audioConfig);
 ```
 
-Se desejar fornecer um arquivo de áudio em vez de usar um microfone, você ainda precisará fornecer um `audioConfig`. No entanto, isso só pode ser feito ao direcionar ao **Node.js** e quando você cria um [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest&preserve-view=true), em vez de chamar `fromDefaultMicrophoneInput`, você chamará `fromWavFileOutput` e passará o parâmetro `filename`.
+Se desejar fornecer um arquivo de áudio em vez de usar um microfone, você ainda precisará fornecer um `audioConfig`. No entanto, isso só pode ser feito ao direcionar ao **Node.js** e quando você cria um [`AudioConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig), em vez de chamar `fromDefaultMicrophoneInput`, você chamará `fromWavFileOutput` e passará o parâmetro `filename`.
 
 ```javascript
 const audioConfig = AudioConfig.fromWavFileInput("YourAudioFile.wav");
@@ -113,13 +113,13 @@ const recognizer = new TranslationRecognizer(speechTranslationConfig, audioConfi
 
 ## <a name="translate-speech"></a>Traduzir fala
 
-A [classe TranslationRecognizer](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer?view=azure-node-latest&preserve-view=true) para o SDK de fala para JavaScript expõe alguns métodos que você pode usar para a tradução de fala.
+A [classe TranslationRecognizer](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer) para o SDK de fala para JavaScript expõe alguns métodos que você pode usar para a tradução de fala.
 
 * Conversão de captura única (Async) – executa a conversão em um modo não bloqueado (assíncrono). Isso irá traduzir um único expressão. O fim de um único enunciado é determinado pela escuta de silêncio no fim ou até o máximo de 15 segundos de áudio processado.
-* Conversão contínua (Async) – inicia de forma assíncrona a operação de conversão contínua. O usuário registra em eventos e manipula vários Estados do aplicativo. Para interromper a tradução contínua assíncrona, chame [`stopContinuousRecognitionAsync`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer?view=azure-node-latest&preserve-view=true#stopcontinuousrecognitionasync) .
+* Conversão contínua (Async) – inicia de forma assíncrona a operação de conversão contínua. O usuário registra em eventos e manipula vários Estados do aplicativo. Para interromper a tradução contínua assíncrona, chame [`stopContinuousRecognitionAsync`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#stopcontinuousrecognitionasync) .
 
 > [!NOTE]
-> Saiba mais sobre como [escolher um modo de reconhecimento de fala](../../../how-to-choose-recognition-mode.md).
+> Saiba mais sobre como [escolher um modo de reconhecimento de fala](../../../get-started-speech-to-text.md).
 ### <a name="specify-a-target-language"></a>Especificar um idioma de destino
 
 Para traduzir, você deve especificar um idioma de origem e pelo menos um idioma de destino.
@@ -132,7 +132,7 @@ speechTranslationConfig.addTargetLanguage("de");
 
 ### <a name="single-shot-recognition"></a>Reconhecimento pontual
 
-Aqui está um exemplo de conversão de um único instantâneo assíncrono usando [`recognizeOnceAsync`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer?view=azure-node-latest&preserve-view=true#recognizeonceasync) :
+Aqui está um exemplo de conversão de um único instantâneo assíncrono usando [`recognizeOnceAsync`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#recognizeonceasync) :
 
 ```javascript
 recognizer.recognizeOnceAsync(result => {
@@ -140,7 +140,7 @@ recognizer.recognizeOnceAsync(result => {
 });
 ```
 
-Será necessário escrever código para lidar com o resultado. Este exemplo avalia o [`result.reason`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognitionresult?view=azure-node-latest&preserve-view=true) para uma tradução para o alemão:
+Será necessário escrever código para lidar com o resultado. Este exemplo avalia o [`result.reason`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognitionresult) para uma tradução para o alemão:
 
 ```javascript
 recognizer.recognizeOnceAsync(
@@ -179,20 +179,20 @@ recognizer.recognized = function (s, e) {
 
 ### <a name="continuous-translation"></a>Tradução contínua
 
-A tradução contínua é um pouco mais envolvida do que o reconhecimento de captura única. É necessário assinar os eventos `recognizing`, `recognized` e `canceled` para obter os resultados do reconhecimento. Para interromper a tradução, você deve chamar [`stopContinuousRecognitionAsync`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer?view=azure-node-latest&preserve-view=true#stopcontinuousrecognitionasync) . Aqui está um exemplo de como a tradução contínua é executada em um arquivo de entrada de áudio.
+A tradução contínua é um pouco mais envolvida do que o reconhecimento de captura única. É necessário assinar os eventos `recognizing`, `recognized` e `canceled` para obter os resultados do reconhecimento. Para interromper a tradução, você deve chamar [`stopContinuousRecognitionAsync`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#stopcontinuousrecognitionasync) . Aqui está um exemplo de como a tradução contínua é executada em um arquivo de entrada de áudio.
 
-Comece definindo a entrada e inicializando um [`TranslationRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer?view=azure-node-latest&preserve-view=true):
+Comece definindo a entrada e inicializando um [`TranslationRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer):
 
 ```javascript
 const translator = new TranslationRecognizer(speechTranslationConfig);
 ```
 
-Assine os eventos enviados do [`TranslationRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer?view=azure-node-latest&preserve-view=true).
+Assine os eventos enviados do [`TranslationRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer).
 
-* [`recognizing`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer?view=azure-node-latest&preserve-view=true#recognizing): Sinal para eventos que contêm resultados intermediários de tradução.
-* [`recognized`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer?view=azure-node-latest&preserve-view=true#recognized): Sinal para eventos que contêm resultados de tradução final (indicando uma tentativa de tradução bem-sucedida).
-* [`sessionStopped`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer?view=azure-node-latest&preserve-view=true#sessionstopped): Sinal para eventos que indicam o fim de uma sessão de tradução (operação).
-* [`canceled`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer?view=azure-node-latest&preserve-view=true#canceled): Sinal para eventos que contêm resultados de tradução cancelados (indicando uma tentativa de conversão que foi cancelada como resultado ou uma solicitação de cancelamento direta ou, como alternativa, uma falha de protocolo ou transporte).
+* [`recognizing`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#recognizing): Sinal para eventos que contêm resultados intermediários de tradução.
+* [`recognized`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#recognized): Sinal para eventos que contêm resultados de tradução final (indicando uma tentativa de tradução bem-sucedida).
+* [`sessionStopped`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#sessionstopped): Sinal para eventos que indicam o fim de uma sessão de tradução (operação).
+* [`canceled`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#canceled): Sinal para eventos que contêm resultados de tradução cancelados (indicando uma tentativa de conversão que foi cancelada como resultado ou uma solicitação de cancelamento direta ou, como alternativa, uma falha de protocolo ou transporte).
 
 ```javascript
 recognizer.recognizing = (s, e) => {
@@ -221,7 +221,7 @@ recognizer.sessionStopped = (s, e) => {
 };
 ```
 
-Com tudo configurado, chame [`startContinuousRecognitionAsync`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest&preserve-view=true#startcontinuousrecognitionasync).
+Com tudo configurado, chame [`startContinuousRecognitionAsync`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer#startcontinuousrecognitionasync).
 
 ```javascript
 // Starts continuous recognition. Uses stopContinuousRecognitionAsync() to stop recognition.
@@ -232,13 +232,13 @@ recognizer.startContinuousRecognitionAsync();
 
 ## <a name="choose-a-source-language"></a>Escolher um idioma de origem
 
-Uma tarefa comum para a tradução de fala é especificar o idioma de entrada (ou origem). Veja como você alteraria o idioma de entrada para italiano. Em seu código, localize seu [`SpeechTranslationConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechtranslationconfig?view=azure-node-latest&preserve-view=true) e adicione a seguinte linha diretamente abaixo dele.
+Uma tarefa comum para a tradução de fala é especificar o idioma de entrada (ou origem). Veja como você alteraria o idioma de entrada para italiano. Em seu código, localize seu [`SpeechTranslationConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechtranslationconfig) e adicione a seguinte linha diretamente abaixo dele.
 
 ```javascript
 speechTranslationConfig.speechRecognitionLanguage = "it-IT";
 ```
 
-A propriedade [`speechRecognitionLanguage`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechtranslationconfig?view=azure-node-latest&preserve-view=true#speechrecognitionlanguage) espera uma cadeia de caracteres em formato idioma-localidade. Defina qualquer valor na coluna **Localidade** na lista de [localidades/idiomas](../../../language-support.md) com suporte.
+A propriedade [`speechRecognitionLanguage`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechtranslationconfig#speechrecognitionlanguage) espera uma cadeia de caracteres em formato idioma-localidade. Defina qualquer valor na coluna **Localidade** na lista de [localidades/idiomas](../../../language-support.md) com suporte.
 
 ## <a name="choose-one-or-more-target-languages"></a>Escolher um ou mais idiomas de destino
 

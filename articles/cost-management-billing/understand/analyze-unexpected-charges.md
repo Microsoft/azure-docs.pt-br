@@ -8,13 +8,13 @@ ms.subservice: cost-management
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
-ms.custom: contperfq1
-ms.openlocfilehash: b2340e5b220936c1333cf842251b669b3e034042
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: f6df8c6ff0db74798b71d57feae91e5245f2a6c2
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151209"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028711"
 ---
 # <a name="analyze-unexpected-charges"></a>Analisar encargos inesperados
 
@@ -80,7 +80,7 @@ Se você tiver permissões para exibir um recurso, deverá ser capaz de acessar 
 
 ### <a name="analyze-user-permissions-to-the-resources-parent-scope"></a>Analisar as permissões do usuário para o escopo pai do recurso
 
-As pessoas que têm acesso de gravação a uma assinatura ou grupo de recursos normalmente têm informações sobre os recursos que foram criados. Elas devem ter a capacidade de explicar a finalidade de um recurso ou indicar você à pessoa que saiba. Para identificar as pessoas com as permissões para um Escopo de assinatura, confira [Exibir atribuições de função](../../role-based-access-control/check-access.md#view-role-assignments). Você pode usar um processo semelhante para grupos de recursos.
+As pessoas que têm acesso de gravação a uma assinatura ou grupo de recursos normalmente têm informações sobre os recursos que foram criados. Elas devem ter a capacidade de explicar a finalidade de um recurso ou indicar você à pessoa que saiba. Para identificar as pessoas que têm permissões para um escopo de Assinatura, confira [Verificar o acesso de um usuário a recursos do Azure](../../role-based-access-control/check-access.md). Você pode usar um processo semelhante para grupos de recursos.
 
 ## <a name="get-help-to-identify-charges"></a>Obter ajuda para identificar encargos
 

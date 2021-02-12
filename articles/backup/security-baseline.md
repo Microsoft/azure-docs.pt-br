@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 09066d9e51f12923772758b3aebcebd347a59380
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 77af95f2decbfb81ed930591b03f71fb71780def
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174126"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805240"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Linha de base de segurança do Azure para backup
 
@@ -298,11 +298,11 @@ Além disso, para ajudá-lo a manter o controle de contas administrativas dedica
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5: usar a autenticação multifator para todos os acessos baseados no Azure Active Directory
 
-**Orientação**: ao executar operações críticas no backup do Azure, você precisa inserir um PIN de segurança, disponível no portal do Azure. A habilitação da Autenticação Multifator do Azure adiciona uma camada de segurança. Apenas usuários autorizados com credenciais válidas do Azure, e autenticados de um segundo dispositivo, podem acessar o portal do Azure.
+**Orientação**: ao executar operações críticas no backup do Azure, você precisa inserir um PIN de segurança, disponível no portal do Azure. A habilitação da autenticação multifator do Azure AD adiciona uma camada de segurança. Apenas usuários autorizados com credenciais válidas do Azure, e autenticados de um segundo dispositivo, podem acessar o portal do Azure.
 
 - [Autenticação multifator no backup do Azure](./backup-azure-security-feature.md)
 
-- [Planejar uma implantação da Autenticação Multifator do Azure baseada em nuvem](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planejar uma implantação da Autenticação Multifator do Azure AD baseada em nuvem](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -310,11 +310,11 @@ Além disso, para ajudá-lo a manter o controle de contas administrativas dedica
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: usar computadores dedicados (estações de trabalho com acesso privilegiado) para todas as tarefas administrativas
 
-**Orientação**: Use uma Paw (estação de trabalho com acesso privilegiado) com o MFA (autenticação multifator) do Azure configurada para fazer logon e configurar seus recursos habilitados para backup do Azure.
+**Diretrizes**: Use uma Paw (estação de trabalho com acesso privilegiado) com o MFA (autenticação multifator) do Azure ad configurada para fazer logon e configurar seus recursos habilitados para backup do Azure.
 
-- [Estações de trabalho com acesso privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Estações de trabalho com acesso privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [Planejar uma implantação da Autenticação Multifator do Azure baseada em nuvem](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planejar uma implantação da Autenticação Multifator do Azure AD baseada em nuvem](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -534,7 +534,7 @@ Ao fazer backup com o agente MARS ou usar um cofre de serviços de recuperação
 
 Plataforma subjacente verificada e corrigida pela Microsoft. Examine os controles de segurança disponíveis para o backup do Azure para reduzir as vulnerabilidades relacionadas à configuração de serviço.
 
-- [Noções básicas sobre os controles de segurança disponíveis para o backup do Azure](./backup-security-controls.md)
+- [Noções básicas sobre os controles de segurança disponíveis para o backup do Azure]()
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -982,7 +982,7 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: incorporar alertas de segurança em seu sistema de resposta a incidentes
 
-**Diretriz**: exporte os alertas e recomendações da Central de Segurança do Azure usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da Central de Segurança do Azure para transmitir os alertas do Sentinel.
+**Diretriz**: exporte os alertas e recomendações da Central de Segurança do Azure usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da Central de Segurança do Azure para transmitir os alertas do Azure Sentinel.
 
 - [Como configurar a exportação contínua](../security-center/continuous-export.md)
 

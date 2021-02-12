@@ -5,16 +5,19 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/28/2019
-ms.openlocfilehash: 20d55de7ef0f7b7f49b922409f8cb61874fae0f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/30/2020
+ms.openlocfilehash: ec19396d782bf34e85001892159c0ce785487f09
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448162"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918882"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Conectar Configuration Manager ao Azure Monitor
 Você pode conectar seu ambiente de Configuration Manager de ponto de extremidade da Microsoft para Azure Monitor para sincronizar dados de coleta de dispositivos e fazer referência a essas coleções no Azure Monitor e na automação do Azure.  
+
+> [!IMPORTANT]
+> A partir do Configuration Manager versão 2010, esse recurso foi preterido.<!-- 8269855 --> Para obter mais informações, confira [Recursos removidos e preteridos do Configuration Manager](/mem/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -81,7 +84,7 @@ Examine o artigo [conectar computadores Windows ao Azure monitor no Azure](agent
 
     1. Especifique um **Nome** para o objeto no Configuration Manager.
     2. Especifique uma **Descrição** opcional para ajudá-lo a identificar o serviço.
-    3. Selecione o conector do **OMS**de serviço do Azure.
+    3. Selecione o conector do **OMS** de serviço do Azure.
 
     >[!NOTE]
     >O OMS agora é conhecido como Log Analytics, que é um recurso do Azure Monitor.
@@ -108,7 +111,7 @@ Examine o artigo [conectar computadores Windows ao Azure monitor no Azure](agent
 
     8. Selecione **verificar** e, à direita, os resultados devem mostrar **verificados com êxito!**.
 
-8. Na página **configuração** , examine as informações para verificar se os campos **assinaturas do Azure**, **grupo de recursos do Azure**e **espaço de trabalho do Operations Management Suite** estão preenchidos previamente, indicando que o aplicativo Azure ad tem permissões suficientes no grupo de recursos. Se os campos estiverem vazios, indica que seu aplicativo não tem os direitos necessários. Selecione as coleções de dispositivos a serem coletadas e encaminhadas para o espaço de trabalho e, em seguida, selecione **Adicionar**.
+8. Na página **configuração** , examine as informações para verificar se os campos **assinaturas do Azure**, **grupo de recursos do Azure** e **espaço de trabalho do Operations Management Suite** estão preenchidos previamente, indicando que o aplicativo Azure ad tem permissões suficientes no grupo de recursos. Se os campos estiverem vazios, indica que seu aplicativo não tem os direitos necessários. Selecione as coleções de dispositivos a serem coletadas e encaminhadas para o espaço de trabalho e, em seguida, selecione **Adicionar**.
 
 9. Examine as opções na página **confirmar as configurações** e selecione **Avançar** para começar a criar e configurar a conexão.
 

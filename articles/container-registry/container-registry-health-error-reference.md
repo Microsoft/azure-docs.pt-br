@@ -2,17 +2,19 @@
 title: Referência de erro para verificações de integridade do registro
 description: Códigos de erro e possíveis soluções para problemas encontrados ao executar o comando AZ ACR check-Health Diagnostic no registro de contêiner do Azure
 ms.topic: article
-ms.date: 07/02/2019
-ms.openlocfilehash: 9136d41097207bfb17776071e958308f36a9aadd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/25/2021
+ms.openlocfilehash: 05ae5a7ac19bb7748d5313ccb4974b639ab52d9c
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91565591"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99061861"
 ---
 # <a name="health-check-error-reference"></a>Referência de erro de verificação de integridade
 
 A seguir estão os detalhes sobre os códigos de erro retornados pelo comando [AZ ACR check-Health][az-acr-check-health] . Para cada erro, as soluções possíveis são listadas.
+
+Para obter informações sobre como executar `az acr check-healh` o, consulte [verificar a integridade de um registro de contêiner do Azure](container-registry-check-health.md).
 
 ## <a name="docker_command_error"></a>DOCKER_COMMAND_ERROR
 
@@ -49,6 +51,12 @@ Esse erro significa que o cliente Helm não pôde ser encontrado pela CLI, que i
 Esse erro significa que a CLI não pôde determinar a versão do Helm instalada. Isso pode acontecer se a versão de CLI do Azure (ou se a versão Helm) que está sendo usada for obsoleta.
 
 *Soluções potenciais*: Atualize para a versão mais recente do CLI do Azure ou para a versão recomendada do Helm; Execute o comando manualmente e investigue a mensagem de erro.
+
+## <a name="cmk_error"></a>CMK_ERROR
+
+Esse erro significa que o registro não pode acessar a identidade gerenciada atribuída pelo usuário ou sistema usada para configurar a criptografia do registro com uma chave gerenciada pelo cliente. A identidade gerenciada pode ter sido excluída.  
+
+*Solução potencial*: para resolver o problema e girar a chave usando uma identidade gerenciada diferente, consulte etapas para solucionar problemas [de identidade atribuída pelo usuário](container-registry-customer-managed-keys.md#troubleshoot).
 
 ## <a name="connectivity_dns_error"></a>CONNECTIVITY_DNS_ERROR
 

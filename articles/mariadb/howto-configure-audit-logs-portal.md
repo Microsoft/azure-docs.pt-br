@@ -1,17 +1,17 @@
 ---
 title: Acessar logs de auditoria-portal do Azure-banco de dados do Azure para MariaDB
 description: Este artigo descreve como configurar e acessar os logs de auditoria no banco de dados do Azure para MariaDB no portal do Azure.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.topic: how-to
 ms.date: 6/24/2020
-ms.openlocfilehash: 30ca62305c325943e17ee574873cfbbbaee97f77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec0791b169f667a2828087c37ea8f01fc3351bf7
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86113030"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663138"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-portal"></a>Configurar e acessar os logs de auditoria no portal do Azure
 

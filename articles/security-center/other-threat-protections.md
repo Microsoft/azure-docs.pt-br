@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 09/15/2020
 ms.author: memildin
-ms.openlocfilehash: 63b93db314701d281f3f4fff195671f43cdb9dbc
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 5b9e9f5cc5184a083f45999eaeb031eb83b17c58
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340879"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754327"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Proteções contra ameaças adicionais na Central de Segurança do Azure
 Assim como as [proteções internas do Azure Defender](azure-defender.md), a Central de Segurança do Azure também oferece as funcionalidades de proteção contra ameaças a seguir.
@@ -29,10 +29,9 @@ Assim como as [proteções internas do Azure Defender](azure-defender.md), a Cen
 ## <a name="threat-protection-for-azure-network-layer"></a>Proteção contra ameaças para a camada de rede do Azure <a name="network-layer"></a>
 Os recursos de análise da camada de rede da Central de Segurança são baseados em [dados IPFIX](https://en.wikipedia.org/wiki/IP_Flow_Information_Export) de amostra, que são os cabeçalhos de pacote coletados pelos roteadores principais do Azure. Com base nesse feed de dados, a Central de Segurança usa modelos de aprendizado de máquina para identificar e sinalizar atividades de tráfego mal-intencionadas. A Central de Segurança também usa o banco de dados de inteligência contra ameaças da Microsoft para aprimorar os endereços IP.
 
-Algumas configurações de rede podem impedir que a Central de Segurança gere alertas sobre atividades de rede suspeitas. Para que a Central de Segurança gere alertas de rede, verifique se:
+Algumas configurações de rede impedem que a Central de Segurança gere alertas sobre atividades de rede suspeitas. Para que a Central de Segurança gere alertas de rede, verifique se:
 - Sua máquina virtual tem um endereço IP público (ou está em um balanceador de carga com um endereço IP público).
 - O tráfego de saída da rede da sua máquina virtual não está bloqueado por uma solução de IDS externa.
-- Sua máquina virtual recebeu o mesmo endereço IP para a hora inteira durante a qual a comunicação suspeita ocorreu. Isso também se aplica a VMs criadas como parte de um serviço gerenciado (por exemplo, AKS, Databricks).
 
 Para obter uma lista dos alertas da camada de rede do Azure, confira a [Tabela de referência de alertas](alerts-reference.md#alerts-azurenetlayer).
 
@@ -42,7 +41,7 @@ A camada de proteção da Central de Segurança baseada no Azure Resource Manage
 
 A Central de Segurança oferece uma camada adicional de proteção usando eventos do Azure Resource Manager, que é considerado o plano de controle do Azure. Ao analisar os registros de Azure Resource Manager, a Central de Segurança detecta operações comuns ou potencialmente prejudiciais no ambiente de assinatura do Azure.
 
-Para obter uma lista dos alertas do Azure Resource Manager (versão prévia), confira a [Tabela de referência de alertas](alerts-reference.md#alerts-azureresourceman).
+Para obter uma lista dos alertas do Azure Defender para Resource Manager, confira a [Tabela de referência de alertas](alerts-reference.md#alerts-resourcemanager).
 
 
 >[!NOTE]
@@ -68,7 +67,7 @@ Os alertas do Azure Cosmos DB são gerados por tentativas incomuns e potencialme
 
 Para obter mais informações, consulte:
 
-* [Proteção Avançada contra Ameaças do Azure Cosmos DB (versão prévia)](../cosmos-db/cosmos-db-advanced-threat-protection.md)
+* [Proteção avançada contra ameaças do Azure Cosmos DB (versão prévia)](../cosmos-db/cosmos-db-advanced-threat-protection.md)
 * [A lista de alertas de proteção contra ameaças para o Azure Cosmos DB (versão prévia)](alerts-reference.md#alerts-azurecosmos)
 
 
@@ -90,7 +89,7 @@ Ataques distribuídos de negação de serviço (DDoS) são conhecidos por serem 
 
 Um ataque de DDoS tenta esgotar os recursos de um aplicativo, fazendo com que o aplicativo fique indisponível para usuários legítimos. Os ataques de DDoS podem ter como alvo qualquer ponto de extremidade que possa ser acessado pela Internet.
 
-Para se defender contra ataques de DDoS, compre uma licença para a Proteção contra DDoS do Azure e certifique-se de seguir as práticas recomendadas de design de aplicativo. A Proteção contra DDoS fornece diferentes camadas de serviço. Para saber mais, confira [Visão geral da Proteção contra DDoS do Azure](../virtual-network/ddos-protection-overview.md).
+Para se defender contra ataques de DDoS, compre uma licença para a Proteção contra DDoS do Azure e certifique-se de seguir as práticas recomendadas de design de aplicativo. A Proteção contra DDoS fornece diferentes camadas de serviço. Para saber mais, confira [Visão geral da Proteção contra DDoS do Azure](../ddos-protection/ddos-protection-overview.md).
 
 Para obter uma lista dos alertas da Proteção contra DDoS do Azure, confira a [Tabela de referência de alertas](alerts-reference.md#alerts-azureddos).
 
@@ -101,4 +100,4 @@ Para saber mais sobre os alertas de segurança desses recursos de proteção con
 * [Tabela de referência para todos os alertas da Central de Segurança do Azure](alerts-reference.md)
 * [Alertas na Central de Segurança do Azure](security-center-alerts-overview.md)
 * [Gerencie e responda a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md)
-* [Exportar alertas e recomendações de segurança (versão prévia)](continuous-export.md)
+* [Exportar continuamente os dados da Central de Segurança](continuous-export.md)

@@ -7,22 +7,22 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 94db8ce46fc240a6c48c0919b6d2c2cd148522ac
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: fd3ace98582a414a82ed4d1007a6c7df4b36d211
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976043"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98873088"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Carregar um VHD generalizado e usá-lo para criar novas VMs no Azure
 
 Este artigo orienta você a usar o PowerShell para carregar um VHD de uma máquina virtual generalizada no Microsoft Azure, crie uma imagem do VHD e crie uma nova VM dessa imagem. Você pode carregar um VHD exportado de uma ferramenta de virtualização local ou de outra nuvem. Usar [Discos Gerenciados](../managed-disks-overview.md) para a nova VM simplifica o gerenciamento da VM e fornece maior disponibilidade quando a VM é colocada em um conjunto de disponibilidade. 
 
-Para um exemplo de script, consulte [Script de exemplo para carregar um VHD no Azure e criar uma nova VM](../scripts/virtual-machines-windows-powershell-upload-generalized-script.md).
+Para um exemplo de script, consulte [Script de exemplo para carregar um VHD no Azure e criar uma nova VM](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-- Antes de carregar qualquer VHD no Azure, você deve seguir as etapas em [Preparar um VHD ou VHDX do Windows para carregar no Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Antes de carregar qualquer VHD no Azure, você deve seguir as etapas em [Preparar um VHD ou VHDX do Windows para carregar no Azure](prepare-for-upload-vhd-image.md).
 - Examine [Planejar a migração para Discos Gerenciados](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) antes de iniciar a migração para [Discos Gerenciados](../managed-disks-overview.md).
 
  
@@ -33,18 +33,20 @@ Se você ainda não tiver feito isso, precisará executar Sysprep da VM antes de
 Verifique se as funções de servidor em execução no computador são suportadas pelo Sysprep. Para obter mais informações, consulte [Suporte do Sysprep para funções de servidor](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles).
 
 > [!IMPORTANT]
-> Se você planeja executar o Sysprep antes de carregar o VHD no Azure pela primeira vez, verifique se você [preparou sua VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+> Se você planeja executar o Sysprep antes de carregar o VHD no Azure pela primeira vez, verifique se você [preparou sua VM](prepare-for-upload-vhd-image.md). 
 > 
 > 
 
 1. Entre na máquina virtual Windows.
-2. Abra uma janela de prompt de comando como administrador. Mude para o diretório para %windir%\system32\sysprep e, em seguida, execute `sysprep.exe`.
-3. Na caixa de diálogo **Ferramenta de Preparação do Sistema**, selecione **Entrar na Configuração Inicial pelo Usuário do Sistema (OOBE)** e verifique se a caixa de seleção **Generalizar** está ativada.
-4. Para **Opções de Desligamento**, selecione **Desligar**.
-5. Selecione **OK**.
+1. Abra uma janela de prompt de comando como administrador. 
+1. Exclua o diretório Panther (C:\Windows\Panther).
+1. Mude para o diretório para %windir%\system32\sysprep e, em seguida, execute `sysprep.exe`.
+1. Na caixa de diálogo **Ferramenta de Preparação do Sistema**, selecione **Entrar na Configuração Inicial pelo Usuário do Sistema (OOBE)** e verifique se a caixa de seleção **Generalizar** está ativada.
+1. Para **Opções de Desligamento**, selecione **Desligar**.
+1. Selecione **OK**.
    
     ![Inicie o Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
-6. Quando o Sysprep for concluído, desligará a máquina virtual. Não reinicie a VM.
+1. Quando o Sysprep for concluído, desligará a máquina virtual. Não reinicie a VM.
 
 
 ## <a name="upload-the-vhd"></a>Carregar o VHD 
@@ -112,4 +114,4 @@ New-AzVm `
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Logue na nova máquina virtual. Para obter mais informações, veja [Como se conectar e fazer logon em uma máquina virtual do Azure executando o Windows](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Logue na nova máquina virtual. Para obter mais informações, veja [Como se conectar e fazer logon em uma máquina virtual do Azure executando o Windows](connect-logon.md).

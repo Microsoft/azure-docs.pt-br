@@ -9,13 +9,13 @@ ms.subservice: billing
 ms.topic: tutorial
 ms.date: 10/26/2020
 ms.author: banders
-ms.custom: contentperfq2
-ms.openlocfilehash: c4a9a981017becd0d9343d9c287a4fe9341d7c43
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: ef04c964f0037fcf36fe376084df75ffa0034957
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678125"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027553"
 ---
 # <a name="tutorial-review-your-individual-azure-subscription-bill"></a>Tutorial: Examine a fatura de sua assinatura individual do Azure
 
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisa ter uma conta de cobrança paga do *Programa Microsoft Online Services* . A conta é criada quando você se inscreve no Azure por meio do site do Azure. Por exemplo, se você tiver uma conta com tarifas pagas conforme o uso ou se for um assinante do Visual Studio.
+Você precisa ter uma conta de cobrança paga do *Programa Microsoft Online Services*. A conta é criada quando você se inscreve no Azure por meio do site do Azure. Por exemplo, se você tiver uma conta com tarifas pagas conforme o uso ou se for um assinante do Visual Studio.
 
 As faturas das Contas Gratuitas do Azure são criadas somente quando o valor de crédito mensal é ultrapassado.
 
@@ -49,19 +49,19 @@ As faturas das Contas Gratuitas do Azure são criadas somente quando o valor de 
 
 A primeira etapa para comparar o uso e os custos é baixar seus arquivos de fatura e uso. O arquivo CSV de uso detalhado mostra os encargos por período de cobrança e de uso diário. Ele não inclui nenhuma informação de impostos. Para baixar os arquivos, você precisa ser um administrador da conta ou ter a função de Proprietário.
 
-No portal do Azure, digite *assinaturas* na caixa de pesquisa e clique em **Assinaturas** .
+No portal do Azure, digite *assinaturas* na caixa de pesquisa e clique em **Assinaturas**.
 
 [![Navegue até Assinaturas](./media/review-individual-bill/navigate-subscriptions.png)](./media/review-individual-bill/navigate-subscriptions.png#lightbox)
 
 Na lista de assinaturas, clique na assinatura.
 
-Em **Cobrança** , selecione **Faturas** .
+Em **Cobrança**, selecione **Faturas**.
 
 Na lista de faturas, procure aquela que você deseja baixar e clique no símbolo de download. Talvez seja necessário alterar o período para exibir as faturas mais antigas. Pode levar alguns minutos para gerar o arquivo de detalhes de uso e a fatura.
 
 ![Captura de tela que mostra os períodos de cobrança, a opção de download e as cobranças totais para cada período de cobrança](./media/review-individual-bill/download-invoice.png)
 
-Na janela Baixar Uso + Encargos, clique em **Baixar CSV** e em **Baixar fatura** .
+Na janela Baixar Uso + Encargos, clique em **Baixar CSV** e em **Baixar fatura**.
 
 ![Captura de tela que mostra a página Baixar fatura e uso](./media/review-individual-bill/usageandinvoice.png)
 
@@ -77,7 +77,7 @@ Em seguida, examine os encargos. Sua fatura mostra valores dos impostos e seus e
 
 ![Exemplo de fatura do Azure](./media/review-individual-bill/invoice-usage-charge.png)
 
-Abra o arquivo de uso CSV que você baixou. No final do arquivo, some o valor de todos os itens na coluna *Custo* .
+Abra o arquivo de uso CSV que você baixou. No final do arquivo, some o valor de todos os itens na coluna *Custo*.
 
 ![Exemplo de arquivo de uso com o custo somado](./media/review-individual-bill/usage-file-usage-charges.png)
 
@@ -98,7 +98,7 @@ Os encargos de uso são exibidos no nível do medidor. Os termos na lista a segu
 |Tarifa | EffectivePrice|
 | Valor | Custo |
 
-A seção **Encargos de Uso** da sua fatura mostra o valor total (custo) de cada medidor que foi consumido durante o período de cobrança. Por exemplo, a imagem a seguir mostra um encargo de uso do serviço do Armazenamento do Microsoft Azure para o recurso *Discos P10* .
+A seção **Encargos de Uso** da sua fatura mostra o valor total (custo) de cada medidor que foi consumido durante o período de cobrança. Por exemplo, a imagem a seguir mostra um encargo de uso do serviço do Armazenamento do Microsoft Azure para o recurso *Discos P10*.
 
 ![Encargos de uso da fatura](./media/review-individual-bill/invoice-usage-charges.png)
 
@@ -110,7 +110,7 @@ O valor do *Custo* somado deve corresponder precisamente ao custo dos *encargos 
 
 ## <a name="compare-billed-charges-and-usage-in-cost-analysis"></a>Comparar os encargos cobrados e o uso na análise de custo
 
-A análise de custo no portal do Azure também pode lhe ajudar a verificar seus encargos. Para ter uma visão geral rápida do uso e dos encargos faturados, selecione sua assinatura na Página de assinaturas no portal do Azure. Em seguida, clique em **Análise de custo** e, na lista modos de exibição, clique em **Detalhes da fatura** .
+A análise de custo no portal do Azure também pode lhe ajudar a verificar seus encargos. Para ter uma visão geral rápida do uso e dos encargos faturados, selecione sua assinatura na Página de assinaturas no portal do Azure. Em seguida, clique em **Análise de custo** e, na lista modos de exibição, clique em **Detalhes da fatura**.
 
 ![Exemplo mostrando a seleção de detalhes da fatura](./media/review-individual-bill/cost-analysis-select-invoice-details.png)
 
@@ -157,7 +157,7 @@ Você pode ver os medidores que foram usados para calcular sua fatura no arquivo
 
 <a name="payment"></a>
 
-Se você tiver configurado um cartão de crédito como forma de pagamento, o pagamento será cobrado automaticamente em até 10 dias após o término do período de cobrança. Na sua declaração de cartão de crédito, o item de linha diria **MSFT Azure** .
+Se você tiver configurado um cartão de crédito como forma de pagamento, o pagamento será cobrado automaticamente em até 10 dias após o término do período de cobrança. Na sua declaração de cartão de crédito, o item de linha diria **MSFT Azure**.
 
 Para alterar o cartão de crédito cobrado, confira [Adicionar, atualizar ou remover um cartão de crédito do Azure](../manage/change-credit-card.md).
 

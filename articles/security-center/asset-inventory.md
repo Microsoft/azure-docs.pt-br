@@ -5,17 +5,17 @@ author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 09/22/2020
+ms.date: 12/22/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: d15d73b0f2b87b8e6f66c7bd4e7fb34f6b06e1a0
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 5b8d167992e57cd0fae35c57212ea700cd677afa
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341916"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920419"
 ---
-# <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>Explore e gerencie seus recursos com as ferramentas de gerenciamento e inventário de ativos
+# <a name="explore-and-manage-your-resources-with-asset-inventory"></a>Explore e gerencie seus recursos usando um inventário de ativos
 
 A página de inventário de ativos da Central de Segurança do Azure fornece uma só página para exibição da postura de segurança dos recursos que você conectou à Central de Segurança. 
 
@@ -40,10 +40,10 @@ As possibilidades de gerenciamento de ativos para essa ferramenta são substanci
 
 |Aspecto|Detalhes|
 |----|:----|
-|Estado da versão:|GA (em disponibilidade geral)|
+|Estado da versão:|GA (Disponibilidade Geral)|
 |Preço:|Gratuita|
 |Funções e permissões necessárias:|todos os usuários|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|
 |||
 
 
@@ -59,16 +59,16 @@ A página inventário fornece as seguintes ferramentas:
 
 - **Filtros** – os vários filtros na parte superior da página fornecem uma maneira de refinar rapidamente a lista de recursos de acordo com a pergunta que você está tentando responder. Por exemplo, se você quisesse responder à pergunta *quais dos meus computadores com a marca "produção" estão sem o agente de log Analytics?* você pode combinar o filtro de **monitoramento de agente** com o filtro de **marcas** , conforme mostrado no seguinte clipe:
 
-    :::image type="content" source="./media/asset-inventory/filtering-to-prod-unmonitored.gif" alt-text="Filtragem para recursos de produção que não são monitorados&quot;:::
+    :::image type="content" source="./media/asset-inventory/filtering-to-prod-unmonitored.gif" alt-text="Filtragem para recursos de produção que não são monitorados":::
 
     Assim que você aplicou filtros, os valores de resumo são atualizados para se relacionar aos resultados da consulta. 
 
-- **Opções de exportação** – o inventário fornece a opção de exportar os resultados de suas opções de filtro selecionadas para um arquivo CSV. Além disso, você pode exportar a consulta em si para o Gerenciador de grafo de recursos do Azure para refinar, salvar ou modificar a consulta KQL.
+- **Opções de exportação** – o inventário fornece a opção de exportar os resultados de suas opções de filtro selecionadas para um arquivo CSV. Além disso, você pode exportar a consulta em si para o Gerenciador de grafo de recursos do Azure para refinar, salvar ou modificar a consulta KQL (linguagem de consulta Kusto).
 
-    ![Opções de exportação do inventário](./media/asset-inventory/inventory-export-options.png)
+    :::image type="content" source="./media/asset-inventory/inventory-export-options.png" alt-text="Opções de exportação do inventário":::
 
     > [!TIP]
-    > A documentação do KQL fornece um banco de dados com algumas consultas de exemplo junto com algumas simples para obter a &quot;sensação" da linguagem. [Saiba mais neste tutorial de KQL](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
+    > A documentação do KQL fornece um banco de dados com algumas consultas de exemplo junto com algumas simples para obter a "sensação" da linguagem. [Saiba mais neste tutorial de KQL](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
 
 - **Opções de gerenciamento de ativos** – o inventário permite que você execute consultas de descoberta complexas. Quando você encontrar os recursos que correspondem às suas consultas, o inventário fornecerá atalhos para operações como:
 
@@ -94,16 +94,7 @@ Usando a [linguagem de consulta Kusto (KQL)](/azure/data-explorer/kusto/query/),
 
 1. Selecione as opções relevantes nos filtros para criar a consulta específica que você deseja executar.
 
-    :::image type="content" source="./media/asset-inventory/inventory-filters.png" alt-text="Filtragem para recursos de produção que não são monitorados&quot;:::
-
-    Assim que você aplicou filtros, os valores de resumo são atualizados para se relacionar aos resultados da consulta. 
-
-- **Opções de exportação** – o inventário fornece a opção de exportar os resultados de suas opções de filtro selecionadas para um arquivo CSV. Além disso, você pode exportar a consulta em si para o Gerenciador de grafo de recursos do Azure para refinar, salvar ou modificar a consulta KQL.
-
-    ![Opções de exportação do inventário](./media/asset-inventory/inventory-export-options.png)
-
-    > [!TIP]
-    > A documentação do KQL fornece um banco de dados com algumas consultas de exemplo junto com algumas simples para obter a &quot;sensação" lightbox="./media/asset-inventory/inventory-filters.png":::
+    :::image type="content" source="./media/asset-inventory/inventory-filters.png" alt-text="Opções de filtragem do inventário" lightbox="./media/asset-inventory/inventory-filters.png":::
 
     Por padrão, os recursos são classificados pelo número de recomendações de segurança ativas.
 
@@ -123,34 +114,16 @@ Usando a [linguagem de consulta Kusto (KQL)](/azure/data-explorer/kusto/query/),
 
     - **Fora** dos recursos que não são protegidos por um plano do Azure defender. Você pode clicar com o botão direito do mouse em qualquer um deles e atualizá-los:
 
-        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Filtragem para recursos de produção que não são monitorados&quot;:::
-
-    Assim que você aplicou filtros, os valores de resumo são atualizados para se relacionar aos resultados da consulta. 
-
-- **Opções de exportação** – o inventário fornece a opção de exportar os resultados de suas opções de filtro selecionadas para um arquivo CSV. Além disso, você pode exportar a consulta em si para o Gerenciador de grafo de recursos do Azure para refinar, salvar ou modificar a consulta KQL.
-
-    ![Opções de exportação do inventário](./media/asset-inventory/inventory-export-options.png)
-
-    > [!TIP]
-    > A documentação do KQL fornece um banco de dados com algumas consultas de exemplo junto com algumas simples para obter a &quot;sensação" lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
+        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Atualizar um recurso para o Azure defender do clique com o botão direito" lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
 
     - **No** -recursos que são protegidos por um plano do Azure defender
     - **Parcial** -isso se aplica a **assinaturas** que têm alguns, mas não todos os planos do Azure defender desabilitados. Por exemplo, a assinatura a seguir tem cinco planos do Azure defender desabilitados. 
 
-        :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="Filtragem para recursos de produção que não são monitorados&quot;:::
-
-    Assim que você aplicou filtros, os valores de resumo são atualizados para se relacionar aos resultados da consulta. 
-
-- **Opções de exportação** – o inventário fornece a opção de exportar os resultados de suas opções de filtro selecionadas para um arquivo CSV. Além disso, você pode exportar a consulta em si para o Gerenciador de grafo de recursos do Azure para refinar, salvar ou modificar a consulta KQL.
-
-    ![Opções de exportação do inventário](./media/asset-inventory/inventory-export-options.png)
-
-    > [!TIP]
-    > A documentação do KQL fornece um banco de dados com algumas consultas de exemplo junto com algumas simples para obter a &quot;sensação":::
+        :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="Assinatura parcialmente no Azure defender":::
 
 1. Para examinar melhor os resultados da consulta, selecione os recursos que lhe interessam.
 
-1. Para exibir as opções de filtro selecionadas atualmente como uma consulta no Gerenciador de grafo de recursos, selecione **Exibir no Gerenciador de grafo de recursos**.
+1. Para exibir as opções de filtro selecionadas atualmente como uma consulta no Gerenciador de grafo de recursos, selecione **Abrir consulta**.
 
     ![Consulta de inventário em ARG](./media/asset-inventory/inventory-query-in-resource-graph-explorer.png)
 
@@ -167,16 +140,7 @@ A exibição de inventário lista os recursos conectados da central de seguranç
 
 Por exemplo, a captura de tela a seguir mostra um usuário com acesso a 38 assinaturas, mas somente 10 atualmente têm recomendações. Então, quando eles são filtrados por **tipo de recurso = assinaturas**, somente essas 10 assinaturas com recomendações ativas aparecem no inventário:
 
-:::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="Filtragem para recursos de produção que não são monitorados&quot;:::
-
-    Assim que você aplicou filtros, os valores de resumo são atualizados para se relacionar aos resultados da consulta. 
-
-- **Opções de exportação** – o inventário fornece a opção de exportar os resultados de suas opções de filtro selecionadas para um arquivo CSV. Além disso, você pode exportar a consulta em si para o Gerenciador de grafo de recursos do Azure para refinar, salvar ou modificar a consulta KQL.
-
-    ![Opções de exportação do inventário](./media/asset-inventory/inventory-export-options.png)
-
-    > [!TIP]
-    > A documentação do KQL fornece um banco de dados com algumas consultas de exemplo junto com algumas simples para obter a &quot;sensação":::
+:::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="Nem todas as sub-rotinas retornaram quando não há nenhuma recomendação ativa":::
 
 ### <a name="why-do-some-of-my-resources-show-blank-values-in-the-azure-defender-or-agent-monitoring-columns"></a>Por que alguns dos meus recursos mostram valores em branco nas colunas de monitoramento do Azure defender ou agente?
 
@@ -184,16 +148,7 @@ Nem todos os recursos monitorados da central de segurança têm agentes. Por exe
 
 Quando o monitoramento de preços ou agentes não for relevante para um recurso, nada será mostrado nessas colunas de inventário.
 
-:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="Filtragem para recursos de produção que não são monitorados&quot;:::
-
-    Assim que você aplicou filtros, os valores de resumo são atualizados para se relacionar aos resultados da consulta. 
-
-- **Opções de exportação** – o inventário fornece a opção de exportar os resultados de suas opções de filtro selecionadas para um arquivo CSV. Além disso, você pode exportar a consulta em si para o Gerenciador de grafo de recursos do Azure para refinar, salvar ou modificar a consulta KQL.
-
-    ![Opções de exportação do inventário](./media/asset-inventory/inventory-export-options.png)
-
-    > [!TIP]
-    > A documentação do KQL fornece um banco de dados com algumas consultas de exemplo junto com algumas simples para obter a &quot;sensação":::
+:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="Alguns recursos mostram informações em branco nas colunas de monitoramento do agente ou do Azure defender":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

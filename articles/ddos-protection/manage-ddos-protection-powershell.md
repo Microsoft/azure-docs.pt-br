@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 49fa0c849a6b2eab0647922a711c50b4fe762584
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 69f9b5a74566879ecf8f15f23e689ebb731da45a
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095638"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814135"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard-using-azure-powershell"></a>Início rápido: criar e configurar a proteção contra DDoS do Azure Standard usando o Azure PowerShell
 
@@ -45,7 +45,7 @@ Para criar um grupo de recursos, use [New-AzResourceGroup](/powershell/module/az
 New-AzResourceGroup -Name MyResourceGroup -Location "East US"
 ```
 
-Agora, crie um plano de proteção contra DDoS chamado _MyDdosProtectionPlan_ :
+Agora, crie um plano de proteção contra DDoS chamado _MyDdosProtectionPlan_:
 
 ```azurepowershell-interactive
 New-AzDdosProtectionPlan -ResourceGroupName MyResourceGroup -Name MyDdosProtectionPlan -Location "East US"
@@ -55,7 +55,7 @@ New-AzDdosProtectionPlan -ResourceGroupName MyResourceGroup -Name MyDdosProtecti
 
 ### <a name="enable-ddos-for-a-new-virtual-network"></a>Habilitar DDoS para uma nova rede virtual
 
-Você pode habilitar a proteção contra DDoS ao criar uma rede virtual. Neste exemplo, vamos nomear nossa rede virtual _MyVnet_ : 
+Você pode habilitar a proteção contra DDoS ao criar uma rede virtual. Neste exemplo, vamos nomear nossa rede virtual _MyVnet_: 
 
 ```azurepowershell-interactive
 New-AzVirtualNetwork -Name MyVnet -ResourceGroupName MyResourceGroup -Location "East US" -AddressPrefix 10.0.0.0/16
@@ -114,4 +114,4 @@ Se você quiser excluir um plano de proteção contra DDoS, deverá primeiro dis
 Para saber como exibir e configurar a telemetria para seu plano de proteção contra DDoS, continue com os tutoriais.
 
 > [!div class="nextstepaction"]
-> [Exibir e configurar a telemetria da Proteção contra DDoS](telemetry-monitoring-alerting.md)
+> [Exibir e configurar a telemetria da Proteção contra DDoS](telemetry.md)

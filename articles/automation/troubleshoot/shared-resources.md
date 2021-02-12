@@ -2,18 +2,15 @@
 title: Solucionar problemas com recursos compartilhados de Automação do Azure
 description: Este artigo informa como solucionar problemas com os recursos compartilhados de Automação do Azure.
 services: automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 03/12/2019
-ms.topic: conceptual
-ms.service: automation
-manager: carmonm
-ms.openlocfilehash: c6bdc09d37cf29458346eaea360b4cd9e0d1226f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.subservice: ''
+ms.date: 01/27/2021
+ms.topic: troubleshooting
+ms.openlocfilehash: 1a822166ae4c2bf793e0fa50e93018f499fcc27a
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187159"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053612"
 ---
 # <a name="troubleshoot-shared-resource-issues"></a>Solucionar problemas de recursos compartilhados
 
@@ -33,7 +30,7 @@ Como a importação de módulos do PowerShell é um processo complexo e de vári
 
 #### <a name="resolution"></a>Resolução
 
-Para resolver esse problema, você deve remover o módulo que está preso usando o cmdlet [Remove-AzureRmAutomationModule.](/powershell/module/Az.Automation/Remove-AzAutomationModule?view=azps-3.7.0) Você pode, em seguida, tente importar novamente o módulo.
+Para resolver esse problema, você deve remover o módulo que está preso usando o cmdlet [Remove-AzureRmAutomationModule.](/powershell/module/Az.Automation/Remove-AzAutomationModule) Você pode, em seguida, tente importar novamente o módulo.
 
 ```azurepowershell-interactive
 Remove-AzAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
@@ -70,7 +67,7 @@ Algumas razões comuns para que um módulo não pode importar com êxito à auto
 * A estrutura não corresponde à estrutura em que a Automação precisa.
 * O módulo depende de outro módulo que não tenha sido implantado em sua conta de Automação.
 * O módulo não tem suas dependências na pasta.
-* O cmdlet [New-AzAutomationModule](/powershell/module/Az.Automation/New-AzAutomationModule?view=azps-3.7.0) está sendo usado para carregar o módulo, e você não forneceu o caminho de armazenamento completo ou não carregou o módulo usando uma URL acessível publicamente.
+* O cmdlet [New-AzAutomationModule](/powershell/module/Az.Automation/New-AzAutomationModule) está sendo usado para carregar o módulo, e você não forneceu o caminho de armazenamento completo ou não carregou o módulo usando uma URL acessível publicamente.
 
 #### <a name="resolution"></a>Resolução
 
@@ -134,7 +131,7 @@ Você não tem as permissões necessárias para criar ou atualizar a conta Execu
 
 #### <a name="resolution"></a>Resolução
 
-Para criar ou atualizar uma conta Executar como, você deve ter [permissões](../manage-runas-account.md#permissions) apropriadas para os diversos recursos usados pela conta Executar como. 
+Para criar ou atualizar uma conta Executar como, você deve ter [permissões](../automation-security-overview.md#permissions) apropriadas para os diversos recursos usados pela conta Executar como.
 
 Se o problema for por causa de um bloqueio, verifique se pode ser removido. Em seguida, vá para o recurso bloqueado no portal do Azure, clique com o botão direito do mouse no bloqueio e selecione **Excluir**.
 
@@ -150,7 +147,7 @@ Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
 
 #### <a name="cause"></a>Causa
 
-Esse erro é provavelmente causado por uma [conta Executar como ](../manage-runas-account.md)configurada incorretamente.
+Esse erro é provavelmente causado por uma [conta Executar como ](../automation-security-overview.md)configurada incorretamente.
 
 #### <a name="resolution"></a>Resolução
 
@@ -169,4 +166,3 @@ Se este artigo não conseguiu resolver seu problema, visite um dos seguintes can
 * Obtenha respostas de especialistas do Azure por meio de [Fóruns do Azure](https://azure.microsoft.com/support/forums/).
 * Conectar-se com [@AzureSupport](https://twitter.com/azuresupport). Esta é  a conta oficial do Microsoft Azure para conectar-se à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
 * Registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter suporte**.
-

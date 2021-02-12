@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: alkohli
-ms.openlocfilehash: a56610dd81d6e50da11bbd65bcf0682e399b1783
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c9feb1131f6d2d0eb75ac71e27dc46c226c52c1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84707388"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961049"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Implantar o dispositivo StorSimple no local (Atualização 3 e posteriores)
 
@@ -166,7 +166,7 @@ Você concluiu a configuração do dispositivo.
 ## <a name="configure-a-new-storage-account-for-the-service"></a>Configurar uma nova conta de armazenamento para o serviço
 Esta é uma etapa opcional que você precisa executar somente se não tiver ativado a criação automática de uma conta de armazenamento com o seu serviço. É necessária uma conta de armazenamento do Microsoft Azure para criar um contêiner de volume StorSimple.
 
-Se você precisar criar uma conta de armazenamento do Azure em uma região diferente, consulte [Sobre Contas de Armazenamento do Azure](../storage/common/storage-create-storage-account.md) para obter instruções passo a passo.
+Se você precisar criar uma conta de armazenamento do Azure em uma região diferente, consulte [Sobre Contas de Armazenamento do Azure](../storage/common/storage-account-create.md) para obter instruções passo a passo.
 
 Execute as etapas a seguir no portal do Azure, na página **Serviço do gerenciador de dispositivos StorSimple**.
 
@@ -207,4 +207,3 @@ A extremidade da tomada de estéreo é considerada PIN 3 RX, a parte central é 
 ## <a name="next-steps"></a>Próximas etapas
 * [Configurar um Dispositivo de Nuvem StorSimple](storsimple-8000-cloud-appliance-u2.md).
 * [Use o serviço Gerenciador de Dispositivos StorSimple para gerenciar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-

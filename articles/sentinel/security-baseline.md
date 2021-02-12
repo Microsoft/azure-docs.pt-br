@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f4c6bf8b203f9721436ab3dde1f80837df92234d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: ba15deed98af16b9b501439082ee6c9237fe20b7
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518255"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807200"
 ---
 # <a name="azure-security-baseline-for-azure-sentinel"></a>Linha de base de segurança do Azure para Azure Sentinel
 
@@ -37,7 +37,7 @@ Essa linha de base de segurança aplica diretrizes do [benchmark de segurança d
 
 - [Como habilitar a auditoria no Azure Sentinel](resources.md)
 
-- [Como exibir e recuperar eventos do log de atividades do Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -163,11 +163,11 @@ Além disso, para ajudá-lo a controlar contas administrativas dedicadas, você 
 
 ### <a name="36-use-secure-azure-managed-workstations-for-administrative-tasks"></a>3,6: usar estações de trabalho seguras e gerenciadas pelo Azure para tarefas administrativas
 
-**Orientação**: Use uma estação de trabalho de acesso privilegiado (Paw) com a autenticação multifator do Azure (MFA) habilitada para fazer logon e configurar seus recursos relacionados ao sentinela do Azure. 
+**Orientação**: Use uma Paw (estação de trabalho com acesso privilegiado) com o MFA (autenticação multifator) do Azure ad habilitada para fazer logon e configurar seus recursos relacionados ao sentinela do Azure. 
 
-- [Estações de trabalho com acesso privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Estações de trabalho com acesso privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [Planejar uma implantação da Autenticação Multifator do Azure baseada em nuvem](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planejar uma implantação da Autenticação Multifator do Azure AD baseada em nuvem](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -181,7 +181,7 @@ Além disso, use as detecções de risco do Azure Active Directory para ver aler
 
 - [Como implantar o Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Entenda as detecções de risco do Azure Active Directory](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Entenda as detecções de risco do Azure Active Directory](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -211,7 +211,7 @@ Além disso, use as detecções de risco do Azure Active Directory para ver aler
 
 **Diretrizes**: o Azure Active Directory (AD) fornece logs para ajudá-lo a descobrir contas obsoletas. Além disso, use as revisões de acesso de identidade do Azure para gerenciar com eficiência as associações de grupo, o acesso aos aplicativos empresariais e as atribuições de função. O acesso de usuários pode ser examinado regularmente para garantir que somente os usuários corretos tenham acesso contínuo. 
 
-- [Entender os relatórios do Azure AD](/azure/active-directory/reports-monitoring/)
+- [Entender os relatórios do Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Como usar as revisões de acesso de identidade do Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -227,7 +227,7 @@ Você tem acesso à atividade de entrada do Azure AD, às fontes de log de event
 
 Você pode simplificar esse processo criando configurações de diagnóstico para contas de usuário do Azure AD e enviando logs de auditoria e logs de entrada para um espaço de trabalho Log Analytics. Você pode configurar os alertas de log desejados no Log Analytics.
 
-- [Como integrar os logs de atividades do Azure ao Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Como integrar os logs de atividades do Azure ao Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Como integrar o Azure Sentinel](quickstart-onboard.md)
 
@@ -239,7 +239,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 **Diretrizes**: para o desvio do comportamento de logon da conta no plano de controle (por exemplo, portal do Azure), use Azure ad Identity Protection e recursos de detecção de risco para configurar respostas automatizadas para ações suspeitas detectadas relacionadas a identidades de usuário. Você também pode ingerir dados no Azure Sentinel para uma investigação mais aprofundada.
 
-- [Como exibir o logon arriscado do Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Como exibir o logon arriscado do Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Como configurar e habilitar políticas de risco de proteção de identidade](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -267,7 +267,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 **Diretriz**: Use marcas para ajudar a controlar os recursos do Azure que armazenam ou processam informações confidenciais.
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -277,9 +277,9 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 **Diretrizes**: implemente assinaturas e/ou grupos de gerenciamento separados para espaços de trabalho de desenvolvimento, teste e produção Sentinel.
 
-- [Como criar assinaturas adicionais do Azure](/azure/billing/billing-create-subscription)
+- [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Como criar Grupos de Gerenciamento](/azure/governance/management-groups/create)
+- [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -341,7 +341,7 @@ Além disso, cada pasta de trabalho do Sentinel é um recurso do Azure e você p
 
 **Diretrizes**: os espaços de trabalho do Azure Sentinel e Azure monitor log Analytics atualmente usam chaves gerenciadas pela Microsoft para criptografar quaisquer dados contidos em repouso. A capacidade de trazer sua própria chave ainda não tem suporte total para o sentinela, mas estará em um futuro próximo.
 
-- [Visão geral de Azure Monitor chave gerenciada pelo cliente](../azure-monitor/platform/customer-managed-keys.md#customer-managed-key-cmk-overview)
+- [Visão geral de Azure Monitor chave gerenciada pelo cliente](../azure-monitor/platform/customer-managed-keys.md#customer-managed-key-overview)
 
 - [Entender as chaves gerenciadas pelo cliente no Azure Sentinel (versão prévia)](customer-managed-keys.md)
 
@@ -371,7 +371,7 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do grafo 
 
 - [Como criar consultas com o Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Como exibir suas assinaturas do Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Entender o RBAC do Azure](../role-based-access-control/overview.md)
 
@@ -383,7 +383,7 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do grafo 
 
 **Diretriz**: Aplique marcas aos recursos do Azure, fornecendo metadados para organizá-los logicamente em uma taxonomia.
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -398,11 +398,11 @@ Além disso, use o Azure Policy para colocar restrições nos tipos de recursos 
 - Tipos de recursos não permitidos
 - Tipos de recursos permitidos
 
-- [Como criar assinaturas adicionais do Azure](/azure/billing/billing-create-subscription)
+- [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Como criar Grupos de Gerenciamento](/azure/governance/management-groups/create)
+- [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -431,7 +431,7 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Como negar um tipo de recurso específico com o Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Como negar um tipo de recurso específico com o Azure Policy](../governance/policy/samples/index.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -455,7 +455,7 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 
 **Diretrizes**: defina e implemente configurações de segurança padrão para seu espaço de trabalho log Analytics associado ao seu espaço de trabalho do Sentinel com Azure Policy. Use Azure Policy aliases no namespace "Microsoft. OperationalInsights" para criar políticas personalizadas para auditar ou impor a configuração de seus espaços de trabalho do Log Analytics.
 
-- [Como exibir os aliases disponíveis do Azure Policy](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Como exibir os aliases disponíveis do Azure Policy](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -479,9 +479,9 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 
 **Diretrizes**: Se você estiver usando definições personalizadas do Azure Policy, use o Azure DevOps ou Azure Repos para armazenar e gerenciar seu código com segurança.
 
-- [Como armazenar código no Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Documentação do Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Documentação do Azure Repos](/azure/devops/repos/index?view=azure-devops)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -513,9 +513,9 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 
 - [Conectar sentinela a fontes de dados](connect-data-sources.md)
 
-- [Como criar um Key Vault](/azure/key-vault/quick-create-portal) 
+- [Como criar um Key Vault](../key-vault/secrets/quick-create-portal.md) 
 
-- [Como fornecer Key Vault autenticação com uma identidade gerenciada](/azure/key-vault/managed-identity)
+- [Como fornecer Key Vault autenticação com uma identidade gerenciada](../key-vault/general/assign-access-policy-portal.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -557,7 +557,7 @@ A única operação possível após a revogação ou exclusão da chave de cript
 
 Se o acesso for restaurado após a revogação, o Azure Sentinel irá restaurar o acesso aos dados dentro de uma hora.
 
-- [Como habilitar a exclusão reversível no Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Como habilitar a exclusão reversível no Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 - [Entender as chaves gerenciadas pelo cliente no Azure Sentinel](customer-managed-keys.md)
 
@@ -617,7 +617,7 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: incorporar alertas de segurança em seu sistema de resposta a incidentes
 
-**Diretriz**: exporte os alertas e recomendações da Central de Segurança do Azure usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da Central de Segurança do Azure para transmitir os alertas do Sentinel.
+**Diretriz**: exporte os alertas e recomendações da Central de Segurança do Azure usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da Central de Segurança do Azure para transmitir os alertas do Azure Sentinel.
 
 - [Como configurar a exportação contínua](../security-center/continuous-export.md)
 
@@ -643,11 +643,11 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: realize testes de penetração regulares de seus recursos do Azure e garanta a correção de todas as descobertas de segurança críticas
 
-**Diretrizes**: siga as regras de teste de penetração Microsoft Cloud do Engagement para garantir que seus testes de penetração não estejam violando as políticas da Microsoft. Use a estratégia da Microsoft e a execução de equipes vermelhas e testes de penetração de sites ativos em infraestrutura de nuvem, serviços e aplicativos gerenciados pela Microsoft. 
+**Diretrizes**: siga as regras de teste de penetração Microsoft Cloud do Engagement para garantir que seus testes de penetração não estejam violando as políticas da Microsoft. Use a estratégia da Microsoft, a execução de Equipes Vermelhas e os testes de penetração de sites online na infraestrutura, nos serviços e nos aplicativos de nuvem gerenciados pela Microsoft. 
 
-- [Regras de teste de penetração do Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
+- [Regras de participação para testes de penetração](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
 
-- [Microsoft Cloud o agrupamento vermelho](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Equipes Vermelhas do Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -655,5 +655,5 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Confira o [Azure Security Benchmark](/azure/security/benchmarks/overview)
-- Saiba mais sobre a [Linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview)
+- Confira o [Azure Security Benchmark](../security/benchmarks/overview.md)
+- Saiba mais sobre a [Linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

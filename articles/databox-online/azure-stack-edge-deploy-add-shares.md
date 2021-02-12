@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 01/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: aeb5bceca11f595c1582596aeea401fe5f9b239f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afedbe739e955499f94d00a8ced940e7a4e9c27c
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883477"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898634"
 ---
 # <a name="tutorial-transfer-data-with-azure-stack-edge-pro"></a>Tutorial: Transferir dados com o Azure Stack Edge Pro
 
@@ -42,7 +42,7 @@ Antes de adicionar compartilhamentos ao Azure Stack Edge Pro, verifique o seguin
 
 Para criar um compartilhamento, siga o procedimento a seguir:
 
-1. No [portal do Azure](https://portal.azure.com/), selecione o recurso do Azure Stack Edge e, em seguida, acesse **Visão Geral**. O dispositivo deve estar online.
+1. No [portal do Azure](https://portal.azure.com/), selecione o recurso do Azure Stack Edge e, em seguida, acesse **Visão Geral**. O dispositivo deve estar online. Selecione **Gateway de armazenamento em nuvem**.
 
    ![Dispositivo online](./media/azure-stack-edge-deploy-add-shares/device-online-1.png)
 
@@ -62,7 +62,7 @@ Para criar um compartilhamento, siga o procedimento a seguir:
     c. Forneça uma conta de armazenamento na qual o compartilhamento residirá. 
 
     > [!IMPORTANT]
-    > Se você estiver usando a conta de Armazenamento do Azure com um dispositivo do Azure Stack Edge Pro ou do Data Box Gateway, assegure que não existam políticas de imutabilidade definidas nessa conta. Para obter mais informações, confira [Definir e gerenciar políticas de imutabilidade para o armazenamento de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+    > Se você estiver usando a conta de Armazenamento do Azure com um dispositivo do Azure Stack Edge Pro ou do Data Box Gateway, assegure que não existam políticas de imutabilidade definidas nessa conta. Para obter mais informações, confira [Definir e gerenciar políticas de imutabilidade para o armazenamento de blobs](../storage/blobs/storage-blob-immutability-policies-manage.md).
     
     d. Na lista suspensa **Serviço de armazenamento**, selecione **Blob de Blocos**, **Blob de Páginas** ou **Arquivos**.  
     O tipo de serviço selecionado depende de qual formato você deseja que os dados usem no Azure. Neste exemplo, porque queremos armazenar os dados como blobs de blocos no Azure, selecionamos **Blob de Blocos**. Se você selecionar o **Blob de Páginas**, deverá garantir que seus dados sejam alinhados com 512 bytes. Por exemplo, um VHDX sempre é alinhado com 512 bytes.
@@ -162,5 +162,3 @@ Para saber como transformar seus dados usando o Azure Stack Edge Pro, prossiga p
 
 > [!div class="nextstepaction"]
 > [Transformar dados com o Azure Stack Edge Pro](./azure-stack-edge-deploy-configure-compute.md)
-
-

@@ -1,5 +1,5 @@
 ---
-title: Planejar e solucionar problemas de alterações de UPN (nome de entidade de usuário) do Azure
+title: Planejar e solucionar problemas de alterações de UPN (nome principal de usuário) do Azure
 description: Entender problemas conhecidos e mitigações para alterações de UPN
 services: active-directory
 ms.service: active-directory
@@ -11,16 +11,16 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a1acdbeb29091bae0be214b740023f13928506a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19e40d135316c1c7cd270d2804fff1f487937685
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319836"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858528"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Planejar e solucionar problemas de alterações de nome principal de usuário no Azure Active Directory
 
-Um nome principal de usuário (UPN) é um atributo que é um padrão de comunicação da Internet para contas de usuário. Um UPN consiste em um prefixo UPN (o nome da conta de usuário) e um sufixo UPN (um nome de domínio de DNS). O prefixo une o sufixo usando o símbolo "@". Por exemplo, someone@example.com. Um UPN deve ser exclusivo entre todos os objetos de entidade de segurança em uma floresta de diretórios. 
+Um nome principal de usuário (UPN) é um atributo que é um padrão de comunicação da Internet para contas de usuário. Um UPN consiste em um prefixo UPN (o nome da conta de usuário) e um sufixo UPN (um nome de domínio de DNS). O prefixo une o sufixo usando o símbolo " \@ ". Por exemplo, someone@example.com. Um UPN deve ser exclusivo entre todos os objetos de entidade de segurança em uma floresta de diretórios. 
 
 **Este artigo pressupõe que você está usando o UPN como o identificador de usuário. Ele aborda o planejamento de alterações de UPN e a recuperação de problemas que podem resultar de alterações de UPN.**
 
@@ -135,12 +135,12 @@ Os usuários podem enfrentar problemas de logon único com aplicativos que depen
 Os problemas mencionados nesta seção foram corrigidos no Windows 10 maio 2020 atualização (2004).
 
 **Solução alternativa** <br>
-Permita tempo suficiente para que a alteração de UPN seja sincronizada com o Azure AD. Depois de verificar se o novo UPN é refletido no portal do AD do Azure, peça ao usuário para selecionar o bloco "outro usuário" para entrar com seu novo UPN. Você também pode verificar por meio do [PowerShell](/powershell/module/azuread/get-azureaduser?view=azureadps-2.0). Depois de entrar com seu novo UPN, as referências ao UPN antigo ainda podem aparecer na configuração do Windows "acesso corporativo ou de estudante".
+Permita tempo suficiente para que a alteração de UPN seja sincronizada com o Azure AD. Depois de verificar se o novo UPN é refletido no portal do AD do Azure, peça ao usuário para selecionar o bloco "outro usuário" para entrar com seu novo UPN. Você também pode verificar por meio do [PowerShell](/powershell/module/azuread/get-azureaduser). Depois de entrar com seu novo UPN, as referências ao UPN antigo ainda podem aparecer na configuração do Windows "acesso corporativo ou de estudante".
 
 ![Captura de tela dos domínios verificados](./media/howto-troubleshoot-upn-changes/other-user.png)
 
 
-### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivos adicionados ao Azure AD híbrido
+### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivos ingressado no Azure AD Híbrido
 
 Dispositivos [ingressados no Azure ad híbrido](../devices/concept-azure-ad-join-hybrid.md) são associados a Active Directory e ao Azure AD. Você pode implementar o ingresso no Azure AD híbrido se o seu ambiente tiver uma superfície de Active Directory local e você também quiser se beneficiar dos recursos fornecidos pelo Azure AD.
 
@@ -174,7 +174,7 @@ O [aplicativo Microsoft Authenticator](../user-help/user-help-auth-app-overview.
 
 * Autenticação multifator por meio de uma notificação por Push ou código de verificação
 
-* Agir como um agente de autenticação em dispositivos iOS e Android para fornecer logon único para aplicativos que usam [autenticação orientada](../develop/brokered-auth.md)
+* Agir como um agente de autenticação em dispositivos iOS e Android para fornecer logon único para aplicativos que usam [autenticação orientada](../develop/msal-android-single-sign-on.md)
 
 * Registro de dispositivo (também conhecido como Workplace Join) para o Azure AD, que é um requisito para outros recursos como Proteção de Aplicativo do Intune e dispositivo registro/gerenciamento,
 

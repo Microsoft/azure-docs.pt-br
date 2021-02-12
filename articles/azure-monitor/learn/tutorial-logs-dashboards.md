@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 05/28/2020
 ms.custom: mvc
-ms.openlocfilehash: d38a4ba04529e70ecfd772eef7f60179041f0273
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 880d173c6eef9d267e8860ebad805e071706de42
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87927361"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186143"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Criar e compartilhar painéis de dados do Log Analytics
 
@@ -57,7 +57,7 @@ Quando você cria um painel, ele será privado por padrão, o que significa que 
 Será solicitado que você escolha uma assinatura e o grupo de recursos para que seu painel seja publicado. Para sua conveniência, a experiência de publicação do portal guia você por um padrão onde você coloca painéis em um grupo de recursos chamado **painéis**.  Confirme a assinatura selecionada e, em seguida, clique em **Publicar**.  O acesso às informações exibidas no painel é controlado com o [Azure RBAC (controle de acesso baseado em função do Azure)](../../role-based-access-control/role-assignments-portal.md).   
 
 ## <a name="visualize-a-log-query"></a>Visualizar uma consulta de logs
-[Log Analytics](../log-query/get-started-portal.md) é um portal dedicado usado para trabalhar com consultas de log e seus resultados. Os recursos incluem a capacidade de editar uma consulta em várias linhas e de executar código seletivamente, além do IntelliSense sensível ao contexto e da análise inteligente. Neste tutorial, você usará o Log Analytics para criar uma exibição de desempenho em formato gráfico, salvá-la para pesquisa futura e fixá-la no painel compartilhado criado anteriormente.
+[Log Analytics](../log-query/log-analytics-tutorial.md) é um portal dedicado usado para trabalhar com consultas de log e seus resultados. Os recursos incluem a capacidade de editar uma consulta em várias linhas e de executar código seletivamente, além do IntelliSense sensível ao contexto e da análise inteligente. Neste tutorial, você usará o Log Analytics para criar uma exibição de desempenho em formato gráfico, salvá-la para pesquisa futura e fixá-la no painel compartilhado criado anteriormente.
 
 Abra o Log Analytics selecionando **Logs** no menu do Azure Monitor. Ele começa com uma nova consulta em branco.
 

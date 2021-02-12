@@ -1,5 +1,5 @@
 ---
-title: Criar e configurar um cofre de chaves para Azure Disk Encryption
+title: Criando e configurando um cofre de chaves para Azure Disk Encryption em uma VM do Windows
 description: Este artigo fornece etapas para criar e configurar um cofre de chaves para uso com Azure Disk Encryption em uma VM do Windows.
 ms.service: virtual-machines
 ms.subservice: security
@@ -8,14 +8,14 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9d9d3d8456e0623ea3f1ef17c5f9f7acb28d0ecd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1fcd639eb55f61c215742d0eec7821e282010a2
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90977911"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807506"
 ---
-# <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Criar e configurar um cofre de chaves para Azure Disk Encryption
+# <a name="create-and-configure-a-key-vault-for-azure-disk-encryption"></a>Criar e configurar um cofre de chaves para o Azure Disk Encryption
 
 O Azure Disk Encryption usa o Azure Key Vault para ajudar você a controlar e gerenciar os segredos e chaves de criptografia de disco.  Para obter mais informações sobre cofres-chave, consulte [Introdução ao Cofre de Chaves do Azure](../../key-vault/general/overview.md) e [Proteja seu cofre de chaves](../../key-vault/general/secure-your-key-vault.md). 
 
@@ -49,7 +49,7 @@ Embora o portal possa ser acessado através do navegador, a CLI do Azure e o Azu
 
 ### <a name="connect-to-your-azure-account"></a>Conectar-se à sua conta do Azure
 
-Antes de usar a CLI do Azure ou o Azure PowerShell, é necessário se conectar a sua assinatura do Azure. Você faz isso [Entrando com a CLI do Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest), [Entrando com Azure Powershell](/powershell/azure/authenticate-azureps?view=azps-2.5.0) ou fornecendo suas credenciais para o portal do Azure quando solicitado.
+Antes de usar a CLI do Azure ou o Azure PowerShell, é necessário se conectar a sua assinatura do Azure. Você faz isso [Entrando com a CLI do Azure](/cli/azure/authenticate-azure-cli), [Entrando com Azure Powershell](/powershell/azure/authenticate-azureps) ou fornecendo suas credenciais para o portal do Azure quando solicitado.
 
 ```azurecli-interactive
 az login

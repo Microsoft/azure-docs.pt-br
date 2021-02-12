@@ -42,6 +42,8 @@
       href: api-management-get-started-publish-versions.md
     - name: 9 – Personalizar o portal do desenvolvedor
       href: api-management-howto-developer-portal-customize.md
+    - name: 10 – Gerenciar APIs no Visual Studio Code
+      href: visual-studio-code-tutorial.md
 - name: Exemplos
   items:
     - name: Políticas
@@ -58,10 +60,16 @@
           href: api-management-howto-policies.md
         - name: Índice de referência de política
           href: api-management-policies.md
+        - name: Tratamento de erros
+          href: api-management-error-handling-policies.md
     - name: Segurança
       items:
+        - name: Controles de segurança do Azure Policy
+          href: ./security-controls-policy.md
         - name: Linha de base de segurança
           href: security-baseline.md
+    - name: Back-ends
+      href: backends.md
     - name: Assinaturas
       href: api-management-subscriptions.md
     - name: Versões
@@ -70,8 +78,6 @@
       href: api-management-revisions.md
     - name: Gerenciar usando automação
       href: automation-manage-api-management.md
-    - name: Tratamento de erros
-      href: api-management-error-handling-policies.md
     - name: Restrições de importação da API
       href: api-management-api-import-restrictions.md
     - name: Visão geral do gateway auto-hospedado
@@ -80,6 +86,8 @@
       href: observability.md
     - name: CI/CD usando modelos do ARM
       href: devops-api-development-templates.md
+    - name: Exclusão reversível
+      href: soft-delete.md
 - name: Guias de instruções
   items:
     - name: Definir APIs
@@ -98,14 +106,16 @@
           href: import-function-app-as-api.md
         - name: Importar um aplicativo lógico
           href: import-logic-app-as-api.md
-        - name: Importar um aplicativo do Service Fabric
-          href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
         - name: Editar uma API
           href: edit-api.md
+        - name: Configurar o back-end do Service Fabric
+          href: how-to-configure-service-fabric-backend.md
     - name: Provisionar e dimensionar
       items:
         - name: Métrica de capacidade
           href: api-management-capacity.md
+        - name: Planejar e gerenciar custos
+          href: plan-manage-costs.md
         - name: Atualizar e dimensionar
           href: upgrade-and-scale.md
         - name: Configurar dimensionamento automático
@@ -214,7 +224,7 @@
           href: api-management-sample-flexible-throttling.md
         - name: Usando serviços externos
           href: api-management-sample-send-request.md
-        - name: Gerenciar segredos usando propriedades
+        - name: Gerenciar segredos usando valores nomeados
           href: api-management-howto-properties.md
         - name: Políticas de restrição de acesso
           href: api-management-access-restriction-policies.md
@@ -238,6 +248,8 @@
           href: api-management-howto-create-groups.md
         - name: Recuperar endereços IP
           href: api-management-howto-ip-addresses.md
+        - name: Obter análise de API
+          href: howto-use-analytics.md
         - name: Registrar eventos nos Hubs de Eventos do Azure
           href: api-management-howto-log-event-hubs.md
         - name: Registrar solicitações com o Application Insights do Azure
@@ -266,8 +278,10 @@
               href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
 - name: Referência
   items:
+    - name: CLI do Azure
+      href: /cli/azure/apim
     - name: Azure PowerShell
-      href: /powershell/module/az.apimanagement/?view=azps-2.6.0
+      href: /powershell/module/az.apimanagement/
     - name: REST
       href: /rest/api/apimanagement/
     - name: REST (original)
@@ -277,6 +291,8 @@
     - name: Itens internos do Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md
+    - name: Esquemas de log de recursos
+      href: gateway-log-schema-reference.md
 - name: Recursos
   items:
     - name: Perguntas frequentes
@@ -299,5 +315,9 @@
       href: /azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json
     - name: Diretrizes para implementação de API
       href: /azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json
-    - name: A solução de problemas falhou ao atualizar o erro de nomes de host
-      href: api-management-troubleshoot-cannot-add-custom-domain.md
+    - name: Solução de problemas
+      items:
+        - name: A solução de problemas falhou ao atualizar o erro de nomes de host
+          href: api-management-troubleshoot-cannot-add-custom-domain.md
+        - name: Solucionar problemas de tempos limite de resposta e erros
+          href: troubleshoot-response-timeout-and-errors.md

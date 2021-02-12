@@ -8,18 +8,33 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 10/23/2020
+ms.date: 11/23/2020
 ms.author: pafarley
-ms.openlocfilehash: a87e76d4a726f7a01b96d602e7f41d60409dae56
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 57f3cf0cb15243d054da0111366f3a1dc0fb5349
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521485"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95739750"
 ---
 # <a name="whats-new-in-custom-vision"></a>Novidades na Visão Personalizada
 
 Conheça o que há de novo no serviço. Esses itens podem ser notas sobre a versão, vídeos, postagens no blog e outros tipos de informações. Marque esta página para manter-se atualizado quanto ao serviço.
+
+
+## <a name="october-2020"></a>Outubro de 2020 
+
+### <a name="custom-base-model"></a>Modelo base personalizado
+
+- Alguns aplicativos têm uma grande quantidade de dados de treinamento conjuntos, mas precisam ajustar seus modelos separadamente. Isso resulta em um melhor desempenho para imagens de diferentes fontes com pequenas diferenças. Nesse caso, você pode treinar o primeiro modelo como de costume, com um grande volume de dados de treinamento. Depois, chame **TrainProject** na API de versão prévia pública 3.4 com _CustomBaseModelInfo_ no corpo da solicitação para usar o modelo treinado de primeiro estágio como modelo de base para projetos downstream. Quando o projeto de origem e o projeto de destino downstream têm características de imagens semelhantes, você pode esperar um melhor desempenho. 
+
+### <a name="new-domain-information"></a>Novas informações de domínio
+
+- As informações de domínio retornadas por **GetDomains** na API de versão prévia pública 3.4 da Visão Personalizada agora incluem as plataformas exportáveis com suporte, uma breve descrição da arquitetura do modelo e o tamanho do modelo para domínios compactos.
+
+### <a name="training-divergence-feedback"></a>Comentários sobre divergências no treinamento
+
+- A API de versão prévia pública 3.4 da Visão Personalizada agora retorna **TrainingErrorDetails** da chamada **GetIteration**. Em iterações com falha, isso revela se a falha foi causada por divergências de treinamento, que podem ser remediadas com informações de treinamento de qualidade mais elevada.
 
 ## <a name="july-2020"></a>Julho de 2020
 

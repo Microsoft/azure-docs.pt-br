@@ -1,5 +1,6 @@
 ---
-title: Diferenças de validação por tipos de conta com suporte – plataforma de identidade da Microsoft | Azure
+title: Diferenças de validação por tipos de conta com suporte | Azure
+titleSuffix: Microsoft identity platform
 description: Saiba mais sobre as diferenças de validação de várias propriedades para diferentes tipos de conta com suporte ao registrar seu aplicativo com a plataforma de identidade da Microsoft.
 author: SureshJa
 ms.author: sureshja
@@ -10,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: e794e277f6731c7b6e57a4710eea437f65be0340
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eea2e587a075d774a25f479ec61575a002b57f75
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87336337"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937810"
 ---
 # <a name="validation-differences-by-supported-account-types-signinaudience"></a>Diferenças de validação por tipos de conta com suporte (signInAudience)
 
@@ -23,9 +24,9 @@ Ao registrar um aplicativo com a plataforma de identidade da Microsoft para dese
 
 As opções incluem o seguinte:
 
-- *AzureADMyOrg*: somente as contas no diretório organizacional em que o aplicativo está registrado (locatário único)
-- *AzureADMultipleOrgs*: contas em qualquer diretório organizacional (multilocatário)
-- *AzureADandPersonalMicrosoftAccount*: contas em qualquer diretório organizacional (multilocatário) e contas pessoais da Microsoft (por exemplo, Skype, Xbox e Outlook.com)
+- **AzureADMyOrg**: somente as contas no diretório organizacional em que o aplicativo está registrado (locatário único).
+- **AzureADMultipleOrgs**: contas em qualquer diretório organizacional (multilocatário).
+- **AzureADandPersonalMicrosoftAccount**: contas em qualquer diretório organizacional (multilocatário) e contas pessoais da Microsoft (por exemplo, Skype, Xbox e Outlook.com).
 
 Para aplicativos registrados, você pode encontrar o valor dos tipos de conta com suporte na seção de **autenticação** de um aplicativo. Você também pode encontrá-lo na `signInAudience` propriedade no **manifesto**.
 
@@ -43,11 +44,11 @@ Consulte a tabela a seguir para obter as diferenças de validação de várias p
 | Escopos definidos por esta API ( `oauth2Permissions` ) | Comprimento máximo do nome de escopo de 120 caracteres <br><br> Sem limite * no número de escopos definidos | Comprimento máximo do nome de escopo de 120 caracteres <br><br> Sem limite * no número de escopos definidos |  Comprimento máximo do nome de escopo de 40 caracteres <br><br> Máximo de 100 escopos definidos | 
 | Aplicativos cliente autorizados ( `preAuthorizedApplications` ) | Sem limite * | Sem limite * | Máximo total de 500 <br><br> Máximo de 100 aplicativos cliente definidos <br><br> Máximo de 30 escopos definidos por cliente | 
 | appRoles | Com suporte <br> Sem limite * | Com suporte <br> Sem limite * | Sem suporte | 
-| URL de logoff | http://localhost é permitido <br><br> Comprimento máximo de 255 caracteres | http://localhost é permitido <br><br> Comprimento máximo de 255 caracteres | <br><br> https://localhost é permitido, http://localhost falha para MSA <br><br> Comprimento máximo de 255 caracteres <br><br> O esquema HTTP não é permitido <br><br> Não há suporte para curingas | 
+| URL de logoff de front-Channel | https://localhost é permitido <br><br> `http` o esquema não é permitido <br><br> Comprimento máximo de 255 caracteres | https://localhost é permitido <br><br> `http` o esquema não é permitido <br><br> Comprimento máximo de 255 caracteres | <br><br> https://localhost é permitido, http://localhost falha para MSA <br><br> Comprimento máximo de 255 caracteres <br><br> `http` o esquema não é permitido <br><br> Não há suporte para curingas | 
 
-* Há um limite global de cerca de 1000 itens em todas as propriedades de coleção no objeto de aplicativo
+* Há um limite global de cerca de 1000 itens em todas as propriedades de coleção no objeto de aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre o [registro do aplicativo](app-objects-and-service-principals.md)
+- Saiba mais sobre o [registro do aplicativo](app-objects-and-service-principals.md).
 - Saiba mais sobre o [manifesto do aplicativo](reference-app-manifest.md).

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6af2f65aa2e2052a79f4c5cffd7ff4a38a9fc838
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d7e4d0c41990fcc23dd19b5682997f6381bfdb20
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366557"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937086"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Criar uma estratégia de gerenciamento de controle de acesso resiliente com o Azure Active Directory
 
@@ -38,8 +38,8 @@ Este documento fornece diretrizes sobre as estratégias que uma organização de
 Há quatro observações principais neste documento:
 
 * Evite o bloqueio do administrador usando contas de acesso de emergência.
-* Implemente o MFA usando o acesso condicional (CA) em vez de MFA por usuário.
-* Mitigar o bloqueio do usuário usando vários controles de acesso condicional (AC).
+* Implemente o MFA usando o acesso condicional em vez da MFA por usuário.
+* Mitigar o bloqueio do usuário usando vários controles de acesso condicional.
 * Reduza o bloqueio do usuário provisionando vários métodos de autenticação ou equivalentes para cada usuário.
 
 ## <a name="before-a-disruption"></a>Antes de uma interrupção
@@ -65,16 +65,16 @@ Para desbloquear o acesso de administrador para o locatário, é necessário cri
 
 Incorpore os seguintes controles de acesso em suas políticas de acesso condicional existentes para a organização:
 
-1. Provisione vários métodos de autenticação para cada usuário que dependa de canais de comunicação diferentes, por exemplo, o aplicativo Microsoft Authenticator (baseado na internet), token OATH (gerado no dispositivo) e SMS (telefônico). O script do PowerShell a seguir ajudará você a identificar com antecedência, quais métodos adicionais seus usuários devem registrar: [script para análise do método de autenticação do Azure MFA](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
+1. Provisione vários métodos de autenticação para cada usuário que dependa de canais de comunicação diferentes, por exemplo, o aplicativo Microsoft Authenticator (baseado na internet), token OATH (gerado no dispositivo) e SMS (telefônico). O script do PowerShell a seguir ajudará você a identificar com antecedência, quais métodos adicionais seus usuários devem registrar: [script para análise do método de autenticação do Azure ad MFA](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
 2. Implante o Windows Hello para Empresas em dispositivos Windows 10 para atender aos requisitos de MFA diretamente do logon de dispositivo.
 3. Use dispositivos confiáveis por meio do [Azure AD Hybrid Join](../devices/overview.md) ou [dispositivos gerenciados pelo Microsoft Intune](/intune/planning-guide). Dispositivos confiáveis melhorarão a experiência do usuário porque o próprio dispositivo confiável pode atender aos requisitos de autenticação forte de política sem um desafio MFA para o usuário. Em seguida, a MFA será necessária ao registrar um novo dispositivo e ao acessar a aplicativos ou recursos de dispositivos não confiáveis.
 4. Use as políticas de proteção de identidade com base no risco do Azure AD, que impedem o acesso quando o usuário ou logon está em risco, no lugar de políticas de MFA fixas.
-5. Se você estiver protegendo o acesso VPN usando a extensão NPS do Azure MFA, considere a possibilidade de federar sua solução de VPN como um [aplicativo SAML](../manage-apps/view-applications-portal.md) e determinar a categoria do aplicativo conforme recomendado abaixo. 
+5. Se você estiver protegendo o acesso VPN usando a extensão NPS do Azure AD MFA, considere a possibilidade de federar sua solução de VPN como um [aplicativo SAML](../manage-apps/view-applications-portal.md) e determinar a categoria do aplicativo conforme recomendado abaixo. 
 
 >[!NOTE]
 > As políticas baseadas em risco requerem licenças do [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/).
 
-O exemplo a seguir descreve as políticas que você deve criar para fornecer um controle de acesso resiliente para que o usuário acesse os aplicativos e recursos deles. Neste exemplo, será necessário um grupo de segurança **AppUsers** com os usuários de destino para os quais você quer conceder acesso, um grupo nomeado **CoreAdmins** com os administradores principais e um grupo nomeado ** EmergencyAccess** com as contas de acesso de emergência.
+O exemplo a seguir descreve as políticas que você deve criar para fornecer um controle de acesso resiliente para que o usuário acesse os aplicativos e recursos deles. Neste exemplo, será necessário um grupo de segurança **AppUsers** com os usuários de destino para os quais você quer conceder acesso, um grupo nomeado **CoreAdmins** com os administradores principais e um grupo nomeado **EmergencyAccess** com as contas de acesso de emergência.
 Este conjunto de políticas de exemplo concederá aos usuários selecionados no **AppUsers** acesso aos aplicativos selecionados se eles estiverem conectando a partir de um dispositivo confiável OU fornecerá autenticação forte, por exemplo, MFA. Isso exclui contas de emergência e administradores principais.
 
 **Conjunto de políticas de mitigação de CA:**
@@ -112,7 +112,7 @@ Como alternativa, sua organização também pode criar políticas de contingênc
 
 #### <a name="microsoft-recommendations"></a>Recomendações da Microsoft
 
-Uma política de acesso condicional de contingência é uma **política de backup** que OMITE a MFA do Azure, a MFA de terceiros, os controles baseados em risco ou no dispositivo. Para minimizar a interrupção inesperada quando uma política de contingência estiver habilitada, a política deverá permanecer no modo somente de relatório quando não estiver em uso. Os administradores podem monitorar o impacto potencial de suas políticas de contingência usando a pasta de trabalho de informações de acesso condicional. Quando sua organização decidir ativar seu plano de contingência, os administradores poderão habilitar a política e desabilitar as políticas comuns baseadas em controle.
+Uma política de acesso condicional de contingência é uma **política de backup** que OMITE a MFA do Azure AD, a MFA de terceiros, os controles baseados em risco ou no dispositivo. Para minimizar a interrupção inesperada quando uma política de contingência estiver habilitada, a política deverá permanecer no modo somente de relatório quando não estiver em uso. Os administradores podem monitorar o impacto potencial de suas políticas de contingência usando a pasta de trabalho de informações de acesso condicional. Quando sua organização decidir ativar seu plano de contingência, os administradores poderão habilitar a política e desabilitar as políticas comuns baseadas em controle.
 
 >[!IMPORTANT]
 > Desabilitar políticas que impõem segurança nos usuários, mesmo temporariamente, reduzirá a postura de segurança enquanto o plano de contingência estiver vigente.
@@ -138,9 +138,9 @@ Esse padrão de nomenclatura para as políticas de contingência será o seguint
 EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
 ```
 
-O exemplo a seguir: **exemplo de uma política de AC de contingência para restaurar o acesso a aplicativos de colaboração de missão crítica**, é uma contingência corporativa típica. Nesse cenário, a organização normalmente requer MFA para todos os acessos do Exchange Online e SharePoint Online e a interrupção, nesse caso, é que o provedor de MFA para o cliente tem uma interrupção (quer seja a MFA do Azure, provedor MFA local ou a MFA de terceiros). Essa política mitiga essa interrupção, permitindo que os usuários de destino específicos acessem esses aplicativos em dispositivos confiáveis do Windows somente quando eles estão acessando o aplicativo a partir da rede corporativa confiável deles. Ela também exclui contas de emergência e administradores principais nessas restrições. Assim, os usuários de destino terão acesso ao Exchange Online e ao SharePoint Online, enquanto outros usuários ainda não terão acesso a aplicativos devido à interrupção. Este exemplo exigirá um local de rede nomeado **CorpNetwork** e um grupo de segurança **ContingencyAccess** com os usuários de destino, um grupo nomeado **CoreAdmins** com os administradores principais e um grupo nomeado **EmergencyAccess** com as contas de acesso de emergência. A contingência requer quatro políticas para fornecer o acesso exigido. 
+O exemplo a seguir: **exemplo uma política de acesso condicional de contingência para restaurar o acesso a aplicativos de colaboração de missão crítica** é uma contingência corporativa típica. Nesse cenário, a organização normalmente requer MFA para todos os acessos do Exchange Online e do SharePoint Online, e a interrupção nesse caso é que o provedor de MFA para o cliente tem uma interrupção (seja o Azure AD MFA, provedor de MFA local ou MFA de terceiros). Essa política mitiga essa interrupção, permitindo que os usuários de destino específicos acessem esses aplicativos em dispositivos confiáveis do Windows somente quando eles estão acessando o aplicativo a partir da rede corporativa confiável deles. Ela também exclui contas de emergência e administradores principais nessas restrições. Assim, os usuários de destino terão acesso ao Exchange Online e ao SharePoint Online, enquanto outros usuários ainda não terão acesso a aplicativos devido à interrupção. Este exemplo exigirá um local de rede nomeado **CorpNetwork** e um grupo de segurança **ContingencyAccess** com os usuários de destino, um grupo nomeado **CoreAdmins** com os administradores principais e um grupo nomeado **EmergencyAccess** com as contas de acesso de emergência. A contingência requer quatro políticas para fornecer o acesso exigido. 
 
-**Exemplo A - políticas de CA de contingência para restaurar o acesso aos aplicativos de colaboração críticos:**
+**Exemplo de políticas de acesso condicional de contingência para restaurar o acesso a aplicativos de colaboração de missão crítica:**
 
 * Política 1: exigir dispositivos ingressados no domínio para o Exchange e o SharePoint
   * Nome: EM001-habilitar em emergência: interrupção do MFA [1/4]-Exchange SharePoint-exigir ingresso do Azure AD híbrido
@@ -180,9 +180,9 @@ Ordem de ativação:
 5. Habilitar política 4: Verifique se todos os usuários não podem obter o Exchange Online dos aplicativos de email nativos em dispositivos móveis.
 6. Desabilite a política MFA existente para o SharePoint Online e o Exchange Online.
 
-Neste exemplo, **Exemplo B - políticas de CA de contingência para permitir o acesso móvel à Salesforce**, o acesso de um aplicativo de negócios é restaurado. Nesse cenário, o cliente normalmente requer o acesso de funcionários de vendas à Salesforce (configurada para logon único com o Azure AD) de dispositivos móveis a serem permitidos apenas de dispositivos em conformidade. A interrupção nesse caso é que há um problema com a avaliação da conformidade do dispositivo e a interrupção está acontecendo durante um tempo sensível em que a equipe de vendas precisa de acesso à Salesforce para fechar negócios. Essas políticas de contingência concederão aos usuários críticos o acesso à Salesforce a partir de um dispositivo móvel para possibilitar que eles continuem a fechar negócios e não interrompam os negócios. Neste exemplo, **SalesforceContingency** contém todos os funcionários de vendas que precisam manter o acesso e **SalesAdmins** contém os administradores necessários da Salesforce.
+Neste próximo exemplo, **exemplo B-políticas de acesso condicional de contingência para permitir o acesso móvel ao Salesforce**, o acesso de um aplicativo de negócios é restaurado. Nesse cenário, o cliente normalmente requer o acesso de funcionários de vendas à Salesforce (configurada para logon único com o Azure AD) de dispositivos móveis a serem permitidos apenas de dispositivos em conformidade. A interrupção nesse caso é que há um problema com a avaliação da conformidade do dispositivo e a interrupção está acontecendo durante um tempo sensível em que a equipe de vendas precisa de acesso à Salesforce para fechar negócios. Essas políticas de contingência concederão aos usuários críticos o acesso à Salesforce a partir de um dispositivo móvel para possibilitar que eles continuem a fechar negócios e não interrompam os negócios. Neste exemplo, **SalesforceContingency** contém todos os funcionários de vendas que precisam manter o acesso e **SalesAdmins** contém os administradores necessários da Salesforce.
 
-**Exemplo B - políticas de CA de contingência:**
+**Exemplo B-políticas de acesso condicional de contingência:**
 
 * Política 1: bloquear todos que não estejam na equipe do SalesContingency
   * Nome: EM001-habilitar em emergência: interrupção de conformidade do dispositivo [1/2]-Salesforce-bloquear todos os usuários, exceto SalesforceContingency
@@ -208,7 +208,7 @@ Ordem de ativação:
 
 ### <a name="contingencies-for-user-lockout-from-on-prem-resources-nps-extension"></a>Contingências para bloqueio de usuário de recursos locais (extensão NPS)
 
-Se você estiver protegendo o acesso VPN usando a extensão NPS do Azure MFA, considere a possibilidade de federar sua solução de VPN como um [aplicativo SAML](../manage-apps/view-applications-portal.md) e determinar a categoria do aplicativo conforme recomendado abaixo. 
+Se você estiver protegendo o acesso VPN usando a extensão NPS do Azure AD MFA, considere a possibilidade de federar sua solução de VPN como um [aplicativo SAML](../manage-apps/view-applications-portal.md) e determinar a categoria do aplicativo conforme recomendado abaixo. 
 
 Se você tiver implantado a extensão NPS do Azure AD MFA para proteger recursos locais, como VPN e gateway de Área de Trabalho Remota, com MFA, deverá considerar com antecedência se estiver pronto para desabilitar a MFA em um caso de emergência.
 
@@ -266,7 +266,7 @@ Desfaça as alterações feitas como parte do plano de contingência ativado qua
 3. Reverta todas as outras alterações feitas e documentadas durante a interrupção.
 4. Se você usou uma conta de acesso de emergência, lembre-se de regenerar as credenciais e proteger fisicamente os detalhes das novas credenciais como parte dos procedimentos de conta de acesso de emergência.
 5. Continue a fazer a [triagem de todas as detecções de risco relatadas](../reports-monitoring/concept-sign-ins.md) após a interrupção de atividade suspeita.
-6. Revogue todos os tokens de atualização que foram emitidos [usando o PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) como destino de um conjunto de usuários. A revogação de todos os tokens de atualização é importante para contas com privilégios usadas durante a interrupção e fazer isso as forçará a autenticarem-se novamente e cumprirem o controle das políticas restauradas.
+6. Revogue todos os tokens de atualização que foram emitidos [usando o PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) como destino de um conjunto de usuários. A revogação de todos os tokens de atualização é importante para contas com privilégios usadas durante a interrupção e fazer isso as forçará a autenticarem-se novamente e cumprirem o controle das políticas restauradas.
 
 ## <a name="emergency-options"></a>Opções de emergência
 
@@ -280,14 +280,14 @@ Se sua organização estiver usando políticas herdadas de MFA por usuário, voc
  > Se você ampliar os endereços IP confiáveis para desbloquear o acesso, as detecções de risco associadas a endereços IP (por exemplo, viagens impossíveis ou locais desconhecidos) não serão geradas.
 
 >[!NOTE]
- > Configurar [IPs confiáveis](./howto-mfa-mfasettings.md) para a MFA do Azure só está disponível com [licenças do Azure AD Premium](./concept-mfa-licensing.md).
+ > A configuração de [IPs confiáveis](./howto-mfa-mfasettings.md) para o Azure ad MFA só está disponível com [licenças Azure ad Premium](./concept-mfa-licensing.md).
 
 ## <a name="learn-more"></a>Saiba mais
 
 * [Documentação de Autenticação do Azure AD](./howto-mfaserver-iis.md)
 * [Gerenciar contas administrativas de acesso de emergência no Azure AD](../roles/security-emergency-access.md)
 * [Configurar locais nomeados no Azure Active Directory](../reports-monitoring/quickstart-configure-named-locations.md)
-  * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
+  * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings)
 * [Como configurar dispositivos adicionados ao Azure Active Directory híbrido](../devices/hybrid-azuread-join-plan.md)
 * [Guia de implantação do Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * [Diretrizes de senha - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)

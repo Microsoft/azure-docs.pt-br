@@ -4,19 +4,19 @@ description: Depurar o logon único baseado em SAML para aplicativos no Azure Ac
 services: active-directory
 ms.author: kenwith
 author: kenwith
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: troubleshooting
 ms.workload: identity
 ms.date: 02/18/2019
 ms.reviewer: luleon, hirsin, paulgarn
-ms.openlocfilehash: f8eb00a2a88c6e26dd5361097f17990469caa8f3
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 4a5fbef3380db8c9b357c83b4cb8240a41a0012c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92325971"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259280"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Depurar o logon único baseado em SAML para aplicativos no Azure Active Directory
 
@@ -37,7 +37,7 @@ Para baixar e instalar a My Apps Secure Sign-in Extension, use um dos links a se
 Para testar o logon único baseado em SAML entre o Azure AD e um aplicativo de destino:
 
 1. Entre no [portal do Azure](https://portal.azure.com) como um administrador global ou outro administrador autorizado a gerenciar aplicativos.
-1. Na folha à esquerda, selecione **Azure Active Directory**e, em seguida, selecione **aplicativos empresariais**. 
+1. Na folha à esquerda, selecione **Azure Active Directory** e, em seguida, selecione **aplicativos empresariais**. 
 1. Na lista de aplicativos empresariais, selecione o aplicativo para o qual você deseja testar o logon único e, em seguida, nas opções à esquerda, selecione **logon único**.
 1. Para abrir a experiência de teste de logon único baseada em SAML, vá para **testar logon único** (etapa 5). Se o botão **testar** estiver esmaecido, você precisará preencher e salvar os atributos necessários primeiro na seção **configuração básica do SAML** .
 1. Na folha **Testar logon único**, use as credenciais corporativas para entrar no aplicativo de destino. Você pode entrar como o usuário atual ou como um usuário diferente. Se você entrar como um usuário diferente, um prompt solicitará que você se autentique.

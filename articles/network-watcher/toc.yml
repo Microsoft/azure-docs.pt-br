@@ -28,8 +28,8 @@
       href: network-watcher-nsg-flow-logging-portal.md
 - name: Conceitos
   items:
-    - name: Monitor de Conexão (Versão Prévia)
-      href: connection-monitor-preview.md
+    - name: Monitor de Conexão
+      href: connection-monitor-overview.md
     - name: Diagnosticar problemas de filtro de tráfego de rede de VM
       href: network-watcher-ip-flow-verify-overview.md
     - name: Diagnosticar regras de NSG e filtragem de Tráfego
@@ -58,26 +58,28 @@
   items:
     - name: Configurar o Observador de Rede
       href: network-watcher-create.md
-    - name: Criar Monitor da Conexão (versão prévia)
+    - name: Criar o Monitor de conexão
       items:
         - name: Usando o Portal do Azure
-          href: connection-monitor-preview-create-using-portal.md
+          href: connection-monitor-create-using-portal.md
         - name: Usando o ARMClient
-          href: connection-monitor-preview-create-using-arm-client.md
-    - name: Migrar para o Monitor da Conexão (versão prévia)
+          href: connection-monitor-create-using-template.md
+        - name: Usar o PowerShell
+          href: connection-monitor-create-using-powershell.md
+    - name: Migrar para o Monitor da Conexão
       items:
         - name: Do Monitor de Desempenho de Rede
-          href: migrate-to-connection-monitor-preview-from-network-performance-monitor.md
-        - name: Do Monitor da Conexão
-          href: migrate-to-connection-monitor-preview-from-connection-monitor.md
+          href: migrate-to-connection-monitor-from-network-performance-monitor.md
+        - name: Do monitor da conexão (clássico)
+          href: migrate-to-connection-monitor-from-connection-monitor-classic.md
     - name: Diagnosticar problemas de rede de VM
       items:
         - name: Instalar a extensão de VM
           items:
             - name: Windows
-              href: ../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+              href: ../virtual-machines/extensions/network-watcher-windows.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
             - name: Linux
-              href: ../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+              href: ../virtual-machines/extensions/network-watcher-linux.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
         - name: Diagnosticar um problema de roteamento
           items:
             - name: Azure PowerShell
@@ -182,7 +184,7 @@
     - name: Determinar a latência relativa entre um local e a região do Azure
       href: view-relative-latencies.md
     - name: Monitorar desempenho de rede
-      href: ../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+      href: ../azure-monitor/insights/network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
     - name: Mover recursos
       items:
         - name: Mover recursos do Observador de Rede
@@ -212,7 +214,7 @@
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Página de perguntas de P e R da Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-network.html'
+      href: /answers/topics/azure-virtual-network.html
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/network-watcher/'
     - name: Atualizações de serviço

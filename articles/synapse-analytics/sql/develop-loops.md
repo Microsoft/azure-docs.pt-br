@@ -1,6 +1,6 @@
 ---
 title: Usar loops T-SQL
-description: Dicas para usar loops T-SQL, substituir cursores e desenvolver soluções relacionadas com o pool SQL no Synapse SQL.
+description: Dicas para usar loops T-SQL, substituir cursores e desenvolver soluções relacionadas com o Synapse SQL no Azure Synapse Analytics.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -10,23 +10,24 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 33e1ebc2269ef1db6bb0646f845b09be1a01c724
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d83e1305a851bf6bafb6c4c79f5caf73f8e44b6
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289048"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120879"
 ---
-# <a name="use-t-sql-loops-in-synapse-sql"></a>Usar loops T-SQL no Synapse SQL
-Este artigo fornece dicas essenciais para o uso de loops T-SQL, a substituição de cursores e o desenvolvimento de soluções relacionadas com o pool do SQL no Synapse SQL.
+# <a name="use-t-sql-loops-with-synapse-sql-in-azure-synapse-analytics"></a>Usar loops T-SQL com Synapse SQL no Azure Synapse Analytics
+
+Este artigo fornece dicas essenciais para o uso de loops T-SQL, a substituição de cursores e o desenvolvimento de soluções relacionadas com o SQL Synapse.
 
 ## <a name="purpose-of-while-loops"></a>Finalidade de loops WHILE
 
-Synapse SQL dá suporte ao loop [while](https://docs.microsoft.com/sql/t-sql/language-elements/while-transact-sql?view=sql-server-ver15&preserve-view=true) para executar repetidamente blocos de instrução. Esse loop WHILE continuará desde que as condições especificadas sejam verdadeiras ou até que o código especificamente encerre o loop usando a palavra-chave BREAK. 
+Synapse SQL dá suporte ao loop [while](/sql/t-sql/language-elements/while-transact-sql?preserve-view=true&view=sql-server-ver15) para executar repetidamente blocos de instrução. Esse loop WHILE continuará desde que as condições especificadas sejam verdadeiras ou até que o código especificamente encerre o loop usando a palavra-chave BREAK. 
 
-Os loops no pool do SQL são úteis para substituir cursores definidos no código SQL. Felizmente, quase todos os cursores que são escritos em código SQL são do tipo somente leitura de avanço rápido. Portanto, os loops WHILE são uma ótima alternativa para substituir cursores.
+Os loops no SQL Synapse são úteis para substituir cursores definidos no código SQL. Felizmente, quase todos os cursores que são escritos em código SQL são do tipo somente leitura de avanço rápido. Portanto, os loops WHILE são uma ótima alternativa para substituir cursores.
 
-## <a name="replace-cursors-in-sql-pool"></a>Substituir cursores no pool SQL
+## <a name="replace-cursors-in-synapse-sql"></a>Substituir cursores em Synapse SQL
 
 Antes de mergulharmos no, a seguinte pergunta deve ser considerada: "o cursor poderia ser reescrito para usar operações baseadas em conjunto?" Em muitos casos, a resposta é sim e geralmente é a melhor abordagem. Uma operação baseada em conjunto geralmente é executada mais rapidamente do que uma abordagem iterativa, linha por linha.
 

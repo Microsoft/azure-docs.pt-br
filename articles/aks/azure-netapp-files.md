@@ -4,12 +4,12 @@ description: Saiba como integrar o Azure NetApp Files com o serviço kubernetes 
 services: container-service
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: bc65c3dfad4c27c1650054c6836fbbbf07a7dbf2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 19727d3c3322b05f340463d94a2bc3884e5d9d93
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126246"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196003"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Integrar Azure NetApp Files com o serviço kubernetes do Azure
 
@@ -28,14 +28,14 @@ A CLI do Azure versão 2.0.59 ou posterior também precisa estar instalada e con
 As seguintes limitações se aplicam quando você usa Azure NetApp Files:
 
 * Azure NetApp Files só está disponível [em regiões do Azure selecionadas][anf-regions].
-* Para poder usar Azure NetApp Files, você deve ter acesso ao serviço Azure NetApp Files. Para se candidatar ao acesso, você pode usar o [formulário de envio Azure NetApp files Waitlist][anf-waitlist]. Você não pode acessar o serviço de Azure NetApp Files até receber o email de confirmação oficial da equipe de Azure NetApp Files.
+* Para poder usar Azure NetApp Files, você deve ter acesso ao serviço Azure NetApp Files. Para se candidatar ao acesso, você pode usar o [formulário de envio Azure NetApp files Waitlist][anf-waitlist] ou ir para https://azure.microsoft.com/services/netapp/#getting-started . Você não pode acessar o serviço de Azure NetApp Files até receber o email de confirmação oficial da equipe de Azure NetApp Files.
 * Após a implantação inicial de um cluster AKS, há suporte apenas para o provisionamento estático para Azure NetApp Files.
 * Para usar o provisionamento dinâmico com o Azure NetApp Files, instale e configure o [NetApp Trident](https://netapp-trident.readthedocs.io/) versão 19, 7 ou posterior.
 
 ## <a name="configure-azure-netapp-files"></a>Configurar Azure NetApp Files
 
 > [!IMPORTANT]
-> Antes de poder registrar o provedor de recursos  *Microsoft. NetApp* , você deve concluir o [formulário de envio Azure NetApp files Waitlist][anf-waitlist] para sua assinatura. Você não pode registrar o recurso fornecer até receber o email de confirmação oficial da equipe de Azure NetApp Files.
+> Antes de poder registrar o provedor de recursos  *Microsoft. NetApp* , você deve concluir o [formulário de envio Azure NetApp files Waitlist][anf-waitlist] ou ir para https://azure.microsoft.com/services/netapp/#getting-started para sua assinatura. Você não pode registrar o recurso fornecer até receber o email de confirmação oficial da equipe de Azure NetApp Files.
 
 Registre o provedor de recursos *Microsoft. NetApp* :
 
@@ -145,7 +145,7 @@ az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $ANF_
 }
 ```
 
-Crie um `pv-nfs.yaml` definindo um PersistentVolume. Substitua `path` por *creationToken* e `server` por *ipAddress* do comando anterior. Por exemplo: 
+Crie um `pv-nfs.yaml` definindo um PersistentVolume. Substitua `path` por *creationToken* e `server` por *ipAddress* do comando anterior. Por exemplo:
 
 ```yaml
 ---
@@ -158,6 +158,8 @@ spec:
     storage: 100Gi
   accessModes:
     - ReadWriteMany
+  mountOptions:
+    - vers=3
   nfs:
     server: 10.0.0.4
     path: /myfilepath2
@@ -177,7 +179,7 @@ kubectl describe pv pv-nfs
 
 ## <a name="create-the-persistentvolumeclaim"></a>Criar o PersistentVolumeClaim
 
-Crie um `pvc-nfs.yaml` definindo um PersistentVolume. Por exemplo: 
+Crie um `pvc-nfs.yaml` definindo um PersistentVolume. Por exemplo:
 
 ```yaml
 apiVersion: v1
@@ -207,7 +209,7 @@ kubectl describe pvc pvc-nfs
 
 ## <a name="mount-with-a-pod"></a>Montar com um pod
 
-Crie uma `nginx-nfs.yaml` definição de um pod que usa o PersistentVolumeClaim. Por exemplo: 
+Crie uma `nginx-nfs.yaml` definição de um pod que usa o PersistentVolumeClaim. Por exemplo:
 
 ```yaml
 kind: Pod

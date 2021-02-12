@@ -1,71 +1,72 @@
 ---
 title: Versão prévia - Crie uma versão da imagem criptografada com suas próprias chaves
-description: Crie uma versão da imagem em uma Galeria de Imagens Compartilhadas usando chaves de criptografia gerenciadas pelo cliente.
+description: Crie uma versão de imagem em uma galeria de imagens compartilhadas usando chaves de criptografia gerenciadas pelo cliente.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 11/3/2020
 ms.author: cynthn
-ms.openlocfilehash: 73a7090afe771eef82523753c4067399d9f5dd5e
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 0f5eb6a2964cdb679c2a83bd9d9b6296e3e962ed
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048076"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499281"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Visualização: Use chaves gerenciadas pelo cliente para criptografar imagens
 
-As imagens da galeria são armazenadas como discos gerenciados; portanto, elas são criptografadas automaticamente usando a criptografia do lado do servidor. A criptografia no servidor usa a [criptografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uma das codificações de bloco mais fortes disponíveis e está em conformidade com FIPS 140-2. Para obter mais informações sobre os módulos criptografos subjacentes aos discos gerenciados do Azure, consulte [API de Criptografia: Next Generation](/windows/desktop/seccng/cng-portal)
+As imagens em uma galeria de imagens compartilhadas são armazenadas como instantâneos, portanto, são criptografadas automaticamente por meio da criptografia do lado do servidor. A criptografia do lado do servidor usa a [criptografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)de 256 bits, uma das codificações de bloco mais fortes disponíveis. A criptografia do lado do servidor também é compatível com FIPS 140-2. Para obter mais informações sobre os módulos de criptografia subjacentes ao Azure Managed disks, consulte [API de criptografia: próxima geração](/windows/desktop/seccng/cng-portal).
 
-Você pode contar com chaves gerenciadas por plataforma para a criptografia de suas imagens, usar suas próprias chaves ou pode usar ambas juntas para criptografia dupla. Se você optar por gerenciar a criptografia com suas próprias chaves, pode especificar uma *chave gerenciada pelo cliente* a ser usada para criptografar e descriptografar todos os discos nas suas imagens. 
+Você pode contar com chaves gerenciadas por plataforma para a criptografia de suas imagens ou usar suas próprias chaves. Você também pode usar ambos juntos para criptografia dupla. Se você optar por gerenciar a criptografia com suas próprias chaves, pode especificar uma *chave gerenciada pelo cliente* a ser usada para criptografar e descriptografar todos os discos nas suas imagens. 
 
-A criptografia do lado do servidor que usa chaves gerenciadas pelo cliente usa o Azure Key Vault. É possível importar [as chaves RSA](../key-vault/keys/hsm-protected-keys.md) para o Key Vault ou gerar novas chaves RSA no Azure Key Vault.
+A criptografia do lado do servidor por meio de chaves gerenciadas pelo cliente usa Azure Key Vault. Você pode importar [suas chaves RSA](../key-vault/keys/hsm-protected-keys.md) para o cofre de chaves ou gerar novas chaves rsa em Azure Key Vault.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo requer que você já tenha um conjunto de criptografia de disco para usar para sua imagem.
+Este artigo requer que você já tenha um conjunto de criptografia de disco em cada região em que você deseja replicar a imagem:
 
-- Para usar apenas uma chave gerenciada pelo cliente, consulte **habilitar chaves gerenciadas pelo cliente com criptografia do lado do servidor** usando o [portal do Azure](./disks-enable-customer-managed-keys-portal.md) ou o [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
+- Para usar apenas uma chave gerenciada pelo cliente, consulte os artigos sobre como habilitar chaves gerenciadas pelo cliente com a criptografia do lado do servidor usando o [portal do Azure](./disks-enable-customer-managed-keys-portal.md) ou o [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
 
-- Para usar chaves gerenciadas por plataforma e gerenciadas pelo cliente (para criptografia dupla), consulte **habilitar a criptografia dupla em repouso** usando o [portal do Azure](./disks-enable-double-encryption-at-rest-portal.md) ou o [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
-    > [!IMPORTANT]
-    > Você deve usar este link [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) para acessar o portal do Azure. A criptografia dupla em repouso não está visível no momento no portal do Azure público sem usar o link.
+- Para usar chaves gerenciadas por plataforma e gerenciadas pelo cliente (para criptografia dupla), consulte os artigos sobre como habilitar a criptografia dupla em repouso usando o [portal do Azure](./disks-enable-double-encryption-at-rest-portal.md) ou o [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
+
+   > [!IMPORTANT]
+   > Você deve usar o link [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) para acessar o portal do Azure. A criptografia dupla em repouso não está visível no momento no portal do Azure público, a menos que você use esse link.
 
 ## <a name="limitations"></a>Limitações
 
-Há várias limitações ao usar chaves gerenciadas pelo cliente para criptografar imagens da galeria de imagens compartilhadas:  
+Quando você está usando chaves gerenciadas pelo cliente para criptografar imagens em uma galeria de imagens compartilhada, essas limitações se aplicam:   
 
 - Os conjuntos de chaves de criptografia devem estar na mesma assinatura que a imagem.
 
-- Os conjuntos de chaves de criptografia são recursos regionais, de modo que cada região requer um conjunto de chaves de criptografia diferente.
+- Os conjuntos de chaves de criptografia são recursos regionais, portanto, cada região requer um conjunto de chaves de criptografia diferente.
 
 - Você não pode copiar ou compartilhar imagens que usam chaves gerenciadas pelo cliente. 
 
-- Após usar suas próprias chaves para criptografar um disco ou uma imagem, não é possível usar novamente chaves gerenciadas pela plataforma para criptografar esses discos ou imagens.
+- Depois de usar suas próprias chaves para criptografar um disco ou uma imagem, você não pode voltar a usar chaves gerenciadas pela plataforma para criptografar esses discos ou imagens.
 
 
 > [!IMPORTANT]
-> Atualmente, a criptografia que usa chaves gerenciadas pelo cliente está em versão prévia pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> A criptografia por meio de chaves gerenciadas pelo cliente está atualmente em visualização pública.
+> Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendável para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 ## <a name="powershell"></a>PowerShell
 
-Para a versão prévia pública, primeiro você precisa registrar o recurso.
+Para a visualização pública, primeiro você precisa registrar o recurso:
 
 ```azurepowershell-interactive
 Register-AzProviderFeature -FeatureName SIGEncryption -ProviderNamespace Microsoft.Compute
 ```
 
-Leva alguns minutos para o registro ser concluído. Use o Get-AzProviderFeature para verificar o status do registro do recurso.
+Demora alguns minutos para que o registro seja concluído. Use `Get-AzProviderFeature` para verificar o status do registro do recurso:
 
 ```azurepowershell-interactive
 Get-AzProviderFeature -FeatureName SIGEncryption -ProviderNamespace Microsoft.Compute
 ```
 
-Quando o RegistrationState voltar como Registrado, você poderá passar para a próxima etapa.
+Quando `RegistrationState` retorna `Registered` , você pode passar para a próxima etapa.
 
 Verifique o registro do seu provedor. Verifique se ele volta como `Registered`.
 
@@ -73,13 +74,13 @@ Verifique o registro do seu provedor. Verifique se ele volta como `Registered`.
 Get-AzResourceProvider -ProviderNamespace Microsoft.Compute | Format-table -Property ResourceTypes,RegistrationState
 ```
 
-Se não voltar como `Registered`, use o seguinte para registrar os provedores:
+Se não retornar `Registered` , use o seguinte código para registrar os provedores:
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
-Para especificar uma criptografia de disco definida para uma versão de imagem, use o [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion) com o parâmetro `-TargetRegion`. 
+Para especificar um conjunto de criptografia de disco para uma versão de imagem, use  [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion) com o `-TargetRegion` parâmetro: 
 
 ```azurepowershell-interactive
 
@@ -127,43 +128,43 @@ New-AzGalleryImageVersion `
 
 ### <a name="create-a-vm"></a>Criar uma máquina virtual
 
-É possível criar uma VM de uma galeria de imagens compartilhada e usar chaves gerenciadas pelo cliente para criptografar os discos. A sintaxe é a mesma que a criação de uma VM [generalizada](vm-generalized-image-version-powershell.md) ou [especializada](vm-specialized-image-version-powershell.md) a partir de uma imagem. Você precisa usar o conjunto de parâmetros estendidos e adicionar `Set-AzVMOSDisk -Name $($vmName +"_OSDisk") -DiskEncryptionSetId $diskEncryptionSet.Id -CreateOption FromImage` à configuração da VM.
+Você pode criar uma VM (máquina virtual) de uma galeria de imagens compartilhada e usar chaves gerenciadas pelo cliente para criptografar os discos. A sintaxe é a mesma de criar uma VM [generalizada](vm-generalized-image-version-powershell.md) ou [especializada](vm-specialized-image-version-powershell.md) a partir de uma imagem. Use o conjunto de parâmetros estendidos e adicione `Set-AzVMOSDisk -Name $($vmName +"_OSDisk") -DiskEncryptionSetId $diskEncryptionSet.Id -CreateOption FromImage` à configuração da VM.
 
-Para discos de dados, você precisa adicionar o parâmetro `-DiskEncryptionSetId $setID` ao usar o [Add-AzVMDataDisk](/powershell/module/az.compute/add-azvmdatadisk).
+Para discos de dados, adicione o `-DiskEncryptionSetId $setID` parâmetro ao usar [Add-AzVMDataDisk](/powershell/module/az.compute/add-azvmdatadisk).
 
 
 ## <a name="cli"></a>CLI 
 
-Para a versão prévia pública, primeiro você precisa registrar o recurso.
+Para a visualização pública, primeiro você precisa se registrar para o recurso. O registro leva cerca de 30 minutos.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Compute --name SIGEncryption
 ```
 
-Verifique o status do registro do recurso.
+Verifique o status do registro do recurso:
 
 ```azurecli-interactive
 az feature show --namespace Microsoft.Compute --name SIGEncryption | grep state
 ```
 
-Quando isso voltar como `"state": "Registered"`, você poderá passar para a próxima etapa.
+Quando esse código retornar `"state": "Registered"` , você poderá passar para a próxima etapa.
 
-Verifique seu registro.
+Verifique seu registro:
 
 ```azurecli-interactive
 az provider show -n Microsoft.Compute | grep registrationState
 ```
 
-Caso não mostre estar registrado, execute o seguinte:
+Se não disser registrado, execute o seguinte comando:
 
 ```azurecli-interactive
 az provider register -n Microsoft.Compute
 ```
 
 
-Para especificar uma criptografia de disco definida para uma versão de imagem, use a [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create) com o parâmetro `--target-region-encryption`. O formato de `--target-region-encryption` é uma lista separada por vírgulas de chaves para criptografar o sistema operacional e os discos de dados. O resultado deve ser assim: `<encryption set for the OS disk>,<Lun number of the data disk>,<encryption set for the data disk>,<Lun number for the second data disk>,<encryption set for the second data disk>`. 
+Para especificar um conjunto de criptografia de disco para uma versão de imagem, use [AZ Image Gallery Create-Image-Version](/cli/azure/sig/image-version#az-sig-image-version-create) com o `--target-region-encryption` parâmetro. O formato de `--target-region-encryption` é uma lista separada por vírgulas de chaves para criptografar o sistema operacional e os discos de dados. O resultado deve ser assim: `<encryption set for the OS disk>,<Lun number of the data disk>,<encryption set for the data disk>,<Lun number for the second data disk>,<encryption set for the second data disk>`. 
 
-Use `--managed-image` para especificar a origem da versão da imagem se a origem do disco do sistema operacional for um disco gerenciado ou uma VM. Neste exemplo, a origem é uma imagem gerenciada que tem um disco do sistema operacional e um disco de dados no LUN 0. O disco do sistema operacional será criptografado com o DiskEncryptionSet1 e o disco de dados com o DiskEncryptionSet2.
+Use `--managed-image` para especificar a origem da versão da imagem se a origem do disco do sistema operacional for um disco gerenciado ou uma VM. Neste exemplo, a origem é uma imagem gerenciada que tem um disco do sistema operacional e um disco de dados no LUN 0. O disco do sistema operacional será criptografado com DiskEncryptionSet1 e o disco de dados será criptografado com DiskEncryptionSet2.
 
 ```azurecli-interactive
 az sig image-version create \
@@ -177,9 +178,9 @@ az sig image-version create \
    --managed-image "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage"
 ```
 
-Use `--os-snapshot` para especificar o disco do sistema operacional se a origem do disco do sistema operacional for um instantâneo. Adicione instantâneos de disco de dados que também devem fazer parte da versão da imagem usando `--data-snapshot-luns` para especificar o LUN e `--data-snapshots` para especificar os instantâneos.
+Use `--os-snapshot` para especificar o disco do sistema operacional se a origem do disco do sistema operacional for um instantâneo. Se houver instantâneos de disco de dados que também devem fazer parte da versão da imagem, adicione-os. Use `--data-snapshot-luns` para especificar o LUN e use `--data-snapshots` para especificar os instantâneos.
 
-Neste exemplo, as origens são instantâneos de disco. Há um disco do sistema operacional e um disco de dados no LUN 0. O disco do sistema operacional será criptografado com o DiskEncryptionSet1 e o disco de dados com o DiskEncryptionSet2.
+Neste exemplo, as origens são instantâneos de disco. Há um disco do sistema operacional e um disco de dados no LUN 0. O disco do sistema operacional será criptografado com DiskEncryptionSet1 e o disco de dados será criptografado com DiskEncryptionSet2.
 
 ```azurecli-interactive
 az sig image-version create \
@@ -198,27 +199,27 @@ az sig image-version create \
 
 ### <a name="create-the-vm"></a>Criar a VM
 
-É possível criar uma VM de uma galeria de imagens compartilhada e usar chaves gerenciadas pelo cliente para criptografar os discos. A sintaxe é a mesma que a criação de uma VM [generalizada](vm-generalized-image-version-cli.md) ou [especializada](vm-specialized-image-version-cli.md) a partir de uma imagem. Você só precisa adicionar o parâmetro `--os-disk-encryption-set` com a ID do conjunto de criptografia. Para discos de dados, adicione `--data-disk-encryption-sets` com uma lista delimitada por espaços dos conjuntos de criptografia de disco para os discos de dados.
+É possível criar uma VM de uma galeria de imagens compartilhada e usar chaves gerenciadas pelo cliente para criptografar os discos. A sintaxe é a mesma de criar uma VM [generalizada](vm-generalized-image-version-cli.md) ou [especializada](vm-specialized-image-version-cli.md) a partir de uma imagem. Basta adicionar o `--os-disk-encryption-set` parâmetro com a ID do conjunto de criptografia. Para discos de dados, adicione `--data-disk-encryption-sets` com uma lista delimitada por espaço dos conjuntos de criptografia de disco para os discos de dados.
 
 
 ## <a name="portal"></a>Portal
 
-Ao criar a versão da imagem no portal, você pode usar a guia **criptografia** para entrar em aplicar seus conjuntos de criptografia de armazenamento.
+Ao criar a versão da imagem no portal, você pode usar a guia **criptografia** para aplicar os conjuntos de criptografia de armazenamento.
 
 > [!IMPORTANT]
-> Para usar a criptografia dupla, você deve usar este link [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) para acessar o portal do Azure. A criptografia dupla em repouso não está visível no momento no portal do Azure público sem usar o link.
+> Para usar a criptografia dupla, você deve usar o link [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) para acessar o portal do Azure. A criptografia dupla em repouso não está visível no momento no portal do Azure público, a menos que você use esse link.
 
 
-1. Na página **Criar uma versão de imagem**, selecione a guia **Criptografia**.
+1. Na página **criar uma imagem de versão** , selecione a guia **criptografia** .
 2. Em **tipo de criptografia**, selecione **criptografia em repouso com uma chave gerenciada pelo cliente** ou **criptografia dupla com chaves gerenciadas por plataforma e gerenciadas pelo cliente**. 
-3. Selecione o **Conjunto de criptografia de disco** a ser usado na lista suspensa para cada disco na imagem. 
+3. Para cada disco na imagem, selecione um conjunto de criptografia na lista suspensa **conjunto de criptografia de disco** . 
 
 ### <a name="create-the-vm"></a>Criar a VM
 
-Você pode criar uma VM com base em uma versão de imagem e usar chaves gerenciadas pelo cliente para criptografar os discos. Quando você cria a VM no portal, na guia **discos** , selecione **criptografia em repouso com chaves gerenciadas pelo cliente** ou **criptografia dupla com chaves** gerenciadas por plataforma e gerenciadas pelo cliente para o **tipo de criptografia**. Depois selecione o conjunto de criptografia na lista suspensa.
+Você pode criar uma VM com base em uma versão de imagem e usar chaves gerenciadas pelo cliente para criptografar os discos. Quando você cria a VM no portal, na guia **discos** , selecione **criptografia em repouso com chaves gerenciadas pelo cliente** ou **criptografia dupla com chaves** gerenciadas por plataforma e gerenciadas pelo cliente para o tipo de **criptografia**. Em seguida, você pode selecionar o conjunto de criptografia na lista suspensa.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre [Criptografia de disco do lado do servidor](./windows/disk-encryption.md).
+Saiba mais sobre [Criptografia de disco do lado do servidor](./disk-encryption.md).
 
 Para obter informações sobre como fornecer informações do plano de compra, consulte [fornecer informações do plano de compra do Azure Marketplace ao criar imagens](marketplace-images.md).

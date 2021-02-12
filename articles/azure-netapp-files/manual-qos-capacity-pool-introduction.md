@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 02/04/2021
 ms.author: b-juche
-ms.openlocfilehash: 239b985bf45942afbff8ca49d7e15ead24456304
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 13acee8b21adf946192544afcea17b4a8d9b9ec9
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993985"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581118"
 ---
-# <a name="manual-qos-capacity-pool"></a>Pool de capacidade de QoS manual
+# <a name="manual-qos-capacity-pool"></a>Pool de capacidades de QoS manual
 
 Este artigo fornece uma introdução à funcionalidade de pool de capacidade de QoS (qualidade de serviço) manual.
 
@@ -29,7 +29,7 @@ Este artigo fornece uma introdução à funcionalidade de pool de capacidade de 
 
 O [tipo de QoS](azure-netapp-files-understand-storage-hierarchy.md#qos_types) é um atributo de um pool de capacidade. O Azure NetApp Files fornece dois tipos de QoS de pools de capacidade – automático (padrão) e manual.  
 
-Em um pool de capacidade de QoS *manual* , você pode atribuir a capacidade e a taxa de transferência para um volume de forma independente. A taxa de transferência total de todos os volumes criados com um pool de capacidade com QoS manual é limitada pela taxa de transferência total do pool. Esse valor é determinado pela combinação do tamanho do pool com a taxa de transferência no nível do serviço. 
+Em um pool de capacidade de QoS *manual* , você pode atribuir a capacidade e a taxa de transferência para um volume de forma independente. Para obter os níveis de taxa de transferência mínimo e máximo, consulte [limites de recursos para Azure NetApp files](azure-netapp-files-resource-limits.md#resource-limits). A taxa de transferência total de todos os volumes criados com um pool de capacidade com QoS manual é limitada pela taxa de transferência total do pool. Esse valor é determinado pela combinação do tamanho do pool com a taxa de transferência no nível do serviço. 
 
 Em um pool de capacidade de QoS *automático* , a taxa de transferência é atribuída automaticamente aos volumes no pool, proporcionalmente à cota de tamanho atribuída aos volumes.  
 
@@ -60,4 +60,4 @@ Usar o tipo de QoS manual requer que você [Registre o recurso](manage-manual-qo
 * [Criar um volume SMB](azure-netapp-files-create-volumes-smb.md)
 * [Criar um volume de protocolo duplo](create-volumes-dual-protocol.md)
 * [Métricas do Azure NetApp Files](azure-netapp-files-metrics.md)
-* [Solucionar problemas de pool de capacidade](troubleshoot-capacity-pools.md)
+* [Solucionar problemas de pools de capacidade](troubleshoot-capacity-pools.md)

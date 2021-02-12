@@ -15,11 +15,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 42afa073da9197c12e4cbd316d311a7699d9a95f
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131047"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013013"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Localizar relatórios de atividade no Portal do Azure
 
@@ -91,7 +91,7 @@ Os serviços incluem:
 
 ## <a name="sign-ins-report"></a>Relatório de entradas 
 
-A exibição **Entradas** inclui todas as entradas do usuário, bem como o relatório **Uso do Aplicativo** . Também é possível exibir as informações de uso do aplicativo na seção **Gerenciar** da visão geral dos **Aplicativos empresariais** .
+A exibição **Entradas** inclui todas as entradas do usuário, bem como o relatório **Uso do Aplicativo**. Também é possível exibir as informações de uso do aplicativo na seção **Gerenciar** da visão geral dos **Aplicativos empresariais**.
 
 Para acessar o relatório de entradas:
 

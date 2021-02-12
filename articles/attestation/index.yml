@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Atestado do Microsoft Azure (versão prévia)
+title: Atestado do Microsoft Azure
 summary: Saiba como usar o Atestado do Azure
 metadata:
   title: Documentação do Atestado do Azure
@@ -10,12 +10,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 07/20/2020
-  ms.openlocfilehash: 984fecd947cb174ab6663a874071926d16f657bd
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 47e1a1cc838a7d8153c8dbea71a0aae576166f2e
+  ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91285394"
+  ms.lasthandoff: 01/30/2021
+  ms.locfileid: "99093535"
 landingContent:
 - title: Sobre o Atestado do Microsoft Azure
   linkLists:
@@ -27,10 +27,14 @@ landingContent:
   linkLists:
   - linkListType: deploy
     links:
-    - text: Início rápido do PowerShell
-      url: quickstart-powershell.md
     - text: Início rápido do modelo ARM
       url: quickstart-template.md
+    - text: Início rápido do PowerShell
+      url: quickstart-powershell.md
+    - text: Início rápido do portal
+      url: quickstart-portal.md
+    - text: Início rápido da CLI
+      url: quickstart-azure-cli.md
 - title: Conceitos
   linkLists:
   - linkListType: concept
@@ -47,8 +51,10 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Criação e assinatura de uma política de atestado
+    - text: Criação de uma política de atestado
       url: author-sign-policy.md
+    - text: Criar um ponto de extremidade privado – PowerShell
+      url: private-endpoint-powershell.md
     - text: Exemplos de código de atestado de SGX
       url: /samples/browse/?expanded=azure&terms=attestation
 - title: Referências
@@ -59,5 +65,5 @@ landingContent:
       url: faq.md
     - text: REST
       url: /rest/api/attestation/
-    - text: Azure PowerShell
-      url: /powershell/module/az.attestation/?view=azps-4.3.0#attestation
+    - text: Solucionar problemas
+      url: troubleshoot-guide.md

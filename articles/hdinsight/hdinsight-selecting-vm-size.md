@@ -2,19 +2,16 @@
 title: Como selecionar o tamanho certo da VM para o cluster HDInsight do Azure
 description: Saiba como selecionar o tamanho correto da VM para seu cluster HDInsight.
 keywords: tamanhos de VM, tamanhos de cluster, configuração de cluster
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: d347707b0f48314dd872bc3ad34ac624817d2937
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 51043f0a1009994528783a1b56ec5ccec68e99b3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535307"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931774"
 ---
 # <a name="selecting-the-right-vm-size-for-your-azure-hdinsight-cluster"></a>Selecionando o tamanho correto da VM para o cluster HDInsight do Azure
 
@@ -38,10 +35,10 @@ O tamanho e o tipo da VM são determinados pelo poder de processamento da CPU, p
 
 As famílias de máquinas virtuais no Azure são otimizadas para atender a diferentes casos de uso. Na tabela a seguir, você pode encontrar alguns dos casos de uso mais populares e as famílias de VMs que correspondem a eles.
 
-| Type                     | Tamanhos           |    Descrição       |
+| Tipo                     | Tamanhos           |    Descrição       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Nível de entrada](../virtual-machines/sizes-general.md)          | A, Av2  | Ter configurações de desempenho e memória da CPU mais adequadas para cargas de trabalho de nível de entrada, como desenvolvimento e teste. Eles são econômicos e fornecem uma opção de baixo custo para começar a usar o Azure. |
-| [Propósito geral](../virtual-machines/sizes-general.md)          | D, DSv2, Dv2  | Relação equilibrada de CPU/memória. Ideal para teste e desenvolvimento, bancos de dados pequenos a médios e servidores Web de tráfego baixo a médio. |
+| [Uso geral](../virtual-machines/sizes-general.md)          | D, DSv2, Dv2  | Relação equilibrada de CPU/memória. Ideal para teste e desenvolvimento, bancos de dados pequenos a médios e servidores Web de tráfego baixo a médio. |
 | [Computação otimizada](../virtual-machines/sizes-compute.md)        | F           | Alta relação de CPU/memória. Boa para servidores web de tráfego médio, dispositivos de rede, processos de lote e servidores de aplicativo.        |
 | [Memória otimizada](../virtual-machines/sizes-memory.md)         | Esv3, Ev3  | Alta relação de memória/CPU. Ótima para servidores de banco de dados relacionais, caches médios a grandes e análises na memória.                 |
 
@@ -55,13 +52,13 @@ A tabela a seguir descreve os tipos de cluster e tipos de nó, que podem ser cri
 
 | Tipo de cluster | Versão | Nó de trabalho | Nó de cabeçalho | Nó Zookeeper |
 |---|---|---|---|---|
-| Spark | Todos | F4 e acima | no | no |
-| O Hadoop | Todos | F4 e acima | no | no |
-| Kafka | Todos | F4 e acima | no | no |
-| HBase | Todos | F4 e acima | no | no |
-| LLAP | desabilitado | no | no | no |
-| Storm | desabilitado | no | no | no |
-| Serviço do Machine Learning | SOMENTE HDI 3,6 | F4 e acima | no | no |
+| Spark | Todos | F4 e acima | não | não |
+| O Hadoop | Todos | F4 e acima | não | não |
+| Kafka | Todos | F4 e acima | não | não |
+| HBase | Todos | F4 e acima | não | não |
+| LLAP | desabilitado | não | não | não |
+| Storm | desabilitado | não | não | não |
+| Serviço do Machine Learning | SOMENTE HDI 3,6 | F4 e acima | não | não |
 
 Para ver as especificações de cada SKU da série F, consulte [tamanhos de VM da série f](https://azure.microsoft.com/blog/f-series-vm-size/).
 

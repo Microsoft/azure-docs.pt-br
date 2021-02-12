@@ -42,14 +42,16 @@
               href: /sql/azdata/install/deploy-install-azdata-pip?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
     - name: Criar controlador de dados
       items:
-        - name: Criar controlador de dados (Azure Data Studio)
+        - name: Azure Data Studio
           href: create-data-controller-azure-data-studio.md
-        - name: Criar recurso de controlador de dados (portal)
+        - name: Portal do Azure
           href: create-data-controller-resource-in-azure-portal.md
-        - name: Criar controlador de dados (CLI de dados do Azure)
+        - name: CLI de dados do Azure (azdata)
           href: create-data-controller-using-azdata.md
-        - name: Criar controlador de dados usando Kubernetes
+        - name: Ferramentas do Kubernetes
           href: create-data-controller-using-kubernetes-native-tools.md
+        - name: Aplicar o SCC (OpenShift)
+          href: how-to-apply-security-context-constraint.md
     - name: Experiências comuns nos serviços de dados habilitados para Azure Arc
       items:
         - name: Monitorar com painéis (Azure Data Studio)
@@ -80,6 +82,8 @@
           href: view-arc-data-services-inventory-in-azure-portal.md
         - name: Obter nome de usuário e senha do controlador de dados
           href: retrieve-the-username-password-for-data-controller.md
+        - name: Atualizar credenciais de entidade de serviço
+          href: update-service-principal-credentials.md
     - name: Solução de problemas
       items:
         - name: Guia
@@ -92,6 +96,8 @@
       items:
         - name: O que é o PostgreSQL de Hiperescala habilitado para o Azure Arc
           href: what-is-azure-arc-enabled-postgres-hyperscale.md
+        - name: Limitações
+          href: limitations-postgresql-hyperscale.md
     - name: Inícios rápidos
       items:
         - name: Versões com suporte
@@ -116,6 +122,8 @@
           items:
             - name: Backup e restauração
               href: backup-restore-postgresql-hyperscale.md
+            - name: Alterar a porta PostgreSQL
+              href: change-postgresql-port.md
             - name: Configurar e escalar
               items:
                 - name: Mostrar configuração
@@ -229,4 +237,4 @@
 - name: Recursos
   items:
     - name: Ponto de partida do Azure Arc
-      href: 'https://github.com/microsoft/azure_arc'
+      href: 'https://azurearcjumpstart.io'

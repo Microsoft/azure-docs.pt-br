@@ -1,19 +1,19 @@
 ---
 title: Acessar logs de consulta lentos-CLI do Azure-banco de dados do Azure para MariaDB
 description: Este artigo descreve como acessar os logs lentos no banco de dados do Azure para MariaDB usando o utilitário de linha de comando CLI do Azure.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 4/13/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cd74feaebe5a89667668c05e332ed9d3c7cdad5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c8f69f00ed4314fbe8b3fd1958b52c82ce55d99
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87490244"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662382"
 ---
 # <a name="configure-and-access-azure-database-for-maria-db-slow-query-logs-by-using-azure-cli"></a>Configurar e acessar logs de consultas lentas do banco de dados do Azure para Maria DB usando CLI do Azure
 
@@ -26,7 +26,7 @@ Para seguir este guia de instruções, você precisa:
 
 ## <a name="configure-logging"></a>Configurar o registro em log
 É possível configurar o servidor para acessar os logs de consulta lenta do MySQL executando as seguintes etapas:
-1. Ative o log de consultas lentas definindo o parâmetro de ** \_ \_ log de consulta lenta** como ativado.
+1. Ative o log de consultas lentas definindo o parâmetro de **\_ \_ log de consulta lenta** como ativado.
 2. Selecione para onde os logs são gerados usando **a \_ saída do log**. Para enviar logs para o armazenamento local e Azure Monitor logs de diagnóstico, selecione **arquivo**. Para enviar logs somente para Azure Monitor logs, selecione **nenhum**
 3. Ajuste outros parâmetros como **long\_query\_time** e **log\_slow\_admin\_statements**.
 

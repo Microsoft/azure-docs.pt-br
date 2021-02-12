@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: v-jawe
 ms.custom: references_regions
-ms.openlocfilehash: 5be99ba09032020abf777c80307e347658a6e037
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: f29fd56bb5e9f32b37f6dcf1f67edd325b58a07d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470970"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947485"
 ---
 Neste início rápido, você aprenderá os padrões de design básicos para Reconhecimento do Locutor usando o SDK de Fala, incluindo:
 
@@ -51,7 +51,7 @@ using Microsoft.CognitiveServices.Speech.Audio;
 
 ## <a name="create-a-speech-configuration"></a>Criar uma configuração de Fala
 
-Para chamar o serviço de Fala usando o SDK de Fala, você precisa criar um [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true). Neste exemplo, você cria um [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true) usando uma chave de assinatura e uma região. Você também cria um código clichê básico a ser usado no restante do artigo e o modifica para personalizações diferentes.
+Para chamar o serviço de Fala usando o SDK de Fala, você precisa criar um [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig). Neste exemplo, você cria um [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) usando uma chave de assinatura e uma região. Você também cria um código clichê básico a ser usado no restante do artigo e o modifica para personalizações diferentes.
 
 Observe que a região é definida como `westus`, pois é a única região com suporte para o serviço.
 
@@ -70,7 +70,7 @@ public class Program
 
 ## <a name="text-dependent-verification"></a>Verificação dependente do texto
 
-A Verificação do Locutor é o ato de confirmar que um locutor corresponde a uma voz conhecida ou **registrada** . A primeira etapa é **registrar** um perfil de voz, para que o serviço tenha algo com que comparar as futuras amostras de voz. Neste exemplo, você registra o perfil usando uma estratégia **dependente do texto** , que requer uma frase secreta específica a ser usada para o registro e a verificação. Confira os [documentos de referência](https://docs.microsoft.com/rest/api/speakerrecognition/) para obter uma lista de frases secretas compatíveis.
+A Verificação do Locutor é o ato de confirmar que um locutor corresponde a uma voz conhecida ou **registrada**. A primeira etapa é **registrar** um perfil de voz, para que o serviço tenha algo com que comparar as futuras amostras de voz. Neste exemplo, você registra o perfil usando uma estratégia **dependente do texto**, que requer uma frase secreta específica a ser usada para o registro e a verificação. Confira os [documentos de referência](/rest/api/speakerrecognition/) para obter uma lista de frases secretas compatíveis.
 
 Comece criando a seguinte função em sua classe `Program` para registrar um perfil de voz.
 
@@ -163,12 +163,12 @@ Verified voice profile for speaker Your Name, score is 0.915581
 
 ## <a name="text-independent-verification"></a>Verificação independente do texto
 
-Em contraste com a verificação **dependente do texto** , a verificação **independente do texto** :
+Em contraste com a verificação **dependente do texto**, a verificação **independente do texto**:
 
 * Não exige a fala de uma frase secreta específica, mas pode-se falar qualquer coisa
 * Não exige três amostras de áudio, mas *sim* 20 segundos de áudio total
 
-Faça algumas alterações simples na função `VerificationEnroll` para mudar para a verificação **independente do texto** . Primeiro, altere o tipo de verificação para `VoiceProfileType.TextIndependentVerification`. Em seguida, altere o loop `while` para acompanhar `result.RemainingEnrollmentsSpeechLength`, que continuará solicitando que você fale até completar os 20 segundos de áudio capturados.
+Faça algumas alterações simples na função `VerificationEnroll` para mudar para a verificação **independente do texto**. Primeiro, altere o tipo de verificação para `VoiceProfileType.TextIndependentVerification`. Em seguida, altere o loop `while` para acompanhar `result.RemainingEnrollmentsSpeechLength`, que continuará solicitando que você fale até completar os 20 segundos de áudio capturados.
 
 ```csharp
 public static async Task VerificationEnroll(SpeechConfig config, Dictionary<string, string> profileMapping)
@@ -230,9 +230,9 @@ Verified voice profile for speaker Your Name, score is 0.849409
 
 ## <a name="speaker-identification"></a>Identificação do locutor
 
-A Identificação do Locutor é usada para determinar **quem** está falando dentre um determinado grupo de vozes registradas. O processo é muito semelhante à **verificação independente do texto** , sendo que a principal diferença é a capacidade de verificação em relação a vários perfis de voz de uma só vez, em vez de verificar apenas um perfil de cada vez.
+A Identificação do Locutor é usada para determinar **quem** está falando dentre um determinado grupo de vozes registradas. O processo é muito semelhante à **verificação independente do texto**, sendo que a principal diferença é a capacidade de verificação em relação a vários perfis de voz de uma só vez, em vez de verificar apenas um perfil de cada vez.
 
-Crie uma função `IdentificationEnroll` para registrar vários perfis de voz. O processo de registro para cada perfil é o mesmo que o processo de registro para a **verificação independente do texto** , exigindo 20 segundos de áudio para cada perfil. Essa função aceita uma lista de cadeias de caracteres `profileNames` e criará um perfil de voz para cada nome da lista. A função retorna uma lista de objetos `VoiceProfile`, que você usa na próxima função para identificar um locutor.
+Crie uma função `IdentificationEnroll` para registrar vários perfis de voz. O processo de registro para cada perfil é o mesmo que o processo de registro para a **verificação independente do texto**, exigindo 20 segundos de áudio para cada perfil. Essa função aceita uma lista de cadeias de caracteres `profileNames` e criará um perfil de voz para cada nome da lista. A função retorna uma lista de objetos `VoiceProfile`, que você usa na próxima função para identificar um locutor.
 
 ```csharp
 public static async Task<List<VoiceProfile>> IdentificationEnroll(SpeechConfig config, List<string> profileNames, Dictionary<string, string> profileMapping)

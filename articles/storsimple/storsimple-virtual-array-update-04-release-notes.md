@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/05/2017
 ms.author: alkohli
-ms.openlocfilehash: 06a3469507631d032535bce62b01d964e99dc603
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 392e930dcb69392b6f9425abba0efa516d5c82b8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60334787"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967050"
 ---
 # <a name="storsimple-virtual-array-update-04-release-notes"></a>Notas de versão da Atualização 0.4 da StorSimple Virtual Array
 
@@ -92,5 +92,4 @@ Procurando uma nota de versão mais antiga? Acesse:
 
 * [Notas de versão da atualização 0,3 do StorSimple virtual array](storsimple-ova-update-03-release-notes.md)
 * [Notas de versão as Atualizações 0.1 e 0.2 do StorSimple Virtual Array](storsimple-ova-update-01-release-notes.md)
-* [Notas de versão de disponibilidade geral do StorSimple Virtual Array](storsimple-ova-pp-release-notes.md)
-
+* [Notas de versão de disponibilidade geral do StorSimple Virtual Array](./storsimple-virtual-array-update-06-release-notes.md)

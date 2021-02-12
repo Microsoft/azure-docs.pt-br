@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: 489b4bfee1eaa2c381b16e88dbcc0bcb7fd8555f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 288e3f0c048bddb3f3378226889dc519de27764b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441500"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927893"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integrar System Center Operations Manager com o recurso de mapa de Azure Monitor para VMs
 
@@ -57,7 +57,7 @@ Para configurar a integração do mapa do Azure Monitor para VMs, faça o seguin
 
     ![O workspace de configuração do Operations Manager](media/service-map-scom/scom-config-workspace.png)
 
-4. No **seleção de grupo do computador** janela, que você escolha quais grupos de máquina do mapa de serviço que deseja sincronizar com o Operations Manager. Clique em **adicionar ou remover grupos de computadores**, escolha grupos na lista de **grupos de computadores disponíveis**e clique em **adicionar**.  Quando você terminar de selecionar os grupos, clique em **OK** para concluir.
+4. No **seleção de grupo do computador** janela, que você escolha quais grupos de máquina do mapa de serviço que deseja sincronizar com o Operations Manager. Clique em **adicionar ou remover grupos de computadores**, escolha grupos na lista de **grupos de computadores disponíveis** e clique em **adicionar**.  Quando você terminar de selecionar os grupos, clique em **OK** para concluir.
 
     ![Os grupos de computadores de configuração do Operations Manager](media/service-map-scom/scom-config-machine-groups.png)
 
@@ -139,7 +139,7 @@ O design atual apresenta os seguintes problemas e limitações:
 Para obter a documentação oficial do Azure sobre como criar uma entidade de serviço, consulte:
 
 * [Criar uma entidade de serviço usando o PowerShell](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
-* [Criar uma entidade de serviço usando a CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
+* [Criar uma entidade de serviço usando a CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli)
 * [Criar uma entidade de serviço usando o portal do Azure](../../active-directory/develop/howto-create-service-principal-portal.md)
 
 ### <a name="suggestions"></a>Sugestões

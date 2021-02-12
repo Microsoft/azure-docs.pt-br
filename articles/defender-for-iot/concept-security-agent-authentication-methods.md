@@ -4,21 +4,21 @@ description: Saiba mais sobre os diferentes métodos de autenticação disponív
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2020
-ms.author: mlottner
-ms.openlocfilehash: 896baa70fb6e18165a025459a063e33d705261ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/24/2021
+ms.author: shhazam
+ms.openlocfilehash: aa5a8a842a750e44d4beeb915008f86c6b5bbb70
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933280"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809245"
 ---
 # <a name="security-agent-authentication-methods"></a>Métodos de autenticação do agente de segurança
 
@@ -32,7 +32,7 @@ Para cada dispositivo integrado ao defender para IoT no Hub IoT, é necessário 
 
 ## <a name="authentication-methods"></a>Métodos de autenticação
 
-Os dois métodos para o agente AzureIoTSecurity realizar a autenticação:
+Os dois métodos para o agente do defender for IoT AzureIoTSecurity para realizar a autenticação:
 
 - Modo de autenticação **SecurityModule**<br>
 O agente é autenticado usando a identidade do módulo de segurança independentemente da identidade do dispositivo.
@@ -102,7 +102,7 @@ Edite _LocalConfiguration.js_ com os seguintes parâmetros:
 }
 ```
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 - [Visão geral dos agentes de segurança](security-agent-architecture.md)
 - [Implantar agente de segurança](how-to-deploy-agent.md)

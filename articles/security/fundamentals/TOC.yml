@@ -38,6 +38,21 @@
           href: infrastructure-integrity.md
         - name: Proteção de dados
           href: protection-customer-data.md
+    - name: Integridade e segurança da plataforma
+      href: platform.md
+      items:
+        - name: Segurança do firmware
+          href: firmware.md
+        - name: Inicialização Segura
+          href: secure-boot.md
+        - name: Inicialização medida e atestado do host
+          href: measured-boot-host-attestation.md
+        - name: Projeto Cerberus
+          href: project-cerberus.md
+        - name: Criptografia em repouso
+          href: encryption-atrest.md
+        - name: Segurança do hipervisor
+          href: hypervisor.md
     - name: Isolamento na nuvem do Azure
       href: isolation-choices.md
 - name: Gerenciamento de identidades
@@ -49,7 +64,7 @@
     - name: Lista de verificação de segurança
       href: steps-secure-identity.md
     - name: Escolher sem senha
-      href: ad-passwordless.md
+      href: ../../active-directory/authentication/concept-authentication-passwordless.md
 - name: Segurança de rede
   items:
     - name: Visão geral da segurança
@@ -57,17 +72,19 @@
     - name: Práticas recomendadas
       href: network-best-practices.md
     - name: Melhores práticas da Proteção contra DDoS
-      href: 'https://docs.microsoft.com/azure/ddos-protection/fundamental-best-practices'
+      href: ../../ddos-protection/fundamental-best-practices.md
     - name: Linha de base de segurança de Proteção contra DDoS
       href: ddos-protection-security-baseline.md
     - name: DNS pendente e tomada de controle de subdomínio
       href: subdomain-takeover.md
     - name: Proteger arquitetura de rede híbrida
-      href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
+      href: /azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2ftoc.json
 - name: Segurança de IaaS
   items:
     - name: Microsoft Antimalware
       href: antimalware.md
+    - name: Exemplos de código do Microsoft Antimalware
+      href: antimalware-code-samples.md
     - name: Visão Geral da segurança de máquinas virtuais
       href: virtual-machines-overview.md
     - name: Práticas recomendadas - cargas de trabalho do IaaS
@@ -95,13 +112,13 @@
     - name: Segurança de banco de dados
       items:
         - name: Visão geral
-          href: ../../sql-database/sql-database-security-overview.md
+          href: ../../azure-sql/database/security-overview.md
         - name: Práticas recomendadas
-          href: ../../sql-database/sql-database-security-best-practice.md
+          href: ../../azure-sql/database/security-best-practice.md
         - name: Lista de verificação de segurança
           href: database-security-checklist.md
     - name: Guia de segurança de armazenamento
-      href: 'https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
+      href: ../../storage/blobs/security-recommendations.md?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2ftoc.json
     - name: Sistema de Proteção de Dados do Cliente
       href: customer-lockbox-overview.md
     - name: Linha de base de segurança para o Sistema de Proteção de Dados do Cliente
@@ -121,7 +138,7 @@
       href: service-fabric-best-practices.md
 - name: 'Monitoramento, auditoria e operações'
   items:
-    - name: Proteção avançada contra ameaças
+    - name: Proteção contra ameaças
       href: threat-detection.md
     - name: Log e auditoria do Azure
       href: log-audit.md

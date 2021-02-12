@@ -9,14 +9,14 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: d7f1f1f004fb8c9c4d67f409072ce061c6047569
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b58474758ac4d26b347dc72d84be401d15a3846b
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127004"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119808"
 ---
-# <a name="azure-synapse-link-preview-for-azure-cosmos-db-supported-features"></a>Recursos compatíveis do Link do Azure Synapse (versão prévia) para o Azure Cosmos DB
+# <a name="azure-synapse-link-for-azure-cosmos-db-supported-features"></a>Recursos compatíveis do Link do Azure Synapse para Azure Cosmos DB
 
 Este artigo descreve as funcionalidades atualmente compatíveis no Link do Azure Synapse para Azure Cosmos DB.
 
@@ -31,16 +31,16 @@ Há dois tipos de contêineres no Azure Cosmos DB:
 
 Você pode se conectar a um contêiner de Azure Cosmos DB sem habilitar o link Synapse. Nesse cenário, você só pode ler/gravar no repositório transacional. O que vem a seguir é uma lista dos recursos com suporte no momento no link do Synapse para Azure Cosmos DB. 
 
-| Categoria              | Descrição |[Spark](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [SQL sem servidor](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
+| Categoria              | Descrição |[Pool do Apache Spark](../sql/on-demand-workspace-overview.md) | [Pool de SQL sem servidor](../sql/on-demand-workspace-overview.md) |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- |
-| **Suporte para tempo de execução** |Tempo de execução do Azure Synapse com suporte para acessar Azure Cosmos DB| ✓ | ✓ |
+| **Suporte para tempo de execução** |Tempo de execução do Azure Synapse com suporte para acessar Azure Cosmos DB| ✓ | Versão Prévia |
 | **Suporte para API do Azure Cosmos DB** | Tipo de API Azure Cosmos DB com suporte | SQL/MongoDB | SQL/MongoDB |
 | **Objeto**  |Objetos, como uma tabela que pode ser criada, apontando diretamente para o contêiner do Azure Cosmos DB| Dataframe, exibição, tabela | Visualizar |
 | **Leitura**    | Tipo de contêiner de Azure Cosmos DB que pode ser lido | OLTP/HTAP | HTAP  |
 | **Gravar**   | O tempo de execução do Azure Synapse pode ser usado para gravar dados em um contêiner de Azure Cosmos DB | Sim | Não |
 
 * Se você gravar dados em um contêiner de Azure Cosmos DB do Spark, esse processo ocorrerá por meio do armazenamento transacional de Azure Cosmos DB. Ele afetará o desempenho transacional de Azure Cosmos DB consumindo unidades de solicitação.
-* A integração do pool de SQL por meio de tabelas externas não tem suporte no momento.
+* A integração do pool de SQL dedicada por meio de tabelas externas não tem suporte no momento.
  
 ## <a name="supported-code-generated-actions-for-spark"></a>Ações geradas por código compatíveis para Spark
 
@@ -53,15 +53,15 @@ Você pode se conectar a um contêiner de Azure Cosmos DB sem habilitar o link S
 | **Gravar DataFrame de streaming no contêiner** |Transmitir dados usando o feed de alterações do Azure Cosmos DB|✓| ✓ |
 
 
-## <a name="supported-code-generated-actions-for-sql-serverless"></a>Ações geradas por código compatíveis para SQL sem servidor
+## <a name="supported-code-generated-actions-for-serverless-sql-pool"></a>Ações geradas por código com suporte para o pool SQL sem servidor
 
 | Gesto              | Descrição |OLTP |HTAP |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- |----------------------------------------------------------- |
 | **Explorar dados** |Explorar dados de um contêiner com sintaxe T-SQL familiar e inferência de esquema automática|X| ✓ |
-| **Criar exibições e criar relatórios de BI** |Crie um modo de exibição SQL para ter acesso direto a um contêiner para BI até Synapse SQL Server |X| ✓ |
+| **Criar exibições e criar relatórios de BI** |Criar um modo de exibição SQL para ter acesso direto a um contêiner para BI por meio do pool SQL sem servidor |X| ✓ |
 | **Unir fontes de dados distintas junto com Cosmos DB dados** | Armazenar os resultados da consulta lendo dados de contêineres Cosmos DB junto com os dados no armazenamento de BLOBs do Azure ou Azure Data Lake Storage usando CETAS |X| ✓ |
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Confira como [conectar-se ao Link do Azure Synapse para Azure Cosmos DB](../quickstart-connect-synapse-link-cosmos-db.md)
-* [Saiba como consultar o repositório analítico com o Spark](how-to-query-analytical-store-spark.md)
+* [Saiba como consultar o repositório analítico de Cosmos DB com o Spark](how-to-query-analytical-store-spark.md)

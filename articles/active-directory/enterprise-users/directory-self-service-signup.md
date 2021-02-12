@@ -7,20 +7,20 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: overview
 ms.workload: identity
-ms.date: 08/13/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ec578370d32664e36ffcc4bd075c3f6a3ed68ab
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 95625886ed11256a40e5993540d7e545134d6dd6
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378544"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860857"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>O que é inscrição por autoatendimento no Azure Active Directory?
 
@@ -35,9 +35,9 @@ Este artigo explica como usar a inscrição por autoatendimento para preencher u
 
 ## <a name="terms-and-definitions"></a>Termos e definições
 
-* **Inscrição por autoatendimento** : Esse é o método pelo qual um usuário se inscreve em um serviço de nuvem e tem uma identidade criada automaticamente para ele no Azure AD, com base em seu domínio de email.
-* **Diretório não gerenciado do Azure AD** : Esse é o diretório no qual essa identidade é criada. Um diretório não gerenciado é um diretório sem nenhum administrador global.
-* **Usuário verificado por email** : Esse é um tipo de conta de usuário do Azure AD. Um usuário que tem uma identidade criada automaticamente após a inscrição para uma oferta de autoatendimento é conhecido como um usuário verificado por email. Um usuário verificadas por email é um membro comum de um diretório marcado com creationmethod=EmailVerified.
+* **Inscrição por autoatendimento**: Esse é o método pelo qual um usuário se inscreve em um serviço de nuvem e tem uma identidade criada automaticamente para ele no Azure AD, com base em seu domínio de email.
+* **Diretório não gerenciado do Azure AD**: Esse é o diretório no qual essa identidade é criada. Um diretório não gerenciado é um diretório sem nenhum administrador global.
+* **Usuário verificado por email**: Esse é um tipo de conta de usuário do Azure AD. Um usuário que tem uma identidade criada automaticamente após a inscrição para uma oferta de autoatendimento é conhecido como um usuário verificado por email. Um usuário verificadas por email é um membro comum de um diretório marcado com creationmethod=EmailVerified.
 
 ## <a name="how-do-i-control-self-service-settings"></a>Como controlar as configurações de autoatendimento?
 
@@ -77,7 +77,13 @@ O fluxograma a seguir explica as diferentes combinações desses parâmetros e a
 
 ![fluxograma de controles de inscrição por autoatendimento](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
 
-Para obter mais informações e exemplos de como usar esses parâmetros, consulte [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
+Os detalhes dessa configuração podem ser recuperados pelo cmdlet Get-MsolCompanyInformation do PowerShell. Para obter mais informações sobre isso, confira [Get-MsolCompanyInformation](/powershell/module/msonline/get-msolcompanyinformation).
+
+```powershell
+    Get-MsolCompanyInformation | Select AllowEmailVerifiedUsers, AllowAdHocSubscriptions
+```
+
+Para obter mais informações e exemplos de como usar esses parâmetros, consulte [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings).
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -85,5 +91,5 @@ Para obter mais informações e exemplos de como usar esses parâmetros, consult
 * [Como instalar e configurar o PowerShell do Azure](/powershell/azure/)
 * [Azure PowerShell](/powershell/azure/)
 * [Referência de Cmdlets do Azure](/powershell/azure/get-started-azureps)
-* [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
+* [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings)
 * [Fechar sua conta corporativa ou de estudante em um diretório não gerenciado](users-close-account.md)

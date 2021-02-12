@@ -1,5 +1,5 @@
 ---
-title: Gerenciar recursos com Microsoft Graph
+title: Registrar um aplicativo Microsoft Graph
 titleSuffix: Azure AD B2C
 description: Prepare-se para gerenciar recursos do Azure AD B2C com o Microsoft Graph registrando um aplicativo que recebe as permissões de API do Graph necessárias.
 services: B2C
@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/14/2020
+ms.date: 01/21/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d95b45b9be0893282a532bae9ec0278c3a141686
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67870a458138101f3b8a009f7c96c74991396284
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85385919"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675179"
 ---
-# <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Gerenciar Azure AD B2C com Microsoft Graph
+# <a name="register-a-microsoft-graph-application"></a>Registrar um aplicativo Microsoft Graph
 
 [Microsoft Graph][ms-graph] permite que você gerencie muitos dos recursos em seu locatário Azure ad B2C, incluindo contas de usuário do cliente e políticas personalizadas. Ao escrever scripts ou aplicativos que chamam a [API de Microsoft Graph][ms-graph-api], você pode automatizar tarefas de gerenciamento de locatários como:
 
@@ -51,7 +51,7 @@ Antes que seus scripts e aplicativos possam interagir com a [API de Microsoft Gr
 1. No portal do Azure, pesquise e selecione **Azure AD B2C**.
 1. Escolha **Registros de aplicativo** e **Novo registro**.
 1. Insira um **Nome** para o aplicativo. Por exemplo, *managementapp1*.
-1. Selecione **contas somente neste diretório organizacional**.
+1. Escolha **Somente contas neste diretório organizacional**.
 1. Em **permissões**, desmarque a caixa de seleção *conceder consentimento de administrador às permissões OpenID e offline_access* .
 1. Selecione **Registrar**.
 1. Registre a **ID do aplicativo (cliente)** que aparece na página Visão geral do aplicativo. Você usará esse valor em uma etapa posterior.
@@ -66,7 +66,7 @@ Em seguida, conceda as permissões do aplicativo registrado para manipular os re
 
 [!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
-Agora você tem um aplicativo que tem permissão para *criar*, *ler*, *Atualizar*e *excluir* usuários em seu locatário Azure ad B2C. Continue na próxima seção para adicionar permissões de *atualização de senha* .
+Agora você tem um aplicativo que tem permissão para *criar*, *ler*, *Atualizar* e *excluir* usuários em seu locatário Azure ad B2C. Continue na próxima seção para adicionar permissões de *atualização de senha* .
 
 ## <a name="enable-user-delete-and-password-update"></a>Habilitar exclusão de usuário e atualização de senha
 
@@ -83,14 +83,15 @@ Se seu aplicativo ou script precisar excluir usuários ou atualizar suas senhas,
 1. Selecione **Adicionar**. Pode levar alguns minutos para que as permissões se propaguem totalmente.
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Agora que você registrou seu aplicativo de gerenciamento e concedeu a ele as permissões necessárias, seus aplicativos e serviços (por exemplo, Azure Pipelines) podem usar suas credenciais e permissões para interagir com a API de Microsoft Graph. 
 
-* [Obter um token de acesso do Azure AD](https://docs.microsoft.com/graph/auth-v2-service#4-get-an-access-token)
-* [Usar o token de acesso para chamar Microsoft Graph](https://docs.microsoft.com/graph/auth-v2-service#4-get-an-access-token)
+* [Obter um token de acesso do Azure AD](/graph/auth-v2-service#4-get-an-access-token)
+* [Usar o token de acesso para chamar Microsoft Graph](/graph/auth-v2-service#4-get-an-access-token)
 * [Operações B2C com suporte pelo Microsoft Graph](microsoft-graph-operations.md)
-* [Gerenciar Azure AD B2C contas de usuário com Microsoft Graph](manage-user-accounts-graph-api.md)
+* [Gerenciar Azure AD B2C contas de usuário com Microsoft Graph](microsoft-graph-operations.md)
 * [Obter logs de auditoria com a API de relatórios do Azure AD](view-audit-logs.md#get-audit-logs-with-the-azure-ad-reporting-api)
 
 <!-- LINKS -->
-[ms-graph]: https://docs.microsoft.com/graph/
-[ms-graph-api]: https://docs.microsoft.com/graph/api/overview
+[ms-graph]: /graph/
+[ms-graph-api]: /graph/api/overview

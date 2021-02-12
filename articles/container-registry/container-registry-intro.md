@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 02/10/2020
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: d54c939f0ecc78d7734345b23fd2b75f150243c1
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b5c81d8b2e6d7eac2dcd9070bf1f448340ea1a18
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148496"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341258"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introdução aos registros de contêiner do Docker privado no Azure
 
@@ -45,7 +45,7 @@ O Azure fornece ferramentas, incluindo a interface de linha de comando do Azure,
 
   Você [controla o acesso](container-registry-authentication.md) a um registro de contêiner usando uma identidade do Azure, uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md) com suporte do Azure Active Directory ou uma conta do administrador fornecida. Use o RBAC do Azure (controle de acesso baseado em função do Azure) para atribuir a usuários ou sistemas permissões refinadas a um registro.
 
-  Os recursos de segurança da camada de serviço Premium incluem [confiança de conteúdo](container-registry-content-trust.md) para assinatura de tag de imagem e [firewalls e redes virtuais (versão prévia)](container-registry-vnet.md) para restringir o acesso ao Registro. A Central de Segurança do Azure integra-se opcionalmente ao Registro de Contêiner do Azure para [verificar imagens](../security-center/defender-for-container-registries-introduction.md?bc=%252fazure%252fcontainer-registry%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fcontainer-registry%252ftoc.json) sempre que uma imagem é enviada por push a um registro.
+  Os recursos de segurança da camada de serviço Premium incluem [confiança de conteúdo](container-registry-content-trust.md) para assinatura de tag de imagem e [firewalls e redes virtuais (versão prévia)](container-registry-vnet.md) para restringir o acesso ao Registro. A Central de Segurança do Azure integra-se opcionalmente ao Registro de Contêiner do Azure para [verificar imagens](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) sempre que uma imagem é enviada por push a um registro.
 
 * **Artefatos e imagens compatíveis** – agrupadas em um repositório, cada imagem é um instantâneo somente leitura de um contêiner compatível com o Docker. Registros de contêiner do Azure podem incluir imagens do Windows e Linux. Você controla os nomes de imagem para todas as implantações de contêiner. Use [comandos do Docker](https://docs.docker.com/engine/reference/commandline/) padrão para envio de imagens em um repositório ou extraia uma imagem de um repositório. Além de imagens de contêiner do Docker, o Registro de Contêiner do Azure armazena [formatos de conteúdo relacionados](container-registry-image-formats.md), como [Gráficos do Helm](container-registry-helm-repos.md) e imagens criadas conforme a [Especificação de Formato de Imagem da OCI (Iniciativa de Contêiner Aberto)](https://github.com/opencontainers/image-spec/blob/master/spec.md).
 

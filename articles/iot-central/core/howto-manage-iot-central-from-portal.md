@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 02/11/2020
 ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: 0802169898cad51e9a5d208e546a004f7ea7b3c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8cf8fdfe0c8eb557946baa95d0d8beb2b388baa5
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653325"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674439"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Gerenciar IoT Central do portal do Azure
 
@@ -41,7 +41,7 @@ Preencha todos os campos no formulário. Esse formulário é semelhante ao formu
 
 ![Criar formulário de IoT Central](media/howto-manage-iot-central-from-portal/image6a.png)
 
-**Localização** é a [geografia](https://azure.microsoft.com/global-infrastructure/geographies/) em que você deseja criar seu aplicativo. Normalmente, você deve escolher a localização fisicamente mais próxima de seus dispositivos para obter um desempenho ideal. No momento, o Azure IoT Central está disponível nas regiões da **Austrália**, **Pacífico Asiático**, **Europa**, **Estados Unidos**, **Reino Unido**e **Japão** . Depois de escolher uma localização, você não poderá mover o aplicativo posteriormente para outra localização.
+**Localização** é a [geografia](https://azure.microsoft.com/global-infrastructure/geographies/) em que você deseja criar seu aplicativo. Normalmente, você deve escolher a localização fisicamente mais próxima de seus dispositivos para obter um desempenho ideal. No momento, o Azure IoT Central está disponível nas regiões da **Austrália**, **Pacífico Asiático**, **Europa**, **Estados Unidos**, **Reino Unido** e **Japão** . Depois de escolher uma localização, você não poderá mover o aplicativo posteriormente para outra localização.
 
 Depois de preencher todos os campos, selecione **criar**.
 
@@ -50,7 +50,7 @@ Depois de preencher todos os campos, selecione **criar**.
 Se você já tiver um aplicativo do Azure IoT Central, poderá excluí-lo ou movê-lo para uma assinatura ou grupo de recursos diferente no portal do Azure.
 
 > [!NOTE]
-> Você não pode ver os aplicativos criados no plano de preços gratuito no portal do Azure porque eles não estão associados à sua assinatura.
+> Os aplicativos criados usando o plano *gratuito* não exigem assinaturas do Azure e, portanto, você não os encontrará na sua assinatura do azure na portal do Azure. Você só pode ver e gerenciar aplicativos gratuitos no portal de IoT Central.
 
 Para começar, selecione **todos os recursos** no Portal. Selecione **Mostrar tipos ocultos** e comece a digitar o nome do seu aplicativo em **Filtrar por nome** para localizá-lo. Em seguida, selecione o aplicativo IoT Central que você gostaria de gerenciar.
 

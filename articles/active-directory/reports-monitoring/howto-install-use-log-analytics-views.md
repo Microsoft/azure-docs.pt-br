@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 168b41534f6ea6055294cc9e9cec139853904fea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9fc1592681429998f5082fbadcd45fa068f130e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358892"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180465"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Instalar e usar os modos de exibição do Log Analytics do Azure Active Directory
 
@@ -74,4 +74,4 @@ Para usar as exibições do Log Analytics, você precisará de:
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Como analisar logs de atividade com os logs do Azure Monitor](howto-analyze-activity-logs-log-analytics.md)
-* [Introdução aos logs do Azure Monitor no portal do Azure](../../azure-monitor/log-query/get-started-portal.md)
+* [Introdução aos logs do Azure Monitor no portal do Azure](../../azure-monitor/log-query/log-analytics-tutorial.md)

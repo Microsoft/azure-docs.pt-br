@@ -11,12 +11,12 @@ metadata:
   author: PatAltimore
   ms.author: patricka
   ms.date: 10/23/2019
-  ms.openlocfilehash: 123d84cc29c1dce85cccf8c1bbb089bfbbbf7bf3
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 5c5524f6214978864b4171f5298549c7963a7bd1
+  ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "87007655"
+  ms.lasthandoff: 01/07/2021
+  ms.locfileid: "97963922"
 productDirectory:
   items:
   - title: Serviço do Azure Blockchain
@@ -44,6 +44,9 @@ conceptualContent:
     - url: ./service/send-transaction.md
       itemType: tutorial
       text: Seguir um tutorial e escrever um contrato inteligente
+    - url: /learn/paths/ethereum-blockchain-development
+      itemType: learn
+      text: Siga o caminho do blockchain do Microsoft Learn
     - url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-I-Deploy-and-configure-your-network
       itemType: video
       text: Assistir a como implantar e configurar a rede

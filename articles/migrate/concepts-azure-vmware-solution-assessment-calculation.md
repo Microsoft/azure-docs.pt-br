@@ -2,16 +2,16 @@
 title: Cálculos de avaliação de AVS nas migrações para Azure | Microsoft Docs
 description: Fornece uma visão geral dos cálculos de avaliação de AVS no serviço migrações para Azure.
 author: rashi-ms
-ms.service: azure-migrate
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.author: mahain
-ms.openlocfilehash: 400c2d91383b5f21fcd40fdbbe279bd83fcef51a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a489902372b0b88a0ffec07fa685ee745ec59c50
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576533"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880450"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vmware-solution"></a>Visão geral da avaliação do servidor (migrar para a solução VMware do Azure)
 
@@ -207,6 +207,8 @@ Depois que o valor de utilização efetivo é determinado, o armazenamento, a re
 
 Se você usar *como dimensionamento local*, a avaliação do servidor não considerará o histórico de desempenho das VMs e dos discos. Em vez disso, ele aloca nós de AVS com base no tamanho alocado no local. O tipo de armazenamento padrão é vSAN na AVS.
 
+[Saiba mais](./tutorial-assess-vmware-azure-vmware-solution.md#review-an-assessment) sobre como examinar uma avaliação de solução do Azure VMware.
+
 ## <a name="confidence-ratings"></a>Classificações de confiança
 
 Cada avaliação baseada em desempenho nas migrações para Azure está associada a uma classificação de confiança que varia de uma (mais baixa) a cinco estrelas (mais alta).
@@ -236,8 +238,14 @@ Dependendo da porcentagem de pontos de dados disponíveis, a classificação de 
 Aqui estão algumas razões pelas quais uma avaliação pode obter uma classificação de baixa confiança:
 
 - Você não fez o profile do seu ambiente pela duração para a qual está criando a avaliação. Por exemplo, se você criar a avaliação com duração de desempenho definida como um dia, deverá aguardar pelo menos um dia depois de iniciar a descoberta para todos os pontos de dados a serem coletados.
-- Algumas VMs foram desligadas durante o período sujeito à avaliação. Se alguma VM for desativada por alguma duração, a avaliação do servidor não poderá coletar os dados de desempenho para esse período.
-- Algumas VMs foram criadas durante o período para o qual a avaliação foi calculada. Por exemplo, se você criou uma avaliação para o histórico de desempenho do último mês, mas algumas VMs foram criadas no ambiente apenas uma semana atrás, o histórico de desempenho das novas VMs não existirá durante toda a duração.
+- A avaliação não é capaz de coletar os dados de desempenho de algumas ou de todas as VMs no período de avaliação. Para uma classificação de alta confiança, verifique se: 
+    - As VMs são ativadas durante a avaliação
+    - Conexões de saída nas portas 443 são permitidas
+    - Para VMs do Hyper-V, a memória dinâmica está habilitada 
+    
+    “Recalcule” a avaliação para refletir as alterações mais recentes na classificação de confiança.
+
+- Algumas VMs foram criadas durante o tempo durante o qual a avaliação foi calculada. Por exemplo, suponha que você criou uma avaliação para o histórico de desempenho do último mês, mas algumas VMs foram criadas há apenas uma semana atrás. Nesse caso, os dados de desempenho das novas VMs não estariam disponíveis durante todo o período e a classificação de confiança seria baixa.
 
 > [!NOTE]
 > Se a classificação de confiança de qualquer avaliação for menor que cinco estrelas, recomendamos que você aguarde pelo menos um dia para o dispositivo criar o perfil do ambiente e recalcular a avaliação. Caso contrário, o dimensionamento baseado em desempenho pode não ser confiável. Nesse caso, recomendamos que você alterne a avaliação para o dimensionamento local.

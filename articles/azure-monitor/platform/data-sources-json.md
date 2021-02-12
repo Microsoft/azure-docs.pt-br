@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: 2ce83efea9337992209f9ade1f10ebad08edd57e
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: aa6931fc91838173a856ef500145fa49f2606271
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461168"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655196"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Coletando fontes de dados JSON personalizadas com o agente do Log Analytics para Linux no Azure Monitor
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -96,8 +96,8 @@ Fontes de dados JSON aninhados têm suporte, mas são indexadas sem se basear no
 ```json
 {
     "tag": [{
-        "a":"1",
-        "b":"2"
+      "a":"1",
+      "b":"2"
     }]
 }
 ```

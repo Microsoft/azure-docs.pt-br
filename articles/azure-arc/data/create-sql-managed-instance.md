@@ -4,17 +4,17 @@ description: Criar uma instância gerenciada do SQL do Azure no arco do Azure
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: twright-msft
-ms.author: twright
+author: vin-yu
+ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 2a931b1a3c3f88af1abec4fd1810aae09c849c48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d1d6c7349adc65270e13d09d771963cb9cacea3
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933810"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280402"
 ---
 # <a name="create-an-azure-sql-managed-instance-on-azure-arc"></a>Criar uma instância gerenciada do SQL do Azure no arco do Azure
 

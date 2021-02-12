@@ -7,11 +7,11 @@ ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
 ms.openlocfilehash: e79e5e16b300fd02b9c9124f9677747834f22813
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89443136"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009425"
 ---
 # <a name="how-to-catalog-big-data-in-azure-data-catalog"></a>Como catalogar Big Data no catálogo de dados do Azure
 

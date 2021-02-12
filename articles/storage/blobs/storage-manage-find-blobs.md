@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions
-ms.openlocfilehash: 8f1ea67605be3aee6257c293aea3db617d885645
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4f84c3c2f6fc671a8cb6ac70313361540e3dd815
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370246"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95523273"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Gerenciar e localizar dados de blob do Azure com marcas de índice de BLOB (versão prévia)
 
@@ -51,7 +51,7 @@ Esses BLOBs são separados usando um prefixo de *contêiner/pasta virtual/nome d
 Marcas de índice de blob são atributos de chave-valor que podem ser aplicados a objetos novos ou existentes em sua conta de armazenamento. Você pode especificar marcas de índice durante o processo de carregamento usando o [blob Put](/rest/api/storageservices/put-blob), [colocar lista de blocos](/rest/api/storageservices/put-block-list)ou operações de [copiar blob](/rest/api/storageservices/copy-blob) e o `x-ms-tags` cabeçalho opcional. Se você já tiver BLOBs em sua conta de armazenamento, chame [definir marcas de blob](/rest/api/storageservices/set-blob-tags) passando um documento XML formatado com as marcas de índice no corpo da solicitação.
 
 > [!IMPORTANT]
-> A configuração de marcas de índice de blob pode ser executada pelo [proprietário de dados do blob de armazenamento](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) e por qualquer pessoa com uma assinatura de acesso compartilhado que tenha permissão para acessar as marcas do blob (a `t` permissão SAS).
+> A configuração de marcas de índice de blob pode ser executada pelo [proprietário de dados do blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) e por qualquer pessoa com uma assinatura de acesso compartilhado que tenha permissão para acessar as marcas do blob (a `t` permissão SAS).
 >
 > Além disso, os usuários do RBAC com a `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` permissão podem executar essa operação.
 
@@ -87,7 +87,7 @@ Os seguintes limites se aplicam a marcas de índice de blob:
 As marcas de índice de blob são armazenadas como um subrecurso ao lado dos dados de BLOB e podem ser recuperadas independentemente do conteúdo de dados de blob subjacente. As marcas de índice de BLOB para um único blob podem ser recuperadas com a operação [obter marcas de blob](/rest/api/storageservices/get-blob-tags) . A operação [listar BLOBs](/rest/api/storageservices/list-blobs) com o `include:tags` parâmetro também retornará todos os BLOBs dentro de um contêiner, juntamente com suas marcas de índice de BLOB.
 
 > [!IMPORTANT]
-> Obter e listar marcas de índice de blob pode ser executado pelo [proprietário de dados do blob de armazenamento](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) e por qualquer pessoa com uma assinatura de acesso compartilhado que tenha permissão para acessar as marcas do blob (a `t` permissão SAS).
+> Obter e listar marcas de índice de blob pode ser executado pelo [proprietário de dados do blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) e por qualquer pessoa com uma assinatura de acesso compartilhado que tenha permissão para acessar as marcas do blob (a `t` permissão SAS).
 >
 > Além disso, os usuários do RBAC com a `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` permissão podem executar essa operação.
 
@@ -100,7 +100,7 @@ O mecanismo de indexação expõe seus atributos de chave-valor em um índice mu
 A operação [Localizar blobs por marcas](/rest/api/storageservices/find-blobs-by-tags) permite que você obtenha um conjunto filtrado de BLOBs cujas marcas de índice correspondem a uma determinada expressão de consulta. `Find Blobs by Tags` dá suporte à filtragem em todos os contêineres em sua conta de armazenamento ou você pode fazer o escopo da filtragem para apenas um único contêiner. Como todos os valores e chaves de marca de índice são cadeias de caracteres, os operadores relacionais usam uma classificação lexicográfica.
 
 > [!IMPORTANT]
-> Localizar dados usando marcas de índice de blob pode ser executado pelo [proprietário de dados do blob de armazenamento](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) e por qualquer pessoa com uma assinatura de acesso compartilhado que tenha permissão para localizar blobs por marcas (a permissão de `f` SAS).
+> Localizar dados usando marcas de índice de blob pode ser executado pelo [proprietário de dados do blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) e por qualquer pessoa com uma assinatura de acesso compartilhado que tenha permissão para localizar blobs por marcas (a permissão de `f` SAS).
 >
 > Além disso, os usuários do RBAC com a `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` permissão podem executar essa operação.
 
@@ -235,7 +235,7 @@ Os chamadores usando uma [identidade do Azure ad](../common/storage-auth-aad.md)
 | [Obter marcas de BLOB](/rest/api/storageservices/get-blob-tags)           | Microsoft. Storage/storageAccounts/blobservices/contêineres/BLOBs/marcas/leitura     |
 | [Localizar blobs por marcas](/rest/api/storageservices/find-blobs-by-tags) | Microsoft. Storage/storageAccounts/blobservices/contêineres/BLOBs/filtro/ação |
 
-Permissões adicionais, separadas dos dados de blob subjacentes, são necessárias para operações de marca de índice. A função de [proprietário de dados de blob de armazenamento](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) recebe permissões para todas as três operações de marca de índice de BLOB. O [leitor de dados de blob de armazenamento](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) só recebe permissões para `Find Blobs by Tags` `Get Blob Tags` operações e.
+Permissões adicionais, separadas dos dados de blob subjacentes, são necessárias para operações de marca de índice. A função de [proprietário de dados de blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) recebe permissões para todas as três operações de marca de índice de BLOB. O [leitor de dados de blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) só recebe permissões para `Find Blobs by Tags` `Get Blob Tags` operações e.
 
 ### <a name="sas-permissions"></a>Permissões de SAS
 
@@ -327,6 +327,7 @@ Esta seção descreve os problemas e condições conhecidos na visualização p�
 - Quando a filtragem estiver no escopo de um único contêiner, o `@container` só poderá ser passado se todas as marcas de índice na expressão de filtro forem verificações de igualdade (chave = valor).
 - Ao usar o operador Range com a `AND` condição, você só pode especificar o mesmo nome de chave de marca de índice ( `"Age" > '013' AND "Age" < '100'` ).
 - Não há suporte para controle de versão e índice de BLOB. As marcas de índice de blob são preservadas para versões, mas não são passadas para o mecanismo de índice de BLOB.
+- Não há API para determinar se as marcas de índice estão indexadas.
 - Não há suporte para o failover de conta. O índice de blob pode não ser atualizado corretamente após o failover.
 - O gerenciamento do ciclo de vida oferece suporte a verificações de igualdade com correspondência de índice de BLOB.
 - `Copy Blob` não copia marcas de índice de blob do blob de origem para o novo BLOB de destino. Você pode especificar as marcas que deseja aplicar ao blob de destino durante a operação de cópia.

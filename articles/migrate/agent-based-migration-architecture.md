@@ -1,17 +1,17 @@
 ---
 title: Migração baseada em agente no Azure migrar migração de servidor
 description: Fornece uma visão geral da migração de VM VMware baseada em agente nas migrações para Azure.
-author: rayne-wiselman
-ms.service: azure-migrate
+author: rahulg1190
+ms.author: rahugup
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.author: raynew
-ms.openlocfilehash: 90e499b436a3ae44fa29cec1138d939a106a4db7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c605c21307cda874f34ae5ea9f4e4959e5e6c183
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357158"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861943"
 ---
 # <a name="agent-based-migration-architecture"></a>Arquitetura de migração baseada em agente
 
@@ -92,14 +92,14 @@ Se você estiver replicando VMs VMware, poderá usar o [Site Recovery planejador
 
 Use os valores nesta tabela para descobrir se você precisa de um servidor de processo adicional em sua implantação.
 
-- Se sua taxa de alteração diária (taxa de rotatividade) tiver mais de 2 TB, implante um servidor de processo adicional.
+- Se a taxa de alteração diária (taxa de rotatividade) tiver mais de 2 TB, implante um servidor de processo adicional.
 - Se você estiver replicando mais de 200 computadores, implante um dispositivo de replicação adicional.
 
 **CPU** | **Memória** | **Espaço livre – cache de dados** | **Taxa de rotatividade** | **Limites de replicação**
 --- | --- | --- | --- | ---
 8 vCPUs (2 soquetes * 4 núcleos \@ 2,5 GHz) | 16 GB | 300 GB | 500 GB ou menos | < 100 computadores 
 12 vCPUs (2 soquetes * 6 núcleos \@ 2,5 GHz) | 18 GB | 600 GB | 501 GB a 1 TB | 100-150 computadores.
-16 vCPUs (2 soquetes * 8 núcleos \@ 2,5 GHz) | 32 G1 |  1 TB | 1 TB a 2 TB | 151-200 computadores.
+16 vCPUs (2 soquetes * 8 núcleos \@ 2,5 GHz) | 32 GB |  1 TB | 1 TB a 2 TB | 151-200 computadores.
 
 ### <a name="sizing-scale-out-process-servers"></a>Dimensionamento de servidores de processo de escala horizontal
 
@@ -108,7 +108,7 @@ Se você precisar implantar um servidor de processo de expansão, use esta tabel
 **Servidor de processo** | **Espaço livre para cache de dados** | **Taxa de rotatividade** | **Limites de replicação**
 --- | --- | --- | --- 
 4 vCPUs (2 soquetes * 2 núcleos \@ 2,5 GHz), 8 GB de memória | 300 GB | 250 GB ou menos | Até 85 computadores 
-8 vCPUs (2 soquetes * 4 núcleos \@ 2,5 GHz), 12 GB de memória | 600 GB | 251 GB a 1 TB    | 86-150 computadores.
+8 vCPUs (2 soquetes * 4 núcleos \@ 2,5 GHz), 12 GB de memória | 600 GB | 251 GB a 1 TB | 86-150 computadores.
 12 vCPUs (2 soquetes x 6 núcleos \@ 2,5 GHz), 24 GB de memória | 1 TB | 1-2 TB | 151-225 computadores.
 
 ## <a name="throttle-upload-bandwidth"></a>Limitar a largura de banda de upload.

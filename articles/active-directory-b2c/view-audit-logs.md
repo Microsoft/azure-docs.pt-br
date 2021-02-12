@@ -12,12 +12,12 @@ ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4fc25edb873a2dfe84f6ca716a71cf028c74cb2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04d5a989fcaf3cef3eea3b782842fb3255d4b317
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85383930"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661095"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Acessando os logs de auditoria do Microsoft Azure Active Directory B2C
 
@@ -84,7 +84,7 @@ Para baixar a lista de eventos de atividade em um arquivo CSV (valores separados
 
 ## <a name="get-audit-logs-with-the-azure-ad-reporting-api"></a>Obter logs de auditoria com a API de relatórios do Azure AD
 
-Os logs de auditoria são publicados para o mesmo pipeline como outras atividades do Azure Active Directory, para que possam ser acessados por meio da [API de relatórios do Microsoft Azure Active Directory](https://docs.microsoft.com/graph/api/directoryaudit-list). Para obter mais informações, consulte Introdução [à API de relatório do Azure Active Directory](../active-directory/reports-monitoring/concept-reporting-api.md).
+Os logs de auditoria são publicados para o mesmo pipeline como outras atividades do Azure Active Directory, para que possam ser acessados por meio da [API de relatórios do Microsoft Azure Active Directory](/graph/api/directoryaudit-list). Para obter mais informações, consulte Introdução [à API de relatório do Azure Active Directory](../active-directory/reports-monitoring/concept-reporting-api.md).
 
 ### <a name="enable-reporting-api-access"></a>Habilitar o acesso à API de relatórios
 
@@ -223,4 +223,4 @@ Aqui está a representação JSON do evento de atividade de exemplo mostrado ant
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você pode automatizar outras tarefas de administração, por exemplo, [gerenciar Azure ad B2C contas de usuário com Microsoft Graph](manage-user-accounts-graph-api.md).
+Você pode automatizar outras tarefas de administração, por exemplo, [gerenciar Azure ad B2C contas de usuário com Microsoft Graph](microsoft-graph-operations.md).

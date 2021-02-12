@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: a4a338a4d13715ba1ff7cb30c011757d5050ba05
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1b568687ffe646a91544c1bb75d26d552a23f49c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100061"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96005275"
 ---
 # <a name="optimize-costs-by-automating-azure-blob-storage-access-tiers"></a>Otimize os custos automatizando as camadas de acesso do armazenamento de BLOBs do Azure
 
@@ -39,7 +39,7 @@ Considere um cenário em que os dados recebem acesso frequente durante os estág
 
 O recurso gerenciamento de ciclo de vida está disponível em todas as regiões do Azure para contas Uso Geral v2 (GPv2), contas de armazenamento de BLOBs, contas de armazenamento de blob de blocos Premium e contas de Azure Data Lake Storage Gen2. No portal do Azure, você pode atualizar uma conta de Uso Geral (GPv1) existente para uma conta do GPv2. Para saber mais sobre as contas de armazenamento, confira [Visão geral da conta de armazenamento do Azure](../common/storage-account-overview.md).
 
-O recurso de gerenciamento do ciclo de vida é gratuito. Os clientes são cobrados pelo custo de operação regular para as chamadas Set API da [camada de blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) . A operação de exclusão é gratuita. Para obter mais informações sobre preços, confira [Preços do Blob de Blocos](https://azure.microsoft.com/pricing/details/storage/blobs/).
+O recurso de gerenciamento do ciclo de vida é gratuito. Os clientes são cobrados pelo custo de operação regular para as chamadas Set API da [camada de blob](/rest/api/storageservices/set-blob-tier) . A operação de exclusão é gratuita. Para obter mais informações sobre preços, confira [Preços do Blob de Blocos](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="add-or-remove-a-policy"></a>Adicionar ou remover uma política
 
@@ -47,13 +47,13 @@ Você pode adicionar, editar ou remover uma política usando qualquer um dos seg
 
 * [Azure portal](https://portal.azure.com)
 * [PowerShell do Azure](https://github.com/Azure/azure-powershell/releases)
-* [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
-* [APIs REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies)
+* [CLI do Azure](/cli/azure/install-azure-cli)
+* [APIs REST](/rest/api/storagerp/managementpolicies)
 
 Uma política pode ser lida ou gravada por completo. Não há suporte para atualizações parciais. 
 
 > [!NOTE]
-> Se você habilitar as regras de firewall para sua conta de armazenamento, as solicitações de gerenciamento do ciclo de vida poderão ser bloqueadas. Você pode desbloquear essas solicitações fornecendo exceções para serviços confiáveis da Microsoft. Para obter mais informações, confira a seção Exceções em [Configurar firewalls e redes virtuais](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+> Se você habilitar as regras de firewall para sua conta de armazenamento, as solicitações de gerenciamento do ciclo de vida poderão ser bloqueadas. Você pode desbloquear essas solicitações fornecendo exceções para serviços confiáveis da Microsoft. Para obter mais informações, confira a seção Exceções em [Configurar firewalls e redes virtuais](../common/storage-network-security.md#exceptions).
 
 Este artigo mostra como gerenciar a política usando os métodos do portal e do PowerShell.
 
@@ -70,17 +70,17 @@ Há duas maneiras de adicionar uma política por meio do portal do Azure.
 
 1. Na portal do Azure, procure e selecione sua conta de armazenamento. 
 
-1. Em **serviço blob** , selecione **Gerenciamento de ciclo de vida** para exibir ou alterar suas regras.
+1. Em **serviço blob**, selecione **Gerenciamento de ciclo de vida** para exibir ou alterar suas regras.
 
 1. Selecione a guia **exibição de lista** .
 
-1. Selecione **Adicionar uma regra** e nomeie sua regra no formulário de **detalhes** . Você também pode definir o **escopo da regra** , o **tipo de blob** e os valores de **subtipo de blob** . O exemplo a seguir define o escopo para filtrar BLOBs. Isso faz com que a guia **conjunto de filtros** seja adicionada.
+1. Selecione **Adicionar uma regra** e nomeie sua regra no formulário de **detalhes** . Você também pode definir o **escopo da regra**, o **tipo de blob** e os valores de **subtipo de blob** . O exemplo a seguir define o escopo para filtrar BLOBs. Isso faz com que a guia **conjunto de filtros** seja adicionada.
 
    :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-details.png" alt-text="Gerenciamento do ciclo de vida adicionar uma página de detalhes de regra no portal do Azure":::
 
 1. Selecione **blobs de base** para definir as condições para a regra. No exemplo a seguir, os BLOBs são movidos para o armazenamento frio, caso não tenham sido modificados por 30 dias.
 
-   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="Gerenciamento do ciclo de vida adicionar uma página de detalhes de regra no portal do Azure":::
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="Página blobs de base de gerenciamento do ciclo de vida no portal do Azure":::
 
    A opção **último acessado** está disponível na visualização nas seguintes regiões:
 
@@ -95,7 +95,7 @@ Há duas maneiras de adicionar uma política por meio do portal do Azure.
 
 1. Se você selecionou **limitar BLOBs com filtros** na página de **detalhes** , selecione **conjunto de filtros** para adicionar um filtro opcional. O exemplo a seguir filtra os BLOBs no contêiner *mylifecyclecontainer* que começam com "log".
 
-   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-filter-set.png" alt-text="Gerenciamento do ciclo de vida adicionar uma página de detalhes de regra no portal do Azure":::
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-filter-set.png" alt-text="Página conjunto de filtros de gerenciamento do ciclo de vida no portal do Azure":::
 
 1. Selecione **Adicionar** para adicionar a nova política.
 
@@ -104,7 +104,7 @@ Há duas maneiras de adicionar uma política por meio do portal do Azure.
 
 1. Na portal do Azure, procure e selecione sua conta de armazenamento.
 
-1. Em **serviço blob** , selecione **Gerenciamento de ciclo de vida** para exibir ou alterar sua política.
+1. Em **serviço blob**, selecione **Gerenciamento de ciclo de vida** para exibir ou alterar sua política.
 
 1. O JSON a seguir é um exemplo de uma política que pode ser colada na guia **exibição de código** .
 
@@ -137,7 +137,7 @@ Há duas maneiras de adicionar uma política por meio do portal do Azure.
    }
    ```
 
-1. Selecione **Salvar** .
+1. Clique em **Salvar**.
 
 1. Para obter mais informações sobre este exemplo de JSON, consulte as seções [política](#policy) e [regras](#rules) .
 
@@ -247,10 +247,10 @@ Cada regra na política tem vários parâmetros:
 
 | Nome do parâmetro | Tipo de parâmetro | Observações | Obrigatório |
 |----------------|----------------|-------|----------|
-| `name`         | String |Um nome de regra pode incluir até 256 caracteres alfanuméricos. A regra de nome diferencia maiúsculas de minúsculas. Ela deve ser exclusiva em uma política. | Verdadeiro |
-| `enabled`      | Booliano | Um booliano opcional para permitir que uma regra seja temporariamente desabilitada. O valor padrão será true se não estiver definido. | Falso | 
-| `type`         | Um valor de enumeração | O tipo válido atual é `Lifecycle` . | Verdadeiro |
-| `definition`   | Um objeto que define a regra de ciclo de vida | Cada definição é composta por um conjunto de filtros e um conjunto de ações. | Verdadeiro |
+| `name`         | String |Um nome de regra pode incluir até 256 caracteres alfanuméricos. A regra de nome diferencia maiúsculas de minúsculas. Ela deve ser exclusiva em uma política. | True |
+| `enabled`      | Boolean | Um booliano opcional para permitir que uma regra seja temporariamente desabilitada. O valor padrão será true se não estiver definido. | Falso | 
+| `type`         | Um valor de enumeração | O tipo válido atual é `Lifecycle` . | True |
+| `definition`   | Um objeto que define a regra de ciclo de vida | Cada definição é composta por um conjunto de filtros e um conjunto de ações. | True |
 
 ## <a name="rules"></a>Regras
 
@@ -322,7 +322,7 @@ Filtros incluem:
 | blobIndexMatch | Uma matriz de valores de dicionário que consiste na chave de marca de índice de BLOB e condições de valor a serem correspondidas. Cada regra pode definir até 10 condições de marca de índice de BLOB. Por exemplo, se você quiser corresponder a todos os BLOBs com `Project = Contoso` em `https://myaccount.blob.core.windows.net/` para uma regra, o blobIndexMatch será `{"name": "Project","op": "==","value": "Contoso"}` . | Se você não definir blobIndexMatch, a regra se aplicará a todos os BLOBs na conta de armazenamento. | No |
 
 > [!NOTE]
-> O índice de blob está em visualização pública e está disponível nas regiões do **Canadá central** , **leste do Canadá** , **França central** e **França** . Para saber mais sobre esse recurso juntamente com limitações e problemas conhecidos, confira [Gerenciar e localizar dados no Armazenamento de Blobs do Azure com o Índice de Blob (versão prévia)](storage-manage-find-blobs.md).
+> O índice de blob está em visualização pública e está disponível nas regiões do **Canadá central**, **leste do Canadá**, **França central** e **França** . Para saber mais sobre esse recurso juntamente com limitações e problemas conhecidos, confira [Gerenciar e localizar dados no Armazenamento de Blobs do Azure com o Índice de Blob (versão prévia)](storage-manage-find-blobs.md).
 
 ### <a name="rule-actions"></a>Ações de regra
 
@@ -342,7 +342,7 @@ O gerenciamento do ciclo de vida dá suporte a camadas e exclusão de BLOBs, ver
 
 As condições de execução se baseiam na idade. Os blobs de base usam a hora da última modificação, as versões de blob usam a hora de criação da versão e os instantâneos de blob usam o tempo de criação do instantâneo para controlar a idade.
 
-| Condição de execução de ação               | Valor de condição                          | Descrição                                                                      |
+| Condição de execução de ação               | Valor de condição                          | Description                                                                      |
 |------------------------------------|------------------------------------------|----------------------------------------------------------------------------------|
 | daysAfterModificationGreaterThan   | Valor inteiro que indica a idade em dias | A condição para ações de blob de base                                              |
 | daysAfterCreationGreaterThan       | Valor inteiro que indica a idade em dias | A condição para a versão do blob e ações de instantâneo de BLOB                         |
@@ -439,7 +439,7 @@ O controle de horário do último acesso está disponível para os seguintes tip
 
 Se sua conta de armazenamento for uma conta v1 de uso geral, use o portal do Azure para atualizar para uma conta v2 de uso geral.
 
-As contas de armazenamento com um namespace hierárquico habilitado para uso com Azure Data Lake Storage Gen2 ainda não têm suporte.
+As contas de armazenamento com um namespace hierárquico habilitado para uso com Azure Data Lake Storage Gen2 agora têm suporte.
 
 #### <a name="pricing-and-billing"></a>Preços e cobrança
 
@@ -450,7 +450,7 @@ Cada última atualização de hora de acesso é considerada uma [outra operaçã
 Alguns dados permanecem ociosos na nuvem e raramente ou nunca são acessados depois de armazenados. A política de ciclo de vida a seguir é configurada para arquivar dados logo após sua ingestão. Este exemplo faz a transição de blobs de blocos na conta de armazenamento dentro do contêiner `archivecontainer` para uma camada de arquivo morto. A transição é realizada agindo em BLOBs 0 dias após a hora da última modificação:
 
 > [!NOTE] 
-> É recomendável carregar seus BLOBs diretamente a camada de arquivo para ser mais eficiente. Você pode usar o cabeçalho x-MS-Access-Tier para [PutBlob](https://docs.microsoft.com/rest/api/storageservices/put-blob) ou [PutBlockList](https://docs.microsoft.com/rest/api/storageservices/put-block-list) com a versão REST 2018-11-09 e mais recente ou nossas bibliotecas de cliente de armazenamento de blob mais recentes. 
+> É recomendável carregar seus BLOBs diretamente a camada de arquivo para ser mais eficiente. Você pode usar o cabeçalho x-MS-Access-Tier para [PutBlob](/rest/api/storageservices/put-blob) ou [PutBlockList](/rest/api/storageservices/put-block-list) com a versão REST 2018-11-09 e mais recente ou nossas bibliotecas de cliente de armazenamento de blob mais recentes. 
 
 ```json
 {
@@ -592,7 +592,7 @@ Quando um blob é movido de uma camada de acesso para outra, sua hora da última
 
 Saiba como recuperar dados após uma exclusão acidental:
 
-- [Exclusão reversível para blobs do Armazenamento do Azure ](../blobs/storage-blob-soft-delete.md)
+- [Exclusão reversível para blobs do Armazenamento do Azure ](./soft-delete-blob-overview.md)
 
 Saiba como gerenciar e localizar dados com o índice de blob:
 

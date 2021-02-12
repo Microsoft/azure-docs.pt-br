@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 9/17/2020
-ms.openlocfilehash: 1a51d2140528e3f6ed6da0ca699d7b71b91638ec
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.date: 12/8/2020
+ms.openlocfilehash: b0d599b7d52d8a0e93f16761d1983ad25fa45c61
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743154"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97687395"
 ---
 # <a name="azure-sql-database-serverless"></a>Banco de Dados SQL do Azure sem servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -135,9 +135,10 @@ A retomada automática será ativada se qualquer uma das seguintes condições f
 |Descoberta e classificação de dados|Adicionar, modificar, excluir ou exibir os rótulos de confidencialidade|
 |Auditoria|Exibir os registros de auditoria.<br>Atualizar ou exibir a política de auditoria.|
 |Mascaramento de dados|Adicionar, modificar, excluir ou exibir as regras de mascaramento de dados|
-|Transparent Data Encryption|Exibir o estado ou status de Transparent Data Encryption|
+|Transparent Data Encryption|Estado de exibição ou status da Transparent Data Encryption|
 |Avaliação de vulnerabilidade|Verificações ad hoc e verificações periódicas, se habilitadas|
 |Consultar o armazenamento de dados (desempenho)|Modificar ou exibir configurações do repositório de consultas|
+|Recomendações do desempenho|Exibindo ou aplicando recomendações de desempenho|
 |Ajuste automático|Aplicação e verificação de recomendações de ajuste automático, como indexação automática|
 |Cópia de banco de dados|Criar banco de dados como uma cópia.<br>Exportar para um arquivo BACPAC.|
 |Sincronização de dados SQL|Sincronização entre bancos de dados membro e hub que são executados em um cronograma configurável ou são executados manualmente|
@@ -195,7 +196,7 @@ New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName 
 
 ```azurecli
 az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
-  -e GeneralPurpose -f Gen5 -min-capacity 0.5 -c 2 --compute-model Serverless --auto-pause-delay 720
+  -e GeneralPurpose -f Gen5 --min-capacity 0.5 -c 2 --compute-model Serverless --auto-pause-delay 720
 ```
 
 
@@ -314,17 +315,17 @@ Para limites de recursos, consulte [camada de computação sem servidor](resourc
 
 A quantidade de computação cobrada é a quantidade máxima de uso de CPU e memória usada por segundo. Se a quantidade de CPU e memória usada for menor que a quantidade mínima provisionada para cada uma delas, a quantidade provisionada será cobrada. Para comparar CPU com memória para fins de cobrança, a memória é normalizada em unidades de vCores ao redimensionar a quantidade de memória em GB por 3 GB por vCore.
 
-- **Recurso cobrado** : CPU e memória
-- **Valor cobrado** : preço unitário de vCore * máx (mínimo de vCores, vCores usados, GB de memória mín * 1/3, GB de memória usados * 1/3) 
-- **Frequência de cobrança** : Por segundo
+- **Recurso cobrado**: CPU e memória
+- **Valor cobrado**: preço unitário de vCore * máx (mínimo de vCores, vCores usados, GB de memória mín * 1/3, GB de memória usados * 1/3) 
+- **Frequência de cobrança**: Por segundo
 
 O preço unitário de vCore é o custo por vCore por segundo. Consulte a [página de preços do Banco de Dados SQL do Azure](https://azure.microsoft.com/pricing/details/sql-database/single/) para obter os preços unitários específicos em uma determinada região.
 
 A quantidade de computação cobrada é exposta pela métrica a seguir:
 
-- **Métrica** : app_cpu_billed (segundos de vCore)
-- **Definição** : máx. (mínimo de vCores, vCores usados, GB de memória mín. * 1/3, GB de memória usados * 1/3)
-- **Frequência de relatórios** : Por minuto
+- **Métrica**: app_cpu_billed (segundos de vCore)
+- **Definição**: máx. (mínimo de vCores, vCores usados, GB de memória mín. * 1/3, GB de memória usados * 1/3)
+- **Frequência de relatórios**: Por minuto
 
 Essa quantidade é calculada a cada segundo e agregada a cada 1 minuto.
 

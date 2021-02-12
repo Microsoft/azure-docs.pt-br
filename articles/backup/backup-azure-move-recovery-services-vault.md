@@ -4,12 +4,12 @@ description: Instruções sobre como mover um cofre dos serviços de recuperaç�
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 5a73963970b5fad7b3992d501d9aac5cc7229622
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 12c276b861e7db8e93e60eea7e9cd7f3aba04860
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926675"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325767"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Mover um cofre dos serviços de recuperação entre assinaturas e grupos de recursos do Azure
 
@@ -30,7 +30,7 @@ Há suporte para todas as regiões públicas e regiões soberanas, exceto Franç
 - Se uma VM não se mover com o cofre dos serviços de recuperação entre assinaturas ou para um novo grupo de recursos, os pontos de recuperação da VM atuais permanecerão intactos no cofre até que expirem.
 - Seja a VM movida com o cofre ou não, você sempre pode restaurar a VM do histórico de backup retido no cofre.
 - A Azure Disk Encryption requer que o cofre de chaves e as VMs residam na mesma região e assinatura do Azure.
-- Para mover uma máquina virtual com discos gerenciados, veja este [artigo](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription).
+- Para mover uma máquina virtual com discos gerenciados, veja este [artigo](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - As opções para mover recursos implantados por meio do modelo clássico diferem dependendo se você está movendo os recursos dentro de uma assinatura ou para uma nova assinatura. Para obter mais informações, consulte este [artigo](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - Políticas de backup definidas para o cofre são mantidas após o cofre ser movido entre assinaturas ou para um novo grupo de recursos.
 - Você só pode mover um cofre que contenha qualquer um dos seguintes tipos de itens de backup. Todos os itens de backup dos tipos não listados abaixo precisarão ser interrompidos e os dados excluídos permanentemente antes da movimentação do cofre.
@@ -42,7 +42,7 @@ Há suporte para todas as regiões públicas e regiões soberanas, exceto Franç
 
 > [!NOTE]
 > Não há suporte para a movimentação de cofres dos serviços de recuperação para o backup do Azure nas regiões do Azure.<br><br>
-> Se você tiver configurado quaisquer VMs (Azure IaaS, Hyper-V, VMware) ou máquinas físicas para a recuperação de desastre usando **Azure site Recovery** , a operação de movimentação será bloqueada. Se você quiser mover cofres para Azure Site Recovery, leia [Este artigo](../site-recovery/move-vaults-across-regions.md) para saber mais sobre como mover cofres manualmente.
+> Se você tiver configurado quaisquer VMs (Azure IaaS, Hyper-V, VMware) ou máquinas físicas para a recuperação de desastre usando **Azure site Recovery**, a operação de movimentação será bloqueada. Se você quiser mover cofres para Azure Site Recovery, leia [Este artigo](../site-recovery/move-vaults-across-regions.md) para saber mais sobre como mover cofres manualmente.
 
 ## <a name="use-azure-portal-to-move-recovery-services-vault-to-different-resource-group"></a>Usar portal do Azure para mover o cofre dos serviços de recuperação para um grupo de recursos diferente
 
@@ -99,7 +99,7 @@ Você pode mover um cofre dos Serviços de Recuperação e seus recursos associa
 
    ![Adicionar assinatura](./media/backup-azure-move-recovery-services/add-subscription.png)
 
-7. Selecione **eu entendo que ferramentas e scripts associados a recursos movidos não funcionarão até que eu os atualize para usar a opção de novas IDs de recurso** para confirmar e, em seguida, selecione **OK** .
+7. Selecione **eu entendo que ferramentas e scripts associados a recursos movidos não funcionarão até que eu os atualize para usar a opção de novas IDs de recurso** para confirmar e, em seguida, selecione **OK**.
 
 > [!NOTE]
 > O backup de assinatura cruzada (cofre RS e VMs protegidas estão em assinaturas diferentes) não é um cenário com suporte. Além disso, a opção de redundância de armazenamento do LRS (armazenamento redundante local) para o armazenamento com redundância global (GRS) e vice-versa não pode ser modificada durante a operação de movimentação do cofre.
@@ -157,9 +157,9 @@ Para proteger as cargas de trabalho em um novo cofre, a proteção e os dados at
 
 1. Desabilite a exclusão reversível nas propriedades do cofre. Siga [estas etapas](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal) para desabilitar a exclusão reversível.
 
-2. Interrompa a proteção e exclua backups do cofre atual. No menu do painel do cofre, selecione **itens de backup** . Os itens listados aqui que precisam ser movidos para o novo cofre devem ser removidos junto com seus dados de backup. Consulte como [excluir itens protegidos na nuvem](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) e [excluir itens protegidos localmente](backup-azure-delete-vault.md#delete-protected-items-on-premises).
+2. Interrompa a proteção e exclua backups do cofre atual. No menu do painel do cofre, selecione **itens de backup**. Os itens listados aqui que precisam ser movidos para o novo cofre devem ser removidos junto com seus dados de backup. Consulte como [excluir itens protegidos na nuvem](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) e [excluir itens protegidos localmente](backup-azure-delete-vault.md#delete-protected-items-on-premises).
 
-3. Se estiver planejando mover os AFS (compartilhamentos de arquivos do Azure), servidores SQL ou servidores SAP HANA, você também precisará cancelar seu registro. No menu do painel do cofre, selecione **infraestrutura de backup** . Consulte como [cancelar o registro do SQL Server](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance), [cancelar o registro de uma conta de armazenamento associada aos compartilhamentos de arquivos do Azure](manage-afs-backup.md#unregister-a-storage-account)e [cancelar o registro de uma instância de SAP Hana](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
+3. Se estiver planejando mover os AFS (compartilhamentos de arquivos do Azure), servidores SQL ou servidores SAP HANA, você também precisará cancelar seu registro. No menu do painel do cofre, selecione **infraestrutura de backup**. Consulte como [cancelar o registro do SQL Server](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance), [cancelar o registro de uma conta de armazenamento associada aos compartilhamentos de arquivos do Azure](manage-afs-backup.md#unregister-a-storage-account)e [cancelar o registro de uma instância de SAP Hana](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
 
 4. Depois que eles forem removidos do cofre antigo, continue a configurar os backups para sua carga de trabalho no novo cofre.
 

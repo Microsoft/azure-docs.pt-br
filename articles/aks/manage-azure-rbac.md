@@ -1,5 +1,5 @@
 ---
-title: Gerenciar o RBAC no kubernetes do Azure
+title: Gerenciar o RBAC do Azure no kubernetes do Azure
 titleSuffix: Azure Kubernetes Service
 description: Saiba como usar o Azure RBAC para autorização de kubernetes com o AKS (serviço kubernetes do Azure).
 services: container-service
@@ -7,23 +7,23 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 8f0df92eadc4db132d567e708abe6e28e82642d6
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: af8d0300b533d9f25cddf225f4ffbe78ca6bf2cb
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129551"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249628"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Usar o Azure RBAC para Autorização do Kubernetes (versão prévia)
 
 Hoje, você já pode aproveitar a [autenticação integrada entre o Azure Active Directory (Azure AD) e o AKs](managed-aad.md). Quando habilitado, essa integração permite que os clientes usem usuários, grupos ou entidades de serviço do Azure AD como entidades no RBAC kubernetes, veja mais [aqui](azure-ad-rbac.md).
-Esse recurso libera você de ter que gerenciar identidades e credenciais de usuário separadamente para kubernetes. No entanto, você ainda precisa configurar e gerenciar RBAC do Azure e kubernetes RBAC separadamente. Para obter mais detalhes sobre autenticação, autorização e RBAC no AKS, consulte [aqui](concepts-identity.md).
+Esse recurso libera você de ter que gerenciar identidades e credenciais de usuário separadamente para kubernetes. No entanto, você ainda precisa configurar e gerenciar RBAC do Azure e kubernetes RBAC separadamente. Para obter mais detalhes sobre autenticação e autorização com RBAC em AKS, consulte [aqui](concepts-identity.md).
 
 Este documento aborda uma nova abordagem que permite o gerenciamento unificado e o controle de acesso em recursos do Azure, AKS e recursos do kubernetes.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-A capacidade de gerenciar o RBAC para recursos de kubernetes do Azure oferece a você a opção de gerenciar o RBAC para os recursos de cluster usando o Azure ou mecanismos kubernetes nativos. Quando habilitada, as entidades de segurança do Azure AD serão validadas exclusivamente pelo RBAC do Azure, enquanto os usuários e contas de serviço kubernetes regulares são validados exclusivamente pelo RBAC kubernetes. Para obter mais detalhes sobre autenticação, autorização e RBAC no AKS, consulte [aqui](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview).
+A capacidade de gerenciar o RBAC para recursos de kubernetes do Azure oferece a você a opção de gerenciar o RBAC para os recursos de cluster usando o Azure ou mecanismos kubernetes nativos. Quando habilitada, as entidades de segurança do Azure AD serão validadas exclusivamente pelo RBAC do Azure, enquanto os usuários e contas de serviço kubernetes regulares são validados exclusivamente pelo RBAC kubernetes. Para obter mais detalhes sobre autenticação e autorização com RBAC em AKS, consulte [aqui](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview).
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -72,7 +72,6 @@ az extension update --name aks-preview
 - Requer a [integração do Azure ad gerenciada](managed-aad.md).
 - Não é possível integrar o RBAC do Azure para autorização kubernetes em clusters existentes durante a visualização, mas você poderá usar a disponibilidade geral (GA).
 - Use [kubectl v 1.18.3 +][az-aks-install-cli].
-- Durante a visualização, você só pode adicionar permissões em *nível de namespace* por meio do CLI do Azure.
 - Se você tiver CRDs e estiver fazendo definições de função personalizadas, a única maneira de abordar o CRDs hoje é fornecer `Microsoft.ContainerService/managedClusters/*/read` . O AKS está trabalhando para fornecer permissões mais granulares para CRDs. Para os objetos restantes, você pode usar os grupos de API específicos, por exemplo: `Microsoft.ContainerService/apps/deployments/read` .
 - As novas atribuições de função podem levar até 5 min para serem propagadas e atualizadas pelo servidor de autorização.
 - Requer que o locatário do Azure AD configurado para autenticação seja o mesmo que o locatário para a assinatura que contém o cluster AKS. 
@@ -116,7 +115,7 @@ O AKS fornece as quatro funções internas a seguir:
 
 | Função                                | Descrição  |
 |-------------------------------------|--------------|
-| Visualizador de RBAC do serviço kubernetes do Azure  | Permite acesso somente leitura para ver a maioria dos objetos em um namespace. Ele não permite a exibição de funções ou associações de função. Essa função não permite a exibição `Secrets` , uma vez que a leitura do conteúdo de segredos permite o acesso a credenciais de uma conta no namespace, o que permitiria o acesso à API como qualquer uma das contas no namespace (uma forma de elevação de privilégio)  |
+| Leitor de RBAC do serviço kubernetes do Azure  | Permite acesso somente leitura para ver a maioria dos objetos em um namespace. Ele não permite a exibição de funções ou associações de função. Essa função não permite a exibição `Secrets` , uma vez que a leitura do conteúdo de segredos permite o acesso a credenciais de uma conta no namespace, o que permitiria o acesso à API como qualquer uma das contas no namespace (uma forma de elevação de privilégio)  |
 | Gravador RBAC do serviço kubernetes do Azure | Permite acesso de leitura/gravação à maioria dos objetos em um namespace. Essa função não permite exibir ou modificar funções ou associações de função. No entanto, essa função permite acessar `Secrets` e executar pods como qualquer uma das contas no namespace, para que possa ser usada para obter os níveis de acesso de API de qualquer conta no namespace. |
 | Administrador de RBAC do serviço kubernetes do Azure  | Permite o acesso de administrador, destinado a ser concedido em um namespace. Permite acesso de leitura/gravação para a maioria dos recursos em um namespace (ou escopo de cluster), incluindo a capacidade de criar funções e associações de função no namespace. Essa função não permite acesso de gravação à cota de recursos ou ao próprio namespace. |
 | Administrador de cluster do RBAC do serviço kubernetes do Azure  | Permite o acesso de superusuário para executar qualquer ação em qualquer recurso. Ele fornece controle total sobre cada recurso no cluster e em todos os namespaces. |
@@ -246,7 +245,7 @@ aks-nodepool1-93451573-vmss000002   Ready    agent   3h6m   v1.15.11
 ```
 
 
-## <a name="clean-up"></a>Limpeza
+## <a name="clean-up"></a>Limpar
 
 ### <a name="clean-role-assignment"></a>Limpar atribuição de função
 
@@ -273,7 +272,7 @@ az group delete -n MyResourceGroup
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Leia mais sobre autenticação, autorização e RBAC do AKS [aqui](concepts-identity.md).
+- Leia mais sobre autenticação AKS, autorização, RBAC kubernetes e RBAC do Azure [aqui](concepts-identity.md).
 - Leia mais sobre o RBAC do Azure [aqui](../role-based-access-control/overview.md).
 - Leia mais sobre todas as ações que você pode usar para definir de maneira granular funções personalizadas do Azure para autorização kubernetes [aqui](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice).
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: alkohli
-ms.openlocfilehash: 3087c209b844d691173edbbd8a993c1d0aae319b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be7d477d08b025fd450bfa859e8eb677ba680143
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903643"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446380"
 ---
 # <a name="troubleshoot-your-azure-stack-edge-pro-ordering-issues"></a>Solucionar problemas de ordenação do Azure Stack Edge pro
 
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá como:
 
 ![Assinatura ou região sem suporte](media/azure-stack-edge-troubleshoot-ordering/azure-stack-edge-troubleshoot-ordering-01.png)
 
-**Solução sugerida:**  Verifique se você usou uma assinatura com suporte como [Microsoft Enterprise Agreement (ea)](https://azure.microsoft.com/overview/sales-number/), [provedor de soluções de nuvem (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp)ou [Microsoft Azure sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Não há suporte para assinaturas pagas conforme o uso. Para obter mais informações, consulte [Azure Stack pré-requisitos de recursos do Edge](azure-stack-edge-deploy-prep.md#prerequisites).
+**Solução sugerida:**  Verifique se você usou uma assinatura com suporte como [Microsoft Enterprise Agreement (ea)](https://azure.microsoft.com/overview/sales-number/), [provedor de soluções de nuvem (CSP)](/partner-center/azure-plan-lp)ou [Microsoft Azure sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Não há suporte para assinaturas pagas conforme o uso. Para obter mais informações, consulte [Azure Stack pré-requisitos de recursos do Edge](azure-stack-edge-deploy-prep.md#prerequisites).
 
 Há a possibilidade de que a Microsoft possa permitir uma atualização de tipo de assinatura caso a caso. Entre em contato com o [suporte da Microsoft](https://azure.microsoft.com/support/options/) para que eles possam entender suas necessidades e ajustar esses limites adequadamente.
 
@@ -45,7 +45,7 @@ Há a possibilidade de que a Microsoft possa permitir uma atualização de tipo 
 
 **Solução sugerida:** Siga estas etapas para registrar seu provedor de recursos do Azure Stack Edge:
 
-1. Em portal do Azure, acesse **Home**as  >  **assinaturas**iniciais.
+1. Em portal do Azure, acesse **Home** as  >  **assinaturas** iniciais.
 
 2. Selecione a assinatura que você usará para ordenar seu dispositivo.
 

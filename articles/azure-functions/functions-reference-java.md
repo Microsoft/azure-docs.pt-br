@@ -4,12 +4,12 @@ description: Entenda como desenvolver funções usando Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: b25e548fe56c22458fe625f617fb076be13525cd
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 1ffbd760ae75605d75652b29d379420d6946aa8f
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927508"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326447"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia do desenvolvedor de Java do Azure Functions
 
@@ -19,7 +19,7 @@ Como desenvolvedor de Java, se você for novo no Azure Functions, considere prim
 
 | Introdução | Conceitos| 
 | -- | -- |  
-| <ul><li>[Função Java usando Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-java)</li><li>[Função Java/Maven com terminal/prompt de comando](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java)</li><li>[Função Java usando gradle](functions-create-first-java-gradle.md)</li><li>[Função Java usando o eclipse](functions-create-maven-eclipse.md)</li><li>[Função Java usando a ideia IntelliJ](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Guia do desenvolvedor](functions-reference.md)</li><li>[Opções de hospedagem](functions-scale.md)</li><li>[&nbsp;Considerações sobre desempenho](functions-best-practices.md)</li></ul> |
+| <ul><li>[Função Java usando Visual Studio Code](./create-first-function-vs-code-java.md)</li><li>[Função Java/Maven com terminal/prompt de comando](./create-first-function-cli-java.md)</li><li>[Função Java usando gradle](functions-create-first-java-gradle.md)</li><li>[Função Java usando o eclipse](functions-create-maven-eclipse.md)</li><li>[Função Java usando a ideia IntelliJ](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Guia do desenvolvedor](functions-reference.md)</li><li>[Opções de hospedagem](functions-scale.md)</li><li>[&nbsp;Considerações sobre desempenho](functions-best-practices.md)</li></ul> |
 
 ## <a name="java-function-basics"></a>Noções básicas da função Java
 
@@ -45,17 +45,29 @@ Os links do artigo acima mostram como criar suas primeiras funções usando o ID
 
 ### <a name="project-scaffolding"></a>Scaffolding do projeto
 
-Caso você prefira o desenvolvimento de linha de comando do Terminal, a maneira mais simples de fazer o scaffolding de projetos de funções baseados em Java é com arquétipos `Apache Maven`. O arquétipo Java Maven para o Azure Functions é publicado na seguinte _groupId_ : _artifactId_ : [com.microsoft.azure:azure-functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/). 
+Caso você prefira o desenvolvimento de linha de comando do Terminal, a maneira mais simples de fazer o scaffolding de projetos de funções baseados em Java é com arquétipos `Apache Maven`. O arquétipo Java Maven para o Azure Functions é publicado na seguinte _groupId_:_artifactId_: [com.microsoft.azure:azure-functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/). 
 
 O seguinte comando gera um novo projeto de função Java usando esse arquétipo:
+
+# <a name="bash"></a>[Bash](#tab/bash)
 
 ```bash
 mvn archetype:generate \
     -DarchetypeGroupId=com.microsoft.azure \
-    -DarchetypeArtifactId=azure-functions-archetype 
+    -DarchetypeArtifactId=azure-functions-archetype
 ```
 
-Para começar a usar esse arquétipo, confira o [Início rápido do Java](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java). 
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```cmd
+mvn archetype:generate ^
+    -DarchetypeGroupId=com.microsoft.azure ^
+    -DarchetypeArtifactId=azure-functions-archetype
+```
+
+---
+
+Para começar a usar esse arquétipo, confira o [Início rápido do Java](./create-first-function-cli-java.md).
 
 ## <a name="folder-structure"></a>Estrutura de pastas
 
@@ -153,7 +165,7 @@ Você pode controlar a versão do Java direcionada pelo arquétipo Maven usando 
 
 O arquétipo do Maven gera um pom.xml que tem como destino a versão do Java especificada. Os seguintes elementos no pom.xml indicam a versão do Java a ser usada:
 
-| Elemento |  Valor de Java 8 | Valor do Java 11 | Description |
+| Elemento |  Valor de Java 8 | Valor do Java 11 | Descrição |
 | ---- | ---- | ---- | --- |
 | **`Java.version`** | 1.8 | 11 | Versão do Java usada pelo plug-in Maven-Compiler-. |
 | **`JavaVersion`** | 8 | 11 | Versão do Java hospedada pelo aplicativo de funções no Azure. |
@@ -210,19 +222,40 @@ No [portal do Azure](https://portal.azure.com), use a guia [Configurações de A
 
 Você pode usar o comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) para definir `JAVA_OPTS`, como no seguinte exemplo:
 
-#### <a name="consumption-plan"></a>[Plano de consumo](#tab/consumption)
+# <a name="consumption-plan"></a>[Plano de consumo](#tab/consumption/bash)
+
 ```azurecli-interactive
 az functionapp config appsettings set \
---settings "JAVA_OPTS=-Djava.awt.headless=true" \
-"WEBSITE_USE_PLACEHOLDER=0" \
---name <APP_NAME> --resource-group <RESOURCE_GROUP>
+    --settings "JAVA_OPTS=-Djava.awt.headless=true" \
+    "WEBSITE_USE_PLACEHOLDER=0" \
+    --name <APP_NAME> --resource-group <RESOURCE_GROUP>
 ```
-#### <a name="dedicated-plan--premium-plan"></a>[Plano dedicado/plano Premium](#tab/dedicated+premium)
+
+# <a name="consumption-plan"></a>[Plano de consumo](#tab/consumption/cmd)
+
+```azurecli-interactive
+az functionapp config appsettings set ^
+    --settings "JAVA_OPTS=-Djava.awt.headless=true" ^
+    "WEBSITE_USE_PLACEHOLDER=0" ^
+    --name <APP_NAME> --resource-group <RESOURCE_GROUP>
+```
+
+# <a name="dedicated-plan--premium-plan"></a>[Plano dedicado/plano Premium](#tab/dedicated+premium/bash)
+
 ```azurecli-interactive
 az functionapp config appsettings set \
---settings "JAVA_OPTS=-Djava.awt.headless=true" \
---name <APP_NAME> --resource-group <RESOURCE_GROUP>
+    --settings "JAVA_OPTS=-Djava.awt.headless=true" \
+    --name <APP_NAME> --resource-group <RESOURCE_GROUP>
 ```
+
+# <a name="dedicated-plan--premium-plan"></a>[Plano dedicado/plano Premium](#tab/dedicated+premium/cmd)
+
+```azurecli-interactive
+az functionapp config appsettings set ^
+    --settings "JAVA_OPTS=-Djava.awt.headless=true" ^
+    --name <APP_NAME> --resource-group <RESOURCE_GROUP>
+```
+
 ---
 
 Este exemplo habilita o modo sem periféricos. Substitua `<APP_NAME>` pelo nome do seu aplicativo de funções e `<RESOURCE_GROUP>` pelo grupo de recursos. 
@@ -460,15 +493,36 @@ Você pode usar a CLI do Azure para transmitir o log Java stdout e stderr, bem c
 
 Confira como configurar seu aplicativo de funções para gravar o log do aplicativo usando a CLI do Azure:
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```azurecli-interactive
 az webapp log config --name functionname --resource-group myResourceGroup --application-logging true
 ```
 
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli-interactive
+az webapp log config --name functionname --resource-group myResourceGroup --application-logging true
+```
+
+---
+
 Para transmitir a saída de log de seu aplicativo de funções usando a CLI do Azure, abra um novo prompt de comando, Bash ou sessão de terminal e digite o seguinte comando:
+
+# <a name="bash"></a>[Bash](#tab/bash)
 
 ```azurecli-interactive
 az webapp log tail --name webappname --resource-group myResourceGroup
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli-interactive
+az webapp log tail --name webappname --resource-group myResourceGroup
+```
+
+---
+
 O comando [az webapp log tail](/cli/azure/webapp/log) tem opções para filtrar a saída usando a opção `--provider`. 
 
 Para baixar os arquivos de log como um único arquivo ZIP usando a CLI do Azure, abra um novo prompt de comando, Bash ou sessão de terminal e digite o seguinte comando:

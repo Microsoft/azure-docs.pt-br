@@ -14,15 +14,15 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 28847ece3c08e93d14d381b35fc93fb16dad95a1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370858"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95973891"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Adicionar um nome de domínio personalizado usando o portal do Azure Active Directory
 
-Cada novo locatário do Azure AD vem com um nome de domínio inicial, * \<domainname> . onmicrosoft.com*. Você não pode alterar ou excluir o nome de domínio inicial, mas pode adicionar os nomes de sua organização. Adicionar nomes de domínio personalizados ajuda a criar nomes de usuário que são familiares para seus usuários, como *alain \@ contoso.com*.
+Cada novo locatário do Azure AD vem com um nome de domínio inicial, *\<domainname> . onmicrosoft.com*. Você não pode alterar ou excluir o nome de domínio inicial, mas pode adicionar os nomes de sua organização. Adicionar nomes de domínio personalizados ajuda a criar nomes de usuário que são familiares para seus usuários, como *alain \@ contoso.com*.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -59,7 +59,7 @@ Depois de criar seu diretório, você pode adicionar seu nome de domínio person
     ![Página nomes de domínio personalizados, com a página Adicionar domínio personalizado](media/add-custom-domain/add-custom-domain-blade.png)
 
     >[!IMPORTANT]
-    >Você deve incluir *. com*, *.net*ou qualquer outra extensão de nível superior para que isso funcione corretamente.
+    >Você deve incluir *. com*, *.net* ou qualquer outra extensão de nível superior para que isso funcione corretamente.
 
     O domínio não verificado é adicionado. A página **contoso.com** aparece mostrando as informações de DNS. Salve essas informações. Você precisará dela mais tarde para criar um registro TXT para configurar o DNS.
 

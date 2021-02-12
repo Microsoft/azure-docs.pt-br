@@ -2,24 +2,24 @@
 title: O que é treinamento e modelo? - Tradutor Personalizado
 titleSuffix: Azure Cognitive Services
 description: 'Um modelo é o sistema, que fornece tradução para um par de idiomas específico. O resultado de um treinamento bem sucedido é um modelo. Ao treinar um modelo, são necessários três conjuntos de dados mutuamente exclusivos: conjunto de dados de treinamento, conjunto de dados de ajuste e conjunto de dados de teste.'
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.author: swmachan
-ms.openlocfilehash: d8713d20503dc788175a408f5ec652505090396e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: lajanuar
+ms.openlocfilehash: 62a444b66d50579c601077751b0700aa954b34c0
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510820"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897927"
 ---
 # <a name="what-are-trainings-and-models"></a>Quais são os modelos e treinamentos?
 
 Um modelo é o sistema, que fornece tradução para um par de idiomas específico.
-O resultado de um treinamento bem sucedido é um modelo. Ao treinar um modelo, três tipos de documento mutuamente exclusivos são necessários: treinamento, ajuste e teste. O tipo de documento de dicionário também pode ser fornecido. Consulte alinhamento de [frase](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences).
+O resultado de um treinamento bem sucedido é um modelo. Ao treinar um modelo, três tipos de documento mutuamente exclusivos são necessários: treinamento, ajuste e teste. O tipo de documento de dicionário também pode ser fornecido. Consulte alinhamento de [frase](./sentence-alignment.md#suggested-minimum-number-of-sentences).
 
 Se apenas os dados de treinamento forem fornecidos ao enfileirar um treinamento, o tradutor personalizado montará automaticamente os dados de ajuste e teste. Ele usará um subconjunto aleatório de frases de seus documentos de treinamento e excluirá essas frases dos próprios dados de treinamento.
 

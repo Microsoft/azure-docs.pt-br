@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 01/21/2021
 ms.author: b-juche
-ms.openlocfilehash: 4c578f99e22e35871f0c52440c3b73a636ef958b
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ec6a03673112dfb5397f6fae947f1fbf65fd6791
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089308"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881411"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Perguntas frequentes sobre Azure NetApp Files
 
@@ -60,7 +60,7 @@ Não, o Azure NetApp Files atualmente não dá suporte à VNet de pilha dupla (I
 
 O tráfego de dados entre os clientes NFSv 4.1 e os volumes Azure NetApp Files pode ser criptografado usando o Kerberos com a criptografia AES-256. Consulte [Configurar nfsv 4.1 criptografia Kerberos para Azure NetApp files](configure-kerberos-encryption.md) para obter detalhes.   
 
-O tráfego de dados entre clientes NFSv3 ou SMBv3 para Azure NetApp Files volumes não é criptografado. No entanto, o tráfego de uma VM do Azure (executando um cliente NFS ou SMB) para Azure NetApp Files é tão seguro quanto qualquer outro tráfego do Azure-VM para VM. Esse tráfego é local para a rede do Data Center do Azure. 
+O tráfego de dados entre clientes NFSv3 ou SMB3 para Azure NetApp Files volumes não é criptografado. No entanto, o tráfego de uma VM do Azure (executando um cliente NFS ou SMB) para Azure NetApp Files é tão seguro quanto qualquer outro tráfego do Azure-VM para VM. Esse tráfego é local para a rede do Data Center do Azure. 
 
 ### <a name="can-the-storage-be-encrypted-at-rest"></a>O armazenamento pode ser criptografado em repouso?
 
@@ -138,6 +138,16 @@ Sim, você pode. No entanto, o caminho do arquivo deve ser usado em uma assinatu
 
 Por exemplo, você cria um volume chamado `vol1` . Em seguida, você cria outro volume também chamado `vol1` em um pool de capacidade diferente, mas na mesma assinatura e região. Nesse caso, o uso do mesmo nome de volume causará `vol1` um erro. Para usar o mesmo caminho de arquivo, o nome deve estar em uma região ou assinatura diferente.
 
+### <a name="when-i-try-to-access-nfs-volumes-through-a-windows-client-why-does-the-client-take-a-long-time-to-search-folders-and-subfolders"></a>Quando tento acessar volumes NFS por meio de um cliente Windows, por que o cliente demora muito para pesquisar pastas e subpastas?
+
+Verifique se `CaseSensitiveLookup` o está habilitado no cliente Windows para acelerar a pesquisa de pastas e subpastas:
+
+1. Use o seguinte comando do PowerShell para habilitar o CaseSensitiveLookup:   
+    `Set-NfsClientConfiguration -CaseSensitiveLookup 1`    
+2. Monte o volume no Windows Server.   
+    Exemplo:   
+    `Mount -o rsize=1024 -o wsize=1024 -o mtype=hard \\10.x.x.x\testvol X:*`
+
 ## <a name="smb-faqs"></a>Perguntas frequentes sobre o SMB
 
 ### <a name="which-smb-versions-are-supported-by-azure-netapp-files"></a>Quais versões SMB têm suporte pelo Azure NetApp Files?
@@ -168,21 +178,15 @@ O Azure NetApp Files oferece suporte a versões do Windows Server 2008r2SP1-2019
 
 O tamanho do volume relatado pelo cliente SMB é o tamanho máximo para o qual o volume Azure NetApp Files pode crescer. O tamanho do volume de Azure NetApp Files, conforme mostrado no cliente SMB, não está refletindo a cota ou o tamanho do volume. Você pode obter a Azure NetApp Files o tamanho ou a cota do volume por meio do portal do Azure ou da API.
 
+### <a name="im-having-issues-connecting-to-my-smb-share-what-should-i-do"></a>Estou tendo problemas para se conectar ao meu compartilhamento SMB. O que devo fazer?
+
+Como prática recomendada, defina a tolerância máxima para a sincronização do relógio do computador como cinco minutos. Para obter mais informações, consulte [tolerância máxima para sincronização de relógio do computador](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj852172(v=ws.11)). 
+
 <!--
 ### Does Azure NetApp Files support LDAP signing? 
 
 Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
 --> 
-
-## <a name="dual-protocol-faqs"></a>Perguntas frequentes sobre protocolo duplo
-
-### <a name="i-tried-to-use-the-root-and-local-users-to-access-a-dual-protocol-volume-with-the-ntfs-security-style-on-a-unix-system-why-did-i-encounter-a-permission-denied-error"></a>Tentei usar a "raiz" e os usuários locais para acessar um volume de protocolo duplo com o estilo de segurança NTFS em um sistema UNIX. Por que encontrei um erro de "permissão negada"?   
-
-Consulte [solucionar problemas de volumes de protocolo duplo](troubleshoot-dual-protocol-volumes.md) para resoluções.
-
-### <a name="when-i-try-to-create-a-dual-protocol-volume-why-does-the-creation-process-fail-with-the-error-failed-to-validate-ldap-configuration-try-again-after-correcting-ldap-configuration"></a>Quando tento criar um volume de protocolo duplo, por que o processo de criação falha com o erro "falha ao validar a configuração de LDAP, tente novamente depois de corrigir a configuração de LDAP"?  
-
-Consulte [solucionar problemas de volumes de protocolo duplo](troubleshoot-dual-protocol-volumes.md) para resoluções.
 
 ## <a name="capacity-management-faqs"></a>Perguntas frequentes sobre gerenciamento de capacidade
 
@@ -254,6 +258,16 @@ Não. Azure Data Box não oferece suporte a Azure NetApp Files no momento.
 ### <a name="is-migration-with-azure-importexport-service-supported"></a>Há suporte para a migração com o serviço de importação/exportação do Azure?
 
 Não. O serviço de importação/exportação do Azure não oferece suporte a Azure NetApp Files no momento.
+
+## <a name="product-faqs"></a>Perguntas frequentes sobre o produto
+
+### <a name="can-i-use-azure-netapp-files-nfs-or-smb-volumes-with-azure-vmware-solution-avs"></a>Posso usar Azure NetApp Files volumes de NFS ou SMB com a AVS (solução VMware do Azure)?
+
+Você pode montar Azure NetApp Files volumes do NFS em VMs do Windows da AVS ou VMs do Linux. Você pode mapear Azure NetApp Files compartilhamentos SMB em VMs do Windows AVS. Para obter mais detalhes, consulte [Azure NetApp files com a solução VMware do Azure]( ../azure-vmware/netapp-files-with-azure-vmware-solution.md).  
+
+### <a name="what-regions-are-supported-for-using-azure-netapp-files-nfs-or-smb-volumes-with-azure-vmware-solution-avs"></a>Quais regiões têm suporte para usar Azure NetApp Files volumes NFS ou SMB com a solução VMware do Azure (AVS)?
+
+Usar Azure NetApp Files volumes de NFS ou SMB com AVS tem suporte nas seguintes regiões – leste dos EUA, oeste dos EUA, Europa Ocidental e leste da Austrália.
 
 ## <a name="next-steps"></a>Próximas etapas  
 

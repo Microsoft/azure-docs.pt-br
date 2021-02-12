@@ -1,7 +1,7 @@
 ---
 title: Usar o módulo de recomendação aprofundado de & de treinamento
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo de recomendação & Deep Wide de treinamento para treinar um modelo de recomendações.
+description: Saiba como usar o módulo de recomendação & profundo de treinamento no Azure Machine Learning designer para treinar um modelo de recomendações.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
-ms.openlocfilehash: a548a1aa6b7c6382d00e218f1b61347002df2b38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce713167272c9e97754fdf6f6d065519aaea3d15
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907783"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421168"
 ---
 # <a name="train-wide--deep-recommender"></a>Treinar amplo & Recomendador profundo
 Este artigo descreve como usar o módulo de recomendação **& Deep Wide de treinamento** no Azure Machine Learning designer, para treinar um modelo de recomendações. Esse módulo baseia-se em amplo & aprendizado profundo, que é proposto pelo Google.
@@ -27,8 +27,8 @@ O objetivo principal de um sistema de recomendação é recomendar um ou mais *i
 
 Há duas abordagens principais para sistemas recomendadores. 
 
-+ A primeira é a abordagem **com base em conteúdo**, que usa recursos para usuários e itens. Os usuários podem ser descritos por propriedades, como idade e sexo; e itens podem ser descritos por propriedades, como autor e fabricante. Exemplos típicos de sistemas de recomendação baseados em conteúdo podem ser encontrados nos sites de compatibilidade social. 
-+ A segunda abordagem é **filtragem de colaboração**, que usa apenas identificadores dos usuários e itens e obtém informações implícitas sobre essas entidades de uma matriz (esparsa) de classificações fornecidas pelos usuários para os itens. Podemos aprender sobre um usuário por meio dos itens que ele classificou e de outros usuários que classificaram os mesmos itens.  
++ A primeira é a abordagem **com base em conteúdo** , que usa recursos para usuários e itens. Os usuários podem ser descritos por propriedades, como idade e sexo; e itens podem ser descritos por propriedades, como autor e fabricante. Exemplos típicos de sistemas de recomendação baseados em conteúdo podem ser encontrados nos sites de compatibilidade social. 
++ A segunda abordagem é **filtragem de colaboração** , que usa apenas identificadores dos usuários e itens e obtém informações implícitas sobre essas entidades de uma matriz (esparsa) de classificações fornecidas pelos usuários para os itens. Podemos aprender sobre um usuário por meio dos itens que ele classificou e de outros usuários que classificaram os mesmos itens.  
 
 O recomendador amplo &s combina essas abordagens, usando a filtragem colaborativa com uma abordagem baseada em conteúdo. Portanto, ele é considerado um **recomendador híbrido**. 
 
@@ -66,7 +66,7 @@ O conjunto de os **recursos de usuário** deve conter identificadores para usuá
 
 Por exemplo, um conjunto típico de recursos de usuário pode ser assim: 
 
-|UserId|Idade|Sexo|Preocupações|Localização|
+|UserId|Idade|Sexo|Preocupações|Location|
 |------------|--------------|-----------------------|---------------|------------|
 |1|25|masculino| Drama    |Europa|
 |223|40|feminino|Hora oficial românica|Ásia|
@@ -88,50 +88,50 @@ Por exemplo, um conjunto típico de recursos de item pode ser assim:
   
 2. Se você tiver um conjunto de usuários separado de recursos de usuário e/ou recursos de item, conecte-os ao módulo de **recomendação de treinamento amplo e profundo** .  
   
-    - **Conjunto**de dados de recursos do usuário: Conecte o conjunto que descreve os usuários à segunda entrada.
-    - **Conjunto**de dados de recursos de item: Conecte o conjunto que descreve os itens à terceira entrada.  
+    - **Conjunto** de dados de recursos do usuário: Conecte o conjunto que descreve os usuários à segunda entrada.
+    - **Conjunto** de dados de recursos de item: Conecte o conjunto que descreve os itens à terceira entrada.  
     
-3.  **Épocas**: indique quantas vezes o algoritmo deve processar os dados de treinamento inteiros. 
+3.  **Épocas** : indique quantas vezes o algoritmo deve processar os dados de treinamento inteiros. 
 
     Quanto maior esse número, mais adequado o treinamento; no entanto, o treinamento custa mais tempo e pode causar sobreajuste.
 
-4. **Tamanho do lote**: digite o número de exemplos de treinamento utilizados em uma etapa de treinamento. 
+4. **Tamanho do lote** : digite o número de exemplos de treinamento utilizados em uma etapa de treinamento. 
 
      Esse hiperparâmetro pode influenciar a velocidade de treinamento. Um tamanho de lote mais alto leva a uma época de custo menos demorada, mas pode aumentar o tempo de convergência. E se o lote for muito grande para se ajustar à GPU/CPU, um erro de memória poderá ser gerado.
 
-5.  **Otimizador de parte larga**: selecione um otimizador para aplicar gradientes à parte larga do modelo.
+5.  **Otimizador de parte larga** : selecione um otimizador para aplicar gradientes à parte larga do modelo.
 
-6.  **Taxa de aprendizagem do otimizador amplo**: Insira um número entre 0,0 e 2,0 que define a taxa de aprendizado do otimizador de parte largo.
+6.  **Taxa de aprendizagem do otimizador amplo** : Insira um número entre 0,0 e 2,0 que define a taxa de aprendizado do otimizador de parte largo.
 
     Esse hiperparâmetro determina o tamanho da etapa em cada etapa de treinamento ao mover para uma função de perda mínima. Uma taxa de aprendizagem muito grande pode fazer com que o aprendizado passe pelo mínimo, enquanto uma taxa de aprendizagem muito pequena pode causar um problema de convergência.
 
-7.  **Dimensão de recurso cruzada**: digite a dimensão inserindo as IDs de usuário desejadas e os recursos de ID de item. 
+7.  **Dimensão de recurso cruzada** : digite a dimensão inserindo as IDs de usuário desejadas e os recursos de ID de item. 
 
     O recomendador amplo & profundo executa a transformação entre produtos por padrão por ID de usuário e recursos de ID de item. O resultado será transformado em hash de acordo com esse número para garantir a dimensão.
 
-8.  **Otimizador de parte profunda**: selecione um otimizador para aplicar gradientes à parte profunda do modelo.
+8.  **Otimizador de parte profunda** : selecione um otimizador para aplicar gradientes à parte profunda do modelo.
 
-9.  **Taxa de aprendizagem do otimizador profundo**: Insira um número entre 0,0 e 2,0 que define a taxa de aprendizado do otimizador de parte aprofundado.
+9.  **Taxa de aprendizagem do otimizador profundo** : Insira um número entre 0,0 e 2,0 que define a taxa de aprendizado do otimizador de parte aprofundado.
 
-10.  **Dimensão de inserção de usuário**: digite um inteiro para especificar a dimensão da inserção da ID de usuário.
+10.  **Dimensão de inserção de usuário** : digite um inteiro para especificar a dimensão da inserção da ID de usuário.
 
      O recomendador amplo & profundo cria as incorporações de ID de usuário compartilhadas e de ID de item para toda parte e parte profunda.
 
-11.  **Dimensão de incorporação de itens**: digite um inteiro para especificar a dimensão de inserção de ID de item.
+11.  **Dimensão de incorporação de itens** : digite um inteiro para especificar a dimensão de inserção de ID de item.
 
-12.  **Dimensão de incorporação de recursos categóricos**: Insira um número inteiro para especificar as dimensões de incorporações de recursos categóricos.
+12.  **Dimensão de incorporação de recursos categóricos** : Insira um número inteiro para especificar as dimensões de incorporações de recursos categóricos.
 
      Em um componente profundo de amplo & recomendador profundo, um vetor de incorporação é Aprenda para cada recurso categórico. E esses vetores de incorporação compartilham a mesma dimensão.
 
-13.  **Unidades ocultas**: digite o número de nós ocultos do componente profundo. O número de nós em cada camada é separado por vírgulas. Por exemplo, por tipo "1.000.500.100", você especifica que o componente profundo tem três camadas, com a primeira camada até a última, respectivamente, tem 1000 nós, 500 nós e 100 nós.
+13.  **Unidades ocultas** : digite o número de nós ocultos do componente profundo. O número de nós em cada camada é separado por vírgulas. Por exemplo, por tipo "1.000.500.100", você especifica que o componente profundo tem três camadas, com a primeira camada até a última, respectivamente, tem 1000 nós, 500 nós e 100 nós.
 
-14.  **Função de ativação**: selecione uma função de ativação aplicada a cada camada, o padrão é ReLU.
+14.  **Função de ativação** : selecione uma função de ativação aplicada a cada camada, o padrão é ReLU.
 
-15.  **Abandono**: Insira um número entre 0,0 e 1,0 para determinar a probabilidade de que as saídas serão descartadas em cada camada durante o treinamento.
+15.  **Abandono** : Insira um número entre 0,0 e 1,0 para determinar a probabilidade de que as saídas serão descartadas em cada camada durante o treinamento.
 
      Abandono é um método de regularização para impedir que redes neurais se sobreajustem. Uma decisão comum para esse valor é começar com 0,5, que parece estar perto do ideal para uma ampla gama de redes e tarefas.
 
-16.  **Normalização do lote**: Selecione esta opção para usar a normalização do lote após cada camada oculta no componente profundo.
+16.  **Normalização do lote** : Selecione esta opção para usar a normalização do lote após cada camada oculta no componente profundo.
 
      A normalização do lote é uma técnica para combater o problema de mudança de coregularidade interna durante o treinamento de redes. Em geral, ele pode ajudar a melhorar a velocidade, o desempenho e a estabilidade das redes. 
 

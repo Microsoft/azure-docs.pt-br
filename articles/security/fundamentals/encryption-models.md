@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 7b92c84234432320aa08017a15fbf8a5a4630eb3
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 141daa485fae5aba2db23647fada30ba5b621cd0
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019725"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854607"
 ---
 # <a name="data-encryption-models"></a>Modelos de criptografia de dados
 
@@ -91,7 +91,7 @@ Quando a criptografia do lado do servidor com chaves gerenciadas pelo serviço �
 
 Para cenários em que o requisito é criptografar os dados em repouso e controlar as chaves de criptografia, os clientes podem utilizar criptografia do lado do servidor usando chaves gerenciadas pelo cliente no Key Vault. Alguns serviços podem armazenar apenas a Chave de Criptografia de Chave raiz no Azure Key Vault e armazenar a Chave de Criptografia de Dados criptografada em um local interno mais próximo dos dados. Nesse cenário, os clientes podem trazer suas próprias chaves para o Key Vault (BYOK - Traga Sua Própria Chave), ou gerar novas, e utilizá-las para criptografar os recursos desejados. Enquanto o provedor de recursos executa as operações de criptografia e descriptografia, ele usa a chave de criptografia de chave configurada como a chave raiz para todas as operações de criptografia.
 
-A perda de chaves de criptografia de chave significa perda de dados. Por esse motivo, as chaves não devem ser excluídas. O backup das chaves deve ser feito sempre que for criado ou girado. [A exclusão reversível](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) deve ser habilitada em qualquer cofre que armazene chaves de criptografia de chave. Em vez de excluir uma chave, defina habilitado como falso ou defina a data de expiração.
+A perda de chaves de criptografia de chave significa perda de dados. Por esse motivo, as chaves não devem ser excluídas. O backup das chaves deve ser feito sempre que for criado ou girado. [A exclusão reversível](../../key-vault/general/soft-delete-overview.md) deve ser habilitada em qualquer cofre que armazene chaves de criptografia de chave. Em vez de excluir uma chave, defina habilitado como falso ou defina a data de expiração.
 
 ### <a name="key-access"></a>Acesso à chave
 
@@ -146,12 +146,12 @@ Os serviços do Azure que oferecem suporte a cada modelo de criptografia:
 | Produto, recurso ou serviço | Lado do servidor usando chave de serviço gerenciado   | Server-Side usando Customer-Managed chave | Client-Side usando Client-Managed chave  |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 | **IA e Machine Learning**      |                    |                    |                    |
-| Pesquisa Cognitiva do Azure           | Sim                | Sim                | -                  |
+| Azure Cognitive Search           | Sim                | Sim                | -                  |
 | Serviços Cognitivos do Azure         | Sim                | Sim                | -                  |
 | Azure Machine Learning           | Sim                | Sim                | -                  |
 | Azure Machine Learning Studio (clássico) | Sim         | Versão prévia, RSA de 2048 bits | -               |
 | Content Moderator                | Sim                | Sim                | -                  |
-| Detecção Facial                             | Sim                | Sim                | -                  |
+| Face                             | Sim                | Sim                | -                  |
 | Reconhecimento Vocal           | Sim                | Sim                | -                  |
 | Personalizador                     | Sim                | Sim                | -                  |
 | QnA Maker                        | Sim                | Sim                | -                  |
@@ -159,7 +159,7 @@ Os serviços do Azure que oferecem suporte a cada modelo de criptografia:
 | Tradução de Texto                  | Sim                | Sim                | -                  |
 | Power BI                         | Sim                | Sim, RSA 4096 bits  | -                  |
 | **Análise**                    |                    |                    |                    |
-| Stream Analytics do Azure           | Sim                | N/D\*              | -                  |
+| Stream Analytics do Azure           | Sim                | Sim\*\*            | -                  |
 | Hubs de Eventos                       | Sim                | Sim                | -                  |
 | Funções                        | Sim                | Sim                | -                  |
 | Azure Analysis Services          | Sim                | -                  | -                  |
@@ -215,7 +215,7 @@ Os serviços do Azure que oferecem suporte a cada modelo de criptografia:
 | Azure Site Recovery              | Sim                | -                  | -                  |
 | Migrações para Azure                    | Sim                | Sim                | -                  |
 | **Mídia**                        |                    |                    |                    |
-| Serviços de mídia                   | Sim                | -                  | Sim                |
+| Serviços de mídia                   | Sim                | Sim                | Sim                |
 | **Segurança**                     |                    |                    |                    |
 | Central de Segurança do Azure para IoT    | Sim                | Sim                | -                  |
 | Azure Sentinel                   | Sim                | Sim                | -                  |

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: rohink
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 92509ff96af0ed2a7d77799edca8447ff6839ab6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e116096afbd01af4914be49d5675881724d5069
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019650"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015053"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Criar zonas DNS e conjuntos de registros usando o SDK do .NET
 
@@ -79,7 +79,7 @@ Para realmente criar ou atualizar a zona DNS do Azure, o objeto de zona que cont
 > [!NOTE]
 > O DnsManagementClient oferece suporte a três modos de operação: síncrono ('CreateOrUpdate'), assíncrono ('CreateOrUpdateAsync') ou assíncrono com acesso à resposta HTTP ('CreateOrUpdateWithHttpMessagesAsync').  Você pode escolher qualquer um desses modos, dependendo das necessidades de seu aplicativo.
 
-O DNS do Azure dá suporte a [Etags](dns-getstarted-create-dnszone.md)de simultaneidade otimista. Neste exemplo, especificar "*" para o cabeçalho 'If-None-Match' informa ao DNS do Azure para criar uma zona DNS, caso ainda não exista.  A chamada falhará se uma zona com o nome fornecido já existir no grupo de recursos dado.
+O DNS do Azure dá suporte a [Etags](./dns-getstarted-powershell.md)de simultaneidade otimista. Neste exemplo, especificar "*" para o cabeçalho 'If-None-Match' informa ao DNS do Azure para criar uma zona DNS, caso ainda não exista.  A chamada falhará se uma zona com o nome fornecido já existir no grupo de recursos dado.
 
 ```cs
 // Create zone parameters

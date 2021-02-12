@@ -2,13 +2,13 @@
 title: Configurações recomendadas para clientes Apache Kafka-hubs de eventos do Azure
 description: Este artigo fornece configurações de Apache Kafka recomendadas para clientes que interagem com os hubs de eventos do Azure para Apache Kafka.
 ms.topic: reference
-ms.date: 07/20/2020
-ms.openlocfilehash: f9a03d1d3433461a575b32cd69893408a8b0ef97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/07/2021
+ms.openlocfilehash: 713900a3cc7e2b9f6f176edb21455faa577098d6
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87095622"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028821"
 ---
 # <a name="recommended-configurations-for-apache-kafka-clients"></a>Configurações recomendadas para clientes Apache Kafka
 Aqui estão as configurações recomendadas para usar os hubs de eventos do Azure de Apache Kafka aplicativos cliente. 
@@ -79,7 +79,7 @@ Verifique a tabela a seguir de cenários de erro comuns relacionados à configur
 
 Sintomas | Problema | Solução
 ----|---|-----
-Falhas de confirmação de deslocamento devido à redistribuição | Seu consumidor está aguardando muito tempo entre chamadas para sondagem () e o serviço está iniciarndo o consumidor do grupo. | Você tem várias opções: <ul><li>aumentar tempo limite da sessão</li><li>diminuir o tamanho do lote de mensagens para acelerar o processamento</li><li>melhorar a paralelização de processamento para evitar o bloqueio de consumidor. Poll ()</li></ul> Aplicar alguma combinação dos três é provavelmente mais prudente.
+Falhas de confirmação de deslocamento devido à redistribuição | Seu consumidor está aguardando muito tempo entre chamadas para sondagem () e o serviço está iniciarndo o consumidor do grupo. | Você tem várias opções: <ul><li>Aumentar tempo limite de processamento de sondagem ( `max.poll.interval.ms` )</li><li>Diminuir o tamanho do lote de mensagens para acelerar o processamento</li><li>Melhorar a paralelização de processamento para evitar o bloqueio de consumidor. Poll ()</li></ul> Aplicar alguma combinação dos três é provavelmente mais prudente.
 Exceções de rede em alta geração de taxa de transferência | Você está usando o cliente Java + padrão máx. de solicitação. tamanho?  Suas solicitações podem ser muito grandes. | Consulte Configurações de Java acima.
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/17/2019
+ms.date: 01/22/2021
 ms.author: jeedes
-ms.openlocfilehash: cd1be43bd8984df8fef690e595ec99f4b112c3c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9cd91bf40354a40129d20a6ed0381801fece4ba4
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88533607"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063124"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sugar-crm"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory com o Sugar CRM
 
@@ -25,8 +25,6 @@ Neste tutorial, você aprenderá a integrar o Sugar CRM ao Azure AD (Azure Activ
 * Controlar no Azure AD quem tem acesso ao Sugar CRM.
 * Permitir que os usuários sejam conectados automaticamente ao Sugar CRM com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
-
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -44,22 +42,22 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 > [!NOTE]
 > O identificador desse aplicativo é um valor de cadeia de caracteres fixo; portanto apenas uma instância pode ser configurada em um locatário.
 
-## <a name="adding-sugar-crm-from-the-gallery"></a>Adicionar o Sugar CRM da galeria
+## <a name="add-sugar-crm-from-the-gallery"></a>Adicionar o Sugar CRM da galeria
 
 Para configurar a integração do Sugar CRM ao Azure AD, você precisará adicionar o Sugar CRM da galeria à sua lista de aplicativos SaaS gerenciados.
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
 1. Na seção **Adicionar por meio da galeria**, digite **Sugar CRM** na caixa de pesquisa.
 1. Selecione **Sugar CRM** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-sugar-crm"></a>Configurar e testar o logon único do Azure AD para o Sugar CRM
+## <a name="configure-and-test-azure-ad-sso-for-sugar-crm"></a>Configurar e testar o SSO do Azure AD para o Sugar CRM
 
 Configure e teste o SSO do Azure AD com o Sugar CRM usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Sugar CRM.
 
-Para configurar e testar o SSO do Azure AD com o Sugar CRM, conclua os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o Sugar CRM, execute as seguintes etapas:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
     1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
@@ -72,9 +70,9 @@ Para configurar e testar o SSO do Azure AD com o Sugar CRM, conclua os seguintes
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Sugar CRM**, localize a seção **Gerenciar** e selecione **Logon único**.
+1. No portal do Azure, na página de integração de aplicativos do **Sugar CRM**, localize a seção **Gerenciar** e selecione **logon único**.
 1. Na página **Selecionar um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
@@ -121,15 +119,9 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
 1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
 1. Na lista de aplicativos, selecione **Sugar CRM**.
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
-
-   ![O link “Usuários e grupos”](common/users-groups-blade.png)
-
 1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
-
-    ![O link Adicionar Usuário](common/add-assign-user.png)
-
 1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-sugar-crm-sso"></a>Configurar SSO do Sugar CRM
@@ -142,15 +134,15 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
 
 1. Na seção **Administração**, clique em **Gerenciamento de Senhas**.
 
-    ![Administração](./media/sugarcrm-tutorial/ic795889.png "Administração")
+    ![A captura de tela mostra a seção Administração, em que você pode selecionar o Gerenciamento de Senhas.](./media/sugarcrm-tutorial/ic795889.png "Administração")
 
 1. Selecione **Habilitar Autenticação SAML**.
 
-    ![Administração](./media/sugarcrm-tutorial/ic795890.png "Administração")
+    ![A captura de tela mostra a opção para selecionar a Autenticação SAML.](./media/sugarcrm-tutorial/ic795890.png "Administração")
 
 1. Na seção **Autenticação SAML** , realize as seguintes etapas:
 
-    ![Autenticação SAML](./media/sugarcrm-tutorial/ic795891.png "Autenticação do SAML")  
+    ![Autenticação SAML](./media/sugarcrm-tutorial/save.png "Autenticação do SAML")  
 
     a. Na caixa de texto **URL de Logon**, cole o valor da **URL de Logon** copiado do portal do Azure.
   
@@ -174,7 +166,7 @@ Para permitir que os usuários do Azure AD entrem no Sugar CRM, eles precisam se
 
 1. Na seção **Administração**, clique em **Gerenciamento de Usuários**.
 
-    ![Administração](./media/sugarcrm-tutorial/ic795893.png "Administração")
+    ![A captura de tela mostra a seção Administração, em que você pode selecionar o Gerenciamento de Usuário.](./media/sugarcrm-tutorial/ic795893.png "Administração")
 
 1. Vá para **Usuários \> Criar Novo Usuário**.
 
@@ -182,7 +174,7 @@ Para permitir que os usuários do Azure AD entrem no Sugar CRM, eles precisam se
 
 1. Na guia **Perfil do Usuário** , realize as seguintes etapas:
 
-    ![Novo usuário](./media/sugarcrm-tutorial/ic795895.png "Novo Usuário")
+    ![A captura de tela mostra a guia Perfil do Usuário, em que você pode inserir os valores descritos.](./media/sugarcrm-tutorial/ic795895.png "Novo Usuário")
 
     * Digite o **nome de usuário**, o **sobrenome** e o **endereço de email** de um usuário válido do Azure Active Directory nas caixas de texto relacionadas.
   
@@ -190,7 +182,7 @@ Para permitir que os usuários do Azure AD entrem no Sugar CRM, eles precisam se
 
 1. Na guia Senha, execute as seguintes etapas:
 
-    ![Novo usuário](./media/sugarcrm-tutorial/ic795896.png "Novo Usuário")
+    ![A captura de tela mostra a guia Senha, em que você pode inserir os valores descritos.](./media/sugarcrm-tutorial/ic795896.png "Novo Usuário")
 
     a. Digite a senha na caixa de texto relacionada.
 
@@ -201,17 +193,14 @@ Para permitir que os usuários do Azure AD entrem no Sugar CRM, eles precisam se
 
 ## <a name="test-sso"></a>Testar o SSO 
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir. 
 
-Ao clicar no bloco do Sugar CRM no Painel de Acesso, você deverá ser conectado automaticamente ao Sugar CRM, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Clique em **Testar este aplicativo** no portal do Azure. Isso vai redirecionar você à URL de Logon do Sugar CRM na qual poderá iniciar o fluxo de logon. 
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Acesse a URL de Logon do Sugar CRM diretamente e inicie o fluxo de logon nela.
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* Você pode usar os Meus Aplicativos da Microsoft. Quando você clicar no bloco do Sugar CRM em Meus Aplicativos, isso vai redirecionar você à URL de Logon do Sugar CRM. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+## <a name="next-steps"></a>Próximas etapas
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
-- [Experimente o Sugar CRM com o Azure AD](https://aad.portal.azure.com/)
-
+Depois de configurar o Sugar CRM, você poderá impor controles de sessão, que fornecem proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

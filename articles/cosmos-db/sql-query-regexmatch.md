@@ -3,16 +3,17 @@ title: RegexMatch na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função do sistema SQL RegexMatch no Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 16004ece7877358be54ba67c2f72eb3210f16fb0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7f5b2831f45e902b312636e4133557a16ee7ec95
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098120"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341630"
 ---
 # <a name="regexmatch-azure-cosmos-db"></a>REGEXMATCH (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,7 +41,7 @@ Você pode aprender sobre [a sintaxe para criar expressões regulares no Perl](h
 
 O Azure Cosmos DB dá suporte aos quatro modificadores a seguir:
 
-| Modificador | Descrição |
+| Modificador | Description |
 | ------ | ----------- |
 | `m` | Trate a expressão de cadeia de caracteres a ser pesquisada como várias linhas. Sem essa opção, "^" e "$" corresponderão no início ou no final da cadeia de caracteres e não em cada linha individual. |
 | `s` | Permitir que "." corresponda a qualquer caractere, incluindo um caractere de nova linha. | 

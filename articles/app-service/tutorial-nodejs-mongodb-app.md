@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 06/16/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-js, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 9c204a07e3c5edff028342af1c88b15ebac0754b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5e76c87da1dc9ab7d4adeb0e964ae5a3248b8431
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743644"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347652"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Tutorial: Criar um aplicativo Node.js e MongoDB no Azure
 
@@ -47,11 +47,12 @@ O que você aprenderá:
 
 Para concluir este tutorial:
 
-1. [Instalar o Git](https://git-scm.com/)
-2. [Instalar o Node.js e o NPM](https://nodejs.org/)
-3. [Instale o Bower](https://bower.io/) (exigido pelo [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
-4. [Instale o Gulp.js](https://gulpjs.com/) (exigido pelo [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
-5. [Instale e execute o MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) 
+- [Instalar o Git](https://git-scm.com/)
+- [Instalar o Node.js e o NPM](https://nodejs.org/)
+- [Instale o Bower](https://bower.io/) (exigido pelo [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+- [Instale o Gulp.js](https://gulpjs.com/) (exigido pelo [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+- [Instalar e executar o MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/)
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)] 
 
 ## <a name="test-local-mongodb"></a>Testar o MongoDB local
 
@@ -112,8 +113,6 @@ Selecione **Admin > Gerenciar Artigos** para adicionar alguns artigos.
 
 Para parar o Node.js a qualquer momento, pressione `Ctrl+C` no terminal. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## <a name="create-production-mongodb"></a>Criar MongoDB de produção
 
 Ness etapa, você cria um banco de dados MongoDB no Azure. Quando seu aplicativo é implantado no Azure, ele usa esse banco de dados na nuvem.
@@ -130,7 +129,7 @@ Para o MongoDB, este tutorial usa o [BD Cosmos do Azure](/azure/documentdb/). O 
 > Há um custo para criar os bancos de dados do Azure Cosmos DB deste tutorial em sua própria assinatura do Azure. Para usar uma conta gratuita do Azure Cosmos DB por sete dias, você pode usar a experiência [Experimente o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) experiência. Basta clicar no botão **Criar** no bloco do MongoDB para criar um banco de dados gratuito do MongoDB no Azure. Quando o banco de dados é criado, navegue até **Cadeia de Conexão** no portal e recupere a cadeia de conexão do Azure Cosmos DB para usá-la posteriormente no tutorial.
 >
 
-No Cloud Shell, crie uma conta do Cosmos DB com o comando [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create).
+No Cloud Shell, crie uma conta do Cosmos DB com o comando [`az cosmosdb create`](/cli/azure/cosmosdb#az_cosmosdb_create).
 
 No comando a seguir, substitua o espaço reservado *\<cosmosdb-name>* por um nome exclusivo do Cosmos DB. Esse nome exclusivo é usado como parte do seu ponto de extremidade do Cosmos DB, `https://<cosmosdb-name>.documents.azure.com/`, portanto, o nome precisa ser exclusivo em todas as contas do Cosmos DB no Azure. O nome deve conter somente letras minúsculas, números e o caractere hífen (-), e deve ter entre 3 e 50 caracteres.
 
@@ -164,7 +163,7 @@ Nesta etapa, você conecta o aplicativo de exemplo MEAN.js ao BD Cosmos que acab
 
 ### <a name="retrieve-the-database-key"></a>Recuperar a chave do banco de dados
 
-Para se conectar ao BD Cosmos, você precisa da chave do banco de dados. No Cloud Shell, use o comando [`az cosmosdb list-keys`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-list-keys) para recuperar a chave primária.
+Para se conectar ao BD Cosmos, você precisa da chave do banco de dados. No Cloud Shell, use o comando [`az cosmosdb list-keys`](/cli/azure/cosmosdb#az-cosmosdb-list-keys) para recuperar a chave primária.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup
@@ -186,7 +185,7 @@ Copie o valor de `primaryMasterKey`. Essas informações serão necessárias na 
 <a name="devconfig"></a>
 ### <a name="configure-the-connection-string-in-your-nodejs-application"></a>Configurar a cadeia de conexão em seu aplicativo Node.js
 
-No repositório local do MEAN.js, na pasta _config/env/_ , crie um arquivo chamado _local-production.js_ . _.gitignore_ já está configurado para manter esse arquivo fora do repositório. 
+No repositório local do MEAN.js, na pasta _config/env/_ , crie um arquivo chamado _local-production.js_. _.gitignore_ já está configurado para manter esse arquivo fora do repositório. 
 
 Copie o seguinte código dentro dele. Substitua os dois espaços reservados *\<cosmosdb-name>* pelo nome do banco de dados Cosmos DB e substitua o espaço reservado *\<primary-master-key>* pela chave copiada na etapa anterior.
 
@@ -210,7 +209,7 @@ Em uma janela de terminal local, execute o comando a seguir para reduzir e agrup
 gulp prod
 ```
 
-Em uma janela de terminal local, execute o comando a seguir para usar a cadeia de conexão configurada em _config/env/local-production.js_ . Ignore o erro de certificado e o aviso de config.domain.
+Em uma janela de terminal local, execute o comando a seguir para usar a cadeia de conexão configurada em _config/env/local-production.js_. Ignore o erro de certificado e o aviso de config.domain.
 
 ```bash
 # Bash
@@ -277,7 +276,7 @@ Nessa etapa, você implanta seu aplicativo Node.js conectado ao MongoDB no Servi
 
 Por padrão, o projeto MEAN.js mantém _config/env/local-production.js_ fora do repositório Git. Portanto, para seu aplicativo do Azure, use as configurações de aplicativo para definir a cadeia de conexão do MongoDB.
 
-Para definir as configurações do aplicativo, use o [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) no Cloud Shell. 
+Para definir as configurações do aplicativo, use o [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) no Cloud Shell. 
 
 O exemplo a seguir define uma configuração de aplicativo `MONGODB_URI` no aplicativo do Azure. Substitua os espaços reservados *\<app-name>* , *\<cosmosdb-name>* e *\<primary-master-key>* .
 
@@ -287,7 +286,7 @@ az webapp config appsettings set --name <app-name> --resource-group myResourceGr
 
 No código Node.js, você [acessa essa configuração de aplicativo](configure-language-nodejs.md#access-environment-variables) com `process.env.MONGODB_URI`, assim como você teria acesso a qualquer variável de ambiente. 
 
-No repositório local do MEAN.js, abra _config/env/production.js_ (e não _config/env/local-production.js_ ), que tem a configuração específica ao ambiente de produção. O aplicativo MEAN.js padrão já está configurado para usar a variável de ambiente `MONGODB_URI` que você criou.
+No repositório local do MEAN.js, abra _config/env/production.js_ (e não _config/env/local-production.js_), que tem a configuração específica ao ambiente de produção. O aplicativo MEAN.js padrão já está configurado para usar a variável de ambiente `MONGODB_URI` que você criou.
 
 ```javascript
 db: {
@@ -351,7 +350,7 @@ Nessa etapa, você altera o modelo de dados `article` e publica suas alteraçõe
 
 ### <a name="update-the-data-model"></a>Atualizar o modelo de dados
 
-No repositório local do MEAN.js, abra _modules/articles/server/models/article.server.model.js_ .
+No repositório local do MEAN.js, abra _modules/articles/server/models/article.server.model.js_.
 
 Em `ArticleSchema`, adicione um tipo `String` chamado `comment`. Quando terminar, seu código de esquema deverá ter essa aparência:
 
@@ -376,7 +375,7 @@ Atualize o resto do seu código `articles` para usar `comment`.
 
 Há cinco arquivos que você precisa modificar: o controlador de servidor e as quatro exibições do cliente. 
 
-Abra _modules/articles/server/controllers/articles.server.controller.js_ .
+Abra _modules/articles/server/controllers/articles.server.controller.js_.
 
 Na função `update` adicione uma atribuição para `article.comment`. O código a seguir mostra a função `update` completa:
 
@@ -392,7 +391,7 @@ exports.update = function (req, res) {
 };
 ```
 
-Abra _modules/articles/client/views/view-article.client.view.html_ .
+Abra _modules/articles/client/views/view-article.client.view.html_.
 
 Logo acima da marca de fechamento `</section>`, adicione a seguinte linha para exibir `comment` juntamente com o resto dos dados do artigo:
 
@@ -400,7 +399,7 @@ Logo acima da marca de fechamento `</section>`, adicione a seguinte linha para e
 <p class="lead" ng-bind="vm.article.comment"></p>
 ```
 
-Abra _modules/articles/client/views/list-articles.client.view.html_ .
+Abra _modules/articles/client/views/list-articles.client.view.html_.
 
 Logo acima da marca de fechamento `</a>`, adicione a seguinte linha para exibir `comment` juntamente com o resto dos dados do artigo:
 
@@ -408,7 +407,7 @@ Logo acima da marca de fechamento `</a>`, adicione a seguinte linha para exibir 
 <p class="list-group-item-text" ng-bind="article.comment"></p>
 ```
 
-Abra _modules/articles/client/views/admin/list-articles.client.view.html_ .
+Abra _modules/articles/client/views/admin/list-articles.client.view.html_.
 
 Dentro do elemento `<div class="list-group">` e logo acima da marcação de fechamento `</a>`, adicione a seguinte linha para exibir `comment` juntamente com o resto dos dados do artigo:
 
@@ -416,7 +415,7 @@ Dentro do elemento `<div class="list-group">` e logo acima da marcação de fech
 <p class="list-group-item-text" data-ng-bind="article.comment"></p>
 ```
 
-Abra _modules/articles/client/views/admin/form-article.client.view.html_ .
+Abra _modules/articles/client/views/admin/form-article.client.view.html_.
 
 Localize o elemento `<div class="form-group">` que contém o botão enviar, que se parece com este:
 
@@ -483,7 +482,7 @@ Se você adicionou artigos anteriores, ainda será possível vê-los. Dados exis
 
 Enquanto o aplicativo Node.js é executado no Serviço de Aplicativo do Azure, você pode obter logs do console transferidos para o seu terminal. Dessa forma, é possível obter as mesmas mensagens de diagnóstico para ajudá-lo a depurar erros de aplicativo.
 
-Para iniciar o streaming de log, use o comando [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) no Cloud Shell.
+Para iniciar o streaming de log, use o comando [`az webapp log tail`](/cli/azure/webapp/log#az-webapp-log-tail) no Cloud Shell.
 
 ```azurecli-interactive
 az webapp log tail --name <app-name> --resource-group myResourceGroup

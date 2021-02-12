@@ -2,17 +2,18 @@
 title: Trabalhando com datas no Azure Cosmos DB
 description: Saiba como armazenar, indexar e consultar objetos de data e hora no Azure Cosmos DB
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c9df71763c610f9773949ef618de7840ae752d82
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ba4d4e63bdd1e795bc1c599d0eae8a595aa0d643
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073563"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359516"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Trabalhando com datas no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -93,6 +94,6 @@ Saiba mais sobre como configurar as políticas de indexação em [Políticas de 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Baixe e execute os [Exemplos de código no GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
+* Baixe e execute os [Exemplos de código no GitHub](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/code-samples)
 * Saiba mais sobre [consultas SQL](sql-query-getting-started.md)
 * Saiba mais sobre as [Políticas de indexação do Azure Cosmos DB](index-policy.md)

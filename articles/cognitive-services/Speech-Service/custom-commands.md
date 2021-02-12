@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: c9f7168bc0524b483413ade9792af18ff9cfebfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40736764cf9cec6f652e0147eb25d83f15c5bee2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358535"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024935"
 ---
 # <a name="what-is-custom-commands"></a>O que são comandos personalizados?
 
@@ -28,7 +28,7 @@ Os comandos personalizados são mais adequados para os cenários de conclusão d
 > [!TIP]
 > Veja nossas demonstrações de exemplo em nossa página de aterrissagem [https://speech.microsoft.com/customcommands](https://speech.microsoft.com/customcommands) .
 
-Se você estiver interessado em criar aplicativos de conversa complexos, você será incentivado a experimentar a estrutura de bot usando a [solução de assistente virtual](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Você pode adicionar voz a qualquer bot da estrutura de bot usando a Direct line Speech.
+Se você estiver interessado em criar aplicativos de conversa complexos, você será incentivado a experimentar a estrutura de bot usando a [solução de assistente virtual](/azure/bot-service/bot-builder-enterprise-template-overview). Você pode adicionar voz a qualquer bot da estrutura de bot usando a Direct line Speech.
 
 Bons candidatos a comandos personalizados têm um vocabulário fixo com conjuntos bem definidos de variáveis. Por exemplo, as tarefas de automação doméstica, como controlar um termostato, são ideais.
 

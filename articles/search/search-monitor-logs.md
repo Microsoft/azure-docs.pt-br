@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 52230d6b13c4210e0ff8e85d0a3efe39af55f6e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6fcf5980cf64b5fc088dfa295ef6221ffda6de9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935051"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499927"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Coletar e analisar dados de log para o Azure Pesquisa Cognitiva
 
@@ -25,7 +25,7 @@ Ao configurar o log de diagnóstico, você será solicitado a especificar um mec
 
 | Recurso | Usada para |
 |----------|----------|
-| [Enviar para o workspace do Log Analytics](../azure-monitor/learn/tutorial-resource-logs.md) | Os eventos e as métricas são enviados para um espaço de trabalho Log Analytics, que pode ser consultado no portal para retornar informações detalhadas. Para obter uma introdução, consulte Introdução [aos logs de Azure monitor](../azure-monitor/log-query/get-started-portal.md) |
+| [Enviar para o workspace do Log Analytics](../azure-monitor/learn/tutorial-resource-logs.md) | Os eventos e as métricas são enviados para um espaço de trabalho Log Analytics, que pode ser consultado no portal para retornar informações detalhadas. Para obter uma introdução, consulte Introdução [aos logs de Azure monitor](../azure-monitor/log-query/log-analytics-tutorial.md) |
 | [Arquivar com armazenamento de BLOBs](../storage/blobs/storage-blobs-overview.md) | Os eventos e as métricas são arquivados em um contêiner de BLOB e armazenados em arquivos JSON. Os logs podem ser bastante granulares (por hora/minuto), úteis para pesquisar um incidente específico, mas não para investigação aberta. Use um editor de JSON para exibir um arquivo de log bruto ou Power BI para agregar e Visualizar dados de log.|
 | [Transmitir para o Hub de eventos](../event-hubs/index.yml) | Os eventos e as métricas são transmitidos para um serviço de hubs de eventos do Azure. Escolha esta opção como um serviço de coleta de dados alternativo para logs muito grandes. |
 

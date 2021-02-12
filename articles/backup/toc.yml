@@ -4,6 +4,8 @@
   items:
     - name: Visão geral do Backup do Azure
       href: backup-overview.md
+    - name: Novidades no Backup do Azure
+      href: whats-new.md
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/backup/'
 - name: Inícios rápidos
@@ -64,6 +66,10 @@
           href: sap-hana-backup-support-matrix.md
         - name: Matriz de suporte de backup do compartilhamento de arquivos do Azure
           href: azure-file-share-support-matrix.md
+        - name: Matriz de suporte de Backup de Disco do Azure
+          href: disk-backup-support-matrix.md
+        - name: Controladores de domínio do Active Directory
+          href: active-directory-backup-restore.md
         - name: SKUs de VM com suporte para o Azure Policy
           href: backup-azure-policy-supported-skus.md
     - name: Perguntas frequentes (FAQ)
@@ -71,13 +77,15 @@
         - name: Perguntas frequentes – cofres dos Serviços de Recuperação
           href: backup-azure-backup-faq.md
         - name: Perguntas frequentes – Centro de Backup
-          href: backup-center-faq.md
+          href: backup-center-faq.yml
         - name: Perguntas frequentes – backup de VM do Azure
-          href: backup-azure-vm-backup-faq.md
+          href: backup-azure-vm-backup-faq.yml
         - name: Perguntas frequentes – agente do MARS
           href: backup-azure-file-folder-backup-faq.md
         - name: Perguntas frequentes – fazer backup de Arquivos do Azure
           href: backup-azure-files-faq.md
+        - name: Perguntas frequentes – Backup de Disco do Azure
+          href: disk-backup-faq.md
         - name: Perguntas frequentes – fazer backup de bancos de dados do SQL Server em VMs do Azure
           href: faq-backup-sql-server.md
         - name: Perguntas frequentes – fazer backup de bancos de dados SAP HANA em VMs do Azure
@@ -90,6 +98,8 @@
       href: backup-architecture.md
     - name: Diretrizes e melhores práticas
       href: guidance-best-practices.md
+    - name: Glossário de termos
+      href: azure-backup-glossary.md
 - name: Guias de como fazer
   items:
     - name: Cofres
@@ -158,6 +168,10 @@
           items:
             - name: Gerenciar backups de VM do Azure
               href: backup-azure-manage-vms.md
+            - name: Gerenciar pontos de recuperação
+              href: manage-recovery-points.md
+            - name: Modificar a política de backup com a CLI do Azure
+              href: modify-vm-policy-cli.md
     - name: Banco de dados do SQL Server no backup de VM do Azure
       items:
         - name: Visão geral
@@ -196,10 +210,20 @@
           items:
             - name: Recuperar arquivos do Azure para o Windows Server
               href: backup-azure-restore-windows-server.md
+            - name: Restaurar todos os arquivos em um volume
+              href: restore-all-files-volume-mars.md
             - name: Restaurar o Estado do Sistema do Windows Server
               href: backup-azure-restore-system-state.md
         - name: Gerenciar
           href: backup-azure-manage-mars.md
+    - name: Backup de Disco do Azure
+      items:
+        - name: Visão geral
+          href: disk-backup-overview.md
+        - name: Backup
+          href: backup-managed-disks.md
+        - name: Restaurar
+          href: restore-managed-disks.md
     - name: Backup do compartilhamento de arquivos do Azure
       items:
         - name: Visão geral
@@ -406,6 +430,8 @@
           href: backup-encryption.md
         - name: Criptografia usando chaves gerenciadas pelo cliente
           href: encryption-at-rest-with-cmk.md
+        - name: Protocolo TLS
+          href: transport-layer-security.md
         - name: Controles de segurança do Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
@@ -415,6 +441,8 @@
       items:
         - name: VM do Azure
           href: backup-azure-vms-troubleshoot.md
+        - name: Recuperação de arquivo da VM do Azure
+          href: backup-azure-vm-file-recovery-troubleshoot.md
         - name: O agente de Backup do Azure ou a extensão de VM atingiu o tempo limite
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
         - name: Agente de Backup do Azure
@@ -427,6 +455,8 @@
           href: backup-azure-scdpm-troubleshooting.md
         - name: Compartilhamento de arquivos do Azure
           href: troubleshoot-azure-files.md
+        - name: Backup de Disco do Azure
+          href: disk-backup-troubleshoot.md
         - name: SQL Server
           href: backup-sql-server-azure-troubleshoot.md
         - name: Backup do SAP HANA em VMs do Azure
@@ -442,7 +472,7 @@
     - name: Azure PowerShell
       href: /powershell/module/az.recoveryservices
     - name: PowerShell – Agente do Backup do Azure
-      href: /powershell/module/msonlinebackup
+      href: /powershell/module/msonlinebackup/msonlinebackup
     - name: REST - Backup
       href: /rest/api/backup/
     - name: REST - Cofre dos Serviços de Recuperação

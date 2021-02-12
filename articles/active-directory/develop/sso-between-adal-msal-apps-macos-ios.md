@@ -1,6 +1,7 @@
 ---
-title: SSO entre o ADAL & aplicativos MSAL (iOS/macOS) – plataforma de identidade da Microsoft | Azure
-description: ''
+title: SSO entre o ADAL & aplicativos MSAL (iOS/macOS) | Azure
+titleSuffix: Microsoft identity platform
+description: Saiba como compartilhar SSO entre aplicativos ADAL e MSAL
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -12,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: 7a8a1667ba1ca2a99c053c6941e3ba778299fd53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 396e9cfeace8791a59dec4a9c9c7203212f57304
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80880743"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584240"
 ---
 # <a name="how-to-sso-between-adal-and-msal-apps-on-macos-and-ios"></a>Como: SSO entre aplicativos ADAL e MSAL no macOS e iOS
 
@@ -33,7 +34,7 @@ Esta seção aborda as diferenças de SSO entre MSAL e ADAL 2.7. x
 
 ### <a name="cache-format"></a>Formato de cache
 
-O ADAL 2.7. x pode ler o formato de cache MSAL. Você não precisa fazer nada de especial para o SSO entre aplicativos com a versão ADAL 2.7. x. No entanto, você precisa estar ciente das diferenças nos identificadores de conta que essas duas bibliotecas dão suporte.
+O ADAL 2.7. x pode ler o formato de cache MSAL. Você não precisa fazer nada de especial para o SSO entre aplicativos com a versão ADAL 2.7. x. No entanto, lembre-se das diferenças nos identificadores de conta que essas duas bibliotecas oferecem suporte.
 
 ### <a name="account-identifier-differences"></a>Diferenças de identificador de conta
 

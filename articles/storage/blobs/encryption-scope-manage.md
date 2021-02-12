@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 9210c54305427c82d5666d68573fd3af41e8cef7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e77b58f7741af42f00b2a1831157405b12fa24ff
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972190"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017399"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>Criar e gerenciar escopos de criptografia (visualização)
 
@@ -179,7 +179,7 @@ Para saber como configurar a criptografia de armazenamento do Azure com chaves g
 
 Para exibir os escopos de criptografia para uma conta de armazenamento no portal do Azure, navegue até a configuração **escopos de criptografia** para a conta de armazenamento. Nesse painel, você pode habilitar ou desabilitar um escopo de criptografia ou alterar a chave de um escopo de criptografia.
 
-:::image type="content" source="media/encryption-scope-manage/list-encryption-scopes-portal.png" alt-text="Captura de tela mostrando como criar o escopo de criptografia no portal do Azure":::
+:::image type="content" source="media/encryption-scope-manage/list-encryption-scopes-portal.png" alt-text="Captura de tela mostrando a lista de escopos de criptografia no portal do Azure":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -223,7 +223,7 @@ Para criar um contêiner com um escopo de criptografia padrão no portal do Azur
 1. Na lista suspensa **escopo de criptografia** , selecione o escopo de criptografia padrão para o contêiner.
 1. Para exigir que todos os BLOBs no contêiner usem o escopo de criptografia padrão, marque a caixa de seleção para **usar esse escopo de criptografia para todos os BLOBs no contêiner**. Se essa caixa de seleção estiver selecionada, um blob individual no contêiner não poderá substituir o escopo de criptografia padrão.
 
-    :::image type="content" source="media/encryption-scope-manage/create-container-default-encryption-scope.png" alt-text="Captura de tela mostrando como criar o escopo de criptografia no portal do Azure":::
+    :::image type="content" source="media/encryption-scope-manage/create-container-default-encryption-scope.png" alt-text="Captura de tela mostrando contêiner com escopo de criptografia padrão":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -247,7 +247,7 @@ New-AzRmStorageContainer -ResourceGroupName $rgName `
 
 Para criar um contêiner com um escopo de criptografia padrão com CLI do Azure, chame o comando [AZ Storage container Create](/cli/azure/storage/container#az-storage-container-create) , especificando o escopo para o `--default-encryption-scope` parâmetro. Para forçar todos os BLOBs em um contêiner a usar o escopo padrão do contêiner, defina o `--prevent-encryption-scope-override` parâmetro como `true` .
 
-O exemplo a seguir usa sua conta do Azure AD para autorizar a operação para criar o contêiner. Você também pode usar a chave de acesso da conta. Para obter mais informações, confira [Autorizar o acesso a dados de blob ou de filas com a CLI do Azure](../common/authorize-data-operations-cli.md).
+O exemplo a seguir usa sua conta do Azure AD para autorizar a operação para criar o contêiner. Você também pode usar a chave de acesso da conta. Para obter mais informações, confira [Autorizar o acesso a dados de blob ou de filas com a CLI do Azure](./authorize-data-operations-cli.md).
 
 ```azurecli-interactive
 az storage container create \
@@ -275,9 +275,9 @@ Para carregar um blob com um escopo de criptografia especificado no portal do Az
 1. Selecione o botão **carregar** e localize o blob a ser carregado.
 1. Expanda as configurações **avançadas** no painel **carregar blob** .
 1. Localize a seção suspensa **escopo de criptografia** . Por padrão, o blob é criado com o escopo de criptografia padrão para o contêiner, se um tiver sido especificado. Se o contêiner exigir que os BLOBs usem o escopo de criptografia padrão, esta seção será desabilitada.
-1. Para especificar um escopo diferente para o blob que você está carregando, selecione **escolher um escopo existente**e, em seguida, selecione o escopo desejado na lista suspensa.
+1. Para especificar um escopo diferente para o blob que você está carregando, selecione **escolher um escopo existente** e, em seguida, selecione o escopo desejado na lista suspensa.
 
-    :::image type="content" source="media/encryption-scope-manage/upload-blob-encryption-scope.png" alt-text="Captura de tela mostrando como criar o escopo de criptografia no portal do Azure":::
+    :::image type="content" source="media/encryption-scope-manage/upload-blob-encryption-scope.png" alt-text="Captura de tela mostrando como carregar um blob com um escopo de criptografia":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

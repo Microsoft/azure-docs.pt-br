@@ -1,5 +1,6 @@
 ---
-title: Gravar um aplicativo Web que entra/sai de usuários-plataforma de identidade da Microsoft | Azure
+title: Gravar um aplicativo Web que se conecta aos usuários | Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como criar um aplicativo Web que entra/sai de usuários
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 28bbe1432777e9e15ae625fb9788f9182495bd66
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8fa5532a5664741c9ddb9b78b35d5eed8e2e4e0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87845078"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937844"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Aplicativo Web que conecta usuários: entrar e sair
 
@@ -213,7 +214,7 @@ Depois que o usuário tiver entrado em seu aplicativo, você desejará habilitá
 Sair de um aplicativo Web envolve mais do que remover as informações sobre a conta conectada do estado do aplicativo Web.
 O aplicativo Web também deve redirecionar o usuário para o ponto de extremidade da plataforma Microsoft Identity `logout` para sair.
 
-Quando seu aplicativo Web redireciona o usuário para o ponto de `logout` extremidade, esse ponto de extremidade limpa a sessão do usuário no navegador. Se seu aplicativo não for para o `logout` ponto de extremidade, o usuário será autenticado novamente em seu aplicativo sem inserir suas credenciais novamente. O motivo é que eles terão uma sessão de logon único válida com o ponto de extremidade da plataforma Microsoft Identity.
+Quando seu aplicativo Web redireciona o usuário para o ponto de `logout` extremidade, esse ponto de extremidade limpa a sessão do usuário no navegador. Se seu aplicativo não for para o `logout` ponto de extremidade, o usuário será autenticado novamente em seu aplicativo sem inserir suas credenciais novamente. O motivo é que eles terão uma sessão de logon único válida com a plataforma de identidade da Microsoft.
 
 Para saber mais, consulte a seção [Enviar uma solicitação de saída](v2-protocols-oidc.md#send-a-sign-out-request) na plataforma de [identidade da Microsoft e a documentação do protocolo OpenID Connect](v2-protocols-oidc.md) .
 
@@ -221,19 +222,19 @@ Para saber mais, consulte a seção [Enviar uma solicitação de saída](v2-prot
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Durante o registro do aplicativo, você registra um URI de pós-logout. Em nosso tutorial, você se registrou `https://localhost:44321/signout-oidc` no campo **URL de logout** da seção **Configurações avançadas** na página **autenticação** . Para obter detalhes, consulte [ registrar o aplicativo webApp](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg#register-the-webapp-app-webapp).
+Durante o registro do aplicativo, você registra uma URL de logout de front-Channel. Em nosso tutorial, você registrou `https://localhost:44321/signout-oidc` no campo **URL de logoff de front-Channel** na página de **autenticação** . Para obter detalhes, consulte [registrar o aplicativo webApp](scenario-web-app-sign-user-app-registration.md#register-an-app-by-using-the-azure-portal).
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-Durante o registro do aplicativo, você registra um URI de pós-logout. Em nosso tutorial, você se registrou `https://localhost:44308/Account/EndSession` no campo **URL de logout** da seção **Configurações avançadas** na página **autenticação** . Para obter detalhes, consulte [registrar o aplicativo webApp](https://github.com/Azure-Samples/active-directory-dotnet-web-single-sign-out#register-the-service-app-webapp-distributedsignout-dotnet).
+Durante o registro do aplicativo, você não precisa registrar uma URL extra de logoff de front-Channel. O aplicativo será chamado de volta em sua URL principal. 
 
 # <a name="java"></a>[Java](#tab/java)
 
-Durante o registro do aplicativo, você registra um URI de pós-logout. Em nosso tutorial, você se registrou `http://localhost:8080/msal4jsample/sign_out` no campo **URL de logout** da seção **Configurações avançadas** na página **autenticação** .
+Nenhuma URL de logoff de front-Channel é necessária no registro do aplicativo.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Durante o registro do aplicativo, você não precisa registrar uma URL de logout extra. O aplicativo será chamado de volta em sua URL principal.
+Durante o registro do aplicativo, você não precisa registrar uma URL extra de logoff de front-Channel. O aplicativo será chamado de volta em sua URL principal.
 
 ---
 
@@ -335,7 +336,7 @@ Nas versões anteriores dos modelos do ASP.NET Core, o `Account` controlador foi
 - Chamadas `Signout()` , que permitem ao middleware OpenID Connect contatar o ponto de extremidade da plataforma Microsoft Identity `logout` . Em seguida, o ponto de extremidade:
 
   - Limpa o cookie de sessão do navegador.
-  - Chama novamente a URL de logout. Por padrão, a URL de logout exibe a página de exibição desconectada [SignedOut.cshtml.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs). Essa página também é fornecida como parte do MIcrosoft. Identity. Web.
+  - Chama novamente o URI de redirecionamento pós-logout. Por padrão, o URI de redirecionamento pós-logout exibe a página de exibição desconectada [SignedOut.cshtml.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs). Essa página também é fornecida como parte do Microsoft. Identity. Web.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -432,5 +433,4 @@ Se você quiser saber mais sobre a saída, leia a documentação do protocolo di
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Mover para ambiente de produção](scenario-web-app-sign-user-production.md)
+Vá para o próximo artigo neste cenário, [vá para produção](scenario-web-app-sign-user-production.md).

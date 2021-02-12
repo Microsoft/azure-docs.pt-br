@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abec780deb7834e67618c74e556a1bc20154b0b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf68406d4b0806e1d533e0bb8669a01939387989
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658541"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997742"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Determinar uma estratégia de adoção para o ciclo de vida da identidade híbrida
 Nesta tarefa, você define a estratégia de gerenciamento de identidade para sua solução de identidade híbrida, para atender aos requisitos de negócios definidos na seção [Determinar as tarefas de gerenciamento de identidade híbrida](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -95,7 +95,7 @@ Analise a tabela a seguir para comparar as opções de sincronização:
 | Opção de gerenciamento de sincronização | Vantagens | Desvantagens |
 | --- | --- | --- |
 | Com base em sincronização (através do DirSync ou do AADConnect) |Usuários e grupos sincronizados localmente e na nuvem <br>  **Controle de políticas**: as políticas de conta podem ser definidas no Active Directory, que fornece ao administrador a capacidade de gerenciar políticas de senha, estações de trabalho, restrições, controles de bloqueio e muito mais, sem ter que realizar outras tarefas na nuvem.  <br>  **Controle de acesso**: pode restringir o acesso ao serviço de nuvem para que os serviços possam ser acessados através do ambiente corporativo, através de servidores online, ou das duas maneiras. <br>  Menos chamadas de suporte: quando os usuários têm menos senhas para se lembrar, é menos provável esquecê-las. <br>  Segurança: as informações e identidades dos usuários são protegidas porque todos os servidores e serviços usados no logon único são gerenciados e controlados localmente. <br>  Suporte para autenticação forte: use uma autenticação forte (também chamada de autenticação de dois fatores) com o serviço de nuvem. No entanto, se usar esse recurso, você deve usar o logon único. | |
-| Com base em federação (através do AD FS) |Habilitado pelo serviço de token de segurança (STS). Quando você configura um STS para fornecer acesso de logon único com um serviço de nuvem da Microsoft, cria ao mesmo tempo uma relação de confiança federada entre o STS local e o domínio federado que você especificou no locatário do AD do Microsoft Azure. <br> Permite aos usuários finais usar o mesmo conjunto de credenciais para obter acesso a vários recursos <br>Os usuários finais não precisam manter vários conjuntos de credenciais. Além disso, os usuários devem fornecer suas credenciais a cada um dos recursos participantes. Cenários com suporte para relações B2B e B2C. |Requer pessoal especializado para implantação e manutenção de servidores de AD FS locais dedicados. Há restrições sobre o uso de autenticação forte, caso planeje usar o AD FS para o STS. Para saber mais, consulte o artigo [Configurando opções avançadas do AD FS 2.0](https://go.microsoft.com/fwlink/?linkid=235649). |
+| Com base em federação (através do AD FS) |Habilitado pelo serviço de token de segurança (STS). Quando você configura um STS para fornecer acesso de logon único com um serviço de nuvem da Microsoft, cria ao mesmo tempo uma relação de confiança federada entre o STS local e o domínio federado que você especificou no locatário do AD do Microsoft Azure. <br> Permite aos usuários finais usar o mesmo conjunto de credenciais para obter acesso a vários recursos <br>Os usuários finais não precisam manter vários conjuntos de credenciais. Além disso, os usuários devem fornecer suas credenciais a cada um dos recursos participantes. Cenários com suporte para relações B2B e B2C. |Requer pessoal especializado para implantação e manutenção de servidores de AD FS locais dedicados. Há restrições sobre o uso de autenticação forte, caso planeje usar o AD FS para o STS. Para saber mais, consulte o artigo [Configurando opções avançadas do AD FS 2.0](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh237448(v=ws.10)). |
 
 > [!NOTE]
 > Para obter mais informações, consulte [integrando suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).

@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 09/30/2020
+ms.date: 11/23/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.custom: contperfq1
-ms.openlocfilehash: 24e514208683d540f08818020238090583a1bc42
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: c9815355b26a9c14c02110e4bb5fff4f998d2105
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362460"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032025"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>O que é o gerenciamento de direitos do Azure AD?
 
@@ -85,7 +85,7 @@ Você também pode controlar o acesso a outros recursos que dependem de grupos d
 
 Com um pacote de acesso, um administrador ou um gerenciador de pacotes de acesso delegado pode listar os recursos (grupos, aplicativos e sites) e as funções que os usuários precisam para esses recursos.
 
-Os pacotes de acesso também incluem uma ou mais *políticas* . Uma política define as regras ou grades de proteção para atribuição ao pacote de acesso. Cada política pode ser usada para garantir que apenas os usuários apropriados sejam capazes de solicitar acesso, que há aprovadores para essa solicitação e que o acesso a esses recursos é limitado por tempo e expirará se não for renovado.
+Os pacotes de acesso também incluem uma ou mais *políticas*. Uma política define as regras ou grades de proteção para atribuição ao pacote de acesso. Cada política pode ser usada para garantir que apenas os usuários apropriados sejam capazes de solicitar acesso, que há aprovadores para essa solicitação e que o acesso a esses recursos é limitado por tempo e expirará se não for renovado.
 
 ![Pacote de acesso e políticas](./media/entitlement-management-overview/elm-overview-access-package.png)
 
@@ -113,7 +113,7 @@ Os pacotes de acesso não substituem outros mecanismos para atribuição de aces
 
 ## <a name="how-do-i-delegate-access"></a>Como faço para delegar acesso?
 
- Pacotes de acesso são definidos em contêineres chamados *catálogos* .  Você pode ter um catálogo para todos os seus pacotes de acesso ou pode designar indivíduos para criar e serem proprietários dos próprios catálogos. Um administrador pode adicionar recursos a qualquer catálogo, mas alguém que não seja administrador só pode adicionar a um catálogo os recursos de que é proprietário. Um proprietário de catálogo pode adicionar outros usuários como coproprietários de catálogo ou como gerenciadores de pacotes de acesso.  Esses cenários são descritos mais detalhadamente no artigo [delegação e funções no gerenciamento de direitos do Azure AD](entitlement-management-delegate.md).
+ Pacotes de acesso são definidos em contêineres chamados *catálogos*.  Você pode ter um catálogo para todos os seus pacotes de acesso ou pode designar indivíduos para criar e serem proprietários dos próprios catálogos. Um administrador pode adicionar recursos a qualquer catálogo, mas alguém que não seja administrador só pode adicionar a um catálogo os recursos de que é proprietário. Um proprietário de catálogo pode adicionar outros usuários como coproprietários de catálogo ou como gerenciadores de pacotes de acesso.  Esses cenários são descritos mais detalhadamente no artigo [delegação e funções no gerenciamento de direitos do Azure AD](entitlement-management-delegate.md).
 
 ## <a name="summary-of-terminology"></a>Resumo da terminologia
 
@@ -144,17 +144,22 @@ Nuvens especializadas, como o Azure Alemanha e o Azure China 21Vianet, não est�
 Seu diretório deve ter pelo menos a quantidade de licenças Azure AD Premium P2 que você tem:
 
 - Usuários membros que **podem** solicitar um pacote de acesso.
-- Membros e usuários convidados que solicitam um pacote de acesso.
-- Membros e usuários convidados que aprovam solicitações para um pacote de acesso.
-- Membros e usuários convidados que têm uma atribuição direta a um pacote de acesso.
+- Usuários membros que <u>solicitam</u> um pacote de acesso.
+- Usuários membros que <u>aprovam solicitações</u> para um pacote de acesso.
+- Usuários membros que <u>examinam as atribuições</u> de um pacote de acesso. 
+- Usuários membros que têm uma <u>atribuição direta</u> a um pacote de acesso.
+
+Para os usuários convidados, as necessidades de licenciamento dependerão do [modelo de licenciamento](../external-identities/external-identities-pricing.md) utilizado. No entanto, as atividades dos usuários convidados abaixo são consideradas como uso do Azure AD Premium P2:
+- Usuários convidados que <u>solicitam</u> um pacote de acesso. 
+- Usuários convidados que <u>aprovam solicitações</u> para um pacote de acesso.
+- Usuários convidados que <u>examinam as atribuições</u> de um pacote de acesso.
+- Usuários convidados que têm uma <u>atribuição direta</u> a um pacote de acesso. 
 
 As licenças do Azure AD Premium P2 **não** são necessárias para as seguintes tarefas:
 
 - Nenhuma licença é necessária para usuários com a função Administrador global que configura os catálogos iniciais, os pacotes de acesso e as políticas e delega tarefas administrativas a outros usuários.
 - Nenhuma licença é necessária para os usuários a quem foram delegadas tarefas administrativas, como criador de catálogos, proprietário do catálogo e gerenciador de pacotes de acesso.
 - Nenhuma licença é necessária para convidados que **podem** solicitar pacotes de acesso, mas **não** solicitam um pacote de acesso.
-
-O preço das Identidades Externas (usuários convidados) do Azure AD baseiam-se em MAUs (usuários ativos mensais), que é a contagem de usuários exclusivos que realizam atividades de autenticação em um mês civil. Esse modelo substitui o modelo de cobrança com proporção de 1:5, que permitia até cinco usuários convidados para cada licença do Azure AD Premium no locatário. Quando o locatário estiver vinculado a uma assinatura e você usar recursos de Identidades Externas para colaborar com usuários convidados, você será cobrado automaticamente de acordo com o modelo de cobrança baseado em MAU. Para obter mais informações, confira [Modelo de cobrança para Identidades Externas do Azure AD](../external-identities/external-identities-pricing.md).
 
 Para obter mais informações sobre licenças, confira [Atribuir ou remover licenças usando o portal do Azure Active Directory](../fundamentals/license-users-groups.md).
 

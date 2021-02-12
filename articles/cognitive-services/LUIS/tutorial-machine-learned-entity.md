@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: 01262ee0271849793c4393b1ea8e18c4179ad4e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa2783abe86b90a907510dec8d7eb40162820ad5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334712"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025252"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Tutorial: Extrair dados estruturados do enunciado do usuário usando entidades de aprendizado de máquina no LUIS (Reconhecimento vocal)
 
@@ -72,7 +72,7 @@ Para extrair os detalhes sobre um pedido de pizza, crie uma entidade `Order` de 
     |--|
     |`pickup a cheddar cheese pizza large with extra anchovies`|
 
-    Comece a seleção um pouco antes do texto mais à esquerda de `pickup` (nº 1) e, em seguida, vá um pouco além do texto mais à direita, `anchovies` (nº 2 – isso encerra o processo de rotulagem). Um menu pop-up é exibido. Na caixa pop-up, insira o nome da entidade como `Order` (nº 3). Em seguida, selecione `Order Create new entity` na lista (nº 4).
+    Clique e arraste o cursor sobre o texto do primeiro exemplo de intenção. no menu exibido, insira o nome da entidade como `Order`. Em seguida, selecione `Order Create new entity` na lista.
 
     ![Rotular o início e o fim do texto do pedido concluído](media/tutorial-machine-learned-entity/mark-complete-order.png)
 
@@ -297,7 +297,7 @@ Para receber uma previsão do LUIS em um chat bot ou em outro aplicativo cliente
 
 ## <a name="related-information"></a>Informações relacionadas
 
-* [Tutorial – intenções](luis-quickstart-intents-only.md)
+* [Tutorial – intenções](./tutorial-intents-only.md)
 * [Conceito – informações conceituais sobre entidades](luis-concept-entity-types.md)
 * [Conceito – informações conceituais sobre recursos](luis-concept-feature.md)
 * [Como treinar](luis-how-to-train.md)
@@ -309,4 +309,4 @@ Para receber uma previsão do LUIS em um chat bot ou em outro aplicativo cliente
 Neste tutorial, o aplicativo usa uma entidade de aprendizado de máquina para descobrir a intenção do enunciado de um usuário e extrair detalhes desse enunciado. O uso da entidade de aprendizado de máquina permite decompor os detalhes da entidade.
 
 > [!div class="nextstepaction"]
-> [Adicionar uma entidade de keyphrase predefinida](luis-quickstart-intent-and-key-phrase.md)
+> [Adicionar uma entidade de keyphrase predefinida](./luis-reference-prebuilt-keyphrase.md)

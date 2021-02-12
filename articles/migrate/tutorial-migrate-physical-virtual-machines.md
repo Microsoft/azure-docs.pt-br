@@ -1,19 +1,22 @@
 ---
 title: Migre computadores como um servidor físico para o Azure com as Migrações para Azure.
 description: Este artigo descreve como migrar computadores físicos para o Azure com as Migrações para Azure.
+author: rahulg1190
+ms.author: rahugup
+ms.manager: bsiva
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 01/02/2021
 ms.custom: MVC
-ms.openlocfilehash: 187d660c0aa3ce1fa37a706b37102d2e4f9b4d25
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: aeeb810174ff5c21a81bcec8aa9265ff100edf91
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92308512"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626318"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrar computadores como servidores físicos para o Azure
 
-Este artigo mostra como migrar computadores como servidores físicos para o Azure usando a ferramenta Migrações para Azure: Migração de Servidor. Migrar computadores tratando-os como servidores físicos é útil em vários cenários:
+Este artigo mostra como migrar computadores como servidores físicos para o Azure usando a ferramenta Migrações para Azure: Ferramenta de migração de servidor. Migrar computadores tratando-os como servidores físicos é útil em vários cenários:
 
 - Migrar servidores físicos locais.
 - Migrar VMs virtualizadas por plataformas, como Xen, KVM.
@@ -25,9 +28,9 @@ Este artigo mostra como migrar computadores como servidores físicos para o Azur
 Este tutorial é o terceiro de uma série que demonstra como avaliar e migrar servidores físicos para o Azure. Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Prepare-se para usar o Azure com a Migração de Servidor das Migrações para Azure.
+> * Prepare-se para usar o Azure com a ferramenta Migrações para Azure: Migração de Servidor.
 > * Verificar os requisitos de computadores que você deseja migrar e prepare um computador para o dispositivo de replicação de Migrações para Azure usado para descobrir e migrar computadores para o Azure.
-> * Adicionar a ferramenta de Migração de Servidor de Migrações para Azure no hub Migrações para Azure.
+> * Adicionar a ferramenta Migrações para Azure: Migração de Servidor no hub de Migrações para Azure.
 > * Configurar o dispositivo de replicação.
 > * Instalar o serviço de mobilidade nos computadores que você deseja migrar.
 > * Habilitar a replicação.
@@ -48,11 +51,11 @@ Antes de iniciar este tutorial, você deverá:
 
 ## <a name="prepare-azure"></a>Preparar o Azure
 
-Prepare o Azure para migração com a Migração de Servidor.
+Preparar o Azure para a migração com a ferramenta Migrações para Azure: Migração de Servidor.
 
 **Tarefa** | **Detalhes**
 --- | ---
-**Criar um projeto de Migrações para Azure** | Sua conta do Azure precisa de permissões de Colaborador ou de Proprietário para criar um projeto.
+**Criar um projeto de Migrações para Azure** | Sua conta do Azure precisa de permissões de Colaborador ou de Proprietário para [criar um projeto](./create-manage-projects.md).
 **Verificar as permissões para sua conta do Azure** | Sua conta do Azure precisa de permissões para criar uma VM e gravar em um disco gerenciado do Azure.
 
 
@@ -86,7 +89,7 @@ Para se preparar para a migração do servidor físico, você precisa verificar 
 Verifique se os computadores estão em conformidade com os requisitos da migração para o Azure. 
 
 > [!NOTE]
-> Ao migrar computadores físicos, a Migração de Servidor das Migrações para Azure usa a mesma arquitetura de replicação que a recuperação de desastre baseada em agente do serviço de Azure Site Recovery, e alguns dos componentes compartilham a mesma base de código. Alguns conteúdos podem ser vinculados à documentação do Site Recovery.
+> Ao migrar computadores físicos, a ferramenta Migrações para Azure: Migração de Servidor usa a mesma arquitetura de replicação que a recuperação de desastre baseada em agente do serviço de Azure Site Recovery e alguns dos componentes compartilham a mesma base de código. Alguns conteúdos podem ser vinculados à documentação do Site Recovery.
 
 1. [Verificar](migrate-support-matrix-physical-migration.md#physical-server-requirements) os requisitos do servidor físico.
 2. Verifique se as máquinas locais que você replica para o Azure estão em conformidade com os [requisitos de VM do Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
@@ -96,7 +99,7 @@ Verifique se os computadores estão em conformidade com os requisitos da migraç
 
 ### <a name="prepare-a-machine-for-the-replication-appliance"></a>Preparar um computador para o dispositivo de replicação
 
-A Migração de Servidor das Migrações para Azure usa um dispositivo de replicação para replicar computadores para o Azure. O dispositivo de replicação executa os seguintes componentes.
+Migrações para Azure: Migração de Servidor usa um dispositivo de replicação para replicar computadores para o Azure. O dispositivo de replicação executa os seguintes componentes.
 
 - **Servidor de configuração**: O servidor de configuração coordena a comunicação entre o ambiente local e o Azure e gerencia a replicação de dados.
 - **Servidor de processo**: O servidor de processo atua como um gateway de replicação. Ele recebe dados de replicação, otimiza-os com caching, compactação e criptografia e os envia para uma conta de armazenamento em cache no Azure. 
@@ -106,36 +109,14 @@ Prepare-se para implantação do dispositivo, conforme mostrado a seguir:
 - Você prepara um computador para hospedar o dispositivo de replicação. [Examine](migrate-replication-appliance.md#appliance-requirements) os requisitos do computador.
 - O dispositivo de replicação usa o MySQL. Examine as [opções](migrate-replication-appliance.md#mysql-installation) para instalar o MySQL no dispositivo.
 - Examine as URLs do Azure necessárias para que o dispositivo de replicação acesse as nuvens [públicas](migrate-replication-appliance.md#url-access) e [governamentais](migrate-replication-appliance.md#azure-government-url-access).
-- Examine os requisitos de acesso da [porta] (migrate-replication-appliance.md#port-access) para o dispositivo de replicação.
+- Examine os requisitos de acesso à [porta](migrate-replication-appliance.md#port-access) para o dispositivo de replicação.
 
 > [!NOTE]
 > O dispositivo de replicação não deve ser instalado em um computador de origem que você deseja replicar nem no dispositivo de avaliação e descoberta das Migrações para Azure que pode ter sido instalado antes.
 
-## <a name="add-the-server-migration-tool"></a>Adicionar a Ferramenta de Servidor
-
-Configure um projeto de Migrações para Azure e adicione a ferramenta de Migração de Servidor a ele.
-
-1. No portal do Azure > **Todos os serviços**, pesquise **Migrações para Azure**.
-2. Em **Serviços**, selecione **Migrações para Azure**.
-3. Em **Visão Geral**, clique em **Avaliar emigrar servidores**.
-4. Em **Descobrir, avaliar e migrar servidores**, clique em **Avaliar e migrar servidores**.
-
-    ![Descobrir e avaliar servidores](./media/tutorial-migrate-physical-virtual-machines/assess-migrate.png)
-
-5. Em **Descobrir, avaliar e migrar servidores**, clique em **Adicionar ferramentas**.
-6. Em **Migrar projeto**, selecione sua assinatura do Azure e crie um grupo de recursos, caso não tenha um.
-7. Em **Detalhes do Projeto**, especifique o nome do projeto e a geografia em que deseja criar o projeto e clique em **Próximo**. Examine as geografias compatíveis para [nuvens públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais](migrate-support-matrix.md#supported-geographies-azure-government).
-
-    ![Criar um projeto das Migrações para Azure](./media/tutorial-migrate-physical-virtual-machines/migrate-project.png)
-
-8. Em **Selecionar ferramenta de avaliação**, selecione **Ignorar a adição de uma ferramenta de avaliação por enquanto** > **Avançar**.
-9. Em **Selecionar ferramenta de migração**, selecione **Migrações para Azure: Migração de Servidor** > **Avançar**.
-10. Em **Examinar + adicionar ferramentas**, examine as configurações e clique em **Adicionar ferramentas**
-11. Depois de adicionar a ferramenta, ela aparecerá no projeto de Migrações para Azure > **Servidores** > **Ferramentas de migração**.
-
 ## <a name="set-up-the-replication-appliance"></a>Configurar o dispositivo de replicação
 
-A primeira etapa da migração é configurar o dispositivo de replicação. Para configurar o dispositivo para migração de servidor físico, baixe o arquivo do instalador do dispositivo e execute-o no [computador que você preparou](#prepare-a-machine-for-the-replication-appliance). Depois de instalar o dispositivo, registre-o com a Migração de Servidor de Migrações para Azure.
+A primeira etapa da migração é configurar o dispositivo de replicação. Para configurar o dispositivo para migração de servidor físico, baixe o arquivo do instalador do dispositivo e execute-o no [computador que você preparou](#prepare-a-machine-for-the-replication-appliance). Depois de instalar o dispositivo, registre-o com as Migrações para Azure: Migração de Servidor.
 
 
 ### <a name="download-the-replication-appliance-installer"></a>Baixar o instalador do dispositivo de replicação
@@ -148,7 +129,7 @@ A primeira etapa da migração é configurar o dispositivo de replicação. Para
 4. Em **Região de destino**, selecione a região do Azure para a qual deseja migrar os computadores.
 5. Selecione **Confirme se a região de destino da migração é nome-da-região**.
 6. Clique em **Criar recursos**. Isso criará um cofre do Azure Site Recovery em segundo plano.
-    - Se você já configurou a migração com a Migração de Servidor de Migrações para Azure, a opção de destino não poderá ser configurada, pois os recursos foram configurados anteriormente.    
+    - Se você já configurou a migração com a ferramenta Migrações para Azure: Migração de Servidor, a opção de destino não poderá ser configurada, pois os recursos foram configurados anteriormente.    
     - Você não poderá alterar a região de destino desse projeto depois de clicar nesse botão.
     - Todas as migrações seguintes serão feitas para essa região.
 
@@ -164,7 +145,7 @@ A primeira etapa da migração é configurar o dispositivo de replicação. Para
 
     ![Finalizar registro](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
-Pode levar algum tempo após a finalização do registro até que os computadores descobertos sejam exibidos na Migração de Servidor das Migrações para Azure. À medida que as VMs são descobertas, a contagem de **Servidores descobertos** aumenta.
+Pode levar algum tempo após a finalização do registro até que os computadores descobertos sejam exibidos na ferramenta Migrações para Azure: Migração de Servidor. À medida que as VMs são descobertas, a contagem de **Servidores descobertos** aumenta.
 
 ![Servidores descobertos](./media/tutorial-migrate-physical-virtual-machines/discovered-servers.png)
 
@@ -182,6 +163,8 @@ Nos computadores que você deseja migrar, você precisa instalar o agente do ser
     - Você pode obter a frase secreta no dispositivo de replicação. Na linha de comando, execute **C:\ProgramData\ASR\home\svsystems\bin\genpassphrase.exe-v** para exibir a frase secreta atual.
     - Não gere novamente a frase secreta. Isso interromperá a conectividade e você precisará registrar o dispositivo de replicação novamente.
 
+> [!NOTE]
+> No parâmetro */Platform*, você especifica o *VMware* se você migrar VMs do VMware ou máquinas físicas.
 
 ### <a name="install-on-windows"></a>Instalar no Windows
 
@@ -194,7 +177,7 @@ Nos computadores que você deseja migrar, você precisa instalar o agente do ser
     ```
 2. Execute o Instalador do Serviço de Mobilidade:
     ```
-   UnifiedAgent.exe /Role "MS" /Silent
+   UnifiedAgent.exe /Role "MS" /Platform "VmWare" /Silent
     ```
 3. Registre o agente com o dispositivo de replicação:
     ```
@@ -212,7 +195,7 @@ Nos computadores que você deseja migrar, você precisa instalar o agente do ser
     ```
 2. Execute o script do instalador:
     ```
-    sudo ./install -r MS -q
+    sudo ./install -r MS -v VmWare -q
     ```
 3. Registre o agente com o dispositivo de replicação:
     ```
@@ -249,38 +232,41 @@ Agora, selecione os computadores para migração.
     -  Zona de Disponibilidade para fixar o computador migrado para uma Zona de Disponibilidade específica na região. Use essa opção para distribuir servidores que formam uma camada de aplicativo de vários nós entre Zonas de Disponibilidade diferentes. Se você selecionar essa opção, precisará especificar a zona de disponibilidade a ser usada para cada computador selecionado na guia Computação. Essa opção só estará disponível se a região de destino selecionada para a migração der suporte a Zonas de Disponibilidade
     -  Conjunto de Disponibilidade para colocar o computador migrado em um conjunto de disponibilidade. O grupo de recursos de destino selecionado precisa ter um ou mais conjuntos de disponibilidade para que possa usar essa opção.
     - Nenhuma opção de redundância de infraestrutura será necessária se você não precisar de nenhuma dessas configurações de disponibilidade para os computadores migrados.
-12. Em **Benefício Híbrido do Azure**:
+    
+12. Em **Tipo de criptografia de disco**, selecione:
+    - Criptografia em repouso com chave de criptografia gerenciada pela plataforma
+    - Criptografia em repouso com a chave gerenciada pelo cliente
+    - Criptografia dupla com chaves gerenciadas por plataforma e gerenciadas pelo cliente
+
+   > [!NOTE]
+   > Para replicar VMs com a CMK, você precisará [criar um conjunto de criptografia de disco](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) no grupo de recursos de destino. Um objeto de conjunto de criptografia de disco mapeia o Managed Disks para um Key Vault que contém a CMK a ser usada para a SSE.
+  
+13. Em **Benefício Híbrido do Azure**:
 
     - Selecione **Não** se não desejar aplicar o Benefício Híbrido do Azure. Em seguida, clique em **Próximo**.
     - Selecione **Sim** se você tiver computadores Windows Server cobertos com assinaturas ativas do Software Assurance ou do Windows Server e quiser aplicar o benefício aos computadores que estão sendo migrados. Em seguida, clique em **Próximo**.
 
-    ![Configurações de destino](./media/tutorial-migrate-physical-virtual-machines/target-settings.png)
+    ![Configurações de destino](./media/tutorial-migrate-vmware/target-settings.png)
 
-13. Em **Computação**, examine o nome da VM, o tamanho, o tipo de disco do SO e a configuração de disponibilidade (se selecionado na etapa anterior). As VMs devem estar em conformidade com os [requisitos do Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
+14. Em **Computação**, examine o nome da VM, o tamanho, o tipo de disco do SO e a configuração de disponibilidade (se selecionado na etapa anterior). As VMs devem estar em conformidade com os [requisitos do Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
 
     - **Tamanho da VM**: se você estiver usando recomendações de avaliação, o menu suspenso de tamanho da VM mostrará o tamanho recomendado. Caso contrário, as Migrações para Azure escolherão um tamanho com base na correspondência mais próxima na assinatura do Azure. Como alternativa, escolha um tamanho manual em **Tamanho da VM do Azure**.
     - **Disco do SO**: especifique o disco do sistema operacional (inicialização) para a VM. O disco do sistema operacional é o disco que tem o carregador de inicialização e o instalador do sistema operacional.
     - **Zona de Disponibilidade**: especifique a zona de disponibilidade a ser usada.
     - **Conjunto de disponibilidade**: especifique o conjunto de disponibilidade a ser usado.
 
-> [!NOTE]
-> Se você quiser selecionar uma opção de disponibilidade diferente para um conjunto de máquinas virtuais, vá para a etapa 1 e repita as etapas selecionando opções de disponibilidade diferentes depois de iniciar a replicação para um conjunto de máquinas virtuais.
+![Configurações de computação](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
 
-   ![Configurações de computação](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
-
-13. Em **Discos**, especifique se os discos da VM devem ser replicados para o Azure e selecione o tipo de disco (discos gerenciados HDD/SSD standard ou premium) no Azure. Em seguida, clique em **Próximo**.
+15. Em **Discos**, especifique se os discos da VM devem ser replicados para o Azure e selecione o tipo de disco (discos gerenciados HDD/SSD standard ou premium) no Azure. Em seguida, clique em **Próximo**.
     - Você pode excluir discos da replicação.
     - Se você excluir os discos, eles não estarão presentes na VM do Azure após a migração. 
 
     ![Configurações de disco](./media/tutorial-migrate-physical-virtual-machines/disks.png)
 
-
-14. Em **Examinar e iniciar a replicação**, examine as configurações e clique em **Replicar** para iniciar a replicação inicial dos servidores.
+16. Em **Examinar e iniciar a replicação**, examine as configurações e clique em **Replicar** para iniciar a replicação inicial dos servidores.
 
 > [!NOTE]
 > É possível atualizar as configurações de replicação a qualquer momento antes do início da replicação em **Gerenciar** > **Computadores em replicação**. Não é possível alterar as configurações após o início da replicação.
-
-
 
 ## <a name="track-and-monitor"></a>Acompanhar e monitorar
 

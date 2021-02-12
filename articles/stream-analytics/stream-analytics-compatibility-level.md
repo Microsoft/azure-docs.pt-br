@@ -1,17 +1,17 @@
 ---
 title: Níveis de compatibilidade Azure Stream Analytics
 description: Saiba como definir um nível de compatibilidade para um trabalho do Azure Stream Analytics e as principais alterações no nível de compatibilidade mais recente
-author: mamccrea
-ms.author: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 87ee8a9c57fc456ba02f97bf56db25e4c91e9398
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 07df391e664fe04b9c7d2eda34960666c44a2e06
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129806"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094069"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Nível de compatibilidade para trabalhos do Azure Stream Analytics
 
@@ -33,17 +33,17 @@ Quando você cria um novo trabalho de Stream Analytics, é uma prática recomend
 
 ## <a name="set-the-compatibility-level"></a>Definir o nível de compatibilidade
 
-Você pode definir o nível de compatibilidade para um trabalho de Stream Analytics no portal do Azure ou usando a [chamada de API REST de trabalho Create](./stream-analytics-quick-create-portal.md).
+Você pode definir o nível de compatibilidade para um trabalho de Stream Analytics no portal do Azure ou usando a [chamada de API REST de trabalho Create](/rest/api/streamanalytics/2016-03-01/streamingjobs/createorreplace#compatibilitylevel).
 
 Para atualizar o nível de compatibilidade do trabalho no portal do Azure:
 
 1. Use o [portal do Azure](https://portal.azure.com) para localizar em seu trabalho de Stream Analytics.
-2. **Pare** o trabalho antes de atualizar o nível de compatibilidade. Não será possível atualizar o nível de compatibilidade se o trabalho estiver em um estado de execução.
-3. No cabeçalho **Configurar** , selecione **nível de compatibilidade** .
+2. **Pare** o trabalho antes de atualizar o nível de compatibilidade. Você não poderá atualizar o nível de compatibilidade se seu trabalho estiver em um estado de execução.
+3. No cabeçalho **Configurar** , selecione **nível de compatibilidade**.
 4. Escolha o valor do nível de compatibilidade desejado.
 5. Selecione **salvar** na parte inferior da página.
 
-![Nível de compatibilidade do Stream Analytics no portal do Azure](media/stream-analytics-compatibility-level/stream-analytics-compatibility.png)
+![Nível de compatibilidade do Stream Analytics no portal do Azure](media/stream-analytics-compatibility-level/stream-analytics-compat-level-1-2.png)
 
 Quando você atualiza o nível de compatibilidade, o compilador T valida o trabalho com a sintaxe que corresponde ao nível de compatibilidade selecionado.
 
@@ -53,7 +53,7 @@ As seguintes alterações principais são introduzidas no nível de compatibilid
 
 ###  <a name="amqp-messaging-protocol"></a>Protocolo de mensagens AMQP
 
-**nível 1,2** : o Azure Stream Analytics usa o protocolo de mensagens [do protocolo AMQP](../service-bus-messaging/service-bus-amqp-overview.md) para gravar em filas e tópicos do barramento de serviço. O AMQP permite que você crie várias plataformas, aplicativos híbridos usando um protocolo de padrão aberto.
+**nível 1,2**: o Azure Stream Analytics usa o protocolo de mensagens [do protocolo AMQP](../service-bus-messaging/service-bus-amqp-overview.md) para gravar em filas e tópicos do barramento de serviço. O AMQP permite que você crie várias plataformas, aplicativos híbridos usando um protocolo de padrão aberto.
 
 ### <a name="geospatial-functions"></a>Funções geoespaciais
 
@@ -75,15 +75,15 @@ Para obter mais informações, consulte [atualizações para recursos geoespacia
 
 ### <a name="native-bulk-api-integration-with-cosmosdb-output"></a>Integração de API em massa nativa com saída de CosmosDB
 
-**Níveis anteriores:** O comportamento de Upsert foi *INSERT ou Merge* .
+**Níveis anteriores:** O comportamento de Upsert foi *INSERT ou Merge*.
 
 **nível de 1,2:** A integração de API em massa nativa com saída CosmosDB maximiza a taxa de transferência e manipula com eficiência as solicitações de limitação. Para obter mais informações, consulte [a página Azure Stream Analytics saída para Azure Cosmos DB](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12).
 
-O comportamento de Upsert é *Inserir ou substituir* .
+O comportamento de Upsert é *Inserir ou substituir*.
 
 ### <a name="datetimeoffset-when-writing-to-sql-output"></a>DateTimeOffset ao gravar na saída do SQL
 
-**Níveis anteriores: os** tipos de [DateTimeOffset](/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) foram ajustados para UTC.
+**Níveis anteriores: os** tipos de [DateTimeOffset](/sql/t-sql/data-types/datetimeoffset-transact-sql) foram ajustados para UTC.
 
 **nível de 1,2:** DateTimeOffset não está mais ajustado.
 
@@ -121,7 +121,7 @@ As alterações principais a seguir são apresentadas no nível de compatibilida
 
 ### <a name="service-bus-xml-format"></a>Formato XML do Barramento de Serviço
 
-**nível de 1,0:** Azure Stream Analytics o DataContractSerializer usado, portanto, o conteúdo da mensagem incluía marcas XML. Por exemplo: 
+**nível de 1,0:** Azure Stream Analytics o DataContractSerializer usado, portanto, o conteúdo da mensagem incluía marcas XML. Por exemplo:
 
 `@\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001`
 

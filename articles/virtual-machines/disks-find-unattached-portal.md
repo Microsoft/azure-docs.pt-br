@@ -4,19 +4,19 @@ description: Como encontrar discos gerenciados e não gerenciados desanexados (V
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 06/01/2020
+ms.date: 01/26/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 6632d65fa07788e35b24c2f957e713f824f6b091
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d31ce4b6086c44de913afd1083bae25fa3d44cd
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87542731"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898148"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks---azure-portal"></a>Encontrar e excluir discos gerenciados e não gerenciados desanexados do Azure – portal do Azure
 
-Quando você exclui uma VM (máquina virtual) no Azure, por padrão, nenhum disco anexado à máquina virtual é excluído. Isso ajuda a evitar a perda de dados devido à exclusão não intencional de VMs. Depois que uma VM for excluída, você continuará a pagar pelos discos desanexados. Este artigo mostra como encontrar e excluir discos desanexados usando o portal do Azure e reduzir custos desnecessários.
+Quando você exclui uma VM (máquina virtual) no Azure, por padrão, nenhum disco anexado à máquina virtual é excluído. Isso ajuda a evitar a perda de dados devido à exclusão não intencional de VMs. Depois que uma VM for excluída, você continuará a pagar pelos discos desanexados. Este artigo mostra como encontrar e excluir discos desanexados usando o portal do Azure e reduzir custos desnecessários. As exclusões são permanentes, você não poderá recuperar os dados depois de excluir um disco.
 
 ## <a name="managed-disks-find-and-delete-unattached-disks"></a>Discos gerenciados: Localizar e excluir discos desanexados
 
@@ -45,17 +45,17 @@ Se você tiver discos não gerenciados que não estão anexados a uma VM, não p
 
     Você verá uma lista de todos os discos não gerenciados. Qualquer disco que tenha " **-** " na coluna **Anexado a** é um disco desanexado.
 
-    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-attached-to.png" alt-text="Captura de tela de uma folha de discos gerenciados individuais. Essa folha mostrará desanexado no estado do disco se ele estiver desanexado. Exclua esse disco se não precisar mais preservar os dados dele":::
+    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-attached-to.png" alt-text="Captura de tela da folha de discos não gerenciados. Os discos desta folha que têm - na coluna Anexada a estão desanexados.":::
 
 1. Selecione o disco desanexado que deseja excluir; isso abrirá a folha do disco.
 
 1. Na folha do disco, confirme se ele está desanexado, pois o estado **Anexado a** ainda estará **-** .
 
-    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-select-blade.png" alt-text="Captura de tela de uma folha de discos gerenciados individuais. Essa folha mostrará desanexado no estado do disco se ele estiver desanexado. Exclua esse disco se não precisar mais preservar os dados dele":::
+    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-select-blade.png" alt-text="Captura de tela da folha de um disco não gerenciado individual. Ele terá um - como o valor Anexado a se ele estiver desanexado. Se você não precisar mais dos dados desse discos, exclua-os.":::
 
 1. Selecione **Excluir**.
 
-    :::image type="content" source="media/disks-find-unattached-portal/delete-unmanaged-disk-unattached.png" alt-text="Captura de tela de uma folha de discos gerenciados individuais. Essa folha mostrará desanexado no estado do disco se ele estiver desanexado. Exclua esse disco se não precisar mais preservar os dados dele":::
+    :::image type="content" source="media/disks-find-unattached-portal/delete-unmanaged-disk-unattached.png" alt-text="Captura de tela da folha de um disco não gerenciado individual, realçando Excluir.":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -5,18 +5,18 @@ ms.date: 02/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 4f4733a52d1d58cbec4413140a613a93c8074188
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 96384d2c50e7d5b4b5b6e652d01c4a89cd519573
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91323406"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493356"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Conectar o Azure Functions ao Armazenamento do Azure usando o Visual Studio Code
 
 [!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
-Este artigo mostra como usar Visual Studio Code para conectar a função criada no [artigo de início rápido anterior](functions-create-first-function-vs-code.md) ao Armazenamento do Azure. A associação de saída que você adiciona a essa função escreve dados da solicitação HTTP em uma mensagem na fila. 
+Este artigo mostra como usar Visual Studio Code para conectar o Armazenamento do Azure à função criada no artigo de início rápido anterior. A associação de saída que você adiciona a essa função escreve dados da solicitação HTTP em uma mensagem na fila. 
 
 A maioria das associações requer uma cadeia de conexão armazenada que o Functions usa para acessar o serviço vinculado. Para facilitar, use a Conta de armazenamento que você criou com o seu aplicativo de funções. A conexão com essa conta já está armazenada em uma configuração de aplicativo chamada `AzureWebJobsStorage`.  
 
@@ -32,13 +32,30 @@ Antes de iniciar este artigo, você deve atender aos seguintes requisitos:
 * Instale as [ferramentas da CLI do .NET Core](/dotnet/core/tools/?tabs=netcore2x).
 ::: zone-end
 
-* Conclua as etapas descritas na [parte 1 do início rápido do Visual Studio Code](functions-create-first-function-vs-code.md). 
+::: zone pivot="programming-language-csharp"  
+* Conclua as etapas descritas na [parte 1 do início rápido do Visual Studio Code](create-first-function-vs-code-csharp.md). 
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+* Conclua as etapas descritas na [parte 1 do início rápido do Visual Studio Code](create-first-function-vs-code-node.md). 
+::: zone-end   
+::: zone pivot="programming-language-java"  
+* Conclua as etapas descritas na [parte 1 do início rápido do Visual Studio Code](create-first-function-vs-code-java.md). 
+::: zone-end   
+::: zone pivot="programming-language-typescript"  
+* Conclua as etapas descritas na [parte 1 do início rápido do Visual Studio Code](create-first-function-vs-code-typescript.md). 
+::: zone-end   
+::: zone pivot="programming-language-python"  
+* Conclua as etapas descritas na [parte 1 do início rápido do Visual Studio Code](create-first-function-vs-code-python.md). 
+::: zone-end   
+::: zone pivot="programming-language-powershell"  
+* Conclua as etapas descritas na [parte 1 do início rápido do Visual Studio Code](create-first-function-vs-code-powershell.md). 
+::: zone-end   
 
 Este artigo pressupõe que você já esteja conectado à sua assinatura do Azure do Visual Studio Code. Você pode entrar executando `Azure: Sign In` na paleta de comandos. 
 
 ## <a name="download-the-function-app-settings"></a>Baixar as configurações do aplicativo de funções
 
-No [artigo de início rápido anterior](functions-create-first-function-vs-code.md), você criou um aplicativo de funções no Azure, juntamente com a Conta de armazenamento necessária. A cadeia de conexão dessa conta é armazenada com segurança nas configurações do aplicativo no Azure. Neste artigo, você escreverá mensagens em uma Fila de armazenamento na mesma conta. Para se conectar à sua Conta de armazenamento ao executar a função localmente, é necessário baixar as configurações do aplicativo para o arquivo local.settings.json. 
+No [artigo de início rápido anterior](./create-first-function-vs-code-csharp.md), você criou um aplicativo de funções no Azure, juntamente com a Conta de armazenamento necessária. A cadeia de conexão dessa conta é armazenada com segurança nas configurações do aplicativo no Azure. Neste artigo, você escreverá mensagens em uma Fila de armazenamento na mesma conta. Para se conectar à sua Conta de armazenamento ao executar a função localmente, é necessário baixar as configurações do aplicativo para o arquivo local.settings.json. 
 
 1. Pressione a tecla F1 para abrir a paleta de comandos, pesquise e execute o comando `Azure Functions: Download Remote Settings....`. 
 
@@ -79,7 +96,7 @@ Agora, você pode adicionar a associação de saída do armazenamento ao seu pro
 
 No Functions, cada tipo de associação requer que um `direction`, `type` e um `name` exclusivo seja definido no arquivo functions.json. A maneira como você define esses atributos depende do idioma do seu aplicativo de funções.
 
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-java"
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
 
 [!INCLUDE [functions-add-output-binding-json](../../includes/functions-add-output-binding-json.md)]
 
@@ -131,31 +148,25 @@ Depois que a associação é definida, você pode usar o `name` da associação 
 
 [!INCLUDE [functions-add-storage-binding-java-code](../../includes/functions-add-storage-binding-java-code.md)]
 
+## <a name="update-the-tests"></a>Atualizar os testes
+
 [!INCLUDE [functions-add-output-binding-java-test](../../includes/functions-add-output-binding-java-test.md)]
 
 ::: zone-end  
 
-<!--- Local testing section --->
+## <a name="run-the-function-locally"></a>Executar a função localmente
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python"
+1. Como no artigo anterior, clique em <kbd>F5</kbd> para iniciar o projeto do aplicativo de funções e o Core Tools. 
 
-[!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
+1. Com o Core Tools em execução, acesse a área **Azure: Funções**. Em **Funções**, expanda **Projeto Local** > **Funções**. Clique com o botão direito do mouse (CTRL-clique no Mac) na função `HttpExample` e escolha **Executar Função Agora...** .
 
-::: zone-end
+    :::image type="content" source="../../includes/media/functions-run-function-test-local-vs-code/execute-function-now.png" alt-text="Executar a função agora por meio do Visual Studio Code":::
 
-::: zone pivot="programming-language-powershell"
+1. Em **Insira o corpo da solicitação**, você verá o valor do corpo da mensagem de solicitação igual a `{ "name": "Azure" }`. Clique em ENTER para enviar essa mensagem de solicitação à função.  
+ 
+1. Depois que uma resposta for retornada, clique em <kbd>CTRL + C</kbd> para interromper o Core Tools.
 
-[!INCLUDE [functions-run-function-test-local-vs-code-ps](../../includes/functions-run-function-test-local-vs-code-ps.md)]
-
-::: zone-end
-
-Uma nova fila denominada **outqueue** é criada na sua conta de armazenamento pelo tempo de execução do Functions quando a associação de saída é usada pela primeira vez. Você usará o Gerenciador de Armazenamento para verificar se a fila foi criada junto com a nova mensagem.
-
-::: zone pivot="programming-language-java"  
-
-[!INCLUDE [functions-add-output-binding-java-test](../../includes/functions-add-output-binding-java-test.md)]
-
-::: zone-end
+Como você está usando a cadeia de conexão de armazenamento, a função se conecta à conta de armazenamento do Azure durante a execução local. Uma nova fila denominada **outqueue** é criada na sua conta de armazenamento pelo tempo de execução do Functions quando a associação de saída é usada pela primeira vez. Você usará o Gerenciador de Armazenamento para verificar se a fila foi criada junto com a nova mensagem.
 
 ### <a name="connect-storage-explorer-to-your-account"></a>Conectar o Gerenciador de Armazenamento à sua conta
 
@@ -191,11 +202,7 @@ Agora, chegou a hora de republicar o aplicativo de funções atualizado no Azure
 
 1. Escolha o aplicativo de funções que você criou no primeiro artigo. Como você está reimplantando seu projeto no mesmo aplicativo, selecione **Implantar** para descartar o aviso de substituição de arquivos.
 
-1. Após a conclusão da implantação, você poderá usar novamente o cURL ou um navegador para testar a função reimplementada. Como antes, acrescente a cadeia de consulta `&name=<yourname>` à URL, como no seguinte exemplo:
-
-    ```bash
-    curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....&name=<yourname>
-    ```
+1. Após a conclusão da implantação, use novamente o recurso **Executar Função Agora...** para disparar a função no Azure.
 
 1. Novamente, [Examinar a Mensagem da fila de armazenamento](#examine-the-output-queue) para verificar se a associação de saída gera novamente uma nova mensagem na fila.
 
@@ -205,33 +212,42 @@ No Azure, os *Recursos* se referem a aplicativos de funções, funções, contas
 
 Você criou recursos para concluir esses guias de início rápido. Você pode ser cobrado por esses recursos, dependendo do [status de conta](https://azure.microsoft.com/account/) e [preços do serviço](https://azure.microsoft.com/pricing/). Caso não precise mais dos recursos, é possível excluí-los desta maneira:
 
-[!INCLUDE [functions-cleanup-resources-vs-code.md](../../includes/functions-cleanup-resources-vs-code.md)]
+[!INCLUDE [functions-cleanup-resources-vs-code-inner.md](../../includes/functions-cleanup-resources-vs-code-inner.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Você atualizou sua função disparada por HTTP para gravar dados em uma Fila de armazenamento. Agora você pode saber mais sobre o desenvolvimento no Functions usando o Visual Studio Code:
 
 + [Desenvolver no Azure Functions usando o Visual Studio Code](functions-develop-vs-code.md)
+
++ [Gatilhos e associações do Azure Functions](functions-triggers-bindings.md).
 ::: zone pivot="programming-language-csharp"  
 + [Exemplos de projetos de função completos em C#](/samples/browse/?products=azure-functions&languages=csharp).
+
 + [Referência do desenvolvedor de C# do Azure Functions](functions-dotnet-class-library.md)  
 ::: zone-end 
 ::: zone pivot="programming-language-javascript"  
 + [Exemplos de projetos de função completos em JavaScript](/samples/browse/?products=azure-functions&languages=javascript).
+
 + [Guia do desenvolvedor de JavaScript do Azure Functions](functions-reference-node.md)  
+::: zone-end  
+::: zone pivot="programming-language-java"  
++ [Exemplos de projetos de função completos em Java](/samples/browse/?products=azure-functions&languages=java).
+
++ [Guia do desenvolvedor de Java do Azure Functions](functions-reference-java.md)  
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 + [Exemplos de projetos de função completos em TypeScript](/samples/browse/?products=azure-functions&languages=typescript).
+
 + [Guia do desenvolvedor de TypeScript do Azure Functions](functions-reference-node.md#typescript)  
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 + [Exemplos de projetos de função completos no Python](/samples/browse/?products=azure-functions&languages=python).
+
 + [Guia do desenvolvedor do Python para o Azure Functions](functions-reference-python.md)  
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 + [Exemplos de projetos de função completos no PowerShell](/samples/browse/?products=azure-functions&languages=azurepowershell).
+
 + [Guia do desenvolvedor do PowerShell do Azure Functions](functions-reference-powershell.md) 
 ::: zone-end
-+ [Gatilhos e associações do Azure Functions](functions-triggers-bindings.md).
-+ [Página de preços do Functions](https://azure.microsoft.com/pricing/details/functions/)
-+ Artigo [Como estimar os custos do plano de Consumo](functions-consumption-costs.md).

@@ -8,14 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 01/08/2021
 ms.author: trbye
-ms.openlocfilehash: c7c43e02e6bdf75c9551ccdbb9dd8f75bf37a806
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions
+ms.openlocfilehash: b4a4fa8a207320a5867b6cdf1dc347bbb2f453af
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91534974"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525731"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST conversão de texto em fala
 
@@ -34,7 +35,7 @@ Antes de usar essa API, entenda:
 * A API REST de conversão de texto em voz requer um cabeçalho de autorização. Isso significa que você precisa concluir uma troca de tokens para acessar o serviço. Para obter mais informações, consulte [Autenticação](#authentication).
 
 > [!TIP]
-> Consulte a [documentação](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure) do Azure governamental para pontos de extremidade de nuvem do governo (FairFax).
+> Consulte [Este artigo](sovereign-clouds.md) para os pontos de extremidade do Azure governamental e do Azure China.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -44,7 +45,7 @@ O `voices/list` ponto de extremidade permite obter uma lista completa de vozes p
 
 ### <a name="regions-and-endpoints"></a>Regiões e endpoints
 
-| Região | Ponto de extremidade |
+| Região | Ponto de Extremidade |
 |--------|----------|
 | Leste da Austrália | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sul do Brasil | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -59,20 +60,28 @@ O `voices/list` ponto de extremidade permite obter uma lista completa de vozes p
 | Coreia Central | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centro-Norte dos EUA | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Norte da Europa | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Norte da África do Sul | `https://southafricanorth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centro-Sul dos Estados Unidos | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sudeste Asiático | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sul do Reino Unido | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Centro-Oeste dos EUA | `https://westcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Europa Ocidental | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Oeste dos EUA | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Oeste dos EUA 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+
+> [!TIP]
+> As [vozes na versão prévia](language-support.md#neural-voices-in-preview) estão disponíveis apenas nestas três regiões: leste dos eua, Europa Ocidental e sudeste asiático.
 
 ### <a name="request-headers"></a>Cabeçalhos de solicitação
 
 Esta tabela lista os cabeçalhos obrigatórios e opcionais para solicitações de conversão de texto em fala.
 
-| Cabeçalho | Descrição | Obrigatório/Opcional |
+| parâmetro | Descrição | Obrigatório/Opcional |
 |--------|-------------|---------------------|
-| `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Obrigatório |
+| `Ocp-Apim-Subscription-Key` | Sua chave de assinatura do serviço de Fala. | Esse cabeçalho ou `Authorization` é obrigatório. |
+| `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Esse cabeçalho ou `Ocp-Apim-Subscription-Key` é obrigatório. |
+
+
 
 ### <a name="request-body"></a>Corpo da solicitação
 
@@ -86,7 +95,7 @@ Essa solicitação requer apenas um cabeçalho de autorização.
 GET /cognitiveservices/voices/list HTTP/1.1
 
 Host: westus.tts.speech.microsoft.com
-Authorization: Bearer [Base64 access_token]
+Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 ```
 
 ### <a name="sample-response"></a>Resposta de exemplo
@@ -98,46 +107,78 @@ Essa resposta foi truncada para ilustrar a estrutura de uma resposta.
 
 ```json
 [
+  {
+    "Name": "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)",
+    "DisplayName": "Hoda",
+    "LocalName": "هدى",
+    "ShortName": "ar-EG-Hoda",
+    "Gender": "Female",
+    "Locale": "ar-EG",
+    "SampleRateHertz": "16000",
+    "VoiceType": "Standard",
+    "Status": "GA"
+  },
+
+...
+      
     {
-        "Name": "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)",
-        "ShortName": "ar-EG-Hoda",
-        "Gender": "Female",
-        "Locale": "ar-EG",
-        "SampleRateHertz": "16000",
-        "VoiceType": "Standard"
-    },
-    {
-        "Name": "Microsoft Server Speech Text to Speech Voice (ar-SA, Naayf)",
-        "ShortName": "ar-SA-Naayf",
-        "Gender": "Male",
-        "Locale": "ar-SA",
-        "SampleRateHertz": "16000",
-        "VoiceType": "Standard"
-    },
-    {
-        "Name": "Microsoft Server Speech Text to Speech Voice (bg-BG, Ivan)",
-        "ShortName": "bg-BG-Ivan",
-        "Gender": "Male",
-        "Locale": "bg-BG",
-        "SampleRateHertz": "16000",
-        "VoiceType": "Standard"
-    },
-    {
-        "Name": "Microsoft Server Speech Text to Speech Voice (ca-ES, HerenaRUS)",
-        "ShortName": "ca-ES-HerenaRUS",
-        "Gender": "Female",
-        "Locale": "ca-ES",
-        "SampleRateHertz": "16000",
-        "VoiceType": "Standard"
-    },
-    {
-        "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)",
-        "ShortName": "zh-CN-XiaoxiaoNeural",
-        "Gender": "Female",
-        "Locale": "zh-CN",
-        "SampleRateHertz": "24000",
-        "VoiceType": "Neural"
-    },
+    "Name": "Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)",
+    "DisplayName": "Aria",
+    "LocalName": "Aria",
+    "ShortName": "en-US-AriaNeural",
+    "Gender": "Female",
+    "Locale": "en-US",
+    "StyleList": [
+      "chat",
+      "customerservice",
+      "newscast-casual",
+      "newscast-formal",
+      "cheerful",
+      "empathetic"
+    ],
+    "SampleRateHertz": "24000",
+    "VoiceType": "Neural",
+    "Status": "GA"
+  },
+  
+  ...
+    
+     {
+    "Name": "Microsoft Server Speech Text to Speech Voice (ga-IE, OrlaNeural)",
+    "DisplayName": "Orla",
+    "LocalName": "Orla",
+    "ShortName": "ga-IE-OrlaNeural",
+    "Gender": "Female",
+    "Locale": "ga-IE",
+    "SampleRateHertz": "24000",
+    "VoiceType": "Neural",
+    "Status": "Preview"
+  },
+  
+  ...
+    
+   {
+    "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, YunxiNeural)",
+    "DisplayName": "Yunxi",
+    "LocalName": "云希",
+    "ShortName": "zh-CN-YunxiNeural",
+    "Gender": "Male",
+    "Locale": "zh-CN",
+    "StyleList": [
+      "Calm",
+      "Fearful",
+      "Cheerful",
+      "Disgruntled",
+      "Serious",
+      "Angry",
+      "Sad",
+      "Depressed",
+      "Embarrassed"
+    ],
+    "SampleRateHertz": "24000",
+    "VoiceType": "Neural",
+    "Status": "Preview"
+  },
 
     ...
 ]
@@ -170,7 +211,7 @@ Essas regiões são suportadas para text-to-speech usando a API REST. Certifique
 
 Esta tabela lista os cabeçalhos obrigatórios e opcionais para solicitações de conversão de texto em fala.
 
-| Cabeçalho | Descrição | Obrigatório/Opcional |
+| parâmetro | Descrição | Obrigatório/Opcional |
 |--------|-------------|---------------------|
 | `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Obrigatório |
 | `Content-Type` | Especifica o tipo de conteúdo para o texto fornecido. Aceita o valor: `application/ssml+xml`. | Obrigatório |
@@ -208,23 +249,17 @@ Esta solicitação HTTP usa SSML para especificar a voz e o idioma. Se o comprim
 ```http
 POST /cognitiveservices/v1 HTTP/1.1
 
-X-Microsoft-OutputFormat: raw-16khz-16bit-mono-pcm
+X-Microsoft-OutputFormat: raw-24khz-16bit-mono-pcm
 Content-Type: application/ssml+xml
 Host: westus.tts.speech.microsoft.com
 Content-Length: 225
 Authorization: Bearer [Base64 access_token]
 
 <speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
-    name='en-US-AriaRUS'>
+    name='en-US-AriaNeural'>
         Microsoft Speech Service Text-to-Speech API
 </voice></speak>
 ```
-
-Consulte nossos guias de início rápido para obter exemplos específicos de idioma:
-
-* [.NET Core, C #](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)
-* [Python](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python)
-* [Node.js](quickstart-nodejs-text-to-speech.md)
 
 ### <a name="http-status-codes"></a>Códigos de status HTTP
 
@@ -235,7 +270,6 @@ O código de status HTTP para cada resposta indica sucesso ou erros comuns.
 | 200 | OK | A solicitação foi bem-sucedida. O corpo da resposta é um arquivo de áudio. |
 | 400 | Solicitação incorreta | Um parâmetro obrigatório está ausente, vazio ou nulo. Ou então, o valor passado como um parâmetro obrigatório ou opcional é inválido. Um problema comum é um cabeçalho que é muito longo. |
 | 401 | Não Autorizado | A solicitação não foi autorizada. Verifique se a chave de assinatura ou o token são válidos e se estão na região correta. |
-| 413 | Entidade de solicitação muito grande | A entrada de SSML tem mais de 1024 caracteres. |
 | 415 | Tipo de Mídia Sem Suporte | É possível que o incorreto `Content-Type` tenha sido fornecido. `Content-Type` deve ser definido como `application/ssml+xml` . |
 | 429 | Número Excessivo de Solicitações | Você excedeu a cota ou a taxa de solicitações permitidas para a sua assinatura. |
 | 502 | Gateway incorreto    | Problema de rede ou do servidor. Também pode indicar cabeçalhos inválidos. |

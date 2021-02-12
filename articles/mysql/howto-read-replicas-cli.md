@@ -1,18 +1,18 @@
 ---
 title: Gerenciar réplicas de leitura-CLI do Azure, API REST-banco de dados do Azure para MySQL
 description: Saiba como configurar e gerenciar réplicas de leitura no banco de dados do Azure para MySQL usando o CLI do Azure ou a API REST.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 747b8bc1abbf19c861e180faf17e2fa1a143a237
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 1a5bc9638e2e6eeff8f2176247f579b64beede90
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546306"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540205"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli-and-rest-api"></a>Como criar e gerenciar réplicas de leitura no banco de dados do Azure para MySQL usando o CLI do Azure e a API REST
 
@@ -45,7 +45,7 @@ O comando `az mysql server replica create` exige os seguintes parâmetros:
 | Configuração | Valor de exemplo | Descrição  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  O grupo de recursos para o qual o servidor de réplica será criado.  |
-| Nome | mydemoreplicaserver | O nome do novo servidor de réplica criado. |
+| name | mydemoreplicaserver | O nome do novo servidor de réplica criado. |
 | source-server | mydemoserver | O nome ou a ID do servidor de origem existente do qual replicar. |
 
 Para criar uma réplica de leitura entre regiões, use o `--location` parâmetro. O exemplo de CLI abaixo cria a réplica no oeste dos EUA.
@@ -92,11 +92,11 @@ O comando `az mysql server replica stop` exige os seguintes parâmetros:
 | Configuração | Valor de exemplo | Descrição  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  O grupo de recursos em que há o servidor de réplica.  |
-| Nome | mydemoreplicaserver | O nome do servidor de réplica para interromper a replicação. |
+| name | mydemoreplicaserver | O nome do servidor de réplica para interromper a replicação. |
 
 ### <a name="delete-a-replica-server"></a>Excluir um servidor de réplica
 
-A exclusão de um servidor de réplica de leitura pode ser feita executando o comando **[az mysql server delete](/cli/azure/mysql/server)** .
+A exclusão de um servidor de réplica de leitura pode ser feita executando o comando **[az mysql server delete](/cli/azure/mysql/server)**.
 
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoreplicaserver

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 8f23f9763d25d5edfebd0e4cff7f3b7772ef1554
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3816239798290318404980ded388b726d8134395
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543339"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999783"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Tutorial: integração do Azure Active Directory com o ScreenSteps
 
@@ -27,7 +27,7 @@ A integração do ScreenSteps ao Azure AD oferece os seguintes benefícios:
 * Você pode permitir que seus usuários entrem automaticamente no ScreenSteps (Logon Único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -130,7 +130,7 @@ Para configurar o logon único do Azure AD com o ScreenSteps, execute as seguint
 
 1. Clique em **Logon Único**.
 
-    ![Autenticação remota](./media/screensteps-tutorial/ic778524.png "Autenticação Remota")
+    ![Captura de tela que mostra a opção "Logon Único" selecionada.](./media/screensteps-tutorial/ic778524.png "Autenticação Remota")
 
 1. Clique em  **Criar Ponto de Extremidade de Logon Único**.
 
@@ -223,18 +223,18 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
 ### <a name="create-screensteps-test-user"></a>Criar usuário de teste do ScreenSteps
 
-Nesta seção, você criará um usuário chamado Brenda Fernandes no ScreenSteps. Trabalhe com a  [Equipe de suporte ao cliente do ScreenSteps](https://www.screensteps.com/contact)  para adicionar usuários na plataforma do ScreenSteps. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado Brenda Fernandes no ScreenSteps. Trabalhe com a [equipe de suporte ao cliente do ScreenSteps](https://www.screensteps.com/contact) para adicionar usuários na plataforma do ScreenSteps. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do ScreenSteps no Painel de Acesso, você deverá ser conectado automaticamente ao ScreenSteps, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do ScreenSteps no Painel de Acesso, você deverá ser conectado automaticamente ao ScreenSteps, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

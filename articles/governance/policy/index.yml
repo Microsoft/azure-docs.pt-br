@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 10/16/2020
-  ms.openlocfilehash: 28011d2f3bbbb838f0de9a66c98845d968620fb1
-  ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+  ms.date: 10/26/2020
+  ms.openlocfilehash: 753a2b112929b785526e32df9c9836f48b8675ba
+  ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/21/2020
-  ms.locfileid: "92314190"
+  ms.lasthandoff: 01/08/2021
+  ms.locfileid: "98034944"
 landingContent:
 - title: Sobre o Azure Policy
   linkLists:
@@ -57,6 +57,8 @@ landingContent:
       url: ./assign-policy-rest-api.md
     - text: Atribuir uma política (modelo do ARM)
       url: ./assign-policy-template.md
+    - text: Atribuir uma política (Terraform)
+      url: ./assign-policy-terraform.md
   - linkListType: tutorial
     links:
     - text: Criar e gerenciar políticas
@@ -126,9 +128,9 @@ landingContent:
     - text: CLI do Azure
       url: /cli/azure/policy
     - text: Azure PowerShell (política)
-      url: /powershell/module/az.resources/#policies
+      url: /powershell/module/az.resources/#policy
     - text: Azure PowerShell (insights de política)
-      url: /powershell/module/az.policyinsights#policy_insights
+      url: /powershell/module/az.policyinsights#policy-insights
     - text: REST (Policy Insights)
       url: /rest/api/policy-insights/
     - text: REST (atribuições)

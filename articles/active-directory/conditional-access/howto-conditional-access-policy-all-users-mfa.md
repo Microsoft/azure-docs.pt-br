@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6e6185c4bde71285fc163cae2af46f64ba052195
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366200"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994750"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>Acesso condicional: exigir MFA para todos os usuários
 

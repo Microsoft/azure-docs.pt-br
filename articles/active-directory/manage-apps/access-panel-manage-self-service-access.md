@@ -3,7 +3,7 @@ title: Como usar o acesso de aplicativo de autoatendimento no Azure AD
 description: Habilitar o autoatendimento para que os usuários possam encontrar aplicativos no Azure AD
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere,asteen
-ms.openlocfilehash: d99f0021ee53e972dacfdadb3e488498a3fc4ad0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 13f91fdd9e2d9501fba426bd6facbf9824a39285
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372456"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257010"
 ---
 # <a name="how-to-use-self-service-application-access"></a>Como usar o acesso de aplicativo de autoatendimento
 
@@ -43,8 +43,8 @@ Para habilitar o acesso de aplicativos de autoatendimento a um aplicativo, siga 
 1. Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
 2. Abra a **extensão Azure Active Directory** selecionando **todos os serviços** na parte superior do menu de navegação esquerdo principal.
 3. Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
-4. Selecione **aplicativos empresariais** no Azure Active Directory menu de navegação à esquerda.
-5. Selecione **todos os aplicativos** para exibir uma lista de todos os seus aplicativos.
+4. Escolha **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+5. Marque **Todos os aplicativos** para exibir uma lista com todos os seus aplicativos.
    * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 6. Selecione na lista o aplicativo ao qual você deseja habilitar o acesso do autoatendimento.
 7. Depois que o aplicativo for carregado, selecione **autoatendimento** no menu de navegação esquerdo do aplicativo.

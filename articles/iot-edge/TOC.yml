@@ -1,5 +1,7 @@
 - name: Documentação do Azure IoT Edge
   href: index.yml
+- name: Versões do Azure IoT Edge
+  href: version-history.md
 - name: Visão geral
   items:
     - name: Sobre o Azure IoT Edge
@@ -13,13 +15,13 @@
       href: quickstart.md
 - name: Tutoriais
   items:
-    - name: 1. Configure o ambiente de desenvolvimento
+    - name: Configure o ambiente de desenvolvimento
       items:
-        - name: Desenvolver para dispositivos Linux
+        - name: Desenvolver com contêineres do Linux
           href: tutorial-develop-for-linux.md
-        - name: Desenvolver para dispositivos Windows
+        - name: Desenvolver com contêineres do Windows
           href: tutorial-develop-for-windows.md
-    - name: 2. Desenvolver módulos de código personalizado
+    - name: Desenvolver módulos de código personalizado
       items:
         - name: C
           items:
@@ -39,7 +41,7 @@
           href: tutorial-node-module.md
         - name: Python
           href: tutorial-python-module.md
-    - name: 3. Implantar os serviços do Azure como módulos
+    - name: Implantar os serviços do Azure como módulos
       items:
         - name: Filtrar dados com o Azure Functions
           href: tutorial-deploy-function.md
@@ -51,7 +53,11 @@
           href: tutorial-deploy-custom-vision.md
         - name: Armazenar dados localmente com o SQL
           href: tutorial-store-data-sql-server.md
-    - name: 4. Exemplo de ponta a ponta do aprendizado de máquina na borda
+    - name: Usar o IoT Edge como um gateway
+      items:
+        - name: Criar hierarquias de dispositivos do IoT Edge
+          href: tutorial-nested-iot-edge.md
+    - name: Exemplo de ponta a ponta do aprendizado de máquina na borda
       items:
         - name: Introdução
           href: tutorial-machine-learning-edge-01-intro.md
@@ -71,6 +77,8 @@
   items:
     - name: runtime do IoT Edge
       href: iot-edge-runtime.md
+    - name: IoT Edge para Linux no Windows
+      href: iot-edge-for-linux-on-windows.md
     - name: Módulos do IoT Edge
       items:
         - name: Entenda os módulos do Azure IoT Edge
@@ -102,7 +110,7 @@
         - name: Certificados do IoT Edge
           href: iot-edge-certs.md
         - name: Computação Confidencial
-          href: deploy-trusted-applications.md
+          href: deploy-confidential-applications.md
     - name: Suporte a plataforma
       href: support.md
     - name: Lista de verificação de implantação de produção
@@ -113,23 +121,25 @@
   items:
     - name: Criar um dispositivo do IoT Edge
       items:
-        - name: Instalar o runtime
-          href: how-to-install-iot-edge.md
-        - name: Registrar e autenticar o dispositivo
+        - name: Registrar um dispositivo no Hub IoT
+          href: how-to-register-device.md
+        - name: Instalar e provisionar o IoT Edge
           items:
-            - name: Autenticação da chave simétrica
-              href: how-to-manual-provision-symmetric-key.md
-            - name: Autenticação do certificado X.509
-              href: how-to-manual-provision-x509.md
+            - name: Instalar o IoT Edge para Linux
+              href: how-to-install-iot-edge.md
+            - name: Executar o IoT Edge para Linux no Windows
+              href: how-to-install-iot-edge-on-windows.md
         - name: Atualizar o runtime
           href: how-to-update-iot-edge.md
         - name: Gerenciar certificados do dispositivo
           href: how-to-manage-device-certificates.md
-        - name: Criar certificados de teste
-          href: how-to-create-test-certificates.md
-        - name: IoT Edge no Kubernetes
+    - name: Cenários de dispositivo alternativos
+      items:
+        - name: Executar o IoT Edge com contêineres do Windows
+          href: how-to-install-iot-edge-windows-on-windows.md
+        - name: Executar o IoT Edge no Kubernetes
           href: how-to-install-iot-edge-kubernetes.md
-        - name: Máquina virtual do IoT Edge usando um modelo do Resource Manager
+        - name: Implantar uma VM do IoT Edge usando um modelo do ARM
           href: how-to-install-iot-edge-ubuntuvm.md
     - name: Provisionamento automático com DPS
       items:
@@ -187,16 +197,26 @@
           href: how-to-access-built-in-metrics.md
     - name: Usar dispositivos do IoT Edge como gateways
       items:
-        - name: Criar um gateway transparente
-          href: how-to-create-transparent-gateway.md
-        - name: Autenticar um dispositivo downstream
-          href: how-to-authenticate-downstream-device.md
-        - name: Configurar um dispositivo downstream
-          href: how-to-connect-downstream-device.md
-        - name: Gateway de protocolo Modbus
-          href: deploy-modbus-gateway.md
+        - name: Gateways para dispositivos IoT
+          items:
+            - name: Criar um gateway transparente
+              href: how-to-create-transparent-gateway.md
+            - name: Autenticar um dispositivo downstream
+              href: how-to-authenticate-downstream-device.md
+            - name: Configurar um dispositivo downstream
+              href: how-to-connect-downstream-device.md
+            - name: Gateway de protocolo Modbus
+              href: deploy-modbus-gateway.md
+        - name: Gateways para dispositivos do IoT Edge
+          items:
+            - name: Configurar gateways para dispositivos do IoT Edge
+              href: how-to-connect-downstream-iot-edge-device.md
+            - name: Configurar o módulo de proxy de API
+              href: how-to-configure-api-proxy-module.md
     - name: Configurar suporte para proxy
       href: how-to-configure-proxy-support.md
+    - name: Publicar e assinar com o IoT Edge
+      href: how-to-publish-subscribe.md
     - name: Armazenamento de Blobs do Azure no IoT Edge
       items:
         - name: Noções básicas do Armazenamento de Blobs na borda
@@ -227,6 +247,8 @@
           href: troubleshoot-common-errors.md
 - name: Referência
   items:
+    - name: Criar certificados de teste
+      href: how-to-create-test-certificates.md
     - name: Scripts de gerenciamento de dispositivo do Windows
       href: reference-windows-scripts.md
     - name: CLI do Azure

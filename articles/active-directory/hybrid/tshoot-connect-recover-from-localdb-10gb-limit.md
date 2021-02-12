@@ -16,12 +16,12 @@ ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ca5361d8500ecd4ea22a577d0a4dc7ced606eab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b45decd2f2cf9c99cffb0e08d4d6a5c5cfafc67
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89275895"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858392"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Como se recuperar de um limite de 10 GB do LocalDB
 O Azure AD Connect requer um banco de dados do SQL Server para armazenar dados de identidade. Você pode usar o padrão que do SQL Server 2012 Express LocalDB instalado com o Azure AD Connect ou usar seu próprio SQL completo. O SQL Server Express impõe um limite de tamanho de 10 GB. Ao usar o LocalDB e esse limite for atingido, o serviço de sincronização do Azure do AD Connect não pode iniciar ou sincronizar corretamente. Este artigo fornece as etapas de recuperação.
@@ -55,7 +55,7 @@ Primeiro, determine se o serviço de sincronização ainda está executando ou n
 5. Se não estiver em execução, tente iniciar o serviço. Se o serviço foi iniciado com êxito, ignore [reduzir o banco de dados](#shrink-the-database) etapa e vá para [excluir dados de histórico de executar](#delete-run-history-data) etapa. Caso contrário, prossiga com a etapa [Reduzir o banco de dados](#shrink-the-database).
 
 ### <a name="shrink-the-database"></a>Reduzir o banco de dados
-Use a operação de redução para liberar espaço de banco de dados para iniciar o serviço de sincronização. Ele libera espaço de banco de dados, removendo os espaços em branco no banco de dados. Essa etapa é melhor esforço, como não há garantia de que você sempre pode recuperar espaço. Para saber mais sobre a operação de redução, leia este artigo [reduzir um banco de dados](/sql/relational-databases/databases/shrink-a-database?view=sql-server-ver15).
+Use a operação de redução para liberar espaço de banco de dados para iniciar o serviço de sincronização. Ele libera espaço de banco de dados, removendo os espaços em branco no banco de dados. Essa etapa é melhor esforço, como não há garantia de que você sempre pode recuperar espaço. Para saber mais sobre a operação de redução, leia este artigo [reduzir um banco de dados](/sql/relational-databases/databases/shrink-a-database).
 
 > [!IMPORTANT]
 > Ignore esta etapa se você pode obter o serviço de sincronização para execução. Não é recomendável para reduzir o banco de dados SQL que pode levar a mau desempenho devido à maior fragmentação.

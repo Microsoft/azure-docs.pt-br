@@ -8,19 +8,19 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 63629f32c97611fa8bc57ecdac968552375125f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 238ef9ec80b01470e28535d0eb42dbb3a377b005
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380620"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746430"
 ---
 # <a name="how-to-create-plans-for-your-saas-offer"></a>Como criar planos para sua oferta de SaaS
 
 As ofertas vendidas por meio do Microsoft Commercial Marketplace devem ter pelo menos um plano. Você pode criar uma variedade de planos com diferentes opções na mesma oferta. Esses planos (às vezes chamados de SKUs) podem diferir em termos de versão, monetização ou camadas de serviço. Para obter orientações detalhadas sobre planos, consulte [planos e preços para ofertas de Marketplace comercial](plans-pricing.md).
 
 > [!NOTE]
-> Se você optar por processar as transações de forma independente, essa opção não será exibida. Em vez disso, pule para [como comercializar sua oferta de SaaS](create-new-saas-offer-marketing.md).
+> Se você optar por processar as transações de forma independente, essa opção não será exibida. Em vez disso, pule para [como vender sua oferta de SaaS](create-new-saas-offer-marketing.md).
 
 ## <a name="create-a-plan"></a>Criar um plano
 
@@ -51,7 +51,7 @@ Cada plano precisa estar disponível em pelo menos um mercado. Na guia **preços
    > [!NOTE]
    > Essa caixa de diálogo inclui uma caixa de pesquisa e uma opção para filtrar somente os países "impostos remetidos", no qual a Microsoft remete as vendas e o imposto sobre o uso em seu nome.
 
-1. Selecione **salvar**para fechar a caixa de diálogo.
+1. Selecione **salvar** para fechar a caixa de diálogo.
 
 ## <a name="define-a-pricing-model"></a>Definir um modelo de preços
 
@@ -115,7 +115,7 @@ Você pode configurar cada plano para ser visível para todos ou apenas para um 
 ### <a name="make-your-plan-public"></a>Torne seu plano público
 
 1. Em **visibilidade do plano**, selecione a caixa **público** .
-1. Selecione **salvar rascunho**e, no canto superior esquerdo da guia, selecione **visão geral do plano** para retornar à guia **visão geral do plano** .
+1. Selecione **salvar rascunho** e, no canto superior esquerdo da guia, selecione **visão geral do plano** para retornar à guia **visão geral do plano** .
 1. Para criar outro plano para esta oferta, próximo à parte superior da guia **visão geral do plano** , selecione **+ criar novo plano**. Em seguida, repita as etapas na seção [criar um plano](#create-a-plan) . Caso contrário, vá para [exibir seus planos](#view-your-plans).
 
 ### <a name="manually-add-tenant-ids-for-a-private-plan"></a>Adicionar manualmente IDs de locatário para um plano privado 
@@ -124,7 +124,7 @@ Você pode configurar cada plano para ser visível para todos ou apenas para um 
 1. Na caixa **ID do locatário** exibida, insira a ID do locatário do Azure AD do público que você deseja conceder acesso a este plano privado. É necessário um mínimo de uma ID de locatário.
 1. Adicional Insira uma descrição desse público na caixa **Descrição** .
 1. Para adicionar outra ID de locatário, repita as etapas 2 e 3.
-1. Quando você terminar de adicionar IDs de locatário, selecione **salvar rascunho**e, no canto superior esquerdo da guia, selecione **planejar visão geral** para retornar à guia **visão geral do plano** .
+1. Quando você terminar de adicionar IDs de locatário, selecione **salvar rascunho** e, no canto superior esquerdo da guia, selecione **planejar visão geral** para retornar à guia **visão geral do plano** .
 1. Para criar outro plano para esta oferta, próximo à parte superior da guia **visão geral do plano** , selecione **+ criar novo plano**. Em seguida, repita as etapas na seção [criar um plano](#create-a-plan) . Caso contrário, vá para [exibir seus planos](#view-your-plans).
 
 ### <a name="use-a-csv-file-for-a-private-plan"></a>Use um. Arquivo CSV para um plano privado
@@ -138,7 +138,7 @@ Você pode configurar cada plano para ser visível para todos ou apenas para um 
 7. Na guia **preço e disponibilidade** , em **visibilidade do plano**, selecione o link **importar audiência (CSV)** .
 8. Na caixa de diálogo exibida, selecione **Sim**.
 9. Selecione o. Arquivo CSV e, em seguida, selecione **abrir**.
-10. Selecione **salvar rascunho**e, no canto superior esquerdo da guia, selecione **visão geral do plano** para retornar à guia **visão geral do plano** .
+10. Selecione **salvar rascunho** e, no canto superior esquerdo da guia, selecione **visão geral do plano** para retornar à guia **visão geral do plano** .
 11. Para criar outro plano para esta oferta, na parte superior da guia **visão geral do plano** , selecione **+ criar novo plano**. Em seguida, repita as etapas na seção [criar um plano](#create-a-plan) . Caso contrário, se você terminar de criar planos, vá para a próxima seção: **exibir seus planos**.
 
 ## <a name="view-your-plans"></a>Exibir seus planos
@@ -152,5 +152,5 @@ As ações disponíveis na coluna **ação** da guia **visão geral do plano** v
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba [como comercializar sua oferta de SaaS](create-new-saas-offer-marketing.md) por meio da **venda conjunta com a Microsoft** e **revender por meio** de programas de CSPs.
+- Saiba [como vender sua oferta de SaaS](create-new-saas-offer-marketing.md) por meio da **venda conjunta com a Microsoft** e **revender por meio** de programas de CSPs.
 - [Como testar e publicar uma oferta de SaaS no Marketplace comercial](test-publish-saas-offer.md).

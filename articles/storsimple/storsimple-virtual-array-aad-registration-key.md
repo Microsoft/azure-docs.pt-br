@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: d750b3a85741bb4761b640848f01e5917760b5aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75332498ac59dc46a7a079eff4c25e02b2a6cb9b
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261083"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986930"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Usar a nova autenticação para o StorSimple
 
@@ -53,7 +53,7 @@ Se estiver usando uma Matriz Virtual StorSimple, use a tabela a seguir para dete
 
 | Se o dispositivo estiver em execução  | Realize a seguinte ação                                    |
 |----------------------------|--------------------------------------------------------------|
-| Atualização 1.0 ou posterior e está offline. <br> Um alerta é exibido informando que a URL não está na lista de permissões.| 1. modifique as regras de firewall para incluir a URL de autenticação. Consulte [URLs de autenticação](#url-changes-for-aad-authentication). <br> 2. [obtenha a chave de registro do AAD do serviço](#aad-based-registration-keys). <br> 3. Execute as etapas 1-5 para [se conectar à interface do Windows PowerShell da matriz virtual](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br> 4. use `Invoke-HcsReRegister` o cmdlet para registrar o dispositivo por meio do Windows PowerShell. Forneça a chave que você obteve na etapa anterior.|
+| Atualização 1.0 ou posterior e está offline. <br> Você verá um alerta de que a URL não é allowlisted.| 1. modifique as regras de firewall para incluir a URL de autenticação. Consulte [URLs de autenticação](#url-changes-for-aad-authentication). <br> 2. [obtenha a chave de registro do AAD do serviço](#aad-based-registration-keys). <br> 3. Execute as etapas 1-5 para [se conectar à interface do Windows PowerShell da matriz virtual](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br> 4. use `Invoke-HcsReRegister` o cmdlet para registrar o dispositivo por meio do Windows PowerShell. Forneça a chave que você obteve na etapa anterior.|
 | Atualização 1.0 ou posterior e o dispositivo online.| Nenhuma ação é necessária.                                       |
 | Atualização 0.6 ou anterior e o dispositivo offline. | 1. [Baixe a atualização 1,0 por meio do servidor de catálogo](storsimple-virtual-array-install-update-1.md#download-the-update-or-the-hotfix).<br>2. [aplique a atualização 1,0 por meio da interface do usuário da Web local](storsimple-virtual-array-install-update-1.md#install-the-update-or-the-hotfix).<br>3. [obtenha a chave de registro do AAD do serviço](#aad-based-registration-keys). <br>4. Execute as etapas 1-5 para [se conectar à interface do Windows PowerShell da matriz virtual](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br>5. use `Invoke-HcsReRegister` o cmdlet para registrar o dispositivo por meio do Windows PowerShell. Forneça a chave que você obteve na etapa anterior.|
 | Atualização 0.6 ou anterior e o dispositivo online | Modifique as regras de firewall para incluir a URL de autenticação.<br> Instale a Atualização 1.0 por meio do portal do Azure. |

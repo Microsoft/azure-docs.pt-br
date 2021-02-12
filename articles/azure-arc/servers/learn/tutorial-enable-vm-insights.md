@@ -3,18 +3,18 @@ title: Tutorial – Monitorar um computador híbrido com o Azure Monitor para VM
 description: Saiba como coletar e analisar dados de um computador híbrido no Azure Monitor.
 ms.topic: tutorial
 ms.date: 09/23/2020
-ms.openlocfilehash: 97ab390570f434295a5aa836ef994640f6dc14f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76565e40a8d85003c5a03be5fa48f83459657f29
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335408"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94738077"
 ---
 # <a name="tutorial-monitor-a-hybrid-machine-with-azure-monitor-for-vms"></a>Tutorial: Monitorar um computador híbrido com o Azure Monitor para VMs
 
-O [Azure Monitor](../overview.md) pode coletar dados diretamente das máquinas virtuais híbridas em um workspace do Log Analytics para correlação e análise detalhadas. Normalmente, isso envolveria a instalação do [agente do Log Analytics](../../../azure-monitor/platform/agents-overview.md#log-analytics-agent) no computador usando um script, com um método automatizado ou manual seguindo os seus padrões de gerenciamento de configuração. Os servidores habilitados para Arc recentemente apresentaram o suporte à instalação das [extensões de VM](../manage-vm-extensions.md) do Log Analytics e do Dependency Agent para Windows e Linux, permitindo que o Azure Monitor colete dados das suas VMs não Azure.
+O [Azure Monitor](../overview.md) pode coletar dados diretamente dos computadores híbridos em um workspace do Log Analytics para correlação e análise detalhadas. Normalmente, isso envolveria a instalação do [agente do Log Analytics](../../../azure-monitor/platform/agents-overview.md#log-analytics-agent) no computador usando um script, com um método automatizado ou manual seguindo os seus padrões de gerenciamento de configuração. Os servidores habilitados para Arc recentemente apresentaram o suporte à instalação das [extensões de VM](../manage-vm-extensions.md) do Log Analytics e do Dependency Agent para Windows e Linux, permitindo que o Azure Monitor colete dados das suas VMs não Azure.
 
-Este tutorial mostra como configurar e coletar dados das suas VMs do Linux ou do Windows habilitando o Azure Monitor para VMs seguindo um conjunto simplificado de etapas, que simplifica a experiência e é mais rápido.  
+Este tutorial mostra como configurar e coletar dados dos seus computadores Linux ou Windows habilitando o Azure Monitor para VMs seguindo um conjunto simplificado de etapas, que simplifica a experiência e é mais rápido.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -22,7 +22,7 @@ Este tutorial mostra como configurar e coletar dados das suas VMs do Linux ou do
 
 * A funcionalidade de extensão de VM está disponível somente na lista de [regiões com suporte](../overview.md#supported-regions).
 
-* Confira [Sistemas operacionais com suporte](../../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) para garantir que o sistema operacional das VMs que você está habilitando tenha suporte no Azure Monitor para VMs.
+* Confira [Sistemas operacionais com suporte](../../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) para que o sistema operacional dos servidores que você está habilitando tenha suporte no Azure Monitor para VMs.
 
 * Examine os requisitos de firewall do agente do Log Analytics fornecidos na [visão geral do agente do Log Analytics](../../../azure-monitor/platform/log-analytics-agent.md#network-requirements). O Dependency Agent de Mapa do Azure Monitor para VMs não transmite dados por conta própria e não exige alterações em firewalls ou portas.
 
@@ -40,31 +40,31 @@ Entre no [portal do Azure](https://portal.azure.com).
 
 1. No painel esquerdo, na seção **Monitoramento**, selecione **Insights** e **Habilitar**.
 
-    :::image type="content" source="./media/tutorial-enable-vm-insights/insights-option.png" alt-text="Pesquisar os servidores habilitados para Arc em Todos os Serviços" border="false":::
+    :::image type="content" source="./media/tutorial-enable-vm-insights/insights-option.png" alt-text="Selecione a opção Insights no menu à esquerda" border="false":::
 
 1. Na página **Integração dos Insights** do Azure Monitor, você será solicitado a criar um workspace. Para este tutorial, não recomendamos que você selecione um workspace do Log Analytics, se já tiver um. Selecione o padrão que é um workspace com um nome exclusivo na mesma região que o computador conectado registrado. Esse workspace é criado e configurado para você.
 
-    :::image type="content" source="./media/tutorial-enable-vm-insights/enable-vm-insights.png" alt-text="Pesquisar os servidores habilitados para Arc em Todos os Serviços" border="false":::
+    :::image type="content" source="./media/tutorial-enable-vm-insights/enable-vm-insights.png" alt-text="Habilitar a página do Azure Monitor para VMs" border="false":::
 
 1. Você recebe as mensagens de status enquanto a configuração é executada. Esse processo leva alguns minutos, pois as extensões são instaladas no seu computador conectado.
 
-    :::image type="content" source="./media/tutorial-enable-vm-insights/onboard-vminsights-vm-portal-status.png" alt-text="Pesquisar os servidores habilitados para Arc em Todos os Serviços" border="false":::
+    :::image type="content" source="./media/tutorial-enable-vm-insights/onboard-vminsights-vm-portal-status.png" alt-text="Habilitar a mensagem de status de progresso do Azure Monitor para VMs" border="false":::
 
     Quando for concluído, você receberá uma mensagem informando que o computador foi integrado com êxito e que o insight foi implantado com êxito.
 
 ## <a name="view-data-collected"></a>Exibir os dados coletados
 
-Depois que a implantação e a configuração forem concluídas, selecione **Insights** e, em seguida, selecione a guia **Desempenho**. Na guia Desempenho, é mostrado um grupo selecionado de contadores de desempenho coletados do sistema operacional convidado da sua VM. Role para baixo para exibir mais contadores e mova o mouse sobre um grafo para exibir a média e os percentuais obtidos a partir do momento em que a extensão da VM do Log Analytics foi instalada no computador.
+Depois que a implantação e a configuração forem concluídas, selecione **Insights** e, em seguida, selecione a guia **Desempenho**. Na guia Desempenho, é mostrado um grupo selecionado de contadores de desempenho coletados do sistema operacional convidado do seu computador. Role para baixo para exibir mais contadores e mova o mouse sobre um grafo para exibir a média e os percentuais obtidos a partir do momento em que a extensão da VM do Log Analytics foi instalada no computador.
 
-:::image type="content" source="./media/tutorial-enable-vm-insights/insights-performance-charts.png" alt-text="Pesquisar os servidores habilitados para Arc em Todos os Serviços" border="false":::
+:::image type="content" source="./media/tutorial-enable-vm-insights/insights-performance-charts.png" alt-text="Gráficos de desempenho do Azure Monitor para VMs do computador selecionado" border="false":::
 
-Selecione **Mapa** para abrir o recurso de mapas, que mostra os processos em execução na máquina virtual e as dependências deles. Selecione **Propriedades** para abrir o painel de propriedades se ainda não estiver aberto.
+Selecione **Mapa** para abrir o recurso de mapas, que mostra os processos em execução no computador e as dependências deles. Selecione **Propriedades** para abrir o painel de propriedades se ainda não estiver aberto.
 
-:::image type="content" source="./media/tutorial-enable-vm-insights/insights-map.png" alt-text="Pesquisar os servidores habilitados para Arc em Todos os Serviços" border="false":::
+:::image type="content" source="./media/tutorial-enable-vm-insights/insights-map.png" alt-text="Mapa do Azure Monitor para VMs do computador selecionado" border="false":::
 
-Expanda os processos da sua máquina virtual. Selecione um dos processos para exibir seus detalhes e realçar suas dependências.
+Expanda os processos do seu computador. Selecione um dos processos para exibir seus detalhes e realçar suas dependências.
 
-Selecione sua máquina virtual novamente e, em seguida, selecione **Eventos de Log**. Você verá uma lista de tabelas que são armazenadas no workspace do Log Analytics para a máquina virtual. Essa lista será diferente dependendo se você estiver usando uma máquina virtual Windows ou Linux. Selecione a tabela **Evento**. A tabela **Evento** inclui todos os eventos do log de eventos do Windows. O Log Analytics abre com uma consulta simples para recuperar entradas do log de eventos coletadas.
+Selecione seu computador novamente e, em seguida, **Eventos de Log**. Você verá uma lista de tabelas que são armazenadas no workspace do Log Analytics para o computador. Essa lista será diferente dependendo se você estiver usando um computador Windows ou Linux. Selecione a tabela **Evento**. A tabela **Evento** inclui todos os eventos do log de eventos do Windows. O Log Analytics abre com uma consulta simples para recuperar entradas do log de eventos coletadas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,21 +1,24 @@
 ---
-title: Coletar em Contadores de Desempenho nos Serviços de Nuvem do Microsoft Azure | Microsoft Docs
+title: Coletar contadores de desempenho nos serviços de nuvem do Azure (clássico) | Microsoft Docs
 description: Saiba como descobrir, usar e criar contadores de desempenho nos Serviços de Nuvem com o Application Insights e Diagnóstico do Microsoft Azure.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 02/02/2018
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 39843ad83830a72b5d6b01cc00ecd65269c02e12
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 16b54e8a59eb42c6e2351d37ec0a29d775161493
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078588"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98739829"
 ---
-# <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Coletar contadores de desempenho para o Serviço de Nuvem do Azure
+# <a name="collect-performance-counters-for-your-azure-cloud-service-classic"></a>Coletar contadores de desempenho para o serviço de nuvem do Azure (clássico)
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
 
 Os contadores de desempenho fornecem uma maneira de acompanhar o desempenho do aplicativo e do host. O Windows Server fornece muitos contadores de desempenho diferentes relacionados a hardware, aplicativos, sistema operacional e muito mais. Ao coletar e enviar contadores de desempenho para o Azure, é possível analisar essas informações para ajudar a tomar as melhores decisões. 
 
@@ -78,7 +81,7 @@ Um contador de desempenho pode ser adicionado ao serviço de nuvem para o Diagn�
 
 ### <a name="application-insights"></a>Application Insights
 
-O Azure Application Insights para Serviços de Nuvem permite especificar quais contadores de desempenho deseja coletar. Após [Adicionar o Application Insights ao seu projeto ](../azure-monitor/app/cloudservices.md#sdk), um arquivo de configuração nomeado **ApplicationInsights.config** será adicionado ao seu projeto do Visual Studio. Este arquivo de configuração define o tipo de informação que Application Insights coleta e envia para o Azure.
+O Azure Application Insights para Serviços de Nuvem permite especificar quais contadores de desempenho deseja coletar. Após [Adicionar o Application Insights ao seu projeto](../azure-monitor/app/cloudservices.md#sdk), um arquivo de configuração nomeado **ApplicationInsights.config** será adicionado ao seu projeto do Visual Studio. Este arquivo de configuração define o tipo de informação que Application Insights coleta e envia para o Azure.
 
 Abra o arquivo **ApplicationInsights.config** e localize o elemento **ApplicationInsights** > **TelemetryModules**. Cada elemento filho `<Add>` define um tipo de telemetria para coletar, juntamente com sua configuração. O tipo de módulo de telemetria do contador de desempenho é `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector`. Se esse elemento já estiver definido, não adicione-o novamente. Cada contador de desempenho para coletar é definido sob um nó nomeado `<Counters>`. Aqui está um exemplo que coleta os contadores de desempenho da unidade:
 

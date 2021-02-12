@@ -8,22 +8,21 @@ ms.author: chalton
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/08/2020
-ms.openlocfilehash: 6a4dcec2b50a13a256c82e4a5ec54c9b22aa973f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 11/02/2020
+ms.openlocfilehash: 4bab8def514df21d948d67f3cfba846c43917be2
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791980"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530928"
 ---
 # <a name="how-to-index-encrypted-blobs-using-blob-indexers-and-skillsets-in-azure-cognitive-search"></a>Como indexar BLOBs criptografados usando indexadores de BLOB e habilidades no Azure Pesquisa Cognitiva
 
-Este artigo mostra como usar o [pesquisa cognitiva do Azure](search-what-is-azure-search.md) para indexar documentos que foram previamente criptografados no [armazenamento de BLOBs do Azure](../storage/blobs/storage-blobs-introduction.md) usando [Azure Key Vault](../key-vault/general/overview.md). Normalmente, um indexador não pode extrair conteúdo de arquivos criptografados porque ele não tem acesso à chave de criptografia. No entanto, aproveitando a habilidade personalizada do [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile) seguida pelo [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md), você pode fornecer acesso controlado à chave para descriptografar os arquivos e ter conteúdo extraído deles. Isso desbloqueia a capacidade de indexar esses documentos sem precisar se preocupar com seus dados armazenados sem criptografia em repouso.
+Este artigo mostra como usar o [pesquisa cognitiva do Azure](search-what-is-azure-search.md) para indexar documentos que foram previamente criptografados no [armazenamento de BLOBs do Azure](../storage/blobs/storage-blobs-introduction.md) usando [Azure Key Vault](../key-vault/general/overview.md). Normalmente, um indexador não pode extrair conteúdo de arquivos criptografados porque ele não tem acesso à chave de criptografia. No entanto, aproveitando a habilidade personalizada do [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile) seguida pelo [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md), você pode fornecer acesso controlado à chave para descriptografar os arquivos e ter conteúdo extraído deles. Isso desbloqueia a capacidade de indexar esses documentos sem comprometer o status de criptografia dos documentos armazenados.
 
-Este guia usa o postmaster e as APIs REST de pesquisa para executar as seguintes tarefas:
+Começando com documentos inteiros previamente criptografados (texto não estruturado), como PDF, HTML, DOCX e PPTX no armazenamento de BLOBs do Azure, este guia usa o postmaster e as APIs REST de pesquisa para executar as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Comece com documentos inteiros (texto não estruturado), como PDF, HTML, DOCX e PPTX no armazenamento de BLOBs do Azure que foram criptografados usando Azure Key Vault.
 > * Defina um pipeline que descriptografa os documentos e extraia o texto deles.
 > * Defina um índice para armazenar a saída.
 > * Execute o pipeline para criar e carregar o índice.
@@ -36,13 +35,10 @@ Caso não tenha uma assinatura do Azure, abra uma [conta gratuita](https://azure
 Este exemplo supõe que você já carregou seus arquivos no armazenamento de BLOBs do Azure e os criptografou no processo. Se precisar de ajuda para obter os arquivos carregados e criptografados inicialmente, confira [este tutorial](../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md) para saber como fazer isso.
 
 + [Armazenamento do Azure](https://azure.microsoft.com/services/storage/)
-+ [Cofre da Chave do Azure](https://azure.microsoft.com/services/key-vault/)
++ [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) na mesma assinatura que o pesquisa cognitiva do Azure. O cofre de chaves deve ter a proteção de exclusão e **limpeza** **reversível** habilitada.
++ [Pesquisa cognitiva do Azure](search-create-service-portal.md) em uma [camada Faturável](search-sku-tier.md#tier-descriptions) (básica ou acima, em qualquer região)
 + [Azure Function](https://azure.microsoft.com/services/functions/)
 + [Aplicativo Postman para a área de trabalho](https://www.getpostman.com/)
-+ [Criar](search-create-service-portal.md) ou [encontrar um serviço de pesquisa existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
-
-> [!Note]
-> Você pode usar o serviço gratuito para este guia. Um serviço de pesquisa gratuito limita você a três índices, três indexadores, três fontes de dados e três habilidades. Este guia cria um de cada um. Antes de começar, reserve um espaço no seu serviço para aceitar os novos recursos.
 
 ## <a name="1---create-services-and-collect-credentials"></a>1-criar serviços e coletar credenciais
 
@@ -56,7 +52,7 @@ Operacionalmente, a habilidade DecryptBlobFile pega a URL e o token SAS para cad
 
 1. Selecione **a assinatura na qual sua instância do Azure Key Vault existe** (este guia não funcionará se você selecionar uma assinatura diferente) e selecione um grupo de recursos existente ou crie um novo (se você criar um novo, também precisará selecionar uma região na qual deseja implantá-lo).
 
-1. Selecione **revisão + criar** , certifique-se de que você concorda com os termos e, em seguida, selecione **criar** para implantar a função do Azure.
+1. Selecione **revisão + criar**, certifique-se de que você concorda com os termos e, em seguida, selecione **criar** para implantar a função do Azure.
 
     ![Modelo de ARM no portal](media/indexing-encrypted-blob-files/arm-template.jpg "Modelo de ARM no portal")
 
@@ -64,13 +60,13 @@ Operacionalmente, a habilidade DecryptBlobFile pega a URL e o token SAS para cad
 
 1. Navegue até sua instância de Azure Key Vault no Portal. [Crie uma política de acesso](../key-vault/general/assign-access-policy-portal.md) no Azure Key Vault que concede acesso à chave para a habilidade personalizada.
  
-    1. Em **configurações** , selecione **políticas de acesso** e, em seguida, selecione **Adicionar política de acesso**
+    1. Em **configurações**, selecione **políticas de acesso** e, em seguida, selecione **Adicionar política de acesso**
      
        ![Adicionar política de acesso ao keyvault](media/indexing-encrypted-blob-files/keyvault-access-policies.jpg "Políticas de acesso do keyvault")
 
-    1. Em **Configurar do modelo** , selecione **Azure data Lake Storage ou armazenamento do Azure** .
+    1. Em **Configurar do modelo**, selecione **Azure data Lake Storage ou armazenamento do Azure**.
 
-    1. Para a entidade de segurança, selecione a instância de função do Azure que você implantou. Você pode procurá-lo usando o prefixo de recurso que foi usado para criá-lo na etapa 2, que tem um valor de prefixo padrão de **psdbf-function-app** .
+    1. Para a entidade de segurança, selecione a instância de função do Azure que você implantou. Você pode procurá-lo usando o prefixo de recurso que foi usado para criá-lo na etapa 2, que tem um valor de prefixo padrão de **psdbf-function-app**.
 
     1. Não selecione nada para a opção de aplicativo autorizado.
      
@@ -86,7 +82,7 @@ Operacionalmente, a habilidade DecryptBlobFile pega a URL e o token SAS para cad
     
         ![URL da função](media/indexing-encrypted-blob-files/function-uri.jpg "Onde encontrar a URL da função do Azure")
 
-    1. O código de chave do host, que pode ser encontrado navegando até **chaves de aplicativo** , clicando para mostrar a chave **padrão** e copiando o valor.
+    1. O código de chave do host, que pode ser encontrado navegando até **chaves de aplicativo**, clicando para mostrar a chave **padrão** e copiando o valor.
      
         ![Código de chave do host de função](media/indexing-encrypted-blob-files/function-host-key.jpg "Onde encontrar o código de chave do host da função do Azure")
 
@@ -106,7 +102,7 @@ Assim como acontece com a função do Azure, Reserve um tempo para coletar a cha
 
 1. [Entre no portal do Azure](https://portal.azure.com/) e, na página **Visão Geral** do serviço de pesquisa, obtenha o nome de seu serviço de pesquisa. Você pode confirmar o nome do serviço examinando a URL do ponto de extremidade. Se a URL do ponto de extremidade for `https://mydemo.search.windows.net`, o nome do serviço será `mydemo`.
 
-2. Em **Configurações** > **Chaves** , obtenha uma chave de administração para adquirir todos os direitos sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso seja necessário sobrepor uma. É possível usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
+2. Em **Configurações** > **Chaves**, obtenha uma chave de administração para adquirir todos os direitos sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso seja necessário sobrepor uma. É possível usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
 
    ![Obter o nome do serviço e as chaves de consulta e de administrador](media/search-get-started-javascript/service-name-and-keys.png)
 
@@ -121,40 +117,39 @@ Instale e configure o Postman.
 1. Baixe o [código-fonte da coleção do Postman](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/index-encrypted-blobs/Index%20encrypted%20Blob%20files.postman_collection.json).
 1. Selecione **Arquivo** > **Importar** para importar o código-fonte para o Postman.
 1. Selecione a guia **Coleções** e, em seguida, selecione o botão **...** (reticências).
-1. Selecione **Editar** . 
+1. Selecione **Editar**. 
    
    ![Aplicativo do Postman mostrando navegação](media/indexing-encrypted-blob-files/postman-edit-menu.jpg "Ir para o menu Editar no Postman")
-1. Na caixa de diálogo **Editar** , selecione a guia **Variáveis** . 
+1. Na caixa de diálogo **Editar**, selecione a guia **Variáveis**. 
 
-Na guia **Variáveis** , você pode adicionar valores que o Postman insere sempre que encontra uma variável específica dentro de chaves duplas. Por exemplo, o Postman substituirá o símbolo `{{admin-key}}` pelo valor atual que você definir para `admin-key`. O Postman faz essa substituição nas URLs, nos cabeçalhos, no corpo da solicitação e assim por diante. 
+Na guia **Variáveis**, você pode adicionar valores que o Postman insere sempre que encontra uma variável específica dentro de chaves duplas. Por exemplo, o Postman substituirá o símbolo `{{admin-key}}` pelo valor atual que você definir para `admin-key`. O Postman faz essa substituição nas URLs, nos cabeçalhos, no corpo da solicitação e assim por diante. 
 
 Para obter o valor de `admin-key` , use a chave de API de administração de pesquisa cognitiva do Azure que você anotou anteriormente. Defina `search-service-name` como o nome do serviço de pesquisa cognitiva do Azure que você está usando. Defina `storage-connection-string` usando o valor na guia **chaves de acesso** da sua conta de armazenamento e defina `storage-container-name` como o nome do contêiner de BLOBs na conta de armazenamento em que os arquivos criptografados são armazenados. Defina `function-uri` para a URL da função do Azure que você anotou anteriormente e defina `function-code` para o código de chave do host de função do Azure que você anotou anteriormente. Deixe os valores padrão para os outros valores.
 
 ![Guia de variáveis de aplicativo do Postman](media/indexing-encrypted-blob-files/postman-variables-window.jpg "Janela de variáveis do Postman")
 
-
 | Variável    | Onde obter |
 |-------------|-----------------|
 | `admin-key` | Na página **Chaves** do serviço da Pesquisa Cognitiva do Azure.  |
-| `search-service-name` | O nome do serviço da Pesquisa Cognitiva do Azure. A URL é `https://{{search-service-name}}.search.windows.net`. | 
-| `storage-connection-string` | Na conta de armazenamento, na guia **Chaves de Acesso** , selecione **key1** > **Cadeia de conexão** . | 
-| `storage-container-name` | O nome do contêiner de BLOB que contém os arquivos criptografados a serem indexados. | 
-| `function-uri` |  Na função do Azure, em **Essentials** na página principal. | 
-| `function-code` | Na função do Azure, navegando para **chaves de aplicativo** , clicando para mostrar a chave **padrão** e copiando o valor. | 
-| `api-version` | Deixe como **2020-06-30** . |
-| `datasource-name` | Deixe como **Encrypted-BLOBs-DS** . | 
-| `index-name` | Deixe como **Encrypted-BLOBs-IDX** . | 
-| `skillset-name` | Deixe como **Encrypted-BLOBs-SS** . | 
-| `indexer-name` | Deixe como **Encrypted-BLOBs-IXR** . | 
+| `search-service-name` | O nome do serviço da Pesquisa Cognitiva do Azure. A URL é `https://{{search-service-name}}.search.windows.net`. |
+| `storage-connection-string` | Na conta de armazenamento, na guia **Chaves de Acesso**, selecione **key1** > **Cadeia de conexão**. |
+| `storage-container-name` | O nome do contêiner de BLOB que contém os arquivos criptografados a serem indexados. |
+| `function-uri` |  Na função do Azure, em **Essentials** na página principal. |
+| `function-code` | Na função do Azure, navegando para **chaves de aplicativo**, clicando para mostrar a chave **padrão** e copiando o valor. |
+| `api-version` | Deixe como **2020-06-30**. |
+| `datasource-name` | Deixe como **Encrypted-BLOBs-DS**. |
+| `index-name` | Deixe como **Encrypted-BLOBs-IDX**. |
+| `skillset-name` | Deixe como **Encrypted-BLOBs-SS**. |
+| `indexer-name` | Deixe como **Encrypted-BLOBs-IXR**. |
 
 ### <a name="review-the-request-collection-in-postman"></a>Examinar a coleção de solicitações no Postman
 
-Ao executar este guia, você deve emitir quatro solicitações HTTP: 
+Ao executar este guia, você deve emitir quatro solicitações HTTP:
 
-- **Solicitação PUT para criar o índice** : este índice armazena os dados usados e retornados pela Pesquisa Cognitiva do Azure.
+- **Solicitação PUT para criar o índice**: este índice armazena os dados usados e retornados pela Pesquisa Cognitiva do Azure.
 - **Pós-solicitação para criar a fonte de** arquivos: essa fonte de origem conecta o serviço de pesquisa cognitiva do Azure à sua conta de armazenamento e, portanto, arquivos de blob criptografados. 
 - **PUT Solicitar para criar o** configurador de habilidades: o configurador especifica a definição de habilidade personalizada para a função do Azure que descriptografará os dados do arquivo de BLOB e um [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md) para extrair o texto de cada documento depois que ele tiver sido descriptografado.
-- **Solicitação PUT para criar o indexador** : A execução do indexador lê os dados, aplica o conjunto de habilidades e armazena os resultados. É necessário executar essa solicitação por último.
+- **Solicitação PUT para criar o indexador**: A execução do indexador lê os dados, aplica o conjunto de habilidades e armazena os resultados. É necessário executar essa solicitação por último.
 
 O [código-fonte](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/index-encrypted-blobs/Index%20encrypted%20Blob%20files.postman_collection.json) contém uma coleção de postmaster que tem as quatro solicitações, bem como algumas solicitações úteis de acompanhamento. Para emitir as solicitações, no postmaster, selecione a guia para as solicitações e selecione **Enviar** para cada uma delas.
 

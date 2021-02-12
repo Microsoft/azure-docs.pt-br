@@ -3,22 +3,23 @@ title: Quais são as soluções para executar o Oracle WebLogic Server em máqui
 description: Saiba como executar o Oracle WebLogic Server em Máquinas Virtuais do Microsoft Azure.
 author: rezar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 09/23/2020
 ms.author: rezar
 ms.reviewer: cynthn
-ms.openlocfilehash: d8639214773a4444876b2a89dda5dd831b8c36ce
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 277e9049d2069190a68dd98c22acd60212c1b99d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927283"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486684"
 ---
 # <a name="what-are-solutions-for-running-oracle-weblogic-server-on-azure-virtual-machines"></a>Quais são as soluções para executar o Oracle WebLogic Server em Máquinas Virtuais do Azure?
 
 Esta página descreve as soluções para executar o Oracle WebLogic Server (WLS) em máquinas virtuais do Azure. Essas soluções são desenvolvidas e suportadas em conjunto pela Oracle e pela Microsoft.
 
-Também é possível executar o WLS no serviço kubernetes do Azure. As soluções para fazer isso são descritas neste [artigo da Microsoft](/azure/virtual-machines/workloads/oracle/weblogic-aks).
+Também é possível executar o WLS no serviço kubernetes do Azure. As soluções para fazer isso são descritas neste [artigo da Microsoft](./weblogic-aks.md).
 
 O WLS é um servidor de aplicativos Java líder que executa alguns dos aplicativos Java empresariais de missão crítica em todo o mundo. O WLS constitui a base de middleware para o Oracle Software Suite. A Oracle e a Microsoft estão comprometidas em capacitar os clientes do WLS com opções e flexibilidade para executar cargas de trabalho no Azure como uma plataforma de nuvem líder.
 
@@ -28,7 +29,7 @@ As soluções do Azure WLS são destinadas a torná-las tão fáceis quanto poss
 
 Há quatro ofertas disponíveis para atender a diferentes cenários: [nó único sem um servidor de administração](https://portal.azure.com/#create/oracle.20191001-arm-oraclelinux-wls20191001-arm-oraclelinux-wls), [nó único com um servidor de administração](https://portal.azure.com/#create/oracle.20191009-arm-oraclelinux-wls-admin20191009-arm-oraclelinux-wls-admin), [cluster](https://portal.azure.com/#create/oracle.20191007-arm-oraclelinux-wls-cluster20191007-arm-oraclelinux-wls-cluster)e [cluster dinâmico](https://portal.azure.com/#create/oracle.20191021-arm-oraclelinux-wls-dynamic-cluster20191021-arm-oraclelinux-wls-dynamic-cluster). As ofertas estão disponíveis gratuitamente. Essas ofertas são descritas e vinculadas abaixo.
 
-_Essas ofertas são do tipo traga sua própria licença_ . Eles supõem que você já tenha as licenças apropriadas com o Oracle e que estejam devidamente licenciados para executar ofertas no Azure.
+_Essas ofertas são do tipo traga sua própria licença_. Eles supõem que você já tenha as licenças apropriadas com o Oracle e que estejam devidamente licenciados para executar ofertas no Azure.
 
 As ofertas dão suporte a uma variedade de versões de sistema operacional, Java e WLS por meio de imagens base (como WebLogic Server 14 e JDK 11 em Oracle Linux 7,6). Essas imagens básicas também estão disponíveis no Azure por conta própria. As imagens base são adequadas para clientes que exigem implantações personalizadas do Azure complexas. O conjunto atual de imagens base está disponível [aqui](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=WebLogic%20Server%20Base%20Image&page=1).
 
@@ -52,7 +53,7 @@ _Se você estiver interessado em trabalhar de acordo com seus cenários de migra
 
 As soluções permitirão uma ampla gama de arquiteturas de implantação prontas para produção com uma facilidade relativa. Você pode atender à maioria dos casos de migração da maneira mais produtiva possível, permitindo um foco no desenvolvimento de aplicativos de negócios.
 
-:::image type="content" source="media/oracle-weblogic/weblogic-architecture-vms.png" alt-text="Você pode usar o portal do Azure para implantar o WebLogic Server no Azure":::
+:::image type="content" source="media/oracle-weblogic/weblogic-architecture-vms.png" alt-text="Implantações complexas do WebLogic Server estão habilitadas no Azure":::
 
 Além do que é provisionado automaticamente pelas soluções, os clientes têm flexibilidade total para personalizar ainda mais suas implantações. É provável que, na parte superior da implantação de aplicativos, os clientes integrem outros recursos do Azure às suas implantações. Os clientes são incentivados a fornecer comentários sobre como melhorar ainda mais as soluções.
 

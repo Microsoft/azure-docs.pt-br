@@ -3,12 +3,12 @@ title: Exceções de Retransmissão do Azure e como resolvê-las | Microsoft Doc
 description: Lista de exceções de Retransmissão do Azure e ações sugeridas que você pode realizar para ajudar a resolvê-las.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: a644dfe80255c64980400866a5e3d197f75375bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44eeba6eb7b8cfd4e81a923c2d9a3155f1709f2c
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87532961"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625141"
 ---
 # <a name="azure-relay-exceptions"></a>Exceções de Retransmissão do Azure
 
@@ -18,16 +18,16 @@ Este artigo apresenta algumas exceções que podem ser geradas por APIs de Retra
 
 As APIs de Retransmissão geram exceções que podem se enquadrar nas categorias a seguir. Também são listadas as ações sugeridas que você pode adotar para ajudar a resolver as exceções.
 
-*   **Erro de codificação do usuário**: [System.ArgumentException](/dotnet/api/system.argumentexception?view=netcore-3.1), [System.InvalidOperationException](/dotnet/api/system.invalidoperationexception?view=netcore-3.1), [System.OperationCanceledException](/dotnet/api/system.operationcanceledexception?view=netcore-3.1), [System.Runtime.Serialization.SerializationException](/dotnet/api/system.runtime.serialization.serializationexception?view=netcore-3.1). 
+*   **Erro de codificação do usuário**: [System.ArgumentException](/dotnet/api/system.argumentexception), [System.InvalidOperationException](/dotnet/api/system.invalidoperationexception), [System.OperationCanceledException](/dotnet/api/system.operationcanceledexception), [System.Runtime.Serialization.SerializationException](/dotnet/api/system.runtime.serialization.serializationexception). 
 
     **Ação geral**: tentar corrigir o código antes de prosseguir.
-*   **Erro de instalação/configuração**: [System.UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1). 
+*   **Erro de instalação/configuração**: [System.UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception). 
 
     **Ação geral**: examine sua configuração. Se necessário, altere a configuração.
 *   **Exceções transitórias**: [Microsoft. ServiceBus. Messaging. MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft. ServiceBus. Messaging. ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception), [Microsoft. ServiceBus. Messaging. MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception). 
 
     **Ação geral**: repetir a operação ou notificar os usuários.
-*   **Outras exceções**: [System.Transactions.TransactionException](/dotnet/api/system.transactions.transactionexception?view=netcore-3.1), [System.TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1). 
+*   **Outras exceções**: [System.Transactions.TransactionException](/dotnet/api/system.transactions.transactionexception), [System.TimeoutException](/dotnet/api/system.timeoutexception). 
 
     **Ação geral**: específica para o tipo de exceção. Consulte a tabela na seção a seguir. 
 
@@ -37,11 +37,11 @@ A tabela a seguir lista os tipos de exceção de mensagens e suas causas. També
 
 | **Tipo de exceção** | **Descrição** | **Ação sugerida** | **Observação sobre repetição automática ou imediata** |
 | --- | --- | --- | --- |
-| [Tempo Limite](/dotnet/api/system.timeoutexception?view=netcore-3.1) |O servidor não respondeu à operação solicitada dentro do tempo especificado que é controlado por [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout). O servidor pode ter concluído a operação solicitada. Isso pode acontecer devido a rede ou outros atrasos de infraestrutura. |Verifique a consistência do estado do sistema e tente novamente, se necessário. Veja [TimeoutException](#timeoutexception). |Uma nova tentativa pode ajudar em alguns casos; Adicione lógica de repetição ao código. |
-| [Operação inválida](/dotnet/api/system.invalidoperationexception?view=netcore-3.1) |A operação solicitada pelo usuário não é permitida no servidor ou serviço. Consulte a mensagem de exceção para obter detalhes. |Verifique o código e a documentação. Verifique se a operação solicitada é válida. |Tentar novamente não ajudará. |
-| [Operação cancelada](/dotnet/api/system.operationcanceledexception?view=netcore-3.1) |É feita uma tentativa de invocar uma operação em um objeto que já foi fechado, anulado ou descartado. Em casos raros, a transação de ambiente já foi descartada. |Verifique o código e certifique-se de que ele não invocará operações em um objeto descartado. |Tentar novamente não ajudará. |
-| [Acesso não autorizado](/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1) |O [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) não pôde obter um token, o token é inválido ou não contém as declarações necessárias para executar a operação. |Verifique se o provedor de token foi criado com os valores corretos. Verifique a configuração do Serviço de Controle de Acesso. |Uma nova tentativa pode ajudar em alguns casos; Adicione lógica de repetição ao código. |
-| [Exceção de argumento](/dotnet/api/system.argumentexception?view=netcore-3.1),<br /> [Argumento Nulo](/dotnet/api/system.argumentnullexception?view=netcore-3.1),<br />[Argumento fora do intervalo](/dotnet/api/system.argumentoutofrangeexception?view=netcore-3.1) |Um ou mais dos seguintes ocorreu:<br />Um ou mais argumentos fornecidos para o método são inválidos.<br /> O URI fornecido para [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ou [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create) contém um ou mais segmentos de caminho.<br />O esquema de URI fornecido para [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ou [Criar](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create) é inválido. <br />O valor da propriedade é maior do que 32 KB. |Verifique o código de chamada e certifique-se de que os argumentos estão corretos. |Tentar novamente não ajudará. |
+| [Tempo Limite](/dotnet/api/system.timeoutexception) |O servidor não respondeu à operação solicitada dentro do tempo especificado que é controlado por [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout). O servidor pode ter concluído a operação solicitada. Isso pode acontecer devido a rede ou outros atrasos de infraestrutura. |Verifique a consistência do estado do sistema e tente novamente, se necessário. Veja [TimeoutException](#timeoutexception). |Uma nova tentativa pode ajudar em alguns casos; Adicione lógica de repetição ao código. |
+| [Operação inválida](/dotnet/api/system.invalidoperationexception) |A operação solicitada pelo usuário não é permitida no servidor ou serviço. Consulte a mensagem de exceção para obter detalhes. |Verifique o código e a documentação. Verifique se a operação solicitada é válida. |Tentar novamente não ajudará. |
+| [Operação cancelada](/dotnet/api/system.operationcanceledexception) |É feita uma tentativa de invocar uma operação em um objeto que já foi fechado, anulado ou descartado. Em casos raros, a transação de ambiente já foi descartada. |Verifique o código e certifique-se de que ele não invocará operações em um objeto descartado. |Tentar novamente não ajudará. |
+| [Acesso não autorizado](/dotnet/api/system.unauthorizedaccessexception) |O [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) não pôde obter um token, o token é inválido ou não contém as declarações necessárias para executar a operação. |Verifique se o provedor de token foi criado com os valores corretos. Verifique a configuração do Serviço de Controle de Acesso. |Uma nova tentativa pode ajudar em alguns casos; Adicione lógica de repetição ao código. |
+| [Exceção de argumento](/dotnet/api/system.argumentexception),<br /> [Argumento Nulo](/dotnet/api/system.argumentnullexception),<br />[Argumento fora do intervalo](/dotnet/api/system.argumentoutofrangeexception) |Um ou mais dos seguintes ocorreu:<br />Um ou mais argumentos fornecidos para o método são inválidos.<br /> O URI fornecido para [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ou [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create) contém um ou mais segmentos de caminho.<br />O esquema de URI fornecido para [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ou [Criar](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create) é inválido. <br />O valor da propriedade é maior do que 32 KB. |Verifique o código de chamada e certifique-se de que os argumentos estão corretos. |Tentar novamente não ajudará. |
 | [Servidor ocupado](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) |O serviço não pode processar a solicitação neste momento. |O cliente pode esperar um período e então repetir a operação. |O cliente pode repetir a operação após um intervalo específico. Se uma nova tentativa resultar em uma exceção diferente, verifique o comportamento de repetição dessa exceção. |
 | [Cota excedida](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) |A entidade de mensagens atingiu seu tamanho máximo permitido. |Crie espaço na entidade ao receber mensagens da entidade ou de suas subfilas. Confira [QuotaExceededException](#quotaexceededexception). |Tentar novamente pode ajudar se as mensagens foram removidas nesse meio tempo. |
 | [Tamanho da mensagem excedido](/dotnet/api/microsoft.servicebus.messaging.messagesizeexceededexception) |O conteúdo de uma mensagem excede o limite de 256 KB. Observe que o limite de 256 KB é o tamanho total da mensagem. O tamanho total da mensagem pode incluir propriedades do sistema e qualquer sobrecarga do Microsoft .NET. |Reduza o tamanho da carga de mensagem e repita a operação. |Tentar novamente não ajudará. |
@@ -50,12 +50,12 @@ A tabela a seguir lista os tipos de exceção de mensagens e suas causas. També
 
 [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) indica que uma cota para uma entidade específica foi excedida.
 
-Para a Retransmissão, essa exceção envolve [System.ServiceModel.QuotaExceededException](/dotnet/api/system.servicemodel.quotaexceededexception?view=dotnet-plat-ext-3.1), indicando que foi excedido o número máximo de ouvintes para esse ponto de extremidade. Isso é indicado no valor **MaximumListenersPerEndpoint** da mensagem de exceção.
+Para a Retransmissão, essa exceção envolve [System.ServiceModel.QuotaExceededException](/dotnet/api/system.servicemodel.quotaexceededexception), indicando que foi excedido o número máximo de ouvintes para esse ponto de extremidade. Isso é indicado no valor **MaximumListenersPerEndpoint** da mensagem de exceção.
 
 ## <a name="timeoutexception"></a>TimeoutException
-Um [TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1) indica que uma operação iniciada pelo usuário está demorando mais do que o tempo limite da operação. 
+Um [TimeoutException](/dotnet/api/system.timeoutexception) indica que uma operação iniciada pelo usuário está demorando mais do que o tempo limite da operação. 
 
-Verifique o valor da propriedade [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit?view=netcore-3.1#System_Net_ServicePointManager_DefaultConnectionLimit). Atingir esse limite também pode causar uma [TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1).
+Verifique o valor da propriedade [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit). Atingir esse limite também pode causar uma [TimeoutException](/dotnet/api/system.timeoutexception).
 
 Para a Retransmissão, você poderá receber exceções de tempo limite ao abrir pela primeira vez uma conexão de remetente de retransmissão. Há duas causas comuns para essa exceção:
 

@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 08/03/2020
 ms.author: curtand
-ms.openlocfilehash: d9023579b6627e9dab9feac8dfaccd94dc9f5c12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a002254995e42fc586b707e3cb373dac66e678ee
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798118"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834142"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-page"></a>Exibir e pesquisar sua atividade de entrada recente na página minhas entradas
 
@@ -46,7 +46,7 @@ Antes de determinar que algo está errado, verifique se o que você está vendo 
 
 ### <a name="if-you-see-an-unsuccessful-sign-in"></a>Se você vir uma entrada malsucedida
 
-Se você vir uma entrada malsucedida, isso pode significar que você digitou indigitadamente suas credenciais. Também pode significar que um invasor estava tentando adivinhar sua senha. Para responder a esse risco, você não precisa alterar sua senha, mas recomendamos que você se registre na MFA (autenticação multifator) do Azure. Com a autenticação multifator, mesmo que o hacker Adivinhe sua senha, ele não será suficiente para acessar a conta.
+Se você vir uma entrada malsucedida, isso pode significar que você digitou indigitadamente suas credenciais. Também pode significar que um invasor estava tentando adivinhar sua senha. Para responder a esse risco, você não precisa alterar sua senha, mas recomendamos que você se registre na MFA (autenticação multifator) do Azure AD. Com a autenticação multifator, mesmo que o hacker Adivinhe sua senha, ele não será suficiente para acessar a conta.
 
 ![Bloco de entrada sem êxito](media/my-account-portal-sign-ins-page/unsuccessful.png)
 

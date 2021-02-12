@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 78836ca4e51875be4237267b3bb9256cc4541fe2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11ad3bdcaa40c479c9358fd623edf0e6fdafa0d6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81791678"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002061"
 ---
 Use a associação de saída dos Hubs de Eventos para gravar eventos em um fluxo de eventos. É necessário ter permissão de envio para que um hub de eventos grave eventos nele.
 
@@ -235,7 +235,7 @@ O Python não dá suporte a atributos.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Na [biblioteca de runtime de funções Java](https://docs.microsoft.com/java/api/overview/azure/functions/runtime), use a anotação [EventHubOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) em parâmetros cujo valor seria publicado no Hub de Eventos. O parâmetro deverá ser do tipo `OutputBinding<T>`, em que `T` é um POJO ou um tipo Java nativo.
+Na [biblioteca de runtime de funções Java](/java/api/overview/azure/functions/runtime), use a anotação [EventHubOutput](/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) em parâmetros cujo valor seria publicado no Hub de Eventos. O parâmetro deverá ser do tipo `OutputBinding<T>`, em que `T` é um POJO ou um tipo Java nativo.
 
 ---
 
@@ -274,15 +274,15 @@ Há duas opções para gerar uma mensagem do Hub de Eventos de uma função:
 
 - **Valor retornado**: defina a propriedade `name` no *function.json* como `$return`. Com essa configuração, o valor retornado da função será mantido como uma mensagem do Hub de Eventos.
 
-- **Imperativo**: passe um valor para [definir](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) o método do parâmetro declarado como um tipo de [Saída](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python). O valor passado para `set` será mantido como uma mensagem do Hub de Eventos.
+- **Imperativo**: passe um valor para [definir](/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) o método do parâmetro declarado como um tipo de [Saída](/python/api/azure-functions/azure.functions.out?view=azure-python). O valor passado para `set` será mantido como uma mensagem do Hub de Eventos.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Há duas opções para gerar uma mensagem do Hub de Eventos de uma função usando a anotação [EventHubOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhuboutput):
+Há duas opções para gerar uma mensagem do Hub de Eventos de uma função usando a anotação [EventHubOutput](/java/api/com.microsoft.azure.functions.annotation.eventhuboutput):
 
 - **Valor retornado**: ao aplicar a anotação à própria função, o valor retornado da função será mantido como uma mensagem do Hub de Eventos.
 
-- **Imperativo**: para definir o valor da mensagem de modo explícito, aplique a anotação a um parâmetro específico do tipo [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding), em que `T` será um POJO ou um tipo de Java nativo. Com essa configuração, passar um valor para o método `setValue` manterá o valor como uma mensagem do Hub de Eventos.
+- **Imperativo**: para definir o valor da mensagem de modo explícito, aplique a anotação a um parâmetro específico do tipo [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.OutputBinding), em que `T` será um POJO ou um tipo de Java nativo. Com essa configuração, passar um valor para o método `setValue` manterá o valor como uma mensagem do Hub de Eventos.
 
 ---
 
@@ -290,4 +290,4 @@ Há duas opções para gerar uma mensagem do Hub de Eventos de uma função usan
 
 | Associação | Referência |
 |---|---|
-| Hub de evento | [Guia de Operações](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) |
+| Hub de evento | [Guia de Operações](/rest/api/eventhub/publisher-policy-operations) |

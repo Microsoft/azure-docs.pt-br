@@ -1,23 +1,20 @@
 ---
-title: Kernels para o bloco de anotações do Jupyter em clusters do Spark no Azure HDInsight
-description: Saiba mais sobre os kernels PySpark, PySpark3 e Spark para o notebook do Jupyter disponíveis com clusters do Spark no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
+title: Kernels para Jupyter Notebook em clusters Spark no Azure HDInsight
+description: Saiba mais sobre os kernels PySpark, PySpark3 e Spark para Jupyter Notebook disponíveis com clusters Spark no Azure HDInsight.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 8c3993d8208a9a9e2ab54be44d88de0b20a2e586
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a16ec623d7475a80e546df43495db1a357a5fa66
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084708"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98930398"
 ---
-# <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernels para o bloco de anotações do Jupyter em clusters do Apache Spark no Azure HDInsight
+# <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernels para Jupyter Notebook em clusters Apache Spark no Azure HDInsight
 
-Os clusters do HDInsight Spark fornecem kernels que você pode usar com o notebook Jupyter do [Apache Spark](./apache-spark-overview.md) para testar seus aplicativos. Um kernel é um programa que é executado e que interpreta seu código. Os três kernels são:
+Os clusters do HDInsight Spark fornecem kernels que você pode usar com o Jupyter Notebook no [Apache Spark](./apache-spark-overview.md) para testar seus aplicativos. Um kernel é um programa que é executado e que interpreta seu código. Os três kernels são:
 
 - **PySpark** - para aplicativos escritos em Python2.
 - **PySpark3** - para aplicativos escritos em Python3.
@@ -29,30 +26,30 @@ Neste artigo, você aprenderá como usar esses kernels e os benefícios de usá-
 
 Um cluster do Apache Spark no HDInsight. Para obter instruções, consulte o artigo sobre como [Criar clusters do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-## <a name="create-a-jupyter-notebook-on-spark-hdinsight"></a>Criar um bloco de anotações do Jupyter no Spark HDInsight
+## <a name="create-a-jupyter-notebook-on-spark-hdinsight"></a>Criar um Jupyter Notebook no Spark HDInsight
 
 1. No [portal do Azure](https://portal.azure.com/), selecione o cluster Spark.  Consulte [lista e mostrar clusters](../hdinsight-administer-use-portal-linux.md#showClusters) para obter instruções. A exibição **visão geral** é aberta.
 
-2. No modo de exibição **visão geral** , na caixa **painéis de cluster** , selecione **Notebook Jupyter**. Se você receber uma solicitação, insira as credenciais de administrador para o cluster.
+2. No modo de exibição **visão geral** , na caixa **painéis do Cluster** , selecione **Jupyter Notebook**. Se você receber uma solicitação, insira as credenciais de administrador para o cluster.
 
-    ![Jupyter notebook em Apache Spark](./media/apache-spark-jupyter-notebook-kernels/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Jupyter Notebook no Spark")
+    ![Jupyter Notebook em Apache Spark](./media/apache-spark-jupyter-notebook-kernels/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Jupyter Notebook no Spark")
   
    > [!NOTE]  
-   > Você também pode acessar o bloco de anotações do Jupyter de seu cluster do Spark abrindo o seguinte URL no navegador. Substitua **CLUSTERNAME** pelo nome do cluster:
+   > Você também pode acessar o Jupyter Notebook no cluster Spark abrindo a seguinte URL em seu navegador. Substitua **CLUSTERNAME** pelo nome do cluster:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-3. Selecione **novo**e, em seguida, selecione **Pyspark**, **PySpark3**ou **Spark** para criar um bloco de anotações. Use o kernel Spark para aplicativos em Scala, o kernel PySpark para aplicativos em Python2 e o kernel PySpark3 para aplicativos em Python3.
+3. Selecione **novo** e, em seguida, selecione **Pyspark**, **PySpark3** ou **Spark** para criar um bloco de anotações. Use o kernel Spark para aplicativos em Scala, o kernel PySpark para aplicativos em Python2 e o kernel PySpark3 para aplicativos em Python3.
 
-    ![Kernels for Jupyter Notebook no Spark](./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Kernels for Jupyter Notebook no Spark")
+    ![Kernels para Jupyter Notebook no Spark](./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Kernels para Jupyter Notebook no Spark")
 
 4. Um notebook é aberto com o kernel selecionado.
 
 ## <a name="benefits-of-using-the-kernels"></a>Benefícios de usar os kernels
 
-Estes são alguns dos benefícios de usar os novos kernels com o bloco de anotações do Jupyter nos clusters do Spark HDInsight.
+Aqui estão alguns benefícios de usar os novos kernels com Jupyter Notebook em clusters HDInsight Spark.
 
-- **Contextos de predefinição**. Com os kernels  **PySpark**, **PySpark3**ou **Spark** , você não precisa definir os contextos Spark ou Hive explicitamente antes de começar a trabalhar com seus aplicativos. Esses contextos estão disponíveis por padrão. Esses contextos são:
+- **Contextos de predefinição**. Com os kernels  **PySpark**, **PySpark3** ou **Spark** , você não precisa definir os contextos Spark ou Hive explicitamente antes de começar a trabalhar com seus aplicativos. Esses contextos estão disponíveis por padrão. Esses contextos são:
 
   - **sc** - para o contexto do Spark
   - **sqlContext** : para o contexto Hive
@@ -118,7 +115,7 @@ Seja qual for o kernel usado, deixar os notebooks em execução consumirá os re
 
 ## <a name="where-are-the-notebooks-stored"></a>Onde os blocos de anotações são armazenados?
 
-Se o cluster usa o armazenamento do Azure como a conta de armazenamento padrão, os blocos de anotações do Jupyter são salvos para a conta de armazenamento na pasta **/HdiNotebooks**.  Os notebooks, arquivos de texto e pastas que você cria no Jupyter podem ser acessados na conta de armazenamento.  Por exemplo, se você usar Jupyter para criar uma pasta **`myfolder`** e um bloco de anotações **MyFolder/mynotebook. ipynb**, poderá acessar esse notebook em `/HdiNotebooks/myfolder/mynotebook.ipynb` dentro da conta de armazenamento.  O inverso também é possível, ou seja, se você carregar um notebook diretamente em sua conta de armazenamento em `/HdiNotebooks/mynotebook1.ipynb`, ele também ficará visível no Jupyter.  Os logs são mantidos na conta de armazenamento mesmo após a exclusão do cluster.
+Se o cluster usar o armazenamento do Azure como a conta de armazenamento padrão, os blocos de anotações do Jupyter serão salvos na conta de armazenamento na pasta **/HdiNotebooks** .  Os notebooks, arquivos de texto e pastas que você cria no Jupyter podem ser acessados na conta de armazenamento.  Por exemplo, se você usar Jupyter para criar uma pasta **`myfolder`** e um bloco de anotações **MyFolder/mynotebook. ipynb**, poderá acessar esse notebook em `/HdiNotebooks/myfolder/mynotebook.ipynb` dentro da conta de armazenamento.  O inverso também é possível, ou seja, se você carregar um notebook diretamente em sua conta de armazenamento em `/HdiNotebooks/mynotebook1.ipynb`, ele também ficará visível no Jupyter.  Os logs são mantidos na conta de armazenamento mesmo após a exclusão do cluster.
 
 > [!NOTE]  
 > Os clusters HDInsight com o Azure Data Lake Storage como armazenamento padrão não armazenam notebooks no armazenamento associado.
@@ -135,7 +132,7 @@ Se o cluster usa o armazenamento do Azure ou Azure Data Lake Storage como a cont
 
 ## <a name="supported-browser"></a>Navegador com suporte
 
-Os blocos de anotações do Jupyter em clusters do Spark HDInsight só têm suporte no Google Chrome.
+Os notebooks Jupyter em clusters HDInsight Spark têm suporte apenas no Google Chrome.
 
 ## <a name="suggestions"></a>Sugestões
 
@@ -145,5 +142,5 @@ Os kernels novos estão evoluindo e amadurecerão com o tempo. Portanto, as APIs
 
 - [Visão geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 - [Use os blocos de anotações do Apache Zeppelin com um cluster do Apache Spark no HDInsight](apache-spark-zeppelin-notebook.md)
-- [Usar pacotes externos com blocos de notas Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
+- [Usar pacotes externos com notebooks Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 - [Instalar o Jupyter em seu computador e conectar-se a um cluster Spark do HDInsight](apache-spark-jupyter-notebook-install-locally.md)

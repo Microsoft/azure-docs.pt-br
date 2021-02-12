@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: duau
-ms.openlocfilehash: 01bd3b1e945ee7c9ac16af7048536c0a9e2d731a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 502533b69058eacd4ad18a3b29a33fbc4a3715a5
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401581"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183754"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-powershell"></a>Substituição de sub-rede do Gerenciador de tráfego usando o Azure PowerShell
 
@@ -43,7 +43,7 @@ Para criar uma substituição de sub-rede do Gerenciador de tráfego, você pode
 
 1. **Recuperar o ponto de extremidade do Gerenciador de tráfego:**
 
-    Para habilitar a substituição de sub-rede, recupere o ponto de extremidade para o qual você deseja adicionar a substituição e armazene-o em uma variável usando [Get-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0).
+    Para habilitar a substituição de sub-rede, recupere o ponto de extremidade para o qual você deseja adicionar a substituição e armazene-o em uma variável usando [Get-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0).
 
     Substitua o nome, ProfileName e ResourceGroupName pelos valores do ponto de extremidade que você está alterando.
 
@@ -54,7 +54,7 @@ Para criar uma substituição de sub-rede do Gerenciador de tráfego, você pode
     ```
 2. **Adicione o intervalo de endereços IP ao ponto de extremidade:**
     
-    Para adicionar o intervalo de endereços IP ao ponto de extremidade, você usará [Add-AzTrafficManagerIpAddressRange](https://docs.microsoft.com/powershell/module/az.trafficmanager/add-aztrafficmanageripaddressrange?view=azps-2.5.0&viewFallbackFrom=azps-2.4.0) para adicionar o intervalo.
+    Para adicionar o intervalo de endereços IP ao ponto de extremidade, você usará [Add-AzTrafficManagerIpAddressRange](/powershell/module/az.trafficmanager/add-aztrafficmanageripaddressrange?view=azps-2.5.0&viewFallbackFrom=azps-2.4.0) para adicionar o intervalo.
 
     ```powershell
 
@@ -68,18 +68,18 @@ Para criar uma substituição de sub-rede do Gerenciador de tráfego, você pode
     Add-AzTrafficManagerIPAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "12.13.14.0" -Last "12.13.14.31" -Scope 27
  
     ```
-    Depois que os intervalos forem adicionados, use [set-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) para atualizar o ponto de extremidade.
+    Depois que os intervalos forem adicionados, use [set-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) para atualizar o ponto de extremidade.
 
     ```powershell
 
     Set-AzTrafficManagerEndpoint -TrafficManagerEndpoint $TrafficManagerEndpoint
 
     ```
-A remoção do intervalo de endereços IP pode ser concluída usando [Remove-AzTrafficManagerIpAddressRange](https://docs.microsoft.com/powershell/module/az.trafficmanager/remove-aztrafficmanageripaddressrange?view=azps-2.5.0).
+A remoção do intervalo de endereços IP pode ser concluída usando [Remove-AzTrafficManagerIpAddressRange](/powershell/module/az.trafficmanager/remove-aztrafficmanageripaddressrange?view=azps-2.5.0).
 
 1.  **Recuperar o ponto de extremidade do Gerenciador de tráfego:**
 
-    Para habilitar a substituição de sub-rede, recupere o ponto de extremidade para o qual você deseja adicionar a substituição e armazene-o em uma variável usando [Get-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0).
+    Para habilitar a substituição de sub-rede, recupere o ponto de extremidade para o qual você deseja adicionar a substituição e armazene-o em uma variável usando [Get-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0).
 
     Substitua o nome, ProfileName e ResourceGroupName pelos valores do ponto de extremidade que você está alterando.
 
@@ -102,7 +102,7 @@ A remoção do intervalo de endereços IP pode ser concluída usando [Remove-AzT
     Remove-AzTrafficManagerIpAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "12.13.14.0" -Last "12.13.14.31" -Scope 27
 
     ```
-     Depois que os intervalos forem removidos, use [set-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) para atualizar o ponto de extremidade.
+     Depois que os intervalos forem removidos, use [set-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) para atualizar o ponto de extremidade.
 
     ```powershell
 
@@ -113,4 +113,4 @@ A remoção do intervalo de endereços IP pode ser concluída usando [Remove-AzT
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre os [métodos de roteamento de tráfego](traffic-manager-routing-methods.md)do Gerenciador de Tráfego.
 
-Saiba mais sobre o [método de roteamento de tráfego de sub-rede](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#subnet-traffic-routing-method)
+Saiba mais sobre o [método de roteamento de tráfego de sub-rede](./traffic-manager-routing-methods.md#subnet-traffic-routing-method)

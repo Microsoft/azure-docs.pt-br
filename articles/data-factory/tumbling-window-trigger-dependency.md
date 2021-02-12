@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/03/2020
-ms.openlocfilehash: 4a99865e13e029dcea478cf6085d71c465918b14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 221f8bd7908613812a728d420a68b747051e095b
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89421745"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508791"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Criar uma dependência de gatilho de janela em cascata
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -83,7 +83,7 @@ A tabela a seguir fornece a lista de atributos necessários para definir uma dep
 |---|---|---|---|
 | type  | Todos os gatilhos da janela em cascata existentes são exibidos neste menu suspenso. Escolha o gatilho para assumir a dependência.  | TumblingWindowTriggerDependencyReference ou SelfDependencyTumblingWindowTriggerReference | Sim |
 | deslocamento | Deslocamento do gatilho de dependência. Forneça um valor no formato de intervalo de tempo e deslocamentos negativos e positivos são permitidos. Essa propriedade será obrigatória se o gatilho estiver dependendo de si mesmo e em todos os outros casos for opcional. A autodependência deverá sempre ser um deslocamento negativo. Se nenhum valor for especificado, a janela será igual ao próprio gatilho. | Timespan<br/>(hh:mm:ss) | Dependência automática: Sim<br/>Outro: não |
-| size | Tamanho da janela em cascata de dependência. Forneça um valor de TimeSpan positivo. Essa propriedade é opcional. | Timespan<br/>(hh:mm:ss) | Não  |
+| tamanho | Tamanho da janela em cascata de dependência. Forneça um valor de TimeSpan positivo. Essa propriedade é opcional. | Timespan<br/>(hh:mm:ss) | Não  |
 
 > [!NOTE]
 > Um gatilho de janela em cascata pode depender de um máximo de cinco outros gatilhos.

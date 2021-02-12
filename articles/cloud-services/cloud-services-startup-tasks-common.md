@@ -1,21 +1,25 @@
 ---
-title: Tarefas de inicialização comuns para Serviços de Nuvem | Microsoft Docs
+title: Tarefas comuns de inicialização para serviços de nuvem (clássico) | Microsoft Docs
 description: Oferece alguns exemplos de tarefas de inicialização comuns que talvez você queira executar na função Web ou função de trabalho de seus serviços de nuvem.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 07/18/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 77cea7ebd333b958675438aaeb5e0e2a326a5866
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: f55b225e615a3e7a5fbcf56b405054883d3b5413
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075171"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741189"
 ---
-# <a name="common-cloud-service-startup-tasks"></a>Tarefas de inicialização comuns do Serviço de Nuvem
+# <a name="common-cloud-service-classic-startup-tasks"></a>Tarefas de inicialização comuns do serviço de nuvem (clássico)
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
+
 Este artigo oferece alguns exemplos de tarefas de inicialização comuns que talvez você queira executar no serviço de nuvem. Você pode usar as tarefas de inicialização para executar operações antes do início de uma função. As operações que talvez você queira executar incluem a instalação de um componente, o registro de componentes COM, a configuração de chaves do Registro ou o início de um processo de longa duração. 
 
 Confira [este artigo](cloud-services-startup-tasks.md) para entender o funcionamento das tarefas de inicialização e, especificamente, como criar as entradas que definem uma tarefa de inicialização.
@@ -83,7 +87,7 @@ As seções relevantes do arquivo [ServiceDefinition.csdef] são mostradas aqui,
 O arquivo em lotes *Startup.cmd* usa *AppCmd.exe* para adicionar uma seção e uma entrada de compactação para JSON ao arquivo *Web.config*. O **errorlevel** esperado de 183 é definido como zero usando o programa de linha de comando VERIFY.EXE. Os errorlevels inesperados são registrados em StartupErrorLog.txt.
 
 ```cmd
-REM   *** Add a compression section to the Web.config file. ***
+REM   **_ Add a compression section to the Web.config file. _*_
 %windir%\system32\inetsrv\appcmd set config /section:urlCompression /doDynamicCompression:True /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
 
 REM   ERRORLEVEL 183 occurs when trying to add a section that already exists. This error is expected if this
@@ -98,7 +102,7 @@ IF %ERRORLEVEL% NEQ 0 (
     GOTO ErrorExit
 )
 
-REM   *** Add compression for json. ***
+REM   _*_ Add compression for json. _*_
 %windir%\system32\inetsrv\appcmd set config  -section:system.webServer/httpCompression /+"dynamicTypes.[mimeType='application/json; charset=utf-8',enabled='True']" /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
 IF %ERRORLEVEL% EQU 183 VERIFY > NUL
 IF %ERRORLEVEL% NEQ 0 (
@@ -106,10 +110,10 @@ IF %ERRORLEVEL% NEQ 0 (
     GOTO ErrorExit
 )
 
-REM   *** Exit batch file. ***
+REM   _*_ Exit batch file. _*_
 EXIT /b 0
 
-REM   *** Log error and exit ***
+REM   _*_ Log error and exit _*_
 :ErrorExit
 REM   Report the date, time, and ERRORLEVEL of the error.
 DATE /T >> "%TEMP%\StartupLog.txt" 2>&1
@@ -125,7 +129,7 @@ O segundo firewall controla conexões entre a máquina virtual e os processos de
 
 O Azure cria regras de firewall para processos iniciados em suas funções. Por exemplo, quando você inicia um serviço ou um programa, o Azure cria automaticamente as regras de firewall necessárias para permitir que o serviço ser comunique com a Internet. No entanto, se você criar um serviço que é iniciado por um processo fora de sua função (como um serviço COM+ ou uma tarefa agendada do Windows), precisará criar manualmente uma regra de firewall para permitir o acesso a esse serviço. Essas regras de firewall podem ser criadas usando uma tarefa de inicialização.
 
-Uma tarefa de inicialização que cria uma regra de firewall deve ter um [executionContext][Task]**elevado**. Adicione a seguinte tarefa de inicialização ao arquivo [ServiceDefinition.csdef] .
+Uma tarefa de inicialização que cria uma regra de firewall deve ter uma[tarefa] [ExecutionContext]de _ * privilégios elevados * *. Adicione a seguinte tarefa de inicialização ao arquivo [ServiceDefinition.csdef] .
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">

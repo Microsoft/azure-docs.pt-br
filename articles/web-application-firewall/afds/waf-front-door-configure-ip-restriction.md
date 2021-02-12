@@ -5,20 +5,20 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 03/26/2020
+ms.date: 12/22/2020
 ms.author: tyao
-ms.openlocfilehash: f41dc688996b2431060a3cde209ca1ed4a21fe8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60a4ef47bc30955c918983d54f613cbdb5cbed73
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005609"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746755"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Configurar uma regra de restrição de IP com um firewall do aplicativo Web para a porta frontal do Azure
 
 Este artigo mostra como configurar regras de restrição de IP em um WAF (firewall do aplicativo Web) para a porta frontal do Azure usando o portal do Azure, CLI do Azure, Azure PowerShell ou um modelo Azure Resource Manager.
 
-Uma regra de controle de acesso baseada em endereço IP é uma regra de WAF personalizada que permite controlar o acesso aos seus aplicativos Web. Ele faz isso especificando uma lista de endereços IP ou intervalos de endereços IP no formato CIDR (roteamento sem classe Inter-Domain).
+Uma regra de controle de acesso baseada em endereço IP é uma regra de WAF personalizada que permite controlar o acesso aos seus aplicativos Web. Ele faz isso especificando uma lista de endereços IP ou intervalos de endereços IP no formato CIDR (roteamento sem classe Inter-Domain). Há dois tipos de variáveis de correspondência na correspondência de endereço IP, **RemoteAddr** e **SocketAddr**. RemoteAddr é o IP do cliente original que geralmente é enviado via cabeçalho X-Forwardd-for Request. SocketAddr é o endereço IP de origem que o WAF vê. Se o usuário estiver protegido por um proxy, o SocketAddr geralmente será o endereço do servidor proxy.
 
 Por padrão, seu aplicativo Web pode ser acessado pela Internet. Se você quiser limitar o acesso a clientes de uma lista de endereços IP conhecidos ou intervalos de endereços IP, você poderá criar uma regra de correspondência de IP que contenha a lista de endereços IP como valores correspondentes e definir operador como "Not" (negar é verdadeiro) e a ação a ser **bloqueada**. Depois que uma regra de restrição de IP é aplicada, as solicitações originadas de endereços fora dessa lista de permissão recebem uma resposta de 403 Proibido.
 
@@ -40,7 +40,7 @@ Crie um perfil de porta frontal do Azure seguindo as instruções descritas em [
    |Assinatura     |Selecionar sua assinatura|
    |Grupo de recursos     |Selecione o grupo de recursos onde está a sua porta frontal.|
    |Nome de política     |Digite um nome para a política|
-   |Estado da política     |Habilitada|
+   |Estado da política     |habilitado|
 
    Selecione **Avançar: configurações de política**
 
@@ -53,8 +53,8 @@ Crie um perfil de porta frontal do Azure seguindo as instruções descritas em [
    |Configuração  |Valor  |
    |---------|---------|
    |Nome da regra personalizada     |FdWafCustRule|
-   |Status     |Habilitada|
-   |Tipo de regra     |Corresponder a|
+   |Status     |habilitado|
+   |Tipo de regra     |Correspondência|
    |Prioridade    |100|
    |Tipo de correspondência     |Endereço IP|
    |Variável de correspondência|RemoteAddr|
@@ -76,7 +76,7 @@ Crie um perfil de porta frontal do Azure seguindo as instruções descritas em [
 1. Depois que a implantação da política do WAF for concluída, navegue até o nome do host de front-end da porta frontal.
 2. Você deve ver sua mensagem de bloco personalizada.
 
-   :::image type="content" source="../media/waf-front-door-configure-ip-restriction/waf-rule-test.png" alt-text="Regra personalizada":::
+   :::image type="content" source="../media/waf-front-door-configure-ip-restriction/waf-rule-test.png" alt-text="Teste de regra WAF":::
 
    > [!NOTE]
    > Um endereço IP privado foi usado intencionalmente na regra personalizada para garantir que a regra seja disparada. Em uma implantação real, crie regras de *permissão* e *negação* usando endereços IP para sua situação específica.
@@ -166,9 +166,9 @@ Neste exemplo, a política WAF é aplicada a **FrontendEndpoints [0]**. Você po
 Antes de começar a configurar uma política de restrição de IP, configure o ambiente do PowerShell e crie um perfil de porta frontal do Azure.
 
 #### <a name="set-up-your-powershell-environment"></a>Configurar o ambiente do PowerShell
-Azure PowerShell fornece um conjunto de cmdlets que usam o modelo de [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para gerenciar recursos do Azure.
+Azure PowerShell fornece um conjunto de cmdlets que usam o modelo de [Azure Resource Manager](../../azure-resource-manager/management/overview.md) para gerenciar recursos do Azure.
 
-Você pode instalar o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) no computador local e usá-lo em qualquer sessão do PowerShell. Siga as instruções na página para entrar no PowerShell usando suas credenciais do Azure e, em seguida, instale o módulo AZ.
+Você pode instalar o [Azure PowerShell](/powershell/azure/) no computador local e usá-lo em qualquer sessão do PowerShell. Siga as instruções na página para entrar no PowerShell usando suas credenciais do Azure e, em seguida, instale o módulo AZ.
 
 1. Conecte-se ao Azure usando o comando a seguir e, em seguida, use uma caixa de diálogo interativa para entrar.
     ```

@@ -9,12 +9,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: a0c99c05701c7f2d64fcfc2f70081f2d7475ce5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae4eca82df498f1aa8f9ef84691cecdf719d0d76
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91340892"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307484"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Ciência de dados para iniciantes, vídeo 1: As cinco perguntas que a ciência de dados responde
 
@@ -45,7 +45,7 @@ Neste primeiro vídeo, falaremos sobre "As cinco perguntas que a ciência de dad
 
 A ciência de dados usa números e nomes (também conhecidos como categorias ou rótulos) para prever as respostas às perguntas.
 
-Isso pode surpreender você, mas *há apenas cinco perguntas que a ciência de dados responde*:
+Isso pode surpreender você, mas *há apenas cinco perguntas que a ciência de dados responde* :
 
 * Isso é A ou B?
 * Isso é estranho?
@@ -124,7 +124,7 @@ Normalmente, o aprendizado de reforço é uma boa opção para sistemas automati
 
 ![Algoritmos de aprendizado de reforço: O que devo fazer agora?](./media/data-science-for-beginners-the-5-questions-data-science-answers/reinforcement-learning-algorithms.png)
 
-As perguntas que eles respondem são sempre sobre qual ação deve ser executada, geralmente por um computador ou um robô. São exemplos:
+As perguntas que eles respondem são sempre sobre qual ação deve ser executada, geralmente por um computador ou um robô. Os exemplos são:
 
 * Se eu for um sistema de controle de temperatura de uma casa: ajusto a temperatura ou deixo como está?  
 * Se eu for um carro automático: no farol amarelo, freio ou acelero?  
@@ -136,4 +136,4 @@ Então é isso, As cinco perguntas que a ciência de dados pode responder.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Experimente um primeiro experimento de ciência de dados com Machine Learning Studio (clássico)](create-experiment.md)
-* [Obtenha uma introdução ao Machine Learning no Microsoft Azure](/azure/machine-learning/overview-what-is-azure-ml)
+* [Obtenha uma introdução ao Machine Learning no Microsoft Azure](../overview-what-is-azure-ml.md)

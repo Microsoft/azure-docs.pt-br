@@ -7,18 +7,18 @@ ms.service: firewall
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: ed34bf755023ab866e95c51aca6d1bfb1dd7bf71
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c0bd2f6a021baae80dafcc3d544e1062d8e022e8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099446"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653327"
 ---
 # <a name="fqdn-tags-overview"></a>Visão geral de marcas FQDN
 
 Uma tag FQDN representa um grupo de nomes de domínio totalmente qualificados (FQDNs) associados aos serviços Microsoft conhecidos. Você pode usar uma tag FQDN em regras de aplicativo para permitir o tráfego de rede de saída necessário pelo firewall.
 
-Por exemplo, para permitir manualmente a passagem do tráfego de rede do Windows Update pelo seu firewall, você precisará criar várias regras de aplicativo de acordo com a documentação da Microsoft. Com as marcas FQDN, você pode criar uma regra de aplicativo, inclusive a marca do **Windows Update** , e agora o tráfego de rede para pontos de extremidade do Microsoft Windows Update pode fluir através do firewall.
+Por exemplo, para permitir manualmente a passagem do tráfego de rede do Windows Update pelo seu firewall, você precisará criar várias regras de aplicativo de acordo com a documentação da Microsoft. Com as marcas FQDN, você pode criar uma regra de aplicativo, inclusive a marca do **Windows Update**, e agora o tráfego de rede para pontos de extremidade do Microsoft Windows Update pode fluir através do firewall.
 
 Não é possível criar suas próprias marcas FQDN, nem especificar quais FQDNs são incluídos em uma marca. A Microsoft gerencia os FQDNs englobados pela marca FQDN e atualiza a marca à medida que os FQDNs mudam. 
 
@@ -30,8 +30,8 @@ A tabela a seguir mostra as marcas FQDN atuais que você pode usar. A Microsoft 
 
 |Marca FQDN  |Descrição  |
 |---------|---------|
-|Windows Update     |Permitir acesso de saída ao Microsoft Update, conforme descrito em [Como configurar um Firewall para atualizações de software](https://docs.microsoft.com/mem/configmgr/sum/get-started/install-a-software-update-point).|
-|Diagnóstico do Windows|Permitir acesso de saída para todos os [pontos de extremidade de diagnóstico do Windows](https://docs.microsoft.com/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints).|
+|Windows Update     |Permitir acesso de saída ao Microsoft Update, conforme descrito em [Como configurar um Firewall para atualizações de software](/mem/configmgr/sum/get-started/install-a-software-update-point).|
+|Diagnóstico do Windows|Permitir acesso de saída para todos os [pontos de extremidade de diagnóstico do Windows](/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints).|
 |MAPS (Microsoft Active Protection Service)|Permitir acesso de saída ao [MAPS](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/).|
 |ASE (Ambiente do Serviço de Aplicativo)|Permite acesso de saída para tráfego de plataforma do ASE. Essa marca não cobre pontos de extremidade de Armazenamento e SQL específicos ao cliente criados pelo ASE. Eles devem ser habilitados por meio de [pontos de extremidade de serviço](../virtual-network/tutorial-restrict-network-access-to-resources.md) ou adicionados manualmente.<br><br>Para obter mais informações sobre como integrar o Firewall do Azure com o ASE, consulte [bloquear um ambiente do serviço de aplicativo](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
 |Serviço de Backup do Azure|Permite acesso de saída para os serviços de Backup do Azure.|
@@ -40,7 +40,7 @@ A tabela a seguir mostra as marcas FQDN atuais que você pode usar. A Microsoft 
 |AKS (Serviço de Kubernetes do Azure)|Permite o acesso de saída ao AKS. Para obter mais informações, consulte [usar o Firewall do Azure para proteger implantações do AKS (serviço kubernetes do Azure)](protect-azure-kubernetes-service.md).|
 
 > [!NOTE]
-> Ao selecionar a Marca de FQDN em uma regra de aplicativo, o campo protocolo:porta precisa ser definido como **HTTPS** .
+> Ao selecionar a Marca de FQDN em uma regra de aplicativo, o campo protocolo:porta precisa ser definido como **HTTPS**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

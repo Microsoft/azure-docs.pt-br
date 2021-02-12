@@ -2,7 +2,7 @@
   href: index.yml
 - name: Visão geral
   items:
-    - name: O que é o Stream Analytics?
+    - name: Bem-vindo(a) ao Stream Analytics
       href: stream-analytics-introduction.md
     - name: Cluster do Stream Analytics
       href: cluster-overview.md
@@ -30,16 +30,17 @@
           href: create-cluster.md
 - name: Tutoriais
   items:
-    - name: 1 – Criar/gerenciar um trabalho
-      href: stream-analytics-manage-job.md
-    - name: 2 – Executar o Azure Functions
+    - name: Visualizar chamadas fraudulentas no Power BI
+      href: stream-analytics-real-time-fraud-detection.md
+    - name: Executar Azure Functions
       href: stream-analytics-with-azure-functions.md
-    - name: 3 – Implantar com CI/CD no Azure Pipelines
-      href: stream-analytics-tools-visual-studio-cicd-vsts.md
-    - name: 4 – Executar um UDF de C#
+    - name: Executar um UDF de C#
       href: stream-analytics-edge-csharp-udf.md
-    - name: 5 – Criar um desserializador personalizado do .NET
+    - name: Criar um desserializador personalizado do .NET
       href: custom-deserializer.md
+    - name: Criar um trabalho do IoT Edge
+      href: ../iot-edge/tutorial-deploy-stream-analytics.md?view=iotedge-2018-06
+      maintainContext: true
 - name: Exemplos
   items:
     - name: Exemplos de código
@@ -56,6 +57,8 @@
       href: develop-locally.md
     - name: Segurança
       items:
+        - name: Conectar trabalhos à VNet (Rede Virtual) do Azure
+          href: connect-job-to-vnet.md
         - name: Controles de segurança do Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
@@ -129,6 +132,8 @@
           href: repartition.md
         - name: Aumentar a taxa de transferência do trabalho
           href: stream-analytics-scale-jobs.md
+    - name: IoT Edge
+      href: stream-analytics-edge.md
     - name: Estados de um trabalho
       href: job-states.md
     - name: Funções da janela
@@ -181,32 +186,31 @@
           href: stream-analytics-job-reliability.md
         - name: Usar dados de referência do SQL
           href: sql-reference-data.md
-        - name: Autenticar com identidade gerenciada
-          items:
-            - name: ADLS Gen 1
-              href: stream-analytics-managed-identities-adls.md
-              displayName: 'managed identity, identities, authenticate'
-            - name: Armazenamento de blob
-              href: blob-output-managed-identity.md
-              displayName: 'managed identity, identities, authenticate'
-            - name: Power BI
-              href: powerbi-output-managed-identity.md
-              displayName: 'managed identity, identities, authenticate'
-            - name: BD SQL do Azure
-              href: sql-database-output-managed-identity.md
-              displayName: 'managed identity, identities, authenticate'
         - name: Criptografar seus dados
           href: data-protection.md
         - name: Redundância geográfica
           href: geo-redundancy.md
+    - name: Autenticar com identidade gerenciada
+      items:
+        - name: ADLS Gen 1
+          href: stream-analytics-managed-identities-adls.md
+          displayName: 'managed identity, identities, authenticate'
+        - name: Armazenamento de blob
+          href: blob-output-managed-identity.md
+          displayName: 'managed identity, identities, authenticate'
+        - name: Hubs de Eventos
+          href: event-hubs-managed-identity.md
+          displayName: 'managed identity, identities, authenticate'
+        - name: Power BI
+          href: powerbi-output-managed-identity.md
+          displayName: 'managed identity, identities, authenticate'
+        - name: SQL do Azure e Azure Synapse
+          href: sql-database-output-managed-identity.md
+          displayName: 'managed identity, identities, authenticate'
     - name: Compilar soluções
       items:
         - name: Análise de sentimento no Twitter
           href: stream-analytics-twitter-sentiment-analysis-trends.md
-        - name: Detecção de fraude em tempo real
-          href: stream-analytics-real-time-fraud-detection.md
-        - name: Executar trabalhos no IoT Edge
-          href: stream-analytics-edge.md
         - name: Executar trabalhos no Azure Stack
           href: on-azure-stack.md
         - name: Análise de dados do sensor de cabine do pedágio
@@ -284,6 +288,8 @@
           href: debug-locally-using-job-diagram-vs-code.md
         - name: Explorar trabalhos
           href: visual-studio-code-explore-jobs.md
+        - name: Criar e depurar um desserializador personalizado do .NET
+          href: visual-studio-code-custom-deserializer.md
         - name: Campos de JobConfig.json
           href: job-config-json.md
     - name: Solucionar problemas

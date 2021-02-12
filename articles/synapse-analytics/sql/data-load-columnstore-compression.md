@@ -1,5 +1,5 @@
 ---
-title: Melhorar o desempenho do índice columnstore (visualização de espaços de trabalho)
+title: Melhorar o desempenho do índice columnstore
 description: Reduza os requisitos de memória ou aumente a memória disponível para maximizar o número de linhas que um índice columnstore compacta em cada rowgroup.
 services: synapse-analytics
 author: kevinvngo
@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fecb78b240f5c983580d4bdb34535a879ffe3e2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f98d00477b7dc8fbbbe7d17705e398a708ce2af
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289269"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120930"
 ---
 # <a name="maximize-rowgroup-quality-for-columnstore-index-performance"></a>Maximizar a qualidade do rowgroup para o desempenho do índice columnstore
 
@@ -142,6 +142,5 @@ O tamanho da DWU e a classe de recurso de usuário em conjunto determinam a quan
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para encontrar mais maneiras de melhorar o desempenho no Synapse SQL, consulte a [visão geral de desempenho](../overview-cheat-sheet.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Para encontrar mais maneiras de melhorar o desempenho no Synapse SQL, consulte a [visão geral de desempenho](../overview-terminology.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
 
- 

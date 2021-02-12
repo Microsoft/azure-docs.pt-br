@@ -4,12 +4,12 @@ description: Monitore o desempenho do site sem implantá-lo novamente. Funciona 
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 6c27c78bf8e3f3b8af342a14a38c9be3821d781a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53dbcc341fdd4bc194d34d40cdd2a975df496376
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91758656"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186296"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentar aplicativos Web em tempo de execução com Application Insights anexação sem código
 
@@ -85,7 +85,7 @@ Se você deseja publicar novamente sem adicionar Application Insights no código
 4. Reaplique as edições realizadas no arquivo .config.
 
 
-## <a name="troubleshooting"></a><a name="troubleshoot"></a>Solução de problemas
+## <a name="troubleshooting"></a><a name="troubleshoot"></a>Solução de Problemas
 
 ### <a name="confirm-a-valid-installation"></a>Confirmar uma instalação válida 
 
@@ -93,7 +93,7 @@ Estas são algumas etapas que você pode executar para confirmar se a instalaç�
 
 - Verifique se o arquivo applicationInsights.config está presente no diretório de aplicativo de destino e contém sua ikey.
 
-- Se você suspeitar de que os dados estão ausentes, poderá executar uma consulta no [Analytics](../log-query/get-started-portal.md) para listar todas as funções de nuvem que estão enviando telemetria no momento.
+- Se você suspeitar de que os dados estão ausentes, poderá executar uma consulta no [Analytics](../log-query/log-analytics-tutorial.md) para listar todas as funções de nuvem que estão enviando telemetria no momento.
   ```Kusto
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
@@ -177,7 +177,7 @@ Exclua qualquer um destes arquivos encontrados no diretório do aplicativo:
 ## <a name="system-requirements"></a>Requisitos do Sistema
 Suporte de sistema operacional para Application Insights Status Monitor no servidor:
 
-* Windows Server 2008
+* Windows Server 2008
 * Windows Server 2008 R2
 * Windows Server 2012
 * Windows Server 2012 R2
@@ -340,4 +340,3 @@ Adicione mais telemetria:
 [qna]: ../faq.md
 [roles]: ./resources-roles-access-control.md
 [usage]: ./javascript.md
-

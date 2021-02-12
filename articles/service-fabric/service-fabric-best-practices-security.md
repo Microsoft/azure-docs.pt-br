@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 90ffd1c01411982f56aed3332c499aa0c10b8a94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7af0a4c26a47644973e936eb37e221853d74c03
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86257592"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784656"
 ---
 # <a name="azure-service-fabric-security"></a>Segurança do Azure Service Fabric 
 
@@ -56,7 +56,7 @@ Para implantar certificados de um keyvault colocalizado em um Conjunto de dimens
 
 ## <a name="apply-an-access-control-list-acl-to-your-certificate-for-your-service-fabric-cluster"></a>Aplicar uma ACL (Lista de Controle de Acesso) em seu certificado para o cluster do Service Fabric
 
-O publicador das [extensões do Conjunto de dimensionamento de máquinas virtuais](/cli/azure/vmss/extension?view=azure-cli-latest) Microsoft.Azure.ServiceFabric é usado para configurar a Segurança dos Nós.
+O publicador das [extensões do Conjunto de dimensionamento de máquinas virtuais](/cli/azure/vmss/extension) Microsoft.Azure.ServiceFabric é usado para configurar a Segurança dos Nós.
 Para aplicar uma ACL a seus certificados para os processos de cluster do Service Fabric, use as seguintes propriedades de modelo do Resource Manager:
 
 ```json

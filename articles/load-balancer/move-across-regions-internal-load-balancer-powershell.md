@@ -6,18 +6,18 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 63083c4bd058c63e21a40f2d245312a3f010b696
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73a9356de555e33996b92f05c3bbbabb651f1c9f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808351"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014220"
 ---
 # <a name="move-azure-internal-load-balancer-to-another-region-using-powershell"></a>Mover o Load Balancer interno do Azure para outra região usando o PowerShell
 
 Há vários cenários em que você deseja mover o balanceador de carga interno existente de uma região para outra. Por exemplo, talvez você queira criar um balanceador de carga interno com a mesma configuração para teste. Você também pode querer mover um balanceador de carga interno para outra região como parte do planejamento de recuperação de desastre.
 
-Os balanceadores de carga internos do Azure não podem ser movidos de uma região para outra. No entanto, você pode usar um modelo de Azure Resource Manager para exportar a configuração existente e a rede virtual de um balanceador de carga interno.  Em seguida, você pode preparar o recurso em outra região exportando o balanceador de carga e a rede virtual para um modelo, modificando os parâmetros para corresponder à região de destino e, em seguida, implantar os modelos na nova região.  Para obter mais informações sobre o Resource Manager e os modelos, confira [Exportar grupos de recursos para modelos](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates)
+Os balanceadores de carga internos do Azure não podem ser movidos de uma região para outra. No entanto, você pode usar um modelo de Azure Resource Manager para exportar a configuração existente e a rede virtual de um balanceador de carga interno.  Em seguida, você pode preparar o recurso em outra região exportando o balanceador de carga e a rede virtual para um modelo, modificando os parâmetros para corresponder à região de destino e, em seguida, implantar os modelos na nova região.  Para obter mais informações sobre o Resource Manager e os modelos, confira [Exportar grupos de recursos para modelos](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates)
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -32,7 +32,7 @@ Os balanceadores de carga internos do Azure não podem ser movidos de uma regiã
 
 - Verifique se sua assinatura do Azure permite criar balanceadores de carga internos na região de destino usada. Contate o suporte para habilitar a cota necessária.
 
-- Verifique se sua assinatura tem recursos suficientes para dar suporte à adição de balanceadores de carga para esse processo.  Confira [assinatura do Azure e limites de serviço, cotas e restrições](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)
+- Verifique se sua assinatura tem recursos suficientes para dar suporte à adição de balanceadores de carga para esse processo.  Confira [assinatura do Azure e limites de serviço, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)
 
 
 ## <a name="prepare-and-move"></a>Preparar e mover
@@ -43,18 +43,18 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
 
 ### <a name="export-the-virtual-network-template-and-deploy-from-azure-powershell"></a>Exportar o modelo de rede virtual e implantar do Azure PowerShell
 
-1. Entre em sua assinatura do Azure com o comando [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) e siga as instruções na tela:
+1. Entre em sua assinatura do Azure com o comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) e siga as instruções na tela:
     
     ```azurepowershell-interactive
     Connect-AzAccount
     ```
-2.  Obtenha a ID de recurso da rede virtual que você deseja mover para a região de destino e coloque-a em uma variável usando [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0):
+2.  Obtenha a ID de recurso da rede virtual que você deseja mover para a região de destino e coloque-a em uma variável usando [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0):
 
     ```azurepowershell-interactive
     $sourceVNETID = (Get-AzVirtualNetwork -Name <source-virtual-network-name> -ResourceGroupName <source-resource-group-name>).Id
 
     ```
-3. Exporte a rede virtual de origem para um arquivo .json no diretório em que você executa o comando [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
+3. Exporte a rede virtual de origem para um arquivo .json no diretório em que você executa o comando [Export-AzResourceGroup](/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
    
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
@@ -98,16 +98,16 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
 
     ```
   
-7. Para obter códigos de localização de região, você pode usar o cmdlet do Azure PowerShell [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) executando o seguinte comando:
+7. Para obter códigos de localização de região, você pode usar o cmdlet do Azure PowerShell [Get-AzLocation](/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) executando o seguinte comando:
 
     ```azurepowershell-interactive
 
     Get-AzLocation | format-table
     
     ```
-8.  Você também pode alterar outros parâmetros no arquivo ** \<resource-group-name> . JSON** se escolher e forem opcionais, dependendo dos seus requisitos:
+8.  Você também pode alterar outros parâmetros no arquivo **\<resource-group-name> . JSON** se escolher e forem opcionais, dependendo dos seus requisitos:
 
-    * **Espaço de endereço** -o espaço de endereço da VNET pode ser alterado antes de salvar modificando a seção **recursos de**  >  **addressSpace** e alterando a propriedade **addressPrefixes** no arquivo ** \<resource-group-name> . JSON** :
+    * **Espaço de endereço** -o espaço de endereço da VNET pode ser alterado antes de salvar modificando a seção **recursos de**  >  **addressSpace** e alterando a propriedade **addressPrefixes** no arquivo **\<resource-group-name> . JSON** :
 
         ```json
                 "resources": [
@@ -127,7 +127,7 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
 
         ```
 
-    * **Sub** -rede-o nome da sub-rede e o espaço de endereço de sub-rede podem ser alterados ou adicionados ao modificando a seção **sub-redes** do arquivo ** \<resource-group-name> . JSON** . O nome da sub-rede pode ser alterado alterando a propriedade **Name** . O espaço de endereço de sub-rede pode ser alterado alterando a propriedade **addressPrefix** no arquivo ** \<resource-group-name> . JSON** :
+    * **Sub** -rede-o nome da sub-rede e o espaço de endereço de sub-rede podem ser alterados ou adicionados ao modificando a seção **sub-redes** do arquivo **\<resource-group-name> . JSON** . O nome da sub-rede pode ser alterado alterando a propriedade **Name** . O espaço de endereço de sub-rede pode ser alterado alterando a propriedade **addressPrefix** no arquivo **\<resource-group-name> . JSON** :
 
         ```json
                 "subnets": [
@@ -158,7 +158,7 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
                 ]
         ```
 
-         No arquivo ** \<resource-group-name> . JSON** , para alterar o prefixo do endereço, ele deve ser editado em dois locais, na seção listada acima e na seção **tipo** listada abaixo.  Altere a propriedade **addressPrefix** para corresponder à que está acima:
+         No arquivo **\<resource-group-name> . JSON** , para alterar o prefixo do endereço, ele deve ser editado em dois locais, na seção listada acima e na seção **tipo** listada abaixo.  Altere a propriedade **addressPrefix** para corresponder à que está acima:
 
         ```json
          "type": "Microsoft.Network/virtualNetworks/subnets",
@@ -196,20 +196,20 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
 
 9.  Salve o arquivo **\<resource-group-name>.json**.
 
-10. Criar um grupo de recursos na região de destino para a VNET de destino a ser implantada usando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0)
+10. Criar um grupo de recursos na região de destino para a VNET de destino a ser implantada usando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0)
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-11. Implante o arquivo **\<resource-group-name>.json** editado no grupo de recursos criado na etapa anterior usando [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+11. Implante o arquivo **\<resource-group-name>.json** editado no grupo de recursos criado na etapa anterior usando [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 
     New-AzResourceGroupDeployment -ResourceGroupName <target-resource-group-name> -TemplateFile <source-resource-group-name>.json
     
     ```
-12. Para verificar se os recursos foram criados na região de destino, use [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) e [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0):
+12. Para verificar se os recursos foram criados na região de destino, use [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) e [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0):
     
     ```azurepowershell-interactive
 
@@ -224,19 +224,19 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
     ```
 ### <a name="export-the-internal-load-balancer-template-and-deploy-from-azure-powershell"></a>Exportar o modelo de balanceador de carga interno e implantar do Azure PowerShell
 
-1. Entre em sua assinatura do Azure com o comando [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) e siga as instruções na tela:
+1. Entre em sua assinatura do Azure com o comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) e siga as instruções na tela:
     
     ```azurepowershell-interactive
     Connect-AzAccount
     ```
 
-2. Obtenha a ID do recurso do balanceador de carga interno que você deseja mover para a região de destino e coloque-a em uma variável usando [Get-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/get-azloadbalancer?view=azps-2.6.0):
+2. Obtenha a ID do recurso do balanceador de carga interno que você deseja mover para a região de destino e coloque-a em uma variável usando [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer?view=azps-2.6.0):
 
     ```azurepowershell-interactive
     $sourceIntLBID = (Get-AzLoadBalancer -Name <source-internal-lb-name> -ResourceGroupName <source-resource-group-name>).Id
 
     ```
-3. Exporte a configuração do balanceador de carga interno de origem para um arquivo. JSON no diretório em que você executa o comando [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
+3. Exporte a configuração do balanceador de carga interno de origem para um arquivo. JSON no diretório em que você executa o comando [Export-AzResourceGroup](/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
    
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceIntLBID -IncludeParameterDefaultValue
@@ -263,7 +263,7 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
              }
     ```
  
-6. Para editar o valor da rede virtual de destino que foi movida acima, primeiro você deve obter a ID do recurso e, em seguida, copiá-la e colá-la no arquivo ** \<resource-group-name> . JSON** .  Para obter a ID, use [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0):
+6. Para editar o valor da rede virtual de destino que foi movida acima, primeiro você deve obter a ID do recurso e, em seguida, copiá-la e colá-la no arquivo **\<resource-group-name> . JSON** .  Para obter a ID, use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0):
    
    ```azurepowershell-interactive
     $targetVNETID = (Get-AzVirtualNetwork -Name <target-vnet-name> -ResourceGroupName <target-resource-group-name>).Id
@@ -275,7 +275,7 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
     /subscriptions/7668d659-17fc-4ffd-85ba-9de61fe977e8/resourceGroups/myResourceGroupVNET-Move/providers/Microsoft.Network/virtualNetworks/myVNET2-Move
     ```
 
-7.  No arquivo ** \<resource-group-name> . JSON** , Cole a **ID do recurso** da variável no lugar do **DEFAULTVALUE** no segundo parâmetro para a ID de rede virtual de destino, certifique-se de colocar o caminho entre aspas:
+7.  No arquivo **\<resource-group-name> . JSON** , Cole a **ID do recurso** da variável no lugar do **DEFAULTVALUE** no segundo parâmetro para a ID de rede virtual de destino, certifique-se de colocar o caminho entre aspas:
    
     ```json
          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -291,7 +291,7 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
              }
     ```
 
-8. Para editar a região de destino em que a configuração do balanceador de carga interno será movida, altere a propriedade **local** em **recursos** no arquivo ** \<resource-group-name> . JSON** :
+8. Para editar a região de destino em que a configuração do balanceador de carga interno será movida, altere a propriedade **local** em **recursos** no arquivo **\<resource-group-name> . JSON** :
 
     ```json
         "resources": [
@@ -306,7 +306,7 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
                 },
     ```
 
-11. Para obter códigos de localização de região, você pode usar o cmdlet do Azure PowerShell [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) executando o seguinte comando:
+11. Para obter códigos de localização de região, você pode usar o cmdlet do Azure PowerShell [Get-AzLocation](/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) executando o seguinte comando:
 
     ```azurepowershell-interactive
 
@@ -315,7 +315,7 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
     ```
 12. Você também pode alterar outros parâmetros no modelo se quiser, e eles podem ser opcionais dependendo dos seus requisitos:
     
-    * **SKU** -você pode alterar a SKU do balanceador de carga interno na configuração de Standard para básico ou básico para Standard, alterando a propriedade **sku**  >  **nome** do SKU no arquivo ** \<resource-group-name> . JSON** :
+    * **SKU** -você pode alterar a SKU do balanceador de carga interno na configuração de Standard para básico ou básico para Standard, alterando a propriedade **sku**  >  **nome** do SKU no arquivo **\<resource-group-name> . JSON** :
 
         ```json
         "resources": [
@@ -329,9 +329,9 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
                 "tier": "Regional"
             },
         ```
-      Para obter mais informações sobre as diferenças entre os balanceadores de carga do SKU básico e Standard, consulte [visão geral do Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
+      Para obter mais informações sobre as diferenças entre os balanceadores de carga do SKU básico e Standard, consulte [visão geral do Azure Standard Load Balancer](./load-balancer-overview.md)
 
-    * **Regras de balanceamento de carga** – você pode adicionar ou remover regras de balanceamento de carga na configuração adicionando ou removendo entradas na seção **loadBalancingRules** do arquivo ** \<resource-group-name> . JSON** :
+    * **Regras de balanceamento de carga** – você pode adicionar ou remover regras de balanceamento de carga na configuração adicionando ou removendo entradas na seção **loadBalancingRules** do arquivo **\<resource-group-name> . JSON** :
 
         ```json
         "loadBalancingRules": [
@@ -361,9 +361,9 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
                     }
                 ]
         ```
-       Para obter mais informações sobre regras de balanceamento de carga, consulte [o que é Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+       Para obter mais informações sobre regras de balanceamento de carga, consulte [o que é Azure Load Balancer?](./load-balancer-overview.md)
 
-    * **Investigações** – você pode adicionar ou remover uma investigação para o balanceador de carga na configuração adicionando ou removendo entradas para a seção **investigações** do arquivo ** \<resource-group-name> . JSON** :
+    * **Investigações** – você pode adicionar ou remover uma investigação para o balanceador de carga na configuração adicionando ou removendo entradas para a seção **investigações** do arquivo **\<resource-group-name> . JSON** :
 
         ```json
         "probes": [
@@ -381,9 +381,9 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
                     }
                 ],
         ```
-       Para obter mais informações sobre Azure Load Balancer investigações de integridade, consulte [investigações de integridade de Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
+       Para obter mais informações sobre Azure Load Balancer investigações de integridade, consulte [investigações de integridade de Load Balancer](./load-balancer-custom-probe-overview.md)
 
-    * **Regras de NAT de entrada** -você pode adicionar ou remover regras de NAT de entrada para o balanceador de carga adicionando ou removendo entradas para a seção **inboundNatRules** do arquivo ** \<resource-group-name> . JSON** :
+    * **Regras de NAT de entrada** -você pode adicionar ou remover regras de NAT de entrada para o balanceador de carga adicionando ou removendo entradas para a seção **inboundNatRules** do arquivo **\<resource-group-name> . JSON** :
 
         ```json
         "inboundNatRules": [
@@ -405,7 +405,7 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
                     }
                 ]
         ```
-        Para concluir a adição ou remoção de uma regra NAT de entrada, a regra deve estar presente ou removida como uma propriedade de **tipo** no final do arquivo ** \<resource-group-name> . JSON** :
+        Para concluir a adição ou remoção de uma regra NAT de entrada, a regra deve estar presente ou removida como uma propriedade de **tipo** no final do arquivo **\<resource-group-name> . JSON** :
 
         ```json
         {
@@ -429,16 +429,16 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
             }
         }
         ```
-        Para obter mais informações sobre regras de NAT de entrada, consulte [o que é Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+        Para obter mais informações sobre regras de NAT de entrada, consulte [o que é Azure Load Balancer?](./load-balancer-overview.md)
     
 13. Salve o arquivo **\<resource-group-name>.json**.
     
-10. Crie ou um grupo de recursos na região de destino para o balanceador de carga interno de destino a ser implantado usando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0). O grupo de recursos existente acima também pode ser reutilizado como parte desse processo:
+10. Crie ou um grupo de recursos na região de destino para o balanceador de carga interno de destino a ser implantado usando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0). O grupo de recursos existente acima também pode ser reutilizado como parte desse processo:
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. Implante o arquivo **\<resource-group-name>.json** editado no grupo de recursos criado na etapa anterior usando [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+11. Implante o arquivo **\<resource-group-name>.json** editado no grupo de recursos criado na etapa anterior usando [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 
@@ -446,7 +446,7 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
     
     ```
 
-12. Para verificar se os recursos foram criados na região de destino, use [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) e [Get-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/get-azloadbalancer?view=azps-2.6.0):
+12. Para verificar se os recursos foram criados na região de destino, use [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) e [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer?view=azps-2.6.0):
     
     ```azurepowershell-interactive
 
@@ -462,7 +462,7 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
 
 ## <a name="discard"></a>Descartar 
 
-Após a implantação, se você quiser iniciar ou descartar a rede virtual e o balanceador de carga no destino, exclua o grupo de recursos que foi criado no destino e a rede virtual movida e o balanceador de carga serão excluídos.  Para remover o grupo de recursos, use [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
+Após a implantação, se você quiser iniciar ou descartar a rede virtual e o balanceador de carga no destino, exclua o grupo de recursos que foi criado no destino e a rede virtual movida e o balanceador de carga serão excluídos.  Para remover o grupo de recursos, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
 
 ```azurepowershell-interactive
 
@@ -472,7 +472,7 @@ Remove-AzResourceGroup -Name <resource-group-name>
 
 ## <a name="clean-up"></a>Limpar
 
-Para confirmar as alterações e concluir a movimentação do NSG, exclua o NSG de origem ou o grupo de recursos, use [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0) ou [Remove-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/remove-azvirtualnetwork?view=azps-2.6.0) e [Remove-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/remove-azloadbalancer?view=azps-2.6.0)
+Para confirmar as alterações e concluir a movimentação do NSG, exclua o NSG de origem ou o grupo de recursos, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0) ou [Remove-AzVirtualNetwork](/powershell/module/az.network/remove-azvirtualnetwork?view=azps-2.6.0) e [Remove-AzLoadBalancer](/powershell/module/az.network/remove-azloadbalancer?view=azps-2.6.0)
 
 ```azurepowershell-interactive
 
@@ -494,5 +494,5 @@ Remove-AzVirtualNetwork -Name <virtual-network-name> -ResourceGroupName <resourc
 Neste tutorial, você moveu um balanceador de carga interno do Azure de uma região para outra e limpou os recursos de origem.  Para saber mais sobre como mover recursos entre regiões e recuperação de desastres no Azure, confira:
 
 
-- [Mover recursos para um novo grupo de recursos ou assinatura](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Mover as VMs do Azure para outra região](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Mover as VMs do Azure para outra região](../site-recovery/azure-to-azure-tutorial-migrate.md)

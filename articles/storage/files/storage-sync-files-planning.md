@@ -4,16 +4,16 @@ description: Planejar uma implantação com o Sincronização de Arquivos do Azu
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/15/2020
+ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 876a96f579bff8d30e454e927054a951734f44ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65293df5fae523bff36240273afb93c4dd8485df
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441092"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219469"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planejando uma implantação da Sincronização de Arquivos do Azure
 
@@ -50,6 +50,9 @@ Os grupos de sincronização são implantados em **Serviços de Sincronização 
 Para criar um grupo de sincronização em um Serviço de Sincronização de Armazenamento, primeiro você deve registrar um Windows Server no Serviço de Sincronização de Armazenamento. Isso cria o objeto **servidor registrado** que representa uma relação de confiança entre seu servidor ou cluster e o Serviço de Sincronização de Armazenamento. Para registrar um Serviço de Sincronização de Armazenamento, você deve primeiro instalar o agente da Sincronização de Arquivos do Azure no servidor. Um servidor individual ou um cluster pode ser registrado apenas em um Serviço de Sincronização de Armazenamento por vez.
 
 Um grupo de sincronização contém um ponto de extremidade na nuvem ou um compartilhamento de arquivo do Azure e pelo menos um ponto de extremidade do servidor. O objeto de ponto de extremidade do servidor contém as configurações que definem a funcionalidade de **camada de nuvem**, que fornece a funcionalidade de cache da Sincronização de Arquivos do Azure. Para sincronizar com um compartilhamento de arquivo do Azure, a conta de armazenamento que contém o compartilhamento de arquivo do Azure deve estar na mesma região do Azure que o Serviço de Sincronização de Armazenamento.
+
+> [!Important]  
+> Você pode fazer alterações a qualquer Ponto de extremidade de Nuvem ou de Servidor no Grupo de sincronização e ter seus arquivos sincronizados com os outros pontos de extremidade no Grupo de sincronização. Se você fizer uma alteração diretamente no Ponto de extremidade de nuvem (compartilhamento de Arquivos do Azure), observe que as alterações devem primeiro ser descobertas por um trabalho de detecção de alteração de sincronização de arquivos do Azure. Um trabalho de detecção de alteração é iniciado para um ponto de extremidade da nuvem apenas uma vez a cada 24 horas. Para obter mais informações, consulte [Perguntas frequentes sobre os Arquivos do Azure](storage-files-faq.md#afs-change-detection).
 
 ### <a name="management-guidance"></a>Diretrizes de gerenciamento
 Ao implantar a Sincronização de Arquivos do Azure, recomendamos:
@@ -115,7 +118,7 @@ Na tabela a seguir, fornecemos o tamanho do namespace, bem como uma conversão p
 ### <a name="evaluation-cmdlet"></a>Cmdlet de avaliação
 Antes de implantar a Sincronização de Arquivos do Azure, você precisa avaliar se ela é compatível com seu sistema usando o cmdlet de avaliação da Sincronização de Arquivos do Azure. Esse cmdlet verifica se há possíveis problemas com seu sistema de arquivos e conjunto de dados, como caracteres sem suporte ou uma versão do sistema operacional não compatível. As verificações abrangem a maioria dos recursos mencionados abaixo, mas não todos eles. É recomendável que você leia o restante desta seção com cuidado para garantir que sua implantação seja perfeita. 
 
-O cmdlet de avaliação pode ser instalado por meio do módulo Az PowerShell, que pode ser instalado seguindo as instruções aqui: [Instale e configure o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+O cmdlet de avaliação pode ser instalado por meio do módulo Az PowerShell, que pode ser instalado seguindo as instruções aqui: [Instale e configure o Azure PowerShell](/powershell/azure/install-Az-ps).
 
 #### <a name="usage"></a>Uso  
 Você pode invocar a ferramenta de avaliação de algumas maneiras diferentes: você pode executar verificações de sistema, verificações de conjunto de dados ou ambas. Para executar verificações de sistema e de conjunto de dados: 
@@ -183,7 +186,7 @@ O clustering de failover do Windows Server tem suporte pela Sincronização de A
 
 ### <a name="data-deduplication"></a>Eliminação de duplicação de dados
 **Windows Server 2016 e Windows Server 2019**   
-A eliminação de duplicação de dados tem suporte em volumes com a camada de nuvem habilitada no Windows Server 2016 e Windows Server 2019. Habilitar a Eliminação de Duplicação de Dados em um volume com camada de nuvem habilitada permite armazenar em cache mais arquivos localmente sem ter que provisionar mais armazenamento. 
+A eliminação de duplicação de dados tem suporte, independentemente de a disposição da nuvem estar habilitada ou desabilitada em um ou mais pontos de extremidade do servidor no volume para o Windows Server 2016 e o Windows Server 2019. Habilitar a Eliminação de Duplicação de Dados em um volume com camada de nuvem habilitada permite armazenar em cache mais arquivos localmente sem ter que provisionar mais armazenamento. 
 
 Quando a Eliminação de Duplicação de Dados é habilitada em um volume com camada de nuvem habilitada, os arquivos otimizados para eliminação de duplicação na localização do ponto de extremidade do servidor serão colocados em camadas semelhantes a um arquivo normal com base nas configurações de política de camada de nuvem. Depois que os arquivos otimizados para eliminação de duplicação estiverem em camadas, o trabalho de coleta de lixo da Eliminação de Duplicação de Dados será executado automaticamente para recuperar espaço em disco removendo partes desnecessárias que não são mais referenciadas por outros arquivos no volume.
 
@@ -200,7 +203,7 @@ A Sincronização de Arquivos do Azure não é compatível com a Eliminação de
 - Se a Eliminação de Duplicação de Dados estiver habilitada em um volume depois que a camada de nuvem estiver habilitada, o trabalho de otimização de eliminação de duplicação inicial otimizará os arquivos do volume que ainda não estiverem em camadas e terá o seguinte impacto na camada de nuvem:
     - A política de espaço livre continuará a colocar arquivos em camada de acordo com o espaço livre no volume usando o mapa de calor.
     - A política de data ignorará a camada de arquivos que, de outra forma, poderia ter sido qualificada para camada devido ao trabalho de otimização da eliminação de duplicação que acessa os arquivos.
-- Para trabalhos de otimização de eliminação de duplicação em andamento, a camada de nuvem com a política de data será atrasada pela configuração [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps) da Eliminação de Duplicação de Dados, se o arquivo ainda não estiver em camada. 
+- Para trabalhos de otimização de eliminação de duplicação em andamento, a camada de nuvem com a política de data será atrasada pela configuração [MinimumFileAgeDays](/powershell/module/deduplication/set-dedupvolume?view=win10-ps) da Eliminação de Duplicação de Dados, se o arquivo ainda não estiver em camada. 
     - Exemplo: Se a configuração MinimumFileAgeDays for de sete dias e a política de data da camada de nuvem for de 30 dias, a política de data colocará os arquivos em camada após 37 dias.
     - Observação: Quando um arquivo é colocado em camadas pela Sincronização de Arquivos do Azure, o trabalho de otimização da eliminação de duplicação ignorará o arquivo.
 - Se um servidor que executa o Windows Server 2012 R2 com o agente da Sincronização de Arquivos do Azure instalado for atualizado para o Windows Server 2016 ou o Windows Server 2019, as seguintes etapas deverão ser executadas para dar suporte à Eliminação de Duplicação de Dados e à camada de nuvem no mesmo volume:  
@@ -213,7 +216,7 @@ A Sincronização de Arquivos do Azure não é compatível com a Eliminação de
 ### <a name="distributed-file-system-dfs"></a>DFS (Sistema de Arquivos Distribuído)
 A Sincronização de Arquivos do Azure fornece suporte para interoperabilidade com Namespaces de DFS (DFS-N) e Replicação do DFS (DFS-R).
 
-**DFS-N (Namespaces de DFS)** : A Sincronização de Arquivos do Azure é totalmente suportada em servidores DFS-N. É possível instalar o agente Sincronização de arquivos do Azure em um ou mais membros DFS-N para sincronizar dados entre os pontos de extremidade de servidor e o ponto de extremidade da nuvem. Para obter mais informações, consulte [visão geral de Namespaces de DFS](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
+**DFS-N (Namespaces de DFS)** : A Sincronização de Arquivos do Azure é totalmente suportada em servidores DFS-N. É possível instalar o agente Sincronização de arquivos do Azure em um ou mais membros DFS-N para sincronizar dados entre os pontos de extremidade de servidor e o ponto de extremidade da nuvem. Para obter mais informações, consulte [visão geral de Namespaces de DFS](/windows-server/storage/dfs-namespaces/dfs-overview).
  
 **DFS-R (Replicação do DFS)** : Quando tanto DFS-R como a Sincronização de arquivos do Azure forem soluções de replicação, na maioria dos casos é recomendável substituir DFS-R pela Sincronização de Arquivos do Azure. No entanto, existem vários cenários em que você deseja usar DFS-R e Sincronização de arquivos do Azure em conjunto:
 
@@ -226,7 +229,7 @@ Para que a Sincronização de Arquivos do Azure e o DFS-R trabalharem lado a lad
 1. A camada de nuvem da Sincronização de arquivos do Azure deve ser desabilitada em volumes com pastas replicadas DFS-R.
 2. Os pontos de extremidade de servidor não devem ser configurados em pastas de replicação somente leitura do DFS-R.
 
-Para obter mais informações, consulte [Visão geral da Replicação do DFS](https://technet.microsoft.com/library/jj127250).
+Para obter mais informações, consulte [Visão geral da Replicação do DFS](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj127250(v=ws.11)).
 
 ### <a name="sysprep"></a>Sysprep
 Não há compatibilidade no uso do sysprep em um servidor que tenha o agente de Sincronização de Arquivos do Azure instalado e isso pode levar a resultados inesperados. A instalação do agente e o registro do servidor devem ocorrer depois da implantação da imagem do servidor e da conclusão da mini-instalação do sysprep.
@@ -263,7 +266,7 @@ Ao usar a Sincronização de Arquivos do Azure, há três camadas diferentes de 
 ### <a name="windows-server-encryption-at-rest"></a>Criptografia em repouso do Windows Server 
 Há duas estratégias para criptografar dados no Windows Server que funcionam geralmente com a Sincronização de Arquivos do Azure: criptografia subjacente do sistema de arquivos de modo que o sistema de arquivos e todos os dados gravados nele sejam criptografados e criptografia no próprio formato de arquivo. Esses métodos não são mutuamente exclusivos; eles podem ser usados juntos, se desejado, uma vez que a finalidade da criptografia é diferente.
 
-Para fornecer criptografia subjacente ao sistema de arquivos, o Windows Server oferece a caixa de entrada do BitLocker. O BitLocker é totalmente transparente para a Sincronização de Arquivos do Azure. O principal motivo para usar um mecanismo de criptografia como o BitLocker é impedir a exfiltração física de dados do seu datacenter local por alguém que queira roubar os discos e para impedir o sideload de um sistema operacional não autorizado para executar leituras/gravações não autorizadas em seus dados. Para saber mais sobre o BitLocker, confira [Visão geral do BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview).
+Para fornecer criptografia subjacente ao sistema de arquivos, o Windows Server oferece a caixa de entrada do BitLocker. O BitLocker é totalmente transparente para a Sincronização de Arquivos do Azure. O principal motivo para usar um mecanismo de criptografia como o BitLocker é impedir a exfiltração física de dados do seu datacenter local por alguém que queira roubar os discos e para impedir o sideload de um sistema operacional não autorizado para executar leituras/gravações não autorizadas em seus dados. Para saber mais sobre o BitLocker, confira [Visão geral do BitLocker](/windows/security/information-protection/bitlocker/bitlocker-overview).
 
 Os produtos de terceiros que funcionam de maneira semelhante ao BitLocker, no que ficam subjacente ao volume NTFS, devem funcionar de maneira totalmente transparente com a Sincronização de Arquivos do Azure. 
 
@@ -299,48 +302,16 @@ Para obter mais informações sobre criptografia em trânsito, consulte [Exigir 
 [!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]
 
 ## <a name="azure-file-sync-region-availability"></a>Disponibilidade de região da sincronização de arquivos do Azure
-A Sincronização de Arquivos do Azure está disponível nas seguintes regiões:
 
-| Nuvem do Azure | Região geográfica | Região do Azure | Código da região |
-|-------------|-------------------|--------------|-------------|
-| Público | Ásia | Leste da Ásia | `eastasia` |
-| Público | Ásia | Sudeste Asiático | `southeastasia` |
-| Público | Austrália | Leste da Austrália | `australiaeast` |
-| Público | Austrália | Sudeste da Austrália | `australiasoutheast` |
-| Público | Brasil | Sul do Brasil | `brazilsouth` |
-| Público | Canada | Canadá Central | `canadacentral` |
-| Público | Canada | Leste do Canadá | `canadaeast` |
-| Público | Europa | Norte da Europa | `northeurope` |
-| Público | Europa | Europa Ocidental | `westeurope` |
-| Público | França | França Central | `francecentral` |
-| Público | França | Sul da França* | `francesouth` |
-| Público | Índia | Índia Central | `centralindia` |
-| Público | Índia | Sul da Índia | `southindia` |
-| Público | Japão | Leste do Japão | `japaneast` |
-| Público | Japão | Oeste do Japão | `japanwest` |
-| Público | Coreia do Sul | Coreia Central | `koreacentral` |
-| Público | Coreia do Sul | Sul da Coreia | `koreasouth` |
-| Público | África do Sul | Norte da África do Sul | `southafricanorth` |
-| Público | África do Sul | Oeste da África do Sul* | `southafricawest` |
-| Público | EAU | EAU Central* | `uaecentral` |
-| Público | EAU | Norte dos EAU | `uaenorth` |
-| Público | Reino Unido | Sul do Reino Unido | `uksouth` |
-| Público | Reino Unido | Oeste do Reino Unido | `ukwest` |
-| Público | EUA | Centro dos EUA | `centralus` |
-| Público | EUA | Leste dos EUA | `eastus` |
-| Público | EUA | Leste dos EUA 2 | `eastus2` |
-| Público | EUA | Centro-Norte dos EUA | `northcentralus` |
-| Público | EUA | Centro-Sul dos Estados Unidos | `southcentralus` |
-| Público | EUA | Centro-Oeste dos EUA | `westcentralus` |
-| Público | EUA | Oeste dos EUA | `westus` |
-| Público | EUA | Oeste dos EUA 2 | `westus2` |
-| Gov dos EUA | EUA | Governo dos EUA do Arizona | `usgovarizona` |
-| Gov dos EUA | EUA | Governo dos EUA do Texas | `usgovtexas` |
-| Gov dos EUA | EUA | Gov. dos EUA – Virgínia | `usgovvirginia` |
+Para disponibilidade regional, consulte [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
 
-A Sincronização de Arquivos do Azure é compatível apenas com um compartilhamento de arquivo do Azure que esteja na mesma região que o Serviço de Sincronização de Armazenamento.
+As seguintes regiões exigem que você solicite acesso ao armazenamento do Azure antes de poder usar Sincronização de Arquivos do Azure com eles:
 
-Para as regiões marcadas com asteriscos, você deve contatar o Suporte do Azure para solicitar acesso ao Armazenamento do Azure nessas regiões. O processo é descrito [neste documento](https://azure.microsoft.com/global-infrastructure/geographies/).
+- Sul da França
+- Oeste da África do Sul
+- EAU Central
+
+Para solicitar acesso a essas regiões, siga o processo neste [documento](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 ## <a name="redundancy"></a>Redundância
 [!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]
@@ -368,7 +339,7 @@ As soluções antivírus internas da Microsoft, o Windows Defender e o System Ce
 > Os fornecedores de antivírus podem verificar a compatibilidade entre seus produtos e a Sincronização de Arquivos do Azure usando o [Conjunto de testes de compatibilidade de antivírus da Sincronização de Arquivos do Azure](https://www.microsoft.com/download/details.aspx?id=58322), que está disponível para download no Centro de Download da Microsoft.
 
 ## <a name="backup"></a>Backup 
-Se a disposição em camadas da nuvem estiver habilitada, as soluções que fazem backup diretamente do ponto de extremidade do servidor ou de uma VM na qual o ponto de extremidade do servidor está localizado não devem ser usadas. A camada de nuvem faz com que apenas um subconjunto de seus dados seja armazenado no ponto de extremidade do servidor, com o DataSet completo que reside em seu compartilhamento de arquivos do Azure. Dependendo da solução de backup usada, os arquivos em camadas serão ignorados e não será feito backup (porque têm o conjunto de atributos FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS) ou serão rechamados para o disco, resultando em encargos de egresso altos. É recomendável usar uma solução de backup de nuvem para fazer backup do compartilhamento de arquivos do Azure diretamente. Para obter mais informações, consulte [sobre o backup do compartilhamento de arquivos do Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json) ou contate seu provedor de backup para ver se eles dão suporte ao backup de compartilhamentos de arquivos do Azure.
+Se a disposição em camadas da nuvem estiver habilitada, as soluções que fazem backup diretamente do ponto de extremidade do servidor ou de uma VM na qual o ponto de extremidade do servidor está localizado não devem ser usadas. A camada de nuvem faz com que apenas um subconjunto de seus dados seja armazenado no ponto de extremidade do servidor, com o DataSet completo que reside em seu compartilhamento de arquivos do Azure. Dependendo da solução de backup usada, os arquivos em camadas serão ignorados e não será feito backup (porque têm o conjunto de atributos FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS) ou serão rechamados para o disco, resultando em encargos de egresso altos. É recomendável usar uma solução de backup de nuvem para fazer backup do compartilhamento de arquivos do Azure diretamente. Para obter mais informações, consulte [sobre o backup do compartilhamento de arquivos do Azure](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) ou contate seu provedor de backup para ver se eles dão suporte ao backup de compartilhamentos de arquivos do Azure.
 
 Se você preferir usar uma solução de backup local, os backups devem ser executados em um servidor no grupo de sincronização que tenha a camada de nuvem desabilitada. Ao executar uma restauração, use as opções de restauração no nível do volume ou no nível do arquivo. Os arquivos restaurados usando a opção de restauração no nível do arquivo serão sincronizados com todos os pontos de extremidade no grupo de sincronização e os arquivos existentes serão substituídos pela versão restaurada do backup.  As restaurações no nível de volume não substituirão as versões de arquivo mais recentes no compartilhamento de arquivos do Azure ou em outros pontos de extremidade do servidor.
 
@@ -384,6 +355,6 @@ Se você preferir usar uma solução de backup local, os backups devem ser execu
 ## <a name="next-steps"></a>Próximas etapas
 * [Considere as configurações de firewall e proxy](storage-sync-files-firewall-and-proxy.md)
 * [Planejando uma implantação de Arquivos do Azure](storage-files-planning.md)
-* [Implantar os Arquivos do Azure](storage-files-deployment-guide.md)
+* [Implantar os Arquivos do Azure](./storage-how-to-create-file-share.md)
 * [Implantar a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md)
 * [Monitorar a Sincronização de Arquivos do Azure](storage-sync-files-monitoring.md)

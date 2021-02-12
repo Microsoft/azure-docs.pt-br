@@ -5,12 +5,12 @@ author: MSEvanhi
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: evanhi
-ms.openlocfilehash: 5e1a929924e2c291e0044da99f3ae5d7d1c3b894
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f839eb04e0c036b5059e35fac16d9c702646cbd7
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371551"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435681"
 ---
 # <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Habilitar e solicitar o acesso just-in-time para aplicativos gerenciados do Azure
 
@@ -72,7 +72,7 @@ Ao criar sua oferta no Partner Center, certifique-se de habilitar o acesso JIT.
 
 1. Entre no portal do Marketplace comercial no [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 
-1. Para obter orientações sobre como criar um novo aplicativo gerenciado, siga as etapas em [criar uma oferta de aplicativo do Azure](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).
+1. Para obter orientações sobre como criar um novo aplicativo gerenciado, siga as etapas em [criar uma oferta de aplicativo do Azure](../../marketplace/create-new-azure-apps-offer.md).
 
 1. Na página **configuração técnica** , marque a caixa de seleção **habilitar acesso JIT (just-in-time)** .
 
@@ -88,7 +88,7 @@ Para enviar uma solicitação de acesso JIT:
 
 1. Selecione **acesso JIT** para o aplicativo gerenciado que você precisa acessar.
 
-1. Selecione **funções qualificadas**e selecione **Ativar** na coluna ação para a função desejada.
+1. Selecione **funções qualificadas** e selecione **Ativar** na coluna ação para a função desejada.
 
    ![Ativar solicitação de acesso](./media/request-just-in-time-access/send-request.png)
 
@@ -98,7 +98,7 @@ Para enviar uma solicitação de acesso JIT:
 
 1. Exiba as notificações para ver que a nova solicitação JIT foi enviada com êxito ao consumidor.
 
-   ![Notification](./media/request-just-in-time-access/in-progress.png)
+   ![Notificação](./media/request-just-in-time-access/in-progress.png)
 
    Agora, você deve aguardar até que o consumidor [aprove sua solicitação](approve-just-in-time-access.md#approve-requests).
 

@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: article
 ms.date: 06/8/2020
 ms.author: chenyl
-ms.openlocfilehash: 9b6141e6009cb868d63429836f8c8f050c792ee5
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: dee15977318eda7bcd0b1950286bb33f621221dd
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152294"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98731577"
 ---
 # <a name="managed-identities-for-azure-signalr-service"></a>Identidades gerenciadas para o serviço de Signaler do Azure
 
@@ -44,9 +44,9 @@ A criação de uma instância do serviço de Signaler do Azure com uma identidad
 
 4. Na guia **atribuído pelo usuário** , selecione **Adicionar**.
 
-5. Pesquise a identidade que você criou anteriormente e selecione-a. Selecione **Adicionar**.
+5. Pesquise a identidade que você criou anteriormente e a selecione. Selecione **Adicionar**.
 
-    :::image type="content" source="media/signalr-howto-use-managed-identity/user-identity-portal.png" alt-text="Adicionar uma identidade atribuída pelo sistema no portal":::
+    :::image type="content" source="media/signalr-howto-use-managed-identity/user-identity-portal.png" alt-text="Adicionar uma identidade atribuída pelo usuário no portal":::
 
 ## <a name="use-a-managed-identity-in-serverless-scenarios"></a>Usar uma identidade gerenciada em cenários sem servidor
 
@@ -56,7 +56,10 @@ O serviço de Signaler do Azure é um serviço totalmente gerenciado, portanto, 
 
 1. Adicione uma identidade atribuída pelo sistema ou uma identidade atribuída pelo usuário.
 
-2. Defina as configurações de upstream e use **ManagedIdentity** como as configurações de **autenticação** . Para saber como criar configurações de upstream com autenticação, consulte [configurações de upstream](concept-upstream.md).
+2. Adicione uma configuração upstream e clique em qualquer asterisco para entrar em uma página detalhada, conforme mostrado abaixo.
+    :::image type="content" source="media/signalr-howto-use-managed-identity/pre-msi-settings.png" alt-text="pré-MSI-configuração":::
+    
+    :::image type="content" source="media/signalr-howto-use-managed-identity/msi-settings.png" alt-text="MSI-configuração":::
 
 3. Nas configurações de autenticação de identidade gerenciadas, para **recurso**, você pode especificar o recurso de destino. O recurso se tornará uma `aud` declaração no token de acesso obtido, que pode ser usado como parte da validação em seus pontos de extremidade upstream. O recurso pode ser um dos seguintes:
     - Vazio
@@ -76,6 +79,37 @@ Para validar tokens de acesso, seu aplicativo também deve validar o público e 
 O middleware Azure Active Directory (Azure AD) tem recursos internos para validar tokens de acesso. Você pode navegar pelos nossos [exemplos](../active-directory/develop/sample-v2-code.md) para encontrar um no idioma de sua escolha.
 
 Fornecemos bibliotecas e exemplos de código que mostram como manipular a validação de token. Há também várias bibliotecas de parceiros de software livre disponíveis para validação JWT (JSON Web token). Há pelo menos uma opção para quase todas as plataformas e idiomas. Para obter mais informações sobre as bibliotecas de autenticação do Azure AD e exemplos de código, consulte [bibliotecas de autenticação da plataforma de identidade da Microsoft](../active-directory/develop/reference-v2-libraries.md).
+
+#### <a name="authentication-in-function-app"></a>Autenticação no Aplicativo de funções
+
+Definir a validação de token de acesso no Aplicativo de funções é fácil e eficiente sem que o código funcione.
+
+1. Na página **autenticação/autorização** , alterne a **autenticação do serviço de aplicativo** para **ativado**.
+
+2. Selecione **fazer logon com Azure Active Directory** em **ação a ser tomada quando a solicitação não for autenticada**.
+
+3. No provedor de autenticação, clique em into **Azure Active Directory**
+
+4. Na nova página. Selecione **expressa** e **criar novo aplicativo do AD** e clique em **OK** :::image type="content" source="media/signalr-howto-use-managed-identity/function-aad.png" alt-text="função AAD":::
+
+5. Navegue até o serviço de sinalização e siga [as etapas](howto-use-managed-identity.md#add-a-system-assigned-identity) para adicionar uma identidade atribuída pelo sistema ou uma identidade atribuída pelo usuário.
+
+6. Entre em **configurações de upstream** no serviço signalr e escolha **usar identidade gerenciada** e **selecione de aplicativos existentes**. Selecione o aplicativo que você criou anteriormente.
+
+Depois dessas configurações, a Aplicativo de funções rejeitará as solicitações sem um token de acesso no cabeçalho.
+
+## <a name="use-a-managed-identity-for-key-vault-reference"></a>Usar uma identidade gerenciada para referência de Key Vault
+
+O serviço signalr pode acessar Key Vault para obter o segredo usando a identidade gerenciada.
+
+1. Adicione uma identidade atribuída pelo sistema ou uma identidade atribuída pelo usuário para o serviço de Signaler do Azure.
+
+2. Conceda permissão de leitura de segredo para a identidade gerenciada nas políticas de acesso no Key Vault. Consulte [atribuir uma política de acesso de Key Vault usando o portal do Azure](../key-vault/general/assign-access-policy-portal.md)
+
+Atualmente, esse recurso pode ser usado nos seguintes cenários:
+
+- [Segredo de referência no padrão de URL upstream](./concept-upstream.md#key-vault-secret-reference-in-url-template-settings)
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

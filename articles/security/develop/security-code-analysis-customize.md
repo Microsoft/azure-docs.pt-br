@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: b05084a7d01f4c5d5d5a79b60ac0b8ba47843622
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4016e1dd055b45f9cd59a172d0e71ef95fec1c40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91816780"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008677"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configurar e personalizar as tarefas de compilação
 
@@ -39,7 +39,7 @@ Na caixa de listagem **tipo** da captura de tela, **básico** é selecionado. Se
 
 O Windows Defender usa o cliente Windows Update para baixar e instalar assinaturas. Se a atualização de assinatura falhar em seu agente de compilação, o código de erro **HRESULT** provavelmente será proveniente de Windows Update.
 
-Para obter mais informações sobre erros de Windows Update e sua mitigação, consulte [Windows Update códigos de erro por componente](https://docs.microsoft.com/windows/deployment/update/windows-update-error-reference) e o artigo do TechNet [Windows Update códigos de erro de agente](https://social.technet.microsoft.com/wiki/contents/articles/15260.windows-update-agent-error-codes.aspx).
+Para obter mais informações sobre erros de Windows Update e sua mitigação, consulte [Windows Update códigos de erro por componente](/windows/deployment/update/windows-update-error-reference) e o artigo do TechNet [Windows Update códigos de erro de agente](https://social.technet.microsoft.com/wiki/contents/articles/15260.windows-update-agent-error-codes.aspx).
 
 Para obter informações sobre a configuração de YAML para essa tarefa, verifique nossas [Opções de YAML de anti-malware](yaml-configuration.md#anti-malware-scanner-task)
 
@@ -97,7 +97,7 @@ Os detalhes da configuração de tarefa são mostrados na seguinte captura de te
 As opções disponíveis incluem:
   - **Nome de exibição**: o nome da tarefa DevOps do Azure. O valor padrão é executar o verificador de credenciais
   - **Versão principal da ferramenta**: os valores disponíveis incluem **CredScan v2**, **CredScan v1**. Recomendamos que os clientes usem a versão **CredScan v2** .
-  - **Formato de saída**: os valores disponíveis incluem **TSV**, **CSV**, **SARIF**e **PREfast**.
+  - **Formato de saída**: os valores disponíveis incluem **TSV**, **CSV**, **SARIF** e **PREfast**.
   - **Versão da ferramenta**: Recomendamos que você selecione **mais recente**.
   - **Pasta de verificação**: a pasta do repositório a ser verificada.
   - **Tipo de arquivo do Searchers**: as opções para localizar o arquivo de pesquisa que é usado para verificação.
@@ -124,7 +124,7 @@ Os detalhes da configuração de tarefa são mostrados na lista e observação a
 
 As opções disponíveis incluem:
 
-- **RuleSet**: os valores são o **SDL necessário**, o **SDL é recomendado**ou seu próprio conjunto de regras personalizado.
+- **RuleSet**: os valores são o **SDL necessário**, o **SDL é recomendado** ou seu próprio conjunto de regras personalizado.
 - **Versão do analisadores**: Recomendamos que você selecione **mais recente**.
 - **Arquivo de supressões de avisos do compilador**: um arquivo de texto com uma lista de IDs de Avisos suprimidos.
 - **Opções**  >  de controle **Executar esta tarefa**: especifica quando a tarefa será executada. Escolha **condições personalizadas** para especificar condições mais complexas.
@@ -143,7 +143,7 @@ As opções disponíveis incluem:
 >
 >   Se a nova tarefa for executada no mesmo agente que a tarefa original, a saída da nova tarefa substituirá a saída da tarefa original na pasta *s* sources. Embora a saída da compilação seja a mesma, aconselhamos que você execute o MSBuild, copie a saída para o diretório de preparo dos artefatos e, em seguida, execute os analisadores do Roslyn.
 
-Para obter recursos adicionais para a tarefa analisadores de Roslyn, confira [os analisadores baseados em Roslyn](https://docs.microsoft.com/dotnet/standard/analyzers/api-analyzer) no Microsoft docs.
+Para obter recursos adicionais para a tarefa analisadores de Roslyn, confira [os analisadores baseados em Roslyn](/dotnet/standard/analyzers/api-analyzer) no Microsoft docs.
 
 Você pode encontrar o pacote do analisador instalado e usado por essa tarefa de compilação na página do NuGet [Microsoft. CodeAnalysis. FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers).
 
@@ -176,7 +176,7 @@ Os detalhes da configuração do relatório de segurança são mostrados na segu
 
 ![Configurando a tarefa de compilação do relatório de segurança](./media/security-tools/4-createsecurityanalysisreport600.png)
 
-- **Relatórios**: selecione qualquer um dos formatos do **console do pipeline**, do **arquivo TSV**e do **arquivo HTML** . Um arquivo de relatório é criado para cada formato selecionado.
+- **Relatórios**: selecione qualquer um dos formatos do **console do pipeline**, do **arquivo TSV** e do **arquivo HTML** . Um arquivo de relatório é criado para cada formato selecionado.
 - **Ferramentas**: selecione as ferramentas em sua definição de compilação para as quais você deseja um resumo dos problemas detectados. Para cada ferramenta selecionada, pode haver uma opção para selecionar se você vê somente erros ou vê erros e avisos no relatório de resumo.
 - **Opções avançadas**: se não houver nenhum log para uma das ferramentas selecionadas, você poderá optar por registrar um aviso ou um erro. Se você registrar um erro, a tarefa falhará.
 - **Pasta de logs de base**: você pode personalizar a pasta de logs de base onde os logs devem ser encontrados. Mas essa opção normalmente não é usada.

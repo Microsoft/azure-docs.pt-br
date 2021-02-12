@@ -1,7 +1,7 @@
 ---
 title: Calcular o tamanho de um contêiner de blob com o PowerShell
 titleSuffix: Azure Storage
-description: Calcule o tamanho de um contêiner no Armazenamento de Blobs do Azure, totalizando o tamanho de cada um dos seus blobs.
+description: Calcule o tamanho de um contêiner no Armazenamento de Blobs do Azure totalizando o tamanho de cada um dos blobs dele.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,16 +11,16 @@ ms.topic: sample
 ms.date: 12/04/2019
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: de275bcca1644750532809b35ae85d954d3cac6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87ef18530c549396b7d8fe1ec4ff0e08cb8535e8
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89076898"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784267"
 ---
 # <a name="calculate-the-size-of-a-blob-container-with-powershell"></a>Calcular o tamanho de um contêiner de blob com o PowerShell
 
-Este script calcula o tamanho de um contêiner no Armazenamento de Blobs do Azure, totalizando o tamanho dos blobs no contêiner.
+Esse script calcula o tamanho de um contêiner no Armazenamento de Blobs do Azure, totalizando o tamanho dos blobs no contêiner.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 

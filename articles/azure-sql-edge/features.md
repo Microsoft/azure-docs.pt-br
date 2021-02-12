@@ -9,18 +9,18 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: 646ce94587a9aa1bb8fd20a28b84658994b25cf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19dcbbf102a1d8d21f1b14780ea33816a1677c55
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90886532"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392015"
 ---
 # <a name="supported-features-of-azure-sql-edge"></a>Recursos com suporte do Azure SQL Edge 
 
 O Azure SQL Edge é criado com base na versão mais recente do SQL Mecanismo de Banco de Dados. Ele dá suporte a um subconjunto dos recursos com suporte no SQL Server 2019 no Linux, além de alguns recursos que atualmente não têm suporte ou estão disponíveis no SQL Server 2019 no Linux (ou no SQL Server no Windows).
 
-Para obter uma lista completa dos recursos com suporte no SQL Server em Linux, consulte [Edições e recursos com suporte do SQL Server 2019 em Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-editions-and-components-2019). Para edições e recursos com suporte do SQL Server no Windows, consulte [edições e recursos com suporte do SQL Server 2019 (15. x)](https://docs.microsoft.com/sql/sql-server/editions-and-components-of-sql-server-version-15).
+Para obter uma lista completa dos recursos com suporte no SQL Server em Linux, consulte [Edições e recursos com suporte do SQL Server 2019 em Linux](/sql/linux/sql-server-linux-editions-and-components-2019). Para edições e recursos com suporte do SQL Server no Windows, consulte [edições e recursos com suporte do SQL Server 2019 (15. x)](/sql/sql-server/editions-and-components-of-sql-server-version-15).
 
 ## <a name="azure-sql-edge-editions"></a>Edições do Azure SQL Edge
 

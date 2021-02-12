@@ -5,26 +5,26 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 12/12/2018
+ms.date: 11/11/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 2766ea87544f2a21fb654f687eb62dee3c0714ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7db9749adab9a6d6d7b8c350648603f42d0b43d
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80334995"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94574270"
 ---
-**Discos gerenciados HDD Standard**  
+### <a name="standard-hdd-managed-disks"></a>Discos gerenciados HDD Standard
 [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]
 
-**Discos gerenciados SSD Standard**  
+### <a name="standard-ssd-managed-disks"></a>Discos gerenciados SSD Standard
 [!INCLUDE [disk-storage-standard-ssd-sizes](disk-storage-standard-ssd-sizes.md)]
 
-**Discos gerenciados SSD Premium: limites por disco**  
+### <a name="premium-ssd-managed-disks-per-disk-limits"></a>Discos gerenciados SSD Premium: limites por disco 
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
-**Discos gerenciados SSD Premium: limites por VM**
+### <a name="premium-ssd-managed-disks-per-vm-limits"></a>Discos gerenciados SSD Premium: limites por VM
 
 | Recurso | Limite |
 | --- | --- |

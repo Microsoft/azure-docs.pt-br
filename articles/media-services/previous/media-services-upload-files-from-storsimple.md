@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 26a3f3ff600de4418ccf6f6b09dea4b091678065
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1d43f11c1a90456b24f02a5ec43982d5fdc3de7
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265721"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98694513"
 ---
 # <a name="upload-files-into-an-azure-media-services-account-from-azure-storsimple"></a>Carregar arquivos em uma conta dos Serviços de Mídia do Azure do Azure StorSimple 
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 >
 > 
 > O Gerenciador de Dados do Azure StorSimple está em visualização privada. 
@@ -47,7 +47,7 @@ O [Azure StorSimple](../../storsimple/index.yml) usa o armazenamento em nuvem co
 
     Quando um trabalho começa a ser executado, uma fila de armazenamento é criada. Essa fila é populada com mensagens sobre blobs transformados à medida que elas estejam prontas. O nome dessa fila é igual ao nome da definição do trabalho. Use essa fila para determinar quando como ativo está pronto e para chamar sua operação desejada dos Serviços de Mídia para execução. Por exemplo, use esta fila para disparar uma função do Azure que contém o código necessário dos Serviços de Mídia.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 [Usar o SDK do .NET para disparar trabalhos no Gerenciador de Dados](../../storsimple/storsimple-data-manager-dotnet-jobs.md)
 

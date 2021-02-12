@@ -1,6 +1,5 @@
 ---
-title: Filtragem, classificação, paginação de entidades dos Serviços de Mídia
-titleSuffix: Azure Media Services
+title: Filtragem, classificação e paginação de entidades
 description: Saiba mais sobre filtragem, ordenação e paginação de entidades dos Serviços de Mídia do Azure v3.
 services: media-services
 documentationcenter: ''
@@ -13,12 +12,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 9a8cff3685cdaad011332adf58dc76f74976cd44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19febc833f087afdfecde3274a1044598d082521
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89300180"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955295"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtragem, classificação, paginação de entidades dos Serviços de Mídia
 

@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 01/19/2018
 ms.openlocfilehash: adc29916c6b674531d7b0e8fcdd4e151b4a17bde
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677572"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997249"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solução de Gerenciamento de Alertas no Azure Log Analytics
 
@@ -20,7 +20,7 @@ ms.locfileid: "92677572"
 A solução de Gerenciamento de Alertas ajuda a analisar todos os alertas em seu repositório do Log Analytics.  Esses alertas podem ser provenientes de várias origens, incluindo aquelas [criadas pelo Log Analytics](./alerts-overview.md) ou [importadas do Nagios ou do Zabbix](../learn/quick-collect-linux-computer.md). A solução também importa alertas de quaisquer [grupos de gerenciamento do System Center Operations Manager conectados](./om-agents.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-A solução funcionará com quaisquer registros no repositório do Log Analytics que sejam do tipo **Alerta** , portanto, você deverá executar qualquer configuração que for necessária para coletar esses registros.
+A solução funcionará com quaisquer registros no repositório do Log Analytics que sejam do tipo **Alerta**, portanto, você deverá executar qualquer configuração que for necessária para coletar esses registros.
 
 - Para alertas do Log Analytics, [crie regras de alerta](./alerts-overview.md) para criar registros de alerta diretamente no repositório.
 - Para alertas do Nagios e Zabbix, [configure esses servidores](../learn/quick-collect-linux-computer.md) para enviar alertas para o Log Analytics.
@@ -40,11 +40,11 @@ Para obter mais informações sobre como os pacotes de gerenciamento da soluçã
 ### <a name="agents"></a>Agentes
 A tabela a seguir descreve as fontes conectadas que têm suporte dessa solução.
 
-| Fonte Conectada | Suporte | Descrição |
+| Fonte Conectada | Suporte | Description |
 |:--- |:--- |:--- |
-| [Agentes do Windows](agent-windows.md) | Não |Agentes diretos do Windows não geram alertas.  Alertas do Log Analytics podem ser criados de eventos e dados de desempenho coletados de agentes do Windows. |
-| [Agentes do Linux](../learn/quick-collect-linux-computer.md) | Não |Agentes diretos do Linux não geram alertas.  Alertas do Log Analytics podem ser criados de eventos e dados de desempenho coletados de agentes do Linux.  Alertas do Nagios e Zabbix são coletados desses servidores que exigem o agente do Linux. |
-| [Grupo de gerenciamento do System Center Operations Manager](./om-agents.md) |Sim |Os alertas gerados em agentes do System Center Operations Manager são entregues ao grupo de gerenciamento e, em seguida, encaminhados para o Log Analytics.<br><br>Uma conexão direta de agentes do Operations Manager ao Log Analytics não é necessária. Os dados de alerta são encaminhados do grupo de gerenciamento para o repositório do Log Analytics. |
+| [Agentes do Windows](agent-windows.md) | No |Agentes diretos do Windows não geram alertas.  Alertas do Log Analytics podem ser criados de eventos e dados de desempenho coletados de agentes do Windows. |
+| [Agentes do Linux](../learn/quick-collect-linux-computer.md) | No |Agentes diretos do Linux não geram alertas.  Alertas do Log Analytics podem ser criados de eventos e dados de desempenho coletados de agentes do Linux.  Alertas do Nagios e Zabbix são coletados desses servidores que exigem o agente do Linux. |
+| [Grupo de gerenciamento do System Center Operations Manager](./om-agents.md) |Yes |Os alertas gerados em agentes do System Center Operations Manager são entregues ao grupo de gerenciamento e, em seguida, encaminhados para o Log Analytics.<br><br>Uma conexão direta de agentes do Operations Manager ao Log Analytics não é necessária. Os dados de alerta são encaminhados do grupo de gerenciamento para o repositório do Log Analytics. |
 
 
 ### <a name="collection-frequency"></a>Frequência de coleta
@@ -56,14 +56,14 @@ Ao adicionar a solução de Gerenciamento de Alertas ao seu espaço de trabalho 
 
 ![Bloco do Gerenciamento de Alertas](media/alert-management-solution/tile.png)
 
-Clique no bloco **Gerenciamento de Alertas** para abrir o painel **Gerenciamento de Alertas** .  O painel inclui as colunas na tabela a seguir.  Cada coluna lista os dez principais alertas por contagem que correspondem aos critérios da coluna para o escopo e intervalo de tempo especificados.  Você pode executar uma pesquisa de logs que fornece a lista inteira clicando em **Ver todos** na parte inferior da coluna ou clicando no cabeçalho da coluna.
+Clique no bloco **Gerenciamento de Alertas** para abrir o painel **Gerenciamento de Alertas**.  O painel inclui as colunas na tabela a seguir.  Cada coluna lista os dez principais alertas por contagem que correspondem aos critérios da coluna para o escopo e intervalo de tempo especificados.  Você pode executar uma pesquisa de logs que fornece a lista inteira clicando em **Ver todos** na parte inferior da coluna ou clicando no cabeçalho da coluna.
 
 | Coluna | Descrição |
 |:--- |:--- |
 | Alertas críticos |Todos os alertas com uma severidade de Crítico agrupados por nome do alerta.  Clique em um nome de alerta para executar uma pesquisa de log retornando todos os registros desse alerta. |
 | Alertas de aviso |Todos os alertas com uma severidade de Aviso agrupados por nome do alerta.  Clique em um nome de alerta para executar uma pesquisa de log retornando todos os registros desse alerta. |
-| Alertas do Active System Center Operations Manager |Todos os alertas coletados do Operations Manager com qualquer estado diferente de *Fechado* , agrupados pela origem que gerou o alerta. |
-| Todos os alertas ativos |Todos os alertas com qualquer severidade agrupados por nome do alerta. Inclui somente alertas do Operations Manager com qualquer estado diferente de *Fechado* . |
+| Alertas do Active System Center Operations Manager |Todos os alertas coletados do Operations Manager com qualquer estado diferente de *Fechado*, agrupados pela origem que gerou o alerta. |
+| Todos os alertas ativos |Todos os alertas com qualquer severidade agrupados por nome do alerta. Inclui somente alertas do Operations Manager com qualquer estado diferente de *Fechado*. |
 
 Se você rolar para a direita, o painel listará várias consultas comuns nas quais você poderá clicar para realizar uma [pesquisa de logs](../log-query/log-query-overview.md) e obter dados de alerta.
 
@@ -71,9 +71,9 @@ Se você rolar para a direita, o painel listará várias consultas comuns nas qu
 
 
 ## <a name="log-analytics-records"></a>Registros do Log Analytics
-A solução de Gerenciamento de Alertas analisa qualquer registro com um tipo de **Alerta** .  Alertas criados pelo Log Analytics ou coletados do Nagios ou Zabbix não são coletados diretamente pela solução.
+A solução de Gerenciamento de Alertas analisa qualquer registro com um tipo de **Alerta**.  Alertas criados pelo Log Analytics ou coletados do Nagios ou Zabbix não são coletados diretamente pela solução.
 
-A solução importa alertas do System Center Operations Manager e cria um registro correspondente para cada um com um tipo de **Alerta** e um SourceSystem de **OpsManager** .  Esses registros têm as propriedades descritas na tabela a seguir:  
+A solução importa alertas do System Center Operations Manager e cria um registro correspondente para cada um com um tipo de **Alerta** e um SourceSystem de **OpsManager**.  Esses registros têm as propriedades descritas na tabela a seguir:  
 
 | Propriedade | Descrição |
 |:--- |:--- |

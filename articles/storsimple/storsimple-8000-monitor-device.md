@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/17/2017
 ms.author: alkohli
-ms.openlocfilehash: 7ffb13912780edcf3d92093e672d1dae983e50a8
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: de4cae90f2cc1223271672d9fc5ba5b42e4409e4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977401"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962426"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Usar o serviço Gerenciador de Dispositivos do StorSimple para monitorar seu dispositivo StorSimple
 
@@ -139,6 +139,5 @@ A **Utilização da CPU** rastreia as métricas relacionadas à CPU utilizada em
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba como [usar o painel de dispositivo do serviço Gerenciador de Dispositivos do StorSimple](storsimple-device-dashboard.md).
-* Saiba como [usar o serviço Gerenciador de Dispositivos do StorSimple para administrar o dispositivo StorSimple](storsimple-manager-service-administration.md).
-
+* Saiba como [usar o painel de dispositivo do serviço Gerenciador de Dispositivos do StorSimple](./storsimple-8000-device-dashboard.md).
+* Saiba como [usar o serviço Gerenciador de Dispositivos do StorSimple para administrar o dispositivo StorSimple](./storsimple-8000-manager-service-administration.md).

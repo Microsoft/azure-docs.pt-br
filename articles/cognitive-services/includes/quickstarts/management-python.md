@@ -8,16 +8,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 7cc76ab7c9ce2191a54d5bd61282267467603694
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 521f6c39a10259b09d741a61dcd8e81d8a0c35b2
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89321525"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947401"
 ---
-[Documentação de referência](https://docs.microsoft.com/python/api/azure-mgmt-cognitiveservices/azure.mgmt.cognitiveservices?view=azure-python) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-mgmt-cognitiveservices) | [Pacote (PyPi)](https://pypi.org/project/azure-mgmt-cognitiveservices/) | [Amostras](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-mgmt-cognitiveservices/tests)
+[Documentação de referência](/python/api/azure-mgmt-cognitiveservices/azure.mgmt.cognitiveservices) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-mgmt-cognitiveservices) | [Pacote (PyPi)](https://pypi.org/project/azure-mgmt-cognitiveservices/) | [Amostras](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-mgmt-cognitiveservices/tests)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="python-prerequisites"></a>Pré-requisitos para usar o Python
 
 * Uma assinatura válida do Azure; [crie uma gratuitamente](https://azure.microsoft.com/free/).
 * [Python 3.x](https://www.python.org/)
@@ -56,7 +56,11 @@ Em seguida, adicione o código a seguir para construir um objeto **CognitiveServ
 
 [!code-python[](~/cognitive-services-quickstart-code/python/azure_management_service/create_delete_resource.py?name=snippet_auth)]
 
-## <a name="create-a-cognitive-services-resource"></a>Criar um recurso dos Serviços Cognitivos
+## <a name="create-a-cognitive-services-resource-python"></a>Criar um recurso dos Serviços Cognitivos (Python)
+
+Para criar e assinar um recurso dos Serviços Cognitivos, use a função **Criar**. Essa função adiciona um novo recurso que pode ser cobrado ao grupo de recursos que você passa. Ao criar o recurso, você precisará saber qual "tipo" de serviço deseja usar, bem como o tipo de preço (ou SKU) desejado e um local do Azure. A função a seguir usa todos esses argumentos e cria um recurso.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/azure_management_service/create_delete_resource.py?name=snippet_create)]
 
 ### <a name="choose-a-service-and-pricing-tier"></a>Escolher um serviço e um tipo de preço
 
@@ -67,12 +71,6 @@ Ao criar um recurso, você precisará saber qual "tipo" de serviço deseja usar,
 [!INCLUDE [cognitive-services-subscription-types](../../../../includes/cognitive-services-subscription-types.md)]
 
 [!INCLUDE [SKUs and pricing](./sku-pricing.md)]
-
-## <a name="create-a-cognitive-services-resource"></a>Criar um recurso dos Serviços Cognitivos
-
-Para criar e assinar um recurso dos Serviços Cognitivos, use a função **Criar**. Essa função adiciona um novo recurso que pode ser cobrado ao grupo de recursos que você passa. Ao criar o recurso, você precisará saber qual "tipo" de serviço deseja usar, bem como o tipo de preço (ou SKU) desejado e um local do Azure. A função a seguir usa todos esses argumentos e cria um recurso.
-
-[!code-python[](~/cognitive-services-quickstart-code/python/azure_management_service/create_delete_resource.py?name=snippet_create)]
 
 ## <a name="view-your-resources"></a>Exibir os recursos
 
@@ -102,7 +100,7 @@ python <your-script-name>.py
 
 ## <a name="see-also"></a>Veja também
 
-* [Documentação de referência do SDK de Gerenciamento do Azure](https://docs.microsoft.com/python/api/azure-mgmt-cognitiveservices/azure.mgmt.cognitiveservices?view=azure-python)
-* [O que são os Serviços Cognitivos do Azure?](../../Welcome.md)
+* [Documentação de referência do SDK de Gerenciamento do Azure](/python/api/azure-mgmt-cognitiveservices/azure.mgmt.cognitiveservices)
+* [O que são os Serviços Cognitivos do Azure?](../../what-are-cognitive-services.md)
 * [Autenticar solicitações para os Serviços Cognitivos do Azure](../../authentication.md)
 * [Criar um recurso usando o portal do Azure](../../cognitive-services-apis-create-account.md)

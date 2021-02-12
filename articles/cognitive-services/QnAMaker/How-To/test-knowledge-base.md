@@ -4,19 +4,21 @@ description: Testar a base de conhecimento do QnA Maker é uma parte importante 
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 03/05/2020
-ms.openlocfilehash: 05ae359182ac3d9c3f4cc17d7675a3f2fefa0bff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 273548ec095ce04772438a2d732b914d80d976cc
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776826"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353146"
 ---
 # <a name="test-your-knowledge-base-in-qna-maker"></a>Teste sua base de dados de conhecimento no QnA Maker
 
 Testar a base de conhecimento do QnA Maker é uma parte importante de um processo iterativo para melhorar a precisão das respostas que estão sendo retornadas. É possível testar a base de dados de conhecimento por meio de uma interface de chat avançada que também permite fazer edições.
 
 ## <a name="interactively-test-in-qna-maker-portal"></a>Teste interativamente no portal QnA Maker
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versão estável)](#tab/v1)
 
 1. Acesse a base de dados de conhecimento, selecionando o nome na página **Minhas bases de dados de conhecimento**.
 1. Para acessar o painel deslizante de Teste, selecione **Testar** no painel superior do aplicativo.
@@ -37,7 +39,7 @@ Inspecione detalhes do resultado do teste no painel Inspecionar.
 
 1.  Com o painel deslizante de Teste aberto, selecione **Inspecionar** para obter mais detalhes sobre essa resposta.
 
-    ![Inspecione as respostas](../media/qnamaker-how-to-test-kb/inspect.png)
+    ![Inspecione as respostas](../media/qnamaker-how-to-test-knowledge-bases/inspect.png)
 
 2.  O painel de Inspeção é exibido. O painel inclui a principal intenção de pontuação e as entidades identificadas. O painel mostra o resultado da declaração selecionada.
 
@@ -45,13 +47,13 @@ Inspecione detalhes do resultado do teste no painel Inspecionar.
 
 Se a resposta de pontuação mais alta estiver incorreta, selecione a resposta correta na lista e selecione **Salvar e Treinar**.
 
-![Corrigir a resposta de pontuação máxima](../media/qnamaker-how-to-test-kb/choose-answer.png)
+![Corrigir a resposta de pontuação máxima](../media/qnamaker-how-to-test-knowledge-bases/choose-answer.png)
 
 ### <a name="add-alternate-questions"></a>Adicionar perguntas alternativas
 
-É possível adicionar formas alternativas de uma pergunta a uma determinada resposta. Digite as respostas alternativas na caixa de texto e clique em entrar para adicioná-las. Selecione **Salvar e Treinar** para armazenar as atualizações.
+É possível adicionar formas alternativas de uma pergunta a uma determinada resposta. Digite as respostas alternativas na caixa de texto e selecione Enter para adicioná-las. Selecione **Salvar e Treinar** para armazenar as atualizações.
 
-![Adicionar perguntas alternativas](../media/qnamaker-how-to-test-kb/add-alternate-question.png)
+![Adicionar perguntas alternativas](../media/qnamaker-how-to-test-knowledge-bases/add-alternate-question.png)
 
 ### <a name="add-a-new-answer"></a>Adicionar uma nova resposta
 
@@ -64,11 +66,62 @@ Selecione **Salvar e Treinar** para persistir essa resposta. Um novo par de perg
 > [!NOTE]
 > Todas as edições da base de dados de conhecimento somente serão salvas quando você pressionar o botão **Salvar e Treinar**.
 
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
+
+1. Acesse a base de dados de conhecimento, selecionando o nome na página **Minhas bases de dados de conhecimento**.
+1. Para acessar o painel deslizante de Teste, selecione **Testar** no painel superior do aplicativo. 
+1. Você verá uma caixa de seleção na parte superior **Exibir resposta curta**, que é selecionada por padrão. Essa opção é usada para habilitar a detecção de span de resposta baseada na MRC no seu painel de teste. 
+1. Insira uma consulta na caixa de texto e selecione Enter. 
+1. Para cada consulta, se houver uma resposta precisa de resposta/curta presente na passagem de resposta, juntamente com a passagem de resposta de melhor correspondência, que está presente na base de dados de conhecimento, você também terá uma resposta curta para sua consulta.
+    ![Painel de teste gerenciado habilitado](../media/qnamaker-how-to-test-knowledge-bases/test-pane-with-managed-detail.png)
+1. Se você desmarcar a **resposta de exibição curta**, somente a passagem de resposta com a melhor correspondência da base de dados de conhecimento será retornada como a resposta.
+
+### <a name="clear-test-panel"></a>Limpar painel de teste
+
+Para limpar todas as consultas de teste inseridas e seus resultados do console de teste, selecione **Iniciar de novo** no canto superior esquerdo do Painel de teste.
+
+### <a name="close-test-panel"></a>Fechar painel de teste
+
+Para fechar o painel de **Teste**, selecione o botão Testar novamente. Enquanto o painel de Teste estiver aberto, não será possível editar o conteúdo da Base de Dados de Conhecimento.
+
+### <a name="inspect-score"></a>Inspecionar pontuação
+
+Inspecione detalhes do resultado do teste no painel Inspecionar.
+
+1.  Com o painel deslizante de Teste aberto, selecione **Inspecionar** para obter mais detalhes sobre essa resposta.
+
+    ![Inspecionar respostas versão prévia](../media/qnamaker-how-to-test-knowledge-bases/inspect-with-managed.png)
+
+2.  O painel de Inspeção é exibido. O painel inclui a principal intenção de pontuação e as entidades identificadas. O painel mostra o resultado da declaração selecionada.
+3. O painel mostra a pontuação de confiança da passagem de resposta junto com a pontuação de intervalo de respostas detectada.
+
+### <a name="correct-the-top-scoring-answer"></a>Corrigir a resposta de pontuação máxima
+
+Se a resposta de pontuação mais alta estiver incorreta, selecione a resposta correta na lista e selecione **Salvar e Treinar**.
+
+![Corrigir a exibição de resposta de pontuação superior](../media/qnamaker-how-to-test-knowledge-bases/choose-answer-managed.png)
+
+### <a name="add-alternate-questions"></a>Adicionar perguntas alternativas
+
+É possível adicionar formas alternativas de uma pergunta a uma determinada resposta. Digite as respostas alternativas na caixa de texto e selecione Enter para adicioná-las. Selecione **Salvar e Treinar** para armazenar as atualizações.
+
+![Adicionar visualização de perguntas alternativas](../media/qnamaker-how-to-test-knowledge-bases/add-alternate-question-with-managed.png)
+
+### <a name="add-a-new-answer"></a>Adicionar uma nova resposta
+
+Você poderá adicionar uma nova resposta, se alguma das respostas existentes que foram correspondidas estiver incorreta ou a resposta não existir na base de dados de conhecimento (nenhuma boa correspondência encontrada na base de dados de conhecimento).
+
+Na parte inferior da lista de respostas, use a caixa de texto para inserir uma nova resposta e pressione ENTER para adicioná-la.
+
+Selecione **Salvar e Treinar** para persistir essa resposta. Um novo par de perguntas e respostas foi adicionado à base de dados de conhecimento.
+
+---
+
 ### <a name="test-the-published-knowledge-base"></a>Testar a base de dados de conhecimento publicada
 
 Você pode testar a versão publicada da base de dados de conhecimento no painel de teste. Depois de publicar a KB, selecione a caixa **KB publicados** e envie uma consulta para obter os resultados da KB publicada.
 
-![Teste em relação a uma base de conhecimento publicada](../media/qnamaker-how-to-test-kb/test-against-published-kb.png)
+![Teste em relação a uma base de conhecimento publicada](../media/qnamaker-how-to-test-knowledge-bases/test-against-published-knowledge-base.png)
 
 ## <a name="batch-test-with-tool"></a>Teste em lote com a ferramenta
 
@@ -130,11 +183,11 @@ Para usar a ferramenta de teste de lote, crie um arquivo chamado `batch-test-dat
 |--|--|--|
 |ID da base de dados de conhecimento|Sua ID da base de dados de conhecimento foi encontrada na página Publicar. Teste várias bases de dados de conhecimento no mesmo serviço de uma só vez em um arquivo usando IDs de base de dados de conhecimento diferentes em um arquivo.|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (cadeia de 36 caracteres mostrada como parte de `POST`) |
 |Pergunta|O texto da pergunta que um usuário digitaria. Tamanho máximo de 1.000 caracteres.|`How do I sign out?`|
-|Marcas de metadados|opcional|`topic:power` usa o formato de _chave:valor_|
+|Marcas de metadados|opcional|`topic:power` usa o `key:value` formato|
 |Parâmetro superior|opcional|`25`|
 |ID de resposta esperada|opcional|`13`|
 
-Para essa base de dados de conhecimento, adicione três linhas ao arquivo, pertencentes apenas às duas colunas necessárias. A primeira coluna é sua ID da base de dados de conhecimento e a segunda coluna deve ser a seguinte lista de perguntas:
+Para essa base de dados de conhecimento, adicione três linhas apenas das duas colunas necessárias ao arquivo. A primeira coluna é sua ID da base de dados de conhecimento e a segunda coluna deve ser a seguinte lista de perguntas:
 
 |Coluna 2 – perguntas|
 |--|
@@ -144,7 +197,7 @@ Para essa base de dados de conhecimento, adicione três linhas ao arquivo, perte
 
 Essas perguntas são redigidas exatamente do mesmo modo que aquelas na base de dados de conhecimento e devem retornar uma pontuação de confiança igual a 100.
 
-Em seguida, adicione algumas outras perguntas semelhantes a essas, mas não idênticas, em mais três linhas, usando a mesma ID da base de dados de conhecimento:
+Em seguida, adicione algumas perguntas, semelhantes a essas perguntas, mas não exatamente as mesmas em mais três linhas, usando a mesma ID da base de dados de conhecimento:
 
 |Coluna 2 – perguntas|
 |--|
@@ -176,7 +229,7 @@ O teste é concluído e gera o arquivo `out.tsv`:
 
 A ID da base de dados de conhecimento foi substituída por `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` por questões de segurança. Para seu teste de lote, a coluna exibe sua ID da base de dados de conhecimento.
 
-A saída de teste de Pontuação de confiança, na quarta coluna, mostra que as três primeiras perguntas retornaram uma pontuação igual a 100 como esperado, pois cada pergunta é exatamente igual à que aparece na base de dados de conhecimento. As três últimas perguntas, tendo sido redigidas de maneira diferente, não retornam 100 como a pontuação de confiança. Para aumentar a pontuação para o teste e seus usuários, você precisa adicionar mais perguntas alternativas à base de dados de conhecimento.
+A saída de teste de Pontuação de confiança, na quarta coluna, mostra as três principais perguntas que retornam uma pontuação de 100 como esperado, pois cada pergunta é exatamente igual à que aparece na base de dados de conhecimento. As três últimas perguntas, com novas palavras da pergunta, não retornam 100 como a pontuação de confiança. Para aumentar a pontuação para o teste e seus usuários, você precisa adicionar mais perguntas alternativas à base de dados de conhecimento.
 
 ### <a name="testing-with-the-optional-fields"></a>Testar com os campos opcionais
 
@@ -192,7 +245,7 @@ Use o gráfico a seguir para entender como localizar os valores de campo para da
 
 |Número da coluna|Coluna opcional|Local dos dados|
 |--|--|--|
-|3|metadata|Exportar a base de dados de conhecimento existente para os pares _chave:valor_ existentes.|
+|3|metadata|Exportar a base de dados de conhecimento existente para `key:value` pares existentes.|
 |4|top|Um valor padrão de `25` é recomendado.|
 |5|ID do conjunto de perguntas e respostas|Exporte a base de dados de conhecimento existente para valores de ID. Observe também que as IDs foram retornadas no arquivo de saída.|
 
@@ -225,7 +278,7 @@ Há dois cenários principais para testes de lote:
 
 O procedimento a seguir pressupõe que o cenário é processar os logs de chat com
 
-1. Crie um arquivo de teste de lote para incluir dados opcionais, `batch-test-data-2.tsv`. Adicione as seis linhas do arquivo de entrada de teste de lote original e, em seguida, adicione a ID de pares de metadados, de conjunto superior e de conjunto de QnA para cada linha.
+1. Crie um arquivo de teste de lote para incluir dados opcionais, `batch-test-data-2.tsv`. Adicione as seis linhas do arquivo de entrada de teste do lote original e, em seguida, adicione a ID de par de metadados, superior e QnA para cada linha.
 
     Para simular o processo automatizado de verificar novo texto de logs de chat na base de dados de conhecimento, defina os metadados para cada coluna com o mesmo valor: `topic:power`.
 
@@ -241,7 +294,7 @@ O procedimento a seguir pressupõe que o cenário é processar os logs de chat c
 
 Esse arquivo de saída de teste pode ser analisado como parte de um pipeline de teste contínuo automatizado.
 
-Esta saída de teste específica deve ser lida como: cada linha foi filtrada com metadados e, já que não houve correspondência entre cada linha e os metadados na base de dados de conhecimento, a resposta padrão para as linhas não correspondentes retorna ("nenhuma correspondência adequada encontrada na base de dados de conhecimento"). Das linhas que corresponderam, a ID do QnA e a pontuação foram retornadas.
+Esta saída de teste específica deve ser lida como: cada linha foi filtrada com metadados e, já que não houve correspondência entre cada linha e os metadados na base de dados de conhecimento, a resposta padrão para as linhas não correspondentes retorna ("nenhuma correspondência adequada encontrada na base de dados de conhecimento"). Das linhas que corresponderam, a ID de QnA e a pontuação foram retornadas.
 
 Todas as linhas retornaram o rótulo de incorreta porque nenhuma linha correspondeu à ID de resposta esperada.
 
@@ -270,4 +323,4 @@ Se você não quiser continuar a usar essa base de dados de conhecimento, exclua
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Publicar uma base de dados de conhecimento](./publish-knowledge-base.md)
+> [Publicar uma base de dados de conhecimento](../quickstarts/create-publish-knowledge-base.md)

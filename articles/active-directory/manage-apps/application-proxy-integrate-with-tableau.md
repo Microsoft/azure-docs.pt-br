@@ -3,7 +3,7 @@ title: Proxy e Tableau do Aplicativo do Azure Active Directory | Microsoft Docs
 description: Saiba como usar o Proxy de aplicativo do Azure Active Directory (AD do Azure) para fornecer acesso remoto para sua implantação Tableau.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6df0a0bf21f4be824738d86ac6bdb3c75c9c3564
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6720a5ad963bc73e11ef7b46150e946521928c01
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764495"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258618"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Proxy e Tableau do Aplicativo do Azure Active Directory 
 
@@ -70,7 +70,7 @@ Para:
 
 8. Selecione **Atribuir** para salvar a atribuição do usuário de teste. 
 
-9. (Opcional) Na folha de gerenciamento do aplicativo, selecione** Logon único**. Escolha **Delegação restrita de Kerberos** no menu suspenso e preencha os campos obrigatórios com base na sua configuração do Tableau. Clique em **Salvar**. 
+9. (Opcional) Na folha de gerenciamento do aplicativo, selecione **Logon único**. Escolha **Delegação restrita de Kerberos** no menu suspenso e preencha os campos obrigatórios com base na sua configuração do Tableau. Clique em **Salvar**. 
 
  
 

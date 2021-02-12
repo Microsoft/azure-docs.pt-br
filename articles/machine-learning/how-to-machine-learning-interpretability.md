@@ -1,22 +1,22 @@
 ---
 title: Interpretação de modelo na Azure Machine Learning (versão prévia)
 titleSuffix: Azure Machine Learning
-description: Saiba como explicar por que seu modelo faz previsões usando o SDK do Azure Machine Learning. Ele pode ser usado durante o treinamento e a inferência para entender como seu modelo faz previsões.
+description: Saiba como entender & explicar como o modelo de aprendizado de máquina faz previsões durante o treinamento & inferência usando o SDK do Azure Machine Learning Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, responsible-ml
 ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
-ms.date: 07/09/2020
-ms.openlocfilehash: d063af3ba3b9261100af5e48a2c507a80ac76d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/16/2020
+ms.openlocfilehash: 6784361dde67d7dcc1423d9edbcc92ec513ff6d4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322352"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222625"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Interpretação de modelo na Azure Machine Learning (versão prévia)
 
@@ -39,7 +39,7 @@ A habilitação da capacidade de explicar um modelo de aprendizado de máquina �
 
 ## <a name="interpretability-with-azure-machine-learning"></a>Interpretabilidade com Azure Machine Learning
 
-As classes de interpretação são disponibilizadas por meio do seguinte pacote SDK: (saiba como [instalar pacotes SDK para Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true))
+As classes de interpretação são disponibilizadas por meio do seguinte pacote SDK: (saiba como [instalar pacotes SDK para Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py))
 
 * `azureml.interpret`, contém funcionalidades com suporte da Microsoft.
 

@@ -1,7 +1,7 @@
 ---
 title: Importar um Aplicativo de funções do Azure como uma API no Gerenciamento de API
 titleSuffix: Azure API Management
-description: Este tutorial mostra como importar um Aplicativo de funções do Azure para o Gerenciamento de API do Azure como uma API.
+description: Este artigo mostra como importar um Aplicativo de funções do Azure para o Gerenciamento de API do Azure como uma API.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -10,15 +10,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: be8a8f35ece946d1be907b2ca13a640bebbb4ee5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f66395b1e0f45f1e80cd0ac93bf8c9ae8674a0f2
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627016"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732938"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importar um Aplicativo de funções do Azure como uma API no Gerenciamento de API do Azure
 
@@ -38,7 +38,7 @@ Você saberá como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Conclua o início rápido [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
-* Verifique se que você tem um aplicativo do Azure Functions em sua assinatura. Para obter mais informações, consulte [Criar um Aplicativo de funções do Azure](../azure-functions/functions-create-first-azure-function.md#create-a-function-app). Ele deve conter o Functions com gatilho HTTP e a configuração de nível de autorização definida como *Anônimo* ou *Função*.
+* Verifique se que você tem um aplicativo do Azure Functions em sua assinatura. Para obter mais informações, consulte [Criar um Aplicativo de funções do Azure](../azure-functions/functions-get-started.md). Ele deve conter o Functions com gatilho HTTP e a configuração de nível de autorização definida como *Anônimo* ou *Função*.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -50,23 +50,23 @@ Siga as etapas abaixo para criar uma nova API a partir de um Aplicativo de funç
 
 2. Na lista **Adicionar nova API**, selecione **Aplicativo de funções**.
 
-    ![Adicionar a partir do Aplicativo de funções](./media/import-function-app-as-api/add-01.png)
+    ![Captura de tela que mostra o bloco Aplicativo de funções.](./media/import-function-app-as-api/add-01.png)
 
 3. Clique em **Procurar** para selecionar o Functions para importação.
 
-    ![Adicionar a partir do Aplicativo de funções](./media/import-function-app-as-api/add-02.png)
+    ![Captura de tela que realça o botão Procurar.](./media/import-function-app-as-api/add-02.png)
 
 4. Clique na seção **Aplicativo de funções** para escolher na lista de aplicativos de funções disponíveis.
 
-    ![Adicionar a partir do Aplicativo de funções](./media/import-function-app-as-api/add-03.png)
+    ![Captura de tela que realça a seção Aplicativo de funções.](./media/import-function-app-as-api/add-03.png)
 
 5. Encontre o Aplicativo de funções de onde você deseja importar funções, clique nele e pressione **Selecionar**.
 
-    ![Adicionar a partir do Aplicativo de funções](./media/import-function-app-as-api/add-04.png)
+    ![Captura de tela que realça o Aplicativo de funções do qual você deseja importar funções e o botão Selecionar.](./media/import-function-app-as-api/add-04.png)
 
 6. Selecione as funções que você deseja importar e clique em **Selecionar**.
 
-    ![Adicionar a partir do Aplicativo de funções](./media/import-function-app-as-api/add-05.png)
+    ![Captura de tela que realça as funções a serem importadas e o botão Selecionar.](./media/import-function-app-as-api/add-05.png)
 
     > [!NOTE]
     > Você pode importar apenas as funções baseadas em gatilho HTTP e que tenham a configuração de nível de autorização definida como *Anônimo* ou *Função*.
@@ -82,27 +82,27 @@ Siga as etapas abaixo para acrescentar o Aplicativo de funções do Azure a uma 
 
 2. Escolha uma API para a qual você deseja importar um Aplicativo de funções. Clique em **...**  e selecione **Importar** no menu de contexto.
 
-    ![Acrescentar a partir do Aplicativo de funções](./media/import-function-app-as-api/append-01.png)
+    ![Captura de tela que realça a opção de menu Importar.](./media/import-function-app-as-api/append-01.png)
 
 3. Clique no bloco **Aplicativo de Funções**.
 
-    ![Acrescentar a partir do Aplicativo de funções](./media/import-function-app-as-api/append-02.png)
+    ![Captura de tela que realça o bloco Aplicativo de funções.](./media/import-function-app-as-api/append-02.png)
 
 4. Na janela pop-up, clique em **Procurar**.
 
-    ![Acrescentar a partir do Aplicativo de funções](./media/import-function-app-as-api/append-03.png)
+    ![Captura de tela que mostra o botão Procurar.](./media/import-function-app-as-api/append-03.png)
 
 5. Clique na seção **Aplicativo de funções** para escolher na lista de aplicativos de funções disponíveis.
 
-    ![Adicionar a partir do Aplicativo de funções](./media/import-function-app-as-api/add-03.png)
+    ![Captura de tela que realça a lista de Aplicativos de funções.](./media/import-function-app-as-api/add-03.png)
 
 6. Encontre o Aplicativo de funções de onde você deseja importar funções, clique nele e pressione **Selecionar**.
 
-    ![Adicionar a partir do Aplicativo de funções](./media/import-function-app-as-api/add-04.png)
+    ![Captura de tela que realça o Aplicativo de funções do qual você deseja importar funções.](./media/import-function-app-as-api/add-04.png)
 
 7. Selecione as funções que você deseja importar e clique em **Selecionar**.
 
-    ![Adicionar a partir do Aplicativo de funções](./media/import-function-app-as-api/add-05.png)
+    ![Captura de tela que realça as funções que você gostaria de importar.](./media/import-function-app-as-api/add-05.png)
 
 8. Clique em **Importar**.
 
@@ -128,11 +128,11 @@ Para as APIs criadas após 4 de abril de 2019, a chave de host é passada em sol
 
 2. Selecione **Configurações do Aplicativo de Funções** na visão geral.
 
-    ![Adicionar a partir do Aplicativo de funções](./media/import-function-app-as-api/keys-02-a.png)
+    ![Captura de tela que realça a opção de configurações do Aplicativo de funções.](./media/import-function-app-as-api/keys-02-a.png)
 
 3. A chave está localizada na seção **Chaves de Host**.
 
-    ![Adicionar a partir do Aplicativo de funções](./media/import-function-app-as-api/keys-02-b.png)
+    ![Captura de tela que realça a seção Chaves de Host.](./media/import-function-app-as-api/keys-02-b.png)
 
 ### <a name="access-the-named-value-in-azure-api-management"></a>Acessar o valor nomeado no Gerenciamento de API do Azure
 

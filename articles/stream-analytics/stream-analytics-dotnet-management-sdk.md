@@ -3,17 +3,16 @@ title: SDK do .NET de Gerenciamento para Azure Stream Analytics
 description: Comece com o SDK .NET do Azure Stream Analytics Management. Saiba como configurar e executar trabalhos de análise. Criar um projeto, entradas, saídas e transformações.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 93e10baa5281481b57e945f93b7375060b574de5
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 633885bb1062edac8226c073768ffdeba84fcb55
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126848"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012624"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Gerenciamento de SDK do .NET: Configurar e executar trabalhos de análise usando API do Azure Stream Analytics para .NET
 Saiba como configurar e executar trabalhos de análise usando a API do Stream Analytics para .NET usando o SDK do .NET de Gerenciamento. Configurar um projeto, criar fontes de entrada e saídas, transformações e iniciar e parar trabalhos. Seus trabalhos de análise, você pode transmitir dados de armazenamento de Blob ou de um hub de eventos.
@@ -167,7 +166,7 @@ O código a seguir cria um trabalho do Stream Analytics sob o grupo de recursos 
    ```
 
 ## <a name="create-a-stream-analytics-input-source"></a>Criar uma fonte de entrada do Stream Analytics
-O código a seguir cria uma fonte de entrada do Stream Analytics com o tipo de fonte de entrada de blob e serialização de CSV. Para criar uma fonte de entrada de hub de eventos, use **EventHubStreamInputDataSource** em vez de **BlobStreamInputDataSource** . Da mesma forma, você pode personalizar o tipo de serialização da fonte de entrada.
+O código a seguir cria uma fonte de entrada do Stream Analytics com o tipo de fonte de entrada de blob e serialização de CSV. Para criar uma fonte de entrada de hub de eventos, use **EventHubStreamInputDataSource** em vez de **BlobStreamInputDataSource**. Da mesma forma, você pode personalizar o tipo de serialização da fonte de entrada.
 
    ```csharp
    // Create an input

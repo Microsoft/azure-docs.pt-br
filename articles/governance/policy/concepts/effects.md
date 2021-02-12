@@ -3,12 +3,12 @@ title: Entender como funcionam os efeitos
 description: As definições do Azure Policy têm vários efeitos que determinam como a conformidade é gerenciada e relatada.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 19811eca33be7dff4d9bee5b8bd89dd38f185a57
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: e72e94766dce2660409e729bc43eb107fb9ab39a
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873941"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883071"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreender os efeitos do Azure Policy
 
@@ -42,6 +42,8 @@ As solicitações para criar ou atualizar um recurso são avaliadas pela Azure P
 - A **auditoria** é avaliada por último.
 
 Depois que o provedor de recursos retornar um código de êxito em uma solicitação do modo do Gerenciador de recursos, **AuditIfNotExists** e **DeployIfNotExists** serão avaliados para determinar se o log ou a ação de conformidade adicional é necessária.
+
+Além disso, `PATCH` as solicitações que modificam apenas `tags` campos relacionados restringem a avaliação de política para políticas que contêm condições que inspecionam os `tags` campos relacionados.
 
 ## <a name="append"></a>Acrescentar
 
@@ -503,7 +505,7 @@ Quando um alias é especificado, as seguintes verificações adicionais são exe
 - A propriedade mapeada pelo alias é marcada como "modificável" na versão da API da solicitação.
 - O tipo de token na operação de modificação corresponde ao tipo de token esperado para a propriedade na versão de API da solicitação.
 
-Se uma dessas verificações falhar, a avaliação da política retornará para o **conflictEffect**especificado.
+Se uma dessas verificações falhar, a avaliação da política retornará para o **conflictEffect** especificado.
 
 > [!IMPORTANT]
 > É Recommeneded que modificar as definições que incluem aliases usam o **efeito de conflito** de _auditoria_ para evitar solicitações com falha usando versões de API em que a propriedade mapeada não é ' modificável '. Se o mesmo alias se comporta de forma diferente entre as versões de API, as operações de modificação condicional podem ser usadas para determinar a operação de modificação usada para cada versão de API.

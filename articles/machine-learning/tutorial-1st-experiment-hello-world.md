@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 980347c658c65a0c08dfc50c08f50741fb9a00fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43a483f49a9e9004a4f487e82195198f2600a919
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372537"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071146"
 ---
 # <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>Tutorial: Executar um script Python "Olá, Mundo!" (parte 2 de 4)
 
@@ -36,9 +36,6 @@ Neste tutorial, você irá:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Conclusão da [parte 1](tutorial-1st-experiment-sdk-setup-local.md), caso você ainda não tenha um Workspace do Azure Machine Learning.
-- Conhecimento introdutório da linguagem Python e dos fluxos de trabalho de machine learning.
-- Ambiente de desenvolvimento local, como o Visual Studio Code, o Jupyter ou o PyCharm.
-- Python (versão 3.5 a 3.7).
 
 ## <a name="create-and-run-a-python-script-locally"></a>Criar e executar um script do Python localmente
 
@@ -61,16 +58,20 @@ tutorial
 └──02-create-compute.py
 ```
 
-### <a name="test-your-script-locally"></a>Testar seu script localmente
 
-Execute o código localmente usando seu IDE favorito ou um terminal. A execução local do código traz o benefício da depuração interativa do código.
+### <a name="test-your-script-locally"></a><a name="test"></a>Testar seu script localmente
+
+Execute o código localmente usando seu IDE favorito ou um terminal. A execução local do código traz o benefício da depuração interativa do código.  Na janela que tem o ambiente do Conda *tutorial1* ativado, execute o arquivo do Python:
 
 ```bash
 cd <path/to/tutorial>
 python ./src/hello.py
 ```
 
-## <a name="create-a-control-script"></a>Criar um script de controle
+> [!div class="nextstepaction"]
+> [Executei o script localmente](?success=run-local#control-script) [Encontrei um problema](https://www.research.net/r/7C2NTH7?issue=run-local)
+
+## <a name="create-a-control-script"></a><a name="control-script"></a> Criar um script de controle
 
 Um *script de controle* permite que você execute o script `hello.py` na nuvem. Use o script de controle para controlar como e em que local o código de machine learning é executado.  
 
@@ -99,7 +100,7 @@ Aqui está uma descrição de como o script de controle funciona:
       `ws = Workspace.from_config()`
    :::column-end:::
    :::column span="2":::
-      O [workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) conecta-se ao workspace do Azure Machine Learning, de modo que você possa se comunicar com seus recursos do Azure Machine Learning.
+      O [workspace](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) conecta-se ao workspace do Azure Machine Learning, de modo que você possa se comunicar com seus recursos do Azure Machine Learning.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -107,7 +108,7 @@ Aqui está uma descrição de como o script de controle funciona:
       `experiment =  Experiment( ... )`
    :::column-end:::
    :::column span="2":::
-      O [experimento](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true) oferece uma forma simples de organizar várias execuções com um único nome. Mais tarde, você pode ver como os experimentos facilitam a comparação de métricas entre dezenas de execuções.
+      O [experimento](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py) oferece uma forma simples de organizar várias execuções com um único nome. Mais tarde, você pode ver como os experimentos facilitam a comparação de métricas entre dezenas de execuções.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -115,7 +116,7 @@ Aqui está uma descrição de como o script de controle funciona:
       `config = ScriptRunConfig( ... )` 
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) encapsula seu código `hello.py` e o passa para seu workspace. Como o nome sugere, você pode usar essa classe para _configurar_ como deseja que seu _script_ seja _executado_ no Azure Machine Learning. Ela também especifica em qual destino de computação o script será executado. Nesse código, o destino é o cluster de cálculo criado no [tutorial de configuração](tutorial-1st-experiment-sdk-setup-local.md).
+      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) encapsula seu código `hello.py` e o passa para seu workspace. Como o nome sugere, você pode usar essa classe para _configurar_ como deseja que seu _script_ seja _executado_ no Azure Machine Learning. Ela também especifica em qual destino de computação o script será executado. Nesse código, o destino é o cluster de cálculo criado no [tutorial de configuração](tutorial-1st-experiment-sdk-setup-local.md).
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -123,7 +124,7 @@ Aqui está uma descrição de como o script de controle funciona:
       `run = experiment.submit(config)`
    :::column-end:::
    :::column span="2":::
-       Envia o seu script. Esse envio é chamado de [execução](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true). Uma execução encapsula uma única execução do seu código. Use uma execução para monitorar o progresso do script, capturar a saída, analisar os resultados, visualizar métricas, entre outros.
+       Envia o seu script. Esse envio é chamado de [execução](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py). Uma execução encapsula uma única execução do seu código. Use uma execução para monitorar o progresso do script, capturar a saída, analisar os resultados, visualizar métricas, entre outros.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -135,19 +136,37 @@ Aqui está uma descrição de como o script de controle funciona:
    :::column-end:::
 :::row-end:::
 
-## <a name="submit-and-run-your-code-in-the-cloud"></a>Enviar e executar seu código na nuvem
+> [!div class="nextstepaction"]
+> [Criei o script de controle](?success=create-control-script#submit) [Encontrei um problema](https://www.research.net/r/7C2NTH7?issue=create-control-script)
+
+## <a name="submit-and-run-your-code-in-the-cloud"></a><a name="submit"></a> Enviar e executar seu código na nuvem
 
 Execute o script de controle que, por sua vez, executa `hello.py` no cluster de cálculo criado no [tutorial de configuração](tutorial-1st-experiment-sdk-setup-local.md).
+
 
 ```bash
 python 03-run-hello.py
 ```
 
-## <a name="monitor-your-code-in-the-cloud-by-using-the-studio"></a>Monitorar o código na nuvem usando o estúdio
+> [!TIP]
+> Se a execução desse código fornecer um erro informando que você não tem acesso à assinatura, confira [Conectar-se a um workspace](how-to-manage-workspace.md?tab=python#connect-multi-tenant) para obter informações sobre as opções de autenticação.
 
-A saída conterá um link para o estúdio semelhante a este: `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>`.
+> [!div class="nextstepaction"]
+> [Enviei o código na nuvem](?success=submit-to-cloud#monitor) [Encontrei um problema](https://www.research.net/r/7C2NTH7?issue=submit-to-cloud)
 
-Siga o link e acesse a guia **Saídas + logs**. Nela, você verá um arquivo `70_driver_log.txt` semelhante a este:
+## <a name="monitor-your-code-in-the-cloud-by-using-the-studio"></a><a name="monitor"></a>Monitorar o código na nuvem usando o estúdio
+
+A saída do seu script conterá um link para o estúdio semelhante a este: `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>`.
+
+Siga o link.  A princípio, você verá um status de **Preparando**.  A primeira execução levará entre 5 e 10 minutos para ser concluída. Isso ocorrerá devido ao seguinte:
+
+* Uma imagem do Docker será criada na nuvem
+* O cluster de cálculo será redimensionado de 0 para 1 nó
+* A imagem do Docker será baixada na computação. 
+
+Execuções subsequentes são muito mais rápidas (cerca de 15 segundos) à medida que a imagem do Docker é armazenada em cache no computador. Você pode testar isso reenviando o código abaixo após a conclusão da primeira execução.
+
+Quando o trabalho for concluído, vá para a guia **Saídas + logs**. Nela, você verá um arquivo `70_driver_log.txt` semelhante a este:
 
 ```txt
  1: [2020-08-04T22:15:44.407305] Entering context manager injector.
@@ -174,6 +193,9 @@ Siga o link e acesse a guia **Saídas + logs**. Nela, você verá um arquivo `70
 Na linha 8, você vê "Olá, mundo!" saída.
 
 O arquivo `70_driver_log.txt` contém a saída padrão de uma execução. Esse arquivo poderá ser útil quando você estiver depurando execuções remotas na nuvem.
+
+> [!div class="nextstepaction"]
+> [Vi o log no estúdio](?success=monitor-in-studio#next-steps) [Encontrei um problema](https://www.research.net/r/7C2NTH7?issue=monitor-in-studio)
 
 ## <a name="next-steps"></a>Próximas etapas
 

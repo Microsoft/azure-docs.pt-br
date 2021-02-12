@@ -4,16 +4,16 @@ description: Saiba quais sistemas operacionais podem executar o runtime e o daem
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/12/2020
+ms.date: 12/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2fb67cf29800cf80f07181f68d266a6183f8d710
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: b17f1f32a3e49e9161afe92d62b85a162affcd9f
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104723"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630523"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Sistemas compatíveis com o Azure IoT Edge
 
@@ -50,27 +50,46 @@ O Azure IoT Edge executa na maioria dos sistemas operacionais que podem executar
 
 A família do sistema operacional de host sempre deverá corresponder à família do sistema operacional convidado usado dentro do contêiner de um módulo. Isso significa que você somente poderá usar contêineres do Linux no Linux e contêineres do Windows no Windows. Ao usar Windows, haverá suporte apenas para contêineres isolados de processo e não para contêineres isolados do Hyper-V.  
 
-<br>
-<center>
-
-![Sistema operacional de host corresponde ao sistema operacional convidado](./media/support/edge-on-device.png)
-</center>
+IoT Edge para Linux no Windows usa IoT Edge em uma máquina virtual Linux em execução em um host do Windows. Dessa forma, você pode executar módulos do Linux em um dispositivo Windows.
 
 ### <a name="tier-1"></a>Camada 1
 
-Os sistemas listados na tabela a seguir têm suporte da Microsoft, seja geralmente disponível ou em visualização pública, e são testados com cada nova versão. 
+Os sistemas listados nas tabelas a seguir têm suporte da Microsoft, seja geralmente disponível ou em visualização pública, e são testados com cada nova versão.
+
+O Azure IoT Edge dá suporte a módulos criados como contêineres Linux ou Windows. Os contêineres do Linux podem ser implantados em dispositivos Linux ou implantados em dispositivos Windows usando o IoT Edge para Linux no Windows. Os contêineres do Windows só podem ser implantados em dispositivos Windows.
+
+#### <a name="linux-containers"></a>Contêineres do Linux
+
+Módulos criados como contêineres do Linux podem ser implantados em dispositivos Linux ou Windows. Para dispositivos Linux, o tempo de execução do IoT Edge é instalado diretamente no dispositivo host. Para dispositivos Windows, uma máquina virtual Linux criada com o IoT Edge Runtime é executada no dispositivo host.
+
+O IoT Edge para Linux no Windows está atualmente em visualização pública, mas é a maneira recomendada para executar IoT Edge em dispositivos Windows.
 
 | Sistema operacional | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
-| Raspbian Stretch |  | ![Raspbian Stretch + ARM32v7](./media/tutorial-c-module/green-check.png) |  |
-| [Ubuntu Server 16.04](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes) | ![Ubuntu Server 16.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Versão prévia pública  |
-| [Ubuntu Server 18.04](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | ![Ubuntu Server 18.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Versão prévia pública |
-| [Windows 10 IoT Enterprise](/windows/iot-core/windows-iot-enterprise), build 17763 | ![Windows 10 IoT Enterprise + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
-| [Windows 10 IoT Core](/windows/iot-core/windows-iot-core), build 17763 | ![Windows IoT Core + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
-| [Windows Server 2019](/windows-server/get-started-19/rel-notes-19), build 17763 | ![Windows Server 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
-| [Windows Server IoT 2019](/windows/iot-core/windows-server), build 17763 | ![Windows Server IoT 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
+| Stretch do sistema operacional Raspberry Pi |  | ![Raspberry Pi OS Stretch + ARM32v7](./media/tutorial-c-module/green-check.png) |  |
+| Ubuntu Server 16.04 | ![Ubuntu Server 16.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Versão prévia pública  |
+| Ubuntu Server 18.04 | ![Ubuntu Server 18.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Versão prévia pública |
+| Windows 10 Pro | Versão prévia pública |  |  |
+| Windows 10 Enterprise | Versão prévia pública |  |  |
+| Windows 10 IoT Enterprise | Versão prévia pública |  |  |
+| Windows Server 2019 | Versão prévia pública |  |  |
 
-Os sistemas operacionais Windows listados acima são os requisitos para dispositivos que executam contêineres do Windows no Windows, que é a única configuração com suporte para produção. Os pacotes de instalação do Azure IoT Edge para Windows permitem o uso de contêineres do Linux no Windows, no entanto, isso é apenas para desenvolvimento e teste. 
+Todos os sistemas operacionais Windows devem ser da versão 1809 (Build 17763) ou posterior.
+
+#### <a name="windows-containers"></a>Contêineres do Windows
+
+Módulos criados como contêineres do Windows podem ser implantados somente em dispositivos Windows.
+
+| Sistema operacional | AMD64 | ARM32v7 | ARM64 |
+| ---------------- | ----- | ------- | ----- |
+| Windows 10 IoT Enterprise | ![check1](./media/tutorial-c-module/green-check.png) |  |  |
+| Windows 10 IoT Core<sup>1</sup><br> | ![check1](./media/tutorial-c-module/green-check.png) |  |  |
+| Windows Server 2019  | ![check1](./media/tutorial-c-module/green-check.png) |  |  |
+| Windows Server IoT 2019<br> | ![check1](./media/tutorial-c-module/green-check.png) |  |  |
+
+<sup>1</sup> o Windows 10 IOT Core não terá suporte após a versão 1.0.10
+
+Todos os sistemas operacionais Windows devem ser da versão 1809 (Build 17763). A compilação específica do Windows é necessária para IoT Edge no Windows porque a versão dos contêineres do Windows deve corresponder exatamente à versão do dispositivo Windows do host. Atualmente, os contêineres do Windows usam o Build 17763.
 
 ### <a name="tier-2"></a>Camada 2
 
@@ -81,7 +100,7 @@ Os sistemas listados na tabela a seguir são considerados compatíveis com Azure
 | [CentOS 7.5](https://wiki.centos.org/Manuals/ReleaseNotes/CentOS7.1804) | ![CentOS + AMD64](./media/tutorial-c-module/green-check.png) | ![CentOS + ARM32v7](./media/tutorial-c-module/green-check.png) | ![CentOS + ARM64](./media/tutorial-c-module/green-check.png) |
 | [Debian 8](https://www.debian.org/releases/jessie/) | ![Debian 8 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 8 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 8 + ARM64](./media/tutorial-c-module/green-check.png) |
 | [Debian 9](https://www.debian.org/releases/stretch/) | ![Debian 9 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 9 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 9 + ARM64](./media/tutorial-c-module/green-check.png) |
-| [Debian 10](https://www.debian.org/releases/buster/) <sup>1</sup> | ![Debian 10 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 10 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 10 + ARM64](./media/tutorial-c-module/green-check.png) |
+| [Debian 10](https://www.debian.org/releases/buster/) | ![Debian 10 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 10 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 10 + ARM64](./media/tutorial-c-module/green-check.png) |
 | [Mentor Embedded Linux Flex OS](https://www.mentor.com/embedded-software/linux/mel-flex-os/) | ![Mentor Embedded Linux Flex OS + AMD64](./media/tutorial-c-module/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM64](./media/tutorial-c-module/green-check.png) |
 | [Mentor Embedded Linux Omni OS](https://www.mentor.com/embedded-software/linux/mel-omni-os/) | ![Mentor Embedded Linux Omni OS + AMD64](./media/tutorial-c-module/green-check.png) |  | ![Mentor Embedded Linux Omni OS + ARM64](./media/tutorial-c-module/green-check.png) |
 | [RHEL 7.5](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.5_release_notes/index) | ![RHEL 7.5 + AMD64](./media/tutorial-c-module/green-check.png) | ![RHEL 7.5 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![RHEL 7.5 + ARM64](./media/tutorial-c-module/green-check.png) |
@@ -89,16 +108,10 @@ Os sistemas listados na tabela a seguir são considerados compatíveis com Azure
 | [Ubuntu 18.04](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | ![Ubuntu 18.04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 18.04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 18.04 + ARM64](./media/tutorial-c-module/green-check.png) |
 | [Wind River 8](https://docs.windriver.com/category/os-wind_river_linux) | ![Wind River 8 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 | [Yocto](https://www.yoctoproject.org/) | ![Yocto + AMD64](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM64](./media/tutorial-c-module/green-check.png) |
-| Raspbian Buster <sup>1</sup> |  | ![Raspbian Buster + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Raspbian Buster + ARM64](./media/tutorial-c-module/green-check.png) |
-| [Ubuntu 20, 4 <sup>2</sup>](https://wiki.ubuntu.com/FocalFossa/ReleaseNotes) | ![Ubuntu 20, 4 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 20, 4 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 20, 4 + ARM64](./media/tutorial-c-module/green-check.png) |
+| Raspberry Pi OS Buster |  | ![Raspberry Pi OS Buster + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Raspberry Pi OS Buster + ARM64](./media/tutorial-c-module/green-check.png) |
+| [Ubuntu 20, 4 <sup>1</sup>](https://wiki.ubuntu.com/FocalFossa/ReleaseNotes) | ![Ubuntu 20, 4 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 20, 4 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 20, 4 + ARM64](./media/tutorial-c-module/green-check.png) |
 
-<sup>1</sup> Sistemas Debian 10, incluindo Raspian Buster, use uma versão de OpenSSL que não tem suporte de IoT Edge. Use o seguinte comando para instalar uma versão anterior antes de instalar o IoT Edge:
-
-```bash
-sudo apt-get install libssl1.0.2
-```
-
-<sup>2</sup> os pacotes do Debian 9 do [repositório de versões Azure IOT Edge](https://github.com/Azure/azure-iotedge/releases) devem funcionar prontos para uso com o Ubuntu 20, 4.
+<sup>1</sup> os pacotes do Debian 9 do [repositório de versões Azure IOT Edge](https://github.com/Azure/azure-iotedge/releases) devem funcionar prontos para uso com o Ubuntu 20, 4.
 
 ## <a name="releases"></a>Lançamentos
 

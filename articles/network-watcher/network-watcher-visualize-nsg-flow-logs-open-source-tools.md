@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 0896df301718c74e63a9e18c74615130fa80c952
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aca8c75f262e472cbc770c052b86d6e760ee449a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986245"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026464"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualizar logs de fluxo NSG do Observador de Rede do Azure usando ferramentas de código aberto
 
@@ -41,7 +41,7 @@ Ao conectar os logs de fluxo NSG ao Elastic Stack, podemos criar um painel Kiban
 
 #### <a name="install-elasticsearch"></a>Instalar Elasticsearch
 
-1. O Elastic Stack da versão 5.0 e superior exige o Java 8. Execute o comando `java -version` para verificar sua versão. Se você não tiver o Java instalado, veja a documentação sobre os [JDKs com suporte do Azure](https://aka.ms/azure-jdks).
+1. O Elastic Stack da versão 5.0 e superior exige o Java 8. Execute o comando `java -version` para verificar sua versão. Se você não tiver o Java instalado, veja a documentação sobre os [JDKs com suporte do Azure](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 2. Baixe o pacote de binários correto para seu sistema:
 
    ```bash
@@ -207,7 +207,7 @@ Baixe o [arquivo do painel](https://aka.ms/networkwatchernsgflowlogdashboard), o
 
 Na guia **Management** (Gerenciamento) do Kibana, navegue até **Saved Objects** (Objetos Salvos) e importe todos os três arquivos. Em seguida, na guia **Painel**, você pode abrir e carregar o painel de exemplo.
 
-Você também pode criar suas próprias visualizações e painéis personalizados para métricas de seu próprio interesse. Leia mais sobre como criar visualizações do Kibana a partir da [documentação oficial](https://www.elastic.co/guide/en/kibana/current/visualize.html) do Kibana.
+Você também pode criar suas próprias visualizações e painéis personalizados para métricas de seu próprio interesse. Leia mais sobre como criar visualizações do Kibana a partir da [documentação oficial](https://www.tutorialspoint.com/kibana/kibana_create_visualization.htm) do Kibana.
 
 ### <a name="visualize-nsg-flow-logs"></a>Visualizar logs de fluxo NSG
 

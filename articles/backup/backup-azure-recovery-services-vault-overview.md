@@ -3,12 +3,12 @@ title: Visão geral de cofres de Serviços de Recuperação
 description: Uma visão geral dos cofres dos serviços de recuperação.
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: ab6b27bdc7ac9b01385ed43830d0af5900210d43
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 0ed37446e1ccf0780f924143c8f063964adf0004
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093660"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755115"
 ---
 # <a name="recovery-services-vaults-overview"></a>Visão geral dos cofres dos Serviços de Recuperação
 
@@ -22,7 +22,7 @@ Este artigo descreve os recursos de um cofre de Serviços de Recuperação. Um c
 
 - **Exclusão reversível**: com exclusão reversível, mesmo que um ator mal-intencionado exclua um backup (ou os dados de backup sejam excluídos acidentalmente), os dados de backup serão mantidos por 14 dias adicionais, permitindo a recuperação desse item de backup sem perda de dados. Os 14 dias adicionais de retenção para dados de backup no estado de "exclusão reversível" não incorrem em nenhum custo para você. [Saiba mais](backup-azure-security-feature-cloud.md).
 
-- **Restauração entre regiões**: a CRR (restauração entre regiões) permite que você restaure as VMs do Azure em uma região secundária, que é uma região emparelhada do Azure. Se o Azure declarar um desastre na região primária, os dados replicados na região secundária estarão disponíveis para restauração na região secundária para reduzir o desastre real de tempo de inatividade na região primária para seu ambiente. [Saiba mais](backup-azure-arm-restore-vms.md#cross-region-restore).
+- **Restauração entre regiões**: a CRR (restauração entre regiões) permite que você restaure as VMs do Azure em uma região secundária, que é uma região emparelhada do Azure. Ao habilitar esse recurso no [nível do cofre](backup-create-rs-vault.md#set-cross-region-restore), você pode restaurar os dados replicados na região secundária a qualquer momento, quando escolher. Isso permite que você restaure os dados da região secundária para auditoria-conformidade e, durante os cenários de interrupção, sem esperar que o Azure declare um desastre (diferentemente das configurações de GRS do cofre). [Saiba mais](backup-azure-arm-restore-vms.md#cross-region-restore).
 
 ## <a name="storage-settings-in-the-recovery-services-vault"></a>Configurações de armazenamento no cofre dos serviços de recuperação
 

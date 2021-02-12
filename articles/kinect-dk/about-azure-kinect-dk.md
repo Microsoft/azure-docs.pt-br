@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.topic: overview
 ms.date: 06/26/2019
 keywords: azure, kinect, overview, dev kit, DK, device, depth, body tracking, speech, cognitive services, SDKs, SDK, firmware
-ms.openlocfilehash: 6b3215ba6761521214ebffa2a100c5a1a030ab4c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d188d37c0247aebb16f51b4404da81d469136468
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85277764"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359646"
 ---
 # <a name="about-azure-kinect-dk"></a>Sobre o Azure Kinect DK
 
@@ -86,7 +86,7 @@ O SDK de Fala habilita serviços de fala conectados ao Azure.
 >[!NOTE]
 >O Azure Kinect DK não tem alto-falantes.
 
-Para obter mais detalhes e informações, acesse a [documentação do Serviço de Fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
+Para obter mais detalhes e informações, acesse a [documentação do Serviço de Fala](../cognitive-services/speech-service/index.yml).
 
 ## <a name="vision-services"></a>Serviços de visão
 

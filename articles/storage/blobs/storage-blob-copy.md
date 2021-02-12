@@ -4,17 +4,17 @@ description: Saiba como copiar um BLOB usando as bibliotecas de cliente de armaz
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 09/10/2020
+ms.date: 01/08/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 2c474ed4d4158356075f861c3c0d5ace69173255
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28b23555f97e58dde038c5e3e12a4b741b81776d
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90014643"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059034"
 ---
 # <a name="copy-a-blob-with-azure-storage-client-libraries"></a>Copiar um blob com bibliotecas de cliente de armazenamento do Azure
 
@@ -42,7 +42,7 @@ Uma operação de cópia pode ter qualquer uma das seguintes formas:
 
 ## <a name="copy-a-blob"></a>Copiar um blob
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Para copiar um blob, chame um dos seguintes métodos:
 
@@ -55,7 +55,7 @@ O exemplo de código a seguir obtém um [BlobClient](/dotnet/api/azure.storage.b
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CopyBlob.cs" id="Snippet_CopyBlob":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Para copiar um blob, chame um dos seguintes métodos:
 
@@ -137,7 +137,7 @@ O exemplo de código a seguir obtém um [BlobClient](/azure/developer/python/sdk
 
 A anulação de uma operação de cópia resulta em um blob de destino de comprimento zero. No entanto, os metadados para o blob de destino terão os novos valores copiados do blob de origem ou definidos explicitamente durante a operação de cópia. Para manter os metadados originais antes da cópia, crie um instantâneo do blob de destino antes de chamar um dos métodos de cópia.
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Verifique a propriedade [BlobProperties. CopyStatus](/dotnet/api/azure.storage.blobs.models.blobproperties.copystatus) no blob de destino para obter o status da operação de cópia. O blob final será confirmado quando a cópia for concluída.
 
@@ -147,7 +147,7 @@ Os métodos [AbortCopyFromUri](/dotnet/api/azure.storage.blobs.specialized.blobb
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CopyBlob.cs" id="Snippet_StopBlobCopy":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Verifique a propriedade [CopyState. status](/dotnet/api/microsoft.azure.storage.blob.copystate.status) no blob de destino para obter o status da operação de cópia. O blob final será confirmado quando a cópia for concluída.
 

@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 994f2829d260223567dcb5aed859812aa1fef3d1
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: a76c6467dac69fd3d21aa659c52227046c166938
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91829121"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94816684"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, é preciso:
@@ -46,7 +46,7 @@ dotnet build
 Instale a biblioteca de clientes do Chat de Comunicação do Azure para .NET
 
 ```PowerShell
-dotnet add package Azure.Communication.Chat --version 1.0.0-beta.2
+dotnet add package Azure.Communication.Chat --version 1.0.0-beta.3
 ``` 
 
 ## <a name="object-model"></a>Modelo de objeto
@@ -77,7 +77,7 @@ ChatClient chatClient = new ChatClient(endpoint, communicationUserCredential);
 
 Use o método `createChatThread` para criar uma conversa de chat.
 - Use `topic` para fornecer um tópico a esse chat; o tópico pode ser atualizado depois que a conversa de chat é criada por meio da função `UpdateThread`.
-- Use a propriedade `members` para passar uma lista de objetos `ChatThreadMember` a serem adicionados à conversa de chat. O objeto `ChatThreadMember` é inicializado com um objeto `CommunicationUser`. Para obter um objeto `CommunicationUser`, será necessário passar uma ID de Acesso que você criou seguindo a instrução para [Criar um usuário](../../access-tokens.md#create-a-user)
+- Use a propriedade `members` para passar uma lista de objetos `ChatThreadMember` a serem adicionados à conversa de chat. O objeto `ChatThreadMember` é inicializado com um objeto `CommunicationUser`. Para obter um objeto `CommunicationUser`, será necessário passar uma ID de Acesso que você criou seguindo a instrução para [Criar um usuário](../../access-tokens.md#create-an-identity)
 
 A resposta `chatThreadClient` é usada para executar operações na conversa de chat criada: adicionando membros à conversa de chat, enviando uma mensagem, excluindo uma mensagem etc. Ela contém o atributo `Id`, que é a ID exclusiva da conversa de chat. 
 

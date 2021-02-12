@@ -4,12 +4,12 @@ description: Saiba como executar aplicativos de MPI (interface de transmissão d
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.custom: H1Hack27Feb2017, devx-track-csharp
-ms.openlocfilehash: 3dc52d13cf41347e7382872e887d87fc9b25a95b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 6aa6a910dd57a255d9ec9292119bc692edf4946f
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108075"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351513"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Usar tarefas de várias instâncias para executar aplicativos de MPI (Interface de transmissão de mensagens) no Lote
 
@@ -95,8 +95,8 @@ Procure os tamanhos especificados como "Compatível com RDMA" nos seguintes arti
   * [Tamanhos de serviços de nuvem](../cloud-services/cloud-services-sizes-specs.md) (somente Windows)
 * Pools de **VirtualMachineConfiguration**
 
-  * [Tamanhos das máquinas virtuais no Azure](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) (Linux)
-  * [Tamanhos das máquinas virtuais no Azure](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) (Windows)
+  * [Tamanhos das máquinas virtuais no Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Linux)
+  * [Tamanhos das máquinas virtuais no Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
 
 > [!NOTE]
 > Para tirar proveito dos RDMA nos [nós de computação Linux](batch-linux-nodes.md), você deverá usar **Intel MPI** nos nós.
@@ -153,7 +153,7 @@ cmd /c start cmd /c ""%MSMPI_BIN%\smpd.exe"" -d
 Observe o uso de `start` neste comando de coordenação. Isso é necessário porque o aplicativo `smpd.exe` não retorna imediatamente após a execução. Sem o uso do comando [start][cmd_start], o comando de coordenação não retornaria e, portanto, bloquearia a execução do comando do aplicativo.
 
 ## <a name="application-command"></a>Comando de aplicativo
-Depois que a tarefa principal e todas as subtarefas concluírem a execução do comando de coordenação, a linha de comando da tarefa de várias instâncias é executada *somente*pela tarefa principal. Nós o chamamos de **comando de aplicativo** para distingui-lo do comando de coordenação.
+Depois que a tarefa principal e todas as subtarefas concluírem a execução do comando de coordenação, a linha de comando da tarefa de várias instâncias é executada *somente* pela tarefa principal. Nós o chamamos de **comando de aplicativo** para distingui-lo do comando de coordenação.
 
 Para os aplicativos MS-MPI, use o comando de aplicativo para executar o aplicativo habilitado para MPI com `mpiexec.exe`. Por exemplo, eis um comando do aplicativo para uma solução usando o MS-MPI versão 7:
 

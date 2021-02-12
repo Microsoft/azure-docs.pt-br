@@ -4,7 +4,7 @@ description: Como a distribuição de tráfego funciona com a implantação do p
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ab3b340654fd6d824edef0a33d1ea363a913654
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1fda858b0811eb6308b8e5588eaeae9bff5a1730
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764580"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259382"
 ---
 # <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>Alta disponibilidade e balanceamento de carga de seus aplicativos e conectores de proxy de aplicativo
 
@@ -39,7 +39,7 @@ Os conectores estabelecem suas conexões com base nos princípios para alta disp
 
 1. Um usuário em um dispositivo cliente tenta acessar um aplicativo local publicado por meio do proxy de aplicativo.
 2. A solicitação passa por um Azure Load Balancer para determinar qual instância de serviço de proxy de aplicativo deve executar a solicitação. Por região, há dezenas de instâncias disponíveis para aceitar a solicitação. Esse método ajuda a distribuir uniformemente o tráfego entre as instâncias de serviço.
-3. A solicitação é enviada ao [barramento de serviço](https://docs.microsoft.com/azure/service-bus-messaging/).
+3. A solicitação é enviada ao [barramento de serviço](../../service-bus-messaging/index.yml).
 4. O barramento de serviço sinaliza para um conector disponível. Em seguida, o conector pega a solicitação do barramento de serviço.
    - Na etapa 2, as solicitações vão para diferentes instâncias de serviço de proxy de aplicativo, portanto, é mais provável que as conexões sejam feitas com conectores diferentes. Como resultado, os conectores são quase usados de forma uniforme dentro do grupo.
 5. O conector passa a solicitação para o servidor de back-end do aplicativo. Em seguida, o aplicativo envia a resposta de volta para o conector.
@@ -98,4 +98,4 @@ Consulte a documentação do fornecedor do software para entender os requisitos 
 - [Habilitar o logon único](application-proxy-configure-single-sign-on-with-kcd.md)
 - [Habilitar o Acesso Condicional](application-proxy-integrate-with-sharepoint-server.md)
 - [Solucionar problemas que surgirem com o Proxy de Aplicativo](application-proxy-troubleshoot.md)
-- [Saiba como a arquitetura do Azure AD dá suporte à alta disponibilidade](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture)
+- [Saiba como a arquitetura do Azure AD dá suporte à alta disponibilidade](../fundamentals/active-directory-architecture.md)

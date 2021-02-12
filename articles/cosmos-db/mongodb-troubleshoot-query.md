@@ -4,15 +4,16 @@ description: Saiba como identificar, diagnosticar e solucionar problemas de API 
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
+ms.subservice: cosmosdb-mongo
 ms.date: 10/12/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: ece814ea316fe62bc2b8b64036b08983f65ccbef
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 88ef081c75a64b5cb7517ba6994834b3a64a0e6f
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096352"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340882"
 ---
 # <a name="troubleshoot-query-issues-when-using-the-azure-cosmos-db-api-for-mongodb"></a>Solucionar problemas de consulta ao usar a API de Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -263,7 +264,7 @@ Você pode adicionar novos índices a qualquer momento, sem nenhum efeito na dis
 
 Na maioria dos casos, as operações de agregação na API do Azure Cosmos DB para o MongoDB usarão os índices parcialmente. Normalmente, o mecanismo de consulta aplicará primeiro os filtros de igualdade e de intervalo e usará índices. Depois de aplicar esses filtros, o mecanismo de consulta poderá avaliar filtros adicionais e recorrer ao carregamento de documentos restantes para computar a agregação, se necessário. 
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 ```
 db.coll.aggregate( [

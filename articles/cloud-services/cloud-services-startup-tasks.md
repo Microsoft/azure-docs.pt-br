@@ -1,20 +1,25 @@
 ---
-title: Executar Tarefas de Inicialização nos Serviços de Nuvem do Azure | Microsoft Docs
+title: Executar tarefas de inicialização nos serviços de nuvem do Azure (clássico) | Microsoft Docs
 description: As tarefas de inicialização ajudam a preparar o ambiente de serviço de nuvem para seu aplicativo. Isso mostra o funcionamento das tarefas de inicialização e como criá-las
-services: cloud-services
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 07/05/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: f2417389de98f9998c189e7cbbbcdae77fbb8840
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 25190075bdd13bd4b75dd82c97ee06ee60f4c26c
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075052"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743178"
 ---
-# <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Como configurar e executar tarefas de inicialização para um serviço de nuvem
+# <a name="how-to-configure-and-run-startup-tasks-for-an-azure-cloud-service-classic"></a>Como configurar e executar tarefas de inicialização para um serviço de nuvem do Azure (clássico)
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
+
 Você pode usar as tarefas de inicialização para executar operações antes do início de uma função. As operações que talvez você queira executar incluem a instalação de um componente, o registro de componentes COM, a configuração de chaves do Registro ou o início de um processo de longa duração.
 
 > [!NOTE]
@@ -31,7 +36,7 @@ Sua tarefa de inicialização pode registrar informações e erros no diretório
 
 As tarefas de inicialização também podem ser executadas várias vezes entre as reinicializações. Por exemplo, a tarefa de inicialização será executada sempre que a função for reciclada, e as reciclagens de função nem sempre incluirão uma reinicialização. As tarefas de inicialização devem ser gravadas de uma maneira que permita que sejam executadas diversas vezes sem problemas.
 
-As tarefas de inicialização devem terminar com um **errorlevel** (ou código de saída) zero para que o processo de inicialização seja concluído. Se uma tarefa de inicialização terminar com um **errorlevel**diferente de zero, a função não será iniciada.
+As tarefas de inicialização devem terminar com um **errorlevel** (ou código de saída) zero para que o processo de inicialização seja concluído. Se uma tarefa de inicialização terminar com um **errorlevel** diferente de zero, a função não será iniciada.
 
 ## <a name="role-startup-order"></a>Ordem de inicialização de função
 A seguir, o procedimento de inicialização da função no Azure:
@@ -105,7 +110,7 @@ A seguir, a descrição dos atributos do elemento **Task** do arquivo [ServiceDe
 **taskType** - especifica a maneira como uma tarefa de inicialização é executada.
 
 * **único**  
-  As tarefas são executadas de forma síncrona, uma de cada vez, na ordem especificada no arquivo [ServiceDefinition.csdef] . Quando uma tarefa de inicialização **simples**termina com um **errorlevel** zero, a próxima tarefa de inicialização **simples** é executada. Se não houver nenhum mais tarefas de inicialização **simples** a serem executadas, então a função será iniciada.   
+  As tarefas são executadas de forma síncrona, uma de cada vez, na ordem especificada no arquivo [ServiceDefinition.csdef] . Quando uma tarefa de inicialização **simples** termina com um **errorlevel** zero, a próxima tarefa de inicialização **simples** é executada. Se não houver nenhum mais tarefas de inicialização **simples** a serem executadas, então a função será iniciada.   
   
   > [!NOTE]
   > Se a tarefa **simples** terminar com um **errorlevel** diferente de zero, a instância será bloqueada. As tarefas de inicialização **simples** subsequentes , e a própria função, não serão iniciadas.

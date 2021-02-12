@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/01/2020
-ms.openlocfilehash: 7c3c0f603b9e7d83e40f43ab00d31f4ca63f2b4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e8e5a127741625fde7910aaabd421836148fc35
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535365"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018660"
 ---
 # <a name="sentiment-analysis"></a>Análise de sentimento
-Se a análise de sentimento estiver configurada, a resposta JSON do LUIS incluirá a análise de sentimento. Saiba mais sobre a análise de sentimento na documentação [Análise de Texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
+Se a análise de sentimento estiver configurada, a resposta JSON do LUIS incluirá a análise de sentimento. Saiba mais sobre a análise de sentimento na documentação [Análise de Texto](../text-analytics/index.yml).
 
 LUIS usa Análise de Texto v2. 
 
@@ -36,7 +36,7 @@ Quando a cultura for `en-us`, a resposta será:
 }
 ```
 
-#### <a name="other-languages"></a>[Outros idiomas](#tab/other-languages)
+#### <a name="other-languages"></a>[Outras linguagens](#tab/other-languages)
 
 Para todas as outras culturas, a resposta é:
 
@@ -50,4 +50,3 @@ Para todas as outras culturas, a resposta é:
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.md).
-

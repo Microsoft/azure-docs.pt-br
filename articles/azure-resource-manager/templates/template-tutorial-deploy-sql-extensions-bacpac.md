@@ -1,20 +1,20 @@
 ---
 title: Importar arquivos BACPAC do SQL com modelos
-description: Saiba como usar a extensão de Banco de Dados SQL do Azure para importar arquivos BACPAC do SQL com modelos do Azure Resource Manager.
+description: Saiba como usar extensões do Banco de Dados SQL do Azure para importar arquivos BACPAC do SQL com modelos do ARM (modelos do Azure Resource Manager).
 author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6a56602ad5217af07d9e35872a26ddb478146d0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1bd9f7408baf40791c31626ea9e87a73c65b999c
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86101878"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963990"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Tutorial: Importar arquivos BACPAC do SQL com modelos do ARM
 
-Saiba como usar a extensão de Banco de Dados SQL do Azure para importar um arquivo BACPAC com modelos do ARM (Azure Resource Manager). Artefatos de implantação são quaisquer arquivos, além dos arquivos de modelo principais, necessários para concluir uma implantação. O arquivo BACPAC é um artefato.
+Saiba como usar extensões do Banco de Dados SQL do Azure para importar um arquivo [BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) com modelos do ARM (modelos do Azure Resource Manager). Artefatos de implantação são quaisquer arquivos, além dos arquivos de modelo principais, necessários para concluir uma implantação. O arquivo BACPAC é um artefato.
 
 Neste tutorial, você criará um modelo para implantar um [servidor SQL lógico](../../azure-sql/database/logical-servers.md) e um banco de dados individual e importar um arquivo BACPAC. Para obter informações sobre como implantar extensões de máquina virtual do Azure usando modelos do ARM, confira o [Tutorial: Implantar extensões de máquina virtual com modelos do ARM](./template-tutorial-deploy-vm-extensions.md).
 
@@ -34,7 +34,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Para concluir este artigo, você precisa do seguinte:
 
-* Visual Studio Code com a extensão Ferramentas do Resource Manager. Confira [Início Rápido: Criar modelos do Azure Resource Manager com o Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code com a extensão Ferramentas do Resource Manager. Confira [Início Rápido: Criar modelos do ARM com o Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
 * Para aumentar a segurança, use uma senha gerada para a conta de administrador do servidor. Aqui está um exemplo que você pode usar para gerar uma senha:
 
     ```console
@@ -55,7 +55,7 @@ O arquivo BACPAC deve ser armazenado em uma conta de Armazenamento do Azure ante
 * Carregue o arquivo BACPAC para o contêiner.
 * Exiba a chave da conta de armazenamento e a URL do blob.
 
-1. Selecione **Experimente** para abrir o Cloud Shell. Em seguida, cole o seguinte script do PowerShell na janela de shell.
+1. Selecione **Experimentar** para abrir o Azure Cloud Shell. Em seguida, cole o seguinte script do PowerShell na janela de shell.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
@@ -120,7 +120,7 @@ O modelo usado neste tutorial é armazenado no [GitHub](https://raw.githubuserco
 
 ## <a name="edit-the-template"></a>Editar o modelo
 
-1. Adicione mais dois parâmetros ao final da seção **parâmetros** para definir a chave da conta de armazenamento e a URL do BACPAC.
+1. Adicione mais dois parâmetros ao final da seção `parameters` para definir a chave da conta de armazenamento e a URL do BACPAC.
 
     ```json
         "storageAccountKey": {
@@ -137,7 +137,7 @@ O modelo usado neste tutorial é armazenado no [GitHub](https://raw.githubuserco
         }
     ```
 
-    Adicione uma vírgula após **adminPassword**. Para formatar o arquivo JSON do Visual Studio Code, selecione Shift + Alt + F.
+    Adicione uma vírgula após a chave de fechamento `adminPassword` da propriedade (`}`). Para formatar o arquivo JSON do Visual Studio Code, selecione Shift + Alt + F.
 
     Para obter esses dois valores, consulte [Preparar um arquivo BACPAC](#prepare-a-bacpac-file).
 
@@ -196,11 +196,11 @@ O modelo usado neste tutorial é armazenado no [GitHub](https://raw.githubuserco
 
         Para entender a definição de recurso, confira a [referência de extensão de Banco de Dados SQL](/azure/templates/microsoft.sql/servers/databases/extensions). Abaixo estão alguns elementos importantes:
 
-        * **dependsOn**: o recurso de extensão precisa ser criado depois da criação do banco de dados.
-        * **storageKeyType**: Especifique o tipo da chave de armazenamento a ser usada. O valor pode ser `StorageAccessKey` ou `SharedAccessKey`. Use `StorageAccessKey` neste tutorial.
-        * **storageKey**: Especifique a chave para a conta de armazenamento em que o arquivo BACPAC está armazenado. Se o tipo de chave de armazenamento for `SharedAccessKey`, ela deverá ser precedida por um "?".
-        * **storageUri**: Especifique a URL do arquivo BACPAC armazenado em uma conta de armazenamento.
-        * **administratorLoginPassword**: a senha do administrador do SQL. Use a senha gerada. Consulte [Pré-requisitos](#prerequisites).
+        * `dependsOn`: o recurso de extensão precisa ser criado depois da criação do banco de dados.
+        * `storageKeyType`: Especifique o tipo da chave de armazenamento a ser usada. O valor pode ser `StorageAccessKey` ou `SharedAccessKey`. Use `StorageAccessKey` neste tutorial.
+        * `storageKey`: Especifique a chave para a conta de armazenamento em que o arquivo BACPAC está armazenado. Se o tipo de chave de armazenamento for `SharedAccessKey`, ela deverá ser precedida por um "?".
+        * `storageUri`: Especifique a URL do arquivo BACPAC armazenado em uma conta de armazenamento.
+        * `administratorLoginPassword`: a senha do administrador do SQL. Use a senha gerada. Consulte [Pré-requisitos](#prerequisites).
 
 O modelo concluído se parece com:
 

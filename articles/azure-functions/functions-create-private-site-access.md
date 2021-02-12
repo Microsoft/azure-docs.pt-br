@@ -6,16 +6,16 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 948e4f74763efd641bc0f089c679cdaf7c2f784e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 766ad12daeb6d2763f7ed5fe026cd4a0021eaf33
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530061"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937035"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Tutorial: Estabelecer o acesso a sites particulares do Azure Functions
 
-Este tutorial mostra como habilitar o [acesso a sites particulares](./functions-networking-options.md#private-site-access) com o Azure Functions. Usando o acesso a sites particulares, você pode exigir que o código de função seja disparado apenas de uma rede virtual específica.
+Este tutorial mostra como habilitar o [acesso a sites particulares](./functions-networking-options.md#private-endpoint-connections) com o Azure Functions. Usando o acesso a sites particulares, você pode exigir que o código de função seja disparado apenas de uma rede virtual específica.
 
 O acesso a sites particulares é útil em cenários quando o acesso ao aplicativo de funções precisa ser limitado a uma rede virtual específica. Por exemplo, o aplicativo de funções pode ser aplicável somente aos funcionários de uma organização específica ou aos serviços que estão dentro da rede virtual especificada (como outra Função do Azure, Máquina Virtual do Azure ou um cluster do AKS).
 
@@ -113,7 +113,7 @@ O [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) é um ser
     | _Sub-rede_ | AzureBastionSubnet | A sub-rede da rede virtual na qual o novo recurso de host do Bastion será implantado. É necessário criar uma sub-rede usando o valor de nome **AzureBastionSubnet**. Esse valor permite que o Azure saiba em qual sub-rede os recursos do Bastion serão implantados. É necessário usar uma sub-rede de pelo menos **/27** ou maior (/27,/26 e assim por diante). |
 
     > [!NOTE]
-    > Para obter um guia passo a passo detalhado sobre como criar um recurso do Azure Bastion, consulte o tutorial [Criar um host do Azure Bastion](../bastion/bastion-create-host-portal.md).
+    > Para obter um guia passo a passo detalhado sobre como criar um recurso do Azure Bastion, consulte o tutorial [Criar um host do Azure Bastion](../bastion/tutorial-create-host-portal.md).
 
 1. Crie uma sub-rede na qual o Azure possa provisionar o host do Azure Bastion. A escolha de **Gerenciar a configuração de sub-rede** abre um novo painel em que é possível definir uma nova sub-rede.  Escolha **+ Sub-rede** para criar uma sub-rede.
 1. A sub-rede precisa ter o nome **AzureBastionSubnet** e o prefixo de sub-rede precisa ser, pelo menos, **/27**.  Selecione **OK** para criar a sub-rede.
@@ -130,7 +130,7 @@ O [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) é um ser
 
 ## <a name="create-an-azure-functions-app"></a>Criar um aplicativo do Azure Functions
 
-A próxima etapa é criar um aplicativo de funções no Azure usando o [Plano de consumo](functions-scale.md#consumption-plan). Você implantará o código de função nesse recurso mais adiante no tutorial.
+A próxima etapa é criar um aplicativo de funções no Azure usando o [Plano de consumo](consumption-plan.md). Você implantará o código de função nesse recurso mais adiante no tutorial.
 
 1. No portal, escolha **Adicionar** na parte superior da exibição do grupo de recursos.
 1. Selecione **Computação > Aplicativo de Funções**
@@ -149,7 +149,7 @@ A próxima etapa é criar um aplicativo de funções no Azure usando o [Plano de
 
     | Configuração      | Valor sugerido  | Descrição      |
     | ------------ | ---------------- | ---------------- |
-    | _Conta de armazenamento_ | Nome globalmente exclusivo | Crie uma conta de armazenamento usada pelo seu aplicativo de funções. Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas. Use também uma conta existente, que precisará atender aos [requisitos da conta de armazenamento](./functions-scale.md#storage-account-requirements). |
+    | _Conta de armazenamento_ | Nome globalmente exclusivo | Crie uma conta de armazenamento usada pelo seu aplicativo de funções. Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas. Use também uma conta existente, que precisará atender aos [requisitos da conta de armazenamento](storage-considerations.md#storage-account-requirements). |
     | _Sistema operacional_ | Sistema operacional preferencial | Um sistema operacional é pré-selecionado para você com base na seleção da pilha de runtime, mas você pode alterar a configuração, se necessário. |
     | _Plano_ | Consumo | O [plano de hospedagem](./functions-scale.md) determina como o aplicativo de funções é escalado e os recursos disponíveis para cada instância. |
 1. Selecione **Examinar + Criar** para examinar as seleções de configuração de aplicativo.
@@ -159,7 +159,7 @@ A próxima etapa é criar um aplicativo de funções no Azure usando o [Plano de
 
 A próxima etapa é configurar [restrições de acesso](../app-service/app-service-ip-restrictions.md) para garantir que apenas os recursos na rede virtual possam invocar a função.
 
-O acesso a [sites particulares](functions-networking-options.md#private-site-access) é habilitado pela criação de um [ponto de extremidade de serviço](../virtual-network/virtual-network-service-endpoints-overview.md) da Rede Virtual do Azure entre o aplicativo de funções e a rede virtual especificada. As restrições de acesso são implementadas por meio de pontos de extremidade de serviço. Os pontos de extremidade de serviço garantem que apenas o tráfego proveniente da rede virtual especificada possa acessar o recurso designado. Nesse caso, o recurso designado é a Função do Azure.
+O acesso a [sites particulares](functions-networking-options.md#private-endpoint-connections) é habilitado pela criação de um [ponto de extremidade de serviço](../virtual-network/virtual-network-service-endpoints-overview.md) da Rede Virtual do Azure entre o aplicativo de funções e a rede virtual especificada. As restrições de acesso são implementadas por meio de pontos de extremidade de serviço. Os pontos de extremidade de serviço garantem que apenas o tráfego proveniente da rede virtual especificada possa acessar o recurso designado. Nesse caso, o recurso designado é a Função do Azure.
 
 1. No aplicativo de funções, selecione o link **Rede** no cabeçalho da seção _Configurações_.
 1. A página _Rede_ é o ponto de partida para configurar o Azure Front Door, a CDN do Azure e também as Restrições de Acesso.
@@ -172,7 +172,7 @@ O acesso a [sites particulares](functions-networking-options.md#private-site-acc
 1. A página _Restrições de Acesso_ agora mostra que há uma nova restrição. Podem ser necessários alguns segundos para que o _Status do ponto de extremidade_ seja alterado de Desabilitado por meio do Provisionamento para Habilitado.
 
     >[!IMPORTANT]
-    > Cada aplicativo de funções tem um [site de Ferramenta Avançada (Kudu)](../app-service/app-service-ip-restrictions.md#scm-site) que é usado para gerenciar implantações de aplicativo de funções. Esse site é acessado em uma URL como: `<FUNCTION_APP_NAME>.scm.azurewebsites.net`. Habilitar restrições de acesso no site Kudu impede a implantação do código do projeto de uma estação de trabalho de desenvolvedor local e, consequentemente, um agente é necessário na rede virtual para executar a implantação.
+    > Cada aplicativo de funções tem um [site de Ferramenta Avançada (Kudu)](../app-service/app-service-ip-restrictions.md#restrict-access-to-an-scm-site) que é usado para gerenciar implantações de aplicativo de funções. Esse site é acessado em uma URL como: `<FUNCTION_APP_NAME>.scm.azurewebsites.net`. Habilitar restrições de acesso no site Kudu impede a implantação do código do projeto de uma estação de trabalho de desenvolvedor local e, consequentemente, um agente é necessário na rede virtual para executar a implantação.
 
 ## <a name="access-the-functions-app"></a>Acessar o aplicativo de funções
 
@@ -194,10 +194,10 @@ A próxima etapa deste tutorial será criar uma Função do Azure disparada por 
 
 1. Siga um dos inícios rápidos a seguir para criar e implantar seu aplicativo do Azure Functions.
 
-    * [Visual Studio Code](./functions-create-first-function-vs-code.md)
+    * [Visual Studio Code](./create-first-function-vs-code-csharp.md)
     * [Visual Studio](./functions-create-your-first-function-visual-studio.md)
-    * [Linha de comando](./functions-create-first-azure-function-azure-cli.md)
-    * [Maven (Java)](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser)
+    * [Linha de comando](./create-first-function-cli-csharp.md)
+    * [Maven (Java)](./create-first-function-cli-java.md?tabs=bash,browser)
 
 1. Ao publicar seu projeto do Azure Functions, escolha o recurso de aplicativo de funções criado anteriormente neste tutorial.
 1. Verifique se a função foi implantada.

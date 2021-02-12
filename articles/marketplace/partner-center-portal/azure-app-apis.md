@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 87f27f316914f3efce5a750f50471c65dceca84e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9863ed24da9e427f885a4794bda7e103b0c1cc8e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127834"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455455"
 ---
 # <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>API de envio do Partner Center para aplicativos integrados do Azure no Partner Center
 
@@ -41,9 +41,9 @@ Para usar a API de envio da Microsoft Store, associe um aplicativo do Azure AD �
 >É necessário executar essa tarefa apenas uma vez. Depois de obter a ID do locatário, a ID do cliente e a chave, você poderá reutilizá-las sempre que precisar criar um novo token de acesso do Azure AD.
 
 1. No Partner Center, [associe a conta do Partner Center da sua organização ao diretório do Azure AD da sua organização](/windows/uwp/publish/associate-azure-ad-with-partner-center).
-1. Em seguida, na página **Usuários** na seção **Configurações da conta** do Partner Center, [adicione o aplicativo do Azure AD](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#add-azure-ad-applications-to-your-partner-center-account) que representa o aplicativo ou serviço que você usará para acessar os envios para sua conta do Partner Center. Lembre-se de atribuir esse aplicativo à função de **Gerenciador** . Se o aplicativo ainda não existir no diretório do Azure AD, [crie um novo aplicativo do Azure AD no Partner Center](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#create-a-new-azure-ad-application-account-in-your-organizations-directory-and-add-it-to-your-partner-center-account).
-1. Retorne à página **Usuários** , clique no nome do seu aplicativo do Azure AD para acessar as configurações do aplicativo e copie os valores de **ID do Locatário** e **ID do Cliente** .
-1. Clique em **Adicionar nova chave** . Na tela a seguir, copie o valor da **Chave** . Você não poderá acessar essas informações novamente depois de sair da página. Para saber mais, veja [Gerenciar chaves de um aplicativo do Azure AD](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#manage-keys).
+1. Em seguida, na página **Usuários** na seção **Configurações da conta** do Partner Center, [adicione o aplicativo do Azure AD](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#add-azure-ad-applications-to-your-partner-center-account) que representa o aplicativo ou serviço que você usará para acessar os envios para sua conta do Partner Center. Lembre-se de atribuir esse aplicativo à função de **Gerenciador**. Se o aplicativo ainda não existir no diretório do Azure AD, [crie um novo aplicativo do Azure AD no Partner Center](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#create-a-new-azure-ad-application-account-in-your-organizations-directory-and-add-it-to-your-partner-center-account).
+1. Retorne à página **Usuários**, clique no nome do seu aplicativo do Azure AD para acessar as configurações do aplicativo e copie os valores de **ID do Locatário** e **ID do Cliente**.
+1. Clique em **Adicionar nova chave**. Na tela a seguir, copie o valor da **Chave**. Você não poderá acessar essas informações novamente depois de sair da página. Para saber mais, veja [Gerenciar chaves de um aplicativo do Azure AD](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#manage-keys).
 
 ### <a name="step-2-obtain-an-azure-ad-access-token"></a>Etapa 2: Obtenção de um token de acesso do Azure AD
 
@@ -63,7 +63,7 @@ grant_type=client_credentials
 &resource= https://api.partner.microsoft.com
 ```
 
-Para o valor *tenant_id* em `POST URI` e nos parâmetros *client_id* e *client_secret* , especifique a ID do locatário, a ID do cliente e a chave para o aplicativo recuperado do Partner Center na seção anterior. Para o parâmetro *resource* , especifique `https://api.partner.microsoft.com`.
+Para o valor *tenant_id* em `POST URI` e nos parâmetros *client_id* e *client_secret*, especifique a ID do locatário, a ID do cliente e a chave para o aplicativo recuperado do Partner Center na seção anterior. Para o parâmetro *resource*, especifique `https://api.partner.microsoft.com`.
 
 ### <a name="step-3-use-the-microsoft-store-submission-api"></a>Etapa 3: Uso da API de envio da Microsoft Store
 
@@ -73,5 +73,5 @@ https://apidocs.microsoft.com/services/partneringestion/
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba como [Criar um ativo técnico da VM do Azure](create-azure-container-technical-assets.md)
-* Saiba como criar uma [Oferta de contêiner do Azure](create-azure-container-offer.md)
+* Saiba como [Criar um ativo técnico da VM do Azure](../create-azure-container-technical-assets.md)
+* Saiba como criar uma [Oferta de contêiner do Azure](../create-azure-container-offer.md)

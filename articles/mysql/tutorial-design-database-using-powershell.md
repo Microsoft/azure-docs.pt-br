@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Projetar um servidor – Azure PowerShell – Banco de Dados do Azure para MySQL'
 description: Este tutorial explica como criar e gerenciar o Banco de Dados do Azure para o servidor e banco de dados MySQL usando o PowerShell.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 04/29/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: b5dd66b16674e1441865f796153e7508acc854d0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: fd8294d60ed0af4e8d1eeb8a3cd07c737b69aadd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543739"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011448"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-powershell"></a>Tutorial: Criar um Banco de Dados do Azure para MySQL usando o PowerShell
 
@@ -38,7 +38,7 @@ Se você optar por usar o PowerShell localmente, este artigo exigirá que você 
 > Enquanto o módulo Az.MySql PowerShell está em versão prévia, você deve instalá-lo separadamente do módulo Az PowerShell usando o seguinte comando: `Install-Module -Name Az.MySql -AllowPrerelease`.
 > Depois que o módulo Az.MySql PowerShell estiver em disponibilidade geral, ele passará a fazer parte das versões futuras do módulo do Az PowerShell e estará disponível nativamente no Azure Cloud Shell.
 
-Se esta for a primeira vez que você usa o serviço de Banco de Dados do Azure para MySQL, registre o provedor de recursos **Microsoft.DBforMySQL** .
+Se esta for a primeira vez que você usa o serviço de Banco de Dados do Azure para MySQL, registre o provedor de recursos **Microsoft.DBforMySQL**.
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.DBforMySQL
@@ -56,7 +56,7 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 Crie um [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) usando o cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados como um grupo.
 
-O seguinte exemplo cria um grupo de recursos chamado **myresourcegroup** na região **Oeste dos EUA** .
+O seguinte exemplo cria um grupo de recursos chamado **myresourcegroup** na região **Oeste dos EUA**.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myresourcegroup -Location westus
@@ -66,7 +66,7 @@ New-AzResourceGroup -Name myresourcegroup -Location westus
 
 Crie um Banco de Dados do Azure para MySQL com o cmdlet `New-AzMySqlServer`. Um servidor pode gerenciar vários bancos de dados. Normalmente, um banco de dados separado é usado para cada projeto ou para cada usuário.
 
-O exemplo a seguir cria um servidor MySQL na região **Oeste dos EUA** denominada **mydemoserver** no grupo de recursos **myresourcegroup** com um logon de administrador do servidor de **myadmin** . É um servidor Gen 5 no tipo de preço de uso geral com dois vCores e backups com redundância geográfica habilitados. Documente a senha usada na primeira linha do exemplo, pois essa é a senha da conta do administrador do servidor MySQL.
+O exemplo a seguir cria um servidor MySQL na região **Oeste dos EUA** denominada **mydemoserver** no grupo de recursos **myresourcegroup** com um logon de administrador do servidor de **myadmin**. É um servidor Gen 5 no tipo de preço de uso geral com dois vCores e backups com redundância geográfica habilitados. Documente a senha usada na primeira linha do exemplo, pois essa é a senha da conta do administrador do servidor MySQL.
 
 > [!TIP]
 > Um nome de servidor mapeia para um nome DNS e deve ser globalmente exclusivo no Azure.
@@ -76,7 +76,7 @@ $Password = Read-Host -Prompt 'Please enter your password' -AsSecureString
 New-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup -Sku GP_Gen5_2 -GeoRedundantBackup Enabled -Location westus -AdministratorUsername myadmin -AdministratorLoginPassword $Password
 ```
 
-O valor do parâmetro **SKU** segue a convenção **pricing-tier\_compute-generation\_vCores** , conforme mostrado nestes exemplos.
+O valor do parâmetro **SKU** segue a convenção **pricing-tier\_compute-generation\_vCores**, conforme mostrado nestes exemplos.
 
 - `-Sku B_Gen5_1` é mapeado para Básico, Gen 5 e 1 vCore. Essa opção é o menor SKU disponível.
 - `-Sku GP_Gen5_32` mapeia para Uso Geral, Gen 5 e 32 vCores.
@@ -93,7 +93,7 @@ Considere usar o tipo de preço Básico se computação leve e E/S forem adequad
 
 Crie uma regra de firewall no nível de servidor do Banco de Dados do Azure para MySQL usando o cmdlet `New-AzMySqlFirewallRule`. Uma regra de firewall no nível de servidor permite que um aplicativo externo, como a ferramenta de linha de comando `mysql` ou o MySQL Workbench, conecte-se ao servidor por meio do firewall do serviço Banco de Dados do Azure para MySQL.
 
-O exemplo a seguir cria uma regra de firewall chamada **AllowMyIP** , que permite conexões de um endereço IP específico, 192.168.0.1. Substitua um endereço IP ou um intervalo de endereços IP que correspondam à localização da qual você está se conectando.
+O exemplo a seguir cria uma regra de firewall chamada **AllowMyIP**, que permite conexões de um endereço IP específico, 192.168.0.1. Substitua um endereço IP ou um intervalo de endereços IP que correspondam à localização da qual você está se conectando.
 
 ```azurepowershell-interactive
 New-AzMySqlFirewallRule -Name AllowMyIP -ResourceGroupName myresourcegroup -ServerName mydemoserver -StartIPAddress 192.168.0.1 -EndIPAddress 192.168.0.1
@@ -104,7 +104,7 @@ New-AzMySqlFirewallRule -Name AllowMyIP -ResourceGroupName myresourcegroup -Serv
 
 ## <a name="get-the-connection-information"></a>Obter informações de conexão
 
-Para se conectar ao servidor, é preciso fornecer credenciais de acesso e informações do host. Use o exemplo a seguir para determinar as informações de conexão. Anote os valores de **FullyQualifiedDomainName** e o **AdministratorLogin** .
+Para se conectar ao servidor, é preciso fornecer credenciais de acesso e informações do host. Use o exemplo a seguir para determinar as informações de conexão. Anote os valores de **FullyQualifiedDomainName** e o **AdministratorLogin**.
 
 ```azurepowershell-interactive
 Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
@@ -207,6 +207,24 @@ Os valores de local e tipo de preço para o servidor restaurado permanecem iguai
 Depois que o processo de restauração é concluído, localize o novo servidor e verifique se os dados são restaurados como esperado. O novo servidor tem o mesmo nome de logon e senha do administrador válidos para o servidor existente no momento em que a restauração foi iniciada. A senha pode ser alterada na página **Visão geral** do servidor.
 
 O servidor criado durante uma restauração não tem o ponto de extremidade de serviço VNet existentes no servidor original. Essas regras devem ser configuradas separadamente para o novo servidor. As regras de firewall do servidor original são restauradas.
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Se os recursos criados neste tutorial não forem necessários para outro guia de início rápido ou tutorial, exclua-os executando o exemplo a seguir.
+
+> [!CAUTION]
+> O exemplo a seguir exclui o grupo de recursos especificado e todos os recursos contidos nele.
+> Se existirem recursos fora do escopo deste tutorial no grupo de recursos especificado, eles também serão excluídos.
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name myresourcegroup
+```
+
+Para excluir somente o servidor criado neste tutorial sem excluir o grupo de recursos, use o cmdlet `Remove-AzMySqlServer`.
+
+```azurepowershell-interactive
+Remove-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

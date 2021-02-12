@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 09/11/2020
-ms.openlocfilehash: ad399272673f1e2ede7bcaa82b66688fbaa8ac45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e1c38a1fc9b681616ac3bf5c0c78fd56d933ce6
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804037"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510542"
 ---
 # <a name="resource-manager-template-samples-for-diagnostic-settings-in-azure-monitor"></a>Amostras do modelo do Resource Manager para configurações de diagnóstico no Azure Monitor
 Este artigo inclui [modelos do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) de amostra para criar configurações de diagnóstico para um recurso do Azure. Cada amostra inclui um arquivo de modelo e um arquivo de parâmetros com valores de amostra para fornecer ao modelo.
@@ -526,7 +526,7 @@ O exemplo a seguir cria uma configuração de diagnóstico para um workspace do 
                 "metrics": [],
                 "logs": [
                     {
-                        "category": "LAQueryLogs",
+                        "category": "Audit",
                         "enabled": true
                     }
                 ]

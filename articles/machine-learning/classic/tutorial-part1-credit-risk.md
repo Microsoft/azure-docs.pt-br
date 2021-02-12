@@ -9,17 +9,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 6947c567ee2ffd70fdb3a1dfc17a641f63124ffb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62cecc011980c2d11e6f99895c90b0ced744039a
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91337675"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325342"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Tutorial 1: Prever risco de crédito – Azure Machine Learning Studio (clássico)
 
-**APLICA-SE A:**  ![sim](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico)   ![não](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
-
+**APLICA-SE A:**  ![Esta é uma marca de seleção, o que significa que este artigo se aplica ao Machine Learning Studio (clássico).](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![Isto é um X, o que significa que este artigo se aplica ao Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -119,7 +118,7 @@ Depois que os dados tiverem sido convertidos no formato CSV, você deverá fazer
 
 1. Abra a página inicial do Machine Learning Studio (clássico) ([https://studio.azureml.net](https://studio.azureml.net)). 
 
-2. Clique em ![Menu](./media/tutorial-part1-credit-risk/menu.png) no canto superior esquerdo da janela, clique em **Azure Machine Learning**, selecione **Estúdio** e entre.
+2. Clique no menu ![Este é o ícone do menu: três linhas empilhadas.](./media/tutorial-part1-credit-risk/menu.png) no canto superior esquerdo da janela, clique em **Azure Machine Learning**, selecione **Estúdio** e conecte-se.
 
 3. Clique em **+NOVO** na parte inferior da janela.
 
@@ -154,7 +153,7 @@ Para saber mais sobre como importar outros tipos de dados para um experimento, c
 A próxima etapa do tutorial é criar um experimento no Machine Learning Studio (clássico) que usa o conjunto de dados que você carregou.  
 
 1. No Studio (clássico), clique em **+NOVO** na parte inferior da janela.
-1. Selecione **TESTE**e, em seguida, selecione "Teste em branco". 
+1. Selecione **TESTE** e, em seguida, selecione "Teste em branco". 
 
     ![Criar um novo experimento](./media/tutorial-part1-credit-risk/create-new-experiment.png)
 
@@ -164,7 +163,7 @@ A próxima etapa do tutorial é criar um experimento no Machine Learning Studio 
     ![Renomear o teste](./media/tutorial-part1-credit-risk/rename-experiment.png)
 
    > [!TIP]
-   > É uma boa prática preencher**Resumo** e **Descrição** para o experimento no painel **Propriedades**. Essas propriedades lhe dão a chance de documentar o experimento para que qualquer pessoa que olhe para ele mais tarde compreenda as suas metas e a metodologia.
+   > É uma boa prática preencher **Resumo** e **Descrição** para o experimento no painel **Propriedades**. Essas propriedades lhe dão a chance de documentar o experimento para que qualquer pessoa que olhe para ele mais tarde compreenda as suas metas e a metodologia.
    > 
    > ![Propriedades de teste](./media/tutorial-part1-credit-risk/experiment-properties.png)
    > 
@@ -313,6 +312,6 @@ Agora você está pronto para treinar e avaliar modelos para esses dados.
 > [Tutorial 2 – treinar e avaliar modelos](tutorial-part2-credit-risk-train.md)
 
 <!-- Module References -->
-[execute-r-script]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/execute-r-script
-[edit-metadata]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/edit-metadata
-[split]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/split-data
+[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
+[edit-metadata]: /azure/machine-learning/studio-module-reference/edit-metadata
+[split]: /azure/machine-learning/studio-module-reference/split-data

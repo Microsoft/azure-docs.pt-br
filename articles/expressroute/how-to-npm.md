@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: duau
-ms.openlocfilehash: c8127a60a4685a615bc07e21a1efb4dd216c5b8c
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 837d1f78a9fde72137383e6c22adb8870997dc9b
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201045"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986032"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurar o Monitor de Desempenho de Rede para ExpressRoute
 
@@ -59,7 +59,7 @@ Criar um workspace na assinatura que tem o link das VNETs ao(s) circuito(s) do E
 
    ![portal](./media/how-to-npm/3.png)<br><br>
 2. Na parte inferior da página principal **Monitor de Desempenho de Rede**, clique em **Criar** para abrir a página **Monitor de Desempenho de Rede – Criar nova solução**. Clique em **Espaço de Trabalho do Log Analytics – selecionar um espaço de trabalho** para abrir a página Espaços de Trabalho. Clique em **+ Criar Novo Workspace** para abrir a página de Workspace.
-3. Na página **log Analytics espaço de trabalho** , selecione **criar novo**e defina as seguintes configurações:
+3. Na página **log Analytics espaço de trabalho** , selecione **criar novo** e defina as seguintes configurações:
 
    * Espaço de Trabalho do Log Analytics - digite um nome para o espaço de trabalho.
    * Assinatura: se você tiver várias assinaturas, selecione aquela que você deseja associar ao novo Workspace.
@@ -169,7 +169,7 @@ Para obter mais informações sobre os NSG, consulte [Grupos de Segurança de Re
 
 ## <a name="step-4-discover-peering-connections"></a><a name="setupmonitor"></a>Etapa 4: Descobrir conexões de emparelhamento
 
-1. Navegue até o bloco de visão geral do Monitor de Desempenho de Rede ao acessar a página **Todos os Recursos**, então clique no Workspace de NPM na lista de permissões.
+1. Navegue até o bloco visão geral do Monitor de Desempenho de Rede acessando a página **todos os recursos** e, em seguida, clique no espaço de trabalho allowlisted NPM.
 
    ![workspace de NPM](./media/how-to-npm/npm.png)
 2. Clique no bloco de visão geral do **Monitor de Desempenho de Rede** para exibir o painel. O painel contém uma página do ExpressRoute, que mostra que o ExpressRoute está em um 'estado não configurado'. Clique em **Instalação de Recurso** para abrir a página de configuração do Monitor de Desempenho de Rede.

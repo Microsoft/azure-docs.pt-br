@@ -1,6 +1,6 @@
 ---
 title: Sobre os segredos do Azure Key Vault – Azure Key Vault
-description: Visão geral dos detalhes da interface REST e do desenvolvedor do Azure Key Vault para os segredos.
+description: Visão geral dos segredos do Azure Key Vault.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,16 +10,16 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7aa2feba5a2b2fa47bbb0c055a2f556b8997ab34
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 78e9c50cb0601f6be69ae61f3a8e02621c7dd808
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82930464"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786032"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Sobre os segredos do Azure Key Vault
 
-O Key Vault fornece armazenamento seguro de segredos, como senhas e cadeias de conexão de banco de dados.
+O [Key Vault](../general/overview.md) fornece armazenamento seguro de segredos genéricos, como senhas e cadeias de conexão de banco de dados.
 
 Da perspectiva do desenvolvedor, APIs Key Vault aceitam e retornam valores do segredo como cadeias de caracteres. Internamente, o Key Vault armazena e gerencia os segredos como sequências de octetos (bytes de 8 bits), com um tamanho máximo de 25k bytes cada. O serviço Key Vault não fornece a semântica para segredos. Ele simplesmente aceita os dados, criptografa-os, armazena-os e retorna um identificador secreto ("id"). O identificador pode ser usado para recuperar o segredo em um momento posterior.  
 
@@ -43,6 +43,8 @@ Há mais atributos somente leitura que são incluídos em qualquer resposta que 
 
 - *criado*: IntDate, opcional. O atributo criado indica quando esta versão do segredo foi criada. Esse valor é nulo para segredos criados antes da adição deste atributo. Seu valor deve ser um número que contenha um valor de IntDate.  
 - *atualizado*: IntDate, opcional. O atributo atualizado indica quando esta versão do segredo foi atualizada. Esse valor é nulo para segredos que foram atualizados antes da adição deste atributo. Seu valor deve ser um número que contenha um valor de IntDate.
+
+Para obter informações sobre atributos comuns para cada tipo de objeto do cofre de chaves, confira a [Visão geral das chaves, dos segredos e dos certificados do Azure Key Vault](../general/about-keys-secrets-certificates.md)
 
 ### <a name="date-time-controlled-operations"></a>Operações de data e hora controladas
 
@@ -68,6 +70,12 @@ As seguintes permissões podem ser usadas, por entidade de segurança, na entrad
 
 Para obter mais informações sobre como trabalhar com segredos, veja [Operações de segredo na referência de API REST do Key Vault](/rest/api/keyvault). Para obter informações sobre como estabelecer permissões, confira [Cofres – criar ou atualizar](/rest/api/keyvault/vaults/createorupdate) e [Cofres – atualizar política de acesso](/rest/api/keyvault/vaults/updateaccesspolicy). 
 
+Guias de instruções para controlar o acesso no Key Vault:
+- [Atribuir uma política de acesso do Key Vault usando a CLI](../general/assign-access-policy-cli.md)
+- [Atribuir uma política de acesso do Key Vault usando o PowerShell](../general/assign-access-policy-powershell.md)
+- [Atribuir uma política de acesso do Key Vault usando o portal do Azure](../general/assign-access-policy-portal.md)
+- [Fornecer acesso a chaves, certificados e segredos do Key Vault com um controle de acesso baseado em função do Azure (versão prévia)](../general/rbac-guide.md)
+
 ## <a name="secret-tags"></a>Marcas de segredos  
 Você pode especificar mais metadados específicos do aplicativo na forma de marcas. O Key Vault oferece suporte a até 15 marcas, cada uma delas pode ter um nome de 256 caracteres e um valor de 256 caracteres.  
 
@@ -76,14 +84,17 @@ Você pode especificar mais metadados específicos do aplicativo na forma de mar
 
 ## <a name="azure-storage-account-key-management"></a>Gerenciamento da conta de armazenamento do Azure
 
-O Key Vault pode gerenciar chaves de conta de armazenamento do Azure:
+O Key Vault pode gerenciar chaves de [conta de armazenamento do Azure](../../storage/common/storage-account-overview.md):
 
 - Internamente, o Key Vault pode listar (sincronizar) chaves com uma conta de armazenamento do Azure. 
 - O Key Vault gera novamente (gira) as chaves periodicamente.
 - Os valores de chave nunca são retornados em resposta ao chamador.
 - O Key Vault gerencia chaves tanto de contas de armazenamento quanto de contas de armazenamento clássicas.
 
-Para obter mais informações, confira [Chaves de conta de armazenamento do Azure Key Vault](../secrets/overview-storage-keys.md))
+Para obter mais informações, consulte:
+- [Chaves de acesso da conta de armazenamento](../../storage/common/storage-account-keys-manage.md)
+- [Gerenciamento de chaves de conta de armazenamento no Azure Key Vault](../secrets/overview-storage-keys.md)
+
 
 ## <a name="storage-account-access-control"></a>Controle de acesso da conta de armazenamento
 
@@ -109,11 +120,18 @@ As seguintes permissões podem ser usadas ao autorizar um usuário ou entidade d
 
 Para obter mais informações, confira [Operações de conta de armazenamento na referência de API REST do Key Vault](/rest/api/keyvault). Para obter informações sobre como estabelecer permissões, confira [Cofres – criar ou atualizar](/rest/api/keyvault/vaults/createorupdate) e [Cofres – atualizar política de acesso](/rest/api/keyvault/vaults/updateaccesspolicy).
 
+Guias de instruções para controlar o acesso no Key Vault:
+- [Atribuir uma política de acesso do Key Vault usando a CLI](../general/assign-access-policy-cli.md)
+- [Atribuir uma política de acesso do Key Vault usando o PowerShell](../general/assign-access-policy-powershell.md)
+- [Atribuir uma política de acesso do Key Vault usando o portal do Azure](../general/assign-access-policy-portal.md)
+- [Fornecer acesso a chaves, certificados e segredos do Key Vault com um controle de acesso baseado em função do Azure (versão prévia)](../general/rbac-guide.md)
+
+
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Sobre o Key Vault](../general/overview.md)
 - [Sobre chaves, segredos e certificados](../general/about-keys-secrets-certificates.md)
 - [Sobre as chaves](../keys/about-keys.md)
 - [Sobre certificados](../certificates/about-certificates.md)
-- [Autenticação, solicitações e respostas](../general/authentication-requests-and-responses.md)
+- [Proteger o acesso a um cofre de chaves](../general/secure-your-key-vault.md)
 - [Guia do Desenvolvedor do Cofre de Chaves](../general/developers-guide.md)

@@ -3,12 +3,12 @@ title: Obter dados de conformidade da política
 description: Efeitos e avaliações do Azure Policy determinam a conformidade. Saiba como obter os detalhes de conformidade dos seus recursos do Azure.
 ms.date: 10/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 36645d5eb50aaf571c608fc51127b47ac885777d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 112badce00ec56df0f80c7b51bb4789a414cdcbd
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320416"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920229"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obter dados de conformidade de recursos do Azure
 
@@ -80,7 +80,7 @@ Para obter mais informações e exemplos de fluxo de trabalho, consulte a [açã
 
 #### <a name="on-demand-evaluation-scan---azure-cli"></a>Varredura de avaliação sob demanda-CLI do Azure
 
-A verificação de conformidade é iniciada com o comando [AZ Policy estado Trigger-Scan](/cli/azure/policy/state#az-policy-state-trigger-scan) .
+A verificação de conformidade é iniciada com o comando [AZ Policy estado Trigger-Scan](/cli/azure/policy/state#az_policy_state_trigger_scan) .
 
 Por padrão, `az policy state trigger-scan` inicia uma avaliação para todos os recursos na assinatura atual. Para iniciar uma avaliação em um grupo de recursos específico, use o parâmetro **grupo de recursos** . O exemplo a seguir inicia uma verificação de conformidade na assinatura atual do grupo de recursos _MyRG_:
 
@@ -184,7 +184,7 @@ Por exemplo, suponha que você tenha um grupo de recursos – ContsoRG, com algu
 
 Neste exemplo, você precisa estar atento aos riscos de segurança. Agora que você criou uma atribuição de política, ela é avaliada para todas as contas de armazenamento incluídas e não isentas no grupo de recursos ContosoRG. Ele audita as três contas de armazenamento não compatíveis, consequentemente alterando seus estados para **Não compatíveis.**
 
-:::image type="complex" source="../media/getting-compliance-data/resource-group03.png" alt-text="Diagrama de contas de armazenamento expostas a redes públicas no grupo de recursos contoso R G." border="false":::
+:::image type="complex" source="../media/getting-compliance-data/resource-group03.png" alt-text="Diagrama de conformidade da conta de armazenamento no grupo de recursos contoso R G." border="false":::
    Diagrama mostrando imagens para cinco contas de armazenamento no grupo de recursos contoso R G. As contas de armazenamento um e três agora têm marcas de seleção verdes abaixo delas, enquanto as contas de armazenamento dois, quatro e cinco agora têm sinais de aviso vermelhos abaixo delas.
 :::image-end:::
 
@@ -195,12 +195,12 @@ Além de serem **compatíveis** e **não compatíveis**, as políticas e os recu
 - **Não foi iniciado**: O ciclo de avaliação não foi iniciado para a política ou o recurso.
 - **Não registrado**: o Provedor de Recursos do Azure Policy não foi registrado ou a conta conectada não tem permissão para ler dados de conformidade.
 
-Azure Policy usa os campos **tipo**, **nome**ou **tipo** na definição para determinar se um recurso é uma correspondência. Quando o recurso corresponde, ele é considerado aplicável e tem um status de em **conformidade**, **não compatível**ou **isento**. Se o **tipo**, o **nome**ou o **tipo** for a única propriedade na definição, todos os recursos incluídos e não isentos serão considerados aplicáveis e serão avaliados.
+Azure Policy usa os campos **tipo**, **nome** ou **tipo** na definição para determinar se um recurso é uma correspondência. Quando o recurso corresponde, ele é considerado aplicável e tem um status de em **conformidade**, **não compatível** ou **isento**. Se o **tipo**, o **nome** ou o **tipo** for a única propriedade na definição, todos os recursos incluídos e não isentos serão considerados aplicáveis e serão avaliados.
 
-A porcentagem de conformidade é determinada pela divisão de recursos em **conformidade** e **isentos** pelo _total de recursos_. _O total de recursos_ é definido como a soma dos recursos **compatíveis**, **não compatíveis**, **isentos**e **conflitantes** . Os números de conformidade geral são a soma de recursos distintos que são **compatíveis** ou **isentos** divididos pela soma de todos os recursos distintos. Na imagem abaixo, existem 20 recursos distintos que são aplicáveis e apenas um é **Não compatível**.
+A porcentagem de conformidade é determinada pela divisão de recursos em **conformidade** e **isentos** pelo _total de recursos_. _O total de recursos_ é definido como a soma dos recursos **compatíveis**, **não compatíveis**, **isentos** e **conflitantes** . Os números de conformidade geral são a soma de recursos distintos que são **compatíveis** ou **isentos** divididos pela soma de todos os recursos distintos. Na imagem abaixo, existem 20 recursos distintos que são aplicáveis e apenas um é **Não compatível**.
 A conformidade geral do recurso é 95 (19 de 20).
 
-:::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Diagrama de contas de armazenamento expostas a redes públicas no grupo de recursos contoso R G." border="false":::
+:::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Captura de tela de detalhes de conformidade de política da página conformidade." border="false":::
 
 > [!NOTE]
 > A conformidade regulatória no Azure Policy é um recurso de visualização. As propriedades de conformidade do SDK e das páginas no portal são diferentes para iniciativas habilitadas. Para obter mais informações, consulte [conformidade regulatória](../concepts/regulatory-compliance.md)
@@ -209,11 +209,11 @@ A conformidade geral do recurso é 95 (19 de 20).
 
 O Portal do Azure apresenta uma experiência gráfica de visualização e compreensão do estado de conformidade em seu ambiente. Na página **Política**, a opção **Visão Geral** fornece detalhes dos escopos disponíveis sobre a conformidade das políticas e iniciativas. Junto com o estado de conformidade e com a contagem por atribuição, ela contém um gráfico mostrando a conformidade nos últimos sete dias. A página **Conformidade** contém muitas dessas mesmas informações (exceto o gráfico), mas fornece opções adicionais de filtragem e classificação.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-page.png" alt-text="Diagrama de contas de armazenamento expostas a redes públicas no grupo de recursos contoso R G." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-page.png" alt-text="Captura de tela da página conformidade, opções de filtragem e detalhes." border="false":::
 
 Como uma política ou iniciativa pode ser atribuída a escopos diferentes, a tabela inclui o escopo de cada atribuição e o tipo de definição que foi atribuído. O número de recursos não compatíveis e políticas não compatíveis para cada atribuição também são fornecidos. A seleção de uma política ou iniciativa na tabela fornece uma análise mais profunda da conformidade para essa atribuição específica.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Diagrama de contas de armazenamento expostas a redes públicas no grupo de recursos contoso R G." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Captura de tela da página de detalhes de conformidade, incluindo contagens e detalhes de conformidade de recursos." border="false":::
 
 A lista de recursos na guia **Conformidade de recursos** mostra o status de avaliação de recursos existentes para a atribuição atual. O padrão da guia é **Não compatível**, mas pode ser filtrado.
 Os eventos (acrescentar, auditar, negar, implantar, modificar) disparados pela solicitação para criar um recurso são mostrados na guia **eventos** .
@@ -221,15 +221,15 @@ Os eventos (acrescentar, auditar, negar, implantar, modificar) disparados pela s
 > [!NOTE]
 > Para uma política de mecanismo AKS, o recurso mostrado é o grupo de recursos.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Diagrama de contas de armazenamento expostas a redes públicas no grupo de recursos contoso R G." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Captura de tela da guia eventos na página de detalhes de conformidade." border="false":::
 
 <a name="component-compliance"></a> Para recursos do [modo provedor de recursos](../concepts/definition-structure.md#resource-provider-modes) , na guia **conformidade de recursos** , selecionar o recurso ou clicar com o botão direito do mouse na linha e selecionar **Exibir detalhes de conformidade** abre os detalhes de conformidade do componente. Esta página também oferece guias para ver as políticas que são atribuídas a esse recurso, eventos, eventos de componente e histórico de alterações.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Diagrama de contas de armazenamento expostas a redes públicas no grupo de recursos contoso R G." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Captura de tela da guia conformidade do componente e detalhes de conformidade para uma atribuição de modo do provedor de recursos." border="false":::
 
 De volta à página de conformidade do recurso, clique com o botão direito na linha do evento para obter mais detalhes e selecione **Mostrar logs de atividade**. A página de registro de atividade é aberta e pré-filtrada na pesquisa, mostrando detalhes da atribuição e dos eventos. O log de atividades fornece um contexto adicional e informações sobre esses eventos.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Diagrama de contas de armazenamento expostas a redes públicas no grupo de recursos contoso R G." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Captura de tela do log de atividades para Azure Policy atividades e avaliações." border="false":::
 
 ### <a name="understand-non-compliance"></a>Entender a não conformidade
 
@@ -685,7 +685,7 @@ Trent Baker
 
 Se você tiver um [espaço de trabalho log Analytics](../../../azure-monitor/log-query/log-query-overview.md) com `AzureActivity` o da [solução análise do log de atividades](../../../azure-monitor/platform/activity-log.md) vinculada à sua assinatura, também poderá exibir os resultados de não conformidade da avaliação de recursos novos e atualizados usando consultas simples de Kusto e a `AzureActivity` tabela. Com os detalhes nos logs do Azure Monitor, os alertas poderão ser configurados para inspecionar a não conformidade.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Diagrama de contas de armazenamento expostas a redes públicas no grupo de recursos contoso R G." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Captura de tela de logs de Azure Monitor mostrando ações de Azure Policy na tabela AzureActivity." border="false":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

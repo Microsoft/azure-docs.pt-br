@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 251b15f72c3216ad3ff4b2983c8cbbd2d9ec6579
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3497551616b96dc04e2dbdec28d0bf84a11afde0
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618243"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954590"
 ---
 # <a name="deployment-checklist-for-your-azure-stack-edge-pro-gpu-device"></a>Lista de verificação de implantação para seu dispositivo de GPU pro do Azure Stack Edge  
 
@@ -41,7 +41,7 @@ Use a lista de verificação a seguir para garantir que você tenha essas inform
 | Ativação  | Exigir chave de ativação do Azure Stack borda do recurso pro/Gateway do Data Box.    | Depois de gerada, a chave expira em 3 dias. |
 
 <!--
-| (Optional) MAC Address            | If MAC address needs to be whitelisted, get the address of the connected port from local UI of the device. |                                                                                                                   |
+| (Optional) MAC Address            | If MAC address needs to be on the allowed list, get the address of the connected port from local UI of the device. |                                                                                                                   |
 | (Optional) Network switch port    | Device hosts Hyper-V VMs for compute. Some network switch port configurations don’t accommodate these setups by default.                                                                                                        |                                                                                                                   |-->
 
 

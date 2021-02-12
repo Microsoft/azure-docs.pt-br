@@ -1,7 +1,7 @@
 ---
 title: 'Regressão logística Two-Class: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo de regressão logística Two-Class no Azure Machine Learning para criar um modelo de regressão logística que pode ser usado para prever dois (e apenas dois) resultados.
+description: Saiba como usar o módulo de regressão logística Two-Class no Azure Machine Learning para criar um classificador binário.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 525293c7ae3d0af49f6deaa0ce9d3cb037d9ba38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e29a666f4d478e11986f834cff94d9743223f22
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907696"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012639"
 ---
 # <a name="two-class-logistic-regression-module"></a>Módulo de regressão logística Two-Class
 
@@ -58,7 +58,7 @@ Por exemplo, a coluna de rótulo pode ser [voto] com os valores possíveis de "S
      Este algoritmo dá suporte a uma combinação linear de valores de regularização L1 e L2: ou seja, se <code>x = L1</code> e <code>y = L2</code> , <code>ax + by = c</code> define o intervalo linear dos termos de regularização.  
   
     > [!NOTE]
-    >  Quer saber mais sobre a regularização de L1 e L2? O artigo a seguir fornece uma discussão de como a regularização L1 e L2 é diferente e como elas afetam o ajuste de modelo, com exemplos de código para a regressão logística e modelos de rede neural: a  [regularização L1 e L2 para Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  
+    >  Quer saber mais sobre a regularização de L1 e L2? O artigo a seguir fornece uma discussão de como a regularização L1 e L2 é diferente e como elas afetam o ajuste de modelo, com exemplos de código para a regressão logística e modelos de rede neural: a  [regularização L1 e L2 para Machine Learning](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning)  
     >
     > Combinações lineares diferentes de termos de L1 e L2 foram desenvolvedas para modelos de regressão logística: por exemplo, [regularização de rede elástica](https://wikipedia.org/wiki/Elastic_net_regularization). Sugerimos que você referencie essas combinações para definir uma combinação linear que seja efetiva em seu modelo.
       
@@ -97,4 +97,4 @@ Após a conclusão do treinamento:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning.

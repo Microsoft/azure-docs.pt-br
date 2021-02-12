@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49f3e082969b7483601088cd976d8cc30d500017
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 366d68be1a7f115980973015e363da6095876754
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367458"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997623"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Como configurar e habilitar políticas de risco
 
@@ -33,7 +33,7 @@ Ambas as políticas funcionam para automatizar a resposta a detecções de risco
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-Se sua organização quiser permitir que os usuários se recorrir automaticamente quando forem detectados riscos, os usuários deverão ser registrados para a redefinição de senha de autoatendimento e a autenticação multifator do Azure. É recomendável [habilitar a experiência combinada de registro de informações de segurança](../authentication/howto-registration-mfa-sspr-combined.md) para obter a melhor experiência. Permitir que os usuários se corrijam novamente para um estado produtivo mais rapidamente, sem a necessidade de intervenção do administrador. Os administradores ainda podem ver esses eventos e investigue-os após o fato. 
+Se sua organização quiser permitir que os usuários se recorrir automaticamente quando forem detectados riscos, os usuários deverão ser registrados para a redefinição de senha de autoatendimento e a autenticação multifator do Azure AD. É recomendável [habilitar a experiência combinada de registro de informações de segurança](../authentication/howto-registration-mfa-sspr-combined.md) para obter a melhor experiência. Permitir que os usuários se corrijam novamente para um estado produtivo mais rapidamente, sem a necessidade de intervenção do administrador. Os administradores ainda podem ver esses eventos e investigue-os após o fato. 
 
 ## <a name="choosing-acceptable-risk-levels"></a>Escolhendo níveis de risco aceitáveis
 
@@ -54,7 +54,7 @@ Os [locais de rede](../conditional-access/location-condition.md) confiáveis con
 Para habilitar o risco do usuário e as políticas de risco de entrada, conclua as etapas a seguir.
 
 1. Navegue até o [Portal do Azure](https://portal.azure.com).
-1. Navegue até **Azure Active Directory**  >  **Security**  >  **Identity Protection**  >  **visão geral**da proteção de identidade de segurança.
+1. Navegue até **Azure Active Directory**  >  **Security**  >  **Identity Protection**  >  **visão geral** da proteção de identidade de segurança.
 1. Selecione a **política de risco do usuário**.
    1. Em **atribuições**
       1. **Usuários** – escolha **todos os usuários** ou **selecione indivíduos e grupos** se limitar a distribuição.
@@ -76,7 +76,7 @@ Para habilitar o risco do usuário e as políticas de risco de entrada, conclua 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Habilitar a política de registro da Autenticação Multifator do Azure](howto-identity-protection-configure-mfa-policy.md)
+- [Habilitar a política de registro da autenticação multifator do Azure AD](howto-identity-protection-configure-mfa-policy.md)
 
 - [O que é risco](concept-identity-protection-risks.md)
 

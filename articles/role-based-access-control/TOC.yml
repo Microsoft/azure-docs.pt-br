@@ -9,7 +9,7 @@
       href: rbac-and-directory-admin-roles.md
 - name: Inícios rápidos
   items:
-    - name: Ver o acesso de um usuário
+    - name: Verificar o acesso de um usuário
       href: check-access.md
     - name: Modelo de ARM
       displayName: Resource Manager
@@ -60,9 +60,15 @@
         - name: Etapas para adicionar uma atribuição de função
           href: role-assignments-steps.md
         - name: Portal
-          href: role-assignments-portal.md
-        - name: Portal – usuários convidados
-          href: role-assignments-external-users.md
+          items:
+            - name: Adicionar ou remover atribuições de função
+              href: role-assignments-portal.md
+            - name: Administrador da assinatura
+              href: role-assignments-portal-subscription-admin.md
+            - name: Identidade gerenciada
+              href: role-assignments-portal-managed-identity.md
+            - name: Usuários convidados externos
+              href: role-assignments-external-users.md
         - name: PowerShell
           href: role-assignments-powershell.md
         - name: CLI do Azure
@@ -82,7 +88,7 @@
           href: deny-assignments-powershell.md
         - name: API REST
           href: deny-assignments-rest.md
-    - name: Criar ou atualizar funções personalizadas
+    - name: Criar funções personalizadas
       items:
         - name: Visão geral
           href: custom-roles.md

@@ -9,7 +9,7 @@
   items:
     - name: Habilitar a redefinição de senha por autoatendimento
       href: tutorial-enable-sspr.md
-    - name: Habilitar a Autenticação Multifator do Microsoft Azure
+    - name: Habilitar a Autenticação Multifator do Azure AD
       href: tutorial-enable-azure-mfa.md
     - name: Habilitar o write-back de senha para local
       href: tutorial-enable-sspr-writeback.md
@@ -80,7 +80,7 @@
           href: howto-sspr-authenticationdata.md
         - name: SSPR para clientes do Windows
           href: howto-sspr-windows.md
-    - name: Autenticação Multifator do Azure
+    - name: Autenticação Multifator do Azure AD
       items:
         - name: Guia de implantação
           href: howto-mfa-getstarted.md
@@ -108,7 +108,7 @@
               href: howto-mfa-nps-extension.md
             - name: Configuração avançada de extensão do NPS
               href: howto-mfa-nps-extension-advanced.md
-            - name: VPN do Azure e MFA do Azure
+            - name: VPN do Azure e MFA do Azure AD
               href: ../../vpn-gateway/vpn-gateway-radius-mfa-nsp.md
             - name: Gateway de Área de Trabalho Remota
               href: howto-mfa-nps-extension-rdg.md
@@ -154,9 +154,9 @@
           href: howto-password-ban-bad-on-premises-faq.md
         - name: Histórico de versão do agente
           href: howto-password-ban-bad-on-premises-agent-versions.md
-    - name: Usar autenticação baseada em SMS (versão prévia)
+    - name: Usar a autenticação baseada em SMS
       href: howto-authentication-sms-signin.md
-    - name: Usar credencial com endereço de email (versão prévia)
+    - name: Usar a conexão com endereço de email
       href: howto-authentication-use-email-signin.md
     - name: Bloqueio inteligente do Azure AD
       href: howto-password-smart-lockout.md
@@ -244,7 +244,7 @@
     - name: API REST beta do Microsoft Graph
       href: /graph/api/resources/authenticationmethods-overview?view=graph-rest-beta
     - name: Restrições e limites de serviço
-      href: ../users-groups-roles/directory-service-limits-restrictions.md
+      href: ../enterprise-users/directory-service-limits-restrictions.md
 - name: Recursos
   items:
     - name: Fórum de comentários do Azure

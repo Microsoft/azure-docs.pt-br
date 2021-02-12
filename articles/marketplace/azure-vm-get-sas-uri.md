@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
-ms.date: 10/19/2020
-ms.openlocfilehash: ead367568762d4b76de7164feb56b7a31cd53e0d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 1/5/2021
+ms.openlocfilehash: 560699296b8cae83413c36820106eedf7fef7414
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129109"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914154"
 ---
 # <a name="how-to-generate-a-sas-uri-for-a-vm-image"></a>Como gerar um URI de SAS para uma imagem de VM
 
@@ -34,12 +34,12 @@ Há duas ferramentas comuns usadas para criar um endereço SAS (URL):
 
 ### <a name="using-tool-1-azure-storage-explorer"></a>Usando a ferramenta 1: Gerenciador de Armazenamento do Azure
 
-1. Vá para sua **conta de armazenamento** .
-1. Abra **Gerenciador de armazenamento** .
+1. Vá para sua **conta de armazenamento**.
+1. Abra **Gerenciador de armazenamento**.
 
     :::image type="content" source="media/create-vm/storge-account-explorer.png" alt-text="Janela da conta de armazenamento.":::
 
-3. No **contêiner** , clique com o botão direito do mouse no arquivo VHD e selecione **obter assinatura de acesso de compartilhamento** .
+3. No **contêiner**, clique com o botão direito do mouse no arquivo VHD e selecione **obter assinatura de acesso de compartilhamento**.
 4. Na caixa de diálogo **assinatura de acesso compartilhado** , preencha os seguintes campos:
 
     1. Hora de início – Data de início de permissão para acesso ao VHD. Forneça uma data que é um dia antes da data atual.
@@ -49,7 +49,7 @@ Há duas ferramentas comuns usadas para criar um endereço SAS (URL):
 
     ![Caixa de diálogo assinatura de acesso compartilhado.](media/vm/create-sas-uri-storage-explorer.png)
 
-5. Para criar o URI de SAS associado a este VHD, selecione **Criar** .
+5. Para criar o URI de SAS associado a este VHD, selecione **Criar**.
 6. Copie o URI e salve-o em um arquivo de texto em um local seguro. Esse URI de SAS é gerado para o acesso de nível de contêiner. Para torná-lo específico, edite o arquivo de texto para adicionar o nome do VHD.
 7. Insira seu nome de VHD após a cadeia de caracteres vhds no URI de SAS (incluir uma barra /). O URI de SAS final deve ficar assim:
 
@@ -62,33 +62,34 @@ Há duas ferramentas comuns usadas para criar um endereço SAS (URL):
 1. Baixe e instale o [Microsoft Azure CL](/cli/azure/install-azure-cli)I. As versões estão disponíveis Windows. macOS e várias distribuições do Linux.
 2. Crie um arquivo PowerShell (extensão de arquivo .ps1), copie o código a seguir e salve-o localmente.
 
-    ```JSON
-    az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net’ --name <vhd-name> --permissions rl --start ‘<start-date>’ --expiry ‘<expiry-date>’
+    ```azurecli-interactive
+    az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net’ --name <container-name> --permissions rl --start ‘<start-date>’ --expiry ‘<expiry-date>’
     ```
 
 3. Edite o arquivo para usar os seguintes valores de parâmetro. Forneça datas no formato UTC DateTime, como 2020-04-01T00:00:00Z.
 
     - nome da conta – seu nome de conta de armazenamento do Azure.
     - Account-Key – sua chave de conta de armazenamento do Azure.
-    - VHD-nome – o nome do VHD.
     - Data de início – data de início da permissão para acesso VHD. Forneça uma data um dia antes da data atual.
     - Data de expiração – data de expiração da permissão para acesso VHD. Forneça uma data de pelo menos três semanas após a data atual.
 
     Aqui está um exemplo de valores de parâmetro apropriados (no momento da redação deste artigo):
 
-    `az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ON c+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net’ --name vhds -- permissions rl --start ‘2020-04-01T00:00:00Z’ --expiry ‘2021-04-01T00:00:00Z’`
+    ```azurecli-interactive
+    az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ON c+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net’ --name <container-name> -- permissions rl --start ‘2020-04-01T00:00:00Z’ --expiry ‘2021-04-01T00:00:00Z’
+    ```
 
 1. Salve as alterações.
 2. Usando um dos seguintes métodos, execute este script com privilégios administrativos para criar uma Cadeia de caracteres de conexão SAS para acesso do nível de contêiner:
 
-    - Execute o script a partir do console. No Windows, clique com o botão direito do mouse no script e selecione **Executar como administrador** .
+    - Execute o script a partir do console. No Windows, clique com o botão direito do mouse no script e selecione **Executar como administrador**.
     - Execute o script em um editor de script do PowerShell, como [ISE do Windows PowerShell](/powershell/scripting/components/ise/introducing-the-windows-powershell-ise). Esta tela mostra a criação de uma cadeia de conexão de SAS dentro neste editor:
 
     [![criação de uma cadeia de conexão SAS no editor do PowerShell](media/vm/create-sas-uri-power-shell-ise.png)](media/vm/create-sas-uri-power-shell-ise.png#lightbox)
 
 6. Copie a cadeia de caracteres de conexão de SAS e salve-o em um arquivo de texto em um local seguro. Edite essa cadeia de caracteres para adicionar as informações de localização do VHD para criar o URI de SAS final.
 7. No portal do Azure, navegue até o armazenamento de Blobs que inclui o VHD associado ao novo URI.
-8. Copie a URL do ponto de extremidade do serviço thebBlob:
+8. Copie a URL do ponto de extremidade do serviço blob:
 
     ![Copiando a URL do ponto de extremidade do serviço BLOB.](media/vm/create-sas-uri-blob-endpoint.png)
 

@@ -3,13 +3,12 @@ title: Configurar o suporte de identidade gerenciada para um novo cluster Servic
 description: Veja como habilitar o suporte a identidades gerenciadas em um novo cluster de Service Fabric do Azure
 ms.topic: article
 ms.date: 12/09/2019
-ms.custom: sfrev
-ms.openlocfilehash: dd0cbd3251185a7831852ead47ca0b120126cf55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae4fec452a2342a68843d874ba955b594014c46d
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81415664"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574659"
 ---
 # <a name="configure-managed-identity-support-for-a-new-service-fabric-cluster"></a>Configurar o suporte de identidade gerenciada para um novo cluster Service Fabric
 

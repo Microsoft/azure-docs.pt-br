@@ -2,28 +2,28 @@
 title: Proteger um serviço vinculado
 description: Saiba como provisionar e proteger um serviço vinculado com VNet gerenciada
 services: synapse-analytics
-author: acomet
+author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: f5a3c73d60f038820de100f99c554eec27fd6f55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af6afa2b0285fe741241183ed99712a132953a30
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033176"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220109"
 ---
-# <a name="secure-a-linked-service-with-private-links"></a>Proteger um serviço vinculado com links privados 
+# <a name="secure-a-linked-service-with-private-links"></a>Proteger um serviço vinculado com links privados
 
 Neste artigo, você aprenderá a proteger um serviço vinculado no Synapse com um ponto de extremidade privado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Assinatura do Azure**: Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
-* **Conta de Armazenamento do Azure**: Use o Azure Data Lake Gen 2 como uma *fonte* de armazenamento de dados. Se você não tiver uma conta de armazenamento, consulte [Criar uma conta de armazenamento do Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md) para obter as etapas para criar uma. Verifique se a conta de armazenamento tem a filtragem de IP do Synapse Studio para acessá-la e se você só permite que as **redes selecionadas** acessem a conta de armazenamento. A configuração na folha **firewalls e redes virtuais** deve ser parecida com a imagem abaixo.
+* **Conta de Armazenamento do Azure**: Use o Azure Data Lake Gen 2 como uma *fonte* de armazenamento de dados. Se você não tiver uma conta de armazenamento, consulte [Criar uma conta de armazenamento do Azure](../../storage/common/storage-account-create.md) para obter as etapas para criar uma. Verifique se a conta de armazenamento tem a filtragem de IP do Synapse Studio para acessá-la e se você só permite que as **redes selecionadas** acessem a conta de armazenamento. A configuração na folha **firewalls e redes virtuais** deve ser parecida com a imagem abaixo.
 
 ![Conta de armazenamento protegida](./media/secure-storage-account.png)
 
@@ -33,7 +33,7 @@ No Azure Synapse Analytics, um serviço vinculado é onde você define as inform
 
 1. Abra o Azure Synapse Studio e vá para a guia **gerenciar** .
 1. Em **Conexões externas**, selecione **Serviços vinculados**.
-1. Para adicionar um serviço vinculado, selecione **novo**.
+1. Para adicionar um serviço vinculado, selecione **Novo**.
 1. Selecione o bloco Azure Data Lake Storage Gen2 na lista e selecione **continuar**.
 1. Lembre-se de habilitar **Criação Interativa**. Pode levar cerca de um minuto para habilitar essa opção. 
 1. Insira as credenciais de autenticação. A chave de conta, a entidade de serviço e a identidade gerenciada são tipos de autenticação atualmente suportados. Selecione testar conexão para verificar se suas credenciais estão corretas.
@@ -68,6 +68,8 @@ Agora você estabeleceu uma conexão segura e privada entre o Synapse e o servi�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para desenvolver mais conhecimento do ponto de extremidade privado gerenciado no Synapse Analytics, consulte o artigo [conceito sobre o ponto de extremidade particular gerenciado Synapse](data-integration-data-lake.md) .
 
-Para obter mais informações sobre a integração de dados para o Synapse Analytics, consulte o artigo [ingerir dados em um data Lake](data-integration-data-lake.md) .
+Para desenvolver mais conhecimento do ponto de extremidade privado gerenciado na análise de Synapse do Azure, consulte [pontos de extremidades privados gerenciados](../security/synapse-workspace-managed-private-endpoints.md).
+
+
+Para obter mais informações sobre a integração de dados para o Azure Synapse Analytics, consulte o artigo [ingerir dados em um data Lake](data-integration-data-lake.md) .

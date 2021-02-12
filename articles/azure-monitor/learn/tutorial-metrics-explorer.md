@@ -6,12 +6,12 @@ ms.author: bwren
 ms.subservice: metrics
 ms.topic: tutorial
 ms.date: 03/09/2020
-ms.openlocfilehash: 26b155484dafac4a63fe2a6c7ff292ee8bbacbc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 121de67ddb251e7431873c76e379eb223ceacd0d
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317201"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250665"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>Tutorial: Criar um gráfico de métricas no Azure Monitor
 O Metrics Explorer é um recurso do Azure Monitor no portal do Azure que permite criar gráficos com base em valores de métrica, correlacionar tendências visualmente e investigar picos e vales nos valores das métricas. Use o Metrics Explorer para investigar a integridade e o uso dos seus recursos do Azure ou para plotar gráficos de métricas personalizadas. 
@@ -40,7 +40,7 @@ Você pode abrir o Metrics Explorer pelo menu do Azure Monitor ou pelo menu de u
 
 1. Selecione **Métricas** no menu do **Azure Monitor** ou na seção **Monitoramento** do menu de um recurso.
 
-1. Selecione o **Escopo**, que é o recurso cujas métricas deseja visualizar. O escopo já estará preenchido se você tiver aberto o Metrics Explorer pelo menu de um recurso.
+1. Selecione o **Escopo**, que é o recurso cujas métricas deseja visualizar. O escopo já estará preenchido se você tiver aberto o Metrics Explorer pelo menu de um recurso. Para saber mais sobre os vários recursos do seletor de escopo de recurso, visite [este artigo](../platform/metrics-charts.md#resource-scope-picker).
 
     ![Selecionar um escopo](media/tutorial-metrics-explorer/scope-picker.png)
 
@@ -70,20 +70,20 @@ Use o de **pincel de tempo** para investigar uma área de interesse do gráfico,
 ## <a name="apply-dimension-filters-and-splitting"></a>Aplicar filtros de dimensão e divisão
 Consulte as referências a seguir para recursos avançados que permitem executar análises adicionais em suas métricas e identificar possíveis exceções em seus dados.
 
-- A [filtragem](../platform/metrics-charts.md#apply-filters-to-charts) permite que você escolha quais valores de dimensão serão incluídos no gráfico. Por exemplo, talvez você queira mostrar apenas solicitações bem-sucedidas ao representar graficamente a métrica *tempo de resposta do servidor*. 
+- A [filtragem](../platform/metrics-charts.md#filters) permite que você escolha quais valores de dimensão serão incluídos no gráfico. Por exemplo, talvez você queira mostrar apenas solicitações bem-sucedidas ao representar graficamente a métrica *tempo de resposta do servidor*. 
 
-- A [divisão](../platform/metrics-charts.md#apply-splitting-to-a-chart) controla se o gráfico exibe linhas separadas para cada valor de uma dimensão ou se agrega os valores em uma única linha. Por exemplo, talvez você queira ver uma única linha para um tempo médio de resposta em todas as instâncias de servidores ou pode querer linhas separadas para cada servidor. 
+- A [divisão](../platform/metrics-charts.md#apply-splitting) controla se o gráfico exibe linhas separadas para cada valor de uma dimensão ou se agrega os valores em uma única linha. Por exemplo, talvez você queira ver uma única linha para um tempo médio de resposta em todas as instâncias de servidores ou pode querer linhas separadas para cada servidor. 
 
 Confira [exemplos de gráficos](../platform/metric-chart-samples.md) que têm a filtragem e a divisão aplicadas.
 
 ## <a name="advanced-chart-settings"></a>Configurações de gráfico avançadas
 
-Você pode personalizar o estilo do gráfico, o título e modificar as configurações avançadas do gráfico. Quando terminar a personalização, fixe-a em um painel para salvar seu trabalho. Você também pode configurar alertas de métricas. Confira [Recursos avançados do Azure Metrics Explorer](../platform/metrics-charts.md#lock-boundaries-of-chart-y-axis) para saber mais sobre esses e outros recursos avançados do Azure Monitor Metrics Explorer.
+Você pode personalizar o estilo do gráfico, o título e modificar as configurações avançadas do gráfico. Quando terminar a personalização, fixe-a em um painel para salvar seu trabalho. Você também pode configurar alertas de métricas. Confira [Recursos avançados do Azure Metrics Explorer](../platform/metrics-charts.md#locking the-range-of-the-y-axis) para saber mais sobre esses e outros recursos avançados do Azure Monitor Metrics Explorer.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você aprendeu como trabalhar com métricas no Azure Monitor, saiba como usar as métricas para enviar alertas proativos.
 
 > [!div class="nextstepaction"]
-> [Criar, exibir e gerenciar alertas de métrica usando o Azure Monitor](../platform/alerts-metric.md)
+> [Criar, exibir e gerenciar alertas de métrica usando o Azure Monitor](../platform/metrics-charts.md#alert-rules)
 

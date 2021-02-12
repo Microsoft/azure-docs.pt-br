@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 48a9856c58a815eabcc0b105efcd548e66ddd552
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a4f2b07edc6c290fa030621a4dc400ab50890bba
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80874204"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96001126"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configurar contêineres do Docker do Serviço Inteligente de Reconhecimento Vocal 
 
@@ -28,14 +28,14 @@ Esse contêiner tem as seguintes configurações:
 
 |Obrigatório|Configuração|Finalidade|
 |--|--|--|
-|Sim|[ApiKey](#apikey-setting)|Usado para rastrear informações de cobrança.|
-|Não|[ApplicationInsights](#applicationinsights-setting)|Permite que você adicione suporte a dados telemétricos do [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) para seu contêiner.|
-|Sim|[Billing](#billing-setting)|Especifica o URI do ponto de extremidade do recurso de serviços no Azure.|
-|Sim|[Eula](#eula-setting)| Indica que você aceitou a licença para o contêiner.|
-|Não|[Fluentd](#fluentd-settings)|Gravar log e, opcionalmente, dados telemétricos em um servidor do Fluentd.|
-|Não|[Proxy http](#http-proxy-credentials-settings)|Configure um proxy HTTP para fazer solicitações de saída.|
-|Não|[Logging](#logging-settings)|Fornece suporte a registro de log do ASP.NET Core para seu contêiner. |
-|Sim|[Mounts](#mount-settings)|Lê e grava dados do computador host para o contêiner e do contêiner de volta para o computador host.|
+|Yes|[ApiKey](#apikey-setting)|Usado para rastrear informações de cobrança.|
+|No|[ApplicationInsights](#applicationinsights-setting)|Permite que você adicione suporte a dados telemétricos do [Azure Application Insights](/azure/application-insights) para seu contêiner.|
+|Yes|[Billing](#billing-setting)|Especifica o URI do ponto de extremidade do recurso de serviços no Azure.|
+|Yes|[Eula](#eula-setting)| Indica que você aceitou a licença para o contêiner.|
+|No|[Fluentd](#fluentd-settings)|Gravar log e, opcionalmente, dados telemétricos em um servidor do Fluentd.|
+|No|[Proxy http](#http-proxy-credentials-settings)|Configure um proxy HTTP para fazer solicitações de saída.|
+|No|[Logging](#logging-settings)|Fornece suporte a registro de log do ASP.NET Core para seu contêiner. |
+|Yes|[Mounts](#mount-settings)|Lê e grava dados do computador host para o contêiner e do contêiner de volta para o computador host.|
 
 > [!IMPORTANT]
 > As [`ApiKey`](#apikey-setting) [`Billing`](#billing-setting) configurações,, e [`Eula`](#eula-setting) são usadas juntas, e você deve fornecer valores válidos para todos os três; caso contrário, o contêiner não será iniciado. Para obter mais informações sobre como usar essas configurações para instanciar um contêiner, consulte [Faturamento](luis-container-howto.md#billing).
@@ -64,7 +64,7 @@ Essa configuração pode ser localizada no seguinte local:
 * Portal do Azure: visão geral **dos serviços cognitivas** , rotulados `Endpoint`
 * Portal do LUIS: página de **configurações de ponto de extremidade e chaves** , como parte do URI do ponto de extremidade.
 
-| Obrigatório | Nome | Tipo de dados | Descrição |
+| Obrigatório | Name | Tipo de dados | Descrição |
 |----------|------|-----------|-------------|
 | Sim      | `Billing` | string | URI do ponto de extremidade de cobrança. Para obter mais informações sobre como obter o URI de cobrança, consulte [coletando parâmetros necessários](luis-container-howto.md#gathering-required-parameters). Para saber mais e para obter uma lista completa de pontos de extremidade regionais, confira [Nomes de subdomínio personalizados para Serviços Cognitivos](../cognitive-services-custom-subdomains.md). |
 
@@ -94,7 +94,7 @@ A sintaxe exata do local da montagem do host varia de acordo com o sistema opera
 
 A tabela a seguir descreve as configurações com suporte.
 
-|Obrigatório| Nome | Tipo de dados | Descrição |
+|Obrigatório| Name | Tipo de dados | Descrição |
 |-------|------|-----------|-------------|
 |Sim| `Input` | String | O destino de montagem de entrada. O valor padrão é `/input`. Esse é o local dos arquivos de pacote do LUIS. <br><br>Exemplo:<br>`--mount type=bind,src=c:\input,target=/input`|
 |Não| `Output` | String | O destino de montagem de saída. O valor padrão é `/output`. Esse é o local dos logs. Isso inclui logs de consulta do LUIS e logs do contêiner. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|

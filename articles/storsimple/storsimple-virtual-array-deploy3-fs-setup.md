@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05447db97311fb78707079528e0570b3fd42df59
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 244fdbf7cb723fe85e0987d176a13242f0bff064
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977571"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005921"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Implantar o StorSimple Virtual Array — configurar como um servidor de arquivos por meio do portal do Azure
 ![Diagrama mostrando as etapas necessárias para implantar uma matriz virtual. A primeira parte da terceira etapa é rotulada como servidor de arquivos e é realçada.](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -31,7 +31,7 @@ ms.locfileid: "91977571"
 
 Este artigo descreve como executar a configuração inicial, registrar o servidor de arquivos do StorSimple, concluir a configuração do dispositivo, criar compartilhamentos SMB e conectar-se a eles. Este é o último artigo da série de tutoriais de implantação necessários para implantar completamente sua matriz virtual como um servidor de arquivos ou um servidor iSCSI.
 
-O processo de preparação e configuração pode levar aproximadamente 10 minutos para ser concluído. As informações neste artigo se aplicam apenas à implantação da Matriz Virtual StorSimple. Para a implantação de dispositivos da série StorSimple 8000, vá para: [Implantar seu dispositivo da série StorSimple 8000 com a Atualização 2](storsimple-deployment-walkthrough-u2.md).
+O processo de preparação e configuração pode levar aproximadamente 10 minutos para ser concluído. As informações neste artigo se aplicam apenas à implantação da Matriz Virtual StorSimple. Para a implantação de dispositivos da série StorSimple 8000, vá para: [Implantar seu dispositivo da série StorSimple 8000 com a Atualização 2](./storsimple-8000-deployment-walkthrough-u2.md).
 
 ## <a name="setup-prerequisites"></a>Setup prerequisites
 Antes de configurar e de instalar a Matriz Virtual StorSimple, verifique se:
@@ -138,7 +138,7 @@ Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/) para 
     
    3. Uma chave AES de 256 bits é ser usada com a chave de criptografia definida pelo usuário. Especifique uma chave de 32 caracteres e, em seguida, insira novamente a chave para confirmá-la. Registre a chave em um aplicativo de gerenciamento de chaves para referência futura.
     
-   4. Clique em **Definir configurações necessárias** para especificar as credenciais de conta de armazenamento a serem usadas com o dispositivo. Clique em **adicionar novo** se não houver nenhuma credencial de conta de armazenamento configurada. **Verifique se a conta de armazenamento que você usa dá suporte a blobs de blocos. Não há suporte para BLOBs de páginas.** Para obter mais informações sobre [blobs de blocos e blobs de página](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+   4. Clique em **Definir configurações necessárias** para especificar as credenciais de conta de armazenamento a serem usadas com o dispositivo. Clique em **adicionar novo** se não houver nenhuma credencial de conta de armazenamento configurada. **Verifique se a conta de armazenamento que você usa dá suporte a blobs de blocos. Não há suporte para BLOBs de páginas.** Para obter mais informações sobre [blobs de blocos e blobs de página](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
    
       ![Configurar um servidor de arquivos 3](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. Na folha **Adicionar credenciais de uma conta de armazenamento**, faça o seguinte: 
@@ -173,7 +173,7 @@ Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/) para 
 Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/) para criar um compartilhamento.
 
 #### <a name="to-create-a-share"></a>Para criar um compartilhamento
-1. Selecione o dispositivo de servidor de arquivos configurado na etapa anterior e clique em **... ** (ou clique com o botão direito do mouse). No menu de contexto, selecione **Adicionar compartilhamento**. Como alternativa, você pode clicar em **+ Adicionar Compartilhamento** na barra de comandos do dispositivo.
+1. Selecione o dispositivo de servidor de arquivos configurado na etapa anterior e clique em **...** (ou clique com o botão direito do mouse). No menu de contexto, selecione **Adicionar compartilhamento**. Como alternativa, você pode clicar em **+ Adicionar Compartilhamento** na barra de comandos do dispositivo.
    
    ![Adicionar um compartilhamento](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs15m.png)
 2. Especifique as configurações de compartilhamento a seguir:
@@ -213,4 +213,3 @@ Agora, você precisará conectar-se a um ou mais compartilhamentos que você cri
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba como usar a interface do usuário da Web local para [administrar sua matriz virtual StorSimple](storsimple-ova-web-ui-admin.md).
-

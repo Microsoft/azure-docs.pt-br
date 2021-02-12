@@ -1,14 +1,14 @@
 ---
 title: Implantar uma política que possa ser corrigida
 description: Para implantar políticas que usam uma tarefa de correção por meio do Azure Lighthouse, você precisará criar uma identidade gerenciada no locatário do cliente.
-ms.date: 08/12/2020
+ms.date: 01/14/2021
 ms.topic: how-to
-ms.openlocfilehash: 998576d06d470c525a551463861f7a25d4ab9d8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01070133241117596bdf2b8e1e7c3fa101fc656c
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88163247"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233875"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Implantar uma política que pode ser corrigida em uma assinatura delegada
 
@@ -19,9 +19,9 @@ O [Azure Lighthouse](../overview.md) permite que os provedores de serviços crie
 
 ## <a name="create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant"></a>Criar um usuário que pode atribuir funções a uma identidade gerenciada no locatário do cliente
 
-Ao integrar um cliente ao Azure Lighthouse, você usa um modelo de [Azure Resource Manager](onboard-customer.md#create-an-azure-resource-manager-template) junto com um arquivo de parâmetros que define os usuários, grupos de usuários e entidades de serviço no seu locatário de gerenciamento que poderá acessar os recursos delegados no locatário do cliente. No arquivo de parâmetros, cada um desses usuários (**principalId**) é atribuído a uma [função interna](../../role-based-access-control/built-in-roles.md) (**roleDefinitionId**) que define o nível de acesso.
+Ao integrar um cliente ao Azure Lighthouse, você usa um modelo de [Azure Resource Manager](onboard-customer.md#create-an-azure-resource-manager-template) junto com um arquivo de parâmetros para definir autorizações que concedem acesso a recursos delegados no locatário do cliente. Cada autorização especifica uma **entidade de segurança** que corresponde a um usuário, grupo ou entidade de serviço do Azure AD no locatário de gerenciamento e um **roleDefinitionId** que corresponde à [função interna do Azure](../../role-based-access-control/built-in-roles.md) que será concedida.
 
-Para permitir que um **principalId** crie uma identidade gerenciada no locatário do cliente, você deve definir a respectiva **roleDefinitionId** para **Administrador de Acesso do Usuário**. Embora em geral essa função não seja compatível, ela pode ser usada nesse cenário específico, permitindo que os usuários com essa permissão atribuam uma ou mais funções internas específicas a identidades gerenciadas. Essas funções são definidas na propriedade **delegatedRoleDefinitionIds**. Você pode incluir qualquer função interna aqui, exceto Proprietário ou Administrador de Acesso do Usuário.
+Para permitir que um **principalId** crie uma identidade gerenciada no locatário do cliente, você deve definir a respectiva **roleDefinitionId** para **Administrador de Acesso do Usuário**. Embora essa função não tenha suporte em geral, ela pode ser usada nesse cenário específico, permitindo que as contas de usuário com essa permissão atribuam uma ou mais funções internas específicas a identidades gerenciadas. Essas funções são definidas na propriedade **delegatedRoleDefinitionIds** e podem incluir qualquer [função interna do Azure com suporte](../concepts/tenants-users-roles.md#role-support-for-azure-lighthouse) , exceto o administrador de acesso do usuário ou o proprietário.
 
 Depois que o cliente for integrado, o **principalId** criado nessa autorização poderá atribuir essas funções internas a identidades gerenciadas no locatário do cliente. No entanto, elas não terão nenhuma outra permissão normalmente associada à função de Administrador de Acesso do Usuário.
 
@@ -41,7 +41,7 @@ O exemplo a seguir mostra um **principalId** que terá a função de Administrad
 
 ## <a name="deploy-policies-that-can-be-remediated"></a>Implantar políticas que possam ser corrigidas
 
-Depois de criar o usuário com as permissões necessárias, conforme descrito acima, o usuário pode implantar políticas que usam tarefas de correção no locatário do cliente.
+Depois de criar o usuário com as permissões necessárias, conforme descrito acima, esse usuário pode implantar políticas que usam tarefas de correção em assinaturas de cliente delegadas.
 
 Por exemplo, digamos que você queria habilitar o diagnóstico em Azure Key Vault recursos no locatário do cliente, conforme ilustrado neste [exemplo](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-enforce-keyvault-monitoring). Um usuário no locatário de gerenciamento com as permissões apropriadas (conforme descrito acima) implantaria um [modelo do Azure Resource Manager](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-enforce-keyvault-monitoring/enforceAzureMonitoredKeyVault.json) para habilitar esse cenário.
 

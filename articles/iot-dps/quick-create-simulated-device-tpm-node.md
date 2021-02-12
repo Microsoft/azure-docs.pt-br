@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: f8b7e55d95c08a31a20503e329e64b9e65e3b723
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6e7e986f658570553763001afdd58d7bb1880f94
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323916"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968172"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Início Rápido: Criar e provisionar um dispositivo TPM simulado usando o Node.js do SDK do dispositivo Python para o Serviço de Provisionamento de Dispositivos no Hub IoT
 
@@ -50,7 +50,7 @@ Neste início rápido, você criará um dispositivo IoT simulado em um computado
     git clone https://github.com/Azure/azure-utpm-c.git --recursive
     ```
 
-1. Navegue até a pasta raiz do GitHub e execute o simulador de [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) para que ele seja o [HSM](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) para o dispositivo simulado. Ele escuta em um soquete nas portas 2321 e 2322. Não feche essa janela Comando; você precisa manter esse simulador em execução até o término deste início rápido: 
+1. Navegue até a pasta raiz do GitHub e execute o simulador de [TPM](/windows/device-security/tpm/trusted-platform-module-overview) para que ele seja o [HSM](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) para o dispositivo simulado. Ele escuta em um soquete nas portas 2321 e 2322. Não feche essa janela Comando; você precisa manter esse simulador em execução até o término deste início rápido: 
 
     ```cmd/sh
     .\azure-utpm-c\tools\tpm_simulator\Simulator.exe

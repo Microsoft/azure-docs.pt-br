@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 09/22/2020
 ms.topic: overview
-ms.openlocfilehash: e8a28415bf9448133102e92a658e7d200ac2772c
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: ef16a4c0b6ea40fb4934307916f1fe79ccea72f9
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316977"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97609132"
 ---
 # <a name="what-are-azure-arc-enabled-data-services-preview"></a>O que são os serviços de dados habilitados para Azure Arc (versão prévia)?
 
@@ -50,7 +50,7 @@ Muitos dos serviços, como provisionamento de autoatendimento, backup/restauraç
 ## <a name="next-steps"></a>Próximas etapas
 
 > **Quer apenas experimentar as novidades?**  
-> Obtenha uma introdução rápida com o artigo [Começar a usar o Azure Arc rapidamente](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) no AKS (Serviço de Kubernetes do Azure), no AWS EKS (Elastic Kubernetes Service), no GKE (Google Cloud Kubernetes Engine) ou em uma VM do Azure.
+> Obtenha uma introdução rápida com o artigo [Começar a usar o Azure Arc rapidamente](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) no AKS (Serviço de Kubernetes do Azure), no AWS EKS (Elastic Kubernetes Service), no GKE (Google Cloud Kubernetes Engine) ou em uma VM do Azure.
 
 [Instalar as ferramentas de cliente](install-client-tools.md)
 

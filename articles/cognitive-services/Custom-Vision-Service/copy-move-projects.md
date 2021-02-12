@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: pafarley
-ms.openlocfilehash: c742240cc82035b2a9af16348eaa9f2a40a32fa3
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 548d936538a909da10796d0377f119826582c420
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900329"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616052"
 ---
 # <a name="copy-and-move-your-custom-vision-projects"></a>Copiar e mover seus projetos de Visão Personalizada
 
@@ -30,7 +30,7 @@ Se seu aplicativo ou negócios depende do uso de um projeto Visão Personalizada
 
 - Dois recursos do Azure Visão Personalizada. Se você não os tiver, vá para a portal do Azure e [crie um novo recurso de visão personalizada](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true).
 - As chaves de treinamento e as URLs de ponto de extremidade do seu Visão Personalizada recursos. Você pode encontrar esses valores na guia **visão geral** do recurso na portal do Azure.
-- Um projeto Visão Personalizada criado. Consulte [criar um classificador](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/getting-started-build-a-classifier) para obter instruções sobre como fazer isso.
+- Um projeto Visão Personalizada criado. Consulte [criar um classificador](./getting-started-build-a-classifier.md) para obter instruções sobre como fazer isso.
 
 ## <a name="process-overview"></a>Visão geral do processo
 

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 5c76e45f09a0f432d2775eb19d3dcaa668294e6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84672656"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002318"
 ---
 # <a name="language-understanding-luis-container-limitations"></a>Limitações de contêiner de Reconhecimento vocal (LUIS)
 
@@ -46,7 +46,7 @@ Configurações de aplicativo sem suporte|Detalhes|
 
 Os contêineres LUIS dão suporte a um subconjunto dos [idiomas com suporte](luis-language-support.md#languages-supported) do Luis apropriado. Os contêineres LUIS são capazes de entender declarações nos seguintes idiomas:
 
-| Linguagem | Localidade | Domínio predefinido | Entidade predefinida | Recomendações da lista de frases | **[Análise de texto](../text-analytics/language-support.md)<br>(Sentimento e<br>Palavras-chave)|
+| Idioma | Localidade | Domínio predefinido | Entidade predefinida | Recomendações da lista de frases | **[Análise de texto](../text-analytics/language-support.md)<br>(Sentimento e<br>Palavras-chave)|
 |--|--|:--:|:--:|:--:|:--:|
 | Inglês (Estados Unidos) | `en-US` | ✔️ | ✔️ | ✔️ | ✔️ |
 | Árabe (visualização-árabe moderno padrão) |`ar-AR`|❌|❌|❌|❌|
@@ -54,7 +54,7 @@ Os contêineres LUIS dão suporte a um subconjunto dos [idiomas com suporte](lui
 | Francês (França) |`fr-FR` | ✔️ | ✔️ | ✔️ | ✔️ |
 | Francês (Canadá) |`fr-CA` | ❌ | ❌ | ❌ | ✔️ |
 | Alemão |`de-DE` | ✔️ | ✔️ | ✔️ | ✔️ |
-| Híndi | `hi-IN`| ❌ | ❌ | ❌ | ❌ |
+| Hindi | `hi-IN`| ❌ | ❌ | ❌ | ❌ |
 | Italiano |`it-IT` | ✔️ | ✔️ | ✔️ | ✔️ |
 | Coreano |`ko-KR` | ✔️ | ❌ | ❌ | Somente *frase-chave* |
 | Marati | `mr-IN`|❌|❌|❌|❌|

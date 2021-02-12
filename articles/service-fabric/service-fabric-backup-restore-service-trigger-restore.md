@@ -5,12 +5,12 @@ author: aagup
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 3d881033b8dde6cc55a9720ec94084bd876116f1
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 8566d82ef0d91caff47ff17a9cb12fcdc8241884
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207386"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928029"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Backup de restauração no Azure Service Fabric
 
@@ -28,11 +28,16 @@ Por exemplo, você pode configurar um serviço para fazer backup de seus dados p
 - Para disparar uma restauração, o _Serviço de Análise de Falha (FAS)_ precisa estar habilitado para o cluster.
 - O _Serviço de Restauração de Backup (BRS)_ criou o backup.
 - A restauração só pode ser acionada em uma partição.
-- Instale o módulo Microsoft. perfabric. PowerShell. http [em versão prévia] para fazer chamadas de configuração.
+- Instale o módulo Microsoft. perfabric. PowerShell. http (versão prévia) para fazer chamadas de configuração.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
+
+> [!NOTE]
+> Se sua versão do PowerShellGet for menor que 1.6.0, você precisará atualizar para adicionar suporte ao sinalizador *-AllowPrerelease* :
+>
+> `Install-Module -Name PowerShellGet -Force`
 
 - Verifique se o cluster está conectado usando o `Connect-SFCluster` comando antes de fazer qualquer solicitação de configuração usando o módulo Microsoft. perfabric. PowerShell. http.
 
@@ -48,7 +53,7 @@ Por exemplo, você pode configurar um serviço para fazer backup de seus dados p
 Uma restauração pode ser disparada para qualquer um dos seguintes cenários:
 
 - Restauração de dados para uma _recuperação de desastre_.
-- Restauração de dados para corrupção de dados _/perda_de dados.
+- Restauração de dados para corrupção de dados _/perda_ de dados.
 
 ### <a name="data-restore-in-the-case-of-disaster-recovery"></a>Restauração de dados no caso de recuperação de desastres
 
@@ -205,7 +210,7 @@ Você pode disparar uma restauração de Service Fabric Explorer. Verifique se o
 
     ![Disparar restauração de partição do FileShare][3]
 
-### <a name="data-restore-for-_data-corruption__data-loss_"></a>Restauração de dados para perda de dados de _corrupção de dados_ / _data loss_
+### <a name="data-restore-for-_data-corruption__data-loss_"></a>Restauração de dados para perda de dados de _corrupção de dados_ / 
 
 Para casos de _perda de dados_ ou _dados corrompidos_, as partições com backup do serviço Confiável com Estado e Reliable Actors podem ser restauradas para qualquer um dos backups escolhidos.
 
@@ -213,7 +218,7 @@ O exemplo a seguir é uma continuação de [Habilitar o backup periódico para R
 
 Selecione um backup da saída de [GetBackupAPI](service-fabric-backuprestoreservice-quickstart-azurecluster.md#list-backups). Nesse cenário, o backup é gerado no mesmo cluster anterior.
 
-Para disparar a restauração, escolha um backup na lista. Para a corrupção de dados de _perda de dados_atual / _data corruption_, selecione o seguinte backup:
+Para disparar a restauração, escolha um backup na lista. Para a corrupção de dados de _perda de dados_ atual / , selecione o seguinte backup:
 
 ```
 BackupId                : b0035075-b327-41a5-a58f-3ea94b68faa4
@@ -297,7 +302,7 @@ O andamento da solicitação de restauração acontece na seguinte ordem:
     RestoredLsn   : 3552
     ```
     
-3. **Êxito**, **falha**ou **tempo limite**: uma restauração solicitada pode ser concluída em qualquer um dos Estados a seguir. Cada estado tem os seguintes detalhes de significância e resposta:
+3. **Êxito**, **falha** ou **tempo limite**: uma restauração solicitada pode ser concluída em qualquer um dos Estados a seguir. Cada estado tem os seguintes detalhes de significância e resposta:
     - **Êxito**: um estado de restauração com _êxito_ indica um estado de partição reobtido. A partição relata os estados _RestoredEpoch_ e _RestoredLSN_ com a hora em UTC.
 
         ```

@@ -5,22 +5,29 @@ author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: quickstart
-ms.date: 08/19/2020
-ms.openlocfilehash: 41598c04af78d4366435259357d8f897ac178942
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/30/2020
+ms.openlocfilehash: 1442720fdf48aaa7da76e181b168a04306ff3e33
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89489928"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186449"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-in-the-azure-portal"></a>Início Rápido: Compartilhar dados usando o Azure Data Share no portal do Azure
 
-Neste guia de início rápido, você aprenderá a configurar um novo Azure Data Share usando o portal do Azure.
+Neste guia de início rápido, você aprenderá a configurar um novo Azure Data Share para compartilhar dados da conta de armazenamento usando o portal do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Assinatura do Azure: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* Assinatura do Azure: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* O endereço de email de logon do Azure de seus destinatários (usar o alias de email não funcionará).
+* Se o armazenamento de dados do Azure de origem estiver em uma assinatura do Azure diferente daquela que você usará para criar o recurso do Data Share, registre o [provedor de recursos Microsoft.DataShare](concepts-roles-permissions.md#resource-provider-registration) na assinatura em que o armazenamento de dados do Azure está localizado. 
 
+### <a name="share-from-a-storage-account"></a>Compartilhamento por meio de uma conta de armazenamento
+
+* Uma conta de Armazenamento do Azure: Se você não tiver uma, poderá criar uma [conta de Armazenamento do Azure](../storage/common/storage-account-create.md)
+* Permissão para gravar na conta de armazenamento, que está presente em *Microsoft.Storage/storageAccounts/write*. Essa permissão existe na função **Colaborador**.
+* Permissão para adicionar uma atribuição de função à conta de armazenamento, que está presente em *Microsoft.Authorization/role assignments/write*. Essa permissão existe na função **Proprietário**. 
 
 ## <a name="create-a-data-share-account"></a>Criar uma conta do Data Share
 
@@ -67,7 +74,7 @@ Crie um recurso do Azure Data Share em um grupo de recursos do Azure.
 
    ![Adicionar conjuntos de dados ao compartilhamento](./media/datasets.png "Conjunto de dados")
 
-1. Selecione o tipo de conjunto de dados que você deseja adicionar. Você verá uma lista diferente de tipos de conjuntos de dados, dependendo do tipo de compartilhamento (instantâneo ou in-loco) que você selecionou na etapa anterior. Se estiver compartilhando de um Banco de Dados SQL do Azure ou do Azure Synapse Analytics, você precisará fornecer credenciais do SQL. Autentique usando o usuário criado como parte dos pré-requisitos.
+1. Selecione o tipo de conjunto de dados que você deseja adicionar. Você verá uma lista diferente de tipos de conjuntos de dados, dependendo do tipo de compartilhamento (instantâneo ou in-loco) que você selecionou na etapa anterior. 
 
    ![AddDatasets](./media/add-datasets.png "Adicionar conjuntos de dados")    
 

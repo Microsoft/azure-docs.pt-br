@@ -4,12 +4,12 @@ description: Criar uma função do PowerShell sem servidor disparada por HTTP pa
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ec4b2273f6be6ea4aabed2b660e0b7553f861d0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7315796f2f7f89800b58f5fa607e69cd7ae3447
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89072036"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935411"
 ---
 # <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Tutorial: Usar uma função do Azure disparada por HTTP para criar um grupo de contêineres
 
@@ -27,13 +27,13 @@ Você aprenderá como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Confira [Criar a sua primeira função no Azure usando o Visual Studio Code](../azure-functions/functions-create-first-function-vs-code.md?pivots=programming-language-powershell#configure-your-environment) para obter os pré-requisitos para instalar e usar o Visual Studio Code com a extensão do Azure Functions no sistema operacional.
+Confira [Criar a sua primeira função no Azure usando o Visual Studio Code](../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-powershell#configure-your-environment) para obter os pré-requisitos para instalar e usar o Visual Studio Code com a extensão do Azure Functions no sistema operacional.
 
 As etapas adicionais neste artigo usam o Azure PowerShell. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o Azure PowerShell][azure-powershell-install] e [Entrar no Azure](/powershell/azure/get-started-azureps#sign-in-to-azure).
 
 ## <a name="create-a-basic-powershell-function"></a>Criar uma função básica do PowerShell
 
-Siga as etapas em [Criar sua primeira função do PowerShell no Azure](../azure-functions/functions-create-first-function-vs-code.md?pivots=programming-language-powershell) para criar uma função do PowerShell usando o modelo de gatilho HTTP. Use o nome da função padrão do Azure **HttpTrigger**. Conforme mostrado no início rápido, teste a função localmente e publique o projeto em um aplicativo de funções no Azure. Este exemplo é uma função básica disparada por HTTP que retorna uma cadeia de texto. Nas etapas posteriores deste artigo, você modificará a função para criar um grupo de contêineres.
+Siga as etapas em [Criar sua primeira função do PowerShell no Azure](../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-powershell) para criar uma função do PowerShell usando o modelo de gatilho HTTP. Use o nome da função padrão do Azure **HttpTrigger**. Conforme mostrado no início rápido, teste a função localmente e publique o projeto em um aplicativo de funções no Azure. Este exemplo é uma função básica disparada por HTTP que retorna uma cadeia de texto. Nas etapas posteriores deste artigo, você modificará a função para criar um grupo de contêineres.
 
 Este artigo pressupõe que você publique o projeto usando o nome *myfunctionapp*, em um grupo de recursos do Azure automaticamente nomeado de acordo com o nome do aplicativo de funções (também *myfunctionapp*). Substitua os nomes exclusivos do aplicativo de funções e do grupo de recursos nas etapas posteriores.
 
@@ -105,7 +105,7 @@ Uma notificação é exibida depois que seu aplicativo de funções é criado e 
 
 ## <a name="run-the-function-in-azure"></a>Executar a função no Azure
 
-Depois que a implantação for concluída com êxito, obtenha a URL da função. Por exemplo, use a área **Azure: Functions** no Visual Studio Code para copiar a URL da função **HttpTrigger** ou obtenha a URL da função no [portal do Azure](../azure-functions/functions-create-first-azure-function.md#test-the-function).
+Depois que a implantação for concluída com êxito, obtenha a URL da função. Por exemplo, use a área **Azure: Functions** no Visual Studio Code para copiar a URL da função **HttpTrigger** ou obtenha a URL da função no [portal do Azure](../azure-functions/functions-get-started.md).
 
 A URL da função está no formato:
 

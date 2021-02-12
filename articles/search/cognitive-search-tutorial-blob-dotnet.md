@@ -7,14 +7,14 @@ author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/05/2020
+ms.date: 01/23/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: da7a80842bec68fde8cc44401bb04c2dd061741f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 4bda56f3037469477ddfe059dd20c14cd34586d8
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787951"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745710"
 ---
 # <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>Tutorial: Conteúdo pesquisável gerado por IA de Blobs do Azure usando o SDK do .NET
 
@@ -23,8 +23,8 @@ Se você tiver um texto não estruturado ou imagens no Armazenamento de Blobs do
 Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
-> * Configurar um ambiente de desenvolvimento.
-> * Definir um pipeline para blobs usando OCR, detecção de idioma e reconhecimento de frases-chave e entidade.
+> * Configurar um ambiente de desenvolvimento
+> * Definir um pipeline que usa OCR, detecção de idioma e reconhecimento de frases-chave e entidade.
 > * Executar o pipeline para invocar transformações e para criar e carregar um índice de pesquisa.
 > * Explore os resultados usando a pesquisa de texto completo e uma sintaxe de consulta avançada.
 
@@ -32,9 +32,11 @@ Caso não tenha uma assinatura do Azure, abra uma [conta gratuita](https://azure
 
 ## <a name="overview"></a>Visão geral
 
-Este tutorial usa C# e a biblioteca de clientes **Azure.Search.Documents** para criar uma fonte de dados, um índice, um indexador e um conjunto de habilidades.
+Este tutorial usa C# e a [biblioteca de clientes **Azure.Search.Documents**](/dotnet/api/overview/azure/search.documents-readme) para criar uma fonte de dados, um índice, um indexador e um conjunto de habilidades.
 
-O conjunto de habilidades usa habilidades internas baseadas nas APIs de Serviços Cognitivos. As etapas no pipeline incluem OCR (reconhecimento óptico de caracteres) em imagens, detecção de idioma em texto, extração de frases-chave e reconhecimento de entidades (organizações). Novas informações são armazenadas em novos campos que você pode aproveitar em consultas, facetas e filtros.
+O indexador se conecta a um contêiner de blobs especificado no objeto da fonte de dados e envia todo o conteúdo indexado para um índice de pesquisa existente.
+
+O conjunto de habilidades é anexado ao indexador. Ele usa habilidades internas da Microsoft para encontrar e extrair informações. As etapas no pipeline incluem OCR (reconhecimento óptico de caracteres) em imagens, detecção de idioma em texto, extração de frases-chave e reconhecimento de entidades (organizações). Novas informações criadas pelo pipeline são armazenadas em novos campos em um índice. Depois que o índice for preenchido, você poderá usar os campos em consultas, facetas e filtros.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -52,7 +54,7 @@ Os dados de exemplo são compostos por 14 arquivos com tipo de conteúdo misto q
 
 1. Abra esta [pasta do OneDrive](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) e, no canto superior esquerdo, clique em **Baixar** para copiar os arquivos para o computador. 
 
-1. Clique com o botão direito do mouse no arquivo zip e selecione **Extrair Tudo** . Há 14 arquivos de vários tipos. Você usará sete para este exercício.
+1. Clique com o botão direito do mouse no arquivo zip e selecione **Extrair Tudo**. Há 14 arquivos de vários tipos. Você usará sete para este exercício.
 
 Você também pode baixar o código-fonte deste tutorial. O código-fonte está na pasta **tutorial-ai-enrichment/v11** no repositório [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
@@ -64,7 +66,7 @@ Se possível, crie os dois na mesma região e no mesmo grupo de recursos para fa
 
 ### <a name="start-with-azure-storage"></a>Começar com o Armazenamento do Azure
 
-1. [Entre no portal do Azure](https://portal.azure.com/) e clique em **+ Criar Recurso** .
+1. [Entre no portal do Azure](https://portal.azure.com/) e clique em **+ Criar Recurso**.
 
 1. Pesquise *conta de armazenamento* e selecione a oferta Conta de Armazenamento da Microsoft.
 
@@ -72,21 +74,21 @@ Se possível, crie os dois na mesma região e no mesmo grupo de recursos para fa
 
 1. Na guia Informações Básicas, os itens a seguir são obrigatórios. Aceite os padrões para todo o restante.
 
-   * **Grupo de recursos** . Selecione um grupo existente ou crie um, mas use o mesmo grupo para todos os serviços, de modo que você possa gerenciá-los em conjunto.
+   * **Grupo de recursos**. Selecione um grupo existente ou crie um, mas use o mesmo grupo para todos os serviços, de modo que você possa gerenciá-los em conjunto.
 
-   * **Nome da conta de armazenamento** . Se acreditar que possa ter vários recursos do mesmo tipo, use o nome para desfazer a ambiguidade por tipo e região, por exemplo, *blobstoragewestus* . 
+   * **Nome da conta de armazenamento**. Se acreditar que possa ter vários recursos do mesmo tipo, use o nome para desfazer a ambiguidade por tipo e região, por exemplo, *blobstoragewestus*. 
 
-   * **Local** . Se possível, escolha a mesma localização usada para a Pesquisa Cognitiva do Azure e os Serviços Cognitivos. Uma única localização anula os encargos de largura de banda.
+   * **Local**. Se possível, escolha a mesma localização usada para a Pesquisa Cognitiva do Azure e os Serviços Cognitivos. Uma única localização anula os encargos de largura de banda.
 
-   * **Tipo de Conta** . Escolha o padrão, *StorageV2 (Uso Geral v2)* .
+   * **Tipo de Conta**. Escolha o padrão, *StorageV2 (Uso Geral v2)* .
 
 1. Clique em **Examinar + Criar** para criar o serviço.
 
 1. Após a criação, clique em **Ir para o recurso** para abrir a página Visão Geral.
 
-1. Clique em serviço **Blobs** .
+1. Clique em serviço **Blobs**.
 
-1. Clique em **+ Contêiner** para criar um contêiner e nomeie-o *cog-search-demo* .
+1. Clique em **+ Contêiner** para criar um contêiner e nomeie-o *cog-search-demo*.
 
 1. Selecione *cog-search-demo* e, em seguida, clique em **Upload** para abrir a pasta em que você salvou os arquivos de download. Selecione todos os quatorze arquivos e clique em **OK** para carregá-los.
 
@@ -124,7 +126,7 @@ Para interagir com o serviço da Pesquisa Cognitiva do Azure, será necessária 
 
 1. [Entre no portal do Azure](https://portal.azure.com/) e, na página **Visão Geral** do serviço de pesquisa, obtenha a URL. Um ponto de extremidade de exemplo pode parecer com `https://mydemo.search.windows.net`.
 
-1. Em **Configurações** > **Chaves** , copie uma chave de administração para adquirir todos os direitos sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso seja necessário sobrepor uma. É possível usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
+1. Em **Configurações** > **Chaves**, copie uma chave de administração para adquirir todos os direitos sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso seja necessário sobrepor uma. É possível usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
 
    Obtenha a chave de consulta também. É uma melhor prática para emitir solicitações de consulta com acesso somente leitura.
 
@@ -146,7 +148,7 @@ Para este projeto, instale a versão 11 ou posterior do `Azure.Search.Documents`
 
 1. Procure por [Azure.Search.Document](https://www.nuget.org/packages/Azure.Search.Documents).
 
-1. Selecione a versão mais recente e clique em **Instalar** .
+1. Selecione a versão mais recente e clique em **Instalar**.
 
 1. Repita as etapas anteriores para instalar [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration) e [Microsoft.Extensions.Configuration.Json](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Json).
 
@@ -154,11 +156,11 @@ Para este projeto, instale a versão 11 ou posterior do `Azure.Search.Documents`
 
 1. Clique com o botão direito do mouse no projeto no Gerenciador de Soluções e selecione **Adicionar** > **Novo Item...** . 
 
-1. Nomeie o arquivo `appsettings.json` e selecione **Adicionar** . 
+1. Nomeie o arquivo `appsettings.json` e selecione **Adicionar**. 
 
 1. Inclua esse arquivo no diretório de saída.
-    1. Clique com o botão direito do mouse em `appsettings.json` e selecione **Propriedades** . 
-    1. Altere o valor de **Copiar para Diretório de Saída** para **Copiar se for o mais recente** .
+    1. Clique com o botão direito do mouse em `appsettings.json` e selecione **Propriedades**. 
+    1. Altere o valor de **Copiar para Diretório de Saída** para **Copiar se for o mais recente**.
 
 1. Copie o JSON abaixo em seu novo arquivo JSON.
 
@@ -173,7 +175,7 @@ Para este projeto, instale a versão 11 ou posterior do `Azure.Search.Documents`
 
 Adicione as informações do seu serviço de pesquisa e da conta de armazenamento de blobs. Lembre-se de que você pode obter essas informações nas etapas de provisionamento do serviço indicadas na seção anterior.
 
-Para **SearchServiceUri** , insira a URL completa.
+Para **SearchServiceUri**, insira a URL completa.
 
 ### <a name="add-namespaces"></a>Adicionar namespaces
 
@@ -285,7 +287,7 @@ Compile e execute a solução. Como esta é sua primeira solicitação, verifiqu
 
 ### <a name="step-2-create-a-skillset"></a>Etapa 2: Criar um conjunto de habilidades
 
-Nesta seção, você deve definir um conjunto de etapas de enriquecimento que você deseja aplicar aos seus dados. Cada etapa de enriquecimento é chamada de *habilidade* , e o conjunto de etapas de enriquecimento é um *conjunto de habilidades* . Este tutorial usa [habilidades cognitivas internas](cognitive-search-predefined-skills.md) para o conjunto de habilidades:
+Nesta seção, você deve definir um conjunto de etapas de enriquecimento que você deseja aplicar aos seus dados. Cada etapa de enriquecimento é chamada de *habilidade*, e o conjunto de etapas de enriquecimento é um *conjunto de habilidades*. Este tutorial usa [habilidades cognitivas internas](cognitive-search-predefined-skills.md) para o conjunto de habilidades:
 
 * A qualificação [OCR (Reconhecimento Óptico de Caracteres)](cognitive-search-skill-ocr.md) reconhece textos impressos e manuscritos em arquivos de imagem.
 
@@ -338,7 +340,7 @@ private static OcrSkill CreateOcrSkill()
 
 ### <a name="merge-skill"></a>Habilidade de mesclar
 
-Nesta seção, você criará uma habilidade **Mesclar** , que mescla o campo de conteúdo do documento com o texto produzido pela habilidade do OCR.
+Nesta seção, você criará uma habilidade **Mesclar**, que mescla o campo de conteúdo do documento com o texto produzido pela habilidade do OCR.
 
 ```csharp
 private static MergeSkill CreateMergeSkill()
@@ -377,7 +379,7 @@ private static MergeSkill CreateMergeSkill()
 
 ### <a name="language-detection-skill"></a>Habilidade de detecção de idioma
 
-A habilidade **Detecção de Idioma** detecta o idioma de texto de entrada e os relatórios de um código de idioma único para cada documento enviado na solicitação. Usaremos a saída da habilidade **Detecção de Idioma** como parte da entrada para a habilidade **Divisão de Texto** .
+A habilidade **Detecção de Idioma** detecta o idioma de texto de entrada e os relatórios de um código de idioma único para cada documento enviado na solicitação. Usaremos a saída da habilidade **Detecção de Idioma** como parte da entrada para a habilidade **Divisão de Texto**.
 
 ```csharp
 private static LanguageDetectionSkill CreateLanguageDetectionSkill()
@@ -580,7 +582,7 @@ Este exercício usa os seguintes campos e tipos de campo:
 
 Os campos para este índice são definidos usando uma classe de modelo. Cada propriedade da classe de modelo tem atributos que determinam os comportamentos relacionados à pesquisa do campo de índice correspondente. 
 
-Vamos adicionar a classe de modelo a um novo arquivo C#. Clique com o botão direito do mouse em seu projeto e selecione **Adicionar** > **Novo Item...** , selecione "Classe" e nomeie o arquivo `DemoIndex.cs`, depois selecione **Adicionar** .
+Vamos adicionar a classe de modelo a um novo arquivo C#. Clique com o botão direito do mouse em seu projeto e selecione **Adicionar** > **Novo Item...** , selecione "Classe" e nomeie o arquivo `DemoIndex.cs`, depois selecione **Adicionar**.
 
 Certifique-se de indicar que você deseja usar os tipos dos namespaces `Azure.Search.Documents.Indexes` e `System.Text.Json.Serialization`.
 
@@ -826,13 +828,13 @@ Nos aplicativos de console dos tutoriais do Azure Cognitive Search, normalmente 
 
 A opção mais fácil é o [Gerenciador de pesquisa](search-explorer.md) no portal. Você pode executar primeiro uma consulta vazia que retorna todos os documentos ou uma pesquisa mais direcionada que retorna o conteúdo de campo criado pelo pipeline. 
 
-1. No portal do Azure, na página de Visão geral da pesquisa, selecione **Índices** .
+1. No portal do Azure, na página de Visão geral da pesquisa, selecione **Índices**.
 
 1. Localize **`demoindex`** na lista. Ele deve ter 14 documentos. Quando a contagem de documentos é zero, o indexador ainda está em execução ou a página ainda não foi atualizada. 
 
-1. Selecione **`demoindex`** . O Gerenciador de pesquisa é a primeira guia.
+1. Selecione **`demoindex`**. O Gerenciador de pesquisa é a primeira guia.
 
-1. O conteúdo fica pesquisável assim que o primeiro documento é carregado. Para verificar se o conteúdo existe, execute uma consulta não especificada clicando em **Pesquisar** . Essa consulta retorna todos os documentos indexados atualmente, dando a você uma ideia do que o índice contém.
+1. O conteúdo fica pesquisável assim que o primeiro documento é carregado. Para verificar se o conteúdo existe, execute uma consulta não especificada clicando em **Pesquisar**. Essa consulta retorna todos os documentos indexados atualmente, dando a você uma ideia do que o índice contém.
 
 1. Em seguida, cole a seguinte cadeia de caracteres para obter resultados mais gerenciáveis: `search=*&$select=id, languageCode, organizations`
 

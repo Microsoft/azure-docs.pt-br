@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/16/2016
 ms.author: alkohli
-ms.openlocfilehash: 95386f36340aca470769c920e40bbb70e09d34fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67d3fafb9b4b93ae52bdb09d673bf65cad30b816
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80397874"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966149"
 ---
 # <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>Notas de versão as Atualizações 0.1 e 0.2 do StorSimple Virtual Array
 ## <a name="overview"></a>Visão geral
@@ -83,5 +83,4 @@ A tabela a seguir fornece um resumo dos problemas conhecidos para a StorSimple V
 | **140.** |Servidor de arquivos\* |Se um arquivo em uma pasta tiver um Fluxo de Dados Alternativo (ADS) associado a ele, o ADS não será copiado ou restaurado por meio da recuperação de desastres, clonagem e Recuperação no Nível do Item. | |
 
 ## <a name="next-step"></a>Próxima etapa
-[Instale atualizações](storsimple-ova-install-update-01.md) em sua matriz virtual StorSimple.
-
+[Instale atualizações](./storsimple-virtual-array-install-update-06.md) em sua matriz virtual StorSimple.

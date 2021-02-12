@@ -3,7 +3,7 @@ title: Provisionar um usuário sob demanda usando Azure Active Directory
 description: Forçar sincronização
 services: active-directory
 author: msmimart
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: f7cbe9e9f81b3b71ee7da2feac2908c36f1777e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be03a149f34c16621905081a2f9bb663d85bc53c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629005"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255654"
 ---
 # <a name="on-demand-provisioning"></a>Provisionamento sob demanda
 Use o provisionamento sob demanda para provisionar um usuário em um aplicativo em segundos. Entre outras coisas, você pode usar essa capacidade para:
@@ -124,7 +124,7 @@ Por fim, o serviço de provisionamento executa uma ação, como criar, atualizar
 
 Veja um exemplo do que você pode ver após o provisionamento bem-sucedido sob demanda de um usuário:
 
-:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Captura de tela que mostra a interface do usuário do portal do Azure para provisionamento de usuários sob demanda.":::
+:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Captura de tela que mostra o provisionamento com êxito sob demanda de um usuário.":::
 
 #### <a name="view-details"></a>Exibir detalhes
 

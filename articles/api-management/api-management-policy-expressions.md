@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: ab83344f779f93107b59ca28348da3a66f1efc1a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: aec1967f0652e18c4a24ca258c14a103355b22af
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076854"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219308"
 ---
 # <a name="api-management-policy-expressions"></a>Expressões de política de Gerenciamento de API
 Este artigo discute a sintaxe de expressões de política no C# 7. Toda expressão tem acesso à variável de [contexto](api-management-policy-expressions.md#ContextVariables) fornecida implicitamente e a um [subconjunto](api-management-policy-expressions.md#CLRTypes) permitido de tipos do .NET Framework.
@@ -156,7 +156,7 @@ A tabela a seguir lista os tipos do .NET Framework e seus membros permitidos em 
 |System. Security. Cryptography. SymmetricAlgorithm|Tudo|
 |System. Security. Cryptography. X509Certificates. PublicKey|Tudo|
 |System. Security. Cryptography. X509Certificates. RSACertificateExtensions|Tudo|
-|System. Security. Cryptography. X509Certificates. X500DistinguishedName|Name|
+|System. Security. Cryptography. X509Certificates. X500DistinguishedName|Nome|
 |System. Security. Cryptography. X509Certificates. X509Certificate|Tudo|
 |System.Security.Cryptography.X509Certificates.X509Certificate2|Tudo|
 |System. Security. Cryptography. X509Certificates. X509ContentType|Tudo|
@@ -210,7 +210,7 @@ Uma variável chamada `context` está implicitamente disponível em cada [expres
 
 |Variável de contexto|Valores de métodos, propriedades e parâmetros permitidos|
 |----------------------|-------------------------------------------------------|
-|contexto|[API](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [Implantação](#ref-context-deployment)<br /><br /> Decorrido: TimeSpan - intervalo de tempo entre o valor de carimbo de data/hora e a hora atual<br /><br /> [lastError](#ref-context-lasterror)<br /><br /> [Operação](#ref-context-operation)<br /><br /> [Product](#ref-context-product)<br /><br /> [Solicitação](#ref-context-request)<br /><br /> RequestId: Guid - identificador exclusivo de solicitação<br /><br /> [Resposta](#ref-context-response)<br /><br /> [Assinatura](#ref-context-subscription)<br /><br /> Carimbo de data/hora: DataHora - ponto no tempo em que a solicitação foi recebida<br /><br /> Rastreamento: bool - indica que se o rastreamento está ativado ou desativado <br /><br /> [Usuário](#ref-context-user)<br /><br /> [Variables](#ref-context-variables): IReadOnlyDictionary<string,> de objeto<br /><br /> void Trace(message: string)|
+|contexto|[API](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [Implantação](#ref-context-deployment)<br /><br /> Decorrido: TimeSpan - intervalo de tempo entre o valor de carimbo de data/hora e a hora atual<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [Operação](#ref-context-operation)<br /><br /> [Product](#ref-context-product)<br /><br /> [Solicitação](#ref-context-request)<br /><br /> RequestId: Guid - identificador exclusivo de solicitação<br /><br /> [Resposta](#ref-context-response)<br /><br /> [Assinatura](#ref-context-subscription)<br /><br /> Carimbo de data/hora: DataHora - ponto no tempo em que a solicitação foi recebida<br /><br /> Rastreamento: bool - indica que se o rastreamento está ativado ou desativado <br /><br /> [Usuário](#ref-context-user)<br /><br /> [Variables](#ref-context-variables): IReadOnlyDictionary<string,> de objeto<br /><br /> void Trace(message: string)|
 |<a id="ref-context-api"></a>context.Api|Id: string<br /><br /> IsCurrentRevision: bool<br /><br />  Name: string<br /><br /> Path: string<br /><br /> Revision: string<br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> Version: string |
 |<a id="ref-context-deployment"></a>context.Deployment|Region: string<br /><br /> ServiceName: string<br /><br /> Certificados: IReadOnlyDictionary<string, X509Certificate2>|
 |<a id="ref-context-lasterror"></a>context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> Para obter mais informações sobre context.LastError, consulte [Error handling](api-management-error-handling-policies.md) (Tratamento de erro).|
@@ -220,7 +220,7 @@ Uma variável chamada `context` está implicitamente disponível em cada [expres
 |<a id="ref-context-request-headers"></a>string context.Request.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: string<br /><br /> Retorna valores de cabeçalho de solicitação separados por vírgula ou `defaultValue` se o cabeçalho não for encontrado.|
 |<a id="ref-context-response"></a>context.Response|Corpo: [IMessageBody](#ref-imessagebody)<br /><br /> [Cabeçalhos](#ref-context-response-headers): IReadOnlyDictionary<cadeia de caracteres, Cadeia de caracteres [] ><br /><br /> StatusCode: int<br /><br /> StatusReason: string|
 |<a id="ref-context-response-headers"></a>string context.Response.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: string<br /><br /> Retorna valores de cabeçalho de resposta separados por vírgula ou `defaultValue` se o cabeçalho não for encontrado.|
-|<a id="ref-context-subscription"></a>context.Subscription|CreatedTime: DateTime<br /><br /> EndDate: DateTime?<br /><br /> Id: string<br /><br /> Key: string<br /><br /> Name: string<br /><br /> PrimaryKey: string<br /><br /> SecondaryKey: string<br /><br /> StartDate: DateTime?|
+|<a id="ref-context-subscription"></a>context.Subscription|CreatedDate: DateTime<br /><br /> EndDate: DateTime?<br /><br /> Id: string<br /><br /> Key: string<br /><br /> Name: string<br /><br /> PrimaryKey: string<br /><br /> SecondaryKey: string<br /><br /> StartDate: DateTime?|
 |<a id="ref-context-user"></a>context.User|Email: string<br /><br /> FirstName: string<br /><br /> Grupos: IEnumerable<[IGroup](#ref-igroup)\><br /><br /> Id: string<br /><br /> Identidades: IEnumerable<[IUserIdentity](#ref-iuseridentity)\><br /><br /> LastName: string<br /><br /> Note: string<br /><br /> RegistrationDate: DateTime|
 |<a id="ref-iapi"></a>IApi|Id: string<br /><br /> Name: string<br /><br /> Path: string<br /><br /> Protocols: IEnumerable<string\><br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> SubscriptionKeyParameterNames: [ISubscriptionKeyParameterNames](#ref-isubscriptionkeyparameternames)|
 |<a id="ref-igroup"></a>IGroup|Id: string<br /><br /> Name: string|

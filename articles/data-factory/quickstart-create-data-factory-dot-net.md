@@ -1,6 +1,6 @@
 ---
-title: Criar o Azure Data Factory usando o SDK do .NET
-description: Crie um pipeline e Azure Data Factory usando o SDK do .NET para copiar dados de uma localização em um Armazenamento de Blobs do Azure para outra localização.
+title: Criar um Azure Data Factory usando o SDK do .NET
+description: Crie um pipeline e um Azure Data Factory usando o SDK do .NET para copiar dados de uma localização em um Armazenamento de Blobs do Azure para outra.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/24/2019
+ms.date: 12/18/2020
 ms.author: jingwang
-ms.openlocfilehash: e8da3dff39f94d6639471a2d1d96691c9cde614d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c5e35fb8ab6a782ec79f10b1099f6781062c1d7c
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91322845"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678876"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Início Rápido: Criar um data factory e um pipeline usando o SDK do .NET
 
@@ -81,6 +81,7 @@ Em seguida, crie um aplicativo de console do .NET em C# no Visual Studio:
     using System.Collections.Generic;
     using System.Linq;
     using Microsoft.Rest;
+    using Microsoft.Rest.Serialization;
     using Microsoft.Azure.Management.ResourceManager;
     using Microsoft.Azure.Management.DataFactory;
     using Microsoft.Azure.Management.DataFactory.Models;

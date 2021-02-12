@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: 684f37ba3186a719aa9ce730ac07ca4ad42f113d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c755ee0ee91156da9910a9d43c891c87f86cd430
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89458052"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945033"
 ---
 # <a name="resource-manager-template-samples-for-log-analytics-workspaces-in-azure-monitor"></a>Amostras de modelo do Resource Manager para workspaces do Log Analytics no Azure Monitor
 Este artigo inclui [modelos do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) de amostra para criar e configurar workspaces do Log Analytics no Azure Monitor. Cada amostra inclui um arquivo de modelo e um arquivo de parâmetros com valores de amostra para fornecer ao modelo.
@@ -610,7 +610,7 @@ A amostra a seguir adiciona a coleção de [logs personalizados](../platform/dat
 
 ### <a name="notes"></a>Observações
 
-- A configuração de delimitadores e extrações pode ser complexa. Para obter ajuda, você pode definir um log personalizado usando o portal do Azure e recuperar sua configuração usando [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.8.0) com **-Kind** definido como **CustomLog**.
+- A configuração de delimitadores e extrações pode ser complexa. Para obter ajuda, você pode definir um log personalizado usando o portal do Azure e recuperar sua configuração usando [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource) com **-Kind** definido como **CustomLog**.
 
   
 ### <a name="template-file"></a>Arquivo de modelo
@@ -698,7 +698,6 @@ A amostra a seguir adiciona a coleção de [logs personalizados](../platform/dat
           "properties": {
               "customLogName": "armlog_newline",
               "description": "this is a description",
-              "extractions": [],
               "inputs": [
                 {
                     "location": {

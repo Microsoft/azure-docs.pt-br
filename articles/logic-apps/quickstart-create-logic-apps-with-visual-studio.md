@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 08/07/2020
-ms.openlocfilehash: cdc4dfe23cce7c2f58e4c9b44f2cea46e2337e00
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/27/2020
+ms.openlocfilehash: 8181097425045e5b1ed838c5fcc08b0069185908
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91322437"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051950"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Início Rápido: Criar tarefas automatizadas, processos e fluxos de trabalho com Aplicativos Lógicos do Azure – Visual Studio
 
@@ -20,7 +20,7 @@ Com os [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e o
 
 Se você não estiver familiarizado com os Aplicativos Lógicos do Azure e deseja apenas os conceitos básicos, experimente o [guia de início rápido para a criação de um aplicativo lógico no portal do Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md). O Designer de Aplicativo Lógico funciona de forma semelhante no portal do Azure e no Visual Studio.
 
-Neste início rápido, você cria o mesmo aplicativo lógico com o Visual Studio como o início rápido do portal do Azure. Esse aplicativo lógico monitora um feed RSS de site e envia um email para cada novo item nesse feed. Seu aplicativo lógico finalizado se parece com este fluxo de trabalho de alto nível:
+Neste início rápido, você cria o mesmo aplicativo lógico com o Visual Studio como o início rápido do portal do Azure. Você também pode aprender a [criar um aplicativo de exemplo no Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md) e [criar e gerenciar aplicativos lógicos por meio da CLI do Azure (Interface de linha de comando do Azure)](quickstart-logic-apps-azure-cli.md). Este aplicativo lógico monitora o RSS feed de um site e envia um email para cada novo item nesse feed. Seu aplicativo lógico finalizado se parece com este fluxo de trabalho de alto nível:
 
 ![A captura de tela mostra o fluxo de trabalho de alto nível de um aplicativo lógico concluído.](./media/quickstart-create-logic-apps-with-visual-studio/high-level-workflow-overview.png)
 
@@ -37,7 +37,7 @@ Neste início rápido, você cria o mesmo aplicativo lógico com o Visual Studio
     > [!IMPORTANT]
     > Ao instalar o Visual Studio 2019 ou 2017, selecione a carga de trabalho **Desenvolvimento do Azure**.
 
-  * O [SDK do Microsoft Azure para .NET (2.9.1 ou posterior)](https://azure.microsoft.com/downloads/). Saiba mais sobre o [SDK do Azure para .NET](/dotnet/azure/dotnet-tools?view=azure-dotnet).
+  * O [SDK do Microsoft Azure para .NET (2.9.1 ou posterior)](https://azure.microsoft.com/downloads/). Saiba mais sobre o [SDK do Azure para .NET](/dotnet/azure/intro).
 
   * [PowerShell do Azure](https://github.com/Azure/azure-powershell#installation)
 
@@ -59,6 +59,8 @@ Neste início rápido, você cria o mesmo aplicativo lógico com o Visual Studio
 
   > [!IMPORTANT]
   > Se você quiser usar o conector do Gmail, somente as contas comerciais do G Suite poderão usar esse conector sem restrição nos aplicativos lógicos. Se você tiver uma conta de consumidor do Gmail, poderá usar esse conector somente com serviços específicos do Google aprovados ou poderá [criar um aplicativo cliente do Google para usar para autenticação com o conector do Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Para obter mais informações, confira [Políticas de privacidade e segurança de dados para os conectores do Google nos Aplicativos Lógicos do Azure](../connectors/connectors-google-data-security-privacy-policy.md).
+
+* Se o seu aplicativo lógico precisar se comunicar por um firewall que limita o tráfego a endereços IP específicos, esse firewall precisará permitir o acesso *tanto* para os endereços IP de [entrada](logic-apps-limits-and-config.md#inbound) quanto para os de [saída](logic-apps-limits-and-config.md#outbound) usados pelo runtime ou pelo serviço de Aplicativos Lógicos na região do Azure em que o aplicativo lógico existe. Se o aplicativo lógico também usar [conectores gerenciados](../connectors/apis-list.md#managed-api-connectors), como o conector Outlook do Office 365 ou do SQL, ou usar [conectores personalizados](/connectors/custom-connectors/), o firewall também precisará permitir o acesso para *todos* os [endereços IP de saída do conector gerenciado](logic-apps-limits-and-config.md#outbound) na região do Azure do aplicativo lógico.
 
 <a name="azure-government"></a>
 

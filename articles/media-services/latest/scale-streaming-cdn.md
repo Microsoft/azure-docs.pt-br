@@ -1,24 +1,9 @@
 ---
-title: Transmitir conteúdo com integração CDN
-titleSuffix: Azure Media Services
-description: Saiba mais sobre o conteúdo de streaming com a integração da CDN, bem como para buscar e Origin-Assist a pré-busca de CDN.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: conceptual
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.openlocfilehash: 6bdf6015ca5633c77280111a55055a7394cee5bd
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
-ms.translationtype: MT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057647"
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Campos obrigatórios. Veja mais em aka.ms/skyeye/meta.
+Título: transmitir conteúdo com integração de CDN: descrição dos serviços de mídia do Azure: Saiba mais sobre o streaming de conteúdo com a integração da CDN, bem como pré-busca e Origin-Assist a pré-busca de CDN.
+serviços: Media-Services documentationcenter: ' ' autor: IngridAtMicrosoft gerente: femila editor: ' ' MS. Service: Media-Services MS. Workload: MS. tópico: conceptual MS. Date: 08/31/2020 MS. Author: inhenkel
 ---
+
 # <a name="stream-content-with-cdn-integration"></a>Transmitir conteúdo com integração CDN
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
@@ -32,7 +17,7 @@ O conteúdo popular será servido diretamente do cache da CDN, desde que o fragm
 Também é necessário considerar como o streaming adaptável funciona. Cada fragmento de vídeo individual é armazenado em cache como sua própria entidade. Por exemplo, imagine a primeira vez que um determinado vídeo é observado. Se o visualizador ignorar apenas alguns segundos aqui e houver, somente os fragmentos de vídeo associados ao que a pessoa observou serão armazenados em cache na CDN. Com o streaming adaptável, você normalmente tem de 5 a 7 taxas de bits diferentes de vídeo. Se uma pessoa estiver assistindo a uma taxa de bits e outra pessoa estiver assistindo a uma taxa de bits diferente, ela será cada uma armazenada em cache separadamente na CDN. Mesmo que duas pessoas estejam assistindo a mesma taxa de bits, elas podem ser transmitidas por protocolos diferentes. Cada protocolo (HLS, MPEG-DASH, Smooth Streaming) é armazenado em cache separadamente. Portanto, cada taxa de bits e protocolo são armazenados em cache separadamente e apenas os fragmentos de vídeo que foram solicitados são armazenados em cache.
 
 Exceto para o ambiente de teste, recomendamos que a CDN seja habilitada para os pontos de extremidade de streaming Standard e Premium. Cada tipo de ponto de extremidade de streaming tem um limite de taxa de transferência com suporte diferente.
-É difícil fazer um cálculo preciso para o número máximo de fluxos simultâneos com suporte por um ponto de extremidade de streaming, pois há vários fatores a serem levados em conta. Elas incluem:
+É difícil fazer um cálculo preciso para o número máximo de fluxos simultâneos com suporte por um ponto de extremidade de streaming, pois há vários fatores a serem levados em conta. Estão incluídos:
 
 - Taxas de bits máximas usadas para streaming
 - Comportamento de pré-buffer e alternância do Player. Os jogadores tentam disparar segmentos de uma origem e usam a velocidade de carga para calcular a alternância de taxa de bits adaptável. Se um ponto de extremidade de streaming ficar perto da saturação, os tempos de resposta poderão variar e os jogadores começarão a mudar para a qualidade inferior. Como isso está reduzindo a carga nos players de ponto de extremidade de streaming, dimensione de volta para a qualidade mais alta criando gatilhos de troca
@@ -78,7 +63,7 @@ Para atingir essa meta, um ponto de extremidade de streaming (origem) e a CDN pr
 - A origem dos serviços de mídia precisa ter a "inteligência" (assistência de origem) para informar à CDN o próximo objeto a prefetch.
 - A CDN faz a pré-busca e o cache (parte da pré-busca da CDN). A CDN também precisa ter a "inteligência" para informar a origem se é uma pré-busca ou uma busca regular, manipular as respostas de 404 e uma maneira de evitar um loop de pré-busca infinito.
 
-### <a name="benefits"></a>Vantagens
+### <a name="benefits"></a>Benefícios
 
 Os benefícios do recurso de *ajuda da CDN-Assist de origem* incluem:
 

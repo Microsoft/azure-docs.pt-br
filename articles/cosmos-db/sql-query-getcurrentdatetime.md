@@ -1,18 +1,19 @@
 ---
 title: GetCurrentDateTime na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função do sistema SQL GetCurrentDateTime no Azure Cosmos DB.
-author: ginamr
+author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 08/18/2020
-ms.author: girobins
+ms.date: 02/03/2021
+ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 11222b2df1acee07647e02c5a4f1f65e3cf3e525
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b48237b5a7eb836c495612758eeb9eaa45029b26
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098528"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526578"
 ---
 # <a name="getcurrentdatetime-azure-cosmos-db"></a>GetCurrentDateTime (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -36,7 +37,7 @@ GetCurrentDateTime ()
   |DD|dia de dois dígitos do mês (01 a 31)|
   |T|signifier para o início dos elementos de hora|
   |hh|hora de dois dígitos (00 a 23)|
-  |mm|minutos de dois dígitos (00 a 59)|
+  |MM|minutos de dois dígitos (00 a 59)|
   |ss|segundos de dois dígitos (00 a 59)|
   |. fffffff|segundos fracionários de sete dígitos|
   |Z|Designador UTC (tempo Universal Coordenado)||
@@ -47,7 +48,8 @@ GetCurrentDateTime ()
 
 GetCurrentDateTime () é uma função não determinística. O resultado retornado é UTC. A precisão é de 7 dígitos, com uma precisão de 100 nanossegundos.
 
-Essa função do sistema não usará o índice.
+> [!NOTE]
+> Essa função do sistema não usará o índice. Se você precisar comparar valores com a hora atual, obtenha a hora atual antes da execução da consulta e use esse valor de cadeia de caracteres constante na `WHERE` cláusula.
 
 ## <a name="examples"></a>Exemplos
   

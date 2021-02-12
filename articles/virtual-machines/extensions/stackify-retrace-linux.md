@@ -8,17 +8,18 @@ manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: akjosh
-ms.openlocfilehash: 5914947bd994ee405f253e34c3dd919dd6561898
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f9ac4f7c88e72cb6ddadc2450947697b0e3c6ef
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87088845"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961967"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Extensão do Agente Linux de Stackify Retrace
 
@@ -191,7 +192,7 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 | 40 | Erro de instalação | activationKey é obrigatório |
 | 51 | Erro de instalação | Distribuição de sistema operacional não compatível |
 | 60 | Erro de instalação | ambiente é obrigatório |
-| 70 | Erro de instalação | Unknown |
+| 70 | Erro de instalação | Desconhecido |
 | 80 | Ero de habilitação | Falha na configuração de serviço |
 | 90 | Ero de habilitação | Falha na configuração de serviço |
 | 100 | Desabilitar o erro | Falha na interrupção do serviço |

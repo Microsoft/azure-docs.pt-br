@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 09/23/2020
+ms.date: 12/09/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 29033cbabfcfa00c9f8458cbc161af67df5806cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5559e491be15f8f848329405736fc977267c70cc
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325956"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938589"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Tamanhos de VM de computação de alto desempenho
 
@@ -31,6 +31,9 @@ O recurso de VMs HBv2 de 200 GB/s Mellanox HDR InfiniBand, enquanto as VMs da s�
 [Série H](h-series.md) As VMs são otimizadas para aplicativos orientados por altas frequências de CPU ou grandes requisitos de memória por núcleo. As VMs da série H apresentam 8 ou 16 núcleos de processador Intel Xeon E5 2667 v3, 7 ou 14 GB de RAM por núcleo de CPU e nenhum hyperthreading. A série H apresenta 56 GB/s Mellanox FDR InfiniBand em uma configuração de árvore de Fat sem bloqueio para desempenho consistente de RDMA. As VMs da série H dão suporte ao Intel MPI 5. x e ao MS-MPI.
 
 > [!NOTE]
+> Todas as VMs da série HBv2, HB e HC têm acesso exclusivo aos servidores físicos. Há apenas 1 VM por servidor físico e não há multilocação compartilhada com outras VMs para esses tamanhos de VM.
+
+> [!NOTE]
 > As [VMs A8 – a11](./sizes-previous-gen.md#a-series---compute-intensive-instances) estão planejadas para aposentadoria em 3/2021. Para obter mais informações, confira o [Guia de migração de HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
 
 ## <a name="rdma-capable-instances"></a>Instâncias compatíveis com RDMA
@@ -40,7 +43,7 @@ A maioria dos tamanhos de VM HPC (HBv2, HB, HC, H16r, H16mr, A8 e A9) tem um rec
 Essa interface permite que as instâncias compatíveis com RDMA comuniquem-se por uma rede InfiniBand (IB), operando com tarifas HDR para HBv2, taxas de EDR para HB, HC, NDv2, taxas de FDR para H16r, H16mr e outras máquinas virtuais da série N compatíveis com RDMA e taxas de QDR para VMs A8 e A9. Esses recursos RDMA podem melhorar a escalabilidade e o desempenho de determinados aplicativos MPI (Interface de Transmissão de Mensagens).
 
 > [!NOTE]
-> No Azure HPC, há duas classes de VMs, dependendo se elas estão habilitadas para a InfiniBand. Atualmente, o SR-IOV para VMs habilitadas para InfiniBand são: HBv2, HB, HC, NCv3 e NDv2. O restante das VMs habilitadas para InfiniBand não são habilitadas para o SR-IOV atualmente.
+> No Azure HPC, há duas classes de VMs, dependendo se elas estão habilitadas para a InfiniBand. Atualmente, quase todas as VMs habilitadas para RDMA ou de geração mais recentes no Azure são SR-IOV habilitado, exceto para H16r, H16mr, NC24r, A8, A9.
 > O RDMA só é habilitado pela rede InfiniBand (IB) e tem suporte para todas as VMs compatíveis com RDMA.
 > Só há suporte para IP sobre IB em VMs habilitadas para SR-IOV.
 > O RDMA não está habilitado pela rede Ethernet.
@@ -55,7 +58,7 @@ Essa interface permite que as instâncias compatíveis com RDMA comuniquem-se po
 
    Para adicionar a extensão de VM a uma VM, use cmdlets do [Azure PowerShell](/powershell/azure/). Para obter mais informações, consulte [Recursos e extensões da máquina virtual](./extensions/overview.md). Também é possível trabalhar com extensões de VMs implantadas no [modelo de implantação clássico](/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
 
-- **MPI** -os tamanhos de VM habilitados para Sr-IOV no Azure (HBV2, HB, HC, NCv3, NDv2) permitem que quase qualquer tipo de MPI seja usado com o Mellanox ofed. Em VMs não habilitadas para SR-IOV, as implementações MPI com suporte usam a interface do Microsoft Network Direct (ND) para se comunicar entre as VMs. Portanto, somente as versões do Microsoft MPI (MS-MPI) 2012 R2 ou posterior e do Intel MPI 5. x têm suporte. Versões posteriores (2017, 2018) da biblioteca de tempo de execução do Intel MPI podem ou não ser compatíveis com os drivers RDMA do Azure. Consulte [Setup MPI for HPC](./workloads/hpc/setup-mpi.md) para obter mais detalhes sobre como configurar MPI em VMs do HPC no Azure.
+- **MPI** -os tamanhos de VM habilitados para Sr-IOV no Azure permitem que quase qualquer tipo de MPI seja usado com o Mellanox ofed. Em VMs não habilitadas para SR-IOV, as implementações MPI com suporte usam a interface do Microsoft Network Direct (ND) para se comunicar entre as VMs. Portanto, somente as versões do Microsoft MPI (MS-MPI) 2012 R2 ou posterior e do Intel MPI 5. x têm suporte. Versões posteriores (2017, 2018) da biblioteca de tempo de execução do Intel MPI podem ou não ser compatíveis com os drivers RDMA do Azure. Consulte [Setup MPI for HPC](./workloads/hpc/setup-mpi.md) para obter mais detalhes sobre como configurar MPI em VMs do HPC no Azure.
 
 - **Espaço de endereço de rede RDMA** - A rede RDMA no Azure reserva o espaço de endereço 172.16.0.0/16. Para executar aplicativos MPI em instâncias implantadas em uma rede virtual do Azure, verifique se o espaço do endereço de rede virtual não se sobrepõe à rede RDMA.
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: dd8a30c60c81ef2761d5dc051d2dfeb300e1bac4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 90f89e72193c26b71859076b99c448a6e2d4c4c6
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792116"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060077"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Introdução às consultas entre bancos de dados (particionamento vertical) (preview)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -33,7 +33,7 @@ A permissão para ALTERAR QUALQUER FONTE DE DADOS EXTERNA é exigida. Essa permi
 
 ## <a name="create-the-sample-databases"></a>Criar os bancos de dados de exemplo
 
-Para começar, crie dois bancos de dados, **clientes** e **pedidos** , tanto no mesmo servidor quanto em servidores diferentes.
+Para começar, crie dois bancos de dados, **clientes** e **pedidos**, tanto no mesmo servidor quanto em servidores diferentes.
 
 Execute as consultas a seguir no banco de dados **Orders** para criar a tabela **OrderInformation** e inserir os dados de exemplo.
 
@@ -77,6 +77,7 @@ INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]
     SECRET = '<password>';  
     ```
 
+    O "master_key_password" é uma senha forte de sua escolha usada para criptografar as credenciais de conexão. 
     O "nome de usuário" e a "senha" devem ser o nome de usuário e a senha usados para fazer logon no banco de dados Customers.
     Atualmente não há suporte para a autenticação usando o Azure Active Directory com consultas elásticas.
 

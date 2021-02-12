@@ -13,12 +13,12 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 09/28/2020
 tags: azure-synapse
-ms.openlocfilehash: 3b81572266f6ee5bd90662a98988d41479f399cc
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 9afad44bcf67478a81e75c17d0ff8ffc6d8c65aa
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675001"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841105"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>Usando a autenticação de Azure Active Directory multifator
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -41,13 +41,13 @@ Há dois modelos de autenticação não interativa para o Azure AD, que podem se
 - `Azure Active Directory - Password`
 - `Azure Active Directory - Integrated`
 
-O método interativo que também dá suporte à MFA (autenticação multifator) do Azure é: 
+O método interativo que também dá suporte à MFA (autenticação multifator) do Azure AD é: 
 
 - `Azure Active Directory - Universal with MFA`
 
-O Azure MFA ajuda a proteger o acesso a dados e aplicativos, ao mesmo tempo que atende à demanda dos usuários por um processo de entrada simples. Ele fornece autenticação eficiente com uma variedade de opções de verificação fáceis, como chamada telefônica, mensagem de texto, cartões inteligentes com PIN ou notificação por aplicativos móveis, os quais permitem que os usuários escolham seu método de preferência. O MFA interativo com o Azure AD pode resultar em uma caixa de diálogo pop-up para validação.
+O Azure AD MFA ajuda a proteger o acesso a dados e aplicativos enquanto atende à demanda do usuário por um processo de entrada simples. Ele fornece autenticação eficiente com uma variedade de opções de verificação fáceis, como chamada telefônica, mensagem de texto, cartões inteligentes com PIN ou notificação por aplicativos móveis, os quais permitem que os usuários escolham seu método de preferência. O MFA interativo com o Azure AD pode resultar em uma caixa de diálogo pop-up para validação.
 
-Para obter uma descrição da autenticação multifator do Azure, consulte [autenticação multifator](../../active-directory/authentication/concept-mfa-howitworks.md).
+Para obter uma descrição da autenticação multifator do Azure AD, consulte [autenticação multifator](../../active-directory/authentication/concept-mfa-howitworks.md).
 Para etapas de configuração, consulte [Configurar Autenticação Multifator do Banco de Dados SQL do Azure para o SQL Server Management Studio](authentication-mfa-ssms-configure.md).
 
 ### <a name="azure-ad-domain-name-or-tenant-id-parameter"></a>Parâmetro de ID do locatário ou nome de domínio do Azure AD
@@ -58,7 +58,7 @@ Todos os usuários convidados que desejam ser autenticados usando a autenticaç�
 
 
 1. Abra uma conexão no SSMS. Insira o nome do servidor e selecione **Azure Active Directory-universal com autenticação MFA** . Adicione o **nome de usuário** com o qual você deseja entrar.
-1. Selecione a caixa **Opções** e vá para a guia **Propriedades da conexão** . Na caixa de diálogo **conectar ao banco de dados** , preencha a caixa de diálogo do seu banco de dados. Marque a caixa **ID de locatário ou nome de domínio do AD** e forneça a autoridade de autenticação, como o nome de domínio ( **contosotest.onmicrosoft.com** ) ou o GUID da ID do locatário. 
+1. Selecione a caixa **Opções** e vá para a guia **Propriedades da conexão** . Na caixa de diálogo **conectar ao banco de dados** , preencha a caixa de diálogo do seu banco de dados. Marque a caixa **ID de locatário ou nome de domínio do AD** e forneça a autoridade de autenticação, como o nome de domínio (**contosotest.onmicrosoft.com**) ou o GUID da ID do locatário. 
 
    ![Captura de tela da guia Propriedades da conexão realçando as configurações para conectar ao banco de dados e ao nome de domínio do AD ou à ID do locatário.](./media/authentication-mfa-ssms-overview/mfa-tenant-ssms.png)
 
@@ -69,7 +69,7 @@ Se você estiver executando o SSMS 18. x ou posterior, o nome de domínio do AD 
 ### <a name="azure-ad-business-to-business-support"></a>Suporte entre empresas do Azure AD
 
 > [!IMPORTANT]
-> O suporte para usuários convidados para se conectar ao banco de dados SQL do Azure, o SQL Instância Gerenciada e o Azure Synapse sem a necessidade de fazer parte de um grupo está atualmente em **Visualização pública** . Para obter mais informações, consulte [criar usuários convidados do Azure AD e definir como um administrador do Azure ad](authentication-aad-guest-users.md).
+> O suporte para usuários convidados para se conectar ao banco de dados SQL do Azure, o SQL Instância Gerenciada e o Azure Synapse sem a necessidade de fazer parte de um grupo está atualmente em **Visualização pública**. Para obter mais informações, consulte [criar usuários convidados do Azure AD e definir como um administrador do Azure ad](authentication-aad-guest-users.md).
 
 Os usuários do Azure AD com suporte para cenários B2B do Azure AD como usuários convidados (consulte [o que é a colaboração do Azure B2B](../../active-directory/external-identities/what-is-b2b.md)) podem se conectar ao banco de dados SQL e ao Azure Synapse somente como parte dos membros de um grupo criado no Azure ad associado e mapeados manualmente usando a instrução [Create User (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql) em um determinado banco de dados. Por exemplo, se `steve@gmail.com` o for convidado para o Azure ad `contosotest` (com o domínio do Azure ad `contosotest.onmicrosoft.com` ), um grupo do Azure AD, como `usergroup` deve ser criado no Azure AD que contém o `steve@gmail.com` membro. Em seguida, esse grupo deve ser criado para um banco de dados específico (por exemplo, `MyDatabase` ) por um administrador do SQL do Azure ad ou um dbo do Azure AD, executando a instrução Transact-SQL `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` . 
 
@@ -100,4 +100,4 @@ Depois que o usuário do banco de dados for criado, o usuário `steve@gmail.com`
 - [Importar um arquivo BACPAC para um novo banco de dados](database-import.md)  
 - [Exportar um banco de dados para um arquivo BACPAC](database-export.md)  
 - Interface C# [Interface IUniversalAuthProvider](/dotnet/api/microsoft.sqlserver.dac.iuniversalauthprovider)  
-- Ao usar o **Azure Active Directory-universal com** autenticação de MFA, o rastreamento de Adal está disponível a partir do [SSMS 17,3](/sql/ssms/download-sql-server-management-studio-ssms). Desativado por padrão, você pode ativar o rastreamento ADAL usando o menu **Ferramentas** , no menu **Opções** , em **Serviços do Azure** , **Nuvem do Azure** , **Nível de rastreamento de janela de saída ADAL** e, em seguida, habilitando **Saída** no menu **Exibição** . Os rastreamentos estão disponíveis na janela de saída ao selecionar a **opção do Active Directory do Azure** .
+- Ao usar o **Azure Active Directory-universal com** autenticação de MFA, o rastreamento de Adal está disponível a partir do [SSMS 17,3](/sql/ssms/download-sql-server-management-studio-ssms). Desativado por padrão, você pode ativar o rastreamento ADAL usando o menu **Ferramentas**, no menu **Opções**, em **Serviços do Azure**, **Nuvem do Azure**, **Nível de rastreamento de janela de saída ADAL** e, em seguida, habilitando **Saída** no menu **Exibição**. Os rastreamentos estão disponíveis na janela de saída ao selecionar a **opção do Active Directory do Azure**.

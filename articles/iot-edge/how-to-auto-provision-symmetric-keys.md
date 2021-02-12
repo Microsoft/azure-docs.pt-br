@@ -9,12 +9,12 @@ ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 10ed546e8f05f4a93e4523c7870f79d41aa1f622
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: bfb61a5434089fffab9d8ceb9c7b0fbca528cac5
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045985"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430604"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Criar e provisionar um dispositivo IoT Edge usando o atestado de chave simétrica
 
@@ -193,7 +193,11 @@ Tenha as seguintes informações prontas:
        method: "symmetric_key"
        registration_id: "<REGISTRATION_ID>"
        symmetric_key: "<SYMMETRIC_KEY>"
+   #  always_reprovision_on_startup: true
+   #  dynamic_reprovisioning: false
    ```
+
+   Opcionalmente, use as `always_reprovision_on_startup` `dynamic_reprovisioning` linhas ou para configurar o comportamento de reprovisionamento do seu dispositivo. Se um dispositivo estiver configurado para reprovisionar na inicialização, ele sempre tentará provisionar com o DPS primeiro e, em seguida, retornará para o backup de provisionamento se isso falhar. Se um dispositivo estiver definido para reprovisionar dinamicamente, IoT Edge será reiniciado e reprovisionado se um evento de reprovisionamento for detectado. Para obter mais informações, consulte [conceitos de reprovisionamento de dispositivo do Hub IOT](../iot-dps/concepts-device-reprovision.md).
 
 1. Atualize os valores de `scope_id` , `registration_id` e `symmetric_key` com suas informações de dispositivo e DPS.
 

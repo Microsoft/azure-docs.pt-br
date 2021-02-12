@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/22/2020
-  ms.openlocfilehash: 34c084623d1c5d44d359f06ba30a8773889d841c
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: 087ffde0f4a4c3509f6538029ba3cedafe25c622
+  ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92371215"
+  ms.lasthandoff: 02/05/2021
+  ms.locfileid: "99575882"
 landingContent:
 - title: Sobre a Pesquisa Visual Computacional
   linkLists:
@@ -50,6 +50,8 @@ landingContent:
       url: quickstarts-sdk/client-library.md?pivots=programming-language-javascript
     - text: Como usar o SDK do Go
       url: quickstarts-sdk/client-library.md?pivots=programming-language-go
+    - text: Usando a API REST
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-rest-api
 - title: Detectar objetos em imagens
   linkLists:
   - linkListType: concept
@@ -68,6 +70,8 @@ landingContent:
       url: quickstarts-sdk/client-library.md?pivots=programming-language-javascript
     - text: Como usar o SDK do Go
       url: quickstarts-sdk/client-library.md?pivots=programming-language-go
+    - text: Usando a API REST
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-rest-api
 - title: Aplicar marcas de conteúdo a imagens
   linkLists:
   - linkListType: concept
@@ -86,6 +90,8 @@ landingContent:
       url: quickstarts-sdk/client-library.md?pivots=programming-language-javascript
     - text: Como usar o SDK do Go
       url: quickstarts-sdk/client-library.md?pivots=programming-language-go
+    - text: Usando a API REST
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-rest-api
 - title: Use Usar o contêiner de leitura
   linkLists:
   - linkListType: get-started
@@ -99,7 +105,7 @@ landingContent:
   - linkListType: deploy
     links:
     - text: Usar instâncias de contêiner
-      url: deploy-computer-vision-on-container-instances.md
+      url: ../containers/azure-container-instance-recipe.md
     - text: Usar com Kubernetes e Helm
       url: deploy-computer-vision-on-premises.md
 - title: Usar o contêiner de análise espacial
@@ -144,26 +150,26 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
+    - text: Versão prévia da API da Pesquisa Visual Computacional v3.2
+      url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005
     - text: API da Pesquisa Visual Computacional v3.1
       url: https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005
-    - text: API da Pesquisa Visual Computacional v3.0
-      url: https://aka.ms/computer-vision-v3-ref
     - text: API da Pesquisa Visual Computacional v2.1
       url: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641/operations/56f91f2e778daf14a499f21b
     - text: SDK .NET
-      url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
+      url: /dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
     - text: SDK do Python
-      url: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/computervision?view=azure-python
+      url: /python/api/overview/azure/cognitiveservices/computervision?view=azure-python
     - text: Java SDK
-      url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable
+      url: /java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable
     - text: SDK do Node.js
-      url: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest
+      url: /javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest
     - text: SDK do Go
       url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision
     - text: Azure PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+      url: /powershell/module/az.cognitiveservices/#cognitive_services
     - text: CLI (interface de linha de comando) do Azure
-      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
+      url: /cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
 - title: Ajuda e comentários
   linkLists:
   - linkListType: reference

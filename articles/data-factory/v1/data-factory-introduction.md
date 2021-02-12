@@ -3,8 +3,8 @@ title: Introdução ao Data Factory, um serviço de integração de dados
 description: 'Saiba o que é o Azure Data Factory: Um serviço de integração de dados de nuvem que orquestra e automatiza a movimentação e a transformação dos dados.'
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.assetid: cec68cb5-ca0d-473b-8ae8-35de949a009e
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
-ms.openlocfilehash: 06f308b4e0b2df0487a351ae38f16f3872961cfb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 101de32aea47bb3dd3c8a04434993c8614939c37
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89436249"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495558"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introdução ao Azure Data Factory 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -35,7 +35,7 @@ Por exemplo, uma empresa de jogos coleta logs que são produzidos por jogos na n
 
 Para analisar esses logs, a empresa precisa usar dados de referência como informações do cliente, informações do jogo e informações de campanhas de marketing que estejam disponíveis em repositórios de dados locais. Portanto, a empresa quer ingerir dados de log do armazenamento de dados de nuvem e dados de referência do repositório de dados local. 
 
-Em seguida, ela processa esses dados usando o Hadoop na nuvem (Azure HDInsight). A empresa então pode publicar os dados resultantes em um data warehouse na nuvem como o Azure Synapse Analytics (antigo SQL Data Warehouse) ou um armazenamento de dados local como o SQL Server. Ela deseja executar esse fluxo de trabalho uma vez por semana. 
+Em seguida, ela processa esses dados usando o Hadoop na nuvem (Azure HDInsight). A empresa deseja publicar os dados resultantes em um data warehouse na nuvem, como o Azure Synapse Analytics, ou em um armazenamento de dados local, como o SQL Server. Ela deseja executar esse fluxo de trabalho uma vez por semana. 
 
 A empresa precisa de uma plataforma onde possa criar um fluxo de trabalho capaz de ingerir dados provenientes de repositórios de dados locais e na nuvem. Ela também precisa ser capaz de transformar ou processar dados usado os serviços de computação existentes, como o Hadoop, e publicar os resultados em um repositório de dados local ou na nuvem para que eles sejam consumidos por aplicativos de BI. 
 

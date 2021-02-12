@@ -1,18 +1,18 @@
 ---
 title: Detalhes da estrutura de definição de política
 description: Descreve como as definições de política são usadas para estabelecer convenções para os recursos do Azure na sua organização.
-ms.date: 10/05/2020
+ms.date: 10/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8e7cea1d03b0a236b9a485c2e640d7bf3f4e8e7e
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 607d1d85dbb370305d0337cc311433c37e36c4c0
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132475"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493304"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
-O Azure Policy estabelece convenções para recursos. As definições de política descrevem as [condições](#conditions) de conformidade de recursos e o efeito a ser realizado se uma condição for atendida. Uma condição compara um [field](#fields) de propriedade de recurso com um valor obrigatório. Os campos de propriedade de recurso são acessados por meio de [aliases](#aliases). Um campo de propriedade de recurso é um campo de valor único ou uma [matriz](#understanding-the--alias) de vários valores. A avaliação de condição é diferente nas matrizes.
+O Azure Policy estabelece convenções para recursos. As definições de política descrevem as [condições](#conditions) de conformidade de recursos e o efeito a ser realizado se uma condição for atendida. Uma condição compara um [campo](#fields) de propriedade de recurso ou um [valor](#value) para um valor necessário. Os campos de propriedade de recurso são acessados por meio de [aliases](#aliases). Quando um campo de propriedade de recurso é uma matriz, um [alias de matriz](#understanding-the--alias) especial pode ser usado para selecionar valores de todos os membros da matriz e aplicar uma condição a cada um.
 Saiba mais sobre as [condições](#conditions).
 
 Definindo as convenções, você pode controlar os custos e muito mais fácil gerenciar seus recursos. Por exemplo, você pode especificar que somente determinados tipos de máquinas virtuais são permitidos. Ou, você pode exigir que os recursos tenham uma marca específica. As atribuições de política são herdadas por recursos filho. Se uma atribuição de política for aplicada a um grupo de recursos, ela será aplicável a todos os recursos nesse grupo de recursos.
@@ -25,7 +25,7 @@ Você usa JSON para criar uma definição de política. A definição de políti
 - descrição
 - mode
 - metadata
-- parameters
+- parâmetros
 - regra de política
   - avaliação de lógica
   - efeito
@@ -83,7 +83,7 @@ Embora a propriedade **Type** não possa ser definida, há três valores que sã
 
 - `Builtin`: Essas definições de política são fornecidas e mantidas pela Microsoft.
 - `Custom`: Todas as definições de política criadas por clientes têm esse valor.
-- `Static`: Indica uma definição de política de [conformidade regulatória](./regulatory-compliance.md) com a **Propriedade**da Microsoft. Os resultados de conformidade para essas definições de política são os resultados de auditorias de terceiros na infraestrutura da Microsoft. No portal do Azure, esse valor às vezes é exibido como **gerenciado pela Microsoft**. Para obter mais informações, consulte [responsabilidade compartilhada na nuvem](../../../security/fundamentals/shared-responsibility.md).
+- `Static`: Indica uma definição de política de [conformidade regulatória](./regulatory-compliance.md) com a **Propriedade** da Microsoft. Os resultados de conformidade para essas definições de política são os resultados de auditorias de terceiros na infraestrutura da Microsoft. No portal do Azure, esse valor às vezes é exibido como **gerenciado pela Microsoft**. Para obter mais informações, consulte [responsabilidade compartilhada na nuvem](../../../security/fundamentals/shared-responsibility.md).
 
 ## <a name="mode"></a>Mode
 
@@ -106,7 +106,7 @@ Por exemplo, o recurso `Microsoft.Network/routeTables` dá suporte às marcas e 
 
 O seguinte modo de provedor de recursos tem suporte completo:
 
-- `Microsoft.Kubernetes.Data` para gerenciar seus clusters Kubernetes no Azure ou fora dele. As definições que usam esse modo de provedor de recursos usam efeitos de _auditoria_, _negação_e _desabilitação_. O uso do efeito [EnforceOPAConstraint](./effects.md#enforceopaconstraint) foi _preterido_.
+- `Microsoft.Kubernetes.Data` para gerenciar seus clusters Kubernetes no Azure ou fora dele. As definições que usam esse modo de provedor de recursos usam efeitos de _auditoria_, _negação_ e _desabilitação_. O uso do efeito [EnforceOPAConstraint](./effects.md#enforceopaconstraint) foi _preterido_.
 
 Atualmente, há suporte para os seguintes modos de provedor de recursos como uma **Visualização**:
 
@@ -189,7 +189,7 @@ Este exemplo faz referência ao parâmetro **allowedLocations** que foi demonstr
 
 ### <a name="strongtype"></a>strongType
 
-Na propriedade `metadata`, você pode usar **strongType** para fornecer uma lista de opções de seleção múltipla no portal do Azure. **strongType** pode ser um _tipo de recurso_ compatível ou um valor permitido. Para determinar se um _tipo de recurso_ é válido para **strongType**, use [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider). O formato de um _resource type_ **strongtype** de tipo de recurso é `<Resource Provider>/<Resource Type>` . Por exemplo, `Microsoft.Network/virtualNetworks/subnets`.
+Na propriedade `metadata`, você pode usar **strongType** para fornecer uma lista de opções de seleção múltipla no portal do Azure. **strongType** pode ser um _tipo de recurso_ compatível ou um valor permitido. Para determinar se um _tipo de recurso_ é válido para **strongType**, use [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider). O formato de um  **strongtype** de tipo de recurso é `<Resource Provider>/<Resource Type>` . Por exemplo, `Microsoft.Network/virtualNetworks/subnets`.
 
 Há suporte para alguns _tipos de recursos_ não retornados pelo **Get-AzResourceProvider**. Esses tipos são:
 
@@ -261,7 +261,7 @@ Você pode aninhar operadores lógicos. A exemplo a seguir mostra uma operação
 
 ### <a name="conditions"></a>Condições
 
-Uma condição avalia se um **campo** ou um acessador de **valor** atende a determinados critérios. As condições com suporte são:
+Uma condição avalia se um valor atende a determinados critérios. As condições com suporte são:
 
 - `"equals": "stringValue"`
 - `"notEquals": "stringValue"`
@@ -291,12 +291,9 @@ O valor não deve ter mais de um curinga `*`.
 
 Ao usar as condições **match** e **notMatch**, forneça `#` para fazer a correspondência de um dígito, `?` para uma letra, `.` para fazer a correspondência de todos os caracteres e qualquer outro caractere para fazer a correspondência com o caractere real. Enquanto **Match** e não **Match** diferenciam maiúsculas de minúsculas, todas as outras condições que avaliam uma _cadeia de caracteres_ não diferenciam maiúsculas de minúsculas. Estão disponíveis alternativas que diferenciam maiúsculas de minúsculas em **matchInsensitively** e **notMatchInsensitively**.
 
-Em um valor do campo matriz de **alias \[\*\]** , cada elemento da matriz é avaliado individualmente com um **and** lógico entre os elementos. Para obter mais informações, confira [Como avaliar o alias \[\*\]](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
-
 ### <a name="fields"></a>Campos
 
-As condições são formadas usando campos. Um campo combina às propriedades no conteúdo da solicitação de recurso e descreve o estado do recurso.
-
+Condições que avaliam se os valores das propriedades na carga de solicitação do recurso atendem a determinados critérios podem ser formados usando uma expressão de **campo** .
 Há suporte para os seguintes campos:
 
 - `name`
@@ -305,6 +302,7 @@ Há suporte para os seguintes campos:
 - `kind`
 - `type`
 - `location`
+  - Os campos de localização são normalizados para dar suporte a vários formatos. Por exemplo, `East US 2` é considerado igual a `eastus2` .
   - Use **global** para recursos independentes de local.
 - `id`
   - Retorna a ID de recurso do recurso que está sendo avaliado.
@@ -324,6 +322,10 @@ Há suporte para os seguintes campos:
 
 > [!NOTE]
 > `tags.<tagName>`, `tags[tagName]`, e `tags[tag.with.dots]` ainda são maneiras aceitáveis de declarar um campo de marcas. No entanto, as expressões preferenciais são aquelas listadas acima.
+
+> [!NOTE]
+> Em expressões de **campo** que fazem referência a **\[ \* \] alias**, cada elemento na matriz é avaliado individualmente com os elementos lógicos **e** entre eles.
+> Para obter mais informações, consulte [Propriedades de recurso de matriz de referência](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
 #### <a name="use-tags-with-parameters"></a>Usar marcas com parâmetros
 
@@ -346,7 +348,7 @@ No exemplo a seguir, `concat` é usado para criar uma pesquisa de campo de marca
                 "value": "[resourcegroup().tags[parameters('tagName')]]"
             }],
             "roleDefinitionIds": [
-                "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+                "/providers/microsoft.authorization/roleDefinitions/4a9ae827-6dc8-4573-8ac7-8239d42aa03f"
             ]
         }
     }
@@ -355,7 +357,7 @@ No exemplo a seguir, `concat` é usado para criar uma pesquisa de campo de marca
 
 ### <a name="value"></a>Valor
 
-As condições também podem ser formadas usando o **valor**. O **valor** verifica as condições em relação aos [parâmetros](#parameters), [funções de modelo com suporte](#policy-functions) ou literais. O **valor** é emparelhado a uma [condição](#conditions) com suporte.
+As condições que avaliam se um valor atende a determinados critérios podem ser formadas usando uma expressão de **valor** . Os valores podem ser literais, os valores de [parâmetros](#parameters)ou os valores retornados de qualquer [função de modelo com suporte](#policy-functions).
 
 > [!WARNING]
 > Se o resultado de uma _função de modelo_ for um erro, a avaliação da política falhará. Uma avaliação com falha é um **deny** implícito. Para mais informações, confira [Evitar falhas de modelo](#avoiding-template-failures). Use [enforcementMode](./assignment-structure.md#enforcement-mode) de **DoNotEnforce** para evitar o impacto de uma avaliação com falha em recursos novos ou atualizados durante o teste e a validação de uma nova definição de política.
@@ -440,9 +442,11 @@ Com a regra de política revisada, `if()` verifica o tamanho do **nome** antes d
 
 ### <a name="count"></a>Contagem
 
-As condições que contam quantos membros de uma matriz no conteúdo do recurso atendem a uma expressão de condição podem ser formadas por meio de uma expressão **count**. Os cenários comuns são verificar se 'pelo menos um dos', 'exatamente um dos', 'todos os' ou 'nenhum dos' membros da matriz atendem à condição. **count** avalia cada membro da matriz de [alias \[\*\]](#understanding-the--alias) para uma expressão de condição e soma os resultados _true_, que é comparado ao operador de expressão. As expressões de **contagem** podem ser adicionadas até três vezes a uma única definição de **policyRule** .
+As condições que contam com quantos membros de uma matriz atendem a determinados critérios podem ser formadas usando uma expressão de **contagem** . Os cenários comuns verificam se ' pelo menos um de ', ' exatamente um de ', ' todos os ' ou ' nenhum de ' os membros da matriz atendem a uma condição. A **contagem** avalia cada membro da matriz para uma expressão de condição e soma os resultados _verdadeiros_ , que são então comparados com o operador de expressão.
 
-A estrutura da expressão **count** é:
+#### <a name="field-count"></a>Contagem de campos
+
+Contar quantos membros de uma matriz na carga de solicitação atendem a uma expressão de condição. A estrutura das expressões de **contagem de campos** é:
 
 ```json
 {
@@ -456,14 +460,62 @@ A estrutura da expressão **count** é:
 }
 ```
 
-As seguintes propriedades são usadas com **count**:
+As propriedades a seguir são usadas com a **contagem de campos**:
 
-- **count.field** (obrigatório): contém o caminho para a matriz e precisa ser um alias de matriz. Se a matriz estiver ausente, a expressão será avaliada como _false_ sem considerar a expressão de condição.
-- **count.where** (opcional): a expressão de condição usada para avaliar individualmente cada membro da matriz de [alias \[\*\]](#understanding-the--alias) de **count.field**. Se essa propriedade não for fornecida, todos os membros da matriz com o caminho de ' Field ' serão avaliados como _true_. Qualquer [condição](../concepts/definition-structure.md#conditions) pode ser usada nessa propriedade.
+- **count.field** (obrigatório): contém o caminho para a matriz e precisa ser um alias de matriz.
+- **Count. Where** (opcional): a expressão de condição a ser avaliada individualmente para cada membro de matriz de [ \[ \* \] alias](#understanding-the--alias) de `count.field` . Se essa propriedade não for fornecida, todos os membros da matriz com o caminho de ' Field ' serão avaliados como _true_. Qualquer [condição](../concepts/definition-structure.md#conditions) pode ser usada nessa propriedade.
   Os [operadores lógicos](#logical-operators) podem ser usados nessa propriedade para criar requisitos complexos de avaliação.
 - **\<condition\>** (obrigatório): o valor é comparado com o número de itens que atendem à **contagem.** expressão de condição WHERE. Uma [condição](../concepts/definition-structure.md#conditions) numérica deve ser usada.
 
-#### <a name="count-examples"></a>Exemplos de contagem
+Expressões de **contagem de campos** podem enumerar a mesma matriz de campos até três vezes em uma única definição de **policyRule** .
+
+Para obter mais detalhes sobre como trabalhar com propriedades de matriz no Azure Policy, incluindo uma explicação detalhada sobre como a expressão de **contagem de campos** é avaliada, consulte [referenciando Propriedades de recursos de matriz](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
+
+#### <a name="value-count"></a>Contagem de valor
+Contar quantos membros de uma matriz atendem a uma condição. A matriz pode ser uma matriz literal ou uma [referência ao parâmetro de matriz](#using-a-parameter-value). A estrutura das expressões de **contagem de valor** é:
+
+```json
+{
+    "count": {
+        "value": "<literal array | array parameter reference>",
+        "name": "<index name>",
+        "where": {
+            /* condition expression */
+        }
+    },
+    "<condition>": "<compare the count of true condition expression array members to this value>"
+}
+```
+
+As propriedades a seguir são usadas com a **contagem de valores**:
+
+- **Count. Value** (obrigatório): a matriz a ser avaliada.
+- **Count.Name** (obrigatório): o nome do índice, composto por letras e dígitos em inglês. Define um nome para o valor do membro da matriz avaliado na iteração atual. O nome é usado para referenciar o valor atual dentro da `count.where` condição. Opcional quando a expressão de **contagem** não está em um filho de outra expressão de **contagem** . Quando não fornecido, o nome do índice é definido implicitamente como `"default"` .
+- **Count. Where** (opcional): a expressão de condição a ser avaliada individualmente para cada membro da matriz de `count.value` . Se essa propriedade não for fornecida, todos os membros da matriz serão avaliados como _true_. Qualquer [condição](../concepts/definition-structure.md#conditions) pode ser usada nessa propriedade. Os [operadores lógicos](#logical-operators) podem ser usados nessa propriedade para criar requisitos complexos de avaliação. O valor do membro da matriz atualmente enumerado pode ser acessado chamando a função [atual](#the-current-function) .
+- **\<condition\>** (obrigatório): o valor é comparado com o número de itens que atendem à `count.where` expressão de condição. Uma [condição](../concepts/definition-structure.md#conditions) numérica deve ser usada.
+
+Os seguintes limites são impostos:
+- Até 10 expressões de **contagem de valor** podem ser usadas em uma única definição de **policyRule** .
+- Cada expressão de **contagem de valor** pode executar até 100 iterações. Esse número inclui o número de iterações executadas por qualquer expressão de **contagem de valor** pai.
+
+#### <a name="the-current-function"></a>A função atual
+
+A `current()` função só está disponível dentro da `count.where` condição. Ele retorna o valor do membro da matriz que está enumerado atualmente por uma avaliação de expressão de **contagem** .
+
+**Uso da contagem de valor**
+
+- `current(<index name defined in count.name>)`. Por exemplo: `current('arrayMember')`.
+- `current()`. Permitido somente quando a expressão de **contagem de valor** não é um filho de outra expressão de **contagem** . Retorna o mesmo valor mostrado acima.
+
+Se o valor retornado pela chamada for um objeto, os acessadores de propriedade serão suportados. Por exemplo: `current('objectArrayMember').property`.
+
+**Uso de contagem de campo**
+
+- `current(<the array alias defined in count.field>)`. Por exemplo, `current('Microsoft.Test/resource/enumeratedArray[*]')`.
+- `current()`. Permitido somente quando a expressão de **contagem de campos** não é um filho de outra expressão de **contagem** . Retorna o mesmo valor mostrado acima.
+- `current(<alias of a property of the array member>)`. Por exemplo, `current('Microsoft.Test/resource/enumeratedArray[*].property')`.
+
+#### <a name="field-count-examples"></a>Exemplos de contagem de campos
 
 Exemplo 1: verificar se uma matriz está vazia
 
@@ -548,6 +600,165 @@ Exemplo 5: Verifique se pelo menos um membro da matriz corresponde a várias pro
 }
 ```
 
+Exemplo 6: use `current()` a função dentro das `where` condições para acessar o valor do membro da matriz enumerado no momento em uma função de modelo. Essa condição verifica se uma rede virtual contém um prefixo de endereço que não está no intervalo de CIDR 10.0.0.0/24.
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]",
+        "where": {
+          "value": "[ipRangeContains('10.0.0.0/24', current('Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]'))]",
+          "equals": false
+        }
+    },
+    "greater": 0
+}
+```
+
+Exemplo 7: use `field()` a função dentro das `where` condições para acessar o valor do membro da matriz atualmente enumerado. Essa condição verifica se uma rede virtual contém um prefixo de endereço que não está no intervalo de CIDR 10.0.0.0/24.
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]",
+        "where": {
+          "value": "[ipRangeContains('10.0.0.0/24', first(field(('Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]')))]",
+          "equals": false
+        }
+    },
+    "greater": 0
+}
+```
+
+#### <a name="value-count-examples"></a>Exemplos de contagem de valor
+
+Exemplo 1: Verifique se o nome do recurso corresponde a qualquer um dos padrões de nome fornecidos.
+
+```json
+{
+    "count": {
+        "value": [ "prefix1_*", "prefix2_*" ],
+        "name": "pattern",
+        "where": {
+            "field": "name",
+            "like": "[current('pattern')]"
+        }
+    },
+    "greater": 0
+}
+```
+
+Exemplo 2: Verifique se o nome do recurso corresponde a qualquer um dos padrões de nome fornecidos. A `current()` função não especifica um nome de índice. O resultado é o mesmo que o exemplo anterior.
+
+```json
+{
+    "count": {
+        "value": [ "prefix1_*", "prefix2_*" ],
+        "where": {
+            "field": "name",
+            "like": "[current()]"
+        }
+    },
+    "greater": 0
+}
+```
+
+Exemplo 3: Verifique se o nome do recurso corresponde a qualquer um dos padrões de nome fornecidos por um parâmetro de matriz.
+
+```json
+{
+    "count": {
+        "value": "[parameters('namePatterns')]",
+        "name": "pattern",
+        "where": {
+            "field": "name",
+            "like": "[current('pattern')]"
+        }
+    },
+    "greater": 0
+}
+```
+
+Exemplo 4: Verifique se qualquer um dos prefixos de endereço de rede virtual não está na lista de prefixos aprovados.
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]",
+        "where": {
+            "count": {
+                "value": "[parameters('approvedPrefixes')]",
+                "name": "approvedPrefix",
+                "where": {
+                    "value": "[ipRangeContains(current('approvedPrefix'), current('Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]'))]",
+                    "equals": true
+                },
+            },
+            "equals": 0
+        }
+    },
+    "greater": 0
+}
+```
+
+Exemplo 5: Verifique se todas as regras de NSG reservadas estão definidas em um NSG. As propriedades das regras NSG reservadas são definidas em um parâmetro de matriz que contém objetos.
+
+Valor do parâmetro:
+
+```json
+[
+    {
+        "priority": 101,
+        "access": "deny",
+        "direction": "inbound",
+        "destinationPortRange": 22
+    },
+    {
+        "priority": 102,
+        "access": "deny",
+        "direction": "inbound",
+        "destinationPortRange": 3389
+    }
+]
+```
+
+Política:
+```json
+{
+    "count": {
+        "value": "[parameters('reservedNsgRules')]",
+        "name": "reservedNsgRule",
+        "where": {
+            "count": {
+                "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+                "where": {
+                    "allOf": [
+                        {
+                            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].priority",
+                            "equals": "[current('reservedNsgRule').priority]"
+                        },
+                        {
+                            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].access",
+                            "equals": "[current('reservedNsgRule').access]"
+                        },
+                        {
+                            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].direction",
+                            "equals": "[current('reservedNsgRule').direction]"
+                        },
+                        {
+                            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].destinationPortRange",
+                            "equals": "[current('reservedNsgRule').destinationPortRange]"
+                        }
+                    ]
+                }
+            },
+            "equals": 1
+        }
+    },
+    "equals": "[length(parameters('reservedNsgRules'))]"
+}
+```
+
 ### <a name="effect"></a>Efeito
 
 O Azure Policy dá suporte aos seguintes tipos de efeitos:
@@ -610,7 +821,6 @@ As seguintes funções estão disponíveis apenas em regras de política:
   }
   ```
 
-
 - `ipRangeContains(range, targetRange)`
     - **Range**: [obrigatório] cadeia de caracteres de sequência que especifica um intervalo de endereços IP.
     - **targetRange**: [Required] String-String especificando um intervalo de endereços IP.
@@ -622,6 +832,8 @@ As seguintes funções estão disponíveis apenas em regras de política:
     - Intervalo CIDR (exemplos: `10.0.0.0/24` , `2001:0DB8::/110` )
     - Intervalo definido pelos endereços IP inicial e final (exemplos: `192.168.0.1-192.168.0.9` , `2001:0DB8::-2001:0DB8::3:FFFF` )
 
+- `current(indexName)`
+    - Função especial que só pode ser usada dentro de [expressões de contagem](#count).
 
 #### <a name="policy-function-example"></a>Exemplo de função de política
 
@@ -652,25 +864,6 @@ A lista de aliases sempre está aumentando. Para descobrir quais aliases atualme
   Use a [extensão do Azure Policy para Visual Studio Code](../how-to/extension-for-vscode.md) para ver e descobrir aliases das propriedades de recurso.
 
   :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Captura de tela da extensão de Azure Policy para Visual Studio Code passando uma propriedade para exibir os nomes de alias." border="false":::
-
-- Gráfico de Recursos do Azure
-
-  Use o operador `project` para exibir o **alias** de um recurso.
-
-  ```kusto
-  Resources
-  | where type=~'microsoft.storage/storageaccounts'
-  | limit 1
-  | project aliases
-  ```
-  
-  ```azurecli-interactive
-  az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
-  ```
-  
-  ```azurepowershell-interactive
-  Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
-  ```
 
 - Azure PowerShell
 
@@ -718,30 +911,20 @@ Vários aliases disponíveis têm uma versão que é exibida como um nome 'norma
 
 o alias 'normal' representa o campo como um só valor. Esse campo destina-se a cenários de comparação de correspondência exata quando o conjunto inteiro de valores precisa ser exatamente o mesmo definido, nem mais nem menos.
 
-O alias **\[\*\]** possibilita a comparação com o valor de cada elemento na matriz e nas propriedades específicas de cada elemento. Essa abordagem possibilita a comparação das propriedades do elemento em relação aos cenários 'se nenhum dos', 'se algum dos' ou 'se todos os'. Para cenários mais complexos, use a expressão de condição [count](#count). Com **ipRules\[\*\]** , um exemplo será validar se cada _action_ é _Deny_; porém, não se preocupe com a quantidade de regras existentes ou em saber qual é o _value_ de IP.
-Esta regra de exemplo verifica se há correspondências de **ipRules\[\*\].value** e **10.0.4.1** e aplica o **effectType** somente se não encontra, pelo menos, uma correspondência:
+O **\[\*\]** alias representa uma coleção de valores selecionados dos elementos de uma propriedade de recurso de matriz. Por exemplo:
 
-```json
-"policyRule": {
-    "if": {
-        "allOf": [
-            {
-                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-                "exists": "true"
-            },
-            {
-                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
-                "notEquals": "10.0.4.1"
-            }
-        ]
-    },
-    "then": {
-        "effect": "[parameters('effectType')]"
-    }
-}
-```
+| Alias | Valores selecionados |
+|:---|:---|
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | Os elementos da `ipRules` matriz. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | Os valores da `action` propriedade de cada elemento da `ipRules` matriz. |
 
-Para obter mais informações, confira [Como avaliar o alias [\*]](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
+Quando usado em uma condição de [campo](#fields) , os aliases de matriz tornam possível comparar cada elemento da matriz individual com um valor de destino. Quando usado com a expressão de [contagem](#count) , é possível:
+
+- Verificar o tamanho de uma matriz
+- Verificar se all\any\none dos elementos da matriz atendem a uma condição complexa
+- Verificar se exatamente ***n*** elementos da matriz atendem a uma condição complexa
+
+Para obter mais informações e exemplos, consulte [referenciando Propriedades de recurso de matriz](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
 ## <a name="next-steps"></a>Próximas etapas
 

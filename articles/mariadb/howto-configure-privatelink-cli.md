@@ -1,18 +1,18 @@
 ---
 title: Link privado-CLI do Azure-banco de dados do Azure para MariaDB
 description: Saiba como configurar o link privado para o banco de dados do Azure para MariaDB do CLI do Azure
-author: kummanish
-ms.author: manishku
-ms.service: mariadb
+author: mksuni
+ms.author: sumuth
+ms.service: jroth
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fb3ed4e41125131538957addce5bf935b897b581
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 693fe5820894de38a5b43fc700d517cdcb27233e
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537211"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660116"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>Criar e gerenciar o link privado para o banco de dados do Azure para MariaDB usando a CLI
 
@@ -21,15 +21,15 @@ Um ponto de extremidade privado é o bloco de construção fundamental para o li
 > [!NOTE]
 > O recurso de link privado só está disponível para o banco de dados do Azure para servidores MariaDB nos tipos de preço Uso Geral ou com otimização de memória. Verifique se o servidor de banco de dados está em um desses tipos de preço.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para seguir este guia de instruções, você precisa:
+- Você precisa de um [banco de dados do Azure para o servidor MariaDB](quickstart-create-mariadb-server-database-using-azure-cli.md). 
 
-- Um [banco de dados do Azure para o servidor MariaDB](quickstart-create-mariadb-server-database-using-azure-cli.md).
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Se você optar por instalar e usar a CLI do Azure localmente, este guia de início rápido exigirá a versão 2.0.28 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão instalada. Para informações sobre como instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+- Este artigo exige a versão 2.0.28 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -40,7 +40,7 @@ az group create --name myResourceGroup --location westeurope
 ```
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
-Crie uma Rede Virtual com [az network vnet create](/cli/azure/network/vnet). O exemplo cria uma Rede Virtual padrão nomeada *myVirtualNetwork* com uma sub-rede nomeada *mySubnet* :
+Crie uma Rede Virtual com [az network vnet create](/cli/azure/network/vnet). O exemplo cria uma Rede Virtual padrão nomeada *myVirtualNetwork* com uma sub-rede nomeada *mySubnet*:
 
 ```azurecli-interactive
 az network vnet create \
@@ -60,7 +60,7 @@ az network vnet subnet update \
  --disable-private-endpoint-network-policies true
 ```
 ## <a name="create-the-vm"></a>Criar a VM 
-Crie uma VM com az vm create. Quando solicitado, forneça uma senha a ser usada como credencial de entrada para a VM. Este exemplo cria uma VM chamada *myVm* : 
+Crie uma VM com az vm create. Quando solicitado, forneça uma senha a ser usada como credencial de entrada para a VM. Este exemplo cria uma VM chamada *myVm*: 
 ```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
@@ -133,30 +133,30 @@ az network private-dns record-set a add-record --record-set-name mydemoserver --
 
 Conecte-se à VM *myVm* da Internet da seguinte forma:
 
-1. Na barra de pesquisa do portal, insira *myVm* .
+1. Na barra de pesquisa do portal, insira *myVm*.
 
-1. Selecione o botão **Conectar** . Depois de selecionar o botão **Conectar** , **Conectar-se à máquina virtual** abre.
+1. Selecione o botão **Conectar**. Depois de selecionar o botão **Conectar**, **Conectar-se à máquina virtual** abre.
 
-1. Selecione **Baixar Arquivo RDP** . O Azure cria um arquivo *.rdp* (protocolo RDP) e ele é baixado no computador.
+1. Selecione **Baixar Arquivo RDP**. O Azure cria um arquivo *.rdp* (protocolo RDP) e ele é baixado no computador.
 
-1. Abra o arquivo *downloaded.rdp* .
+1. Abra o arquivo *downloaded.rdp*.
 
-    1. Se solicitado, selecione **Conectar** .
+    1. Se solicitado, selecione **Conectar**.
 
     1. Insira o nome de usuário e a senha que você especificou ao criar a VM.
 
         > [!NOTE]
         > Talvez seja necessário selecionar **Mais escolhas** > **Usar uma conta diferente** para especificar as credenciais inseridas durante a criação da VM.
 
-1. Selecione **OK** .
+1. Selecione **OK**.
 
-1. Você pode receber um aviso do certificado durante o processo de logon. Se você receber um aviso de certificado, selecione **Sim** ou **Continuar** .
+1. Você pode receber um aviso do certificado durante o processo de logon. Se você receber um aviso de certificado, selecione **Sim** ou **Continuar**.
 
 1. Depois que a área de trabalho da VM for exibida, minimize-a para voltar para sua área de trabalho local.  
 
 ## <a name="access-the-mariadb-server-privately-from-the-vm"></a>Acessar o servidor MariaDB de forma privada da VM
 
-1. Na Área de Trabalho Remota de  *myVM* , abra o PowerShell.
+1. Na Área de Trabalho Remota de  *myVM*, abra o PowerShell.
 
 2. Digite  `nslookup mydemoserver.privatelink.mariadb.database.azure.com`. 
 
@@ -171,7 +171,7 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
 
 3. Teste a conexão de link privado para o servidor MariaDB usando qualquer cliente disponível. No exemplo abaixo, usei o [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) para realizar a operação.
 
-4. Em **nova conexão** , insira ou selecione estas informações:
+4. Em **nova conexão**, insira ou selecione estas informações:
 
     | Configuração | Valor |
     | ------- | ----- |
@@ -181,7 +181,7 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
     | Senha | Insira uma senha fornecida durante a criação do servidor MariaDB. |
     ||
 
-5. Selecione **testar conexão** ou **OK** .
+5. Selecione **testar conexão** ou **OK**.
 
 6. Opcionalmente Procurar bancos de dados no menu à esquerda e criar ou consultar informações do banco de MariaDB
 

@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.author: normesta
 ms.date: 04/07/2020
-ms.openlocfilehash: 02b7e02c33161db33420e2efe1ef4b70a138d127
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e458f98d82c910ec845ebf951b7f6470b6aba10d
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84465211"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95527319"
 ---
 # <a name="integrate-a-static-website-with-azure-cdn"></a>Integrar um site estático com a CDN do Azure
 
@@ -47,7 +47,7 @@ Você pode habilitar a CDN do Azure para seu site estático diretamente da sua c
 
    ![Captura de tela mostrando uma configuração de ponto de extremidade CDN de exemplo](media/storage-blob-static-website-custom-domain/add-cdn-endpoint.png)
 
-1. Selecione **criar**e aguarde até que a CDN seja provisionada. Depois que o ponto de extremidade é criado, ele aparece na lista de pontos de extremidade. (Se você tiver erros no formulário, um ponto de exclamação será exibido ao lado desse campo.)
+1. Selecione **criar** e aguarde até que a CDN seja provisionada. Depois que o ponto de extremidade é criado, ele aparece na lista de pontos de extremidade. (Se você tiver erros no formulário, um ponto de exclamação será exibido ao lado desse campo.)
 
 1. Para verificar se o ponto de extremidade CDN está configurado corretamente, clique no ponto de extremidade para navegar até as configurações. Na visão geral da CDN de sua conta de armazenamento, localize o nome do host do ponto de extremidade e navegue até o ponto de extremidade, conforme mostrado na imagem a seguir. O formato do ponto de extremidade CDN será semelhante a `https://staticwebsitesamples.azureedge.net`.
 
@@ -63,7 +63,7 @@ Você pode habilitar a CDN do Azure para seu site estático diretamente da sua c
 
 Se não desejar mais armazenar em cache um objeto na CDN do Azure, você poderá executar uma das seguintes etapas:
 
-* Torne o contêiner particular em vez de público. Para obter mais informações, confira [Gerenciar acesso anônimo de leitura aos contêineres e blobs](storage-manage-access-to-resources.md).
+* Torne o contêiner particular em vez de público. Para obter mais informações, confira [Gerenciar acesso anônimo de leitura aos contêineres e blobs](./anonymous-read-access-configure.md).
 * Desabilite ou exclua o ponto de extremidade CDN usando o Portal do Azure.
 * Modifique seu serviço hospedado para não responder a solicitações do objeto.
 

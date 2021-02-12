@@ -7,16 +7,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: juliemsft
-ms.author: jrasnick
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: b74bf5fc324d8ea6cc113d50d8e11b0e0d994797
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 0a72bea08052e5cd17502a21a98b41cb5582a3b9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747390"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493603"
 ---
 # <a name="use-the-azure-cli-to-monitor-and-scale-a-single-database-in-azure-sql-database"></a>Usar a CLI do Azure para monitorar e dimensionar um banco de dados individual no Banco de Dados SQL do Azure
 

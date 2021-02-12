@@ -1,19 +1,17 @@
 ---
 title: Sincronizar Azure Active Directory usuários com o cluster HDInsight
 description: Sincronizar usuários autenticados do Azure Active Directory para um cluster HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
-ms.openlocfilehash: 19466174faeef20b8ac29882b047d74ad2adc5ff
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a3307c5d677028c17717c0d591790f0373f131d6
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535171"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931620"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Sincronizar usuários do Azure Active Directory para um cluster HDInsight
 
@@ -29,7 +27,7 @@ Para exibir seus hosts, abra a interface do usuário do Ambari Web. Cada nó ser
 
 1. No [portal do Azure](https://portal.azure.com), navegue até o diretório do Azure ad associado ao seu cluster ESP.
 
-2. Selecione **Todos os usuários** no menu à esquerda, selecione **Novo usuário** .
+2. Selecione **Todos os usuários** no menu à esquerda, selecione **Novo usuário**.
 
     ![portal do Azure todos os usuários e grupos](./media/hdinsight-sync-aad-users-to-cluster/users-and-groups-new.png)
 
@@ -37,7 +35,7 @@ Para exibir seus hosts, abra a interface do usuário do Ambari Web. Cada nó ser
 
     ![Painel do usuário do portal do Azure selecionar grupos](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-new-user-form.png)
 
-4. Selecione **Criar** .
+4. Selecione **Criar**.
 
 ## <a name="use-the-apache-ambari-rest-api-to-synchronize-users"></a>Use a API REST do Apache Ambari para sincronizar os usuários
 
@@ -120,7 +118,7 @@ O método a seguir usa o POST com a API REST do Ambari. Para obter mais informa�
     }
     ```
 
-1. Esse resultado mostra que o status está **concluído** , um novo usuário foi criado e o usuário recebeu uma associação. Neste exemplo, o usuário é atribuído ao grupo LDAP sincronizado "HiveUsers", já que o usuário foi adicionado ao mesmo grupo no Azure AD.
+1. Esse resultado mostra que o status está **concluído**, um novo usuário foi criado e o usuário recebeu uma associação. Neste exemplo, o usuário é atribuído ao grupo LDAP sincronizado "HiveUsers", já que o usuário foi adicionado ao mesmo grupo no Azure AD.
 
     > [!NOTE]  
     > O método anterior sincroniza apenas os grupos do Azure AD especificados na propriedade **Access User Group** das configurações de domínio durante a criação do cluster. Para saber mais, veja [Criar um cluster HDInsight](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).
@@ -129,7 +127,7 @@ O método a seguir usa o POST com a API REST do Ambari. Para obter mais informa�
 
 Abra a [Interface do Usuário do Apache Ambari](hdinsight-hadoop-manage-ambari.md) para verificar se o novo usuário do Azure AD foi adicionado. Acesse a interface do usuário da Web do amAmbari navegando até **`https://CLUSTERNAME.azurehdinsight.net`** . Insira o nome de usuário de administrador do cluster.
 
-1. No painel do Ambari, selecione **Gerenciar Ambari** abaixo do menu **admin** .
+1. No painel do Ambari, selecione **Gerenciar Ambari** abaixo do menu **admin**.
 
     ![Painel do Apache Ambari gerenciar Ambari](./media/hdinsight-sync-aad-users-to-cluster/manage-apache-ambari.png)
 
@@ -146,7 +144,7 @@ Abra a [Interface do Usuário do Apache Ambari](hdinsight-hadoop-manage-ambari.m
 Quando o novo usuário (ou qualquer outro usuário de domínio) faz logon no Ambari, usa suas credenciais de nome e o domínio de usuário completo do Azure AD.  Ambari exibe um alias do usuário, que é o nome de exibição do usuário no Azure AD.
 O novo usuário de exemplo tem o nome de usuário `hiveuser3@contoso.com`. No Ambari, esse novo usuário é exibido como `hiveuser3`, mas o usuário faz logon em Ambari como `hiveuser3@contoso.com`.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 * [Configurar políticas do Apache Hive no HDInsight com ESP](./domain-joined/apache-domain-joined-run-hive.md)
 * [Gerenciar clusters do HDInsight com ESP](./domain-joined/apache-domain-joined-manage.md)

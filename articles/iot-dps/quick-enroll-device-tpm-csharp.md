@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 872d1f43f1e9dc180e41a2bf625ca18b74522b40
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: 14f17c6716fe98a11d03e8d1021bcdb1058fe671
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91409503"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968104"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Início Rápido: Registrar dispositivo TPM no Serviço de Provisionamento de Dispositivos no Hub IoT usando o SDK do serviço C#
 
@@ -47,7 +47,7 @@ Para o exemplo deste início rápido, é preciso ter a cadeia de conexão do ser
 
 ## <a name="create-the-individual-enrollment-sample"></a>Criar o exemplo de registro individual
 
-Esta seção mostra como criar um aplicativo de console .NET Core que adiciona um registro individual para um dispositivo TPM ao serviço de provisionamento. Com algumas modificações, você também pode seguir estas etapas para criar um aplicativo de console do [Windows IoT Core](https://developer.microsoft.com/en-us/windows/iot) para adicionar o registro individual. Para saber mais sobre como desenvolver com o IoT Core, confira a [documentação do desenvolvedor do Windows IoT Core](https://docs.microsoft.com/windows/iot-core/).
+Esta seção mostra como criar um aplicativo de console .NET Core que adiciona um registro individual para um dispositivo TPM ao serviço de provisionamento. Com algumas modificações, você também pode seguir estas etapas para criar um aplicativo de console do [Windows IoT Core](https://developer.microsoft.com/en-us/windows/iot) para adicionar o registro individual. Para saber mais sobre como desenvolver com o IoT Core, confira a [documentação do desenvolvedor do Windows IoT Core](/windows/iot-core/).
 
 1. Abra o Visual Studio e selecione **Criar um projeto**. Em **Criar um projeto**, escolha o modelo de projeto **Aplicativo de Console (.NET Core)** para o C# e selecione **Avançar**.
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: cbebf430bf44ccdee51bf44b11b8b01f23544dcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8be5ac75e2da3eaeae300fd36e152a24c9777e64
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84807152"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593732"
 ---
 # <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>Como instalar um controlador de entrada do gateway de aplicativo (AGIC) usando um novo gateway de aplicativo
 
@@ -30,7 +30,7 @@ Como alternativa, inicie Cloud Shell de portal do Azure usando o seguinte ícone
 
 Seu [Azure cloud Shell](https://shell.azure.com/) já tem todas as ferramentas necessárias. Se você optar por usar outro ambiente, verifique se as seguintes ferramentas de linha de comando estão instaladas:
 
-* `az` -CLI do Azure: [instruções de instalação](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* `az` -CLI do Azure: [instruções de instalação](/cli/azure/install-azure-cli)
 * `kubectl` -Ferramenta de linha de comando-kubernetes: [instruções de instalação](https://kubernetes.io/docs/tasks/tools/install-kubectl)
 * `helm` -Kubernetes Package Manager: [instruções de instalação](https://github.com/helm/helm/releases/latest)
 * `jq` -processador JSON de linha de comando: [instruções de instalação](https://stedolan.github.io/jq/download/)
@@ -38,9 +38,9 @@ Seu [Azure cloud Shell](https://shell.azure.com/) já tem todas as ferramentas n
 
 ## <a name="create-an-identity"></a>Criar uma identidade
 
-Siga as etapas abaixo para criar um objeto de entidade de [serviço](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object)Azure Active Directory (AAD). Registre os `appId` valores, `password` e `objectId` -eles serão usados nas etapas a seguir.
+Siga as etapas abaixo para criar um objeto de entidade de [serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)Azure Active Directory (AAD). Registre os `appId` valores, `password` e `objectId` -eles serão usados nas etapas a seguir.
 
-1. Criar entidade de serviço do AD ([Leia mais sobre o RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)):
+1. Criar entidade de serviço do AD ([Leia mais sobre o RBAC do Azure](../role-based-access-control/overview.md)):
     ```azurecli
     az ad sp create-for-rbac --skip-assignment -o json > auth.json
     appId=$(jq -r ".appId" auth.json)
@@ -66,16 +66,16 @@ Siga as etapas abaixo para criar um objeto de entidade de [serviço](https://doc
     }
     EOF
     ```
-    Para implantar um cluster habilitado para **RBAC** , defina o `aksEnableRBAC` campo como `true`
+    Para implantar um cluster habilitado para **RBAC do kubernetes** , defina o `aksEnableRBAC` campo como `true`
 
 ## <a name="deploy-components"></a>Implantar componentes
 Esta etapa adicionará os seguintes componentes à sua assinatura:
 
-- [Serviço de Kubernetes do Azure](https://docs.microsoft.com/azure/aks/intro-kubernetes)
-- [Gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/overview) v2
-- [Rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) com 2 [sub-redes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
-- [Endereço IP público](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)
-- [Identidade gerenciada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), que será usada pela [identidade Pod do AAD](https://github.com/Azure/aad-pod-identity/blob/master/README.md)
+- [Serviço de Kubernetes do Azure](../aks/intro-kubernetes.md)
+- [Gateway de aplicativo](./overview.md) v2
+- [Rede virtual](../virtual-network/virtual-networks-overview.md) com 2 [sub-redes](../virtual-network/virtual-networks-overview.md)
+- [Endereço IP público](../virtual-network/virtual-network-public-ip-address.md)
+- [Identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md), que será usada pela [identidade Pod do AAD](https://github.com/Azure/aad-pod-identity/blob/master/README.md)
 
 1. Baixe o modelo de Azure Resource Manager e modifique o modelo conforme necessário.
     ```bash
@@ -92,7 +92,7 @@ Esta etapa adicionará os seguintes componentes à sua assinatura:
     az group create -n $resourceGroupName -l $location
 
     # modify the template as needed
-    az group deployment create \
+    az deployment group create \
             -g $resourceGroupName \
             -n $deploymentName \
             --template-file template.json \
@@ -101,7 +101,7 @@ Esta etapa adicionará os seguintes componentes à sua assinatura:
 
 1. Após a conclusão da implantação, baixe a saída da implantação em um arquivo chamado `deployment-outputs.json` .
     ```azurecli
-    az group deployment show -g $resourceGroupName -n $deploymentName --query "properties.outputs" -o json > deployment-outputs.json
+    az deployment group show -g $resourceGroupName -n $deploymentName --query "properties.outputs" -o json > deployment-outputs.json
     ```
 
 ## <a name="set-up-application-gateway-ingress-controller"></a>Configurar o controlador de entrada do gateway de aplicativo
@@ -109,9 +109,9 @@ Esta etapa adicionará os seguintes componentes à sua assinatura:
 Com as instruções na seção anterior, criamos e configuramos um novo cluster AKS e um gateway de aplicativo. Agora estamos prontos para implantar um aplicativo de exemplo e um controlador de entrada para nossa nova infraestrutura kubernetes.
 
 ### <a name="setup-kubernetes-credentials"></a>Configurar credenciais do kubernetes
-Para as etapas a seguir, precisamos do comando Setup [kubectl](https://kubectl.docs.kubernetes.io/) , que usaremos para se conectar ao nosso novo cluster kubernetes. [Cloud Shell](https://shell.azure.com/) O Cloud Shell `kubectl` já foi instalado. Usaremos `az` a CLI para obter credenciais para kubernetes.
+Para as etapas a seguir, precisamos do comando Setup [kubectl](https://kubectl.docs.kubernetes.io/) , que usaremos para se conectar ao nosso novo cluster kubernetes. [](https://shell.azure.com/) O Cloud Shell `kubectl` já foi instalado. Usaremos `az` a CLI para obter credenciais para kubernetes.
 
-Obtenha credenciais para o AKS implantado recentemente ([Leia mais](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough#connect-to-the-cluster)):
+Obtenha credenciais para o AKS implantado recentemente ([Leia mais](../aks/kubernetes-walkthrough.md#connect-to-the-cluster)):
 ```azurecli
 # use the deployment-outputs.json created after deployment to get the cluster name and resource group name
 aksClusterName=$(jq -r ".aksClusterName.value" deployment-outputs.json)
@@ -121,7 +121,7 @@ az aks get-credentials --resource-group $resourceGroupName --name $aksClusterNam
 ```
 
 ### <a name="install-aad-pod-identity"></a>Instalar a identidade do Pod do AAD
-  Azure Active Directory identidade Pod fornece acesso baseado em token ao [Azure Resource Manager (ARM)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+  Azure Active Directory identidade Pod fornece acesso baseado em token ao [Azure Resource Manager (ARM)](../azure-resource-manager/management/overview.md).
 
   A [identidade do Pod do AAD](https://github.com/Azure/aad-pod-identity) adicionará os seguintes componentes ao cluster kubernetes:
    * [CRDs](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/) do Kubernetes: `AzureIdentity`, `AzureAssignedIdentity`, `AzureIdentityBinding`
@@ -131,24 +131,24 @@ az aks get-credentials --resource-group $resourceGroupName --name $aksClusterNam
 
 Para instalar a identidade do Pod do AAD em seu cluster:
 
-   - *RBAC habilitado* Cluster AKS
+   - *RBAC kubernetes habilitado* Cluster AKS
 
      ```bash
      kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
      ```
 
-   - *RBAC desabilitado* Cluster AKS
+   - *RBAC kubernetes desabilitado* Cluster AKS
 
      ```bash
      kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
      ```
 
 ### <a name="install-helm"></a>Instalar o Helm
-[Helm](https://docs.microsoft.com/azure/aks/kubernetes-helm) é um Gerenciador de pacotes para kubernetes. Vamos aproveitá-lo para instalar o `application-gateway-kubernetes-ingress` pacote:
+[Helm](../aks/kubernetes-helm.md) é um Gerenciador de pacotes para kubernetes. Vamos aproveitá-lo para instalar o `application-gateway-kubernetes-ingress` pacote:
 
-1. Instale o [Helm](https://docs.microsoft.com/azure/aks/kubernetes-helm) e execute o seguinte para adicionar o `application-gateway-kubernetes-ingress` pacote Helm:
+1. Instale o [Helm](../aks/kubernetes-helm.md) e execute o seguinte para adicionar o `application-gateway-kubernetes-ingress` pacote Helm:
 
-    - *RBAC habilitado* Cluster AKS
+    - *RBAC kubernetes habilitado* Cluster AKS
 
         ```bash
         kubectl create serviceaccount --namespace kube-system tiller-sa
@@ -156,7 +156,7 @@ Para instalar a identidade do Pod do AAD em seu cluster:
         helm init --tiller-namespace kube-system --service-account tiller-sa
         ```
 
-    - *RBAC desabilitado* Cluster AKS
+    - *RBAC kubernetes desabilitado* Cluster AKS
 
         ```bash
         helm init
@@ -228,7 +228,7 @@ Para instalar a identidade do Pod do AAD em seu cluster:
     #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0" >>
     
     ################################################################################
-    # Specify if the cluster is RBAC enabled or not
+    # Specify if the cluster is Kubernetes RBAC enabled or not
     rbac:
         enabled: false # true/false
     

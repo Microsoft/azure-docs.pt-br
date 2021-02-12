@@ -10,12 +10,13 @@ ms.date: 05/12/2020
 ms.author: santoshc
 ms.reviewer: tamram
 ms.subservice: common
-ms.openlocfilehash: 5b4a1b1f27dff059090d78e24a6a0eca0bbbf01f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions
+ms.openlocfilehash: 9afe58434d60280f635deab75b763077bc76b93c
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514206"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797629"
 ---
 # <a name="configure-network-routing-preference-for-azure-storage-preview"></a>Configurar preferência de roteamento de rede para o Armazenamento do Microsoft Azure (versão prévia)
 
@@ -65,9 +66,36 @@ As cadeias de conexão para os pontos de extremidade específicos à rota public
 
 A preferência de roteamento para o Armazenamento do Microsoft Azure está disponível nas seguintes regiões:
 
-- Sul da França
-- Centro-Norte dos EUA
+- Centro dos EUA 
+- EUA Central EUAP
+- Leste dos EUA 
+- Leste dos EUA 2
+- Leste dos EUA 2 
+- Leste dos EUA 2 EUAP
+- Centro-Sul dos Estados Unidos
 - Centro-Oeste dos EUA
+- Oeste dos EUA 
+- Oeste dos EUA 2 
+- França Central 
+- Sul da França 
+- Norte da Alemanha 
+- Centro-Oeste da Alemanha 
+- Centro-Norte dos EUA
+- Norte da Europa 
+- Leste da Noruega 
+- Norte da Suíça
+- Oeste da Suíça
+- Sul do Reino Unido 
+- Oeste do Reino Unido 
+- Europa Ocidental 
+- EAU Central
+- Leste da Ásia 
+- Sudeste Asiático 
+- Japan East 
+- Oeste do Japão 
+- Oeste da Índia
+- Leste da Austrália 
+- Sudeste da Austrália 
 
 Os seguintes problemas conhecidos afetam a visualização de preferência do roteamento para o Armazenamento do Microsoft Azure:
 

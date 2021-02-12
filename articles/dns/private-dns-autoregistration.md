@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 9/24/2019
 ms.author: rohink
-ms.openlocfilehash: 9da94f80f9a9c1b3cba7b8e3ac4fef7e717918c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e976199730ec74f9e76b9f4199e90e192916474
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88042744"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966710"
 ---
 # <a name="what-is-the-autoregistration-feature-of-azure-dns-private-zones"></a>O que é o recurso Autoregistro de zonas privadas do DNS do Azure
 
@@ -29,7 +29,7 @@ Você pode habilitar o registro automático selecionando a opção "Habilitar re
 
 * O Autoregistro funciona apenas para máquinas virtuais. Para todos os outros recursos, como balanceadores de carga internos, etc., você pode criar registros DNS manualmente na zona DNS privada vinculada à rede virtual.
 * Os registros DNS são criados automaticamente somente para a NIC de máquina virtual primária. Se suas máquinas virtuais tiverem mais de uma NIC, você poderá criar manualmente os registros DNS para outras interfaces de rede.
-* Os registros DNS são criados automaticamente somente se a NIC da máquina virtual primária estiver usando DHCP. Se os endereços IP estáticos estiverem configurados (por exemplo, para usar [vários endereços IP no Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-multiple-ip-addresses-portal#os-config)), o registro em si não criará registros para essa máquina virtual.
+* Os registros DNS são criados automaticamente somente se a NIC da máquina virtual primária estiver usando DHCP. Se os endereços IP estáticos estiverem configurados (por exemplo, para usar [vários endereços IP no Azure](../virtual-network/virtual-network-multiple-ip-addresses-portal.md#os-config)), o registro em si não criará registros para essa máquina virtual.
 * Não há suporte para o registro em IPv6 (registros AAAA).
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 3abfffcfb47a9530b6a04762624eee9d6ee9bc81
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 09651ed5c7472c12d82108fdbd450cca6e84349f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780454"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447083"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Introdução a um aplicativo SaaS multilocatário que usa o padrão de banco de dados por locatário com o banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ O aplicativo SaaS Wingtip é um exemplo de aplicativo multilocatário. O aplicat
 
 O código-fonte do aplicativo e os scripts de gerenciamento estão disponíveis no repositório [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) do GitHub. Antes de começar, veja as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter as etapas a fim de fazer o download e desbloquear os scripts SaaS do Wingtip Tickets.
 
-## <a name="application-architecture"></a>Arquitetura de aplicativo
+## <a name="application-architecture"></a>Arquitetura do aplicativo
 
 O aplicativo de SaaS Wingtip usa o modelo de banco de dados por locatário. Ele usa pools elásticos do SQL para maximizar a eficiência. Para provisionar e mapear locatários para os seus dados, é usado um banco de dados do catálogo. O aplicativo SaaS Wingtip principal, usa um pool com três locatários de exemplo, além do banco de dados do catálogo. Os servidores de catálogo e locatário foram provisionados com aliases DNS. Esses aliases são usados para manter uma referência aos recursos ativos usados pelo aplicativo Wingtip. Esses aliases são atualizados para apontar para recursos de recuperação nos tutoriais de recuperação de desastre. A conclusão de muitos dos tutoriais de SaaS do Wingtip resulta em complementos para a implantação inicial. Complementos, como bancos de dados analíticos e gerenciamento de esquemas entre bancos de dados, são apresentados.
 
@@ -37,7 +37,7 @@ Ao percorrer os tutoriais e trabalhar com o aplicativo, tenha em mente os padrõ
 
 ## <a name="sql-database-wingtip-saas-tutorials"></a>Tutoriais do SaaS Wingtip do Banco de Dados SQL
 
-Depois de implantar o aplicativo, explore a seguinte coleção de tutoriais que aproveitam a implantação inicial. Esses tutoriais exploram os padrões de SaaS comuns que aproveitam os recursos internos do banco de dados SQL, o Azure Synapse Analytics (anteriormente SQL Data Warehouse) e outros serviços do Azure. Os tutoriais incluem scripts do PowerShell com explicações detalhadas. As explicações simplificam a compreensão e a implementação dos mesmos padrões de gerenciamento de SaaS em seus aplicativos.
+Depois de implantar o aplicativo, explore a seguinte coleção de tutoriais que aproveitam a implantação inicial. Esses tutoriais exploram os padrões de SaaS comuns que aproveitam os recursos internos do banco de dados SQL, do Azure Synapse Analytics e de outros serviços do Azure. Os tutoriais incluem scripts do PowerShell com explicações detalhadas. As explicações simplificam a compreensão e a implementação dos mesmos padrões de gerenciamento de SaaS em seus aplicativos.
 
 
 | Tutorial | Descrição |

@@ -1,19 +1,18 @@
 ---
 title: Solucionar problemas de saídas do Azure Stream Analytics
 description: Este artigo descreve técnicas para solucionar problemas de conexões de entrada em trabalhos do Azure Stream Analytics.
-author: sidram
+author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 10/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: bc630fc5ea9407c284e2e2e879c349a83302cd9f
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 02a3a7ad73bf0434a215c5ab7a6e89c299e9518b
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93122616"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019849"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Solucionar problemas de saídas do Azure Stream Analytics
 
@@ -22,7 +21,7 @@ Este artigo descreve problemas comuns com conexões de saída do Azure Stream An
 ## <a name="the-job-doesnt-produce-output"></a>O trabalho não produz a saída
 
 1. Verifique a conectividade com as saídas usando o botão **Testar Conexão** para cada uma das saídas.
-1. Dê uma olhada em [Métricas de monitoramento](stream-analytics-monitoring.md), na guia **Monitor** . Como os valores são agregados, as métricas são atrasadas em alguns minutos.
+1. Dê uma olhada em [Métricas de monitoramento](stream-analytics-monitoring.md), na guia **Monitor**. Como os valores são agregados, as métricas são atrasadas em alguns minutos.
 
    * Se o valor de **Eventos de Entrada** é maior que zero, o trabalho pode ler os dados de entrada. Se o valor de **Eventos de Entrada** não é maior que zero, há um problema com a entrada do trabalho. Confira [Solucionar problemas de conexões de entrada](stream-analytics-troubleshoot-input.md) para obter mais informações. Se seu trabalho tiver entrada de dados de referência, aplique a divisão por nome lógico ao examinar a métrica de **eventos de entrada** . Se não houver eventos de entrada apenas dos dados de referência, isso provavelmente significa que essa fonte de entrada não foi configurada corretamente para buscar o conjunto de dados de referência correto.
    * Se o valor de **Erros de conversão de dados** for maior que zero e crescente, confira [Erros de dados do Azure Stream Analytics](data-errors.md) para obter informações detalhadas sobre erros de conversão de dados.
@@ -67,7 +66,7 @@ Durante a operação normal de um trabalho, a saída pode ter períodos de latê
 * Se o coletor de upstream está limitado
 * Se a lógica de processamento da consulta está com uso intensivo de computação
 
-Para ver os detalhes da saída, selecione o trabalho de streaming no Portal do Azure e escolha **Diagrama de trabalho** . Para cada entrada, há uma métrica de evento de lista de pendências por partição. Se a métrica continuar aumentando, é um indicador de que os recursos do sistema estão restritos. O aumento possivelmente é causado pela limitação do coletor de saída ou pelo uso elevado da CPU. Para obter mais informações, confira [Depuração orientada a dados usando o diagrama de trabalho](stream-analytics-job-diagram-with-metrics.md).
+Para ver os detalhes da saída, selecione o trabalho de streaming no Portal do Azure e escolha **Diagrama de trabalho**. Para cada entrada, há uma métrica de evento de lista de pendências por partição. Se a métrica continuar aumentando, é um indicador de que os recursos do sistema estão restritos. O aumento possivelmente é causado pela limitação do coletor de saída ou pelo uso elevado da CPU. Para obter mais informações, confira [Depuração orientada a dados usando o diagrama de trabalho](stream-analytics-job-diagram-with-metrics.md).
 
 ## <a name="key-violation-warning-with-azure-sql-database-output"></a>Aviso de violação de chave com a saída do Banco de Dados SQL do Azure
 
@@ -91,7 +90,7 @@ Quando um trabalho de Stream Analytics com saída SQL recebe o primeiro lote de 
 2. O trabalho busca o esquema da tabela de destino.
 3. O trabalho valida os nomes e tipos de coluna em relação ao esquema da tabela de destino.
 4. O trabalho prepara uma tabela de dados na memória dos registros de saída no lote.
-5. O trabalho grava a tabela de dados em SQL usando a [API](/dotnet/api/system.data.sqlclient.sqlbulkcopy.writetoserver?view=dotnet-plat-ext-3.1)bulkcopy.
+5. O trabalho grava a tabela de dados em SQL usando a [API](/dotnet/api/system.data.sqlclient.sqlbulkcopy.writetoserver)bulkcopy.
 
 Durante essas etapas, a saída do SQL pode apresentar os seguintes tipos de erros:
 

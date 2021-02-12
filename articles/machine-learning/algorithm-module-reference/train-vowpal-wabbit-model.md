@@ -8,12 +8,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/02/2020
-ms.openlocfilehash: 6bc9f69440be772910ea8200b5ccf7d5a5122ae6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9894da7486ec3c0dfb92c94c7c7f4db2247ebeb7
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907800"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210198"
 ---
 # <a name="train-vowpal-wabbit-model"></a>Treinar o modelo Vowpal Wabbit
 Este artigo descreve como usar o módulo **modelo de Wabbit de treinamento do Vowpal** no designer de Azure Machine Learning para criar um modelo de aprendizado de máquina usando Vowpal Wabbit.  
@@ -22,7 +22,7 @@ Para usar o Vowpal Wabbit para aprendizado de máquina, formate sua entrada de a
 
 Quando o pipeline é executado, uma instância de Vowpal Wabbit é carregada no tempo de execução do experimento, junto com os dados especificados. Quando o treinamento for concluído, o modelo será serializado de volta para o espaço de trabalho. Você pode usar o modelo imediatamente para pontuar os dados. 
 
-Para treinar de forma incremental um modelo existente em novos dados, conecte um modelo salvo à porta de entrada do **modelo Vowpal Wabbit pré-treinado** do **modelo Train Vowpal Wabbit**e adicione os novos dados à outra porta de entrada.  
+Para treinar de forma incremental um modelo existente em novos dados, conecte um modelo salvo à porta de entrada do **modelo Vowpal Wabbit pré-treinado** do **modelo Train Vowpal Wabbit** e adicione os novos dados à outra porta de entrada.  
 
 ## <a name="what-is-vowpal-wabbit"></a>O que é Vowpal Wabbit?  
 
@@ -87,7 +87,7 @@ O Vowpal Wabbit dá suporte ao treinamento incremental adicionando novos dados a
 2. Conecte o modelo treinado anteriormente à porta de entrada do **modelo Vowpal Wabbit pré-treinado** do módulo.
 3. Conecte os novos dados de treinamento à porta de entrada de **dados de treinamento** do módulo.
 4. No painel parâmetros do **modelo Train Vowpal Wabbit**, especifique o formato dos novos dados de treinamento e também o nome do arquivo de dados de treinamento se o conjunto de dado de entrada for um diretório.
-5. Selecione as opções * * saída de arquivo de modelo legível * * e **saída de arquivo de hash invertida** se os arquivos correspondentes precisarem ser salvos nos registros de execução.
+5. Selecione as opções **arquivo de modelo legível** e **saída de arquivo de hash invertido** se os arquivos correspondentes precisarem ser salvos nos registros de execução.
 
 6. Envie o pipeline.  
 7. Selecione o módulo e selecione **registrar conjunto de registros** na guia **saídas + logs** no painel direito para preservar o modelo atualizado em seu espaço de trabalho do Azure Machine Learning.  Se você não especificar um novo nome, o modelo atualizado substituirá o modelo salvo existente.

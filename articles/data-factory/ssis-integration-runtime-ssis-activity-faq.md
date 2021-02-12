@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: 4c817194bbe0e4cf211992920bad9deb40bf05f4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 9609c382161514611ddc41af040e8fb438431fdf
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632202"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555994"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Solucionar problemas de execução de pacote no Integration Runtime do SSIS
 
@@ -28,7 +28,7 @@ Este artigo inclui os erros mais comuns que você pode encontrar quando estiver 
 
 Use o portal de Azure Data Factory para verificar a saída da atividade de execução do pacote SSIS. A saída inclui o resultado da execução, as mensagens de erro e a ID da operação. Para obter detalhes, consulte [monitorar o pipeline](how-to-invoke-ssis-package-ssis-activity.md#monitor-the-pipeline).
 
-Use o catálogo do SSIS (SSISDB) para verificar os logs de detalhes da execução. Para obter detalhes, consulte [monitorar pacotes em execução e outras operações](/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017).
+Use o catálogo do SSIS (SSISDB) para verificar os logs de detalhes da execução. Para obter detalhes, consulte [monitorar pacotes em execução e outras operações](/sql/integration-services/performance/monitor-running-packages-and-other-operations).
 
 ## <a name="common-errors-causes-and-solutions"></a>Erros, causas e soluções comuns
 
@@ -91,7 +91,7 @@ Esse erro significa que o disco local é usado no nó do Integration Runtime do 
 Esse erro ocorre quando a execução do pacote não consegue localizar um arquivo no disco local no tempo de execução de integração do SSIS. Tente estas ações:
 * Não use o caminho absoluto no pacote que está sendo executado no Integration Runtime do SSIS. Use o diretório de trabalho de execução atual (.) ou a pasta temporária (% TEMP%) Stead.
 * Se você precisar manter alguns arquivos em nós do tempo de execução de integração do SSIS, prepare os arquivos conforme descrito em [Personalizar configuração](how-to-configure-azure-ssis-ir-custom-setup.md). Todos os arquivos no diretório de trabalho serão limpos após a conclusão da execução.
-* Use os arquivos do Azure em vez de armazenar o arquivo no nó do Integration Runtime do SSIS. Para obter detalhes, consulte [usar compartilhamentos de arquivos do Azure](/sql/integration-services/lift-shift/ssis-azure-files-file-shares?view=sql-server-2017#use-azure-file-shares).
+* Use os arquivos do Azure em vez de armazenar o arquivo no nó do Integration Runtime do SSIS. Para obter detalhes, consulte [usar compartilhamentos de arquivos do Azure](/sql/integration-services/lift-shift/ssis-azure-files-file-shares#use-azure-file-shares).
 
 ### <a name="error-message-the-database-ssisdb-has-reached-its-size-quota"></a>Mensagem de erro: "o banco de dados ' SSISDB ' atingiu sua cota de tamanho"
 
@@ -121,14 +121,14 @@ Esse erro ocorre quando o Integration Runtime do SSIS não pode acessar o armaze
 
 ### <a name="error-message-microsoft-ole-db-provider-for-analysis-services-hresult-0x80004005-description-com-error-com-error-mscorlib-exception-has-been-thrown-by-the-target-of-an-invocation"></a>Mensagem de erro: "provedor de OLE DB da Microsoft para Analysis Services. ' HRESULT: a descrição de 0x80004005: ' COM erro: erro COM: mscorlib; A exceção foi gerada pelo destino de uma invocação "
 
-Uma causa potencial é que o nome de usuário ou a senha com a autenticação multifator do Azure habilitada está configurado para Azure Analysis Services autenticação. Essa autenticação não tem suporte no Integration Runtime do SSIS. Tente usar uma entidade de serviço para Azure Analysis Services autenticação:
+Uma causa potencial é que o nome de usuário ou a senha com a autenticação multifator do Azure AD habilitada está configurado para Azure Analysis Services autenticação. Essa autenticação não tem suporte no Integration Runtime do SSIS. Tente usar uma entidade de serviço para Azure Analysis Services autenticação:
 
 1. Prepare uma entidade de serviço conforme descrito em [automação com entidades de serviço](../analysis-services/analysis-services-service-principal.md).
-2. No Gerenciador de conexões, configure **usar um nome de usuário e senha específicos** : defina **AppID** como o username e **clientSecret** como a senha.
+2. No Gerenciador de conexões, configure **usar um nome de usuário e senha específicos**: defina **AppID** como o username e **clientSecret** como a senha.
 
 ### <a name="error-message-adonet-source-has-failed-to-acquire-the-connection-guid-with-the-following-error-message-login-failed-for-user-nt-authorityanonymous-logon-when-using-a-managed-identity"></a>Mensagem de erro: "a origem do ADONET falhou ao adquirir a conexão {GUID} com a seguinte mensagem de erro: falha de logon para o usuário" NT AUTHORITY\ANONYMOUS LOGON "" ao usar uma identidade gerenciada
 
-Certifique-se de não configurar o método de autenticação do Gerenciador de conexões como **Active Directory autenticação de senha** quando o parâmetro *ConnectUsingManagedIdentity* for **true** . Você pode configurá-lo como **autenticação SQL** , o que será ignorado se *ConnectUsingManagedIdentity* estiver definido.
+Certifique-se de não configurar o método de autenticação do Gerenciador de conexões como **Active Directory autenticação de senha** quando o parâmetro *ConnectUsingManagedIdentity* for **true**. Você pode configurá-lo como **autenticação SQL** , o que será ignorado se *ConnectUsingManagedIdentity* estiver definido.
 
 ### <a name="error-message-0xc020801f-at--odata-source--cannot-acquire-a-managed-connection-from-the-run-time-connection-manager"></a>Mensagem de erro: "0xC020801F em..., fonte OData [...]: não é possível adquirir uma conexão gerenciada do Gerenciador de conexões de tempo de execução"
 
@@ -154,7 +154,7 @@ Uma possível causa é que o tempo de execução de integração do Self-Hosted 
 
 * Possível causa e ação recomendada:
   * Se também houver uma mensagem de aviso "o componente não dá suporte ao uso do Gerenciador de conexões com a configuração de valor de ConnectByProxy true" no log de execução, isso significa que um Gerenciador de conexões é usado em um componente que ainda não tem suporte "ConnectByProxy". Os componentes com suporte podem ser encontrados em [configurar Self-Hosted ir como um proxy para Azure-SSIS ir no ADF](self-hosted-integration-runtime-proxy-ssis.md#enable-ssis-packages-to-connect-by-proxy)
-  * O log de execução pode ser encontrado no [relatório do SSMS](/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017#reports) ou na pasta de log especificada na atividade de execução do pacote SSIS.
+  * O log de execução pode ser encontrado no [relatório do SSMS](/sql/integration-services/performance/monitor-running-packages-and-other-operations#reports) ou na pasta de log especificada na atividade de execução do pacote SSIS.
   * a vNet também pode ser usada para acessar dados locais como uma alternativa. Mais detalhes podem ser encontrados em [unir um tempo de execução de integração do Azure-SSIS a uma rede virtual](join-azure-ssis-integration-runtime-virtual-network.md)
 
 ### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>Mensagem de erro: "status da tarefa de preparo: falha. Erro de tarefa de preparo: ErrorCode: 2906, ErrorMessage: falha na execução do pacote., saída: {"OperationErrorMessages": "código de saída do executor do SSIS:-1. \ n", "LogLocation": "... \\ SSISTelemetry \\ ExecutionLog \\ ... "," effectiveIntegrationRuntime ":"... "," executionDuration ":...," durationInQueue ": {" integrationRuntimeQueue ":...}}"

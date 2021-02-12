@@ -10,12 +10,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: d754f27a1510d9db0837eabb96b3a7cf75f76fc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f62cb6d5277ae202e8ea864aa99a3e19c3beef22
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87835520"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220744"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Hospedagem de mainframe em máquinas virtuais do Azure
 
@@ -70,7 +70,7 @@ Introdução:
 
 O ambiente IBM DB2 pureScale fornece um cluster de banco de dados para o Azure. Ele não é idêntico ao ambiente original, mas oferece disponibilidade e escala semelhantes à medida que o IBM DB2 para z/OS está sendo executado em uma configuração de sysplex paralelo.
 
-Para começar, consulte [IBM DB2 pureScale no Azure](../../linux/ibm-db2-purescale-azure.md).
+Para começar, consulte [IBM DB2 pureScale no Azure](.//ibm/ibm-db2-purescale-azure.md).
 
 ## <a name="considerations"></a>Considerações
 
@@ -98,7 +98,7 @@ Na nuvem, você tem uma variedade de opções de armazenamento flexíveis e esca
 
 Saiba como [mover o armazenamento de mainframe para o Azure](./concepts/mainframe-storage-azure.md).
 
-### <a name="backup-and-recovery"></a>Backup e descoberta
+### <a name="backup-and-recovery"></a>Backup e recuperação
 
 Manter seu próprio site de recuperação de desastre pode ser uma proposta cara. O Azure tem opções fáceis de implementar e econômicas para [backup](../../../backup/backup-overview.md), [recuperação](../../../site-recovery/site-recovery-overview.md)e [redundância](../../../storage/common/storage-redundancy.md) em níveis locais ou regionais, ou por meio de redundância geográfica.
 

@@ -12,12 +12,12 @@ ms.date: 08/07/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fccbb84647ae9e47afc7bb36eeca97bb41a0d1d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73318d1ee14894f5d22f7c4d2e61418e3b1038c1
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604063"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636870"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Histórico de lançamento de versões
 A equipe do Azure AD (Azure Active Directory) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -37,7 +37,12 @@ Baixar| [Baixar o Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=6157
 >[!NOTE]
 >O lançamento de uma nova versão do Azure AD Connect é um processo que requer várias etapas de controle de qualidade para garantir o bom funcionamento do serviço e, enquanto passamos por esse processo, o número de versão de uma nova versão, bem como o status da versão, é atualizado para refletir o estado mais recente.
 Enquanto passarmos por esse processo, o número de versão será mostrado com um "X" no lugar do número da versão secundária, como em "1.3.X.0"; isso indica que as notas sobre a versão deste documento são válidas para todas as versões que começam com "1.3.". Assim que finalizarmos o processo de versão, o número da versão será atualizado para a versão lançada mais recentemente e o status da versão será atualizado para "Liberado para download e atualização automática".
-Nem todas as versões do Azure AD Connect serão disponibilizadas para atualização automática. O status da versão indicará se uma versão foi disponibilizada para atualização automática ou apenas para baixar. Se a atualização automática foi habilitada no seu servidor do Azure AD Connect, então esse servidor atualizará automaticamente para a versão mais recente do Azure AD Connect que é liberado para atualização automática. Observe que nem todas as configurações do Azure AD Connect estão qualificadas para atualização automática. Siga este link para ler mais sobre [atualização automática](how-to-connect-install-automatic-upgrade.md)
+Nem todas as versões do Azure AD Connect serão disponibilizadas para atualização automática. O status da versão indicará se uma versão foi disponibilizada para atualização automática ou apenas para baixar. Se a atualização automática foi habilitada no seu servidor do Azure AD Connect, então esse servidor atualizará automaticamente para a versão mais recente do Azure AD Connect que é liberado para atualização automática. Observe que nem todas as configurações do Azure AD Connect estão qualificadas para atualização automática. 
+
+Para esclarecer o uso da atualização automática, é destinada a enviar por push todas as atualizações importantes e correções críticas para você. Isso não é necessariamente a versão mais recente, pois nem todas as versões exigirão/incluirão uma correção para um problema de segurança crítico (apenas um exemplo de muitos). Um problema como esse seria resolvido com uma nova versão fornecida por meio da atualização automática. Se não houver esses problemas, não haverá nenhuma atualização enviada usando a atualização automática e, em geral, se você estiver usando a versão de atualização automática mais recente, deverá ser bom.
+No entanto, se você quiser todos os recursos e atualizações mais recentes, a melhor maneira de ver se há algum é verificar essa página e instalá-las como desejar. 
+
+Siga este link para ler mais sobre [atualização automática](how-to-connect-install-automatic-upgrade.md)
 
 >[!IMPORTANT]
 > A partir de 1º de novembro de 2020, começaremos a implementar um processo de substituição pelo qual as versões do Azure AD Connect lançadas há mais de 18 meses serão preteridas. Vamos começar esse processo preterindo todas as versões do Azure AD Connect com a versão 1.3.20.0 (lançada em 24/4/2019) e anteriores, e continuaremos a avaliar a substituição de versões mais antigas do Azure AD Connect sempre que uma nova versão for lançada.
@@ -122,7 +127,7 @@ Esse build de hotfix corrigirá um problema no build 1.5.20.0 se você tiver clo
      - `GrantAcls : No GUID Found for computer …`
 
 > [!IMPORTANT]
-> Se você tiver clonado a regra de sincronização **In from AD - Group Join**, não tiver clonado a regra de sincronização **In from AD - Group Common** e planejar fazer upgrade, conclua as seguintes etapas como parte da atualização:
+> Se você tiver clonado a regra de sincronização **In from AD - Group Join** , não tiver clonado a regra de sincronização **In from AD - Group Common** e planejar fazer upgrade, conclua as seguintes etapas como parte da atualização:
 > 1. Durante a atualização, desmarque a opção **Iniciar o processo de sincronização ao concluir a configuração**.
 > 2. Edite a regra de sincronização de junção clonada e adicione as seguintes duas transformações:
 >     - Defina o fluxo direto `objectGUID` como `sourceAnchorBinary`.

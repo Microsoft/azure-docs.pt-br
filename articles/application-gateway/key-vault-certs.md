@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 11/16/2020
 ms.author: victorh
-ms.openlocfilehash: 3569ae130813eb0aaf14ec3d8d4e5cfac3e98c6f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 694868f2a75cc66bf9e3ede9d12e30a2cc3d7af9
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095640"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185930"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Terminação de TLS com certificados de Key Vault
 
@@ -71,7 +71,9 @@ A integração do gateway de aplicativo com o Key Vault requer um processo de co
 
 1. **Configurar o gateway de aplicativo**
 
-   Depois de concluir as duas etapas anteriores, você pode configurar ou modificar um gateway de aplicativo existente para usar a identidade gerenciada atribuída pelo usuário. Você também pode configurar o certificado TLS/SSL do ouvinte HTTP para apontar para o URI completo do certificado de Key Vault ou da ID secreta.
+   Depois de concluir as duas etapas anteriores, você pode configurar ou modificar um gateway de aplicativo existente para usar a identidade gerenciada atribuída pelo usuário. Para obter mais informações, consulte [set-AzApplicationGatewayIdentity](/powershell/module/az.network/set-azapplicationgatewayidentity).
+
+   Você também pode configurar o certificado TLS/SSL do ouvinte HTTP para apontar para o URI completo do certificado de Key Vault ou da ID secreta.
 
    ![Certificados do Key Vault](media/key-vault-certs/ag-kv.png)
 

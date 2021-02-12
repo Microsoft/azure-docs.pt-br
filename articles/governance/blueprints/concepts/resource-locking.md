@@ -1,14 +1,14 @@
 ---
 title: Compreender o bloqueio de recursos
 description: Saiba mais sobre as opções de bloqueio em plantas do Azure para proteger recursos ao atribuir um plano gráfico.
-ms.date: 10/05/2020
+ms.date: 01/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: 01f69cbfebe203407287392c2433181396b541b2
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: b2004ad294ae0eec1b4f2fc6f49308efd32d652e
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92095987"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920183"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Entenda o bloqueio de recursos nos Blueprints do Azure
 
@@ -19,10 +19,10 @@ A criação de ambientes consistentes em escala só é realmente valiosa se houv
 
 ## <a name="locking-modes-and-states"></a>Estados e modos de bloqueio
 
-O modo de bloqueio se aplica à atribuição Blueprint e tem três opções: **não bloquear**, **somente leitura**ou **não excluir**. O modo de bloqueio é configurado durante a implantação de artefato em uma atribuição de blueprint. Um modo de bloqueio diferente pode ser definido pela atualização da atribuição de blueprint.
+O modo de bloqueio se aplica à atribuição Blueprint e tem três opções: **não bloquear**, **somente leitura** ou **não excluir**. O modo de bloqueio é configurado durante a implantação de artefato em uma atribuição de blueprint. Um modo de bloqueio diferente pode ser definido pela atualização da atribuição de blueprint.
 No entanto, os modos de bloqueio não podem ser alterados fora das plantas do Azure.
 
-Os recursos criados por artefatos em uma atribuição Blueprint têm quatro Estados: **não bloqueado**, **somente leitura**, **não é possível editar/Excluir**ou **não pode excluir**. Cada tipo de artefato pode estar no estado **Não Bloqueado**. A seguinte tabela pode ser usada para determinar o estado de um recurso:
+Os recursos criados por artefatos em uma atribuição Blueprint têm quatro Estados: **não bloqueado**, **somente leitura**, **não é possível editar/Excluir** ou **não pode excluir**. Cada tipo de artefato pode estar no estado **Não Bloqueado**. A seguinte tabela pode ser usada para determinar o estado de um recurso:
 
 |Modo|Tipo de recurso do artefato|Estado|Descrição|
 |-|-|-|-|
@@ -109,7 +109,7 @@ As [Propriedades de atribuição de negação](../../../role-based-access-contro
 
 |Modo |Permissões. ações |Permissões. \ ações |Entidades de segurança [i]. Escreva |ExcludePrincipals [i]. Sessão | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
-|Somente leitura |**\*** |**\*/read**<br />**Microsoft.Authorization/locks/delete**<br />**Microsoft. Network/virtualNetwork/sub-redes/junção/ação** |SystemDefined (todos) |atribuição de Blueprint e definida pelo usuário em **excludedPrincipals** |Grupo de recursos- _verdadeiro_; Recurso- _falso_ |
+|Somente leitura |**\** _ |_ *\* /Read **<br />** Microsoft. Authorization/Locks/Delete **<br />** Microsoft. Network/virtualNetwork/sub-redes/junção/ação** |SystemDefined (todos) |atribuição de Blueprint e definida pelo usuário em **excludedPrincipals** |Grupo de recursos- _verdadeiro_; Recurso- _falso_ |
 |Não exclua |**\*/Delete** | **Microsoft.Authorization/locks/delete**<br />**Microsoft. Network/virtualNetwork/sub-redes/junção/ação** |SystemDefined (todos) |atribuição de Blueprint e definida pelo usuário em **excludedPrincipals** |Grupo de recursos- _verdadeiro_; Recurso- _falso_ |
 
 > [!IMPORTANT]

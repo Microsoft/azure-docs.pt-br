@@ -3,16 +3,17 @@ title: Funções de verificação de tipo no Azure Cosmos DB linguagem de consul
 description: Saiba mais sobre a verificação de tipo das funções do sistema SQL no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: bafc599ddb502d5714b08ff58ed942e9c17557a8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2becc9216d847dfe26d8fd3a433993112fff7980
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93093751"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546338"
 ---
 # <a name="type-checking-functions-azure-cosmos-db"></a>Funções de verificação de tipo (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -39,4 +40,4 @@ As funções a seguir dão suporte a verificação de tipo em relação aos valo
 - [Funções de sistema do Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)
 - [Funções definidas pelo usuário](sql-query-udfs.md)
-- [Agregações](sql-query-aggregates.md)
+- [Agregações](sql-query-aggregate-functions.md)

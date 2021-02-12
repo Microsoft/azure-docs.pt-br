@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 11/19/2020
 tags: connectors
-ms.openlocfilehash: 05ce944d195cf43f860fc2b39975a736a4454c05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83ffccb7bae4fabc10796c36e782e72c661bd346
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89226507"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063005"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Receber e responder a solicitações HTTPS de entrada nos Aplicativos Lógicos do Azure
 
@@ -28,7 +28,7 @@ Por exemplo, você seu aplicativo lógico pode:
 
 Este artigo mostra como usar o gatilho de solicitação e a ação de resposta para que seu aplicativo lógico possa receber e responder a chamadas de entrada.
 
-Para obter informações sobre criptografia, segurança e autorização para chamadas de entrada para seu aplicativo lógico, como [TLS (segurança de camada de transporte)](https://en.wikipedia.org/wiki/Transport_Layer_Security), anteriormente conhecido como protocolo SSL (SSL) ou [Azure Active Directory autenticação aberta (OAuth do Azure AD)](../active-directory/develop/index.yml), consulte [acesso seguro e acesso a dados para chamadas de entrada para gatilhos baseados em solicitação](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+Para obter mais informações sobre segurança, autorização e criptografia para chamadas de entrada para seu aplicativo lógico, como o protocolo [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security), anteriormente conhecido como protocolo SSL (SSL), [Azure Active Directory autenticação aberta (Azure ad OAuth)](../active-directory/develop/index.yml), expondo seu aplicativo lógico com o gerenciamento de API do Azure ou restringindo os endereços IP que originam chamadas de entrada, consulte [acesso seguro e acesso a dados para chamadas de entrada para gatilhos baseados em solicitação](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,8 +42,7 @@ Para obter informações sobre criptografia, segurança e autorização para cha
 
 Esse gatilho interno cria um ponto de extremidade que pode ser chamado manualmente, capaz de manipular *somente* solicitações de entrada por HTTPS. Quando um chamador envia uma solicitação para esse ponto de extremidade, o [gatilho de solicitação](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) é acionado e executa o aplicativo lógico. Para obter mais informações sobre como chamar esse gatilho, consulte [chamar, disparar ou aninhar fluxos de trabalho com pontos de extremidade HTTPS em aplicativos lógicos do Azure](../logic-apps/logic-apps-http-endpoint.md).
 
-Seu aplicativo lógico mantém uma solicitação de entrada aberta somente por um [período limitado](../logic-apps/logic-apps-limits-and-config.md#request-limits). Supondo que seu aplicativo lógico inclua uma [ação de resposta](#add-response), se seu aplicativo lógico não enviar uma resposta de volta ao chamador após esse tempo, seu aplicativo lógico retornará um `504 GATEWAY TIMEOUT` status para o chamador. Se seu aplicativo lógico não incluir uma ação de resposta, 
-> seu aplicativo lógico retorna imediatamente um `202 ACCEPTED` status para o chamador.
+Seu aplicativo lógico mantém uma solicitação de entrada aberta somente por um [período limitado](../logic-apps/logic-apps-limits-and-config.md#http-limits). Supondo que seu aplicativo lógico inclua uma [ação de resposta](#add-response), se seu aplicativo lógico não enviar uma resposta de volta ao chamador após esse tempo, seu aplicativo lógico retornará um `504 GATEWAY TIMEOUT` status para o chamador. Se seu aplicativo lógico não incluir uma ação de resposta, seu aplicativo lógico retornará imediatamente um `202 ACCEPTED` status para o chamador.
 
 1. Entre no [portal do Azure](https://portal.azure.com). Criar um aplicativo lógico em branco.
 
@@ -156,7 +155,7 @@ Seu aplicativo lógico mantém uma solicitação de entrada aberta somente por u
 
    1. Na barra de título do gatilho de solicitação, selecione o botão de reticências (**...**).
 
-   1. Nas configurações do gatilho, ative a **validação de esquema**e selecione **concluído**.
+   1. Nas configurações do gatilho, ative a **validação de esquema** e selecione **concluído**.
 
       Se o corpo da solicitação da chamada de entrada não corresponder ao seu esquema, o gatilho retornará um `HTTP 400 Bad Request` erro.
 
@@ -180,7 +179,7 @@ Seu aplicativo lógico mantém uma solicitação de entrada aberta somente por u
 
    Por exemplo, você pode responder à solicitação [adicionando uma ação de resposta](#add-response), que pode ser usada para retornar uma resposta personalizada e é descrita posteriormente neste tópico.
 
-   Seu aplicativo lógico mantém a solicitação de entrada aberta por [tempo limitado](../logic-apps/logic-apps-limits-and-config.md#request-limits). Supondo que o fluxo de trabalho do aplicativo lógico inclua uma ação de resposta, se o aplicativo lógico não retornar uma resposta durante esse tempo, seu aplicativo lógico retornará `504 GATEWAY TIMEOUT` ao chamador. Caso contrário, se seu aplicativo lógico não incluir uma ação de resposta, ele retornará imediatamente uma resposta `202 ACCEPTED` ao chamador.
+   Seu aplicativo lógico mantém a solicitação de entrada aberta por [tempo limitado](../logic-apps/logic-apps-limits-and-config.md#http-limits). Supondo que o fluxo de trabalho do aplicativo lógico inclua uma ação de resposta, se o aplicativo lógico não retornar uma resposta durante esse tempo, seu aplicativo lógico retornará `504 GATEWAY TIMEOUT` ao chamador. Caso contrário, se seu aplicativo lógico não incluir uma ação de resposta, ele retornará imediatamente uma resposta `202 ACCEPTED` ao chamador.
 
 1. Quando terminar, salve o aplicativo lógico. Selecione **Salvar** na barra de ferramentas do designer.
 
@@ -191,9 +190,11 @@ Seu aplicativo lógico mantém uma solicitação de entrada aberta somente por u
    > [!NOTE]
    > Se você quiser incluir o hash ou símbolo de libra ( **#** ) no URI ao fazer uma chamada para o gatilho de solicitação, use esta versão codificada em vez disso: `%25%23`
 
-1. Para disparar seu aplicativo lógico, envie um HTTP POST para a URL gerada.
+1. Para testar seu aplicativo lógico, envie uma solicitação HTTP para a URL gerada.
 
-   Por exemplo, você pode usar uma ferramenta como [Postman](https://www.getpostman.com/) para enviar o HTTP POST. Para obter mais informações sobre a definição JSON subjacente do gatilho e como chamar esse gatilho, consulte os tópicos [tipo de gatilho de solicitação](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) e [Chamar, disparar ou aninhar fluxos de trabalho com pontos de extremidade HTTPS nos Aplicativos Lógicos do Azure](../logic-apps/logic-apps-http-endpoint.md).
+   Por exemplo, você pode usar uma ferramenta como o [postmaster](https://www.getpostman.com/) para enviar a solicitação HTTP. Para obter mais informações sobre a definição JSON subjacente do gatilho e como chamar esse gatilho, consulte os tópicos [tipo de gatilho de solicitação](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) e [Chamar, disparar ou aninhar fluxos de trabalho com pontos de extremidade HTTPS nos Aplicativos Lógicos do Azure](../logic-apps/logic-apps-http-endpoint.md).
+
+Para obter mais informações sobre segurança, autorização e criptografia para chamadas de entrada para seu aplicativo lógico, como o protocolo [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security), anteriormente conhecido como protocolo SSL (SSL), [Azure Active Directory autenticação aberta (Azure ad OAuth)](../active-directory/develop/index.yml), expondo seu aplicativo lógico com o gerenciamento de API do Azure ou restringindo os endereços IP que originam chamadas de entrada, consulte [acesso seguro e acesso a dados para chamadas de entrada para gatilhos baseados em solicitação](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## <a name="trigger-outputs"></a>Saídas do gatilho
 
@@ -215,7 +216,7 @@ Ao usar o gatilho de solicitação para lidar com solicitações de entrada, voc
 > Se uma ação de resposta incluir esses cabeçalhos, os Aplicativos Lógicos removerão esses cabeçalhos da mensagem de resposta gerada sem mostrar nenhum aviso ou erro:
 >
 > * `Allow`
-> * `Content-*` com estas exceções: `Content-Disposition`, `Content-Encoding` e `Content-Type`
+> * `Content-*` cabeçalhos, exceto para `Content-Disposition` , `Content-Encoding` e `Content-Type` quando você usa operações post e put, mas não são incluídos para operações Get
 > * `Cookie`
 > * `Expires`
 > * `Last-Modified`

@@ -1,18 +1,18 @@
 ---
-title: Entender o Resource Health
+title: Entender a integridade do recurso
 titleSuffix: Azure Digital Twins
 description: Consulte como usar Azure Resource Health para verificar a integridade da instância do gêmeos digital do Azure.
 author: baanders
 ms.author: baanders
 ms.date: 10/6/2020
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9c31345a4ddaf9ac2b75204172dbc47606cb07db
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: b64ee4d1538276bbbcab3fe09054f399ad20c162
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681400"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616542"
 ---
 # <a name="troubleshooting-azure-digital-twins-resource-health"></a>Solução de problemas do Azure digital gêmeos: Resource Health
 
@@ -28,7 +28,7 @@ Para verificar a integridade da sua instância, siga estas etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com) e navegue até sua instância do gêmeos digital do Azure. Você pode encontrá-lo digitando seu nome na barra de pesquisa do Portal. 
 
-2. No menu da sua instância, selecione _**Resource Health**_ em *suporte + solução de problemas* . Isso levará você à página para exibir o histórico de integridade do recurso. 
+2. No menu da sua instância, selecione _**Resource Health**_ em *suporte + solução de problemas*. Isso levará você à página para exibir o histórico de integridade do recurso. 
 
     :::image type="content" source="media/troubleshoot-resource-health/resource-health.png" alt-text="Captura de tela mostrando a página ' integridade do recurso '. Há uma seção ' histórico de integridade ' mostrando um relatório diário dos últimos nove dias. Cada dia mostra o status ' disponível. '":::
 

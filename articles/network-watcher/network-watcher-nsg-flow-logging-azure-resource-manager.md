@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/26/2020
+ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 6d16d878b0cf7a73c87b5d6e9263a24c4dfb4383
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06e70bd31e2045925c1fe7b4088e1a0b1d560b2f
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84738134"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011060"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Configurar os logs do fluxo NSG a partir de um modelo do Azure Resource Manager
 
@@ -31,15 +31,15 @@ ms.locfileid: "84738134"
 > - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
 
-O [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) é o modo nativo e poderoso do Azure para gerenciar a [infraestrutura como código](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code).
+O [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) é o modo nativo e poderoso do Azure para gerenciar a [infraestrutura como código](/azure/devops/learn/what-is-infrastructure-as-code).
 
-Este artigo mostra como habilitar os [logs do fluxo NSG](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) programaticamente usando um modelo do Azure Resource Manager e o Azure PowerShell. Começamos fornecendo uma visão geral das propriedades do objeto de log do fluxo NSG, seguido por alguns modelos de amostra. Em seguida, implantamos o modelo usando uma instância do PowerShell local.
+Este artigo mostra como habilitar os [logs do fluxo NSG](./network-watcher-nsg-flow-logging-overview.md) programaticamente usando um modelo do Azure Resource Manager e o Azure PowerShell. Começamos fornecendo uma visão geral das propriedades do objeto de log do fluxo NSG, seguido por alguns modelos de amostra. Em seguida, implantamos o modelo usando uma instância do PowerShell local.
 
 
 ## <a name="nsg-flow-logs-object"></a>Objeto de logs do fluxo NSG
 
 O objeto de logs do fluxo NSG com todos os parâmetros é mostrado abaixo.
-Para obter uma visão geral completa das propriedades, você pode ler a [referência do modelo dos logs do fluxo NSG](https://docs.microsoft.com/azure/templates/microsoft.network/2019-11-01/networkwatchers/flowlogs#RetentionPolicyParameters).
+Para obter uma visão geral completa das propriedades, você pode ler a [referência do modelo dos logs do fluxo NSG](/azure/templates/microsoft.network/2019-11-01/networkwatchers/flowlogs#RetentionPolicyParameters).
 
 ```json
 {
@@ -76,8 +76,8 @@ Para criar um recurso Microsoft.Network/networkWatchers/flowLogs, adicione o JSO
 
 Se você estiver usando modelos do Azure Resource Manager pela primeira vez, use os links abaixo para obter mais informações.
 
-* [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell#deploy-local-template)
-* [Tutorial: Criar e implantar seu primeiro modelo do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell)
+* [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template)
+* [Tutorial: Criar e implantar seu primeiro modelo do Azure Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-powershell)
 
 
 Abaixo temos dois exemplos de modelos completos para configurar os logs do fluxo NSG.
@@ -122,33 +122,32 @@ Abaixo temos dois exemplos de modelos completos para configurar os logs do fluxo
   "contentVersion": "1.0.0.0",
   "apiProfile": "2019-09-01",
   "resources": [
- {
-    "name": "NetworkWatcher_centraluseuap/Microsoft.NetworkDalanDemoPerimeterNSG",
-    "type": "Microsoft.Network/networkWatchers/FlowLogs/",
-    "location": "centraluseuap",
-    "apiVersion": "2019-09-01",
-    "properties": {
-      "targetResourceId": "/subscriptions/56abfbd6-ec72-4ce9-831f-bc2b6f2c5505/resourceGroups/DalanDemo/providers/Microsoft.Network/networkSecurityGroups/PerimeterNSG",
-      "storageId": "/subscriptions/56abfbd6-ec72-4ce9-831f-bc2b6f2c5505/resourceGroups/MyCanaryFlowLog/providers/Microsoft.Storage/storageAccounts/storagev2ira",
-      "enabled": true,
-      "flowAnalyticsConfiguration": {
-        "networkWatcherFlowAnalyticsConfiguration": {
+    {
+      "name": "NetworkWatcher_centraluseuap/Microsoft.NetworkDalanDemoPerimeterNSG",
+      "type": "Microsoft.Network/networkWatchers/FlowLogs/",
+      "location": "centraluseuap",
+      "apiVersion": "2019-09-01",
+      "properties": {
+        "targetResourceId": "/subscriptions/56abfbd6-ec72-4ce9-831f-bc2b6f2c5505/resourceGroups/DalanDemo/providers/Microsoft.Network/networkSecurityGroups/PerimeterNSG",
+        "storageId": "/subscriptions/56abfbd6-ec72-4ce9-831f-bc2b6f2c5505/resourceGroups/MyCanaryFlowLog/providers/Microsoft.Storage/storageAccounts/storagev2ira",
+        "enabled": true,
+        "flowAnalyticsConfiguration": {
+          "networkWatcherFlowAnalyticsConfiguration": {
             "enabled": true,
             "workspaceResourceId": "/subscriptions/56abfbd6-ec72-4ce9-831f-bc2b6f2c5505/resourceGroups/defaultresourcegroup-wcus/providers/Microsoft.OperationalInsights/workspaces/1c4f42e5-3a02-4146-ac9b-3051d8501db0",
             "trafficAnalyticsInterval": 10
-                }
-      },
-      "retentionPolicy": {
-        "days": 5,
-        "enabled": true
-      },
-      "format": {
-        "type": "JSON",
-        "version": 2            
+          }
+        },
+        "retentionPolicy": {
+          "days": 5,
+          "enabled": true
+        },
+        "format": {
+          "type": "JSON",
+          "version": 2          
+        }
       }
     }
-
-  }
   ]
 }
 ```
@@ -172,14 +171,14 @@ New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatc
 
 ## <a name="verifying-your-deployment"></a>Verificando a implantação
 
-Há algumas maneiras de verificar se sua implantação foi bem-sucedida. O console do PowerShell deve mostrar “ProvisioningState” como “Bem-sucedido”. Além disso, você pode visitar a [página do portal de logs do fluxo NSG](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) para confirmar suas alterações. Se houver problemas com a implantação, consulte [Solução de problemas comuns de implantação do Azure com o Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/common-deployment-errors).
+Há algumas maneiras de verificar se sua implantação foi bem-sucedida. O console do PowerShell deve mostrar “ProvisioningState” como “Bem-sucedido”. Além disso, você pode visitar a [página do portal de logs do fluxo NSG](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) para confirmar suas alterações. Se houver problemas com a implantação, consulte [Solução de problemas comuns de implantação do Azure com o Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md).
 
 ## <a name="deleting-your-resource"></a>Excluindo o recurso
-O Azure permite a exclusão de recursos por meio do modo de implantação “Completo”. Para excluir um recurso de logs do fluxo, especifique uma implantação no modo Completo sem incluir o recurso que você deseja excluir. Leia mais sobre o [Modo de implantação completa](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes#complete-mode)
+O Azure permite a exclusão de recursos por meio do modo de implantação “Completo”. Para excluir um recurso de logs do fluxo, especifique uma implantação no modo Completo sem incluir o recurso que você deseja excluir. Leia mais sobre o [Modo de implantação completa](../azure-resource-manager/templates/deployment-modes.md#complete-mode)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Aprenda a visualizar os dados do fluxo NSG usando:
 * [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 * [Ferramentas de software livre](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
-* [Análise de Tráfego do Azure](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+* [Análise de Tráfego do Azure](./traffic-analytics.md)

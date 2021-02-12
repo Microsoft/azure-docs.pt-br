@@ -3,14 +3,14 @@ title: Recursos de renderização
 description: Os recursos padrão do Lote do Azure são usados para executar cargas de trabalho e aplicativos de renderização. O lote inclui recursos específicos para dar suporte às cargas de trabalho de renderização.
 author: mscurrell
 ms.author: markscu
-ms.date: 08/02/2018
+ms.date: 02/01/2021
 ms.topic: how-to
-ms.openlocfilehash: 77a6ec54495b394c597f6d6b4ddb5f5fe3285550
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: c748c51311a70cd3b4fc6d435e97a33d709467b9
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107463"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429795"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Recursos de renderização de Lote do Azure
 
@@ -18,13 +18,21 @@ Os recursos padrão do Azure Batch são usados para executar cargas de trabalho 
 
 Para obter uma visão geral dos conceitos em lote, incluindo pools, tarefas e tarefas, consulte [este artigo](./batch-service-workflow-features.md).
 
-## <a name="batch-pools"></a>Pools do lote
+## <a name="batch-pools-using-custom-vm-images-and-standard-application-licensing"></a>Pools do lote usando imagens de VM personalizadas e licenciamento de aplicativo padrão
+
+Assim como ocorre com outras cargas de trabalho e tipos de aplicativo, uma imagem de VM personalizada pode ser criada com os aplicativos e plug-ins de renderização necessários. A imagem de VM personalizada é colocada na [Galeria de imagens compartilhadas](../virtual-machines/shared-image-galleries.md) e [pode ser usada para criar pools do lote](batch-sig-images.md).
+
+As cadeias de caracteres de linha de comando da tarefa precisarão fazer referência aos aplicativos e caminhos usados ao criar a imagem de VM personalizada.
+
+A maioria dos aplicativos de renderização exigirá licenças obtidas de um servidor de licença. Se houver um servidor de licença local existente, o pool e o servidor de licença precisarão estar na mesma [rede virtual](../virtual-network/virtual-networks-overview.md). Também é possível executar um servidor de licença em uma VM do Azure, com o pool do lote e a VM do servidor de licença na mesma rede virtual.
+
+## <a name="batch-pools-using-rendering-vm-images"></a>Pools do lote usando imagens de VM de renderização
 
 ### <a name="rendering-application-installation"></a>Instalação de aplicativos de renderização
 
 Uma imagem de VM de renderização do Azure Marketplace pode ser especificada na configuração do pool se apenas os aplicativos pré-instalados precisarem ser usados.
 
-Há uma imagem do Windows 2016 e uma imagem do CentOS.  No [Azure Marketplace](https://azuremarketplace.microsoft.com), as imagens da VM podem ser encontradas pesquisando por 'renderização em lote'.
+Há uma imagem do Windows e uma imagem CentOS.  No [Azure Marketplace](https://azuremarketplace.microsoft.com), as imagens da VM podem ser encontradas pesquisando por 'renderização em lote'.
 
 Para um exemplo de configuração do pool, consulte o [tutorial de renderização de CLI do Azure](./tutorial-rendering-cli.md).  O portal do Azure e o Explorador de lotes fornecem ferramentas de GUI para selecionar uma imagem de VM de renderização quando você cria um pool.  Se você estiver usando uma API de lotes, especifique os seguintes valores de propriedade para [ImageReference](/rest/api/batchservice/pool/add#imagereference) ao criar um pool:
 
@@ -62,22 +70,19 @@ Para poder criar a linha de comando para tarefas de renderização, o local de i
 
 |Aplicativo|Executável de aplicativo|Variável de ambiente|
 |---------|---------|---------|
-|Autodesk 3ds Max 2018|3dsmaxcmdio.exe|3DSMAX_2018_EXEC|
-|Autodesk 3ds Max 2019|3dsmaxcmdio.exe|3DSMAX_2019_EXEC|
-|Autodesk Maya 2017|render.exe|MAYA_2017_EXEC|
-|Autodesk Maya 2018|render.exe|MAYA_2018_EXEC|
-|Grupo de caos V-Ray Standalone|vray.exe|VRAY_3.60.4_EXEC|
-Arnold 2017 command line|kick.exe|ARNOLD_2017_EXEC|
-|Linha de comando Arnold 2018|kick.exe|ARNOLD_2018_EXEC|
+|Autodesk 3ds Max 2021|3dsmaxcmdio.exe|3DSMAX_2021_EXEC|
+|Autodesk Maya 2020|render.exe|MAYA_2020_EXEC|
+|Grupo de caos V-Ray Standalone|vray.exe|VRAY_4 VRAY_4.10.03_EXEC|
+|Linha de comando do Arnold 2020|kick.exe|ARNOLD_2020_EXEC|
 |Blender|blender.exe|BLENDER_2018_EXEC|
 
-### <a name="azure-vm-families"></a>Azure VM families
+## <a name="azure-vm-families"></a>Azure VM families
 
 Assim como acontece com outras cargas de trabalho, a renderização dos requisitos do sistema de aplicativos varia e os requisitos de desempenho variam para tarefas e projetos.  Uma grande variedade de famílias de VMs está disponível no Azure, dependendo de seus requisitos - menor custo, melhor preço / desempenho, melhor desempenho e assim por diante.
 Alguns aplicativos de renderização, como o Arnold, são baseados em CPU; outros, como o V-Ray e o Blender Cycles, podem usar CPUs e / ou GPUs.
 Para obter uma descrição de famílias de VM disponíveis e tamanhos de VM [Consulte tipos de VM e tamanhos](../virtual-machines/sizes.md).
 
-### <a name="low-priority-vms"></a>VMs de baixa prioridade
+## <a name="low-priority-vms"></a>VMs de baixa prioridade
 
 Assim como em outras cargas de trabalho, as VMs de baixa prioridade podem ser utilizadas em conjuntos de lotes para renderização.  As VMs de baixa prioridade têm o mesmo desempenho que as VMs dedicadas regulares, mas utilizam a capacidade excedente do Azure e estão disponíveis para um grande desconto.  A desvantagem do uso de VMs de prioridade baixa é que elas podem não estar disponíveis para serem alocadas ou podem admitir preempção a qualquer momento, dependendo da capacidade disponível. Por esse motivo, as VMs de baixa prioridade não serão adequadas para todos os trabalhos de renderização. Por exemplo, se as imagens demoram muitas horas para serem renderizadas, é provável que a renderização dessas imagens interrompidas e reiniciadas devido ao fato de as VMs estarem sendo aprovadas não seja aceitável.
 

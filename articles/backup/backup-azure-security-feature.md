@@ -4,12 +4,12 @@ description: Saiba como usar os recursos de segurança no Backup do Azure para t
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: 5a408dc07e83e790a63f8a252d4ed3f84bf66be4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c671b1b54b937f518f7179bb6940f31a28a78d4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89181673"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841011"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Recursos de segurança para ajudar a proteger backups híbridos usando o Backup do Azure
 
@@ -48,10 +48,10 @@ Se você estiver criando um cofre dos serviços de recuperação, poderá usar t
     ![Captura de tela das propriedades do cofre dos Serviços de Recuperação](./media/backup-azure-security-feature/security-settings-update.png)
 
     O link de atualização abre o painel **configurações de segurança** , que fornece um resumo dos recursos e permite que você os habilite.
-5. Na lista suspensa **você configurou a autenticação multifator do Azure?**, selecione um valor para confirmar se você habilitou a [autenticação multifator do Azure](../active-directory/authentication/concept-mfa-howitworks.md). Se ele estiver habilitado, você será solicitado a autenticar de outro dispositivo (por exemplo, um telefone celular) ao entrar no portal do Azure.
+5. Na lista suspensa **, você configurou a autenticação multifator do Azure ad?**, selecione um valor para confirmar se você habilitou a [autenticação multifator do Azure ad](../active-directory/authentication/concept-mfa-howitworks.md). Se ele estiver habilitado, você será solicitado a autenticar de outro dispositivo (por exemplo, um telefone celular) ao entrar no portal do Azure.
 
-   Ao realizar operações críticas no Backup, você poderá inserir um PIN de segurança, disponível no portal do Azure. A habilitação da Autenticação Multifator do Azure adiciona uma camada de segurança. Apenas usuários autorizados com credenciais válidas do Azure, e autenticados de um segundo dispositivo, podem acessar o portal do Azure.
-6. Para salvar as configurações de segurança, selecione **habilitar** e selecione **salvar**. Você só poderá selecionar **Habilitar** depois de selecionar um valor da lista **Você configurou a Autenticação Multifator do Azure** na etapa anterior.
+   Ao realizar operações críticas no Backup, você poderá inserir um PIN de segurança, disponível no portal do Azure. A habilitação da autenticação multifator do Azure AD adiciona uma camada de segurança. Apenas usuários autorizados com credenciais válidas do Azure, e autenticados de um segundo dispositivo, podem acessar o portal do Azure.
+6. Para salvar as configurações de segurança, selecione **habilitar** e selecione **salvar**. Você pode selecionar **habilitar** somente depois de selecionar um valor da lista **você configurou a autenticação multifator do Azure ad?** na etapa anterior.
 
     ![Captura de tela das configurações de segurança](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 
@@ -89,7 +89,7 @@ Como parte da adição de uma camada extra de autenticação para operações cr
 Para receber esse PIN:
 
 1. Entre no portal do Azure.
-2. Navegue até **serviços de recuperação**  >  **configurações**do cofre  >  **Propriedades**.
+2. Navegue até **serviços de recuperação**  >  **configurações** do cofre  >  **Propriedades**.
 3. Em **PIN de segurança**, selecione **gerar**. Isso abre um painel que contém o PIN a ser inserido na interface do usuário do agente dos serviços de recuperação do Azure.
     Esse PIN é válido somente por cinco minutos e é gerado automaticamente após esse período.
 

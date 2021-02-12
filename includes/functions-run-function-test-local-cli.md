@@ -2,61 +2,45 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 02/09/2020
+ms.date: 10/18/2020
 ms.author: glenga
-ms.openlocfilehash: 55c64048e0604987c5a4c26961e5617106358e76
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 11d426016cfe1a8a9ff843da518f57c08881be5d
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84436190"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96842402"
 ---
 ## <a name="run-the-function-locally"></a>Executar a função localmente
 
-Execute sua função iniciando o host de runtime do Azure Functions local da pasta *LocalFunctionProj*:
+1. Execute sua função iniciando o host de runtime do Azure Functions local da pasta *LocalFunctionProj*:
 
-::: zone pivot="programming-language-csharp,programming-language-powershell,programming-language-javascript,programming-language-python"
-```
-func start
-```
-::: zone-end
+    ```
+    func start
+    ```
 
-::: zone pivot="programming-language-typescript"
-```
-npm install
-npm start
-```
-::: zone-end
+    Perto do fim da saída, devem aparecer as seguintes linhas: 
+    
+    <pre>
+    ...
+    
+    Now listening on: http://0.0.0.0:7071
+    Application started. Press Ctrl+C to shut down.
+    
+    Http Functions:
+    
+            HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
+    ...
+    
+    </pre>
+    
+    >[!NOTE]  
+    > Se HttpExample não aparece conforme mostrado acima, é provável que você tenha iniciado o host fora da pasta raiz do projeto. Nesse caso, use **Ctrl**+**C** para parar o host, navegue até a pasta raiz do projeto e execute o comando anterior novamente.
 
-::: zone pivot="programming-language-java"
-```
-mvn clean package 
-mvn azure-functions:run
-```
-::: zone-end
+1. Copie a URL da função `HttpExample` dessa saída para um navegador e acrescente a cadeia de caracteres de consulta `?name=<YOUR_NAME>`, fazendo com que a URL completa seja `http://localhost:7071/api/HttpExample?name=Functions`. O navegador deve exibir uma mensagem como `Hello Functions`:
 
-Perto do fim da saída, devem aparecer as seguintes linhas: 
+    ![Resultado da execução local da função no navegador](./media/functions-run-function-test-local-cli/function-test-local-browser.png)
 
-<pre>
-...
+1. O terminal em que você iniciou seu projeto também mostra a saída do log conforme você faz solicitações.
 
-Now listening on: http://0.0.0.0:7071
-Application started. Press Ctrl+C to shut down.
-
-Http Functions:
-
-        HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
-...
-
-</pre>
-
->[!NOTE]  
-> Se HttpExample não aparece conforme mostrado abaixo, é provável que você tenha iniciado o host de fora da pasta raiz do projeto. Nesse caso, use **Ctrl**+**C** para parar o host, navegue até a pasta raiz do projeto e execute o comando anterior novamente.
-
-Copie a URL da função `HttpExample` dessa saída para um navegador e acrescente a cadeia de caracteres de consulta `?name=<your-name>`, fazendo com que a URL completa seja `http://localhost:7071/api/HttpExample?name=Functions`. O navegador deve exibir uma mensagem como `Hello Functions`:
-
-![Resultado da execução local da função no navegador](./media/functions-run-function-test-local-cli/function-test-local-browser.png)
-
-O terminal em que você iniciou seu projeto também mostra a saída do log conforme você faz solicitações.
-
-Quando você estiver pronto, use **Ctrl**+**C** e escolha `y` para interromper o host de funções.
+1. Quando você concluir, use **Ctrl**+**C** e escolha `y` para interromper o host de funções.

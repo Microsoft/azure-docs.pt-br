@@ -6,16 +6,16 @@ ms.author: cynthn
 ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
-ms.openlocfilehash: 7515e0a39d1cf0da74d2a23457443e96716b4275
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4779abfa92876c0d5a9b045963778a9d2440bf3f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335945"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878741"
 ---
 # <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder-in-windows"></a>Visualização: criar uma nova versão de imagem de VM de uma versão de imagem existente usando o construtor de imagem do Azure no Windows
 
-Este artigo mostra como usar uma versão de imagem existente em uma [Galeria de imagens compartilhadas](shared-image-galleries.md), atualizá-la e publicá-la como uma nova versão de imagem na galeria.
+Este artigo mostra como usar uma versão de imagem existente em uma [Galeria de imagens compartilhadas](../shared-image-galleries.md), atualizá-la e publicá-la como uma nova versão de imagem na galeria.
 
 Usaremos um modelo .json de exemplo para configurar a imagem. O arquivo. JSON que estamos usando está aqui: [helloImageTemplateforSIGfromWinSIG.jsem](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json). 
 
@@ -107,7 +107,7 @@ Se você já tiver sua própria galeria de imagens compartilhadas e não seguir 
 
 
 ## <a name="modify-helloimage-example"></a>Modificar exemplo de helloImage
-Você pode examinar o exemplo que estamos prestes a usar abrindo o arquivo. JSON aqui: [helloImageTemplateforSIGfromSIG.js](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json) juntamente com a referência de [modelo do Image Builder](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Você pode examinar o exemplo que estamos prestes a usar abrindo o arquivo. JSON aqui: [helloImageTemplateforSIGfromSIG.js](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json) juntamente com a referência de [modelo do Image Builder](../linux/image-builder-json.md). 
 
 
 Baixe o exemplo. JSON e configure-o com suas variáveis. 
@@ -177,4 +177,4 @@ Agora você deve ver dois diretórios:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre os componentes do arquivo. JSON usado neste artigo, consulte referência de [modelo do Image Builder](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para saber mais sobre os componentes do arquivo. JSON usado neste artigo, consulte referência de [modelo do Image Builder](../linux/image-builder-json.md).

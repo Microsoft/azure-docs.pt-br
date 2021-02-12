@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ae9404d366b24c0cc1bcf01ecffc71a427f949d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94abb33d39765a19306a013576d43fb2602d1c37
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88034338"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017620"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync-with-azure-databox"></a>Migrar dados em massa para Sincronização de Arquivos do Azure com o Azure Data Box
 Você pode migrar dados em massa para Sincronização de Arquivos do Azure de duas maneiras:
@@ -25,7 +25,7 @@ Este artigo explica como migrar arquivos offline de forma que seja compatível c
 ## <a name="migration-tools"></a>Ferramentas de migração
 O processo que descrevemos neste artigo funciona não apenas para Data Box, mas também para outras ferramentas de migração offline. Ele também funciona para ferramentas como AzCopy, Robocopy ou ferramentas de parceiros e serviços que funcionam diretamente pela Internet. No entanto, para superar o desafio de upload inicial, siga as etapas neste artigo para usar essas ferramentas de forma que seja compatível com Sincronização de Arquivos do Azure.
 
-Em alguns casos, você precisa passar de um Windows Server para outro Windows Server antes de adotar Sincronização de Arquivos do Azure. O [serviço de migração de armazenamento](https://aka.ms/storagemigrationservice) (SMS) pode ajudar com isso. Independentemente de você precisar migrar para uma versão do sistema operacional com suporte pelo Sincronização de Arquivos do Azure (Windows Server 2012R2 e up) ou simplesmente precisar migrar porque você está comprando um novo sistema para Sincronização de Arquivos do Azure, o SMS tem vários recursos e vantagens que ajudarão a fazer com que sua migração seja feita sem problemas.
+Em alguns casos, você precisa passar de um Windows Server para outro Windows Server antes de adotar Sincronização de Arquivos do Azure. O [serviço de migração de armazenamento](/windows-server/storage/storage-migration-service/overview) (SMS) pode ajudar com isso. Independentemente de você precisar migrar para uma versão do sistema operacional com suporte pelo Sincronização de Arquivos do Azure (Windows Server 2012R2 e up) ou simplesmente precisar migrar porque você está comprando um novo sistema para Sincronização de Arquivos do Azure, o SMS tem vários recursos e vantagens que ajudarão a fazer com que sua migração seja feita sem problemas.
 
 ## <a name="benefits-of-using-a-tool-to-transfer-data-offline"></a>Benefícios de usar uma ferramenta para transferir dados offline
 Aqui estão os principais benefícios do uso de uma ferramenta de transferência como Data Box para a migração offline:
@@ -49,12 +49,12 @@ Veja como configurar Sincronização de Arquivos do Azure de forma que seja comp
 
 ![Diagrama mostrando como configurar Sincronização de Arquivos do Azure](media/storage-sync-files-offline-data-transfer/data-box-integration-1-600.png)
 
-| Etapa | Detalhes |
+| Etapa | Detalhe |
 |---|---------------------------------------------------------------------------------------|
-| ![Etapa 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Solicite o Data Box](../../databox/data-box-deploy-ordered.md). A família de Data Box oferece [vários produtos](https://azure.microsoft.com/services/storage/databox/data) para atender às suas necessidades. Ao receber sua Data Box, siga sua [documentação para copiar os dados](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) para esse caminho UNC no Data Box: * \\ \> \<StorageAccountName_AzFile\> \<ShareName\><DeviceIPAddres*. Aqui, *ShareName* é o nome do compartilhamento de preparo. Envie o Data Box para o Azure. |
+| ![Etapa 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Solicite o Data Box](../../databox/data-box-deploy-ordered.md). A família de Data Box oferece [vários produtos](https://azure.microsoft.com/services/storage/databox/data) para atender às suas necessidades. Ao receber sua Data Box, siga sua [documentação para copiar os dados](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) para esse caminho UNC no Data Box: *\\ \> \<StorageAccountName_AzFile\> \<ShareName\><DeviceIPAddres*. Aqui, *ShareName* é o nome do compartilhamento de preparo. Envie o Data Box para o Azure. |
 | ![Etapa 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | Aguarde até que os arquivos apareçam nos compartilhamentos de arquivos do Azure que você escolheu como compartilhamentos temporários de preparo. *Não habilite a sincronização para esses compartilhamentos.* |
 | ![Etapa 3](media/storage-sync-files-offline-data-transfer/bullet_3.png) | <ul><li>Crie um novo compartilhamento vazio para cada compartilhamento de arquivos que Data Box criado para você. Esse novo compartilhamento deve estar na mesma conta de armazenamento que o compartilhamento de Data Box. [Como criar um novo compartilhamento de arquivos do Azure](storage-how-to-create-file-share.md).</li><li>[Crie um grupo de sincronização](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) em um serviço de sincronização de armazenamento. Referencie o compartilhamento vazio como um ponto de extremidade de nuvem. Repita essa etapa para cada compartilhamento de arquivos do Data Box. [Configurar sincronização de arquivos do Azure](storage-sync-files-deployment-guide.md).</li></ul> |
-| ![Etapa 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [Adicione seu diretório do servidor ao vivo como um ponto de extremidade do servidor](storage-sync-files-deployment-guide.md#create-a-server-endpoint). No processo, especifique que você moveu os arquivos para o Azure e faça referência aos compartilhamentos de preparo. Você pode habilitar ou desabilitar a disposição em camadas de nuvem conforme necessário. Ao criar um ponto de extremidade do servidor em seu servidor dinâmico, faça referência ao compartilhamento de preparo. Na folha **Adicionar ponto de extremidade do servidor** , em **transferência de dados offline**, selecione **habilitado**e, em seguida, selecione o compartilhamento de preparo que deve estar na mesma conta de armazenamento que o ponto de extremidade da nuvem. Aqui, a lista de compartilhamentos disponíveis é filtrada por conta de armazenamento e compartilhamentos que ainda não estão sincronizando. A captura de tela após esta tabela mostra como referenciar o compartilhamento data box durante a criação do ponto de extremidade do servidor no portal do Azure. |
+| ![Etapa 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [Adicione seu diretório do servidor ao vivo como um ponto de extremidade do servidor](storage-sync-files-deployment-guide.md#create-a-server-endpoint). No processo, especifique que você moveu os arquivos para o Azure e faça referência aos compartilhamentos de preparo. Você pode habilitar ou desabilitar a disposição em camadas de nuvem conforme necessário. Ao criar um ponto de extremidade do servidor em seu servidor dinâmico, faça referência ao compartilhamento de preparo. Na folha **Adicionar ponto de extremidade do servidor** , em **transferência de dados offline**, selecione **habilitado** e, em seguida, selecione o compartilhamento de preparo que deve estar na mesma conta de armazenamento que o ponto de extremidade da nuvem. Aqui, a lista de compartilhamentos disponíveis é filtrada por conta de armazenamento e compartilhamentos que ainda não estão sincronizando. A captura de tela após esta tabela mostra como referenciar o compartilhamento data box durante a criação do ponto de extremidade do servidor no portal do Azure. |
 | ![Etapa 5](media/storage-sync-files-offline-data-transfer/bullet_5.png) | Depois de adicionar o ponto de extremidade do servidor na etapa anterior, os dados começam a fluir automaticamente da origem correta. A seção [sincronizando o compartilhamento](#syncing-the-share) explica quando os dados fluem do compartilhamento data Box ou do Windows Server |
 | |
 

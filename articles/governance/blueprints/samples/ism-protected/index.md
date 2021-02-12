@@ -1,18 +1,18 @@
 ---
 title: Visão geral da amostra de blueprint ISM PROTECTED do governo australiano
 description: Visão geral da amostra de blueprint ISM PROTECTED do governo australiano. Este exemplo de blueprint ajuda os clientes a avaliar controles específicos do ISM PROTECTED.
-ms.date: 09/11/2020
+ms.date: 01/21/2021
 ms.topic: sample
-ms.openlocfilehash: 4e6b1db0d2f4ecff13068c8e673f2237740ffec2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee28ccb0d76327f3db073c98bcbc44a78c2f1a17
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90038680"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682247"
 ---
 # <a name="overview-of-the-australian-government-ism-protected-blueprint-sample"></a>Visão geral da amostra de blueprint ISM PROTECTED do governo australiano
 
-A amostra de blueprint de governança do ISM fornece um conjunto de proteções de governança que usa o [Azure Policy](../../../policy/overview.md) e ajuda com os atestados ISM PROTECTED (versão de fevereiro de 2020). Esse blueprint ajuda os clientes a implantar um conjunto principal de políticas para arquiteturas implantadas pelo Azure que exigem a certificação ou a conformidade com a estrutura do ISM. A seção de mapeamento de controle fornece detalhes sobre as políticas incluídas nesta iniciativa e como essas políticas ajudam a atender a vários controles definidos pela estrutura do ISM. Quando atribuídos a uma arquitetura, os recursos serão avaliados pelo Azure Policy para verificar a não conformidade com políticas atribuídas.
+A amostra de blueprint de governança do ISM fornece um conjunto de proteções de governança que usa o [Azure Policy](../../../policy/overview.md) e ajuda com os atestados ISM PROTECTED (versão de fevereiro de 2020). Esse blueprint ajuda os clientes a implantar um conjunto principal de políticas para arquiteturas implantadas pelo Azure que exigem a certificação ou a conformidade com a estrutura do ISM. 
 
 ## <a name="control-mapping"></a>Mapeamento de controle
 

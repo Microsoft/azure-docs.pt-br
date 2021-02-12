@@ -1,15 +1,18 @@
 ---
 title: Sobre as Migrações para Azure
 description: Saiba mais sobre o serviço Migrações para Azure.
+author: ms-psharma
+ms.author: panshar
+ms.manager: abhemraj
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 48447959f0a60baf8802a9939612bf0d536c2557
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: b42aa3bfaeaa454b5d870dbae3bce539b682028f
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314758"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754072"
 ---
 # <a name="about-azure-migrate"></a>Sobre as Migrações para Azure
 
@@ -18,7 +21,7 @@ Este artigo fornece uma visão geral rápida do serviço de Migrações para Azu
 As Migrações para Azure oferecem um hub centralizado para avaliar e migrar para o Azure os servidores, a infraestrutura, os aplicativos e os dados locais. Elas fornecem o seguinte:
 
 - **Plataforma de migração unificada**: Um único portal para iniciar, executar e acompanhar sua migração para o Azure.
-- **Variedade de ferramentas**: Uma variedade de ferramentas para avaliação e migração. As ferramentas de Migrações para Azure incluem a Avaliação do Servidor e as Migrações para Azure: Migração de Servidor. As Migrações para Azure também integram-se a outros serviços do Azure e a outras ferramentas, bem como com ofertas de ISVs (fornecedores independentes de software).
+- **Variedade de ferramentas**: Uma variedade de ferramentas para avaliação e migração. As ferramentas de Migrações para Azure incluem as Migrações para Azure: Avaliação de Servidor e Migrações para Azure: Migração de Servidor. As Migrações para Azure também integram-se a outros serviços do Azure e a outras ferramentas, bem como com ofertas de ISVs (fornecedores independentes de software).
 - **Avaliação e de migração**: no hub de Migrações para Azure, você pode avaliar e migrar:
     - **Servidores**: avalie os servidores locais e migre-os para as máquinas virtuais do Azure ou a AVS (Solução VMware no Azure) (versão prévia).
     - **Bancos de dados**: Avalie bancos de dados locais e migre-os para o Banco de Dados SQL do Azure ou a Instância Gerenciada de SQL.
@@ -82,9 +85,9 @@ As Migrações para Azure: A ferramenta de migração de servidor ajuda a migrar
 
 **Migrar** | **Detalhes**
 --- | ---
-VMs VMware locais | Migre VMs para o Azure usando a migração sem agente ou baseada em agente.<br/><br/> Para a migração sem agente, a Migração de Servidor usa um dispositivo das Migrações para Azure que você implanta no local. É o mesmo tipo de dispositivo que você usa para a Avaliação do Servidor.<br/><br/> Para migração baseada em agente, a Avaliação do Servidor usa um dispositivo de replicação.
-VMs do Hyper-V locais | Migre VMs para o Azure.<br/><br/> A Avaliação do Servidor usa agentes do provedor instalados no host Hyper-V para a migração.
-Servidores físicos locais | Você pode migrar computadores físicos para o Azure. Você também pode migrar outras máquinas virtualizadas e VMs de outras nuvens públicas, tratando-as como máquinas virtuais para fins de migração. | A Avaliação do Servidor usa um dispositivo de replicação para a migração.
+VMs VMware locais | Migre VMs para o Azure usando a migração sem agente ou baseada em agente.<br/><br/> Para a migração sem agente, a Migração de Servidor usa o mesmo dispositivo das Migrações para Azure que também pode ser usado pela Avaliação de Servidor para descoberta e avaliação de VMs do VMware.<br/><br/> Para a migração baseada em agente, a Migração de Servidor usa um dispositivo de replicação.
+VMs do Hyper-V locais | Migre VMs para o Azure.<br/><br/> A Migração de Servidor usa agentes do provedor instalados no host Hyper-V para a migração.
+Servidores físicos locais | Você pode migrar computadores físicos para o Azure. Você também pode migrar outros computadores virtualizados e VMs de outras nuvens públicas, tratando-os como servidores físicos para fins de migração. | A Migração de Servidor usa um dispositivo de replicação para a migração.
 
 
 ## <a name="selecting-assessment-and-migration-tools"></a>Selecionando ferramentas de avaliação e migração

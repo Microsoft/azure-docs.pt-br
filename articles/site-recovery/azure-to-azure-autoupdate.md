@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/02/2020
 ms.author: sideeksh
-ms.openlocfilehash: 53c5dc4920b6c50ee3c900db9626f4d283f7b846
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42d3c74229ab7eeec0ac716073a9e631775fd002
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89426411"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187333"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Atualização automática do serviço de mobilidade na replicação do Azure para o Azure
 
@@ -52,7 +52,7 @@ Há várias maneiras pelas quais Site Recovery pode gerenciar as atualizações 
 
 Ao habilitar a replicação para uma VM iniciada [na exibição da VM](azure-to-azure-quickstart.md) ou [no cofre dos serviços de recuperação](azure-to-azure-how-to-enable-replication.md), você pode permitir que site Recovery gerencie atualizações para a extensão site Recovery ou gerencie-as manualmente.
 
-:::image type="content" source="./media/azure-to-azure-autoupdate/enable-rep.png" alt-text="Configurações da extensão":::
+:::image type="content" source="./media/azure-to-azure-autoupdate/enable-rep.png" alt-text="Configurações de extensão":::
 
 ### <a name="toggle-the-extension-update-settings-inside-the-vault"></a>Ativar/desativar as configurações de atualização de dentro do cofre
 
@@ -63,13 +63,13 @@ Ao habilitar a replicação para uma VM iniciada [na exibição da VM](azure-to-
 
 1. Selecione **Salvar**.
 
-:::image type="content" source="./media/azure-to-azure-autoupdate/vault-toggle.png" alt-text="Configurações da extensão":::
+:::image type="content" source="./media/azure-to-azure-autoupdate/vault-toggle.png" alt-text="Configurações de atualização de extensão":::
 
 > [!IMPORTANT]
 > Quando você escolhe **permitir site Recovery gerenciar**, a configuração é aplicada a todas as VMs no cofre.
 
 > [!NOTE]
-> Qualquer opção notifica você sobre a conta de automação usada para gerenciar atualizações. Se você estiver usando esse recurso em um cofre pela primeira vez, uma nova conta de automação será criada por padrão. Como alternativa, você pode personalizar a configuração e escolher uma conta de automação existente. Todos os subseqüentes são necessários para habilitar a replicação no mesmo cofre usará a conta de automação criada anteriormente. Atualmente, o menu suspenso listará apenas as contas de automação que estão no mesmo grupo de recursos que o cofre.
+> Qualquer opção notifica você sobre a conta de automação usada para gerenciar atualizações. Se você estiver usando esse recurso em um cofre pela primeira vez, uma nova conta de automação será criada por padrão. Como alternativa, você pode personalizar a configuração e escolher uma conta de automação existente. Uma vez definidas, todas as ações subsequentes para habilitar a replicação no mesmo cofre usarão essa conta de automação selecionada. Atualmente, o menu suspenso listará apenas as contas de automação que estão no mesmo grupo de recursos que o cofre.
 
 > [!IMPORTANT]
 > O script a seguir precisa ser executado no contexto de uma conta de automação.
@@ -460,12 +460,12 @@ Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -Dis
 
 1. Se houver novas atualizações para o serviço de mobilidade instaladas em suas VMs, você verá a seguinte notificação: **novo site Recovery atualização do agente de replicação está disponível. Clique para instalar.**
 
-   :::image type="content" source="./media/vmware-azure-install-mobility-service/replicated-item-notif.png" alt-text="Configurações da extensão":::
+   :::image type="content" source="./media/vmware-azure-install-mobility-service/replicated-item-notif.png" alt-text="Janela Itens replicados":::
 
 1. Selecione a notificação para abrir a página seleção de VM.
 1. Escolha as VMs que você deseja atualizar e, em seguida, selecione **OK**. O serviço de mobilidade de atualização será iniciado para cada VM selecionada.
 
-   :::image type="content" source="./media/vmware-azure-install-mobility-service/update-okpng.png" alt-text="Configurações da extensão":::
+   :::image type="content" source="./media/vmware-azure-install-mobility-service/update-okpng.png" alt-text="Lista de VMs de itens replicados":::
 
 ## <a name="common-issues-and-troubleshooting"></a>Problemas comuns e solução de problemas
 
@@ -479,7 +479,7 @@ Se você não puder habilitar as atualizações automáticas, consulte os seguin
 
   Para corrigir a maioria dos problemas depois de habilitar as atualizações automáticas, selecione **reparar**. Se o botão reparar não estiver disponível, consulte a mensagem de erro exibida no painel configurações de atualização de extensão.
 
-  :::image type="content" source="./media/azure-to-azure-autoupdate/repair.png" alt-text="Configurações da extensão":::
+  :::image type="content" source="./media/azure-to-azure-autoupdate/repair.png" alt-text="Botão de reparo do serviço Site Recovery nas configurações de atualização de extensão":::
 
 - **Erro**: a conta Executar como não tem permissão para acessar o recurso de serviços de recuperação.
 
@@ -495,7 +495,7 @@ Se você não puder habilitar as atualizações automáticas, consulte os seguin
 
   **Ação recomendada**: para resolver esse problema, selecione **reparar** e **renovar certificado**.
 
-  :::image type="content" source="./media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG" alt-text="Configurações da extensão":::
+  :::image type="content" source="./media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG" alt-text="renovar-CERT":::
 
   > [!NOTE]
   > Depois de renovar o certificado, atualize a página para exibir o status atual.

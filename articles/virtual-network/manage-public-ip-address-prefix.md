@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: allensu
-ms.openlocfilehash: 90fc35249daea51a08cb83143c6be024e78964a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e32faad698fbf316d51123cc8b7845a3b262c7f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804003"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938651"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Criar, alterar ou excluir um prefixo de endereço IP público
 
@@ -61,6 +61,9 @@ Prefixos do endereço IP público têm um encargo. Para detalhes, consulte o [pr
 |CLI|[az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)|
 |PowerShell|[New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix)|
 
+>[!NOTE]
+>Em regiões com zonas de disponibilidade, você pode usar os comandos do PowerShell ou da CLI para criar um prefixo de endereço IP público como: não zonal, associado a uma zona específica ou para usar a redundância de zona.  Para a versão de API 2020-08-01 ou posterior, se um parâmetro de zona não for fornecido, um prefixo de endereço IP público não zonal será criado. Para versões da API com mais de 2020-08-01, um prefixo de endereço IP público com redundância de zona é criado. 
+
 ## <a name="create-a-static-public-ip-address-from-a-prefix"></a>Criar um endereço IP público estático de um prefixo
 Após criar um prefixo, você deverá criar endereços IP estáticos a partir do prefixo. Para fazer isso, siga as etapas abaixo.
 
@@ -79,8 +82,8 @@ Como alternativa, você pode usar os comandos da CLI e do PS abaixo com os parâ
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create)|
-|PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress?view=azps-2.0.0)|
+|CLI|[az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)|
+|PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)|
 
 ## <a name="view-or-delete-a-prefix"></a>Exibir ou excluir um prefixo
 

@@ -1,21 +1,25 @@
 ---
-title: Implementar estilo dinâmico para mapas internos do Criador do Azure Mapas
-description: Saiba como implementar estilo dinâmico para os mapas internos do Criador
+title: Implementar o estilo dinâmico para mapas do Azure Maps Creator (visualização) em modo interno
+description: Saiba como implementar o estilo dinâmico para mapas de informações do criador (visualização)
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b9ce0d0770c7e6c4579469cc16d8c76c309a33d1
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 266dc5d62f6224495075546528ad71d806d415ac
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895368"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903438"
 ---
-# <a name="implement-dynamic-styling-for-creator-indoor-maps"></a>Implementar estilo dinâmico para mapas internos do Criador
+# <a name="implement-dynamic-styling-for-creator-preview-indoor-maps"></a>Implementar o estilo dinâmico para mapas do Creator (visualização) em modo interno
+
+> [!IMPORTANT]
+> Os serviços do Azure Maps Creator estão atualmente em visualização pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O [serviço de estado do recurso](/rest/api/maps/featurestate) do Criador do Azure Mapas permite que você aplique estilos com base nas propriedades dinâmicas dos recursos de dados do mapa interno.  Por exemplo, você pode renderizar as salas de reunião de um local com uma cor específica para refletir o status de ocupação. Neste artigo, mostraremos como renderizar dinamicamente os recursos de mapa interno com o [serviço de estado do recurso](/rest/api/maps/featurestate) e o [módulo Web interno](how-to-use-indoor-module.md).
 
@@ -23,7 +27,7 @@ O [serviço de estado do recurso](/rest/api/maps/featurestate) do Criador do Azu
 
 1. [Crie uma conta do Azure Mapas](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Obtenha uma chave de assinatura primária](quick-demo-map-app.md#get-the-primary-key-for-your-account), também conhecida como a chave primária ou a chave de assinatura.
-3. [Crie um recurso do Criador](how-to-manage-creator.md)
+3. [Criar um recurso de criador (versão prévia)](how-to-manage-creator.md)
 4. Baixe o [pacote de exemplo do Drawing](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 5. [Crie um mapa interno](tutorial-creator-indoor-maps.md) para obter um `tilesetId` e um `statesetId`.
 6. Crie um aplicativo Web seguindo as etapas em [Como usar o módulo de mapa interno](how-to-use-indoor-module.md).
@@ -66,7 +70,7 @@ Na próxima seção, vamos definir o *estado* de ocupação do escritório `UNIT
 
  Agora, atualizaremos o estado dos dois escritórios, `UNIT26` e `UNIT27`:
 
-1. No aplicativo Postman, selecione **Novo** . Na janela **Criar** , selecione **Solicitação** . Insira o **Nome da solicitação** e selecione uma coleção. Clique em **Salvar**
+1. No aplicativo Postman, selecione **Novo**. Na janela **Criar**, selecione **Solicitação**. Insira o **Nome da solicitação** e selecione uma coleção. Clique em **Salvar**
 
 2. Use a [API de estados de atualização de recursos](/rest/api/maps/featurestate/updatestatespreview) para atualizar o estado. Passe a ID do conjunto de estados e `UNIT26` para uma das duas unidades. Acrescente sua chave de assinatura do Azure Mapas. Essa é a URL da solicitação **POST** para atualizar o estado:
 
@@ -74,7 +78,7 @@ Na próxima seção, vamos definir o *estado* de ocupação do escritório `UNIT
     https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&featureID=UNIT26&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. Nos **Cabeçalhos** da solicitação **POST** , defina `Content-Type` como `application/json`. No **CORPO** da solicitação **POST** , grave o JSON a seguir com as atualizações de recursos. A atualização será salva somente se o carimbo de data/hora postado for posterior ao carimbo de data/hora usado nas solicitações de atualização de estado do recurso anterior para o mesmo recurso `ID`. Passe o `keyName` "ocupado" para atualizar seu valor.
+3. Nos **Cabeçalhos** da solicitação **POST**, defina `Content-Type` como `application/json`. No **CORPO** da solicitação **POST**, grave o JSON a seguir com as atualizações de recursos. A atualização será salva somente se o carimbo de data/hora postado for posterior ao carimbo de data/hora usado nas solicitações de atualização de estado do recurso anterior para o mesmo recurso `ID`. Passe o `keyName` "ocupado" para atualizar seu valor.
 
     ```json
     {
@@ -113,7 +117,7 @@ O aplicativo Web que você abriu anteriormente em um navegador agora deve reflet
 Saiba mais sobre isso lendo:
 
 > [!div class="nextstepaction"]
-> [Criador para mapas internos](creator-indoor-maps.md)
+> [Criador (visualização) para mapeamento interno](creator-indoor-maps.md)
 
 Consulte as referências das APIs mencionadas neste artigo:
 

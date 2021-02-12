@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 38133a63d65e45a4d1c83e9752dcaa01a86da33e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e0736e58983d4c28b8f2f4a20241cd36ac84fdfa
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782885"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445384"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>O que é um SQL Server lógico no banco de dados SQL do Azure e o Azure Synapse?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -26,7 +26,7 @@ No banco de dados SQL do Azure e no Azure Synapse Analytics, um servidor é um c
 
 Esse servidor é diferente de uma instância do SQL Server com a qual você pode estar familiarizado no mundo local. Especificamente, não há nenhuma garantia em relação ao local dos bancos de dados ou data warehouse banco de dados em relação ao servidor que os gerencia. Além disso, nem o banco de dados SQL do Azure nem o Azure Synapse expõem qualquer recurso ou acesso em nível de instância. Por outro lado, os bancos de dados de instância em uma instância gerenciada estão todos fisicamente colocalizados da mesma maneira que você está familiarizado com SQL Server no mundo da máquina virtual ou local.
 
-Ao criar um servidor, você fornece uma conta de logon do servidor e uma senha que tem direitos administrativos ao banco de dados mestre nesse servidor e a todos os bancos de dados criados nesse servidor. Essa conta inicial é uma conta de logon do SQL. O banco de dados SQL do Azure e o Synapse Analytics dão suporte à autenticação do SQL e Azure Active Directory autenticação para autenticação. Para obter informações sobre logons e autenticação, confira [Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure](logins-create-manage.md). A Autenticação do Windows não é suportada.
+Ao criar um servidor, você fornece uma conta de logon do servidor e uma senha que tem direitos administrativos ao banco de dados mestre nesse servidor e a todos os bancos de dados criados nesse servidor. Essa conta inicial é uma conta de logon do SQL. O banco de dados SQL do Azure e o Azure Synapse Analytics dão suporte à autenticação do SQL e Azure Active Directory autenticação para autenticação. Para obter informações sobre logons e autenticação, confira [Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure](logins-create-manage.md). A Autenticação do Windows não é suportada.
 
 Um servidor no banco de dados SQL e Azure Synapse:
 

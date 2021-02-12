@@ -5,13 +5,13 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/10/2020
-ms.openlocfilehash: 58e7d54750da86b8a700a4f2195bc4cfa012ae4b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 12/11/2020
+ms.openlocfilehash: 31b96f03a8519b068eaa816443be0a0f374a4a8c
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092680"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247022"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Perguntas frequentes sobre a taxa de transferência provisionada de dimensionamento automático no Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -43,12 +43,12 @@ Em contas de região de gravação única, a taxa de dimensionamento automático
 Em contas com várias regiões de gravação, a taxa de dimensionamento automático por 100 RU/s é a mesma que a taxa da taxa de transferência de região de gravação múltipla padrão (manual) provisionada. Em sua conta, você verá o medidor de várias regiões de gravação existentes. Como as taxas são as mesmas, se você usar o dimensionamento automático, verá a mesma quantidade da taxa de transferência padrão.
 
 ### <a name="does-autoscale-work-with-reserved-capacity"></a>O dimensionamento automático funciona com capacidade reservada?
-Sim. Quando você adquire capacidade reservada para contas com várias regiões de gravação, o desconto de reserva para recursos de dimensionamento automático é aplicado ao seu uso de medidor a uma taxa de 1,5 * a [taxa da região específica](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
+Sim. Quando você adquire capacidade reservada para contas com regiões de gravação única, o desconto de reserva para recursos de dimensionamento automático é aplicado ao seu uso de medidor a uma taxa de 1,5 * a [taxa da região específica](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
 
 A capacidade reservada da região de várias gravações funciona da mesma para a taxa de transferência de dimensionamento automático e padrão (manual). Confira [Capacidade reservada do Azure Cosmos DB](cosmos-db-reserved-capacity.md)
 
 ### <a name="does-autoscale-work-with-free-tier"></a>O dimensionamento automático funciona com a camada gratuita?
-Sim. Na camada gratuita, você pode usar a taxa de transferência do dimensionamento automático em um contêiner. O suporte para bancos de dados de taxa de transferência compartilhada de dimensionamento automático com o máximo personalizado de RU/s ainda não está disponível. Confira como [a cobrança da camada gratuita funciona com o dimensionamento automático](understand-your-bill.md#billing-examples-with-free-tier-accounts).
+Sim. Na camada gratuita, você pode usar a taxa de transferência do dimensionamento automático em um contêiner. O suporte para bancos de dados de taxa de transferência compartilhada de dimensionamento automático com o máximo personalizado de RU/s ainda não está disponível. Confira como [a cobrança da camada gratuita funciona com o dimensionamento automático](understand-your-bill.md#azure-free-tier).
 
 ### <a name="is-autoscale-supported-for-all-apis"></a>O dimensionamento automático tem suporte para todas as APIs?
 Sim, o dimensionamento automático tem suporte para todas as APIs: Core (SQL), Gremlin, Table, Cassandra e API para MongoDB.
@@ -109,9 +109,9 @@ Quando você envia uma solicitação para aumentar o máximo de RU/s `Tmax`, dep
 #### <a name="lowering-the-max-rus"></a>Redução do máximo de RU/s
 Quando você reduz o máximo de RU/s, o valor mínimo para o qual você pode defini-lo é: `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100)`, arredondado para as 1.000 RU/s mais próximas. 
 
-Exemplo nº 1: Suponha que você tenha um contêiner de dimensionamento automático com o máximo de 20.000 RU/s (o que é dimensionado entre 2.000 e 20.000 RU/s) e 50 GB de armazenamento. O menor valor mínimo possível para definir o máximo de RU/s é: MAX(4.000, 20.000 / 10, **50 * 100** ) = 5.000 RU/s (o que é dimensionado entre 500 e 5.000 RU/s).
+Exemplo nº 1: Suponha que você tenha um contêiner de dimensionamento automático com o máximo de 20.000 RU/s (o que é dimensionado entre 2.000 e 20.000 RU/s) e 50 GB de armazenamento. O menor valor mínimo possível para definir o máximo de RU/s é: MAX(4.000, 20.000 / 10, **50 * 100**) = 5.000 RU/s (o que é dimensionado entre 500 e 5.000 RU/s).
 
-Exemplo nº 2: Suponha que você tenha um contêiner de dimensionamento automático com o máximo de 100.000 RU/s e 100 GB de armazenamento. Agora, você dimensiona o máximo de RU/s até 150.000 (o que é dimensionado entre 15.000 e 150.000 RU/s). Agora, o menor valor mínimo possível para definir o máximo de RU/s é: MAX(4.000, **150.000 / 10** , 100 * 100) = 15.000 RU/s (o que é dimensionado entre 1.500 e 15.000 RU/s). 
+Exemplo nº 2: Suponha que você tenha um contêiner de dimensionamento automático com o máximo de 100.000 RU/s e 100 GB de armazenamento. Agora, você dimensiona o máximo de RU/s até 150.000 (o que é dimensionado entre 15.000 e 150.000 RU/s). Agora, o menor valor mínimo possível para definir o máximo de RU/s é: MAX(4.000, **150.000 / 10**, 100 * 100) = 15.000 RU/s (o que é dimensionado entre 1.500 e 15.000 RU/s). 
 
 Para um banco de dados de taxa de transferência compartilhada, quando você reduz o máximo de RU/s, o valor mínimo para o qual você pode defini-lo é: `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100,  4000 + (MAX(Container count - 25, 0) * 1000))`, arredondado para as 1.000 RU/s mais próximas.  
 

@@ -4,16 +4,16 @@ description: Saiba como montar um compartilhamento do sistema de arquivos de red
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 530ae82720e6b4eb6a3e4d1021c0b37b9f4dbf5c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a993d9c1de35132198de5e3becc4f16d6a2a437
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90707434"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621290"
 ---
 # <a name="how-to-mount-an-nfs-file-share"></a>Como montar um compartilhamento de arquivos NFS
 
@@ -55,9 +55,13 @@ ms.locfileid: "90707434"
 1. Insira o caminho de montagem que você deseja usar e copie o script.
 1. Conecte-se ao seu cliente e use o script de montagem fornecido.
 
-    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/mount-nfs-file-share-script.png" alt-text="Captura de tela de configuração da conta de armazenamento com transferência segura desabilitada.":::
+    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/mount-nfs-file-share-script.png" alt-text="Captura de tela da folha conexão de compartilhamento de arquivos":::
 
 Agora você montou seu compartilhamento NFS.
+
+### <a name="validate-connectivity"></a>Validar a conectividade
+
+Se a montagem falhar, é possível que seu ponto de extremidade particular não tenha sido configurado corretamente ou inacessível. Para obter detalhes sobre como confirmar a conectividade, consulte a seção [verificar conectividade](storage-files-networking-endpoints.md#verify-connectivity) do artigo pontos de extremidade de rede.
 
 ## <a name="next-steps"></a>Próximas etapas
 

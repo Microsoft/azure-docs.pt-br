@@ -3,8 +3,8 @@ title: Chamar o Programa MapReduce da Data Factory do Azure
 description: Saiba como processar dados executando programas MapReduce em um cluster HDInsight do Azure em uma Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.assetid: c34db93f-570a-44f1-a7d6-00390f4dc0fa
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 089a2e6a0b90c1682e2ebdd146626c93cec35f77
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 8bdcaf20330a3700681fd96f858370dd7dcdf4c7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636843"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495422"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Chamar Programas MapReduce da Data Factory
 > [!div class="op_single_selector" title1="Atividades de transformação"]
@@ -49,11 +49,11 @@ Consulte [Pig](data-factory-pig-activity.md) e [Hive](data-factory-hive-activity
 ## <a name="json-for-hdinsight-mapreduce-activity"></a>JSON para atividade do HDInsight MapReduce
 Na definição do JSON para a atividade de HDInsight: 
 
-1. Defina o **tipo** da **atividade** como **HDInsight** .
-2. Especifique o nome da classe da propriedade **className** .
-3. Especifique o caminho do arquivo JAR, incluindo o nome do arquivo para a propriedade **jarFilePath** .
-4. Especifique o serviço vinculado que faz referência ao Armazenamento de Blob do Azure que contém o arquivo JAR para a propriedade **jarLinkedService** .   
-5. Especifique quaisquer argumentos para o programa MapReduce na seção **argumentos** . Em runtime, você verá alguns argumentos extras (por exemplo: mapreduce.job.tags) da estrutura MapReduce. Para diferenciar seus argumentos com os argumentos MapReduce, considere usar opção e valor como argumentos, conforme mostrado no exemplo a seguir (- s, --input - output etc... são opções seguidas imediatamente por seus valores).
+1. Defina o **tipo** da **atividade** como **HDInsight**.
+2. Especifique o nome da classe da propriedade **className**.
+3. Especifique o caminho do arquivo JAR, incluindo o nome do arquivo para a propriedade **jarFilePath**.
+4. Especifique o serviço vinculado que faz referência ao Armazenamento de Blob do Azure que contém o arquivo JAR para a propriedade **jarLinkedService**.   
+5. Especifique quaisquer argumentos para o programa MapReduce na seção **argumentos**. Em runtime, você verá alguns argumentos extras (por exemplo: mapreduce.job.tags) da estrutura MapReduce. Para diferenciar seus argumentos com os argumentos MapReduce, considere usar opção e valor como argumentos, conforme mostrado no exemplo a seguir (- s, --input - output etc... são opções seguidas imediatamente por seus valores).
 
     ```JSON   
     {
@@ -152,7 +152,7 @@ Em seguida, você cria um serviço vinculado para vincular seu cluster do HDInsi
 }
 ```
 
-### <a name="datasets"></a>Conjunto de dados
+### <a name="datasets"></a>Conjuntos de dados
 #### <a name="output-dataset"></a>Conjunto de dados de saída
 O pipeline neste exemplo não tem entradas. Especifique um conjunto de dados de saída para a atividade do HDInsight MapReduce. Esse conjunto de dados é apenas um conjunto fictício exigido para direcionar a agenda de pipeline.  
 
@@ -183,7 +183,7 @@ O pipeline neste exemplo tem apenas uma atividade que seja do tipo: HDInsightMap
 
 | Propriedade | Observações |
 |:--- |:--- |
-| tipo |O tipo deve ser definido como **HDInsightMapReduce** . |
+| tipo |O tipo deve ser definido como **HDInsightMapReduce**. |
 | className |Nome da classe é: **wordcount** |
 | jarFilePath |Caminho para o arquivo jar que contém a classe. Se você copiar/colar o código a seguir, não se esqueça de alterar o nome do cluster. |
 | jarLinkedService |Serviço vinculado do Armazenamento do Azure que contém o arquivo jar. Esse serviço vinculado faz referência ao armazenamento que está associado ao cluster do HDInsight. |

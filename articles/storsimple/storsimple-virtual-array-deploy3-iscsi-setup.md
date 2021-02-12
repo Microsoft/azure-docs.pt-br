@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 81799e6ec366c7429fdb29b85b4ff65d353a8fba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6289f335234c9b7efec02a18e12b40a1140c1b3f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742410"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956544"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Implantar o StorSimple Virtual Array — configurar como um servidor iSCSI por meio do portal do Azure
 
@@ -37,7 +37,7 @@ Os procedimentos descritos aqui levam um intervalo de aproximadamente 30 minutos
 
 Antes de configurar e de instalar a Matriz Virtual StorSimple, verifique se:
 
-* Você provisionou uma matriz virtual e se conectou a ela, conforme descrito em [Implantar a Matriz Virtual StorSimple – Provisionar uma matriz virtual no Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) ou [Implantar a Matriz Virtual StorSimple – Provisionar uma matriz virtual no VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
+* Você provisionou uma matriz virtual e se conectou a ela, conforme descrito em [Implantar a Matriz Virtual StorSimple – Provisionar uma matriz virtual no Hyper-V](./storsimple-virtual-array-deploy2-provision-hyperv.md) ou [Implantar a Matriz Virtual StorSimple – Provisionar uma matriz virtual no VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
 * Você tem a chave de registro do serviço Gerenciador de Dispositivos StorSimple que você criou para gerenciar Matrizes Virtuais StorSimple. Para obter mais informações, veja **Etapa 2: Obter a chave de registro do serviço** em [Implantar o StorSimple Virtual Array – Preparar o portal](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
 * Se essa for a segunda matriz virtual ou a subsequente que você está registrando com um serviço Gerenciador de Dispositivos StorSimple existente, você deverá ter a chave de criptografia de dados do serviço. Essa chave foi gerada quando o primeiro dispositivo foi registrado com êxito com esse serviço. Caso tenha perdido essa chave, veja **Obter a chave de criptografia de dados de serviço** em [Usar a interface do usuário da Web para administrar o StorSimple Virtual Array](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key).
 
@@ -162,7 +162,7 @@ Execute as etapas a seguir no portal do Azure para concluir a configuração obr
 2. Na folha **Adicionar volume**, faça o seguinte:
    
    * No campo **Nome do volume**, insira um nome exclusivo para o seu volume. O nome deve ser uma cadeia de caracteres contendo entre 3 e 127 caracteres.
-   * Na lista suspensa **Tipo**, especifique se deseja criar um volume **Em camadas** ou **Fixado localmente**. Para as cargas de trabalho que exigem garantias locais, latências baixas e um melhor desempenho, selecione **volume** **Localmente afixado**. Para todos os outros dados, selecione **Volume em ** **camadas**.
+   * Na lista suspensa **Tipo**, especifique se deseja criar um volume **Em camadas** ou **Fixado localmente**. Para as cargas de trabalho que exigem garantias locais, latências baixas e um melhor desempenho, selecione **volume** **Localmente afixado**. Para todos os outros dados, selecione **Volume em** **camadas**.
    * No campo **Capacidade**, especifique o tamanho do volume. Um volume em camadas deve ter entre 500 GB e 5 TB e um volume fixado localmente deve ter entre 50 GB e 500 GB.
      
      Um volume fixado localmente é provisionado estaticamente e garante que os dados primários no volume permaneçam como locais para o dispositivo e não sejam divulgados na nuvem.
@@ -245,7 +245,4 @@ Execute as etapas a seguir para obter o iSCSI IQN (Nome Qualificado) de um host 
 3. Salve esta cadeia de caracteres.
 
 <!--Reference link-->
-[1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
-
-
-
+[1]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee338480(v=ws.10)

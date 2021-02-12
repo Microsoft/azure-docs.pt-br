@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 29eddbcfb7c0da98e5438f968dd3976b77a44680
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a87b4c6b845006a9f9f3cf82815277c67c09bef0
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85203088"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178833"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -46,7 +46,7 @@ O elemento **TrustFrameworkPolicy** contém os seguintes atributos:
 | PolicyId | Sim | O identificador exclusivo da política. Esse identificador deve ter o *B2C_1A_* como prefixo |
 | PublicPolicyUri | Sim | O URI para a política, o que é uma combinação de ID do locatário e ID da política. |
 | DeploymentMode | Não | Valores possíveis: `Production` , ou `Development` . `Production` é o padrão. Use essa propriedade para depurar sua política. Para obter mais informações, veja [Coleta de Logs](troubleshoot-with-application-insights.md). |
-| UserJourneyRecorderEndpoint | Não | O ponto de extremidade usado quando **DeploymentMode** é definido como `Development`. O valor deve ser `urn:journeyrecorder:applicationinsights`. Para obter mais informações, veja [Coleta de Logs](troubleshoot-with-application-insights.md). |
+| UserJourneyRecorderEndpoint | Não | O ponto de extremidade usado para registro em log. O valor deve ser definido como `urn:journeyrecorder:applicationinsights` se o atributo existir. Para obter mais informações, veja [Coleta de Logs](troubleshoot-with-application-insights.md). |
 
 
 O exemplo a seguir mostra como especificar o elemento **TrustFrameworkPolicy**:
@@ -62,27 +62,15 @@ O exemplo a seguir mostra como especificar o elemento **TrustFrameworkPolicy**:
    PublicPolicyUri="http://mytenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
 ```
 
-## <a name="inheritance-model"></a>Modelo de herança
+O elemento **TrustFrameworkPolicy** contém os seguintes elementos:
 
-Esses tipos de arquivos de política normalmente são usados em um percurso do usuário:
-
-- Um arquivo de **Base** que contém a maioria das definições. Para ajudar na solução de problemas e na manutenção de longo prazo das suas políticas, é recomendável que você fazer um número mínimo de alterações nesse arquivo.
-- Um arquivo de **Extensões** que contém as alterações de configuração exclusivas para seu locatário. Esse arquivo de política é derivado do arquivo de Base. Use esse arquivo para adicionar novas funcionalidades ou substituir a funcionalidade existente. Por exemplo, use esse arquivo para federar com novos provedores de identidade.
-- Um arquivo **RP (Terceira Parte Confiável)** que é o único arquivo centrado em tarefa invocado diretamente pelo aplicativo de terceira parte confiável, como seus aplicativos Web, móveis ou da área de trabalho. Cada tarefa exclusiva, como inscrição ou entrada, redefinição de senha ou edição de perfil, requer o próprio arquivo de política de RP. Este arquivo de política é derivado do arquivo de Extensões.
-
-Um aplicativo de terceira parte confiável chama o arquivo de política de RP para executar uma tarefa específica. Por exemplo, para iniciar o fluxo de entrada. A Estrutura de Experiência de Identidade no Azure AD B2C adiciona todos os elementos primeiro do arquivo Base, então do arquivo de Extensões e, por fim, do arquivo de política de RP para montar a política atual em vigor. Elementos do mesmo tipo e nome no arquivo RP substituem aqueles nas Extensões, e as Extensões substituem a Base. O diagrama a seguir mostra a relação entre os arquivos de política e os aplicativos de terceira parte confiável.
-
-![Diagrama mostrando o modelo de herança de política de estrutura confiável](./media/trustframeworkpolicy/custom-policy-Inheritance-model.png)
-
-O modelo de herança é assim:
-
-- A política pai e a política filho são do mesmo esquema.
-- A política filho em qualquer nível pode herdar de política pai e estendê-la adicionando novos elementos.
-- Não há nenhum limite ao número de níveis.
-
-Para obter mais informações, consulte [Introdução às políticas personalizadas](custom-policy-get-started.md).
-
-## <a name="base-policy"></a>Política de base
+| Elemento | Ocorrências | Descrição |
+| ------- | ----------- | ----------- |
+| BasePolicy| 0:1| O identificador de uma política de base. |
+| [BuildingBlocks](buildingblocks.md) | 0:1 | Os blocos de construção da sua política. |
+| [ClaimsProviders](claimsproviders.md) | 0:1 | Uma coleção de provedores de declarações. |
+| [UserJourneys](userjourneys.md) | 0:1 | Uma coleção de percursos do usuário. |
+| [RelyingParty](relyingparty.md) | 0:1 | Uma definição de uma política de terceira parte confiável. |
 
 Para herdar de uma política de outra política, um elemento **BasePolicy** deve ser declarado no elemento **TrustFrameworkPolicy** do arquivo de política. O elemento **BasePolicy** é uma referência à política de base da qual essa política é derivada.
 
@@ -114,46 +102,3 @@ O exemplo a seguir mostra como especificar uma política de base. Essa política
 </TrustFrameworkPolicy>
 ```
 
-## <a name="policy-execution"></a>Execução de política
-
-Um aplicativo de terceira parte confiável, como um aplicativo Web, móvel ou da área de trabalho, chama a [política de RP (terceira parte confiável)](relyingparty.md). O arquivo de política de RP executa uma tarefa específica, como entrar, redefinir senha ou editar perfil. A política de RP configura a lista de declarações que o aplicativo de terceira parte confiável recebe como parte do token emitido. Vários aplicativos podem usar a mesma política. Todos os aplicativos recebem o mesmo token com declarações e o usuário passa pela mesma jornada do usuário. Um único aplicativo pode usar várias políticas.
-
-Dentro do arquivo de política RP, você deve especificar o elemento **DefaultUserJourney**, que aponta para [UserJourney](userjourneys.md). O percurso do usuário geralmente é definido na política de Base ou de Extensões.
-
-Política B2C_1A_signup_signin:
-
-```xml
-<RelyingParty>
-  <DefaultUserJourney ReferenceId="SignUpOrSignIn">
-  ...
-```
-
-B2C_1A_TrustFrameWorkBase ou B2C_1A_TrustFrameworkExtensionPolicy:
-
-```xml
-<UserJourneys>
-  <UserJourney Id="SignUpOrSignIn">
-  ...
-```
-
-Um percurso do usuário define a lógica de negócios pela qual um usuário passa. Cada percurso do usuário é um conjunto de etapas de orquestração que executa uma série de ações em sequência em termos de coleta de informações e autenticação.
-
-O arquivo de política **SocialAndLocalAccounts** no [starter pack](custom-policy-get-started.md#custom-policy-starter-pack) contém os percursos do usuário SignUpOrSignIn, ProfileEdit, PasswordReset. Você pode adicionar mais viagens de usuário para outros cenários, como alterar um endereço de email ou vincular e desvincular uma conta social.
-
-As etapas de orquestração podem chamar um [Perfil Técnico](technicalprofiles.md). Um perfil técnico fornece uma estrutura com um mecanismo interno para se comunicar com diferentes tipos de partes. Por exemplo, um perfil técnico pode executar estas ações, entre outras:
-
-- Renderize uma experiência de usuário.
-- Permitir que os usuários entrem usando uma conta social ou empresarial, como Facebook, conta Microsoft, Google, Salesforce ou qualquer outro provedor de identidade.
-- Configure a verificação de telefone para MFA.
-- Leia e grave dados de e para um repositório de identidades do Azure AD B2C.
-- Chame um serviço de API Restful personalizado.
-
-![Diagrama mostrando o fluxo de execução da política](./media/trustframeworkpolicy/custom-policy-execution.png)
-
- O elemento **TrustFrameworkPolicy** contém os seguintes elementos:
-
-- BasePolicy conforme especificada acima
-- [BuildingBlocks](buildingblocks.md)
-- [ClaimsProviders](claimsproviders.md)
-- [UserJourneys](userjourneys.md)
-- [RelyingParty](relyingparty.md)

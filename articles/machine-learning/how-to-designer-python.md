@@ -1,7 +1,7 @@
 ---
 title: Executar script Python no designer
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o Python no designer do Azure Machine Learning para transformar dados.
+description: Saiba como usar o modelo executar script Python no Azure Machine Learning designer para executar operações personalizadas escritas em Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: keli19
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer, devx-track-python
-ms.openlocfilehash: 6a393cf2c0787a2bc2111581126cbc261d85f1f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcc28d98efbc82079586de8cfbecd35effc93d6e
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90897736"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556226"
 ---
 # <a name="run-python-code-in-azure-machine-learning-designer"></a>Executar código Python no designer de Azure Machine Learning
 
@@ -58,7 +58,7 @@ Os módulos de entrada são opcionais, já que você pode gerar ou importar dado
 
 O designer oferece um script inicial que serve de ponto de partida para você editar e inserir seu próprio código Python. 
 
-Neste exemplo, você usa o Pandas para combinar duas colunas encontradas no conjunto de dados de automóvel, **Preço** e **Cavalos-vapor**, para criar uma nova coluna, **Dólares por cavalo-vapor**. Esta coluna representa quanto você paga por cada cavalo-vapor, o que pode ser um recurso útil para decidir se um carro tem um bom custo-benefício. 
+Neste exemplo, você usa o Pandas para combinar duas colunas encontradas no conjunto de dados de automóvel, **Preço** e **Cavalos-vapor** , para criar uma nova coluna, **Dólares por cavalo-vapor**. Esta coluna representa quanto você paga por cada cavalo-vapor, o que pode ser um recurso útil para decidir se um carro tem um bom custo-benefício. 
 
 1. Selecione o módulo **Executar Script do Python**.
 
@@ -83,7 +83,7 @@ Neste exemplo, você usa o Pandas para combinar duas colunas encontradas no conj
     
 1. Envie o pipeline.
 
-Agora, você tem um conjunto de dados com o novo recurso **Dólares/CV**, o que pode ser útil para o treinamento de um recomendador de carros. Este é um exemplo de extração de recursos e redução de dimensionalidade. 
+Agora, você tem um conjunto de dados com o novo recurso **Dólares/CV** , o que pode ser útil para o treinamento de um recomendador de carros. Este é um exemplo de extração de recursos e redução de dimensionalidade. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

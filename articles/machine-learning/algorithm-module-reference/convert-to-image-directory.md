@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/09/2020
-ms.openlocfilehash: 2e597299c9b157d79a5317c97550fc30820636d6
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.date: 11/12/2020
+ms.openlocfilehash: 1489ce74da2ecff5212feb5a1a2e3c9151b73424
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940337"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555576"
 ---
 # <a name="convert-to-image-directory"></a>Converter em Diretório de Imagem
 
@@ -47,9 +47,10 @@ Este artigo descreve como usar o módulo converter em diretório de imagem para 
     
     ![Conjunto de exemplo de imagem](./media/module/image-sample-dataset.png)
 
-    Para pontuação, a pasta do conjunto de imagens de imagem só precisa conter imagens não classificadas.
+    > [!NOTE]
+    > Para a inferência, a pasta do conjunto de imagens de imagem só precisa conter imagens não classificadas.
 
-1. [Registre o conjunto de dados de imagem como um conjunto](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) de dado de arquivo em seu espaço de trabalho, já que a entrada do módulo converter em diretório de imagem deve ser um conjunto de dados de **arquivo**.
+1. [Registre o conjunto de dados de imagem como um conjunto](../how-to-create-register-datasets.md) de dado de arquivo em seu espaço de trabalho, já que a entrada do módulo converter em diretório de imagem deve ser um conjunto de dados de **arquivo**.
 
 1. Adicione o conjunto de imagens de imagem registrada à tela. Você pode encontrar o conjunto de seus DataSets na categoria **DataSets** na lista de módulos à esquerda de Canvas. Atualmente, o designer não oferece suporte a visualização do conjunto de imagem.
 
@@ -70,16 +71,16 @@ A saída do módulo **converter para o diretório de imagens** está no formato 
 
 ###  <a name="expected-inputs"></a>Entradas esperadas  
 
-| Nome          | Tipo                  | Descrição   |
+| Nome          | Tipo                  | Description   |
 | ------------- | --------------------- | ------------- |
 | Conjunto de dados de entrada | AnyDirectory, ZipFile | Conjunto de dados de entrada |
 
 ###  <a name="output"></a>Saída  
 
-| Nome                   | Tipo           | Descrição            |
+| Nome                   | Tipo           | Description            |
 | ---------------------- | -------------- | ---------------------- |
 | Diretório de imagens de saída | ImageDirectory | Diretório de imagens de saída |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning.

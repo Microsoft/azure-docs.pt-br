@@ -6,12 +6,12 @@ ms.author: nimag
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: b66ee8117e5326a8ed8c1a1ad973fb13e942e0c7
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: f3d6023ffd3043bc57727fc39f077dd0ce7eccb8
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761952"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98024383"
 ---
 Neste guia de início rápido, você aprenderá como iniciar uma chamada usando a biblioteca de clientes de Chamada dos Serviços de Comunicação do Azure para JavaScript.
 
@@ -22,44 +22,10 @@ Neste guia de início rápido, você aprenderá como iniciar uma chamada usando 
 - Um recurso ativo dos Serviços de Comunicação. [Crie um recurso dos Serviços de Comunicação](../../create-communication-resource.md).
 - Um Token de Acesso do Usuário para criar uma instância do cliente de chamada. Saiba como [criar e gerenciar os tokens de acesso do usuário](../../access-tokens.md).
 
-## <a name="setting-up"></a>Configurando
 
-### <a name="create-a-new-nodejs-application"></a>Criar um novo aplicativo do Node.js
+[!INCLUDE [Calling with JavaScript](./get-started-javascript-setup.md)]
 
-Abra o terminal ou a janela de comando para criar um diretório para seu aplicativo e navegue até ele.
-
-```console
-mkdir calling-quickstart && cd calling-quickstart
-```
-
-Execute `npm init -y` para criar um arquivo **package.json** com as configurações padrão.
-
-```console
-npm init -y
-```
-
-### <a name="install-the-package"></a>Instalar o pacote
-
-Use o comando `npm install` para instalar a biblioteca de clientes de Chamada dos Serviços de Comunicação do Azure para JavaScript.
-
-```console
-npm install @azure/communication-common --save
-npm install @azure/communication-calling --save
-```
-
-A opção `--save` lista a biblioteca como uma dependência no arquivo **package.json**.
-
-### <a name="set-up-the-app-framework"></a>Configurar o framework de aplicativos
-
-Este guia de início rápido usa o webpack para agrupar os ativos do aplicativo. Execute o seguinte comando para instalar os pacotes npm webpack, webpack-cli e webpack-dev-server e listá-los como dependências de desenvolvimento no **package.json**:
-
-```console
-npm install webpack webpack-cli webpack-dev-server --save-dev
-```
-
-Crie um arquivo **index.html** no diretório raiz do projeto. Usaremos esse arquivo para configurar um layout básico que permitirá que o usuário faça uma chamada para um Bot de Comunicações do Azure.
-
-Eis o código:
+O código é o seguinte:
 
 ```html
 <!DOCTYPE html>
@@ -97,11 +63,10 @@ import { CallClient, CallAgent } from "@azure/communication-calling";
 import { AzureCommunicationUserCredential } from '@azure/communication-common';
 
 let call;
+let callAgent;
 const calleeInput = document.getElementById("callee-id-input");
 const callButton = document.getElementById("call-button");
 const hangUpButton = document.getElementById("hang-up-button");
-
-// quickstart code goes here
 ```
 
 ## <a name="object-model"></a>Modelo de objeto
@@ -120,12 +85,13 @@ As seguintes classes e as interfaces administram alguns dos principais recursos 
 Você precisa substituir `<USER_ACCESS_TOKEN>` por um token de acesso de usuário válido para o seu recurso. Confira a documentação do [token de acesso do usuário](../../access-tokens.md) se você ainda não tiver um token disponível. Usando o `CallClient`, inicialize uma instância `CallAgent` com um `CommunicationUserCredential` que nos permitirá realizar e receber chamadas. Adicione o seguinte código ao **client.js**:
 
 ```javascript
-const callClient = new CallClient();
-const tokenCredential = new AzureCommunicationUserCredential("<USER ACCESS TOKEN>");
-let callAgent;
-
-callAgent = await callClient.createCallAgent(tokenCredential);
-callButton.disabled = false;
+async function init() {
+    const callClient = new CallClient();
+    const tokenCredential = new AzureCommunicationUserCredential("<USER ACCESS TOKEN>");
+    callAgent = await callClient.createCallAgent(tokenCredential);
+    callButton.disabled = false;
+}
+init();
 ```
 
 ## <a name="start-a-call"></a>Iniciar uma chamada

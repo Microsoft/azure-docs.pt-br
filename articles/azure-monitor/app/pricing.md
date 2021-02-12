@@ -7,12 +7,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: b695205c08f9039fbf91eaeddb7622b784d81d12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 477a96f1bf66255b11b2fee36c38e55b18cddb69
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400580"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99556133"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gerenciar o uso e os custos do Application Insights
 
@@ -148,7 +148,7 @@ union (AppAvailabilityResults),
       (AppRequests),
       (AppSystemEvents),
       (AppTraces)
-| where TimeGenerated >= startofday(ago(7d) and TimeGenerated < startofday(now())
+| where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now())
 | summarize sum(_BilledSize) by _ResourceId, bin(TimeGenerated, 1d)
 | render areachart
 ```
@@ -167,7 +167,7 @@ union (AppAvailabilityResults),
       (AppRequests),
       (AppSystemEvents),
       (AppTraces)
-| where TimeGenerated >= startofday(ago(7d) and TimeGenerated < startofday(now())
+| where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now())
 | where _ResourceId contains "<myAppInsightsResourceName>"
 | summarize sum(_BilledSize) by Type, bin(TimeGenerated, 1d)
 | render areachart
@@ -186,7 +186,7 @@ O volume de dados que você envia pode ser gerenciado com as seguintes técnicas
 
 * **Amostragem**: Você pode usar a amostragem para reduzir o volume de telemetria enviado do seu servidor e de aplicativos cliente, com mínima distorção de métricas. Amostragem é a ferramenta principal que você pode usar para ajustar a quantidade de dados enviados. Saiba mais sobre [recursos de amostragem](./sampling.md).
 
-* **Limitar chamadas Ajax**: Você pode [limitar o número de chamadas Ajax que podem ser relatadas](./javascript.md#configuration) em cada exibição de página ou desativar relatórios Ajax.
+* **Limitar chamadas Ajax**: Você pode [limitar o número de chamadas Ajax que podem ser relatadas](./javascript.md#configuration) em cada exibição de página ou desativar relatórios Ajax. Observe que desabilitar as chamadas AJAX desabilitará a [correlação de JavaScript](./javascript.md#enable-correlation).
 
 * **Desabilitar os módulos desnecessários**: [Edite Applicationinsights](./configuration-with-applicationinsights-config.md) para desativar os módulos de coleção desnecessários. Por exemplo, você pode decidir que os contadores de desempenho ou dados de dependência não são essenciais.
 

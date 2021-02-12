@@ -8,18 +8,19 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 601eebb1-fc2c-4f5b-9c05-0e6ffd0e5334
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
-ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: 4919abd29ecf10c9116257750374ef53b4bd9d16
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 213b973bfc93cb2237473b6bc4c7f1e138457409
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789906"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131892"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Grupos de disponibilidade Always On no SQL Server em VMs do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -39,7 +40,9 @@ O seguinte diagrama ilustra um grupo de disponibilidade para SQL Server em VMs d
 
 Para aumentar a redundância e a alta disponibilidade, as VMs do SQL Server devem estar no mesmo [conjunto de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview) ou em [zonas de disponibilidade](../../../availability-zones/az-overview.md) diferentes.
 
-Um conjunto de disponibilidade é um agrupamento de recursos que são configurados de modo que não haja dois na mesma zona de disponibilidade. Isso impede que vários recursos no grupo sejam afetados durante as distribuições da implantação. 
+Colocar um conjunto de VMs no mesmo conjunto de disponibilidade oferece proteção contra interrupções em um datacenter causadas por uma falha no equipamento (as VMs em um Conjunto de Disponibilidade não compartilham recursos) ou contra atualizações (as VMs em um Conjunto de Disponibilidade não são atualizadas ao mesmo tempo). As Zonas de Disponibilidade oferecem proteção contra a falha de um datacenter inteiro, com cada zona representando um conjunto de datacenters dentro de uma região.  Com a garantia de que os recursos serão colocados em diferentes Zonas de Disponibilidade, nenhuma interrupção no nível do datacenter poderá colocar todas as suas VMs offline.
+
+Ao criar VMs do Azure, você precisa escolher entre configurar Conjuntos de Disponibilidade vs Zonas de Disponibilidade.  Uma VM do Azure não pode participar de ambos.
 
 
 ## <a name="connectivity"></a>Conectividade 
@@ -72,13 +75,13 @@ Para começar, confira [configurar um ouvinte DNN](availability-group-distribute
 
 Há várias opções para implantar um grupo de disponibilidade no SQL Server em VMs do Azure, algumas com mais automação do que outras. 
 
-A seguinte tabela fornece uma comparação das opções disponíveis: 
+A seguinte tabela fornece uma comparação das opções disponíveis:
 
-| |**[Portal do Azure](availability-group-azure-portal-configure.md)**|**[CLI do Azure/PowerShell](./availability-group-az-commandline-configure.md)**|**[Modelos de início rápido](availability-group-quickstart-template-configure.md)**|**[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | 
-|---------|---------|---------|--------- |---------|
+| | Portal do Azure | CLI do Azure/PowerShell | Modelos de Início Rápido | Manual |
+|---------|---------|---------|---------|---------|
 |**Versão do SQL Server** |2016 + |2016 +|2016 +|2012 +|
 |**Edição do SQL Server** |Enterprise |Enterprise |Enterprise |Enterprise, Standard|
-|**Versão do Windows Server**| 2016 + | 2016 + | 2016 + | Tudo| 
+|**Versão do Windows Server**| 2016 + | 2016 + | 2016 + | Tudo|
 |**Cria o cluster para você**|Sim|Sim | Sim |Não|
 |**Cria o grupo de disponibilidade para você** |Sim |Não|Não|Não|
 |**Cria o ouvinte e o balanceador de carga de modo independente** |Não|Não|Não|Sim|
@@ -90,9 +93,8 @@ A seguinte tabela fornece uma comparação das opções disponíveis:
 |**DR com várias zonas na mesma região**|Sim|Sim|Sim|Sim|
 |**AG distribuído sem AD**|Não|Não|Não|Sim|
 |**AG distribuído sem cluster** |Não|Não|Não|Sim|
-||||||
 
-
+Para saber mais, confira [portal do Azure](availability-group-azure-portal-configure.md), [CLI do Azure/PowerShell](./availability-group-az-commandline-configure.md), [Modelos de Início Rápido](availability-group-quickstart-template-configure.md) e [Manual](availability-group-manually-configure-prerequisites-tutorial.md).
 
 ## <a name="considerations"></a>Considerações 
 

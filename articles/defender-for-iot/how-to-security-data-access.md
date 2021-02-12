@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: e56cf54e1bf1483309cb7aac8519bb281ca2bc06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 495f9d568760421c7f42df3acf74217c15b01a05
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933126"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246332"
 ---
 # <a name="access-your-security-data"></a>Acessar seus dados de segurança
 
@@ -30,14 +30,14 @@ Para configurar qual espaço de trabalho do Log Analytics é usado:
 
 1. Abrir seu Hub IoT.
 1. Clique na folha **configurações** na seção **segurança** .
-1. Clique em **coleta de dados**e altere a configuração do log Analytics espaço de trabalho.
+1. Clique em **coleta de dados** e altere a configuração do log Analytics espaço de trabalho.
 
 Para acessar seus alertas e recomendações em seu espaço de trabalho do Log Analytics após a configuração:
 
 1. Escolha um alerta ou recomendação no defender para IoT.
-1. Clique em **investigação adicional**e, em seguida, clique **para ver quais dispositivos têm esse alerta clique aqui e exiba a coluna DeviceID**.
+1. Clique em **investigação adicional** e, em seguida, clique **para ver quais dispositivos têm esse alerta clique aqui e exiba a coluna DeviceID**.
 
-Para obter detalhes sobre como consultar dados de Log Analytics, consulte Introdução [às consultas no log Analytics](https://docs.microsoft.com//azure/log-analytics/query-language/get-started-queries).
+Para obter detalhes sobre como consultar dados de Log Analytics, consulte Introdução [às consultas no log Analytics](../azure-monitor/log-query/get-started-queries.md).
 
 ## <a name="security-alerts"></a>Alertas de segurança
 
@@ -66,9 +66,9 @@ SecurityAlert
 
 | TimeGenerated           | IoTHubId                                                                                                       | DeviceId      | AlertSeverity | DisplayName                           | Descrição                                             | ExtendedProperties                                                                                                                                                             |
 |-------------------------|----------------------------------------------------------------------------------------------------------------|---------------|---------------|---------------------------------------|---------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 2018-11-18T18:10:29.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alto          | Ataque de força bruta bem-sucedido           | Um ataque de força bruta no dispositivo foi bem-sucedido        |    {"Endereço de origem completo": "[ \" 10.165.12.18: \" ]", "nomes de usuário": "[ \" \" ]", "DeviceID": "IOT-Device-Linux"}                                                                       |
-| 2018-11-19T12:40:31.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alto          | Logon local bem-sucedido no dispositivo      | Foi detectado um logon local bem-sucedido no dispositivo     | {"Endereço remoto": "?", "porta remota": "", "porta local": "", "Shell de logon": "/bin/su", "ID do processo de logon": "28207", "nome de usuário": "invasor", "DeviceID": "IoT-dispositivo-Linux"} |
-| 2018-11-19T12:40:31.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alto          | Falha na tentativa de logon local no dispositivo  | Foi detectada uma tentativa de logon local com falha no dispositivo |    {"Endereço remoto": "?", "porta remota": "", "porta local": "", "Shell de logon": "/bin/su", "ID do processo de logon": "22644", "nome de usuário": "invasor", "DeviceID": "IoT-dispositivo-Linux"} |
+| 2018-11-18T18:10:29.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alta          | Ataque de força bruta bem-sucedido           | Um ataque de força bruta no dispositivo foi bem-sucedido        |    {"Endereço de origem completo": "[ \" 10.165.12.18: \" ]", "nomes de usuário": "[ \" \" ]", "DeviceID": "IOT-Device-Linux"}                                                                       |
+| 2018-11-19T12:40:31.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alta          | Logon local bem-sucedido no dispositivo      | Foi detectado um logon local bem-sucedido no dispositivo     | {"Endereço remoto": "?", "porta remota": "", "porta local": "", "Shell de logon": "/bin/su", "ID do processo de logon": "28207", "nome de usuário": "invasor", "DeviceID": "IoT-dispositivo-Linux"} |
+| 2018-11-19T12:40:31.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alta          | Falha na tentativa de logon local no dispositivo  | Foi detectada uma tentativa de logon local com falha no dispositivo |    {"Endereço remoto": "?", "porta remota": "", "porta local": "", "Shell de logon": "/bin/su", "ID do processo de logon": "22644", "nome de usuário": "invasor", "DeviceID": "IoT-dispositivo-Linux"} |
 
 ### <a name="device-summary"></a>Resumo do dispositivo
 
@@ -89,9 +89,9 @@ SecurityAlert
 
 | IoTHubId                                                                                                       | DeviceId      | AlertSeverity | DisplayName                           | Contagem |
 |----------------------------------------------------------------------------------------------------------------|---------------|---------------|---------------------------------------|-----|
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alto          | Ataque de força bruta bem-sucedido           | 9   |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alta          | Ataque de força bruta bem-sucedido           | 9   |
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Médio        | Falha na tentativa de logon local no dispositivo  | 242 |
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alto          | Logon local bem-sucedido no dispositivo      | 31  |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alta          | Logon local bem-sucedido no dispositivo      | 31  |
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Médio        | Miner de moeda de criptografia                     | 4   |
 
 ### <a name="iot-hub-summary"></a>Resumo do Hub IoT
@@ -113,9 +113,9 @@ SecurityAlert
 
 | IoTHubId                                                                                                       | AlertSeverity | DisplayName                           | CntDevices |
 |----------------------------------------------------------------------------------------------------------------|---------------|---------------------------------------|------------|
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Alto          | Ataque de força bruta bem-sucedido           | 1          |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Alta          | Ataque de força bruta bem-sucedido           | 1          |
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Médio        | Falha na tentativa de logon local no dispositivo  | 1          |
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Alto          | Logon local bem-sucedido no dispositivo      | 1          |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Alta          | Logon local bem-sucedido no dispositivo      | 1          |
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Médio        | Miner de moeda de criptografia                     | 1          |
 
 ## <a name="security-recommendations"></a>Recomendações de segurança
@@ -166,7 +166,7 @@ SecurityRecommendation
 
 | IoTHubId                                                                                                       | DeviceId      | RecommendationSeverity | Contagem |
 |----------------------------------------------------------------------------------------------------------------|---------------|------------------------|-----|
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alto          | 2   |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alta          | 2   |
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Médio        | 1 |
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alta          | 1  |
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Médio        | 4   |

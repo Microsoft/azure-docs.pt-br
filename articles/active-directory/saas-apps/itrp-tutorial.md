@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 2dff68f98e2922d5fc7a4fca1e6de8740bc2ae68
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 12/18/2020
 ms.locfileid: "92459672"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Tutorial: Integração do Azure Active Directory com o ITRP
@@ -48,11 +48,11 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do ITRP ao Azure AD, você precisará adicionar o ITRP da galeria à sua lista de aplicativos SaaS gerenciados.
 
-1. No [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory** :
+1. No [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory**:
 
     ![Selecione Azure Active Directory](common/select-azuread.png)
 
-2. Acesse **Aplicativos empresariais** > **Todos os aplicativos** :
+2. Acesse **Aplicativos empresariais** > **Todos os aplicativos**:
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -60,7 +60,7 @@ Para configurar a integração do ITRP ao Azure AD, você precisará adicionar o
 
     ![Selecionar Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **ITRP** . Selecione **ITRP** nos resultados da pesquisa e, em seguida, selecione **Adicionar** .
+4. Na caixa de pesquisa, digite **ITRP**. Selecione **ITRP** nos resultados da pesquisa e, em seguida, selecione **Adicionar**.
 
      ![Resultados da Pesquisa](common/search-new-app.png)
 
@@ -84,23 +84,23 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o ITRP, execute estas etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do ITRP, selecione **Logon único** :
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do ITRP, selecione **Logon único**:
 
     ![Selecionar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único:
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único:
 
     ![Selecionar um método de logon único](common/select-saml-option.png)
 
-3. Na página **Configurar logon único com SAML** , selecione o ícone **Editar** para abrir a caixa de diálogo **Configuração Básica de SAML** :
+3. Na página **Configurar logon único com SAML**, selecione o ícone **Editar** para abrir a caixa de diálogo **Configuração Básica de SAML**:
 
     ![A captura de tela mostra a página Configurar Logon Único com SAML com o ícone Editar selecionado.](common/edit-urls.png)
 
-4. Na caixa de diálogo **Configuração Básica do SAML** , execute as etapas a seguir.
+4. Na caixa de diálogo **Configuração Básica do SAML**, execute as etapas a seguir.
 
     ![Caixa de diálogo Configuração Básica de SAML](common/sp-identifier.png)
 
-    1. Na caixa **URL de Logon** , insira uma URL neste padrão:
+    1. Na caixa **URL de Logon**, insira uma URL neste padrão:
     
        `https://<tenant-name>.itrp.com`
 
@@ -111,57 +111,57 @@ Para configurar o logon único do Azure AD com o ITRP, execute estas etapas:
     > [!NOTE]
     > Esses valores são espaços reservados. Você precisa usar o identificador e a URL de logon real. Contate a [equipe de suporte do ITRP](https://www.4me.com/support/) para obter os valores. Você também pode ver os padrões exibidos na caixa de diálogo **Configuração Básica de SAML** no portal do Azure.
 
-5. Na seção **Certificado de Autenticação SAML** , selecione o ícone **Editar** para abrir a caixa de diálogo **Certificado de Autenticação SAML** :
+5. Na seção **Certificado de Autenticação SAML**, selecione o ícone **Editar** para abrir a caixa de diálogo **Certificado de Autenticação SAML**:
 
     ![A captura de tela mostra a página Certificado de Autenticação SAML com o ícone Editar selecionado.](common/edit-certificate.png)
 
-6. Na caixa de diálogo **Certificado de Autenticação SAML** , copie o valor da **Impressão Digital** e salve-o:
+6. Na caixa de diálogo **Certificado de Autenticação SAML**, copie o valor da **Impressão Digital** e salve-o:
 
     ![Copie o valor da Impressão Digital](common/copy-thumbprint.png)
 
-7. Na seção **Configurar o ITRP** , copie as URLs apropriadas de acordo com suas necessidades:
+7. Na seção **Configurar o ITRP**, copie as URLs apropriadas de acordo com suas necessidades:
 
     ![Copiar as URLs de configuração](common/copy-configuration-urls.png)
 
-    1. **URL de Logon** .
+    1. **URL de Logon**.
 
-    1. **Identificador do Azure AD** .
+    1. **Identificador do Azure AD**.
 
-    1. **URL de Logoff** .
+    1. **URL de Logoff**.
 
 ### <a name="configure-itrp-single-sign-on"></a>Configurar logon único do ITRP
 
 1. Em uma nova janela do navegador da Web, entre em seu site de empresa do ITRP como administrador.
 
-1. Na parte superior da janela, selecione o ícone **Configurações** :
+1. Na parte superior da janela, selecione o ícone **Configurações**:
 
     ![Ícone Configurações](./media/itrp-tutorial/ic775570.png "Ícone Configurações")
 
-1. No painel à esquerda, selecione **Logon Único** :
+1. No painel à esquerda, selecione **Logon Único**:
 
     ![Selecione Logon Único](./media/itrp-tutorial/ic775571.png "Selecionar Logon Único")
 
-1. Na seção de configuração de **Logon único** , execute as seguintes etapas.
+1. Na seção de configuração de **Logon único**, execute as seguintes etapas.
 
     ![A captura de tela mostra a seção Logon Único com a opção Habilitado selecionada.](./media/itrp-tutorial/ic775572.png "Seção Logon Único")
 
     ![A captura de tela mostra a seção Logon Único em que você pode adicionar as informações descritas nesta etapa.](./media/itrp-tutorial/ic775573.png "Seção Logon Único")
 
-    1. Selecione **Habilitado** .
+    1. Selecione **Habilitado**.
 
-    1. Na caixa **URL de logoff remoto** , cole o valor da **URL de logoff** copiado do portal do Azure.
+    1. Na caixa **URL de logoff remoto**, cole o valor da **URL de logoff** copiado do portal do Azure.
 
-    1. Na caixa **URL de SSO de SAML L** , cole o valor da **URL de logon** copiado do portal do Azure.
+    1. Na caixa **URL de SSO de SAML L**, cole o valor da **URL de logon** copiado do portal do Azure.
 
-    1. Na caixa **Impressão digital do certificado** , cole o valor da **Impressão Digital** do certificado copiado do portal do Azure.
+    1. Na caixa **Impressão digital do certificado**, cole o valor da **Impressão Digital** do certificado copiado do portal do Azure.
 
-    1. Clique em **Salvar** .
+    1. Clique em **Salvar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste chamado Brenda Fernandes no portal do Azure.
 
-1. No portal do Azure, selecione **Azure Active Directory** no painel esquerdo, **Usuários** e, em seguida, **Todos os usuários** :
+1. No portal do Azure, selecione **Azure Active Directory** no painel esquerdo, **Usuários** e, em seguida, **Todos os usuários**:
 
     ![Selecionar Todos os usuários](common/users.png)
 
@@ -169,43 +169,43 @@ Nesta seção, você criará um usuário de teste chamado Brenda Fernandes no po
 
     ![Selecionar Novo usuário](common/new-user.png)
 
-3. Na caixa de diálogo **Usuário** , execute as etapas a seguir.
+3. Na caixa de diálogo **Usuário**, execute as etapas a seguir.
 
     ![Caixa de diálogo Usuário](common/user-properties.png)
 
-    1. Na caixa **Nome** , insira **BrendaFernandes** .
+    1. Na caixa **Nome**, insira **BrendaFernandes**.
   
-    1. Na caixa **Nome de usuário** , insira **BrendaFernandes@\<yourcompanydomain>.\<extension>** . (Por exemplo, BrittaSimon@contoso.com.)
+    1. Na caixa **Nome de usuário**, insira **BrendaFernandes@\<yourcompanydomain>.\<extension>** . (Por exemplo, BrittaSimon@contoso.com.)
 
-    1. Selecione **Mostrar Senha** e, em seguida, anote o valor mostrado na caixa **Senha** .
+    1. Selecione **Mostrar Senha** e, em seguida, anote o valor mostrado na caixa **Senha**.
 
-    1. Selecione **Criar** .
+    1. Selecione **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo a ela acesso ao ITRP.
 
-1. No portal do Azure, selecione **Aplicativos empresariais** , selecione **Todos os aplicativos** e, em seguida, **ITRP** .
+1. No portal do Azure, selecione **Aplicativos empresariais**, selecione **Todos os aplicativos** e, em seguida, **ITRP**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **ITRP** .
+2. Na lista de aplicativos, selecione **ITRP**.
 
     ![Lista de aplicativos](common/all-applications.png)
 
-3. No painel esquerdo, selecione **Usuários e grupos** :
+3. No painel esquerdo, selecione **Usuários e grupos**:
 
     ![Selecionar Usuários e grupos](common/users-groups-blade.png)
 
-4. Selecione **Adicionar usuário** e, em seguida, selecione **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+4. Selecione **Adicionar usuário** e, em seguida, selecione **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![Selecione Adicionar usuário](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , selecione **Brenda Fernandes** na lista de usuários e, em seguida, clique no botão **Selecionar** na parte inferior da janela.
+5. Na caixa de diálogo **Usuários e grupos**, selecione **Brenda Fernandes** na lista de usuários e, em seguida, clique no botão **Selecionar** na parte inferior da janela.
 
-6. Se você esperar um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , selecione a função apropriada para o usuário na lista. Clique no botão **Selecionar** na parte inferior da janela.
+6. Se você esperar um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, selecione a função apropriada para o usuário na lista. Clique no botão **Selecionar** na parte inferior da janela.
 
-7. Na caixa de diálogo **Adicionar Atribuição** , selecione **Atribuir** .
+7. Na caixa de diálogo **Adicionar Atribuição**, selecione **Atribuir**.
 
 ### <a name="create-an-itrp-test-user"></a>Criar um usuário de teste do ITRP
 
@@ -215,11 +215,11 @@ Para criar uma conta de usuário, siga estas etapas:
 
 1. Entre em seu locatário do ITRP.
 
-1. Na parte superior da janela, selecione o ícone **Registros** :
+1. Na parte superior da janela, selecione o ícone **Registros**:
 
     ![Ícone de Registros](./media/itrp-tutorial/ic775575.png "Ícone de Registros")
 
-1. No menu, selecione **Pessoas** :
+1. No menu, selecione **Pessoas**:
 
     ![Selecionar Pessoas](./media/itrp-tutorial/ic775587.png "Selecionar Pessoas")
 
@@ -227,13 +227,13 @@ Para criar uma conta de usuário, siga estas etapas:
 
     ![Selecione o sinal de mais](./media/itrp-tutorial/ic775576.png "Selecione o sinal de mais")
 
-1. Na caixa de diálogo **Adicionar Nova Pessoa** , execute as seguintes etapas.
+1. Na caixa de diálogo **Adicionar Nova Pessoa**, execute as seguintes etapas.
 
     ![Caixa de diálogo Adicionar Nova Pessoa](./media/itrp-tutorial/ic775577.png "Caixa de diálogo Adicionar Nova Pessoa")
 
     1. Insira o nome e o endereço de email de uma conta válida do Azure AD que você deseja adicionar.
 
-    1. Clique em **Salvar** .
+    1. Clique em **Salvar**.
 
 > [!NOTE]
 > Você pode usar qualquer ferramenta de criação de conta de usuário ou API fornecida pelo ITRP para provisionar as contas de usuário do Azure AD.

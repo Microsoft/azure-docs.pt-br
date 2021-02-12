@@ -3,16 +3,15 @@ title: Acesso baseado em função granular configurações de cluster do Azure H
 description: Saiba mais sobre as alterações necessárias como parte da migração para o acesso baseado em função granular para configurações de cluster HDInsight.
 author: tylerfox
 ms.author: tyfox
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: d2e9c1fe89866511f8eae0b900563471cd6e52e9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 08be42f4f0801fc700b3e0fc645c1bbc1b747e91
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533301"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944098"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrar para acesso baseado em função granular para configurações de cluster
 
@@ -80,7 +79,7 @@ As seguintes APIs de substituição foram adicionadas:</span>
 
 Se você estiver usando a versão 1.1.1 ou inferior, atualize para a [versão mais recente das ferramentas do Azure HDInsight para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=mshdinsight.azure-hdinsight&ssr=false) para evitar interrupções.
 
-### <a name="azure-toolkit-for-intellij"></a>Kit de Ferramentas do Azure para IntelliJ
+### <a name="azure-toolkit-for-intellij"></a>Azure Toolkit for IntelliJ
 
 Se você estiver usando a versão 3.20.0 ou inferior, atualize para a [versão mais recente do plug-in Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij) para evitar interrupções.
 
@@ -88,7 +87,7 @@ Se você estiver usando a versão 3.20.0 ou inferior, atualize para a [versão m
 
 Atualize para a versão 2.3.9000.1 ou posterior das [ferramentas Azure data Lake e Stream Analytics para Visual Studio](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools&ssr=false#overview) para evitar interrupções.  Para obter ajuda com a atualização, consulte nossa documentação, [Update data Lake Tools for Visual Studio](./hadoop/apache-hadoop-visual-studio-tools-get-started.md#update-data-lake-tools-for-visual-studio).
 
-### <a name="azure-toolkit-for-eclipse"></a>Kit de ferramentas do Azure para Eclipse
+### <a name="azure-toolkit-for-eclipse"></a>Azure Toolkit for Eclipse
 
 Se você estiver usando a versão 3.15.0 ou inferior, atualize para a [versão mais recente do Azure Toolkit for Eclipse](https://marketplace.eclipse.org/content/azure-toolkit-eclipse) para evitar interrupções.
 

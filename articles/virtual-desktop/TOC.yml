@@ -92,11 +92,21 @@
           href: diagnostics-log-analytics.md
     - name: Publicar aplicativos internos
       href: publish-apps.md
-    - name: Configurar anexação de aplicativo MSIX
-      href: app-attach.md
+    - name: Usar a anexação de aplicativo MSIX
+      items:
+        - name: Configurar a anexação de aplicativo MSIX com o portal do Azure
+          href: app-attach-azure-portal.md
+        - name: Configurar a anexação de aplicativo MSIX com o PowerShell
+          href: app-attach-powershell.md
+        - name: Criar scripts do PowerShell
+          href: app-attach.md
+        - name: Preparar uma imagem do MSIX
+          href: app-attach-image-prep.md
+        - name: Configurar um compartilhamento de arquivo
+          href: app-attach-file-share.md
     - name: Usar o Microsoft Teams
       href: teams-on-wvd.md
-    - name: Configurar a Autenticação Multifator do Azure
+    - name: Configurar a Autenticação Multifator do Azure AD
       href: set-up-mfa.md
     - name: Configurar atualizações automáticas
       href: configure-automatic-updates.md
@@ -106,18 +116,38 @@
       href: azure-advisor.md
     - name: Resolver recomendações
       href: azure-advisor-recommendations.md
+    - name: Usar o Azure Monitor para Área de Trabalho Virtual do Windows
+      href: azure-monitor.md
     - name: Configurar um plano de recuperação de desastre
       href: disaster-recovery.md
+    - name: Configurar o proxy KDC
+      href: key-distribution-center-proxy.md
+    - name: Configurar a função de Gateway de Área de Trabalho Remota
+      href: rd-gateway-role.md
 - name: Conceitos
   items:
+    - name: Funções internas
+      href: rbac.md
     - name: Autenticação
       href: authentication.md
-    - name: Lista de URL segura
-      href: safe-url-list.md
     - name: Ambiente da Área de Trabalho Virtual do Windows
       href: environment-setup.md
-    - name: Determinar a latência de conexão do usuário
-      href: connection-latency.md
+    - name: Agente da Área de Trabalho Virtual do Windows
+      href: agent-overview.md
+    - name: Conectividade de rede
+      items:
+        - name: Entendendo a conectividade de rede
+          href: network-connectivity.md
+        - name: Shortpath RDP
+          href: shortpath.md
+        - name: Implementar QoS (Qualidade de Serviço)
+          href: rdp-quality-of-service-qos.md
+        - name: Lista de URLs necessárias
+          href: safe-url-list.md
+        - name: Considerações sobre largura de banda
+          href: rdp-bandwidth.md
+        - name: Determinar a latência de conexão do usuário
+          href: connection-latency.md
     - name: Acesso delegado na Área de Trabalho Virtual do Windows
       href: delegated-access-virtual-desktop.md
     - name: Métodos de balanceamento de carga de pool de host
@@ -140,8 +170,14 @@
           href: app-attach-glossary.md
         - name: Perguntas frequentes
           href: app-attach-faq.md
+    - name: Glossário do Azure Monitor
+      href: azure-monitor-glossary.md
     - name: Localizações de dados
       href: data-locations.md
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
 - name: Solucionar problemas
   items:
     - name: 'Visão geral da solução de problemas, comentários e suporte'
@@ -154,12 +190,16 @@
       href: troubleshoot-vm-configuration.md
     - name: Conexões de serviço da Área de Trabalho Remota
       href: troubleshoot-service-connection.md
+    - name: Agente da Área de Trabalho Virtual do Windows
+      href: troubleshoot-agent.md
     - name: Problemas do cliente da Área de Trabalho Remota
       href: troubleshoot-client.md
     - name: PowerShell da Área de Trabalho Virtual do Windows
       href: troubleshoot-powershell.md
     - name: Diagnosticar problemas de desempenho gráficos
       href: remotefx-graphics-performance-counters.md
+    - name: Azure Monitor
+      href: troubleshoot-azure-monitor.md
 - name: Referência
   items:
     - name: Melhores práticas de segurança
@@ -168,8 +208,6 @@
       href: linux-overview.md
     - name: Configurações de arquivo RDP com suporte
       href: /windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
-    - name: Diretrizes de rede
-      href: /windows-server/remote/remote-desktop-services/network-guidance?context=/azure/virtual-desktop/context/context
     - name: Diretrizes de dimensionamento de máquina virtual
       href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
     - name: CLI (interface de linha de comando) do Azure

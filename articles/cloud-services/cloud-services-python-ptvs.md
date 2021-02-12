@@ -1,23 +1,24 @@
 ---
-title: Introdução aos Serviços de Nuvem do Azure e ao Python | Microsoft Docs
+title: Introdução ao Python e aos serviços de nuvem do Azure (clássico) | Microsoft Docs
 description: Visão geral do uso do Python Tools para Visual Studio para criar serviços de nuvem do Azure, incluindo funções Web e de Trabalho.
-services: cloud-services
-documentationcenter: python
-author: tgore03
+ms.topic: article
 ms.service: cloud-services
-ms.devlang: python
-ms.topic: conceptual
-ms.date: 07/18/2017
+ms.date: 10/14/2020
 ms.author: tagore
-ms.custom: devx-track-python
-ms.openlocfilehash: 955498c663560351c01f1894fb348b89f72d549b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 16aa6918c0f4b0df5ebf23f28268f8cbe5223fce
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079234"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743280"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Funções Web e de trabalho do Python com Ferramentas Python para Visual Studio
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
 
 Este artigo oferece uma visão geral do uso das funções Web e de trabalho do Python por meio das [Ferramentas Python para Visual Studio][Python Tools for Visual Studio]. Saiba como usar o Visual Studio para criar e implantar um Serviço de Nuvem básico que usa Python.
 

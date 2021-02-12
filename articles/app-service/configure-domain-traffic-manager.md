@@ -5,12 +5,12 @@ ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
 ms.topic: article
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0e8d5fa14678a2a26234dfcd73f4a50af62ca7aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4d4b7e01eb5799bee604c05e1660a7a45188763
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962869"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223333"
 ---
 # <a name="configure-a-custom-domain-name-in-azure-app-service-with-traffic-manager-integration"></a>Configurar um nome de domínio personalizado no serviço de Azure App com a integração do Gerenciador de tráfego
 
@@ -19,7 +19,7 @@ ms.locfileid: "88962869"
 > [!NOTE]
 > Para serviços de nuvem, consulte [Configurando um nome de domínio personalizado para um serviço de nuvem do Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-Quando você usa o [Gerenciador de tráfego do Azure](../traffic-manager/index.yml) para balancear a carga do tráfego para [Azure app serviço](overview.md), o aplicativo do serviço de aplicativo pode ser acessado usando ** \<traffic-manager-endpoint> . trafficmanager.net**. Você pode atribuir um nome de domínio personalizado, como www \. contoso.com, ao seu aplicativo do serviço de aplicativo para fornecer um nome de domínio mais reconhecível para seus usuários.
+Quando você usa o [Gerenciador de tráfego do Azure](../traffic-manager/index.yml) para balancear a carga do tráfego para [Azure app serviço](overview.md), o aplicativo do serviço de aplicativo pode ser acessado usando **\<traffic-manager-endpoint> . trafficmanager.net**. Você pode atribuir um nome de domínio personalizado, como www \. contoso.com, ao seu aplicativo do serviço de aplicativo para fornecer um nome de domínio mais reconhecível para seus usuários.
 
 Este artigo mostra como configurar um nome de domínio personalizado com um aplicativo do serviço de aplicativo que é integrado com o [Gerenciador de tráfego](../traffic-manager/traffic-manager-overview.md).
 
@@ -75,9 +75,9 @@ Depois de terminar a adição ou a modificação de registros DNS no provedor de
 
 ### <a name="what-about-root-domains"></a>E quanto aos domínios raiz?
 
-Como o Gerenciador de tráfego só dá suporte ao mapeamento de domínio personalizado com registros CNAME, e como os padrões de DNS não dão suporte a registros CNAME para mapear domínios raiz (por exemplo, **contoso.com**), o Gerenciador de tráfego não dá suporte ao mapeamento para domínios raiz. Para contornar esse problema, use um redirecionamento de URL do no nível do aplicativo. Em ASP.NET Core, por exemplo, você pode usar a [regravação de URL](/aspnet/core/fundamentals/url-rewriting). Em seguida, use o Gerenciador de tráfego para balancear a carga do subdomínio (**www.contoso.com**).
+Como o Gerenciador de tráfego só dá suporte ao mapeamento de domínio personalizado com registros CNAME, e como os padrões de DNS não dão suporte a registros CNAME para mapear domínios raiz (por exemplo, **contoso.com**), o Gerenciador de tráfego não dá suporte ao mapeamento para domínios raiz. Para contornar esse problema, use um redirecionamento de URL do no nível do aplicativo. Em ASP.NET Core, por exemplo, você pode usar a [regravação de URL](/aspnet/core/fundamentals/url-rewriting). Em seguida, use o Gerenciador de tráfego para balancear a carga do subdomínio (**www.contoso.com**). Outra abordagem é que você pode [criar um registro de alias para o Apex do nome de domínio para fazer referência a um perfil do Gerenciador de tráfego do Azure](https://docs.microsoft.com/azure/dns/tutorial-alias-tm). Um exemplo é contoso.com. Em vez de usar um serviço de redirecionamento, você pode configurar o DNS do Azure para fazer referência a um perfil do Gerenciador de tráfego diretamente da zona. 
 
-Para cenários de alta disponibilidade, você pode implementar uma configuração de DNS tolerante a falhas sem o Gerenciador de tráfego criando vários *registros a* que apontam do domínio raiz para o endereço IP de cada cópia de aplicativo. Em seguida, [mapeie o mesmo domínio raiz para todas as cópias de aplicativo](app-service-web-tutorial-custom-domain.md#map-an-a-record). Como o mesmo nome de domínio não pode ser mapeado para dois aplicativos diferentes na mesma região, essa configuração só funciona quando as cópias do aplicativo estão em regiões diferentes.
+Para cenários de alta disponibilidade, você pode implementar uma configuração de DNS de balanceamento de carga sem o Gerenciador de tráfego criando vários *registros a* que apontam do domínio raiz para o endereço IP de cada cópia de aplicativo. Em seguida, [mapeie o mesmo domínio raiz para todas as cópias de aplicativo](app-service-web-tutorial-custom-domain.md#map-an-a-record). Como o mesmo nome de domínio não pode ser mapeado para dois aplicativos diferentes na mesma região, essa configuração só funciona quando as cópias do aplicativo estão em regiões diferentes.
 
 ## <a name="enable-custom-domain"></a>Habilitar domínio personalizado
 Depois que os registros de seu nome de domínio forem propagados, use o navegador para verificar se o nome de domínio personalizado é resolvido para seu aplicativo do serviço de aplicativo.

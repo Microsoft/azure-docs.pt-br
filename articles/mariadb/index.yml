@@ -3,17 +3,17 @@ title: Documentação do Banco de Dados do Azure para MariaDB
 summary: O Banco de Dados do Azure para MariaDB é um serviço de banco de dados relacional com base no mecanismo do Servidor MariaDB de software livre.  Trata-se de um banco de dados totalmente gerenciado como uma oferta de serviço que pode lidar com cargas de trabalho críticas com desempenho previsível e escalabilidade dinâmica. Desenvolva aplicativos com o Banco de Dados do Azure para MariaDB utilizando a plataforma e as ferramentas de software livre de sua escolha. Saiba como usar o Banco de Dados do Azure para MariaDB com nossos guias de início rápido, tutoriais e exemplos.
 metadata:
   description: O Banco de Dados do Azure para MariaDB é um serviço de banco de dados relacional na nuvem da Microsoft, projetado para desenvolvedores com base no mecanismo de banco de dados para MariaDB de software livre.
-  author: ajlam
-  ms.author: andrela
+  author: savjani
+  ms.author: pariks
   ms.date: 09/05/2019
   ms.service: mariadb
   ms.topic: landing-page
-  ms.openlocfilehash: 3e49a860cca6cb59543f450cda4bda8c6b0c0a38
-  ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+  ms.openlocfilehash: a94e88dc1f7dca73f20cfee3b8cbea8cfad011af
+  ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92428330"
+  ms.lasthandoff: 12/15/2020
+  ms.locfileid: "97516572"
 landingContent:
 - title: Sobre o Banco de Dados do Azure para MariaDB
   linkLists:
@@ -114,8 +114,8 @@ landingContent:
   - linkListType: reference
     links:
     - text: Referência de desenvolvedor da CLI do Azure
-      url: /rest/api/mariadb/
+      url: /cli/azure/mariadb/
     - text: Referência de desenvolvedor da API REST
-      url: /cli/azure/mariadb
+      url: /rest/api/mariadb/
     - text: Modelos do Azure Resource Manager
       url: /azure/templates/microsoft.dbformariadb/allversions

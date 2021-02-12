@@ -1,19 +1,16 @@
 ---
 title: Otimizar o armazenamento de dados para o Apache Spark – Azure HDInsight
 description: Saiba como otimizar o armazenamento de dados para uso com o Apache Spark no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.custom: contperfq1
-ms.openlocfilehash: 092757728e791f60616d9dceca43e109e7f0019e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 10f99bdc4a5d418ae1b432a6799c5979e473c5ed
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88757805"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98926993"
 ---
 # <a name="data-storage-optimization-for-apache-spark"></a>Otimização de armazenamento de dados para Apache Spark
 

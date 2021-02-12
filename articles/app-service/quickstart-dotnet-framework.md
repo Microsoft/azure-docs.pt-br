@@ -3,14 +3,14 @@ title: 'Início Rápido: Criar um aplicativo ASP.NET C#'
 description: Saiba como executar aplicativos Web no Serviço de Aplicativo do Azure implantando o modelo de aplicativo Web ASP.NET C# padrão por meio do Visual Studio.
 ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.topic: quickstart
-ms.date: 08/06/2020
+ms.date: 11/20/2020
 ms.custom: devx-track-csharp, mvc, devcenter, seodec18
-ms.openlocfilehash: 5bf774f2b5cf4a6275dc04248aadfd9a94f5122d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a4f7ba288bc27d6079deea9caf0ea315a55d0745
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88212555"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96004018"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Criar um aplicativo Web do ASP.NET Framework no Azure
 
@@ -55,20 +55,21 @@ Crie um aplicativo Web ASP.NET seguindo estas etapas:
 
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **myFirstAzureWebApp** e selecione **Publicar**.
 
-1. Escolha **Serviço de Aplicativo** e selecione **Criar perfil**.
+1. Em **Publicar**, selecione **Azure** e clique em **Avançar**.
 
-   ![Publicar na página de visão geral do projeto](./media/quickstart-dotnet-framework/publish-app-framework-vs2019.png)
+1. Selecione **Serviço de Aplicativo do Azure (Windows)** e clique em **Avançar**.
 
-1. Em **Criar Novo Serviço de Aplicativo**, suas opções dependem de você já ter entrado no Azure e de ter uma conta do Visual Studio vinculada a uma conta do Azure. Selecione **Adicionar uma conta** ou **Entrar** para entrar em sua assinatura do Azure. Se você já estiver conectado, selecione a conta que deseja.
+   <!-- ![Publish from project overview page](./media/quickstart-dotnet-framework/publish-app-framework-vs2019.png) -->
 
-   > [!NOTE]
-   > Se você já estiver conectado, não selecione **Criar** ainda.
-   >
-   >
+1. As opções dependem de você já ter entrado no Azure e de ter uma conta do Visual Studio vinculada a uma conta do Azure. Selecione **Adicionar uma conta** ou **Entrar** para entrar em sua assinatura do Azure. Se você já estiver conectado, selecione a conta que deseja.
 
    ![Entrar no Azure](./media/quickstart-dotnet-framework/sign-in-azure-framework-vs2019.png)
 
    [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
+
+1. À direita de **Instâncias do Serviço de Aplicativo**, clique em **+** .
+
+   ![Novo aplicativo do Serviço de Aplicativo](./media/quickstart-dotnet-framework/publish-new-app-service.png)
 
 1. Para **Grupo de recursos**, selecione **Novo**.
 
@@ -76,9 +77,9 @@ Crie um aplicativo Web ASP.NET seguindo estas etapas:
 
    [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-1. Para **Plano de Hospedagem**, selecione **Novo**.
+1. Em **Plano de Hospedagem**, selecione **Novo**.
 
-1. Na caixa de diálogo **Configurar Plano de Hospedagem**, insira os valores da tabela a seguir e selecione **OK**.
+1. Na caixa de diálogo **Plano de Hospedagem**, insira os valores da tabela a seguir e selecione **OK**.
 
    | Configuração | Valor sugerido | Descrição |
    |-|-|-|
@@ -90,11 +91,13 @@ Crie um aplicativo Web ASP.NET seguindo estas etapas:
 
 1. Em **Nome**, insira um nome de aplicativo exclusivo que inclua somente os caracteres válidos `a-z`, `A-Z`, `0-9` e `-`. Você pode aceitar o nome exclusivo gerado automaticamente. A URL do aplicativo Web é `http://<app-name>.azurewebsites.net`, em que `<app-name>` é o nome do aplicativo.
 
-2. Clique em **Criar** para começar a criar os recursos do Azure.
+2. Selecione **Criar** para criar os recursos do Azure.
 
    ![Configurar nome do aplicativo](./media/quickstart-dotnet-framework/web-app-name-framework-vs2019.png)
 
     Quando o assistente for concluído, os recursos do Azure serão criados para você e você estará pronto para publicar.
+
+3. Escolha **Concluir** para fechar o assistente.
 
 3. Na página **Publicar**, clique em **Publicar**. O Visual Studio compila, empacota e publica o aplicativo no Azure e, em seguida, inicia o aplicativo no navegador padrão.
 

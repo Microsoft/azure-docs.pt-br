@@ -1,25 +1,25 @@
 ---
-title: Cadeias de conexão do Synapse SQL (versão prévia)
-description: Cadeias de conexão do Synapse SQL (versão prévia)
+title: Cadeias de conexão do SQL do Synapse
+description: Cadeias de conexão do SQL do Synapse
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: aa940b00e9c23ab08244ea55c0cd22a8d5f1897f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5ce411f3a2f3be162f9af16422d20b3e8b536fee
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91289371"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120913"
 ---
-# <a name="connection-strings-for-synapse-sql-preview"></a>Cadeias de conexão do Synapse SQL (versão prévia)
+# <a name="connection-strings-for-synapse-sql"></a>Cadeias de conexão do SQL do Synapse
 
-Conecte-se ao Synapse SQL (versão prévia) com vários protocolos de aplicativo diferentes, como [ADO.NET](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396) e [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx). A seguir estão alguns exemplos de cadeias de conexão para cada protocolo. 
+Você pode se conectar ao SQL do Synapse com vários protocolos de aplicativo diferentes, como [ADO.NET](/dotnet/framework/data/adonet/), [ODBC](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows), [PHP](/sql/connect/php/overview-of-the-php-sql-driver?f=255&MSPPError=-2147217396) e [JDBC](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server). A seguir estão alguns exemplos de cadeias de conexão para cada protocolo. 
 
 Você também pode usar o Portal do Azure para compilar sua cadeia de conexão.  Para compilar a cadeia de conexão usando o portal do Azure, navegue até a folha do banco de dados, em *Essentials*, selecione *Mostrar cadeias de conexão de banco de dados*.
 
@@ -52,7 +52,7 @@ jdbc:sqlserver://yourserver.sql.azuresynapse.net:1433;database=yourdatabase;user
 
 ## <a name="recommendations"></a>Recomendações
 
-Para executar consultas do **SQL sob demanda**, as ferramentas recomendadas são o [Azure Data Studio](get-started-azure-data-studio.md) e o Azure Synapse Studio.
+Para executar consultas no **Pool de SQL sem servidor**, as ferramentas recomendadas são o [Azure Data Studio](get-started-azure-data-studio.md) e o Azure Synapse Studio.
 
 ## <a name="next-steps"></a>Próximas etapas
 

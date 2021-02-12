@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 219e2b77a0f6f30307c43f006fcdd3828d3c8fbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d78051c1a5af82a986152c8244d25b68dd65d552
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87021368"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968835"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Como implantar e gerenciar um Dispositivo de Nuvem StorSimple no Azure (Atualização 3 e posteriores)
 
@@ -47,7 +47,7 @@ O Dispositivo de nuvem StorSimple está disponível em dois modelos, o padrão 8
 | **Capacidade máxima** |30 TB |64 TB |
 | **VM do Azure** |Standard_A3 (4 núcleos, 7 GB de memória)| Standard_DS3 (4 núcleos, 14 GB de memória)|
 | **Disponibilidade de região** |Todas as regiões do Azure |Regiões do Azure que dão suporte ao Armazenamento Premium e às VMs DS3 do Azure<br></br>Use [esta lista](https://azure.microsoft.com/regions/services/) para ver se as **Máquinas Virtuais > série DS** e o **Armazenamento > Armazenamento em disco** estão disponíveis em sua região. |
-| **Tipo de armazenamento** |Usa o Armazenamento Standard do Azure para discos locais<br></br> Saiba como [criar uma conta de Armazenamento Standard](../storage/common/storage-create-storage-account.md) |Usa o Armazenamento Premium do Azure para discos locais<sup>2</sup> <br></br> |
+| **Tipo de armazenamento** |Usa o Armazenamento Standard do Azure para discos locais<br></br> Saiba como [criar uma conta de Armazenamento Standard](../storage/common/storage-account-create.md) |Usa o Armazenamento Premium do Azure para discos locais<sup>2</sup> <br></br> |
 | **Diretrizes sobre carga de trabalho** |Recuperação no nível de item de arquivos de backups |Cenários de desenvolvimento e teste de nuvem <br></br>Baixa latência e cargas de trabalho com alto desempenho<br></br>Dispositivo secundário para recuperação de desastre |
 
 <sup>1</sup> *Conhecido anteriormente como 1100*.
@@ -65,7 +65,7 @@ A tabela abaixo mostra algumas das principais diferenças entre o Dispositivo de
 |  | Dispositivo físico | Dispositivo de nuvem |
 | --- | --- | --- |
 | **Localidade** |Reside no datacenter. |É executado no Azure. |
-| **Interfaces de rede** |Tem seis interfaces de rede: DATA 0 a DATA 5. |Tem apenas uma interface de rede: DATA 0. |
+| **Adaptadores de rede** |Tem seis interfaces de rede: DATA 0 a DATA 5. |Tem apenas uma interface de rede: DATA 0. |
 | **Registro** |Registrado durante a etapa de configuração inicial. |O registro é uma tarefa separada. |
 | **Chave de criptografia de dados de serviço** |Com a chave nova, gere no dispositivo físico e, em seguida, atualize o dispositivo de nuvem. |Não é possível gerar novamente do dispositivo de nuvem. |
 | **Tipos de volume com suporte** |Dá suporte aos volumes fixados localmente e em camadas. |Oferece suporte apenas a volumes em camadas. |
@@ -96,7 +96,7 @@ Antes de provisionar o dispositivo de nuvem, você precisa fazer as seguintes pr
 Faça as seguintes atualizações para o serviço do gerenciador de dispositivos StorSimple antes de criar um dispositivo de nuvem:
 
 * Adicione [registros de controle de acesso](storsimple-8000-manage-acrs.md) às Vms que serão os servidores de host para seu dispositivo de nuvem.
-* Use uma [conta de armazenamento](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) na mesma região do dispositivo de nuvem. Contas de armazenamento em regiões diferentes podem resultar em baixo desempenho. Você pode usar uma conta de armazenamento Premium ou Standard com o dispositivo de nuvem. Mais informações sobre como criar uma [conta de Armazenamento Standard](../storage/common/storage-create-storage-account.md).
+* Use uma [conta de armazenamento](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) na mesma região do dispositivo de nuvem. Contas de armazenamento em regiões diferentes podem resultar em baixo desempenho. Você pode usar uma conta de armazenamento Premium ou Standard com o dispositivo de nuvem. Mais informações sobre como criar uma [conta de Armazenamento Standard](../storage/common/storage-account-create.md).
 * Ao criar um dispositivo de nuvem, use uma conta de armazenamento diferente da conta usada para os seus dados. O uso da mesma conta de armazenamento pode resultar em baixo desempenho.
 
 Certifique-se de ter as seguintes informações antes de começar:
@@ -267,7 +267,7 @@ Para interromper todos os encargos, você deve excluir o dispositivo de nuvem. P
 ## <a name="troubleshoot-internet-connectivity-errors"></a>Solucionar problemas de erros de conectividade com a Internet
 A etapa da criação de um dispositivo de nuvem falhará se não houver nenhuma conectividade com a Internet. Para solucionar falhas de conectividade da Internet, execute as seguintes etapas no portal do Azure:
 
-1. [Crie uma máquina virtual do Windows no portal do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal). Essa máquina virtual deve usar a mesma conta de armazenamento, VNet e sub-rede que o seu dispositivo de nuvem. Se você já tiver um host do Windows Server existente no Azure usando a mesma conta de armazenamento, VNet e sub-rede, você também poderá usá-lo para solucionar os problemas de conectividade com a Internet.
+1. [Crie uma máquina virtual do Windows no portal do Azure](../virtual-machines/windows/quick-create-portal.md). Essa máquina virtual deve usar a mesma conta de armazenamento, VNet e sub-rede que o seu dispositivo de nuvem. Se você já tiver um host do Windows Server existente no Azure usando a mesma conta de armazenamento, VNet e sub-rede, você também poderá usá-lo para solucionar os problemas de conectividade com a Internet.
 2. Faça logon remoto na máquina virtual criada na etapa anterior.
 3. Abra uma janela de comando dentro da máquina virtual (Win + R e digite `cmd`).
 4. Execute o seguinte comando no prompt.

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 12/15/2019
 tags: connectors
 ms.openlocfilehash: f4cad2b658547d56d00efdd5e1496110f8e4a5e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87284006"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999563"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Criar, monitorar e gerenciar arquivos FTP usando Aplicativos Lógicos do Azure
 
@@ -71,9 +71,9 @@ Quando um gatilho encontra um novo arquivo, o gatilho verifica se ele está conc
 
 1. Para aplicativos lógicos em branco, na caixa de pesquisa, insira `ftp` como seu filtro. Na lista de **gatilhos** , selecione o gatilho desejado.
 
-   - ou -
+   - ou -
 
-   Para os aplicativos lógicos existentes, na última etapa em que você deseja adicionar uma ação, selecione **nova etapa**e, em seguida, selecione **Adicionar uma ação**. Na caixa de pesquisa, insira `ftp` como o filtro. Na lista **ações** , selecione a ação desejada.
+   Para os aplicativos lógicos existentes, na última etapa em que você deseja adicionar uma ação, selecione **nova etapa** e, em seguida, selecione **Adicionar uma ação**. Na caixa de pesquisa, insira `ftp` como o filtro. Na lista **ações** , selecione a ação desejada.
 
    Para adicionar uma ação entre as etapas, mova o ponteiro sobre a seta entre as etapas. Selecione o sinal de adição ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
@@ -167,7 +167,7 @@ Para verificar se o fluxo de trabalho retorna o conteúdo esperado, adicione out
 
    ![Fornecer informações sobre a ação de email](./media/connectors-create-api-ftp/selected-send-email-action.png)
 
-1. Salve seu aplicativo lógico. Para executar e disparar o aplicativo lógico, na barra de ferramentas, selecione **executar**e, em seguida, adicione um arquivo à pasta de FTP que seu aplicativo lógico agora monitora.
+1. Salve seu aplicativo lógico. Para executar e disparar o aplicativo lógico, na barra de ferramentas, selecione **executar** e, em seguida, adicione um arquivo à pasta de FTP que seu aplicativo lógico agora monitora.
 
 ## <a name="connector-reference"></a>Referência de conector
 

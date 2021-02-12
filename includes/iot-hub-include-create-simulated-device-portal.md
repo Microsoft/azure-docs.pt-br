@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/26/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 8d8f8021925ac9c9e427dd6571ecaa1a30c85497
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91b6f1ed06fbf1f5575650f96f4622b3df9ca083
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67172544"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98187051"
 ---
 <!-- This is the instructions for creating a simulated device you can use for testing routing.-->
 
@@ -25,7 +25,7 @@ Em seguida, crie uma identidade de dispositivo e salve sua chave para uso poster
 
 3. Na lista de recursos, selecione seu hub IoT. Este tutorial usa **ContosoTestHub**. Selecione **dispositivos IoT** do painel de Hub.
 
-4. Selecione **+ Adicionar**. No painel Adicionar dispositivo, preencha a ID do dispositivo. Este tutorial usa **Contoso-Test-Device**. Deixe em branco as chaves e verifique **Gerar chaves automaticamente**. Certifique-se de que **Conectar o dispositivo ao Hub IoT** está habilitado. Clique em **Salvar**.
+4. Selecione **+ Novo**. No painel Adicionar dispositivo, preencha a ID do dispositivo. Este tutorial usa **Contoso-Test-Device**. Deixe em branco as chaves e verifique **Gerar chaves automaticamente**. Certifique-se de que **Conectar o dispositivo ao Hub IoT** está habilitado. Clique em **Salvar**.
 
    ![Tela de adicionar dispositivo](./media/iot-hub-include-create-simulated-device-portal/add-device.png)
 

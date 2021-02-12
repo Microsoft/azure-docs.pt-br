@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: b48adfdfda4b3e120b2246e67a70000d25c25f3a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 04edf2eeb231ff1444c732840def2b78b1373e79
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737082"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565918"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Fazer backup de repositórios de configuração de aplicativo automaticamente
 
@@ -37,14 +37,17 @@ A motivação por trás do backup de repositórios de configuração de aplicati
 
 Neste tutorial, você criará um armazenamento secundário na `centralus` região e todos os outros recursos na `westus` região.
 
-## <a name="prerequisites"></a>Pré-requisitos
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)].
 
-- Assinatura do Azure. [Crie um gratuitamente](https://azure.microsoft.com/free/). 
+## <a name="prerequisites"></a>Pré-requisitos 
+
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) com a carga de trabalho de desenvolvimento do Azure.
-- [SDK do .Net Core](https://dotnet.microsoft.com/download).
-- Versão mais recente do CLI do Azure (2.3.1 ou posterior). Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se você estiver usando o CLI do Azure, primeiro você deve entrar usando `az login` . Opcionalmente, você pode usar Azure Cloud Shell.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+- [SDK do .Net Core](https://dotnet.microsoft.com/download).
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- Este tutorial requer a versão 2.3.1 ou posterior do CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -248,7 +251,7 @@ Se você não vir a nova configuração em seu armazenamento secundário:
 - Você também pode configurar o monitoramento e os alertas para Azure Functions usando o [aplicativo Azure insights](../azure-functions/functions-monitoring.md?tabs=cmd). 
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Se você planeja continuar trabalhando com essa configuração de aplicativo e assinatura de evento, não limpe os recursos criados neste artigo. Se você não planeja continuar, use o comando a seguir para excluir os recursos criados neste artigo.
 
 ```azurecli-interactive

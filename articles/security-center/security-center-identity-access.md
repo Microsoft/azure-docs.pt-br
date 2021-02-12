@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 575c139a3b417eb9429695d3ea6be26bf5625de5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 3c0dd2b4e7e48eeb76d82c26eb52b89b61e9f668
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371062"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134102"
 ---
 # <a name="monitor-identity-and-access"></a>Monitorar a identidade e acesso
 
@@ -30,7 +30,7 @@ Ao monitorar as atividades e as definições de configuração relacionadas à i
 
 A central de segurança do Azure tem dois controles de segurança dedicados para garantir que você esteja atendendo aos requisitos de segurança e identidade da sua organização: 
 
- - **Gerenciar acesso e permissões** – incentivamos você a adotar o [modelo de acesso de privilégios mínimos](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) e garantir que os usuários só acessem o acesso necessário para que eles realizem seus trabalhos. Esse controle também inclui recomendações para implementar o [controle de acesso baseado em função (RBAC)](../role-based-access-control/overview.md) para controlar o acesso aos seus recursos.
+ - **Gerenciar acesso e permissões** – incentivamos você a adotar o [modelo de acesso de privilégios mínimos](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) e garantir que os usuários só acessem o acesso necessário para que eles realizem seus trabalhos. Esse controle também inclui recomendações para implementar o [controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/overview.md) para controlar o acesso aos seus recursos.
  
  - **Habilitar MFA** -com a [MFA](https://www.microsoft.com/security/business/identity/mfa) habilitada, suas contas são mais seguras e os usuários ainda podem se autenticar em quase todos os aplicativos com logon único.
 
@@ -44,7 +44,7 @@ Exemplos de recomendações que você pode ver nesses dois controles na página 
 - As contas preteridas devem ser removidas da sua assinatura (contas preteridas são contas que não são mais necessárias e impedidas de entrar pelo Azure Active Directory)
 
 > [!TIP]
-> Para obter mais informações sobre essas recomendações e os outros que você pode ver nesses controles, consulte [recomendações de identidade e acesso](recommendations-reference.md#recs-identity).
+> Para obter mais informações sobre essas recomendações e os outros que você pode ver nesses controles, consulte [recomendações de identidade e acesso](recommendations-reference.md#recs-identityandaccess).
 
 ### <a name="limitations"></a>Limitações
 

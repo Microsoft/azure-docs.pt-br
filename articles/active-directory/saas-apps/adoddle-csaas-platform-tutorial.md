@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: e6ad11e4d0c0db30d091faec45f3433f544ef622
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 5554ec4521a126a2c2e823b707fe42d9983b5d8e
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309004"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97671606"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adoddle-csaas-platform"></a>Tutorial: Integração do Azure Active Directory à Adoddle cSaas Platform
 
@@ -65,7 +65,7 @@ Para configurar a integração da Adoddle cSaas Platform ao Azure AD, você prec
 
 4. Na caixa de pesquisa, digite **Adoddle cSaas Platform**, selecione **Adoddle cSaas Platform** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
 
-     ![Adoddle cSaas Platform na lista de resultados](common/search-new-app.png)
+    ![Adoddle cSaas Platform na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
@@ -138,7 +138,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
     a. No campo **Nome**, insira **BrendaFernandes**.
-  
+
     b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 

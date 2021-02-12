@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 2/7/2019
 ms.author: rohink
 ms.openlocfilehash: add7674771fd19f6029a94c46624006f0cf30f1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84710874"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011533"
 ---
 # <a name="delegate-an-azure-dns-subdomain"></a>Delegar um subdomínio DNS do Azure
 
@@ -32,7 +32,7 @@ Para delegar um subdomínio de DNS do Azure, primeiro você deve delegar seu dom
 Primeiro, crie a zona para o subdomínio **engineering**.
 
 1. No portal do Azure, selecione **criar um recurso**.
-2. Na caixa de pesquisa, digite **DNS**e selecione **Zona DNS**.
+2. Na caixa de pesquisa, digite **DNS** e selecione **Zona DNS**.
 3. Selecione **Criar**.
 4. No painel **Criar zona DNS**, digite **engineering.contoso.com** na caixa de texto **Nome**.
 5. Selecione o grupo de recursos para sua zona. Você talvez queira usar o mesmo grupo de recursos como a zona pai para manter recursos semelhantes juntos.

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: duau
-ms.openlocfilehash: 25c0b18da1690557f11e36dd11dda693ddddb838
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f24a4a0d982ff78ca4d6726e950825ed2c784e67
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401309"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184533"
 ---
 # <a name="enable-resource-logging-in-azure-traffic-manager"></a>Habilitar o log de recursos no Gerenciador de tráfego do Azure
 
@@ -39,14 +39,14 @@ Os logs de recursos do Gerenciador de tráfego do Azure podem fornecer informaç
 
 2. **Habilitar o log de recursos para o perfil do Gerenciador de tráfego:**
 
-    Habilite o log de recursos para o perfil do Gerenciador de tráfego usando a ID obtida na etapa anterior com [set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest). O comando a seguir armazena logs detalhados do perfil do Gerenciador de Tráfego em uma conta de Armazenamento do Azure especificada. 
+    Habilite o log de recursos para o perfil do Gerenciador de tráfego usando a ID obtida na etapa anterior com [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest). O comando a seguir armazena logs detalhados do perfil do Gerenciador de Tráfego em uma conta de Armazenamento do Azure especificada. 
 
       ```azurepowershell-interactive
     Set-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
       ``` 
 3. **Verificar configurações de diagnóstico:**
 
-      Verifique as configurações de diagnóstico para o perfil do Gerenciador de Tráfego, usando [Get-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/get-azdiagnosticsetting?view=latest). O comando a seguir exibe as categorias registradas em log para um recurso.
+      Verifique as configurações de diagnóstico para o perfil do Gerenciador de Tráfego, usando [Get-AzDiagnosticSetting](/powershell/module/az.monitor/get-azdiagnosticsetting?view=latest). O comando a seguir exibe as categorias registradas em log para um recurso.
 
      ```azurepowershell-interactive
      Get-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>
@@ -64,7 +64,7 @@ Os logs de recursos do Gerenciador de tráfego do Azure podem fornecer informaç
 
 ## <a name="traffic-manager-log-schema"></a>Esquema de log do Gerenciador de Tráfego
 
-Todos os logs de recursos disponíveis por meio de Azure Monitor compartilham um esquema comum de nível superior, com flexibilidade para cada serviço para emitir propriedades exclusivas para seus próprios eventos. Para o esquema de logs de recursos de nível superior, consulte [serviços, esquemas e categorias com suporte para logs de recursos do Azure](../azure-monitor/platform/tutorial-dashboards.md).
+Todos os logs de recursos disponíveis por meio de Azure Monitor compartilham um esquema comum de nível superior, com flexibilidade para cada serviço para emitir propriedades exclusivas para seus próprios eventos. Para o esquema de logs de recursos de nível superior, consulte [serviços, esquemas e categorias com suporte para logs de recursos do Azure](../azure-monitor/platform/resource-logs-schema.md).
 
 A tabela a seguir inclui o esquema de logs específico para o recurso de perfil do Gerenciador de Tráfego do Azure.
 
@@ -77,4 +77,3 @@ A tabela a seguir inclui o esquema de logs específico para o recurso de perfil 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre [Monitoramento do Gerenciador de Tráfego](traffic-manager-monitoring.md)
-

@@ -1,26 +1,26 @@
 ---
-title: Autenticação Multifator do Azure para sua organização – Azure Active Directory
-description: Saiba mais sobre os recursos disponíveis da Autenticação Multifator do Azure para sua organização com base em seu modelo de licença
+title: Autenticação multifator do Azure AD para sua organização-Azure Active Directory
+description: Saiba mais sobre os recursos disponíveis da autenticação multifator do Azure AD para sua organização com base em seu modelo de licença
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: daveba
+author: daveba
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13bb7782f6396466200fbb3e2df77158bb75d8a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85e7f02f8cbda6218396bf4a9a4654a113b7817c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705394"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836735"
 ---
-# <a name="overview-of-azure-multi-factor-authentication-for-your-organization"></a>Visão geral da Autenticação Multifator do Azure para sua organização
+# <a name="overview-of-azure-ad-multi-factor-authentication-for-your-organization"></a>Visão geral da autenticação multifator do Azure AD para sua organização
 
-Há várias maneiras de habilitar a Autenticação Multifator do Azure para seus usuários do Azure AD (Active Directory) com base nas licenças que sua organização tem. 
+Há várias maneiras de habilitar a autenticação multifator do Azure AD para seus usuários do Azure Active Directory (AD) com base nas licenças que sua organização possui. 
 
 ![Investigar sinais e impor a MFA, se necessário](./media/concept-fundamentals-mfa-get-started/verify-signals-and-perform-mfa-if-required.png)
 
@@ -36,7 +36,7 @@ Os clientes que estão aproveitando os benefícios gratuitos do Azure AD podem u
 
 Para clientes com Microsoft 365, há duas opções:
 
-* A Autenticação Multifator do Azure está habilitada ou desabilitada para todos os usuários para todos os eventos de conexão. Não é possível habilitar a autenticação multifator para um subconjunto de usuários ou somente em determinados cenários. O gerenciamento é por meio do portal do Office 365. 
+* A autenticação multifator do Azure AD está habilitada ou desabilitada para todos os usuários, para todos os eventos de entrada. Não é possível habilitar a autenticação multifator para um subconjunto de usuários ou somente em determinados cenários. O gerenciamento é por meio do portal do Office 365. 
 * Para ter uma experiência de usuário aprimorada, atualize para o Azure AD Premium P1 ou P2 e use o acesso condicional. Para obter mais informações, consulte proteger recursos de Microsoft 365 com a autenticação multifator.
 
 ## <a name="azure-ad-premium-p1"></a>Azure AD Premium P1
@@ -62,6 +62,6 @@ Fornece a posição de segurança mais forte e a melhor experiência do usuário
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para começar, confira o tutorial para [proteger eventos de conexão do usuário com a autenticação multifator do Azure](../authentication/tutorial-enable-azure-mfa.md).
+Para começar, consulte o tutorial para [proteger eventos de entrada do usuário com a autenticação multifator do Azure ad](../authentication/tutorial-enable-azure-mfa.md).
 
-Para obter mais informações sobre licenciamento, confira [Recursos e licenças para a autenticação multifator do Azure](../authentication/concept-mfa-licensing.md).
+Para obter mais informações sobre licenciamento, consulte [recursos e licenças para a autenticação multifator do Azure ad](../authentication/concept-mfa-licensing.md).

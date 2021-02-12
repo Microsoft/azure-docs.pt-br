@@ -1,32 +1,33 @@
 ---
 title: Backup e restauração-CLI do Azure-banco de dados do Azure para MySQL
 description: Saiba como fazer backup e restaurar um servidor no Banco de Dados do Azure para MySQL usando a CLI do Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2116b5be4c5d40076aae10ecc2e81d73e7806e6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee06eed1b8f54877d01a8b316c015938038879cf
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89419462"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535394"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Como fazer backup e restaurar um servidor no Banco de Dados do Azure para MySQL usando a CLI do Azure
 
 O backup do Banco de Dados do Azure para servidores MySQL é feito periodicamente para habilitar os recursos de restauração. Com esse recurso de backup automático, você pode restaurar o servidor e todos os seus bancos de dados para um ponto anterior em um novo servidor.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para concluir este guia de instruções, você precisa:
-- Um [servidor de banco de dados do Azure para MySQL e um banco de dados](quickstart-create-mysql-server-database-using-azure-cli.md)
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Para concluir este guia de instruções:
 
-> [!IMPORTANT]
-> Este guia de instruções requer que você use a CLI do Azure versão 2.0 ou posterior. Para confirmar a versão, no prompt de comando da CLI do Azure, digite `az --version`. Para instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+- Você precisa de um banco de dados do [Azure para servidor MySQL e banco de dados](quickstart-create-mysql-server-database-using-azure-cli.md).
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- Este artigo requer a versão 2,0 ou posterior do CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="set-backup-configuration"></a>Definir configuração de backup
 
@@ -67,9 +68,9 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 
 O comando `az mysql server restore` exige os seguintes parâmetros:
 
-| Configuração | Valor sugerido | Descrição  |
+| Configuração | Valor sugerido | Descrição  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  O grupo de recursos em que o servidor de origem existe.  |
+| resource-group |  myresourcegroup |  O grupo de recursos em que o servidor de origem existe.  |
 | name | mydemoserver-restored | O nome do novo servidor que é criado pelo comando de restauração. |
 | restore-point-in-time | 2018-03-13T13:59:00Z | Selecione um ponto no tempo para o qual restaurar. Essa data e hora devem estar dentro do período de retenção de backup do servidor de origem. Use o formato ISO8601 de data e hora. Por exemplo, você pode usar seu fuso horário local, como `2018-03-13T05:59:00-08:00`. Você também pode usar o formato UTC Zulu, por exemplo, `2018-03-13T13:59:00Z`. |
 | source-server | mydemoserver | O nome ou ID para restaurar a partir do servidor de origem. |
@@ -102,7 +103,7 @@ Para restaurar geograficamente o servidor, no prompt de comando da CLI do Azure,
 ```azurecli-interactive
 az mysql server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen5_8 
 ```
-Este comando cria um novo servidor chamado *mydemoserver-georestored* no Leste dos EUA que pertencerá a *myresourcegroup*. É um Uso geral, servidor Gen 5 com 8 vCores. O servidor é criado a partir do backup com redundância geográfica de *mydemoserver*, que também está no grupo de recursos *myresourcegroup*
+Este comando cria um novo servidor chamado *mydemoserver-georestored* no Leste dos EUA que pertencerá a *myresourcegroup*. É um Uso geral, servidor Gen 5 com 8 vCores. O servidor é criado a partir do backup com redundância geográfica de *mydemoserver* , que também está no grupo de recursos *myresourcegroup*
 
 Se você deseja criar o novo servidor em outro grupo de recursos do servidor existente, será necessário qualificar no parâmetro `--source-server` o nome do servidor como no exemplo a seguir:
 
@@ -113,7 +114,7 @@ az mysql server georestore --resource-group newresourcegroup --name mydemoserver
 
 O comando `az mysql server georestore` exige os seguintes parâmetros:
 
-| Configuração | Valor sugerido | Descrição  |
+| Configuração | Valor sugerido | Descrição  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | O nome do grupo de recursos a qual o novo servidor pertencerá.|
 |name | mydemoserver-georestored | O nome do novo servidor. |

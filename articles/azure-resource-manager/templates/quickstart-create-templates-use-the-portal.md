@@ -1,20 +1,20 @@
 ---
 title: Implantar modelo – Portal do Azure
-description: Saiba como criar seu primeiro modelo do Azure Resource Manager usando o portal do Azure e como implantá-lo.
+description: Saiba como criar seu primeiro modelo do ARM (Azure Resource Manager) usando o portal do Azure e como implantá-lo.
 author: mumian
-ms.date: 06/29/2020
+ms.date: 01/26/2021
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: ff6c459f2f4178bee6b6b564e177c097d72592a3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 946156caa7252a89cab006d604eb6b441e09c643
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85557347"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98892484"
 ---
 # <a name="quickstart-create-and-deploy-arm-templates-by-using-the-azure-portal"></a>Início Rápido: Criar e implantar modelos do ARM usando o portal do Azure
 
-Saiba como gerar um modelo do ARM (Azure Resource Manager) usando o portal do Azure e conheça o processo de edição e implantação do modelo no portal. Os modelos do ARM são arquivos JSON que definem os recursos necessários para implantar sua solução. Para entender os conceitos associados à implantação e ao gerenciamento de soluções do Azure, confira a [visão geral da implantação de modelo](overview.md).
+Saiba como gerar um modelo do ARM (Azure Resource Manager) usando o portal do Azure e conheça o processo de edição e implantação do modelo por meio do portal. Os modelos do ARM são arquivos JSON que definem os recursos necessários para implantar sua solução. Para entender os conceitos associados à implantação e ao gerenciamento de soluções do Azure, confira a [visão geral da implantação de modelo](overview.md).
 
 ![Diagrama do portal de início rápido do modelo do Resource Manager](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
@@ -33,9 +33,11 @@ Muitos desenvolvedores de modelos experientes usam esse método para gerar model
 
     ![No menu do portal do Azure, selecione Criar um recurso](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-a-resource.png)
 
-1. Selecione **Armazenamento** > **Conta de armazenamento**.
+1. Na caixa de pesquisa, digite **conta de armazenamento** e pressione **[ENTER]** .
+1. Selecione **Criar**.
 
     ![Criar uma conta de armazenamento do Azure](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
+
 1. Insira as seguintes informações:
 
     |Nome|Valor|
@@ -64,7 +66,7 @@ Muitos desenvolvedores de modelos experientes usam esse método para gerar model
 1. Abra o arquivo zip baixado e salve **template.json** no computador. Na próxima seção, você pode usar uma ferramenta de implantação de modelo para editar o modelo.
 1. Selecione a guia **Parâmetro** para ver os valores fornecidos para os parâmetros. Anote esses valores, você precisará deles na próxima seção quando implantar o modelo.
 
-    ![Gerar um modelo no portal](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template-parameters.png)
+    ![Captura de tela que realça a guia Parâmetro que mostra os valores fornecidos.](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template-parameters.png)
 
     Usando o arquivo de modelo e o arquivo de parâmetros é possível criar um recurso, neste tutorial, uma conta de armazenamento do Azure.
 

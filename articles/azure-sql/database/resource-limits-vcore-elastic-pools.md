@@ -10,13 +10,13 @@ ms.topic: reference
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 10/15/2020
-ms.openlocfilehash: fb4746972f78dc40a3ec264d2e1964e8d4e99b3d
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.date: 01/22/2021
+ms.openlocfilehash: 619f4deee81c97f2d7a0b4359e2b999c476b1ae2
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097585"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737550"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Limites de recursos para pools elásticos usando o modelo de compra vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -126,7 +126,7 @@ Você pode definir a camada de serviço, o tamanho da computação (objetivo do 
 |Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Opções mínimas/máximas de vCore do pool elástico por banco de dados|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1…4|0, 0,25, 0,5, 1…6|0, 0,25, 0,5, 1…8|0, 0,25, 0,5, 1…10|0, 0,25, 0,5, 1…12|0, 0,25, 0,5, 1…14|
 |Número de réplicas|1|1|1|1|1|1|1|
-|Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|Multi-AZ|[Disponível na visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível na visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível na visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível na visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível na visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível na visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível na visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|
 |Escala de leitura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
@@ -158,7 +158,7 @@ Você pode definir a camada de serviço, o tamanho da computação (objetivo do 
 |Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Opções mínimas/máximas de vCore do pool elástico por banco de dados|0, 0,25, 0,5, 1…16|0, 0,25, 0,5, 1…18|0, 0,25, 0,5, 1…20|0, 0,25, 0,5, 1…20, 24|0, 0,25, 0,5, 1…20, 24, 32|0, 0,25, 0,5, 1…16, 24, 32, 40|0, 0.25, 0,5, 1…16, 24, 32, 40, 80|
 |Número de réplicas|1|1|1|1|1|1|1|
-|Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|Multi-AZ|[Disponível na visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível na visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível na visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível na visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível na visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível na visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível na visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|
 |Escala de leitura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
@@ -218,7 +218,7 @@ Você pode definir a camada de serviço, o tamanho da computação (objetivo do 
 |Tamanho máximo de dados de TempDB (GB)|83,25|92,5|111|148|166,5|333|
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
-|IOPS de dados máximo por pool <sup>2</sup>|5760|6400|7680|10240|11520|23040|
+|IOPS de dados máximo por pool <sup>2</sup>|5760|6400|7680|10240|11520|12800|
 |Taxa máxima de log por pool (MBps)|48|48|48|48|48|48|
 |Máximo de trabalhos simultâneos por pool (solicitações) <sup>3</sup>|900|1000|1200|1600|1800|3600|
 |Máximo de logons simultâneos por pool (solicitações) <sup>3</sup>|1800|2000|2400|3200|3600|7200|
@@ -228,6 +228,39 @@ Você pode definir a camada de serviço, o tamanho da computação (objetivo do 
 |Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|
 |Escala de leitura|N/D|N/D|N/D|N/D|N/D|N/D|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
+
+<sup>1</sup> consulte [Gerenciamento de recursos em pools elásticos densos](elastic-pool-resource-management.md) para obter considerações adicionais.
+
+<sup>2</sup> o valor máximo para tamanhos de e/s variando entre 8 kb e 64 KB. IOPS reais são dependentes da carga de trabalho. Para obter detalhes, consulte [governança de e/s de dados](resource-limits-logical-server.md#resource-governance).
+
+<sup>3</sup> para o máximo de trabalhos simultâneos (solicitações) para qualquer banco de dados individual, consulte [limites de recurso de banco de dados único](resource-limits-vcore-single-databases.md). Por exemplo, se o pool elástico estiver usando Gen5 e o vCore máximo por banco de dados for definido como 2, o valor máximo de trabalhos simultâneos será de 200.  Se o vCore máximo por banco de dados for definido como 0,5, o valor máximo de trabalhos simultâneos será 50, pois, em Gen5, há um máximo de 100 trabalhos simultâneos por vCore. Para outras configurações de máximo de vCore por banco de dados que sejam menores que 1 vCore, o número máximo de trabalhos simultâneos é redimensionado de forma semelhante.
+
+
+## <a name="general-purpose---provisioned-compute---dc-series"></a>Computação provisionada de uso geral-série DC
+
+|Tamanho da computação (objetivo do serviço)|GP_DC_2|GP_DC_4|GP_DC_6|GP_DC_8|
+|:--- | --: |--: |--: |--: |
+|Geração de computação|DC|DC|DC|DC|
+|vCores|2|4|6|8|
+|Memória (GB)|9|18|27|36|
+|Número máximo de bancos de os por pool <sup>1</sup>|100|400|400|400|
+|Suporte de columnstore|Sim|Sim|Sim|Sim|
+|Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|
+|Tamanho máximo de dados (GB)|756|1536|2.048|2.048|
+|Tamanho máximo de log (GB)|227|461|614|614|
+|Tamanho máximo de dados de TempDB (GB)|64|128|192|256|
+|Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
+|Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
+|IOPS de dados máximo por pool <sup>2</sup>|800|1600|2400|3200|
+|Taxa máxima de log por pool (MBps)|9,4|18,8|28,1|32,8|
+|Máximo de trabalhos simultâneos por pool (solicitações) <sup>3</sup>|168|336|504|672|
+|Máximo de logons simultâneos por pool (solicitações) <sup>3</sup>|168|336|504|672|
+|Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|
+|Opções mínimas/máximas de vCore do pool elástico por banco de dados|2|2... 4|2... 6|2... 8|
+|Número de réplicas|1|1|1|1|
+|Multi-AZ|N/D|N/D|N/D|N/D|
+|Escala de leitura|N/D|N/D|N/D|N/D|
+|Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
 <sup>1</sup> consulte [Gerenciamento de recursos em pools elásticos densos](elastic-pool-resource-management.md) para obter considerações adicionais.
 
@@ -406,8 +439,6 @@ Você pode definir a camada de serviço, o tamanho da computação (objetivo do 
 
 Se todos os vCores de um pool elástico estiverem ocupados, cada banco de dados no pool receberá uma quantidade igual de recursos de computação para processar as consultas. O banco de dados SQL do Azure fornece integridade de compartilhamento de recursos entre bancos de dados garantindo fatias iguais de tempo de computação. A integridade de compartilhamento de recursos do pool elástico é adicional a qualquer quantidade de recursos garantidos de outra forma a cada banco de dados quando o mínimo de vCores por banco de dados é definido com um valor diferente de zero.
 
-
-
 ### <a name="m-series-compute-generation-part-2"></a>Geração de computação da série M (parte 2)
 
 |Tamanho da computação (objetivo do serviço)|BC_M_20|BC_M_24|BC_M_32|BC_M_64|BC_M_128|
@@ -425,8 +456,8 @@ Se todos os vCores de um pool elástico estiverem ocupados, cada banco de dados 
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
 |IOPS de dados máximo por pool <sup>2</sup>|31.248|37.497|49.996|99.993|160.000|
 |Taxa máxima de log por pool (MBps)|120|144|192|264|264|
-|Máximo de trabalhos simultâneos por pool (solicitações) <sup>3</sup>|2\.000|2.400|3\.200|6.400|12.800|
-|Máximo de logons simultâneos por pool (solicitações) <sup>3</sup>|2\.000|2.400|3\.200|6.400|12.800|
+|Máximo de trabalhos simultâneos por pool (solicitações) <sup>3</sup>|2.000|2.400|3\.200|6.400|12.800|
+|Máximo de logons simultâneos por pool (solicitações) <sup>3</sup>|2.000|2.400|3\.200|6.400|12.800|
 |Máximo de sessões simultâneas|30000|30000|30000|30000|30000|
 |Número de réplicas|4|4|4|4|4|
 |Multi-AZ|Não|Não|Não|Não|Não|
@@ -441,6 +472,37 @@ Se todos os vCores de um pool elástico estiverem ocupados, cada banco de dados 
 
 Se todos os vCores de um pool elástico estiverem ocupados, cada banco de dados no pool receberá uma quantidade igual de recursos de computação para processar as consultas. O banco de dados SQL do Azure fornece integridade de compartilhamento de recursos entre bancos de dados garantindo fatias iguais de tempo de computação. A integridade de compartilhamento de recursos do pool elástico é adicional a qualquer quantidade de recursos garantidos de outra forma a cada banco de dados quando o mínimo de vCores por banco de dados é definido com um valor diferente de zero.
 
+## <a name="business-critical---provisioned-compute---dc-series"></a>Negócio crítico-série de computação provisionada
+
+|Tamanho da computação (objetivo do serviço)|BC_DC_2|BC_DC_4|BC_DC_6|BC_DC_8|
+|:--- | --: |--: |--: |--: |
+|Geração de computação|DC|DC|DC|DC|
+|vCores|2|4|6|8|
+|Memória (GB)|9|18|27|36|
+|Número máximo de bancos de os por pool <sup>1</sup>|50|100|100|100|
+|Suporte de columnstore|Sim|Sim|Sim|Sim|
+|Armazenamento OLTP na memória (GB)|1.7|3.7|5.9|8.2|
+|Tamanho máximo de dados (GB)|768|768|768|768|
+|Tamanho máximo de log (GB)|230|230|230|230|
+|Tamanho máximo de dados de TempDB (GB)|64|128|192|256|
+|Tipo de armazenamento|SSD Local|SSD Local|SSD Local|SSD Local|
+|Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
+|IOPS de dados máximo por pool <sup>2</sup>|15750|31500|47250|56000|
+|Taxa máxima de log por pool (MBps)|20|60|90|120|
+|Máximo de trabalhos simultâneos por pool (solicitações) <sup>3</sup>|168|336|504|672|
+|Máximo de logons simultâneos por pool (solicitações) <sup>3</sup>|168|336|504|672|
+|Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|
+|Opções mínimas/máximas de vCore do pool elástico por banco de dados|2|2... 4|2... 6|2... 8|
+|Número de réplicas|4|4|4|4|
+|Multi-AZ|Não|Não|Não|Não|
+|Escala de leitura|Sim|Sim|Sim|Sim|
+|Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
+
+<sup>1</sup> consulte [Gerenciamento de recursos em pools elásticos densos](elastic-pool-resource-management.md) para obter considerações adicionais.
+
+<sup>2</sup> o valor máximo para tamanhos de e/s variando entre 8 kb e 64 KB. IOPS reais são dependentes da carga de trabalho. Para obter detalhes, consulte [governança de e/s de dados](resource-limits-logical-server.md#resource-governance).
+
+<sup>3</sup> para o máximo de trabalhos simultâneos (solicitações) para qualquer banco de dados individual, consulte [limites de recurso de banco de dados único](resource-limits-vcore-single-databases.md). Por exemplo, se o pool elástico estiver usando Gen5 e o vCore máximo por banco de dados for definido como 2, o valor máximo de trabalhos simultâneos será de 200.  Se o vCore máximo por banco de dados for definido como 0,5, o valor máximo de trabalhos simultâneos será 50, pois, em Gen5, há um máximo de 100 trabalhos simultâneos por vCore. Para outras configurações de máximo de vCore por banco de dados que sejam menores que 1 vCore, o número máximo de trabalhos simultâneos é redimensionado de forma semelhante.
 
 ## <a name="database-properties-for-pooled-databases"></a>Propriedades do banco de dados para bancos de dados em pool
 

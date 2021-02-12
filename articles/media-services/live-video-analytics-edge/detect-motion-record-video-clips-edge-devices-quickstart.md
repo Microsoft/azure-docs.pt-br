@@ -4,12 +4,12 @@ description: Este início rápido mostra como usar a Análise de Vídeo ao vivo 
 ms.topic: quickstart
 ms.date: 04/27/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: e456bb5b8d6d6658158af0c58f05ab38fe4693b8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e4334cdd14242337a2a870f31886606020654685
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88682066"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498346"
 ---
 # <a name="quickstart-detect-motion-and-record-video-on-edge-devices"></a>Início Rápido: Detectar movimento e gravar vídeo em dispositivos de borda
  
@@ -123,4 +123,4 @@ Se você pretende experimentar outros inícios rápidos, mantenha os recursos cr
 * Examine os desafios adicionais para usuários avançados:
 
     * Use uma [câmera IP](https://en.wikipedia.org/wiki/IP_camera) compatível com RTSP em vez de usar o simulador RTSP. Veja as câmeras IP compatíveis com RTSP na página [Produtos em conformidade com ONVIF](https://www.onvif.org/conformant-products). Procure dispositivos em conformidade com os perfis G, S ou T.
-    * Use um dispositivo AMD64 ou x64 do Linux em vez de usar uma VM do Linux no Azure. Esse dispositivo precisa estar na mesma rede que a câmera IP. Siga as instruções em [Instalar o runtime do Azure IoT Edge no Linux](../../iot-edge/how-to-install-iot-edge-linux.md). Depois, siga as instruções em [Implantar seu primeiro módulo do IoT Edge em um dispositivo virtual Linux](../../iot-edge/quickstart-linux.md) para registrar o dispositivo no Hub IoT do Azure.
+    * Use um dispositivo AMD64 ou x64 do Linux em vez de usar uma VM do Linux no Azure. Esse dispositivo precisa estar na mesma rede que a câmera IP. Siga as instruções em [Instalar o runtime do Azure IoT Edge no Linux](../../iot-edge/how-to-install-iot-edge.md). Depois, siga as instruções em [Implantar seu primeiro módulo do IoT Edge em um dispositivo virtual Linux](../../iot-edge/quickstart-linux.md) para registrar o dispositivo no Hub IoT do Azure.

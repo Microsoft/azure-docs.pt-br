@@ -18,11 +18,11 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/11/2019
 ms.openlocfilehash: 870842074bb4a0012a48115586a8ad571275d470
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91281024"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022404"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-android-apps-using-azure-notification-hubs"></a>Tutorial: Enviar notificações por push para aplicativos Android específicos usando os Hubs de Notificação do Azure
 

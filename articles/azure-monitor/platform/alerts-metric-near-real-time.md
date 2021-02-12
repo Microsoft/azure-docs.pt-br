@@ -5,14 +5,14 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 9/30/2020
+ms.date: 12/15/2020
 ms.subservice: alerts
-ms.openlocfilehash: d99e37171f2fb5b86bee897caca55c3e8782f92e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 8f59f3488f6c8f5b35ec68d93db656447f882a92
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108806"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510675"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Recursos com suporte para alertas de métrica no Azure Monitor
 
@@ -26,7 +26,7 @@ No momento, você pode criar alertas de métrica mais recentes somente nos model
 ## <a name="metrics-and-dimensions-supported"></a>Medidas e dimensões com suporte
 Os alertas de métrica mais recentes fornecem suporte a alertas para métricas que usam dimensões. É possível usar dimensões para filtrar sua métrica para o nível certo. Todas as métricas compatíveis, juntamente com as dimensões aplicáveis, podem ser exploradas e visualizadas no [Azure Monitor – Metrics Explorer](./metrics-charts.md).
 
-Esta é a lista completa das origens métricas do Azure Monitor com suporte pelos alertas mais recentes:
+Aqui está a lista completa de Azure Monitor fontes métricas com suporte dos alertas mais recentes:
 
 |Tipo de recurso  |Dimensões compatíveis |Alertas de vários recursos| Métricas disponíveis|
 |---------|---------|-----|----------|
@@ -41,10 +41,10 @@ Esta é a lista completa das origens métricas do Azure Monitor com suporte pelo
 |Microsoft.ClassicCompute/domainNames/slots/roles | Não | Não | [Serviços de nuvem clássico](./metrics-supported.md#microsoftclassiccomputedomainnamesslotsroles) |
 |Microsoft.ClassicCompute/virtualMachines | Não | Não | [Máquinas virtuais clássicas](./metrics-supported.md#microsoftclassiccomputevirtualmachines) |
 |Microsoft.ClassicStorage/storageAccounts | Sim | Não | [Contas de armazenamento (clássicas)](./metrics-supported.md#microsoftclassicstoragestorageaccounts) |
-|Microsoft.ClassicStorage/storageAccounts/blobServices | Sim | Não | |
-|Microsoft.ClassicStorage/storageAccounts/fileServices | Sim | Não | |
-|Microsoft.ClassicStorage/storageAccounts/queueServices | Sim | Não | |
-|Microsoft.ClassicStorage/storageAccounts/tableServices | Sim | Não | |
+|Microsoft.ClassicStorage/storageAccounts/blobServices | Sim | Não | [Contas de armazenamento (clássicas) – BLOBs](./metrics-supported.md#microsoftclassicstoragestorageaccountsblobservices) |
+|Microsoft.ClassicStorage/storageAccounts/fileServices | Sim | Não | [Contas de armazenamento (clássicas)-arquivos](./metrics-supported.md#microsoftclassicstoragestorageaccountsfileservices) |
+|Microsoft.ClassicStorage/storageAccounts/queueServices | Sim | Não | [Contas de armazenamento (clássicas)-filas](./metrics-supported.md#microsoftclassicstoragestorageaccountsqueueservices) |
+|Microsoft.ClassicStorage/storageAccounts/tableServices | Sim | Não | [Contas de armazenamento (clássicas)-tabelas](./metrics-supported.md#microsoftclassicstoragestorageaccountstableservices) |
 |Microsoft.CognitiveServices/accounts | Sim | Não | [Serviços Cognitivos](./metrics-supported.md#microsoftcognitiveservicesaccounts) |
 |Microsoft.Compute/virtualMachines | Sim | Sim<sup>1</sup> | [Máquinas virtuais](./metrics-supported.md#microsoftcomputevirtualmachines) |
 |Microsoft.Compute/virtualMachineScaleSets | Sim | Não |[Conjuntos de dimensionamento de máquinas virtuais](./metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
@@ -57,10 +57,9 @@ Esta é a lista completa das origens métricas do Azure Monitor com suporte pelo
 |Microsoft.DataShare/accounts | Sim | Não | |
 |Microsoft.DBforMariaDB/servers | Não | Não | [DB para MariaDB](./metrics-supported.md#microsoftdbformariadbservers) |
 |Microsoft.DBforMySQL/servers | Não | Não |[Banco de dados para MySQL](./metrics-supported.md#microsoftdbformysqlservers)|
-|Microsoft.DBforPostgreSQL/flexibleServers | Sim | Não | |
 |Microsoft.DBforPostgreSQL/servers | Não | Não | [Banco de dados para PostgreSQL](./metrics-supported.md#microsoftdbforpostgresqlservers)|
 |Microsoft.DBforPostgreSQL/serversv2 | Não | Não | [BD para PostgreSQL v2](./metrics-supported.md#microsoftdbforpostgresqlserversv2)|
-|Microsoft. DBforPostgreSQL/singleservers | Não | Não | [BD para PostgreSQL (servidores únicos)](./metrics-supported.md#microsoftdbforpostgresqlsingleservers)|
+|Microsoft.DBforPostgreSQL/flexibleServers | Sim | Não | [BD para PostgreSQL (servidores flexíveis)](./metrics-supported.md#microsoftdbforpostgresqlflexibleservers)|
 |Microsoft.Devices/IotHubs | Sim | Não |[Hub IoT](./metrics-supported.md#microsoftdevicesiothubs) |
 |Microsoft.Devices/provisioningServices| Sim | Não | [Serviços de provisionamento de dispositivos](./metrics-supported.md#microsoftdevicesprovisioningservices) |
 |Microsoft. DigitalTwins/digitalTwinsInstances | Sim | Não | |
@@ -85,7 +84,8 @@ Esta é a lista completa das origens métricas do Azure Monitor com suporte pelo
 |Microsoft.Network/applicationGateways | Sim | Não | [Gateways de aplicativo](./metrics-supported.md#microsoftnetworkapplicationgateways) |
 |Microsoft.Network/azurefirewalls | Sim | Não | [Firewalls](./metrics-supported.md#microsoftnetworkazurefirewalls) |
 |Microsoft.Network/dnsZones | Não | Não | [Zonas DNS](./metrics-supported.md#microsoftnetworkdnszones) |
-|Microsoft.Network/expressRouteCircuits | N/D | Não |[Circuitos do ExpressRoute](./metrics-supported.md#microsoftnetworkexpressroutecircuits) |
+|Microsoft.Network/expressRouteCircuits | Sim | Não |[Circuitos do ExpressRoute](./metrics-supported.md#microsoftnetworkexpressroutecircuits) |
+|Microsoft.Network/expressRoutePorts | Sim | Não |[ExpressRoute Direct](./metrics-supported.md#microsoftnetworkexpressrouteports) |
 |Microsoft.Network/loadBalancers (apenas para SKUs Standard)| Sim| Não | [Balanceadores de carga](./metrics-supported.md#microsoftnetworkloadbalancers) |
 |Microsoft. Network/natGateways| Não | Não | |
 |Microsoft. Network/privateEndpoints| Não | Não | |
@@ -95,7 +95,7 @@ Esta é a lista completa das origens métricas do Azure Monitor com suporte pelo
 |Microsoft.OperationalInsights/workspaces| Sim | Não | [Workspaces do Log Analytics](./metrics-supported.md#microsoftoperationalinsightsworkspaces)|
 |Microsoft. emparelhamento/emparelhamentos | Sim | Não | [Emparelhamentos](./metrics-supported.md#microsoftpeeringpeerings) |
 |Microsoft. emparelhamento/peeringServices | Sim | Não | [Serviços de Emparelhamento](./metrics-supported.md#microsoftpeeringpeeringservices) |
-|Microsoft.PowerBIDedicated/capacities | Não | Não | [Capacities](./metrics-supported.md#microsoftpowerbidedicatedcapacities) |
+|Microsoft.PowerBIDedicated/capacities | Não | Não | [Capacidades](./metrics-supported.md#microsoftpowerbidedicatedcapacities) |
 |Microsoft.Relay/namespaces | Sim | Não | [Retransmissão](./metrics-supported.md#microsoftrelaynamespaces) |
 |Microsoft.Search/searchServices | Não | Não | [Serviços Search](./metrics-supported.md#microsoftsearchsearchservices) |
 |Microsoft.ServiceBus/namespaces | Sim | Não | [Barramento de Serviço](./metrics-supported.md#microsoftservicebusnamespaces) |
@@ -103,15 +103,21 @@ Esta é a lista completa das origens métricas do Azure Monitor com suporte pelo
 |Microsoft.Sql/servers/databases | Não | Sim | [Bancos de dados SQL](./metrics-supported.md#microsoftsqlserversdatabases) |
 |Microsoft.Sql/servers/elasticPools | Não | Sim | [Pools elásticos do SQL](./metrics-supported.md#microsoftsqlserverselasticpools) |
 |Microsoft.Storage/storageAccounts |Sim | Não | [Contas de Armazenamento](./metrics-supported.md#microsoftstoragestorageaccounts)|
-|Microsoft.Storage/storageAccounts/services | Sim| Não | [Serviços de blob](./metrics-supported.md#microsoftstoragestorageaccountsblobservices), [Serviços de arquivo](./metrics-supported.md#microsoftstoragestorageaccountsfileservices), [Serviços de fila](./metrics-supported.md#microsoftstoragestorageaccountsqueueservices) e [Serviços de tabela](./metrics-supported.md#microsoftstoragestorageaccountstableservices)|
+|Microsoft.Storage/storageAccounts/blobServices | Sim| Não | [Contas de armazenamento-BLOBs](./metrics-supported.md#microsoftstoragestorageaccountsblobservices) |
+|Microsoft.Storage/storageAccounts/fileServices | Sim| Não | [Contas de armazenamento-arquivos](./metrics-supported.md#microsoftstoragestorageaccountsfileservices) |
+|Microsoft.Storage/storageAccounts/queueServices | Sim| Não | [Contas de armazenamento-filas](./metrics-supported.md#microsoftstoragestorageaccountsqueueservices) |
+|Microsoft.Storage/storageAccounts/tableServices | Sim| Não | [Contas de armazenamento – tabelas](./metrics-supported.md#microsoftstoragestorageaccountstableservices) |
 |Microsoft.StorageCache/caches | Sim | Não | |
 |Microsoft. StorageSync/storageSyncServices | Sim | Não | [Serviços de sincronização de armazenamento](./metrics-supported.md#microsoftstoragesyncstoragesyncservices) |
 |Microsoft.StreamAnalytics/streamingjobs | Sim | Não | [Stream Analytics](./metrics-supported.md#microsoftstreamanalyticsstreamingjobs) |
+|Microsoft.Synapse/workspaces | Sim | Não | [Synapse Analytics](./metrics-supported.md#microsoftsynapseworkspaces) |
+|Microsoft. Synapse/Workspaces/bigDataPools | Sim | Não | [Pools de Apache Spark do Synapse Analytics](./metrics-supported.md#microsoftsynapseworkspacesbigdatapools) |
+|Microsoft. Synapse/espaços de trabalho/sqlpools | Sim | Não | [Pools de SQL do Synapse Analytics](./metrics-supported.md#microsoftsynapseworkspacessqlpools) |
 |Microsoft. VMWareCloudSimple/virtualMachines | Sim | Não | [Máquinas Virtuais de CloudSimple](./metrics-supported.md#microsoftvmwarecloudsimplevirtualmachines) |
 |Microsoft.Web/hostingEnvironments/multiRolePools | Sim | Não | [Ambiente do Serviço de Aplicativo pools de várias funções](./metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools)|
 |Microsoft.Web/hostingEnvironments/workerPools | Sim | Não | [Ambiente do Serviço de Aplicativo pools de trabalho](./metrics-supported.md#microsoftwebhostingenvironmentsworkerpools)|
 |Microsoft.Web/serverfarms | Sim | Não | [Planos do serviço de aplicativo](./metrics-supported.md#microsoftwebserverfarms)|
-|Microsoft.Web/sites | Sim | Não | [Serviços de Aplicativos](./metrics-supported.md#microsoftwebsites-excluding-functions) e [Funções](./metrics-supported.md#microsoftwebsites-functions)|
+|Microsoft.Web/sites | Sim | Não | [Serviços de Aplicativos e Funções](./metrics-supported.md#microsoftwebsites)|
 |Microsoft.Web/sites/slots | Sim | Não | [Slots do Serviço de Aplicativo](./metrics-supported.md#microsoftwebsitesslots)|
 
 <sup>1</sup> não há suporte para métricas de rede de máquina virtual (rede no total, total de saída de rede, fluxos de entrada, fluxos de saída, taxa de criação máxima de fluxos de entrada, taxa de criação máxima de fluxos de saída) e métricas personalizadas.

@@ -3,14 +3,14 @@ title: Tutorial do Kubernetes no Azure - Dimensionar Aplicativo
 description: Neste tutorial do AKS (Serviço de Kubernetes do Azure), você aprenderá a dimensionar nós e pods no Kubernetes e a implementar o dimensionamento automático horizontal de pods.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/30/2020
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: e700934a965f836456458cb33dc46125bef4ab72
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.date: 01/12/2021
+ms.custom: mvc
+ms.openlocfilehash: dfebb6561e83c51063515ec655153aaaa7a09c0c
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747002"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251362"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Dimensionar aplicativos no AKS (Serviço de Kubernetes do Azure)
 
@@ -21,7 +21,7 @@ Se você tiver seguido os tutoriais, terá um cluster de Kubernetes operacional 
 > * Dimensionar pods Kubernetes manualmente que executam seu aplicativo
 > * Configurar os pods de dimensionamento automático que executam o front-end do aplicativo
 
-Nos tutoriais adicionais, o aplicativo Azure Vote é atualizado para uma nova versão.
+Em tutoriais posteriores, o aplicativo Azure Vote será atualizado para uma nova versão.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -39,19 +39,19 @@ kubectl get pods
 
 A saída de exemplo a seguir mostra um pod de front-end e um pod de back-end:
 
-```
+```output
 NAME                               READY     STATUS    RESTARTS   AGE
 azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-Para alterar manualmente o número de pods na implantação *azure-vote-front* , use o comando [kubectl scale][kubectl-scale]. O exemplo a seguir aumenta o número de pods de front-end *5* :
+Para alterar manualmente o número de pods na implantação *azure-vote-front*, use o comando [kubectl scale][kubectl-scale]. O exemplo a seguir aumenta o número de pods de front-end *5*:
 
 ```console
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Execute [kubectl get pods][kubectl-get] novamente para verificar se o AKS cria os pods adicionais. Após aproximadamente um minuto, os pods adicionais estão disponíveis em seu cluster:
+Execute [kubectl get pods][kubectl-get] novamente para verificar se o AKS cria os pods adicionais com êxito. Após alguns minutos, os pods estarão disponíveis no cluster:
 
 ```console
 kubectl get pods
@@ -74,7 +74,7 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query kuberne
 ```
 
 > [!NOTE]
-> Se o cluster AKs for menor que *1.10* , o Servidor de Métricas não será instalado automaticamente. Os manifestos de instalação do servidor de métricas estão disponíveis como um ativo `components.yaml` em versões do servidor de métricas, o que significa que você pode instalá-los por meio de uma URL. Para saber mais sobre essas definições de YAML, confira a seção [Implantação][metrics-server-github] do Leiame.
+> Se o cluster AKs for menor que *1.10*, o Servidor de Métricas não será instalado automaticamente. Os manifestos de instalação do servidor de métricas estão disponíveis como um ativo `components.yaml` em versões do servidor de métricas, o que significa que você pode instalá-los por meio de uma URL. Para saber mais sobre essas definições de YAML, confira a seção [Implantação][metrics-server-github] do Leiame.
 > 
 > Exemplo de instalação:
 > ```console
@@ -91,7 +91,7 @@ resources:
      cpu: 500m
 ```
 
-O exemplo a seguir usa o comando [kubectl autoscale][kubectl-autoscale] para dimensionar automaticamente o número de pods na implantação *azure-vote-front* . Se a utilização média da CPU entre todos os pods exceder 50% do seu uso solicitado, o dimensionamento automático aumentará os pods até um máximo de *10* instâncias. Um mínimo de *3* instâncias então é definido para a implantação:
+O exemplo a seguir usa o comando [kubectl autoscale][kubectl-autoscale] para dimensionar automaticamente o número de pods na implantação *azure-vote-front*. Se a utilização média da CPU entre todos os pods exceder 50% do seu uso solicitado, o dimensionamento automático aumentará os pods até um máximo de *10* instâncias. Um mínimo de *3* instâncias então é definido para a implantação:
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
@@ -131,7 +131,7 @@ spec:
 
 Use `kubectl apply` para aplicar o dimensionador automático definido no arquivo de manifesto `azure-vote-hpa.yaml`.
 
-```
+```console
 kubectl apply -f azure-vote-hpa.yaml
 ```
 
@@ -150,7 +150,7 @@ Após alguns minutos, com carga mínima no aplicativo Azure Vote, o número de r
 
 Se você criou o cluster Kubernetes usando os comandos no tutorial anterior, ele tem dois nós. Você pode ajustar o número de nós manualmente se planejar ter mais ou menos cargas de trabalho de contêiner no cluster.
 
-O exemplo a seguir aumenta o número de nós para três no cluster Kubernetes chamado *myAKSCluster* . Esse comando leva alguns minutos para ser concluído.
+O exemplo a seguir aumenta o número de nós para três no cluster Kubernetes chamado *myAKSCluster*. Esse comando leva alguns minutos para ser concluído.
 
 ```azurecli
 az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
@@ -158,7 +158,7 @@ az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 
 Quando o cluster tiver sido dimensionado com êxito, a saída será semelhante ao exemplo a seguir:
 
-```
+```output
 "agentPoolProfiles": [
   {
     "count": 3,

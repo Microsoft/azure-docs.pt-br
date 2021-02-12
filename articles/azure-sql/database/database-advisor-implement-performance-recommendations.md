@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: b1ef29eb71ccd945552550f64e5ae95bc85be44d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 79ccf0f8aae7e915601081f875cea294de52d787
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672112"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500845"
 ---
 # <a name="database-advisor-performance-recommendations-for-azure-sql-database"></a>Recomendações de desempenho de Assistente do Banco de Dados para o banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,10 +29,10 @@ A visão geral do desempenho fornece um resumo do desempenho do banco de dados e
 
 ![Visão geral do desempenho do banco de dados SQL do Azure](./media/database-advisor-implement-performance-recommendations/performance-overview-annotated.png)
 
-- O bloco **Recomendações** fornece uma divisão das recomendações de ajuste para seu banco de dados (as três principais recomendações serão exibidas, se existirem mais). Clicar nesse bloco leva você às **[Opções de recomendação de desempenho](database-advisor-find-recommendations-portal.md#viewing-recommendations)** .
+- O bloco **Recomendações** fornece uma divisão das recomendações de ajuste para seu banco de dados (as três principais recomendações serão exibidas, se existirem mais). Clicar nesse bloco leva você às **[Opções de recomendação de desempenho](database-advisor-find-recommendations-portal.md#viewing-recommendations)**.
 - O bloco **Atividade de ajuste** fornece um resumo das atividades de ajuste em andamento e concluídas para o banco de dados, oferecendo uma visão rápida do histórico de atividades de ajuste. Clicar nesse bloco leva você para a exibição do histórico completo de ajustes do banco de dados.
 - O bloco de **ajuste automático** mostra a **[configuração de ajuste automático](automatic-tuning-enable.md)** do banco de dados (opções de ajuste aplicadas automaticamente ao banco de dados). Clicar nesse bloco abre a caixa de diálogo de configuração de automação.
-- O bloco **Consultas de banco de dados** mostra o resumo do desempenho de consulta do banco de dados (uso geral de DTU e consultas com maior consumo de recursos). Ao clicar nesse bloco, será direcionado para **[Análise de Desempenho de Consultas](query-performance-insight-use.md)** .
+- O bloco **Consultas de banco de dados** mostra o resumo do desempenho de consulta do banco de dados (uso geral de DTU e consultas com maior consumo de recursos). Ao clicar nesse bloco, será direcionado para **[Análise de Desempenho de Consultas](query-performance-insight-use.md)**.
 
 ## <a name="performance-recommendation-options"></a>Opções de recomendação de desempenho
 
@@ -88,7 +88,7 @@ Consultas com valores não parametrizados podem levar a sobrecarga de desempenho
 
 O processo de recompilação dos planos de execução usa recursos do banco de dados, aumenta o tempo de duração da consulta e estoura o cache de planos. Esses eventos, por sua vez, fazem com que os planos sejam removidos do cache. Esse comportamento pode ser alterado definindo a opção de parametrização forçada no banco de dados.
 
-Para ajudá-lo a estimar o impacto dessa recomendação, você receberá uma comparação entre o uso real da CPU e o uso projetado da CPU (como se a recomendação tivesse sido aplicada). Essa recomendação pode ajudá-lo a obter uma economia de CPU. Ela também pode ajudar a reduzir a duração da consulta e a sobrecarga para o cache de planos, o que significa que mais dos planos podem permanecer no cache e ser reutilizados. Você pode aplicar essa recomendação com rapidez selecionando o comando **Aplicar** .
+Para ajudá-lo a estimar o impacto dessa recomendação, você receberá uma comparação entre o uso real da CPU e o uso projetado da CPU (como se a recomendação tivesse sido aplicada). Essa recomendação pode ajudá-lo a obter uma economia de CPU. Ela também pode ajudar a reduzir a duração da consulta e a sobrecarga para o cache de planos, o que significa que mais dos planos podem permanecer no cache e ser reutilizados. Você pode aplicar essa recomendação com rapidez selecionando o comando **Aplicar**.
 
 Depois de aplicar essa recomendação, ele permite a parametrização forçada em minutos no banco de dados. Ele inicia o processo de monitoramento, que dura aproximadamente 24 horas. Após esse período, você pode ver o relatório de validação. Este relatório mostra o uso da CPU de seu banco de dados 24 horas antes e depois que a recomendação foi aplicada. Assistente do Banco de Dados SQL do Azure tem um mecanismo de segurança que reverte automaticamente a recomendação aplicada se a regressão de desempenho tiver sido detectada.
 
@@ -105,7 +105,7 @@ A recomendação "corrigir problema do esquema" aparece quando o banco de dados 
 
 | Código do erro SQL | Mensagem |
 | --- | --- |
-| 201 |Procedimento ou função ' *' espera o parâmetro '* ', que não foi fornecido. |
+| 201 |Procedimento ou função '*' espera o parâmetro '*', que não foi fornecido. |
 | 207 |Nome de coluna inválido '*'. |
 | 208 |Nome de objeto inválido '*'. |
 | 213 |O nome da coluna ou o número de valores fornecidos não corresponde à definição da tabela. |

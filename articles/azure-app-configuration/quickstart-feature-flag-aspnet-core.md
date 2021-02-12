@@ -1,18 +1,18 @@
 ---
 title: Início rápido para adição de sinalizadores de recurso ao ASP.NET Core
 description: Adicionar sinalizadores de recurso a aplicativos ASP.NET Core e gerencie-os usando a Configuração de Aplicativos do Azure
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
-ms.author: lcozzens
-ms.openlocfilehash: 866f1c404df2de87c2b3ce58b791ceb5257fca1b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.author: alkemper
+ms.openlocfilehash: a4890dd93cf77e20aff09ca6fd33ec3434a45a4b
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074440"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663039"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Início Rápido: Adicionar sinalizadores de recurso a um aplicativo ASP.NET Core
 
@@ -75,6 +75,21 @@ dotnet new mvc --no-https --output TestFeatureFlags
     > [!IMPORTANT]
     > `CreateHostBuilder` substitui `CreateWebHostBuilder` no .NET Core 3.x. Selecione a sintaxe correta com base em seu ambiente.
 
+     #### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
+
+    ```csharp
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+                webBuilder.ConfigureAppConfiguration(config =>
+                {
+                    var settings = config.Build();
+                    var connection = settings.GetConnectionString("AppConfig");
+                    config.AddAzureAppConfiguration(options =>
+                        options.Connect(connection).UseFeatureFlags());
+                }).UseStartup<Startup>());
+    ```
+
     #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
@@ -116,6 +131,15 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 1. Atualize o método `Startup.ConfigureServices` para adicionar suporte ao sinalizador de recursos chamando o método `AddFeatureManagement`. Opcionalmente, você pode incluir qualquer filtro que será usado com sinalizadores de recursos chamando `AddFeatureFilter<FilterType>()`:
 
+     #### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
+
+    ```csharp    
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddControllersWithViews();
+        services.AddFeatureManagement();
+    }
+    ```
     #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp    
@@ -181,36 +205,9 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     O código anterior permite que o Auxiliar de Marcação do `<feature>` seja usado nos arquivos *.cshtml* do projeto.
 
-1. Em *Views/Shared/_Layout.cshtml*, substitua o código de barras `<nav>` em `<body>` > `<header>` pela seguinte marcação:
+1. Abra *_Layout.cshtml* no diretório *Exibições*\\*Compartilhado*. Localize o código de barras `<nav>` em `<body>` > `<header>`. Insira uma nova marca `<feature>` entre os itens de barra de navegação *Página Inicial* e *Privacidade*, conforme mostrado nas linhas realçadas abaixo.
 
-    ```cshtml
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-        <div class="container">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TestFeatureFlags</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                    <feature name="Beta">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Beta" asp-action="Index">Beta</a>
-                    </li>
-                    </feature>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    ```
-
-    Na marcação anterior, observe o Auxiliar de Marcação `<feature>` ao redor do item de lista *Beta*.
+    :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="15-38" highlight="13-17":::
 
 1. Crie um diretório *Views/Beta* e um arquivo *Index.cshtml* que contém a seguinte marcação:
 
@@ -246,13 +243,15 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 1. Entre no [portal do Azure](https://portal.azure.com). Escolha **Todos os recursos** e escolha a instância do repositório de Configuração de Aplicativos que você criou no início rápido.
 
-1. Selecione **Gerenciador de recursos** e altere o estado da chave *Beta* para **Ativado**.
+1. Selecione **Gerenciador de Recursos**. 
+
+1. Habilite o sinalizador *Beta* marcando a caixa de seleção em **Habilitado**.
 
 1. Retorne para o shell de comando. Cancele o processo `dotnet` em execução pressionando <kbd>Ctrl+C</kbd>. Reinicie o aplicativo usando `dotnet run`.
 
 1. Atualize a página do navegador para ver as novas definições de configuração.
 
-    :::image type="content" source="media/quickstarts/aspnet-core-feature-flag-local-after.png" alt-text="Aplicativo de início rápido local antes da alteração" border="true":::
+    :::image type="content" source="media/quickstarts/aspnet-core-feature-flag-local-after.png" alt-text="Aplicativo de início rápido local após a alteração" border="true":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

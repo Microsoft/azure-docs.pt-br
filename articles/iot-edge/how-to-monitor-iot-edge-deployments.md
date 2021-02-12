@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 4ff4d5a810eb79fb11e66591cd0b695062b1c9f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45df700cc1772250e42a0e007fb4ea91b49471ba
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450170"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684196"
 ---
 # <a name="monitor-iot-edge-deployments"></a>Monitorar implantações do IoT Edge
 
@@ -41,7 +41,7 @@ Para exibir os detalhes de uma implantação e monitorar os dispositivos que a e
 1. Entre no [portal do Azure](https://portal.azure.com) e navegue até o Hub IoT.
 1. Selecione **IoT Edge** no menu do painel esquerdo.
 1. Selecione a guia **Implantações do IoT Edge**.
-1. Inspecione a lista de implantação. Para cada implantação, você pode exibir os seguintes detalhes:
+1. Inspecione a lista de implantação.  Para cada implantação, você pode exibir os seguintes detalhes:
 
     | Coluna | Descrição |
     | --- | --- |
@@ -54,7 +54,7 @@ Para exibir os detalhes de uma implantação e monitorar os dispositivos que a e
     | Métricas personalizadas | O número de dispositivos do IoT Edge que relatam dados para as métricas que você definiu para a implantação. |
     | Hora de criação | O carimbo de data/hora de quando a implantação foi criada. Esse carimbo de data/hora é usado para desempate quando duas implantações têm a mesma prioridade. |
 
-1. Selecione a implantação que deseja monitorar.  
+1. Selecione a implantação que deseja monitorar.  
 1. Na página **Detalhes da implantação**, role para baixo até a seção inferior e selecione a guia **Condição de destino**. Selecione **Exibir** para listar os dispositivos que correspondem à condição de destino. Você pode alterar a condição e também a **Prioridade**. Selecione **Salvar** se você fez alterações.
 
    ![Exibir dispositivos direcionados para uma implantação](./media/how-to-monitor-iot-edge-deployments/target-devices.png)
@@ -69,7 +69,7 @@ Para fazer alterações na implantação, confira [Modificar uma implantação](
 
 Use o comando [az IoT Edge deployment show](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-show) para exibir os detalhes de uma única implantação:
 
-```cli
+```azurecli
 az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name]
 ```
 
@@ -78,7 +78,7 @@ O comando deployment show usa os seguintes parâmetros:
 * **--deployment-id** - O nome da implantação que existe no hub IoT. Parâmetro obrigatório.
 * **--hub-name** - Nome do hub IoT no qual a implantação existe. O hub deve estar na assinatura atual. Alterne para a assinatura desejada com o comando `az account set -s [subscription name]`
 
-Inspecione a implantação na janela de comando. A propriedade **Metrics** lista uma contagem para cada métrica avaliada por cada hub:
+Inspecione a implantação na janela de comando.  A propriedade **Metrics** lista uma contagem para cada métrica avaliada por cada hub:
 
 * **targetedCount** - Uma métrica do sistema que especifica o número de dispositivos gêmeos no Hub IoT que correspondem à condição de direcionamento.
 * **appliedCount** - Uma métrica de sistema especifica o número de dispositivos que tiveram o conteúdo de implantação aplicado aos módulos gêmeos no Hub IoT.
@@ -87,7 +87,7 @@ Inspecione a implantação na janela de comando. A propriedade **Metrics** list
 
 Você pode mostrar uma lista de IDs de dispositivo ou objetos para cada uma das métricas com o comando [az IoT Edge deployment show-metric](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-show-metric):
 
-```cli
+```azurecli
 az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [metric id] --hub-name [hub name]
 ```
 

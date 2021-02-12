@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: include
-ms.date: 07/30/2020
+ms.date: 11/06/2020
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 59699d493880034ad1d26a56c63a9ed8401ef371
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d479c3087b971aa17cf145e0111890da07381eab
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87507581"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386478"
 ---
 | Recurso | Limite |
 | --- | --- |
@@ -25,5 +25,6 @@ ms.locfileid: "87507581"
 |Endereços IP públicos|250 no máximo. Todos os endereços IP públicos podem ser usados em regras DNAT e todos contribuem para as portas SNAT disponíveis.|
 |Endereços IP em grupos de IP|Máximo de 100 grupos de IP por firewall.<br>Máximo de 5.000 endereços IP ou prefixos de IP individuais para cada grupo de IP.
 |Tabela de rotas|Por padrão, o AzureFirewallSubnet tem uma rota 0.0.0.0/0 com o valor NextHopType definido como **Internet**.<br><br>O Firewall do Azure deve ter conectividade direta com a Internet. Se o seu AzureFirewallSubnet aprender uma rota padrão para sua rede local via BGP, você precisará substituir isso por um UDR 0.0.0.0/0 com o valor **NextHopType** definido como **Internet** para manter a conectividade direta com a Internet. Por padrão, o Firewall do Azure não dá suporte ao túnel forçado para uma rede local.<br><br>No entanto, se sua configuração exigir um túnel forçado para uma rede local, a Microsoft dará suporte de acordo com cada caso. Entre em contato com o suporte para que possamos analisar seu caso. Se ele for aceito, permitiremos sua assinatura e garantiremos que a conectividade necessária do firewall com a Internet seja mantida.|
+|Regras dos FQDNs na rede|Para um bom desempenho, não exceda mais de 1000 FQDNs entre todas as regras de rede por firewall.|
 
 <sup>1</sup>Se precisar aumentar esses limites, entre em contato com o Suporte do Azure.

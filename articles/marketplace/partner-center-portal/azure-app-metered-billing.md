@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: b82478338603750a76718da956d74e23d242692e
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d015cec30e516541b50c2acfac38fad898965e1b
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896527"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436344"
 ---
 # <a name="managed-application-metered-billing"></a>Cobrança limitada do aplicativo gerenciado 
 
@@ -22,7 +22,7 @@ Com o serviço de medição do Marketplace, você pode criar planos de aplicativ
 
 Para que um plano de aplicativo gerenciado use a cobrança limitada, ele deve:
 
-* Atenda a todos os requisitos de oferta, conforme descrito em [criar uma oferta de aplicativo do Azure](create-new-azure-apps-offer.md).
+* Atenda a todos os requisitos de oferta, conforme descrito em [criar uma oferta de aplicativo do Azure](../create-new-azure-apps-offer.md).
 * Configure os **preços** para cobrar os clientes pelo custo por mês para seu serviço. O preço pode ser zero se você não quiser cobrar uma taxa fixa e, em vez disso, confiar inteiramente na cobrança limitada.
 * Defina as **dimensões de cobrança** para os eventos de medição que o cliente pagará por cima da taxa fixa.
 * Integre-se com as [APIs do serviço de medição do Marketplace](./marketplace-metering-service-apis.md) para informar à Microsoft sobre eventos faturáveis.
@@ -56,11 +56,11 @@ Um cliente do Azure que está assinando o serviço CoA pode analisar e gerar rel
 
 As dimensões de cobrança são usadas para se comunicar com o cliente sobre como eles serão cobrados pelo uso do software.  Essas dimensões também são usadas para comunicar eventos de uso à Microsoft. Eles são definidos da seguinte maneira:
 
-* **Identificador de dimensão** : o identificador imutável referenciado ao emitir eventos de uso.
-* **Nome da dimensão** : o nome de exibição associado à dimensão, por exemplo, "mensagens de texto enviadas".
-* **Unidade de medida** : a descrição da unidade de cobrança, por exemplo "mensagem por texto" ou "por email 100".
-* **Preço por unidade** : o preço de uma unidade da dimensão.
-* **Quantidade incluída para o termo mensal** : a quantidade de dimensões incluída por mês para clientes que pagam a taxa mensal recorrente, deve ser um número inteiro.
+* **Identificador de dimensão**: o identificador imutável referenciado ao emitir eventos de uso.
+* **Nome da dimensão**: o nome de exibição associado à dimensão, por exemplo, "mensagens de texto enviadas".
+* **Unidade de medida**: a descrição da unidade de cobrança, por exemplo "mensagem por texto" ou "por email 100".
+* **Preço por unidade**: o preço de uma unidade da dimensão.
+* **Quantidade incluída para o termo mensal**: a quantidade de dimensões incluída por mês para clientes que pagam a taxa mensal recorrente, deve ser um número inteiro.
 
 As dimensões de cobrança são compartilhadas entre todos os planos para uma oferta. Alguns atributos se aplicam à dimensão em todos os planos e outros atributos são específicos do plano.
 
@@ -79,7 +79,7 @@ Os outros atributos de uma dimensão são específicos para cada plano e podem t
 As dimensões também têm dois conceitos especiais, "Enabled" e "Infinite":
 
 * **Habilitado** indica que este plano participa desta dimensão.  Talvez você queira deixar essa opção desmarcada se estiver criando um novo plano que não envia eventos de uso com base nessa dimensão. Além disso, todas as novas dimensões adicionadas depois que um plano foi publicado pela primeira vez serão exibidas como "não habilitado" no plano já publicado.  Uma dimensão desabilitada não aparecerá em nenhuma lista de dimensões para um plano visto pelos clientes.
-* **Infinito** , representado pelo símbolo de infinito "∞", indica que este plano participa dessa dimensão, sem uso medido em relação a essa dimensão. Se você quiser indicar aos clientes que a funcionalidade representada por essa dimensão está incluída no plano, mas sem limite de uso.  Uma dimensão com uso infinito será exibida em listas de dimensões para um plano visto pelos clientes.  Esse plano nunca incorrerá em um encargo.
+* **Infinito**, representado pelo símbolo de infinito "∞", indica que este plano participa dessa dimensão, sem uso medido em relação a essa dimensão. Se você quiser indicar aos clientes que a funcionalidade representada por essa dimensão está incluída no plano, mas sem limite de uso.  Uma dimensão com uso infinito será exibida em listas de dimensões para um plano visto pelos clientes.  Esse plano nunca incorrerá em um encargo.
 
 >[!Note] 
 >Os cenários a seguir têm suporte explícito:  <br> -Você pode adicionar uma nova dimensão a um novo plano.  A nova dimensão não será habilitada para nenhum plano já publicado. <br> -Você pode publicar um plano com uma taxa mensal fixa e sem nenhuma dimensão e, em seguida, adicionar um novo plano e configurar uma nova dimensão para esse plano. A nova dimensão não será habilitada para planos já publicados.

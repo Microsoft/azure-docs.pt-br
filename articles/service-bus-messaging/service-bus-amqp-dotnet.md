@@ -3,16 +3,19 @@ title: Barramento de Serviço do Azure com o .NET e AMQP 1.0 | Microsoft Docs
 description: Este artigo descreve como usar o barramento de serviço do Azure de um aplicativo .NET usando o AMQP (protocolo de enfileiramento de mensagens avançado).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 7a67ab74efc700e16f5b1689e9cc1f459ecf14bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20800363327aefda073cd484dc737b28e60466a7
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88067096"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632843"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Usar o Barramento de Serviço do .NET com AMQP 1.0
 
 O suporte do AMQP 1.0 está disponível na versão 2.1 ou posterior do pacote do Barramento de Serviço. Você pode garantir que tem a versão mais recente baixando os bits do Barramento de Serviço do [NuGet][NuGet].
+
+> [!NOTE]
+> Você pode usar o Advanced Message Queuing Protocol (AMQP) ou o protocolo de mensagens do barramento de serviço (SBMP) com a biblioteca do .NET para o barramento de serviço. AMQP é o protocolo padrão usado pela biblioteca do .NET. Recomendamos que você use o protocolo AMQP (que é o padrão) e não o substitua. 
 
 ## <a name="configure-net-applications-to-use-amqp-10"></a>Configurar aplicativos .NET para usar o AMQP 1.0
 
@@ -41,6 +44,14 @@ O valor da configuração `Microsoft.ServiceBus.ConnectionString` é a cadeia de
 Onde `namespace` e `SAS key` são obtidos a partir de [Portal do Azure][Azure portal] quando você cria um namespace do Barramento de Serviço. Para saber mais, veja [Como criar um namespace do Barramento de Serviço usando o Portal do Azure][Create a Service Bus namespace using the Azure portal].
 
 Ao usar AMQP, anexe a cadeia de conexão com `;TransportType=Amqp`. Essa notação orienta a biblioteca de cliente a fazer sua conexão com o Barramento de Serviço usando o AMQP 1.0.
+
+### <a name="amqp-over-websockets"></a>AMQP sobre WebSockets
+Para usar AMQP sobre WebSockets, defina `TransportType` na cadeia de conexão como `AmqpWebSockets` . Por exemplo: `Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=AmqpWebSockets`. 
+
+Se você estiver usando a biblioteca .NET Microsoft. Azure. ServiceBus, defina [ServiceBusConnection. TransportType](/dotnet/api/microsoft.azure.servicebus.servicebusconnection.transporttype) como AmqpWebSockets de [enum](/dotnet/api/microsoft.azure.servicebus.transporttype).
+
+Se você estiver usando a biblioteca .NET Azure. Messaging. ServiceBus, defina [ServiceBusClient. TransportType](/dotnet/api/azure.messaging.servicebus.servicebusclient.transporttype) como AmqpWebSockets da [Enumeração ServiceBusTransportType](/dotnet/api/azure.messaging.servicebus.servicebustransporttype).
+
 
 ## <a name="message-serialization"></a>Serialização de mensagem
 
@@ -75,7 +86,7 @@ Para facilitar a interoperabilidade com clientes não .NET, use somente tipos .N
 | Uri |Cadeia de caracteres descrita (consulte a tabela a seguir) |Valor do AMQP |
 | DateTimeOffset |Longo descrito (consulte a tabela a seguir) |Valor do AMQP |
 | TimeSpan |Longo descrito (consulte a seguir) |Valor do AMQP |
-| STREAM |binary |Dados do AMQP (podem ser múltiplos). As seções de Dados contêm os bytes brutos lidos do objeto Stream. |
+| Fluxo |binary |Dados do AMQP (podem ser múltiplos). As seções de Dados contêm os bytes brutos lidos do objeto Stream. |
 | Outro Objeto |binary |Dados do AMQP (podem ser múltiplos). Contém o binário serializado do objeto que usa o DataContractSerializer ou um serializador fornecido pelo aplicativo. |
 
 | Tipo .NET | Tipo descrito do AMQP mapeado | Observações |
@@ -96,10 +107,10 @@ Há algumas pequenas diferenças no comportamento da API .NET do Barramento de S
 
 As [APIs .NET](/dotnet/api/) expõem diversas configurações que controlam o comportamento do protocolo AMQP:
 
-* **[MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver.prefetchcount?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount)**: controla o crédito inicial aplicado a um link. O padrão é 0.
-* **[MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.maxframesize?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_MaxFrameSize)**: controla o tamanho máximo do quadro do AMQP oferecido durante a negociação em tempo de conexão aberta. O padrão é de 65.536 bytes.
-* **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)**: caso as transferências possam ser em lote, esse valor determina o atraso máximo para envio de disposições. Herdado pelos remetentes/destinatários por padrão. O remetente/destinatário individual pode substituir o padrão, que é 20 milissegundos.
-* **[MessagingFactorySettings. AmqpTransportSettings. UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)**: controla se as conexões de AMQP são estabelecidas em uma conexão TLS. O padrão é **true**.
+* **[MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver.prefetchcount#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount)**: controla o crédito inicial aplicado a um link. O padrão é 0.
+* **[MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.maxframesize#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_MaxFrameSize)**: controla o tamanho máximo do quadro do AMQP oferecido durante a negociação em tempo de conexão aberta. O padrão é de 65.536 bytes.
+* **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)**: caso as transferências possam ser em lote, esse valor determina o atraso máximo para envio de disposições. Herdado pelos remetentes/destinatários por padrão. O remetente/destinatário individual pode substituir o padrão, que é 20 milissegundos.
+* **[MessagingFactorySettings. AmqpTransportSettings. UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)**: controla se as conexões de AMQP são estabelecidas em uma conexão TLS. O padrão é **true**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -109,10 +120,10 @@ Está pronto(a) para saber mais? Visite os links a seguir:
 * [Guia do protocolo AMQP 1.0]
 
 [Create a Service Bus namespace using the Azure portal]: service-bus-create-namespace-portal.md
-[DataContractSerializer]: /dotnet/api/system.runtime.serialization.datacontractserializer?view=netcore-3.1
-[BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azureservicebus-4.0.0
-[Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory.acceptmessagesession?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessagingFactory_AcceptMessageSession
-[OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
+[DataContractSerializer]: /dotnet/api/system.runtime.serialization.datacontractserializer
+[BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
+[Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory.acceptmessagesession#Microsoft_ServiceBus_Messaging_MessagingFactory_AcceptMessageSession
+[OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
 [NuGet]: https://nuget.org/packages/WindowsAzure.ServiceBus/
 [Azure portal]: https://portal.azure.com
 [Visão geral do Barramento de Serviço para AMQP]: service-bus-amqp-overview.md

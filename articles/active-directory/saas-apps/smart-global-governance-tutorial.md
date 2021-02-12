@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/04/2020
 ms.author: jeedes
-ms.openlocfilehash: d93cd2efe49f819c8adeb53674b6d4f465312e06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a2169db47ca5a6adcddbcc9558161370b896a62
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88527393"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997062"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-smart-global-governance"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Smart Global Governance
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá a integrar o Smart Global Governance ao Azure A
 * Permitir que os usuários sejam conectados automaticamente ao Smart Global Governance com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [Logon único em aplicativos no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [Logon único em aplicativos no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,7 +41,7 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 
 O Smart Global Governance é compatível com SSO iniciado por SP e IDP.
 
-Após configurar o Smart Global Governance, você poderá impor o controle de sessão, que protege contra a exportação e infiltração de dados confidenciais de sua organização em tempo real. Os controles da sessão são estendidos do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Após configurar o Smart Global Governance, você poderá impor o controle de sessão, que protege contra a exportação e infiltração de dados confidenciais de sua organização em tempo real. Os controles da sessão são estendidos do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-smart-global-governance-from-the-gallery"></a>Adicionar o Smart Global Governance da galeria
 
@@ -140,24 +140,24 @@ Para configurar o logon único no lado do Smart Global Governance, é necessári
 
 ### <a name="create-a-smart-global-governance-test-user"></a>Criar um usuário de teste do Smart Global Governance
 
-Trabalhe com a  [equipe de suporte do Smart Global Governance](mailto:support.tech@smartglobal.com) para adicionar um usuário chamado B.Fernandes no controle do Smart Global Governance. Os usuários devem ser criados e ativados antes de usar o logon único.
+Trabalhe com a [equipe de suporte do Smart Global Governance](mailto:support.tech@smartglobal.com) para adicionar um usuário chamado B.Fernandes no Smart Global Governance. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ## <a name="test-sso"></a>Testar o SSO 
 
 Nesta seção, você testará sua configuração de SSO do Azure AD usando o Painel de Acesso.
 
-Ao selecionar no bloco Smart Global Governance no Painel de Acesso, você deve entrar automaticamente na instância do Smart Global Governance para o qual você configura o SSO. Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao selecionar no bloco Smart Global Governance no Painel de Acesso, você deve entrar automaticamente na instância do Smart Global Governance para o qual você configura o SSO. Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Tutoriais sobre como integrar aplicativos SaaS ao Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutoriais sobre como integrar aplicativos SaaS ao Azure Active Directory](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimente o Smart Global Governance com o Azure AD](https://aad.portal.azure.com/)
 
-- [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [O que é controle de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Como proteger o Smart Global Governance com visibilidade e controles avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Como proteger o Smart Global Governance com visibilidade e controles avançados](/cloud-app-security/proxy-intro-aad)

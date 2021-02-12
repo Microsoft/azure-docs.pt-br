@@ -5,12 +5,12 @@ ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.date: 10/10/2019
-ms.openlocfilehash: c20333c83275edb90a266afec3ec3756ae1e0e7e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 41b7c80c85331f288343351749e6b2e5292b30c6
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216259"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241600"
 ---
 # <a name="learn-how-to-troubleshoot-u-sql-runtime-failures-due-to-runtime-changes"></a>Saiba como solucionar falhas de tempo de execução do U-SQL devido a alterações no tempo de execução
 
@@ -52,6 +52,20 @@ Há dois possíveis problemas de versão de tempo de execução que você pode e
 1. Um script ou algum código de usuário está alterando o comportamento de uma versão para outra. Essas alterações significativas normalmente são comunicadas antecipadamente com a publicação de notas de versão. Se você encontrar essa alteração significativa, entre em contato com Suporte da Microsoft para relatar esse comportamento de interrupção (caso ainda não tenha sido documentado) e envie seus trabalhos para a versão de tempo de execução mais antiga.
 
 2. Você esteve usando um tempo de execução não padrão de forma explícita ou implícita quando foi fixado em sua conta e esse tempo de execução foi removido após algum tempo. Se você encontrar tempos de execução ausentes, atualize seus scripts para executar com o tempo de execução padrão atual. Se você precisar de mais tempo, entre em contato com Suporte da Microsoft
+
+## <a name="known-issues"></a>Problemas conhecidos
+
+* A referência a Newtonsoft.Jsna versão do arquivo 12.0.3 ou em diante em um script USQL causará a seguinte falha de compilação:
+
+    *"Lamentamos; os trabalhos em execução na sua conta de Data Lake Analytics provavelmente serão executados mais lentamente ou não serão concluídos. Um problema inesperado está nos impedindo de restaurar automaticamente essa funcionalidade para sua conta de Azure Data Lake Analytics. Os engenheiros de Azure Data Lake foram contatados para investigar. "*  
+
+    Onde a pilha de chamadas conterá:  
+    `System.IndexOutOfRangeException: Index was outside the bounds of the array.`  
+    `at Roslyn.Compilers.MetadataReader.PEFile.CustomAttributeTableReader.get_Item(UInt32 rowId)`  
+    `...`
+
+    **Solução**: Use Newtonsoft.Jsno arquivo v 12.0.2 ou inferior.
+
 
 ## <a name="see-also"></a>Confira também
 

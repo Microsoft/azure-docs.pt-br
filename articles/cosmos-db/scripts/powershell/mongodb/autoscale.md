@@ -7,18 +7,22 @@ ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 07/30/2020
 ms.author: mjbrown
-ms.openlocfilehash: 446de7ca48148bd8d9066e4862a23393850d5281
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 64f4a4ce0e5ef35a0ba8dc314bbe6fb4f1d1030b
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279386"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675431"
 ---
 # <a name="create-a-database-and-collection-with-autoscale-for-azure-cosmos-db---mongodb-api"></a>Criar um banco de dados e uma coleção com dimensionamento automático do Azure Cosmos DB – API do MongoDB
+[!INCLUDE[appliesto-mongodb-api](../../../includes/appliesto-mongodb-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
-[!INCLUDE [sample-powershell-install](../../../../../includes/sample-powershell-install-no-ssh.md)]
+Este exemplo exige o Azure PowerShell Az 5.4.0 ou posterior. Execute `Get-Module -ListAvailable Az` para ver quais versões estão instaladas.
+Se é preciso instalar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps).
+
+Execute [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) para entrar no Azure.
 
 ## <a name="sample-script"></a>Exemplo de script
 

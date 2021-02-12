@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: a0efc6f6f6d4ae6355fbb42fbc7e13ad7c078cf3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a15ebd43861e2116ddbb2d9055b289645962e203
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792881"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573911"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Soluções para transferência de dados periódica
  
@@ -65,9 +65,9 @@ A tabela a seguir resume as diferenças nas principais funcionalidades.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Transferir dados com AzCopy](./storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ftables%252ftoc.json).
+- [Transferir dados com AzCopy](./storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
 - [Mais informações sobre transferência de dados com APIs REST do Armazenamento](/dotnet/api/overview/azure/storage).
 - Entenda como:
-    - [Transferir dados com o Data Box Gateway](../../databox-online/data-box-gateway-deploy-add-shares.md).
-    - [Transformar dados com o Data Box Edge antes de enviar para o Azure](../../databox-online/azure-stack-edge-deploy-configure-compute.md).
+    - [Transferir dados com o Data Box Gateway](../../databox-gateway/data-box-gateway-deploy-add-shares.md).
+    - [Transforme dados com data Box Edge antes de enviar para o Azure](../../databox-online/azure-stack-edge-deploy-configure-compute.md).
 - [Saiba como transferir dados com o Azure Data Factory](../../data-factory/tutorial-bulk-copy-portal.md).

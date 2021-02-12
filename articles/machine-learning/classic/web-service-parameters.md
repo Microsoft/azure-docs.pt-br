@@ -11,16 +11,16 @@ ms.subservice: studio
 ms.workload: data-services
 ms.topic: how-to
 ms.date: 01/12/2017
-ms.openlocfilehash: 1a4e4e8f97f543132e4295cca59312b0e78a6637
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a5857e44623f545f2807592c0f6f7b6dae366f1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362824"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308626"
 ---
 # <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Usar parâmetros de serviço Web Azure Machine Learning Studio (clássico)
 
-**APLICA-SE A:**  ![Aplica-se a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico) ![Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APLICA-SE A:**  ![Aplica-se a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico) ![Não se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Um serviço Web de Azure Machine Learning é criado pela publicação de um experimento com módulos com parâmetros configuráveis. Em alguns casos, talvez você queira alterar o comportamento do módulo durante a execução do serviço Web. *Parâmetros de serviço Web* permitem que você execute essa tarefa. 
@@ -51,8 +51,8 @@ Por exemplo, vamos supor que temos um experimento com um módulo [Exportar Dados
 1. Em Machine Learning Studio (clássico), clique no módulo [exportar dados][writer] para selecioná-lo. Suas propriedades são mostradas no painel Propriedades à direita da tela do experimento.
 2. Especifique a conta de armazenamento:
    
-   * Em **Especifique o destino de dados**, selecione "Armazenamento de Blobs do Azure".
-   * Em **Especifique o tipo de autenticação**, selecione "Conta".
+   * Em **Especifique o destino de dados** , selecione "Armazenamento de Blobs do Azure".
+   * Em **Especifique o tipo de autenticação** , selecione "Conta".
    * Insira as informações de conta para o armazenamento de blobs do Azure. 
 
 3. Clique no ícone à direita de **Caminho para o blob que começa com o parâmetro contêiner**. Ela tem esta aparência:
@@ -75,13 +75,12 @@ Por exemplo, vamos supor que temos um experimento com um módulo [Exportar Dados
 O usuário do serviço Web agora pode especificar um novo destino para o módulo [Exportar Dados][writer] ao acessar o serviço Web.
 
 ## <a name="more-information"></a>Mais informações
-Para obter um exemplo mais detalhado, veja a entrada [Parâmetros de Serviço Web](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) no [Blog de Machine Learning](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
+Para obter um exemplo mais detalhado, veja a entrada [Parâmetros de Serviço Web](/archive/blogs/machinelearning/azureml-web-service-parameters) no [Blog de Machine Learning](/archive/blogs/machinelearning/azureml-web-service-parameters).
 
 Para obter mais informações sobre como acessar um serviço Web do Machine Learning, consulte [Como consumir um serviço Web do Azure Machine Learning](consume-web-services.md).
 
 <!-- Module References -->
-[feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
-[filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
-
+[feature-hashing]: /azure/machine-learning/studio-module-reference/feature-hashing
+[filter-based-feature-selection]: /previous-versions/azure/dn905854(v=azure.100)
+[reader]: /azure/machine-learning/studio-module-reference/import-data
+[writer]: /azure/machine-learning/studio-module-reference/export-data

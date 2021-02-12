@@ -3,7 +3,7 @@ title: Configurar o fluxo de trabalho de consentimento do administrador-Azure Ac
 description: Saiba como configurar uma maneira para os usuários finais solicitarem acesso a aplicativos que exigem consentimento de administrador.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 10/29/2019
 ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cde5afe01c90b68567f411bcf26063f02ca5a34a
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: b38b8cf38d2d75493ef50c4f206758c6289be079
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027237"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259580"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Configurar o fluxo de trabalho de consentimento do administrador (versão prévia)
 
@@ -35,21 +35,21 @@ Para habilitar o fluxo de trabalho de consentimento do administrador e escolher 
 
 1. Entre no [Portal do Azure](https://portal.azure.com) como administrador global.
 2. Clique em **Todos os serviços** na parte superior do menu de navegação à esquerda. A **Extensão do Active Directory do Azure** é aberta.
-3. Na caixa de pesquisa de filtro, digite " **Azure Active Directory** " e selecione **o item de Azure Active Directory** .
-4. No menu de navegação, clique em **Aplicativos corporativos** . 
-5. Em **gerenciar** , selecione **configurações do usuário** .
-6. Em **solicitações de consentimento de administrador (versão prévia)** , **os usuários podem solicitar consentimento de administrador para aplicativos para os quais eles não conseguirem consentir** para **Sim** .
+3. Na caixa de pesquisa de filtro, digite "**Azure Active Directory**" e selecione **o item de Azure Active Directory** .
+4. No menu de navegação, clique em **Aplicativos corporativos**. 
+5. Em **gerenciar**, selecione **configurações do usuário**.
+6. Em **solicitações de consentimento de administrador (versão prévia)**, **os usuários podem solicitar consentimento de administrador para aplicativos para os quais eles não conseguirem consentir** para **Sim**.
 
    ![Definir configurações de fluxo de trabalho de consentimento do administrador](media/configure-admin-consent-workflow/admin-consent-requests-settings.png)
  
 6. Defina as seguintes configurações:
 
-   * **Selecione os usuários para examinar as solicitações de consentimento do administrador** . Selecione revisores para este fluxo de trabalho de um conjunto de usuários que têm as funções administrador global, administrador de aplicativos de nuvem e administrador de aplicativos.
-   * **Os usuários selecionados receberão notificações por email para solicitações** . Habilitar ou desabilitar notificações por email para os revisores quando uma solicitação for feita.  
-   * **Os usuários selecionados receberão lembretes de expiração de solicitação** . Habilitar ou desabilitar notificações de email de lembrete para os revisores quando uma solicitação estiver prestes a expirar.  
-   * A **solicitação de consentimento expira após (dias)** . Especifique por quanto tempo as solicitações permanecem válidas.
+   * **Selecione os usuários para examinar as solicitações de consentimento do administrador**. Selecione revisores para este fluxo de trabalho de um conjunto de usuários que têm as funções administrador global, administrador de aplicativos de nuvem e administrador de aplicativos.
+   * **Os usuários selecionados receberão notificações por email para solicitações**. Habilitar ou desabilitar notificações por email para os revisores quando uma solicitação for feita.  
+   * **Os usuários selecionados receberão lembretes de expiração de solicitação**. Habilitar ou desabilitar notificações de email de lembrete para os revisores quando uma solicitação estiver prestes a expirar.  
+   * A **solicitação de consentimento expira após (dias)**. Especifique por quanto tempo as solicitações permanecem válidas.
 
-7. Selecione **Salvar** . Pode levar até uma hora para que o recurso fique habilitado.
+7. Clique em **Salvar**. Pode levar até uma hora para que o recurso fique habilitado.
 
 > [!NOTE]
 > Você pode adicionar ou remover revisores para este fluxo de trabalho modificando a lista **selecionar revisores de solicitações de consentimento de administrador** . Observe que uma limitação atual desse recurso é que os revisores podem reter a capacidade de revisar solicitações feitas enquanto foram designadas como um revisor.
@@ -60,7 +60,7 @@ Depois que o fluxo de trabalho de consentimento do administrador estiver habilit
 
 1. O usuário tenta entrar no aplicativo.
 
-2. A mensagem de **aprovação necessária** é exibida. O usuário digita uma justificativa para a necessidade de acesso ao aplicativo e, em seguida, seleciona **solicitação de aprovação** .
+2. A mensagem de **aprovação necessária** é exibida. O usuário digita uma justificativa para a necessidade de acesso ao aplicativo e, em seguida, seleciona **solicitação de aprovação**.
 
    ![Captura de tela mostra uma caixa de diálogo de aprovação necessária em que você pode solicitar aprovação.](media/configure-admin-consent-workflow/end-user-justification.png)
 
@@ -76,9 +76,9 @@ Para examinar as solicitações de consentimento do administrador e executar a a
 
 1. Entre no [portal do Azure](https://portal.azure.com) como um dos revisores registrados do fluxo de trabalho de consentimento do administrador.
 2. Selecione **todos os serviços** na parte superior do menu de navegação à esquerda. A **Extensão do Active Directory do Azure** é aberta.
-3. Na caixa de pesquisa de filtro, digite " **Azure Active Directory** " e selecione o item de **Azure Active Directory** .
-4. No menu de navegação, clique em **Aplicativos corporativos** .
-5. Em **atividade** , selecione **solicitações de consentimento de administrador (versão prévia)** .
+3. Na caixa de pesquisa de filtro, digite "**Azure Active Directory**" e selecione o item de **Azure Active Directory** .
+4. No menu de navegação, clique em **Aplicativos corporativos**.
+5. Em **atividade**, selecione **solicitações de consentimento de administrador (versão prévia)**.
 
    > [!NOTE]
    > Os revisores só verão solicitações de administrador que foram criadas depois de serem designadas como um revisor.
@@ -87,13 +87,13 @@ Para examinar as solicitações de consentimento do administrador e executar a a
 2. Examine os detalhes sobre a solicitação:  
 
    * Para ver quem está solicitando o acesso e o porquê, selecione a guia **solicitado por** .
-   * Para ver quais permissões estão sendo solicitadas pelo aplicativo, selecione **examinar permissões e consentimento** .
+   * Para ver quais permissões estão sendo solicitadas pelo aplicativo, selecione **examinar permissões e consentimento**.
 
 8. Avalie a solicitação e execute a ação apropriada:
 
-   * **Aprove a solicitação** . Para aprovar uma solicitação, conceda consentimento do administrador ao aplicativo. Depois que uma solicitação é aprovada, todos os solicitantes são notificados de que receberam acesso.  
-   * **Negar a solicitação** . Para negar uma solicitação, você deve fornecer uma justificativa que será fornecida a todos os solicitantes. Depois que uma solicitação é negada, todos os solicitantes são notificados de que o acesso ao aplicativo foi negado. Negar uma solicitação não impedirá que os usuários solicitem o consentimento do administrador ao aplicativo novamente no futuro.  
-   * **Bloquear a solicitação** . Para bloquear uma solicitação, você deve fornecer uma justificativa que será fornecida a todos os solicitantes. Quando uma solicitação é bloqueada, todos os solicitantes são notificados de que o acesso ao aplicativo foi negado. O bloqueio de uma solicitação cria um objeto de entidade de serviço para o aplicativo em seu locatário em um estado desabilitado. Os usuários não poderão solicitar o consentimento do administrador para o aplicativo no futuro.
+   * **Aprove a solicitação**. Para aprovar uma solicitação, conceda consentimento do administrador ao aplicativo. Depois que uma solicitação é aprovada, todos os solicitantes são notificados de que receberam acesso.  
+   * **Negar a solicitação**. Para negar uma solicitação, você deve fornecer uma justificativa que será fornecida a todos os solicitantes. Depois que uma solicitação é negada, todos os solicitantes são notificados de que o acesso ao aplicativo foi negado. Negar uma solicitação não impedirá que os usuários solicitem o consentimento do administrador ao aplicativo novamente no futuro.  
+   * **Bloquear a solicitação**. Para bloquear uma solicitação, você deve fornecer uma justificativa que será fornecida a todos os solicitantes. Quando uma solicitação é bloqueada, todos os solicitantes são notificados de que o acesso ao aplicativo foi negado. O bloqueio de uma solicitação cria um objeto de entidade de serviço para o aplicativo em seu locatário em um estado desabilitado. Os usuários não poderão solicitar o consentimento do administrador para o aplicativo no futuro.
  
 ## <a name="email-notifications"></a>Notificações por email
  
@@ -147,7 +147,7 @@ Não, para os solicitantes agora, só é possível obter atualizações por meio
 
 **Como um revisor, é possível aprovar o aplicativo, mas não para todos?**
  
-Se você estiver preocupado em conceder consentimento de administrador e permitir que todos os usuários no locatário usem o aplicativo, recomendamos que você negue a solicitação. Em seguida, conceda manualmente o consentimento do administrador restringindo o acesso ao aplicativo exigindo a atribuição de usuário e atribuindo usuários ou grupos ao aplicativo. Para obter mais informações, confira [Métodos para atribuir usuários e grupos](methods-for-assigning-users-and-groups.md).
+Se você estiver preocupado em conceder consentimento de administrador e permitir que todos os usuários no locatário usem o aplicativo, recomendamos que você negue a solicitação. Em seguida, conceda manualmente o consentimento do administrador restringindo o acesso ao aplicativo exigindo a atribuição de usuário e atribuindo usuários ou grupos ao aplicativo. Para obter mais informações, confira [Métodos para atribuir usuários e grupos](./assign-user-or-group-access-portal.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -157,6 +157,6 @@ Para obter mais informações sobre o consentimento de aplicativos, consulte a [
 
 [Conceder consentimento de administrador em todo o locatário para um aplicativo](grant-admin-consent.md)
 
-[Permissões e consentimento na plataforma de identidade da Microsoft](../develop/active-directory-v2-scopes.md)
+[Permissões e consentimento na plataforma de identidade da Microsoft](../develop/v2-permissions-and-consent.md)
 
-[Azure AD no StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[Azure AD no Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)

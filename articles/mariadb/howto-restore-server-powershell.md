@@ -1,19 +1,19 @@
 ---
 title: Backup e restauração-Azure PowerShell-banco de dados do Azure para MariaDB
 description: Saiba como fazer backup e restaurar um servidor no banco de dados do Azure para MariaDB usando Azure PowerShell.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 05/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 984a5d52dfdd45190cbded5e900d3fcfe2f9ad43
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 211285a0ae8aaa9b82bca914f3add7fbaa700146
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424503"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664844"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mariadb-server-using-powershell"></a>Como fazer backup de um servidor do Banco de Dados do Azure para MariaDB e restaurá-lo usando o PowerShell
 
@@ -106,7 +106,7 @@ Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |
   Restore-AzMariaDbServer -Name mydemoserver-georestored -ResourceGroupName myresourcegroup -Location eastus -Sku GP_Gen5_8 -UseGeoRestore
 ```
 
-Este exemplo cria um novo servidor chamado **mydemoserver-georestore** na região leste dos EUA que pertence ao **MyResource**. É um Uso geral, servidor Gen 5 com 8 vCores. O servidor é criado a partir do backup com redundância geográfica de **mydemoserver**, também no grupo de recursos **MyResource**Group.
+Este exemplo cria um novo servidor chamado **mydemoserver-georestore** na região leste dos EUA que pertence ao **MyResource**. É um Uso geral, servidor Gen 5 com 8 vCores. O servidor é criado a partir do backup com redundância geográfica de **mydemoserver**, também no grupo de recursos **MyResource** Group.
 
 Para criar o novo servidor em um grupo de recursos diferente do servidor existente, especifique o novo nome do grupo de recursos usando o parâmetro **ResourceGroupName** , conforme mostrado no exemplo a seguir:
 
@@ -121,7 +121,7 @@ O conjunto de parâmetros **Georestore** do `Restore-AzMariaDbServer` cmdlet req
 | --- | --- | --- |
 |ResourceGroupName | myresourcegroup | O nome do grupo de recursos ao qual o novo servidor pertence.|
 |Nome | mydemoserver-georestored | O nome do novo servidor. |
-|Localização | eastus | A localização do novo servidor. |
+|Location | eastus | A localização do novo servidor. |
 |UseGeoRestore | `<SwitchParameter>` | Use o modo geográfico para restaurar. |
 
 Ao criar um novo servidor usando a restauração geográfica, ele herda o mesmo tamanho de armazenamento e tipo de preço do servidor de origem, a menos que o parâmetro **SKU** seja especificado.

@@ -3,18 +3,18 @@ title: Pipelines e atividades no Azure Data Factory
 description: Aprenda sobre pipelines e atividades no Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 93d741d22ac03c132954a48731451f891042d7b4
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ceaced5860976b0fa9f84903804700f778ed9550
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371147"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500064"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades no Azure Data Factory
 
@@ -56,8 +56,8 @@ Atividades de transformação de dados | Ambiente de computação
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Streaming do Hadoop](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
-[Atividades Azure Machine Learning Studio (clássicas): execução em lote e recurso de atualização](transform-data-using-machine-learning.md) | VM do Azure
-[Procedimento armazenado](transform-data-using-stored-procedure.md) | Azure SQL, Azure Synapse Analytics (anteriormente SQL Data Warehouse) ou SQL Server
+[Atividades do Azure Machine Learning Studio (clássico): Execução de lote e Recurso de atualização](transform-data-using-machine-learning.md) | VM do Azure
+[Procedimento armazenado](transform-data-using-stored-procedure.md) | SQL do Azure, Azure Synapse Analytics ou SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Análise Azure Data Lake
 [Atividade personalizada](transform-data-using-dotnet-custom-activity.md) | Lote do Azure
 [Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
@@ -111,7 +111,7 @@ Marca | Descrição | Type | Obrigatório
 name | Nome do pipeline. Especifique um nome que represente a ação executada pelo pipeline. <br/><ul><li>Número máximo de caracteres: 140</li><li>Deve começar com uma letra, um número ou um sublinhado (\_)</li><li>Os seguintes caracteres não são permitidos: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \" </li></ul> | String | Sim
 descrição | Especifique o texto descrevendo para que o pipeline é usado. | String | Não
 atividades | A seção **Atividades** pode ter uma ou mais atividades definidas dentro dela. Confira a seção [Atividade JSON](#activity-json) para obter detalhes sobre o elemento das atividades JSON. | Array | Sim
-parameters | A seção **parâmetros** pode ter um ou mais parâmetros definidos no pipeline, tornando seu pipeline flexível para reutilização. | Lista | Não
+parâmetros | A seção **parâmetros** pode ter um ou mais parâmetros definidos no pipeline, tornando seu pipeline flexível para reutilização. | Lista | Não
 simultaneidade | O número máximo de execuções simultâneas que o pipeline pode ter. Por padrão, não há nenhum máximo. Se o limite de simultaneidade for atingido, as execuções de pipeline adicionais serão enfileiradas até que as anteriores sejam concluídas | Número | Não 
 annotations | Uma lista de marcas associadas ao pipeline | Array | Não
 

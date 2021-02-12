@@ -1,14 +1,14 @@
 ---
 title: Conectar computadores híbridos ao Azure por meio do portal do Azure
 description: Neste artigo, você aprende a instalar o agente e a conectar computadores ao Azure usando os servidores habilitados para Arc do Azure da portal do Azure.
-ms.date: 10/21/2020
+ms.date: 11/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8769a3b76172bc6508b7c52eda359695c01eaa4b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ca3c08acdef1b2a1f7c3774f5755967d472c93ed
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370144"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398021"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Conectar computadores híbridos ao Azure por meio do portal do Azure
 
@@ -30,7 +30,7 @@ O script usado para automatizar o download e a instalação e para estabelecer a
 
 1. Na página **selecionar um método** , selecione o bloco **adicionar servidores usando o script interativo** e, em seguida, selecione **gerar script**.
 
-1. Na página **Gerar script**, selecione a assinatura e o grupo de recursos nos quais você deseja que o computador seja gerenciado no Azure. Selecione uma localização do Azure em que os metadados do computador serão armazenados. Essa localização pode ser a mesma ou uma diferente, assim como ocorre com a localização do grupo de recursos.
+1. Na página **Gerar script** , selecione a assinatura e o grupo de recursos nos quais você deseja que o computador seja gerenciado no Azure. Selecione uma localização do Azure em que os metadados do computador serão armazenados. Essa localização pode ser a mesma ou uma diferente, assim como ocorre com a localização do grupo de recursos.
 
 1. Na página **pré-requisitos** , examine as informações e selecione **Avançar: detalhes do recurso**.
 
@@ -113,9 +113,9 @@ Se o agente não for iniciado após a conclusão da instalação, verifique os l
 
 O agente do Connected Machine para Linux é fornecido no formato de pacote preferencial para a distribuição (.RPM ou .DEB) hospedada no [repositório de pacotes](https://packages.microsoft.com/) da Microsoft. O [pacote de script do shell `Install_linux_azcmagent.sh`](https://aka.ms/azcmagent) executa as seguintes ações:
 
-- Configura o computador host para baixar o pacote do agente em packages.microsoft.com.
-- Instala o pacote do provedor de recursos híbrido.
-- Registra o computador com o arco do Azure
+* Configura o computador host para baixar o pacote do agente em packages.microsoft.com.
+
+* Instala o pacote do provedor de recursos híbrido.
 
 Opcionalmente, você pode configurar o agente com as suas informações de proxy, incluindo o parâmetro `--proxy "{proxy-url}:{proxy-port}"`.
 
@@ -131,15 +131,30 @@ wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 bash ~/Install_linux_azcmagent.sh
 ```
 
-Para baixar e instalar o agente, incluindo o parâmetro `--proxy` para configurar o agente para se comunicar por meio do servidor proxy, execute os seguintes comandos:
+1. Para baixar e instalar o agente, incluindo o parâmetro `--proxy` para configurar o agente para se comunicar por meio do servidor proxy, execute os seguintes comandos:
 
-```bash
-# Download the installation package.
-wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
+    ```bash
+    # Download the installation package.
+    wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 
-# Install the connected machine agent. 
-bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
-```
+    # Install the connected machine agent.
+    bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
+    ```
+
+2. Depois de instalar o agente, você precisa configurá-lo para se comunicar com o serviço Azure Arc executando o seguinte comando:
+
+    ```bash
+    azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --cloud "cloudName"
+    if [ $? = 0 ]; then echo "\033[33mTo view your onboarded server(s), navigate to https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.HybridCompute%2Fmachines\033[m"; fi
+    ```
+
+### <a name="install-with-the-scripted-method"></a>Instalação com o método com script
+
+1. Faça logon no servidor com uma conta que tenha acesso à raiz.
+
+1. Vá para a pasta ou o compartilhamento para o qual você copiou o script e execute-o no servidor executando o script `./OnboardingScript.sh`.
+
+Se o agente não for iniciado após a conclusão da instalação, verifique os logs para obter informações de erro detalhadas. O diretório de log é *var/opt/azcmagent/log*.
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Verificar a conexão com o Azure Arc
 

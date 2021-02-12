@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 02/20/2020
 ms.topic: article
 keywords: Azure, Kinect, specs, hardware, DK, funcionalidades, profundidade, cor, RGB, IMU, matriz, profundidade, várias, sincronização
-ms.openlocfilehash: 7c79101de5e5455ae2ff9fd8b5d8369a3832631c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30961152b31a659cb27e91a99d6806490998d18d
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361153"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592272"
 ---
 # <a name="synchronize-multiple-azure-kinect-dk-devices"></a>Sincronizar vários dispositivos do Azure Kinect DK
 
@@ -83,11 +83,14 @@ Para cada captura de câmera de profundidade, a laser ativa nove vezes e fica at
 
 Além disso, as diferenças entre o relógio da câmera e o relógio do firmware do dispositivo aumentam o deslocamento mínimo para 160 &mu; s. Para calcular um deslocamento mais preciso para sua configuração, observe o modo de profundidade que você está usando e consulte a [tabela de tempo bruta do sensor de profundidade](hardware-specification.md#depth-sensor-raw-timing). Usando os dados desta tabela, você pode calcular o deslocamento mínimo (o tempo de exposição de cada câmera) usando a seguinte equação:
 
-> *Tempo de exposição* = (largura de pulso de*pulsos de ir* &times; *Pulse Width*) + (tempo ocioso de*períodos ociosos* &times; *Idle Time*)
+> *Tempo de exposição* = (largura de pulso de *pulsos de ir* &times; ) + (tempo ocioso de *períodos ociosos* &times; )
 
 Ao usar um deslocamento de 160 &mu; s, você pode configurar até nove câmeras de profundidade adicionais para que cada uma das lasers seja ativada enquanto os outros lasers estiverem ociosos.
 
 Em seu software, use ```depth_delay_off_color_usec``` ou ```subordinate_delay_off_master_usec``` para certificar-se de que cada laser de ir seja acionado em sua própria &mu; janela de 160 s ou tenha um campo de exibição diferente.
+
+> [!NOTE]  
+> A largura real do pulso é 125us, mas podemos declarar 160us para fornecer algumas reserva. Tomando NFOV UNBINNED como exemplo, cada pulso 125us é seguido por 1450us ocioso. Totalizando esses backups-(9 x 125) + (8 x 1450) – gera o tempo de exposição de 12,8 ms. O armário que você pode intercalar a exposição de dois dispositivos é fazer com que o primeiro pulso da segunda câmera caia no primeiro período ocioso da primeira câmera. O atraso entre a primeira e a segunda câmeras poderia ser tão pequeno quanto 125us (a largura de um pulso) no entanto, recomendamos alguns reserva, portanto, o 160us. Determinado 160us você pode intercalar os períodos de exposição de um máximo de 10 câmeras.
 
 ## <a name="prepare-your-devices-and-other-hardware"></a>Preparar seus dispositivos e outros Hardwares
 

@@ -7,11 +7,11 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: devx-track-csharp, seodec18
 ms.openlocfilehash: 524df7805207ce517c7ae805fb17de1b041a2248
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876032"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002096"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Associações do Azure Cosmos DB para Azure Functions 1.x
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a559b29502adb1c507b1543463d84eb3bd15d5a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3acaf4929158b24ff50655aa18c05b41aeec4b53
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083279"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435443"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: planejar sua implementação de junção do Azure AD
 
@@ -90,10 +90,12 @@ Se seu provedor de identidade não oferece suporte a esses protocolos, o ingress
 
 Se você criar usuários no seu:
 
-- **Active Directory local** , você precisa sincronizá-los com o Azure AD usando o [Azure Active Directory Connect](../hybrid/how-to-connect-sync-whatis.md). 
-- **Azure AD** , nenhuma configuração adicional é necessária.
+- **Active Directory local**, você precisa sincronizá-los com o Azure AD usando o [Azure Active Directory Connect](../hybrid/how-to-connect-sync-whatis.md). 
+- **Azure AD**, nenhuma configuração adicional é necessária.
 
 UPNs locais que são diferentes de UPNs do Azure AD não têm suporte em dispositivos ingressados no Azure AD. Se os usuários usarem um UPN local, você deverá planejar passar a usar seus UPNs primários do Azure AD.
+
+As alterações de UPN só têm suporte iniciando a atualização do Windows 10 2004. Os usuários em dispositivos com esta atualização não terão problemas depois de alterar seus UPNs. Para dispositivos anteriores à atualização do Windows 10 2004, os usuários teriam problemas de acesso condicional e de SSO em seus dispositivos. Eles precisam entrar no Windows por meio do bloco "outro usuário" usando o novo UPN para resolver esse problema. 
 
 ## <a name="assess-your-device-management"></a>Avaliar o gerenciamento de dispositivo
 
@@ -119,7 +121,7 @@ Há duas abordagens para gerenciar o Azure Active Directory ingressado em dispos
 - **Somente MDM** - exclusivamente, um dispositivo é gerenciado por um provedor MDM como Intune. Todas as políticas são fornecidas como parte do processo de registro de MDM. Para clientes do Azure AD Premium ou EMS, o registro do MDM é uma etapa automatizada que faz parte de uma junção do Azure Active Directory.
 - **Cogerenciamento** – um dispositivo é gerenciado por um provedor de MDM e o SCCM. Nessa abordagem, o agente do SCCM é instalado em um dispositivo gerenciado por MDM para determinados aspectos de administrar.
 
-Se você estiver usando políticas de grupo, avalie a paridade de política MDM usando a [Ferramenta de Análise de Migração de MDM (MMAT)](https://github.com/WindowsDeviceManagement/MMAT). 
+Se você estiver usando políticas de grupo, avalie o GPO e a paridade da política de MDM usando [política de grupo Analytics](/mem/intune/configuration/group-policy-analytics) no Microsoft Endpoint Manager. 
 
 Revisar as políticas compatíveis ou não compatíveis para determinar se você pode usar uma solução MDM em vez de políticas de Grupo. Para políticas sem suporte, considere o seguinte:
 
@@ -187,7 +189,7 @@ Conexão da área de trabalho remota para um dispositivos adicionados ao Azure A
 Iniciando a atualização do Windows 10 2004, os usuários também podem usar a área de trabalho remota de um dispositivo Windows 10 registrado no Azure AD para um dispositivo ingressado no Azure AD. 
 
 ## <a name="understand-your-provisioning-options"></a>Entenda suas opções de provisionamento
-**Observação** : os dispositivos adicionados ao Azure ad não podem ser implantados usando a ferramenta de preparação do sistema (Sysprep) ou ferramentas de geração de imagens semelhantes
+**Observação**: os dispositivos adicionados ao Azure ad não podem ser implantados usando a ferramenta de preparação do sistema (Sysprep) ou ferramentas de geração de imagens semelhantes
 
 Você pode provisionar o ingresso no Azure Active Directory usando as seguintes abordagens:
 
@@ -219,7 +221,7 @@ Escolha sua abordagem de implantação ou abordagens examinando a tabela acima e
 
 ## <a name="configure-your-device-settings"></a>Configurar suas configurações de dispositivo
 
-O portal do Azure permite você a controlar a implantação dos dispositivo Azure Active Directory em sua organização. Para definir as configurações relacionadas, sobre a **página do Azure Active Directory** , selecione `Devices > Device settings`.
+O portal do Azure permite você a controlar a implantação dos dispositivo Azure Active Directory em sua organização. Para definir as configurações relacionadas, sobre a **página do Azure Active Directory**, selecione `Devices > Device settings`.
 
 ### <a name="users-may-join-devices-to-azure-ad"></a>Os usuários podem ingressar dispositivos no Azure AD
 
@@ -243,10 +245,10 @@ Selecione **"Sim** se você exigir que os usuários realizem a MFA durante o ing
 
 Antes de definir as configurações de mobilidade, talvez você precise adicionar um provedor de MDM, pela primeira vez.
 
-**Para adicionar um provedor MDM** :
+**Para adicionar um provedor MDM**:
 
-1. Na página **Azure Active Directory** , na seção **Gerenciar** , clique em `Mobility (MDM and MAM)`. 
-1. Clique em **Adicionar aplicativo** .
+1. Na página **Azure Active Directory**, na seção **Gerenciar**, clique em `Mobility (MDM and MAM)`. 
+1. Clique em **Adicionar aplicativo**.
 1. Selecione seu provedor de MDM da lista.
 
    :::image type="content" source="./media/azureadjoin-plan/04.png" alt-text="Captura de tela da Azure Active Directory adicionar uma página de aplicativo. Vários provedores D m m são listados." border="false":::
@@ -261,8 +263,8 @@ Selecione **Alguns** ou **Todos** com base no escopo de sua implantação.
 
 Com base no seu escopo, acontecerá o seguinte: 
 
-- **Usuário está no escopo do MDM** : se você tiver uma assinatura do Azure Active Directory Premium, o registro do MDM é automatizado, juntamente com o ingresso no Azure Active Directory. Todos os usuários com escopo devem ter uma licença apropriada para seu MDM. Se o registro do MDM falhar nesse cenário, ingresso no Azure Active Directory também será revertido novamente.
-- **Usuário não está no escopo do MDM** : se os usuários não estão no escopo do MDM, ingresso no Azure Active Directory é concluído sem qualquer registro de MDM. Isso resulta em um dispositivo não gerenciado.
+- **Usuário está no escopo do MDM**: se você tiver uma assinatura do Azure Active Directory Premium, o registro do MDM é automatizado, juntamente com o ingresso no Azure Active Directory. Todos os usuários com escopo devem ter uma licença apropriada para seu MDM. Se o registro do MDM falhar nesse cenário, ingresso no Azure Active Directory também será revertido novamente.
+- **Usuário não está no escopo do MDM**: se os usuários não estão no escopo do MDM, ingresso no Azure Active Directory é concluído sem qualquer registro de MDM. Isso resulta em um dispositivo não gerenciado.
 
 ### <a name="mdm-urls"></a>URLs do MDM
 
@@ -272,7 +274,7 @@ Há três URLs que estão relacionadas à sua configuração de MDM:
 - URL de descoberta de MDM 
 - URL de conformidade de MDM
 
-:::image type="content" source="./media/azureadjoin-plan/06.png" alt-text="Captura de tela da Azure Active Directory adicionar uma página de aplicativo. Vários provedores D m m são listados." border="false":::
+:::image type="content" source="./media/azureadjoin-plan/06.png" alt-text="Captura de tela de parte da seção de configuração Azure Active Directory M D M, com campos U R L para os termos de uso, descoberta e conformidade de M D m." border="false":::
 
 Cada URL tem um valor padrão predefinido. Se esses campos estiverem vazios, entre em contato com seu provedor de MDM para obter mais informações.
 
@@ -284,7 +286,7 @@ MAM não é aplicável ao ingresso no Azure Active Directory.
 
 Se você quiser habilitar o roaming de estado para o Azure Active Directory para que os usuários podem sincronizar suas configurações entre dispositivos, consulte [habilitar o Enterprise State Roaming no Azure Active Directory](enterprise-state-roaming-enable.md). 
 
-**Recomendação** : habilite esta configuração mesmo para os dispositivos do Azure Active Directory híbrido ingressado.
+**Recomendação**: habilite esta configuração mesmo para os dispositivos do Azure Active Directory híbrido ingressado.
 
 ## <a name="configure-conditional-access"></a>Configurar acesso condicional
 

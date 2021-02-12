@@ -3,12 +3,12 @@ title: Comece e crie um laboratório de Azure Lab Services dentro das equipes
 description: Saiba como começar e criar um laboratório de Azure Lab Services dentro das equipes.
 ms.topic: article
 ms.date: 10/08/2020
-ms.openlocfilehash: e17b0be223a1630402fc4f32c692d7ecfe184783
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: cc4ad604bdf250cc6e4ba2c50c2f7143c921e906
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217075"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433964"
 ---
 # <a name="get-started-and-create-a-lab-services-lab-within-teams"></a>Comece e crie um laboratório de serviços de laboratório dentro das equipes
 
@@ -40,18 +40,18 @@ Você, como proprietário da equipe, pode adicionar **Azure Lab Services** aplic
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/integrate-with-teams/add.png" alt-text="Adicionar uma guia":::
-1. Selecione uma conta de serviços de laboratório, que você gostaria de usar para criar laboratórios de sala de aula nesta equipe. 
+1. Selecione uma conta do Lab Services que você deseja usar para criar laboratórios nesta equipe. 
 
     O Azure Lab Services usa o logon único no [site do Azure Lab Services](https://labs.azure.com) e efetua pull de todas as contas de laboratório às quais você tem acesso. 
 
-    As contas que estão no mesmo locatário das equipes e para as quais você tem acesso de **proprietário**, **colaborador**ou **criador** são exibidas. 
+    As contas que estão no mesmo locatário das equipes e para as quais você tem acesso de **proprietário**, **colaborador** ou **criador** são exibidas. 
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/integrate-with-teams/welcome.png" alt-text="Adicionar uma guia":::
+    > :::image type="content" source="./media/integrate-with-teams/welcome.png" alt-text="Bem-vindo ao ALS":::
 1. Pressione **salvar** e a guia será adicionada ao canal.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/integrate-with-teams/created.png" alt-text="Adicionar uma guia":::
+    > :::image type="content" source="./media/integrate-with-teams/created.png" alt-text="Criou a guia ALS":::
 
     Agora você pode selecionar a guia **Azure Lab Services** do seu canal e começar a gerenciar laboratórios, conforme descrito nos artigos a seguir.
 

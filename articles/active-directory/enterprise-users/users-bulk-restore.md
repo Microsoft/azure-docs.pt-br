@@ -5,20 +5,20 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 04/27/2020
+ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4031356c3a2ff51f6f3da8b53dd0dcc9fd5a426
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: be3947e3de18f8ccaf47382c4035e187521ac710
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374272"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571497"
 ---
 # <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>Restaurar em massa usuários excluídos no Azure Active Directory
 

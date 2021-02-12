@@ -3,16 +3,15 @@ title: O que é o marketplace comercial da Microsoft?
 description: Uma visão geral dos benefícios e das opções para parceiros da Microsoft que listam soluções no marketplace comercial da Microsoft.
 author: mingshen-ms
 ms.author: mingshen
-ms.reviewer: dsindona
 ms.service: marketplace
 ms.topic: overview
 ms.date: 10/15/2020
-ms.openlocfilehash: 0b0f290a5f560fa8f6db109422c8790ecef9698e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 099515eb1160b131f2d56fd02f300999d5ddfd16
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107038"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780307"
 ---
 # <a name="what-is-the-microsoft-commercial-marketplace"></a>O que é o marketplace comercial da Microsoft?
 
@@ -24,7 +23,7 @@ O marketplace comercial está disponível em mais de 100 países e regiões, e g
 
 O marketplace comercial da Microsoft tem duas lojas online: O [Microsoft AppSource](https://appsource.microsoft.com/) e o [Azure Marketplace](https://azuremarketplace.microsoft.com/). O Microsoft AppSource contém soluções de negócios, e o Azure Marketplace contém soluções de TI. Os programas de software e os serviços do marketplace comercial também podem ser encontrados em produtos da Microsoft, como o Microsoft 365, o Dynamics 365, o Microsoft Power Platform e o Azure. Nossas lojas online e experiências no produto atraem milhões de clientes potenciais por mês. Cada loja online oferece cenários diferentes para garantir que a sua solução ou o seu serviço esteja disponível para os clientes certos.
 
-Quando você cria uma oferta do marketplace comercial no Partner Center, ela pode ser listada em uma ou ambas as lojas online com base no tipo de oferta, nas categorias e em outras opções selecionadas. No caso raro de a oferta ser relevante para os usuários de ambas as lojas online, ela pode aparecer nas duas. Para saber mais, confira [Selecionar uma loja online](determine-your-listing-type.md#selecting-an-online-store) e [Guia do comprador para o Microsoft AppSource e o Azure Marketplace](https://aka.ms/MarketplaceBuyerGuide).
+Quando você cria uma oferta do marketplace comercial no Partner Center, ela pode ser listada em uma ou ambas as lojas online com base no tipo de oferta, nas categorias e em outras opções selecionadas. No caso raro de a oferta ser relevante para os usuários de ambas as lojas online, ela pode aparecer nas duas. Para saber mais, confira [Listagem e opções de preços por loja online](determine-your-listing-type.md#listing-and-pricing-options-by-online-store) e [Guia do comprador para o Microsoft AppSource e o Azure Marketplace](https://aka.ms/MarketplaceBuyerGuide).
 
 ### <a name="microsoft-appsource"></a>Microsoft AppSource
 
@@ -36,13 +35,13 @@ Este é um exemplo de uma página de listagem de ofertas do AppSource:
 
 ####  <a name="appsource-in-product-experience"></a>Experiência no produto do AppSource
 
-Os clientes também podem acessar suas ofertas do AppSource por meio do Microsoft 365, do Dynamics 365, do Power Platform e do Azure. O exemplo a seguir mostra como acessar os suplementos do AppSource no menu **Arquivo do Power BI** .
+Os clientes também podem acessar suas ofertas do AppSource por meio do Microsoft 365, do Dynamics 365, do Power Platform e do Azure. O exemplo a seguir mostra como acessar os suplementos do AppSource no menu **Arquivo do Power BI**.
 
-:::image type="content" source="media/overview/power-bi.png" alt-text="Ilustra uma página de listagem de ofertas do Microsoft AppSource."::: 
+:::image type="content" source="media/overview/power-bi.png" alt-text="Mostra como acessar os Visuais do Power BI no AppSource no menu Arquivo do Power BI."::: 
 
 Essa opção abre uma janela em que o cliente pode pesquisar suplementos do Power BI por nome ou categoria. 
 
-:::image type="content" source="media/overview/power-bi-apps.png" alt-text="Ilustra uma página de listagem de ofertas do Microsoft AppSource."::: 
+:::image type="content" source="media/overview/power-bi-apps.png" alt-text="Mostra a lista de suplementos do AppSource no Power BI."::: 
 
 ### <a name="azure-marketplace"></a>Azure Marketplace
 
@@ -50,17 +49,17 @@ O [Azure Marketplace](https://azuremarketplace.microsoft.com/) destina-se a solu
 
 Este é um exemplo de uma página de listagem de ofertas do Azure Marketplace:
 
-:::image type="content" source="media/overview/example-marketplace.png" alt-text="Ilustra uma página de listagem de ofertas do Microsoft AppSource."::: 
+:::image type="content" source="media/overview/example-marketplace.png" alt-text="Ilustra uma página de listagem de ofertas do Azure Marketplace."::: 
 
 #### <a name="azure-marketplace-in-the-azure-portal"></a>Azure Marketplace no portal do Azure
 
 Os clientes do Azure podem descobrir e implantar soluções do Azure Marketplace por meio da opção **Criar um recurso** no [portal do Azure](https://portal.azure.com/).
 
-:::image type="content" source="media/overview/create-resource.png" alt-text="Ilustra uma página de listagem de ofertas do Microsoft AppSource."::: 
+:::image type="content" source="media/overview/create-resource.png" alt-text="Mostra a opção Criar um recurso no portal do Azure"::: 
 
 Essa opção abre o Azure Marketplace no portal do Azure, em que eles podem pesquisar soluções por nome ou categoria.
 
-:::image type="content" source="media/overview/search-portal.png" alt-text="Ilustra uma página de listagem de ofertas do Microsoft AppSource."::: 
+:::image type="content" source="media/overview/search-portal.png" alt-text="Mostra as opções de pesquisa do Azure Marketplace no portal do Azure"::: 
 
 ## <a name="benefits-of-selling-with-microsoft"></a>Benefícios das vendas com a Microsoft
 

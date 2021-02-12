@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 5d02085fe4850dacf6e876b42cf301df2ea76713
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: fc410ef903ac7eca2457516df2c71260a4b19b89
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043324"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097482"
 ---
 # <a name="edv4-and-edsv4-series"></a>Séries Edv4 e Edsv4
 
@@ -30,6 +30,8 @@ Os tamanhos da série Edv4 são executados nos processadores Intel&reg; Xeon&reg
 [Migração ao vivo](maintenance-and-updates.md): com suporte<br>
 [Atualizações de preservação de memória](maintenance-and-updates.md): com suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
 <br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | <sup>**</sup> Taxa de transferência máxima de armazenamento em cache e temporária: IOPS/MBps | Máximo de NICs|Largura de banda de rede esperada (Mbps) |
@@ -56,6 +58,8 @@ Os tamanhos da série Edsv4 são executados nos processadores Intel&reg; Xeon&re
 [Migração ao vivo](maintenance-and-updates.md): com suporte<br>
 [Atualizações de preservação de memória](maintenance-and-updates.md): com suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): com suporte <br>
 <br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | <sup>**</sup> Taxa de transferência máxima de armazenamento em cache e temporária: IOPS/MBps (tamanho do cache em GiB) | Taxa de transferência de disco sem cache: IOPS/MBps | Máximo de NICs|Largura de banda de rede esperada (Mbps) |
@@ -68,9 +72,11 @@ Os tamanhos da série Edsv4 são executados nos processadores Intel&reg; Xeon&re
 | Standard_E32ds_v4 | 32 | 256 | 1200 | 32 | 308000/1936(800) | 51200/768  | 8|16000 |
 | Standard_E48ds_v4 | 48 | 384 | 1800 | 32 | 462000/2904(1200) | 76800/1152 | 8|24.000 |
 | Standard_E64ds_v4 <sup>1</sup> | 64 | 504 | 2400 | 32 | 615000/3872(1600) | 80000/1200 | 8|30000 |
+| Standard_E80ids_v4 <sup>2</sup> | 80 | 504 | 2400 | 32 | 615000/3872(1600) | 80000/1200 | 8|30000 |
 
 <sup>1</sup> [Tamanhos limitados de núcleos disponíveis)](./constrained-vcpu.md).
 
+<sup>2</sup> A instância é isolada em hardware dedicado a um único cliente.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/18/2020
+ms.date: 12/01/2020
 ms.author: mnayak
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 49b0df3e750d4d23cb6a64f3f7266613fd2f2981
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7673a42afa3b85a2aaf3f11f5e9b74fd46d48488
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87501824"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945095"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-azure-cli"></a>Configurar preferência de roteamento para uma VM usando a CLI do Azure
 
@@ -30,11 +30,6 @@ Este artigo mostra como criar uma máquina virtual com um IP público definido p
 > A preferência de roteamento está atualmente em versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="register-the-feature-for-your-subscription"></a>Registrar recurso para sua assinatura
-O recurso Preferência de Roteamento está atualmente na versão prévia. Registrar recurso para sua assinatura como a seguir:
-```azurecli
-az feature register --namespace Microsoft.Network --name AllowRoutingPreferenceFeature
-```
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 1. Se usar o Cloud Shell, vá para a etapa 2. Abra uma sessão de comando e entre no Azure com `az login`.
 2. Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). O exemplo a seguir cria um grupo de recursos na região Leste do Azure dos EUA:
@@ -63,7 +58,7 @@ Antes de implantar uma VM, você deve criar recursos da rede de suporte: grupo d
 
 ### <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
 
-Crie um grupo de segurança de rede para as regras que controlarão a comunicação de entrada e saída em sua VNet com [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create)
+Crie um grupo de segurança de rede para as regras que controlarão a comunicação de entrada e saída em sua VNet com [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create)
 
 ```azurecli
 az network nsg create \
@@ -74,7 +69,7 @@ az network nsg create \
 
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Crie a rede virtual com [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create). O exemplo a seguir cria uma rede virtual chamada *myVNET* com sub-redes *mySubNet*:
+Crie a rede virtual com [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). O exemplo a seguir cria uma rede virtual chamada *myVNET* com sub-redes *mySubNet*:
 
 ```azurecli
 # Create a virtual network
@@ -94,7 +89,7 @@ az network vnet subnet create \
 
 ### <a name="create-a-nic"></a>Criar uma NIC
 
-Crie uma NIC virtual para a VM com [az network nic create](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create). O exemplo a seguir cria uma NIC virtual, que será anexada à VM.
+Crie uma NIC virtual para a VM com [az network nic create](/cli/azure/network/nic#az-network-nic-create). O exemplo a seguir cria uma NIC virtual, que será anexada à VM.
 
 ```azurecli-interactive
 # Create a NIC
@@ -110,7 +105,7 @@ az network nic create \
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-Crie uma VM com [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create). O exemplo a seguir cria uma VM do Windows Server 2019 e os componentes de rede virtual necessários, caso ainda não existam.
+Crie uma VM com [az vm create](/cli/azure/vm#az-vm-create). O exemplo a seguir cria uma VM do Windows Server 2019 e os componentes de rede virtual necessários, caso ainda não existam.
 
 ```azurecli
 az vm create \
@@ -133,5 +128,5 @@ az group delete --name myResourceGroup --yes
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre a [preferência de roteamento em endereços IP públicos](routing-preference-overview.md).
-- Saiba mais sobre os [endereços IP públicos](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) no Azure.
-- Saiba mais sobre as [configurações do endereço IP público](virtual-network-public-ip-address.md#create-a-public-ip-address).
+- Saiba mais sobre os [endereços IP públicos](./public-ip-addresses.md#public-ip-addresses) no Azure.
+- Saiba mais sobre as [configurações de endereço IP público](virtual-network-public-ip-address.md#create-a-public-ip-address).

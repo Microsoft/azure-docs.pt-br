@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 3d999375d746bb359acdccf9bf48f8b77d509776
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e051a36b3c91fadc0c3b602cb4ba8e3dbcff1294
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90992093"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367124"
 ---
 # <a name="full-backup-and-restore"></a>Backup e restauração completo
 
@@ -51,6 +51,10 @@ end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
 # Get storage account key
 
 skey=$(az storage account keys list --query '[0].value' -o tsv --account-name mhsmdemobackup --subscription a1ba9aaa-b7f6-4a33-b038-6e64553a6c7b)
+
+# Create a container
+
+az storage container create --account-name  mhsmdemobackup --name mhsmdemobackupcontainer  --account-key $skey
 
 # Generate a container sas token
 

@@ -11,24 +11,24 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/27/2020
-ms.openlocfilehash: f9dc11bd046bdc3a8913b4b05f1b68b84c9736c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c20508d27d03c00a6842979731fb905bbaa9def
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89438442"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461248"
 ---
 # <a name="transformation-with-azure-databricks"></a>Transformação com o Azure Databricks
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Neste tutorial, você cria um pipeline de ponta a ponta que contém a **validação**, a **cópia de dados**e as atividades do **Notebook** em Azure data Factory.
+Neste tutorial, você cria um pipeline de ponta a ponta que contém a **validação**, a **cópia de dados** e as atividades do **Notebook** em Azure data Factory.
 
 - A **validação** garante que o conjunto de fonte de origem esteja pronto para o consumo de downstream antes de disparar o trabalho de cópia e de análise.
 
 - **Copy data** duplica o conjunto de dados de origem para o armazenamento do coletor, que é montado como DBFS no bloco de anotações Azure Databricks. Dessa forma, o conjunto de entrada pode ser diretamente consumido pelo Spark.
 
-- O **Notebook** dispara o bloco de anotações do databricks que transforma o conjunto de os. Ele também adiciona o conjunto de um a uma pasta processada ou a análise de Synapse do Azure Azure (anteriormente SQL Data Warehouse).
+- O **Notebook** dispara o bloco de anotações do databricks que transforma o conjunto de os. Ele também adiciona o conjunto de um a uma pasta processada ou a análise de Synapse do Azure Azure.
 
 Para simplificar, o modelo neste tutorial não cria um gatilho agendado. Você pode adicionar um se necessário.
 
@@ -56,29 +56,29 @@ Para importar um bloco de anotações de **transformação** para seu espaço de
 
    No bloco de anotações importado, vá para o **comando 5** , conforme mostrado no trecho de código a seguir.
 
-   - Substitua `<storage name>` e `<access key>` por suas próprias informações de conexão de armazenamento.
+   - Substitua `<storage name>` e `<access key>` por suas próprias informações de conexão de armazenamento.
    - Use a conta de armazenamento com o `sinkdata` contêiner.
 
     ```python
-    # Supply storageName and accessKey values  
-    storageName = "<storage name>"  
-    accessKey = "<access key>"  
+    # Supply storageName and accessKey values  
+    storageName = "<storage name>"  
+    accessKey = "<access key>"  
 
-    try:  
-      dbutils.fs.mount(  
-        source = "wasbs://sinkdata\@"+storageName+".blob.core.windows.net/",  
-        mount_point = "/mnt/Data Factorydata",  
-        extra_configs = {"fs.azure.account.key."+storageName+".blob.core.windows.net": accessKey})  
+    try:  
+      dbutils.fs.mount(  
+        source = "wasbs://sinkdata\@"+storageName+".blob.core.windows.net/",  
+        mount_point = "/mnt/Data Factorydata",  
+        extra_configs = {"fs.azure.account.key."+storageName+".blob.core.windows.net": accessKey})  
 
-    except Exception as e:  
-      # The error message has a long stack track. This code tries to print just the relevant line indicating what failed.
+    except Exception as e:  
+      # The error message has a long stack track. This code tries to print just the relevant line indicating what failed.
 
-    import re
-    result = re.findall(r"\^\s\*Caused by:\s*\S+:\s\*(.*)\$", e.message, flags=re.MULTILINE)
-    if result:
-      print result[-1] \# Print only the relevant error message
-    else:  
-      print e \# Otherwise print the whole stack trace.  
+    import re
+    result = re.findall(r"\^\s\*Caused by:\s*\S+:\s\*(.*)\$", e.message, flags=re.MULTILINE)
+    if result:
+      print result[-1] \# Print only the relevant error message
+    else:  
+      print e \# Otherwise print the whole stack trace.  
     ```
 
 1. Gere um **token de acesso do Databricks** para o Data Factory acessá-lo.
@@ -126,7 +126,7 @@ Para importar um bloco de anotações de **transformação** para seu espaço de
 
 No novo pipeline, a maioria das configurações é configurada automaticamente com valores padrão. Examine as configurações do seu pipeline e faça as alterações necessárias.
 
-1. No **sinalizador disponibilidade**da atividade de **validação** , verifique se o valor do **conjunto** de fonte de origem está definido como `SourceAvailabilityDataset` que você criou anteriormente.
+1. No **sinalizador disponibilidade** da atividade de **validação** , verifique se o valor do **conjunto** de fonte de origem está definido como `SourceAvailabilityDataset` que você criou anteriormente.
 
    ![Valor do conjunto de fonte de origem](media/solution-template-Databricks-notebook/validation-settings.png)
 
@@ -136,7 +136,7 @@ No novo pipeline, a maioria das configurações é configurada automaticamente c
 
    - Guia coletor da guia **coletor** ![](media/solution-template-Databricks-notebook/copy-sink-settings.png)
 
-1. Na **transformação**atividade do **Notebook** , examine e atualize os caminhos e as configurações conforme necessário.
+1. Na **transformação** atividade do **Notebook** , examine e atualize os caminhos e as configurações conforme necessário.
 
    O **serviço vinculado do databricks** deve ser preenchido previamente com o valor de uma etapa anterior, conforme mostrado: ![ valor preenchido para o serviço vinculado do databricks](media/solution-template-Databricks-notebook/notebook-activity.png)
 

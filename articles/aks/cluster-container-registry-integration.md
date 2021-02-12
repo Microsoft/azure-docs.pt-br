@@ -4,19 +4,22 @@ description: Saiba como integrar o AKS (serviço de kubernetes do Azure) com o A
 services: container-service
 manager: gwallace
 ms.topic: article
-ms.date: 02/25/2020
-ms.openlocfilehash: 4338f4ce1fe60a3a9002be93feab134dd2601720
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/08/2021
+ms.openlocfilehash: 0d61cccb6b70091194d407eda056060d1fa3623c
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87406496"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053883"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autenticar com o Registro de Contêiner do Azure do Serviço de Kubernetes do Azure
 
 Quando você estiver usando o ACR (Registro de Contêiner do Azure) com o AKS (Serviço de Kubernetes do Azure), um mecanismo de autenticação precisará ser estabelecido. Essa operação é implementada como parte da experiência da CLI e do portal, concedendo as permissões necessárias ao seu ACR. Este artigo fornece exemplos para configurar a autenticação entre esses dois serviços do Azure. 
 
 Você pode configurar o AKS para a integração de ACR em alguns comandos simples com o CLI do Azure. Essa integração atribui a função AcrPull à entidade de serviço associada ao cluster AKS.
+
+> [!NOTE]
+> Este artigo aborda a autenticação automática entre AKS e ACR. Se você precisar efetuar pull de uma imagem de um registro externo privado, use um [segredo de extração de imagem][Image Pull Secret].
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -147,8 +150,10 @@ nginx0-deployment-669dfc4d4b-xdpd6   1/1     Running   0          20s
 ```
 
 ### <a name="troubleshooting"></a>Solução de problemas
+* Execute o comando [AZ AKs check-ACR](/cli/azure/aks#az_aks_check_acr) para validar se o registro pode ser acessado do cluster AKs.
 * Saiba mais sobre o [diagnóstico ACR](../container-registry/container-registry-diagnostics-audit-logs.md)
 * Saiba mais sobre a [integridade do ACR](../container-registry/container-registry-check-health.md)
 
 <!-- LINKS - external -->
 [AKS AKS CLI]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
+[Image Pull secret]: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/

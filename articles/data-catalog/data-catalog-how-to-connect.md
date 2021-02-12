@@ -7,11 +7,11 @@ ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
 ms.openlocfilehash: 5c8c545f01eb0df53ce9677b7db6f931b4d21af9
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151894"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021921"
 ---
 # <a name="how-to-connect-to-data-sources"></a>Como se conectar a fontes de dados
 ## <a name="introduction"></a>Introdução
@@ -39,7 +39,7 @@ Ao usar o menu "Abrir em..." para as fontes de dados no portal do Catálogo de D
 | Excel (Top 1000) |.odc |Excel 2010 ou posterior |
 | Power Query |.xlsx |Excel 2016, Excel 2010 ou Excel 2013 com o Power Query para o suplemento do Excel instalado |
 | Power BI Desktop |.pbix |Power BI Desktop de julho de 2016 ou posterior |
-| Ferramentas de dados do SQL Server |vsweb:// |Visual Studio 2013 Atualização 4 ou posterior com ferramentas do SQL Server instaladas |
+| SQL Server Data Tools |vsweb:// |Visual Studio 2013 Atualização 4 ou posterior com ferramentas do SQL Server instaladas |
 | Gerenciador de Relatórios |http:// |Consulte [requisitos do navegador para os Serviços de Relatório do SQL Server](/sql/reporting-services/browser-support-for-reporting-services-and-power-view) |
 
 ## <a name="your-data-your-tools"></a>Seus dados, suas ferramentas

@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 9/01/2020
-  ms.openlocfilehash: 69f997b1777bf85d45a66d72ee3f0a52119022b0
-  ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+  ms.openlocfilehash: f8b134c1cce93468d68d8d920b412d2c5751b104
+  ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/29/2020
-  ms.locfileid: "92912643"
+  ms.lasthandoff: 01/23/2021
+  ms.locfileid: "98737058"
 landingContent:
 - title: Sobre o serviço de Detecção Facial
   linkLists:
@@ -24,6 +24,10 @@ landingContent:
     links:
     - text: O que é o serviço de Detecção Facial?
       url: Overview.md
+  - linkListType: whats-new
+    links:
+    - text: O que há de novo no serviço de Detecção Facial?
+      url: releasenotes.md
 - title: Detectar faces
   linkLists:
   - linkListType: concept
@@ -83,7 +87,7 @@ landingContent:
   - linkListType: deploy
     links:
     - text: Usar instâncias de contêiner
-      url: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
+      url: ../containers/azure-container-instance-recipe.md
 - title: Referência
   linkLists:
   - linkListType: reference
@@ -100,8 +104,6 @@ landingContent:
       url: /javascript/api/@azure/cognitiveservices-face
     - text: SDK do Go
       url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face
-    - text: SDK do iOS
-      url: https://github.com/Microsoft/Cognitive-Face-iOS
     - text: Azure PowerShell
       url: /powershell/module/az.cognitiveservices/#cognitive_services
     - text: CLI (interface de linha de comando) do Azure

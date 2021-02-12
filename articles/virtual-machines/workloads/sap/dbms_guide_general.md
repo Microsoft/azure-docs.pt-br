@@ -3,16 +3,17 @@ title: Considerações para Implantação do DBMS de Máquinas de Virtuais do Az
 description: Considerações para Implantação do DBMS de Máquinas de Virtuais do Azure para carga de trabalho do SAP
 author: msjuergent
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 09/20/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 1f71d95d61e401e12c76ca5589368eed6cc29ce6
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 5638b60b60f3952ab40fa000e457082f4748ac35
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993285"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "96484338"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Considerações para Implantação do DBMS de Máquinas de Virtuais do Azure para carga de trabalho do SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -159,8 +160,8 @@ Se o requisito de IOPS exceder o que um único VHD pode fornecer, equilibre o n�
 >
 > Há suporte apenas para MDADM e LVM (Logical Volume Manager) para criar um RAID de software no Linux. Para obter mais informações, consulte:
 >
-> - [Configurar RAID de software no Linux](../../linux/configure-raid.md) usando MDADM
-> - [Configurar o LVM em uma VM Linux no Azure](../../linux/configure-lvm.md) usando LVM
+> - [Configurar RAID de software no Linux](/previous-versions/azure/virtual-machines/linux/configure-raid) usando MDADM
+> - [Configurar o LVM em uma VM Linux no Azure](/previous-versions/azure/virtual-machines/linux/configure-lvm) usando LVM
 >
 >
 

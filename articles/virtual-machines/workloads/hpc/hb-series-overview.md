@@ -3,16 +3,17 @@ title: Visão geral da VM da série HB – máquinas virtuais do Azure | Microso
 description: Saiba mais sobre o suporte de visualização para o tamanho da VM da série HB no Azure.
 author: vermagit
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: d11ec99d10d74956c43c24145abbd291d9e2d2a9
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 1e37f13bc6e819079c63c583a1eeda12af5e213c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996236"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965452"
 ---
 # <a name="hb-series-virtual-machines-overview"></a>Visão geral das máquinas virtuais da série HB
 

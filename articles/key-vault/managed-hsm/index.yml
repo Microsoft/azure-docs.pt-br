@@ -11,12 +11,12 @@ metadata:
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 09/15/2020
-  ms.openlocfilehash: e8f53bbc7d08b30d8c3431d5542f72762789a2bc
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 78d588e24c2bb489c242537c0ac4ed0c1618c529
+  ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91320567"
+  ms.lasthandoff: 01/06/2021
+  ms.locfileid: "97934181"
 landingContent:
 - title: Sobre o HSM Gerenciado do Azure Key Vault (versão prévia)
   linkLists:
@@ -76,9 +76,9 @@ landingContent:
     links:
     - text: Visão geral do Key Vault
       url: ../general/overview.md
-    - text: Conceitos básicos do Key Vault
+    - text: Conceitos básicos
       url: ../general/basic-concepts.md
+    - text: Visão geral da segurança
+      url: ../general/security-overview.md
     - text: Visão geral da exclusão reversível
       url: ../general/soft-delete-overview.md
-    - text: Visão geral da segurança
-      url: ../general/overview-security.md

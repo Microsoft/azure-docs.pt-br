@@ -10,14 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 010f2960693a06a50cd15ac3bac2fe35b6c0985f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e70d4d83fcd9641fa86f013688b5a3a6e3652919
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84434584"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96338394"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>O que é API de Pesquisa Personalizada do Bing?
+
+> [!WARNING]
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 A API de Pesquisa Personalizada do Bing permite que você crie experiências de pesquisa personalizada sem anúncios para os tópicos de seu interesse. Você pode especificar as páginas da Web e os domínios para pesquisa no Bing, bem como fixar, aumentar ou rebaixar um conteúdo específico para criar uma exibição personalizada da Web e ajudar os usuários a localizar rapidamente os resultados da pesquisa relevantes. 
 
@@ -45,16 +50,15 @@ Para começar rapidamente, consulte [Criar a primeira instância de Pesquisa Per
 
 Para detalhes sobre como personalizar sua instância de pesquisa, consulte [Definir uma instância de pesquisa personalizada](define-your-custom-view.md).
 
-Leia os [Requisitos de uso e exibição do Bing](./use-and-display-requirements.md) para usar os resultados da pesquisa em seus serviços e seus aplicativos.
+Leia os [Requisitos de uso e exibição do Bing](../bing-web-search/use-display-requirements.md) para usar os resultados da pesquisa em seus serviços e seus aplicativos.
 
-Visite a [página do hub da API de Pesquisa do Bing](../bing-web-search/search-the-web.md) para explorar as outras APIs disponíveis.
+Visite a [página do hub da API de Pesquisa do Bing](../bing-web-search/overview.md) para explorar as outras APIs disponíveis.
 
 Familiarize-se com o conteúdo de referência para cada um dos pontos de extremidade de pesquisa personalizados. A referência contém os pontos finais, cabeçalhos e parâmetros de consulta que você usaria para solicitar resultados de pesquisa. Ela também inclui as definições dos objetos de resposta.
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
-- [API de pesquisa personalizada](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
-- [API de imagem personalizada](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference)
-- [API de vídeo personalizada](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference)
-- [API de sugestão automática personalizada](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference)
-
+- [API de pesquisa personalizada](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
+- [API de imagem personalizada](/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference)
+- [API de vídeo personalizada](/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference)
+- [API de sugestão automática personalizada](/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference)

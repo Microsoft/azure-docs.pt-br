@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c9da2acac0957d7fe06d0249775fbed73b5f458d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59379dd9c3a41729466de269b52dfd3fb206eea9
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287331"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368708"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Conectar-se ao Cliente de Área de Trabalho do Windows
 
@@ -69,3 +69,5 @@ Há duas maneiras de assinar um workspace. O cliente pode tentar descobrir os re
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre como usar o cliente de área de trabalho do Windows, confira [introdução ao cliente de desktop do Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop/).
+
+Se você for um administrador que está interessado em aprender mais informações detalhadas sobre como usar a área de trabalho do Windows, confira [Windows Desktop Client para administradores](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-admin).

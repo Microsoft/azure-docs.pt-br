@@ -3,12 +3,12 @@ title: Dimensionar ou reduzir horizontalmente um Service Fabric cluster
 description: Dimensione um cluster de Service Fabric de entrada ou saída para corresponder à demanda definindo regras de dimensionamento automático para cada tipo de nó/conjunto de dimensionamento de máquinas virtuais. Adicionar ou remover nós de um cluster do Service Fabric
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: c9393ca4531dea58859a4fc60509524e9c4a0b7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ee04c73b75d6b335e450ff816c51f0a3089b918
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86246479"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409936"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Reduzir ou escalar um cluster horizontalmente
 
@@ -54,7 +54,6 @@ Siga estas instruções [para configurar o dimensionamento automático para cada
 > [!NOTE]
 > Em uma escala no cenário, a menos que o tipo de nó tenha um [nível de durabilidade][durability] ouro ou prata, você precisa chamar o [cmdlet Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate) com o nome do nó apropriado. Para a durabilidade de bronze, não é recomendável dimensionar em mais de um nó por vez.
 > 
-> 
 
 ## <a name="manually-add-vms-to-a-node-typevirtual-machine-scale-set"></a>Adicionar VMs manualmente a um tipo de nó/conjunto de dimensionamento de máquinas virtuais
 
@@ -97,6 +96,9 @@ Para um serviço com estado, você precisa de um determinado número de nós que
 ### <a name="remove-the-service-fabric-node"></a>Remover o nó do Service Fabric
 
 As etapas para remover manualmente o estado do nó se aplicam somente a tipos de nós com uma camada de durabilidade *bronze* .  Para a camada de durabilidade *prata* e *ouro* , essas etapas são feitas automaticamente pela plataforma. Para obter mais informações sobre durabilidade, consulte [Planejamento de capacidade do cluster do Service Fabric][durability].
+
+>[!NOTE]
+> Mantenha uma contagem mínima de cinco nós para qualquer conjunto de dimensionamento de máquinas virtuais que tenha o nível de durabilidade Ouro ou Prata habilitado. O cluster entrará em estado de erro se você reduzir abaixo desse limite e precisará limpar manualmente os nós removidos.
 
 Para manter os nós do cluster distribuídos uniformemente entre domínios de falha e atualização e, portanto, habilitar sua utilização uniforme, o nó criado mais recentemente deve ser removido primeiro. Em outras palavras, os nós devem ser removidos na ordem inversa à de sua criação. O nó criado mais recentemente é aquele com o maior valor da propriedade `virtual machine scale set InstanceId`. Os exemplos de código a seguir retornam o nó criado mais recentemente.
 
@@ -239,6 +241,9 @@ Para certificar-se de que um nó será removido quando uma VM for removida, voc�
 
 1. Escolha um nível de durabilidade de Gold ou Silver para os tipos de nó no seu cluster, o que fornece a integração de infraestrutura. Que, em seguida, removerá automaticamente os nós do nosso estado de FM (serviços do sistema) quando você dimensionar horizontalmente.
 Confira [os detalhes sobre os níveis de durabilidade aqui](service-fabric-cluster-capacity.md)
+
+> [!NOTE]
+> Mantenha uma contagem mínima de cinco nós para qualquer conjunto de dimensionamento de máquinas virtuais que tenha o nível de durabilidade Ouro ou Prata habilitado. O cluster entrará em estado de erro se você reduzir abaixo desse limite e precisará limpar manualmente os nós removidos.
 
 2. Depois que a instância de VM for dimensionada no, você precisará chamar o [cmdlet Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate).
 

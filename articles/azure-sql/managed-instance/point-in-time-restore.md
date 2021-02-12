@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 31be497d017cb60de6f46d7657889c9c1fabef4a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d3414cb31192211c1663a84e1541f56b63674660
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788342"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525374"
 ---
 # <a name="restore-a-database-in-azure-sql-managed-instance-to-a-previous-point-in-time"></a>Restaurar um banco de dados no Azure SQL Instância Gerenciada para um ponto anterior no tempo
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -139,7 +139,7 @@ A restauração de um banco de dados excluído pode ser feita usando o PowerShel
 ### <a name="portal"></a>Portal 
 
 
-Para recuperar um banco de dados gerenciado usando o portal do Azure, abra a página Visão geral do SQL Instância Gerenciada e selecione bancos de dados **excluídos** . Escolha um banco de dados excluído que você deseja restaurar e digite o nome do novo banco de dados que será criado com a data de restauração do backup.
+Para recuperar um banco de dados gerenciado usando o portal do Azure, abra a página Visão geral do SQL Instância Gerenciada e selecione bancos de dados **excluídos**. Escolha um banco de dados excluído que você deseja restaurar e digite o nome do novo banco de dados que será criado com a data de restauração do backup.
 
   ![Captura de tela da restauração do banco de dados de instância do SQL do Azure excluído](./media/point-in-time-restore/restore-deleted-sql-managed-instance-annotated.png)
 
@@ -162,7 +162,7 @@ $targetDatabaseName = "<target database name>"
 $deletedDatabase = Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName $resourceGroupName `
 -InstanceName $managedInstanceName -DatabaseName $deletedDatabaseName
 
-Restore-AzSqlinstanceDatabase -Name $deletedDatabase.Name `
+Restore-AzSqlinstanceDatabase -FromPointInTimeBackup -Name $deletedDatabase.Name `
    -InstanceName $deletedDatabase.ManagedInstanceName `
    -ResourceGroupName $deletedDatabase.ResourceGroupName `
    -DeletionDate $deletedDatabase.DeletionDate `
@@ -176,7 +176,7 @@ Para restaurar o banco de dados para outro Instância Gerenciada do SQL, especif
 $targetResourceGroupName = "<Resource group of target SQL Managed Instance>"
 $targetInstanceName = "<Target SQL Managed Instance name>"
 
-Restore-AzSqlinstanceDatabase -Name $deletedDatabase.Name `
+Restore-AzSqlinstanceDatabase -FromPointInTimeBackup -Name $deletedDatabase.Name `
    -InstanceName $deletedDatabase.ManagedInstanceName `
    -ResourceGroupName $deletedDatabase.ResourceGroupName `
    -DeletionDate $deletedDatabase.DeletionDate `
@@ -211,7 +211,7 @@ Use um dos seguintes métodos para se conectar ao banco de dados no SQL Instânc
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-No portal do Azure, selecione o banco de dados do Instância Gerenciada SQL e, em seguida, selecione **excluir** .
+No portal do Azure, selecione o banco de dados do Instância Gerenciada SQL e, em seguida, selecione **excluir**.
 
    ![Excluir um banco de dados usando o portal do Azure](./media/point-in-time-restore/delete-database-from-mi.png)
 

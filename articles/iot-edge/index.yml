@@ -11,12 +11,12 @@ metadata:
   ms.author: kgremban
   manager: philmea
   ms.date: 08/05/2019
-  ms.openlocfilehash: 63c36cf0f602c7c19e3ec1eb0b38b84a2e3a6e15
-  ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+  ms.openlocfilehash: d1b23b67413f7e270cb894fcf201204afa255b20
+  ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/14/2020
-  ms.locfileid: "92048331"
+  ms.lasthandoff: 01/21/2021
+  ms.locfileid: "98633088"
 landingContent:
 - title: Desenvolver para dispositivos Linux
   linkLists:
@@ -50,12 +50,14 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Instalar o runtime do Azure IoT Edge
-      url: how-to-install-iot-edge.md
-    - text: Registrar e provisionar apenas um dispositivo
-      url: how-to-manual-provision-symmetric-key.md
+    - text: Registrar um dispositivo individual
+      url: how-to-register-device.md
     - text: Registrar e provisionar dispositivos em escala
       url: how-to-auto-provision-symmetric-keys.md
+    - text: Instalar o runtime do IoT Edge em dispositivos Linux
+      url: how-to-install-iot-edge.md
+    - text: Instalar o runtime do IoT Edge em dispositivos Windows
+      url: how-to-install-iot-edge-on-windows.md
 - title: Participe da comunidade de open-source
   linkLists:
   - linkListType: get-started

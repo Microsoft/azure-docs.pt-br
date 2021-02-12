@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 575903654a165bef0d09ac6abf0793af3f6784e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fa0b6ca41349d20614a64006536e78d8ee71844
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933769"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955358"
 ---
 # <a name="offline-deployment-overview"></a>Visão geral da implantação offline
 
@@ -22,7 +22,7 @@ Normalmente, as imagens de contêiner usadas na criação do controlador de dado
 
 Como as atualizações mensais são fornecidas para os serviços de dados habilitados para o Azure Arc e há um grande número de imagens de contêiner, é melhor executar esse processo de extração, marcação e envio por push das imagens de contêiner para um registro de contêiner privado usando um script.  O script pode ser automatizado ou executado manualmente.
 
-Um [script de exemplo](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/scripts/pull-and-push-arc-data-services-images-to-private-registry.py) pode ser encontrado no repositório GitHub do arco do Azure.
+Um [script de exemplo](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/scripts/pull-and-push-arc-data-services-images-to-private-registry.py) pode ser encontrado no repositório GitHub do arco do Azure.
 
 > [!NOTE]
 > Esse script requer a instalação do Python e a [CLI do Docker](https://docs.docker.com/install/).
@@ -36,7 +36,7 @@ O script irá solicitar interativamente as informações a seguir.  Como alterna
 |Forneça o nome de usuário para o registro de contêiner de origem-pressione ENTER para usar nenhum:|SOURCE_DOCKER_USERNAME|Forneça um valor apenas se você estiver extraindo imagens de contêiner de uma fonte que requer logon.  O registro de contêiner da Microsoft não requer um logon.|
 |Forneça a senha para o registro de contêiner de origem-pressione ENTER para usar nenhum:|SOURCE_DOCKER_PASSWORD|Forneça um valor apenas se você estiver extraindo imagens de contêiner de uma fonte que requer logon.  O registro de contêiner da Microsoft não requer um logon. Este é um prompt de senha mascarado.  Você não verá a senha se digitar ou colá-la no.|
 |Forneça a marca de imagem de contêiner para as imagens na fonte-pressione ENTER para usar ' `<current monthly release tag>` ':|SOURCE_DOCKER_TAG|O nome da marca padrão será atualizado mensalmente para refletir o mês e o ano da versão atual no registro de contêiner da Microsoft.|
-|Forneça o nome DNS ou o endereço IP do registro de contêiner de destino:|TARGET_DOCKER_REGISTRY|O nome DNS ou endereço IP do registro de destino.  Esse é o registro _para_o qual as imagens serão enviadas.|
+|Forneça o nome DNS ou o endereço IP do registro de contêiner de destino:|TARGET_DOCKER_REGISTRY|O nome DNS ou endereço IP do registro de destino.  Esse é o registro _para_ o qual as imagens serão enviadas.|
 |Forneça o repositório do registro de contêiner de destino:|TARGET_DOCKER_REPOSITORY|O repositório no registro de destino para o qual enviar as imagens.|
 |Forneça o nome de usuário para o registro de contêiner de destino-pressione ENTER para usar nenhum:|TARGET_DOCKER_USERNAME|O nome de usuário, se houver, que é usado para fazer logon no registro de contêiner de destino.|
 |Forneça a senha para o registro de contêiner de destino-pressione ENTER para usar nenhum:|TARGET_DOCKER_PASSWORD|A senha, se houver, usada para fazer logon no registro de contêiner de destino. Este é um prompt de senha mascarado.  Você não verá a senha se digitar ou colá-la no.|

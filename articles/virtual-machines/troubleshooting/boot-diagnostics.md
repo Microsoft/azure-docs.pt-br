@@ -10,12 +10,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: delhan
-ms.openlocfilehash: fbf8c1987a66cad6d9d9bc9dab829af4b42a224e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9030adb9904095ac9b909e650ec6f11dcdf85ed3
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971550"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475515"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>Como usar o diagnóstico de inicialização para solucionar problemas das máquinas virtuais no Azure
 
@@ -52,7 +52,7 @@ Na guia **Gerenciamento**, na seção **Monitoramento**, verifique se a opção 
 ![Criar VM](./media/virtual-machines-common-boot-diagnostics/enable-boot-diagnostics-vm.png)
 
 > [!NOTE]
-> O recurso de diagnóstico de inicialização não dá suporte à conta de armazenamento Premium ou aos tipos de conta de armazenamento redundent de zona. Se você usar a conta de armazenamento premium para o diagnóstico de inicialização, você poderá receber o erro StorageAccountTypeNotSupported quando você iniciar a VM.
+> O recurso de diagnóstico de inicialização não dá suporte à conta de armazenamento Premium ou tipos de conta de armazenamento com redundância de zona. Se você usar a conta de armazenamento premium para o diagnóstico de inicialização, você poderá receber o erro StorageAccountTypeNotSupported quando você iniciar a VM. 
 >
 
 ### <a name="deploying-from-an-azure-resource-manager-template"></a>Implantação com base em um modelo do Azure Resource Manager
@@ -94,4 +94,4 @@ Para habilitar o diagnóstico de inicialização em uma máquina virtual existen
 
 ### <a name="enable-boot-diagnostics-using-the-azure-cli"></a>Habilitar o diagnóstico de inicialização usando a CLI do Azure
 
-Use a CLI do Azure para habilitar o diagnóstico de inicialização em uma máquina virtual existente do Azure. Para obter mais informações, confira [az vm boot-diagnostics](/cli/azure/vm/boot-diagnostics?view=azure-cli-latest).
+Use a CLI do Azure para habilitar o diagnóstico de inicialização em uma máquina virtual existente do Azure. Para obter mais informações, confira [az vm boot-diagnostics](/cli/azure/vm/boot-diagnostics).

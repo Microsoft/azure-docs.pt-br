@@ -5,22 +5,22 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 92990df3049f7fa1074d55fc34734e13d6673cd7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1a1b11d517fdfea0aa3a0f553b63276bc20f90be
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91328812"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805458"
 ---
-# <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Fazer backup de uma máquina virtual no Azure com a CLI
+# <a name="back-up-a-virtual-machine-in-azure-with-the-azure-cli"></a>Fazer backup de uma máquina virtual no Azure com a CLI do Azure
 
 A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Você pode proteger seus dados fazendo backups em intervalos regulares. O Backup do Azure cria pontos de recuperação que são armazenados em cofres de recuperação com redundância geográfica. Este artigo fornece detalhes sobre como fazer backup de uma máquina virtual (VM) no Azure com a CLI do Azure. Você também pode executar essas etapas usando o [Azure PowerShell](quick-backup-vm-powershell.md) ou o [portal do Azure](quick-backup-vm-portal.md).
 
 Este início rápido habilita o backup em uma VM do Azure existente. Se você precisar criar uma máquina virtual, poderá [criar uma máquina virtual com a CLI do Azure](../virtual-machines/linux/quick-create-cli.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Para instalar e usar a CLI localmente, você deve executar a CLI do Azure versão 2.0.18 ou posterior. Para encontrar a versão da CLI, execute `az --version`. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+ - Este guia de início rápido exige a versão 2.0.18 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
@@ -71,7 +71,7 @@ az backup protection enable-for-vm \
 ```
 
 > [!IMPORTANT]
-> Ao usar a CLI para habilitar o backup para várias VMs de uma só vez, verifique se não há nenhuma única política com mais de 100 VMs associadas a ela. Essa é uma [melhor prática recomendada](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). Atualmente, o cliente PowerShell não bloqueia explicitamente se há mais de 100 VMs, mas há planos de adicionar essa verificação no futuro.
+> Ao usar a CLI para habilitar o backup para várias VMs de uma só vez, verifique se não há nenhuma única política com mais de 100 VMs associadas a ela. Essa é uma [melhor prática recomendada](./backup-azure-vm-backup-faq.yml#is-there-a-limit-on-number-of-vms-that-can-be-associated-with-the-same-backup-policy). Atualmente, o cliente PowerShell não bloqueia explicitamente se há mais de 100 VMs, mas há planos de adicionar essa verificação no futuro.
 
 ## <a name="start-a-backup-job"></a>Iniciar um trabalho de backup
 

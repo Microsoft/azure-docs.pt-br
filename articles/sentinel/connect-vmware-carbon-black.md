@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
 ms.openlocfilehash: e13b251c9bd95a5b52d63d8ea1bbf265c9c46fd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87095771"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023867"
 ---
 # <a name="connect-your-vmware-carbon-black-cloud-endpoint-standard-to-azure-sentinel-with-azure-function"></a>Conectar seu ponto de extremidade de nuvem do VMware carbono preto padrão ao Azure Sentinel com o Azure function
 

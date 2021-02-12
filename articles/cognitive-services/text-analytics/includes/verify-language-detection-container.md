@@ -11,11 +11,11 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 543a4d85982adadc86435819679351c8ffaa9814
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779277"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009836"
 ---
 ### <a name="verify-the-language-detection-container-instance"></a>Verificar a instância de contêiner de Detecção de Idioma
 

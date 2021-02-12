@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: 9203cebbd721b918f2514f7615712c035a0460ed
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 216658b5f5443409e7bd44cbd29bff40cd56c75f
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669755"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606973"
 ---
 # <a name="use-github-actions-to-connect-to-azure-sql-database"></a>Usar o GitHub Actions para conectar-se ao Banco de Dados SQL do Azure
 
-Comece a usar o [GitHub Actions](https://docs.github.com/en/actions) usando um fluxo de trabalho para implantar atualizações de banco de dados no [Banco de Dados SQL do Azure](../azure-sql-iaas-vs-paas-what-is-overview.md). 
+Comece a usar o [GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions) usando um fluxo de trabalho para implantar atualizações de banco de dados no [Banco de Dados SQL do Azure](../azure-sql-iaas-vs-paas-what-is-overview.md). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,7 +41,7 @@ O arquivo tem duas seções:
 
 ## <a name="generate-deployment-credentials"></a>Gerar as credenciais de implantação
 
-Crie uma [entidade de serviço](../../active-directory/develop/app-objects-and-service-principals.md) com o comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) na [CLI do Azure](/cli/azure/). Execute esse comando com o [Azure Cloud Shell](https://shell.azure.com/) no portal do Azure ou selecionando o botão **Experimentar** .
+Crie uma [entidade de serviço](../../active-directory/develop/app-objects-and-service-principals.md) com o comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) na [CLI do Azure](/cli/azure/). Execute esse comando com o [Azure Cloud Shell](https://shell.azure.com/) no portal do Azure ou selecionando o botão **Experimentar**.
 
 Substitua os espaços reservados `server-name` pelo nome do seu servidor SQL hospedado no Azure. Substitua o `subscription-id` e `resource-group` pela ID de assinatura e o grupo de recursos conectados ao SQL Server.  
 
@@ -68,7 +68,7 @@ A saída é um objeto JSON com as credenciais de atribuição de função que fo
 
 ## <a name="copy-the-sql-connection-string"></a>Copiar a cadeia de conexão de SQL 
 
-No portal do Azure, acesse o Banco de Dados SQL do Azure e abra **Configurações** > **Cadeias de conexão** . Copie a cadeia de conexão **ADO.NET** . Substitua os valores de espaço reservado por `your_database` e `your_password`. A cadeia de conexão deve ser semelhante ao exemplo a seguir. 
+No portal do Azure, acesse o Banco de Dados SQL do Azure e abra **Configurações** > **Cadeias de conexão**. Copie a cadeia de conexão **ADO.NET**. Substitua os valores de espaço reservado por `your_database` e `your_password`. A cadeia de conexão deve ser semelhante ao exemplo a seguir. 
 
 ```output
     Server=tcp:my-sql-server.database.windows.net,1433;Initial Catalog={your-database};Persist Security Info=False;User ID={admin-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
@@ -80,7 +80,7 @@ Você usará a cadeia de conexão como um segredo do GitHub.
 
 1. Em [GitHub](https://github.com/), procure seu repositório.
 
-1. Selecione **Configurações > Segredos > Novo segredo** .
+1. Selecione **Configurações > Segredos > Novo segredo**.
 
 1. Cole toda a saída JSON do comando da CLI do Azure no campo valor do segredo. Dê ao segredo o nome `AZURE_CREDENTIALS`.
 
@@ -101,7 +101,7 @@ Você usará a cadeia de conexão como um segredo do GitHub.
 
 1. Acesse **Ações** para seu repositório do GitHub. 
 
-2. Selecione **Configurar seu fluxo de trabalho por conta própria** . 
+2. Selecione **Configurar seu fluxo de trabalho por conta própria**. 
 
 2. Exclua tudo depois da seção `on:` do seu arquivo de fluxo de trabalho. Por exemplo, o fluxo de trabalho restante pode ter a aparência a seguir. 
 

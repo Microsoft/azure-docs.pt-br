@@ -9,12 +9,12 @@ ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: devx-track-python
-ms.openlocfilehash: b5f1d0712098e4fe331607860f6e0ed488d29c1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fce5871b4bd6c3e2353f7df04018e88b86ec4c7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87848785"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912511"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>Tutorial: Azure Data Lake Storage Gen2, Azure Databricks e Spark
 
@@ -33,22 +33,22 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 * Criar uma conta do Azure Data Lake Storage Gen2.
 
-  Consulte [Criar uma conta do Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
+  Confira [Criar uma conta de armazenamento para usar com o Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
 
-* Verifique se a sua conta de usuário tem a [função Colaborador de Dados do Storage Blob](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) atribuída a ela.
+* Verifique se a sua conta de usuário tem a [função Colaborador de Dados do Storage Blob](../common/storage-auth-aad-rbac-portal.md) atribuída a ela.
 
-* Instale o AzCopy v10. Confira [Transferir dados com o AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* Instale o AzCopy v10. Confira [Transferir dados com o AzCopy v10](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-* Crie uma entidade de serviço. Veja [Como Usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+* Crie uma entidade de serviço. Veja [Como Usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos](../../active-directory/develop/howto-create-service-principal-portal.md).
 
   Há algumas tarefas específicas que você precisará realizar conforme executar as etapas deste artigo.
 
-  :heavy_check_mark: Ao executar as etapas da seção [Atribuir o aplicativo a uma função](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) do artigo, atribua a função **Colaborador dos Dados do Storage Blob** à entidade de serviço.
+  :heavy_check_mark: Ao executar as etapas da seção [Atribuir o aplicativo a uma função](../../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) do artigo, atribua a função **Colaborador dos Dados do Storage Blob** à entidade de serviço.
 
   > [!IMPORTANT]
   > Atribua a função no escopo da conta de armazenamento do Data Lake Storage Gen2. Você pode atribuir uma função ao grupo de recursos pai ou à assinatura, mas receberá erros relacionados a permissões até que essas atribuições de função sejam propagadas para a conta de armazenamento.
 
-  :heavy_check_mark: Ao executar as etapas da seção [Obter valores para se conectar](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) do artigo, cole a ID do locatário, a ID do aplicativo e os valores do segredo do cliente em um arquivo de texto. Você precisará deles em breve.
+  :heavy_check_mark: Ao executar as etapas da seção [Obter valores para se conectar](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) do artigo, cole a ID do locatário, a ID do aplicativo e os valores do segredo do cliente em um arquivo de texto. Você precisará deles em breve.
 
 ### <a name="download-the-flight-data"></a>Baixar os dados de voos
 

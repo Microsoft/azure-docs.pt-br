@@ -8,25 +8,26 @@ editor: ''
 tags: azure-service-management
 ms.assetid: cd66dfb1-0e9b-4fb0-a471-9deaf4ab4ab8
 ms.service: virtual-machines-sql
+ms.subservice: security
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3fca190d4818dc2ee8d598a3a1d3535ba7132398
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a6955b7fc4948faaea6db426545f8cc3d1eece35
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789957"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359890"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-vms-resource-manager"></a>Configurar a integração do Azure Key Vault para SQL Server em VMs do Azure (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Há vários recursos de criptografia do SQL Server, como [TDE (Transparent Data Encryption)](/sql/relational-databases/security/encryption/transparent-data-encryption), [CLE (criptografia de nível de coluna)](/sql/t-sql/functions/cryptographic-functions-transact-sql) e [criptografia de backup](/sql/relational-databases/backup-restore/backup-encryption). Essas formas de criptografia exigem o gerenciamento e armazenamento de chaves criptográficas usadas para a criptografia. O serviço AKV (Azure Key Vault) foi criado para melhorar a segurança e o gerenciamento dessas chaves em um local seguro e altamente disponível. O [SQL Server Connector](https://www.microsoft.com/download/details.aspx?id=45344) permite que o SQL Server use essas chaves do Cofre da Chave do Azure.
 
-Se você estiver executando o SQL Server localmente, existem etapas a serem seguidas para [acessar o Azure Key Vault pela instância do SQL Server local](/sql/relational-databases/security/encryption/extensible-key-management-using-azure-key-vault-sql-server). Mas, para o SQL Server em VMs do Azure, você pode economizar tempo usando o recurso de *Integração do Azure Key Vault* .
+Se você estiver executando o SQL Server localmente, existem etapas a serem seguidas para [acessar o Azure Key Vault pela instância do SQL Server local](/sql/relational-databases/security/encryption/extensible-key-management-using-azure-key-vault-sql-server). Mas, para o SQL Server em VMs do Azure, você pode economizar tempo usando o recurso de *Integração do Azure Key Vault*.
 
 Quando esse recurso está habilitado, ele instala automaticamente o SQL Server Connector, configura o provedor de EKM a fim de acessar o Cofre da Chave do Azure e cria a credencial para permitir que você acesse seu cofre. Ao examinar as etapas da documentação local mencionada anteriormente, é possível ver que esse recurso automatiza as etapas 2 e 3. A única coisa que você ainda precisará fazer manualmente é criar o cofre da chave e as chaves. A partir daí, toda a configuração de sua VM do SQL Server será automatizada. Quando esse recurso concluir a configuração, você poderá executar instruções T-SQL (Transact-SQL) para começar a criptografar seus bancos de dados ou backups como faria normalmente.
 
@@ -50,7 +51,7 @@ Para obter uma explicação detalhada sobre o provisionamento, confira [Provisio
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-Para máquinas virtuais SQL existentes, abra o [recurso de máquinas virtuais do SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) e selecione **Segurança** em **Configurações** . Selecione **Habilitar** para habilitar a integração do Azure Key Vault. 
+Para máquinas virtuais SQL existentes, abra o [recurso de máquinas virtuais do SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) e selecione **Segurança** em **Configurações**. Selecione **Habilitar** para habilitar a integração do Azure Key Vault. 
 
 ![Integração do SQL Key Vault para VMs existentes](./media/azure-key-vault-integration-configure/azure-sql-rm-akv-existing-vms.png)
 

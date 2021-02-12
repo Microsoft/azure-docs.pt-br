@@ -3,19 +3,19 @@ title: Acesso às redes virtuais do Azure
 description: Visão geral sobre como os ambientes de serviço de integração (ISEs) ajudam os aplicativos lógicos a acessar redes virtuais do Azure (VNETs)
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 07/05/2020
-ms.openlocfilehash: 86d647a79b7babc2780cb0db904e689f3916673f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/11/2021
+ms.openlocfilehash: 7bb9c8552f673587891fde12e25d4fb899726c22
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89500378"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108561"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acessar recursos de rede virtual do Azure a partir dos Aplicativos Lógicos do Azure usando ISEs (Ambientes de Serviço de Integração)
 
-Às vezes, seus aplicativos lógicos precisam acessar recursos protegidos, como VMs (máquinas virtuais) e outros sistemas ou serviços, que estão dentro ou conectados a uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Para configurar esse acesso, você pode [criar um *ambiente do serviço de integração* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). Um ISE é uma instância do serviço de aplicativos lógicos que usa recursos dedicados e é executado separadamente do serviço de aplicativos lógicos multilocatários "globais".
+Às vezes, seus aplicativos lógicos precisam acessar recursos protegidos, como VMs (máquinas virtuais) e outros sistemas ou serviços, que estão dentro ou conectados a uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Para configurar esse acesso, você pode [criar um *ambiente do serviço de integração* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). Um ISE é uma instância do serviço de aplicativos lógicos que usa recursos dedicados e é executado separadamente do serviço de aplicativos lógicos multilocatários "globais". Os dados em um ISE permanecem na [mesma região em que você cria e implanta esse ISE](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 Por exemplo, algumas redes virtuais do Azure usam pontos de extremidade privados, que podem ser configurados por meio [do link privado do Azure](../private-link/private-link-overview.md), para fornecer acesso aos serviços de PaaS do Azure, como o armazenamento do azure, Azure Cosmos DB ou banco de dados SQL do Azure, serviços de parceiro ou serviços de cliente hospedados no Azure. Se seus aplicativos lógicos precisarem de acesso a redes virtuais que usam pontos de extremidade privados, você deverá criar, implantar e executar esses aplicativos lógicos dentro de um ISE.
 
@@ -87,7 +87,7 @@ Os aplicativos lógicos que são executados dentro de um ISE podem acessar diret
 
   * Os conectores personalizados que você cria *dentro de um ISE* não funcionam com o gateway de dados local. No entanto, esses conectores podem acessar diretamente sistemas locais e fontes de dados que estão dentro ou conectadas à rede virtual que hospeda o ISE. Portanto, os aplicativos lógicos que estão dentro de um ISE geralmente não precisam do gateway de dados ao acessar esses recursos.
 
-Para acessar sistemas locais e fontes de dados que não têm conectores do ISE, estão fora da sua rede virtual ou não estão conectados à sua rede virtual, você ainda precisa usar o gateway de dados local. Os aplicativos lógicos em um ISE podem continuar usando conectores que não têm o rótulo **principal** ou **ISE** . Esses conectores simplesmente são executados no serviço de aplicativos lógicos multilocatários, e não em seu ISE. 
+Para acessar sistemas locais e fontes de dados que não têm conectores do ISE, estão fora da sua rede virtual ou não estão conectados à sua rede virtual, você ainda precisa usar o gateway de dados local. Os aplicativos lógicos em um ISE podem continuar usando conectores que não têm o rótulo **principal** ou **ISE** . Esses conectores são executados no serviço de aplicativos lógicos multilocatários, em vez de em seu ISE. 
 
 <a name="ise-level"></a>
 
@@ -120,7 +120,15 @@ Ao criar o ISE, você pode optar por usar pontos de extremidade de acesso intern
 * **Interno**: pontos de extremidade privados permitem chamadas para aplicativos lógicos no ISE, onde você pode exibir e acessar entradas e saídas do histórico de execuções de aplicativos lógicos *somente de dentro de sua rede virtual*.
 
   > [!IMPORTANT]
-  > Verifique se você tem conectividade de rede entre os pontos de extremidade privados e o computador do qual você deseja acessar o histórico de execução. Caso contrário, ao tentar exibir o histórico de execução do aplicativo lógico, você receberá um erro que diz "erro inesperado. Falha ao buscar ".
+  > Se você precisar usar esses gatilhos baseados em webhook, use pontos de extremidade externos, *não* pontos de extremidade internos, ao criar o ISE:
+  > 
+  > * Azure DevOps
+  > * Grade de Eventos do Azure
+  > * Common Data Service
+  > * Office 365
+  > * SAP (versão do ISE)
+  > 
+  > Além disso, verifique se você tem conectividade de rede entre os pontos de extremidade privados e o computador do qual você deseja acessar o histórico de execução. Caso contrário, ao tentar exibir o histórico de execução do aplicativo lógico, você receberá um erro que diz "erro inesperado. Falha ao buscar ".
   >
   > ![Erro de ação de armazenamento do Azure resultante da incapacidade de enviar tráfego por meio do firewall](./media/connect-virtual-network-vnet-isolated-environment-overview/integration-service-environment-error.png)
   >
@@ -128,7 +136,7 @@ Ao criar o ISE, você pode optar por usar pontos de extremidade de acesso intern
 
 * **Externo**: pontos de extremidade públicos permitem chamadas para aplicativos lógicos no ISE, onde você pode exibir e acessar entradas e saídas do histórico de execuções de aplicativos lógicos *de fora da sua rede virtual*. Se você usar NSGs (grupos de segurança de rede), verifique se eles estão configurados com regras de entrada para permitir o acesso às entradas e saídas do histórico de execuções. Para obter mais informações, consulte [habilitar o acesso para ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
 
-Para determinar se o ISE usa um ponto de extremidade de acesso interno ou externo, no menu do ISE, em **configurações**, selecione **Propriedades**e localize a propriedade **ponto de extremidade de acesso** :
+Para determinar se o ISE usa um ponto de extremidade de acesso interno ou externo, no menu do ISE, em **configurações**, selecione **Propriedades** e localize a propriedade **ponto de extremidade de acesso** :
 
 ![Localizar ponto de extremidade de acesso do ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/find-ise-access-endpoint.png)
 

@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 319b7a40a87d29454b22a26088df313ef524dc56
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3b54fe1ffd49c12db82a038ad449190a0049133f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545813"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492345"
 ---
 # <a name="configure-and-access-logs-in-azure-database-for-postgresql---flexible-server"></a>Configurar e acessar logs no banco de dados do Azure para PostgreSQL – servidor flexível
 
@@ -22,21 +22,21 @@ Os logs do PostgreSQL estão disponíveis em todos os nós de um servidor flexí
 
 ## <a name="configure-diagnostic-settings"></a>Definir as configurações de diagnóstico
 
-Você pode habilitar as configurações de diagnóstico para o servidor postgres usando o portal do Azure, a CLI, a API REST e o PowerShell. A categoria de log a ser selecionada é **PostgreSQLLogs** .
+Você pode habilitar as configurações de diagnóstico para o servidor postgres usando o portal do Azure, a CLI, a API REST e o PowerShell. A categoria de log a ser selecionada é **PostgreSQLLogs**.
 
 Para habilitar os logs de recursos usando o portal do Azure:
 
 1. No portal, vá para *configurações de diagnóstico* no menu de navegação do seu servidor do Postgres.
    
-2. Selecione *Adicionar configuração de diagnóstico* .
+2. Selecione *Adicionar configuração de diagnóstico*.
    :::image type="content" source="media/howto-logging/diagnostic-settings.png" alt-text="Botão Adicionar configurações de diagnóstico":::
 
 3. Nomeie essa configuração. 
 
 4. Selecione seu ponto de extremidade preferido (conta de armazenamento, Hub de eventos, log Analytics). 
 
-5. Selecione o tipo de log **PostgreSQLLogs** .
-   :::image type="content" source="media/howto-logging/diagnostic-create-setting.png" alt-text="Botão Adicionar configurações de diagnóstico":::
+5. Selecione o tipo de log **PostgreSQLLogs**.
+   :::image type="content" source="media/howto-logging/diagnostic-create-setting.png" alt-text="Escolher logs do PostgreSQL":::
 
 7. Salve sua configuração.
 
@@ -71,5 +71,5 @@ A consulta acima mostrará os resultados nas últimas 6 horas para qualquer log 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Introdução às consultas do log Analytics](../../azure-monitor/log-query/get-started-portal.md)
+- [Introdução às consultas do log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md)
 - Saiba mais sobre os [hubs de eventos do Azure](../../event-hubs/event-hubs-about.md)

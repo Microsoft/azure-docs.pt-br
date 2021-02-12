@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 01/22/2021
 ms.author: alkohli
-ms.openlocfilehash: ec16a2b42b818e96399b8fdbad4a0951f84ef825
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91cb446da31f353162f90778d855056a9697d455
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90893888"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726558"
 ---
 # <a name="replace-your-azure-stack-edge-pro-device"></a>Substitua seu dispositivo pro Edge Azure Stack
 
-Este artigo descreve como obter uma substituição Azure Stack dispositivo pro Edge. Um dispositivo de substituição é necessário quando o dispositivo existente tem uma falha de hardware ou precisa de uma atualização. 
+Este artigo descreve como substituir seu dispositivo pro Edge Azure Stack. Um dispositivo de substituição é necessário quando o dispositivo existente tem uma falha de hardware ou precisa de uma atualização. 
 
 
 Neste artigo, você aprenderá como:
@@ -25,38 +25,32 @@ Neste artigo, você aprenderá como:
 > [!div class="checklist"]
 >
 > * Abrir um tíquete de suporte para o problema de hardware
-> * Criar um novo recurso para o dispositivo de substituição no portal do Azure
+> * Criar um novo pedido para um dispositivo de substituição no portal do Azure
 > * Instalar, ativar o dispositivo de substituição
 > * Retornar o dispositivo original
 
 ## <a name="open-a-support-ticket"></a>Abrir um tíquete de suporte
 
-Se o dispositivo existente tiver uma falha de hardware, abra um tíquete de suporte. O Suporte da Microsoft determinará se uma FRU (unidade de substituição em campo) não está disponível para esta instância ou se o dispositivo precisa de uma atualização de hardware. Em ambos os casos, o suporte solicitará um dispositivo de substituição.
+Se o dispositivo existente tiver uma falha de hardware, abra um tíquete de suporte seguindo estas etapas:
 
-1. Abra um tíquete de suporte com Suporte da Microsoft indicando que você deseja devolver o dispositivo. Selecione o tipo de problema como **Azure Stack hardware do Edge pro**.
+1. Abra um tíquete de suporte com Suporte da Microsoft indicando que você deseja devolver o dispositivo. Selecione o tipo de problema de **hardware do Azure Stack Edge pro** e escolha o subtipo de **problemas de hardware** .  
 
     ![Abrir tíquete de suporte](media/azure-stack-edge-replace-device/open-support-ticket-1.png)  
 
-2. Um engenheiro do Suporte da Microsoft entrará em contato com você. Informe os detalhes de envio.
-<!--3. If you need a return shipping box, you can request it. Answer **Yes** to the question **Need an empty box to return**.-->
+2. Um engenheiro de Suporte da Microsoft entrará em contato com você para determinar se uma FRU (unidade de substituição de campo) pode corrigir o problema e está disponível para essa instância. Se uma FRU não estiver disponível ou o dispositivo precisar de uma atualização de hardware, o suporte o guiará a fazer um novo pedido e devolver o dispositivo antigo.
 
+## <a name="create-a-new-order"></a>Criar um novo pedido
 
-## <a name="create-a-resource-for-replacement-device"></a>Criar um recurso para o dispositivo de substituição
+Crie um novo recurso para a ativação do seu dispositivo de substituição seguindo as etapas em [criar um novo recurso](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
 
-Siga estas etapas para criar um recurso.
-
-1. Siga as etapas em [criar um novo recurso](azure-stack-edge-deploy-prep.md#create-a-new-resource) para criar um recurso para o dispositivo de substituição. 
-
-2. Certifique-se de marcar a caixa de seleção em **que tenho um dispositivo Azure Stack Edge pro**. 
-
-    ![Recurso para o dispositivo de substituição](media/azure-stack-edge-replace-device/replace-resource-1.png)  
+> [!NOTE]
+> Não há suporte para a ativação de um dispositivo de substituição em relação a um recurso existente. O novo recurso é considerado um novo pedido. Você começará a ser cobrado 14 dias depois que o dispositivo for enviado para você.
 
 ## <a name="install-and-activate-the-replacement-device"></a>Instalar e ativar o dispositivo de substituição
 
 Siga estas etapas para instalar e ativar o dispositivo de substituição:
 
 1. [Instale seu dispositivo](azure-stack-edge-deploy-install.md).
-
 2. [Ative seu dispositivo](azure-stack-edge-deploy-connect-setup-activate.md) com o novo recurso que você criou anteriormente.
 
 ## <a name="return-your-existing-device"></a>Retornar o dispositivo existente
@@ -66,7 +60,7 @@ Siga todas as etapas para devolver o dispositivo original:
 1. [Apague os dados no dispositivo](azure-stack-edge-return-device.md#erase-data-from-the-device).
 2. [Inicie o retorno de dispositivo](azure-stack-edge-return-device.md#initiate-device-return) para o dispositivo original.
 3. [Agende uma retirada](azure-stack-edge-return-device.md#schedule-a-pickup).
-4. [Exclua o recurso](azure-stack-edge-return-device.md#delete-the-resource) associado ao dispositivo retornado.
+4. Depois que o dispositivo for recebido na Microsoft, você poderá [excluir o recurso](azure-stack-edge-return-device.md#delete-the-resource) associado ao dispositivo retornado.
 
 
 ## <a name="next-steps"></a>Próximas etapas

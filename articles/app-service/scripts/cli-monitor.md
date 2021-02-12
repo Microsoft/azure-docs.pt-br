@@ -9,22 +9,22 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: b44196d62b964e46f5b9dda9076e265c1c819723
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9881a5f37c32849fc4f10acda8346510977e6b7b
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88960438"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97005776"
 ---
-# <a name="monitor-an-app-service-appwith-web-server-logs-using-azure-cli"></a>Monitorar um aplicativo do Serviço de Aplicativo com logs do servidor Web usando a CLI do Azure
+# <a name="monitor-an-app-service-app-with-web-server-logs-using-azure-cli"></a>Monitorar um aplicativo do Serviço de Aplicativo com logs do servidor Web usando a CLI do Azure
 
 Este script de exemplo cria um grupo de recursos, um Plano do Serviço de Aplicativo e um aplicativo, além de configurar o aplicativo para habilitar logs do servidor Web. Em seguida, você fará o download dos arquivos de log para análise.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se optar por instalar e usar a CLI localmente, você precisará da CLI do Azure versão 2.0 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+ - Este tutorial exige a versão 2.0 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="sample-script"></a>Exemplo de script
 
@@ -38,11 +38,11 @@ Este script usa os comandos a seguir para criar um grupo de recursos, um aplicat
 
 | Comando | Observações |
 |---|---|
-| [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Cria um Plano do Serviço de Aplicativo. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria um aplicativo do Serviço de Aplicativo. |
-| [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) | Configura quais logs são persistidos por um aplicativo do Serviço de Aplicativo. |
-| [`az webapp log download`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-download) | Baixa os logs de um aplicativo do Serviço de Aplicativo no computador local. |
+| [`az group create`](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Cria um Plano do Serviço de Aplicativo. |
+| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Cria um aplicativo do Serviço de Aplicativo. |
+| [`az webapp log config`](/cli/azure/webapp/log#az-webapp-log-config) | Configura quais logs são persistidos por um aplicativo do Serviço de Aplicativo. |
+| [`az webapp log download`](/cli/azure/webapp/log#az-webapp-log-download) | Baixa os logs de um aplicativo do Serviço de Aplicativo no computador local. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

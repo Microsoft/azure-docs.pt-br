@@ -1,17 +1,17 @@
 ---
 title: Proteção avançada contra ameaças-banco de dados do Azure para MySQL
 description: Aprenda conceitos sobre a proteção avançada contra ameaças, que detecta atividades anormais de banco de dados que indicam possíveis ameaças de segurança ao banco de dados.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 4e72cf2cbe17f3a92d3769fb85332f29be038f17
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c9e884d153e85e7b68dee38494ac5d6f4271978a
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547224"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542568"
 ---
 # <a name="azure-database-for-mysql-advanced-threat-protection"></a>Proteção Avançada contra Ameaças do Banco de Dados do Azure para MySQL
 

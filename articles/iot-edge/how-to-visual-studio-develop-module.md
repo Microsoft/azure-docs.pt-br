@@ -8,12 +8,12 @@ ms.author: kgremban
 ms.date: 3/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 1883ffdff20bbbef8efec1440854f01a21a281dc
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 2ae6d46198d979f91de5bf31d389f75961b4ab88
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045713"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437160"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Use o Visual Studio 2019 para desenvolver e depurar módulos para Azure IoT Edge
 
@@ -32,7 +32,7 @@ Este artigo mostra como usar as ferramentas de Azure IoT Edge para o Visual Stud
 
 Este artigo presume que você esteja usando um computador ou uma máquina virtual que executa Windows como seu computador de desenvolvimento. Em computadores com Windows, você pode desenvolver módulos do Windows ou Linux. Para desenvolver módulos do Windows, use um computador Windows executando a versão 1809/Build 17763 ou mais recente. Para desenvolver módulos do Linux, use um computador Windows que atenda aos [requisitos do Docker desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
 
-Como este artigo usa o Visual Studio 2019 como a ferramenta de desenvolvimento principal, instale o Visual Studio. Certifique-se de incluir o desenvolvimento **do Azure** e o **desenvolvimento de desktops com** cargas de trabalho do C++ em sua instalação do Visual Studio 2019. Você pode [Modificar o Visual Studio 2019](/visualstudio/install/modify-visual-studio?view=vs-2019) para adicionar as cargas de trabalho necessárias.
+Como este artigo usa o Visual Studio 2019 como a ferramenta de desenvolvimento principal, instale o Visual Studio. Certifique-se de incluir o desenvolvimento **do Azure** e o **desenvolvimento de desktops com** cargas de trabalho do C++ em sua instalação do Visual Studio 2019. Você pode [Modificar o Visual Studio 2019](/visualstudio/install/modify-visual-studio?view=vs-2019&preserve-view=true) para adicionar as cargas de trabalho necessárias.
 
 Depois que o Visual Studio 2019 estiver pronto, você também precisará das seguintes ferramentas e componentes:
 
@@ -98,7 +98,7 @@ O modelo de projeto do Azure IoT Edge no Visual Studio cria um projeto que pode 
 
    ![Criar um novo projeto](./media/how-to-visual-studio-develop-csharp-module/create-new.png)
 
-1. Na janela **adicionar IOT Edge aplicativo e módulo** , selecione módulo **C#** ou **módulo C** e, em seguida, especifique o nome do módulo e o repositório de imagens do módulo. O Visual Studio preenche automaticamente o nome do módulo com **localhost:5000/<your module name\>**. Substitua-o pelas informações de seu registro. Se você usar um registro do Docker local para teste, o **localhost** será bem. Se usar o Registro de Contêiner do Azure, utilize o servidor de início de sessão nas configurações do registro. O servidor de logon é semelhante a ** _\<registry name\>_ . azurecr.Io**. Substitua apenas a parte **localhost: 5000** da cadeia de caracteres para que o resultado final seja semelhante a ** \<*registry name*\> . azurecr.Io/ _\<your module name\>_ **. O nome do módulo padrão é **IotEdgeModule1**
+1. Na janela **adicionar IOT Edge aplicativo e módulo** , selecione módulo **C#** ou **módulo C** e, em seguida, especifique o nome do módulo e o repositório de imagens do módulo. O Visual Studio preenche automaticamente o nome do módulo com **localhost:5000/<your module name\>**. Substitua-o pelas informações de seu registro. Se você usar um registro do Docker local para teste, o **localhost** será bem. Se usar o Registro de Contêiner do Azure, utilize o servidor de início de sessão nas configurações do registro. O servidor de logon é semelhante a **_\<registry name\>_ . azurecr.Io**. Substitua apenas a parte **localhost: 5000** da cadeia de caracteres para que o resultado final seja semelhante a **\<*registry name*\> . azurecr.Io/ _\<your module name\>_**. O nome do módulo padrão é **IotEdgeModule1**
 
    ![Adicionar aplicativo e módulo](./media/how-to-visual-studio-develop-csharp-module/add-application-and-module.png)
 

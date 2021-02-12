@@ -16,11 +16,11 @@ ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 9b616b03698e83d256a7b81e4548edbf21dba058
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89264616"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021122"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Como compilar um aplicativo Smooth Streaming da Windows Store
 
@@ -66,14 +66,14 @@ Para obter mais informações sobre como desenvolver aplicativos da Windows Stor
 ### <a name="to-create-a-windows-store-project"></a>Para criar um novo projeto da Windows Store
 
 1. Execute o Visual Studio; há suporte para as versões de 2012 a 2015.
-1. No menu **arquivo** , clique em **novo**e em **projeto**.
+1. No menu **arquivo** , clique em **novo** e em **projeto**.
 1. Na caixa de diálogo Novo Projeto, digite ou selecione os seguintes valores:
 
-    | Nome | Valor |
+    | Name | Valor |
     | --- | --- |
     | Grupo de modelos |Instalado/Modelos/Visual C#/Windows Store |
     | Modelo |Aplicativo em branco (XAML) |
-    | Nome |SSPlayer |
+    | Name |SSPlayer |
     | Localização |C:\SSTutorials |
     | Nome da Solução |SSPlayer |
     | Criar diretório para a solução |(selecionado) |
@@ -85,7 +85,7 @@ Para obter mais informações sobre como desenvolver aplicativos da Windows Stor
 1. No Gerenciador de Soluções, clique com o botão direito do mouse em **SSPlayer** e, em seguida, clique em **Adicionar Referência**.
 1. Digite ou selecione os valores a seguir:
 
-    | Nome | Valor |
+    | Name | Valor |
     | --- | --- |
     | Grupo de referências |Windows/Extensions |
     | Referência |Selecione SDK do Microsoft Smooth Streaming Client para Windows 8 e Pacote do Runtime do Microsoft Visual C++ |
@@ -97,7 +97,7 @@ Depois de adicionar as referências, você deve selecionar a plataforma de desti
 ### <a name="to-design-the-player-user-interface"></a>Para criar a interface do usuário do player
 
 1. No Gerenciador de Soluções, clique duas vezes em **MainPage.xaml** para abri-lo no modo de exibição de design.
-2. Localize as marcas ** &lt; Grid &gt; ** e ** &lt; /Grid &gt; ** do arquivo XAML e cole o código a seguir entre as duas marcas:
+2. Localize as marcas **&lt; Grid &gt;** e **&lt; /Grid &gt;** do arquivo XAML e cole o código a seguir entre as duas marcas:
 
    ```xml
          <Grid.RowDefinitions>

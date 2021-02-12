@@ -7,20 +7,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/08/2019
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7529d72c3d94e3c7bef58c6a26af62b97ac92d9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 3bba64f8c07545107d57f79ae94dab96e517815f
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374292"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900698"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificar e resolver problemas de atribuição de licenças para um grupo no Azure Active Directory
 
@@ -68,7 +68,6 @@ Para ver quais usuários e grupos estão consumindo licenças, selecione um prod
 
 Considere o exemplo a seguir. Um usuário tem uma licença para o Office 365 Enterprise *E1* atribuída diretamente, com todos os planos habilitados. O usuário foi adicionado a um grupo que tem o Office 365 Enterprise *E3* produto atribuído a ele. O produto E3 contém planos de serviço que não podem se sobrepor aos planos incluídos em E1, portanto, a atribuição de licença de grupo falha com o erro "Planos de serviço conflitantes". Neste exemplo, os planos de serviço conflitantes são:
 
-- SharePoint Online (plano 2) está em conflito com o SharePoint Online (plano 1).
 - O Exchange Online (plano 2) está em conflito com o Exchange Online (plano 1).
 
 Para resolver esse conflito, você precisa desabilitar dois dos planos. Você pode desabilitar a licença de E1 está diretamente atribuída ao usuário. Ou você precisa modificar a atribuição de licença do grupo inteiro e desabilitar os planos na licença E3. Como alternativa, você pode decidir remover a licença de E1 do usuário se ela é redundante no contexto da licença E3.
@@ -87,7 +86,7 @@ Para resolver esse problema, você precisará garantir que o plano necessário a
 
 ## <a name="usage-location-isnt-allowed"></a>O local de uso não é permitido
 
-**Problema:** alguns serviços da Microsoft não estão disponíveis em todos os locais devido a leis e regulamentações locais. Para poder atribuir uma licença a um usuário, você deve especificar a propriedade **Local de uso** para o usuário. Você pode especificar o local na seção de edição de perfil do **usuário**  >  **Profile**  >  **Edit** no portal do Azure.
+**Problema:** alguns serviços da Microsoft não estão disponíveis em todos os locais devido a leis e regulamentações locais. Para poder atribuir uma licença a um usuário, você deve especificar a propriedade **Local de uso** para o usuário. Você pode especificar o local na seção de edição de perfil do **usuário**  >    >   no portal do Azure.
 
 Quando o Azure AD tentar atribuir uma licença de grupo a um usuário cujo local de uso não tem suporte, ele falhará e registrará esse erro no usuário.
 
@@ -178,8 +177,8 @@ Por exemplo, depois de resolver o problema de endereço proxy duplicado para um 
 Para saber mais sobre outros cenários de gerenciamento de licenças por meio de grupos, leia o seguinte:
 
 * [O que é o licenciamento baseado em grupo no Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
-* [Atribuição de licenças a um grupo no Azure Active Directory](../users-groups-roles/licensing-groups-assign.md)
+* [Atribuição de licenças a um grupo no Azure Active Directory](./licensing-groups-assign.md)
 * [Como migrar usuários individuais licenciados para licenciamento baseado em grupo no Azure Active Directory](licensing-groups-migrate-users.md)
 * [Como migrar usuários entre licenças de produto usando o licenciamento baseado em grupo no Microsoft Azure Active Directory](licensing-groups-change-licenses.md)
-* [Cenários adicionais de licenciamento baseado em grupo do Azure Active Directory](../users-groups-roles/licensing-group-advanced.md)
+* [Cenários adicionais de licenciamento baseado em grupo do Azure Active Directory](./licensing-group-advanced.md)
 * [Exemplos do PowerShell para licenciamento baseado em grupo no Azure Active Directory](licensing-ps-examples.md)

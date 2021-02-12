@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 718ccbaa57ffe9f4ebaf4e8df448b602ba8cc3fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1b2c7513562e951e1098cf327780387ddf6a495
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89293142"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953535"
 ---
 # <a name="tutorial-for-configuring-whoiam-with-azure-active-directory-b2c"></a>Tutorial para configurar o WhoIAM com o Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Para começar, você precisará de:
 
 - Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
 
-- [Um locatário Azure ad B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) que está vinculado à sua assinatura do Azure.
+- [Um locatário Azure ad B2C](./tutorial-create-tenant.md) que está vinculado à sua assinatura do Azure.
 
 - Uma [conta de avaliação](https://www.whoiam.ai/contact-us/)do WhoIAM.
 
@@ -72,7 +72,7 @@ O diagrama de arquitetura a seguir mostra a implementação.
 
     - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): usado para armazenar e recuperar as configurações.
 
-    - [Application insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview#:~:text=Application%20Insights%2C%20a%20feature%20of%20Azure%20Monitor%2C%20is,professionals.%20Use%20it%20to%20monitor%20your%20live%20applications) (opcional): usado para fazer logon na API e no portal de administração.
+    - [Application insights](../azure-monitor/app/app-insights-overview.md) (opcional): usado para fazer logon na API e no portal de administração.
 
 3. Implante a API do BRIMS e o portal de administração do BRIMS em seu ambiente do Azure.
 
@@ -84,7 +84,7 @@ Para obter mais informações sobre o BRIMS da WhoIAM, consulte a [documentaçã
 
 1. Abra o locatário Azure AD B2C. Em **Políticas**, selecione **Identity Experience Framework**.
 
-2. Selecione o **SignUpSignIn**criado anteriormente.
+2. Selecione o **SignUpSignIn** criado anteriormente.
 
 3. Selecione **executar fluxo de usuário** e, em seguida:
 
@@ -102,6 +102,6 @@ Para obter mais informações sobre o BRIMS da WhoIAM, consulte a [documentaçã
 
 Para obter informações adicionais, examine os seguintes artigos:
 
-- [Políticas personalizadas no Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Políticas personalizadas no Azure AD B2C](./custom-policy-overview.md)
 
-- [Introdução às políticas personalizadas no Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Introdução às políticas personalizadas no Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 7f274827e646ea0a7c0fd103983cfc566d699228
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a7e8e71e26af241d16095a5fa1e6a02a7e3d4c2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596788"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500760"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quais tipos de disco estão disponíveis no Azure?
 
@@ -23,7 +23,7 @@ Atualmente, o Azure Managed disks oferece quatro tipos de disco, cada tipo desti
 
 A tabela a seguir fornece uma comparação de ultra discos, unidades de estado sólido Premium (SSD), SSD padrão e unidades de disco rígido padrão (HDD) para discos gerenciados para ajudá-lo a decidir o que usar.
 
-| Detalhes | Disco Ultra | SSD Premium | SSD Standard | HDD Standard |
+| Detalhe | Disco Ultra | SSD Premium | SSD Standard | HDD Standard |
 | ------ | ---------- | ----------- | ------------ | ------------ |
 |Tipo de disco   |SSD   |SSD   |SSD   |HDD   |
 |Cenário   |Cargas de trabalho com uso intensivo de e/s, como [SAP Hana](workloads/sap/hana-vm-operations-storage.md), bancos de dados de camada superior (por exemplo, SQL, Oracle) e outras cargas de trabalho de transações pesadas.   |Cargas de trabalho sensíveis à produção e ao desempenho   |Servidores Web, aplicativos empresariais pouco usados e desenvolvimento/teste   |Backup, não crítico, acesso não frequente   |
@@ -60,6 +60,8 @@ Alguns dos principais recursos dos ultra discos são:
 |512     |153.600         |2\.000         |
 |1.024 a 65.536 (os tamanhos nesse intervalo aumentam em incrementos de 1 TiB)     |160.000         |2.000         |
 
+Ultra discos são projetados para fornecer latências de submilissegundos e IOPS de destino e taxa de transferência descritas na tabela anterior 99,99% do tempo.
+
 ### <a name="ga-scope-and-limitations"></a>Limitações e escopo de GA
 
 [!INCLUDE [managed-disks-ultra-disks-GA-scope-and-limitations](../../includes/managed-disks-ultra-disks-GA-scope-and-limitations.md)]
@@ -80,9 +82,9 @@ Quando você provisiona um disco de armazenamento premium, ao contrário do arma
 
 ## <a name="bursting"></a>Bursting
 
-SSD Premium tamanhos menores que p30 agora oferecem intermitência de disco e podem estourar seus IOPS por disco até 3.500 e sua largura de banda de até 170 Mbps. A intermitência é automatizada e opera com base em um sistema de crédito. Os créditos são acumulados automaticamente em um Bucket de intermitência quando o tráfego de disco está abaixo do destino de desempenho provisionado e os créditos são consumidos automaticamente quando o tráfego ultrapassa o destino, até o limite de intermitência máximo. O limite máximo de intermitência define o teto de IOPS de disco & largura de banda, mesmo se você tiver créditos de intermitência a serem consumidos. A intermitência de disco fornece melhor tolerância a alterações imprevisíveis de padrões de e/s. Você pode aproveitá-lo melhor para inicialização de disco do so e aplicativos com tráfego com picos.    
+SSD Premium tamanhos menores que p30 agora oferecem intermitência de disco e podem estourar seus IOPS por disco até 3.500 e sua largura de banda de até 170 MB/s. A intermitência é automatizada e opera com base em um sistema de crédito. Os créditos são acumulados automaticamente em um Bucket de intermitência quando o tráfego de disco está abaixo do destino de desempenho provisionado e os créditos são consumidos automaticamente quando o tráfego ultrapassa o destino, até o limite de intermitência máximo. O limite máximo de intermitência define o teto de IOPS de disco & largura de banda, mesmo se você tiver créditos de intermitência a serem consumidos. A intermitência de disco fornece melhor tolerância a alterações imprevisíveis de padrões de e/s. Você pode aproveitá-lo melhor para inicialização de disco do so e aplicativos com tráfego com picos.    
 
-O suporte a intermitência de discos será habilitado em novas implantações de tamanhos de disco aplicáveis por padrão, sem a necessidade de ação do usuário. Para discos existentes dos tamanhos aplicáveis, você pode habilitar a intermitência com uma das duas opções: desanexar e anexar novamente o disco ou parar e reiniciar a VM conectada. Todos os tamanhos de disco aplicáveis de intermitência começarão com um Bucket de crédito de intermitência completa quando o disco for anexado a uma máquina virtual que dá suporte a uma duração máxima no limite de pico de intermitência de 30 minutos. Para saber mais sobre como a intermitência funciona nos discos do Azure, confira [SSD Premium intermitênciaing](linux/disk-bursting.md). 
+O suporte a intermitência de discos será habilitado em novas implantações de tamanhos de disco aplicáveis por padrão, sem a necessidade de ação do usuário. Para discos existentes dos tamanhos aplicáveis, você pode habilitar a intermitência com uma das duas opções: desanexar e anexar novamente o disco ou parar e reiniciar a VM conectada. Todos os tamanhos de disco aplicáveis de intermitência começarão com um Bucket de crédito de intermitência completa quando o disco for anexado a uma máquina virtual que dá suporte a uma duração máxima no limite de pico de intermitência de 30 minutos. Para saber mais sobre como a intermitência funciona nos discos do Azure, confira [SSD Premium intermitênciaing](./disk-bursting.md). 
 
 ### <a name="transactions"></a>Transactions
 

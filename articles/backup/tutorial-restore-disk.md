@@ -3,13 +3,13 @@ title: Tutorial – Restaurar uma VM com a CLI do Azure
 description: Saiba como restaurar um disco e criar uma VM de recuperação no Azure com serviços de backup e recuperação.
 ms.topic: tutorial
 ms.date: 01/31/2019
-ms.custom: mvc
-ms.openlocfilehash: 861c911e84c9de02467d443751902e71d2504422
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 999682c9bf4a4d70d886f0e85cede99f215aa046
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324971"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694712"
 ---
 # <a name="restore-a-vm-with-azure-cli"></a>Restaurar uma VM com a CLI do Azure
 
@@ -23,13 +23,11 @@ O Backup do Azure cria pontos de recuperação que são armazenados em cofres de
 
 Para obter informações sobre como usar o PowerShell para restaurar um disco e criar uma VM recuperada, confira [Backup e restauração de VMs do Azure com o PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.0.18 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+ - Este tutorial exige a versão 2.0.18 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
-## <a name="prerequisites"></a>Pré-requisitos
-
-Este tutorial requer uma VM do Linux que tenha sido protegida com o Backup do Azure. Para simular um processo de exclusão acidental e recuperação de VM, você pode criar uma VM de um disco em um ponto de recuperação. Se você precisar de uma VM do Linux que tenha sido protegida com o Backup do Azure, consulte [Back up a virtual machine in Azure with the CLI](quick-backup-vm-cli.md) (Fazer backup de uma máquina virtual no Azure com a CLI).
+ - Este tutorial requer uma VM do Linux que tenha sido protegida com o Backup do Azure. Para simular um processo de exclusão acidental e recuperação de VM, você pode criar uma VM de um disco em um ponto de recuperação. Se você precisar de uma VM do Linux que tenha sido protegida com o Backup do Azure, consulte [Back up a virtual machine in Azure with the CLI](quick-backup-vm-cli.md) (Fazer backup de uma máquina virtual no Azure com a CLI).
 
 ## <a name="backup-overview"></a>Visão geral do backup
 
@@ -74,7 +72,7 @@ Se a VM cujo backup foi realizado tiver discos gerenciados e se a intenção for
         --sku Standard_LRS
     ```
 
-2. Restaure o disco do seu ponto de recuperação com [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks). Substitua *mystorageaccount* pelo nome da conta de armazenamento que você criou no comando anterior. Substitua *myRecoveryPointName* pelo nome do ponto de recuperação obtido na saída do comando [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) anterior. ***Forneça também o grupo de recursos de destino para os discos gerenciados nos quais gravar o conteúdo restaurado***.
+2. Restaure o disco do seu ponto de recuperação com [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks). Substitua *mystorageaccount* pelo nome da conta de armazenamento que você criou no comando anterior. Substitua *myRecoveryPointName* pelo nome do ponto de recuperação obtido na saída do comando [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) anterior. ***Forneça também o grupo de recursos de destino para os discos gerenciados nos quais gravar o conteúdo restaurado** _.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -88,7 +86,7 @@ Se a VM cujo backup foi realizado tiver discos gerenciados e se a intenção for
     ```
 
     > [!WARNING]
-    > Se o **target-resource-group** não for fornecido, os discos gerenciados serão restaurados como discos não gerenciados para a conta de armazenamento informada. Isso terá consequências significativas no tempo de restauração, pois o tempo necessário para restaurar os discos depende totalmente da conta de armazenamento fornecida. Você terá o benefício da restauração instantânea somente quando o parâmetro target-resource-group for fornecido. Se a intenção for restaurar discos gerenciados como não gerenciados, não forneça o parâmetro **target-resource-group**; forneça, em vez disso, o parâmetro **restore-as-unmanaged-disk**, conforme mostrado abaixo. Esse parâmetro está disponível no az 3.4.0 e em versões posteriores.
+    > Se o _ *target-resource-group** não for fornecido, os discos gerenciados serão restaurados como discos não gerenciados para a conta de armazenamento informada. Isso terá consequências significativas no tempo de restauração, pois o tempo necessário para restaurar os discos depende totalmente da conta de armazenamento fornecida. Você terá o benefício da restauração instantânea somente quando o parâmetro target-resource-group for fornecido. Se a intenção for restaurar discos gerenciados como não gerenciados, não forneça o parâmetro **target-resource-group**; forneça, em vez disso, o parâmetro **restore-as-unmanaged-disk**, conforme mostrado abaixo. Esse parâmetro está disponível no az 3.4.0 e em versões posteriores.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -253,7 +251,7 @@ url=$(az storage blob url \
 Agora, implante o modelo para criar a VM, conforme explicado [aqui](../azure-resource-manager/templates/deploy-cli.md).
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --resource-group ExampleGroup \
   --template-uri $url?$token
 ```

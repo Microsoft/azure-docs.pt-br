@@ -10,11 +10,11 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 07/20/2020
 ms.openlocfilehash: d50f577a7170982be004cc8957114f79675fbc6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87078618"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006091"
 ---
 # <a name="manage-logic-apps-in-the-azure-portal"></a>Gerenciar aplicativos lógicos no portal do Azure
 
@@ -214,7 +214,7 @@ Você pode usar o portal do Azure para controle de versão de seus aplicativos l
 
    ![Captura de tela do histórico de versão do aplicativo lógico, mostrando o botão para promover uma versão anterior.](./media/manage-logic-apps-with-azure-portal/promote-button.png)
 
-1. Na página **Designer de aplicativos lógicos** que é aberta, edite a versão que você está promovendo conforme necessário. Você pode alternar entre os modos de exibição de **Designer** e de **código** . Você também pode atualizar **parâmetros**, **modelos**e **conectores**.
+1. Na página **Designer de aplicativos lógicos** que é aberta, edite a versão que você está promovendo conforme necessário. Você pode alternar entre os modos de exibição de **Designer** e de **código** . Você também pode atualizar **parâmetros**, **modelos** e **conectores**.
 
    ![Captura de tela do designer de aplicativos lógicos, mostrando o botão para promover uma versão anterior de um aplicativo lógico.](./media/manage-logic-apps-with-azure-portal/promote-page.png)
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 64c461c5d3e1bb34f480e5173621f8753eadbbd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40ea367c1298a916df541d362b85e8d485d193f1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318310"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734925"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Diretrizes para dados pessoais armazenados no Log Analytics e no Application Insights
 
@@ -81,7 +81,7 @@ Conforme mencionado na seção [Estratégia para tratamento de dados pessoais](#
 Para exibir e exportar solicitações de dados, a [API de consulta do Log Analytics](https://dev.loganalytics.io/) ou a [API de consulta do Application Insights](https://dev.applicationinsights.io/quickstart) devem ser usadas. A lógica para converter a forma dos dados em uma forma apropriada para entregar aos usuários será de sua responsabilidade. [Azure Functions](https://azure.microsoft.com/services/functions/) é um ótimo local para hospedar essa lógica.
 
 > [!IMPORTANT]
->  Embora a grande maioria das operações de limpeza possa ser concluída muito mais rapidamente do que o SLA, **o SLA formal para a conclusão das operações de limpeza é definido como 30 dias** devido ao grande impacto na plataforma de dados usada. Este é um processo automatizado. Não é possível solicitar que uma operação seja manipulada mais rapidamente.
+>  Embora a grande maioria das operações de limpeza possa ser concluída muito mais rapidamente do que o SLA, **o SLA formal para a conclusão das operações de limpeza é definido como 30 dias** devido ao grande impacto na plataforma de dados usada. Esse SLA atende aos requisitos de GDPR. É um processo automatizado, portanto, não há como solicitar que uma operação seja tratada mais rapidamente. 
 
 ### <a name="delete"></a>Excluir
 
@@ -89,6 +89,9 @@ Para exibir e exportar solicitações de dados, a [API de consulta do Log Analyt
 > As exclusões no Log Analytics são destrutivas e irreversíveis! Tenha extremo cuidado na execução delas.
 
 Disponibilizamos como parte de uma privacidade que trata um caminho de API de *limpeza*. Esse caminho deve ser utilizado com moderação devido ao risco associado, o potencial impacto no desempenho e o potencial para distorcer agregações, medidas e outros aspectos dos dados do Log Analytics. Consulte a seção [Estratégia para tratamento de dados pessoais](#strategy-for-personal-data-handling) para obter abordagens alternativas para tratar dados privados.
+
+> [!NOTE]
+> Depois que a operação de limpeza for executada, os dados não poderão ser acessados enquanto o [status da operação de limpeza](/rest/api/loganalytics/workspacepurge/getpurgestatus) estiver *pendente*. 
 
 A limpeza é uma operação altamente privilegiada que nenhum aplicativo ou usuário no Azure (incluindo até mesmo o proprietário do recurso) terá permissões para executar sem que seja concedida explicitamente uma função no Azure Resource Manager. Essa função é _Limpador de Dados_ e deve ser cuidadosamente delegada devido ao potencial de perda de dados. 
 
@@ -126,4 +129,3 @@ Depois que a função do Azure Resource Manager for atribuída, dois novos camin
 ## <a name="next-steps"></a>Próximas etapas
 - Para saber mais sobre como os dados do Log Analytcs são coletados, processados e protegidos, veja [Segurança de dados do Log Analytics](./data-security.md).
 - Para saber mais sobre como os dados do Application Insights são coletados, processados e protegidos, confira [Segurança de dados do Application Insights](../app/data-retention-privacy.md).
-

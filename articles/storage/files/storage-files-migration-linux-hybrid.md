@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 202f7fd065641f9921df5237fb83e7900819c8f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ef4faf14ec01a25419fd22ba8c73a8a033b4172
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563498"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879975"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migre do Linux para uma implantação de nuvem híbrida com Sincronização de Arquivos do Azure
 
@@ -219,6 +219,6 @@ Verifique o link na seção a seguir para solucionar problemas de Sincronizaçã
 
 Há mais a descobrir sobre compartilhamentos de arquivos do Azure e Sincronização de Arquivos do Azure. Os artigos a seguir contêm opções avançadas, práticas recomendadas e ajuda para solução de problemas. Estes artigos se vinculam à [documentação do compartilhamento de arquivos do Azure](storage-files-introduction.md) , conforme apropriado.
 
-* [Visão geral de Sincronização de Arquivos do Azure](https://aka.ms/AFS)
-* [Guia de implantação do Sincronização de Arquivos do Azure](storage-files-deployment-guide.md)
+* [Visão geral de Sincronização de Arquivos do Azure](./storage-sync-files-planning.md)
+* [Guia de implantação do Sincronização de Arquivos do Azure](./storage-how-to-create-file-share.md)
 * [Solução de problemas da Sincronização de Arquivos do Azure](storage-sync-files-troubleshoot.md)

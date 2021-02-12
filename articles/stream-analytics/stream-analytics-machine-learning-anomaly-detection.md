@@ -1,22 +1,21 @@
 ---
 title: Detecção de anomalias no Azure Stream Analytics
 description: Este artigo descreve como usar o Azure Stream Analytics e o Azure Machine Learning em conjunto para detectar anomalias.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: krishna0815
+ms.author: krishmam
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
-ms.openlocfilehash: c57a3920dac3e18e248109fafdf61fdfa871c54d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c7cb8e40bc9a8f6664d8286ad368e2613495878b
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123703"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020291"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Detecção de anomalias no Azure Stream Analytics
 
-Disponível na nuvem e no Azure IoT Edge, o Azure Stream Analytics oferece recursos internos de detecção de anomalias baseados em aprendizado de máquina que podem ser usados para monitorar as duas anomalias que ocorrem com mais frequência: temporárias e persistentes. Com as funções **AnomalyDetection_SpikeAndDip** e **AnomalyDetection_ChangePoint** , você pode detectar anomalias diretamente no seu trabalho do Stream Analytics.
+Disponível na nuvem e no Azure IoT Edge, o Azure Stream Analytics oferece recursos internos de detecção de anomalias baseados em aprendizado de máquina que podem ser usados para monitorar as duas anomalias que ocorrem com mais frequência: temporárias e persistentes. Com as funções **AnomalyDetection_SpikeAndDip** e **AnomalyDetection_ChangePoint**, você pode detectar anomalias diretamente no seu trabalho do Stream Analytics.
 
 Os modelos de machine learning supõem uma série temporal incluída na amostra de maneira uniforme. Se a série temporal não for uniforme, insira uma etapa de agregação com uma janela em cascata antes de chamar a detecção de anomalias.
 
@@ -76,7 +75,7 @@ FROM AnomalyDetectionStep
 
 As anomalias persistentes em um fluxo de eventos de série temporal são alterações na distribuição de valores no fluxo de eventos, como alterações e tendências no nível. No Stream Analytics, tais anomalias são detectadas usando o operador [AnomalyDetection_ChangePoint](/stream-analytics-query/anomalydetection-changepoint-azure-stream-analytics) baseado em Machine Learning.
 
-As alterações persistentes duram muito mais que picos e quedas e podem indicar eventos catastróficos. As alterações persistentes geralmente não são vistas a olho nu, mas podem ser detectadas com o operador **AnomalyDetection_ChangePoint** .
+As alterações persistentes duram muito mais que picos e quedas e podem indicar eventos catastróficos. As alterações persistentes geralmente não são vistas a olho nu, mas podem ser detectadas com o operador **AnomalyDetection_ChangePoint**.
 
 A seguinte imagem é um exemplo de alteração no nível:
 
@@ -114,9 +113,9 @@ FROM AnomalyDetectionStep
 
 O desempenho desses modelos depende do tamanho do histórico, da duração da janela, da carga do evento e se o particionamento no nível da função é usado. Esta seção aborda essas configurações e fornece exemplos de como sustentar taxas de ingestão de eventos de 1K, 5K e 10K por segundo.
 
-* **Tamanho do histórico** -esses modelos são executados linearmente com o **tamanho do histórico** . Quanto maior o tamanho do histórico, mais longos os modelos levam para pontuar um novo evento. Isso ocorre porque os modelos comparam o novo evento com cada um dos eventos passados no buffer de histórico.
+* **Tamanho do histórico** -esses modelos são executados linearmente com o **tamanho do histórico**. Quanto maior o tamanho do histórico, mais longos os modelos levam para pontuar um novo evento. Isso ocorre porque os modelos comparam o novo evento com cada um dos eventos passados no buffer de histórico.
 * **Duração da janela** – a **duração da janela** deve refletir o tempo necessário para receber tantos eventos quantos forem especificados pelo tamanho do histórico. Sem esses muitos eventos na janela, Azure Stream Analytics imputar valores ausentes. Portanto, o consumo de CPU é uma função do tamanho do histórico.
-* **Carga de eventos** -quanto maior a **carga de eventos** , mais trabalho é executado pelos modelos, o que afeta o consumo da CPU. O trabalho pode ser escalado horizontalmente, tornando-o embaraçosamente paralelo, pressupondo que faça sentido para que a lógica comercial use mais partições de entrada.
+* **Carga de eventos** -quanto maior a **carga de eventos**, mais trabalho é executado pelos modelos, o que afeta o consumo da CPU. O trabalho pode ser escalado horizontalmente, tornando-o embaraçosamente paralelo, pressupondo que faça sentido para que a lógica comercial use mais partições de entrada.
 * Particionamento de nível de **função**  -  O **particionamento de nível de função** é feito usando ```PARTITION BY``` a chamada de função de detecção de anomalias. Esse tipo de particionamento adiciona uma sobrecarga, pois o estado precisa ser mantido para vários modelos ao mesmo tempo. O particionamento no nível de função é usado em cenários como o particionamento no nível do dispositivo.
 
 ### <a name="relationship"></a>Relationship
@@ -152,7 +151,7 @@ O código de exemplo para executar as configurações não particionadas acima e
 > Para obter uma estimativa mais precisa, personalize os exemplos para se ajustarem ao seu cenário.
 
 ### <a name="identifying-bottlenecks"></a>Identificando afunilamentos
-Use o painel Métricas em seu trabalho do Azure Stream Analytics para identificar gargalos em seu pipeline. Examine **Eventos de Entrada/Saída** para taxa de transferência e ["Atraso de Marca-d'água"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) ou **Eventos Acumulados** para ver se o trabalho está acompanhando a taxa de entrada. Para as métricas do Hub de Eventos, procure **Solicitações Limitadas** e ajuste as Unidades de Limite adequadamente. Para métricas do Cosmos DB, examine **Máximo de RU/s consumidas por intervalo de chaves de partição** em Taxa de Transferência para verificar se os intervalos de chave de partição foram consumidos uniformemente. Para o BD SQL do Azure, monitore a **E/S de Log** e **CPU** .
+Use o painel Métricas em seu trabalho do Azure Stream Analytics para identificar gargalos em seu pipeline. Examine **Eventos de Entrada/Saída** para taxa de transferência e ["Atraso de Marca-d'água"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) ou **Eventos Acumulados** para ver se o trabalho está acompanhando a taxa de entrada. Para as métricas do Hub de Eventos, procure **Solicitações Limitadas** e ajuste as Unidades de Limite adequadamente. Para métricas do Cosmos DB, examine **Máximo de RU/s consumidas por intervalo de chaves de partição** em Taxa de Transferência para verificar se os intervalos de chave de partição foram consumidos uniformemente. Para o BD SQL do Azure, monitore a **E/S de Log** e **CPU**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

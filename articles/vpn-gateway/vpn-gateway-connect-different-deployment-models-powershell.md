@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2c9b8a769dec1a2aa461a34203c98a228cf71d16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63505f470410234f720dd28c29e87c4a2a6d123f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082045"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661130"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Conectar redes virtuais de diferentes modelos de implantação usando o PowerShell
 
@@ -35,7 +35,7 @@ As etapas a seguir mostrarão as configurações necessárias para configurar um
 
 ### <a name="prerequisites"></a><a name="pre"></a>Pré-requisitos
 
-* Ambas as redes virtuais já foram criadas. Se você precisar criar uma rede virtual do Resource Manager, confira [Crie um grupo de recursos e uma rede virtual](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network). Para criar uma rede virtual clássica, consulte [Criar uma rede virtual clássica](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic).
+* Ambas as redes virtuais já foram criadas. Se você precisar criar uma rede virtual do Resource Manager, confira [Crie um grupo de recursos e uma rede virtual](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network). Para criar uma rede virtual clássica, consulte [Criar uma rede virtual clássica](/previous-versions/azure/virtual-network/create-virtual-network-classic).
 * Os intervalos de endereços das redes virtuais não se sobrepõem entre eles ou aos intervalos de outras conexões às quais os gateways podem estar conectados.
 * Você instalou os últimos cmdlets do PowerShell. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/) para obter mais informações. Instale os dois cmdlets do Resource Manager (RM) e do Gerenciamento de Serviços (SM). 
 
@@ -90,7 +90,7 @@ Nome do Gateway de Rede Virtual = RMGateway <br>
    ```azurepowershell
    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
    ```
-3. Abra o arquivo .xml baixado para editá-lo. Para obter um exemplo de arquivo de configuração de rede, confira o [Esquema de configuração de rede](https://msdn.microsoft.com/library/jj157100.aspx).
+3. Abra o arquivo .xml baixado para editá-lo. Para obter um exemplo de arquivo de configuração de rede, confira o [Esquema de configuração de rede](/previous-versions/azure/reference/jj157100(v=azure.100)).
 
 ### <a name="2-verify-the-gateway-subnet"></a>2. Verifique a sub-rede do gateway
 No elemento **VirtualNetworkSites** , adicione uma sub-rede de gateway à rede virtual se já não existir uma. Ao trabalhar com o arquivo de configuração de rede, a sub-rede do gateway DEVE ser nomeada como "GatewaySubnet", ou o Azure poderá não reconhecê-la e usá-la como uma sub-rede de gateway.

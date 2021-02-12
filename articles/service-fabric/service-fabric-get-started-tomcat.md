@@ -4,12 +4,12 @@ description: Crie contêiner do Linux para expor um aplicativo em execução no 
 ms.topic: conceptual
 ms.date: 6/08/2018
 ms.author: pepogors
-ms.openlocfilehash: 1a699f3b35970270a9800162a6d8717682a168ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3de97bc277195dff2daf5868c0eb9aec5d6e27c0
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75614410"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96534022"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Criar contêiner do Service Fabric executando o servidor Apache Tomcat no Linux
 Apache Tomcat é uma implementação popular, livre das tecnologias Java Servlet e o servidor Java. Este artigo mostra como criar um contêiner com o Apache Tomcat e um aplicativo Web simples, implantar o contêiner para um cluster do Service Fabric executando o Linux e se conectar ao aplicativo Web.  
@@ -52,9 +52,10 @@ Siga as etapas nesta seção para criar uma imagem do Docker com base em uma ima
    Leia a [referência do Dockerfile](https://docs.docker.com/engine/reference/builder/) para saber mais informações.
 
 
-4. Execute o comando `docker build` para criar a imagem que executa o seu aplicativo web:
+4. Faça logon no Docker e execute o `docker build` comando para criar a imagem que executa seu aplicativo Web:
 
    ```bash
+   docker login
    docker build . -t tomcattest
    ```
 
@@ -99,7 +100,7 @@ Siga as etapas nesta seção para criar uma imagem do Docker com base em uma ima
    ```
 
 ## <a name="push-the-tomcat-image-to-your-container-registry"></a>Enviar a imagem Tomcar para o eu registro de contêiner
-Agora que você verificou que a imagem do Tomcat é executada em um contêiner no computador de desenvolvimento, você deve enviá-la para um repositório em um registro de contêiner. Este artigo usa o Registro de Contêiner do Azure para armazenar a imagem, mas com algumas modificações de etapas, você pode usar qualquer registro de contêiner que você escolher. Neste artigo o nome do registro será considerado *myregistry* e o nome do registro completo é myregistry.azurecr.io. Altere-os adequadamente para seu cenário. 
+Agora que você verificou que a imagem Tomcat é executada em um contêiner em seu computador de desenvolvimento, envie-a por push para um repositório em um registro de contêiner para [reduzir a interrupção](../container-registry/buffer-gate-public-content.md) em seus fluxos de trabalho de desenvolvimento e implantação de imagem. Este artigo usa o Registro de Contêiner do Azure para armazenar a imagem, mas com algumas modificações de etapas, você pode usar qualquer registro de contêiner que você escolher. Neste artigo o nome do registro será considerado *myregistry* e o nome do registro completo é myregistry.azurecr.io. Altere-os adequadamente para seu cenário. 
 
 1. Execute `docker login` para entrar no registro de contêiner com suas [credenciais de registro](../container-registry/container-registry-authentication.md).
 

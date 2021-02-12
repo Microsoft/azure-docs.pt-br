@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/08/2020
+ms.date: 01/25/2021
 ms.author: marsma
 ms.reviewer: saeeda
-ms.openlocfilehash: 4a902ed53e92cd073d81626e80bdb3c8629ad072
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78932e5852453fe996e26a278f8a1859a8ecf546
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89437863"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755025"
 ---
 # <a name="authentication-flows"></a>Fluxos de autenticação
 
@@ -55,7 +55,7 @@ Vários desses fluxos dão suporte à aquisição de token interativa e não int
   - **Interativo** significa que o usuário pode ser solicitado a inserir a entrada. Por exemplo, solicitando que o usuário faça logon, execute a autenticação multifator (MFA) ou conceda consentimento adicional aos recursos.
   - A autenticação **não interativa**, ou *silenciosa*, tenta adquirir um token de uma maneira na qual o servidor de logon *não pode* solicitar informações adicionais ao usuário.
 
-Seu aplicativo baseado em MSAL deve primeiro tentar adquirir um token *silenciosamente*e, em seguida, interativamente somente se o método não interativo falhar. Para obter mais informações sobre esse padrão, consulte [adquirir e armazenar tokens em cache usando a MSAL (biblioteca de autenticação da Microsoft)](msal-acquire-cache-tokens.md).
+Seu aplicativo baseado em MSAL deve primeiro tentar adquirir um token *silenciosamente* e, em seguida, interativamente somente se o método não interativo falhar. Para obter mais informações sobre esse padrão, consulte [adquirir e armazenar tokens em cache usando a MSAL (biblioteca de autenticação da Microsoft)](msal-acquire-cache-tokens.md).
 
 ## <a name="authorization-code"></a>Código de Autorização
 
@@ -223,7 +223,7 @@ Isso significa que uma das afirmações a seguir é verdadeira:
 - Você forneceu uma maneira para os usuários consentirem com o aplicativo; consulte [solicitando consentimento de usuário individual](v2-permissions-and-consent.md#requesting-individual-user-consent).
 - Você forneceu uma maneira para o administrador do locatário consentir para o aplicativo; consulte [consentimento do administrador](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
-O fluxo da IWA está habilitado para aplicativos de área de trabalho do .NET, o .NET Core e a Plataforma Universal do Windows. No .NET Core, é preciso fornecer o nome de usuário para a IWA, pois ele não pode obter nomes de usuários do sistema operacional.
+O fluxo da IWA está habilitado para aplicativos de área de trabalho do .NET, o .NET Core e a Plataforma Universal do Windows.
 
 Para saber mais sobre o consentimento, confira [Permissões e consentimento v2.0](v2-permissions-and-consent.md).
 

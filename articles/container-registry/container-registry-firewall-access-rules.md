@@ -1,14 +1,14 @@
 ---
 title: Regras de acesso de firewall
-description: Configure regras para acessar um registro de contêiner do Azure por trás de um firewall permitindo o acesso à API REST ("lista de permissões") e aos nomes de domínio do ponto de extremidade de dados ou a intervalos de endereços IP específicos do serviço.
+description: Configure regras para acessar um registro de contêiner do Azure por trás de um firewall, permitindo o acesso a API REST e nomes de domínio de ponto de extremidade de dados ou intervalos de endereços IP específicos do serviço.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: b9ecd5f802176cdc6881294f5dedefd3dd467244
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 548d64632c1d726111770dfb49f705d31f5ca714
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148516"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935981"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Configurar regras para acessar um registro de contêiner do Azure atrás de um firewall
 

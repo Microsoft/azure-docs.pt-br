@@ -4,11 +4,11 @@ description: Adicione uma implantação ou compile marcadores para seus gráfico
 ms.topic: conceptual
 ms.date: 08/14/2020
 ms.openlocfilehash: 58f6603687838713fafbf4cd5cc3f100e22b7401
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91758176"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993713"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anotações sobre gráficos de métricas no Application Insights
 
@@ -42,7 +42,7 @@ Crie uma chave de API separada para cada um dos modelos de versão de Azure Pipe
 
 1. Em uma janela separada do navegador, abra ou crie o modelo de versão que gerencia suas implantações de Azure Pipelines.
    
-1. Selecione **Adicionar tarefa**e, em seguida, selecione a Application insights tarefa de **anotação de liberação** no menu.
+1. Selecione **Adicionar tarefa** e, em seguida, selecione a Application insights tarefa de **anotação de liberação** no menu.
    
    ![Selecione Adicionar tarefa e selecione Application Insights anotação de versão.](./media/annotations/3-add-task.png)
 
@@ -57,7 +57,7 @@ Crie uma chave de API separada para cada um dos modelos de versão de Azure Pipe
    
    ![Na guia acesso à API, selecione criar chave de API.](./media/annotations/5-create-api-key.png)
    
-1. Na janela **criar chave de API** , digite uma descrição, selecione **anotações de gravação**e, em seguida, selecione **gerar chave**. Copie a nova chave.
+1. Na janela **criar chave de API** , digite uma descrição, selecione **anotações de gravação** e, em seguida, selecione **gerar chave**. Copie a nova chave.
    
    ![Na janela criar chave de API, digite uma descrição, selecione anotações de gravação e, em seguida, selecione gerar chave.](./media/annotations/6-create-api-key.png)
    

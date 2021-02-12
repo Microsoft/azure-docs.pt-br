@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/24/2018
+ms.date: 01/04/2021
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 81621a2b63eec804aaa7c74e1d77b06ef1adb79a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9b19beae43f1d4a5b0788d9d7662828355c3dd2c
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "76844982"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895879"
 ---
 # <a name="what-is-azure-network-watcher"></a>O que é o Observador de Rede do Azure?
 
@@ -31,7 +31,7 @@ Observador de Rede do Azure fornece ferramentas para monitorar, diagnosticar, ex
 
 Os pontos de extremidade podem ser outra máquina virtual (VM), um nome de domínio totalmente qualificado (FQDN), um identificador de recurso uniforme (URI) ou endereço IPv4. O recurso do *monitor de conexão* monitora a comunicação em um intervalo regular e informa sobre alterações de topologia de rede entre a VM e o ponto de extremidade, latência e acessibilidade. Por exemplo, você pode ter um servidor de web VM que se comunica com uma VM do servidor de banco de dados. Alguém na sua organização talvez, desconhecido para você, aplica uma regra personalizada de segurança de rede ou rota para o servidor web ou servidor de banco de dados VM ou sub-rede.
 
-Se um ponto de extremidade ficar inacessível, solucionar problemas de conexão informará o motivo. Possíveis motivos são um problema de resolução de nome DNS, a CPU, memória ou firewall com o sistema operacional de uma máquina virtual ou o tipo de salto de uma rota personalizado ou regra de segurança para a VM ou sub-rede de conexão de saída. Saiba mais sobre [as regras de segurança](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#security-rules) e [encaminhe tipos de salto](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) no Microsoft Azure.
+Se um ponto de extremidade ficar inacessível, solucionar problemas de conexão informará o motivo. Possíveis motivos são um problema de resolução de nome DNS, a CPU, memória ou firewall com o sistema operacional de uma máquina virtual ou o tipo de salto de uma rota personalizado ou regra de segurança para a VM ou sub-rede de conexão de saída. Saiba mais sobre [as regras de segurança](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#security-rules) e [encaminhe tipos de salto](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) no Microsoft Azure.
 
 O monitor de Conexão também fornece a latência média, mínima e máxima observada ao longo do tempo. Depois de obter a latência de uma conexão, você pode achar que é capaz de reduzir a latência, movendo os recursos do Azure para diferentes regiões do Microsoft Azure. Saiba mais sobre como determinar [latências relativas entre as regiões do Microsoft Azure e os provedores de serviço de internet](#determine-relative-latencies-between-azure-regions-and-internet-service-providers) e como monitorar a comunicação entre uma máquina virtual e um ponto de extremidade com o [monitor de conexão](connection-monitor.md). Se, em vez disso, você testar uma conexão em um ponto no tempo, em vez de monitorar a conexão ao longo do tempo, como é feito com o monitor de conexão, use o recurso [solucionar problemas de conexão](#connection-troubleshoot).
 

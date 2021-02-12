@@ -4,16 +4,15 @@ description: Este artigo descreve como usar Azure Stream Analytics ferramentas d
 services: stream-analytics
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: aa75a553ffc131f4827aa045849f1317d894ddc5
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9e79e0a2c030e2ebfcd5ddfd49e7c05afdb0dc3c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123142"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019543"
 ---
 # <a name="automate-builds-tests-and-deployments-of-an-azure-stream-analytics-job-using-cicd-tools"></a>Automatizar compilações, testes e implantações de um trabalho de Azure Stream Analytics usando as ferramentas de CI/CD
 
@@ -21,7 +20,7 @@ Você pode usar o pacote Azure Stream Analytics CI/CD NPM para compilar, testar 
 
 ## <a name="installation"></a>Instalação
 
-Você pode [baixar o pacote](https://www.npmjs.com/package/azure-streamanalytics-cicd) diretamente ou instalá-lo [globalmente](https://docs.npmjs.com/downloading-and-installing-packages-globally) usando o `npm install -g azure-streamanalytics-cicd` comando. É recomendável usar o comando, que também pode ser usado em uma tarefa do PowerShell ou CLI do Azure script de um pipeline de compilação no **Azure pipelines** .
+Você pode [baixar o pacote](https://www.npmjs.com/package/azure-streamanalytics-cicd) diretamente ou instalá-lo [globalmente](https://docs.npmjs.com/downloading-and-installing-packages-globally) usando o `npm install -g azure-streamanalytics-cicd` comando. É recomendável usar o comando, que também pode ser usado em uma tarefa do PowerShell ou CLI do Azure script de um pipeline de compilação no **Azure pipelines**.
 
 ## <a name="build-the-project"></a>Compilar o projeto
 
@@ -66,7 +65,7 @@ Quando um projeto de Stream Analytics é compilado com êxito, ele gera os dois 
 
 Os parâmetros padrão na parameters.jsno arquivo são das configurações em seu projeto do Visual Studio Code ou do Visual Studio. Se você deseja implantar em outro ambiente, apenas substitua os parâmetros adequadamente.
 
-Os valores padrão para todas as credenciais são **NULL** . Você precisa definir os valores antes de implantar no Azure.
+Os valores padrão para todas as credenciais são **NULL**. Você precisa definir os valores antes de implantar no Azure.
 
 ```json
 "Input_EntryStream_sharedAccessPolicyKey": {
@@ -122,7 +121,7 @@ azure-streamanalytics-cicd addtestcase -project <projectFullPath> [-testConfigPa
 | Parâmetro | Descrição |
 |---|---|
 | `-project` | O caminho do **asaproj.jsno** arquivo para seu projeto Visual Studio Code ou **[nome do projeto]. asaproj** para o projeto do Visual Studio. |
-| `-testConfigPath` | O caminho do arquivo de configuração de teste. Se não for especificado, o arquivo será pesquisado em **\test** no diretório atual do **asaproj.jsno** arquivo, com o nome de arquivo padrão **testConfig.jsem** . Um novo arquivo será criado se não existir. |
+| `-testConfigPath` | O caminho do arquivo de configuração de teste. Se não for especificado, o arquivo será pesquisado em **\test** no diretório atual do **asaproj.jsno** arquivo, com o nome de arquivo padrão **testConfig.jsem**. Um novo arquivo será criado se não existir. |
 
 #### <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -137,9 +136,9 @@ azure-streamanalytics-cicd addtestcase -project "/Users/roger/projects/samplejob
 ```
 ---
 
-Se o arquivo de configuração de teste estiver vazio, o conteúdo a seguir será gravado no arquivo. Caso contrário, um caso de teste é adicionado à matriz de **casos** . As configurações de entrada necessárias são preenchidas automaticamente de acordo com os arquivos de configuração de entrada, se existirem. Caso contrário, os valores padrão serão configurados. O **FilePath** de cada entrada e a saída esperada devem ser especificados antes da execução do teste. Você pode modificar a configuração manualmente.
+Se o arquivo de configuração de teste estiver vazio, o conteúdo a seguir será gravado no arquivo. Caso contrário, um caso de teste é adicionado à matriz de **casos**. As configurações de entrada necessárias são preenchidas automaticamente de acordo com os arquivos de configuração de entrada, se existirem. Caso contrário, os valores padrão serão configurados. O **FilePath** de cada entrada e a saída esperada devem ser especificados antes da execução do teste. Você pode modificar a configuração manualmente.
 
-Se você quiser que a validação de teste ignore uma determinada saída, defina o campo **obrigatório** dessa saída esperada como **false** .
+Se você quiser que a validação de teste ignore uma determinada saída, defina o campo **obrigatório** dessa saída esperada como **false**.
 
 ```json
 {
@@ -179,11 +178,11 @@ azure-streamanalytics-cicd test -project <projectFullPath> [-testConfigPath <tes
 | Parâmetro | Descrição |
 |---|---|
 | `-project` | O caminho do **asaproj.jsno** arquivo para seu projeto Visual Studio Code ou **[nome do projeto]. asaproj** para o projeto do Visual Studio. |
-| `-testConfigPath` | O caminho para o arquivo de configuração de teste. Se não for especificado, o arquivo será pesquisado em **\test** no diretório atual do **asaproj.jsno** arquivo, com o nome de arquivo padrão **testConfig.jsem** .
+| `-testConfigPath` | O caminho para o arquivo de configuração de teste. Se não for especificado, o arquivo será pesquisado em **\test** no diretório atual do **asaproj.jsno** arquivo, com o nome de arquivo padrão **testConfig.jsem**.
 | `-outputPath` | O caminho da pasta de saída do resultado de teste. Se não for especificado, os arquivos de resultado de saída serão colocados no diretório atual. |
 | `-customCodeZipFilePath` | O caminho do arquivo zip para o código personalizado, como um UDF ou um desserializador, se eles forem usados. |
 
-Quando todos os testes forem concluídos, um resumo dos resultados do teste no formato JSON será gerado na pasta de saída. O arquivo de resumo é nomeado **testResultSummary.jsem** .
+Quando todos os testes forem concluídos, um resumo dos resultados do teste no formato JSON será gerado na pasta de saída. O arquivo de resumo é nomeado **testResultSummary.jsem**.
 
 ```json
 {

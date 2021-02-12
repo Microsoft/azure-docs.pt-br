@@ -7,67 +7,40 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/23/2020
-translation.priority.mt:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pt-br
-- ru-ru
-- zh-cn
-- zh-tw
-ms.openlocfilehash: 6ea8bc2551df4f85e4b856dc9cf1c06a9bd571fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/14/2020
+ms.openlocfilehash: 0dbf418d0a673dd0799f0f638e454c484f837fd7
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88923442"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516596"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Sintaxe de consulta Lucene no Azure Pesquisa Cognitiva
 
-Você pode escrever consultas no Azure Pesquisa Cognitiva com base na sintaxe do [analisador de consulta do Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) avançada para formulários de consulta especializados: curinga, pesquisa difusa, pesquisa por proximidade, expressões regulares são alguns exemplos. Grande parte da sintaxe do analisador de consulta Lucene é [implementada intacta no azure pesquisa cognitiva](search-lucene-query-architecture.md), com exceção das *pesquisas de intervalo* que são construídas no Azure pesquisa cognitiva por meio de `$filter` expressões. 
+Ao criar consultas, você pode optar pela sintaxe do [analisador de consulta do Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) para formulários de consulta especializados: curinga, pesquisa difusa, pesquisa por proximidade, expressões regulares. Grande parte da sintaxe do analisador de consulta Lucene é [implementada intacta no Azure pesquisa cognitiva](search-lucene-query-architecture.md), com exceção das *pesquisas de intervalo* que são construídas por meio de **`$filter`** expressões. 
 
-> [!NOTE]
-> A sintaxe Lucene completa é usada para expressões de consulta passadas no parâmetro de **pesquisa** da API de [documentos de pesquisa](/rest/api/searchservice/search-documents) , não deve ser confundida com a [sintaxe OData](query-odata-filter-orderby-syntax.md) usada para o parâmetro [$Filter](search-filters.md) dessa API. Essas sintaxes diferentes têm suas próprias regras para construir consultas, cadeias de caracteres de escape e assim por diante.
+A sintaxe Lucene completa é usada para expressões de consulta passadas no **`search`** parâmetro de uma solicitação de [documentos de pesquisa (API REST)](/rest/api/searchservice/search-documents) , não deve ser confundida com a [sintaxe OData](query-odata-filter-orderby-syntax.md) usada para as [**`$filter`**](search-filters.md) [**`$orderby`**](search-query-odata-orderby.md) expressões e na mesma solicitação. Os parâmetros OData têm sintaxe e regras diferentes para construir consultas, cadeias de caracteres de escape e assim por diante.
 
-## <a name="invoke-full-parsing"></a>Invocar a análise completa
+## <a name="example-full-syntax"></a>Exemplo (sintaxe completa)
 
-Defina o parâmetro de pesquisa `queryType` para especificar qual análise usar. Os valores válidos incluem `simple|full`, com `simple` como o padrão, e `full` para o Lucene. 
+Defina o **`queryType`** parâmetro para especificar o Lucene completo. O exemplo a seguir invoca a pesquisa em campo e o aumento de termo. Essa consulta procura Hotéis em que o campo categoria contém o termo "orçamento". Todos os documentos que contêm a frase "recentemente renovados" são classificados como um resultado do valor de aumento de termo (3).  
 
-<a name="bkmk_example"></a> 
-
-### <a name="example-showing-full-syntax"></a>Exemplo exibindo a sintaxe completa
-
-O exemplo a seguir localiza os documentos no índice usando a sintaxe de consulta do Lucene, que fica evidente no parâmetro `queryType=full`. Essa consulta retorna hotéis onde o campo de categoria contém o termo "orçamento" e todos os campos pesquisáveis com a frase "renovado recentemente". Os documentos com a frase "renovado recentemente" apresentam uma classificação superior como um resultado do valor de aumento de termo (3).  
-
-O parâmetro `searchMode=all` é relevante neste exemplo. Sempre que os operadores estiverem na consulta, geralmente você deve definir `searchMode=all` para garantir que *todos* os critérios sejam correspondidos.
-
-```
-GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2020-06-30&querytype=full
-```
-
- Como alternativa, use POST:  
-
-```
-POST /indexes/hotels/docs/search?api-version=2020-06-30
+```http
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 {
-  "search": "category:budget AND \"recently renovated\"^3",
   "queryType": "full",
+  "search": "category:budget AND \"recently renovated\"^3",
   "searchMode": "all"
 }
 ```
 
-Para obter exemplos adicionais, consulte [exemplos de sintaxe de consulta Lucene para criar consultas no Azure pesquisa cognitiva](search-query-lucene-examples.md). Para obter detalhes sobre como especificar o contingente total dos parâmetros de consulta, consulte [Pesquisar documentos &#40;API REST do Azure Pesquisa Cognitiva&#41;](/rest/api/searchservice/Search-Documents).
+O **`searchMode`** parâmetro é relevante neste exemplo. Sempre que os operadores estiverem na consulta, geralmente você deve definir `searchMode=all` para garantir que *todos* os critérios sejam correspondidos.  
 
-> [!NOTE]  
->  O Azure Pesquisa Cognitiva também dá suporte à [sintaxe de consulta simples](query-simple-syntax.md), uma linguagem de consulta simples e robusta que pode ser usada para pesquisa de palavra-chave direta.  
+Para obter exemplos adicionais, consulte [exemplos de sintaxe de consulta Lucene](search-query-lucene-examples.md). Para obter detalhes sobre a solicitação de consulta e os parâmetros, consulte [Pesquisar documentos (API REST)](/rest/api/searchservice/Search-Documents).
 
-##  <a name="syntax-fundamentals"></a><a name="bkmk_syntax"></a> Conceitos básicos da sintaxe  
+## <a name="syntax-fundamentals"></a><a name="bkmk_syntax"></a> Conceitos básicos da sintaxe  
 
-os conceitos básicos de sintaxe a seguir se aplicam a todas as consultas que usam a sintaxe Lucene.  
+Os conceitos básicos de sintaxe a seguir se aplicam a todas as consultas que usam a sintaxe do Lucene.  
 
 ### <a name="operator-evaluation-in-context"></a>Avaliação de operador no contexto
 
@@ -95,39 +68,15 @@ Verifique se todos os caracteres reservados e não seguros estão codificados em
 
 Os caracteres não seguros são ``" ` < > # % { } | \ ^ ~ [ ]``. Os caracteres reservados são `; / ? : @ = + &`.
 
-###  <a name="query-size-limits"></a><a name="bkmk_querysizelimits"></a> Limites de tamanho de consulta
+## <a name="boolean-operators"></a><a name="bkmk_boolean"></a> Operadores boolianos
 
- Há um limite para o tamanho das consultas que você pode enviar para o Azure Pesquisa Cognitiva. Especificamente, você pode ter, no máximo, 1024 cláusulas (expressões separadas por AND, OR e assim por diante). Há também um limite de aproximadamente 32 KB em relação ao tamanho de qualquer termo individual em uma consulta. Se seu aplicativo gerar consultas de pesquisa por meio de programação, é recomendável criá-lo de forma que ele não gere consultas de tamanho ilimitado.  
+Você pode inserir operadores boolianos em uma cadeia de caracteres de consulta para melhorar a precisão de uma correspondência. A sintaxe completa dá suporte a operadores de texto, além de operadores de caracteres. Sempre especifique operadores boolianos de texto (AND, OR, NOT) com tudo em maiúsculas.
 
-### <a name="precedence-operators-grouping"></a>Operadores de precedência (agrupamento)
-
- Você pode usar parênteses para criar subconsultas, incluindo operadores dentro da instrução entre parênteses. Por exemplo, `motel+(wifi||luxury)` irá procurar documentos que contenham o termo "motel" e "wifi" ou "luxo" (ou ambos).
-
-O agrupamento de campo é semelhante, mas tem como escopo o agrupamento para um único campo. Por exemplo, `hotelAmenities:(gym+(wifi||pool))` pesquisa o campo "comodidadesDoHotel" para "academia" e "wifi" ou "academia" e "piscina".  
-
-##  <a name="boolean-search"></a><a name="bkmk_boolean"></a> Pesquisa booliana
-
- Sempre especifique operadores boolianos de texto (AND, OR, NOT) com tudo em maiúsculas.  
-
-### <a name="or-operator-or-or-"></a>Operador OR `OR` ou `||`
-
-O operador OR é uma barra vertical ou um caractere de pipe. Por exemplo: `wifi || luxury` irá procurar documentos que contenham "wifi" ou "luxo", ou ambos. Porque OR é o operador de conjunção padrão, que também pode ser deixado de fora, de modo que `wifi luxury` é o equivalente de `wifi || luxury`.
-
-### <a name="and-operator-and--or-"></a>Operador AND `AND`, `&&` ou `+`
-
-O operador AND é um e comercial ou um sinal de adição. Por exemplo: `wifi && luxury` irá procurar documentos que contenham "wifi" e "luxo". O caractere de adição (+) é usado para termos obrigatórios. Por exemplo, `+wifi +luxury` estipula que os dois termos devem aparecer em algum lugar no campo de um único documento.
-
-### <a name="not-operator-not--or--"></a>Operador NOT `NOT`, `!` ou `-`
-
-O operador NOT é um sinal de subtração. Por exemplo, o `wifi –luxury` procurará documentos que tenham o `wifi` termo e/ou que não tenham `luxury` .
-
-O parâmetro **searchmode** em uma solicitação de consulta controla se um termo com o operador NOT é ANDed ou orns com outros termos na consulta (supondo que não haja nenhum `+` `|` operador OR nos outros termos). Os valores válidos incluem `any` ou `all`.
-
-`searchMode=any` aumenta a recall de consultas, incluindo mais resultados e, por padrão, `-` será interpretado como "ou não". Por exemplo, `wifi -luxury` corresponderá a documentos que contêm o termo `wifi` ou aqueles que não contêm o termo `luxury`.
-
-`searchMode=all` aumenta a precisão das consultas, incluindo menos resultados e, por padrão, será interpretado como "e não". Por exemplo, `wifi -luxury` corresponderá a documentos que contêm o termo `wifi` e não contêm o termo "luxo". Esse é indiscutivelmente um comportamento mais intuitivo para o operador `-`. Portanto, você deve considerar `searchMode=all` o uso do em vez de `searchMode=any` se deseja otimizar as pesquisas de precisão em vez de recall, *e* os usuários frequentemente usam o `-` operador em pesquisas.
-
-Ao decidir sobre uma configuração de **searchmode** , considere os padrões de interação do usuário para consultas em vários aplicativos. Os usuários que estão pesquisando informações têm mais probabilidade de incluir um operador em uma consulta, em oposição aos sites de comércio eletrônico que têm estruturas de navegação mais internas.
+|Operador de texto | Caractere | Exemplo | Uso |
+|--------------|----------- |--------|-------|
+| AND | `&`, `+` | `wifi + luxury` | Especifica os termos que uma correspondência deve conter. No exemplo, o mecanismo de consulta procurará documentos que contenham `wifi` e `luxury` . O caractere de adição ( `+` ) é usado para os termos necessários. Por exemplo, `+wifi +luxury` estipula que os dois termos devem aparecer em algum lugar no campo de um único documento.|
+| OU | `|` | `wifi | luxury` | Localiza uma correspondência quando um dos termos é encontrado. No exemplo, o mecanismo de consulta retornará a correspondência em documentos que contenham um `wifi` ou `luxury` ambos. Porque OR é o operador de conjunção padrão, que também pode ser deixado de fora, de modo que `wifi luxury` é o equivalente de `wifi | luxury`.|
+| NOT | `!`, `-` | `wifi –luxury` | Retorna correspondências em documentos que excluem o termo. Por exemplo, o `wifi –luxury` pesquisará documentos que têm o `wifi` termo, mas não `luxury` . <br/><br/>O `searchMode` parâmetro em uma solicitação de consulta controla se um termo com o operador NOT é ANDed ou orns com outros termos na consulta (supondo que não haja nenhum `+` `|` operador OR nos outros termos). Os valores válidos incluem `any` ou `all`.  <br/><br/>`searchMode=any` aumenta a recall de consultas, incluindo mais resultados e, por padrão, `-` será interpretado como "ou não". Por exemplo, `wifi -luxury` corresponderá a documentos que contêm o termo `wifi` ou aqueles que não contêm o termo `luxury`.  <br/><br/>`searchMode=all` aumenta a precisão das consultas, incluindo menos resultados e, por padrão, será interpretado como "e não". Por exemplo, `wifi -luxury` corresponderá a documentos que contêm o termo `wifi` e não contêm o termo "luxo". Esse é indiscutivelmente um comportamento mais intuitivo para o operador `-`. Portanto, você deve considerar `searchMode=all` o uso do em vez de `searchMode=any` se deseja otimizar as pesquisas de precisão em vez de recall, *e* os usuários frequentemente usam o `-` operador em pesquisas.<br/><br/>Ao decidir sobre uma `searchMode` configuração, considere os padrões de interação do usuário para consultas em vários aplicativos. Os usuários que estão pesquisando informações têm mais probabilidade de incluir um operador em uma consulta, em oposição aos sites de comércio eletrônico que têm estruturas de navegação mais internas. |
 
 ##  <a name="fielded-search"></a><a name="bkmk_fields"></a> Pesquisa em campo
 
@@ -148,14 +97,13 @@ O campo especificado em `fieldName:searchExpression` deve ser um campo `searchab
 
 Uma pesquisa difusa localiza correspondências em termos que têm uma construção semelhante, expandindo um termo até o máximo de 50 termos que atendem aos critérios de distância de dois ou menos. Para obter mais informações, consulte [pesquisa difusa](search-query-fuzzy.md).
 
- Para fazer uma pesquisa difusa, use o símbolo til "~" no final de uma única palavra com um parâmetro opcional, um número entre 0 e 2 (padrão), que especifica a distância de edição. Por exemplo, "mar~" ou "mar~1" retornaria "mar", "amar" e "maré".
+Para fazer uma pesquisa difusa, use o símbolo til "~" no final de uma única palavra com um parâmetro opcional, um número entre 0 e 2 (padrão), que especifica a distância de edição. Por exemplo, "mar~" ou "mar~1" retornaria "mar", "amar" e "maré".
 
- A pesquisa difusa só pode ser aplicada a termos, não a frases, mas você pode acrescentar o til a cada termo individualmente em um nome ou frase de várias partes. Por exemplo, "Unviersty ~ de ~" Wshington ~ "corresponderia em" University de Washington ".
+A pesquisa difusa só pode ser aplicada a termos, não a frases, mas você pode acrescentar o til a cada termo individualmente em um nome ou frase de várias partes. Por exemplo, "Unviersty ~ de ~" Wshington ~ "corresponderia em" University de Washington ".
  
 ##  <a name="proximity-search"></a><a name="bkmk_proximity"></a> Pesquisa de proximidade
 
 As pesquisas de proximidade são usadas para localizar termos que estejam próximos um do outro em um documento. Insira um símbolo til "~" no final de uma frase seguida pelo número de palavras que criam o limite de proximidade. Por exemplo, `"hotel airport"~5` encontrará os termos "hotel" e "aeroporto" em cinco palavras uma da outra em um documento.  
-
 
 ##  <a name="term-boosting"></a><a name="bkmk_termboost"></a> Aumento de termos
 
@@ -194,11 +142,29 @@ Se você fosse usar o analisador en. Lucene (Inglês Lucene), ele aplicaria uma 
 
 Por outro lado, os analisadores da Microsoft (neste caso, o en. Microsoft Analyzer) são um pouco mais avançados e usam lematização em vez de derivar. Isso significa que todos os tokens gerados devem ser palavras válidas em inglês. Por exemplo, ' Terminate ', ' Finalize ' e ' rescisão ' permanecerão em todo o índice e seria uma opção preferida para cenários que dependem muito de curingas e pesquisa difusa.
 
-##  <a name="scoring-wildcard-and-regex-queries"></a><a name="bkmk_searchscoreforwildcardandregexqueries"></a> Classificar consultas de caractere curinga e regex
+## <a name="scoring-wildcard-and-regex-queries"></a> Classificar consultas de caractere curinga e regex
 
 O Azure Pesquisa Cognitiva usa a pontuação baseada em frequência ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) para consultas de texto. No entanto, para consultas curinga e regex em que o escopo de termos pode ser potencialmente amplo, o fator de frequência é ignorado para impedir que a classificação seja direcionada para correspondências de termos mais raros. Todas as correspondências são tratadas da mesma maneira para as pesquisas de caractere curinga e regex.
 
-## <a name="see-also"></a>Confira também
+## <a name="special-characters"></a>Caracteres especiais
+
+Em algumas circunstâncias, talvez você queira procurar um caractere especial, como um Emoji ' ❤ ' ou o sinal ' € '. Nesses casos, certifique-se de que o analisador usado não filtre esses caracteres. O analisador padrão ignora muitos caracteres especiais, excluindo-os do índice.
+
+Os analisadores que exportam caracteres especiais incluem o analisador "Whitespace", que leva em consideração quaisquer sequências de caracteres separadas por espaços em branco como tokens (portanto, a cadeia de caracteres "❤" seria considerada um token). Além disso, um analisador de linguagem como o Microsoft English Analyzer ("en. Microsoft"), levaria a cadeia de caracteres "€" como um token. Você pode [testar um analisador](/rest/api/searchservice/test-analyzer) para ver quais tokens ele gera para uma determinada consulta.
+
+Ao usar caracteres Unicode, certifique-se de que os símbolos tenham um escape correto na URL de consulta (por exemplo, para "❤" usaria a sequência de escape `%E2%9D%A4+` ). O postmaster faz essa tradução automaticamente.  
+
+## <a name="precedence-grouping"></a>Precedência (agrupamento)
+
+Você pode usar parênteses para criar subconsultas, incluindo operadores dentro da instrução entre parênteses. Por exemplo, `motel+(wifi|luxury)` irá procurar documentos que contenham o termo "motel" e "wifi" ou "luxo" (ou ambos).
+
+O agrupamento de campo é semelhante, mas tem como escopo o agrupamento para um único campo. Por exemplo, `hotelAmenities:(gym+(wifi|pool))` pesquisa o campo "comodidadesDoHotel" para "academia" e "wifi" ou "academia" e "piscina".  
+
+## <a name="query-size-limits"></a>Limites de tamanho de consulta
+
+Há um limite para o tamanho das consultas que você pode enviar para o Azure Pesquisa Cognitiva. Especificamente, você pode ter, no máximo, 1024 cláusulas (expressões separadas por AND, OR e assim por diante). Há também um limite de aproximadamente 32 KB em relação ao tamanho de qualquer termo individual em uma consulta. Se seu aplicativo gerar consultas de pesquisa por meio de programação, é recomendável criá-lo de forma que ele não gere consultas de tamanho ilimitado.  
+
+## <a name="see-also"></a>Veja também
 
 + [Exemplos de consulta para pesquisa simples](search-query-simple-examples.md)
 + [Exemplos de consulta para a pesquisa completa do Lucene](search-query-lucene-examples.md)

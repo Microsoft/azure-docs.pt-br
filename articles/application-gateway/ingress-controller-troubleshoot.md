@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/18/2020
 ms.author: caya
-ms.openlocfilehash: cbb62509472d6f86ba30e13c95ce2c2bfd343765
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: f2b9f79f0914e645c736f8a577c46baa42587332
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168181"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874603"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>Solucionar problemas ou perguntas comuns com controlador de entrada
 
@@ -132,7 +132,7 @@ O AGIC (controlador de entrada do gateway de aplicativo) monitora continuamente 
 
 
 O seguinte deve estar em vigor para que o AGIC funcione conforme o esperado:
-  1. AKS deve ter um ou mais **pods**íntegros.
+  1. AKS deve ter um ou mais **pods** íntegros.
      Verifique isso de [Cloud Shell](https://shell.azure.com/) com `kubectl get pods -o wide --show-labels` se você tiver um pod com um `apsnetapp` , sua saída poderá ter esta aparência:
      ```bash
      delyan@Azure:~$ kubectl get pods -o wide --show-labels
@@ -243,7 +243,7 @@ A Comunidade kubernetes estabeleceu nove níveis de registro em log para a ferra
 |  5        | Registra objetos empacotados; mostra a configuração JSON corrigida aplicada ao ARM |
 
 
-Os níveis de detalhamento são ajustáveis por meio da `verbosityLevel` variável no arquivo [Helm-config. YAML](#sample-helm-config-file) . Aumente o nível de detalhes para `5` para que a configuração JSON seja expedida para o [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview):
+Os níveis de detalhamento são ajustáveis por meio da `verbosityLevel` variável no arquivo [Helm-config. YAML](#sample-helm-config-file) . Aumente o nível de detalhes para `5` para que a configuração JSON seja expedida para o [ARM](../azure-resource-manager/management/overview.md):
   - Adicionar `verbosityLevel: 5` em uma linha por si só em [Helm-config. YAML](#sample-helm-config-file) e reinstalar
   - obter logs com `kubectl logs <pod-name>`
 
@@ -292,7 +292,7 @@ armAuth:
 #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0" >>
 
 ################################################################################
-# Specify if the cluster is RBAC enabled or not
+# Specify if the cluster is Kubernetes RBAC enabled or not
 rbac:
     enabled: false # true/false
 
@@ -300,4 +300,3 @@ rbac:
 aksClusterConfiguration:
     apiServerAddress: <aks-api-server-address>
 ```
-

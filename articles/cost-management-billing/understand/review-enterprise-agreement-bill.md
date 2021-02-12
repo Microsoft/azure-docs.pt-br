@@ -9,18 +9,18 @@ ms.subservice: enterprise
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: d707051e20b4ce9d1289557aec6f8256c2e6bfba
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 643aac7927cc7b14693387fbb5765bdcd0214dc2
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150080"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598251"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Entender sua fatura do Contrato Enterprise do Azure
 
 Os clientes do Azure com um Enterprise Agreement recebem uma fatura quando excedem o crédito da organização ou usam os serviços que não são cobertos pelo crédito.
 
-O crédito da sua organização inclui o seu compromisso monetário. O compromisso monetário é a quantidade que sua organização paga antecipadamente por uso de serviços do Azure. Você pode adicionar fundos de compromisso monetário para o Enterprise Agreement ao entrar em contato com seu gerente de conta da Microsoft ou o revendedor.
+O crédito da sua organização inclui seu Pagamento antecipado do Azure (anteriormente chamado de compromisso monetário). O Pagamento antecipado do Azure é a quantidade que sua organização paga antecipadamente pelo uso de serviços do Azure. Você pode adicionar os fundos do Pagamento antecipado do Azure ao Contrato Enterprise ao entrar em contato com seu gerente de conta Microsoft ou o revendedor.
 
 Este tutorial se aplica somente aos clientes do Azure com um Contrato Enterprise do Azure.
 
@@ -157,7 +157,7 @@ Alguns motivos para as diferenças de preço:
 
 ## <a name="request-detailed-usage-information"></a>Solicitar informações detalhadas sobre o uso
 
-Os administradores corporativos podem exibir um resumo dos dados de uso, do compromisso monetário consumido e das cobranças associadas ao uso adicional no Azure Enterprise Portal. As cobranças são apresentadas no nível do resumo em todas as contas e assinaturas.
+Os administradores corporativos podem exibir um resumo dos dados de uso, do pagamento antecipado do Azure consumido e das cobranças associadas ao uso adicional no Azure Enterprise Portal. As cobranças são apresentadas no nível do resumo em todas as contas e assinaturas.
 
 Para exibir o uso detalhado de contas específicas, baixe o relatório de detalhes de uso navegando até **Relatórios** > **Baixar Uso**.
 
@@ -168,7 +168,7 @@ Para registros indiretos, seu parceiro precisa habilitar a função de marcaçã
 
 ## <a name="reports"></a>Relatórios
 
-Os administradores corporativos podem exibir um resumo dos dados de uso, do compromisso monetário consumido e das cobranças associadas ao uso adicional no Azure Enterprise Portal. As cobranças são apresentadas no nível do resumo em todas as contas e assinaturas.
+Os administradores corporativos podem exibir um resumo dos dados de uso, do pagamento antecipado do Azure consumido e das cobranças associadas ao uso adicional no Azure Enterprise Portal. As cobranças são apresentadas no nível do resumo em todas as contas e assinaturas.
 
 ### <a name="azure-enterprise-reports"></a>Relatórios do Azure Enterprise
 

@@ -3,20 +3,20 @@ title: Visão geral da solução de problemas de área de trabalho virtual do Wi
 description: Uma visão geral para solucionar problemas durante a configuração de um ambiente de área de trabalho virtual do Windows.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 06/05/2020
+ms.date: 12/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 171322fbec099aa9fafc36c4f951213b33007976
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d4bdc4fa15f634b36f12a650b70b9ffd89b40e0
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009351"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539102"
 ---
 # <a name="troubleshooting-overview-feedback-and-support-for-windows-virtual-desktop"></a>Visão geral de solução de problemas, comentários e suporte para área de trabalho virtual do Windows
 
 >[!IMPORTANT]
->Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica) sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica), sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).
 
 Este artigo fornece uma visão geral dos problemas que você pode encontrar ao configurar um ambiente de área de trabalho virtual do Windows e fornece maneiras de resolver os problemas.
 
@@ -45,7 +45,7 @@ Use a tabela a seguir para identificar e resolver os problemas que você pode en
 | Conectando clientes                                                                    | Consulte [conexões do serviço de área de trabalho virtual do Windows](troubleshoot-service-connection.md) e, se isso não resolver o problema, consulte [configuração de máquina virtual do host de sessão](troubleshoot-vm-configuration.md). |
 | Capacidade de resposta de aplicativos remotos ou área de trabalho                                      | Se os problemas estiverem vinculados a um aplicativo ou produto específico, entre em contato com a equipe responsável pelo produto. |
 | Mensagens de licenciamento ou erros                                                          | Se os problemas estiverem vinculados a um aplicativo ou produto específico, entre em contato com a equipe responsável pelo produto. |
-| Problemas com métodos de autenticação de terceiros | Verifique se o provedor de terceiros dá suporte a cenários de área de trabalho virtual do Windows e aborde-os em relação a problemas conhecidos. |
+| Problemas com métodos ou ferramentas de autenticação de terceiros | Verifique se o provedor de terceiros dá suporte a cenários de área de trabalho virtual do Windows e aborde-os em relação a problemas conhecidos. |
 | Problemas ao usar o Log Analytics para área de trabalho virtual do Windows | Para problemas com o esquema de diagnóstico, [abra uma solicitação de suporte do Azure](https://azure.microsoft.com/support/create-ticket/).<br><br>Para consultas, visualização ou outros problemas no Log Analytics, selecione o tipo de problema apropriado em Log Analytics. |
 | Problemas ao usar aplicativos M365 | Contate o centro de administração do M365 com uma das [Opções de ajuda do centro de administração do M365](/microsoft-365/admin/contact-support-for-business-products/). |
 
@@ -53,6 +53,7 @@ Use a tabela a seguir para identificar e resolver os problemas que você pode en
 
 - Para solucionar problemas ao criar um pool de hosts em um ambiente de área de trabalho virtual do Windows, consulte [criação de pool de hosts](troubleshoot-set-up-issues.md).
 - Confira como solucionar problemas ao configurar uma VM (máquina virtual) na Área de Trabalho Virtual do Windows em [Configuração da máquina virtual do host da sessão](troubleshoot-vm-configuration.md).
+- Para solucionar problemas relacionados ao agente de área de trabalho virtual do Windows ou conectividade de sessão, consulte [solucionar problemas comuns do agente de área de trabalho virtual do Windows](troubleshoot-agent.md).
 - Para solucionar problemas com conexões de cliente de área de trabalho virtual do Windows, consulte [conexões do serviço área de trabalho virtual do Windows](troubleshoot-service-connection.md).
 - Para solucionar problemas com clientes Área de Trabalho Remota, consulte [solucionar problemas do cliente área de trabalho remota](troubleshoot-client.md)
 - Veja como solucionar problemas ao usar o PowerShell com a Área de Trabalho Virtual do Windows em [PowerShell da Área de Trabalho Virtual do Windows](troubleshoot-powershell.md).

@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: python
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 6e778541023befc756e61be9b9646bf37c82c47c
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 23a2ca3cae92f65786a3d2fb978b1727e18857e8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530600"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966629"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Início Rápido – Criar e provisionar um dispositivo X.509 simulado usando o SDK de dispositivo Python para o Serviço de Provisionamento de Dispositivos no Hub IoT.
 
@@ -64,7 +64,7 @@ Neste início rápido, você criará um dispositivo IoT simulado em um computado
     cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
     ```
 
-1. Em um prompt de comando separado, navegue até a pasta do simulador de [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) e execute-o para que ele seja o [HSM](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) para o dispositivo simulado. Clique em **Permitir Acesso**. Ele escuta em um soquete nas portas 2321 e 2322. Não feche essa janela Comando; você precisará manter esse simulador em execução até o término deste guia de início rápido. 
+1. Em um prompt de comando separado, navegue até a pasta do simulador de [TPM](/windows/device-security/tpm/trusted-platform-module-overview) e execute-o para que ele seja o [HSM](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) para o dispositivo simulado. Clique em **Permitir Acesso**. Ele escuta em um soquete nas portas 2321 e 2322. Não feche essa janela Comando; você precisará manter esse simulador em execução até o término deste guia de início rápido. 
 
     ```cmd/sh
     .\azure-iot-sdk-python\c\provisioning_client\deps\utpm\tools\tpm_simulator\Simulator.exe

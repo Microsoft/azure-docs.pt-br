@@ -1,19 +1,16 @@
 ---
 title: Apache Spark & Apache Kafka com Cosmos DB-Azure HDInsight
-description: Saiba como usar o Streaming Estruturado do Apache Spark para ler dados do Apache Kafka e, em seguida, armazená-los no Azure Cosmos DB. Neste exemplo, você deve transmitir dados usando um bloco de anotações do Jupyter do Spark no HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
+description: Saiba como usar o Streaming Estruturado do Apache Spark para ler dados do Apache Kafka e, em seguida, armazená-los no Azure Cosmos DB. Neste exemplo, você transmite dados usando um Jupyter Notebook do Spark no HDInsight.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 11/18/2019
-ms.openlocfilehash: 20045ce914a340ac36e4df8cbd0df38e872a1d38
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e14784459a3c7733af274197507b76341d68477e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487323"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946909"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Use o Streaming Estruturado do Apache Spark com o Apache Kafka e o Azure Cosmos DB
 
@@ -32,7 +29,7 @@ O streaming estruturado do Spark é um mecanismo de processamento de fluxo basea
 
 ## <a name="create-the-clusters"></a>Criar os clusters
 
-Apache Kafka no HDInsight não fornece acesso aos agentes Kafka pela Internet pública. Qualquer coisa que se comunique com Kafka deve estar na mesma rede virtual do Azure que os nós no cluster Kafka. Para este exemplo, clusters de Spark e Kafka estão localizados em uma rede virtual do Azure. O diagrama a seguir mostra como a comunicação flui entre os clusters:
+O Apache Kafka no HDInsight não fornece acesso para agentes de Kafka pela Internet pública. Qualquer coisa que se comunique com Kafka deve estar na mesma rede virtual do Azure que os nós no cluster Kafka. Para este exemplo, clusters de Spark e Kafka estão localizados em uma rede virtual do Azure. O diagrama a seguir mostra como a comunicação flui entre os clusters:
 
 ![Diagrama de clusters Spark e Kafka em uma rede virtual do Azure](./media/apache-kafka-spark-structured-streaming-cosmosdb/apache-spark-kafka-vnet.png)
 
@@ -69,7 +66,7 @@ Enquanto você pode criar uma rede virtual do Azure, Kafka e clusters de Spark m
     |Subscription|Selecione sua assinatura do Azure.|
     |Resource group|Crie um grupo ou selecione um existente. Esse grupo contém o cluster HDInsight.|
     |Nome da conta de Cosmos DB|este valor é usado como o nome da conta do Cosmos DB. O nome pode conter apenas letras minúsculas, números e o caractere de hífen (-). Ela deve ter entre 3 e 31 caracteres.|
-    |Nome do cluster de base|Esse valor é usado como o nome de base dos clusters Spark e Kafka. Por exemplo, inserir **myhdi** cria um cluster Spark chamado__spark-myhdi__ e um cluster Kafka chamado **kafka-myhdi**.|
+    |Nome do cluster de base|Esse valor é usado como o nome de base dos clusters Spark e Kafka. Por exemplo, inserir **myhdi** cria um cluster Spark chamado __spark-myhdi__ e um cluster Kafka chamado **kafka-myhdi**.|
     |Versão do cluster|a versão do cluster do HDInsight. Este exemplo é testado com 3.6 HDInsight e pode não funcionar com outros tipos de cluster.|
     |Nome de usuário de logon do cluster|O nome do usuário administrador dos clusters Spark e Kafka.|
     |Senha de logon do cluster|A senha do usuário administrador dos clusters Spark e Kafka.|
@@ -97,7 +94,7 @@ resourceGroupName='myresourcegroup'
 name='mycosmosaccount'
 
 # WARNING: If you change the databaseName or collectionName
-#          then you must update the values in the Jupyter notebook
+#          then you must update the values in the Jupyter Notebook
 databaseName='kafkadata'
 collectionName='kafkacollection'
 
@@ -134,7 +131,7 @@ O código para o exemplo descrito neste documento está disponível em [https://
 
 Use as etapas a seguir para carregar os blocos de anotações do projeto para o Spark no cluster HDInsight:
 
-1. No navegador da Web, conecte-se ao bloco de anotações do Jupyter em seu cluster Spark. Na URL a seguir, substitua `CLUSTERNAME` pelo nome do cluster __Spark__:
+1. No navegador da Web, conecte-se ao Jupyter Notebook em seu cluster Spark. Na URL a seguir, substitua `CLUSTERNAME` pelo nome do cluster __Spark__:
 
     ```http
     https://CLUSTERNAME.azurehdinsight.net/jupyter

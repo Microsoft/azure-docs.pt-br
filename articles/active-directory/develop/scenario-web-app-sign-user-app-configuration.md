@@ -1,5 +1,6 @@
 ---
-title: Configurar um aplicativo Web que conecta usuários-plataforma de identidade da Microsoft | Azure
+title: Configurar um aplicativo Web que assina usuários | Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como criar um aplicativo Web que faz logon de usuários (configuração de código)
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: ea0312cd8129fce342f94cfab5701d1773aca309
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54caea62feed6ae7c082a979901999a5dcb3bd71
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728328"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582240"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Aplicativo Web que assina usuários: configuração de código
 
@@ -63,13 +64,13 @@ Talvez você queira consultar este exemplo para obter detalhes completos de impl
 
 ## <a name="configuration-files"></a>Arquivos de configuração
 
-Os aplicativos Web que conectam usuários usando a plataforma de identidade da Microsoft são configurados por meio de arquivos de configuração. As configurações que você precisa preencher são:
+Os aplicativos Web que conectam usuários usando a plataforma de identidade da Microsoft são configurados por meio de arquivos de configuração. Estes são os valores que você precisa especificar na configuração:
 
 - A instância de nuvem ( `Instance` ) se você quiser que seu aplicativo seja executado em nuvens nacionais, por exemplo
 - O público na ID do locatário ( `TenantId` )
 - A ID do cliente ( `ClientId` ) para seu aplicativo, conforme copiado do portal do Azure
 
-Às vezes, os aplicativos podem ser parametrizadasdos pelo `Authority` , que é uma concatenação do `Instance` e do `TenantId` .
+Você também pode ver referências ao `Authority` . O `Authority` valor é a concatenação dos `Instance` valores e `TenantId` .
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
@@ -132,7 +133,7 @@ No ASP.NET Core, outro arquivo ([properties\launchSettings.jsem](https://github.
 }
 ```
 
-No portal do Azure, os URIs de resposta que você precisa registrar na página de **autenticação** do seu aplicativo precisam corresponder a essas URLs. Para os dois arquivos de configuração anteriores, eles seriam `https://localhost:44321/signin-oidc` . O motivo é que `applicationUrl` é `http://localhost:3110` , mas `sslPort` é especificado (44321). `CallbackPath` é `/signin-oidc` , conforme definido em `appsettings.json` .
+No portal do Azure, os URIs de redirecionamento que você registra na página de **autenticação** para seu aplicativo precisam corresponder a essas URLs. Para os dois arquivos de configuração anteriores, eles seriam `https://localhost:44321/signin-oidc` . O motivo é que `applicationUrl` é `http://localhost:3110` , mas `sslPort` é especificado (44321). `CallbackPath` é `/signin-oidc` , conforme definido em `appsettings.json` .
 
 Da mesma forma, o URI de saída seria definido como `https://localhost:44321/signout-oidc` .
 
@@ -160,7 +161,7 @@ No ASP.NET, o aplicativo é configurado por meio do arquivo de [Web.config](http
   </appSettings>
 ```
 
-No portal do Azure, os URIs de resposta que você precisa registrar na página de **autenticação** do seu aplicativo precisam corresponder a essas URLs. Ou seja, eles devem ser `https://localhost:44326/` .
+No portal do Azure, os URIs de resposta que você registra na página de **autenticação** do seu aplicativo precisam corresponder a essas URLs. Ou seja, eles devem ser `https://localhost:44326/` .
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -174,7 +175,7 @@ aad.redirectUriSignin=http://localhost:8080/msal4jsample/secure/aad
 aad.redirectUriGraph=http://localhost:8080/msal4jsample/graph/me
 ```
 
-No portal do Azure, os URIs de resposta que você precisa registrar na página de **autenticação** do seu aplicativo precisam corresponder às `redirectUri` instâncias que o aplicativo define. Ou seja, eles devem ser `http://localhost:8080/msal4jsample/secure/aad` e `http://localhost:8080/msal4jsample/graph/me` .
+No portal do Azure, os URIs de resposta que você registra na página de **autenticação** do seu aplicativo precisam corresponder às `redirectUri` instâncias que o aplicativo define. Ou seja, eles devem ser `http://localhost:8080/msal4jsample/secure/aad` e `http://localhost:8080/msal4jsample/graph/me` .
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -202,7 +203,7 @@ SESSION_TYPE = "filesystem"  # So the token cache will be stored in a server-sid
 
 ## <a name="initialization-code"></a>Código de inicialização
 
-O código de inicialização é diferente dependendo da plataforma. Para ASP.NET Core e ASP.NET, os usuários de entrada são delegados para o middleware OpenID Connect. O modelo ASP.NET ou ASP.NET Core gera aplicativos Web para o ponto de extremidade do Azure Active Directory (Azure AD) v 1.0. Algumas configurações são necessárias para adaptá-las ao ponto de extremidade da plataforma Microsoft Identity (v 2.0). No caso do Java, ele é tratado pelo Spring com a cooperação do aplicativo.
+O código de inicialização é diferente dependendo da plataforma. Para ASP.NET Core e ASP.NET, os usuários de entrada são delegados para o middleware OpenID Connect. O modelo ASP.NET ou ASP.NET Core gera aplicativos Web para o ponto de extremidade do Azure Active Directory (Azure AD) v 1.0. Algumas configurações são necessárias para adaptá-las à plataforma Microsoft Identity. No caso do Java, ele é tratado pelo Spring com a cooperação do aplicativo.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
@@ -262,7 +263,7 @@ No código acima:
 - O `AddMicrosoftIdentityWebAppAuthentication` método de extensão é definido em **Microsoft. Identity. Web**. Fosse
   - Adiciona o serviço de autenticação.
   - Configura opções para ler o arquivo de configuração (aqui na seção "AzureAD")
-  - Configura as opções do OpenID Connect para que a autoridade seja o ponto de extremidade da plataforma Microsoft Identity.
+  - Configura as opções do OpenID Connect para que a autoridade seja a plataforma de identidade da Microsoft.
   - Valida o emissor do token.
   - Garante que as declarações correspondentes ao nome sejam mapeadas a partir da `preferred_username` declaração no token de ID.
 
@@ -291,7 +292,7 @@ O código relacionado à autenticação em um aplicativo Web ASP.NET e APIs Web 
   app.UseOpenIdConnectAuthentication(
     new OpenIdConnectAuthenticationOptions
     {
-     // `Authority` represents the identity platform endpoint - https://login.microsoftonline.com/common/v2.0.
+     // Authority` represents the identity platform endpoint - https://login.microsoftonline.com/common/v2.0.
      // `Scope` describes the initial permissions that your app will need.
      //  See https://azure.microsoft.com/documentation/articles/active-directory-v2-scopes/.
      ClientId = clientId,
@@ -316,7 +317,7 @@ Para obter detalhes, consulte o `doFilter()` método em [AuthFilter. java](https
 > [!NOTE]
 > O código do `doFilter()` é escrito em uma ordem ligeiramente diferente, mas o fluxo é o descrito.
 
-Para obter detalhes sobre o fluxo de código de autorização que esse método dispara, consulte [plataforma de identidade da Microsoft e fluxo de código de autorização do OAuth 2,0](v2-oauth2-auth-code-flow.md).
+Para obter detalhes sobre o fluxo de código de autorização que esse método dispara, consulte a [plataforma de identidade da Microsoft e o fluxo de código de autorização do OAuth 2,0](v2-oauth2-auth-code-flow.md).
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -344,22 +345,18 @@ No próximo artigo, você aprenderá a disparar o logon e a saída.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-> [!div class="nextstepaction"]
-> [Entrar e sair](./scenario-web-app-sign-user-sign-in.md?tabs=aspnetcore)
+Vá para o próximo artigo neste cenário, [entre e saia](./scenario-web-app-sign-user-sign-in.md?tabs=aspnetcore).
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-> [!div class="nextstepaction"]
-> [Entrar e sair](./scenario-web-app-sign-user-sign-in.md?tabs=aspnet)
+Vá para o próximo artigo neste cenário, [entre e saia](./scenario-web-app-sign-user-sign-in.md?tabs=aspnet).
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Entrar e sair](./scenario-web-app-sign-user-sign-in.md?tabs=java)
+Vá para o próximo artigo neste cenário, [entre e saia](./scenario-web-app-sign-user-sign-in.md?tabs=java).
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Entrar e sair](./scenario-web-app-sign-user-sign-in.md?tabs=python)
+Vá para o próximo artigo neste cenário, [entre e saia](./scenario-web-app-sign-user-sign-in.md?tabs=python).
 
 ---

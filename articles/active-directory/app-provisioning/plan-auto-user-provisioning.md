@@ -3,20 +3,20 @@ title: Planejar uma implantação de provisionamento de usuário automático par
 description: Diretrizes para planejar e executar o provisionamento automático de usuário
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/17/2019
+ms.date: 12/31/2020
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 010e2a206ef08677651572c274cfc38fd516ecc9
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: d36bcbd64c1169c923c6a1decdf907a8a9d6697b
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041120"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255756"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planejar uma implantação de provisionamento do usuário automática
 
@@ -34,15 +34,15 @@ O provisionamento de usuário cria uma base para o controle de identidade contí
 
 Os principais benefícios de habilitar o provisionamento automático de usuário são:
 
-* **Maior produtividade** . Você pode gerenciar identidades de usuário em aplicativos SaaS com uma única interface de gerenciamento de provisionamento de usuário. Essa interface tem um único conjunto de políticas de provisionamento.
+* **Maior produtividade**. Você pode gerenciar identidades de usuário em aplicativos SaaS com uma única interface de gerenciamento de provisionamento de usuário. Essa interface tem um único conjunto de políticas de provisionamento.
 
-* **Gerencie riscos** . Você pode aumentar a segurança automatizando as alterações com base no status do funcionário ou em associações de grupo que definem funções e/ou acesso.
+* **Gerencie riscos**. Você pode aumentar a segurança automatizando as alterações com base no status do funcionário ou em associações de grupo que definem funções e/ou acesso.
 
-* **Resolva a conformidade e a governança** . O Azure AD dá suporte a logs de auditoria nativos para cada solicitação de provisionamento de usuário. As solicitações são executadas nos sistemas de origem e de destino. Isso permite que você controle quem tem acesso a aplicativos de uma única tela.
+* **Resolva a conformidade e a governança**. O Azure AD dá suporte a logs de auditoria nativos para cada solicitação de provisionamento de usuário. As solicitações são executadas nos sistemas de origem e de destino. Isso permite que você controle quem tem acesso a aplicativos de uma única tela.
 
-* **Reduza o custo** . O provisionamento automático de usuário reduz os custos, evitando ineficiências e erros humanos associados ao provisionamento manual. Ele reduz a necessidade de soluções de provisionamento de usuário, scripts e logs de auditoria desenvolvidos de fato personalizado.
+* **Reduza o custo**. O provisionamento automático de usuário reduz os custos, evitando ineficiências e erros humanos associados ao provisionamento manual. Ele reduz a necessidade de soluções de provisionamento de usuário, scripts e logs de auditoria desenvolvidos de fato personalizado.
 
-### <a name="licensing"></a>Licenças
+### <a name="licensing"></a>Licenciamento
 
 O Azure AD fornece integração de autoatendimento de qualquer aplicativo usando modelos fornecidos no menu da Galeria de aplicativos. Para obter uma lista completa dos requisitos de licença, consulte a [página de licenciamento do Azure ad](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -83,7 +83,7 @@ O serviço de provisionamento do Azure AD provisiona usuários para aplicativos 
 
 Neste exemplo, os usuários e grupos são criados em um banco de dados de RH conectado a um diretório local. O serviço de provisionamento do Azure AD gerencia o provisionamento automático de usuário para os aplicativos SaaS de destino.
 
- ![provisionamento do usuário](./media/plan-auto-user-provisioning/hybridprovisioning.png)
+ ![provisionamento de usuário](./media/plan-auto-user-provisioning/hybridprovisioning.png)
 
 **Descrição do fluxo de trabalho:**
 
@@ -157,7 +157,7 @@ As etapas reais necessárias para habilitar e configurar o provisionamento autom
 
 Caso contrário, siga as etapas abaixo:
 
-1. [Crie uma solicitação](../azuread-dev/howto-app-gallery-listing.md) para um conector de provisionamento de usuário previamente integrado. Nossa equipe trabalhará com você e o desenvolvedor de aplicativos para integrar seu aplicativo à nossa plataforma se ele der suporte a SCIM.
+1. [Crie uma solicitação](../develop/v2-howto-app-gallery-listing.md) para um conector de provisionamento de usuário previamente integrado. Nossa equipe trabalhará com você e o desenvolvedor de aplicativos para integrar seu aplicativo à nossa plataforma se ele der suporte a SCIM.
 
 1. Use o suporte de provisionamento de usuário genérico [BYOA scim](../app-provisioning/use-scim-to-provision-users-and-groups.md) para o aplicativo. Esse é um requisito para o Azure AD provisionar usuários para o aplicativo sem um conector de provisionamento previamente integrado.
 
@@ -300,11 +300,11 @@ Consulte os links a seguir para solucionar quaisquer problemas que possam ser re
 
 * [Sincronizar um atributo do seu Active Directory local com o Azure AD para provisionamento para um aplicativo](../app-provisioning/user-provisioning-sync-attributes-for-mapping.md)
 
-* [Problema para salvar as credenciais de administrador ao configurar o provisionamento do usuário para um aplicativo de galeria do Azure Active Directory](../app-provisioning/application-provisioning-config-problem-storage-limit.md)
+* [Problema para salvar as credenciais de administrador ao configurar o provisionamento do usuário para um aplicativo de galeria do Azure Active Directory](./user-provisioning.md)
 
 * [Nenhum usuário está sendo provisionado para um aplicativo de galeria do Azure AD](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md)
 
-* [O conjunto errado de usuários está sendo provisionado para um aplicativo da Galeria do Azure AD](../app-provisioning/application-provisioning-config-problem-wrong-users-provisioned.md)
+* [O conjunto errado de usuários está sendo provisionado para um aplicativo da Galeria do Azure AD](../manage-apps/add-application-portal-assign-users.md)
 
 ### <a name="helpful-documentation"></a>Documentação útil
 
@@ -322,7 +322,7 @@ Consulte os links a seguir para solucionar quaisquer problemas que possam ser re
 
 * [Mantenha-se atualizado sobre as novidades do Azure AD](https://azure.microsoft.com/updates/?product=active-directory)
 
-* [Fórum do Azure AD com estouro de pilha](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Microsoft Q&um fórum do Azure AD](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Configurar o provisionamento automático de usuário](../app-provisioning/configure-automatic-user-provisioning-portal.md)

@@ -5,14 +5,19 @@ author: georgewallace
 ms.author: gwallace
 ms.date: 11/08/2018
 ms.topic: conceptual
-ms.openlocfilehash: a995f30872216a8b704d3d1714bbece4bb8271f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9c5053a2a49c942cc89bd50c65e13f3a2f8d9d7
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840057"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625865"
 ---
 # <a name="containerize-an-existing-net-app-for-service-fabric-mesh"></a>Colocar um aplicativo .NET existente em um contêiner da Malha do Service Fabric
+
+> [!IMPORTANT]
+> A visualização da malha de Service Fabric do Azure foi desativada. Novas implantações não serão mais permitidas por meio da API de malha Service Fabric. O suporte para implantações existentes continuará até 28 de abril de 2021.
+> 
+> Para obter detalhes, consulte desativação da [Visualização da malha de Service Fabric do Azure](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Este artigo mostra como adicionar suporte à orquestração do contêiner da Malha do Service Fabric para um aplicativo .NET existente.
 
@@ -51,6 +56,12 @@ A caixa de diálogo **Adicionar Suporte ao Orquestrador de Contêineres** é exi
 ![Caixa de diálogo adicionar orquestrador de contêineres do Visual Studio](./media/service-fabric-mesh-howto-containerize-vs/add-container-orchestration-support.png)
 
 Escolha **Malha do Service Fabric** na lista suspensa e, em seguida, clique em **OK**.
+
+
+>[!NOTE]
+> Desde 2 de novembro de 2020, [limites de taxa de download se aplicam](https://docs.docker.com/docker-hub/download-rate-limit/) a solicitações anônimas e autenticadas para o Docker Hub de contas do plano gratuito do Docker e são impostas por endereço IP. Para obter mais detalhes, confira [Autenticar-se com o Docker Hub](../container-registry/buffer-gate-public-content.md#authenticate-with-docker-hub).
+>
+> Para evitar a taxa limitada, certifique-se de que o padrão `FROM microsoft/aspnet:4.7.2-windowsservercore-1803 AS base` em seu Dockerfile seja substituído por `FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-1803 AS base`
 
 Em seguida, a ferramenta verifica se o Docker está instalado, adiciona um Dockerfile ao projeto e desce uma imagem do docker para seu projeto.  
 Um projeto de aplicativo da Malha do Service Fabric é adicionado à sua solução. Ele contém os arquivos de configuração e perfis de publicação da Malha. O nome do projeto é o mesmo que o nome do seu projeto, com 'Aplicativo' concatenado ao final, por exemplo, **eShopLegacyWebFormsApplication**. 

@@ -1,21 +1,24 @@
 ---
-title: Lista de URL segura para área de trabalho virtual do Windows-Azure
+title: Lista de URL necessária para área de trabalho virtual do Windows-Azure
 description: Uma lista de URLs que você deve desbloquear para garantir que sua implantação de área de trabalho virtual do Windows funcione conforme o esperado.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 12/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 90db861a4ef4fc951844d3ae82a51d20cf9dc8c5
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 872a67d8d9f41c0c809df54304352b2a5f58e011
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875097"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251753"
 ---
-# <a name="safe-url-list"></a>Lista de URL segura
+# <a name="required-url-list"></a>Lista de URLs necessárias
 
-Você precisará desbloquear determinadas URLs para que sua implantação de desktop virtual do Windows funcione corretamente. Este artigo lista essas URLs para que você saiba quais são seguras.
+Para implantar e usar a área de trabalho virtual do Windows, você deve desbloquear determinadas URLs para que suas VMs (máquinas virtuais) possam acessá-las a qualquer momento. Este artigo lista as URLs necessárias que você precisa desbloquear para que a área de trabalho virtual do Windows funcione corretamente. 
+
+>[!IMPORTANT]
+>A área de trabalho virtual do Windows não dá suporte a implantações que bloqueiam as URLs listadas neste artigo.
 
 ## <a name="virtual-machines"></a>Máquinas virtuais
 
@@ -29,12 +32,13 @@ As máquinas virtuais do Azure que você cria para a área de trabalho virtual d
 |* xt.blob.core.windows.net|443|Tráfego de agente|AzureCloud|
 |* eh.servicebus.windows.net|443|Tráfego de agente|AzureCloud|
 |* xt.table.core.windows.net|443|Tráfego de agente|AzureCloud|
+|* xt.queue.core.windows.net|443|Tráfego de agente|AzureCloud|
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Ativação do Windows|Internet|
 |mrsglobalsteus2prod.blob.core.windows.net|443|Atualizações do agente e da pilha de SXS|AzureCloud|
 |wvdportalstorageblob.blob.core.windows.net|443|Suporte do portal do Azure|AzureCloud|
 | 169.254.169.254 | 80 | [Ponto de extremidade do serviço de metadados de instância do Azure](../virtual-machines/windows/instance-metadata-service.md) | N/D |
-| 168.63.129.16 | 80 | [Monitoramento de integridade do host de sessão](../virtual-network/security-overview.md#azure-platform-considerations) | N/D |
+| 168.63.129.16 | 80 | [Monitoramento de integridade do host de sessão](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/D |
 
 >[!IMPORTANT]
 >Agora, a Área de Trabalho Virtual do Windows dá suporte à marca FQDN. Para obter mais informações, confira [Usar o Firewall do Azure para proteger implantações da Área de Trabalho Virtual do Windows](../firewall/protect-windows-virtual-desktop.md).
@@ -53,10 +57,10 @@ As máquinas virtuais do Azure que você cria para a área de trabalho virtual d
 |*.servicebus.usgovcloudapi.net|443|Tráfego de agente|AzureCloud|
 |* xt.table.core.usgovcloudapi.net|443|Tráfego de agente|AzureCloud|
 |Kms.core.usgovcloudapi.net|1688|Ativação do Windows|Internet|
-|mrsglobalstugviffx.core.usgovcloudapi.net|443|Atualizações do agente e da pilha de SXS|AzureCloud|
+|mrsglobalstugviffx.blob.core.usgovcloudapi.net|443|Atualizações do agente e da pilha de SXS|AzureCloud|
 |wvdportalstorageblob.blob.core.usgovcloudapi.net|443|Suporte do portal do Azure|AzureCloud|
 | 169.254.169.254 | 80 | [Ponto de extremidade do serviço de metadados de instância do Azure](../virtual-machines/windows/instance-metadata-service.md) | N/D |
-| 168.63.129.16 | 80 | [Monitoramento de integridade do host de sessão](../virtual-network/security-overview.md#azure-platform-considerations) | N/D |
+| 168.63.129.16 | 80 | [Monitoramento de integridade do host de sessão](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/D |
 
 A seguinte tabela lista as URLs opcionais às quais suas máquinas virtuais do Azure podem ter acesso:
 
@@ -69,9 +73,13 @@ A seguinte tabela lista as URLs opcionais às quais suas máquinas virtuais do A
 |login.windows.net|443|Entrar nos Serviços Online da Microsoft, Microsoft 365|login.microsoftonline.us|
 |*.sfx.ms|443|Atualizações do software cliente do OneDrive|oneclient.sfx.ms|
 |*.digicert.com|443|Verificação de revogação do certificado|Nenhum|
+|*. azure-dns.com|443|Resolução de DNS do Azure|Nenhum|
+|*. azure-dns.net|443|Resolução de DNS do Azure|Nenhum|
 
 >[!NOTE]
 >A área de trabalho virtual do Windows atualmente não tem uma lista de intervalos de endereços IP que você pode desbloquear para permitir o tráfego de rede. Há suporte apenas para desbloquear URLs específicas no momento.
+>
+>Se estiver usando um firewall de última geração (NGFW), você precisará usar uma lista dinâmica feita especificamente para os IPs do Azure para garantir que você possa se conectar.
 >
 >Para obter uma lista de URLs seguras relacionadas ao Office, incluindo URLs necessárias relacionadas ao Azure Active Directory, consulte [URLs e intervalos de endereços IP do office 365](/office365/enterprise/urls-and-ip-address-ranges).
 >

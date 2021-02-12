@@ -5,18 +5,19 @@ author: MSSedusch
 manager: juergent
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: ea53eda3863ea5164142fa0d37fff7be365a4d5c
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: bd45b0e1070efae7ae69a74ad96e1fa94a136006
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92894093"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96019388"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planejamento e implementação de Máquinas Virtuais do Azure para SAP NetWeaver
 
@@ -339,7 +340,7 @@ No decorrer do documento, usamos os termos a seguir:
 * Estrutura do SAP: Este termo refere-se à totalidade dos ativos SAP na estrutura de TI de um cliente. A estrutura da SAP inclui todos os ambientes de produção e de não produção.
 * ID do sistema SAP: A combinação de camada DBMS e camada de aplicativo de, por exemplo, um sistema de desenvolvimento SAP ERP, sistema de teste SAP BW, sistema de produção SAP CRM etc. Em implantações do Azure não há suporte para dividir essas duas camadas entre local e Azure. Isso significa que um sistema SAP é implantado localmente ou no Azure. No entanto, você pode implantar os diferentes sistemas de uma estrutura da SAP no Azure ou localmente. Por exemplo, você poderia implantar os sistemas de desenvolvimento e teste SAP CRM no Azure, mas o sistema de produção CRM SAP localmente.
 * Entre instalações ou híbrida: Descreve um cenário em que as VMs são implantadas em uma assinatura do Azure com conectividade site a site, multissite ou de ExpressRoute entre os datacenters locais e o Azure. Na documentação comum do Azure, esses tipos de implantações também são descritas como cenários híbridos ou entre instalações. O motivo para a conexão é estender domínios locais, Active Directory/OpenLDAP local e DNS local para o Azure. A estrutura local é estendida para os ativos do Azure da assinatura. Com esta extensão, as VMs podem ser parte do domínio local. Usuários de domínio do domínio local podem acessar os servidores e podem executar serviços nessas VMs (como serviços DBMS). A comunicação e resolução de nomes entre máquinas virtuais implantadas localmente e VMs implantadas no Azure são possíveis. Esse é o caso mais comum e quase exclusivo de implantação de ativos SAP no Azure. Para obter mais informações, confira [este][vpn-gateway-cross-premises-options] artigo e [este][vpn-gateway-site-to-site-create].
-* Extensão de Monitoramento do Azure, Monitoramento Avançado e Extensão para SAP do Azure: descreve o mesmo item. Trata-se de uma extensão de VM que precisa ser implantada por você para fornecer alguns dados básicos sobre a infraestrutura do Azure ao Agente de Host do SAP. As Notas do SAP podem se referir a isso como Extensão de Monitoramento ou Monitoramento Avançado. No Azure, nós nos referimos a isso como **Extensão para SAP do Azure** .
+* Extensão de Monitoramento do Azure, Monitoramento Avançado e Extensão para SAP do Azure: descreve o mesmo item. Trata-se de uma extensão de VM que precisa ser implantada por você para fornecer alguns dados básicos sobre a infraestrutura do Azure ao Agente de Host do SAP. As Notas do SAP podem se referir a isso como Extensão de Monitoramento ou Monitoramento Avançado. No Azure, nós nos referimos a isso como **Extensão para SAP do Azure**.
 
 > [!NOTE]
 > Implantações entre instalações ou híbridas de sistemas SAP em que máquinas virtuais do Azure que executam sistemas SAP são membros de um domínio local têm suporte para sistemas SAP de produção. Configurações entre locais ou híbridas têm suporte para a implantação de partes ou estruturas da SAP completas no Azure. Até mesmo a execução da estrutura da SAP completa no Azure requer que essas VMs sejam parte do domínio local e ADS/OpenLDAP.
@@ -494,7 +495,7 @@ Para obter mais informações sobre preços de spot, leia o artigo [Máquinas vi
 Além disso, o Azure oferece o conceito de host dedicado. Esse conceito proporciona mais controle sobre os ciclos de aplicação de patches feitos pelo Azure. Você pode cronometrar a aplicação de patch de acordo com sua programação. Essa oferta destina-se especificamente a clientes com uma carga de trabalho que pode não seguir o ciclo normal de cargas de trabalho. Para saber sobre os conceitos de ofertas de hosts dedicados do Azure, leia o artigo [Host Dedicado do Azure](../../dedicated-hosts.md). O uso dessa oferta tem suporte na carga de trabalho do SAP e é empregado por vários clientes do SAP que desejam ter mais controle sobre a aplicação de patches de infraestrutura e eventuais planos de manutenção da Microsoft. Para obter mais informações sobre como a Microsoft mantém e corrige a infraestrutura do Azure que hospeda máquinas virtuais, leia o artigo [Manutenção para máquinas virtuais no Azure](../../maintenance-and-updates.md).
 
 #### <a name="generation-1-and-generation-2-virtual-machines"></a>Máquinas virtuais de Geração 1 e de Geração 2.
-O hipervisor da Microsoft é capaz de lidar com duas gerações diferentes de máquinas virtuais. Esses formatos são chamados **Geração 1** e **Geração 2** . A **Geração 2** foi introduzida no ano de 2012 com o hipervisor do Windows Server 2012. O Azure começou a usar máquinas virtuais de Geração 1. À medida que você implanta máquinas virtuais do Azure, o padrão ainda é usar o formato de Geração 1. Enquanto isso, você também pode implantar formatos de VM de Geração 2. O artigo [Suporte para VMs de Geração 2 no Azure](../../generation-2.md) lista as famílias de VM do Azure que podem ser implantadas como VM de Geração 2. Este artigo também lista as diferenças funcionais importantes das máquinas virtuais de geração 2, pois elas podem ser executadas na nuvem privada do Hyper-V e no Azure. E o mais importante: este artigo também lista as diferenças funcionais entre máquinas virtuais de Geração 1 e VMs de Geração 2, já que elas são executadas no Azure.
+O hipervisor da Microsoft é capaz de lidar com duas gerações diferentes de máquinas virtuais. Esses formatos são chamados **Geração 1** e **Geração 2**. A **Geração 2** foi introduzida no ano de 2012 com o hipervisor do Windows Server 2012. O Azure começou a usar máquinas virtuais de Geração 1. À medida que você implanta máquinas virtuais do Azure, o padrão ainda é usar o formato de Geração 1. Enquanto isso, você também pode implantar formatos de VM de Geração 2. O artigo [Suporte para VMs de Geração 2 no Azure](../../generation-2.md) lista as famílias de VM do Azure que podem ser implantadas como VM de Geração 2. Este artigo também lista as diferenças funcionais importantes das máquinas virtuais de geração 2, pois elas podem ser executadas na nuvem privada do Hyper-V e no Azure. E o mais importante: este artigo também lista as diferenças funcionais entre máquinas virtuais de Geração 1 e VMs de Geração 2, já que elas são executadas no Azure.
 
 > [!NOTE]
 > Há diferenças funcionais de VMs de Geração 1 e Geração 2 em execução no Azure. Leia o artigo [Suporte para VMs de Geração 2 no Azure](../../generation-2.md) para ver uma lista dessas diferenças.
@@ -856,7 +857,7 @@ Se a VM estiver suficientemente preparada para ser genérica e eventualmente ind
 ---
 > ![Logotipo do Windows.][Logo_Windows] Windows
 >
-> A última etapa é entrar em uma VM com uma conta de administrador. Abra uma janela de comando do Windows como *administrador* . Vá para %windir%\windows\system32\sysprep e execute sysprep.exe.
+> A última etapa é entrar em uma VM com uma conta de administrador. Abra uma janela de comando do Windows como *administrador*. Vá para %windir%\windows\system32\sysprep e execute sysprep.exe.
 > Uma janela pequena será exibida. É importante marcar a opção **Generalizar** (o padrão é desmarcado) e alterar a Opção de Desligamento do seu padrão de 'Reinicializar' para 'Desligar'. Este procedimento pressupõe que o processo sysprep seja executado localmente no SO convidado de uma VM.
 > Se desejar executar o procedimento com uma VM já em execução no Azure, siga as etapas descritas [neste artigo](../../windows/capture-image-resource.md).
 >
@@ -1178,7 +1179,7 @@ Para obter mais sugestões e detalhes, especificamente para VMs de DBMS, confira
 
 Na maioria dos cenários, você precisa criar discos adicionais para implantar o banco de dados SAP na VM. Falamos sobre as considerações de número de discos no capítulo [Estrutura de VM/disco para implantações SAP][planning-guide-5.5.1] deste documento. O Portal do Azure permite anexar e desanexar discos depois que uma VM base é implantada. Os discos podem ser anexados/desanexados quando a VM está instalada e em execução, bem como quando ela é interrompida. Ao anexar um disco, o portal do Azure oferece a possibilidade de anexar um disco vazio ou um disco existente que nesse momento não está anexado a outra VM.
 
-**Observação** : Discos só podem ser anexados a uma única VM em um determinado momento.
+**Observação**: Discos só podem ser anexados a uma única VM em um determinado momento.
 
 ![Anexar/desanexar discos do Armazenamento Standard do Azure][planning-guide-figure-1400]
 
@@ -1186,7 +1187,7 @@ Durante a implantação de uma nova máquina virtual, você pode decidir se dese
 
 Você precisa decidir se deseja criar um disco novo e vazio ou se você deseja selecionar um disco existente que foi carregado anteriormente e deve ser anexado à VM agora.
 
-**IMPORTANTE** : você **NÃO** deseja usar o Cache de Host com o Armazenamento Standard do Azure. Você deve deixar a preferência de Cache de Host no padrão de NENHUM. Com o Armazenamento Premium do Azure, você deverá habilitar o Cache de Leitura se a característica de E/S for lida principalmente como tráfego típico de E/S em relação os arquivos de dados do banco de dados. No caso do arquivo de log de transações do banco de dados, é recomendado usar a opção sem cache.
+**IMPORTANTE**: você **NÃO** deseja usar o Cache de Host com o Armazenamento Standard do Azure. Você deve deixar a preferência de Cache de Host no padrão de NENHUM. Com o Armazenamento Premium do Azure, você deverá habilitar o Cache de Leitura se a característica de E/S for lida principalmente como tráfego típico de E/S em relação os arquivos de dados do banco de dados. No caso do arquivo de log de transações do banco de dados, é recomendado usar a opção sem cache.
 
 ---
 > ![Logotipo do Windows.][Logo_Windows] Windows
@@ -1269,9 +1270,9 @@ Pode ser necessário configurar o firewall em suas máquinas virtuais para permi
 > Por padrão, o Firewall do Windows em uma VM implantada no Azure é ativado. Agora você precisa permitir que a porta SAP seja aberta, caso contrário a GUI da SAP não poderá se conectar.
 > Para fazer isso:
 >
-> * Abra Painel de Controle\Sistema e Segurança \Firewall do Windows em **Configurações Avançadas** .
-> * Agora, clique com o botão direito do mouse em Regras de Entrada e escolha **Nova Regra** .
-> * No Assistente que aparece a seguir, escolha criar uma nova regra de **Porta** .
+> * Abra Painel de Controle\Sistema e Segurança \Firewall do Windows em **Configurações Avançadas**.
+> * Agora, clique com o botão direito do mouse em Regras de Entrada e escolha **Nova Regra**.
+> * No Assistente que aparece a seguir, escolha criar uma nova regra de **Porta**.
 > * Na próxima etapa do assistente, deixe a configuração como TCP e digite o número da porta que deseja abrir. Como a ID da nossa instância SAP é 00, usamos 3200. Se a instância tiver um número de instância diferente, a porta que você definiu anteriormente com base no número da instância deverá ser aberta.
 > * Na próxima parte do assistente, você deve deixar o item **Permitir Conexão** marcado.
 > * Na próxima etapa do assistente, você deve definir se a regra se aplica à rede de Domínio, Privada e Público. Ajuste-o se necessário às suas necessidades. Entretanto, ao conectar-se com a GUI da SAP do exterior pela rede pública, é necessário ter a regra aplicada à rede pública.
@@ -1776,8 +1777,8 @@ O Termo **alta disponibilidade (HA)** geralmente está relacionado a um conjunto
 
 É possível separar a discussão sobre a alta disponibilidade da SAP no Azure em duas partes:
 
-* **Alta disponibilidade da infraestrutura do Azure** , por exemplo, alta disponibilidade de computação (VMs), rede, armazenamento etc., e seus benefícios para aumentar a disponibilidade do aplicativo SAP.
-* **Alta disponibilidade de aplicativos SAP** , por exemplo, alta disponibilidade de componentes de software SAP:
+* **Alta disponibilidade da infraestrutura do Azure**, por exemplo, alta disponibilidade de computação (VMs), rede, armazenamento etc., e seus benefícios para aumentar a disponibilidade do aplicativo SAP.
+* **Alta disponibilidade de aplicativos SAP**, por exemplo, alta disponibilidade de componentes de software SAP:
   * Servidores de aplicativos SAP
   * Instância ASCS/SCS SAP
   * servidor do BD
@@ -1950,7 +1951,7 @@ O backup offline basicamente exigiria um desligamento da VM por meio do Portal d
 
 
 Uma restauração de estado consiste em excluir a VM base, bem como os discos originais da VM base e os discos montados, copiando os discos salvos de volta à Conta de Armazenamento original ou grupo de recursos para managed disks e, em seguida, reimplantando o sistema.
-Este artigo mostra um exemplo de como criar um script desse processo no PowerShell: <http://www.westerndevs.com/azure-snapshots/>
+Este artigo mostra um exemplo de como criar um script desse processo no PowerShell: <https://www.westerndevs.com/_/azure-snapshots/>
 
 Certifique-se de instalar uma nova licença do SAP, pois a restauração de um backup de VM, conforme descrito acima, cria uma nova chave de hardware.
 

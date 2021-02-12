@@ -12,11 +12,11 @@ ms.date: 10/15/2020
 ms.author: erhopf
 ms.custom: devx-track-js
 ms.openlocfilehash: 79320144264766a504a71c554c2a138779c55331
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097126"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188140"
 ---
 Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para JavaScript para uso com o NodeJS. Se você quiser apenas o nome do pacote para começar por conta própria, execute `npm install microsoft-cognitiveservices-speech-sdk` de seu projeto existente.
 

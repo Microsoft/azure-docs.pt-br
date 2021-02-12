@@ -1,19 +1,19 @@
 ---
 title: 'Início Rápido: Criar um servidor – Azure PowerShell – Banco de Dados do Azure para MariaDB'
 description: Este início rápido descreve como usar o PowerShell para criar um servidor do Banco de Dados do Azure para MariaDB em um grupo de recursos do Azure.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 05/26/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 7db89d315e0df51aad7f4660ec5da64425eae2aa
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 91472d3f3cb39d34f560715f511f666079b1d1c0
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424442"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664657"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-using-powershell"></a>Início Rápido: Criar um servidor do Banco de Dados do Azure para MariaDB usando o PowerShell
 
@@ -29,7 +29,7 @@ Se você optar por usar o PowerShell localmente, este artigo exigirá que você 
 > Embora o módulo Az.MariaDb do PowerShell esteja em versão prévia, você precisará instalá-lo separadamente por meio do módulo do Az PowerShell usando o seguinte comando: `Install-Module -Name Az.MariaDb -AllowPrerelease`.
 > Depois que o módulo Az.MariaDb do PowerShell estiver em disponibilidade geral, ele passará a fazer parte das versões futuras do módulo do Az PowerShell e ficará disponível nativamente no Azure Cloud Shell.
 
-Se esta for a primeira vez que você usa o serviço Banco de Dados do Azure para MariaDB, registre o provedor de recursos **Microsoft.DBforMariaDB** .
+Se esta for a primeira vez que você usa o serviço Banco de Dados do Azure para MariaDB, registre o provedor de recursos **Microsoft.DBforMariaDB**.
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.DBforMariaDB
@@ -47,7 +47,7 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 Crie um [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) usando o cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados como um grupo.
 
-O seguinte exemplo cria um grupo de recursos chamado **myresourcegroup** na região **Oeste dos EUA** .
+O seguinte exemplo cria um grupo de recursos chamado **myresourcegroup** na região **Oeste dos EUA**.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myresourcegroup -Location westus
@@ -70,10 +70,10 @@ A tabela a seguir contém uma lista de parâmetros usados com frequência e valo
 | SslEnforcement             | habilitado          | Se o SSL deve ser habilitado para este servidor. Valores permitidos: Habilitado, Desabilitado.                                                                                                                                                                                                                                                 |
 | StorageInMb                | 51200            | A capacidade de armazenamento do servidor (a unidade é megabytes). O StorageInMb válido é um mínimo de 5120 MB e aumenta em incrementos de 1024 MB. Para obter mais informações sobre limites de tamanho do armazenamento, confira [Tipos de preço do Banco de Dados do Azure para MariaDB](./concepts-pricing-tiers.md).                                                                               |
 | Versão                    | 5.7              | A versão principal do MariaDB.                                                                                                                                                                                                                                                                                                                 |
-| AdministratorUserName      | myadmin          | O nome de usuário para o logon de administrador. Não pode ser **azure_superuser** , **admin** , **administrator** , **root** , **guest** nem **public** .                                                                                                                                                                                            |
+| AdministratorUserName      | myadmin          | O nome de usuário para o logon de administrador. Não pode ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** nem **public**.                                                                                                                                                                                            |
 | AdministratorLoginPassword | `<securestring>` | A senha do usuário administrador na forma de uma cadeia de caracteres segura. Ele deve conter entre 8 e 128 caracteres. A senha precisa conter caracteres de três das seguintes categorias: Letras maiúsculas, letras minúsculas, números e caracteres não alfanuméricos.                                       |
 
-O valor do parâmetro **SKU** segue a convenção **pricing-tier\_compute-generation\_vCores** , conforme mostrado nestes exemplos.
+O valor do parâmetro **SKU** segue a convenção **pricing-tier\_compute-generation\_vCores**, conforme mostrado nestes exemplos.
 
 - `-Sku B_Gen5_1` é mapeado para Básico, Gen 5 e 1 vCore. Essa opção é o menor SKU disponível.
 - `-Sku GP_Gen5_32` mapeia para Uso Geral, Gen 5 e 32 vCores.
@@ -81,7 +81,7 @@ O valor do parâmetro **SKU** segue a convenção **pricing-tier\_compute-genera
 
 Para obter informações sobre valores de **SKU** válidos por região e para camadas, confira [Tipos de preço do Banco de Dados do Azure para MariaDB](./concepts-pricing-tiers.md).
 
-O exemplo a seguir cria um servidor do MariaDB na região **Oeste dos EUA** chamado **mydemoserver** no grupo de recursos **myresourcegroup** com o logon de administrador do servidor **myadmin** . É um servidor Gen 5 no tipo de preço de uso geral com dois vCores e backups com redundância geográfica habilitados. Documente a senha usada na primeira linha do exemplo, pois essa é a senha da conta do administrador do servidor do MariaDB.
+O exemplo a seguir cria um servidor do MariaDB na região **Oeste dos EUA** chamado **mydemoserver** no grupo de recursos **myresourcegroup** com o logon de administrador do servidor **myadmin**. É um servidor Gen 5 no tipo de preço de uso geral com dois vCores e backups com redundância geográfica habilitados. Documente a senha usada na primeira linha do exemplo, pois essa é a senha da conta do administrador do servidor do MariaDB.
 
 > [!TIP]
 > Um nome de servidor mapeia para um nome DNS e deve ser globalmente exclusivo no Azure.
@@ -100,7 +100,7 @@ Considere usar o tipo de preço Básico se computação leve e E/S forem adequad
 
 Crie uma regra de firewall no nível do servidor do Banco de Dados do Azure para MariaDB usando o cmdlet `New-AzMariaDbFirewallRule`. Uma regra de firewall no nível do servidor permite que um aplicativo externo, como a ferramenta de linha de comando `mysql` ou o MariaDB Workbench, conecte-se ao servidor por meio do firewall do serviço Banco de Dados do Azure para MariaDB.
 
-O exemplo a seguir cria uma regra de firewall chamada **AllowMyIP** , que permite conexões de um endereço IP específico, 192.168.0.1. Substitua um endereço IP ou um intervalo de endereços IP que correspondam à localização da qual você está se conectando.
+O exemplo a seguir cria uma regra de firewall chamada **AllowMyIP**, que permite conexões de um endereço IP específico, 192.168.0.1. Substitua um endereço IP ou um intervalo de endereços IP que correspondam à localização da qual você está se conectando.
 
 ```azurepowershell-interactive
 New-AzMariaDbFirewallRule -Name AllowMyIP -ResourceGroupName myresourcegroup -ServerName mydemoserver -StartIPAddress 192.168.0.1 -EndIPAddress 192.168.0.1
@@ -124,7 +124,7 @@ Update-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup -Ss
 
 ## <a name="get-the-connection-information"></a>Obter informações de conexão
 
-Para se conectar ao servidor, é preciso fornecer credenciais de acesso e informações do host. Use o exemplo a seguir para determinar as informações de conexão. Anote os valores de **FullyQualifiedDomainName** e o **AdministratorLogin** .
+Para se conectar ao servidor, é preciso fornecer credenciais de acesso e informações do host. Use o exemplo a seguir para determinar as informações de conexão. Anote os valores de **FullyQualifiedDomainName** e o **AdministratorLogin**.
 
 ```azurepowershell-interactive
 Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |
@@ -201,7 +201,7 @@ Para saber mais sobre outros comandos, veja [Manual de Referência do MySQL 5.7 
 
 1. Inicie o aplicativo MySQL Workbench no computador cliente. Para baixar e instalar o MySQL Workbench, confira [Baixar MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
 
-1. Na caixa de diálogo **Configurar Nova Conexão** , insira as seguintes informações na guia **Parâmetros** :
+1. Na caixa de diálogo **Configurar Nova Conexão**, insira as seguintes informações na guia **Parâmetros**:
 
    ![configurar nova conexão](./media/quickstart-create-mariadb-server-database-using-azure-powershell/setup-new-connection.png)
 
@@ -214,7 +214,7 @@ Para saber mais sobre outros comandos, veja [Manual de Referência do MySQL 5.7 
     | Nome de Usuário          | myadmin@mydemoserver                      | O logon de administrador do servidor que você anotou anteriormente                |
     | Senha          | *************                             | Use a senha de conta do administrador que você configurou anteriormente      |
 
-1. Para testar se os parâmetros estão configurados corretamente, clique no botão **Testar Conexão** .
+1. Para testar se os parâmetros estão configurados corretamente, clique no botão **Testar Conexão**.
 
 1. Selecione a conexão para se conectar ao servidor.
 

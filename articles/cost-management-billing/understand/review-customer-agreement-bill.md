@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 12/02/2020
 ms.author: banders
-ms.openlocfilehash: 619dec1b2246b7e74b058e570df4021888196b0c
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: b5de81f5eaf76c16c1ea8fc78075c4567c77aeee
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447541"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531965"
 ---
 # <a name="tutorial-review-your-microsoft-customer-agreement-invoice"></a>Tutorial: Examinar sua fatura do Contrato de Cliente da Microsoft
 
@@ -54,6 +54,8 @@ Caso você tenha acesso a apenas um escopo do orçamento, selecione **Propriedad
 ![Captura de tela mostrando o Contrato de Cliente da Microsoft na página de propriedades](./media/review-customer-agreement-bill/billing-mca-property.png)
 
 Caso tenha acesso a vários escopos do orçamento, verifique o tipo na coluna da conta de cobrança. Você tem acesso a uma conta de cobrança para um Contrato de Cliente da Microsoft se o tipo de conta de cobrança para um dos escopos é **Contrato de Cliente da Microsoft**.
+
+Na página de escopos do orçamento, selecione **Escopos do orçamento** e a conta de cobrança, que será usada no pagamento do uso das assinaturas. A conta de cobrança deve ser do tipo **Contrato de Cliente da Microsoft**.
 
 ![Captura de tela mostrando o Contrato de Cliente da Microsoft na página de lista de contas de cobrança](./media/review-customer-agreement-bill/billing-mca-in-the-list.png)
 
@@ -146,7 +148,7 @@ Use o arquivo CSV de uso e encargos do Azure para analisar os encargos com base 
 
 ### <a name="download-your-invoice-and-usage-details"></a>Baixar a fatura e os detalhes de uso
 
-Dependendo de seu acesso, talvez você precise selecionar uma conta de cobrança ou um perfil de cobrança no Gerenciamento de Custos + Cobrança. No menu esquerdo, selecione **Faturas** em **Cobrança**. Na grade da fatura, encontre a linha da fatura que você deseja baixar. Clique no símbolo de download ou nas reticências (...) no final da linha. Na caixa **Baixar**, baixe o arquivo de detalhes de uso e a fatura.
+Dependendo de seu acesso, talvez você precise selecionar uma conta de cobrança ou um perfil de cobrança no Gerenciamento de Custos + Cobrança. No menu esquerdo, selecione **Faturas** em **Cobrança**. Na grade da fatura, encontre a linha da fatura que você deseja baixar. Selecione o símbolo de download ou as reticências (...) no final da linha. Na caixa **Baixar**, baixe o arquivo de detalhes de uso e a fatura.
 
 ### <a name="view-detailed-usage-by-invoice-section"></a>Exibir o uso detalhado por seção da fatura
 

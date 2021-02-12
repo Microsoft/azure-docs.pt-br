@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 5a0ea8a2f07ef596cd80e9165eedb2b98dab0bfa
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0df0c12d5942179e2492bfdc932fa25d126a2426
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978706"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016856"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple para gerenciar as credenciais da sua conta de armazenamento
 
@@ -55,7 +55,7 @@ As tarefas mais comuns relacionadas a contas de armazenamento que podem ser exec
 Há três tipos de contas de armazenamento que podem ser usadas com o dispositivo StorSimple.
 
 * **Contas de armazenamento geradas automaticamente** – Como o nome sugere, esse tipo de conta de armazenamento é gerada automaticamente quando o serviço é criado pela primeira vez. Para saber mais sobre como essa conta de armazenamento é criada, consulte a [Etapa 1: criar um novo serviço](storsimple-8000-deployment-walkthrough-u2.md#step-1-create-a-new-service) em [Implantar seu dispositivo StorSimple local](storsimple-8000-deployment-walkthrough-u2.md). 
-* **Contas de armazenamento na assinatura do serviço** – Essas são as contas de armazenamento do Azure que estão associadas à mesma assinatura do serviço. Para saber mais sobre como essas contas de armazenamento são criadas, consulte [Sobre Contas de Armazenamento do Azure](../storage/common/storage-create-storage-account.md). 
+* **Contas de armazenamento na assinatura do serviço** – Essas são as contas de armazenamento do Azure que estão associadas à mesma assinatura do serviço. Para saber mais sobre como essas contas de armazenamento são criadas, consulte [Sobre Contas de Armazenamento do Azure](../storage/common/storage-account-create.md). 
 * **Contas de armazenamento fora do serviço de assinatura** – Essas são as contas de armazenamento do Azure que não estão associadas ao serviço e provavelmente existiam antes de o serviço ter sido criado.
 
 ## <a name="add-a-storage-account"></a>Adicionar uma conta de armazenamento
@@ -106,7 +106,7 @@ Você pode editar uma conta de armazenamento usada por um contêiner de volume. 
 
 2. Na folha **Credenciais da conta de armazenamento**, na lista de credenciais de conta de armazenamento, selecione e clique naquela que você deseja editar. 
 
-3. É possível modificar a seleção em **Habilitar SSL**. Você também pode clicar em **Mais... ** e selecionar **Sincronizar chave de acesso para girar** suas chaves de acesso da conta de armazenamento. Acesse [Rotação de chaves das contas de armazenamento](#key-rotation-of-storage-accounts) para obter mais informações sobre como executar a rotação de chaves. Depois de modificar as configurações, clique em **Salvar**. 
+3. É possível modificar a seleção em **Habilitar SSL**. Você também pode clicar em **Mais...** e selecionar **Sincronizar chave de acesso para girar** suas chaves de acesso da conta de armazenamento. Acesse [Rotação de chaves das contas de armazenamento](#key-rotation-of-storage-accounts) para obter mais informações sobre como executar a rotação de chaves. Depois de modificar as configurações, clique em **Salvar**. 
 
     ![Salvar as credenciais editadas da conta de armazenamento](./media/storsimple-8000-manage-storage-accounts/editstorageacct3.png)
 
@@ -179,4 +179,3 @@ Você será notificado depois que a chave tiver sido sincronizada com êxito.
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre a [segurança do StorSimple](storsimple-8000-security.md).
 * Saiba mais sobre como [usar o serviço Gerenciador de Dispositivos do StorSimple para administrar o dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-

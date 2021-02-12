@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: d5656b60b3c94720ad0a5952f8f6524f90dc6c17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aadb2107cd009ac58cf8edb12853b10a5a0e3677
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89392622"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659991"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-cli"></a>Modificar as configurações de gateway de rede local usando a CLI do Azure
 
@@ -27,7 +27,7 @@ ms.locfileid: "89392622"
 
 ## <a name="before-you-begin"></a><a name="before"></a>Antes de começar
 
-Instale a versão mais recente dos comandos da CLI (2.0 ou posterior). Para saber mais sobre como instalar os comandos da CLI, confira [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Instale a versão mais recente dos comandos da CLI (2.0 ou posterior). Para saber mais sobre como instalar os comandos da CLI, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 [!INCLUDE [CLI-login](../../includes/vpn-gateway-cli-login-include.md)]
 
@@ -42,4 +42,3 @@ Instale a versão mais recente dos comandos da CLI (2.0 ou posterior). Para sabe
 ## <a name="next-steps"></a>Próximas etapas
 
 Você pode verificar a conexão de gateway. Confira [Verificar uma conexão de gateway](vpn-gateway-verify-connection-resource-manager.md).
-

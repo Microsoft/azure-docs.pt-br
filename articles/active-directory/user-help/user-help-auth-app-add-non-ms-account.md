@@ -8,19 +8,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/24/2019
+ms.date: 11/02/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 04076ed5b91f8e840a084b784477d07eea5adee7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21c8e75ac81a443b1dd9d4a0f43263bbf40bee88
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87015963"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359193"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Adicionar contas que não são da Microsoft ao aplicativo Microsoft Authenticator
 
-Adicione suas contas não Microsoft, como Google, Facebook ou GitHub ao aplicativo Microsoft Authenticator para a verificação de dois fatores. O aplicativo Microsoft Authenticator funciona com qualquer aplicativo que use a verificação de dois fatores e com qualquer conta que dê suporte a padrões das Senhas Avulsas por Tempo Limitado (TOTP).
+Se você tiver contas que não sejam da Microsoft, como para o Google, Facebook ou GitHub, poderá adicioná-las ao aplicativo Microsoft Authenticator para verificação de dois fatores. O aplicativo Microsoft Authenticator funciona com qualquer aplicativo que usa a verificação de dois fatores e qualquer conta que dê suporte aos padrões TOTP (senha de uso único) com base no tempo.
 
 >[!Important]
 >Para poder adicionar sua conta, você deverá baixar e instalar o aplicativo Microsoft Authenticator. Se você ainda não tiver feito isso, siga as etapas no artigo [Baixar e instalar o aplicativo](user-help-auth-app-download-install.md).
@@ -36,7 +36,7 @@ Em geral, para todas as suas contas pessoais, você deverá:
     >[!Note]
     >Se esta for a primeira vez que está configurando o aplicativo Microsoft Authenticator, você poderá receber um prompt perguntando se deseja permitir que o aplicativo acesse sua câmera (iOS) ou que o aplicativo tire fotos e grave vídeo (Android). Você precisa selecionar **Permitir** para que o aplicativo autenticador possa acessar sua câmera para tirar uma foto do código QR na próxima etapa. Se não permitir acesso da câmera, você ainda poderá configurar o aplicativo autenticador, mas precisará adicionar as informações de código manualmente. Para obter informações sobre como adicionar o código manualmente, confira [Adicionar uma conta manualmente ao aplicativo](user-help-auth-app-add-account-manual.md).
 
-Estamos fornecendo o processo aqui para suas contas do Facebook, do Google, do GitHub e da Amazon, mas esse processo é o mesmo para qualquer outro aplicativo, como Adobe, Netflix ou Instagram.
+Estamos fornecendo o processo aqui para suas contas do Facebook, Google, GitHub e Amazon, mas o processo é o mesmo para outros aplicativos, como Instagram e Adobe.
 
 ## <a name="add-your-google-account"></a>Adicionar sua conta do Google
 
@@ -130,7 +130,7 @@ Adicione sua conta do GitHub ativando a verificação de dois fatores e, em segu
 
 1. No computador, na página **Autenticação de dois fatores**, escolha **Configurar usando um aplicativo**.
 
-2. Salve seus códigos de recuperação para que possa entrar novamente em sua conta caso perca o acesso e selecione **Avançar**. 
+2. Salve seus códigos de recuperação para que possa entrar novamente em sua conta caso perca o acesso e selecione **Avançar**.
 
     Você pode salvar seus códigos baixando-os em seu dispositivo, imprimindo uma cópia física ou copiando-os em uma ferramenta de gerenciamento de senhas.
 

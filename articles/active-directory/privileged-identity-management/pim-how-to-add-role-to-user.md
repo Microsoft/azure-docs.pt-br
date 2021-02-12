@@ -13,12 +13,12 @@ ms.subservice: pim
 ms.date: 09/16/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69884b9e07172e9b25f4c14884be8713da23cbdb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e0e230a975748fe2f737c4b8fe8491887351d387
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369821"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004663"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Atribuir funções do Azure AD no Privileged Identity Management
 
@@ -147,7 +147,7 @@ Siga estas etapas para tornar um usuário qualificado para uma função de admin
 
 1. Agora que o usuário está qualificado para a função, avise-o de que ele pode ativá-lo de acordo com as instruções em [Ativar minhas funções do Azure AD no Privileged Identity Management](pim-how-to-activate-role.md).
 
-    Os administradores qualificados são solicitados a se registrar para a autenticação multifator do Azure durante a ativação. Se um usuário não puder se registrar para MFA ou estiver usando um conta Microsoft (como @outlook.com ), você precisará torná-los permanentes em todas as suas funções.
+    Os administradores qualificados são solicitados a se registrar para a autenticação multifator do Azure AD durante a ativação. Se um usuário não puder se registrar para MFA ou estiver usando um conta Microsoft (como @outlook.com ), você precisará torná-los permanentes em todas as suas funções.
 
 ## <a name="make-a-role-assignment-permanent"></a>Tornar uma atribuição de função permanente
 

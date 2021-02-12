@@ -1,80 +1,183 @@
 ---
-title: Isentar um recurso das recomendações de segurança da central de segurança do Azure e a pontuação segura
-description: Saiba como isentar um recurso de recomendações de segurança e a pontuação segura
+title: Isentar uma recomendação da central de segurança do Azure de um recurso, assinatura, grupo de gerenciamento e pontuação segura
+description: Saiba como criar regras para isentar recomendações de segurança de assinaturas ou grupos de gerenciamento e impedir que elas afetem sua pontuação segura
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 01/22/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 87c16207f312479dcfe083ad9494d75b3538e18c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4012c7417345678717800f4fdede95947e00b828
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532543"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756704"
 ---
-# <a name="exempt-a-resource-from-recommendations-and-secure-score"></a>Isentar um recurso de recomendações e pontuação segura
+# <a name="exempting-resources-and-recommendations-from-your-secure-score"></a>Isentando recursos e recomendações de sua pontuação segura 
 
-Uma prioridade básica de cada equipe de segurança está tentando garantir que os analistas possam se concentrar nas tarefas e nos incidentes que são importantes para a organização. A central de segurança tem muitos recursos para personalizar as informações que priorizam mais e garantir que sua pontuação segura seja uma reflexão válida das decisões de segurança da sua organização. A isenção de recursos é um desses recursos.
+Uma prioridade básica de cada equipe de segurança é garantir que os analistas possam se concentrar nas tarefas e nos incidentes relevantes para a organização. A central de segurança tem muitos recursos para personalizar a experiência e garantir que sua pontuação segura reflita as prioridades de segurança da sua organização. A opção **isentar** é um desses recursos.
 
-Quando você investiga uma recomendação de segurança na central de segurança do Azure, uma das primeiras informações que você examina é a lista de recursos afetados.
+Quando você investiga suas recomendações de segurança na central de segurança do Azure, uma das primeiras informações que você examina é a lista de recursos afetados.
 
-Ocasionalmente, um recurso será listado de que você sente que não deve ser incluído. Ele pode ter sido corrigido por um processo não acompanhado pela Central de Segurança. Ou, talvez, sua organização tenha decidido aceitar o risco para esse recurso específico. 
+Ocasionalmente, um recurso será listado de que você sente que não deve ser incluído. Ou uma recomendação será mostrada em um escopo onde você achar que ela não pertence. O recurso pode ter sido corrigido por um processo não acompanhado pela central de segurança. A recomendação pode ser inadequada para uma assinatura específica. Ou talvez sua organização simplesmente tenha decidido aceitar os riscos relacionados ao recurso ou à recomendação específica.
 
-Nesses casos, você pode criar uma regra de isenção e garantir que o recurso não esteja listado com os recursos não íntegros no futuro e não afete sua pontuação segura. 
+Nesses casos, você pode criar uma isenção para uma recomendação para:
 
-O recurso será listado como não aplicável e o motivo será mostrado como "isento" com a justificativa selecionada.
+- **Isentar um recurso** para garantir que ele não esteja listado com os recursos não íntegros no futuro e não afete sua pontuação segura. O recurso será listado como não aplicável e o motivo será mostrado como "isento" com a justificativa específica que você selecionar.
+
+- **Isentar uma assinatura ou grupo de gerenciamento** para garantir que a recomendação não afete sua pontuação segura e não seja mostrada para a assinatura ou grupo de gerenciamento no futuro. Isso está relacionado aos recursos existentes e a qualquer um que você criar no futuro. A recomendação será marcada com a justificativa específica selecionada para o escopo que você selecionou.
 
 ## <a name="availability"></a>Disponibilidade
 
 |Aspecto|Detalhes|
 |----|:----|
-|Estado da versão:|Versão Prévia|
+|Estado da versão:|Versão Prévia<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Preço:|Essa é uma funcionalidade de política do Azure Premium que é oferecida para clientes do Azure defender sem custo adicional. Para outros usuários, os encargos podem ser aplicados no futuro.|
 |Funções e permissões necessárias:|**Proprietário da assinatura** ou **colaborador da política** para criar uma isenção<br>Para criar uma regra, você precisa de permissões para editar políticas no Azure Policy.<br>Saiba mais em [permissões de RBAC do Azure no Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|
 |||
 
+## <a name="define-an-exemption"></a>Definir uma isenção
 
-## <a name="create-an-exemption-rule"></a>Criar uma regra de isenção
+Para ajustar as recomendações de segurança que a central de segurança faz para suas assinaturas, grupo de gerenciamento ou recursos, você pode criar uma regra de isenção para:
 
-1. Na lista de recursos não íntegros, selecione o menu de reticências ("...") para o recurso que você deseja isentar.
+- Marque uma **recomendação** específica ou como "mitigado" ou "risco aceito". Você pode criar isenções de recomendação para uma assinatura, várias assinaturas ou um grupo de gerenciamento inteiro.
+- Marque **um ou mais recursos** como "mitigado" ou "risco aceito" para obter uma recomendação específica.
 
-    :::image type="content" source="./media/exempt-resource/create-exemption.png" alt-text="Criar opção de isenção no menu de contexto":::
+> [!TIP]
+> Você também pode criar isenções usando a API. Para um exemplo de JSON e uma explicação das estruturas relevantes, consulte [Azure Policy estrutura de isenção](../governance/policy/concepts/exemption-structure.md).
 
-    O painel criar isenção é aberto.
+Para criar uma regra de isenção:
 
-    :::image type="content" source="./media/exempt-resource/exemption-rule-options.png" alt-text="Criar opção de isenção no menu de contexto":::
+1. Abra a página de detalhes de recomendações para a recomendação específica.
 
-1. Insira seus critérios e selecione um critério para o motivo pelo qual esse recurso deve ser isento:
-    - **Atenuado** -esse problema não é relevante para o recurso porque ele foi tratado por uma ferramenta ou processo diferente daquele que está sendo sugerido
-    - **Renúncia** -aceitando o risco para este recurso
-1. Selecione **Salvar**.
-1. Após um tempo (pode levar até 24 horas):
-    - O recurso não afeta sua pontuação segura.
-    - O recurso está listado na guia **não aplicável** da página de detalhes de recomendação
-    - A faixa de informações na parte superior da página de detalhes de recomendação lista o número de recursos isentos:
+1. Na barra de ferramentas na parte superior da página, selecione **isento**.
+
+    :::image type="content" source="media/exempt-resource/exempting-recommendation.png" alt-text="Crie uma regra de isenção para que uma recomendação seja isenta de uma assinatura ou grupo de gerenciamento.":::
+
+1. No painel **isento** :
+    1. Selecione o escopo para esta regra de isenção:
+        - Se você selecionar um grupo de gerenciamento, a recomendação será isenta de todas as assinaturas dentro desse grupo
+        - Se você estiver criando essa regra para isentar um ou mais recursos da recomendação, escolha "recursos selecionados" "e selecione os relevantes na lista
+
+    1. Insira um nome para esta regra de isenção.
+    1. Opcionalmente, defina uma data de expiração.
+    1. Selecione a categoria para a isenção:
+        - **Resolvido por meio de terceiros (atenuado)** – se você estiver usando um serviço de terceiros que a central de segurança não tenha identificado. 
+
+            > [!NOTE]
+            > Ao isentar uma recomendação como mitigada, você não recebe pontos em direção à sua pontuação segura. Mas como os pontos não são *removidos* para os recursos não íntegros, o resultado é que a sua pontuação aumentará.
+
+        - **Risco aceito (renúncia)** – se você decidiu aceitar o risco de não mitigar essa recomendação
+    1. Opcionalmente, insira uma descrição.
+    1. Selecione **Criar**.
+
+    :::image type="content" source="media/exempt-resource/defining-recommendation-exemption.png" alt-text="Etapas para criar uma regra de isenção para isentar uma recomendação de sua assinatura ou grupo de gerenciamento":::
+
+    Quando a isenção entrar em vigor (pode levar até 30 minutos):
+    - A recomendação ou os recursos não afetarão sua pontuação segura.
+    - Se você tiver isento de recursos específicos, eles serão listados na guia **não aplicável** da página de detalhes de recomendação.
+    - Se você tiver isento uma recomendação, ela ficará oculta por padrão na página recomendações da central de segurança. Isso ocorre porque as opções padrão do filtro de **status de recomendação** nessa página são excluir as recomendações **não aplicáveis** . O mesmo será verdadeiro se você isentar todas as recomendações em um controle de segurança.
+
+        :::image type="content" source="media/exempt-resource/recommendations-filters-hiding-not-applicable.png" alt-text="Filtros padrão na página de recomendações da central de segurança do Azure ocultam as recomendações e os controles de segurança não aplicáveis":::
+
+    - A faixa de informações na parte superior da página de detalhes da recomendação atualiza o número de recursos isentos:
         
-        :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="Criar opção de isenção no menu de contexto":::
+        :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="Número de recursos isentos":::
 
-1. Para examinar os recursos isentos, abra a guia **não aplicável** .
+1. Para examinar os recursos isentos, abra a guia **não aplicável** :
 
-    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Criar opção de isenção no menu de contexto":::
+    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Modificando uma isenção":::
 
     O motivo para cada isenção é incluído na tabela (1).
 
     Para modificar ou excluir uma isenção, selecione o menu de reticências ("...") conforme mostrado (2).
 
+1. Para examinar todas as regras de isenção em sua assinatura, selecione **Exibir isenções** da faixa de informações:
 
-## <a name="review-all-of-the-exemption-rules-on-your-subscription"></a>Examinar todas as regras de isenção em sua assinatura
+    > [!IMPORTANT]
+    > Para ver as isenções específicas relevantes para uma recomendação, filtre a lista de acordo com o escopo e o nome de recomendação relevantes.
 
-As regras de isenção usam a política do Azure para criar uma isenção para o recurso na atribuição de política.
+    :::image type="content" source="./media/exempt-resource/policy-page-exemption.png" alt-text="Página de isenção do Azure Policy":::
 
-Você pode usar Azure Policy para acompanhar toda a isenção na página de **isenção** :
+    > [!TIP]
+    > Como alternativa, [use o grafo de recursos do Azure para encontrar recomendações com isenções](#find-recommendations-with-exemptions-using-azure-resource-graph).
 
-:::image type="content" source="./media/exempt-resource/policy-page-exemption.png" alt-text="Criar opção de isenção no menu de contexto":::
+## <a name="monitor-exemptions-created-in-your-subscriptions"></a>Monitorar isenções criadas em suas assinaturas
 
+Conforme explicado anteriormente nesta página, as regras de isenção são uma ferramenta poderosa que fornece controle granular sobre as recomendações que afetam os recursos em suas assinaturas e grupos de gerenciamento. 
+
+Para controlar como os usuários estão exercitando esse recurso, criamos um modelo de Azure Resource Manager (ARM) que implanta um manual de aplicativo lógico e todas as conexões de API necessárias para notificá-lo quando uma isenção tiver sido criada.
+
+- Para saber mais sobre o guia estratégico, Confira esta postagem nos [Blogs da comunidade técnica](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-keep-track-of-resource-exemptions-in-azure-security/ba-p/1770580)
+- Você encontrará o modelo ARM no [repositório GitHub da central de segurança do Azure](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation/Notify-ResourceExemption)
+- Você pode clicar [aqui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Security-Center%2Fmaster%2FWorkflow%2520automation%2FNotify-ResourceExemption%2Fazuredeploy.json) para implantar todos os componentes necessários 
+
+
+## <a name="find-recommendations-with-exemptions-using-azure-resource-graph"></a>Encontre recomendações com isenções usando o grafo de recursos do Azure
+
+O grafo de recursos do Azure (ARG) fornece acesso instantâneo a informações de recursos em seus ambientes de nuvem com recursos robustos de filtragem, agrupamento e classificação. É uma maneira rápida e eficiente de consultar informações em assinaturas do Azure programaticamente ou de dentro do portal do Azure.
+
+Para exibir todas as recomendações que têm regras de isenção:
+
+1. Abra o **Gerenciador de gráficos de recursos do Azure**.
+
+    :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Iniciando a página de recomendação do Gerenciador de gráficos de recursos do Azure * *" :::
+
+1. Insira a consulta a seguir e selecione **Executar consulta**.
+
+    ```kusto
+    securityresources
+    | where type == "microsoft.security/assessments"
+    // Get recommendations in useful format
+    | project
+    ['TenantID'] = tenantId,
+    ['SubscriptionID'] = subscriptionId,
+    ['AssessmentID'] = name,
+    ['DisplayName'] = properties.displayName,
+    ['ResourceType'] = tolower(split(properties.resourceDetails.Id,"/").[7]),
+    ['ResourceName'] = tolower(split(properties.resourceDetails.Id,"/").[8]),
+    ['ResourceGroup'] = resourceGroup,
+    ['ContainsNestedRecom'] = tostring(properties.additionalData.subAssessmentsLink),
+    ['StatusCode'] = properties.status.code,
+    ['StatusDescription'] = properties.status.description,
+    ['PolicyDefID'] = properties.metadata.policyDefinitionId,
+    ['Description'] = properties.metadata.description,
+    ['RecomType'] = properties.metadata.assessmentType,
+    ['Remediation'] = properties.metadata.remediationDescription,
+    ['Severity'] = properties.metadata.severity,
+    ['Link'] = properties.links.azurePortal
+    | where StatusDescription contains "Exempt"    
+    ```
+
+
+Saiba mais nas seguintes páginas:
+- [Saiba mais sobre Azure Resource Graph](../governance/resource-graph/index.yml).
+- [Como criar consultas com o Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
+- [KQL (Kusto Query Language)](/azure/data-explorer/kusto/query/)
+
+
+
+
+
+## <a name="exemption-rule-faq"></a>Perguntas frequentes sobre regras de isenção
+
+### <a name="what-happens-when-one-recommendation-is-in-multiple-policy-initiatives"></a>O que acontece quando uma recomendação está em várias iniciativas de política?
+
+Às vezes, uma recomendação de segurança é exibida em mais de uma iniciativa de política. Se você tiver várias instâncias da mesma recomendação atribuída à mesma assinatura e criar uma isenção para a recomendação, ela afetará todas as iniciativas que você tem permissão para editar. 
+
+Por exemplo, a recomendação * * * * faz parte da iniciativa de política padrão atribuída a todas as assinaturas do Azure pela central de segurança do Azure. Ele também está em XXXXX.
+
+Se você tentar criar uma isenção para essa recomendação, verá uma das duas seguintes mensagens:
+
+- Se você tiver as permissões necessárias para editar as duas iniciativas, verá:
+
+    *Essa recomendação está incluída em várias iniciativas de política: [nomes de iniciativa separados por vírgula]. As isenções serão criadas em todas elas.*  
+
+- Se você não tiver permissões suficientes em ambas as iniciativas, verá esta mensagem em vez disso:
+
+    *Você tem permissões limitadas para aplicar a isenção em todas as iniciativas de política, as isenções serão criadas somente nas iniciativas com permissões suficientes.*
 
 
 ## <a name="next-steps"></a>Próximas etapas

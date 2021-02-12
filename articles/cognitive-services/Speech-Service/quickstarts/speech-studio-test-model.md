@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/04/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 9101944a567df5000d3584ed48eff24e4c5e0057
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 572b3b3459e1d837130f3c987d45ee45629f37ad
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89565796"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485069"
 ---
 # <a name="test-a-model-using-an-audio-file-in-speech-studio"></a>Testar um modelo usando um arquivo de áudio – Speech Studio
 
@@ -23,7 +23,7 @@ Neste guia de instruções, você usa o Speech Studio para converter a fala de u
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de usar o Portal de Fala, [siga estas instruções para criar uma conta do Azure e assinar o serviço de fala](../how-to-custom-speech.md#set-up-your-azure-account). Essa assinatura unificada fornece acesso à conversão de fala em texto, texto em fala e tradução de fala e ao portal de Fala Personalizada.
+Antes de usar o Portal de Fala, [siga estas instruções para criar uma conta do Azure e assinar o serviço de fala](../custom-speech-overview.md#set-up-your-azure-account). Essa assinatura unificada fornece acesso à conversão de fala em texto, texto em fala e tradução de fala e ao portal de Fala Personalizada.
 
 ## <a name="download-an-audio-file"></a>Baixar um arquivo de áudio
 

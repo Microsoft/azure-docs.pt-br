@@ -9,11 +9,11 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
 ms.openlocfilehash: af1850f77c1d13c761bfc2a143074b5067b349b4
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014045"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012996"
 ---
 # <a name="analysis-services-database-backup-and-restore"></a>Backup e restauração de banco de dados Analysis Services
 
@@ -25,7 +25,7 @@ O backup de bancos de dados de modelos tabulares no Azure Analysis Services é m
 > 
 
 > [!NOTE]
-> Se a conta de armazenamento estiver em uma região diferente, defina as configurações de firewall da conta de armazenamento para permitir o acesso de **redes selecionadas**. Em **intervalo de endereços**do firewall, especifique o intervalo de endereços IP para a região em que o servidor Analysis Services está. A definição de configurações de firewall da conta de armazenamento para permitir o acesso de todas as redes tem suporte, no entanto, escolher redes selecionadas e especificar um intervalo de endereços IP é preferencial. Para saber mais, consulte [perguntas frequentes sobre conectividade de rede](analysis-services-network-faq.md#backup-and-restore).
+> Se a conta de armazenamento estiver em uma região diferente, defina as configurações de firewall da conta de armazenamento para permitir o acesso de **redes selecionadas**. Em **intervalo de endereços** do firewall, especifique o intervalo de endereços IP para a região em que o servidor Analysis Services está. A definição de configurações de firewall da conta de armazenamento para permitir o acesso de todas as redes tem suporte, no entanto, escolher redes selecionadas e especificar um intervalo de endereços IP é preferencial. Para saber mais, consulte [perguntas frequentes sobre conectividade de rede](analysis-services-network-faq.md#backup-and-restore).
 
 Os backups são salvos com uma extensão. ABF. Para modelos tabular na memória, ambos os dados de modelo e metadados são armazenados. Para modelos tabulares do DirectQuery, somente os metadados do modelo são armazenados. Os backups podem ser compactados e criptografados, dependendo das opções escolhidas.
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: mayg
-ms.openlocfilehash: 1790ac666d77f14ccadfde56f7b86e05b2c563dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e1008f7acbfe0685b7a171176c7dc54592d1491
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604675"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019235"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalar um servidor de destino mestre Linux para failback
 Após o failover de suas máquinas virtuais para o Azure, você poderá executar failback das máquinas virtuais para o site local. Para realizar failback, você precisa proteger novamente a máquina virtual do Azure para o site local. Para este processo, é necessário um servidor de destino mestre para receber o tráfego. 
@@ -109,9 +109,9 @@ Mantenha um ISO do Ubuntu 16.04.2 Minimal de 64 bits na unidade de DVD e inicie 
 
     ![Selecionar a opção padrão](./media/vmware-azure-install-linux-master-target/image16-ubuntu.png)
 
-1.  Na seleção do proxy de configuração, selecione a opção padrão, selecione **Continuar**e selecione **Enter**.
+1.  Na seleção do proxy de configuração, selecione a opção padrão, selecione **Continuar** e selecione **Enter**.
      
-     ![Selecionar a forma de gerenciar atualizações](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
+     ![Captura de tela que mostra onde selecionar continuar e, em seguida, selecione Enter.](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
 
 1.  Selecione a opção **Sem atualizações automáticas** para o gerenciamento de atualizações em seu sistema e selecione **Enter**.
 
@@ -154,7 +154,7 @@ Para obter a ID de cada disco SCSI em uma máquina virtual Linux, o parâmetro *
 
 3. Selecione a guia **Opções**.
 
-4. No painel esquerdo, selecione **Avançado** > **Geral**e selecione o botão **Parâmetros de Configuração** no canto inferior direito da tela.
+4. No painel esquerdo, selecione **Avançado** > **Geral** e selecione o botão **Parâmetros de Configuração** no canto inferior direito da tela.
 
     ![Abra o parâmetro de configuração](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png) 
 
@@ -168,7 +168,7 @@ Para obter a ID de cada disco SCSI em uma máquina virtual Linux, o parâmetro *
 
    - Se o valor não existir, selecione **Adicionar Linha**.
 
-   - Na coluna Nome, adicione **disk.EnableUUID**e defina o valor como **TRUE**.
+   - Na coluna Nome, adicione **disk.EnableUUID** e defina o valor como **TRUE**.
 
      ![Verificação se disk.EnableUUID já existe](./media/vmware-azure-install-linux-master-target/image25.png)
 

@@ -9,3 +9,14 @@
         - name: Serviço de Fala
           tocHref: /azure/cognitive-services/
           topicHref: /azure/cognitive-services/speech-service/index
+- name: Azure
+  tocHref: /legal/
+  topicHref: /azure/index
+  items:
+    - name: Serviços Cognitivos
+      tocHref: /legal/cognitive-services/speech-service
+      topicHref: /azure/cognitive-services/index
+      items:
+        - name: Serviço de Fala
+          tocHref: /legal/cognitive-services/speech-service
+          topicHref: /azure/cognitive-services/speech-service/index

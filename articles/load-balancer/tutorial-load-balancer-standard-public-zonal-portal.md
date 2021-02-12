@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: a714368fc0508149714eaa42f4741e1042376c52
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f91c9c0f401a455543b12af81eed48bd1a3349bd
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044948"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696431"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Tutorial: balancear carga de VMs em uma zona de disponibilidade com Standard Load Balancer usando o portal do Azure
 
@@ -37,7 +37,7 @@ Este tutorial cria uma [instância pública do Standard Load Balancer do Azure](
 
 Para obter mais informações sobre o uso de zonas de disponibilidade com Standard Load Balancer, consulte [Zonas de disponibilidade e Standard Load Balancer](load-balancer-standard-availability-zones.md).
 
-Se preferir, utilize a [CLI do Azure](load-balancer-standard-public-zonal-cli.md) para concluir este tutorial.
+Se preferir, utilize a [CLI do Azure](./quickstart-load-balancer-standard-public-cli.md) para concluir este tutorial.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -100,7 +100,7 @@ Nesta seção, você precisará substituir os seguintes parâmetros nas etapas p
 Nesta seção, você criará regras de NSG para permitir conexões de entrada que usam HTTP e RDP da Microsoft, usando o portal do Azure.
 
 1. No portal do Azure, selecione **Todos os recursos** no menu esquerdo. Em seguida, pesquise e selecione **myNetworkSecurityGroup**. Ele está localizado no grupo de recursos **myResourceGroupZLB**.
-2. Em **Configurações**, selecione **Regras de segurança de entrada**. Em seguida, selecione**Adicionar**.
+2. Em **Configurações**, selecione **Regras de segurança de entrada**. Em seguida, selecione **Adicionar**.
 3. Insira estes valores para a regra de segurança de entrada nomeada **myHTTPRule** para permitir conexões HTTP de entrada que usam a porta 80:
     - **Marca de Serviço**, para **Origem**.
     - **Internet**, para **Marca de serviço de origem**.
@@ -152,7 +152,7 @@ Nesta seção, você criará regras de NSG para permitir conexões de entrada qu
 2. Na página **Visão Geral**, selecione **Conectar** para usar o RDP na VM.
 3. Entre na VM com o nome de usuário e senha que você especificou quando criou a VM. Para especificar as credenciais inseridas ao criar a VM, talvez seja necessário selecionar **Mais escolhas**. Em seguida, selecione **Usar uma conta diferente**. E, em seguida, selecione **OK**. Você pode receber um aviso de certificado durante o processo de entrada. Selecione **Sim** para prosseguir com a conexão.
 4. Na área de trabalho do servidor, navegue até **Ferramentas Administrativas do Windows** > **Windows PowerShell**.
-6. Na janela**PowerShell**, execute os comandos a seguir para instalar o servidor IIS. Esses comandos também removem o arquivo iisstart.htm padrão e, em seguida, adicionam um novo arquivo iisstart.htm que exibe o nome da VM:
+6. Na janela **PowerShell**, execute os comandos a seguir para instalar o servidor IIS. Esses comandos também removem o arquivo iisstart.htm padrão e, em seguida, adicionam um novo arquivo iisstart.htm que exibe o nome da VM:
 
    ```azurepowershell-interactive
     # install IIS server role
@@ -175,7 +175,7 @@ Nesta seção, você definirá as configurações do balanceador de carga para u
 Para distribuir o tráfego para as VMs, um pool de endereços de back-end contém os endereços IP das placas de adaptador de rede virtual conectadas ao balanceador de carga. Crie o pool de endereços de back-end **myBackendPool** para incluir **VM1** e **VM2**.
 
 1. Selecione **Todos os recursos** no menu esquerdo. Em seguida, selecione **myLoadBalancer** da lista de recursos.
-2. Em **Configurações**, selecione **Pools de back-end**. Em seguida, selecione**Adicionar**.
+2. Em **Configurações**, selecione **Pools de back-end**. Em seguida, selecione **Adicionar**.
 3. Na página **Adicionar um pool de back-end**, execute as seguintes ações:
     - Para nome, insira **myBackEndPool** como o nome do pool de back-end.
     - Para **Rede virtual**, no menu suspenso, selecione **myVNet**. 
@@ -190,7 +190,7 @@ Para distribuir o tráfego para as VMs, um pool de endereços de back-end conté
 Use uma investigação de integridade para que o balanceador de carga possa monitorar o status do aplicativo. A investigação de integridade adiciona ou remove dinamicamente VMs da rotação do balanceador de carga com base na resposta às verificações de integridade. Crie uma investigação de integridade **myHealthProbe** para monitorar a integridade das VMs.
 
 1. Selecione **Todos os recursos** no menu esquerdo. Em seguida, selecione **myLoadBalancer** da lista de recursos.
-2. Em **Configurações**, selecione **Investigações de integridade**. Em seguida, selecione**Adicionar**.
+2. Em **Configurações**, selecione **Investigações de integridade**. Em seguida, selecione **Adicionar**.
 3. Use estes valores para criar a investigação de integridade:
     - **myHealthProbe**, para o nome da investigação de integridade.
     - **HTTP**, para o tipo de protocolo.
@@ -206,7 +206,7 @@ Use uma investigação de integridade para que o balanceador de carga possa moni
 Uma regra do balanceador de carga define como o tráfego é distribuído para as VMs. Defina a configuração de IP de front-end para o tráfego de entrada e o pool de IPs de back-end para receber o tráfego, junto com as portas de origem e de destino necessárias. Crie uma regra do balanceador de carga **myLoadBalancerRuleWeb**, para ouvir a porta 80 no **FrontendLoadBalancer** de front-end. A regra envia tráfego de rede com balanceamento de carga para o pool de endereços de back-end **myBackEndPool**, também usando a porta 80. 
 
 1. Selecione **Todos os recursos** no menu esquerdo. Em seguida, selecione **myLoadBalancer** da lista de recursos.
-2. Em **Configurações**, selecione **Regras de balanceamento de carga**. Em seguida, selecione**Adicionar**.
+2. Em **Configurações**, selecione **Regras de balanceamento de carga**. Em seguida, selecione **Adicionar**.
 3. Use estes valores para configurar a regra do balanceamento de carga:
     - **myHTTPRule**, para o nome da regra de balanceamento de carga.
     - **TCP**, para o tipo de protocolo.

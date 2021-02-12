@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 4bae9e28a22a99d092db2bf887f0cd790e04c52a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 23ec79b7e3989c9749edf98d930ad8305324c9da
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91318545"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454014"
 ---
 # <a name="what-is-the-azure-stack-edge-mini-r"></a>O que é o Azure Stack Edge Mini R?
 
@@ -38,14 +38,14 @@ O Azure Stack Edge Mini R tem as seguintes funcionalidades:
 |Modo desconectado|  Opcionalmente, o dispositivo e o serviço podem ser gerenciados por meio do Azure Stack Hub. Implante, execute e gerencie aplicativos no modo offline. <br> O modo desconectado é compatível com cenários de upload offline.|
 |Protocolos de transferência de arquivo com suporte      |Dá suporte aos protocolos SMB, NFS e REST padrão para ingestão de dados. <br> Para obter mais informações sobre as versões com suporte, acesse [Requisitos do sistema do Azure Stack Edge Mini R](azure-stack-edge-gpu-system-requirements.md).|
 |Atualização dedados     | Capacidade de atualizar arquivos locais com a versão mais recente da nuvem.|
-|Criptografia dupla    | O uso da unidade de criptografia automática fornece a primeira camada de criptografia. A VPN fornece a segunda camada de criptografia. Suporte ao BitLocker para criptografar dados localmente e proteger a transferência de dados para a nuvem por meio do *https* .|
+|Criptografia dupla    | O uso da unidade de criptografia automática fornece a primeira camada de criptografia. A VPN fornece a segunda camada de criptografia. Suporte ao BitLocker para criptografar dados localmente e proteger a transferência de dados para a nuvem por meio do *https*.|
 |Limitação de largura de banda| Limitação para restringir o uso de largura de banda durante horários de pico.|
 
 ## <a name="use-cases"></a>Casos de uso
 
 Veja a seguir os vários cenários em que o Azure Stack Edge Mini R pode ser usado para inferências rápidas de ML (Machine Learning) na borda e pré-processamento de dados, antes do envio para o Azure.
 
-- **Inferência com o Azure Machine Learning** – Com o Azure Stack Edge Mini R, é possível executar modelos de ML para obter resultados rápidos que podem ser tratados antes que os dados sejam enviados para a nuvem. O conjunto de dados completo pode ser transferido para continuar a treinar novamente e melhorar os modelos de ML. Para obter mais informações sobre como usar os modelos de aceleração de hardware do Azure ML no dispositivo Azure Stack Edge Mini R, confira [Implantar modelos de aceleração de hardware do Azure ML no Azure Stack Edge Mini R](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
+- **Inferência com o Azure Machine Learning** – Com o Azure Stack Edge Mini R, é possível executar modelos de ML para obter resultados rápidos que podem ser tratados antes que os dados sejam enviados para a nuvem. O conjunto de dados completo pode ser transferido para continuar a treinar novamente e melhorar os modelos de ML. Para obter mais informações sobre como usar os modelos de aceleração de hardware do Azure ML no dispositivo Azure Stack Edge Mini R, confira [Implantar modelos de aceleração de hardware do Azure ML no Azure Stack Edge Mini R](../machine-learning/how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server).
 
 - **Pré-processar dados** – Transformar dados por meio de opções de computação, como contêineres ou máquinas virtuais, antes de enviá-los ao Azure para criar um conjunto de dados mais acionável. O pré-processamento pode ser usado para:
 
@@ -83,5 +83,3 @@ O dispositivo físico Azure Stack Edge Mini R, o recurso do Azure e a conta de a
 ## <a name="next-steps"></a>Próximas etapas
 
 - Examinar os [requisitos do sistema do Azure Stack Edge Mini R](azure-stack-edge-gpu-system-requirements.md).
-
-

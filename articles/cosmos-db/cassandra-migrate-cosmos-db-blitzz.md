@@ -3,16 +3,17 @@ title: Migrar dados do Cassandra para o API do Cassandra de Azure Cosmos DB usan
 description: Saiba como migrar dados do Apache Cassandra para Azure Cosmos DB API do Cassandra usando o Blitzz.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 08/21/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 25c171cf20d86244958dbeb4565760115d6d7075
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c26d21e74e9808fe65890b7f4eba31ee742552a4
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092408"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339976"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-blitzz"></a>Migrar dados do Cassandra para a conta de API do Cassandra Azure Cosmos DB usando o Blitzz
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -55,7 +56,7 @@ Esta seção descreve as etapas necessárias para configurar o Blitzz e migrar d
 
    :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/blitzz-replicant-download.png" alt-text="Download da ferramenta Blitzz Replicant":::
 
-   :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/replicant-files.png" alt-text="Download da ferramenta Blitzz Replicant":::
+   :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/replicant-files.png" alt-text="Arquivos Blitzz Replicant":::
 
 1. No terminal da CLI, defina a configuração do banco de dados de origem. Abra o arquivo de configuração usando o **`vi conf/conn/cassandra.yml`** comando e adicione uma lista separada por vírgulas de endereços IP dos nós Cassandra, número da porta, nome de usuário, senha e quaisquer outros detalhes necessários. Veja a seguir um exemplo de conteúdo no arquivo de configuração:
 
@@ -72,9 +73,9 @@ Esta seção descreve as etapas necessárias para configurar o Blitzz e migrar d
 
    ```
 
-   :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/open-connection-editor-cassandra.png" alt-text="Download da ferramenta Blitzz Replicant":::
+   :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/open-connection-editor-cassandra.png" alt-text="Abrir o editor de conexão do Cassandra":::
 
-   :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/cassandra-connection-configuration.png" alt-text="Download da ferramenta Blitzz Replicant":::
+   :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/cassandra-connection-configuration.png" alt-text="Configuração de conexão do Cassandra":::
 
    Depois de preencher os detalhes de configuração, salve e feche o arquivo.
 
@@ -93,7 +94,7 @@ Esta seção descreve as etapas necessárias para configurar o Blitzz e migrar d
 
 1. Antes de migrar os dados, aumente a taxa de transferência do contêiner para o valor necessário para que seu aplicativo migre rapidamente. Por exemplo, você pode aumentar a taxa de transferência para 100000 RUs. Dimensionar a taxa de transferência antes de iniciar a migração ajudará você a migrar seus dados em menos tempo.
 
-   :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/scale-throughput.png" alt-text="Download da ferramenta Blitzz Replicant":::
+   :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/scale-throughput.png" alt-text="Dimensionar o contêiner Cosmos do Azure em todo o":::
 
    Diminua a taxa de transferência após a conclusão da migração. Com base na quantidade de dados armazenados e RUs necessários para cada operação, você pode estimar a taxa de transferência necessária após a migração de dados. Para saber mais sobre como estimar o RUs necessário, confira [provisionar taxa de transferência em contêineres e bancos de dados](set-throughput.md) e [estimar ru/s usando os artigos Azure Cosmos DB Capacity Planner](estimate-ru-with-capacity-planner.md) .
 
@@ -129,7 +130,7 @@ Esta seção descreve as etapas necessárias para configurar o Blitzz e migrar d
 
    A interface do usuário do amreplicant mostra o progresso da replicação. Depois que a operação de migração e instantâneo do esquema for concluída, o progresso mostrará 100%. Depois que a migração for concluída, você poderá validar os dados no banco de dado de destino do Azure Cosmos.
 
-   :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/cassandra-data-migration-output.png" alt-text="Download da ferramenta Blitzz Replicant":::
+   :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/cassandra-data-migration-output.png" alt-text="Saída de migração de dados Cassandra":::
 
 
 1. Como você usou o modo completo para a migração, você pode executar operações como inserir, atualizar ou excluir dados no banco de dado Apache Cassandra de origem. Posteriormente, valide que eles são replicados em tempo real no banco de dados Cosmos do Azure de destino. Após a migração, certifique-se de diminuir a taxa de transferência configurada para o contêiner Cosmos do Azure.

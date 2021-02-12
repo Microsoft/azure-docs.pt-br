@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 06/17/2020
 ms.author: absha
-ms.openlocfilehash: 69d388b12e564b307cd117c3a86ae960dabaa937
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 874e554063f64ddefce99a223678d64b2e0774c3
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362705"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397715"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Criar certificados para permitir o back-end com Aplicativo Azure gateway
 
@@ -47,11 +47,11 @@ Em seu certificado TLS/SSL, exporte o arquivo. cer de chave pública (não a cha
 
    ![Não exportar a chave privada](./media/certificates-for-backend-authentication/notprivatekey.png)
 
-4. Na página **Exportar Formato de Arquivo**, selecione **X.509 codificado em Base 64 (.CER).** e clique em **Avançar**.
+4. Na página **Exportar Formato de Arquivo** , selecione **X.509 codificado em Base 64 (.CER).** e clique em **Avançar**.
 
    ![Codificado em Base 64](./media/certificates-for-backend-authentication/base64.png)
 
-5. Para o **Arquivo a ser Exportado**, use **Procurar** para encontrar a localização para a qual você deseja exportar o certificado. Em **Nome do arquivo**, dê um nome ao arquivo de certificado. Em seguida, clique em **Próximo**.
+5. Para o **Arquivo a ser Exportado** , use **Procurar** para encontrar a localização para a qual você deseja exportar o certificado. Em **Nome do arquivo** , dê um nome ao arquivo de certificado. Em seguida, clique em **Avançar**.
 
    ![Captura de tela mostra o assistente para exportação de certificados em que você especifica um arquivo a ser exportado.](./media/certificates-for-backend-authentication/browse.png)
 
@@ -105,5 +105,4 @@ As etapas a seguir ajudam a exportar o arquivo. cer para seu certificado:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora você tem o certificado de autenticação/certificado raiz confiável em X. 509 codificado em base-64 (. CER) formato. Você pode adicionar isso ao gateway de aplicativo para permitir os servidores de back-end para criptografia TLS de ponta a ponta. Consulte [Configurar o TLS de ponta a ponta usando o gateway de aplicativo com o PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
-
+Agora você tem o certificado de autenticação/certificado raiz confiável em X. 509 codificado em base-64 (. CER) formato. Você pode adicionar isso ao gateway de aplicativo para permitir os servidores de back-end para criptografia TLS de ponta a ponta. Consulte [Configurar o TLS de ponta a ponta usando o gateway de aplicativo com o PowerShell](./application-gateway-end-to-end-ssl-powershell.md).

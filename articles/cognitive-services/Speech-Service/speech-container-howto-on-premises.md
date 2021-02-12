@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/30/2020
 ms.author: aahi
-ms.openlocfilehash: 277a3c1c53564d7c5dff6a87381680a7f41606de
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c3791a9049a3eab3ddd6fc70073629c38830dbc7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131591"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96002248"
 ---
 # <a name="use-speech-service-containers-with-kubernetes-and-helm"></a>Usar contêineres de serviço de fala com kubernetes e Helm
 
@@ -27,11 +27,11 @@ Os seguintes pré-requisitos antes de usar os contêineres de fala locais:
 
 | Obrigatório | Finalidade |
 |----------|---------|
-| Conta do Azure | Caso não tenha uma assinatura do Azure, crie uma [conta gratuita][free-azure-account] antes de começar. |
+| Conta do Azure | Se você não tiver uma assinatura do Azure, crie uma [conta gratuita][free-azure-account] antes de começar. |
 | Acesso ao registro de contêiner | Para que o kubernetes pegue as imagens do Docker no cluster, ele precisará de acesso ao registro de contêiner. |
 | CLI do kubernetes | A [CLI do kubernetes][kubernetes-cli] é necessária para gerenciar as credenciais compartilhadas do registro de contêiner. O kubernetes também é necessário antes de Helm, que é o Gerenciador de pacotes do kubernetes. |
 | CLI do Helm | Instale a [CLI do Helm][helm-install], que é usada para instalar um gráfico do Helm (definição de pacote de contêiner). |
-|Recurso de fala |Para usar esses contêineres, será necessário ter:<br><br>Um recurso do Azure de _fala_ para obter a chave de cobrança associada e o URI do ponto de extremidade de cobrança. Ambos os valores estão disponíveis nas páginas de visão geral de **fala** e chaves do portal do Azure e são necessários para iniciar o contêiner.<br><br>**{Api_key}** : chave de recurso<br><br>**{ENDPOINT_URI}** : o exemplo de URI do ponto de extremidade é: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
+|Recurso de fala |Para usar esses contêineres, será necessário ter:<br><br>Um recurso do Azure de _fala_ para obter a chave de cobrança associada e o URI do ponto de extremidade de cobrança. Ambos os valores estão disponíveis nas páginas de visão geral de **fala** e chaves do portal do Azure e são necessários para iniciar o contêiner.<br><br>**{Api_key}**: chave de recurso<br><br>**{ENDPOINT_URI}**: o exemplo de URI do ponto de extremidade é: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
 ## <a name="the-recommended-host-computer-configuration"></a>A configuração do computador host recomendado
 
@@ -48,13 +48,13 @@ Espera-se que o computador host tenha um cluster kubernetes disponível. Consult
 
 ## <a name="configure-helm-chart-values-for-deployment"></a>Configurar valores do gráfico Helm para implantação
 
-Visite o [Hub do Microsoft Helm][ms-helm-hub] para todos os gráficos de Helm publicamente disponíveis oferecidos pela Microsoft. No Hub do Microsoft Helm, você encontrará o **gráfico de fala local dos serviços cognitivas** . A **fala local dos serviços cognitivas** é o gráfico que iremos instalar, mas primeiro devemos criar um `config-values.yaml` arquivo com configurações explícitas. Vamos começar adicionando o repositório da Microsoft à nossa instância do Helm.
+Visite o [Hub do Microsoft Helm][ms-helm-hub] para todos os gráficos de Helm publicamente disponíveis oferecidos pela Microsoft. No Hub do Microsoft Helm, você encontrará o **gráfico de fala local dos serviços cognitivas**. A **fala local dos serviços cognitivas** é o gráfico que iremos instalar, mas primeiro devemos criar um `config-values.yaml` arquivo com configurações explícitas. Vamos começar adicionando o repositório da Microsoft à nossa instância do Helm.
 
 ```console
 helm repo add microsoft https://microsoft.github.io/charts/repo
 ```
 
-Em seguida, configuraremos os valores do gráfico Helm. Copie e cole o YAML a seguir em um arquivo chamado `config-values.yaml` . Para obter mais informações sobre como personalizar o **gráfico Helm de fala no local dos serviços cognitivas** , consulte [personalizar gráficos do Helm](#customize-helm-charts). Substitua os `# {ENDPOINT_URI}` `# {API_KEY}` comentários e pelos seus próprios valores.
+Em seguida, configuraremos os valores do gráfico Helm. Copie e cole o YAML a seguir em um arquivo chamado `config-values.yaml` . Para obter mais informações sobre como personalizar o **gráfico Helm de fala no local dos serviços cognitivas**, consulte [personalizar gráficos do Helm](#customize-helm-charts). Substitua os `# {ENDPOINT_URI}` `# {API_KEY}` comentários e pelos seus próprios valores.
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
@@ -189,7 +189,7 @@ horizontalpodautoscaler.autoscaling/text-to-speech-autoscaler   Deployment/text-
 
 ### <a name="verify-helm-deployment-with-helm-tests"></a>Verificar a implantação do Helm com testes do Helm
 
-Os gráficos do Helm instalados definem *testes Helm* , que servem como uma conveniência para a verificação. Esses testes validam a prontidão do serviço. Para verificar os serviços de **conversão de fala em texto** e de **texto em fala** , executaremos o comando de [teste Helm][helm-test] .
+Os gráficos do Helm instalados definem *testes Helm*, que servem como uma conveniência para a verificação. Esses testes validam a prontidão do serviço. Para verificar os serviços de **conversão de fala em texto** e de **texto em fala** , executaremos o comando de [teste Helm][helm-test] .
 
 ```console
 helm test onprem-speech
@@ -207,7 +207,7 @@ RUNNING: text-to-speech-readiness-test
 PASSED: text-to-speech-readiness-test
 ```
 
-Como alternativa à execução dos *testes de Helm* , você pode coletar os endereços *IP externos* e as portas correspondentes do `kubectl get all` comando. Usando o IP e a porta, abra um navegador da Web e navegue até `http://<external-ip>:<port>:/swagger/index.html` para exibir a página (s) Swagger de API.
+Como alternativa à execução dos *testes de Helm*, você pode coletar os endereços *IP externos* e as portas correspondentes do `kubectl get all` comando. Usando o IP e a porta, abra um navegador da Web e navegue até `http://<external-ip>:<port>:/swagger/index.html` para exibir a página (s) Swagger de API.
 
 ## <a name="customize-helm-charts"></a>Personalizar gráficos do Helm
 
@@ -229,7 +229,7 @@ Para obter mais detalhes sobre como instalar aplicativos com o Helm no AKS (serv
 <!-- LINKS - external -->
 [free-azure-account]: https://azure.microsoft.com/free
 [git-download]: https://git-scm.com/downloads
-[azure-cli]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
 [docker-engine]: https://www.docker.com/products/docker-engine
 [kubernetes-cli]: https://kubernetes.io/docs/tasks/tools/install-kubectl
 [helm-install]: https://helm.sh/docs/intro/install/

@@ -1,19 +1,16 @@
 ---
 title: Configurar agendamento de aplicação de patch de so para clusters do Azure HDInsight
 description: Saiba como configurar o agendamento de aplicação de patch no SO para clusters HDInsight baseados em Linux.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/21/2020
-ms.openlocfilehash: 005bfd4b7e7d062640a79896ccd3d7f76e3d6fb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 636caf592baa4df771f7cc50095911d0337456d0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447196"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939389"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Configurar o agendamento de aplicação de patch do so para clusters HDInsight baseados em Linux
 
@@ -64,7 +61,7 @@ O `install-updates-schedule-reboots` script aceita dois parâmetros numéricos, 
 
 | Parâmetro | Valores aceitos | Definição |
 | --- | --- | --- |
-| Tipo de atualizações a serem instaladas | 0, 1 ou 2 | O valor 0 instala apenas as atualizações do kernel. Um valor de 1 instala todas as atualizações e 2 instala apenas as atualizações de kernel + segurança. Se nenhum parâmetro for fornecido, o padrão será 0. |
+| Tipo de atualizações a serem instaladas | 0, 1 ou 2 | O valor 0 instala apenas as atualizações do kernel. Um valor de 1 instala o kernel + atualizações de segurança e 2 instala todas as atualizações. Se nenhum parâmetro for fornecido, o padrão será 0. |
 | Tipo de reinicialização a ser executada | 0, 1 ou 2 | Um valor de 0 desabilita A reinicialização. Um valor de 1 Habilita A reinicialização da agenda e 2 habilita a reinicialização imediata. Se nenhum parâmetro for fornecido, o padrão será 0. O usuário deve alterar o parâmetro de entrada 1 para o parâmetro de entrada 2. |
 
 > [!NOTE]

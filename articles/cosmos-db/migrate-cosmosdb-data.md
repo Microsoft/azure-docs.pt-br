@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/23/2019
-ms.openlocfilehash: 02fd0a4c7d931f439ab85af8d90de323105e21f2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b24ea79737c9e1f64abb7f62807352dbd9573695
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096692"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018064"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Migrar centenas de terabytes de dados para o Azure Cosmos DB 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -29,11 +29,11 @@ Atualmente, as estratégias de migração de Azure Cosmos DB são diferentes com
 
 As ferramentas existentes para migrar dados para Azure Cosmos DB têm algumas limitações que se tornam especialmente aparentes em grandes escalas:
 
- * **Recursos limitados de scale out** : para migrar terabytes de dados para Azure Cosmos DB o mais rápido possível, e para consumir efetivamente a taxa de transferência provisionada inteira, os clientes de migração devem ter a capacidade de escalar horizontalmente indefinidamente.  
+ * **Recursos limitados de scale out**: para migrar terabytes de dados para Azure Cosmos DB o mais rápido possível, e para consumir efetivamente a taxa de transferência provisionada inteira, os clientes de migração devem ter a capacidade de escalar horizontalmente indefinidamente.  
 
-* **Falta de rastreamento de progresso e ponto de verificação** : é importante acompanhar o progresso da migração e ter o ponto de verificação durante a migração de grandes conjuntos de dados. Caso contrário, qualquer erro que ocorra durante a migração interromperá a migração e você precisará iniciar o processo do zero. Não seria produtivo reiniciar todo o processo de migração quando 99% de ti já tiver sido concluído.  
+* **Falta de rastreamento de progresso e ponto de verificação**: é importante acompanhar o progresso da migração e ter o ponto de verificação durante a migração de grandes conjuntos de dados. Caso contrário, qualquer erro que ocorra durante a migração interromperá a migração e você precisará iniciar o processo do zero. Não seria produtivo reiniciar todo o processo de migração quando 99% de ti já tiver sido concluído.  
 
-* **Falta de fila de mensagens mortas** : em conjuntos de dados grandes, em alguns casos, pode haver problemas com partes dos dados de origem. Além disso, pode haver problemas transitórios com o cliente ou a rede. Qualquer um desses casos não deve fazer com que toda a migração falhe. Embora a maioria das ferramentas de migração tenha recursos robustos de repetição que protegem contra problemas intermitentes, nem sempre é suficiente. Por exemplo, se menos de 0, 1% dos documentos de dados de origem forem maiores que 2 MB de tamanho, isso fará com que a gravação do documento falhe em Azure Cosmos DB. Idealmente, é útil que a ferramenta de migração persista esses documentos ' com falha ' para outra fila de mensagens mortas, que pode ser processada após a migração. 
+* **Falta de fila de mensagens mortas**: em conjuntos de dados grandes, em alguns casos, pode haver problemas com partes dos dados de origem. Além disso, pode haver problemas transitórios com o cliente ou a rede. Qualquer um desses casos não deve fazer com que toda a migração falhe. Embora a maioria das ferramentas de migração tenha recursos robustos de repetição que protegem contra problemas intermitentes, nem sempre é suficiente. Por exemplo, se menos de 0, 1% dos documentos de dados de origem forem maiores que 2 MB de tamanho, isso fará com que a gravação do documento falhe em Azure Cosmos DB. Idealmente, é útil que a ferramenta de migração persista esses documentos ' com falha ' para outra fila de mensagens mortas, que pode ser processada após a migração. 
 
 Muitas dessas limitações estão sendo corrigidas para ferramentas como o Azure data Factory, serviços de migração de dados do Azure. 
 
@@ -43,7 +43,7 @@ Os desafios descritos na seção acima podem ser resolvidos usando uma ferrament
 
 A ferramenta personalizada usa a biblioteca de executores em massa e dá suporte à expansão em vários clientes e para rastrear erros durante o processo de ingestão. Para usar essa ferramenta, os dados de origem devem ser particionados em arquivos distintos no Azure Data Lake Storage (ADLS) para que os diferentes operadores de migração possam pegar cada arquivo e ingerir em Azure Cosmos DB. A ferramenta personalizada usa uma coleção separada, que armazena metadados sobre o progresso da migração para cada arquivo de origem individual no ADLS e rastreia os erros associados a eles.  
 
-A imagem a seguir descreve o processo de migração usando essa ferramenta personalizada. A ferramenta está em execução em um conjunto de máquinas virtuais, e cada máquina virtual consulta a coleção de rastreamento em Azure Cosmos DB para adquirir uma concessão em uma das partições de dados de origem. Quando isso for feito, a partição de dados de origem será lida pela ferramenta e ingerida no Azure Cosmos DB usando a biblioteca de executor em massa. Em seguida, a coleção de rastreamento é atualizada para registrar o progresso da ingestão de dados e todos os erros encontrados. Depois que uma partição de dados é processada, a ferramenta tenta consultar a próxima partição de origem disponível. Ele continua processando a próxima partição de origem até que todos os dados sejam migrados. O código-fonte da ferramenta está disponível [aqui](https://github.com/Azure-Samples/azure-cosmosdb-bulkingestion).  
+A imagem a seguir descreve o processo de migração usando essa ferramenta personalizada. A ferramenta está em execução em um conjunto de máquinas virtuais, e cada máquina virtual consulta a coleção de rastreamento em Azure Cosmos DB para adquirir uma concessão em uma das partições de dados de origem. Quando isso for feito, a partição de dados de origem será lida pela ferramenta e ingerida no Azure Cosmos DB usando a biblioteca de executor em massa. Em seguida, a coleção de rastreamento é atualizada para registrar o progresso da ingestão de dados e todos os erros encontrados. Depois que uma partição de dados é processada, a ferramenta tenta consultar a próxima partição de origem disponível. Ele continua processando a próxima partição de origem até que todos os dados sejam migrados. O código-fonte da ferramenta está disponível no repositório de [ingestão em Azure Cosmos DB em massa](https://github.com/Azure-Samples/azure-cosmosdb-bulkingestion) .  
 
  
 :::image type="content" source="./media/migrate-cosmosdb-data/migrationsetup.png" alt-text="Instalação da ferramenta de migração" border="false":::
@@ -142,12 +142,6 @@ Depois que os pré-requisitos forem concluídos, você poderá migrar dados com 
 6. Alguns desses erros podem ser devido a documentos incorretos nos dados de origem. Eles devem ser identificados e corrigidos. Em seguida, você deve executar novamente a etapa de importação nas partições com falha para ingerir. 
 
 Quando a migração for concluída, você poderá validar que a contagem de documentos em Azure Cosmos DB é igual à contagem de documentos no banco de dados de origem. Neste exemplo, o tamanho total em Azure Cosmos DB foi desativado para 65 terabytes. Após a migração, a indexação pode ser ativada seletivamente e o RUs pode ser reduzido para o nível exigido pelas operações da carga de trabalho.
-
-## <a name="contact-the-azure-cosmos-db-team"></a>Contate a equipe de Azure Cosmos DB
-Embora você possa seguir este guia para migrar com êxito grandes conjuntos de dados para Azure Cosmos DB, para migrações em larga escala, é recomendável que você acesse a equipe do Azure Cosmos DB produto para validar a modelagem de dados e uma revisão geral da arquitetura. Com base em seu conjunto de cargas de trabalho e carga, a equipe de produto também pode sugerir outras otimizações de desempenho e custo que podem ser aplicáveis a você. Para entrar em contato com a equipe de Azure Cosmos DB para obter assistência com migrações em larga escala, você pode abrir um tíquete de suporte no tipo de problema "consultoria geral" e "migrações de grande (TB +)", conforme mostrado abaixo.
-
-:::image type="content" source="./media/migrate-cosmosdb-data/supporttopic.png" alt-text="Instalação da ferramenta de migração":::
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

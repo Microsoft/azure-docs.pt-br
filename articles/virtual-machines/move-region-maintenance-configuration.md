@@ -7,18 +7,18 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.date: 03/04/2020
 ms.author: shants
-ms.openlocfilehash: 4cff7eb4a69005f2e74747b6e58447f100c69b60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91a6adecc9cf0db56fa4c433f388b05aa1bdef6a
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86501595"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202905"
 ---
 # <a name="move-a-maintenance-control-configuration-to-another-region"></a>Mover uma configuração de controle de manutenção para outra região
 
 Siga este artigo para mover uma configuração de controle de manutenção para uma região diferente do Azure. Talvez você queira mover uma configuração por vários motivos. Por exemplo, para aproveitar uma nova região, implantar recursos ou serviços disponíveis em uma região específica, para atender aos requisitos internos de políticas e governança, ou em resposta ao planejamento de capacidade.
 
-O controle de manutenção, com configurações de manutenção personalizadas, permite controlar como as atualizações de plataforma são aplicadas às VMs do [Windows](./maintenance-control-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json) e do [Linux](./maintenance-control-cli.md?toc=%2Fazure%2Fvirtual-machines%2Flinux%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Flinux%2Fbreadcrumb%2Ftoc.json&view=azure-java-stable) e aos hosts dedicados do Azure. Há alguns cenários para mover o controle de manutenção entre regiões:
+O [controle de manutenção](maintenance-control.md), com configurações de manutenção personalizadas, permite que você controle como as atualizações de plataforma são aplicadas às VMs e aos hosts dedicados do Azure. Há alguns cenários para mover o controle de manutenção entre regiões:
 
 - Para mover sua configuração de controle de manutenção, mas não os recursos associados à configuração, siga as instruções neste artigo.
 - Para mover os recursos associados a uma configuração de manutenção, mas não a configuração em si, siga [estas instruções](move-region-maintenance-configuration-resources.md).
@@ -38,14 +38,14 @@ Antes de começar a mover uma configuração de controle de manutenção:
 
 ## <a name="prepare-and-move"></a>Preparar e mover 
 
-1. Recupere todas as configurações de manutenção em cada assinatura. Execute o comando da lista de configuração da CLI [AZ Maintenance](/cli/azure/ext/maintenance/maintenance/configuration?view=azure-cli-latest#ext-maintenance-az-maintenance-configuration-list) para fazer isso, substituindo $subId pela sua ID de assinatura.
+1. Recupere todas as configurações de manutenção em cada assinatura. Execute o comando da lista de configuração da CLI [AZ Maintenance](/cli/azure/ext/maintenance/maintenance/configuration#ext-maintenance-az-maintenance-configuration-list) para fazer isso, substituindo $subId pela sua ID de assinatura.
 
     ```
     az maintenance configuration list --subscription $subId --query "[*].{Name:name, Location:location, ResGroup:resourceGroup}" --output table
     ```
 2. Examine a lista de tabelas retornada de registros de configuração na assinatura. Veja um exemplo. Sua lista conterá valores para seu ambiente específico.
 
-    **Nome** | **Localidade** | **Grupo de recursos**
+    **Nome** | **Localização** | **Grupo de recursos**
     --- | --- | ---
     Ignorar manutenção | eastus2 | configuração-grupo de recursos
     IgniteDemoConfig | eastus2 | configuração-grupo de recursos

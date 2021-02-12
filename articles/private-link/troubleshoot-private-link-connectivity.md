@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: 1e5253d617c87d5869cebc817da6d265ebfdfa7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45a7a146dd929408b50a0045fe2598726ee05505
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77539460"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544302"
 ---
 # <a name="troubleshoot-azure-private-link-connectivity-problems"></a>Solucionar problemas de conectividade do Link Privado do Azure
 
@@ -37,7 +37,7 @@ Aqui estão os cenários de conectividade disponíveis com o link privado:
 
 ## <a name="deployment-troubleshooting"></a>Solução de problemas de implantação
 
-Examine as informações sobre como [desabilitar as políticas de rede no serviço de vínculo privado](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy) para ver os casos de solução de problemas em que você não pode selecionar o endereço IP de origem da sub-rede de sua escolha para o serviço de link privado.
+Examine as informações sobre como [desabilitar as políticas de rede no serviço de vínculo privado](./disable-private-link-service-network-policy.md) para ver os casos de solução de problemas em que você não pode selecionar o endereço IP de origem da sub-rede de sua escolha para o serviço de link privado.
 
 Verifique se a configuração **privateLinkServiceNetworkPolicies** está desabilitada para a sub-rede da qual você está selecionando o endereço IP de origem.
 
@@ -99,7 +99,7 @@ Se você tiver problemas de conectividade com a configuração de link privado, 
        - Se a conexão o fizer para o pool de back-end de acordo com as regras de balanceamento de carga, o balanceador de carga estará operacional.
        - Você também pode examinar a métrica do balanceador de carga por meio de Azure Monitor para ver se os dados estão fluindo pelo balanceador de carga.
 
-1. Use [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview) para ver se os dados estão fluindo.
+1. Use [Azure monitor](../azure-monitor/overview.md) para ver se os dados estão fluindo.
 
     a. No recurso serviço de vínculo privado, selecione **métricas**.
      - Selecione **bytes** ou **bytes de saída**.
@@ -111,5 +111,5 @@ Se você tiver problemas de conectividade com a configuração de link privado, 
 
 ## <a name="next-steps"></a>Próximas etapas
 
- * [Criar um serviço de vínculo privado (CLI)](https://docs.microsoft.com/azure/private-link/create-private-link-service-cli)
+ * [Criar um serviço de vínculo privado (CLI)](./create-private-link-service-cli.md)
  * [Guia de solução de problemas do ponto de extremidade privado do Azure](troubleshoot-private-endpoint-connectivity.md)

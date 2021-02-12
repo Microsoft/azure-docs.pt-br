@@ -2,20 +2,20 @@
 title: Benefícios da migração de implantação clássica no Azure AD Domain Services | Microsoft Docs
 description: Saiba mais sobre os benefícios da migração de uma implantação clássica do Azure Active Directory Domain Services para o modelo de implantação do Gerenciador de recursos
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.author: joflore
-ms.openlocfilehash: 35224e6c9a28b1555303c1ae11b6700c1bf419bf
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 8cc5f5ebf389d35df02474d0561dc7827cde4d0b
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962489"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620079"
 ---
 # <a name="benefits-of-migration-from-the-classic-to-resource-manager-deployment-model-in-azure-active-directory-domain-services"></a>Benefícios da migração do modelo de implantação clássico para o Gerenciador de recursos no Azure Active Directory Domain Services
 

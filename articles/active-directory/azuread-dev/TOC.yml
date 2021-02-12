@@ -147,8 +147,6 @@
       items:
         - name: Publicar na Loja de Aplicativos
           href: howto-get-appsource-certified.md
-        - name: Publicar na Galeria de Aplicativos do Azure AD
-          href: howto-app-gallery-listing.md
         - name: Publicar no Painel do Vendedor do Office 365
           href: /office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
     - name: Serviço de Controle de Acesso do Azure

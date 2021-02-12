@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 09/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 4c65ca24b3fa4dccb2bb0060996ade50c90bd02a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 055f039d5bba0dba2906e1d3b8410af00c5600ef
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148522"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606276"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Perguntas frequentes sobre o Registro de Contêiner do Azure
 
@@ -111,6 +111,7 @@ Demora um pouco para propagar as alterações das regras de firewall. Depois de 
 - [Como posso conceder acesso para receber ou enviar imagens sem permissão para gerenciar o recurso de registro?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
 - [Como posso habilitar a quarentena automática de imagens de um registro?](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
 - [Como posso habilitar o acesso de pull anônimo?](#how-do-i-enable-anonymous-pull-access)
+- [Como fazer enviar camadas não distribuíveis por push para um registro?](#how-do-i-push-non-distributable-layers-to-a-registry)
 
 ### <a name="how-do-i-access-docker-registry-http-api-v2"></a>Como posso acessar o Docker Registry HTTP API V2?
 
@@ -262,7 +263,35 @@ Atualmente, a quarentena da imagem é uma versão prévia do recurso do ACR. Voc
 Atualmente, a configuração de um registro de contêiner do Azure para acesso de pull anônimo (público) é uma versão prévia do recurso. Se você tiver qualquer [mapa de escopo (usuário) ou recursos de token](./container-registry-repository-scoped-permissions.md) em seu registro, exclua-os antes de gerar um tíquete de suporte (os mapas de escopo do sistema podem ser ignorados). Para habilitar o acesso público, abra um tíquete de suporte em https://aka.ms/acr/support/create-ticket. Para obter detalhes, confira o [Fórum de Comentários do Azure](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
 
 > [!NOTE]
-> Somente as APIs necessárias para efetuar pull de uma imagem conhecida podem ser acessadas anonimamente. Nenhuma outra API para operações como lista de marcas ou lista de repositórios é acessível anonimamente.
+> * Somente as APIs necessárias para efetuar pull de uma imagem conhecida podem ser acessadas anonimamente. Nenhuma outra API para operações como lista de marcas ou lista de repositórios é acessível anonimamente.
+> * Antes de tentar uma operação de pull anônima, execute `docker logout` para garantir que você desmarque as credenciais existentes do Docker.
+
+### <a name="how-do-i-push-non-distributable-layers-to-a-registry"></a>Como fazer enviar camadas não distribuíveis por push para um registro?
+
+Uma camada não distribuível em um manifesto contém um parâmetro de URL do qual o conteúdo pode ser obtido. Alguns casos de uso possíveis para habilitar Pushes de camada não distribuíveis são para registros restritos de rede, registros de ar-gapped com acesso restrito ou para registros sem conectividade com a Internet.
+
+Por exemplo, se você tiver regras de NSG configuradas para que uma VM possa extrair imagens somente de seu registro de contêiner do Azure, o Docker efetuará pull de falhas para camadas externas/não distribuíveis. Por exemplo, uma imagem do Windows Server Core conteria referências de camada estrangeira ao registro de contêiner do Azure em seu manifesto e não conseguiria efetuar pull nesse cenário.
+
+Para habilitar o envio por push de camadas não distribuíveis:
+
+1. Edite o `daemon.json` arquivo, que está localizado em `/etc/docker/` hosts Linux e no `C:\ProgramData\docker\config\daemon.json` Windows Server. Supondo que o arquivo estava vazio anteriormente, adicione o seguinte conteúdo:
+
+   ```json
+   {
+     "allow-nondistributable-artifacts": ["myregistry.azurecr.io"]
+   }
+   ```
+   > [!NOTE]
+   > O valor é uma matriz de endereços de registro, separados por vírgulas.
+
+2. Salve e feche o arquivo.
+
+3. Reinicie o Docker.
+
+Quando você envia imagens por push para os registros na lista, suas camadas não distribuíveis são enviadas por push para o registro.
+
+> [!WARNING]
+> Os artefatos não distribuíveis normalmente têm restrições sobre como e onde eles podem ser distribuídos e compartilhados. Use esse recurso apenas para enviar artefatos por push a registros privados. Verifique se você está em conformidade com os termos que abrangem a redistribuição de artefatos não distribuíveis.
 
 ## <a name="diagnostics-and-health-checks"></a>Diagnóstico e verificações de integridade
 

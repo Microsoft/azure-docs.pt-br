@@ -1,27 +1,25 @@
 ---
-title: Solução de problemas de falha na alocação do serviço de nuvem | Microsoft Docs
+title: Solucionando problemas de falha de alocação do serviço de nuvem (clássico) | Microsoft Docs
 description: Solucione uma falha de alocação ao implantar os serviços de nuvem do Azure. Saiba como a alocação funciona e por que a alocação pode falhar.
-services: azure-service-management, cloud-services
-documentationcenter: ''
-author: simonxjx
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 529157eb-e4a1-4388-aa2b-09e8b923af74
+ms.topic: article
 ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: ibiza
-ms.topic: troubleshooting
-ms.date: 06/15/2018
-ms.author: v-six
-ms.openlocfilehash: 1d82b7223c2b392e6b9aebffdc545dc38b38ca2f
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 0c172add9aa49b2ca64d2fb2281d326256e3aec7
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074219"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741580"
 ---
-# <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Solução de problemas de falha de alocação ao implantar Serviços de Nuvem no Azure
+# <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-classic-in-azure"></a>Solucionando problemas de falha de alocação ao implantar serviços de nuvem (clássico) no Azure
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
+
 ## <a name="summary"></a>Resumo
 Quando você implanta instâncias em um Serviço de Nuvem ou adiciona nova instâncias de função da Web ou de trabalho, o Microsoft Azure aloca recursos de computação. Eventualmente, você pode receber mensagens de erro durante a execução dessas operações antes de alcançar os limites da assinatura do Microsoft Azure. Este artigo explica as causas das falhas de alocação mais comuns e sugere possíveis correções. As informações também poderão ser úteis caso você pretenda implantar serviços.
 

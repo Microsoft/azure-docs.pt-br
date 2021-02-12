@@ -1,24 +1,24 @@
 ---
-title: Noções básicas sobre o uso de reservas do Azure para Contratos Enterprise
-description: Aprenda a ler o seu uso para entender como a reserva do Azure para o seu registro Enterprise é aplicada.
+title: Noções básicas sobre o uso de reservas do Azure para o Contrato Enterprise e o Contrato de Cliente da Microsoft
+description: Saiba como ler suas informações de uso para entender como uma reserva do Azure se aplica ao uso do Contrato Enterprise e do Contrato de Cliente da Microsoft.
 author: bandersmsft
 ms.reviewer: yashar
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 01/19/2020
 ms.author: banders
-ms.openlocfilehash: 6e51363ff2f3782b77288f9dc1fcb8e59e9ffe0c
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 0c69e9533130d6ca70c57422c7cdd5fc75adff72
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151788"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683710"
 ---
-# <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Obter custos e uso de reserva do Contrato Enterprise
+# <a name="get-enterprise-agreement-and-microsoft-customer-agreement-reservation-costs-and-usage"></a>Obter o uso e os custos de reservas do Contrato Enterprise e do Contrato de Cliente da Microsoft
 
-Os dados de custos e uso de reserva estão disponíveis para clientes do Contrato Enterprise no portal do Azure e nas APIs REST. Este artigo ajuda você a:
+Os dados aprimorados para uso e custos de reservas estão disponíveis para o uso do EA (Contrato Enterprise) e do MCA (Contrato de Cliente da Microsoft) no Gerenciamento de Custos. Este artigo ajuda você a:
 
 - Obter dados de compra de reserva
 - Saber qual assinatura, grupo de recursos ou recurso usou a reserva
@@ -61,9 +61,7 @@ Outras informações disponíveis nos dados de uso do Azure foram alteradas:
 
 Você pode obter os dados usando a API ou baixá-los do portal do Azure.
 
-Chame a [API de Detalhes de Uso](/rest/api/consumption/usagedetails/list) para obter os novos dados. Para obter detalhes sobre a terminologia, confira [termos de uso](../understand/understand-usage.md). O chamador deve ser um administrador corporativo do Contrato Enterprise usando o [Portal do EA](https://ea.azure.com). Administradores corporativos somente leitura também podem obter os dados.
-
-Observe que esses dados não estão disponíveis nas [APIs de Relatório para clientes Enterprise: Detalhes de Uso](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
+Chame a [API de Detalhes de Uso](/rest/api/consumption/usagedetails/list) para obter os novos dados. Para obter detalhes sobre a terminologia, confira [termos de uso](../understand/understand-usage.md).
 
 Esta é uma chamada de exemplo à API de Detalhes de Uso:
 
@@ -87,7 +85,7 @@ As informações na tabela a seguir sobre métrica e filtro podem ajudar a resol
 
 ## <a name="download-the-usage-csv-file-with-new-data"></a>Baixar o arquivo CSV de uso com novos dados
 
-Se você for administrador de EA, poderá baixar o arquivo CSV que contém novos dados de uso do portal do Azure. Esses dados não estão disponíveis no portal do EA (ea.azure.com); é necessário baixar o arquivo de uso no portal do Azure (portal.azure.com) para ver os novos dados.
+Se você é administrador do EA, baixe o arquivo CSV que contém novos dados de uso do portal do Azure. Esses dados não estão disponíveis no portal do EA (ea.azure.com); é necessário baixar o arquivo de uso no portal do Azure (portal.azure.com) para ver os novos dados.
 
 No portal do Azure, navegue até [Gerenciamento de custos + Cobrança](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
 
@@ -140,6 +138,8 @@ Obtenha os Dados de custo amortizado e filtre-os para uma instância reservada. 
 2. Obter os custos de reserva. Some os valores _Cost_ para obter o valor monetário do que você pagou pela instância reservada. Isso inclui os custos usados e não utilizados da reserva.
 3. Subtraia os custos de reserva dos custos pagos conforme o uso estimados para obter a economia estimada.
 
+Tenha em mente que, se você tiver uma reserva subutilizada, a entrada _UnusedReservation_ para _ChargeType_ se tornará um fator a ser considerado. Quando você tiver uma reserva totalmente utilizada, você receberá o máximo de economia possível. Qualquer quantidade _UnusedReservation_ reduz a economia.
+
 ## <a name="reservation-purchases-and-amortization-in-cost-analysis"></a>Compras de reserva e amortização na análise de custo
 
 Os custos de reserva estão disponíveis na [análise de custo](https://aka.ms/costanalysis). Por padrão, a análise de custo mostra o **Custo real**, que é o modo como os custos serão mostrados em sua fatura. Para exibir as compras de reserva detalhadas e associadas aos recursos que usaram o benefício, alterne para **Custo amortizado**:
@@ -148,7 +148,7 @@ Os custos de reserva estão disponíveis na [análise de custo](https://aka.ms/c
 
 Agrupar por tipo de preço para ver uma interrupção do uso, das compras e dos reembolsos; ou por reserva para um detalhamento da reserva e dos custos sob demanda. Lembre-se de que apenas os custos de reserva que você verá ao examinar o custo real são compras, mas os custos serão alocados aos recursos individuais que usaram o benefício ao examinar o custo amortizado. Você também verá um novo tipo de preço **UnusedReservation** ao examinar o custo amortizado.
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
@@ -157,7 +157,7 @@ Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte
 Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
 
 - [O que são Reservas do Azure?](save-compute-costs-reservations.md)
-- [Pré-pagamento para máquinas virtuais com instâncias de VMs reservadas do Azure](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Pré-pagamento para máquinas virtuais com instâncias de VMs reservadas do Azure](../../virtual-machines/prepay-reserved-vm-instances.md)
 - [Pagar antecipadamente por recursos de computação de banco de dados SQL com capacidade reservada do Banco de Dados SQL do Azure](../../azure-sql/database/reserved-capacity-overview.md)
 - [Gerenciar Reservas do Azure](manage-reserved-vm-instance.md)
 - [Entender como o desconto de reserva é aplicado](../manage/understand-vm-reservation-charges.md)

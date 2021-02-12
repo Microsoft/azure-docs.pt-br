@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 7e59c8ecc0d7af341ddc1ea79aa42460e00fa444
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 467c2b9fe8758db5c1da43a65c1bfde133df0823
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89419768"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880094"
 ---
 # <a name="vpn-gateway-faq"></a>Perguntas frequentes de gateway de VPN
 
@@ -38,7 +38,7 @@ Não.
 
 Há suporte para as seguintes conexões entre locais:
 
-* Site a Site – conexão VPN no IPsec (IKE v1 e IKE v2). Esse tipo de conexão exige um dispositivo VPN ou RRAS. Para obter mais informações, consulte [Site a Site](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+* Site a Site – conexão VPN no IPsec (IKE v1 e IKE v2). Esse tipo de conexão exige um dispositivo VPN ou RRAS. Para obter mais informações, consulte [Site a Site](./tutorial-site-to-site-portal.md).
 * Ponto a Site – conexão VPN no SSTP (Secure Socket Tunneling Protocol) ou IKE v2. Essa conexão não exige um dispositivo VPN. Para obter mais informações, consulte [Ponto a Site](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 * VNet a VNet - esse tipo de conexão é igual a uma configuração Site a Site. VNet a VNet é uma conexão VPN sobre IPsec (IKE v1 e IKE v2). Ela não requer um dispositivo VPN. Para obter mais informações, consulte [VNet a VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 * Multissite - essa é uma variação da configuração Site a Site que permite conectar vários sites locais a uma rede virtual. Para obter mais informações, consulte [Multissite](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
@@ -70,13 +70,13 @@ Gateways baseados em rota implementam VPNs baseadas em rota. As VPNs baseadas em
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>Posso atualizar meu gateway de VPN baseado em política para baseado em rota?
 
-Não.Um tipo de gateway de rede virtual do Azure não pode ser alterado de baseado em política para baseado em rota ou ao contrário. O gateway deve ser excluído e recriado, um processo que demora em torno de 60 minutos. O endereço IP do gateway não será preservado e nem a Chave Pré-compartilhada (PSK).
+Não. Um tipo de gateway de rede virtual do Azure não pode ser alterado de baseado em política para baseado em rota ou ao contrário. O gateway deve ser excluído e recriado, um processo que demora em torno de 60 minutos. O endereço IP do gateway não será preservado e nem a Chave Pré-compartilhada (PSK).
 1. Exclua todas as conexões associadas ao gateway a ser excluído.
 1. Exclua o gateway:
    - [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
    - [PowerShell do Azure](vpn-gateway-delete-vnet-gateway-powershell.md)
    - [Azure PowerShell-clássico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-1. [Crie um novo gateway do tipo que você deseja e conclua a configuração de VPN](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway).
+1. [Crie um novo gateway do tipo que você deseja e conclua a configuração de VPN](./tutorial-site-to-site-portal.md#VNetGateway).
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>É necessária uma 'GatewaySubnet'?
 
@@ -127,9 +127,9 @@ Estamos limitados ao uso de PSK (chaves pré-compartilhadas) para autenticação
 
 Sim. Confira [Configurar o túnel forçado](vpn-gateway-about-forced-tunneling.md).
 
-### <a name="can-i-use-nat-t-on-my-vpn-connections"></a>Posso usar NAT-T em minhas conexões VPN?
+### <a name="can-i-use-nat-t-on-my-vpn-connections"></a>Posso usar um NAT-T em minhas conexões VPN?
 
-Sim, há suporte para o NAT Traversal (NAT-T). O gateway de VPN do Azure não executará nenhuma funcionalidade semelhante a NAT nos pacotes internos de/para os túneis IPsec.  Nessa configuração, verifique se o dispositivo local inicia o túnel IPSec.
+Sim, o NAT-T (NAT Traversal) é compatível. O gateway de VPN do Azure não executará nenhuma funcionalidade semelhante a NAT nos pacotes internos de/para os túneis IPsec.  Nessa configuração, verifique se o dispositivo local iniciará o túnel IPSec.
 
 ### <a name="can-i-set-up-my-own-vpn-server-in-azure-and-use-it-to-connect-to-my-on-premises-network"></a>Posso configurar meu próprio servidor de VPN no Azure e usá-lo para me conectar à minha rede local?
 

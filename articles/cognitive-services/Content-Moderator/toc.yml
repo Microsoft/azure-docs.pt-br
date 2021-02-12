@@ -6,11 +6,13 @@
     - name: O que é o Content Moderator?
       href: overview.md
       expanded: true
+    - name: Novidades
+      href: whats-new.md
 - name: Inícios rápidos
   items:
     - name: Experimentar o Content Moderator na Web
       href: quick-start.md
-    - name: Como usar a biblioteca de clientes
+    - name: Como usar a biblioteca de clientes ou a API REST
       href: client-libraries.md
 - name: Tutoriais
   items:
@@ -18,8 +20,6 @@
       href: ecommerce-retail-catalog-moderation.md
     - name: Moderação de conteúdo do Facebook
       href: facebook-post-moderation.md
-    - name: moderação de vídeos e transcrições
-      href: video-transcript-moderation-review-tutorial-dotnet.md
 - name: Conceitos
   items:
     - name: Moderação de imagem
@@ -36,7 +36,7 @@
   items:
     - name: Moderar conteúdo
       items:
-        - name: API REST
+        - name: Console de API
           items:
             - name: Imagens – console de API
               href: try-image-api.md
@@ -58,7 +58,7 @@
       items:
         - name: Ferramenta de revisão (navegador)
           href: Review-Tool-User-Guide/Review-Moderated-Images.md
-        - name: API REST
+        - name: Console de API
           href: try-review-api-review.md
         - name: Análises de vídeo (.NET)
           href: video-reviews-quickstart-dotnet.md
@@ -68,11 +68,11 @@
       items:
         - name: Ferramenta de revisão (navegador)
           href: Review-Tool-User-Guide/Workflows.md
-        - name: API REST
+        - name: Console de API
           href: try-review-api-workflow.md
     - name: Definir e usar trabalhos
       items:
-        - name: API REST
+        - name: Console de API
           href: try-review-api-job.md
         - name: SDK .NET
           href: moderation-jobs-quickstart-dotnet.md

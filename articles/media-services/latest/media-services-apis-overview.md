@@ -1,25 +1,11 @@
 ---
-title: Desenvolver com as APIs v3
-titleSuffix: Azure Media Services
-description: Saiba mais sobre as regras que se aplicam a entidades e APIs ao desenvolver com os serviços de mídia v3.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: conceptual
-ms.date: 10/23/2020
-ms.author: inhenkel
-ms.custom: seodec18
-ms.openlocfilehash: 416fb9fc4ce0622a710f2c119942edc4986ddd06
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
-ms.translationtype: MT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790569"
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Campos obrigatórios. Veja mais em aka.ms/skyeye/meta.
+Título: desenvolver com APIs V3: descrição dos serviços de mídia do Azure: Saiba mais sobre as regras que se aplicam a entidades e APIs ao desenvolver com os serviços de mídia v3. serviços: Media-Services documentationcenter: ' ' autor: IngridAtMicrosoft gerente: femila editor: ' '
+
+MS. Service: Media-Services MS. Workload: MS. Topic: conceitual MS. Date: 10/23/2020 MS. autor: inhenkel MS. Custom: seodec18
+
 ---
+
 # <a name="develop-with-media-services-v3-apis"></a>Desenvolver com as APIs dos Serviços de Mídia v3
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
@@ -32,10 +18,10 @@ Este artigo discute as regras que se aplicam a entidades e APIs ao desenvolver c
 
 Para estar autorizado a acessar os recursos e a API dos Serviços de Mídia, primeiro você deve ser autenticado. Os Serviços de Mídia dão suporte à [autenticação baseada no Azure AD (Azure Active Directory)](../../active-directory/fundamentals/active-directory-whatis.md). Duas opções de autenticação comuns são:
  
-* **Autenticação de entidade de serviço** : Usado para autenticar um serviço (por exemplo: aplicativos Web, aplicativos de funções, aplicativos lógicos, API e microservices). Os aplicativos que geralmente usam esse método de autenticação são aplicativos que executam serviços daemon, serviços de camada intermediária ou trabalhos agendados. Por exemplo, para aplicativos Web, sempre deve haver uma camada intermediária que se conecte aos serviços de mídia com uma entidade de serviço.
-* **Autenticação de usuário** : Usada para autenticar uma pessoa que está usando o aplicativo para interagir com os recursos dos Serviços de Mídia. O aplicativo interativo deve primeiro solicitar ao usuário as credenciais do usuário. Um exemplo é um aplicativo de console de gerenciamento usado por usuários autorizados para monitorar trabalhos de codificação ou uma transmissão ao vivo.
+* **Autenticação de entidade de serviço**: Usado para autenticar um serviço (por exemplo: aplicativos Web, aplicativos de funções, aplicativos lógicos, API e microservices). Os aplicativos que geralmente usam esse método de autenticação são aplicativos que executam serviços daemon, serviços de camada intermediária ou trabalhos agendados. Por exemplo, para aplicativos Web, sempre deve haver uma camada intermediária que se conecte aos serviços de mídia com uma entidade de serviço.
+* **Autenticação de usuário**: Usada para autenticar uma pessoa que está usando o aplicativo para interagir com os recursos dos Serviços de Mídia. O aplicativo interativo deve primeiro solicitar ao usuário as credenciais do usuário. Um exemplo é um aplicativo de console de gerenciamento usado por usuários autorizados para monitorar trabalhos de codificação ou uma transmissão ao vivo.
 
-A API dos serviços de mídia requer que o usuário ou aplicativo que faz as solicitações da API REST tenha acesso ao recurso de conta dos serviços de mídia e use uma função de **Colaborador** ou de **Proprietário** . A API pode ser acessada com a função de **Leitor** , mas somente as operações **Get** ou **List** estarão disponíveis. Para obter mais informações, consulte [controle de acesso baseado em função do Azure (RBAC do Azure) para contas de serviços de mídia](rbac-overview.md).
+A API dos serviços de mídia requer que o usuário ou aplicativo que faz as solicitações da API REST tenha acesso ao recurso de conta dos serviços de mídia e use uma função de **Colaborador** ou de **Proprietário**. A API pode ser acessada com a função de **Leitor** , mas somente as operações **Get** ou **List** estarão disponíveis.Para obter mais informações, consulte [controle de acesso baseado em função do Azure (RBAC do Azure) para contas de serviços de mídia](rbac-overview.md).
 
 Em vez de criar uma entidade de serviço, considere o uso de identidades gerenciadas dos recursos do Azure para acessar a API dos serviços de mídia por meio de Azure Resource Manager. Para saber mais sobre as identidades gerenciadas para os recursos do Azure, confira o artigo [O que são as identidades gerenciadas para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 

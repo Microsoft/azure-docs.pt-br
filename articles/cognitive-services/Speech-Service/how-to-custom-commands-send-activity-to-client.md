@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: fc62c87fd12457c60d3eb26cba6814aa1df76f87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52a4dbc4ff01515af8cd7d2503877184a09f7e64
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839207"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566088"
 ---
 # <a name="send-custom-commands-activity-to-client-application"></a>Enviar atividade de comandos personalizados para o aplicativo cliente
 
@@ -36,15 +36,17 @@ Você conclui as seguintes tarefas:
 ## <a name="setup-send-activity-to-client"></a>Configurar atividade de envio para o cliente 
 1. Abra o aplicativo de comandos personalizados que você criou anteriormente
 1. Selecione o comando **TurnOnOff** , selecione **ConfirmationResponse** em regra de conclusão e, em seguida, selecione **Adicionar uma ação**
-1. Em **nova ação-tipo**, selecione **Enviar atividade para o cliente**
+1. Em **nova ação-tipo** , selecione **Enviar atividade para o cliente**
 1. Copie o JSON abaixo para o **conteúdo da atividade**
    ```json
    {
-     "type": "event",
-     "name": "UpdateDeviceState",
-     "state": "{OnOff}",
-     "device": "{SubjectDevice}"
-   }
+      "type": "event",
+      "name": "UpdateDeviceState",
+      "value": {
+        "state": "{OnOff}",
+        "device": "{SubjectDevice}"
+      }
+    }
    ```
 1. Clique em **salvar** para criar uma nova regra com uma ação enviar atividade, **treinar** e **publicar** a alteração
 
@@ -55,7 +57,7 @@ Você conclui as seguintes tarefas:
 
 Em [como: configurar o aplicativo cliente com o SDK de fala (versão prévia)](./how-to-custom-commands-setup-speech-sdk.md), você criou um aplicativo cliente UWP com o SDK de fala que tratou comandos como `turn on the tv` , `turn off the fan` . Com alguns elementos visuais adicionados, você pode ver o resultado desses comandos.
 
-Para adicionar caixas rotuladas com texto indicando **Ativar** ou **desativar**, adicione o seguinte bloco XML de StackPanel a `MainPage.xaml` .
+Para adicionar caixas rotuladas com texto indicando **Ativar** ou **desativar** , adicione o seguinte bloco XML de StackPanel a `MainPage.xaml` .
 
 ```xml
 <StackPanel Orientation="Vertical" H......>
@@ -83,8 +85,8 @@ Para adicionar caixas rotuladas com texto indicando **Ativar** ou **desativar**,
 Como você criou uma carga JSON, precisará adicionar uma referência à biblioteca [JSON.net](https://www.newtonsoft.com/json) para lidar com a desserialização.
 
 1. Cliente à sua solução.
-1. Escolha **gerenciar pacotes NuGet para solução**, selecione **procurar** 
-1. Se você já tiver instalado o **Newtonsoft.jsno**, verifique se sua versão é pelo menos 12.0.3. Caso contrário, vá para **gerenciar pacotes NuGet para solução-atualizações**, procure **Newtonsoft.jsem** para atualizá-lo. Este guia está usando a versão 12.0.3.
+1. Escolha **gerenciar pacotes NuGet para solução** , selecione **procurar** 
+1. Se você já tiver instalado o **Newtonsoft.jsno** , verifique se sua versão é pelo menos 12.0.3. Caso contrário, vá para **gerenciar pacotes NuGet para solução-atualizações** , procure **Newtonsoft.jsem** para atualizá-lo. Este guia está usando a versão 12.0.3.
 
     > [!div class="mx-imgBorder"]
     > ![Enviar carga da atividade](media/custom-commands/send-activity-to-client-json-nuget.png)
@@ -114,8 +116,8 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
     if (name.Equals("UpdateDeviceState"))
     {
         Debug.WriteLine("Here");
-        var state = activity?.device != null ? activity.state.ToString() : string.Empty;
-        var device = activity?.device != null ? activity.device.ToString() : string.Empty;
+        var state = activity?.value?.state != null ? activity.value.state.ToString() : string.Empty;
+        var device = activity?.value?.device != null ? activity.value.device.ToString() : string.Empty;
 
         if (state.Equals("on") || state.Equals("off"))
         {

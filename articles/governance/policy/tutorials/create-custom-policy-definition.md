@@ -3,12 +3,12 @@ title: 'Tutorial: Criar uma definição de política personalizada'
 description: Neste tutorial, você cria uma definição de política personalizada do Azure Policy para impor regras de negócios personalizadas nos seus recursos do Azure.
 ms.date: 10/05/2020
 ms.topic: tutorial
-ms.openlocfilehash: 24058a2c8428d306c5e53a73393b0d98785831cf
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 817e6f494b024b9a789f39a4101236f64d8fa0cd
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876287"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882884"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Criar uma definição de política personalizada
 
@@ -168,7 +168,6 @@ Há algumas maneiras de determinar os aliases para um recurso do Azure. Examinar
 - Extensão do Azure Policy para o VS Code
 - CLI do Azure
 - Azure PowerShell
-- Gráfico de Recursos do Azure
 
 ### <a name="get-aliases-in-vs-code-extension"></a>Obter aliases na extensão do VS Code
 
@@ -202,125 +201,6 @@ No Azure PowerShell, o cmdlet `Get-AzPolicyAlias` é usado para pesquisar aliase
 ```
 
 Como a CLI do Azure, os resultados mostram um alias compatível com as contas de armazenamento chamadas **supportsHttpsTrafficOnly**.
-
-### <a name="azure-resource-graph"></a>Gráfico de Recursos do Azure
-
-O [Azure Resource Graph](../../resource-graph/overview.md) é um serviço que fornece outro método para localizar propriedades de recursos do Azure. Esta é uma consulta de exemplo para examinar uma única conta de armazenamento com o Resource Graph:
-
-```kusto
-Resources
-| where type=~'microsoft.storage/storageaccounts'
-| limit 1
-```
-
-```azurecli-interactive
-az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1"
-```
-
-```azurepowershell-interactive
-Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1"
-```
-
-Os resultados são semelhantes ao que vemos nos modelos do ARM e no Azure Resource Explorer. No entanto, os resultados do Azure Resource Graph também incluem detalhes do [alias](../concepts/definition-structure.md#aliases)_projetando_ a matriz de _aliases_:
-
-```kusto
-Resources
-| where type=~'microsoft.storage/storageaccounts'
-| limit 1
-| project aliases
-```
-
-```azurecli-interactive
-az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
-```
-
-```azurepowershell-interactive
-Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
-```
-
-Esta é uma saída de exemplo de uma conta de armazenamento para aliases:
-
-```json
-"aliases": {
-    "Microsoft.Storage/storageAccounts/accessTier": null,
-    "Microsoft.Storage/storageAccounts/accountType": "Standard_LRS",
-    "Microsoft.Storage/storageAccounts/enableBlobEncryption": true,
-    "Microsoft.Storage/storageAccounts/enableFileEncryption": true,
-    "Microsoft.Storage/storageAccounts/encryption": {
-        "keySource": "Microsoft.Storage",
-        "services": {
-            "blob": {
-                "enabled": true,
-                "lastEnabledTime": "2018-06-04T17:59:14.4970000Z"
-            },
-            "file": {
-                "enabled": true,
-                "lastEnabledTime": "2018-06-04T17:59:14.4970000Z"
-            }
-        }
-    },
-    "Microsoft.Storage/storageAccounts/encryption.keySource": "Microsoft.Storage",
-    "Microsoft.Storage/storageAccounts/encryption.keyvaultproperties.keyname": null,
-    "Microsoft.Storage/storageAccounts/encryption.keyvaultproperties.keyvaulturi": null,
-    "Microsoft.Storage/storageAccounts/encryption.keyvaultproperties.keyversion": null,
-    "Microsoft.Storage/storageAccounts/encryption.services": {
-        "blob": {
-            "enabled": true,
-            "lastEnabledTime": "2018-06-04T17:59:14.4970000Z"
-        },
-        "file": {
-            "enabled": true,
-            "lastEnabledTime": "2018-06-04T17:59:14.4970000Z"
-        }
-    },
-    "Microsoft.Storage/storageAccounts/encryption.services.blob": {
-        "enabled": true,
-        "lastEnabledTime": "2018-06-04T17:59:14.4970000Z"
-    },
-    "Microsoft.Storage/storageAccounts/encryption.services.blob.enabled": true,
-    "Microsoft.Storage/storageAccounts/encryption.services.file": {
-        "enabled": true,
-        "lastEnabledTime": "2018-06-04T17:59:14.4970000Z"
-    },
-    "Microsoft.Storage/storageAccounts/encryption.services.file.enabled": true,
-    "Microsoft.Storage/storageAccounts/networkAcls": {
-        "bypass": "AzureServices",
-        "defaultAction": "Allow",
-        "ipRules": [],
-        "virtualNetworkRules": []
-    },
-    "Microsoft.Storage/storageAccounts/networkAcls.bypass": "AzureServices",
-    "Microsoft.Storage/storageAccounts/networkAcls.defaultAction": "Allow",
-    "Microsoft.Storage/storageAccounts/networkAcls.ipRules": [],
-    "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]": [],
-    "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action": [],
-    "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value": [],
-    "Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules": [],
-    "Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*]": [],
-    "Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].action": [],
-    "Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].id": [],
-    "Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].state": [],
-    "Microsoft.Storage/storageAccounts/primaryEndpoints": {
-        "blob": "https://mystorageaccount.blob.core.windows.net/",
-        "file": "https://mystorageaccount.file.core.windows.net/",
-        "queue": "https://mystorageaccount.queue.core.windows.net/",
-        "table": "https://mystorageaccount.table.core.windows.net/"
-    },
-    "Microsoft.Storage/storageAccounts/primaryEndpoints.blob": "https://mystorageaccount.blob.core.windows.net/",
-    "Microsoft.Storage/storageAccounts/primaryEndpoints.file": "https://mystorageaccount.file.core.windows.net/",
-    "Microsoft.Storage/storageAccounts/primaryEndpoints.queue": "https://mystorageaccount.queue.core.windows.net/",
-    "Microsoft.Storage/storageAccounts/primaryEndpoints.table": "https://mystorageaccount.table.core.windows.net/",
-    "Microsoft.Storage/storageAccounts/primaryEndpoints.web": null,
-    "Microsoft.Storage/storageAccounts/primaryLocation": "eastus2",
-    "Microsoft.Storage/storageAccounts/provisioningState": "Succeeded",
-    "Microsoft.Storage/storageAccounts/sku.name": "Standard_LRS",
-    "Microsoft.Storage/storageAccounts/sku.tier": "Standard",
-    "Microsoft.Storage/storageAccounts/statusOfPrimary": "available",
-    "Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly": false
-}
-```
-
-O Azure Resource Graph pode ser usado por meio do [Cloud Shell](https://shell.azure.com), tornando-o uma maneira rápida e fácil para explorar as propriedades de seus recursos.
 
 ## <a name="determine-the-effect-to-use"></a>Determinar o efeito a ser usado
 

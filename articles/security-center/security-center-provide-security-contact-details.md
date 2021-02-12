@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2020
+ms.date: 12/01/2020
 ms.author: memildin
-ms.openlocfilehash: ac50b17826f9f3d06d01d3cce9704094fddf1b1d
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 72ded01b141aafb7fd3e4d761882a10eaf0c4b33
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945610"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920402"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>Configurar notificações por email para alertas de segurança 
 
@@ -26,14 +26,14 @@ Os alertas de segurança precisam acessar as pessoas certas em sua organização
 
 Para definir suas preferências para emails de notificação, a página de configurações **Notificações por email** da Central de Segurança do Azure permite que você escolha:
 
-- ***quem* deve ser notificado** – os emails podem ser enviados a indivíduos selecionados ou a qualquer pessoa com uma função do Azure especificada para uma assinatura. 
-- ***sobre o que* eles devem ser notificados** – modifique os níveis de severidade para os quais a Central de Segurança deve enviar notificações.
+- **_quem_ deve ser notificado** – os emails podem ser enviados a indivíduos selecionados ou a qualquer pessoa com uma função do Azure especificada para uma assinatura. 
+- **_sobre o que_ eles devem ser notificados** – modifique os níveis de severidade para os quais a Central de Segurança deve enviar notificações.
 
 Para evitar o excesso de alertas, a Central de Segurança limita o volume de emails enviados. Para cada assinatura, a Central de Segurança envia:
 
-- um máximo de **quatro** emails por dia para alertas de **alta severidade**
-- um máximo de **dois** emails por dia para alertas de **severidade média**
-- um máximo de **um** email por dia para alertas de **baixa severidade**
+- no máximo, um email a cada **6 horas** (quatro emails por dia) para alertas de **alta severidade**
+- no máximo, um email a cada **12 horas** (dois emails por dia) para alertas de **severidade média**
+- no máximo, um email a cada **24 horas** para alertas de **baixa severidade**
 
 :::image type="content" source="./media/security-center-provide-security-contacts/email-notification-settings.png" alt-text="Como configurar os detalhes do contato que receberá os emails sobre os alertas de segurança." :::
  
@@ -41,7 +41,7 @@ Para evitar o excesso de alertas, a Central de Segurança limita o volume de ema
 
 |Aspecto|Detalhes|
 |----|:----|
-|Estado da versão:|GA (em disponibilidade geral)|
+|Estado da versão:|GA (Disponibilidade Geral)|
 |Preço:|Gratuita|
 |Funções e permissões necessárias:|**Administrador de Segurança**<br>**Proprietário da assinatura** |
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|

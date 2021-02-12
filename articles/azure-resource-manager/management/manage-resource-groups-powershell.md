@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: jgao
-ms.openlocfilehash: 1e9d44561d79c411bdff167acad4f37c21251e23
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: fb8cd45842e2f9b64048aa939f7b6adc9b0e6e0a
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951733"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703675"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Gerenciar Azure Resource Manager grupos de recursos usando Azure PowerShell
 
@@ -69,7 +69,7 @@ Para obter mais informações sobre como Azure Resource Manager ordena a exclus�
 
 Consulte [implantar recursos em um grupo de recursos existente](manage-resources-powershell.md#deploy-resources-to-an-existing-resource-group).
 
-Para validar uma implantação de grupo de recursos, consulte [Test-AzResourceGroupDeployment](/powershell/module/Az.Resources/Test-AzResourceGroupDeployment?view=azps-1.3.0).
+Para validar uma implantação de grupo de recursos, consulte [Test-AzResourceGroupDeployment](/powershell/module/Az.Resources/Test-AzResourceGroupDeployment).
 
 ## <a name="deploy-a-resource-group-and-resources"></a>Implantar um grupo de recursos e recursos
 
@@ -206,7 +206,7 @@ Se você usar o `-SkipResourceNameParameterization` parâmetro ao exportar o mod
 
 O recurso exportar modelo não dá suporte à exportação de Azure Data Factory recursos. Para saber mais sobre como você pode exportar Data Factory recursos, consulte [copiar ou clonar um data Factory em Azure data Factory](../../data-factory/copy-clone-data-factory.md).
 
-Para exportar recursos criados por meio do modelo de implantação clássico, você deve [migrá-los para o modelo de implantação do Gerenciador de recursos](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+Para exportar recursos criados por meio do modelo de implantação clássico, você deve [migrá-los para o modelo de implantação do Gerenciador de recursos](../../virtual-machines/migration-classic-resource-manager-overview.md).
 
 Para obter mais informações, consulte [exportação única e de vários recursos para o modelo no portal do Azure](../templates/export-template-portal.md).
 

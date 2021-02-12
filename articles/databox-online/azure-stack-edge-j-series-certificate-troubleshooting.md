@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 09/29/2020
+ms.date: 11/20/2020
 ms.author: alkohli
-ms.openlocfilehash: f0f9dfa6e3d6ae02f66ac71f62586953cb21517e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a4848f5e8b542d80b382abe39f4882a26e0f534c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568345"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015673"
 ---
 # <a name="troubleshooting-certificate-errors"></a>Solucionando problemas de erros de certificado
 
@@ -46,6 +46,7 @@ A tabela a seguir mostra os erros de certificado comuns e informações detalhad
 | CertificateManagement_MissingServerOid | O certificado com o nome da entidade {0} não tem OID de autenticação de servidor. Verifique as propriedades do certificado e, se necessário, traga um novo certificado.|
 | CertificateManagement_NameMismatch | Incompatibilidade de tipo de certificado. Escopo esperado: {0} , encontrado {1} . Carregue o certificado apropriado.|
 | CertificateManagement_NoPrivateKeyPresent | O certificado com o nome da entidade {0} não tem uma chave privada presente. Carregue um certificado. pfx com uma chave privada.|
+| CertificateManagement_NoRSACryptoPrivateKey | A chave privada do certificado com o nome da entidade {0} não está acessível. Verifique se você está usando um certificado com suporte. Somente o provedor de criptografia RSA/Schannel da Microsoft tem suporte. |
 | CertificateManagement_NotSelfSignedCertificate | O certificado com o nome da entidade {0} não é assinado automaticamente. Os certificados raiz devem ser autoassinados |
 | CertificateManagement_NotSupportedOnVirtualAppliance | Não há suporte para esta operação no dispositivo virtual. Esse erro indica que a assinatura só ocorrerá com Gateway do Data Box em execução no dispositivo de nuvem tático. Esse erro ocorre durante o gerenciamento do dispositivo por meio do Windows PowerShell.|
 | CertificateManagement_SelfSignedCertificate | O certificado com o nome da entidade {0} é auto-assinado. Carregue um certificado que esteja assinado corretamente.|
@@ -57,6 +58,7 @@ A tabela a seguir mostra os erros de certificado comuns e informações detalhad
 | CertificateImportFailure | O certificado com impressão digital {0} não foi importado no nó {1} . Se o problema persistir, contate o Suporte da Microsoft. |
 | CertificateApplyFailure | O certificado com impressão digital {0} não foi aplicado ao nó {1} . Se o problema persistir, contate o Suporte da Microsoft.|
 | NodeNotReachable | Não foi possível validar o certificado no {0} . Verifique o hardware do sistema e a integridade do software.|
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

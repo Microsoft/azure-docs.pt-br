@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: 18e32a0387119d235294d1126d869186ae28d2b2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e28c995a0fb574f2e7319f8ee540f49d1bbed4dd
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488972"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656896"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Perguntas frequentes sobre a porta frontal do Azure
 
@@ -235,7 +235,7 @@ Sim, a associação OCSP é suportada por padrão pela porta frontal e nenhuma c
 
 ### <a name="does-azure-front-door-also-support-re-encryption-of-traffic-to-the-backend"></a>A porta frontal do Azure também dá suporte à recriptografia de tráfego para o back-end?
 
-Sim, a porta frontal do Azure dá suporte ao descarregamento de TLS/SSL e ao TLS de ponta a ponta, que criptografa novamente o tráfego para o back-end. Na verdade, como as conexões com o back-end acontecem sobre o IP público, é recomendável que você configure sua porta frontal para usar HTTPS como o protocolo de encaminhamento.
+Sim, a porta frontal do Azure dá suporte ao descarregamento de TLS/SSL e ao TLS de ponta a ponta, que criptografa novamente o tráfego para o back-end. Na verdade, como as conexões com o back-end ocorrem em seu IP público, é recomendável que você configure sua porta frontal para usar HTTPS como o protocolo de encaminhamento.
 
 ### <a name="does-front-door-support-self-signed-certificates-on-the-backend-for-https-connection"></a>A porta frontal dá suporte a certificados autoassinados no back-end para conexão HTTPS?
 

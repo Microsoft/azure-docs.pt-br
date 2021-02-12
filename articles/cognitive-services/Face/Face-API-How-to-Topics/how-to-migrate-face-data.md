@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: nitinme
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 74861df30ba2854c9299e1f779d0cee59abbc5a8
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: b2b3ebdf61349d88d088ebeff5443a9c3e947d73
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911198"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943616"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrar seus dados de detecção facial para uma assinatura diferente de Detecção Facial
 
@@ -36,13 +36,13 @@ Você precisa dos seguintes itens:
 
 Este guia usa um aplicativo de console simples para executar a migração de dados de face. Para obter uma implementação completa, consulte o [exemplo de instantâneo facial](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) no github.
 
-1. No Visual Studio, crie um novo aplicativo de console .NET Framework projeto. Nomeie-o como **FaceApiSnapshotSample** .
-1. Obtenha os pacotes necessários do NuGet. Clique com o botão direito do mouse no seu projeto no Gerenciador de Soluções e selecione **gerenciar pacotes NuGet** . Selecione a guia **procurar** e selecione **incluir pré-lançamento** . Localize e instale o seguinte pacote:
+1. No Visual Studio, crie um novo aplicativo de console .NET Framework projeto. Nomeie-o como **FaceApiSnapshotSample**.
+1. Obtenha os pacotes necessários do NuGet. Clique com o botão direito do mouse no seu projeto no Gerenciador de Soluções e selecione **gerenciar pacotes NuGet**. Selecione a guia **procurar** e selecione **incluir pré-lançamento**. Localize e instale o seguinte pacote:
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.3.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
 
 ## <a name="create-face-clients"></a>Criar clientes de detecção facial
 
-No método **Main** em *Program.cs* , crie duas instâncias [FaceClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) para suas assinaturas de origem e de destino. Este exemplo usa uma assinatura facial na região de Ásia Oriental como a origem e uma assinatura oeste dos EUA como o destino. Este exemplo demonstra como migrar dados de uma região do Azure para outra. 
+No método **Main** em *Program.cs*, crie duas instâncias [FaceClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient) para suas assinaturas de origem e de destino. Este exemplo usa uma assinatura facial na região de Ásia Oriental como a origem e uma assinatura oeste dos EUA como o destino. Este exemplo demonstra como migrar dados de uma região do Azure para outra. 
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -63,7 +63,7 @@ Preencha os valores de chave de assinatura e as URLs de ponto de extremidade par
 
 ## <a name="prepare-a-persongroup-for-migration"></a>Preparar um PersonGroup para migração
 
-Você precisa da ID do PersonGroup na sua assinatura de origem para migrá-la para a assinatura de destino. Use o método [PersonGroupOperationsExtensions. ListAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperationsextensions.listasync?view=azure-dotnet) para recuperar uma lista de seus objetos Person. Em seguida, obtenha a propriedade [Person. PersonGroupId](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId) . Esse processo é diferente com base em quais objetos do Person você tem. Neste guia, a ID da pessoa de origem é armazenada em `personGroupId` .
+Você precisa da ID do PersonGroup na sua assinatura de origem para migrá-la para a assinatura de destino. Use o método [PersonGroupOperationsExtensions. ListAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperationsextensions.listasync) para recuperar uma lista de seus objetos Person. Em seguida, obtenha a propriedade [Person. PersonGroupId](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId) . Esse processo é diferente com base em quais objetos do Person você tem. Neste guia, a ID da pessoa de origem é armazenada em `personGroupId` .
 
 > [!NOTE]
 > O [código de exemplo](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) cria e treina um novo Person para migrar. Na maioria dos casos, você já deve ter um Person para usar.
@@ -72,7 +72,7 @@ Você precisa da ID do PersonGroup na sua assinatura de origem para migrá-la pa
 
 Um instantâneo é um armazenamento remoto temporário para determinados tipos de dados de face. Ele funciona como um tipo de área de transferência para copiar dados de uma assinatura para outra. Primeiro, você tira um instantâneo dos dados na assinatura de origem. Em seguida, aplique-o a um novo objeto de dados na assinatura de destino.
 
-Use a instância FaceClient da assinatura de origem para tirar um instantâneo da pessoa. Use [TakeAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperationsextensions.takeasync?view=azure-dotnet) com a ID de Person e a ID da assinatura de destino. Se você tiver várias assinaturas de destino, adicione-as como entradas de matriz no terceiro parâmetro.
+Use a instância FaceClient da assinatura de origem para tirar um instantâneo da pessoa. Use [TakeAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperationsextensions.takeasync) com a ID de Person e a ID da assinatura de destino. Se você tiver várias assinaturas de destino, adicione-as como entradas de matriz no terceiro parâmetro.
 
 ```csharp
 var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
@@ -82,7 +82,7 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 ```
 
 > [!NOTE]
-> O processo de fazer e aplicar instantâneos não interrompe nenhuma chamada regular para a origem ou o destino PersonGroups ou FaceLists. Não faça chamadas simultâneas que alterem o objeto de origem, como [chamadas de gerenciamento de facelist](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet) ou a chamada de [treinamento de pessoa](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet) , por exemplo. A operação de instantâneo pode ser executada antes ou depois dessas operações ou pode encontrar erros.
+> O processo de fazer e aplicar instantâneos não interrompe nenhuma chamada regular para a origem ou o destino PersonGroups ou FaceLists. Não faça chamadas simultâneas que alterem o objeto de origem, como [chamadas de gerenciamento de facelist](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations) ou a chamada de [treinamento de pessoa](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations) , por exemplo. A operação de instantâneo pode ser executada antes ou depois dessas operações ou pode encontrar erros.
 
 ## <a name="retrieve-the-snapshot-id"></a>Recuperar a ID do instantâneo
 
@@ -233,7 +233,7 @@ await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 
 Em seguida, consulte a documentação de referência de API relevante, explore um aplicativo de exemplo que usa o recurso de instantâneo ou siga um guia de instruções para começar a usar as outras operações de API mencionadas aqui:
 
-- [Documentação de referência do instantâneo (SDK do .NET)](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
+- [Documentação de referência do instantâneo (SDK do .NET)](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations)
 - [Exemplo de instantâneo facial](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
 - [Adicionar faces](how-to-add-faces.md)
 - [Detectar faces em uma imagem](HowtoDetectFacesinImage.md)

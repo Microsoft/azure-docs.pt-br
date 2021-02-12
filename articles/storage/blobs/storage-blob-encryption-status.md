@@ -9,12 +9,12 @@ ms.date: 11/26/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 6d0392cd8e94ba8a9026f557b90e740fbed7f50c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee54357250e3f31ef9db633d933d897fff362f48
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84809083"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878554"
 ---
 # <a name="check-the-encryption-status-of-a-blob"></a>Verificar o status de criptografia de um blob
 
@@ -94,7 +94,7 @@ Example:
 azcopy copy 'C:\temp\blob1.txt' 'https://storagesamples.blob.core.windows.net/sample-container/blob1.txt'
 ```
 
-Para obter mais informações sobre como usar o AzCopy para copiar dados de BLOB, consulte [transferir dados com o armazenamento de BLOBs e AzCopy](../common/storage-use-azcopy-blobs.md).
+Para obter mais informações sobre como usar o AzCopy para copiar dados de BLOB, consulte [transferir dados com o armazenamento de BLOBs e AzCopy](../common/storage-use-azcopy-v10.md#transfer-data).
 
 ## <a name="next-steps"></a>Próximas etapas
 

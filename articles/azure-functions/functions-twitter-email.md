@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, mvc, cc996988-fb4f-47
-ms.openlocfilehash: feb6b36f8e5e7bbec83d8882552484f68abfd56d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5750597d7d4d372be975aa64ce8db11859791da2
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537745"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674311"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Criar uma função que se integra aos Aplicativos Lógicos do Azure
 
@@ -40,7 +40,7 @@ Neste tutorial, você aprenderá como:
 > [!NOTE]
 > Se você quiser usar o conector do Gmail, somente as contas comerciais do G Suite poderão usar esse conector sem restrições nos aplicativos lógicos. Se você tiver uma conta de consumidor do Gmail, poderá usar o conector do Gmail somente com serviços e aplicativos específicos do Google aprovados ou poderá [criar um aplicativo cliente do Google para usar para autenticação no conector do Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Para obter mais informações, confira [Políticas de privacidade e segurança de dados para os conectores do Google nos Aplicativos Lógicos do Azure](../connectors/connectors-google-data-security-privacy-policy.md).
 
-+ Este artigo usa como ponto de partida os recursos criados em [Criar sua primeira função no portal do Azure](functions-create-first-azure-function.md).
++ Este artigo usa como ponto de partida os recursos criados em [Criar sua primeira função no portal do Azure](./functions-get-started.md).
 Se você ainda não fez isso, conclua estas etapas agora para criar seu aplicativo de função.
 
 ## <a name="create-a-cognitive-services-resource"></a>Criar um recurso dos Serviços Cognitivos
@@ -180,7 +180,7 @@ Agora, seu aplicativo está conectado ao Twitter. Em seguida, conecte-se à aná
 
 1. Clique em **Nova Etapa** e em **Adicionar uma ação**.
 
-2. Em **Escolher uma ação**, digite **Análise de Texto**e clique na ação **Detectar sentimento**.
+2. Em **Escolher uma ação**, digite **Análise de Texto** e clique na ação **Detectar sentimento**.
     
     ![A captura de tela mostra a seção "Escolher uma ação" com "Análise de Texto" na caixa de pesquisa e a ação "Detectar sentimentos" selecionada. ](media/functions-twitter-email/11-detect-sentiment.png)
 
@@ -226,7 +226,7 @@ A última parte do fluxo de trabalho é disparar um email quando o sentimento fo
 
     ![Escolha uma ação para a condição.](media/functions-twitter-email/19-condition-settings.png)    
 
-3. Em **SE VERDADEIRO**, clique em **Adicionar uma ação**, procure `outlook.com`, clique em **Enviar um email**e entre sua conta do Outlook.com.
+3. Em **SE VERDADEIRO**, clique em **Adicionar uma ação**, procure `outlook.com`, clique em **Enviar um email** e entre sua conta do Outlook.com.
 
     ![Captura de tela que mostra a seção "IF TRUE" com "outlook.com" inserido na caixa de pesquisa e a ação "Enviar um email" selecionada.](media/functions-twitter-email/20-add-outlook.png)
 

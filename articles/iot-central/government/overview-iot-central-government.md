@@ -3,20 +3,18 @@ title: Como criar soluções governamentais com o Azure IoT Central
 description: Aprenda a criar soluções de cidade inteligente usando os modelos de aplicativo do Azure IoT Central.
 author: miriambrus
 ms.author: miriamb
-ms.date: 10/23/2019
+ms.date: 12/11/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 5f92750217dd0bcf5d7a5074a6187d994f19722a
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 72b0e3c3cee0ed9131fe6ee1f50cee10ec03a7b7
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126559"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590810"
 ---
 # <a name="building-government-solutions-with-azure-iot-central"></a>Como criar soluções governamentais com o Azure IoT Central
-
-
 
 Comece a criar soluções de cidade inteligente usando modelos de aplicativo do Azure IoT Central. Comece agora com **monitoramento da qualidade da água**, **monitoramento do consumo de água** e **gestão de resíduos conectada**.
 
@@ -41,7 +39,6 @@ Introdução ao [Tutorial do aplicativo de monitoramento da qualidade da água](
 ## <a name="what-is-water-consumption-monitoring-application-template"></a>O que é o modelo de aplicativo de monitoramento do consumo de água? 
 
 O controle do consumo de água tradicional se baseia em operadores de água lendo manualmente os medidores de consumo de água nos locais de medição. Cada vez mais cidades estão substituindo os medidores tradicionais por medidores inteligentes avançados, permitindo o monitoramento remoto do consumo e controlando remotamente as válvulas para controlar o fluxo de água. O monitoramento de consumo de água, em conjunto com mensagens digitais com comentários para o cidadão, pode aumentar a conscientização e reduzir o consumo de água. 
-
 
 O aplicativo de monitoramento do consumo de água é um modelo de aplicativo do IoT Central para ajudar você a iniciar rapidamente seu desenvolvimento de solução de IoT para permitir que companhias de água e cidades monitorem e controlem remotamente o fluxo de água para reduzir o consumo. 
 

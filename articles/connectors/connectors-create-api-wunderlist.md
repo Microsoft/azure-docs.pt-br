@@ -7,16 +7,16 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 05/06/2020
 tags: connectors
-ms.openlocfilehash: 2db9649fd52c96ded5233311f3cf275da5d5ea86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 205684923db4528193a337b2b9b867e356e89017
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033142"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301672"
 ---
 # <a name="monitor-and-manage-wunderlist-in-azure-logic-apps"></a>Monitorar e gerenciar o Wunderlist nos aplicativos lógicos do Azure
 
-A partir de 6 de maio de 2020, o [serviço do Wunderlist foi desligado](https://www.wunderlist.com/) e solicitou que os clientes [migrassem seus dados e comecem a usar a Microsoft para fazer isso](https://www.wunderlist.com/blog/goodbye-from-wunderlist/). Você pode usar o [conector da Microsoft para fazer](/connectors/todo/) para substituir o [conector do Wunderlist](https://preview.flow.microsoft.com/connectors/shared_wunderlist/wunderlist/)preterido.
+A partir de 6 de maio de 2020, o serviço do Wunderlist foi desligado e solicitou que os clientes migrassem seus dados e comecem a usar a Microsoft para fazer isso. Você pode usar o [conector da Microsoft para fazer](/connectors/todo/) para substituir o [conector do Wunderlist](https://preview.flow.microsoft.com/connectors/shared_wunderlist/wunderlist/)preterido.
 
 ## <a name="next-steps"></a>Próximas etapas
 

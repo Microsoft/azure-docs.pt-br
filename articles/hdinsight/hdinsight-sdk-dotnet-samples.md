@@ -1,18 +1,15 @@
 ---
 title: 'Azure HDInsight: amostras do .NET'
 description: Encontre exemplos do .NET em C# no GitHub para tarefas comuns usando o SDK do HDInsight para .NET.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 12/06/2019
-ms.openlocfilehash: 69e7551fbf5b2f38dbc080a468baf81849e4372e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 6182deb657631135742351583d51171739c8ee68
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490944"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931969"
 ---
 # <a name="azure-hdinsight-net-samples"></a>Azure HDInsight: amostras do .NET
 
@@ -46,4 +43,4 @@ Obtenha essas amostras do .NET por meio da clonagem do repositório GitHub [hdin
 
 [!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
 
-Encontre snippets de código para essa funcionalidade adicional do SDK na [documentação de referência do SDK do HDInsight para .NET](/dotnet/api/overview/azure/hdinsight&preserve-view=true).
+Encontre snippets de código para essa funcionalidade adicional do SDK na [documentação de referência do SDK do HDInsight para .NET](/dotnet/api/overview/azure/hdinsight).

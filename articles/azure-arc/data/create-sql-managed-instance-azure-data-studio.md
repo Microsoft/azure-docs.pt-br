@@ -4,17 +4,17 @@ description: Criar instância gerenciada do SQL do Azure usando Azure Data Studi
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: twright-msft
-ms.author: twright
+author: vin-yu
+ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: f4c1d4d83ad3c39bab8058ad29662891fe3678a1
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 651811384a8e831c41c48ca8c4849e5ee3852054
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320309"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280472"
 ---
 # <a name="create-sql-managed-instance---azure-arc-using-azure-data-studio"></a>Criar instância gerenciada do SQL-Arc do Azure usando Azure Data Studio
 

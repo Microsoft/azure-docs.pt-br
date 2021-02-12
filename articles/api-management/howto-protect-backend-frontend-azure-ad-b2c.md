@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
 ms.custom: fasttrack-new, devx-track-js
-ms.openlocfilehash: aa3bce73d2a91538dff0fdeb9e0eb814d878459a
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: b157200b03bdc89e00bfa5c8264d78baf24875c1
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676015"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97609115"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Proteger o back-end SPA com OAuth 2,0, Azure Active Directory B2C e gerenciamento de API do Azure
 
@@ -180,7 +180,7 @@ Você precisará adicionar blocos de endereços formatados por CIDR ao painel re
    > Agora, sua API de função não deve ser chamável de qualquer lugar além do gerenciamento de API ou seu endereço.
    
 ## <a name="import-the-function-app-definition"></a>Importar a definição do aplicativo de funções
-1. Abra a *folha gerenciamento de API* e, em seguida, abra *sua instância do* .
+1. Abra a *folha gerenciamento de API* e, em seguida, abra *sua instância do*.
 1. Selecione a folha APIs na seção Gerenciamento de API da sua instância.
 1. No painel ' adicionar uma nova API ', escolha ' Aplicativo de funções ' e, em seguida, selecione ' completo ' na parte superior do pop-up.
 1. Clique em procurar, escolha o aplicativo de funções no qual você está hospedando a API e clique em selecionar.
@@ -396,7 +396,8 @@ Você precisará adicionar blocos de endereços formatados por CIDR ao painel re
                     // Make the api call here
                 $.ajax({
                     type: "get",
-                    headers: {'Authorization': 'Bearer ' + token, 'Ocp-Apim-Subscription-Key': applicationConfig.subKey},                   url: applicationConfig.webApi
+                    headers: {'Authorization': 'Bearer ' + token, 'Ocp-Apim-Subscription-Key': applicationConfig.subKey},
+                    url: applicationConfig.webApi
                 }
                 ).done(function (body) {
                     document.getElementById("message").innerHTML = "The API Said " + body;

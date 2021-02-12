@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 946388fa60e0f6147db2986192392740fa3949f4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 84b0a761b52baca4ae1ab81b3c67f18f6b14db92
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92671847"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608826"
 ---
 # <a name="tutorial-integrate-sap-analytics-cloud-with-azure-active-directory"></a>Tutorial: integração do SAP Analytics Cloud com o Azure Active Directory
 
@@ -46,16 +46,16 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 Para configurar a integração do SAP Analytics Cloud ao Azure AD, você precisa adicionar o SAP Analytics Cloud da galeria para sua lista de aplicativos SaaS gerenciados.
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory** .
-1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos** .
-1. Para adicionar um novo aplicativo, escolha **Novo aplicativo** .
-1. Na seção **Adicionar da galeria** , digite **SAP Analytics Cloud** na caixa de pesquisa.
+1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
+1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
+1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
+1. Na seção **Adicionar da galeria**, digite **SAP Analytics Cloud** na caixa de pesquisa.
 1. Selecione **SAP Analytics Cloud** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Configure e teste o SSO do Azure AD com o SAP Analytics Cloud usando um usuário de teste chamado **B.Fernandes** . Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do SAP Analytics Cloud.
+Configure e teste o SSO do Azure AD com o SAP Analytics Cloud usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do SAP Analytics Cloud.
 
 Para configurar e testar o SSO do Azure AD com o SAP Analytics Cloud, conclua os seguintes blocos de construção:
 
@@ -70,15 +70,15 @@ Para configurar e testar o SSO do Azure AD com o SAP Analytics Cloud, conclua os
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **SAP Analytics Cloud** , localize a seção **Gerenciar** e selecione **Logon único** .
-1. Na página **Escolher um método de logon único** , escolha **SAML** .
-1. Na página **Configurar o Logon Único com SAML** , clique no ícone editar/de caneta da **Configuração Básica de SAML** para editar as configurações.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **SAP Analytics Cloud**, localize a seção **Gerenciar** e selecione **Logon único**.
+1. Na página **Escolher um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o Logon Único com SAML**, clique no ícone editar/de caneta da **Configuração Básica de SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica do SAML** , insira os valores para os seguintes campos:
+1. Na seção **Configuração Básica do SAML**, insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL de Logon** , digite uma URL usando o seguinte padrão:
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
 
     - `https://<sub-domain>.sapanalytics.cloud/`
     - `https://<sub-domain>.sapbusinessobjects.cloud/`
@@ -91,11 +91,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     > [!NOTE] 
     > Os valores nessas URLs são apenas para demonstração. Atualize os valores com a verdadeira URL de entrada e a URL do identificador. Para obter a URL de entrada, entre em contato com a [equipe de Suporte ao cliente do SAP Analytics Cloud](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/). Você pode obter a URL do identificador ao baixar os metadados do SAP Analytics Cloud do console do administrador. Isso é explicado mais adiante no tutorial.
 
-4. Na página **Configurar o Logon Único com SAML** , na seção **Certificado de Autenticação SAML** , localize **XML de Metadados de Federação** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
+4. Na página **Configurar o Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, localize **XML de Metadados de Federação** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-6. Na seção **Configurar o SAP Analytics Cloud** , copie as URLs apropriadas com base em seus requisitos.
+6. Na seção **Configurar o SAP Analytics Cloud**, copie as URLs apropriadas com base em seus requisitos.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -103,35 +103,35 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Em outra janela do navegador da Web, entre no site da empresa do seu SAP Analytics Cloud como administrador.
 
-2. Selecione **Menu** > **Sistema** > **Administração** .
+2. Selecione **Menu** > **Sistema** > **Administração**.
     
     ![Selecionar Menu, Sistema e Administração](./media/sapboc-tutorial/config1.png)
 
-3. Na guia **Segurança** , selecione o ícone **Editar** (caneta).
+3. Na guia **Segurança**, selecione o ícone **Editar** (caneta).
     
     ![Na guia Segurança, selecionar o ícone Editar](./media/sapboc-tutorial/config2.png)  
 
-4. Para **Método de Autenticação** , selecione **SSO (Logon Único) do SAML** .
+4. Para **Método de Autenticação**, selecione **SSO (Logon Único) do SAML**.
 
     ![Selecionar Logon Único do SAML para o método de autenticação](./media/sapboc-tutorial/config3.png)  
 
-5. Para baixar os metadados do provedor de serviços (Etapa 1), selecione **Baixar** . No arquivo de metadados, localize e copie o valor **entityID** . No portal do Azure, na caixa de diálogo **Configuração Básica de SAML** , cole o valor na caixa **Identificador** .
+5. Para baixar os metadados do provedor de serviços (Etapa 1), selecione **Baixar**. No arquivo de metadados, localize e copie o valor **entityID**. No portal do Azure, na caixa de diálogo **Configuração Básica de SAML**, cole o valor na caixa **Identificador**.
 
     ![Copiar e colar o valor de entityID](./media/sapboc-tutorial/config4.png)  
 
-6. Para fazer upload dos metadados do provedor de serviços (Etapa 2) no arquivo que você baixou do portal do Azure, em **Fazer upload dos metadados do Provedor de Identidade** , selecione **Fazer Upload** .  
+6. Para fazer upload dos metadados do provedor de serviços (Etapa 2) no arquivo que você baixou do portal do Azure, em **Fazer upload dos metadados do Provedor de Identidade**, selecione **Fazer Upload**.  
 
     ![Em Fazer upload dos metadados do Provedor de Identidade, selecionar Fazer Upload](./media/sapboc-tutorial/config5.png)
 
-7. Na lista **Atributo de Usuário** , selecione o atributo de usuário (Etapa 3) que você quer usar na sua implementação. Esse atributo de usuário é mapeado para o provedor de identidade. Para inserir um atributo personalizado na página do usuário, use a opção **Mapeamento de SAML Personalizado** . Ou você pode selecionar o **Email** ou a **ID DE USUÁRIO** como o atributo de usuário. Em nosso exemplo, selecionamos **Email** porque mapeamos a declaração do identificador de usuário com o atributo **userprincipalname** na seção **Atributos e Declarações do Usuário** do portal do Azure. Isso fornece um email de usuário exclusivo, que é enviado ao aplicativo do SAP Analytics Cloud em toda resposta bem-sucedida do SAML.
+7. Na lista **Atributo de Usuário**, selecione o atributo de usuário (Etapa 3) que você quer usar na sua implementação. Esse atributo de usuário é mapeado para o provedor de identidade. Para inserir um atributo personalizado na página do usuário, use a opção **Mapeamento de SAML Personalizado**. Ou você pode selecionar o **Email** ou a **ID DE USUÁRIO** como o atributo de usuário. Em nosso exemplo, selecionamos **Email** porque mapeamos a declaração do identificador de usuário com o atributo **userprincipalname** na seção **Atributos e Declarações do Usuário** do portal do Azure. Isso fornece um email de usuário exclusivo, que é enviado ao aplicativo do SAP Analytics Cloud em toda resposta bem-sucedida do SAML.
 
     ![Selecionar Atributo de Usuário](./media/sapboc-tutorial/config6.png)
 
-8. Para verificar a conta com o provedor de identidade (Etapa 4), na caixa **Credencial de Logon (Email)** , insira o endereço de email do usuário. Em seguida, selecione **Verificar Conta** . O sistema adiciona credenciais de entrada à conta de usuário.
+8. Para verificar a conta com o provedor de identidade (Etapa 4), na caixa **Credencial de Logon (Email)** , insira o endereço de email do usuário. Em seguida, selecione **Verificar Conta**. O sistema adiciona credenciais de entrada à conta de usuário.
 
     ![Inserir email e selecionar Verificar Conta](./media/sapboc-tutorial/config7.png)
 
-9. Selecione o ícone **Salvar** .
+9. Selecione o ícone **Salvar**.
 
     ![Ícone Salvar](./media/sapboc-tutorial/save.png)
 
@@ -139,31 +139,31 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários** .
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário** , siga estas etapas:
-   1. No campo **Nome** , insira `B.Simon`.  
-   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha** .
-   1. Clique em **Criar** .
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que B.Fernandes use o logon único do Azure concedendo a ele acesso ao SAP Analytics Cloud.
 
-1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos** .
-1. Na lista de aplicativos, selecione **SAP Analytics Cloud** .
-1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos** .
+1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. Na lista de aplicativos, selecione **SAP Analytics Cloud**.
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
 
    ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O link Adicionar Usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-sap-analytics-cloud-test-user"></a>Criar usuário de teste do SAP Analytics Cloud
 
@@ -173,31 +173,31 @@ Para provisionar uma conta de usuário:
 
 1. Entre no site da empresa do seu SAP Analytics Cloud como administrador.
 
-2. Selecione **Menu** > **Segurança** > **Usuários** .
+2. Selecione **Menu** > **Segurança** > **Usuários**.
 
     ![Adicionar Funcionário](./media/sapboc-tutorial/user1.png)
 
-3. Na página **Usuários** , para adicionar detalhes do novo usuário, selecione **+** . 
+3. Na página **Usuários**, para adicionar detalhes do novo usuário, selecione **+** . 
 
     ![Página Adicionar Usuários](./media/sapboc-tutorial/user4.png)
 
     Em seguida, conclua as seguintes etapas:
 
-    a. Na caixa **ID DE USUÁRIO** , insira a ID do usuário, como **B** .
+    1. Na caixa **ID DE USUÁRIO**, insira a ID do usuário, como **B**.
 
-    b. Na caixa **NOME** , insira o nome do usuário, como **B** .
+    1. Na caixa **NOME**, insira o nome do usuário, como **B**.
 
-    c. Na caixa **SOBRENOME** , insira o sobrenome do usuário, como **Fernandes** .
+    1. Na caixa **SOBRENOME**, insira o sobrenome do usuário, como **Fernandes**.
 
-    d. Na caixa **NOME DE EXIBIÇÃO** , insira o nome completo do usuário, como **B.Fernandes** .
+    1. Na caixa **NOME DE EXIBIÇÃO**, insira o nome completo do usuário, como **B.Fernandes**.
 
-    e. Na caixa **EMAIL** , insira o endereço de email do usuário, como `b.simon@contoso.com`.
+    1. Na caixa **EMAIL**, insira o endereço de email do usuário, como `b.simon@contoso.com`.
 
-    f. Na página **Selecionar Funções** , selecione a função apropriada para o usuário e selecione **OK** .
+    1. Na página **Selecionar Funções**, selecione a função apropriada para o usuário e selecione **OK**.
 
-      ![Escolher função](./media/sapboc-tutorial/user3.png)
+        ![Selecione a função](./media/sapboc-tutorial/user3.png)
 
-    g. Selecione o ícone **Salvar** .
+    1. Selecione o ícone **Salvar**.
 
 ### <a name="test-sso"></a>Testar o SSO 
 

@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 200d23f390c9c22af90099e1e136c832287aa10d
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: d8a7bb620b7fcc9c878986d3575e22bb6f0f77bc
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207522"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724096"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Tutorial: Proteger o Azure Remote Rendering e o armazenamento de modelos
 
@@ -255,6 +255,14 @@ Com o lado do Azure dessas coisas em vigor, agora precisamos modificar como o se
             get => azureRemoteRenderingAccountID.Trim();
             set => azureRemoteRenderingAccountID = value;
         }
+    
+        [SerializeField]
+        private string azureRemoteRenderingAccountAuthenticationDomain;
+        public string AzureRemoteRenderingAccountAuthenticationDomain
+        {
+            get => azureRemoteRenderingAccountAuthenticationDomain.Trim();
+            set => azureRemoteRenderingAccountAuthenticationDomain = value;
+        }
 
         public override event Action<string> AuthenticationInstructions;
 
@@ -262,7 +270,7 @@ Com o lado do Azure dessas coisas em vigor, agora precisamos modificar como o se
 
         string redirect_uri = "https://login.microsoftonline.com/common/oauth2/nativeclient";
 
-        string[] scopes => new string[] { "https://sts.mixedreality.azure.com/mixedreality.signin" };
+        string[] scopes => new string[] { "https://sts." + AzureRemoteRenderingAccountAuthenticationDomain + "/mixedreality.signin" };
 
         public void OnEnable()
         {
@@ -279,7 +287,7 @@ Com o lado do Azure dessas coisas em vigor, agora precisamos modificar como o se
 
                 var AD_Token = result.AccessToken;
 
-                return await Task.FromResult(new AzureFrontendAccountInfo(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
+                return await Task.FromResult(new AzureFrontendAccountInfo(AzureRemoteRenderingAccountAuthenticationDomain, AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
             }
             else
             {
@@ -369,7 +377,7 @@ A parte mais importante dessa classe, de uma perspectiva do ARR, é esta linha:
 return await Task.FromResult(new AzureFrontendAccountInfo(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
 ```
 
-Aqui, criamos um objeto **AzureFrontendAccountInfo** usando o domínio da conta, a ID da conta e o token de acesso. Esse token é usado pelo serviço do ARR para consultar, criar e unir sessões de Remote Rendering, contanto que o usuário seja autorizado com base nas permissões baseadas em função configuradas anteriormente.
+Aqui, criamos um objeto **AzureFrontendAccountInfo** usando o domínio da conta, a ID da conta, o domínio de autenticação da conta e o token de acesso. Esse token é usado pelo serviço do ARR para consultar, criar e unir sessões de Remote Rendering, contanto que o usuário seja autorizado com base nas permissões baseadas em função configuradas anteriormente.
 
 Com essa alteração, o estado atual do aplicativo e o acesso aos seus recursos do Azure tem a seguinte aparência:
 
@@ -391,6 +399,7 @@ No editor do Unity, quando a autenticação do AAD estiver ativa, você precisar
     * A **ID do cliente do aplicativo do Active Directory** é a *ID do aplicativo (cliente)* encontrada no registro do aplicativo do AAD (veja a imagem abaixo).
     * A **ID de locatário do Azure** é a ID do *Diretório (locatário)* encontrada no registro do aplicativo do AAD (consulte a imagem abaixo).
     * A **ID da conta do Azure Remote Rendering** é a mesma **ID de conta** que você está usando para o **RemoteRenderingCoordinator**.
+    * O **Domínio de autenticação da conta** é o mesmo **Domínio de autenticação da conta** que você estava usando no **RemoteRenderingCoordinator**.
 
     ![Captura de tela que realça a ID do Aplicativo (cliente) e a ID do Diretório (locatário).](./media/app-overview-data.png)
 

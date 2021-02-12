@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: raynew
-ms.openlocfilehash: 716928761d23c2cf04ebcc72e253ad7884408065
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79224c14fc5182df7a699864af3d78c9be36259f
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061828"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797258"
 ---
 # <a name="move-resources-across-regions-from-resource-group"></a>Mover recursos entre regiões (do grupo de recursos)
 
@@ -27,7 +27,7 @@ Neste artigo, saiba como mover recursos em um grupo de recursos específico para
 - Você precisa de acesso de *proprietário* na assinatura na qual os recursos que você deseja mover estão localizados.
     - Na primeira vez que você adicionar um recurso para um mapeamento de origem e destino específico em uma assinatura do Azure, o Resource mover criará uma [identidade gerenciada atribuída pelo sistema](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (anteriormente conhecida como MSI (identificador de serviço gerenciado)) que é confiável para a assinatura.
     - Para criar a identidade e atribuir a ela a função necessária (colaborador ou administrador de acesso do usuário na assinatura de origem), a conta usada para adicionar recursos precisa de permissões de *Proprietário* na assinatura. [Saiba mais](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) sobre as funções do Azure.
-- A assinatura precisa de cota suficiente para criar os recursos de origem na região de destino. Caso contrário, solicite limites adicionais. [Saiba mais](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+- A assinatura precisa de cota suficiente para criar os recursos de origem na região de destino. Caso contrário, solicite limites adicionais. [Saiba mais](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Verifique os preços e os encargos associados à região de destino para a qual você está movendo as VMs. Use a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) para obter ajuda.
 - Verifique se os recursos que você deseja mover têm suporte do Resource mover:
     - VMs do Azure e discos associados
@@ -57,6 +57,9 @@ Neste artigo, saiba como mover recursos em um grupo de recursos específico para
 ## <a name="select-resources-to-move"></a>Selecionar os recursos a serem movidos
 
 Selecione os recursos que deseja mover. Você move os recursos para uma região de destino na assinatura da região de origem. Se você quiser alterar a assinatura, poderá fazer isso depois que os recursos forem movidos.
+
+> [!NOTE]
+>  Não selecione discos associados ou a operação falhará. Os discos associados são incluídos automaticamente em uma movimentação de VM.
 
 1. No portal do Azure, abra o grupo de recursos relevante.
 2. Na página grupo de recursos, selecione os recursos que você deseja mover.
@@ -210,7 +213,7 @@ Após a movimentação inicial, você pode decidir se deseja confirmar a movimen
 
 Você pode descartar a movimentação da seguinte maneira:
 
-1. Em **várias regiões**, selecione recursos com o estado *confirmação de movimentação pendente*e selecione **descartar movimentação**.
+1. Em **várias regiões**, selecione recursos com o estado *confirmação de movimentação pendente* e selecione **descartar movimentação**.
 2. Em **descartar movimentação**, selecione **descartar**.
 3. Monitore o progresso da movimentação na barra de notificações.
 4. Quando as notificações mostrarem que a movimentação foi bem-sucedida, selecione **Atualizar**. 
@@ -223,7 +226,7 @@ Você pode descartar a movimentação da seguinte maneira:
 Se você quiser concluir o processo de movimentação, confirme a movimentação. 
 
 
-1. Em **várias regiões**, selecione recursos com o estado *confirmação de movimentação pendente*e selecione **confirmar movimentação**.
+1. Em **várias regiões**, selecione recursos com o estado *confirmação de movimentação pendente* e selecione **confirmar movimentação**.
 2. Em **confirmar recursos**, selecione **confirmar**.
 
     ![Página para confirmar os recursos a fim de finalizar a movimentação](./media/move-region-within-resource-group/commit-resources.png)

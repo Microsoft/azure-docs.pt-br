@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: Tradução de fala
-ms.openlocfilehash: e54659b0d4504def272d3de40d5e953d98404a8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36c2943d7cd5ce2c5c7c4a8501dc0033aa8c9cbc
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630063"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015198"
 ---
 # <a name="what-is-speech-translation"></a>O que é tradução de fala?
 
@@ -48,13 +48,13 @@ O código de exemplo para o SDK de fala está disponível no GitHub. Esses exemp
 
 ## <a name="migration-guides"></a>Guias de migração
 
-Se seus aplicativos, ferramentas ou produtos estiverem usando o [API de tradução de fala](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview), criamos guias para ajudá-lo a migrar para o serviço de fala.
+Se seus aplicativos, ferramentas ou produtos estiverem usando o [API de tradução de fala](./how-to-migrate-from-translator-speech-api.md), criamos guias para ajudá-lo a migrar para o serviço de fala.
 
 * [Migrar do API de Tradução de Fala para o serviço de fala](how-to-migrate-from-translator-speech-api.md)
 
 ## <a name="reference-docs"></a>Documentos de Referência
 
-* [SDK da fala](speech-sdk-reference.md)
+* [SDK da fala](./speech-sdk.md)
 * [SDK de Dispositivos de Fala](speech-devices-sdk.md)
 * [API REST: conversão de fala em texto](rest-speech-to-text.md)
 * [API REST: conversão de texto em fala](rest-text-to-speech.md)

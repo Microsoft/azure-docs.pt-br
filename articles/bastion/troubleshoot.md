@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
-ms.openlocfilehash: f3c142491363f30513877ae4368f291430aa3675
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23b7a66afcc91cf1cf4a5dd9f720aad24ad40071
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85831923"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133983"
 ---
 # <a name="troubleshoot-azure-bastion"></a>Solucionar problemas do Azure Bastion
 
@@ -22,11 +22,7 @@ Este artigo mostra como solucionar problemas de bastiões do Azure.
 
 **P:** Quando tento criar um NSG na sub-rede de bastiões do Azure, obtenho o seguinte erro: *' o grupo de segurança de rede <NSG name> não tem as regras necessárias para a AzureBastionSubnet de sub-rede de bastiões do Azure "*.
 
-**R:** Se você criar e aplicar um NSG ao *AzureBastionSubnet*, certifique-se de ter adicionado as regras a seguir em seu NSG. Se você não adicionar essas regras, a criação/atualização do NSG falhará.
-
-1. Conectividade do plano de controle – entrada em 443 do Gatewaymanager
-2. Log de diagnóstico e outros – saída em 443 para AzureCloud (as marcas regionais nesta marcação de serviço ainda não têm suporte.)
-3. VM de destino – saída de 3389 e 22 para VirtualNetwork
+**R:** Se você criar e aplicar um NSG ao *AzureBastionSubnet*, certifique-se de ter adicionado as regras necessárias ao NSG. Para obter uma lista das regras necessárias, consulte [trabalhando com o acesso ao NSG e a bastiões do Azure](./bastion-nsg.md). Se você não adicionar essas regras, a criação/atualização do NSG falhará.
 
 Um exemplo das regras NSG está disponível para referência no modelo de [início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion-nsg).
 Para obter mais informações, consulte [NSG Guidance for Azure bastiões](bastion-nsg.md).
@@ -81,7 +77,7 @@ The key's randomart image is:
 
 ## <a name="black-screen-in-the-azure-portal"></a><a name="blackscreen"></a>Tela preta no portal do Azure
 
-**P:** Quando tento me conectar usando a bastiões do Azure, obtenho uma tela preta na portal do Azure.
+**P:** Quando tento me conectar usando a bastiões do Azure, não posso connnect à VM de destino e obtenho uma tela preta na portal do Azure.
 
 **R:** Isso acontece quando há um problema de conectividade de rede entre o navegador da Web e a bastiões do Azure (o firewall de Internet do cliente pode estar bloqueando o tráfego do WebSocket ou semelhante) ou entre a bastiões do Azure e a VM de destino. A maioria dos casos inclui um NSG aplicado ao AzureBastionSubnet ou à sua sub-rede VM de destino que está bloqueando o tráfego RDP/SSH em sua rede virtual. Permita o tráfego do WebSocket no firewall de Internet do cliente e verifique o NSGs em sua sub-rede de VM de destino.
 

@@ -6,14 +6,14 @@ ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 01/11/2021
 ms.author: banders
-ms.openlocfilehash: 0b3cf0c705048d37d422d62b77dc7d94c5ae13bd
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f0645115246995c9605563626d99bbf6a76784e1
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149395"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133541"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>Introdução à sua conta de cobrança do Azure atualizada
 
@@ -40,15 +40,15 @@ Um perfil de cobrança é usado para gerenciar suas faturas e formas de pagament
 
 Quando sua conta for atualizada, um perfil de cobrança será criado automaticamente para cada assinatura. Os encargos da assinatura são cobrados em seu respectivo perfil de cobrança e exibidos em sua fatura.
 
-As funções nos perfis de cobrança têm permissões para exibir e gerenciar faturas e métodos de pagamento. Essas funções devem ser atribuídas a usuários que pagam faturas como membros da equipe de contabilidade em uma organização. Para saber mais, confira [funções e tarefas do perfil de cobrança](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks). 
+As funções nos perfis de cobrança têm permissões para exibir e gerenciar faturas e métodos de pagamento. Essas funções devem ser atribuídas a usuários que pagam faturas como membros da equipe de contabilidade em uma organização. Para saber mais, confira [funções e tarefas do perfil de cobrança](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
 
-Quando sua conta for atualizada, para cada assinatura na qual você concedeu a permissão para [exibir faturas](download-azure-invoice.md#allow-others-to-download-the-your-subscription-invoice), os usuários que tiverem uma função de proprietário, colaborador, leitor ou leitor de cobrança de RBAC do Azure receberão a função leitor no respectivo perfil de cobrança.
+Quando sua conta for atualizada, para cada assinatura na qual você concedeu a permissão para [exibir faturas](download-azure-invoice.md#allow-others-to-download-the-your-subscription-invoice), os usuários que tiverem uma função de proprietário, colaborador, leitor ou leitor de cobrança do Azure receberão a função leitor no respectivo perfil de cobrança.
 
 ## <a name="invoice-sections"></a>Seções da fatura
 
 Uma seção da fatura é usada para organizar os custos em sua fatura. Por exemplo, você pode precisar de uma única fatura, mas deseja organizar os custos por departamento, equipe ou projeto. Para este cenário, você tem um único perfil de cobrança no qual cria uma seção de fatura para cada departamento, equipe ou projeto.
 
-Quando sua conta é atualizada, uma seção de fatura é criada para cada perfil de cobrança e a assinatura relacionada é atribuída à seção fatura. Ao adicionar mais assinaturas, você pode criar seções adicionais e atribuir as assinaturas às seções faturas. Você verá as seções na fatura do perfil de cobrança, refletindo o uso de cada assinatura que você atribuiu a ela.
+Quando sua conta é atualizada, uma seção de fatura é criada para cada perfil de cobrança e a assinatura relacionada é atribuída à seção fatura. Ao adicionar mais assinaturas, você pode criar mais seções e atribuir as assinaturas às seções faturas. Você verá as seções na fatura do perfil de cobrança, refletindo o uso de cada assinatura que você atribuiu a ela.
 
 As funções na seção da fatura têm permissões para controlar quem cria assinaturas do Azure. As funções devem ser atribuídas a usuários que configuram o ambiente do Azure para equipes em uma organização, como clientes potenciais de engenharia e arquitetos técnicos. Para obter mais informações, confira [funções e tarefas da seção da fatura](../manage/understand-mca-roles.md#invoice-section-roles-and-tasks).
 
@@ -58,7 +58,7 @@ Sua nova experiência inclui os seguintes recursos de cobrança e gerenciamento 
 
 #### <a name="invoice-management"></a>Gerenciamento de faturas
 
-**Período de cobrança mensal mais previsível** – em sua nova conta, o período de cobrança começa no primeiro dia do mês e termina no último dia do mês, independentemente de quando você se inscreve para usar o Azure. Uma fatura será gerada no início de cada mês e conterá todos os encargos do mês anterior.
+**Período de cobrança mensal mais previsível** – em sua nova conta, o período de cobrança começa no primeiro dia do mês e termina no último dia do mês, não importa quando você se inscreve para usar o Azure. Uma fatura será gerada no início de cada mês e conterá todos os encargos do mês anterior.
 
 **Obtenha uma única fatura para várias assinaturas** – você tem a flexibilidade de obter uma fatura para cada uma de suas assinaturas ou uma única fatura para várias assinaturas.
 
@@ -80,15 +80,15 @@ Sua nova experiência inclui os seguintes recursos de cobrança e gerenciamento 
 
 #### <a name="account-and-subscription-management"></a>Gerenciamento de assinatura e conta
 
-**Atribua vários administradores para executar operações de cobrança** – atribua permissões de cobrança a vários usuários para gerenciar a cobrança da sua conta. Obtenha flexibilidade fornecendo permissões de leitura, gravação ou ambas a outras pessoas.
+**Atribua vários administradores para executar operações de cobrança** – atribua permissões de cobrança a vários usuários para gerenciar a cobrança da sua conta. Obtenha flexibilidade dando permissões de leitura, gravação ou ambas as opções a outras pessoas.
 
-**Crie assinaturas adicionais diretamente no portal do Azure** – crie todas as suas assinaturas com um único clique no portal do Azure.
+**Crie mais assinaturas diretamente no portal do Azure** – selecione todas as suas assinaturas com um só clique no portal do Azure.
 
 #### <a name="api-support"></a>Suporte a API
 
 **Realize operações de gerenciamento de custos e cobrança por meio de APIs, SDK e PowerShell** – use as APIs de gerenciamento de custos, cobrança e consumo para extrair dados de cobrança e custo em suas ferramentas de análise de dados preferenciais.
 
-**Execute todas as operações de assinatura por meio de APIs, SDK e PowerShell** – use as APIs de assinatura do Azure para automatizar o gerenciamento de suas assinaturas do Azure, incluindo a criação, a renomeação e o cancelamento de uma assinatura.
+**Realize todas as operações de assinatura por meio de APIs, SDK e PowerShell** – use as APIs de assinatura do Azure para automatizar o gerenciamento de suas assinaturas do Azure, incluindo a criação, a renomeação e o cancelamento de uma assinatura.
 
 ## <a name="get-prepared-for-your-new-experience"></a>Prepare-se para sua nova experiência
 
@@ -107,6 +107,57 @@ Se você estiver usando APIs de Cobrança ou Gerenciamento de Custos para consul
 |[Contas de cobrança – Lista](/rest/api/billing/2019-10-01-preview/billingaccounts/list) | Na API de Contas de Cobrança – Lista, sua conta de cobrança antiga tem agreementType **MicrosoftOnlineServiceProgram**, sua nova conta de cobrança terá agreementType **MicrosoftCustomerAgreement**. Se você assumir uma dependência de agreementType, atualize-a. |
 |[Faturas – lista por assinatura para cobrança](/rest/api/billing/2019-10-01-preview/invoices/listbybillingsubscription)     | Essa API retornará apenas as faturas geradas antes da atualização da sua conta. Você precisar usar a API [Faturas – lista por conta de cobrança](/rest/api/billing/2019-10-01-preview/invoices/listbybillingaccount) para obter faturas geradas em sua nova conta de cobrança. |
 
+## <a name="cost-management-updates-after-account-update"></a>Atualizações de Gerenciamento de Custos após a atualização da conta
+
+Sua conta de cobrança do Azure atualizada para seu Contrato de Cliente da Microsoft fornece acesso a experiências de Gerenciamento de Custos novas e expandidas no portal do Azure que você não tinha com sua conta paga conforme o uso.
+
+### <a name="new-capabilities"></a>Novos recursos
+
+As novas funcionalidades atualizadas a seguir estão disponíveis com sua conta de cobrança do Azure.
+
+#### <a name="new-billing-scopes"></a>Novos escopos de cobrança
+
+Como parte de sua conta atualizada, você tem novos escopos no Gerenciamento de Custos e Cobrança. Além de auxiliar na organização e no faturamento hierárquicos, eles também são uma forma de exibir os encargos combinados de várias assinaturas subjacentes. Para obter mais informações sobre escopos de cobrança, confira [Escopos do Contrato de Cliente da Microsoft](../costs/understand-work-scopes.md#microsoft-customer-agreement-scopes).
+
+Você também pode acessar as APIs de Gerenciamento de Custos para obter exibições de custo combinadas em escopos mais altos. Todas as APIs de Gerenciamento de Custos que usam o escopo de assinatura ainda estão disponíveis com algumas pequenas alterações no esquema. Para obter mais informações sobre as APIs, confira [APIs de Gerenciamento de Custos do Azure](/rest/api/cost-management/) e [APIs de Consumo do Azure](/rest/api/consumption/).
+
+#### <a name="cost-allocation"></a>Alocação de custos
+
+Com sua conta atualizada, você pode usar as funcionalidades de alocação de custo para distribuir custos de serviços compartilhados em sua organização. Para obter mais informações sobre alocação de custos, confira [Criar e gerenciar regras de alocação de custos do Azure](../costs/allocate-costs.md).
+
+#### <a name="power-bi"></a>Power BI
+
+O conector de Gerenciamento de Custos do Azure para Power BI Desktop ajuda a criar visualizações e relatórios personalizados de uso e gastos do Azure. Você acessa seus dados de custo e de uso depois de se conectar à sua conta atualizada. Para obter mais informações sobre o conector de Gerenciamento de Custos do Azure para Power BI Desktop, confira [Criar visuais e relatórios com o conector de Gerenciamento de Custos do Azure no Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management).
+
+### <a name="updated-capabilities"></a>Funcionalidades relacionadas
+
+Os recursos atualizados a seguir estão disponíveis com sua conta de cobrança do Azure.
+
+#### <a name="cost-analysis"></a>Análise de custo
+
+Você pode continuar a ver e rastrear os custos de consumo mês a mês e agora pode ver a reserva e os custos de compra do Marketplace na análise de custo.
+
+Com sua conta atualizada, você recebe uma só fatura para todos os encargos do Azure. Agora você também tem uma exibição de calendário mensal única simplificada para substituir a exibição anterior de períodos de cobrança.
+
+Por exemplo, se o seu período de cobrança era de 24 de novembro a 23 de dezembro para sua conta antiga, após a atualização, o período será de 1º de novembro a 30 de novembro, de 1º de dezembro a 31 de dezembro e assim por diante.
+
+:::image type="content" source="./media/mosp-new-customer-experience/billing-periods.png" alt-text="Imagem mostrando uma comparação entre períodos de cobrança antigos e novos " lightbox="./media/mosp-new-customer-experience/billing-periods.png" :::
+
+#### <a name="budgets"></a>Orçamentos
+
+Agora você pode criar orçamentos para a conta de cobrança, permitindo que você acompanhe os custos entre assinaturas. Você também pode se manter por dentro dos encargos de compra usando orçamentos. Para obter mais informações sobre orçamentos, confira [Criar e gerenciar orçamentos do Azure](../costs/tutorial-acm-create-budgets.md).
+
+#### <a name="exports"></a>Exportações
+
+Sua nova conta de cobrança fornece funcionalidade de exportação aprimorada. Por exemplo, você pode criar exportações para custos reais que incluem compras ou custos amortizados (os custos de compra de reserva se distribuem pelo prazo da compra). Você também pode criar uma exportação para a conta de cobrança para obter dados de uso e encargos em todas as assinaturas na conta de cobrança. Para obter mais informações sobre exportações, confira [Criar e gerenciar dados exportados](../costs/tutorial-export-acm-data.md).
+
+> [!NOTE]
+> Exportações criadas antes da atualização de sua conta com o tipo **Exportação mensal dos custos do mês passado** exportarão dados para o último mês do calendário, não o último período de cobrança.
+
+Por exemplo, para um período de cobrança de 23 de dezembro a 22 de janeiro, o arquivo CSV exportado teria dados de uso e custo para esse período. Após a atualização, a exportação conterá dados para o mês civil. Por exemplo, 1º de janeiro a 31 de janeiro e assim por diante.
+
+:::image type="content" source="./media/mosp-new-customer-experience/export-amortized-costs.png" alt-text="Imagem mostrando uma comparação entre os detalhes de exportação antigos e novos" lightbox="./media/mosp-new-customer-experience/export-amortized-costs.png" :::
+
 ## <a name="additional-information"></a>Informações adicionais
 
 As seções a seguir fornecem informações adicionais sobre sua nova experiência.
@@ -117,7 +168,7 @@ As seções a seguir fornecem informações adicionais sobre sua nova experiênc
 
 **As faturas anteriores estão disponíveis na nova experiência** As faturas geradas antes da atualização da sua conta ainda estão disponíveis no portal do Azure.
 
-**Faturas de conta atualizadas no meio do mês** Se a sua conta for atualizada no meio do mês, você obterá uma fatura para cobranças acumuladas até o dia em que sua conta for atualizada. Você receberá outra fatura pelo restante do mês. Por exemplo, sua conta tem uma assinatura e é atualizada em 15 de setembro. Você receberá uma fatura para cobranças acumuladas até 15 de setembro. Você receberá outra fatura pelo período entre 15 de setembro a 30 de setembro. Após setembro, você receberá uma fatura por mês.
+**Faturas de conta atualizadas no meio do mês** Se a sua conta for atualizada no meio do mês, você obterá uma fatura para cobranças acumuladas até o dia em que sua conta for atualizada. Você receberá outra fatura para o restante do mês. Por exemplo, sua conta tem uma assinatura e é atualizada em 15 de setembro. Você receberá uma fatura para cobranças acumuladas até 15 de setembro. Você receberá outra fatura pelo período entre 15 de setembro a 30 de setembro. Após setembro, você receberá uma fatura por mês.
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
 

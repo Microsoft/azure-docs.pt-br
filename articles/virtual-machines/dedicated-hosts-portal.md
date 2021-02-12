@@ -5,25 +5,19 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 09/04/2020
+ms.date: 12/07/2020
 ms.author: cynthn
-ms.openlocfilehash: a6bef4944207e26f2de93daa89fa1418c5c44c4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b166363a8c64a4a4c5d34efa55dcaefa09d6df49
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91373066"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007935"
 ---
 # <a name="deploy-vms-and-scale-sets-to-dedicated-hosts-using-the-portal"></a>Implantar VMs e conjuntos de dimensionamento para hosts dedicados usando o portal 
 
 Este artigo orienta como criar um [host dedicado](dedicated-hosts.md) do Azure para hospedar suas máquinas virtuais (VMs). 
 
-
-> [!IMPORTANT]
-> Este artigo também aborda o posicionamento automático de VMs e instâncias do conjunto de dimensionamento. O posicionamento automático está atualmente em visualização pública.
-> Para participar da versão prévia, conclua a pesquisa de integração de visualização em [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
-> Para acessar o recurso de visualização no portal do Azure, você deve usar esta URL: [https://aka.ms/vmssadh](https://aka.ms/vmssadh) .
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="limitations"></a>Limitações
 
@@ -42,17 +36,17 @@ Você também pode optar por usar tanto zonas de disponibilidade quanto domínio
 Neste exemplo, criaremos um grupo de hosts usando 1 zona de disponibilidade e 2 domínios de falha. 
 
 
-1. Abra o [portal](https://portal.azure.com)do Azure. Se você quiser experimentar a visualização para o **posicionamento automático**, use esta URL: [https://aka.ms/vmssadh](https://aka.ms/vmssadh) .
+1. Abra o [portal](https://portal.azure.com)do Azure. 
 1. Selecione **criar um recurso** no canto superior esquerdo.
 1. Procure por **grupo de hosts** e, em seguida, selecione **grupos de hosts** nos resultados.
 1. Na página **grupos de hosts** , selecione **criar**.
 1. Selecione a assinatura que você deseja usar e, em seguida, selecione **criar nova** para criar um novo grupo de recursos.
 1. Digite *myDedicatedHostsRG* como o **nome** e, em seguida, selecione **OK**.
-1. Para **nome do grupo de hosts**, digite *myhost*Group.
+1. Para **nome do grupo de hosts**, digite *myhost* Group.
 1. Em **Localização**, selecione **Leste dos EUA**.
 1. Para **zona de disponibilidade**, selecione **1**.
 1. Para **contagem de domínios de falha**, selecione **2**.
-1. Se você usou a URL de **posicionamento automático** , selecione esta opção para atribuir automaticamente as VMs e as instâncias do conjunto de dimensionamento a um host disponível nesse grupo.
+1. Selecione **posicionamento automático** para atribuir automaticamente as VMs e as instâncias do conjunto de dimensionamento a um host disponível neste grupo.
 1. Selecione **revisar + criar** e aguarde a validação.
 1. Depois de ver a mensagem **validação aprovada** , selecione **criar** para criar o grupo de hosts.
 
@@ -86,25 +80,14 @@ Ao definir uma contagem de domínios de falha para seu grupo de hosts, você ser
 1. Em **Opções de disponibilidade** selecionar **zona de disponibilidade**, selecione *1* na lista suspensa.
 1. Para o tamanho, selecione **alterar tamanho**. Na lista de tamanhos disponíveis, escolha um da série Esv3, como **Standard E2 v3**. Talvez seja necessário limpar o filtro para ver todos os tamanhos disponíveis.
 1. Conclua o restante dos campos na guia **noções básicas** , conforme necessário.
-1. Na parte superior da página, selecione a guia **avançado** e, na seção **host** , selecione *myhost* Group para o **grupo de hosts** e *myhost* para o **host**. 
+1. Se você quiser especificar qual host deve ser usado para sua VM, na parte superior da página, selecione a guia **avançado** e, na seção **host** , selecione *myhost* Group para o **grupo de hosts** e *myhost* para o **host**. Caso contrário, sua VM será automaticamente colocada em um host com capacidade.
     ![Selecionar grupo de hosts e host](./media/dedicated-hosts-portal/advanced.png)
 1. Deixe os padrões restantes e, em seguida, selecione o botão **Examinar + criar** na parte inferior da página.
 1. Quando você vir a mensagem a validação foi aprovada, selecione **criar**.
 
 Levará alguns minutos para que sua VM seja implantada.
 
-## <a name="create-a-scale-set-preview"></a>Criar um conjunto de dimensionamento (visualização)
-
-> [!IMPORTANT]
-> Os conjuntos de dimensionamento de máquinas virtuais em hosts dedicados estão atualmente em visualização pública.
->
-> Para participar da versão prévia, conclua a pesquisa de integração de visualização em [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
->
-> Para acessar o recurso de visualização no portal do Azure, você deve usar esta URL: [https://aka.ms/vmssadh](https://aka.ms/vmssadh) .
->
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. 
->
-> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## <a name="create-a-scale-set"></a>Criar um conjunto de escala 
 
 Ao implantar um conjunto de dimensionamento, você especifica o grupo de hosts.
 

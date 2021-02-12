@@ -4,12 +4,12 @@ description: Crie seu primeiro aplicativo de contêiner do Linux no Azure Servic
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: d085f8704850cdbb03e21b15b3cca7c8998b96fb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0481cc2d36f7882bbd8eea9b984c3dc388de5dee
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092935"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96534073"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Criar seu primeiro aplicativo de contêiner do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -64,7 +64,7 @@ CMD ["python", "app.py"]
 Leia a [referência do Dockerfile](https://docs.docker.com/engine/reference/builder/) para saber mais informações.
 
 ## <a name="create-a-basic-web-application"></a>Criar um aplicativo Web básico
-Crie um aplicativo Web Flask que escuta a porta 80 retornar "Olá, Mundo!". No mesmo diretório, crie o arquivo *requirements.txt* . Adicione o seguinte e salve as alterações:
+Crie um aplicativo Web Flask que escuta a porta 80 retornar "Olá, Mundo!". No mesmo diretório, crie o arquivo *requirements.txt*. Adicione o seguinte e salve as alterações:
 ```
 Flask
 ```
@@ -87,10 +87,17 @@ if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
 ```
 
-## <a name="build-the-image"></a>Criar a imagem
-Execute o comando `docker build` para criar a imagem que executa o seu aplicativo web. Abra uma janela do PowerShell e navegue até *c:\temp\helloworldapp* . Execute o seguinte comando:
+## <a name="login-to-docker-and-build-the-image"></a>Faça logon no Docker e crie a imagem
 
-```bash
+Em seguida, criaremos a imagem que executa seu aplicativo Web. Ao obter imagens públicas do Docker (como `python:2.7-slim` em nosso Dockerfile), é uma prática recomendada autenticar com sua conta do Hub do Docker em vez de fazer uma solicitação de pull anônima.
+
+> [!NOTE]
+> Ao fazer solicitações de pull anônimas frequentes, você pode ver erros de Docker semelhantes `ERROR: toomanyrequests: Too Many Requests.` ou `You have reached your pull rate limit.` autenticados no Hub do Docker para evitar esses erros. Consulte [gerenciar conteúdo público com o registro de contêiner do Azure](../container-registry/buffer-gate-public-content.md) para obter mais informações.
+
+Abra uma janela do PowerShell e acesse o diretório que contém o Dockerfile. Em seguida, execute os comandos a seguir:
+
+```
+docker login
 docker build -t helloworldapp .
 ```
 
@@ -156,7 +163,7 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 ```
 
 ## <a name="package-the-docker-image-with-yeoman"></a>Empacotar a imagem do Docker com o Yeoman
-O SDK do Service Fabric para Linux inclui um gerador [Yeoman](https://yeoman.io/) que facilita a criação de seu aplicativo e a adição de uma imagem de contêiner. Vamos usar o Yeoman para criar um aplicativo, com um único contêiner do Docker, chamado de *SimpleContainerApp* .
+O SDK do Service Fabric para Linux inclui um gerador [Yeoman](https://yeoman.io/) que facilita a criação de seu aplicativo e a adição de uma imagem de contêiner. Vamos usar o Yeoman para criar um aplicativo, com um único contêiner do Docker, chamado de *SimpleContainerApp*.
 
 Para criar um aplicativo de contêiner do Service Fabric, abra uma janela do terminal e execute `yo azuresfcontainer`. 
 
@@ -209,9 +216,9 @@ A [governança de recursos](service-fabric-resource-governance.md) restringe os 
 
 ## <a name="configure-docker-healthcheck"></a>Configurar o HEALTHCHECK do Docker 
 
-Iniciando a versão 6.1, o Service Fabric integra automaticamente os eventos do [HEALTHCHECK do Docker](https://docs.docker.com/engine/reference/builder/#healthcheck) em seu relatório de integridade do sistema. Isso significa que, se o contêiner tiver o **HEALTHCHECK** habilitado, o Service Fabric relatará a integridade sempre que o status de integridade do contêiner for alterado conforme relatado pelo Docker. Um relatório de integridade **OK** será exibido no [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) quando o *health_status* for *íntegro* e um **AVISO** aparecerá quando o *health_status* for *não íntegro* . 
+Iniciando a versão 6.1, o Service Fabric integra automaticamente os eventos do [HEALTHCHECK do Docker](https://docs.docker.com/engine/reference/builder/#healthcheck) em seu relatório de integridade do sistema. Isso significa que, se o contêiner tiver o **HEALTHCHECK** habilitado, o Service Fabric relatará a integridade sempre que o status de integridade do contêiner for alterado conforme relatado pelo Docker. Um relatório de integridade **OK** será exibido no [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) quando o *health_status* for *íntegro* e um **AVISO** aparecerá quando o *health_status* for *não íntegro*. 
 
-A partir da versão de atualização mais recente do v 6.4, você tem a opção de especificar que as avaliações do Docker HEALTHCHECK devem ser relatadas como um erro. Se essa opção estiver habilitada, um relatório de integridade **OK** será exibido quando *health_status* estiver *íntegro* e o **erro** será exibido quando *health_status* não estiver *íntegro* .
+A partir da versão de atualização mais recente do v 6.4, você tem a opção de especificar que as avaliações do Docker HEALTHCHECK devem ser relatadas como um erro. Se essa opção estiver habilitada, um relatório de integridade **OK** será exibido quando *health_status* estiver *íntegro* e o **erro** será exibido quando *health_status* não estiver *íntegro*.
 
 A instrução do **HEALTHCHECK** apontando para a verificação real que é executada para monitorar a integridade do contêiner deve estar presente no Dockerfile usado ao gerar a imagem de contêiner.
 
@@ -235,13 +242,13 @@ Você pode configurar o comportamento do **HEALTHCHECK** para cada contêiner es
     </Policies>
 </ServiceManifestImport>
 ```
-Por padrão, *IncludeDockerHealthStatusInSystemHealthReport* é definido como **true** , *RestartContainerOnUnhealthyDockerHealthStatus* é definido como **false** e *TreatContainerUnhealthyStatusAsError* é definido como **false** . 
+Por padrão, *IncludeDockerHealthStatusInSystemHealthReport* é definido como **true**, *RestartContainerOnUnhealthyDockerHealthStatus* é definido como **false** e *TreatContainerUnhealthyStatusAsError* é definido como **false**. 
 
-Se o *RestartContainerOnUnhealthyDockerHealthStatus* for definido como **true** , um contêiner relatando repetidamente um estado não íntegro será reiniciado (possivelmente em outros nós).
+Se o *RestartContainerOnUnhealthyDockerHealthStatus* for definido como **true**, um contêiner relatando repetidamente um estado não íntegro será reiniciado (possivelmente em outros nós).
 
-Se *TreatContainerUnhealthyStatusAsError* for definido como **true** , os relatórios de integridade de **erro** serão exibidos quando o *health_status* do contêiner não estiver *íntegro* .
+Se *TreatContainerUnhealthyStatusAsError* for definido como **true**, os relatórios de integridade de **erro** serão exibidos quando o *health_status* do contêiner não estiver *íntegro*.
 
-Se você deseja desabilitar a integração do **HEALTHCHECK** para todo o cluster do Service Fabric, precisará definir o [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) como **false** .
+Se você deseja desabilitar a integração do **HEALTHCHECK** para todo o cluster do Service Fabric, precisará definir o [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) como **false**.
 
 ## <a name="deploy-the-application"></a>Implantar o aplicativo
 Após a compilação do aplicativo, você pode implantá-lo no cluster local usando a CLI do Service Fabric.
@@ -452,7 +459,7 @@ A configuração **ContainersRetentionCount** especifica o número de contêiner
 
 ## <a name="start-the-docker-daemon-with-custom-arguments"></a>Iniciar o daemon do Docker com argumentos personalizados
 
-Com a versão 6.2, e superiores, do runtime do Service Fabric, você pode iniciar o daemon do Docker com argumentos personalizados. Ao especificar argumentos personalizados, o Service Fabric não passa outro argumento para o mecanismo do docker, com exceção do argumento `--pidfile`. Portanto, não passe `--pidfile` como um argumento. Além disso, o argumento deve manter a escuta do daemon do docker no pipe de nome padrão no Windows (ou um soquete de domínio do unix no Linux) para o Service Fabric se comunicar com o daemon. Os argumentos personalizados são especificados no manifesto do cluster na seção **Hospedagem** em **ContainerServiceArguments** . Um exemplo é mostrado no snippet a seguir: 
+Com a versão 6.2, e superiores, do runtime do Service Fabric, você pode iniciar o daemon do Docker com argumentos personalizados. Ao especificar argumentos personalizados, o Service Fabric não passa outro argumento para o mecanismo do docker, com exceção do argumento `--pidfile`. Portanto, não passe `--pidfile` como um argumento. Além disso, o argumento deve manter a escuta do daemon do docker no pipe de nome padrão no Windows (ou um soquete de domínio do unix no Linux) para o Service Fabric se comunicar com o daemon. Os argumentos personalizados são especificados no manifesto do cluster na seção **Hospedagem** em **ContainerServiceArguments**. Um exemplo é mostrado no snippet a seguir: 
  
 
 ```json

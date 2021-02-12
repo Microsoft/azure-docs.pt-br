@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 03/18/2020
-ms.openlocfilehash: 5cfd76d6b2f6bb9429a7605ac05adb23d87a80d3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 02/01/2021
+ms.openlocfilehash: 74c0dbaaa511e2fd2f20a3c245a561a177dd2b9a
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790875"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223433"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption do Azure SQL com chaves gerenciadas pelo cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -78,11 +78,11 @@ Os auditores podem usar Azure Monitor para examinar os logs de AuditEvent do cof
 
 - O Key Vault e o banco de dados SQL/instância gerenciada devem pertencer ao mesmo locatário Azure Active Directory. Não há suporte para interações de servidor e cofre de chaves entre locatários. Para mover os recursos posteriormente, o TDE com AKV precisará ser reconfigurado. Saiba mais sobre como [mover recursos](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-- O recurso de [exclusão reversível](../../key-vault/general/soft-delete-overview.md) deve estar habilitado no cofre de chaves para proteger contra a exclusão da chave acidental de perda de dados (ou do cofre de chaves). Os recursos excluídos por software são mantidos por 90 dias, a menos que sejam recuperados ou limpos pelo cliente enquanto isso. As ações de *recuperação* e *limpeza* têm suas próprias permissões associadas em uma política de acesso do cofre de chaves. O recurso de exclusão reversível está desativado por padrão e pode ser habilitado por meio do [PowerShell](../../key-vault/general/soft-delete-powershell.md#enabling-soft-delete) ou [da CLI](../../key-vault/general/soft-delete-cli.md#enabling-soft-delete). Ele não pode ser habilitado por meio do portal do Azure.  
+- O recurso de [exclusão reversível](../../key-vault/general/soft-delete-overview.md) deve estar habilitado no cofre de chaves para proteger contra a exclusão da chave acidental de perda de dados (ou do cofre de chaves). Os recursos excluídos por software são mantidos por 90 dias, a menos que sejam recuperados ou limpos pelo cliente enquanto isso. As ações de *recuperação* e *limpeza* têm suas próprias permissões associadas em uma política de acesso do cofre de chaves. O recurso de exclusão reversível está desativado por padrão e pode ser habilitado por meio do [PowerShell](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell) ou [da CLI](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli). Ele não pode ser habilitado por meio do portal do Azure.  
 
 - Conceda ao servidor ou à instância gerenciada acesso ao cofre de chaves (Get, wrapKey, unwrapKey) usando sua identidade de Azure Active Directory. Ao usar o portal do Azure, a identidade do Azure AD é criada automaticamente. Ao usar o PowerShell ou a CLI, a identidade do Azure AD deve ser explicitamente criada e a conclusão deve ser verificada. Consulte [Configurar TDE com BYOK](transparent-data-encryption-byok-configure.md) e [Configurar o TDE com BYOK para SQL instância gerenciada](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) para obter instruções passo a passo detalhadas ao usar o PowerShell.
 
-- Ao usar o firewall com AKV, você deve habilitar *a opção permitir que serviços confiáveis da Microsoft ignorem o firewall* .
+- Ao usar o firewall com AKV, você deve habilitar *a opção permitir que serviços confiáveis da Microsoft ignorem o firewall*.
 
 ### <a name="requirements-for-configuring-tde-protector"></a>Requisitos para configurar o protetor de TDE
 
@@ -90,12 +90,12 @@ Os auditores podem usar Azure Monitor para examinar os logs de AuditEvent do cof
 
 - A data de ativação da chave (se definida) precisa ser uma data e uma hora no passado. A data de validade (se definido) deve ser uma data e hora futura.
 
-- A chave precisa estar no estado *Habilitado* .
+- A chave precisa estar no estado *Habilitado*.
 
 - Se você estiver importando a chave existente para o cofre de chaves, certifique-se de fornecê-la nos formatos de arquivo com suporte (. pfx,. byok ou. Backup).
 
 > [!NOTE]
-> O SQL do Azure agora dá suporte ao uso de uma chave RSA armazenada em um HSM gerenciado como um protetor de TDE. Este recurso está em **Visualização pública** . Azure Key Vault HSM gerenciado é um serviço de nuvem compatível com os padrões de um único locatário, altamente disponível e totalmente gerenciado que permite proteger chaves criptográficas para seus aplicativos de nuvem, usando HSMs validados pelo FIPS 140-2 nível 3. Saiba mais sobre [HSMs gerenciados](../../key-vault/managed-hsm/index.yml).
+> O SQL do Azure agora dá suporte ao uso de uma chave RSA armazenada em um HSM gerenciado como um protetor de TDE. Este recurso está em **Visualização pública**. Azure Key Vault HSM gerenciado é um serviço de nuvem compatível com os padrões de um único locatário, altamente disponível e totalmente gerenciado que permite proteger chaves criptográficas para seus aplicativos de nuvem, usando HSMs validados pelo FIPS 140-2 nível 3. Saiba mais sobre [HSMs gerenciados](../../key-vault/managed-hsm/index.yml).
 
 
 ## <a name="recommendations-when-configuring-customer-managed-tde"></a>Recomendações ao configurar o TDE gerenciado pelo cliente
@@ -126,7 +126,7 @@ Os auditores podem usar Azure Monitor para examinar os logs de AuditEvent do cof
 
 ## <a name="inaccessible-tde-protector"></a>Protetor de TDE inacessível
 
-Quando a Transparent Data Encryption é configurada para usar uma chave gerenciada pelo cliente, o acesso contínuo ao protetor de TDE é necessário para que o banco de dados permaneça online. Se o servidor perder acesso ao protetor de TDE gerenciado pelo cliente no AKV, em até 10 minutos, um banco de dados começará a negar todas as conexões com a mensagem de erro correspondente e alterará seu estado para *inacessível* . A única ação permitida em um banco de dados no estado inacessível é excluí-lo.
+Quando a Transparent Data Encryption é configurada para usar uma chave gerenciada pelo cliente, o acesso contínuo ao protetor de TDE é necessário para que o banco de dados permaneça online. Se o servidor perder acesso ao protetor de TDE gerenciado pelo cliente no AKV, em até 10 minutos, um banco de dados começará a negar todas as conexões com a mensagem de erro correspondente e alterará seu estado para *inacessível*. A única ação permitida em um banco de dados no estado inacessível é excluí-lo.
 
 > [!NOTE]
 > Se o banco de dados estiver inacessível devido a uma interrupção intermitente da rede, não haverá nenhuma ação necessária e os bancos de dados voltarão a ficar online automaticamente.
@@ -135,7 +135,7 @@ Depois que o acesso à chave for restaurado, colocar o banco de dados online nov
 
 - Se o acesso à chave for restaurado dentro de 8 horas, o banco de dados será reparado automaticamente na próxima hora.
 
-- Se o acesso à chave for restaurado após mais de 8 horas, a reparação automática não será possível e o retorno do banco de dados exigirá etapas adicionais no portal e poderá levar um tempo significativo dependendo do tamanho do banco de dados. Quando o banco de dados estiver online novamente, as configurações de nível de servidor definidas anteriormente, como configuração do [grupo de failover](auto-failover-group-overview.md) , histórico de restauração pontual e marcas **serão perdidas** . Portanto, é recomendável implementar um sistema de notificação que permita que você identifique e resolva os problemas de acesso de chave subjacente dentro de 8 horas.
+- Se o acesso à chave for restaurado após mais de 8 horas, a reparação automática não será possível e o retorno do banco de dados exigirá etapas adicionais no portal e poderá levar um tempo significativo dependendo do tamanho do banco de dados. Quando o banco de dados estiver online novamente, as configurações de nível de servidor definidas anteriormente, como configuração do [grupo de failover](auto-failover-group-overview.md) , histórico de restauração pontual e marcas **serão perdidas**. Portanto, é recomendável implementar um sistema de notificação que permita que você identifique e resolva os problemas de acesso de chave subjacente dentro de 8 horas.
 
 Veja abaixo uma exibição das etapas adicionais necessárias no portal para colocar um banco de dados inacessível online novamente.
 
@@ -146,7 +146,7 @@ Veja abaixo uma exibição das etapas adicionais necessárias no portal para col
 
 Pode acontecer que alguém com direitos de acesso suficientes ao cofre de chaves desabilite acidentalmente o acesso do servidor à chave por:
 
-- revogando as permissões *Get* , *wrapKey* , *unwrapKey* do cofre de chaves do servidor
+- revogando as permissões *Get*, *wrapKey*, *unwrapKey* do cofre de chaves do servidor
 
 - excluindo a chave
 
@@ -156,7 +156,7 @@ Pode acontecer que alguém com direitos de acesso suficientes ao cofre de chaves
 
 - excluindo a identidade gerenciada do servidor no Azure Active Directory
 
-Saiba mais sobre [as causas comuns para que o banco de dados se torne inacessível](/sql/relational-databases/security/encryption/troubleshoot-tde?view=azuresqldb-current#common-errors-causing-databases-to-become-inaccessible).
+Saiba mais sobre [as causas comuns para que o banco de dados se torne inacessível](/sql/relational-databases/security/encryption/troubleshoot-tde?view=azuresqldb-current&preserve-view=true#common-errors-causing-databases-to-become-inaccessible).
 
 ## <a name="monitoring-of-the-customer-managed-tde"></a>Monitoramento do TDE gerenciado pelo cliente
 
@@ -179,17 +179,15 @@ Se a chave necessária para restaurar um backup não estiver mais disponível pa
 
 Para atenuá-lo, execute o cmdlet [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) para o servidor de destino ou [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) para a instância gerenciada de destino para retornar a lista de chaves disponíveis e identificar as que estão faltando. Para garantir que todos os backups possam ser restaurados, verifique se o servidor de destino da restauração tem acesso a todas as chaves necessárias. Essas chaves não precisam ser marcadas como protetor de TDE.
 
-Para saber mais sobre a recuperação de backup para o banco de dados SQL, consulte [recuperar um banco de dados no banco de dados SQL](recovery-using-backups.md). Para saber mais sobre a recuperação de backup para o pool do SQL, consulte [recuperar um pool do SQL](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md). Para obter o backup/restauração nativa de SQL Server com o SQL Instância Gerenciada, consulte [início rápido: restaurar um banco de dados no sql instância gerenciada](../managed-instance/restore-sample-database-quickstart.md)
+Para saber mais sobre a recuperação de backup para o banco de dados SQL, consulte [recuperar um banco de dados no banco de dados SQL](recovery-using-backups.md). Para saber mais sobre a recuperação de backup para o pool de SQL dedicado no Azure Synapse Analytics, consulte [recuperar um pool SQL dedicado](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md). Para obter o backup/restauração nativa de SQL Server com o SQL Instância Gerenciada, consulte [início rápido: restaurar um banco de dados no sql instância gerenciada](../managed-instance/restore-sample-database-quickstart.md)
 
 Considerações adicionais para arquivos de log: Arquivos de log de backup permanecem criptografados com o protetor de TDE original, mesmo que ele tenha sido girado e o banco de dados agora esteja usando um novo protetor de TDE.  No momento da restauração, ambas as chaves serão necessárias para restaurar o banco de dados.  Se o arquivo de log estiver usando um protetor de TDE armazenado em Azure Key Vault, essa chave será necessária no momento da restauração, mesmo que o banco de dados tenha sido alterado para usar o TDE gerenciado por serviço enquanto isso.
 
 ## <a name="high-availability-with-customer-managed-tde"></a>Alta disponibilidade com TDE gerenciados pelo cliente
 
-Mesmo em casos em que não haja redundância geográfica configurada para o servidor, é altamente recomendável configurar o servidor para usar dois cofres de chaves diferentes em duas regiões diferentes com o mesmo material de chave. Ele pode ser feito criando um protetor de TDE usando o cofre de chaves primário colocalizado na mesma região que o servidor e clonando a chave em um cofre de chaves em uma região diferente do Azure, de modo que o servidor tenha acesso a um segundo cofre de chaves caso o cofre de chaves primário tenha uma interrupção enquanto o banco de dados estiver em execução.
+Mesmo em casos em que não haja redundância geográfica configurada para o servidor, é altamente recomendável configurar o servidor para usar dois cofres de chaves diferentes em duas regiões diferentes com o mesmo material de chave. A chave no cofre de chaves secundários na outra região não deve ser marcada como um protetor TDE e nem mesmo é permitida. Se houver uma interrupção afetando o cofre de chaves primário e, somente em seguida, o sistema alternará automaticamente para a outra chave vinculada com a mesma impressão digital no cofre de chaves secundário, se existir. Observe que essa opção não ocorrerá se o protetor de TDE estiver inacessível devido a direitos de acesso revogados ou porque a chave ou o cofre de chaves é excluído, pois pode indicar que o cliente queria intencionalmente restringir o acesso do servidor à chave. Fornecer o mesmo material de chave para dois cofres de chaves em diferentes regiões pode ser feito criando a chave fora do cofre de chaves e importando-os para os dois cofres de chaves. 
 
-Use o cmdlet Backup-AzKeyVaultKey para recuperar a chave no formato criptografado do cofre de chaves primárias e, em seguida, use o cmdlet Restore-AzKeyVaultKey e especifique um cofre de chaves na segunda região para clonar a chave. Como alternativa, use o portal do Azure para fazer backup e restaurar a chave. A chave no cofre de chaves secundários na outra região não deve ser marcada como um protetor TDE e nem mesmo é permitida.
-
-Se houver uma interrupção afetando o cofre de chaves primário e, somente em seguida, o sistema alternará automaticamente para a outra chave vinculada com a mesma impressão digital no cofre de chaves secundário, se existir. Observe que essa opção não ocorrerá se o protetor de TDE estiver inacessível devido a direitos de acesso revogados ou porque a chave ou o cofre de chaves é excluído, pois pode indicar que o cliente queria intencionalmente restringir o acesso do servidor à chave.
+Como alternativa, ele pode ser realizado pela geração de chave usando o cofre de chaves primários localizado na mesma região que o servidor e clonando a chave em um cofre de chaves em uma região diferente do Azure. Use o cmdlet [backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/Backup-AzKeyVaultKey) para recuperar a chave no formato criptografado do cofre de chaves primárias e, em seguida, use o cmdlet [Restore-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey) e especifique um cofre de chaves na segunda região para clonar a chave. Como alternativa, use o portal do Azure para fazer backup e restaurar a chave. A operação de backup/restauração de chave só é permitida entre cofres de chaves na mesma assinatura do Azure e [Geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/).  
 
 ![Single-Server HA](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-ha.png)
 

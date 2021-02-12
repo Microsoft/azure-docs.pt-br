@@ -3,22 +3,19 @@ title: Conceitos de arquitetura no Azure IoT Central – Painel solar| Microsoft
 description: Este artigo apresenta os principais conceitos relacionados à arquitetura do aplicativo de monitoramento de painel solar do Azure IoT Central.
 author: op-ravi
 ms.author: omravi
-ms.date: 10/23/2019
-ms.topic: overview
+ms.date: 12/11/2020
+ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 00ef6cf6d4149f139876cb0c2d845133ba00157c
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 1efb693e1ad9b9e9bfdbeafa27e9cc75c645baf4
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127499"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834282"
 ---
 # <a name="azure-iot-central---solar-panel-app-architecture"></a>Azure IoT Central – arquitetura de aplicativo do painel solar
-
-
-
 
 Este artigo fornece uma visão geral da arquitetura do modelo de aplicativo de monitoramento do painel solar. O diagrama abaixo mostra uma arquitetura comum para o aplicativo de painel solar no Azure usando a plataforma IoT Central.
 
@@ -27,11 +24,9 @@ Este artigo fornece uma visão geral da arquitetura do modelo de aplicativo de m
 
 Essa arquitetura é formada pelos componentes a seguir. Alguns aplicativos não exigem todos os componentes listados aqui.
 
-## <a name="solar-panels-and-connectivity"></a>Painéis solares e conectividade 
+## <a name="solar-panels-and-connectivity"></a>Painéis solares e conectividade
 
 Os painéis solares são uma das fontes mais significativas de energia renovável. Dependendo do tipo e da configuração do painel solar, você pode conectá-lo usando gateways ou outros dispositivos intermediários e sistemas proprietários. Talvez você precise criar uma ponte de dispositivos do IoT Central para conectar dispositivos que não possam ser conectados diretamente. A ponte de dispositivo do IoT Central é uma solução de código aberto e você pode encontrar todos os detalhes [aqui](../core/howto-build-iotc-device-bridge.md). 
-
-
 
 ## <a name="iot-central-platform"></a>Plataforma do IoT Central
 O Azure IoT Central é uma plataforma que simplifica a criação de sua solução de IoT e ajuda a reduzir a carga e os custos de gerenciamento, operações e desenvolvimento de IoT. Com o IoT Central é possível conectar, monitorar e gerenciar facilmente seus ativos da IoT (Internet das Coisas) em escala. Depois de conectar os painéis solares ao IoT Central, o modelo de aplicativo usa recursos internos, como modelos de dispositivo, comandos e painéis. O modelo do aplicativo também usa o armazenamento do IoT Central para cenários de categorização de dados mornos, como monitoramento de dados em tempo real, análises, regras e visualização.

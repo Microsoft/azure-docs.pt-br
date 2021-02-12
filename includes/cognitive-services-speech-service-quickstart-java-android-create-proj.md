@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: travisw
-ms.openlocfilehash: 2efe17bdf597b7e3ba7d0277f06d4b24e9b51db3
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: b987f98281c298da2d634c686d740faf3dda3502
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096871"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99214254"
 ---
 1. Inicialize o Android Studio e selecione **Iniciar um novo projeto do Android Studio** na janela de **boas-vindas**.
 
@@ -27,7 +27,7 @@ O Android Studio demora algum tempo para preparar seu novo projeto Android. Em s
 
 [!INCLUDE [License notice](cognitive-services-speech-service-license-notice.md)]
 
-A versão atual do SDK de Fala dos Serviços Cognitivos é a 1.13.0.
+A versão atual do SDK de Fala dos Serviços Cognitivos é a 1.15.0.
 
 O Speech SDK para Android é empacotado como um [AAR (Biblioteca Android)](https://developer.android.com/studio/projects/android-library), que inclui as bibliotecas necessárias e as permissões necessárias do Android.
 Ele está hospedado em um repositório do Maven em https:\//csspeechstorage.blob.core.windows.net/maven/.
@@ -42,7 +42,7 @@ Configure seu projeto para usar o SDK de Fala. Abra a janela **Estrutura do Proj
 
    ![Captura de tela da Dependência da biblioteca](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. Na janela exibida, insira o nome e a versão do SDK de Fala para Android, *com.microsoft.cognitiveservices.speech:client-sdk:1.13.0*. Depois, selecione **OK**.
+1. Na janela exibida, insira o nome e a versão do SDK de Fala para Android, *com.microsoft.cognitiveservices.speech:client-sdk:1.15.0*. Depois, selecione **OK**.
    O SDK de Fala deverá ser adicionado à lista de dependências agora, conforme mostrado:
 
    ![Captura de tela do SDK de Fala na lista de dependências](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-08-dependency-added-1.0.0.png)

@@ -9,14 +9,14 @@ author: stevestein
 ms.custom: sqldbrb=2
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 07/16/2019
+ms.date: 01/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 7dc6cd580687544226b61a29ca9ccf2d1b8dff42
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f874803e0ae361255754477ca68184255f35b91f
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92671527"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107371"
 ---
 # <a name="export-to-a-bacpac-file---azure-sql-database-and-azure-sql-managed-instance"></a>Exportar para um arquivo BACPAC – banco de dados SQL do Azure e Azure SQL Instância Gerenciada
 
@@ -30,6 +30,7 @@ Quando for preciso exportar um banco de dados para arquivamento ou para mover pa
 - Se você estiver exportando para o armazenamento de blobs, o tamanho máximo de um arquivo BACPAC é de 200 GB. Para arquivar um arquivo BACPAC maior, exporte para o armazenamento local.
 - Não há suporte para a exportação de um arquivo BACPAC no armazenamento Premium do Azure usando os métodos abordados neste artigo.
 - No momento, não há suporte para o armazenamento por trás de um firewall.
+- O nome do arquivo de armazenamento ou o valor de entrada para StorageURI deve ter menos de 128 caracteres e não pode terminar com '. ' e não pode conter caracteres especiais, como um caractere de espaço ou ' <, >, *,%, &,:, \, /,? '. 
 - Se a operação de exportação exceder 20 horas, ela poderá ser cancelada. Para aumentar o desempenho durante a exportação, você pode:
 
   - Aumente temporariamente o tamanho da computação.
@@ -54,9 +55,9 @@ Atualmente, não há suporte para a exportação de um BACPAC de um banco de dad
 
     ![Exportação de banco de dados](./media/database-export/database-export2.png)
 
-3. Clique em **OK** .
+3. Clique em **OK**.
 
-4. Para monitorar o progresso da operação de exportação, abra a página do servidor que contém o banco de dados que está sendo exportado. Em **Configurações** , clique em **Histórico de importação/exportação** .
+4. Para monitorar o progresso da operação de exportação, abra a página do servidor que contém o banco de dados que está sendo exportado. Em **Configurações**, clique em **Histórico de importação/exportação**.
 
    ![histórico de exportação](./media/database-export/export-history.png)
 
@@ -89,7 +90,7 @@ $exportRequest = New-AzSqlDatabaseExport -ResourceGroupName $ResourceGroupName -
   -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
 ```
 
-Para verificar o status da solicitação de exportação, use o cmdlet [Get-AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) . Executar isso imediatamente após a solicitação geralmente retorna **Status: InProgress** . Quando você vir **Status: Êxito** , a exportação estará concluída.
+Para verificar o status da solicitação de exportação, use o cmdlet [Get-AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) . Executar isso imediatamente após a solicitação geralmente retorna **Status: InProgress**. Quando você vir **Status: Êxito**, a exportação estará concluída.
 
 ```powershell
 $exportStatus = Get-AzSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink

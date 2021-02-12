@@ -3,12 +3,12 @@ title: Implantar o horizonte na solução VMware do Azure
 description: Saiba como implantar o VMware horizonte na solução VMware do Azure.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: 6a466aea5cbdf4452a2c46b455932042d920c3b9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 2cf6fc5cb7662188650365cb019774d6c778d405
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369005"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684868"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Implantar o horizonte na solução VMware do Azure 
 
@@ -86,7 +86,7 @@ Dada a nuvem privada do Azure e o limite máximo do SDDC, recomendamos uma arqui
 
 A conexão da rede virtual do Azure com as nuvens/SDDCs privadas do Azure deve ser configurada com o ExpressRoute FastPath. O diagrama a seguir mostra uma implantação de Pod básico.
 
-:::image type="content" source="media/horizon/horizon-pod-deployment-expresspath-fast-path.png" alt-text="Horizonte na solução VMware do Azure e na nuvem de horizonte no Azure" border="false":::
+:::image type="content" source="media/horizon/horizon-pod-deployment-expresspath-fast-path.png" alt-text="Implantação de pod de horizonte típica usando o caminho rápido do ExpressPath" border="false":::
 
 ## <a name="network-connectivity-to-scale-horizon-on-azure-vmware-solution"></a>Conectividade de rede para o horizonte de escala na solução VMware do Azure
 
@@ -94,7 +94,7 @@ Esta seção descreve a arquitetura de rede em um alto nível com alguns exemplo
 
 ### <a name="single-horizon-pod-on-azure-vmware-solution"></a>Pod de horizonte único na solução VMware do Azure
 
-:::image type="content" source="media/horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Horizonte na solução VMware do Azure e na nuvem de horizonte no Azure" border="false":::
+:::image type="content" source="media/horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Pod de horizonte único na solução VMware do Azure" border="false":::
 
 Um único pod de horizonte é o cenário de implantação mais direto, pois você implanta apenas um pod de horizonte na região leste dos EUA.  Como cada nuvem privada e o SDDC são estimados para lidar com 4.000 sessões de desktop, você implanta o tamanho máximo de pod de horizonte.  Você pode planejar a implantação de até três nuvens/SDDCs privadas.
 
@@ -112,7 +112,7 @@ Uma variação no exemplo básico pode ser oferecer suporte à conectividade par
 
 O diagrama mostra como dar suporte à conectividade para recursos locais. Para se conectar à rede corporativa à rede virtual do Azure, você precisará de um circuito do ExpressRoute.  Você também precisará conectar sua rede corporativa a cada uma das nuvem privada e SDDCs usando o ExpressRoute Alcance Global.  Ele permite a conectividade do SDDC para o circuito do ExpressRoute e recursos locais. 
 
-:::image type="content" source="media/horizon/connect-corporate-network-azure-virtual-network.png" alt-text="Horizonte na solução VMware do Azure e na nuvem de horizonte no Azure" border="false":::
+:::image type="content" source="media/horizon/connect-corporate-network-azure-virtual-network.png" alt-text="Conectar sua rede corporativa a uma rede virtual do Azure" border="false":::
 
 ### <a name="multiple-horizon-pods-on-azure-vmware-solution-across-multiple-regions"></a>Vários pods de horizonte na solução do Azure VMware em várias regiões
 
@@ -122,27 +122,43 @@ Você conectará o Entrada na Rede virtual do Azure a cada região para nuvens p
 
 Os mesmos princípios se aplicam se você implantar dois pods de horizonte na mesma região.  Certifique-se de implantar o segundo pod de horizonte em uma *rede virtual do Azure separada*. Assim como o único exemplo de Pod, você pode conectar sua rede corporativa e o Pod local a este exemplo multipod/região usando ExpressRoute e Alcance Global. 
 
-:::image type="content" source="media/horizon/multiple-horizon-pod-azure-vmware-solution.png" alt-text="Horizonte na solução VMware do Azure e na nuvem de horizonte no Azure" border="false":::
+:::image type="content" source="media/horizon/multiple-horizon-pod-azure-vmware-solution.png" alt-text=" Vários pods de horizonte na solução do Azure VMware em várias regiões" border="false":::
 
 ## <a name="size-azure-vmware-solution-hosts-for-horizon-deployments"></a>Dimensionar hosts de solução do Azure VMware para implantações de horizonte 
 
 A metodologia de dimensionamento do horizonte em um host em execução na solução VMware do Azure é mais simples do que o horizonte local.  Isso ocorre porque o host da solução Azure VMware está padronizado.  O dimensionamento exato do host ajuda a determinar o número de hosts necessários para dar suporte aos seus requisitos de VDI.  É fundamental determinar o custo por área de trabalho.
 
-### <a name="azure-vmware-solution-host-instance"></a>Instância do host da solução Azure VMware
+### <a name="sizing-tables"></a>Dimensionando tabelas
 
-* Servidor PowerEdge R640-DSS restrito
+Os requisitos específicos de vCPU/vRAM para áreas de trabalho virtuais de horizonte dependem do perfil de carga específico do cliente.   Trabalhe com sua equipe de vendas do MSFT e do VMware para ajudar a determinar seus requisitos de vCPU/vRAM para suas áreas de trabalho virtuais. 
 
-* 36 núcleos \@ 2.3 GHz
+| vCPU por VM | vRAM por VM (GB) | Instância | 100 VMs | 200 VMs | 300 VMs | 400 VMs | 500 VMs | 600 VMs | 700 VMs | 800 VMs | 900 VMs | 1000 VMs | 2000 VMs | 3000 VMs | 4000 VMs | 5000 VMs | 6000 VMs | 6400 VMs |
+|:-----------:|:----------------:|:--------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|
+|      2      |        3,5       |    AVS   |    3    |    3    |    4    |    4    |    5    |    6    |    6    |    7    |    8    |     9    |    17    |    25    |    33    |    41    |    49    |    53    |
+|      2      |         4        |    AVS   |    3    |    3    |    4    |    5    |    6    |    6    |    7    |    8    |    9    |     9    |    18    |    26    |    34    |    42    |    51    |    54    |
+|      2      |         6        |    AVS   |    3    |    4    |    5    |    6    |    7    |    9    |    10   |    11   |    12   |    13    |    26    |    38    |    51    |    62    |    75    |    79    |
+|      2      |         8        |    AVS   |    3    |    5    |    6    |    8    |    9    |    11   |    12   |    14   |    16   |    18    |    34    |    51    |    67    |    84    |    100   |    106   |
+|      2      |        12        |    AVS   |    4    |    6    |    9    |    11   |    13   |    16   |    19   |    21   |    23   |    26    |    51    |    75    |    100   |    124   |    149   |    158   |
+|      2      |        16        |    AVS   |    5    |    8    |    11   |    14   |    18   |    21   |    24   |    27   |    30   |    34    |    67    |    100   |    133   |    165   |    198   |    211   |
+|      4      |        3,5       |    AVS   |    3    |    3    |    4    |    5    |    6    |    7    |    8    |    9    |    10   |    11    |    22    |    33    |    44    |    55    |    66    |    70    |
+|      4      |         4        |    AVS   |    3    |    3    |    4    |    5    |    6    |    7    |    8    |    9    |    10   |    11    |    22    |    33    |    44    |    55    |    66    |    70    |
+|      4      |         6        |    AVS   |    3    |    4    |    5    |    6    |    7    |    9    |    10   |    11   |    12   |    13    |    26    |    38    |    51    |    62    |    75    |    79    |
+|      4      |         8        |    AVS   |    3    |    5    |    6    |    8    |    9    |    11   |    12   |    14   |    16   |    18    |    34    |    51    |    67    |    84    |    100   |    106   |
+|      4      |        12        |    AVS   |    4    |    6    |    9    |    11   |    13   |    16   |    19   |    21   |    23   |    26    |    51    |    75    |    100   |    124   |    149   |    158   |
+|      4      |        16        |    AVS   |    5    |    8    |    11   |    14   |    18   |    21   |    24   |    27   |    30   |    34    |    67    |    100   |    133   |    165   |    198   |    211   |
+|      6      |        3,5       |    AVS   |    3    |    4    |    5    |    6    |    7    |    9    |    10   |    11   |    13   |    14    |    27    |    41    |    54    |    68    |    81    |    86    |
+|      6      |         4        |    AVS   |    3    |    4    |    5    |    6    |    7    |    9    |    10   |    11   |    13   |    14    |    27    |    41    |    54    |    68    |    81    |    86    |
+|      6      |         6        |    AVS   |    3    |    4    |    5    |    6    |    7    |    9    |    10   |    11   |    13   |    14    |    27    |    41    |    54    |    68    |    81    |    86    |
+|      6      |         8        |    AVS   |    3    |    5    |    6    |    8    |    9    |    11   |    12   |    14   |    16   |    18    |    34    |    51    |    67    |    84    |    100   |    106   |
+|      6      |        12        |    AVS   |    4    |    6    |    9    |    11   |    13   |    16   |    19   |    21   |    23   |    26    |    51    |    75    |    100   |    124   |    149   |    158   |
+|      6      |        16        |    AVS   |    5    |    8    |    11   |    14   |    18   |    21   |    24   |    27   |    30   |    34    |    67    |    100   |    133   |    165   |    198   |    211   |
+|      8      |        3,5       |    AVS   |    3    |    4    |    6    |    7    |    9    |    10   |    12   |    14   |    15   |    17    |    33    |    49    |    66    |    82    |    98    |    105   |
+|      8      |         4        |    AVS   |    3    |    4    |    6    |    7    |    9    |    10   |    12   |    14   |    15   |    17    |    33    |    49    |    66    |    82    |    98    |    105   |
+|      8      |         6        |    AVS   |    3    |    4    |    6    |    7    |    9    |    10   |    12   |    14   |    15   |    17    |    33    |    49    |    66    |    82    |    98    |    105   |
+|      8      |         8        |    AVS   |    3    |    5    |    6    |    8    |    9    |    11   |    12   |    14   |    16   |    18    |    34    |    51    |    67    |    84    |    100   |    106   |
+|      8      |        12        |    AVS   |    4    |    6    |    9    |    11   |    13   |    16   |    19   |    21   |    23   |    26    |    51    |    75    |    100   |    124   |    149   |    158   |
+|      8      |        16        |    AVS   |    5    |    8    |    11   |    14   |    18   |    21   |    24   |    27   |    30   |    34    |    67    |    100   |    133   |    165   |    198   |    211   |
 
-* 576 GB DE RAM
-
-* Controlador HBA SAS de 12 Gbps HBA330 (não RAID)
-
-* a combinação de SATA SSD de 1,92 TB usa 6 Gbps 512 2,5 na unidade AG Hot-plug, 3 DWPD, 10512 TBW
-
-* Intel 1,6 TB, NVMe, misto de uso expresso flash, unidade 2,5 SFF, U. 2, P4600 com operadora
-
-* 2 grupos de discos vSAN: 1,6 x 4 (1.92 TB)
 
 ### <a name="horizon-sizing-inputs"></a>Entradas de dimensionamento de horizonte
 
@@ -193,21 +209,9 @@ Se implantado na solução do Azure VMware e no local, como com um caso de uso d
 
 Trabalhe com sua equipe de vendas do VMware EUC para determinar o custo de licenciamento de horizonte com base em suas necessidades.
 
-### <a name="cost-of-the-horizon-infrastructure-vms-on-azure-virtual-network"></a>Custo das VMs de infraestrutura de horizonte na rede virtual do Azure
+### <a name="azure-instance-types"></a>Tipos de instância do Azure
 
-Com base na arquitetura de implantação padrão, as VMs de infraestrutura de horizonte são constituídas de servidores de conexão, UAGs, gerenciadores de volume de aplicativo. Eles são implantados na rede virtual do Azure do cliente. Instâncias nativas adicionais do Azure são necessárias para dar suporte aos serviços de HA (alta disponibilidade), Microsoft SQL ou Microsoft Active Directory (AD) no Azure. A tabela lista as instâncias do Azure com base em um exemplo de implantação 2.000-desktop. 
+Para entender os tamanhos de máquina virtual do Azure que serão necessários para a infraestrutura de horizonte, consulte as diretrizes da VMware que podem ser encontradas [aqui](https://techzone.vmware.com/resource/horizon-on-azure-vmware-solution-configuration#horizon-installation-on-azure-vmware-solution).
 
->[!NOTE]
->Para poder lidar com falhas, implante mais um servidor do que o necessário para o número de conexões (n + 1). O número mínimo recomendado de instâncias do servidor de conexão, UAG e Gerenciador de volumes de aplicativos é 2, e o número de necessário aumentará com base na quantidade de usuários que o ambiente dará suporte.  Um único servidor de conexão dá suporte a um máximo de 4.000 sessões, embora 2.000 seja recomendado como uma prática recomendada. Até sete servidores de conexão têm suporte por Pod, com uma recomendação de 12.000 sessões ativas no total por Pod. Para obter os números mais recentes, consulte o [artigo da base de dados de conhecimento do VMware sobre limites e recomendações de dimensionamento do VMware horizonte 7](https://kb.vmware.com/s/article/2150348).
-
-| Componente de infraestrutura de horizonte | Instância do Azure | Número de instâncias necessárias (para 2.000-desktops)    | Comentário  |
-|----------------------------------|----------------|----------------------------------------------------|----------|
-| Servidor de conexão                | D4sv3          | 2       | *Consulte a observação acima*                         |    
-| UAG                              | F2sv2          | 2       | *Consulte a observação acima*                         |
-| Gerenciador de volumes de aplicativos              | D4sv3          | 2       | *Consulte a observação acima*                         |
-| Conector de nuvem                  | D4sv3          | 1       |                                          |
-| Controlador do AD                    | D4sv3          | 2       | *Opção para usar o serviço MSFT AD no Azure* |
-| Banco de dados MS-SQL                  | D4sv3          | 2       | *Opção para usar o serviço SQL no Azure*     |
-| Compartilhamento de arquivos do Windows               | D4sv3          |         | *Opcional*                               |
-
-A VM de infraestrutura custa valores para \$ 0,36 por usuário por mês para a implantação de 2.000-desktop no exemplo acima. Este exemplo usa o preço da instância do Azure de junho de 2020 no leste dos EUA. Seu preço pode variar dependendo da região, das opções selecionadas e do tempo.
+## <a name="next-steps"></a>Próximas etapas
+Para saber mais sobre o VMware horizonte na solução VMware do Azure, leia as [perguntas frequentes sobre o VMware horizonte](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/products/horizon/vmw-horizon-on-microsoft-azure-vmware-solution-faq.pdf).

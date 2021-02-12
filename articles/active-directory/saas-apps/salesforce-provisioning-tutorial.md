@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: jeedes
-ms.openlocfilehash: a18984c441f5fe47f6ffd54cccff8c37cb57a038
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
-ms.translationtype: MT
+ms.openlocfilehash: 2a4d3f3f9465b8813cdf6ee26760d819d73a08c1
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676737"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353097"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutorial: configurar o Salesforce para provisionamento automático de usuário
 
@@ -59,13 +59,13 @@ Esta seção orienta você pela conexão do Azure AD com a [API de provisionamen
 
 O objetivo desta seção é descrever como habilitar o provisionamento de contas de usuário do Active Directory no Salesforce.
 
-1. No [Portal do Azure](https://portal.azure.com), navegue até a seção **Azure Active Directory > Aplicativos Empresariais > Todos os aplicativos** .
+1. No [Portal do Azure](https://portal.azure.com), navegue até a seção **Azure Active Directory > Aplicativos Empresariais > Todos os aplicativos**.
 
 2. Se você já tiver configurado o Salesforce para logon único, pesquise sua instância do Salesforce usando o campo de pesquisa. Caso contrário, selecione **Adicionar** e pesquise **Salesforce** na galeria de aplicativos. Selecione o Salesforce nos resultados da pesquisa e adicione-o à lista de aplicativos.
 
-3. Selecione sua instância do Salesforce e selecione a guia **Provisionamento** .
+3. Selecione sua instância do Salesforce e selecione a guia **Provisionamento**.
 
-4. Defina o **Modo de Provisionamento** como **Automático** .
+4. Defina o **Modo de Provisionamento** como **Automático**.
 
     ![Captura de tela mostra a página de provisionamento do Salesforce, com o modo de provisionamento definido como automático e outros valores que você pode definir.](./media/salesforce-provisioning-tutorial/provisioning.png)
 
@@ -75,21 +75,21 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
     b. Na caixa de texto **Senha do Administrador** , digite a senha dessa conta.
 
-6. Para obter o token de segurança do Salesforce, abra uma nova guia e entre na mesma conta de administrador do Salesforce. No canto superior direito da página, clique em seu nome e em **Configurações** .
+6. Para obter o token de segurança do Salesforce, abra uma nova guia e entre na mesma conta de administrador do Salesforce. No canto superior direito da página, clique em seu nome e em **Configurações**.
 
     ![Captura de tela mostra o link configurações selecionado.](./media/salesforce-provisioning-tutorial/sf-my-settings.png "Habilitar o provisionamento automático de usuários.")
 
-7. No painel de navegação esquerdo, clique em **Minhas Informações Pessoais** para expandir a seção correspondente e clique em **Redefinir Meu Token de Segurança** .
+7. No painel de navegação esquerdo, clique em **Minhas Informações Pessoais** para expandir a seção correspondente e clique em **Redefinir Meu Token de Segurança**.
   
     ![A captura de tela mostra redefinir meu token de segurança selecionado de minhas informações pessoais.](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "Habilitar o provisionamento automático de usuários.")
 
-8. Na página **Redefinir Token de Segurança** , clique no botão **Redefinir Token de Segurança** .
+8. Na página **Redefinir Token de Segurança** , clique no botão **Redefinir Token de Segurança**.
 
     ![Captura de tela mostra a página do token de segurança REST, com texto explicativo e a opção para redefinir o token de segurança](./media/salesforce-provisioning-tutorial/sf-reset-token.png "Habilitar o provisionamento automático de usuários.")
 
 9. Marque a caixa de entrada de email associada a essa conta de administrador. Procure um email do Salesforce.com que contenha o novo token de segurança.
 
-10. Copie o token, vá até a janela do Azure AD e cole-o no campo **Token Secreto** .
+10. Copie o token, vá até a janela do Azure AD e cole-o no campo **Token Secreto**.
 
 11. A **URL do locatário** deve ser inserida se a instância do Salesforce está na Salesforce Government Cloud. Caso contrário, ela é opcional. Insira a URL do locatário usando o formato "https:// \<your-instance\> . My.Salesforce.com", substituindo \<your-instance\> pelo nome da sua instância do Salesforce.
 

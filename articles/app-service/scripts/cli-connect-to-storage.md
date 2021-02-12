@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 53b0cacc4641b1b4a2d05243c62176cab9f144cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 508fef1a7467af6874271b5ef37c30a9a16dec95
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88958585"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97006303"
 ---
 # <a name="connect-an-app-service-app-to-a-storage-account-using-cli"></a>Conectar um aplicativo do Serviço de Aplicativo a uma conta de armazenamento usando a CLI
 
@@ -39,12 +39,12 @@ Este script usa os comandos a seguir para criar um grupo de recursos, um aplicat
 
 | Comando | Observações |
 |---|---|
-| [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Cria um Plano do Serviço de Aplicativo. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria um aplicativo do Serviço de Aplicativo. |
-| [`az storage account create`](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) | Cria uma conta de armazenamento. |
-| [`az storage account show-connection-string`](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-show-connection-string) | Obtenha a cadeia de conexão para uma conta de armazenamento. |
-| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | Cria ou atualiza uma configuração de aplicativo para um aplicativo do Serviço de Aplicativo. As configurações do aplicativo são expostas como variáveis do ambiente para seu aplicativo. |
+| [`az group create`](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Cria um Plano do Serviço de Aplicativo. |
+| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Cria um aplicativo do Serviço de Aplicativo. |
+| [`az storage account create`](/cli/azure/storage/account#az-storage-account-create) | Cria uma conta de armazenamento. |
+| [`az storage account show-connection-string`](/cli/azure/storage/account#az-storage-account-show-connection-string) | Obtenha a cadeia de conexão para uma conta de armazenamento. |
+| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) | Cria ou atualiza uma configuração de aplicativo para um aplicativo do Serviço de Aplicativo. As configurações do aplicativo são expostas como variáveis do ambiente para seu aplicativo. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

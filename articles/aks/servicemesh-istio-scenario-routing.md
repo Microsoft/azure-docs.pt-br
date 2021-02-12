@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 69541ec652188bc3826b7829fbc5c182193d6ba9
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: d66f3099ba225fbdd2bfc3d54db56ffd8ed2c43f
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670940"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684025"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Usar roteamento inteligente e versões canário com Istio no AKS (Serviço de Kubernetes do Azure)
 
@@ -33,13 +33,13 @@ Neste artigo, você aprenderá como:
 > [!NOTE]
 > Esse cenário foi testado em relação à versão `1.3.2` do Istio.
 
-As etapas detalhadas neste artigo presumem que você criou um cluster do AKS (Kubernetes `1.13` e superior, com RBAC habilitado) e estabeleceu uma conexão `kubectl` com o cluster. Também é necessário ter o Istio instalado no seu cluster.
+As etapas detalhadas neste artigo pressupõem que você criou um cluster AKS (kubernetes `1.13` e superior, com o KUBERNETES RBAC habilitado) e estabeleceu uma `kubectl` conexão com o cluster. Também é necessário ter o Istio instalado no seu cluster.
 
 Se você precisar de ajuda com qualquer um desses itens, veja o [Início rápido do AKS][aks-quickstart] e [Instalar o Istio no AKS][istio-install].
 
 ## <a name="about-this-application-scenario"></a>Sobre esse cenário de aplicativo
 
-O aplicativo de votação de exemplo do AKS fornece duas opções de votação ( **Gatos** ou **Cachorros** ) para os usuários. Há um componente de armazenamento que persiste o número de votos para cada opção. Além disso, há um componente de análise que fornece detalhes sobre os votos convertidos para cada opção.
+O aplicativo de votação de exemplo do AKS fornece duas opções de votação (**Gatos** ou **Cachorros**) para os usuários. Há um componente de armazenamento que persiste o número de votos para cada opção. Além disso, há um componente de análise que fornece detalhes sobre os votos convertidos para cada opção.
 
 Neste cenário de aplicativo, você começa implantando a versão `1.0` do aplicativo de votação e a versão `1.0` do componente de análise. O componente de análise fornece contagens simples para o número de votos. O aplicativo de votação e o componente de análise interagem com a versão `1.0` do componente de armazenamento, que tem suporte do Redis.
 

@@ -3,17 +3,17 @@ title: Erros e avisos do indexador
 titleSuffix: Azure Cognitive Search
 description: Este artigo fornece informações e soluções para erros comuns e avisos que você pode encontrar durante o enriquecimento do ia no Azure Pesquisa Cognitiva.
 manager: nitinme
-author: amotley
-ms.author: abmotley
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 8ceb6d4dddb76148be1e82ebc8c1994886a11da3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6625cd5ad91826ac5cdf8ec63382e9f94d8a2c08
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362807"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895931"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Solucionando problemas de erros e avisos comuns do indexador no Azure Pesquisa Cognitiva
 
@@ -36,7 +36,7 @@ A partir da versão da API `2019-05-06` , os erros e avisos do indexador em nív
 | --- | --- | --- |
 | chave | A ID do documento do documento impactado pelo erro ou aviso. | docid-32112954.pdf https: \/ /coromsearch.blob.Core.Windows.net/JFK-1K/ |
 | name | O nome da operação que descreve onde ocorreu o erro ou o aviso. Isso é gerado pela seguinte estrutura: [Category]. [subcategoria]. [resourceType]. Source | DocumentExtraction. azureblob. myBlobContainerName enriquecetion. WebApiSkill. myskillname Projetion. SearchIndex. OutputFieldMapping. myOutputFieldName Projetion. SearchIndex. MergeOrUpload. myindexname Projetion. KnowledgeStore. Table. mytablename |
-| mensagem | Uma descrição de alto nível do erro ou aviso. | Não foi possível executar a habilidade porque a solicitação da API Web falhou. |
+| message | Uma descrição de alto nível do erro ou aviso. | Não foi possível executar a habilidade porque a solicitação da API Web falhou. |
 | detalhes | Todos os detalhes adicionais que podem ser úteis para diagnosticar o problema, como a resposta WebApi, se a execução de uma habilidade personalizada falharem. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 origem, Func `2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` ... restante do rastreamento de pilha... |
 | documentationLink | Um link para a documentação relevante com informações detalhadas para depurar e resolver o problema. Esse link geralmente apontará para uma das seções abaixo nesta página. | https://go.microsoft.com/fwlink/?linkid=2106475 |
 
@@ -348,8 +348,8 @@ Para contornar esse aviso, determine qual é a codificação de texto para esse 
 
 ## <a name="warning-cosmos-db-collection-x-has-a-lazy-indexing-policy-some-data-may-be-lost"></a>Aviso: a coleção de Cosmos DB ' X ' tem uma política de indexação lenta. Alguns dados podem ser perdidos
 
-As coleções com políticas de indexação [lentas](/azure/cosmos-db/index-policy#indexing-mode) não podem ser consultadas de forma consistente, resultando na falta de dados no indexador. Para contornar esse aviso, altere sua política de indexação para consistente.
+As coleções com políticas de indexação [lentas](../cosmos-db/index-policy.md#indexing-mode) não podem ser consultadas de forma consistente, resultando na falta de dados no indexador. Para contornar esse aviso, altere sua política de indexação para consistente.
 
 ## <a name="warning-the-document-contains-very-long-words-longer-than-64-characters-these-words-may-result-in-truncated-andor-unreliable-model-predictions"></a>Aviso: o documento contém palavras muito longas (mais de 64 caracteres). Essas palavras podem resultar em previsões de modelo truncadas e/ou não confiáveis.
 
-Esse aviso é passado do serviço de Análise de Texto.  Em alguns casos, é seguro ignorar esse aviso, por exemplo, quando o documento contém uma longa URL (que provavelmente não é uma frase importante ou impulsionando sentimentos, etc.).  Lembre-se de que quando uma palavra tiver mais de 64 caracteres, ela será truncada para 64 caracteres, o que pode afetar as previsões do modelo.  
+Esse aviso é passado do serviço de Análise de Texto.  Em alguns casos, é seguro ignorar esse aviso, por exemplo, quando o documento contém uma longa URL (que provavelmente não é uma frase importante ou impulsionando sentimentos, etc.).  Lembre-se de que quando uma palavra tiver mais de 64 caracteres, ela será truncada para 64 caracteres, o que pode afetar as previsões do modelo.

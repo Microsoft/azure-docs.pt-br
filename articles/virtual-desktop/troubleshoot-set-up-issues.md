@@ -6,17 +6,17 @@ ms.topic: troubleshooting
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d02642b49951b4b116eaae6dbea490ef2720c15d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a5439a9d1fd43154379c1dc1a95a6e98b6e877b
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90084406"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539639"
 ---
 # <a name="host-pool-creation"></a>Criação do pool de host
 
 >[!IMPORTANT]
->Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica) sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/troubleshoot-set-up-issues-2019.md).
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica), sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/troubleshoot-set-up-issues-2019.md).
 
 Este artigo aborda problemas durante a configuração inicial do locatário da área de trabalho virtual do Windows e da infraestrutura do pool de hosts da sessão relacionada.
 
@@ -26,7 +26,7 @@ Visite a [Comunidade Tecnológica da Área de Trabalho Virtual do Windows](https
 
 ## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>Adquirindo a imagem de várias sessões do Windows 10 Enterprise
 
-Para usar a imagem de várias sessões do Windows 10 Enterprise, vá para o Azure Marketplace, **selecione introdução**ao  >  **Microsoft Windows 10** > e [Windows 10 Enterprise Multi-Session, versão 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
+Para usar a imagem de várias sessões do Windows 10 Enterprise, vá para o Azure Marketplace, **selecione introdução** ao  >  **Microsoft Windows 10** > e [Windows 10 Enterprise Multi-Session, versão 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
 
 ## <a name="issues-with-using-the-azure-portal-to-create-host-pools"></a>Problemas com o uso do portal do Azure para criar pools de hosts
 
@@ -57,9 +57,9 @@ Correção: você precisará reatribuir usuários a grupos de aplicativos.
 
 Siga estas instruções para solucionar problemas de implantações sem êxito de modelos de Azure Resource Manager e DSC do PowerShell.
 
-1. Examine os erros na implantação usando [Exibir operações de implantação com o Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-operations.md).
-2. Se não houver erros na implantação, examine os erros no log de atividades usando [Exibir logs de atividades para auditar ações em recursos](../azure-resource-manager/resource-group-audit.md).
-3. Depois que o erro for identificado, use a mensagem de erro e os recursos em [solucionar erros comuns de implantação do Azure com o Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md) para resolver o problema.
+1. Examine os erros na implantação usando [Exibir operações de implantação com o Azure Resource Manager](../azure-resource-manager/templates/deployment-history.md).
+2. Se não houver erros na implantação, examine os erros no log de atividades usando [Exibir logs de atividades para auditar ações em recursos](../azure-resource-manager/management/view-activity-logs.md).
+3. Depois que o erro for identificado, use a mensagem de erro e os recursos em [solucionar erros comuns de implantação do Azure com o Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md) para resolver o problema.
 4. Exclua todos os recursos criados durante a implantação anterior e tente novamente implantar o modelo novamente.
 
 ### <a name="error-your-deployment-failedhostnamejoindomain"></a>Erro: falha na implantação... \<hostname> /JoinDomain
@@ -269,6 +269,7 @@ the VM.\\\"
 
 - Confira uma visão geral da solução de problemas da Área de Trabalho Virtual do Windows e das faixas de escalonamento em [Visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview.md).
 - Confira como solucionar problemas ao configurar uma VM (máquina virtual) na Área de Trabalho Virtual do Windows em [Configuração da máquina virtual do host da sessão](troubleshoot-vm-configuration.md).
+- Para solucionar problemas relacionados ao agente de área de trabalho virtual do Windows ou conectividade de sessão, consulte [solucionar problemas comuns do agente de área de trabalho virtual do Windows](troubleshoot-agent.md).
 - Para solucionar problemas com conexões de cliente de área de trabalho virtual do Windows, consulte [conexões do serviço área de trabalho virtual do Windows](troubleshoot-service-connection.md).
 - Para solucionar problemas com clientes Área de Trabalho Remota, consulte [solucionar problemas do cliente área de trabalho remota](troubleshoot-client.md)
 - Veja como solucionar problemas ao usar o PowerShell com a Área de Trabalho Virtual do Windows em [PowerShell da Área de Trabalho Virtual do Windows](troubleshoot-powershell.md).

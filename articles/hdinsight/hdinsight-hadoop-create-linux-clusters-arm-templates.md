@@ -1,19 +1,16 @@
 ---
 title: Criar clusters Apache Hadoop usando modelos – Azure HDInsight
 description: Aprenda a criar clusters para o HDInsight usando modelos do Resource Manager
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/07/2020
-ms.openlocfilehash: aa42e9691eac223e7e72da0d792d14262470e15c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: c36cee8ce7076093499a76ec0952ad37bd7511a7
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748776"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945867"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Criar clusters Apache Hadoop no HDInsight usando modelos do Resource Manager
 
@@ -73,7 +70,7 @@ Se você tiver problemas com a criação de clusters HDInsight, confira os [requ
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight. Confira os seguintes artigos para saber mais:
+Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight. Para saber mais, leia os seguintes artigos:
 
 * Para obter mais modelos relacionados ao HDInsight, consulte [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight).
 * Para obter um exemplo de como implantar recursos por meio da biblioteca de cliente do .NET, veja [Implantar recursos usando bibliotecas do .NET e um modelo](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

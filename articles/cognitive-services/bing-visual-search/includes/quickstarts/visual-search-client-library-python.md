@@ -8,16 +8,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/26/2020
 ms.author: aahi
-ms.openlocfilehash: debc5130824a0f661a3736b8d24d950fc789f2f3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3af9b9e4f07d3d88043dcf7f6a262fdf6a3b316c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "80573101"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947753"
 ---
 Use este início rápido para começar a obter insights de imagens do serviço da Pesquisa Visual do Bing, usando a biblioteca de clientes Python. Embora a Pesquisa Visual do Bing tenha uma API REST compatível com a maioria das linguagens de programação, a biblioteca de clientes oferece uma forma fácil de integrar o serviço aos seus aplicativos. O código-fonte dessa amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) 
 
-[Documentação de referência](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/visualsearch?view=azure-python) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-search-visualsearch) | [Pacote (PyPi)](https://pypi.org/project/azure-cognitiveservices-search-visualsearch/) | [Amostras](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/)
+[Documentação de referência](/python/api/azure-cognitiveservices-search-visualsearch/) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-search-visualsearch) | [Pacote (PyPi)](https://pypi.org/project/azure-cognitiveservices-search-visualsearch/) | [Amostras](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

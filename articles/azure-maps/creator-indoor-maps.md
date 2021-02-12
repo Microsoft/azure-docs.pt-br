@@ -1,21 +1,27 @@
 ---
-title: Trabalhar com mapas internos no Criador do Azure Mapas
-description: Este artigo apresenta os conceitos que se aplicam aos serviços do Azure Maps Creator
+title: Trabalhar com mapas em modo interno no Azure Maps Creator (versão prévia)
+description: Este artigo apresenta os conceitos que se aplicam aos serviços do Azure Maps Creator (versão prévia)
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 558903ead572363c5545a4a3121f7cf61f549df6
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 4ab00317e71f832bb677c4c7587e2356a37cb7a1
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895895"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903557"
 ---
-# <a name="creator-for-indoor-maps"></a>Criador de mapas internos
+# <a name="creator-preview-for-indoor-maps"></a>Criador (visualização) para mapas de interno
+
+
+> [!IMPORTANT]
+> Os serviços do Azure Maps Creator estão atualmente em visualização pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Este artigo apresenta conceitos e ferramentas que se aplicam ao Criador do Azure Mapas. Recomendamos que você leia este artigo antes de começar a usar a API e o SDK do Criador do Azure Mapas.
 
@@ -23,15 +29,15 @@ Você pode usar o Criador para desenvolver aplicativos com recursos de mapa base
 
 ![Fluxo de trabalho de dados de mapa do Criador](./media/creator-indoor-maps/workflow.png)
 
-## <a name="create-azure-maps-creator"></a>Criar o Criador do Azure Mapas
+## <a name="create-azure-maps-creator-preview"></a>Criar criador do Azure Maps (versão prévia) 
 
-Para usar seus serviços, o Criador do Azure Mapas precisará ser criado em uma conta do Azure Mapas. Para obter informações sobre como criá-lo no Azure Mapas, confira [Gerenciar o Criador do Azure Mapas](how-to-manage-creator.md).
+Para usar os serviços criadores (versão prévia), o Azure Maps Creator deve ser criado em uma conta do Azure Maps. Para obter informações sobre como criá-lo no Azure Mapas, confira [Gerenciar o Criador do Azure Mapas](how-to-manage-creator.md).
 
 ## <a name="upload-a-drawing-package"></a>Carregar um pacote do Drawing
 
-O Criador coleta dados de mapas internos pela conversão de um pacote do Drawing carregado. O pacote do Drawing representa um recurso construído ou modelado. Para obter informações sobre os requisitos de pacotes do Drawing, confira os [Requisitos do pacote do Drawing](drawing-requirements.md).
+O criador (versão prévia) coleta dados de mapas em modo interno convertendo um pacote de desenho carregado. O pacote do Drawing representa um recurso construído ou modelado. Para obter informações sobre os requisitos de pacotes do Drawing, confira os [Requisitos do pacote do Drawing](drawing-requirements.md).
 
-Use a [API de carregamento de dados do Azure Mapas](/rest/api/maps/data/uploadpreview) para carregar um pacote do Drawing.  Após o upload bem-sucedido, a API de carregamento de dados retornará um identificador de dados do usuário (`udid`). O `udid` será usado na próxima etapa para converter o pacote carregado em dados de mapa interno.
+Use a [API de carregamento de dados do Azure Maps (versão prévia)](/rest/api/maps/data/uploadpreview) para carregar um pacote de desenho.  Após o upload bem-sucedido, a API de carregamento de dados retornará um identificador de dados do usuário (`udid`). O `udid` será usado na próxima etapa para converter o pacote carregado em dados de mapa interno.
 
 ## <a name="convert-a-drawing-package"></a>Converter um pacote do Drawing
 
@@ -41,7 +47,7 @@ Quando ocorre um erro, o serviço de Conversão fornece um link para o [Visualiz
 
 ## <a name="create-indoor-map-data"></a>Criar dados de mapa interno
 
-O Criador do Azure Mapas fornece três serviços:
+O Azure Maps Creator (versão prévia) fornece três serviços:
 
 * [Serviço de conjunto de dados](/rest/api/maps/dataset/createpreview).
 Use o serviço de conjunto de dados para criar um conjunto de dados de um pacote do Drawing convertido.
@@ -72,9 +78,9 @@ Se um conjunto de peças de peças ficar desatualizado e não for mais útil, vo
 
 ### <a name="feature-statesets"></a>Conjuntos de estados do recurso
 
-Os conjuntos de estados do recurso são coleções de propriedades dinâmicas ( *estados* ) atribuídas a recursos de conjunto de dados, como salas ou equipamentos. Um exemplo de um *estado* pode ser temperatura ou ocupação. Cada *estado* é um par chave/valor que contém o nome da propriedade, o valor e o carimbo de data/hora da última atualização.
+Os conjuntos de estados do recurso são coleções de propriedades dinâmicas (*estados*) atribuídas a recursos de conjunto de dados, como salas ou equipamentos. Um exemplo de um *estado* pode ser temperatura ou ocupação. Cada *estado* é um par chave/valor que contém o nome da propriedade, o valor e o carimbo de data/hora da última atualização.
 
-O [serviço de Estado do Recurso](/rest/api/maps/featurestate/createstatesetpreview) permite que você crie e gerencie um conjunto de estados de recurso para um conjunto de dados. O conjunto de estados do recurso é definido por um ou mais *estados* . Cada recurso, como uma sala, pode ter um *estado* anexado a ele.
+O [serviço de Estado do Recurso](/rest/api/maps/featurestate/createstatesetpreview) permite que você crie e gerencie um conjunto de estados de recurso para um conjunto de dados. O conjunto de estados do recurso é definido por um ou mais *estados*. Cada recurso, como uma sala, pode ter um *estado* anexado a ele.
 
 O valor de cada *estado* em um conjunto de estados pode ser atualizado ou recuperado por dispositivos IoT ou outros aplicativos.  Por exemplo, usando a [API de Atualização de Estado de Recurso](/rest/api/maps/featurestate/updatestatespreview), os dispositivos que medem a ocupação de um espaço podem, de forma sistemática, postar a alteração do estado de uma sala.
 
@@ -87,9 +93,9 @@ Um aplicativo pode usar um conjunto de estados do recurso para renderizar dinami
 
 ### <a name="render-v2-service"></a>Serviço Render V2
 
-O [serviço Render V2 – API de obtenção de peça de mapa](/rest/api/maps/renderv2/getmaptilepreview) do Azure Mapas foi estendido para dar suporte a conjuntos de peças do Criador.
+O serviço v2 de renderização do Azure Maps [-obter API de bloco do mapa (versão prévia)](/rest/api/maps/renderv2/getmaptilepreview) foi estendido para dar suporte ao criador (versão prévia) Tilesets.
 
-O [serviço Render V2 – API de obtenção de estado de mapa](/rest/api/maps/renderv2/getmaptilepreview) permite que os aplicativos solicitem conjuntos de peças. Os conjuntos de peças poderão ser integrados a um controle de mapa ou SDK. Para obter um exemplo de um controle de mapa que use o serviço Render V2, confira o [Módulo de mapas internos](#indoor-maps-module).
+O serviço Render V2 – API de obtenção de estado de mapa permite que os aplicativos solicitem conjuntos de peças. Os conjuntos de peças poderão ser integrados a um controle de mapa ou SDK. Para obter um exemplo de um controle de mapa que use o serviço Render V2, confira o [Módulo de mapas internos](#indoor-maps-module).
 
 ### <a name="web-feature-service-api"></a>API do Web Feature Service
 
@@ -97,7 +103,7 @@ Os conjuntos de dados podem ser consultados por meio da [API do WFS (Web Feature
 
 ### <a name="indoor-maps-module"></a>Módulo de mapas internos
 
-O SDK da Web do [Azure Mapas](./index.yml) inclui o Módulo de mapas internos. Esse módulo oferece funcionalidades estendidas para a biblioteca de *Controle de Mapa* do Azure Mapas. O Módulo de mapas internos renderiza mapas internos criados no Criador. Ele integra widgets como *seletor de piso* , o que permite que os usuários visualizem vários pisos.
+O SDK da Web do [Azure Mapas](./index.yml) inclui o Módulo de mapas internos. Esse módulo oferece funcionalidades estendidas para a biblioteca de *Controle de Mapa* do Azure Mapas. O módulo de mapas em modo interno Renderiza mapas de interno criados no criador (versão prévia). Ele integra widgets como *seletor de piso*, o que permite que os usuários visualizem vários pisos.
 
 O Módulo de mapas internos permite que você crie aplicativos Web que integram dados de mapas internos a outros [serviços do Azure Mapas](./index.yml). As configurações de aplicativo mais comuns podem incluir a adição de conhecimento de outros mapas, como estradas, imagens, clima e trânsito, aos mapas internos.
 
@@ -109,7 +115,7 @@ Ao começar a desenvolver soluções para mapas internos, você poderá descobri
 
 ### <a name="data-maintenance"></a>Manutenção de dados
 
- A API de lista, atualização e exclusão do Criador do Azure Mapas permite listar, atualizar e excluir seus conjuntos de dados, de peças e de estados do recurso.
+ A lista de APIs do Azure Maps Creator (versão prévia), atualização e exclusão permite listar, atualizar e excluir seus conjuntos de tilesets e recursos statesets.
 
 >[!NOTE]
 >Sempre que você analisar uma lista de itens e decidir excluí-los, deverá considerar o impacto dessa exclusão em todas as APIs ou aplicativos dependentes. Por exemplo, se você excluir um conjunto de peças que está sendo usado por um aplicativo por meio do [Render v2 – API de obtenção de peça de mapa](/rest/api/maps/renderv2/getmaptilepreview), a exclusão desse conjunto de peças resultará em uma falha de aplicativo na sua renderização.
@@ -129,4 +135,4 @@ O exemplo a seguir mostra como atualizar um conjunto de dados, criar um conjunto
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial: criar um mapa interno do Criador](tutorial-creator-indoor-maps.md)
+> [Tutorial: Criando um mapa interno de criador (visualização)](tutorial-creator-indoor-maps.md)

@@ -3,16 +3,17 @@ title: Desempenho do tamanho da VM da série HB
 description: Saiba mais sobre os resultados de testes de desempenho para tamanhos de VM da série HB no Azure.
 author: vermagit
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 09/09/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 2267dc23e2f886d87342fc22c3b12a03e8df6a86
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 10d1bfea4527eb7ab9a341de8f12a32cb59597eb
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994856"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966965"
 ---
 # <a name="hb-series-virtual-machine-sizes"></a>Tamanhos de máquina virtual da série HB
 
@@ -45,7 +46,7 @@ O teste de largura de banda MPI do OSU MicroBenchMark Suite é executado. Os scr
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
 ```
 
-:::image type="content" source="./media/bandwidth-hb.png" alt-text="Latência MPI no Azure HB.":::
+:::image type="content" source="./media/bandwidth-hb.png" alt-text="Largura de banda MPI no Azure HB.":::
 
 
 ## <a name="mellanox-perftest"></a>Adaptador Mellanox Perftest

@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 4d03e651006661a2fa82901d64f8fb6ac2236210
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 01/25/2021
+ms.openlocfilehash: 74addd691e3a6c42f48100292542cfd3563b5c3a
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098766"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797574"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introdução à taxa de transferência provisionada do Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -65,7 +65,7 @@ Todos os contêineres criados em um banco de dados com taxa de transferência pr
 
 Se a carga de trabalho em uma partição lógica consumir mais do que a taxa de transferência alocada para uma partição lógica específica, suas operações serão limitadas por taxa. Quando ocorrer uma limitação da taxa, você poderá aumentar a taxa de transferência de todo o banco de dados ou tentar novamente as operações. Para saber mais sobre particionamento, confira [Partições lógicas](partitioning-overview.md).
 
-Os contêineres em um banco de dados de produtividade compartilhado também compartilham a taxa de transferência (RU/s) alocada para esse banco de dados. Você pode ter até quatro contêineres com um mínimo de 400 RU/s no banco de dados. Com a taxa de transferência provisionada padrão (manual), após os quatro primeiros, cada novo contêiner precisará de mais 100 RU/s, no mínimo. Por exemplo, se você tiver um banco de dados de produtividade compartilhado com oito contêineres, as RU/s mínimas no banco de dados serão 800 RU/s. Com a taxa de transferência provisionada de dimensionamento automático, você pode ter até 25 contêineres em um banco de dados com dimensionamento automático de 4000 RU/s (escalas entre 400-4000 RU/s).
+Os contêineres em um banco de dados de produtividade compartilhado também compartilham a taxa de transferência (RU/s) alocada para esse banco de dados. Com a taxa de transferência padrão (manual) provisionada, você pode ter até 25 contêineres com um mínimo de 400 RU/s no banco de dados. Com a taxa de transferência provisionada de dimensionamento automático, você pode ter até 25 contêineres em um banco de dados com dimensionamento automático de 4000 RU/s (escalas entre 400-4000 RU/s).
 
 > [!NOTE]
 > Em fevereiro de 2020, apresentamos uma alteração que permite que você tenha um máximo de 25 contêineres em um banco de dados de taxa de transferência compartilhado, o que permite melhor o compartilhamento de taxa de transferência entre os contêineres. Após os 25 primeiros contêineres, você poderá adicionar mais contêineres ao banco de dados somente se eles estiverem [provisionados com taxa de transferência dedicada](#set-throughput-on-a-database-and-a-container), que é separada da produtividade compartilhada do banco de dados.<br>
@@ -73,18 +73,18 @@ Se sua conta de Azure Cosmos DB já contiver um banco de dados de taxa de transf
 
 Se suas cargas de trabalho envolvem excluir e recriar todas as coleções em um banco de dados, é recomendável descartar o banco de dados vazio e recriar um novo banco de dados antes da criação da coleção. A imagem a seguir mostra como uma partição física pode hospedar uma ou mais partições lógicas que pertencem a contêineres diferentes dentro de um banco de dados:
 
-:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Partição física que hospeda uma ou mais partições lógicas de um contêiner" border="false":::
+:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Partição física que hospeda uma ou mais partições lógicas que pertencem a contêineres diferentes " border="false":::
 
 ## <a name="set-throughput-on-a-database-and-a-container"></a>Definir taxa de transferência em um banco de dados e um contêiner
 
 É possível combinar os dois modelos. É permitido provisionar a taxa de transferência tanto no banco de dados como no contêiner. O exemplo a seguir mostra como provisionar a taxa de transferência provisionada padrão (manual) em um banco de dados do Azure Cosmos e em um contêiner:
 
 * Você pode criar um banco de dados do Azure Cosmos *Z* com a taxa de transferência provisionada padrão (manual) de RUs *"K"* . 
-* Em seguida, crie cinco contêineres chamados *A* , *B* , *C* , *D* e *E* no banco de dados. Ao criar o contêiner B, habilite a opção **Provisionar taxa de transferência dedicada para esse contêiner** e configure explicitamente RUs *"P"* de taxa de transferência provisionada neste contêiner. Você pode configurar a taxa de transferência compartilhada e dedicada somente ao criar o banco de dados e o contêiner. 
+* Em seguida, crie cinco contêineres chamados *A*, *B*, *C*, *D* e *E* no banco de dados. Ao criar o contêiner B, habilite a opção **Provisionar taxa de transferência dedicada para esse contêiner** e configure explicitamente RUs *"P"* de taxa de transferência provisionada neste contêiner. Você pode configurar a taxa de transferência compartilhada e dedicada somente ao criar o banco de dados e o contêiner. 
 
-   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Partição física que hospeda uma ou mais partições lógicas de um contêiner":::
+   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Definir a taxa de transferência no nível do contêiner":::
 
-* O *"K"* a taxa de transferência de RUs é compartilhada entre os quatro contêineres *A* , *C* , *D* e *E* . A quantidade exata de taxa de transferência disponível para *A* , *C* , *D* ou *E* varia. Não há SLAs para taxa de transferência de cada contêiner individual.
+* O *"K"* a taxa de transferência de RUs é compartilhada entre os quatro contêineres *A*, *C*, *D* e *E*. A quantidade exata de taxa de transferência disponível para *A*, *C*, *D* ou *E* varia. Não há SLAs para taxa de transferência de cada contêiner individual.
 * O contêiner nomeado *B* tem a garantia de obter a taxa de transferência de RUs *"P"* o tempo todo. É respaldado por SLAs.
 
 > [!NOTE]
@@ -109,9 +109,8 @@ A resposta desses métodos também contém a [taxa de transferência mínima pro
 O mínimo de RU/s real pode variar dependendo da configuração da sua conta. Mas, em geral, é o máximo de:
 
 * 400 RU/s 
-* Armazenamento atual em GB * 10 RU/s
+* Armazenamento atual em GB * 10 RU/s (essa restrição pode ser reduzida em alguns casos, consulte nosso [programa de alto armazenamento/baixa taxa de transferência](#high-storage-low-throughput-program))
 * RU/s mais alto provisionado no banco de dados ou contêiner/100
-* Contagem de contêineres * 100 RU/s (somente banco de dados de taxa de transferência compartilhada)
 
 ### <a name="changing-the-provisioned-throughput"></a>Alterando a taxa de transferência provisionada
 
@@ -120,9 +119,9 @@ Você pode dimensionar a taxa de transferência provisionada de um contêiner ou
 * [Container. ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) no SDK do .net.
 * [CosmosContainer. replaceThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput?view=azure-java-stable&preserve-view=true) no SDK do Java.
 
-Se você estiver **reduzindo a taxa de transferência provisionada** , poderá fazer isso até o [mínimo](#current-provisioned-throughput).
+Se você estiver **reduzindo a taxa de transferência provisionada**, poderá fazer isso até o [mínimo](#current-provisioned-throughput).
 
-Se você estiver **aumentando a taxa de transferência provisionada** , na maioria das vezes, a operação será instantânea. No entanto, há casos em que a operação pode levar mais tempo devido às tarefas do sistema para provisionar os recursos necessários. Nesse caso, uma tentativa de modificar a taxa de transferência provisionada enquanto essa operação está em andamento produzirá uma resposta HTTP 423 com uma mensagem de erro explicando que outra operação de dimensionamento está em andamento.
+Se você estiver **aumentando a taxa de transferência provisionada**, na maioria das vezes, a operação será instantânea. No entanto, há casos em que a operação pode levar mais tempo devido às tarefas do sistema para provisionar os recursos necessários. Nesse caso, uma tentativa de modificar a taxa de transferência provisionada enquanto essa operação está em andamento produzirá uma resposta HTTP 423 com uma mensagem de erro explicando que outra operação de dimensionamento está em andamento.
 
 > [!NOTE]
 > Se você estiver planejando uma carga de trabalho de ingestão muito grande que exigirá um grande aumento na taxa de transferência provisionada, tenha em mente que a operação de dimensionamento não tem SLA e, como mencionado no parágrafo anterior, pode levar muito tempo quando o aumento for grande. Talvez você queira planejar com antecedência e iniciar o dimensionamento antes que a carga de trabalho comece e use os métodos abaixo para verificar o progresso.
@@ -138,17 +137,17 @@ Você pode usar [Azure monitor métricas](monitor-cosmos-db.md#view-operation-le
 
 Conforme descrito na seção [atual de taxa de transferência provisionada](#current-provisioned-throughput) acima, a taxa de transferência mínima que você pode provisionar em um contêiner ou banco de dados depende de vários fatores. Uma delas é a quantidade de dados atualmente armazenados, pois Azure Cosmos DB impõe uma taxa de transferência mínima de 10 RU/s por GB de armazenamento.
 
-Isso pode ser uma preocupação em situações em que você precisa armazenar grandes quantidades de dados, mas têm requisitos de baixa taxa de transferência em comparação. Para acomodar melhor esses cenários, Azure Cosmos DB introduziu um **programa de "alto armazenamento/baixa taxa de transferência"** que diminui a restrição de ru/s por GB de 10 para 1 em contas qualificadas.
+Isso pode ser uma preocupação em situações em que você precisa armazenar grandes quantidades de dados, mas têm requisitos de baixa taxa de transferência em comparação. Para acomodar melhor esses cenários, Azure Cosmos DB introduziu um **programa de "alto armazenamento/baixa taxa de transferência"** que diminui a restrição de ru/s por GB em contas qualificadas.
 
-No momento, você precisa ter pelo menos 1 banco de dados de contêiner ou de taxa de transferência compartilhada que contenha mais de 1 TB de dado em sua conta para ser elegível. Para participar deste programa e avaliar sua qualificação completa, tudo o que você precisa fazer é preencher [essa pesquisa](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u). Em seguida, a equipe de Azure Cosmos DB acompanhará e continuará a integração.
+Para participar deste programa e avaliar sua qualificação completa, tudo o que você precisa fazer é preencher [essa pesquisa](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u). Em seguida, a equipe de Azure Cosmos DB acompanhará e continuará a integração.
 
 ## <a name="comparison-of-models"></a>Comparação de modelos
 Esta tabela mostra uma comparação entre a taxa de transferência padrão de provisionamento (manual) em um banco de dados em relação a um contêiner. 
 
 |**Parâmetro**  |**Taxa de transferência padrão (manual) em um banco de dados**  |**Taxa de transferência padrão (manual) em um contêiner**|**Taxa de transferência de dimensionamento automático em um banco de dados** | **Taxa de transferência de dimensionamento automático em um contêiner**|
 |---------|---------|---------|---------|---------|
-|Ponto de entrada (mínimo de RU/s) |400 RU/s. Após os primeiros quatro contêineres, cada contêiner adicional requer um mínimo de 100 RU/s</li> |400| Dimensionamento automático entre 400 e 4000 RU/s. Pode ter até 25 contêineres sem o mínimo de RU/s por contêiner</li> | Dimensionamento automático entre 400 e 4000 RU/s.|
-|Mínimo de RUs por contêiner|100|400|--|Dimensionamento automático entre 400 e 4000 RU/s|
+|Ponto de entrada (mínimo de RU/s) |400 RU/s. Pode ter até 25 contêineres com no mínimo RU/s por contêiner.</li> |400| Dimensionamento automático entre 400 e 4000 RU/s. Pode ter até 25 contêineres com no mínimo RU/s por contêiner.</li> | Dimensionamento automático entre 400 e 4000 RU/s.|
+|Mínimo de RUs por contêiner|--|400|--|Dimensionamento automático entre 400 e 4000 RU/s|
 |Máximo de RUs|Ilimitado, no banco de dados.|Ilimitado, no contêiner.|Ilimitado, no banco de dados.|Ilimitado, no contêiner.
 |RUs atribuídas ou disponíveis para um contêiner específico|Sem garantias. RUs atribuídas a um determinado contêiner dependem das propriedades. As propriedades podem ser a escolha de chaves de partição de contêineres que compartilham a taxa de transferência, a distribuição da carga de trabalho e o número de contêineres. |Todas as RUs configuradas no contêiner são reservadas exclusivamente ao contêiner.|Sem garantias. RUs atribuídas a um determinado contêiner dependem das propriedades. As propriedades podem ser a escolha de chaves de partição de contêineres que compartilham a taxa de transferência, a distribuição da carga de trabalho e o número de contêineres. |Todas as RUs configuradas no contêiner são reservadas exclusivamente ao contêiner.|
 |Armazenamento máximo para um contêiner|Ilimitado.|Ilimitado|Ilimitado|Ilimitado|

@@ -3,12 +3,12 @@ title: Referência de host.json para as funções do Azure 1.x
 description: Documentação de referência para o arquivo host.json do Azure Functions com o runtime v1.
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.openlocfilehash: 32848c725d5c99e3814e86447d604839502054c0
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 588ab6723015f34d15e4a46ec4f7324302b13b81
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167706"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832816"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Referência de host.json para as funções do Azure 1.x
 
@@ -93,7 +93,8 @@ Os seguintes arquivos *host.json* de exemplo têm todas as opções possíveis e
     "serviceBus": {
       "maxConcurrentCalls": 16,
       "prefetchCount": 100,
-      "autoRenewTimeout": "00:05:00"
+      "autoRenewTimeout": "00:05:00",
+      "autoComplete": true
     },
     "singleton": {
       "lockPeriod": "00:00:15",
@@ -140,7 +141,7 @@ Definições de configuração para o [gatilho Azure Cosmos DB e associações](
 |---------|---------|---------|
 |GatewayMode|Gateway|O modo de conexão usado pela função ao se conectar ao serviço do Azure Cosmos DB. As opções são `Direct` e `Gateway`|
 |Protocolo|Https|O protocolo de conexão usado pela função ao se conectar ao serviço do Azure Cosmos DB.  Leia [aqui para obter uma explicação de ambos os modos](../cosmos-db/performance-tips.md#networking)|
-|leasePrefix|n/a|Prefixo de concessão a ser usado em todas as funções em um aplicativo.|
+|leasePrefix|N/D|Prefixo de concessão a ser usado em todas as funções em um aplicativo.|
 
 ## <a name="durabletask"></a>durableTask
 
@@ -188,7 +189,7 @@ Definições de configuração para [monitor de integridade de Host](https://git
 
 |Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
-|Habilitado|true|Especifica se o recurso está habilitado. | 
+|Habilitado|verdadeiro|Especifica se o recurso está habilitado. | 
 |healthCheckInterval|10 segundos|O intervalo de tempo entre as verificações de integridade em segundo plano. | 
 |healthCheckWindow|2 minutos|Uma janela de tempo deslizante usada em conjunto com a configuração `healthCheckThreshold`.| 
 |healthCheckThreshold|6|Número máximo de vezes que a verificação de integridade pode falhar antes de uma reciclagem de host ser iniciada.| 
@@ -249,9 +250,9 @@ Controla a filtragem de logs gravados por um objeto [ILogger](functions-dotnet-c
 
 |Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
-|categoryFilter|n/a|Especifica a filtragem por categoria| 
+|categoryFilter|N/D|Especifica a filtragem por categoria| 
 |defaultLevel|Informações|Para as categorias não especificadas na matriz `categoryLevels`, envie logs nesse nível e acima para o Application Insights.| 
-|categoryLevels|n/a|Uma matriz de categorias que especifica o nível mínimo de logs que será enviado ao Application Insights para cada categoria. A categoria especificada aqui controla todas as categorias que começam com o mesmo valor, com precedência para os valores maiores. No arquivo de exemplo *host.json* anterior, todas as categorias que começam com o log "Host.Aggregator" no nível `Information`. Todas as outras categorias que começam com o log "Host", como "Host.Executor", no nível `Error`.| 
+|categoryLevels|N/D|Uma matriz de categorias que especifica o nível mínimo de logs que será enviado ao Application Insights para cada categoria. A categoria especificada aqui controla todas as categorias que começam com o mesmo valor, com precedência para os valores maiores. No arquivo de exemplo *host.json* anterior, todas as categorias que começam com o log "Host.Aggregator" no nível `Information`. Todas as outras categorias que começam com o log "Host", como "Host.Executor", no nível `Error`.| 
 
 ## <a name="queues"></a>filas
 
@@ -286,11 +287,12 @@ Parâmetro de configuração para a [Associação de saída SendGrind](functions
     "sendGrid": {
         "from": "Contoso Group <admin@contoso.com>"
     }
+}    
 ```
 
 |Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
-|de|n/a|Endereço de email do remetente em todas as funções.| 
+|de|N/D|Endereço de email do remetente em todas as funções.| 
 
 ## <a name="servicebus"></a>serviceBus
 
@@ -301,7 +303,8 @@ Parâmetro de configuração para [gatilhos e associações do Barramento de Ser
     "serviceBus": {
       "maxConcurrentCalls": 16,
       "prefetchCount": 100,
-      "autoRenewTimeout": "00:05:00"
+      "autoRenewTimeout": "00:05:00",
+      "autoComplete": true
     }
 }
 ```
@@ -310,7 +313,8 @@ Parâmetro de configuração para [gatilhos e associações do Barramento de Ser
 |---------|---------|---------| 
 |maxConcurrentCalls|16|O número máximo de chamadas simultâneas para o retorno de chamada que a bomba de mensagens deve iniciar. Por padrão, o runtime do Functions processa várias mensagens simultaneamente. Para direcionar o runtime para processar uma única fila ou mensagem de tópico de cada vez, defina `maxConcurrentCalls` como 1. | 
 |prefetchCount|n/a|O PrefetchCount padrão que será usado pelo MessageReceiver subjacente.| 
-|autoRenewTimeout|00:05:00|A duração máxima na qual o bloqueio de mensagem será renovado automaticamente.| 
+|autoRenewTimeout|00:05:00|A duração máxima na qual o bloqueio de mensagem será renovado automaticamente.|
+|autoComplete|verdadeiro|Quando true, o gatilho concluirá o processamento da mensagem automaticamente na execução bem-sucedida da operação. Quando for falso, é responsabilidade da função concluir a mensagem antes de retornar.|
 
 ## <a name="singleton"></a>singleton
 
@@ -334,7 +338,7 @@ Parâmetro de configuração para o comportamento de bloqueio de Singleton. Para
 |listenerLockPeriod|00:01:00|O período em que ocorrem os bloqueios de ouvinte.| 
 |listenerLockRecoveryPollingInterval|00:01:00|O intervalo de tempo usado para a recuperação do bloqueio de ouvinte caso não tenha sido possível adquirir um bloqueio de ouvinte durante a inicialização.| 
 |lockAcquisitionTimeout|00:01:00|A quantidade máxima de tempo em que o runtime tenta adquirir um bloqueio.| 
-|lockAcquisitionPollingInterval|n/a|O intervalo entre as tentativas de aquisição de bloqueio.| 
+|lockAcquisitionPollingInterval|N/D|O intervalo entre as tentativas de aquisição de bloqueio.| 
 
 ## <a name="tracing"></a>tracing
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 125ca501dbad74263f32632db44eebd097c3b0a1
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: dbf2331dc6bcd3187175554b61d347e8bb2c04a4
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896694"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624992"
 ---
 # <a name="tutorial-find-and-display-routes-for-different-modes-of-travel-using-azure-maps"></a>Tutorial: localizar e exibir rotas para diferentes modos de viagem usando o Azure Mapas
 
@@ -39,7 +39,7 @@ Você pode obter o código-fonte completo para o exemplo [aqui](https://github.c
 
 As etapas a seguir mostram como criar e exibir o Controle de Mapeamento em uma página da Web.
 
-1. Em seu computador local, crie um novo arquivo e nomeie-o como **MapTruckRoute.html** .
+1. Em seu computador local, crie um novo arquivo e nomeie-o como **MapTruckRoute.html**.
 2. Copie/cole a marcação HTML a seguir no arquivo.
 
     ```HTML
@@ -121,7 +121,7 @@ As etapas a seguir mostram como criar e exibir o Controle de Mapeamento em uma p
 
 2. Salve o arquivo **MapTruckRoute.html** e atualize a página em seu navegador. Se você ampliar o mapa de qualquer cidade, como Los Angeles, verá que as ruas aparecem com o fluxo de tráfego atual.
 
-    :::image type="content" source="./media/tutorial-prioritized-routes/traffic-map.png" alt-text="Renderização de mapa básica do Controle de Mapeamento":::
+    :::image type="content" source="./media/tutorial-prioritized-routes/traffic-map.png" alt-text="Exibir o tráfego em um mapa":::
 
 <a id="queryroutes"></a>
 
@@ -163,7 +163,7 @@ Neste tutorial, duas rotas serão calculadas e renderizadas no mapa. A primeira 
 
     No manipulador de eventos `ready` do Controle de Mapeamento, uma fonte de dados é criada para armazenar a rota do ponto inicial ao final. [Expressões](data-driven-style-expressions-web-sdk.md) são usadas para recuperar a largura da linha e a cor das propriedades no recurso de linhas de rota. Para garantir que a linha de rota não cubra os rótulos de estrada, passamos um segundo parâmetro com o valor de `'labels'`.
 
-    Em seguida, uma camada de símbolo é criada e anexada à fonte de dados. Essa camada especifica como os pontos de partida e chegada são renderizados. As expressões foram adicionadas para recuperar as informações de rótulo de texto e de imagem de ícone das propriedades em cada objeto de ponto. Confira mais sobre expressões em [Expressões de estilo controladas por dados](data-driven-style-expressions-web-sdk.md).
+    Em seguida, uma camada de símbolo é criada e anexada à fonte de dados. Essa camada especifica como os pontos inicial e final são renderizados. As expressões foram adicionadas para recuperar as informações de rótulo de texto e de imagem de ícone das propriedades em cada objeto de ponto. Confira mais sobre expressões em [Expressões de estilo controladas por dados](data-driven-style-expressions-web-sdk.md).
 
 2. Defina o ponto de partida como uma empresa fictícia em Seattle chamada Fabrikam e o ponto de chegada como um escritório da Microsoft.  No manipulador de eventos `ready` do Controle de Mapeamento, acrescente o código a seguir.
 
@@ -197,7 +197,7 @@ Neste tutorial, duas rotas serão calculadas e renderizadas no mapa. A primeira 
 
 3. Salve **TruckRoute.html** e atualize o navegador. Agora o mapa está centralizado em Seattle. O alfinete azul em formato de lágrima marca o ponto inicial. O alfinete azul redondo marca o ponto final.
 
-   :::image type="content" source="./media/tutorial-prioritized-routes/pins-map.png" alt-text="Renderização de mapa básica do Controle de Mapeamento":::
+   :::image type="content" source="./media/tutorial-prioritized-routes/pins-map.png" alt-text="Exibir o mapa com os pontos inicial e final":::
 
 <a id="multipleroutes"></a>
 
@@ -206,7 +206,7 @@ Neste tutorial, duas rotas serão calculadas e renderizadas no mapa. A primeira 
 Esta seção mostra como usar o serviço Roteiros do Azure Mapas para obter o trajeto de um ponto a outro com base no seu meio de transporte. Usaremos dois meios de transporte: caminhão e carro.
 
 >[!TIP]
->O serviço Roteiros fornece APIs para planejar rotas *mais rápidas* , *mais curtas* , *econômicas* ou *emocionantes* com base na distância, nas condições de trânsito e no meio de transporte usado. O serviço também permite que os usuários planejem rotas futuras com base nas condições históricas de tráfego. Os usuários podem ver a previsão de durações de rota para qualquer determinado horário. Para obter mais informações, confira [API de Obtenção de trajeto de rota](/rest/api/maps/route/getroutedirections).
+>O serviço Roteiros fornece APIs para planejar rotas *mais rápidas*, *mais curtas*, *econômicas* ou *emocionantes* com base na distância, nas condições de trânsito e no meio de transporte usado. O serviço também permite que os usuários planejem rotas futuras com base nas condições históricas de tráfego. Os usuários podem ver a previsão de durações de rota para qualquer determinado horário. Para obter mais informações, confira [API de Obtenção de trajeto de rota](/rest/api/maps/route/getroutedirections).
 
 1. Na função `GetMap`, dentro do manipulador de eventos `ready` do controle, adicione o seguinte ao código JavaScript.
 
@@ -277,7 +277,7 @@ Esta seção mostra como usar o serviço Roteiros do Azure Mapas para obter o tr
 
 4. Salve o arquivo **TruckRoute.html** e atualize seu navegador da Web. Agora, o mapa exibirá as rotas de caminhão e de carro.
 
-    :::image type="content" source="./media/tutorial-prioritized-routes/prioritized-routes.png" alt-text="Renderização de mapa básica do Controle de Mapeamento":::
+    :::image type="content" source="./media/tutorial-prioritized-routes/prioritized-routes.png" alt-text="Rotas para veículos particulares e comerciais em um mapa com o serviço Roteiros do Azure":::
 
     A rota de caminhão é exibida usando uma linha azul espessa. A rota de carro é exibida usando uma linha roxa fina. A rota de carro passa pelo Lago Washington pela estrada I-90, que atravessa túneis em áreas residenciais. Como os túneis estão próximos às áreas residenciais, a carga de resíduos perigosos é restrita. A rota de caminhão, que especifica um tipo de carga `USHazmatClass2`, é instruída a usar outra rodovia.
 
@@ -285,7 +285,9 @@ Você pode obter o código-fonte completo para o exemplo [aqui](https://github.c
 
 Você também pode [Usar expressões de estilo controladas por dados](data-driven-style-expressions-web-sdk.md)
 
+## <a name="clean-up-resources"></a>Limpar os recursos
 
+Não há recursos que exijam limpeza.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 0198a32800f364f921a2b9f64048166c48a14f7e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2ed458ee0267a65bb7551940fc522509dc310311
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91323882"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966608"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Início Rápido: Criar e provisionar um dispositivo X.509 simulado usando o SDK do dispositivo Java para o Serviço de Provisionamento do Dispositivo Hub IoT
 
@@ -27,13 +27,13 @@ Neste início rápido, você criará um dispositivo X.509 simulado em um computa
 - Familiaridade com os conceitos de [provisionamento](about-iot-dps.md#provisioning-process).
 - Conclusão de [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md).
 - Uma conta do Azure com uma assinatura ativa. [Crie um gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Java SE Development Kit 8](https://aka.ms/azure-jdks).
+- [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 - [Maven](https://maven.apache.org/install.html).
 - [Git](https://git-scm.com/download/).
 
 ## <a name="prepare-the-environment"></a>Preparar o ambiente 
 
-1. Certifique-se de ter o [Java SE Development Kit 8](https://aka.ms/azure-jdks) instalado no computador.
+1. Certifique-se de ter o [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) instalado no computador.
 
 2. Baixe e instale o [Maven](https://maven.apache.org/install.html).
 

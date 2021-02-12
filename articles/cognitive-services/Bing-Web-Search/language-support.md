@@ -10,25 +10,25 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 998e18f8901dda3430d5289e0590ef8099b6fb8c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6de01d2c12454f43a2802b4a7a979b5f74b46f0e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095451"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340264"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Suporte de idioma e região para a API de Pesquisa na Web do Bing
 
 > [!WARNING]
-> APIs de Pesquisa do Bing estão mudando de serviços cognitivas para serviços Pesquisa do Bings. A partir de **30 de outubro de 2020** , todas as novas instâncias do pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
-> APIs de Pesquisa do Bing provisionado usando serviços cognitivas terão suporte nos próximos três anos ou até o final do seu Enterprise Agreement, o que ocorrer primeiro.
-> Para obter instruções de migração, consulte [serviços de pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 A API de Pesquisa na Web do Bing dá suporte a mais de trinta países ou regiões, muitos com mais de um idioma. Especificar um país ou região com uma consulta ajuda a refinar os resultados da pesquisa com base nos interesses nesse país ou região. Os resultados podem incluir links para o Bing e esses links podem localizar a experiência do usuário do Bing, de acordo com o país/região ou idioma especificado.
 
-É possível especificar um país ou região usando o parâmetro de consulta `cc`. Quando um país ou região é especificado, você deve especificar um ou mais códigos de idioma com o [ `Accept-Language` cabeçalho](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#headers). Use a [tabela de Mercados](#markets) para obter uma lista dos idiomas com suporte com cada mercado.
+É possível especificar um país ou região usando o parâmetro de consulta `cc`. Quando um país ou região é especificado, você deve especificar um ou mais códigos de idioma com o [ `Accept-Language` cabeçalho](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#headers). Use a [tabela de Mercados](#markets) para obter uma lista dos idiomas com suporte com cada mercado.
 
-Como alternativa, você pode especificar o mercado usando o parâmetro de consulta `mkt` e um código da tabela **Mercados** . Especificar um mercado, especifica simultaneamente um país ou região e um idioma preferido. Você pode definir explicitamente o idioma com o parâmetro de consulta `setLang`.
+Como alternativa, você pode especificar o mercado usando o parâmetro de consulta `mkt` e um código da tabela **Mercados**. Especificar um mercado, especifica simultaneamente um país ou região e um idioma preferido. Você pode definir explicitamente o idioma com o parâmetro de consulta `setLang`.
 
 ## <a name="countriesregions"></a>Países/regiões
 
@@ -113,7 +113,7 @@ Como alternativa, você pode especificar o mercado usando o parâmetro de consul
 |Taiwan|Chinês tradicional|zh-TW|
 |Turquia|Turco|tr-TR|
 |Reino Unido|Inglês|en-GB|
-|Estados Unidos|Inglês|pt-BR|
+|Estados Unidos|Inglês|en-US|
 |Estados Unidos|Espanhol|es-US|
 
 ## <a name="next-steps"></a>Próximas etapas

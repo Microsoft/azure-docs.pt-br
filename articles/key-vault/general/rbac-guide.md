@@ -9,25 +9,25 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 38072e95ed89d8fbc095e2f8ed41ea1381636300
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: f7a0190d664e3330d2a6205014c00c61c1183dd3
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015148"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936236"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Fornecer acesso a chaves, certificados e segredos do Key Vault com um controle de acesso baseado em função do Azure (versão prévia)
 
 > [!NOTE]
 > Key Vault provedor de recursos dá suporte a dois tipos de recursos: **cofres** e **HSMs gerenciados**. O controle de acesso descrito neste artigo se aplica somente a **cofres**. Para saber mais sobre o controle de acesso para HSM gerenciado, consulte [controle de acesso HSM gerenciado](../managed-hsm/access-control.md).
 
-O Azure RBAC (controle de acesso baseado em função) do Azure é um sistema de autorização criado em [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) que fornece gerenciamento de acesso refinado de recursos do Azure.
+O Azure RBAC (controle de acesso baseado em função) do Azure é um sistema de autorização criado em [Azure Resource Manager](../../azure-resource-manager/management/overview.md) que fornece gerenciamento de acesso refinado de recursos do Azure.
 
 O RBAC do Azure permite que os usuários gerenciem permissões de chave, segredos e certificados. Ele fornece um local para gerenciar todas as permissões em todos os cofres de chaves. 
 
 O modelo RBAC do Azure fornece a capacidade de definir permissões em diferentes níveis de escopo: grupo de gerenciamento, assinatura, grupo de recursos ou recursos individuais.  O RBAC do Azure para o Key Vault também fornece a capacidade de ter permissões separadas em chaves, segredos e certificados individuais
 
-Para obter mais informações, consulte [controle de acesso baseado em função do Azure (RBAC do Azure)](https://docs.microsoft.com/azure/role-based-access-control/overview).
+Para obter mais informações, consulte [controle de acesso baseado em função do Azure (RBAC do Azure)](../../role-based-access-control/overview.md).
 
 ## <a name="best-practices-for-individual-keys-secrets-and-certificates"></a>Práticas recomendadas para chaves, segredos e certificados individuais
 
@@ -41,7 +41,7 @@ As permissões individuais de chaves, segredos e certificados devem ser usadas s
 
 Mais sobre as diretrizes de gerenciamento de Azure Key Vault, consulte:
 
-- [Melhores práticas do Azure Key Vault](best-practices.md)
+- [Visão geral da segurança do Azure Key Vault](security-overview.md)
 - [Limites de serviço Azure Key Vault](service-limits.md)
 
 ## <a name="azure-built-in-roles-for-key-vault-data-plane-operations-preview"></a>Funções internas do Azure para Key Vault operações do plano de dados (versão prévia)
@@ -59,7 +59,7 @@ Mais sobre as diretrizes de gerenciamento de Azure Key Vault, consulte:
 | Diretor de segredos Key Vault (versão prévia)| Execute qualquer ação nos segredos de um cofre de chaves, exceto gerenciar permissões. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
 | Usuário Key Vault segredos (visualização)| Ler conteúdo secreto. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | 4633458b-17de-408a-b874-0445c86b69e6 |
 
-Para obter mais informações sobre as definições de funções internas do Azure, consulte [funções internas do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+Para obter mais informações sobre as definições de funções internas do Azure, consulte [funções internas do Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault"></a>Usando as permissões de segredo, chave e certificado do RBAC do Azure com Key Vault
 
@@ -70,7 +70,7 @@ O novo modelo de permissão do RBAC do Azure para o Key Vault fornece uma altern
 Para adicionar as atribuições de função, você precisa ter:
 
 - Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-- as permissões `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete`, como [Administrador de Acesso do Usuário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) ou [Proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
+- as permissões `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete`, como [Administrador de Acesso do Usuário](../../role-based-access-control/built-in-roles.md#user-access-administrator) ou [Proprietário](../../role-based-access-control/built-in-roles.md#owner)
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Habilitar permissões do RBAC do Azure no Key Vault
 
@@ -79,11 +79,11 @@ Para adicionar as atribuições de função, você precisa ter:
 
 1.  Habilitar permissões do RBAC do Azure no novo cofre de chaves:
 
-    ![Habilitar permissões de RBAC-novo cofre](../media/rbac/image-1.png)
+    ![Habilitar permissões de RBAC do Azure-novo cofre](../media/rbac/image-1.png)
 
 2.  Habilitar permissões do RBAC do Azure no cofre de chaves existente:
 
-    ![Habilitar permissões RBAC-cofre existente](../media/rbac/image-2.png)
+    ![Habilitar permissões do RBAC do Azure-cofre existente](../media/rbac/image-2.png)
 
 ### <a name="assign-role"></a>Atribuir função
 
@@ -194,7 +194,7 @@ Criar novo segredo (segredos \> + gerar/importar) deve mostrar o erro abaixo:
 
 ### <a name="creating-custom-roles"></a>Criando funções personalizadas 
 
-[comando AZ role Definition Create](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create)
+[comando AZ role Definition Create](/cli/azure/role/definition#az-role-definition-create)
 
 **(Script de bash da CLI)</br>**
 ```azurecli
@@ -216,7 +216,7 @@ az role definition create --role-definition '{ \
 
 Para obter mais informações sobre como criar funções personalizadas, consulte:
 
-[Funções personalizadas do Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
+[Funções personalizadas do Azure](../../role-based-access-control/custom-roles.md)
 
 ## <a name="known-limits-and-performance"></a>Limites e desempenho conhecidos
 
@@ -226,5 +226,5 @@ Para obter mais informações sobre como criar funções personalizadas, consult
 
 ## <a name="learn-more"></a>Saiba mais
 
-- [Visão geral do RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
-- [Tutorial de funções personalizadas](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-cli)
+- [Visão geral do RBAC do Azure](../../role-based-access-control/overview.md)
+- [Tutorial de funções personalizadas](../../role-based-access-control/tutorial-custom-role-cli.md)

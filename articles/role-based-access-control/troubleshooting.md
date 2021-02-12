@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/18/2020
+ms.date: 11/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1, devx-track-azurecli
-ms.openlocfilehash: 325931ea024221bc89df3b2e25f3e7844130f4dc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e30af9522d7c8fa81c4d93e11d252aefc4426586
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741064"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184256"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Solucionar problemas do RBAC do Azure
 
@@ -68,6 +68,7 @@ $ras.Count
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
+- Se você tentar remover a atribuição de função do último proprietário de uma assinatura, você poderá ver o erro "não é possível excluir a última atribuição de administrador do RBAC". Não há suporte para a remoção da atribuição da função do último proprietário de uma assinatura para evitar o órfão da assinatura. Se você quiser cancelar sua assinatura, consulte [cancelar sua assinatura do Azure](../cost-management-billing/manage/cancel-azure-subscription.md).
 
 ## <a name="problems-with-custom-roles"></a>Problemas com funções personalizadas
 
@@ -79,7 +80,7 @@ $ras.Count
 
 ## <a name="custom-roles-and-management-groups"></a>Funções personalizadas e grupos de gerenciamento
 
-- Você só pode definir um grupo de gerenciamento em `AssignableScopes` uma função personalizada. A adição de um grupo de gerenciamento ao `AssignableScopes` está em visualização no momento.
+- Você só pode definir um grupo de gerenciamento em `AssignableScopes` uma função personalizada. A adição de um grupo de gerenciamento a `AssignableScopes` está em versão prévia no momento.
 - Funções personalizadas com `DataActions` não podem ser atribuídas no escopo do grupo de gerenciamento.
 - Azure Resource Manager não valida a existência do grupo de gerenciamento no escopo atribuível da definição de função.
 - Para obter mais informações sobre funções personalizadas e grupos de gerenciamento, consulte [organizar seus recursos com grupos de gerenciamento do Azure](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment).
@@ -120,7 +121,7 @@ Se você convidou recentemente um usuário ao criar uma atribuição de função
 
 No entanto, se essa entidade de segurança não for um usuário convidado recentemente, ela poderá ser uma entidade de segurança excluída. Se você atribuir uma função a uma entidade de segurança e posteriormente excluir essa entidade de segurança sem primeiro remover a atribuição de função, a entidade de segurança será listada como **identidade não encontrada** e um tipo **desconhecido** .
 
-Se você listar essa atribuição de função usando Azure PowerShell, poderá ver um vazio `DisplayName` e um `ObjectType` definido como **desconhecido** . Por exemplo, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) retorna uma atribuição de função que é semelhante à seguinte saída:
+Se você listar essa atribuição de função usando Azure PowerShell, poderá ver um vazio `DisplayName` e um `ObjectType` definido como **desconhecido**. Por exemplo, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) retorna uma atribuição de função que é semelhante à seguinte saída:
 
 ```
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -150,7 +151,7 @@ Da mesma forma, se você listar essa atribuição de função usando CLI do Azur
 }
 ```
 
-Não é um problema deixar essas atribuições de função em que a entidade de segurança foi excluída. Se desejar, você pode remover essas atribuições de função usando etapas semelhantes a outras atribuições de função. Para obter informações sobre como remover atribuições de função, consulte [portal do Azure](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)ou [CLI do Azure](role-assignments-cli.md#remove-role-assignment)
+Não é um problema deixar essas atribuições de função em que a entidade de segurança foi excluída. Se desejar, você pode remover essas atribuições de função usando etapas semelhantes a outras atribuições de função. Para obter informações sobre como remover atribuições de função, consulte [portal do Azure](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)ou [CLI do Azure](role-assignments-cli.md#remove-a-role-assignment)
 
 No PowerShell, se você tentar remover as atribuições de função usando a ID de objeto e o nome de definição de função, e mais de uma atribuição de função corresponder aos parâmetros, você receberá a mensagem de erro: "as informações fornecidas não são mapeadas para uma atribuição de função". A saída a seguir mostra um exemplo da mensagem de erro:
 
@@ -222,12 +223,12 @@ Semelhante aos aplicativos Web, alguns recursos na folha da máquina virtual exi
 
 As máquinas virtuais são relacionadas a nomes de domínio, redes virtuais, contas de armazenamento e regras de alerta.
 
-Estes itens exigem acesso para **gravação** na **Máquina virtual** :
+Estes itens exigem acesso para **gravação** na **Máquina virtual**:
 
 * Pontos de extremidade  
 * Endereços IP  
 * Discos  
-* Extensões  
+* Extensões do  
 
 Estes exigem acesso para **gravação** tanto na **Máquina virtual** quanto no **Grupo de recursos** (juntamente com o Nome de domínio) encontrados em:  
 
@@ -239,7 +240,7 @@ Se você não conseguir acessar nenhum desses blocos, solicite ao administrador 
 
 ## <a name="azure-functions-and-write-access"></a>Azure Functions e acesso para gravação
 
-Alguns recursos do [Azure Functions](../azure-functions/functions-overview.md) exigem acesso de gravação. Por exemplo, se uma função de [leitor](built-in-roles.md#reader) for atribuída a um usuário, ela não poderá exibir as funções em um aplicativo de funções. O portal exibirá **(Sem acesso)** .
+Alguns recursos do [Azure Functions](../azure-functions/functions-overview.md) exigem acesso de gravação. Por exemplo, se uma função de [leitor](built-in-roles.md#reader) for atribuída a um usuário, ela não poderá exibir as funções em um aplicativo de funções. O portal exibirá **(Sem acesso)**.
 
 ![Aplicativos de funções sem acesso](./media/troubleshooting/functionapps-noaccess.png)
 

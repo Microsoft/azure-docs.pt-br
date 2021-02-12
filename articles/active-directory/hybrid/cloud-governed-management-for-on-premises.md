@@ -13,12 +13,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed23ffa9971bf4c97b784f230053aed4b1acf0a4
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1b4d1041b9d330227fadf31f6afc1804174ea2ad
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369787"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340842"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Como o Azure AD fornece gerenciamento regido na nuvem para cargas de trabalho locais
 
@@ -77,7 +77,7 @@ A colaboração entre empresas exige cada vez mais a concessão de acesso a pess
 
 O Azure AD pode [criar automaticamente contas no AD para usuários convidados](../external-identities/hybrid-cloud-to-on-premises.md) , conforme necessário, permitindo que os convidados de negócios acessem aplicativos integrados do AD local sem precisar de outra senha. As organizações podem configurar [políticas de MFA (autenticação multifator) para os usuários convidados](../external-identities/conditional-access.md)para que as verificações de MFA sejam feitas durante a autenticação do proxy de aplicativo. Além disso, todas as [revisões de acesso](../governance/manage-guest-access-with-access-reviews.md) feitas em usuários B2B de nuvem se aplicam a usuários locais. Por exemplo, se o usuário de nuvem for excluído por meio de políticas de gerenciamento do ciclo de vida, o usuário local também será excluído.
 
-**Gerenciamento de credenciais para contas de Active Directory** A redefinição de senha de autoatendimento do Azure AD permite que os usuários que esqueceram suas senhas sejam reautenticados e redefinam suas senhas, com as senhas alteradas [gravadas no local Active Directory](../authentication/concept-sspr-writeback.md). O processo de redefinição de senha também pode usar as políticas de senha de Active Directory local: quando um usuário redefine sua senha, ele é verificado para garantir que ele atenda à política de Active Directory local antes de confirmá-la para esse diretório. O [plano de implantação](https://aka.ms/deploymentplans/sspr) de redefinição de senha de autoatendimento descreve as práticas recomendadas para distribuir a redefinição de senha de autoatendimento aos usuários por meio de experiências integradas à Web e ao Windows.
+**Gerenciamento de credenciais para contas de Active Directory** A redefinição de senha de autoatendimento do Azure AD permite que os usuários que esqueceram suas senhas sejam reautenticados e redefinam suas senhas, com as senhas alteradas [gravadas no local Active Directory](../authentication/concept-sspr-writeback.md). O processo de redefinição de senha também pode usar as políticas de senha de Active Directory local: quando um usuário redefine sua senha, ele é verificado para garantir que ele atenda à política de Active Directory local antes de confirmá-la para esse diretório. O [plano de implantação](../authentication/howto-sspr-deployment.md) de redefinição de senha de autoatendimento descreve as práticas recomendadas para distribuir a redefinição de senha de autoatendimento aos usuários por meio de experiências integradas à Web e ao Windows.
 
 ![Arquitetura de SSPR do Azure AD](media/cloud-governed-management-for-on-premises/image3.png)
 
@@ -89,7 +89,7 @@ Quando uma organização está pronta para mover um aplicativo integrado ao AD p
 
 ## <a name="cloud-governed-management-for-on-premises-federation-based-applications"></a>Gerenciamento regido pela nuvem para aplicativos baseados em Federação local
 
-Para uma organização que já usa um provedor de identidade local, a movimentação de aplicativos para o Azure AD permite um acesso mais seguro e uma experiência administrativa mais fácil para o gerenciamento de Federação. O Azure AD permite configurar controles de acesso por aplicativo granulares, incluindo a autenticação multifator do Azure, usando o acesso condicional do Azure AD. O Azure AD dá suporte a mais recursos, incluindo certificados de assinatura de token específicos do aplicativo e datas de expiração de certificado configurável. Esses recursos, ferramentas e diretrizes permitem que as organizações desativem seus provedores de identidade locais. A própria ti da Microsoft, por exemplo, moveu 17.987 aplicativos do Serviços de Federação do Active Directory (AD FS) interno da Microsoft (AD FS) para o Azure AD.
+Para uma organização que já usa um provedor de identidade local, a movimentação de aplicativos para o Azure AD permite um acesso mais seguro e uma experiência administrativa mais fácil para o gerenciamento de Federação. O Azure AD permite configurar controles de acesso por aplicativo granulares, incluindo a autenticação multifator do Azure AD, usando o acesso condicional do Azure AD. O Azure AD dá suporte a mais recursos, incluindo certificados de assinatura de token específicos do aplicativo e datas de expiração de certificado configurável. Esses recursos, ferramentas e diretrizes permitem que as organizações desativem seus provedores de identidade locais. A própria ti da Microsoft, por exemplo, moveu 17.987 aplicativos do Serviços de Federação do Active Directory (AD FS) interno da Microsoft (AD FS) para o Azure AD.
 
 ![Evolução do Azure AD](media/cloud-governed-management-for-on-premises/image5.png)
 
@@ -97,7 +97,7 @@ Para começar a migrar aplicativos federados para o Azure AD como o provedor de 
 
 * O white paper [migrar seus aplicativos para Azure Active Directory](https://aka.ms/migrateapps/whitepaper), que apresenta os benefícios da migração e descreve como planejar a migração em quatro fases claramente destacadas: descoberta, classificação, migração e gerenciamento contínuo. Você será orientado por como pensar sobre o processo e dividir seu projeto em pedaços fáceis de consumir. Ao longo do documento, haverá links para recursos importantes que irão ajudá-lo durante o processo.
 
-* O guia de solução [que migra a autenticação de aplicativos de serviços de Federação do Active Directory (AD FS) para Azure Active Directory](https://aka.ms/migrateapps/adfssolutionguide) explora mais detalhadamente as mesmas quatro fases de planejamento e execução de um projeto de migração de aplicativos. Neste guia, você aprenderá a aplicar essas fases ao objetivo específico de mover um aplicativo de Serviços de Federação do Active Directory (AD FS) (AD FS) para o Azure AD.
+* O guia de solução [que migra a autenticação de aplicativos de serviços de Federação do Active Directory (AD FS) para Azure Active Directory](../manage-apps/migrate-adfs-apps-to-azure.md) explora mais detalhadamente as mesmas quatro fases de planejamento e execução de um projeto de migração de aplicativos. Neste guia, você aprenderá a aplicar essas fases ao objetivo específico de mover um aplicativo de Serviços de Federação do Active Directory (AD FS) (AD FS) para o Azure AD.
 
 * O [script de preparação para migração de serviços de Federação do Active Directory (AD FS)](https://aka.ms/migrateapps/adfstools) pode ser executado em servidores de Serviços de Federação do Active Directory (AD FS) (AD FS) locais existentes para determinar a prontidão dos aplicativos para migração para o Azure AD.
 

@@ -7,22 +7,22 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: chenyl
-ms.openlocfilehash: 04059ac1feae04cb6fa8b09f7b7077b7e11bac4c
-ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
+ms.openlocfilehash: 84b83c1dd541418c446a89a6f51be668cb41e54e
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170375"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562637"
 ---
 # <a name="how-to-send-events-from-azure-signalr-service-to-event-grid"></a>Como enviar eventos do Serviço do Azure SignalR para a Grade de Eventos
 
 A grade de eventos do Azure é um serviço de roteamento de eventos totalmente gerenciado que fornece consumo uniforme de eventos usando um modelo pub-sub. Neste guia, você usa o CLI do Azure para criar um serviço de Signaler do Azure, assinar eventos de conexão e, em seguida, implantar um aplicativo Web de exemplo para receber os eventos. Por fim, você pode se conectar e desconectar e ver a carga do evento no aplicativo de exemplo.
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita][azure-account] antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Os comandos da CLI do Azure neste artigo são formatados para o shell de **Bash**. Se você estiver usando um shell diferente, como PowerShell ou Prompt de Comando, talvez seja necessário ajustar os caracteres de continuação de linha ou as linhas de atribuição de variáveis apropriadamente. Este artigo usa variáveis para minimizar a quantidade de edição de comando necessária.
+ - Os comandos da CLI do Azure neste artigo são formatados para o shell de **Bash**. Se você estiver usando um shell diferente, como PowerShell ou Prompt de Comando, talvez seja necessário ajustar os caracteres de continuação de linha ou as linhas de atribuição de variáveis apropriadamente. Este artigo usa variáveis para minimizar a quantidade de edição de comando necessária.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 

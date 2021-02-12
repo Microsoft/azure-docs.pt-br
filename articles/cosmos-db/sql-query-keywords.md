@@ -3,15 +3,16 @@ title: Palavras-chave do SQL para Azure Cosmos DB
 description: Saiba mais sobre palavras-chave do SQL para Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 01/20/2021
 ms.author: tisande
-ms.openlocfilehash: b4a48cd5e8d06fa6346dd6ab94df53cf4985b0b8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 09148e65e446d723fbfe7a54602db59ee0739f83
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100755"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599357"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Palavras-chave no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -106,6 +107,73 @@ Não há suporte para consultas com uma função de sistema agregada e uma subco
 ```sql
 SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 ```
+
+## <a name="like"></a>LIKE
+
+Retorna um valor booliano dependendo se uma cadeia de caracteres específica corresponde a um padrão especificado. Um padrão pode incluir caracteres normais e curingas. Você pode escrever consultas logicamente equivalentes usando a `LIKE` palavra-chave ou a função de sistema [RegexMatch](sql-query-regexmatch.md) . Você observará a mesma utilização de índice, independentemente de qual delas escolher. Portanto, você deve usar `LIKE` se preferir sua sintaxe mais do que expressões regulares.
+
+> [!NOTE]
+> Como `LIKE` o pode utilizar um índice, você deve [criar um índice de intervalo](indexing-policy.md) para as propriedades que você está comparando usando `LIKE` .
+
+Você pode usar os seguintes caracteres curinga com LIKE:
+
+| Caractere curinga | Descrição                                                  | Exemplo                                     |
+| -------------------- | ------------------------------------------------------------ | ------------------------------------------- |
+| %                    | Qualquer cadeia de zero ou mais caracteres                      | EM que c. descrição como "% para% PS%"      |
+| _ (sublinhado)     | Qualquer caractere único                                       | EM que c. Description como "% SO_PS%"      |
+| [ ]                  | Qualquer caractere único dentro do intervalo especificado ([a-f]) ou conjunto ([abcdef]). | EM que c. Description como "% para [t-z] PS%"  |
+| [^]                  | Qualquer caractere único que não esteja dentro do intervalo especificado ([^ a-f]) ou definido ([^ abcdef]). | EM que c. Description como "% para [^ abc] PS%" |
+
+
+### <a name="using-like-with-the--wildcard-character"></a>Usando LIKE com o caractere curinga %
+
+O `%` caractere corresponde a qualquer cadeia de zero ou mais caracteres. Por exemplo, ao colocar um `%` no início e no final do padrão, a consulta a seguir retorna todos os itens com uma descrição que contém `fruit` :
+
+```sql
+SELECT *
+FROM c
+WHERE c.description LIKE "%fruit%"
+```
+
+Se você usar apenas um `%` caractere no início do padrão, retornará apenas itens com uma descrição iniciada com `fruit` :
+
+```sql
+SELECT *
+FROM c
+WHERE c.description LIKE "fruit%"
+```
+
+
+### <a name="using-not-like"></a>Usando não LIKE
+
+O exemplo abaixo retorna todos os itens com uma descrição que não contém `fruit` :
+
+```sql
+SELECT *
+FROM c
+WHERE c.description NOT LIKE "%fruit%"
+```
+
+### <a name="using-the-escape-clause"></a>Usando a cláusula escape
+
+Você pode Pesquisar padrões que incluam um ou mais caracteres curinga usando a cláusula ESCAPE. Por exemplo, se você quisesse Pesquisar descrições que continham a cadeia de caracteres `20-30%` , não iria querer interpretar o `%` como um caractere curinga.
+
+```sql
+SELECT *
+FROM c
+WHERE c.description LIKE '%20-30!%%' ESCAPE '!'
+```
+
+### <a name="using-wildcard-characters-as-literals"></a>Usando caracteres curinga como literais
+
+Você pode incluir caracteres curinga entre colchetes para tratá-los como caracteres literais. Ao colocar um caractere curinga entre colchetes, você remove todos os atributos especiais. Estes são alguns exemplos:
+
+| Padrão           | Significado |
+| ----------------- | ------- |
+| COMO "20-30 [%]" | 20-30%  |
+| COMO "[_] n"     | _n      |
+| COMO "[[]"    | [       |
+| COMO "]"        | ]       |
 
 ## <a name="in"></a>IN
 

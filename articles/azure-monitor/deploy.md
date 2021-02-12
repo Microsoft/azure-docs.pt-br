@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 0a5c788b4429b5048a1b94fa8adfb2d9367982da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0591825bf187648293d5aabc88597b19ab2436e
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033465"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491045"
 ---
 # <a name="deploy-azure-monitor"></a>Implantar o Azure Monitor
 A habilitação do Azure Monitor para monitorar todos os seus recursos do Azure é uma combinação de configuração de componentes do Azure Monitor e configuração de recursos do Azure para gerar dados de monitoramento para Azure Monitor coletar. Este artigo descreve as diferentes etapas necessárias para uma implementação completa de Azure Monitor usando uma configuração comum para monitorar todos os recursos em sua assinatura do Azure. Descrições básicas para cada etapa são fornecidas com links para outras documentações para requisitos de configuração detalhados.
@@ -118,7 +118,7 @@ Consulte [instalar e configurar a extensão de diagnóstico do Windows Azure (wa
 O Azure Monitor monitora seus aplicativos personalizados usando [Application insights](app/app-insights-overview.md), que você deve configurar para cada aplicativo que você deseja monitorar. O processo de configuração irá variar dependendo do tipo de aplicativo que está sendo monitorado e do tipo de monitoramento que você deseja executar. Os dados coletados pelo Application Insights são armazenados em métricas de Azure Monitor, logs de Azure Monitor e armazenamento de BLOBs do Azure, dependendo do recurso. Os dados de desempenho são armazenados em Azure Monitor métricas e Azure Monitor logs sem nenhuma configuração adicional necessária.
 
 ### <a name="create-an-application-resource"></a>Criar um recurso de aplicativo
-Você deve criar um recurso no Application Insights para cada aplicativo que pretende monitorar. Os dados de log coletados pelo Application Insights são armazenados em logs de Azure Monitor para um aplicativo baseado em espaço de trabalho. Os dados de log para aplicativos clássicos são armazenados separados de seu espaço de trabalho Log Analytics, conforme descrito em [estrutura de dados](platform/data-platform-logs.md#structure-of-data).
+Você deve criar um recurso no Application Insights para cada aplicativo que pretende monitorar. Os dados de log coletados pelo Application Insights são armazenados em logs de Azure Monitor para um aplicativo baseado em espaço de trabalho. Os dados de log para aplicativos clássicos são armazenados separados do seu espaço de trabalho Log Analytics, conforme descrito em [estrutura de dados](platform/data-platform-logs.md#data-structure).
 
  Ao criar o aplicativo, você deve selecionar se deseja usar o clássico ou o baseado no espaço de trabalho. Consulte [criar um recurso de Application insights](app/create-new-resource.md) para criar um aplicativo clássico. Consulte [recursos de Application insights baseados em espaço de trabalho (versão prévia)](app/create-workspace-resource.md) para criar um aplicativo baseado em espaço de trabalho.
 

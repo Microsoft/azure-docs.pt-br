@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/29/2020
+ms.date: 02/03/2021
 ms.author: radeltch
-ms.openlocfilehash: 4c444cb84f215ba4f42c14eb64f1d2f441e4280d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 631ebcd41e50a6b8f9e049a646394e572c0b15f7
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598295"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549313"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configurando o Pacemaker no Red Hat Enterprise Linux no Azure
 
@@ -68,6 +69,7 @@ Primeiro, leia os seguintes documentos e Notas SAP:
   * [Instalando e configurando um Cluster de alta disponibilidade do Red Hat Enterprise Linux 7.4 (e posterior) no Microsoft Azure](https://access.redhat.com/articles/3252491)
   * [Considerações sobre a adoção do RHEL 8-alta disponibilidade e clusters](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/considerations_in_adopting_rhel_8/high-availability-and-clusters_considerations-in-adopting-rhel-8)
   * [Configurar o SAP S/4HANA ASCS/ERS com o ENSA2 (Servidor de Enfileiramento Autônomo 2) no Pacemaker no RHEL 7.6](https://access.redhat.com/articles/3974941)
+  * [RHEL para ofertas SAP no Azure](https://access.redhat.com/articles/5456301)
 
 ## <a name="cluster-installation"></a>Instalação do Cluster
 
@@ -79,7 +81,7 @@ Primeiro, leia os seguintes documentos e Notas SAP:
 
 Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **[1]** – aplicável somente ao nó 1 ou **[2]** – aplicável somente ao nó 2.
 
-1. **[A]** registrar. Essa etapa não é necessária, se você estiver usando imagens habilitadas para HA 8. x com alta disponibilidade.  
+1. **[A]** registrar. Esta etapa não é necessária se você estiver usando imagens do RHEL SAP habilitados para HA.  
 
    Registre suas máquinas virtuais e anexe-as a um pool que contenha repositórios para o RHEL 7.
 
@@ -89,9 +91,9 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-   Ao anexar um pool a uma imagem do PAYG RHEL do Azure Marketplace, você será efetivamente cobrado duas vezes pelo uso do RHEL: uma vez para a imagem PAYG e uma vez para o direito de RHEL no pool que você anexar. Para minimizar isso, o Azure agora fornece imagens do RHEL BYOS. Mais informação estão disponíveis [aqui](../redhat/byos.md).
+   Ao anexar um pool a uma imagem do PAYG RHEL do Azure Marketplace, você será efetivamente cobrado duas vezes pelo uso do RHEL: uma vez para a imagem PAYG e uma vez para o direito de RHEL no pool que você anexar. Para minimizar isso, o Azure agora fornece imagens do RHEL BYOS. Mais informação estão disponíveis [aqui](../redhat/byos.md).  
 
-1. **[A]** habilitar RHEL para SAP repositórios. Essa etapa não é necessária, se você estiver usando imagens habilitadas para HA 8. x com alta disponibilidade.  
+1. **[A]** habilitar RHEL para SAP repositórios. Esta etapa não é necessária se você estiver usando imagens do RHEL SAP habilitados para HA.  
 
    Para instalar os pacotes necessários, habilite os seguintes repositórios.
 
@@ -292,16 +294,17 @@ sudo pcs property set stonith-timeout=900
 </code></pre>
 
 > [!NOTE]
-> A opção 'pcmk_host_map' é SOMENTE requerida no comando, se os nomes de host do RHEL e os nomes de nós do Azure NÃO forem idênticos. Consulte a seção em negrito no comando.
+> A opção ' pcmk_host_map ' só será necessária no comando se os nomes de host do RHEL e os nomes de VM do Azure não forem idênticos. Especifique o mapeamento no formato **hostname: VM-Name**.
+> Consulte a seção em negrito no comando. Para obter mais informações [, consulte qual formato devo usar para especificar mapeamentos de nó para dispositivos stonith no pcmk_host_map](https://access.redhat.com/solutions/2619961)
 
 Para o RHEL **7. X**, use o seguinte comando para configurar o dispositivo de isolamento:    
-<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:10.0.0.6;prod-cl1-1:10.0.0.7"</b> \
+<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
 op monitor interval=3600
 </code></pre>
 
 Para o RHEL **8. X**, use o seguinte comando para configurar o dispositivo de isolamento:  
-<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm username="<b>login ID</b>" password="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:10.0.0.6;prod-cl1-1:10.0.0.7"</b> \
+<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm username="<b>login ID</b>" password="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
 op monitor interval=3600
 </code></pre>

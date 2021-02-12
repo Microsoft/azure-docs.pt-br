@@ -7,18 +7,19 @@ author: MashaMSFT
 editor: monicar
 ms.assetid: 14b39cde-311c-4ddf-98f3-8694e01a7d3b
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: cb55274800b239cf0e1e942647ae0c65b321b862
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9337d1c2767923e6dc7c6b267e0c180b460a116e
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790042"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359414"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurar um ou mais ouvintes de grupo de disponibilidade AlwaysOn – Resource Manager
 
@@ -64,7 +65,7 @@ O [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md) está 
 O atual [modelo da Microsoft](./availability-group-quickstart-template-configure.md) para um grupo de disponibilidade usa um balanceador de carga básico com endereços IP básicos.
 
    > [!NOTE]
-   > Você precisará configurar um [ponto de extremidade de serviço](../../../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#grant-access-from-a-virtual-network) se usar um Standard Load Balancer e o Armazenamento do Azure para a testemunha de nuvem. 
+   > Você precisará configurar um [ponto de extremidade de serviço](../../../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network) se usar um Standard Load Balancer e o Armazenamento do Azure para a testemunha de nuvem. 
    > 
 
 Os exemplos neste artigo especificam um Standard Load Balancer. Nos exemplos, o script inclui `-sku Standard`.
@@ -195,11 +196,11 @@ $ILB | Add-AzLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfigura
 
 1. Inicie o SQL Server Management Studio e conecte-se à réplica principal.
 
-1. Navegue até **Alta Disponibilidade do AlwaysOn** > **Grupos de Disponibilidade** > **Ouvintes do Grupo de Disponibilidade** . 
+1. Navegue até **Alta Disponibilidade do AlwaysOn** > **Grupos de Disponibilidade** > **Ouvintes do Grupo de Disponibilidade**. 
 
-1. Agora você deve ver o nome do ouvinte que você criou no Gerenciador de Cluster de Failover. Clique com o botão direito do mouse no nome do ouvinte e selecione **Propriedades** .
+1. Agora você deve ver o nome do ouvinte que você criou no Gerenciador de Cluster de Failover. Clique com o botão direito do mouse no nome do ouvinte e selecione **Propriedades**.
 
-1. Na caixa **porta** , especifique o número da porta para o ouvinte do grupo de disponibilidade usando o $EndpointPort usado anteriormente (1433 era o padrão) e selecione **OK** .
+1. Na caixa **porta** , especifique o número da porta para o ouvinte do grupo de disponibilidade usando o $EndpointPort usado anteriormente (1433 era o padrão) e selecione **OK**.
 
 ## <a name="test-the-connection-to-the-listener"></a>Testar a conexão com o ouvinte
 
@@ -236,7 +237,7 @@ Observe as diretrizes a seguir no ouvinte do grupo de disponibilidade no Azure u
   - Os endereços IP flutuantes do balanceador de carga para o ouvinte AG
   - O endereço IP do núcleo do cluster, se aplicável.
 
-* Crie um ponto de extremidade de serviço ao usar um Standard Load Balancer com o Armazenamento do Azure para a testemunha de nuvem. Para obter mais informações, confira [Permitir acesso em uma rede virtual](../../../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#grant-access-from-a-virtual-network).
+* Crie um ponto de extremidade de serviço ao usar um Standard Load Balancer com o Armazenamento do Azure para a testemunha de nuvem. Para obter mais informações, confira [Permitir acesso em uma rede virtual](../../../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
 
 ## <a name="for-more-information"></a>Para obter mais informações
 

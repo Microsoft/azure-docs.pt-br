@@ -3,15 +3,16 @@ title: Folhas de referências de consulta PDF do Azure Cosmos DB
 description: Folhas de referências de PDF para impressão que ajudam a utilizar APIs de Tabela, Graph, MongoDB, SQL do Azure Cosmos DB para consultar os dados
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 0e9010ba79e4253d7569a0bba79fa05423e1a1ec
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2ef8aed7243e8956ad9ca62b630cda0efbd2deb9
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081749"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339641"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Folhas de referências de consulta do Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -29,7 +30,7 @@ Baixe as [Folhas de referências de consulta em tamanho carta do Azure Cosmos DB
 ## <a name="oversized-cheat-sheets"></a>Folhas de referências de tamanho grande
 Baixe as [folhas de referências de consulta tamanho A3 do Azure Cosmos DB](https://go.microsoft.com/fwlink/?linkid=870413), se você for imprimir utilizando uma plotadora ou impressora em larga escala em papel tamanho A3 (11,7" x 16,5").
 
-:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Folhas de referências de consulta do Azure Cosmos DB - tamanho carta, com consultas e funções de API de SQL, JavaScript, MongoDB, Gremlin e API de Tabela" border="false":::
+:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Folhas de referências de consulta do Azure Cosmos DB - tamanho A3, com consultas e funções de API de SQL, JavaScript, MongoDB, Gremlin e API de Tabela" border="false":::
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais ajuda na gravação de consultas, leia os artigos a seguir:

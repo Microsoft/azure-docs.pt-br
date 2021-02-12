@@ -1,20 +1,20 @@
 ---
 title: Kit de ferramentas de teste de modelo ARM
-description: Descreve como executar o kit de ferramentas de teste do modelo ARM em seu modelo. O kit de ferramentas permite que você veja se implementou as práticas recomendadas.
+description: Descreve como executar o kit de ferramentas de teste do modelo de Azure Resource Manager (modelo ARM) em seu modelo. O kit de ferramentas permite que você veja se implementou as práticas recomendadas.
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 73f6db8cbd5e4d7a0670c394f6af338aae8e9e79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5ad0b6dca7718166517b52148fbc6dd49f38869
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89439553"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674005"
 ---
 # <a name="use-arm-template-test-toolkit"></a>Usar o kit de ferramentas de teste do modelo ARM
 
-O [Kit de ferramentas de teste de modelo do Azure Resource Manager (ARM)](https://aka.ms/arm-ttk) verifica se o modelo usa práticas recomendadas. Quando o modelo não está em conformidade com as práticas recomendadas, ele retorna uma lista de avisos com as alterações sugeridas. Usando o kit de ferramentas de teste, você pode aprender a evitar problemas comuns no desenvolvimento de modelos.
+O [Kit de ferramentas de teste do modelo de Azure Resource Manager (modelo ARM)](https://aka.ms/arm-ttk) verifica se o modelo usa práticas recomendadas. Quando o modelo não está em conformidade com as práticas recomendadas, ele retorna uma lista de avisos com as alterações sugeridas. Usando o kit de ferramentas de teste, você pode aprender a evitar problemas comuns no desenvolvimento de modelos.
 
 O kit de ferramentas de teste fornece um [conjunto de testes padrão](test-cases.md). Esses testes são recomendações, mas não requisitos. Você pode decidir quais testes são relevantes para suas metas e personalizar quais testes são executados.
 
@@ -187,7 +187,7 @@ O objeto de modelo tem as seguintes propriedades:
 
 * $schema
 * contentVersion
-* parameters
+* parâmetros
 * variáveis
 * recursos
 * outputs
@@ -282,4 +282,5 @@ O exemplo a seguir mostra como executar os testes.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre os testes padrão, consulte [casos de teste para o kit de ferramentas](test-cases.md).
+- Para saber mais sobre os testes padrão, consulte [casos de teste padrão para o kit de ferramentas de teste do modelo ARM](test-cases.md).
+- Para um módulo Microsoft Learn que abrange o uso do kit de ferramentas de teste, consulte [Visualizar alterações e validar recursos do Azure usando o What-If e o ARM template Test Toolkit](/learn/modules/arm-template-test/).

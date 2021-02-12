@@ -7,16 +7,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: PowerShell
 ms.topic: sample
-author: MightyPen
-ms.author: genemi
-ms.reviewer: jrasnik
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: d73efd7a64d0118cea11ca9b0a35f659ce7fee6a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a646588616b874e40b1ed2a5a0b5e691b075075d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791283"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487296"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-azure-sql-database"></a>Código de destino do Buffer de Anéis para eventos estendidos no Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,10 +28,10 @@ Você deseja um exemplo de código completo da maneira mais fácil e rápida de 
 Este tópico apresenta um exemplo de código Transact-SQL que:
 
 1. Cria uma tabela com dados para demonstração.
-2. Cria uma sessão para um evento estendido existente, ou seja, **sqlserver.sql_statement_starting** .
+2. Cria uma sessão para um evento estendido existente, ou seja, **sqlserver.sql_statement_starting**.
 
-   * O evento é limitado a instruções SQL que contêm uma determinada cadeia de caracteres de Atualização: **statement LIKE '%UPDATE tabEmployee%'** .
-   * Escolhe enviar a saída do evento para um destino do tipo Buffer de Anéis, ou seja, **package0.ring_buffer** .
+   * O evento é limitado a instruções SQL que contêm uma determinada cadeia de caracteres de Atualização: **statement LIKE '%UPDATE tabEmployee%'**.
+   * Escolhe enviar a saída do evento para um destino do tipo Buffer de Anéis, ou seja, **package0.ring_buffer**.
 3. Inicia a sessão de evento.
 4. Emite algumas instruções SQL UPDATE simples.
 5. Emite uma instrução SQL SELECT para recuperar a saída de evento do Buffer de Anéis.
@@ -218,9 +218,9 @@ GO
 
 Use `ssms.exe` para executar o exemplo de código.
 
-Para exibir os resultados, clicamos na célula no título de coluna **target_data_XML** .
+Para exibir os resultados, clicamos na célula no título de coluna **target_data_XML**.
 
-Em seguida, no painel de resultados, clicamos na célula no título de coluna **target_data_XML** . Esse clique criou outra guia de arquivo no ssms.exe, onde o conteúdo da célula de resultado foi exibido como XML.
+Em seguida, no painel de resultados, clicamos na célula no título de coluna **target_data_XML**. Esse clique criou outra guia de arquivo no ssms.exe, onde o conteúdo da célula de resultado foi exibido como XML.
 
 A saída é mostrada no bloco a seguir. Parece longo, mas são apenas dois elementos **\<event>** .
 

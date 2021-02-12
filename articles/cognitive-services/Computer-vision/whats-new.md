@@ -8,18 +8,35 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 09/11/2020
+ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: e4c56700e75eb5bc7e5e7faec073fe7157e5df88
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f10319de67a105b4b5e4641c4171ccd0a6e63440
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976361"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99490870"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novidades na Pesquisa Visual Computacional
 
 Conheça o que há de novo no serviço. Esses itens podem ser notas sobre a versão, vídeos, postagens no blog e outros tipos de informações. Marque esta página para se manter atualizado quanto ao serviço.
+
+## <a name="january-2021"></a>Janeiro de 2021
+
+### <a name="spatial-analysis-container-update"></a>Atualização do contêiner de análise espacial
+
+Uma nova versão do [contêiner de análise espacial](spatial-analysis-container.md) foi lançada, com um novo conjunto de recursos. O contêiner do Docker permite que você analise vídeos de streaming em tempo real para entender as relações espaciais existentes entre as pessoas e a movimentação delas em ambientes físicos. 
+
+* Agora, as [operações de análise espacial](spatial-analysis-operations.md) podem ser configuradas para detectar se uma pessoa está usando proteção para o rosto, como uma máscara. 
+    * Foi habilitado um classificador de máscara para as operações `personcount`, `personcrossingline` e `personcrossingpolygon` configurando o parâmetro `ENABLE_FACE_MASK_CLASSIFIER`.
+    * Os atributos `face_mask` e `face_noMask` serão retornados como metadados com a pontuação de confiança para cada pessoa detectada no fluxo de vídeo
+* A operação *personcrossingpolygon* foi estendida para permitir o cálculo do tempo de duração da pesquisa que uma pessoa gasta em uma zona. Você pode definir o parâmetro `type` na configuração de zona da operação para `zonedwelltime` e um novo evento do tipo *personZoneDwellTimeEvent* incluirá o campo `durationMs` populado com o número de milissegundos que a pessoa gastou na zona.
+* **Alteração interruptiva**: O evento *personZoneEvent* foi renomeado para *personZoneEnterExitEvent*. Esse evento é gerado pela operação *personcrossingpolygon* quando uma pessoa entra ou sai da zona e fornece informações direcionais com o lado numerado da zona que foi cruzada.
+* A URL de vídeo pode ser fornecida como "Parâmetro Privado/ofuscado" em todas as operações. A ofuscação é opcional agora e só funcionará se `KEY` e `IV` forem fornecidas como variáveis de ambiente.
+* A calibragem é habilitada por padrão para todas as operações. Defina o `do_calibration: false` para desabilitá-lo.
+* Suporte adicionado para recalibragem automática (desabilitado por padrão) por meio do parâmetro `enable_recalibration`. Confira [Operações de análise espacial](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations) para obter detalhes
+* Parâmetros de calibragem de câmera para o `DETECTOR_NODE_CONFIG`. Confira [Operações de análise espacial](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations) para obter detalhes.
+
 
 ## <a name="october-2020"></a>Outubro de 2020
 
@@ -80,7 +97,7 @@ Agora você pode usar a versão 3.0 da API de Leitura para extrair texto impress
 * Pontuação de confiança para cada palavra extraída
 * Suporte para os idiomas espanhol e inglês com o parâmetro de idioma adicional
 
-Siga um [início rápido de extração de texto](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text?tabs=version-3) para começar a usar a API 3.0.
+Siga um [início rápido de extração de texto](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-hand-text.md?tabs=version-3) para começar a usar a API 3.0.
 
 ## <a name="cognitive-service-updates"></a>Atualizações dos Serviços Cognitivos
 

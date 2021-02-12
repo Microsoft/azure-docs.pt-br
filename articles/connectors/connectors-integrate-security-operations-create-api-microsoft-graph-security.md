@@ -3,18 +3,18 @@ title: Integrar e gerenciar as operações de segurança & segurança de Microso
 description: Melhorar a proteção contra ameaças do seu aplicativo, a detecção e a resposta com o Microsoft Graph Security & aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
-author: preetikr
+author: ecfan
 ms.author: preetikr
 ms.reviewer: v-ching, estfan, logicappspm
 ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: 0f121caddc6b629920479a34bef7b284dea117a4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a83cd68df2f1d722517d6239bf6959075860d0b8
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677507"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888531"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Melhore a proteção contra ameaças integrando as operações de segurança com a Segurança do Microsoft Graph e os Aplicativos Lógicos do Azure
 
@@ -30,7 +30,7 @@ Com os [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e o
 
 O fluxo de trabalho do aplicativo lógico pode usar ações que obtêm as respostas do conector da Segurança do Microsoft Graph e disponibilizam essa saída para outras ações no fluxo de trabalho. Você também pode fazer com que outras ações no fluxo de trabalho usem a saída das ações de conector da Segurança do Microsoft Graph. Por exemplo, se receber alertas de severidade alta por meio do conector da Segurança do Microsoft Graph, você poderá enviar os alertas em uma mensagem de email usando o conector do Outlook. 
 
-Para saber mais sobre a Segurança do Microsoft Graph, confira a [Visão geral da API de Segurança do Microsoft Graph](/graph/security-concept-overview). Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md). Se você estiver procurando Microsoft Flow ou PowerApps, consulte [o que é o Flow?](https://flow.microsoft.com/) ou [o que é o powerapps?](https://powerapps.microsoft.com/)
+Para saber mais sobre a Segurança do Microsoft Graph, confira a [Visão geral da API de Segurança do Microsoft Graph](/graph/security-concept-overview). Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md). Se você estiver procurando energia automatizada ou PowerApps, consulte [o que é Power Automate?](https://flow.microsoft.com/) ou [o que é o Power apps?](https://powerapps.microsoft.com/)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -62,13 +62,13 @@ Para saber mais sobre a Segurança do Microsoft Graph, confira a [Visão geral d
 
 1. Para aplicativos lógicos em branco, adicione o gatilho e todas as outras ações que desejar antes de adicionar uma ação de Microsoft Graph segurança.
 
-   -ou-
+   - ou -
 
-   Para os aplicativos lógicos existentes, na última etapa em que você deseja adicionar uma Microsoft Graph ação de segurança, selecione **nova etapa** .
+   Para os aplicativos lógicos existentes, na última etapa em que você deseja adicionar uma Microsoft Graph ação de segurança, selecione **nova etapa**.
 
-   -ou-
+   - ou -
 
-   Para adicionar uma ação entre as etapas, mova o ponteiro sobre a seta entre as etapas. Selecione o sinal de adição (+) que aparece e selecione **Adicionar uma ação** .
+   Para adicionar uma ação entre as etapas, mova o ponteiro sobre a seta entre as etapas. Selecione o sinal de adição (+) que aparece e selecione **Adicionar uma ação**.
 
 1. Na caixa de pesquisa, insira "segurança do microsoft graph" como o filtro. Na lista de ações, selecione a ação desejada.
 
@@ -94,9 +94,9 @@ Este exemplo mostra como você pode iniciar um fluxo de trabalho de aplicativo l
    | Propriedade | Propriedade (JSON) | Obrigatório | Type | Descrição |
    |----------|-----------------|----------|------|-------------|
    | **Intervalo** | `interval` | Sim | Integer | Um inteiro positivo que descreve a frequência na qual o fluxo de trabalho é executado com base na frequência. Aqui estão os intervalos mínimos e máximos: <p><p>– Mês: 1 a 16 meses <br>–Dia: 1 a 500 dias <br>– Hora: 1 a 12.000 horas <br>– Minuto: 1 a 72.000 minutos <br>– Segundo: 1 a 9.999.999 segundos <p>Por exemplo, se o intervalo for 6 e a frequência for "Mês", a recorrência será a cada 6 meses. |
-   | **Frequência** | `frequency` | Sim | String | A unidade de tempo para a recorrência: **Segundo** , **Minuto** , **Hora** , **Dia** , **Semana** ou **Mês** |
+   | **Frequência** | `frequency` | Sim | String | A unidade de tempo para a recorrência: **Segundo**, **Minuto**, **Hora**, **Dia**, **Semana** ou **Mês** |
    | **Fuso horário** | `timeZone` | Não | String | Aplica-se somente quando você especifica uma hora de início, porque o gatilho não aceita [diferença UTC](https://en.wikipedia.org/wiki/UTC_offset). Selecione o fuso horário que você deseja aplicar. |
-   | **Hora de início** | `startTime` | Não | String | Forneça uma data e hora de início neste formato: <p><p>AAAA-MM-DDThh:mm:ss se você selecionar um fuso horário <p>-ou- <p>AAAA-MM-DDThh:mm:ssZ se você não selecionar um fuso horário <p>Por exemplo, se você quiser 18 de setembro de 2017 às 2:00 PM, especifique "2017-09-18T14:00:00" e selecione um fuso horário como hora padrão do Pacífico. Ou, especifique "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Observação:** Essa hora de início tem um máximo de 49 anos no futuro e deve seguir a [especificação de data e hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data e hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem um [deslocamento UTC](https://en.wikipedia.org/wiki/UTC_offset). Se você não selecionar um fuso horário, será necessário adicionar a letra "Z" no final sem espaços. Essa letra "Z" refere-se ao equivalente em [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para agendamentos simples, a hora de início é a primeira ocorrência, enquanto que, para agendamentos complexos, o gatilho não é disparado antes da hora de início. [*Quais são as maneiras que posso usar a data e hora de início?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   | **Hora de início** | `startTime` | Não | String | Forneça uma data e hora de início neste formato: <p><p>AAAA-MM-DDThh:mm:ss se você selecionar um fuso horário <p>- ou - <p>AAAA-MM-DDThh:mm:ssZ se você não selecionar um fuso horário <p>Por exemplo, se você quiser 18 de setembro de 2017 às 2:00 PM, especifique "2017-09-18T14:00:00" e selecione um fuso horário como hora padrão do Pacífico. Ou, especifique "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Observação:** Essa hora de início tem um máximo de 49 anos no futuro e deve seguir a [especificação de data e hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data e hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem um [deslocamento UTC](https://en.wikipedia.org/wiki/UTC_offset). Se você não selecionar um fuso horário, será necessário adicionar a letra "Z" no final sem espaços. Essa letra "Z" refere-se ao equivalente em [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para agendamentos simples, a hora de início é a primeira ocorrência, enquanto que, para agendamentos complexos, o gatilho não é disparado antes da hora de início. [*Quais são as maneiras que posso usar a data e hora de início?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    ||||||
 
 1.  Quando terminar, selecione **Salvar** na barra de ferramentas do designer.

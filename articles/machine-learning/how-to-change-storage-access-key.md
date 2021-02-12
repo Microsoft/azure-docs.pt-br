@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: dbc00d37b912ce7efb250aade0ea6790a1a227eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78829ae52d74cf6ec58c12779c51bca9a98e0af1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91296749"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450792"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Regenerar chaves de acesso da conta de armazenamento
 
@@ -26,13 +26,14 @@ Saiba como alterar as chaves de acesso para contas de armazenamento do Azure usa
 Para fins de segurança, talvez seja necessário alterar as chaves de acesso de uma conta de armazenamento do Azure. Quando você regenera a chave de acesso, Azure Machine Learning deve ser atualizado para usar a nova chave. Azure Machine Learning pode estar usando a conta de armazenamento para o armazenamento de modelo e como um repositório de armazenamento.
 
 > [!IMPORTANT]
-> As credenciais que acompanham os repositórios de armazenamento são salvas em seu Azure Key Vault associado ao espaço de trabalho. Se você tiver a [exclusão reversível](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview) habilitada para seu Key Vault, certifique-se de seguir este artigo para atualizar as credenciais. Cancelar o registro do repositório de armazenamento e registrá-lo novamente com o mesmo nome falhará.
+
+> As credenciais registradas com repositórios de armazenamento são salvas em seu Azure Key Vault associado ao espaço de trabalho. Se você tiver a [exclusão reversível](../key-vault/general/soft-delete-overview.md) habilitada para seu Key Vault, este artigo fornecerá instruções para atualizar as credenciais. Se você cancelar o registro do repositório de armazenamento e tentar registrá-lo novamente com o mesmo nome, essa ação falhará. Consulte [Ativar exclusão reversível para um cofre de chaves existente]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault) para saber como habilitar a exclusão reversível neste cenário.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um Workspace do Azure Machine Learning. Para obter mais informações, consulte o artigo [criar um espaço de trabalho](how-to-manage-workspace.md) .
 
-* O [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
+* O [SDK do Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
 
 * A [extensão da CLI do Azure Machine Learning](reference-azure-machine-learning-cli.md).
 
@@ -141,4 +142,4 @@ Para atualizar Azure Machine Learning para usar a nova chave, use as seguintes e
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre como registrar armazenamentos de dados, consulte a [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore%28class%29?view=azure-ml-py&preserve-view=true) referência de classe.
+Para obter mais informações sobre como registrar armazenamentos de dados, consulte a [`Datastore`](/python/api/azureml-core/azureml.core.datastore%28class%29?preserve-view=true&view=azure-ml-py) referência de classe.

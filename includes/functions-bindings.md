@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 574544df1ad89b277f2e07103b02b9b591fb3924
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 182f448ca852f114bb9564e04c1316119f2b6aa3
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91936081"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97506331"
 ---
 Esta tabela mostra as associações que são compatíveis com as versões principais do Azure Functions Runtime:
 
@@ -28,7 +28,7 @@ Esta tabela mostra as associações que são compatíveis com as versões princi
 | [Aplicativos Móveis](../articles/azure-functions/functions-bindings-mobile-apps.md)             |✔| | |✔|✔|
 | [Hubs de Notificação](../articles/azure-functions/functions-bindings-notification-hubs.md) |✔|| | |✔|
 | [Armazenamento de filas](../articles/azure-functions/functions-bindings-storage-queue.md)         |✔|✔|✔| |✔|
-| [RabbitMQ](https://github.com/azure/azure-functions-rabbitmq-extension)<sup>2</sup>             | |✔|✔| |✔|
+| [RabbitMQ](../articles/azure-functions/functions-bindings-rabbitmq.md)<sup>2</sup>             | |✔|✔| |✔|
 | [SendGrid](../articles/azure-functions/functions-bindings-sendgrid.md)                   |✔|✔| | |✔|
 | [Barramento de Serviço](../articles/azure-functions/functions-bindings-service-bus.md)             |✔|✔|✔| |✔|
 | [SignalR](../articles/azure-functions/functions-bindings-signalr-service.md)             | |✔| |✔|✔|

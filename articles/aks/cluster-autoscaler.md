@@ -4,12 +4,12 @@ description: Saiba como usar o dimensionador automático de cluster para dimensi
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: e644a931152c83a5232c8233d519f7807ab708af
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5f0754638be1aa29672b6a59218a6c9d695261a5
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542634"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223135"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Dimensionar automaticamente um cluster para atender às demandas de aplicativo no AKS (Serviço de Kubernetes do Azure)
 
@@ -97,7 +97,7 @@ Leva alguns minutos para atualizar o cluster e definir as configurações de dim
 > [!IMPORTANT]
 > Se você tiver vários pools de nós no cluster do AKS, pule para a seção [Dimensionamento automático com vários pools de agentes](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled). Os clusters com vários pools de agentes exigem o uso do conjunto de comandos `az aks nodepool` para alterar propriedades específicas do pool de nós em vez de `az aks`.
 
-Na etapa anterior para criar um cluster do AKS existente ou atualizar um pool de nós existente, a contagem mínima de nós do dimensionador automático de cluster foi definida como *1* , e a contagem máxima de nós foi definida como *3* . Conforme as demandas de aplicativo mudam, você pode precisar ajustar a contagem de nós do dimensionador automático de cluster.
+Na etapa anterior para criar um cluster do AKS existente ou atualizar um pool de nós existente, a contagem mínima de nós do dimensionador automático de cluster foi definida como *1*, e a contagem máxima de nós foi definida como *3*. Conforme as demandas de aplicativo mudam, você pode precisar ajustar a contagem de nós do dimensionador automático de cluster.
 
 Para alterar a contagem de nós, use o comando [az aks update][az-aks-update].
 
@@ -130,14 +130,15 @@ Você também pode configurar detalhes mais granulares do dimensionador automát
 | scale-down-unneeded-time         | Por quanto tempo um nó deve ser desnecessário para que seja elegível para redução vertical                  | 10 minutos    |
 | scale-down-unready-time          | Por quanto tempo um nó que não esteja preparada deve ser desnecessário para que seja elegível para redução vertical         | 20 minutos    |
 | scale-down-utilization-threshold | Nível de utilização de nó, definido como a soma dos recursos solicitados dividida pela capacidade, abaixo da qual um nó pode ser considerado para redução vertical | 0.5 |
-| max-graceful-termination-sec     | Número máximo de segundos que o dimensionador automático do cluster aguarda para encerramento do pod ao tentar reduzir verticalmente um nó. | 600 segundos   |
+| max-graceful-termination-sec     | Número máximo de segundos que o dimensionamento automática do cluster aguarda o encerramento do pod ao tentar reduzir verticalmente um nó | 600 segundos   |
 | balance-similar-node-groups      | Detecta pools de nós semelhantes e equilibra o número de nós entre eles                 | false         |
-| expansor                         | Tipo de [expansor](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) do pool de nós a ser usado no scale up. Valores possíveis: `most-pods` , `random` , `least-waste` | random | 
+| expansor                         | Tipo de [expansor](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) do pool de nós a ser usado no scale up. Valores possíveis: `most-pods` , `random` , `least-waste` , `priority` | random | 
 | ignorar nós-com armazenamento local    | Se verdadeiro o dimensionador de cluster não excluirá nós com pods com o armazenamento local, por exemplo, EmptyDir ou HostPath | true |
 | ignorar nós com pods de sistema      | Se verdadeiro o dimensionador de cluster não excluirá nós com pods de Kube-System (exceto para Daemonset ou pods de espelho) | true | 
-| Max-Empty-em massa-excluir            | Número máximo de nós vazios que podem ser excluídos ao mesmo tempo.                      | 10 nós      |
-| novo-pod-escalar verticalmente-atraso           | Para cenários como intermitência/escala de lote em que você não deseja que a CA atue antes que o Agendador kubernetes pudesse agendar todos os pods, você pode dizer ao CA para ignorar os pods não agendados antes que eles sejam uma determinada idade ".                                                                                                                | 10 segundos    |
-| Max-total-não lido-percentual     | Percentual máximo de nós não lidos no cluster. Depois que esse percentual for excedido, a CA interromperá as operações | 45% | 
+| Max-Empty-em massa-excluir            | Número máximo de nós vazios que podem ser excluídos ao mesmo tempo                       | 10 nós      |
+| novo-pod-escalar verticalmente-atraso           | Para cenários como intermitência/escala de lote em que você não deseja que a CA atue antes que o Agendador kubernetes pudesse agendar todos os pods, você pode dizer à CA para ignorar os pods não agendados antes que eles sejam uma determinada idade.                                                                                                                | 0 segundos    |
+| Max-total-não lido-percentual     | Percentual máximo de nós não lidos no cluster. Depois que esse percentual for excedido, a CA interromperá as operações | 45% |
+| Max-node-provisão-tempo          | Tempo máximo que a autoescalar aguarda até que um nó seja provisionado                           | 15 minutos    |   
 | Ok-total-contagem não lida           | Número de nós não lidos permitidos, independentemente do Max-total-unreadable-Percentage            | 3 nós       |
 
 > [!IMPORTANT]
@@ -249,7 +250,7 @@ Para saber mais sobre o que é registrado do dimensionador automático, leia as 
 
 O dimensionador automático de cluster pode ser usado junto com [vários pools de nós][aks-multiple-node-pools] habilitados. Siga este documento para saber como habilitar vários pools de nó e adicionar mais pools de nós a um cluster existente. Ao usar os dois recursos juntos, você habilita o dimensionador automático do cluster em cada pool de nós individual no cluster e pode passar regras exclusivas de dimensionamento automático para cada um deles.
 
-O comando abaixo presume que você seguiu as [instruções iniciais](#create-an-aks-cluster-and-enable-the-cluster-autoscaler) apresentadas anteriormente no documento e que você deseja atualizar a contagem máxima de um pool de nós existente de *3* para *5* . Use o comando [az aks nodepool update][az-aks-nodepool-update] para atualizar uma configuração existente de pool de nós.
+O comando abaixo presume que você seguiu as [instruções iniciais](#create-an-aks-cluster-and-enable-the-cluster-autoscaler) apresentadas anteriormente no documento e que você deseja atualizar a contagem máxima de um pool de nós existente de *3* para *5*. Use o comando [az aks nodepool update][az-aks-nodepool-update] para atualizar uma configuração existente de pool de nós.
 
 ```azurecli-interactive
 az aks nodepool update \

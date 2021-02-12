@@ -4,12 +4,12 @@ description: Neste tutorial, você implantará um cluster gerenciado do Service 
 ms.topic: tutorial
 ms.date: 08/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 0265a1393c697cbd767de13df1064a5eea957380
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: fd54e6f8c5272c3a8fe0e0162ca2e57968b24642
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316179"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791704"
 ---
 # <a name="tutorial-deploy-a-service-fabric-managed-cluster-preview"></a>Tutorial: Implantar um cluster gerenciado do Service Fabric (versão prévia)
 
@@ -37,7 +37,7 @@ Antes de começar este tutorial:
 
 * Instale o [SDK do Service Fabric e o módulo do PowerShell](service-fabric-get-started.md).
 
-* Instale o [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps?preserve-view=true&view=azps-4.7.0#azservicefabric) (ou posteriores).
+* Instale o [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps#azservicefabric) (ou posteriores).
 
 ## <a name="connect-to-your-azure-account"></a>Conectar-se à sua conta do Azure
 

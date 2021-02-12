@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 7fe5b8da0b6dfa69d04a5ad152aa34a8686d854f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1eb3728e9697cefc3621221e4a918656efcba3c6
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786098"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936627"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-python"></a>Início Rápido: Biblioteca de clientes do segredo do Azure Key Vault para Python
 
@@ -54,7 +54,7 @@ Este guia de início rápido usa a biblioteca de identidades do Azure com a CLI 
 1. Instale a biblioteca de identidades do Azure Active Directory:
 
     ```terminal
-    pip install azure.identity
+    pip install azure-identity
     ```
 
 
@@ -86,7 +86,7 @@ set KEY_VAULT_NAME=<your-key-vault-name>
 ````
 Windows PowerShell
 ```powershell
-$Env:KEY_VAULT_NAME=<your-key-vault-name>
+$Env:KEY_VAULT_NAME="<your-key-vault-name>"
 ```
 
 macOS ou Linux
@@ -136,7 +136,7 @@ print(" done.")
 
 ## <a name="run-the-code"></a>Executar o código
 
-Verifique se o código na seção anterior está em um arquivo chamado *kv_secrets.py* . Execute o código com o seguinte comando:
+Verifique se o código na seção anterior está em um arquivo chamado *kv_secrets.py*. Execute o código com o seguinte comando:
 
 ```terminal
 python kv_secrets.py
@@ -212,5 +212,5 @@ az group delete --resource-group KeyVault-PythonQS-rg
 - [Visão geral da o Cofre da Chave do Azure](../general/overview.md)
 - [Proteger o acesso a um cofre de chaves](../general/secure-your-key-vault.md)
 - [Guia do desenvolvedor do Azure Key Vault](../general/developers-guide.md)
-- [Melhores práticas do Azure Key Vault](../general/best-practices.md)
+- [Visão geral da segurança do Key Vault](../general/security-overview.md)
 - [Autenticar com o Key Vault](../general/authentication.md)

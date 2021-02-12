@@ -7,17 +7,18 @@ author: rdeltcheva
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 81cbbe06db2426cda8fde4a8fa0bca2cd8f097bb
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 277ed8ad5f9888daa911cb3b5c7dcf00fd285bf4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144144"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489149"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Alta disponibilidade do SAP HANA em VMs do Azure no Red Hat Enterprise Linux
 
@@ -108,7 +109,7 @@ Para implantar o modelo, siga estas etapas:
     * **Tamanho do Sistema SAP**: Insira o número de SAPS que o novo sistema irá fornecer. Se não tiver certeza de quantos SAPS o sistema precisará, pergunte ao Parceiro de Tecnologia SAP ou ao Integrador de Sistemas.
     * **Disponibilidade do Sistema**: Selecione **HA**.
     * **Chave de Admin Username, a senha de administrador ou SSH**: É criado um novo usuário que pode ser usado para entrar no computador.
-    * **ID da Sub-rede**: Se você deseja implantar a VM em uma rede virtual existente em que você tem uma sub-rede definida para a qual a VM deve ser designada, nomeie a identificação dessa sub-rede específica. A ID geralmente é semelhante a **/subscriptions/ \<subscription ID> /resourceGroups/ \<resource group name> /Providers/Microsoft.Network/virtualNetworks/ \<virtual network name> /Subnets/ \<subnet name> **. Deixe em branco, se você quiser criar uma nova rede virtual
+    * **ID da Sub-rede**: Se você deseja implantar a VM em uma rede virtual existente em que você tem uma sub-rede definida para a qual a VM deve ser designada, nomeie a identificação dessa sub-rede específica. A ID geralmente é semelhante a **/subscriptions/ \<subscription ID> /resourceGroups/ \<resource group name> /Providers/Microsoft.Network/virtualNetworks/ \<virtual network name> /Subnets/ \<subnet name>**. Deixe em branco, se você quiser criar uma nova rede virtual
 
 ### <a name="manual-deployment"></a>Implantação manual
 
@@ -125,7 +126,7 @@ Para implantar o modelo, siga estas etapas:
 1. Adicione discos de dados.
 
 > [!IMPORTANT]
-> Não há suporte para IP flutuante em uma configuração de IP secundário de NIC em cenários de balanceamento de carga. Para obter detalhes, consulte [limitações do Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Se você precisar de um endereço IP adicional para a VM, implante uma segunda NIC.    
+> Não há suporte para IP flutuante em uma configuração de IP secundário de NIC em cenários de balanceamento de carga. Para obter detalhes, consulte [limitações do Azure Load Balancer](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Se você precisar de um endereço IP adicional para a VM, implante uma segunda NIC.    
 
 > [!Note]
 > Quando as VMs sem endereços IP públicos forem colocadas no pool de back-end do Standard Azure Load Balancer (sem endereço IP público), não haverá nenhuma conectividade de saída com a Internet se não houver configuração adicional a fim de permitir o roteamento para pontos de extremidade públicos. Para obter detalhes sobre como alcançar conectividade de saída, veja [Conectividade de ponto de extremidade público para Máquinas Virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
@@ -152,7 +153,7 @@ Para implantar o modelo, siga estas etapas:
 
       1. Abra o balanceador de carga, selecione **investigações de integridade** e selecione **Adicionar**.
       1. Insira o nome da nova investigação de integridade (por exemplo, **hana-hp**).
-      1. Selecione **TCP** como o protocolo e porta 625**03**. Mantenha o valor do **Intervalo** como 5 e o valor **Limite não íntegro** como 2.
+      1. Selecione **TCP** como o protocolo e porta 625 **03**. Mantenha o valor do **Intervalo** como 5 e o valor **Limite não íntegro** como 2.
       1. Selecione **OK**.
 
    1. Em seguida, crie as regras de balanceamento de carga:
@@ -188,41 +189,41 @@ Para implantar o modelo, siga estas etapas:
 
       1. Abra o balanceador de carga, selecione **investigações de integridade** e selecione **Adicionar**.
       1. Insira o nome da nova investigação de integridade (por exemplo, **hana-hp**).
-      1. Selecione **TCP** como o protocolo e porta 625**03**. Mantenha o valor do **Intervalo** como 5 e o valor **Limite não íntegro** como 2.
+      1. Selecione **TCP** como o protocolo e porta 625 **03**. Mantenha o valor do **Intervalo** como 5 e o valor **Limite não íntegro** como 2.
       1. Selecione **OK**.
 
    1. Para o SAP HANA 1.0, crie as regras de balanceamento de carga:
 
       1. Abra o balanceador de carga, selecione **Regras de balanceamento de carga** e selecione **Adicionar**.
-      1. Insira o nome da nova regra do balanceador de carga (por exemplo, hana-lb-3**03**15).
+      1. Insira o nome da nova regra do balanceador de carga (por exemplo, hana-lb-3 **03** 15).
       1. Selecione o endereço IP de front-end, o pool de back-end e a investigação de integridade que você criou anteriormente (por exemplo, **hana-frontend**).
-      1. Mantenha o **Protocolo** definido como **TCP** e insira a porta 3**03**15.
+      1. Mantenha o **Protocolo** definido como **TCP** e insira a porta 3 **03** 15.
       1. Aumente o **tempo limite de ociosidade** para 30 minutos.
       1. Certifique-se de **habilitar IP Flutuante**.
       1. Selecione **OK**.
-      1. Repita essas etapas para a porta 3**03**17.
+      1. Repita essas etapas para a porta 3 **03** 17.
 
    1. Para o SAP HANA 2.0, crie as regras de balanceamento de carga para o banco de dados do sistema:
 
       1. Abra o balanceador de carga, selecione **Regras de balanceamento de carga** e selecione **Adicionar**.
-      1. Insira o nome da nova regra do balanceador de carga (por exemplo, hana-lb-3**03**13).
+      1. Insira o nome da nova regra do balanceador de carga (por exemplo, hana-lb-3 **03** 13).
       1. Selecione o endereço IP de front-end, o pool de back-end e a investigação de integridade que você criou anteriormente (por exemplo, **hana-frontend**).
-      1. Mantenha o **Protocolo** definido como **TCP** e insira a porta 3**03**13.
+      1. Mantenha o **Protocolo** definido como **TCP** e insira a porta 3 **03** 13.
       1. Aumente o **tempo limite de ociosidade** para 30 minutos.
       1. Certifique-se de **habilitar IP Flutuante**.
       1. Selecione **OK**.
-      1. Repita essas etapas para a porta 3**03**14.
+      1. Repita essas etapas para a porta 3 **03** 14.
 
    1. Para o SAP HANA 2.0, primeiro crie as regras de balanceamento de carga para o banco de dados do locatário:
 
       1. Abra o balanceador de carga, selecione **Regras de balanceamento de carga** e selecione **Adicionar**.
-      1. Insira o nome da nova regra do balanceador de carga (por exemplo hana-lb-3**03**40).
+      1. Insira o nome da nova regra do balanceador de carga (por exemplo hana-lb-3 **03** 40).
       1. Selecione o endereço IP de front-end, o pool de back-end e a investigação de integridade criados anteriormente (por exemplo, **hana-frontend**).
-      1. Mantenha o **Protocolo** definido como **TCP** e insira a porta 3**03**40.
+      1. Mantenha o **Protocolo** definido como **TCP** e insira a porta 3 **03** 40.
       1. Aumente o **tempo limite de ociosidade** para 30 minutos.
       1. Certifique-se de **habilitar IP Flutuante**.
       1. Selecione **OK**.
-      1. Repita essas etapas para portas 3**03**41 e 3**03**42.
+      1. Repita essas etapas para portas 3 **03** 41 e 3 **03** 42.
 
 Para obter mais informações sobre as portas necessárias para o SAP HANA, leia o capítulo [Conexões aos bancos de dados de locatário](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) no guia [Bancos de dados de locatário do SAP HANA](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) ou [Nota SAP 2388694][2388694].
 
@@ -582,7 +583,7 @@ clone clone-max=2 clone-node-max=1 interleave=true
 Em seguida, crie os recursos HANA.
 
 > [!NOTE]
-> Este artigo contém referências ao termo *subordinado*, um termo que a Microsoft não usa mais. Quando o termo for removido do software, nós o removeremos deste artigo.
+> Este artigo contém referências ao termo *subordinado*, um termo que a Microsoft não usa mais. Quando o termo for removido do software, nós o removeremos deste artigo.
 
 Se estiver criando um cluster no **RHEL 7. x**, use os seguintes comandos:  
 
@@ -723,7 +724,7 @@ Resource Group: g_ip_HN1_03
 ### <a name="test-the-azure-fencing-agent"></a>Testar o agente de isolamento do Azure
 
 > [!NOTE]
-> Este artigo contém referências ao termo *subordinado*, um termo que a Microsoft não usa mais. Quando o termo for removido do software, nós o removeremos deste artigo.  
+> Este artigo contém referências ao termo *subordinado*, um termo que a Microsoft não usa mais. Quando o termo for removido do software, nós o removeremos deste artigo.  
 
 Estado do recurso antes de iniciar o teste:
 

@@ -1,19 +1,16 @@
 ---
 title: Práticas recomendadas de gerenciamento de cluster-Azure HDInsight
 description: Conheça as práticas recomendadas para o gerenciamento de clusters HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: fc2f9e5408dd760b48fc63c4021230446fe40de9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 27f390c3634887dd616c62dbbd4ad85209efde46
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542311"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933697"
 ---
 # <a name="hdinsight-cluster-management-best-practices"></a>Práticas recomendadas de gerenciamento de cluster HDInsight
 
@@ -49,7 +46,7 @@ Conheça as práticas recomendadas para o gerenciamento de clusters HDInsight.
 
 | Erro | Mais informações |
 |---|---|
-| Sem cota | Há cotas para o número de cotas que você pode criar em sua assinatura em cada região. Para obter mais informações, consulte [planejamento de capacidade: cotas](./hdinsight-capacity-planning.md). |
+| Sem cota | Há cotas para o número de núcleos que você pode criar em sua assinatura em cada região. Para obter mais informações, consulte [planejamento de capacidade: cotas](./hdinsight-capacity-planning.md). |
 | Não há mais endereços IP disponíveis | Cada VNet tem um número limitado de endereços IP. Quando você cria um cluster HDInsight, cada nó (incluindo Zookeeper e nós de gateway) usa alguns desses endereços IP alocados. Quando todos os endereços IP estiverem em uso, você encontrará esse erro.  |
 | As regras do NSG (grupo de segurança de rede) não permitem a comunicação com provedores de recursos do HDInsight | Se você usar NSGs ou UDRs (rotas definidas pelo usuário) para controlar o tráfego de entrada para o cluster HDInsight, deverá garantir que o cluster possa se comunicar com os serviços críticos de integridade e gerenciamento do Azure. Para obter mais informações, consulte [marcas de serviço do NSG (grupo de segurança de rede) para o Azure HDInsight](./hdinsight-service-tags.md) |
 | Reutilização do nome do cluster | Ao usar um nome de cluster que você usou antes, você precisa aguardar X número de minutos antes de recriar o cluster. Caso contrário, você verá uma mensagem informando que o recurso já existe. |

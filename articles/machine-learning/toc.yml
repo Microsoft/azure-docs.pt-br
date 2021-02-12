@@ -70,10 +70,6 @@
         - name: Rotular dados de imagem
           displayName: 'tag, tagging, images'
           href: tutorial-labeling.md
-    - name: SDK do R
-      items:
-        - name: Criar seu primeiro experimento do ML (R)
-          href: tutorial-1st-r-experiment.md
     - name: CLI
       items:
         - name: Treinar e implantar com a CLI
@@ -84,6 +80,18 @@
           href: tutorial-setup-vscode-extension.md
         - name: Treinar e implantar um modelo de classificação de imagem do TensorFlow
           href: tutorial-train-deploy-image-classification-model-vscode.md
+    - name: Integração com o Microsoft Power BI
+      items:
+        - name: 'Parte 1: Treinar e implantar modelos'
+          items:
+            - name: Usar Notebooks (código)
+              href: tutorial-power-bi-custom-model.md
+            - name: Usar o designer
+              href: tutorial-power-bi-designer-model.md
+            - name: Usar ML automatizado
+              href: tutorial-power-bi-automated-model.md
+        - name: 'Parte 2: Consumir no Power BI'
+          href: /power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context
 - name: Exemplos
   items:
     - name: Jupyter Notebooks
@@ -98,7 +106,7 @@
     - name: Exemplos de MLOps de ponta a ponta
       href: 'https://github.com/microsoft/MLOps'
     - name: Conjunto de Dados em Aberto no Azure (público)
-      href: /azure/open-datasets/samples?context=azure/machine-learning/context/ml-context
+      href: ../open-datasets/samples.md?context=azure%2fmachine-learning%2fcontext%2fml-context
 - name: Conceitos
   items:
     - name: Planejar e gerenciar custos
@@ -153,6 +161,8 @@
       href: concept-model-management-and-deployment.md
     - name: Portabilidade do modelo (ONNX)
       href: concept-onnx.md
+    - name: Integrações de software livre
+      href: concept-open-source.md
     - name: Pipelines de Machine Learning
       href: concept-ml-pipelines.md
     - name: Segurança
@@ -162,6 +172,8 @@
           href: concept-enterprise-security.md
         - name: Linha de base de segurança
           href: security-baseline.md
+        - name: Controles de segurança do Azure Policy
+          href: ./security-controls-policy.md
     - name: ML responsável
       items:
         - name: Visão geral do ML responsável
@@ -283,6 +295,9 @@
         - name: Integração do Git
           displayName: github gitlab
           href: concept-train-model-git-integration.md
+        - name: Como solucionar problemas de ambientes
+          displayName: 'troubleshoot, envrionment, debug, image'
+          href: how-to-troubleshoot-environments.md
     - name: Trabalhar com dados
       items:
         - name: Dados do rótulo
@@ -340,14 +355,6 @@
         - name: Ajustar hiperparâmetros
           displayName: 'parameter, hyperparameter, hyperdrive'
           href: how-to-tune-hyperparameters.md
-        - name: Trabalhar com o MLflow
-          items:
-            - name: Acompanhar experimentos com o MLflow
-              displayName: 'log, monitor, deploy, metrics,  model registry, register'
-              href: how-to-use-mlflow.md
-            - name: Acompanhar as execuções do Azure Databricks com o MLflow
-              displayName: 'log, monitor, deploy, metrics, databricks'
-              href: how-to-use-mlflow-azure-databricks.md
         - name: Scikit-learn
           href: how-to-train-scikit-learn.md
         - name: TensorFlow
@@ -358,6 +365,8 @@
           href: how-to-train-pytorch.md
         - name: Treinar com uma imagem personalizada do Docker
           href: how-to-train-with-custom-image.md
+        - name: Migrar dos Avaliadores para o ScriptRunConfig
+          href: how-to-migrate-from-estimators-to-scriptrunconfig.md
         - name: Acompanhar e monitorar o treinamento
           items:
             - name: 'Iniciar, monitorar ou cancelar execuções'
@@ -388,6 +397,17 @@
           href: how-to-use-secrets-in-runs.md
         - name: Aprendizado de reforço
           href: how-to-use-reinforcement-learning.md
+    - name: Trabalhar com o MLflow
+      items:
+        - name: Acompanhar experimentos com o MLflow
+          displayName: 'log, monitor, metrics, model registry, register'
+          href: how-to-use-mlflow.md
+        - name: Acompanhar as execuções do Azure Databricks com o MLflow
+          displayName: 'log, monitor, deploy, metrics, databricks'
+          href: how-to-use-mlflow-azure-databricks.md
+        - name: Implantar modelos de MLflow
+          displayName: 'log, monitor, deploy, metrics, databricks, aci, aks'
+          href: how-to-deploy-mlflow-models.md
     - name: Machine Learning automatizado
       displayName: 'automl, auto ml'
       items:
@@ -396,6 +416,9 @@
           href: how-to-configure-auto-train.md
         - name: Usar o ML automatizado (interface)
           href: how-to-use-automated-ml-for-ml-models.md
+        - name: Usar ML automatizado com o Databricks
+          displayName: automl
+          href: how-to-configure-databricks-automl-environment.md
         - name: Usar destinos de computação remota
           displayName: automl automated auto ml
           href: how-to-auto-train-remote.md
@@ -413,6 +436,8 @@
           href: how-to-use-automlstep-in-pipelines.md
         - name: Entender os gráficos e as métricas
           href: how-to-understand-automated-ml.md
+        - name: Usar o modelo ONNX no aplicativo .NET
+          href: how-to-use-automl-onnx-model-dotnet.md
     - name: Implantar e fornecer modelos
       items:
         - name: Onde e como implantar
@@ -444,11 +469,13 @@
             - name: Usar imagem personalizada do Docker
               href: how-to-deploy-custom-docker-image.md
             - name: IoT Edge
-              href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
+              href: ../iot-edge/tutorial-deploy-machine-learning.md?context=azure%2fmachine-learning%2fservice%2fcontext%2fml-context
             - name: Inferência de FPGA
               href: how-to-deploy-fpga-web-service.md
-        - name: Solucionar problemas e depurar
+        - name: Solucionando problemas da implantação
           href: how-to-troubleshoot-deployment.md
+        - name: Como solucionar problemas da implantação (local)
+          href: how-to-troubleshoot-deployment-local.md
         - name: Consumir um serviço Web
           displayName: create client consume request response synchronous
           href: how-to-consume-web-service.md
@@ -489,13 +516,11 @@
       displayName: pipelines
       items:
         - name: Criar pipelines do ML (Python)
-          href: how-to-create-your-first-pipeline.md
+          href: how-to-create-machine-learning-pipelines.md
         - name: Movendo dados para e entre as etapas de pipeline de ML (Python)
           href: how-to-move-data-in-out-of-pipelines.md
         - name: Implantar pipelines de ML (Python)
           href: how-to-deploy-pipelines.md
-        - name: Agendar um pipeline (Python)
-          href: how-to-schedule-pipelines.md
         - name: Disparar um pipeline
           href: how-to-trigger-published-pipeline.md
         - name: Designer (arrastar e soltar)
@@ -515,12 +540,12 @@
             - name: Executar código Python
               displayName: 'feature extraction, feature engineering'
               href: how-to-designer-python.md
-        - name: Depurar e solucionar problemas de pipelines
+        - name: Como solucionar problemas de pipelines
           displayName: designer
           href: how-to-debug-pipelines.md
         - name: Registrar dados de pipeline no Application Insights
           href: how-to-log-pipelines-application-insights.md
-        - name: Depurar e solucionar problemas de etapa de execução paralela
+        - name: Como solucionar problemas do ParallelRunStep
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md
     - name: Azure Pipelines para CI/CD
@@ -547,7 +572,7 @@
   items:
     - name: SDK do Python
       displayName: 'api, core, package, python, class'
-      href: 'https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py'
+      href: /python/api/overview/azure/ml/intro?view=azure-ml-py
     - name: SDK do R
       displayName: 'api, core, package, R, class'
       href: 'https://azure.github.io/azureml-sdk-for-r/reference/index.html'
@@ -555,7 +580,7 @@
       displayName: 'extension, command line, command-line, az, ci/cd, automate, automated'
       href: reference-azure-machine-learning-cli.md
     - name: API REST
-      href: 'https://docs.microsoft.com/rest/api/azureml/'
+      href: /rest/api/azureml/
     - name: Referência de módulo do designer
       displayName: 'module, reference, algorithm, studio'
       href: algorithm-module-reference/module-reference.md
@@ -580,13 +605,14 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
+    - name: Limites de serviço
+      href: resource-limits-quotas-capacity.md
     - name: Disponibilidade regional
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Problemas conhecidos
-      displayName: 'bugs, errors, troubleshoot'
-      href: resource-known-issues.md
     - name: Fórum de usuários
-      href: 'https://docs.microsoft.com/answers/topics/azure-machine-learning.html'
+      href: /answers/topics/azure-machine-learning.html
+    - name: Microsoft Learn
+      href: /learn/browse/?expanded=azure&products=azure-machine-learning
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning-service'
     - name: Comparar os nossos produtos de ML

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: f5bedde9e5e095b1b8637a09263bf18b06bcddea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c75fcd1fd20e41df5018fcaa07fe83051d7e5f1a
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532334"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740361"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Como cancelar o registro de um dispositivo do Provisionamento de Dispositivos no Hub IoT
 
@@ -26,7 +26,7 @@ O registro no serviço de provisionamento de dispositivos permite que um disposi
 
 ## <a name="disallow-devices-by-using-an-individual-enrollment-entry"></a>Não permitir dispositivos usando uma entrada de registro individual
 
-Os registros individuais se aplicam a um único dispositivo e podem usar certificados X.509 ou tokens SAS (em um TPM real ou virtual) como o mecanismo de atestado. (Os dispositivos que usam tokens SAS como seu mecanismo de atestado podem ser provisionados apenas por meio de um registro individual.) Para não permitir um dispositivo que tenha um registro individual, você pode desabilitar ou excluir sua entrada de registro. 
+Os registros individuais se aplicam a um único dispositivo e podem usar certificados X. 509, chaves de endosso do TPM (em um TPM real ou virtual) ou tokens SAS como o mecanismo de atestado. Para não permitir um dispositivo que tenha um registro individual, você pode desabilitar ou excluir sua entrada de registro. 
 
 Para desautorizar temporariamente o dispositivo desabilitando sua entrada de registro: 
 
@@ -56,7 +56,7 @@ Depois de concluir o procedimento, você deve ver sua entrada removida da lista 
 
 ## <a name="disallow-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group"></a>Não permitir um certificado de autoridade de certificação X. 509 intermediário ou raiz usando um grupo de registro
 
-Os certificados X.509 normalmente são organizados em uma cadeia de certificados de confiança. Se um certificado em qualquer estágio de uma cadeia for comprometido, a relação de confiança é quebrada. O certificado deve ser não permitido para impedir que o serviço de provisionamento de dispositivos provisione dispositivos downstream em qualquer cadeia que contenha esse certificado. Para saber mais sobre certificados X.509 e como eles são usados com o serviço de provisionamento, consulte [Certificados X.509](./concepts-security.md#x509-certificates). 
+Os certificados X.509 normalmente são organizados em uma cadeia de certificados de confiança. Se um certificado em qualquer estágio de uma cadeia for comprometido, a relação de confiança é quebrada. O certificado deve ser não permitido para impedir que o serviço de provisionamento de dispositivos provisione dispositivos downstream em qualquer cadeia que contenha esse certificado. Para saber mais sobre certificados X.509 e como eles são usados com o serviço de provisionamento, consulte [Certificados X.509](./concepts-x509-attestation.md#x509-certificates). 
 
 Um grupo de registros é uma entrada para dispositivos que compartilham um mecanismo de atestado comum de certificados X.509 assinados pela mesma AC intermediária ou raiz. A entrada de grupo de registros está configurada com o certificado x. 509 associado com a autoridade de certificação raiz ou intermediária. A entrada também é configurada com quaisquer valores de configuração, como um estado gêmeo e uma conexão de Hub IoT, que são compartilhados pelos dispositivos com esse certificado em sua cadeia de certificados. Para não permitir o certificado, você pode desabilitar ou excluir seu grupo de registro.
 
@@ -110,4 +110,4 @@ Após a criação bem-sucedida de seu registro, você deverá ver o registro do 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-O cancelamento do registro também faz parte do processo de desprovisionamento maior. O desprovisionamento de um dispositivo inclui tanto o cancelamento do registro do serviço de provisionamento como o cancelamento do registro do Hub IoT. Para saber mais sobre o processo completo, consulte [Como desprovisionar dispositivos autoprovisionados anteriormente](how-to-unprovision-devices.md) 
+O cancelamento do registro também faz parte do processo de desprovisionamento maior. O desprovisionamento de um dispositivo inclui tanto o cancelamento do registro do serviço de provisionamento como o cancelamento do registro do Hub IoT. Para saber mais sobre o processo completo, consulte [Como desprovisionar dispositivos autoprovisionados anteriormente](how-to-unprovision-devices.md)

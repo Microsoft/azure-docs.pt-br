@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/17/2019
 ms.author: Zhchia
-ms.openlocfilehash: 3c2fba1cba2c06e07b262e37eac651afb5c102cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: f465438a6be80a1b487a4df7d3ee8bd38be9c102
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317476"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354182"
 ---
 # <a name="tutorial-configure-workteam--for-automatic-user-provisioning"></a>Tutorial: configurar o workteam para o provisionamento automático de usuário
 
@@ -60,7 +60,7 @@ Antes de configurar o workteam para o provisionamento automático de usuário co
 
     ![Captura de tela da parte inferior da seção de configurações com o ícone de engrenagem de provisionamento de usuário S C I M chamado.](media/workteam-provisioning-tutorial/icon.png)
 
-3. Copie a **URL base** e o **token de portador**. Esses valores serão inseridos no campo **URL do locatário**e **token secreto** na guia provisionamento do aplicativo workteam no portal do Azure.
+3. Copie a **URL base** e o **token de portador**. Esses valores serão inseridos no campo **URL do locatário** e **token secreto** na guia provisionamento do aplicativo workteam no portal do Azure.
 
     ![Captura de tela da caixa de diálogo Configurações S C I M com as caixas de texto BASE U R L e TOKEN de PORTAdor chamada out.](media/workteam-provisioning-tutorial/scim.png)
 
@@ -71,11 +71,11 @@ Para configurar o workteam para o provisionamento automático de usuário com o 
 
 **Para adicionar o workteam da Galeria de aplicativos do Azure AD, execute as seguintes etapas:**
 
-1. No **[portal do Azure](https://portal.azure.com)**, no painel de navegação à esquerda, selecione **Azure Active Directory**.
+1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação à esquerda, selecione **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os aplicativos**.
+2. Vá para **Aplicativos da empresa** , em seguida, selecione **Todos os aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -83,7 +83,7 @@ Para configurar o workteam para o provisionamento automático de usuário com o 
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, insira **workteam**, selecione **workteam** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, insira **workteam** , selecione **workteam** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Workteam na lista de resultados](common/search-new-app.png)
 
@@ -116,11 +116,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![URL do locatário + token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção - **Enviar uma notificação por email quando ocorrer uma falha**.
+6. No campo **Notificação por Email** , insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção - **Enviar uma notificação por email quando ocorrer uma falha**.
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Salvar**.
+7. Clique em **Save** (Salvar).
 
 8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para workteam**.
 

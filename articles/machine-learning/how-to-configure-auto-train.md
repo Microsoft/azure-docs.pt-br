@@ -1,7 +1,7 @@
 ---
 title: Criar experimentos de ML automatizados
 titleSuffix: Azure Machine Learning
-description: O aprendizado de máquina automatizado escolhe um algoritmo para você e gera um modelo pronto para implantação. Saiba quais opções você pode usar para configurar experimentos de aprendizado de máquina automatizados.
+description: Saiba como definir fontes de dados, cálculos e definições de configuração para seus experimentos de aprendizado de máquina automatizados.
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
@@ -10,18 +10,18 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python,contperfq1
-ms.openlocfilehash: fc5b958813ea1107d98525b6dfc1b0b56c9c5400
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
+ms.openlocfilehash: 8ac69e6961af4991b250320b7af7cf5a345d3efb
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091195"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526459"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentos de ML automatizado no Python
 
 
-Neste guia, vamos mostrar como definir várias configurações dos seus experimentos de machine learning automatizado com o [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). O aprendizado de máquina automatizado escolhe um algoritmo e hiperparâmetros para você e gera um modelo pronto para implantação. Há várias opções que você pode usar para configurar experimentos de aprendizado de máquina automatizados.
+Neste guia, vamos mostrar como definir várias configurações dos seus experimentos de machine learning automatizado com o [SDK do Azure Machine Learning](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). O aprendizado de máquina automatizado escolhe um algoritmo e hiperparâmetros para você e gera um modelo pronto para implantação. Há várias opções que você pode usar para configurar experimentos de aprendizado de máquina automatizados.
 
 Para exibir exemplos de experimentos de aprendizado de máquina automatizados, consulte [tutorial: treinar um modelo de classificação com aprendizado de máquina automatizado](tutorial-auto-train-models.md) ou [treinar modelos com o aprendizado de máquina automatizado na nuvem](how-to-auto-train-remote.md).
 
@@ -46,7 +46,7 @@ Para este artigo, você precisa,
     Para instalar o SDK, você pode, 
     * Crie uma instância de computação, que instala automaticamente o SDK e é pré-configurado para fluxos de trabalho de ML. Consulte [criar e gerenciar uma instância de computação Azure Machine Learning](how-to-create-manage-compute-instance.md) para obter mais informações. 
 
-    * [Instale o SDK por conta própria](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true). Apenas não se esqueça de incluir o `automl` extra. 
+    * [Instale o `automl` pacote](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment), que inclui a [instalação padrão](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py#default-install) do SDK.
 
 ## <a name="select-your-experiment-type"></a>Selecionar o tipo de experimento
 
@@ -65,16 +65,16 @@ automl_config = AutoMLConfig(task = "classification")
 
 O aprendizado de máquina automatizado é compatível com os dados que residem na área de trabalho local ou na nuvem no Armazenamento de Blobs do Azure. Os dados podem ser lidos em um **DataFrame do Pandas** ou em um **TabularDataset do Azure Machine Learning**. [Saiba mais sobre conjuntos de dados](how-to-create-register-datasets.md).
 
-Requisitos para dados de treinamento:
+Requisitos para dados de treinamento no Machine Learning:
 - Os dados devem estar em formato de tabela.
 - O valor que você quer prever, coluna de destino, deve estar presente nos dados.
 
-**Para experimentos remotos**, os dados de treinamento devem ser acessíveis a partir da computação remota. AutoML só aceita [Azure Machine Learning TabularDatasets](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) ao trabalhar em uma computação remota. 
+**Para experimentos remotos**, os dados de treinamento devem ser acessíveis a partir da computação remota. O AutoML só aceita [TabularDatasets do Azure Machine Learning](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) ao trabalhar em uma computação remota. 
 
-Azure Machine Learning conjuntos de valores expõem a funcionalidade para:
+Os conjuntos de dados do Azure Machine Learning expõem a funcionalidade para:
 
 * Transfira facilmente dados de arquivos estáticos ou de fontes de URL para seu espaço de trabalho.
-* Disponibilize seus dados para treinar scripts ao executar recursos de computação em nuvem. Confira [como treinar com conjuntos](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) de dados para obter um exemplo de como usar a `Dataset` classe para montar o seu destino de computação remota.
+* Disponibilizar dados para scripts de treinamento ao executar recursos de computação em nuvem. Confira [como treinar com conjuntos](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) de dados para obter um exemplo de como usar a `Dataset` classe para montar o seu destino de computação remota.
 
 O código a seguir cria um TabularDataset de uma URL da Web. Consulte [criar um TabularDatasets](how-to-create-register-datasets.md#create-a-tabulardataset) para obter exemplos de código sobre como criar conjuntos de itens de outras fontes, como arquivos locais e repositórios de armazenamento.
 
@@ -96,9 +96,9 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 ## <a name="training-validation-and-test-data"></a>Dados de treinamento, validação e teste
 
-Você pode especificar **conjuntos de validação e de treinamento** separados diretamente no `AutoMLConfig` Construtor. Saiba mais sobre [como configurar divisões de dados e validação cruzada](how-to-configure-cross-validation-data-splits.md) para seus experimentos de AutoML. 
+Você pode especificar **dados de treinamento e conjuntos de dados de validação** separados diretamente no `AutoMLConfig` Construtor. Saiba mais sobre [como configurar divisões de dados e validação cruzada](how-to-configure-cross-validation-data-splits.md) para seus experimentos de AutoML. 
 
-Se você não especificar explicitamente um `validation_data` parâmetro ou `n_cross_validation` , o AutoML aplicará técnicas padrão para determinar como a validação é executada. Essa determinação depende do número de linhas no conjunto de registros atribuído ao seu `training_data` parâmetro. 
+Se você não especificar explicitamente um `validation_data` parâmetro ou `n_cross_validation` , o ml automatizado aplicará técnicas padrão para determinar como a validação é executada. Essa determinação depende do número de linhas no conjunto de registros atribuído ao seu `training_data` parâmetro. 
 
 |&nbsp;Tamanho dos dados de treinamento &nbsp;| Técnica de validação |
 |---|-----|
@@ -109,15 +109,15 @@ Neste momento, você precisa fornecer seus próprios dados de **teste** para ava
 
 ## <a name="compute-to-run-experiment"></a>Computação para executar o experimento
 
-Em seguida, determine onde o modelo será treinado. Um experimento de treinamento automatizado do Machine Learning pode ser executado nas opções de computação a seguir. Conheça os [prós e contras das opções de computação local e remota](concept-automated-ml.md#local-remote) . 
+Em seguida, determine onde o modelo será treinado. Um experimento de treinamento de aprendizado de máquina automatizado pode ser executado nas opções de computação a seguir. Conheça os [prós e contras das opções de computação local e remota](concept-automated-ml.md#local-remote). 
 
-* Seu computador **local** , como uma área de trabalho local ou um laptop, geralmente quando você tem um pequeno conjunto de um e ainda está no estágio de exploração. Consulte [este bloco de anotações](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb) para obter um exemplo de computação local. 
+* Seu computador **local** , como uma área de trabalho local ou um laptop, geralmente quando você tem um pequeno conjunto de um e ainda está no estágio de exploração. Consulte [este notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb) para obter um exemplo de computação local. 
  
 * Um computador **remoto** na nuvem – [Azure Machine Learning computação gerenciada](concept-compute-target.md#amlcompute) é um serviço gerenciado que permite a capacidade de treinar modelos de aprendizado de máquina em clusters de máquinas virtuais do Azure. 
 
-    Consulte [este bloco de anotações](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) para obter um exemplo remoto usando Azure Machine Learning computação gerenciada. 
+    Consulte [este notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) para obter um exemplo remoto usando computação gerenciada do Azure Machine Learning. 
 
-* Um **cluster Azure Databricks** na sua assinatura do Azure. Você pode encontrar mais detalhes aqui- [configurar Azure Databricks cluster para o ml automatizado](how-to-configure-environment.md#aml-databricks). Consulte este [site do GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) para obter exemplos de notebooks com Azure Databricks.
+* Um **cluster Azure Databricks** na sua assinatura do Azure. Você pode encontrar mais detalhes em [configurar um cluster de Azure Databricks para o ml automatizado](how-to-configure-databricks-automl-environment.md). Consulte este [site do GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) para obter exemplos de notebooks com Azure Databricks.
 
 <a name='configure-experiment'></a>
 
@@ -130,36 +130,33 @@ Alguns exemplos incluem:
 1. Experimento de classificação usando AUC ponderado como a métrica primária com tempo limite de experimento definido como 30 minutos e 2 dobras de validação cruzada.
 
    ```python
-       automl_classifier=AutoMLConfig(
-       task='classification',
-       primary_metric='AUC_weighted',
-       experiment_timeout_minutes=30,
-       blocked_models=['XGBoostClassifier'],
-       training_data=train_data,
-       label_column_name=label,
-       n_cross_validations=2)
+       automl_classifier=AutoMLConfig(task='classification',
+                                      primary_metric='AUC_weighted',
+                                      experiment_timeout_minutes=30,
+                                      blocked_models=['XGBoostClassifier'],
+                                      training_data=train_data,
+                                      label_column_name=label,
+                                      n_cross_validations=2)
    ```
 1. O exemplo a seguir é um experimento de regressão definido para terminar após 60 minutos com cinco dobras cruzadas de validação.
 
    ```python
-      automl_regressor = AutoMLConfig(
-      task='regression',
-      experiment_timeout_minutes=60,
-      allowed_models=['KNN'],
-      primary_metric='r2_score',
-      training_data=train_data,
-      label_column_name=label,
-      n_cross_validations=5)
+      automl_regressor = AutoMLConfig(task='regression',
+                                      experiment_timeout_minutes=60,
+                                      allowed_models=['KNN'],
+                                      primary_metric='r2_score',
+                                      training_data=train_data,
+                                      label_column_name=label,
+                                      n_cross_validations=5)
    ```
 
 
-1. Tarefas de previsão exigem configuração adicional, consulte o artigo [treinar automaticamente um modelo de previsão de série temporal](how-to-auto-train-forecast.md) para obter mais detalhes. 
+1. Tarefas de previsão exigem configuração extra, consulte o artigo [treinar o modelo de previsão de série temporal](how-to-auto-train-forecast.md) para obter mais detalhes. 
 
     ```python
     time_series_settings = {
         'time_column_name': time_column_name,
         'time_series_id_column_names': time_series_id_column_names,
-        'drop_column_names': ['logQuantity'],
         'forecast_horizon': n_test_periods
     }
     
@@ -198,23 +195,61 @@ classificação | Regressão | Previsão de série temporal
 [Floresta aleatória](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[Floresta aleatória](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[Floresta aleatória](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
 [Árvores extremamente aleatórias](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Árvores extremamente aleatórias](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Árvores extremamente aleatórias](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
 [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* |[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* | [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
-[Classificador do Perceptron médio](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?view=nimbusml-py-latest&preserve-view=true)|[Regressor descendente do gradiente online](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?view=nimbusml-py-latest&preserve-view=true) |[Auto-ARIMA](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
-[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* |[Regressor linear rápido](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?view=nimbusml-py-latest&preserve-view=true)|[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
+[Classificador do Perceptron médio](/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?preserve-view=true&view=nimbusml-py-latest)|[Regressor descendente do gradiente online](/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?preserve-view=true&view=nimbusml-py-latest) |[Auto-ARIMA](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
+[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* |[Regressor linear rápido](/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?preserve-view=true&view=nimbusml-py-latest)|[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
 [SGD (Gradiente estocástico descendente)](https://scikit-learn.org/stable/modules/sgd.html#sgd)* ||ForecastTCN
-|[Classificador SVM linear](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest&preserve-view=true)*||
+|[Classificador SVM linear](/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?preserve-view=true&view=nimbusml-py-latest)*||
 
 ### <a name="primary-metric"></a>Métrica principal
 O `primary metric` parâmetro determina a métrica a ser usada durante o treinamento do modelo para otimização. As métricas disponíveis para seleção são determinadas pelo tipo de tarefa que você escolher, e a tabela a seguir mostra métricas primárias válidas para cada tipo de tarefa.
+
+A escolha de uma métrica primária para o aprendizado de máquina automatizado para otimizar depende de muitos fatores. Recomendamos que a sua consideração principal seja escolher uma métrica que melhor represente suas necessidades de negócios. Em seguida, considere se a métrica é adequada para o seu perfil de conjunto de dados (tamanho, intervalo, distribuição de classe etc.).
 
 Saiba mais sobre as definições específicas dessas métricas em [Entender os resultados do machine learning automatizado](how-to-understand-automated-ml.md).
 
 |classificação | Regressão | Previsão de série temporal
 |--|--|--
-|accuracy| spearman_correlation | spearman_correlation
-|AUC_weighted | normalized_root_mean_squared_error | normalized_root_mean_squared_error
-|average_precision_score_weighted | r2_score | r2_score
-|norm_macro_recall | normalized_mean_absolute_error | normalized_mean_absolute_error
-|precision_score_weighted |
+|`accuracy`| `spearman_correlation` | `spearman_correlation`
+|`AUC_weighted` | `normalized_root_mean_squared_error` | `normalized_root_mean_squared_error`
+|`average_precision_score_weighted` | `r2_score` | `r2_score`
+|`norm_macro_recall` | `normalized_mean_absolute_error` | `normalized_mean_absolute_error`
+|`precision_score_weighted` |
+
+### <a name="primary-metrics-for-classification-scenarios"></a>Métricas primárias para cenários de classificação 
+
+Publique as métricas decorrentes, como,, `accuracy` `average_precision_score_weighted` `norm_macro_recall` e `precision_score_weighted` não pode ser otimizado também para conjuntos de os que são muito pequenos, têm uma distorção de classe muito grande (desequilíbrio de classe) ou quando o valor de métrica esperado é muito próximo a 0,0 ou 1,0. Nesses casos, `AUC_weighted` pode ser uma opção melhor para a métrica primária. Após a conclusão do Machine Learning automatizado, você pode escolher o modelo vencedor baseado na métrica mais adequada para suas necessidades de negócios.
+
+| Métrica | Caso (s) de uso de exemplo |
+| ------ | ------- |
+| `accuracy` | Classificação de imagem, análise de sentimentos, previsão de rotatividade |
+| `AUC_weighted` | Detecção de fraudes, classificação de imagem, detecção de anomalias/detecção de spam |
+| `average_precision_score_weighted` | Análise de sentimento |
+| `norm_macro_recall` | Previsão de variação |
+| `precision_score_weighted` |  |
+
+### <a name="primary-metrics-for-regression-scenarios"></a>Métricas primárias para cenários de regressão
+
+Métricas como `r2_score` e `spearman_correlation` podem representar melhor a qualidade do modelo quando a escala do valor a prever abrange muitas ordens de magnitude. Por exemplo, estimativa de salário, em que muitas pessoas têm um salário de US $20 mil a US $100 mil, mas a escala é muito alta com alguns salários no intervalo de $100 milhões. 
+
+`normalized_mean_absolute_error` e, `normalized_root_mean_squared_error` nesse caso, tratará um erro de previsão de $20 mil, o mesmo para um trabalho com um salário $30 mil como um trabalho fazendo $20 milhões. Na realidade, a previsão de apenas $20 mil de um salário de $20 milhões é muito próxima (uma pequena diferença relativa de 0,1%), enquanto $20 mil de $30 mil não está próximo (uma grande diferença relativa a 67%). `normalized_mean_absolute_error` e `normalized_root_mean_squared_error` são úteis quando os valores a prever estão em uma escala semelhante.
+
+| Métrica | Caso (s) de uso de exemplo |
+| ------ | ------- |
+| `spearman_correlation` | |
+| `normalized_root_mean_squared_error` | Previsão de preço (casa/produto/gorjeta), revisar previsão de Pontuação |
+| `r2_score` | Atraso de companhia aérea, estimativa de salário, tempo de resolução de bug |
+| `normalized_mean_absolute_error` |  |
+
+### <a name="primary-metrics-for-time-series-forecasting-scenarios"></a>Métricas primárias para cenários de previsão de série temporal
+
+Consulte as notas de regressão acima.
+
+| Métrica | Caso (s) de uso de exemplo |
+| ------ | ------- |
+| `spearman_correlation` | |
+| `normalized_root_mean_squared_error` | Previsão de preço (previsão), otimização de estoque, previsão de demanda |
+| `r2_score` | Previsão de preço (previsão), otimização de estoque, previsão de demanda |
+| `normalized_mean_absolute_error` | |
 
 ### <a name="data-featurization"></a>Definição de recursos de dados
 
@@ -237,7 +272,7 @@ Ao configurar seus experimentos em seu `AutoMLConfig` objeto, você pode habilit
 
 Os modelos Ensemble são habilitados por padrão e aparecem como as iterações de execução final em uma execução AutoML. Atualmente, há suporte para **VotingEnsemble** e **StackEnsemble** . 
 
-A votação implementa a votação suave, que usa médias ponderadas. A implementação de empilhamento usa uma implementação de duas camadas, em que a primeira camada tem os mesmos modelos que o Ensemble de votação, e o segundo modelo de camada é usado para localizar a combinação ideal dos modelos da primeira camada. 
+A votação implementa a votação reversível, que usa médias ponderadas. A implementação de empilhamento usa uma implementação de duas camadas, em que a primeira camada tem os mesmos modelos que o Ensemble de votação, e o segundo modelo de camada é usado para localizar a combinação ideal dos modelos da primeira camada. 
 
 Se você estiver usando modelos ONNX **ou** tiver a explicação de modelo habilitado, o empilhamento será desabilitado e apenas a votação será utilizada.
 
@@ -301,6 +336,18 @@ automl_classifier = AutoMLConfig(
         )
 ```
 
+<a name="exit"></a> 
+
+### <a name="exit-criteria"></a>Critérios de saída
+
+Há algumas opções que você pode definir em seu AutoMLConfig para encerrar seu experimento.
+
+|Critérios| descrição
+|----|----
+Nenhum &nbsp; critério | Se você não definir nenhum parâmetro de saída, o experimento continuará até que nenhum outro progresso seja feito em sua métrica primária.
+Após &nbsp; um &nbsp; período &nbsp; de &nbsp; tempo| Use `experiment_timeout_minutes` em suas configurações para definir por quanto tempo, em minutos, seu experimento deve continuar a ser executado. <br><br> Para ajudar a evitar falhas de tempo limite de experimento, há um mínimo de 15 minutos ou 60 minutos se a linha por tamanho de coluna exceder 10 milhões.
+Uma &nbsp; Pontuação &nbsp; foi &nbsp; &nbsp; atingida| Usar `experiment_exit_score` concluirá o experimento depois que uma pontuação de métrica primária especificada for atingida.
+
 ## <a name="run-experiment"></a>Executar o experimento
 
 Para ML automatizado, você pode criar um objeto `Experiment`, que é um objeto nomeado em um `Workspace` usado para executar experimentos.
@@ -311,7 +358,7 @@ from azureml.core.experiment import Experiment
 ws = Workspace.from_config()
 
 # Choose a name for the experiment and specify the project folder.
-experiment_name = 'automl-classification'
+experiment_name = 'Tutorial-automl'
 project_folder = './sample_projects/automl-classification'
 
 experiment = Experiment(ws, experiment_name)
@@ -327,17 +374,15 @@ run = experiment.submit(automl_config, show_output=True)
 >As dependências são instaladas pela primeira vez em um novo computador.  Pode levar até dez minutos antes da saída ser exibida.
 >Definir `show_output` como `True` faz a saída ser mostrada no console.
 
- <a name="exit"></a> 
+### <a name="multiple-child-runs-on-clusters"></a>Várias execuções filhas em clusters
 
-### <a name="exit-criteria"></a>Critérios de saída
+Execuções filhas de teste ML automatizadas podem ser executadas em um cluster que já está executando outro experimento. No entanto, o tempo depende de quantos nós o cluster tem e se esses nós estão disponíveis para executar um experimento diferente.
 
-Há algumas opções que você pode definir para encerrar seu experimento.
+Cada nó no cluster atua como uma VM (máquina virtual) individual que pode realizar uma única execução de treinamento; para o ML automatizado, isso significa uma execução filho. Se todos os nós estiverem ocupados, o novo experimento será colocado na fila. Mas, se houver nós livres, o novo experimento executará o filho de ML automatizado em paralelo nos nós/VMs disponíveis.
 
-|Critérios| description
-|----|----
-Nenhum &nbsp; critério | Se você não definir nenhum parâmetro de saída, o experimento continuará até que nenhum outro progresso seja feito em sua métrica primária.
-Após &nbsp; um &nbsp; período &nbsp; de &nbsp; tempo| Use `experiment_timeout_minutes` em suas configurações para definir por quanto tempo, em minutos, seu experimento deve continuar a ser executado. <br><br> Para ajudar a evitar falhas de tempo limite de experimento, há um mínimo de 15 minutos ou 60 minutos se a linha por tamanho de coluna exceder 10 milhões.
-Uma &nbsp; Pontuação &nbsp; foi &nbsp; &nbsp; atingida| Usar `experiment_exit_score` concluirá o experimento depois que uma pontuação de métrica primária especificada for atingida.
+Para ajudar a gerenciar as execuções filhas e quando elas podem ser executadas, recomendamos que você crie um cluster dedicado por experimento e coincida com o número de `max_concurrent_iterations` seu experimento para o número de nós no cluster. Dessa forma, você usa todos os nós do cluster ao mesmo tempo com o número de execuções/iterações de filhos simultâneas desejadas.
+
+Configure  `max_concurrent_iterations` em seu `AutoMLConfig` objeto. Se não estiver configurado, por padrão, apenas uma execução/iteração filho simultânea é permitida por experimento.  
 
 ## <a name="explore-models-and-metrics"></a>Explorar modelos e métricas
 
@@ -346,6 +391,9 @@ Será possível exibir os resultados de treinamento em um widget ou embutidos se
 Consulte [avaliar os resultados do experimento automatizado do Machine Learning](how-to-understand-automated-ml.md) para obter definições e exemplos dos gráficos de desempenho e métricas fornecidos para cada execução. 
 
 Para obter um resumo do personalização e entender quais recursos foram adicionados a um modelo específico, consulte [transparência do personalização](how-to-configure-auto-features.md#featurization-transparency). 
+
+> [!NOTE]
+> Os algoritmos Automated ML empregam uma aleatoriedade inerente que pode causar uma pequena variação em uma pontuação de métrica final do modelo recomendado, como a precisão. O ML automatizado também realiza operações em dados como o Train-Test Split, a divisão de treinamento ou a validação cruzada quando necessário. Portanto, se você executar um experimento com as mesmas definições de configuração e métrica primária várias vezes, provavelmente verá variação em cada experimento a pontuação de métricas finais devido a esses fatores. 
 
 ## <a name="register-and-deploy-models"></a>Registrar e implantar modelos
 
@@ -363,6 +411,111 @@ Para obter informações gerais sobre como as explicações de modelo e a import
 
 > [!NOTE]
 > O modelo ForecastTCN não tem suporte no momento pelo cliente de explicação. Esse modelo não retornará um painel de explicação se ele for retornado como o melhor modelo e não oferecer suporte a execuções de explicação sob demanda.
+
+## <a name="troubleshooting"></a>Solução de problemas
+
+* A **atualização recente de `AutoML` dependências para versões mais recentes irá perder a compatibilidade**: a partir da versão 1.13.0 do SDK, os modelos não serão carregados em SDKs mais antigos devido à incompatibilidade entre as versões mais antigas que nós fixamos em nossos pacotes anteriores e as versões mais recentes que nós fixarmos agora. Você verá um erro como:
+  * Módulo não encontrado: ex. `No module named 'sklearn.decomposition._truncated_svd` ,
+  * Erros de importação: ex. `ImportError: cannot import name 'RollingOriginValidator'` ,
+  * Erros de atributo: ex. `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator`
+  
+  Para contornar esse problema, execute uma das duas etapas a seguir, dependendo da sua `AutoML` versão de treinamento do SDK:
+    * Se sua `AutoML` versão de treinamento do SDK for maior que 1.13.0, você precisará de `pandas == 0.25.1` e `scikit-learn==0.22.1` . Se houver uma incompatibilidade de versão, atualize scikit-Learn e/ou pandas para corrigir a versão, conforme mostrado abaixo:
+      
+      ```bash
+         pip install --upgrade pandas==0.25.1
+         pip install --upgrade scikit-learn==0.22.1
+      ```
+      
+    * Se sua `AutoML` versão de treinamento do SDK for menor ou igual a 1.12.0, você precisará de `pandas == 0.23.4` e `sckit-learn==0.20.3` . Se houver uma incompatibilidade de versão, faça o downgrade de scikit-Learn e/ou pandas para corrigir a versão, conforme mostrado abaixo:
+  
+      ```bash
+        pip install --upgrade pandas==0.23.4
+        pip install --upgrade scikit-learn==0.20.3
+      ```
+
+* **Falha na implantação**: para versões <= 1.18.0 do SDK, a imagem base criada para implantação pode falhar com o seguinte erro: "ImportError: não é possível importar o nome `cached_property` de `werkzeug` ". 
+
+  As etapas a seguir podem contornar o problema:
+  1. Baixar o pacote de modelo
+  2. Descompactar o pacote
+  3. Implantar usando os ativos descompactados
+
+* A **previsão da Pontuação do R2 é sempre zero**: esse problema ocorre se os dados de treinamento fornecidos tiverem uma série temporal que contém o mesmo valor para os últimos `n_cv_splits`  +  `forecasting_horizon` pontos de dados. Se esse padrão for esperado em sua série temporal, você poderá alternar a métrica primária para um erro de quadrado médio de raiz normalizado.
+ 
+* **TensorFlow**: a partir da versão 1.5.0 do SDK, o Machine Learning automatizado não instala modelos TensorFlow por padrão. Para instalar o TensorFlow e usá-lo com seus experimentos de ML automatizados, instale TensorFlow = = 1.12.0 via CondaDependecies. 
+ 
+   ```python
+   from azureml.core.runconfig import RunConfiguration
+   from azureml.core.conda_dependencies import CondaDependencies
+   run_config = RunConfiguration()
+   run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['tensorflow==1.12.0'])
+  ```
+
+* **Gráficos de experimento**: os gráficos de classificação binária (recall de precisão, Roc, curva de lucro, etc.) mostrados em iterações de experimento de ml automatizadas não são renderizados corretamente na interface do usuário desde 4/12. Atualmente, as plotagens de gráfico estão mostrando resultados inversos, onde os modelos de melhor desempenho são mostrados com resultados mais baixos. Uma resolução está sob investigação.
+
+* **Databricks cancelar uma execução automatizada do Machine Learning**: quando você usa recursos automatizados de aprendizado de máquina no Azure Databricks, para cancelar uma execução e iniciar uma nova execução de experimento, reinicie o cluster Azure Databricks.
+
+* **Databricks >10 iterações para o aprendizado de máquina automatizado**: em configurações automatizadas do Machine Learning, se você tiver mais de 10 iterações, defina `show_output` como `False` ao enviar a execução.
+
+* **Widget do databricks para o SDK do Azure Machine Learning e o aprendizado de máquina automatizado**: o widget do sdk do Azure Machine Learning não tem suporte em um bloco de anotações do databricks porque os notebooks não podem analisar widgets HTML. Você pode exibir o widget no portal usando este código Python na célula Azure Databricks notebook:
+
+    ```
+    displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
+    ```
+* **automl_setup falha**: 
+    * No Windows, execute automl_setup de um prompt do Anaconda. Use este link para [instalar o Miniconda](https://docs.conda.io/en/latest/miniconda.html).
+    * Verifique se o Conda 64-bit está instalado, em vez de 32 bits executando o `conda info` comando. O `platform` deve ser `win-64` para Windows ou `osx-64` para Mac.
+    * Verifique se o Conda 4.4.10 ou posterior está instalado. Você pode verificar a versão com o comando `conda -V` . Se você tiver uma versão anterior instalada, poderá atualizá-la usando o comando: `conda update conda` .
+    * Linux `gcc: error trying to exec 'cc1plus'`
+      *  Se o `gcc: error trying to exec 'cc1plus': execvp: No such file or directory` erro for encontrado, instale o princípios de Build usando o comando `sudo apt-get install build-essential` .
+      * Passe um novo nome como o primeiro parâmetro para automl_setup para criar um novo ambiente Conda. Exibir ambientes Conda existentes usando `conda env list` e removê-los com o `conda env remove -n <environmentname>` .
+      
+* **automl_setup_linux. sh falhará**: se automl_setup_linus. sh falhar em Ubuntu Linux com o erro: `unable to execute 'gcc': No such file or directory`-
+  1. Verifique se as portas de saída 53 e 80 estão habilitadas. Em uma VM do Azure, você pode fazer isso na portal do Azure selecionando a VM e clicando em rede.
+  2. Execute o comando: `sudo apt-get update`
+  3. Execute o comando: `sudo apt-get install build-essential --fix-missing`
+  4. Executar `automl_setup_linux.sh` novamente
+
+* **Configuration. ipynb falha**:
+  * Para Conda locais, primeiro verifique se automl_setup foi executado com êxito.
+  * Verifique se o subscription_id está correto. Localize os subscription_id na portal do Azure selecionando todos os serviços e, em seguida, assinaturas. Os caracteres "<" e ">" não devem ser incluídos no valor de subscription_id. Por exemplo, `subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` tem o formato válido.
+  * Verifique se o acesso de colaborador ou proprietário à assinatura.
+  * Verifique se a região é uma das regiões com suporte:,,,,,, `eastus2` `eastus` `westcentralus` `southeastasia` `westeurope` `australiaeast` `westus2` , `southcentralus` .
+  * Verifique o acesso à região usando o portal do Azure.
+  
+* **`import AutoMLConfig` falha**: houve alterações de pacote na versão do Machine Learning automatizada 1.0.76, que exigem que a versão anterior seja desinstalada antes de atualizar para a nova versão. Se o `ImportError: cannot import name AutoMLConfig` for encontrado após a atualização de uma versão do SDK antes de v 1.0.76 para v 1.0.76 ou posterior, resolva o erro executando: `pip uninstall azureml-train automl` e, em seguida `pip install azureml-train-auotml` . O script automl_setup. cmd faz isso automaticamente. 
+
+* **Workspace.from_config falha**: se as chamadas ws = Workspace.from_config () ' falharem-
+  1. Verifique se o bloco de anotações Configuration. ipynb foi executado com êxito.
+  2. Se o bloco de anotações estiver sendo executado de uma pasta que não está sob a pasta em que o `configuration.ipynb` foi executado, copie a pasta aml_config e o config.jsde arquivo que ele contém para a nova pasta. Workspace.from_config lê o config.jsem para a pasta do bloco de anotações ou sua pasta pai.
+  3. Se uma nova assinatura, um grupo de recursos, um espaço de trabalho ou uma região estiver sendo usada, certifique-se de executar o `configuration.ipynb` bloco de anotações novamente. Alterar config.jsdiretamente só funcionará se o espaço de trabalho já existir no grupo de recursos especificado na assinatura especificada.
+  4. Se você quiser alterar a região, altere o espaço de trabalho, o grupo de recursos ou a assinatura. `Workspace.create` não criará ou atualizará um espaço de trabalho se ele já existir, mesmo se a região especificada for diferente.
+  
+* **Falha no bloco de anotações de exemplo**: se um bloco de anotações de exemplo falhar com um erro que a propriedade, o método ou a biblioteca não existe:
+  * Verifique se o kernel correto foi selecionado na Jupyter Notebook. O kernel é exibido no canto superior direito da página do bloco de anotações. O padrão é azure_automl. O kernel é salvo como parte do bloco de anotações. Portanto, se você alternar para um novo ambiente Conda, terá que selecionar o novo kernel no bloco de anotações.
+      * Por Azure Notebooks, ele deve ser Python 3,6. 
+      * Para ambientes Conda locais, ele deve ser o nome do ambiente Conda que você especificou em automl_setup.
+  * Verifique se o notebook é para a versão do SDK que você está usando. Você pode verificar a versão do SDK executando `azureml.core.VERSION` em uma célula Jupyter notebook. Você pode baixar a versão anterior dos blocos de anotações de exemplo do GitHub clicando no `Branch` botão, selecionando a `Tags` guia e, em seguida, selecionando a versão.
+
+* **`import numpy` falha no Windows**: alguns ambientes do Windows veem um erro ao carregar o numpy com a versão mais recente do Python 3.6.8. Se você vir esse problema, tente com a versão 3.6.7 do Python.
+
+* **`import numpy` falha**: Verifique a versão do TensorFlow no ambiente Conda do ml automatizado. As versões com suporte são < 1,13. Desinstale o TensorFlow do ambiente se a versão for >= 1,13. Você pode verificar a versão do TensorFlow e desinstalar da seguinte maneira:
+  1. Inicie um shell de comando, ative o ambiente Conda onde os pacotes de ml automatizados são instalados.
+  2. Insira `pip freeze` e procure `tensorflow` , se encontrado, a versão listada deve ser < 1,13
+  3. Se a versão listada não for uma versão com suporte, `pip uninstall tensorflow` no Shell de comando e digite y para confirmação.
+  
+ * **A execução falha `jwt.exceptions.DecodeError` com**: mensagem de erro exata: `jwt.exceptions.DecodeError: It is required that you pass in a value for the "algorithms" argument when calling decode()` .
+
+    Para versões <= 1.17.0 do SDK, a instalação pode resultar em uma versão sem suporte do PyJWT. Verifique a versão do PyJWT no ambiente Conda do ml automatizado. As versões com suporte são < 2.0.0. Você pode verificar a versão do PyJWT da seguinte maneira:
+    1. Inicie um shell de comando, ative o ambiente Conda onde os pacotes de ml automatizados são instalados.
+    2. Insira `pip freeze` e procure `PyJWT` , se encontrado, a versão listada deve ser < 2.0.0
+
+    Se a versão listada não for uma versão com suporte:
+    1. Considere atualizar para a versão mais recente do SDK do AutoML: `pip install -U azureml-sdk[automl]` .
+    2. Se isso não for viável, desinstale o PyJWT do ambiente e instale a versão correta da seguinte maneira:
+        - `pip uninstall PyJWT` no Shell de comando e digite `y` para confirmação.
+        - Instale o usando o `pip install 'PyJWT<2.0.0'` .
 
 ## <a name="next-steps"></a>Próximas etapas
 

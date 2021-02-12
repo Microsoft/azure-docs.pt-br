@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 10/19/2020
-ms.openlocfilehash: ee9bcedea15b039982e73304a25073c85b496635
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 1/13/2021
+ms.openlocfilehash: 4b5020b6cf7ac2f7aec586d7e6499285c1447b68
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780046"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209756"
 ---
 # <a name="hyperscale-service-tier"></a>Tipo de serviço de Hiperescala
 
@@ -67,11 +67,11 @@ A camada de serviço de hiperescala dá suporte a uma ampla variedade de cargas 
 
 A camada de serviço em Hiperescala só está disponível no [modelo vCore](service-tiers-vcore.md). Para alinhar-se com a nova arquitetura, o modelo de preços é ligeiramente diferente de camadas de serviço de Uso Geral ou Comercialmente Críticas:
 
-- **Computação** :
+- **Computação**:
 
   O preço de unidade de computação em Hiperescala é por réplica. O preço do [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) é aplicado para réplicas em escala de leitura automaticamente. Criamos uma réplica primária e uma réplica somente leitura por banco de dados de hiperescala por padrão.  Os usuários podem ajustar o número total de réplicas, incluindo a primária de 1-5.
 
-- **Armazenamento** :
+- **Armazenamento**:
 
   Você não precisa especificar o tamanho máximo de dados ao configurar um banco de dados da Hiperescala. Na camada de hiperescala, você será cobrado pelo armazenamento de seu banco de dados com base na alocação real. O armazenamento é alocado automaticamente entre 40 GB e 100 TB, em incrementos de 10 GB. Vários arquivos de dados podem crescer ao mesmo tempo, se necessário. Um banco de dados de hiperescala é criado com um tamanho inicial de 10 GB e começa crescendo 10 GB a cada 10 minutos, até atingir o tamanho de 40 GB.
 
@@ -168,16 +168,15 @@ Se você precisar restaurar um banco de dados de hiperescala no banco de dados S
 2. Siga as instruções no tópico de [restauração geográfica](./recovery-using-backups.md#geo-restore) da página sobre como restaurar um banco de dados no banco de dados SQL do Azure de backups automáticos.
 
 > [!NOTE]
-> Como a origem e o destino estão em regiões separadas, o banco de dados não pode compartilhar o armazenamento de instantâneos com o banco de dados de origem como em restaurações não geográficas, o que é concluído de maneira extremamente rápida. No caso de uma restauração geográfica de um banco de dados de hiperescala, ela será uma operação de tamanho de dado, mesmo que o destino esteja na região emparelhada do armazenamento replicado geograficamente.  Isso significa que fazer uma restauração geográfica levará tempo proporcional ao tamanho do banco de dados que está sendo restaurado.  Se o destino estiver na região emparelhada, a cópia estará dentro de uma região, que será significativamente mais rápida do que uma cópia entre regiões, mas ela ainda será uma operação de tamanho de dados.
+> Como a origem e o destino estão em regiões separadas, o banco de dados não pode compartilhar o armazenamento de instantâneos com o banco de dados de origem como em restaurações não geográficas, que são concluídas rapidamente, independentemente do tamanho do banco de dados. No caso de uma restauração geográfica de um banco de dados de hiperescala, ela será uma operação de tamanho de dado, mesmo que o destino esteja na região emparelhada do armazenamento replicado geograficamente. Portanto, uma restauração geográfica levará tempo proporcional ao tamanho do banco de dados que está sendo restaurado. Se o destino estiver na região emparelhada, a transferência de dados estará dentro de uma região, que será significativamente mais rápida do que uma transferência de dados entre regiões, mas ela ainda será uma operação de tamanho de dados.
 
 ## <a name="available-regions"></a><a name=regions></a>Regiões disponíveis
 
-A camada de hiperescala do banco de dados SQL do Azure está disponível em todas as regiões, mas está habilitada por padrão nas seguintes regiões listadas abaixo.
-Se desejar criar um banco de dados de hiperescala em uma região que não esteja listada como com suporte, você poderá enviar uma solicitação de integração via portal do Azure. Para obter instruções, consulte [aumentos de cota de solicitação para o banco de dados SQL do Azure](quota-increase-request.md) para obter instruções. Ao enviar sua solicitação, use as seguintes diretrizes:
+A camada de hiperescala do banco de dados SQL do Azure está disponível em todas as regiões, mas habilitada por padrão nas seguintes regiões listadas abaixo. Se desejar criar um banco de dados de hiperescala em uma região em que o hiperescala não esteja habilitado por padrão, você poderá enviar uma solicitação de integração via portal do Azure. Para obter instruções, consulte [aumentos de cota de solicitação para o banco de dados SQL do Azure](quota-increase-request.md) para obter instruções. Ao enviar sua solicitação, use as seguintes diretrizes:
 
 - Use o tipo de cota do banco de dados SQL de [acesso à região](quota-increase-request.md#region) .
-- Nos detalhes do texto, adicione os núcleos de SKU/total de computação, incluindo réplicas legíveis.
-- Especifique também os TB estimados.
+- Na descrição, adicione os núcleos de SKU/total de computação, incluindo réplicas legíveis, e indique que você está solicitando capacidade de hiperescala.
+- Especifique também uma projeção do tamanho total de todos os bancos de dados ao longo do tempo em TB.
 
 Regiões habilitadas:
 - Leste da Austrália
@@ -223,15 +222,14 @@ Essas são as limitações atuais da camada de serviço de hiperescala a partir 
 | Problema | Descrição |
 | :---- | :--------- |
 | O painel gerenciar backups de um servidor não mostra bancos de dados de hiperescala. Eles serão filtrados da exibição.  | O hiperscale tem um método separado para gerenciar backups, de modo que a retenção de Long-Term e as configurações de retenção de backup pontual não se aplicam. De acordo, os bancos de dados de hiperescala não aparecem no painel gerenciar backup.<br><br>Para bancos de dados migrados para o subdimensionamento de outras camadas de serviço do Azure SQL Database, os backups de pré-migração são mantidos durante o período de [retenção de backup](automated-backups-overview.md#backup-retention) do banco de dados de origem. Esses backups podem ser usados para [restaurar](recovery-using-backups.md#programmatic-recovery-using-automated-backups) o banco de dados de origem para um ponto no tempo antes da migração.|
-| Restauração em um momento determinado | Um banco de dados não hiperescala não pode ser restaurado como um banco de dados de hiperescala, e um banco de dados de hiperescala não pode ser restaurado como um banco de dados que não seja de hiperescala. Para um banco de dados não hiperescala que foi migrado para o subdimensionamento alterando sua camada de serviço, a restauração para um ponto no tempo antes da migração e dentro do período de retenção de backup do banco de dados é possível [programaticamente](recovery-using-backups.md#programmatic-recovery-using-automated-backups). O banco de dados restaurado não será hiperescala. |
-| Se um banco de dados tiver um ou mais arquivos com mais de 1 TB, a migração falhará | Em alguns casos, pode ser possível contornar esse problema reduzindo os arquivos grandes para menos de 1 TB. Se estiver migrando um banco de dados que está sendo usado durante o processo de migração, verifique se nenhum arquivo tem mais de 1 TB. Use a consulta a seguir para determinar o tamanho dos arquivos de banco de dados. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
+| Restauração em um momento determinado | Um banco de dados não hiperescala não pode ser restaurado como um banco de dados de hiperescala, e um banco de dados de hiperescala não pode ser restaurado como um banco de dados que não seja de hiperescala. Para um banco de dados não hiperescala que foi migrado para o subdimensionamento alterando sua camada de serviço, a restauração para um ponto no tempo antes da migração e dentro do período de retenção de backup do banco de dados é suportada [programaticamente](recovery-using-backups.md#programmatic-recovery-using-automated-backups). O banco de dados restaurado não será hiperescala. |
+| Ao alterar a camada de serviço do banco de dados SQL do Azure para o subdimensionamento, a operação falhará se o banco de dados tiver arquivos com mais de 1 TB | Em alguns casos, pode ser possível contornar esse problema [reduzindo](file-space-manage.md#shrinking-data-files) os arquivos grandes para menos de 1 TB antes de tentar alterar a camada de serviço para hiperescala. Use a consulta a seguir para determinar o tamanho atual dos arquivos de banco de dados. `SELECT file_id, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | Instância Gerenciada de SQL | Atualmente, o Azure SQL Instância Gerenciada não tem suporte com bancos de dados de hiperescala. |
 | Pools elásticos |  Atualmente, não há suporte para pools elásticos com o hiperscale.|
 | Migração para Hiperescala é, no momento, uma operação unidirecional | Depois que um banco de dados é migrado para o subdimensionamento, ele não pode ser migrado diretamente para uma camada de serviço não hiperescala. No momento, a única maneira de migrar um banco de dados de hiperescala para não hiperescala é exportar/importar usando um arquivo bacpac ou outras tecnologias de movimentação de dados (cópia em massa, Azure Data Factory, Azure Databricks, SSIS etc.) Exportação/importação de Bacpac do portal do Azure, do PowerShell usando [New-AzSqlDatabaseExport](/powershell/module/az.sql/new-azsqldatabaseexport) ou [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport), de CLI do Azure usando [AZ SQL DB Export](/cli/azure/sql/db#az-sql-db-export) e [AZ SQL DB Import](/cli/azure/sql/db#az-sql-db-import)e da [API REST](/rest/api/sql/databases%20-%20import%20export) não tem suporte. A importação/exportação de Bacpac para bancos de dados de hiperescala menores (até 200 GB) é suportada usando o SSMS e [SqlPackage](/sql/tools/sqlpackage) versão 18,4 e posterior. Para bancos de dados maiores, a exportação/importação de bacpac pode levar muito tempo e pode falhar por vários motivos.|
-| Migração de bancos de dados com In-Memory objetos OLTP | O hiperscale dá suporte a um subconjunto de objetos OLTP In-Memory, incluindo tipos de tabela com otimização de memória, variáveis de tabela e módulos compilados nativamente. No entanto, quando qualquer tipo de In-Memory objetos OLTP estão presentes no banco de dados que está sendo migrado, não há suporte para a migração de camadas de serviço Premium e Comercialmente Crítico para hiperescala. Para migrar esse banco de dados para um subdimensionamento, todos os objetos OLTP In-Memory e suas dependências devem ser descartados. Depois que o banco de dados é migrado, esses objetos podem ser recriados. Tabelas duráveis e não duráveis com otimização de memória não têm suporte no momento em hiperescala e devem ser recriadas como tabelas de disco.|
+| Migração de bancos de dados com In-Memory objetos OLTP | O hiperscale dá suporte a um subconjunto de objetos OLTP In-Memory, incluindo tipos de tabela com otimização de memória, variáveis de tabela e módulos compilados nativamente. No entanto, quando qualquer tipo de In-Memory objetos OLTP estão presentes no banco de dados que está sendo migrado, não há suporte para a migração de camadas de serviço Premium e Comercialmente Crítico para hiperescala. Para migrar esse banco de dados para um subdimensionamento, todos os objetos OLTP In-Memory e suas dependências devem ser descartados. Depois que o banco de dados é migrado, esses objetos podem ser recriados. Tabelas duráveis e não duráveis com otimização de memória não têm suporte no momento em hiperescala e devem ser alteradas para tabelas de disco.|
 | Replicação geográfica  | Você ainda não pode configurar a replicação geográfica para a hiperescala do banco de dados SQL do Azure. |
 | Cópia de banco de dados | A cópia do banco de dados em hiperescala agora está em visualização pública. |
-| Integração do TDE/AKV | A criptografia de banco de dados transparente usando Azure Key Vault (comumente conhecida como traga sua própria chave ou BYOK) está atualmente em visualização pública. |
 | Recursos de banco de dados inteligente | Com exceção da opção "forçar plano", todas as outras opções de ajuste automático ainda não têm suporte em hiperescala: as opções podem parecer estar habilitadas, mas não haverá recomendações ou ações feitas. |
 | Insights de Desempenho de Consulta | No momento, não há suporte para informações de desempenho de consulta para bancos de dados de hiperescala. |
 | Reduzir Banco de Dados | Atualmente, não há suporte para DBCC SHRINKDATABASE ou DBCC SHRINKFILE para bancos de dados de hiperescala. |

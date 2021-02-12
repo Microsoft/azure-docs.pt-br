@@ -3,15 +3,16 @@ title: CORS (Compartilhamento de Recursos entre Origens) no Azure Cosmos DB
 description: Este artigo descreve como configurar o CORS (Compartilhamento de Recursos entre Origens) no Azure Cosmos DB, usando os modelos do Azure Resource Manager e portal do Azure.
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/11/2019
 ms.author: dech
-ms.openlocfilehash: 863c31ecac13337ea3f91d7a7ced49b0f7141e58
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: eba49ff45ba9ab1f5cfaa1d75973d656ac32ca6a
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93086391"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339881"
 ---
 # <a name="configure-cross-origin-resource-sharing-cors"></a>Configurar CORS (Compartilhamento de Recursos entre Origens)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -27,9 +28,9 @@ O CORS (Compartilhamento de Recursos entre Origens) é um recurso HTTP que permi
 
 Use as etapas a seguir para habilitar o Compartilhamento de Recursos entre Origens, usando o portal do Azure:
 
-1. Navegue até a conta do Azure Cosmos DB. Abra a folha **CORS** .
+1. Navegue até a conta do Azure Cosmos DB. Abra a folha **CORS**.
 
-2. Especifique uma lista de origens separadas por vírgulas que pode fazer chamadas entre origens para a conta do Azure Cosmos DB. Por exemplo, `https://www.mydomain.com`, `https://mydomain.com`, `https://api.mydomain.com`. Também é possível usar um curinga "\*" para permitir todas as origens e selecione **Enviar** . 
+2. Especifique uma lista de origens separadas por vírgulas que pode fazer chamadas entre origens para a conta do Azure Cosmos DB. Por exemplo, `https://www.mydomain.com`, `https://mydomain.com`, `https://api.mydomain.com`. Também é possível usar um curinga "\*" para permitir todas as origens e selecione **Enviar**. 
 
    > [!NOTE]
    > Atualmente, não é possível usar curingas como parte do nome do domínio. Por exemplo, ainda não há suporte para o formato `https://*.mydomain.net`. 

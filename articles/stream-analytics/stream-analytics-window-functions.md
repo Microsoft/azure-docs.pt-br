@@ -3,16 +3,15 @@ title: Introdução às funções de janela do Stream Analytics do Azure
 description: Este artigo descreve as quatro funções de janela (em cascata, de salto, deslizante, sessão) que são usadas em trabalhos do Azure Stream Analytics.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/16/2020
-ms.openlocfilehash: c4ddffa5f9e9ff4b313f05c9cedb3cb207695225
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: feea44741fbc2c81d781f0bba12b280abdb9f68a
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129696"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020241"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Introdução às funções de janela do Stream Analytics
 
@@ -36,7 +35,7 @@ As funções da Janela de Salto pulam para frente um período fixo no tempo. Pod
 
 ## <a name="sliding-window"></a>Janela Deslizante
 
-Janelas deslizantes, diferentemente de em cascata ou de salto, são eventos de saída apenas para pontos no tempo em que o conteúdo da janela realmente é alterado. Em outras palavras, quando um evento entra ou sai da janela. Cada janela tem pelo menos um evento, como no caso de janelas de salto, os eventos podem pertencer a mais de uma janela deslizante
+Janelas deslizantes, diferentemente de em cascata ou de salto, são eventos de saída apenas para pontos no tempo em que o conteúdo da janela realmente é alterado. Em outras palavras, quando um evento entra ou sai da janela. Portanto, cada janela tem pelo menos um evento. Semelhante a janelas de salto, os eventos podem pertencer a mais de uma janela deslizante.
 
 ![Janela deslizante do Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 

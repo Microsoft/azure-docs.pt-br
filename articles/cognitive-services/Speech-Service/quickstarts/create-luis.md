@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: trbye
-ms.openlocfilehash: c4195ff1b81097a3620f68939f32147a26e16d60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f547b353091cc81816f0974fced8d4dc836d22b2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85391597"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023813"
 ---
 # <a name="quickstart-getting-a-luis-endpoint-key"></a>Início Rápido: Obter uma chave de ponto de extremidade LUIS
 
@@ -37,7 +37,7 @@ O LUIS usa três tipos de chaves:
 |Inicial|Permite testar o aplicativo LUIS usando somente texto|
 |Ponto de extremidade |Autoriza o acesso a um aplicativo LUIS específico|
 
-Para este tutorial, você precisará do tipo de chave de ponto de extremidade. O tutorial usa o aplicativo LUIS de Automação Residencial como exemplo, que pode ser criado seguindo o início rápido [Usar o aplicativo de Automação residencial predefinido](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app). Se já tiver criado um aplicativo LUIS próprio, você poderá usá-lo.
+Para este tutorial, você precisará do tipo de chave de ponto de extremidade. O tutorial usa o aplicativo LUIS de Automação Residencial como exemplo, que pode ser criado seguindo o início rápido [Usar o aplicativo de Automação residencial predefinido](../../luis/luis-get-started-create-app.md). Se já tiver criado um aplicativo LUIS próprio, você poderá usá-lo.
 
 Ao criar um aplicativo LUIS, o LUIS gera automaticamente uma chave de início para que você possa testar o aplicativo usando consultas de texto. Essa chave não habilita a integração com o Serviço de Fala e não funciona com este tutorial. Crie um recurso LUIS no painel do Azure e atribua-o ao aplicativo LUIS. Você pode usar a camada de assinatura gratuita para este tutorial.
 

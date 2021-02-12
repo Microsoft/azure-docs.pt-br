@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: duau
-ms.openlocfilehash: 431eaff9da95063648d3e80acb54be9cc5c25bc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eaf50f3bdacaf5680bc5ecb1379faff20133b5ce
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89393049"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184366"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Usando os serviços de balanceamento de carga no Azure
 
@@ -92,11 +92,11 @@ O diagrama a seguir mostra a arquitetura desse cenário:
 4. Defina a rede virtual, a sub-rede, o IP de front-end e as configurações do ouvinte para o Gateway de Aplicativo. Nesse cenário, o endereço IP de front-end é **Público**, o que permite que ele seja adicionado, mais tarde, como um ponto de extremidade para o perfil do Gerenciador de Tráfego.
 5. Configure o ouvinte com uma das seguintes opções:
     * Se você usar HTTP, não há nada a ser configurado. Clique em **OK**.
-    * Se você usar HTTPS, será necessária configuração adicional. Consulte [Criar um gateway de aplicativo](../application-gateway/application-gateway-create-gateway-portal.md), começando na etapa 9. Quando tiver concluído a configuração, clique em **OK**.
+    * Se você usar HTTPS, será necessária configuração adicional. Consulte [Criar um gateway de aplicativo](../application-gateway/quick-create-portal.md), começando na etapa 9. Quando tiver concluído a configuração, clique em **OK**.
 
 #### <a name="configure-url-routing-for-application-gateways"></a>Configurar o roteamento de URL para os gateways de aplicativo
 
-Quando você escolhe um pool de back-end, um Gateway de Aplicativo configurado com uma regra com base em caminho toma um padrão de caminho da URL da solicitação, além da distribuição round robin. Nesse cenário, estamos adicionando uma regra com base em caminho para direcionar qualquer URL com "/images/\*" ao pool de servidor de imagem. Para obter mais informações sobre roteamento com base em caminho de configuração de URL para um Gateway de Aplicativo, consulte [Criar uma regra com base em caminho para um gateway de aplicativo](../application-gateway/application-gateway-create-url-route-portal.md).
+Quando você escolhe um pool de back-end, um Gateway de Aplicativo configurado com uma regra com base em caminho toma um padrão de caminho da URL da solicitação, além da distribuição round robin. Nesse cenário, estamos adicionando uma regra com base em caminho para direcionar qualquer URL com "/images/\*" ao pool de servidor de imagem. Para obter mais informações sobre roteamento com base em caminho de configuração de URL para um Gateway de Aplicativo, consulte [Criar uma regra com base em caminho para um gateway de aplicativo](../application-gateway/create-url-route-portal.md).
 
 ![Diagrama de camada da web de Gateway de Aplicativo](./media/traffic-manager-load-balancing-azure/web-tier-diagram.png)
 
@@ -136,7 +136,7 @@ Quando você escolhe um pool de back-end, um Gateway de Aplicativo configurado c
 Nesse cenário, o Gerenciador de Tráfego está conectado a instâncias do gateway de aplicativo (conforme definido nas etapas acima) que residem em diferentes regiões. Agora que os gateways de aplicativo estão configurados, a próxima etapa é conectar-se ao nosso perfil do Gerenciador de Tráfego.
 
 1. Abra o seu perfil do Gerenciador de Tráfego. Para fazer isso, procure no seu grupo de recursos ou procure o nome do perfil do Gerenciador de Tráfego em **Todos os Recursos**.
-2. No painel esquerdo, selecione **Pontos de Extremidade**e, em seguida, clique em **Adicionar** para adicionar um ponto de extremidade.
+2. No painel esquerdo, selecione **Pontos de Extremidade** e, em seguida, clique em **Adicionar** para adicionar um ponto de extremidade.
 
    ![Botão “Adicionar” de Pontos de extremidade do Gerenciador de Tráfego](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
 
@@ -156,11 +156,11 @@ Neste cenário, o balanceador de carga distribui conexões entre a camada da Web
 
 Se o cluster de banco de dados de alta disponibilidade estiver usando o AlwaysOn do SQL Server, consulte Configurar um ou mais [Sempre em ouvintes de grupo de disponibilidade](../azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure.md) para obter instruções passo a passo.
 
-Para obter mais informações sobre como configurar um balanceador de carga interno, consulte [Criar um balanceador de carga interno no portal do Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md).
+Para obter mais informações sobre como configurar um balanceador de carga interno, consulte [Criar um balanceador de carga interno no portal do Azure](../load-balancer/quickstart-load-balancer-standard-internal-portal.md).
 
 1. No portal do Azure, no painel esquerdo, clique em **criar um recurso**  >  **rede**  >  **balanceador de carga**.
 2. Escolha um nome para o balanceador de carga.
-3. Defina o **tipo** como **interno**e escolha a rede virtual e a sub-rede apropriadas para o balanceador de carga residir.
+3. Defina o **tipo** como **interno** e escolha a rede virtual e a sub-rede apropriadas para o balanceador de carga residir.
 4. Em **atribuição de endereço IP**, selecione **dinâmico** ou **estático**.
 5. Em **Grupo de recursos**, escolha o grupo de recursos para o balanceador de carga.
 6. Em **local**, escolha a região apropriada para o balanceador de carga.
@@ -191,9 +191,9 @@ Para obter mais informações sobre como configurar um balanceador de carga inte
 
 #### <a name="configure-the-load-balancing-rules"></a>Configuração de regras de balanceamento de carga
 
-1. Em **Configurações **do balanceador de carga, selecione **Regras de balanceamento de carga** e, em seguida, clique em **Adicionar** para criar uma regra.
+1. Em **Configurações** do balanceador de carga, selecione **Regras de balanceamento de carga** e, em seguida, clique em **Adicionar** para criar uma regra.
 2. Insira o **Nome** da regra de balanceamento de carga.
-3. Escolha o **endereço IP de front-end** do balanceador de carga, o **protocolo**e a **porta**.
+3. Escolha o **endereço IP de front-end** do balanceador de carga, o **protocolo** e a **porta**.
 4. Em **porta de back-end**, especifique a porta a ser usada no pool de back-ends.
 5. Selecione o **Pool de back-end** e a **Investigação** criados nas etapas anteriores para aplicar a regra.
 6. Em **persistência da sessão**, escolha como você deseja que as sessões persistam.
@@ -210,5 +210,5 @@ Agora podemos configurar o endereço IP e a porta de front-end do balanceador de
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Visão Geral do Gerenciador de Tráfego](traffic-manager-overview.md)
-* [Visão geral do Gateway de Aplicativo](../application-gateway/application-gateway-introduction.md)
+* [Visão geral do Gateway de Aplicativo](../application-gateway/overview.md)
 * [Visão geral do Azure Load Balancer](../load-balancer/load-balancer-overview.md)

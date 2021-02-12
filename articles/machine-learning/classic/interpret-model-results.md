@@ -8,17 +8,16 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 11/29/2017
-ms.openlocfilehash: e422c1a7b333254ed49b53bcdf2d10e65f2846e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74210475cc8c0efd274d6e80c3f1c89b5206a97d
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91340831"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95509503"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Interpretar os resultados do modelo no Azure Machine Learning Studio (clássico)
 
-**APLICA-SE A:**  ![sim](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico)   ![não](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
-
+**aplica-se a:** ![ Essa é uma marca de seleção, o que significa que este artigo se aplica a Machine Learning Studio (clássico). ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ é um X, o que significa que este artigo se aplica a Azure Machine Learning ](../../../includes/media/aml-applies-to-skus/no.png)[ . Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 Este tópico explica como Visualizar e interpretar os resultados de previsão em Azure Machine Learning Studio (clássico). Após treinar um modelo e fazer previsões sobre ele ("pontuado o modelo"), você precisa compreender e interpretar o resultado da previsão.
 
@@ -257,7 +256,7 @@ As duas primeiras colunas são pares de item de usuário fornecidos pelos dados 
 
 **Itens recomendados a um determinado usuário**
 
-Ao selecionar **Recomendação de Item** em **Tipo de previsão de recomendação**, você pede que o sistema de recomendação recomende itens a um determinado usuário. O último parâmetro a ser escolhido é *Seleção de item recomendado*. A opção **De itens de classificação (para a avaliação de modelo)** é usada principalmente para a avaliação do modelo durante o processo de treinamento. Escolhemos **De Todos os Itens**para este estágio da previsão. A visualização da saída [Recomendação da caixa de pontuação][score-matchbox-recommender] é semelhante à Figura 22.
+Ao selecionar **Recomendação de Item** em **Tipo de previsão de recomendação**, você pede que o sistema de recomendação recomende itens a um determinado usuário. O último parâmetro a ser escolhido é *Seleção de item recomendado*. A opção **De itens de classificação (para a avaliação de modelo)** é usada principalmente para a avaliação do modelo durante o processo de treinamento. Escolhemos **De Todos os Itens** para este estágio da previsão. A visualização da saída [Recomendação da caixa de pontuação][score-matchbox-recommender] é semelhante à Figura 22.
 
 ![Resultado da pontuação do sistema de recomendação - recomendação de item](./media/interpret-model-results/22.png)
 
@@ -304,10 +303,10 @@ Ao executar o serviço Web, o resultado é semelhante à Figura 26. Os cinco res
 Figura 26. Resultado do serviço Web do problema de recomendação de restaurante
 
 <!-- Module References -->
-[assign-to-clusters]: https://msdn.microsoft.com/library/azure/eed3ee76-e8aa-46e6-907c-9ca767f5c114/
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[score-matchbox-recommender]: https://msdn.microsoft.com/library/azure/55544522-9a10-44bd-884f-9a91a9cec2cd/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[train-clustering-model]: https://msdn.microsoft.com/library/azure/bb43c744-f7fa-41d0-ae67-74ae75da3ffd/
-[train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
+[assign-to-clusters]: /azure/machine-learning/studio-module-reference/assign-data-to-clusters
+[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[score-matchbox-recommender]: /azure/machine-learning/studio-module-reference/score-matchbox-recommender
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[train-clustering-model]: /azure/machine-learning/studio-module-reference/train-clustering-model
+[train-matchbox-recommender]: /azure/machine-learning/studio-module-reference/train-matchbox-recommender

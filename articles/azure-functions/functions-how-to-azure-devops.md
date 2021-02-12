@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 9312094d1d86ea25ebd573e5d14b6d5bd0619cfc
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: a3f423a144738fdaa4462606de6ad4a4e34d6775
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108228"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563408"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Entrega contínua usando o Azure DevOps
 
@@ -258,7 +258,7 @@ Para criar um pipeline de compilação no Azure, use o `az functionapp devops-pi
 
     - Você deve ter permissões para criar um PAT (token de acesso pessoal) do GitHub que tenha permissões suficientes. Para obter mais informações, consulte [requisitos de permissão do GITHUB Pat.](/azure/devops/pipelines/repos/github#repository-permissions-for-personal-access-token-pat-authentication)
 
-    - Você deve ter permissões para confirmar o Branch mestre em seu repositório do GitHub, para que você possa confirmar o arquivo YAML gerado automaticamente.
+    - Você deve ter permissões para confirmar o Branch principal em seu repositório do GitHub, para que você possa confirmar o arquivo YAML gerado automaticamente.
 
 - Se seu código estiver em Azure Repos:
 

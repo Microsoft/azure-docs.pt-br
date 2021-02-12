@@ -11,13 +11,13 @@
         - name: Roteamento assimétrico com vários caminhos de rede
           href: ../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Designs de rede segura
-          href: ../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json
+          href: /azure/cloud-adoption-framework/reference/networking-vdc?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Topologia hub-spoke
-          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke'
+          href: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
         - name: Práticas recomendadas de segurança da rede
           href: ../security/fundamentals/network-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Dispositivos virtuais de rede altamente disponíveis
-          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha'
+          href: /azure/architecture/reference-architectures/dmz/nva-ha
         - name: Combinar métodos de balanceamento de carga
           href: ../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Recuperação de desastres usando o DNS do Azure e o Gerenciador de Tráfego
@@ -51,6 +51,11 @@
               href: azure-network-latency.md
             - name: Preferência de roteamento de Internet no Azure
               href: ../virtual-network/routing-preference-overview.md
+        - name: Segurança
+          items:
+            - name: Controles de segurança do Azure Policy
+              displayName: 'regulatory, compliance, standards, domains'
+              href: ./security-controls-policy.md
         - name: Redes virtuais
           href: ../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Balanceamento de carga de rede
@@ -74,27 +79,27 @@
     - name: Conectividade com a Internet
       items:
         - name: Servidores públicos de balanceamento de carga de rede
-          href: ../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+          href: ../load-balancer/quickstart-load-balancer-standard-public-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Servidores públicos de balanceamento de carga do aplicativo
           href: ../application-gateway/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Proteger aplicativos Web
-          href: ../application-gateway/application-gateway-web-application-firewall-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+          href: ../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Distribuir o tráfego entre locais
           href: ../traffic-manager/traffic-manager-configure-geographic-routing-method.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Conectividade interna
       items:
         - name: Servidores privados de balanceamento de carga de rede
-          href: ../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+          href: ../load-balancer/quickstart-load-balancer-standard-internal-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Servidores privados de balanceamento de carga do aplicativo
           href: ../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Conectar redes virtuais (mesma localização)
-          href: ../virtual-network/virtual-networks-create-vnetpeering-arm-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+          href: ../virtual-network/tutorial-connect-virtual-networks-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Conectar redes virtuais (localizações diferentes)
           href: ../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Conectividade entre locais
       items:
         - name: Criar uma conexão VPN S2S (IPsec/IKE)
-          href: ../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+          href: ../vpn-gateway/tutorial-site-to-site-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Criar uma conexão VPN P2S (SSTP com certificados)
           href: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Criar uma conexão privada dedicada (ExpressRoute)
@@ -110,7 +115,7 @@
         - name: Verificar o uso de recursos em relação aos limites do Azure
           href: check-usage-against-limits.md
         - name: Exibir topologia de rede
-          href: ../network-watcher/network-watcher-topology-powershell.md?toc=%2fazure%2fnetworking%2ftoc.json
+          href: ../network-watcher/view-network-topology.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Scripts de exemplo
       items:
         - name: CLI do Azure
@@ -126,19 +131,22 @@
 - name: Referência
   items:
     - name: CLI do Azure
-      href: 'https://docs.microsoft.com/cli/azure/network'
+      href: /cli/azure/network
     - name: Azure PowerShell
-      href: 'https://docs.microsoft.com/powershell/module/az.network/'
+      href: /powershell/module/az.network/
     - name: .Net
-      href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.management.network?view=azuremgmtnetwork-9.1.0-preview'
+      href: /dotnet/api/microsoft.azure.management.network?view=azuremgmtnetwork-9.1.0-preview
     - name: Node.js
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: REST
-      href: 'https://msdn.microsoft.com/library/mt163658.aspx'
+      href: /rest/api/virtual-network/
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Modelos de autor
-      href: /azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json
+      href: ../azure-resource-manager/templates/template-syntax.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Provedores
       href: networking-partners-msp.md
     - name: Roteiro do Azure

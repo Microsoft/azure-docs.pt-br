@@ -3,15 +3,16 @@ title: Cláusula FROM em Azure Cosmos DB
 description: Saiba mais sobre a sintaxe SQL e o exemplo da cláusula FROM para Azure Cosmos DB. Este artigo também mostra exemplos de escopo de resultados e obter subitens usando a cláusula FROM.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
-ms.openlocfilehash: 967e07e55599be0a614e0b6097ae4745f6c7081f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3844a628a8e3773821736324bfdaab3f64ff9da5
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100058"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336240"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>Cláusula FROM em Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

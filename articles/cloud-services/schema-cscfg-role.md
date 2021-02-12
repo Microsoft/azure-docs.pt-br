@@ -1,22 +1,24 @@
 ---
-title: Esquema de função dos Serviços de Nuvem do Azure | Microsoft Docs
+title: Esquema de função dos serviços de nuvem do Azure (clássico) | Microsoft Docs
 description: O elemento Role de um arquivo de configuração de serviço especifica quantas instâncias de função implantar para cada função, valores de configuração e impressões digitais de certificado.
-ms.custom: ''
-ms.date: 12/07/2016
-services: cloud-services
+ms.topic: article
 ms.service: cloud-services
-ms.topic: reference
-caps.latest.revision: 12
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: b64f9d27e382a39b132593502fed32c565af473a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 2dc8e14a4e4d8855abb615632bb7d43b9034d360
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79528414"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743433"
 ---
-# <a name="azure-cloud-services-config-role-schema"></a>Esquema de função de configuração dos Serviços de Nuvem do Azure
+# <a name="azure-cloud-services-classic-config-role-schema"></a>Esquema da função de configuração dos serviços de nuvem do Azure (clássico)
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
 
 O elemento `Role` do arquivo de configuração especifica o número de instâncias de função a ser implantado para cada função no serviço, os valores das configurações e as impressões digitais de todos os certificados associados a uma função.
 

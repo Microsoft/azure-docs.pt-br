@@ -12,12 +12,12 @@ ms.date: 02/28/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 54d92da469625a3b81d0027558ec14166d916b80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae3865c1ee5e656fc4feda48de9ab67995619593
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88163179"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936362"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introdução às políticas personalizadas no Azure Active Directory B2C
 
@@ -124,7 +124,7 @@ Agora conceda permissões ao escopo da API que você expôs anteriormente no reg
 1. Selecione **Fornecer o consentimento do administrador para (nome do seu locatário)** .
 1. Selecione a conta de administrador conectada no momento ou entre com uma conta no seu locatário do Azure AD B2C que tenha recebido, pelo menos, a função *Administrador de aplicativos de nuvem*.
 1. Selecione **Aceitar**.
-1. Selecione **Atualizar**e, em seguida, verifique se "concedido para..." aparece em **status** para os escopos-offline_access, openid e user_impersonation. Pode levar alguns minutos para que as permissões sejam propagadas.
+1. Selecione **Atualizar** e, em seguida, verifique se "concedido para..." aparece em **status** para os escopos-offline_access, openid e user_impersonation. Pode levar alguns minutos para que as permissões sejam propagadas.
 
 * * *
 
@@ -213,6 +213,6 @@ Como mencionado em [Pré-requisitos](#prerequisites), o Facebook *não* é neces
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Em seguida, tente adicionar o Azure AD (Azure Active Directory) como provedor de identidade. O arquivo base usado neste guia de introdução já contém uma parte do conteúdo de que você precisa para adicionar outros provedores de identidade como o Azure AD. Para obter informações sobre como configurar o Azure AD como um provedor de identidade, consulte [Configurar inscrição e entrada com uma conta de Azure Active Directory usando Active Directory B2C políticas personalizadas](identity-provider-azure-ad-single-tenant-custom.md). 
+Em seguida, tente adicionar o Azure AD (Azure Active Directory) como provedor de identidade. O arquivo base usado neste guia de introdução já contém uma parte do conteúdo de que você precisa para adicionar outros provedores de identidade como o Azure AD. Para obter informações sobre como configurar o Azure AD como um provedor de identidade, consulte [Configurar inscrição e entrada com uma conta de Azure Active Directory usando Active Directory B2C políticas personalizadas](identity-provider-azure-ad-single-tenant.md). 
 
 Visite nossa [Galeria de parceiros](partner-gallery.md) para saber mais sobre como implementar a integração de ISVs usando políticas personalizadas. 

@@ -1,16 +1,16 @@
 ---
-title: Simulação de R paralelo com o Lote do Azure
+title: Tutorial – Executar uma simulação de R paralelo com o Lote do Azure
 description: 'Tutorial: instruções passo a passo para executar uma simulação financeira Monte Carlo no Lote do Azure usando o pacote doAzureParallel em R'
 ms.devlang: r
 ms.topic: tutorial
 ms.date: 10/08/2020
 ms.custom: mvc
-ms.openlocfilehash: 3ce4cff94bb565ce3dd9bc4e9307a2b21c4c0ac5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f157a3596992fc9d40179653cc1f9a070c6ef803
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851128"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106354"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Tutorial: Executar uma simulação de R paralelo com o Lote do Azure
 
@@ -263,7 +263,3 @@ Para saber mais sobre doAzureParallel, consulte a documentação e os exemplos n
 
 > [!div class="nextstepaction"]
 > [doAzureParallel package](https://github.com/Azure/doAzureParallel/)
-
-
-
-

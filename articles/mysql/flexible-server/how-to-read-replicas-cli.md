@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 10/23/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: acbb0d5b643919d7fa1bf3966532ebd83129fc2a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a7d63fd76a88430495c9f55200308f63b11c89d4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795098"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494300"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-flexible-server-using-the-azure-cli"></a>Como criar e gerenciar réplicas de leitura no banco de dados do Azure para MySQL servidor flexível usando o CLI do Azure
 
@@ -29,7 +29,7 @@ Você pode criar e gerenciar réplicas de leitura usando o CLI do Azure.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-- [Instalar a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli)
 - Um [banco de dados do Azure para MySQL servidor flexível](quickstart-create-server-cli.md) que será usado como o servidor de origem.
 
 ### <a name="create-a-read-replica"></a>Criar uma réplica de leitura
@@ -44,7 +44,7 @@ az mysql flexible-server replica create --replica-name mydemoreplicaserver --sou
 ``` 
 
 > [!NOTE]
-> As réplicas de leitura são criadas com a mesma configuração de servidor que a origem. A configuração do servidor de réplica pode ser alterada depois de criada. O servidor de réplica é sempre criado no mesmo grupo de recursos, no mesmo local e na mesma assinatura que o servidor de origem. Se você quiser criar um servidor de réplica para um grupo de recursos diferente ou uma assinatura diferente, poderá [mover o servidor de réplica](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) após a criação. É recomendável que a configuração do servidor de réplica seja mantida em valores iguais ou maiores do que a origem para garantir que a réplica seja capaz de acompanhar a origem.
+> As réplicas de leitura são criadas com a mesma configuração de servidor que a origem. A configuração do servidor de réplica pode ser alterada depois de criada. O servidor de réplica é sempre criado no mesmo grupo de recursos, no mesmo local e na mesma assinatura que o servidor de origem. Se você quiser criar um servidor de réplica para um grupo de recursos diferente ou uma assinatura diferente, poderá [mover o servidor de réplica](../../azure-resource-manager/management/move-resource-group-and-subscription.md) após a criação. É recomendável que a configuração do servidor de réplica seja mantida em valores iguais ou maiores do que a origem para garantir que a réplica seja capaz de acompanhar a origem.
 
 
 ### <a name="list-replicas-for-a-source-server"></a>Listar réplicas para um servidor de origem
@@ -68,7 +68,7 @@ az mysql flexible-server replica stop-replication --replica-name mydemoreplicase
 
 ### <a name="delete-a-replica-server"></a>Excluir um servidor de réplica
 
-A exclusão de um servidor de réplica de leitura pode ser feita executando o comando **[az mysql server delete](/cli/azure/mysql/server)** .
+A exclusão de um servidor de réplica de leitura pode ser feita executando o comando **[az mysql server delete](/cli/azure/mysql/server)**.
 
 ```azurecli-interactive
 az mysql flexible-server delete --resource-group myresourcegroup --name mydemoreplicaserver

@@ -3,12 +3,12 @@ title: Hub de eventos como um manipulador de eventos para os eventos da Grade de
 description: Descreve como você pode usar os hubs de eventos como manipuladores de eventos para os eventos da Grade de Eventos do Azure.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 4fb8027290831dbfed4b6d202d61d2d689274828
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 446fef6df65f59206519e282c74d59c2ed1bfa9d
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629617"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "96005615"
 ---
 # <a name="event-hub-as-an-event-handler-for-azure-event-grid-events"></a>Hub de eventos como um manipulador de eventos para os eventos da Grade de Eventos do Azure
 Um manipulador de eventos é o local para o qual o evento é enviado. O manipulador usa uma ação para processar o evento. Vários serviços do Azure são automaticamente configurados para lidar com os eventos, e o **Hubs de Eventos do Azure** é um deles. 
@@ -23,17 +23,8 @@ Veja os exemplos a seguir:
 | [Início Rápido: Encaminhar eventos personalizados para os Hubs de Eventos do Azure com a CLI do Azure](custom-event-to-eventhub.md) | Envia um evento personalizado para um hub de eventos para processamento por um aplicativo. |
 | [Modelo do Resource Manager: Criar um tópico personalizado de Grade de Eventos e enviar eventos para um hub de eventos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| Um modelo do Gerenciador de Recursos que cria uma assinatura para um tópico personalizado. Envia eventos para os Hubs de Eventos do Azure. |
 
-## <a name="message-properties"></a>Propriedades da mensagem
-Se você usar um **Hub de eventos** como um manipulador de eventos para eventos da grade de eventos, essas são as propriedades que você recebe nos cabeçalhos de mensagem: 
+[!INCLUDE [event-grid-message-headers](../../includes/event-grid-message-headers.md)]
 
-| Nome da propriedade | Descrição |
-| ------------- | ----------- | 
-| aeg-subscription-name | Nome da assinatura de evento. |
-| aeg-delivery-count | <p>Número de tentativas feitas para o evento.</p> <p>Exemplo: "1"</p> |
-| aeg-event-type | <p>Tipo do evento.</p><p> Exemplo: "Microsoft.Storage.blobCreated"</p> | 
-| aeg-metadata-version | <p>A versão de metadados do evento.</p> <p>Exemplo: "1".</p><p> Para o **esquema de evento da Grade de Eventos**, essa propriedade representa a versão de metadados e, para o **esquema de evento da nuvem**, ela representa a **versão de especificação**. </p>|
-| aeg-data-version | <p>Versão de dados do evento.</p><p>Exemplo: "1".</p><p>Para o **esquema de evento da Grade de Eventos**, essa propriedade representa a versão dos dados e para o **esquema de evento da nuvem**, ela não se aplica.</p> |
-| aeg-output-event-id | ID do evento da Grade de Eventos. |
 
 ## <a name="rest-examples-for-put"></a>Exemplos de REST (para PUT)
 

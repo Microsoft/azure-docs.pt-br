@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 857429ab5fd2e2ea9a0cb0173015ceba4bb0bacb
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: b63db3d02b471a577586ecd54f56caa59af504d6
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92504104"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805505"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>Adicionar um conector de API a um fluxo de usuário de inscrição (versão prévia)
 
@@ -36,13 +36,13 @@ Para usar um [conector de API](api-connectors-overview.md), primeiro crie o cone
 6. Forneça a **URL do ponto de extremidade** para a chamada à API.
 7. Forneça as informações de autenticação para a API.
 
-   - Somente a autenticação básica tem suporte no momento. Se você quiser usar uma API sem autenticação básica para fins de desenvolvimento, basta inserir um **nome de usuário** e **senha** ' fictícios ' que sua API pode ignorar. Para usar com uma função do Azure com uma chave de API, você pode incluir o código como um parâmetro de consulta na **URL do ponto de extremidade** (por exemplo, https []() ://contoso.azurewebsites.NET/API/Endpoint<b>? Code = 0123456789</b>).
+   - Somente a autenticação básica tem suporte no momento. Se você quiser usar uma API sem autenticação básica para fins de desenvolvimento, basta inserir um **nome de usuário** e **senha** ' fictícios ' que sua API pode ignorar. Para usar com uma função do Azure com uma chave de API, você pode incluir o código como um parâmetro de consulta na **URL do ponto de extremidade** (por exemplo, `https://contoso.azurewebsites.net/api/endpoint?code=0123456789` ).
 
    ![Configurar um novo conector de API](./media/add-api-connector/api-connector-config.png)
 8. Selecione **Salvar**.
 
 ## <a name="the-request-sent-to-your-api"></a>A solicitação enviada à sua API
-Um conector de API se materializa como uma solicitação **http post** , enviando atributos de usuário (' declarações ') como pares de chave-valor em um corpo JSON. Os atributos são serializados da mesma forma para [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user#properties) Propriedades de usuário. 
+Um conector de API se materializa como uma solicitação **http post** , enviando atributos de usuário (' declarações ') como pares de chave-valor em um corpo JSON. Os atributos são serializados da mesma forma para [Microsoft Graph](/graph/api/resources/user#properties) Propriedades de usuário. 
 
 **Solicitação de exemplo**
 ```http
@@ -73,7 +73,7 @@ Content-type: application/json
 }
 ```
 
-Somente as propriedades do usuário e os atributos personalizados listados na **Azure ad B2C**  >  experiência de**atributos de usuário** estão disponíveis para serem enviados na solicitação.
+Somente as propriedades do usuário e os atributos personalizados listados na **Azure ad B2C**  >  experiência de **atributos de usuário** estão disponíveis para serem enviados na solicitação.
 
 Existem atributos personalizados no formato **de \<extensions-app-id> _CustomAttribute extension_**  no diretório. Sua API deve esperar receber declarações nesse mesmo formato serializado. Para obter mais informações sobre atributos personalizados, consulte [definir atributos personalizados em Azure Active Directory B2C](user-flow-custom-attributes.md).
 
@@ -83,7 +83,7 @@ Além disso, a Declaração **localidades da interface do usuário (' ui_locales
 > Se uma declaração não tiver um valor no momento em que o ponto de extremidade de API for chamado, a declaração não será enviada para a API. Sua API deve ser projetada para verificar explicitamente e manipular o caso em que uma declaração não está na solicitação.
 
 > [!TIP] 
-> [**identidades (' identidades ')**](https://docs.microsoft.com/graph/api/resources/objectidentity) e as declarações de **endereço de email (' email ')** podem ser usadas pela sua API para identificar um usuário antes que eles tenham uma conta em seu locatário. 
+> [**identidades (' identidades ')**](/graph/api/resources/objectidentity) e as declarações de **endereço de email (' email ')** podem ser usadas pela sua API para identificar um usuário antes que eles tenham uma conta em seu locatário. 
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>Habilitar o conector de API em um fluxo de usuário
 
@@ -91,8 +91,8 @@ Siga estas etapas para adicionar um conector de API a um fluxo de usuário de in
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 2. Em **Serviços do Azure**, selecione **Azure ad B2C**.
-4. Selecione **fluxos de usuário**e, em seguida, selecione o fluxo de usuário ao qual você deseja adicionar o conector de API.
-5. Selecione **conectores de API**e, em seguida, selecione os pontos de extremidade de API que você deseja invocar nas etapas a seguir no fluxo do usuário:
+4. Selecione **fluxos de usuário** e, em seguida, selecione o fluxo de usuário ao qual você deseja adicionar o conector de API.
+5. Selecione **conectores de API** e, em seguida, selecione os pontos de extremidade de API que você deseja invocar nas etapas a seguir no fluxo do usuário:
 
    - **Depois de entrar com um provedor de identidade**
    - **Antes de criar o usuário**
@@ -103,7 +103,7 @@ Siga estas etapas para adicionar um conector de API a um fluxo de usuário de in
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Depois de entrar com um provedor de identidade
 
-Um conector de API nesta etapa no processo de inscrição é invocado imediatamente depois que o usuário é autenticado com um provedor de identidade (como o Google, Facebook, & Azure AD). Esta etapa precede a página de*_coleção de atributos_**, que é o formulário apresentado ao usuário para coletar atributos de usuário. Esta etapa não será invocada se um usuário estiver se registrando com uma conta local.
+Um conector de API nesta etapa no processo de inscrição é invocado imediatamente depois que o usuário é autenticado com um provedor de identidade (como o Google, Facebook, & Azure AD). Esta etapa precede a ***página coleção de atributos***, que é o formulário apresentado ao usuário para coletar atributos de usuário. Esta etapa não será invocada se um usuário estiver se registrando com uma conta local.
 
 ### <a name="example-request-sent-to-the-api-at-this-step"></a>Exemplo de solicitação enviada para a API nesta etapa
 ```http
@@ -237,11 +237,11 @@ Content-type: application/json
 }
 ```
 
-| Parâmetro                                          | Type              | Obrigatório | Descrição                                                                                                                                                                                                                                                                            |
+| Parâmetro                                          | Tipo              | Obrigatório | Descrição                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version                                            | String            | Sim      | A versão da API.                                                                                                                                                                                                                                                                |
 | ação                                             | String            | Sim      | O valor precisa ser `Continue`.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | Não       | Os valores retornados podem substituir os valores coletados de um usuário. Eles também podem ser retornados no token, se selecionado como uma declaração de aplicativo _ * * *.                                              |
+| \<builtInUserAttribute>                            | \<attribute-type> | Não       | Os valores retornados podem substituir os valores coletados de um usuário. Eles também podem ser retornados no token, se selecionado como uma **declaração de aplicativo**.                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Não       | A declaração não precisa conter `_<extensions-app-id>_` . Os valores retornados podem substituir os valores coletados de um usuário. Eles também podem ser retornados no token, se selecionado como uma **declaração de aplicativo**.  |
 
 ### <a name="example-of-a-blocking-response"></a>Exemplo de uma resposta de bloqueio
@@ -258,7 +258,7 @@ Content-type: application/json
 
 ```
 
-| Parâmetro   | Type   | Obrigatório | Descrição                                                                |
+| Parâmetro   | Tipo   | Obrigatório | Descrição                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | version     | String | Sim      | A versão da API.                                                    |
 | ação      | String | Sim      | O valor deve ser `ShowBlockPage`                                              |
@@ -284,7 +284,7 @@ Content-type: application/json
 }
 ```
 
-| Parâmetro   | Type    | Obrigatório | Descrição                                                                |
+| Parâmetro   | Tipo    | Obrigatório | Descrição                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | version     | String  | Sim      | A versão da API.                                                    |
 | ação      | String  | Sim      | O valor precisa ser `ValidationError`.                                           |

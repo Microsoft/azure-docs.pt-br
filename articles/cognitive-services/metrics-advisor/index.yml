@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 08/13/2020
   ms.author: mbullwin
-  ms.openlocfilehash: a9b6459cdf9ccb82677eb3888e22582d8bab0453
-  ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+  ms.openlocfilehash: 62b24a855fca9e12ecd6770f78ef8b4dacc719dd
+  ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/29/2020
-  ms.locfileid: "92912150"
+  ms.lasthandoff: 11/10/2020
+  ms.locfileid: "94445346"
 landingContent:
 - title: Sobre o Assistente de Métricas
   linkLists:
@@ -28,12 +28,10 @@ landingContent:
       url: overview.md
   - linkListType: quickstart
     links:
-    - text: Explorar o site de demonstração
-      url: quickstarts/explore-demo.md
     - text: Monitorar a primeira métrica na Web
       url: quickstarts/web-portal.md
-    - text: Usar as APIs REST para personalizar a solução
-      url: quickstarts/rest-api.md
+    - text: Usar a API REST ou bibliotecas de clientes
+      url: quickstarts/rest-api-and-client-library.md
 - title: Artigos de instruções
   linkLists:
   - linkListType: how-to-guide

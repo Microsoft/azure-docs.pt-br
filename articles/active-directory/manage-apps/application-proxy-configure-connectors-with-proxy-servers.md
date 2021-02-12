@@ -3,7 +3,7 @@ title: Trabalhar com servidores proxy locais existentes e Azure Active Directory
 description: Aborda como trabalhar com servidores proxy locais existentes com o Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,13 +11,13 @@ ms.topic: how-to
 ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: contperfq2
-ms.openlocfilehash: 81a735966b2a0ebdd7c8fcd9e9aa467d68aac354
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 09a257c4b80fd796ac4e1e8203f00857d2d95eaf
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792745"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259110"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabalhar com servidores proxy locais existentes
 
@@ -168,6 +168,9 @@ A melhor maneira de identificar e solucionar os problemas de conectividade do co
 
 Você pode usar a ferramenta de monitoramento de sua preferência. Para este artigo, usamos o Microsoft Message Analyzer.
 
+> [!NOTE]
+> O [MMA (analisador de mensagens da Microsoft) foi desativado](/openspecs/blog/ms-winintbloglp/dd98b93c-0a75-4eb0-b92e-e760c502394f) e seus pacotes de download foram removidos dos sites do Microsoft.com em novembro de 25 2019.  No momento, não há substituição da Microsoft para o Microsoft Message Analyzer em desenvolvimento no momento.  Para uma funcionalidade semelhante, considere o uso de uma ferramenta de analisador de protocolo de rede de terceiros, como o Wireshark.
+
 Os exemplos a seguir são específicos para o Message Analyzer, mas os princípios podem ser aplicados a qualquer ferramenta de análise.
 
 ### <a name="take-a-capture-of-connector-traffic"></a>Fazer uma captura do tráfego do conector
@@ -179,7 +182,7 @@ Para a solução de problemas inicial, execute as seguintes etapas:
    ![Serviço Conector do Proxy de Aplicativo do Azure AD em services.msc](./media/application-proxy-configure-connectors-with-proxy-servers/services-local.png)
 
 1. Execute o Message Analyzer como um administrador.
-1. Selecione **Iniciar rastreamento local** .
+1. Selecione **Iniciar rastreamento local**.
 1. Inicie o serviço Conector do Proxy de Aplicativo do Azure AD.
 1. Pare a captura de rede.
 
@@ -189,7 +192,7 @@ Para a solução de problemas inicial, execute as seguintes etapas:
 
 Se você configurou o conector de Proxy de Aplicativo para ignorar os servidores proxy e conectar-se diretamente ao serviço de Proxy de Aplicativo, você desejará pesquisar na captura de rede para tentativas de conexão TCP com falha.
 
-Use o filtro do Message Analyzer para identificar essas tentativas. Insira `property.TCPSynRetransmit` na caixa de filtro e selecione **Aplicar** .
+Use o filtro do Message Analyzer para identificar essas tentativas. Insira `property.TCPSynRetransmit` na caixa de filtro e selecione **Aplicar**.
 
 Um pacote SYN é o primeiro pacote enviado para estabelecer uma conexão TCP. Se o pacote não retornar uma resposta, o SYN fará uma nova tentativa. Você pode usar o filtro anterior para ver quaisquer SYNs retransmitidos. Assim, você pode verificar se eles correspondem ao tráfego relacionado a algum conector.
 
@@ -208,4 +211,4 @@ Caso sejam exibidos outros códigos de resposta, como 407 ou 502, isso indica qu
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](application-proxy-connectors.md)
-* Se você tiver problemas de conectividade do conector, faça sua pergunta na [Página de P e R Microsoft para o Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html) ou crie um tíquete com nossa equipe de suporte.
+* Se você tiver problemas de conectividade do conector, faça sua pergunta na [Página de P e R Microsoft para o Azure Active Directory](/answers/topics/azure-active-directory.html) ou crie um tíquete com nossa equipe de suporte.

@@ -1,16 +1,16 @@
 ---
-title: Adicionar associações a uma função existente no Azure Functions
-description: Saiba como adicionar associações a uma função existente no seu projeto Azure Functions.
+title: Conectar funções a outros serviços do Azure
+description: Saiba como adicionar associações que se conectam a outros serviços do Azure a uma função existente no seu projeto Azure Functions.
 ms.topic: how-to
 ms.date: 04/29/2020
-ms.openlocfilehash: 23b7b05f9a9f9da5a48511ee555e3b6184a74179
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1c6f5bb8ca5fcf995b8a8d326abbec96f1d2e35
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91654091"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258194"
 ---
-# <a name="add-bindings-to-an-existing-function-in-azure-functions"></a>Adicionar associações a uma função existente no Azure Functions
+# <a name="connect-functions-to-azure-services-using-bindings"></a>Conectar funções a serviços do Azure usando associações
 
 Quando você cria uma função, um código de gatilho específico a um idioma é adicionado em seu projeto de um conjunto de modelos de gatilho. Se você quiser conectar sua função a outros serviços usando associações de entrada ou saída, você precisará adicionar definições de associação específicas em sua função. Para saber mais sobre associações, confira [Conceitos de gatilhos e de associações do Azure Functions](functions-triggers-bindings.md).
 

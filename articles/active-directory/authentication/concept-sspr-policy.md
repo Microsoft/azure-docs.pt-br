@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/05/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.date: 01/27/2021
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.custom: contperfq4
-ms.openlocfilehash: 695d47c839a9436f4fad9399f7995b3197e1c0eb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: contperf-fy20q4
+ms.openlocfilehash: 80be5ca22f3dfb673f09327108e66fccc9de6ddd
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964988"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918036"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Políticas de senha e restrições de conta no Azure Active Directory
 
@@ -75,6 +75,7 @@ A política de duas portas requer dois tipos de dados de autenticação, como um
   * Suporte de camada 1 do parceiro
   * Suporte de camada 2 do parceiro
   * Administradores do Exchange
+  * Administrador de caixa de correio
   * Administrador do Skype for Business
   * Administrador de usuários
   * Gravadores de diretório
@@ -85,17 +86,19 @@ A política de duas portas requer dois tipos de dados de autenticação, como um
   * Administrador de segurança
   * Administrador de função com privilégios
   * Administrador do Intune
+  * Administrador local do dispositivo ingressado no Azure AD
   * Administrador de serviços de Proxy do aplicativo
   * Administrador do Dynamics 365
   * Administrador de serviços do Power BI
   * Administrador de autenticação
+  * Administrador de senha
   * Administrador de autenticação privilegiada
 
 * Caso tenham se passado 30 dias decorridos de uma assinatura de avaliação; ou
 * Um domínio personalizado foi configurado para seu locatário do Azure AD, como *contoso.com*; or
 * O Azure AD Connect está sincronizando identidades do seu diretório local
 
-Você pode desabilitar o uso de SSPR para contas de administrador usando o cmdlet do PowerShell [set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) . O `-SelfServePasswordResetEnabled $False` parâmetro DESABILITA SSPR para administradores.
+Você pode desabilitar o uso de SSPR para contas de administrador usando o cmdlet do PowerShell [set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings) . O `-SelfServePasswordResetEnabled $False` parâmetro DESABILITA SSPR para administradores.
 
 ### <a name="exceptions"></a>Exceções
 
@@ -107,7 +110,7 @@ Uma política de duas portas requer um tipo de dados de autenticação, como um 
 
 ## <a name="password-expiration-policies"></a><a name="set-password-expiration-policies-in-azure-ad"></a>Políticas de expiração de senha
 
-Um administrador *global* ou *administrador de usuários* pode usar o [módulo Microsoft Azure ad para Windows PowerShell](/powershell/module/Azuread/?view=azureadps-2.0) para definir senhas de usuário para não expirar.
+Um administrador *global* ou *administrador de usuários* pode usar o [módulo Microsoft Azure ad para Windows PowerShell](/powershell/module/Azuread/) para definir senhas de usuário para não expirar.
 
 Você também pode usar os cmdlets do PowerShell para remover a configuração nunca expira ou para ver quais senhas de usuário estão definidas para nunca expirar.
 
@@ -118,13 +121,13 @@ Essa orientação se aplica a outros provedores, como o Intune e Microsoft 365, 
 
 ### <a name="set-or-check-the-password-policies-by-using-powershell"></a>Definir ou verificar políticas de senha usando o PowerShell
 
-Para começar, [Baixe e instale o módulo do PowerShell do Azure ad](/powershell/module/Azuread/?view=azureadps-2.0) e [Conecte-o ao seu locatário do Azure ad](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples).
+Para começar, [Baixe e instale o módulo do PowerShell do Azure ad](/powershell/module/Azuread/) e [Conecte-o ao seu locatário do Azure ad](/powershell/module/azuread/connect-azuread#examples).
 
 Depois que o módulo for instalado, use as etapas a seguir para concluir cada tarefa, conforme necessário.
 
 ### <a name="check-the-expiration-policy-for-a-password"></a>Verificar a política de expiração de uma senha
 
-1. Abra um prompt do PowerShell e [Conecte-se ao seu locatário do Azure ad](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) usando uma conta de administrador *global* ou de *administrador de usuário* .
+1. Abra um prompt do PowerShell e [Conecte-se ao seu locatário do Azure ad](/powershell/module/azuread/connect-azuread#examples) usando uma conta de administrador *global* ou de *administrador de usuário* .
 1. Execute um dos seguintes comandos para um usuário individual ou para todos os usuários:
 
    * Para ver se a senha de um único usuário está definida para nunca expirar, execute o cmdlet a seguir. Substitua `<user ID>` pela ID de usuário do usuário que você deseja verificar, como *driley \@ contoso.onmicrosoft.com*:
@@ -141,7 +144,7 @@ Depois que o módulo for instalado, use as etapas a seguir para concluir cada ta
 
 ### <a name="set-a-password-to-expire"></a>Definir uma senha para expirar
 
-1. Abra um prompt do PowerShell e [Conecte-se ao seu locatário do Azure ad](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) usando uma conta de administrador *global* ou de *administrador de usuário* .
+1. Abra um prompt do PowerShell e [Conecte-se ao seu locatário do Azure ad](/powershell/module/azuread/connect-azuread#examples) usando uma conta de administrador *global* ou de *administrador de usuário* .
 1. Execute um dos seguintes comandos para um usuário individual ou para todos os usuários:
 
    * Para definir a senha de um usuário para que a senha expire, execute o cmdlet a seguir. Substitua `<user ID>` pela ID de usuário do usuário que você deseja verificar, como *driley \@ contoso.onmicrosoft.com*
@@ -158,7 +161,7 @@ Depois que o módulo for instalado, use as etapas a seguir para concluir cada ta
 
 ### <a name="set-a-password-to-never-expire"></a>Definir uma senha para nunca expirar
 
-1. Abra um prompt do PowerShell e [Conecte-se ao seu locatário do Azure ad](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) usando uma conta de administrador *global* ou de *administrador de usuário* .
+1. Abra um prompt do PowerShell e [Conecte-se ao seu locatário do Azure ad](/powershell/module/azuread/connect-azuread#examples) usando uma conta de administrador *global* ou de *administrador de usuário* .
 1. Execute um dos seguintes comandos para um usuário individual ou para todos os usuários:
 
    * Para definir a senha de um usuário para nunca expirar, execute o cmdlet a seguir. Substitua `<user ID>` pela ID de usuário do usuário que você deseja verificar, como *driley \@ contoso.onmicrosoft.com*
@@ -180,4 +183,4 @@ Depois que o módulo for instalado, use as etapas a seguir para concluir cada ta
 
 Para começar a usar o SSPR, consulte [tutorial: permitir que os usuários desbloqueiem sua conta ou redefinam senhas usando Azure Active Directory redefinição de senha de autoatendimento](tutorial-enable-sspr.md).
 
-Se você ou os usuários tiverem problemas com o SSPR, consulte [solucionar problemas de redefinição de senha de autoatendimento](active-directory-passwords-troubleshoot.md)
+Se você ou os usuários tiverem problemas com o SSPR, consulte [solucionar problemas de redefinição de senha de autoatendimento](./troubleshoot-sspr.md)

@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c024b12210d408fe2a9987cba56a08e4b660ae1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f4a8fb82a42c5121105ddf7bb9d3d886b531350
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86027538"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321337"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Modelagem e exploração de dados avançados com o Spark
 
-Este passo a passo usa o HDInsight Spark para executar a exploração de dados e treinar a classificação binária e os modelos de regressão usando validação cruzada e otimização de hiperparâmetro em uma amostra do conjunto de dados de corridas e tarifas de táxi em Nova York de 2013. Ele o orienta ao longo das etapas do [Processo de Ciência de Dados](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), de ponta a ponta, usando um cluster HDInsight Spark para processamento e blobs do Azure para armazenar os dados e os modelos. O processo explora e visualiza os dados transferidos de um Blob de Armazenamento do Azure e prepara os dados para criar modelos preditivos. Python foi usado para codificar a solução e mostrar os gráficos relevantes. Esses modelos são compilados usando o kit de ferramentas Spark MLlib para executar tarefas de classificação binária e modelagem de regressão. 
+Este passo a passo usa o HDInsight Spark para executar a exploração de dados e treinar a classificação binária e os modelos de regressão usando validação cruzada e otimização de hiperparâmetro em uma amostra do conjunto de dados de corridas e tarifas de táxi em Nova York de 2013. Ele o orienta ao longo das etapas do [Processo de Ciência de Dados](./index.yml), de ponta a ponta, usando um cluster HDInsight Spark para processamento e blobs do Azure para armazenar os dados e os modelos. O processo explora e visualiza os dados transferidos de um Blob de Armazenamento do Azure e prepara os dados para criar modelos preditivos. Python foi usado para codificar a solução e mostrar os gráficos relevantes. Esses modelos são compilados usando o kit de ferramentas Spark MLlib para executar tarefas de classificação binária e modelagem de regressão. 
 
 * A tarefa de **classificação binária** consiste em prever se uma gorjeta é paga ou não pela corrida. 
 * A tarefa de **regressão** consiste em prever o valor da gorjeta com base em outros recursos de gorjeta. 
@@ -764,7 +764,7 @@ Tempo necessário para executar a célula acima: 2,67 segundos
 
 **Plote a curva ROC.**
 
-O *predictionAndLabelsDF* é registrado como uma tabela, *tmp_results*, na célula anterior. A tabela *tmp_results* pode ser usada para fazer consultas e resultados de saída para o quadro de dados sqlResults para criar gráficos. Veja o código.
+O *predictionAndLabelsDF* é registrado como uma tabela, *tmp_results* , na célula anterior. A tabela *tmp_results* pode ser usada para fazer consultas e resultados de saída para o quadro de dados sqlResults para criar gráficos. Veja o código.
 
 ```python
 # QUERY RESULTS                              
@@ -895,7 +895,7 @@ Tempo necessário para executar a célula acima: 107,98 segundos
 
 **Plote a curva ROC.**
 
-O *predictionAndLabelsDF* é registrado como uma tabela, *tmp_results*, na célula anterior. A tabela *tmp_results* pode ser usada para fazer consultas e resultados de saída para o quadro de dados sqlResults para criar gráficos. Veja o código.
+O *predictionAndLabelsDF* é registrado como uma tabela, *tmp_results* , na célula anterior. A tabela *tmp_results* pode ser usada para fazer consultas e resultados de saída para o quadro de dados sqlResults para criar gráficos. Veja o código.
 
 ```python
 # QUERY RESULTS
@@ -1508,4 +1508,3 @@ BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-0
 Agora que criou modelos de regressão e classificação com o Spark MlLib, você está pronto para aprender a classificar e avaliar os modelos.
 
 **Consumo do modelo:** para saber como pontuar e avaliar os modelos de classificação e regressão criados neste tópico, confira [Pontuar e avaliar modelos de machine learning criados no Spark](spark-model-consumption.md).
-

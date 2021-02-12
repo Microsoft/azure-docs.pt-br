@@ -3,17 +3,17 @@ title: Escolha o tipo de preço certo para mapas de Microsoft Azure
 description: Saiba mais sobre os tipos de preço do Azure Maps. Veja quais recursos são oferecidos em quais camadas e veja as principais considerações para escolher um tipo de preço.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 08/12/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 3603a4f5d103987b25bd5f976b89f943f98565a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb57e424642141e73588a61d026d1ff2f1a8b096
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88163978"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905291"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Escolha a camada de preços certa no Azure Mapas
 
@@ -33,7 +33,7 @@ Se as APIs geoespaciais principais atenderem aos seus requisitos de serviço, es
 |-----------------------------------------|:-------------------:|:--------:|
 | Renderização de mapa                              | ✓                   | ✓       |
 | Imagens satélite                       |                     | ✓        |
-| Search                                  | ✓                    | ✓        |
+| Pesquisar                                  | ✓                    | ✓        |
 | Pesquisa em lotes                            |                     | ✓        |
 | Rota                                   | ✓                    |✓        |
 | Roteamento do lote                            |                    | ✓        |
@@ -48,6 +48,7 @@ Se as APIs geoespaciais principais atenderem aos seus requisitos de serviço, es
 | Mobilidade (visualização)                       |                     | ✓        |
 | Clima (visualização)                        |✓                    |✓        |
 |  Criador (versão prévia)                         |                   |✓        |
+|  Elevação (visualização)                        |                   |✓        |
 
 Considere estes pontos adicionais:
 

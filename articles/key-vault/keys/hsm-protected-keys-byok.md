@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 05/29/2020
+ms.date: 02/04/2021
 ms.author: ambapat
-ms.openlocfilehash: 1869ec9b617a7451ec42fa9d092ea3bb5834f9e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51ba981dcc6f36df3bfaacebb503782faed5c91f
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88585467"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580999"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-byok"></a>Importar chaves protegidas por HSM para o Key Vault (BYOK)
 
@@ -63,15 +63,21 @@ A seguinte tabela lista os pré-requisitos para o uso do BYOK no Azure Key Vault
 |Fortanix|Fabricante,<br/>HSM como serviço|<ul><li>SDKMS (Serviço de Gerenciamento de Chaves de Proteção Automática)</li><li>Equinix SmartKey</li></ul>|[Como exportar chaves SDKMS para provedores de nuvem para BYOK – Azure Key Vault](https://support.fortanix.com/hc/en-us/articles/360040071192-Exporting-SDKMS-keys-to-Cloud-Providers-for-BYOK-Azure-Key-Vault)|
 |Marvell|Fabricante|Todos os HSMs LiquidSecurity com<ul><li>Firmware versão 2.0.4 ou posterior</li><li>Firmware versão 3.2 ou mais recente</li></ul>|[Ferramenta BYOK Marvell e documentação](https://www.marvell.com/products/security-solutions/nitrox-hs-adapters/exporting-marvell-hsm-keys-to-cloud-azure-key-vault.html)|
 |Cryptomathic|ISV (Sistema de Gerenciamento de Chaves Empresariais)|Várias marcas e modelos de HSM, incluindo<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>Acesse o [site da Cryptomathic para obter detalhes](https://www.cryptomathic.com/azurebyok)|[Ferramenta BYOK Cryptomathic e documentação](https://www.cryptomathic.com/azurebyok)|
-
+|Securosys SA|Fabricante, HSM como serviço|Família HSM Primus, Securosys Clouds HSM|[Ferramenta e documentação do Primus BYOK](https://www.securosys.com/primus-azure-byok)|
+|StorMagic|ISV (Sistema de Gerenciamento de Chaves Empresariais)|Várias marcas e modelos de HSM, incluindo<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>Confira o [site da StorMagic para obter detalhes](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|[SvKMS e Azure Key Vault BYOK](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|
+|IBM|Fabricante|IBM 476x, CryptoExpress|[IBM Enterprise Key Management Foundation](https://www.ibm.com/security/key-management/ekmf-bring-your-own-key-azure)|
+||||
 
 
 ## <a name="supported-key-types"></a>Tipos de chave com suporte
 
-|Nome da chave|Tipo de chave|Tamanho da chave|Origem|Descrição|
+|Nome da chave|Tipo de chave|Tamanho/curva da chave|Origem|Descrição|
 |---|---|---|---|---|
 |KEK (Chave de Troca de Chaves)|RSA| 2\.048 bits<br />3\.072 bits<br />4\.096 bits|HSM do Azure Key Vault|Um par de chaves RSA compatível com HSM gerado no Azure Key Vault|
-|Chave de destino|RSA|2\.048 bits<br />3\.072 bits<br />4\.096 bits|HSM do fornecedor|A chave a ser transferida para o HSM do Azure Key Vault|
+|Chave de destino|
+||RSA|2\.048 bits<br />3\.072 bits<br />4\.096 bits|HSM do fornecedor|A chave a ser transferida para o HSM do Azure Key Vault|
+||EC|P-256<br />P-384<br />P-521|HSM do fornecedor|A chave a ser transferida para o HSM do Azure Key Vault|
+||||
 
 ## <a name="generate-and-transfer-your-key-to-the-key-vault-hsm"></a>Gerar e transferir sua chave para o HSM do Key Vault
 
@@ -117,7 +123,7 @@ Veja a documentação do fornecedor do HSM para baixar e instalar a ferramenta B
 Transfira o arquivo BYOK para o computador conectado.
 
 > [!NOTE] 
-> Não há suporte para a importação de chaves RSA de 1.024 bits. Atualmente, não há suporte para a importação de uma chave EC (Curva Elíptica).
+> Não há suporte para a importação de chaves RSA de 1.024 bits. Não há suporte para a importação da chave de curva elíptica com a curva P-256K.
 > 
 > **Problema conhecido**: Só há suporte para a importação de uma chave de destino RSA de 4 mil bits de HSMs do Luna no firmware 7.4.0 ou mais recente.
 
@@ -125,8 +131,15 @@ Transfira o arquivo BYOK para o computador conectado.
 
 Para concluir a importação da chave, transfira o pacote de transferência de chave (um arquivo BYOK) do computador desconectado para o computador conectado à Internet. Use o comando [az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) para carregar o arquivo BYOK para o HSM do Key Vault.
 
+Para importar uma chave RSA, use o comando a seguir. O parâmetro --kty é opcional e assume como padrão 'RSA-HSM'.
 ```azurecli
 az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok
+```
+
+Para importar uma chave de curva elíptica, você precisa especificar o tipo de chave e o nome da curva.
+
+```azurecli
+az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file --kty EC-HSM --curve-name "P-256" KeyTransferPackage-ContosoFirstHSMkey.byok
 ```
 
 Se o upload for bem-sucedido, a CLI do Azure exibirá as propriedades da chave importada.

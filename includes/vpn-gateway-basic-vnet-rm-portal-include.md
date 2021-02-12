@@ -9,10 +9,10 @@ ms.date: 10/20/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: a66596ecb926c1bf3c6b61cc99e1eb1b56e99158
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92328413"
 ---
 1. Entre no [portal do Azure](https://portal.azure.com).

@@ -2,25 +2,28 @@
 author: IngridAtMicrosoft
 ms.service: media-services
 ms.topic: include
-ms.date: 08/18/2020
+ms.date: 11/19/2020
 ms.author: inhenkel
-ms.custom: CLI
-ms.openlocfilehash: eacdfe663ee3ec323d59daf160fe33af073bc1c5
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.custom: REST
+ms.openlocfilehash: def2553ddc71f008c5d2b902d04f587ef8d26889
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92525045"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996877"
 ---
 <!--Create a basic audio transform REST-->
 
-O comando REST do Azure a seguir cria um ativo de áudio básico. Substitua os valores `subscriptionID` , `resourceGroup` e `amsAccountName` pelos valores com os quais você está trabalhando no momento. Dê um nome ao seu ativo Configurando `assetName` aqui.
+O comando REST do Azure a seguir cria uma transformação de áudio básica. Substitua os valores `subscriptionID` , `resourceGroup` e `accountName` pelos valores com os quais você está trabalhando no momento. Dê um nome à sua transformação Configurando `transformName` .
 
-```
+```REST
+
 PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.Media/mediaServices/{{accountName}}/transforms/{{transformName}}?api-version=2020-05-01
+
 ```
 
 ## <a name="body"></a>Corpo
+
 ```json
 {
     "properties": {

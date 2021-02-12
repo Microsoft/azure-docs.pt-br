@@ -5,20 +5,19 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 10/19/2020
-author: jluk
-ms.openlocfilehash: a96489495abe3bfbed3030b3e08ff121c5c7cddf
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c30051008474a32ae6c847ee3f840c8ae35b469b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090790"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726791"
 ---
 # <a name="reduce-latency-with-proximity-placement-groups"></a>Reduzir a latência com grupos de posicionamento de proximidade
 
 > [!Note]
 > Ao usar grupos de posicionamento de proximidade em AKS, a colocação se aplica somente aos nós de agente. O nó para o nó e o Pod hospedado correspondente à latência de Pod foram aprimorados. A colocalização não afeta o posicionamento do plano de controle de um cluster.
 
-Ao implantar seu aplicativo no Azure, a difusão de instâncias de máquina virtual (VM) em regiões ou zonas de disponibilidade cria a latência de rede, o que pode afetar o desempenho geral do seu aplicativo. Um grupo de posicionamento de proximidade é um agrupamento lógico usado para garantir que os recursos de computação do Azure estejam fisicamente localizados próximos um do outro. Alguns aplicativos como jogos, simulações de engenharia e HFT (transações de alta frequência) exigem baixa latência e tarefas que são concluídas rapidamente. Para cenários de HPC (computação de alto desempenho) como esses, considere o uso de PPG ( [grupos de posicionamento de proximidade](../virtual-machines/linux/co-location.md#proximity-placement-groups) ) para pools de nós do cluster.
+Ao implantar seu aplicativo no Azure, a difusão de instâncias de máquina virtual (VM) em regiões ou zonas de disponibilidade cria a latência de rede, o que pode afetar o desempenho geral do seu aplicativo. Um grupo de posicionamento de proximidade é um agrupamento lógico usado para garantir que os recursos de computação do Azure estejam fisicamente localizados próximos um do outro. Alguns aplicativos como jogos, simulações de engenharia e HFT (transações de alta frequência) exigem baixa latência e tarefas que são concluídas rapidamente. Para cenários de HPC (computação de alto desempenho) como esses, considere o uso de PPG ( [grupos de posicionamento de proximidade](../virtual-machines/co-location.md#proximity-placement-groups) ) para pools de nós do cluster.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -134,7 +133,7 @@ az group delete --name myResourceGroup --yes --no-wait
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[proximity-placement-groups]: ../virtual-machines/linux/co-location.md#proximity-placement-groups
+[proximity-placement-groups]: ../virtual-machines/co-location.md#proximity-placement-groups
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [system-pool]: ./use-system-pools.md
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 936501674fcf1d428de936174575440edad71de2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea24716dba5e4e824a4fa986602007035be8e365
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84738508"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018370"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Configurar logs de fluxo do Grupo de segurança de rede usando a API REST
 

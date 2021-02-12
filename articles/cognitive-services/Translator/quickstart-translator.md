@@ -12,12 +12,12 @@ ms.date: 09/14/2020
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: tradução, serviço de tradução, traduzir texto, transliterar texto, detecção de idioma
-ms.openlocfilehash: e5b0bc17e8df1d82fb23a098f857be4fea13b982
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 38bd4d28a8ae4c737155cd74bcb39d1acfaf699c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91318833"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733487"
 ---
 # <a name="quickstart-get-started-with-translator"></a>Início Rápido: Introdução à Tradução
 
@@ -105,7 +105,7 @@ Ao chamar o serviço de Tradução por meio do REST, você precisará verificar 
   <th>Descrição</th>
   <tr>
     <td>Cabeçalhos de autenticação</td>
-    <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>.</td>
+    <td><em>Cabeçalho de solicitação obrigatório</em>.<br/><code>Ocp-Apim-Subscription-Key</code><br/><br/><em>Cabeçalho de solicitação obrigatório se você estiver usando um recurso dos Serviços Cognitivos. Opcional, se estiver usando um recurso de Tradução.</em>.<br/><code>Ocp-Apim-Subscription-Region</code><br/><br/>Veja <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>.</td>
   </tr>
   <tr>
     <td>Tipo de conteúdo</td>
@@ -123,7 +123,7 @@ Ao chamar o serviço de Tradução por meio do REST, você precisará verificar 
 
 ## <a name="keys-and-endpoints"></a>Chaves e pontos de extremidade
 
-Os exemplos nesta página usam chaves e pontos de extremidade embutidos em código para simplificar. Lembre-se de **remover a chave do código quando terminar** e **nunca poste-a publicamente**. Para produção, considere o uso de uma maneira segura de armazenar e acessar suas credenciais. Confira o artigo [segurança](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) de Serviços Cognitivos para obter mais informações.
+Os exemplos nesta página usam chaves e pontos de extremidade embutidos em código para simplificar. Lembre-se de **remover a chave do código quando terminar** e **nunca poste-a publicamente**. Para produção, considere o uso de uma maneira segura de armazenar e acessar suas credenciais. Confira o artigo [segurança](../cognitive-services-security.md) de Serviços Cognitivos para obter mais informações.
 
 ## <a name="translate-text"></a>Traduzir o texto 
 
@@ -142,6 +142,10 @@ class Program
 {
     private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
+
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static readonly string location = "YOUR_RESOURCE_LOCATION";
     
     static async Task Main(string[] args)
     {
@@ -159,6 +163,7 @@ class Program
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            request.Headers.Add("Ocp-Apim-Subscription-Region", location);
     
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
@@ -186,6 +191,9 @@ import (
 
 func main() {
     subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    location := "YOUR_RESOURCE_LOCATION";
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/translate?api-version=3.0"
 
@@ -212,6 +220,7 @@ func main() {
     }
     // Add required headers to the request
     req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
     // Call the Translator API
@@ -244,6 +253,10 @@ import com.squareup.okhttp.*;
 public class Translate {
     private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static String location = "YOUR_RESOURCE_LOCATION";
+
     HttpUrl url = new HttpUrl.Builder()
         .scheme("https")
         .host("api.cognitive.microsofttranslator.com")
@@ -263,7 +276,9 @@ public class Translate {
         RequestBody body = RequestBody.create(mediaType,
                 "[{\"Text\": \"Hello World!\"}]");
         Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).addHeader("Content-type", "application/json")
+                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+                .addHeader("Ocp-Apim-Subscription-Key", location)
+                .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
         return response.body().string();
@@ -293,10 +308,14 @@ public class Translate {
 
 ```Javascript
 const axios = require('axios').default;
-const uuidv4 = require('uuid/v4');
+const { v4: uuidv4 } = require('uuid');
 
 var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
+
+// Add your location, also known as region. The default is global.
+// This is required if using a Cognitive Services resource.
+var location = "YOUR_RESOURCE_LOCATION";
 
 axios({
     baseURL: endpoint,
@@ -304,6 +323,7 @@ axios({
     method: 'post',
     headers: {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
+        'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
@@ -329,6 +349,10 @@ import requests, uuid, json
 subscription_key = "YOUR_SUBSCRIPTION_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
+# Add your location, also known as region. The default is global.
+# This is required if using a Cognitive Services resource.
+location = "YOUR_RESOURCE_LOCATION"
+
 path = '/translate'
 constructed_url = endpoint + path
 
@@ -341,6 +365,7 @@ constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
+    'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }
@@ -398,6 +423,10 @@ class Program
 {
     private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
+
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static readonly string location = "YOUR_RESOURCE_LOCATION";
     
     static async Task Main(string[] args)
     {
@@ -415,6 +444,7 @@ class Program
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            request.Headers.Add("Ocp-Apim-Subscription-Region", location);
     
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
@@ -443,6 +473,9 @@ import (
 
 func main() {
     subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    location := "YOUR_RESOURCE_LOCATION";
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/translate?api-version=3.0"
 
@@ -468,6 +501,7 @@ func main() {
     }
     // Add required headers to the request
     req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
     // Call the Translator API
@@ -499,6 +533,9 @@ import com.squareup.okhttp.*;
 public class Translate {
     private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static String location = "YOUR_RESOURCE_LOCATION";
 
     HttpUrl url = new HttpUrl.Builder()
         .scheme("https")
@@ -518,7 +555,9 @@ public class Translate {
         RequestBody body = RequestBody.create(mediaType,
                 "[{\"Text\": \"Hello World!\"}]");
         Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).addHeader("Content-type", "application/json")
+                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+                .addHeader("Ocp-Apim-Subscription-Key", location)
+                .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
         return response.body().string();
@@ -548,10 +587,14 @@ public class Translate {
 
 ```javascript
 const axios = require('axios').default;
-const uuidv4 = require('uuid/v4');
+const { v4: uuidv4 } = require('uuid');
 
 var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
+
+// Add your location, also known as region. The default is global.
+// This is required if using a Cognitive Services resource.
+var location = "YOUR_RESOURCE_LOCATION";
 
 axios({
     baseURL: endpoint,
@@ -559,6 +602,7 @@ axios({
     method: 'post',
     headers: {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
+        'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
@@ -584,6 +628,10 @@ import requests, uuid, json
 subscription_key = "YOUR_SUBSCRIPTION_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
+# Add your location, also known as region. The default is global.
+# This is required if using a Cognitive Services resource.
+location = "YOUR_RESOURCE_LOCATION"
+
 path = '/translate'
 constructed_url = endpoint + path
 
@@ -595,6 +643,7 @@ constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
+    'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }
@@ -637,7 +686,7 @@ Após uma chamada bem-sucedida, você deverá ver a seguinte resposta:
 
 ### <a name="detect-source-language-without-translation"></a>Detectar idioma de origem sem tradução
 
-É possível usar o serviço de Tradução para detectar o idioma do texto de origem sem executar uma tradução. Para fazer isso, você usará o ponto de extremidade [`/detect`](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect). 
+É possível usar o serviço de Tradução para detectar o idioma do texto de origem sem executar uma tradução. Para fazer isso, você usará o ponto de extremidade [`/detect`](./reference/v3-0-detect.md). 
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -652,6 +701,10 @@ class Program
 {
     private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
+
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static readonly string location = "YOUR_RESOURCE_LOCATION";    
     
     static async Task Main(string[] args)
     {
@@ -669,6 +722,7 @@ class Program
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            request.Headers.Add("Ocp-Apim-Subscription-Region", location);
     
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
@@ -696,6 +750,10 @@ import (
 
 func main() {
     subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    location := "YOUR_RESOURCE_LOCATION";   
+
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/detect?api-version=3.0"
 
@@ -719,6 +777,7 @@ func main() {
     }
     // Add required headers to the request
     req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
     // Call the Translator API
@@ -750,6 +809,10 @@ import com.squareup.okhttp.*;
 public class Detect {
     private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static String location = "YOUR_RESOURCE_LOCATION";
+
     HttpUrl url = new HttpUrl.Builder()
         .scheme("https")
         .host("api.cognitive.microsofttranslator.com")
@@ -766,7 +829,9 @@ public class Detect {
         RequestBody body = RequestBody.create(mediaType,
                 "[{\"Text\": \"Ich würde wirklich gern Ihr Auto um den Block fahren ein paar Mal.\"}]");
         Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).addHeader("Content-type", "application/json")
+                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+                .addHeader("Ocp-Apim-Subscription-Key", location)
+                .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
         return response.body().string();
@@ -796,10 +861,14 @@ public class Detect {
 
 ```javascript
 const axios = require('axios').default;
-const uuidv4 = require('uuid/v4');
+const { v4: uuidv4 } = require('uuid');
 
 var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
+
+// Add your location, also known as region. The default is global.
+// This is required if using a Cognitive Services resource.
+var location = "YOUR_RESOURCE_LOCATION";
 
 axios({
     baseURL: endpoint,
@@ -807,6 +876,7 @@ axios({
     method: 'post',
     headers: {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
+        'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
@@ -830,6 +900,10 @@ import requests, uuid, json
 subscription_key = "YOUR_SUBSCRIPTION_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
+# Add your location, also known as region. The default is global.
+# This is required if using a Cognitive Services resource.
+location = "YOUR_RESOURCE_LOCATION"
+
 path = '/detect'
 constructed_url = endpoint + path
 
@@ -840,6 +914,7 @@ constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
+    'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }
@@ -893,7 +968,8 @@ Se você estiver traduzindo para um idioma que use um alfabeto diferente (ou fon
 
 Para obter uma transliteração do ponto de extremidade `translate`, use o parâmetro `toScript`.
 
-> ![NOTE] Para obter uma lista completa de idiomas disponíveis e opções de transliteração, confira [suporte ao idioma](language-support.md).
+> [!NOTE]
+> Para uma lista completa de idiomas disponíveis e opções de transliteração, confira [suporte ao idioma](language-support.md).
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -908,6 +984,10 @@ class Program
 {
     private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
+
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static readonly string location = "YOUR_RESOURCE_LOCATION";    
     
     static async Task Main(string[] args)
     {
@@ -925,6 +1005,7 @@ class Program
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            request.Headers.Add("Ocp-Apim-Subscription-Region", location);
     
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
@@ -952,6 +1033,9 @@ import (
 
 func main() {
     subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    location := "YOUR_RESOURCE_LOCATION";   
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/translate?api-version=3.0"
 
@@ -977,6 +1061,7 @@ func main() {
     }
     // Add required headers to the request
     req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
     // Call the Translator API
@@ -1008,6 +1093,10 @@ import com.squareup.okhttp.*;
 public class Translate {
     private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static String location = "YOUR_RESOURCE_LOCATION";
+
     HttpUrl url = new HttpUrl.Builder()
         .scheme("https")
         .host("api.cognitive.microsofttranslator.com")
@@ -1026,7 +1115,9 @@ public class Translate {
         RequestBody body = RequestBody.create(mediaType,
                 "[{\"Text\": \"Hello\"}]");
         Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).addHeader("Content-type", "application/json")
+                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+                .addHeader("Ocp-Apim-Subscription-Key", location)
+                .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
         return response.body().string();
@@ -1056,10 +1147,14 @@ public class Translate {
 
 ```javascript
 const axios = require('axios').default;
-const uuidv4 = require('uuid/v4');
+const { v4: uuidv4 } = require('uuid');
 
 var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
+
+// Add your location, also known as region. The default is global.
+// This is required if using a Cognitive Services resource.
+var location = "YOUR_RESOURCE_LOCATION";
 
 axios({
     baseURL: endpoint,
@@ -1067,6 +1162,7 @@ axios({
     method: 'post',
     headers: {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
+        'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
@@ -1092,6 +1188,10 @@ import requests, uuid, json
 subscription_key = "YOUR_SUBSCRIPTION_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
+# Add your location, also known as region. The default is global.
+# This is required if using a Cognitive Services resource.
+location = "YOUR_RESOURCE_LOCATION"
+
 path = '/translate'
 constructed_url = endpoint + path
 
@@ -1104,6 +1204,7 @@ constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
+    'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }
@@ -1147,7 +1248,8 @@ Após uma chamada bem-sucedida, você deverá ver a resposta a seguir. Lembre-se
 
 Você também pode usar o ponto de extremidade `transliterate` para obter uma transliteração. Ao usar o ponto de extremidade de transliteração, você deve informar o idioma de origem (`language`), o script/alfabeto de origem (`fromScript`) e o script/alfabeto de saída (`toScript`) como parâmetros. Neste exemplo, vamos obter a transliteração para สวัสดี. 
 
-> ![NOTE] Para obter uma lista completa de idiomas disponíveis e opções de transliteração, confira [suporte ao idioma](language-support.md).
+> [!NOTE]
+> Para uma lista completa de idiomas disponíveis e opções de transliteração, confira [suporte ao idioma](language-support.md).
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -1162,6 +1264,10 @@ class Program
 {
     private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
+
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static readonly string location = "YOUR_RESOURCE_LOCATION";   
     
     static async Task Main(string[] args)
     {
@@ -1180,6 +1286,7 @@ class Program
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            request.Headers.Add("Ocp-Apim-Subscription-Region", location);
     
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
@@ -1207,6 +1314,9 @@ import (
 
 func main() {
     subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    location := "YOUR_RESOURCE_LOCATION";
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/transliterate?api-version=3.0"
 
@@ -1233,6 +1343,7 @@ func main() {
     }
     // Add required headers to the request
     req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
     // Call the Translator API
@@ -1264,6 +1375,10 @@ import com.squareup.okhttp.*;
 public class Transliterate {
     private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static String location = "YOUR_RESOURCE_LOCATION";
+
     HttpUrl url = new HttpUrl.Builder()
         .scheme("https")
         .host("api.cognitive.microsofttranslator.com")
@@ -1283,7 +1398,9 @@ public class Transliterate {
         RequestBody body = RequestBody.create(mediaType,
                 "[{\"Text\": \"สวัสดี\"}]");
         Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).addHeader("Content-type", "application/json")
+                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+                .addHeader("Ocp-Apim-Subscription-Key", location)
+                .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
         return response.body().string();
@@ -1313,10 +1430,14 @@ public class Transliterate {
 
 ```javascript
 const axios = require('axios').default;
-const uuidv4 = require('uuid/v4');
+const { v4: uuidv4 } = require('uuid');
 
 var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
+
+// Add your location, also known as region. The default is global.
+// This is required if using a Cognitive Services resource.
+var location = "YOUR_RESOURCE_LOCATION";
 
 axios({
     baseURL: endpoint,
@@ -1324,6 +1445,7 @@ axios({
     method: 'post',
     headers: {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
+        'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
@@ -1350,6 +1472,10 @@ import requests, uuid, json
 subscription_key = "YOUR_SUBSCRIPTION_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
+# Add your location, also known as region. The default is global.
+# This is required if using a Cognitive Services resource.
+location = "YOUR_RESOURCE_LOCATION"
+
 path = '/transliterate'
 constructed_url = endpoint + path
 
@@ -1363,6 +1489,7 @@ constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
+    'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }
@@ -1412,6 +1539,10 @@ class Program
 {
     private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
+
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static readonly string location = "YOUR_RESOURCE_LOCATION";   
     
     static async Task Main(string[] args)
     {
@@ -1430,6 +1561,7 @@ class Program
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            request.Headers.Add("Ocp-Apim-Subscription-Region", location);
     
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
@@ -1457,6 +1589,9 @@ import (
 
 func main() {
     subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    location := "YOUR_RESOURCE_LOCATION";
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/translate?api-version=3.0"
 
@@ -1482,6 +1617,7 @@ func main() {
     }
     // Add required headers to the request
     req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
     // Call the Translator API
@@ -1513,6 +1649,10 @@ import com.squareup.okhttp.*;
 public class Translate {
     private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static String location = "YOUR_RESOURCE_LOCATION";
+
     HttpUrl url = new HttpUrl.Builder()
         .scheme("https")
         .host("api.cognitive.microsofttranslator.com")
@@ -1531,7 +1671,9 @@ public class Translate {
         RequestBody body = RequestBody.create(mediaType,
                 "[{\"Text\": \"Can you tell me how to get to Penn Station? Oh, you aren\'t sure? That\'s fine.\"}]");
         Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).addHeader("Content-type", "application/json")
+                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+                .addHeader("Ocp-Apim-Subscription-Key", location)
+                .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
         return response.body().string();
@@ -1561,10 +1703,14 @@ public class Translate {
 
 ```javascript
 const axios = require('axios').default;
-const uuidv4 = require('uuid/v4');
+const { v4: uuidv4 } = require('uuid');
 
 var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
+
+// Add your location, also known as region. The default is global.
+// This is required if using a Cognitive Services resource.
+var location = "YOUR_RESOURCE_LOCATION";
 
 axios({
     baseURL: endpoint,
@@ -1572,6 +1718,7 @@ axios({
     method: 'post',
     headers: {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
+        'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
@@ -1597,6 +1744,10 @@ import requests, uuid, json
 subscription_key = "YOUR_SUBSCRIPTION_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
+# Add your location, also known as region. The default is global.
+# This is required if using a Cognitive Services resource.
+location = "YOUR_RESOURCE_LOCATION"
+
 path = '/translate'
 constructed_url = endpoint + path
 
@@ -1609,6 +1760,7 @@ constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
+    'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }
@@ -1673,6 +1825,10 @@ class Program
 {
     private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
+
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static readonly string location = "YOUR_RESOURCE_LOCATION";   
     
     static async Task Main(string[] args)
     {
@@ -1691,6 +1847,7 @@ class Program
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            request.Headers.Add("Ocp-Apim-Subscription-Region", location);
     
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
@@ -1718,6 +1875,9 @@ import (
 
 func main() {
     subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    location := "YOUR_RESOURCE_LOCATION";
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/breaksentence?api-version=3.0"
 
@@ -1741,6 +1901,7 @@ func main() {
     }
     // Add required headers to the request
     req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
     // Call the Translator API
@@ -1772,6 +1933,10 @@ import com.squareup.okhttp.*;
 public class BreakSentence {
     private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static String location = "YOUR_RESOURCE_LOCATION";
+
     HttpUrl url = new HttpUrl.Builder()
         .scheme("https")
         .host("api.cognitive.microsofttranslator.com")
@@ -1788,7 +1953,9 @@ public class BreakSentence {
         RequestBody body = RequestBody.create(mediaType,
                 "[{\"Text\": \"Can you tell me how to get to Penn Station? Oh, you aren\'t sure? That\'s fine.\"}]");
         Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).addHeader("Content-type", "application/json")
+                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+                .addHeader("Ocp-Apim-Subscription-Key", location)
+                .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
         return response.body().string();
@@ -1818,10 +1985,14 @@ public class BreakSentence {
 
 ```javascript
 const axios = require('axios').default;
-const uuidv4 = require('uuid/v4');
+const { v4: uuidv4 } = require('uuid');
 
 var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
+
+// Add your location, also known as region. The default is global.
+// This is required if using a Cognitive Services resource.
+var location = "YOUR_RESOURCE_LOCATION";
 
 axios({
     baseURL: endpoint,
@@ -1829,6 +2000,7 @@ axios({
     method: 'post',
     headers: {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
+        'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
@@ -1852,6 +2024,10 @@ import requests, uuid, json
 subscription_key = "YOUR_SUBSCRIPTION_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
+# Add your location, also known as region. The default is global.
+# This is required if using a Cognitive Services resource.
+location = "YOUR_RESOURCE_LOCATION"
+
 path = '/breaksentence'
 constructed_url = endpoint + path
 
@@ -1862,6 +2038,7 @@ constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
+    'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }
@@ -1914,6 +2091,10 @@ class Program
 {
     private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
+
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static readonly string location = "YOUR_RESOURCE_LOCATION"; 
     
     static async Task Main(string[] args)
     {
@@ -1931,6 +2112,7 @@ class Program
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            request.Headers.Add("Ocp-Apim-Subscription-Region", location);
     
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
@@ -1958,6 +2140,9 @@ import (
 
 func main() {
     subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    location := "YOUR_RESOURCE_LOCATION";
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/dictionary/lookup?api-version=3.0"
 
@@ -1983,6 +2168,7 @@ func main() {
     }
     // Add required headers to the request
     req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
     // Call the Translator API
@@ -2014,6 +2200,10 @@ import com.squareup.okhttp.*;
 public class DictionaryLookup {
     private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static String location = "YOUR_RESOURCE_LOCATION";
+
     HttpUrl url = new HttpUrl.Builder()
         .scheme("https")
         .host("api.cognitive.microsofttranslator.com")
@@ -2032,7 +2222,9 @@ public class DictionaryLookup {
         RequestBody body = RequestBody.create(mediaType,
                 "[{\"Text\": \"Shark\"}]");
         Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).addHeader("Content-type", "application/json")
+                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+                .addHeader("Ocp-Apim-Subscription-Key", location)
+                .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
         return response.body().string();
@@ -2062,10 +2254,14 @@ public class DictionaryLookup {
 
 ```javascript
 const axios = require('axios').default;
-const uuidv4 = require('uuid/v4');
+const { v4: uuidv4 } = require('uuid');
 
 var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
+
+// Add your location, also known as region. The default is global.
+// This is required if using a Cognitive Services resource.
+var location = "YOUR_RESOURCE_LOCATION";
 
 axios({
     baseURL: endpoint,
@@ -2073,6 +2269,7 @@ axios({
     method: 'post',
     headers: {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
+        'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
@@ -2098,6 +2295,10 @@ import requests, uuid, json
 subscription_key = "YOUR_SUBSCRIPTION_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
+# Add your location, also known as region. The default is global.
+# This is required if using a Cognitive Services resource.
+location = "YOUR_RESOURCE_LOCATION"
+
 path = '/dictionary/lookup'
 constructed_url = endpoint + path
 
@@ -2110,6 +2311,7 @@ constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
+    'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }
@@ -2186,6 +2388,10 @@ class Program
 {
     private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
+
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static readonly string location = "YOUR_RESOURCE_LOCATION"; 
     
     static async Task Main(string[] args)
     {
@@ -2202,6 +2408,7 @@ class Program
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            request.Headers.Add("Ocp-Apim-Subscription-Region", location);
     
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
@@ -2228,9 +2435,12 @@ import (
 )
 
 func main() {
+    subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    location := "YOUR_RESOURCE_LOCATION";
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/dictionary/examples?api-version=3.0"
-    subscriptionKey := "YOUR_SUBSCRIPTION_KEY"
 
     // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
     u, _ := url.Parse(uri)
@@ -2258,6 +2468,7 @@ func main() {
     }
     // Add required headers to the request
     req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
     // Call the Translator Text API
@@ -2288,6 +2499,10 @@ import com.squareup.okhttp.*;
 
 public class DictionaryExamples {
     private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static String location = "YOUR_RESOURCE_LOCATION";
 
     HttpUrl url = new HttpUrl.Builder()
         .scheme("https")
@@ -2337,10 +2552,14 @@ public class DictionaryExamples {
 
 ```javascript
 const axios = require('axios').default;
-const uuidv4 = require('uuid/v4');
+const { v4: uuidv4 } = require('uuid');
 
 var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
+
+// Add your location, also known as region. The default is global.
+// This is required if using a Cognitive Services resource.
+var location = "YOUR_RESOURCE_LOCATION";
 
 axios({
     baseURL: endpoint,
@@ -2348,6 +2567,7 @@ axios({
     method: 'post',
     headers: {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
+        'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
@@ -2374,6 +2594,10 @@ import requests, uuid, json
 subscription_key = "YOUR_SUBSCRIPTION_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
+# Add your location, also known as region. The default is global.
+# This is required if using a Cognitive Services resource.
+location = "YOUR_RESOURCE_LOCATION"
+
 path = '/dictionary/examples'
 constructed_url = endpoint + path
 
@@ -2386,6 +2610,7 @@ constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
+    'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }
@@ -2440,6 +2665,12 @@ Após uma chamada bem-sucedida, você deverá ver a resposta a seguir. Para obte
     }
 ]
 ```
+
+## <a name="troubleshooting"></a>Solução de problemas
+
+### <a name="java-users"></a>Usuários do Java
+
+Caso você encontre problemas de conexão, talvez seu certificado SSL tenha expirado. Para resolver esse problema, instale o [DigiCertGlobalRootG2.crt](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt) em seu armazenamento privado. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

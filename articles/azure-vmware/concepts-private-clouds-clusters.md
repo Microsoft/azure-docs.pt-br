@@ -2,13 +2,13 @@
 title: Conceitos-nuvens e clusters privados
 description: Saiba mais sobre os principais recursos de data centers definidos pelo software da solução Azure VMware e clusters vSphere.
 ms.topic: conceptual
-ms.date: 10/27/2020
-ms.openlocfilehash: b261eb0517e9890d9bccf12f2e5748626f4c1ff9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 02/02/2021
+ms.openlocfilehash: 960187629c5dc1120b720ec9009276fa3f313e5d
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791011"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538917"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Conceitos de nuvem privada e de cluster da solução Azure VMware
 
@@ -38,7 +38,7 @@ Você usa o vSphere e o NSX-T Manager para gerenciar a maioria dos outros aspect
 
 ## <a name="hosts"></a>Hosts
 
-Os clusters de nuvem privada da solução Azure VMware usam nós de infraestrutura hiperconvergentes e bare-metal. A tabela a seguir mostra a RAM, a CPU e as capacidades de disco do host. 
+Os clusters de nuvem privada da solução Azure VMware usam hosts de infraestrutura bare-metal e hiperconvergentes. A tabela a seguir mostra a RAM, a CPU e as capacidades de disco do host. 
 
 | Tipo de host              |             CPU             |   RAM (GB)   |  Camada de cache do vSAN NVMe (TB, bruto)  |  tipo de capacidade vSAN SSD (TB, RAW)  |
 | :---                   |            :---:            |    :---:     |               :---:              |                :---:               |
@@ -48,18 +48,8 @@ Os hosts usados para criar ou dimensionar clusters vêm de um pool isolado de ho
 
 ## <a name="vmware-software-versions"></a>Versões de software VMware
 
-As versões de software atuais do software VMware usado em clusters de nuvem privada da solução Azure VMware são:
+[!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
 
-| Software              |    Versão   |
-| :---                  |     :---:    |
-| VCSA/vSphere/ESXi |    6,7 U2    | 
-| ESXi                  |    6,7 U2    | 
-| vSAN                  |    6,7 U2    |
-| NSX-T                 |      2.5     |
-
-Para qualquer novo cluster em uma nuvem privada, a versão do software corresponde ao que está em execução. Para qualquer nova nuvem privada em uma assinatura, a versão mais recente da pilha de software é instalada.
-
-Você pode encontrar as políticas e os processos de atualização gerais para o software da plataforma de solução do Azure VMware descrito no artigo [conceitos de atualizações](concepts-upgrades.md) .
 
 ## <a name="host-maintenance-and-lifecycle-management"></a>Manutenção do host e gerenciamento do ciclo de vida
 
@@ -76,7 +66,11 @@ As configurações do vCenter e do NSX-T na nuvem privada estão em uma agenda d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-A próxima etapa é aprender os [conceitos de rede e de interconectividade](concepts-networking.md).
+Agora que você abordou os conceitos da nuvem privada da solução Azure VMware, talvez queira saber mais sobre: 
+
+- [Conceitos de rede e interconectividade da solução do Azure VMware](concepts-networking.md).
+- [Conceitos de armazenamento da solução VMware do Azure](concepts-storage.md).
+- [Como habilitar o recurso de solução VMware do Azure](enable-azure-vmware-solution.md).
 
 <!-- LINKS - internal -->
 

@@ -4,15 +4,15 @@ description: Saiba como usar o Salesforce para configurar clientes potenciais pa
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 03/30/2020
-ms.openlocfilehash: c3667de6a9bf85109a94201aa8e144869e4b033f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73caf848ab5c6f8e973469066ce4612a075a52f5
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86117108"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489311"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Configurar o gerenciamento de clientes potenciais para o Salesforce
 
@@ -31,7 +31,7 @@ Este artigo descreve como configurar o sistema de Salesforce para processar clie
 
        ![Configuração do Salesforce](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-1.png)
 
-    1. Na página **Instalação**, vá para **Ferramentas da plataforma** > **Configurações de recursos** > **Marketing** > **Web-to-Lead**.
+    1. Na página **Instalação** , vá para **Ferramentas da plataforma** > **Configurações de recursos** > **Marketing** > **Web-to-Lead**.
 
         ![Salesforce Web-to-Lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-2.png)
 
@@ -41,18 +41,18 @@ Este artigo descreve como configurar o sistema de Salesforce para processar clie
 
        ![Configuração clássica do Salesforce](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-classic-setup.png)
 
-    1. Na página **Instalação**, selecione **Criar** > **Personalizar** > **Clientes potenciais** > **Web-to-Lead**.
+    1. Na página **Instalação** , selecione **Criar** > **Personalizar** > **Clientes potenciais** > **Web-to-Lead**.
 
         ![Salesforce Web-to-Lead clássico](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-classic-web-to-lead.png)
 
    As etapas restantes são as mesmas para as duas experiências do Salesforce.
 
-1. Na página **Instalação do Web-to-Lead**, selecione o botão **Criar formulário Web-to-Lead**.
-1. Em **Instalação do Web-to-Lead**, selecione **Criar formulário Web-to-Lead**.
+1. Na página **Instalação do Web-to-Lead** , selecione o botão **Criar formulário Web-to-Lead**.
+1. Em **Instalação do Web-to-Lead** , selecione **Criar formulário Web-to-Lead**.
 
     ![Instalação do Salesforce Web-to-Lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-3.png)
 
-1. Em **Criar um formulário Web-to-Lead**, verifique se a instalação de `Include reCAPTCHA in HTML` está desmarcada e selecione **Gerar**.
+1. Em **Criar um formulário Web-to-Lead** , verifique se a instalação de `Include reCAPTCHA in HTML` está desmarcada e selecione **Gerar**.
 
     ![O Salesforce cria um painel Formulário Web-to-Lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-4.png)
 
@@ -70,15 +70,15 @@ Quando estiver pronto para configurar as informações de gerenciamento de clien
 
 1. Selecione sua oferta e vá até a guia **Configuração de oferta**.
 
-1. Na seção **Clientes potenciais**, selecione **Conectar**.
+1. Na seção **Clientes potenciais** , selecione **Conectar**.
 
     :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-salesforce/customer-leads.png" alt-text="Clientes potenciais":::
 
-1. Na janela pop-up de **Detalhes da conexão**, selecione **Salesforce** para o **Destino dos clientes potenciais** e cole o valor `oid` do Formulário Web-to-Lead criado no campo **Identificador da organização**.
+1. Na janela pop-up de **Detalhes da conexão** , selecione **Salesforce** para o **Destino dos clientes potenciais** e cole o valor `oid` do Formulário Web-to-Lead criado no campo **Identificador da organização**.
 
     ![Na janela pop-up de Detalhes da conexão, valide a caixa Email de contato](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-connection-details.png)
 
-1. Em **Email de contato**, insira os endereços de email das pessoas em sua empresa que devem receber notificações por email quando um novo cliente potencial for recebido. Você pode inserir vários endereços de email, separando-os com um sinal de ponto e vírgula.
+1. Em **Email de contato** , insira os endereços de email das pessoas em sua empresa que devem receber notificações por email quando um novo cliente potencial for recebido. Você pode inserir vários endereços de email, separando-os com um sinal de ponto e vírgula.
 
 1. Selecione **OK**.
 

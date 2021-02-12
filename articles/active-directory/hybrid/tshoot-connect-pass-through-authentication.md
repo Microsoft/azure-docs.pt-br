@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 07/27/2020
+ms.date: 01/25/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a602405065a41cb26b2ae5303d12c45ed21616f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a014bd5c8f1edbfb00019b8541cef552271d65b
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91741186"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762853"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Solucionar problemas de Autenticação de Passagem do Azure Active Directory
 
@@ -44,7 +44,7 @@ Verifique se o recurso de Autenticação de passagem ainda está **Habilitado** 
 
 Se o usuário não consegue entrar usando a autenticação de passagem, ele poderá ver um dos seguintes erros voltados ao usuário na tela de entrada do Azure AD: 
 
-|Erro do|Descrição|Resolução
+|Erro|Descrição|Resolução
 | --- | --- | ---
 |AADSTS80001|Não é possível conectar ao Active Directory|Verifique se os servidores do agente são membros da mesma floresta do AD que os usuários cujas senhas precisam ser validadas e se são capazes de se conectar ao Active Directory.  
 |AADSTS8002|Um tempo limite ao estabelecer conexão com o Active Directory|Verifique se o Active Directory está disponível e respondendo às solicitações dos agentes.
@@ -61,7 +61,7 @@ Para confirmar que esse é o problema, primeiro teste se o agente de autenticaç
 
 1. Crie uma conta de teste.  
 2. Importe o módulo do PowerShell no computador do agente:
- 
+
  ```powershell
  Import-Module "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\PassthroughAuthPSModule\PassthroughAuthPSModule.psd1"
  ```
@@ -72,7 +72,7 @@ Para confirmar que esse é o problema, primeiro teste se o agente de autenticaç
  ``` 
 4. Quando for solicitado que você insira as credenciais, insira o mesmo nome de usuário e senha que são usados para entrar no ( https://login.microsoftonline.com) .
 
-Se você receber o mesmo erro de nome de usuário/senha, isso significa que o agente de autenticação de passagem está funcionando corretamente e o problema pode ser que o UPN local não é roteável. Para saber mais, consulte [Configurando a ID de logon alternativa]( /windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More).
+Se você receber o mesmo erro de nome de usuário/senha, isso significa que o agente de autenticação de passagem está funcionando corretamente e o problema pode ser que o UPN local não é roteável. Para saber mais, consulte [Configurando a ID de logon alternativa](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
 
 > [!IMPORTANT]
 > Se o servidor de Azure AD Connect não estiver ingressado no domínio, um requisito mencionado em [Azure ad Connect: pré-requisitos](./how-to-connect-install-prerequisites.md#installation-prerequisites), ocorrerá o problema inválido de nome de usuário/senha.
@@ -92,7 +92,7 @@ Navegue até **Azure Active Directory**  ->  **entradas** no [centro de administ
 | 80002 | A solicitação de validação de senha do Agente de Autenticação atingiu o tempo limite. | Verifique se o seu Active Directory está acessível por meio do Agente de Autenticação.
 | 80003 | Resposta inválida recebida pelo Agente de Autenticação. | Se o problema puder ser reproduzido de forma consistente entre vários usuários, verifique a configuração do Active Directory.
 | 80004 | Nome UPN incorreto usado na solicitação de entrada. | Peça ao usuário para entrar com o nome de usuário correto.
-| 80005 | Agente de Autenticação: ocorreu um erro. | Erro transitório. Tente novamente mais tarde.
+| 80005 | Agente de Autenticação: ocorreu um erro. | Erro transitório. Tente novamente depois.
 | 80007 | O Agente de Autenticação não pode se conectar ao Active Directory. | Verifique se o seu Active Directory está acessível por meio do Agente de Autenticação.
 | 80010 | O Agente de Autenticação não pode descriptografar a senha. | Se o problema puder ser reproduzido consistentemente, instale e registre um novo Agente de Autenticação. E desinstale o atual. 
 | 80011 | O Agente de Autenticação não pode recuperar a chave de descriptografia. | Se o problema puder ser reproduzido consistentemente, instale e registre um novo Agente de Autenticação. E desinstale o atual.
@@ -156,6 +156,8 @@ Para erros relacionados à instalação, consulte os logs do Azure AD Connect em
 Para erros relacionados ao Agente de autenticação, abra o aplicativo Visualizador de Eventos no servidor e verifique em **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
 
 Para análises detalhadas, habilite o log de "Sessão" (botão direito do mouse dentro do aplicativo de Visualizador de eventos para encontrar essa opção). Não execute o Agente de Autenticação com esse log habilitado durante operações normais; use somente para solução de problemas. O conteúdo do log é visível somente depois que o log está desabilitado novamente.
+
+
 
 ### <a name="detailed-trace-logs"></a>Logs de rastreamento detalhados
 

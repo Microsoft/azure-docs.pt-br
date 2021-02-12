@@ -3,14 +3,14 @@ title: Remover VMs do Gerenciamento de Atualizações da Automação do Azure
 description: Este artigo informa como remover computadores gerenciados com o Gerenciamento de Atualizações.
 services: automation
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 01/05/2021
 ms.custom: mvc
-ms.openlocfilehash: 774dbe29cbb6b4d063d3619d0c710efb1949b99a
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: d0399aed9be8d81abb2aa55190225570ddcc1a4e
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221924"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913185"
 ---
 # <a name="remove-vms-from-update-management"></a>Remover VMs do Gerenciamento de Atualizações
 
@@ -32,13 +32,20 @@ Entre no [portal do Azure](https://portal.azure.com).
 
 3. Na portal do Azure, navegue até **espaços de trabalho do log Analytics**. Selecione o workspace da lista.
 
-4. No espaço de trabalho Log Analytics, selecione **logs** e, em seguida, escolha **Gerenciador de consultas** no menu de ações superior.
+4. No espaço de trabalho Log Analytics, selecione **Configurações avançadas** e, em seguida, escolha **grupos de computadores** no menu à esquerda.
 
-5. No **Gerenciador de consultas** no painel direito, expanda **Queries\Updates salvas** e selecione a consulta de pesquisa salva `MicrosoftDefaultComputerGroup` para editá-lo.
+5. Em **grupos de computadores** no painel direito, selecione **grupos salvos**.
 
-6. No editor de consultas, examine a consulta e localize o UUID para a VM. Remova o UUID para a VM e repita as etapas para todas as outras VMs que você deseja remover.
+6. Na tabela, para as atualizações de consulta de pesquisa salvas **: MicrosoftDefaultComputerGroup**, clique no ícone **Exibir Membros** para executar e exibir seus membros.
 
-7. Salve a pesquisa salva quando tiver terminado de editá-la selecionando **salvar** na barra superior.
+7. No editor de consultas, examine a consulta e localize o UUID para a VM. Remova o UUID para a VM e repita as etapas para todas as outras VMs que você deseja remover.
+
+8. Salve a pesquisa salva quando tiver terminado de editá-la selecionando **salvar** na barra superior. Quando solicitado, especifique o seguinte:
+
+    * **Nome**: MicrosoftDefaultComputerGroup
+    * **Salvar como**: função
+    * **Alias**: Updates__MicrosoftDefaultComputerGroup
+    * **Categoria**: atualizações
 
 >[!NOTE]
 >Os computadores ainda serão mostrados depois que você tiver cancelado o registro porque relatamos em todos os computadores avaliados nas últimas 24 horas. Depois de remover a máquina, você precisa aguardar 24 horas antes que elas não sejam mais listadas.

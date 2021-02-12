@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 100a8ed1987b2edbc0aea1708c8a60b48bf391b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8779381425d4180cc7320f251de9c2cfdd1f0510
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84737913"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223416"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Gerenciar as capturas de pacotes com o Observador de Rede do Azure usando o PowerShell
 
@@ -48,7 +48,7 @@ Este artigo pressupõe que você tenha os seguintes recursos:
 * Uma máquina virtual com a extensão da captura de pacotes habilitada.
 
 > [!IMPORTANT]
-> A captura de pacotes exige uma extensão de máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão em uma VM do Windows, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md) e para a VM do Linux, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md).
+> A captura de pacotes exige uma extensão de máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão em uma VM do Windows, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Windows](../virtual-machines/extensions/network-watcher-windows.md) e para a VM do Linux, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Linux](../virtual-machines/extensions/network-watcher-linux.md).
 
 ## <a name="install-vm-extension"></a>Instalar a extensão de VM
 
@@ -128,7 +128,7 @@ Depois que as etapas anteriores forem concluídas, o agente de captura de pacote
 A próxima etapa é recuperar a instância do Observador de Rede. Essa variável é passada para o cmdlet `New-AzNetworkWatcherPacketCapture` na etapa 4.
 
 ```powershell
-$networkWatcher = Get-AzResource -ResourceType "Microsoft.Network/networkWatchers" | Where {$_.Location -eq "WestCentralUS" }
+$networkWatcher = Get-AzNetworkWatcher  | Where {$_.Location -eq "westcentralus" }
 ```
 
 ### <a name="step-2"></a>Etapa 2
@@ -281,17 +281,3 @@ Saiba como automatizar a captura de pacote com alertas de máquina Virtual por m
 Localize se determinado tráfego é permitido dentro ou fora de sua VM visitando [Verificar o fluxo do IP](diagnose-vm-network-traffic-filtering-problem.md)
 
 <!-- Image references -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-

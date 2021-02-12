@@ -3,12 +3,12 @@ title: Integrar Azure Functions com uma rede virtual do Azure
 description: Um tutorial passo a passo que mostra como conectar uma função a uma rede virtual do Azure
 ms.topic: article
 ms.date: 4/23/2020
-ms.openlocfilehash: f50c923104fdfcf26f400f20f0de66a82eb3d245
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efc936111d162d73b1cc5465ae6b677c9006ab32
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87387516"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937002"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Tutorial: Integrar o Functions a uma rede virtual do Azure
 
@@ -62,7 +62,7 @@ Em seguida, crie uma VM pré-configurada que executa o WordPress dentro de uma r
     | **Nome da máquina virtual** | VNET-Wordpress | O nome da VM precisa ser exclusivo no grupo de recursos |
     | **[Região](https://azure.microsoft.com/regions/)** | Européia Europa Ocidental | Escolha uma região perto de você ou perto das funções que acessam a VM. |
     | **Tamanho** | B1s | Escolha **alterar tamanho** e, em seguida, selecione a imagem B1s padrão, que tem 1 vCPU e 1 GB de memória. |
-    | **Tipo de autenticação** | Senha | Para usar a autenticação de senha, você também deve especificar um **nome de usuário**, uma **senha**segura e, em seguida, **confirmar a senha**. Para este tutorial, você não precisará entrar na VM, a menos que precise solucionar problemas. |
+    | **Tipo de autenticação** | Senha | Para usar a autenticação de senha, você também deve especificar um **nome de usuário**, uma **senha** segura e, em seguida, **confirmar a senha**. Para este tutorial, você não precisará entrar na VM, a menos que precise solucionar problemas. |
 
 1. Escolha a guia **rede** e, em configurar redes virtuais, selecione **criar novo**.
 
@@ -105,7 +105,7 @@ Com um site do WordPress em execução em uma VM em uma rede virtual, agora voc�
 
 1. Na página **integração VNET** , selecione **Adicionar VNET**.
 
-    :::image type="content" source="./media/functions-create-vnet/networking-2.png" alt-text="Escolher rede no aplicativo de funções":::
+    :::image type="content" source="./media/functions-create-vnet/networking-2.png" alt-text="Adicionar a visualização de integração de VNet":::
 
 1. Em **status do recurso de rede**, use as configurações na tabela abaixo da imagem:
 
@@ -129,7 +129,7 @@ Com a integração VNet habilitada, você pode criar um proxy em seu aplicativo 
 
 1. Em seu aplicativo de funções, selecione  **proxies** no menu à esquerda e, em seguida, selecione **Adicionar**. Use as configurações de proxy na tabela abaixo da imagem:
 
-    :::image type="content" source="./media/functions-create-vnet/create-proxy.png" alt-text="Escolher rede no aplicativo de funções":::
+    :::image type="content" source="./media/functions-create-vnet/create-proxy.png" alt-text="Definir as configurações de proxy":::
 
     | Configuração  | Valor sugerido  | Descrição      |
     | -------- | ---------------- | ---------------- |
@@ -139,7 +139,7 @@ Com a integração VNet habilitada, você pode criar um proxy em seu aplicativo 
 
 1. Selecione **criar** para adicionar o proxy ao seu aplicativo de funções.
 
-## <a name="try-it-out"></a>Experimentar
+## <a name="try-it-out"></a>Experimente
 
 1. No navegador, tente acessar a URL usada como a **URL de back-end**. Conforme esperado, a solicitação atinge o tempo limite. Um tempo limite ocorre porque o site do WordPress está conectado somente à sua rede virtual e não à Internet.
 
@@ -160,4 +160,4 @@ As funções em execução em um plano Premium compartilham a mesma infraestrutu
 > [!div class="nextstepaction"]
 > [Saiba mais sobre as opções de rede do Functions](./functions-networking-options.md)
 
-[Plano Premium]: functions-scale.md#premium-plan
+[Plano Premium]: functions-premium-plan.md

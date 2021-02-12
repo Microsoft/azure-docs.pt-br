@@ -4,15 +4,15 @@ description: Saiba como usar o Power Automate e um ponto de extremidade HTTPS pa
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 03/30/2020
-ms.openlocfilehash: 3cdbe1f3428418f082d53febca950a6a443fe5ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5bea2cf256e30bd896957bbee0e0ad824057a569
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86120357"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247175"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>Use um ponto de extremidade HTTPS para gerenciar clientes potenciais do marketplace comercial
 
@@ -66,6 +66,10 @@ Este artigo explica como criar um novo fluxo no Power Automate para gerar a URL 
         },
         "LeadSource": {
           "id": "/properties/LeadSource",
+          "type": "string"
+        },
+        "Description": {
+          "id": "/properties/Description",
           "type": "string"
         },
         "UserDetails": {

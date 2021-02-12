@@ -8,17 +8,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: 81d0bddbd62f9f2d15d8404fee63b15c8ab2c0a3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4443ccfe8d570e50352cbb70c83d6094132038cc
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102268"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736885"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Continuidade de negócios e HADR para SQL Server em máquinas virtuais do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -74,7 +75,7 @@ Você pode ter uma solução de recuperação de desastre para seus bancos de da
 | Tecnologia | Arquiteturas de exemplo |
 | --- | --- |
 | **Grupos de disponibilidade** |Algumas réplicas de disponibilidade executadas em VMs do Azure e outras réplicas executadas localmente para recuperação de desastres intersite. O site de produção pode ser local ou em um datacenter do Azure.<br/>![Grupos de disponibilidade](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/hybrid-dr-alwayson.png)<br/>Como todas as réplicas de disponibilidade devem estar no mesmo cluster de failover, o cluster deve abranger as duas redes (um cluster de failover de várias sub-redes). Essa configuração requer uma conexão VPN entre o Azure e a rede local.<br/><br/>Para recuperação de desastres bem-sucedida de seus bancos de dados, você também deve instalar um controlador de domínio de réplica no local da recuperação de desastres.|
-| **Espelhamento de banco de dados** |Um parceiro em execução em uma VM do Azure e o outro executado localmente para recuperação de desastres entre sites usando certificados de servidor. Os parceiros não precisam estar no mesmo domínio Active Directory e nenhuma conexão VPN é necessária.<br/>![Espelhamento de banco de dados](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/hybrid-dr-dbmirroring.png)<br/>Outro cenário que o espelhamento de banco de dados envolve é um parceiro em execução em uma VM do Azure e o outro em execução localmente no mesmo domínio do Active Directory para recuperação de desastres intersite. Uma [conexão VPN entre a rede virtual do Azure e a rede local](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) é necessária.<br/><br/>Para recuperação de desastres bem-sucedida de seus bancos de dados, você também deve instalar um controlador de domínio de réplica no local da recuperação de desastres. Não há suporte para o espelhamento de banco de dados SQL Server para SQL Server 2008 ou SQL Server 2008 R2 em uma VM do Azure. |
+| **Espelhamento de banco de dados** |Um parceiro em execução em uma VM do Azure e o outro executado localmente para recuperação de desastres entre sites usando certificados de servidor. Os parceiros não precisam estar no mesmo domínio Active Directory e nenhuma conexão VPN é necessária.<br/>![Espelhamento de banco de dados](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/hybrid-dr-dbmirroring.png)<br/>Outro cenário que o espelhamento de banco de dados envolve é um parceiro em execução em uma VM do Azure e o outro em execução localmente no mesmo domínio do Active Directory para recuperação de desastres intersite. Uma [conexão VPN entre a rede virtual do Azure e a rede local](../../../vpn-gateway/tutorial-site-to-site-portal.md) é necessária.<br/><br/>Para recuperação de desastres bem-sucedida de seus bancos de dados, você também deve instalar um controlador de domínio de réplica no local da recuperação de desastres. Não há suporte para o espelhamento de banco de dados SQL Server para SQL Server 2008 ou SQL Server 2008 R2 em uma VM do Azure. |
 | **Envio de logs** |Um servidor em execução em uma VM do Azure e outro em execução local para recuperação de desastre intersite. O envio de log depende do compartilhamento de arquivos do Windows, assim, uma conexão VPN entre a rede virtual do Azure e a rede local é necessária.<br/>![Envio de logs](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/hybrid-dr-log-shipping.png)<br/>Para recuperação de desastres bem-sucedida de seus bancos de dados, você também deve instalar um controlador de domínio de réplica no local da recuperação de desastres. |
 | **Backup e restauração com o armazenamento de BLOBs do Azure** |Bancos de dados de produção locais com backup direto no armazenamento de BLOBs do Azure para recuperação de desastre.<br/>![Backup e restauração](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/hybrid-dr-backup-restore.png)<br/>Para obter mais informações, consulte [backup e restauração para SQL Server em máquinas virtuais do Azure](../../../azure-sql/virtual-machines/windows/backup-restore.md). |
 | **Replicar e fazer failover de SQL Server no Azure com Azure Site Recovery** |Instância de SQL Server de produção local replicada diretamente no armazenamento do Azure para recuperação de desastre.<br/>![Replicar usando o Azure Site Recovery](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/hybrid-dr-standalone-sqlserver-asr.png)<br/>Para obter mais informações, consulte [Proteger o SQL Server usando a recuperação de desastre do SQL Server e o Azure Site Recovery](../../../site-recovery/site-recovery-sql.md). |
@@ -84,13 +85,17 @@ Você pode ter uma solução de recuperação de desastre para seus bancos de da
 
 Se você tiver o [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3), poderá implementar planos de Dr (recuperação de desastre híbrido) com o SQL Server sem incorrer em custos de licenciamento adicionais para a instância de recuperação de desastre passiva.
 
-Na imagem a seguir, a instalação usa SQL Server em execução em uma máquina virtual do Azure que usa 12 núcleos como uma réplica de recuperação de desastre para uma implantação de SQL Server local que usa 12 núcleos. No passado, você precisaria licenciar 12 núcleos de SQL Server para a implantação local e a implantação de máquinas virtuais do Azure. O novo benefício oferece benefícios de réplica passiva para execução em uma máquina virtual do Azure. Agora, você precisará licenciar apenas 12 núcleos de SQL Server em execução local, desde que os critérios de recuperação de desastre para a réplica passiva em máquinas virtuais do Azure sejam atendidos.
+Por exemplo, você pode ter dois secundários passivos gratuitos quando todas as três réplicas são hospedadas no Azure: 
 
-![Réplica de recuperação de desastre gratuita no Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/free-dr-replica-azure.png)
+![Dois passivos gratuitos quando tudo no Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/failover-with-primary-in-azure.png)
+
+Ou você pode configurar um ambiente de failover híbrido, com um primário licenciado local, um passivo gratuito para HA, um passivo gratuito para DR local e um passivo gratuito para DR no Azure:
+
+![Três passivos gratuitos quando o ambiente é híbrido com uma réplica local primária](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/hybrid-with-primary-on-prem.png)
 
 Para obter mais informações, confira os [termos de licenciamento de produtos](https://www.microsoft.com/licensing/product-licensing/products). 
 
-Para habilitar esse benefício, vá para seu [SQL Server recurso de máquina virtual](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource). Selecione **definir** em **configurações** e, em seguida, escolha a opção **recuperação de desastre** em **SQL Server licença** . Marque a caixa de seleção para confirmar que esta SQL Server VM será usada como uma réplica passiva e, em seguida, selecione **aplicar** para salvar suas configurações. 
+Para habilitar esse benefício, vá para seu [SQL Server recurso de máquina virtual](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource). Selecione **definir** em **configurações** e, em seguida, escolha a opção **recuperação de desastre** em **SQL Server licença**. Marque a caixa de seleção para confirmar que esta SQL Server VM será usada como uma réplica passiva e, em seguida, selecione **aplicar** para salvar suas configurações. 
 
 ![Configurar uma réplica de recuperação de desastre no Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/dr-replica-in-portal.png)
 
@@ -101,7 +106,7 @@ VMs do Azure, armazenamento e rede têm características operacionais diferentes
 ### <a name="high-availability-nodes-in-an-availability-set"></a>Nós de alta disponibilidade em um conjunto de disponibilidade
 Os conjuntos de disponibilidade no Azure permitem que você coloque os nós de alta disponibilidade em domínios de falha e domínios de atualização separados. A plataforma Azure atribui um domínio de atualização e um domínio de falha a cada máquina virtual em seu conjunto de disponibilidade. Essa configuração em um datacenter garante que, durante um evento de manutenção planejada ou não planejada, pelo menos uma máquina virtual esteja disponível e atenda ao SLA do Azure de 99,95%. 
 
-Para configurar uma configuração de alta disponibilidade, Coloque todas as máquinas virtuais SQL Serverdas no mesmo conjunto de disponibilidade para evitar a perda de aplicativos ou dados durante um evento de manutenção. Somente nós no mesmo serviço de nuvem podem participar do mesmo conjunto de disponibilidade. Para saber mais, veja [Gerenciar a disponibilidade de máquinas virtuais](../../../virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json).
+Para configurar uma configuração de alta disponibilidade, Coloque todas as máquinas virtuais SQL Serverdas no mesmo conjunto de disponibilidade para evitar a perda de aplicativos ou dados durante um evento de manutenção. Somente nós no mesmo serviço de nuvem podem participar do mesmo conjunto de disponibilidade. Para saber mais, veja [Gerenciar a disponibilidade de máquinas virtuais](../../../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="high-availability-nodes-in-an-availability-zone"></a>Nós de alta disponibilidade em uma zona de disponibilidade
 As zonas de disponibilidade são locais físicos exclusivos em uma região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. A separação física das zonas de disponibilidade em uma região ajuda a proteger aplicativos e dados de falhas do datacenter, garantindo que pelo menos uma máquina virtual esteja disponível e atenda ao SLA do Azure de 99,99%. 
@@ -136,7 +141,7 @@ Se o grupo de disponibilidade abranger várias sub-redes do Azure (como uma impl
 Você pode ainda se conectar a cada réplica de disponibilidade separadamente conectando-se diretamente à instância do serviço. Além disso, como os grupos de disponibilidade são compatíveis com os clientes de espelhamento de banco de dados, você pode se conectar às réplicas de disponibilidade como parceiros de espelhamento de banco de dados, desde que as réplicas sejam configuradas de forma semelhante ao espelhamento de banco
 
 * Há uma réplica primária e uma réplica secundária.
-* A réplica secundária é configurada como não legível (opção **secundária legível** definida como **não** ).
+* A réplica secundária é configurada como não legível (opção **secundária legível** definida como **não**).
 
 Aqui está um exemplo de cadeia de conexão de cliente que corresponde a essa configuração de espelhamento de banco de dados usando ADO.NET ou SQL Server Native Client:
 

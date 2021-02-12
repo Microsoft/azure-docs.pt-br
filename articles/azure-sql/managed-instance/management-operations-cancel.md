@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
-ms.openlocfilehash: 092981f9d74a3f9f18c491ca6cee539a29e73c83
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 342491178d55dacbdc68e6c9042623d381dff898
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782494"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861537"
 ---
 # <a name="canceling-azure-sql-managed-instance-management-operations"></a>Cancelando operações de gerenciamento de Instância Gerenciada do SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -36,7 +36,7 @@ Você pode [monitorar o progresso e o status das operações de gerenciamento](m
 
 A tabela a seguir resume as operações de gerenciamento, se você pode ou não cancelá-las e sua duração geral típica:
 
-Categoria  |Operação  |Cancelável  |Duração estimada de cancelamento  |
+Category  |Operação  |Cancelável  |Duração estimada de cancelamento  |
 |---------|---------|---------|---------|
 |Implantação |Criação de instância |Sim |90% das operações são concluídas em 5 minutos. |
 |Atualizar |Expansão/redução do armazenamento de instância (Uso Geral) |Não |  |
@@ -61,7 +61,7 @@ Para cancelar as operações de gerenciamento usando o portal do Azure, siga est
 
 1. Selecione **cancelar a operação** na parte inferior da página. 
 
-   :::image type="content" source="media/management-operations-cancel/cancel-operation.png" alt-text="Selecione a caixa operação em andamento para abrir a página operação em andamento.":::
+   :::image type="content" source="media/management-operations-cancel/cancel-operation.png" alt-text="Selecione Cancelar para cancelar a operação.":::
 
 1. Confirme que você deseja cancelar a operação. 
 
@@ -116,13 +116,12 @@ Para obter uma explicação detalhada de comandos, consulte [AZ SQL mi op](/cli/
 
 ## <a name="canceled-deployment-request"></a>Solicitação de implantação cancelada
 
-Com a versão de API 2020-02-02, assim que a solicitação de criação de instância é aceita, a instância começa a existir como um recurso, não importa o progresso do processo de implantação (o status da instância gerenciada é **provisionamento** ). Se você cancelar a solicitação de implantação de instância (nova criação de instância), a instância gerenciada passará do estado de **provisionamento** para **FailedToCreate** .
+Com a versão de API 2020-02-02, assim que a solicitação de criação de instância é aceita, a instância começa a existir como um recurso, não importa o progresso do processo de implantação (o status da instância gerenciada é **provisionamento**). Se você cancelar a solicitação de implantação de instância (nova criação de instância), a instância gerenciada passará do estado de **provisionamento** para **FailedToCreate**.
 
 As instâncias que falharam ao criar ainda estão presentes como um recurso e: 
 
 - Não são cobrados
 - Não contar com relação aos limites de recursos (cota de sub-rede ou vCore)
-- Manter o nome da instância reservado-para implantar uma instância com o mesmo nome, exclua a instância com falha para liberar o nome
 
 
 > [!NOTE]

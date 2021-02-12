@@ -1,17 +1,17 @@
 ---
 title: Continuidade dos negócios-banco de dados do Azure para MariaDB
 description: Saiba mais sobre continuidade de negócios (restauração pontual, data center interrupção, restauração geográfica) ao usar o banco de dados do Azure para serviço MariaDB.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: 183ece0d82431a8a961902d75d2fc24b013bc97b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6439a63b74b6f627b62741c145f763dc3d9552d3
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86252259"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98659845"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mariadb"></a>Entender a continuidade dos negócios no banco de dados do Azure para MariaDB
 
@@ -23,7 +23,7 @@ O Banco de Dados do Azure para MariaDB fornece recursos de continuidade dos neg�
 
 A tabela a seguir compara o ERT e o RPO para os recursos disponíveis:
 
-| **Recurso** | **Basic** | **Uso Geral** | **Memória otimizada** |
+| **Recurso** | **Basic** | **Uso Geral** | **Otimizado para memória** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Recuperação Pontual do backup | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção |
 | Restauração geográfica de backups replicados geograficamente | Sem suporte | ERT < 12 h<br/>RPO < 1 h | ERT < 12 h<br/>RPO < 1 h |

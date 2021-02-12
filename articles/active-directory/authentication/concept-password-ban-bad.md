@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fd367b337a0f26323411111ea7eb1120bf6d75d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b019c12103a0324e21ef7c06b0c7a5d7fe14e6ec
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965175"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743880"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Eliminar senhas ruins usando Azure Active Directory proteção por senha
 
@@ -24,7 +24,7 @@ Muitas diretrizes de segurança recomendam que você não use a mesma senha em v
 
 Com a proteção de senha do Azure AD, as listas de senhas globais banidas padrão são automaticamente aplicadas a todos os usuários em um locatário do Azure AD. Para dar suporte às suas próprias necessidades de negócios e de segurança, você pode definir entradas em uma lista personalizada de senhas banidas. Quando os usuários alteram ou redefinem suas senhas, essas listas de senhas banidas são verificadas para impor o uso de senhas fortes.
 
-Você deve usar recursos adicionais como [a autenticação multifator do Azure](concept-mfa-howitworks.md), não apenas depende de senhas fortes impostas pela proteção de senha do Azure AD. Para obter mais informações sobre como usar várias camadas de segurança para seus eventos de entrada, consulte [seu PA $ $Word não importa](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
+Você deve usar recursos adicionais como [a autenticação multifator do Azure ad](concept-mfa-howitworks.md), não apenas se basear em senhas fortes impostas pela proteção por senha do Azure AD. Para obter mais informações sobre como usar várias camadas de segurança para seus eventos de entrada, consulte [seu PA $ $Word não importa](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
 
 > [!IMPORTANT]
 > Este artigo conceitual explica a um administrador como funciona a proteção de senha do Azure AD. Se você for um usuário final já registrado para redefinição de senha de autoatendimento e precisar voltar à sua conta, vá para [https://aka.ms/sspr](https://aka.ms/sspr) .
@@ -202,7 +202,7 @@ Vejamos um exemplo um pouco diferente para mostrar como a complexidade adicional
 > [!IMPORTANT]
 > O algoritmo de senha banido, junto com a lista de senhas globais banidas, pode e faz alterações a qualquer momento no Azure com base na análise e pesquisa de segurança contínuas.
 >
-> Para o serviço de agente DC local em cenários híbridos, os algoritmos atualizados só entram em vigor depois que o software do agente DC é reinstalado.
+> Para o serviço de agente DC local em cenários híbridos, os algoritmos atualizados só entram em vigor depois que o software do agente DC é atualizado.
 
 ## <a name="what-do-users-see"></a>O que os usuários veem
 

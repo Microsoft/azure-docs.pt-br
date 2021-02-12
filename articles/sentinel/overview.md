@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 68ccd21af585d853592ab8cce24f251d810a4160
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 773cf5cc6755a4f094eb676992364eea07a795ea
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90889198"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654653"
 ---
 # <a name="what-is-azure-sentinel"></a>O que é o Azure Sentinel?
 
@@ -29,11 +29,11 @@ O Microsoft Azure Sentinel é uma solução escalonável e nativa de nuvem para 
 
 O Azure Sentinel é sua exibição geral da empresa, amenizando o estresse de ataques cada vez mais sofisticados, volumes crescentes de alertas e longos períodos de resolução.
 
-- **Colete dados na escala de nuvem** de todos os usuários, dispositivos, aplicativos e infraestrutura, local e em múltiplas nuvens. 
+- **Colete dados na escala de nuvem** de todos os usuários, dispositivos, aplicativos e infraestrutura, local e em múltiplas nuvens. 
 
-- **Detecte ameaças não detectadas antes** e minimize falsos positivos usando a análise e a inteligência contra ameaças incomparáveis da Microsoft. 
+- **Detecte ameaças não detectadas antes** e minimize falsos positivos usando a análise e a inteligência contra ameaças incomparáveis da Microsoft. 
 
-- **Investigue ameaças com inteligência artificial** e busque por atividades suspeitas em escala, acessando anos de trabalho sobre segurança cibernética na Microsoft. 
+- **Investigue ameaças com inteligência artificial** e busque por atividades suspeitas em escala, acessando anos de trabalho sobre segurança cibernética na Microsoft. 
 
 - **Responda a incidentes de forma rápida** com orquestração interna e automação de tarefas comuns.
 
@@ -51,7 +51,7 @@ Para a integração do Azure Sentinel, você precisa primeiro [se conectar às s
 
 ## <a name="workbooks"></a>Pastas de trabalho
 
-Depois de [conectar suas fontes de dados](quickstart-onboard.md) ao Azure Sentinel, será possível monitorar os dados usando a integração do Azure Sentinel com as Pastas de Trabalho do Azure Monitor, que oferece versatilidade na criação de pastas de trabalho personalizadas. Embora as Pastas de Trabalho sejam exibidas de maneiras diferentes no Azure Sentinel, pode ser útil para você ver como [Criar relatórios interativos com as Pastas de Trabalho do Azure Monitor](../azure-monitor/platform/workbooks-overview.md). O Azure Sentinel permite que você crie pastas de trabalho personalizadas em seus dados e também vem com modelos de pasta de trabalho internos para que você possa obter insights rapidamente em seus dados assim que você conectar uma fonte de dados.
+Depois de [conectar suas fontes de dados](quickstart-onboard.md) ao Azure Sentinel, você poderá monitorar os dados usando a integração do Azure Sentinel às Pastas de Trabalho do Azure Monitor, que oferece versatilidade na criação de pastas de trabalho personalizadas. Embora as Pastas de Trabalho sejam exibidas de maneiras diferentes no Azure Sentinel, pode ser útil para você ver como [Criar relatórios interativos com as Pastas de Trabalho do Azure Monitor](../azure-monitor/platform/workbooks-overview.md). O Azure Sentinel permite que você crie pastas de trabalho personalizadas em seus dados e também vem com modelos de pasta de trabalho internos para que você possa obter insights rapidamente em seus dados assim que você conectar uma fonte de dados.
 
 ![Painéis](./media/tutorial-monitor-data/access-workbooks.png)
 
@@ -64,7 +64,7 @@ Para ajudar a reduzir o ruído e a minimizar o número de alertas que você prec
 
 ## <a name="security-automation--orchestration"></a>Automação e orquestração de segurança
 
-Automatize as tarefas comuns e [simplifique a orquestração de segurança com guias estratégicos](tutorial-respond-threats-playbook.md) que se integram com os serviços do Azure, assim como com suas ferramentas existentes. Desenvolvida com base nos Aplicativos Lógicos do Azure, a solução de automação e orquestração do Azure Sentinel oferece uma arquitetura altamente extensível que possibilita a automação escalonável à medida que surgem novas tecnologias e ameaças. Para criar guias estratégicos com os Aplicativos Lógicos do Azure, você pode escolher em uma galeria crescente de guias estratégicos internos. Eles incluem [mais de 200 conectores](https://docs.microsoft.com/azure/connectors/apis-list) para serviços como o Azure Functions. Os conectores permitem que você aplique qualquer lógica personalizada em código, ServiceNow, Jira, Zendesk, solicitações HTTP, Microsoft Teams, Slack, Windows Defender ATP e Cloud App Security.
+Automatize as tarefas comuns e [simplifique a orquestração de segurança com guias estratégicos](tutorial-respond-threats-playbook.md) que se integram com os serviços do Azure, assim como com suas ferramentas existentes. Desenvolvida com base nos Aplicativos Lógicos do Azure, a solução de automação e orquestração do Azure Sentinel oferece uma arquitetura altamente extensível que possibilita a automação escalonável à medida que surgem novas tecnologias e ameaças. Para criar guias estratégicos com os Aplicativos Lógicos do Azure, você pode escolher em uma galeria crescente de guias estratégicos internos. Eles incluem [mais de 200 conectores](../connectors/apis-list.md) para serviços como o Azure Functions. Os conectores permitem que você aplique qualquer lógica personalizada em código, ServiceNow, Jira, Zendesk, solicitações HTTP, Microsoft Teams, Slack, Windows Defender ATP e Cloud App Security.
 
 Por exemplo, se você usar o sistema de emissão de tíquetes do ServiceNow, poderá usar as ferramentas fornecidas para usar Aplicativos Lógicos do Azure a fim de automatizar os fluxos de trabalho e abrir um tíquete no ServiceNow cada vez que um evento específico é detectado.
 

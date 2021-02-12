@@ -1,7 +1,7 @@
 ---
 title: 'Converter em DataSet: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo converter para conjunto de dados em Azure Machine Learning para converter a entrada de dados para o formato de DataSet interno usado pelo Microsoft Azure Machine Learning.
+description: Saiba como usar o módulo converter para conjunto de dados no designer de Azure Machine Learning para converter a entrada de dados no formato de conjunto do dados interno.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 9b2d003ef4938681229317b625aae4526787ac15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 671a8f7c6fa4c20ef4fc88f57d4a946a84614389
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898701"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420862"
 ---
 # <a name="convert-to-dataset"></a>Converter em conjunto de dados
 
@@ -25,7 +25,7 @@ A conversão não é necessária na maioria dos casos. Azure Machine Learning co
 É recomendável salvar dados no formato do conjunto de dados se você tiver realizado algum tipo de normalização ou limpeza em um conjunto e desejar garantir que as alterações sejam usadas em outros pipelines.  
   
 > [!NOTE]
-> Converter em DataSet altera apenas o formato dos dados. Ele não salva uma nova cópia dos dados no espaço de trabalho. Para salvar o conjunto de resultados, clique duas vezes na porta de saída, selecione **salvar como conjunto de conjuntos**e insira um novo nome.  
+> Converter em DataSet altera apenas o formato dos dados. Ele não salva uma nova cópia dos dados no espaço de trabalho. Para salvar o conjunto de resultados, clique duas vezes na porta de saída, selecione **salvar como conjunto de conjuntos** e insira um novo nome.  
   
 ## <a name="how-to-use-convert-to-dataset"></a>Como usar Convert para DataSet  
 
@@ -35,18 +35,18 @@ Recomendamos que você use o módulo [Editar metadados](edit-metadata.md) para p
 
 2. Conecte-o a qualquer módulo que produza um conjunto de um DataSet.   
 
-    Contanto que os dados sejam [tabulares](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true), você pode convertê-los em um DataSet. Isso inclui os dados carregados por meio de [dados de importação](import-data.md), dados criados por meio de [dados de inserção manual](enter-data-manually.md)ou os DataSets transformados por meio da [transformação aplicar](apply-transformation.md).
+    Contanto que os dados sejam [tabulares](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py), você pode convertê-los em um DataSet. Isso inclui os dados carregados por meio de [dados de importação](import-data.md), dados criados por meio de [dados de inserção manual](enter-data-manually.md)ou os DataSets transformados por meio da [transformação aplicar](apply-transformation.md).
 
 3.  Na lista suspensa **ação** , indique se você deseja fazer qualquer limpeza nos dados antes de salvar o conjunto:  
   
-    - **Nenhum**: Use os dados como estão.  
+    - **Nenhum** : Use os dados como estão.  
   
-    - **Setmissingvalue**: define um valor específico para um valor ausente no conjunto de informações. O espaço reservado padrão é o caractere de ponto de interrogação (?), mas você pode usar a opção  **valor ausente personalizado** para inserir um valor diferente. Por exemplo, se você inserir **táxi** para **valor ausente personalizado**, todas as instâncias de **táxi** no conjunto de valores serão alteradas para o valor ausente.
+    - **Setmissingvalue** : define um valor específico para um valor ausente no conjunto de informações. O espaço reservado padrão é o caractere de ponto de interrogação (?), mas você pode usar a opção  **valor ausente personalizado** para inserir um valor diferente. Por exemplo, se você inserir **táxi** para **valor ausente personalizado** , todas as instâncias de **táxi** no conjunto de valores serão alteradas para o valor ausente.
   
-    - **ReplaceValues**: Use essa opção para especificar um único valor exato a ser substituído por qualquer outro valor exato. Você pode substituir valores ausentes ou personalizados definindo o método **replace** :
+    - **ReplaceValues** : Use essa opção para especificar um único valor exato a ser substituído por qualquer outro valor exato. Você pode substituir valores ausentes ou personalizados definindo o método **replace** :
 
-      - **Ausente**: escolha esta opção para substituir os valores ausentes no conjunto de dados de entrada. Para **novo valor**, insira o valor com o qual substituir os valores ausentes.
-      - **Personalizado**: escolha esta opção para substituir valores personalizados no conjunto de dados de entrada. Para **valor personalizado**, insira o valor que você deseja localizar. Por exemplo, se seus dados contiverem a cadeia de caracteres `obs` usada como um espaço reservado para valores ausentes, insira `obs` . Para **novo valor**, insira o novo valor com o qual substituir a cadeia de caracteres original.
+      - **Ausente** : escolha esta opção para substituir os valores ausentes no conjunto de dados de entrada. Para **novo valor** , insira o valor com o qual substituir os valores ausentes.
+      - **Personalizado** : escolha esta opção para substituir valores personalizados no conjunto de dados de entrada. Para **valor personalizado** , insira o valor que você deseja localizar. Por exemplo, se seus dados contiverem a cadeia de caracteres `obs` usada como um espaço reservado para valores ausentes, insira `obs` . Para **novo valor** , insira o novo valor com o qual substituir a cadeia de caracteres original.
   
     Observe que a operação **ReplaceValues** se aplica somente a correspondências exatas. Por exemplo, essas cadeias de caracteres não seriam afetadas: `obs.` , `obsolete` .  
  
@@ -70,4 +70,4 @@ Recomendamos que você use o módulo [Editar metadados](edit-metadata.md) para p
   
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning.

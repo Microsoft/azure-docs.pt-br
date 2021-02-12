@@ -1,6 +1,5 @@
 ---
-title: Ativos
-titleSuffix: Azure Media Services
+title: Ativos nos serviços de mídia do Azure
 description: Saiba quais são os ativos e como eles são usados pelos serviços de mídia do Azure.
 services: media-services
 documentationcenter: ''
@@ -13,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 99101f31ec955c822c784180dd8b04bfb8e5f73c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5159432107e60f6c21bcf70e0bbc9a9e2123a728
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89291595"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897689"
 ---
 # <a name="assets-in-azure-media-services-v3"></a>Ativos nos serviços de mídia do Azure v3
 
@@ -48,4 +47,4 @@ Os nomes de Arquivos/blobs em um ativo devem seguir os [requisitos de nome de bl
 
 ## <a name="see-also"></a>Confira também
 
-[Diferenças entre os Serviços de Mídia do Azure v2 e v3](migrate-from-v2-to-v3.md)
+[Diferenças entre os Serviços de Mídia do Azure v2 e v3](migrate-v-2-v-3-migration-introduction.md)

@@ -7,20 +7,20 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 720a0e25f3486f32ffed897e54033fd4b68dace4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 368ab1bc6a1fc13c3001b437c3c2a8be2bbb9c04
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87848118"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525984"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>O alerta e monitoramento unificados no Monitor do Azure substituem o alerta e monitoramento clássicos
 
 O Azure Monitor se tornou um serviço unificado de monitoramento de pilha completa, que agora dá suporte a "Uma métrica" e "Um alerta" nos recursos. Para obter mais informações, confira nossa [postagem sobre o novo Azure Monitor](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/). As novas plataformas de monitoramento e alerta do Azure foram desenvolvidas para serem mais rápidas, mais inteligentes e extensíveis – acompanhando a crescente expansão da computação em nuvem e em linha com a filosofia de Nuvem Inteligente da Microsoft.
 
-Com a nova plataforma de monitoramento e alerta do Azure em vigor, os alertas clássicos no Azure Monitor são desativados, embora ainda estejam em uso limitado para recursos que ainda não dão suporte aos novos alertas. A data de aposentadoria para esses alertas foi ainda mais estendida. Uma nova data será anunciada em breve para a migração de alertas restantes, a [nuvem do Azure governamental](../../azure-government/documentation-government-welcome.md)e o [Azure China 21vianet](https://docs.azure.cn/).
+Com a nova plataforma de monitoramento e alerta do Azure em vigor, os alertas clássicos no Azure Monitor são desativados para usuários de nuvem pública, embora ainda estejam em uso limitado para recursos que ainda não dão suporte aos novos alertas. A data de aposentadoria para esses alertas foi ainda mais estendida. Uma nova data será anunciada em breve para a migração de alertas restantes, a [nuvem do Azure governamental](../../azure-government/documentation-government-welcome.md)e o [Azure China 21vianet](https://docs.azure.cn/).
 
- ![Alerta clássico no portal do Azure](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
+ ![Alerta clássico no portal do Azure](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
 Nós encorajamos você a começar e recriar seus alertas na nova plataforma.
 
@@ -48,13 +48,13 @@ As métricas mais recentes para recursos do Azure estão disponíveis como:
 
 ## <a name="retirement-of-classic-monitoring-and-alerting-platform"></a>Desativação do clássico, monitoramento e alertas de plataforma
 
-Como mencionado anteriormente, monitoramento clássico e alertas mais antigos são desativados; incluindo o fechamento de APIs relacionadas, portal do Azure interface e serviços nela, embora ainda esteja em uso limitado para recursos que ainda não dão suporte aos novos alertas. Especificamente, esses recursos serão preteridos:
+Como mencionado anteriormente, monitoramento e alertas clássicos mais antigos são desativados para usuários de nuvem pública; incluindo o fechamento de APIs relacionadas, portal do Azure interface e serviços nela, embora ainda esteja em uso limitado para recursos que ainda não dão suporte aos novos alertas. Especificamente, esses recursos serão preteridos:
 
 - Métricas e alertas mais antigos (clássicos) para recursos do Azure como disponíveis atualmente por meio da seção [Alertas (clássico)](./alerts-classic.overview.md) do portal do Azure; acessível como recurso de [microsoft.insights/alertrules](/rest/api/monitor/alertrules)
 - Plataformas e métricas personalizadas (clássicas) mais antigas para o Application Insights, bem como alertas sobre elas, como estão atualmente disponíveis na seção [Alertas (clássico)](./alerts-classic.overview.md) do portal do Azure e acessível como recurso de [microsoft.insights / alertrules](/rest/api/monitor/alertrules)
 - Mais antiga alerta anomalias de falha (clássica) está disponível como [detecção inteligente no Application Insights](../app/proactive-diagnostics.md) no portal do Azure; com alertas configurados mostrado na [alertas (clássica) seção](./alerts-classic.overview.md) do Azure Portal
 
-Isso significa que:
+Isso significa:
 
 - O serviço de monitoramento e alertas clássicos será desativado e não estará mais disponível para a criação de novas regras de alerta.
 - Qualquer regra de alerta que continue a existir em alertas (clássico) continuará a executar e acionar notificações.

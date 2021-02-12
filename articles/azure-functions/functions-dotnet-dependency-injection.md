@@ -4,15 +4,15 @@ description: Saiba como usar a injeção de dependência para registrar e usar s
 author: ggailey777
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 08/15/2020
+ms.date: 01/27/2021
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: ee2e7dc577e000878884655c0ed5f4bcb1aabab5
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 66e2cd22f4bcb95be65d6d04345dcac622436a04
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167688"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955081"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Usar injeção de dependência no .NET do Azure Functions
 
@@ -29,6 +29,8 @@ Antes de poder usar a injeção de dependência, você precisa instalar os segui
 - [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
 
 - Pacote [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) versão 1.0.28 ou posterior
+
+- [Microsoft. Extensions. DependencyInjection](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection/) (atualmente, somente a versão 3. x e versões anteriores têm suporte)
 
 ## <a name="register-services"></a>Serviços de registro
 
@@ -118,8 +120,8 @@ Este exemplo usa o pacote [Microsoft.Extensions.Http](https://www.nuget.org/pack
 
 Os aplicativos do Azure Functions oferecem os mesmos tempos de vida de serviço que a [injeção de dependência do ASP.NET](/aspnet/core/fundamentals/dependency-injection#service-lifetimes). Para um aplicativo do Functions, tempos de vida de serviço diferentes se comportam da seguinte maneira:
 
-- **Transitório**: Os serviços transitórios são criados após cada solicitação do serviço.
-- **Com escopo**: O tempo de vida do serviço com escopo corresponde a um tempo de vida de execução de função. Serviços com escopo são criados uma vez por execução. Solicitações posteriores para esse serviço durante a execução reutilizam a instância de serviço existente.
+- **Transitório**: os serviços transitórios são criados após cada resolução do serviço.
+- **Com escopo**: O tempo de vida do serviço com escopo corresponde a um tempo de vida de execução de função. Os serviços com escopo são criados uma vez por execução de função. Solicitações posteriores para esse serviço durante a execução reutilizam a instância de serviço existente.
 - **Singleton**: O tempo de vida do serviço singleton corresponde ao tempo de vida do host e é reutilizado em execuções de função nessa instância. Os serviços de vida útil singleton são recomendados para conexões e clientes, por exemplo `DocumentClient` ou instâncias `HttpClient`.
 
 Veja ou baixe um [exemplo de tempos de vida de serviço diferentes](https://github.com/Azure/azure-functions-dotnet-extensions/tree/main/src/samples/DependencyInjection/Scopes) no GitHub.
@@ -181,6 +183,8 @@ O arquivo de exemplo a seguir `host.json` adiciona o filtro de log.
     }
 }
 ```
+
+Para obter mais informações sobre os níveis de log, consulte [configurar níveis de log](configure-monitoring.md#configure-log-levels).
 
 ## <a name="function-app-provided-services"></a>Serviços oferecidos pelo aplicativo de funções
 
@@ -252,6 +256,24 @@ public class HttpTrigger
 ```
 
 Consulte o [padrão de opções no ASP.NET Core](/aspnet/core/fundamentals/configuration/options) para mais informações com relação ao trabalho com opções.
+
+## <a name="using-aspnet-core-user-secrets"></a>Usando os segredos do usuário ASP.NET Core
+
+Ao desenvolver localmente, ASP.NET Core fornece uma [ferramenta de Gerenciador de segredo](/aspnet/core/security/app-secrets#secret-manager) que permite armazenar informações secretas fora da raiz do projeto. Isso torna menos provável que os segredos sejam acidentalmente confirmados no controle do código-fonte. Azure Functions Core Tools (versão 3.0.3233 ou posterior) lê automaticamente os segredos criados pelo ASP.NET Core Gerenciador de segredo.
+
+Para configurar um projeto do .NET Azure Functions para usar os segredos do usuário, execute o seguinte comando na raiz do projeto.
+
+```bash
+dotnet user-secrets init
+```
+
+Em seguida, use o `dotnet user-secrets set` comando para criar ou atualizar segredos.
+
+```bash
+dotnet user-secrets set MySecret "my secret value"
+```
+
+Para acessar valores de segredos de usuário no código do aplicativo de funções, use `IConfiguration` ou `IOptions` .
 
 ## <a name="customizing-configuration-sources"></a>Personalizando fontes de configuração
 

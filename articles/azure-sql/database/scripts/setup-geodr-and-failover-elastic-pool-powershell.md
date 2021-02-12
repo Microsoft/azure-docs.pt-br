@@ -7,16 +7,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=1
 ms.devlang: PowerShell
 ms.topic: sample
-author: mashamsft
-ms.author: mathoma
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: e23ae783bee48af0d0f1cf8bcaea1f8f1e307c54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36e228c02474fdb20854f73724c541dc1704907a
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325259"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94594021"
 ---
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-pooled-database-in-azure-sql-database"></a>Use o PowerShell para configurar a replicação geográfica ativa de um banco de dados em pool no Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]

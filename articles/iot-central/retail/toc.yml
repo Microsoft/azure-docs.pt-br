@@ -1,10 +1,11 @@
-- name: Documentação do Azure IoT Central para Varejo
+- name: Documentação do Azure IoT Central para varejo
   href: index.yml
 - name: Visão geral
   items:
     - name: Como criar soluções de varejo com o Azure IoT Central
       href: overview-iot-central-retail.md
 - name: Tutoriais
+  expanded: true
   items:
     - name: Finalização de compra na análise na loja
       items:

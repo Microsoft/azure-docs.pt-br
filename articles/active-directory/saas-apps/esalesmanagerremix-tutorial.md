@@ -8,15 +8,15 @@ ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: df993aae4e6c572c8f99688fd0053bdd07aefd56
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: MT
+ms.openlocfilehash: c06595b683092abf52300481068daab26394c4cb
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92453921"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995634"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Tutorial: Integrar o Azure Active Directory ao E Sales Manager Remix
 
@@ -96,9 +96,9 @@ Habilite o logon único do Microsoft Azure Active Directory no portal do Azure e
 
     ![Informações de logon único em Domínio e URLs do E Sales Manager Remix](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_url.png)
 
-    a. Na caixa **URL de logon** , digite uma URL no seguinte formato: *https:// \<Server-Based-URL> / \<sub-domain> /eSales-PC*.
+    a. Na caixa **URL de Entrada**, digite uma URL usando o seguinte formato: *https://\<Server-Based-URL>/\<sub-domain>/esales-pc*.
 
-    b. Na caixa **identificador** , digite uma URL no seguinte formato: *https:// \<Server-Based-URL> / \<sub-domain> / *.
+    b. Na caixa **Identificador**, digite uma URL no seguinte formato: *https://\<Server-Based-URL>/\<sub-domain>/* .
 
     c. Observe o valor do **Identificador** para usar posteriormente neste tutorial.
     
@@ -121,7 +121,7 @@ Habilite o logon único do Microsoft Azure Active Directory no portal do Azure e
 
 1. Em **Configuração do E Sales Manager Remix**, selecione **Configurar E Sales Manager Remix**.
 
-    ![Captura de tela que mostra a seção "configuração do remix Sales Manager" com "configurar E Sales Manager Remix" selecionado.](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
+    ![Captura de tela que mostra a seção "Configuração do E Sales Manager Remix" com "Configurar E Sales Manager Remix" selecionado.](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
 
     A janela **Configurar logon** é aberta.
 
@@ -137,7 +137,7 @@ Habilite o logon único do Microsoft Azure Active Directory no portal do Azure e
 
     ![O comando "Menu Para o Administrador"](./media/esalesmanagerremix-tutorial/configure4.png)
 
-1. No painel esquerdo, selecione **configurações do sistema**  >  **cooperação com sistema externo**.
+1. No painel esquerdo, selecione **Configurações do sistema** > **Cooperação com o sistema externo**.
 
     ![Os links “Configurações do sistema” e “Cooperação com o sistema externo”](./media/esalesmanagerremix-tutorial/configure5.png)
     
@@ -166,7 +166,7 @@ Habilite o logon único do Microsoft Azure Active Directory no portal do Azure e
     h. Selecione **Configuração concluída**.
 
 > [!TIP]
-> Ao configurar o aplicativo, você pode ler as instruções anteriores em uma versão concisa no [portal do Azure](https://portal.azure.com). Depois de adicionar o aplicativo na seção **Active Directory**  >  **aplicativos empresariais** , selecione a guia **logon único** e, em seguida, acesse a documentação inserida na seção **configuração** na parte inferior. Para saber mais informações sobre o recurso de documentação inserida, consulte [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985).
+> Ao configurar o aplicativo, você pode ler as instruções anteriores em uma versão concisa no [portal do Azure](https://portal.azure.com). Depois de adicionar esse aplicativo na seção **Active Directory** > **Aplicativos Empresariais**, selecione a guia **Logon Único** e, em seguida, acesse a documentação inserida na seção **Configuração**, na parte inferior. Para saber mais informações sobre o recurso de documentação inserida, consulte [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
@@ -175,11 +175,11 @@ Nesta seção, você cria o usuário de teste Brenda Fernandes no portal do Azur
 
 ![Criar um usuário de teste do Azure AD][100]
 
-1. No portal do Azure, no painel esquerdo, selecione **Azure Active Directory**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**.
 
     ![O link do Azure Active Directory](./media/paloaltoadmin-tutorial/create_aaduser_01.png)
 
-1. Para exibir uma lista de usuários atuais, selecione **usuários e grupos**  >  **todos os usuários**.
+1. Para exibir uma lista de usuários atuais, selecione **Usuários e grupos** > **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](./media/paloaltoadmin-tutorial/create_aaduser_02.png)
 
@@ -209,7 +209,7 @@ Nesta seção, você cria o usuário de teste Brenda Fernandes no portal do Azur
 
     ![Configuração do E Sales Manager Remix](./media/esalesmanagerremix-tutorial/configure4.png)
 
-1. Selecione **as configurações da sua empresa**  >  **manutenção de departamentos e funcionários**e, em seguida, selecione **funcionários registrados**.
+1. Selecione **Configurações da empresa** > **Manutenção de departamentos e funcionários** e selecione **Funcionários registrados**.
 
     ![A guia "Funcionários registrados"](./media/esalesmanagerremix-tutorial/user1.png)
 
@@ -235,7 +235,7 @@ Nesta seção, você permite que o usuário Brenda Fernandes use o logon único 
 
 ![Atribuir a função de usuário][200] 
 
-1. Na portal do Azure, abra a exibição de **aplicativos** , vá para a exibição de **diretório** e, em seguida, selecione **aplicativos empresariais**  >  **todos os aplicativos**.
+1. No portal do Azure, abra a exibição de **Aplicativos**, acesse a exibição de **Diretório** e, em seguida, selecione **Aplicativos Empresariais** > **Todos os aplicativos**.
 
     ![Os links “Aplicativos empresariais” e “Todos os aplicativos”][201] 
 
@@ -243,7 +243,7 @@ Nesta seção, você permite que o usuário Brenda Fernandes use o logon único 
 
     ![O link do E Sales Manager Remix](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_app.png)  
 
-1. No painel esquerdo, selecione **usuários e grupos**.
+1. No painel esquerdo, selecione **Usuários e grupos**.
 
     ![O link “Usuários e grupos”][202]
 

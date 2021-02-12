@@ -15,11 +15,11 @@ ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: allensu
 ms.openlocfilehash: 5387fdc224cd77ee5273767df5033a51dc27608c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778856"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008354"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Aceleração de site dinâmico via CDN do Azure
 
@@ -30,9 +30,9 @@ A funcionalidade da CDN (rede de distribuição de conteúdo) padrão inclui a c
 A **CDN do Azure da Akamai** e **CDN do Azure CDN do Verizon** ambos oferecem otimização de DSA através do menu **Otimizado para** durante a criação do ponto de extremidade. A aceleração de site dinâmica da Microsoft é oferecida por meio do [serviço de porta frontal do Azure](../frontdoor/front-door-overview.md).
 
 > [!Important]
-> Para perfis **CDN do Azure da Akamai** , é possível alterar a otimização de um ponto de extremidade CDN após sua criação.
+> Para perfis **CDN do Azure da Akamai**, é possível alterar a otimização de um ponto de extremidade CDN após sua criação.
 >   
-> Para perfis **CDN do Azure do Verizon** , não é possível alterar a otimização de um ponto de extremidade CDN depois que ele foi criado.
+> Para perfis **CDN do Azure do Verizon**, não é possível alterar a otimização de um ponto de extremidade CDN depois que ele foi criado.
 
 ## <a name="cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files"></a>Configuração do ponto de extremidade CDN para acelerar a entrega de arquivos dinâmicos
 
@@ -40,34 +40,34 @@ Para configurar um ponto de extremidade CDN para otimizar a entrega de arquivos 
 
 **Configurar um ponto de extremidade da CDN para otimização de DSA usando o Portal do Azure:**
 
-1. Na página **Perfil CDN** , selecione **Ponto de Extremidade** .
+1. Na página **Perfil CDN**, selecione **Ponto de Extremidade**.
 
    ![Adicionar um novo ponto de extremidade CDN](./media/cdn-dynamic-site-acceleration/cdn-endpoint-profile.png) 
 
    O painel **Adicionar um ponto de extremidade** é exibido.
 
-2. Em **Otimizado para** , selecione **Aceleração de site dinâmico** .
+2. Em **Otimizado para**, selecione **Aceleração de site dinâmico**.
 
     ![Criar um novo ponto de extremidade CDN com DSA](./media/cdn-dynamic-site-acceleration/cdn-endpoint-dsa.png)
 
-3. Para **Caminho de investigação** , insira um caminho válido para um arquivo.
+3. Para **Caminho de investigação**, insira um caminho válido para um arquivo.
 
     Caminho de investigação é um recurso específico para DSA e um caminho válido é necessário para a criação. A DSA usa um arquivo de *caminho de investigação* pequeno colocado no servidor de origem para otimizar configurações de roteamento de rede para a CDN. Para o arquivo do caminho de investigação, você pode baixar e fazer upload do arquivo de exemplo para o seu site ou usar um ativo existente em sua origem com cerca de 10 KB de tamanho.
 
-4. Insira as outras opções de ponto de extremidade necessárias (para obter mais informações, consulte [Criar um novo ponto de extremidade CDN](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint)) e, em seguida, selecione **Adicionar** .
+4. Insira as outras opções de ponto de extremidade necessárias (para obter mais informações, consulte [Criar um novo ponto de extremidade CDN](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint)) e, em seguida, selecione **Adicionar**.
 
    Depois que o ponto de extremidade CDN é criado, ele aplica as otimizações DSA para todos os arquivos que correspondem a determinados critérios. 
 
 
 **Configurar um ponto de extremidade existente para DSA (CDN do Azure somente nos perfis Akamai):**
 
-1. Na página **Perfil CDN** , selecione o ponto de extremidade que deseja modificar.
+1. Na página **Perfil CDN**, selecione o ponto de extremidade que deseja modificar.
 
-2. No painel esquerdo, selecione **Otimização** . 
+2. No painel esquerdo, selecione **Otimização**. 
 
    A página **Otimização** é exibida.
 
-3. Um **Otimizado para** , selecione **Aceleração de site dinâmico** e, em seguida, selecione **Salvar** .
+3. Um **Otimizado para**, selecione **Aceleração de site dinâmico** e, em seguida, selecione **Salvar**.
 
 > [!Note]
 > A DSA incorre em encargos adicionais. Para obter mais informações, consulte [Preços de Rede de Distribuição de Conteúdo](https://azure.microsoft.com/pricing/details/cdn/).
@@ -153,11 +153,11 @@ Com o DSA, o cache é desativado por padrão na CDN, mesmo quando a origem inclu
 
 Se você tiver um site com uma mistura de ativos estáticos e dinâmicos, é melhor usar uma abordagem híbrida para obter o melhor desempenho. 
 
-Para perfis **CDN Standard do Azure do Verizon** e **CDN Standard do Azure da Akamai** , é possível ativar o cache para pontos de extremidade da DSA específicos usando as [regras de cache](cdn-caching-rules.md).
+Para perfis **CDN Standard do Azure do Verizon** e **CDN Standard do Azure da Akamai**, é possível ativar o cache para pontos de extremidade da DSA específicos usando as [regras de cache](cdn-caching-rules.md).
 
 Para acessar as regras de cache:
 
-1. Na página **Perfil CDN** em configurações, selecione **Regras de cache** .  
+1. Na página **Perfil CDN** em configurações, selecione **Regras de cache**.  
     
     ![Botão de regras de cache da CDN](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
 
@@ -169,13 +169,13 @@ Para os perfis **CDN Premium do Azure do Verizon** somente, você ativa o cache 
 
 Para acessar o mecanismo de regras:
     
-1. Na página **Perfil CDN** , selecione **Gerenciar** .  
+1. Na página **Perfil CDN**, selecione **Gerenciar**.  
     
     ![Botão Gerenciar perfil da CDN](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 
     O portal de gerenciamento da CDN é aberto.
 
-2. No portal de gerenciamento de CDN, selecione **ADN** e, em seguida, selecione **Mecanismo de Regras** . 
+2. No portal de gerenciamento de CDN, selecione **ADN** e, em seguida, selecione **Mecanismo de Regras**. 
 
     ![Mecanismo de regras para DSA](./media/cdn-dynamic-site-acceleration/cdn-dsa-rules-engine.png)
 

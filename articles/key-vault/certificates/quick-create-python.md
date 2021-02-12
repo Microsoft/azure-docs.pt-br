@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: a5ba1699e082741db851ee2af3eb688ea8aa7843
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 6ae20c55a16b12f7543af3f08d96400a8e5f20c9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748051"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934910"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-python"></a>Início Rápido: Biblioteca de clientes do certificado do Azure Key Vault para Python
 
@@ -24,14 +24,14 @@ Comece a usar a biblioteca de clientes do certificado do Azure Key Vault para Py
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Python 2.7+ ou 3.5.3+](https://docs.microsoft.com/azure/developer/python/configure-local-development-environment)
+- [Python 2.7+ ou 3.5.3+](/azure/developer/python/configure-local-development-environment)
 - [CLI do Azure](/cli/azure/install-azure-cli)
 
 Este início rápido pressupõe que você está executando a [CLI do Azure](/cli/azure/install-azure-cli) em uma janela de terminal do Linux.
 
 ## <a name="set-up-your-local-environment"></a>Configurar o ambiente local
 
-Este guia de início rápido usa a biblioteca de identidades do Azure com a CLI do Azure para autenticar o usuário nos serviços do Azure. Os desenvolvedores também podem usar o Visual Studio ou o Visual Studio Code para autenticar as chamadas. Para obter mais informações, confira [Autenticar o cliente na biblioteca de clientes de identidades do Azure](https://docs.microsoft.com/java/api/overview/azure/identity-readme)
+Este guia de início rápido usa a biblioteca de identidades do Azure com a CLI do Azure para autenticar o usuário nos serviços do Azure. Os desenvolvedores também podem usar o Visual Studio ou o Visual Studio Code para autenticar as chamadas. Para obter mais informações, confira [Autenticar o cliente na biblioteca de clientes de identidades do Azure](/java/api/overview/azure/identity-readme)
 
 ### <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -70,10 +70,10 @@ Este guia de início rápido usa a biblioteca de identidades do Azure com a CLI 
 
 ### <a name="grant-access-to-your-key-vault"></a>Permitir acesso ao cofre de chaves
 
-Criar uma política de acesso para o cofre de chaves que conceda a permissão de segredos à sua conta de usuário
+Criar uma política de acesso para o cofre de chaves que conceda a permissão de certificados à sua conta de usuário
 
 ```console
-az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --certificate-permissions delete get list create
 ```
 
 #### <a name="set-environment-variables"></a>Definir variáveis de ambiente
@@ -86,7 +86,7 @@ set KEY_VAULT_NAME=<your-key-vault-name>
 ````
 Windows PowerShell
 ```powershell
-$Env:KEY_VAULT_NAME=<your-key-vault-name>
+$Env:KEY_VAULT_NAME="<your-key-vault-name>"
 ```
 
 macOS ou Linux
@@ -136,7 +136,7 @@ print(" done.")
 
 ## <a name="run-the-code"></a>Executar o código
 
-Verifique se o código na seção anterior está em um arquivo chamado *kv_certificates.py* . Execute o código com o seguinte comando:
+Verifique se o código na seção anterior está em um arquivo chamado *kv_certificates.py*. Execute o código com o seguinte comando:
 
 ```terminal
 python kv_certificates.py
@@ -215,5 +215,5 @@ az group delete --resource-group KeyVault-PythonQS-rg
 - [Visão geral da o Cofre da Chave do Azure](../general/overview.md)
 - [Proteger o acesso a um cofre de chaves](../general/secure-your-key-vault.md)
 - [Guia do desenvolvedor do Azure Key Vault](../general/developers-guide.md)
-- [Melhores práticas do Azure Key Vault](../general/best-practices.md)
+- [Visão geral da segurança do Key Vault](../general/security-overview.md)
 - [Autenticar com o Key Vault](../general/authentication.md)

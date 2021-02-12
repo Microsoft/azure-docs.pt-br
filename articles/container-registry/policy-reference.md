@@ -1,18 +1,18 @@
 ---
 title: Definições de políticas internas para o Registro de Contêiner do Azure
 description: Lista as definições de políticas internas do Azure Policy para o Registro de Contêiner do Azure. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 10/20/2020
+ms.date: 02/04/2021
 ms.topic: reference
 author: dlepow
 ms.author: danlep
 ms.service: container-registry
 ms.custom: subject-policy-reference
-ms.openlocfilehash: acc347bf0a2237d827a4320edd00a6c62f58d0c2
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 3a37458c3c434dd55ce03c2988f5c4df432ab751
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319967"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99559498"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-container-registry"></a>Definições internas do Azure Policy para o Registro de Contêiner do Azure
 

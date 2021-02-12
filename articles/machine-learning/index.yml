@@ -9,16 +9,16 @@ metadata:
   ms.subservice: core
   ms.topic: landing-page
   ms.collection: collection
-  author: j-martens
-  ms.author: jmartens
+  ms.author: larryfr
+  author: BlackMist
   ms.date: 09/21/2020
-  ms.custom: contperfq1
-  ms.openlocfilehash: 0695af04856b5e67c6e3de86c6c3cd32007aee02
-  ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+  ms.custom: contperf-fy21q1
+  ms.openlocfilehash: 44f260d5e336433c7366dcbe7ce6f1bb79f92c3c
+  ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/15/2020
-  ms.locfileid: "92090311"
+  ms.lasthandoff: 01/22/2021
+  ms.locfileid: "98683973"
 landingContent:
 - title: 'Introdução: Code First'
   linkLists:
@@ -30,8 +30,6 @@ landingContent:
       url: tutorial-1st-experiment-sdk-setup.md
     - text: Inferência de lote com pipelines de ML (Python)
       url: tutorial-pipeline-batch-scoring-classification.md
-    - text: Introdução ao R
-      url: tutorial-1st-r-experiment.md
 - title: 'Introdução: Baixo ou nenhum código'
   linkLists:
   - linkListType: overview
@@ -58,7 +56,7 @@ landingContent:
     links:
     - text: Implantar seu modelo na nuvem
       url: how-to-deploy-existing-model.md
-    - text: Acompanhar e implantar modelos de MLflow
+    - text: Acompanhar modelos do MLflow
       url: how-to-use-mlflow.md
 - title: Implantar e gerenciar modelos (MLOps)
   linkLists:
@@ -68,14 +66,16 @@ landingContent:
       url: concept-model-management-and-deployment.md
     - text: Como e onde implantar
       url: how-to-deploy-and-where.md
+    - text: Implantar modelos de MLflow
+      url: how-to-deploy-mlflow-models.md
   - linkListType: reference
     links:
     - text: SDK do Python
-      url: https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py
+      url: /python/api/overview/azure/ml/?view=azure-ml-py
     - text: API REST
-      url: https://docs.microsoft.com/rest/api/azureml/
+      url: /rest/api/azureml/
     - text: CLI do aprendizado de máquina
-      url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
+      url: /cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
 - title: Procurar pelo Studio (clássico)
   linkLists:
   - linkListType: overview

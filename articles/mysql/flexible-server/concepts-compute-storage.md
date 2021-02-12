@@ -1,17 +1,17 @@
 ---
 title: Opções de computação e armazenamento-banco de dados do Azure para MySQL-servidor flexível
 description: Este artigo descreve as opções de computação e armazenamento no banco de dados do Azure para MySQL-servidor flexível.
-author: ajlam
-ms.author: andrela
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/20/2020
-ms.openlocfilehash: 0755ca7e77592a2efd6d8687f9eb19eacc2f0128
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 1/28/2021
+ms.openlocfilehash: 765ff76578e48135d2e7d4d9200c1868d2501df4
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315168"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581441"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Opções de computação e armazenamento no banco de dados do Azure para MySQL – servidor flexível (visualização)
 
@@ -71,12 +71,15 @@ As especificações detalhadas dos tipos de servidor disponíveis são as seguin
 
 Para obter mais detalhes sobre a série de computação disponível, consulte a documentação da VM do Azure para [intermitência (série B)](../../virtual-machines/sizes-b-series-burstable.md), [uso geral (série Ddsv4)](../../virtual-machines/ddv4-ddsv4-series.md)e [otimizado para memória (série Edsv4)](../../virtual-machines/edv4-edsv4-series.md).
 
+>[!NOTE]
+>Para a [camada de computação expansível (série B)](../../virtual-machines/sizes-b-series-burstable.md) se a VM for iniciada/interrompida ou reiniciada, os créditos poderão ser perdidos. Para obter mais informações, consulte [FAQ (série B) com intermitência](https://docs.microsoft.com/azure/virtual-machines/sizes-b-series-burstable#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
+
 ## <a name="storage"></a>Armazenamento
 
 O armazenamento que você provisiona é a quantidade de capacidade de armazenamento disponível para seu servidor flexível. O armazenamento é usado para arquivos de banco de dados, arquivos temporários, logs de transações e logs do servidor MySQL. Em todas as camadas de computação, o armazenamento mínimo com suporte é 5 GiB e o máximo é 16 TiB. O armazenamento é dimensionado em incrementos de 1 GiB e pode ser escalado verticalmente após a criação do servidor.
 
 >[!NOTE]
-> O armazenamento só pode ser escalado verticalmente, não inativo.
+> O armazenamento só pode ser escalado verticalmente, não horizontalmente.
 
 Você pode monitorar seu consumo de armazenamento no portal do Azure (com Azure Monitor) usando o limite de armazenamento, a porcentagem de armazenamento e as métricas de armazenamento usadas. Consulte o [artigo monitoramento](./concepts-monitoring.md) para saber mais sobre as métricas. 
 
@@ -99,15 +102,14 @@ Recomendamos que você configure um alerta para notificá-lo quando o armazename
 O crescimento automático de armazenamento ainda não está disponível para o servidor flexível do banco de dados do Azure para MySQL.
 
 ## <a name="iops"></a>IOPS
-O IOPS mínimo efetivo é de 100 em todos os tamanhos de computação e o máximo de IOPS efetivo é determinado pelos dois atributos a seguir: 
-- Computação: o máximo de IOPS efetivo pode ser limitado pelo IOPS máximo disponível do tamanho de computação selecionado.
-- Armazenamento: em todas as camadas de computação, a escala de IOPS com o tamanho de armazenamento provisionado em uma proporção de 3:1.
 
-Você pode dimensionar o IOPS efetivo disponível aumentando o armazenamento provisionado ou movendo para um tamanho de computação maior (se o IOPS for limitado por computação). Em versão prévia, o máximo de IOPS efetivo com suporte é de 20.000 IOPS.
+Banco de dados do Azure para MySQL – o servidor flexível dá suporte ao provisionamento de IOPS adicional. Esse recurso permite que você provisione IOPS adicionais acima do limite de IOPS gratuito. Usando esse recurso, você pode aumentar ou diminuir o número de IOPS provisionados com base em seus requisitos de carga de trabalho a qualquer momento. 
 
-Para saber mais sobre o máximo de IOPS efetivo por tamanho de computação, usar a combinação de computação e armazenamento, é mostrado abaixo: 
+O IOPS mínimo é de 100 em todos os tamanhos de computação e o máximo de IOPS é determinado pelo tamanho de computação selecionado. Em versão prévia, o máximo de IOPS com suporte é de 20.000 IOPS.
 
-| Tamanho da computação         | IOPS máximo efetivo  | 
+Para saber mais sobre o máximo de IOPS por tamanho de computação, veja abaixo: 
+
+| Tamanho da computação         | IOPS máximo        | 
 |----------------------|---------------------|
 | **Expansíveis**        |                     |
 | Standard_B1s         | 320                 |
@@ -130,11 +132,14 @@ Para saber mais sobre o máximo de IOPS efetivo por tamanho de computação, usa
 | Standard_E48ds_v4    | 20000               | 
 | Standard_E64ds_v4    | 20000               |  
 
-O IOPS máximo efetivo depende do máximo de IOPS disponível por tamanho de computação. Consulte a fórmula abaixo e consulte a coluna máximo de *taxa de transferência do disco não armazenado em cache: IOPS/Mbps* na documentação da série [B](../../virtual-machines/sizes-b-series-burstable.md), da [série Ddsv4](../../virtual-machines/ddv4-ddsv4-series.md)e da [série Edsv4](../../virtual-machines/edv4-edsv4-series.md) .
+O IOPS máximo depende do máximo de IOPS disponível por tamanho de computação. Consulte a coluna *máximo de taxa de transferência de disco não armazenado em cache: IOPS/Mbps* na documentação da série [B](../../virtual-machines/sizes-b-series-burstable.md), [série Ddsv4](../../virtual-machines/ddv4-ddsv4-series.md)e [série Edsv4](../../virtual-machines/edv4-edsv4-series.md) .
 
-**IOPS efetivo máximo** = mínimo (*"taxa de transferência máxima do disco não armazenado em cache: IOPS/Mbps"* do tamanho da computação, armazenamento provisionado em GIB * 3)
+> [!Important]
+> **IOPS complementares** são iguais ao mínimo ("taxa de transferência máxima do disco não armazenado em cache: IOPS/Mbps" do tamanho da computação, armazenamento provisionado em GIB * 3)<br>
+> O **IOPS mínimo** é 100 em todos os tamanhos de computação<br>
+> O **IOPS máximo** é determinado pelo tamanho de computação selecionado. Em versão prévia, o máximo de IOPS com suporte é de 20.000 IOPS.
 
-Você pode monitorar o consumo de e/s no portal do Azure (com Azure Monitor) usando a métrica de [percentual de e](./concepts-monitoring.md) /s. Se precisar de mais IOPS, você precisará entender se você está restrito pelo tamanho da computação ou pelo armazenamento provisionado. Dimensione a computação ou o armazenamento do servidor de acordo com a configuração.
+Você pode monitorar o consumo de e/s no portal do Azure (com Azure Monitor) usando a métrica de [percentual de e](./concepts-monitoring.md) /s. Se precisar de mais IOPS, então o máximo de IOPS com base na computação, você precisará dimensionar a computação do servidor.
 
 ## <a name="backup"></a>Backup
 
@@ -153,7 +158,7 @@ O dimensionamento do armazenamento e a alteração do período de retenção do 
 
 ## <a name="pricing"></a>Preços
 
-Para as informações mais recentes sobre preços, consulte a [página de preços](https://azure.microsoft.com/pricing/details/MySQL/) do serviço. Para ver o custo da configuração desejada, o [portal do Azure](https://portal.azure.com/#create/Microsoft.MySQLServer/flexibleServers) mostra o custo mensal na guia **computação + armazenamento** com base nas opções selecionadas. Se você não tiver uma assinatura do Azure, poderá usar a calculadora de preços do Azure para obter um preço estimado. No site da [calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/) , selecione **Adicionar itens**, expanda a categoria **bancos** de dados, escolha **banco de dados do Azure para MySQL**e **servidor flexível** como o tipo de implantação para personalizar as opções.
+Para as informações mais recentes sobre preços, consulte a [página de preços](https://azure.microsoft.com/pricing/details/MySQL/) do serviço. Para ver o custo da configuração desejada, o [portal do Azure](https://portal.azure.com/#create/Microsoft.MySQLServer/flexibleServers) mostra o custo mensal na guia **computação + armazenamento** com base nas opções selecionadas. Se você não tiver uma assinatura do Azure, poderá usar a calculadora de preços do Azure para obter um preço estimado. No site da [calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/) , selecione **Adicionar itens**, expanda a categoria **bancos** de dados, escolha **banco de dados do Azure para MySQL** e **servidor flexível** como o tipo de implantação para personalizar as opções.
 
 Se desejar otimizar o custo do servidor, você pode considerar as seguintes dicas:
 

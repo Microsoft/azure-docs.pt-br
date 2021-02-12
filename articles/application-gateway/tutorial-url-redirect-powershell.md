@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.date: 03/19/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 8763c07ee91f228f63880c2be16497a7a78c6453
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9606bfe8b4719ed4ab3c51fc177f331b754f7a1
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595241"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397041"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Criar um gateway de aplicativo com o redirecionamento baseado em caminhos de URL, usando o Azure PowerShell
 
-É possível usar o Azure PowerShell para configurar as [regras de roteamento baseado em URL](application-gateway-url-route-overview.md) quando você cria um [gateway de aplicativo](application-gateway-introduction.md). Neste artigo, você cria pools de back-end usando  [conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Em seguida, criará regras de roteamento de URL que garantem que o tráfego da Web seja redirecionado para o pool de back-end apropriado.
+É possível usar o Azure PowerShell para configurar as [regras de roteamento baseado em URL](./url-route-overview.md) quando você cria um [gateway de aplicativo](./overview.md). Neste artigo, você cria pools de back-end usando  [conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/overview.md). Em seguida, criará regras de roteamento de URL que garantem que o tráfego da Web seja redirecionado para o pool de back-end apropriado.
 
 Neste artigo, você aprenderá como:
 
@@ -31,7 +31,7 @@ O exemplo a seguir mostra o tráfego do site proveniente de ambas as portas 8080
 
 Se preferir, você pode concluir este procedimento usando a [CLI do Azure](tutorial-url-redirect-cli.md).
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -390,7 +390,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ## <a name="create-virtual-machine-scale-sets"></a>Criar conjuntos de dimensionamento de máquinas virtuais
 
-Neste exemplo, você cria três conjuntos de dimensionamento de máquinas virtuais que oferecem suporte a três pools de back-end que você criou. Os conjuntos de dimensionamento que você cria são denominados *myvmss1*, *myvmss2*, e *myvmss3*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual no qual você instala o IIS. Você atribui o conjunto de dimensionamento para o pool de back-end quando define as configurações de IP.
+Neste exemplo, você cria três conjuntos de dimensionamento de máquinas virtuais que oferecem suporte a três pools de back-end que você criou. Os conjuntos de dimensionamento que você cria são denominados *myvmss1* , *myvmss2* , e *myvmss3*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual no qual você instala o IIS. Você atribui o conjunto de dimensionamento para o pool de back-end quando define as configurações de IP.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -518,4 +518,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre o que você pode fazer com o gateway de aplicativo](application-gateway-introduction.md)
+> [Saiba mais sobre o que você pode fazer com o gateway de aplicativo](./overview.md)

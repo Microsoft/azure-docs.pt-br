@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 955e77bc947baed889de24ce34e7acec737164f6
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 0c4ed5dfee80c33009874361ae6b4d23ec00bc26
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097296"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573323"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como planejar sua implementação de junção do Azure Active Directory híbrido
 
@@ -82,6 +82,8 @@ Como primeira etapa do planejamento, você deve revisar seu ambiente e determina
 
 - O sistema operacional Server Core não dá suporte a nenhum tipo de registro de dispositivo.
 
+- A Ferramenta de Migração do Usuário (USMT) não funciona com o registro de dispositivo.  
+
 ### <a name="os-imaging-considerations"></a>Considerações sobre imagens de so
 - Se você estiver contando com a ferramenta de preparação do sistema (Sysprep) e se estiver usando uma imagem **anterior ao Windows 10 1809** para instalação, verifique se a imagem não é de um dispositivo que já está registrado com o Azure ad como uma junção híbrida do Azure AD.
 
@@ -105,6 +107,8 @@ Se seus dispositivos ingressados no domínio do Windows 10 forem [registrados no
 - O ingresso no Azure AD híbrido tem suporte para TPM 2,0 compatível com FIPS e sem suporte para TPM 1,2. Se seus dispositivos tiverem o TPM 1,2 compatível com FIPS, você deverá desabilitá-los antes de prosseguir com a junção híbrida do Azure AD. A Microsoft não fornece nenhuma ferramenta para desabilitar o modo FIPS para TPMs, pois depende do fabricante do TPM. Entre em contato com o OEM de hardware para obter suporte. 
 
 - A partir da versão 10 1903 do Windows, TPMs 1,2 não são usadas com o ingresso híbrido do Azure AD e os dispositivos com esses TPMs serão considerados como se não tivessem um TPM.
+
+- As alterações de UPN só têm suporte iniciando a atualização do Windows 10 2004. Para dispositivos anteriores à atualização do Windows 10 2004, os usuários teriam problemas de acesso condicional e de SSO em seus dispositivos. Para resolver esse problema, você precisa desassociar o dispositivo do Azure AD (execute "dsregcmd/Leave" com privilégios elevados) e reingresse (ocorre automaticamente). No entanto, os usuários que entram no Windows Hello para Empresas não enfrentam esse problema.
 
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Examinar a validação controlada do ingresso no Azure AD híbrido
 

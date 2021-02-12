@@ -6,18 +6,18 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/18/2019
 ms.author: allensu
-ms.openlocfilehash: eb3605249578b15d67bdd9764490d61812b21c18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68a2cb6926cb41956711a9e3c15d21c250d27f0b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808440"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698462"
 ---
 # <a name="move-azure-internal-load-balancer-to-another-region-using-the-azure-portal"></a>Mover o Load Balancer interno do Azure para outra região usando o portal do Azure
 
 Há vários cenários em que você deseja mover o balanceador de carga interno existente de uma região para outra. Por exemplo, talvez você queira criar um balanceador de carga interno com a mesma configuração para teste. Você também pode querer mover um balanceador de carga interno para outra região como parte do planejamento de recuperação de desastre.
 
-Os balanceadores de carga internos do Azure não podem ser movidos de uma região para outra. No entanto, você pode usar um modelo de Azure Resource Manager para exportar a configuração existente e a rede virtual de um balanceador de carga interno.  Em seguida, você pode preparar o recurso em outra região exportando o balanceador de carga e a rede virtual para um modelo, modificando os parâmetros para corresponder à região de destino e, em seguida, implantar os modelos na nova região.  Para obter mais informações sobre o Resource Manager e modelos, consulte [Início Rápido: Crie e implante modelos do Azure Resource Manager usando o portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+Os balanceadores de carga internos do Azure não podem ser movidos de uma região para outra. No entanto, você pode usar um modelo de Azure Resource Manager para exportar a configuração existente e a rede virtual de um balanceador de carga interno.  Em seguida, você pode preparar o recurso em outra região exportando o balanceador de carga e a rede virtual para um modelo, modificando os parâmetros para corresponder à região de destino e, em seguida, implantar os modelos na nova região.  Para obter mais informações sobre o Resource Manager e modelos, consulte [Início Rápido: Crie e implante modelos do Azure Resource Manager usando o portal do Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -32,7 +32,7 @@ Os balanceadores de carga internos do Azure não podem ser movidos de uma regiã
 
 - Verifique se sua assinatura do Azure permite criar balanceadores de carga internos na região de destino usada. Contate o suporte para habilitar a cota necessária.
 
-- Verifique se sua assinatura tem recursos suficientes para dar suporte à adição de balanceadores de carga para esse processo.  Confira [assinatura do Azure e limites de serviço, cotas e restrições](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)
+- Verifique se sua assinatura tem recursos suficientes para dar suporte à adição de balanceadores de carga para esse processo.  Confira [assinatura do Azure e limites de serviço, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)
 
 
 ## <a name="prepare-and-move"></a>Preparar e mover
@@ -45,7 +45,7 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
 
 1. Faça logon no [portal do Azure](https://portal.azure.com)  >  **grupos de recursos**.
 2. Localize o grupo de recursos que contém a rede virtual de origem e clique nele.
-3. Selecione **configurações**de >  >  **modelo de exportação**.
+3. Selecione **configurações** de >  >  **modelo de exportação**.
 4. Escolha **implantar** na folha **Exportar modelo** .
 5. Clique em **modelo**  >  **Editar parâmetros** para abrir o **parameters.jsno** arquivo no editor online.
 6. Para editar o parâmetro do nome da rede virtual, altere a propriedade **Value** em **parâmetros**:
@@ -180,11 +180,11 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
 
 13. Clique em **salvar** no editor online.
 
-14. Clique **BASICS**em  >  **assinatura** básica para escolher a assinatura na qual a VNET de destino será implantada.
+14. Clique **BASICS** em  >  **assinatura** básica para escolher a assinatura na qual a VNET de destino será implantada.
 
-15. Clique **BASICS**em  >  **grupo de recursos** básico para escolher o grupo de recursos em que a VNET de destino será implantada.  Você pode clicar em **criar novo** para criar um novo grupo de recursos para a VNET de destino.  Verifique se o nome não é o mesmo que o grupo de recursos de origem da VNET existente.
+15. Clique **BASICS** em  >  **grupo de recursos** básico para escolher o grupo de recursos em que a VNET de destino será implantada.  Você pode clicar em **criar novo** para criar um novo grupo de recursos para a VNET de destino.  Verifique se o nome não é o mesmo que o grupo de recursos de origem da VNET existente.
 
-16. Verifique **BASICS**se o  >  **local** básico está definido como o local de destino onde você deseja que a VNET seja implantada.
+16. Verifique **BASICS** se o  >  **local** básico está definido como o local de destino onde você deseja que a VNET seja implantada.
 
 17. Verifique em **configurações** que o nome corresponde ao nome que você inseriu no editor de parâmetros acima.
 
@@ -196,7 +196,7 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
 
 1. Faça logon no [portal do Azure](https://portal.azure.com)  >  **grupos de recursos**.
 2. Localize o grupo de recursos que contém o balanceador de carga interno de origem e clique nele.
-3. Selecione **configurações**de >  >  **modelo de exportação**.
+3. Selecione **configurações** de >  >  **modelo de exportação**.
 4. Escolha **implantar** na folha **Exportar modelo** .
 5. Clique em **modelo**  >  **Editar parâmetros** para abrir o **parameters.jsno** arquivo no editor online.
 
@@ -220,7 +220,7 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
 
     1. Faça logon no [portal do Azure](https://portal.azure.com)  >  **grupos de recursos** em outra guia ou janela do navegador.
     2. Localize o grupo de recursos de destino que contém a rede virtual movida das etapas acima e clique nela.
-    3. Selecione **configurações**de >  >  **Propriedades**.
+    3. Selecione **configurações** de >  >  **Propriedades**.
     4. Na folha à direita, realce a **ID do recurso** e copie-a para a área de transferência.  Como alternativa, você pode clicar no botão **copiar para a área de transferência** à direita do caminho da **ID de recurso** .
     5. Cole a ID do recurso na propriedade **DefaultValue** no editor de **Editar parâmetros** aberto na outra janela do navegador ou na guia:
 
@@ -273,7 +273,7 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
                 "tier": "Regional"
             },
         ```
-      Para obter mais informações sobre as diferenças entre os balanceadores de carga do SKU básico e Standard, consulte [visão geral do Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
+      Para obter mais informações sobre as diferenças entre os balanceadores de carga do SKU básico e Standard, consulte [visão geral do Azure Standard Load Balancer](./load-balancer-overview.md)
 
     * **Regras de balanceamento de carga** – você pode adicionar ou remover regras de balanceamento de carga na configuração adicionando ou removendo entradas na seção **loadBalancingRules** do **template.jsno** arquivo:
 
@@ -305,7 +305,7 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
                     }
                 ]
         ```
-       Para obter mais informações sobre regras de balanceamento de carga, consulte [o que é Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+       Para obter mais informações sobre regras de balanceamento de carga, consulte [o que é Azure Load Balancer?](./load-balancer-overview.md)
 
     * **Investigações** – você pode adicionar ou remover uma investigação para o balanceador de carga na configuração adicionando ou removendo entradas na seção **investigações** do **template.jsno** arquivo:
 
@@ -325,7 +325,7 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
                     }
                 ],
         ```
-       Para obter mais informações sobre Azure Load Balancer investigações de integridade, consulte [investigações de integridade de Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
+       Para obter mais informações sobre Azure Load Balancer investigações de integridade, consulte [investigações de integridade de Load Balancer](./load-balancer-custom-probe-overview.md)
 
     * **Regras de NAT de entrada** -você pode adicionar ou remover regras de NAT de entrada para o balanceador de carga adicionando ou removendo entradas para a seção **inboundNatRules** do **template.jsno** arquivo:
 
@@ -373,15 +373,15 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
             }
         }
         ```
-        Para obter mais informações sobre regras de NAT de entrada, consulte [o que é Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+        Para obter mais informações sobre regras de NAT de entrada, consulte [o que é Azure Load Balancer?](./load-balancer-overview.md)
 
 12. Clique em **salvar** no editor online.
 
-13. Clique **BASICS**em  >  **assinatura** básica para escolher a assinatura na qual o balanceador de carga interno de destino será implantado.
+13. Clique **BASICS** em  >  **assinatura** básica para escolher a assinatura na qual o balanceador de carga interno de destino será implantado.
 
-15. Clique **BASICS**em  >  **grupo de recursos** básico para escolher o grupo de recursos em que o balanceador de carga de destino será implantado.  Você pode clicar em **criar novo** para criar um novo grupo de recursos para o balanceador de carga interno de destino ou escolher o grupo de recursos existente que foi criado acima para a rede virtual.  Verifique se o nome não é o mesmo que o grupo de recursos de origem do balanceador de carga interno de origem existente.
+15. Clique **BASICS** em  >  **grupo de recursos** básico para escolher o grupo de recursos em que o balanceador de carga de destino será implantado.  Você pode clicar em **criar novo** para criar um novo grupo de recursos para o balanceador de carga interno de destino ou escolher o grupo de recursos existente que foi criado acima para a rede virtual.  Verifique se o nome não é o mesmo que o grupo de recursos de origem do balanceador de carga interno de origem existente.
 
-16. Verifique **BASICS**se o  >  **local** básico está definido como o local de destino onde você deseja que o balanceador de carga interno seja implantado.
+16. Verifique **BASICS** se o  >  **local** básico está definido como o local de destino onde você deseja que o balanceador de carga interno seja implantado.
 
 17. Verifique em **configurações** que o nome corresponde ao nome que você inseriu no editor de parâmetros acima.  Verifique se as IDs de recurso estão preenchidas para todas as redes virtuais na configuração.
 
@@ -402,5 +402,5 @@ Para confirmar as alterações e concluir a movimentação da rede virtual e do 
 Neste tutorial, você moveu um balanceador de carga interno do Azure de uma região para outra e limpou os recursos de origem.  Para saber mais sobre como mover recursos entre regiões e recuperação de desastres no Azure, confira:
 
 
-- [Mover recursos para um novo grupo de recursos ou assinatura](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Mover as VMs do Azure para outra região](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Mover as VMs do Azure para outra região](../site-recovery/azure-to-azure-tutorial-migrate.md)

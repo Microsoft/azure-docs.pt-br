@@ -3,21 +3,22 @@ title: Trabalhar com procedimentos armazenados, gatilhos e UDFs no Azure Cosmos 
 description: Este artigo apresenta conceitos, como procedimentos armazenados, gatilhos e funções definidas pelo usuário, do Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 7dc81581846f8abdae81fa3552d9fa4645f32a05
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ad9e6b99b396465c2cff95bd6ab340ef9d668085
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101299"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575950"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedimentos armazenados, gatilhos e funções definidas pelo usuário
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-O Azure Cosmos DB fornece execução transacional e integrada à linguagem de JavaScript. Ao usar a API do SQL no Azure Cosmos DB, você pode gravar **procedimentos armazenados** , **gatilhos** e **UDFs (funções definidas pelo usuário)** na linguagem JavaScript. Escreva sua lógica em JavaScript que é executada dentro do mecanismo de banco de dados. Você pode criar e executar gatilhos, procedimentos armazenados e UDFs usando [portal do Azure](https://portal.azure.com/), a [API de consulta integrada da linguagem JavaScript no Azure Cosmos DB](javascript-query-api.md) ou os [SDKs do cliente Cosmos DB API do SQL](how-to-use-stored-procedures-triggers-udfs.md).
+O Azure Cosmos DB fornece execução transacional e integrada à linguagem de JavaScript. Ao usar a API do SQL no Azure Cosmos DB, você pode gravar **procedimentos armazenados**, **gatilhos** e **UDFs (funções definidas pelo usuário)** na linguagem JavaScript. Escreva sua lógica em JavaScript que é executada dentro do mecanismo de banco de dados. Você pode criar e executar gatilhos, procedimentos armazenados e UDFs usando [portal do Azure](https://portal.azure.com/), a [API de consulta integrada da linguagem JavaScript no Azure Cosmos DB](javascript-query-api.md) ou os [SDKs do cliente Cosmos DB API do SQL](how-to-use-stored-procedures-triggers-udfs.md).
 
 ## <a name="benefits-of-using-server-side-programming"></a>Benefícios do uso da programação do servidor
 
@@ -42,7 +43,7 @@ A escrita de procedimentos armazenados, gatilhos e UDFs (funções definidas pel
 
 ## <a name="transactions"></a>Transactions
 
-A transação em um banco de dados típico pode ser definida como uma sequência de operações realizadas como uma única unidade lógica de trabalho. Cada transação fornece **garantias de propriedade ACID** . ACID é um acrônimo bem conhecido que significa: **uma** tomicity, **C** onsistency, **I** solation e **D** urability. 
+A transação em um banco de dados típico pode ser definida como uma sequência de operações realizadas como uma única unidade lógica de trabalho. Cada transação fornece **garantias de propriedade ACID**. ACID é um acrônimo bem conhecido que significa: **uma** tomicity, **C** onsistency, **I** solation e **D** urability. 
 
 * A atomicidade garante que todas as operações feitas dentro de uma transação sejam tratadas como uma única unidade e que nenhuma delas ou todas elas sejam confirmadas. 
 
@@ -71,7 +72,7 @@ Os procedimentos armazenados e os gatilhos são sempre executados na réplica pr
 
 ## <a name="bounded-execution"></a>Execução vinculada
 
-Todas as operações do Azure Cosmos DB precisam ser concluídas dentro da duração de tempo limite especificada. Essa restrição se aplica a funções do JavaScript – procedimentos armazenados, gatilhos e funções definidas pelo usuário. Se uma operação não for concluída dentro desse limite de tempo, a transação será revertida.
+Todas as operações do Azure Cosmos DB precisam ser concluídas dentro da duração de tempo limite especificada. Os procedimentos armazenados têm um limite de tempo limite de 5 segundos. Essa restrição se aplica a funções do JavaScript – procedimentos armazenados, gatilhos e funções definidas pelo usuário. Se uma operação não for concluída dentro desse limite de tempo, a transação será revertida.
 
 Garanta que as funções do JavaScript sejam concluídas dentro do limite de tempo ou implemente um modelo baseado em continuação para criar um lote/retomar a execução. A fim de simplificar o desenvolvimento de procedimentos armazenados e gatilhos para lidar com limites de tempo, todas as funções no contêiner do Azure Cosmos (por exemplo, criação, leitura, atualização e exclusão de itens) retornam um valor booliano que representa se a operação será concluída. Se esse valor for falso, ele será uma indicação de que o procedimento precisará encapsular a execução porque o script está consumindo mais tempo ou uma taxa de transferência provisionada maior do que o valor configurado. Operações colocadas em fila antes da primeira operação de armazenamento não aceita serão concluídas com certeza se o procedimento armazenado for concluído dentro do tempo e não colocar nenhuma outra solicitação em fila. Portanto, as operações devem ser enfileiradas uma de cada vez usando a Convenção de retorno de chamada do JavaScript para gerenciar o fluxo de controle do script. Como os scripts são executados em um ambiente do servidor, eles são estritamente controlados. Os scripts que violam repetidamente os limites de execução podem ser marcados como inativos e não podem ser executados e devem ser recriados para respeitar os limites de execução.
 

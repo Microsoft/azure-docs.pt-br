@@ -1,16 +1,16 @@
 ---
 title: Tutorial – Implantar um modelo vinculado
 description: Saiba como implantar um modelo vinculado
-ms.date: 03/13/2020
+ms.date: 01/12/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: a90bb90c90206ffe00f8b4f2d035c0ea844b5c47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ec49fad35e958f010461abf2ee0e3dab8077d55
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611666"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134187"
 ---
 # <a name="tutorial-deploy-a-linked-template"></a>Tutorial: Implantar um modelo vinculado
 
@@ -32,11 +32,11 @@ Você pode separar o recurso de conta de armazenamento em um modelo vinculado:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/linkedStorageAccount.json":::
 
-O modelo a seguir é o modelo principal.  O objeto **Microsoft.Resources/Implantations** realçado mostra como chamar um modelo vinculado. O modelo vinculado não pode ser armazenado como um arquivo local nem como um arquivo que esteja disponível apenas em sua rede local. Você só pode fornecer um valor de URI que inclua *http* ou *https*. O Resource Manager precisa ser capaz de acessar o modelo. Uma opção é colocar o modelo vinculado em uma conta de armazenamento e usar o URI do item. O URI é passado para o modelo usando um parâmetro. Consulte a definição do parâmetro realçado.
+O modelo a seguir é o modelo principal. O objeto `Microsoft.Resources/deployments` realçado mostra como chamar um modelo vinculado. O modelo vinculado não pode ser armazenado como um arquivo local nem como um arquivo que esteja disponível apenas em sua rede local. Você só pode fornecer um valor de URI que inclua HTTP ou HTTPS. O Resource Manager precisa ser capaz de acessar o modelo. Uma opção é colocar o modelo vinculado em uma conta de armazenamento e usar o URI do item. O URI é passado para o modelo usando um parâmetro. Consulte a definição do parâmetro realçado.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/azuredeploy.json" highlight="27-32,40-58":::
 
-Salve uma cópia do modelo principal em seu computador local com a extensão .json, por exemplo, azuredeploy.json. Você não precisa salvar uma cópia do modelo vinculado.  O modelo vinculado será copiado de um repositório GitHub para uma conta de armazenamento.
+Salve uma cópia do modelo principal no computador local com a extensão _.json_, por exemplo, _azuredeploy.json_. Você não precisa salvar uma cópia do modelo vinculado. O modelo vinculado será copiado de um repositório GitHub para uma conta de armazenamento.
 
 ## <a name="store-the-linked-template"></a>Armazenar o modelo vinculado
 
@@ -45,7 +45,7 @@ O script do PowerShell a seguir cria uma conta de armazenamento, cria um contêi
 Selecione **Experimentar** para abrir o Cloud Shell, selecione **Copiar** para copiar o script do PowerShell e clique com o botão direito do mouse no painel do shell para colar o script:
 
 > [!IMPORTANT]
-> Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres, usar números e apenas letras minúsculas. O nome deve ser exclusivo. No modelo, o nome da conta de armazenamento é o nome do projeto com "armazenamento" acrescentado, e o nome do projeto deve ter entre 3 e 11 caracteres. Portanto, o nome do projeto deve atender aos requisitos de nome da conta de armazenamento e ter menos de 11 caracteres.
+> Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres, usar números e apenas letras minúsculas. O nome deve ser exclusivo. No modelo, o nome da conta de armazenamento é o nome do projeto com **store** acrescentado e o nome do projeto deve ter entre 3 e 11 caracteres. Portanto, o nome do projeto deve atender aos requisitos de nome da conta de armazenamento e ter menos de 11 caracteres.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name:"   # This name is used to generate names for Azure resources, such as storage account name.
@@ -93,7 +93,7 @@ Para implantar um modelo privado em uma conta de armazenamento, gere um token SA
 Caso você não tenha criado o grupo de recursos, confira [Criar grupo de recursos](./deployment-tutorial-local-template.md#create-resource-group).
 
 > [!NOTE]
-> No código da CLI do Azure a seguir, o parâmetro de data -d seria um argumento inválido no macOS. Portanto, usuários do macOS, para adicionar 2h à hora atual no terminal no macOS, vocês devem usar -v+2H.
+> No código da CLI do Azure abaixo, o parâmetro de `date` `-d` é um argumento inválido no macOS. Portanto, para adicionar 2 horas à hora atual no terminal no macOS, os usuários do macOS devem usar `-v+2H`.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -176,7 +176,7 @@ Limpe os recursos que você implantou excluindo o grupo de recursos.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você aprendeu a implantar um modelo vinculado. No próximo tutorial, você aprenderá a criar um pipeline de DevOp para implantar um modelo.
+Você aprendeu a implantar um modelo vinculado. No próximo tutorial, você aprenderá a criar um pipeline de DevOps para implantar um modelo.
 
 > [!div class="nextstepaction"]
 > [Criar uma pipeline](./deployment-tutorial-pipeline.md)

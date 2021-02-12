@@ -8,29 +8,31 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/03/2020
+ms.date: 01/07/2021
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 85d392323b24df3cede196d2c68f05c9522b2293
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fcd194e2503610db314f6a975a4afb1d27962f8c
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89458290"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028161"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Usar a API do Video Indexer
 
 O Video Indexer consolida várias tecnologias de inteligência artificial (AI) de áudio e vídeo oferecidas pela Microsoft em um único serviço integrado, simplificando o trabalho de desenvolvimento. As APIs são projetadas para permitir que os desenvolvedores se concentrem no consumo de tecnologias de IA de Mídia sem se preocuparem com escala, alcance global, disponibilidade e confiabilidade das plataformas de nuvem. Você pode usar a API para fazer carregar seus arquivos, obter insights de vídeo detalhados, obter URLs de insights e widgets de player que permitem inserção e muito mais.
 
-Quando cria uma conta do Video Indexer, você pode escolher uma conta de avaliação gratuita (em que você obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (em que você não está limitado pela cota). O Video Indexer fornece até 600 minutos de indexação gratuita para usuários do site e até 2400 minutos de indexação gratuita para usuários da API com uma conta de avaliação gratuita. Com uma opção paga, você cria uma conta do Video Indexer que está [conectada à sua assinatura do Azure e a uma conta dos Serviços de Mídia do Azure](connect-to-azure.md). Você paga pelos minutos indexados, bem como os encargos relacionados à conta dos Serviços de Mídia do Azure.
+Quando cria uma conta do Video Indexer, você pode escolher uma conta de avaliação gratuita (em que você obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (em que você não está limitado pela cota). O Video Indexer fornece até 600 minutos de indexação gratuita para usuários do site e até 2400 minutos de indexação gratuita para usuários da API com uma conta de avaliação gratuita. Com uma opção paga, você cria uma conta do Video Indexer que está [conectada à sua assinatura do Azure e a uma conta dos Serviços de Mídia do Azure](connect-to-azure.md). Você paga pelos minutos indexados. Para obter mais informações, confira [Preços dos Serviços de Mídia](https://azure.microsoft.com/pricing/details/media-services/).
 
 Este artigo mostra como os desenvolvedores podem aproveitar a [API do Video Indexer](https://api-portal.videoindexer.ai/).
 
 ## <a name="subscribe-to-the-api"></a>Inscrever-se à API
 
 1. Entre no [Portal do Desenvolvedor do Video Indexer](https://api-portal.videoindexer.ai/).
+
+    Examine uma nota de versão sobre [as informações de logon](release-notes.md#october-2020).
     
-    ![Conexão ao Portal do Desenvolvedor do Video Indexer](./media/video-indexer-use-apis/video-indexer-api01.png)
+     ![Conexão ao Portal do Desenvolvedor do Video Indexer](./media/video-indexer-use-apis/sign-in.png)
 
    > [!Important]
    > * Você deve usar o mesmo provedor usado quando se inscreveu no Video Indexer.
@@ -40,14 +42,14 @@ Este artigo mostra como os desenvolvedores podem aproveitar a [API do Video Inde
 
     Selecione a guia [Produtos](https://api-portal.videoindexer.ai/products). Em seguida, selecione a autorização e inscrever-se.
     
-    ![Guia Produtos no Portal do Desenvolvedor do Video Indexer](./media/video-indexer-use-apis/video-indexer-api02.png)
+    ![Guia Produtos no Portal do Desenvolvedor do Video Indexer](./media/video-indexer-use-apis/authorization.png)
 
     > [!NOTE]
     > Novos usuários são automaticamente inscritos na Autorização.
     
     Depois de assinar, você pode encontrar sua assinatura em **produtos**  ->  **autorização**. Na página assinatura, você encontrará as chaves primária e secundária. As chaves devem ser protegidas. As chaves só devem ser usadas pelo seu código do servidor. Elas não devem estar disponíveis no lado do cliente (.js, .html, e assim por diante).
 
-    ![Assinatura e chaves no Portal do Desenvolvedor do Video Indexer](./media/video-indexer-use-apis/video-indexer-api03.png)
+    ![Assinatura e chaves no Portal do Desenvolvedor do Video Indexer](./media/video-indexer-use-apis/subscriptions.png)
 
 > [!TIP]
 > O usuário do Video Indexer pode usar uma chave de assinatura única para se conectar a várias contas do aplicativo. Depois você pode vincular essas contas do Video Indexer para diferentes contas de Serviços de Mídia.
@@ -103,9 +105,9 @@ O parâmetro de ID da conta é obrigatório em todas as chamadas da API operacio
 
 Esta seção lista algumas recomendações ao usar a API do Video Indexer.
 
-- Se você quer carregar um vídeo, é recomendável colocar o arquivo em algum local de rede pública (OneDrive, por exemplo). Obter o link para vídeo e fornecer a URL como o parâmetro de arquivo de upload.
+- Se você estiver planejando carregar um vídeo, é recomendável colocá-lo em algum local de rede pública (por exemplo, uma conta de armazenamento de BLOBs do Azure). Obter o link para vídeo e fornecer a URL como o parâmetro de arquivo de upload.
 
-    A URL fornecida ao Video Indexer deve apontar para um arquivo de mídia (áudio ou vídeo). Alguns dos links gerados pelo OneDrive são para uma página HTML que contém o arquivo. A URL pode ser facilmente verificando colando-a em um navegador. Se o arquivo começar a ser baixado, provavelmente é uma URL válida. Se o navegador renderizar uma visualização, provavelmente não é um link para um arquivo, mas para uma página HTML.
+    A URL fornecida ao Video Indexer deve apontar para um arquivo de mídia (áudio ou vídeo). Uma verificação fácil para a URL (ou URL SAS) é colá-la em um navegador, se o arquivo começar a ser reproduzido ou baixado, provavelmente é uma boa URL. Se o navegador renderizar uma visualização, provavelmente não é um link para um arquivo, mas para uma página HTML.
 
 - Quando você chama a API que recebe insights de vídeo para o vídeo especificado, você obtém uma saída JSON detalhada como o conteúdo da resposta. [Ver detalhes sobre o JSON retornado neste tópico](video-indexer-output-json-v2.md).
 
@@ -207,6 +209,10 @@ Debug.WriteLine(playerWidgetLink);
 
 ```
 
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Depois de concluir este tutorial, exclua os recursos que você não está planejando usar.
+
 ## <a name="see-also"></a>Confira também
 
 - [Visão geral do indexador vídeo](video-indexer-overview.md)
@@ -215,5 +221,5 @@ Debug.WriteLine(playerWidgetLink);
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Verificação dos detalhes da saída JSON](video-indexer-output-json-v2.md)
-- Veja o [código de exemplo](https://github.com/Azure-Samples/media-services-video-indexer) que demonstra um aspecto importante do carregamento e indexação de um vídeo. Seguir este código dará uma boa ideia de como usar nossa API para funcionalidades básicas. Lembre-se de ler os comentários embutidos e seguir nossas práticas recomendadas.
+- Veja o [código de exemplo](https://github.com/Azure-Samples/media-services-video-indexer) que demonstra um aspecto importante do carregamento e indexação de um vídeo. Seguir o código fornecerá uma boa ideia de como usar nossa API para funcionalidades básicas. Lembre-se de ler os comentários embutidos e seguir nossas práticas recomendadas.
 

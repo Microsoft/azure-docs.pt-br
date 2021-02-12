@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
-ms.openlocfilehash: dad4262520da1ec88c634c98aa2af2bf66bab936
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c05f9a326fcbe75a3348e58987d57e106094cf56
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322288"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510559"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Amostras de modelo do Resource Manager para regras de alerta de métrica no Azure Monitor
 
@@ -343,7 +343,7 @@ Salve o json abaixo como simpledynamicmetricalert.json para usar neste passo a p
                 "description": "The number of unhealthy periods to alert on (must be lower or equal to numberOfEvaluationPeriods)."
             }
         },
-    "ignoreDataBefore": {
+        "ignoreDataBefore": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
@@ -480,7 +480,7 @@ Salve o json abaixo como simpledynamicmetricalert.json para usar neste passo a p
         "minFailingPeriodsToAlert": {
             "value": "3"
         },
-    "ignoreDataBefore": {
+        "ignoreDataBefore": {
             "value": ""
         },
         "timeAggregation": {
@@ -875,7 +875,7 @@ Por exemplo, algumas das séries temporais em potencial que são monitoradas por
                             "values": ["*"]
                         },
                         {
-                "name":"ApiName",
+                            "name":"ApiName",
                             "operator": "Include",
                             "values": ["GetBlob", "PutBlob"]    
                         }
@@ -3132,7 +3132,7 @@ Os [testes de disponibilidade do Application Insights](../app/monitor-web-app-av
 > [!NOTE]
 > `&amp`; é a referência de entidade HTML para &. Os parâmetros de URL ainda são separados por um único &, mas se você mencionar a URL em HTML, precisará codificá-la. Portanto, se você tiver qualquer "&" no seu valor de parâmetro pingURL, você precisará escapá-lo com "`&amp`;"
 
-### <a name="parameter-file"></a>Arquivo de parâmetro.
+### <a name="template-file"></a>Arquivo de modelo
 
 ```json
 {
@@ -3234,8 +3234,6 @@ Os [testes de disponibilidade do Application Insights](../app/monitor-web-app-av
 }
 ```
 
-
-
 ### <a name="parameter-file"></a>Arquivo de parâmetro.
 
 ```json
@@ -3254,12 +3252,53 @@ Os [testes de disponibilidade do Application Insights](../app/monitor-web-app-av
         },
         "location": {
             "value": "Replace with the location of your Application Insights resource"
-        }
+        },
+        "pingText": {
+            "defaultValue": "Optional parameter that allows you to perform a content-match for the presence of a specific string within the content returned from a pingURL response",
+            "type": "String"
+        },
     }
 }
 ```
 
+A configuração adicional do parâmetro de correspondência de conteúdo `pingText` é controlada na parte `Configuration/Webtest` do arquivo de modelo. Especificamente a seção abaixo:
 
+```xml
+<RuleParameter Name=\"FindText\" Value=\"',parameters('pingText'), '\" />
+<RuleParameter Name=\"IgnoreCase\" Value=\"False\" />
+<RuleParameter Name=\"UseRegularExpression\" Value=\"False\" /> 
+<RuleParameter Name=\"PassIfTextFound\" Value=\"True\" />
+```
+### <a name="test-locations"></a>Locais de teste
+
+|ID                  | Região           |
+|:-------------------|:-----------------|
+| `emea-nl-ams-azr`  | Europa Ocidental      |
+| `us-ca-sjc-azr`    | Oeste dos EUA          |
+| `emea-ru-msa-edge` | Sul do Reino Unido         |
+| `emea-se-sto-edge` | Oeste do Reino Unido          |
+| `apac-sg-sin-azr`  | Sudeste Asiático   |
+| `us-tx-sn1-azr`    | Centro-Sul dos Estados Unidos |
+| `us-il-ch1-azr`    | Centro-Norte dos EUA |
+| `emea-gb-db3-azr`  | Norte da Europa     |
+| `apac-jp-kaw-edge` | Leste do Japão       |
+| `emea-fr-pra-edge` | França Central   |
+| `emea-ch-zrh-edge` | Sul da França     |
+| `us-va-ash-azr`    | Leste dos EUA          |
+| `apac-hk-hkn-azr`  | Leste da Ásia        |
+| `us-fl-mia-edge`   | Centro dos EUA       |
+| `latam-br-gru-edge`| Sul do Brasil      |
+| `emea-au-syd-edge` | Leste da Austrália   |
+
+### <a name="us-government-test-locations"></a>Localizações de teste do US Gov
+
+|ID                    | Região           |
+|----------------------|------------------|
+| `usgov-va-azr`       | `USGov Virginia` |
+| `usgov-phx-azr`      | `USGov Arizona`  |
+| `usgov-tx-azr`       | `USGov Texas`    |
+| `usgov-ddeast-azr`   | `USDoD East`     |
+| `usgov-ddcentral-azr`| `USDoD Central`  |
 
 ## <a name="next-steps"></a>Próximas etapas
 

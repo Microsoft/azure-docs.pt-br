@@ -3,8 +3,8 @@ title: Monitorar e gerenciar pipelines de dados – Azure
 description: Saiba como usar o aplicativo de Monitoramento e Gerenciamento para monitorar e gerenciar data factories e pipelines do Azure.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.assetid: f3f07bc4-6dc3-4d4d-ac22-0be62189d578
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: e378c1e25fb434e689eadd91e9e8562ffe7e61fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afab2b03d31045b9f49f357b49d15368cde898da
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570112"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495694"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorar e gerenciar os pipelines do Azure Data Factory usando o aplicativo de Monitoramento e Gerenciamento
 > [!div class="op_single_selector"]
@@ -177,7 +177,7 @@ As janelas de atividades podem estar em um dos seguintes status:
 <td>ActivityResume</td><td>A atividade estiver em pausa e não poderá executar as janelas de atividades até ser retomada.</td>
 </tr>
 <tr>
-<td>Repetir</td><td>A execução da atividade está sendo repetida.</td>
+<td>Tentar novamente</td><td>A execução da atividade está sendo repetida.</td>
 </tr>
 <tr>
 <td>Validação</td><td>A validação ainda não foi iniciada.</td>
@@ -193,7 +193,7 @@ As janelas de atividades podem estar em um dos seguintes status:
 <td>A janela de atividades está sendo processada.</td>
 </tr>
 <tr>
-<td rowspan="4">Failed (Falha)</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
+<td rowspan="4">Com falha</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
 </tr>
 <tr>
 <td>Canceled</td><td>A janela de atividade foi cancelada por ação do usuário.</td>

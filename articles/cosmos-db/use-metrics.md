@@ -5,15 +5,16 @@ author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8694a884b26194c61cc77d00848692a24e3009be
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b0760b86012504ea86e4a0cde36ae878e8ff3b26
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073699"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685730"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Monitore e depure com métricas no Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -48,35 +49,35 @@ As seções a seguir explicam cenários comuns em que você pode usar Azure Cosm
 
 ## <a name="understand-how-many-requests-are-succeeding-or-causing-errors"></a>Reconhecimento de quantas solicitações estão tendo sucesso ou causando erros
 
-Para começar, vá até o [Portal do Azure](https://portal.azure.com) e navegue até a folha **Métricas** . Na folha, localize o * * número de solicitações que excedeu a capacidade por gráfico de 1 minuto. Este gráfico mostra um total de solicitações minuto a minuto segmentadas pelo código de status. Para obter mais informações sobre códigos de status HTTP, consulte [códigos de status HTTP para Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
+Para começar, vá até o [Portal do Azure](https://portal.azure.com) e navegue até a folha **Métricas**. Na folha, localize o * * número de solicitações que excedeu a capacidade por gráfico de 1 minuto. Este gráfico mostra um total de solicitações minuto a minuto segmentadas pelo código de status. Para obter mais informações sobre códigos de status HTTP, consulte [códigos de status HTTP para Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
 O código de status de erro mais comum é 429 (limitação/limitação da taxa). Esse erro significa que as solicitações para o Azure Cosmos DB são mais do que a taxa de transferência provisionada. A solução mais comum para esse problema é [expandir as RUs](./set-throughput.md) para determinada coleção.
 
-:::image type="content" source="media/use-metrics/metrics-12.png" alt-text="Cosmos DB métricas de desempenho no portal do Azure":::
+:::image type="content" source="media/use-metrics/metrics-12.png" alt-text="Número de solicitações por minuto":::
 
 ## <a name="determine-the-throughput-distribution-across-partitions"></a>Determine a distribuição da taxa de transferência entre as partições
 
-Ter uma boa cardinalidade de suas chaves de partição é essencial para qualquer aplicativo escalonável. Para determinar a distribuição da produtividade de qualquer contêiner particionado dividida por partições, navegue até a **folha Métricas** no [portal do Azure](https://portal.azure.com). Na guia **Taxa de transferência** , a divisão do armazenamento é mostrada no gráfico **Máx. de RUs/segundo consumidas para cada partição física** . O gráfico a seguir ilustra um exemplo de uma má distribuição de dados, conforme mostrado pela partição distorcida na extrema esquerda.
+Ter uma boa cardinalidade de suas chaves de partição é essencial para qualquer aplicativo escalonável. Para determinar a distribuição da produtividade de qualquer contêiner particionado dividida por partições, navegue até a **folha Métricas** no [portal do Azure](https://portal.azure.com). Na guia **Taxa de transferência**, a divisão do armazenamento é mostrada no gráfico **Máx. de RUs/segundo consumidas para cada partição física**. O gráfico a seguir ilustra um exemplo de uma má distribuição de dados, conforme mostrado pela partição distorcida na extrema esquerda.
 
-:::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Cosmos DB métricas de desempenho no portal do Azure":::
+:::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Partição única vendo uso intenso":::
 
-Uma distribuição desigual de taxa de transferência pode causar partições *quentes* , que por sua vez podem resultar em solicitações limitadas e podem exigir reparticionamento. Para obter mais informações sobre o particionamento no Azure Cosmos DB, consulte [Partição e escala no Azure Cosmos DB](./partitioning-overview.md).
+Uma distribuição desigual de taxa de transferência pode causar partições *quentes*, que por sua vez podem resultar em solicitações limitadas e podem exigir reparticionamento. Para obter mais informações sobre o particionamento no Azure Cosmos DB, consulte [Partição e escala no Azure Cosmos DB](./partitioning-overview.md).
 
 ## <a name="determine-the-storage-distribution-across-partitions"></a>Determinar a distribuição de armazenamento nas partições
 
 Ter uma boa cardinalidade em sua partição é essencial para qualquer aplicativo escalonável. Para determinar a distribuição de armazenamento de qualquer contêiner particionado dividida por partições, acesse a folha Métricas no [portal do Azure](https://portal.azure.com). Na guia Armazenamento, a divisão de armazenamento é mostrada no armazenamento Dados + índice consumido pelo gráfico de chaves de partição superior. O gráfico a seguir ilustra uma distribuição ruim de armazenamento de dados, conforme mostrado pela partição distorcida na extrema esquerda.
 
-:::image type="content" source="media/use-metrics/metrics-07.png" alt-text="Cosmos DB métricas de desempenho no portal do Azure":::
+:::image type="content" source="media/use-metrics/metrics-07.png" alt-text="Exemplo de distribuição de dados ruim":::
 
 Você pode determinar a causa raiz ao identificar qual chave de partição está distorcendo a distribuição, clicando na partição no gráfico.
 
-:::image type="content" source="media/use-metrics/metrics-05.png" alt-text="Cosmos DB métricas de desempenho no portal do Azure":::
+:::image type="content" source="media/use-metrics/metrics-05.png" alt-text="A chave de partição está distorcendo a distribuição":::
 
 Depois de identificar qual chave de partição está causando a distorção na distribuição, você precisará reparticionar o contêiner com uma chave de partição mais distribuída. Para obter mais informações sobre o particionamento no Azure Cosmos DB, consulte [Partição e escala no Azure Cosmos DB](./partitioning-overview.md).
 
 ## <a name="compare-data-size-against-index-size"></a>Compare o tamanho de dados em relação ao tamanho do índice
 
-No Azure Cosmos DB, o armazenamento consumido total é a combinação do Tamanho dos dados e do Tamanho do índice. Normalmente, o tamanho do índice é uma fração do tamanho dos dados. Na folha Métricas no [Portal do Azure](https://portal.azure.com), a guia Armazenamento apresenta a divisão do consumo de armazenamento com base nos dados e no índice.
+No Azure Cosmos DB, o armazenamento consumido total é a combinação do Tamanho dos dados e do Tamanho do índice. Normalmente, o tamanho do índice é uma fração do tamanho dos dados. Para saber mais, confira o artigo [tamanho do índice](index-policy.md#index-size) . Na folha Métricas no [Portal do Azure](https://portal.azure.com), a guia Armazenamento apresenta a divisão do consumo de armazenamento com base nos dados e no índice.
 
 ```csharp
 // Measure the document size usage (which includes the index size)  

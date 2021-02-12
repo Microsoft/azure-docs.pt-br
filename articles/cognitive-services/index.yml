@@ -12,17 +12,17 @@ metadata:
   manager: nitinme
   ms.custom: custom-portals-hub
   ms.date: 08/28/2020
-  ms.openlocfilehash: ca210f144d56aa56ddbcb959e0240bd4816dc3af
-  ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+  ms.openlocfilehash: 059d5545c71bef3465dc634f8fdad2396a6d9a7e
+  ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/26/2020
-  ms.locfileid: "92547105"
+  ms.lasthandoff: 01/22/2021
+  ms.locfileid: "98681568"
 highlightedContent:
   items:
   - title: O que são Serviços Cognitivos?
     itemType: overview
-    url: ./welcome.md
+    url: ./what-are-cognitive-services.md
   - title: O que há de novo no Docs?
     itemType: whats-new
     url: whats-new-docs.md
@@ -34,7 +34,7 @@ highlightedContent:
     url: ./cognitive-services-and-machine-learning.md
   - title: Contêineres locais dos Serviços Cognitivos
     itemType: concept
-    url: ./cognitive-services-container-support.md
+    url: ./containers/index.yml
   - title: Serviços Cognitivos com bancos de dados
     itemType: concept
     url: ./big-data/cognitive-services-for-big-data.md
@@ -93,7 +93,7 @@ conceptualContent:
       text: Serviço de Fala
     - url: https://speech.microsoft.com/
       itemType: overview
-      text: " - Personalizar com o Speech Studio"
+      text: Personalizar com o Speech Studio
   - title: Decisão
     summary: Crie aplicativos que apresentam recomendações para tomada de decisão eficiente e informada.
     links:
@@ -118,9 +118,12 @@ conceptualContent:
   - title: Contêineres de Serviço Cognitivo
     summary: O suporte a contêiner nos Serviços Cognitivos do Azure permite que os desenvolvedores usem as mesmas APIs avançadas disponíveis no Azure e habilita a flexibilidade de onde implantar e hospedar os serviços que vêm com os contêineres do Docker.
     links:
+    - url: ./containers/index.yml
+      itemType: overview
+      text: Documentação sobre contêineres de Serviços Cognitivos
     - url: ./cognitive-services-container-support.md
       itemType: overview
-      text: Contêineres de Serviço Cognitivo
+      text: O que são os contêineres de Serviço Cognitivo?
     - url: ./containers/container-reuse-recipe.md
       itemType: learn
       text: Criar contêineres para reutilização
@@ -144,7 +147,7 @@ conceptualContent:
       text: Serviços Cognitivos para Big data
     - url: ./big-data/getting-started.md
       itemType: get-started
-      text: Usar os Serviços Cognitivos no Azure Databricks e no Synapse Analytics
+      text: Usar os Serviços Cognitivos no Azure Databricks e no Azure Synapse Analytics
     - url: ./big-data/samples-python.md
       itemType: reference
       text: Exemplos em Python
@@ -167,24 +170,24 @@ additionalContent:
     - title: SKDs e APIs REST
       links:
       - text: C#
-        url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
+        url: /dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
       - text: Go
         url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices
       - text: Java
-        url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client?view=azure-java-stable
+        url: /java/api/overview/azure/cognitiveservices/client?view=azure-java-stable
       - text: JavaScript
-        url: https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest
+        url: /javascript/api/overview/azure/cognitive-services?view=azure-node-latest
       - text: Python
-        url: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python
+        url: /python/api/overview/azure/cognitive-services?view=azure-python
       - text: R
         url: https://github.com/Azure/AzureCognitive
       - text: Apache Spark e bancos de dados
         url: ./big-data/cognitive-services-for-big-data.md
       - text: API REST de gerenciamento dos Serviços Cognitivos
-        url: https://docs.microsoft.com/rest/api/cognitiveservices/
+        url: /rest/api/cognitiveservices/
     - title: Ferramentas
       links:
       - text: CLI do Azure
-        url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+        url: /cli/azure/cognitiveservices?view=azure-cli-latest
       - text: PowerShell
-        url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services
+        url: /powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services

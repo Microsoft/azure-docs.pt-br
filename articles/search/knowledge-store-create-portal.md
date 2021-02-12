@@ -7,13 +7,13 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/30/2020
-ms.openlocfilehash: 75cacf0dc899f47d55c44e5262b23bae73bfa7ab
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 11/17/2020
+ms.openlocfilehash: 3225013f09abd326c619b67caf77918889a64859
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88924360"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94741798"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Início Rápido: Criar um repositório de conhecimento da Pesquisa Cognitiva do Azure no portal do Azure
 
@@ -21,7 +21,7 @@ O repositório de conhecimento é um recurso do Azure Cognitive Search que persi
 
 Um pipeline aceita texto não estruturado e imagens como conteúdo bruto, aplica IA por meio dos Serviços Cognitivos (como OCR, análise de imagem e processamento de linguagem natural), extrai informações e gera novas estruturas e informações. Um dos artefatos físicos criados por um pipeline é um [repositório de conhecimento](knowledge-store-concept-intro.md), que pode ser acessado por meio de ferramentas para analisar e explorar o conteúdo.
 
-Neste início rápido, você combinará serviços e dados na nuvem do Azure para criar um repositório de conhecimento. Quando tudo estiver configurado, você executará o assistente **Importar dados** no portal para reunir tudo. O resultado final é um conteúdo de texto original mais conteúdo gerado por IA que você pode exibir no portal ([Gerenciador de armazenamento](knowledge-store-view-storage-explorer.md)).
+Neste início rápido, você combinará serviços e dados na nuvem do Azure para criar um repositório de conhecimento. Quando tudo estiver configurado, você executará o assistente **Importar dados** no portal para reunir tudo. O resultado final é um conteúdo de texto original mais um conteúdo gerado por IA que você pode ver no portal ([Gerenciador de Armazenamento](knowledge-store-view-storage-explorer.md)).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

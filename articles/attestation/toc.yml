@@ -1,4 +1,4 @@
-- name: Atestado do Microsoft Azure (versão prévia)
+- name: Atestado do Microsoft Azure
   href: index.yml
 - name: Visão geral
   items:
@@ -11,10 +11,18 @@
       href: quickstart-template.md
     - name: PowerShell
       href: quickstart-powershell.md
+    - name: Portal
+      href: quickstart-portal.md
+    - name: CLI
+      href: quickstart-azure-cli.md
 - name: Tutoriais
   items:
-    - name: Criação e assinatura de uma política de atestado
+    - name: Criação de uma política de atestado
       href: author-sign-policy.md
+    - name: Criar um ponto de extremidade privado – PowerShell
+      href: private-endpoint-powershell.md
+    - name: Monitoramento de Diagnóstico do Azure
+      href: azure-diagnostic-monitoring.md
     - name: Exemplos de código de atestado de SGX
       href: /samples/browse/?expanded=azure&terms=attestation
 - name: Exemplos
@@ -35,17 +43,25 @@
           href: claim-sets.md
     - name: Fluxo de trabalho
       href: workflow.md
+    - name: Exibir logs de auditoria
+      href: audit-logs.md
 - name: Referências
   items:
+    - name: Disponibilidade regional
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation'
     - name: Perguntas frequentes
       href: faq.md
     - name: REST
       href: /rest/api/attestation/
     - name: Azure PowerShell
-      href: /powershell/module/az.attestation/?view=azps-4.3.0#attestation
+      href: /powershell/module/az.attestation/?view=azps-5.0.0#attestation
+    - name: CLI do Azure
+      href: /cli/azure/ext/attestation/attestation?view=azure-cli-latest
     - name: Biblioteca de DCAP do Azure para Windows
       href: 'https://www.nuget.org/packages/Microsoft.Azure.DCAP/'
     - name: Biblioteca de DCAP do Azure para Linux
       href: 'https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/'
-    - name: Protocolo de atestado VBS
+    - name: Solucionar problemas
+      href: troubleshoot-guide.md
+    - name: Protocolo de atestado VBS e TPM
       href: virtualization-based-security-protocol.md

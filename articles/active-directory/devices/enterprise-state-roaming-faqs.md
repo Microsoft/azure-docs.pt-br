@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9510bd564ced2f458a9a78ff23200bb32358c3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb889298a09c30a629c69442ebf31bc735af31d1
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89268529"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173117"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Configurações e perguntas frequentes sobre o roaming de dados
 
@@ -77,7 +77,7 @@ Nas versões de novembro de 2015 ou posteriores do Windows 10, o Enterprise Stat
 Quando houver várias contas do Microsoft Azure Active Directory de diferentes locatários do Microsoft Azure Active Directory no mesmo dispositivo, você deverá atualizar o registro do dispositivo para se comunicar com o Azure Rights Management para cada locatário do Microsoft Azure Active Directory.  
 
 1. Encontre o GUID de cada locatário do Azure AD. Abra o Portal do Azure e selecione um locatário do Azure AD. O GUID do locatário está na página de Propriedades do locatário selecionado (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), rotulado **ID de diretório**. 
-2. Depois de ter o GUID, será necessário adicionar a chave do registro **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<tenant ID GUID> **.
+2. Depois de ter o GUID, será necessário adicionar a chave do registro **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<tenant ID GUID>**.
    Por meio da chave do **GUID da ID do locatário**, crie um novo valor de cadeia de caracteres múltipla (REG-MULTI-SZ) denominado **AllowedRMSServerUrls**. Para seus dados, especifique as URLs de ponto de distribuição licenciamento de outros locatários do Azure que o dispositivo acessa.
 3. Você pode encontrar as URLs do ponto de distribuição de licenciamento executando o cmdlet **Get-AadrmConfiguration** do módulo AADRM. Se os valores de **LicensingIntranetDistributionPointUrl** e de **LicensingExtranetDistributionPointUrl** forem diferentes, especifique ambos os valores. Se os valores forem iguais, especifique o valor apenas uma vez.
 
@@ -85,7 +85,7 @@ Quando houver várias contas do Microsoft Azure Active Directory de diferentes l
 
 O roaming só funciona para aplicativos Universais do Windows. Há duas opções para habilitar o roaming em um aplicativo da área de trabalho existente do Windows:
 
-* A [Ponte da Área de Trabalho](https://aka.ms/desktopbridge) ajuda você a levar seus aplicativos da área de trabalho existentes do Windows para a Plataforma Universal do Windows. A partir daqui, alterações mínimas de código deverão poder aproveitar o roaming de dados de aplicativo do Azure AD. A Ponte da Área de Trabalho fornece aos aplicativos uma identidade de aplicativo, que é necessária para habilitar o roaming de dados de aplicativo para aplicativos da área de trabalho existentes.
+* A [Ponte da Área de Trabalho](/windows/msix/desktop/source-code-overview) ajuda você a levar seus aplicativos da área de trabalho existentes do Windows para a Plataforma Universal do Windows. A partir daqui, alterações mínimas de código deverão poder aproveitar o roaming de dados de aplicativo do Azure AD. A Ponte da Área de Trabalho fornece aos aplicativos uma identidade de aplicativo, que é necessária para habilitar o roaming de dados de aplicativo para aplicativos da área de trabalho existentes.
 * [UE-V (User Experience Virtualization)](/previous-versions//dn458947(v=vs.85)) ajuda você a criar um modelo de configurações personalizado para aplicativos da área de trabalho existentes do Windows e habilitar o roaming para aplicativos do Win32. Essa opção não exige que o desenvolvedor altere o código do aplicativo. O UE-V é limitado ao roaming do Active Directory local para clientes que adquiriram o Microsoft Desktop Optimization Pack.
 
 Administradores podem configurar o UE-V para fazer roaming de dados de aplicativo da área de trabalho do Windows alterando o roaming de configurações do sistema operacional do Windows e dados de aplicativos universais por meio de [políticas de grupo do UE-V](/microsoft-desktop-optimization-pack/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2), incluindo:

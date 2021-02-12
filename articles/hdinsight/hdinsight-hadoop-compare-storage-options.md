@@ -1,19 +1,16 @@
 ---
 title: Comparar opções de armazenamento para uso com clusters do Azure HDInsight
 description: Fornece uma visão geral dos tipos de armazenamento e como eles funcionam com o Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: a866a225da87c22a3a276a5d59b8e86f1f955cae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6dd0fd95280a65615d38ab11a2f9814f58586f5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856187"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945859"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparar opções de armazenamento para uso com clusters do Azure HDInsight
 
@@ -36,6 +33,8 @@ A tabela a seguir resume os serviços de armazenamento do Azure que têm suporte
 |Armazenamento do Azure| Uso geral V1 | Objeto | Blob | Standard | N/D | Todos | Todos |
 |Armazenamento do Azure| Armazenamento de BLOBs * * | Objeto | Blob de blocos | Standard | Frequente, Esporádico, Arquivos | Todos | Todos |
 |Azure Data Lake Storage Gen1| N/D | Hierárquico (Filesystem) | N/D | N/D | N/D | apenas 3,6 | Todos, exceto HBase |
+|Armazenamento do Azure| Blob de blocos| Objeto | Blob de blocos | Premium | N/D| 3.6+ | Somente HBase com gravações aceleradas|
+|Azure Data Lake Storage Gen2| Blob de blocos| Hierárquico (Filesystem) | Blob de blocos | Premium | N/D| 3.6+ | Somente HBase com gravações aceleradas|
 
 * * Para clusters HDInsight, somente contas de armazenamento secundárias podem ser do tipo BlobStorage e o blob de página não é uma opção de armazenamento com suporte.
 
@@ -48,10 +47,10 @@ Você pode criar clusters usando combinações de serviços para armazenamento p
 | Versão do HDInsight | Armazenamento primário | Armazenamento secundário | Com suporte |
 |---|---|---|---|
 | 3,6 & 4,0 | Uso Geral v1, Uso Geral v2 | Uso Geral v1, Uso Geral v2, BlobStorage (BLOBs de blocos) | Sim |
-| 3,6 & 4,0 | Uso Geral v1, Uso Geral v2 | Armazenamento do Data Lake Gen2 | Não |
-| 3,6 & 4,0 | Data Lake Storage Gen2 * | Armazenamento do Data Lake Gen2 | Sim |
+| 3,6 & 4,0 | Uso Geral v1, Uso Geral v2 | Data Lake Storage Gen2 | Não |
+| 3,6 & 4,0 | Data Lake Storage Gen2 * | Data Lake Storage Gen2 | Sim |
 | 3,6 & 4,0 | Data Lake Storage Gen2 * | Uso Geral v1, Uso Geral v2, BlobStorage (BLOBs de blocos) | Sim |
-| 3,6 & 4,0 | Armazenamento do Data Lake Gen2 | Data Lake Storage Gen1 | Não |
+| 3,6 & 4,0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | Não |
 | 3,6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Sim |
 | 3,6 | Data Lake Storage Gen1 | Uso Geral v1, Uso Geral v2, BlobStorage (BLOBs de blocos) | Sim |
 | 3,6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | Não |

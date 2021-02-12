@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 260631e36d113b6ccd190f66ce61caa7ba1b187b
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: b75f4c85831fe66158da875c21af60ee73531026
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900881"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728249"
 ---
 # <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Usar os drivers da interface de armazenamento de contêiner de disco do Azure (CSI) no serviço kubernetes do Azure (AKS) (visualização)
 O driver CSI (Azure Disk contêiner Storage interface) é um driver compatível com a [especificação CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md)usado pelo AKs (serviço kubernetes do Azure) para gerenciar o ciclo de vida dos discos do Azure.
@@ -101,7 +101,7 @@ storageclass.storage.k8s.io/azuredisk-csi-waitforfirstconsumer created
 
 ## <a name="volume-snapshots"></a>Instantâneos de volume
 
-O driver do Azure Disk CSI dá suporte à criação [de instantâneos de volumes persistentes](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html). Como parte desse recurso, o driver pode executar instantâneos *completos* ou [ *incrementais*](../virtual-machines/windows/disks-incremental-snapshots.md) , dependendo do valor definido no `incremental` parâmetro (por padrão, é true).
+O driver do Azure Disk CSI dá suporte à criação [de instantâneos de volumes persistentes](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html). Como parte desse recurso, o driver pode executar instantâneos *completos* ou [ *incrementais*](../virtual-machines/disks-incremental-snapshots.md) , dependendo do valor definido no `incremental` parâmetro (por padrão, é true).
 
 Para obter detalhes sobre todos os parâmetros, consulte [parâmetros de classe de instantâneo de volume](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/docs/driver-parameters.md#volumesnapshotclass).
 
@@ -275,7 +275,7 @@ Filesystem      Size  Used Avail Use% Mounted on
 
 ## <a name="shared-disk"></a>Disco compartilhado
 
-Os [discos compartilhados do Azure](../virtual-machines/windows/disks-shared.md) são um recurso do Azure Managed disks que permite anexar um disco do Azure a nós de agente simultaneamente. A anexação de um disco gerenciado a vários nós de agente permite, por exemplo, implantar novos aplicativos de cluster existentes ou migrar para o Azure.
+Os [discos compartilhados do Azure](../virtual-machines/disks-shared.md) são um recurso do Azure Managed disks que permite anexar um disco do Azure a nós de agente simultaneamente. A anexação de um disco gerenciado a vários nós de agente permite, por exemplo, implantar novos aplicativos de cluster existentes ou migrar para o Azure.
 
 > [!IMPORTANT] 
 > Atualmente, somente o dispositivo de bloco bruto ( `volumeMode: Block` ) é suportado pelo driver CSI do Azure Disk. Os aplicativos devem gerenciar a coordenação e o controle de gravações, leituras, bloqueios, caches, montagens e isolamento no disco compartilhado, que é exposto como um dispositivo de bloco bruto.

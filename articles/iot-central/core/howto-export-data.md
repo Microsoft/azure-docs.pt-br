@@ -4,24 +4,21 @@ description: Como usar a nova exportação de dados para exportar seus dados de 
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 09/15/2020
+ms.date: 11/05/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.custom: contperfq1
-ms.openlocfilehash: 2cbdeca41746099643fb06ff5861a39b2e032b33
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.custom: contperf-fy21q1, contperf-fy21q3
+ms.openlocfilehash: 350cd7c14a4f1ee5058a60ccf60c1205ce97916a
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126696"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226050"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Exportar dados de IoT para destinos de nuvem usando a exportação de dados
 
 > [!Note]
-> Este artigo descreve os recursos de exportação de dados no IoT Central.
->
-> - Para obter informações sobre os recursos de exportação de dados herdados, consulte [exportar dados de IOT para destinos de nuvem usando a exportação de dados (Herdado)](./howto-export-data-legacy.md).
-> - Para saber mais sobre as diferenças entre a exportação de dados e os recursos de exportação de dados herdados, consulte a [tabela de comparação](#comparison-of-legacy-data-export-and-data-export) abaixo.
+> Este artigo descreve os recursos de exportação de dados no IoT Central. Para obter informações sobre os recursos de exportação de dados herdados, consulte [exportar dados de IOT para destinos de nuvem usando a exportação de dados (Herdado)](./howto-export-data-legacy.md).
 
 Este artigo descreve como usar o novo recurso de exportação de dados no Azure IoT Central. Use esse recurso para exportar continuamente dados de IoT filtrados e aprimorados do seu aplicativo IoT Central. A exportação de dados envia as alterações quase em tempo real para outras partes da sua solução de nuvem para percepções, análises e armazenamento de caminho quente.
 
@@ -39,11 +36,13 @@ Por exemplo, você pode:
 
 Para usar os recursos de exportação de dados, você deve ter um [aplicativo v3](howto-get-app-info.md)e deve ter a permissão de [exportação de dados](howto-manage-users-roles.md) .
 
+Se você tiver um aplicativo v2, consulte [migrar seu aplicativo de IOT central v2 para v3](howto-migrate.md).
+
 ## <a name="set-up-export-destination"></a>Configurar o destino de exportação
 
 O destino de exportação deve existir antes de você configurar a exportação de dados. Os seguintes tipos de destino estão disponíveis no momento:
 
-- Hubs de Eventos do Azure
+- Hubs de eventos do Azure
 - Fila do Barramento de Serviço do Azure
 - Tópico do Barramento de Serviço do Azure
 - Armazenamento do Blobs do Azure
@@ -99,7 +98,7 @@ Se você não tiver uma conta de armazenamento do Azure existente para a qual ex
     |-|-|
     |Standard|Uso Geral v2|
     |Standard|Uso Geral v1|
-    |Standard|Armazenamento de blob|
+    |Standard|Armazenamento de Blobs|
     |Premium|Armazenamento de blobs de blocos|
 
 1. Para criar um contêiner em sua conta de armazenamento, vá para sua conta de armazenamento. Em **Serviço Blob**, selecione **Procurar Blobs**. Selecione **+ Contêiner** na parte superior para criar um contêiner.
@@ -135,6 +134,7 @@ Agora que você tem um destino para exportar seus dados, configure a exportaçã
     |  Telemetria | Exporte mensagens de telemetria de dispositivos quase em tempo real. Cada mensagem exportada contém o conteúdo completo da mensagem do dispositivo original, normalizado.   |  [Formato de mensagem de telemetria](#telemetry-format)   |
     | Alterações de propriedade | Exporte alterações para propriedades de dispositivo e de nuvem quase em tempo real. Para propriedades de dispositivo somente leitura, as alterações nos valores relatados são exportadas. Para propriedades de leitura/gravação, os valores relatados e desejados são exportados. | [Formato de mensagem de alteração de propriedade](#property-changes-format) |
 
+<a name="DataExportFilters"></a>
 1. Opcionalmente, adicione filtros para reduzir a quantidade de dados exportados. Há diferentes tipos de filtro disponíveis para cada tipo de exportação de dados:
 
     Para filtrar a telemetria, você pode:
@@ -145,6 +145,7 @@ Agora que você tem um destino para exportar seus dados, configure a exportaçã
 
     Para filtrar as alterações de propriedade, use um **filtro de recurso**. Escolha um item de propriedade na lista suspensa. O fluxo exportado contém apenas alterações à propriedade selecionada que atende à condição de filtro.
 
+<a name="DataExportEnrichmnents"></a>
 1. Opcionalmente, enriquecer mensagens exportadas com metadados adicionais de pares chave-valor. Os aprimoramentos a seguir estão disponíveis para os tipos de exportação de dados de alterações de telemetria e Propriedade:
 
     - **Cadeia de caracteres personalizada**: adiciona uma cadeia de caracteres estática personalizada a cada mensagem. Insira qualquer chave e insira qualquer valor de cadeia de caracteres.
@@ -156,14 +157,16 @@ Agora que você tem um destino para exportar seus dados, configure a exportaçã
     - **Tipo de destino**: escolha o tipo de destino. Se você ainda não configurou o destino, consulte [Configurar destino de exportação](#set-up-export-destination).
     - Para os hubs de eventos do Azure, a fila ou o tópico do barramento de serviço do Azure, Cole a cadeia de conexão para o recurso e insira o Hub de eventos, a fila ou o nome do tópico que diferencia maiúsculas de minúsculas, se necessário.
     - Para o armazenamento de BLOBs do Azure, Cole a cadeia de conexão para o recurso e insira o nome do contêiner que diferencia maiúsculas de minúsculas, se necessário.
-    - Para webhook, Cole a URL de retorno de chamada para o ponto de extremidade do webhook.
+    - Para webhook, Cole a URL de retorno de chamada para o ponto de extremidade do webhook. Opcionalmente, você pode configurar a autorização de webhook (OAuth 2,0 e o token de autorização) e adicionar cabeçalhos personalizados. 
+        - Para o OAuth 2,0, há suporte apenas para o fluxo de credenciais do cliente. Quando o destino for salvo, IoT Central se comunicará com seu provedor OAuth para recuperar um token de autorização. Esse token será anexado ao cabeçalho "Authorization" para cada mensagem enviada para esse destino.
+        - Para o token de autorização, você pode especificar um valor de token que será anexado diretamente ao cabeçalho "Authorization" para cada mensagem enviada para esse destino.
     - Selecione **Criar**.
 
 1. Selecione **+ destino** e escolha um destino na lista suspensa. Você pode adicionar até cinco destinos a uma única exportação.
 
 1. Quando você terminar de configurar sua exportação, selecione **salvar**. Após alguns minutos, seus dados aparecerão em seus destinos.
 
-## <a name="export-contents-and-format"></a>Exportar conteúdo e formato
+## <a name="destinations"></a>Destinos
 
 ### <a name="azure-blob-storage-destination"></a>Destino do armazenamento de BLOBs do Azure
 
@@ -184,7 +187,7 @@ As anotações ou o recipiente de propriedades do sistema da mensagem contém `i
 
 Para destinos de WebHooks, os dados também são exportados quase em tempo real. Os dados no corpo da mensagem estão no mesmo formato que para os hubs de eventos e o barramento de serviço.
 
-### <a name="telemetry-format"></a>Formato de telemetria
+## <a name="telemetry-format"></a>Formato de telemetria
 
 Cada mensagem exportada contém uma forma normalizada da mensagem completa que o dispositivo enviou no corpo da mensagem. A mensagem está no formato JSON e codificada como UTF-8. As informações em cada mensagem incluem:
 
@@ -228,6 +231,102 @@ O exemplo a seguir mostra uma mensagem de telemetria exportada:
     "messageProperties": {
       "messageProp": "value"
     }
+}
+```
+
+### <a name="message-properties"></a>Propriedades da mensagem
+
+As mensagens de telemetria têm propriedades para metadados além da carga de telemetria. O trecho anterior mostra exemplos de mensagens do sistema, como `deviceId` e `enqueuedTime` . Para saber mais sobre as propriedades de mensagem do sistema, consulte [Propriedades do sistema de mensagens do Hub IOT do D2C](../../iot-hub/iot-hub-devguide-messages-construct.md#system-properties-of-d2c-iot-hub-messages).
+
+Você pode adicionar propriedades a mensagens de telemetria se precisar adicionar metadados personalizados às suas mensagens de telemetria. Por exemplo, você precisa adicionar um carimbo de data/hora quando o dispositivo cria a mensagem.
+
+O trecho de código a seguir mostra como adicionar a `iothub-creation-time-utc` Propriedade à mensagem ao criá-la no dispositivo:
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+```javascript
+async function sendTelemetry(deviceClient, index) {
+  console.log('Sending telemetry message %d...', index);
+  const msg = new Message(
+    JSON.stringify(
+      deviceTemperatureSensor.updateSensor().getCurrentTemperatureObject()
+    )
+  );
+  msg.properties.add("iothub-creation-time-utc", new Date().toISOString());
+  msg.contentType = 'application/json';
+  msg.contentEncoding = 'utf-8';
+  await deviceClient.sendEvent(msg);
+}
+```
+
+# <a name="java"></a>[Java](#tab/java)
+
+```java
+private static void sendTemperatureTelemetry() {
+  String telemetryName = "temperature";
+  String telemetryPayload = String.format("{\"%s\": %f}", telemetryName, temperature);
+
+  Message message = new Message(telemetryPayload);
+  message.setContentEncoding(StandardCharsets.UTF_8.name());
+  message.setContentTypeFinal("application/json");
+  message.setProperty("iothub-creation-time-utc", Instant.now().toString());
+
+  deviceClient.sendEventAsync(message, new MessageIotHubEventCallback(), message);
+  log.debug("My Telemetry: Sent - {\"{}\": {}°C} with message Id {}.", telemetryName, temperature, message.getMessageId());
+  temperatureReadings.put(new Date(), temperature);
+}
+```
+
+# <a name="c"></a>[C#](#tab/csharp)
+
+```csharp
+private async Task SendTemperatureTelemetryAsync()
+{
+  const string telemetryName = "temperature";
+
+  string telemetryPayload = $"{{ \"{telemetryName}\": {_temperature} }}";
+  using var message = new Message(Encoding.UTF8.GetBytes(telemetryPayload))
+  {
+      ContentEncoding = "utf-8",
+      ContentType = "application/json",
+  };
+  message.Properties.Add("iothub-creation-time-utc", DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ"));
+  await _deviceClient.SendEventAsync(message);
+  _logger.LogDebug($"Telemetry: Sent - {{ \"{telemetryName}\": {_temperature}°C }}.");
+}
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+async def send_telemetry_from_thermostat(device_client, telemetry_msg):
+    msg = Message(json.dumps(telemetry_msg))
+    msg.custom_properties["iothub-creation-time-utc"] = datetime.now(timezone.utc).isoformat()
+    msg.content_encoding = "utf-8"
+    msg.content_type = "application/json"
+    print("Sent message")
+    await device_client.send_message(msg)
+```
+
+---
+
+O trecho a seguir mostra essa propriedade na mensagem exportada para o armazenamento de BLOBs:
+
+```json
+{
+  "applicationId":"5782ed70-b703-4f13-bda3-1f5f0f5c678e",
+  "messageSource":"telemetry",
+  "deviceId":"sample-device-01",
+  "schema":"default@v1",
+  "templateId":"urn:modelDefinition:mkuyqxzgea:e14m1ukpn",
+  "enqueuedTime":"2021-01-29T16:45:39.143Z",
+  "telemetry":{
+    "temperature":8.341033560421833
+  },
+  "messageProperties":{
+    "iothub-creation-time-utc":"2021-01-29T16:45:39.021Z"
+  },
+  "enrichments":{}
 }
 ```
 

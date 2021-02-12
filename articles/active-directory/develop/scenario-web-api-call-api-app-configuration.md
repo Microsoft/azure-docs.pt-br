@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 993e1a513fae726e00a29c4b9927a0a039572f74
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d1ab7da9753642093505fa91ea76b9327612a6ac
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365928"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582359"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>Uma API Web que chama APIs da Web: configuração de código
 
@@ -33,7 +33,7 @@ A Microsoft recomenda que você use o pacote do NuGet [Microsoft. Identity. Web]
 
 ## <a name="client-secrets-or-client-certificates"></a>Segredos do cliente ou certificados de cliente
 
-Considerando que sua API Web agora chama uma API da Web downstream, você precisa fornecer um certificado do cliente ou um segredo do cliente na *appsettings.jsno* arquivo. Você também pode adicionar uma seção que especifica:
+Considerando que sua API Web agora chama uma API da Web downstream, forneça um certificado do cliente ou um segredo do cliente na *appsettings.jsno* arquivo. Você também pode adicionar uma seção que especifica:
 
 - A URL da API Web downstream
 - Os escopos necessários para chamar a API
@@ -169,7 +169,7 @@ A imagem a seguir mostra as várias possibilidades de *Microsoft. Identity. Web*
 :::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.svg" alt-text="Diagrama de bloco mostrando opções de configuração de serviço no ponto de inicialização C S para chamar uma API Web e especificar uma implementação de cache de token":::
 
 > [!NOTE]
-> Para entender totalmente os exemplos de código aqui, você precisa estar familiarizado com os [conceitos básicos do ASP.NET Core](/aspnet/core/fundamentals)e, particularmente, com a [injeção de dependência](/aspnet/core/fundamentals/dependency-injection) e as [opções](/aspnet/core/fundamentals/configuration/options).
+> Para entender totalmente os exemplos de código aqui, familiarize-se com os [conceitos básicos de ASP.NET Core](/aspnet/core/fundamentals)e, em particular, com [Opções](/aspnet/core/fundamentals/configuration/options)e [injeção de dependência](/aspnet/core/fundamentals/dependency-injection) .
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -252,9 +252,8 @@ Você também pode ver um exemplo de implementação de fluxo OBO em [Node.js e 
 
 ## <a name="protocol"></a>Protocolo
 
-Para obter mais informações sobre o protocolo OBO, consulte [plataforma de identidade da Microsoft e fluxo em nome de OAuth 2,0](./v2-oauth2-on-behalf-of-flow.md).
+Para obter mais informações sobre o protocolo OBO, consulte a [plataforma de identidade da Microsoft e o fluxo em nome de do OAuth 2,0](./v2-oauth2-on-behalf-of-flow.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Uma API Web que chama APIs da Web: adquirir um token para o aplicativo](scenario-web-api-call-api-acquire-token.md)
+Vá para o próximo artigo neste cenário, [adquira um token para o aplicativo](scenario-web-api-call-api-acquire-token.md).

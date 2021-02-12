@@ -2,13 +2,13 @@
 title: Trabalhos e tarefas no Lote do Azure
 description: Saiba mais sobre trabalhos e tarefas e como eles são usados em um fluxo de trabalho do Lote do Azure do ponto de vista de desenvolvimento.
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: 5120b76f34e81c2ceeba88767a656b5ee0d40c2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/23/2020
+ms.openlocfilehash: e1ca721ec7527d9d042c129c22cf0266e57c32e9
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85955362"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95808586"
 ---
 # <a name="jobs-and-tasks-in-azure-batch"></a>Trabalhos e tarefas no Lote do Azure
 
@@ -18,15 +18,17 @@ No Lote do Azure, uma *tarefa* representa uma unidade de computação. Um *traba
 
 Um trabalho é uma coleção de tarefas. Ele gerencia como a computação é realizada por suas tarefas nos nós de computação em um pool.
 
-Um trabalho especifica o [pool](nodes-and-pools.md#pools) no qual o trabalho é executado. Você pode criar um novo pool para cada trabalho ou usar um pool para vários trabalhos. Você pode criar um pool para cada trabalho associado a um agendamento de trabalho ou para todos os trabalhos associados a um agendamento de trabalho.
+Um trabalho especifica o [pool](nodes-and-pools.md#pools) no qual o trabalho é executado. Você pode criar um novo pool para cada trabalho ou usar um pool para vários trabalhos. Você pode criar um pool para cada trabalho associado a um plano de [trabalho](#scheduled-jobs)ou um pool para todos os trabalhos associados a uma agenda de trabalho.
 
 ### <a name="job-priority"></a>prioridade de trabalho
 
-Você tem a opção de atribuir uma prioridade aos trabalhos criados. O serviço Lote usa o valor da prioridade do trabalho para determinar a ordem de agendamento dos trabalhos em uma conta (isso não deve ser confundido com um [trabalho agendado](#scheduled-jobs)). Os valores de prioridade variam de -1000 a 1000, em que -1000 é a prioridade mais baixa e 1000 a mais alta. Para atualizar a prioridade de um trabalho, chame a operação [Atualizar as propriedades de um trabalho](/rest/api/batchservice/job/update) (REST do Lote) ou modifique a propriedade [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob) (.NET do Lote).
+Você tem a opção de atribuir uma prioridade aos trabalhos criados. O serviço de lote usa o valor de prioridade do trabalho para determinar a ordem de agendamento (para todas as tarefas dentro do trabalho) wtihin cada pool.
 
-Em uma mesma conta, os trabalhos com prioridade mais alta têm precedência no agendamento sobre aqueles com prioridade mais baixa. Um trabalho com valor de prioridade mais alto em uma conta não tem precedência no agendamento sobre outro trabalho com valor de prioridade mais baixo em uma conta diferente. As tarefas com prioridade mais baixa que já estejam em execução não são antecipadas.
+Para atualizar a prioridade de um trabalho, chame a [atualização das propriedades de uma operação de trabalho](/rest/api/batchservice/job/update) (REST em lotes) ou modifique [CloudJob. Priority](/dotnet/api/microsoft.azure.batch.cloudjob) (.net do lote). Os valores de prioridade variam de-1000 (prioridade mais baixa) a 1000 (prioridade mais alta).
 
-O plano de trabalho em pools é independente. Entre pools diferentes, não é garantido que um trabalho com prioridade mais alta seja agendado primeiro, caso faltem nós ociosos em seu pool associado. No mesmo pool, trabalhos com o mesmo nível de prioridade têm a mesma chance de ser agendados.
+No mesmo pool, trabalhos de prioridade mais alta têm precedência de agendamento sobre trabalhos de prioridade mais baixa. Tarefas em trabalhos de prioridade mais baixa que já estão em execução não serão admitidas por tarefas em um trabalho de prioridade mais alta. Trabalhos com o mesmo nível de prioridade têm a mesma chance de serem agendados e a ordenação da execução da tarefa não é definida.
+
+Um trabalho com um valor de alta prioridade em execução em um pool não afetará o agendamento de trabalhos em execução em um pool separado ou em uma conta do lote diferente. A prioridade do trabalho não se aplica aos [pools](nodes-and-pools.md#autopools), que são criados quando o trabalho é enviado.
 
 ### <a name="job-constraints"></a>Restrições de trabalho
 
@@ -39,9 +41,9 @@ Você pode usar as restrições do trabalho para especificar certos limites para
 
 O aplicativo do cliente pode adicionar tarefas a um trabalho ou você pode especificar uma [tarefa do gerenciador de trabalhos](#job-manager-task). Uma tarefa do gerenciador de trabalhos contém as informações necessárias para criar as tarefas necessárias para um trabalho, com a tarefa do gerenciador de trabalhos sendo executada em um de nós de computação no pool. A tarefa do gerenciador de trabalhos é tratada especificamente pelo Lote. Ela é colocada na fila assim que o trabalho é criado e é reiniciada, caso falhe. Uma tarefa do gerenciador de trabalhos é necessária para os trabalhos criados por [um agendamento de trabalho](#scheduled-jobs), pois é a única maneira de definir as tarefas antes do trabalho ser instanciado.
 
-Por padrão, os trabalhos permanecem no estado ativo quando todas as tarefas no trabalho são concluídas. Você pode alterar esse comportamento para que o trabalho seja encerrado automaticamente quando todas as tarefas no trabalho forem concluídas. Defina a propriedade **onAllTasksComplete** do trabalho ([OnAllTasksComplete](/dotnet/api/microsoft.azure.batch.cloudjob) no .NET do Lote) para *terminatejob* para encerrar automaticamente o trabalho quando todas as tarefas estão no estado concluído.
+Por padrão, os trabalhos permanecem no estado ativo quando todas as tarefas no trabalho são concluídas. Você pode alterar esse comportamento para que o trabalho seja encerrado automaticamente quando todas as tarefas no trabalho forem concluídas. Defina a propriedade **onAllTasksComplete** do trabalho ([onAllTasksComplete](/dotnet/api/microsoft.azure.batch.cloudjob) no .net do lote) como `terminatejob` * ' para encerrar automaticamente o trabalho quando todas as suas tarefas estiverem no estado concluído.
 
-O serviço de Lote considera que um trabalho *sem* tarefas tem todas as suas tarefas concluídas. Portanto, essa opção é mais comumente usada com uma [tarefa do gerenciador de trabalhos](#job-manager-task). Se você quiser usar o encerramento automático de trabalho sem um gerenciador de trabalhos, defina inicialmente a propriedade **onAllTasksComplete** de um novo trabalho como *noaction*. Depois, defina-a como *terminatejob* somente depois que você terminar de adicionar tarefas ao trabalho.
+O serviço de Lote considera que um trabalho *sem* tarefas tem todas as suas tarefas concluídas. Portanto, essa opção é mais comumente usada com uma [tarefa do gerenciador de trabalhos](#job-manager-task). Se você quiser usar a terminação automática de trabalho sem um Gerenciador de trabalho, inicialmente deverá definir a propriedade **onAllTasksComplete** de um novo trabalho como `noaction` e, em seguida, defini-la como `terminatejob` * ' somente depois de terminar de adicionar tarefas ao trabalho.
 
 ### <a name="scheduled-jobs"></a>Trabalhos agendados
 

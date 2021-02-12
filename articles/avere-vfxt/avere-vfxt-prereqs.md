@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
 ms.openlocfilehash: d87f57873a4bb84b20df3da3880017d9ef2484a5
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342103"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008405"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparar para criar o Avere vFXT
 

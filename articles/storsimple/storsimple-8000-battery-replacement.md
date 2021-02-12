@@ -7,11 +7,11 @@ ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 17a6a07d117557cdee23634bd211a14cf90d49e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85508972"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023764"
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Substitua o módulo de bateria de backup no dispositivo StorSimple
 
@@ -76,7 +76,7 @@ Execute as etapas a seguir para instalar o módulo de bateria de reposição no 
 1. Coloque o módulo de bateria de backup na direção correta no PCM.
 2. Pressione para baixo a alça do módulo da bateria até o conector no banco
 3. Substitua o PCM no compartimento primário, seguindo as orientações em [Substituir um módulo de energia e refrigeração no seu dispositivo StorSimple](storsimple-8000-power-cooling-module-replacement.md).
-4. Após a conclusão da substituição, vá para o dispositivo e vá para **monitorar**a  >  **integridade do hardware** na portal do Azure. Verifique o status da bateria para se certificar de que a instalação foi bem-sucedida. Um status verde indica que a bateria está íntegra.
+4. Após a conclusão da substituição, vá para o dispositivo e vá para **monitorar** a  >  **integridade do hardware** na portal do Azure. Verifique o status da bateria para se certificar de que a instalação foi bem-sucedida. Um status verde indica que a bateria está íntegra.
 
 ## <a name="maintain-the-backup-battery-module"></a>Realizar manutenção no módulo de bateria de backup
 No seu dispositivo StorSimple, o módulo de bateria de backup fornece energia ao controlador durante um evento de perda de energia. Ele permite que o dispositivo StorSimple salve dados críticos antes de encerrar de maneira controlada. Com duas baterias completamente carregadas nos PCMs, o sistema pode manipular dois eventos consecutivos de perda.

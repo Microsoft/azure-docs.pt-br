@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 3/8/2019
 ms.openlocfilehash: 99d90e4d93f0e4a70350a5a33a65700c3e14acb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398316"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000803"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Copiar arquivos novos e alterados por LastModifiedDate com Azure Data Factory
 
@@ -26,7 +26,7 @@ Este artigo descreve um modelo de solução que você pode usar para copiar arqu
 
 ## <a name="about-this-solution-template"></a>Sobre o modelo de solução
 
-Esse modelo primeiro seleciona os arquivos novos e alterados somente por seus atributos **LastModifiedDate**e, em seguida, copia esses arquivos selecionados do repositório de fonte de dados para o repositório de destino de dados.
+Esse modelo primeiro seleciona os arquivos novos e alterados somente por seus atributos **LastModifiedDate** e, em seguida, copia esses arquivos selecionados do repositório de fonte de dados para o repositório de destino de dados.
 
 O modelo contém uma atividade:
 - **Copiar** para copiar arquivos novos e alterados somente por LastModifiedDate de um repositório de arquivos para um repositório de destino.
@@ -73,7 +73,7 @@ O modelo define seis parâmetros:
 
     ![Revisar o resultado](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate7.png)
     
-7. Agora você pode adicionar um gatilho do Windows em cascata para automatizar esse pipeline, para que o pipeline sempre possa copiar arquivos novos e alterados somente pelo LastModifiedDate periodicamente.  Selecione **Adicionar gatilho**e selecione **novo/editar**.
+7. Agora você pode adicionar um gatilho do Windows em cascata para automatizar esse pipeline, para que o pipeline sempre possa copiar arquivos novos e alterados somente pelo LastModifiedDate periodicamente.  Selecione **Adicionar gatilho** e selecione **novo/editar**.
 
     ![Captura de tela que realça a opção de menu novo/editar que aparece quando você seleciona adicionar gatilho.](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate8.png)
     
@@ -88,8 +88,8 @@ O modelo define seis parâmetros:
     - **Directory_Source**  =  **subpasta**.  Você pode substituir pela subpasta no armazenamento de dados de origem.
     - **FolderPath_Destination**  =  **DestinationFolder**.  Você pode substituir por sua pasta no armazenamento de dados de destino.
     - **Directory_Destination**  =  **subpasta**.  Você pode substituir pela subpasta no armazenamento de dados de destino.
-    - **LastModified_From**  =   ** \@ Trigger (). Outputs. windowStartTime**.  É uma variável de sistema do gatilho que determina a hora em que o pipeline foi disparado pela última vez.
-    - **LastModified_To**  =  ** \@ Trigger (). Outputs. windowEndTime**.  É uma variável de sistema do gatilho que determina a hora em que o pipeline é disparado desta vez.
+    - **LastModified_From**  =   **\@ Trigger (). Outputs. windowStartTime**.  É uma variável de sistema do gatilho que determina a hora em que o pipeline foi disparado pela última vez.
+    - **LastModified_To**  =  **\@ Trigger (). Outputs. windowEndTime**.  É uma variável de sistema do gatilho que determina a hora em que o pipeline é disparado desta vez.
     
     ![Parâmetros de entrada](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate11.png)
     

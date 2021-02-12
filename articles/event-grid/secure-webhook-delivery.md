@@ -2,13 +2,13 @@
 title: Entrega segura de webhook com o Azure AD na grade de eventos do Azure
 description: Descreve como entregar eventos a pontos de extremidade HTTPS protegidos por Azure Active Directory usando a grade de eventos do Azure
 ms.topic: how-to
-ms.date: 10/05/2020
-ms.openlocfilehash: dd898fadf718509504d44df36572ac75050b02d6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 02/03/2021
+ms.openlocfilehash: b01f0342e185883c4d1552800ab9bdb30cea3040
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371657"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549145"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publicar eventos para os pontos de extremidade protegidos do Azure Active Directory
 
@@ -92,6 +92,7 @@ Write-Host $myAppRoles
 if ($myAppRoles -match $eventGridRoleName)
 {
     Write-Host "The Azure Event Grid role is already defined.`n"
+    $myServicePrincipal = Get-AzureADServicePrincipal -Filter ("appId eq '" + $myApp.AppId + "'")
 } else
 {
     $myServicePrincipal = Get-AzureADServicePrincipal -Filter ("appId eq '" + $myApp.AppId + "'")

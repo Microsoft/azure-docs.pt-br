@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Aprenda a solucionar problemas comuns ao habilitar e usar o Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: 42551443fb5af1bd3f783c33f708b231eea68907
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bf8c4d2040445fa3417fce02fb4b66216b21f3b5
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364160"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548861"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Solução de problemas do Azure Dev Spaces
 
@@ -379,6 +379,17 @@ spec:
       [...]
 ```
 
+### <a name="error-cannot-get-connection-details-for-azure-dev-spaces-controller-abc-because-it-is-in-the-failed-state-something-wrong-might-have-happened-with-your-controller"></a>Erro "não é possível obter detalhes de conexão para o controlador de Azure Dev Spaces ' ABC ' porque ele está no estado ' Failed '. Algo errado pode ter ocorrido com o controlador. "
+
+Para resolver esse problema, tente excluir o controlador de Azure Dev Spaces do cluster e reinstalá-lo:
+
+```bash
+azds remove -g <resource group name> -n <cluster name>
+azds controller create --name <cluster name> -g <resource group name> -tn <cluster name>
+```
+
+Além disso, à medida que Azure Dev Spaces estiver sendo desativada, considere [migrar para o kubernetes](migrate-to-bridge-to-kubernetes.md) , que fornece uma experiência melhor.
+
 ## <a name="common-issues-using-visual-studio-and-visual-studio-code-with-azure-dev-spaces"></a>Problemas comuns ao usar o Visual Studio e o Visual Studio Code com Azure Dev Spaces
 
 ### <a name="error-required-tools-and-configurations-are-missing"></a>Erro "Ferramentas e configurações necessárias estão ausentes"
@@ -459,7 +470,7 @@ az provider register --namespace Microsoft.DevSpaces
 
 ### <a name="new-pods-arent-starting"></a>Novos pods não estão sendo iniciados
 
-O inicializador de Kubernetes não pode aplicar o PodSpec para novos pods devido a alterações de permissão RBAC na função *cluster-admin* no cluster. O novo pod também pode ter um PodSpec inválido, por exemplo, a conta de serviço associada ao pod não existe mais. Para ver os pods que estão em um estado *Pendente* devido ao problema do inicializador, use o comando `kubectl get pods`:
+O inicializador kubernetes não pode aplicar o PodSpec para novos pods devido às alterações de permissão do RBAC kubernetes para a função de *administrador de cluster* no cluster. O novo pod também pode ter um PodSpec inválido, por exemplo, a conta de serviço associada ao pod não existe mais. Para ver os pods que estão em um estado *Pendente* devido ao problema do inicializador, use o comando `kubectl get pods`:
 
 ```bash
 kubectl get pods --all-namespaces --include-uninitialized
@@ -488,7 +499,7 @@ azds controller create --name <cluster name> -g <resource group name> -tn <clust
 
 Depois que o controlador for reinstalado, reimplante o pods.
 
-### <a name="incorrect-rbac-permissions-for-calling-dev-spaces-controller-and-apis"></a>Permissões RBAC incorretas para chamar controlador e as APIs do Dev Spaces
+### <a name="incorrect-azure-rbac-permissions-for-calling-dev-spaces-controller-and-apis"></a>Permissões do RBAC do Azure incorretas para chamar controlador e APIs de espaços de desenvolvimento
 
 O usuário que acessa o controlador do Azure Dev Spaces deve ter acesso para ler o *kubeconfig* de administrador no cluster AKS. Por exemplo, essa permissão está disponível na [Função de Administrador de Cluster do Serviço de Kubernetes do Azure](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). O usuário que acessa o controlador de Azure Dev Spaces também deve ter a função de *colaborador* ou *proprietário* do Azure para o controlador. Mais detalhes sobre como atualizar as permissões de um usuário para um cluster AKS estão disponíveis [aqui](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group).
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/15/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 535ee447ff63aabb9af1f32252fb4e4dd2c392de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 764d75872eb1bad0647235cd70f9984ebd7789bd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779359"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027932"
 ---
 A tabela a seguir lista as informações de cota específicas às mensagens do Barramento de Serviço do Azure. Para obter informações sobre preços e outras cotas do Barramento de Serviço, confira [Preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/).
 
@@ -21,11 +21,11 @@ A tabela a seguir lista as informações de cota específicas às mensagens do B
 | --- | --- | --- | --- |
 | Número máximo de namespaces Básico/Standard por assinatura do Azure |Namespace |As solicitações seguintes por namespaces adicionais Básico/Standard são rejeitadas pelo portal do Azure. |100|
 | Número máximo de namespaces Premium por assinatura do Azure |Namespace |As solicitações subsequentes por namespaces adicionais Premium são rejeitadas pelo portal. |100 |
-| Tamanho da fila ou do tópico |Entidade |Definida na criação da fila ou do tópico. <br/><br/> Mensagens de entrada seguintes são rejeitadas, e uma exceção é recebida pelo código de chamada. |1, 2, 3, 4 GB ou 5 GB.<br /><br />No SKU Premium, e no SKU Standard com [particionamento](/azure/service-bus-messaging/service-bus-partitioning) habilitado, o tamanho máximo da fila ou do tópico é 80 GB. |
+| Tamanho da fila ou do tópico |Entidade |Definida na criação da fila ou do tópico. <br/><br/> Mensagens de entrada seguintes são rejeitadas, e uma exceção é recebida pelo código de chamada. |1, 2, 3, 4 GB ou 5 GB.<br /><br />No SKU Premium, e no SKU Standard com [particionamento](../articles/service-bus-messaging/service-bus-partitioning.md) habilitado, o tamanho máximo da fila ou do tópico é 80 GB. |
 | Número de conexões simultâneas em um namespace |Namespace |Solicitações subsequentes de conexões adicionais são rejeitadas e uma exceção é recebida pelo código de chamada. Operações REST não são consideradas conexões TCP simultâneas. |Mensagens de rede: 1.000.<br /><br />AMQP: 5.000. |
 | Número de solicitações de recebimento simultâneas em uma entidade de fila, tópico ou assinatura |Entidade |As solicitações de recebimento seguintes são rejeitadas, e uma exceção é recebida pelo código de chamada. Essa cota aplica-se ao número combinado de operações de recebimento simultâneas em todas as assinaturas em um tópico. |5\.000 |
 | Número de tópicos ou filas por namespace |Namespace |Solicitações subsequentes de criação de um novo tópico ou fila no namespace são rejeitadas. Consequentemente, se configuradas por meio do [Portal do Azure][Azure portal], uma mensagem de erro é gerada. Se chamado da API de gerenciamento, uma exceção é recebida pelo código de chamada. |10.000 para a camada Básica ou Standard. O número total de tópicos e filas em um namespace deve ser menor ou igual a 10.000. <br/><br/>Para a camada Premium, 1.000 por MU (unidade do sistema de mensagens). O limite máximo é 4.000. |
-| Número de [tópicos ou filas particionados](/azure/service-bus-messaging/service-bus-partitioning) por namespace |Namespace |As solicitações subsequentes para a criação de um novo tópico ou fila particionado no namespace são rejeitadas. Consequentemente, se configuradas por meio do [Portal do Azure][Azure portal], uma mensagem de erro é gerada. Se chamado da API de gerenciamento, a exceção **QuotaExceededException** é recebida pelo código de chamada. |Camadas Básica e Standard: 100.<br/><br/>Não há suporte para entidades particionadas na camada [Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md).<br/><br />Cada fila ou tópico particionado conta para a cota de 1.000 entidades por namespace. |
+| Número de [tópicos ou filas particionados](../articles/service-bus-messaging/service-bus-partitioning.md) por namespace |Namespace |As solicitações subsequentes para a criação de um novo tópico ou fila particionado no namespace são rejeitadas. Consequentemente, se configuradas por meio do [Portal do Azure][Azure portal], uma mensagem de erro é gerada. Se chamado da API de gerenciamento, a exceção **QuotaExceededException** é recebida pelo código de chamada. |Camadas Básica e Standard: 100.<br/><br/>Não há suporte para entidades particionadas na camada [Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md).<br/><br />Cada fila ou tópico particionado conta para a cota de 1.000 entidades por namespace. |
 | Tamanho máximo de qualquer caminho de entidade de mensagens: fila ou tópico |Entidade |- |260 caracteres. |
 | Tamanho máximo de qualquer nome de entidade de mensagens: namespace, assinatura ou regra de assinatura |Entidade |- |50 caracteres. |
 | Tamanho máximo de uma [mensagem ID](/dotnet/api/microsoft.azure.servicebus.message.messageid) | Entidade |- | 128 |

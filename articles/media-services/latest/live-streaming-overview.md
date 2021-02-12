@@ -1,5 +1,5 @@
 ---
-title: Visão geral da transmissão ao vivo com os serviços de mídia do Azure v3 | Microsoft Docs
+title: Visão geral da transmissão ao vivo
 description: Este artigo fornece uma visão geral da transmissão ao vivo usando os serviços de mídia do Azure v3.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: dc08e23b6ef040ba5833ffa97f71d8cd1da3bb8a
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b552dcc0e6766316e55e9cdda6e462b2d4abfd2b
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019793"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955912"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão ao vivo com os Serviços de Mídia do Azure v3
 
@@ -135,4 +135,4 @@ Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-co
 
 * [Início rápido de transmissão ao vivo](live-events-wirecast-quickstart.md)
 * [Tutorial de live streaming](stream-live-tutorial-with-api.md)
-* [Diretrizes de migração dos Serviços de Mídia v2 para v3](migrate-from-v2-to-v3.md)
+* [Diretrizes de migração dos Serviços de Mídia v2 para v3](migrate-v-2-v-3-migration-introduction.md)

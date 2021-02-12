@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 43cb891ad63a23353437082f7cb1b1e45f146e5b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 1187c768a54dd04d25b6de0e6785ebb81a7dfc24
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204211"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584424"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Configurar um aplicativo móvel que chama APIs da Web
 
@@ -82,7 +82,7 @@ As seções a seguir fornecem mais informações sobre como instanciar o aplicat
 
 ##### <a name="specify-the-parent-ui-window-or-activity"></a>Especificar a interface do usuário pai, a janela ou a atividade
 
-No Android, você precisa passar a atividade pai antes de fazer a autenticação interativa. No iOS, ao usar um agente, você precisará entrar `ViewController` . Da mesma forma no UWP, talvez você queira passar a janela pai. Você o passa quando adquire o token. Mas quando você estiver criando o aplicativo, também poderá especificar um retorno de chamada como um delegado que retorna `UIParent` .
+No Android, passe a atividade pai antes de fazer a autenticação interativa. No iOS, quando você usa um agente, o Pass-in `ViewController` . Da mesma forma no UWP, talvez você queira passar a janela pai. Você o passa quando adquire o token. Mas quando você estiver criando o aplicativo, também poderá especificar um retorno de chamada como um delegado que retorna `UIParent` .
 
 ```csharp
 IPublicClientApplication application = PublicClientApplicationBuilder.Create(clientId)
@@ -249,8 +249,8 @@ Para registrar o esquema de URL do seu aplicativo, siga estas etapas:
 
    Aqui, `BundleId` identifica exclusivamente seu dispositivo. Por exemplo, se `BundleId` for `yourcompany.xforms` , o esquema de URL será `msauth.com.yourcompany.xforms` .
 
-   > [!NOTE]
-   > Esse esquema de URL se tornará parte do URI de redirecionamento que identifica exclusivamente seu aplicativo quando receber a resposta do agente.
+  
+      Esse esquema de URL se tornará parte do URI de redirecionamento que identifica exclusivamente seu aplicativo quando receber a resposta do agente.
 
    ```XML
     <key>CFBundleURLTypes</key>
@@ -310,10 +310,9 @@ Quando o MSAL para iOS e macOS chama o agente, o agente retorna ao seu aplicativ
     }
 ```
 
-> [!NOTE]
-> Se você adotou `UISceneDelegate` no Ios 13 ou posterior, coloque o retorno de chamada MSAL no `scene:openURLContexts:` de `UISceneDelegate` em vez disso. MSAL `handleMSALResponse:sourceApplication:` deve ser chamado apenas uma vez para cada URL.
->
-> Para obter mais informações, consulte a [documentação da Apple](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc).
+Se você adotou `UISceneDelegate` no Ios 13 ou posterior, coloque o retorno de chamada MSAL no `scene:openURLContexts:` de `UISceneDelegate` em vez disso. MSAL `handleMSALResponse:sourceApplication:` deve ser chamado apenas uma vez para cada URL.
+
+Para obter mais informações, consulte a [documentação da Apple](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc).
 
 #### <a name="step-2-register-a-url-scheme"></a>Etapa 2: registrar um esquema de URL
 
@@ -329,8 +328,7 @@ Para registrar um esquema para seu aplicativo:
 
    Aqui, `BundleId` identifica exclusivamente seu dispositivo. Por exemplo, se `BundleId` for `yourcompany.xforms` , o esquema de URL será `msauth.com.yourcompany.xforms` .
 
-   > [!NOTE]
-   > Esse esquema de URL se tornará parte do URI de redirecionamento que identifica exclusivamente seu aplicativo quando receber a resposta do agente. Verifique se o URI de redirecionamento no formato `msauth.(BundleId)://auth` está registrado para seu aplicativo no [portal do Azure](https://portal.azure.com).
+    Esse esquema de URL se tornará parte do URI de redirecionamento que identifica exclusivamente seu aplicativo quando receber a resposta do agente. Verifique se o URI de redirecionamento no formato `msauth.(BundleId)://auth` está registrado para seu aplicativo no [portal do Azure](https://portal.azure.com).
 
    ```XML
    <key>CFBundleURLTypes</key>
@@ -367,5 +365,4 @@ Para obter informações sobre como habilitar um agente no Android, consulte [au
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Adquirindo um token](scenario-mobile-acquire-token.md)
+Vá para o próximo artigo neste cenário, [adquirindo um token](scenario-mobile-acquire-token.md).

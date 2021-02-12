@@ -7,32 +7,35 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 155837802bd19ec1bb4e41484e229e1f5daef658
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: c5fab8b856ff9c82a0de887dc9c322dbf541348b
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125245"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791400"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Solucionar problemas de política de acesso do Azure Key Vault
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
+### <a name="i-am-not-able-to-list-or-get-secretskeyscertificate-i-am-seeing-something-went-wrong-error"></a>Não consigo listar ou obter segredos/chaves/certificado. Estou vendo "algo deu errado..." Erro.
+Se tiver problemas ao listar/obter/criar ou acessar o segredo, verifique se você tem a política de acesso definida para realizar essa operação: [Políticas de acesso ao Key Vault](./assign-access-policy-cli.md)
+
 ### <a name="how-can-i-identify-how-and-when-key-vaults-are-accessed"></a>Como identificar como e quando os cofres de chaves são acessados?
 
-Depois de criar um ou mais cofres de chaves, provavelmente você desejará monitorar como e quando os cofres de chaves serão acessados e por quem. Você pode fazer o monitoramento habilitando o registro em log para o Azure Key Vault. Para ver um guia passo a passo de como habilitar o registro em log, [leia mais](https://docs.microsoft.com/azure/key-vault/general/logging).
+Depois de criar um ou mais cofres de chaves, provavelmente você desejará monitorar como e quando os cofres de chaves serão acessados e por quem. Você pode fazer o monitoramento habilitando o registro em log para o Azure Key Vault. Para ver um guia passo a passo de como habilitar o registro em log, [leia mais](./logging.md).
 
 ### <a name="how-can-i-monitor-vault-availability-service-latency-periods-or-other-performance-metrics-for-key-vault"></a>Como posso monitorar a disponibilidade do cofre, os períodos de latência do serviço ou outras métricas de desempenho do cofre de chaves?
 
-Conforme você começar a escalar o serviço, o número de solicitações enviadas para o cofre de chaves aumentará. Essa demanda tem o potencial de aumentar a latência de suas solicitações e, em casos extremos, fazer com que suas solicitações sejam limitadas, o que afetará o desempenho do serviço. Você pode monitorar as métricas de desempenho do cofre de chaves e receber alertas relacionados a limites específicos. Para ver um guia passo a passo de como configurar o monitoramento, [leia mais](https://docs.microsoft.com/azure/key-vault/general/alert).
+Conforme você começar a escalar o serviço, o número de solicitações enviadas para o cofre de chaves aumentará. Essa demanda tem o potencial de aumentar a latência de suas solicitações e, em casos extremos, fazer com que suas solicitações sejam limitadas, o que afetará o desempenho do serviço. Você pode monitorar as métricas de desempenho do cofre de chaves e receber alertas relacionados a limites específicos. Para ver um guia passo a passo de como configurar o monitoramento, [leia mais](./alert.md).
 
 ### <a name="i-am-not-able-to-modify-access-policy-how-can-it-be-enabled"></a>Não consigo modificar a política de acesso, como ela pode ser habilitada?
 O usuário precisa ter permissões suficientes do AAD para modificar a política de acesso. Nesse caso, o usuário precisaria ter uma função de colaborador mais alta.
 
-### <a name="i-am-seeing-unkwown-policy-error-what-does-that-mean"></a>Estou vendo o erro 'Unkwown Policy'. O que isso significa?
+### <a name="i-am-seeing-unknown-policy-error-what-does-that-mean"></a>Estou vendo o erro "Política Desconhecida". O que isso significa?
 Há duas situações diferentes em que podemos ver a política de acesso na seção desconhecida:
 * Pode ter existido um usuário anterior que tinha acesso e, por algum motivo, esse usuário não existe mais.
-* Se a política de acesso for adicionada por meio do PowerShell e a política de acesso for adicionada para o ObjectID do aplicativo em vez do princípio de serviço
+* Se a política de acesso for adicionada por meio do PowerShell e a política de acesso for adicionada para o objectid do aplicativo em vez da entidade de serviço.
 
 ### <a name="how-can-i-assign-access-control-per-key-vault-object"></a>Como posso atribuir o controle de acesso por objeto do cofre de chaves? 
 
@@ -53,7 +56,7 @@ O aplicativo também precisa de pelo menos uma função de IAM (Gerenciamento de
 
 Atualmente, a reimplantação do Key Vault exclui as políticas de acesso no Key Vault e as substitui pela política de acesso no modelo do ARM. Não há opção incremental para políticas de acesso do Key Vault. Para preservar as políticas de acesso no Key Vault, você precisa ler as políticas de acesso existentes nele e popular o modelo do ARM com essas políticas para evitar interrupções de acesso.
 
-Outra opção que pode ajudar nesse cenário é usar funções RBAC como uma alternativa às políticas de acesso. Com o RBAC, você pode implantar novamente o cofre de chaves sem especificar a política novamente. Você pode ler mais sobre essa solução [aqui](https://docs.microsoft.com/azure/key-vault/general/rbac-guide).
+Outra opção que pode ajudar nesse cenário é usar o Azure RBAC e funções como uma alternativa às políticas de acesso. Com o Azure RBAC, você pode implantar novamente o cofre de chaves sem especificar a política novamente. Você pode ler mais sobre essa solução [aqui](./rbac-guide.md).
 
 ### <a name="recommended-troubleshooting-steps-for-following-error-types"></a>Etapas de solução de problemas recomendadas para os seguintes tipos de erro
 

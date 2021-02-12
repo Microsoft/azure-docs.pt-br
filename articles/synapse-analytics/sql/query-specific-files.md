@@ -7,18 +7,18 @@ ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: c03051e2c8fddc21e4399375faeff6a40fb4d0d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d24ae1f42c685589309506b2d5e0eab157b2bc42
+ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288096"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96299608"
 ---
-# <a name="use-file-metadata-in-queries"></a>Usar metadados de arquivo em consultas
+# <a name="use-file-metadata-in-serverless-sql-pool-queries"></a>Usar metadados de arquivo em consultas de pool de SQL sem servidor
 
-O SQL sob demanda pode endereçar vários arquivos e pastas conforme descrito no artigo [pastas de consulta e vários arquivos](query-folders-multiple-csv-files.md) . Neste artigo, você aprenderá a usar informações de metadados sobre nomes de arquivos e pastas nas consultas.
+O pool SQL sem servidor pode endereçar vários arquivos e pastas conforme descrito no artigo [pastas de consulta e vários arquivos](query-folders-multiple-csv-files.md) . Neste artigo, você aprenderá a usar informações de metadados sobre nomes de arquivos e pastas nas consultas.
 
 Em alguns casos, pode ser necessário saber qual fonte do arquivo ou pasta se correlaciona com uma linha específica no conjunto de resultados.
 
@@ -76,7 +76,7 @@ ORDER BY
 
 A função filepath retorna um caminho completo ou parcial:
 
-- Quando chamada sem um parâmetro, ela retorna o caminho completo do arquivo de onde a linha se origina.
+- Quando chamada sem um parâmetro, ela retorna o caminho completo do arquivo de onde a linha se origina. Quando DATA_SOURCE é usado em OPENROWSET, ele retorna o caminho relativo a DATA_SOURCE. 
 - Quando chamada com um parâmetro, ela retorna parte do caminho correspondente ao caractere curinga na posição especificada no parâmetro. Por exemplo, o valor de parâmetro 1 retornaria a parte do caminho correspondente ao primeiro caractere curinga.
 
 O exemplo a seguir lê arquivos de dados de Táxis amarelos em NYC relativos aos últimos três meses de 2017. Ele retorna o número de corridas por caminho de arquivo. A parte OPENROWSET da consulta especifica quais arquivos serão lidos.

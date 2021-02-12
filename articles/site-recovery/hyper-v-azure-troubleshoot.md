@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: sharrai
-ms.openlocfilehash: 721e09c2bc0562ba833115361cf33c3daaef380b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c804e13029dcec42a43885cbf0d9b227b3d0338f
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364024"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750795"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Solucionar problemas de Hyper-V para replicação e failover do Azure
 
@@ -34,7 +34,21 @@ Se você enfrentar problemas ao habilitar a proteção para VMs do Hyper-V, veri
 6. Na VM convidada, certifique-se de que a versão mais recente do Integration Services está em execução.
     - [Verifique](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) se você tem a versão mais recente.
     - [Manter](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) Integration Services atualizado.
-    
+
+### <a name="cannot-enable-protection-as-the-virtual-machine-is-not-highly-available-error-code-70094"></a>Não é possível habilitar a proteção, pois a máquina virtual não está altamente disponível (código de erro 70094)
+
+Quando você estiver habilitando a replicação para um computador e encontrar um erro informando que a replicação não pode ser habilitada, pois o computador não está altamente disponível, então, para corrigir esse problema, tente as etapas a seguir:
+
+- Reinicie o serviço VMM no servidor do VMM.
+- Remova a máquina virtual do cluster e adicione-a novamente.
+
+### <a name="the-vss-writer-ntds-failed-with-status-11-and-writer-specific-failure-code-0x800423f4"></a>Falha no NTDS do gravador VSS com o status 11 e o código de falha específico do gravador 0x800423F4
+
+Ao tentar habilitar a replicação, você pode encontrar um erro informando que a habilitação da falha da AST NTDS falhou. Uma das possíveis causas desse problema é que o sistema operacional da máquina virtual no Windows Server 2012 e não no Windows Server 2012 R2. Para corrigir esse problema, tente as etapas a seguir:
+
+- Atualize para o Windows Server R2 com 4072650 aplicado.
+- Verifique se o host Hyper-V também é o Windows 2016 ou superior.
+
 ## <a name="replication-issues"></a>Problemas de replicação
 
 Solucione problemas com a replicação inicial e contínua da seguinte maneira:

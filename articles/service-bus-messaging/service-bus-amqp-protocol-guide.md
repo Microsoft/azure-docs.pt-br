@@ -3,26 +3,26 @@ title: AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eve
 description: Guia de protocolo para expressões e a descrição do AMQP 1.0 no Barramento de Serviço e nos Hubs de Eventos do Azure
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: ffccd49d37dbf2a8fc404e9895b648e53007675c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2154221ebfe69b659ff83100ed614133e178ccdb
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88064529"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624482"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eventos do Azure
 
-O Advanced Message Queueing Protocol 1.0 é um protocolo de enquadramento e transferência padronizado para transferir mensagens de forma assíncrona, segura e confiável entre duas partes. É o principal protocolo de Mensagens do Barramento de Serviço e dos Hubs de Eventos do Azure. Ambos os serviços também oferecem suporte a HTTPS. O protocolo proprietário SBMP, que também é compatível, está sendo desativado em favor do AMQP.
+O Advanced Message Queueing Protocol 1.0 é um protocolo de enquadramento e transferência padronizado para transferir mensagens de forma assíncrona, segura e confiável entre duas partes. É o principal protocolo de Mensagens do Barramento de Serviço e dos Hubs de Eventos do Azure.  
 
-O AMQP 1.0 é o resultado da colaboração de todo o setor, que reuniu fornecedores de middleware, como a Microsoft e a Red Hat, com muitos usuários de middleware de mensagens, como a JP Morgan Chase, representando o setor de serviços financeiros. O fórum de padronização técnica para as especificações de protocolo e de extensão do AMQP é o OASIS, e ele obteve aprovação formal como um padrão internacional como ISO/IEC 19494.
+O AMQP 1.0 é o resultado da colaboração de todo o setor, que reuniu fornecedores de middleware, como a Microsoft e a Red Hat, com muitos usuários de middleware de mensagens, como a JP Morgan Chase, representando o setor de serviços financeiros. O fórum de padronização técnica para as especificações de extensão e protocolo AMQP é OASIS e atingiu a aprovação formal como um padrão internacional como ISO/IEC 19494:2014. 
 
 ## <a name="goals"></a>Metas
 
-Rapidamente, este artigo resume os principais conceitos da especificação de mensagens AMQP 1.0 juntamente com um pequeno conjunto de especificações de extensão de rascunho que atualmente está sendo finalizado no comitê técnico AMQP OASIS e explica como o Barramento de Serviço do Azure implementa e se baseia nessas especificações.
+Este artigo resume os principais conceitos da especificação de mensagens AMQP 1,0 ao longo das especificações de extensão desenvolvidas pelo [comitê técnico Oasis AMQP](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp) e explica como o barramento de serviço do Azure implementa e se baseia nessas especificações.
 
 O objetivo é que qualquer desenvolvedor usando qualquer pilha de cliente existente do AMQP 1.0 em qualquer plataforma seja capaz de interagir com o Barramento de Serviço do Azure por meio do AMQP 1.0.
 
-As pilhas comuns de uso geral do AMQP 1.0, como o Apache Proton ou o AMQP.NET Lite, já implementam todos os protocolos básicos do AMQP 1.0. Esses gestos básicos, às vezes, são encapsulados com um nível mais alto de API; o Apache Proton ainda oferece dois, a API do Messenger imperativa e a API Reactor reativa.
+As pilhas AMQP 1,0 de uso geral comuns, como [Apache QPID Proton](https://qpid.apache.org/proton/index.html) ou [AMQP.net Lite](https://github.com/Azure/amqpnetlite), implementam todos os principais elementos do protocolo AMQP 1,0, como sessões ou links. Esses elementos fundamentais são, às vezes, encapsulados com uma API de nível superior; O Apache Proton até mesmo oferece duas, a API do Messenger imperativa e a API de reator reativa.
 
 Na discussão a seguir, vamos pressupor que o gerenciamento de conexões, de sessões e de links do AMQP e a manipulação de transferências de quadro e controle de fluxo são manipulados pela respectiva pilha (como o Apache Proton-C) e não exigirão muito da atenção dos desenvolvedores do aplicativo. Vamos supor de forma abstrata a existência de algumas primitivas API, como a capacidade de conectar e de criar alguma forma de objetos de abstração *sender* e *receiver* que, por sua vez, têm alguma forma de operações `send()` e `receive()`, respectivamente.
 
@@ -42,7 +42,7 @@ O protocolo AMQP 1.0 foi projetado para ser extensível, permitindo que outras e
 
 Esta seção explica o uso básico do AMQP 1.0 com o Barramento de Serviço do Azure, que inclui a criação de conexões, sessões e links, bem como a transferência bidirecional de mensagens para entidades do Barramento de Serviço, como filas, tópicos e assinaturas.
 
-A fonte mais confiável para saber mais sobre o funcionamento do AMQP é a especificação AMQP 1.0, mas a especificação foi escrita para orientar precisamente a implementação e não para ensinar o protocolo. Esta seção se concentra na introdução da terminologia necessária para descrever como o Barramento de Serviço usa o AMQP 1.0. Para obter uma introdução mais abrangente do AMQP, bem como uma discussão mais ampla do AMQP 1.0, examine [este curso em vídeo][this video course].
+A fonte mais autoritativa para saber mais sobre como o AMQP funciona é a [especificação do AMQP 1,0](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html), mas a especificação foi escrita para orientar a implementação com precisão e não ensinar o protocolo. Esta seção se concentra na introdução da terminologia necessária para descrever como o Barramento de Serviço usa o AMQP 1.0. Para obter uma introdução mais abrangente do AMQP, bem como uma discussão mais ampla do AMQP 1.0, examine [este curso em vídeo][this video course].
 
 ### <a name="connections-and-sessions"></a>Conexões e sessões
 
@@ -67,24 +67,24 @@ As sessões têm um modelo de controle de fluxo baseado na janela; quando uma se
 
 Esse modelo baseado em janela é quase análogo ao conceito TCP de controle de fluxo baseado em janela, mas no nível da sessão dentro do soquete. O conceito do protocolo de permitir várias sessões simultâneas existe para que o tráfego de alta prioridade possa ser acelerado em relação ao tráfego normal limitado, como se estivesse em uma pista expressa de rodovia.
 
-Atualmente, o Barramento de Serviço do Azure usa exatamente uma sessão para cada conexão. O tamanho máximo de quadro do Barramento de Serviço é de 262.144 bytes (256 KB) para o Barramento de Serviço Standard e os Hubs de Eventos. Ele é de 1.048.576 (1 MB) para o Barramento de Serviço Premium. O Barramento de Serviço não impõe as janelas de limitação de nível de sessão específicas, mas redefine a janela regularmente como parte do controle de fluxo de nível de vinculação (veja [a próxima seção](#links)).
+Atualmente, o Barramento de Serviço do Azure usa exatamente uma sessão para cada conexão. O tamanho máximo do quadro do barramento de serviço é 262.144 bytes (256-K bytes) para o padrão do barramento de serviço. É 1.048.576 (1 MB) para o barramento de serviço Premium e hubs de eventos. O Barramento de Serviço não impõe as janelas de limitação de nível de sessão específicas, mas redefine a janela regularmente como parte do controle de fluxo de nível de vinculação (veja [a próxima seção](#links)).
 
 As conexões, os canais e as sessões são efêmeros. Se a conexão subjacente for recolhida,as conexões, o túnel TLS, o contexto de autorização SASL e as sessões deverão ser restabelecidas.
 
 ### <a name="amqp-outbound-port-requirements"></a>Requisitos de porta de saída do AMQP
 
-Os clientes que usam conexões AMQP sobre TCP exigem que as portas 5671 e 5672 sejam abertas no firewall local. Junto com essas portas, pode ser necessário abrir portas adicionais se o recurso [EnableLinkRedirect](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) estiver habilitado. `EnableLinkRedirect` é um novo recurso de mensagens que ajuda a ignorar um salto durante o recebimento de mensagens, ajudando a aumentar a taxa de transferência. O cliente começaria a se comunicar diretamente com o serviço de back-end por meio do intervalo de portas 104XX, conforme mostrado na imagem a seguir. 
+Os clientes que usam conexões AMQP sobre TCP exigem que as portas 5671 e 5672 sejam abertas no firewall local. Junto com essas portas, pode ser necessário abrir portas adicionais se o recurso [EnableLinkRedirect](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect) estiver habilitado. `EnableLinkRedirect` é um novo recurso de mensagens que ajuda a ignorar um salto durante o recebimento de mensagens, ajudando a aumentar a taxa de transferência. O cliente começaria a se comunicar diretamente com o serviço de back-end por meio do intervalo de portas 104XX, conforme mostrado na imagem a seguir. 
 
 ![Lista de portas de destino][4]
 
-Um cliente .NET falharia com uma SocketException ("foi feita uma tentativa de acessar um soquete de uma maneira proibida por suas permissões de acesso") se essas portas estiverem bloqueadas pelo firewall. O recurso pode ser desabilitado pela configuração `EnableAmqpLinkRedirect=false` na cadeia de caracteres se conectar, que força os clientes a se comunicarem com o serviço remoto pela porta 5671.
+Um cliente .NET falharia com uma SocketException ("foi feita uma tentativa de acessar um soquete de uma maneira proibida por suas permissões de acesso") se essas portas estiverem bloqueadas pelo firewall. O recurso pode ser desabilitado pela configuração `EnableAmqpLinkRedirect=false` na cadeia de conexão, o que força os clientes a se comunicarem com o serviço remoto pela porta 5671.
 
 
 ### <a name="links"></a>Links
 
 O AMQP transfere mensagens sobre links. Um link é um caminho de comunicação criado em uma sessão que permite transferir mensagens em uma direção; a negociação de status de transferência é feita no link e é bidirecional entre as partes conectadas.
 
-![Captura de tela mostrando uma sessão carryign uma conexão de link entre dois contêineres.][2]
+![Captura de tela mostrando uma sessão que está executando uma conexão de link entre dois contêineres.][2]
 
 Os links podem ser criados por um contêiner a qualquer momento e em uma sessão existente, o que torna AMQP diferente de muitos outros protocolos, incluindo HTTP e MQTT, em que a inicialização de transferências e o caminho de transferência são um privilégio exclusivo da parte ao criar a conexão de soquete.
 
@@ -120,9 +120,9 @@ Para compensar possíveis envios de duplicidades, o Barramento de Serviço dá s
 
 Além do modelo de controle de fluxo no nível de sessão discutido anteriormente, cada link tem seu próprio modelo de fluxo de controle. O controle de fluxo de nível de sessão protege o contêiner de ter que lidar com muitos quadros de uma vez, o controle de fluxo no nível de link torna o aplicativo responsável por quantas mensagens ele deseja tratar de um link e quando.
 
-![Captura de tela de um log que mostra a origem, o destino, a porta de origem, a porta de destino e o nome do protocolo. Na linha Fiest, a porta de destino 10401 (0x28 A 1) é descrita em preto.][4]
+![Captura de tela de um log que mostra a origem, o destino, a porta de origem, a porta de destino e o nome do protocolo. Na primeira linha, a porta de destino 10401 (0x28 A 1) é descrita em preto.][4]
 
-Em um link, as transferências só podem acontecer quando o remetente tem *crédito de link*suficiente. O crédito de link é um contador definido pelo destinatário usando a performativa *fluxo*, que tem como escopo um link. Quando o remetente recebe o crédito de link, ele tenta usar esse crédito ao entregar mensagens. Cada entrega de mensagem decrementa o crédito de link restante em um. Quando o crédito de link acabar, as entregas serão interrompidas.
+Em um link, as transferências só podem acontecer quando o remetente tem *crédito de link* suficiente. O crédito de link é um contador definido pelo destinatário usando a performativa *fluxo*, que tem como escopo um link. Quando o remetente recebe o crédito de link, ele tenta usar esse crédito ao entregar mensagens. Cada entrega de mensagem decrementa o crédito de link restante em um. Quando o crédito de link acabar, as entregas serão interrompidas.
 
 Quando o Barramento de Serviço está na função de receptor, ele instantaneamente fornece ao remetente crédito de link suficiente para que as mensagens possam ser enviadas imediatamente. À medida que o crédito de link é usado, o Barramento de Serviço às vezes envia um *fluxo* performativo ao remetente para atualizar o saldo do crédito de link.
 
@@ -130,7 +130,7 @@ Na função de remetente, o Barramento de Serviço envia mensagens para usar qua
 
 Uma chamada de "recebimento" no nível de API se traduz em *fluxo* performativo enviado para o Barramento de Serviço pelo cliente, e o Barramento de Serviço consome esse crédito retirando a primeira mensagem desbloqueada, disponível da fila, bloqueando-a e transferindo-a. Se não houver nenhuma mensagem prontamente disponível para entrega, qualquer crédito pendente por qualquer link estabelecido com essa determinada entidade permanecerá gravado em ordem de chegada e as mensagens serão bloqueadas e transferidas quando estiverem disponíveis para usar qualquer crédito pendente.
 
-O bloqueio de uma mensagem é liberado quando a transferência é incorporada a um dos estados terminais*accepted*, *rejected* ou *released*. A mensagem será removida do Barramento de Serviço quando o estado terminal for *accepted*. Ela permanece no Barramento de Serviço e será entregue ao próximo receptor quando a transferência atingir qualquer um dos outros estados. O Barramento de Serviço move automaticamente a mensagem na fila de mensagens mortas da entidade quando atingir a contagem máxima de entregas permitida para a entidade devido a versões ou rejeições repetidas.
+O bloqueio de uma mensagem é liberado quando a transferência é incorporada a um dos estados terminais *accepted*, *rejected* ou *released*. A mensagem será removida do Barramento de Serviço quando o estado terminal for *accepted*. Ela permanece no Barramento de Serviço e será entregue ao próximo receptor quando a transferência atingir qualquer um dos outros estados. O Barramento de Serviço move automaticamente a mensagem na fila de mensagens mortas da entidade quando atingir a contagem máxima de entregas permitida para a entidade devido a versões ou rejeições repetidas.
 
 Embora as APIs do Barramento de Serviço não exponham diretamente tal opção hoje, um cliente do protocolo AMQP de nível inferior pode usar o modelo de crédito de link para ativar a interação do "estilo pull" de emissão de uma unidade de crédito para cada solicitação de recebimento em um modelo de "estilo push", emitindo um grande número de créditos de link e recebendo mensagens assim que estiverem disponíveis sem qualquer interação adicional. O push tem suporte por meio das configurações da propriedade [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) ou [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) . Quando elas forem diferentes de zero, o cliente AMQP as usará como o crédito de link.
 
@@ -240,14 +240,14 @@ Há algumas outras propriedades de mensagem do barramento de serviço que não f
 
 | Chave do mapa de anotação | Uso | Nome da API |
 | --- | --- | --- |
-| x-opt-scheduled-enqueue-time | Declara a hora em que a mensagem deve aparecer na entidade |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc?view=azure-dotnet) |
-| x-opt-partition-key | Chave definida pelo aplicativo que determina em qual partição a mensagem deve chegar. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
-| x-opt-via-partition-key | Valor de chave da partição definido pelo aplicativo quando uma transação deve ser usada para enviar mensagens por meio de uma fila de transferência. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey?view=azure-dotnet) |
-| x-opt-enqueued-time | Hora UTC definida pelo serviço que representa a hora real do enfileiramento da mensagem. Ignorado na entrada. | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc?view=azure-dotnet) |
-| x-opt-sequence-number | Número exclusivo definido pelo serviço atribuído a uma mensagem. | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber?view=azure-dotnet) |
-| x-opt-offset | Número de sequência da mensagem enfileirada definido pelo serviço. | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber?view=azure-dotnet) |
-| x-opt-locked-until | Definido pelo serviço. A data e hora até quando a mensagem ficará bloqueada na fila/assinatura. | [LockedUntilUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc?view=azure-dotnet) |
-| x-opt-deadletter-source | Definido pelo serviço. A origem da mensagem original se a mensagem for recebida da fila de mensagens mortas. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource?view=azure-dotnet) |
+| x-opt-scheduled-enqueue-time | Declara a hora em que a mensagem deve aparecer na entidade |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc) |
+| x-opt-partition-key | Chave definida pelo aplicativo que determina em qual partição a mensagem deve chegar. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey) |
+| x-opt-via-partition-key | Valor de chave da partição definido pelo aplicativo quando uma transação deve ser usada para enviar mensagens por meio de uma fila de transferência. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey) |
+| x-opt-enqueued-time | Hora UTC definida pelo serviço que representa a hora real do enfileiramento da mensagem. Ignorado na entrada. | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc) |
+| x-opt-sequence-number | Número exclusivo definido pelo serviço atribuído a uma mensagem. | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber) |
+| x-opt-offset | Número de sequência da mensagem enfileirada definido pelo serviço. | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber) |
+| x-opt-locked-until | Definido pelo serviço. A data e hora até quando a mensagem ficará bloqueada na fila/assinatura. | [LockedUntilUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc) |
+| x-opt-deadletter-source | Definido pelo serviço. A origem da mensagem original se a mensagem for recebida da fila de mensagens mortas. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource) |
 
 ### <a name="transaction-capability"></a>Recurso de transação
 
@@ -264,7 +264,7 @@ Cada conexão tem que iniciar seu próprio link de controle para poder iniciar e
 
 Para iniciar o trabalho transacional. o controlador precisa obter um `txn-id` do coordenador. Ele faz isso enviando uma mensagem do tipo `declare`. Se a declaração for bem-sucedida, o coordenador responderá com um resultado de disposição que contém o `txn-id` atribuído.
 
-| Cliente (controlador) | Direction | Barramento de Serviço (coordenador) |
+| Cliente (controlador) | Direção | Barramento de Serviço (coordenador) |
 | :--- | :---: | :--- |
 | attach(<br/>name={link name},<br/>... ,<br/>role=**sender**,<br/>target=**Coordinator**<br/>) | ------> |  |
 |  | <------ | attach(<br/>name={link name},<br/>... ,<br/>target=Coordinator()<br/>) |
@@ -277,7 +277,7 @@ O controlador conclui o trabalho transacional enviando uma mensagem `discharge` 
 
 > Observação: fail=true refere-se à reversão de uma transação e fail=false refere-se à confirmação.
 
-| Cliente (controlador) | Direction | Barramento de Serviço (coordenador) |
+| Cliente (controlador) | Direção | Barramento de Serviço (coordenador) |
 | :--- | :---: | :--- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
@@ -289,7 +289,7 @@ O controlador conclui o trabalho transacional enviando uma mensagem `discharge` 
 
 Todo o trabalho transacional é feito com o estado de entrega transacional `transactional-state` que transporta o TXN. No caso de envio de mensagens, o estado transacional é executado pelo quadro de transferência da mensagem. 
 
-| Cliente (controlador) | Direction | Barramento de Serviço (coordenador) |
+| Cliente (controlador) | Direção | Barramento de Serviço (coordenador) |
 | :--- | :---: | :--- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
@@ -300,7 +300,7 @@ Todo o trabalho transacional é feito com o estado de entrega transacional `tran
 
 A disposição da mensagem inclui operações como `Complete` / `Abandon` / `DeadLetter` / `Defer`. Para executar essas operações em uma transação, passe o `transactional-state` com a disposição.
 
-| Cliente (controlador) | Direction | Barramento de Serviço (coordenador) |
+| Cliente (controlador) | Direção | Barramento de Serviço (coordenador) |
 | :--- | :---: | :--- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
@@ -330,7 +330,7 @@ Todos os gestos exigem uma interação de solicitação/resposta entre o cliente
 | Criar caminho de resposta de solicitação |--> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=”myentity/$management”,<br/>target=”myclient$id”<br/>) | |
 | Criar caminho de resposta de solicitação |Nenhuma ação |\<-- attach(<br/>nome = {*nome do link*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=”myentity”,<br/>target=”myclient$id”<br/>) |
 
-Com esse par de links definido, a implementação de solicitação/resposta é simples: uma solicitação é uma mensagem enviada a uma entidade dentro a infraestrutura de mensagens que compreende esse padrão. Nessa mensagem de solicitação, o campo *reply-to* na seção *properties* é definida como o identificador *target*para o link para o qual será fornecida a resposta. A entidade de tratamento processa a solicitação e então fornece a resposta pelo link cujo identificador *target* corresponda ao identificador *reply-to* indicado.
+Com esse par de links definido, a implementação de solicitação/resposta é simples: uma solicitação é uma mensagem enviada a uma entidade dentro a infraestrutura de mensagens que compreende esse padrão. Nessa mensagem de solicitação, o campo *reply-to* na seção *properties* é definida como o identificador *target* para o link para o qual será fornecida a resposta. A entidade de tratamento processa a solicitação e então fornece a resposta pelo link cujo identificador *target* corresponda ao identificador *reply-to* indicado.
 
 O padrão obviamente requer que o contêiner do cliente e o identificador gerado pelo cliente para o destino de resposta sejam exclusivos em todos os clientes e, por motivos de segurança, também sejam difíceis prever.
 
@@ -357,10 +357,10 @@ O gesto de protocolo é uma troca de solicitação/resposta, conforme definido p
 
 A mensagem de solicitação tem as seguintes propriedades de aplicativo:
 
-| Chave | Opcional | Tipo de valor | Conteúdo de valor |
+| Chave | Opcional | Tipo do Valor | Conteúdo de valor |
 | --- | --- | --- | --- |
 | operation |Não |string |**put-token** |
-| type |Não |string |O tipo do token colocado. |
+| tipo |Não |string |O tipo do token colocado. |
 | name |Não |string |O "público" ao qual o token se aplica. |
 | expiração |Sim | timestamp |A hora de expiração do token. |
 
@@ -376,7 +376,7 @@ Os tokens conferem direitos. O Barramento de Serviço conhece três direitos fun
 
 A mensagem de resposta tem os seguintes valores de *application-properties*
 
-| Chave | Opcional | Tipo de valor | Conteúdo de valor |
+| Chave | Opcional | Tipo do Valor | Conteúdo de valor |
 | --- | --- | --- | --- |
 | status-code |Não |INT |Código de resposta HTTP **[RFC2616]**. |
 | status-description |Sim |string |A descrição do status. |
@@ -399,7 +399,7 @@ Com essa funcionalidade, você pode criar um remetente e estabelecer o link com 
 
 > Observação: a autenticação deve ser executada para *via-entity* e para *destination-entity* antes do estabelecimento desse link.
 
-| Cliente | Direction | Barramento de Serviço |
+| Cliente | Direção | Barramento de Serviço |
 | :--- | :---: | :--- |
 | attach(<br/>name={link name},<br/>role=sender,<br/>source={client link ID},<br/>destino =**{via-Entity}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
 | | <------ | attach(<br/>name={link name},<br/>role=receiver,<br/>source={client link ID},<br/>target={via-entity},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] ) |

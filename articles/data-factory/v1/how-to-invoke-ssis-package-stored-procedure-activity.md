@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
 ms.openlocfilehash: c7a99e7e5f27f8c3503c7fa6124d27cfc4e7f4a4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636758"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012826"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Chamar um pacote do SSIS usando o Azure Data Factory - Atividade de Procedimento Armazenado | Microsoft Docs
 Este artigo descreve como chamar um pacote do SSIS a partir de um pipeline do Azure Data Factory usando uma atividade de procedimento armazenado. 
@@ -41,7 +41,7 @@ Nesta seção, você usa a interface do usuário do Azure PowerShell para criar 
 
 Instale os módulos mais recentes do Azure PowerShell seguindo as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azure/install-az-ps).
 
-### <a name="create-a-data-factory"></a>Criar um data factory
+### <a name="create-a-data-factory"></a>Criar uma data factory
 O procedimento a seguir fornece as etapas para criar uma fábrica de dados. Você cria um pipeline com uma atividade de procedimento armazenado nesta data factory. A atividade de procedimento armazenado executa um procedimento armazenado no banco de dados SSISDB para executar o seu pacote do SSIS.
 
 1. Defina uma variável para o nome do grupo de recursos que você usa nos comandos do PowerShell posteriormente. Copie o seguinte texto de comando para o PowerShell, especifique um nome para o [grupo de recursos do Azure](../../azure-resource-manager/management/overview.md) entre aspas duplas e, em seguida, execute o comando. Por exemplo: `"adfrg"`. 
@@ -79,7 +79,7 @@ Observe os seguintes pontos:
     ```
     The specified Data Factory name 'ADFTutorialFactory' is already in use. Data Factory names must be globally unique.
     ```
-* Para criar instâncias de Data Factory, a conta de usuário usada para fazer logon no Azure deve ser um membro das funções **colaborador** ou **proprietário** , ou um **administrador** da assinatura do Azure.
+* Para criar instâncias de Data Factory, a conta de usuário usada para fazer logon no Azure deve ser um membro das funções **colaborador** ou **proprietário**, ou um **administrador** da assinatura do Azure.
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Criar um serviço vinculado do Banco de Dados SQL do Azure
 Crie um serviço vinculado para vincular seu banco de dados no banco de dados SQL do Azure que hospeda o catálogo do SSIS para seu data factory. O Data Factory usa informações nesse serviço vinculado para se conectar ao banco de dados SSISDB, e executa um procedimento armazenado para executar um pacote do SSIS. 
@@ -100,8 +100,8 @@ Crie um serviço vinculado para vincular seu banco de dados no banco de dados SQ
         }
         }
     ```
-2. No **Azure PowerShell** , mude para a pasta **C:\ADF\RunSSISPackage** .
-3. Execute o cmdlet **New-AzDataFactoryLinkedService** para criar o serviço vinculado: **AzureSqlDatabaseLinkedService** . 
+2. No **Azure PowerShell**, mude para a pasta **C:\ADF\RunSSISPackage**.
+3. Execute o cmdlet **New-AzDataFactoryLinkedService** para criar o serviço vinculado: **AzureSqlDatabaseLinkedService**. 
 
     ```powershell
     New-AzDataFactoryLinkedService $df -File ".\AzureSqlDatabaseLinkedService.json"
@@ -168,7 +168,7 @@ Nesta etapa, você cria um pipeline com uma atividade de procedimento armazenado
     }    
     ```
 
-2. Para criar o pipeline: **RunSSISPackagePipeline** , execute o cmdlet **New-AzDataFactoryPipeline** .
+2. Para criar o pipeline: **RunSSISPackagePipeline**, execute o cmdlet **New-AzDataFactoryPipeline** .
 
     ```powershell
     $DFPipeLine = New-AzDataFactoryPipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"
@@ -188,7 +188,7 @@ Nesta etapa, você cria um pipeline com uma atividade de procedimento armazenado
     Get-AzDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
 
-    Pode continuar executando este cmdlet até ver a fatia no estado **Pronto** ou **Falha** . 
+    Pode continuar executando este cmdlet até ver a fatia no estado **Pronto** ou **Falha**. 
 
     Você pode executar a consulta a seguir no banco de dados SSISDB no servidor para verificar se o pacote foi executado. 
 

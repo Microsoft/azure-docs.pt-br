@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 708ec35524f25314ca568944b738ba2cdf60d55c
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: d77e145cabcef2931d5fe6e76599da7931e576e8
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132067"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97669152"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico de dicas de token de ID em uma política personalizada de Azure Active Directory B2C
 
@@ -36,10 +36,10 @@ O id_token_hint deve ser um token JWT válido. A tabela a seguir lista as declar
 
 | Nome | Declaração | Valor de exemplo | Descrição |
 | ---- | ----- | ------------- | ----------- |
-| Público | `aud` | `a489fc44-3cc0-4a78-92f6-e413cd853eae` | Identifica o destinatário pretendido do token. Essa é uma cadeia de caracteres arbitrária definida pelo emissor do token. Azure AD B2C valida esse valor e rejeita o token se ele não corresponder.  |
-| Emissor | `iss` |`https://localhost` | Identifica o serviço de token de segurança (emissor do token). Esse é um URI arbitrário definido pelo emissor do token. Azure AD B2C valida esse valor e rejeita o token se ele não corresponder.  |
-| Hora de expiração | `exp` | `1600087315` | A hora em que o token se torna inválido, representada na época. Azure AD B2C não valida essa declaração. |
-| Não antes de | `nbf` | `1599482515` | O horário em que o token se torna inválido, representado no horário da época. Esse horário geralmente é o mesmo no qual o token foi emitido. Azure AD B2C não valida essa declaração. |
+| Público | `aud` | `a489fc44-3cc0-4a78-92f6-e413cd853eae` | Identifica o destinatário pretendido do token. O público-alvo é uma cadeia de caracteres arbitrária definida pelo emissor do token. Azure AD B2C valida esse valor e rejeita o token se ele não corresponder.  |
+| Emissor | `iss` |`https://localhost` | Identifica o serviço de token de segurança (emissor do token). O emissor é um URI arbitrário definido pelo emissor do token. Azure AD B2C valida esse valor e rejeita o token se ele não corresponder.  |
+| Hora de expiração | `exp` | `1600087315` | A hora em que o token se torna inválido, representada na época. Azure AD B2C valida esse valor e rejeita o token se o token tiver expirado.|
+| Não antes de | `nbf` | `1599482515` | O horário em que o token se torna inválido, representado no horário da época. Esse horário geralmente é o mesmo no qual o token foi emitido. Azure AD B2C valida esse valor e rejeita o token se o tempo de vida do token não for válido. |
 
  O token a seguir é um exemplo de um token de ID válido:
 
@@ -84,16 +84,16 @@ Os metadados a seguir são relevantes ao usar a chave simétrica.
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| emissor | Sim | Identifica o serviço de token de segurança (emissor do token). Esse valor deve ser idêntico à `iss` declaração dentro da declaração de token JWT. | 
-| IdTokenAudience | Sim | Identifica o destinatário pretendido do token. Deve ser idêntico à `aud` declaração com a declaração de token JWT. | 
+| emissor | Yes | Identifica o serviço de token de segurança (emissor do token). Esse valor deve ser idêntico à `iss` declaração dentro da declaração de token JWT. | 
+| IdTokenAudience | Yes | Identifica o destinatário pretendido do token. Deve ser idêntico à `aud` declaração dentro da declaração de token JWT. | 
 
 Os metadados a seguir são relevantes ao usar uma chave assimétrica. 
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| METADATA| Sim | Uma URL que aponta para um documento de configuração de emissor de token, que também é conhecido como um ponto de extremidade de configuração conhecido do OpenID.   |
-| emissor | Não | Identifica o serviço de token de segurança (emissor do token). Esse valor pode ser usado para substituir o valor configurado nos metadados e deve ser idêntico à `iss` declaração dentro da declaração de token JWT. |  
-| IdTokenAudience | Não | Identifica o destinatário pretendido do token. Deve ser idêntico à `aud` declaração com a declaração de token JWT. |  
+| METADATA| Yes | Uma URL que aponta para um documento de configuração de emissor de token, que também é conhecido como um ponto de extremidade de configuração conhecido do OpenID.   |
+| emissor | No | Identifica o serviço de token de segurança (emissor do token). Esse valor pode ser usado para substituir o valor configurado nos metadados e deve ser idêntico à `iss` declaração dentro da declaração de token JWT. |  
+| IdTokenAudience | No | Identifica o destinatário pretendido do token. Deve ser idêntico à `aud` declaração dentro da declaração de token JWT. |  
 
 ## <a name="cryptographic-keys"></a>Chaves criptográficas
 
@@ -101,7 +101,7 @@ Ao usar uma chave simétrica, o elemento **CryptographicKeys** contém o seguint
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| client_secret | Sim | A chave de criptografia usada para validar a assinatura de token JWT.|
+| client_secret | Yes | A chave de criptografia usada para validar a assinatura de token JWT.|
 
 
 ## <a name="how-to-guide"></a>Guia de instruções
@@ -189,7 +189,7 @@ Consulte o exemplo do controlador [TokenMetadataController.cs](https://github.co
 
 #### <a name="step-1-prepare-a-self-signed-certificate"></a>Etapa 1. Preparar um certificado autoassinado
 
-Se você ainda não tiver um certificado, poderá usar um certificado autoassinado para este guia de instruções. No Windows, você pode usar o cmdlet [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) do PowerShell para gerar um certificado.
+Se você ainda não tiver um certificado, poderá usar um certificado autoassinado para este guia de instruções. No Windows, você pode usar o cmdlet [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) do PowerShell para gerar um certificado.
 
 Execute este comando do PowerShell para gerar um certificado autoassinado. Modifique o argumento `-Subject` conforme apropriado para o aplicativo e nome de locatário do Azure AD B2C. Você também pode ajustar a data `-NotAfter` para especificar uma expiração diferente para o certificado.
 
@@ -272,7 +272,7 @@ Para abordagens simétricas e assimétricas, o `id_token_hint` perfil técnico �
     </RelyingParty>
     ```
 
-Dependendo dos seus requisitos de negócios, talvez seja necessário adicionar validações de token, por exemplo, para verificar a expiração do token, o formato do endereço de email e muito mais. Para fazer isso, adicione etapas de orquestração que invocam um [perfil técnico de transformação de declarações](claims-transformation-technical-profile.md). Além disso, adicione um [perfil técnico autodeclarado](self-asserted-technical-profile.md) para apresentar uma mensagem de erro. 
+Dependendo dos seus requisitos de negócios, talvez seja necessário adicionar validações de token, por exemplo, verificar o formato do endereço de email. Para fazer isso, adicione etapas de orquestração que invocam um [perfil técnico de transformação de declarações](claims-transformation-technical-profile.md). Além disso, adicione um [perfil técnico autodeclarado](self-asserted-technical-profile.md) para apresentar uma mensagem de erro. 
 
 ### <a name="create-and-sign-a-token"></a>Criar e assinar um token
 

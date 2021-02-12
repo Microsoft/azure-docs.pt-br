@@ -1,24 +1,11 @@
 ---
-title: Transformações e trabalhos nos serviços de mídia
-titleSuffix: Azure Media Services
-description: Saiba como criar transformações para descrever as regras para processar seus vídeos nos serviços de mídia do Azure.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: conceptual
-ms.date: 08/19/2019
-ms.author: inhenkel
-ms.openlocfilehash: 4cb4bcf5eb205d27cbca764d5ec16890a23be5c6
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
-ms.translationtype: MT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426784"
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Campos obrigatórios. Veja mais em aka.ms/skyeye/meta.
+Título: transformações e trabalhos nos serviços de mídia: descrição dos serviços de mídia do Azure: saiba como criar transformações para descrever as regras para processar seus vídeos nos serviços de mídia do Azure.
+serviços: Media-Services documentationcenter: ' ' autor: IngridAtMicrosoft gerente: femila editor: ' '
+
+MS. Service: Media-Services MS. Workload: MS. Topic: conceitual MS. Date: 08/19/2019 MS. Author: inhenkel
 ---
+
 # <a name="transforms-and-jobs-in-media-services"></a>Transformações e trabalhos nos serviços de mídia
 
 Este tópico fornece detalhes sobre [transformações](/rest/api/media/transforms) e [trabalhos](/rest/api/media/jobs) e explica a relação entre essas entidades.

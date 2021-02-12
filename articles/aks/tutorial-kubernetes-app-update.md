@@ -3,14 +3,14 @@ title: Tutorial do Kubernetes no Azure - Atualizar um aplicativo
 description: Neste tutorial do Serviço de Kubernetes do Azure (AKS), você aprenderá como atualizar uma implantação existente do aplicativo para AKS com uma nova versão do código do aplicativo.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/12/2021
 ms.custom: mvc
-ms.openlocfilehash: 6619d7c9f7d2b0cd78f3941ce431e80342b6f563
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b969e3ec1c670c0a12129289c8ff7eb81df51ff9
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576431"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250648"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Tutorial: atualizar um aplicativo no Serviço de Kubernetes do Azure (AKS)
 
@@ -64,7 +64,7 @@ docker-compose up --build -d
 
 Para verificar que a atualização imagem de contêiner atualizada mostra as alterações, abra um navegador da Web local para `http://localhost:8080`.
 
-:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated.png" alt-text="Captura de tela que mostra um exemplo da imagem de contêiner atualizada do Aplicativo de Votação do Azure aberto com um navegador da Web local e um host local.":::
+:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated.png" alt-text="Captura de tela que mostra um exemplo da imagem de contêiner atualizada do Aplicativo de Votação do Azure em execução local aberto em um navegador da Web local":::
 
 Os valores atualizados fornecidos no arquivo *config_file.cfg* são exibidos no aplicativo em execução.
 
@@ -143,9 +143,9 @@ Para exibir o aplicativo de atualização, primeiro obtenha o endereço IP exter
 kubectl get service azure-vote-front
 ```
 
-Agora abra um navegador da Web local no endereço IP do serviço:
+Agora abra um navegador da Web no endereço IP do serviço:
 
-:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated-external.png" alt-text="Captura de tela que mostra um exemplo da imagem de contêiner atualizada do Aplicativo de Votação do Azure aberto com um navegador da Web local e um host local.":::
+:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated-external.png" alt-text="Captura de tela que mostra um exemplo da imagem atualizada do Aplicativo de Votação do Azure em execução em um cluster do AKS aberto em um navegador da Web local.":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

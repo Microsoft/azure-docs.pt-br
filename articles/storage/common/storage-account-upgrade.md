@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/25/2019
+ms.date: 12/11/2020
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4cec356b8438952327624e71deebb5e23db281a3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 50a0894898dcdc817ee253ad326b88a9bb61b9d6
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787798"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357357"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Atualizar para uma conta de armazenamento de uso geral v2
 
@@ -29,9 +29,9 @@ A atualização para uma conta de armazenamento v2 de uso geral de suas contas d
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 2. Navegue para sua conta de armazenamento.
-3. Na seção **Configurações** , clique em **Configuração** .
-4. Em **tipo de conta** , clique em **Atualizar** .
-5. Em **confirmar atualização** , digite o nome da sua conta.
+3. Na seção **Configurações**, clique em **Configuração**.
+4. Em **tipo de conta**, clique em **Atualizar**.
+5. Em **confirmar atualização**, digite o nome da sua conta.
 6. Clique em **Atualizar** na parte inferior da folha.
 
     ![Tipo de conta de atualização](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
@@ -40,12 +40,12 @@ A atualização para uma conta de armazenamento v2 de uso geral de suas contas d
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Para atualizar uma conta de uso geral v1 para uma conta de uso geral v2 usando PowerShell, primeiro atualize o PowerShell para usar a última versão do módulo **Az.Storage** . Acesse [Como instalar e configurar o Azure PowerShell](/powershell/azure/install-Az-ps) para obter informações sobre como instalar o PowerShell.
+Para atualizar uma conta de uso geral v1 para uma conta de uso geral v2 usando PowerShell, primeiro atualize o PowerShell para usar a última versão do módulo **Az.Storage**. Acesse [Como instalar e configurar o Azure PowerShell](/powershell/azure/install-Az-ps) para obter informações sobre como instalar o PowerShell.
 
 Em seguida, chame o seguinte comando para atualizar a conta, substituindo o nome do grupo de recursos, o nome da conta de armazenamento e a camada de acesso da conta desejada.
 
 ```powershell
-Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
+Set-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
 ```
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -78,17 +78,17 @@ A atualização de uma conta de armazenamento v1 para uma conta v2 de uso geral 
 
 Todas as contas de armazenamento usam um modelo de preços para o armazenamento de blobs com base na camada de cada blob. Ao se usar uma conta de armazenamento, as seguintes considerações de cobranças são aplicáveis:
 
-* **Custos de armazenamento** : além da quantidade de dados armazenados, o custo de armazenamento de dados varia dependendo da camada de acesso de armazenamento. O custo por gigabyte diminui conforme a camada fica mais esporádica.
+* **Custos de armazenamento**: além da quantidade de dados armazenados, o custo de armazenamento de dados varia dependendo da camada de acesso de armazenamento. O custo por gigabyte diminui conforme a camada fica mais esporádica.
 
-* **Custos de acesso a dados** : os encargos de acesso a dados aumentam conforme a camada fica mais esporádica. Para dados na camada de acesso de armazenamento esporádico e de arquivo, será cobrada uma taxa de acesso a dados por gigabyte.
+* **Custos de acesso a dados**: os encargos de acesso a dados aumentam conforme a camada fica mais esporádica. Para dados na camada de acesso de armazenamento esporádico e de arquivo, será cobrada uma taxa de acesso a dados por gigabyte.
 
-* **Custos de transações** : há um encargo por transação para todas as camadas que aumenta à medida que a camada fica mais esporádica.
+* **Custos de transações**: há um encargo por transação para todas as camadas que aumenta à medida que a camada fica mais esporádica.
 
-* **Custos de transferência de dados de replicação geográfica** : isso só se aplica a contas com replicação geográfica configurada, incluindo GRS e RA-GRS. A transferência de dados de replicação geográfica acarreta um encargo por gigabyte.
+* **Custos de transferência de dados de replicação geográfica**: isso só se aplica a contas com replicação geográfica configurada, incluindo GRS e RA-GRS. A transferência de dados de replicação geográfica acarreta um encargo por gigabyte.
 
-* **Custos de transferência de dados de saída** : transferências de dados de saída (dados que são transferidos para fora de uma região do Azure) acarretam a cobrança por uso de largura de banda por gigabyte, de forma consistente com as contas de armazenamento de finalidade geral.
+* **Custos de transferência de dados de saída**: transferências de dados de saída (dados que são transferidos para fora de uma região do Azure) acarretam a cobrança por uso de largura de banda por gigabyte, de forma consistente com as contas de armazenamento de finalidade geral.
 
-* **Alterando a camada de acesso de armazenamento** : alterar a camada de acesso de armazenamento de conta de fria para quente incorre em um encargo igual à leitura de todos os dados existentes na conta de armazenamento. No entanto, a alteração da camada de acesso à conta de frequente para esporádico gera uma cobrança igual à gravação de todos os dados na camada de acesso esporádico (somente contas GPv2).
+* **Alterando a camada de acesso de armazenamento**: alterar a camada de acesso de armazenamento de conta de fria para quente incorre em um encargo igual à leitura de todos os dados existentes na conta de armazenamento. No entanto, a alteração da camada de acesso à conta de frequente para esporádico gera uma cobrança igual à gravação de todos os dados na camada de acesso esporádico (somente contas GPv2).
 
 > [!NOTE]
 > Para saber mais informações sobre o modelo de preços para contas de armazenamento, confira a página [Preços de Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/). Para saber mais informações sobre os encargos de transferência de dados de saída, confira a página [Detalhes de preços de transferências de dados](https://azure.microsoft.com/pricing/details/data-transfers/).
@@ -141,12 +141,12 @@ Essa capacidade total consumida tanto por dados de usuário quanto logs de anál
 
 #### <a name="transaction-costs"></a>Custos de transação
 
-A soma de *'TotalBillableRequests'* de todas as entradas para uma API na tabela de métricas de transação indica a quantidade total de transações para essa API em particular. *Por exemplo* , o número total de transações *'GetBlob'* em um determinado período pode ser calculado pela soma do total de solicitações faturáveis para todas as entradas com a chave de linha *'user;GetBlob'* .
+A soma de *'TotalBillableRequests'* de todas as entradas para uma API na tabela de métricas de transação indica a quantidade total de transações para essa API em particular. *Por exemplo*, o número total de transações *'GetBlob'* em um determinado período pode ser calculado pela soma do total de solicitações faturáveis para todas as entradas com a chave de linha *'user;GetBlob'*.
 
 Para estimar os custos de transação para contas de armazenamento de Blobs, você precisa dividir as transações em três grupos, já que elas possuem preços diferentes.
 
-* Transações de gravação, como *'PutBlob'* , *'PutBlock'* , *'PutBlockList'* , *'AppendBlock'* , *'ListBlobs'* , *'ListContainers'* , *'CreateContainer'* , *'SnapshotBlob'* e *'CopyBlob'* .
-* Transações de exclusão, como *'DeleteBlob'* e *'DeleteContainer'* .
+* Transações de gravação, como *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'* e *'CopyBlob'*.
+* Transações de exclusão, como *'DeleteBlob'* e *'DeleteContainer'*.
 * Todas as outras transações.
 
 Para estimar os custos de transação para contas de armazenamento de GPv1, você precisa agregar todas as transações, independentemente da operação/API.
@@ -157,9 +157,9 @@ Embora a análise de armazenamento não forneça a quantidade de dados lida e gr
 
 Para estimar os custos de acesso de dados para as contas de armazenamento de Blobs, você precisa dividir as transações em dois grupos.
 
-* A quantidade de dados recuperados da conta de armazenamento pode ser estimada observando a soma de *'TotalEgress'* basicamente para as operações *'GetBlob'* e *'CopyBlob'* .
+* A quantidade de dados recuperados da conta de armazenamento pode ser estimada observando a soma de *'TotalEgress'* basicamente para as operações *'GetBlob'* e *'CopyBlob'*.
 
-* A quantidade de dados gravados na conta de armazenamento pode ser estimada observando a soma de *'TotalIngress'* basicamente para as operações *'PutBlob'* , *'PutBlock'* , *'CopyBlob'* e *'AppendBlock'* .
+* A quantidade de dados gravados na conta de armazenamento pode ser estimada observando a soma de *'TotalIngress'* basicamente para as operações *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* e *'AppendBlock'*.
 
 O custo da transferência de dados de replicação geográfica para contas de armazenamento de Blobs também pode ser calculado usando a estimativa de quantidade de dados gravados ao usar uma conta de armazenamento GRS ou RA-GRS.
 
@@ -168,4 +168,7 @@ O custo da transferência de dados de replicação geográfica para contas de ar
 
 ## <a name="next-steps"></a>Próximas etapas
 
+* [Visão geral da conta de armazenamento](storage-account-overview.md)
 * [Criar uma conta de armazenamento](storage-account-create.md)
+* [Mover uma conta de armazenamento do Azure para outra região](storage-account-move.md)
+* [Recuperar uma conta de armazenamento excluída](storage-account-recover.md)

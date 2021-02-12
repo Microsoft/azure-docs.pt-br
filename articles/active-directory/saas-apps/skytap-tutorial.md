@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/13/2020
 ms.author: jeedes
-ms.openlocfilehash: 8d34ca8ed01144ee282f6411640894807a09ef08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5577b0cb480b372b64a9cb25f52617edfca3f2e0
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88527852"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108119"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-single-sign-on-for-skytap"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Single Sign-on for Skytap
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá a integrar o Single Sign-on for Skytap ao Azure
 * Permitir que os usuários sejam conectados automaticamente ao Single Sign-on for Skytap com as respectivas contas do Azure AD.
 * gerenciar suas contas em um local central, o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos de SaaS (software como serviço) ao Azure AD, confira [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Para saber mais sobre a integração de aplicativos de SaaS (software como serviço) ao Azure AD, confira [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,7 +40,7 @@ Para começar, você precisará dos seguintes itens:
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 * O Single Sign-on for Skytap dá suporte ao SSO iniciado por SP e IdP.
-* Após configurar o Single Sign-on for Skytap, você poderá impor o controle de sessão. Isso protege contra exfiltração e infiltração dos dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Após configurar o Single Sign-on for Skytap, você poderá impor o controle de sessão. Isso protege contra exfiltração e infiltração dos dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-single-sign-on-for-skytap-from-the-gallery"></a>Adicionar o Single Sign-on for Skytap por meio da galeria
 
@@ -85,7 +85,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     b. Na caixa de texto **URL de Resposta**, digite uma URL que use o seguinte padrão: `https://sso.connect.pingidentity.com/sso/sp/ACS.saml2`
 
-1. Selecione **Definir URLs adicionais** e execute as seguintes etapas se desejar configurar o aplicativo no modo iniciado por **SP**:
+1. Opcionalmente, selecione **Definir URLs adicionais** e execute as seguintes etapas para configurar o aplicativo no modo iniciado por **SP**:
 
     a. Na caixa de texto **URL de Entrada**, digite uma URL que usa o seguinte padrão: `https://sso.connect.pingidentity.com/sso/sp/initsso?saasid=<saasid>&idpid=<idpid>`
 
@@ -140,21 +140,20 @@ Para configurar o logon único no lado do Single Sign-on for Skytap, é necessá
 
 ### <a name="create-single-sign-on-for-skytap-test-user"></a>Criar um usuário de teste do Single Sign-on for Skytap
 
-Nesta seção, você criará uma usuária chamada B.Fernandes no Single Sign-on for Skytap. Trabalhe com a [equipe de suporte ao cliente do Single Sign-on for Skytap](mailto:support@skytap.com) para adicionar os usuários à plataforma do Single Sign-on for Skytap. Você não pode usar o logon único antes de criar e ativar usuários.
+Nesta seção, você criará uma usuária chamada B.Fernandes no Single Sign-on for Skytap. Trabalhe com a [equipe de suporte ao cliente do Single Sign-on for Skytap](mailto:support@skytap.com) para adicionar os usuários na plataforma do Single Sign-on for Skytap. Você não pode usar o logon único antes de criar e ativar usuários.
 
 ## <a name="test-sso"></a>Testar o SSO 
 
 Nesta seção, você testará a configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao selecionar o bloco do Single Sign-on for Skytap no Painel de Acesso, você deverá ser conectado automaticamente ao Single Sign-on for Skytap para o qual configurou o SSO. Para obter mais informações, confira [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao selecionar o bloco do Single Sign-on for Skytap no Painel de Acesso, você deverá ser conectado automaticamente ao Single Sign-on for Skytap para o qual configurou o SSO. Para obter mais informações, confira [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Tutoriais para a integração de aplicativos SaaS ao Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutoriais para a integração de aplicativos SaaS ao Azure Active Directory](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimente o Slack com o Azure AD](https://aad.portal.azure.com/)
-

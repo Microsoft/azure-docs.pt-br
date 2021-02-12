@@ -1,25 +1,24 @@
 ---
-title: Usando o Visual Studio, habilitar Área de Trabalho Remota para uma função (serviços de nuvem do Azure)
+title: Usando o Visual Studio, habilitar Área de Trabalho Remota para uma função (serviços de nuvem do Azure clássicos)
 description: Como configurar seu aplicativo de serviço de nuvem do Azure para permitir conexões de Área de Trabalho Remota
-services: cloud-services
-author: ghogen
-manager: jillfra
-ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
-ms.prod: visual-studio-dev15
-ms.technology: vs-azure
-ms.custom: vs-azure
-ms.topic: conceptual
-ms.workload: azure-vs
-ms.date: 03/06/2018
-ms.author: ghogen
-ms.openlocfilehash: f4622e44c795182ee68c617f335c9e1651d3adcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.topic: article
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: ad95cefbdf839c28b0979b051e217a1dfec76eea
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80294382"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743229"
 ---
-# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Habilitar a Conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure usando o Visual Studio
+# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-classic-using-visual-studio"></a>Habilitar Conexão de Área de Trabalho Remota para uma função nos serviços de nuvem do Azure (clássico) usando o Visual Studio
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
 
 > [!div class="op_single_selector"]
 > * [Azure portal](cloud-services-role-enable-remote-desktop-new-portal.md)
@@ -47,7 +46,7 @@ Ao usar o Visual Studio 2017 versão 15.4 e anteriores, você pode usar a opçã
    > [!Note]
    > Os certificados necessários para uma conexão de área de trabalho remota são diferentes dos certificados que você usa para outras operações do Azure. O certificado de acesso remoto deve ter uma chave privada.
 
-5. Selecione um certificado na lista ou escolha ** &lt; criar... &gt; **. Se criar um novo certificado, forneça um nome amigável para o novo certificado quando solicitado e selecione **OK**. O novo certificado é exibido na caixa de listagem suspensa.
+5. Selecione um certificado na lista ou escolha **&lt; criar... &gt;**. Se criar um novo certificado, forneça um nome amigável para o novo certificado quando solicitado e selecione **OK**. O novo certificado é exibido na caixa de listagem suspensa.
 
 6. Forneça um nome de usuário e uma senha. Você não pode usar uma conta existente. Não use "Administrador" como o nome de usuário para a nova conta.
 

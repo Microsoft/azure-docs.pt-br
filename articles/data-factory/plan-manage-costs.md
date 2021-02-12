@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/14/2020
-ms.openlocfilehash: e2f61085d3dab6d4489aa190204be4169ea5c2fb
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 6271b83749c078b64c168a27f887ed7055e37d96
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637999"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678910"
 ---
 # <a name="plan-and-manage-costs-for-azure-data-factory"></a>Planejar e gerenciar custos para o Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 O Azure Data Factory é um serviço de integração de dados elástico e sem servidor criado para escala de nuvem.  Isso significa que não há uma computação de tamanho fixo que você precise planejar para a carga de pico; em vez disso, você especifica a quantidade de recursos a serem alocados sob demanda por operação, o que permite que você projete os processos de ETL de maneira muito mais escalonável. Além disso, o ADF é cobrado em um plano baseado em consumo, o que significa que você paga apenas pelo que usa.
 
@@ -62,9 +62,9 @@ Agora você pode conectar 30 execuções de atividade e 380 horas de DIU na calc
 
 Ao começar a usar Azure Data Factory, você pode ver os custos incorridos no painel de [análise de custo](../cost-management-billing/costs/quick-acm-cost-analysis.md) no portal do Azure.
 
-1. Para exibir a [análise de custo](../cost-management-billing/costs/quick-acm-cost-analysis.md), abra a janela **Gerenciamento de Custos + Cobrança** , selecione **Gerenciamento de custos** no menu e, em seguida, selecione **Análise de custo aberto** .
+1. Para exibir a [análise de custo](../cost-management-billing/costs/quick-acm-cost-analysis.md), abra a janela **Gerenciamento de Custos + Cobrança**, selecione **Gerenciamento de custos** no menu e, em seguida, selecione **Análise de custo aberto**.
 2. A exibição padrão mostra os custos acumulados para o mês atual.  Você pode alternar para um intervalo de tempo diferente e uma granularidade diferente, como diária ou mensal.
-3. Para restringir os custos para um único serviço, como o Azure Data Factory, selecione **Adicionar filtro** e, em seguida, selecione **Nome do serviço** .  Em seguida, escolha **Azure Data Factory v2** na lista.
+3. Para restringir os custos para um único serviço, como o Azure Data Factory, selecione **Adicionar filtro** e, em seguida, selecione **Nome do serviço**.  Em seguida, escolha **Azure Data Factory v2** na lista.
 4. Você pode adicionar outros filtros para analisar o custo de uma instância de alocador específica e a granularidade específica do medidor do ADF.
 
    ![Análise de custo](media/plan-manage-costs/cost-analysis.png)
@@ -86,7 +86,7 @@ O modo de exibição consumo de execução do pipeline mostra o valor consumido 
 ## <a name="monitor-consumption-at-activity-run-level"></a>Monitorar o consumo no nível de execução da atividade
 Depois de entender o consumo agregado no nível de execução do pipeline, há cenários em que você precisa fazer uma busca detalhada e identificar qual é a atividade mais onerosa no pipeline.
 
-Para ver o consumo no nível de execução da atividade, vá para a interface do usuário **Criar e Monitorar** do data factory. Na guia **Monitorar** , em que você vê uma lista de execuções de pipeline, clique no link **Nome do pipeline** para acessar a lista de execuções de atividade na execução do pipeline.  Clique no botão **Saída** ao lado do nome da atividade e procure a propriedade **billableDuration** na saída JSON:
+Para ver o consumo no nível de execução da atividade, vá para a interface do usuário **Criar e Monitorar** do data factory. Na guia **Monitorar**, em que você vê uma lista de execuções de pipeline, clique no link **Nome do pipeline** para acessar a lista de execuções de atividade na execução do pipeline.  Clique no botão **Saída** ao lado do nome da atividade e procure a propriedade **billableDuration** na saída JSON:
 
 Aqui está um exemplo de uma execução de atividade de cópia:
 

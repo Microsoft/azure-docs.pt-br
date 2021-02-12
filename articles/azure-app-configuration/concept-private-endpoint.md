@@ -2,17 +2,17 @@
 title: Usando pontos de extremidade privados para configuração de Azure App
 description: Proteger o repositório de configuração do aplicativo usando pontos de extremidade privados
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 3/12/2020
-ms.author: lcozzens
-ms.openlocfilehash: a29c8c02093f47807ec71ffcc01e26514976ce79
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.date: 07/15/2020
+ms.openlocfilehash: 6cadadfb3623d05dd3ae3851acd5eaca13860023
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071703"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929836"
 ---
 # <a name="using-private-endpoints-for-azure-app-configuration"></a>Usando pontos de extremidade privados para configuração de Azure App
 

@@ -3,12 +3,12 @@ title: Reproduzir gravações de vários dias – Azure
 description: Neste tutorial, você aprenderá a usar as APIs do Serviço de Mídia do Azure para reproduzir uma gravação de vídeo contínua de vários dias.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 1ec9260be7241057478b06446ac2aa53c14bcb47
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 81a778b40649c1318b3738a289f0db37fd35376a
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803425"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492782"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>Tutorial: Reproduzir gravações de vários dias  
 
@@ -57,7 +57,7 @@ Como parte do tutorial do [CVR](continuous-video-recording-tutorial.md), você t
 }
 ```
 
-Em seguida, no Visual Studio Code, abra src/ams-asset-player. Esta pasta contém os arquivos necessários para este tutorial. Abra o arquivo appsettings.json e copie o conteúdo dele em um novo arquivo, appsettings.development.json. Faça as seguintes edições nesse segundo arquivo:
+Em seguida, no Visual Studio Code, abra src/ams-asset-player. Esta pasta contém os arquivos necessários para este tutorial. Abra o arquivo appsettings.json e copie o conteúdo dele em um novo arquivo, appsettings.development.json. Faça as seguintes edições no appsettings.development.json criado recentemente:
 
 ```
   "AMS" : {
@@ -78,7 +78,22 @@ Em seguida, no Visual Studio Code, abra src/ams-asset-player. Esta pasta contém
 1. Pesquise e habilite “Mostrar Mensagem Detalhada”.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Configurações da Extensão" está selecionado.
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Mostrar Mensagem Detalhada":::
+1. <!--In Visual Studio Code, you can click-->Clique no ícone Executar à esquerda (ou Ctrl+Shift+D) para abrir os aplicativos disponíveis a serem executados:
+
+    ![A captura de tela mostra um menu no Visual Studio Code com o item Executar selecionado.](./media/playback-multi-day-recordings-tutorial/run.png)
+1. Selecione o aplicativo Player de Ativos do AMS na caixa suspensa conforme mostrado abaixo e pressione F5 para iniciar a depuração.
+
+    ![A captura de tela mostra um menu no Visual Studio Code com o Player de Ativos do AMS selecionado.](./media/playback-multi-day-recordings-tutorial/debug.png)
+
+O aplicativo de exemplo criará e iniciará seu aplicativo de navegador padrão e abrirá a página do Player de Ativos do AMS.
+
+> [!NOTE]
+> Dependendo das configurações de segurança no seu navegador, você poderá ver uma mensagem de aviso. Já que a página da Web está sendo executada localmente, você pode optar por ignorar o aviso.
+
+O Player de Ativos do AMS solicita que você insira o nome de um ativo do Serviço de Mídia. Você deve usar o nome do Ativo que usou para gravar vídeo no [Tutorial: gravação de vídeo contínua](continuous-video-recording-tutorial.md).
+
+Ao digitar o nome do ativo e pressionar enviar, o código do Player carregará a URL de streaming. Para obter mais informações, confira [Guia de instruções: reprodução de gravações](playback-recordings-how-to.md). Se, como recomendado, você ainda estiver gravando no ativo, o player detectará isso e tentará direcionar a reprodução para a parte mais recente do vídeo gravado. Você pode ver o carimbo de data/hora (em UTC) na parte superior esquerda do player. Na captura de tela abaixo, observe como o botão "Ao vivo" está selecionado.
 
 ![STREAM](./media/playback-multi-day-recordings-tutorial/assetplayer1.png)
  

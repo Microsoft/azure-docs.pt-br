@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 02/05/2020
 ms.author: dobett
-ms.openlocfilehash: 1afb24a0e3e78acb1d44185843538bd55c491edf
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7ff8193e87d138878d95e783d144d445436e7a08
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976769"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453002"
 ---
 # <a name="what-is-the-right-iot-solution-for-your-business"></a>Qual é a solução de IoT certa para sua empresa?
 
@@ -75,4 +75,4 @@ Para obter uma explicação mais abrangente dos diferentes serviços e plataform
 
 Para saber mais sobre os principais atributos das soluções de IoT bem-sucedidas, confira o white paper [8 atributos das soluções de IoT bem-sucedidas](https://aka.ms/8attributes).
 
-Para ver uma análise detalhada da arquitetura IoT, confira a [Arquitetura de Referência do IoT do Microsoft Azure](https://aka.ms/iotrefarchitecture).
+Para ver uma análise detalhada da arquitetura IoT, confira a [Arquitetura de Referência do IoT do Microsoft Azure](/azure/architecture/reference-architectures/iot).

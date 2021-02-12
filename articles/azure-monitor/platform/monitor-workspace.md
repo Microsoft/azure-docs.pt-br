@@ -6,19 +6,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: 07d9ae0d7cdf8e823bb59cb376d40cdf846bb2cb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3cb01a8f1c06bad618ae5c7930920ee0f067038c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092748"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184528"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Monitorar a integridade do espaço de trabalho de Log Analytics no Azure Monitor
-Para manter o desempenho e a disponibilidade do seu espaço de trabalho do Log Analytics no Azure Monitor, você precisa ser capaz de detectar proativamente quaisquer problemas que surjam. Este artigo descreve como monitorar a integridade do seu espaço de trabalho do Log Analytics usando dados na tabela de [operações](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) . Essa tabela está incluída em todos os Log Analytics espaço de trabalho e contém erros e avisos que ocorrem em seu espaço de trabalho. Você deve examinar esses dados regularmente e criar alertas para que sejam notificados proativamente quando houver incidentes importantes em seu espaço de trabalho.
+Para manter o desempenho e a disponibilidade do seu espaço de trabalho do Log Analytics no Azure Monitor, você precisa ser capaz de detectar proativamente quaisquer problemas que surjam. Este artigo descreve como monitorar a integridade do seu espaço de trabalho do Log Analytics usando dados na tabela de [operações](/azure/azure-monitor/reference/tables/operation) . Essa tabela está incluída em todos os Log Analytics espaço de trabalho e contém erros e avisos que ocorrem em seu espaço de trabalho. Você deve examinar esses dados regularmente e criar alertas para que sejam notificados proativamente quando houver incidentes importantes em seu espaço de trabalho.
 
 ## <a name="_logoperation-function"></a>Função _LogOperation
 
-Os logs de Azure Monitor enviam detalhes sobre quaisquer problemas na tabela de [operações](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) no espaço de trabalho em que o problema ocorreu. A função de sistema **_LogOperation** é baseada na tabela de **operações** e fornece um conjunto simplificado de informações para análise e alertas.
+Os logs de Azure Monitor enviam detalhes sobre quaisquer problemas na tabela de [operações](/azure/azure-monitor/reference/tables/operation) no espaço de trabalho em que o problema ocorreu. A função de sistema **_LogOperation** é baseada na tabela de **operações** e fornece um conjunto simplificado de informações para análise e alertas.
 
 ## <a name="columns"></a>Colunas
 
@@ -55,20 +55,20 @@ As operações de ingestão são problemas ocorridos durante a ingestão de dado
 
 | Operação | Nível | Detalhe | Artigo relacionado |
 |:---|:---|:---|:---|
-| Log personalizado | Erro   | Limite de colunas de campos personalizados atingido. | [Limites do serviço Azure Monitor](../service-limits.md#log-analytics-workspaces) |
-| Log personalizado | Erro   | Falha na ingestão de logs personalizados. | |
-| Metadata. | Erro | Erro de configuração detectado. | |
-| Coleta de dados | Erro   | Os dados foram descartados porque a solicitação foi criada antes do número de dias definidos. | [Gerenciar o uso e os custos com logs do Azure Monitor](manage-cost-storage.md#alert-when-daily-cap-reached)
+| Log personalizado | Erro do   | Limite de colunas de campos personalizados atingido. | [Limites do serviço Azure Monitor](../service-limits.md#log-analytics-workspaces) |
+| Log personalizado | Erro do   | Falha na ingestão de logs personalizados. | |
+| Metadata. | Erro do | Erro de configuração detectado. | |
+| Coleta de dados | Erro do   | Os dados foram descartados porque a solicitação foi criada antes do número de dias definidos. | [Gerenciar o uso e os custos com logs do Azure Monitor](manage-cost-storage.md#alert-when-daily-cap-reached)
 | Coleta de dados | Info    | A configuração da máquina de coleta foi detectada.| |
-| Coleta de dados | Info    | Coleta de dados iniciada devido ao novo dia. | [Gerenciar o uso e os custos com logs do Azure Monitor](/azure/azure-monitor/platform/manage-cost-storage#alert-when-daily-cap-reached) |
-| Coleta de dados | Aviso | A coleta de dados foi interrompida devido a um limite diário atingido.| [Gerenciar o uso e os custos com logs do Azure Monitor](/azure/azure-monitor/platform/manage-cost-storage#alert-when-daily-cap-reached) |
-| Processamento de dados | Erro   | Formato JSON inválido. | [Enviar dados de log para o Azure Monitor com a API do Coletor de Dados HTTP (visualização pública)](data-collector-api.md#request-body) | 
+| Coleta de dados | Info    | Coleta de dados iniciada devido ao novo dia. | [Gerenciar o uso e os custos com logs do Azure Monitor](./manage-cost-storage.md#alert-when-daily-cap-reached) |
+| Coleta de dados | Aviso | A coleta de dados foi interrompida devido a um limite diário atingido.| [Gerenciar o uso e os custos com logs do Azure Monitor](./manage-cost-storage.md#alert-when-daily-cap-reached) |
+| Processamento de dados | Erro do   | Formato JSON inválido. | [Enviar dados de log para o Azure Monitor com a API do Coletor de Dados HTTP (visualização pública)](data-collector-api.md#request-body) | 
 | Processamento de dados | Aviso | O valor foi cortado para o tamanho máximo permitido. | [Limites do serviço Azure Monitor](../service-limits.md#log-analytics-workspaces) |
 | Processamento de dados | Aviso | Valor de campo cortado como limite de tamanho atingido. | [Limites do serviço Azure Monitor](../service-limits.md#log-analytics-workspaces) | 
 | Taxa de ingestão | Info | O limite de taxa de ingestão está se aproximando de 70%. | [Limites do serviço Azure Monitor](../service-limits.md#log-analytics-workspaces) |
 | Taxa de ingestão | Aviso | Limite de taxa de ingestão que está se aproximando do limite. | [Limites do serviço Azure Monitor](../service-limits.md#log-analytics-workspaces) |
-| Taxa de ingestão | Erro   | Limite de taxa atingido. | [Limites do serviço Azure Monitor](../service-limits.md#log-analytics-workspaces) |
-| Armazenamento | Erro   | Não é possível acessar a conta de armazenamento porque as credenciais usadas são inválidas.  |
+| Taxa de ingestão | Erro do   | Limite de taxa atingido. | [Limites do serviço Azure Monitor](../service-limits.md#log-analytics-workspaces) |
+| Armazenamento | Erro do   | Não é possível acessar a conta de armazenamento porque as credenciais usadas são inválidas.  |
 
 
 

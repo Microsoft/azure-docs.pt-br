@@ -1,19 +1,19 @@
 ---
-title: arquivo de inclusão
+title: incluir arquivo
 description: conectores com suporte para a Atividade de Pesquisa
 services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 09/24/2020
+ms.date: 12/18/2020
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: f3678045eae269429909f7ba0e007e13d2b02bc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a749de57a1c57c828332957def27d68a121318b1
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91422119"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97691949"
 ---
 | Categoria | Armazenamento de dados |
 |:--- |:--- |
@@ -29,7 +29,7 @@ ms.locfileid: "91422119"
 | &nbsp; |[Arquivos do Azure](../articles/data-factory/connector-azure-file-storage.md) |
 | &nbsp; |[Banco de Dados SQL do Azure](../articles/data-factory/connector-azure-sql-database.md) |
 | &nbsp; |[Instância Gerenciada do SQL do Azure](../articles/azure-sql/managed-instance/sql-managed-instance-paas-overview.md) |
-| &nbsp; |[Azure Synapse Analytics (antigo SQL Data Warehouse)](../articles/data-factory/connector-azure-sql-data-warehouse.md) |
+| &nbsp; |[Azure Synapse Analytics](../articles/data-factory/connector-azure-sql-data-warehouse.md) |
 | &nbsp; |[Armazenamento de Tabelas do Azure](../articles/data-factory/connector-azure-table-storage.md) |
 | **Backup de banco de dados** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |
@@ -47,7 +47,7 @@ ms.locfileid: "91422119"
 | &nbsp; |[Oracle](../articles/data-factory/connector-oracle.md) |
 | &nbsp; |[Phoenix](../articles/data-factory/connector-phoenix.md) |
 | &nbsp; |[PostgreSQL](../articles/data-factory/connector-postgresql.md) 
-| &nbsp; |[Presto (versão prévia)](../articles/data-factory/connector-presto.md) |
+| &nbsp; |[Pronto](../articles/data-factory/connector-presto.md) |
 | &nbsp; |[SAP Business Warehouse Open Hub](../articles/data-factory/connector-sap-business-warehouse-open-hub.md) |
 | &nbsp; |[SAP Business Warehouse via MDX](../articles/data-factory/connector-sap-business-warehouse.md) |
 | &nbsp; |[SAP HANA](../articles/data-factory/connector-sap-hana.md) |
@@ -76,7 +76,7 @@ ms.locfileid: "91422119"
 | &nbsp; |[Dynamics AX](../articles/data-factory/connector-dynamics-ax.md) |
 | &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |
 | &nbsp; |[Google AdWords](../articles/data-factory/connector-google-adwords.md) |
-| &nbsp; |[HubSpot (versão prévia)](../articles/data-factory/connector-hubspot.md) |
+| &nbsp; |[HubSpot](../articles/data-factory/connector-hubspot.md) |
 | &nbsp; |[Jira](../articles/data-factory/connector-jira.md) |
 | &nbsp; |[Magento (versão prévia)](../articles/data-factory/connector-magento.md) |
 | &nbsp; |[Marketo (versão prévia)](../articles/data-factory/connector-marketo.md) |

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/28/2020
+ms.date: 01/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: cd288926e6f7a3f454be2788479b5c9d414b167a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 919ec1c3c2b71b7d9aecb90d434aa919c7188d38
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440276"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897579"
 ---
 # <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge-pro-gpu"></a>Tutorial: Transferir dados por meio de compartilhamentos com uma GPU do Azure Stack Edge Pro
 
@@ -43,7 +43,7 @@ Antes de adicionar compartilhamentos ao Azure Stack Edge Pro, verifique o seguin
 
 Para criar um compartilhamento, siga o procedimento a seguir:
 
-1. No [portal do Azure](https://portal.azure.com/), selecione o recurso do Azure Stack Edge e, em seguida, acesse **Visão Geral**. O dispositivo deve estar online.
+1. No [portal do Azure](https://portal.azure.com/), selecione o recurso do Azure Stack Edge e, em seguida, acesse **Visão Geral**. O dispositivo deve estar online. Selecione **Gateway de armazenamento em nuvem**.
 
    ![Dispositivo online](./media/azure-stack-edge-j-series-deploy-add-shares/device-online-1.png)
 
@@ -51,7 +51,7 @@ Para criar um compartilhamento, siga o procedimento a seguir:
 
    ![Adicionar um compartilhamento](./media/azure-stack-edge-j-series-deploy-add-shares/select-add-share-1.png)
 
-3. No painel **Adicionar compartilhamento**, siga o procedimento a seguir:
+3. No painel **Adicionar compartilhamento**, siga estas etapas:
 
     a. Na caixa **Nome**, forneça um nome exclusivo para seu compartilhamento.  
     O nome do compartilhamento pode ter apenas letras, números e hifens. Ele deve entre 3 e 63 caracteres e começar com uma letra ou um número. Hifens devem ser precedidos e seguidos por uma letra ou um número.
@@ -66,14 +66,13 @@ Para criar um compartilhamento, siga o procedimento a seguir:
     O tipo de serviço selecionado depende de qual formato você deseja que os dados usem no Azure. Neste exemplo, porque queremos armazenar os dados como blobs de blocos no Azure, selecionamos **Blob de Blocos**. Se você selecionar o **Blob de Páginas**, deverá garantir que seus dados sejam alinhados com 512 bytes. Por exemplo, um VHDX sempre é alinhado com 512 bytes.
 
    > [!IMPORTANT]
-   > Se você estiver usando a conta de Armazenamento do Azure com um dispositivo do Azure Stack Edge Pro ou do Data Box Gateway, assegure que não existam políticas de imutabilidade definidas nessa conta. Para obter mais informações, confira [Definir e gerenciar políticas de imutabilidade para o armazenamento de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Se você estiver usando a conta de Armazenamento do Azure com um dispositivo do Azure Stack Edge Pro ou do Data Box Gateway, assegure que não existam políticas de imutabilidade definidas nessa conta. Para obter mais informações, confira [Definir e gerenciar políticas de imutabilidade para o armazenamento de blobs](../storage/blobs/storage-blob-immutability-policies-manage.md).
 
     e. Crie um contêiner de blob ou use um existente na lista suspensa. Se for criar um contêiner de blob, forneça um nome de contêiner. Se um contêiner ainda não existir, ele será criado na conta de armazenamento com o nome do compartilhamento criado recentemente.
    
     f. Dependendo de se você criou um compartilhamento SMB ou um compartilhamento NFS, execute uma das seguintes etapas: 
      
-    - **Compartilhamento SMB**: Em **Todos os usuários locais com privilégios**, selecione **Criar novo** ou **Usar existente**. Se você criar um novo usuário local, digite um nome de usuário e a senha e, em seguida, confirme a senha. Essa ação atribui permissões para o usuário local. Depois de atribuir as permissões aqui, você pode usar o Explorador de Arquivos para modificá-las.
-    Se você marcar a caixa de seleção **Permitir somente operações de leitura** para esses dados de compartilhamento, poderá especificar usuários somente leitura.
+    - **Compartilhamento SMB**: Em **Todos os usuários locais com privilégios**, selecione **Criar novo** ou **Usar existente**. Se você criar um novo usuário local, digite um nome de usuário e a senha e, em seguida, confirme a senha. Essa ação atribui permissões para o usuário local. No momento, não há suporte para a modificação de permissões no nível de compartilhamento. Se você marcar a caixa de seleção **Permitir somente operações de leitura** para esses dados de compartilhamento, poderá especificar usuários somente leitura.
     
         ![Adicionar compartilhamento SMB](./media/azure-stack-edge-j-series-deploy-add-shares/add-share-smb-1.png)
    
@@ -198,5 +197,3 @@ Para saber como transformar seus dados usando o Azure Stack Edge Pro, prossiga p
 
 > [!div class="nextstepaction"]
 > [Transformar dados com o Azure Stack Edge Pro](./azure-stack-edge-j-series-deploy-configure-compute.md)
-
-

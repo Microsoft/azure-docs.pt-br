@@ -9,12 +9,12 @@ metadata:
   author: JnHs
   ms.author: jenhayes
   ms.date: 10/09/2020
-  ms.openlocfilehash: 2b2f1a9dbf8c5621ff83dee9e600575c54e9de28
-  ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+  ms.openlocfilehash: ca8ef13ac3440d2298b817c12d1126e1526a74c1
+  ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91931726"
+  ms.lasthandoff: 01/15/2021
+  ms.locfileid: "98234375"
 landingContent:
 - title: Sobre o Lote do Azure
   linkLists:
@@ -58,12 +58,6 @@ landingContent:
       url: tutorial-run-python-batch-azure-data-factory.md
     - text: OCR com o Lote e o Functions
       url: tutorial-batch-functions.md
-    - text: Renderização de cena com Arnold
-      url: tutorial-rendering-cli.md
-    - text: Renderizar usando o Batch Explorer
-      url: tutorial-rendering-batchexplorer-blender.md
-    - text: Simulação R paralela
-      url: tutorial-r-doazureparallel.md
 - title: Configurar e gerenciar recursos
   linkLists:
   - linkListType: how-to-guide

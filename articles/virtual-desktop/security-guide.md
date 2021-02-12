@@ -3,15 +3,15 @@ title: Melhores práticas de segurança da Área de Trabalho Virtual do Windows 
 description: Melhores práticas para manter a segurança do seu ambiente da Área de Trabalho Virtual do Windows.
 author: heidilohr
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a194074b75a404e5a28e86015b0d0bcea2619fc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a106455ea9d7b7a64fecd7c4255c294d0bd62db8
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88002296"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562609"
 ---
 # <a name="security-best-practices"></a>Melhores práticas de segurança
 
@@ -62,7 +62,7 @@ Para saber mais, consulte [Integrar sua assinatura do Azure ao Centro de Seguran
 
 ### <a name="improve-your-secure-score"></a>Aprimorar sua classificação de segurança
 
-A classificação segura fornece recomendações e conselhos de melhores práticas para melhorar sua segurança geral. Essas recomendações são priorizadas para ajudar você a escolher quais são as mais importantes, e as opções de Correção Rápida ajudam você a resolver vulnerabilidades potenciais rapidamente. Essas recomendações também são atualizadas com o passar do tempo, mantendo você atualizado sobre as melhores formas de manter a segurança do seu ambiente. Para saber mais, consulte [Melhorar sua classificação de segurança na Central de Segurança do Azure](../security-center/security-center-secure-score.md).
+A classificação segura fornece recomendações e conselhos de melhores práticas para melhorar sua segurança geral. Essas recomendações são priorizadas para ajudar você a escolher quais são as mais importantes, e as opções de Correção Rápida ajudam você a resolver vulnerabilidades potenciais rapidamente. Essas recomendações também são atualizadas com o passar do tempo, mantendo você atualizado sobre as melhores formas de manter a segurança do seu ambiente. Para saber mais, consulte [Melhorar sua classificação de segurança na Central de Segurança do Azure](../security-center/secure-score-security-controls.md).
 
 ## <a name="windows-virtual-desktop-security-best-practices"></a>Melhores práticas de segurança da Área de Trabalho Virtual do Windows
 
@@ -70,17 +70,17 @@ A Área de Trabalho Virtual do Windows tem muitos controles de segurança intern
 
 ### <a name="require-multi-factor-authentication"></a>Exigir autenticação multifator
 
-Exigir a autenticação multifator para todos os usuários e administradores na Área de Trabalho Virtual do Windows melhora a segurança de toda a implantação. Para saber mais, consulte [Habilitar a Autenticação Multifator do Azure para a Área de Trabalho Virtual do Windows](set-up-mfa.md).
+Exigir a autenticação multifator para todos os usuários e administradores na Área de Trabalho Virtual do Windows melhora a segurança de toda a implantação. Para saber mais, confira [habilitar a autenticação multifator do Azure ad para área de trabalho virtual do Windows](set-up-mfa.md).
 
 ### <a name="enable-conditional-access"></a>Habilitar o Acesso Condicional
 
-Habilitar o [Acesso Condicional](../active-directory/conditional-access/best-practices.md) permite que você gerencie os riscos antes de conceder acesso ao seu ambiente de Área de Trabalho Virtual do Windows. Ao decidir a quais usuários conceder acesso, recomendamos que você também considere quem é o usuário, como eles se conectam e qual dispositivo ele está usando.
+Habilitar o [Acesso Condicional](../active-directory/conditional-access/overview.md) permite que você gerencie os riscos antes de conceder acesso ao seu ambiente de Área de Trabalho Virtual do Windows. Ao decidir a quais usuários conceder acesso, recomendamos que você também considere quem é o usuário, como eles se conectam e qual dispositivo ele está usando.
 
 ### <a name="collect-audit-logs"></a>Coletar logs de auditoria
 
 Habilitar a coleta de log de auditoria permite exibir a atividade de usuário e de administrador relacionada à Área de Trabalho Virtual do Windows. Alguns exemplos de logs de auditoria de chave são:
 
--   [Log de atividades do Azure](../azure-monitor/platform/activity-log-collect.md)
+-   [Log de atividades do Azure](../azure-monitor/platform/activity-log.md)
 -   [Log de atividades do Azure Active Directory](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
 -   [Hosts de sessão](../azure-monitor/platform/agent-windows.md)
@@ -93,11 +93,30 @@ Ao escolher um modelo de implantação, você pode fornecer aos usuários remoto
 
 ### <a name="monitor-usage-with-azure-monitor"></a>Monitorar o uso com o Azure Monitor
 
-Monitore o uso e a disponibilidade do serviço de Área de Trabalho Virtual do Windows com o [Azure Monitor](https://azure.microsoft.com/services/monitor/). Cogite criar [alertas de integridade do serviço](../service-health/alerts-activity-log-service-notifications.md) para o serviço de Área de Trabalho Virtual do Windows para receber notificações sempre que houver um evento de impacto no serviço.
+Monitore o uso e a disponibilidade do serviço de Área de Trabalho Virtual do Windows com o [Azure Monitor](https://azure.microsoft.com/services/monitor/). Cogite criar [alertas de integridade do serviço](../service-health/alerts-activity-log-service-notifications-portal.md) para o serviço de Área de Trabalho Virtual do Windows para receber notificações sempre que houver um evento de impacto no serviço.
 
 ## <a name="session-host-security-best-practices"></a>Melhores práticas de segurança do host da sessão
 
 Os hosts de sessão são máquinas virtuais que são executadas dentro de uma assinatura e rede virtual do Azure. A segurança geral da implantação de Área de Trabalho Virtual do Windows depende dos controles de segurança que você colocou em seus hosts de sessão. Esta seção descreve as melhores práticas para manter seus hosts de sessão seguros.
+
+### <a name="enable-screen-capture-protection-preview"></a>Habilitar proteção de captura de tela (visualização)
+
+O recurso proteção de captura de tela impede que informações confidenciais sejam capturadas nos pontos de extremidade do cliente. Quando você habilita esse recurso, o conteúdo remoto será bloqueado automaticamente ou oculto em capturas de tela e compartilhamentos de telas. Ele também será ocultado de software mal-intencionado que pode estar capturando continuamente o conteúdo da tela. Recomendamos que você desabilite o redirecionamento da área de transferência para evitar a cópia de conteúdo remoto para pontos de extremidade ao usar esse recurso.
+
+Essa política é imposta no nível do host por meio da configuração de uma chave do registro. Para habilitar essa política, abra o PowerShell e defina a chave do registro **fEnableScreenCaptureProtection** executando este cmdlet:
+
+```powershell
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnableScreenCaptureProtection /t REG_DWORD /d 1
+```
+
+Para testar esse novo recurso:
+
+- Verifique se os pools de hosts estão provisionados no ambiente de validação.
+- Verifique se você baixou e instalou o cliente de área de trabalho do Windows, versão 1.2.1526 ou posterior.
+
+>[!NOTE]
+>Durante a visualização, somente as conexões de área de trabalho completas dos pontos de extremidade do Windows 10 dão suporte a esse recurso.
+
 
 ### <a name="enable-endpoint-protection"></a>Habilitar a proteção de ponto de extremidade
 

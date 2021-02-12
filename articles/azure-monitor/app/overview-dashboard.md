@@ -3,12 +3,12 @@ title: Painel de Visão geral do Azure Application Insights | Microsfoft Docs
 description: Monitore aplicativos com a funcionalidade do Azure Application Insights e do Painel de Visão Geral.
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 714488d88b269f252dfd6677f847db315969a270
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b0708fa70d3a3ecb406f1d974bb1f2b47e55b40
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970611"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504093"
 ---
 # <a name="application-insights-overview-dashboard"></a>Painel de visão geral do Application Insights
 
@@ -53,7 +53,7 @@ Para navegar de volta para a experiência de visão geral basta selecionar:
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
-Se você selecionar **definir configurações de bloco** e definir um intervalo de tempo personalizado acima de 31 dias, seu painel não será exibido além de 31 dias de dados, mesmo com a retenção de dados padrão de 90 dias. Atualmente, não há nenhuma solução alternativa para esse comportamento.
+Atualmente, há um limite de 30 dias de dados para os dados exibidos em um painel. Se você selecionar um filtro de tempo além de 30 dias, ou se você selecionar **definir configurações de bloco** e definir um intervalo de tempo personalizado acima de 30 dias, seu painel não será exibido além de 30 dias de dados, mesmo com a retenção de dados padrão de 90 dias. Atualmente, não há nenhuma solução alternativa para esse comportamento.
 
 ## <a name="next-steps"></a>Próximas etapas
 

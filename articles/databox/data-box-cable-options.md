@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 10/24/2018
 ms.author: alkohli
-ms.openlocfilehash: bab81809f42c9afa3d2c701398fa5ff8ffc2800d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2c4cce492c48ebe6e09ad142f97bc6377a8a5e1
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744161"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94334587"
 ---
 # <a name="cabling-options-for-your-azure-data-box"></a>Opções de cabeamento para o Azure Data Box
 
@@ -32,7 +32,7 @@ Execute as etapas a seguir para cabear o dispositivo.
 
 1. Use um cabo RJ45 para conectar a porta MGMT ao servidor que tem os dados.
 
-    ![Instalação de uma porta](media/data-box-cable-options/cabling-mgmt-only.png)
+    ![Configuração de uma porta](media/data-box-cable-options/cabling-mgmt-only.png)
 
 2. No servidor, defina:
 
@@ -65,7 +65,7 @@ Execute as etapas a seguir para cabear o dispositivo.
    - **Endereço IP** como 192.168.100.5
    - **Sub-rede** como 255.255.255.0
 
-     ![Instalação de duas portas](media/data-box-cable-options/cabling-2-port-setup.png)
+     ![Configuração de duas portas](media/data-box-cable-options/cabling-2-port-setup.png)
 
 3. Acesse a interface do usuário da Web local do dispositivo em 192.168.100.10. Entre e desbloqueie o Data Box usando a senha de desbloqueio do portal do Azure.
 4. Atribua IPs estáticos às portas de dados que você configurou.
@@ -80,8 +80,8 @@ Execute as etapas a seguir para cabear o dispositivo.
 
    - **Endereço IP** 192.168.100.5
    - **Sub-rede** 255.255.255.0.
-
-     ![Instalação de duas portas com um comutador](media/data-box-cable-options/cabling-with-static-ip.png)
+  
+   ![Configuração de duas portas com um comutador](media/data-box-cable-options/cabling-with-static-ip.png)
 
 3. Acesse a interface do usuário da Web local do dispositivo em 192.168.100.10. Entre e desbloqueie o Data Box usando a senha de desbloqueio do portal do Azure.
 4. Identifique os endereços IP atribuídos pelo servidor DHCP.
@@ -126,6 +126,7 @@ Execute as etapas a seguir para cabear o dispositivo.
 1. Use um cabo RJ45 ou SFP+ por meio de um comutador (em que o servidor DHCP possa ser acessado) para o servidor.
 
     ![Configuração de duas portas com um comutador 3](media/data-box-cable-options/cabling-dhcp-data-only.png)
+
 2. Use o servidor DHCP ou servidor DNS para identificar o endereço IP.
 3. Em um servidor na mesma rede, acesse a interface do usuário Web local do dispositivo usando o endereço IP atribuído pelo servidor DHCP. Entre e desbloqueie o Data Box usando a senha de desbloqueio do portal do Azure.
 

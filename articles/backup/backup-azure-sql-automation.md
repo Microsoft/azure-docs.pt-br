@@ -4,12 +4,12 @@ description: Faça backup e restaure bancos de dados SQL em VMs do Azure usando 
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 0b3b943a53c1da0f6f1e938b5b234dc82541b46d
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 0a3467ffa3a67ac9ad593748948cea8da59e3e6b
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901676"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734531"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Fazer backup e restaurar bancos de dados SQL em VMs do Azure com o PowerShell
 
@@ -56,10 +56,10 @@ Configure o PowerShell da seguinte maneira:
 
     ![Listar cmdlets dos Serviços de Recuperação](./media/backup-azure-afs-automation/list-of-recoveryservices-ps-az.png)
 
-4. Entre em sua conta do Azure com **Connect-AzAccount** .
+4. Entre em sua conta do Azure com **Connect-AzAccount**.
 5. Na página da Web que aparece, você será solicitado a inserir suas credenciais de conta.
 
-    * Como alternativa, você pode incluir suas credenciais de conta como um parâmetro no cmdlet **Connect-AzAccount** com **-Credential** .
+    * Como alternativa, você pode incluir suas credenciais de conta como um parâmetro no cmdlet **Connect-AzAccount** com **-Credential**.
     * Se você for um parceiro CSP trabalhando para um locatário, especifique o cliente como um locatário, usando seu nome de domínio de locatárioid ou de locatário primário. Um exemplo é **Connect-AzAccount -Tenant** fabrikam.com.
 
 6. Associe a assinatura que você deseja usar com a conta, pois uma conta pode ter várias assinaturas.
@@ -80,13 +80,13 @@ Configure o PowerShell da seguinte maneira:
     Get-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 
-9. Na saída do comando, verifique se **RegistrationState** muda para **registrado** . Caso contrário, execute o cmdlet **Register-AzResourceProvider** novamente.
+9. Na saída do comando, verifique se **RegistrationState** muda para **registrado**. Caso contrário, execute o cmdlet **Register-AzResourceProvider** novamente.
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
 Siga estas etapas para criar um cofre dos Serviços de Recuperação:
 
-O cofre dos Serviços de Recuperação é um recurso do Resource Manager e, portanto, você precisará colocá-lo em um grupo de recursos. Você pode usar um grupo de recursos existente ou criar um grupo de recursos com o cmdlet **New-AzResourceGroup** . Ao criar um grupo de recursos, especifique o nome e o local.
+O cofre dos Serviços de Recuperação é um recurso do Resource Manager e, portanto, você precisará colocá-lo em um grupo de recursos. Você pode usar um grupo de recursos existente ou criar um grupo de recursos com o cmdlet **New-AzResourceGroup**. Ao criar um grupo de recursos, especifique o nome e o local.
 
 1. Um cofre é colocado em um grupo de recursos. Se você não tiver um grupo de recursos existente, crie um novo com o [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Neste exemplo, criamos um novo grupo de recursos na região oeste dos EUA.
 
@@ -103,7 +103,7 @@ O cofre dos Serviços de Recuperação é um recurso do Resource Manager e, port
 3. Especifique o tipo de redundância a ser usado para o armazenamento do cofre.
 
     * Você pode usar o armazenamento com redundância [local](../storage/common/storage-redundancy.md#locally-redundant-storage), armazenamento com redundância [geográfica](../storage/common/storage-redundancy.md#geo-redundant-storage) ou [armazenamento com redundância de zona](../storage/common/storage-redundancy.md#zone-redundant-storage) .
-    * O exemplo a seguir define a opção **-BackupStorageRedundancy** para o cmd [set-AzRecoveryServicesBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) para **testvault** definido como **georedundante** .
+    * O exemplo a seguir define a opção **-BackupStorageRedundancy** para o cmd [set-AzRecoveryServicesBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) para **testvault** definido como **georedundante**.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -137,7 +137,7 @@ Armazene o objeto de cofre em uma variável e defina o contexto do cofre.
 * Muitos cmdlets de backup do Azure exigem o objeto de cofre dos serviços de recuperação como uma entrada, portanto, é conveniente armazenar o objeto de cofre em uma variável.
 * O contexto do cofre é o tipo de dados protegido no cofre. Defina-o com [set-AzRecoveryServicesVaultContext](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext). Depois que o contexto é definido, ele se aplica a todos os cmdlets subsequentes.
 
-O exemplo a seguir define o contexto de cofre de **testvault** .
+O exemplo a seguir define o contexto de cofre de **testvault**.
 
 ```powershell
 Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultContext
@@ -172,7 +172,7 @@ $schpol.ScheduleRunTimes[0] = $UtcTime
 > [!IMPORTANT]
 > Você precisa fornecer a hora de início apenas em 30 minutos. No exemplo acima, ele pode ser apenas "01:00:00" ou "02:30:00". A hora de início não pode ser "01:15:00".
 
-O exemplo a seguir armazena a política de agendamento e a política de retenção em variáveis. Em seguida, ele usa essas variáveis como parâmetros para uma nova política ( **NewSQLPolicy** ). O **NewSQLPolicy** usa um backup "completo" diário, o retém por 180 dias e faz um backup de log a cada 2 horas
+O exemplo a seguir armazena a política de agendamento e a política de retenção em variáveis. Em seguida, ele usa essas variáveis como parâmetros para uma nova política (**NewSQLPolicy**). O **NewSQLPolicy** usa um backup "completo" diário, o retém por 180 dias e faz um backup de log a cada 2 horas
 
 ```powershell
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "MSSQL"
@@ -268,7 +268,7 @@ O backup do Azure pode restaurar SQL Server bancos de dados que estão em execu�
 * Restaurar para uma data ou hora específica (para o segundo) usando backups de log de transações. O backup do Azure determina automaticamente o backup diferencial completo apropriado e a cadeia de backups de log que são necessários para restaurar com base na hora selecionada.
 * Restaure um backup completo ou diferencial específico para restaurar para um ponto de recuperação específico.
 
-Verifique os pré-requisitos mencionados [aqui](restore-sql-database-azure-vm.md#prerequisites) antes de restaurar bancos de SQL.
+Verifique os pré-requisitos mencionados [aqui](restore-sql-database-azure-vm.md#restore-prerequisites) antes de restaurar bancos de SQL.
 
 Primeiro, busque o banco de BD SQL do backup relevante usando o cmdlet [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) do PowerShell.
 
@@ -499,7 +499,7 @@ Se a saída for perdida ou se você quiser obter a ID de trabalho relevante, [ob
 
 ### <a name="change-policy-for-backup-items"></a>Alterar política para itens de backup
 
-Você pode alterar a política do item de backup de *Policy1* para *Policy2* . Para alternar políticas para um item de backup, busque a política relevante e faça backup do item e use o comando [Enable-AzRecoveryServices](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) com o item de backup como o parâmetro.
+Você pode alterar a política do item de backup de *Policy1* para *Policy2*. Para alternar políticas para um item de backup, busque a política relevante e faça backup do item e use o comando [Enable-AzRecoveryServices](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) com o item de backup como o parâmetro.
 
 ```powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>

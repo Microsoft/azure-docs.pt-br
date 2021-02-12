@@ -7,20 +7,20 @@ author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
-ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 08/13/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb51f402cd7032358e6a9d2f9fad9aa64316b809
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 60d71c44ebaba5b0cbcb03afa41ad15237dceaef
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374393"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547467"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Configurar a política de expiração para grupos de Microsoft 365
 
@@ -73,7 +73,7 @@ Para obter mais informações sobre permissões para restaurar um grupo excluíd
 
 1. Abra o [centro de administração do Azure ad](https://aad.portal.azure.com) com uma conta que seja um administrador global em sua organização do Azure AD.
 
-2. Selecione **grupos**e, em seguida, selecione **expiração** para abrir as configurações de expiração.
+2. Selecione **grupos** e, em seguida, selecione **expiração** para abrir as configurações de expiração.
   
    ![Configurações de expiração para grupos](./media/groups-lifecycle/expiration-settings.png)
 

@@ -1,22 +1,22 @@
 ---
 title: Tutorial – Implantar o modelo do Azure Resource Manager local
-description: Aprenda a implantar um modelo do Azure Resource Manager do seu computador local
-ms.date: 05/20/2020
+description: Saiba como implantar um modelo do ARM (modelo do Azure Resource Manager) por meio do computador local
+ms.date: 01/12/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: fe13376ced428713703f2bd5cf33941129dec1d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b2368f5adcfa4b7140c4ec00243ca2cba5c566a
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611615"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134119"
 ---
-# <a name="tutorial-deploy-a-local-azure-resource-manager-template"></a>Tutorial: Implantar o modelo do Azure Resource Manager local
+# <a name="tutorial-deploy-a-local-arm-template"></a>Tutorial: Implantar um modelo do ARM local
 
-Aprenda a implantar um modelo do Azure Resource Manager do seu computador local. Esse procedimento demora cerca de **8 minutos** para ser concluído.
+Saiba como implantar um modelo do ARM (modelo do Azure Resource Manager) por meio do computador local. Esse procedimento demora cerca de **8 minutos** para ser concluído.
 
-Este tutorial é o primeiro de uma série. À medida que avança na série, você modulariza o modelo criando um modelo vinculado, armazena o modelo vinculado em uma conta de armazenamento e protege o modelo vinculado usando o token SAS, além de aprender a criar um pipeline DevOp para implantar modelos. Esta série se concentra na implantação de modelo.  Se desejar aprender sobre o desenvolvimento de modelos, confira os [tutoriais de iniciantes](./template-tutorial-create-first-template.md).
+Este tutorial é o primeiro de uma série. À medida que avança na série, você modulariza o modelo criando um modelo vinculado, armazena o modelo vinculado em uma conta de armazenamento e protege-o usando o token SAS, além de aprender a criar um pipeline de DevOps para implantar modelos. Esta série se concentra na implantação de modelo. Se desejar aprender sobre o desenvolvimento de modelos, confira os [tutoriais de iniciantes](./template-tutorial-create-first-template.md).
 
 ## <a name="get-tools"></a>Obter ferramentas
 
@@ -29,23 +29,24 @@ Você precisa do Azure PowerShell ou da CLI do Azure para implantar o modelo. Pa
 - [Instale o Azure PowerShell](/powershell/azure/install-az-ps)
 - [Instalar a CLI do Azure no Windows](/cli/azure/install-azure-cli-windows)
 - [Instalar a CLI do Azure no Linux](/cli/azure/install-azure-cli-linux)
+- [Instalar a CLI do Azure no macOS](/cli/azure/install-azure-cli-macos)
 
 Depois de instalar o Azure PowerShell ou a CLI do Azure, é preciso que você entre pela primeira vez. Para obter ajuda, confira [Entrar – PowerShell](/powershell/azure/install-az-ps#sign-in) ou [Entrar – CLI do Azure](/cli/azure/get-started-with-azure-cli#sign-in).
 
 ### <a name="editor-optional"></a>Editor (opcional)
 
-Modelos são arquivos JSON. Para examinar/editar modelos, você precisa de um bom editor de JSON. Recomendamos o Visual Studio Code com a extensão Ferramentas do Resource Manager. Se precisar instalar essas ferramentas, confira [Guia de Início Rápido: Criar modelos do Azure Resource Manager com o Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+Modelos são arquivos JSON. Para examinar/editar modelos, você precisa de um bom editor de JSON. Recomendamos o Visual Studio Code com a extensão Ferramentas do Resource Manager. Se precisar instalar essas ferramentas, confira [Guia de Início Rápido: Criar modelos do ARM com o Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="review-template"></a>Examinar modelo
 
-O modelo implanta uma conta de armazenamento, um plano do serviço de aplicativo e um aplicativo Web. Se você estiver interessado em criar o modelo, veja o [tutorial sobre Modelos de Início Rápido](template-tutorial-quickstart-template.md). No entanto, isso não é necessário para concluir este tutorial.
+O modelo implanta uma conta de armazenamento, um plano do serviço de aplicativo e um aplicativo Web. Se estiver interessado em criar o modelo, acompanhe o [tutorial sobre Modelos de início rápido](template-tutorial-quickstart-template.md). No entanto, isso não é necessário para concluir este tutorial.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/local-template/azuredeploy.json":::
 
 > [!IMPORTANT]
-> Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres, usar números e apenas letras minúsculas. O nome deve ser exclusivo. No modelo, o nome da conta de armazenamento é o nome do projeto com "armazenamento" acrescentado, e o nome do projeto deve ter entre 3 e 11 caracteres. Portanto, o nome do projeto deve atender aos requisitos de nome da conta de armazenamento e ter menos de 11 caracteres.
+> Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres, usar números e apenas letras minúsculas. O nome deve ser exclusivo. No modelo, o nome da conta de armazenamento é o nome do projeto com **store** acrescentado e o nome do projeto deve ter entre 3 e 11 caracteres. Portanto, o nome do projeto deve atender aos requisitos de nome da conta de armazenamento e ter menos de 11 caracteres.
 
-Salve uma cópia do modelo em seu computador local com a extensão .json, por exemplo, azuredeploy.json. Você implantará esse modelo posteriormente no tutorial.
+Salve uma cópia do modelo no computador local com a extensão _.json_, por exemplo, _azuredeploy.json_. Você implantará esse modelo posteriormente no tutorial.
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -65,7 +66,7 @@ az login
 
 ---
 
-Se você tiver várias assinaturas do Azure, selecione a que deseja usar:
+Se tiver várias assinaturas do Azure, selecione a que deseja usar. Substitua `[SubscriptionID/SubscriptionName]` e os colchetes `[]` pelas informações da sua assinatura:
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -129,7 +130,7 @@ New-AzResourceGroupDeployment `
   -verbose
 ```
 
-Para saber mais sobre como implantar o modelo usando o Azure PowerShell, confira [Implantar recursos com modelos do Resource Manager e com o Azure PowerShell](./deploy-powershell.md).
+Para saber mais sobre como implantar o modelo usando o Azure PowerShell, confira [Implantar recursos com modelos do ARM e o Azure PowerShell](./deploy-powershell.md).
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -148,7 +149,7 @@ az deployment group create \
   --verbose
 ```
 
-Para saber mais sobre como implantar o modelo usando a CLI do Azure, confira [Implantar recursos com modelos do Resource Manager e com a CLI do Azure](./deploy-cli.md).
+Para saber mais sobre como implantar o modelo usando a CLI do Azure, confira [Implantar recursos com modelos do ARM e a CLI do Azure](./deploy-cli.md).
 
 ---
 

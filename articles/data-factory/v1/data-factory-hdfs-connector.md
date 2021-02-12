@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f22d5ddd35d5d0cba48f0d236b28fabae02a966a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: c4393ebeb8b1e287bd881233418a902fc523f7f5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631590"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589603"
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Mover dados do HDFS local usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -47,9 +47,9 @@ Embora você possa instalar o gateway no mesmo computador local ou a VM do Azure
 ## <a name="getting-started"></a>Introdução
 Você pode criar um pipeline com uma atividade de cópia que mova dados de uma origem HDFS usando diferentes ferramentas/APIs.
 
-A maneira mais fácil de criar um pipeline é usar o **Assistente de cópia** . Confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
+A maneira mais fácil de criar um pipeline é usar o **Assistente de cópia**. Confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
 
-Você também pode usar as seguintes ferramentas para criar um pipeline: **Portal do Azure** , **Visual Studio** , **Azure PowerShell** , **modelo do Azure Resource Manager** , **API .NET** e **API REST** . Confira o [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções detalhadas para criar um pipeline com uma atividade de cópia.
+Você também pode usar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo do Azure Resource Manager**, **API .NET** e **API REST**. Confira o [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções detalhadas para criar um pipeline com uma atividade de cópia.
 
 Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
@@ -122,14 +122,14 @@ A seção **typeproperties** é diferente para cada tipo de conjunto de dados e 
 | folderPath |Caminho para a pasta. Exemplo: `myfolder`<br/><br/>Use o caractere de escape ' \ ' para caracteres especiais na cadeia de caracteres. Por exemplo: para pasta\subpasta, especifique a pasta\\\\subpasta e para d:\pastadeexemplo, especifique d:\\\\pastadeexemplo.<br/><br/>Você pode combinar essa propriedade com **partitionBy** para ter caminhos de pastas com base na fatia de data/hora de início/término. |Sim |
 | fileName |Especifique o nome do arquivo no **folderPath** se deseja que a tabela se refira a um arquivo específico na pasta. Se você não especificar algum valor para essa propriedade, a tabela apontará para todos os arquivos na pasta.<br/><br/>Quando o fileName não for especificado para um conjunto de dados de saída, o nome do arquivo gerado será no seguinte formato: <br/><br/>`Data.<Guid>.txt` (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
 | partitionedBy |partitionedBy pode usado para especificar um filename, folderPath dinâmico para dados de série temporal. Exemplo: folderPath parametrizado para cada hora dos dados. |Não |
-| format | Há suporte para os seguintes tipos de formato: **TextFormat** , **JsonFormat** , **AvroFormat** , **OrcFormat** e **ParquetFormat** . Defina a propriedade **type** sob formato como um desses valores. Para saber mais, veja as seções [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Se você quiser **copiar arquivos no estado em que se encontram** entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída. |Não |
-| compactação | Especifique o tipo e o nível de compactação para os dados. Tipos compatíveis são: **GZip** , **Deflate** , **BZip2** e **ZipDeflate** . Níveis compatíveis são: **Ideal** e **Mais Rápido** . Para saber mais, confira [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support) (Formatos de arquivo e de compactação no Azure Data Factory). |Não |
+| format | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Para saber mais, veja as seções [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Se você quiser **copiar arquivos no estado em que se encontram** entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída. |Não |
+| compactação | Especifique o tipo e o nível de compactação para os dados. Tipos compatíveis são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. Níveis compatíveis são: **Ideal** e **Mais Rápido**. Para saber mais, confira [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support) (Formatos de arquivo e de compactação no Azure Data Factory). |Não |
 
 > [!NOTE]
 > filename e fileFilter não podem ser usados simultaneamente.
 
 ### <a name="using-partionedby-property"></a>Usando a propriedade partionedBy
-Conforme mencionado na seção anterior, você pode especificar um nome de arquivo e um folderPath dinâmico para dados de série temporal com a propriedade **partitionedBy** , [funções do Data Factory e as variáveis do sistema](data-factory-functions-variables.md).
+Conforme mencionado na seção anterior, você pode especificar um nome de arquivo e um folderPath dinâmico para dados de série temporal com a propriedade **partitionedBy**, [funções do Data Factory e as variáveis do sistema](data-factory-functions-variables.md).
 
 Confira os artigos [Criando conjuntos de dados](data-factory-create-datasets.md), [Agendamento e execução](data-factory-scheduling-and-execution.md) e [Criando pipelines](data-factory-create-pipelines.md) para saber mais sobre conjuntos de dados de série temporal, agendamentos e fatias.
 
@@ -308,7 +308,7 @@ Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo
 
 **Uma atividade de cópia em um pipeline com origem de Sistema de Arquivos e coletor Blob:**
 
-O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída e agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo **source** está definido como **FileSystemSource** e o tipo **sink** está definido como **BlobSink** . A consulta SQL especificada para a propriedade **query** seleciona os dados na última hora para copiar.
+O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída e agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo **source** está definido como **FileSystemSource** e o tipo **sink** está definido como **BlobSink**. A consulta SQL especificada para a propriedade **query** seleciona os dados na última hora para copiar.
 
 ```JSON
 {
@@ -374,33 +374,33 @@ Há duas opções para configurar o ambiente local para usar a autenticação Ke
 
     **Reinicie** o computador depois de executar esses 2 comandos.
 
-2.  Verifique a configuração com o comando **Ksetup** . A saída deverá ser como a seguinte:
+2.  Verifique a configuração com o comando **Ksetup**. A saída deverá ser como a seguinte:
 
     ```cmd
     C:> Ksetup
     default realm = REALM.COM (external)
     REALM.com:
         kdc = <your_kdc_server_address>
-        ```
+    ```
 
-**In Azure Data Factory:**
+**No Azure Data Factory:**
 
-* Configure the HDFS connector using **Windows authentication** together with your Kerberos principal name and password to connect to the HDFS data source. Check [HDFS Linked Service properties](#linked-service-properties) section on configuration details.
+* Configure o conector HDFS usando a **autenticação do Windows** com o nome da entidade de segurança e a senha Kerberos para se conectar à fonte de dados HDFS. Verifique a seção de [propriedades do Serviço Vinculado HDFS](#linked-service-properties) nos detalhes da configuração.
 
-### <a name="kerberos-mutual-trust"></a>Option 2: Enable mutual trust between Windows domain and Kerberos realm
+### <a name="option-2-enable-mutual-trust-between-windows-domain-and-kerberos-realm"></a><a name="kerberos-mutual-trust"></a>Opção 2: Habilitar a confiança mútua entre o domínio do Windows e o realm Kerberos
 
-#### Requirement:
-*   The gateway machine must join a Windows domain.
-*   You need permission to update the domain controller's settings.
+#### <a name="requirement"></a>Requisito:
+*   O computador do gateway deve ingressar em um domínio do Windows.
+*   Você precisa de permissão para atualizar as configurações do controlador de domínio.
 
-#### How to configure:
+#### <a name="how-to-configure"></a>Como configurar:
 
 > [!NOTE]
-> Replace REALM.COM and AD.COM in the following tutorial with your own respective realm and domain controller as needed.
+> Substitua o REALM.COM e o AD.COM no tutorial a seguir com seus respectivos realm e controlador de domínio, conforme necessário.
 
-**On KDC server:**
+**No servidor KDC:**
 
-1. Edit the KDC configuration in **krb5.conf** file to let KDC trust Windows Domain referring to the following configuration template. By default, the configuration is located at **/etc/krb5.conf**.
+1. Edite a configuração do KDC no arquivo **krb5.conf** para permitir que o Domínio do Windows de confiança do KDC se refira ao modelo de configuração a seguir. Por padrão, a configuração está localizada em **/etc/krb5.conf**.
 
    ```config
    [logging]
@@ -446,7 +446,7 @@ Há duas opções para configurar o ambiente local para usar a autenticação Ke
    Kadmin> addprinc krbtgt/REALM.COM@AD.COM
    ```
 
-3. No arquivo de configuração de serviço HDFS **hadoop.security.auth_to_local** , adicione `RULE:[1:$1@$0](.*\@AD.COM)s/\@.*//`.
+3. No arquivo de configuração de serviço HDFS **hadoop.security.auth_to_local**, adicione `RULE:[1:$1@$0](.*\@AD.COM)s/\@.*//`.
 
 **No controlador de domínio:**
 
@@ -457,7 +457,7 @@ Há duas opções para configurar o ambiente local para usar a autenticação Ke
     C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
     ```
 
-2.  Estabeleça uma relação de confiança do Domínio do Windows ao Realm Kerberos. [password] é a senha para a entidade de segurança **krbtgt/REALM.COM\@AD.COM** .
+2.  Estabeleça uma relação de confiança do Domínio do Windows ao Realm Kerberos. [password] é a senha para a entidade de segurança **krbtgt/REALM.COM\@AD.COM**.
 
     ```cmd
     C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
@@ -467,7 +467,7 @@ Há duas opções para configurar o ambiente local para usar a autenticação Ke
 
     1. Vá para Gerenciador de Servidores > Gerenciamento de Política de Grupo > Domínio > Objetos de Política de Grupo > Política de Domínio Padrão ou Ativa e Editar.
 
-    2. Na janela pop-up **Editor de Gerenciamento de Política de Grupo** , vá para Configuração do Computador > Políticas > Configurações do Windows > Configurações de Segurança > Políticas Locais > Opções de Segurança e defina **Segurança de rede: Configurar tipos de criptografia permitidos para Kerberos** .
+    2. Na janela pop-up **Editor de Gerenciamento de Política de Grupo**, vá para Configuração do Computador > Políticas > Configurações do Windows > Configurações de Segurança > Políticas Locais > Opções de Segurança e defina **Segurança de rede: Configurar tipos de criptografia permitidos para Kerberos**.
 
     3. Selecione o algoritmo de criptografia que você deseja usar ao se conectar ao KDC. Normalmente, você pode simplesmente selecionar todas as opções.
 
@@ -481,11 +481,11 @@ Há duas opções para configurar o ambiente local para usar a autenticação Ke
 
 4.  Crie o mapeamento entre a conta de domínio e a entidade de segurança Kerberos para usar a entidade de segurança Kerberos no Domínio do Windows.
 
-    1. Inicie as Ferramentas administrativas > **Usuários e Computadores do Active Directory** .
+    1. Inicie as Ferramentas administrativas > **Usuários e Computadores do Active Directory**.
 
-    2. Configure recursos avançados clicando em **Exibir** > **Recursos Avançados** .
+    2. Configure recursos avançados clicando em **Exibir** > **Recursos Avançados**.
 
-    3. Localize a conta para a qual deseja criar mapeamentos e clique com o botão direito do mouse para exibir **Mapeamentos de Nome** > clique na guia **Nomes Kerberos** .
+    3. Localize a conta para a qual deseja criar mapeamentos e clique com o botão direito do mouse para exibir **Mapeamentos de Nome** > clique na guia **Nomes Kerberos**.
 
     4. Adicione uma entidade de segurança do realm.
 

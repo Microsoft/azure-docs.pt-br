@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: 738d62d60ad06431bd77cd99343fc8835c4c5685
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: a36b37c1f0118055d931f785f570a10041e2dbfc
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330165"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965690"
 ---
 # <a name="how-to-protect-private-dns-zones-and-records"></a>Como proteger registros e zonas DNS particulares
 
@@ -34,7 +34,7 @@ O grupo de recursos *myPrivateDNS* contém cinco zonas para a Contoso Corporatio
 
 A maneira mais simples de atribuir permissões de RBAC do Azure é [por meio do portal do Azure](../role-based-access-control/role-assignments-portal.md).  
 
-Abra o **controle de acesso (iam)** para o grupo de recursos, selecione **Adicionar**e, em seguida, selecione a função colaborador de **zona de DNS privado** . Selecione os usuários ou grupos necessários para conceder permissões.
+Abra o **controle de acesso (iam)** para o grupo de recursos, selecione **Adicionar** e, em seguida, selecione a função colaborador de **zona de DNS privado** . Selecione os usuários ou grupos necessários para conceder permissões.
 
 ![Azure RBAC no nível do grupo de recursos por meio do portal do Azure](./media/dns-protect-private-zones-recordsets/rbac1.png)
 
@@ -67,7 +67,7 @@ az role assignment create \
 
 Por exemplo, o grupo de recursos *myPrivateDNS* contém a zona *Private.contoso.com* e uma subzona *Customers.Private.contoso.com*. Os registros CNAME são criados para cada conta de cliente. A conta de administrador usada para gerenciar registros CNAME recebe permissões para criar registros na zona *Customers.Private.contoso.com* . A conta pode gerenciar somente *Customers.Private.contoso.com* .
 
-As permissões do RBAC do Azure no nível de zona podem ser concedidas por meio do portal do Azure.  Abra o **controle de acesso (iam)** para a zona, selecione **Adicionar**e, em seguida, selecione a função colaborador de **zona de DNS privado** . Selecione os usuários ou grupos necessários para conceder permissões.
+As permissões do RBAC do Azure no nível de zona podem ser concedidas por meio do portal do Azure.  Abra o **controle de acesso (iam)** para a zona, selecione **Adicionar** e, em seguida, selecione a função colaborador de **zona de DNS privado** . Selecione os usuários ou grupos necessários para conceder permissões.
 
 ![Nível de zona DNS RBAC do Azure por meio do portal do Azure](./media/dns-protect-private-zones-recordsets/rbac2.png)
 
@@ -204,7 +204,7 @@ Bloqueios de recurso em nível de zona podem ser criados via Portal do Azure.  N
 
 ![Bloqueios de recurso em nível de zona via Portal do Azure](./media/dns-protect-private-zones-recordsets/locks1.png)
 
-Bloqueios de recursos de nível de zona também podem ser criados por meio de [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcelock?view=latest):
+Bloqueios de recursos de nível de zona também podem ser criados por meio de [Azure PowerShell](/powershell/module/az.resources/new-azresourcelock?view=latest):
 
 ```azurepowershell-interactive
 # Lock a DNS zone
@@ -218,7 +218,7 @@ $rsg = "<resource group name>"
 New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rsc -ResourceType $rty -ResourceGroupName $rsg
 ```
 
-O comando equivalente também está [disponível por meio da CLI do Azure](https://docs.microsoft.com/cli/azure/lock?view=azure-cli-latest#az-lock-create):
+O comando equivalente também está [disponível por meio da CLI do Azure](/cli/azure/lock?view=azure-cli-latest#az-lock-create):
 
 ```azurecli-interactive
 # Lock a DNS zone

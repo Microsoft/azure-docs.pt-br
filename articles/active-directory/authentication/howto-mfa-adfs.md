@@ -1,26 +1,26 @@
 ---
-title: Proteger recursos com o Azure MFA e o ADFS-Azure Active Directory
-description: Esta é a página do Azure Multi-Factor Authentication que descreve como começar a usar o Azure MFA e o AD FS na nuvem.
+title: Proteger recursos com o Azure AD MFA e o ADFS-Azure Active Directory
+description: Esta é a página de autenticação multifator do Azure AD que descreve como começar a usar o Azure AD MFA e AD FS na nuvem.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/11/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5167d9041e8edfd6e829bdd1a78f826f73eea4d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b42f920726d4b3046ab0c292e1090f5217e8b1f9
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964580"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743234"
 ---
-# <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Protegendo os recursos de nuvem usando a Autenticação Multifator do Azure e o AD FS
+# <a name="securing-cloud-resources-with-azure-ad-multi-factor-authentication-and-ad-fs"></a>Protegendo recursos de nuvem com a autenticação multifator do Azure AD e o AD FS
 
-Se sua organização for federada com o Azure Active Directory, use a Autenticação Multifator do Azure ou os Serviços de Federação do Active Directory (AD FS) para proteger os recursos que são acessados pelo Azure AD. Use os procedimentos a seguir para proteger os recursos do Azure Active Directory com Autenticação Multifator do Azure ou os Serviços de Federação do Active Directory.
+Se sua organização for federada com Azure Active Directory, use a autenticação multifator do Azure AD ou Serviços de Federação do Active Directory (AD FS) (AD FS) para proteger os recursos que são acessados pelo Azure AD. Use os procedimentos a seguir para proteger Azure Active Directory recursos com a autenticação multifator do Azure AD ou Serviços de Federação do Active Directory (AD FS).
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>Proteger recursos do Azure AD usando o AD FS
 
@@ -48,7 +48,7 @@ Para proteger seus recursos de nuvem, configure uma regra de declaração para q
 
 ## <a name="trusted-ips-for-federated-users"></a>IPs confiáveis para usuários federados
 
-IPs confiáveis permitem aos administradores ignorar a verificação em duas etapas para endereços IP específicos ou para usuários federados que têm as solicitações originadas em seu próprios intranet. As seções a seguir descrevem como configurar IPs confiáveis da Autenticação Multifator do Azure com usuários federados e desviar a verificação em duas etapas quando uma solicitação se originar de dentro de uma intranet de usuários federados. Isso é conseguido por meio da configuração do AD FS para usar uma passagem ou filtrar um modelo de declaração de entrada com o tipo de declaração Dentro da rede corporativa.
+IPs confiáveis permitem aos administradores ignorar a verificação em duas etapas para endereços IP específicos ou para usuários federados que têm as solicitações originadas em seu próprios intranet. As seções a seguir descrevem como configurar IPs confiáveis da autenticação multifator do Azure AD com usuários federados e passar a verificação em duas etapas quando uma solicitação é originada de dentro de uma intranet de usuários federados. Isso é conseguido por meio da configuração do AD FS para usar uma passagem ou filtrar um modelo de declaração de entrada com o tipo de declaração Dentro da rede corporativa.
 
 Este exemplo usa Microsoft 365 para nossas relações de confiança de terceira parte confiável.
 
@@ -81,15 +81,15 @@ A primeira coisa que precisamos fazer é configurar as declarações do AD FS. C
 
 13. Clique em **Concluir**.
 14. Clique em **Aplicar**.
-15. Clique em **OK**.
+15. Clique em **Ok**.
 16. Feche o gerenciamento do AD FS.
 
-### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Configurar IPs confiáveis da Autenticação Multifator do Azure com usuários federados
+### <a name="configure-azure-ad-multi-factor-authentication-trusted-ips-with-federated-users"></a>Configurar IPs confiáveis da autenticação multifator do Azure AD com usuários federados
 
 Agora que as declarações estão prontas, podemos configurar IPs confiáveis.
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Selecione **Azure Active Directory**  >  **Security**  >  **acesso condicional**de segurança  >  **locais nomeados**.
+2. Selecione **Azure Active Directory**  >  **Security**  >  **acesso condicional** de segurança  >  **locais nomeados**.
 3. Na folha **acesso condicional-locais nomeados** , selecione **Configurar IPs confiáveis MFA**
 
    ![Locais nomeados de acesso condicional do Azure AD configurar IPs confiáveis de MFA](./media/howto-mfa-adfs/trustedip6.png)

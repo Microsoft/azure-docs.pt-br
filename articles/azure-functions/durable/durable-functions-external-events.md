@@ -4,12 +4,12 @@ description: Saiba como lidar com eventos externos na extensão de Funções Dur
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 3cd04c93d508bd06c4ddd2e05074084202b9fc60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c08306edcea02a9207ab5a15eb62b7fffc2ecb44
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87014932"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576322"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Lidando com eventos externos nas Funções Duráveis (Azure Functions)
 
@@ -20,7 +20,7 @@ Funções de orquestrador têm a capacidade de aguardar e escutar eventos extern
 
 ## <a name="wait-for-events"></a>Aguardar eventos
 
-Os métodos [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) (.net), `waitForExternalEvent` (JavaScript) e `wait_for_external_event` (Python) da Associação de [gatilho de orquestração](durable-functions-bindings.md#orchestration-trigger) permitem que uma função de orquestrador Espere e escute um evento externo de forma assíncrona. A função do orquestrador que está escutando declara o *nome* do evento e a *forma dos dados* que espera receber.
+Os métodos [WaitForExternalEvent](/dotnet/api/microsoft.azure.webjobs.durableorchestrationcontextbase.waitforexternalevent?view=azure-dotnet-legacy) (.net), `waitForExternalEvent` (JavaScript) e `wait_for_external_event` (Python) da Associação de [gatilho de orquestração](durable-functions-bindings.md#orchestration-trigger) permitem que uma função de orquestrador Espere e escute um evento externo de forma assíncrona. A função do orquestrador que está escutando declara o *nome* do evento e a *forma dos dados* que espera receber.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -230,9 +230,9 @@ main = df.Orchestrator.create(orchestrator_function)
 
 ## <a name="send-events"></a>Enviar eventos
 
-Você pode usar os métodos [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) (.net) ou `raiseEventAsync` (JavaScript) para enviar um evento externo para uma orquestração. Esses métodos são expostos pela Associação de [cliente de orquestração](durable-functions-bindings.md#orchestration-client) . Você também pode usar a [API http de evento de elevação](durable-functions-http-api.md#raise-event) interna para enviar um evento externo para uma orquestração.
+Você pode usar os métodos [RaiseEventAsync](/dotnet/api/microsoft.azure.webjobs.durableorchestrationclientbase.raiseeventasync?view=azure-dotnet-legacy) (.net) ou `raiseEventAsync` (JavaScript) para enviar um evento externo para uma orquestração. Esses métodos são expostos pela Associação de [cliente de orquestração](durable-functions-bindings.md#orchestration-client) . Você também pode usar a [API http de evento de elevação](durable-functions-http-api.md#raise-event) interna para enviar um evento externo para uma orquestração.
 
-Um evento gerado inclui uma *ID de instância*, um *EventName*e um *EVENTDATA* como parâmetros. As funções de orquestrador manipulam esses eventos usando as `WaitForExternalEvent` APIs (.net) ou `waitForExternalEvent` (JavaScript). O *EventName* deve corresponder nas extremidades de envio e de recebimento para que o evento seja processado. Os dados de evento também devem ser serializáveis em JSON.
+Um evento gerado inclui uma *ID de instância*, um *EventName* e um *EVENTDATA* como parâmetros. As funções de orquestrador manipulam esses eventos usando as `WaitForExternalEvent` APIs (.net) ou `waitForExternalEvent` (JavaScript). O *EventName* deve corresponder nas extremidades de envio e de recebimento para que o evento seja processado. Os dados de evento também devem ser serializáveis em JSON.
 
 Internamente, os mecanismos de "evento de elevação" enfileiram uma mensagem que é selecionada pela função de orquestrador em espera. Se a instância não está aguardando o *nome do evento* especificado, a mensagem de evento é adicionada a uma fila na memória. Se posteriormente a instância de orquestração começa a escutar esse *nome do evento*, ela verifica a fila de mensagens de evento.
 

@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: daberry
-ms.openlocfilehash: 250223c5c15a0179fe105e66e7004f8920c5eb34
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 537a301ef2c3ba1bb5ed34d92c8784655c79d97f
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637608"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097465"
 ---
 # <a name="ev3-and-esv3-series"></a>Séries Ev3 e Esv3
 
@@ -32,6 +32,8 @@ O recurso da VM da série Ev3 Intel® Hyper-Threading tecnologia.
 [Migração ao vivo](maintenance-and-updates.md): com suporte<br>
 [Atualizações de preservação de memória](maintenance-and-updates.md): com suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
 <br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps de leitura / MBps de gravação | NICs máximas / largura de banda da rede |
@@ -62,6 +64,8 @@ O recurso da VM da série Esv3 Intel® Hyper-Threading tecnologia.
 [Migração ao vivo](maintenance-and-updates.md): com suporte<br>
 [Atualizações de preservação de memória](maintenance-and-updates.md): com suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): com suporte <br>
 <br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento em cache e temporária: IOPS/MBps (tamanho do cache em GiB) | Taxa de transferência de armazenamento temporário e em cache de intermitência: IOPS/MBps<sup>3</sup> | Taxa de transferência de disco sem cache: IOPS/MBps |  Taxa de transferência de disco não armazenado em cache de intermitência: IOPS/MBps<sup>3</sup>| Máximo de NICs/largura de banda de rede esperada (Mbps) |
@@ -80,7 +84,7 @@ O recurso da VM da série Esv3 Intel® Hyper-Threading tecnologia.
 
 <sup>2</sup> A instância é isolada em hardware dedicado a um único cliente.
 
-<sup>3</sup> as VMs da série Esv3 podem [estourar](linux/disk-bursting.md) o desempenho do disco e chegar até o máximo de pico por até 30 minutos por vez.
+<sup>3</sup> as VMs da série Esv3 podem [estourar](./disk-bursting.md) o desempenho do disco e chegar até o máximo de pico por até 30 minutos por vez.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

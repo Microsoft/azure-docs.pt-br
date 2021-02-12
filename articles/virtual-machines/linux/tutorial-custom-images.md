@@ -10,12 +10,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.reviewer: akjosh
-ms.openlocfilehash: 7fff8539f330c7cbc886577eaf6dbe4417411999
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 956e7c18deb597f6347dfd5dfdca99709a7052a0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87498133"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880971"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>Tutorial: Criar uma imagem personalizada de uma VM do Azure com a CLI do Azure
 
@@ -35,7 +35,7 @@ Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que 
 
 ## <a name="overview"></a>Visão geral
 
-Uma [Galeria de Imagens Compartilhadas](shared-image-galleries.md) simplifica o compartilhamento da imagem personalizada em sua organização. Imagens personalizadas são como imagens do marketplace, mas você mesmo as cria. As imagens personalizadas podem ser usadas para configurações de inicialização como o pré-carregamento de aplicativos, configurações de aplicativos e outras configurações do sistema operacional. 
+Uma [Galeria de Imagens Compartilhadas](../shared-image-galleries.md) simplifica o compartilhamento da imagem personalizada em sua organização. Imagens personalizadas são como imagens do marketplace, mas você mesmo as cria. As imagens personalizadas podem ser usadas para configurações de inicialização como o pré-carregamento de aplicativos, configurações de aplicativos e outras configurações do sistema operacional. 
 
 A Galeria de Imagens Compartilhadas permite que você compartilhe suas imagens de VM personalizadas com outras pessoas. Escolha quais imagens você deseja compartilhar, em quais regiões deseja torná-las disponíveis e com quem deseja compartilhá-las. 
 
@@ -90,11 +90,11 @@ As definições de imagem criam um agrupamento lógico para as imagens. Elas sã
 
 Os nomes das definições de imagem podem ser compostos por letras maiúsculas ou minúsculas, dígitos, pontos, traços e pontos finais. 
 
-Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, confira [Definições de imagem](./shared-image-galleries.md#image-definitions).
+Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, confira [Definições de imagem](../shared-image-galleries.md#image-definitions).
 
 Crie uma definição de imagem na galeria usando [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create). 
 
-Neste exemplo, a definição da imagem se chama *myImageDefinition* e é referente a uma imagem [especializada](./shared-image-galleries.md#generalized-and-specialized-images) do SO Linux. 
+Neste exemplo, a definição da imagem se chama *myImageDefinition* e é referente a uma imagem [especializada](../shared-image-galleries.md#generalized-and-specialized-images) do SO Linux. 
 
 ```azurecli-interactive 
 az sig image-definition create \
@@ -156,7 +156,7 @@ az vm create --resource-group myResourceGroup \
 
 ## <a name="share-the-gallery"></a>Compartilhar a galeria
 
-Você pode compartilhar imagens entre assinaturas usando o RBAC (Controle de Acesso Baseado em Função). Você pode compartilhar imagens no nível da galeria, da definição da imagem e da versão da imagem. Qualquer usuário que tenha permissões de leitura para uma versão de imagem, mesmo entre assinaturas, poderá implantar uma VM usando a versão da imagem.
+Você pode compartilhar imagens entre assinaturas usando o Azure RBAC (controle de acesso baseado em função do Azure). Você pode compartilhar imagens no nível da galeria, da definição da imagem e da versão da imagem. Qualquer usuário que tenha permissões de leitura para uma versão de imagem, mesmo entre assinaturas, poderá implantar uma VM usando a versão da imagem.
 
 Recomendamos que você compartilhe com outros usuários no nível da galeria. Para obter a ID do objeto da galeria, use [az sig show](/cli/azure/sig#az-sig-show).
 
@@ -176,11 +176,11 @@ az role assignment create \
    --scope <gallery ID>
 ```
 
-Para obter mais informações de como compartilhar recursos usando o RBAC, confira [Gerenciar o acesso usando a CLI do Azure e RBAC](../../role-based-access-control/role-assignments-cli.md).
+Para obter mais informações sobre como compartilhar recursos usando o Azure RBAC, confira [Adicionar ou remover atribuições de função do Azure usando a CLI do Azure](../../role-based-access-control/role-assignments-cli.md).
 
 ## <a name="azure-image-builder"></a>Construtor de Imagens do Azure
 
-O Azure também oferece um serviço integrado ao Packer, o [Construtor de Imagens de VM do Azure](./image-builder-overview.md). Basta descrever suas personalizações em um modelo e ele cuidará da criação da imagem. 
+O Azure também oferece um serviço integrado ao Packer, o [Construtor de Imagens de VM do Azure](../image-builder-overview.md). Basta descrever suas personalizações em um modelo e ele cuidará da criação da imagem. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

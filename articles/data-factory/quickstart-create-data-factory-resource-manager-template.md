@@ -5,18 +5,18 @@ services: data-factory
 ms.service: data-factory
 tags: azure-resource-manager
 ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan, jingwang
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 07/16/2020
-ms.openlocfilehash: eb423ebd354adeb8273755d34323b283d53eb8b5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0a9c4f6d9e98e721370f54dfbe261025cf186b6c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87283887"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497479"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-arm-template"></a>Início Rápido: criar um Azure Data Factory usando modelo do ARM
 
@@ -94,23 +94,23 @@ Mais exemplos de modelos do Azure Data Factory podem ser encontrados na [galeria
 
 1. Selecione **Ir para grupo de recursos**.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-go-to-resource-group.png" alt-text="Implantar modelo do ARM para ADF":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-go-to-resource-group.png" alt-text="Grupo de recursos":::
 
 2.  Verifique se o Azure Data Factory é criado.
     1. O nome do Azure Data Factory está no formato – datafactory\<uniqueid\>.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-sample.png" alt-text="Implantar modelo do ARM para ADF":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-sample.png" alt-text="Exemplo de Data Factory":::
 
 2. Verifique se a conta de armazenamento foi criada.
     1. O nome da conta de armazenamento está no formato – storage\<uniqueid\>.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-storage-account.png" alt-text="Implantar modelo do ARM para ADF":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-storage-account.png" alt-text="Conta de armazenamento":::
 
 3. Escolha a conta de armazenamento criada e selecione **Contêineres**.
     1. Na página **Contêineres**, selecione o contêiner de blob que você criou.
         1. O nome do contêiner de blob está no formato – blob\<uniqueid\>.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-blob-container.png" alt-text="Implantar modelo do ARM para ADF":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-blob-container.png" alt-text="Contêiner de blob":::
 
 ### <a name="upload-a-file"></a>Carregar um arquivo
 
@@ -126,7 +126,7 @@ Mais exemplos de modelos do Azure Data Factory podem ser encontrados na [galeria
 
 6. Selecione o ícone **Fechar** (um **X**) para fechar a página **Carregar blob**.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-upload-blob-file.png" alt-text="Implantar modelo do ARM para ADF":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-upload-blob-file.png" alt-text="Carregar arquivo na pasta de entrada":::
 
 Mantenha a página de contêiner aberta, pois você poderá utilizá-la para verificar a saída no final deste guia de início rápido.
 
@@ -136,17 +136,17 @@ Mantenha a página de contêiner aberta, pois você poderá utilizá-la para ver
 
 2. Selecione o bloco **Criar e Monitorar**. 
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author-monitor-tile.png" alt-text="Implantar modelo do ARM para ADF":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author-monitor-tile.png" alt-text="Criar e Monitorar":::
 
 2. Selecione a guia **Criar** :::image type="icon" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author.png" border="false":::.
 
 3. Selecione o pipeline criado – ArmtemplateSampleCopyPipeline.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-pipelines.png" alt-text="Implantar modelo do ARM para ADF":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-pipelines.png" alt-text="Pipeline de modelo do ARM":::
 
 4. Selecione **Adicionar Gatilho** > **Disparar Agora**.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-trigger-now.png" alt-text="Implantar modelo do ARM para ADF":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-trigger-now.png" alt-text="Gatilho":::
 
 5. No painel direito, em **Execução do pipeline**, selecione **OK**.
 
@@ -156,7 +156,7 @@ Mantenha a página de contêiner aberta, pois você poderá utilizá-la para ver
 
 2. Você vê as execuções de atividade associadas à execução do pipeline. Neste início rápido, o pipeline tem apenas uma atividade do tipo: Cópia. Assim, você vê uma execução para essa atividade.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-successful-run.png" alt-text="Implantar modelo do ARM para ADF":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-successful-run.png" alt-text="Execução bem-sucedida":::
 
 ### <a name="verify-the-output-file"></a>Verificar o arquivo de saída
 
@@ -168,7 +168,7 @@ O pipeline cria automaticamente a pasta de saída no contêiner de blob. Em segu
 
 3. Confirme que **emp.txt** tenha sido copiado para a pasta de saída. 
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-output.png" alt-text="Implantar modelo do ARM para ADF":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-output.png" alt-text="Saída":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

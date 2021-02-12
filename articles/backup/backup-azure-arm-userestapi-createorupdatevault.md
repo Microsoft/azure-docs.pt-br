@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
 ms.openlocfilehash: a37808548ec58977b7d6af16c75b94b7b5efe446
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91271589"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002929"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Criar um cofre dos serviços de recuperação do Azure usando a API REST
 
@@ -38,10 +38,10 @@ Para saber mais sobre como criar a solicitação, confira [Componentes de uma so
 
 As definições comuns a seguir são usadas para criar um corpo de solicitação:
 
-|Nome  |Obrigatório  |Type  |Descrição  |
+|Name  |Obrigatório  |Type  |Description  |
 |---------|---------|---------|---------|
-|eTag     |         |   Cadeia de caracteres      |  eTag Opcional       |
-|local     |  true       |Cadeia de caracteres         |   Localização do recurso      |
+|eTag     |         |   String      |  eTag Opcional       |
+|local     |  true       |String         |   Localização do recurso      |
 |properties     |         | [VaultProperties](/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriedades do cofre       |
 |sku     |         |  [Sku](/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Identifica o identificador exclusivo do sistema para cada recurso do Azure     |
 |marcas     |         | Objeto        |     Marcações de recursos    |
@@ -66,7 +66,7 @@ O corpo do exemplo a seguir é usado para criar um cofre no "Oeste dos EUA". Esp
 
 Há duas respostas bem-sucedidas para a operação para criar ou atualizar um cofre do Recovery Services:
 
-|Nome  |Type  |Descrição  |
+|Nome  |Tipo  |Description  |
 |---------|---------|---------|
 |200 OK     |   [Cofre](/rest/api/recoveryservices/vaults/createorupdate#vault)      | OK        |
 |201 Criado     | [Cofre](/rest/api/recoveryservices/vaults/createorupdate#vault)        |   Criado      |

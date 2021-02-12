@@ -5,12 +5,14 @@
   items:
     - name: O que é o Assistente de Métricas?
       href: overview.md
+    - name: Novidades
+      href: whats-new.md
 - name: Inícios rápidos
   items:
     - name: Usar o portal da Web
       href: quickstarts/web-portal.md
-    - name: Usar a API REST
-      href: quickstarts/rest-api.md
+    - name: Usar a API REST ou bibliotecas de clientes
+      href: quickstarts/rest-api-and-client-library.md
 - name: Instruções
   items:
     - name: Integrar os dados

@@ -5,15 +5,15 @@ services: data-factory
 author: chez-charlie
 ms.service: data-factory
 ms.topic: include
-ms.date: 10/28/2020
+ms.date: 11/16/2020
 ms.author: chez
 ms.custom: include file
-ms.openlocfilehash: 4cbe179d015c71094e6813666a6fd0cee3e5e3c2
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 1e8d13e7cf302c486bab291ef6482216122b62a3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92909065"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680756"
 ---
 O Azure Data Factory é um serviço multilocatário que tem os seguintes limites padrão em vigor para garantir que as assinaturas dos clientes permaneçam protegidas das cargas de trabalho umas das outras. Para aumentar os limites até o máximo para sua assinatura, entre em contato com o suporte.
 
@@ -40,6 +40,7 @@ O Azure Data Factory é um serviço multilocatário que tem os seguintes limites
 | Tempo limite máximo para execuções de atividade de pipeline | 7 dias | 7 dias |
 | Bytes por objeto para objetos do pipeline<sup>3</sup> | 200 KB | 200 KB |
 | Bytes por objeto para objetos de conjunto de dados e serviço vinculado<sup>3</sup> | 100 KB | 2\.000 KB |
+| Bytes por conteúdo para cada execução de atividade<sup>4</sup> | 896 KB | 896 KB |
 | Unidades de integração de dados<sup>1</sup> por execução de atividade de cópia | 256 | 256 |
 | Gravar chamadas à API | 1\.200/h | 1\.200/h<br/><br/> Esse limite é imposto pelo Azure Resource Manager, não pelo Azure Data Factory. |
 | Ler chamadas à API | 12.500/h | 12.500/h<br/><br/> Esse limite é imposto pelo Azure Resource Manager, não pelo Azure Data Factory. |
@@ -60,6 +61,8 @@ O Azure Data Factory é um serviço multilocatário que tem os seguintes limites
 | Grupo de regiões 3 | Canadá Central, Leste da Ásia, França Central, Coreia Central, Sul do Reino Unido |
 
 <sup>3</sup> Objetos de pipeline, conjunto de dados e serviço vinculado representam um agrupamento lógico de sua carga de trabalho. Os limites desses objetos não estão relacionados à quantidade de dados que você pode mover e processar com o Azure Data Factory. O Data Factory foi desenvolvido para ser dimensionado de modo a lidar com petabytes de dados.
+
+<sup>4</sup> O conteúdo para cada execução de atividade inclui a configuração da atividade, os conjuntos de dados associados e as configurações de serviços vinculados, se houver, e uma pequena parte das propriedades do sistema geradas por tipo de atividade. Os limites de tamanho desse conteúdo não estão relacionados à quantidade de dados que você pode mover e processar com o Azure Data Factory. Saiba mais sobre [os sintomas e as recomendações](../articles/data-factory/data-factory-troubleshoot-guide.md#payload-is-too-large) se atingir esse limite.
 
 ### <a name="version-1"></a>Versão 1
 

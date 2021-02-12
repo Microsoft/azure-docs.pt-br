@@ -3,22 +3,22 @@ title: Solucionar problemas de logon único baseado em SAML no Azure Active Dire
 description: Solucionar problemas com um aplicativo do Azure AD configurado para logon único baseado em SAML.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
-ms.openlocfilehash: 7f7f999c145903be5db3b20ab60bd0f5a18778ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b169616042892c379196dd1d38c2343704aa1030
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89463387"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257519"
 ---
 # <a name="troubleshoot-saml-based-single-sign-on-in-azure-active-directory"></a>Solucionar problemas de logon único baseado em SAML no Azure Active Directory
-Se você encontrar um problema ao configurar um aplicativo. Verifique se seguiu todas as etapas no tutorial para o aplicativo. Nas configurações de aplicativo há uma documentação embutida sobre como configurar o aplicativo. Além disso, é possível acessar a [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) para uma orientação passo a passo detalhada.
+Se você encontrar um problema ao configurar um aplicativo. Verifique se seguiu todas as etapas no tutorial para o aplicativo. Nas configurações de aplicativo há uma documentação embutida sobre como configurar o aplicativo. Além disso, é possível acessar a [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](../saas-apps/tutorial-list.md) para uma orientação passo a passo detalhada.
 
 ## <a name="cant-add-another-instance-of-the-application"></a>Não é possível adicionar outra instância do aplicativo
 Para adicionar uma segunda instância de um aplicativo você precisará:
@@ -53,7 +53,7 @@ Se os valores não coincidirem com os padrões pré-configurados no Azure AD. Vo
 ## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>Onde é possível configurar o formato EntityID (Identificador de Usuário)
 Não será possível selecionar o formato EntityID (Identificador de Usuário) que o Azure AD envia para o aplicativo na resposta após a autenticação do usuário.
 
-O Azure AD seleciona o formato para o atributo NameID (Identificador de Usuário) com base no valor selecionado ou no formato solicitado pelo aplicativo no AuthRequest do SAML. Para obter mais informações, visite o artigo [Single Sign-On protocolo SAML](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) na seção NameIDPolicy,
+O Azure AD seleciona o formato para o atributo NameID (Identificador de Usuário) com base no valor selecionado ou no formato solicitado pelo aplicativo no AuthRequest do SAML. Para obter mais informações, visite o artigo [Single Sign-On protocolo SAML](../develop/single-sign-on-saml-protocol.md#authnrequest) na seção NameIDPolicy,
 
 ## <a name="cant-find-the-azure-ad-metadata-to-complete-the-configuration-with-the-application"></a>Não é possível encontrar os metadados do Azure AD para concluir a configuração com o aplicativo
 Para baixar o certificado ou metadados do aplicativo Azure Active Directory, siga estas etapas:
@@ -69,8 +69,8 @@ Para baixar o certificado ou metadados do aplicativo Azure Active Directory, sig
 
 O Azure AD não fornece uma URL para obter os metadados. Os metadados apenas podem ser recuperados como um arquivo XML.
 
-## <a name="customize-saml-claims-sent-to-an-application"></a>Personalizar declarações SAML enviadas a um aplicativo
-Para saber como personalizar as declarações de atributo SAML enviadas para seu aplicativo, consulte [Mapeamento de declarações no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) para obter mais informações.
+## <a name="customize-saml-claims-sent-to-an-application"></a>Personalizar as declarações SAML enviadas para um aplicativo
+Para saber como personalizar as declarações de atributo SAML enviadas para seu aplicativo, consulte [Mapeamento de declarações no Azure Active Directory](../develop/active-directory-claims-mapping.md) para obter mais informações.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Série de Início Rápido no Gerenciamento de Aplicativos](view-applications-portal.md)

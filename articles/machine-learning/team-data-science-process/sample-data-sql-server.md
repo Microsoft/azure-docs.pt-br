@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e43c343b27dfe2dc0c364e58ed7305bdcec37215
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ac1fc5688dad3406041f36ff858e6fd27c7272f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86026059"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321870"
 ---
 # <a name="sample-data-in-sql-server-on-azure"></a><a name="heading"></a>Dados de exemplo no SQL Server no Azure
 
@@ -30,9 +30,9 @@ A amostragem de Python usa a biblioteca ODBC [pyodbc](https://code.google.com/p/
 > 
 
 **Por que fazer amostragem dos dados?**
-Se o conjunto de dados que você deseja analisar for grande, geralmente, é uma boa ideia reduzir os dados para um tamanho menor, mas representativo e mais gerenciável. A amostragem facilita a compreensão dos dados, a exploração e a engenharia de recursos. Sua função no [TDSP (Processo de Ciência de Dados de Equipe)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) é permitir a rápida criação de protótipos de funções de processamento de dados e modelos de aprendizado de máquina.
+Se o conjunto de dados que você deseja analisar for grande, geralmente, é uma boa ideia reduzir os dados para um tamanho menor, mas representativo e mais gerenciável. A amostragem facilita a compreensão dos dados, a exploração e a engenharia de recursos. Sua função no [TDSP (Processo de Ciência de Dados de Equipe)](./index.yml) é permitir a rápida criação de protótipos de funções de processamento de dados e modelos de aprendizado de máquina.
 
-Essa tarefa de amostragem é uma etapa do [TDSP (Processo de Ciência de Dados de Equipe)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Essa tarefa de amostragem é uma etapa do [TDSP (Processo de Ciência de Dados de Equipe)](./index.yml).
 
 ## <a name="using-sql"></a><a name="SQL"></a>Usando o SQL
 Esta seção descreve vários métodos usando SQL para executar uma amostragem aleatória simples em relação aos dados no banco de dados. Escolha um método com base no tamanho e na distribuição dos seus dados.
@@ -134,4 +134,4 @@ Para percorrer um exemplo do processo de ciência de dados de equipe usando um c
 [1]: ./media/sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/sample-sql-server-virtual-machine/reader_blob.png
 
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: /azure/machine-learning/studio-module-reference/import-data

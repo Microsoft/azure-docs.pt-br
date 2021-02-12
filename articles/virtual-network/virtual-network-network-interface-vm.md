@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: f7253be2844f40ca52df2f9b3bc9cbba552fea2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b45bd2e2b9ad971891cbcb944286f40b4f66883
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85480126"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216938"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Adicionar adaptadores de rede ou remover adaptadores de rede de máquinas virtuais
 
@@ -61,9 +61,9 @@ Para adicionar uma interface de rede à sua máquina virtual:
 
 1. Vá para a [portal do Azure](https://portal.azure.com) para localizar uma máquina virtual existente. Pesquise por **Máquinas virtuais** e selecione essa opção.
 
-2. Selecione o nome da sua VM. A VM deve dar suporte ao número de adaptadores de rede que você deseja adicionar. Para descobrir a quantos adaptadores de rede cada tamanho de VM dá suporte, consulte os tamanhos no Azure para [VMs Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [VMs do Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+2. Selecione o nome da sua VM. A VM deve dar suporte ao número de adaptadores de rede que você deseja adicionar. Para descobrir a quantos adaptadores de rede cada tamanho de VM dá suporte, consulte os tamanhos no Azure para [VMs Linux](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [VMs do Windows](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-3. Na barra de comandos da VM, selecione **parar**e, em seguida, **OK** na caixa de diálogo de confirmação. Em seguida, aguarde até que o **status** da VM seja alterado para **parado (desalocado)**.
+3. Na barra de comandos da VM, selecione **parar** e, em seguida, **OK** na caixa de diálogo de confirmação. Em seguida, aguarde até que o **status** da VM seja alterado para **parado (desalocado)**.
 
 4. Na barra de menus da VM, escolha **rede**  >  **anexar interface de rede**. Em seguida, em **anexar a interface de rede existente**, escolha a interface de rede que você deseja anexar e selecione **OK**.
 
@@ -133,7 +133,7 @@ Para saber mais sobre as configurações de adaptador de rede e como alterá-las
 
 - Uma VM deve ter pelo menos um adaptador de rede anexado.
 
-- Uma VM só pode ter tantos adaptadores de rede anexados quantos o tamanho da VM der suporte. Para saber mais sobre quantos adaptadores de rede cada tamanho de VM dá suporte, confira os tamanhos no Azure para [VMs Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [VMs do Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Todos os tamanhos aceitam pelo menos dois adaptadores de rede.
+- Uma VM só pode ter tantos adaptadores de rede anexados quantos o tamanho da VM der suporte. Para saber mais sobre quantos adaptadores de rede cada tamanho de VM dá suporte, confira os tamanhos no Azure para [VMs Linux](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [VMs do Windows](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Todos os tamanhos aceitam pelo menos dois adaptadores de rede.
 
 - As interfaces de rede que você adicionar a uma VM não podem ser conectadas no momento a outra VM. Para saber mais sobre como criar adaptadores de rede, consulte [Criar um adaptador de rede](virtual-network-network-interface.md#create-a-network-interface).
 
@@ -143,7 +143,7 @@ Para saber mais sobre as configurações de adaptador de rede e como alterá-las
 
 - Você pode controlar a qual interface de rede você envia o tráfego de saída. No entanto, uma VM envia, por padrão, todo o tráfego de saída para o endereço IP atribuído à configuração de IP primário da interface de rede primária.
 
-- No passado, todas as VMs dentro do mesmo conjunto de disponibilidade precisavam ter um único adaptador de rede ou vários adaptadores de rede. VMs com qualquer número de adaptadores de rede agora podem existir no mesmo conjunto de disponibilidade até o número com suporte pelo tamanho da VM. Porém, você pode adicionar uma VM a um conjunto de disponibilidade apenas quando ela é criada. Para saber mais sobre os conjuntos de disponibilidade, consulte [Gerenciamento da disponibilidade de VMs no Azure](../virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
+- No passado, todas as VMs dentro do mesmo conjunto de disponibilidade precisavam ter um único adaptador de rede ou vários adaptadores de rede. VMs com qualquer número de adaptadores de rede agora podem existir no mesmo conjunto de disponibilidade até o número com suporte pelo tamanho da VM. Porém, você pode adicionar uma VM a um conjunto de disponibilidade apenas quando ela é criada. Para saber mais sobre os conjuntos de disponibilidade, consulte [Gerenciamento da disponibilidade de VMs no Azure](../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
 
 - Você pode conectar adaptadores de rede na mesma VM para diferentes sub-redes em uma rede virtual. No entanto, as interfaces de rede devem estar conectadas à mesma rede virtual.
 

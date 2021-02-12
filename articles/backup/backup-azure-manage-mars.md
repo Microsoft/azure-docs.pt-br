@@ -4,12 +4,12 @@ description: Saiba como gerenciar e monitorar backups de agente MARS (Serviços 
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: b3b648ca27a407640b42932fe2ed7c32f5109114
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25f0c41b535f9403d0a7027687cc5261cd437275
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89145562"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368589"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gerenciar backups de agente MARS (Serviços de Recuperação do Microsoft Azure) usando o serviço de backup do Azure
 
@@ -100,7 +100,7 @@ Há duas maneiras de interromper a proteção de arquivos e pastas backup:
 
 ### <a name="stop-protection-and-retain-backup-data"></a>Interromper a proteção e manter os dados de backup
 
-1. Abra o console de gerenciamento do MARS, vá para o **painel Ações**e **selecione agendar backup**.
+1. Abra o console de gerenciamento do MARS, vá para o **painel Ações** e **selecione agendar backup**.
 
     ![Selecione agendar backup](./media/backup-azure-manage-mars/mars-actions.png)
 1. Na página **selecionar item de política** , selecione **modificar um agendamento de backup para seus arquivos e pastas** e selecione **Avançar**.
@@ -125,7 +125,7 @@ Há duas maneiras de interromper a proteção de arquivos e pastas backup:
 
     ![Pare um backup agendado e selecione concluir](./media/backup-azure-delete-vault/stop-schedule-backup.png)
 4. Você será solicitado a inserir um PIN de segurança (número de identificação pessoal), que deve ser gerado manualmente. Para fazer isso, primeiro entre no portal do Azure.
-5. Vá para **serviços de recuperação**  >  **configurações**do cofre  >  **Propriedades**.
+5. Vá para **serviços de recuperação**  >  **configurações** do cofre  >  **Propriedades**.
 6. Em **PIN de segurança**, selecione **gerar**. Copie este PIN. O PIN é válido por apenas cinco minutos.
 7. No console de gerenciamento, Cole o PIN e selecione **OK**.
 
@@ -189,6 +189,19 @@ O gerenciamento da política de backup para MARS é feito por meio do console do
   1. Instalar o agente e registrar novamente no mesmo cofre e com a mesma senha
   1. Inicie o cliente MARS para estender a duração da retenção de acordo com seus requisitos
 - Seu computador recentemente restaurado, protegido com MARS, continuará a fazer backups.  
+
+## <a name="configuring-antivirus-for-the-mars-agent"></a>Configurando o antivírus para o agente MARS
+
+Recomendamos a configuração a seguir para seu software antivírus para evitar conflitos com a operação do agente MARS.
+
+1. **Adicionar exclusões de caminho**: para evitar degradação de desempenho e possíveis conflitos, exclua os seguintes caminhos do monitoramento em tempo real pelo software antivírus:
+    1. `%ProgramFiles%\Microsoft Azure Recovery Services Agent` e subpastas
+    1. **Pasta de rascunho**: se a pasta de rascunho não estiver no local padrão, adicione-a também às exclusões.  [Consulte aqui para obter as etapas](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible) para determinar o local da pasta de rascunho.
+1. **Adicionar exclusões binárias**: para evitar a degradação de atividades de backup e de console, exclua processos para os seguintes binários do monitoramento em tempo real pelo software antivírus:
+    1. `%ProgramFiles%\Microsoft Azure Recovery Services Agent\bin\cbengine.exe`
+
+>[!NOTE]
+>Embora a exclusão desses caminhos seja suficiente para a maioria dos softwares antivírus, algumas delas ainda podem continuar a interferir nas operações do agente MARS. Se você estiver vendo falhas inesperadas, desinstale o software antivírus temporariamente e monitore para ver se o problema desaparece. Se isso resolver o problema, entre em contato com seu fornecedor de software antivírus para obter assistência com a configuração adequada de seus produtos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

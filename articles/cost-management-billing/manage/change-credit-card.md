@@ -6,21 +6,21 @@ ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 09/15/2020
+ms.topic: how-to
+ms.date: 11/20/2020
 ms.author: banders
-ms.openlocfilehash: f773c964d900c45a51eac433c3616a6e4b8978ae
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fbb69a4449c32f85cc4be438645b654608aa7489
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92131132"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026549"
 ---
 # <a name="add-or-update-a-credit-card-for-azure"></a>Adicionar ou atualizar um cartão de crédito para o Azure
 
 Este documento aplica-se a clientes que se inscreveram no Azure online com um cartão de crédito.
 
-No portal do Azure, você pode alterar a forma de pagamento padrão para um novo cartão de crédito e atualizar os detalhes do cartão de crédito. Você deve ser um [administrador da conta](../understand/subscription-transfer.md#whoisaa) para fazer essas alterações.
+No portal do Azure, você pode alterar a forma de pagamento padrão para um novo cartão de crédito e atualizar os detalhes do cartão de crédito. Você precisa ser [Administrador da Conta](../understand/subscription-transfer.md#whoisaa) ou ter as [permissões MCA](understand-mca-roles.md) corretas para fazer essas alterações.
 
 Se você quiser excluir um cartão de crédito, confira [Excluir uma forma de pagamento de cobrança do Azure](delete-azure-payment-method.md).
 
@@ -41,29 +41,29 @@ Você pode alterar o crédito padrão da sua assinatura do Azure para um novo ca
 Use estas etapas para alterar o cartão de crédito padrão da sua assinatura para um novo:
 
 1. Entre no [Portal do Azure](https://portal.azure.com) como Administrador da Conta.
-1. Pesquise **Gerenciamento de Custos + Cobrança** .  
+1. Pesquise **Gerenciamento de Custos + Cobrança**.  
     ![Captura de tela que mostra a pesquisa](./media/change-credit-card/search.png)
 1. Selecione a assinatura à qual você deseja adicionar o cartão de crédito.
-1. Selecione **Formas de pagamento** .  
+1. Selecione **Formas de pagamento**.  
     ![Captura de tela que mostra a opção Gerenciar formas de pagamento selecionada](./media/change-credit-card/payment-methods-blade-x.png)
 1. No canto superior esquerdo, selecione "+" para adicionar um cartão. Um formulário de cartão de crédito será exibido à direita.
 1. Insira os detalhes do cartão de crédito.  
     ![Captura de tela que mostra como adicionar um novo cartão](./media/change-credit-card/sub-add-new-x.png)
 1. Para tornar este cartão sua forma de pagamento ativa, marque a caixa ao lado de **Tornar esta minha forma de pagamento ativa** acima do formulário. Esse cartão se tornará o meio de pagamento ativo para todas as assinaturas usando o mesmo cartão, como a assinatura selecionada.
-1. Selecione **Avançar** .
+1. Selecione **Avançar**.
 
 ### <a name="change-credit-card-for-a-subscription-to-a-previously-saved-credit-card"></a>Alterar o cartão de crédito de uma assinatura para um cartão de crédito salvo anteriormente
 
 Também é possível executar estas etapas para alterar o cartão de crédito padrão da sua assinatura para um que já esteja salvo em sua conta:
 
 1. Entre no [Portal do Azure](https://portal.azure.com) como Administrador da Conta.
-1. Pesquise **Gerenciamento de Custos + Cobrança** .  
+1. Pesquise **Gerenciamento de Custos + Cobrança**.  
     ![Captura de tela que mostra a pesquisa](./media/change-credit-card/search.png)
 1. Selecione a assinatura à qual você deseja adicionar o cartão de crédito.
-1. Selecione **Formas de pagamento** .
+1. Selecione **Formas de pagamento**.
     ![Captura de tela que mostra a opção Gerenciar formas de pagamento selecionada](./media/change-credit-card/payment-methods-blade-x.png)
 1. Marque a caixa ao lado do cartão que você gostaria de tornar a forma de pagamento ativa.
-1. Selecione **Definir como ativo** .
+1. Selecione **Definir como ativo**.
     ![Captura de tela que mostra o cartão de crédito selecionado e definido como ativo](./media/change-credit-card/sub-change-active-x.png)
 
 ### <a name="edit-credit-card-details"></a>Editar os detalhes do cartão de crédito
@@ -71,36 +71,36 @@ Também é possível executar estas etapas para alterar o cartão de crédito pa
 Caso seu cartão de crédito seja renovado e o número permaneça o mesmo, atualize os detalhes do cartão de crédito existente, como a data de vencimento. Se o número de seu cartão de crédito for alterado devido a perda, roubo ou vencimento do cartão, siga as etapas da seção [Adicionar um cartão de crédito como uma forma de pagamento](#addcard). Você não precisa atualizar o CVV.
 
 1. Entre no [Portal do Azure](https://portal.azure.com) como Administrador da Conta.
-1. Pesquise **Gerenciamento de Custos + Cobrança** .
+1. Pesquise **Gerenciamento de Custos + Cobrança**.
     ![Captura de tela que mostra a pesquisa](./media/change-credit-card/search.png)
-1. Selecione **Formas de pagamento** .
+1. Selecione **Formas de pagamento**.
     ![Captura de tela que mostra a opção Gerenciar formas de pagamento selecionada](./media/change-credit-card/payment-methods-blade-x.png)
 1. Selecione o cartão de crédito que você deseja editar. Um formulário de cartão de crédito será exibido à direita.
     ![Captura de tela que mostra o cartão de crédito selecionado](./media/change-credit-card/edit-card-x.png)
 1. Atualize os detalhes do cartão de crédito.
-1. Clique em **Salvar** .
+1. Clique em **Salvar**.
 
 ## <a name="manage-credit-cards-for-a-microsoft-customer-agreement"></a>Gerenciar cartões de crédito para um Contrato de Cliente da Microsoft
 
-As seções a seguir se aplicam a clientes que têm um Contrato de Cliente da Microsoft e se inscreveram no Azure Online com um cartão de crédito. [Saiba como verificar se você tem um Contrato de Cliente da Microsoft](#check-the-type-of-your-account).
+As seções a seguir se aplicam a clientes que têm um Contrato de Cliente da Microsoft e se inscreveram no Azure Online com um cartão de crédito e àqueles que têm as [permissões MCA](understand-mca-roles.md) corretas. [Saiba como verificar se você tem um Contrato de Cliente da Microsoft](#check-the-type-of-your-account).
 
 ### <a name="change-default-credit-card"></a>Alterar o cartão de crédito padrão
 
-Se você tiver um Contrato de Cliente da Microsoft, seu cartão de crédito será associado a um perfil de cobrança. Para alterar a forma de pagamento de um perfil de cobrança, você deve ser a pessoa que se inscreveu no Azure e criou a conta de cobrança.
+Se você tiver um Contrato de Cliente da Microsoft, seu cartão de crédito será associado a um perfil de cobrança. Para alterar a forma de pagamento de um perfil de cobrança, você deve ser a pessoa que se inscreveu no Azure e criou a conta de cobrança ou você precisa ter as [permissões MCA](understand-mca-roles.md) corretas.
 
 Se você quiser alterar o método de pagamento padrão do perfil de cobrança para cheque/transferência eletrônica, confira [Pagar assinaturas do Azure por fatura](pay-by-invoice.md).
 
 Para alterar seu cartão de crédito, execute estas etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. Pesquise **Gerenciamento de Custos do Azure + Cobrança** .
-1. No menu à esquerda, selecione **Perfis de cobrança** .
+1. Pesquise **Gerenciamento de Custos do Azure + Cobrança**.
+1. No menu à esquerda, selecione **Perfis de cobrança**.
 1. Selecione um perfil de cobrança.
-1. No menu à esquerda, selecione **Formas de pagamento** .  
+1. No menu à esquerda, selecione **Formas de pagamento**.  
    ![Captura de tela que mostra as formas de pagamento no menu](./media/change-credit-card/payment-methods-tab-mca.png)
-1. Na seção **Forma de pagamento padrão** , selecione **Substituir** .  
+1. Na seção **Forma de pagamento padrão**, selecione **Substituir**.  
     :::image type="content" source="./media/change-credit-card/change-payment-method-mca.png" alt-text="Captura de tela que mostra a opção de substituição" :::
-1. Na nova área à direita, selecione um cartão existente na lista suspensa ou adicione um novo selecionando o link azul **Adicionar nova forma de pagamento** .
+1. Na nova área à direita, selecione um cartão existente na lista suspensa ou adicione um novo selecionando o link azul **Adicionar nova forma de pagamento**.
 
 ### <a name="edit-a-credit-card"></a>Editar um cartão de crédito
 
@@ -109,14 +109,14 @@ Para alterar seu cartão de crédito, execute estas etapas:
 Para editar um cartão de crédito, siga estas etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. Pesquise **Gerenciamento de Custos do Azure + Cobrança** .
-1. No menu à esquerda, selecione **Perfis de cobrança** .
+1. Pesquise **Gerenciamento de Custos do Azure + Cobrança**.
+1. No menu à esquerda, selecione **Perfis de cobrança**.
 1. Selecione um perfil de cobrança.
-1. No menu à esquerda, selecione **Formas de pagamento** .  
+1. No menu à esquerda, selecione **Formas de pagamento**.  
    ![Captura de tela que mostra as formas de pagamento no menu](./media/change-credit-card/payment-methods-tab-mca.png)
-1. Na seção **Seus cartões de crédito** , encontre o cartão de crédito que você quer editar.
+1. Na seção **Seus cartões de crédito**, encontre o cartão de crédito que você quer editar.
 1. Selecione as reticências (`...`) no final da linha.  
-    :::image type="content" source="./media/change-credit-card/edit-delete-credit-card-mca.png" alt-text="Captura de tela que mostra a opção de substituição" :::
+    :::image type="content" source="./media/change-credit-card/edit-delete-credit-card-mca.png" alt-text="Captura de tela que mostra as reticências" :::
 1. Para editar os detalhes do seu cartão de crédito, selecione **Editar** no menu de contexto.
 
 ## <a name="troubleshooting"></a>Solução de problemas
@@ -143,7 +143,7 @@ Se estiver [pagando por fatura](pay-by-invoice.md), envie seu pagamento para o l
 
 ### <a name="how-do-i-change-the-tax-id"></a>Como alterar a ID de imposto?
 
-Para adicionar ou atualizar o TID, atualize seu perfil no [portal do Azure](https://portal.azure.com) e selecione **Registro fiscal** . Essa ID de imposto é usada para cálculos de isenção de impostos e aparece em sua fatura.
+Para adicionar ou atualizar o TID, atualize seu perfil no [portal do Azure](https://portal.azure.com) e selecione **Registro fiscal**. Essa ID de imposto é usada para cálculos de isenção de impostos e aparece em sua fatura.
 
 ## <a name="check-the-type-of-your-account"></a>Verifique o tipo de sua conta
 

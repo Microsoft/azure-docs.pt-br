@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/28/2020
+ms.date: 12/24/2020
 ms.author: jeedes
-ms.openlocfilehash: f37c036e144cf20a1ff217cb1bfb626ddff1b59e
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 325f6ad7d9685fac17e17b28c4ffbe31b1245cca
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92454364"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734522"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-confluence"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao EasySSO for Confluence
 
@@ -25,8 +25,6 @@ Neste tutorial, você aprenderá a integrar o SSO do EasySSO for Confluence ao A
 * Controlar no Azure AD quem tem acesso ao Confluence.
 * Permitir que os usuários sejam conectados automaticamente ao Confluence com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
-
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,25 +39,24 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 
 * O EasySSO for Confluence dá suporte ao SSO iniciado por **SP e IDP**
 * O EasySSO for Confluence é compatível com o provisionamento de usuário **Just-In-Time**
-* Depois de configurar o EasySSO for Confluence, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-easysso-for-confluence-from-the-gallery"></a>Adicionando o EasySSO for Confluence por meio da galeria
 
 Para configurar a integração do EasySSO for Confluence ao Azure AD, é necessário adicionar o EasySSO for Confluence à lista de aplicativos SaaS gerenciados por meio da galeria.
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory** .
-1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos** .
-1. Para adicionar um novo aplicativo, escolha **Novo aplicativo** .
-1. Na seção **Adicionar por meio da galeria** , digite **EasySSO for Confluence** na caixa de pesquisa.
+1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
+1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
+1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
+1. Na seção **Adicionar por meio da galeria**, digite **EasySSO for Confluence** na caixa de pesquisa.
 1. Escolha **EasySSO for Confluence** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-easysso-for-confluence"></a>Configurar e testar o logon único do Azure AD para o EasySSO for Confluence
+## <a name="configure-and-test-azure-ad-sso-for-easysso-for-confluence"></a>Configurar e testar o SSO do Azure AD para o EasySSO for Confluence
 
-Configure e teste o SSO do Azure AD com o EasySSO for Confluence usando uma usuária de teste chamada **B.Fernandes** . Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do EasySSO for Confluence.
+Configure e teste o SSO do Azure AD com o EasySSO for Confluence usando uma usuária de teste chamada **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do EasySSO for Confluence.
 
-Para configurar e testar o SSO do Azure AD com o EasySSO for Confluence, conclua os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o EasySSO for Confluence, execute as seguintes etapas:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
     1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
@@ -72,13 +69,13 @@ Para configurar e testar o SSO do Azure AD com o EasySSO for Confluence, conclua
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **EasySSO for Confluence** , localize a seção **Gerenciar** e selecione **logon único** .
-1. Na página **Selecionar um método de logon único** , escolha **SAML** .
-1. Na página **Configurar o logon único com o SAML** , clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. No portal do Azure, na página de integração de aplicativos do **EasySSO for Confluence**, localize a seção **Gerenciar** e selecione **logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica do SAML** , caso deseje configurar o aplicativo no modo iniciado por **IDP** , digite os valores dos seguintes campos:
+1. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IDP**, digite os valores dos seguintes campos:
 
     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<server-base-url>/plugins/servlet/easysso/saml`
 
@@ -86,7 +83,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    Na caixa de texto **URL de logon** , digite um URL usando o seguinte padrão: `https://<server-base-url>/login.jsp`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<server-base-url>/login.jsp`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Entre em contato com a [equipe de suporte do EasySSO](mailto:support@techtime.co.nz) para obter esses valores em caso de dúvida. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -105,9 +102,9 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     | urn: oid:2.5.4.4 | user.surname |
     | urn: oid:2.5.4.42 | user.givenname |
     
-    Caso os usuários do Azure AD tenham o **sAMAccountName** configurado, mapeie **urn:oid:0.9.2342.19200300.100.1.1** para o atributo **sAMAccountName** .
+    Caso os usuários do Azure AD tenham o **sAMAccountName** configurado, mapeie **urn:oid:0.9.2342.19200300.100.1.1** para o atributo **sAMAccountName**.
     
-1. Na página **Configurar o logon único com o SAML** , na seção **Certificado de Autenticação SAML** , clique nos links **Baixar** do **Certificado (Base64)** ou nas opções de **XML de Metadados de Federação** e salve um deles ou todos eles no computador. Você precisará disso mais tarde para configurar Confluence EasySSO.
+1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, clique nos links **Baixar** do **Certificado (Base64)** ou nas opções de **XML de Metadados de Federação** e salve um deles ou todos eles no computador. Você precisará disso mais tarde para configurar Confluence EasySSO.
 
     ![O link de download do Certificado](./media/easysso-for-confluence-tutorial/certificate.png)
     
@@ -117,43 +114,47 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários** .
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário** , siga estas etapas:
-   1. No campo **Nome** , insira `B.Simon`.  
-   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha** .
-   1. Clique em **Criar** .
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que B.Fernandes use o logon único do Azure permitindo-lhe acesso ao EasySSO for Confluence.
 
-1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos** .
-1. Na lista de aplicativos, selecione **EasySSO for Confluence** .
-1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos** .
+1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. Na lista de aplicativos, selecione **EasySSO for Confluence**.
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
 
-   ![O link “Usuários e grupos”](common/users-groups-blade.png)
+1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
-1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
-
-    ![O link Adicionar Usuário](common/add-assign-user.png)
-
-1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-easysso-for-confluence-sso"></a>Configurar o SSO do EasySSO for Confluence
 
-1. Entre em sua instância do Atlassian Confluence com privilégios de Administrador e navegue até a seção **Gerenciar Aplicativos** . 
+1. Para automatizar a configuração no EasySSO for Confluence, você precisa instalar a **extensão do navegador de Entrada Segura dos Meus Aplicativos** clicando em **Instalar a extensão**.
+
+    ![Extensão Meus Aplicativos](common/install-myappssecure-extension.png)
+
+2. Depois de adicionar a extensão ao navegador, clique em **Configurar o EasySSO for Confluence** para ser direcionado ao aplicativo do EasySSO for Confluence. De lá, forneça as credenciais de administrador para entrar no EasySSO for Confluence. A extensão do navegador vai configurar automaticamente o aplicativo e automatizar as etapas de 3 a 9.
+
+    ![Configuração da instalação](common/setup-sso.png)
+
+1. Se você quiser configurar o EasySSO for Confluence manualmente, entre na instância do Atlassian Confluence com privilégios de administrador e navegue até a seção **Gerenciar aplicativos**. 
 
     ![Gerenciar Aplicativos](./media/easysso-for-confluence-tutorial/confluence-admin-1.png)
 
-2. No lado esquerdo, localize **EasySSO** e clique nele. Em seguida, clique no botão **Configurar** .
+2. No lado esquerdo, localize **EasySSO** e clique nele. Em seguida, clique no botão **Configurar**.
 
     ![SSO Fácil](./media/easysso-for-confluence-tutorial/confluence-admin-2.png)
 
-3. Selecione a opção **SAML** . Isso levará para a seção de configuração do SAML.
+3. Selecione a opção **SAML**. Isso levará para a seção de configuração do SAML.
 
     ![SAML](./media/easysso-for-confluence-tutorial/confluence-admin-3.png)
 
@@ -161,7 +162,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
     ![URL de metadados](./media/easysso-for-confluence-tutorial/confluence-admin-4.png)
 
-5. Agora, localize o **Certificado (Base64)** ou o **Arquivo de Metadados** que você salvou nas etapas anteriores da configuração do **SSO do Azure AD** . Você tem as seguintes opções:
+5. Agora, localize o **Certificado (Base64)** ou o **Arquivo de Metadados** que você salvou nas etapas anteriores da configuração do **SSO do Azure AD**. Você tem as seguintes opções:
 
     a. Use o **Arquivo de Metadados** da Federação do Aplicativo que você baixou para o arquivo local no computador. Selecione o botão de opção **Upload** e siga a caixa de diálogo de upload de arquivo específica para seu sistema operacional
 
@@ -171,11 +172,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
  
     **OR**
 
-    c. Configuração totalmente manual. Abra o **Certificado (Base64)** da Federação de Aplicativo para ver o conteúdo (em qualquer editor de texto sem formatação) do arquivo e copie-o na área de transferência. Cole-o no campo de texto **Certificados de Autenticação de Tokens IdP** . Em seguida, navegue até a guia **Geral** e preencha os campos **URL de Associação POST** e **ID da Entidade** com os respectivos valores da **URL de Logon** e do **Identificador do Azure AD** salvos anteriormente.
+    c. Configuração totalmente manual. Abra o **Certificado (Base64)** da Federação de Aplicativo para ver o conteúdo (em qualquer editor de texto sem formatação) do arquivo e copie-o na área de transferência. Cole-o no campo de texto **Certificados de Autenticação de Tokens IdP**. Em seguida, navegue até a guia **Geral** e preencha os campos **URL de Associação POST** e **ID da Entidade** com os respectivos valores da **URL de Logon** e do **Identificador do Azure AD** salvos anteriormente.
  
-6. Na parte inferior da página, clique no botão **Salvar** . Você verá que o conteúdo dos arquivos de Metadados ou Certificado é analisado nos campos de configuração. A configuração do EasySSO for Confluence foi concluída.
+6. Na parte inferior da página, clique no botão **Salvar**. Você verá que o conteúdo dos arquivos de Metadados ou Certificado é analisado nos campos de configuração. A configuração do EasySSO for Confluence foi concluída.
 
-7. Para ter a melhor experiência de teste, navegue até a guia **Aparência** e habilite a opção **Botão de Logon SAML** . Isso habilitará o botão separado na tela de logon do Confluence, especificamente para testar a integração do SAML do Azure AD de ponta a ponta. Você também pode deixar esse botão ligado e configurar seu posicionamento, cor e tradução para o modo de produção.
+7. Para ter a melhor experiência de teste, navegue até a guia **Aparência** e habilite a opção **Botão de Logon SAML**. Isso habilitará o botão separado na tela de logon do Confluence, especificamente para testar a integração do SAML do Azure AD de ponta a ponta. Você também pode deixar esse botão ligado e configurar seu posicionamento, cor e tradução para o modo de produção.
 
     ![Aparência](./media/easysso-for-confluence-tutorial/confluence-admin-5.png)
 
@@ -194,9 +195,9 @@ No entanto, se você não deseja habilitar o provisionamento automático do usu�
 
 ### <a name="idp-initiated-workflow"></a>Fluxo de trabalho iniciado por IdP
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testará a configuração de logon único do Azure AD usando Meus Aplicativos.
 
-Quando clicar no bloco do EasySSO for Confluence no Painel de Acesso, você deverá ser conectado automaticamente à instância do Confluence para a qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
+Ao clicar no bloco do EasySSO for Confluence em Meus Aplicativos, você deverá ser conectado automaticamente à instância do Confluence para a qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 ### <a name="sp-initiated-workflow"></a>Fluxo de trabalho iniciado por SP
 
@@ -210,20 +211,10 @@ Há uma possibilidade de que você veja a tela a seguir depois de ser redirecion
 
 ![Tela de falha do EasySSO](./media/easysso-for-confluence-tutorial/confluence-admin-8.png)
 
-Nesse caso, você precisará seguir as [instruções desta página]( https://techtime.co.nz/display/TECHTIME/EasySSO+How+to+get+the+logs#EasySSOHowtogetthelogs-RETRIEVINGTHELOGS) para obter acesso ao arquivo **atlassian-confluence.log** . Os detalhes do erro estarão disponíveis pela ID de referência encontrada na página de erros do EasySSO.
+Nesse caso, você precisará seguir as [instruções desta página]( https://techtime.co.nz/display/TECHTIME/EasySSO+How+to+get+the+logs#EasySSOHowtogetthelogs-RETRIEVINGTHELOGS) para obter acesso ao arquivo **atlassian-confluence.log**. Os detalhes do erro estarão disponíveis pela ID de referência encontrada na página de erros do EasySSO.
 
 Caso tenha problemas no resumo das mensagens de log, entre em contato com a [equipe de suporte do EasySSO](mailto:support@techtime.co.nz).
 
-## <a name="additional-resources"></a>Recursos adicionais
+## <a name="next-steps"></a>Próximas etapas
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](./tutorial-list.md)
-
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
-
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
-
-- [Experimentar o EasySSO for Confluence com o Azure AD](https://aad.portal.azure.com/)
-
-- [O que é controle de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
-
-- [Como proteger o EasySSO for Confluence com visibilidade e controles avançados](/cloud-app-security/proxy-intro-aad)
+Depois de configurar o EasySSO for Confluence, você poderá impor o controle de sessão, que fornece proteção contra a exfiltração e a infiltração de dados confidenciais da organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

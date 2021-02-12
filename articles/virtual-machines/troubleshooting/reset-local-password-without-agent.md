@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: genli
-ms.openlocfilehash: 4cec8f77cacc5d3492dd6a5f8a8baa060f910763
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cc6ef9b1d9ca8336162b524356ea6e0d1bf5fd2
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91650589"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197652"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Redefina a senha local do Windows para a VM do Azure offline
-Você pode redefinir a senha local do Windows de uma VM no Azure usando o [portal do Azure ou Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), desde que o agente convidado do Azure esteja instalado. Esse método é a principal maneira de redefinir uma senha para uma VM do Azure. Caso encontre problemas com o agente convidado do Azure, como não responder ou falhar na instalação após carregamento de uma imagem personalizada, você poderá redefinir manualmente uma senha do Windows. Este artigo fornece detalhes sobre como redefinir uma senha de conta local anexando o disco virtual do SO de origem a outra VM. As etapas descritas neste artigo não se aplicam aos controladores de domínio do Windows. 
+Você pode redefinir a senha local do Windows de uma VM no Azure usando o [portal do Azure ou Azure PowerShell](reset-rdp.md), desde que o agente convidado do Azure esteja instalado. Esse método é a principal maneira de redefinir uma senha para uma VM do Azure. Caso encontre problemas com o agente convidado do Azure, como não responder ou falhar na instalação após carregamento de uma imagem personalizada, você poderá redefinir manualmente uma senha do Windows. Este artigo fornece detalhes sobre como redefinir uma senha de conta local anexando o disco virtual do SO de origem a outra VM. As etapas descritas neste artigo não se aplicam aos controladores de domínio do Windows. 
 
 > [!WARNING]
-> Use esse processo apenas como último recurso. Sempre tentar redefinir uma senha usando o [portal do Azure ou Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) primeiro.
+> Use esse processo apenas como último recurso. Sempre tentar redefinir uma senha usando o [portal do Azure ou Azure PowerShell](reset-rdp.md) primeiro.
 
 ## <a name="overview-of-the-process"></a>Visão geral do processo
 As principais etapas para redefinir uma senha local para uma VM do Windows no Azure quando não há acesso ao agente convidado do Azure são as seguintes:
@@ -41,7 +41,7 @@ As principais etapas para redefinir uma senha local para uma VM do Windows no Az
 > [!NOTE]
 > As etapas não se aplicam aos controladores de domínio do Windows. Ela só funciona no servidor autônomo ou em um servidor que seja membro de um domínio.
 
-Sempre tentar redefinir uma senha usando o [portal do Azure ou Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) antes de tentar as etapas seguintes. Verifique se você tem um backup da VM antes de iniciar.
+Sempre tentar redefinir uma senha usando o [portal do Azure ou Azure PowerShell](reset-rdp.md) antes de tentar as etapas seguintes. Verifique se você tem um backup da VM antes de iniciar.
 
 1. Obtenha um instantâneo do disco do sistema operacional da VM afetada, crie um disco com base no instantâneo e, em seguida, anexe o disco a uma VM de solução de problemas. Para obter mais informações, confira [Solucionar problemas de uma VM do Windows anexando o disco do sistema operacional a uma VM de recuperação usando o portal do Azure](troubleshoot-recovery-disks-portal-windows.md).
 2. Conecte-se à VM de solução de problemas usando a Área de Trabalho Remota.
@@ -71,10 +71,17 @@ Sempre tentar redefinir uma senha usando o [portal do Azure ou Azure PowerShell]
      0Parameters=
      ```
      
-     :::image type="content" source="./media/reset-local-password-without-agent/create-scripts-ini-1.png" alt-text="Captura de tela que mostra as atualizações feitas no arquivo de gpt.ini." <username> /add
+     :::image type="content" source="./media/reset-local-password-without-agent/create-scripts-ini-1.png" alt-text="Captura de tela que mostra as atualizações feitas no arquivo de script.ini.":::
+
+5. Crie `FixAzureVM.cmd` em `\Windows\System32\GroupPolicy\Machine\Scripts\Startup\` com o seguinte conteúdo, substituindo `<username>` e `<newpassword>` por seus próprios valores:
+   
+    ```
+    net user <username> <newpassword> /add /Y
+    net localgroup administrators <username> /add
+    net localgroup "remote desktop users" <username> /add
     ```
 
-    :::image type="content" source="./media/reset-local-password-without-agent/create-fixazure-cmd-1.png" alt-text="Captura de tela que mostra as atualizações feitas no arquivo de gpt.ini.":::
+    :::image type="content" source="./media/reset-local-password-without-agent/create-fixazure-cmd-1.png" alt-text="Captura de tela que mostra o arquivo recém-criado FixAzureVM. cmd no qual você atualiza o nome de usuário e a senha.":::
    
     Você deve atender aos requisitos de complexidade de senha configurada para sua VM ao definir a nova senha.
 
@@ -106,31 +113,31 @@ Sempre tentar redefinir uma senha usando o [portal do Azure ou Azure PowerShell]
    
    * Selecione a VM no portal do Azure e, em seguida, clique em *Excluir*:
      
-     :::image type="content" source="./media/reset-local-password-without-agent/delete-vm-classic.png" alt-text="Captura de tela que mostra as atualizações feitas no arquivo de gpt.ini.":::
+     :::image type="content" source="./media/reset-local-password-without-agent/delete-vm-classic.png" alt-text="Excluir VM clássica existente":::
 
 2. Anexe o disco do SO da VM de origem à VM para solução de problemas. A VM para solução de problemas deve estar na mesma região que o disco do SO da VM de origem (como `West US`):
    
    1. Escolha a VM para solução de problemas no portal do Azure. Clique em *Discos* | *Anexar existente*:
      
-      :::image type="content" source="./media/reset-local-password-without-agent/disks-attach-existing-classic.png" alt-text="Captura de tela que mostra as atualizações feitas no arquivo de gpt.ini.":::
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-attach-existing-classic.png" alt-text="Anexar disco existente-clássico":::
      
    2. Escolha *Arquivo VHD* e, em seguida, a conta de armazenamento que contém sua VM de origem:
      
-      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-storage-account-classic.png" alt-text="Captura de tela que mostra as atualizações feitas no arquivo de gpt.ini.":::
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-storage-account-classic.png" alt-text="Selecionar conta de armazenamento-clássico":::
      
    3. Marque a caixa *Mostrar contas de armazenamento clássicas* e, em seguida, selecione o contêiner de origem. O contêiner de origem normalmente é *vhds*:
      
-      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-container-classic.png" alt-text="Captura de tela que mostra as atualizações feitas no arquivo de gpt.ini.":::
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-container-classic.png" alt-text="Selecionar contêiner de armazenamento-clássico":::
 
-      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-container-vhds-classic.png" alt-text="Captura de tela que mostra as atualizações feitas no arquivo de gpt.ini.":::
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-container-vhds-classic.png" alt-text="Selecionar contêiner de armazenamento-VHD-clássico":::
      
    4. Escolha o vhd do SO a ser anexado. Clique em *Selecionar* para concluir o processo:
      
-      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-source-vhd-classic.png" alt-text="Captura de tela que mostra as atualizações feitas no arquivo de gpt.ini.":::
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-source-vhd-classic.png" alt-text="Selecionar disco virtual de origem-clássico":::
 
    5. Clicar em OK para anexar o disco
 
-      :::image type="content" source="./media/reset-local-password-without-agent/disks-attach-okay-classic.png" alt-text="Captura de tela que mostra as atualizações feitas no arquivo de gpt.ini.":::
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-attach-okay-classic.png" alt-text="Anexar disco existente-OK caixa de diálogo-clássico":::
 
 3. Conecte-se à VM para solução de problemas usando a Área de Trabalho Remota e assegure-se de que o disco do SO da VM de origem esteja visível:
 
@@ -140,7 +147,7 @@ Sempre tentar redefinir uma senha usando o [portal do Azure ou Azure PowerShell]
 
    3. No Explorador de Arquivos, procure o disco de dados anexado. Se o VHD da VM de origem for o único disco de dados anexado à VM para solução de problemas, ele deverá ser a unidade F:
      
-      :::image type="content" source="./media/reset-local-password-without-agent/troubleshooting-vm-file-explorer-classic.png" alt-text="Captura de tela que mostra as atualizações feitas no arquivo de gpt.ini.":::
+      :::image type="content" source="./media/reset-local-password-without-agent/troubleshooting-vm-file-explorer-classic.png" alt-text="Exibir o disco de dados anexado":::
 
 4. Crie `gpt.ini` em `\Windows\System32\GroupPolicy` na unidade da VM de origem (se `gpt.ini` existir, renomeie para `gpt.ini.bak`):
    
@@ -156,7 +163,7 @@ Sempre tentar redefinir uma senha usando o [portal do Azure ou Azure PowerShell]
      Version=1
      ```
      
-     :::image type="content" source="./media/reset-local-password-without-agent/create-gpt-ini-classic.png" alt-text="Captura de tela que mostra as atualizações feitas no arquivo de gpt.ini.":::
+     :::image type="content" source="./media/reset-local-password-without-agent/create-gpt-ini-classic.png" alt-text="Criar gpt.ini-clássico":::
 
 5. Crie `scripts.ini` em `\Windows\System32\GroupPolicy\Machine\Scripts\`. Verifique se as pastas ocultas são mostradas. Se necessário, crie as pastas`Machine` ou `Scripts`.
    
@@ -168,10 +175,17 @@ Sempre tentar redefinir uma senha usando o [portal do Azure ou Azure PowerShell]
      0Parameters=
      ```
      
-     :::image type="content" source="./media/reset-local-password-without-agent/create-scripts-ini-classic-1.png" alt-text="Captura de tela que mostra as atualizações feitas no arquivo de gpt.ini." <username> /add
+     :::image type="content" source="./media/reset-local-password-without-agent/create-scripts-ini-classic-1.png" alt-text="Criar scripts.ini-clássico":::
+
+6. Crie `FixAzureVM.cmd` em `\Windows\System32\GroupPolicy\Machine\Scripts\Startup\` com o seguinte conteúdo, substituindo `<username>` e `<newpassword>` por seus próprios valores:
+   
+    ```
+    net user <username> <newpassword> /add /Y
+    net localgroup administrators <username> /add
+    net localgroup "remote desktop users" <username> /add
     ```
 
-    :::image type="content" source="./media/reset-local-password-without-agent/create-fixazure-cmd-1.png" alt-text="Captura de tela que mostra as atualizações feitas no arquivo de gpt.ini.":::
+    :::image type="content" source="./media/reset-local-password-without-agent/create-fixazure-cmd-1.png" alt-text="Criar FixAzureVM. cmd-clássico":::
    
     Você deve atender aos requisitos de complexidade de senha configurada para sua VM ao definir a nova senha.
 
@@ -181,17 +195,17 @@ Sempre tentar redefinir uma senha usando o [portal do Azure ou Azure PowerShell]
    
    2. Selecione o disco de dados anexado na etapa 2, clique em **Desanexar** e, em seguida, clique em **OK**.
 
-     :::image type="content" source="./media/reset-local-password-without-agent/data-disks-classic.png" alt-text="Captura de tela que mostra as atualizações feitas no arquivo de gpt.ini.":::
+     :::image type="content" source="./media/reset-local-password-without-agent/data-disks-classic.png" alt-text="Desanexar disco-Solucionando problemas de VM-clássico":::
      
-     :::image type="content" source="./media/reset-local-password-without-agent/detach-disk-classic.png" alt-text="Captura de tela que mostra as atualizações feitas no arquivo de gpt.ini.":::
+     :::image type="content" source="./media/reset-local-password-without-agent/detach-disk-classic.png" alt-text="Desanexar disco-solução de problemas de VM-Ok caixa de diálogo-clássico":::
 
 8. Crie uma VM usando o disco do SO da VM de origem:
    
-     :::image type="content" source="./media/reset-local-password-without-agent/create-new-vm-from-template-classic.png" alt-text="Captura de tela que mostra as atualizações feitas no arquivo de gpt.ini.":::
+     :::image type="content" source="./media/reset-local-password-without-agent/create-new-vm-from-template-classic.png" alt-text="Criar uma VM do modelo-clássico":::
 
-     :::image type="content" source="./media/reset-local-password-without-agent/choose-subscription-classic.png" alt-text="Captura de tela que mostra as atualizações feitas no arquivo de gpt.ini.":::
+     :::image type="content" source="./media/reset-local-password-without-agent/choose-subscription-classic.png" alt-text="Criar uma VM do modelo-escolher assinatura-clássico":::
 
-     :::image type="content" source="./media/reset-local-password-without-agent/create-vm-classic.png" alt-text="Captura de tela que mostra as atualizações feitas no arquivo de gpt.ini.":::
+     :::image type="content" source="./media/reset-local-password-without-agent/create-vm-classic.png" alt-text="Criar uma VM do modelo-criar VM-clássico":::
 
 ## <a name="complete-the-create-virtual-machine-experience"></a>Concluir a experiência Criar máquina virtual
 
@@ -207,4 +221,4 @@ Sempre tentar redefinir uma senha usando o [portal do Azure ou Azure PowerShell]
       * remova `gpt.ini` (se `gpt.ini` existia antes e você o renomeou como `gpt.ini.bak`, renomeie o arquivo `.bak` de volta para `gpt.ini`)
 
 ## <a name="next-steps"></a>Próximas etapas
-Se você ainda não conseguir conectar usando a Área de Trabalho Remota, confira o [guia de solução de problemas do RDP](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). O [guia para solução de problemas detalhada de RDP](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) explica os métodos da solução de problemas, e não etapas específicas. Você também pode [abrir uma solicitação de suporte do Azure](https://azure.microsoft.com/support/options/) para obter assistência prática.
+Se você ainda não conseguir conectar usando a Área de Trabalho Remota, confira o [guia de solução de problemas do RDP](troubleshoot-rdp-connection.md). O [guia para solução de problemas detalhada de RDP](detailed-troubleshoot-rdp.md) explica os métodos da solução de problemas, e não etapas específicas. Você também pode [abrir uma solicitação de suporte do Azure](https://azure.microsoft.com/support/options/) para obter assistência prática.

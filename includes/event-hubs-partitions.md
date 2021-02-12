@@ -5,36 +5,56 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 05/22/2019
+ms.date: 01/05/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: cbd2d3b46ec339328e0d0889a722d39070104953
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 780da47e6f071d854a16ca1d1c5cd02dbdd6bef0
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92347068"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955630"
 ---
-Os Hubs de Evento fornecem streaming de mensagens por meio de um padrão de consumidor particionado no qual cada consumidor lê somente um subconjunto específico, ou partição, do fluxo de mensagens. Esse padrão permite a escala horizontal para processamento de eventos e fornece outros recursos centrados no fluxo que não estão disponíveis em filas e tópicos.
+O Hub de Eventos organiza as sequências de eventos em uma ou mais partições. À medida que novos eventos chegam, eles são adicionados ao final dessa sequência. Uma partição pode ser pensada como "log de confirmação".
 
-Uma partição é uma sequência ordenada de eventos que é mantida em um hub de eventos. À medida que novos eventos chegam, eles são adicionados ao final dessa sequência. Uma partição pode ser pensada como "log de confirmação".
+As partições bloqueiam os dados de evento que contêm o corpo do evento, um recipiente de propriedades definido pelo usuário que descreve o evento e os metadados como o deslocamento na partição, o número na sequência de fluxo dela e o carimbo de data/hora do lado do serviço no qual ele foi aceito.
 
 ![Diagrama que exibe a sequência de eventos mais antigos para os mais recentes.](./media/event-hubs-partitions/partition.png)
 
-Os Hubs de Eventos mantêm os dados por um período de retenção configurado que se aplica a todas as partições no hub de eventos. Eventos expiram periodicamente; não é possível excluí-los explicitamente. Como as partições são independentes e contêm sua própria sequência de dados, elas geralmente crescem a taxas diferentes.
+Os Hubs de Eventos são projetados para ajudar no processamento de grandes volumes de eventos, e o particionamento ajuda com isso de duas maneiras:
+
+Primeiro, embora os Hubs de Eventos sejam um serviço de PaaS, há uma realidade física por baixo, e a manutenção de um log que preserva a ordem dos eventos exige que esses eventos sejam mantidos juntos no armazenamento subjacente e suas réplicas e que resultem em um teto de taxa de transferência para tal log. O particionamento permite que vários logs paralelos sejam usados para o mesmo Hub de Eventos e, portanto, multiplique a capacidade de taxa de transferência de E/S bruta disponível.
+
+Em segundo lugar, seus próprios aplicativos devem ser capazes de acompanhar o processamento do volume de eventos que estão sendo enviados para um Hub de Eventos. Isso pode ser complexo e exige uma capacidade substancial, de expansão e de processamento paralelo. A lógica para partições é a mesma acima: A capacidade de um único processo de lidar com eventos é limitada e, portanto, você precisa de vários processos, e as partições são como sua solução alimenta esses processos e, ainda assim, garantem que cada evento tenha um proprietário de processamento claro. 
+
+Os Hubs de Eventos mantêm os eventos por um período de retenção configurado que se aplica a todas as partições. Os eventos são removidos automaticamente quando o período de retenção é atingido. Se você especificar um período de retenção de um dia, o evento ficará indisponível exatamente 24 horas depois de ser aceito. Não é possível excluir eventos explicitamente. 
+
+O tempo de retenção permitido é de até sete dias para os Hubs de Eventos Standard e até 90 dias para Hubs de Eventos Dedicados. Se você precisar arquivar eventos além do período de retenção permitido, é possível tê-los [armazenados automaticamente no Armazenamento do Azure ou Azure Data Lake ativando o recurso de Captura dos Hubs de Eventos](../articles/event-hubs/event-hubs-capture-overview.md) e, se precisar pesquisar ou analisar esses arquivos detalhados, é possível [importá-los facilmente para o Azure Synapse](../articles/event-hubs/store-captured-data-data-warehouse.md) ou outras lojas semelhantes e plataformas de análise. 
+
+O motivo para o limite dos Hubs de Eventos na retenção de dados com base no tempo é evitar que grandes volumes de dados históricos do cliente sejam interceptados em um repositório profundo que está indexado apenas por um carimbo de data/hora e que permita acesso sequencial. A filosofia arquitetônica aqui é que os dados históricos precisam de indexação mais avançada e mais acesso direto do que a interface de eventos em tempo real que os Hubs de Eventos ou Kafka fornecem. Os mecanismos de fluxo de eventos não são adequados para desempenhar a função de data lakes ou arquivos de longo prazo para fornecimento de eventos. 
+
+Como as partições são independentes e contêm sua própria sequência de dados, elas geralmente crescem a taxas diferentes. Nos Hubs de Eventos, isso não é uma preocupação que exige intervenção administrativa como seriam, por exemplo, no Apache Kafka, mas a distribuição desigual levará a um carregamento desigual nos processadores de eventos downstream.
 
 ![Hubs de Eventos](./media/event-hubs-partitions/multiple-partitions.png)
 
-O número de partições é especificado na criação do Hub de Eventos e deve estar entre 2 e 32. A contagem de partições não é mutável, portanto você deve considerar a escala de longo prazo ao definir a contagem de partições. As partições são um mecanismo de organização de dados relacionados ao paralelismo de downstream necessário no consumo de aplicativos. O número de partições em um hub de eventos está diretamente relacionado ao número de leitores simultâneos que você espera ter. Você pode aumentar o número de partições para mais de 32 entrando em contato com a equipe de Hubs de Eventos.
+O número de partições é especificado na criação e precisa estar entre 1 e 32 nos Hubs de Eventos Standard. A contagem de partições pode ter até 2.000 partições por unidade de capacidade em Hubs de Eventos Dedicados. 
 
-Talvez você queira defini-la como o maior valor possível, que é 32, no momento da criação. Lembre-se de que ter mais de uma partição resultará em eventos enviados a várias partições sem reter a ordem, a menos que você configure que os remetentes enviem somente para uma única partição fora das 32, deixando as 31 restantes de partições redundantes. No primeiro caso, será necessário ler os eventos nas 32 partições. No último caso, não há nenhum custo adicional aparente, além da configuração extra que você deverá fazer no Host do Processador de Eventos.
+Recomendamos que você escolha pelo menos tantas partições quanto espera exigir nas [TU (unidades de produtividade)](../articles/event-hubs/event-hubs-faq.md#what-are-event-hubs-throughput-units) sustentadas durante o pico de carga do seu aplicativo para aquele Hub de Eventos em particular. É recomendável calcular com uma única partição que tem uma capacidade de taxa de transferência de 1 TU (1 MByte de entrada, 2 MByte de saída). É possível escalar as TUs no seu namespace ou nas unidades de capacidade do seu cluster independentemente da contagem de partições. Um Hub de Eventos com 32 partições ou um Hub de Eventos com uma partição incorre exatamente no mesmo custo quando o namespace é definido como capacidade de 1 TU. 
 
-Embora as partições possam ser identificadas e seja possível enviar diretamente a elas, não é recomendável enviar diretamente a uma partição. Em vez disso, será possível usar os constructos de nível superior apresentados na seção [Editores de eventos](../articles/event-hubs/event-hubs-features.md#event-publishers). 
+Os aplicativos controlam o mapeamento de eventos para partições de uma das três maneiras:
 
-As partições são preenchidas com uma sequência de dados de evento que contêm o corpo do evento, um recipiente de propriedades definidas pelo usuário e metadados como seu deslocamento na partição e seu número na sequência de fluxo.
+- Especificando a chave de partição, que é mapeada consistentemente (usando uma função de hash) para uma das partições disponíveis. 
+- Não especificando uma chave de partição, que permite ao agente escolher aleatoriamente uma partição para um determinado evento.
+- Enviando eventos explicitamente para uma partição específica.
 
-Recomendamos equilibrar unidades de produtividade e partições de maneira individual para obter uma escala ideal. Uma partição tem entrada e saída de até uma unidade de produtividade garantidas. Embora seja possível obter uma taxa de transferência mais alta em uma partição, o desempenho não será garantido. Por esse motivo, é altamente recomendável que o número de partições em um hub de eventos seja maior ou igual ao número de unidades de produtividade.
+A especificação de uma chave de partição permite manter eventos relacionados juntos na mesma partição e na ordem exata em que eles foram enviados. A chave de partição é uma cadeia de caracteres derivada do contexto do aplicativo e identifica a relação entre os eventos.
 
-Considerando a taxa de transferência total que você planeja usar, será possível saber o número de unidades de produtividade necessárias e o número mínimo de partições. No entanto, quantas partições serão necessárias? Escolha o número de partições com base no paralelismo downstream que você deseja obter, bem como em suas necessidades futuras de taxa de transferência. Não há nenhum custo para obter o número de partições que você tem em um Hub de Eventos.
+Uma sequência de eventos identificados por uma chave de partição é um *fluxo*. Uma partição é um repositório de logs multiplexado para muitos desses fluxos. 
+
+A contagem de partições de um hub de eventos em um [cluster de Hubs de Eventos dedicados](../articles/event-hubs/event-hubs-dedicated-overview.md) pode ser [aumentada](../articles/event-hubs/dynamically-add-partitions.md) após o hub de eventos ter sido criado, mas a distribuição de fluxos entre partições será alterada quando for feita como o mapeamento de chaves de partição para alterações de partições. Portanto, você deve tentar evitar essas alterações se a ordem relativa dos eventos é importante em seu aplicativo.
+
+Definir o número de partições com o valor máximo permitido é tentador, mas sempre tenha em mente que os fluxos de eventos precisam ser estruturados de um jeito que você possa tirar proveito de várias partições. Se você precisar de preservação de ordem absoluta em todos os eventos ou apenas em alguns subfluxos, talvez não seja possível tirar proveito de muitas partições. Além disso, muitas partições tornam o lado de processamento mais complexo. 
+
+Embora as partições possam ser enviadas diretamente, isso não é recomendado. Em vez disso, será possível usar os constructos de nível superior apresentados na seção [Editores de eventos](../articles/event-hubs/event-hubs-features.md#event-publishers). 
 
 Para saber mais sobre partições e a compensação entre disponibilidade e confiabilidade, consulte os artigos [Guia de programação dos Hubs de Eventos](../articles/event-hubs/event-hubs-programming-guide.md#partition-key) e [Disponibilidade e consistência em Hubs de Eventos](../articles/event-hubs/event-hubs-availability-and-consistency.md).

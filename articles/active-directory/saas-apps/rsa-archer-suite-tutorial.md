@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 09/01/2020
 ms.author: jeedes
 ms.openlocfilehash: 397d59c60ed90e0e25df671baa3d46660eff1d47
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520601"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181570"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-rsa-archer-suite"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao RSA Archer Suite
 
@@ -48,16 +48,16 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 Para configurar a integração do RSA Archer Suite ao Azure AD, é necessário adicioná-lo por meio da galeria à lista de aplicativos SaaS gerenciados.
 
 1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory** .
-1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos** .
-1. Para adicionar um novo aplicativo, escolha **Novo aplicativo** .
-1. Na seção **Adicionar por meio da galeria** , digite **RSA Archer Suite** na caixa de pesquisa.
+1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
+1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
+1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
+1. Na seção **Adicionar por meio da galeria**, digite **RSA Archer Suite** na caixa de pesquisa.
 1. Selecione **RSA Archer Suite** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 
 ## <a name="configure-and-test-azure-ad-sso-for-rsa-archer-suite"></a>Configurar e testar o SSO do Azure AD para o RSA Archer Suite
 
-Configure e teste o SSO do Azure AD com o RSA Archer Suite usando um usuário de teste chamado **B.Fernandes** . Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do RSA Archer Suite.
+Configure e teste o SSO do Azure AD com o RSA Archer Suite usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do RSA Archer Suite.
 
 Para configurar e testar o SSO do Azure AD com o RSA Archer Suite, execute as seguintes etapas:
 
@@ -72,17 +72,17 @@ Para configurar e testar o SSO do Azure AD com o RSA Archer Suite, execute as se
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No portal do Azure, na página de integração de aplicativos do **RSA Archer Suite** , localize a seção **Gerenciar** e selecione **Logon único** .
-1. Na página **Selecionar um método de logon único** , escolha **SAML** .
-1. Na página **Configurar o logon único com o SAML** , clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. No portal do Azure, na página de integração de aplicativos do **RSA Archer Suite**, localize a seção **Gerenciar** e selecione **Logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica do SAML** , insira os valores para os seguintes campos:
+1. Na seção **Configuração Básica do SAML**, insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL de Logon** , digite uma URL usando o seguinte padrão: `https://<BASE_URL>/default.aspx?IDP=<REALM_NAME>`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<BASE_URL>/default.aspx?IDP=<REALM_NAME>`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)** , digite o valor: `RSAArcherSuite_TENANT_STRING`
+    b. Na caixa de texto **Identificador (ID da Entidade)**, digite o valor: `RSAArcherSuite_TENANT_STRING`
 
     > [!NOTE]
     > O valor da URL de Entrada não é real. Atualize o valor com a URL de Entrada real. Entre em contato com a [equipe de suporte ao cliente do RSA Archer Suite](mailto:archersupport@rsa.com) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -103,11 +103,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     | Estado | user.state |
     | Street | user.streetaddress |
 
-1. Na página **Configurar o logon único com o SAML** , na seção **Certificado de Autenticação SAML** , localize **XML de Metadados de Federação** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **XML de Metadados de Federação** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-1. Na seção **Configurar o RSA Archer Suite** , copie as URLs apropriadas de acordo com as suas necessidades.
+1. Na seção **Configurar o RSA Archer Suite**, copie as URLs apropriadas de acordo com as suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -115,25 +115,25 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários** .
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário** , siga estas etapas:
-   1. No campo **Nome** , insira `B.Simon`.  
-   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha** .
-   1. Clique em **Criar** .
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que B.Fernandes use o logon único do Azure permitindo acesso ao RSA Archer Suite.
 
-1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos** .
-1. Na lista de aplicativos, escolha **RSA Archer Suite** .
-1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos** .
-1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
-1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função** . Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. Na lista de aplicativos, escolha **RSA Archer Suite**.
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
+1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-rsa-archer-suite-sso"></a>Configurar o SSO do RSA Archer Suite
 
@@ -145,11 +145,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
     a. Acesse a guia **Logon Único** e selecione **SAML** como um **Modo de Logon Único** na lista suspensa.
 
-    b. Marque a caixa de seleção **Permitir bypass manual** .
+    b. Marque a caixa de seleção **Permitir bypass manual**.
 
-    c. Forneça um nome válido na caixa de texto **ID da Entidade de Instância** .
+    c. Forneça um nome válido na caixa de texto **ID da Entidade de Instância**.
 
-    d. Cole o **Valor da Impressão Digital** na caixa de texto **Impressão Digital do Certificado** .
+    d. Cole o **Valor da Impressão Digital** na caixa de texto **Impressão Digital do Certificado**.
 
     e. Clique no botão **Selecionar** e carregue o arquivo **XML de Metadados de Federação** baixado do portal do Azure.
 

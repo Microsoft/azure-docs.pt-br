@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/22/2020
 ms.author: sudbalas
-ms.openlocfilehash: 931aea02d0a3c26bb5c2e7158f9c4360976d3af5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: c55c87cd8ab1b2cd1dbaf2c877eb341744d822ef
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440511"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287473"
 ---
 # <a name="azure-key-vault-backup"></a>Backup do Azure Key Vault
 
@@ -25,9 +25,9 @@ Este documento mostra como fazer backup de segredos, chaves e certificados armaz
 
 O Azure Key Vault fornece automaticamente vários recursos para ajudar você a manter a disponibilidade e evitar a perda de dados. Faça backup dos segredos somente se você tiver uma justificativa comercial crítica. O backup de segredos no cofre de chaves pode introduzir desafios operacionais, como a manutenção de vários conjuntos de logs, permissões e backups quando os segredos expiram ou são girados.
 
-O Key Vault mantém a disponibilidade em cenários de desastre e fará automaticamente o failover das solicitações para uma região emparelhada sem exigir nenhuma intervenção por parte do usuário. Para obter mais informações, confira [Disponibilidade e redundância do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance).
+O Key Vault mantém a disponibilidade em cenários de desastre e fará automaticamente o failover das solicitações para uma região emparelhada sem exigir nenhuma intervenção por parte do usuário. Para obter mais informações, confira [Disponibilidade e redundância do Azure Key Vault](./disaster-recovery-guidance.md).
 
-Caso deseje obter proteção contra a exclusão acidental ou mal-intencionada de segredos, configure a exclusão temporária e limpe os recursos de proteção no cofre de chaves. Para obter mais informações, confira [Visão geral da exclusão temporária do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview).
+Caso deseje obter proteção contra a exclusão acidental ou mal-intencionada de segredos, configure a exclusão temporária e limpe os recursos de proteção no cofre de chaves. Para obter mais informações, confira [Visão geral da exclusão temporária do Azure Key Vault](./soft-delete-overview.md).
 
 ## <a name="limitations"></a>Limitações
 
@@ -67,11 +67,11 @@ Siga as etapas desta seção para fazer backup de objetos e restaurá-los usando
     ![Captura de tela mostrando o local de seleção da configuração de Chaves e um objeto em um cofre de chaves.](../media/backup-1.png)
 
 4. Selecione o objeto.
-5. Selecione **Baixar Backup** .
+5. Selecione **Baixar Backup**.
 
     ![Captura de tela mostrando o local de seleção do botão Baixar Backup em um cofre de chaves.](../media/backup-2.png)
     
-6. Selecione **Baixar** .
+6. Selecione **Baixar**.
 
     ![Captura de tela mostrando o local de seleção do botão Baixar em um cofre de chaves.](../media/backup-3.png)
     
@@ -82,12 +82,12 @@ Siga as etapas desta seção para fazer backup de objetos e restaurá-los usando
 1. Vá para o portal do Azure.
 2. Selecione seu cofre de chaves.
 3. Acesse o tipo de objeto (segredo, chave ou certificado) que deseja restaurar.
-4. Selecione **Restaurar Backup** .
+4. Selecione **Restaurar Backup**.
 
     ![Captura de tela mostrando o local de seleção de Restaurar Backup em um cofre de chaves.](../media/backup-4.png)
     
 5. Acesse a localização em que você armazenou o blob criptografado.
-6. Selecione **OK** .
+6. Selecione **OK**.
 
 ## <a name="back-up-and-restore-from-the-azure-cli"></a>Backup e restauração por meio da CLI do Azure
 
@@ -123,4 +123,4 @@ az keyvault secret restore --file {File Path} --vault-name {Key Vault Name} --su
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Ative o [log e o monitoramento](https://docs.microsoft.com/azure/key-vault/general/logging) para o Key Vault.
+Ative o [log e o monitoramento](./logging.md) para o Key Vault.

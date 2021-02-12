@@ -10,11 +10,11 @@ ms.topic: include
 ms.date: 03/20/2020
 ms.author: travisw
 ms.openlocfilehash: bb88ef7f048b2454f05ef33286e59277070c3ea0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "80241759"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187470"
 ---
 Neste guia de início rápido, você usará o [SDK de Fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para criar um aplicativo de assistente de voz personalizado que se conecta a um bot que você já criou e configurou. Se você precisar criar um bot, confira o [tutorial relacionado](~/articles/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk.md) para ver orientações mais abrangentes.
 

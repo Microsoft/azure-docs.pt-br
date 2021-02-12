@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: troubleshooting
-ms.date: 04/19/2019
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: b950f80ba8c2bdbaf7a515dc1ce127b934723177
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17b8d6de198746a79a50c4fbda805b364212e3c4
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85558555"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796046"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-blob-storage"></a>Solucionar problemas relacionados ao armazenamento de BLOBs Azure Data Box
 
@@ -65,6 +65,7 @@ Esses erros não são específicos de nenhum aplicativo.
 |Mensagem de erro  |Ação recomendada |
 |---------|---------|
 |A conexão atinge o tempo limite. |Entre no dispositivo de Data Box e verifique se ele está desbloqueado. Sempre que o dispositivo for reiniciado, ele permanecerá bloqueado até que alguém entre.|
+|A autenticação da API REST falha com o erro: o servidor falhou ao autenticar a solicitação. Verifique se o valor do cabeçalho de autorização está formado corretamente, incluindo a assinatura. ErrorCode: AuthenticationFailed. |Um dos motivos pelos quais isso pode acontecer é quando a hora do dispositivo não é sincronizada com a do Azure. Se houver uma grande distorção de tempo, a autenticação da API REST será interrompida quando você estiver tentando copiar dados para a Data Box por meio da API REST. Nessa situação, você pode abrir a porta UDP 123 de saída para permitir o acesso ao `time.windows.com` . Depois que a hora do dispositivo for sincronizada com a do Azure, a autenticação deverá ter sucesso. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

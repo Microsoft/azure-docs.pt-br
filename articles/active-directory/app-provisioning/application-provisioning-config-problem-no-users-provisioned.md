@@ -3,20 +3,20 @@ title: Os usuários não estão sendo provisionados no meu aplicativo
 description: Como solucionar problemas comuns enfrentados ao não ver os usuários que aparecem em uma Galeria de Aplicativos do Azure AD que você configurou para o provisionamento do usuário com o Azure AD
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 12/03/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 21f16a0b9c8b3b603735520d5dcdbf61601e1480
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 429f993764273d6b6eb23d75d0132b374d5d0ca0
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706495"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256347"
 ---
 # <a name="no-users-are-being-provisioned"></a>Nenhum usuário sendo provisionado 
 >[!NOTE]
@@ -24,7 +24,7 @@ ms.locfileid: "90706495"
 >
 Após o provisionamento automático ser configurado para um aplicativo (incluindo verificar se as credenciais de aplicativo fornecidas ao Azure AD para se conectar ao aplicativo são válidas), os usuários e/ou grupos são provisionados no aplicativo. O provisionamento é determinado pelos seguintes fatores:
 
--   Quais usuários e grupos têm sido **atribuídos** para o aplicativo. Observe que não há suporte para o provisionamento de grupos aninhados ou grupos de Microsoft 365. Para obter mais informações sobre atribuição, consulte [Atribuir um usuário ou grupo a um aplicativo corporativo no Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md).
+-   Quais usuários e grupos têm sido **atribuídos** para o aplicativo. Observe que não há suporte para o provisionamento de grupos aninhados. Para obter mais informações sobre atribuição, consulte [Atribuir um usuário ou grupo a um aplicativo corporativo no Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md).
 -   Estejam os **mapeamentos de atributos** habilitados ou não, e configurados para sincronizar atributos válidos do Azure AD para o aplicativo. Para obter mais informações sobre mapeamentos de atributo, consulte [Personalizando mapeamentos de atributo do provisionamento de usuário para aplicativos SaaS no Azure Active Directory](customize-application-attributes.md).
 -   Se há ou não um **filtro de escopo** presente que está filtrando usuários com base nos valores de atributo específico. Para obter mais informações sobre filtros de escopo, consulte [provisionamento de aplicativos com base em atributo com filtros de escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
   

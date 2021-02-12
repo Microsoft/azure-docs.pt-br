@@ -6,14 +6,14 @@ ms.service: virtual-machines-windows
 ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 01/08/2020
+ms.date: 01/26/2021
 ms.author: cynthn
-ms.openlocfilehash: f3c1e305024eb255a85aa470105d99edd3c26982
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a995cd1d02438ae3be7091ba55e945549558829d
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201300"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055188"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Como desanexar um disco de dados de uma máquina virtual Windows
 
@@ -53,11 +53,13 @@ O disco permanecerá no armazenamento, mas não estará mais conectado a uma má
 1. No menu à esquerda, selecione **Máquinas Virtuais**.
 1. Selecione a máquina virtual que tem o disco de dados que você deseja desanexar.
 1. Em **Configurações**, selecione **Discos**.
-1. No painel **discos** , na extrema direita do disco de dados que você deseja desanexar, clique no botão de exclusão **X** .
+1. No painel **discos** , na extrema direita do disco de dados que você deseja desanexar, clique no botão **desanexar X** .
 1. Selecione **Salvar** na parte superior da página para salvar as alterações.
 
 O disco permanecerá no armazenamento, mas não estará mais conectado a uma máquina virtual.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você quiser reutilizar o disco de dados, você poderá simplesmente [anexá-lo a outra VM](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+Se deseja reutilizar o disco de dados, basta [anexá-lo a outra VM](attach-managed-disk-portal.md).
+
+Se você quiser excluir o disco, para que não incorra mais nos custos de armazenamento, consulte [Localizar e excluir discos gerenciados e não-portal do Azure do Azure desconectados](../disks-find-unattached-portal.md).

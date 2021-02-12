@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 8b18da5e41e235b560918ad26117a0162078862c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8915e1c15972341befd176b412925f4e87c94f6
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540975"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201443"
 ---
 # <a name="azure-policy-security-baseline-for-azure-security-benchmark"></a>Linha de base de segurança do Azure Policy para o benchmark de segurança do Azure
 
@@ -59,7 +59,7 @@ Você também pode habilitar uma solução de acesso just-in-time/apenas o sufic
 
 **Diretrizes**: Use PAWs (estações de trabalho com acesso privilegiado) com a MFA configurada para fazer logon e configurar recursos do Azure.
 
-* [Saiba mais sobre Estações de Trabalho com Acesso Privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Saiba mais sobre Estações de Trabalho com Acesso Privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [Como habilitar a MFA no Azure](../../../active-directory/authentication/howto-mfa-getstarted.md)
 

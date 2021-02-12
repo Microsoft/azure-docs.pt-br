@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7fe1c01542df2fcc38982fe2a30f9e94c712eacb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1c9cf0a60446fba6fae5c850231b0805e7ea135
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87065261"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736645"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>Tutorial: Criar e implantar máquinas virtuais altamente disponíveis com o Azure PowerShell
 
@@ -75,7 +75,7 @@ As VMs devem ser criadas dentro do conjunto de disponibilidade para assegurar a 
 
 Ao criar uma VM com [New-AzVM](/powershell/module/az.compute/new-azvm), você usa o parâmetro `-AvailabilitySetName` para especificar o nome do conjunto de disponibilidade.
 
-Primeiro, defina o nome de usuário e a senha de um administrador para a VM com [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1):
+Primeiro, defina o nome de usuário e a senha de um administrador para a VM com [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell-interactive
 $cred = Get-Credential

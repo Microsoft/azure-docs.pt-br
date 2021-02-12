@@ -1,14 +1,14 @@
 ---
 title: Experiências de gerenciamento entre locatários
 description: O gerenciamento de recursos delegados do Azure permite uma experiência de gerenciamento entre locatários.
-ms.date: 10/22/2020
+ms.date: 02/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5443c3b5a34cd493e0956f2a0d6ed7d6fecd603d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b76723c9ea94581561f5bdb04ea1fd8335da77b7
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460658"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981078"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gerenciamento entre locatários
 
@@ -78,9 +78,16 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
 
 - Do locatário de gerenciamento, os parceiros CSP podem exibir, gerenciar e analisar os custos de consumo de imposto prévio (não inclusivo de compras) para clientes que estão sob o plano do Azure. O custo será baseado em taxas de varejo e no acesso do Azure RBAC (controle de acesso baseado em função) que o parceiro tem para a assinatura do cliente.
 
+[Azure Key Vault](../../key-vault/general/index.yml):
+
+- Criar cofres de chaves em locatários do cliente
+- Usar uma identidade gerenciada para criar cofres de chaves em locatários do cliente
+
 [AKS (Serviço de Kubernetes do Azure)](../../aks/index.yml):
 
 - Gerencie ambientes Kubernetes hospedados e implante e gerencie aplicativos em contêineres dentro de locatários do cliente
+- Implantar e gerenciar clusters em locatários do cliente
+-   Usar Azure Monitor para contêineres para monitorar o desempenho entre locatários do cliente
 
 [Migrações para Azure](../../migrate/index.yml):
 
@@ -88,11 +95,12 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
 
 [Azure Monitor](../../azure-monitor/index.yml):
 
-- Exibir alertas para assinaturas delegadas, com a possibilidade de exibir alertas em todas as assinaturas
+- Exibir alertas para assinaturas delegadas, com a capacidade de exibir e atualizar alertas em todas as assinaturas
 - Exibir detalhes do log de atividades para assinaturas delegadas
-- Log Analytics: consultar dados de espaços de trabalho remotos em vários locatários
+- [Log Analytics](../../azure-monitor/platform/service-providers.md): consultar dados de espaços de trabalho remotos em vários locatários (Observe que as contas de automação usadas para acessar dados de espaços de trabalho em locatários do cliente devem ser criadas no mesmo locatário)
+- [Criar, exibir e gerenciar alertas do log de atividades](../../azure-monitor/platform/alerts-activity-log.md) em locatários do cliente
 - Criar alertas em locatários do cliente que disparam a automação, como runbooks de automação do Azure ou Azure Functions, no gerenciamento de locatário por meio de WebHooks
-- Criar configurações de diagnóstico em locatários do cliente para enviar logs de recursos para espaços de trabalho no locatário de gerenciamento
+- Criar [configurações de diagnóstico](../..//azure-monitor/platform/diagnostic-settings.md) em locatários do cliente para enviar logs de recursos para espaços de trabalho no locatário de gerenciamento
 - Para cargas de trabalho do SAP, [monitore as métricas de soluções SAP com uma exibição agregada entre locatários do cliente](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
 
 [Rede do Azure](../../networking/networking-overview.md):
@@ -104,7 +112,6 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
 
 [Azure Policy](../../governance/policy/index.yml):
 
-- Instantâneos de conformidade mostram detalhes para políticas atribuídas dentro de assinaturas delegadas
 - Criar e Editar definições de política em assinaturas delegadas
 - Atribuir definições de política definidas pelo cliente em assinaturas delegadas
 - Os clientes veem políticas criadas pelo provedor de serviços junto com políticas que eles mesmos criaram
@@ -136,7 +143,7 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
 
 - Gerenciar recursos do Azure Sentinel [em locatários do cliente](../../sentinel/multiple-tenants-service-providers.md)
 - [Acompanhar ataques e exibir alertas de segurança em vários locatários](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-lighthouse-and-azure-sentinel-to-monitor-across/ba-p/1043899)
-- [Exibir incidentes](../../sentinel/multiple-workspace-view.md) em vários espaços de trabalho do Sentinel distribuídos entre locatários
+- [Exibir incidentes](../../sentinel/multiple-workspace-view.md) em vários espaços de trabalho do Azure Sentinel distribuídos entre locatários
 
 [Integridade do Serviço do Azure](../../service-health/index.yml):
 
@@ -157,7 +164,8 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
 
 Solicitações de suporte:
 
-- [Abrir solicitações de suporte de **ajuda + suporte** ](../../azure-portal/supportability/how-to-create-azure-support-request.md#getting-started) no portal do Azure para recursos delegados (selecionando o plano de suporte disponível para o escopo delegado)
+- [Abrir solicitações de suporte de **ajuda + suporte**](../../azure-portal/supportability/how-to-create-azure-support-request.md#getting-started) no portal do Azure para recursos delegados (selecionando o plano de suporte disponível para o escopo delegado)
+- Usar a [API de cota do Azure](/rest/api/reserved-vm-instances/quotaapi) para exibir e gerenciar cotas de serviço do Azure para recursos de cliente delegados
 
 ## <a name="current-limitations"></a>Limitações atuais
 
@@ -167,6 +175,7 @@ Com todos os cenários, esteja ciente das seguintes limitações atuais:
 - As atribuições de função devem usar [funções internas do Azure](../../role-based-access-control/built-in-roles.md). Atualmente, todas as funções internas têm suporte com o gerenciamento de recursos delegado do Azure, exceto o proprietário ou qualquer função interna com [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) permissão. A função de Administrador de Acesso do Usuário tem suporte apenas para uso limitado na [atribuição de funções a identidades gerenciadas](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  As funções personalizadas e as [funções de administrador de assinatura clássica](../../role-based-access-control/classic-administrators.md) não têm suporte.
 - Embora você possa integrar assinaturas que usam o Azure Databricks, os usuários no locatário de gerenciamento não podem iniciar os workspaces do Azure Databricks em uma assinatura delegada no momento.
 - Embora você possa integrar assinaturas e grupos de recursos que têm bloqueios de recursos, esses bloqueios não impedirão que as ações sejam executadas por usuários no locatário de gerenciamento. As [atribuições de negação](../../role-based-access-control/deny-assignments.md) que protegem recursos gerenciados pelo sistema, como aqueles criados pelos Aplicativos Gerenciados do Azure ou pelo Azure Blueprints (atribuições de negação atribuídas ao sistema), impedem que os usuários do locatário de gerenciamento executem ações nesses recursos; no entanto, atualmente, os usuários do locatário do cliente não podem criar atribuições de negação próprias (atribuições de negação atribuídas ao usuário).
+- Não há suporte para a delegação de assinaturas em uma [nuvem nacional](../../active-directory/develop/authentication-national-cloud.md) e na nuvem pública do Azure ou em duas nuvens nacionais separadas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

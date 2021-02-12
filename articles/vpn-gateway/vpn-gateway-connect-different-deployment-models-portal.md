@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: 2bcd919629eb03581c35a2090d53e451141d94a4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f307ff9e7d609628bc22374fc5874dcbf993e4c2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487020"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661181"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Conectar redes virtuais de diferentes modelos de implantação usando o portal
 
@@ -86,7 +86,7 @@ Nesta seção, você cria a VNet clássica, a rede local (site local) e o gatewa
 
 ### <a name="1-create-a-classic-vnet"></a>1. <a name="classicvnet"></a> criar uma VNet clássica
 
-Caso não tenha uma VNet clássica e esteja executando estas etapas como um exercício, você pode criar uma VNet usando [este artigo](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) e os valores de configurações de [Exemplo](#values) acima.
+Caso não tenha uma VNet clássica e esteja executando estas etapas como um exercício, você pode criar uma VNet usando [este artigo](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal) e os valores de configurações de [Exemplo](#values) acima.
 
 Caso já tenha uma VNet com um gateway de VPN, verifique se o gateway é Dinâmico. Se ele for Estático, primeiro você deve excluir o gateway de VPN antes de prosseguir para [Configurar o site local](#local).
 

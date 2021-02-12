@@ -1,7 +1,7 @@
 ---
 title: Usar agentes com o Xamarin iOS & Android | Azure
 titleSuffix: Microsoft identity platform
-description: Saiba como configurar aplicativos Xamarin iOS que podem usar Microsoft Authenticator e MSAL.NET (biblioteca de autenticação da Microsoft para .NET). Saiba também como migrar da biblioteca de autenticação do AD do Azure para .NET (ADAL.NET) para a biblioteca de autenticação da Microsoft para .NET (MSAL.NET).
+description: Saiba como configurar aplicativos Xamarin iOS que podem usar o Microsoft Authenticator e a MSAL.NET (biblioteca de autenticação da Microsoft para .NET). Saiba também como migrar da biblioteca de autenticação do AD do Azure para .NET (ADAL.NET) para a biblioteca de autenticação da Microsoft para .NET (MSAL.NET).
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 7fa13a328a55b0e9eaa546e70bf0711f4f011cf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee9f374d110115b224c48853f26037dc461e5fa0
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89068518"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583834"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Usar Microsoft Authenticator ou Portal da Empresa do Intune em aplicativos Xamarin
 
@@ -91,7 +91,7 @@ Esse método é invocado toda vez que o aplicativo é iniciado. Ele é usado com
 
 ### <a name="step-4-set-uiviewcontroller"></a>Etapa 4: definir UIViewController ()
 
-Ainda no arquivo *AppDelegate.cs* , você precisa definir uma janela de objeto. Normalmente, você não precisa definir a janela de objeto para o Xamarin iOS, mas precisa de uma janela de objeto para enviar e receber respostas do agente.
+Ainda no arquivo *AppDelegate.cs* , defina uma janela de objeto. Normalmente, você não precisa definir a janela de objeto para o Xamarin iOS, mas precisa de uma janela de objeto para enviar e receber respostas do agente.
 
 Para configurar a janela de objeto:
 
@@ -183,7 +183,7 @@ Adicione o URI de redirecionamento ao registro do aplicativo no [portal do Azure
 
 **Para gerar o URI de redirecionamento:**
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Selecione **Azure Active Directory**  >  **registros de aplicativo** > seu aplicativo registrado
 1. Selecione **autenticação**  >  **Adicionar uma plataforma**  >  **Ios/MacOS**
 1. Insira a ID do pacote e, em seguida, selecione **Configurar**.
@@ -237,7 +237,7 @@ result = await app.AcquireTokenInteractive(scopes)
 
 ### <a name="step-4-add-a-redirect-uri-to-your-app-registration"></a>Etapa 4: adicionar um URI de redirecionamento ao registro do aplicativo
 
-O MSAL usa URLs para invocar o agente e, em seguida, retornar ao seu aplicativo. Para concluir essa viagem de ida e volta, você precisa registrar um **URI de redirecionamento** para seu aplicativo usando o [portal do Azure](https://portal.azure.com).
+O MSAL usa URLs para invocar o agente e, em seguida, retornar ao seu aplicativo. Para concluir essa viagem de ida e volta, registre um **URI de redirecionamento** para seu aplicativo usando o [portal do Azure](https://portal.azure.com).
 
 O formato do URI de redirecionamento para seu aplicativo depende do certificado usado para assinar o APK. Por exemplo:
 
@@ -315,7 +315,7 @@ Modifique o manifesto do aplicativo para adicionar o filtro de intenção:
 
 Por exemplo, se você tiver um URI de redirecionamento de `msauth://com.microsoft.xforms.testApp/hgbUYHVBYUTvuvT&Y6tr554365466=` , seu manifesto deverá ser semelhante ao trecho de código XML a seguir.
 
-É necessária a barra de encaminhamento ( `/` ) na frente da assinatura no `android:path` valor **required**.
+É necessária a barra de encaminhamento ( `/` ) na frente da assinatura no `android:path` valor .
 
 ```xml
 <!-- NOTE the SLASH (required) that prefixes the signature value in the path attribute.

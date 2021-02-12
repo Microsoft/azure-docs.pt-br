@@ -2,13 +2,14 @@
 title: Conceitos-monitorar e reparar nuvens privadas da solução Azure VMware
 description: Saiba como a solução Azure VMware monitora e repara VMware ESXi servidores em uma nuvem privada da solução Azure VMware.
 ms.topic: conceptual
-ms.date: 09/16/2020
-ms.openlocfilehash: bee08304cd14f2aeec6995203638b5a37d9a861c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: contperf-fy21q2
+ms.date: 02/03/2021
+ms.openlocfilehash: 6174df429fd9b21c7f685c8ba14e6d5c0bba4c83
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91341013"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538951"
 ---
 # <a name="monitor-and-repair-azure-vmware-solution-private-clouds"></a>Monitorar e reparar nuvens privadas da solução Azure VMware
 
@@ -42,4 +43,7 @@ O processo de correção do host é iniciado pela adição de um novo nó ínteg
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre as [atualizações de nuvem privada da solução Azure VMware](concepts-upgrades.md).  
+Agora que você já abordou como a solução do Azure VMware monitora e repara nuvens privadas, talvez você queira aprender sobre:
+
+- [Atualizações da nuvem privada da solução Azure VMware](concepts-upgrades.md).
+- [Como habilitar o recurso de solução VMware do Azure](enable-azure-vmware-solution.md).

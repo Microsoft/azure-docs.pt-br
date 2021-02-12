@@ -3,31 +3,30 @@ title: Indexar dados geoespaciais com Azure Cosmos DB
 description: Indexar dados espaciais com Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/03/2020
+ms.date: 11/03/2020
 ms.author: tisande
-ms.openlocfilehash: f250c15dbb30736e3e89a301fc236a848bd05da2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 47eedf1ddbb155180d364c42ec179b3e01279e44
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092051"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336207"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Indexar dados geoespaciais com Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Projetamos Azure Cosmos DB mecanismo de banco de dados para ser verdadeiramente independente de esquema e fornecer suporte de primeira classe para JSON. O mecanismo de banco de dados otimizado para gravação de Azure Cosmos DB entende nativamente os dados espaciais representados no padrão geojson.
 
-Em resumo, a geometria é projetada a partir de coordenadas geodésicas em um plano 2D e então dividida progressivamente em células usando um **quadtree** . Essas células são mapeadas para 1D com base na localização da célula em uma **curva de preenchimento de espaço de Hilbert** , que preserva a localidade de pontos. Além disso, quando os dados de localização são indexados, eles passam por um processo conhecido como **mosaico** , ou seja, todas as células que interseccionam uma localização são identificadas e armazenadas como chaves no índice do Azure Cosmos DB. No momento da consulta, argumentos como pontos e Polígonos também são incluídos no mosaico para extrair os intervalos de IDs de célula relevantes e usados para recuperar dados do índice.
+Em resumo, a geometria é projetada a partir de coordenadas geodésicas em um plano 2D e então dividida progressivamente em células usando um **quadtree**. Essas células são mapeadas para 1D com base na localização da célula em uma **curva de preenchimento de espaço de Hilbert** , que preserva a localidade de pontos. Além disso, quando os dados de localização são indexados, eles passam por um processo conhecido como **mosaico** , ou seja, todas as células que interseccionam uma localização são identificadas e armazenadas como chaves no índice do Azure Cosmos DB. No momento da consulta, argumentos como pontos e Polígonos também são incluídos no mosaico para extrair os intervalos de IDs de célula relevantes e usados para recuperar dados do índice.
 
-Se você especificar uma política de indexação que inclua o índice espacial para/* (todos os caminhos), todos os dados encontrados no contêiner serão indexados para consultas espaciais eficientes.
+Se você especificar uma política de indexação que inclua um índice espacial para `/*` (todos os caminhos), todos os dados encontrados no contêiner serão indexados para consultas espaciais eficientes.
 
 > [!NOTE]
-> Azure Cosmos DB dá suporte à indexação de pontos, LineStrings, polígonos e multipolígonos
->
->
+> Azure Cosmos DB dá suporte à indexação de pontos, LineStrings, polígonos e multigonals. Se você indexar qualquer um desses tipos, iremos indexar automaticamente todos os outros tipos. Em outras palavras, se você indexar polígonos, também indexaremos pontos, LineStrings e multigonals. A indexação de um novo tipo espacial não afeta o encargo de Write RU ou o tamanho do índice, a menos que você tenha dados geojson válidos desse tipo.
 
-## <a name="modifying-geospatial-data-type"></a>Modificando tipo de dados geoespaciais
+## <a name="modifying-geospatial-configuration"></a>Modificando configuração geoespacial
 
 Em seu contêiner, a **configuração geoespacial** especifica como os dados espaciais serão indexados. Especifique uma **configuração geoespacial** por contêiner: geography ou Geometry.
 
@@ -160,7 +159,7 @@ Aqui está um exemplo de política de indexação que indexa dados de **geometri
 A política de indexação acima tem um **boundingBox** de (-10, 10) para coordenadas x e (-20, 20) para coordenadas y. O contêiner com a política de indexação acima indexará todos os pontos, polígonos, subpolígonos e LineStrings que estão inteiramente dentro dessa região.
 
 > [!NOTE]
-> Se você tentar adicionar uma política de indexação com um **boundingBox** a um contêiner com `geography` tipo de dados, haverá falha. Você deve modificar o **geospatialConfig** do contêiner para que ele seja `geometry` antes de adicionar um **boundingBox** . Você pode adicionar dados e modificar o restante da política de indexação (como os caminhos e tipos) antes ou depois de selecionar o tipo de dados geoespaciais para o contêiner.
+> Se você tentar adicionar uma política de indexação com um **boundingBox** a um contêiner com `geography` tipo de dados, haverá falha. Você deve modificar o **geospatialConfig** do contêiner para que ele seja `geometry` antes de adicionar um **boundingBox**. Você pode adicionar dados e modificar o restante da política de indexação (como os caminhos e tipos) antes ou depois de selecionar o tipo de dados geoespaciais para o contêiner.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: b7d7380114046fbeaaf4b6eb2660997d64168715
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 390a8b421a7b34391bde689e4b968fa98cdbaf76
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91368559"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599162"
 ---
 # <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>Otimizar custos do Azure Databricks com uma pré-compra
 
@@ -48,7 +48,7 @@ Antes de comprar, calcule a quantidade total de DBU consumida para diferentes ca
 **Para comprar:**
 
 1. Vá para o [Portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D).
-1. Selecione uma assinatura. Use a lista **Assinatura** para selecionar a assinatura usada para pagar a capacidade reservada. A forma de pagamento da assinatura é cobrado nos custos iniciais da capacidade reservada. Os encargos são deduzidos do saldo do compromisso monetário do registro ou cobrados como excedente.
+1. Selecione uma assinatura. Use a lista **Assinatura** para selecionar a assinatura usada para pagar a capacidade reservada. A forma de pagamento da assinatura é cobrado nos custos iniciais da capacidade reservada. Os encargos são deduzidos do saldo do Pagamento antecipado do Azure do registro (chamado anteriormente de compromisso monetário) ou cobrados como excedente.
 1. Selecione um escopo. Use a lista **Escopo** para selecionar um escopo da assinatura:
     - **Escopo de grupo de recursos único** — aplica o desconto de reserva apenas aos recursos correspondentes no grupo de recursos selecionado.
     - **Escopo de assinatura única** — aplica o desconto de reserva apenas aos recursos correspondentes na assinatura selecionada.

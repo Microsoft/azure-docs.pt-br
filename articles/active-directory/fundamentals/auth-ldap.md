@@ -1,6 +1,6 @@
 ---
 title: Autenticação LDAP com Azure Active Directory
-description: Diretrizes arquitetônicas sobre como atingir esse padrão de autenticação
+description: Diretrizes arquitetônicas sobre a obtenção de autenticação LDAP com Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a70cb4754d98f4573670860c510692a7a2d134c
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f209d394e1a0c2c4ddde9cbf8df2704647e2822a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114064"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168705"
 ---
 # <a name="ldap-authentication-with-azure-active-directory"></a>Autenticação LDAP com Azure Active Directory
 
@@ -60,12 +60,11 @@ Há a necessidade de um aplicativo ou serviço usar a autenticação LDAP.
 
 ## <a name="implement-ldap-authentication-with-azure-ad"></a>Implementar a autenticação LDAP com o Azure AD
 
-* [Criar e configurar uma instância de AD DS do Azure](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance) 
+* [Criar e configurar uma instância de AD DS do Azure](../../active-directory-domain-services/tutorial-create-instance.md) 
 
-* [Configurar a rede virtual para uma instância de AD DS do Azure](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-configure-networking) 
+* [Configurar a rede virtual para uma instância de AD DS do Azure](../../active-directory-domain-services/tutorial-configure-networking.md) 
 
-* [Configurar LDAP Seguro para um domínio gerenciado do AD DS do Azure](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-configure-ldaps) 
+* [Configurar LDAP Seguro para um domínio gerenciado do AD DS do Azure](../../active-directory-domain-services/tutorial-configure-ldaps.md) 
 
-* [Criar uma relação de confiança de floresta de saída para um domínio local no Azure AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-forest-trust)
+* [Criar uma relação de confiança de floresta de saída para um domínio local no Azure AD DS](../../active-directory-domain-services/tutorial-create-forest-trust.md)
 
- 

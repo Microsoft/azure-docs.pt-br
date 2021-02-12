@@ -1,6 +1,6 @@
 ---
 title: Sincronização de diretório com Azure Active Directory
-description: Diretrizes arquitetônicas sobre como atingir esse padrão de sincronização
+description: Diretrizes arquitetônicas sobre a obtenção de sincronização de diretório com o Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 862d17948cb09c18f9372f8b8b981e5efa6be71b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 748f91b2fe77667969e9736f8084a9dd24018425
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114047"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172462"
 ---
 # <a name="directory-synchronization"></a>Sincronização de diretório
 
@@ -54,8 +54,8 @@ Você precisa sincronizar os dados de identidade de seus ambientes de Active Dir
 
 ## <a name="implement-directory-synchronization-with-azure-ad"></a>Implementar a sincronização de diretórios com o Azure AD
 
-* [O que é provisionamento de identidade?](https://docs.microsoft.com/azure/active-directory/cloud-provisioning/what-is-provisioning) 
+* [O que é provisionamento de identidade?](../cloud-provisioning/what-is-provisioning.md) 
 
-* [Ferramentas de integração de diretório de identidade híbrida](https://docs.microsoft.com/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-tools-comparison) 
+* [Ferramentas de integração de diretório de identidade híbrida](../hybrid/plan-hybrid-identity-design-considerations-tools-comparison.md) 
 
-* [Roteiro de instalação do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-roadmap)
+* [Roteiro de instalação do Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md)

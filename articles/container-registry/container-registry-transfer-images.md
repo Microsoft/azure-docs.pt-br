@@ -4,12 +4,12 @@ description: Transferir coleções de imagens ou outros artefatos de um registro
 ms.topic: article
 ms.date: 10/07/2020
 ms.custom: ''
-ms.openlocfilehash: fd2cee972ef173853572b871bc80b92b28c505cd
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: ab6657ecd335a6de8c6c93e3c2ff392ac54c487c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932593"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935345"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Transferir artefatos para outro registro
 
@@ -277,11 +277,11 @@ Insira os seguintes valores de parâmetro no arquivo `azuredeploy.parameters.jso
 |pipelineRunName     |  Nome que você escolher para a execução       |
 |pipelineResourceId     |  ID de recurso do pipeline de exportação.<br/>Exemplo: `/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ContainerRegistry/registries/<sourceRegistryName>/exportPipelines/myExportPipeline`|
 |targetName     |  Nome que você escolher para o blob de artefatos exportado para sua conta de armazenamento de origem, como *myblob*
-|artifacts | Matriz de artefatos de origem a serem transferidos, como marcas ou resumos de manifesto<br/>Exemplo: `[samples/hello-world:v1", "samples/nginx:v1" , "myrepository@sha256:0a2e01852872..."]` |
+|artefatos | Matriz de artefatos de origem a serem transferidos, como marcas ou resumos de manifesto<br/>Exemplo: `[samples/hello-world:v1", "samples/nginx:v1" , "myrepository@sha256:0a2e01852872..."]` |
 
 Se reimplantar um recurso PipelineRun com propriedades idênticas, você também deverá usar a propriedade [forceUpdateTag](#redeploy-pipelinerun-resource) .
 
-Execute o [grupo de implantação AZ Create][az-deployment-group-create] para criar o recurso PipelineRun. O exemplo a seguir nomeia o *exportPipelineRun*de implantação.
+Execute o [grupo de implantação AZ Create][az-deployment-group-create] para criar o recurso PipelineRun. O exemplo a seguir nomeia o *exportPipelineRun* de implantação.
 
 ```azurecli
 az deployment group create \
@@ -312,7 +312,7 @@ az storage blob list \
 
 ## <a name="transfer-blob-optional"></a>Transferir BLOB (opcional) 
 
-Use a ferramenta AzCopy ou outros métodos para [transferir dados de blob](../storage/common/storage-use-azcopy-blobs.md#copy-blobs-between-storage-accounts) da conta de armazenamento de origem para a conta de armazenamento de destino.
+Use a ferramenta AzCopy ou outros métodos para [transferir dados de blob](../storage/common/storage-use-azcopy-v10.md#transfer-data) da conta de armazenamento de origem para a conta de armazenamento de destino.
 
 Por exemplo, o comando a seguir [`azcopy copy`](../storage/common/storage-ref-azcopy-copy.md) copia myblob do contêiner de *transferência* na conta de origem para o contêiner de *transferência* na conta de destino. Se o blob existir na conta de destino, ele será substituído. A autenticação usa tokens SAS com permissões apropriadas para os contêineres de origem e de destino. (As etapas para criar tokens não são mostradas.)
 

@@ -6,13 +6,13 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
-ms.custom: devx-track-java
-ms.openlocfilehash: 04b03e3857bc5b01c25112f2a0d60c6468ecd42a
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 1eeb291c7a058efd8905e95ebf1ea14fed046691
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093915"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680511"
 ---
 # <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>Transmitir por streaming logs dos aplicativos do Azure Spring Cloud em tempo real
 
@@ -31,7 +31,7 @@ O Azure Spring Cloud permite o streaming de log no CLI do Azure para obter os lo
 ## <a name="use-cli-to-tail-logs"></a>Usar a CLI para os logs de cauda
 
 Para evitar especificar repetidamente o seu grupo de recursos e o nome da instância de serviço, defina o nome do grupo de recursos padrão e o nome do cluster.
-```
+```azurecli
 az configure --defaults group=<service group name>
 az configure --defaults spring-cloud=<service instance name>
 ```
@@ -39,11 +39,11 @@ Nos exemplos a seguir, o grupo de recursos e o nome do serviço serão omitidos 
 
 ### <a name="tail-log-for-app-with-single-instance"></a>Log final do aplicativo com instância única
 Se um aplicativo chamado auth-Service tiver apenas uma instância, você poderá exibir o log da instância do aplicativo com o seguinte comando:
-```
+```azurecli
 az spring-cloud app logs -n auth-service
 ```
 Isso retornará logs:
-```
+```output
 ...
 2020-01-15 01:54:40.481  INFO [auth-service,,,] 1 --- [main] o.apache.catalina.core.StandardService  : Starting service [Tomcat]
 2020-01-15 01:54:40.482  INFO [auth-service,,,] 1 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
@@ -58,12 +58,12 @@ Se existirem várias instâncias para o aplicativo chamado `auth-service` , voc�
 
 Primeiro, você pode obter os nomes de instância do aplicativo com o comando a seguir.
 
-```
+```azurecli
 az spring-cloud app show -n auth-service --query properties.activeDeployment.properties.instances -o table
 ```
 Com resultados:
 
-```
+```output
 Name                                         Status    DiscoveryStatus
 -------------------------------------------  --------  -----------------
 auth-service-default-12-75cc4577fc-pw7hb  Running   UP
@@ -72,7 +72,7 @@ auth-service-default-12-75cc4577fc-n25mh  Running   UP
 ``` 
 Em seguida, você pode transmitir logs de uma instância de aplicativo com a opção opção `-i/--instance` :
 
-```
+```azurecli
 az spring-cloud app logs -n auth-service -i auth-service-default-12-75cc4577fc-pw7hb
 ```
 
@@ -81,11 +81,11 @@ Você também pode obter detalhes das instâncias do aplicativo do portal do Azu
 ### <a name="continuously-stream-new-logs"></a>Transmitir continuamente novos logs
 Por padrão, o `az spring-cloud ap log tail` imprime somente os logs existentes transmitidos para o console do aplicativo e, em seguida, são encerrados. Se você quiser transmitir novos logs, adicione-f (--follow):  
 
-```
+```azurecli
 az spring-cloud app logs -n auth-service -f
 ``` 
 Para verificar todas as opções de log com suporte:
-``` 
+```azurecli
 az spring-cloud app logs -h 
 ```
 

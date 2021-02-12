@@ -2,20 +2,21 @@
 title: incluir arquivo
 description: incluir arquivo
 services: cognitive-services
-author: roy-har
-manager: diberry
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.date: 06/04/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.custom: include file
-ms.author: roy-har
-ms.openlocfilehash: 9965e4c856fdef2af17b116264ad5344ebc97eb2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.author: aahi
+ms.reviewer: roy-har
+ms.openlocfilehash: a021b7c5b26e1bca1e3f623ad762c2f3ee8d6020
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84466904"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820786"
 ---
 Criar o aplicativo Pizza.
 
@@ -59,7 +60,7 @@ Agora, o aplicativo Pizza está pronto para o uso.
 
 ## <a name="record-the-access-values-for-your-pizza-app"></a>Registrar os valores de acesso para seu aplicativo Pizza
 
-Para usar o novo aplicativo Pizza, você precisará da ID do aplicativo, da chave de criação e do ponto de extremidade de criação desse aplicativo.
+Para usar o novo aplicativo Pizza, você precisará da ID do aplicativo, da chave de criação e do ponto de extremidade de criação desse aplicativo. Para obter previsões, você precisará do ponto de extremidade de previsão e da chave de previsão separados.
 
 Para encontrar esses valores:
 
@@ -67,5 +68,5 @@ Para encontrar esses valores:
 1. Na página **Configurações de aplicativo**, registre a **ID do aplicativo**.
 1. Selecione **Recursos do Azure**.
 1. Selecione **Recurso de Criação**.
-1. Na guia **Recurso de Criação**, registre a **Chave Primária**. Esse valor é a sua chave de criação.
+1. Nas guias **Recurso de Criação** e **Recursos de Previsão**, registre a **Chave Primária**. Esse valor é a sua chave de criação.
 1. Registre a **URL do ponto de extremidade**. Esse valor é o seu ponto de extremidade de criação.

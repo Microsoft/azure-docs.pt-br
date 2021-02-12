@@ -3,17 +3,16 @@ title: Visão geral dos clusters do Azure Stream Analytics (versão prévia)
 description: Saiba mais sobre a oferta dedicada de locatário único do Cluster do Stream Analytics.
 author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: 613cf7d9b68fe42c26f2c01cb1fb5dd1da1e1fb5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 75a95fa4ad36b69ca920f527060644dcc5264ce8
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90943161"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019526"
 ---
 # <a name="overview-of-azure-stream-analytics-cluster-preview"></a>Visão geral do Cluster do Azure Stream Analytics (versão prévia)
 
@@ -69,7 +68,7 @@ Os clusters do Stream Analytics são cobrados de acordo com a capacidade de SU e
 
 ### <a name="which-inputs-and-outputs-can-i-privately-connect-to-from-my-stream-analytics-cluster"></a>Às quais entradas e saídas posso me conectar em modo privada do meu cluster do Stream Analytics?
 
-O Stream Analytics dá suporte a vários tipos de entrada e saída. Qualquer um desses serviços que dão suporte aos Links Privados do Azure pode se conectar aos trabalhos em modo privado. [Crie pontos de extremidade privados](private-endpoints.md) no cluster que permitem que os trabalhos acessem os recursos de entrada e saída.
+O Stream Analytics dá suporte a vários tipos de entrada e saída. [Crie pontos de extremidade privados](private-endpoints.md) no cluster que permitem que os trabalhos acessem os recursos de entrada e saída. No momento, o Banco de Dados SQL do Azure, o Armazenamento do Azure, o Azure Data Lake Storage Gen2, o Hub de Eventos do Azure e o Barramento de Serviço do Azure são serviços com suporte e outros tipos serão adicionados em breve. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

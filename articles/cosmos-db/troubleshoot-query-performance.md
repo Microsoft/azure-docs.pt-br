@@ -4,16 +4,16 @@ description: Saiba como identificar, diagnosticar e solucionar problemas de cons
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 10/12/2020
+ms.date: 02/02/2021
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 3979e5e904eb54db9566eb014f7e455ebaceaff0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6875fc53a651b89fcfe88d3217ff86bd21204f6c
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087172"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524273"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Solucionar problemas de consulta ao usar o Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -45,13 +45,13 @@ Antes de ler este guia, é útil considerar problemas comuns do SDK que não est
 
 ## <a name="get-query-metrics"></a>Obter métricas de consulta
 
-Quando você otimiza uma consulta no Azure Cosmos DB, a primeira etapa é sempre [obter as métricas de consulta](profile-sql-api-query.md) para sua consulta. Essas métricas também estão disponíveis por meio do portal do Azure. Depois de executar a consulta no Data Explorer, as métricas de consulta ficam visíveis ao lado da guia **Resultados** :
+Quando você otimiza uma consulta no Azure Cosmos DB, a primeira etapa é sempre [obter as métricas de consulta](profile-sql-api-query.md) para sua consulta. Essas métricas também estão disponíveis por meio do portal do Azure. Depois de executar a consulta no Data Explorer, as métricas de consulta ficam visíveis ao lado da guia **Resultados**:
 
 :::image type="content" source="./media/troubleshoot-query-performance/obtain-query-metrics.png" alt-text="Como obter métricas de consulta" lightbox="./media/troubleshoot-query-performance/obtain-query-metrics.png":::
 
 Depois de obter as métricas de consulta, compare a **Contagem de Documentos Recuperados** com a **Contagem de Documentos de Saída** para sua consulta. Use essa comparação para identificar as seções relevantes que serão examinadas neste artigo.
 
-A **Contagem de Documentos Recuperados** é o número de documentos que o mecanismo de consulta precisava carregar. A **Contagem de Documentos de Saída** é o número de documentos que foram necessários para os resultados da consulta. Se a **Contagem de Documentos Recuperada** for significativamente maior do que a **Contagem de Documentos de Saída** , haverá pelo menos uma parte da sua consulta que não conseguiu usar um índice e que precisava fazer uma verificação.
+A **Contagem de Documentos Recuperados** é o número de documentos que o mecanismo de consulta precisava carregar. A **Contagem de Documentos de Saída** é o número de documentos que foram necessários para os resultados da consulta. Se a **Contagem de Documentos Recuperada** for significativamente maior do que a **Contagem de Documentos de Saída**, haverá pelo menos uma parte da sua consulta que não conseguiu usar um índice e que precisava fazer uma verificação.
 
 Veja as seções a seguir para entender as otimizações de consulta relevantes para seu cenário.
 
@@ -62,6 +62,8 @@ Veja as seções a seguir para entender as otimizações de consulta relevantes 
 - [Incluir os caminhos necessários na política de indexação.](#include-necessary-paths-in-the-indexing-policy)
 
 - [Entender quais funções do sistema usam o índice.](#understand-which-system-functions-use-the-index)
+
+- [Melhorar a execução da função do sistema de cadeia de caracteres.](#improve-string-system-function-execution)
 
 - [Entender quais consultas de agregação usam o índice.](#understand-which-aggregate-queries-use-the-index)
 
@@ -93,7 +95,7 @@ Veja as seções a seguir para entender as otimizações de consulta relevantes 
 
 ## <a name="queries-where-retrieved-document-count-exceeds-output-document-count"></a>Consultas em que a Contagem de Documentos Recuperados excede a Contagem de Documentos de Saída
 
- A **Contagem de Documentos Recuperados** é o número de documentos que o mecanismo de consulta precisava carregar. A **Contagem de Documentos de Saída** é o número de documentos retornados pela consulta. Se a **Contagem de Documentos Recuperada** for significativamente maior do que a **Contagem de Documentos de Saída** , haverá pelo menos uma parte da sua consulta que não conseguiu usar um índice e que precisava fazer uma verificação.
+ A **Contagem de Documentos Recuperados** é o número de documentos que o mecanismo de consulta precisava carregar. A **Contagem de Documentos de Saída** é o número de documentos retornados pela consulta. Se a **Contagem de Documentos Recuperada** for significativamente maior do que a **Contagem de Documentos de Saída**, haverá pelo menos uma parte da sua consulta que não conseguiu usar um índice e que precisava fazer uma verificação.
 
 Veja um exemplo de consulta de verificação que não foi totalmente servida pelo índice:
 
@@ -196,25 +198,75 @@ Você pode adicionar propriedades à política de indexação a qualquer momento
 
 ### <a name="understand-which-system-functions-use-the-index"></a>Entender quais funções do sistema usam o índice
 
-Se uma expressão puder ser convertida em um intervalo de valores de cadeia de caracteres, ela poderá usar o índice. Caso contrário, não poderá.
+A maioria das funções do sistema usa índices. Aqui está uma lista de algumas funções de cadeia de caracteres comuns que usam índices:
 
-Aqui está a lista de algumas funções de cadeia de caracteres comuns que podem usar o índice:
+- StartsWith
+- Contém
+- RegexMatch
+- Esquerda
+- Substring-mas somente se a primeira num_expr for 0
 
-- STARTSWITH(str_expr1, str_expr2, bool_expr)  
-- CONTAINS(str_expr, str_expr, bool_expr)
-- LEFT(str_expr, num_expr) = str_expr
-- SUBSTRING(str_expr, num_expr, num_expr) = str_expr, mas somente se a primeira num_expr for 0
-
-Veja abaixo algumas funções comuns do sistema que não usam o índice e que devem carregar cada documento:
+Veja a seguir algumas funções comuns do sistema que não usam o índice e que devem carregar cada documento quando usadas em uma `WHERE` cláusula:
 
 | **Função do sistema**                     | **Ideias para otimização**             |
 | --------------------------------------- |------------------------------------------------------------ |
-| MAIÚSCULA/MINÚSCULA                             | Em vez de usar a função do sistema para normalizar dados para comparações, normalize o uso de maiúsculas e minúsculas após a inserção. Uma consulta como ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` se torna ```SELECT * FROM c WHERE c.name = 'BOB'```. |
+| Superior/inferior                         | Em vez de usar a função do sistema para normalizar dados para comparações, normalize o uso de maiúsculas e minúsculas após a inserção. Uma consulta como ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` se torna ```SELECT * FROM c WHERE c.name = 'BOB'```. |
+| GetCurrentDateTime/GetCurrentTimestamp/GetCurrentTicks | Calcule a hora atual antes da execução da consulta e use esse valor de cadeia de caracteres na `WHERE` cláusula. |
 | Funções matemáticas (não agregadas) | Se você precisar computar um valor frequentemente em sua consulta, considere armazenar o valor como uma propriedade em seu documento JSON. |
 
-------
+Quando usado na `SELECT` cláusula, funções ineficientes do sistema não afetarão como as consultas podem usar índices.
 
-Outras partes da consulta ainda podem usar o índice, mesmo que as funções do sistema não usem.
+### <a name="improve-string-system-function-execution"></a>Melhorar a execução da função do sistema de cadeia de caracteres
+
+Para algumas funções do sistema que usam índices, você pode melhorar a execução da consulta adicionando uma `ORDER BY` cláusula à consulta. 
+
+Mais especificamente, qualquer função do sistema cuja carga de RU aumenta à medida que a cardinalidade da propriedade aumenta pode se beneficiar da existência da `ORDER BY` consulta. Essas consultas fazem uma verificação de índice, portanto, ter os resultados da consulta classificados pode tornar a consulta mais eficiente.
+
+Essa otimização pode melhorar a execução para as seguintes funções do sistema:
+
+- StartsWith (em que não diferencia maiúsculas de minúsculas = verdadeiro)
+- StringEquals (em que não diferencia maiúsculas de minúsculas = verdadeiro)
+- Contém
+- RegexMatch
+- EndsWith
+
+Por exemplo, considere a consulta abaixo com `CONTAINS` . `CONTAINS` usará índices, mas às vezes, mesmo depois de adicionar o índice relevante, você ainda poderá observar uma cobrança de RU muito alta ao executar a consulta abaixo.
+
+Consulta original:
+
+```sql
+SELECT *
+FROM c
+WHERE CONTAINS(c.town, "Sea")
+```
+
+Você pode melhorar a execução da consulta adicionando `ORDER BY` :
+
+```sql
+SELECT *
+FROM c
+WHERE CONTAINS(c.town, "Sea")
+ORDER BY c.town
+```
+
+A mesma otimização pode ajudar nas consultas com filtros adicionais. Nesse caso, é melhor também adicionar propriedades com filtros de igualdade à `ORDER BY` cláusula.
+
+Consulta original:
+
+```sql
+SELECT *
+FROM c
+WHERE c.name = "Samer" AND CONTAINS(c.town, "Sea")
+```
+
+Você pode melhorar a execução da consulta adicionando `ORDER BY` e [um índice composto](index-policy.md#composite-indexes) para (c.Name, c. cidade):
+
+```sql
+SELECT *
+FROM c
+WHERE c.name = "Samer" AND CONTAINS(c.town, "Sea")
+ORDER BY c.name, c.town
+```
 
 ### <a name="understand-which-aggregate-queries-use-the-index"></a>Entender quais consultas de agregação usam o índice
 
@@ -385,7 +437,7 @@ Suponha que apenas um item na matriz de marcas corresponda ao filtro e que haja 
 
 ## <a name="queries-where-retrieved-document-count-is-equal-to-output-document-count"></a>Consultas em que a Contagem de Documentos Recuperados é igual à Contagem de Documentos de Saída
 
-Se a **Contagem de Documentos Recuperados** for aproximadamente igual à **Contagem de Documentos de Saída** , o mecanismo de consulta não precisará verificar muitos documentos desnecessários. Para muitas consultas, como as que usam a palavra-chave `TOP`, a **Contagem de Documentos Recuperados** pode a exceder **Contagem de Documentos de Saída** em 1. Você não precisa se preocupar com isso.
+Se a **Contagem de Documentos Recuperados** for aproximadamente igual à **Contagem de Documentos de Saída**, o mecanismo de consulta não precisará verificar muitos documentos desnecessários. Para muitas consultas, como as que usam a palavra-chave `TOP`, a **Contagem de Documentos Recuperados** pode a exceder **Contagem de Documentos de Saída** em 1. Você não precisa se preocupar com isso.
 
 ### <a name="minimize-cross-partition-queries"></a>Minimizar consultas entre partições
 
@@ -494,3 +546,4 @@ Confira os seguintes artigos para obter informações sobre como medir RUs por c
 * [Obter métricas de execução de consulta SQL usando o SDK do .NET](profile-sql-api-query.md)
 * [Ajustando o desempenho da consulta com o Azure Cosmos DB](./sql-api-query-metrics.md)
 * [Dicas de desempenho para o SDK do .NET](performance-tips.md)
+* [Dicas de desempenho para o SDK do Java v4](performance-tips-java-sdk-v4-sql.md)

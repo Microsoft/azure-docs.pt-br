@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2020
 ms.author: rkarlin
-ms.openlocfilehash: 5e7eabd44ea8c56fbb102f9e48812745a31de62a
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 678b50ffb2df2cd16312548109b93f6f1a7f08ff
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089189"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247458"
 ---
 # <a name="azure-defender-for-iot-frequently-asked-questions"></a>Perguntas frequentes sobre o Azure defender para IoT
 
@@ -38,7 +38,7 @@ O Azure defender para IoT fornece suporte abrangente a protocolos. Além do supo
 Essa solução exclusiva para o desenvolvimento de protocolos como plug-ins não requer equipes de desenvolvedor dedicadas ou versões de versão para dar suporte a um novo protocolo. Desenvolvedores, parceiros e clientes podem desenvolver com segurança protocolos e compartilhar informações e conhecimento usando o horizonte. 
 
 ## <a name="do-i-have-to-purchase-hardware-appliances-from-microsoft-partners"></a>É necessário comprar dispositivos de hardware de parceiros da Microsoft?
-O sensor do Azure defender para IoT é executado em especificações de hardware específicas, conforme descrito no [Guia de especificações de hardware](https://aka.ms/AzureDefenderforIoTBareMetalAppliance), os clientes podem adquirir hardware certificado de parceiros da Microsoft ou usar a bom (lista de materiais) fornecida e comprá-lo por conta própria. 
+O sensor do Azure defender para IoT é executado em especificações de hardware específicas, conforme descrito no [Guia de especificações de hardware](./how-to-identify-required-appliances.md), os clientes podem adquirir hardware certificado de parceiros da Microsoft ou usar a bom (lista de materiais) fornecida e comprá-lo por conta própria. 
 
 O hardware certificado foi testado em nossos laboratórios para estabilidade do driver, quedas de pacotes e dimensionamento de rede.
 
@@ -79,15 +79,11 @@ Sim. Você pode definir um alerta personalizado para um conjunto predeterminado 
 
 Os sensores e agentes continuam a executar e armazenar dados enquanto o dispositivo estiver em execução. Os dados são armazenados no cache de mensagens de segurança de acordo com a configuração de tamanho. Quando o dispositivo recupera a conectividade, as mensagens de segurança retomam o envio.
 
-
-
-
-
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre como começar a usar o defender para IoT, consulte os seguintes artigos:
 
 - Leia a [visão geral](overview.md) do defender for IOT
-- Verifique os [Pré-requisitos do serviço](service-prerequisites.md)
-- Saiba mais sobre como [Começar](getting-started.md)
+- Verificar os [pré-requisitos do sistema](quickstart-system-prerequisites.md)
+- Saiba mais sobre como [começar a usar o defender para IOT](getting-started.md)
 - Entender o [defender para alertas de segurança de IOT](concept-security-alerts.md)

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/20/2019
+ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: f9fd458ea19fa0dad2f630f94a67d5e1db96cee3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60381c7d8c452277b53e1af67ae7fc85349521c8
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543305"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735667"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-cloud-for-customer"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao SAP Cloud for Customer
 
@@ -26,7 +26,6 @@ Neste tutorial, você aprenderá a integrar o SAP Cloud for Customer ao Azure AD
 * Permitir que os usuários sejam conectados automaticamente ao SAP Cloud for Customer com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,14 +44,14 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 
 Para configurar a integração do SAP Cloud for Customer ao Azure AD, você precisará adicionar o SAP Cloud for Customer da galeria à lista de aplicativos SaaS gerenciados.
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
 1. Na seção **Adicionar da galeria**, digite **SAP Cloud for Customer** na caixa de pesquisa.
 1. Selecione **SAP Cloud for Customer** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-sap-cloud-for-customer"></a>Configurar e testar o logon único do Azure AD para o SAP Cloud for Customer
+## <a name="configure-and-test-azure-ad-sso-for-sap-cloud-for-customer"></a>Configurar e testar o SSO do Azure AD para o SAP Cloud for Customer
 
 Configure e teste o SSO do Azure AD com o SAP Cloud for Customer usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do SAP Cloud for Customer.
 
@@ -69,9 +68,9 @@ Para configurar e testar o SSO do Azure AD com o SAP Cloud for Customer, conclua
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **SAP Cloud for Customer**, localize a seção **Gerenciar** e selecione **Logon único**.
+1. No portal do Azure, na página de integração de aplicativos do **SAP Cloud for Customer**, localize a seção **Gerenciar** e selecione **logon único**.
 1. Na página **Selecionar um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
@@ -86,13 +85,13 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. O aplicativo SAP Cloud for Customer espera as declarações SAML em um formato específico, o que exige a adição de mapeamentos de atributo personalizado à configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique no ícone **Editar** para abrir a caixa de diálogo Atributos de usuário.
 
-    ![image](common/edit-attribute.png)
+    ![Captura de tela que mostra a caixa de diálogo "Atributos de Usuário" com o ícone "Editar" selecionado.](common/edit-attribute.png)
 
 1. Na seção **Atributos do Usuário** da caixa de diálogo **Declarações e Atributos do Usuário**, realize as seguintes etapas:
 
     a. Clique no **ícone Editar** para abrir a caixa de diálogo **Gerenciar declarações do usuário**.
 
-    ![image](./media/sap-customer-cloud-tutorial/tutorial_usermail.png)
+    ![Captura de tela que mostra "Atributos e Declarações do Usuário" com o ícone "Editar" selecionado.](./media/sap-customer-cloud-tutorial/tutorial_usermail.png)
 
     ![image](./media/sap-customer-cloud-tutorial/tutorial_usermailedit.png)
 
@@ -132,28 +131,22 @@ Nesta seção, você permite que B.Fernandes use o logon único do Azure concede
 1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
 1. Na lista de aplicativos, selecione **SAP Cloud for Customer**.
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
-
-   ![O link “Usuários e grupos”](common/users-groups-blade.png)
-
 1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
-
-    ![O link Adicionar Usuário](common/add-assign-user.png)
-
 1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-sap-cloud-for-customer-sso"></a>Configurar o SSO do SAP Cloud for Customer
 
 1. Abra uma nova janela do navegador da Web e entre no site da empresa do SAP Cloud for Customer como administrador.
 
-2. No lado esquerdo do menu, clique em **Provedores de Identidade** > **Provedores de Identidade Corporativa** > **Adicionar** e, na janela pop-up, adicione o nome do provedor de identidade, como **Azure AD**, clique em **Salvar** e, em seguida, clique em **Configuração de SAML 2.0**.
+2. No lado esquerdo do menu, clique em **Provedores de Identidade** > **Provedores de Identidade Corporativos** > **Adicionar** e, na janela pop-up, adicione o nome do Provedor de identidade, como **Azure AD**, clique em **Salvar** e selecione **Configuração de SAML 2.0**.
 
-    ![Configuração do SAP](./media/sap-customer-cloud-tutorial/configure01.png)
+    ![Captura de tela que mostra a página "Provedores de Identidade" com a caixa de texto de diálogo "Adicionar Provedor de Identidade" realçada e o botão "Salvar" selecionado.](./media/sap-customer-cloud-tutorial/configure01.png)
 
 3. Na seção **Configuração do SAML 2.0**, execute as seguintes etapas:
 
-    ![Configuração do SAP](./media/sap-customer-cloud-tutorial/configure02.png)
+    ![Captura de tela que mostra a janela "Configurações do SAML 2.0" com o botão "Navegar" selecionado.](./media/sap-customer-cloud-tutorial/configure02.png)
 
     a. Clique em **Procurar** para fazer upload do arquivo XML de Metadados de Federação que você baixou do portal do Azure.
 
@@ -167,9 +160,9 @@ Para permitir que os usuários do Azure AD entrem no SAP Cloud for Customer, ele
 
 1. Entre no SAP Cloud for Customer como um Administrador de Segurança.
 
-2. No lado esquerdo do menu, clique em **Usuários & Autorizações** > **Gerenciamento de Usuário** > **Adicionar Usuário**.
+2. No lado esquerdo do menu, clique em **Usuários e Autorizações** > **Gerenciamento de Usuários** > **Adicionar Usuário**.
 
-    ![Configuração do SAP](./media/sap-customer-cloud-tutorial/configure03.png)
+    ![Captura de tela que mostra a página "Gerenciamento de Usuários" com o botão "Adicionar Usuário" selecionado.](./media/sap-customer-cloud-tutorial/configure03.png)
 
 3. Na seção **Adicionar Novo Usuário**, realize as seguintes etapas:
 
@@ -189,17 +182,15 @@ Para permitir que os usuários do Azure AD entrem no SAP Cloud for Customer, ele
 
 ## <a name="test-sso"></a>Testar o SSO 
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir. 
 
-Ao clicar no bloco do SAP Cloud for Customer no Painel de Acesso, você deve ser conectado automaticamente ao aplicativo SAP Cloud for Customer para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Clique em **Testar este aplicativo** no portal do Azure. Isso redirecionará você para a URL de logon do SAP Cloud for Customer, na qual você poderá iniciar o fluxo de logon. 
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Acesse a URL de logon do SAP Cloud for Customer diretamente e inicie o fluxo de logon de lá.
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* Você pode usar os Meus Aplicativos da Microsoft. Quando você clica no bloco SAP Cloud for Customer nos Meus Aplicativos, isso redirecionará para a URL de logon do SAP Cloud for Customer. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+## <a name="next-steps"></a>Próximas etapas
 
-- [Experimentar o SAP Cloud for Customer com o Azure AD](https://aad.portal.azure.com/)
-
+Após configurar o SAP Cloud for Customer, você poderá impor controles de sessão, que protegem contra a exfiltração e a infiltração de dados confidenciais da sua organização em tempo real. Os controles da sessão são estendidos do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.custom: seodec18
 ms.openlocfilehash: 949e408544e25cb55622cf2a1b1d2dddb92350a6
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150155"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001500"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funcionalidade do sistema operacional no Serviço de Aplicativo do Azure
 Este artigo descreve a funcionalidade do sistema operacional de linha de base comum disponível a todos os aplicativos Windows em execução no [Serviço de Aplicativo do Azure](./overview.md). Essa funcionalidade inclui acesso a arquivos, redes e registros, além de logs de diagnóstico e eventos. 

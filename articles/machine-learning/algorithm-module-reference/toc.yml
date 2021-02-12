@@ -28,8 +28,6 @@
       href: convert-to-dataset.md
     - name: Converter em valores de indicador
       href: convert-to-indicator-values.md
-    - name: Limpar dados ausentes
-      href: clean-missing-data.md
     - name: Editar Metadados
       href: edit-metadata.md
     - name: Agrupar dados em compartimentos
@@ -92,6 +90,8 @@
           href: multiclass-neural-network.md
         - name: Multiclasse Um contra Todos
           href: one-vs-all-multiclass.md
+        - name: Multiclasse Um contra Um
+          href: one-vs-one-multiclass.md
         - name: Perceptron Médio de Duas Classes
           href: two-class-averaged-perceptron.md
         - name: Árvore de decisão aumentada em duas classes

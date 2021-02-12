@@ -1,19 +1,16 @@
 ---
 title: Usar o Spark para ler e gravar dados do HBase - Azure HDInsight
 description: Use o conector do HBase Spark para ler e gravar dados de um cluster Spark para um cluster HBase.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 08/12/2020
-ms.openlocfilehash: eb62cf099d7ccc133a207a843a8be3debf5c5454
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 344caf4080380f5d9dfdaf452798ada6d1dc9f1c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308411"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931225"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Usar o Apache Spark para ler e gravar dados do Apache HBase
 
@@ -96,7 +93,7 @@ __Observação__: antes de continuar, verifique se você adicionou a conta de ar
     |URI do script Bash|`https://hdiconfigactions.blob.core.windows.net/hbasesparkconnectorscript/connector-hbase.sh`|
     |Tipo(s) de nó|Região|
     |Parâmetros|`-s SECONDARYS_STORAGE_URL`|
-    |Persistente|sim|
+    |Persistente|yes|
 
     * `SECONDARYS_STORAGE_URL` é a URL do armazenamento padrão do lado do Spark. Exemplo de parâmetro: `-s wasb://sparkcon-2020-08-03t18-17-37-853z@sparkconhdistorage.blob.core.windows.net`
 
@@ -108,7 +105,7 @@ __Observação__: antes de continuar, verifique se você adicionou a conta de ar
     |URI do script Bash|`https://hdiconfigactions.blob.core.windows.net/hbasesparkconnectorscript/connector-spark.sh`|
     |Tipo(s) de nó|Cabeçalho, trabalho, Zookeeper|
     |Parâmetros|`-s "SPARK-CRON-SCHEDULE"` (opcional) `-h "HBASE-CRON-SCHEDULE"` adicional|
-    |Persistente|sim|
+    |Persistente|yes|
 
 
     * Você pode especificar a frequência com que deseja que esse cluster verifique automaticamente se atualizar. Padrão:-s "*/1 * * * *"-h 0 (neste exemplo, o Spark cron é executado a cada minuto, enquanto o HBase cron não é executado)

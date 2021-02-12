@@ -13,19 +13,17 @@ ms.date: 09/15/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: ec0ab4601e15129ecd8917e0e750a3e1661dc558
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7ec6ab8b52d9d43d898f481a2f36310e5c0897d
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530690"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561073"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Plug-in do SSO corporativo da Microsoft para dispositivos Apple (versão prévia)
 
-> [!NOTE]
-> Esse recurso está em uma versão prévia.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
-> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>[!IMPORTANT]
+> Este recurso [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 O *plug-in Microsoft Enterprise SSO para dispositivos Apple* fornece logon único (SSO) para contas do Azure Active Directory (AD do Azure) em todos os aplicativos que dão suporte ao recurso de [logon único corporativo](https://developer.apple.com/documentation/authenticationservices) da Apple. A Microsoft trabalhou junto com a Apple para desenvolver esse plug-in a fim de aumentar a usabilidade do seu aplicativo e, ao mesmo tempo, fornecer a melhor proteção que a Apple e a Microsoft podem fornecer.
 
@@ -53,10 +51,10 @@ Para habilitar o plug-in Microsoft Enterprise SSO para dispositivos Apple, seus 
 
 Use os seguintes parâmetros para configurar o plug-in Microsoft Enterprise SSO para dispositivos Apple:
 
-- **Tipo**: redirecionar
-- **ID da extensão**: `com.microsoft.azureauthenticator.ssoextension`
-- **ID da equipe**: (este campo não é necessário para o IOS)
-- **URLs**:
+- **Tipo** : redirecionar
+- **ID da extensão** : `com.microsoft.azureauthenticator.ssoextension`
+- **ID da equipe** : (este campo não é necessário para o IOS)
+- **URLs** :
   - `https://login.microsoftonline.com`
   - `https://login.microsoft.com`
   - `https://sts.windows.net`
@@ -80,10 +78,10 @@ Somente os aplicativos que usam tecnologias de rede da Apple nativas ou webviews
 
 Use os parâmetros a seguir para configurar o plug-in Microsoft Enterprise SSO para aplicativos que não usam o MSAL:
 
-- **Chave**: `AppAllowList`
-- **Tipo**: `String`
-- **Valor**: lista delimitada por vírgulas de IDs de pacote de aplicativo para os aplicativos que têm permissão para participar do SSO
-- **Exemplo**: `com.contoso.workapp, com.contoso.travelapp`
+- **Chave** : `AppAllowList`
+- **Tipo** : `String`
+- **Valor** : lista delimitada por vírgulas de IDs de pacote de aplicativo para os aplicativos que têm permissão para participar do SSO
+- **Exemplo** : `com.contoso.workapp, com.contoso.travelapp`
 
 Os [aplicativos consentidos](./application-consent-experience.md) que são permitidos pelo administrador de MDM para participar do SSO podem obter silenciosamente um token para o usuário final. Portanto, é importante adicionar apenas aplicativos confiáveis à lista de permissões. 
 
@@ -95,9 +93,9 @@ Por padrão, o plug-in do SSO corporativo da Microsoft fornece SSO para aplicati
 
 Habilitar `browser_sso_interaction_enabled` sinalizador permite que aplicativos não MSAL e o navegador Safari façam a inicialização inicial e obtenham uma credencial compartilhada. Se o plug-in Microsoft Enterprise SSO ainda não tiver uma credencial compartilhada, ele tentará obter uma sempre que uma entrada for solicitada de uma URL do Azure AD dentro do Safari Browser, ASWebAuthenticationSession, SafariViewController ou outro aplicativo nativo permitido.  
 
-- **Chave**: `browser_sso_interaction_enabled`
-- **Tipo**: `Integer`
-- **Valor**: 1 ou 0
+- **Chave** : `browser_sso_interaction_enabled`
+- **Tipo** : `Integer`
+- **Valor** : 1 ou 0
 
 É recomendável habilitar esse sinalizador para obter uma experiência mais consistente em todos os aplicativos. Isso está desabilitado por padrão. 
 
@@ -107,9 +105,9 @@ O plug-in Microsoft Enterprise SSO fornece o SSO acrescentando credenciais compa
 
 Habilitar `disable_explicit_app_prompt` o sinalizador restringe a capacidade de aplicativos nativos e Web de forçar um prompt do usuário final na camada de protocolo e ignorar o SSO.
 
-- **Chave**: `disable_explicit_app_prompt`
-- **Tipo**: `Integer`
-- **Valor**: 1 ou 0
+- **Chave** : `disable_explicit_app_prompt`
+- **Tipo** : `Integer`
+- **Valor** : 1 ou 0
 
 É recomendável habilitar esse sinalizador para obter uma experiência mais consistente em todos os aplicativos. Isso está desabilitado por padrão. 
 

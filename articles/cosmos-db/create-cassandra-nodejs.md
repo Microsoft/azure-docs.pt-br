@@ -9,14 +9,15 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: fe017476993872a989fc10564caa94983b9071c5
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: b9e036df91eecadc701664a19905a92c142b7585
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164271"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591864"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>Início Rápido: compilar um aplicativo do Cassandra com o SDK do Node.js e o Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -106,7 +107,7 @@ Esta etapa é opcional. Se você estiver interessado em aprender como o código 
 
    ```javascript
    function createTable(next) {
-    var query = "CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)";
+       var query = "CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)";
         client.execute(query, next);
         console.log("created table");
    },
@@ -148,7 +149,7 @@ Esta etapa é opcional. Se você estiver interessado em aprender como o código 
             });
         },
     ```  
-    
+
 * Consulta para obter uma chave-valor.
 
     ```javascript
@@ -169,7 +170,7 @@ Esta etapa é opcional. Se você estiver interessado em aprender como o código 
 
 Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo. A cadeia de conexão permite que seu aplicativo se comunique com o banco de dados hospedado.
 
-1. Em sua conta do Azure Cosmos DB no [portal do Azure](https://portal.azure.com/), selecione **Cadeia de Conexão** . 
+1. Em sua conta do Azure Cosmos DB no [portal do Azure](https://portal.azure.com/), selecione **Cadeia de Conexão**. 
 
 1. Use o botão :::image type="icon" source="./media/create-cassandra-nodejs/copy.png"::: no lado direito da tela para copiar o valor superior, o PONTO DE CONTATO.
 
@@ -188,7 +189,7 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
     Agora a linha 2 deve ser semelhante a 
 
     `config.username = 'cosmos-db-quickstart';`
-    
+
 1. Copie o valor SENHA do portal e cole-o sobre `<FillMEIN>` na linha 3.
 
     Agora a linha 3 deve ser semelhante a
@@ -196,12 +197,12 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
     `config.password = '2Ggkr662ifxz2Mg==';`
 
 1. Salve o arquivo `config.js`.
-    
+
 ## <a name="use-the-x509-certificate"></a>Use o certificado X509
 
 1. Baixe o certificado de Baltimore CyberTrust Root localmente do [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt). Renomeie o arquivo usando a extensão de arquivo `.cer`.
 
-   O certificado tem o número de série `02:00:00:b9` e a impressão digital SHA1 `d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
+   O certificado tem o número de série `02:00:00:b9` e a impressão digital SHA1 `d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
 
 2. Abra `uprofile.js` e altere o `path\to\cert` para apontar para o novo certificado.
 
@@ -212,11 +213,11 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 > 
 > Clique duas vezes no arquivo .crt para abri-lo na exibição do certificado. 
 >
-> :::image type="content" source="./media/create-cassandra-nodejs/crtcer1.gif" alt-text="Exibir e copiar o PONTO DE CONTATO, o NOME DE USUÁRIO e a SENHA da página de cadeia de conexão do Portal do Azure":::
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer1.gif" alt-text="Captura de tela que mostra a janela do Certificado.":::
 >
 > Clique em Avançar no Assistente de Certificado. Selecione X.509 de codificação de Base 64 (.CER) e, em seguida, Avançar.
 >
-> :::image type="content" source="./media/create-cassandra-nodejs/crtcer2.gif" alt-text="Exibir e copiar o PONTO DE CONTATO, o NOME DE USUÁRIO e a SENHA da página de cadeia de conexão do Portal do Azure":::
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer2.gif" alt-text="Captura de tela que mostra a opção X.509 codificado em Base 64 (.CER).":::
 >
 > Selecione Procurar (para localizar um destino) e digite um nome de arquivo.
 > Selecione Avançar e, em seguida, Concluir.
@@ -237,13 +238,13 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
 4. Verifique se os resultados estão conforme o esperado na linha de comando.
 
-    :::image type="content" source="./media/create-cassandra-nodejs/output.png" alt-text="Exibir e copiar o PONTO DE CONTATO, o NOME DE USUÁRIO e a SENHA da página de cadeia de conexão do Portal do Azure":::
+    :::image type="content" source="./media/create-cassandra-nodejs/output.png" alt-text="Exibir e verificar a saída":::
 
     Pressione CTRL+C para interromper a execução do programa e feche a janela do console. 
 
 5. No portal do Azure, abra **Data Explorer** para consultar, modificar e trabalhar com esses novos dados. 
 
-    :::image type="content" source="./media/create-cassandra-nodejs/data-explorer.png" alt-text="Exibir e copiar o PONTO DE CONTATO, o NOME DE USUÁRIO e a SENHA da página de cadeia de conexão do Portal do Azure"::: 
+    :::image type="content" source="./media/create-cassandra-nodejs/data-explorer.png" alt-text="Exibir os dados no Data Explorer"::: 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Examinar SLAs no Portal do Azure
 

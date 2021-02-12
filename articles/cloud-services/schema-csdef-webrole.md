@@ -1,26 +1,25 @@
 ---
-title: Esquema de Def. WebRole dos serviços de nuvem do Azure | Microsoft Docs
+title: Def. de serviços de nuvem do Azure (clássico). esquema WebRole | Microsoft Docs
 description: A função Web do Azure é personalizada para a programação de aplicativos Web com suporte a ASP.NET, PHP, WCF e FastCGI. Saiba mais sobre os elementos de definição de serviço de uma função Web.
-ms.custom: ''
-ms.date: 04/14/2015
-services: cloud-services
-ms.reviewer: ''
+ms.topic: article
 ms.service: cloud-services
-ms.suite: ''
-ms.tgt_pltfrm: ''
-ms.topic: reference
-ms.assetid: 85368e4e-a0db-4c02-8dbc-8e2928fa6091
-caps.latest.revision: 60
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 4368bb38a280461fdd77348de60a0e5793ee9582
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 3c5811649d7d6c0aa1e90ed34c61be6a7f9339f8
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79535673"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743144"
 ---
-# <a name="azure-cloud-services-definition-webrole-schema"></a>Esquema de definição de WebRole dos Serviços de Nuvem do Azure
+# <a name="azure-cloud-services-classic-definition-webrole-schema"></a>Esquema de WebRole de definição dos serviços de nuvem do Azure (clássico)
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
+
 A função web do Azure é uma função personalizada para programação de aplicativo Web conforme suporte do IIS 7, como ASP.NET, PHP, Windows Communication Foundation e FastCGI.
 
 A extensão padrão do arquivo de definição de serviço é .csdef.
@@ -146,7 +145,7 @@ O arquivo de definição de serviço inclui estes elementos, descritos em detalh
 
 [Associações](#Bindings)
 
-[Associação](#Binding)
+[Vinculação](#Binding)
 
 [Inicialização](#Startup)
 
@@ -279,7 +278,7 @@ A tabela a seguir descreve os atributos do elemento `FixedPortRange`.
 
 | Atributo | Type | Descrição |  
 | --------- | ---- | ----------- |  
-|Min|INT|Obrigatórios. A porta mínima no intervalo. Os valores possíveis variam entre 1 e 65535, inclusive (SDK do Azure versão 1.7 ou superior).|  
+|min|INT|Obrigatórios. A porta mínima no intervalo. Os valores possíveis variam entre 1 e 65535, inclusive (SDK do Azure versão 1.7 ou superior).|  
 |max|string|Obrigatórios. A porta máxima no intervalo. Os valores possíveis variam entre 1 e 65535, inclusive (SDK do Azure versão 1.7 ou superior).|  
 
 ##  <a name="certificates"></a><a name="Certificates"></a> Certificados  
@@ -363,7 +362,7 @@ A tabela a seguir descreve os atributos do elemento `NetFxEntryPoint`.
 
 | Atributo | Type | Descrição |  
 | --------- | ---- | ----------- |  
-|assemblyName|string|Obrigatórios. O caminho e o nome do arquivo do assembly que contém o ponto de entrada. O caminho é relativo à pasta ** \\ %ROLEROOT%\Approot** (não especifique ** \\ %ROLEROOT%\Approot** em `commandLine` , é pressuposto). **%ROLEROOT%** é uma variável de ambiente mantida pelo Azure e ela representa o local da pasta raiz da sua função. A pasta ** \\ %ROLEROOT%\Approot** representa a pasta do aplicativo para sua função.<br /><br /> Para as funções HWC, o caminho é sempre relativo à pasta ** \\ %ROLEROOT%\Approot\bin** .<br /><br /> Para funções Web do IIS e IIS Express completas, se o assembly não puder ser encontrado em relação à pasta ** \\ %ROLEROOT%\Approot** , o ** \\ %ROLEROOT%\Approot\bin** será pesquisado.<br /><br /> Esse comportamento de fallback para IIS completo não é uma melhor prática recomendada e poderá ser removido em futuras versões.|  
+|assemblyName|string|Obrigatórios. O caminho e o nome do arquivo do assembly que contém o ponto de entrada. O caminho é relativo à pasta **\\ %ROLEROOT%\Approot** (não especifique **\\ %ROLEROOT%\Approot** em `commandLine` , é pressuposto). **%ROLEROOT%** é uma variável de ambiente mantida pelo Azure e ela representa o local da pasta raiz da sua função. A pasta **\\ %ROLEROOT%\Approot** representa a pasta do aplicativo para sua função.<br /><br /> Para as funções HWC, o caminho é sempre relativo à pasta **\\ %ROLEROOT%\Approot\bin** .<br /><br /> Para funções Web do IIS e IIS Express completas, se o assembly não puder ser encontrado em relação à pasta **\\ %ROLEROOT%\Approot** , o **\\ %ROLEROOT%\Approot\bin** será pesquisado.<br /><br /> Esse comportamento de fallback para IIS completo não é uma melhor prática recomendada e poderá ser removido em futuras versões.|  
 |targetFrameworkVersion|string|Obrigatórios. A versão do .NET Framework na qual esse assembly foi criado. Por exemplo, `targetFrameworkVersion="v4.0"`.|  
 
 ##  <a name="sites"></a><a name="Sites"></a> Sites  

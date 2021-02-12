@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
-ms.openlocfilehash: dbf0d096827ec1af16e6d38d405709e48175ae89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c316aaf02979008b9d2ebc691d54c0fb95a5a52d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88035937"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994852"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Solução de problemas: problemas de conexão de ponto a site do Azure
 
@@ -168,7 +168,7 @@ Extraia o pacote de configuração do cliente VPN e localize o arquivo .cer. Par
 1. Abra mmc.exe.
 2. Adicione o snap-in **Certificados**.
 3. Selecione a conta **Computador** para o computador local.
-4. Clique com botão direito do mouse no nó **Autoridades de Certificação Confiáveis**. Clique em **tudo-**  >  **importar**tarefa e navegue até o arquivo. cer extraído do pacote de configuração do cliente VPN.
+4. Clique com botão direito do mouse no nó **Autoridades de Certificação Confiáveis**. Clique em **tudo-**  >  **importar** tarefa e navegue até o arquivo. cer extraído do pacote de configuração do cliente VPN.
 5. Reinicie o computador. 
 6. Tente instalar o cliente VPN.
 
@@ -274,7 +274,7 @@ Você remove a conexão VPN ponto a site e reinstala o cliente VPN. Nessa situa�
 
 ### <a name="solution"></a>Solução
 
-Para resolver o problema, exclua os arquivos de configuração de cliente VPN antigos de **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections \<VirtualNetworkId> **e execute o instalador do cliente VPN novamente.
+Para resolver o problema, exclua os arquivos de configuração de cliente VPN antigos de **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections \<VirtualNetworkId>** e execute o instalador do cliente VPN novamente.
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>O cliente VPN ponto a site não pode resolver o FQDN dos recursos no domínio local
 
@@ -298,7 +298,7 @@ Esse problema poderá ocorrer se o cliente VPN não obtiver as rotas do gateway 
 
 ### <a name="solution"></a>Solução
 
-Para resolver esse problema, [redefina o gateway de VPN do Azure](vpn-gateway-resetgw-classic.md). Para verificar se as novas rotas estão sendo usadas, os clientes VPN ponto a site devem ser baixados novamente após o emparelhamento da rede virtual ter sido configurado com êxito.
+Para resolver esse problema, [redefina o gateway de VPN do Azure](./reset-gateway.md). Para verificar se as novas rotas estão sendo usadas, os clientes VPN ponto a site devem ser baixados novamente após o emparelhamento da rede virtual ter sido configurado com êxito.
 
 ## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Erro: "A função de revogação não pôde verificar a revogação porque o servidor de revogação estava offline. (Erro 0x80092013)"
 
@@ -317,7 +317,7 @@ Esse erro ocorre se o servidor RADIUS usado para autenticar o cliente VPN tiver 
 
 ### <a name="solution"></a>Solução
 
-Verifique se o servidor RADIUS está configurado corretamente. Para obter mais informações, consulte [Integrar a autenticação RADIUS com o Servidor de Autenticação Multifator do Azure](../active-directory/authentication/howto-mfaserver-dir-radius.md).
+Verifique se o servidor RADIUS está configurado corretamente. Para obter mais informações, consulte [integrar a autenticação RADIUS com o Azure AD servidor de autenticação multifator](../active-directory/authentication/howto-mfaserver-dir-radius.md).
 
 ## <a name="error-405-when-you-download-root-certificate-from-vpn-gateway"></a>"Erro 405" ao baixar o certificado raiz do Gateway de VPN
 
@@ -372,7 +372,7 @@ Esse problema pode ser causado pelas instalações anteriores do cliente VPN.
 
 ### <a name="solution"></a>Solução
 
-Exclua os arquivos de configuração de cliente VPN antigos de **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections \<VirtualNetworkId> ** e execute o instalador de cliente VPN novamente. 
+Exclua os arquivos de configuração de cliente VPN antigos de **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections \<VirtualNetworkId>** e execute o instalador de cliente VPN novamente. 
 
 ## <a name="the-vpn-client-hibernates-or-sleep-after-some-time"></a>O cliente VPN hiberna ou suspende após algum tempo
 

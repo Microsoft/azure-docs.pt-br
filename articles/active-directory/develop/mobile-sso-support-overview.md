@@ -1,7 +1,7 @@
 ---
 title: Suporte a políticas de logon único e proteção de aplicativo em aplicativos móveis que você desenvolve | Azure
 titleSuffix: Microsoft identity platform
-description: Explicação e visão geral da criação de aplicativos móveis que dão suporte a políticas de logon único e de proteção de aplicativo
+description: Explicação e visão geral da criação de aplicativos móveis que dão suporte a políticas de logon único e de proteção de aplicativo usando a plataforma de identidade da Microsoft e a integração com o Azure Active Directory.
 services: active-directory
 author: knicholasa
 manager: CelesteDG
@@ -11,16 +11,18 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: a3899d9fbf04f9629885ec38f6b0b2bde728561b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 4f0588667df6acb11a43e8c3469c67f65ed3cdd9
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740142"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165171"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Suporte a políticas de logon único e proteção de aplicativo em aplicativos móveis que você desenvolve
 
-O SSO (logon único) fornece logons fáceis e seguros para usuários do seu aplicativo. As políticas de proteção de aplicativo (aplicativo) permitem o suporte das principais políticas de segurança que mantêm os dados do usuário seguros. Juntos, esses recursos permitem proteger logons de usuário e gerenciamento dos dados do seu aplicativo.
+O SSO (logon único) é uma importante oferta da plataforma de identidade da Microsoft e Azure Active Directory, fornecendo logons fáceis e seguros para usuários do seu aplicativo. Além disso, as políticas de proteção de aplicativo (aplicativo) permitem o suporte das principais políticas de segurança que mantêm os dados do usuário seguros. Juntos, esses recursos permitem proteger logons de usuário e gerenciamento dos dados do seu aplicativo.
+
+> [!VIDEO https://www.youtube.com/embed/JpeMeTjQJ04]
 
 Este artigo explica por que o SSO e o aplicativo são importantes e fornece as diretrizes de alto nível para a criação de aplicativos móveis que dão suporte a esses recursos. Isso se aplica a aplicativos de telefone e Tablet. Se você for um administrador de ti que deseja implantar o SSO no locatário de Azure Active Directory da sua organização, confira nossas [diretrizes para planejar uma implantação de logon único](../manage-apps/plan-sso-deployment.md)
 
@@ -30,15 +32,15 @@ O [SSO (logon único)](../manage-apps/plan-sso-deployment.md) permite que um usu
 
 Além disso, habilitar o logon único em seu aplicativo desbloqueia novos mecanismos de autenticação que acompanham a autenticação moderna, como [logons sem senha](../authentication/concept-authentication-passwordless.md). Nomes de usuários e senhas são um dos vetores de ataque mais populares em relação aos aplicativos, e habilitar o SSO permite que você atenue esse risco impondo o acesso condicional ou logons sem senha que adicionam segurança adicional ou dependem de mecanismos de autenticação mais seguros. Por fim, habilitar o logon único também habilita o [logout único](v2-protocols-oidc.md#single-sign-out). Isso é útil em situações como aplicativos de trabalho que serão usados em dispositivos compartilhados.
 
-[As políticas de proteção de aplicativo (aplicativo)](/mem/intune/apps/app-protection-policy) garantem que os dados de uma organização permaneçam seguros e contidos. Eles permitem que as empresas gerenciem e protejam seus dados em um aplicativo e permitem o controle sobre quem pode acessar o aplicativo e seus dados. A implementação de políticas de proteção de aplicativo permite que seu aplicativo Conecte usuários a recursos protegidos por políticas de acesso condicional e transfira dados com segurança para e de outros aplicativos protegidos. Cenários desbloqueados pelas políticas de proteção de aplicativo incluem exigir um PIN para abrir um aplicativo, controlar o compartilhamento de dados entre aplicativos e impedir que os dados de aplicativo da empresa sejam salvos em um local de armazenamento pessoal no dispositivo.
+[As políticas de proteção de aplicativo (aplicativo)](/mem/intune/apps/app-protection-policy) garantem que os dados de uma organização permaneçam seguros e contidos. Eles permitem que as empresas gerenciem e protejam seus dados em um aplicativo e permitem o controle sobre quem pode acessar o aplicativo e seus dados. A implementação de políticas de proteção de aplicativo permite que seu aplicativo Conecte usuários a recursos protegidos por políticas de acesso condicional e transfira dados com segurança para e de outros aplicativos protegidos. Cenários desbloqueados pelas políticas de proteção de aplicativo incluem exigir um PIN para abrir um aplicativo, controlar o compartilhamento de dados entre aplicativos e impedir que os dados de aplicativo da empresa sejam salvos em locais de armazenamento pessoal.
 
 ## <a name="implementing-single-sign-on"></a>Implementando o logon único
 
 Recomendamos o seguinte para permitir que seu aplicativo aproveite o logon único.
 
-### <a name="use-microsoft-authentication-library-msal"></a>Usar a MSAL (biblioteca de autenticação da Microsoft)
+### <a name="use-the-microsoft-authentication-library-msal"></a>Usar a MSAL (biblioteca de autenticação da Microsoft)
 
-A melhor opção para implementar o logon único em seu aplicativo é usar [a MSAL (biblioteca de autenticação da Microsoft)](msal-overview.md). Usando o MSAL, você pode adicionar autenticação ao seu aplicativo com código mínimo e chamadas à API, obter os recursos completos da [plataforma de identidade da Microsoft](/azure/active-directory/develop/)e deixar que a Microsoft manipule a manutenção de uma solução de autenticação segura. Por padrão, o MSAL adiciona suporte de SSO para seu aplicativo. Além disso, o uso de MSAL é um requisito se você também planeja implementar políticas de proteção de aplicativo.
+A melhor opção para implementar o logon único em seu aplicativo é usar [a MSAL (biblioteca de autenticação da Microsoft)](msal-overview.md). Usando o MSAL, você pode adicionar autenticação ao seu aplicativo com código mínimo e chamadas à API, obter os recursos completos da [plataforma de identidade da Microsoft](./index.yml)e deixar que a Microsoft manipule a manutenção de uma solução de autenticação segura. Por padrão, o MSAL adiciona suporte de SSO para seu aplicativo. Além disso, o uso de MSAL é um requisito se você também planeja implementar políticas de proteção de aplicativo.
 
 > [!NOTE]
 > É possível configurar o MSAL para usar uma exibição da Web inserida. Isso impedirá o logon único. Use o comportamento padrão (ou seja, o navegador da Web do sistema) para garantir que o SSO funcionará.
@@ -64,7 +66,7 @@ A Apple tem orientação para fazer isso em aplicativos iOS: [autenticar um usu�
 
 Para habilitar as políticas de proteção de aplicativo, use a [MSAL (biblioteca de autenticação da Microsoft)](msal-overview.md). MSAL é a biblioteca de autenticação e autorização da plataforma de identidade da Microsoft e o SDK do Intune é desenvolvido para funcionar em conjunto com ele.
 
-Além disso, você deve usar um aplicativo agente para autenticação. O agente requer que o aplicativo forneça informações de aplicativo e dispositivo para garantir a conformidade do aplicativo. os usuários do iOS usarão o [Microsoft Authenticator aplicativo](../user-help/user-help-auth-app-sign-in.md) e os usuários do Android usarão o aplicativo Microsoft Authenticator ou o [aplicativo portal da empresa](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) para [autenticação orientada](brokered-auth.md). Por padrão, o MSAL usa um agente como sua primeira opção para atender a uma solicitação de autenticação, portanto, usar o agente para autenticar será habilitado para seu aplicativo automaticamente ao usar o MSAL pronto para uso.
+Além disso, você deve usar um aplicativo agente para autenticação. O agente requer que o aplicativo forneça informações de aplicativo e dispositivo para garantir a conformidade do aplicativo. os usuários do iOS usarão o [Microsoft Authenticator aplicativo](../user-help/user-help-auth-app-sign-in.md) e os usuários do Android usarão o aplicativo Microsoft Authenticator ou o [aplicativo portal da empresa](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) para [autenticação orientada](./msal-android-single-sign-on.md). Por padrão, o MSAL usa um agente como sua primeira opção para atender a uma solicitação de autenticação, portanto, usar o agente para autenticar será habilitado para seu aplicativo automaticamente ao usar o MSAL pronto para uso.
 
 Por fim, [adicione o SDK do Intune](/mem/intune/developer/app-sdk-get-started) ao seu aplicativo para habilitar as políticas de proteção do aplicativo. O SDK da maior parte segue um modelo de interceptação e aplicará automaticamente as políticas de proteção de aplicativo para determinar se as ações que o aplicativo está assumindo são permitidas ou não. Também há APIs que você pode chamar manualmente para informar ao aplicativo se há restrições em determinadas ações.
 
@@ -73,8 +75,8 @@ Por fim, [adicione o SDK do Intune](/mem/intune/developer/app-sdk-get-started) a
 - [Planejar uma implantação de logon único do Azure Active Directory](../manage-apps/plan-sso-deployment.md)
 - [Como: configurar o SSO no macOS e no iOS](single-sign-on-macos-ios.md)
 - [Plug-in do SSO corporativo da Microsoft para dispositivos Apple (versão prévia)](apple-sso-plugin.md)
-- [Autenticação orientada no Android](brokered-auth.md)
-- [Agentes de autorização e como habilitá-los](authorization-agents.md)
-- [Introdução ao SDK do aplicativo Microsoft Intune](/mem/intune/developer/app-sdk-get-started)
+- [Autenticação orientada no Android](./msal-android-single-sign-on.md)
+- [Agentes de autorização e como habilitá-los](./msal-android-single-sign-on.md)
+- [Introdução ao SDK do Aplicativo do Microsoft Intune](/mem/intune/developer/app-sdk-get-started)
 - [Definir as configurações para o SDK de Aplicativos do Intune](/mem/intune/developer/app-sdk-ios#configure-settings-for-the-intune-app-sdk)
 - [Aplicativos protegidos do Microsoft Intune](/mem/intune/apps/apps-supported-intune-apps)

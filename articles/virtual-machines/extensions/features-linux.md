@@ -9,17 +9,18 @@ editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 52f5d0ec-8f75-49e7-9e15-88d46b420e63
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
-ms.openlocfilehash: 283eb9b9cbdc03813cf7c765c9ef3be5965919eb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 129897d3288a900803efbfba8abf86c276077fa8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978332"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966064"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Recursos e extensões da máquina virtual para Linux
 
@@ -85,7 +86,7 @@ Os métodos a seguir podem ser usados para executar uma extensão em uma VM exis
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-As extensões da VM do Azure podem executar em uma VM existente com o comando [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set). O exemplo a seguir executa a extensão de script personalizado em uma VM chamada *myVM* em um grupo de recursos chamado *MyResource*Group. Substitua o nome do grupo de recursos de exemplo, o nome da VM e o script a ser executado (https: \/ /RAW.githubusercontent.com/me/Project/Hello.sh) com suas próprias informações. 
+As extensões da VM do Azure podem executar em uma VM existente com o comando [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set). O exemplo a seguir executa a extensão de script personalizado em uma VM chamada *myVM* em um grupo de recursos chamado *MyResource* Group. Substitua o nome do grupo de recursos de exemplo, o nome da VM e o script a ser executado (https: \/ /RAW.githubusercontent.com/me/Project/Hello.sh) com suas próprias informações. 
 
 ```azurecli
 az vm extension set `

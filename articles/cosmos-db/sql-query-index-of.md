@@ -3,16 +3,17 @@ title: INDEX_OF na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função do sistema SQL INDEX_OF no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 3f757f4517bb8c45708c9d25f39052f7f95aad2b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 228e23cd94f6d903af63e59ba0333d78bd5eacfd
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101418"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341703"
 ---
 # <a name="index_of-azure-cosmos-db"></a>INDEX_OF (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

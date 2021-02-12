@@ -1,18 +1,17 @@
 ---
 title: Saída dos hubs de eventos de Azure Stream Analytics
 description: Este artigo descreve como gerar dados de saída de Azure Stream Analytics para os hubs de eventos do Azure.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 86a6c1a15d804a6c758e90dbd4bdd7057a7a2716
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2bde64c17520f4cf66ddecd9fc55a9bdd9edc37
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91295253"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020580"
 ---
 # <a name="event-hubs-output-from-azure-stream-analytics"></a>Saída dos hubs de eventos de Azure Stream Analytics
 
@@ -62,13 +61,9 @@ No exemplo a seguir, os campos `DeviceId` e `DeviceStatus` são adicionados aos 
 
 A imagem a seguir é das propriedades de mensagem de saída esperadas inspecionadas no EventHub usando o [Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer).
 
-:::image type="content" source="media/event-hubs-output/custom-properties.png" alt-text="Colunas da propriedade":::
+:::image type="content" source="media/event-hubs-output/custom-properties.png" alt-text="Propriedades personalizadas do evento":::
 
 ## <a name="next-steps"></a>Próximas etapas
 
+* [Usar identidades gerenciadas para acessar o Hub de eventos de um trabalho de Azure Stream Analytics (versão prévia)](event-hubs-managed-identity.md)
 * [Início Rápido: Criar um trabalho do Stream Analytics usando o portal do Azure](stream-analytics-quick-create-portal.md)
-* [Início Rápido: Criar um trabalho do Azure Stream Analytics usando a CLI do Azure](quick-create-azure-cli.md)
-* [Início Rápido: Criar um trabalho do Azure Stream Analytics usando um modelo do Resource Manager](quick-create-azure-resource-manager.md)
-* [Início rápido: criar um trabalho de Stream Analytics usando Azure PowerShell](stream-analytics-quick-create-powershell.md)
-* [Início Rápido: Criar um trabalho do Azure Stream Analytics usando o Visual Studio](stream-analytics-quick-create-vs.md)
-* [Início rápido: criar um trabalho de Azure Stream Analytics no Visual Studio Code](quick-create-visual-studio-code.md)

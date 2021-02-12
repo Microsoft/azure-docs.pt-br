@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 7f5db2a2df7314c89f2ebba8e7e54ebe24126386
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 4fc2426189384856d2d2e95887cdabd2f9e9ebea
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92098213"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033771"
 ---
 # <a name="azure-table-storage-input-bindings-for-azure-functions"></a>Associações de entrada de armazenamento de tabela do Azure para Azure Functions
 
@@ -296,97 +296,6 @@ public class Person : TableEntity
 }
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-O exemplo a seguir mostra uma associação de entrada de tabela em um arquivo*function.json* e o código [JavaScript](functions-reference-node.md) que usa a associação. A função usa um gatilho de fila para ler uma linha da tabela. 
-
-O arquivo *function.json* especifica um `partitionKey` e um `rowKey`. O `rowKey` valor “{queueTrigger}” indica que a chave de linha foi obtida da cadeia de caracteres da mensagem da fila.
-
-```json
-{
-  "bindings": [
-    {
-      "queueName": "myqueue-items",
-      "connection": "MyStorageConnectionAppSetting",
-      "name": "myQueueItem",
-      "type": "queueTrigger",
-      "direction": "in"
-    },
-    {
-      "name": "personEntity",
-      "type": "table",
-      "tableName": "Person",
-      "partitionKey": "Test",
-      "rowKey": "{queueTrigger}",
-      "connection": "MyStorageConnectionAppSetting",
-      "direction": "in"
-    }
-  ],
-  "disabled": false
-}
-```
-
-A seção [configuração](#configuration) explica essas propriedades.
-
-Aqui está o código JavaScript:
-
-```javascript
-module.exports = function (context, myQueueItem) {
-    context.log('Node.js queue trigger function processed work item', myQueueItem);
-    context.log('Person entity name: ' + context.bindings.personEntity.Name);
-    context.done();
-};
-```
-
-# <a name="python"></a>[Python](#tab/python)
-
-Linha de tabela única 
-
-```json
-{
-  "scriptFile": "__init__.py",
-  "bindings": [
-    {
-      "name": "messageJSON",
-      "type": "table",
-      "tableName": "messages",
-      "partitionKey": "message",
-      "rowKey": "{id}",
-      "connection": "AzureWebJobsStorage",
-      "direction": "in"
-    },
-    {
-      "authLevel": "function",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ],
-      "route": "messages/{id}"
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
-    }
-  ],
-  "disabled": false
-}
-```
-
-```python
-import json
-
-import azure.functions as func
-
-def main(req: func.HttpRequest, messageJSON) -> func.HttpResponse:
-
-    message = json.loads(messageJSON)
-    return func.HttpResponse(f"Table row: {messageJSON}")
-```
-
 # <a name="java"></a>[Java](#tab/java)
 
 O exemplo a seguir mostra uma função disparada por HTTP que retorna uma lista de objetos Person que estão em uma partição especificada no armazenamento de tabela. No exemplo, a chave de partição é extraída da rota http e o TableName e a conexão são das configurações de função. 
@@ -440,7 +349,7 @@ public HttpResponseMessage get(
 }
 ```
 
-Os exemplos a seguir usam o filtro para consultar pessoas com um nome específico em uma tabela do Azure e limita o número de possíveis correspondências a 10 resultados.
+O exemplo a seguir usa o filtro para consultar pessoas com um nome específico em uma tabela do Azure e limita o número de possíveis correspondências a 10 resultados.
 
 ```java
 @FunctionName("getPersonsByName")
@@ -454,6 +363,143 @@ public Person[] get(
 
     return persons;
 }
+```
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+O exemplo a seguir mostra uma associação de entrada de tabela em um arquivo *function.json* e o código [JavaScript](functions-reference-node.md) que usa a associação. A função usa um gatilho de fila para ler uma linha da tabela. 
+
+O arquivo *function.json* especifica um `partitionKey` e um `rowKey`. O `rowKey` valor “{queueTrigger}” indica que a chave de linha foi obtida da cadeia de caracteres da mensagem da fila.
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "personEntity",
+      "type": "table",
+      "tableName": "Person",
+      "partitionKey": "Test",
+      "rowKey": "{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+A seção [configuração](#configuration) explica essas propriedades.
+
+Aqui está o código JavaScript:
+
+```javascript
+module.exports = function (context, myQueueItem) {
+    context.log('Node.js queue trigger function processed work item', myQueueItem);
+    context.log('Person entity name: ' + context.bindings.personEntity.Name);
+    context.done();
+};
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+A função a seguir usa um gatilho de fila para ler uma única linha de tabela como entrada para uma função.
+
+Neste exemplo, a configuração de associação especifica um valor explícito para a tabela `partitionKey` e usa uma expressão para passar para o `rowKey` . A `rowKey` expressão, `{queueTrigger}` ,, indica que a chave de linha vem da cadeia de caracteres de mensagem da fila.
+
+Configuração de associação no _function.jsem_:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "MyQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "PersonEntity",
+      "type": "table",
+      "tableName": "Person",
+      "partitionKey": "Test",
+      "rowKey": "{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Código do PowerShell no _run.ps1_:
+
+```powershell
+param($MyQueueItem, $PersonEntity, $TriggerMetadata)
+Write-Host "PowerShell queue trigger function processed work item: $MyQueueItem"
+Write-Host "Person entity name: $($PersonEntity.Name)"
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+A função a seguir usa um gatilho de fila para ler uma única linha de tabela como entrada para uma função.
+
+Neste exemplo, a configuração de associação especifica um valor explícito para a tabela `partitionKey` e usa uma expressão para passar para o `rowKey` . A `rowKey` expressão `{id}` indica que a chave de linha vem da cadeia de caracteres de mensagem da fila.
+
+Configuração de associação na _function.jsno_ arquivo:
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "messageJSON",
+      "type": "table",
+      "tableName": "messages",
+      "partitionKey": "message",
+      "rowKey": "{id}",
+      "connection": "AzureWebJobsStorage",
+      "direction": "in"
+    },
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ],
+      "route": "messages/{id}"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Código Python no arquivo *\_ \_ init \_ \_ . py* :
+
+```python
+import json
+
+import azure.functions as func
+
+def main(req: func.HttpRequest, messageJSON) -> func.HttpResponse:
+
+    message = json.loads(messageJSON)
+    return func.HttpResponse(f"Table row: {messageJSON}")
 ```
 
 ---
@@ -522,17 +568,21 @@ A conta de armazenamento a ser usada é determinada na seguinte ordem:
 
 O script C# não dá suporte a atributos.
 
+# <a name="java"></a>[Java](#tab/java)
+
+Na [biblioteca de runtime de funções Java](/java/api/overview/azure/functions/runtime), use a anotação `@TableInput` nos parâmetros cujo valor possa ser proveniente do Armazenamento de Tabelas.  Essa anotação pode ser usada com tipos nativos do Java, POJOs ou valores que permitem valor nulos usando `Optional<T>`.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 O JavaScript não dá suporte a atributos.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Não há suporte para atributos pelo PowerShell.
+
 # <a name="python"></a>[Python](#tab/python)
 
 O Python não dá suporte a atributos.
-
-# <a name="java"></a>[Java](#tab/java)
-
-Na [biblioteca de runtime de funções Java](/java/api/overview/azure/functions/runtime), use a anotação `@TableInput` nos parâmetros cujo valor possa ser proveniente do Armazenamento de Tabelas.  Essa anotação pode ser usada com tipos nativos do Java, POJOs ou valores que permitem valor nulos usando `Optional<T>`.
 
 ---
 
@@ -582,17 +632,21 @@ A tabela a seguir explica as propriedades de configuração de associação que 
   > [!NOTE]
   > `IQueryable` não tem suporte no [runtime do Functions v2](functions-versions.md). Uma alternativa é [usar um parâmetro do método paramName de CloudTable](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) para ler a tabela usando o SDK de Armazenamento do Azure. Se você tentar associar `CloudTable` e receber uma mensagem de erro, certifique-se de ter uma referência para [a versão correta do SDK do Armazenamento](./functions-bindings-storage-table.md#azure-storage-sdk-version-in-functions-1x).
 
+# <a name="java"></a>[Java](#tab/java)
+
+O atributo [TableInput](/java/api/com.microsoft.azure.functions.annotation.tableinput) fornece acesso à linha da tabela que disparou a função.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Definir as propriedades `filter` e `take`. Não definir `partitionKey` ou `rowKey`. Acesse a entidade (ou entidades) de tabela de entrada usando `context.bindings.<BINDING_NAME>`. Os objetos desserializados têm propriedades `RowKey` e `PartitionKey`.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Os dados são passados para o parâmetro de entrada, conforme especificado pela `name` chave na *function.jsno* arquivo. Especificar o `partitionKey` e `rowKey` permite que você filtre registros específicos. Consulte o [exemplo do PowerShell](#example) para obter mais detalhes.
+
 # <a name="python"></a>[Python](#tab/python)
 
 Os dados da tabela são passados para a função como uma cadeia de caracteres JSON. Desserializar a mensagem chamando `json.loads` conforme mostrado no [exemplo](#example)de entrada.
-
-# <a name="java"></a>[Java](#tab/java)
-
-O atributo [TableInput](/java/api/com.microsoft.azure.functions.annotation.tableinput) fornece acesso à linha da tabela que disparou a função.
 
 ---
 

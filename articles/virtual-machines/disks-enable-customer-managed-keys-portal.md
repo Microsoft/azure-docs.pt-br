@@ -7,19 +7,19 @@ ms.topic: how-to
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 1b40eef0a4cae8fa68631426ff72003db43d7530
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5452b1e2ffc3ca8a11f3acb591c6288806445e1b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88817311"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499383"
 ---
 # <a name="use-the-azure-portal-to-enable-server-side-encryption-with-customer-managed-keys-for-managed-disks"></a>Usar o portal do Azure para habilitar a criptografia do lado do servidor com chaves gerenciadas pelo cliente para discos gerenciados
 
 Armazenamento em Disco do Azure permite que você gerencie suas próprias chaves ao usar a criptografia do lado do servidor (SSE) para discos gerenciados, se você escolher. Para obter informações conceituais sobre o SSE com chaves gerenciadas pelo cliente, bem como outros tipos de criptografia de disco gerenciado, consulte a seção **chaves gerenciadas pelo cliente** do nosso artigo sobre criptografia de disco:
 
-- Para Linux: [chaves gerenciadas pelo cliente](./linux/disk-encryption.md#customer-managed-keys)
-- Para Windows: [chaves gerenciadas pelo cliente](./windows/disk-encryption.md#customer-managed-keys)
+- Para Linux: [chaves gerenciadas pelo cliente](./disk-encryption.md#customer-managed-keys)
+- Para Windows: [chaves gerenciadas pelo cliente](./disk-encryption.md#customer-managed-keys)
 
 ## <a name="restrictions"></a>Restrições
 
@@ -72,7 +72,7 @@ O processo de implantação de VM é semelhante ao processo de implantação pad
     ![Captura de tela de sua VM de exemplo, com a folha discos aberta. O disco do sistema operacional é realçado, como um disco de exemplo para você selecionar.](media/virtual-machines-disk-encryption-portal/server-side-encryption-existing-disk-select.png)
 
 1. Selecione **criptografia** e selecione **criptografia em repouso com uma chave gerenciada pelo cliente** e, em seguida, selecione o conjunto de criptografia de disco na lista suspensa.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
     ![Captura de tela do seu exemplo de disco do so. A folha criptografia está aberta, a criptografia em repouso com uma chave gerenciada pelo cliente é selecionada, bem como seu Azure Key Vault de exemplo. Depois de fazer essas seleções, o botão salvar é selecionado.](media/virtual-machines-disk-encryption-portal/server-side-encryption-encrypt-existing-disk-customer-managed-key.png)
 

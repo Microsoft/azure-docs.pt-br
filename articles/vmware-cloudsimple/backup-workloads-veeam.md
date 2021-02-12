@@ -1,19 +1,19 @@
 ---
 title: Solução do Azure VMware por CloudSimple-fazer backup de máquinas virtuais de carga de trabalho na nuvem privada usando o Veeam
 description: Descreve como você pode fazer backup de suas máquinas virtuais que estão sendo executadas em uma nuvem privada do CloudSimple com base no Azure usando o Veeam B&R 9,5
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: cb883b70d1ae9f2894c7679633a586586922aa18
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7be606b3e23a594e67acf3f169d88353403d8577
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92419936"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899330"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Fazer backup de VMs de carga de trabalho na nuvem privada do CloudSimple usando o Veeam B&R
 

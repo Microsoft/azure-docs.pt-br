@@ -2,16 +2,16 @@
 author: wolfma61
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/12/2020
+ms.date: 12/10/2020
 ms.author: wolfma
-ms.openlocfilehash: c8e6c11771ae4cd216b3b1e43f3db7924dca81cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 329241c2660ff7828f57fb21daeb6de20caedc43
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77168170"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504450"
 ---
-| Geografia | Região | Identificador de região |
+| painel Geografia do app&#39;s selecionado | Região | Identificador de região |
 | ----- | ----- | ----- |
 | Américas | Centro dos EUA | `centralus` |
 | Américas | Leste dos EUA | `eastus` |
@@ -22,7 +22,7 @@ ms.locfileid: "77168170"
 | Américas | Oeste dos EUA | `westus` |
 | Américas | Oeste dos EUA 2 | `westus2` |
 | Américas | Canadá Central | `canadacentral` |
-| Américas | Sul do Brasil | `brazilsouth` |
+| Américas | Brazil South | `brazilsouth` |
 | Pacífico Asiático | Leste da Ásia | `eastasia` |
 | Pacífico Asiático | Sudeste Asiático | `southeastasia` |
 | Pacífico Asiático | Leste da Austrália | `australiaeast` |

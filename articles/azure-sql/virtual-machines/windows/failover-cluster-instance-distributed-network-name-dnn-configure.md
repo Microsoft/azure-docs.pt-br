@@ -7,6 +7,7 @@ author: MashaMSFT
 manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -14,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: dff6d69a107091a0ce030065da0f70a3d68c5841
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 8549592ace00e712929ebc76045a32531b9db659
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168774"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358309"
 ---
 # <a name="configure-a-dnn-for-failover-cluster-instance"></a>Configurar um DNN para a instância de cluster de failover
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -131,14 +132,14 @@ Para atualizar possíveis proprietários, siga estas etapas:
 
 1. Desmarque a caixa de seleção de todos os nós que não participam da instância de cluster de failover. A lista de possíveis proprietários para o recurso DNN deve corresponder à lista de possíveis proprietários do recurso de SQL Server instância. Por exemplo, supondo que data3 não participe do FCI, a imagem a seguir é um exemplo de remoção de data3 da lista de possíveis proprietários para o recurso DNN: 
 
-   :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/clear-check-for-nodes-not-in-fci.png" alt-text="Menu de atalho do recurso DNN, com o comando Properties realçado.":::
+   :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/clear-check-for-nodes-not-in-fci.png" alt-text="Desmarque a caixa de seleção ao lado dos nós que não participam do FCI para possíveis proprietários do recurso DNN":::
 
 1. Selecione **OK** para salvar as configurações. 
 
 
 ## <a name="restart-sql-server-instance"></a>Reiniciar SQL Server instância 
 
-Use Gerenciador de Cluster de Failover para reiniciar a instância de SQL Server. Siga estas etapas:
+Use Gerenciador de Cluster de Failover para reiniciar a instância de SQL Server. Execute estas etapas:
 
 1. Vá para o recurso de SQL Server no Gerenciador de Cluster de Failover.
 1. Clique com o botão direito do mouse no recurso SQL Server e coloque-o offline. 

@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
 ms.custom: subject-armqs
-ms.openlocfilehash: e7c3f2f50d9ac1fb1731f70f7b442ab4a2e44425
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 223006193219afe4179f3161d5e60e6439207b22
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088917"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896048"
 ---
 # <a name="quickstart-create-a-front-door-using-an-arm-template"></a>'Início Rápido: Criar um Front Door usando um modelo do ARM
 
@@ -40,7 +40,7 @@ Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o 
 
 O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-front-door-create-basic).
 
-Neste guia de início rápido, você criará uma configuração do Front Door com um back-end e um caminho padrão correspondente a "/*". 
+Neste guia de início rápido, você criará uma configuração do Front Door com um back-end e um caminho padrão correspondente a `/*`.
 
 :::code language="json" source="~/quickstart-templates/101-front-door-create-basic/azuredeploy.json":::
 
@@ -50,7 +50,7 @@ Um recurso do Azure é definido no modelo:
 
 ## <a name="deploy-the-template"></a>Implantar o modelo
 
-1. Clique em **Experimentar** no bloco de código a seguir para abrir o Azure Cloud Shell e então acompanhe as instruções para entrar no Azure. 
+1. Clique em **Experimentar** no bloco de código a seguir para abrir o Azure Cloud Shell e então acompanhe as instruções para entrar no Azure.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -73,7 +73,7 @@ Um recurso do Azure é definido no modelo:
 
 1. Insira os valores.
 
-    A implantação de modelo cria um Front Door com um back-end. Neste exemplo *<span>microsoft.</span>com* é usado como o **backendAddress**.
+    A implantação de modelo cria um Front Door com um back-end. Neste exemplo, `microsoft.com` é usado como o **backendAddress**.
 
     O nome do grupo de recursos é o nome do projeto com o acréscimo de **rg**.
 
@@ -96,7 +96,7 @@ O Azure PowerShell é usado para implantar o modelo. Além do Azure PowerShell, 
 
 1. Selecione o Front Door que você criou anteriormente e clique no link **Host de front-end**. O link abrirá um navegador da Web redirecionando você ao seu FQDN de back-end que você definiu durante a criação.
 
-    :::image type="content" source="./media/quickstart-create-front-door-template/front-door-overview.png" alt-text="Saída de implantação do PowerShell do modelo do Resource Manager no Front Door":::
+    :::image type="content" source="./media/quickstart-create-front-door-template/front-door-overview.png" alt-text="Visão geral do portal do Front Door":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -110,8 +110,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você criou:
-* Front Door
+Neste guia de início rápido, você criou um Front Door.
 
 Para saber como adicionar um domínio personalizado ao Front Door, avance para os tutoriais do Front Door.
 

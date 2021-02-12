@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: 613ce41820dc5f388af441836bdb4a93e43e5d07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e822e17f154b72854c5150e071301d7bbd53072e
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987638"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98890808"
 ---
 # <a name="tutorial-create-a-powershell-workflow-runbook"></a>Tutorial: Criar runbook de Fluxo de Trabalho do PowerShell
 
@@ -42,7 +42,7 @@ Comece criando um runbook simples que exibe o texto `Hello World`.
 
 3. Crie um runbook selecionando **Criar um runbook**.
 
-4. Atribua o nome **MyFirstRunbook-Workflow**ao runbook.
+4. Atribua o nome **MyFirstRunbook-Workflow** ao runbook.
 
 5. Nesse caso, você vai criar um [runbook de Fluxo de Trabalho do PowerShell](../automation-runbook-types.md#powershell-workflow-runbooks). Para **Tipo de runbook**, selecione **Fluxo de Trabalho do PowerShell**.
 
@@ -113,13 +113,13 @@ O runbook que você criou ainda está em modo de Rascunho. Você precisa public�
 
 7. Assim que o status do runbook mostrar Concluído, clique em **Saída**. A página Saída é aberta e nela você pode ver sua mensagem de `Hello World`.
 
-   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-outputtile.png" alt-text="Captura de tela do painel Trabalho do runbook, mostrando a seção Resumo do Trabalho realçada.":::
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-outputtile.png" alt-text="Captura de tela do painel Trabalho do runbook, mostrando o botão Saída realçado.":::
 
 8. Feche a página de Saída.
 
 9. Clique em **Todos os Logs** para abrir o painel Fluxos do trabalho do runbook. Você deverá ver apenas `Hello World` no fluxo de saída. Observe que o painel Fluxos poderá mostrar outros fluxos de um trabalho de runbook, como Detalhado e Erro, se o runbook gravar neles.
 
-   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-alllogstile.png" alt-text="Captura de tela do painel Trabalho do runbook, mostrando a seção Resumo do Trabalho realçada.":::
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-alllogstile.png" alt-text="Captura de tela do painel Trabalho do runbook, mostrando o botão Todos os Logs realçado.":::
 
 10. Feche o painel Fluxos e o painel Trabalho para retornar à página MyFirstRunbook.
 
@@ -131,7 +131,7 @@ O runbook que você criou ainda está em modo de Rascunho. Você precisa public�
 
 ## <a name="step-5---add-authentication-to-manage-azure-resources"></a>Etapa 5: adicionar autenticação para gerenciar recursos do Azure
 
-Você testou e publicou seu runbook, mas, até o momento, ele não faz nada útil. Você gostaria que ele gerencie recursos do Azure. Ele não pode fazer isso, a menos que seja autenticado usando as credenciais da assinatura. A autenticação usa o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0).
+Você testou e publicou seu runbook, mas, até o momento, ele não faz nada útil. Você gostaria que ele gerencie recursos do Azure. Ele não pode fazer isso, a menos que seja autenticado usando as credenciais da assinatura. A autenticação usa o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 >[!NOTE]
 >Para runbooks do PowerShell, `Add-AzAccount` e `Add-AzureRMAccount` são aliases para `Connect-AzAccount`. Você pode usar esses cmdlets ou pode [atualizar seus módulos](../automation-update-azure-modules.md) em sua conta de Automação para as versões mais recentes. Talvez você precise atualizar os módulos mesmo que você tenha acabado de criar uma conta de Automação.
@@ -165,7 +165,7 @@ Você testou e publicou seu runbook, mas, até o momento, ele não faz nada úti
 
 Agora que o seu runbook está se autenticando na sua assinatura do Azure, você pode gerenciar os recursos. Vamos adicionar um comando para iniciar uma máquina virtual. Você pode escolher qualquer VM em sua assinatura do Azure e, por enquanto, codificará esse nome no runbook. Se você estiver gerenciando recursos entre várias assinaturas, precisará usar o parâmetro `AzContext` junto com o cmdlet [Get-AzContext](/powershell/module/az.accounts/get-azcontext).
 
-1. Forneça o nome e o nome do grupo de recursos da VM a ser iniciada inserindo uma chamada para o cmdlet [Start-AzVM](/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0), conforme mostrado abaixo. 
+1. Forneça o nome e o nome do grupo de recursos da VM a ser iniciada inserindo uma chamada para o cmdlet [Start-AzVM](/powershell/module/Az.Compute/Start-AzVM), conforme mostrado abaixo. 
 
    ```powershell-interactive
    workflow MyFirstRunbook-Workflow
@@ -227,7 +227,7 @@ Atualmente, o runbook inicia a VM que você codificou no runbook. Ele será mais
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para obter mais informações sobre o PowerShell, incluindo referência de linguagem e módulos de aprendizado, confira a [Documentação do PowerShell](/powershell/scripting/overview).
-* Para obter uma referência de cmdlet do PowerShell, confira [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Para obter uma referência de cmdlet do PowerShell, confira [Az.Automation](/powershell/module/az.automation).
 * Para começar a usar os runbooks gráficos, confira [Criar um runbook gráfico](automation-tutorial-runbook-graphical.md).
 * Para começar a usar os runbooks do PowerShell, confira [Criar um runbook do PowerShell](automation-tutorial-runbook-textual-powershell.md).
 * Para aprender mais sobre os tipos de runbook, suas vantagens e limitações, confira [Tipos de runbook da Automação do Azure](../automation-runbook-types.md).

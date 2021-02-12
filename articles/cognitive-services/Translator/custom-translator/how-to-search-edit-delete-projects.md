@@ -2,19 +2,19 @@
 title: Como pesquisar, editar e excluir projetos - Tradutor Personalizado
 titleSuffix: Azure Cognitive Services
 description: O tradutor personalizado fornece várias maneiras de gerenciar seus projetos de maneira eficiente. Você pode criar vários projetos, pesquisar com base em seus critérios, editar seus projetos. Exclusão de um projeto também é possível no tradutor de personalizado.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 08/17/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: 4c48a8a18a3ad0487b4c3840847c7f5edbb6d29f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 308ca25d35011c67ded7300177149cd590462952
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510312"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896436"
 ---
 # <a name="search-edit-and-delete-projects"></a>Pesquisar, editar e excluir projetos
 

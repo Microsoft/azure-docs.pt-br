@@ -3,16 +3,17 @@ title: Configurar a interface de passagem de mensagens para HPC-máquinas virtua
 description: Saiba como configurar o MPI para HPC no Azure.
 author: vermagit
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 08/06/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 28853dd5066be2c40c72dca505c0a68d429f6ca0
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 08d952738a085aa6ed814668ece898f7460b4f33
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993528"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963735"
 ---
 # <a name="set-up-message-passing-interface-for-hpc"></a>Configurar a interface de passagem de mensagens para HPC
 

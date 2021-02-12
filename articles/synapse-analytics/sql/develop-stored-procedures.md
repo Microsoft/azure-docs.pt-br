@@ -1,38 +1,39 @@
 ---
 title: Usar procedimentos armazenados
-description: Dicas para implementar procedimentos armazenados no SQL Synapse para desenvolver soluções.
+description: Dicas para implementar procedimentos armazenados usando o Synapse SQL no Azure Synapse Analytics para desenvolvimento de soluções.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 09/23/2020
+ms.date: 11/03/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 1db3b224d23664c83f21e77dcb445b0fb043a4c3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 3940d762dbc249e0303ddf905acbeeed7f96aa4f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737852"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315566"
 ---
-# <a name="use-stored-procedures-in-synapse-sql"></a>Usar procedimentos armazenados no SQL Synapse
+# <a name="stored-procedures-using-synapse-sql-in-azure-synapse-analytics"></a>Procedimentos armazenados usando o SQL Synapse no Azure Synapse Analytics
 
-Dicas para implementar procedimentos armazenados no pool do SQL Synapse para desenvolver soluções.
+Os pools do Synapse SQL provisionados e sem servidor permitem que você coloque uma lógica complexa de processamento de dados em procedimentos armazenados do SQL. Os procedimentos armazenados são uma ótima maneira de encapsular seu código SQL e armazená-los perto dos seus dados no data warehouse. Os procedimentos armazenados ajudam os desenvolvedores a modularizar suas soluções encapsulando o código em unidades gerenciáveis e facilitando a maior Reusabilidade de código. Cada procedimento armazenado também pode aceitar parâmetros para torná-lo ainda mais flexível.
+Neste artigo, você encontrará algumas dicas para implementar procedimentos armazenados no pool de SQL do Synapse para desenvolver soluções.
 
 ## <a name="what-to-expect"></a>O que esperar
 
-Synapse SQL dá suporte a muitos dos recursos do T-SQL que são usados no SQL Server. Mais importante, há recursos específicos de expansão que você pode usar para maximizar o desempenho da sua solução.
+Synapse SQL dá suporte a muitos dos recursos do T-SQL que são usados no SQL Server. Mais importante, há recursos específicos de expansão que você pode usar para maximizar o desempenho da sua solução. Neste artigo, você aprenderá sobre os recursos que podem ser colocados em procedimentos armazenados.
 
 > [!NOTE]
-> No corpo do procedimento, você pode usar apenas os recursos que têm suporte na área de superfície do SQL do Synapse. Examine [Este artigo](overview-features.md) para identificar objetos, instruções que podem ser usadas em procedimentos armazenados. Nos exemplos nestes artigos, são usados recursos genéricos que estão disponíveis na área de superfície sem servidor e provisionada.
+> No corpo do procedimento, você pode usar apenas os recursos que têm suporte na área de superfície do SQL do Synapse. Examine [Este artigo](overview-features.md) para identificar objetos, instruções que podem ser usadas em procedimentos armazenados. Os exemplos nestes artigos usam recursos genéricos que estão disponíveis na área de superfície dedicada e sem servidor. Confira [limitações adicionais em pools do SQL Synapse e sem servidor](#limitations) no final deste artigo.
 
 Para manter a escala e o desempenho do pool do SQL, há também alguns recursos e funcionalidades que têm diferenças comportamentais e outras que não têm suporte.
 
 ## <a name="stored-procedures-in-synapse-sql"></a>Procedimentos armazenados no SQL Synapse
 
-Os procedimentos armazenados são uma ótima maneira de encapsular seu código SQL e armazená-los perto dos seus dados no data warehouse. Os procedimentos armazenados ajudam os desenvolvedores a modularizar suas soluções encapsulando o código em unidades gerenciáveis, facilitando a maior Reusabilidade de código. Cada procedimento armazenado também pode aceitar parâmetros para torná-lo ainda mais flexível. No exemplo a seguir, você pode ver os procedimentos que removem objetos externos, se existirem no banco de dados:
+No exemplo a seguir, você pode ver os procedimentos que removem objetos externos, se existirem no banco de dados:
 
 ```sql
 CREATE PROCEDURE drop_external_table_if_exists @name SYSNAME
@@ -184,23 +185,26 @@ EXEC clean_up 'mytest'  -- This call is nest level 1
 
 ## <a name="insertexecute"></a>INSERT..EXECUTE
 
-Synapse SQL não permite que você consuma o conjunto de resultados de um procedimento armazenado com uma instrução INSERT. Há uma abordagem alternativa que você pode usar. Para obter um exemplo, consulte o artigo em [tabelas temporárias](develop-tables-temporary.md) para o pool do SQL Synapse provisionado.
+O pool SQL provisionado Synapse não permite que você consuma o conjunto de resultados de um procedimento armazenado com uma instrução INSERT. Há uma abordagem alternativa que você pode usar. Para obter um exemplo, consulte o artigo em [tabelas temporárias](develop-tables-temporary.md) para o pool do SQL Synapse provisionado.
 
 ## <a name="limitations"></a>Limitações
 
 Há alguns aspectos dos procedimentos armazenados Transact-SQL que não são implementados no SQL Synapse, como:
 
-* procedimentos armazenados temporariamente
-* procedimentos armazenados numerados
-* procedimentos armazenados estendidos
-* procedimentos armazenados de CLR
-* opção de criptografia
-* opção de replicação
-* parâmetros com valor de tabela
-* parâmetros somente leitura
-* parâmetros padrão (no pool provisionado)
-* contextos de execução
-* Instrução return
+| Recurso/opção | Provisionado | Sem servidor |
+| --- | --- |
+| Procedimentos armazenados temporários | Não | Sim |
+| Procedimentos armazenados numerados | Não | Não |
+| Procedimentos armazenados estendidos | Não | Não |
+| procedimentos armazenados de CLR | Não | Não |
+| Opção de criptografia | Não | Sim |
+| Opção de replicação | Não | Não |
+| Parâmetros com valor de tabela | Não | Não |
+| Parâmetros somente leitura | Não | Não |
+| Parâmetros padrão | Não | Sim |
+| Contextos de execução | Não | Não |
+| instrução Return | Não | Sim |
+| INSERIR EM.. EXEC | Não | Sim |
 
 ## <a name="next-steps"></a>Próximas etapas
 

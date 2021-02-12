@@ -9,11 +9,11 @@ ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: include file, devx-track-azurecli
 ms.openlocfilehash: 7803ac9009af1657e7f162d656898492a694e28f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743541"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997878"
 ---
 Para acessar os logs de console gerados dentro do código do aplicativo no Serviço de Aplicativo, ative o log de diagnóstico executando o seguinte comando no [Cloud Shell](https://shell.azure.com):
 

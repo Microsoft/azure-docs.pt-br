@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 5d61c0f5f26bc46b9c4a5bc4a793df1e10710004
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130860"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006722"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Criar tabelas do Hive e carregar dados do Armazenamento de Blobs do Azure
 
@@ -34,11 +34,11 @@ Se você criou uma máquina virtual do Azure seguindo as instruções fornecidas
 
 Supomos que os dados de tabelas Hive estejam em formato de tabela **descompactado** e que os dados foram carregado no contêiner padrão (ou em um adicional) da conta de armazenamento usada pelo cluster do Hadoop.
 
-Se quiser praticar com os **Dados de viagens de táxi de NYC** , você precisará:
+Se quiser praticar com os **Dados de viagens de táxi de NYC**, você precisará:
 
 * **baixar** os 24 arquivos de [Dados de viagens de táxi de NYC](https://www.andresmh.com/nyctaxitrips) (12 arquivos de viagens e 12 arquivos de tarifas),
 * **descompactar** todos os arquivos em arquivos .csv, e
-* **carregue** -os para o padrão (ou o contêiner apropriado) da conta do Armazenamento do Microsoft Azure; as opções para essa conta aparecem no tópico [Usar o Armazenamento do Microsoft Azure com clusters do Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md). O processo para carregar os arquivos .csv para o contêiner padrão na conta de armazenamento pode ser encontrado nesta [página](hive-walkthrough.md#upload).
+* **carregue**-os para o padrão (ou o contêiner apropriado) da conta do Armazenamento do Microsoft Azure; as opções para essa conta aparecem no tópico [Usar o Armazenamento do Microsoft Azure com clusters do Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md). O processo para carregar os arquivos .csv para o contêiner padrão na conta de armazenamento pode ser encontrado nesta [página](hive-walkthrough.md#upload).
 
 ## <a name="how-to-submit-hive-queries"></a><a name="submit"></a>Como enviar consultas de Hive
 Consultas de Hive podem ser enviadas usando:
@@ -147,12 +147,12 @@ STORED AS TEXTFILE LOCATION '<storage location>' TBLPROPERTIES("skip.header.line
 
 Veja aqui as descrições dos campos de que você precisa para plug-ins e outras configurações:
 
-* **\<database name\>** : o nome do banco de dados que você deseja criar. Se quiser apenas usar o banco de dados padrão, a consulta *create database...* poderá ser omitida.
-* **\<table name\>** : o nome da tabela que você deseja criar dentro do banco de dados especificado. Se você quiser usar o banco de dados padrão, a tabela poderá ser referenciada diretamente *\<table name\>* sem \<database name\> .
-* **\<field separator\>** : o separador que delimita os campos no arquivo de dados a serem carregados na tabela Hive.
-* **\<line separator\>** : o separador que delimita as linhas no arquivo de dados.
-* **\<storage location\>** : o local de armazenamento do Azure para salvar os dados de tabelas do hive. Se você não especificar *LOCATION \<storage location\>* , o banco de dados e as tabelas serão armazenadas no diretório *hive/warehouse/* no contêiner padrão do cluster DE Hive por padrão. Se você quiser especificar a localização de armazenamento, esta deverá estar dentro do contêiner padrão para o banco de dados e tabelas. Esse local deve ser referenciado como local relativo ao contêiner padrão do cluster no formato *' WASB:/// \<directory 1> /'* ou *' WASB:/// \<directory 1> / \<directory 2> /'* , etc. Depois que a consulta é executada, os diretórios relativos são criados dentro do contêiner padrão.
-* **TBLPROPERTIES("skip.header.line.count"="1")** : Se o arquivo de dados tiver uma linha de cabeçalho, você precisará adicionar essa propriedade **ao final** da consulta *create table* . Caso contrário, a linha de cabeçalho será carregada como um registro para a tabela. Se o arquivo de dados não tiver uma linha de cabeçalho, essa configuração pode ser omitida na consulta.
+* **\<database name\>**: o nome do banco de dados que você deseja criar. Se quiser apenas usar o banco de dados padrão, a consulta *create database...* poderá ser omitida.
+* **\<table name\>**: o nome da tabela que você deseja criar dentro do banco de dados especificado. Se você quiser usar o banco de dados padrão, a tabela poderá ser referenciada diretamente *\<table name\>* sem \<database name\> .
+* **\<field separator\>**: o separador que delimita os campos no arquivo de dados a serem carregados na tabela Hive.
+* **\<line separator\>**: o separador que delimita as linhas no arquivo de dados.
+* **\<storage location\>**: o local de armazenamento do Azure para salvar os dados de tabelas do hive. Se você não especificar *LOCATION \<storage location\>*, o banco de dados e as tabelas serão armazenadas no diretório *hive/warehouse/* no contêiner padrão do cluster DE Hive por padrão. Se você quiser especificar a localização de armazenamento, esta deverá estar dentro do contêiner padrão para o banco de dados e tabelas. Esse local deve ser referenciado como local relativo ao contêiner padrão do cluster no formato *' WASB:/// \<directory 1> /'* ou *' WASB:/// \<directory 1> / \<directory 2> /'*, etc. Depois que a consulta é executada, os diretórios relativos são criados dentro do contêiner padrão.
+* **TBLPROPERTIES("skip.header.line.count"="1")** : Se o arquivo de dados tiver uma linha de cabeçalho, você precisará adicionar essa propriedade **ao final** da consulta *create table*. Caso contrário, a linha de cabeçalho será carregada como um registro para a tabela. Se o arquivo de dados não tiver uma linha de cabeçalho, essa configuração pode ser omitida na consulta.
 
 ## <a name="load-data-to-hive-tables"></a><a name="load-data"></a>Carregar dados para tabelas Hive
 Veja aqui a consulta Hive que carrega dados em uma tabela Hive.
@@ -161,7 +161,7 @@ Veja aqui a consulta Hive que carrega dados em uma tabela Hive.
 LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 ```
 
-* **\<path to blob data\>** : Se o arquivo de blob a ser carregado na tabela Hive estiver no contêiner padrão do cluster HDInsight Hadoop, o *\<path to blob data\>* deverá estar no formato *' WASB:// \<directory in this container> / \<blob file name> '* . O arquivo de blob também pode estar em um contêiner adicional do cluster do Hadoop do HDInsight. Nesse caso, *\<path to blob data\>* deve estar no formato *' WASB:// \<container name> @ \<storage account name> . blob.Core.Windows.NET/ \<blob file name> '* .
+* **\<path to blob data\>**: Se o arquivo de blob a ser carregado na tabela Hive estiver no contêiner padrão do cluster HDInsight Hadoop, o *\<path to blob data\>* deverá estar no formato *' WASB:// \<directory in this container> / \<blob file name> '*. O arquivo de blob também pode estar em um contêiner adicional do cluster do Hadoop do HDInsight. Nesse caso, *\<path to blob data\>* deve estar no formato *' WASB:// \<container name> @ \<storage account name> . blob.Core.Windows.NET/ \<blob file name> '*.
 
   > [!NOTE]
   > Os dados blob a serem carregados na tabela Hive deve estar no contêiner padrão ou adicional da conta de armazenamento para o cluster do Hadoop. Caso contrário, a consulta *LOAD DATA* falhará reclamando que não pode acessar os dados.
@@ -249,7 +249,7 @@ INSERT OVERWRITE TABLE <database name>.<ORC table name> PARTITION (<partition va
     WHERE <partition variable>=<partition value>;
 ```
 
-É seguro descartar o *\<external text file table name\>* ao usar a consulta a seguir depois que todos os dados tiverem sido inseridos no *\<database name\> . \<ORC table name\>* :
+É seguro descartar o *\<external text file table name\>* ao usar a consulta a seguir depois que todos os dados tiverem sido inseridos no *\<database name\> . \<ORC table name\>*:
 
 ```hiveql
     DROP TABLE IF EXISTS <database name>.<external textfile table name>;

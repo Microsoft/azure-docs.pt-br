@@ -8,11 +8,11 @@ ms.date: 07/27/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 91b6134e7c809a8af75aa1cf23523e352e0a1a0e
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150241"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997334"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações sobre a rede para um Ambiente do Serviço de Aplicativo #
 
@@ -25,7 +25,7 @@ ms.locfileid: "92150241"
 
 Todos os ASEs, external e ILB, têm um VIP público que é usado para tráfego de gerenciamento de entrada e como o endereço de ao fazer chamadas do ASE para a Internet. As chamadas de um ASE que vão para a Internet deixam a rede virtual por meio do VIP atribuído para o ASE. O IP público desse VIP é o IP de origem de todas as chamadas do ASE que vão para a Internet. Se os aplicativos em seu ASE fizerem chamadas a recursos na sua VNet ou por uma VPN, o IP de origem será um dos IPs na sub-rede usada pelo ASE. Como o ASE é na VNet, também pode acessar recursos na VNet sem nenhuma configuração adicional. Se a VNet estiver conectada à sua rede local, os aplicativos no ASE também terão acesso aos recursos de lá sem configuração adicional.
 
-![ASE externo][1] 
+![ASE externo][1] 
 
 Se você tiver um ASE externo, o VIP público também será o ponto de extremidade para o qual seus aplicativos ASE resolvem:
 
@@ -53,7 +53,7 @@ Quando você escala ou reduz verticalmente, são adicionadas novas funções de 
 
 Apenas para que o ASE opere, o ASE exige que as seguintes portas sejam abertas:
 
-| Uso | De | Para |
+| Usar | De | Para |
 |-----|------|----|
 | Gerenciamento | Endereços de gerenciamento do Serviço de Aplicativo | Sub-rede ASE: 454, 455 |
 |  Comunicação interna ASE | Sub-rede ASE: todas as portas | Sub-rede ASE: todas as portas
@@ -69,7 +69,7 @@ Para a comunicação entre o balanceador de carga do Azure e a sub-rede do ASE, 
 
 As outras portas com as quais você precisa se preocupar são as portas do aplicativo:
 
-| Uso | Portas |
+| Usar | Portas |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP/FTPS    | 21, 990, 10001-10020 |
@@ -169,7 +169,7 @@ Essas portas não incluem as portas que seus aplicativos exigem para uso bem-suc
 
 As portas de acesso normais do aplicativo são:
 
-| Uso | Portas |
+| Usar | Portas |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP/FTPS    | 21, 990, 10001-10020 |
@@ -180,9 +180,9 @@ Quando os requisitos de entrada e saída são levados em conta, os NSGs devem se
 
 ![Regras de segurança de entrada][4]
 
-Uma regra padrão permite que os IPs na VNet comuniquem-e com a sub-rede do ASE. Outra regra padrão permite que o balanceador de carga, também conhecido como o VIP público, comunique-se com o ASE. Para ver as regras padrão, selecione **Regras padrão** ao lado do ícone **Adicionar**. Se você colocar uma regra negar tudo antes das regras padrão, você impedirá o tráfego entre o VIP e o ASE. Para evitar o tráfego proveniente de dentro da VNet, adicione suas próprias regras para permitir a entrada. Usar uma fonte igual ao AzureLoadBalancer com um destino de **Qualquer** e um intervalo de portas de **\***. Como a regra NSG é aplicada à sub-rede do ASE, você não precisa ser específico quanto ao destino.
+Uma regra padrão permite que os IPs na VNet comuniquem-e com a sub-rede do ASE. Outra regra padrão permite que o balanceador de carga, também conhecido como o VIP público, comunique-se com o ASE. Para ver as regras padrão, selecione **Regras padrão** ao lado do ícone **Adicionar**. Se você colocar uma regra negar tudo antes das regras padrão, você impedirá o tráfego entre o VIP e o ASE. Para evitar o tráfego proveniente de dentro da VNet, adicione suas próprias regras para permitir a entrada. Use uma origem igual a AzureLoadBalancer com um destino de **qualquer** e um intervalo de portas de * *\** _. Como a regra NSG é aplicada à sub-rede do ASE, você não precisa ser específico quanto ao destino.
 
-Se você tiver atribuído um endereço IP ao seu aplicativo, mantenha as portas abertas. Para ver as portas, selecione **ambiente do serviço de aplicativo**  >  **endereços IP**.  
+Se você tiver atribuído um endereço IP ao seu aplicativo, mantenha as portas abertas. Para ver as portas, selecione _ *ambiente do serviço de aplicativo** > **endereços IP**.  
 
 Todos os itens mostrados nas regras de saída a seguir são necessários, exceto pelo último item. Isso permite o acesso de rede às dependências do ASE que foram observadas anteriormente neste artigo. Se você bloquear qualquer uma delas, o ASE deixará de funcionar. O último item na lista permite que seu ASE se comunique com outros recursos em sua VNet.
 

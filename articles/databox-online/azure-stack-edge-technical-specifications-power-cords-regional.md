@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 76d8c84fd1dd403c88e8261cf49e3620f3a6ec14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18de1f445990f167041c755aa5e7d909819319b1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903626"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446457"
 ---
 # <a name="azure-stack-edge-pro-power-cord-specifications"></a>Especificações do Azure Stack Power cabo pro Edge
 
@@ -158,4 +158,4 @@ Você pode usar a seguinte tabela para encontrar as especificações corretas de
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Especificações técnicas do Azure Stack Edge pro](data-box-edge-technical-specifications-compliance.md)
+[Especificações técnicas do Azure Stack Edge pro](./azure-stack-edge-technical-specifications-compliance.md)

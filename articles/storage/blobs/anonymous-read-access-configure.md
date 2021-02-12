@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/09/2020
+ms.date: 11/03/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 7248dff25af4693f7f264c8cbf42236612dddda0
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: feac7b890c973b1541c5362f860432687082953f
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931063"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533869"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configurar acesso de leitura público anônimo para contêineres e blobs
 
@@ -53,12 +53,9 @@ A despermissão de acesso público para a conta de armazenamento impede o acesso
 
 Para permitir ou impedir o acesso público para uma conta de armazenamento, configure a propriedade **AllowBlobPublicAccess** da conta. Essa propriedade está disponível para todas as contas de armazenamento que são criadas com o modelo de implantação Azure Resource Manager. Para obter mais informações, consulte [visão geral da conta de armazenamento](../common/storage-account-overview.md).
 
-> [!NOTE]
-> A propriedade **AllowBlobPublicAccess** não é definida por padrão e não retorna um valor até que você a defina explicitamente. A conta de armazenamento permite acesso público quando o valor da propriedade é **nulo** ou quando é **verdadeiro**.
->
-> A propriedade **AllowBlobPublicAccess** está disponível para todas as contas de armazenamento na nuvem pública do Azure e nas nuvens do Azure governamental.
+A propriedade **AllowBlobPublicAccess** não é definida para uma conta de armazenamento por padrão e não retorna um valor até que você a defina explicitamente. A conta de armazenamento permite acesso público quando o valor da propriedade é **nulo** ou **verdadeiro**.
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Para permitir ou impedir o acesso público para uma conta de armazenamento no portal do Azure, siga estas etapas:
 
@@ -135,8 +132,8 @@ az storage account show \
 Para permitir ou impedir o acesso público para uma conta de armazenamento com um modelo, crie um modelo com a propriedade **AllowBlobPublicAccess** definida como **true** ou **false**. As etapas a seguir descrevem como criar um modelo no portal do Azure.
 
 1. Na portal do Azure, escolha **criar um recurso**.
-1. Em **Pesquisar no Marketplace**, digite **implantação de modelo**e pressione **Enter**.
-1. Escolha **implantação de modelo (implantar usando modelos personalizados) (versão prévia)**, escolha **criar**e, em seguida, escolha **criar seu próprio modelo no editor**.
+1. Em **Pesquisar no Marketplace**, digite **implantação de modelo** e pressione **Enter**.
+1. Escolha **implantação de modelo (implantar usando modelos personalizados) (versão prévia)**, escolha **criar** e, em seguida, escolha **criar seu próprio modelo no editor**.
 1. No editor de modelo, Cole o JSON a seguir para criar uma nova conta e definir a propriedade **AllowBlobPublicAccess** como **true** ou **false**. Lembre-se de substituir os espaços reservados entre parênteses pelos seus próprios valores.
 
     ```json
@@ -193,7 +190,7 @@ Quando o acesso público é permitido para uma conta de armazenamento, você pod
 
 Você não pode alterar o nível de acesso público para um blob individual. O nível de acesso público é definido somente no nível de contêiner. Você pode definir o nível de acesso público do contêiner ao criar o contêiner ou pode atualizar a configuração em um contêiner existente.
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Para atualizar o nível de acesso público para um ou mais contêineres existentes no portal do Azure, siga estas etapas:
 
@@ -207,7 +204,7 @@ Para atualizar o nível de acesso público para um ou mais contêineres existent
 
 Quando o acesso público não é permitido para a conta de armazenamento, o nível de acesso público de um contêiner não pode ser definido. Se você tentar definir o nível de acesso público do contêiner, verá que a configuração está desabilitada porque o acesso público não é permitido para a conta.
 
-:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Captura de tela mostrando como permitir ou não o acesso público de BLOB para a conta":::
+:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="A captura de tela mostrando que a configuração do nível de acesso público do contêiner é bloqueada quando o acesso público não é permitido":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

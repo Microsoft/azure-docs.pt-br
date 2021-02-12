@@ -9,12 +9,12 @@ metadata:
   author: dcurwin
   ms.author: dacurwin
   ms.date: 12/01/2019
-  ms.openlocfilehash: 4716d537a6a3e402a4f399be8d64c9fd51edc292
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 077fcfd38c42b722b73937d75eb65276fa93d2c8
+  ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91620113"
+  ms.lasthandoff: 01/26/2021
+  ms.locfileid: "98807055"
 landingContent:
 - title: Saiba mais sobre o Backup do Azure
   linkLists:
@@ -40,8 +40,6 @@ landingContent:
       url: quick-backup-vm-cli.md
     - text: Fazer backup de uma VM com o modelo do Resource Manager
       url: quick-backup-vm-template.md
-- title: Experimente estes tutoriais passo a passo
-  linkLists:
   - linkListType: tutorial
     links:
     - text: Fazer backup de VMs do Azure
@@ -56,6 +54,8 @@ landingContent:
   linkLists:
   - linkListType: whats-new
     links:
+    - text: Backup de Disco do Azure
+      url: disk-backup-overview.md
     - text: Centro de Backup
       url: backup-center-overview.md
     - text: Backup do Banco de Dados do Azure para PostgreSQL
@@ -79,9 +79,23 @@ landingContent:
     - text: Matriz de suporte para backup de VM do Azure
       url: backup-support-matrix-iaas.md
     - text: Perguntas frequentes – Backup de VM do Azure
-      url: backup-azure-vm-backup-faq.md
+      url: backup-azure-vm-backup-faq.yml
     - text: Gerenciar backups de VM do Azure
       url: backup-azure-manage-vms.md
+- title: Fazer backup do Azure Managed Disks (em versão prévia)
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Visão geral do Backup de Disco do Azure
+      url: disk-backup-overview.md
+    - text: Matriz de suporte Backup de Disco do Azure
+      url: disk-backup-support-matrix.md
+    - text: Fazer backup do Azure Managed Disks
+      url: backup-managed-disks.md
+    - text: Perguntas frequentes – Azure Managed Disks
+      url: disk-backup-faq.md
+    - text: Solucionar problemas de backup do Azure Managed Disks
+      url: disk-backup-troubleshoot.md
 - title: Fazer backup do SQL Server nas VMs do Azure
   linkLists:
   - linkListType: concept

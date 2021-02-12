@@ -1,80 +1,112 @@
 ---
 title: Como usar valores nomeados nas políticas de Gerenciamento de API do Azure
-description: Saiba como usar valores nomeados nas políticas de Gerenciamento de API do Azure. Os valores nomeados podem conter cadeias de caracteres literais e expressões de política.
+description: Saiba como usar valores nomeados nas políticas de Gerenciamento de API do Azure. Os valores nomeados podem conter cadeias de caracteres literais, expressões de política e segredos armazenados em Azure Key Vault.
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: erikre
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/08/2020
+ms.date: 12/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 3f317276ae92e6121d519553b7883677dab89705
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 344500d5635f591b34a45130c7dd6b63659ad84d
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852184"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99490998"
 ---
-# <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Como usar valores nomeados nas políticas de Gerenciamento de API do Azure
+# <a name="use-named-values-in-azure-api-management-policies"></a>Usar valores nomeados em políticas de gerenciamento de API do Azure
 
-As políticas de gerenciamento de API são um recurso poderoso do sistema que permitem que o portal do Azure altere o comportamento da API por meio da configuração. As políticas são um conjunto de instruções executadas em sequência, na solicitação ou na resposta de uma API. É possível construir declarações de política usando valores de texto literais, expressões de política e valores nomeados.
+[As políticas de gerenciamento de API](api-management-howto-policies.md) são um recurso poderoso do sistema que permite que o editor altere o comportamento da API por meio da configuração. As políticas são um conjunto de instruções executadas em sequência, na solicitação ou na resposta de uma API. É possível construir declarações de política usando valores de texto literais, expressões de política e valores nomeados.
 
-Cada instância de serviço do Gerenciamento de API tem uma coleção de propriedades de pares de chave/valor, chamada valores nomeados, que são globais à instância do serviço. Não há limite imposto sobre o número de itens na coleção. Os valores nomeados podem ser usados para gerenciar valores de cadeia de caracteres constantes em todas as configurações e as políticas de API. Cada valor nomeado pode ter os seguintes atributos:
+*Os valores nomeados* são uma coleção global de pares de nome/valor em cada instância de gerenciamento de API. Não há limite imposto sobre o número de itens na coleção. Os valores nomeados podem ser usados para gerenciar valores de cadeia de caracteres constantes e segredos em todas as políticas e configurações de API. 
 
-| Atributo      | Type            | Descrição                                                                                                                            |
-| -------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `Display name` | string          | Usado para referenciar o valor nomeado em políticas. Uma cadeia de um a 256 caracteres. Somente letras, números, pontos e traços são permitidos. |
-| `Value`        | string          | Valor real. Ele não pode ficar vazio ou conter apenas espaços em branco. Máximo de 4096 caracteres.                                        |
-| `Secret`       | booleano         | Determina se o valor é um segredo e se deve ser criptografado ou não.                                                               |
-| `Tags`         | matriz de cadeias de caracteres | Usado para filtrar a lista de valores nomeados. Até 32 tags.                                                                                    |
+:::image type="content" source="media/api-management-howto-properties/named-values.png" alt-text="Valores nomeados na portal do Azure":::
 
-![Valores nomeados](./media/api-management-howto-properties/named-values.png)
+## <a name="value-types"></a>Tipos de valor
 
-Os valores nomeados podem conter cadeias de caracteres literais e [expressões de política](./api-management-policy-expressions.md). Por exemplo, o valor de `Expression` é uma expressão de política que retorna uma cadeia de caracteres que contém a data e hora atuais. O valor nomeado `Credential` é marcado como um segredo e, portanto, seu valor não é exibido por padrão.
+|Type  |Descrição  |
+|---------|---------|
+|Queixa     |  Cadeia de caracteres literal ou expressão de política     |
+|Segredo     |   Cadeia de caracteres literal ou expressão de política que é criptografada pelo gerenciamento de API      |
+|[Cofre de chaves](#key-vault-secrets)     |  Identificador de um segredo armazenado em um cofre de chaves do Azure.      |
 
-| Nome       | Valor                      | Segredo | Marcas          |
-| ---------- | -------------------------- | ------ | ------------- |
-| Valor      | 42                         | Falso  | vital-numbers |
-| Credencial | ••••••••••••••••••••••     | True   | segurança      |
-| Expression | @(DateTime.Now.ToString()) | Falso  |               |
+Os valores ou segredos simples podem conter [expressões de política](./api-management-policy-expressions.md). Por exemplo, a expressão `@(DateTime.Now.ToString())` retorna uma cadeia de caracteres que contém a data e a hora atuais.
 
-> [!NOTE]
-> Em vez de valores nomeados armazenados em um serviço de gerenciamento de API, você pode usar valores armazenados no serviço de [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), conforme demonstrado nesse [exemplo](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Look%20up%20Key%20Vault%20secret%20using%20Managed%20Service%20Identity.policy.xml).
+Para obter detalhes sobre os atributos de valor nomeado, consulte a [referência da API REST](/rest/api/apimanagement/2020-06-01-preview/namedvalue/createorupdate)do gerenciamento de API.
 
-## <a name="to-add-and-edit-a-named-value"></a>Para adicionar e editar um valor nomeado
+## <a name="key-vault-secrets"></a>Segredos do cofre de chaves
 
-![Adicionar um valor nomeado](./media/api-management-howto-properties/add-property.png)
+Os valores secretos podem ser armazenados como cadeias de caracteres criptografadas no gerenciamento de API (segredos personalizados) ou referenciando segredos no [Azure Key Vault](../key-vault/general/overview.md). 
 
-1. Selecione **APIs** em **GERENCIAMENTO DE API**.
-2. Selecione **Valores nomeados**.
-3. Pressione **+Adicionar**.
+O uso de segredos do Key Vault é recomendado porque ajuda a melhorar a segurança do gerenciamento de API:
 
-    Nome e Valor são valores obrigatórios. Se o valor for confidencial, marque a caixa de seleção _Isto é um segredo_. Insira uma ou mais marcas opcionais para ajudar a organizar seus valores nomeados e, em seguida, clique em Salvar.
+* Os segredos armazenados em cofres de chaves podem ser reutilizados em todos os serviços
+* [As políticas de acesso](../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) granular podem ser aplicadas aos segredos
+* Os segredos atualizados no cofre de chaves são automaticamente girados no gerenciamento de API. Após a atualização no cofre de chaves, um valor nomeado no gerenciamento de API é atualizado dentro de 4 horas. Você também pode atualizar manualmente o segredo usando o portal do Azure ou por meio da API REST de gerenciamento.
 
-4. Clique em **Criar**.
+### <a name="prerequisites-for-key-vault-integration"></a>Pré-requisitos para a integração do Key Vault
 
-Quando o valor nomeado é criado, você pode editá-lo clicando na propriedade. Se você alterar o nome do valor nomeado, todas as políticas que fizerem referência a esse valor nomeado serão automaticamente atualizados para usar o novo nome.
+1. Para obter as etapas para criar um cofre de chaves, consulte [início rápido: criar um cofre de chaves usando o portal do Azure](../key-vault/general/quick-create-portal.md).
+1. Habilite uma [identidade gerenciada](api-management-howto-use-managed-service-identity.md) atribuída pelo sistema ou atribuída pelo usuário na instância do gerenciamento de API.
+1. Atribua uma [política de acesso do cofre de chaves](../key-vault/general/assign-access-policy-portal.md) à identidade gerenciada com permissões para obter e listar segredos do cofre. Para adicionar a política:
+    1. No portal, navegue até o cofre de chaves.
+    1. Selecione **configurações > políticas de acesso > + adicionar política de acesso**.
+    1. Selecione **permissões de segredo** e, em seguida, selecione **obter** e **listar**.
+    1. Em **selecionar entidade de segurança**, selecione o nome do recurso da sua identidade gerenciada. Se você estiver usando uma identidade atribuída pelo sistema, o principal será o nome da sua instância de gerenciamento de API.
+1. Crie ou importe um segredo para o cofre de chaves. Consulte [início rápido: definir e recuperar um segredo de Azure Key Vault usando o portal do Azure](../key-vault/secrets/quick-create-portal.md).
 
-## <a name="to-delete-a-named-value"></a>Excluir um valor nomeado
+Para usar o segredo do cofre de chaves, [adicione ou edite um valor nomeado](#add-or-edit-a-named-value)e especifique um tipo de **cofre de chaves**. Selecione o segredo no cofre de chaves.
 
-Para excluir um valor nomeado, clique em **Excluir** ao lado do valor nomeado a ser excluído.
+[!INCLUDE [api-management-key-vault-network](../../includes/api-management-key-vault-network.md)]
 
-> [!IMPORTANT]
-> Se o valor nomeado for consultado por quaisquer políticas, não será possível excluí-lo até que você remova o valor nomeado de todas as políticas que a utilizam.
+## <a name="add-or-edit-a-named-value"></a>Adicionar ou editar um valor nomeado
 
-## <a name="to-search-and-filter-named-values"></a>Para pesquisar e filtrar valores nomeados
+### <a name="add-a-key-vault-secret"></a>Adicionar um segredo do Key Vault
 
-A guia **Valores nomeados** inclui pesquisa e filtragem de recursos para ajudá-lo a gerenciar seus valores nomeados. Para filtrar a lista de valores nomeados por nome, insira um termo de pesquisa na caixa de texto **Propriedade de pesquisa**. Para exibir todos os valores nomeados, desmarque a caixa de texto **Propriedade de pesquisa** e pressione enter.
+Consulte [pré-requisitos para a integração do Key Vault](#prerequisites-for-key-vault-integration).
 
-Para filtrar a lista por tag, insira uma ou mais tags na caixa de texto **Filtrar por tags**. Para exibir todos os valores nomeados, desmarque a caixa de texto **Filtrar por marcas** e pressione enter.
+> [!CAUTION]
+> Ao usar um segredo do cofre de chaves no gerenciamento de API, tenha cuidado para não excluir o segredo, o cofre de chaves ou a identidade gerenciada usada para acessar o cofre de chaves.
 
-## <a name="to-use-a-named-value"></a>Para usar um valor nomeado
+1. No [portal do Azure](https://portal.azure.com), navegue até a instância do Gerenciamento de API.
+1. Em **APIs**, selecione **valores nomeados**  >  **+ Adicionar**.
+1. Insira um identificador de **nome** e insira um **nome de exibição** usado para fazer referência à propriedade em políticas.
+1. Em **tipo de valor**, selecione **cofre de chaves**.
+1. Insira o identificador de um segredo do cofre de chaves (sem versão) ou escolha **selecionar** para selecionar um segredo de um cofre de chaves.
+    > [!IMPORTANT]
+    > Se você mesmo inserir um identificador secreto do Key Vault, verifique se ele não tem informações de versão. Caso contrário, o segredo não será girado automaticamente no gerenciamento de API após uma atualização no cofre de chaves.
+1. Em **identidade do cliente**, selecione uma identidade gerenciada atribuída pelo usuário ou uma existente. Saiba como [Adicionar ou modificar identidades gerenciadas em seu serviço de gerenciamento de API](api-management-howto-use-managed-service-identity.md).
+    > [!NOTE]
+    > A identidade precisa de permissões para obter e listar segredos do cofre de chaves. Se você ainda não tiver configurado o acesso ao cofre de chaves, o gerenciamento de API solicitará que ele possa configurar automaticamente a identidade com as permissões necessárias.
+1. Adicione uma ou mais marcas opcionais para ajudar a organizar seus valores nomeados e, em seguida, **salve**.
+1. Selecione **Criar**.
 
-Para usar um valor nomeado em uma política, coloque o nome entre chaves como `{{ContosoHeader}}`, conforme mostrado no exemplo a seguir:
+    :::image type="content" source="media/api-management-howto-properties/add-property.png" alt-text="Adicionar valor secreto do cofre de chaves":::
+
+### <a name="add-a-plain-or-secret-value"></a>Adicionar um valor simples ou secreto
+
+1. No [portal do Azure](https://portal.azure.com), navegue até a instância do Gerenciamento de API.
+1. Em **APIs**, selecione **valores nomeados**  >  **+ Adicionar**.
+1. Insira um identificador de **nome** e insira um **nome de exibição** usado para fazer referência à propriedade em políticas.
+1. Em **tipo de valor**, selecione **simples** ou **segredo**.
+1. Em **valor**, insira uma expressão de cadeia de caracteres ou de política.
+1. Adicione uma ou mais marcas opcionais para ajudar a organizar seus valores nomeados e, em seguida, **salve**.
+1. Selecione **Criar**.
+
+Depois que o valor nomeado for criado, você poderá editá-lo selecionando o nome. Se você alterar o nome de exibição, todas as políticas que fazem referência a esse valor nomeado serão atualizadas automaticamente para usar o novo nome de exibição.
+
+## <a name="use-a-named-value"></a>Usar um valor nomeado
+
+Os exemplos nesta seção usam os valores nomeados mostrados na tabela a seguir.
+
+| Nome               | Valor                      | Segredo | 
+|--------------------|----------------------------|--------|---------|
+| ContosoHeader      | `TrackingId`                 | Falso  | 
+| ContosoHeaderValue | ••••••••••••••••••••••     | True   | 
+| ExpressionProperty | `@(DateTime.Now.ToString())` | Falso  | 
+
+Para usar um valor nomeado em uma política, coloque seu nome de exibição dentro de um par duplo de chaves como `{{ContosoHeader}}` , conforme mostrado no exemplo a seguir:
 
 ```xml
 <set-header name="{{ContosoHeader}}" exists-action="override">
@@ -84,9 +116,13 @@ Para usar um valor nomeado em uma política, coloque o nome entre chaves como `{
 
 Neste exemplo, `ContosoHeader` é usado como o nome de um cabeçalho em uma política `set-header` e `ContosoHeaderValue` é usado como o valor desse cabeçalho. Quando essa política é avaliada durante uma solicitação ou uma resposta para o gateway de Gerenciamento de API, `{{ContosoHeader}}` e `{{ContosoHeaderValue}}` são substituídos por seus respectivos valores.
 
-Os valores nomeados podem ser usados como valores de atributo ou de elemento, como mostra o exemplo anterior, mas também podem ser inseridos ou combinados com parte de uma expressão de texto literal, como mostra o exemplo a seguir: `<set-header name = "CustomHeader{{ContosoHeader}}" ...>`
+Os valores nomeados podem ser usados como valores de atributo ou de elemento, como mostra o exemplo anterior, mas também podem ser inseridos ou combinados com parte de uma expressão de texto literal, como mostra o exemplo a seguir:  
 
-Os valores nomeados também podem conter expressões de política. No exemplo a seguir, o `ExpressionProperty` é usado.
+```xml
+<set-header name = "CustomHeader{{ContosoHeader}}" ...>
+```
+
+Os valores nomeados também podem conter expressões de política. No exemplo a seguir, a `ExpressionProperty` expressão é usada.
 
 ```xml
 <set-header name="CustomHeader" exists-action="override">
@@ -94,17 +130,27 @@ Os valores nomeados também podem conter expressões de política. No exemplo a 
 </set-header>
 ```
 
-Quando essa política é avaliada, `{{ExpressionProperty}}` é substituído por seu valor: `@(DateTime.Now.ToString())`. Como o valor é uma expressão de política, a expressão é avaliada e a política prossegue com a execução.
+Quando essa política é avaliada, `{{ExpressionProperty}}` é substituída por seu valor, `@(DateTime.Now.ToString())` . Como o valor é uma expressão de política, a expressão é avaliada e a política prossegue com a execução.
 
-Você pode testar isso no portal do desenvolvedor chamando uma operação que tenha uma política com valores nomeados no escopo. No exemplo a seguir, uma operação é chamada com os dois exemplos de políticas `set-header` anteriores com valores nomeados. Observe que a resposta contém dois cabeçalhos personalizados configurados usando políticas com valores nomeados.
+Você pode testá-lo na portal do Azure ou no [portal do desenvolvedor](api-management-howto-developer-portal.md) chamando uma operação que tenha uma política com valores nomeados no escopo. No exemplo a seguir, uma operação é chamada com os dois exemplos de políticas `set-header` anteriores com valores nomeados. Observe que a resposta contém dois cabeçalhos personalizados que foram configurados usando políticas com valores nomeados.
 
-![Portal do desenvolvedor][api-management-send-results]
+:::image type="content" source="media/api-management-howto-properties/api-management-send-results.png" alt-text="Testar resposta da API":::
 
-Se você analisar o [rastreamento do Inspetor de API](api-management-howto-api-inspector.md) de uma chamada que inclui os dois exemplos de política anteriores com valores nomeados, será possível ver as duas políticas `set-header` com os valores nomeados inseridos, bem como a avaliação da expressão de política para o valor nomeado que continha a expressão de política.
+Se você examinar o rastreamento de [API](api-management-howto-api-inspector.md) de saída para uma chamada que inclui as duas políticas de exemplo anteriores com valores nomeados, você poderá ver as duas `set-header` políticas com os valores nomeados inseridos, bem como a avaliação da expressão de política para o valor nomeado que continha a expressão de política.
 
-![Rastreamento do Inspetor de API][api-management-api-inspector-trace]
+:::image type="content" source="media/api-management-howto-properties/api-management-api-inspector-trace.png" alt-text="Rastreamento do Inspetor de API":::
+
+> [!CAUTION]
+> Se uma política fizer referência a um segredo em Azure Key Vault, o valor do cofre de chaves ficará visível para os usuários que têm acesso às assinaturas habilitadas para [rastreamento de solicitação de API](api-management-howto-api-inspector.md).
 
 Embora os valores nomeados possam conter expressões de política, eles não podem conter outros valores nomeados. Se o texto que contém uma referência de valor nomeado for usado para um valor, como `Text: {{MyProperty}}`, essa referência não será resolvida e substituída.
+
+## <a name="delete-a-named-value"></a>Excluir um valor nomeado
+
+Para excluir um valor nomeado, selecione o nome e, em seguida, selecione **excluir** no menu de contexto (**...**).
+
+> [!IMPORTANT]
+> Se o valor nomeado for referenciado por qualquer política de gerenciamento de API, você não poderá excluí-lo até remover o valor nomeado de todas as políticas que o utilizam.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -114,5 +160,4 @@ Embora os valores nomeados possam conter expressões de política, eles não pod
     -   [Expressões de política](./api-management-policy-expressions.md)
 
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
-[api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png
-[api-management-api-inspector-trace]: ./media/api-management-howto-properties/api-management-api-inspector-trace.png
+

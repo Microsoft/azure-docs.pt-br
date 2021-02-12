@@ -1,18 +1,18 @@
 ---
 title: 'Início Rápido: Criar um BD do Azure para MySQL – modelo do ARM'
 description: Neste Início Rápido, saiba como criar um servidor do Banco de Dados do Azure para MySQL com integração de rede virtual usando um modelo do Azure Resource Manager.
-author: mgblythe
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.author: mblythe
 ms.date: 05/19/2020
-ms.openlocfilehash: 97a16bd81fd79646fb3693ec2dc4b8a40b9a6a3b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0e7fcf51d9c663ca4a289f54972f00ef037cb323
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90896149"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542262"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>Início Rápido: Usar um modelo do ARM para criar um servidor de Banco de Dados do Azure para MySQL
 
@@ -76,7 +76,7 @@ Na página **Implantar Banco de Dados do Azure para MySQL com VNet**:
 
 3. Insira um **Nome do Servidor**, um **Logon de Administrador** e uma **Senha de Logon de Administrador**.
 
-    :::image type="content" source="./media/quickstart-create-mysql-server-database-using-arm-template/deploy-azure-database-for-mysql-with-vnet.png" alt-text="Implantar no Azure":::
+    :::image type="content" source="./media/quickstart-create-mysql-server-database-using-arm-template/deploy-azure-database-for-mysql-with-vnet.png" alt-text="Implantar o Banco de Dados do Azure para MySQL com a janela VNet, modelo de início rápido do Azure, portal do Azure":::
 
 4. Se desejar, altere as outras configurações padrão:
 

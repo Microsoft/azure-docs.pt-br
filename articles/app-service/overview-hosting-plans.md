@@ -6,16 +6,16 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5f96b48b8fec07ab207ea3962a201bbff68a5339
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a29d81be9b750d89230a180b8a7c786466d99bb8
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92200841"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936423"
 ---
 # <a name="azure-app-service-plan-overview"></a>Visão geral do plano do Serviço de Aplicativo do Azure
 
-No serviço de aplicativo (aplicativos Web, aplicativos de API ou aplicativos móveis), um aplicativo sempre é executado em um _plano do serviço de aplicativo_. Além disso, [Azure Functions](../azure-functions/functions-scale.md#app-service-plan) também tem a opção de ser executada em um _plano do serviço de aplicativo_. Um plano de serviço de aplicativo define um conjunto de recursos de computação para um aplicativo Web ser executado. Esses recursos de computação são análogos ao [_farm de servidores_](https://wikipedia.org/wiki/Server_farm) na hospedagem na Web convencional. Um ou mais aplicativos podem ser configurados para ser executado nos mesmos recursos de computação (ou no mesmo plano de Serviço de Aplicativo).
+No serviço de aplicativo (aplicativos Web, aplicativos de API ou aplicativos móveis), um aplicativo sempre é executado em um _plano do serviço de aplicativo_. Além disso, [Azure Functions](../azure-functions/dedicated-plan.md) também tem a opção de ser executada em um _plano do serviço de aplicativo_. Um plano de serviço de aplicativo define um conjunto de recursos de computação para um aplicativo Web ser executado. Esses recursos de computação são análogos ao [_farm de servidores_](https://wikipedia.org/wiki/Server_farm) na hospedagem na Web convencional. Um ou mais aplicativos podem ser configurados para ser executado nos mesmos recursos de computação (ou no mesmo plano de Serviço de Aplicativo).
 
 Quando você cria um plano de serviço de aplicativo em uma determinada região (por exemplo, Europa Ocidental), um conjunto de recursos de computação é criado para esse plano nessa região. Quaisquer aplicativos que você coloque nesse plano de serviço de aplicativo é executado nesses recursos de computação conforme definido pelo seu plano de serviço de aplicativo. Cada plano de serviço de aplicativo define:
 
@@ -27,7 +27,7 @@ Quando você cria um plano de serviço de aplicativo em uma determinada região 
 O _tipo de preço_ de um plano de serviço de aplicativo determina quais recursos do serviço de aplicativo que você obtém e quanto você paga pelo plano. Há algumas categorias de tipos de preços:
 
 - **Computação compartilhada**: **grátis** e **compartilhada**, os dois tipos base, executam um aplicativo na mesma máquina virtual do Azure como outros aplicativos do serviço de aplicativo, incluindo aplicativos de outros clientes. Esses tipos alocam cotas de CPU para cada aplicativo que é executado em recursos compartilhados, e não é possível expandir os recursos.
-- **Computação dedicada**: as camadas **Basic**, **Standard**, **Premium**, **PremiumV2**e **PremiumV3** executam aplicativos em VMs do Azure dedicadas. Somente os aplicativos no mesmo plano do serviço de aplicativo compartilham os mesmos recursos de computação. Quanto maior o nível, mais instâncias de máquina virtual estão disponíveis para a sua expansão.
+- **Computação dedicada**: as camadas **Basic**, **Standard**, **Premium**, **PremiumV2** e **PremiumV3** executam aplicativos em VMs do Azure dedicadas. Somente os aplicativos no mesmo plano do serviço de aplicativo compartilham os mesmos recursos de computação. Quanto maior o nível, mais instâncias de máquina virtual estão disponíveis para a sua expansão.
 - **Isolado**: essa camada executa VMs do Azure dedicadas em redes virtuais do Azure dedicadas. Ele fornece isolamento de rede na parte superior do isolamento de computação para seus aplicativos. Ele fornece a capacidade máxima de expansão.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
@@ -37,13 +37,13 @@ Cada tipo também fornece um subconjunto específico de recursos do serviço de 
 <a name="new-pricing-tier-premiumv3"></a>
 
 > [!NOTE]
-> O novo tipo de preço **PremiumV3** garante que computadores com processadores mais rápidos ( [ACU](https://docs.microsoft.com/azure/virtual-machines/acu) mínimo de 195 por CPU virtual), armazenamento de SSD e proporção de memória para núcleo quádruplo em comparação com a camada **Standard** . O **PremiumV3** também dá suporte à escala maior por meio de maior contagem de instâncias e ainda fornece todos os recursos avançados encontrados na camada **Standard** . Todos os recursos disponíveis na camada **PremiumV2** existente estão incluídos no **PremiumV3**.
+> O novo tipo de preço **PremiumV3** garante que computadores com processadores mais rápidos ( [ACU](../virtual-machines/acu.md) mínimo de 195 por CPU virtual), armazenamento de SSD e proporção de memória para núcleo quádruplo em comparação com a camada **Standard** . O **PremiumV3** também dá suporte à escala maior por meio de maior contagem de instâncias e ainda fornece todos os recursos avançados encontrados na camada **Standard** . Todos os recursos disponíveis na camada **PremiumV2** existente estão incluídos no **PremiumV3**.
 >
 > Semelhante a outros tipos de preço dedicados, três tamanhos de VM estão disponíveis para esse tipo de preço:
 >
 > - Pequeno (2 núcleos de CPU, 8 GiB de memória) 
 > - Médio (4 núcleos de CPU, 16 GiB de memória) 
-> - Grande (8 núcleos de CPU, 32 GiB de memória)  
+> - Grande (8 núcleos de CPU, 32 GiB de memória)  
 >
 > Para obter informações sobre preços do **PremiumV3** , consulte [preços do serviço de aplicativo](https://azure.microsoft.com/pricing/details/app-service/).
 >

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 02/01/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: aed3116976d57df81da399495fd9da3722ba770a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1df2f12d6947734314609dc50787a59a2fa88731
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960670"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980500"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Restauração pontual para BLOBs de blocos
 
@@ -33,6 +33,10 @@ Para iniciar uma restauração pontual, chame a operação [restaurar intervalos
 
 O armazenamento do Azure analisa todas as alterações feitas nos BLOBs especificados entre o ponto de restauração solicitado, especificado em hora UTC e o momento atual. A operação de restauração é atômica, portanto, ela é bem-sucedida completamente na restauração de todas as alterações ou falha. Se houver BLOBs que não podem ser restaurados, a operação falhará e as operações de leitura e gravação para os contêineres afetados serão retomadas.
 
+O diagrama a seguir mostra como funciona a restauração pontual. Um ou mais contêineres ou intervalos de BLOBs são restaurados para seu estado de *n* dias atrás, em que *n* é menor ou igual ao período de retenção definido para a restauração pontual. O efeito é reverter as operações de gravação e exclusão que ocorreram durante o período de retenção.
+
+:::image type="content" source="media/point-in-time-restore-overview/point-in-time-restore-diagram.png" alt-text="Diagrama mostrando como o ponto no tempo restaura os contêineres para um estado anterior":::
+
 Somente uma operação de restauração pode ser executada em uma conta de armazenamento por vez. Uma operação de restauração não pode ser cancelada quando está em andamento, mas uma segunda operação de restauração pode ser executada para desfazer a primeira operação.
 
 A operação **restaurar intervalos de blob** retorna uma ID de restauração que identifica exclusivamente a operação. Para verificar o status de uma restauração pontual, chame a operação **obter status da restauração** com a ID de restauração retornada da operação **restaurar intervalos de blob** .
@@ -43,23 +47,26 @@ A operação **restaurar intervalos de blob** retorna uma ID de restauração qu
 > As operações de leitura do local secundário podem continuar durante a operação de restauração se a conta de armazenamento for replicada geograficamente.
 
 > [!CAUTION]
-> A restauração pontual dá suporte a operações de restauração somente em blobs de blocos. Não é possível restaurar operações em contêineres. Se você excluir um contêiner da conta de armazenamento chamando a operação [excluir contêiner](/rest/api/storageservices/delete-container) , esse contêiner não poderá ser restaurado com uma operação de restauração. Em vez de excluir um contêiner, exclua BLOBs individuais se você quiser restaurá-los.
+> A restauração pontual dá suporte a operações de restauração somente em blobs de blocos. Não é possível restaurar operações em contêineres. Se você excluir um contêiner da conta de armazenamento chamando a operação [excluir contêiner](/rest/api/storageservices/delete-container) , esse contêiner não poderá ser restaurado com uma operação de restauração. Em vez de excluir um contêiner inteiro, exclua BLOBs individuais se você quiser restaurá-los mais tarde.
 
 ### <a name="prerequisites-for-point-in-time-restore"></a>Pré-requisitos para restauração pontual
 
 A restauração pontual requer que os seguintes recursos de armazenamento do Azure sejam habilitados antes de habilitar a restauração pontual:
 
-- [Exclusão reversível](soft-delete-overview.md)
-- [Feed de alterações](storage-blob-change-feed.md)
+- [Exclusão reversível](./soft-delete-blob-overview.md)
+- [Feed de alteração](storage-blob-change-feed.md)
 - [Controle de versão de BLOB](versioning-overview.md)
 
 ### <a name="retention-period-for-point-in-time-restore"></a>Período de retenção para restauração pontual
 
 Ao habilitar a restauração pontual para uma conta de armazenamento, você especifica um período de retenção. Blobs de blocos na sua conta de armazenamento podem ser restaurados durante o período de retenção.
 
-O período de retenção começa quando você habilita a restauração pontual. Tenha em mente que você não pode restaurar BLOBs para um estado antes do início do período de retenção. Por exemplo, se você habilitou a restauração pontual em 1º de maio com uma retenção de 30 dias, em 15 de maio, você pode restaurar para um máximo de 15 dias. Em 1º de junho, você pode restaurar dados entre 1 e 30 dias.
+O período de retenção começa alguns minutos depois que você habilita a restauração pontual. Tenha em mente que você não pode restaurar BLOBs para um estado antes do início do período de retenção. Por exemplo, se você habilitou a restauração pontual em 1º de maio com uma retenção de 30 dias, em 15 de maio, você pode restaurar para um máximo de 15 dias. Em 1º de junho, você pode restaurar dados entre 1 e 30 dias.
 
 O período de retenção para a restauração pontual deve ser pelo menos um dia menor do que o período de retenção especificado para exclusão reversível. Por exemplo, se o período de retenção de exclusão reversível for definido como 7 dias, o período de retenção de restauração pontual poderá ser entre 1 e 6 dias.
+
+> [!IMPORTANT]
+> O tempo necessário para restaurar um conjunto de dados é baseado no número de operações de gravação e exclusão feitas durante o período de restauração. Por exemplo, uma conta com 1 milhão objetos com 3.000 objetos adicionados por dia e 1.000 objetos excluídos por dia exigirá aproximadamente duas horas para restaurar para um ponto de 30 dias no passado. Um período de retenção e uma restauração mais de 90 dias no passado não seriam recomendados para uma conta com essa taxa de alteração.
 
 ### <a name="permissions-for-point-in-time-restore"></a>Permissões para restauração pontual
 
@@ -92,5 +99,5 @@ Para obter mais informações sobre os preços da restauração pontual, consult
 
 - [Executar uma restauração pontual em dados de blob de blocos](point-in-time-restore-manage.md)
 - [Suporte ao feed de alterações no armazenamento de BLOBs do Azure](storage-blob-change-feed.md)
-- [Habilitar exclusão reversível para blobs](soft-delete-enable.md)
+- [Habilitar exclusão reversível para blobs](./soft-delete-blob-enable.md)
 - [Habilitar e gerenciar o controle de versão de blob](versioning-enable.md)

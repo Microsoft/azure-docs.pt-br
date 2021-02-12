@@ -5,23 +5,25 @@ author: SnehaGunda
 ms.author: sngun
 tags: azure-resource-manager
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: quickstart
 ms.date: 06/01/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: a319e5f3b6aa861feb2d9dfc88d471ff695c2a3c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b97702bb84eb38d185fe97ffcc596e374f28fbe2
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482312"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339658"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-an-arm-template"></a>Início Rápido: Criar um Azure Cosmos DB e um contêiner usando um modelo do Resource Manager
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 O Azure Cosmos DB é o banco de dados NoSQL rápido da Microsoft com APIs abertas para qualquer escala. É possível usar o Azure Cosmos DB para criar e consultar rapidamente bancos de dados de chave/valor, de documentos e de grafo. Este guia de início rápido tem como foco o processo de implantação de um modelo do Azure Resource Manager para criação de um banco de dados do Azure Cosmos e um contêiner nesse banco de dados. Posteriormente, você poderá armazenar dados nesse contêiner.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure** . O modelo será aberto no portal do Azure.
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implantar no Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
 
@@ -57,13 +59,13 @@ Mais exemplos de modelos do Azure Cosmos DB podem ser encontrados na [galeria de
 
 2. Selecione ou insira os seguintes valores.
 
-   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="Implantar no Azure":::
+   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="Modelo do Resource Manager, integração do Azure Cosmos DB, portal de implantação":::
 
     A menos que seja especificado, use os valores padrão para criar os recursos do Azure Cosmos.
 
     * **Assinatura** : selecione uma assinatura do Azure.
-    * **Grupo de recursos** : selecione **Criar novo** , insira um nome exclusivo para o grupo de recursos e, em seguida, clique em **OK** .
-    * **Local** : selecione um local.  Por exemplo, **Centro dos EUA** .
+    * **Grupo de recursos** : selecione **Criar novo** , insira um nome exclusivo para o grupo de recursos e, em seguida, clique em **OK**.
+    * **Local** : selecione um local.  Por exemplo, **Centro dos EUA**.
     * **Nome da Conta** : o nome da conta do Azure Cosmos. Deve ser globalmente exclusivo.
     * **Localização** : insira uma localização em que você deseja criar sua conta do Azure Cosmos. A conta do Azure Cosmos pode estar na mesma localização que o grupo de recursos.
     * **Região Primária** : a região da réplica primária para a conta do Azure Cosmos.
@@ -76,9 +78,9 @@ Mais exemplos de modelos do Azure Cosmos DB podem ser encontrados na [galeria de
     * **Taxa de transferência** :  a taxa de transferência do contêiner, cujo valor mínimo é de 400 RU/s.
     * **Concordo com os termos e condições declarados acima** : selecione.
 
-3. Selecione **Comprar** . Depois que a conta do Azure Cosmos for implantada com êxito, você receberá uma notificação:
+3. Selecione **Comprar**. Depois que a conta do Azure Cosmos for implantada com êxito, você receberá uma notificação:
 
-   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="Implantar no Azure":::
+   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="Modelo do Resource Manager, integração do Cosmos DB, notificação do portal de implantação":::
 
 O portal do Azure é usado para implantar o modelo. Além do portal do Azure, você também pode usar o Azure PowerShell, a CLI do Azure e a API REST. Para saber mais sobre outros métodos de implantação, confira [Implantar modelos](../azure-resource-manager/templates/deploy-powershell.md).
 

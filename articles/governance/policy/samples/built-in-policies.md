@@ -1,15 +1,15 @@
 ---
 title: Lista de definições de políticas internas
 description: Liste as definições de políticas internas para o Azure Policy. As categorias incluem Marcas, Conformidade a normas, Key Vault, Kubernetes, Configuração de convidado e muito mais.
-ms.date: 10/20/2020
+ms.date: 01/29/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: c1627c05e041b2b4a91f5fb5ad44d79641cb9756
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2c9d4432276abe5392a554e57087e38615aaf902
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311973"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220184"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Definições de política interna do Azure Policy
 
@@ -37,6 +37,10 @@ O nome de cada link interno para a definição de política no portal do Azure. 
 
 [!INCLUDE [azure-policy-reference-policies-app-service](../../../../includes/policy/reference/bycat/policies-app-service.md)]
 
+## <a name="attestation"></a>Atestado
+
+[!INCLUDE [azure-policy-reference-policies-attestation](../../../../includes/policy/reference/bycat/policies-attestation.md)]
+
 ## <a name="automanage"></a>Autogerenciamento
 
 [!INCLUDE [azure-policy-reference-policies-automanage](../../../../includes/policy/reference/bycat/policies-automanage.md)]
@@ -45,6 +49,14 @@ O nome de cada link interno para a definição de política no portal do Azure. 
 
 [!INCLUDE [azure-policy-reference-policies-automation](../../../../includes/policy/reference/bycat/policies-automation.md)]
 
+## <a name="azure-data-explorer"></a>Azure Data Explorer
+
+[!INCLUDE [azure-policy-reference-policies-azure-data-explorer](../../../../includes/policy/reference/bycat/policies-azure-data-explorer.md)]
+
+## <a name="azure-stack-edge"></a>Azure Stack Edge
+
+[!INCLUDE [azure-policy-reference-policies-azure-stack-edge](../../../../includes/policy/reference/bycat/policies-azure-stack-edge.md)]
+
 ## <a name="backup"></a>Backup
 
 [!INCLUDE [azure-policy-reference-policies-backup](../../../../includes/policy/reference/bycat/policies-backup.md)]
@@ -52,6 +64,10 @@ O nome de cada link interno para a definição de política no portal do Azure. 
 ## <a name="batch"></a>Lote
 
 [!INCLUDE [azure-policy-reference-policies-batch](../../../../includes/policy/reference/bycat/policies-batch.md)]
+
+## <a name="bot-service"></a>Serviço de Bot
+
+[!INCLUDE [azure-policy-reference-policies-bot-service](../../../../includes/policy/reference/bycat/policies-bot-service.md)]
 
 ## <a name="cache"></a>Cache
 
@@ -77,6 +93,14 @@ O nome de cada link interno para a definição de política no portal do Azure. 
 
 [!INCLUDE [azure-policy-reference-policies-custom-provider](../../../../includes/policy/reference/bycat/policies-custom-provider.md)]
 
+## <a name="data-box"></a>Data Box
+
+[!INCLUDE [azure-policy-reference-policies-data-box](../../../../includes/policy/reference/bycat/policies-data-box.md)]
+
+## <a name="data-factory"></a>Data Factory
+
+[!INCLUDE [azure-policy-reference-policies-data-factory](../../../../includes/policy/reference/bycat/policies-data-factory.md)]
+
 ## <a name="data-lake"></a>Data Lake
 
 [!INCLUDE [azure-policy-reference-policies-data-lake](../../../../includes/policy/reference/bycat/policies-data-lake.md)]
@@ -96,6 +120,10 @@ O nome de cada link interno para a definição de política no portal do Azure. 
 ## <a name="guest-configuration"></a>Configuração de convidado
 
 [!INCLUDE [azure-policy-reference-policies-guest-configuration](../../../../includes/policy/reference/bycat/policies-guest-configuration.md)]
+
+## <a name="hdinsight"></a>HDInsight
+
+[!INCLUDE [azure-policy-reference-policies-hdinsight](../../../../includes/policy/reference/bycat/policies-hdinsight.md)]
 
 ## <a name="internet-of-things"></a>Internet das coisas
 
@@ -133,6 +161,10 @@ O nome de cada link interno para a definição de política no portal do Azure. 
 
 [!INCLUDE [azure-policy-reference-policies-network](../../../../includes/policy/reference/bycat/policies-network.md)]
 
+## <a name="portal"></a>Portal
+
+[!INCLUDE [azure-policy-reference-policies-portal](../../../../includes/policy/reference/bycat/policies-portal.md)]
+
 ## <a name="search"></a>Search
 
 [!INCLUDE [azure-policy-reference-policies-search](../../../../includes/policy/reference/bycat/policies-search.md)]
@@ -164,6 +196,10 @@ O nome de cada link interno para a definição de política no portal do Azure. 
 ## <a name="stream-analytics"></a>Stream Analytics
 
 [!INCLUDE [azure-policy-reference-policies-stream-analytics](../../../../includes/policy/reference/bycat/policies-stream-analytics.md)]
+
+## <a name="synapse"></a>Synapse
+
+[!INCLUDE [azure-policy-reference-policies-synapse](../../../../includes/policy/reference/bycat/policies-synapse.md)]
 
 ## <a name="tags"></a>Marcas
 

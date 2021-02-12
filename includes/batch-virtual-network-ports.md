@@ -10,15 +10,15 @@ ms.service: batch
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
-ms.date: 06/16/2020
+ms.date: 01/13/2021
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: 3e4bca058f554f60dfa5c237633d1fecf06dfea7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08e7463f4657b2ae5d6da1017c14226e97af7605
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87507569"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165732"
 ---
 ### <a name="general-requirements"></a>Requisitos gerais
 
@@ -29,6 +29,8 @@ ms.locfileid: "87507569"
 * A sub-rede especificada para o pool deve ter endereços IP não atribuídos suficientes para acomodar o número de VMs direcionadas para o pool, ou seja, a soma das propriedades `targetDedicatedNodes` e `targetLowPriorityNodes` do pool. Se a sub-rede não tiver endereços IP não atribuídos suficientes, o pool alocará parcialmente os nós de computação e ocorrerá um erro de redimensionamento.
 
 * O ponto de extremidade do Armazenamento do Azure precisa ser resolvido por servidores DNS personalizados que atendem sua rede VNet. Especificamente, as URLs no formato `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, e `<account>.blob.core.windows.net` devem poder ser resolvidas.
+
+* Vários pools podem ser criados na mesma VNet ou na mesma sub-rede (desde que ela tenha espaço de endereço suficiente). Um pool não pode existir em várias VNets ou sub-redes.
 
 Os requisitos da VNet adicionais diferem, dependendo do pool do Lote estar na configuração da Máquina Virtual ou na configuração dos Serviços de Nuvem. Para as novas implantações de pool em uma VNet, recomenda-se a configuração da Máquina Virtual.
 
@@ -69,7 +71,7 @@ Configure o tráfego de entrada na porta 3389 (Windows) ou 22 (Linux) somente se
 
 | Endereços IP da fonte | Marca de serviço de origem | Portas de origem | Destino | Portas de destino | Protocolo | Ação |
 | --- | --- | --- | --- | --- | --- | --- |
-| N/D | `BatchNodeManagement` [Marca de serviço](../articles/virtual-network/security-overview.md#service-tags) (se estiver usando a variante regional na mesma região em que sua conta do Lote) | * | Qualquer | 29876-29877 | TCP | Allow |
+| N/D | `BatchNodeManagement` [Marca de serviço](../articles/virtual-network/network-security-groups-overview.md#service-tags) (se estiver usando a variante regional na mesma região em que sua conta do Lote) | * | Qualquer | 29876-29877 | TCP | Allow |
 | IPs de origem do usuário para acessar remotamente nós de computação e/ou a sub-rede do nó de computação para tarefas de várias instâncias de Linux, se necessário. | N/D | * | Qualquer | 3389 (Windows), 22 (Linux) | TCP | Allow |
 
 > [!WARNING]
@@ -79,7 +81,7 @@ Configure o tráfego de entrada na porta 3389 (Windows) ou 22 (Linux) somente se
 
 | Fonte | Portas de origem | Destino | Marca de serviço de destino | Portas de destino | Protocolo | Ação |
 | --- | --- | --- | --- | --- | --- | --- |
-| Qualquer | * | [Marca do serviço](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (se estiver usando a variante regional na mesma região em que sua conta do Lote) | 443 | TCP | Allow |
+| Qualquer | * | [Marca do serviço](../articles/virtual-network/network-security-groups-overview.md#service-tags) | `Storage` (se estiver usando a variante regional na mesma região em que sua conta do Lote) | 443 | TCP | Allow |
 
 ### <a name="pools-in-the-cloud-services-configuration"></a>Pools na configuração dos Serviços de Nuvem
 

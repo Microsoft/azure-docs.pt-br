@@ -3,15 +3,16 @@ title: Operadores de consulta SQL para Azure Cosmos DB
 description: Saiba mais sobre os operadores SQL, como igualdade, comparação e operadores lógicos com suporte pelo Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: tisande
-ms.openlocfilehash: a2f79e2ca751ce9c1016f32effeca532d6ffe7fb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c1409bd7f098c24efbb4196d78c6dffb6048119b
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101231"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335409"
 ---
 # <a name="operators-in-azure-cosmos-db"></a>Operadores no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -54,9 +55,9 @@ Retorna `true` quando uma das condições é `true` .
 
 |  | **Verdadeiro** | **Falso** | **Indefinido** |
 | --- | --- | --- | --- |
-| **Verdadeiro** |True |True |True |
-| **Falso** |Verdadeiro |Falso |Indefinido |
-| **Indefinido** |Verdadeiro |Indefinido |Indefinido |
+| **Verdadeiro** |True |True |verdadeiro |
+| **Falso** |verdadeiro |False |Indefinido |
+| **Indefinido** |verdadeiro |Indefinido |Indefinido |
 
 **Operador AND**
 
@@ -64,9 +65,9 @@ Retorna `true` quando ambas as expressões são `true` .
 
 |  | **Verdadeiro** | **Falso** | **Indefinido** |
 | --- | --- | --- | --- |
-| **Verdadeiro** |Verdadeiro |Falso |Indefinido |
-| **Falso** |Falso |Falso |Falso |
-| **Indefinido** |Indefinido |Falso |Indefinido |
+| **Verdadeiro** |verdadeiro |False |Indefinido |
+| **Falso** |False |False |False |
+| **Indefinido** |Indefinido |False |Indefinido |
 
 **Operador NOT**
 
@@ -74,8 +75,8 @@ Reverte o valor de qualquer expressão booleana.
 
 |  | **NOT** |
 | --- | --- |
-| **Verdadeiro** |Falso |
-| **Falso** |Verdadeiro |
+| **Verdadeiro** |False |
+| **Falso** |verdadeiro |
 | **Indefinido** |Indefinido |
 
 **Precedência de operador**

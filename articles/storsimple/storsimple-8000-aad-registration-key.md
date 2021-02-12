@@ -1,19 +1,19 @@
 ---
-title: Autenticação do Azure AD para o StorSimple 8000 no Device Manager
+title: Autenticação do Azure AD para o StorSimple 8000 no Gerenciador de Dispositivos
 description: Explica como usar a autenticação baseada no AAD para o serviço, gerar uma nova chave de registro e realizar o registro manual dos dispositivos.
 author: alkohli
 ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 0e071a20051f047efbd040dfc01a30e3c1381367
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b09d68e7859a787c05a2fc62294f081c4345ae08
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631317"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805033"
 ---
-# <a name="use-azuer-active-directory-ad-authentication-for-your-storsimple"></a>Usar a autenticação do Azure Active Directory (AD) para o StorSimple
+# <a name="use-azure-active-directory-ad-authentication-for-your-storsimple"></a>Usar a autenticação do Azure Active Directory (AD) para o StorSimple
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 

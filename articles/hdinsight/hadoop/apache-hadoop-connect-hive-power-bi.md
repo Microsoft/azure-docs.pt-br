@@ -1,19 +1,16 @@
 ---
 title: Visualizar dados do Apache Hive com o Microsoft Power BI no Azure HDInsight
 description: Saiba como usar o Microsoft Power BI para visualizar dados de Hive processados pelo Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: e66329b93ebd7d90258ab4670b77ca849a28189b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a5732c2dc0a92bd5727eeff39a529630e45683d7
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547989"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946689"
 ---
 # <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Visualize os dados do Apache Hive com o Microsoft Power BI usando o ODBC no Azure HDInsight
 
@@ -46,27 +43,27 @@ A tabela hive do **hivesampletable** vem com todos os clusters HDInsight.
 
 1. Inicie o Power BI Desktop.
 
-1. No menu superior, navegue até **página inicial**  >  **obter dados**  >  **mais...** .
+1. No menu superior, navegue até **página inicial**  >  **obter dados**  >  **mais...**.
 
     ![HDInsight Excel Power BI abrir dados](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-open-odbc.png)
 
 1. Na caixa de diálogo **obter dados** , selecione **outro** da esquerda, selecione **ODBC** à direita e, em seguida, selecione **conectar** na parte inferior.
 
-1. Na caixa **de diálogo do ODBC** , selecione o nome da fonte de dados que você criou na última seção na lista suspensa. Depois, selecione **OK** .
+1. Na caixa **de diálogo do ODBC** , selecione o nome da fonte de dados que você criou na última seção na lista suspensa. Depois, selecione **OK**.
 
-1. Para o primeiro uso, uma caixa de diálogo do **driver ODBC** será aberta. Selecione **padrão ou personalizado** no menu à esquerda. Em seguida, selecione **conectar-se** para abrir o **navegador** .
+1. Para o primeiro uso, uma caixa de diálogo do **driver ODBC** será aberta. Selecione **padrão ou personalizado** no menu à esquerda. Em seguida, selecione **conectar-se** para abrir o **navegador**.
 
-1. Na caixa de diálogo **navegador** , expanda **ODBC > Hive > padrão** , selecione **hivesampletable** e, em seguida, selecione **carregar** .
+1. Na caixa de diálogo **navegador** , expanda **ODBC > Hive > padrão**, selecione **hivesampletable** e, em seguida, selecione **carregar**.
 
 ## <a name="visualize-data"></a>Visualizar dados
 
 Continue do último procedimento.
 
-1. No painel visualizações, selecione **mapa** , é um ícone de globo.
+1. No painel visualizações, selecione **mapa**, é um ícone de globo.
 
     ![O Power BI do HDInsight personaliza o relatório](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-customize.png)
 
-1. No painel **campos** , selecione **país** e **devicemake** . Você pode ver os dados no gráfico no mapa.
+1. No painel **campos** , selecione **país** e **devicemake**. Você pode ver os dados no gráfico no mapa.
 
 1. Expanda o mapa.
 

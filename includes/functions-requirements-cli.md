@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
-ms.openlocfilehash: e969520e226999bc2b104fb4f757619832eaa165
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f102a5dd5b7dccba6643176d06d17a2a65171c90
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88944353"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904051"
 ---
 ## <a name="configure-your-local-environment"></a>Configurar o ambiente local
 
@@ -17,8 +17,8 @@ Antes de começar, você deverá ter o seguinte:
 
 + Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-java"  
-+ O [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) versão 2.7.1846 ou uma versão 2.x posterior.
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-java,programming-language-other"  
++ O [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) versão 2.7.1846 ou uma versão posterior.
 ::: zone-end  
 ::: zone pivot="programming-language-python"
 + A versão do Azure Functions Core Tools que corresponde à sua versão instalada do Python:
@@ -42,12 +42,11 @@ Antes de começar, você deverá ter o seguinte:
 + O [SDK do .NET Core 3.1](https://www.microsoft.com/net/download)
 ::: zone-end
 ::: zone pivot="programming-language-java"  
-+ O [Java Developer Kit](https://aka.ms/azure-jdks), versão 8. 
-
-    > [!IMPORTANT]
-    > + O suporte de funções para Java 11 está em versão prévia no momento, e o arquétipo Maven cria uma implantação do Java 8 por padrão. Se desejar executar seu aplicativo de funções no Java 11, você precisará atualizar manualmente o arquivo pom.xml com os valores do Java 11. Para saber mais, confira [Versões Java](../articles/azure-functions/functions-reference-java.md#java-versions). 
-    > + A variável de ambiente `JAVA_HOME` deve ser definida como a localização de instalação da versão correta do JDK para concluir este guia de início rápido.
++ O [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), versão 8 ou 11. 
 
 + [Apache Maven](https://maven.apache.org), versão 3.0 ou posterior.
 
+::: zone-end
+::: zone pivot="programming-language-other"
++ Ferramentas de desenvolvimento para a linguagem que você está usando. Este tutorial usa a [linguagem de programação R](https://www.r-project.org/) como exemplo.
 ::: zone-end

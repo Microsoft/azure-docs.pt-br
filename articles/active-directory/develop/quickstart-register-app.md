@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/03/2020
 ms.author: marsma
-ms.custom: aaddev, identityplatformtop40, contperfq1
+ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 9cd59d6bf5b9bf6e17cba0786bfac27ed12d7638
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6052e2243f8b31aa57d4abf27c24a4b045c9eae2
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91258125"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754634"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Início Rápido: Registrar um aplicativo na plataforma de identidade da Microsoft
 
@@ -36,10 +36,10 @@ Registrar seu aplicativo estabelece uma relação de confiança entre seu aplica
 
 Siga estas etapas para criar o registro do aplicativo:
 
-1. Entre no [portal do Azure](https://portal.azure.com).
-1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/quickstart-register-app/portal-01-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
 1. Pesquise **Azure Active Directory** e selecione-o.
-1. Em **Gerenciar**, selecione **Registros de aplicativo** e **Novo registro**.
+1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
 1. Insira um **Nome** para seu aplicativo. Os usuários do seu aplicativo podem ver esse nome e você pode alterá-lo mais tarde.
 1. Especifique quem pode usar o aplicativo, às vezes chamado de *público-alvo de conexão*.
 
@@ -59,7 +59,7 @@ Quando o registro for concluído, o portal do Azure exibirá o painel **Visão g
 
 O código do aplicativo ou, mais tipicamente, uma biblioteca de autenticação usada em seu aplicativo, também usa a ID do cliente como um aspecto na validação dos tokens de segurança que ele recebe da plataforma de identidade.
 
-:::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Captura de tela do portal do Azure em um navegador da Web mostrando o painel Registrar um aplicativo.":::
+:::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Captura de tela do portal do Azure em um navegador da Web mostrando um painel Visão Geral do registro do aplicativo.":::
 
 ## <a name="add-a-redirect-uri"></a>Adicionar um URI de redirecionamento
 
@@ -80,12 +80,12 @@ Para definir as configurações do aplicativo com base na plataforma ou no dispo
 1. Em **Configurações da plataforma**, selecione **Adicionar uma plataforma**.
 1. Em **Configurar plataformas**, selecione o bloco para o tipo de aplicativo (plataforma) para definir suas configurações.
 
-    :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Captura de tela do portal do Azure em um navegador da Web mostrando o painel Registrar um aplicativo." border="false":::
+    :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Captura de tela do painel Configuração da plataforma no portal do Azure" border="false":::
 
     | Plataforma | Definições de configuração |
     | -------- | ---------------------- |
-    | **Web** | Insira um **URI de redirecionamento** para seu aplicativo, o local para o qual a plataforma de identidade da Microsoft redireciona o cliente do usuário e envia tokens de segurança após a autenticação.<br/><br/>Selecione essa plataforma para aplicativos Web padrão que são executados em um servidor. |
-    | **Aplicativo de página única** | Insira um **URI de redirecionamento** para seu aplicativo, o local para o qual a plataforma de identidade da Microsoft redireciona o cliente do usuário e envia tokens de segurança após a autenticação.<br/><br/>Selecione esta plataforma se você está criando um aplicativo Web do lado do cliente em JavaScript ou com uma estrutura como Angular, Vue.js, React.js ou Blazor WebAssembly. |
+    | **Web** | Insira um **URI de redirecionamento** para seu aplicativo, a localização para a qual a plataforma de identidade da Microsoft redireciona o cliente do usuário e envia tokens de segurança após a autenticação.<br/><br/>Selecione essa plataforma para aplicativos Web padrão que são executados em um servidor. |
+    | **Aplicativo de página única** | Insira um **URI de redirecionamento** para seu aplicativo, a localização para a qual a plataforma de identidade da Microsoft redireciona o cliente do usuário e envia tokens de segurança após a autenticação.<br/><br/>Selecione esta plataforma se você está criando um aplicativo Web do lado do cliente em JavaScript ou com uma estrutura como Angular, Vue.js, React.js ou Blazor WebAssembly. |
     | **iOS/macOS** | Insira a **ID do Pacote** do aplicativo, encontrada no XCode em *Info.plist* ou Configurações de Build.<br/><br/>Um URI de redirecionamento é gerado para você quando você especifica uma ID de pacote. |
     | **Android** | Insira o **Nome do pacote** do aplicativo, que pode ser encontrado no arquivo *AndroidManifest.xml*, e gere e insira o **Hash de assinatura**.<br/><br/>Um URI de redirecionamento é gerado para você quando você especifica essas configurações. |
     | **Aplicativos móveis e para desktop** | Selecione um dos **URIs de redirecionamento sugeridos** ou especifique um **URI de redirecionamento personalizado**.<br/>Para aplicativos de desktop, recomendamos:<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>Selecionar essa plataforma para aplicativos móveis que não estão usando a MSAL (Biblioteca de Autenticação da Microsoft) mais recente ou que não estão usando um agente. Selecione também essa plataforma para aplicativos de desktop. |
@@ -97,15 +97,15 @@ Há algumas restrições ao formato dos URIs de redirecionamento que você adici
 
 ## <a name="add-credentials"></a>Adicionar credenciais
 
-As credenciais são usadas por aplicativos cliente confidenciais que acessam uma API Web. Exemplos de clientes confidenciais são aplicativos Web, outras APIs Web ou aplicativos dos tipos serviço e daemon. As credenciais permitem que seu aplicativo se autentique como ele mesmo, sem nenhuma interação com um usuário no runtime.
+As credenciais são usadas por [aplicativos cliente confidenciais](msal-client-applications.md) que acessam uma API Web. Exemplos de clientes confidenciais são [aplicativos Web](scenario-web-app-call-api-overview.md), outras [APIs Web](scenario-protected-web-api-overview.md) ou [aplicativos dos tipos serviço e daemon](scenario-daemon-overview.md). As credenciais permitem que seu aplicativo se autentique como ele mesmo, sem nenhuma interação com um usuário no runtime. 
 
 Você pode adicionar certificados e segredos do cliente (uma cadeia de caracteres) como credenciais ao registro do aplicativo cliente confidencial.
 
-:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Captura de tela do portal do Azure em um navegador da Web mostrando o painel Registrar um aplicativo.":::
+:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Captura de tela do portal do Azure mostrando o painel Certificados e segredos em um Registro de aplicativo":::
 
 ### <a name="add-a-certificate"></a>Adicionar um certificado
 
-Às vezes chamados de *chave pública*, os certificados são o tipo de credencial recomendado, pois fornecem um nível mais alto de garantia do que um segredo do cliente.
+Às vezes chamados de *chave pública*, os certificados são o tipo de credencial recomendado, pois fornecem um nível mais alto de garantia do que um segredo do cliente. Para obter mais informações sobre como usar o certificado como um método de autenticação em seu aplicativo, confira [Credenciais do certificado de autenticação de aplicativo da plataforma de identidade da Microsoft](active-directory-certificate-credentials.md)
 
 1. Selecione seu aplicativo em **Registros de aplicativo** no portal do Azure.
 1. Selecione **Certificados e segredos** > **Carregar certificado**.
@@ -114,7 +114,7 @@ Você pode adicionar certificados e segredos do cliente (uma cadeia de caractere
 
 ### <a name="add-a-client-secret"></a>Adicionar um segredo do cliente
 
-O segredo do cliente, também conhecido como *senha do aplicativo*, é um valor de cadeia de caracteres que seu aplicativo pode usar no lugar de um certificado para a própria identidade. É o mais fácil de usar dos dois tipos de credencial e é usado com frequência durante o desenvolvimento, mas é considerado menos seguro do que um certificado. Você deve usar certificados em seus aplicativos executados em produção.
+O segredo do cliente, também conhecido como *senha do aplicativo*, é um valor de cadeia de caracteres que seu aplicativo pode usar no lugar de um certificado para a própria identidade. É o mais fácil de usar dos dois tipos de credencial e é usado com frequência durante o desenvolvimento, mas é considerado menos seguro do que um certificado. Você deve usar certificados em seus aplicativos executados em produção. Para obter mais informações sobre as recomendações de segurança de aplicativo, confira [Melhores práticas e recomendações da plataforma de identidade da Microsoft](identity-platform-integration-checklist.md#security)
 
 1. Selecione seu aplicativo em **Registros de aplicativo** no portal do Azure.
 1. Selecione **Certificados e segredos** >  **Novo segredo do cliente**.
@@ -122,6 +122,8 @@ O segredo do cliente, também conhecido como *senha do aplicativo*, é um valor 
 1. Selecione uma duração.
 1. Selecione **Adicionar**.
 1. **Registre o valor do segredo** para uso no código do aplicativo cliente. Ele *nunca será exibido novamente* depois que você sair dessa página.
+
+**Observação:** a ID gerada com o valor do segredo é a ID do segredo, que é diferente da ID do Aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

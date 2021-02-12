@@ -6,22 +6,22 @@ ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: management
-ms.date: 08/20/2019
+ms.date: 11/12/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 767b5a6be9c9aaff1bfe82ebc46b3b9179e271e4
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2aa589d237a8cfeb8e0dc947896dba82e755631c
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736991"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564762"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notificações de manutenção planejada para conjuntos de dimensionamento de máquinas virtuais
 
 
 O Azure executa periodicamente atualizações para melhorar a confiabilidade, o desempenho e a segurança da infraestrutura do host para VMs (máquinas virtuais). As atualizações podem incluir aplicação de patch do ambiente de hospedagem ou atualização e descomissionamento de hardware. A maioria das atualizações não afeta as VMs hospedadas. No entanto, as atualizações afetam as VMs nesses cenários:
 
-- Se a manutenção não exigir um reinício, o Azure usa a migração in-loco para pausar a VM enquanto o host é atualizado. As operações de manutenção que não exigem um reinício são aplicadas ao domínio de falha pelo domínio de falha. O andamento será interrompido se algum sinal de integridade de aviso for recebido.
+- Se a manutenção não exigir uma reinicialização, o Azure pausará a VM por alguns segundos enquanto o host for atualizado. Esses tipos de operações de manutenção são aplicados ao domínio de falha por domínio de falha. O andamento será interrompido se algum sinal de integridade de aviso for recebido.
 
 - Se a manutenção requer uma reinicialização, você receberá um aviso informando para quando a manutenção está planejada. Nesses casos, você recebe uma janela de tempo que normalmente é de 35 dias em que você pode iniciar a manutenção por conta própria, quando ela funciona para você.
 
@@ -44,7 +44,7 @@ As diretrizes a seguir podem ajudá-lo a decidir se deseja iniciar a manutençã
 > A manutenção de autoatendimento pode não estar disponível para todas as suas VMs. Para determinar se a reimplantação proativa está disponível para a VM, procure **Iniciar agora** no status de manutenção. Atualmente, a manutenção de autoatendimento não está disponível para Serviços de Nuvem do Azure (Função de Trabalho/Web) e Microsoft Azure Service Fabric.
 
 
-Não é recomendável a manutenção de autoatendimento para implantações que usam *conjuntos de disponibilidade* . Conjuntos de disponibilidade são configurações altamente disponíveis nas quais apenas um domínio de atualização é afetado a qualquer momento. Para conjuntos de disponibilidade:
+Não é recomendável a manutenção de autoatendimento para implantações que usam *conjuntos de disponibilidade*. Conjuntos de disponibilidade são configurações altamente disponíveis nas quais apenas um domínio de atualização é afetado a qualquer momento. Para conjuntos de disponibilidade:
 
 - Permita que o Azure dispare a manutenção. Para manutenção que requer um reinício, a manutenção é feita no domínio de atualização pelo domínio de atualização. Os domínios de atualização não recebem necessariamente a manutenção sequencialmente. Há uma pausa de 30 minutos entre os domínios de atualização.
 - Se uma perda temporária de parte da capacidade (1/contagem de domínio de atualização) for uma preocupação, você poderá compensar facilmente a perda, alocando instâncias adicionais durante o período de manutenção.
@@ -73,11 +73,11 @@ Não é recomendável a manutenção de autoatendimento para implantações que 
 Quando uma onda de manutenção planejada é agendada, é possível exibir a lista de conjuntos de dimensionamento de máquinas virtuais que serão afetados pela próxima onda de manutenção usando o portal do Azure. 
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. No menu esquerdo, selecione **Todos os serviços** e, em seguida, selecione **Conjuntos de dimensionamento de máquinas virtuais** .
+2. No menu esquerdo, selecione **Todos os serviços** e, em seguida, selecione **Conjuntos de dimensionamento de máquinas virtuais**.
 3. Em **Conjuntos de dimensionamento de máquinas virtuais** , selecione **Editar colunas** para abrir a lista de colunas disponíveis.
-4. Na seção **Colunas disponíveis** , selecione **Manutenção de autoatendimento** e, em seguida, mova-a para a lista **Colunas selecionadas** . Escolha **Aplicar** .  
+4. Na seção **Colunas disponíveis** , selecione **Manutenção de autoatendimento** e, em seguida, mova-a para a lista **Colunas selecionadas**. Escolha **Aplicar**.  
 
-    Para facilitar a localização do item de **Manutenção de autoatendimento** , é possível alterar a opção suspensa na seção **Colunas disponíveis** de **Todos** para **Propriedades** .
+    Para facilitar a localização do item de **Manutenção de autoatendimento** , é possível alterar a opção suspensa na seção **Colunas disponíveis** de **Todos** para **Propriedades**.
 
 A **Manutenção de autoatendimento** agora aparece na lista de conjuntos de dimensionamento de máquinas virtuais. Cada conjunto de dimensionamento de máquina virtual pode ter um dos seguintes valores para a coluna de manutenção de autoatendimento:
 
@@ -92,21 +92,21 @@ A **Manutenção de autoatendimento** agora aparece na lista de conjuntos de dim
 O Azure comunica uma agenda para manutenção planejada, enviando um email para o grupo de proprietário e os coadministradores de assinatura. É possível adicionar destinatários e canais a essa comunicação, criando alertas do Log de Atividades. Para obter mais informações, consulte [Monitorar a atividade da assinatura com o Log de Atividades do Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. No menu esquerdo, selecione **Monitorar** . 
-3. No painel **Monitorar - Alertas (clássico)** , selecione **+Adicionar alerta do log de atividades** .
+2. No menu esquerdo, selecione **Monitorar**. 
+3. No painel **Monitorar - Alertas (clássico)** , selecione **+Adicionar alerta do log de atividades**.
 4. Na página **Adicionar alerta do log de atividades** , selecione ou insira as informações solicitadas. Em **Critérios** , certifique-se de definir os valores a seguir:
-   - **Categoria de eventos** : selecione **Integridade do Serviço** .
-   - **Serviços** : selecione **Conjuntos de Dimensionamento de Máquinas Virtuais e Máquinas Virtuais** .
-   - **Tipo** : selecione **Manutenção planejada** . 
+   - **Categoria de eventos** : selecione **Integridade do Serviço**.
+   - **Serviços** : selecione **Conjuntos de Dimensionamento de Máquinas Virtuais e Máquinas Virtuais**.
+   - **Tipo** : selecione **Manutenção planejada**. 
     
 Para saber mais sobre como configurar os alertas do Log de Atividades, consulte [Criar alertas do Log de Atividades](../azure-monitor/platform/activity-log-alerts.md)
     
     
 ## <a name="start-maintenance-on-your-virtual-machine-scale-set-from-the-portal"></a>Iniciar a manutenção em seu conjunto de dimensionamento de máquina virtual no portal
 
-É possível ver mais detalhes relacionados à manutenção na visão geral dos conjuntos de dimensionamento de máquinas virtuais. Se pelo menos uma VM no conjunto de dimensionamento de máquinas virtuais estiver incluída na onda de manutenção planejada, uma nova faixa de notificação será adicionada na parte superior da página. Selecione a faixa de notificação para acessar a página **Manutenção** . 
+É possível ver mais detalhes relacionados à manutenção na visão geral dos conjuntos de dimensionamento de máquinas virtuais. Se pelo menos uma VM no conjunto de dimensionamento de máquinas virtuais estiver incluída na onda de manutenção planejada, uma nova faixa de notificação será adicionada na parte superior da página. Selecione a faixa de notificação para acessar a página **Manutenção**. 
 
-Na página **Manutenção** , é possível ver qual instância da VM é afetada pela manutenção planejada. Para iniciar a manutenção, selecione a caixa de seleção que corresponde à VM afetada. Em seguida, selecione **Iniciar manutenção** .
+Na página **Manutenção** , é possível ver qual instância da VM é afetada pela manutenção planejada. Para iniciar a manutenção, selecione a caixa de seleção que corresponde à VM afetada. Em seguida, selecione **Iniciar manutenção**.
 
 Após iniciar a manutenção, as VMs afetadas no conjunto de dimensionamento de máquinas virtuais passarão por manutenção e ficarão temporariamente indisponíveis. Se você perdeu a janela de autoatendimento, ainda será possível ver a janela de tempo quando o conjunto de dimensionamento de máquinas virtuais passar pela manutenção do Azure.
  
@@ -135,7 +135,7 @@ As seguintes propriedades são retornadas em **MaintenanceRedeployStatus** :
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-powershell"></a>Iniciar manutenção na instância de VM usando PowerShell
 
-É possível iniciar a manutenção em uma VM se **IsCustomerInitiatedMaintenanceAllowed** estiver definido como **true** . Use o cmdlet [Set-AzVmss](/powershell/module/az.compute/set-azvmss) com o parâmetro `-PerformMaintenance`.
+É possível iniciar a manutenção em uma VM se **IsCustomerInitiatedMaintenanceAllowed** estiver definido como **true**. Use o cmdlet [Set-AzVmss](/powershell/module/az.compute/set-azvmss) com o parâmetro `-PerformMaintenance`.
 
 ```powershell
 Set-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
@@ -185,7 +185,7 @@ Para obter mais informações sobre alta disponibilidade, consulte [Regiões e d
 
 **P: Como posso ser notificado sobre manutenção planejada?**
 
-**R:** uma onda manutenção planejada começa pela definição de uma agenda para uma ou mais regiões do Azure. Assim, uma notificação por email é enviada para proprietários de assinaturas (um email por assinatura). É possível adicionar canais e destinatários para essa notificação, usando os alertas do Log de Atividades. Se implantar uma VM em uma região na qual a manutenção planejada já está programada, você não receberá a notificação. Em vez disso, verifique o estado de manutenção da VM.
+**R:** uma onda manutenção planejada começa pela definição de uma agenda para uma ou mais regiões do Azure. Logo após, uma notificação por email é enviada para os administradores de assinatura, os coadministradores, os proprietários e os colaboradores (um email por assinatura). Os canais adicionais e os destinatários dessa notificação podem ser configurados usando Alertas de Log de Atividades. Caso você implante uma máquina virtual em uma região em que a manutenção planejada já esteja agendada, você não receberá a notificação. Em vez disso, verifique o estado de manutenção da VM.
 
 **P: não vejo nenhuma indicação de manutenção planejada no portal, no PowerShell ou na CLI. Qual é o problema?**
 
@@ -202,7 +202,7 @@ Para obter mais informações sobre alta disponibilidade, consulte [Regiões e d
 **P: não vejo nenhuma informação de manutenção em minhas VMs. O que deu errado?**
 
 **R:** Há vários motivos pelos quais não é possível ver as informações de manutenção nas VMs:
-   - Você está usando uma assinatura marcada como *Interno da Microsoft* .
+   - Você está usando uma assinatura marcada como *Interno da Microsoft*.
    - As VMs não estão agendadas para manutenção. Pode ser que a onda de manutenção tenha sido encerrada, cancelada ou modificada para que as VMs não sejam mais afetadas pela manutenção.
    - Você não tem a coluna **Manutenção** adicionada ao modo de exibição de lista da VM. Embora tenhamos adicionado essa coluna à exibição padrão, se você configurar a exibição para ver colunas não padrão, deverá adicionar manualmente a coluna **Manutenção** à exibição de lista da VM.
 

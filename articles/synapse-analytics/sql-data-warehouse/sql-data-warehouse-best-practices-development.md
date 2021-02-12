@@ -11,12 +11,12 @@ ms.date: 09/04/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f8db19b209ddefebd4a297f18fb9b178fcf40f21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc101e6bb743b9290593937a4d1bac656430b438
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89457899"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685303"
 ---
 # <a name="development-best-practices-for-synapse-sql-pool"></a>Melhores práticas de desenvolvimento para o pool de SQL do Synapse
 
@@ -55,7 +55,7 @@ Por exemplo, se você tiver uma tabela de pedidos, que é distribuída por order
 
 Ao carregar uma tabela distribuída, verifique se os dados de entrada não estão classificados na chave de distribuição, pois isso reduzirá a velocidade das cargas.  Os artigos a seguir fornecem mais detalhes sobre como melhorar o desempenho ao selecionar uma coluna de distribuição e também como definir uma tabela distribuída na cláusula WITH da instrução CREATE TABLES.
 
-Confira também [Visão geral das tabelas](sql-data-warehouse-tables-overview.md), [Distribuição de tabelas](sql-data-warehouse-tables-distribute.md), [Selecionando a distribuição de tabelas](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/), [CREATE TABLE](sql-data-warehouse-tables-overview.md) e [CREATE TABLE AS SELECT](sql-data-warehouse-develop-ctas.md)
+Confira também [Visão geral das tabelas](sql-data-warehouse-tables-overview.md), [Distribuição de tabelas](sql-data-warehouse-tables-distribute.md), [Selecionando a distribuição de tabelas](/archive/blogs/sqlcat/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service), [CREATE TABLE](sql-data-warehouse-tables-overview.md) e [CREATE TABLE AS SELECT](sql-data-warehouse-develop-ctas.md)
 
 ## <a name="do-not-over-partition"></a>Não estender a partição
 
@@ -80,7 +80,7 @@ Outra maneira de eliminar as reversões é usar as operações de Metadados Some
 
 Para as tabelas não particionadas, considere usar um CTAS para gravar os dados que você deseja manter em uma tabela em vez de usar DELETE.  Se um CTAS demorar a mesma quantidade de tempo, será uma operação muito mais segura de executar quando ele tiver um log de transação mínimo e puder ser cancelado rapidamente, se necessário.
 
-Confira também [Compreendendo as transações](sql-data-warehouse-develop-transactions.md), [Otimizando as transações](sql-data-warehouse-develop-best-practices-transactions.md), [Particionamento de tabelas](sql-data-warehouse-tables-partition.md), [TRUNCATE TABLE](/sql/t-sql/statements/truncate-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e [CTAS (Create table as select)](sql-data-warehouse-develop-ctas.md).
+Confira também [Compreendendo as transações](sql-data-warehouse-develop-transactions.md), [Otimizando as transações](sql-data-warehouse-develop-best-practices-transactions.md), [Particionamento de tabelas](sql-data-warehouse-tables-partition.md), [TRUNCATE TABLE](/sql/t-sql/statements/truncate-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) e [CTAS (Create table as select)](sql-data-warehouse-develop-ctas.md).
 
 ## <a name="use-the-smallest-possible-column-size"></a>Use o menor tamanho de coluna possível
 
@@ -114,13 +114,13 @@ Se a tabela não tiver as 6 bilhões de linhas neste exemplo, reduza o número d
 > [!TIP]
 > Ao consultar uma tabela columnstore, as consultas serão executadas mais rapidamente se você selecionar apenas as colunas necessárias.  
 
-Confira também [Índices de tabela](sql-data-warehouse-tables-index.md), [Guia dos índices columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e [Recriando índices columnstore](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+Confira também [Índices de tabela](sql-data-warehouse-tables-index.md), [Guia dos índices columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) e [Recriando índices columnstore](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Se você não encontrar o que está procurando nesse artigo, tente usar a "Pesquisa de documentos" à esquerda da página para pesquisar todos os documentos do Azure Synapse.  
 
-A [página de P e R da Microsoft para o Azure Synapse](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) é um lugar para você postar perguntas para outros usuários e para o grupo de produto do Azure Synapse.  Monitoramos ativamente esse fórum para garantir que suas perguntas sejam respondidas por outro usuário ou um de nós.  
+A [página de P e R da Microsoft para o Azure Synapse](/answers/topics/azure-synapse-analytics.html) é um lugar para você postar perguntas para outros usuários e para o grupo de produto do Azure Synapse.  Monitoramos ativamente esse fórum para garantir que suas perguntas sejam respondidas por outro usuário ou um de nós.  
 
 Se você preferir fazer suas perguntas em Stack Overflow, também temos um fórum de [Stack Overflow do Azure Synapse Analytics](https://stackoverflow.com/questions/tagged/azure-sqldw).
 

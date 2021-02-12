@@ -1,5 +1,6 @@
 ---
-title: Registrar uma API Web que chama APIs da Web-plataforma de identidade da Microsoft | Azure
+title: Registrar uma API Web que chama APIs da Web | Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como criar uma API Web que chama APIs da Web downstream (registro de aplicativo).
 services: active-directory
 author: jmprieur
@@ -11,16 +12,16 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c0b009d6d53a117aa11d0629fb649b2dd55559af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af1047c5f890b1b88ae6d043a30704e84b8dc079
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89438187"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584307"
 ---
 # <a name="a-web-api-that-calls-web-apis-app-registration"></a>Uma API Web que chama APIs da Web: registro de aplicativo
 
-Uma API da Web que chama APIs da Web downstream tem o mesmo registro de uma API Web protegida. Portanto, você precisa seguir as instruções em [API Web protegida: registro de aplicativo](scenario-protected-web-api-app-registration.md).
+Uma API da Web que chama APIs da Web downstream tem o mesmo registro de uma API Web protegida. Siga as instruções em [API Web protegida: registro de aplicativo](scenario-protected-web-api-app-registration.md).
 
 Como o aplicativo Web agora chama APIs da Web, ele se torna um aplicativo cliente confidencial. É por isso que as informações de registro extras são necessárias: o aplicativo precisa compartilhar segredos (credenciais de cliente) com a plataforma Microsoft Identity.
 
@@ -32,5 +33,4 @@ Os aplicativos Web chamam APIs em nome dos usuários para os quais o token de po
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Uma API Web que chama APIs da Web: configuração de código](scenario-web-api-call-api-app-configuration.md)
+Vá para o próximo artigo neste cenário, configuração de [código do aplicativo](scenario-web-api-call-api-app-configuration.md).

@@ -16,11 +16,11 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/22/2019
 ms.openlocfilehash: 97a6a45ab01fc113b79a48ba7fcb246d528684be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90090050"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019473"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Tutorial: Enviar notificações para usuários específicos usando o Hubs de Notificação do Microsoft Azure
 
@@ -61,7 +61,7 @@ Nesta seção, você atualizará o código no projeto concluído no [Tutorial: E
 2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto do UWP (Plataforma Universal do Windows) e, em seguida, clique em **Gerenciar Pacotes NuGet**.
 3. No lado esquerdo, selecione **Procurar**.
 4. Na caixa **Pesquisar**, digite **Http Client**.
-5. Na lista de resultados, clique em **System**e clique em **Instalar**. Conclua a instalação.
+5. Na lista de resultados, clique em **System** e clique em **Instalar**. Conclua a instalação.
 6. De volta à caixa **Pesquisar** do NuGet, digite **Json.net**. Instale o pacote **Newtonsoft.json** e feche a janela do Gerenciador de Pacotes NuGet.
 7. No Gerenciador de Soluções, no projeto **WindowsApp**, clique duas vezes em **MainPage.xaml** para abri-lo no editor do Visual Studio.
 8. No arquivo `MainPage.xaml`, substitua a seção `<Grid>` pelo seguinte código: Esse código adiciona uma caixa de texto de nome de usuário e de senha com as quais o usuário se autenticará. Ele também adiciona caixas de texto para a mensagem de notificação e a marca de nome de usuário que deve receber a notificação:

@@ -8,19 +8,27 @@ ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 99a0805239ee2437ad6ec9ceb40cf45496a07850
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: d86a273a69203a92a9b437f021486feb3bcb31da
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047651"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932363"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Tutorial: Configurar um ambiente para aprendizado de máquina no IoT Edge
 
-> [!NOTE]
-> Este artigo faz parte de uma série para um tutorial sobre como usar o Azure Machine Learning no IoT Edge. Se você acessou este artigo diretamente, incentivamos você a começar com o [primeiro artigo](tutorial-machine-learning-edge-01-intro.md) da série para ter os melhores resultados.
-
 Este artigo ajuda você a preparar seu ambiente para desenvolvimento e implantação. Primeiro, configure um computador de desenvolvimento com todas as ferramentas necessárias. Em seguida, crie os recursos de nuvem necessários no Azure.
+
+Nesta seção do tutorial, você aprenderá a:
+
+> [!div class="checklist"]
+>
+> * Configurar uma máquina virtual para desenvolvimento.
+> * Configurar um hub IoT e o armazenamento em nuvem para uso do seu ambiente de desenvolvimento.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Este artigo faz parte de uma série para um tutorial sobre como usar o Azure Machine Learning no IoT Edge. Cada artigo da série se baseia no trabalho do artigo anterior. Se você chegou a este artigo diretamente, acesse o [primeiro artigo](tutorial-machine-learning-edge-01-intro.md) da série.
 
 ## <a name="set-up-the-development-vm"></a>Configurar a VM de desenvolvimento
 
@@ -38,7 +46,7 @@ A VM de desenvolvimento será configurada com:
 * [SDK do .NET Core](https://dotnet.microsoft.com/)
 * [Python 3](https://www.python.org/)
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [PowerShell do Azure](/powershell/azure/?view=azps-1.1.0)
+* [PowerShell do Azure](/powershell/azure/)
 * [Extensões do VS Code](https://marketplace.visualstudio.com/search?target=VSCode)
   * [Ferramentas do Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
   * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
@@ -82,7 +90,7 @@ São necessários cerca de 30 minutos para criar e configurar a máquina virtual
 
    O script é executado por vários minutos conforme executa as seguintes etapas:
 
-    1. Instala o [módulo Az do Azure PowerShell](/powershell/azure/new-azureps-module-az?view=azps-1.1.0).
+    1. Instala o [módulo Az do Azure PowerShell](/powershell/azure/new-azureps-module-az).
     1. Solicita que você entre no Azure.
     1. Confirma as informações para a criação da VM. Pressione **y** ou **ENTER** para continuar.
     1. Cria o grupo de recursos caso ele não exista.
@@ -209,15 +217,13 @@ Como parte da criação do Hub IoT, o script que executamos na seção anterior 
 
 1. Como nenhuma edição foi feita, basta fechar esta página.
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Este tutorial faz parte de um conjunto em que cada artigo se baseia no trabalho feito nos anteriores. Aguarde para limpar todos os recursos até concluir o tutorial final.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, criamos um Hub IoT e configuramos uma rota para uma conta do Armazenamento do Azure. Em seguida, enviaremos dados de um conjunto de dispositivos simulados por meio do Hub IoT para a conta de armazenamento. Mais adiante no tutorial, após configuramos o dispositivo e os módulos do IoT Edge, vamos revisitar as rotas e examinar um pouco mais a consulta de roteamento.
-
-Para obter mais informações sobre as etapas abordadas nesta parte do tutorial de Machine Learning no IoT Edge, confira:
-
-* [Conceitos básicos do Azure IoT](../iot-fundamentals/index.yml)
-* [Configurar o roteamento de mensagens com o Hub IoT](../iot-hub/tutorial-routing.md)
-* [Criar um Hub IoT usando o portal do Azure](../iot-hub/iot-hub-create-through-portal.md)
 
 Continue para o próximo artigo para criar um dispositivo simulado para monitoramento.
 

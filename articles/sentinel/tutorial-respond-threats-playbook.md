@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2019
 ms.author: yelevin
-ms.openlocfilehash: 0e7d790fa9c5d4052ddb1e20defed1d1cc457a2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6fd26b4965b92f5f06a008d67e2d585fd1b41b7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840193"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94652069"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel"></a>Tutorial: Configurar respostas de ameaças automatizadas no Azure Sentinel
 
@@ -39,7 +39,7 @@ Este tutorial ajuda você a usar os Guias estratégicos de segurança no Azure S
 
 ## <a name="what-is-a-security-playbook-in-azure-sentinel"></a>O que é um Guia estratégico de segurança no Azure Sentinel?
 
-Um Guia estratégico de segurança é uma coleção de procedimentos que podem ser executados em resposta a um alerta. Um guia estratégico de segurança pode ajudar a automatizar e coordenar a resposta e pode ser executado manualmente ou definido para ser executado automaticamente quando os alertas específicos forem disparados. Guias estratégicos de segurança no Azure Sentinel se baseiam em [Aplicativos Lógicos do Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps), o que significa que você obtém toda a potência, capacidade de personalização e modelos internos de aplicativos lógicos. Cada Guia estratégico é criado para a assinatura específica que você escolher, mas quando você examinar a página Guias estratégicos, você verá todos os Guias estratégicos em nenhuma assinatura selecionada.
+Um Guia estratégico de segurança é uma coleção de procedimentos que podem ser executados em resposta a um alerta. Um guia estratégico de segurança pode ajudar a automatizar e coordenar a resposta e pode ser executado manualmente ou definido para ser executado automaticamente quando os alertas específicos forem disparados. Guias estratégicos de segurança no Azure Sentinel se baseiam em [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md), o que significa que você obtém toda a potência, capacidade de personalização e modelos internos de aplicativos lógicos. Cada Guia estratégico é criado para a assinatura específica que você escolher, mas quando você examinar a página Guias estratégicos, você verá todos os Guias estratégicos em nenhuma assinatura selecionada.
 
 > [!NOTE]
 > O Guia estratégico aproveita os Aplicativos Lógicos do Azure e, portanto, geram encargos. Visite a página [Aplicativos Lógicos do Azure](https://azure.microsoft.com/pricing/details/logic-apps/) para obter mais detalhes de preços.
@@ -118,5 +118,3 @@ Para automatizar as respostas:
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você aprendeu a executar um manual no Azure Sentinel. Continue para o [Como buscar ameaças proativamente](hunting.md) usando o Azure Sentinel.
-
-

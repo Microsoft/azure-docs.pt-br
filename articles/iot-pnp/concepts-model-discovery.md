@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: caaa4499cbed1dce1a858c33a9488650649a5a44
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 5f82206a7c86c5ae1e6477419faee0dca88ef883
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042908"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95495280"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Usar modelos de Plug and Play de IoT em uma solução de IoT
 
@@ -121,11 +121,11 @@ As soluções podem usar o [repositório](concepts-model-repository.md) de model
 
 Depois de identificar a ID do modelo para uma nova conexão de dispositivo, siga estas etapas:
 
-1. Recupere a definição do modelo usando a ID do modelo do repositório de modelos. Para obter mais informações, consulte [obter modelos](/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync).
+1. Recupere a definição do modelo usando a ID do modelo do repositório de modelos. Para obter mais informações, consulte [repositório de modelos de dispositivo](concepts-model-repository.md).
 
 1. Usando a definição de modelo do dispositivo conectado, você pode enumerar os recursos do dispositivo.
 
-1. Usando os recursos enumerados do dispositivo, você pode permitir que os usuários [interajam com o dispositivo](quickstart-service-node.md).
+1. Usando os recursos enumerados do dispositivo, você pode permitir que os usuários [interajam com o dispositivo](quickstart-service.md).
 
 ### <a name="custom-store"></a>Repositório personalizado
 
@@ -137,12 +137,12 @@ Depois de identificar a ID do modelo para uma nova conexão de dispositivo, siga
 
 1. Usando a definição de modelo do dispositivo conectado, você pode enumerar os recursos do dispositivo. 
 
-1. Usando os recursos enumerados do dispositivo, você pode permitir que os usuários [interajam com o dispositivo](quickstart-service-node.md).  
+1. Usando os recursos enumerados do dispositivo, você pode permitir que os usuários [interajam com o dispositivo](quickstart-service.md).  
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprendeu a integrar os modelos de IoT Plug and Play em uma solução de IoT, algumas próximas etapas sugeridas são:
 
-- [Interagir com um dispositivo da sua solução](quickstart-service-node.md)
+- [Interagir com um dispositivo da sua solução](quickstart-service.md)
 - [API REST de monodigital de IoT](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT Explorer](howto-use-iot-explorer.md)

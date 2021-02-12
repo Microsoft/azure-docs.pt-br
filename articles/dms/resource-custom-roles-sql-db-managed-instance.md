@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.openlocfilehash: e950e34a1965e309d226c42bf4b3128cbe3bf3c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dad02735228bb639981bf3f053a74f29d1944e5a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291496"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961474"
 ---
 # <a name="custom-roles-for-sql-server-to-azure-sql-managed-instance-online-migrations"></a>Funções personalizadas para SQL Server para migrações do SQL Instância Gerenciada online do Azure
 
@@ -32,7 +32,7 @@ No momento, é recomendável criar no mínimo duas funções personalizadas para
 > [!NOTE]
 > O último requisito de função personalizada pode eventualmente ser removido, pois o novo código do SQL Instância Gerenciada é implantado no Azure.
 
-**Função personalizada para a ID do aplicativo**. Essa função é necessária para a migração do serviço de migração de banco de dados do Azure no nível de *recurso* ou *grupo de recursos* (para obter mais informações sobre a ID do aplicativo, consulte o artigo [usar o portal para criar um aplicativo do Azure AD e uma entidade de serviço que possa acessar recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)).
+**Função personalizada para a ID do aplicativo**. Essa função é necessária para a migração do serviço de migração de banco de dados do Azure no nível de *recurso* ou *grupo de recursos* (para obter mais informações sobre a ID do aplicativo, consulte o artigo [usar o portal para criar um aplicativo do Azure AD e uma entidade de serviço que possa acessar recursos](../active-directory/develop/howto-create-service-principal-portal.md)).
 
 ```json
 {
@@ -83,7 +83,7 @@ No momento, é recomendável criar no mínimo duas funções personalizadas para
 
 O JSON acima deve ser armazenado em três arquivos de texto e você pode usar os cmdlets AzureRM, AZ PowerShell ou CLI do Azure para criar as funções usando **New-AzureRmRoleDefinition (AzureRM)** ou **New-AzRoleDefinition (AZ)**.
 
-Para obter mais informações, consulte o artigo [funções personalizadas do Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
+Para obter mais informações, consulte o artigo [funções personalizadas do Azure](../role-based-access-control/custom-roles.md).
 
 Depois de criar essas funções personalizadas, você deve adicionar atribuições de função aos usuários e às IDs do aplicativo aos recursos ou grupos de recursos apropriados:
 
@@ -142,7 +142,7 @@ Se o número de funções personalizadas na sua Azure Active Directory não for 
 
 Para atribuir uma função à ID de usuários/aplicativos, abra o portal do Azure, execute as seguintes etapas:
 
-1. Navegue até o grupo de recursos ou recurso (exceto para a função que precisa ser concedida na assinatura), acesse **controle de acesso**e role para localizar as funções personalizadas que você acabou de criar.
+1. Navegue até o grupo de recursos ou recurso (exceto para a função que precisa ser concedida na assinatura), acesse **controle de acesso** e role para localizar as funções personalizadas que você acabou de criar.
 
 2. Selecione a função apropriada, selecione a ID do aplicativo e salve as alterações.
 

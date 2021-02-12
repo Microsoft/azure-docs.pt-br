@@ -1,7 +1,7 @@
 ---
 title: Diagnóstico de desempenho de máquinas virtuais do Azure | Microsoft Docs
 description: Apresenta o Diagnóstico de Desempenho do Azure para Windows.
-services: virtual-machines-windows'
+services: virtual-machines-windows
 documentationcenter: ''
 author: anandhms
 manager: cshepard
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: 04b70e593e8b1bee8beb72ac88bc8441bc38bb9a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 70d1a52ff3326fcd3a628cc7f0f9d91edc9274e7
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963237"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655383"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Diagnóstico de desempenho de máquinas virtuais do Azure
 
@@ -48,12 +48,12 @@ Você pode executar o diagnóstico de desempenho diretamente do portal do Azure,
 
     | Distribuição               | Versão                                         |
     |----------------------------|-------------------------------------------------|
-    | Servidor de Oracle Linux        | 6,10 [ `*` ], 7,3, 7,6, 7,5 |
-    | CentOS                     | 6,5 [ `*` ], 7,6                                    |
-    | RHEL                       | 7,2, 7,5, 8,0 [ `*` ]                               |
+    | Servidor de Oracle Linux        | 6,10 [ `*` ], 7,3, 7,5, 7,6, 7,7, 7,8 |
+    | CentOS                     | 6,5 [ `*` ], 7,6, 7,7, 7,8                                    |
+    | RHEL                       | 7,2, 7,5, 8,0 [ `*` ], 8,1, 8,2                               |
     | Ubuntu                     | 14, 4, 16, 4, 18, 4, 20, 4                               |
     | Debian                     | 8, 9, 10 [ `*` ]                                    |
-    | SLES                       | 12 SP4 [ `*` ]                                      |
+    | SLES                       | 12 SP4 [ `*` ], 12 SP5 [ `*` ], 15 [ `*` ], 15 SP1 [ `*` ], 15 SP2 [ `*` ]                                      |
     |                            |                                                   |
 
 >[!Note]

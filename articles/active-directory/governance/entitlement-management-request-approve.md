@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca42ddbc648f7c342b1cd649c19b77df803257d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fddb3b171e5a26273cb2e0045f11e3a4dbb48c5f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979824"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655094"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Aprovar ou negar solicitações de acesso no gerenciamento de direitos do Azure AD
 
@@ -57,11 +57,11 @@ Se você não tiver o email, poderá encontrar as solicitações de acesso que a
 
 1. Clique em **detalhes da solicitação**.
 
-     ![Meu Portal de acesso-solicitação de acesso – clique em detalhes da solicitação](./media/entitlement-management-request-approve/requestor-information-request-details.png)
+    ![Meu Portal de acesso-solicitação de acesso – clique em detalhes da solicitação](./media/entitlement-management-request-approve/requestor-information-request-details.png)
 
 1. As informações fornecidas pelo solicitante estarão na parte inferior do painel.
 
-     ![Portal Meus Acessos – Solicitação de acesso](./media/entitlement-management-request-approve/requestor-information-requestor-answers.png)
+    ![Captura de tela mostra os detalhes da solicitação](./media/entitlement-management-request-approve/requestor-information-requestor-answers.png)
 
 1. Com base nas informações fornecidas pelo solicitante, você pode aprovar ou negar a solicitação. Consulte as etapas em aprovar ou negar solicitação para obter diretrizes.
 
@@ -81,7 +81,7 @@ Depois de abrir uma solicitação de acesso com aprovação pendente, você pode
 
 1. Se necessário, insira um motivo.
 
-    ![Portal Meus Acessos – Solicitação de acesso](./media/entitlement-management-request-approve/my-access-approve-request.png)
+    ![Captura de tela mostra a página onde você aceita ou nega a solicitação.](./media/entitlement-management-request-approve/my-access-approve-request.png)
 
 1. Clique em **Enviar** para enviar sua decisão.
 

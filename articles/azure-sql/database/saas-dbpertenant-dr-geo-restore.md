@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: daccbd9dfb3ed628d8a3e604cbb9af4045f1ebe6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3fe6095595f5270b18536e6ef46afe4a0a5b3268
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780879"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607704"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Usar a restauração geográfica para recuperar um aplicativo SaaS multilocatário de backups de banco de dados
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -163,7 +163,7 @@ O processo de recuperação faz o seguinte:
 
     * Os bancos de dados de locatário podem ser acessados pelo aplicativo assim que são marcados como online no catálogo.
 
-    * A soma dos valores de rowversion no banco de dados de locatário é armazenada no catálogo. Essa soma atua como uma impressão digital que permite que o processo de repatriação determine se o banco de dados foi atualizado na região de recuperação.       
+    * A soma dos valores de rowversion no banco de dados de locatário é armazenada no catálogo. Essa soma atua como uma impressão digital que permite que o processo de repatriação determine se o banco de dados foi atualizado na região de recuperação.
 
 ## <a name="run-the-recovery-script"></a>Executar o script de recuperação
 

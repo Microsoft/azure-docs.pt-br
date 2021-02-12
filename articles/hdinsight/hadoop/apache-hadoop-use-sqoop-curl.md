@@ -1,18 +1,15 @@
 ---
 title: Use a rotação para exportar dados com o Apache Sqoop no Azure HDInsight
 description: Saiba como enviar remotamente trabalhos do Apache Sqoop para o Azure HDInsight usando a rotação.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/06/2020
-ms.openlocfilehash: 9104be9975568c52f6a96994a0afb782a406fe4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4de42bf30824fd71228aa27cc478a54ec3741da9
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86076259"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928354"
 ---
 # <a name="run-apache-sqoop-jobs-in-hdinsight-with-curl"></a>Executar trabalhos do Apache Sqoop no HDInsight com ondulação
 

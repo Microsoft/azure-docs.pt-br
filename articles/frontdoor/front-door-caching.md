@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: 1a8064c3ff89c0bc8b0ceb5249492b912c219ce8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d001a7a24d44c46a19bde08051e21d3ae3c5acb8
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535824"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538044"
 ---
 # <a name="caching-with-azure-front-door"></a>Caching com a porta frontal do Azure
 O documento a seguir especifica comportamentos para a porta frontal com regras de roteamento que habilitaram o Caching. A porta frontal é uma CDN (rede de distribuição de conteúdo) moderna com aceleração de site dinâmica e balanceamento de carga; ela também dá suporte a comportamentos de cache, assim como qualquer outra CDN.
@@ -24,13 +24,13 @@ O documento a seguir especifica comportamentos para a porta frontal com regras d
 ## <a name="delivery-of-large-files"></a>Entrega de arquivos grandes
 A porta frontal do Azure fornece arquivos grandes sem limite de tamanho de arquivo. O Front Door usa uma técnica chamada agrupamento de objeto. Quando um arquivo grande é solicitado, o Front Door recupera partes menores do arquivo a partir do back-end. Depois de receber uma solicitação de arquivo completa ou de intervalo de bytes, o ambiente de porta frontal solicita o arquivo do back-end em partes de 8 MB.
 
-</br>Depois que a parte chega ao ambiente de porta frontal, ela é armazenada em cache e imediatamente fornecida ao usuário. Em seguida, o Front Door efetua a pré-busca da próxima parte em paralelo. Essa pré-busca garante que o conteúdo permaneça uma parte à frente do usuário, o que reduz a latência. Esse processo continua até que todo o arquivo seja baixado (se solicitado) ou o cliente feche a conexão.
+Depois que a parte chega ao ambiente de porta frontal, ela é armazenada em cache e imediatamente fornecida ao usuário. Em seguida, o Front Door efetua a pré-busca da próxima parte em paralelo. Essa pré-busca garante que o conteúdo permaneça uma parte à frente do usuário, o que reduz a latência. Esse processo continua até que todo o arquivo seja baixado (se solicitado) ou o cliente feche a conexão.
 
-</br>Para obter mais informações sobre a solicitação de intervalo de bytes, leia [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
+Para obter mais informações sobre a solicitação de intervalo de bytes, leia [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
 A porta frontal armazena em cache todas as partes à medida que elas são recebidas para que o arquivo inteiro não precise ser armazenado em cache no cache da porta frontal. Solicitações que podem ser feitas para os intervalos de arquivo ou de bytes são servidas do cache. Se as partes não estiverem todas armazenadas em cache, a pré-busca será usada para solicitar partes do back-end. Essa otimização depende da capacidade do back-end de dar suporte a solicitações de intervalo de bytes. Se o back-end não der suporte a solicitações de intervalo de bytes, essa otimização não será eficaz.
 
 ## <a name="file-compression"></a>Compactação de arquivo
-A porta frontal pode compactar dinamicamente o conteúdo na borda, resultando em um tempo de resposta menor e mais rápido para seus clientes. Todos os arquivos são qualificados para compactação. No entanto, um arquivo deve ser de um tipo MIME para ser qualificado para compactação. Atualmente, a porta frontal não permite que essa lista seja alterada. A lista atual é:</br>
+A porta frontal pode compactar dinamicamente o conteúdo na borda, resultando em um tempo de resposta menor e mais rápido para seus clientes. Para que um arquivo seja qualificado para compactação, o cache deve ser habilitado e o arquivo deve ser de um tipo MIME para ser qualificado para compactação. Atualmente, a porta frontal não permite que essa lista seja alterada. A lista atual é:
 - "application/eot"
 - "application/font"
 - "application/font-sfnt"

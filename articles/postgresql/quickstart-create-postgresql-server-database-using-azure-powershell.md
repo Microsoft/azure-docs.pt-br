@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 06/08/2020
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: 91351c0b2982c6ee0e96cc1433c0fadf67e3bcc0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485419"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010649"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-powershell"></a>Início Rápido: Criar um Banco de Dados do Azure para PostgreSQL – Servidor único usando o PowerShell
 
@@ -29,7 +29,7 @@ Se você optar por usar o PowerShell localmente, este artigo exigirá que você 
 > Enquanto o módulo Az.PostgreSql PowerShell está em versão prévia, você precisa instalá-lo separadamente do módulo Az PowerShell usando o seguinte comando: `Install-Module -Name Az.PostgreSql -AllowPrerelease`.
 > Depois que o módulo Az.PostgreSql PowerShell estiver em disponibilidade geral, ele passará a fazer parte das versões futuras do módulo do Az PowerShell e estará disponível nativamente no Azure Cloud Shell.
 
-Se esta é a primeira vez que você usa o serviço de Banco de Dados do Azure para PostgreSQL, registre o provedor de recursos **Microsoft.DBforPostgreSQL** .
+Se esta é a primeira vez que você usa o serviço de Banco de Dados do Azure para PostgreSQL, registre o provedor de recursos **Microsoft.DBforPostgreSQL**.
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.DBforPostgreSQL
@@ -47,7 +47,7 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 Crie um [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) usando o cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados como um grupo.
 
-O seguinte exemplo cria um grupo de recursos chamado **myresourcegroup** na região **Oeste dos EUA** .
+O seguinte exemplo cria um grupo de recursos chamado **myresourcegroup** na região **Oeste dos EUA**.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myresourcegroup -Location westus
@@ -70,10 +70,10 @@ A tabela a seguir contém uma lista de parâmetros usados com frequência e valo
 | SslEnforcement             | habilitado          | Se o SSL deve ser habilitado para este servidor. Valores permitidos: Habilitado, Desabilitado.                                                                                                                                                                                                                                                 |
 | StorageInMb                | 51200            | A capacidade de armazenamento do servidor (a unidade é megabytes). O StorageInMb válido é um mínimo de 5120 MB e aumenta em incrementos de 1024 MB. Para obter mais informações sobre limites de tamanho de armazenamento, confira [Tipos de preço do Banco de Dados do Azure para PostgreSQL](./concepts-pricing-tiers.md).                                                                               |
 | Versão                    | 9.6.              | A versão principal do PostgreSQL.                                                                                                                                                                                                                                                                                                                 |
-| AdministratorUserName      | myadmin          | O nome de usuário para o logon de administrador. Não pode ser **azure_superuser** , **admin** , **administrator** , **root** , **guest** nem **public** .                                                                                                                                                                                            |
+| AdministratorUserName      | myadmin          | O nome de usuário para o logon de administrador. Não pode ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** nem **public**.                                                                                                                                                                                            |
 | AdministratorLoginPassword | `<securestring>` | A senha do usuário administrador na forma de uma cadeia de caracteres segura. Ele deve conter entre 8 e 128 caracteres. A senha precisa conter caracteres de três das seguintes categorias: Letras maiúsculas, letras minúsculas, números e caracteres não alfanuméricos.                                       |
 
-O valor do parâmetro **SKU** segue a convenção **pricing-tier\_compute-generation\_vCores** , conforme mostrado nestes exemplos.
+O valor do parâmetro **SKU** segue a convenção **pricing-tier\_compute-generation\_vCores**, conforme mostrado nestes exemplos.
 
 - `-Sku B_Gen5_1` é mapeado para Básico, Gen 5 e 1 vCore. Essa opção é o menor SKU disponível.
 - `-Sku GP_Gen5_32` mapeia para Uso Geral, Gen 5 e 32 vCores.
@@ -81,7 +81,7 @@ O valor do parâmetro **SKU** segue a convenção **pricing-tier\_compute-genera
 
 Para obter informações sobre valores de **SKU** válidos por região e para camadas, confira [Tipos de preço do Banco de Dados do Azure para PostgreSQL](./concepts-pricing-tiers.md).
 
-O exemplo a seguir cria um servidor PostgreSQL na região **Oeste dos EUA** denominada **mydemoserver** no grupo de recursos **myresourcegroup** com um logon de administrador do servidor de **myadmin** . É um servidor Gen 5 no tipo de preço de uso geral com dois vCores e backups com redundância geográfica habilitados. Documente a senha usada na primeira linha do exemplo, pois essa é a senha da conta do administrador do servidor PostgreSQL.
+O exemplo a seguir cria um servidor PostgreSQL na região **Oeste dos EUA** denominada **mydemoserver** no grupo de recursos **myresourcegroup** com um logon de administrador do servidor de **myadmin**. É um servidor Gen 5 no tipo de preço de uso geral com dois vCores e backups com redundância geográfica habilitados. Documente a senha usada na primeira linha do exemplo, pois essa é a senha da conta do administrador do servidor PostgreSQL.
 
 > [!TIP]
 > Um nome de servidor mapeia para um nome DNS e deve ser globalmente exclusivo no Azure.
@@ -100,7 +100,7 @@ Considere usar o tipo de preço Básico se computação leve e E/S forem adequad
 
 Crie uma regra de firewall no nível de servidor do Banco de Dados do Azure para PostgreSQL usando o cmdlet `New-AzPostgreSqlFirewallRule`. Uma regra de firewall no nível de servidor permite que um aplicativo externo, como a ferramenta de linha de comando `psql` ou o PostgreSQL Workbench, conecte-se ao servidor por meio do firewall do serviço Banco de Dados do Azure para PostgreSQL.
 
-O exemplo a seguir cria uma regra de firewall chamada **AllowMyIP** , que permite conexões de um endereço IP específico, 192.168.0.1. Substitua um endereço IP ou um intervalo de endereços IP que correspondam à localização da qual você está se conectando.
+O exemplo a seguir cria uma regra de firewall chamada **AllowMyIP**, que permite conexões de um endereço IP específico, 192.168.0.1. Substitua um endereço IP ou um intervalo de endereços IP que correspondam à localização da qual você está se conectando.
 
 ```azurepowershell-interactive
 New-AzPostgreSqlFirewallRule -Name AllowMyIP -ResourceGroupName myresourcegroup -ServerName mydemoserver -StartIPAddress 192.168.0.1 -EndIPAddress 192.168.0.1
@@ -111,7 +111,7 @@ New-AzPostgreSqlFirewallRule -Name AllowMyIP -ResourceGroupName myresourcegroup 
 
 ## <a name="get-the-connection-information"></a>Obter informações de conexão
 
-Para se conectar ao servidor, é preciso fornecer credenciais de acesso e informações do host. Use o exemplo a seguir para determinar as informações de conexão. Anote os valores de **FullyQualifiedDomainName** e o **AdministratorLogin** .
+Para se conectar ao servidor, é preciso fornecer credenciais de acesso e informações do host. Use o exemplo a seguir para determinar as informações de conexão. Anote os valores de **FullyQualifiedDomainName** e o **AdministratorLogin**.
 
 ```azurepowershell-interactive
 Get-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
@@ -161,43 +161,43 @@ pgAdmin é uma ferramenta de software livre usada com PostgreSQL. Instale o pgAd
 
 1. Abra o aplicativo pgAdmin no computador cliente.
 
-1. Na barra de ferramentas, vá para **Objeto** , passe o mouse sobre **Criar** e selecione **Servidor** .
+1. Na barra de ferramentas, vá para **Objeto**, passe o mouse sobre **Criar** e selecione **Servidor**.
 
-1. Na caixa de diálogo **Criar – Servidor** , na guia **Geral** , insira um nome amigável exclusivo para o servidor, como **mydemoserver** .
+1. Na caixa de diálogo **Criar – Servidor**, na guia **Geral**, insira um nome amigável exclusivo para o servidor, como **mydemoserver**.
 
    :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-azure-powershell/9-pgadmin-create-server.png" alt-text="A guia Geral":::
 
-1. Na caixa de diálogo **Criar - Servidor** da guia **Conexão** , preencha a tabela de configurações.
+1. Na caixa de diálogo **Criar - Servidor** da guia **Conexão**, preencha a tabela de configurações.
 
-   :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-azure-powershell/10-pgadmin-create-server.png" alt-text="A guia Geral":::
+   :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-azure-powershell/10-pgadmin-create-server.png" alt-text="A guia Conexão":::
 
     parâmetro pgAdmin |Valor|Descrição
     ---|---|---
-    Nome/endereço do host | Nome do servidor | O valor do nome do servidor usado ao criar o Banco de Dados do Azure para o servidor PostgreSQL anteriormente. Nosso servidor de exemplo é **mydemoserver.postgres.database.azure.com.** Use o nome de domínio totalmente qualificado ( **\*.postgres.database.azure.com** ), conforme mostrado no exemplo. Caso não se lembre do nome do servidor, siga as etapas da seção anterior para obter as informações de conexão.
+    Nome/endereço do host | Nome do servidor | O valor do nome do servidor usado ao criar o Banco de Dados do Azure para o servidor PostgreSQL anteriormente. Nosso servidor de exemplo é **mydemoserver.postgres.database.azure.com.** Use o nome de domínio totalmente qualificado ( **\*.postgres.database.azure.com**), conforme mostrado no exemplo. Caso não se lembre do nome do servidor, siga as etapas da seção anterior para obter as informações de conexão.
     Porta | 5432 | A porta a ser usada ao se conectar ao Banco de Dados do Azure para o servidor PostgreSQL.
     Banco de dados de manutenção | *postgres* | O nome do banco de dados padrão gerado pelo sistema.
-    Nome de Usuário | Nome de logon do administrador do servidor | O nome de usuário de logon do administrador do servidor fornecido ao criar o Banco de Dados do Azure para o servidor PostgreSQL anteriormente. Caso não se lembre do nome de usuário, siga as etapas da seção anterior para obter as informações de conexão. O formato é *nome de usuário\@nome do servidor* .
+    Nome de Usuário | Nome de logon do administrador do servidor | O nome de usuário de logon do administrador do servidor fornecido ao criar o Banco de Dados do Azure para o servidor PostgreSQL anteriormente. Caso não se lembre do nome de usuário, siga as etapas da seção anterior para obter as informações de conexão. O formato é *nome de usuário\@nome do servidor*.
     Senha | Sua senha de administrador | A senha que você escolheu ao criar o servidor anteriormente neste Guia de início rápido.
     Função | Deixar em branco | Não é necessário fornecer um nome de função neste momento. Deixe o campo em branco.
     Modo SSL | *Exigir* | Você pode definir o modo TLS/SSL na guia SSL do pgAdmin. Por padrão, todos os servidores do Banco de Dados do Azure para PostgreSQL são criados com a imposição de TLS ligada. Para desligar a imposição de TLS, confira [Configurar a imposição de TLS](./concepts-ssl-connection-security.md#configure-enforcement-of-tls).
 
-1. Clique em **Salvar** .
+1. Clique em **Salvar**.
 
-1. No painel **Navegador** à esquerda, expanda o nó **Servidores** . Selecione o servidor, por exemplo, **mydemoserver** . Clique nele para se conectar a ele.
+1. No painel **Navegador** à esquerda, expanda o nó **Servidores**. Selecione o servidor, por exemplo, **mydemoserver**. Clique nele para se conectar a ele.
 
 1. Expanda o nó do servidor e expanda **Bancos de Dados** nele. A lista deve conter o banco de dados *postgres* existente e outros bancos de dados criados. Você pode criar vários bancos de dados por servidor com o Banco de Dados do Azure para PostgreSQL.
 
-1. Clique com o botão direito do mouse em **Bancos de Dados** , escolha o menu **Criar** e, em seguida, selecione **Banco de Dados** .
+1. Clique com o botão direito do mouse em **Bancos de Dados**, escolha o menu **Criar** e, em seguida, selecione **Banco de Dados**.
 
-1. Digite um nome de banco de dados de sua escolha no campo **Banco de Dados** , como **mypgsqldb2** .
+1. Digite um nome de banco de dados de sua escolha no campo **Banco de Dados**, como **mypgsqldb2**.
 
-1. Selecione o **Proprietário** do banco de dados na caixa de listagem. Escolha o nome de logon do administrador do servidor, como o exemplo, **myadmin** .
+1. Selecione o **Proprietário** do banco de dados na caixa de listagem. Escolha o nome de logon do administrador do servidor, como o exemplo, **myadmin**.
 
-   :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-azure-powershell/11-pgadmin-database.png" alt-text="A guia Geral":::
+   :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-azure-powershell/11-pgadmin-database.png" alt-text="Criar um banco de dados em pgAdmin":::
 
 1. Selecione **Salvar** para criar um novo banco de dados em branco.
 
-1. No painel **Procurar** , veja o banco de dados criado na lista de bancos de dados com o nome do servidor.
+1. No painel **Procurar**, veja o banco de dados criado na lista de bancos de dados com o nome do servidor.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

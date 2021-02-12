@@ -15,11 +15,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4410708905610562feb15804277021950eb1edeb
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91826521"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96176283"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Tutorial: Federar um ambiente com uma única floresta do AD na nuvem
 
@@ -237,7 +237,7 @@ Agora que temos um locatário e um administrador global, precisamos adicionar no
 Agora é hora de baixar e instalar o Azure AD Connect.  Uma vez instalado, vamos executar a instalação expressa.  Faça o seguinte:
 
 1. Baixe o [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)
-2. Navegue até **AzureADConnect.msi**e clique duas vezes nessa opção.
+2. Navegue até **AzureADConnect.msi** e clique duas vezes nessa opção.
 3. Na tela de boas-vindas, marque a caixa de concordar com os termos da licença e clique em **Continuar**.  
 4. Na tela Configurações Expressas, clique em **Personalizar**.  
 5. Na tela Instalar componentes necessários. Clique em **Instalar**.  

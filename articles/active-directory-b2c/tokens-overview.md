@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d7a143f99eca73e0620e24ac5d93141ddb7d99e6
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: b4e268d35a2e31db0ce92ff61e66fd23bce68e38
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215953"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516363"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Visão geral dos tokens no Azure Active Directory B2C
 
@@ -97,7 +97,7 @@ As propriedades a seguir são usadas para [gerenciar a compatibilidade do token]
 
 ## <a name="pass-through"></a>Passagem
 
-Quando a jornada de um usuário é iniciada, o Azure AD B2C recebe um token de acesso de um provedor de identidade. O Azure Active Directory B2C usa esse token para recuperar informações sobre o usuário. [Habilite uma declaração no seu fluxo de usuário](idp-pass-through-user-flow.md) ou [defina uma declaração em uma política personalizada](idp-pass-through-custom.md) para passar o token por meio para os aplicativos que você se registrar no Azure AD B2C. Seu aplicativo deve estar usando um [fluxo de usuário recomendado](user-flow-versions.md) para aproveitar a passagem do token como uma declaração.
+Quando a jornada de um usuário é iniciada, o Azure AD B2C recebe um token de acesso de um provedor de identidade. O Azure Active Directory B2C usa esse token para recuperar informações sobre o usuário. Você habilita uma declaração em seu fluxo de usuário para [passar o token](idp-pass-through-user-flow.md) para os aplicativos que você registra no Azure ad B2C. Seu aplicativo deve estar usando um [fluxo de usuário recomendado](user-flow-versions.md) para aproveitar a passagem do token como uma declaração.
 
 Atualmente, o Azure AD B2C é compatível somente com a passagem do token de acesso dos provedores de identidade do OAuth 2.0, que incluem o Facebook e o Google. Para todos os outros provedores de identidade, a declaração é retornada em branco.
 
@@ -134,7 +134,7 @@ O documento de metadados para a política `B2C_1_signupsignin1` no locatário `c
 https://contoso.b2clogin.com/contoso.onmicrosoft.com/b2c_1_signupsignin1/v2.0/.well-known/openid-configuration
 ```
 
-Para determinar qual política foi usada para assinar um token (e onde ir para solicitar os metadados), você tem duas opções. Primeiro, o nome da política é incluído na declaração `acr` no token. Você pode analisar as declarações fora do corpo do JWT decodificando em base 64 o corpo e desserializando a cadeia de caracteres JSON resultante. A declaração `acr` é o nome da política que foi usada para emitir o token. A outra opção é codificar a política no valor do parâmetro `state` quando você emitir a solicitação e, em seguida, decodificá-lo para determinar qual política foi usada. Ambos os métodos são válidos.
+Para determinar qual política foi usada para assinar um token (e onde ir para solicitar os metadados), você tem duas opções. Primeiro, o nome da política é incluído no `tfp` (padrão) ou na `acr` declaração (conforme configurado) no token. Você pode analisar as declarações fora do corpo do JWT decodificando em base 64 o corpo e desserializando a cadeia de caracteres JSON resultante. A `tfp` `acr` declaração ou é o nome da política que foi usada para emitir o token. A outra opção é codificar a política no valor do parâmetro `state` quando você emitir a solicitação e, em seguida, decodificá-lo para determinar qual política foi usada. Ambos os métodos são válidos.
 
 Uma descrição de como executar a validação de assinatura está fora do escopo deste documento. Muitas bibliotecas de software livre estão disponíveis para ajudar você a validar um token.
 

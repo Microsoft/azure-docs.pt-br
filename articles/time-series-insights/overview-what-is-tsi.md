@@ -8,14 +8,14 @@ ms.author: shresha
 manager: dpalled
 ms.workload: big-data
 ms.topic: overview
-ms.date: 10/02/2020
+ms.date: 12/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: fa0416db440e6433829b8077b6988eeaa6a596ad
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ae5887657e7657e60348217c21aa0ed17f9f4b07
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667054"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606293"
 ---
 # <a name="what-is-azure-time-series-insights-gen2"></a>O que é o Azure Time Series Insights Gen2
 
@@ -83,7 +83,7 @@ Com a introdução dessas funcionalidades básicas de IoT industrial, o Azure Ti
 | Armazenamento em várias camadas para dados de série temporal em escala de IoT | Com um pipeline de processamento de dados compartilhado para ingestão de dados, é possível ingerir os dados em lojas categorizados como frios e mornos. Use o armazenamento morno para consultas interativas e o armazenamento frio para armazenar grandes volumes de dados. Para saber mais sobre como aproveitar as consultas baseadas em ativos de alto desempenho, confira [consultas](./concepts-query-overview.md). |
 | Modelo de série temporal para contextualizar dados telemétricos brutos e derivar insights baseados em ativos | Você pode usar o modelo de série temporal para criar instâncias, hierarquias, tipos e variáveis para seus dados de série temporal. Para saber mais sobre o modelo de série temporal, confira [Modelo de série temporal](./concepts-model-overview.md).  |
 | Integração perfeita e contínua com outras soluções de dados | Os dados do armazenamento frio do Azure Time Series Insights Gen2 são [armazenados](./concepts-storage.md) em arquivos Apache Parquet de software livre. Isso permite a integração de dados com outras soluções de dados, de fontes primárias ou de terceiros, para cenários que incluem inteligência comercial, aprendizado de máquina avançado e análise preditiva. |
-| Exploração de dados quase em tempo real | A experiência do usuário do [Azure Time Series Insights Gen2 Explorer](./time-series-insights-update-explorer.md) fornece uma visualização de todos os dados transmitidos por meio do pipeline de ingestão. Depois de conectar uma fonte de eventos, é possível exibir, explorar e consultar dados de eventos. Dessa forma, você pode validar se um dispositivo emite os dados conforme o esperado. Você também pode monitorar um ativo de IoT em relação à integridade, à produtividade e à eficiência geral. |
+| Exploração de dados quase em tempo real | A experiência do usuário do [Azure Time Series Insights Gen2 Explorer](./concepts-ux-panels.md) fornece uma visualização de todos os dados transmitidos por meio do pipeline de ingestão. Depois de conectar uma fonte de eventos, é possível exibir, explorar e consultar dados de eventos. Dessa forma, você pode validar se um dispositivo emite os dados conforme o esperado. Você também pode monitorar um ativo de IoT em relação à integridade, à produtividade e à eficiência geral. |
 | Extensibilidade e integração | A integração do Conector do Power BI está disponível diretamente na experiência do usuário do Time Series Explorer por meio da opção **Exportar**, permitindo que os clientes exportem as consultas de série temporal criadas com a nossa experiência do usuário diretamente para o Power BI Desktop e vejam os gráficos de série temporal juntamente com outras análises de BI. Isso abre a porta para uma nova classe de cenários para empresas de IoT industriais que investiram no Power BI, fornecendo um único painel de controle sobre análises de várias fontes de dados, incluindo séries temporais da IoT. |
 | Criação de aplicativos personalizados na plataforma Azure Time Series Insights Gen2 | O Azure Time Series Insights Gen2 dá suporte ao [SDK do JavaScript](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). O SDK fornece controles avançados e acesso simplificado às consultas. Use o SDK para criar aplicativos IoT personalizados no Azure Time Series Insights Gen2 de acordo com suas necessidades de negócios. Use também as [APIs de Consulta](./concepts-query-overview.md) do Azure Time Series Insights Gen2 diretamente para levar os dados a aplicativos de IoT personalizados. |
 
@@ -92,9 +92,9 @@ Com a introdução dessas funcionalidades básicas de IoT industrial, o Azure Ti
 Introdução ao Azure Time Series Insights Gen2:
 
 > [!div class="nextstepaction"]
-> [Guia de Início Rápido](./time-series-insights-update-quickstart.md)
+> [Guia de Início Rápido](./quickstart-explore-tsi.md)
 
 Saiba mais sobre os casos de uso:
 
 > [!div class="nextstepaction"]
-> [Casos de uso do Azure Time Series Insights Gen2](./time-series-insights-update-use-cases.md)
+> [Casos de uso do Azure Time Series Insights Gen2](./overview-use-cases.md)

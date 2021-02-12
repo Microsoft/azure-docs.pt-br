@@ -1,4 +1,4 @@
-- name: Documentação da IoT Plug and Play
+- name: Documentação do IoT Plug and Play
   href: index.yml
 - name: Visão geral
   items:
@@ -12,61 +12,27 @@
     - name: Configure seu ambiente
       href: set-up-environment.md
     - name: Conectar um dispositivo ao Hub IoT
-      items:
-        - name: C
-          href: quickstart-connect-device-c.md
-        - name: Node.js
-          href: quickstart-connect-device-node.md
-        - name: Python
-          href: quickstart-connect-device-python.md
-        - name: C#
-          href: quickstart-connect-device-csharp.md
-        - name: Java
-          href: quickstart-connect-device-java.md
+      href: quickstart-connect-device.md
     - name: Interagir com um dispositivo da sua solução
-      items:
-        - name: Node.js
-          href: quickstart-service-node.md
-        - name: Python
-          href: quickstart-service-python.md
-        - name: C#
-          href: quickstart-service-csharp.md
-        - name: Java
-          href: quickstart-service-java.md
+      href: quickstart-service.md
 - name: Tutoriais
   items:
-    - name: Conectar um dispositivo de vários componentes (C)
-      href: tutorial-multiple-components-c.md
-    - name: Conectar um dispositivo de vários componentes (C#)
-      href: tutorial-multiple-components-csharp.md
-    - name: Conectar um dispositivo de vários componentes (Java)
-      href: tutorial-multiple-components-java.md
-    - name: Conectar um dispositivo de vários componentes (Node.js)
-      href: tutorial-multiple-components-node.md
-    - name: Conectar um dispositivo de vários componentes (Python)
-      href: tutorial-multiple-components-python.md
+    - name: Conectar um dispositivo de vários componentes
+      href: tutorial-multiple-components.md
     - name: Usar o MQTT para conectar um dispositivo
       href: tutorial-use-mqtt.md
     - name: Fazer a interação com um dispositivo MXChip (Amostra)
       href: /samples/azure-samples/mxchip-iot-devkit-pnp-get-started/sample/
     - name: Conectar um módulo de dispositivo
       href: tutorial-migrate-device-to-module.md
+    - name: 'Versão prévia: Conectar e analisar dados com o Time Series Insights Gen2'
+      href: tutorial-configure-tsi.md
 - name: Conceitos
   items:
     - name: Arquitetura
       href: concepts-architecture.md
     - name: Guia do desenvolvedor do dispositivo
-      items:
-        - name: C#
-          href: concepts-developer-guide-device-csharp.md
-        - name: Node.js
-          href: concepts-developer-guide-device-node.md
-        - name: Java
-          href: concepts-developer-guide-device-java.md
-        - name: Python
-          href: concepts-developer-guide-device-python.md
-        - name: C
-          href: concepts-developer-guide-device-c.md
+      href: concepts-developer-guide-device.md
     - name: Guia do desenvolvedor do serviço
       href: concepts-developer-guide-service.md
     - name: Componentes
@@ -91,8 +57,6 @@
   items:
     - name: Instalar e usar o IoT Explorer
       href: howto-use-iot-explorer.md
-    - name: Instalar e usar a ponte do IoT Plug and Play
-      href: howto-use-iot-pnp-bridge.md
     - name: Instalar e usar ferramentas de criação de DTDL
       href: howto-use-dtdl-authoring-tools.md
     - name: Usar o C inserido
@@ -101,6 +65,12 @@
       href: howto-manage-digital-twin.md
     - name: Certificar um dispositivo
       href: howto-certify-device.md
+    - name: Como conectar um exemplo de ponte do IoT Plug and Play
+      href: howto-use-iot-pnp-bridge.md
+    - name: Criar e implantar a ponte do IoT Plug and Play
+      href: howto-build-deploy-extend-pnp-bridge.md
+    - name: Estender a ponte do IoT Plug and Play
+      href: howto-author-pnp-bridge-adapter.md
 - name: Referência
   items:
     - name: Bibliotecas e SDKs

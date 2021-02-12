@@ -12,16 +12,20 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 2a8f9734714f0439383f6242cda3b51690284852
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1e913e3a5356ad7f49d8b3066f5bd3da7eddd2c2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363412"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308780"
 ---
 # <a name="publisher-verification"></a>Verificação do editor
 
-A verificação do editor ajuda administradores e usuários finais a entender a autenticidade dos desenvolvedores de aplicativos que se integram com a plataforma de identidade da Microsoft. Quando um aplicativo é marcado como verificado pelo editor, isso significa que o editor verificou sua identidade usando uma conta do [Microsoft Partner Network](https://partner.microsoft.com/membership) que concluiu a [verificação](/partner-center/verification-responses). 
+A verificação do editor ajuda administradores e usuários finais a entender a autenticidade dos desenvolvedores de aplicativos que se integram com a plataforma de identidade da Microsoft. 
+
+> [!VIDEO https://www.youtube.com/embed/IYRN2jDl5dc]
+
+Quando um aplicativo é marcado como verificado pelo editor, isso significa que o editor verificou sua identidade usando uma conta do [Microsoft Partner Network](https://partner.microsoft.com/membership) que concluiu a [verificação](/partner-center/verification-responses). 
 
 Um selo azul "verificado" aparece na solicitação de consentimento do Azure AD e em outras telas: ![Solicitação de consentimento](./media/publisher-verification-overview/consent-prompt.png)
 
@@ -33,7 +37,7 @@ A verificação do editor fornece os seguintes benefícios:
 
 - **Melhoria da identidade visual** - um selo "verificado" é exibido na [solicitação de consentimento](application-consent-experience.md) do Azure AD, na página de aplicativos empresariais e nas superfícies de UX adicionais usadas pelos usuários finais e administradores. 
 
-- **Adoção de empresa mais suave**-os administradores podem configurar [políticas de consentimento do usuário](../manage-apps/configure-user-consent.md), com o status de verificação do Publicador como um dos critérios de política primária.
+- **Adoção de empresa mais suave** -os administradores podem configurar [políticas de consentimento do usuário](../manage-apps/configure-user-consent.md), com o status de verificação do Publicador como um dos critérios de política primária.
 
 > [!NOTE]
 > A partir de novembro de 2020, os usuários finais não poderão mais conceder consentimento para os aplicativos multilocatários registrados recentemente, sem os Publicadores verificados. Isso se aplicará a aplicativos registrados após 8 de novembro de 2020, usar o OAuth 2.0 para solicitar permissões além da entrada básica e ler o perfil do usuário e solicitar consentimento de usuários em locatários diferentes daquele em que o aplicativo está registrado. Um aviso será exibido na tela de consentimento informando aos usuários que esses aplicativos são arriscados e que são de Publicadores não verificados.    

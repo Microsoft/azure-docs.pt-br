@@ -1,16 +1,16 @@
 ---
-title: Azure Policy de design como fluxos de trabalho de código
+title: Projetar os fluxos de trabalho do Azure Policy como código
 description: Aprenda a criar fluxos de trabalho para implantar suas definições do Azure Policy como código e validar automaticamente os recursos.
 ms.date: 10/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2be6c0770098d50abbb9695e04b3f53c073de9ae
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 74d2097e4db4442e6e65f30541864fb554f7379d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320604"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359673"
 ---
-# <a name="design-azure-policy-as-code-workflows"></a>Azure Policy de design como fluxos de trabalho de código
+# <a name="design-azure-policy-as-code-workflows"></a>Projetar os fluxos de trabalho do Azure Policy como código
 
 À media que você avança no percurso com Governança de Nuvem, convém mudar de gerenciar manualmente cada definição de política no portal do Azure ou por meio de vários SDKs para algo mais gerenciável e repetível em escala empresarial. Duas das abordagens predominantes para gerenciar sistemas em escala na nuvem são:
 
@@ -38,8 +38,6 @@ Exemplos desses formatos de arquivo estão disponíveis no [repositório GitHub 
 
 - Definição de política: [Adicionar uma marca aos recursos](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
 - Definição de iniciativa: [marcas de cobrança](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
-
-Além disso, examine [exportar recursos de Azure Policy](../how-to/export-resources.md) para obter suas definições e atribuições existentes no [GitHub](https://www.github.com)do ambiente de gerenciamento de código-fonte.
 
 ## <a name="workflow-overview"></a>Visão geral do fluxo de trabalho
 
@@ -73,6 +71,8 @@ As definições de política são criadas usando JSON e armazenadas no controle 
 ```
 
 Quando uma nova política é adicionada ou uma já existente atualizada, o fluxo de trabalho deve atualizar automaticamente a definição de política no Azure. O teste da definição de política nova ou atualizada vem em uma etapa posterior.
+
+Além disso, examine [exportar recursos de Azure Policy](../how-to/export-resources.md) para obter suas definições e atribuições existentes no [GitHub](https://www.github.com)do ambiente de gerenciamento de código-fonte.
 
 ### <a name="create-and-update-initiative-definitions"></a>Criar e atualizar definições de iniciativa
 

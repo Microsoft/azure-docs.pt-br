@@ -1,19 +1,17 @@
 ---
 title: 'Segurança: migrar Apache Hadoop locais para o Azure HDInsight'
 description: Saiba mais sobre as melhores práticas de segurança e de DevOps para a migração de clusters locais do Hadoop para o Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: 6fd59a346a36a304f699894c493d8ba9800489b2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: fa6a4a8686fe5a33a6f240a8e972a687e872732a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545252"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939748"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Migrar clusters do Apache Hadoop local para o Azure HDInsight – segurança e melhores práticas de DevOps
 
@@ -93,7 +91,7 @@ Para obter mais informações, consulte os seguintes artigos:
 
 Para saber mais, confira o artigo:
 
-[Visão geral de Azure Monitor](../../azure-monitor/overview.md)
+[Visão Geral do Azure Monitor](../../azure-monitor/overview.md)
 
 ## <a name="upgrade-clusters"></a>Atualizar clusters
 

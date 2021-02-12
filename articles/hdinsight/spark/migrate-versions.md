@@ -1,18 +1,15 @@
 ---
 title: Migrar cargas de trabalho do Apache Spark 2.1 ou 2.2 para 2.3 ou 2.4 - Azure HDInsight
 description: Aprenda como migrar Apache Spark 2.1 ou 2.2 para 2.3 ou 2.4.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 1ce9b0faa6636d1318871cc9ef66cfbe47908265
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af1894d2f63357006e87fa8e4533f135ecc02f21
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504971"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944752"
 ---
 # <a name="migrate-apache-spark-21-and-22-workloads-to-23-and-24"></a>Migrar cargas de trabalho Apache Spark 2.1 e 2.2 para 2.3 e 2.4
 

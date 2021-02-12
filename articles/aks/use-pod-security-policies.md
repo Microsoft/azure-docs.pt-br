@@ -4,17 +4,17 @@ description: Saiba como controlar as inmissões Pod usando o PodSecurityPolicy n
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: a9f6ead7edea7a3a6240e116d3073ea01fa9f6bb
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 77c618429503caf9aa7bb6abda109504bbf68d71
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900100"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695989"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Visualização – Proteja seu cluster usando políticas de segurança pod no serviço de kubernetes do Azure (AKS)
 
 > [!WARNING]
-> **O recurso descrito neste documento, política de segurança Pod (versão prévia), está definido para substituição e não estará mais disponível após 1º de fevereiro de 2021** em favor de [Azure Policy para AKs](use-pod-security-on-azure-policy.md). A data de reprovação foi estendida da data anterior de 15 de outubro de 2020.
+> **O recurso descrito neste documento, política de segurança de Pod (versão prévia), está definido para substituição e não estará mais disponível após 31 de maio de 2021** em favor de [Azure Policy para AKs](use-pod-security-on-azure-policy.md). A data de reprovação foi estendida da data anterior de 15 de outubro de 2020.
 >
 > Depois que a política de segurança de pods (versão prévia) for preterida, você precisará desabilitar o recurso em todos os clusters existentes usando o recurso preterido para realizar futuras atualizações de cluster e permanecer dentro do suporte do Azure.
 >
@@ -52,7 +52,7 @@ Para criar ou atualizar um cluster AKS para usar políticas de segurança de Pod
 az feature register --name PodSecurityPolicyPreview --namespace Microsoft.ContainerService
 ```
 
-Demora alguns minutos para o status exibir *Registrado* . Você pode verificar o status de registro usando o comando [az feature list][az-feature-list]:
+Demora alguns minutos para o status exibir *Registrado*. Você pode verificar o status de registro usando o comando [az feature list][az-feature-list]:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/PodSecurityPolicyPreview')].{Name:name,State:properties.state}"
@@ -94,7 +94,7 @@ az aks update \
 
 ## <a name="default-aks-policies"></a>Políticas de AKS padrão
 
-Quando você habilita a política de segurança Pod, o AKS cria uma política padrão chamada *Privileged* . Não edite ou remova a política padrão. Em vez disso, crie suas próprias políticas que definam as configurações que você deseja controlar. Primeiro, vamos examinar o que essas políticas padrão são como elas afetam as implantações de Pod.
+Quando você habilita a política de segurança Pod, o AKS cria uma política padrão chamada *Privileged*. Não edite ou remova a política padrão. Em vez disso, crie suas próprias políticas que definam as configurações que você deseja controlar. Primeiro, vamos examinar o que essas políticas padrão são como elas afetam as implantações de Pod.
 
 Para exibir as políticas disponíveis, use o comando [kubectl Get PSP][kubectl-get] , conforme mostrado no exemplo a seguir
 
@@ -315,7 +315,7 @@ psp-deny-privileged   false          RunAsAny   RunAsAny           RunAsAny    R
 
 ## <a name="allow-user-account-to-use-the-custom-pod-security-policy"></a>Permitir que a conta de usuário use a política de segurança de Pod personalizada
 
-Na etapa anterior, você criou uma política de segurança de pod para rejeitar pods que solicitam acesso privilegiado. Para permitir que a política seja usada, você cria uma *função* ou um *ClusterRole* . Em seguida, você associa uma dessas funções usando uma *rolebinding* ou *ClusterRoleBinding* .
+Na etapa anterior, você criou uma política de segurança de pod para rejeitar pods que solicitam acesso privilegiado. Para permitir que a política seja usada, você cria uma *função* ou um *ClusterRole*. Em seguida, você associa uma dessas funções usando uma *rolebinding* ou *ClusterRoleBinding*.
 
 Para este exemplo, crie um ClusterRole que permita que você *use* a política com *privilégios de PSP-Deny* criada na etapa anterior. Crie um arquivo chamado `psp-deny-privileged-clusterrole.yaml` e cole o seguinte manifesto YAML:
 
@@ -375,7 +375,7 @@ Com a política de segurança de Pod personalizada aplicada e uma associação p
 kubectl-nonadminuser apply -f nginx-unprivileged.yaml
 ```
 
-O Pod foi agendado com êxito. Quando você verifica o status do pod usando o comando [kubectl Get pods][kubectl-get] , o Pod está *em execução* :
+O Pod foi agendado com êxito. Quando você verifica o status do pod usando o comando [kubectl Get pods][kubectl-get] , o Pod está *em execução*:
 
 ```
 $ kubectl-nonadminuser get pods

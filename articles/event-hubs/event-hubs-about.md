@@ -2,13 +2,13 @@
 title: O que é Hub de Eventos do Azure? – um serviço de ingestão de Big Data | Microsoft Docs
 description: Saiba mais sobre Hubs de Eventos do Azure, um serviço de streaming de Big Data que ingere milhões de eventos por segundo.
 ms.topic: overview
-ms.date: 06/23/2020
-ms.openlocfilehash: 6669760bceee558a058878fbb89342aedda80117
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 01/13/2021
+ms.openlocfilehash: 36eeb38d9ed1696c9524ae9b346065756ce49c46
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88927894"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195748"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Hubs de Eventos do Azure – uma plataforma de streaming de Big Data e um serviço de ingestão de eventos
 Os Hubs de Eventos do Azure são uma plataforma de streaming de Big Data e um serviço de ingestão de eventos. Ele pode receber e processar milhões de eventos por segundo. Os dados enviados para um hub de eventos podem ser transformados e armazenados usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento.
@@ -52,10 +52,9 @@ Com os Hubs de eventos, você pode iniciar com fluxos de dados em megabytes e au
 
 ## <a name="rich-ecosystem"></a>Ecossistema avançado
 
-[Os Hubs de Eventos para ecossistemas do Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) permitem que clientes e aplicativos do [Apache Kafka (1.0 e posterior)](https://kafka.apache.org/) se comuniquem com os Hubs de Eventos. Você não precisa definir, configurar nem gerenciar seus próprios clusters Kafka.
+Com um ecossistema amplo baseado no protocolo AMQP 1.0 padrão do setor e disponível em várias linguagens, como [.NET](https://github.com/Azure/azure-sdk-for-net/), [Java](https://github.com/Azure/azure-sdk-for-java/), [Python](https://github.com/Azure/azure-sdk-for-python/), [JavaScript](https://github.com/Azure/azure-sdk-for-js/), você pode facilmente iniciar o processamento de fluxos de Hubs de Eventos. Todos as linguagens com suporte do cliente fornecem integração de baixo nível. O ecossistema também fornece integração perfeita com serviços do Azure, como o Azure Stream Analytics e o Azure Functions, permitindo que você crie arquiteturas sem servidor.
 
-Com um amplo ecossistema disponível em várias linguagens [.NET](https://github.com/Azure/azure-sdk-for-net/), [Java](https://github.com/Azure/azure-sdk-for-java/), [Python](https://github.com/Azure/azure-sdk-for-python/) e [JavaScript](https://github.com/Azure/azure-sdk-for-js/), você pode iniciar com facilidade o processamento dos seus fluxos nos Hubs de Eventos. Todos as linguagens com suporte do cliente fornecem integração de baixo nível. O ecossistema também fornece integração perfeita com serviços do Azure, como o Azure Stream Analytics e o Azure Functions, permitindo que você crie arquiteturas sem servidor.
-
+[Os Hubs de Eventos para ecossistemas do Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) permitem, ainda, que clientes e aplicativos do [Apache Kafka (1.0 e posterior)](https://kafka.apache.org/) se comuniquem com os Hubs de Eventos. Você não precisa instalar, configurar e gerenciar os próprios clusters Kafka e ZooKeeper nem usar uma oferta Kafka como serviço não nativa do Azure.
 ## <a name="key-architecture-components"></a>Principais componentes da arquitetura
 Os Hubs de Eventos contêm os seguintes [componentes principais](event-hubs-features.md):
 
@@ -67,7 +66,7 @@ Os Hubs de Eventos contêm os seguintes [componentes principais](event-hubs-feat
 
 A figura a seguir mostra a arquitetura de processamento de fluxo dos Hubs de Eventos:
 
-![Hubs de Eventos](./media/event-hubs-about/event_hubs_architecture.png)
+![Hubs de Eventos](./media/event-hubs-about/event_hubs_architecture.svg)
 
 ## <a name="event-hubs-on-azure-stack-hub"></a>Hubs de Eventos no Azure Stack Hub
 Os Hubs de Eventos no Azure Stack Hub permitem que você concretize cenários de nuvem híbrida. Há suporte para soluções baseadas em evento e streaming no processamento de nuvem local e do Azure. Seja o cenário híbrido (conectado) ou desconectado, sua solução pode dar suporte ao processamento de eventos/fluxos em grande escala. O cenário só é associado ao tamanho do cluster dos Hubs de Eventos, que você pode provisionar de acordo com as suas necessidades. 

@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: b4de2ec68d3cd10dfc4e95c6c2232837a7fca626
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 962fb8cbd4c64aa2ef625b478afa587099234617
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975749"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427627"
 ---
 # <a name="mv2-series"></a>Série Mv2
 
@@ -24,8 +24,10 @@ O recurso da VM Mv2-Series Intel® Hyper-Threading Technology
 [Cache de armazenamento Premium](premium-storage-performance.md): com suporte<br>
 [Migração ao vivo](maintenance-and-updates.md): sem suporte<br>
 [Atualizações de preservação de memória](maintenance-and-updates.md): sem suporte<br>
-[Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
+[Suporte à geração de VM](generation-2.md): geração 2<br>
 [Acelerador de gravação](./how-to-enable-write-accelerator.md): com suporte<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
 <br>
 
 |Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência máxima do disco não armazenado em cache: IOPS / MBps | Máximo de NICs | Largura de banda de rede esperada (Mbps) |

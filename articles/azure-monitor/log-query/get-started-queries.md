@@ -6,17 +6,17 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: d43a72db385d282ee189c179254cfc270929dbbf
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a949c9b34e299e0dc4eccbb62f4b4ebb38d6ccb9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207182"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186704"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Introdução às consultas de log no Azure Monitor
 
 > [!NOTE]
-> Você poderá trabalhar com este exercício em seu próprio ambiente se estiver coletando dados de pelo menos uma máquina virtual. Caso contrário, use nosso [Ambiente de demonstração](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), que inclui muitos dados de exemplo.  Se você já sabe como consultar em KQL, mas precisa apenas criar rapidamente consultas úteis com base em tipos de recurso, confira o [painel de consultas de exemplo salvas](saved-queries.md).
+> Você poderá trabalhar com este exercício em seu próprio ambiente se estiver coletando dados de pelo menos uma máquina virtual. Caso contrário, use nosso [Ambiente de demonstração](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), que inclui muitos dados de exemplo.  Se você já sabe como consultar em KQL, mas precisa apenas criar rapidamente consultas úteis com base em tipos de recurso, confira o [painel de consultas de exemplo salvas](./example-queries.md).
 
 Neste tutorial, você aprenderá a escrever consultas de log no Azure Monitor. Ele irá ensiná-lo como para:
 
@@ -28,7 +28,7 @@ Neste tutorial, você aprenderá a escrever consultas de log no Azure Monitor. E
 - Definir e usar campos personalizados
 - Agregar e agrupar resultados
 
-Para obter um tutorial sobre como usar o Log Analytics no portal do Azure, confira [Introdução ao Log Analytics do Azure Monitor](get-started-portal.md).<br>
+Para obter um tutorial sobre como usar o Log Analytics no portal do Azure, confira [Introdução ao Log Analytics do Azure Monitor](./log-analytics-tutorial.md).<br>
 Para obter mais detalhes sobre consultas de log no Azure Monitor, confira [Visão geral de consultas de log no Azure Monitor](log-query-overview.md).
 
 Acompanhe com uma versão em vídeo deste tutorial abaixo:
@@ -37,7 +37,7 @@ Acompanhe com uma versão em vídeo deste tutorial abaixo:
 
 ## <a name="writing-a-new-query"></a>Escrevendo uma nova consulta
 
-As consultas podem começar com um nome de tabela ou com o comando *pesquisa* . Você deve começar com um nome de tabela, pois ele define um escopo claro para a consulta e melhora o desempenho da consulta e a relevância dos resultados.
+As consultas podem começar com um nome de tabela ou com o comando *pesquisa*. Você deve começar com um nome de tabela, pois ele define um escopo claro para a consulta e melhora o desempenho da consulta e a relevância dos resultados.
 
 > [!NOTE]
 > A linguagem de consulta Kusto usada pelo Azure Monitor diferencia maiúsculas de minúsculas. Palavras-chave geralmente são escritas em minúsculas. Ao usar nomes de tabelas ou colunas em uma consulta, certifique-se de usar a capitalização correta, conforme mostrado no painel de esquema.
@@ -55,7 +55,7 @@ A consulta mostrada acima retorna 10 resultados do *SecurityEvent* tabela, em ne
 
 * A consulta é iniciada com o nome da tabela *SecurityEvent* -esta parte define o escopo da consulta.
 * O caractere de barra vertical (|) separa os comandos, portanto, a saída da primeira na entrada do comando a seguir. Você pode adicionar qualquer número de elementos conectados.
-* Seguindo o pipe está o comando **take** , que retorna um número específico de registros arbitrários da tabela.
+* Seguindo o pipe está o comando **take**, que retorna um número específico de registros arbitrários da tabela.
 
 Na verdade, estamos poderia executar a consulta mesmo sem adicionar `| take 10` - que ainda seria válida, mas ele poderia retornar resultados até 10.000.
 
@@ -83,7 +83,7 @@ SecurityEvent
 
 Que poderia retornar um número excessivo de resultados no entanto e também pode levar algum tempo. A consulta acima classifica *todo o* SecurityEvent tabela pela coluna TimeGenerated. O portal do Google Analytics limita a exibição para mostrar apenas 10.000 registros. Essa abordagem, obviamente, não é a ideal.
 
-A melhor maneira de obter os registros mais recentes 10 é usar **superior** , que classifica a tabela inteira no lado do servidor e, em seguida, retorna os primeiros registros:
+A melhor maneira de obter os registros mais recentes 10 é usar **superior**, que classifica a tabela inteira no lado do servidor e, em seguida, retorna os primeiros registros:
 
 ```Kusto
 SecurityEvent
@@ -98,7 +98,7 @@ Em ordem decrescente é o padrão, a ordem de classificação, portanto, podemos
 ## <a name="where-filtering-on-a-condition"></a>Em que: filtrando uma condição
 Filtros, conforme indicado pelo seu nome, filtram os dados por uma condição específica. Essa é a maneira mais comum de limitar os resultados da consulta a informações relevantes.
 
-Para adicionar um filtro a uma consulta, use o operador **onde** seguido por uma ou mais condições. Por exemplo, a consulta a seguir retorna apenas *SecurityEvent* registros em que _nível_ é igual a _8_ :
+Para adicionar um filtro a uma consulta, use o operador **onde** seguido por uma ou mais condições. Por exemplo, a consulta a seguir retorna apenas *SecurityEvent* registros em que _nível_ é igual a _8_:
 
 ```Kusto
 SecurityEvent
@@ -112,9 +112,9 @@ Ao escrever as condições de filtro, você pode usar as expressões a seguir:
 | == | Verificação de igualdade<br>(diferencia maiusculas de minúsculas) | `Level == 8` |
 | =~ | Verificação de igualdade<br>(diferencia maiusculas de minúsculas) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
 | ! =, <> | Verifique a desigualdade<br>(as duas expressões são idênticas) | `Level != 4` |
-| *e* , *ou* | Necessário entre condições| `Level == 16 or CommandLine != ""` |
+| *e*, *ou* | Necessário entre condições| `Level == 16 or CommandLine != ""` |
 
-Para filtrar por várias condições, você pode usar **e** :
+Para filtrar por várias condições, você pode usar **e**:
 
 ```Kusto
 SecurityEvent
@@ -130,7 +130,7 @@ SecurityEvent
 ```
     
 > [!NOTE]
-> Os valores podem ter tipos diferentes, portanto, talvez seja necessário convertê-los para realizar a comparação no tipo correto. Por exemplo, a coluna SecurityEvent *Level* é do tipo String, então você deve convertê-la em um tipo numérico como *int* ou *long* , antes de poder usar operadores numéricos sobre isso: `SecurityEvent | where toint(Level) >= 10`
+> Os valores podem ter tipos diferentes, portanto, talvez seja necessário convertê-los para realizar a comparação no tipo correto. Por exemplo, a coluna SecurityEvent *Level* é do tipo String, então você deve convertê-la em um tipo numérico como *int* ou *long*, antes de poder usar operadores numéricos sobre isso: `SecurityEvent | where toint(Level) >= 10`
 
 ## <a name="specify-a-time-range"></a>Especifique um intervalo de tempo
 
@@ -171,8 +171,8 @@ O exemplo anterior gera esta saída:
 Você também pode usar **projeto** para renomear colunas e definir novos. O exemplo a seguir usa o projeto para fazer o seguinte:
 
 * Selecione apenas o *computador* e *TimeGenerated* colunas originais.
-* Exibe a coluna *Atividade* como *EventDetails* .
-* Criar uma nova coluna chamada *EventCode* . A função **substring ()** é usada para obter apenas os quatro primeiros caracteres do campo Activity.
+* Exibe a coluna *Atividade* como *EventDetails*.
+* Criar uma nova coluna chamada *EventCode*. A função **substring ()** é usada para obter apenas os quatro primeiros caracteres do campo Activity.
 
 
 ```Kusto
@@ -181,7 +181,7 @@ SecurityEvent
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
 ```
 
-**estender** mantém todas as colunas originais no conjunto de resultados e define outros adicionais. A consulta a seguir usa **estender** para adicionar a coluna *EventCode* . Observe que essa coluna pode não ser exibida no final dos resultados da tabela. Nesse caso, você precisaria expandir os detalhes de um registro para exibi-lo.
+**estender** mantém todas as colunas originais no conjunto de resultados e define outros adicionais. A consulta a seguir usa **estender** para adicionar a coluna *EventCode*. Observe que essa coluna pode não ser exibida no final dos resultados da tabela. Nesse caso, você precisaria expandir os detalhes de um registro para exibi-lo.
 
 ```Kusto
 SecurityEvent
@@ -190,7 +190,7 @@ SecurityEvent
 ```
 
 ## <a name="summarize-aggregate-groups-of-rows"></a>Resumo: agregar grupos de linhas
-Use **resumir** para identificar grupos de registros, de acordo com uma ou mais colunas, e aplicar agregações a eles. O uso mais comum de **resumir** é a *contagem* , que retorna o número de resultados em cada grupo.
+Use **resumir** para identificar grupos de registros, de acordo com uma ou mais colunas, e aplicar agregações a eles. O uso mais comum de **resumir** é a *contagem*, que retorna o número de resultados em cada grupo.
 
 A consulta a seguir examina todos os *Perf* registros de última hora, agrupa-os por *ObjectName* e conta os registros em cada grupo: 
 ```Kusto
@@ -215,7 +215,7 @@ Perf
 | summarize avg(CounterValue) by Computer
 ```
 
-Infelizmente, os resultados dessa consulta não têm sentido, pois combinamos diferentes contadores de desempenho. Para tornar isso mais significativo, devemos calcular a média separadamente para cada combinação de *CounterName* e *computador* :
+Infelizmente, os resultados dessa consulta não têm sentido, pois combinamos diferentes contadores de desempenho. Para tornar isso mais significativo, devemos calcular a média separadamente para cada combinação de *CounterName* e *computador*:
 
 ```Kusto
 Perf
@@ -226,7 +226,7 @@ Perf
 ### <a name="summarize-by-a-time-column"></a>Resumir por uma coluna de hora
 Agrupar os resultados também pode ser baseado em uma coluna de hora ou outro valor contínuo. Resumindo simplesmente `by TimeGenerated` entanto seria criar grupos para cada milissegundo de único ao longo do intervalo de tempo, pois esses são valores exclusivos. 
 
-Para criar grupos com base em valores contínuos, é melhor dividir o intervalo em unidades gerenciáveis usando **bin** . A consulta a seguir analisa *Perf* registros que medem a memória livre ( *MBytes disponíveis* ) em um computador específico. Ela calcula o valor médio de cada período de 1 hora nos últimos 7 dias:
+Para criar grupos com base em valores contínuos, é melhor dividir o intervalo em unidades gerenciáveis usando **bin**. A consulta a seguir analisa *Perf* registros que medem a memória livre (*MBytes disponíveis*) em um computador específico. Ela calcula o valor médio de cada período de 1 hora nos últimos 7 dias:
 
 ```Kusto
 Perf 
@@ -244,7 +244,7 @@ Para tornar a saída mais clara, selecione-a como um gráfico de tempo, mostrand
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre como usar dados de cadeia de caracteres em uma consulta de log com [Trabalhe com cadeias de caracteres nas consultas de log no Azure Monitor](string-operations.md).
-- Saiba mais sobre como agregar dados em uma consulta de log com [Agregações avançadas nas consultas de log no Azure Monitor](advanced-aggregations.md).
-- Saiba como unir dados de várias tabelas com [Junções nas consultas de log do Azure Monitor](joins.md).
+- Saiba mais sobre como usar dados de cadeia de caracteres em uma consulta de log com [Trabalhe com cadeias de caracteres nas consultas de log no Azure Monitor](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#string-operations).
+- Saiba mais sobre como agregar dados em uma consulta de log com [Agregações avançadas nas consultas de log no Azure Monitor](/azure/data-explorer/write-queries#advanced-aggregations).
+- Saiba como unir dados de várias tabelas com [Junções nas consultas de log do Azure Monitor](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#joins).
 - Obtenha a documentação sobre toda a linguagem de consulta Kusto na [referência da linguagem KQL](/azure/kusto/query/).

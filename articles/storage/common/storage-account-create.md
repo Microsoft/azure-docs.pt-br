@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 12/11/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: b7faec5023abe37802d8b08980f216934d70a6ac
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d05c95c22d75e4287283318095c4d053763f349e
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784347"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97702368"
 ---
 # <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
@@ -31,7 +31,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-nenhuma.
+Nenhum.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -104,9 +104,9 @@ N/D
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Cada conta de armazenamento deve pertencer a um grupo de recursos do Azure. Um grupo de recursos é um contêiner lógico para agrupar seus serviços do Azure. Quando você cria uma conta de armazenamento, tem a opção de criar um novo grupo de recursos ou usar um grupo de recursos existente. Este artigo mostra como criar um novo grupo de recursos.
+Cada conta de armazenamento deve pertencer a um grupo de recursos do Azure. Um grupo de recursos é um contêiner lógico para agrupar seus serviços do Azure. Quando você cria uma conta de armazenamento, tem a opção de criar um novo grupo de recursos ou usar um grupo de recursos existente. Este artigo mostra como criar um grupo de recursos.
 
-Uma conta de armazenamento de **uso geral v2** fornece acesso a todos os serviços de Armazenamento do Azure: blobs, arquivos, filas, tabelas e discos. As etapas descritas aqui criam uma conta de armazenamento de uso geral v2, mas as etapas para criar qualquer tipo de conta de armazenamento são semelhantes. Para obter mais informações sobre tipos de contas de armazenamento e outras configurações da conta de armazenamento, confira [Visão geral da conta de armazenamento do Azure](storage-account-overview.md).
+Uma conta de armazenamento de **uso geral v2** fornece acesso a todos os serviços de armazenamento do Azure: BLOBs, arquivos, filas, tabelas e discos. As etapas descritas aqui criam uma conta de armazenamento de uso geral v2, mas as etapas para a criação de qualquer tipo de conta de armazenamento são semelhantes. Para obter mais informações sobre tipos de contas de armazenamento e outras configurações da conta de armazenamento, confira [Visão geral da conta de armazenamento do Azure](storage-account-overview.md).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -199,7 +199,7 @@ Para criar uma conta de armazenamento de uso geral V2 com uma opção de replica
 
 # <a name="template"></a>[Modelo](#tab/template)
 
-Você pode usar o Azure PowerShell ou CLI do Azure para implantar um modelo do Resource Manager para criar uma conta de armazenamento. O modelo usado neste artigo de instruções é de [Azure Resource Manager modelos de início rápido](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Para executar os scripts, selecione **Experimente** para abrir o Azure cloud Shell. Para colar o script, clique com o botão direito do mouse no shell e, em seguida, selecione **Colar** .
+Você pode usar o Azure PowerShell ou CLI do Azure para implantar um modelo do Resource Manager para criar uma conta de armazenamento. O modelo usado neste artigo de instruções é de [Azure Resource Manager modelos de início rápido](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Para executar os scripts, selecione **Experimente** para abrir o Azure cloud Shell. Para colar o script, clique com o botão direito do mouse no shell e, em seguida, selecione **Colar**.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -215,7 +215,7 @@ read resourceGroupName &&
 echo "Enter the location (i.e. centralus):" &&
 read location &&
 az group create --name $resourceGroupName --location "$location" &&
-az group deployment create --resource-group $resourceGroupName --template-file "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+az deployment group create --resource-group $resourceGroupName --template-file "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 ```
 
 > [!NOTE]
@@ -236,7 +236,7 @@ A exclusão de uma conta de armazenamento exclui a conta inteira, incluindo todo
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Navegue até a conta de armazenamento no [portal do Azure](https://portal.azure.com).
-1. Clique em **Excluir** .
+1. Clique em **Excluir**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -286,3 +286,4 @@ Como alternativa, você pode excluir o grupo de recursos, que exclui a conta de 
 - [Visão geral da conta de armazenamento](storage-account-overview.md)
 - [Atualizar para uma conta de armazenamento de uso geral v2](storage-account-upgrade.md)
 - [Mover uma conta de armazenamento do Azure para outra região](storage-account-move.md)
+- [Recuperar uma conta de armazenamento excluída](storage-account-recover.md)

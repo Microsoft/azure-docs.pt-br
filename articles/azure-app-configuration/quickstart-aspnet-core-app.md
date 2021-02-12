@@ -2,19 +2,19 @@
 title: Início Rápido da Configuração de Aplicativo do Azure com o ASP.NET Core | Microsoft Docs
 description: Criar um aplicativo ASP.NET Core com a Configuração de Aplicativos do Azure para centralizar o armazenamento e o gerenciamento de configurações de aplicativo para um aplicativo ASP.NET Core.
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: devx-track-csharp, contperfq1
+ms.custom: devx-track-csharp, contperf-fy21q1
 ms.topic: quickstart
 ms.date: 09/25/2020
-ms.author: lcozzens
-ms.openlocfilehash: 13283a9531804502b8a8d72e615be955b413658c
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.author: alkemper
+ms.openlocfilehash: 353a934842fd872d48d091f1df1b6d94ac4599ff
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075834"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663427"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Início Rápido: Criar um aplicativo ASP.NET Core com a Configuração de Aplicativo do Azure
 
@@ -70,7 +70,7 @@ dotnet new mvc --no-https --output TestAppConfig
     ```
 
     > [!IMPORTANT]
-    > Alguns shells truncarão a cadeia de conexão, a menos que ela seja colocada entre aspas. Verifique se a saída do comando `dotnet user-secrets` mostra toda a cadeia de conexão. Se não, execute novamente o comando, colocando a cadeia de conexão entre aspas.
+    > Alguns shells truncarão a cadeia de conexão, a menos que ela seja colocada entre aspas. Verifique se a saída do comando `dotnet user-secrets list` mostra toda a cadeia de conexão. Se não, execute novamente o comando, colocando a cadeia de conexão entre aspas.
 
     O Gerenciador de Segredos é usado apenas para testar o aplicativo Web localmente. Quando o aplicativo for implantado no [Serviço de Aplicativo do Azure](https://azure.microsoft.com/services/app-service/web), use a configuração de aplicativo **Cadeias de Conexão** no Serviço de Aplicativo, em vez de armazenar a cadeia de conexão no Gerenciador de Segredos.
 
@@ -87,6 +87,19 @@ dotnet new mvc --no-https --output TestAppConfig
     > [!IMPORTANT]
     > `CreateHostBuilder` substitui `CreateWebHostBuilder` no .NET Core 3.x. Selecione a sintaxe correta com base em seu ambiente.
 
+     #### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
+
+    ```csharp
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+                webBuilder.ConfigureAppConfiguration(config =>
+                {
+                    var settings = config.Build();
+                    var connection = settings.GetConnectionString("AppConfig");
+                    config.AddAzureAppConfiguration(connection);
+                }).UseStartup<Startup>());
+    ```
     #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp

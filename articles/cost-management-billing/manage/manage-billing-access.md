@@ -7,15 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 01/26/2021
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: e174a0539a75945cc0a2595e28a60d928e10acf4
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 23e3adad12a726b03f6efe309dde0ec4a93bcd5b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166209"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897418"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Gerenciar acesso a informações de cobrança do Azure
 
@@ -38,7 +38,7 @@ O administrador da conta pode permitir acesso a outras pessoas às informações
 - Leitor
 - Leitor de cobrança
 
-Essas funções têm acesso às informações de cobrança no [portal do Azure](https://portal.azure.com/). As pessoas que recebem essas funções também podem usar as [APIs de Cobrança](usage-rate-card-overview.md) para obter os detalhes de uso e faturas de forma programática.
+Essas funções têm acesso às informações de cobrança no [portal do Azure](https://portal.azure.com/). As pessoas que recebem essas funções também podem usar as [APIs de Cobrança](consumption-api-overview.md#usage-details-api) para obter os detalhes de uso e faturas de forma programática.
 
 Para atribuir funções, confira [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 
@@ -51,15 +51,15 @@ Depois que um administrador da conta atribuir as funções apropriadas a outros 
 
 1. Entre no [portal do Azure](https://portal.azure.com/) como administrador da conta.
 
-1. Pesquise **Gerenciamento de Custos do Azure + Cobrança** .
+1. Pesquise **Gerenciamento de Custos do Azure + Cobrança**.
 
     ![Captura de tela que realça Gerenciamento de Custos e Cobrança na seção Serviços.](./media/manage-billing-access/billing-search-cost-management-billing.png)
 
-1. Selecione **Assinaturas** no painel à esquerda. Dependendo de seu acesso, talvez você precise selecionar um escopo do orçamento e, em seguida, selecionar **Assinaturas** .
+1. Selecione **Assinaturas** no painel à esquerda. Dependendo de seu acesso, talvez você precise selecionar um escopo do orçamento e, em seguida, selecionar **Assinaturas**.
 
     ![Captura de tela que mostra a seleção de assinaturas](./media/manage-billing-access/billing-select-subscriptions.png)
 
-1. Selecione **Faturas** e, em seguida, **Acesso à fatura** .
+1. Selecione **Faturas** e, em seguida, **Acesso à fatura**.
 
     ![Captura de tela mostrando como delegar acesso a faturas](./media/manage-billing-access/aa-optin01.png)
 
@@ -77,11 +77,11 @@ O recurso Leitor de Cobrança está na visualização prévia e ainda não ofere
 
 1. Entre no [portal do Azure](https://portal.azure.com/) como administrador da conta.
 
-1. Pesquise **Gerenciamento de Custos do Azure + Cobrança** .
+1. Pesquise **Gerenciamento de Custos do Azure + Cobrança**.
 
     ![Captura de tela que mostra a pesquisa do portal do Azure](./media/manage-billing-access/billing-search-cost-management-billing.png)
 
-1. Selecione **Assinaturas** no painel à esquerda. Dependendo de seu acesso, talvez você precise selecionar um escopo do orçamento e, em seguida, selecionar **Assinaturas** .
+1. Selecione **Assinaturas** no painel à esquerda. Dependendo de seu acesso, talvez você precise selecionar um escopo do orçamento e, em seguida, selecionar **Assinaturas**.
 
     ![Captura de tela que mostra a seleção de assinaturas](./media/manage-billing-access/billing-select-subscriptions.png)
 
@@ -90,10 +90,10 @@ O recurso Leitor de Cobrança está na visualização prévia e ainda não ofere
 
     ![Captura de tela que mostra o clique em Adicionar atribuição de função](./media/manage-billing-access/billing-click-add-role-assignment.png)
 
-1. Na lista suspensa **Função** , escolha **Leitor de Cobrança** .
-1. Na caixa de texto **Selecionar** , digite o nome ou email para o usuário que você deseja adicionar.
+1. Na lista suspensa **Função**, escolha **Leitor de Cobrança**.
+1. Na caixa de texto **Selecionar**, digite o nome ou email para o usuário que você deseja adicionar.
 1. Selecione o usuário.
-1. Clique em **Salvar** .
+1. Clique em **Salvar**.
     ![Captura de tela que realça o botão Salvar.](./media/manage-billing-access/billing-save-role-assignment.png)
 
 1. Após alguns instantes, o usuário é atribuído à função Leitor de Cobrança na assinatura.

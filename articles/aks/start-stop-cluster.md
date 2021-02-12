@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 09/24/2020
 author: palma21
-ms.openlocfilehash: bc756994cf0f6e12af1c1ad5a6c8db304b4253e3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 026da4237fe14726766b265e55930346293c71df
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968768"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662890"
 ---
 # <a name="stop-and-start-an-azure-kubernetes-service-aks-cluster-preview"></a>Parar e iniciar um cluster do AKS (serviço kubernetes do Azure) (visualização)
 
@@ -28,7 +28,6 @@ Este artigo considera que já existe um cluster do AKS. Se precisar de um cluste
 Ao usar o recurso iniciar/parar do cluster, as seguintes restrições se aplicam:
 
 - Este recurso só tem suporte para clusters com backup de conjuntos de dimensionamento de máquinas virtuais.
-- Durante a visualização, esse recurso não tem suporte para clusters privados.
 - O estado do cluster de um cluster AKS interrompido é preservado por até 12 meses. Se o cluster for interrompido por mais de 12 meses, o estado do cluster não poderá ser recuperado. Para obter mais informações, consulte as [políticas de suporte do AKS](support-policies.md).
 - Durante a versão prévia, você precisa parar o cluster de dimensionamento (CA) de modo a interromper antes de tentar parar o cluster.
 - Você só pode iniciar ou excluir um cluster AKS interrompido. Para executar qualquer operação como escala ou atualização, inicie o cluster primeiro.

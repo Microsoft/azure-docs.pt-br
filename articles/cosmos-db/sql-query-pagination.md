@@ -4,14 +4,15 @@ description: Saiba mais sobre conceitos de paginação e tokens de continuação
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 08f8095670b48fcefccb0a9adf477b83ce2537d3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c49fee169b7bd01ee7cf8a6d539c2125cf6568b3
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93089229"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545308"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Paginação no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,7 +25,7 @@ No Azure Cosmos DB, as consultas podem ter várias páginas de resultados. Este 
 
 Você pode especificar o número máximo de itens retornados por uma consulta definindo o `MaxItemCount` . O `MaxItemCount` é especificado por solicitação e informa ao mecanismo de consulta que retornará esse número de itens ou menos. Você pode definir `MaxItemCount` como `-1` se não quiser inserir um limite no número de resultados por execução de consulta.
 
-Além disso, há outros motivos pelos quais o mecanismo de consulta pode precisar dividir os resultados da consulta em várias páginas. Elas incluem:
+Além disso, há outros motivos pelos quais o mecanismo de consulta pode precisar dividir os resultados da consulta em várias páginas. Estão incluídos:
 
 - O contêiner foi limitado e não havia RUs disponível para retornar mais resultados da consulta
 - A resposta da execução da consulta era muito grande
@@ -40,7 +41,7 @@ Para garantir os resultados de consulta precisos, você deve progredir em todas 
 Aqui estão alguns exemplos para processar resultados de consultas com várias páginas:
 
 - [SDK .NET](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/Queries/Program.cs#L280)
-- [Java SDK](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/documentcrud/sync/DocumentCRUDQuickstart.java#L162-L176)
+- [Java SDK](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/documentcrud/sync/DocumentCRUDQuickstart.java#L162-L176)
 - [SDK do Node.js](https://github.com/Azure/azure-sdk-for-js/blob/83fcc44a23ad771128d6e0f49043656b3d1df990/sdk/cosmosdb/cosmos/samples/IndexManagement.ts#L128-L140)
 - [SDK do Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/examples.py#L89)
 
@@ -51,7 +52,7 @@ No SDK do .NET e no SDK do Java, você pode opcionalmente usar tokens de continu
 Aqui estão alguns exemplos de uso de tokens de continuação:
 
 - [SDK .NET](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/Queries/Program.cs#L699-L734)
-- [Java SDK](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java#L216)
+- [Java SDK](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java#L216)
 - [SDK do Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/test/test_query.py#L533)
 
 Se a consulta retornar um token de continuação, haverá resultados de consulta adicionais.

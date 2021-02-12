@@ -11,12 +11,12 @@ metadata:
   author: dnblankedelman
   ms.author: dnb
   ms.date: 02/18/2020
-  ms.openlocfilehash: 1a7fff4aa1978afb1487717e63e21b0b750dc5cc
-  ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+  ms.openlocfilehash: 5fed24b0c6557fc0f54bf78ac756f2b278863217
+  ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/27/2020
-  ms.locfileid: "92676549"
+  ms.lasthandoff: 11/17/2020
+  ms.locfileid: "94660586"
 highlightedContent:
   items:
   - title: 'Introdução à SRE:  o que é a SRE? (1/3)'
@@ -33,15 +33,15 @@ productDirectory:
   - title: Como aprimorar a confiabilidade por meio de práticas de operações modernas
     imageSrc: ./media/index/video.svg
     links:
-    - url: https://myignite.techcommunity.microsoft.com/sessions/82996
+    - url: https://myignite.microsoft.com/archives/IG19-OPS10
       text: 'Como criar a base para operações modernas: monitoramento'
-    - url: https://myignite.techcommunity.microsoft.com/sessions/82997
+    - url: https://myignite.microsoft.com/archives/IG19-OPS20
       text: Como responder a incidentes
-    - url: https://myignite.techcommunity.microsoft.com/sessions/82998
+    - url: https://myignite.microsoft.com/archives/IG19-OPS30
       text: Como aprender com os erros
-    - url: https://myignite.techcommunity.microsoft.com/sessions/82999
+    - url: https://myignite.microsoft.com/archives/IG19-OPS40
       text: Práticas de implantação para maior confiabilidade
-    - url: https://myignite.techcommunity.microsoft.com/sessions/83001
+    - url: https://myignite.microsoft.com/archives/IG19-OPS50
       text: 'Preparando-se para o crescimento: planejamento de capacidade e dimensionamento'
   - title: Cursos online da SRE
     imageSrc: ./media/index/learn.svg

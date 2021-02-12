@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 08/21/2020
 ms.author: victorh
-ms.openlocfilehash: 6fb613578e520f50701c9a09169f2d78c0c08c4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16f55dc88ed2d2d019a2fed355a14741263c20af
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88723989"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397596"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Tutorial: Criar e configurar um gateway de aplicativo para hospedar vários sites web usando o portal do Azure.
 
@@ -45,40 +45,40 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
 ### <a name="basics-tab"></a>Guia Básico
 
-1. Na página **Básico**, insira estes valores para as seguintes configurações de gateway de aplicativo:
+1. Na página **Básico** , insira estes valores para as seguintes configurações de gateway de aplicativo:
 
-   - **Grupo de recursos**: Selecione **myResourceGroupAG** para o grupo de recursos. Se ele não existir, selecione **Criar novo** para criá-lo.
-   - **Nome do gateway de aplicativo**: Insira *myAppGateway* para o nome do gateway de aplicativo.
+   - **Grupo de recursos** : Selecione **myResourceGroupAG** para o grupo de recursos. Se ele não existir, selecione **Criar novo** para criá-lo.
+   - **Nome do gateway de aplicativo** : Insira *myAppGateway* para o nome do gateway de aplicativo.
 
-     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png" alt-text="Gateway de Aplicativo multissite":::
+     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png" alt-text="Criar Gateway de Aplicativo":::
 
 2.  Para que o Azure se comunique entre os recursos que você cria, ele precisa de uma rede virtual. Você pode criar uma nova rede virtual ou usar uma existente. Neste exemplo, você criará uma rede virtual ao mesmo tempo em que cria o gateway de aplicativo. As instâncias do Gateway de Aplicativo são criadas em sub-redes separadas. Crie duas sub-redes neste exemplo: uma para o gateway de aplicativo e outra para os servidores de back-end.
 
-    Em **Configurar rede virtual**, selecione **Criar nova** para criar uma rede virtual. Na janela **Criar rede virtual** que é aberta, insira os seguintes valores para criar a rede virtual e duas sub-redes:
+    Em **Configurar rede virtual** , selecione **Criar nova** para criar uma rede virtual. Na janela **Criar rede virtual** que é aberta, insira os seguintes valores para criar a rede virtual e duas sub-redes:
 
-    - **Name**: Insira *myVNet* para o nome da rede virtual.
+    - **Name** : Insira *myVNet* para o nome da rede virtual.
 
     - **Nome da sub-rede** (sub-rede do Gateway de Aplicativo): A grade **Sub-redes** mostrará uma sub-rede chamada *Padrão*. Altere o nome dessa sub-rede para *myAGSubnet*.<br>A sub-rede de gateway de aplicativo pode conter apenas gateways de aplicativo. Nenhum outro recurso é permitido.
 
-    - **Nome da sub-rede** (sub-rede do servidor de back-end): Na segunda linha da grade **Sub-redes**, insira *myBackendSubnet* na coluna **Nome da sub-rede**.
+    - **Nome da sub-rede** (sub-rede do servidor de back-end): Na segunda linha da grade **Sub-redes** , insira *myBackendSubnet* na coluna **Nome da sub-rede**.
 
-    - **Intervalo de endereços** (sub-rede do servidor de back-end): Na segunda linha da grade **Sub-redes**, insira um intervalo de endereços que não se sobreponha ao intervalo de endereços de *myAGSubnet*. Por exemplo, se o intervalo de endereços de *myAGSubnet* for 10.0.0.0/24, digite *10.0.1.0/24* para o intervalo de endereços de *myBackendSubnet*.
+    - **Intervalo de endereços** (sub-rede do servidor de back-end): Na segunda linha da grade **Sub-redes** , insira um intervalo de endereços que não se sobreponha ao intervalo de endereços de *myAGSubnet*. Por exemplo, se o intervalo de endereços de *myAGSubnet* for 10.0.0.0/24, digite *10.0.1.0/24* para o intervalo de endereços de *myBackendSubnet*.
 
     Selecione **OK** para fechar a janela **Criar rede virtual** e salvar as configurações de rede virtual.
 
-     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png" alt-text="Gateway de Aplicativo multissite":::
+     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png" alt-text="Criar VNet":::
     
-3. Na guia **Básico**, aceite os valores padrão para as outras configurações e selecione **Avançar: Front-ends**.
+3. Na guia **Básico** , aceite os valores padrão para as outras configurações e selecione **Avançar: Front-ends**.
 
 ### <a name="frontends-tab"></a>Guia Front-ends
 
-1. Na guia **Front-ends**, verifique se **Tipo de endereço IP do front-end** está definido como **Público**. <br>É possível configurar o IP de front-end como Público ou Privado, de acordo com o caso de uso. Neste exemplo, você escolherá um IP público de front-end.
+1. Na guia **Front-ends** , verifique se **Tipo de endereço IP do front-end** está definido como **Público**. <br>É possível configurar o IP de front-end como Público ou Privado, de acordo com o caso de uso. Neste exemplo, você escolherá um IP público de front-end.
    > [!NOTE]
    > Para a SKU do Gateway de Aplicativo v2, você só pode escolher a configuração de IP de front-end **Pública**. A configuração de IP de front-end privado não está habilitada para esta SKU v2.
 
 2. Escolha **Criar novo** para o **Endereço IP público** e insira *myAGPublicIPAddress* para o nome do endereço IP público e, em seguida, selecione **OK**. 
 
-     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png" alt-text="Gateway de Aplicativo multissite":::
+     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png" alt-text="Criar outra VNet":::
 
 3. Selecione **Avançar: Back-ends**.
 
@@ -86,49 +86,49 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
 O pool de back-end é usado para encaminhar solicitações aos servidores back-end que atendem à solicitação. Os pools de back-end podem ser NICs, conjuntos de dimensionamento de máquinas virtuais, IPs públicos, IPs internos, FQDN (nomes de domínio totalmente qualificados) e back-ends multilocatário como o Serviço de Aplicativo do Azure. Neste exemplo, você criará um pool de back-end vazio com o gateway de aplicativo e, em seguida, adicionará destinos de back-end ao pool de back-end.
 
-1. Na guia **Back-ends**, selecione **+ Adicionar um pool de back-end**.
+1. Na guia **Back-ends** , selecione **+ Adicionar um pool de back-end**.
 
 2. Na janela **Adicionar um pool de back-end** que é aberta, insira os seguintes valores para criar um pool de back-end vazio:
 
-    - **Name**: Insira *contosoPool* para o nome do pool de back-end.
-    - **Adicionar pool de back-end sem destinos**: Selecione **Sim** para criar um pool de back-end sem destinos. Você adicionará destinos de back-end depois de criar o gateway de aplicativo.
+    - **Name** : Insira *contosoPool* para o nome do pool de back-end.
+    - **Adicionar pool de back-end sem destinos** : Selecione **Sim** para criar um pool de back-end sem destinos. Você adicionará destinos de back-end depois de criar o gateway de aplicativo.
 
-3. Na janela **Adicionar um pool de back-end**, selecione **Adicionar** para salvar a configuração do pool de back-end e retornar à guia **Back-ends**.
+3. Na janela **Adicionar um pool de back-end** , selecione **Adicionar** para salvar a configuração do pool de back-end e retornar à guia **Back-ends**.
 4. Agora, adicione outro pool de back-end chamado *fabrikamPool*.
 
-    :::image type="content" source="./media/create-multiple-sites-portal/backend-pools.png" alt-text="Gateway de Aplicativo multissite":::
+    :::image type="content" source="./media/create-multiple-sites-portal/backend-pools.png" alt-text="Criar back-ends":::
 
-4. Na guia **Back-ends**, selecione **Avançar: Configuração**.
+4. Na guia **Back-ends** , selecione **Avançar: Configuração**.
 
 ### <a name="configuration-tab"></a>Guia Configuração
 
-Na guia **Configuração**, você conectará os pools de front-end e de back-end que você criou usando uma regra de roteamento.
+Na guia **Configuração** , você conectará os pools de front-end e de back-end que você criou usando uma regra de roteamento.
 
 1. Selecione **Adicionar uma regra** na coluna **Regras de roteamento**.
 
 2. Na janela **Adicionar uma regra de roteamento** que é aberta, insira *contosoRule* para o **Nome da regra**.
 
-3. Uma regra de roteamento requer um ouvinte. Na guia **Ouvinte** na janela **Adicionar uma regra de roteamento**, insira os seguintes valores para o ouvinte:
+3. Uma regra de roteamento requer um ouvinte. Na guia **Ouvinte** na janela **Adicionar uma regra de roteamento** , insira os seguintes valores para o ouvinte:
 
-    - **Nome do ouvinte**: Insira *contosoListener* para o nome do ouvinte.
-    - **IP de front-end**: selecione **Público** para escolher o IP público que você criou para o front-end.
+    - **Nome do ouvinte** : Insira *contosoListener* para o nome do ouvinte.
+    - **IP de front-end** : selecione **Público** para escolher o IP público que você criou para o front-end.
 
-   Em **Configurações adicionais**:
-   - **Tipo de ouvinte**: Vários sites
-   - **Nome do host**: **www.contoso.com**
+   Em **Configurações adicionais** :
+   - **Tipo de ouvinte** : Vários sites
+   - **Nome do host** : **www.contoso.com**
 
    Aceite os valores padrão para as outras configurações na guia **Ouvinte** e, em seguida, selecione a guia **Destinos de back-end** para configurar o restante da regra de roteamento.
 
-   :::image type="content" source="./media/create-multiple-sites-portal/routing-rule.png" alt-text="Gateway de Aplicativo multissite":::
+   :::image type="content" source="./media/create-multiple-sites-portal/routing-rule.png" alt-text="Criar regra de roteamento":::
 
-4. Na guia **Destinos de back-end**, selecione **contosoPool** para o **Destino de back-end**.
+4. Na guia **Destinos de back-end** , selecione **contosoPool** para o **Destino de back-end**.
 
-5. Para a **Configuração de HTTP**, selecione **Criar novo** para criar uma configuração HTTP. A configuração HTTP determinará o comportamento da regra de roteamento. Na janela **Adicionar uma configuração de HTTP** que é aberta, insira *contosoHTTPSetting* para o **Nome da configuração de HTTP**. Aceite os valores padrão para as outras configurações na janela **Adicionar uma configuração de HTTP** e, em seguida, selecione **Adicionar** para retornar à janela **Adicionar uma regra de roteamento**. 
+5. Para a **Configuração de HTTP** , selecione **Criar novo** para criar uma configuração HTTP. A configuração HTTP determinará o comportamento da regra de roteamento. Na janela **Adicionar uma configuração de HTTP** que é aberta, insira *contosoHTTPSetting* para o **Nome da configuração de HTTP**. Aceite os valores padrão para as outras configurações na janela **Adicionar uma configuração de HTTP** e, em seguida, selecione **Adicionar** para retornar à janela **Adicionar uma regra de roteamento**. 
 
-6. Na janela **Adicionar uma regra de roteamento**, selecione **Adicionar** para salvar a regra de roteamento e retornar para a guia **Configuração**.
+6. Na janela **Adicionar uma regra de roteamento** , selecione **Adicionar** para salvar a regra de roteamento e retornar para a guia **Configuração**.
 7. Selecione **Adicionar uma regra** e adicione uma regra, ouvinte, destino de back-end e configuração de HTTP semelhantes para a Fabrikam.
 
-     :::image type="content" source="./media/create-multiple-sites-portal/fabrikam-rule.png" alt-text="Gateway de Aplicativo multissite":::
+     :::image type="content" source="./media/create-multiple-sites-portal/fabrikam-rule.png" alt-text="Regra da Fabrikam":::
 
 7. Selecione **Avançar: Marcas** e, em seguida, **Avançar: Revisar + criar**.
 
@@ -144,7 +144,7 @@ Neste exemplo, você usará máquinas virtuais como o back-end de destino. Você
 
 Para adicionar destinos de back-end, você vai:
 
-1. Criar duas VMs, *contosoVM* e *fabrikamVM*, para serem usadas como servidores back-end.
+1. Criar duas VMs, *contosoVM* e *fabrikamVM* , para serem usadas como servidores back-end.
 2. Instale IIS nas máquinas virtuais para verificar se o gateway de aplicativo foi criado com êxito.
 3. Adicione os servidores back-end aos pools de back-end.
 
@@ -154,22 +154,22 @@ Para adicionar destinos de back-end, você vai:
 2. Selecione **Computação** e, em seguida, selecione **Datacenter do Windows Server 2016** na lista **Popular**. A página **Criar uma máquina virtual** é exibida.<br>O Gateway de Aplicativo pode rotear o tráfego para qualquer tipo de máquina virtual usada no pool de back-end. Neste exemplo, você usa um Windows Server 2016 Datacenter.
 3. Insira esses valores na guia **Noções básicas** para as seguintes configurações de máquina virtual:
 
-    - **Grupo de recursos**: Selecione **myResourceGroupAG** para o nome do grupo de recursos.
-    - **Nome da máquina virtual**: Insira *contosoVM* para o nome da máquina virtual.
-    - **Nome de usuário**: Insira um nome para o nome de usuário do administrador.
-    - **Senha**: insira uma senha para o administrador.
+    - **Grupo de recursos** : Selecione **myResourceGroupAG** para o nome do grupo de recursos.
+    - **Nome da máquina virtual** : Insira *contosoVM* para o nome da máquina virtual.
+    - **Nome de usuário** : Insira um nome para o nome de usuário do administrador.
+    - **Senha** : insira uma senha para o administrador.
 1. Aceite os outros padrões e selecione **Próximo: Discos**.  
 2. Aceite os padrões na guia **Discos** e selecione **Próximo: Rede**.
-3. Na guia **Rede**, verifique se **myVNet** está selecionado para a **Rede virtual** e se a **Sub-rede** está definida como **myBackendSubnet**. Aceite os outros padrões e selecione **Próximo: Gerenciamento**.<br>O Gateway de Aplicativo pode comunicar-se com instâncias fora da rede virtual em que está, mas é necessário garantir que há conectividade IP.
-4. Na guia **Gerenciamento**, defina **Diagnóstico de inicialização** como **Desligado**. Aceite os outros padrões e selecione **Revisar + criar**.
-5. Na guia **Revisar + criar**, examine as configurações, corrija os erros de validação e selecione **Criar**.
+3. Na guia **Rede** , verifique se **myVNet** está selecionado para a **Rede virtual** e se a **Sub-rede** está definida como **myBackendSubnet**. Aceite os outros padrões e selecione **Próximo: Gerenciamento**.<br>O Gateway de Aplicativo pode comunicar-se com instâncias fora da rede virtual em que está, mas é necessário garantir que há conectividade IP.
+4. Na guia **Gerenciamento** , defina **Diagnóstico de inicialização** como **Desligado**. Aceite os outros padrões e selecione **Revisar + criar**.
+5. Na guia **Revisar + criar** , examine as configurações, corrija os erros de validação e selecione **Criar**.
 6. Aguarde a criação da máquina virtual concluir antes de continuar.
 
 ### <a name="install-iis-for-testing"></a>Instalar IIS para teste
 
 Neste exemplo, você instala IIS nas máquinas virtuais apenas para verificar se o Azure criou o gateway de aplicativo com êxito.
 
-1. Abra o [PowerShell do Azure](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell). Para fazer isso, selecione **Cloud Shell** na barra de navegação superior do portal do Azure e selecione **PowerShell** na lista suspensa. 
+1. Abra o [PowerShell do Azure](../cloud-shell/quickstart-powershell.md). Para fazer isso, selecione **Cloud Shell** na barra de navegação superior do portal do Azure e selecione **PowerShell** na lista suspensa. 
 
     ![Instalar a extensão personalizada](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
@@ -197,9 +197,9 @@ Neste exemplo, você instala IIS nas máquinas virtuais apenas para verificar se
 
 3. Selecione **contosoPool**.
 
-4. Em **Destinos**, selecione **Máquina virtual** na lista suspensa.
+4. Em **Destinos** , selecione **Máquina virtual** na lista suspensa.
 
-5. Em **MÁQUINA VIRTUAL** e **INTERFACES DE REDE**, selecione a máquina virtual **contosoVM** e os respectivos adaptadores de rede associados nas listas suspensas.
+5. Em **MÁQUINA VIRTUAL** e **INTERFACES DE REDE** , selecione a máquina virtual **contosoVM** e os respectivos adaptadores de rede associados nas listas suspensas.
 
     ![Adicionar servidores de back-end](./media/create-multiple-sites-portal/edit-backend-pool.png)
 
@@ -235,11 +235,11 @@ Quando não precisar mais dos recursos que você criou com o gateway de aplicati
 Para remover o grupo de recursos:
 
 1. No menu esquerdo do portal do Azure, selecione **Grupos de recursos**.
-2. Na página **Grupos de recursos**, pesquise por **myResourceGroupAG** na lista e, em seguida, selecione.
-3. Na página **Grupo de recursos**, selecione **Excluir grupo de recursos**.
+2. Na página **Grupos de recursos** , pesquise por **myResourceGroupAG** na lista e, em seguida, selecione.
+3. Na página **Grupo de recursos** , selecione **Excluir grupo de recursos**.
 4. Insira *myResourceGroupAG* para **DIGITAR O NOME DO GRUPO DE RECURSOS** e selecione **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre o que você pode fazer com o Gateway de Aplicativo do Azure](application-gateway-introduction.md)
+> [Saiba mais sobre o que você pode fazer com o Gateway de Aplicativo do Azure](./overview.md)

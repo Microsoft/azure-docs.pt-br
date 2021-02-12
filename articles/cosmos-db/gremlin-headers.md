@@ -5,14 +5,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 09/03/2019
-author: jasonwhowell
-ms.author: jasonh
-ms.openlocfilehash: 00394e60ad1cf86bfd75a86a0b6630505c7d7356
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+author: christopheranderson
+ms.author: chrande
+ms.openlocfilehash: 0442d21aebe1cf577c50d14a5aeff40bd1f6cd9c
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100381"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600531"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Azure Cosmos DB cabeçalhos de resposta do servidor Gremlin
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -23,7 +23,7 @@ Tenha em mente que assumir a dependência desses cabeçalhos você está limitan
 
 ## <a name="headers"></a>Cabeçalhos
 
-| Cabeçalho | Tipo | Valor de exemplo | Quando incluído | Explicação |
+| Cabeçalho | Type | Valor de exemplo | Quando incluído | Explicação |
 | --- | --- | --- | --- | --- |
 | **x-MS-Request-encargos** | double | 11,3243 | Êxito e Falha | Quantidade de produtividade de coleta ou banco de dados consumida em [unidades de solicitação (ru/s ou RUs)](request-units.md) para uma mensagem de resposta parcial. Esse cabeçalho está presente em cada continuação para solicitações que têm várias partes. Ele reflete a cobrança de uma parte de resposta específica. Somente para solicitações que consistem em uma única parte de resposta, esse cabeçalho corresponde ao custo total de passagem. No entanto, para a maioria das passagens complexas, esse valor representa um custo parcial. |
 | **x-MS-total-solicitação-encargo** | double | 423,987 | Êxito e Falha | Quantidade de produtividade de coleta ou banco de dados consumida em [unidades de solicitação (ru/s ou RUs)](request-units.md) para toda a solicitação. Esse cabeçalho está presente em cada continuação para solicitações que têm várias partes. Indica a cobrança cumulativa desde o início da solicitação. O valor desse cabeçalho na última parte indica o encargo de solicitação completo. |
@@ -36,13 +36,12 @@ Tenha em mente que assumir a dependência desses cabeçalhos você está limitan
 
 ## <a name="status-codes"></a>Códigos de status
 
-Os códigos de status mais comuns retornados pelo servidor são listados abaixo.
+Os códigos mais comuns retornados para `x-ms-status-code` o atributo de status pelo servidor estão listados abaixo.
 
 | Status | Explicação |
 | --- | --- |
 | **401** | A mensagem de erro `"Unauthorized: Invalid credentials provided"` é retornada quando a senha de autenticação não corresponde Cosmos DB chave de conta. Navegue até sua conta do Cosmos DB Gremlin no portal do Azure e confirme se a chave está correta.|
 | **404** | Operações simultâneas que tentam excluir e atualizar a mesma borda ou vértice simultaneamente. A mensagem de erro `"Owner resource does not exist"` indica que a coleção ou o banco de dados especificado  está incorreto nos parâmetros de conexão no formato `/dbs/<database name>/colls/<collection or graph name>`.|
-| **408** | `"Server timeout"` indica que a passagem demorou mais de **30 segundos** e foi cancelada pelo servidor. Otimize seus atravessamentos para serem executados rapidamente filtrando vértices ou bordas em cada salto de passagem para restringir o escopo da pesquisa.|
 | **409** | `"Conflicting request to resource has been attempted. Retry to avoid conflicts."`Isso geralmente acontece quando já existe um vértice ou uma borda com um identificador no gráfico.| 
 | **412** | O código de status é complementado com a mensagem de erro `"PreconditionFailedException": One of the specified pre-condition is not met` . Esse erro é um indicativo de uma violação de controle de simultaneidade otimista entre ler uma borda ou um vértice e gravá-lo de volta no repositório após a modificação. As situações mais comuns quando esse erro ocorre são a modificação da propriedade, por exemplo `g.V('identifier').property('name','value')` . O mecanismo de Gremlinia ler o vértice, modificá-lo e escrevê-lo novamente. Se houver outra passagem em execução em paralelo tentando gravar o mesmo vértice ou uma borda, um deles receberá esse erro. O aplicativo deve enviar passagem para o servidor novamente.| 
 | **429** | A solicitação foi limitada e deve ser repetida após o valor em **x-ms-retry-after-ms**| 
@@ -53,6 +52,7 @@ Os códigos de status mais comuns retornados pelo servidor são listados abaixo.
 | **1004** | Esse código de status indica uma solicitação de grafo malformada. A solicitação pode ser malformada quando falha na desserialização; o tipo de não valor está sendo desserializado como tipo de valor ou operação Gremlin sem suporte solicitada. O aplicativo não deve repetir a solicitação porque não será bem-sucedido. | 
 | **1.007** | Normalmente, esse código de status é retornado com a mensagem de erro `"Could not process request. Underlying connection has been closed."` . Essa situação pode ocorrer se o driver do cliente tentar usar uma conexão que está sendo fechada pelo servidor. O aplicativo deve repetir a passagem em uma conexão diferente.
 | **1.008** | Cosmos DB servidor Gremlin pode encerrar conexões para reequilibrar o tráfego no cluster. Os drivers de cliente devem lidar com essa situação e usar somente conexões dinâmicas para enviar solicitações ao servidor. Ocasionalmente, os drivers de cliente podem não detectar que a conexão foi fechada. Quando o aplicativo encontra um erro, `"Connection is too busy. Please retry after sometime or open more connections."` ele deve repetir a passagem em uma conexão diferente.
+| **1.009** | A operação não foi concluída no tempo alocado e foi cancelada pelo servidor. Otimize seus atravessamentos para serem executados rapidamente filtrando vértices ou bordas em cada salto de passagem para restringir o escopo da pesquisa. O padrão de tempo limite de solicitação é de **60 segundos**. |
 
 ## <a name="samples"></a>Exemplos
 

@@ -3,18 +3,18 @@ title: Usar a Pesquisa no Azure Application Insights | Microsoft Docs
 description: Pesquise e filtre telemetria bruta enviada pelo seu aplicativo Web.
 ms.topic: conceptual
 ms.date: 07/30/2019
-ms.openlocfilehash: f88e0fb8fbd7e9605635ede1e8f71b57de84b74e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f87a972b417bf6074de1c10b7a54bd2416f88daa
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324447"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187010"
 ---
 # <a name="using-search-in-application-insights"></a>Usar a Pesquisa no Application Insights
 
 A Pesquisa é um recurso do [Application Insights](./app-insights-overview.md) que você usa para localizar e explorar itens individuais de telemetria, como exibições de página, exceções ou solicitações da Web. Você também pode exibir rastreamentos de log e eventos que você tenha codificado.
 
-(Para consultas mais complexas sobre os dados, use o [Analytics](../log-query/get-started-portal.md).)
+(Para consultas mais complexas sobre os dados, use o [Analytics](../log-query/log-analytics-tutorial.md).)
 
 ## <a name="where-do-you-see-search"></a>Onde você vê o Search?
 
@@ -81,7 +81,7 @@ Para localizar todos os itens com o mesmo valor de propriedade, digite-os na bar
 ## <a name="search-the-data"></a>Pesquisar os dados
 
 > [!NOTE]
-> Para gravar consultas mais complexas, abra [**logs (análise)**](../log-query/get-started-portal.md) na parte superior da folha de pesquisa.
+> Para gravar consultas mais complexas, abra [**logs (análise)**](../log-query/log-analytics-tutorial.md) na parte superior da folha de pesquisa.
 >
 
 Você pode pesquisar termos em qualquer um dos valores de propriedade. Isso será útil se você tiver escrito [eventos personalizados](./api-custom-events-metrics.md) com valores de propriedade.
@@ -145,8 +145,7 @@ Nós não registramos os dados de POST automaticamente, mas você pode usar [cha
 
 ## <a name="next-steps"></a><a name="add"></a>Próximas etapas
 
-* [Escrever consultas complexas no Analytics](../log-query/get-started-portal.md)
+* [Escrever consultas complexas no Analytics](../log-query/log-analytics-tutorial.md)
 * [Enviar logs e telemetria personalizada para o Application Insights](./asp-net-trace-logs.md)
 * [Configurar testes de disponibilidade e capacidade de resposta](./monitor-web-app-availability.md)
 * [Solução de problemas](../faq.md)
-

@@ -1,24 +1,26 @@
 ---
 title: Parâmetros em modelos
-description: Descreve como definir parâmetros em um modelo de Azure Resource Manager.
+description: Descreve como definir parâmetros em um modelo de Azure Resource Manager (modelo ARM).
 ms.topic: conceptual
-ms.date: 09/05/2019
-ms.openlocfilehash: 89c6984c587e8dae59c1825a99d4f8da1c06dafb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: 929d871bc0087d4fda585773b349dee4e0945c7c
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76122416"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934706"
 ---
-# <a name="parameters-in-azure-resource-manager-templates"></a>Parâmetros em modelos do Azure Resource Manager
+# <a name="parameters-in-arm-templates"></a>Parâmetros em modelos ARM
 
-Este artigo descreve como definir e usar parâmetros em seu modelo de Azure Resource Manager. Ao fornecer valores diferentes para parâmetros, você pode reutilizar um modelo para ambientes diferentes.
+Este artigo descreve como definir e usar parâmetros em seu modelo de Azure Resource Manager (modelo ARM). Ao fornecer valores diferentes para parâmetros, você pode reutilizar um modelo para ambientes diferentes.
 
 O Resource Manager resolve os valores de parâmetro antes de iniciar as operações de implantação. Sempre que o parâmetro for usado no modelo, o Resource Manager o substituirá pelo valor resolvido.
 
+Cada parâmetro deve ser definido como um dos [tipos de dados](template-syntax.md#data-types).
+
 ## <a name="define-parameter"></a>Definir parâmetro
 
-O exemplo a seguir mostra uma definição de parâmetro simples. Ele define um parâmetro chamado **storageSKU**. O parâmetro é um valor de cadeia de caracteres e aceita apenas valores que são válidos para seu uso pretendido. O parâmetro usa um valor padrão quando nenhum valor é fornecido durante a implantação.
+O exemplo a seguir mostra uma definição de parâmetro simples. Ele define um parâmetro chamado `storageSKU` . O parâmetro é um valor de cadeia de caracteres e aceita apenas valores que são válidos para seu uso pretendido. O parâmetro usa um valor padrão quando nenhum valor é fornecido durante a implantação.
 
 ```json
 "parameters": {
@@ -157,9 +159,8 @@ Os exemplos a seguir demonstram cenários para o uso de parâmetros.
 |[parâmetros com funções de valores padrão](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Demonstra como usar funções de modelo ao definir valores padrão para parâmetros. O modelo não implanta todos os recursos. Ele cria valores de parâmetro e retorna os valores. |
 |[objeto de parâmetro](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Demonstra como usar um objeto para um parâmetro. O modelo não implanta todos os recursos. Ele cria valores de parâmetro e retorna os valores. |
 
-
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre as propriedades disponíveis para parâmetros, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](template-syntax.md).
+* Para saber mais sobre as propriedades disponíveis para parâmetros, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).
 * Para saber mais sobre a passagem de valores de parâmetro como um arquivo, consulte [criar arquivo de parâmetro do Resource Manager](parameter-files.md).
 * Para obter recomendações sobre como criar parâmetros, consulte [Best Practices-Parameters](template-best-practices.md#parameters).

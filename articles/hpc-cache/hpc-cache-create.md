@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 867cfa1321106c24354b29ea803a4fb914a6778d
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 77bd5e3b7a258ef83e5de4ec645ea70578fb9dfb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341373"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657084"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Criar um Azure HPC Cache
 
@@ -102,7 +102,7 @@ Quando a criação for concluída, uma notificação será exibida com um link p
 
 ## <a name="create-the-cache-with-azure-cli"></a>Criar o cache com CLI do Azure
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurar CLI do Azure para o cache do HPC do Azure](./az-cli-prerequisites.md).
 
 > [!NOTE]
 > Atualmente, o CLI do Azure não dá suporte à criação de um cache com chaves de criptografia gerenciadas pelo cliente. Use o portal do Azure.

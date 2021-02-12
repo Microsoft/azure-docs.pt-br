@@ -1,17 +1,15 @@
 ---
 title: Reliable Actors em Service Fabric
 description: Descreve como os Reliable Actors são dispostos em camadas nos Reliable Services e como eles usam os recursos da plataforma do Service Fabric.
-author: vturecek
 ms.topic: conceptual
 ms.date: 3/9/2018
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1cd90d4567bde6cd2c4f2a29e2d516b51b79e2af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e204b47b7fa9f528341507c315c926159d524e13
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016607"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789575"
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Como Reliable Actors usam a plataforma do Service Fabric
 Este artigo explica sobre o funcionamento dos Reliable Actors na plataforma do Azure Service Fabric. Reliable Actors executado em uma estrutura hospedada em uma implementação de um serviço confiável com estado chamado *serviço de ator*. O serviço de ator contém todos os componentes necessários para gerenciar o ciclo de vida e a expedição de mensagens para seus atores:
@@ -91,7 +89,7 @@ Ao usar GUIDs/UUIDs e cadeias de caracteres, os valores são codificados em hash
 ## <a name="next-steps"></a>Próximas etapas
 * [Gerenciamento de estado do ator](service-fabric-reliable-actors-state-management.md)
 * [Ciclo de vida do ator e coleta de lixo](service-fabric-reliable-actors-lifecycle.md)
-* [Documentação de referência da API dos Atores](/dotnet/api/microsoft.servicefabric.actors?view=azure-dotnet)
+* [Documentação de referência da API dos Atores](/dotnet/api/microsoft.servicefabric.actors)
 * [Código de exemplo do .NET](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Código de exemplo de Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 

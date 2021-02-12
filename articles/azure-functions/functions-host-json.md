@@ -3,12 +3,12 @@ title: Referência host.json para o Azure Functions 2.x
 description: Documentação de referência do arquivo host.json do Azure Functions com o runtime v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: f58eefd636b2bd59d6b3656bf162f7d601f7ff85
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 735c92720f4a3f871499ad3a0565446a02b438eb
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167637"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654805"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Referência ao host.json para Azure Functions 2.x e versões posteriores 
 
@@ -117,6 +117,11 @@ O exemplo a seguir *host.jsno* arquivo para a versão 2. x + tem todas as opçõ
     "managedDependency": {
         "enabled": true
     },
+    "retry": {
+      "strategy": "fixedDelay",
+      "maxRetryCount": 5,
+      "delayInterval": "00:00:05"
+    },
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",
@@ -124,7 +129,8 @@ O exemplo a seguir *host.jsno* arquivo para a versão 2. x + tem todas as opçõ
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ]
+    "watchDirectories": [ "Shared", "Test" ],
+    "watchFiles": [ "myFile.txt" ]
 }
 ```
 
@@ -147,15 +153,17 @@ Para obter a estrutura JSON completa, consulte o [exemplo anterior host.jsno arq
 
 | Propriedade | Padrão | Descrição |
 | --------- | --------- | --------- | 
-| samplingSettings | n/a | Consulte [applicationInsights. samplingSettings](#applicationinsightssamplingsettings). |
+| samplingSettings | N/D | Consulte [applicationInsights. samplingSettings](#applicationinsightssamplingsettings). |
 | enableLiveMetrics | true | Habilita a coleta de métricas em tempo real. |
 | enableDependencyTracking | true | Habilita o rastreamento de dependência. |
 | enablePerformanceCountersCollection | true | Habilita a coleta de contadores de desempenho kudu. |
 | liveMetricsInitializationDelay | 00:00:15 | Somente para uso interno. |
-| httpAutoCollectionOptions | n/a | Consulte [applicationInsights. httpAutoCollectionOptions](#applicationinsightshttpautocollectionoptions). |
-| snapshotConfiguration | n/a | Consulte [applicationInsights. snapshotConfiguration](#applicationinsightssnapshotconfiguration). |
+| httpAutoCollectionOptions | N/D | Consulte [applicationInsights. httpAutoCollectionOptions](#applicationinsightshttpautocollectionoptions). |
+| snapshotConfiguration | N/D | Consulte [applicationInsights. snapshotConfiguration](#applicationinsightssnapshotconfiguration). |
 
 ### <a name="applicationinsightssamplingsettings"></a>applicationInsights. samplingSettings
+
+Para obter mais informações sobre essas configurações, consulte [amostragem em Application insights](../azure-monitor/app/sampling.md). 
 
 |Propriedade | Padrão | Descrição |
 | --------- | --------- | --------- | 
@@ -168,8 +176,8 @@ Para obter a estrutura JSON completa, consulte o [exemplo anterior host.jsno arq
 | minSamplingPercentage | 0,1 | À medida que a porcentagem de amostragem varia, essa propriedade determina a porcentagem de amostragem mínima permitida. |
 | maxSamplingPercentage | 100.0 | À medida que a porcentagem de amostragem varia, essa propriedade determina a porcentagem máxima de amostragem permitida. |
 | movingAverageRatio | 1.0 | No cálculo da média móvel, o peso atribuído ao valor mais recente. Use um valor menor ou igual a 1. Valores menores tornam o algoritmo menos reativo a mudanças repentinas. |
-| excludedTypes | null | Uma lista delimitada por ponto e vírgula de tipos que você não deseja que sejam amostrados. Os tipos reconhecidos são: `Dependency` , `Event` , `Exception` ,, `PageView` `Request` e `Trace` . Todas as instâncias dos tipos especificados são transmitidas; os tipos que não são especificados são amostrados. |
-| includedTypes | null | Uma lista delimitada por ponto e vírgula dos tipos que você deseja que sejam amostrados; uma lista vazia implica todos os tipos. Tipo listado em `excludedTypes` tipos de substituição listados aqui. Os tipos reconhecidos são: `Dependency` , `Event` , `Exception` ,, `PageView` `Request` e `Trace` . As instâncias dos tipos especificados são amostradas; os tipos que não são especificados ou implícitos são transmitidos sem amostragem. |
+| excludedTypes | nulo | Uma lista delimitada por ponto e vírgula de tipos que você não deseja que sejam amostrados. Os tipos reconhecidos são: `Dependency` , `Event` , `Exception` ,, `PageView` `Request` e `Trace` . Todas as instâncias dos tipos especificados são transmitidas; os tipos que não são especificados são amostrados. |
+| includedTypes | nulo | Uma lista delimitada por ponto e vírgula dos tipos que você deseja que sejam amostrados; uma lista vazia implica todos os tipos. Tipo listado em `excludedTypes` tipos de substituição listados aqui. Os tipos reconhecidos são: `Dependency` , `Event` , `Exception` ,, `PageView` `Request` e `Trace` . As instâncias dos tipos especificados são amostradas; os tipos que não são especificados ou implícitos são transmitidos sem amostragem. |
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>applicationInsights. httpAutoCollectionOptions
 
@@ -185,8 +193,8 @@ Para obter mais informações sobre instantâneos, consulte [depurar instantâne
 
 |Propriedade | Padrão | Descrição |
 | --------- | --------- | --------- | 
-| agentEndpoint | null | O ponto de extremidade usado para se conectar ao serviço de Depurador de Instantâneos de Application Insights. Se for NULL, será usado um ponto de extremidade padrão. |
-| captureSnapshotMemoryWeight | 0.5 | O peso dado ao tamanho da memória do processo atual ao verificar se há memória suficiente para tirar um instantâneo. O valor esperado é maior que 0 fração correta (0 < CaptureSnapshotMemoryWeight < 1). |
+| agentEndpoint | nulo | O ponto de extremidade usado para se conectar ao serviço de Depurador de Instantâneos de Application Insights. Se for NULL, será usado um ponto de extremidade padrão. |
+| captureSnapshotMemoryWeight | 0,5 | O peso dado ao tamanho da memória do processo atual ao verificar se há memória suficiente para tirar um instantâneo. O valor esperado é maior que 0 fração correta (0 < CaptureSnapshotMemoryWeight < 1). |
 | failedRequestLimit | 3 | O limite do número de solicitações com falha para solicitar instantâneos antes que o processador de telemetria seja desabilitado.|
 | handleUntrackedExceptions | true | Habilita ou desabilita o rastreamento de exceções que não são controladas pela telemetria do Application Insights. |
 | isEnabled | true | Habilita ou desabilita a coleta de instantâneos | 
@@ -199,18 +207,40 @@ Para obter mais informações sobre instantâneos, consulte [depurar instantâne
 | problemCounterResetInterval | 24:00:00 | Com que frequência os contadores de problema são redefinidos em um intervalo de um minuto a sete dias. Quando esse intervalo é atingido, todas as contagens de problemas são redefinidas para zero. Problemas existentes que já atingiram o limite para fazer instantâneos, mas que ainda não geraram o número de instantâneos em `maximumSnapshotsRequired` , permanecem ativos. |
 | provideAnonymousTelemetry | true | Determina se o uso anônimo e a telemetria de erro devem ser enviados à Microsoft. Essa telemetria poderá ser usada se você entrar em contato com a Microsoft para ajudar a solucionar problemas com o Depurador de Instantâneos. Ele também é usado para monitorar padrões de uso. |
 | reconnectInterval | 00:15:00 | Com que frequência reconectamos ao ponto de extremidade de Depurador de Instantâneos. O intervalo permitido é de um minuto a um dia. |
-| shadowCopyFolder | null | Especifica a pasta a ser usada para binários de cópia de sombra. Se não estiver definido, as pastas especificadas pelas seguintes variáveis de ambiente serão tentadas em ordem: Fabric_Folder_App_Temp, LOCALAPPDATA, APPDATA, TEMP. |
+| shadowCopyFolder | nulo | Especifica a pasta a ser usada para binários de cópia de sombra. Se não estiver definido, as pastas especificadas pelas seguintes variáveis de ambiente serão tentadas em ordem: Fabric_Folder_App_Temp, LOCALAPPDATA, APPDATA, TEMP. |
 | shareUploaderProcess | true | Se for true, apenas uma instância de SnapshotUploader coletará e carregará instantâneos para vários aplicativos que compartilham o InstrumentationKey. Se definido como false, o SnapshotUploader será exclusivo para cada tupla (ProcessName, InstrumentationKey). |
 | snapshotInLowPriorityThread | true | Determina se os instantâneos devem ou não ser processados em um thread de prioridade baixa e/s. A criação de um instantâneo é uma operação rápida, mas, para carregar um instantâneo no serviço de Depurador de Instantâneos, ele deve ser gravado primeiro no disco como um minidespejo. Isso acontece no processo de SnapshotUploader. Definir esse valor como true usa a e/s de baixa prioridade para gravar o minidespejo, que não concorrerá em seu aplicativo para recursos. Definir esse valor como false acelera a criação de minidespejos com a despesa de reduzir o seu aplicativo. |
 | snapshotsPerDayLimit | 30 | O número máximo de instantâneos permitido em um dia (24 horas). Esse limite também é imposto no lado do serviço Application Insights. Os carregamentos têm uma taxa limitada a 50 por dia por aplicativo (isto é, por chave de instrumentação). Esse valor ajuda a impedir a criação de instantâneos adicionais que eventualmente serão rejeitados durante o carregamento. Um valor de zero remove totalmente o limite, o que não é recomendado. |
 | snapshotsPerTenMinutesLimit | 1 | O número máximo de instantâneos permitido em 10 minutos. Embora não haja nenhum limite superior nesse valor, tome cuidado ao aumentá-lo nas cargas de trabalho de produção, pois isso pode afetar o desempenho do seu aplicativo. Criar um instantâneo é rápido, mas criar um minidespejo do instantâneo e carregá-lo para o serviço de Depurador de Instantâneos é uma operação muito mais lenta que conseguirá competir com seu aplicativo para recursos (CPU e e/s). |
-| tempFolder | null | Especifica a pasta para gravar minidespejos e arquivos de log do carregador. Se não for definido, *%Temp%\Dumps* será usado. |
+| tempFolder | nulo | Especifica a pasta para gravar minidespejos e arquivos de log do carregador. Se não for definido, *%Temp%\Dumps* será usado. |
 | thresholdForSnapshotting | 1 | Quantas vezes Application Insights precisa ver uma exceção antes de solicitar instantâneos. |
-| uploaderProxy | null | Substitui o servidor proxy usado no processo de carregador de instantâneo. Talvez seja necessário usar essa configuração se o aplicativo se conectar à Internet por meio de um servidor proxy. O Snapshot Collector é executado no processo do aplicativo e usará as mesmas configurações de proxy. No entanto, o carregador de instantâneos é executado como um processo separado e talvez seja necessário configurar o servidor proxy manualmente. Se esse valor for nulo, Snapshot Collector tentará detectar automaticamente o endereço do proxy examinando System .net. WebRequest. DefaultWebProxy e passando o valor para o carregador de instantâneos. Se esse valor não for nulo, a detecção automática não será usada e o servidor proxy especificado aqui deverá ser usado no carregador de instantâneos. |
+| uploaderProxy | nulo | Substitui o servidor proxy usado no processo de carregador de instantâneo. Talvez seja necessário usar essa configuração se o aplicativo se conectar à Internet por meio de um servidor proxy. O Snapshot Collector é executado no processo do aplicativo e usará as mesmas configurações de proxy. No entanto, o carregador de instantâneos é executado como um processo separado e talvez seja necessário configurar o servidor proxy manualmente. Se esse valor for nulo, Snapshot Collector tentará detectar automaticamente o endereço do proxy examinando System .net. WebRequest. DefaultWebProxy e passando o valor para o carregador de instantâneos. Se esse valor não for nulo, a detecção automática não será usada e o servidor proxy especificado aqui deverá ser usado no carregador de instantâneos. |
 
 ## <a name="cosmosdb"></a>cosmosDb
 
 A definição de configuração pode ser encontrada em [Associações e gatilhos do Cosmos DB](functions-bindings-cosmosdb-v2-output.md#host-json).
+
+## <a name="customhandler"></a>customHandler
+
+Definições de configuração para um manipulador personalizado. Para obter mais informações, consulte [Azure Functions manipuladores personalizados](functions-custom-handlers.md#configuration).
+
+```json
+"customHandler": {
+  "description": {
+    "defaultExecutablePath": "server",
+    "workingDirectory": "handler",
+    "arguments": [ "--port", "%FUNCTIONS_CUSTOMHANDLER_PORT%" ]
+  },
+  "enableForwardingHttpRequest": false
+}
+```
+
+|Propriedade | Padrão | Descrição |
+| --------- | --------- | --------- |
+| defaultExecutablePath | N/D | O executável a ser iniciado como o processo do manipulador personalizado. É uma configuração necessária ao usar manipuladores personalizados e seu valor é relativo à raiz do aplicativo de funções. |
+| workingDirectory | *raiz do aplicativo de funções* | O diretório de trabalho no qual iniciar o processo de manipulador personalizado. É uma configuração opcional e seu valor é relativo à raiz do aplicativo de funções. |
+| argumentos | N/D | Uma matriz de argumentos de linha de comando para passar para o processo de manipulador personalizado. |
+| enableForwardingHttpRequest | false | Se definido, todas as funções que consistem apenas em um gatilho HTTP e saída HTTP serão encaminhadas a solicitação HTTP original em vez da [carga de solicitação](functions-custom-handlers.md#request-payload)do manipulador personalizado. |
 
 ## <a name="durabletask"></a>durableTask
 
@@ -310,9 +340,9 @@ Controla os comportamentos de registro em log do aplicativo de funções, inclui
 |Propriedade  |Padrão | Descrição |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Define qual nível de log de arquivos está habilitado.  As opções são: `never`, `always` e `debugOnly`. |
-|logLevel|n/a|Objeto que define a filtragem da categoria de log para funções no aplicativo. As versões 2. x e posteriores seguem o layout de ASP.NET Core para filtragem de categorias de log. Essa configuração permite filtrar o registro em log para funções específicas. Para obter mais informações, consulte [Filtragem de logs](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering) na documentação do ASP.NET Core. |
-|console|n/a| A configuração de log do [console](#console). |
-|applicationInsights|n/a| A configuração [applicationInsights](#applicationinsights). |
+|logLevel|N/D|Objeto que define a filtragem da categoria de log para funções no aplicativo. As versões 2. x e posteriores seguem o layout de ASP.NET Core para filtragem de categorias de log. Essa configuração permite filtrar o registro em log para funções específicas. Para obter mais informações, consulte [Filtragem de logs](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering) na documentação do ASP.NET Core. |
+|console|N/D| A configuração de log do [console](#console). |
+|applicationInsights|N/D| A configuração [applicationInsights](#applicationinsights). |
 
 ## <a name="console"></a>console
 
@@ -350,6 +380,28 @@ A dependência gerenciada é um recurso que atualmente só tem suporte com funç
 
 As definições de configuração podem ser encontradas em [Associações e gatilhos da fila de armazenamento](functions-bindings-storage-queue-output.md#host-json).  
 
+## <a name="retry"></a>tentar novamente
+
+Controla as opções de [política de repetição](./functions-bindings-error-pages.md#retry-policies-preview) para todas as execuções no aplicativo.
+
+```json
+{
+    "retry": {
+        "strategy": "fixedDelay",
+        "maxRetryCount": 2,
+        "delayInterval": "00:00:03"  
+    }
+}
+```
+
+|Propriedade  |Padrão | Descrição |
+|---------|---------|---------| 
+|usada|nulo|Obrigatórios. Usar qual estratégia de repetição. Os valores válidos são `fixedDelay` ou `exponentialBackoff`.|
+|maxRetryCount|nulo|Obrigatórios. O número máximo de repetições permitidas por execução de função. `-1` significa repetir indefinidamente.|
+|delayInterval|nulo|O atraso usado entre as repetições com uma `fixedDelay` estratégia.|
+|minimumInterval|nulo|O atraso mínimo de repetição ao usar a `exponentialBackoff` estratégia.|
+|maximumInterval|nulo|O atraso máximo de repetição ao usar a `exponentialBackoff` estratégia.| 
+
 ## <a name="sendgrid"></a>sendGrid
 
 A definição de configuração pode ser encontrada em [Associações e gatilhos do SendGrid](functions-bindings-sendgrid.md#host-json).
@@ -380,7 +432,7 @@ Parâmetro de configuração para o comportamento de bloqueio de Singleton. Para
 |listenerLockPeriod|00:01:00|O período em que ocorrem os bloqueios de ouvinte.| 
 |listenerLockRecoveryPollingInterval|00:01:00|O intervalo de tempo usado para a recuperação do bloqueio de ouvinte caso não tenha sido possível adquirir um bloqueio de ouvinte durante a inicialização.| 
 |lockAcquisitionTimeout|00:01:00|A quantidade máxima de tempo em que o runtime tenta adquirir um bloqueio.| 
-|lockAcquisitionPollingInterval|n/a|O intervalo entre as tentativas de aquisição de bloqueio.| 
+|lockAcquisitionPollingInterval|N/D|O intervalo entre as tentativas de aquisição de bloqueio.| 
 
 ## <a name="version"></a>version
 
@@ -393,6 +445,16 @@ Um conjunto de [diretórios de código compartilhado](functions-reference-csharp
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## <a name="watchfiles"></a>watchFiles
+
+Uma matriz de um ou mais nomes de arquivos que são monitorados para alterações que exigem que seu aplicativo seja reiniciado.  Isso garante que, quando o código desses arquivos for alterado, as atualizações serão coletadas por suas funções.
+
+```json
+{
+    "watchFiles": [ "myFile.txt" ]
 }
 ```
 

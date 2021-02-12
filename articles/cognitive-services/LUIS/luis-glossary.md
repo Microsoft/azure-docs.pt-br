@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: cc7dac3767ca5c9e2429f4691a458f88ad1af707
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7c65c8272172cab9f5361d16141bf7b229037480
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151978"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786937"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossário de noções básicas de linguagem de conceitos e vocabulário comuns
 O Glossário de Reconhecimento vocal (LUIS) explica os termos que você pode encontrar enquanto trabalha com o serviço LUIS.
@@ -50,12 +50,13 @@ O recurso de criação tem um "tipo" do Azure `LUIS-Authoring` .
 
 ## <a name="batch-test"></a>Teste de lote
 
-Os testes em lote são a capacidade de validar os modelos de um aplicativo LUIS atual com um conjunto de teste consistente e conhecido de declarações de usuário. O teste em lotes é definido em um [arquivo formatado em JSON](luis-concept-batch-test.md#batch-file-format).
+Os testes em lote são a capacidade de validar os modelos de um aplicativo LUIS atual com um conjunto de teste consistente e conhecido de declarações de usuário. O teste em lotes é definido em um [arquivo formatado em JSON](./luis-how-to-batch-test.md#batch-test-file).
+
 
 Consulte também:
-* [Conceitos](luis-concept-batch-test.md)
+* [Conceitos](./luis-how-to-batch-test.md)
 * [Como](luis-how-to-batch-test.md) executar um teste em lotes
-* [Tutorial](luis-tutorial-batch-testing.md) – criar e executar um teste em lotes
+* [Tutorial](./luis-how-to-batch-test.md) – criar e executar um teste em lotes
 
 ### <a name="f-measure"></a>Medida F
 
@@ -74,7 +75,7 @@ No teste de lote, a precisão (também chamada de valor preditivo positivo) é a
 
 Um exemplo para um teste de lote de animais é o número de ovelha que foram previstas divididos pelo número total de animais (ovelha e não ovelha semelhantes).
 
-### <a name="recall"></a>Chamar de volta
+### <a name="recall"></a>Recall
 
 No teste de lote, recall (também conhecido como sensibilidade) é a capacidade de generalização do LUIS.
 
@@ -109,11 +110,11 @@ Consulte também:
 
 Um descritor é o termo usado anteriormente para um [recurso](#features)de aprendizado de máquina.
 
-## <a name="domain"></a>Domain
+## <a name="domain"></a>Domínio
 
 No contexto do LUIS, um domínio é uma área de conhecimento. Seu domínio é específico do seu cenário. Domínios diferentes usam uma terminologia e linguagem específica que têm significado no contexto do domínio. Por exemplo, se você estiver criando um aplicativo para reproduzir música, seu aplicativo teria termos e idioma específicos para música – palavras como "música, faixa, álbum, letras do lado do b, artista". Para obter exemplos de domínios, consulte [domínios predefinidos](#prebuilt-domain).
 
-## <a name="endpoint"></a>Ponto de extremidade
+## <a name="endpoint"></a>Ponto de Extremidade
 
 ### <a name="authoring-endpoint"></a>Ponto de extremidade de criação
 
@@ -194,7 +195,7 @@ No LUIS, você [rotula](label-entity-example-utterance.md) uma palavra ou frase 
 
 Consulte a definição de [aplicativo (aplicativo)](#application-app).
 
-## <a name="model"></a>Modelar
+## <a name="model"></a>Modelo
 
 Um modelo (aprendido pelo computador) é uma função que faz uma previsão sobre os dados de entrada. Em LUIS, nos referimos aos classificadores de intenção e aos extratores de entidade genericamente como "modelos", e nos referimos a uma coleção de modelos treinados, publicados e consultados juntos como um "aplicativo".
 
@@ -256,7 +257,7 @@ Por exemplo, use um modelo que é usado para identificar se algum texto de clien
 
 Renomeada para [chave de criação](#authoring-key).
 
-## <a name="publish"></a>Publicar
+## <a name="publish"></a>Publicação
 
 [Publicação](luis-how-to-publish-app.md) significa tornar uma versão Luis ativa disponível no [ponto de extremidade](#endpoint)de preparo ou de produção.
 
@@ -314,7 +315,7 @@ Para o **Inglês**, um token é um intervalo contínuo (sem espaços ou pontuaç
 |`425-555-5555`|5|Um número de telefone. Cada marca de pontuação é um único token, portanto,  `425-555-5555` seria 5 tokens:<br>`425`<br>`-`<br>`555`<br>`-`<br>`5555` |
 |`https://luis.ai`|7|`https`<br>`:`<br>`/`<br>`/`<br>`luis`<br>`.`<br>`ai`<br>|
 
-## <a name="train"></a>Treinar
+## <a name="train"></a>Train
 
 O [treinamento](luis-how-to-train.md) é o processo de ensinar Luis sobre quaisquer alterações na versão ativa desde o último treinamento.
 

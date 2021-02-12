@@ -1,19 +1,16 @@
 ---
 title: Usar um PC com Windows com Hadoop no HDInsight - Azure
 description: Trabalhe em um PC com Windows no Hadoop no HDInsight. Gerencie e consulte clusters com as ferramentas do PowerShell, Visual Studio e Linux. Desenvolva soluções de Big Data com .NET.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/20/2019
-ms.openlocfilehash: 6482b2ec07a0473ddbea2098d37c5d67c8b68704
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: d0d389e8d9458cd6b43b50e24cec030baca740af
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539693"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945328"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Trabalhar no ecossistema Apache Hadoop no HDInsight por meio de um computador com Windows
 
@@ -75,9 +72,9 @@ Esses artigos mostram como:
 
 ## <a name="notebooks-on-spark-for-data-scientists"></a>Notebooks no Spark para os cientistas de dados
 
-Os clusters do Apache Spark no HDInsight incluem notebooks e kernels Zeppelin que podem ser usados com os notebooks do Jupyter.
+Apache Spark clusters no HDInsight incluem os notebooks Apache Zeppelin e kernels que podem ser usados com notebooks Jupyter.
 
-* [Saiba como usar kernels em clusters Apache Spark com notebooks do Jupyter para testar aplicativos Spark](spark/apache-spark-zeppelin-notebook.md)
+* [Saiba como usar kernels em clusters Apache Spark com notebooks Jupyter para testar aplicativos Spark](spark/apache-spark-zeppelin-notebook.md)
 * [Saiba como usar notebooks do Apache Zeppelin em clusters Apache Spark para executar trabalhos do Spark](spark/apache-spark-jupyter-notebook-kernels.md)
 
 ## <a name="run-linux-based-tools-and-technologies-on-windows"></a>Executar ferramentas e tecnologias baseadas em Linux no Windows
@@ -85,7 +82,7 @@ Os clusters do Apache Spark no HDInsight incluem notebooks e kernels Zeppelin qu
 Se você vir uma situação em que deve usar uma ferramenta ou tecnologia disponível apenas no Linux, considere as seguintes opções:
 
 * O **bash no Ubuntu no Windows 10** fornece um subsistema Linux no Windows. O Bash permite que você execute diretamente os utilitários Linux sem a necessidade de manter uma instalação dedicada do Linux. Confira o [Guia de instalação do subsistema do Windows para Linux para o Windows 10](/windows/wsl/install-win10) para conhecer as etapas de instalação.  Outros [shells do Unix](https://www.gnu.org/software/bash/) também funcionarão.
-* **Docker para Windows** fornece acesso às muitas ferramentas baseadas em Linux e pode ser executado diretamente do Windows. Por exemplo, você pode usar o Docker para executar o cliente Beeline para diretamente do Windows. Você pode também usar o Docker para executar um notebook local do Jupyter e se conectar remotamente ao Spark no HDInsight. [Introdução ao Docker para Windows](https://docs.docker.com/docker-for-windows/)
+* **Docker para Windows** fornece acesso às muitas ferramentas baseadas em Linux e pode ser executado diretamente do Windows. Por exemplo, você pode usar o Docker para executar o cliente Beeline para diretamente do Windows. Você também pode usar o Docker para executar um Jupyter Notebook local e conectar-se remotamente ao Spark no HDInsight. [Introdução ao Docker para Windows](https://docs.docker.com/docker-for-windows/)
 * **[MobaXTerm](https://mobaxterm.mobatek.net/)** permite que você navegue graficamente no sistema de arquivos de cluster em uma conexão SSH.
 
 ## <a name="cross-platform-tools"></a>Ferramentas de plataforma cruzada

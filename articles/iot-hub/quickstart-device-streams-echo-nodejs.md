@@ -1,5 +1,5 @@
 ---
-title: Comunicar-se com o aplicativo do dispositivo no Node.js com os fluxos de dispositivos do Hub IoT do Azure
+title: Guia de Início Rápido – Comunicar-se com o aplicativo do dispositivo no Node.js com os fluxos de dispositivos do Hub IoT do Azure
 description: Neste início rápido, você executará aplicativos do lado do serviço do Node.js que se comunica com um dispositivo IoT por meio de um fluxo de dispositivos.
 author: robinsh
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-js, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: ef362b34fe99212ee6648830ac442e507515719f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 335014f032162866e4780bf1294ddcd108b4fd03
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747534"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624381"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Início Rápido: comunicar-se com um aplicativo de dispositivo no Node.js por meio de fluxos de dispositivos do Hub IoT (versão prévia)
 
@@ -30,13 +30,17 @@ Neste guia de início rápido, você executa um aplicativo do lado do serviço e
 
 * [Node.js 10+](https://nodejs.org).
 
+    Você pode verificar a versão atual do Node.js no computador de desenvolvimento usando o seguinte comando:
+
+    ```cmd/sh
+    node --version
+    ```
+
 * [Um projeto de exemplo do Node.js](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip).
 
-Você pode verificar a versão atual do Node.js no computador de desenvolvimento usando o seguinte comando:
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-```cmd/sh
-node --version
-```
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 Atualmente, o Hub IoT do Microsoft Azure dá suporte a fluxos de dispositivos como uma [versão prévia do recurso](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -48,35 +52,23 @@ Atualmente, o Hub IoT do Microsoft Azure dá suporte a fluxos de dispositivos co
 > * Norte da Europa
 > * Sudeste Asiático
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-### <a name="add-azure-iot-extension"></a>Adicionar Extensão do Azure IoT
-
-Execute o comando a seguir para adicionar a Extensão do Microsoft Azure IoT para a CLI do Azure à instância do Cloud Shell. A Extensão de IoT adiciona comandos do Hub IoT, do IoT Edge e do DPS (Serviço de Provisionamento de Dispositivos) IoT à CLI do Azure.
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
-
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
 ## <a name="create-an-iot-hub"></a>Crie um hub IoT
 
-Se tiver concluído o [Início Rápido: enviar telemetria de um dispositivo para um hub IoT](quickstart-send-telemetry-node.md), pode ignorar esta etapa.
+Se você tiver concluído o [Início Rápido: Enviar telemetria de um dispositivo para um Hub IoT](quickstart-send-telemetry-node.md) anterior, ignore esta etapa.
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Registrar um dispositivo
 
-Se tiver concluído o [Início Rápido: enviar telemetria de um dispositivo para um hub IoT](quickstart-send-telemetry-node.md), pode ignorar esta etapa.
+Se você tiver concluído o [Início Rápido: Enviar telemetria de um dispositivo para um Hub IoT](quickstart-send-telemetry-node.md) anterior, ignore esta etapa.
 
 Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste início rápido, você usa o Azure Cloud Shell para registrar um dispositivo simulado.
 
 1. Execute o comando a seguir no Azure Cloud Shell para criar a identidade do dispositivo.
 
-   **YourIoTHubName** : substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
+   **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
 
-   **MyDevice** : esse é o nome do dispositivo que está sendo registrado. É recomendável usar **MyDevice** conforme mostrado. Se escolher um nome diferente para seu dispositivo, você também precisará usar esse nome ao longo deste artigo, bem como atualizar o nome do dispositivo nos aplicativos de exemplo antes de executá-los.
+   **MyDevice**: esse é o nome do dispositivo que está sendo registrado. É recomendável usar **MyDevice** conforme mostrado. Se escolher um nome diferente para seu dispositivo, você também precisará usar esse nome ao longo deste artigo, bem como atualizar o nome do dispositivo nos aplicativos de exemplo antes de executá-los.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
@@ -84,10 +76,10 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
 
 2. Você também precisa de uma *cadeia de conexão de serviço* para permitir que aplicativos de back-end se conectem ao seu hub IoT e recuperem mensagens. O comando abaixo recupera a cadeia de conexão de serviço para o hub IoT:
 
-    **YourIoTHubName** : substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
+    **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
+    az iot hub connection-string show --policy-name service --name {YourIoTHubName} --output table
     ```
 
     Anote a cadeia de conexão de serviço retornada para uso posterior neste início rápido. Ela se parece com o seguinte exemplo:
@@ -162,4 +154,4 @@ Neste início rápido, você configurou um hub IoT, registrou um dispositivo, es
 Use os links abaixo para saber mais sobre fluxos de dispositivos:
 
 > [!div class="nextstepaction"]
-> [Visão geral dos fluxos de dispositivos](./iot-hub-device-streams-overview.md) 
+> [Visão geral dos fluxos de dispositivos](./iot-hub-device-streams-overview.md)

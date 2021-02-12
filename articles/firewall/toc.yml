@@ -58,6 +58,8 @@
       href: fqdn-filtering-network-rules.md
     - name: Linha de base de segurança
       href: security-baseline.md
+    - name: Suporte a FTP ativo
+      href: active-ftp-support.md
 - name: Guias de instruções
   items:
     - name: Implantar usando o Azure PowerShell
@@ -86,8 +88,7 @@
       href: dns-settings.md
     - name: Logs de diagnóstico do Monitor
       href: firewall-diagnostics.md
-    - name: Logs do Azure Monitor
-      href: log-analytics-samples.md
+      displayName: 'Azure CLI, az monitor diagnostic-settings create, monitor diagnostic settings'
     - name: Pasta de trabalho do Firewall do Azure
       href: firewall-workbook.md
 - name: Referência
@@ -111,7 +112,7 @@
 - name: Recursos
   items:
     - name: Perguntas frequentes
-      href: firewall-faq.md
+      href: firewall-faq.yml
     - name: Modelos de autor
       href: ../azure-resource-manager/templates/template-syntax.md
     - name: Roteiro do Azure

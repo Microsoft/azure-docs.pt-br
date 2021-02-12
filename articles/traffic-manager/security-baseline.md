@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9ed6a57dadb70daed9cdf02421b91d310b4b0f07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13515f2428b1fc95c31b04c984dd77dd316a4315
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631453"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202191"
 ---
 # <a name="azure-security-baseline-for-azure-traffic-manager"></a>Linha de base de segurança do Azure para o Gerenciador de tráfego do Azure
 
@@ -76,7 +76,7 @@ Como alternativa, você pode habilitar o e os dados integrados para o Azure Sent
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Introdução às consultas de Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+- [Introdução às consultas de Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -116,9 +116,9 @@ No Gerenciador de Recursos, os pontos de extremidade de qualquer assinatura pode
 
 - [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md)
 
-- [Como obter uma função de diretório no Azure AD com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -136,7 +136,7 @@ Além disso, para ajudá-lo a controlar as contas administrativas dedicadas, voc
 
 Você também pode habilitar um acesso just-in-time usando Azure AD Privileged Identity Management e Azure Resource Manager. 
 
-- [Saiba mais sobre o Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
+- [Saiba mais sobre o Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 - [Como usar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -170,7 +170,7 @@ Você também pode habilitar um acesso just-in-time usando Azure AD Privileged I
 
 **Diretrizes**: Use uma estação de trabalho segura e gerenciada pelo Azure (também conhecida como uma estação de trabalho com acesso privilegiado ou Paw) para tarefas administrativas que exigem privilégios elevados.
 
-- [Entenda as estações de trabalho seguras e gerenciadas pelo Azure](../active-directory/devices/concept-azure-managed-workstation.md)
+- [Entenda as estações de trabalho seguras e gerenciadas pelo Azure](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Como habilitar a MFA no Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -184,9 +184,9 @@ Você também pode habilitar um acesso just-in-time usando Azure AD Privileged I
 
 Além disso, use a detecção de riscos do Azure AD para exibir alertas e relatórios sobre comportamento de usuário arriscado.
 
-- [Como implantar Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [Como implantar Privileged Identity Management](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Entender a detecção de riscos do Azure AD](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Entender a detecção de riscos do Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -216,7 +216,7 @@ Além disso, use a detecção de riscos do Azure AD para exibir alertas e relat�
 
 **Diretrizes**: O Azure AD fornece logs para ajudar a descobrir contas obsoletas. Além disso, use as revisões de identidade e acesso do Azure AD para gerenciar com eficiência as associações de grupo, o acesso aos aplicativos empresariais e as atribuições de função. O acesso do usuário pode ser revisado regularmente para garantir que apenas os usuários certos tenham acesso contínuo. 
 
-- [Entender os relatórios do Azure AD](/azure/active-directory/reports-monitoring/)
+- [Entender os relatórios do Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Como usar as revisões de identidade e acesso do Azure AD](../active-directory/governance/access-reviews-overview.md)
 
@@ -230,7 +230,7 @@ Além disso, use a detecção de riscos do Azure AD para exibir alertas e relat�
 
 Você pode simplificar esse processo criando configurações de diagnóstico para contas de usuário do Azure AD e enviando logs de auditoria e logs de entrada para um espaço de trabalho Log Analytics. Você pode configurar os alertas desejados no espaço de trabalho Log Analytics.
 
-- [Como integrar os logs de atividades do Azure com o Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Como integrar os logs de atividades do Azure com o Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -240,7 +240,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 **Diretrizes**: Use Azure ad Identity Protection recursos para configurar respostas automatizadas para ações suspeitas detectadas relacionadas a identidades de usuário. Você também pode ingerir dados no Azure Sentinel para uma investigação mais aprofundada.
 
-- [Como exibir entradas suspeitas do Azure Active Directory](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Como exibir entradas suspeitas do Azure Active Directory](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Como configurar e habilitar políticas de risco de proteção de identidade](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -258,7 +258,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 **Diretriz**: Use marcas para ajudar a controlar os recursos do Azure que armazenam ou processam informações confidenciais.
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -270,15 +270,15 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 No Gerenciador de Recursos, os pontos de extremidade de qualquer assinatura podem ser adicionados ao Gerenciador de Tráfego, desde que a pessoa que configura o perfil do Gerenciador de Tráfego tenha o acesso de leitura ao ponto de extremidade.
 
-O Gerenciador de tráfego do Azure tem uma função de RBAC do Azure predefinida chamada "colaborador do Gerenciador de tráfego do Azure", que pode ser atribuída aos usuários.
+O Gerenciador de tráfego do Azure tem uma função predefinida do Azure chamada "colaborador do Gerenciador de tráfego", que pode ser atribuída aos usuários.
 
 - [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md)
 
 - [Função colaborador do Traffic Manager](../role-based-access-control/built-in-roles.md#traffic-manager-contributor)
 
-- [Como obter uma função de diretório no Azure AD com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -304,9 +304,9 @@ O Gerenciador de tráfego do Azure tem uma função de RBAC do Azure predefinida
 
 Embora os recursos clássicos do Azure possam ser descobertos por meio do Gerenciador de gráficos de recursos do Azure, é altamente recomendável criar e usar Azure Resource Manager recursos no futuro.
 
-- [Como criar consultas com o Gerenciador de gráficos de recursos do Azure](../governance/resource-graph/first-query-portal.md)
+- [Como criar consultas com o Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
 
-- [Como exibir suas assinaturas do Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Entender o RBAC do Azure](../role-based-access-control/overview.md)
 
@@ -318,7 +318,7 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do Gerenc
 
 **Diretrizes**: Use o nome, a descrição e a categoria da política para organizar os ativos logicamente de acordo com uma taxonomia.
 
-- [Para obter mais informações sobre como marcar ativos, consulte nomenclatura de recursos e guia de decisão de marcação](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [Para obter mais informações sobre como marcar ativos, consulte nomenclatura de recursos e guia de decisão de marcação](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -335,11 +335,11 @@ Além disso, use Azure Policy para colocar restrições no tipo de recursos que 
 
 Você também pode criar definições de Azure Policy personalizadas para restringir configurações de recursos mais granulares.
 
-- [Como criar assinaturas adicionais do Azure](/azure/billing/billing-create-subscription)
+- [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Como criar grupos de gerenciamento](/azure/governance/management-groups/create)
+- [Como criar grupos de gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -357,7 +357,7 @@ Você também pode criar definições de Azure Policy personalizadas para restri
 
 **Diretrizes**: Use Azure Policy para colocar restrições no tipo de recursos que podem ser criados em suas assinaturas.
 
-Use o grafo de recursos do Azure para consultar e descobrir recursos em suas assinaturas.  Verifique se todos os recursos do Azure presentes no ambiente foram aprovados.
+Use o Azure Resource Graph para consultar e descobrir recursos dentro das assinaturas deles.  Verifique se todos os recursos do Azure presentes no ambiente foram aprovados.
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -378,7 +378,7 @@ Você também pode criar definições de Azure Policy personalizadas para restri
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Como negar um tipo de recurso específico com o Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Como negar um tipo de recurso específico com o Azure Policy](../governance/policy/samples/index.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -402,7 +402,7 @@ Você também pode criar definições de Azure Policy personalizadas para restri
 
 **Orientação**: definir e implementar configurações de segurança padrão para o Gerenciador de tráfego do Azure com o Azure Policy. Use Azure Policy aliases no namespace "Microsoft. Network" para criar políticas personalizadas para auditar ou impor a configuração de seus cofres dos serviços de recuperação.
 
-- [Como exibir os aliases de Azure Policy disponíveis](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Como exibir os aliases de Azure Policy disponíveis](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -426,9 +426,9 @@ Você também pode criar definições de Azure Policy personalizadas para restri
 
 **Orientação**: se você estiver usando definições de Azure Policy personalizadas, use o Azure DevOps ou Azure Repos para armazenar e gerenciar seu código com segurança.
 
-- [Como armazenar código no Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Documentação do Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Documentação do Azure Repos](/azure/devops/repos/index?view=azure-devops)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -494,7 +494,7 @@ Além disso, marque as assinaturas usando marcas e crie um sistema de nomeação
 
 - [Alertas na Central de Segurança do Azure](../security-center/security-center-alerts-overview.md)
 
-- [Usar marcas para organizar seus recursos do Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Usar marcas para organizar seus recursos do Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -514,7 +514,7 @@ Além disso, marque as assinaturas usando marcas e crie um sistema de nomeação
 
 **Diretriz**: As informações de contato do incidente serão usadas pela Microsoft para contatá-lo se o MSRC (Microsoft Security Response Center) descobrir que seus dados foram acessados por uma pessoa não autorizada ou ilegal. Examine os incidentes após o fato para garantir que os problemas sejam resolvidos.
 
-- [Como definir o contato da segurança da central de segurança do Azure](../security-center/security-center-provide-security-contact-details.md)
+- [Como definir o contato de segurança da Central de Segurança do Azure](../security-center/security-center-provide-security-contact-details.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -548,11 +548,11 @@ Além disso, marque as assinaturas usando marcas e crie um sistema de nomeação
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: realize testes de penetração regulares de seus recursos do Azure e garanta a correção de todas as descobertas de segurança críticas
 
-**Diretrizes**: siga as regras de teste de penetração Microsoft Cloud do Engagement para garantir que seus testes de penetração não estejam violando as políticas da Microsoft. Use a estratégia da Microsoft e a execução de equipes vermelhas e testes de penetração de sites ativos em infraestrutura de nuvem, serviços e aplicativos gerenciados pela Microsoft.
+**Diretrizes**: siga as regras de teste de penetração Microsoft Cloud do Engagement para garantir que seus testes de penetração não estejam violando as políticas da Microsoft. Use a estratégia da Microsoft, a execução de Equipes Vermelhas e os testes de penetração de sites online na infraestrutura, nos serviços e nos aplicativos de nuvem gerenciados pela Microsoft.
 
-- [Regras de teste de penetração do Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+- [Regras de participação para testes de penetração](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-- [Microsoft Cloud o agrupamento vermelho](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Equipes Vermelhas do Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -560,5 +560,5 @@ Além disso, marque as assinaturas usando marcas e crie um sistema de nomeação
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Confira o [Azure Security Benchmark](/azure/security/benchmarks/overview)
-- Saiba mais sobre a [Linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview)
+- Confira o [Azure Security Benchmark](../security/benchmarks/overview.md)
+- Saiba mais sobre a [Linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

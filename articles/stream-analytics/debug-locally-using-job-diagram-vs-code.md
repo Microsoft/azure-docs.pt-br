@@ -3,16 +3,15 @@ title: Depurar Azure Stream Analytics consultas localmente usando o diagrama de 
 description: Este artigo descreve como depurar consultas localmente usando o diagrama de trabalho na extensão Azure Stream Analytics para Visual Studio Code.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 766d3f8d4d4c03fb4fe173dbb12eb85bb09cd71a
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 25ad696ad345fbf672f6bf26eb3f35a13fb03ea5
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124162"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019492"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio-code"></a>Depurar Azure Stream Analytics consultas localmente usando o diagrama de trabalho no Visual Studio Code
 
@@ -31,7 +30,7 @@ Use este guia de [início rápido](quick-create-visual-studio-code.md) para apre
 
 Se você quiser testar a consulta com dados de entrada locais, siga estas [instruções](visual-studio-code-local-run.md). Se você quiser testar com a entrada ao vivo, configure a mudança de [entrada](stream-analytics-add-inputs.md) para a próxima etapa. 
 
-Abra o arquivo de script *\. asaql* e selecione **executar localmente** . Em seguida, selecione **usar entrada local** ou **usar entrada ao vivo** . O diagrama de trabalho aparece no lado direito da janela.
+Abra o arquivo de script *\. asaql* e selecione **executar localmente**. Em seguida, selecione **usar entrada local** ou **usar entrada ao vivo**. O diagrama de trabalho aparece no lado direito da janela.
 
 ### <a name="view-the-output-and-intermediate-result-set"></a>Exibir a saída e o conjunto de resultados intermediário  
 
@@ -56,7 +55,7 @@ Nesta seção, você explora as métricas disponíveis para cada parte do diagra
    > [!div class="mx-imgBorder"]
    > ![Métricas do diagrama de trabalho](./media/debug-locally-using-job-diagram-vs-code/job-metrics.png)
 
-3. Selecione o nome da fonte de dados de entrada no menu suspenso para ver as métricas de entrada. A fonte de entrada na captura de tela abaixo é chamada de *aspas* . Para obter mais informações sobre as métricas de entrada, consulte [entender Stream Analytics monitoramento de trabalho e como monitorar consultas](stream-analytics-monitoring.md).
+3. Selecione o nome da fonte de dados de entrada no menu suspenso para ver as métricas de entrada. A fonte de entrada na captura de tela abaixo é chamada de *aspas*. Para obter mais informações sobre as métricas de entrada, consulte [entender Stream Analytics monitoramento de trabalho e como monitorar consultas](stream-analytics-monitoring.md).
 
    > [!div class="mx-imgBorder"]
    > ![Métricas de entrada do diagrama de trabalho](./media/debug-locally-using-job-diagram-vs-code/input-metrics.png)

@@ -5,12 +5,12 @@ description: Conheça as práticas recomendadas de operador do cluster para usar
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: c0c1f587b4e52607e9466300f976a52874c9e5ad
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 1a8138b4b2fdab2cdef8d2cb4c27de8d12ef38cd
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125624"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107339"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para os recursos do agendador avançado no Serviço de Kubernetes do Azure (AKS)
 
@@ -34,9 +34,9 @@ Esse suporte para nós diferentes é fornecido usando vários pools de nó. Um c
 O Agendador Kubernetes pode usar taints e tolerations para restringir quais cargas de trabalho podem ser executados em nós.
 
 * Um **taint** é aplicado a um nó que indica que apenas os pods específicos podem ser agendados neles.
-* Um **toleration** , em seguida, é aplicado a um pod que lhes permite *tolerar* um taint de nó.
+* Um **toleration**, em seguida, é aplicado a um pod que lhes permite *tolerar* um taint de nó.
 
-Quando você implanta um pod em um cluster do AKS, os Kubernetes apenas agendam pods em nós onde um toleration é alinhado com o taint. Como exemplo, suponha que você tenha um pool de nós no cluster AKS para nós com suporte a GPU. Você define o nome, como *gpu* , em seguida, um valor para o agendamento. Se você definir esse valor como *NoSchedule* , o Agendador Kubernetes não poderá agendar pods no nó, se o pod não definir o toleration apropriado.
+Quando você implanta um pod em um cluster do AKS, os Kubernetes apenas agendam pods em nós onde um toleration é alinhado com o taint. Como exemplo, suponha que você tenha um pool de nós no cluster AKS para nós com suporte a GPU. Você define o nome, como *gpu*, em seguida, um valor para o agendamento. Se você definir esse valor como *NoSchedule*, o Agendador Kubernetes não poderá agendar pods no nó, se o pod não definir o toleration apropriado.
 
 ```console
 kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
@@ -79,15 +79,15 @@ Quando você atualiza um pool de nós em AKS, os tolerationss seguem um padrão 
 
 - **Clusters padrão que usam conjuntos de dimensionamento de máquinas virtuais**
   - Você pode fazer [um nodepool][taint-node-pool] da API do AKs, para que nós recentemente expandidos recebam o nó especificado da API.
-  - Vamos supor que você tenha um cluster de dois nós- *Node1* e *NODE2* . Você atualiza o pool de nós.
-  - Dois nós adicionais são criados, *Node3* e *Nó4* , e os são passados em respectivamente.
+  - Vamos supor que você tenha um cluster de dois nós- *Node1* e *NODE2*. Você atualiza o pool de nós.
+  - Dois nós adicionais são criados, *Node3* e *Nó4*, e os são passados em respectivamente.
   - Os *Node1* e *NODE2* originais são excluídos.
 
 - **Clusters sem suporte ao conjunto de dimensionamento de máquinas virtuais**
-  - Novamente, vamos supor que você tenha um cluster de dois nós- *Node1* e *NODE2* . Quando você atualiza, um nó adicional ( *Node3* ) é criado.
-  - Os de *Node1* são aplicados ao *Node3* , então *Node1* é excluído.
-  - Outro novo nó é criado (chamado *Node1* , uma vez que o *Node1* anterior foi excluído) e *os* os seus *node1* Em seguida, *NODE2* é excluído.
-  - Em essência, *Node1* se torna *Node3* e *NODE2* se torna *Node1* .
+  - Novamente, vamos supor que você tenha um cluster de dois nós- *Node1* e *NODE2*. Quando você atualiza, um nó adicional (*Node3*) é criado.
+  - Os de *Node1* são aplicados ao *Node3*, então *Node1* é excluído.
+  - Outro novo nó é criado (chamado *Node1*, uma vez que o *Node1* anterior foi excluído) e *os* os seus  Em seguida, *NODE2* é excluído.
+  - Em essência, *Node1* se torna *Node3* e *NODE2* se torna *Node1*.
 
 Quando você dimensiona um pool de nós em AKS, os projetos e Tolerations não são transferidos por design.
 
@@ -131,9 +131,9 @@ Para obter mais informações sobre o uso de seletores de nó, consulte [Atribui
 
 ### <a name="node-affinity"></a>Afinidade de nó
 
-Um seletor de nó é uma maneira básica para atribuir os pods para um determinado nó. Mais flexibilidade do que está disponível usando a *afinidade de nó* . Com afinidade de nó, você define o que acontece se o pod não puder ser correspondido com um nó. Você pode *exigir* que o agendador Kubernetes corresponda a um pod com um host rotulado. Ou, você pode *preferir* uma correspondência, mas permitir que o pod seja agendado em um host diferente, se nenhuma correspondência estiver disponível.
+Um seletor de nó é uma maneira básica para atribuir os pods para um determinado nó. Mais flexibilidade do que está disponível usando a *afinidade de nó*. Com afinidade de nó, você define o que acontece se o pod não puder ser correspondido com um nó. Você pode *exigir* que o agendador Kubernetes corresponda a um pod com um host rotulado. Ou, você pode *preferir* uma correspondência, mas permitir que o Pod seja agendado em um host diferente se nenhuma correspondência estiver disponível.
 
-O exemplo a seguir define a afinidade de nó para *requiredDuringSchedulingIgnoredDuringExecution* . Este afinidade exige o agendamento de Kubernetes para usar um nó com um rótulo correspondente. Se nenhum nó estiver disponível, o pod precisa esperar o agendamento para continuar. Para permitir que o Pod seja agendado em um nó diferente, você pode definir o valor como *preferredDuringSchedulingIgnoreDuringExecution* :
+O exemplo a seguir define a afinidade de nó para *requiredDuringSchedulingIgnoredDuringExecution*. Este afinidade exige o agendamento de Kubernetes para usar um nó com um rótulo correspondente. Se nenhum nó estiver disponível, o pod precisa esperar o agendamento para continuar. Para permitir que o Pod seja agendado em um nó diferente, você pode definir o valor como *preferredDuringSchedulingIgnoreDuringExecution*:
 
 ```yaml
 kind: Pod

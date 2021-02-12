@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 05/04/2020
 ms.topic: tutorial
-ms.openlocfilehash: 56e889778e3b598dc4ded5f64eef20101c542b6a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 44c80703466f91ccdfa33934efa0a05e699fd5de
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207505"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724384"
 ---
 # <a name="tutorial-integrate-remote-rendering-into-a-hololens-holographic-app"></a>Tutorial: integrar o Remote Rendering a um aplicativo holográfico do HoloLens
 
@@ -30,7 +30,7 @@ Este tutorial se concentra na adição dos bits necessários a um exemplo de `Ho
 
 Para este tutorial, é necessário:
 
-* As informações da conta (ID da conta, chave de conta, ID da assinatura). Se você ainda não tiver uma conta, [crie uma](../../../how-tos/create-an-account.md).
+* As informações da conta (ID da conta, chave de conta, domínio da conta, ID da assinatura). Se você ainda não tiver uma conta, [crie uma](../../../how-tos/create-an-account.md).
 * SDK do Windows 10.0.18362.0 [(baixar)](https://developer.microsoft.com/windows/downloads/windows-10-sdk).
 * A versão mais recente do Visual Studio 2019 [(baixar)](https://visualstudio.microsoft.com/vs/older-downloads/).
 * [Ferramentas do Visual Studio para Realidade Misturada](/windows/mixed-reality/install-the-tools). Especificamente, as seguintes instalações de *carga de trabalho* são obrigatórias:
@@ -169,7 +169,8 @@ HolographicAppMain::HolographicAppMain(std::shared_ptr<DX::DeviceResources> cons
         RR::AzureFrontendAccountInfo init;
         init.AccountId = "00000000-0000-0000-0000-000000000000";
         init.AccountKey = "<account key>";
-        init.AccountDomain = "westus2.mixedreality.azure.com"; // <change to your region>
+        init.AccountDomain = "westus2.mixedreality.azure.com"; // <change to the region that the rendering session should be created in>
+        init.AccountAuthenticationDomain = "westus2.mixedreality.azure.com"; // <change to the region the account was created in>
         m_modelURI = "builtin://Engine";
         m_sessionOverride = ""; // If there is a valid session ID to re-use, put it here. Otherwise a new one is created
 
@@ -220,7 +221,7 @@ HolographicAppMain::HolographicAppMain(std::shared_ptr<DX::DeviceResources> cons
 
 O código chama as funções de membro `SetNewSession` e `SetNewState`, que implementaremos no próximo parágrafo junto com o restante do código da máquina de estado.
 
-Observe também que as credenciais são embutidas em código no exemplo e precisam ser preenchidas no local ([ID da conta, chave de conta](../../../how-tos/create-an-account.md#retrieve-the-account-information) e [domínio](../../../reference/regions.md)).
+Observe também que as credenciais são embutidas em código no exemplo e precisam ser preenchidas no local ([ID da conta, chave de conta, domínio da conta](../../../how-tos/create-an-account.md#retrieve-the-account-information) e [domínio de renderização remota](../../../reference/regions.md)).
 
 Fazemos a desinicialização simetricamente e na ordem inversa no final do corpo do destruidor:
 

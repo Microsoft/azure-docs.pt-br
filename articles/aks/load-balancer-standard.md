@@ -4,19 +4,19 @@ titleSuffix: Azure Kubernetes Service
 description: Saiba como usar um balanceador de carga público com um SKU padrão para expor seus serviços com o AKS (serviço kubernetes do Azure).
 services: container-service
 ms.topic: article
-ms.date: 06/14/2020
+ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 414ae3b2adb60b9442a69e3ebcc8b13b29c67cb7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 5da7f2a11be7562313b709a8af72ccd709165cfa
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070496"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000854"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Usar um Standard Load Balancer público no AKS (serviço kubernetes do Azure)
 
-O Azure Load Balancer é um L4 do modelo de interconexão de sistemas abertos (OSI) que dá suporte a cenários de entrada e saída. Ele distribui os fluxos de entrada que chegam ao front-end do balanceador de carga para as instâncias do pool de back-end.
+O Azure Load Balancer está na L4 do modelo de interconexão de sistemas abertos (OSI) que dá suporte aos cenários de entrada e saída. Ele distribui os fluxos de entrada que chegam ao front-end do balanceador de carga para as instâncias do pool de back-end.
 
 Um Load Balancer **público** quando integrado ao AKs tem duas finalidades:
 
@@ -87,19 +87,22 @@ Ao usar o balanceador de carga público do SKU Standard, há um conjunto de opç
 * Personalizar o número de portas de saída alocadas para cada nó do cluster
 * Definir a configuração de tempo limite para conexões ociosas
 
+> [!IMPORTANT]
+> Somente uma opção de IP de saída (IPs gerenciados, traga seu próprio IP ou prefixo de IP) pode ser usada em um determinado momento.
+
 ### <a name="scale-the-number-of-managed-outbound-public-ips"></a>Dimensionar o número de IPs públicos de saída gerenciados
 
 O Azure Load Balancer fornece conectividade de saída de uma rede virtual além da entrada. Regras de saída simplificam a configuração da conversão de endereços de rede de saída do Standard Load Balancer público.
 
 Como todas as regras do Load Balancer, regras de saída seguem a mesma sintaxe familiar que regras NAT de entrada e balanceamento de carga:
 
-***front-end IPs + parâmetros + pool de back-end***
+***front-end IPS + parâmetros + pool de back-end** _
 
 Uma regra de saída configura o NAT de saída para todas as máquinas virtuais identificadas pelo pool de back-end a serem convertidas no front-end. Os parâmetros fornecem controle refinado adicional sobre o algoritmo NAT de saída.
 
 Embora uma regra de saída possa ser usada com apenas um único endereço IP público, regras de saída aliviam a carga de configuração para o dimensionamento de NAT de saída. Você pode usar vários endereços IP para planejar cenários de grande escala e pode usar regras de saída para atenuar padrões propensos à exaustão de SNAT. Cada endereço IP adicional fornecido por um front-end fornece portas efêmeras de 64K para Load Balancer para usar como portas SNAT. 
 
-Ao usar um balanceador de carga SKU *padrão* com IPs públicos de saída gerenciados, que são criados por padrão, você pode dimensionar o número de IPS públicos de saída gerenciados usando o **`load-balancer-managed-ip-count`** parâmetro.
+Ao usar um balanceador de carga de SKU _Standard * com IPs públicos de saída gerenciados, que são criados por padrão, você pode dimensionar o número de IPs públicos de saída gerenciados usando o **`load-balancer-managed-ip-count`** parâmetro.
 
 Para atualizar um cluster existente, execute o comando a seguir. Esse parâmetro também pode ser definido no momento de criação do cluster para ter vários IPs públicos de saída gerenciados.
 
@@ -120,10 +123,11 @@ Quando você usa um balanceador de carga SKU *padrão* , por padrão, o cluster 
 
 Um IP público criado pelo AKS é considerado um recurso gerenciado por AKS. Isso significa que o ciclo de vida desse IP público deve ser gerenciado pelo AKS e não requer nenhuma ação do usuário diretamente no recurso de IP público. Como alternativa, você pode atribuir seu próprio IP público personalizado ou prefixo de IP público no momento da criação do cluster. Seus IPs personalizados também podem ser atualizados em Propriedades do balanceador de carga de um cluster existente.
 
-> [!NOTE]
-> Os endereços IP públicos personalizados devem ser criados e pertencentes ao usuário. Os endereços IP públicos gerenciados criados por AKS não podem ser reutilizados como um traga seu próprio IP personalizado, pois isso pode causar conflitos de gerenciamento.
+Requisitos para usar seu próprio IP público ou prefixo:
 
-Antes de executar esta operação, verifique se você atende aos [pré-requisitos e às restrições](../virtual-network/public-ip-address-prefix.md#constraints) necessárias para configurar IPS de saída ou prefixos de IP de saída.
+- Os endereços IP públicos personalizados devem ser criados e pertencentes ao usuário. Os endereços IP públicos gerenciados criados por AKS não podem ser reutilizados como um traga seu próprio IP personalizado, pois isso pode causar conflitos de gerenciamento.
+- Você deve garantir que a identidade do cluster AKS (entidade de serviço ou identidade gerenciada) tenha permissões para acessar o IP de saída. De acordo com a [lista de permissões de IP público necessária](kubernetes-service-principal.md#networking).
+- Verifique se você atende aos [pré-requisitos e às restrições](../virtual-network/public-ip-address-prefix.md#constraints) necessárias para configurar IPS de saída ou prefixos de IP de saída.
 
 #### <a name="update-the-cluster-with-your-own-outbound-public-ip"></a>Atualizar o cluster com seu próprio IP público de saída
 
@@ -221,7 +225,7 @@ az aks update \
     --load-balancer-outbound-ports 4000
 ```
 
-Este exemplo forneceria 4000 portas de saída alocadas para cada nó em meu cluster e com 7 IPs você teria *4000 portas por nó * 100 nós = 400 mil total de portas < = 448K total de portas = 7 IPS * 64K portas por IP*. Isso permitiria que você dimensionasse com segurança os nós 100 e tenha uma operação de atualização padrão. É essencial alocar portas suficientes para nós adicionais necessários para a atualização e outras operações. AKS usa como padrão um nó de buffer para atualização, neste exemplo, isso requer 4000 portas livres em qualquer momento determinado. Se estiver usando [valores de maxSurge](upgrade-cluster.md#customize-node-surge-upgrade-preview), multiplique as portas de saída por nó pelo valor de maxSurge.
+Este exemplo forneceria 4000 portas de saída alocadas para cada nó em meu cluster e com 7 IPs você teria *4000 portas por nó * 100 nós = 400 mil total de portas < = 448K total de portas = 7 IPS * 64K portas por IP*. Isso permitiria que você dimensionasse com segurança os nós 100 e tenha uma operação de atualização padrão. É essencial alocar portas suficientes para nós adicionais necessários para a atualização e outras operações. AKS usa como padrão um nó de buffer para atualização, neste exemplo, isso requer 4000 portas livres em qualquer momento determinado. Se estiver usando [valores de maxSurge](upgrade-cluster.md#customize-node-surge-upgrade), multiplique as portas de saída por nó pelo valor de maxSurge.
 
 Para ir acima de 100 nós, você precisaria adicionar mais IPs.
 

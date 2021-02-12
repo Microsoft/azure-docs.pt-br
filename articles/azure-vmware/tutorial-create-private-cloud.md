@@ -2,13 +2,13 @@
 title: Tutorial – Implantar o Cluster de vSphere no Azure
 description: Saiba como implantar um Cluster de vSphere no Azure usando a Solução VMware no Azure
 ms.topic: tutorial
-ms.date: 09/21/2020
-ms.openlocfilehash: b673a67fac734c9cb63e96b6a0c3dc9182f4b994
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 11/19/2020
+ms.openlocfilehash: 93937f8ca0918494810885f5cb45de571a6e1529
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952277"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966302"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Tutorial: Implantar uma nuvem privada da Solução VMware no Azure
 
@@ -43,7 +43,7 @@ Você pode criar uma nuvem privada da Solução VMware no Azure usando o [portal
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Em vez de usar o portal do Azure para criar uma nuvem privada da Solução VMware no Azure, você pode usar a CLI do Azure usando o Azure Cloud Shell.  Para obter uma lista de comandos que você pode usar com a Solução VMware no Azure, confira [comandos azure vmware](/cli/azure/ext/vmware/vmware).
+Em vez de usar o portal do Azure para criar uma nuvem privada da Solução VMware no Azure, você pode usar a CLI do Azure usando o Azure Cloud Shell.  Para obter uma lista de comandos que você pode usar com a Solução VMware no Azure, confira [Comandos da VMware no Azure](/cli/azure/ext/vmware/vmware).
 
 #### <a name="open-azure-cloud-shell"></a>Abrir o Azure Cloud Shell
 
@@ -51,7 +51,7 @@ Selecione **Experimentar** no canto superior direito de um bloco de código. Voc
 
 #### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
+Crie um grupo de recursos com o comando `[az group create](/cli/azure/group)`. Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
 
 ```azurecli-interactive
 
@@ -77,7 +77,7 @@ az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --locati
 
 ## <a name="delete-an-azure-vmware-solution-private-cloud"></a>Excluir uma nuvem privada da Solução VMware no Azure
 
-Se tiver uma nuvem privada da Solução VMware no Azure que não é mais necessária, você poderá excluí-la. Uma nuvem privada da Solução VMware no Azure inclui um domínio de rede isolado, um ou mais clusters do vSphere provisionados em nós de servidor dedicados e, normalmente, muitas máquinas virtuais. Quando uma nuvem privada é excluída, todas as máquinas virtuais, os dados delas e os clusters são excluídos. Os nós dedicados de bare-metal são apagados com segurança e retornados ao pool gratuito. O domínio de rede provisionado o cliente é excluído.  
+Se tiver uma nuvem privada da Solução VMware no Azure que não é mais necessária, você poderá excluí-la. Uma nuvem privada da Solução VMware no Azure inclui um domínio de rede isolado, um ou mais clusters do vSphere provisionados em hosts de servidor dedicados e várias máquinas virtuais. Quando uma nuvem privada é excluída, todas as máquinas virtuais, os dados delas e os clusters são excluídos. Os hosts bare-metal dedicados são apagados com segurança e retornados ao pool gratuito. O domínio de rede provisionado o cliente é excluído.  
 
 > [!CAUTION]
 > A exclusão da nuvem privada é uma operação irreversível. Após a nuvem privada ser excluída, os dados não poderão ser recuperados, pois todos os componentes e as cargas de trabalho em execução serão terminados e todos os dados e configurações da nuvem privada serão destruídos, incluindo os endereços IP públicos.
@@ -92,11 +92,11 @@ Depois que uma nuvem privada for excluída, não será possível recuperar as m�
 
 2. Selecione a nuvem privada a ser excluída.
  
-3. Insira o nome da nuvem privada e selecione **Sim**. Em algumas horas, o processo de exclusão será concluído.  
+3. Insira o nome da nuvem privada e selecione **Sim**. Em algumas horas, o processo de exclusão é concluído.  
 
 ## <a name="azure-vmware-commands"></a>Comandos da VMware no Azure
 
-Para obter uma lista de comandos que você pode usar com a Solução VMware no Azure, confira [comandos azure vmware](/cli/azure/ext/vmware/vmware).
+Para obter uma lista de comandos que você pode usar com a Solução VMware no Azure, confira [Comandos da VMware no Azure](/cli/azure/ext/vmware/vmware).
 
 ## <a name="next-steps"></a>Próximas etapas
 

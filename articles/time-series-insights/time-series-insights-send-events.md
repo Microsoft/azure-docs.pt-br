@@ -11,23 +11,23 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2b83433a135fec486701b4538793f0c3e0a6fa6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a9115b5400cc6d6c1ecc5740af796d831f5dee3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611819"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023251"
 ---
 # <a name="send-events-to-an-azure-time-series-insights-gen1-environment-by-using-an-event-hub"></a>Enviar eventos para um ambiente de Azure Time Series Insights Gen1 usando um hub de eventos
 
 > [!CAUTION]
 > Esse é um artigo do Gen1.
 
-Este artigo explica como criar e configurar um hub de eventos nos hubs de eventos do Azure. Ele também descreve como executar um aplicativo de exemplo para enviar eventos por push a Azure Time Series Insights dos hubs de eventos. Se você tiver um hub de eventos existente com eventos no formato JSON, pule este tutorial e exiba seu ambiente em [Azure Time Series insights](./time-series-insights-update-create-environment.md).
+Este artigo explica como criar e configurar um hub de eventos nos hubs de eventos do Azure. Ele também descreve como executar um aplicativo de exemplo para enviar eventos por push a Azure Time Series Insights dos hubs de eventos. Se você tiver um hub de eventos existente com eventos no formato JSON, pule este tutorial e exiba seu ambiente em [Azure Time Series insights](./tutorials-set-up-tsi-environment.md).
 
 ## <a name="configure-an-event-hub"></a>Configurar um hub de eventos
 
-1. Para saber como criar um hub de eventos, leia a [documentação dos hubs de eventos](https://docs.microsoft.com/azure/event-hubs/).
+1. Para saber como criar um hub de eventos, leia a [documentação dos hubs de eventos](../event-hubs/index.yml).
 1. Na caixa de pesquisa, pesquise **Hubs de Eventos**. Na lista retornada, selecione **Hubs de Eventos**.
 1. Selecione seu hub de eventos.
 1. Ao criar um hub de eventos, você está criando um namespace de Hub de eventos. Se você ainda não criou um hub de eventos dentro do namespace, no menu, em **entidades**, crie um hub de eventos.  
@@ -37,7 +37,7 @@ Este artigo explica como criar e configurar um hub de eventos nos hubs de evento
 1. Depois de criar um hub de eventos, selecione-o na lista de hubs de eventos.
 1. No menu, em **entidades**, selecione **hubs de eventos**.
 1. Selecione o nome do hub de eventos para configurá-lo.
-1. Em **visão geral**, selecione **grupos de consumidores**e, em seguida, selecione grupo de **consumidores**.
+1. Em **visão geral**, selecione **grupos de consumidores** e, em seguida, selecione grupo de **consumidores**.
 
     [![Criar um grupo de consumidores](media/send-events/add-event-hub-consumer-group.png)](media/send-events/add-event-hub-consumer-group.png#lightbox)
 
@@ -46,7 +46,7 @@ Este artigo explica como criar e configurar um hub de eventos nos hubs de evento
     > [!IMPORTANT]
     > Verifique se esse grupo de consumidores não é usado por nenhum outro serviço, como um trabalho Azure Stream Analytics ou outro ambiente de Azure Time Series Insights. Se o grupo de consumidores é usado por outros serviços, as operações de leitura são prejudicadas em relação a esse ambiente e a outros serviços. Se você usar **$Default** como o grupo de consumidores, outros leitores poderão vir a reutilizar seu grupo de consumidores.
 
-1. No menu, em **configurações**, selecione **políticas de acesso compartilhado**e, em seguida, selecione **Adicionar**.
+1. No menu, em **configurações**, selecione **políticas de acesso compartilhado** e, em seguida, selecione **Adicionar**.
 
     [![Selecionar Políticas de acesso compartilhado e selecione o botão Adicionar](media/send-events/add-shared-access-policy.png)](media/send-events/add-shared-access-policy.png#lightbox)
 
@@ -62,7 +62,7 @@ No Azure Time Series Insights Gen2, você pode adicionar dados contextuais à te
 
 ### <a name="create-an-azure-time-series-insights-event-source"></a>Criar uma origem de evento de Azure Time Series Insights
 
-1. Se você ainda não criou uma origem de evento, conclua as etapas para [criar uma origem de evento](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
+1. Se você ainda não criou uma origem de evento, conclua as etapas para [criar uma origem de evento](./how-to-ingest-data-event-hub.md).
 
 1. Defina um valor para `timeSeriesId`. Para saber mais sobre a **ID da série temporal**, leia [modelos de série temporal](./concepts-model-overview.md).
 
@@ -84,7 +84,7 @@ No Azure Time Series Insights Gen2, você pode adicionar dados contextuais à te
 1. Selecione **Clique para iniciar**.
 
     > [!TIP]
-    > O simulador do Windmill também cria JSON que você pode usar como uma carga com as [APIs de consulta do Azure Time Series insights GA](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query).
+    > O simulador do Windmill também cria JSON que você pode usar como uma carga com as [APIs de consulta do Azure Time Series insights GA](/rest/api/time-series-insights/gen1-query).
 
     > [!NOTE]
     > O simulador continuará a enviar dados até que a guia navegador seja fechada.
@@ -208,4 +208,4 @@ No Azure Time Series Insights Gen2, você pode adicionar dados contextuais à te
 
 * [Exiba seu ambiente](https://insights.timeseries.azure.com) no Azure Time Series insights Explorer.
 
-* Leia mais sobre [as mensagens do dispositivo do Hub IOT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct)
+* Leia mais sobre [as mensagens do dispositivo do Hub IOT](../iot-hub/iot-hub-devguide-messages-construct.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 68338341d47b8fa15d0bd88ea23e951210105fc4
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: d76ecc55c2e156199b2db789721946fd1f36de27
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340777"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922914"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Gerenciamento entre locatários na central de segurança
 
@@ -30,10 +30,8 @@ O gerenciamento entre locatários permite exibir e gerenciar a postura de segura
 
 ## <a name="set-up-cross-tenant-management"></a>Configurar o gerenciamento entre locatários
 
-Configure o gerenciamento de locatários cruzados delegando acesso a recursos de locatários gerenciados para seu próprio locatário usando o [Gerenciamento de recursos delegado do Azure](../lighthouse/concepts/azure-delegated-resource-management.md).
+O gerenciamento de recursos delegados do Azure é um dos principais componentes do Azure Lighthouse. Configure o gerenciamento de locatários cruzados delegando acesso a recursos de locatários gerenciados para seu próprio locatário usando estas instruções da documentação do Azure Lighthouse: [Gerenciamento de recursos delegado do Azure](../lighthouse/concepts/azure-delegated-resource-management.md).
 
-> [!NOTE]
-> O gerenciamento de recursos delegados do Azure é um dos principais componentes do Azure Lighthouse.
 
 ## <a name="how-does-cross-tenant-management-work-in-security-center"></a>Como o gerenciamento entre locatários funciona na central de segurança
 

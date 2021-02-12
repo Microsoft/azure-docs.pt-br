@@ -1,19 +1,16 @@
 ---
 title: Microsoft Cognitive Toolkit com Apache Spark-HDInsight do Azure
 description: Saiba como o modelo de aprendizado aprofundado treinado das Ferramentas Cognitivas da Microsoft pode ser aplicado a um conjunto de dados usando a API Python Spark em um cluster do Azure HDInsight Spark.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/14/2020
-ms.openlocfilehash: d94a4858b4c4fa99a09acc2bec88f94a64686c2d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: cddbc4b6a5c7a2c787c8305fdf703e34543746f8
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539132"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929962"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Use o modelo de aprendizado profundo treinado das Ferramentas Cognitivas da Microsoft com o cluster do Azure HDInsight Spark
 
@@ -31,12 +28,12 @@ Neste artigo, você executa as seguintes etapas.
 
 ## <a name="how-does-this-solution-flow"></a>Como é o fluxo dessa solução?
 
-Esta solução é dividida entre este artigo e um notebook Jupyter que você carrega como parte deste artigo. Neste artigo, você realiza as seguintes etapas:
+Esta solução é dividida entre este artigo e um Jupyter Notebook que você carrega como parte deste artigo. Neste artigo, você realiza as seguintes etapas:
 
 * Executar uma ação de script em um cluster HDInsight Spark para instalar pacotes do Python e do Kit de Ferramentas Cognitivas da Microsoft.
-* Carregar o Notebook Jupyter que executa a solução no cluster HDInsight Spark.
+* Carregue o Jupyter Notebook que executa a solução para o cluster HDInsight Spark.
 
-As seguintes etapas restantes são abordadas no Notebook Jupyter.
+As etapas restantes a seguir são abordadas na Jupyter Notebook.
 
 * Carregue imagens de exemplo em um conjunto de RDDs distribuído e resiliente do Spark.
   * Carregar módulos e definir predefinições.
@@ -66,23 +63,23 @@ Para obter instruções sobre como usar a portal do Azure para executar a ação
 |Tipos de nó:|Cabeçalho, trabalhador|
 |Parâmetros|Nenhum|
 
-## <a name="upload-the-jupyter-notebook-to-azure-hdinsight-spark-cluster"></a>Carregue o Notebook Jupyter para o cluster do Azure HDInsight Spark
+## <a name="upload-the-jupyter-notebook-to-azure-hdinsight-spark-cluster"></a>Carregar o Jupyter Notebook para Azure HDInsight Spark cluster
 
-Para usar o Kit de Ferramentas Cognitivas da Microsoft com o cluster do Azure HDInsight Spark, você precisa carregar o Notebook Jupyter **CNTK_model_scoring_on_Spark_walkthrough.ipynb** no cluster do Azure HDInsight Spark. Este notebook está disponível no GitHub em [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration) .
+Para usar o Microsoft Cognitive Toolkit com o cluster Azure HDInsight Spark, você deve carregar o Jupyter Notebook **CNTK_model_scoring_on_Spark_walkthrough. ipynb** no cluster Azure HDInsight Spark. Este notebook está disponível no GitHub em [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration) .
 
 1. Baixar e descompactar [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration) .
 
 1. Em um navegador da Web, navegue até `https://CLUSTERNAME.azurehdinsight.net/jupyter`, em que `CLUSTERNAME` é o nome do cluster.
 
-1. No notebook Jupyter, selecione **carregar** no canto superior direito e, em seguida, navegue até o download e selecione arquivo `CNTK_model_scoring_on_Spark_walkthrough.ipynb` .
+1. No Jupyter Notebook, selecione **carregar** no canto superior direito e, em seguida, navegue até o download e selecione arquivo `CNTK_model_scoring_on_Spark_walkthrough.ipynb` .
 
-    ![Carregar o bloco de anotações Jupyter para Azure HDInsight Spark cluster](./media/apache-spark-microsoft-cognitive-toolkit/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png "Carregar o bloco de anotações Jupyter para Azure HDInsight Spark cluster")
+    ![Carregar Jupyter Notebook para Azure HDInsight Spark cluster](./media/apache-spark-microsoft-cognitive-toolkit/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png "Carregar Jupyter Notebook para Azure HDInsight Spark cluster")
 
 1. Selecione **carregar** novamente.
 
 1. Depois que o bloco de anotações for carregado, clique no nome do bloco de anotações e siga as instruções no próprio bloco de anotações sobre como carregar o conjunto de dados e executar o artigo.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 * [Visão geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 
@@ -104,8 +101,8 @@ Para usar o Kit de Ferramentas Cognitivas da Microsoft com o cluster do Azure HD
 * [Use o Plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Spark Scala](apache-spark-intellij-tool-plugin.md)
 * [Use o Plugin do HDInsight Tools para o IntelliJ IDEA para depurar os aplicativos do Apache Spark remotamente](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Use os blocos de anotações do Apache Zeppelin com um cluster do Apache Spark no HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels disponíveis para o notebook Jupyter no cluster do Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
-* [Usar pacotes externos com blocos de notas Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
+* [Kernels disponíveis para Jupyter Notebook no cluster Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Usar pacotes externos com notebooks Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalar o Jupyter em seu computador e conectar-se a um cluster Spark do HDInsight](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>Gerenciar recursos

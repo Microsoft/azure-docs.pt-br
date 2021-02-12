@@ -4,10 +4,10 @@ description: Descreve como você pode usar as conexões híbridas da Retransmiss
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 38233a2e103600f07837ce9a1ad8d63fe7e4fb99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 12/15/2020
 ms.locfileid: "91270195"
 ---
 # <a name="relay-hybrid-connection-as-an-event-handler-for-azure-event-grid-events"></a>Conexão híbrida de retransmissão como um manipulador de eventos para eventos da Grade de Eventos do Azure

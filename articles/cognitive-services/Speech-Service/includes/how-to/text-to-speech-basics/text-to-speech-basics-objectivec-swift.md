@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 9/22/2020
 ms.author: v-demjoh
-ms.openlocfilehash: e2551952b2d70199b73ac7972a6a6934aa34dd2a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 213d2a0e6f5c156ee0592a1f1389e1fd6e569b29
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91332406"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425238"
 ---
 Você pode sintetizar a fala de texto usando o SDK de Fala para Swift e Objective-C.
 
@@ -27,4 +27,4 @@ O [SDK de Fala dos Serviços Cognitivos](https://github.com/Azure-Samples/cognit
 * [Sintetizar fala em Swift no iOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/ios/text-to-speech)
 * [Exemplos adicionais para Objective-C no iOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/objective-c/ios)
 
-Também fornecemos uma [Referência de SDK de Fala para Objective-C](https://docs.microsoft.com/objectivec/cognitive-services/speech/) online.
+Também fornecemos uma [Referência de SDK de Fala para Objective-C](/objectivec/cognitive-services/speech/) online.

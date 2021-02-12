@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 653110b953b6947254d5063a9e389505d45ea4cb
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e5793d21f27128162095e2d86e13006c5b6e7b7c
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149024"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007986"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurar as credenciais de implantação do Serviço de Aplicativo do Azure
 O [Serviço de Aplicativo do Azure](./overview.md) oferece suporte a dois tipos de credenciais para a [implantação local do Git](deploy-local-git.md) e a [implantação de FTP/S](deploy-ftp.md). Essas credenciais não são iguais às suas credenciais de assinatura do Azure.
@@ -23,7 +23,7 @@ Você pode configurar as credenciais de usuário na [página de recursos](../azu
 
 ### <a name="in-the-cloud-shell"></a>No Cloud Shell
 
-Para configurar o usuário de implantação no [Cloud Shell](https://shell.azure.com), execute o comando [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set). Substitua \<username> e \<password> pelo nome de usuário e a senha do usuário de implantação. 
+Para configurar o usuário de implantação no [Cloud Shell](https://shell.azure.com), execute o comando [az webapp deployment user set](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set). Substitua \<username> e \<password> pelo nome de usuário e a senha do usuário de implantação. 
 
 - O nome de usuário deve ser exclusivo no Azure. Para envios por push do Git local, não deve conter o símbolo "\@". 
 - A senha deve ter pelo menos oito caracteres, com dois destes três elementos: letras, números, símbolos. 
@@ -38,7 +38,7 @@ A saída JSON mostra a senha como `null`. Se receber um erro `'Conflict'. Detail
 
 No portal do Azure, você deve ter pelo menos um aplicativo antes de poder acessar a página de credenciais de implantação. Para configurar as credenciais de usuário:
 
-1. No [portal do Azure](https://portal.azure.com), no menu à esquerda, selecione **serviços de aplicativo**  >  **\<any_app>**  >  **central de implantação**  >  **FTP**  >  **painel**de FTP.
+1. No [portal do Azure](https://portal.azure.com), no menu à esquerda, selecione **serviços de aplicativo**  >  **\<any_app>**  >  **central de implantação**  >    >  **painel** de FTP.
 
     ![Mostra como você pode selecionar o painel de FTP na central de implantação no Azure App Services.](./media/app-service-deployment-credentials/access-no-git.png)
 
@@ -96,7 +96,7 @@ Para desabilitar o acesso básico de autenticação para a porta WebDeploy e o s
 az resource update --resource-group <resource-group> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
 ```
 
-Para confirmar se as credenciais do perfil de publicação estão bloqueadas no WebDeploy, tente [publicar um aplicativo Web usando o Visual Studio 2019](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Para confirmar se as credenciais do perfil de publicação estão bloqueadas no WebDeploy, tente [publicar um aplicativo Web usando o Visual Studio 2019](/visualstudio/deployment/quickstart-deploy-to-azure).
 
 ### <a name="disable-access-to-the-api"></a>Desabilitar o acesso à API
 

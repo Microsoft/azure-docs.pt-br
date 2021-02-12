@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 842b0a92ba4a2cb6b3ceb54675ef95f9c8275311
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 9f7a37fa2101e4a386c9c6f2338f185b3ecdc986
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209403"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052610"
 ---
 # <a name="enable-change-tracking-and-inventory-from-a-runbook"></a>Habilitar Controle de Alterações e Inventário de um runbook
 

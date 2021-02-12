@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2019
 ms.author: jeedes
-ms.openlocfilehash: eeaf6917187c9688bf6a62b98b2fcf64519b1798
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a87bf24c3555f2e6a259064b56b1b630f4abfe27
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543220"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92894968"
 ---
 # <a name="tutorial-integrate-secret-server-on-premises-with-azure-active-directory"></a>Tutorial: Integrar o Secret Server (On-Premises) ao Azure Active Directory
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá a integrar o Secret Server (On-Premises) ao Mic
 * Permitir que os usuários sejam conectados automaticamente ao Secret Server (On-Premises) com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -49,7 +49,7 @@ Para configurar a integração do Servidor de Segredo (local) ao Microsoft Azure
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
-1. Na seção **Adicionar da galeria**, digite **Secret Server (On-Premises)** caixa de pesquisa.
+1. Na seção **Adicionar da galeria** , digite **Secret Server (On-Premises)** caixa de pesquisa.
 1. Selecione **Secret Server (On-Premises)** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 
@@ -71,14 +71,14 @@ Para configurar e testar o SSO do Microsoft Azure AD com o Secret Server (On-Pre
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Secret Server (On-Premises)** , localize a seção **Gerenciar** e escolha **Logon único**.
-1. Na página **Escolher um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o Logon Único com SAML**, clique no ícone editar/de caneta da **Configuração Básica de SAML** para editar as configurações.
+1. Na página **Escolher um método de logon único** , escolha **SAML**.
+1. Na página **Configurar o Logon Único com SAML** , clique no ícone editar/de caneta da **Configuração Básica de SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IDP**, digite os valores dos seguintes campos:
+1. Na seção **Configuração Básica do SAML** , caso deseje configurar o aplicativo no modo iniciado por **IDP** , digite os valores dos seguintes campos:
 
-    a. Na caixa de texto **Identificador**, insira o valor escolhido pelo usuário como um exemplo: `https://secretserveronpremises.azure`
+    a. Na caixa de texto **Identificador** , insira o valor escolhido pelo usuário como um exemplo: `https://secretserveronpremises.azure`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<SecretServerURL>/SAML/AssertionConsumerService.aspx`
 
@@ -87,18 +87,18 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<SecretServerURL>/login.aspx`
+    Na caixa de texto **URL de logon** , digite um URL usando o seguinte padrão: `https://<SecretServerURL>/login.aspx`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Resposta e a URL de Logon reais. Contate a [Equipe de suporte ao Cliente do Servidor de Segredo (local)](https://thycotic.force.com/support/s/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-1. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e escolha **Baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar Logon Único com SAML** , na seção **Certificado de Autenticação SAML** , localize **Certificado (Base64)** e escolha **Baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-1. Na página **Configurar Logon Único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Certificado de Autenticação SAML**.
+1. Na página **Configurar Logon Único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Certificado de Autenticação SAML**.
 
-    ![Opções de assinatura](./media/secretserver-on-premises-tutorial/edit-saml-signon.png)
+    ![Captura de tela que mostra a seção "Certificado de Autenticação SAML" com a ação "Baixar" do Certificado (Base64) selecionada.](./media/secretserver-on-premises-tutorial/edit-saml-signon.png)
 
 1. Selecione **Opção de Assinatura** como **Assinar resposta SAML e declaração**.
 
@@ -116,11 +116,11 @@ Para configurar o logon único no lado do **Secret Server (On-Premises)** , envi
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário**, siga estas etapas:
-   1. No campo **Nome**, insira `B.Simon`.  
-   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+1. Nas propriedades do **Usuário** , siga estas etapas:
+   1. No campo **Nome** , insira `B.Simon`.  
+   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
    1. Clique em **Criar**.
 
@@ -138,24 +138,24 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
 
     ![O link Adicionar Usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
 
 ### <a name="create-secret-server-on-premises-test-user"></a>Criar usuário de teste do Secret Server (On-Premises)
 
-Nesta seção, você cria um usuário chamado Brenda Fernandes no Servidor de Segredo (local). Trabalhe com a [equipe de suporte do Secret Server (Local)](https://thycotic.force.com/support/s/) para adicionar os usuários à plataforma do Secret Server (On-Premises). Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você cria um usuário chamado Brenda Fernandes no Servidor de Segredo (local). Trabalhe com a [Equipe de suporte do Servidor de Segredo (local)](https://thycotic.force.com/support/s/) para adicionar os usuários na plataforma do Servidor de Segredo (local). Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="test-sso"></a>Testar o SSO
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Secret Server (On-Premises) no Painel de Acesso, você deverá entrar automaticamente no Secret Server (On-Premises) para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Secret Server (On-Premises) no Painel de Acesso, você deverá entrar automaticamente no Secret Server (On-Premises) para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

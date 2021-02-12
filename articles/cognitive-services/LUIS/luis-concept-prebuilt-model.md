@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.openlocfilehash: 32755ea9dccd2a7d4a0e727c7a006491d5ea3521
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6642e59c2957b298d54bc587853752b9fce74686
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535876"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019136"
 ---
 # <a name="prebuilt-models"></a>Modelos predefinidos
 
@@ -32,7 +32,7 @@ O LUIS fornece três tipos de modelos pré-criados. Cada modelo poderá ser adic
 
 ## <a name="prebuilt-domains"></a>Domínios predefinidos
 
-O Reconhecimento vocal (LUIS) fornece *domínios*pré-criados, que são modelos pré-instalados de [intenções](luis-how-to-add-intents.md) e [entidades](luis-concept-entity-types.md) que funcionam em conjunto para domínios ou categorias comuns de aplicativos cliente. 
+O Reconhecimento vocal (LUIS) fornece *domínios* pré-criados, que são modelos pré-instalados de [intenções](luis-how-to-add-intents.md) e [entidades](luis-concept-entity-types.md) que funcionam em conjunto para domínios ou categorias comuns de aplicativos cliente. 
 
 Os domínios predefinidos são treinados e prontos para serem adicionados ao aplicativo LUIS. As intenções e entidades de um domínio predefinido são totalmente personalizáveis depois de serem adicionadas ao seu aplicativo. 
 
@@ -61,4 +61,4 @@ Quando uma entidade predefinida é incluída em seu aplicativo, suas previsões 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como [adicionar entidades predefinidas](luis-prebuilt-entities.md) ao aplicativo.
+Saiba como [adicionar entidades predefinidas](./howto-add-prebuilt-models.md) ao aplicativo.

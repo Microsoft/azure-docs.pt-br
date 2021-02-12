@@ -1,23 +1,67 @@
 ---
 title: Criar e gerenciar projetos de Migrações para Azure
 description: Localize, crie, gerencie e exclua projetos em migrações para Azure.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 07/23/2020
-ms.openlocfilehash: d60868f9d0d4c60291cfd92a9e8d11fd3f9a42b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/23/2020
+ms.openlocfilehash: 0d4ccc1a60f9ac3c2183023d3d3772da6a1e307b
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87071795"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99830746"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Criar e gerenciar projetos de Migrações para Azure
 
-Este artigo descreve como criar, gerenciar e excluir projetos de [migrações para Azure](migrate-services-overview.md) .
+Este artigo descreve como criar, gerenciar e excluir projetos de [migrações para Azure](migrate-services-overview.md) . 
+
+A migração do Azure clássica está se aposentando em fevereiro de 2024. Depois de fevereiro de 2024, a versão clássica de migrações para Azure não terá mais suporte e os metadados de inventário no projeto clássico serão excluídos. Se você estiver usando projetos de migração do Azure clássicos, exclua esses projetos e siga as etapas para criar um novo projeto de migrações para Azure. Você não pode atualizar projetos ou componentes de migração do Azure clássicos para as migrações para Azure. Veja as [perguntas frequentes](https://docs.microsoft.com/azure/migrate/resources-faq#i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version) antes de iniciar o processo de criação.
+
+Um projeto das Migrações para Azure é usado para armazenar metadados de descoberta, avaliação e migração coletados do ambiente que você está avaliando ou migrando. Em um projeto, você pode acompanhar os ativos descobertos, criar avaliações e orquestrar as migrações para o Azure.  
+
+## <a name="verify-permissions"></a>Verificar permissões
+
+Verifique se você tem as permissões corretas para criar um projeto de migrações para Azure:
+
+1. No portal do Azure, abra a assinatura relevante e selecione **controle de acesso (iam)**.
+2. Em **verificar acesso**, localize a conta relevante e selecione-a para exibir as permissões. Você deve ter permissões de *Colaborador* e *Proprietário*. 
 
 
 ## <a name="create-a-project-for-the-first-time"></a>Criar um projeto pela primeira vez
 
-Na primeira vez que você configurar as migrações para Azure, crie um projeto e adicione uma ferramenta de avaliação ou migração. [Siga estas instruções](how-to-add-tool-first-time.md) para configurar o pela primeira vez.
+Configure um novo projeto de migrações para Azure em uma assinatura do Azure.
+
+1. Na portal do Azure, pesquise *migrações para Azure*.
+2. Em **Serviços**, selecione **migrações para Azure**.
+3. Em **Visão Geral**, selecione **Avaliar e migrar servidores**.
+
+    ![Opção em visão geral para avaliar e migrar servidores](./media/create-manage-projects/assess-migrate-servers.png)
+
+4. Em **servidores**, selecione **criar projeto**.
+
+    ![Botão para iniciar a criação do projeto](./media/create-manage-projects/create-project.png)
+
+5. Em **criar projeto**, selecione a assinatura do Azure e o grupo de recursos. Crie um grupo de recursos, caso ainda não tenha um.
+6. Em **Detalhes do Projeto**, especifique o nome do projeto e a geografia em que deseja criá-lo.
+    - A geografia é usada somente para armazenar os metadados coletados de computadores locais. Você pode selecionar qualquer região de destino para migração. 
+    - Examine as geografias compatíveis para [nuvens públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais](migrate-support-matrix.md#supported-geographies-azure-government).
+
+8. Selecione **Criar**.
+
+   ![Página para inserir configurações de projeto](./media/create-manage-projects/project-details.png)
+
+
+Aguarde alguns minutos até que o projeto das Migrações para Azure seja implantado.
+
+## <a name="create-a-project-in-a-specific-region"></a>Criar um projeto em uma região específica
+
+No portal, você pode selecionar a geografia na qual deseja criar o projeto. Se você quiser criar o projeto dentro de uma região específica do Azure, usando o comando de API a seguir para criar o projeto.
+
+```rest
+PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/MigrateProjects/<mymigrateprojectname>?api-version=2018-09-01-preview "{location: 'centralus', properties: {}}"
+```
 
 ## <a name="create-additional-projects"></a>Criar projetos adicionais
 
@@ -30,14 +74,12 @@ Se você já tiver um projeto de migrações para Azure e desejar criar um proje
 
 3. Para criar um novo projeto, selecione **clique aqui**.
 
-   ![Criar um segundo projeto de migrações para Azure](./media/create-manage-projects/create-new-project.png)
-
 
 ## <a name="find-a-project"></a>Localizar um projeto
 
 Localize um projeto da seguinte maneira:
 
-1. Na [portal do Azure](https://portal.azure.com), pesquise **migrações para Azure**.
+1. Na [portal do Azure](https://portal.azure.com), pesquise *migrações para Azure*.
 2. No painel migrações para Azure > **servidores**, selecione **alterar** no canto superior direito.
 
     ![Alternar para um projeto atual de migrações para Azure](./media/create-manage-projects/switch-project.png)
@@ -45,9 +87,11 @@ Localize um projeto da seguinte maneira:
 3. Selecione a assinatura apropriada e o projeto de migrações para Azure.
 
 
+### <a name="find-a-legacy-project"></a>Localizar um projeto herdado
+
 Se você criou o projeto na [versão anterior](migrate-services-overview.md#azure-migrate-versions) do migrações para Azure, encontre-o da seguinte maneira:
 
-1. Na [portal do Azure](https://portal.azure.com), pesquise **migrações para Azure**.
+1. Na [portal do Azure](https://portal.azure.com), pesquise *migrações para Azure*.
 2. No painel migrações para Azure, se você tiver criado um projeto na versão anterior, um banner referenciando projetos mais antigos será exibido. Selecione a faixa.
 
     ![Acessar projetos existentes](./media/create-manage-projects/access-existing-projects.png)

@@ -10,11 +10,11 @@ ms.date: 08/08/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
 ms.openlocfilehash: c5ddd5846be91e9fc99a251d6ad45ade8bde2937
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745846"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016651"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Criar um conjunto de dimensionamento de máquinas virtuais que use Zonas de Disponibilidade
 
@@ -22,21 +22,21 @@ Para proteger seus conjuntos de dimensionamento de máquinas virtuais contra fal
 
 ## <a name="availability-considerations"></a>Considerações sobre disponibilidade
 
-Quando você implanta um conjunto de dimensionamento regional (não zonal) em uma ou mais zonas a partir da versão de API *2017-12-01* , você tem as seguintes opções de disponibilidade:
+Quando você implanta um conjunto de dimensionamento regional (não zonal) em uma ou mais zonas a partir da versão de API *2017-12-01*, você tem as seguintes opções de disponibilidade:
 - Distribuição máxima (platformFaultDomainCount = 1)
 - Difusão fixa estática (platformFaultDomainCount = 5)
 - Propagação alinhada com domínios de falha de disco de armazenamento (platforFaultDomainCount = 2 ou 3)
 
 Com a distribuição máxima, o conjunto de dimensionamento distribui suas VMs em no máximo de domínios de falha possíveis dentro de cada zona. Essa distribuição pode ser entre mais ou menos de cinco domínios de falha por zona. Com a difusão fixa estática, o conjunto de dimensionamento distribui suas VMs em exatamente cinco domínios de falha por zona. Se o conjunto de dimensionamento não conseguir localizar cinco domínios de falha distintos por zona para atender à solicitação de alocação, a solicitação falhará.
 
-**É recomendável implantar com distribuição máxima para a maioria das cargas de trabalho** , uma vez que esse método fornece a melhor distribuição na maioria dos casos. Se você precisar que réplicas sejam distribuídas em unidades de isolamento de hardware diferentes, é recomendável distribuir por Zonas de Disponibilidade e utilizar a distribuição máxima dentro de cada região.
+**É recomendável implantar com distribuição máxima para a maioria das cargas de trabalho**, uma vez que esse método fornece a melhor distribuição na maioria dos casos. Se você precisar que réplicas sejam distribuídas em unidades de isolamento de hardware diferentes, é recomendável distribuir por Zonas de Disponibilidade e utilizar a distribuição máxima dentro de cada região.
 
 > [!NOTE]
 > Com a distribuição máxima, você verá apenas um domínio de falha na exibição da VM do conjunto de dimensionamento e nos metadados de instância, independentemente de em quantos domínios de falha as VMs estão espalhadas. A distribuição dentro de cada região é implícita.
 
 ### <a name="placement-groups"></a>Grupos de posicionamento
 
-Quando você implanta um conjunto de escala, você também tem a opção de implantar um único [grupo posicionamento](./virtual-machine-scale-sets-placement-groups.md) por Zona de Disponibilidade ou com vários por região. Para conjuntos de dimensionamento regionais (não zonais), a escolha é ter um único grupo de posicionamento na região ou ter vários na região. Para a maioria das cargas de trabalho, é recomendável vários grupos de posicionamento, o que permite maior dimensionamento. Na API versão *2017-12-01* , os conjuntos de dimensionamento usam como padrão vários grupos de posicionamento para conjuntos de dimensionamento de zona única e entre zonas, mas eles assumem como padrão um grupo de posicionamento único para conjuntos de dimensionamento regionais (não zonais).
+Quando você implanta um conjunto de escala, você também tem a opção de implantar um único [grupo posicionamento](./virtual-machine-scale-sets-placement-groups.md) por Zona de Disponibilidade ou com vários por região. Para conjuntos de dimensionamento regionais (não zonais), a escolha é ter um único grupo de posicionamento na região ou ter vários na região. Para a maioria das cargas de trabalho, é recomendável vários grupos de posicionamento, o que permite maior dimensionamento. Na API versão *2017-12-01*, os conjuntos de dimensionamento usam como padrão vários grupos de posicionamento para conjuntos de dimensionamento de zona única e entre zonas, mas eles assumem como padrão um grupo de posicionamento único para conjuntos de dimensionamento regionais (não zonais).
 
 > [!NOTE]
 > Se você usar a distribuição máxima, deverá usar vários grupos de posicionamento.
@@ -52,7 +52,7 @@ Por fim, para conjuntos de dimensionamento implantados em várias regiões, voc�
 
 Com melhor balanceamento de zona possível, o conjunto de dimensionamento tenta reduzir e expandir mantendo o balanceamento. No entanto, se por algum motivo isso não for possível (por exemplo, se uma zona ficar inativa, o conjunto de dimensionamento não poderá criar uma nova VM nessa zona), o conjunto de dimensionamento permitirá o desequilíbrio temporário para reduzir ou reduzir com êxito. Em tentativas de expansão subsequentes, o conjunto de dimensionamento adiciona VMs a zonas que precisam de mais VMs para que o conjunto de dimensionamento seja balanceado. De forma semelhante, em tentativas de redução subsequentes, o conjunto de dimensionamento remove VMs de zonas que precisam de menos VMs para que o conjunto de dimensionamento seja balanceado. Com "balanceamento de zona estrito", o conjunto de dimensionamento falhará em qualquer tentativa de expandir ou reduzir que cause desbalanceamento.
 
-Para usar o melhor balanceamento de zona possível, defina *zoneBalance* como *false* . Esta é a configuração padrão na versão de API *2017-12-01* . Para usar o balanceamento de zona estrito, defina *zoneBalance* como *true* .
+Para usar o melhor balanceamento de zona possível, defina *zoneBalance* como *false*. Esta é a configuração padrão na versão de API *2017-12-01*. Para usar o balanceamento de zona estrito, defina *zoneBalance* como *true*.
 
 ## <a name="single-zone-and-zone-redundant-scale-sets"></a>Conjuntos de dimensionamento única zona e redundância de zona
 
@@ -67,7 +67,7 @@ Para usar Zonas de Disponibilidade, seu conjunto de dimensionamento deve ser cri
 - [PowerShell do Azure](#use-azure-powershell)
 - [Modelos do Gerenciador de Recursos do Azure](#use-azure-resource-manager-templates)
 
-## <a name="use-the-azure-portal"></a>Usar o portal do Azure
+## <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
 O processo para criar um conjunto de dimensionamento que use uma Zona de Disponibilidade é o mesmo detalhado no [artigo de introdução](quick-create-portal.md). Quando você seleciona uma região do Azure com suporte, pode criar um conjunto de dimensionamento em uma ou mais zonas disponíveis, conforme mostrado no exemplo a seguir:
 
@@ -79,7 +79,7 @@ O conjunto de escala e os recursos de suporte, como o balanceador de carga do Az
 
 O processo para criar um conjunto de dimensionamento que use uma Zona de Disponibilidade é o mesmo detalhado no [artigo de introdução](quick-create-cli.md). Para usar Zonas de Disponibilidade, você deve criar seu conjunto de dimensionamento em uma região do Azure com suporte.
 
-Adicione o parâmetro `--zones` ao comando [az vmss create](/cli/azure/vmss) e especifique qual zona usar (como zona *1* , *2* ou *3* ). O exemplo a seguir cria um conjunto de dimensionamento de zona única chamado *myScaleSet* na zona *1* :
+Adicione o parâmetro `--zones` ao comando [az vmss create](/cli/azure/vmss) e especifique qual zona usar (como zona *1*, *2* ou *3*). O exemplo a seguir cria um conjunto de dimensionamento de zona única chamado *myScaleSet* na zona *1*:
 
 ```azurecli
 az vmss create \
@@ -98,7 +98,7 @@ Para obter um exemplo completo de um conjunto de dimensionamento de zona única 
 
 Para criar um conjunto de dimensionamento com redundância de zona, você usa um endereço IP público de SKU *padrão* e balanceador de carga. Para redundância aprimorada, o SKU *padrão* cria recursos de rede com redundância de zona. Para obter mais informações, consulte [Visão geral do Azure Standard Load Balancer](../load-balancer/load-balancer-overview.md) e [Standard Load Balancer e Zonas de Disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md).
 
-Para criar um conjunto de dimensionamento com redundância de zona, especifique várias zonas com o parâmetro `--zones`. O exemplo a seguir cria um conjunto de dimensionamento com redundância de zona chamado *myScaleSet* nas zonas *1,2,3* :
+Para criar um conjunto de dimensionamento com redundância de zona, especifique várias zonas com o parâmetro `--zones`. O exemplo a seguir cria um conjunto de dimensionamento com redundância de zona chamado *myScaleSet* nas zonas *1,2,3*:
 
 ```azurecli
 az vmss create \
@@ -113,11 +113,11 @@ az vmss create \
 
 Leva alguns minutos para criar e configurar todos os recursos e as VMs do conjunto de dimensionamento na zona especificada por você. Para obter um exemplo completo de um conjunto de dimensionamento com redundância de zona e recursos de rede, consulte [este script CLI de exemplo](https://github.com/Azure/azure-docs-cli-python-samples/blob/master/virtual-machine-scale-sets/create-zone-redundant-scale-set/create-zone-redundant-scale-set.sh)
 
-## <a name="use-azure-powershell"></a>Usar o Azure PowerShell
+## <a name="use-azure-powershell"></a>Usar PowerShell do Azure
 
-Para usar Zonas de Disponibilidade, você deve criar seu conjunto de dimensionamento em uma região do Azure com suporte. Adicione o parâmetro `-Zone` ao comando [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) e especifique qual zona usar (como zona *1* , *2* ou *3* ).
+Para usar Zonas de Disponibilidade, você deve criar seu conjunto de dimensionamento em uma região do Azure com suporte. Adicione o parâmetro `-Zone` ao comando [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) e especifique qual zona usar (como zona *1*, *2* ou *3*).
 
-O exemplo a seguir cria um conjunto de dimensionamento de zona única chamado *myScaleSet* em *East US 2* , *zona 1* . São criados automaticamente os recursos de rede do Azure para rede virtual, endereço IP público e balanceador de carga. Quando solicitado, forneça suas próprias credenciais administrativas desejadas para as instâncias de VM no conjunto de dimensionamento:
+O exemplo a seguir cria um conjunto de dimensionamento de zona única chamado *myScaleSet* em *East US 2*, *zona 1*. São criados automaticamente os recursos de rede do Azure para rede virtual, endereço IP público e balanceador de carga. Quando solicitado, forneça suas próprias credenciais administrativas desejadas para as instâncias de VM no conjunto de dimensionamento:
 
 ```powershell
 New-AzVmss `
@@ -134,7 +134,7 @@ New-AzVmss `
 
 ### <a name="zone-redundant-scale-set"></a>Conjunto de dimensionamento com redundância de zona
 
-Para criar um conjunto de dimensionamento com redundância de zona, especifique várias zonas com o parâmetro `-Zone`. O exemplo a seguir cria um conjunto de dimensionamento com redundância de zona chamado *myScaleSet* em *East US 2* , zonas *1, 2, 3* . São criados automaticamente os recursos de rede do Azure com redundância de zona para rede virtual, endereço IP público e balanceador de carga. Quando solicitado, forneça suas próprias credenciais administrativas desejadas para as instâncias de VM no conjunto de dimensionamento:
+Para criar um conjunto de dimensionamento com redundância de zona, especifique várias zonas com o parâmetro `-Zone`. O exemplo a seguir cria um conjunto de dimensionamento com redundância de zona chamado *myScaleSet* em *East US 2*, zonas *1, 2, 3*. São criados automaticamente os recursos de rede do Azure com redundância de zona para rede virtual, endereço IP público e balanceador de carga. Quando solicitado, forneça suas próprias credenciais administrativas desejadas para as instâncias de VM no conjunto de dimensionamento:
 
 ```powershell
 New-AzVmss `
@@ -151,9 +151,9 @@ New-AzVmss `
 
 ## <a name="use-azure-resource-manager-templates"></a>Usar modelos do Gerenciador de Recursos do Azure
 
-O processo para criar um conjunto de dimensionamento que use uma Zona de Disponibilidade é o mesmo detalhado no artigo de introdução para [Linux](quick-create-template-linux.md) ou [Windows](quick-create-template-windows.md). Para usar Zonas de Disponibilidade, você deve criar seu conjunto de dimensionamento em uma região do Azure com suporte. Adicione a `zones` propriedade para o tipo de recurso do *Microsoft.Compute/virtualMachineScaleSets* em seu modelo e especifique qual zona usar (como a zona *1* , *2* ou *3* ).
+O processo para criar um conjunto de dimensionamento que use uma Zona de Disponibilidade é o mesmo detalhado no artigo de introdução para [Linux](quick-create-template-linux.md) ou [Windows](quick-create-template-windows.md). Para usar Zonas de Disponibilidade, você deve criar seu conjunto de dimensionamento em uma região do Azure com suporte. Adicione a `zones` propriedade para o tipo de recurso do *Microsoft.Compute/virtualMachineScaleSets* em seu modelo e especifique qual zona usar (como a zona *1*, *2* ou *3*).
 
-O exemplo a seguir cria um conjunto de dimensionamento de zona única do Linux chamado *myScaleSet* em *East US 2* , *zona 1* :
+O exemplo a seguir cria um conjunto de dimensionamento de zona única do Linux chamado *myScaleSet* em *East US 2*, *zona 1*:
 
 ```json
 {
@@ -197,7 +197,7 @@ Para obter um exemplo completo de um conjunto de dimensionamento de zona única 
 
 ### <a name="zone-redundant-scale-set"></a>Conjunto de dimensionamento com redundância de zona
 
-Para criar um conjunto de dimensionamento com redundância de zona, especifique vários valores na propriedade `zones` para o tipo de recurso *Microsoft.Compute/virtualMachineScaleSets* . O exemplo a seguir cria um conjunto de dimensionamento com redundância de zona chamado *myScaleSet* em *East US 2* , zonas *1,2,3* :
+Para criar um conjunto de dimensionamento com redundância de zona, especifique vários valores na propriedade `zones` para o tipo de recurso *Microsoft.Compute/virtualMachineScaleSets*. O exemplo a seguir cria um conjunto de dimensionamento com redundância de zona chamado *myScaleSet* em *East US 2*, zonas *1,2,3*:
 
 ```json
 {

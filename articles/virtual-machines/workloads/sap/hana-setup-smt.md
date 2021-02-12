@@ -7,18 +7,19 @@ author: hermanndms
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: hermannd
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c186b73cb00d03b731cd015b3ee06bf8f2233fa4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88b1cd2a5bf33d6401f0d2e15237400e27c72e54
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541145"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967645"
 ---
 # <a name="set-up-smt-server-for-suse-linux"></a>Configurar o servidor SMT para o SUSE Linux
 As Instâncias Grandes do SAP HANA não têm conectividade direta com a Internet. Não é um processo simples registrar uma unidade como essa no provedor do sistema operacional e baixar e aplicar atualizações. Uma solução para o SUSE Linux é configurar um servidor SMT em uma máquina virtual do Azure. Hospede a máquina virtual em uma rede virtual do Azure conectada à HANA em Instância Grande. Com um servidor SMT desse tipo, a unidade do HANA em Instância Grande pode registrar e baixar atualizações. 
@@ -34,7 +35,7 @@ Pré-requisitos para instalar um servidor SMT que realiza a tarefa para o HANA e
 
 Primeiro, entre no [Atendimento ao Cliente do SUSE](https://scc.suse.com/).
 
-Vá para **Organization**  >  **as credenciais da organização**da organização. Nesta seção, você deve encontrar as credenciais necessárias para configurar o servidor SMT.
+Vá para **Organization**  >  **as credenciais da organização** da organização. Nesta seção, você deve encontrar as credenciais necessárias para configurar o servidor SMT.
 
 Em seguida, instale uma VM do Linux SUSE na rede virtual do Azure. Para implantar a máquina virtual, pegue uma imagem de galeria do SLES 12 SP2 do Azure (selecione imagem SUSE BYOS). No processo de implantação, não defina um nome DNS e não use endereços IP estáticos.
 

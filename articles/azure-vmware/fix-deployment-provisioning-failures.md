@@ -1,97 +1,129 @@
 ---
-title: Obtenha ajuda com a implantação de solução do Azure VMware ou falhas de provisionamento
-description: Como obter as informações de que você precisa de sua nuvem privada da solução Azure VMware para arquivar uma solicitação de serviço para implantação de solução do Azure VMware ou falhas de provisionamento.
+title: Suporte para implantação de solução do Azure VMware ou falha de provisionamento
+description: Obtenha informações de sua nuvem privada da solução Azure VMware para arquivar uma solicitação de serviço para uma implantação de solução do Azure VMware ou falha de provisionamento.
 ms.topic: how-to
-ms.date: 06/09/2020
-ms.openlocfilehash: 1f46dde895db417fd2b488a6203d5482e73d3c5e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 10/28/2020
+ms.openlocfilehash: 27b645f4ca225fdd74bca6499b6581b3803e41a4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779485"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542398"
 ---
-# <a name="get-help-with-azure-vmware-solution-deployment-or-provisioning-failures"></a>Obtenha ajuda com a implantação de solução do Azure VMware ou falhas de provisionamento
+# <a name="open-a-support-request-for-an-azure-vmware-solution-deployment-or-provisioning-failure"></a>Abrir uma solicitação de suporte para uma implantação de solução do Azure VMware ou falha de provisionamento
 
-Este artigo ajuda você com as falhas de implantação e provisionamento da solução do Azure VMware. Quando houver falhas em sua nuvem privada, você precisará abrir uma solicitação de [suporte](https://rc.portal.azure.com/#create/Microsoft.Support) (Sr) no portal do Azure. 
+Este artigo mostra como abrir uma solicitação de [suporte](https://rc.portal.azure.com/#create/Microsoft.Support) e fornecer informações de chave para uma implantação de solução do Azure VMware ou falha de provisionamento. 
 
-No entanto, primeiro você precisará coletar algumas informações importantes no portal do Azure:
+Quando houver uma falha em sua nuvem privada, você precisará abrir uma solicitação de suporte no portal do Azure. Para abrir uma solicitação de suporte, primeiro obtenha algumas informações importantes no portal do Azure:
 
 - ID de Correlação
-- ID do circuito do ExpressRoute
+- ID do circuito do ExpressRoute do Azure
+- Mensagens de erro
 
-## <a name="collect-the-correlation-id"></a>Coletar a ID de correlação
+## <a name="get-the-correlation-id"></a>Obter a ID de correlação
  
-Uma ID de correlação é gerada quando você cria uma nuvem privada ou qualquer recurso no Azure. Cada implantação de Azure Resource Manager também gera uma ID de correlação. Essa ID permite a criação e resolução de SR mais rápidas. 
+Quando você cria uma nuvem privada ou qualquer recurso no Azure, uma ID de correlação para o recurso é gerada automaticamente para o recurso. Inclua a ID de correlação de nuvem privada em sua solicitação de suporte para abrir e resolver mais rapidamente a solicitação.
+
+No portal do Azure, você pode obter a ID de correlação de um recurso de duas maneiras:
+
+* Painel de **visão geral**
+* Logs de implantação
  
-Aqui está um exemplo da saída de uma implantação de nuvem privada com falha, com a ID de correlação realçada.
+ ### <a name="get-the-correlation-id-from-the-resource-overview"></a>Obter a ID de correlação da visão geral do recurso
 
-:::image type="content" source="media/fix-deployment-provisioning-failures/failed-private-cloud-deployment.png" alt-text="Falha na implantação de nuvem privada com ID de correlação.":::
+Veja um exemplo dos detalhes da operação de uma implantação de nuvem privada com falha, com a ID de correlação selecionada:
 
-Copie e salve essa ID de correlação para incluir na solicitação de serviço. Para obter detalhes, consulte [criar sua solicitação de suporte](#create-your-support-request) no final deste artigo.
+:::image type="content" source="media/fix-deployment-provisioning-failures/failed-private-cloud-deployment.png" alt-text="Captura de tela que mostra uma implantação de nuvem privada com falha com a ID de correlação selecionada.":::
 
-Se a falha ocorrer nos estágios de validação prévia, nenhuma ID de correlação será gerada. Nesse caso, você pode fornecer as informações que usou ao criar a nuvem privada da solução Azure VMware, incluindo:
+Para acessar os resultados da implantação em um painel de **visão geral** da nuvem privada:
 
-- Location
-- Resource group
-- Nome do recurso
+1. Na portal do Azure, selecione sua nuvem privada.
+
+1. No menu à esquerda, selecione **visão geral**.
+
+Depois que uma implantação é iniciada, os resultados da implantação são mostrados no painel **visão geral** da nuvem privada.
+
+Copie e salve a ID de correlação de implantação de nuvem privada para incluir na solicitação de serviço.
+
+### <a name="get-the-correlation-id-from-the-deployment-log"></a>Obter a ID de correlação do log de implantação
+
+Você pode obter a ID de correlação para uma implantação com falha pesquisando o log de atividades de implantação no portal do Azure.
+
+Para acessar o log de implantação:
+
+1. Na portal do Azure, selecione sua nuvem privada e, em seguida, selecione o ícone notificações.
+
+   :::image type="content" source="media/fix-deployment-provisioning-failures/open-notifications.png" alt-text="Captura de tela que mostra o ícone de notificações no portal do Azure.":::
+
+1. No painel **notificações** , selecione **mais eventos no log de atividades** :
+
+    :::image type="content" source="media/fix-deployment-provisioning-failures/more-events-in-activity-log.png" alt-text="Captura de tela que mostra mais eventos no link do log de atividades selecionado no painel notificações.":::
+
+1. Para localizar a implantação com falha e sua ID de correlação, procure o nome do recurso ou outras informações que você usou para criar o recurso. 
+
+    O exemplo a seguir mostra os resultados da pesquisa para um recurso de nuvem privada chamado pc03.
  
-### <a name="collect-a-summary-of-errors"></a>Coletar um resumo de erros
-
-Os detalhes de quaisquer erros também podem ajudar a resolver o problema. Na tela anterior, selecione a mensagem de aviso para ver um resumo dos erros.
+    :::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Captura de tela que mostra os resultados da pesquisa para um recurso de nuvem privada de exemplo e o painel criar ou atualizar um nuvem particular.":::
  
- :::image type="content" source="media/fix-deployment-provisioning-failures/summary-of-errors.png" alt-text="Falha na implantação de nuvem privada com ID de correlação.":::
+1. Nos resultados da pesquisa no painel **log de atividades** , selecione o nome da operação da implantação com falha.
 
-Novamente, copie e salve esse Resumo para incluir no SR.
+1. No painel **criar ou atualizar um nuvem particular** , selecione a guia **JSON** e procure `correlationId` no log que é mostrado. Copie o `correlationId` valor para incluí-lo em sua solicitação de suporte. 
  
-### <a name="retrieve-past-deployments"></a>Recuperar implantações anteriores
+## <a name="copy-error-messages"></a>Copiar mensagens de erro
 
-Você pode recuperar as implantações anteriores, incluindo as que falharam, pesquisando no log de atividades de implantação acessado selecionando o ícone de notificações.
+Para ajudar a resolver o problema de implantação, inclua as mensagens de erro mostradas no portal do Azure. Selecione uma mensagem de aviso para ver um resumo dos erros:
+ 
+:::image type="content" source="media/fix-deployment-provisioning-failures/summary-of-errors.png" alt-text="Captura de tela que mostra os detalhes do erro na guia Resumo do painel erros, com o ícone de cópia selecionado.":::
 
-:::image type="content" source="media/fix-deployment-provisioning-failures/open-notifications.png" alt-text="Falha na implantação de nuvem privada com ID de correlação.":::
+Para copiar a mensagem de erro, selecione o ícone de cópia. Salve a mensagem copiada para incluir em sua solicitação de suporte.
+ 
+## <a name="get-the-expressroute-id-uri"></a>Obter a ID do ExpressRoute (URI)
+ 
+Talvez você esteja tentando dimensionar ou emparelhar uma nuvem privada existente com o circuito de ExpressRoute de nuvem privada e falhar. Nesse cenário, você precisa da ID do ExpressRoute para incluir em sua solicitação de suporte.
 
-Em notificações, selecione **mais eventos no log de atividades** .
+Para copiar a ID do ExpressRoute:
 
-:::image type="content" source="media/fix-deployment-provisioning-failures/more-events-in-activity-log.png" alt-text="Falha na implantação de nuvem privada com ID de correlação.":::
+1. Na portal do Azure, selecione sua nuvem privada.
+1. No menu à esquerda, em **gerenciar** , selecione **conectividade**. 
+1. No painel direito, selecione a guia **ExpressRoute** .
+1. Selecione o ícone de cópia para a **ID do ExpressRoute** e salve o valor a ser usado em sua solicitação de suporte.
+ 
+:::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Copie a ID do ExpressRoute para a área de transferência."::: 
+ 
+## <a name="pre-validation-failures"></a>Falhas de pré-validação
 
-Em seguida, procure o nome do recurso ou outras informações usadas para criar o recurso para localizar a implantação com falha e sua ID de correlação. O exemplo a seguir mostra os resultados da pesquisa em um recurso de nuvem privada (pc03).
- 
-:::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Falha na implantação de nuvem privada com ID de correlação.":::
- 
-Selecionar o nome da operação da implantação com falha abre uma janela com detalhes. Selecione a guia JSON e procure CorrelationId. Copie e inclua no SR. 
- 
-## <a name="collect-the-expressroute-id-uri"></a>Coletar a ID do ExpressRoute (URI)
- 
-Talvez você esteja tentando dimensionar ou emparelhar uma nuvem privada existente com o circuito de ExpressRoute de nuvem privada e falhar. Nesse caso, você precisará da ID do ExpressRoute. 
+Se a verificação de pré-validação da nuvem privada falhou (antes da implantação), uma ID de correlação não será gerada. Nesse cenário, você pode fornecer as seguintes informações em sua solicitação de suporte:
 
-No portal do Azure, selecione **conectividade > ExpressRoute** e copie a **ID do ExpressRoute** para a área de transferência.
- 
-:::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Falha na implantação de nuvem privada com ID de correlação."::: 
- 
-> [!NOTE]
-> Ocasionalmente, as verificações de validação podem falhar antes da implantação, e as únicas informações disponíveis serão as mensagens de erro e falha. Eles podem ser úteis em muitas falhas, por exemplo, problemas relacionados a cotas, e é importante incluir essas mensagens na solicitação de suporte. Para coletar esses, consulte a seção anterior, [coletar um resumo de erros](#collect-a-summary-of-errors).
+- Mensagens de erro e falha. Essas mensagens podem ser úteis em muitas falhas, por exemplo, para problemas relacionados à cota. É importante copiar essas mensagens e incluí-las na solicitação de suporte, conforme descrito neste artigo.
+- Informações usadas para criar a nuvem privada da solução Azure VMware, incluindo:
+  - Localização
+  - Grupo de recursos
+  - Nome do recurso
 
 ## <a name="create-your-support-request"></a>Criar sua solicitação de suporte
 
-Para obter diretrizes gerais sobre como criar sua solicitação de suporte, consulte [como criar uma solicitação de suporte do Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). 
+Para obter informações gerais sobre como criar uma solicitação de suporte, consulte [como criar uma solicitação de suporte do Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
-Aqui está uma orientação específica para a criação de uma implantação da solução do SR para Azure ou falhas de provisionamento.
+Para criar uma solicitação de suporte para uma implantação de solução do Azure VMware ou falha de provisionamento:
 
-1. Selecione o ícone de **ajuda** e **+ nova solicitação de suporte** .
+1. Na portal do Azure, selecione o ícone de **ajuda** e, em seguida, selecione **nova solicitação de suporte**.
 
-    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Falha na implantação de nuvem privada com ID de correlação.":::
+    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Captura de tela do painel nova solicitação de suporte no portal do Azure.":::
 
-2. Preencha todos os campos obrigatórios e na guia **noções básicas** :
+1. Insira ou selecione as informações necessárias:
 
-    - Para **tipo de problema** , selecione **problemas de configuração e** configuração.
+   1. Na guia **Informações Básicas** :
 
-    - Para **subtipo de problema** , selecione **provisionar uma nuvem privada** .
+      1. Para **tipo de problema** , selecione **problemas de configuração e** configuração.
 
-3. Na guia **detalhes** :
+      1. Para **subtipo de problema** , selecione **provisionar uma nuvem privada**.
 
-    - Preencha todos os campos obrigatórios.
+   1. Na guia **detalhes** :
 
-    - Cole sua ID de correlação ou a ID do ExpressRoute nos campos específicos fornecidos. Se você não vir um campo específico, poderá colá-los na caixa de texto em **fornecer detalhes sobre o problema.**
+      1. Insira ou selecione as informações necessárias.
 
-    - Cole os detalhes do erro, incluindo o resumo dos erros que você copiou, na caixa de texto em **fornecer detalhes sobre o problema.**
+      1. Cole sua ID de correlação ou a ID do ExpressRoute onde essas informações são solicitadas. Se você não vir uma caixa de texto específica para esses valores, Cole-os na caixa de texto **fornecer detalhes sobre o problema** .
 
-4. Examine e selecione **criar** para criar seu Sr.
+    1. Cole os detalhes do erro, incluindo as mensagens de erro ou de falha que você copiou, na caixa de texto **fornecer detalhes sobre o problema** .
+
+1. Examine suas entradas e, em seguida, selecione **criar** para criar sua solicitação de suporte.

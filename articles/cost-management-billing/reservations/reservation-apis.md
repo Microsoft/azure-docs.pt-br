@@ -9,12 +9,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: f12c1f20e01cb67adff2c83c7262f92daf8da969
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 773334787ec7b2706c16e517281d6a60215ad482
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151483"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353010"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>APIs para a automação de reserva do Azure
 
@@ -62,7 +62,7 @@ Corpo da solicitação:
 Também é possível comprar uma reserva no portal do Azure. Para obter mais informações, consulte os seguintes artigos:
 
 Planos de serviço:
-- [Máquina virtual](../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json)
+- [Máquina virtual](../../virtual-machines/prepay-reserved-vm-instances.md?toc=%2fazure%2fbilling%2fTOC.json)
 -  [Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json)
 - [Banco de Dados SQL](../../azure-sql/database/reserved-capacity-overview.md?toc=/azure/billing/TOC.json)
 

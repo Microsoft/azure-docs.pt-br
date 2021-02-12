@@ -2,18 +2,18 @@
 title: Tutorial – Criação rápida de imagem de contêiner
 description: Neste tutorial, você aprenderá como criar uma imagem de contêiner de Docker no Azure com as Tarefas do ACR (Tarefas do Registro de Contêiner do Azure) e implantá-la em Instâncias de Contêiner do Azure.
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 11/24/2020
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: 43d2c277fe3297c7e5ee55046118add352853640
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b218f47348d5a26297f14c4bc788a6cf6b78cc60
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739536"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030315"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutorial: criar e implantar imagens de contêineres na nuvem com as Tarefas do Registro de Contêiner do Azure
 
-As **Tarefas do ACR** são um pacote de recursos no Registro de Contêiner do Azure que fornece builds de imagem de contêiner do Docker aprimorados e eficientes no Azure. Neste artigo, você aprenderá a usar o recurso *tarefa rápida* das Tarefas do ACR.
+As [Tarefas do ACR](container-registry-tasks-overview.md) são um pacote de recursos no Registro de Contêiner do Azure que fornece builds de imagem de contêiner do Docker aprimorados e eficientes no Azure. Neste artigo, você aprenderá a usar o recurso *tarefa rápida* das Tarefas do ACR.
 
 O ciclo de desenvolvimento “loop interno” é o processo iterativo de escrever código, compilar e testar seu aplicativo antes de confirmá-lo no controle do código-fonte. Uma tarefa rápida estende o “loop interno” para a nuvem, fornecendo validação de sucesso de build e push automático de imagens criadas com êxito para o registro de contêiner. As imagens são criadas nativamente na nuvem, perto de seu registro, permitindo a implantação mais rápida.
 
@@ -27,10 +27,6 @@ Neste tutorial, a primeira parte de uma série:
 > * Implantar um contêiner em Instâncias de Contêiner do Azure
 
 Em tutoriais subsequentes, você aprenderá a usar as Tarefas do ACR para builds de imagem de contêiner automatizados na confirmação de código e atualização da imagem base. As Tarefas do ACR também podem executar [tarefas de várias etapas](container-registry-tasks-multi-step.md), usando um arquivo YAML para definir as etapas para criar, efetuar push e, opcionalmente, testar vários contêineres.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Se quiser usar a CLI do Azure localmente, será preciso ter a CLI do Azure versão **2.0.46** ou posterior instalada e conectada com [az login][az-login]. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar a CLI, confira como [instalar a CLI do Azure][azure-cli].
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -66,13 +62,13 @@ cd acr-build-helloworld-node
 
 Os comandos nesta série de tutoriais são formatados para o shell de Bash. Se você preferir usar o PowerShell, o Prompt de Comando ou outro shell, convém ajustar a continuação da linha e o formato da variável de ambiente adequadamente.
 
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+
 ## <a name="build-in-azure-with-acr-tasks"></a>Compilar no Azure com as Tarefas do ACR
 
 Agora que você efetuou pull do código-fonte para o seu computador, siga estas etapas para compilar um registro de contêiner e a imagem de contêiner com as Tarefas do ACR.
 
 Para tornar a execução dos comandos de exemplo mais fácil, os tutoriais desta série usam variáveis de ambiente de shell. Execute o seguinte comando para definir a variável `ACR_NAME`. Substitua **\<registry-name\>** por um nome exclusivo para o seu novo registro de contêiner. O nome do Registro precisa ser exclusivo no Azure, conter apenas letras minúsculas e conter de 5 a 50 caracteres alfanuméricos. Os outros recursos que você cria no tutorial se baseiam nesse nome, e você precisará modificar apenas essa primeira variável.
-
-[![Inserir inicialização](https://shell.azure.com/images/launchcloudshell.png "Iniciar o Azure Cloud Shell")](https://shell.azure.com)
 
 ```console
 ACR_NAME=<registry-name>
@@ -80,16 +76,16 @@ ACR_NAME=<registry-name>
 
 Com a variável de ambiente de registro de contêiner preenchida, agora você deverá ser capaz de copiar e colar o restante dos comandos no tutorial sem editar valores. Execute os comandos a seguir para criar um registro de contêiner e um grupo de recursos:
 
-```azurecli-interactive
+```azurecli
 RES_GROUP=$ACR_NAME # Resource Group name
 
 az group create --resource-group $RES_GROUP --location eastus
 az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard --location eastus
 ```
 
-Agora que você tem um Registro, use as Tarefas do ACR para compilar uma imagem de contêiner com base no código de exemplo. Execute o comando [az acr build][az-acr-build] para executar uma *tarefa rápida* :
+Agora que você tem um Registro, use as Tarefas do ACR para compilar uma imagem de contêiner com base no código de exemplo. Execute o comando [az acr build][az-acr-build] para executar uma *tarefa rápida*:
 
-```azurecli-interactive
+```azurecli
 az acr build --registry $ACR_NAME --image helloacrtasks:v1 .
 ```
 
@@ -100,16 +96,16 @@ Packing source code into tar file to upload...
 Sending build context (4.813 KiB) to ACR...
 Queued a build with build ID: da1
 Waiting for build agent...
-2018/08/22 18:31:42 Using acb_vol_01185991-be5f-42f0-9403-a36bb997ff35 as the home volume
-2018/08/22 18:31:42 Setting up Docker configuration...
-2018/08/22 18:31:43 Successfully set up Docker configuration
-2018/08/22 18:31:43 Logging in to registry: myregistry.azurecr.io
-2018/08/22 18:31:55 Successfully logged in
+2020/11/18 18:31:42 Using acb_vol_01185991-be5f-42f0-9403-a36bb997ff35 as the home volume
+2020/11/18 18:31:42 Setting up Docker configuration...
+2020/11/18 18:31:43 Successfully set up Docker configuration
+2020/11/18 18:31:43 Logging in to registry: myregistry.azurecr.io
+2020/11/18 18:31:55 Successfully logged in
 Sending build context to Docker daemon   21.5kB
-Step 1/5 : FROM node:9-alpine
-9-alpine: Pulling from library/node
+Step 1/5 : FROM node:15-alpine
+15-alpine: Pulling from library/node
 Digest: sha256:8dafc0968fb4d62834d9b826d85a8feecc69bd72cd51723c62c7db67c6dec6fa
-Status: Image is up to date for node:9-alpine
+Status: Image is up to date for node:15-alpine
  ---> a56170f59699
 Step 2/5 : COPY . /src
  ---> 88087d7e709a
@@ -131,7 +127,7 @@ Removing intermediate container fe7027a11787
  ---> 20a27b90eb29
 Successfully built 20a27b90eb29
 Successfully tagged myregistry.azurecr.io/helloacrtasks:v1
-2018/08/22 18:32:11 Pushing image: myregistry.azurecr.io/helloacrtasks:v1, attempt 1
+2020/11/18 18:32:11 Pushing image: myregistry.azurecr.io/helloacrtasks:v1, attempt 1
 The push refers to repository [myregistry.azurecr.io/helloacrtasks]
 6428a18b7034: Preparing
 c44b9827df52: Preparing
@@ -144,8 +140,8 @@ c44b9827df52: Pushed
 6428a18b7034: Pushed
 8c9992f4e5dd: Pushed
 v1: digest: sha256:b038dcaa72b2889f56deaff7fa675f58c7c666041584f706c783a3958c4ac8d1 size: 1366
-2018/08/22 18:32:43 Successfully pushed image: myregistry.azurecr.io/helloacrtasks:v1
-2018/08/22 18:32:43 Step ID acb_step_0 marked as successful (elapsed time in seconds: 15.648945)
+2020/11/18 18:32:43 Successfully pushed image: myregistry.azurecr.io/helloacrtasks:v1
+2020/11/18 18:32:43 Step ID acb_step_0 marked as successful (elapsed time in seconds: 15.648945)
 The following dependencies were found:
 - image:
     registry: myregistry.azurecr.io
@@ -155,7 +151,7 @@ The following dependencies were found:
   runtime-dependency:
     registry: registry.hub.docker.com
     repository: library/node
-    tag: 9-alpine
+    tag: 15-alpine
     digest: sha256:8dafc0968fb4d62834d9b826d85a8feecc69bd72cd51723c62c7db67c6dec6fa
   git: {}
 
@@ -178,7 +174,7 @@ Todos os cenários de produção devem usar [entidades de serviço][service-prin
 
 Se você ainda não tiver um cofre no [Azure Key Vault](../key-vault/index.yml), crie um com a CLI do Azure usando os comandos a seguir.
 
-```azurecli-interactive
+```azurecli
 AKV_NAME=$ACR_NAME-vault
 
 az keyvault create --resource-group $RES_GROUP --name $AKV_NAME
@@ -190,7 +186,7 @@ Agora, é necessário criar uma entidade de serviço e armazenar as credenciais 
 
 Use o comando [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] para criar a entidade de serviço e [az keyvault secret set][az-keyvault-secret-set] para armazenar a **senha** da entidade de serviço no cofre:
 
-```azurecli-interactive
+```azurecli
 # Create service principal, store its password in AKV (the registry *password*)
 az keyvault secret set \
   --vault-name $AKV_NAME \
@@ -203,11 +199,11 @@ az keyvault secret set \
                 --output tsv)
 ```
 
-O argumento `--role` no comando anterior configura a entidade de serviço com a função *acrpull* , que permite a ela acesso somente de pull ao Registro. Para permitir acesso de push e pull, altere o argumento `--role` para *acrpush* .
+O argumento `--role` no comando anterior configura a entidade de serviço com a função *acrpull*, que permite a ela acesso somente de pull ao Registro. Para permitir acesso de push e pull, altere o argumento `--role` para *acrpush*.
 
 Em seguida, armazene o *appId* da entidade de serviço no cofre, que é o **nome de usuário** que você passa para o Registro de Contêiner do Azure para autenticação:
 
-```azurecli-interactive
+```azurecli
 # Store service principal ID in AKV (the registry *username*)
 az keyvault secret set \
     --vault-name $AKV_NAME \
@@ -228,7 +224,7 @@ Agora que as credenciais da entidade de serviço estão armazenadas como segredo
 
 Execute o seguinte comando [az container create][az-container-create] para implantar uma instância de contêiner. O comando usa as credenciais da entidade de serviço armazenadas no Azure Key Vault para autenticar no registro de contêiner.
 
-```azurecli-interactive
+```azurecli
 az container create \
     --resource-group $RES_GROUP \
     --name acr-tasks \
@@ -255,18 +251,18 @@ Anote o FQDN do contêiner, você o usará na próxima seção.
 
 Para inspecionar o processo de inicialização do contêiner, use o comando [az container attach][az-container-attach]:
 
-```azurecli-interactive
+```azurecli
 az container attach --resource-group $RES_GROUP --name acr-tasks
 ```
 
-A saída `az container attach` exibe primeiro o status do contêiner conforme ele efetua pull da imagem e é iniciado, em seguida, associa STDOUT e STDERR do console local para o do contêiner.
+A saída `az container attach` exibe primeiro o status do contêiner conforme ele efetua pull da imagem e é iniciado e, depois, associa o StdOut e o stderr do console local àqueles do contêiner.
 
 ```output
 Container 'acr-tasks' is in state 'Running'...
-(count: 1) (last timestamp: 2018-08-22 18:39:10+00:00) pulling image "myregistry.azurecr.io/helloacrtasks:v1"
-(count: 1) (last timestamp: 2018-08-22 18:39:15+00:00) Successfully pulled image "myregistry.azurecr.io/helloacrtasks:v1"
-(count: 1) (last timestamp: 2018-08-22 18:39:17+00:00) Created container
-(count: 1) (last timestamp: 2018-08-22 18:39:17+00:00) Started container
+(count: 1) (last timestamp: 2020-11-18 18:39:10+00:00) pulling image "myregistry.azurecr.io/helloacrtasks:v1"
+(count: 1) (last timestamp: 2020-11-18 18:39:15+00:00) Successfully pulled image "myregistry.azurecr.io/helloacrtasks:v1"
+(count: 1) (last timestamp: 2020-11-18 18:39:17+00:00) Created container
+(count: 1) (last timestamp: 2020-11-18 18:39:17+00:00) Started container
 
 Start streaming logs:
 Server running at http://localhost:80
@@ -274,7 +270,7 @@ Server running at http://localhost:80
 
 Quando `Server running at http://localhost:80` aparecer, navegue para o FQDN do contêiner no seu navegador para ver o aplicativo em execução. O FQDN será exibido na saída do comando `az container create` que você executou na seção anterior.
 
-![Captura de tela do aplicativo de exemplo renderizado no navegador][quick-build-02-browser]
+:::image type="content" source="media/container-registry-tutorial-quick-build/quick-build-02-browser.png" alt-text="Aplicativo de exemplo em execução no navegador":::
 
 Para desanexar o console do contêiner, pressione `Control+C`.
 
@@ -282,13 +278,13 @@ Para desanexar o console do contêiner, pressione `Control+C`.
 
 Pare a instância de contêiner com o comando [az container delete][az-container-delete]:
 
-```azurecli-interactive
+```azurecli
 az container delete --resource-group $RES_GROUP --name acr-tasks
 ```
 
 Para remover *todos* os recursos que você criou neste tutorial, incluindo o registro de contêiner, o cofre de chaves e a entidade de serviço, emita os seguintes comandos. Esses recursos são usados no [tutorial seguinte](container-registry-tutorial-build-task.md) da série, no entanto, será conveniente mantê-los se você passar diretamente para o próximo tutorial.
 
-```azurecli-interactive
+```azurecli
 az group delete --resource-group $RES_GROUP
 az ad sp delete --id http://$ACR_NAME-pull
 ```

@@ -1,19 +1,16 @@
 ---
 title: Autenticação & criptografia TLS Apache Kafka-Azure HDInsight
 description: Configure a criptografia TLS para comunicação entre os clientes Kafka e os agentes Kafka, bem como entre os agentes Kafka. Configurar a autenticação SSL de clientes.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/01/2019
-ms.openlocfilehash: 9a95970647a26ea80db9f63fb8523c6a65cc5e06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c020153d5c5cb5aad593c5b15e60e67951b89d4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86082073"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945189"
 ---
 # <a name="set-up-tls-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Configurar a criptografia e a autenticação TLS para Apache Kafka no Azure HDInsight
 

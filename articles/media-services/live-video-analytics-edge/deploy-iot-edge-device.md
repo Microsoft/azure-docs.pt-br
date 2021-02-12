@@ -3,12 +3,12 @@ title: Implantar a análise de vídeo ao vivo em um dispositivo IoT Edge – Azu
 description: Este artigo lista as etapas que ajudarão você a implantar a análise de vídeo ao vivo em seu dispositivo IoT Edge. Você faria isso, por exemplo, se tiver acesso a um computador Linux local e/ou tiver criado anteriormente uma conta dos serviços de mídia do Azure.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: a64fc11d7afa70d5200fdbd24bd3facdb8a95a7e
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: ff5dbc8e643137008aa7819b455adcf97c05bfc9
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019572"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491783"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Implantar a análise de vídeo ao vivo em um dispositivo IoT Edge
 
@@ -23,8 +23,8 @@ Este artigo lista as etapas que ajudarão você a implantar a análise de vídeo
 * Um dispositivo x86-64 ou ARM64 executando um dos [sistemas operacionais Linux com suporte](../../iot-edge/support.md#operating-systems)
 * Assinatura do Azure para a qual você tem [privilégios de proprietário](../../role-based-access-control/built-in-roles.md#owner)
 * [Criar e configurar o Hub IoT](../../iot-hub/iot-hub-create-through-portal.md)
-* [Registrar IoT Edge dispositivo](../../iot-edge/how-to-register-device.md)
-* [Instalar o tempo de execução de Azure IoT Edge em sistemas Linux baseados em Debian](../../iot-edge/how-to-install-iot-edge-linux.md)
+* [Registrar IoT Edge dispositivo](../../iot-edge/how-to-manual-provision-symmetric-key.md)
+* [Instalar o tempo de execução de Azure IoT Edge em sistemas Linux baseados em Debian](../../iot-edge/how-to-install-iot-edge.md)
 * [Criar uma conta de Serviços de Mídia do Azure](../latest/create-account-howto.md)
 
     * Use uma destas regiões: leste dos EUA 2, leste dos EUA, EUA Central, norte EUA Central, leste do Japão, oeste dos EUA, oeste dos EUA 2, Oeste EUA Central, leste do Canadá, Sul do Reino Unido, França central, sul da França, Norte da Suíça, Oeste da Suíça e oeste do Japão.
@@ -99,7 +99,7 @@ O portal do Azure orienta você durante a criação de um manifesto de implanta�
 
 #### <a name="configure-a-deployment-manifest"></a>Configurar um manifesto de implantação
 
-Um manifesto de implantação é um documento JSON que descreve quais módulos implantar, como os dados fluem entre os módulos e as propriedades desejadas dos módulos gêmeos. O portal do Azure tem um assistente que orienta você durante a criação de um manifesto de implantação. Ele tem três etapas organizadas em guias: **módulos**, **rotas**e **revisão + criar**.
+Um manifesto de implantação é um documento JSON que descreve quais módulos implantar, como os dados fluem entre os módulos e as propriedades desejadas dos módulos gêmeos. O portal do Azure tem um assistente que orienta você durante a criação de um manifesto de implantação. Ele tem três etapas organizadas em guias: **módulos**, **rotas** e **revisão + criar**.
 
 #### <a name="add-modules"></a>Adicionar módulos
 
@@ -108,12 +108,12 @@ Um manifesto de implantação é um documento JSON que descreve quais módulos i
     Exemplos:
     
     * **Nome do módulo de IOT Edge**: lvaEdge
-    * **URI da imagem**: MCR.Microsoft.com/Media/Live-Video-Analytics:1.0    
+    * **URI da imagem**: MCR.Microsoft.com/Media/Live-Video-Analytics:2.0    
     
     ![Captura de tela mostra a guia Configurações do módulo.](./media/deploy-iot-edge-device/add.png)
     
     > [!TIP]
-    > Não selecione **Adicionar** até que você tenha especificado valores nas guias **configurações do módulo**, opções de criação do **contêiner**e configurações do **módulo de configuração** , conforme descrito neste procedimento.
+    > Não selecione **Adicionar** até que você tenha especificado valores nas guias **configurações do módulo**, opções de criação do **contêiner** e configurações do **módulo de configuração** , conforme descrito neste procedimento.
     
     > [!WARNING]
     > Azure IoT Edge diferencia maiúsculas de minúsculas quando você faz chamadas para módulos. Anote a cadeia de caracteres exata usada como o nome do módulo.
@@ -240,7 +240,7 @@ Em seguida, vamos testar o exemplo invocando um método direto. Leia [métodos d
     
     ```
     {
-        "@apiVersion" : "1.0"
+        "@apiVersion" : "2.0"
     }
     ```
 1. Clique na opção "invocar método" na parte superior da página

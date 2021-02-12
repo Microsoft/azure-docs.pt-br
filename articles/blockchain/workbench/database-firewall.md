@@ -5,11 +5,11 @@ ms.date: 09/09/2019
 ms.topic: how-to
 ms.reviewer: mmercuri
 ms.openlocfilehash: dc7a1dc7e4a083ef8f5f7650f29ed1430b32e88b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85214189"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009442"
 ---
 # <a name="configure-the-azure-blockchain-workbench-database-firewall"></a>Configurar o firewall do banco de dados do Azure Blockchain Workbench
 

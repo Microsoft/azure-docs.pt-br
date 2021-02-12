@@ -6,11 +6,11 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.openlocfilehash: ffbaa2e40d5924ba61e548398e63295cf7dba2b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91303719"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019728"
 ---
 # <a name="label-machine-learning-entity-in-an-example-utterance"></a>Rotular entidade Machine-Learning em um exemplo de expressão
 

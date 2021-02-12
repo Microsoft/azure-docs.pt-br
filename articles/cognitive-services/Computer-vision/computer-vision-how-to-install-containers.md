@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: local, OCR, Docker, contêiner
-ms.openlocfilehash: 07440b99d887ee6cb4b6d505ed7fb79f4c12c784
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: fc5d281a6c0c9dd9620109de9d8deea27462ad0e
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677197"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008580"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Instalar contêineres de Docker do OCR de leitura (versão prévia) 
 
@@ -27,22 +27,22 @@ Os contêineres permitem executar as APIs de Pesquisa Visual Computacional em se
 
 O contêiner de OCR de *leitura* permite extrair texto impresso e manuscrito de imagens e documentos com suporte para formatos de arquivo JPEG, png, BMP, PDF e TIFF. Para obter mais informações, consulte a [documentação da API de leitura](concept-recognizing-text.md#read-api).
 
-## <a name="read-31-container"></a>Ler contêiner 3,1
+## <a name="read-32-preview-container"></a>Leia o contêiner 3,2-Preview
 
 > [!NOTE]
 > O contêiner Read 3,0-Preview foi preterido. 
 
-O contêiner Read 3,1-Preview fornece:
+O contêiner de OCR Read 3,2-Preview fornece:
 * Novos modelos para precisão aprimorada.
-* Suporte para vários idiomas no mesmo documento
-* Suporte para: Holandês, inglês, francês, alemão, italiano, Português e espanhol.
+* Suporte para vários idiomas no mesmo documento.
+* Suporte para um total de 73 idiomas. Consulte a lista completa de [idiomas com suporte para OCR](./language-support.md#optical-character-recognition-ocr).
 * Uma única operação para documentos e imagens.
 * Suporte para documentos e imagens maiores.
-* Pontuações de confiança de 0 a 1.
-* Suporte para documentos com texto impresso e manuscrito
-* Suporte para chinês simplificado e japonês.
-* pontuações e rótulos de confiança para texto impresso e manuscrito. 
+* Pontuações de confiança.
+* Suporte para documentos com texto impresso e manuscrito.
 * Capacidade de extrair texto apenas das páginas selecionadas em um documento.
+* Escolha a ordem de saída da linha de texto do padrão para uma ordem de leitura mais natural.
+* Classificação de linha de texto como estilo manuscrito ou não somente para idiomas latinos.
 
 Se você estiver usando contêineres de leitura 2,0 hoje, consulte o [Guia de migração](read-container-migration-guide.md) para saber mais sobre as alterações nas novas versões.
 
@@ -52,11 +52,11 @@ Você deve atender aos seguintes pré-requisitos antes de usar os contêineres:
 
 |Obrigatório|Finalidade|
 |--|--|
-|Mecanismo do Docker| É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> **No Windows** , o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
+|Mecanismo do Docker| É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
 |Familiaridade com o Docker | É necessário ter uma compreensão básica de conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos do `docker`.| 
-|Pesquisa Visual Computacional recurso |Para usar o contêiner, você precisará ter:<br><br>Um recurso de **Pesquisa Visual computacional** do Azure e a chave de API associada do URI do ponto de extremidade. Ambos os valores estão disponíveis nas páginas visão geral e chaves para o recurso e são necessários para iniciar o contêiner.<br><br>**{Api_key}** : uma das duas chaves de recurso disponíveis na página **chaves**<br><br>**{ENDPOINT_URI}** : o ponto de extremidade conforme fornecido na página **visão geral**|
+|Pesquisa Visual Computacional recurso |Para usar o contêiner, você precisará ter:<br><br>Um recurso de **Pesquisa Visual computacional** do Azure e a chave de API associada do URI do ponto de extremidade. Ambos os valores estão disponíveis nas páginas visão geral e chaves para o recurso e são necessários para iniciar o contêiner.<br><br>**{Api_key}**: uma das duas chaves de recurso disponíveis na página **chaves**<br><br>**{ENDPOINT_URI}**: o ponto de extremidade conforme fornecido na página **visão geral**|
 
-Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
 ## <a name="request-approval-to-run-the-container"></a>Solicitar aprovação para executar o contêiner
 
@@ -92,16 +92,16 @@ As imagens de contêiner para leitura estão disponíveis.
 | Contêiner | Registro de contêiner/repositório/nome da imagem |
 |-----------|------------|
 | Leia 2,0-visualização | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
-| Leitura 3.1 – versão prévia | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview` |
+| 3\.2-preview da Leitura | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.2` |
 
 Use o [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) comando para baixar uma imagem de contêiner.
 
 ### <a name="docker-pull-for-the-read-container"></a>Pull do Docker para o contêiner de leitura
 
-# <a name="version-31-preview"></a>[Versão 3.1 – versão prévia](#tab/version-3-1)
+# <a name="version-32-preview"></a>[Versão 3,2-visualização](#tab/version-3-2)
 
 ```bash
-docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview
+docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.2
 ```
 
 # <a name="version-20-preview"></a>[Versão 2,0-visualização](#tab/version-2)
@@ -127,11 +127,11 @@ Use o comando [docker run](https://docs.docker.com/engine/reference/commandline/
 
 [Exemplos](computer-vision-resource-container-config.md#example-docker-run-commands) do `docker run` comando estão disponíveis.
 
-# <a name="version-31-preview"></a>[Versão 3.1 – versão prévia](#tab/version-3-1)
+# <a name="version-32-preview"></a>[Versão 3,2-visualização](#tab/version-3-2)
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.2 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -169,9 +169,9 @@ Há outros [exemplos](./computer-vision-resource-container-config.md#example-doc
 > [!IMPORTANT]
 > As opções `Eula`, `Billing` e `ApiKey` devem ser especificadas para executar o contêiner; caso contrário, o contêiner não será iniciado.  Para mais informações, consulte [Faturamento](#billing).
 
-Se você precisar de uma taxa de transferência maior (por exemplo, ao processar arquivos de várias páginas), considere implantar vários contêineres [em um cluster kubernetes](deploy-computer-vision-on-premises.md), usando o [armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-account-create) e a [fila do Azure](https://docs.microsoft.com/azure/storage/queues/storage-queues-introduction).
+Se você precisar de uma taxa de transferência maior (por exemplo, ao processar arquivos de várias páginas), considere implantar vários contêineres [em um cluster kubernetes](deploy-computer-vision-on-premises.md), usando o [armazenamento do Azure](../../storage/common/storage-account-create.md) e a [fila do Azure](../../storage/queues/storage-queues-introduction.md).
 
-Se você estiver usando o armazenamento do Azure para armazenar imagens para processamento, poderá criar uma [cadeia de conexão](https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string) para usar ao chamar o contêiner.
+Se você estiver usando o armazenamento do Azure para armazenar imagens para processamento, poderá criar uma [cadeia de conexão](../../storage/common/storage-configure-connection-string.md) para usar ao chamar o contêiner.
 
 Para localizar a cadeia de conexão:
 
@@ -189,9 +189,9 @@ Para localizar a cadeia de conexão:
 
 O contêiner fornece APIs de ponto de extremidade de previsão de consulta baseadas em REST. 
 
-# <a name="version-31-preview"></a>[Versão 3.1 – versão prévia](#tab/version-3-1)
+# <a name="version-32-preview"></a>[Versão 3,2-visualização](#tab/version-3-2)
 
-Use o host, `http://localhost:5000`, para as APIs do contêiner. Você pode exibir o caminho do Swagger em: `http://localhost:5000/swagger/vision-v3.1-preview-read/swagger.json` .
+Use o host, `http://localhost:5000`, para as APIs do contêiner. Você pode exibir o caminho do Swagger em: `http://localhost:5000/swagger/vision-v3.2-preview-read/swagger.json` .
 
 # <a name="version-20-preview"></a>[Versão 2,0-visualização](#tab/version-2)
 
@@ -202,12 +202,12 @@ Use o host, `http://localhost:5000`, para as APIs do contêiner. Você pode exib
 ### <a name="asynchronous-read"></a>Leitura assíncrona
 
 
-# <a name="version-31-preview"></a>[Versão 3.1 – versão prévia](#tab/version-3-1)
+# <a name="version-32-preview"></a>[Versão 3,2-visualização](#tab/version-3-2)
 
-Você pode usar as `POST /vision/v3.1/read/analyze` `GET /vision/v3.1/read/operations/{operationId}` operações e em conjunto para ler de forma assíncrona uma imagem, semelhante a como o serviço de pesquisa Visual computacional usa as operações REST correspondentes. O método POST assíncrono retornará um `operationId` que é usado como o identificador para a solicitação HTTP Get.
+Você pode usar as `POST /vision/v3.2/read/analyze` `GET /vision/v3.2/read/operations/{operationId}` operações e em conjunto para ler de forma assíncrona uma imagem, semelhante a como o serviço de pesquisa Visual computacional usa as operações REST correspondentes. O método POST assíncrono retornará um `operationId` que é usado como o identificador para a solicitação HTTP Get.
 
 
-Na interface do usuário do Swagger, selecione o `asyncBatchAnalyze` para expandi-lo no navegador. Em seguida, selecione **experimentar**  >  **escolher arquivo** . Neste exemplo, usaremos a imagem a seguir:
+Na interface do usuário do Swagger, selecione o `Analyze` para expandi-lo no navegador. Em seguida, selecione **experimentar**  >  **escolher arquivo**. Neste exemplo, usaremos a imagem a seguir:
 
 ![guias vs espaços](media/tabs-vs-spaces.png)
 
@@ -216,7 +216,7 @@ Quando a POSTAgem assíncrona for executada com êxito, ela retornará um códig
 ```http
  content-length: 0
  date: Fri, 04 Sep 2020 16:23:01 GMT
- operation-location: http://localhost:5000/vision/v3.1/read/operations/a527d445-8a74-4482-8cb3-c98a65ec7ef9
+ operation-location: http://localhost:5000/vision/v3.2/read/operations/a527d445-8a74-4482-8cb3-c98a65ec7ef9
  server: Kestrel
 ```
 
@@ -225,51 +225,99 @@ O `operation-location` é a URL totalmente qualificada e é acessado por meio de
 ```json
 {
   "status": "succeeded",
-  "createdDateTime": "2020-09-02T10:30:14Z",
-  "lastUpdatedDateTime": "2020-09-02T10:30:15Z",
+  "createdDateTime": "2021-02-04T06:32:08.2752706+00:00",
+  "lastUpdatedDateTime": "2021-02-04T06:32:08.7706172+00:00",
   "analyzeResult": {
-    "version": "3.1.0",
+    "version": "3.2.0",
     "readResults": [
       {
         "page": 1,
-        "angle": 2.12,
+        "angle": 2.1243,
         "width": 502,
         "height": 252,
         "unit": "pixel",
-        "language": "",
         "lines": [
           {
-            "boundingBox": [58, 42, 314, 59, 311, 123, 56, 121],
+            "boundingBox": [
+              58,
+              42,
+              314,
+              59,
+              311,
+              123,
+              56,
+              121
+            ],
             "text": "Tabs vs",
             "appearance": {
-              "style": "handwriting",
-              "styleConfidence": 0.999
+              "style": {
+                "name": "handwriting",
+                "confidence": 0.96
+              }
             },
             "words": [
               {
-                "boundingBox": [85, 45, 242, 62, 241, 122, 83, 123],
+                "boundingBox": [
+                  68,
+                  44,
+                  225,
+                  59,
+                  224,
+                  122,
+                  66,
+                  123
+                ],
                 "text": "Tabs",
-                "confidence": 0.981
+                "confidence": 0.933
               },
               {
-                "boundingBox": [258, 64, 314, 72, 314, 123, 256, 123],
+                "boundingBox": [
+                  241,
+                  61,
+                  314,
+                  72,
+                  314,
+                  123,
+                  239,
+                  122
+                ],
                 "text": "vs",
-                "confidence": 0.958
+                "confidence": 0.977
               }
             ]
           },
           {
-            "boundingBox": [286, 171, 415, 165, 417, 197, 287, 201],
+            "boundingBox": [
+              286,
+              171,
+              415,
+              165,
+              417,
+              197,
+              287,
+              201
+            ],
             "text": "paces",
             "appearance": {
-              "style": "print",
-              "styleConfidence": 0.603
+              "style": {
+                "name": "handwriting",
+                "confidence": 0.746
+              }
             },
             "words": [
               {
-                "boundingBox": [303, 175, 415, 167, 415, 198, 306, 199],
+                "boundingBox": [
+                  286,
+                  179,
+                  404,
+                  166,
+                  405,
+                  198,
+                  290,
+                  201
+                ],
                 "text": "paces",
-                "confidence": 0.918
+                "confidence": 0.938
               }
             ]
           }
@@ -284,7 +332,7 @@ O `operation-location` é a URL totalmente qualificada e é acessado por meio de
 
 Você pode usar as `POST /vision/v2.0/read/core/asyncBatchAnalyze` `GET /vision/v2.0/read/operations/{operationId}` operações e em conjunto para ler de forma assíncrona uma imagem, semelhante a como o serviço de pesquisa Visual computacional usa as operações REST correspondentes. O método POST assíncrono retornará um `operationId` que é usado como o identificador para a solicitação HTTP Get.
 
-Na interface do usuário do Swagger, selecione o `asyncBatchAnalyze` para expandi-lo no navegador. Em seguida, selecione **experimentar**  >  **escolher arquivo** . Neste exemplo, usaremos a imagem a seguir:
+Na interface do usuário do Swagger, selecione o `asyncBatchAnalyze` para expandi-lo no navegador. Em seguida, selecione **experimentar**  >  **escolher arquivo**. Neste exemplo, usaremos a imagem a seguir:
 
 ![guias vs espaços](media/tabs-vs-spaces.png)
 
@@ -344,15 +392,15 @@ O `operation-location` é a URL totalmente qualificada e é acessado por meio de
 ---
 
 > [!IMPORTANT]
-> Se você implantar vários contêineres de leitura atrás de um balanceador de carga, por exemplo, em Docker Compose ou kubernetes, você deverá ter um cache externo. Como o contêiner de processamento e o contêiner de solicitação GET podem não ser iguais, um cache externo armazena os resultados e os compartilha entre contêineres. Para obter detalhes sobre as configurações de cache, consulte [configurar pesquisa Visual computacional contêineres do Docker](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-resource-container-config).
+> Se você implantar vários contêineres de leitura atrás de um balanceador de carga, por exemplo, em Docker Compose ou kubernetes, você deverá ter um cache externo. Como o contêiner de processamento e o contêiner de solicitação GET podem não ser iguais, um cache externo armazena os resultados e os compartilha entre contêineres. Para obter detalhes sobre as configurações de cache, consulte [configurar pesquisa Visual computacional contêineres do Docker](./computer-vision-resource-container-config.md).
 
 ### <a name="synchronous-read"></a>Leitura síncrona
 
 Você pode usar a operação a seguir para ler de forma síncrona uma imagem. 
 
-# <a name="version-31-preview"></a>[Versão 3.1 – versão prévia](#tab/version-3-1)
+# <a name="version-32-preview"></a>[Versão 3,2-visualização](#tab/version-3-2)
 
-`POST /vision/v3.1/read/syncAnalyze` 
+`POST /vision/v3.2/read/syncAnalyze` 
 
 # <a name="version-20-preview"></a>[Versão 2,0-visualização](#tab/version-2)
 
@@ -390,10 +438,6 @@ Os contêineres de serviços cognitivas enviam informações de cobrança para o
 
 Para obter mais informações sobre essas opções, consulte [Configurar contêineres](./computer-vision-resource-container-config.md).
 
-<!--blogs/samples/video course -->
-
-[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
-
 ## <a name="summary"></a>Resumo
 
 Neste artigo, você aprendeu conceitos e fluxo de trabalho para baixar, instalar e executar os contêineres de Pesquisa Visual Computacional. Em resumo:
@@ -411,6 +455,6 @@ Neste artigo, você aprendeu conceitos e fluxo de trabalho para baixar, instalar
 
 * Revise [Configurar contêineres](computer-vision-resource-container-config.md) para configurações
 * Examinar [Visão geral da Pesquisa Visual Computacional](overview.md) para saber mais sobre como reconhecer texto impresso e manuscrito
-* Veja a [API da Pesquisa Visual Computacional](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) para obter detalhes sobre os métodos compatíveis com o contêiner.
+* Veja a [API da Pesquisa Visual Computacional](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) para obter detalhes sobre os métodos compatíveis com o contêiner.
 * Veja as [Perguntas frequentes](FAQ.md) para resolver problemas relacionados à funcionalidade de Pesquisa Visual Computacional.
 * Use mais [Contêineres de Serviços Cognitivos](../cognitive-services-container-support.md)

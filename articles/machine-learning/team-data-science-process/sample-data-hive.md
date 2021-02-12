@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 339273c091a1bcfc4f2de66ef2f79ea8cebbc49b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a015da77cb7c0ba54be1dd5e729a9ee8a848c9d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86026042"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321888"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Dados de exemplo nas tabelas Hive do Azure HDInsight
 Este artigo descreve como reduzir os dados de amostra armazenados nas tabelas Hive do Azure HDInsight usando consultas de Hive para reduzir isso a um tamanho mais gerenciável para análise. Ele aborda três métodos de amostragem populares usados:
@@ -28,7 +28,7 @@ Este artigo descreve como reduzir os dados de amostra armazenados nas tabelas Hi
 **Por que fazer amostragem dos dados?**
 Se o conjunto de dados que você deseja analisar for grande, geralmente, é uma boa ideia reduzir os dados para um tamanho menor, mas representativo e mais gerenciável. Facilitando a compreensão de dados, exploração e engenharia de recursos. Sua função no Processo de Ciência de Dados de Equipe é permitir a rápida criação de protótipos de funções de processamento de dados e modelos de aprendizado de máquina.
 
-Essa tarefa de amostragem é uma etapa do [TDSP (Processo de Ciência de Dados de Equipe)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Essa tarefa de amostragem é uma etapa do [TDSP (Processo de Ciência de Dados de Equipe)](./index.yml).
 
 ## <a name="how-to-submit-hive-queries"></a>Como enviar consultas de Hive
 Consultas de Hive podem ser enviadas do console de Linha de Comando do Hadoop no nó principal do cluster do Hadoop.  Faça logon no nó principal do cluster do Hadoop, abra o console de Command-Line do Hadoop e envie as consultas de Hive a partir daí. Para obter instruções sobre como enviar consultas de Hive no console Linha de Comando do Hadoop, confira [Como enviar consultas de Hive](move-hive-tables.md#submit).
@@ -54,7 +54,7 @@ where samplekey<='${hiveconf:sampleRate}'
 Aqui, `<sample rate, 0-1>` especifica a proporção de registros que os usuários desejam como amostra.
 
 ## <a name="random-sampling-by-groups"></a><a name="group"></a> Amostragem aleatória por grupos
-Ao realizar amostragem de dados categóricos, convém incluir ou excluir todas as instâncias de um determinado valor de uma variável categórica. Esse tipo de amostragem é chamado de "amostragem pelo grupo". Por exemplo, se você tiver uma variável categórica "*Estado*", que tem como valores NY, MA, CA, NJ, PA, etc. (siglas de estados dos EUA), o ideal é que registros do mesmo estado estejam sempre juntos, presentes ou não como amostra.
+Ao realizar amostragem de dados categóricos, convém incluir ou excluir todas as instâncias de um determinado valor de uma variável categórica. Esse tipo de amostragem é chamado de "amostragem pelo grupo". Por exemplo, se você tiver uma variável categórica " *Estado* ", que tem como valores NY, MA, CA, NJ, PA, etc. (siglas de estados dos EUA), o ideal é que registros do mesmo estado estejam sempre juntos, presentes ou não como amostra.
 
 Veja um exemplo de consulta com amostragem por grupo:
 
@@ -105,4 +105,3 @@ where state_rank <= state_cnt*'${hiveconf:sampleRate}'
 ```
 
 Para obter informações sobre os métodos de amostragem mais avançados disponíveis no Hive, consulte [Amostragem LanguageManual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
-

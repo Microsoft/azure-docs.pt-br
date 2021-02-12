@@ -4,17 +4,17 @@ summary: Saiba como usar a Configuração de Aplicativos do Azure, um serviço g
 metadata:
   title: Documentação da Configuração de Aplicativos do Azure
   description: Saiba como usar a Configuração de Aplicativos do Azure, um serviço gerenciado que ajuda os desenvolvedores a centralizar seus aplicativos e suas configurações de recursos de maneira simples e segura.
-  author: lisaguthrie
-  ms.author: lcozzens
+  author: AlexandraKemperMS
+  ms.author: alkemper
   ms.service: azure-app-configuration
   ms.topic: landing-page
   ms.date: 02/03/2020
-  ms.openlocfilehash: d9f08f99b6b8d945243b78cc208a3432e43108b7
-  ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+  ms.openlocfilehash: 45b249dbe8e95a063cdeb30c3b7389eb1dcf2001
+  ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/15/2020
-  ms.locfileid: "92074746"
+  ms.lasthandoff: 12/09/2020
+  ms.locfileid: "96929524"
 landingContent:
 - title: Sobre a Configuração de Aplicativos do Azure
   linkLists:
@@ -143,4 +143,4 @@ landingContent:
     - text: SDK do Azure para JavaScript
       url: https://go.microsoft.com/fwlink/?linkid=2103664
     - text: REST
-      url: https://go.microsoft.com/fwlink/?linkid=2078296
+      url: rest-api.md

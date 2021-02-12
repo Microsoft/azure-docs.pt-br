@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6107ffea4fe4d615a42973ab1b231ca9f6b5241f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 7132eae073f3d53a104536076ae801ec9ff93e5f
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674947"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518661"
 ---
 # <a name="msix-app-attach-glossary"></a>Glossário de anexação de aplicativo MSIX
 
@@ -75,7 +75,7 @@ Na área de trabalho virtual do Windows, a adição de um pacote MSIX o vincula 
 
 Na área de trabalho virtual do Windows, um pacote MSIX publicado deve ser atribuído a um usuário ou grupo de usuários do Domínio do Active Directory (AD DS) ou Azure Active Directory (Azure AD).
 
-## <a name="staging"></a>De preparo
+## <a name="staging"></a>Staging
 
 O preparo envolve duas coisas:
 
@@ -109,6 +109,18 @@ A desmontagem notifica o sistema operacional que um pacote ou aplicativo MSIX qu
 ## <a name="cim"></a>CIM
 
 . CIM é uma nova extensão de arquivo associada ao CimFS (Composite Image Files System). Montar e desmontar arquivos CIM é mais rápido que os arquivos VHD. O CIM também consome menos CPU e memória do que o VHD.
+
+Um arquivo CIM é um arquivo com um. Extensão CIM que contém metadados e pelo menos seis arquivos adicionais que contêm dados reais. Os arquivos no arquivo CIM não têm extensões. A tabela a seguir é uma lista de arquivos de exemplo que você encontraria dentro de um CIM:
+
+| Nome do arquivo | Extensão | Tamanho |
+|-----------|-----------|------|
+| VSC | CIM | 1 KB |
+| objectid_b5742e0b-1b98-40B3-94a6-9cb96f497e56_0 | NA | 27 KB |
+| objectid_b5742e0b-1b98-40B3-94a6-9cb96f497e56_1 | NA | 20 KB |
+| objectid_b5742e0b-1b98-40B3-94a6-9cb96f497e56_2 | NA | 42 KB |
+| region_b5742e0b-1b98-40B3-94a6-9cb96f497e56_0 | NA | 428 KB |
+| region_b5742e0b-1b98-40B3-94a6-9cb96f497e56_1 | NA | 217 KB |
+| region_b5742e0b-1b98-40B3-94a6-9cb96f497e56_2 | NA | 264.132 KB |
 
 A tabela a seguir é uma comparação de desempenho entre VHD e CimFS. Esses números foram o resultado de uma execução de teste com arquivos de 500 300 MB em cada formato executado em um computador DSv4.
 

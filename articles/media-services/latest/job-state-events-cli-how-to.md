@@ -1,5 +1,5 @@
 ---
-title: Monitorar eventos dos Serviços de Mídia do Azure com a Grade de Eventos usando a CLI | Microsoft Docs
+title: Monitorar eventos dos serviços de mídia do Azure com a grade de eventos
 description: Este artigo mostra como assinar a grade de eventos para monitorar os eventos dos serviços de mídia do Azure usando CLI do Azure.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b646965be03b5d3f57483887e256d33262192375
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 9608dfd7ac4076e6cd74846c3f52ed2e3645777a
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013280"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955997"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-cli"></a>Criar e monitorar eventos dos Serviços de Mídia com a Grade de Eventos usando a CLI do Azure
 

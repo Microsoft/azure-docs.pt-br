@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 27a00c69a4423e45b46b9c3d0340bb7cd1a35d65
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 88244ec3ba4bbebe7d6096fa3ac49bd4f1b8f661
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92095891"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108613"
 ---
 # <a name="localization-element"></a>Elemento de localização
 
@@ -73,7 +73,7 @@ O elemento **LocalizedResources** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ID | Sim | Um identificador usado para identificar exclusivamente os recursos localizados. |
+| Id | Sim | Um identificador usado para identificar exclusivamente os recursos localizados. |
 
 O elemento **LocalizedResources** contém os seguintes elementos:
 
@@ -354,5 +354,5 @@ Na seção de metadados de um perfil técnico autodeclarado, o ContentDefinition
 
 Consulte os seguintes artigos para obter exemplos de localização:
 
-- [Personalização de idioma com política personalizada no Azure Active Directory B2C](custom-policy-localization.md)
-- [Personalização de idioma com fluxos de usuário no Azure Active Directory B2C](user-flow-language-customization.md)
+- [Personalização de idioma com política personalizada no Azure Active Directory B2C](language-customization.md)
+- [Personalização de idioma com fluxos de usuário no Azure Active Directory B2C](language-customization.md)

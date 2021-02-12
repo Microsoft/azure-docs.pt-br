@@ -1,26 +1,26 @@
 ---
 title: Compartilhamento fora da sua organização (modelo do ARM) – Guia de início rápido do Azure Data Share
-description: Saiba como compartilhar dados com clientes e parceiros usando o Azure Data Share e o modelo do Resource Manager neste guia de início rápido.
+description: Saiba como compartilhar dados com clientes e parceiros usando o Azure Data Share e um modelo do Azure Resource Manager (modelo do ARM) neste guia de início rápido.
 author: mumian
 ms.author: jgao
 ms.service: data-share
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/19/2020
-ms.openlocfilehash: f72fbad579bcb08a36c2dd29c387e18953f26c09
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5abe92120c8b822ac86ced90658869a0858d4ff4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146145"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487680"
 ---
-# <a name="quickstart-share-data-using-azure-data-share-and-resource-manager-templates"></a>Início Rápido: Compartilhar dados usando o Azure Data Share e modelos do Resource Manager
+# <a name="quickstart-share-data-using-azure-data-share-and-arm-template"></a>Início Rápido: Compartilhar dados usando o Azure Data Share e um modelo do ARM
 
-Saiba como configurar um novo Azure Data Share e uma conta de armazenamento do Azure usando um modelo do Azure Resource Manager a comece a compartilhar seus dados com clientes e parceiros fora da organização do Azure. Para obter uma lista dos armazenamentos de dados com suporte, confira [Armazenamentos de dados com suporte no Azure Data Share](./supported-data-stores.md).
+Saiba como configurar um novo Azure Data Share de uma conta de armazenamento do Azure usando um modelo do Azure Resource Manager (modelo do ARM). E comece a compartilhar seus dados com clientes e parceiros fora da sua organização do Azure. Para obter uma lista dos armazenamentos de dados com suporte, confira [Armazenamentos de dados com suporte no Azure Data Share](./supported-data-stores.md).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure** . O modelo será aberto no portal do Azure.
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-share-share-storage-account%2Fazuredeploy.json)
 
@@ -38,12 +38,12 @@ Os seguintes recursos do Azure estão definidos no modelo:
 
 * [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts):
 * [Microsoft.Storage/storageAccounts/blobServices/containers](/azure/templates/microsoft.storage/storageaccounts/blobservices/containers)
+* [Microsoft.DataShare/accounts](/azure/templates/microsoft.datashare/accounts)
+* [Microsoft.DataShare/accounts/shares](/azure/templates/microsoft.datashare/accounts/shares)
 * [Microsoft.Storage/storageAccounts/providers/roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
-* [Microsoft.DataShare/accounts](/rest/api/datashare/accounts/create)
-* [Microsoft.DataShare/accounts/shares](/rest/api/datashare/shares/create)
-* [Microsoft.DataShare/accounts/shares/dataSets](/rest/api/datashare/datasets/create)
-* [Microsoft.DataShare/accounts/shares/invitations](/rest/api/datashare/invitations/create)
-* [Microsoft.DataShare/accounts/shares/synchronizationSettings](/rest/api/datashare/synchronizationsettings/create)
+* [Microsoft.DataShare/accounts/shares/dataSets](/azure/templates/microsoft.datashare/accounts/shares/datasets)
+* [Microsoft.DataShare/accounts/shares/invitations](/azure/templates/microsoft.datashare/accounts/shares/invitations)
+* [Microsoft.DataShare/accounts/shares/synchronizationSettings](/azure/templates/microsoft.datashare/accounts/shares/synchronizationsettings)
 
 O modelo realiza as seguintes tarefas:
 
@@ -56,11 +56,11 @@ O modelo realiza as seguintes tarefas:
 
 Este modelo é criado para fins de aprendizado. Na prática, normalmente você tem alguns dados em uma conta de armazenamento existente. Você precisaria criar a atribuição de função antes de executar um modelo ou um script para criar o conjunto de dados. Às vezes, você pode receber a seguinte mensagem de erro ao implantar o modelo:
 
-```error message
+```plaintext
 "Missing permissions for DataShareAcccount on resource 'subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>' (Code: 5006)"
 ```
 
-Isso ocorre porque a implantação está tentando criar o conjunto de dados antes que a atribuição de função do Azure seja finalizada. Apesar da mensagem de erro, a implantação pode ser bem-sucedida.  Você ainda poderá percorrer [Examinar recursos implantados](#review-deployed-resources).
+Isso ocorre porque a implantação está tentando criar o conjunto de dados antes que a atribuição de função do Azure seja finalizada. Apesar da mensagem de erro, a implantação pode ser bem-sucedida. Você ainda poderá percorrer [Examinar recursos implantados](#review-deployed-resources).
 
 ## <a name="deploy-the-template"></a>Implantar o modelo
 
@@ -77,17 +77,17 @@ Isso ocorre porque a implantação está tentando criar o conjunto de dados ante
     * **Email de convite** : insira o endereço de email de logon do Azure do destinatário do compartilhamento de dados.  O alias de email não funciona.
 
     Use o valor padrão para o restante das configurações.
-1. Selecione **Concordo com os termos e condições declarados acima** e selecione **Comprar** .
+1. Selecione **Concordo com os termos e condições declarados acima** e selecione **Comprar**.
 
 ## <a name="review-deployed-resources"></a>Examinar os recursos implantados
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Abra a conta do compartilhamento de dados que você criou.
-1. No menu esquerdo, selecione **Enviar compartilhamentos** .  Você verá a conta de armazenamento listada.
+1. No menu esquerdo, selecione **Enviar compartilhamentos**.  Você verá a conta de armazenamento listada.
 1. Selecione a conta de armazenamento.  Em **Detalhes** , você verá a configuração de sincronização conforme definida no modelo.
 
     ![Configurações de sincronização da Conta de Armazenamento do Azure Data Share](./media/share-your-data-arm/azure-data-share-storage-account-synchronization-settings.png)
-1. Selecione **Convites** na parte superior. Você verá o endereço de email que especificou ao implantar o modelo. O **Status** deverá ser **Pendente** .
+1. Selecione **Convites** na parte superior. Você verá o endereço de email que especificou ao implantar o modelo. O **Status** deverá ser **Pendente**.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

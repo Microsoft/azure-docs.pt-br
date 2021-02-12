@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1f9e4fd2f7f55f916743074b57f89788c0d32f7d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: b38d86402f418e5c2b484bb9101e2b4cc3575d6e
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427494"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196615"
 ---
 # <a name="azure-security-baseline-for-azure-private-link"></a>Linha de base de segurança do Azure para o link privado do Azure
 
@@ -28,7 +28,7 @@ Essa linha de base de segurança aplica diretrizes do [benchmark de segurança d
 
 Crie alertas no Azure Monitor que serão disparados quando ocorrerem alterações em recursos críticos.
 
-- [Como exibir e recuperar eventos do log de atividades do Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -68,7 +68,7 @@ Além disso, habilite e integre dados para o Azure Sentinel ou um SIEM de tercei
 
 - [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
 
-- [Exibir e recuperar eventos do log de atividades do Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Registro em log e monitoramento para link privado](private-link-overview.md#logging-and-monitoring)
 
@@ -96,7 +96,7 @@ Outra opção é habilitar e integrar dados ao Azure Sentinel ou um SIEM de terc
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Compreender o workspace do Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+- [Compreender o workspace do Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -142,7 +142,7 @@ Habilite e integre dados ao Azure Sentinel ou a um SIEM de terceiros com base em
 
 Além disso, habilite o acesso just-in-time/apenas o suficiente usando Azure Active Directory (Azure AD) Privileged Identity Management funções privilegiadas para serviços da Microsoft e Azure Resource Manager.
 
-- [Saiba mais sobre o Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
+- [Saiba mais sobre o Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -176,7 +176,7 @@ Além disso, habilite o acesso just-in-time/apenas o suficiente usando Azure Act
 
 **Orientação**: Use uma Paw (estação de trabalho com acesso privilegiado) com a autenticação multifator configurada para fazer logon e configurar os recursos de rede do Azure.
 
-- [Saiba mais sobre Estações de Trabalho com Acesso Privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Saiba mais sobre Estações de Trabalho com Acesso Privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Como habilitar a MFA no Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -188,7 +188,7 @@ Além disso, habilite o acesso just-in-time/apenas o suficiente usando Azure Act
 
 **Diretrizes**: utilize o recurso de detecções de risco do Azure Active Directory (AD do Azure) para exibir alertas e relatórios sobre o comportamento de um usuário arriscado. Ingerir alertas de detecção de riscos da central de segurança em Azure Monitor e configure alertas/notificações personalizados usando grupos de ação.
 
-- [Noções básicas sobre as detecções de riscos da central de segurança do Azure (atividade suspeita)](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Noções básicas sobre as detecções de riscos da central de segurança do Azure (atividade suspeita)](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Como integrar os logs de atividades do Azure ao Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -222,7 +222,7 @@ Além disso, habilite o acesso just-in-time/apenas o suficiente usando Azure Act
 
 **Diretriz**: O Azure Active Directory fornece logs para ajudar a descobrir contas obsoletas. Além disso, use as revisões de acesso de identidade do Azure para gerenciar com eficiência as associações de grupo, o acesso aos aplicativos empresariais e as atribuições de função. O acesso do usuário pode ser revisado regularmente para garantir que apenas os usuários certos tenham acesso contínuo.
 
-- [Entender os relatórios do Azure AD](/azure/active-directory/reports-monitoring/)
+- [Entender os relatórios do Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Como usar as revisões de acesso de identidade do Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -248,7 +248,7 @@ Simplifique esse processo criando configurações de diagnóstico para contas de
 
 Ingerir dados no Azure Sentinel para investigação adicional.
 
-- [Como exibir entradas suspeitas do Azure Active Directory](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Como exibir entradas suspeitas do Azure Active Directory](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Como configurar e habilitar políticas de risco de proteção de identidade](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -270,11 +270,11 @@ Restrinja o nível de acesso aos recursos do Azure com seus aplicativos e ambien
 
 Controle o acesso aos recursos do Azure por meio do Azure RBAC (controle de acesso baseado em função).
 
-- [Como criar assinaturas adicionais do Azure](/azure/billing/billing-create-subscription)
+- [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Como criar Grupos de Gerenciamento](/azure/governance/management-groups/create)
+- [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -348,7 +348,7 @@ Verifique se você tem permissões (leitura) apropriadas em seu locatário e é 
 
 **Diretrizes**: aplique marcas aos recursos do Azure usando metadados para organizá-los logicamente em uma taxonomia.
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -360,11 +360,11 @@ Verifique se você tem permissões (leitura) apropriadas em seu locatário e é 
 
 Reconcilie o inventário regularmente e garanta que os recursos não autorizados sejam excluídos da assinatura em tempo hábil.
 
-- [Como criar assinaturas adicionais do Azure](/azure/billing/billing-create-subscription)
+- [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Como criar Grupos de Gerenciamento](/azure/governance/management-groups/create)
+- [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -418,7 +418,7 @@ Use também o grafo de recursos do Azure para consultar/descobrir recursos dentr
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Como negar um tipo de recurso específico com o Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Como negar um tipo de recurso específico com o Azure Policy](../governance/policy/samples/index.md)
 
 - [Exemplos internos de política do Azure para link privado](../governance/policy/samples/built-in-policies.md)
 
@@ -634,7 +634,7 @@ O cliente é responsável por priorizar a correção de alertas com base na crit
 
 - [Alertas na Central de Segurança do Azure](../security-center/security-center-alerts-overview.md)
 
-- [Usar marcas para organizar seus recursos do Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Usar marcas para organizar seus recursos do Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -696,9 +696,9 @@ Além disso, use o conector de dados da central de segurança para transmitir os
 
 Use a estratégia da Microsoft e a execução de equipes vermelhas e testes de penetração de sites ativos em infraestrutura de nuvem, serviços e aplicativos gerenciados pela Microsoft.
 
-- [Regras de teste de penetração do Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+- [Regras de participação para testes de penetração](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-- [Microsoft Cloud o agrupamento vermelho](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Equipes Vermelhas do Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -706,5 +706,5 @@ Use a estratégia da Microsoft e a execução de equipes vermelhas e testes de p
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Confira o [Azure Security Benchmark](/azure/security/benchmarks/overview)
-- Saiba mais sobre a [Linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview)
+- Confira o [Azure Security Benchmark](../security/benchmarks/overview.md)
+- Saiba mais sobre a [Linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

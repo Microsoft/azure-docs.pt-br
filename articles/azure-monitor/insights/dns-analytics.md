@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
-ms.openlocfilehash: 947b509468857b98b868881bdd48adf67a5d60db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7bdea9239faa4ec66fffa236bea40afd5e628e62
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86498994"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607136"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Coletar informações sobre a infraestrutura DNS com a solução Visualização da Análise de DNS
 
@@ -38,7 +38,7 @@ A seguinte tabela descreve as fontes conectadas que têm suporte nessa solução
 | [Agentes do Windows](../platform/agent-windows.md) | Sim | A solução coleta informações de DNS dos agentes do Windows. |
 | [Agentes do Linux](../learn/quick-collect-linux-computer.md) | Não | A solução não coleta informações de DNS dos agentes diretos do Linux. |
 | [Grupo de gerenciamento do System Center Operations Manager](../platform/om-agents.md) | Sim | A solução coleta informações de DNS dos agentes em um grupo de gerenciamento conectado do Operations Manager. Não é necessária uma conexão direta entre o agente do Operations Manager e o Azure Monitor. Os dados são encaminhados do grupo de gerenciamento para o espaço de trabalho do Log Analytics. |
-| [Conta de armazenamento do Azure](../platform/resource-logs.md#send-to-log-analytics-workspace) | Não | O armazenamento do Azure não é usado pela solução. |
+| [Conta de Armazenamento do Azure](../platform/resource-logs.md#send-to-log-analytics-workspace) | Não | O armazenamento do Azure não é usado pela solução. |
 
 ### <a name="data-collection-details"></a>Detalhes da coleta de dados
 
@@ -57,13 +57,13 @@ A solução inicia a coleta de dados sem a necessidade de configuração adicion
 
 No painel de solução, clique em **Configuração** para abrir a página Configuração de Análise de DNS. Há dois tipos de alteração de configuração que podem ser feitos:
 
-- **Nomes de domínio na lista**de permissões. A solução não processa todas as consultas de pesquisa. Ela mantém uma lista de permissões de sufixos de nome de domínio. As consultas de pesquisa que são resolvidas para os nomes de domínio que correspondem aos sufixos de nome de domínio na lista de permissões não são processadas pela solução. O não processamento de nomes de domínio na lista de permissões ajuda a otimizar os dados enviados ao Azure Monitor. A lista de permissões padrão inclui nomes de domínio público populares, como www.google.com e www.facebook.com. Você pode exibir a lista padrão completa com a barra de rolagem.
+- **Allowlisted nomes de domínio**. A solução não processa todas as consultas de pesquisa. Ele mantém uma possívellist de sufixos de nome de domínio. As consultas de pesquisa que são resolvidas para os nomes de domínio que correspondem aos sufixos de nome de domínio nessa lista de permissões não são processadas pela solução. O não processamento de nomes de domínio allowlisted ajuda a otimizar os dados enviados para Azure Monitor. A permissão default inclui nomes de domínio públicos populares, como www.google.com e www.facebook.com. Você pode exibir a lista padrão completa com a barra de rolagem.
 
   É possível modificar a lista para adicionar qualquer sufixo de nome de domínio do qual você deseja exibir informações de pesquisa. Você também pode remover qualquer sufixo de nome de domínio do qual você não deseja exibir informações de pesquisa.
 
 - **Limite de Cliente Comunicativo**. Os clientes DNS que excedem o limite do número de solicitações de pesquisa são realçados na folha **Clientes DNS**. O limite padrão é 1.000. Você pode editar o limite.
 
-    ![Nomes de domínio na lista de permissões](./media/dns-analytics/dns-config.png)
+    ![Allowlisted nomes de domínio](./media/dns-analytics/dns-config.png)
 
 ## <a name="management-packs"></a>Pacotes de gerenciamento
 
@@ -110,7 +110,7 @@ As informações ajudam você a identificar:
 - Os endereços IP para os quais o nome de domínio é resolvido.
 - O endereço IP mal-intencionado.
 - A gravidade do problema.
-- O motivo para colocar o IP mal-intencionado na lista de bloqueios.
+- Motivo para inclusão na lista o IP mal-intencionado.
 - O tempo de detecção.
 
 **Domínios Consultados**. Fornece os nomes de domínio consultados com mais frequência pelos clientes DNS no ambiente. É possível exibir a lista de todos os nomes de domínio consultados. Você também pode fazer uma busca detalhada dos detalhes da solicitação de pesquisa de um nome de domínio específico na Pesquisa de Logs.

@@ -1,19 +1,16 @@
 ---
 title: Dicas para usar Hadoop no HDInsight baseado em Linux
 description: Obtenha dicas de implementação para usar clusters do HDInsight baseados em Linux (Hadoop) em um ambiente Linux familiar, em execução na nuvem do Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: 0f0073c72c28395d89cec74a489cbc36a8f3ffe7
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2d2619c7bd7bc09eeab3845599758db7134b4134
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546102"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945648"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informações sobre o uso do HDInsight no Linux
 
@@ -24,13 +21,13 @@ Os clusters do Azure HDInsight disponibilizam o Apache Hadoop em um ambiente Lin
 Muitas das etapas neste documento usam os seguintes utilitários, que talvez precisem ser instalados em seu sistema.
 
 * [cURL](https://curl.haxx.se/) - usado para comunica-se com serviços baseados na Web.
-* **jq** , um processador JSON de linha de comando.  Confira [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
+* **jq**, um processador JSON de linha de comando.  Confira [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 * [CLI do Azure](/cli/azure/install-azure-cli) - usada para gerenciar remotamente os serviços do Azure.
-* **Um cliente SSH** . Para saber mais, confira [Conectar-se ao HDInsight (Apache Hadoop) usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Um cliente SSH**. Para saber mais, confira [Conectar-se ao HDInsight (Apache Hadoop) usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="users"></a>Usuários
 
-A menos que tenha [ingressado no domínio](./domain-joined/hdinsight-security-overview.md), o HDInsight deve ser considerado como um sistema de **usuário único** . Uma única conta de usuário do SSH é criada com o cluster, com permissões de nível de administrador. As contas SSH adicionais podem ser criadas, mas elas também têm acesso de administrador para o cluster.
+A menos que tenha [ingressado no domínio](./domain-joined/hdinsight-security-overview.md), o HDInsight deve ser considerado como um sistema de **usuário único**. Uma única conta de usuário do SSH é criada com o cluster, com permissões de nível de administrador. As contas SSH adicionais podem ser criadas, mas elas também têm acesso de administrador para o cluster.
 
 O domínio HDInsight dá suporte para vários usuários e configurações de função e de permissão mais granulares. Para obter mais informações, consulte [Gerenciar clusters HDInsight ingressados em domínio](./domain-joined/apache-domain-joined-manage.md).
 
@@ -92,8 +89,8 @@ Para obter mais informações, consulte o documento [Portas usadas pelos serviç
 
 Arquivos relacionados ao Hadoop encontram-se nos nós de cluster em `/usr/hdp`. O diretório raiz contém os seguintes subdiretórios:
 
-* **2.6.5.3009-43** : O nome do diretório é a versão da plataforma Hadoop usada pelo HDInsight. O número em seu cluster pode ser diferente do listado aqui.
-* **atual** : Esse diretório contém links para subdiretórios no diretório **2.6.5.3009-43** . Esse diretório existe para que não seja necessário lembrar do número da versão.
+* **2.6.5.3009-43**: O nome do diretório é a versão da plataforma Hadoop usada pelo HDInsight. O número em seu cluster pode ser diferente do listado aqui.
+* **atual**: Esse diretório contém links para subdiretórios no diretório **2.6.5.3009-43**. Esse diretório existe para que não seja necessário lembrar do número da versão.
 
 Dados de exemplo e arquivos JAR podem ser encontrados no Sistema de Arquivos Distribuído Hadoop em `/example` e `/HdiSamples`.
 
@@ -183,13 +180,13 @@ Você também pode encontrar as informações de armazenamento usando o portal d
 
 1. No [Portal do Azure](https://portal.azure.com/), escolha o cluster HDInsight.
 
-2. Na seção **Propriedades** , selecione **Contas de armazenamento** . As informações de armazenamento para o cluster são exibidas.
+2. Na seção **Propriedades**, selecione **Contas de armazenamento**. As informações de armazenamento para o cluster são exibidas.
 
 ### <a name="how-do-i-access-files-from-outside-hdinsight"></a>Como acessar arquivos fora do HDInsight
 
 Há várias maneiras de acessar dados de fora do cluster do HDInsight. A seguir, há alguns links para utilitários e SDKs que podem ser usados para trabalhar com seus dados:
 
-Se estiver usando o __armazenamento de BLOBs do Azure__ , consulte os links a seguir para obter maneiras de acessar seus dados:
+Se estiver usando o __armazenamento de BLOBs do Azure__, consulte os links a seguir para obter maneiras de acessar seus dados:
 
 * [CLI do Azure](/cli/azure/install-az-cli2): Comandos de interface de linha de comando para trabalhar com Azure. Depois de instalar, use o comando `az storage` para obter ajuda sobre o uso do armazenamento ou `az storage blob` para comandos específicos do blob.
 * [blobxfer.py](https://github.com/Azure/blobxfer): Um Script do Python para trabalhar com blobs no Armazenamento do Microsoft Azure.
@@ -203,7 +200,7 @@ Se estiver usando o __armazenamento de BLOBs do Azure__ , consulte os links a se
     * [.NET](https://github.com/Azure/azure-sdk-for-net)
     * [API REST de armazenamento](/rest/api/storageservices/Blob-Service-REST-API)
 
-Se estiver usando __Azure data Lake Storage Gen1__ , consulte os links a seguir para obter maneiras de acessar seus dados:
+Se estiver usando __Azure data Lake Storage Gen1__, consulte os links a seguir para obter maneiras de acessar seus dados:
 
 * [Navegador da Web](../data-lake-store/data-lake-store-get-started-portal.md)
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)

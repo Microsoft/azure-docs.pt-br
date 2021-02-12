@@ -8,11 +8,11 @@ ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 07/29/2016
 ms.openlocfilehash: fdf5f25ae6f89ccc06c95ee1be021691dab0047a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322420"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000344"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Cenário: Tratamento de exceção e log de erros de aplicativos lógicos
 
@@ -118,7 +118,7 @@ Devemos registrar a origem (solicitação) do registro do paciente do portal do 
 > [!NOTE]
 > Os exemplos a seguir são apenas amostras. Como este tutorial se baseia em uma implementação atualmente em produção, o valor de um **Nó de Origem** pode não exibir as propriedades relacionadas ao agendamento de um compromisso.> 
 
-### <a name="logging"></a>Registrando em log
+### <a name="logging"></a>Registro em log
 
 O exemplo de código de aplicativo lógico a seguir mostra como lidar com registros em log.
 

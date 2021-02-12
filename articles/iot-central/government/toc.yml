@@ -1,10 +1,11 @@
-- name: Documentação do Azure IoT Central para Governo
+- name: Documentação do Azure IoT Central para governo
   href: index.yml
 - name: Visão geral
   items:
     - name: Como criar soluções governamentais com o Azure IoT Central
       href: overview-iot-central-government.md
 - name: Tutoriais
+  expanded: true
   items:
     - name: Criar um aplicativo de gerenciamento de resíduos conectado
       href: tutorial-connected-waste-management.md

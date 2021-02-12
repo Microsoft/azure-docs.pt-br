@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: how-to
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/23/2020
+ms.date: 11/18/2020
 ms.author: inhenkel
-ms.openlocfilehash: 92da9f399f0ebb1bd2c561b2fb8cd6039452deb0
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: f4ed68d891cb194e03d48abbc441c784a9669313
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92525046"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917861"
 ---
 # <a name="create-a-basic-audio-transform"></a>Criar uma transformação de áudio básica
 

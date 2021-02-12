@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bfcfa4c5ed57489c56ebf845d238198944150a96
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 29952353b8c3452d95bcced163fafa81fe158f64
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202881"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593394"
 ---
 # <a name="entities"></a>Entidades
 
@@ -23,7 +23,7 @@ As entidades têm uma transformação definida por posição, rotação e escala
 
 O aspecto mais importante da entidade em si é a hierarquia e a transformação hierárquica resultante. Por exemplo, quando várias entidades estão anexadas como filhos a uma entidade pai compartilhada, todas elas podem ser movidas, giradas e dimensionadas de forma não dinâmica alterando a transformação da entidade pai. Além disso, o estado da entidade `enabled` pode ser usado para desativar a visibilidade e as respostas a Ray casts para um subgrafo completo na hierarquia.
 
-Uma entidade é de propriedade exclusiva de seu pai, o que significa que, quando o pai é destruído com `Entity.Destroy()`, também são seus filhos e todos os [componentes](components.md) conectados. Deste modo, a remoção de um modelo da cena é realizada chamando `Destroy` no nó raiz de um modelo, retornado por `AzureSession.Actions.LoadModelAsync()` ou sua variante SAS `AzureSession.Actions.LoadModelFromSASAsync()`.
+Uma entidade é de propriedade exclusiva de seu pai, o que significa que, quando o pai é destruído com `Entity.Destroy()`, também são seus filhos e todos os [componentes](components.md) conectados. Deste modo, a remoção de um modelo da cena é realizada chamando `Destroy` no nó raiz de um modelo, retornado por `RenderingSession.Connection.LoadModelAsync()` ou sua variante SAS `RenderingSession.Connection.LoadModelFromSasAsync()`.
 
 As entidades são criadas quando o servidor carrega o conteúdo ou quando o usuário quer adicionar um objeto à cena. Por exemplo, se um usuário quiser adicionar um plano de corte para visualizar o interior de uma malha, o usuário poderá criar uma entidade em que o plano deve existir e, em seguida, adicionar o componente do plano de corte a ela.
 
@@ -32,19 +32,19 @@ As entidades são criadas quando o servidor carrega o conteúdo ou quando o usu�
 Para adicionar uma nova entidade à cena, por exemplo, para passá-la como um objeto raiz para carregar modelos ou anexar componentes a ela, use o seguinte código:
 
 ```cs
-Entity CreateNewEntity(AzureSession session)
+Entity CreateNewEntity(RenderingSession session)
 {
-    Entity entity = session.Actions.CreateEntity();
+    Entity entity = session.Connection.CreateEntity();
     entity.Position = new LocalPosition(1, 2, 3);
     return entity;
 }
 ```
 
 ```cpp
-ApiHandle<Entity> CreateNewEntity(ApiHandle<AzureSession> session)
+ApiHandle<Entity> CreateNewEntity(ApiHandle<RenderingSession> session)
 {
     ApiHandle<Entity> entity(nullptr);
-    if (auto entityRes = session->Actions()->CreateEntity())
+    if (auto entityRes = session->Connection()->CreateEntity())
     {
         entity = entityRes.value();
         entity->SetPosition(Double3{ 1, 2, 3 });
@@ -106,33 +106,24 @@ Os metadados são dados adicionais armazenados em objetos e ignorados pelo servi
 Consultas de metadados são as chamadas assíncronas em uma entidade específica. A consulta fornece apenas os metadados de uma única entidade, não as informações mescladas de um subgrafo.
 
 ```cs
-MetadataQueryAsync metaDataQuery = entity.QueryMetaDataAsync();
-metaDataQuery.Completed += (MetadataQueryAsync query) =>
-{
-    if (query.IsRanToCompletion)
-    {
-        ObjectMetaData metaData = query.Result;
-        ObjectMetaDataEntry entry = metaData.GetMetadataByName("MyInt64Value");
-        System.Int64 intValue = entry.AsInt64;
-
-        // ...
-    }
-};
+Task<ObjectMetadata> metaDataQuery = entity.QueryMetadataAsync();
+ObjectMetadata metaData = await metaDataQuery;
+ObjectMetadataEntry entry = metaData.GetMetadataByName("MyInt64Value");
+System.Int64 intValue = entry.AsInt64;
+// ...
 ```
 
 ```cpp
-ApiHandle<MetadataQueryAsync> metaDataQuery = *entity->QueryMetaDataAsync();
-metaDataQuery->Completed([](const ApiHandle<MetadataQueryAsync>& query)
+entity->QueryMetadataAsync([](Status status, ApiHandle<ObjectMetadata> metaData) 
+{
+    if (status == Status::OK)
     {
-        if (query->GetIsRanToCompletion())
-        {
-            ApiHandle<ObjectMetaData> metaData = query->GetResult();
-            ApiHandle<ObjectMetaDataEntry> entry = *metaData->GetMetadataByName("MyInt64Value");
-            int64_t intValue = *entry->GetAsInt64();
+        ApiHandle<ObjectMetadataEntry> entry = *metaData->GetMetadataByName("MyInt64Value");
+        int64_t intValue = *entry->GetAsInt64();
 
-            // ...
-        }
-    });
+        // ...
+    }
+});
 ```
 
 A consulta será realizada mesmo se o objeto não tiver nenhum metadado.
@@ -140,9 +131,9 @@ A consulta será realizada mesmo se o objeto não tiver nenhum metadado.
 ## <a name="api-documentation"></a>Documentação da API
 
 * [Classe de entidade C#](/dotnet/api/microsoft.azure.remoterendering.entity)
-* [C# remotamente. CreateEntity ()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.createentity)
+* [C# RenderingConnection. CreateEntity ()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.createentity)
 * [Classe de entidade C++](/cpp/api/remote-rendering/entity)
-* [C++ Remotemanager:: CreateEntity ()](/cpp/api/remote-rendering/remotemanager#createentity)
+* [C++ RenderingConnection:: CreateEntity ()](/cpp/api/remote-rendering/renderingconnection#createentity)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/09/2020
 ms.topic: article
-ms.openlocfilehash: 5ee9d39db130c76f683ca1f4d1ff64f9ed86d97e
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 300e0ff26d643ae0263d21e604cb26da37a18841
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204734"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723818"
 ---
 # <a name="the-arrinspector-inspection-tool"></a>A ferramenta de inspeção ArrInspector
 
@@ -108,17 +108,3 @@ No canto superior direito, uma opção permite que você Pause a atualização d
 ![Modo de pausa](./media/pause-mode.png)
 
 Ao habilitar novamente o Live Update, todos os painéis são redefinidos.
-
-## <a name="host-configuration"></a>Configuração do host
-
-Por padrão, a ferramenta se conecta ao servidor ARR que está em execução no mesmo host que atende ao ArrInspector. No entanto, você pode configurá-lo para inspecionar outro servidor, supondo que esteja executando uma instância ARR com a porta de ferramentas aberta.
-
-Para fazer isso, acesse o menu principal à esquerda da barra de cabeçalho e selecione *configuração do host*. Clique em **Adicionar novo host**e digite o nome e o hostname. Para o *nome de host* , use apenas o nome de host que termina em `.mixedreality.azure.com` , não inclua `http://` ou uma porta.
-
-![Configuração do host](./media/host-configuration.png)
-
-Para alternar rapidamente de um host para outro, use a lista suspensa no canto superior direito.
-
-![Combinação de hosts](./media/host-switch-combo.png)
-
-A lista de hosts é armazenada no armazenamento local do navegador, portanto, será preservada ao reabrir o mesmo navegador.

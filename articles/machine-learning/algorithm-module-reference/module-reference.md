@@ -1,6 +1,6 @@
 ---
 title: Referência de módulo e algoritmo
-description: Saiba mais sobre os módulos disponíveis no designer de Azure Machine Learning
+description: Saiba mais sobre os módulos do designer de Azure Machine Learning que você pode usar para criar seus próprios projetos de Machine Learning.
 titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/19/2020
-ms.openlocfilehash: 9a2e21696409c320b89d1fed54fefad953b955e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 89ad9aae7c0d01971bbcfc7e392cb9d455ef85cd
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90886404"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376835"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer"></a>Referência de módulo de & de algoritmo para o designer de Azure Machine Learning
 
@@ -45,7 +45,7 @@ Para obter ajuda com a escolha de algoritmos, consulte
 | --- |--- | --- |
 | Regressão | Prever um valor. | [Regressão de Árvore de Decisão Aumentada](boosted-decision-tree-regression.md) <br/> [Regressão de Floresta de Decisão](decision-forest-regression.md) <br/> [Regressão rápida de quantil de floresta](fast-forest-quantile-regression.md)  <br/> [Regressão Linear](linear-regression.md)  <br/> [Regressão de Rede Neural](neural-network-regression.md)  <br/> [Regressão de Poisson](poisson-regression.md)  <br/>|
 | Clustering | Agrupar dados juntos.| [Cluster K-Means](k-means-clustering.md)
-| classificação | Prever uma classe.  Escolha entre os algoritmos binário (duas classes) ou multiclasse.| [Árvore de Decisão Aumentada Multiclasse](multiclass-boosted-decision-tree.md) <br/> [Floresta de Decisão Multiclasse](multiclass-decision-forest.md) <br/> [Regressão Logística Multiclasse](multiclass-logistic-regression.md)  <br/> [Rede Neural Multiclasse](multiclass-neural-network.md) <br/> [Um contra Todas as Multiclasses](one-vs-all-multiclass.md) <br/> [Perceptron Médio de Duas Classes](two-class-averaged-perceptron.md) <br/>  [Árvore de Decisão Aumentada de Duas Classes](two-class-boosted-decision-tree.md)  <br/> [Floresta de Decisão de Duas Classes](two-class-decision-forest.md) <br/>  [Regressão Logística de Duas Classes](two-class-logistic-regression.md) <br/> [Rede Neural de Duas Classes](two-class-neural-network.md) <br/> [Computador de Vetor de Suporte de Duas Classes](two-class-support-vector-machine.md) | 
+| classificação | Prever uma classe.  Escolha entre os algoritmos binário (duas classes) ou multiclasse.| [Árvore de Decisão Aumentada Multiclasse](multiclass-boosted-decision-tree.md) <br/> [Floresta de Decisão Multiclasse](multiclass-decision-forest.md) <br/> [Regressão Logística Multiclasse](multiclass-logistic-regression.md)  <br/> [Rede Neural Multiclasse](multiclass-neural-network.md) <br/> [Um contra Todas as Multiclasses](one-vs-all-multiclass.md) <br/> [Uma versus multiclasse](one-vs-one-multiclass.md) <br/>[Perceptron Médio de Duas Classes](two-class-averaged-perceptron.md) <br/>  [Árvore de Decisão Aumentada de Duas Classes](two-class-boosted-decision-tree.md)  <br/> [Floresta de Decisão de Duas Classes](two-class-decision-forest.md) <br/>  [Regressão Logística de Duas Classes](two-class-logistic-regression.md) <br/> [Rede Neural de Duas Classes](two-class-neural-network.md) <br/> [Computador de Vetor de Suporte de Duas Classes](two-class-support-vector-machine.md) | 
 
 ## <a name="modules-for-building-and-evaluating-models"></a>Módulos para criação e avaliação de modelos
 
@@ -56,7 +56,7 @@ Para obter ajuda com a escolha de algoritmos, consulte
 | Linguagem Python | Grave o código e incorpore-o em um módulo para integrar o Python ao seu pipeline. | [Criar Modelo Python](create-python-model.md) <br/> [Executar Script do Python](execute-python-script.md) |
 | Linguagem R | Grave o código e incorpore-o em um módulo para integrar o R ao seu pipeline. | [Executar Script R](execute-r-script.md) |
 | Análise de texto | Disponibilize ferramentas computacionais especializadas para trabalhar com texto estruturado e não estruturado. |  [Converter Palavra em Vetor](convert-word-to-vector.md) <br/> [Extrair Recursos N-Gram do Texto](extract-n-gram-features-from-text.md) <br/> [Hash de Recursos](feature-hashing.md) <br/> [Pré-processar Texto](preprocess-text.md) <br/> [Alocação de Dirichlet Latente](latent-dirichlet-allocation.md) <br/> [Pontuar o modelo Vowpal Wabbit](score-vowpal-wabbit-model.md) <br/> [Treinar o modelo Vowpal Wabbit](train-vowpal-wabbit-model.md)|
-| Visual Computacional | Módulos relacionados ao pré-processamento de dados de imagem e ao reconhecimento de imagem. |  [Aplicar Transformação de Imagem](apply-image-transformation.md) <br/> [Converter em Diretório de Imagem](convert-to-image-directory.md) <br/> [Transformação da Imagem de Inicialização](init-image-transformation.md) <br/> [Dividir Diretório de Imagens](split-image-directory.md) <br/> [DenseNet](densenet.md) <br/> [ResNet](resnet.md) |
+| Pesquisa Visual Computacional | Módulos relacionados ao pré-processamento de dados de imagem e ao reconhecimento de imagem. |  [Aplicar Transformação de Imagem](apply-image-transformation.md) <br/> [Converter em Diretório de Imagem](convert-to-image-directory.md) <br/> [Transformação da Imagem de Inicialização](init-image-transformation.md) <br/> [Dividir Diretório de Imagens](split-image-directory.md) <br/> [DenseNet](densenet.md) <br/> [ResNet](resnet.md) |
 | Recomendação | Criar modelos de recomendação. | [Avaliar o Sistema de Recomendação](evaluate-recommender.md) <br/> [Pontuar o Sistema de Recomendação SVD](score-svd-recommender.md) <br/> [Pontuar o sistema de recomendação grande e profundo](score-wide-and-deep-recommender.md)<br/> [Treinar o Sistema de Recomendação SVD](train-SVD-recommender.md) <br/> [Treinar o sistema de recomendação grande e profundo](train-wide-and-deep-recommender.md)|
 | Detecção de anomalias | Modelos de detecção de anomalias treinados. | [Detecção de Anomalias Baseada em PCA](pca-based-anomaly-detection.md) <br/> [Treinar um Modelo de Detecção de Anomalias](train-anomaly-detection-model.md) |
 

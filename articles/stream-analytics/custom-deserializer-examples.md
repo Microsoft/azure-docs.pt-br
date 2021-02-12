@@ -1,19 +1,18 @@
 ---
 title: Ler entrada em qualquer formato usando desserializadores .NET personalizados no Azure Stream Analytics
 description: Este artigo explica o formato de serialização e as interfaces que definem desserializadores .NET personalizados para trabalhos de nuvem e borda do Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 87f3e2014281580cc35f941ad62046dcb24539df
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 140a836882ad3abe048047120e4fe1ebc0a3067c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129398"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018149"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Ler entradas em qualquer formato usando desserializadores .NET personalizados
 
@@ -201,7 +200,7 @@ namespace ExampleCustomCode.Serialization
 
 ## <a name="serialization-format-for-rest-apis"></a>Formato de serialização para APIs REST
 
-Cada entrada do Azure Stream Analytics tem um **formato de serialização** . Para obter mais informações sobre opções de entrada, consulte a documentação [API REST de entrada](./stream-analytics-define-inputs.md).
+Cada entrada do Azure Stream Analytics tem um **formato de serialização**. Para obter mais informações sobre opções de entrada, consulte a documentação [API REST de entrada](/rest/api/streamanalytics/2016-03-01/inputs).
 
 O código JavaScript a seguir é um exemplo do formato de serialização do desserializador do .NET ao se usar a API REST:
 
@@ -249,9 +248,9 @@ Não há mais suporte para essa funcionalidade. Se você precisar desse recurso,
 
 Depois de implementar seu desserializador, você poderá ajudar outras pessoas compartilhando-o com a comunidade. Envie seu código para o [repositório do Azure Stream Analytics no GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
 
-### <a name="what-are-the-other-limitation-of-using-custom-deserializers-in-stream-analytics"></a>Quais são as outras limitações do uso de desserializadores personalizados no Stream Analytics?
+### <a name="what-are-the-other-limitations-of-using-custom-deserializers-in-stream-analytics"></a>Quais são as outras limitações do uso de desserializadores personalizados no Stream Analytics?
 
-Se a entrada for do formato Protobuf com esquema que contenha o tipo MapField, você não poderá implementar um desserializador personalizado. Estamos trabalhando para oferecer suporte a esse tipo no futuro.
+Se a entrada for do formato Protobuf com um esquema que contém o `MapField` tipo, você não poderá implementar um desserializador personalizado. Além disso, os desserializadores personalizados não dão suporte a dados de exemplo ou dados de visualização. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

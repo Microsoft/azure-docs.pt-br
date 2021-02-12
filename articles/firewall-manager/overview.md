@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 09/30/2020
+ms.date: 01/12/2021
 ms.author: victorh
-ms.openlocfilehash: 00a84fbf694a58128712abf806ff12df96f0e5e9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 63e2aac4c12ecc5d832cb037fda91bd2c6ad0bf1
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91596689"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132436"
 ---
 # <a name="what-is-azure-firewall-manager"></a>O que é o Gerenciador de Firewall do Azure?
 
@@ -86,10 +86,10 @@ O Gerenciador de Firewall do Azure apresenta os seguintes problemas conhecidos:
 |Tráfego de branch a branch com a filtragem de tráfego privado habilitada|Não há suporte para o tráfego de branch para branch quando a filtragem de tráfego privado está habilitada. |Em investigação.<br><br>Não proteja o tráfego privado se a conectividade de branch a branch for crítica.|
 |Todos os Hubs Virtuais Seguros que compartilham a mesma WAN virtual devem estar no mesmo grupo de recursos.|Esse comportamento está alinhado aos Hubs da WAN Virtual hoje.|Crie várias WANs Virtuais para permitir que os Hubs Virtuais Seguros sejam criados em diferentes grupos de recursos.|
 |Falha na adição de endereço IP em massa|O firewall do hub seguro entrará em um estado de falha se você adicionar vários endereços IP públicos.|Adicione incrementos menores de endereços IP públicos. Por exemplo, adicione 10 de cada vez.|
-|As regras de aplicativo falham em um hub seguro com DNS personalizado (versão prévia) configurado.|O DNS personalizado (versão prévia) não funciona em implantações de hub seguro e implantações de rede virtual de hub em que o túnel forçado está habilitado.|Correção sob investigação.|
 |Não há suporte à Proteção contra DDoS Standard com hubs virtuais seguros|A Proteção contra DDoS Standard não está integrada aos vWANs.|Investigando|
 |Logs de atividade sem suporte completo|Atualmente, a política de firewall não dá suporte a logs de atividade.|Investigando|
-|Configurando intervalos de endereço IP privado SNAT|As [configurações de intervalo de IP privado](../firewall/snat-private-range.md) serão ignoradas se a política do Firewall do Azure estiver configurada. O comportamento padrão do Firewall do Azure é usado, em que ele não aceita regras de rede SNAT quando o endereço IP de destino está em um intervalo de endereços IP privado, de acordo com o [IANA RFC 1918](https://tools.ietf.org/html/rfc1918).|Investigando
+|Configurando intervalos de endereço IP privado SNAT|As [configurações de intervalo de IP privado](../firewall/snat-private-range.md) serão ignoradas se a política do Firewall do Azure estiver configurada. O comportamento padrão do Firewall do Azure é usado, em que ele não aceita regras de rede SNAT quando o endereço IP de destino está em um intervalo de endereços IP privado, de acordo com o [IANA RFC 1918](https://tools.ietf.org/html/rfc1918).|Investigando|
+|Algumas configurações de firewall não são migradas quando o firewall é migrado para usar a Política de Firewall|Os endereços privados de SNAT e Zonas de Disponibilidade não são migrados quando você faz a migração para a Política de Firewall do Azure.|Investigando| 
 
 ## <a name="next-steps"></a>Próximas etapas
 

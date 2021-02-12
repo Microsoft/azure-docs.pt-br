@@ -3,13 +3,13 @@ title: Usar pool dedicado para executar tarefas tarefa
 description: Configure um pool de computação dedicado (pool de agentes) no registro para executar uma tarefa de registro de contêiner do Azure.
 ms.topic: article
 ms.date: 10/12/2020
-ms.custom: references_regions
-ms.openlocfilehash: 86c539c3b34ca0e54d65f15c4d9d01a99f9b31c6
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: eeb9a71854f52da5c1a9f4befae93c377ad67b05
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91997192"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920300"
 ---
 # <a name="run-an-acr-task-on-a-dedicated-agent-pool"></a>Executar uma tarefa ACR em um pool de agentes dedicado
 
@@ -44,7 +44,7 @@ Esse recurso está disponível na camada de serviço **Premium** do registro de 
 
 As camadas do pool de agentes fornecem os seguintes recursos por instância no pool.
 
-|Camada    | Type  |  CPU  |Memória (GB)  |
+|Camada    | Tipo  |  CPU  |Memória (GB)  |
 |---------|---------|---------|---------|
 |S1     |  padrão    | 2       |    3     |
 |S2     |  padrão    | 4       |    8     |
@@ -93,7 +93,7 @@ az acr agentpool update \
 
 Os pools de agente de tarefa exigem acesso aos seguintes serviços do Azure. As regras de firewall a seguir devem ser adicionadas a quaisquer grupos de segurança de rede ou rotas definidas pelo usuário existentes.
 
-| Direction | Protocolo | Fonte         | Porta de origem | Destino          | Porta de destino | Usado    |
+| Direção | Protocolo | Fonte         | Porta de origem | Destino          | Porta de destino | Usado    |
 |-----------|----------|----------------|-------------|----------------------|-----------|---------|
 | Saída  | TCP      | VirtualNetwork | Qualquer         | AzureKeyVault        | 443       | Padrão |
 | Saída  | TCP      | VirtualNetwork | Qualquer         | Armazenamento              | 443       | Padrão |
@@ -139,7 +139,7 @@ az acr build \
     --agent-pool myagentpool \
     --image myimage:mytag \
     --file Dockerfile \
-    https://github.com/Azure-Samples/acr-build-helloworld-node.git
+    https://github.com/Azure-Samples/acr-build-helloworld-node.git#main
 ```
 
 ### <a name="automatically-triggered-task"></a>Tarefa disparada automaticamente
@@ -153,7 +153,7 @@ az acr task create \
     --image myimage:mytag \
     --schedule "0 21 * * *" \
     --file Dockerfile \
-    --context https://github.com/Azure-Samples/acr-build-helloworld-node.git \
+    --context https://github.com/Azure-Samples/acr-build-helloworld-node.git#main \
     --commit-trigger-enabled false
 ```
 

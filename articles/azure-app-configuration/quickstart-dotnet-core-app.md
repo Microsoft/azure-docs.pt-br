@@ -2,18 +2,18 @@
 title: Início Rápido da Configuração de Aplicativo do Azure com o .NET Core | Microsoft Docs
 description: Neste guia de início rápido, crie um aplicativo .NET Core com a Configuração de Aplicativos do Azure para centralizar o armazenamento e o gerenciamento de configurações de aplicativo separadas do seu código.
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/28/2020
-ms.author: lcozzens
-ms.openlocfilehash: bb12224fd29d50765bc56a531787b7a0849cd06e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.author: alkemper
+ms.openlocfilehash: 0ff80287971365b1477be319dc7a04760687f6a9
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075783"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663393"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Início Rápido: Criar um aplicativo .NET Core com a Configuração de Aplicativo
 

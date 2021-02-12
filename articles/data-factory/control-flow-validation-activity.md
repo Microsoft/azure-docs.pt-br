@@ -3,20 +3,20 @@ title: Atividade de validação no Azure Data Factory
 description: A atividade de validação não continua a execução do pipeline até que ele valide o conjunto de dado anexado com determinados critérios que o usuário especifica.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 764b41d1823e8edce134c5099e066486f4f08acc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63f4a7df76fc0480a2b0cdf2de13ff5e85aa93ef
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81417922"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485817"
 ---
 # <a name="validation-activity-in-azure-data-factory"></a>Atividade de validação no Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -67,7 +67,7 @@ type | Deve ser definido como  **validação**. | String | Sim |
 dataset | A atividade bloqueará a execução até que tenha validado essa referência de conjunto de e que ele atenda aos critérios especificados ou que o tempo limite tenha sido atingido. O conjunto de conjuntos fornecido deve dar suporte à propriedade "MinimumSize" ou "ChildItems". | Referência de DataSet | Sim |
 tempo limite | Especifica o tempo limite para a atividade ser executada. Se nenhum valor for especificado, o valor padrão será 7 dias ("7.00:00:00"). O formato é d. hh: mm: SS | String | Não |
 sleep | Um atraso em segundos entre as tentativas de validação. Se nenhum valor for especificado, o valor padrão será 10 segundos. | Integer | Não |
-childItems | Verifica se a pasta tem itens filhos. Pode ser definido como-true: valide se a pasta existe e se ela tem itens. Bloqueia até que pelo menos um item esteja presente na pasta ou o valor de tempo limite seja atingido.-false: valide se a pasta existe e se está vazia. Bloqueia até a pasta estar vazia ou até que o valor de tempo limite seja atingido. Se nenhum valor for especificado, a atividade será bloqueada até que a pasta exista ou até que o tempo limite seja atingido. | Booliano | Não |
+childItems | Verifica se a pasta tem itens filhos. Pode ser definido como-true: valide se a pasta existe e se ela tem itens. Bloqueia até que pelo menos um item esteja presente na pasta ou o valor de tempo limite seja atingido.-false: valide se a pasta existe e se está vazia. Bloqueia até a pasta estar vazia ou até que o valor de tempo limite seja atingido. Se nenhum valor for especificado, a atividade será bloqueada até que a pasta exista ou até que o tempo limite seja atingido. | Boolean | Não |
 minimumSize | Tamanho mínimo de um arquivo em bytes. Se nenhum valor for especificado, o valor padrão será 0 bytes | Integer | Não |
 
 

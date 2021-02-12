@@ -1,7 +1,7 @@
 ---
 title: Controles de Acesso à Rede
 titleSuffix: Azure SQL Database & Azure Synapse Analytics
-description: Visão geral de como gerenciar e controlar o acesso à rede para o banco de dados SQL do Azure e o Azure Synapse Analytics (anteriormente SQL Data Warehouse).
+description: Visão geral de como gerenciar e controlar o acesso à rede para o banco de dados SQL do Azure e o Azure Synapse Analytics.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,16 +12,16 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: be327fabdffc0f98dc0449b51e7e4d73651d80d8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 90bc57af3aaf0d11cd354bfe7163014f836a72e8
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789481"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460013"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Controles de acesso à rede do banco de dados SQL do Azure e do Azure Synapse Analytics
 
-Quando você cria um SQL Server lógico do [portal do Azure](single-database-create-quickstart.md) para o banco de dados SQL do Azure e o Azure Synapse Analytics, o resultado é um ponto de extremidade público no formato *yourservername.Database.Windows.net* .
+Quando você cria um SQL Server lógico do [portal do Azure](single-database-create-quickstart.md) para o banco de dados SQL do Azure e o Azure Synapse Analytics, o resultado é um ponto de extremidade público no formato *yourservername.Database.Windows.net*.
 
 Você pode usar os seguintes controles de acesso à rede para permitir seletivamente o acesso a um banco de dados por meio do ponto de extremidade público:
 
@@ -34,7 +34,7 @@ Você também pode permitir o acesso privado ao banco de dados de [redes virtuai
 - Link privado: Use este recurso para criar um ponto de extremidade privado para o [SQL Server lógico](logical-servers.md) em uma rede virtual específica
 
 > [!IMPORTANT]
-> Este artigo não *se aplica* ao **SQL instância gerenciada** . Para obter mais informações sobre a configuração de rede, consulte [conectando-se ao Azure SQL instância gerenciada](../managed-instance/connect-application-instance.md) .
+> Este artigo não *se aplica* ao **SQL instância gerenciada**. Para obter mais informações sobre a configuração de rede, consulte [conectando-se ao Azure SQL instância gerenciada](../managed-instance/connect-application-instance.md) .
 
 Consulte o vídeo abaixo para obter uma explicação de alto nível desses controles de acesso e o que eles fazem:
 
@@ -42,13 +42,13 @@ Consulte o vídeo abaixo para obter uma explicação de alto nível desses contr
 
 ## <a name="allow-azure-services"></a>Permitir serviços do Azure
 
-Por padrão, durante a criação de um novo SQL Server lógico [a partir do portal do Azure](single-database-create-quickstart.md), essa configuração é definida como **off** . Essa configuração aparece quando a conectividade é permitida usando o ponto de extremidade de serviço público.
+Por padrão, durante a criação de um novo SQL Server lógico [a partir do portal do Azure](single-database-create-quickstart.md), essa configuração é definida como **off**. Essa configuração aparece quando a conectividade é permitida usando o ponto de extremidade de serviço público.
 
 Você também pode alterar essa configuração por meio do painel Firewall depois que o SQL Server lógico for criado da seguinte maneira.
   
 ![Captura de tela de gerenciar o Firewall do servidor][2]
 
-Quando definido como **on** , o servidor permite a comunicação de todos os recursos dentro do limite do Azure, que pode ou não fazer parte de sua assinatura.
+Quando definido como **on**, o servidor permite a comunicação de todos os recursos dentro do limite do Azure, que pode ou não fazer parte de sua assinatura.
 
 Em muitos casos, a configuração **on** é mais permissiva do que a maioria dos clientes desejam. Talvez você queira definir essa configuração como **off** e substituí-la por regras de firewall IP mais restritivas ou regras de firewall de rede virtual. 
 
@@ -56,11 +56,11 @@ No entanto, isso afeta os seguintes recursos que são executados em máquinas vi
 
 ### <a name="import-export-service"></a>Serviço de Importação/Exportação
 
-O serviço de exportação de importação não funciona quando **permitir acesso aos serviços do Azure** está definido como **desativado** . No entanto, você pode contornar o problema [executando manualmente sqlpackage.exe de uma VM do Azure ou executando a exportação](./database-import-export-azure-services-off.md) diretamente em seu código usando a API DACFx.
+O serviço de exportação de importação não funciona quando **permitir acesso aos serviços do Azure** está definido como **desativado**. No entanto, você pode contornar o problema [executando manualmente sqlpackage.exe de uma VM do Azure ou executando a exportação](./database-import-export-azure-services-off.md) diretamente em seu código usando a API DACFx.
 
 ### <a name="data-sync"></a>Sincronização de Dados
 
-Para usar o recurso de sincronização de dados com **permitir acesso aos serviços do Azure** definidos como **desativado** , você precisa criar entradas de regra de firewall individuais para [adicionar endereços IP](firewall-create-server-level-portal-quickstart.md) da **marca de serviço do SQL** para a região que hospeda o banco de dados de **Hub** .
+Para usar o recurso de sincronização de dados com **permitir acesso aos serviços do Azure** definidos como **desativado**, você precisa criar entradas de regra de firewall individuais para [adicionar endereços IP](firewall-create-server-level-portal-quickstart.md) da **marca de serviço do SQL** para a região que hospeda o banco de dados de **Hub** .
 Adicione essas regras de firewall no nível de servidor aos servidores que hospedam bancos de dados de **Hub** e **membro** (que podem estar em regiões diferentes)
 
 Use o seguinte script do PowerShell para gerar endereços IP correspondentes à marca de serviço do SQL para a região oeste dos EUA
@@ -110,7 +110,7 @@ O firewall baseado em IP é um recurso do SQL Server lógico no Azure que impede
 
 ## <a name="virtual-network-firewall-rules"></a>Regras de firewall de rede virtual
 
-Além das regras de IP, o Firewall do servidor permite que você defina *regras de rede virtual* .  
+Além das regras de IP, o Firewall do servidor permite que você defina *regras de rede virtual*.  
 Para saber mais, consulte [pontos de extremidade de serviço de rede virtual e regras para o banco de dados SQL do Azure](vnet-service-endpoint-rule-overview.md) ou assista a este vídeo:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--Demo--Vnet-Firewall-Rules-for-SQL-Database/player?WT.mc_id=dataexposed-c9-niner]
@@ -121,9 +121,9 @@ Esteja atento aos seguintes termos de rede do Azure ao explorar as regras de fir
 
 **Rede virtual:** Você pode ter redes virtuais associadas à sua assinatura do Azure
 
-**Sub-rede:** uma rede virtual contém **sub-redes** . Todas as máquinas virtuais do Azure (VMs) que você tem são atribuídas a sub-redes. Uma sub-rede pode conter várias VMs ou outros nós de computadores. Os nós de computação que estão fora da sua rede virtual não podem acessar sua rede virtual, a menos que você configure sua segurança para permitir o acesso.
+**Sub-rede:** uma rede virtual contém **sub-redes**. Todas as máquinas virtuais do Azure (VMs) que você tem são atribuídas a sub-redes. Uma sub-rede pode conter várias VMs ou outros nós de computadores. Os nós de computação que estão fora da sua rede virtual não podem acessar sua rede virtual, a menos que você configure sua segurança para permitir o acesso.
 
-**Ponto de extremidade de serviço de rede virtual:** Um [ponto de extremidade de serviço de rede virtual](../../virtual-network/virtual-network-service-endpoints-overview.md) é uma sub-rede cujos valores de propriedade incluem um ou mais nomes formais de tipo de serviço do Azure. Neste artigo, estamos interessados no nome do tipo do **Microsoft. SQL** , que se refere ao serviço do Azure chamado banco de dados SQL.
+**Ponto de extremidade de serviço de rede virtual:** Um [ponto de extremidade de serviço de rede virtual](../../virtual-network/virtual-network-service-endpoints-overview.md) é uma sub-rede cujos valores de propriedade incluem um ou mais nomes formais de tipo de serviço do Azure. Neste artigo, estamos interessados no nome do tipo do **Microsoft. SQL**, que se refere ao serviço do Azure chamado banco de dados SQL.
 
 **Regra de rede virtual:** Uma regra de rede virtual para seu servidor é uma sub-rede que está listada na ACL (lista de controle de acesso) do seu servidor. Para estar na ACL para seu banco de dados no banco de dados SQL, a sub-rede deve conter o nome do tipo **Microsoft. SQL** . Uma regra de rede virtual instrui o servidor a aceitar comunicações de cada nó que está na sub-rede.
 
@@ -140,7 +140,7 @@ As regras de rede virtual são uma alternativa mais fácil de estabelecer e gere
 
 ## <a name="private-link"></a>Link Privado
 
-O link privado permite que você se conecte a um servidor por meio de um **ponto de extremidade privado** . Um ponto de extremidade privado é um endereço IP privado em uma [rede virtual](../../virtual-network/virtual-networks-overview.md) e sub-rede específica.
+O link privado permite que você se conecte a um servidor por meio de um **ponto de extremidade privado**. Um ponto de extremidade privado é um endereço IP privado em uma [rede virtual](../../virtual-network/virtual-networks-overview.md) e sub-rede específica.
 
 ## <a name="next-steps"></a>Próximas etapas
 

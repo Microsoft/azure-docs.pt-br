@@ -8,12 +8,12 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c69e919c76c0aecb6cf8a3ee5e9b7e5d286c168a
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: fccd1bd6f808fad11946c6f0b0dff1f453b61d66
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046036"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430621"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Criar e provisionar um dispositivo IoT Edge com um TPM no Linux
 
@@ -91,7 +91,7 @@ Depois que a VM for criada, abra suas configurações para habilitar o TPM (Trus
 
 ### <a name="start-the-virtual-machine-and-collect-tpm-data"></a>Iniciar a máquina virtual e coletar dados TPM
 
-Na máquina virtual, crie uma ferramenta que você possa usar para recuperar a **ID de registro** e a **chave de endosso**do dispositivo.
+Na máquina virtual, crie uma ferramenta que você possa usar para recuperar a **ID de registro** e a **chave de endosso** do dispositivo.
 
 1. No Gerenciador do Hyper-V, inicie sua VM e conecte-se a ela.
 
@@ -205,7 +205,11 @@ Depois que o tempo de execução for instalado em seu dispositivo, configure o d
      attestation:
        method: "tpm"
        registration_id: "<REGISTRATION_ID>"
+   # always_reprovision_on_startup: true
+   # dynamic_reprovisioning: false
    ```
+
+   Opcionalmente, use as `always_reprovision_on_startup` `dynamic_reprovisioning` linhas ou para configurar o comportamento de reprovisionamento do seu dispositivo. Se um dispositivo estiver configurado para reprovisionar na inicialização, ele sempre tentará provisionar com o DPS primeiro e, em seguida, retornará para o backup de provisionamento se isso falhar. Se um dispositivo estiver definido para reprovisionar dinamicamente, IoT Edge será reiniciado e reprovisionado se um evento de reprovisionamento for detectado. Para obter mais informações, consulte [conceitos de reprovisionamento de dispositivo do Hub IOT](../iot-dps/concepts-device-reprovision.md).
 
 1. Atualize os valores de `scope_id` e `registration_id` com suas informações de dispositivo e DPS.
 

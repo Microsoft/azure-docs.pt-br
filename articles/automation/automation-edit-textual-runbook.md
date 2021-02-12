@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c51ef23e27cd63d3706c104d1e39a14bf61c258e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d6b786ffaf309e147de27e8cd8be314a3d8a5fb
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186343"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896979"
 ---
 # <a name="edit-textual-runbooks-in-azure-automation"></a>Editar runbooks de texto na Automação do Azure
 
@@ -101,4 +101,4 @@ Publish-AzAutomationRunbook -Name $runbookName -AutomationAccountName $automatio
 * [Credenciais](./shared-resources/credentials.md).
 * [Agendas](./shared-resources/schedules.md).
 * [Variáveis](./shared-resources/variables.md).
-* [Referência de cmdlet do PowerShell](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* [Referência de cmdlet do PowerShell](/powershell/module/az.automation).

@@ -1,19 +1,16 @@
 ---
 title: Guia de programação do SCP.NET para Storm no HDInsight do Azure
 description: Saiba como usar SCP.NET para criar topologias do Storm baseadas em .NET para usar com o a execução do Storm no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/13/2020
-ms.openlocfilehash: d54a06c457451fc5323ae37b34b53411cdd6abda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd52157e2f0e20e9282d944b07f656c08d9e57da
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000134"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932637"
 ---
 # <a name="scp-programming-guide-for-apache-storm-in-azure-hdinsight"></a>Guia de programação do SCP para Apache Storm no Azure HDInsight
 
@@ -95,7 +92,7 @@ public interface ISCPSpout : ISCPPlugin
 
 Quando **NextTuple** é chamado, seu código C# pode emitir uma ou mais tuplas. Se não houver nada a emitir, esse método deverá retornar sem emitir nada.
 
-Os métodos **NextTuple**, **ACK**e **Fail** são todos chamados em um loop rígido em um único thread de um processo em C#. Quando não há tuplas a serem emitidas, tenha **NextTuple** suspensão por um curto período de tempo como 10 milissegundos. Essa suspensão ajuda a evitar desperdiçar disponibilidade da CPU.
+Os métodos **NextTuple**, **ACK** e **Fail** são todos chamados em um loop rígido em um único thread de um processo em C#. Quando não há tuplas a serem emitidas, tenha **NextTuple** suspensão por um curto período de tempo como 10 milissegundos. Essa suspensão ajuda a evitar desperdiçar disponibilidade da CPU.
 
 Os métodos **ACK** e **Fail** são chamados somente quando um arquivo de especificação habilita o mecanismo de confirmação. O parâmetro *seqId* identifica a tupla que é confirmada ou falhou. Se a confirmação estiver habilitada em uma topologia não transacional, a seguinte função de **emissão** deverá ser usada em um Spout:
 
@@ -133,7 +130,7 @@ public interface ISCPTxSpout : ISCPPlugin
 }
 ```
 
-Assim como suas contrapartes não transacionais, **NextTx**, **ACK**e **Fail** são todas chamadas em um loop rígido em um único thread de um processo em C#. Quando não há tuplas a serem emitidas, tenha **NextTx** suspensão por um curto período de tempo como 10 milissegundos. Essa suspensão ajuda a evitar desperdiçar disponibilidade da CPU.
+Assim como suas contrapartes não transacionais, **NextTx**, **ACK** e **Fail** são todas chamadas em um loop rígido em um único thread de um processo em C#. Quando não há tuplas a serem emitidas, tenha **NextTx** suspensão por um curto período de tempo como 10 milissegundos. Essa suspensão ajuda a evitar desperdiçar disponibilidade da CPU.
 
 Quando **NextTx** é chamado para iniciar uma nova transação, o parâmetro de saída *seqId* identifica a transação. A transação também é usada em **ACK** e **falha**. O método **NextTx** pode emitir dados para o lado do Java. Os dados são armazenadas no ZooKeeper para dar suporte à reprodução. Como ZooKeeper tem capacidade limitada, seu código deve emitir somente metadados e não dados em massa em um Spout transacional.
 
@@ -161,11 +158,11 @@ SCP.NET cria um novo objeto **ISCPBatchBolt** para processar cada objeto **Storm
 
 ## <a name="object-model"></a>Modelo de objeto
 
-O SCP.NET também oferece um conjunto simples de objetos chave para que os desenvolvedores realizem a programação. Os objetos são **Context**, **StateStore**e **SCPRuntime**. Eles são discutidos nesta seção.
+O SCP.NET também oferece um conjunto simples de objetos chave para que os desenvolvedores realizem a programação. Os objetos são **Context**, **StateStore** e **SCPRuntime**. Eles são discutidos nesta seção.
 
 ### <a name="context"></a>Contexto
 
-O objeto de **contexto** fornece um ambiente em execução para um aplicativo. Cada instância de **ISCPPlugin** de **ISCPSpout**, **ISCPBolt**, **ISCPTxSpout**ou **ISCPBatchBolt** tem uma instância de **contexto** correspondente. A funcionalidade fornecida pelo **contexto** é dividida nestas duas partes:
+O objeto de **contexto** fornece um ambiente em execução para um aplicativo. Cada instância de **ISCPPlugin** de **ISCPSpout**, **ISCPBolt**, **ISCPTxSpout** ou **ISCPBatchBolt** tem uma instância de **contexto** correspondente. A funcionalidade fornecida pelo **contexto** é dividida nestas duas partes:
 
 * A parte estática, que está disponível em todo o processo C#
 * A parte dinâmica, que está disponível apenas para a instância de **contexto** específica
@@ -201,7 +198,7 @@ public Dictionary<string, Object> stormConf { get; set; }
 public Dictionary<string, Object> pluginConf { get; set; }  
 ```
 
-A parte **stormConf** é parâmetros definidos pelo Storm, e a parte **pluginConf** é parâmetros definidos pelo SCP. Aqui está um exemplo:
+A parte **stormConf** é parâmetros definidos pelo Storm, e a parte **pluginConf** é parâmetros definidos pelo SCP. Veja um exemplo:
 
 ```csharp
 public class Constants
@@ -217,7 +214,7 @@ public class Constants
 }
 ```
 
-O tipo **TopologyContext** Obtém o contexto de topologia. É mais útil para vários componentes paralelos. Aqui está um exemplo:
+O tipo **TopologyContext** Obtém o contexto de topologia. É mais útil para vários componentes paralelos. Veja um exemplo:
 
 ```csharp
 //demo how to get TopologyContext info
@@ -373,7 +370,7 @@ O método **Initialize** Inicializa o ambiente de tempo de execução do SCP. Ne
 
 O método **LaunchPlugin** inicia o loop de processamento de mensagens. Nesse loop, o plug-in C# recebe mensagens do lado do Java. Essas mensagens incluem tuplas e sinais de controle. Em seguida, o plug-in processa as mensagens, talvez chamando o método de interface fornecido pelo seu código.
 
-O parâmetro de entrada para **LaunchPlugin** é um delegado. O método pode retornar um objeto que implementa a interface **ISCPSpout**, **ISCPBolt**, **ISCPTxSpout**ou **ISCPBatchBolt** .
+O parâmetro de entrada para **LaunchPlugin** é um delegado. O método pode retornar um objeto que implementa a interface **ISCPSpout**, **ISCPBolt**, **ISCPTxSpout** ou **ISCPBatchBolt** .
 
 ```csharp
 public delegate ISCPPlugin newSCPPlugin(Context ctx, Dictionary<string, Object> parms);
@@ -549,7 +546,7 @@ O código do Storm nativo é escrito em Java. O SCP.NET tem um Storm aprimorado 
 
 ### <a name="specify-java-spoutbolt-in-a-specification-file"></a>Especificar Spout/parafuso do Java em um arquivo de especificação
 
-Você pode usar o **SCP-Spout** e o **SCP-raio** em um arquivo de especificação para especificar esgotamentos e parafusos de Java. Aqui está um exemplo:
+Você pode usar o **SCP-Spout** e o **SCP-raio** em um arquivo de especificação para especificar esgotamentos e parafusos de Java. Veja um exemplo:
 
 ```csharp
 (spout-spec 
@@ -561,7 +558,7 @@ Aqui `microsoft.scp.example.HybridTopology.Generator` está o nome da classe Jav
 
 ### <a name="specify-the-java-classpath-in-a-runspec-command"></a>Especificar o classpath Java em um comando runSpec
 
-Se você quiser enviar uma topologia que contenha esgotamentos ou parafusos de Java, primeiro compile-os para produzir arquivos JAR. Em seguida, especifique o classpath Java que contém os arquivos JAR ao enviar a topologia. Aqui está um exemplo:
+Se você quiser enviar uma topologia que contenha esgotamentos ou parafusos de Java, primeiro compile-os para produzir arquivos JAR. Em seguida, especifique o classpath Java que contém os arquivos JAR ao enviar a topologia. Veja um exemplo:
 
 ```csharp
 bin\runSpec.cmd examples\HybridTopology\HybridTopology.spec specs examples\HybridTopology\net\Target -cp examples\HybridTopology\java\target\*
@@ -728,7 +725,7 @@ public void Fail(long seqId, Dictionary<string, Object> parms)
 
 ### <a name="helloworldtx"></a>HelloWorldTx
 
-O exemplo de HelloWorldTx a seguir demonstra como implementar a topologia transacional. O exemplo tem um Spout chamado **gerador**, um parafuso de lote chamado **contagem parcial**e um parafuso de confirmação chamado **contagem-soma**. O exemplo também tem três arquivos de texto existentes: DataSource0.txt, DataSource1.txt e DataSource2.txt.
+O exemplo de HelloWorldTx a seguir demonstra como implementar a topologia transacional. O exemplo tem um Spout chamado **gerador**, um parafuso de lote chamado **contagem parcial** e um parafuso de confirmação chamado **contagem-soma**. O exemplo também tem três arquivos de texto existentes: DataSource0.txt, DataSource1.txt e DataSource2.txt.
 
 Em cada transação, o **gerador** Spout seleciona aleatoriamente dois arquivos dos três arquivos existentes e emite os dois nomes de arquivo para o parafuso de **contagem parcial** . O parafuso de **contagem parcial** :
 

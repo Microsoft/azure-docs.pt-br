@@ -1,14 +1,17 @@
 ---
 title: Configurar um dispositivo de migrações para Azure com um script
 description: Saiba como configurar um dispositivo de migrações para Azure com um script
-ms.topic: article
+ms.topic: how-to
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
 ms.date: 04/16/2020
-ms.openlocfilehash: c4f92d787ea2a72dd534e514e27fa1a5defef39c
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 38db1e68adde21d0e566256e9393f6fa4fc58824
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317324"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753783"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Configurar um dispositivo com um script
 
@@ -29,7 +32,7 @@ O script configura o dispositivo migrações para Azure em uma VM ou máquina f�
 Cenário | Requisitos
 --- | ---
 VMware | Windows Server 2016, com 32 GB de memória, oito vCPUs, cerca de 80 GB de armazenamento em disco
-Hyper-v | Windows Server 2016, com 16 GB de memória, oito vCPUs, cerca de 80 GB de armazenamento em disco
+Hyper-V | Windows Server 2016, com 16 GB de memória, oito vCPUs, cerca de 80 GB de armazenamento em disco
 - O computador também precisa de um comutador virtual externo. Ele requer um endereço IP estático ou dinâmico e o acesso à Internet.
 - Antes de implantar o dispositivo, examine os requisitos de dispositivo detalhados para [VMs do VMware](migrate-appliance.md#appliance---vmware), [VMs do Hyper-V](migrate-appliance.md#appliance---hyper-v).
 - Não execute o script em um dispositivo de migrações do Azure existente.
@@ -78,7 +81,7 @@ Para executar o script:
    
 5. Depois que o script é executado com êxito, ele inicia o aplicativo Web do dispositivo para que você possa configurar o dispositivo. Se você encontrar problemas, examine os logs de script em C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
-### <a name="verify-access"></a>Verificar acesso
+### <a name="verify-access"></a>Verificar o acesso
 
 Verifique se o dispositivo pode se conectar às URLs do Azure para a nuvem [pública](migrate-appliance.md#public-cloud-urls) .
 
@@ -125,7 +128,7 @@ Para executar o script:
    
 5. Depois que o script é executado com êxito, ele inicia o aplicativo Web do dispositivo para que você possa configurar o dispositivo. Se você encontrar problemas, examine os logs de script em C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
-### <a name="verify-access"></a>Verificar acesso
+### <a name="verify-access"></a>Verificar o acesso
 
 Verifique se o dispositivo pode se conectar às URLs do Azure para a nuvem [pública](migrate-appliance.md#public-cloud-urls) .
 

@@ -9,19 +9,20 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 7253e257f9d721c09f2e041c1473a9d81d09a321
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: a7361dafce30b07e76d971bdcda41cf4b3cd9e6e
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094226"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806165"
 ---
-# <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Guia de implantação da plataforma de BI do SAP BusinessObjects para Linux no Azure
+# <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Guia de implantação da plataforma SAP BusinessObjects BI para Linux no Azure
 
 Este artigo descreve a estratégia para implantar a plataforma SAP BOBI no Azure para Linux. Neste exemplo, duas máquinas virtuais com SSD Premium Managed Disks como seu diretório de instalação são configuradas. O banco de dados do Azure para MySQL é usado para o banco de dados CMS e Azure NetApp Files para o servidor de repositório de arquivos é compartilhado entre ambos os servidores. O aplicativo Web Java do Tomcat padrão e o aplicativo da plataforma de BI são instalados juntos em ambas as máquinas virtuais. Para balancear a carga da solicitação do usuário, o gateway de aplicativo é usado com recursos de descarregamento de TLS/SSL nativos.
 
@@ -229,7 +230,7 @@ As etapas nesta seção usam os seguintes prefixos:
    echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
    ```
 
-3. **[A] ** Adicionar entradas de montagem
+3. **[A]** Adicionar entradas de montagem
 
    Se estiver usando NFSv3
 
@@ -274,7 +275,7 @@ As diretrizes serão aplicáveis somente se você estiver usando o banco de BD d
 
 ### <a name="create-an-azure-database-for-mysql"></a>Criar um banco de dados do Azure para MySQL
 
-Entre no portal do Azure e siga as etapas mencionadas neste [Guia de início rápido do banco de dados do Azure para MySQL](../../../mysql/quickstart-create-mysql-server-database-using-azure-portal.md#create-an-azure-database-for-mysql-server). Alguns pontos a serem observados ao provisionar o banco de dados do Azure para MySQL-
+Entre no portal do Azure e siga as etapas mencionadas neste [Guia de início rápido do banco de dados do Azure para MySQL](../../../mysql/quickstart-create-mysql-server-database-using-azure-portal.md). Alguns pontos a serem observados ao provisionar o banco de dados do Azure para MySQL-
 
 1. Selecione a mesma região para o banco de dados do Azure para MySQL em que os servidores de aplicativos da plataforma SAP BI estão em execução.
 
@@ -316,8 +317,9 @@ Por padrão, o servidor criado é protegido com um firewall e não é acessível
 
    # auditbl1 is the database name of Audit database. You can provide the name you want for CMS database.
    CREATE SCHEMA `auditbl1` DEFAULT CHARACTER SET utf8;
-
-4. Create user account to connect to schema
+   ```
+   
+4. Criar conta de usuário para se conectar ao esquema
 
    ```sql
    # Create a user that can connect from any host, use the '%' wildcard as a host part
@@ -401,9 +403,9 @@ As etapas nesta seção usam os seguintes prefixos:
 
 2. **[A]** Verifique se o fuso horário em seu computador está definido corretamente. Consulte a [seção requisitos adicionais de UNIX e Linux](https://help.sap.com/viewer/65018c09dbe04052b082e6fc4ab60030/4.3/en-US/46b143336e041014910aba7db0e91070.html) no guia de instalação.
 
-3. **[A]** criar conta de usuário (**BL1**ADM) e grupo (SAPs) sob a qual os processos em segundo plano do software podem ser executados. Use essa conta para executar a instalação e executar o software. A conta não requer privilégios de raiz.
+3. **[A]** criar conta de usuário (**BL1** ADM) e grupo (SAPs) sob a qual os processos em segundo plano do software podem ser executados. Use essa conta para executar a instalação e executar o software. A conta não requer privilégios de raiz.
 
-4. **[A]** definir o ambiente de conta de usuário (**BL1**ADM) para usar uma localidade UTF-8 com suporte e garantir que o software do console ofereça suporte a conjuntos de caracteres UTF-8. Para garantir que seu sistema operacional use a localidade correta, defina as variáveis de ambiente LC_ALL e LANG para sua localidade preferida no seu ambiente de usuário do (**BL1**ADM).
+4. **[A]** definir o ambiente de conta de usuário (**BL1** ADM) para usar uma localidade UTF-8 com suporte e garantir que o software do console ofereça suporte a conjuntos de caracteres UTF-8. Para garantir que seu sistema operacional use a localidade correta, defina as variáveis de ambiente LC_ALL e LANG para sua localidade preferida no seu ambiente de usuário do (**BL1** ADM).
 
    ```bash
    # This configuration is for bash shell. If you are using any other shell for sidadm, kindly set environment variable accordingly.
@@ -413,7 +415,7 @@ As etapas nesta seção usam os seguintes prefixos:
    export LC_ALL=en_US.utf8
    ```
 
-5. **[A]** configurar conta de usuário (**BL1**ADM).
+5. **[A]** configurar conta de usuário (**BL1** ADM).
 
    ```bash
    # Set ulimit for bl1adm to unlimited
@@ -445,7 +447,7 @@ As etapas nesta seção usam os seguintes prefixos:
 
 ## <a name="installation"></a>Instalação
 
-Verificar a localidade da conta de usuário **BL1**ADM no servidor
+Verificar a localidade da conta de usuário **BL1** ADM no servidor
 
 ```bash
 bl1adm@azusbosl1:~> locale
@@ -453,7 +455,7 @@ LANG=en_US.utf8
 LC_ALL=en_US.utf8
 ```
 
-Navegue até a mídia da plataforma de BI do SAP BusinessObjects e execute o comando a seguir com o usuário **BL1**ADM-
+Navegue até a mídia da plataforma de BI do SAP BusinessObjects e execute o comando a seguir com o usuário **BL1** ADM-
 
 ```bash
 ./setup.sh -InstallDir /usr/sap/BL1
@@ -553,7 +555,7 @@ A seção a seguir descreve como implementar a estratégia de backup e restaura�
 
 No Azure, a maneira mais simples de fazer backup de servidores de aplicativos e de todos os discos anexados é usando o serviço de [backup do Azure](../../../backup/backup-overview.md) . Ele fornece backups independentes e isolados para proteger a destruição não intencional dos dados em suas VMs. Os backups são armazenados em um cofre dos Serviços de Recuperação com gerenciamento interno de pontos de recuperação. A configuração e o dimensionamento são simples, os backups são otimizados e podem ser restaurados facilmente quando necessário.
 
-Como parte do processo de backup, o instantâneo é obtido e os dados são transferidos para o cofre do serviço de recuperação sem afetar as cargas de trabalho de produção. O instantâneo fornece um nível de consistência diferente, conforme descrito no artigo de [consistência do instantâneo](../../../backup/backup-azure-vms-introduction.md#snapshot-consistency) . Você também pode optar por fazer backup do subconjunto dos discos de dados na VM usando a funcionalidade de backup e restauração de discos seletivos. Para obter mais informações, consulte documento de [backup de VM do Azure](../../../backup/backup-azure-vms-introduction.md) e [perguntas frequentes-backup de VMs do Azure](../../../backup/backup-azure-vm-backup-faq.md).
+Como parte do processo de backup, o instantâneo é obtido e os dados são transferidos para o cofre do serviço de recuperação sem afetar as cargas de trabalho de produção. O instantâneo fornece um nível de consistência diferente, conforme descrito no artigo de [consistência do instantâneo](../../../backup/backup-azure-vms-introduction.md#snapshot-consistency) . Você também pode optar por fazer backup do subconjunto dos discos de dados na VM usando a funcionalidade de backup e restauração de discos seletivos. Para obter mais informações, consulte documento de [backup de VM do Azure](../../../backup/backup-azure-vms-introduction.md) e [perguntas frequentes-backup de VMs do Azure](../../../backup/backup-azure-vm-backup-faq.yml).
 
 #### <a name="backup--restore-for-file-repository-server"></a>Backup & restauração do servidor de repositório de arquivos
 
@@ -614,7 +616,7 @@ Para outra implantação de DBMS para banco de dados CMS, consulte os [guias de 
 
 O FRS (servidor de repositório de arquivos) refere-se aos diretórios de disco em que o conteúdo como relatórios, universos e conexões são armazenados. Ele está sendo compartilhado entre todos os servidores de aplicativos do sistema. Portanto, você deve ter certeza de que ele está altamente disponível.
 
-No Azure, você pode escolher [arquivos premium do Azure](../../../storage/files/storage-files-introduction.md) ou [Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-introduction.md) para compartilhamento de arquivos que são projetados para serem altamente disponíveis e altamente duráveis por natureza. Para obter mais informações, consulte a seção [redundância](https://docs.microsoft.com/azure/storage/files/storage-files-planning#redundancy) para arquivos do Azure.
+No Azure, você pode escolher [arquivos premium do Azure](../../../storage/files/storage-files-introduction.md) ou [Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-introduction.md) para compartilhamento de arquivos que são projetados para serem altamente disponíveis e altamente duráveis por natureza. Para obter mais informações, consulte a seção [redundância](../../../storage/files/storage-files-planning.md#redundancy) para arquivos do Azure.
 
 > [!NOTE]
 > O protocolo SMB para arquivos do Azure está em disponibilidade geral, mas o suporte do protocolo NFS para arquivos do Azure está atualmente em versão prévia. Para obter mais informações, consulte o [suporte do NFS 4,1 para arquivos do Azure está agora em visualização](https://azure.microsoft.com/en-us/blog/nfs-41-support-for-azure-files-is-now-in-preview/)
@@ -666,7 +668,7 @@ Azure Site Recovery serviço pode ser usado para replicar máquinas virtuais que
 
   Você pode usar Azure NetApp Files replicação entre regiões, que está atualmente em versão [prévia](https://azure.microsoft.com/en-us/blog/azure-netapp-files-cross-region-replication-and-new-enhancements-in-preview/) que usa a tecnologia de® SnapMirror do NetApp. Portanto, somente os blocos alterados são enviados pela rede em um formato compactado e eficiente. Essa tecnologia proprietária minimiza a quantidade de dados necessária para replicar entre as regiões, o que poupa custos de transferência de dados. Ele também reduz o tempo de replicação para que você possa obter um RPO (objetivo de ponto de restauração) menor. Consulte [requisitos e considerações para usar a replicação entre regiões](../../../azure-netapp-files/cross-region-replication-requirements-considerations.md) para obter mais informações.
 
-- **Os arquivos premium do Azure** oferecem suporte apenas localmente com redundância local (LRS) e ZRS (armazenamento com redundância de zona). Para a estratégia de DR de arquivos premium do Azure, você pode usar [AzCopy](../../../storage/common/storage-use-azcopy-v10.md) ou [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/) para copiar os arquivos para outra conta de armazenamento em uma região diferente. Para obter mais informações, consulte [recuperação de desastre e failover da conta de armazenamento](../../../storage/common/storage-disaster-recovery-guidance.md)
+- **Os arquivos premium do Azure** oferecem suporte apenas localmente com redundância local (LRS) e ZRS (armazenamento com redundância de zona). Para a estratégia de DR de arquivos premium do Azure, você pode usar [AzCopy](../../../storage/common/storage-use-azcopy-v10.md) ou [Azure PowerShell](/powershell/module/az.storage/) para copiar os arquivos para outra conta de armazenamento em uma região diferente. Para obter mais informações, consulte [recuperação de desastre e failover da conta de armazenamento](../../../storage/common/storage-disaster-recovery-guidance.md)
 
 #### <a name="cms-database"></a>Banco de dados CMS
 
@@ -694,4 +696,4 @@ A seguir, a recomendação para a recuperação de desastre de cada camada usada
 - [Configurar a recuperação de desastre para uma implantação de aplicativo SAP de várias camadas](../../../site-recovery/site-recovery-sap.md)
 - [Planejamento e implementação de Máquinas Virtuais do Azure para o SAP](planning-guide.md)
 - [Implantação de Máquinas Virtuais do Azure para SAP](deployment-guide.md)
-- [Implantação do DBMS de Máquinas Virtuais do Azure para SAP](dbms-guide.md)
+- [Implantação do DBMS de Máquinas Virtuais do Azure para SAP](./dbms_guide_general.md)

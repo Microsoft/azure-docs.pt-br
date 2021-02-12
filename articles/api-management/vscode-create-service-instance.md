@@ -7,12 +7,12 @@ author: vladvino
 ms.author: apimpm
 ms.topic: quickstart
 ms.date: 09/14/2020
-ms.openlocfilehash: 19080679291b88b693c95bd71f8ddc0e59286356
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: fdf7e842959e09a8ec35017031f745cb16d13c6d
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057301"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400396"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-using-visual-studio-code"></a>'Início Rápido: Criar uma instância de serviço do Gerenciamento de API do Azure usando o Visual Studio Code
 
@@ -55,7 +55,7 @@ Uma nova instância de Gerenciamento de API (e grupo de recursos pai) será cria
 >
 > Embora o SKU de *Consumo* leve menos de um minuto para ser provisionado, outros SKUs geralmente demoram de 30 a 40 minutos para serem criados.
 
-Neste ponto, você está pronto para importar e publicar sua primeira API. Você pode fazer isso e também executar operações comuns de Gerenciamento de API dentro da extensão para Visual Studio Code. Confira a documentação [Extensão do Gerenciamento de API do Azure para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview) para saber mais.
+Neste ponto, você está pronto para importar e publicar sua primeira API. Você pode fazer isso e também executar operações comuns de Gerenciamento de API dentro da extensão para Visual Studio Code. Confira [o tutorial](visual-studio-code-tutorial.md) para obter mais informações.
 
 ![Instância de Gerenciamento de API recém-criada no painel de extensão do Gerenciamento de API do VS Code](./media/vscode-create-service-instance/vscode-apim-instance.png)
 
@@ -70,4 +70,4 @@ Como alternativa, você pode selecionar **Excluir o Gerenciamento de API** para 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Importar e publicar sua primeira API](import-and-publish.md)
+> [Importar e gerenciar APIs usando a extensão de Gerenciamento de API](visual-studio-code-tutorial.md)

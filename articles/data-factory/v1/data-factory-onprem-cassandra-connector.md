@@ -13,11 +13,11 @@ ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 0f96680f1ea91434c84d6606e3637c68c1cb5a84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80991494"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019626"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Mover dados de um banco de dados Cassandra local usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -48,7 +48,7 @@ Quando você instala o gateway, ele instala automaticamente um driver ODBC do Mi
 Você pode criar um pipeline com atividade de cópia que mova dados de um armazenamento de dados local Cassandra usando diferentes ferramentas/APIs.
 
 - A maneira mais fácil de criar um pipeline é usar o **Assistente de cópia**. Confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
-- Você também pode usar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo de Azure Resource Manager**, **API .net**e **API REST**. Confira o [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções detalhadas para criar um pipeline com uma atividade de cópia.
+- Você também pode usar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo de Azure Resource Manager**, **API .net** e **API REST**. Confira o [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções detalhadas para criar um pipeline com uma atividade de cópia.
 
 Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
@@ -71,8 +71,8 @@ A tabela a seguir fornece a descrição de elementos JSON específicos para o se
 | authenticationType |Básica, ou Anônima |Sim |
 | Nome de Usuário |Especifique o nome de usuário da conta de usuário. |Sim, se authenticationType for definida como Básica. |
 | password |Especifique a senha para a conta de usuário. |Sim, se authenticationType for definida como Básica. |
-| gatewayName |O nome do gateway que é usado para se conectar ao servidor Cassandra local. |Sim |
-| encryptedCredential |Credencial criptografada pelo gateway. |Não |
+| gatewayName |O nome do gateway que é usado para se conectar ao servidor Cassandra local. |Yes |
+| encryptedCredential |Credencial criptografada pelo gateway. |No |
 
 >[!NOTE]
 >Atualmente, a conexão a Cassandra usando TLS não é suportada.
@@ -264,9 +264,9 @@ Confira [Propriedades do tipo RelationalSource](#copy-activity-properties) para 
 | ASCII |String |
 | bigint |Int64 |
 | BLOB |Byte[] |
-| BOOLEAN |Booliano |
+| BOOLEAN |Boolean |
 | DECIMAL |Decimal |
-| DOUBLE |Double |
+| DOUBLE |Duplo |
 | FLOAT |Single |
 | INET |String |
 | INT |Int32 |
@@ -339,7 +339,7 @@ As tabelas a seguir mostram as tabelas virtuais que normalizam novamente os dado
 | 1 |Um |
 | 1 |B |
 | 1 |C |
-| 3 |Um |
+| 3 |A |
 | 3 |E |
 
 ## <a name="map-source-to-sink-columns"></a>Mapear origem para colunas de coletor

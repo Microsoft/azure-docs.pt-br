@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: e41fa9f9918f4f17bd89e80610ae608e83eb3402
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 1892afde42ccbcf1c28b7d6a757875772ee3ac5d
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996392"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905597"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Monitoramento contínuo com o Azure Monitor
 
@@ -28,7 +28,7 @@ Para ganhar capacidade de observação em todo o ambiente, você precisa ativar 
 - O [Azure DevOps Projects](../devops-project/overview.md) oferece uma experiência simplificada com seu código e repositório Git existentes ou escolhe um dos aplicativos de exemplo para criar um pipeline de CI (integração contínua) e CD (entrega contínua) para o Azure.
 - [O monitoramento contínuo do pipeline de lançamento do DevOps](./app/continuous-monitoring.md) permite que você bloqueie ou remova a implantação com base em dados de monitoramento.
 - O [Status Monitor](./app/monitor-performance-live-website-now.md) permite que você instrumentalize um aplicativo .NET ativo no Windows com o Azure Application Insights, sem precisar modificar ou reimplantar o código.
-- Se você tiver acesso ao código do aplicativo, ative o monitoramento completo com o [Application Insights](./app/app-insights-overview.md) instalando o SDK do Azure Monitor Application Insights para [.NET](./learn/quick-monitor-portal.md), [Java](./app/java-get-started.md), [Node.js](./learn/nodejs-quick-start.md) ou [outras linguagens de programação](./app/platforms.md). Isso permite que você especifique eventos personalizados, métricas ou exibições de página relevantes para o aplicativo e a empresa.
+- Se você tiver acesso ao código para seu aplicativo, habilite o monitoramento completo com [Application insights](./app/app-insights-overview.md) instalando o SDK do Application Insights do Azure monitor para [.net](./app/asp-net.md), [.net Core](./app/asp-net-core.md), [Java](./app/java-get-started.md), [Node.js](./learn/nodejs-quick-start.md)ou [qualquer outra linguagem de programação](./app/platforms.md). Isso permite que você especifique eventos personalizados, métricas ou exibições de página relevantes para o aplicativo e a empresa.
 
 
 

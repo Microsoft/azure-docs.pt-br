@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: dd73dc69fc2d40a0b4c24739dca6ad8174ad1047
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30c5c5be89f8a318de8690430d4d248817961fc2
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595829"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360302"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>Criar um gateway de aplicativo que hospede múltiplos websites usando Azure PowerShell
 
@@ -127,7 +127,7 @@ Crie o primeiro ouvinte usando [New-AzApplicationGatewayHttpListener](/powershel
 
 >[!NOTE]
 > Com a SKU do gateway de aplicativo ou do WAF v2, você também pode configurar até 5 nomes de host por ouvinte e pode usar caracteres curinga no nome do host. Consulte [nomes de host curinga no ouvinte](multiple-site-overview.md#wildcard-host-names-in-listener-preview) para obter mais informações.
->Para usar vários nomes de host e caracteres curinga em um ouvinte usando Azure PowerShell, você deve usar `-HostNames` em vez de `-HostName` . Com os nomes de host, você pode mencionar até 5 nome de host como valores separados por vírgulas. Por exemplo, `-HostNames "*.contoso.com,*.fabrikam.com"`
+>Para usar vários nomes de host e caracteres curinga em um ouvinte usando Azure PowerShell, você deve usar `-HostNames` em vez de `-HostName` . Com os nomes de host, você pode mencionar até 5 nome de host como valores separados por vírgulas. Por exemplo, `-HostNames "*.contoso.com","*.fabrikam.com"`
 
 ```azurepowershell-interactive
 $contosolistener = New-AzApplicationGatewayHttpListener `
@@ -185,7 +185,7 @@ $appgw = New-AzApplicationGateway `
 
 ## <a name="create-virtual-machine-scale-sets"></a>Criar conjuntos de dimensionamento de máquinas virtuais
 
-Neste exemplo, você cria dois conjuntos de dimensionamento de máquinas virtuais que oferecem suporte a dois pools de back-end que você criou. Os conjuntos de dimensionamento que você cria são denominados *myvmss1*, e *myvmss2*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual no qual você instala o IIS. Você atribui o conjunto de dimensionamento para o pool de back-end quando define as configurações de IP.
+Neste exemplo, você cria dois conjuntos de dimensionamento de máquinas virtuais que oferecem suporte a dois pools de back-end que você criou. Os conjuntos de dimensionamento que você cria são denominados *myvmss1* , e *myvmss2*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual no qual você instala o IIS. Você atribui o conjunto de dimensionamento para o pool de back-end quando define as configurações de IP.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `

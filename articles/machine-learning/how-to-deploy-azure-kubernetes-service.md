@@ -6,26 +6,25 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, contperfq1, deploy
+ms.custom: how-to, contperf-fy21q1, deploy
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: 50f8768aec12b8bda8d9d489462a8f61e8d83c18
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 7ba01139e365b2f0023ef0784b6ed83e7bde609a
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999180"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831713"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implantar um modelo em um cluster do serviço kubernetes do Azure
-
 
 Saiba como usar Azure Machine Learning para implantar um modelo como um serviço Web no AKS (serviço kubernetes do Azure). O serviço kubernetes do Azure é bom para implantações de produção de grande escala. Use o serviço kubernetes do Azure se você precisar de um ou mais dos seguintes recursos:
 
 - __Tempo de resposta rápido__
 - __Dimensionamento__ automático do serviço implantado
-- __Logging__
+- __Registro em log__
 - __Coleta de dados de modelo__
 - __Autenticação__
 - __Encerramento de TLS__
@@ -34,7 +33,7 @@ Saiba como usar Azure Machine Learning para implantar um modelo como um serviço
 Ao implantar no serviço kubernetes do Azure, você implanta em um cluster AKS que está __conectado ao seu espaço de trabalho__. Para obter informações sobre como conectar um cluster AKS ao seu espaço de trabalho, consulte [criar e anexar um cluster do serviço kubernetes do Azure](how-to-create-attach-kubernetes.md).
 
 > [!IMPORTANT]
-> Recomendamos que você depure localmente antes de implantar no serviço Web. Para obter mais informações, consulte [depurar localmente](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
+> Recomendamos que você depure localmente antes de implantar no serviço Web. Para obter mais informações, consulte [depurar localmente](./how-to-troubleshoot-deployment-local.md)
 >
 > Você também pode ver o Azure Machine Learning - [Implantar no notebook local](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
@@ -44,7 +43,7 @@ Ao implantar no serviço kubernetes do Azure, você implanta em um cluster AKS q
 
 - Um modelo de aprendizado de máquina registrado em seu espaço de trabalho. Se você não tiver um modelo registrado, consulte [como e onde implantar modelos](how-to-deploy-and-where.md).
 
-- A [extensão CLI do Azure para o serviço Machine Learning](reference-azure-machine-learning-cli.md), o [SDK do Azure Machine Learning Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)ou a [extensão Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
+- A [extensão CLI do Azure para o serviço Machine Learning](reference-azure-machine-learning-cli.md), o [SDK do Azure Machine Learning Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)ou a [extensão Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
 
 - Os trechos de código __Python__ neste artigo pressupõem que as seguintes variáveis sejam definidas:
 
@@ -71,8 +70,8 @@ No Azure Machine Learning, a "implantação" é usada no sentido mais geral de d
 1. Criando ou baixando o dockerfile para o nó de computação (relacionado ao kubernetes)
     1. O sistema calcula um hash de: 
         - A imagem base 
-        - Etapas personalizadas do Docker (consulte [implantar um modelo usando uma imagem de base do Docker personalizada](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image))
-        - A definição de Conda YAML (consulte [criar & usar ambientes de software em Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments))
+        - Etapas personalizadas do Docker (consulte [implantar um modelo usando uma imagem de base do Docker personalizada](./how-to-deploy-custom-docker-image.md))
+        - A definição de Conda YAML (consulte [criar & usar ambientes de software em Azure Machine Learning](./how-to-use-environments.md))
     1. O sistema usa esse hash como a chave em uma pesquisa do ACR (registro de contêiner do Azure) do espaço de trabalho
     1. Se não for encontrado, ele procurará uma correspondência no ACR global
     1. Se não for encontrado, o sistema criará uma nova imagem (que será armazenada em cache e enviada por push para o ACR do espaço de trabalho)
@@ -92,6 +91,55 @@ O componente de front-end (azureml-FE) que roteia as solicitações de inferênc
 O Azureml-Fe é dimensionado verticalmente para usar mais núcleos e out (horizontalmente) para usar mais pods. Ao tomar a decisão de escalar verticalmente, o tempo necessário para rotear solicitações de inferência de entrada é usado. Se esse tempo exceder o limite, ocorrerá uma escala vertical. Se o tempo para rotear solicitações de entrada continuar a exceder o limite, ocorrerá uma escala horizontal.
 
 Ao escalar verticalmente e horizontalmente, o uso da CPU é usado. Se o limite de uso da CPU for atingido, o front-end será reduzido primeiro. Se o uso da CPU cair para o limite de redução, ocorrerá uma operação de redução horizontal. Escalar verticalmente só ocorrerá se houver recursos de cluster suficientes disponíveis.
+
+## <a name="understand-connectivity-requirements-for-aks-inferencing-cluster"></a>Entender os requisitos de conectividade para o cluster AKS inferência
+
+Quando Azure Machine Learning cria ou anexa um cluster AKS, o cluster AKS é implantado com um dos dois modelos de rede a seguir:
+* Rede Kubenet – os recursos de rede normalmente são criados e configurados à medida que o cluster AKS é implantado.
+* Rede da CNI (Interface de rede de contêiner) do Azure – o cluster AKS é conectado a recursos e configurações de rede virtual existentes.
+
+Para o primeiro modo de rede, a rede é criada e configurada corretamente para Azure Machine Learning serviço. Para o segundo modo de rede, como o cluster está conectado à rede virtual existente, especialmente quando o DNS personalizado é usado para a rede virtual existente, o cliente precisa prestar atenção extra aos requisitos de conectividade para o cluster AKS inferência e garantir a resolução de DNS e a conectividade de saída para AKS inferência.
+
+O diagrama a seguir captura todos os requisitos de conectividade para AKS inferência. As setas pretas representam a comunicação real e as setas azuis representam os nomes de domínio, que o DNS controlado pelo cliente deve resolver.
+
+ ![Requisitos de conectividade para AKS inferência](./media/how-to-deploy-aks/aks-network.png)
+
+### <a name="overall-dns-resolution-requirements"></a>Requisitos gerais de resolução de DNS
+A resolução DNS na VNET existente está sob o controle do cliente. As seguintes entradas DNS devem ser resolvidas:
+* Servidor de API AKS na forma de \<cluster\> . HCP. \<region\> . azmk8s.io
+* MCR (registro de contêiner da Microsoft): mcr.microsoft.com
+* O registro de contêiner do Azure do cliente (ARC) na forma de \<ACR name\> . azurecr.Io
+* Conta de armazenamento do Azure na forma de \<account\> . Table.Core.Windows.net e \<account\> . blob.Core.Windows.net
+* Adicional Para autenticação do AAD: api.azureml.ms
+* Nome de domínio do ponto de extremidade de pontuação, gerado automaticamente pelo Azure ML ou nome de domínio personalizado. O nome de domínio gerado automaticamente teria a seguinte aparência: \<leaf-domain-label \+ auto-generated suffix\> . \<region\> . cloudapp.azure.com
+
+### <a name="connectivity-requirements-in-chronological-order-from-cluster-creation-to-model-deployment"></a>Requisitos de conectividade em ordem cronológica: da criação do cluster para a implantação de modelo
+
+No processo de criação ou anexação de AKS, o roteador am do Azure (azureml-FE) é implantado no cluster AKS. Para implantar o roteador do Azure ML, o nó AKS deve ser capaz de:
+* Resolver o DNS para o servidor de API AKS
+* Resolver o DNS para MCR a fim de baixar imagens do Docker para o roteador do Azure ML
+* Baixar imagens do MCR, onde a conectividade de saída é necessária
+
+Logo após o azureml-FE ser implantado, ele tentará iniciar e isso exigirá:
+* Resolver o DNS para o servidor de API AKS
+* Consultar o servidor de API do AKS para descobrir outras instâncias de si mesmo (é um serviço multipod)
+* Conectar-se a outras instâncias de si mesmo
+
+Depois que o azureml-FE for iniciado, ele exigirá conectividade adicional para funcionar corretamente:
+* Conectar-se ao armazenamento do Azure para baixar a configuração dinâmica
+* Resolva o DNS para o servidor de autenticação do AAD api.azureml.ms e comunique-se com ele quando o serviço implantado usar a autenticação do AAD.
+* Consultar o servidor de API do AKS para descobrir modelos implantados
+* Comunicar-se com o PODs do modelo implantado
+
+No momento da implantação do modelo, para um nó AKS de implantação de modelo bem-sucedido deve ser capaz de: 
+* Resolver o DNS para o ACR do cliente
+* Baixar imagens do ACR do cliente
+* Resolver o DNS para BLOBs do Azure em que o modelo é armazenado
+* Baixar modelos de BLOBs do Azure
+
+Depois que o modelo for implantado e o serviço for iniciado, o azureml-FE o descobrirá automaticamente usando a API do AKS e estará pronto para rotear a solicitação para ele. Ele deve ser capaz de se comunicar com os PODs de modelo.
+>[!Note]
+>Se o modelo implantado exigir conectividade (por exemplo, consultar o banco de dados externo ou outro serviço REST, baixar um BLOG, etc.), a resolução de DNS e a comunicação de saída para esses serviços deverão ser habilitadas.
 
 ## <a name="deploy-to-aks"></a>Implantar no AKS
 
@@ -121,10 +169,10 @@ print(service.get_logs())
 
 Para obter mais informações sobre as classes, os métodos e os parâmetros usados neste exemplo, consulte os seguintes documentos de referência:
 
-* [AksCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute?view=azure-ml-py&preserve-view=true)
-* [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py&preserve-view=true)
-* [Modelo. implantar](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
-* [Webservice.wait_for_deployment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truewait-for-deployment-show-output-false-)
+* [AksCompute](/python/api/azureml-core/azureml.core.compute.aks.akscompute?preserve-view=true&view=azure-ml-py)
+* [AksWebservice.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?preserve-view=true&view=azure-ml-py)
+* [Modelo. implantar](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
+* [Webservice.wait_for_deployment](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truewait-for-deployment-show-output-false-)
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -136,7 +184,7 @@ az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json 
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aks-deploy-config.md)]
 
-Para obter mais informações, consulte a referência de [implantação do modelo AZ ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-model-deploy) .
+Para obter mais informações, consulte a referência de [implantação do modelo AZ ml](/cli/azure/ext/azure-cli-ml/ml/model?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) .
 
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -154,7 +202,7 @@ O componente que lida com o dimensionamento automático para implantações de m
 > [!IMPORTANT]
 > * **Não habilite o kubernetes horizontal Pod AutoScaler (hPa) para implantações de modelo**. Fazer isso faria com que os dois componentes de dimensionamento automático concorram uns com os outros. O Azureml-FE foi projetado para dimensionar automaticamente os modelos implantados pelo Azure ML, em que HPA teria de adivinhar ou de utilização de modelo aproximada de uma métrica genérica, como o uso da CPU ou uma configuração de métrica personalizada.
 > 
-> * **O Azureml-FE não dimensiona o número de nós em um cluster AKs**, pois isso pode levar a aumentos de custos inesperados. Em vez disso, **ele dimensiona o número de réplicas para o modelo** dentro dos limites do cluster físico. Se você precisar dimensionar o número de nós dentro do cluster, poderá dimensionar manualmente o cluster ou [Configurar o dimensionamento automática do cluster AKs](/azure/aks/cluster-autoscaler).
+> * **O Azureml-FE não dimensiona o número de nós em um cluster AKs**, pois isso pode levar a aumentos de custos inesperados. Em vez disso, **ele dimensiona o número de réplicas para o modelo** dentro dos limites do cluster físico. Se você precisar dimensionar o número de nós dentro do cluster, poderá dimensionar manualmente o cluster ou [Configurar o dimensionamento automática do cluster AKs](../aks/cluster-autoscaler.md).
 
 O dimensionamento automático pode ser controlado por configuração `autoscale_target_utilization` , `autoscale_min_replicas` e `autoscale_max_replicas` para o serviço Web AKs. O exemplo a seguir demonstra como habilitar o dimensionamento automático:
 
@@ -188,7 +236,7 @@ concurrentRequests = targetRps * reqTime / targetUtilization
 replicas = ceil(concurrentRequests / maxReqPerContainer)
 ```
 
-Para obter mais informações sobre `autoscale_target_utilization` a configuração, `autoscale_max_replicas` e `autoscale_min_replicas` , consulte a referência do módulo [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py&preserve-view=true) .
+Para obter mais informações sobre `autoscale_target_utilization` a configuração, `autoscale_max_replicas` e `autoscale_min_replicas` , consulte a referência do módulo [AksWebservice](/python/api/azureml-core/azureml.core.webservice.akswebservice?preserve-view=true&view=azure-ml-py) .
 
 ## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Implantar modelos no AKS usando a distribuição controlada (versão prévia)
 
@@ -221,7 +269,7 @@ from azureml.core.compute import AksCompute
 from azureml.core.compute import ComputeTarget
 # select a created compute
 compute = ComputeTarget(ws, 'myaks')
-namespace_name= endpointnamespace
+
 # define the endpoint and version name
 endpoint_name = "mynewendpoint"
 version_name= "versiona"
@@ -302,7 +350,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Se você precisar regenerar uma chave, use [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true)
+> Se você precisar regenerar uma chave, use [`service.regen_key`](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py)
 
 ### <a name="authentication-with-tokens"></a>Autenticação com tokens
 
@@ -324,15 +372,16 @@ print(token)
 >
 > A Microsoft recomenda enfaticamente que você crie seu espaço de trabalho Azure Machine Learning na mesma região que o cluster do serviço kubernetes do Azure. Para autenticar com um token, o serviço Web fará uma chamada para a região em que o workspace do Azure Machine Learning foi criado. Se a região do seu espaço de trabalho estiver indisponível, você não poderá buscar um token para o serviço Web mesmo que o cluster esteja em uma região diferente do seu espaço de trabalho. Isso efetivamente resulta na indisponibilidade da autenticação baseada em token até que a região do seu espaço de trabalho esteja disponível novamente. Além disso, quanto maior a distância entre a região do cluster e a região do seu espaço de trabalho, mais tempo será levado para buscar um token.
 >
-> Para recuperar um token, você deve usar o SDK do Azure Machine Learning ou o comando [AZ ml Service Get-Access-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-service-get-access-token) .
+> Para recuperar um token, você deve usar o SDK do Azure Machine Learning ou o comando [AZ ml Service Get-Access-token](/cli/azure/ext/azure-cli-ml/ml/service?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-get-access-token) .
 
 
 ### <a name="vulnerability-scanning"></a>Verificação de vulnerabilidade
 
-A Central de Segurança do Azure fornece um gerenciamento de segurança unificado e proteção avançada contra ameaças nas cargas de trabalho de nuvem híbrida. Você deve permitir que a central de segurança do Azure verifique seus recursos e siga suas recomendações. Para obter mais informações, consulte [integração dos serviços Kubernetess do Azure com a central de segurança](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration).
+A Central de Segurança do Azure fornece um gerenciamento de segurança unificado e proteção avançada contra ameaças nas cargas de trabalho de nuvem híbrida. Você deve permitir que a central de segurança do Azure verifique seus recursos e siga suas recomendações. Para obter mais informações, consulte [integração dos serviços Kubernetess do Azure com a central de segurança](../security-center/defender-for-kubernetes-introduction.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
+* [Usar o RBAC do Azure para autorização kubernetes](../aks/manage-azure-rbac.md)
 * [Proteger o ambiente inferência com a rede virtual do Azure](how-to-secure-inferencing-vnet.md)
 * [Como implantar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)
 * [Solução de problemas de implantação](how-to-troubleshoot-deployment.md)

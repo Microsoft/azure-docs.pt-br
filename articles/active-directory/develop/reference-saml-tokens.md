@@ -13,12 +13,12 @@ ms.date: 09/09/2020
 ms.author: kenwith
 ms.reviewer: paulgarn
 ms.custom: aaddev
-ms.openlocfilehash: 6dda32bb2bab4123ede0133b31625c499380fd59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c3132985866a4c245984ef632107c05ca1b3350
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705700"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348375"
 ---
 # <a name="saml-token-claims-reference"></a>Referência de declarações de token SAML
 
@@ -33,7 +33,7 @@ A plataforma de identidade da Microsoft emite vários tipos de tokens de seguran
 > | Instante da autenticação | |Registra a data e o horário em que ocorreu a autenticação. | `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` |
 > |Método de autenticação | `amr` |Identifica como o assunto do token foi autenticado. | `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` |
 > |Nome | `given_name` |Fornece o nome ou nome “determinado” do usuário, como definido no objeto de usuário do Azure AD. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname">`<br>`<AttributeValue>Frank<AttributeValue>`  |
-> |Grupos | `groups` |Fornece IDs de objetos que representam as associações de grupo do assunto. Esses valores são exclusivos (consulte a ID de objeto) e podem ser usados com segurança para gerenciar o acesso, como a imposição da autorização para acessar um recurso. Os grupos incluídos na declaração grupos são configurados por aplicativo, por meio da propriedade "groupMembershipClaims" do manifesto do aplicativo. Um valor de NULL excluirá todos os grupos, um valor de "grupo de segurança" incluirá apenas Active Directory associações de grupos de segurança, e um valor de "All" incluirá os grupos de segurança e as listas de distribuição de Microsoft 365. <br><br> **Observações**: <br> Se o número de grupos a que o usuário pertence ultrapassar determinado limite (150 para SAML, 200 para JWT), será adicionada uma declaração excedente às fontes de declaração que apontam para o ponto de extremidade do Graph que contém a lista de grupos do usuário. (em . | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` |
+> |Grupos | `groups` |Fornece IDs de objetos que representam as associações de grupo do assunto. Esses valores são exclusivos (consulte a ID de objeto) e podem ser usados com segurança para gerenciar o acesso, como a imposição da autorização para acessar um recurso. Os grupos incluídos na declaração grupos são configurados por aplicativo, por meio da propriedade "groupMembershipClaims" do manifesto do aplicativo. Um valor de NULL excluirá todos os grupos, um valor de "grupo de segurança" incluirá apenas Active Directory associações de grupos de segurança, e um valor de "All" incluirá os grupos de segurança e as listas de distribuição de Microsoft 365. <br><br> **Observações**: <br> Se o número de grupos a que o usuário pertence ultrapassar determinado limite (150 para SAML, 200 para JWT), será adicionada uma declaração excedente às fontes de declaração que apontam para o ponto de extremidade do Graph que contém a lista de grupos do usuário. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` |
 > | Indicador de excedente de grupos | `groups:src1` | Para solicitações de token que não são limitadas por comprimento, mas que ainda são muito grandes para o token, um link para a lista de grupos completos do usuário será incluído. Para o SAML, isso é adicionado como uma nova declaração no lugar da declaração `groups`. | `<Attribute Name=" http://schemas.microsoft.com/claims/groups.link">`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` |
 > |Provedor de identidade | `idp` |Registra o provedor de identidade que autenticou a entidade do token. Esse valor é idêntico ao valor da declaração Emissor, a menos que a conta de usuário esteja em um locatário diferente que o emissor. | `<Attribute Name=" http://schemas.microsoft.com/identity/claims/identityprovider">`<br>`<AttributeValue>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/<AttributeValue>` |
 > |IssuedAt | `iat` |Armazena a hora em que o token foi emitido. Ela geralmente é usada para mensurar o quanto o token é recente. | `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` |

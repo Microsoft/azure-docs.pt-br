@@ -3,17 +3,16 @@ title: Redimensionar um cluster do Azure Stream Analytics
 description: Saiba como aumentar ou diminuir o tamanho de um cluster do Azure Stream Analytics.
 author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: 0763e56de6c72a36d39b17d153db6fc4d7dd821a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e469e9bfd13bf8d89084b66e954cb51b27c2ebc2
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90943320"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020019"
 ---
 # <a name="resize-an-azure-stream-analytics-cluster"></a>Redimensionar um cluster do Azure Stream Analytics
 

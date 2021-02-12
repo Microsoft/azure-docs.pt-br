@@ -3,12 +3,12 @@ title: Exclusão completa de modo
 description: Mostra como os tipos de recurso lidam com a exclusão de modo completo em modelos do Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: b1f7623d6eee1ff629412a4cc0d76e59e6c9e847
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e0c67bfcda81ad128e0018c4ab37c4b0cbe680f0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370117"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184018"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Exclusão de recursos do Azure para implantações do modo completo
 
@@ -18,7 +18,7 @@ Os tipos de recurso marcados com **Sim** são excluídos quando o tipo não est�
 
 Os tipos de recurso marcados **sem não são excluídos** automaticamente quando não estão no modelo; no entanto, elas serão excluídas se o recurso pai for excluído. Para obter uma descrição completa do comportamento, consulte [Modos de implantação do Azure Resource Manager](deployment-modes.md).
 
-Se você implantar em [mais de um grupo de recursos em um modelo](cross-scope-deployment.md), os recursos no grupo de recursos especificado na operação de implantação poderão ser excluídos. Os recursos nos grupos de recursos secundários não são excluídos.
+Se você implantar em [mais de um grupo de recursos em um modelo](./deploy-to-resource-group.md), os recursos no grupo de recursos especificado na operação de implantação poderão ser excluídos. Os recursos nos grupos de recursos secundários não são excluídos.
 
 Os recursos são listados pelo namespace do provedor de recursos. Para corresponder a um namespace de provedor de recursos com seu nome de serviço do Azure, consulte [provedores de recursos para serviços do Azure](../management/azure-services-resource-providers.md).
 
@@ -2007,7 +2007,7 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Exclusão completa de modo |
 > | ------------- | ----------- |
 > | nuvens | Sim |
-> | VirtualMachines | Sim |
+> | Máquinas Virtuais | Sim |
 > | VirtualMachineTemplates | Sim |
 > | VirtualNetworks | Sim |
 > | vmmservers | Sim |
@@ -2392,7 +2392,7 @@ Pule para um namespace de provedor de recursos:
 > | ArcZones | Sim |
 > | ResourcePools | Sim |
 > | VCenters | Sim |
-> | VirtualMachines | Sim |
+> | Máquinas Virtuais | Sim |
 > | VirtualMachineTemplates | Sim |
 > | VirtualNetworks | Sim |
 

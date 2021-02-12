@@ -8,11 +8,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 543050bc899c257c4ad5e0d0c399a1de6f0f58f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86220568"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005191"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Como criar um Ambiente do Serviço de Aplicativo v1 
 
@@ -36,7 +36,7 @@ O Ambiente de Serviço de Aplicativo (ASE) é uma opção de serviço Premium do
 Ao escolher uma rede virtual e especificar uma sub-rede, verifique se ela é grande o suficiente para acomodar qualquer crescimento futuro. 
 
 ### <a name="creating-an-app-service-environment-v1"></a>Criando um Ambiente do Serviço de Aplicativo v1
-Para criar um Ambiente do Serviço de Aplicativo v1, você pode pesquisar no Microsoft Azure Marketplace para o ***Ambiente do serviço da aplicação v1*** ou acessar **Criar um recurso** -> **Web + Celular** -> **Ambiente do Serviço de Aplicativo**. Para criar um ASEv1:
+Para criar um ambiente do serviço de aplicativo v1, você pode pesquisar o Azure Marketplace para ***ambiente do serviço de aplicativo v1** _ ou passar por _ *criar um recurso**-> **Web + celular**  ->  **ambiente do serviço de aplicativo**. Para criar um ASEv1:
 
 1. Forneça o nome do seu ASE. O nome que você especificou para o ASE será usado para os aplicativos criados no ASE. Se o nome do ASE fosse appsvcenvdemo, o nome do subdomínio seria: *appsvcenvdemo.p.azurewebsites.net*. Se você tivesse criado um aplicativo nomeado *mytestapp*, ele seria endereçável em *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Você não pode usar espaços em branco no nome do ASE. Se você usar letras maiúsculas entre os caracteres do nome, o nome de domínio será a versão total em letras minúsculas desse nome. Se você usa um ILB, seu nome ASE não é usado em seu subdomínio, mas é declarado explicitamente durante a criação do ASE.
    

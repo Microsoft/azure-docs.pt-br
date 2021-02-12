@@ -8,12 +8,12 @@ ms.reviewer: jamesbak
 ms.date: 09/09/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: ae92828f08ae4abf9cc28f18872cca27ce747be4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc1d217dba64c36aa219abbd4d2220a494347689
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657642"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912749"
 ---
 # <a name="azure-data-lake-storage-query-acceleration"></a>Aceleração de consulta Azure Data Lake Storage
 
@@ -50,7 +50,7 @@ O diagrama a seguir ilustra como um aplicativo típico usa a aceleração de con
 
 A aceleração de consulta otimiza o desempenho, reduzindo a quantidade de dados que são transferidos e processados pelo seu aplicativo.
 
-Para calcular um valor agregado, os aplicativos normalmente recuperam **todos** os dados de um arquivo e, em seguida, processam e filtram os dados localmente. Uma análise dos padrões de entrada/saída para cargas de trabalho de análise revela que os aplicativos normalmente exigem apenas 20% dos dados que eles lêem para executar qualquer cálculo específico. Essa estatística é verdadeira mesmo após a aplicação de técnicas, como a [remoção de partição](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-optimize-hive-query#hive-partitioning). Isso significa que 80% desses dados são desnecessariamente transferidos pela rede, analisados e filtrados por aplicativos. Esse padrão, essencialmente projetado para remover dados desnecessários, incorre em um custo de computação significativo.  
+Para calcular um valor agregado, os aplicativos normalmente recuperam **todos** os dados de um arquivo e, em seguida, processam e filtram os dados localmente. Uma análise dos padrões de entrada/saída para cargas de trabalho de análise revela que os aplicativos normalmente exigem apenas 20% dos dados que eles lêem para executar qualquer cálculo específico. Essa estatística é verdadeira mesmo após a aplicação de técnicas, como a [remoção de partição](../../hdinsight/hdinsight-hadoop-optimize-hive-query.md#hive-partitioning). Isso significa que 80% desses dados são desnecessariamente transferidos pela rede, analisados e filtrados por aplicativos. Esse padrão, essencialmente projetado para remover dados desnecessários, incorre em um custo de computação significativo.  
 
 Embora o Azure retenha uma rede líder do setor, em termos de taxa de transferência e latência, a transferência desnecessária de dados pela rede ainda é dispendiosa para o desempenho do aplicativo. Ao filtrar os dados indesejados durante a solicitação de armazenamento, a aceleração de consulta elimina esse custo.
 
@@ -76,5 +76,3 @@ Apesar da alteração no modelo de cobrança, o modelo de preços da aceleraçã
 
 - [Filtrar dados usando a aceleração de consulta Azure Data Lake Storage](data-lake-storage-query-acceleration-how-to.md)
 - [Referência da linguagem SQL de aceleração de consulta](query-acceleration-sql-reference.md)
-
-

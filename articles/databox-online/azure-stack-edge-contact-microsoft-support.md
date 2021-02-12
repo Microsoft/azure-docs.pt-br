@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/11/2019
+ms.date: 01/07/2021
 ms.author: alkohli
-ms.openlocfilehash: dbdd4c7d23f56618c0e76649abe4faad86c5804c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 411757f4ef4e33ccbc8a69ca2b40598b51c6d13b
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743294"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790826"
 ---
 # <a name="open-a-support-ticket-for-azure-stack-edge-pro-and-azure-data-box-gateway"></a>Abra um tíquete de suporte para Azure Stack Edge pro e Gateway do Azure Data Box
 
@@ -34,7 +34,7 @@ Execute as seguintes etapas para criar uma solicitação de suporte:
     2. Escolha sua **Assinatura**.
     3. Em **Serviço**, verifique **Meus serviços**. Na lista suspensa, selecione **Azure Stack Edge pro e gateway do data Box**.
     4. Selecione seu **recurso**. Isso corresponde ao nome do seu pedido.
-    5. Escreva um breve **Resumo** do problema que você está enfrentando. 
+    5. Dê um breve **Resumo** do problema que você está enfrentando. 
     6. Selecione o **tipo de problema**.
     7. Com base no tipo de problema que você selecionou, escolha um **Subtipo de problema** correspondente.
     8. Selecione **Avançar: Soluções >>** .
@@ -51,7 +51,7 @@ Execute as seguintes etapas para criar uma solicitação de suporte:
     6. Na lista suspensa, selecione **Severidade**.
     7. Especifique um **Método de contato preferencial**.
     8. O **Tempo de resposta** é selecionado automaticamente com base em seu plano de assinatura.
-    9. Informe o idioma da sua preferência para o suporte.
+    9. Forneça o idioma de sua preferência para o suporte.
     10. Nas **Informações de contato**, informe seu nome, email, telefone, contato opcional e país/região. O Suporte da Microsoft usará essas informações para entrar em contato com você para obter mais informações, diagnóstico e resolução. 
     11. Selecione **Avançar: Revisar + Criar >>** .
 
@@ -61,7 +61,7 @@ Execute as seguintes etapas para criar uma solicitação de suporte:
 
     ![Problema 2](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-3.png)
 
-    Depois que criar um tíquete de suporte, um engenheiro de suporte entrará em contato com você assim que possível para prosseguir com sua solicitação.
+    Depois de criar o tíquete de suporte, um engenheiro de suporte entrará em contato com você assim que possível para prosseguir com sua solicitação.
 
 ## <a name="get-hardware-support"></a>Obter suporte para hardware
 
@@ -73,12 +73,12 @@ Essas informações se aplicam somente ao dispositivo do Azure Stack. O processo
 
     Depois que criar um tíquete de suporte, um engenheiro de suporte entrará em contato com você assim que possível para prosseguir com sua solicitação.
 
-2. Se o Suporte da Microsoft determinar que esse é um problema de hardware, uma das seguintes ações ocorrerá:
+2. Se Suporte da Microsoft determinar que esse é um problema de hardware, uma das seguintes ações ocorrerá:
 
-    * Uma FRU (unidade de substituição de campo) para a peça do hardware com falha é enviada. Atualmente, as unidades de fonte de alimentação e discos rígidos são as únicas FRUs com suporte.
+    * Uma FRU (unidade de substituição de campo) para a peça do hardware com falha é enviada. Atualmente, as unidades de fonte de alimentação e unidades de estado sólido são as únicas FRUs com suporte.
     * Somente as FRUs são substituídas no próximo dia útil. Todo o resto exige o envio de uma FSR (substituição completa do sistema).
 
-3. Se um tíquete de suporte for gerado antes das 16:30 no hora local (de segunda a sexta), um técnico local será enviado no próximo dia útil para o seu local para executar uma substituição completa do dispositivo ou de FRU.
+3. Se for determinado que uma substituição de FRU é necessária em um horário local de 1 hora (de segunda-feira a sexta-feira), um técnico no local será expedido no próximo dia útil para o seu local para executar uma substituição de FRU. Normalmente, uma substituição completa do sistema levará muito mais tempo porque as peças são enviadas de nossa fábrica e podem estar sujeitas a atrasos de transporte e alfandegário.
 
 ## <a name="manage-a-support-request"></a>Gerenciar uma solicitação de suporte
 
@@ -99,4 +99,4 @@ Depois de criar um tíquete de suporte, você pode gerenciar o ciclo de vida do 
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba como [solucionar problemas relacionados ao Azure Stack Edge pro](azure-stack-edge-troubleshoot.md).
-Saiba como [Solucionar problemas relacionados ao serviço de Data Box Gateway](data-box-gateway-troubleshoot.md).
+Saiba como [Solucionar problemas relacionados ao serviço de Data Box Gateway](../databox-gateway/data-box-gateway-troubleshoot.md).

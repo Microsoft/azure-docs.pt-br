@@ -1,19 +1,16 @@
 ---
 title: Criar o Java MapReduce para o Apache Hadoop - Azure HDInsight
 description: Saiba como usar o Apache Maven para criar um aplicativo de MapReduce baseado em Java e, em seguida, execute-o com o Hadoop no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-java
 ms.date: 01/16/2020
-ms.openlocfilehash: 8b80616806f846951ebbaffcb2bf31ad77b96266
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7c1a6623883cbee46ba98982808f3c392dc50ffa
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546595"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946643"
 ---
 # <a name="develop-java-mapreduce-programs-for-apache-hadoop-on-hdinsight"></a>Desenvolva programas Java MapReduce para o Apache Hadoop no HDInsight
 
@@ -38,13 +35,13 @@ cd C:\HDI
 
 ## <a name="create-a-maven-project"></a>Criar um projeto Maven
 
-1. Digite o seguinte comando para criar um projeto Maven chamado **wordcountjava** :
+1. Digite o seguinte comando para criar um projeto Maven chamado **wordcountjava**:
 
    ```bash
    mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
    ```
 
-    Esse comando cria um diretório com o nome especificado pelo `artifactID` parâmetro ( **wordcountjava** neste exemplo). Esse diretório contém os seguintes itens:
+    Esse comando cria um diretório com o nome especificado pelo `artifactID` parâmetro (**wordcountjava** neste exemplo). Esse diretório contém os seguintes itens:
 
     * `pom.xml` – o [POM (Modelo de Objeto de Projeto)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) que contém informações e detalhes de configuração usados para criar o projeto.
     * src\main\java\org\apache\hadoop\examples: contém o código do aplicativo.

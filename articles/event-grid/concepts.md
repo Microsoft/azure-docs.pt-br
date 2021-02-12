@@ -2,13 +2,13 @@
 title: Conceitos da Grade de Eventos do Azure
 description: Descreve a Grade de Eventos do Azure e seus conceitos. Define vários componentes importantes da Grade de Eventos.
 ms.topic: conceptual
-ms.date: 10/29/2020
-ms.openlocfilehash: 6cfb8b3aaf16a0080b9864ce5198b8a7232e8bc8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 01/21/2021
+ms.openlocfilehash: 6edc8a3980bfea15f28cfb7114bb9f8350a47a3f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075102"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685696"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Conceitos da Grade de Eventos do Azure
 
@@ -18,10 +18,7 @@ Este artigo descreve os principais conceitos da Grade de Eventos do Azure.
 
 Um evento é a menor quantidade de informações que descreve por completo algo que aconteceu no sistema. Todos os eventos apresentam informações comuns: origem do evento, hora em que o evento ocorreu e identificador exclusivo. Cada evento também apresenta informações específicas que são relevantes somente para o tipo de evento em questão. Por exemplo, um evento sobre um novo arquivo que está sendo criado no Armazenamento do Azure traz detalhes sobre o arquivo, como o valor `lastTimeModified`. Ou um evento dos Hubs de Eventos tem a URL do arquivo de Captura. 
 
-Um evento de tamanho de até 64 KB é coberto pela disponibilidade geral (GA) Contrato de Nível de Serviço (SLA). O suporte para um evento de tamanho de até 1 MB está atualmente em visualização. Eventos acima de 64 KB são cobrados em incrementos de 64 KB. 
-
-
-Para encontrar as propriedades que são enviadas em um evento, confira [Esquema de evento da Grade de Eventos do Azure](event-schema.md).
+O tamanho máximo permitido para um evento é 1 MB. Eventos acima de 64 KB são cobrados em incrementos de 64 KB. Para encontrar as propriedades que são enviadas em um evento, confira [Esquema de evento da Grade de Eventos do Azure](event-schema.md).
 
 ## <a name="publishers"></a>Publicadores
 
@@ -41,7 +38,7 @@ Os **Tópicos do sistema** são tópicos internos fornecidos pelos serviços do 
 
 Os **Tópicos personalizados** são aplicativos e tópicos de terceiros. Ao criar ou receber acesso a um tópico personalizado, você verá o tópico personalizado em sua assinatura. Para obter mais informações, consulte [Custom topics](custom-topics.md). Ao projetar o seu aplicativo, você terá flexibilidade ao decidir sobre quantos tópicos criar. Para soluções maiores, crie um tópico personalizado para cada categoria de eventos relacionados. Por exemplo, considere um aplicativo que envia eventos relacionados à modificação de contas de usuário e ordens de processamento. É improvável que qualquer manipulador de eventos queira ambas as categorias de eventos. Crie dois tópicos personalizados e permita que os manipuladores de eventos assinem o que for interessante para eles. Para soluções pequenas, você pode preferir enviar todos os eventos para um único tópico. Assinantes de evento podem filtrar par os tipos de evento que desejam.
 
-Há outro tipo de tópico: **parceiro, tópico** . O recurso de [eventos de parceiro](partner-events-overview.md) permite que um provedor de SaaS de terceiros publique eventos de seus serviços para torná-los disponíveis para os consumidores que podem assinar esses eventos. O provedor de SaaS expõe um tipo de tópico, um **tópico de parceiro** , que os assinantes usam para consumir eventos. Ele também oferece um modelo de pub-sub limpo, separando as preocupações e a propriedade dos recursos usados por editores de eventos e assinantes.
+Há outro tipo de tópico: **parceiro, tópico**. O recurso de [eventos de parceiro](partner-events-overview.md) permite que um provedor de SaaS de terceiros publique eventos de seus serviços para torná-los disponíveis para os consumidores que podem assinar esses eventos. O provedor de SaaS expõe um tipo de tópico, um **tópico de parceiro**, que os assinantes usam para consumir eventos. Ele também oferece um modelo de pub-sub limpo, separando as preocupações e a propriedade dos recursos usados por editores de eventos e assinantes.
 
 ## <a name="event-subscriptions"></a>Assinaturas de evento
 
@@ -74,12 +71,9 @@ A Grade de Eventos proporciona segurança na assinatura em tópicos e na publica
 
 Se a Grade de Eventos não puder confirmar que um evento foi recebido pelo ponto de extremidade do assinante, ela repetirá a entrega do evento. Para saber mais, confira [Event Grid message delivery and retry](delivery-and-retry.md) (Entrega e repetição de mensagens da Grade de Eventos).
 
-## <a name="batching"></a>Envio em lote
+## <a name="batching"></a>Separação em lotes
 
-Ao usar um tópico personalizado, os eventos sempre devem ser publicados em uma matriz. Isso pode ser um lote de um para cenários de baixo rendimento, no entanto, para casos de uso de alto volume, é recomendável agrupar vários eventos juntos por publicação para obter maior eficiência. Lotes podem ter até 1 MB. Cada evento ainda deve ser maior que 64 KB (disponibilidade geral) ou 1 MB (versão prévia).
-
-> [!NOTE]
-> Um evento de tamanho de até 64 KB é coberto pela disponibilidade geral (GA) Contrato de Nível de Serviço (SLA). O suporte para um evento de tamanho de até 1 MB está atualmente em visualização. Eventos acima de 64 KB são cobrados em incrementos de 64 KB. 
+Ao usar um tópico personalizado, os eventos sempre devem ser publicados em uma matriz. Isso pode ser um lote de um para cenários de baixo rendimento, no entanto, para casos de uso de alto volume, é recomendável agrupar vários eventos juntos por publicação para obter maior eficiência. Os lotes podem ter até 1 MB e o tamanho máximo de um evento é 1 MB. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

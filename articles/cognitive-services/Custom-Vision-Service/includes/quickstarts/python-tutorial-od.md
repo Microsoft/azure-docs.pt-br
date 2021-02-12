@@ -1,232 +1,170 @@
 ---
-author: areddish
-ms.author: areddish
+author: PatrickFarley
+ms.author: pafarley
 ms.service: cognitive-services
-ms.date: 09/15/2020
-ms.openlocfilehash: 16fbffa31563920e28538a961e621c894d105173
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.date: 10/25/2020
+ms.openlocfilehash: 17d6e287da493e96087c85ffd76c8c20fc57cf1f
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604816"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99500039"
 ---
-Este guia fornece informações e um código de exemplo para ajudar você a começar a usar a biblioteca de clientes da Visão Personalizada para Python, a fim de criar um modelo de detecção de objetos. Você criará um projeto, adicionará marcas, treinará o projeto e usará a URL do ponto de extremidade de previsão do projeto para testá-lo programaticamente. Use este exemplo como um modelo para criar o próprio aplicativo de reconhecimento de imagem.
+Introdução à biblioteca de clientes da Visão Personalizada para Python. Siga estas etapas para instalar o pacote e experimentar o código de exemplo para criar um modelo de detecção de objetos. Você criará um projeto, adicionará marcas, treinará o projeto e usará a URL do ponto de extremidade de previsão do projeto para testá-lo programaticamente. Use este exemplo como um modelo para criar o próprio aplicativo de reconhecimento de imagem.
 
 > [!NOTE]
 > Se desejar criar e treinar um modelo de detecção de objetos _sem_ escrever código, confira as [diretrizes baseadas em navegador](../../get-started-build-detector.md).
 
-## <a name="prerequisites"></a>Pré-requisitos:
+Use a biblioteca de clientes da Visão Personalizada para Python a fim de:
 
-- [Python 2.7+ ou 3.5+](https://www.python.org/downloads/)
-- Ferramenta [pip](https://pip.pypa.io/en/stable/installing/)
-- [!INCLUDE [create-resources](../../includes/create-resources.md)]
+* Criar um novo projeto de Visão Personalizada
+* Adicionar marcas ao projeto
+* Carregar e marcar imagens
+* Treinar o projeto
+* Publicar a iteração atual
+* Testar o ponto de extremidade de previsão
 
-## <a name="install-the-custom-vision-client-library"></a>Instalar a biblioteca de clientes da Visão Personalizada
+[Documentação de referência](/python/api/overview/azure/cognitiveservices/customvision) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-customvision/azure/cognitiveservices/vision/customvision) | [Pacote (PyPI)](https://pypi.org/project/azure-cognitiveservices-vision-customvision/) | [Amostras](/samples/browse/?languages=python&products=azure&term=vision&terms=vision)
 
-Para escrever um aplicativo de análise de imagem com a Visão Personalizada para Python, você precisará da biblioteca de clientes da Visão Personalizada. Execute o seguinte comando no PowerShell:
+## <a name="prerequisites"></a>Pré-requisitos
+
+* Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* [Python 3.x](https://www.python.org/)
+* Após obter a assinatura do Azure, <a href="https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision"  title="Criar um recurso da Visão Personalizada"  target="_blank">crie um recurso da Visão Personalizada <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para criar um recurso de treinamento e previsão e obter as chaves e o ponto de extremidade. Aguarde até que ele seja implantado e clique no botão **Ir para o recurso**.
+    * Você precisará da chave e do ponto de extremidade dos recursos criados para conectar seu aplicativo à Visão Personalizada. Você colará as chaves e o ponto de extremidade no código abaixo mais adiante no início rápido.
+    * Use o tipo de preço gratuito (`F0`) para experimentar o serviço e atualizar mais tarde para um nível pago para produção.
+
+## <a name="setting-up"></a>Configurando
+
+### <a name="install-the-client-library"></a>Instalar a biblioteca de clientes
+
+Para escrever um aplicativo de análise de imagem com a Visão Personalizada para Python, você precisará da biblioteca de clientes da Visão Personalizada. Depois de instalar o Python, execute o seguinte comando no PowerShell ou em uma janela de console:
 
 ```powershell
 pip install azure-cognitiveservices-vision-customvision
 ```
 
-Você pode baixar as imagens com as [Amostras de Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples).
+### <a name="create-a-new-python-application"></a>Criar um novo aplicativo Python
 
-[!INCLUDE [get-keys](../../includes/get-keys.md)]
+Crie um arquivo do Python e importe as bibliotecas a seguir.
 
-[!INCLUDE [python-get-images](../../includes/python-get-images.md)]
+[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py?name=snippet_imports)]
 
-## <a name="add-the-code"></a>Adicionar o código
+> [!TIP]
+> Deseja exibir todo o arquivo de código do início rápido de uma vez? Você pode encontrá-lo no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py), que contém os exemplos de código neste início rápido.
 
-Crie um novo arquivo chamado *sample.py* no diretório de seu projeto de preferência.
+Crie variáveis para as chaves de assinatura e o ponto de extremidade do Azure do recurso.
 
-## <a name="create-the-custom-vision-project"></a>Criar o projeto de Visão Personalizada
+[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py?name=snippet_creds)]
 
-Adicione o código a seguir ao seu script para criar um novo projeto do Serviço de Visão Personalizada. Insira as chaves de assinatura nas definições pertinentes. Além disso, obtenha sua URL de Ponto de Extremidade no painel Configurações do site da Visão Personalizada.
 
-Confira o método **[create_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config-&preserve-view=true)** para especificar outras opções quando você cria seu projeto (explicado no guia do portal da Web [Criar um detector](../../get-started-build-detector.md)).  
+> [!IMPORTANT]
+> Acesse o portal do Azure. Se os recursos da Visão Personalizada que você criou na seção **Pré-requisitos** tiverem sido implantados com êxito, clique no botão **Acessar o Recurso** em **Próximas Etapas**. Encontre as chaves e o ponto de extremidade nas páginas de **chave e ponto de extremidade** dos recursos, em **gerenciamento de recursos**. Você precisará obter as chaves de treinamento e de previsão, juntamente com o ponto de extremidade dos recursos de treinamento.
+>
+> Encontre o valor da ID de recurso de previsão na guia **Visão geral** do recurso, listada como **ID da Assinatura**.
+>
+> Lembre-se de remover as chaves do código quando terminar e nunca poste-as publicamente. Para produção, considere o uso de uma maneira segura de armazenar e acessar suas credenciais. Confira o artigo [segurança](../../../../cognitive-services/cognitive-services-security.md) de Serviços Cognitivos para obter mais informações.
 
-```Python
-from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
-from azure.cognitiveservices.vision.customvision.training.models import ImageFileCreateBatch, ImageFileCreateEntry, Region
-from msrest.authentication import ApiKeyCredentials
+## <a name="object-model"></a>Modelo de objeto
 
-ENDPOINT = "<your API endpoint>"
+|Nome|Descrição|
+|---|---|
+|[CustomVisionTrainingClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient) | Essa classe lida com a criação, o treinamento e a publicação de seus modelos. |
+|[CustomVisionPredictionClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient)| Essa classe lida com a consulta de seus modelos para obter previsões de detecção de objetos.|
+|[ImagePrediction](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.models.imageprediction)| Essa classe define uma previsão de objeto em uma imagem. Ela inclui propriedades para a ID e o nome do objeto, a localização da caixa delimitadora do objeto e uma pontuação de confiança.|
 
-# Replace with a valid key
-training_key = "<your training key>"
-prediction_key = "<your prediction key>"
-prediction_resource_id = "<your prediction resource id>"
+## <a name="code-examples"></a>Exemplos de código
 
-publish_iteration_name = "detectModel"
+Estes snippets de código mostram como realizar as seguintes tarefas com a biblioteca de clientes da Visão Personalizada para Python:
 
-credentials = ApiKeyCredentials(in_headers={"Training-key": training_key})
-trainer = CustomVisionTrainingClient(ENDPOINT, credentials)
+* [Autenticar o cliente](#authenticate-the-client)
+* [Criar um novo projeto de Visão Personalizada](#create-a-new-custom-vision-project)
+* [Adicionar marcas ao projeto](#add-tags-to-the-project)
+* [Carregar e marcar imagens](#upload-and-tag-images)
+* [Treinar o projeto](#train-the-project)
+* [Publicar a iteração atual](#publish-the-current-iteration)
+* [Testar o ponto de extremidade de previsão](#test-the-prediction-endpoint)
 
-# Find the object detection domain
-obj_detection_domain = next(domain for domain in trainer.get_domains() if domain.type == "ObjectDetection" and domain.name == "General")
+## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-# Create a new project
-print ("Creating project...")
-project = trainer.create_project("My Detection Project", domain_id=obj_detection_domain.id)
-```
+Crie um cliente de treinamento e previsão usando seu ponto de extremidade e suas chaves. Crie objetos **ApiKeyServiceClientCredentials** com suas chaves e use-os com seu ponto de extremidade para criar um objeto [CustomVisionTrainingClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient) e [CustomVisionPredictionClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient).
 
-## <a name="create-tags-in-the-project"></a>Criar marcas no projeto
+[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py?name=snippet_auth)]
 
-Para criar marcas de objeto no projeto, adicione o código a seguir no final de *sample.py*:
 
-```Python
-# Make two tags in the new project
-fork_tag = trainer.create_tag(project.id, "fork")
-scissors_tag = trainer.create_tag(project.id, "scissors")
-```
+## <a name="create-a-new-custom-vision-project"></a>Criar um novo projeto de Visão Personalizada
+
+Adicione o código a seguir ao seu script para criar um novo projeto do Serviço de Visão Personalizada. 
+
+Confira o método [create_project](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config-&preserve-view=true) para especificar outras opções ao criar seu projeto (explicado no guia do portal da Web [Criar um detector](../../get-started-build-detector.md)).  
+
+[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py?name=snippet_create)]
+
+
+## <a name="add-tags-to-the-project"></a>Adicionar marcas ao projeto
+
+Para criar marcas de objeto no projeto, adicione o seguinte código:
+
+[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py?name=snippet_tags)]
+
 
 ## <a name="upload-and-tag-images"></a>Carregar e marcar imagens
 
-Ao marcar imagens em projetos de detecção de objeto, você precisa especificar a região de cada objeto marcado usando coordenadas normalizadas.
+Primeiro, baixe as imagens de exemplo para este projeto. Salve o conteúdo da [pasta de imagens de exemplo](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ObjectDetection/Images) em seu dispositivo local.
+
+> [!NOTE]
+> Você precisa de um conjunto mais amplo de imagens para concluir o treinamento? O Trove, um projeto da Microsoft Garage, permite coletar e comprar conjuntos de imagens para fins de treinamento. Depois de coletar suas imagens, você pode baixá-las e, em seguida, importá-las para seu projeto de Visão Personalizada da maneira usual. Visite a [página do Trove](https://www.microsoft.com/en-us/ai/trove?activetab=pivot1:primaryr3) para saber mais.
+
+Ao marcar imagens em projetos de detecção de objeto, você precisa especificar a região de cada objeto marcado usando coordenadas normalizadas. O código a seguir associa cada uma das imagens de exemplo à região marcada. As regiões de especificam a caixa delimitadora em coordenadas normalizadas e as coordenadas são fornecidas na ordem: esquerda, superior, largura e altura.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py?name=snippet_tagging)]
 
 > [!NOTE]
 > Se você não tiver um utilitário do tipo "clicar e arrastar" para marcar as coordenadas das regiões, use a interface do usuário da Web em [Customvision.ai](https://www.customvision.ai/). Neste exemplo, as coordenadas já foram fornecidas.
 
-
-Para adicionar imagens, marcas e regiões ao projeto, insira o código a seguir após a criação da marca. Neste tutorial, as regiões são embutidas no código. As regiões de especificam a caixa delimitadora em coordenadas normalizadas e as coordenadas são fornecidas na ordem: esquerda, superior, largura e altura.
-
-```Python
-fork_image_regions = {
-    "fork_1": [ 0.145833328, 0.3509314, 0.5894608, 0.238562092 ],
-    "fork_2": [ 0.294117659, 0.216944471, 0.534313738, 0.5980392 ],
-    "fork_3": [ 0.09191177, 0.0682516545, 0.757352948, 0.6143791 ],
-    "fork_4": [ 0.254901975, 0.185898721, 0.5232843, 0.594771266 ],
-    "fork_5": [ 0.2365196, 0.128709182, 0.5845588, 0.71405226 ],
-    "fork_6": [ 0.115196079, 0.133611143, 0.676470637, 0.6993464 ],
-    "fork_7": [ 0.164215669, 0.31008172, 0.767156839, 0.410130739 ],
-    "fork_8": [ 0.118872553, 0.318251669, 0.817401946, 0.225490168 ],
-    "fork_9": [ 0.18259804, 0.2136765, 0.6335784, 0.643790841 ],
-    "fork_10": [ 0.05269608, 0.282303959, 0.8088235, 0.452614367 ],
-    "fork_11": [ 0.05759804, 0.0894935, 0.9007353, 0.3251634 ],
-    "fork_12": [ 0.3345588, 0.07315363, 0.375, 0.9150327 ],
-    "fork_13": [ 0.269607842, 0.194068655, 0.4093137, 0.6732026 ],
-    "fork_14": [ 0.143382356, 0.218578458, 0.7977941, 0.295751631 ],
-    "fork_15": [ 0.19240196, 0.0633497, 0.5710784, 0.8398692 ],
-    "fork_16": [ 0.140931368, 0.480016381, 0.6838235, 0.240196079 ],
-    "fork_17": [ 0.305147052, 0.2512582, 0.4791667, 0.5408496 ],
-    "fork_18": [ 0.234068632, 0.445702642, 0.6127451, 0.344771236 ],
-    "fork_19": [ 0.219362751, 0.141781077, 0.5919118, 0.6683006 ],
-    "fork_20": [ 0.180147052, 0.239820287, 0.6887255, 0.235294119 ]
-}
-
-scissors_image_regions = {
-    "scissors_1": [ 0.4007353, 0.194068655, 0.259803921, 0.6617647 ],
-    "scissors_2": [ 0.426470578, 0.185898721, 0.172794119, 0.5539216 ],
-    "scissors_3": [ 0.289215684, 0.259428144, 0.403186262, 0.421568632 ],
-    "scissors_4": [ 0.343137264, 0.105833367, 0.332107842, 0.8055556 ],
-    "scissors_5": [ 0.3125, 0.09766343, 0.435049027, 0.71405226 ],
-    "scissors_6": [ 0.379901975, 0.24308826, 0.32107842, 0.5718954 ],
-    "scissors_7": [ 0.341911763, 0.20714055, 0.3137255, 0.6356209 ],
-    "scissors_8": [ 0.231617644, 0.08459154, 0.504901946, 0.8480392 ],
-    "scissors_9": [ 0.170343131, 0.332957536, 0.767156839, 0.403594762 ],
-    "scissors_10": [ 0.204656869, 0.120539248, 0.5245098, 0.743464053 ],
-    "scissors_11": [ 0.05514706, 0.159754932, 0.799019635, 0.730392158 ],
-    "scissors_12": [ 0.265931368, 0.169558853, 0.5061275, 0.606209159 ],
-    "scissors_13": [ 0.241421565, 0.184264734, 0.448529422, 0.6830065 ],
-    "scissors_14": [ 0.05759804, 0.05027781, 0.75, 0.882352948 ],
-    "scissors_15": [ 0.191176474, 0.169558853, 0.6936275, 0.6748366 ],
-    "scissors_16": [ 0.1004902, 0.279036, 0.6911765, 0.477124184 ],
-    "scissors_17": [ 0.2720588, 0.131977156, 0.4987745, 0.6911765 ],
-    "scissors_18": [ 0.180147052, 0.112369314, 0.6262255, 0.6666667 ],
-    "scissors_19": [ 0.333333343, 0.0274019931, 0.443627447, 0.852941155 ],
-    "scissors_20": [ 0.158088237, 0.04047389, 0.6691176, 0.843137264 ]
-}
-```
-
 Em seguida, use esse mapa de associações para carregar cada imagem de exemplo com suas coordenadas de região (você pode carregar até 64 imagens em um único lote). Adicione o código seguinte:
+
+
+[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py?name=snippet_upload)]
 
 > [!NOTE]
 > Você precisará alterar o caminho para as imagens com base na localização em que baixou o repositório Amostras do SDK do Python dos Serviços Cognitivos anteriormente.
 
-```Python
-# Update this with the path to where you downloaded the images.
-base_image_url = "<path to repo directory>/cognitive-services-python-sdk-samples/samples/vision/"
+## <a name="train-the-project"></a>Treinar o projeto
 
-# Go through the data table above and create the images
-print ("Adding images...")
-tagged_images_with_regions = []
+Este código cria a primeira iteração do modelo de previsão. 
 
-for file_name in fork_image_regions.keys():
-    x,y,w,h = fork_image_regions[file_name]
-    regions = [ Region(tag_id=fork_tag.id, left=x,top=y,width=w,height=h) ]
-
-    with open(base_image_url + "images/fork/" + file_name + ".jpg", mode="rb") as image_contents:
-        tagged_images_with_regions.append(ImageFileCreateEntry(name=file_name, contents=image_contents.read(), regions=regions))
-
-for file_name in scissors_image_regions.keys():
-    x,y,w,h = scissors_image_regions[file_name]
-    regions = [ Region(tag_id=scissors_tag.id, left=x,top=y,width=w,height=h) ]
-
-    with open(base_image_url + "images/scissors/" + file_name + ".jpg", mode="rb") as image_contents:
-        tagged_images_with_regions.append(ImageFileCreateEntry(name=file_name, contents=image_contents.read(), regions=regions))
-
-upload_result = trainer.create_images_from_files(project.id, ImageFileCreateBatch(images=tagged_images_with_regions))
-if not upload_result.is_batch_successful:
-    print("Image batch upload failed.")
-    for image in upload_result.images:
-        print("Image status: ", image.status)
-    exit(-1)
-```
-
-## <a name="train-and-publish-the-project"></a>Treinar e publicar o projeto
-
-Este código cria a primeira iteração do modelo de previsão e, em seguida, publica essa iteração no ponto de extremidade de previsão. O nome dado à iteração publicada pode ser usado para enviar solicitações de previsão. Uma iteração não fica disponível no ponto de extremidade de previsão até ser publicada.
-
-```Python
-import time
-
-print ("Training...")
-iteration = trainer.train_project(project.id)
-while (iteration.status != "Completed"):
-    iteration = trainer.get_iteration(project.id, iteration.id)
-    print ("Training status: " + iteration.status)
-    time.sleep(1)
-
-# The iteration is now trained. Publish it to the project endpoint
-trainer.publish_iteration(project.id, iteration.id, publish_iteration_name, prediction_resource_id)
-print ("Done!")
-```
+[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py?name=snippet_train)]
 
 > [!TIP]
 > Fazer o treinamento com marcas selecionadas
 >
-> Opcionalmente, você pode treinar apenas um subconjunto de suas marcas aplicadas. Talvez seja interessante fazer isso se você ainda não tiver aplicado um número suficiente de determinadas marcas, mas tiver outras delas. Na chamada **[train_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#train-project-project-id--training-type-none--reserved-budget-in-hours-0--force-train-false--notification-email-address-none--selected-tags-none--custom-headers-none--raw-false----operation-config-&preserve-view=true)** , defina o parâmetro opcional *selected_tags* como uma lista das cadeias de caracteres de ID das marcas que você deseja usar. O modelo será treinado para reconhecer apenas as marcas nessa lista.
+> Opcionalmente, você pode treinar apenas um subconjunto de suas marcas aplicadas. Talvez seja interessante fazer isso se você ainda não tiver aplicado um número suficiente de determinadas marcas, mas tiver outras delas. Na chamada **[train_project](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin#train-project-project-id--training-type-none--reserved-budget-in-hours-0--force-train-false--notification-email-address-none--selected-tags-none--custom-headers-none--raw-false----operation-config-&preserve-view=true)** , defina o parâmetro opcional *selected_tags* como uma lista das cadeias de caracteres de ID das marcas que você deseja usar. O modelo será treinado para reconhecer apenas as marcas nessa lista.
 
-## <a name="use-the-prediction-endpoint"></a>Usar o ponto de extremidade de previsão
+## <a name="publish-the-current-iteration"></a>Publicar a iteração atual
+
+Uma iteração não fica disponível no ponto de extremidade de previsão até ser publicada. O código a seguir disponibiliza a iteração atual do modelo para consulta. 
+
+[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py?name=snippet_publish)]
+
+## <a name="test-the-prediction-endpoint"></a>Testar o ponto de extremidade de previsão
 
 Para enviar uma imagem para o ponto de extremidade de previsão e recuperar a previsão, adicione o seguinte código ao final do arquivo:
 
-```Python
-from azure.cognitiveservices.vision.customvision.prediction import CustomVisionPredictionClient
-from msrest.authentication import ApiKeyCredentials
+[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py?name=snippet_test)]
 
-# Now there is a trained endpoint that can be used to make a prediction
-prediction_credentials = ApiKeyCredentials(in_headers={"Prediction-key": prediction_key})
-predictor = CustomVisionPredictionClient(ENDPOINT, prediction_credentials)
-
-# Open the sample image and get back the prediction results.
-with open(base_image_url + "images/Test/test_od_image.jpg", mode="rb") as test_data:
-    results = predictor.detect_image(project.id, publish_iteration_name, test_data)
-
-# Display the results.    
-for prediction in results.predictions:
-    print("\t" + prediction.tag_name + ": {0:.2f}% bbox.left = {1:.2f}, bbox.top = {2:.2f}, bbox.width = {3:.2f}, bbox.height = {4:.2f}".format(prediction.probability * 100, prediction.bounding_box.left, prediction.bounding_box.top, prediction.bounding_box.width, prediction.bounding_box.height))
-```
 
 ## <a name="run-the-application"></a>Executar o aplicativo
 
-Execute *sample.py*.
+Execute *CustomVisionQuickstart.py*.
 
 ```powershell
-python sample.py
+python CustomVisionQuickstart.py
 ```
 
-A saída do aplicativo deve aparecer no console. Em seguida, você pode verificar se a imagem de teste (encontrada em **samples/vision/images/Test**) foi marcada corretamente e se a região da detecção está correta.
+A saída do aplicativo deve aparecer no console. Em seguida, você pode verificar se a imagem de teste (encontrada em **<base_image_location>/images/Test**) foi marcada corretamente e se a região da detecção está correta. Você pode também voltar para o [site da Visão Personalizada](https://customvision.ai) e ver o estado atual do projeto recém-criado.
+
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [clean-od-project](../../includes/clean-od-project.md)]
 
@@ -238,4 +176,5 @@ Agora, você concluiu cada etapa do processo de detecção de objetos no código
 > [Testar e readaptar um modelo](../../test-your-model.md)
 
 * O que é Visão Personalizada?
-* [Documentação de referência do SDK](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python)
+* O código-fonte dessa amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py)
+* [Documentação de referência do SDK](/python/api/overview/azure/cognitiveservices/customvision)

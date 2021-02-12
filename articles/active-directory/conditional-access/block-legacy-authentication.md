@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 01/26/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c3107be1c36f1c15a1bcb27c5e0dcf851cfb946
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 09f98e3d6c7997d9cae2737b25f4323021e29bfb
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145538"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98892432"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como fazer: Bloquear autenticação herdada para Azure AD com Acesso Condicional   
 
@@ -60,7 +60,7 @@ Esta seção explica como configurar uma política de Acesso Condicional para bl
 
 As opções a seguir são consideradas protocolos de autenticação herdados
 
-- SMTP autenticado - usado por clientes POP e IMAP para enviar mensagens de email.
+- SMTP autenticado-usado por clientes POP e IMAP para enviar mensagens de email.
 - Descoberta automática - usada pelos clientes do Outlook e do EAS para localizar e conectar-se às caixas de correio no Exchange Online.
 - Exchange ActiveSync (EAS) – usado para conectar-se às caixas de correio no Exchange Online.
 - Exchange Online PowerShell - usado para se conectar ao Exchange Online com o PowerShell remoto. Se você bloquear a autenticação básica para o Exchange Online PowerShell, será necessário usar o módulo do PowerShell do Exchange Online para se conectar. Para obter instruções, confira [Conectar ao Exchange Online PowerShell usando a autenticação multifator](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
@@ -83,6 +83,7 @@ Antes de poder bloquear a autenticação herdada em seu diretório, primeiro voc
 1. Navegue até o **portal do Azure** > **Azure Active Directory** > **Entradas**.
 1. Adicione a coluna Aplicativo cliente se ela não for exibida clicando em **Colunas** > **Aplicativo cliente**.
 1. **Adicionar filtros**  >  > de **aplicativo cliente** selecione todos os protocolos de autenticação herdados. Selecione fora da caixa de diálogo filtragem para aplicar suas seleções e feche a caixa de diálogo.
+1. Se você ativou a [nova visualização de relatórios de atividade de entrada](../reports-monitoring/concept-all-sign-ins.md), repita as etapas acima também na guia entradas de **usuário (não interativa)** .
 
 A filtragem mostrará apenas as tentativas de entrada feitas por protocolos de autenticação herdados. Clicar em cada tentativa de entrada individual mostrará detalhes adicionais. O campo **Aplicativo cliente** na guia **Informações básicas** indicarão qual protocolo de autenticação herdado foi usado.
 
@@ -117,9 +118,13 @@ Pode levar até 24 horas para que a política entre em vigor.
 
 É possível selecionar todos os controles de concessão disponíveis para a condição de **Outros clientes**, no entanto, a experiência do usuário final será sempre a mesma - acesso bloqueado.
 
+### <a name="sharepoint-online-and-b2b-guest-users"></a>Usuários convidados do SharePoint Online e B2B
+
+Para bloquear o acesso de usuário B2B por meio da autenticação herdada ao SharePoint Online, as organizações devem desabilitar a autenticação herdada no SharePoint usando o `Set-SPOTenant` comando do PowerShell e definindo o `-LegacyAuthProtocolsEnabled` parâmetro como `$false` . Mais informações sobre como definir esse parâmetro podem ser encontradas no documento de referência do SharePoint PowerShell sobre [set-SPOTenant](/powershell/module/sharepoint-online/set-spotenant)
+
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Determinar o impacto usando o modo somente relatório de Acesso Condicional](howto-conditional-access-insights-reporting.md)
 - Se você ainda não estiver familiarizado com a configuração de políticas de Acesso Condicional, confira [Exigir MFA para aplicativos específicos com Acesso Condicional do Azure Active Directory](../authentication/tutorial-enable-azure-mfa.md), para obter um exemplo.
 - Para saber mais sobre suporte de autenticação moderna, veja [Como funciona a autenticação moderna para os aplicativos cliente do Office 2013 e do Office 2016](/office365/enterprise/modern-auth-for-office-2013-and-2016) 
-- [Como configurar um dispositivo ou aplicativo multifuncional para enviar email usando Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)
+- [Como configurar um dispositivo ou aplicativo multifuncional para enviar email usando Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)

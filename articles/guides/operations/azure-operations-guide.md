@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: 7b9e95c06dd48e78e42244d27d27d063bf5f0be7
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: c0269464352fa333c6447834a56c25348ecb71a3
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327766"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895247"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Introdução para operadores de TI do Azure
 
@@ -62,11 +62,11 @@ Conjuntos de dimensionamento de máquinas virtuais são criados sobre Máquinas 
 
 Com PaaS, você implanta seu aplicativo em um ambiente oferecido pelo fornecedor do serviço de nuvem. O fornecedor faz todo o gerenciamento de infraestrutura, de modo que pode se concentrar no desenvolvimento de aplicativos e no gerenciamento de dados.
 
-O Azure fornece diversas ofertas de computação de PaaS, incluindo o recurso de Aplicativos Web do Serviço de Aplicativo do Azure e os Serviços de Nuvem do Azure (funções Web e de trabalho). Em ambos os casos, os desenvolvedores têm várias maneiras de implantar seu aplicativo sem saber nada sobre os elementos que dão suporte a ele. Os desenvolvedores não precisam criar VMs (máquinas virtuais), usar o protocolo RDP para entrar em cada uma delas ou instalar o aplicativo. Eles apenas acionam um botão (ou próximo a ele) e as ferramentas fornecidas pelo Microsoft provisionam VMs e, em seguida, implantarem e instalar o aplicativo neles.
+O Azure fornece diversas ofertas de computação de PaaS, incluindo o recurso de Aplicativos Web do Serviço de Aplicativo do Azure e os Serviços de Nuvem do Azure (funções Web e de trabalho). Em ambos os casos, os desenvolvedores têm várias maneiras de implantar seu aplicativo sem saber nada sobre os elementos que dão suporte a ele. Os desenvolvedores não precisam criar VMs (máquinas virtuais), usar o protocolo RDP para entrar em cada uma delas nem instalar o aplicativo. Eles apenas acionam um botão (ou próximo a ele) e as ferramentas fornecidas pelo Microsoft provisionam VMs e, em seguida, implantarem e instalar o aplicativo neles.
 
 #### <a name="saas-software-as-a-service"></a>SaaS: Software como serviço
 
-SaaS é um software que é hospedado e gerenciado centralmente. É normalmente baseado em uma arquitetura multilocatário — uma única versão do aplicativo é usada para todos os clientes. Ele pode ser escalado horizontalmente para várias instâncias para garantir o melhor desempenho em todas as localizações. Software SaaS normalmente é licenciado por meio de uma assinatura mensal ou anual. Fornecedores de software de SaaS são responsáveis por todos os componentes da pilha de software, portanto, tudo o que você gerencia são os serviços fornecidos.
+SaaS é um software que é hospedado e gerenciado centralmente. É normalmente baseado em uma arquitetura multilocatário: uma só versão do aplicativo é usada para todos os clientes. Ele pode ser escalado horizontalmente para várias instâncias para garantir o melhor desempenho em todas as localizações. Software SaaS normalmente é licenciado por meio de uma assinatura mensal ou anual. Fornecedores de software de SaaS são responsáveis por todos os componentes da pilha de software, portanto, tudo o que você gerencia são os serviços fornecidos.
 
 O Microsoft 365 é um bom exemplo de uma oferta de SaaS. Os assinantes pagam uma taxa de assinatura mensal ou anual e obtêm Microsoft Exchange, Microsoft OneDrive e o restante do pacote do Microsoft Office como um serviço. Os assinantes sempre obtêm a versão mais recente e o servidor Exchange é gerenciado para você. Em comparação instalar e atualizar o Office todo ano, isso é menos dispendioso e requer menos esforço.
 
@@ -184,17 +184,17 @@ Uma assinatura é um agrupamento de serviços do Azure que está vinculada a uma
 
 Antes de você poder trabalhar com os serviços do Azure, você precisará de uma assinatura. Vários tipos de assinatura estão disponíveis.
 
-**Contas gratuitas** : O link para inscrever-se em uma conta gratuita está no [site do Azure](https://azure.microsoft.com/). Isso lhe dá crédito ao longo de 30 dias para experimentar qualquer combinação de recursos no Azure. Se você exceder a quantidade de crédito, sua conta será suspensa. No final da avaliação, os serviços são encerrados e deixarão de funcionar. Você poderá atualizar para uma assinatura pré-paga a qualquer momento.
+**Contas gratuitas**: O link para inscrever-se em uma conta gratuita está no [site do Azure](https://azure.microsoft.com/). Isso lhe dá crédito ao longo de 30 dias para experimentar qualquer combinação de recursos no Azure. Se você exceder a quantidade de crédito, sua conta será suspensa. No final da avaliação, os serviços são encerrados e deixarão de funcionar. Você poderá atualizar para uma assinatura pré-paga a qualquer momento.
 
-**Assinaturas do MSDN** : Se você tiver uma assinatura do MSDN, você obterá um valor específico em crédito Azure por mês. Por exemplo, se você tiver uma assinatura do Microsoft Visual Studio Enterprise com MSDN, você obtém \$150 por mês em crédito Azure.
+**Assinaturas do MSDN**: Se você tiver uma assinatura do MSDN, você obterá um valor específico em crédito Azure por mês. Por exemplo, se você tiver uma assinatura do Microsoft Visual Studio Enterprise com MSDN, você obtém \$150 por mês em crédito Azure.
 
 Se você exceder a quantidade de crédito, seu serviço ficará desabilitado até o início do próximo mês. Você pode desligar o limite de gastos e adicionar um cartão de crédito a ser usado para os custos adicionais. Alguns desses custos têm desconto para contas do MSDN. Por exemplo, você paga o preço do Linux para VMs executando o Windows Server e não há nenhum encargo adicional para servidores da Microsoft como o Microsoft SQL Server. Isso torna a contas do MSDN ideal para cenários de desenvolvimento e teste.
 
-**Contas do BizSpark** : O programa Microsoft BizSpark fornece muitos benefícios para startups. Um desses benefícios é acesso a todos os softwares da Microsoft para ambientes de desenvolvimento e teste para até cinco contas do MSDN. Você obtém US$150 em crédito Azure para cada uma dessas cinco contas MSDN e paga taxas reduzidas para vários serviços do Azure, tais como máquinas virtuais.
+**Contas do BizSpark**: O programa Microsoft BizSpark fornece muitos benefícios para startups. Um desses benefícios é acesso a todos os softwares da Microsoft para ambientes de desenvolvimento e teste para até cinco contas do MSDN. Você obtém US$150 em crédito Azure para cada uma dessas cinco contas MSDN e paga taxas reduzidas para vários serviços do Azure, tais como máquinas virtuais.
 
-**Pago conforme o uso** : Com essa assinatura, você paga pelo que usa anexando um cartão de crédito ou de débito à conta. Se você for uma organização, você também poderá receber aprovação para faturamento.
+**Pago conforme o uso**: Com essa assinatura, você paga pelo que usa anexando um cartão de crédito ou de débito à conta. Se você for uma organização, você também poderá receber aprovação para faturamento.
 
-**Contratos Enterprise** : Com um contrato Enterprise, você se compromete a usar um determinado número de serviços no Azure no próximo ano e paga esse valor antecipadamente. O compromisso que você assume é consumido ao longo do ano. Se você exceder o valor do compromisso, você poderá pagar o excedente em atraso. Dependendo do valor do compromisso, você obtém um desconto nos serviços do Azure.
+**Contratos Enterprise**: Com um contrato Enterprise, você se compromete a usar um determinado número de serviços no Azure no próximo ano e paga esse valor antecipadamente. O compromisso que você assume é consumido ao longo do ano. Se você exceder o valor do compromisso, você poderá pagar o excedente em atraso. Dependendo do valor do compromisso, você obtém um desconto nos serviços do Azure.
 
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Conceder acesso administrativo a uma assinatura do Azure
 
@@ -214,9 +214,7 @@ Além de exibir a cobrança no portal, você pode acessar as informações de co
 
 - Você pode usar a API de Uso do Azure para recuperar os dados de uso. Você pode ajustar as informações de uso de cobrança marcando recursos do Azure relacionados. Por exemplo, você pode marcar cada um dos recursos em um grupo de recursos com um nome de departamento ou nome de projeto e, em seguida, controlar os custos especificamente para essa marcação.
 
-- Você pode usar a API de Cartão de Taxa do Azure para listar todos os recursos disponíveis, junto com os metadados e informações de preços sobre cada um desses recursos.
-
-Para saber mais, confira [Obtenha informações sobre o consumo de recursos do Microsoft Azure](../../cost-management-billing/manage/usage-rate-card-overview.md).
+- Você pode usar a [Visão geral da API de consumo do Azure](../../cost-management-billing/manage/consumption-api-overview.md) para listar todos os recursos disponíveis, juntamente com os metadados. Para obter mais informações sobre preços, confira a [Visão geral dos preços de Varejo do Azure](/rest/api/cost-management/retail-prices/azure-retail-prices).
 
 ### <a name="forecast-cost-with-the-pricing-calculator"></a>Custo previsto com a calculadora de preços
 
@@ -242,7 +240,7 @@ O Gerenciador de Recursos fornece vários benefícios:
 
 - Você pode aplicar marcas aos recursos para organizar de modo lógico todos os recursos em sua assinatura.
 
-- Você pode esclarecer a cobrança da sua organização exibindo os custos para um grupo de recursos que compartilha a mesma marcação.
+- Você pode esclarecer a cobrança da sua organização exibindo os custos para um grupo de recursos que compartilha a mesma marca.
 
 ### <a name="tips-for-creating-resource-groups"></a>Dicas para a criação de grupos de recursos
 
@@ -266,21 +264,21 @@ Modelos do Resource Manager definem declarativamente os recursos e as configura�
 
 Um modelo do Resource Manager consiste em quatro seções:
 
-- **Parâmetros** : Estes são as entradas para a implantação. Valores de parâmetro podem ser fornecidos por um ser humano ou por um processo automatizado. Um parâmetro de exemplo pode ser um nome de usuário administrador e a senha para uma VM do Windows. Os valores de parâmetro são usados em toda a implantação quando ele são especificados.
+- **Parâmetros**: Estes são as entradas para a implantação. Valores de parâmetro podem ser fornecidos por um ser humano ou por um processo automatizado. Um parâmetro de exemplo pode ser um nome de usuário administrador e a senha para uma VM do Windows. Os valores de parâmetro são usados em toda a implantação quando eles são especificados.
 
-- **Variáveis** : São utilizadas para manter os valores usados durante a implantação. Ao contrário do que ocorre com parâmetros, um valor de variável não é fornecido no momento da implantação. Em vez disso, ele é embutido no código ou gerado dinamicamente.
+- **Variáveis**: São utilizadas para manter os valores usados durante a implantação. Ao contrário do que ocorre com parâmetros, um valor de variável não é fornecido no momento da implantação. Em vez disso, ele é embutido no código ou gerado dinamicamente.
 
-- **Recursos** : Esta seção do modelo define os recursos a serem implantados como máquinas virtuais, contas de armazenamento e redes virtuais.
+- **Recursos**: Esta seção do modelo define os recursos a serem implantados como máquinas virtuais, contas de armazenamento e redes virtuais.
 
-- **Saída** : Após a conclusão de uma implantação, o Resource Manager poderá retornar dados como cadeias de conexão geradas dinamicamente.
+- **Saída**: Após a conclusão de uma implantação, o Resource Manager poderá retornar dados como cadeias de conexão geradas dinamicamente.
 
 Os mecanismos a seguir estão disponíveis para a automação da implantação:
 
-- **Funções** : Você pode usar várias funções nos modelos do Resource Manager. Isso inclui operações como converter uma cadeia de caracteres em minúsculas, implantar várias instâncias de um recurso definido e retornar dinamicamente o grupo de recursos de destino. As funções do Resource Manager ajudam a criar implantações dinâmicas.
+- **Funções**: Você pode usar várias funções nos modelos do Resource Manager. Isso inclui operações como converter uma cadeia de caracteres em minúsculas, implantar várias instâncias de um recurso definido e retornar dinamicamente o grupo de recursos de destino. As funções do Resource Manager ajudam a criar implantações dinâmicas.
 
-- **Dependências de recurso** : Quando você estiver implantando vários recursos, alguns recursos terão uma dependência em outros. Para facilitar a implantação, você pode usar uma declaração de dependência para que os recursos dependentes sejam implantados antes dos outros.
+- **Dependências de recurso**: Quando você estiver implantando vários recursos, alguns recursos terão uma dependência em outros. Para facilitar a implantação, você pode usar uma declaração de dependência para que os recursos dependentes sejam implantados antes dos outros.
 
-- **Vinculação de modelo** : De dentro de um modelo do Resource Manager, é possível vincular a outro modelo. Isso permite a decomposição da implantação em um conjunto de modelos direcionados, para finalidade específica.
+- **Vinculação de modelo**: De dentro de um modelo do Resource Manager, é possível vincular a outro modelo. Isso permite a decomposição da implantação em um conjunto de modelos direcionados, para finalidade específica.
 
 Você pode criar modelos do Resource Manager em qualquer editor de texto. No entanto, o SDK do Azure para Visual Studio inclui ferramentas para lhe ajudar. Usando o Visual Studio, você pode adicionar recursos para o modelo por meio de um assistente e, em seguida, implantar e depurar o modelo diretamente de dentro do Visual Studio. Para obter mais informações, confira [Criação de modelos do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
 
@@ -292,19 +290,19 @@ Você pode conceder acesso operacional a contas de usuário em um escopo especif
 
 Para conceder acesso, você atribui uma função ao usuário ou ao grupo de usuários. Há muitas funções predefinidas. Você também pode definir suas próprias funções personalizadas.
 
-Aqui estão algumas [funções internas de exemplo criadas no Azure](../../role-based-access-control/built-in-roles.md):
+Aqui estão alguns exemplos de [funções internas criadas no Azure](../../role-based-access-control/built-in-roles.md):
 
-- **Proprietário** : Um usuário com essa função pode gerenciar tudo, incluindo o acesso.
+- **Proprietário**: Um usuário com essa função pode gerenciar tudo, incluindo o acesso.
 
-- **Leitor** : Um usuário com essa função pode ler recursos de todos os tipos (exceto segredos), mas não pode fazer alterações.
+- **Leitor**: um usuário com essa função pode ler recursos de todos os tipos (exceto segredos), mas não pode fazer alterações.
 
-- **Colaborador da Máquina Virtual** : Um usuário com essa função pode gerenciar máquinas virtuais, mas não pode gerenciar a rede virtual à qual elas estão conectadas ou a conta de armazenamento em que o arquivo VHD reside.
+- **Colaborador da Máquina Virtual**: um usuário com essa função pode gerenciar máquinas virtuais, mas não pode gerenciar a rede virtual à qual elas estão conectadas ou a conta de armazenamento em que o arquivo VHD reside.
 
-- **Colaborador do DB SQL** : Um usuário com essa função pode gerenciar bancos de dados SQL, mas não as respectivas políticas relacionadas à segurança.
+- **Colaborador do DB SQL**: Um usuário com essa função pode gerenciar bancos de dados SQL, mas não as respectivas políticas relacionadas à segurança.
 
-- **Gerenciador de Segurança de SQL** : Um usuário com essa função pode gerenciar políticas relacionadas à segurança de servidores e bancos de dados SQL.
+- **Gerenciador de Segurança de SQL**: Um usuário com essa função pode gerenciar políticas relacionadas à segurança de servidores e bancos de dados SQL.
 
-- **Colaborador da Conta de Armazenamento** : Um usuário com essa função pode gerenciar contas de armazenamento, mas não pode gerenciar o acesso às contas de armazenamento.
+- **Colaborador da Conta de Armazenamento**: Um usuário com essa função pode gerenciar contas de armazenamento, mas não pode gerenciar o acesso às contas de armazenamento.
 
 Para obter mais informações, confira [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 
@@ -312,9 +310,9 @@ Para obter mais informações, confira [Adicionar ou remover atribuições de fu
 
 O Máquinas Virtuais do Azure é um dos serviços de IaaS centrais no Azure. As Máquinas Virtuais do Azure dão suporte para a implantação de máquinas virtuais Linux ou Windows em um datacenter do Microsoft Azure. Com as Máquinas Virtuais do Azure, você tem controle total sobre a configuração da VM e é responsável por toda a instalação, a configuração e a manutenção de software.
 
-Quando você estiver implantando uma VM do Azure, você poderá selecionar uma imagem do Azure Marketplace ou fornecer sua própria imagem generalizada. Essa imagem é usada para aplicar o sistema operacional e a configuração inicial. Durante a implantação, o Resource Manager manipulará algumas configurações, como atribuir o nome do computador, as credenciais administrativas e configuração de rede. Você pode usar extensões de máquina virtual do Azure para automatizar mais configurações como a instalação de software, configuração de antivírus e soluções de monitoramento.
+Quando você estiver implantando uma VM do Azure, você poderá selecionar uma imagem do Azure Marketplace ou fornecer uma imagem generalizada própria. Essa imagem é usada para aplicar o sistema operacional e a configuração inicial. Durante a implantação, o Resource Manager manipulará algumas configurações, como atribuir o nome do computador, as credenciais administrativas e configuração de rede. Você pode usar extensões de máquina virtual do Azure para automatizar mais configurações como a instalação de software, configuração de antivírus e soluções de monitoramento.
 
-Você pode criar máquinas virtuais de vários tamanhos diferentes. O tamanho da máquina virtual determina a alocação de recurso como a capacidade de processamento, a memória e o armazenamento. Em alguns casos, recursos específicos como adaptadores de rede habilitados para RDMA e discos SSD estão disponíveis apenas com determinados tamanhos de VM. Para obter uma lista completa de recursos e tamanhos de VM, consulte "Tamanhos das máquinas virtuais no Azure" para [Windows](../../virtual-machines/sizes.md) e [Linux](../../virtual-machines/sizes.md).
+Você pode criar máquinas virtuais de vários tamanhos diferentes. O tamanho da máquina virtual determina a alocação de recurso como a capacidade de processamento, a memória e o armazenamento. Em alguns casos, recursos específicos como adaptadores de rede habilitados para RDMA e discos SSD estão disponíveis apenas com determinados tamanhos de VM. Para obter uma lista completa de funcionalidades e tamanhos de VM, confira "Tamanhos das máquinas virtuais no Azure" para [Windows](../../virtual-machines/sizes.md) e [Linux](../../virtual-machines/sizes.md).
 
 ### <a name="use-cases"></a>Casos de uso
 
@@ -326,7 +324,7 @@ Você pode implantar máquinas virtuais do Azure usando o portal do Azure, usand
 
 #### <a name="portal"></a>Portal
 
-Implantar uma máquina virtual usando o portal do Azure requer apenas uma assinatura ativa do Azure e o acesso a um navegador da Web. Você pode selecionar muitas imagens diferentes do sistema operacional com configurações diferentes. Todos os requisitos de armazenamento e de rede são configurados durante a implantação. Para obter mais informações, consulte "Criar uma máquina virtual no portal do Azure" para [Windows](../../virtual-machines/windows/quick-create-portal.md) e [Linux](../../virtual-machines/linux/quick-create-portal.md).
+Implantar uma máquina virtual usando o portal do Azure requer apenas uma assinatura ativa do Azure e o acesso a um navegador da Web. Você pode selecionar muitas imagens diferentes do sistema operacional com configurações diferentes. Todos os requisitos de armazenamento e de rede são configurados durante a implantação. Para obter mais informações, confira "Criar uma máquina virtual no portal do Azure" para [Windows](../../virtual-machines/windows/quick-create-portal.md) e [Linux](../../virtual-machines/linux/quick-create-portal.md).
 
 Além de implantar uma máquina virtual do portal do Azure, você pode implantar um modelo do Azure Resource Manager por meio do portal. Isso implantará e configurará todos os recursos, conforme definido no modelo. Para obter mais informações, veja [Implantar recursos com modelos do Resource Manager e o portal do Azure](../../azure-resource-manager/templates/deploy-portal.md).
 
@@ -368,7 +366,7 @@ Cada tipo de armazenamento tem um caso de uso diferente.
 
 #### <a name="blob-storage"></a>Armazenamento de blob
 
-A palavra *blob* é um acrônimo para *objeto binário grande* . Blobs são arquivos não estruturados como aqueles que você armazena em seu computador. O Armazenamento de Blobs pode conter qualquer tipo de texto ou de dados binários, como um documento, um arquivo de mídia ou um instalador de aplicativo. O Armazenamento de Blobs também é chamado de armazenamento de objeto. O Armazenamento de Blobs do Azure também contém discos de dados de Máquinas Virtuais do Azure.
+A palavra *blob* é um acrônimo para *objeto binário grande*. Blobs são arquivos não estruturados como aqueles que você armazena em seu computador. O Armazenamento de Blobs pode conter qualquer tipo de texto ou de dados binários, como um documento, um arquivo de mídia ou um instalador de aplicativo. O Armazenamento de Blobs também é chamado de armazenamento de objeto. O Armazenamento de Blobs do Azure também contém discos de dados de Máquinas Virtuais do Azure.
 
 O Armazenamento do Azure dá suporte a três tipos de blobs:
 
@@ -430,7 +428,7 @@ O Armazenamento do Azure é acessado de várias maneiras, incluindo o Portal do 
 
 #### <a name="virtual-machine-disks"></a>Discos de máquina virtual
 
-Quando você estiver implantando uma máquina virtual, você também precisará criar uma conta de armazenamento para manter o disco do sistema operacional da máquina virtual e quaisquer discos de dados adicionais. Você pode selecionar uma conta de armazenamento existente ou criar uma nova. Como o tamanho máximo de um blob é 1.024 GB, um único disco de VM tem um tamanho máximo de 1.023 GB. Para configurar um disco de dados maior, você pode apresentar vários discos de dados para a máquina virtual e agrupá-los em pool como um único disco lógico. Para saber mais, veja "Gerenciar discos do Azure" para [Windows](../../virtual-machines/windows/tutorial-manage-data-disk.md) e [Linux](../../virtual-machines/linux/tutorial-manage-disks.md).
+Quando você estiver implantando uma máquina virtual, você também precisará criar uma conta de armazenamento para manter o disco do sistema operacional da máquina virtual e os discos de dados adicionais. Você pode selecionar uma conta de armazenamento existente ou criar uma nova. Como o tamanho máximo de um blob é 1.024 GB, um único disco de VM tem um tamanho máximo de 1.023 GB. Para configurar um disco de dados maior, você pode apresentar vários discos de dados para a máquina virtual e agrupá-los em pool como um único disco lógico. Para obter mais informações, confira "Gerenciar discos do Azure" para [Windows](../../virtual-machines/windows/tutorial-manage-data-disk.md) e [Linux](../../virtual-machines/linux/tutorial-manage-disks.md).
 
 #### <a name="storage-tools"></a>Ferramentas de armazenamento
 
@@ -446,7 +444,7 @@ Cada conta de armazenamento tem duas chaves de autenticação, uma principal e u
 
 #### <a name="shared-access-signatures"></a>Assinaturas de acesso compartilhado
 
-Se você precisa permitir que os usuários tenham acesso controlado a seus recursos de armazenamento, você pode criar uma assinatura de acesso compartilhado. Uma assinatura de acesso compartilhado é um token que pode ser acrescentado a uma URL que permite acesso delegado a um recurso de armazenamento. Qualquer pessoa que tenha o token pode acessar o recurso para o qual ele aponta com as permissões que ele especifica, pelo período de tempo da sua validade. Para obter mais informações, confira [Como usar assinaturas de acesso compartilhado](../../storage/common/storage-sas-overview.md).
+Se você precisa permitir que os usuários tenham acesso controlado a seus recursos de armazenamento, você pode criar uma assinatura de acesso compartilhado. Uma assinatura de acesso compartilhado é um token que pode ser acrescentado a uma URL que permite acesso delegado a um recurso de armazenamento. Qualquer pessoa que tenha o token pode acessar o recurso para o qual ele aponta com as permissões que ele especifica, pelo período da validade dele. Para obter mais informações, confira [Como usar assinaturas de acesso compartilhado](../../storage/common/storage-sas-overview.md).
 
 ## <a name="azure-virtual-network"></a>Rede Virtual do Azure
 
@@ -473,9 +471,9 @@ Há várias opções para a implantação de uma rede virtual.
 
 - Modelos do Azure Resource Manager
 
-> **Quando usar** : Sempre que você estiver trabalhando com VMs no Azure, você trabalhará com redes virtuais. Isso permite a segmentação de suas VMs em sub-redes privadas e voltadas para o público semelhantes a data centers locais.
+> **Quando usar**: Sempre que você estiver trabalhando com VMs no Azure, você trabalhará com redes virtuais. Isso permite a segmentação de suas VMs em sub-redes privadas e voltadas para o público semelhantes a data centers locais.
 >
-> **Introdução** : Implantar uma rede virtual do Azure usando o portal do Azure requer apenas uma assinatura ativa do Azure e o acesso a um navegador da Web. Você pode implantar uma nova rede virtual em um grupo de recursos novo ou existente. Quando você estiver criando uma nova máquina virtual por meio do portal, você pode selecionar uma rede virtual existente ou crie uma nova. Comece e [crie uma rede virtual usando o portal do Azure](../../virtual-network/quick-create-portal.md).
+> **Introdução**: Implantar uma rede virtual do Azure usando o portal do Azure requer apenas uma assinatura ativa do Azure e o acesso a um navegador da Web. Você pode implantar uma nova rede virtual em um grupo de recursos novo ou existente. Quando você estiver criando uma máquina virtual por meio do portal, você pode selecionar uma rede virtual existente ou crie uma. Comece e [crie uma rede virtual usando o portal do Azure](../../virtual-network/quick-create-portal.md).
 
 ### <a name="access-and-security-for-virtual-networks"></a>Acesso e segurança para redes virtuais
 

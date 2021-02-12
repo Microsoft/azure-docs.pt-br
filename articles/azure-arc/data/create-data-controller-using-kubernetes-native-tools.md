@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: bfdda75c0826ed12fbce1eb47680f91abbde4934
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8d00055d9a4d7355ccd8a33c8a9b811b852f5c8
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91661050"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955273"
 ---
 # <a name="create-azure-arc-data-controller-using-kubernetes-tools"></a>Criar controlador de dados de arco do Azure usando ferramentas de kubernetes
 
@@ -38,11 +38,9 @@ Se você instalou o controlador de dados Arc do Azure no passado, no mesmo clust
 ```console
 # Cleanup azure arc data service artifacts
 kubectl delete crd datacontrollers.arcdata.microsoft.com 
-kubectl delete sqlmanagedinstances.sql.arcdata.microsoft.com 
-kubectl delete postgresql-11s.arcdata.microsoft.com 
-kubectl delete postgresql-12s.arcdata.microsoft.com
-kubectl delete clusterroles azure-arc-data:cr-arc-metricsdc-reader
-kubectl delete clusterrolebindings azure-arc-data:crb-arc-metricsdc-reader
+kubectl delete crd sqlmanagedinstances.sql.arcdata.microsoft.com 
+kubectl delete crd postgresql-11s.arcdata.microsoft.com 
+kubectl delete crd postgresql-12s.arcdata.microsoft.com
 ```
 
 ## <a name="overview"></a>Visão geral
@@ -59,7 +57,7 @@ A criação do controlador de dados de arco do Azure tem as seguintes etapas de 
 Execute o comando a seguir para criar as definições de recursos personalizados.  **[Requer permissões de administrador de cluster kubernetes]**
 
 ```console
-kubectl create -f https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/custom-resource-definitions.yaml
+kubectl create -f https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/custom-resource-definitions.yaml
 ```
 
 ## <a name="create-a-namespace-in-which-the-data-controller-will-be-created"></a>Criar um namespace no qual o controlador de dados será criado
@@ -79,7 +77,7 @@ O serviço bootstrapper trata as solicitações de entrada para criar, editar e 
 Execute o comando a seguir para criar um serviço de bootstrapper, uma conta de serviço para o serviço bootstrapper e uma função e Associação de função para a conta de serviço de bootstrapper.
 
 ```console
-kubectl create --namespace arc -f https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/bootstrapper.yaml
+kubectl create --namespace arc -f https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/bootstrapper.yaml
 ```
 
 Verifique se o Pod do bootstrapper está em execução usando o comando a seguir.  Talvez seja necessário executá-lo algumas vezes até que o status seja alterado para `Running` .
@@ -102,7 +100,7 @@ containers:
       - env:
         - name: ACCEPT_EULA
           value: "Y"
-        #image: mcr.microsoft.com/arcdata/arc-bootstrapper:public-preview-sep-2020 <-- template value to change
+        #image: mcr.microsoft.com/arcdata/arc-bootstrapper:public-preview-dec-2020  <-- template value to change
         image: <your registry DNS name or IP address>/<your repo>/arc-bootstrapper:<your tag>
         imagePullPolicy: IfNotPresent
         name: bootstrapper
@@ -150,7 +148,7 @@ echo '<your string to encode here>' | base64
 # echo 'example' | base64
 ```
 
-Depois de codificar o nome de usuário e a senha, você pode criar um arquivo com base no [arquivo de modelo](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/controller-login-secret.yaml) e substituir os valores de nome de usuário e senha pelos seus próprios.
+Depois de codificar o nome de usuário e a senha, você pode criar um arquivo com base no [arquivo de modelo](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/controller-login-secret.yaml) e substituir os valores de nome de usuário e senha pelos seus próprios.
 
 Em seguida, execute o comando a seguir para criar o segredo.
 
@@ -165,7 +163,7 @@ kubectl create --namespace arc -f C:\arc-data-services\controller-login-secret.y
 
 Agora você está pronto para criar o próprio controlador de dados.
 
-Primeiro, crie uma cópia do [arquivo de modelo](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/data-controller.yaml) localmente no seu computador para que você possa modificar algumas das configurações.
+Primeiro, crie uma cópia do [arquivo de modelo](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/data-controller.yaml) localmente no seu computador para que você possa modificar algumas das configurações.
 
 Edite o seguinte, conforme necessário:
 
@@ -200,7 +198,7 @@ spec:
     serviceAccount: sa-mssql-controller
   docker:
     imagePullPolicy: Always
-    imageTag: public-preview-sep-2020
+    imageTag: public-preview-dec-2020 
     registry: mcr.microsoft.com
     repository: arcdata
   security:

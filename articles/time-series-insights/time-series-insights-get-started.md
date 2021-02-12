@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 401d22ee68ba0652eb684b03b06fddf0b0fe3d72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61af7922318514a7b86a349d1970c59d4d168d85
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569458"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023319"
 ---
 # <a name="create-a-new-azure-time-series-insights-gen1-environment-in-the-azure-portal"></a>Criar um novo ambiente de Azure Time Series Insights Gen1 no portal do Azure
 
@@ -33,7 +33,7 @@ Siga estas etapas para criar um ambiente:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-1. Selecione o botão **+ criar um recurso** .
+1. Selecione o botão **+ Criar um recurso**.
 
 1. Selecione a categoria **Internet das Coisas** e selecione **Time Series Insights**.
 
@@ -50,9 +50,9 @@ Siga estas etapas para criar um ambiente:
    Nome do ambiente | Um nome exclusivo | Esse nome representa o ambiente no [Explorador do time Series](https://insights.timeseries.azure.com)
    Subscription | Sua assinatura | Se você tiver várias assinaturas, escolha a assinatura que contenha a origem do evento de preferência. Azure Time Series Insights pode detectar automaticamente o Hub IoT do Azure e os recursos do hub de eventos existentes na mesma assinatura.
    Resource group | Criar um novo ou usar um existente | Um grupo de recursos é uma coleção de recursos do Azure que são usados juntos. Você pode escolher um grupo de recursos existente, como aquele que contém seu Hub de Eventos ou Hub IoT. Ou você pode criar um novo se esse recurso não estiver relacionado a outros recursos.
-   Localização | Mais próximo da origem do evento | Preferencialmente, escolha o mesmo local de centro de dados que contenha os dados de origem do evento, em um esforço para evitar os custos de largura de banda entre regiões e zonas e a latência adicional ao mover os dados para fora da região.
+   Location | Mais próximo da origem do evento | Preferencialmente, escolha o mesmo local de centro de dados que contenha os dados de origem do evento, em um esforço para evitar os custos de largura de banda entre regiões e zonas e a latência adicional ao mover os dados para fora da região.
    Tipo de preço | S1 | Escolha a taxa de transferência necessária. Para ter custos mais baixos e a capacidade inicial, selecione S1.
-   Capacity | 1 | A capacidade é o multiplicador aplicado à taxa de ingresso, à capacidade de armazenamento e ao custo associado com a SKU selecionada.  Você pode alterar a capacidade de um ambiente após a criação. Para custos mais baixos, selecione uma capacidade 1.
+   Capacidade | 1 | A capacidade é o multiplicador aplicado à taxa de ingresso, à capacidade de armazenamento e ao custo associado com a SKU selecionada.  Você pode alterar a capacidade de um ambiente após a criação. Para custos mais baixos, selecione uma capacidade 1.
   
 1. Selecione **Criar** para iniciar o processo de provisionamento. Isso poderá levar alguns minutos.
 
@@ -60,7 +60,7 @@ Siga estas etapas para criar um ambiente:
 
    [![Assistir às notificações](media/time-series-insights-get-started/tsi-deploy-notifications.png)](media/time-series-insights-get-started/tsi-deploy-notifications.png#lightbox)
 
-1. Na **visão geral**do recurso, verifique as definições de configuração da implantação.
+1. Na **visão geral** do recurso, verifique as definições de configuração da implantação.
 
    [![Criar o Azure Time Series Insights fixar no painel](media/time-series-insights-get-started/tsi-verify-deployment.png)](media/time-series-insights-get-started/tsi-verify-deployment.png#lightbox)
 
@@ -68,9 +68,9 @@ Siga estas etapas para criar um ambiente:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Defina as políticas de acesso de dados](time-series-insights-data-access.md) para proteger seu ambiente.
+* [Defina as políticas de acesso de dados](./concepts-access-policies.md) para proteger seu ambiente.
 
-* [Adicione uma origem de evento do Hub de Eventos](time-series-insights-how-to-add-an-event-source-eventhub.md) ao ambiente do Azure Time Series Insights.
+* [Adicione uma origem de evento do Hub de Eventos](./how-to-ingest-data-event-hub.md) ao ambiente do Azure Time Series Insights.
 
 * [Enviar eventos](time-series-insights-send-events.md) para a origem do evento.
 

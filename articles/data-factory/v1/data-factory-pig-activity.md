@@ -1,10 +1,10 @@
 ---
 title: Transformar dados usando a Atividade Pig no Azure Data Factory
-description: Saiba como você pode usar a atividade Pig em um Azure data factory v1 para executar scripts do Pig em um cluster do HDInsight sob demanda/seu próprio.
+description: Saiba como você pode usar a atividade Pig no Azure Data Factory v1 para executar scripts do Pig em um cluster do HDInsight sob demanda/seu próprio.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.assetid: 5af07a1a-2087-455e-a67b-a79841b4ada5
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 35990312658492e1e41b47096a43748c3a4e653e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0ad84a0e848abda1b786958947b4081b11b139a7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359893"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495338"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformar dados usando a Atividade Pig no Azure Data Factory
 > [!div class="op_single_selector" title1="Atividades de transformação"]
@@ -26,8 +26,8 @@ ms.locfileid: "92359893"
 > * [Atividade MapReduce](data-factory-map-reduce.md)
 > * [Atividade de streaming do Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Atividade do Spark](data-factory-spark.md)
-> * [Atividade de execução de lote Azure Machine Learning Studio (clássica)](data-factory-azure-ml-batch-execution-activity.md)
-> * [Atividade de recurso de atualização Azure Machine Learning Studio (clássica)](data-factory-azure-ml-update-resource-activity.md)
+> * [Atividade de execução em lotes do Azure Machine Learning Studio (clássico)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Atividade do recurso de atualização do Azure Machine Learning Studio (clássico)](data-factory-azure-ml-update-resource-activity.md)
 > * [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md)
 > * [Atividade do U-SQL da Análise Data Lake](data-factory-usql-activity.md)
 > * [Atividade personalizada do .NET](data-factory-use-custom-activities.md)

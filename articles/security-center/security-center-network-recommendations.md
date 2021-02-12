@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: 28d0d7b14c18a1d98be1872b1555930b2e1650c3
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 366a9a63e4577a9b8470faec68f8d4a25114dd48
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342443"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133694"
 ---
 # <a name="protect-your-network-resources"></a>Proteja seus recursos de rede
 A Central de Segurança do Azure analisa continuamente o estado de segurança de seus recursos do Azure para as práticas recomendadas de segurança de rede. Quando o Security Center identifica possíveis vulnerabilidades de segurança, ele cria recomendações que guiam você pelo processo de configuração dos controles necessários para proteger e proteger seus recursos.
 
-Para obter uma lista completa das recomendações de rede, consulte [recomendações de rede](recommendations-reference.md#recs-network).
+Para obter uma lista completa das recomendações de rede, consulte [recomendações de rede](recommendations-reference.md#recs-networking).
 
 Este artigo aborda recomendações que se aplicam a seus recursos do Azure de uma perspectiva de segurança de rede. Centro de recomendações de rede sobre firewalls da próxima geração, grupos de segurança de rede, acesso de VM JIT, regras de tráfego de entrada excessivamente permissivas e muito mais. Para obter uma lista de recomendações de rede e ações de correção, consulte [Gerenciando recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md).
 
@@ -48,7 +48,7 @@ Para abrir o mapa de rede:
 
 1. No menu da central de segurança, abra o painel do Azure defender e selecione **mapa de rede**.
 
-    :::image type="content" source="./media/security-center-network-recommendations/opening-network-map.png" alt-text="Tipos de recurso de rede de inventário de ativos" lightbox="./media/security-center-network-recommendations/opening-network-map.png":::
+    :::image type="content" source="./media/security-center-network-recommendations/opening-network-map.png" alt-text="Abrindo o mapa de rede no painel do Azure defender" lightbox="./media/security-center-network-recommendations/opening-network-map.png":::
 
 1. Selecione o menu **camadas** , escolha **topologia**.
  
@@ -82,7 +82,7 @@ Como o mapa é interativo e dinâmico, todos os nós são clicáveis e a exibiç
 1. Você pode modificar o que vê no mapa de rede usando os filtros na parte superior. Você pode se concentrar o mapa com base em:
 
    -  **Integridade da segurança**: você pode filtrar o mapa com base na gravidade (alta, média, baixa) dos recursos do Azure.
-   - ** Recomendações **: você pode selecionar quais recursos são exibidos com base nas recomendações ativas nesses recursos. Por exemplo, você pode exibir apenas os recursos para os quais a Central de Segurança recomenda que você ative os Grupos de Segurança de Rede.
+   - **Recomendações**: você pode selecionar quais recursos são exibidos com base nas recomendações ativas nesses recursos. Por exemplo, você pode exibir apenas os recursos para os quais a Central de Segurança recomenda que você ative os Grupos de Segurança de Rede.
    - **Zonas de rede**: por padrão, o mapa exibe apenas recursos voltados para a Internet, você também pode selecionar VMs internas.
  
 2. Você pode clicar em **Redefinir** no canto superior esquerdo a qualquer momento para retornar o mapa ao seu estado padrão.

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2020
 ms.author: allensu
-ms.openlocfilehash: e15aab3ebfe82fa97f5716769b5ff9675b4b3dc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01cca2f2233ed5cdfb3003bb44c40f481bcf9bda
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91637087"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699399"
 ---
 # <a name="azure-load-balancer-floating-ip-configuration"></a>Azure Load Balancer configuração de IP flutuante
 
@@ -45,4 +45,4 @@ Com o IP Flutuante, o Azure expõe um esquema de mapeamento de endereço IP de b
 - Saiba mais sobre o [Azure Load Balancer](load-balancer-overview.md).
 - Saiba mais sobre [Investigações de Integridade](load-balancer-custom-probe-overview.md).
 - Saiba mais sobre o [Diagnóstico do Load Balancer Standard](load-balancer-standard-diagnostics.md).
-- Saiba mais sobre [Grupos de Segurança de Rede](../virtual-network/security-overview.md).
+- Saiba mais sobre [Grupos de Segurança de Rede](../virtual-network/network-security-groups-overview.md).

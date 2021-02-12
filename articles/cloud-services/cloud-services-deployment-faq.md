@@ -1,28 +1,24 @@
 ---
 title: Problemas de implantação para perguntas frequentes sobre Serviços de Nuvem do Microsoft Azure | Microsoft Docs
 description: Este artigo lista as perguntas frequentes sobre a implantação para Serviços de Nuvem do Microsoft Azure.
-services: cloud-services
-documentationcenter: ''
-author: genlin
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
-ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/31/2018
-ms.author: genli
-ms.openlocfilehash: 63a219078927e9001a8eb4085c722e7ec8d2fac9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: dd7b19a2c9e872b811c1aab6e504accb7de383b2
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75980640"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896470"
 ---
-# <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de implantação para Serviços de Nuvem do Azure: perguntas frequentes
+# <a name="deployment-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Problemas de implantação para os serviços de nuvem do Azure (clássico): perguntas frequentes (FAQs)
 
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
 Este artigo inclui perguntas frequentes sobre problemas de implantação para [Serviços de Nuvem do Microsoft Azure](https://azure.microsoft.com/services/cloud-services). Você também pode consultar a [página de tamanho de VM de Serviços de Nuvem](cloud-services-sizes-specs.md) para obter informações de tamanho.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
@@ -56,16 +52,16 @@ A implantação de um serviço de nuvem poderá falhar se os recursos que precis
 
 Você também pode acompanhar o uso/cota atual de sua assinatura no Portal: portal do Azure => assinaturas => \<appropriate subscription>   => "uso + cota".
 
-Informações relacionadas ao uso/consumo de recursos também podem ser recuperadas por meio das APIs de Cobrança do Azure. Confira [API de uso de recursos do Azure (versão prévia)](../cost-management-billing/manage/usage-rate-card-overview.md#azure-resource-usage-api-preview).
+Informações relacionadas ao uso/consumo de recursos também podem ser recuperadas por meio das APIs de Cobrança do Azure. Consulte [visão geral da API de consumo do Azure](../cost-management-billing/manage/consumption-api-overview.md).
 
 ## <a name="how-can-i-change-the-size-of-a-deployed-cloud-service-vm-without-redeploying-it"></a>Como posso alterar o tamanho de uma VM de serviço de nuvem implantada sem reimplantá-la?
 Você não pode alterar o tamanho de uma VM de serviço de nuvem implantada sem reimplantá-la. O tamanho da VM é criado em CSDEF, que somente pode ser atualizado com uma reimplantação.
 
 Para obter mais informações, consulte [Como atualizar um serviço de nuvem](cloud-services-update-azure-service.md).
 
-## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Por que eu não consigo implantar os Serviços de Nuvem por meio das APIs de Gerenciamento de Serviços ou PowerShell ao usar a conta de armazenamento do Azure Resource Manager? 
+## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Por que eu não consigo implantar os Serviços de Nuvem por meio das APIs de Gerenciamento de Serviços ou PowerShell ao usar a conta de armazenamento do Azure Resource Manager? 
 
-Como o serviço de nuvem é um recurso clássico que não é compatível diretamente com o modelo de Azure Resource Manager, você não pode associá-lo com as contas de armazenamento de Azure Resource Manager. Veja algumas opções: 
+Como o serviço de nuvem é um recurso clássico que não é compatível diretamente com o modelo de Azure Resource Manager, você não pode associá-lo com as contas de armazenamento de Azure Resource Manager. Veja algumas opções: 
 
 - Implantar por meio da API REST.
 
@@ -73,7 +69,7 @@ Como o serviço de nuvem é um recurso clássico que não é compatível diretam
 
 - Implantar por meio do [Portal do Azure](https://portal.azure.com).
 
-    Isso funcionará na [portal do Azure](https://portal.azure.com) à medida que a chamada passa por um proxy/Shim que permite a comunicação entre Azure Resource Manager e recursos clássicos. 
+    Isso funcionará na [portal do Azure](https://portal.azure.com) à medida que a chamada passa por um proxy/Shim que permite a comunicação entre Azure Resource Manager e recursos clássicos. 
 
 ## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Por que o portal do Azure exige que eu forneça uma conta de armazenamento para a implantação?
 

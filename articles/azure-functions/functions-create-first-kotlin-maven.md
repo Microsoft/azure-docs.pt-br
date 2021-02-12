@@ -1,22 +1,22 @@
 ---
-title: Criar sua primeira função no Azure com o Kotlin e o Maven
-description: Crie e publique uma função disparada por HTTP no Azure com o Kotlin e o Maven.
+title: Criar uma função Kotlin no Azure Functions usando o Maven
+description: Crie e publique um aplicativo de funções disparado por HTTP para o Azure Functions com o Kotlin e o Maven.
 author: dglover
 ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 03/25/2020
 ms.author: dglover
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: acb4290a90532b38f44a957e33c69f7d2b3f11f8
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 6f7b79b6e3e72b34a27e5b4f0e1fb5426c539699
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104811"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035233"
 ---
 # <a name="quickstart-create-your-first-function-with-kotlin-and-maven"></a>Início Rápido: Criar sua primeira função com o Kotlin e o Maven
 
-Este artigo explicará como usar a ferramenta de linha de comando do Maven para criar e publicar um projeto de função Kotlin no Azure Functions. Quando terminar, seu código de função será executado nos [Plano de Consumo](functions-scale.md#consumption-plan) no Azure e poderá ser disparado usando uma solicitação HTTP.
+Este artigo explicará como usar a ferramenta de linha de comando do Maven para criar e publicar um projeto de função Kotlin no Azure Functions. Quando terminar, seu código de função será executado nos [Plano de Consumo](consumption-plan.md) no Azure e poderá ser disparado usando uma solicitação HTTP.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -32,9 +32,9 @@ Para desenvolver funções usando Kotlin, você deve ter o seguinte instalado:
 > [!IMPORTANT]
 > A variável de ambiente JAVA_HOME deve ser definida como o local de instalação do JDK para concluir este guia de início rápido.
 
-## <a name="generate-a-new-functions-project"></a>Gerar um novo projeto do Functions
+## <a name="generate-a-new-azure-functions-project"></a>Gerar um novo projeto do Azure Functions
 
-Em uma pasta vazia, execute o seguinte comando para gerar o projeto do Functions a partir de um [arquétipo Maven](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
+Em uma pasta vazia, execute o comando a seguir para gerar o projeto do Azure Functions com base em um [arquétipo do Maven](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
 
 # <a name="bash"></a>[Bash](#tab/bash)
 ```bash
@@ -167,13 +167,13 @@ az login
 Implante seu código em um novo aplicativo de funções usando o destino Maven `azure-functions:deploy`.
 
 > [!NOTE]
-> Quando você usa o Visual Studio Code para implantar seu aplicativo Function, lembre-se de escolher uma assinatura não gratuita, ou você receberá um erro. Você pode assistir à sua assinatura no lado esquerdo do IDE.
+> Quando você usa o Visual Studio Code para implantar seu aplicativo de funções, lembre-se de escolher uma assinatura não gratuita ou você receberá um erro. Você pode assistir à sua assinatura no lado esquerdo do IDE.
 
 ```
 mvn azure-functions:deploy
 ```
 
-Quando a implantação for concluída, você verá a URL que pode usar para acessar seu aplicativo de funções do Azure:
+Quando a implantação for concluída, você verá a URL que pode usar para acessar seu aplicativo de funções:
 
 <pre>
 [INFO] Successfully deployed Function App with package.
@@ -198,7 +198,7 @@ Hello AzureFunctions!
 
 ## <a name="make-changes-and-redeploy"></a>Fazer alterações e implantar novamente
 
-Edite o arquivo de origem `src/main.../Function.java` no projeto gerado para alterar o texto retornado pelo seu aplicativo de Funções. Altere esta linha:
+Edite o arquivo de origem `src/main.../Function.java` no projeto gerado para alterar o texto retornado pelo seu aplicativo de funções. Altere esta linha:
 
 ```kotlin
 return request
@@ -231,7 +231,7 @@ Hi, AzureFunctionsTest
 
 ## <a name="reference-bindings"></a>Associações de referência
 
-Para trabalhar com [Gatilhos e associações de funções](functions-triggers-bindings.md), exceto o gatilho HTTP e o gatilho de temporizador, você precisa instalar extensões de associação. Embora não seja exigido por este artigo, você precisará saber como habilitar extensões ao trabalhar com outros tipos de associação.
+Para trabalhar com [Gatilhos e associações do Azure Functions](functions-triggers-bindings.md), exceto o gatilho HTTP e o gatilho de temporizador, você precisa instalar extensões de associação. Embora não seja exigido por este artigo, você precisará saber como habilitar extensões ao trabalhar com outros tipos de associação.
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
@@ -239,7 +239,7 @@ Para trabalhar com [Gatilhos e associações de funções](functions-triggers-bi
 
 Você criou um aplicativo de funções Kotlin com um gatilho HTTP simples e o implantou no Azure Functions.
 
-- Examine o [Guia do desenvolvedor de Funções Java](functions-reference-java.md) para saber mais sobre o desenvolvimento de funções Java e Kotlin.
+- Examine o [Guia do desenvolvedor do Java do Azure Functions](functions-reference-java.md) para saber mais sobre o desenvolvimento de funções Java e Kotlin.
 - Adicione outras funções com gatilhos diferentes ao seu projeto usando o destino Maven `azure-functions:add`.
 - Escreva e depure funções localmente com [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md) e [Eclipse](functions-create-maven-eclipse.md). 
 - Depure funções implantadas no Azure com o Visual Studio Code. Veja a documentação de [aplicativos Java sem servidor](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud) do Visual Studio Code para obter instruções.

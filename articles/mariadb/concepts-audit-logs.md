@@ -1,17 +1,17 @@
 ---
 title: Logs de auditoria-banco de dados do Azure para MariaDB
 description: Descreve os logs de auditoria disponíveis no banco de dados do Azure para MariaDB e os parâmetros disponíveis para habilitar os níveis de log.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 6/24/2020
-ms.openlocfilehash: 7c9d59eee1e1ce69394301023b108952eaf46790
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3032cb8f5ce399822de65c867d1f32da254c9948
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85362417"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663750"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>Logs de auditoria no banco de dados do Azure para MariaDB
 

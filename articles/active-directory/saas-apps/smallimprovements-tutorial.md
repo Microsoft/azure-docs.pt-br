@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 6eced120a05ddaca8d8cf426fd2a977891b3e36b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515892"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997130"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>Tutorial: Integração do Active Directory do Azure com o Small Improvements
 
@@ -49,11 +49,11 @@ Para configurar a integração do Small Improvements ao Azure AD, você precisar
 
 **Para adicionar o Small Improvements da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory** .
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos** .
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Para configurar a integração do Small Improvements ao Azure AD, você precisar
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Small Improvements** , selecione **Small Improvements** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Small Improvements**, selecione **Small Improvements** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![Small Improvements na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Small Improvements, com base em um usuário de teste chamado **Brenda Fernandes** .
+Nesta seção, você configurará e testará o logon único do Azure AD com o Small Improvements, com base em um usuário de teste chamado **Brenda Fernandes**.
 Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Small Improvements.
 
 Para configurar e testar o logon único do Azure AD com o Small Improvements, você precisará concluir os seguintes blocos de construção:
@@ -85,34 +85,34 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Small Improvements, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Small Improvements** , selecione **Logon único** .
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Small Improvements**, selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML** .
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica de SAML** , realize as seguintes etapas:
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
     ![Informações de logon único de Domínio e URLs do Small Improvements](common/sp-identifier.png)
 
-    a. Na caixa de texto **URL de Logon** , digite uma URL usando o seguinte padrão: `https://<subdomain>.small-improvements.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.small-improvements.com`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<subdomain>.small-improvements.com`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do Small Improvements](mailto:support@small-improvements.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-5. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+5. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-6. Na seção **Configurar o Small Improvements** , copie as URLs apropriadas de acordo com suas necessidades.
+6. Na seção **Configurar o Small Improvements**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -130,7 +130,7 @@ Para configurar o logon único do Azure AD com o Small Improvements, execute as 
 
     ![Captura de tela que mostra o botão Administração selecionado.](./media/smallimprovements-tutorial/tutorial_smallimprovements_06.png) 
 
-1. Clique no botão **SSO de SAML** na seção **Integrações** .
+1. Clique no botão **SSO de SAML** na seção **Integrações**.
 
     ![Captura de tela que mostra o ícone de SSO do SAML selecionado em Integrações.](./media/smallimprovements-tutorial/tutorial_smallimprovements_07.png) 
 
@@ -138,11 +138,11 @@ Para configurar o logon único do Azure AD com o Small Improvements, execute as 
 
     ![Captura de tela que mostra a página Configuração do SSO, na qual você pode inserir os valores descritos.](./media/smallimprovements-tutorial/tutorial_smallimprovements_08.png)  
 
-    a. Na caixa de texto **Ponto de extremidade HTTP** , cole o valor da **URL de Logon** copiado do portal do Azure.
+    a. Na caixa de texto **Ponto de extremidade HTTP**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
     b. Abra seu certificado baixado no Bloco de Notas, copie o conteúdo e cole-o na caixa de texto **Certificado x509** . 
 
-    c. Caso você deseje disponibilizar a opção de autenticação de formulário SSO e Logon para os usuários, marque a opção **Habilitar o acesso por meio de logon/senha também** .  
+    c. Caso você deseje disponibilizar a opção de autenticação de formulário SSO e Logon para os usuários, marque a opção **Habilitar o acesso por meio de logon/senha também**.  
 
     d. Insira o valor apropriado para o botão Nomear o Login SSO na caixa de texto **Prompt de SAML** .  
 
@@ -152,7 +152,7 @@ Para configurar o logon único do Azure AD com o Small Improvements, execute as 
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários** .
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -164,40 +164,40 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes** .
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário** , digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao Small Improvements.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , selecione **Todos os aplicativos** e, em seguida, selecione **Small Improvements** .
+1. No portal do Azure, selecione **Aplicativos Empresariais**, selecione **Todos os aplicativos** e, em seguida, selecione **Small Improvements**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **Small Improvements** .
+2. Na lista de aplicativos, selecione **Small Improvements**.
 
     ![Link do Small Improvements na lista de Aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Usuários e grupos** .
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
     ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-small-improvements-test-user"></a>Criar usuário de teste do Small Improvements
 
@@ -207,29 +207,29 @@ Para permitir que os usuários do Azure AD façam logon no Small Improvements, e
 
 1. Entre em seu site de empresa do Small Improvements como administrador.
 
-1. Na Home page, no menu à esquerda, e clique em **Administração** .
+1. Na Home page, no menu à esquerda, e clique em **Administração**.
 
 1. Clique no botão **Diretório de usuários** na seção Gerenciamento de Usuários.
 
     ![Captura de tela que mostra a opção Diretório de Usuário selecionada em Visão Geral de Administração.](./media/smallimprovements-tutorial/tutorial_smallimprovements_10.png) 
 
-1. Clique em **Adicionar usuários** .
+1. Clique em **Adicionar usuários**.
 
     ![Captura de tela que mostra o botão Adicionar usuários.](./media/smallimprovements-tutorial/tutorial_smallimprovements_11.png) 
 
-1. Na caixa de diálogo **Adicionar Usuários** , realize as seguintes etapas: 
+1. Na caixa de diálogo **Adicionar Usuários**, realize as seguintes etapas: 
 
     ![Captura de tela que mostra a caixa de diálogo Adicionar usuários, na qual você pode inserir os valores descritos.](./media/smallimprovements-tutorial/tutorial_smallimprovements_12.png)
 
-    a. Insira o **nome** do usuário, como **Brenda** .
+    a. Insira o **nome** do usuário, como **Brenda**.
 
-    b. Insira o **Sobrenome** do usuário, como **Fernandes** .
+    b. Insira o **Sobrenome** do usuário, como **Fernandes**.
 
     c. Insira o **Email** do usuário, como **brittasimon@contoso.com** .
 
     d. Você também pode optar por inserir a mensagem pessoal na caixa **Enviar email de notificação** . Caso não deseje enviar a notificação, desmarque essa caixa de seleção.
 
-    e. Clique em **Criar Usuários** .
+    e. Clique em **Criar Usuários**.
 
 ### <a name="test-single-sign-on"></a>Testar logon único
 

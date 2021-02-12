@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 01/28/2021
 ms.author: alkohli
-ms.openlocfilehash: ff2a473ca008e9b283d03ebb05f35122473d778a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d079f2fa3e67f1ec915a02de3e195ccac538209
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899267"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063291"
 ---
 # <a name="kubernetes-storage-management-on-your-azure-stack-edge-pro-gpu-device"></a>Gerenciamento de armazenamento kubernetes em seu dispositivo de GPU pro Azure Stack Edge
 
@@ -41,9 +41,9 @@ Para entender como o armazenamento é gerenciado para kubernetes, é necessário
 
 O provisionamento de armazenamento pode ser estático ou dinâmico. Cada um dos tipos de provisionamento é discutido nas seções a seguir.
 
-## <a name="staticprovisioning"></a>Provisionamento estático
+## <a name="static-provisioning"></a>Provisionamento estático
 
-Os administradores de cluster kubernetes podem provisionar estaticamente o armazenamento. Para fazer isso, eles podem usar o back-end de armazenamento com base em sistemas de arquivos SMB/NFS ou usar discos iSCSI que se conectam localmente pela rede em um ambiente local ou até mesmo usar arquivos do Azure ou discos do Azure na nuvem. Esse tipo de armazenamento não é provisionado por padrão e os administradores de cluster precisam planejar e gerenciar esse provisionamento. 
+Os administradores de cluster do Kubernetes podem provisionar estaticamente o armazenamento. Para fazer isso, eles podem usar o back-end de armazenamento com base em sistemas de arquivos SMB/NFS ou usar discos iSCSI que se conectam localmente pela rede em um ambiente local ou até mesmo usar arquivos do Azure ou discos do Azure na nuvem. Esse tipo de armazenamento não é provisionado por padrão e os administradores de cluster precisam planejar e gerenciar esse provisionamento. 
  
 Aqui está um diagrama que descreve como o armazenamento provisionado estaticamente é consumido em kubernetes: 
 
@@ -58,7 +58,7 @@ Ocorrem as seguintes etapas:
 1. **Montar o PVC para o contêiner**: depois que o PVC estiver associado ao PV, você poderá montar esse PVC em um caminho em seu contêiner. Quando a lógica do aplicativo no contêiner lê/grava de/para esse caminho, os dados são gravados no armazenamento SMB.
  
 
-## <a name="dynamicprovisioning"></a>Provisionamento dinâmico
+## <a name="dynamic-provisioning"></a>Provisionamento dinâmico
 
 Aqui está um diagrama que descreve como o armazenamento provisionado estaticamente é consumido em kubernetes: 
 
@@ -79,11 +79,11 @@ Ocorrem as seguintes etapas:
 
 No dispositivo Azure Stack Edge pro, o provisionamento estático `PersistentVolumes` é criado usando os recursos de armazenamento do dispositivo. Quando você provisiona um compartilhamento e **usa a opção compartilhar com a computação de borda** está habilitada, essa ação cria um recurso VP automaticamente no cluster kubernetes.
 
-![Criação de compartilhamento local em portal do Azure para provisionamento estático](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-2.png)
+![Criação de compartilhamento local em portal do Azure para provisionamento estático](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-1.png)
 
 Para usar a camada de nuvem, você pode criar um compartilhamento de nuvem de borda com a opção usar o compartilhamento com a computação de borda habilitada. Um PV é novamente criado automaticamente para esse compartilhamento. Todos os dados do aplicativo gravados no compartilhamento de borda são em camadas para a nuvem. 
 
-![Criação de compartilhamento de nuvem em portal do Azure para provisionamento estático](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-1.png)
+![Criação de compartilhamento de nuvem em portal do Azure para provisionamento estático](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-2.png)
 
 Você pode criar compartilhamentos SMB e NFS para provisionar estaticamente o PVs no dispositivo pro Azure Stack Edge. Depois que o PV for provisionado, você enviará um PVC para reivindicar esse armazenamento. Aqui está um exemplo de uma implantação de PVC `yaml` que declara o armazenamento e usa os compartilhamentos que você provisionou.
 
@@ -104,6 +104,26 @@ spec:
 ```
 
 Para obter mais informações, consulte [implantar um aplicativo com estado por meio de provisionamento estático em seu Azure Stack Edge pro via kubectl](azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md).
+
+Para acessar o mesmo armazenamento provisionado estaticamente, as opções de montagem de volume correspondentes para associações de armazenamento para IoT são as seguintes. O `/home/input` é o caminho no qual o volume pode ser acessado dentro do contêiner.
+
+```
+{
+"HostConfig": {
+"Mounts": [
+{
+"Target": "/home/input",
+"Source": "<nfs-or-smb-share-name-here>",
+"Type": "volume"
+},
+{
+"Target": "/home/output",
+"Source": "<nfs-or-smb-share-name-here>",
+"Type": "volume"
+}]
+}
+}
+```
 
 Azure Stack o Edge pro também tem um Builtin `StorageClass` chamado `ase-node-local` que usa um armazenamento em disco de dados anexado ao nó kubernetes. Isso `StorageClass` dá suporte ao provisionamento dinâmico. Você pode fazer uma `StorageClass` referência nos aplicativos pod e um VP é criado automaticamente para você. Para obter mais informações, consulte o [painel do kubernetes](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md) para consultar `ase-node-local StorageClass` .
 

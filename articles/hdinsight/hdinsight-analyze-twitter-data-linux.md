@@ -1,19 +1,16 @@
 ---
 title: Analisar dados do Twitter com o Apache Hive – Azure HDInsight
 description: Aprenda como usar o Apache Hive e o Apache Hadoop no HDInsight para transformar dados brutos do TWitter em uma tabela Hive pesquisável.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 12/16/2019
-ms.openlocfilehash: fe511ed2d6b724c1215f9986c9d6c50aae076935
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 74a18be37608b2ac0c8a64655fa833753111706a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533284"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942778"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>Analisar dados do Twitter usando o Apache Hive e Apache Hadoop no HDInsight
 
@@ -30,31 +27,31 @@ O Twitter permite que você recupere os dados de cada tweet como um documento JS
 
 1. Em um navegador da Web, entre no [https://developer.twitter.com/apps/](https://developer.twitter.com/apps/) . Selecione o link **inscrever-se agora** se você não tiver uma conta do Twitter.
 
-2. Selecione **criar novo aplicativo** .
+2. Selecione **criar novo aplicativo**.
 
-3. Digite o **Nome** , a **Descrição** e o **Site** . Você pode fazer uma URL para o campo **Site** . A tabela a seguir mostra alguns valores de exemplo para usar:
+3. Digite o **Nome**, a **Descrição** e o **Site**. Você pode fazer uma URL para o campo **Site** . A tabela a seguir mostra alguns valores de exemplo para usar:
 
    | Campo | Valor |
    |--- |--- |
    | Nome |MyHDInsightApp |
    | Descrição |MyHDInsightApp |
-   | Site |`https://www.myhdinsightapp.com` |
+   | Site da Web |`https://www.myhdinsightapp.com` |
 
-4. Selecione **Sim, concordo** e, em seguida, selecione **criar seu aplicativo do Twitter** .
+4. Selecione **Sim, concordo** e, em seguida, selecione **criar seu aplicativo do Twitter**.
 
-5. Selecione a guia **permissões** . A permissão padrão é **somente leitura** .
+5. Selecione a guia **permissões** . A permissão padrão é **somente leitura**.
 
 6. Selecione a guia **Chaves e Tokens de Acesso** .
 
-7. Selecione **criar meu token de acesso** .
+7. Selecione **criar meu token de acesso**.
 
 8. Selecione **testar OAuth** no canto superior direito da página.
 
-9. Anote a **chave do consumidor** , o **Segredo do consumidor** , o **Token de acesso** e o **Segredo do token de acesso** .
+9. Anote a **chave do consumidor**, o **Segredo do consumidor**, o **Token de acesso** e o **Segredo do token de acesso**.
 
 ### <a name="download-tweets"></a>Baixar tweets
 
-O código Python a seguir baixa 10.000 tweets do Twitter e os salva em um arquivo chamado **tweets.txt** .
+O código Python a seguir baixa 10.000 tweets do Twitter e os salva em um arquivo chamado **tweets.txt**.
 
 > [!NOTE]  
 > As etapas a seguir são executadas no cluster HDInsight, já que o Python já está instalado.
@@ -78,7 +75,7 @@ O código Python a seguir baixa 10.000 tweets do Twitter e os salva em um arquiv
    pip install tweepy progressbar pyOpenSSL requests[security]
    ```
 
-1. Use o comando a seguir para criar um arquivo chamado **gettweets.py** :
+1. Use o comando a seguir para criar um arquivo chamado **gettweets.py**:
 
    ```bash
    nano gettweets.py
@@ -291,7 +288,7 @@ Esses comandos armazenam os dados em um local que todos os nós no cluster podem
    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -i twitter.hql
    ```
 
-    Esse comando executa o arquivo **twitter.hql** . Quando a consulta for concluída, você verá um prompt `jdbc:hive2//localhost:10001/>`.
+    Esse comando executa o arquivo **twitter.hql**. Quando a consulta for concluída, você verá um prompt `jdbc:hive2//localhost:10001/>`.
 
 1. No prompt de beeline, use a consulta a seguir para verificar se os dados foram importados:
 

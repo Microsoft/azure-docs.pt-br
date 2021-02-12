@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
-ms.openlocfilehash: bf3da62e989f0e029efdc8e9c70f5f45e0ddd765
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8af9549efc3e8dab54f55dd404346d87201dee2c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76932309"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965605"
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Visão geral de DNS reverso e suporte no Azure
 
@@ -89,7 +89,7 @@ Uma pesquisa inversa para o endereço Ip '192.0.2.129' consulta um registro PTR 
 
 O nome de uma zona de pesquisa inversa de IPv6 deve estar no seguinte formato: `<IPv6 network prefix in reverse order>.ip6.arpa`
 
-Por exemplo, Ao criar uma zona inversa para hospedar registros de hosts com IPs que estão no prefixo 2001:db8:1000:abdc::/64, o nome da zona seria criado isolando o prefixo de rede do endereço (2001:db8:abdc::). Em seguida, expanda o prefixo de rede IPv6 para remover [compactação zero](https://technet.microsoft.com/library/cc781672(v=ws.10).aspx), se ela tiver sido usada para reduzir o prefixo de endereço IPv6 (2001:0db8:abdc:0000::). Inverta a ordem usando um período como o delimitador entre cada número hexadecimal no prefixo, a fim de compilar o prefixo de rede invertido (`0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2`) e adicionar o sufixo `.ip6.arpa`.
+Por exemplo, Ao criar uma zona inversa para hospedar registros de hosts com IPs que estão no prefixo 2001:db8:1000:abdc::/64, o nome da zona seria criado isolando o prefixo de rede do endereço (2001:db8:abdc::). Em seguida, expanda o prefixo de rede IPv6 para remover [compactação zero](/previous-versions/windows/it-pro/windows-server-2003/cc781672(v=ws.10)), se ela tiver sido usada para reduzir o prefixo de endereço IPv6 (2001:0db8:abdc:0000::). Inverta a ordem usando um período como o delimitador entre cada número hexadecimal no prefixo, a fim de compilar o prefixo de rede invertido (`0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2`) e adicionar o sufixo `.ip6.arpa`.
 
 
 |Prefixo de rede  |Prefixo de rede expandido e invertido |Sufixo padrão |Nome da zona inversa  |
@@ -114,4 +114,3 @@ Para saber mais sobre DNS reverso, confira [Pesquisa de DNS reverso na Wikipédi
 Saiba como [hospedar a zona de pesquisa inversa para o intervalo de IP atribuído pelo ISP no DNS do Azure](dns-reverse-dns-for-azure-services.md).
 <br>
 Saiba como [gerenciar registros DNS reversos para seus serviços do Azure](dns-reverse-dns-for-azure-services.md).
-

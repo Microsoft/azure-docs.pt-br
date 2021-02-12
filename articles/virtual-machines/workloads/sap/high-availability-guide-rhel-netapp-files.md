@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/22/2020
+ms.date: 01/11/2021
 ms.author: radeltch
-ms.openlocfilehash: 040220bfac2a3ac1ef54965ba9be35755b9b787b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8fa51bec1918b8dce99c80a61da0160c9650d5e4
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487612"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116085"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>Alta disponibilidade de máquinas virtuais do Azure para SAP NetWeaver em Red Hat Enterprise Linux com Azure NetApp Files para aplicativos SAP
 
@@ -195,13 +196,13 @@ Primeiro, você precisa criar os volumes do Azure NetApp Files. Implante as VMs.
       1. Selecione as máquinas virtuais do cluster (A)SCS e os respectivos endereços IP.
       1. Clique em Adicionar
    1. Crie as investigações de integridade
-      1. Porta 620**00** para ASCS
+      1. Porta 620 **00** para ASCS
          1. Abra o balanceador de carga, selecione as investigações de integridade e clique em Adicionar
          1. Insira o nome da nova investigação de integridade (por exemplo, **health.QAS.ASCS**)
-         1. Selecione TCP como protocolo, porta 620**00**, mantenha o Intervalo 5 e o limite Não Íntegro 2
+         1. Selecione TCP como protocolo, porta 620 **00**, mantenha o Intervalo 5 e o limite Não Íntegro 2
          1. Clique em OK
-      1. Porta 621**01** para o ERS do ASCS
-            * Repita as etapas acima em "c" para criar uma investigação de integridade para ERS (por exemplo, 621**01** e **health.QAS.ERS**)
+      1. Porta 621 **01** para o ERS do ASCS
+            * Repita as etapas acima em "c" para criar uma investigação de integridade para ERS (por exemplo, 621 **01** e **health.QAS.ERS**)
    1. Regras de balanceamento de carga
       1. Regras de balanceamento de carga para ASCS
          1. Abra o balanceador de carga, selecione regras de balanceamento de carga e clique em Adicionar
@@ -229,15 +230,15 @@ Primeiro, você precisa criar os volumes do Azure NetApp Files. Implante as VMs.
       1. Selecione as máquinas virtuais do cluster (A)SCS
       1. Clique em OK
    1. Crie as investigações de integridade
-      1. Porta 620**00** para ASCS
+      1. Porta 620 **00** para ASCS
          1. Abra o balanceador de carga, selecione as investigações de integridade e clique em Adicionar
          1. Insira o nome da nova investigação de integridade (por exemplo, **health.QAS.ASCS**)
-         1. Selecione TCP como protocolo, porta 620**00**, mantenha o Intervalo 5 e o limite Não Íntegro 2
+         1. Selecione TCP como protocolo, porta 620 **00**, mantenha o Intervalo 5 e o limite Não Íntegro 2
          1. Clique em OK
-      1. Porta 621**01** para o ERS do ASCS
-            * Repita as etapas acima em "c" para criar uma investigação de integridade para ERS (por exemplo, 621**01** e **health.QAS.ERS**)
+      1. Porta 621 **01** para o ERS do ASCS
+            * Repita as etapas acima em "c" para criar uma investigação de integridade para ERS (por exemplo, 621 **01** e **health.QAS.ERS**)
    1. Regras de balanceamento de carga
-      1. 32**00** TCP para ASCS
+      1. 32 **00** TCP para ASCS
          1. Abra o balanceador de carga, selecione regras de balanceamento de carga e clique em Adicionar
          1. Insira o nome da nova regra do balanceador de carga (por exemplo, **lb.QAS.ASCS.3200**)
          1. Selecione o endereço IP de front-end para ASCS, o pool de back-end e a investigação de integridade criados anteriormente (por exemplo, **frontend.QAS.ASCS**)
@@ -246,12 +247,12 @@ Primeiro, você precisa criar os volumes do Azure NetApp Files. Implante as VMs.
          1. **Habilite o IP Flutuante**
          1. Clique em OK
       1. Portas adicionais para ASCS
-         * Repita as etapas acima em "d" para as portas 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 e TCP para o ASCS
+         * Repita as etapas acima em "d" para as portas 36 **00**, 39 **00**, 81 **00**, 5 **00** 13, 5 **00** 14, 5 **00** 16 e TCP para o ASCS
       1. Portas adicionais para ERS do ASCS
-         * Repita as etapas acima em "d" para as portas 32**01**, 33**01**, 5**01**13, 5**01**14, 5**01**16 e TCP para o ERS do ASCS
+         * Repita as etapas acima em "d" para as portas 32 **01**, 33 **01**, 5 **01** 13, 5 **01** 14, 5 **01** 16 e TCP para o ERS do ASCS
 
       > [!IMPORTANT]
-      > Não há suporte para IP flutuante em uma configuração de IP secundário de NIC em cenários de balanceamento de carga. Para obter detalhes, consulte [limitações do Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Se você precisar de um endereço IP adicional para a VM, implante uma segunda NIC.  
+      > Não há suporte para IP flutuante em uma configuração de IP secundário de NIC em cenários de balanceamento de carga. Para obter detalhes, consulte [limitações do Azure Load Balancer](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Se você precisar de um endereço IP adicional para a VM, implante uma segunda NIC.  
 
       > [!Note]
       > Quando as VMs sem endereços IP públicos forem colocadas no pool de back-end do Standard Azure Load Balancer (sem endereço IP público), não haverá nenhuma conectividade de saída com a Internet se não houver configuração adicional a fim de permitir o roteamento para pontos de extremidade públicos. Para obter detalhes sobre como alcançar conectividade de saída, confira [Conectividade de ponto de extremidade público para Máquinas Virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
@@ -395,7 +396,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    ```
 
 
-1. **[A] ** Adicionar entradas de montagem
+1. **[A]** Adicionar entradas de montagem
 
    Se estiver usando NFSv3:
    ```
@@ -447,7 +448,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    sudo service waagent restart
    ```
 
-1. **[A] ** Configuração RHEL
+1. **[A]** Configuração RHEL
 
    Configurar RHEL, conforme descrito na nota SAP [2002167]
 
@@ -507,7 +508,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    sudo <swpm>/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=<virtual_hostname>
    ```
 
-   Se a instalação não conseguir criar uma subpasta no/usr/SAP/**QAS**/ASCS**00**, tente definir o proprietário e o grupo da pasta ASCS**00** e tente novamente.
+   Se a instalação não conseguir criar uma subpasta no/usr/SAP/**QAS**/ASCS **00**, tente definir o proprietário e o grupo da pasta ASCS **00** e tente novamente.
 
    ```
    sudo chown qasadm /usr/sap/QAS/ASCS00
@@ -574,7 +575,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    sudo <swpm>/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=<virtual_hostname>
    ```
 
-   Se a instalação falhar ao criar uma subpasta em /usr/sap/**QAS**/ERS**01**, tente definir o proprietário e o grupo da pasta do ERS**01** e tente novamente.
+   Se a instalação falhar ao criar uma subpasta em /usr/sap/**QAS**/ERS **01**, tente definir o proprietário e o grupo da pasta do ERS **01** e tente novamente.
 
    ```
    sudo chown qaadm /usr/sap/QAS/ERS01
@@ -741,6 +742,8 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    # Probe Port of ERS
    sudo firewall-cmd --zone=public --add-port=62101/tcp --permanent
    sudo firewall-cmd --zone=public --add-port=62101/tcp
+   sudo firewall-cmd --zone=public --add-port=3201/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=3201/tcp
    sudo firewall-cmd --zone=public --add-port=3301/tcp --permanent
    sudo firewall-cmd --zone=public --add-port=3301/tcp
    sudo firewall-cmd --zone=public --add-port=50113/tcp --permanent
@@ -792,7 +795,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    sudo yum -y install nfs-utils uuidd
    ```
 
-1. **[A] ** Adicionar entradas de montagem  
+1. **[A]** Adicionar entradas de montagem  
    Se estiver usando NFSv3:
    ```
    sudo vi /etc/fstab
@@ -1089,7 +1092,7 @@ Siga estas etapas para instalar um servidor de aplicativos SAP.
    Execute os seguintes comandos como raiz para identificar o processo de servidor de mensagens e encerrá-lo.
 
    ```
-   [root@anftstsapcl1 ~]# pgrep ms.sapQAS | xargs kill -9
+   [root@anftstsapcl1 ~]# pgrep -f ms.sapQAS | xargs kill -9
    ```
 
    Se você apenas encerrar o servidor de mensagens uma vez, ela será reiniciado por `sapstart`. Se você encerrá-lo com frequência suficiente, o Pacemaker finalmente moverá a instância do ASCS para o outro nó. Execute os seguintes comandos como raiz para limpar o estado do recurso da instância do ASCS e ERS após o teste.
@@ -1136,7 +1139,10 @@ Siga estas etapas para instalar um servidor de aplicativos SAP.
    Execute o comando a seguir como raiz no nó onde a instância do ASCS está em execução para encerrar o servidor de enfileiramento.
 
    ```
-   [root@anftstsapcl2 ~]# pgrep en.sapQAS | xargs kill -9
+   #If using ENSA1
+   [root@anftstsapcl2 ~]# pgrep -f en.sapQAS | xargs kill -9
+   #If using ENSA2
+   [root@anftstsapcl2 ~]# pgrep -f enq.sapQAS | xargs kill -9
    ```
 
    A instância do ASCS deve imediatamente executar failover para o outro nó. A instância do ERS também deverá executar failover depois que a instância do ASCS for iniciada. Execute os seguintes comandos como raiz para limpar o estado do recurso da instância do ASCS e ERS após o teste.
@@ -1183,7 +1189,10 @@ Siga estas etapas para instalar um servidor de aplicativos SAP.
    Execute o comando a seguir como raiz no nó onde a instância do ERS está em execução para encerrar o processo do servidor de replicação de enfileiramento.
 
    ```
-   [root@anftstsapcl2 ~]# pgrep er.sapQAS | xargs kill -9
+   #If using ENSA1
+   [root@anftstsapcl2 ~]# pgrep -f er.sapQAS | xargs kill -9
+   #If using ENSA2
+   [root@anftstsapcl2 ~]# pgrep -f enqr.sapQAS | xargs kill -9
    ```
 
    Se você executar o comando apenas uma vez, o `sapstart` reiniciará o processo. Se você executá-lo com frequência suficiente, o `sapstart` não reiniciará o processo e o recurso ficará em um estado parado. Execute os seguintes comandos como raiz para limpar o estado do recurso da instância do ERS após o teste.

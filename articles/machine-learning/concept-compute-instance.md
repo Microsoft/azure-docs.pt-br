@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: d4ae18b335453f3e1d3512951675afe10c804c8d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 54da62ce961156b64c917b448557c17e7516e222
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094414"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862132"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>O que é uma instância de computação do Azure Machine Learning?
 
@@ -35,7 +35,7 @@ Uma instância de computação é uma estação de trabalho totalmente gerenciad
 |Principais benefícios|Descrição|
 |----|----|
 |Produtividade|Você pode criar e implantar modelos usando blocos de anotações integrados e as seguintes ferramentas no Azure Machine Learning Studio:<br/>-  Jupyter<br/>-  JupyterLab<br/>-RStudio (versão prévia)<br/>A instância de computação é totalmente integrada com o Azure Machine Learning Workspace e o Studio. Você pode compartilhar blocos de anotações e dados com outros cientistas de dados no espaço de trabalho.<br/> Você também pode usar [vs Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) com instâncias de computação.
-|Gerenciado e seguro|Reduza o volume de segurança e adicione conformidade com os requisitos de segurança corporativa. As instâncias de computação fornecem políticas de gerenciamento robustas e configurações de rede seguras, como:<br/><br/>-Provisionamento automático de modelos do Resource Manager ou SDK do Azure Machine Learning<br/>- [Controle de acesso baseado em função do Azure (RBAC do Azure)](/azure/role-based-access-control/overview)<br/>- [Suporte de rede virtual](how-to-enable-virtual-network.md#compute-instance)<br/>- Política SSH para habilitar/desabilitar o acesso SSH<br/>TLS 1,2 habilitado |
+|Gerenciado e seguro|Reduza o volume de segurança e adicione conformidade com os requisitos de segurança corporativa. As instâncias de computação fornecem políticas de gerenciamento robustas e configurações de rede seguras, como:<br/><br/>-Provisionamento automático de modelos do Resource Manager ou SDK do Azure Machine Learning<br/>- [Controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/overview.md)<br/>- [Suporte de rede virtual](./how-to-secure-training-vnet.md#compute-instance)<br/>- Política SSH para habilitar/desabilitar o acesso SSH<br/>TLS 1,2 habilitado |
 |Pré-configurado &nbsp; para &nbsp; ml|Economize tempo nas tarefas de instalação com pacotes ML pré-configurados e atualizados, estruturas de aprendizado profundo, drivers de GPU.|
 |Totalmente personalizável|Amplo suporte para tipos de VM do Azure, incluindo GPUs e personalização de baixo nível persistente, como a instalação de pacotes e drivers, torna os cenários avançados muito fáceis. |
 
@@ -77,14 +77,14 @@ As ferramentas e os ambientes a seguir já estão instalados na instância de co
 |Anaconda Python||
 |Jupyter e extensões||
 |Jupyterlab e extensões||
-[SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)</br>do PyPI|Inclui a maioria dos pacotes extras do azureml.  Para ver a lista completa, [abra uma janela de terminal em sua instância de computação](how-to-run-jupyter-notebooks.md#terminal) e execute <br/> `conda list -n azureml_py36 azureml*` |
+[SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)</br>do PyPI|Inclui a maioria dos pacotes extras do azureml.  Para ver a lista completa, [abra uma janela de terminal em sua instância de computação](how-to-run-jupyter-notebooks.md#terminal) e execute <br/> `conda list -n azureml_py36 azureml*` |
 |Outros pacotes do PyPI|`jupytext`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Pacotes Conda|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Pacotes de aprendizado profundo|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
 |Pacotes ONNX|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|
 |Exemplos do Python e R e de SDK do Azure Machine Learning||
 
-Os pacotes do Python são todos instalados no ambiente **Python 3.6 – AzureML** .  
+Os pacotes do Python são todos instalados no ambiente **Python 3.6 – AzureML**.  
 
 ## <a name="accessing-files"></a>Acessar arquivos
 
@@ -110,7 +110,7 @@ Você pode executar as seguintes ações:
 
 * [Crie uma instância de computação](#create). 
 * Atualize a guia instâncias de computação.
-* Iniciar, parar e reiniciar uma instância de computação.  Você paga pela instância sempre que ela estiver em execução. Pare a instância de computação quando você não a estiver usando para reduzir o custo. Parar uma instância de computação a desaloca. Em seguida, inicie-o novamente quando precisar.
+* Iniciar, parar e reiniciar uma instância de computação.  Você paga pela instância sempre que ela estiver em execução. Pare a instância de computação quando você não a estiver usando para reduzir o custo. Parar uma instância de computação a desaloca. Em seguida, inicie-o novamente quando precisar. Observação: parar a instância de computação interrompe a cobrança por horas de computação, mas você ainda será cobrado por disco, IP público e balanceador de carga padrão.
 * Excluir uma instância de computação.
 * Filtre a lista de computação em instância para mostrar somente os que você criou.
 
@@ -120,7 +120,7 @@ Para cada instância de computação no espaço de trabalho que você pode usar,
 * Efetuar SSH na instância de computação. O acesso SSH é desabilitado por padrão, mas pode ser habilitado no momento da criação da instância de computação. O acesso SSH é por meio do mecanismo de chave pública/privada. A guia fornecerá detalhes para a conexão SSH, como endereço IP, nome de usuário e número da porta.
 * Obtenha detalhes sobre uma instância de computação específica, como endereço IP e região.
 
-O [RBAC do Azure](/azure/role-based-access-control/overview) permite que você controle quais usuários no espaço de trabalho podem criar, excluir, iniciar, parar, reiniciar uma instância de computação. Todos os usuários na função colaborador e proprietário do workspace podem criar, excluir, iniciar, parar e reiniciar instâncias de computação no workspace. No entanto, somente o criador de uma instância de computação específica ou o usuário atribuído se ele foi criado em seu nome, tem permissão para acessar Jupyter, JupyterLab e RStudio nessa instância de computação. Uma instância de computação é dedicada a um único usuário que tem acesso de raiz e pode acessar o terminal por meio de Jupyter/JupyterLab/RStudio. A instância de computação terá logon de usuário único e todas as ações usarão a identidade desse usuário para o RBAC do Azure e a atribuição de execuções de experimento. O acesso SSH é controlado por meio do mecanismo de chave pública/privada.
+O [RBAC do Azure](../role-based-access-control/overview.md) permite que você controle quais usuários no espaço de trabalho podem criar, excluir, iniciar, parar, reiniciar uma instância de computação. Todos os usuários na função colaborador e proprietário do workspace podem criar, excluir, iniciar, parar e reiniciar instâncias de computação no workspace. No entanto, somente o criador de uma instância de computação específica ou o usuário atribuído se ele foi criado em seu nome, tem permissão para acessar Jupyter, JupyterLab e RStudio nessa instância de computação. Uma instância de computação é dedicada a um único usuário que tem acesso de raiz e pode acessar o terminal por meio de Jupyter/JupyterLab/RStudio. A instância de computação terá logon de usuário único e todas as ações usarão a identidade desse usuário para o RBAC do Azure e a atribuição de execuções de experimento. O acesso SSH é controlado por meio do mecanismo de chave pública/privada.
 
 Essas ações podem ser controladas pelo RBAC do Azure:
 * *Microsoft.MachineLearningServices/workspaces/computes/read*
@@ -129,6 +129,11 @@ Essas ações podem ser controladas pelo RBAC do Azure:
 * *Microsoft. MachineLearningServices/espaços de trabalho/computações/início/ação*
 * *Microsoft. MachineLearningServices/espaços de trabalho/computações/parada/ação*
 * *Microsoft. MachineLearningServices/espaços de trabalho/computações/reinicialização/ação*
+
+Para criar uma instância de computação, você precisa ter permissões para as seguintes ações:
+* *Microsoft.MachineLearningServices/workspaces/computes/write*
+* *Microsoft. MachineLearningServices/Workspaces/checkComputeNameAvailability/Action*
+
 
 ### <a name="create-a-compute-instance"></a><a name="create"></a>Criar uma instância de computação
 

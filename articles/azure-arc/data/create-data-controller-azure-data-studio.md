@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 12/09/2020
 ms.topic: how-to
-ms.openlocfilehash: 208c9b4172719b876766f0c4d07a17caa24bfd63
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 22ad2d65710a3fc149f5a83fb511244ac3be2203
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310960"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733232"
 ---
 # <a name="create-data-controller-in-azure-data-studio"></a>Criar controlador de dados no Azure Data Studio
 
@@ -34,33 +34,37 @@ Siga estas etapas para criar um controlador de dados de arco do Azure usando o a
 
 1. Em Azure Data Studio, clique na guia conexões no painel de navegação esquerdo.
 2. Clique no botão **...** na parte superior do painel conexões e escolha **nova implantação...**
-3. No Assistente para nova implantação, escolha **controlador de dados de arco do Azure**, marque a caixa de seleção aceitação da licença e clique no botão **selecionar** na parte inferior.
-4. Use o arquivo kubeconfig padrão ou selecione outro.  Clique em **Próximo**.
-5. Escolha um contexto de cluster kubernetes. Clique em **Próximo**.
-6. Escolha um arquivo de perfil de configuração de implantação dependendo do cluster kubernetes de destino. **Clique em Avançar**.
-8. Escolha a assinatura e o grupo de recursos desejados.
-9. Insira um nome para o controlador de dados e para o namespace no qual o controlador de dados será criado.  
+3. No assistente de nova implantação, escolha **controlador de dados de arco do Azure** e, em seguida, clique no botão **selecionar** na parte inferior.
+4. Verifique se as ferramentas de pré-requisito estão disponíveis e atenda às versões necessárias. **Clique em Avançar**.
+5. Use o arquivo kubeconfig padrão ou selecione outro.  Clique em **Avançar**.
+6. Escolha um contexto de cluster kubernetes. Clique em **Avançar**.
+7. Escolha um perfil de configuração de implantação dependendo do cluster kubernetes de destino. **Clique em Avançar**.
+8. Se você estiver usando a plataforma de contêiner do Azure Red Hat OpenShift ou Red Hat OpenShift, aplique restrições de contexto de segurança. Siga as instruções em [aplicar uma restrição de contexto de segurança para serviços de dados habilitados para o Azure Arc no OpenShift](how-to-apply-security-context-constraint.md).
 
-> [!NOTE]
-> Se o namespace já existir, ele será usado se o namespace ainda não contiver outros objetos kubernetes-pods, etc.  Se o namespace não existir, será feita uma tentativa de criar o namespace.  A criação de um namespace em um cluster kubernetes requer privilégios de administrador de cluster kubernetes.  Se você não tiver privilégios de administrador de cluster kubernetes, peça ao administrador de cluster do kubernetes para executar as primeiras etapas no artigo [criar um controlador de dados usando ferramentas nativas do kubernetes](./create-data-controller-using-kubernetes-native-tools.md) que devem ser executadas por um administrador do kubernetes antes de concluir este assistente.
+   >[!IMPORTANT]
+   >Na plataforma de contêiner do Azure Red Hat OpenShift ou Red Hat OpenShift, você deve aplicar a restrição de contexto de segurança antes de criar o controlador de dados.
 
-> [!NOTE]
-> Observação: o nome do namespace e do controlador de dados será usado para criar um recurso personalizado no cluster kubernetes para que eles devam estar em conformidade com as [convenções de nomenclatura do kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
-
-10. Selecione um local do Azure.
+1. Escolha a assinatura e o grupo de recursos desejados.
+1. Selecione um local do Azure.
    
-> [!NOTE]
-> O local do Azure selecionado aqui é o local no Azure, no qual os *metadados* sobre o controlador de dados e as instâncias de banco que ele gerencia serão armazenados.  As instâncias do controlador de dados e do banco de dados serão realmente crewted no cluster do kubernetes, onde quer que possa ser.
+   O local do Azure selecionado aqui é o local no Azure, no qual os *metadados* sobre o controlador de dados e as instâncias de banco que ele gerencia serão armazenados. As instâncias do controlador de dados e do banco de dados serão realmente crewted no cluster do kubernetes, onde quer que possa ser.
 
-11.  Insira um nome de usuário e uma senha e confirme a senha da conta do administrador do controlador de dados.
+10. Selecione o modo de conectividade apropriado. Saiba mais sobre [modos de conectividade](https://docs.microsoft.com/azure/azure-arc/data/connectivity). **Clique em Avançar**.
 
-> [!NOTE]
-> A senha deve ter pelo menos oito caracteres.
+    Se você selecionar o modo de conectividade direta, as credenciais da entidade de serviço serão necessárias, conforme descrito em [criar entidade de serviço](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal).
 
-1.  Clique em **Próximo**.
-2.  Examine e clique em **script para notebook**.
-3.  **Examine o bloco de anotações gerado**.  Faça as alterações necessárias, como nomes de classe de armazenamento ou tipos de serviço.
-4.  Clique em **executar tudo** na parte superior do bloco de anotações.
+11. Insira um nome para o controlador de dados e para o namespace no qual o controlador de dados será criado.
+
+    O controlador de dados e o nome do namespace serão usados para criar um recurso personalizado no cluster kubernetes para que eles devam estar em conformidade com as [convenções de nomenclatura do kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    
+    Se o namespace já existir, ele será usado se o namespace ainda não contiver outros objetos kubernetes-pods, etc.  Se o namespace não existir, será feita uma tentativa de criar o namespace.  A criação de um namespace em um cluster kubernetes requer privilégios de administrador de cluster kubernetes.  Se você não tiver privilégios de administrador de cluster kubernetes, peça ao administrador de cluster do kubernetes para executar as primeiras etapas no artigo [criar um controlador de dados usando ferramentas nativas do kubernetes](./create-data-controller-using-kubernetes-native-tools.md) que devem ser executadas por um administrador do kubernetes antes de concluir este assistente.
+
+
+12. Selecione a classe de armazenamento na qual o controlador de dados será implantado. 
+13.  Insira um nome de usuário e uma senha e confirme a senha da conta do administrador do controlador de dados. Clique em **Avançar**.
+
+14. Examine a configuração de implantação.
+15. Clique em **implantar** para implantar a configuração desejada ou o **script para o bloco de anotações** para examinar as instruções de implantação ou fazer as alterações necessárias, como os nomes de classe de armazenamento ou tipos de serviço. Clique em **executar tudo** na parte superior do bloco de anotações.
 
 ## <a name="monitoring-the-creation-status"></a>Monitorando o status de criação
 

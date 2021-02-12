@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 10/22/2020
 ms.author: baanders
-ms.openlocfilehash: 56c63ee13c5e42350a2b544074a0b0527377ca4c
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 35643370d6fd313d42f954a578b73befc025c040
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494652"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011228"
 ---
 ### <a name="set-up-local-azure-credentials"></a>Configurar credenciais locais do Azure
 

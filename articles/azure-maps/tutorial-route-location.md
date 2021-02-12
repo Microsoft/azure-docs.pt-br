@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 0004a250173ce6707462b852016d205782479717
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d8aaf093a7e2a0ad1470d72d815e919f5b4e2d05
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896673"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624976"
 ---
 # <a name="tutorial-how-to-display-route-directions-using-azure-maps-route-service-and-map-control"></a>Tutorial: Como exibir o trajeto de rota usando o serviço Roteiros do Azure Mapas e o Controle de Mapeamento
 
@@ -39,7 +39,7 @@ Você pode obter o código-fonte completo para o exemplo [aqui](https://github.c
 
 As etapas a seguir mostram como criar e exibir o Controle de Mapeamento em uma página da Web.
 
-1. Em seu computador local, crie um novo arquivo e nomeie-o como **MapRoute.html** .
+1. Em seu computador local, crie um novo arquivo e nomeie-o como **MapRoute.html**.
 2. Copie/cole a marcação HTML a seguir no arquivo.
 
     ```HTML
@@ -174,7 +174,7 @@ Neste tutorial, vamos renderizar a rota usando uma camada de linhas. Os pontos i
 
 3. Salve **MapRoute.html** e atualize o navegador. Agora o mapa está centralizado em Seattle. O alfinete azul em formato de lágrima marca o ponto inicial. O alfinete azul redondo marca o ponto final.
 
-    :::image type="content" source="./media/tutorial-route-location/map-pins.png" alt-text="Renderização de mapa básica do Controle de Mapeamento":::
+    :::image type="content" source="./media/tutorial-route-location/map-pins.png" alt-text="Exibir os pontos de início e fim das rotas no mapa":::
 
 <a id="getroute"></a>
 
@@ -183,7 +183,7 @@ Neste tutorial, vamos renderizar a rota usando uma camada de linhas. Os pontos i
 Esta seção mostra como usar a API de Direções de Rota do Azure Mapas para obter direções de rota e o tempo estimado de chegada de um ponto para outro.
 
 >[!TIP]
->Os serviços Roteiros do Azure Mapas fornecem APIs para planejar rotas com base em diferentes tipos de rota, como *mais rápidas* , *mais curtas* , *econômicas* ou *emocionantes* com base na distância, nas condições de tráfego e no meio de transporte usado. O serviço também permite que os usuários planejem rotas futuras com base nas condições históricas de tráfego. Os usuários podem ver a previsão de durações de rota para qualquer determinado horário. Para obter mais informações, confira [API de Obtenção de trajeto de rota](/rest/api/maps/route/getroutedirections).
+>Os serviços Roteiros do Azure Mapas fornecem APIs para planejar rotas com base em diferentes tipos de rota, como *mais rápidas*, *mais curtas*, *econômicas* ou *emocionantes* com base na distância, nas condições de tráfego e no meio de transporte usado. O serviço também permite que os usuários planejem rotas futuras com base nas condições históricas de tráfego. Os usuários podem ver a previsão de durações de rota para qualquer determinado horário. Para obter mais informações, confira [API de Obtenção de trajeto de rota](/rest/api/maps/route/getroutedirections).
 
 1. Na função `GetMap`, dentro do manipulador de eventos `ready` do controle, adicione o seguinte ao código JavaScript.
 
@@ -216,9 +216,13 @@ Esta seção mostra como usar a API de Direções de Rota do Azure Mapas para ob
 
 3. Salve o arquivo **MapRoute.html** e atualize seu navegador da Web. O mapa agora deve exibir a rota do ponto inicial ao ponto final.
 
-     :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Renderização de mapa básica do Controle de Mapeamento":::
+     :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Serviço de Roteiros e Controle de Mapeamento do Azure":::
 
 Você pode obter o código-fonte completo para o exemplo [aqui](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html). É possível encontrar um exemplo ao vivo [aqui](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination).
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Não há recursos que exijam limpeza.
 
 ## <a name="next-steps"></a>Próximas etapas
 

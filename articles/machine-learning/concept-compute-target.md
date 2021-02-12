@@ -1,7 +1,7 @@
 ---
 title: O que são destinos de computação
 titleSuffix: Azure Machine Learning
-description: Defina onde você deseja treinar ou implantar seu modelo com Azure Machine Learning.
+description: Saiba como designar um recurso ou ambiente de computação para treinar ou implantar seu modelo com Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 18f9af0198c7a89b607630c686fbf8dafdd01a50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ff20ab19390dcdadb9a4aa79822f7ace3d31989
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841928"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791165"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>O que são destinos de computação no Azure Machine Learning?
 
@@ -54,7 +54,7 @@ Ao executar a inferência, Azure Machine Learning cria um contêiner do Docker q
 
 * Como um ponto de extremidade de _inferência de lote_ usado para processar periodicamente lotes de dados. As inferências em lote usam [Azure Machine Learning clusters de computação](how-to-create-attach-compute-cluster.md).
 
-* Para um _dispositivo IOT_ (versão prévia). A implantação em um dispositivo IoT conta apenas com Azure Machine Learning para criar o contêiner do Docker. A partir daí, ele é implantado usando Azure IoT Edge. Para obter mais informações, consulte [implantar como um módulo IOT Edge (versão prévia)](/azure/iot-edge/tutorial-deploy-machine-learning).
+* Para um _dispositivo IOT_ (versão prévia). A implantação em um dispositivo IoT conta apenas com Azure Machine Learning para criar o contêiner do Docker. A partir daí, ele é implantado usando Azure IoT Edge. Para obter mais informações, consulte [implantar como um módulo IOT Edge (versão prévia)](../iot-edge/tutorial-deploy-machine-learning.md).
 
 Saiba [onde e como implantar seu modelo em um destino de computação](how-to-deploy-and-where.md).
 
@@ -89,7 +89,7 @@ Quando criados, esses recursos de computação são automaticamente parte do seu
 
 ### <a name="supported-vm-series-and-sizes"></a>Séries e tamanhos de VM com suporte
 
-Ao selecionar um tamanho de nó para um recurso de computação gerenciado no Azure Machine Learning, você pode escolher entre os tamanhos de VM selecionados no Azure. O Azure oferece uma variedade de tamanhos para Linux e Windows para cargas de trabalho diferentes. Para saber mais, confira [tipos e tamanhos de VM](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+Ao selecionar um tamanho de nó para um recurso de computação gerenciado no Azure Machine Learning, você pode escolher entre os tamanhos de VM selecionados no Azure. O Azure oferece uma variedade de tamanhos para Linux e Windows para cargas de trabalho diferentes. Para saber mais, confira [tipos e tamanhos de VM](../virtual-machines/sizes.md).
 
 Há algumas exceções e limitações para escolher um tamanho de VM:
 
@@ -120,6 +120,12 @@ Consulte a tabela a seguir para saber mais sobre as restrições e as séries co
 
 Embora Azure Machine Learning ofereça suporte a essas séries de VMs, elas podem não estar disponíveis em todas as regiões do Azure. Para verificar se a série de VMs está disponível, consulte [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
 
+> [!NOTE]
+> Azure Machine Learning não dá suporte a todos os tamanhos de VM com suporte da computação do Azure. Para listar os tamanhos de VM disponíveis, use um dos seguintes métodos:
+> * [REST API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2020-08-01/examples/ListVMSizesResult.json)
+> * [SDK do Python](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py.md#supported-vmsizes-workspace--location-none-)
+>
+
 ### <a name="compute-isolation"></a>Isolamento de computação
 
 Azure Machine Learning computação oferece tamanhos de VM que são isolados para um tipo de hardware específico e dedicados a um único cliente. Os tamanhos de VM isolados são mais adequados para cargas de trabalho que exigem um alto grau de isolamento de cargas de trabalho de outros clientes por motivos que incluem requisitos de conformidade e regulamentação de atendimento. Utilizar um tamanho isolado garante que sua VM será a única em execução nessa instância de servidor específica.
@@ -133,7 +139,7 @@ As ofertas atuais de VM isoladas incluem:
 
 *Compatível com RDMA
 
-Para saber mais sobre isolamento, confira [isolamento na nuvem pública do Azure](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices).
+Para saber mais sobre isolamento, confira [isolamento na nuvem pública do Azure](../security/fundamentals/isolation-choices.md).
 
 ## <a name="unmanaged-compute"></a>Computação não gerenciada
 

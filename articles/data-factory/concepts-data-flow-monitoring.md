@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/19/2020
-ms.openlocfilehash: a9636e7227671cd5a8ed31904e6bc27782d3bd6a
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.date: 11/22/2020
+ms.openlocfilehash: 9ca5ea5cdebe297af5081ae6e219935c56ba942e
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93025826"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96004850"
 ---
 # <a name="monitor-data-flows"></a>Monitorar Fluxo de Dados
 
@@ -81,6 +81,16 @@ Você também pode ver o tempo detalhado para cada etapa de transformação de p
 
 Quando você seleciona um ícone de transformação do coletor em seu mapa, o painel deslizante à direita mostrará um ponto de dados adicional chamado "tempo de processamento posterior" na parte inferior. Esse é o tempo gasto na execução do trabalho no cluster Spark *depois* que os dados são carregados, transformados e gravados. Esse tempo pode incluir o fechamento de pools de conexão, desligamento de driver, exclusão de arquivos, arquivos de União, etc. Ao executar ações em seu fluxo, como "mover arquivos" e "saída para um único arquivo", você provavelmente verá um aumento no valor de tempo de processamento posterior.
   
+## <a name="error-rows"></a>Linhas de erro
+
+Habilitar o tratamento de linha de erro no coletor de fluxo de dados será refletido na saída de monitoramento. Quando você define o coletor como "relatar êxito no erro", a saída de monitoramento mostrará o número de linhas de êxito e com falha quando você clicar no nó monitoramento do coletor.
+
+![Captura de tela mostra linhas de erro.](media/data-flow/error-row-2.png "Êxito no monitoramento da linha de erro")
+
+Quando você seleciona "relatar falha no erro", a mesma saída será mostrada apenas no texto de saída de monitoramento de atividade. Isso ocorre porque a atividade de fluxo de dados retornará falha para execução e a exibição de monitoramento detalhada não estará disponível.
+
+![Captura de tela mostra linhas de erro na atividade.](media/data-flow/error-rows-4.png "Falha no monitoramento da linha de erro")
+
 ## <a name="monitor-icons"></a>Ícones de monitoramento
 
 Esse ícone significa que os dados de transformação já foram armazenados em cache no cluster, portanto, o caminho de execução e os intervalos levaram isso em consideração:

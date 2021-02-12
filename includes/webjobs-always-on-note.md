@@ -9,11 +9,11 @@ ms.date: 06/26/2020
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: c255be53a1809bf5dd3fc6b184852767dfec9c66
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009725"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009663"
 ---
 > [!NOTE]
 > Um aplicativo Web pode atingir o tempo limite após 20 minutos de inatividade. Somente as solicitações para o aplicativo Web real podem reiniciar o temporizador. As ações de exibir a configuração do aplicativo no portal do Azure ou fazer solicitações para o site de ferramentas avançadas (`https://<app_name>.scm.azurewebsites.net`) não reiniciam o temporizador. Se você definir seu aplicativo Web para executar trabalhos Web contínuos ou agendados (gatilho de temporizador), habilite a configuração **Always On** na página **Configuração** do Azure do aplicativo Web para garantir que os trabalhos Web sejam executados de maneira confiável. Este recurso está disponível apenas nos [tipos de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Básico, Standard e Premium.

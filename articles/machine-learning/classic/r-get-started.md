@@ -9,17 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 133c7e95e620bfea51d1d6c9f6fd1d2946eeca33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bca2f0229a15f44ff8f3589a9c1e80032036b97c
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91341188"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95507209"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Introdução ao Azure Machine Learning Studio (clássico) em R
 
-**APLICA-SE A:**  ![sim](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico)   ![não](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
-
+**aplica-se a:** ![ Essa é uma marca de seleção, o que significa que este artigo se aplica a Machine Learning Studio (clássico). ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ é um X, o que significa que este artigo se aplica a Azure Machine Learning ](../../../includes/media/aml-applies-to-skus/no.png)[ . Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 <!-- Stephen F Elston, Ph.D. -->
 Neste tutorial, você aprenderá a usar o Azure Machine Learning Studio (clássico) para criar, testar e executar o código R. No final, você terá uma solução de previsão completa.
@@ -122,9 +121,9 @@ Se você não entender a última linha do código no momento, continue lendo. No
 
 RStudio é um IDE amplamente usado para R. Usaremos o RStudio para editar, testar e depurar parte do código R usado neste guia. Depois que o código R é testado e pronto, você pode recortar e colar do editor RStudio em um módulo de [execução de script R][execute-r-script] Machine Learning Studio (clássico).
 
-Se você não tiver a linguagem de programação R instalada em seu computador desktop, faça isso agora. Downloads gratuitos de linguagem R de software livre estão disponíveis na [Cran (rede de arquivos de r) abrangente](https://www.r-project.org/). Os downloads estão disponíveis para Windows, Mac OS e Linux/UNIX. Escolha um espelho próximo e siga as instruções de download. Além disso, o CRAN contém muitos pacotes úteis de análise e manipulação de dados.
+Se você não tiver a linguagem de programação R instalada em seu computador desktop, faça isso agora. Downloads gratuitos de linguagem R de software livre estão disponíveis na [Cran (rede de arquivos de r) abrangente](https://www.r-project.org/). Os downloads estão disponíveis para Windows, macOS e Linux/UNIX. Escolha um espelho próximo e siga as instruções de download. Além disso, o CRAN contém muitos pacotes úteis de análise e manipulação de dados.
 
-Se você for novo no RStudio, baixe e instale a versão da área de trabalho. Você pode encontrar os downloads do RStudio para Windows, Mac OS e Linux/UNIX em [RStudio](http://www.rstudio.com/products/RStudio/). Siga as instruções fornecidas para instalar o RStudio em seu computador desktop.
+Se você for novo no RStudio, baixe e instale a versão da área de trabalho. Você pode encontrar os downloads do RStudio para Windows, macOS e Linux/UNIX em [RStudio](http://www.rstudio.com/products/RStudio/). Siga as instruções fornecidas para instalar o RStudio em seu computador desktop.
 
 Um tutorial de introdução ao RStudio está disponível em [usando o IDE do RStudio](https://support.rstudio.com/hc/sections/200107586-Using-RStudio).
 
@@ -143,8 +142,8 @@ O código completo para esta seção está em [MachineLearningSamples-notebooks/
 Vamos começar carregando o arquivo de **csdairydata.csv** em Machine Learning Studio (clássico).
 
 1. Inicie seu ambiente de Machine Learning Studio (clássico).
-1. Selecione **+ novo** na parte inferior esquerda da tela e selecione **conjunto**de espaço.
-1. Selecione **do arquivo local**e, em seguida, selecione **procurar** para selecionar o arquivo.
+1. Selecione **+ novo** na parte inferior esquerda da tela e selecione **conjunto** de espaço.
+1. Selecione **do arquivo local** e, em seguida, selecione **procurar** para selecionar o arquivo.
 1. Verifique se você selecionou o **arquivo CSV genérico com o cabeçalho (. csv)** como o tipo do conjunto de um.
 1. Selecione a marca de seleção.
 1. Depois que o conjunto de um for carregado, você deverá ver o novo conjunto de novos ao selecionar a guia conjuntos de banco de **valores** .
@@ -159,7 +158,7 @@ Agora que temos alguns dados em Machine Learning Studio (clássico), precisamos 
 1. Arraste **csdairydata.csv DataSet** para o experimento.
 1. Na caixa **Pesquisar itens de teste** na parte superior do painel esquerdo, digite [Executar script R][execute-r-script]. O módulo aparece na lista de pesquisa.
 1. Arraste o módulo [Executar script R][execute-r-script] para o seu palete.
-1. Conecte a saída do ** conjunto** de dadoscsdairydata.csv à entrada mais à esquerda (**dataSet1**) de [Executar script R][execute-r-script].
+1. Conecte a saída do **conjunto** de dadoscsdairydata.csv à entrada mais à esquerda (**dataSet1**) de [Executar script R][execute-r-script].
 1. Selecione **Salvar**.
 
 Neste ponto, seu experimento deve ser semelhante a este exemplo.
@@ -169,7 +168,7 @@ Neste ponto, seu experimento deve ser semelhante a este exemplo.
 
 #### <a name="check-on-the-data"></a>Verificar os dados
 
-Vamos dar uma olhada nos dados que carregamos em nosso experimento. No experimento, selecione a saída do conjunto de **cadairydata.csv**e selecione **Visualizar**. Você deve ver algo como este resumo.
+Vamos dar uma olhada nos dados que carregamos em nosso experimento. No experimento, selecione a saída do conjunto de **cadairydata.csv** e selecione **Visualizar**. Você deve ver algo como este resumo.
 
 ![Captura de tela que mostra um resumo do conjunto de cadairydata.csv DataSet.](./media/r-quickstart/fig4.png)
 
@@ -231,7 +230,7 @@ Já discutimos o carregamento de DataSets em [Load the DataSet](#loading). Depoi
    maml.mapOutputPort('cadairydata')
    ```
 
-1. Crie um arquivo zip e copie o script para esse arquivo zip. No Windows, você pode clicar com o botão direito do mouse no arquivo e selecionar **Enviar para a**  >  **pasta compactada**. Essa ação cria um novo arquivo zip que contém o **simpleplot. ** Arquivo do R.
+1. Crie um arquivo zip e copie o script para esse arquivo zip. No Windows, você pode clicar com o botão direito do mouse no arquivo e selecionar **Enviar para a**  >  **pasta compactada**. Essa ação cria um novo arquivo zip que contém o **simpleplot.** Arquivo do R.
 
 1. Adicione o arquivo aos **conjuntos de valores** em Machine Learning Studio (clássico) e especifique o tipo como **zip**. Agora você deve ver o arquivo zip em seus conjuntos de dados.
 
@@ -1029,10 +1028,10 @@ Essa função gera a saída a seguir.
 ##
 ## Coefficients:
 ##                   Estimate Std. Error t value Pr(>|t|)
-## (Intercept)       6.33e+00   1.45e-01   43.60   <2e-16 ***
-## Time              1.63e-09   1.72e-10    9.47   <2e-16 ***
+## (Intercept)       6.33e+00   1.45e-01   43.60   <2e-16 **_
+## Time              1.63e-09   1.72e-10    9.47   <2e-16 _*_
 ## I(Month.Count^2) -1.71e-06   4.89e-06   -0.35    0.726
-## I(Month.Count^3) -3.24e-08   1.49e-08   -2.17    0.031 *  
+## I(Month.Count^3) -3.24e-08   1.49e-08   -2.17    0.031 _  
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ##
@@ -1062,10 +1061,10 @@ Essa função gera a saída a seguir.
 ## Coefficients:
 ##                   Estimate Std. Error t value Pr(>|t|)
 ## (Intercept)       6.38e+00   4.07e-02   156.6   <2e-16 ***
-## Time              1.57e-09   4.32e-11    36.3   <2e-16 ***
-## I(Month.Count^3) -3.76e-08   2.50e-09   -15.1   <2e-16 ***
+## Time              1.57e-09   4.32e-11    36.3   <2e-16 **_
+## I(Month.Count^3) -3.76e-08   2.50e-09   -15.1   <2e-16 _*_
 ## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## Signif. codes:  0 '_*_' 0.001 '_*' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ##
 ## Residual standard error: 0.0417 on 213 degrees of freedom
 ## Multiple R-squared:  0.941,  Adjusted R-squared:  0.94
@@ -1113,21 +1112,21 @@ Essa função gera a saída a seguir.
 ## Coefficients:
 ##                   Estimate Std. Error t value Pr(>|t|)
 ## Time              1.57e-09   2.72e-11    57.7   <2e-16 ***
-## I(Month.Count^3) -3.74e-08   1.57e-09   -23.8   <2e-16 ***
-## MonthApr          6.40e+00   2.63e-02   243.3   <2e-16 ***
-## MonthAug          6.38e+00   2.63e-02   242.2   <2e-16 ***
-## MonthDec          6.38e+00   2.64e-02   241.9   <2e-16 ***
-## MonthFeb          6.31e+00   2.63e-02   240.1   <2e-16 ***
-## MonthJan          6.39e+00   2.63e-02   243.1   <2e-16 ***
-## MonthJul          6.39e+00   2.63e-02   242.6   <2e-16 ***
-## MonthJun          6.38e+00   2.63e-02   242.4   <2e-16 ***
-## MonthMar          6.42e+00   2.63e-02   244.2   <2e-16 ***
-## MonthMay          6.43e+00   2.63e-02   244.3   <2e-16 ***
-## MonthNov          6.34e+00   2.63e-02   240.6   <2e-16 ***
-## MonthOct          6.37e+00   2.63e-02   241.8   <2e-16 ***
-## MonthSep          6.34e+00   2.63e-02   240.6   <2e-16 ***
+## I(Month.Count^3) -3.74e-08   1.57e-09   -23.8   <2e-16 **_
+## MonthApr          6.40e+00   2.63e-02   243.3   <2e-16 _*_
+## MonthAug          6.38e+00   2.63e-02   242.2   <2e-16 _*_
+## MonthDec          6.38e+00   2.64e-02   241.9   <2e-16 _*_
+## MonthFeb          6.31e+00   2.63e-02   240.1   <2e-16 _*_
+## MonthJan          6.39e+00   2.63e-02   243.1   <2e-16 _*_
+## MonthJul          6.39e+00   2.63e-02   242.6   <2e-16 _*_
+## MonthJun          6.38e+00   2.63e-02   242.4   <2e-16 _*_
+## MonthMar          6.42e+00   2.63e-02   244.2   <2e-16 _*_
+## MonthMay          6.43e+00   2.63e-02   244.3   <2e-16 _*_
+## MonthNov          6.34e+00   2.63e-02   240.6   <2e-16 _*_
+## MonthOct          6.37e+00   2.63e-02   241.8   <2e-16 _*_
+## MonthSep          6.34e+00   2.63e-02   240.6   <2e-16 _*_
 ## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## Signif. codes:  0 '_*_' 0.001 '_*' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ##
 ## Residual standard error: 0.0263 on 202 degrees of freedom
 ## Multiple R-squared:     1,    Adjusted R-squared:     1

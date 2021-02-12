@@ -4,12 +4,12 @@ description: Entenda como desenvolver no Azure Functions usando NodeJS.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 19edfaf7998632ed1ebb48ff4ad36468669732ae
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 335cc3017e7b016666324306181c90a0e405a956
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167739"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806317"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência do desenvolvedor de C# do Azure Functions
 
@@ -17,12 +17,13 @@ ms.locfileid: "92167739"
 
 Este artigo é uma introdução ao desenvolvimento do Azure Functions usando o script C# em biblioteca de classes .NET.
 
+Como desenvolvedor de C#, você também pode estar interessado em um dos seguintes artigos:
+
+| Introdução | Conceitos| Aprendizado guiado/amostras |
+| -- | -- | -- | 
+| <ul><li>[Usando o Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[Usar o Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[Usando ferramentas de linha de comando](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[Opções de hospedagem](functions-scale.md)</li><li>[&nbsp;Considerações sobre desempenho](functions-best-practices.md)</li><li>[Desenvolvimento do Visual Studio](functions-develop-vs.md)</li><li>[Injeção de dependência](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[Criar aplicativos sem servidor](/learn/paths/create-serverless-applications/)</li><li>[Exemplos do C#](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
+
 O Azure Functions oferece suporte às linguagens de programação C# e script C#. Se estiver procurando diretrizes sobre [como usar C# no portal do Azure](functions-create-function-app-portal.md), consulte [Referência do desenvolvedor de script C# (.csx)](functions-reference-csharp.md).
-
-Este artigo pressupõe que você tenha completado as seguintes etapas:
-
-* [Guia do desenvolvedor do Azure Functions](functions-reference.md)
-* [Ferramentas do Azure Functions Visual Studio 2019](functions-develop-vs.md)
 
 ## <a name="supported-versions"></a>Versões com suporte
 
@@ -137,7 +138,7 @@ public static class BindingExpressionsExample
 
 O processo de compilação cria um arquivo *function.json* em uma pasta de função na pasta de compilação. Conforme observado anteriormente, esse arquivo não deve ser editado diretamente. Você não pode alterar a configuração de associação ou desabilitar a função por meio da edição desse arquivo. 
 
-A finalidade desse arquivo é fornecer informações para o controlador de escala a ser usado para as [decisões de dimensionamento no plano de consumo](functions-scale.md#how-the-consumption-and-premium-plans-work). Por esse motivo, o arquivo não tem informações de associações de entrada ou saída, apenas de gatilho.
+A finalidade desse arquivo é fornecer informações para o controlador de escala a ser usado para as [decisões de dimensionamento no plano de consumo](event-driven-scaling.md). Por esse motivo, o arquivo não tem informações de associações de entrada ou saída, apenas de gatilho.
 
 O arquivo *function.json* gerado inclui uma propriedade `configurationSource` que indica o runtime a ser usado em atributos .NET para associações, em vez da configuração do *function.json*. Veja um exemplo:
 
@@ -207,7 +208,7 @@ Se você instalar as Ferramentas Essenciais usando npm, isso não afetará a ver
 
 ## <a name="readytorun"></a>ReadyToRun
 
-Você pode compilar seu aplicativo de funções como [binários ReadyToRun](/dotnet/core/whats-new/dotnet-core-3-0#readytorun-images). ReadyToRun é uma forma de compilação antecipada que pode melhorar o desempenho de inicialização para ajudar a reduzir o impacto do [início frio](functions-scale.md#cold-start) durante a execução em um [plano de consumo](functions-scale.md#consumption-plan).
+Você pode compilar seu aplicativo de funções como [binários ReadyToRun](/dotnet/core/whats-new/dotnet-core-3-0#readytorun-images). ReadyToRun é uma forma de compilação antecipada que pode melhorar o desempenho de inicialização para ajudar a reduzir o impacto do [início frio](event-driven-scaling.md#cold-start) durante a execução em um [plano de consumo](consumption-plan.md).
 
 O ReadyToRun está disponível no .NET 3,0 e requer [a versão 3,0 do tempo de execução de Azure Functions](functions-versions.md).
 
@@ -313,7 +314,7 @@ public static class CancellationTokenExample
 
 ## <a name="logging"></a>Registrando em log
 
-No seu código de função, você pode gravar a saída em logs que aparecem como rastreamentos no Application Insights. A maneira recomendada para gravar nos logs é incluir um parâmetro do tipo [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger), que normalmente é nomeado `log` . Versão 1. x do tempo de execução do Functions usado `TraceWriter` , que também grava em Application insights, mas não dá suporte a logs estruturados. Não está usando o `Console.Write` para gravar seus logs, pois esses dados não são capturados pelo Application insights. 
+No seu código de função, você pode gravar a saída em logs que aparecem como rastreamentos no Application Insights. A maneira recomendada para gravar nos logs é incluir um parâmetro do tipo [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger), que normalmente é nomeado `log` . Versão 1. x do tempo de execução do Functions usado `TraceWriter` , que também grava em Application insights, mas não dá suporte a logs estruturados. Não use `Console.Write` o para gravar seus logs, pois esses dados não são capturados pelo Application insights. 
 
 ### <a name="ilogger"></a>ILogger
 
@@ -326,6 +327,8 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogge
 {
     logger.LogInformation("Request for item with key={itemKey}.", id);
 ```
+
+Para saber mais sobre como as funções implementam `ILogger` , consulte [coletando dados de telemetria](functions-monitoring.md#collecting-telemetry-data). As categorias prefixadas com `Function` pressupõem que você está usando uma `ILogger` instância. Se você optar por usar um `ILogger<T>` , o nome da categoria poderá, em vez disso, ser baseado em `T` .  
 
 ### <a name="structured-logging"></a>Registro em log estruturado
 
@@ -512,14 +515,14 @@ namespace functionapp0915
             
             // Track a Dependency
             var dependency = new DependencyTelemetry
-                {
-                    Name = "GET api/planets/1/",
-                    Target = "swapi.co",
-                    Data = "https://swapi.co/api/planets/1/",
-                    Timestamp = start,
-                    Duration = DateTime.UtcNow - start,
-                    Success = true
-                };
+            {
+                Name = "GET api/planets/1/",
+                Target = "swapi.co",
+                Data = "https://swapi.co/api/planets/1/",
+                Timestamp = start,
+                Duration = DateTime.UtcNow - start,
+                Success = true
+            };
             UpdateTelemetryContext(dependency.Context, context, name);
             telemetryClient.TrackDependency(dependency);
         }
@@ -557,7 +560,7 @@ public static class EnvironmentVariablesExample
         log.LogInformation(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
     }
 
-    public static string GetEnvironmentVariable(string name)
+    private static string GetEnvironmentVariable(string name)
     {
         return name + ": " +
             System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);

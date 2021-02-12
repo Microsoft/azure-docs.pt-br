@@ -10,13 +10,13 @@ ms.author: nibaccam
 author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
-ms.custom: how-to
-ms.openlocfilehash: 116dd65bf04c01f513e196a2f1b37d54aacbf1fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: how-to, data4ml
+ms.openlocfilehash: 554c815e6384115d56611e497f49a2c97ed15e38
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841349"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461432"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Conectar-se a dados com o Azure Machine Learning Studio
 
@@ -31,7 +31,7 @@ A tabela a seguir define e resume os benefícios de armazenamentos e conjuntos d
 
 Para entender onde os armazenamentos e conjuntos de dados se ajustam no fluxo de trabalho geral de acesso a data do Azure Machine Learning, consulte o artigo [dados de acesso seguro](concept-data.md#data-workflow) .
 
-Para uma experiência de código inicial, consulte os seguintes artigos para usar o [SDK do Azure Machine Learning Python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true) para:
+Para uma experiência de código inicial, consulte os seguintes artigos para usar o [SDK do Azure Machine Learning Python](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py) para:
 * [Conecte-se aos serviços de armazenamento do Azure com armazenamentos de](how-to-access-data.md)Data. 
 * [Crie Azure Machine Learning conjuntos de valores](how-to-create-register-datasets.md). 
 
@@ -48,19 +48,17 @@ Para uma experiência de código inicial, consulte os seguintes artigos para usa
 
 ## <a name="create-datastores"></a>Criar repositórios de armazenamento
 
-Você pode criar armazenamentos de dados [dessas soluções de armazenamento do Azure](how-to-access-data.md#matrix). **Para soluções de armazenamento sem suporte**e para salvar o custo de egresso de dados durante experimentos de ml, você deve [mover seus dados](how-to-access-data.md#move) para uma solução de armazenamento do Azure com suporte. [Saiba mais sobre repositórios de armazenamento](how-to-access-data.md). 
-
-
+Você pode criar armazenamentos de dados [dessas soluções de armazenamento do Azure](how-to-access-data.md#matrix). **Para soluções de armazenamento sem suporte** e para salvar o custo de egresso de dados durante experimentos de ml, você deve [mover seus dados](how-to-access-data.md#move) para uma solução de armazenamento do Azure com suporte. [Saiba mais sobre repositórios de armazenamento](how-to-access-data.md). 
 
 Crie um novo repositório de armazenamento em algumas etapas com o Azure Machine Learning Studio.
 
 > [!IMPORTANT]
-> Se sua conta de armazenamento de dados estiver em uma rede virtual, serão necessárias etapas de configuração adicionais para garantir que o estúdio tenha acesso aos seus dados. Consulte [isolamento de rede & privacidade](how-to-enable-virtual-network.md#machine-learning-studio) para garantir que as etapas de configuração apropriadas sejam aplicadas.
+> Se sua conta de armazenamento de dados estiver em uma rede virtual, serão necessárias etapas de configuração adicionais para garantir que o estúdio tenha acesso aos seus dados. Consulte [isolamento de rede & privacidade](how-to-enable-studio-virtual-network.md) para garantir que as etapas de configuração apropriadas sejam aplicadas.
 
 1. Entre no [Estúdio do Azure Machine Learning](https://ml.azure.com/).
 1. Selecione **Armazenamentos de dados** no painel esquerdo em **Gerenciar**.
 1. Selecione **+ Novo armazenamento de dados**.
-1. Preencha o formulário de um novo armazenamento de dados. O formulário se atualiza de forma inteligente com base nas seleções de tipo de armazenamento e tipo de autenticação do Azure. Consulte a [seção acesso e permissões de armazenamento](#access-validation) para entender onde encontrar as credenciais de autenticação de que você precisa para preencher este formulário.
+1. Preencha o formulário para criar e registrar um novo repositório de armazenamento. O formulário se atualiza de forma inteligente com base nas seleções de tipo de armazenamento e tipo de autenticação do Azure. Consulte a [seção acesso e permissões de armazenamento](#access-validation) para entender onde encontrar as credenciais de autenticação de que você precisa para preencher este formulário.
 
 O exemplo a seguir demonstra a aparência do formulário quando você cria um **repositório de armazenamento de BLOBs do Azure**:
 
@@ -86,7 +84,7 @@ Para criar um conjunto de um DataSet no estúdio:
 1. Selecione **criar conjunto** de um para escolher a origem do conjunto de seus conjuntos de um. Essa fonte pode ser arquivos locais, um repositório de armazenamento, URLs públicas ou [conjuntos de arquivos abertos do Azure](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md).
 1. Selecione **tabela** ou **arquivo** para o tipo de conjunto de texto.
 1. Selecione **Avançar** para abrir o formulário **repositório de armazenamento e seleção de arquivo** . Neste formulário, você seleciona onde deseja manter o conjunto de dados após a criação, bem como selecionar quais arquivos que deseja usar para o conjunto.
-    1. Habilite ignorar validação se os dados estiverem em uma rede virtual. Saiba mais sobre o [isolamento e a privacidade da rede virtual](how-to-enable-virtual-network.md#machine-learning-studio).
+    1. Habilite ignorar validação se os dados estiverem em uma rede virtual. Saiba mais sobre o [isolamento e a privacidade da rede virtual](how-to-enable-studio-virtual-network.md).
     1. Para conjuntos de tabelas de tabela, você pode especificar uma característica ' timeseries ' para habilitar as operações relacionadas ao tempo em seu conjunto de linhas. Saiba como [Adicionar a característica da série temporal ao seu conjunto](how-to-monitor-datasets.md#studio-dataset)de informações.
 1. Selecione **Avançar** para popular as **configurações e** os formulários de visualização e **esquema** ; Eles são populados de forma inteligente com base no tipo de arquivo e você pode configurar ainda mais seu conjunto de informações antes da criação nesses formulários. 
 1. Selecione **Avançar** para examinar o formulário **confirmar detalhes** . Verifique suas seleções e crie um perfil de dados opcional para seu conjunto de dados. Saiba mais sobre a [criação de perfil de dados](#profile).
@@ -136,7 +134,7 @@ Para garantir que você se conecte com segurança ao serviço de armazenamento d
 
 ### <a name="virtual-network"></a>Rede virtual
 
-Se sua conta de armazenamento de dados estiver em uma **rede virtual**, serão necessárias etapas de configuração adicionais para garantir que Azure Machine Learning tenha acesso aos seus dados. Consulte [isolamento de rede & privacidade](how-to-enable-virtual-network.md#machine-learning-studio) para garantir que as etapas de configuração apropriadas sejam aplicadas quando você criar e registrar seu repositório de armazenamento.  
+Se sua conta de armazenamento de dados estiver em uma **rede virtual**, serão necessárias etapas de configuração adicionais para garantir que Azure Machine Learning tenha acesso aos seus dados. Consulte [isolamento de rede & privacidade](how-to-enable-studio-virtual-network.md) para garantir que as etapas de configuração apropriadas sejam aplicadas quando você criar e registrar seu repositório de armazenamento.  
 
 ### <a name="access-validation"></a>Validação de acesso
 
@@ -153,15 +151,19 @@ Você pode encontrar informações de chave de conta, token SAS e entidade de se
       1. Para obter as chaves de conta, vá para **Chaves de acesso** no painel **Configurações**.
       1. Para obter os tokens SAS, vá para **Assinaturas de acesso compartilhado** no painel **Configurações**.
 
-* Se você planeja usar uma [entidade de serviço](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) para autenticação, vá para o **registros de aplicativo** e selecione qual aplicativo você deseja usar.
+* Se você planeja usar uma [entidade de serviço](../active-directory/develop/howto-create-service-principal-portal.md) para autenticação, vá para o **registros de aplicativo** e selecione qual aplicativo você deseja usar.
     * Sua página de **visão geral** correspondente conterá informações necessárias, como ID do locatário e ID do cliente.
 
 > [!IMPORTANT]
-> Por motivos de segurança, talvez seja necessário alterar suas chaves de acesso para uma conta de armazenamento do Azure (chave de conta ou token SAS). Ao fazer isso, certifique-se de sincronizar as novas credenciais com seu espaço de trabalho e os repositórios de armazenamento conectados a ela. Saiba como [sincronizar suas credenciais atualizadas](how-to-change-storage-access-key.md).
+> * Se você precisar alterar suas chaves de acesso para uma conta de armazenamento do Azure (chave de conta ou token SAS), certifique-se de sincronizar as novas credenciais com seu espaço de trabalho e os repositórios de armazenamento conectados a ela. Saiba como [sincronizar suas credenciais atualizadas](how-to-change-storage-access-key.md). <br> <br>
+> * Se você cancelar o registro e registrar novamente um repositório de armazenamento com o mesmo nome e falhar, o Azure Key Vault para seu espaço de trabalho pode não ter a exclusão reversível habilitada. Por padrão, a exclusão reversível está habilitada para a instância do cofre de chaves criada pelo seu espaço de trabalho, mas poderá não ser habilitada se você tiver usado um cofre de chaves existente ou ter um espaço de trabalho criado antes de outubro de 2020. Para obter informações sobre como habilitar a exclusão reversível, consulte [ativar a exclusão reversível para um cofre de chaves existente]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault). "
 
 ### <a name="permissions"></a>Permissões
 
-Para o contêiner de blob do Azure e o armazenamento Azure Data Lake Gen 2, verifique se suas credenciais de autenticação têm acesso ao **leitor de dados de blob de armazenamento** . Saiba mais sobre o [leitor de dados de blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). 
+Para o contêiner de blob do Azure e o armazenamento Azure Data Lake Gen 2, verifique se suas credenciais de autenticação têm acesso ao **leitor de dados de blob de armazenamento** . Saiba mais sobre o [leitor de dados de blob de armazenamento](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). Um token SAS de conta usa como padrão nenhuma permissão. 
+* Para **acesso de leitura** de dados, suas credenciais de autenticação devem ter um mínimo de permissões de lista e leitura para contêineres e objetos. 
+
+* Para **acesso de gravação** de dados, permissões de gravação e adição também são necessárias.
 
 ## <a name="train-with-datasets"></a>Treinar com conjuntos de dados
 

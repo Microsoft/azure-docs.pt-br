@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 2f2ad0cb67a41c0a5c59f6428a4912bd91a00e56
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 1424669af9fe28257e66c8c5438f6e1d171954e0
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318802"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672892"
 ---
 # <a name="tutorial-integrate-amazon-business-with-azure-active-directory"></a>Tutorial: integrar o Amazon Business ao Azure Active Directory
 
@@ -74,12 +74,12 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 1. Na página **Escolher um método de logon único**, escolha **SAML**.
 1. Na página **Configurar o Logon Único com SAML**, clique no ícone editar/de caneta da **Configuração Básica de SAML** para editar as configurações.
 
-   ![Editar a Configuração Básica de SAML](common/edit-urls.png)
+    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
 1. Na seção **Configuração Básica do SAML**, execute as etapas a seguir caso deseje configurar no modo iniciado por **IDP**:
 
     1. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando um dos seguintes padrões:
-    
+
        | URL | Região |
        |-|-|
        | `https://www.amazon.com`| América do Norte |
@@ -87,7 +87,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
        | `https://www.amazon.de`| Europa |
 
     1. Na caixa de texto **URL de Resposta**, digite uma URL nos seguintes padrões:
-    
+
        | URL | Região |
        |-|-|
        | `https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid={idpid}`| América do Norte |
@@ -109,19 +109,19 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Além do indicado acima, o aplicativo Amazon Business espera que mais alguns atributos sejam passados novamente na resposta SAML. Na seção **Atributos e Declarações de Usuário** na caixa de diálogo **Declarações de Grupo**, execute as seguintes etapas:
 
-    a. Clique na **caneta** ao lado de **Grupos retornados na declaração**.
+    1. Clique na **caneta** ao lado de **Grupos retornados na declaração**.
 
-    ![Captura de tela que mostra Atributos e Declarações de Usuário com o ícone de Grupos retornados na declaração selecionado.](./media/amazon-business-tutorial/config04.png)
+        ![Captura de tela que mostra Atributos e Declarações de Usuário com o ícone de Grupos retornados na declaração selecionado.](./media/amazon-business-tutorial/config04.png)
 
-    ![Captura de tela que mostra as Declarações de grupo com os valores, conforme descrito neste procedimento.](./media/amazon-business-tutorial/config05.png)
+        ![Captura de tela que mostra as Declarações de grupo com os valores, conforme descrito neste procedimento.](./media/amazon-business-tutorial/config05.png)
 
-    b. Selecione **Todos os Grupos** na lista de opções.
+    1. Selecione **Todos os Grupos** na lista de opções.
 
-    c. Selecione **ID do Grupo** como o **Atributo de origem**.
+    1. Selecione **ID do Grupo** como o **Atributo de origem**.
 
-    d. Marque a caixa de seleção **Personalizar o nome da declaração de grupo** e insira o nome do grupo de acordo com as necessidades de sua organização.
+    1. Marque a caixa de seleção **Personalizar o nome da declaração de grupo** e insira o nome do grupo de acordo com as necessidades de sua organização.
 
-    e. Clique em **Save** (Salvar).
+    1. Clique em **Save** (Salvar).
 
 1. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Assinatura SAML**, localize **XML de Metadados** e selecione **Baixar** para baixar o certificado e salvá-lo em seu computador.
 
@@ -146,7 +146,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 1. No assistente **Configurar o SSO**, selecione o provedor de acordo com os requisitos organizacionais e clique em **Avançar**.
 
     ![Captura de tela que mostra Configurar o SSO, com Microsoft Azure AD e Avançar selecionados.](media/amazon-business-tutorial/default-group1.png)
-    
+
     > [!NOTE]
     > Embora o Microsoft ADFS seja uma opção listada, ele não funcionará com o SSO do Azure AD.
 
@@ -193,12 +193,12 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 1. Por fim, na seção **Detalhes da Conexão de SSO**, o **Status** é mostrado como **Ativo**.
 
     ![Captura de tela que mostra os Detalhes da Conexão de SSO, com um status Ativo.](media/amazon-business-tutorial/sso-connection5.png)
-    
+
     > [!NOTE]
     > Se quiser configurar o aplicativo no modo iniciado pelo **SP**, conclua a seguinte etapa: cole a URL de logon da captura de tela acima na caixa de texto **URL de Logon** da seção **Definir URLs adicionais** no portal do Azure. Use o seguinte formato:
     >
     > `https://www.amazon.<TLD>/bb/feature/sso/action/start?domain_hint=<uniqueid>`
-    
+
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
@@ -236,7 +236,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 1. Na lista de aplicativos, selecione **Amazon Business**.
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
 
-   ![O link “Usuários e grupos”](common/users-groups-blade.png)
+    ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
 1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
@@ -288,8 +288,8 @@ Ao clicar no bloco do Amazon Business no Painel de Acesso, você deverá ser con
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](./tutorial-list.md)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 - [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

@@ -10,12 +10,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: eca64411ccb61e5dcbac5e988f12096550eaaa2c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b39a74bd06f942cf21d201c8cef48bc6dfc57d46
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100993"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548079"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-azure-cosmos-db-async-java-sdk-v2-with-sql-api-accounts"></a>Solucionar problemas ao usar o SDK do Java Assíncrono v2 do Azure Cosmos DB com contas de API do SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "93100993"
 > 
 
 > [!IMPORTANT]
-> Esse *não* é o SDK do Java mais recente para o Azure Cosmos DB! Você deve atualizar seu projeto para [SDK do Java v4 do Azure Cosmos DB](sql-api-sdk-java-v4.md) e, em seguida, ler o [guia de solução de problemas](troubleshoot-java-sdk-v4-sql.md) do SDK do Java v4 do Azure Cosmos DB. Siga as instruções nos guias [Migrar para o SDK do Java v4 do Azure Cosmos DB](migrate-java-v4-sdk.md) e [Reator vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md). 
+> Esse *não* é o SDK do Java mais recente para o Azure Cosmos DB! Você deve atualizar seu projeto para [SDK do Java v4 do Azure Cosmos DB](sql-api-sdk-java-v4.md) e, em seguida, ler o [guia de solução de problemas](troubleshoot-java-sdk-v4-sql.md) do SDK do Java v4 do Azure Cosmos DB. Siga as instruções nos guias [Migrar para o SDK do Java v4 do Azure Cosmos DB](migrate-java-v4-sdk.md) e [Reator vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md). 
 >
 > Este artigo aborda apenas a solução de problemas para o SDK do Java Assíncrono v2 do Azure Cosmos DB. Confira as [Notas sobre a Versão](sql-api-sdk-async-java.md) do SDK do Java Assíncrono v2 do Azure Cosmos DB, o [repositório Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) e as [dicas de desempenho](performance-tips-async-java.md) para obter mais informações.
 >
@@ -181,9 +181,9 @@ Usando `observeOn(customScheduler)`, você libera o thread de E/S Netty e muda p
 ### <a name="request-rate-too-large"></a>Taxa de solicitação grande demais
 Essa falha é uma falha no lado do servidor. Indica que você consumiu sua taxa de transferência provisionada. Tente novamente mais tarde. Se você recebe essa falha com frequência, considere aumentar a taxa de transferência da coleção.
 
-### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>Falha ao conectar-se ao emulador do Azure Cosmos DB
+### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>Falha ao conectar-se ao emulador de Azure Cosmos DB
 
-O certificado HTTPS do emulador do Azure Cosmos DB é autoassinado. Para o SDK funcionar com o emulador, importe o certificado do emulador para um Java TrustStore. Para obter mais informações, consulte [Exportar certificados do emulador do Azure Cosmos DB](local-emulator-export-ssl-certificates.md).
+O certificado HTTPS do emulador de Azure Cosmos DB é autoassinado. Para o SDK funcionar com o emulador, importe o certificado do emulador para um Java TrustStore. Para obter mais informações, consulte [Exportar certificados do emulador Azure Cosmos DB](local-emulator-export-ssl-certificates.md).
 
 ### <a name="dependency-conflict-issues"></a>Problemas de conflito de dependência
 

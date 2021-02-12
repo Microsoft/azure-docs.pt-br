@@ -3,15 +3,16 @@ title: Subconsultas SQL para Azure Cosmos DB
 description: Saiba mais sobre subconsultas SQL e seus casos de uso comuns e tipos diferentes de subconsultas no Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: 16be1b91d007ca2dbc88405cfc55ff519f51ee41
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f5f209229d17a2587258d21ee90e7560e629d082
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081528"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340848"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Exemplos de subconsulta do SQL para Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

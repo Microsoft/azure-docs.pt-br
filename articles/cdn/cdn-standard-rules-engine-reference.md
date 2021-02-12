@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 08/04/2020
 ms.author: allensu
-ms.openlocfilehash: b272426f865636640e0a2fafde46cbebbe6eb363
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a0f4456f38939632026645500dd48acbf7dbc88
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327486"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242201"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Referência do mecanismo de regras Standard para a CDN do Azure
 
@@ -20,7 +20,7 @@ No [mecanismo de regras padrão](cdn-standard-rules-engine.md) para a rede de di
 
 O mecanismo de regras foi projetado para ser a autoridade final sobre como tipos específicos de solicitações são processados pela CDN do Azure padrão.
 
-**Usos comuns para as regras**:
+**Usos comuns para as regras** :
 
 - Substituir ou definir uma política de cache personalizada.
 - Solicitações de redirecionamento.
@@ -34,7 +34,10 @@ Para definir uma regra no mecanismo de regras, defina [condições de correspond
 
 Cada regra pode ter até dez condições de correspondência e cinco ações. Cada ponto de extremidade da CDN do Azure pode ter até 25 regras. 
 
-O incluído nesse limite é uma *regra global*padrão. A regra global não tem condições de correspondência; as ações definidas em uma regra global sempre são disparadas.
+O incluído nesse limite é uma *regra global* padrão. A regra global não tem condições de correspondência; as ações definidas em uma regra global sempre são disparadas.
+
+   > [!IMPORTANT]
+   > A ordem na qual são listadas as várias regras afeta como elas são processadas. As ações especificadas em uma regra podem ser substituídas por uma regra seguinte.
 
 ## <a name="limits-and-pricing"></a>Limites e preços 
 
@@ -43,7 +46,7 @@ Cada ponto de extremidade da CDN do Azure pode ter até 25 regras. Cada regra po
 - Solicitações processadas: $0.60 por milhão de solicitações
 - As primeiras 5 regras permanecerão livres
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 A forma como os caracteres especiais são tratados em uma regra varia de acordo com a forma como as condições de correspondência e as ações diferentes manipulam valores de texto. Uma condição de correspondência ou ação pode interpretar o texto de uma das seguintes maneiras:
 

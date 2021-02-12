@@ -4,12 +4,12 @@ description: O Lote dá suporte ao Azure AD para autenticação por meio do serv
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: cb8306da4022ea1819e2da32a2f513c83bed309f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 784e92eaa2cd672d511177066befcfd7effc7ca4
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309367"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95252633"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções do serviço do Lote no Active Directory
 
@@ -77,7 +77,7 @@ Para autenticar com a autenticação integrada, você precisa conceder as permis
 
 Depois de registrar o aplicativo, siga estas etapas no portal do Azure para conceder a ele o acesso ao serviço do Lote:
 
-1. Na portal do Azure, escolha **todos os serviços**e, em seguida, selecione **registros do aplicativo**.
+1. Na portal do Azure, escolha **todos os serviços** e, em seguida, selecione **registros do aplicativo**.
 1. Pesquise o nome do aplicativo na lista de registros de aplicativo.
 1. Escolha o aplicativo e **Permissões de API**.
 1. Na janela **Permissões de API**, escolha **Adicionar uma Permissão**.
@@ -144,7 +144,7 @@ Você pode usar uma função personalizada para conceder permissões a um usuár
 - Microsoft.Batch/batchAccounts/read (para qualquer operação de leitura)
 - Microsoft.Batch/batchAccounts/listKeys/action (para qualquer operação)
 
-As funções personalizadas são para usuários autenticados pelo Azure Active Directory, não pelas credenciais de conta do Lote (chave compartilhada). Observe que as credenciais de conta do Lote dão permissão total para a conta do Lote. Observe também que os trabalhos que usam o pool automático exigem permissões no nível do pool.
+As funções personalizadas são para usuários autenticados pelo Azure Active Directory, não pelas credenciais de conta do Lote (chave compartilhada). Observe que as credenciais de conta do Lote dão permissão total para a conta do Lote. Observe também que os trabalhos que usam o [autopool](nodes-and-pools.md#autopools) exigem permissões em nível de pool.
 
 > [!NOTE]
 > Certas atribuições de função precisam ser especificadas no campo ação, enquanto outras precisam ser especificadas no campo Dataaction. Para obter mais informações, consulte [operações do provedor de recursos do Azure](../role-based-access-control/resource-provider-operations.md#microsoftbatch).
@@ -268,13 +268,13 @@ public static async Task<string> GetAuthenticationTokenAsync()
 Construa um objeto **BatchTokenCredentials** que use o delegado como um parâmetro. Use essas credenciais para abrir um objeto **BatchClient**. Você pode usar esse objeto **BatchClient** para as próximas operações no serviço do Lote:
 
 ```csharp
-public static async Task PerformBatchOperations()
+public static void PerformBatchOperations()
 {
     Func<Task<string>> tokenProvider = () => GetAuthenticationTokenAsync();
 
-    using (var client = await BatchClient.OpenAsync(new BatchTokenCredentials(BatchAccountUrl, tokenProvider)))
+    using (var client = BatchClient.Open(new BatchTokenCredentials(BatchAccountUrl, tokenProvider)))
     {
-        await client.JobOperations.ListJobs().ToListAsync();
+        client.JobOperations.ListJobs();
     }
 }
 ```
@@ -336,13 +336,13 @@ public static async Task<string> GetAuthenticationTokenAsync()
 Construa um objeto **BatchTokenCredentials** que use o delegado como um parâmetro. Use essas credenciais para abrir um objeto **BatchClient**. Em seguida, use esse objeto **BatchClient** para operações subsequentes no serviço do Lote:
 
 ```csharp
-public static async Task PerformBatchOperations()
+public static void PerformBatchOperations()
 {
     Func<Task<string>> tokenProvider = () => GetAuthenticationTokenAsync();
 
-    using (var client = await BatchClient.OpenAsync(new BatchTokenCredentials(BatchAccountUrl, tokenProvider)))
+    using (var client = BatchClient.Open(new BatchTokenCredentials(BatchAccountUrl, tokenProvider)))
     {
-        await client.JobOperations.ListJobs().ToListAsync();
+        client.JobOperations.ListJobs();
     }
 }
 ```

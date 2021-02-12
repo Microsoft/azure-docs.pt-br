@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: b87340fbb3f94eee106fc5d0d72117d30e331035
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e9544fb73c8599b219ef7a566032adfe5e33d08
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75862706"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658495"
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>Configurações de dispositivo de firewall ou de VPN de terceiros sugeridas pela comunidade para o gateway de VPN do Azure
 
@@ -41,7 +41,6 @@ A seguinte tabela lista vários dispositivos comuns e a ajuda relacionada:
 
 ## <a name="next-step"></a>Próxima etapa
 
-[Configurações de Gateways do Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices)
+[Configurações de Gateways do Azure](./vpn-gateway-about-vpn-devices.md)
 
-[Dispositivos compatíveis conhecidos](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices)
-
+[Dispositivos compatíveis conhecidos](./vpn-gateway-about-vpn-devices.md)

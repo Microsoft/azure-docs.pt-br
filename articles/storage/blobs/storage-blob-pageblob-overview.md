@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: add94fe05eecd2fb77ba0d6d79fe6765afe3baaa
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: aada418b4f74c38a2a35c793deb85b94b703fb89
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091008"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629350"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Visão geral de blobs de páginas do Azure
 
@@ -25,9 +25,13 @@ Blobs de páginas são uma coleção de páginas de 512 bytes, que fornecem a ca
 
 Os principais recursos dos blobs de páginas do Azure são sua interface REST, a durabilidade do armazenamento subjacente e as funcionalidades de migração direta para o Azure. Esses recursos são discutidos mais detalhadamente na próxima seção. Além disso, no momento, os blobs de páginas do Azure são compatíveis com dois tipos de armazenamento: Armazenamento Premium e Armazenamento Standard. O armazenamento Premium é projetado especificamente para cargas de trabalho que exigem alto desempenho e baixa latência consistentes, tornando os blobs de páginas Premium ideais para cenários de armazenamento de alto desempenho. As contas de armazenamento standard são mais econômicas para executar cargas de trabalho que não fazem distinção de latência.
 
+## <a name="restrictions"></a>Restrições
+
+Os blobs de páginas só podem usar a camada de acesso **quente** , eles não podem usar as camadas **frias** ou de **arquivo morto** . Para obter mais informações sobre camadas de acesso, consulte [camadas de acesso para armazenamento de BLOBs do Azure – frequente, fria e arquivo morto](storage-blob-storage-tiers.md).
+
 ## <a name="sample-use-cases"></a>Casos de uso de exemplo
 
-Vamos discutir alguns casos de uso para blobs de página, começando com os discos de IaaS do Azure. Os blobs de páginas do azure são a base da plataforma de discos virtuais do IaaS do Azure. Os discos do sistema operacional e de discos do Azure são implementados como discos virtuais em que os dados são persistidos de forma duradoura na plataforma de Armazenamento do Azure e, em seguida, entregues para as máquinas virtuais para desempenho máximo. Os Discos do Azure são persistidos no [formato VHD](https://technet.microsoft.com/library/dd979539.aspx) do Hyper-V e armazenados como um [blob de páginas](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) no Armazenamento do Azure. Além de usar discos virtuais para VMs IaaS do Azure, os blobs de páginas também possibilitam cenários de PaaS e DBaaS como o serviço BD SQL do Azure, que atualmente usa blobs de páginas para armazenar dados do SQL, permitindo operações de leitura/gravação aleatórias rápidas para o banco de dados. Outro exemplo é se você tem um serviço de PaaS para o acesso de mídia compartilhada em aplicativos de edição colaborativa de vídeos: os blobs de páginas permitem um acesso rápido aos locais aleatórios na mídia. Também permite edição e mesclagem rápidas e eficientes da mesma mídia por vários usuários. 
+Vamos discutir alguns casos de uso para blobs de página, começando com os discos de IaaS do Azure. Os blobs de páginas do azure são a base da plataforma de discos virtuais do IaaS do Azure. Os discos do sistema operacional e de discos do Azure são implementados como discos virtuais em que os dados são persistidos de forma duradoura na plataforma de Armazenamento do Azure e, em seguida, entregues para as máquinas virtuais para desempenho máximo. Os Discos do Azure são persistidos no [formato VHD](/previous-versions/windows/it-pro/windows-7/dd979539(v=ws.10)) do Hyper-V e armazenados como um [blob de páginas](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) no Armazenamento do Azure. Além de usar discos virtuais para VMs IaaS do Azure, os blobs de páginas também possibilitam cenários de PaaS e DBaaS como o serviço BD SQL do Azure, que atualmente usa blobs de páginas para armazenar dados do SQL, permitindo operações de leitura/gravação aleatórias rápidas para o banco de dados. Outro exemplo é se você tem um serviço de PaaS para o acesso de mídia compartilhada em aplicativos de edição colaborativa de vídeos: os blobs de páginas permitem um acesso rápido aos locais aleatórios na mídia. Também permite edição e mesclagem rápidas e eficientes da mesma mídia por vários usuários. 
 
 Os serviços da Microsoft de primeira ordem, como o Azure Site Recovery, o Azure Backup, bem como muitos desenvolvedores de terceiros, implementaram inovações líderes do setor usando a interface REST do blob da página. Estes são alguns dos cenários exclusivos implementados no Azure: 
 
@@ -43,7 +47,7 @@ Os dois tipos de armazenamento oferecidos com blobs de páginas têm seu própri
 
 ### <a name="rest-api"></a>API REST
 
-Veja o documento a seguir para começar a [desenvolver o uso de blobs de páginas](storage-dotnet-how-to-use-blobs.md). Por exemplo, observe como acessar os blobs de páginas usando a Biblioteca de Clientes de Armazenamento para .NET. 
+Veja o documento a seguir para começar a [desenvolver o uso de blobs de páginas](./storage-quickstart-blobs-dotnet.md). Por exemplo, observe como acessar os blobs de páginas usando a Biblioteca de Clientes de Armazenamento para .NET. 
 
 O diagrama a seguir descreve as relações gerais entre a conta, os contêineres e os blobs de páginas.
 
@@ -53,7 +57,7 @@ O diagrama a seguir descreve as relações gerais entre a conta, os contêineres
 
 # <a name="net-v12"></a>[.NET V12](#tab/dotnet)
 
-Primeiro, obtenha uma referência a um contêiner. Para criar um blob de páginas, chame o método [GetPageBlobClient](/dotnet/api/azure.storage.blobs.specialized.specializedblobextensions.getpageblobclient) e, em seguida, chame o método [PageBlobClient. Create](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.create) . Passe o tamanho máximo para o blob a ser criado. Esse tamanho deve ser um múltiplo de 512 bytes.
+Primeiro, obtenha uma referência a um contêiner. Para criar um blob de páginas, chame o método GetPageBlobClient e, em seguida, chame o método [PageBlobClient. Create](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.create) . Passe o tamanho máximo para o blob a ser criado. Esse tamanho deve ser um múltiplo de 512 bytes.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_CreatePageBlob":::
 

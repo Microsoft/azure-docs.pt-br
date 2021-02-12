@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d72b70248e317d1caee4527be38fe304cfe7f16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2dac4b461d4506015f0ef374eae37f67c445791d
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658336"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107864"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Logon Único Contínuo do Azure Active Directory: Perguntas frequentes
 
@@ -83,6 +83,10 @@ Sim, esse cenário precisa da versão 2.1 ou posterior do [cliente de ingresso n
 
 Siga estas etapas no servidor local em que você está executando o Azure AD Connect:
 
+   > [!NOTE]
+   >Você precisará de ambas as credenciais de administrador de domínio e de administrador global para as etapas abaixo.
+   >Se você não for um administrador de domínio e tiver recebido permissões pelo administrador de domínio, deverá chamar `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
+
    **Etapa 1. Obter lista de florestas do AD em que o SSO Contínuo foi habilitado**
 
    1. Primeiro, baixe e instale o [PowerShell do Microsoft Azure AD](/powershell/azure/active-directory/overview).
@@ -103,10 +107,10 @@ Siga estas etapas no servidor local em que você está executando o Azure AD Con
 
    2. Chame `Update-AzureADSSOForest -OnPremCredentials $creds`. Esse comando atualiza a chave de descriptografia do Kerberos para a `AZUREADSSO` conta de computador nessa floresta do AD específico e a atualiza no AD do Azure.
    
-   >[!NOTE]
-   >Se você não for um administrador de domínio e tiver recebido permissões pelo administrador de domínio, deverá chamar `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
-   
    3. Repita as etapas anteriores para cada floresta do AD em que você configurou o recurso.
+   
+  >[!NOTE]
+   >Se você estiver atualizando uma floresta, que não seja a Azure AD Connect uma, verifique se a conectividade com o servidor de catálogo global (TCP 3268 e TCP 3269) está disponível.
 
    >[!IMPORTANT]
    >Certifique-se de _não_ executar o `Update-AzureADSSOForest` comando mais de uma vez. Caso contrário, o recurso deixará de funcionar até o momento em que os tíquetes Kerberos dos usuários expirarem e forem reemitidos pelo Active Directory local.

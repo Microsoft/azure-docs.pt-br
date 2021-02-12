@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 7de0cad91e01187a1ed84257c9e3a7cd8106951a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6af4fba8ddf50b795d847a2c7b4e2fbc02fe593f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87539944"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587172"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Estrutura de segurança: Criptografia | Atenuações 
 
@@ -109,7 +109,7 @@ ms.locfileid: "87539944"
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
-| **Etapas** | <p>Os produtos devem usar a família SHA-2 de algoritmos de hash (SHA256, SHA384 e SHA512). Se for necessário usar um hash mais curto, com um comprimento de saída de 128 bits para ajustá-lo a uma estrutura de dados criada com o hash MD5 menor em mente, as equipes de produtos podem truncar um dos hashes SHA2 (normalmente o SHA256). Observe que o SHA384 é uma versão truncada do SHA512. Por motivos de segurança, não é permitido truncar hashes criptográficos para menos de 128 bits. O novo código não deve usar os algoritmos de hash MD2, MD4, MD5, SHA-0, SHA-1 ou RIPEMD. É possível realizar colisões de hash computacionalmente para esses algoritmos, o que efetivamente os quebrará.</p><p>Algoritmos de hash do .NET permitidos para agilidade criptográfica gerenciada (em ordem de preferência)</p><ul><li>SHA512Cng (em conformidade com FIPS)</li><li>SHA384Cng (em conformidade com FIPS)</li><li>SHA256Cng (em conformidade com FIPS)</li><li>SHA512Managed (sem conformidade com FIPS) (use SHA512 como nome do algoritmo em chamadas para HashAlgorithm. Create ou CryptoConfig. CreateFromName)</li><li>SHA384Managed (sem conformidade com FIPS) (use SHA384 como nome do algoritmo em chamadas para HashAlgorithm. Create ou CryptoConfig. CreateFromName)</li><li>SHA256Managed (sem conformidade com FIPS) (use SHA256 como nome do algoritmo em chamadas para HashAlgorithm. Create ou CryptoConfig. CreateFromName)</li><li>SHA512CryptoServiceProvider (em conformidade com FIPS)</li><li>SHA256CryptoServiceProvider (em conformidade com FIPS)</li><li>SHA384CryptoServiceProvider (em conformidade com FIPS)</li></ul>| 
+| **Etapas** | <p>Os produtos devem usar a família SHA-2 de algoritmos de hash (SHA256, SHA384 e SHA512). Se for necessário usar um hash mais curto, com um comprimento de saída de 128 bits para ajustá-lo a uma estrutura de dados criada com o hash MD5 menor em mente, as equipes de produtos podem truncar um dos hashes SHA2 (normalmente o SHA256). Observe que o SHA384 é uma versão truncada do SHA512. Por motivos de segurança, não é permitido truncar hashes criptográficos para menos de 128 bits. O novo código não deve usar os algoritmos de hash MD2, MD4, MD5, SHA-0, SHA-1 ou RIPEMD. É possível realizar colisões de hash computacionalmente para esses algoritmos, o que efetivamente os quebrará.</p><p>Algoritmos de hash do .NET permitidos para agilidade criptográfica gerenciada (em ordem de preferência)</p><ul><li>SHA512Cng (em conformidade com FIPS)</li><li>SHA384Cng (em conformidade com FIPS)</li><li>SHA256Cng (em conformidade com FIPS)</li><li>SHA512Managed (não compatível com FIPS) (use SHA512 como nome de algoritmo nas chamadas para HashAlgorithm.Create ou CryptoConfig.CreateFromName)</li><li>SHA384Managed (não compatível com FIPS) (use SHA384 como nome de algoritmo nas chamadas para HashAlgorithm.Create ou CryptoConfig.CreateFromName)</li><li>SHA256Managed (não compatível com FIPS) (use SHA256 como nome do algoritmo nas chamadas para HashAlgorithm.Create ou CryptoConfig.CreateFromName)</li><li>SHA512CryptoServiceProvider (em conformidade com FIPS)</li><li>SHA256CryptoServiceProvider (em conformidade com FIPS)</li><li>SHA384CryptoServiceProvider (em conformidade com FIPS)</li></ul>| 
 
 ## <a name="use-strong-encryption-algorithms-to-encrypt-data-in-the-database"></a><a id="strong-db"></a>Usar algoritmos de criptografia forte para criptografar dados no banco de dados
 
@@ -119,7 +119,7 @@ ms.locfileid: "87539944"
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Escolhendo um algoritmo de criptografia](https://technet.microsoft.com/library/ms345262(v=sql.130).aspx) |
+| **Referências**              | [Escolhendo um algoritmo de criptografia](/sql/relational-databases/security/encryption/choose-an-encryption-algorithm) |
 | **Etapas** | Os algoritmos de criptografia definem as transformações de dados que não podem ser facilmente revertidas por usuários não autorizados. O SQL Server permite que administradores e desenvolvedores escolham entre vários algoritmos, incluindo DES, Triplo DES, TRIPLE_DES_3KEY, RC2, RC4, RC4 de 128 bits, DESX, AES de 128 bits, AES de 192 bits e AES de 256 bits. |
 
 ## <a name="ssis-packages-should-be-encrypted-and-digitally-signed"></a><a id="ssis-signed"></a>Os pacotes do SSIS devem ser criptografados e assinados digitalmente
@@ -130,7 +130,7 @@ ms.locfileid: "87539944"
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Identificar a origem dos pacotes com assinaturas digitais](https://msdn.microsoft.com/library/ms141174.aspx), [Atenuação de ameaças e vulnerabilidades (Integration Services)](https://msdn.microsoft.com/library/bb522559.aspx) |
+| **Referências**              | [Identificar a origem dos pacotes com assinaturas digitais](/sql/integration-services/security/identify-the-source-of-packages-with-digital-signatures), [Atenuação de ameaças e vulnerabilidades (Integration Services)](/sql/integration-services/security/security-overview-integration-services) |
 | **Etapas** | A origem de um pacote é a pessoa ou organização que criou o pacote. Pode ser arriscado executar um pacote de origem desconhecida ou não confiável. Para evitar que os pacotes do SSIS sejam inadvertidamente alterados, use assinaturas digitais. Para garantir a confidencialidade dos pacotes durante seu trânsito/armazenamento, os pacotes do SSIS precisam ser criptografados |
 
 ## <a name="add-digital-signature-to-critical-database-securables"></a><a id="securables-db"></a>Adicionar assinatura digital a protegíveis de banco de dados críticos
@@ -141,7 +141,7 @@ ms.locfileid: "87539944"
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [ADD SIGNATURE (Transact-SQL)](https://msdn.microsoft.com/library/ms181700) |
+| **Referências**              | [ADD SIGNATURE (Transact-SQL)](/sql/t-sql/statements/add-signature-transact-sql) |
 | **Etapas** | Quando for necessário verificar a integridade de um banco de dados crítico protegível, use assinaturas digitais. Os protegíveis de um banco de dados, como um procedimento armazenado, uma função, um assembly ou um disparo, podem ser assinados digitalmente. Abaixo está um exemplo de quando isso pode ser útil: digamos que um ISV (fornecedor independente de software) ofereceu suporte a um software distribuído para um de seus clientes. Antes de fornecer o suporte, o ISV pode querer ter certeza de que um protegível do banco de dados no software não foi alterado por engano ou de forma maliciosa. Se o protegível estiver assinado digitalmente, o ISV poderá verificar sua assinatura digital e validar sua integridade.| 
 
 ## <a name="use-sql-server-ekm-to-protect-encryption-keys"></a><a id="ekm-keys"></a>Usar EKM do SQL Server para proteger chaves de criptografia
@@ -152,7 +152,7 @@ ms.locfileid: "87539944"
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Gerenciamento extensível de chaves (EKM) do SQL Server](https://msdn.microsoft.com/library/bb895340), [Gerenciamento extensível de chaves usando o Azure Key Vault (SQL Server)](https://msdn.microsoft.com/library/dn198405) |
+| **Referências**              | [Gerenciamento extensível de chaves (EKM) do SQL Server](/sql/relational-databases/security/encryption/extensible-key-management-ekm), [Gerenciamento extensível de chaves usando o Azure Key Vault (SQL Server)](/sql/relational-databases/security/encryption/extensible-key-management-using-azure-key-vault-sql-server) |
 | **Etapas** | O gerenciamento extensível de chaves do SQL Server permite que as chaves de criptografia que protegem os arquivos de banco de dados sejam armazenadas em um dispositivo externo, como um cartão inteligente, dispositivo USB ou um módulo EKM/HSM. Isso também permite proteger os dados dos administradores de banco de dados (exceto dos membros do grupo sysadmin). Com o uso de chaves de criptografia, é possível criptografar dados aos quais somente o usuário do banco de dados tem acesso no módulo externo de EKM/HSM. |
 
 ## <a name="use-alwaysencrypted-feature-if-encryption-keys-should-not-be-revealed-to-database-engine"></a><a id="keys-engine"></a>Usar o recurso AlwaysEncrypted para não revelar as chaves de criptografia ao mecanismo de banco de dados
@@ -163,7 +163,7 @@ ms.locfileid: "87539944"
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | SQL Azure, OnPrem |
 | **Atributos**              | Versão do SQL - V12, MsSQL2016 |
-| **Referências**              | [Always Encrypted (mecanismo de banco de dados)](https://msdn.microsoft.com/library/mt163865) |
+| **Referências**              | [Always Encrypted (mecanismo de banco de dados)](/sql/relational-databases/security/encryption/always-encrypted-database-engine) |
 | **Etapas** | O Always Encrypted é um recurso para proteger dados confidenciais, como números de cartão de crédito ou números de identificação nacional (por exemplo, os números do seguro social dos EUA), armazenados nos Bancos de dados SQL do Azure ou no SQL Server. Esse recurso permite que os clientes criptografem dados confidenciais em aplicativos clientes e nunca revelem as chaves de criptografia para o mecanismo de banco de dados (Banco de dados SQL ou SQL Server). Consequentemente, o Always Encrypted diferencia os proprietários dos dados (que podem vê-los) de quem gerencia os dados (mas não deve ter acesso). |
 
 ## <a name="store-cryptographic-keys-securely-on-iot-device"></a><a id="keys-iot"></a>Armazenar chaves de criptografia com segurança no dispositivo IoT
@@ -174,7 +174,7 @@ ms.locfileid: "87539944"
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | Sistema operacional do dispositivo - Windows IoT Core, Conectividade do dispositivo - SDKs do dispositivo IoT do Azure |
-| **Referências**              | [TPM no Windows IoT Core](https://developer.microsoft.com/windows/iot/docs/tpm), [Configurar TPM no Windows IoT Core](https://docs.microsoft.com/windows/iot-core/secure-your-device/setuptpm), [TPM do SDK do dispositivo IoT do Azure](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) |
+| **Referências**              | [TPM no Windows IoT Core](/windows/iot-core/secure-your-device/TPM), [Configurar TPM no Windows IoT Core](/windows/iot-core/secure-your-device/setuptpm), [TPM do SDK do dispositivo IoT do Azure](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) |
 | **Etapas** | Armazene chaves privadas simétricas ou de certificado com segurança em um armazenamento de hardware protegido, um TPM ou chips de cartão inteligente. O Windows 10 IoT Core dá suporte para usuário de um TPM e há vários TPMs compatíveis que podem ser usados: https://docs.microsoft.com/windows/iot-core/secure-your-device/tpm#discrete-tpm-dtpm. É recomendável usar um TPM Discreto ou de Firmware. Um TPM de Software deve ser usado apenas para fins de testes e desenvolvimento. Depois que um TPM estiver disponível e as chaves forem provisionadas nele, o código que gera o token deve ser escrito sem conter informações confidenciais. | 
 
 ### <a name="example"></a>Exemplo

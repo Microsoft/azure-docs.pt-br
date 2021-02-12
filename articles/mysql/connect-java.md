@@ -1,5 +1,5 @@
 ---
-title: Usar o Java e o JDBC com o Banco de Dados do Azure para MySQL
+title: 'Início Rápido: Usar o Java e o JDBC com o Banco de Dados do Azure para MySQL'
 description: Saiba como usar o Java e o JDBC com um banco de dados do Banco de Dados do Azure para MySQL.
 author: jdubois
 ms.author: judubois
@@ -8,14 +8,14 @@ ms.custom: mvc, devcenter, devx-track-azurecli
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
-ms.openlocfilehash: b7db124f8f5ba56f760dc054491990889e4e738f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 457f7e07391c647d2ab0e7d78197086f6f5e2cf7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745259"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187775"
 ---
-# <a name="use-java-and-jdbc-with-azure-database-for-mysql"></a>Usar o Java e o JDBC com o Banco de Dados do Azure para MySQL
+# <a name="quickstart-use-java-and-jdbc-with-azure-database-for-mysql"></a>Início Rápido: Usar o Java e o JDBC com o Banco de Dados do Azure para MySQL
 
 Este tópico demonstra como criar um aplicativo de exemplo que usa o Java e o [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) para armazenar e recuperar informações no [Banco de Dados do Azure para MySQL](./index.yml).
 
@@ -237,7 +237,7 @@ Esse código Java usará os arquivos *application.properties* e *schema.sql* que
 Nesse arquivo, você pode ver que comentamos os métodos para inserir, ler, atualizar e excluir dados: codificaremos esses métodos no restante deste artigo e você poderá remover as marcas de comentários uma após a outra.
 
 > [!NOTE]
-> As credenciais de banco de dados são armazenadas nas propriedades *user* e *password* no arquivo *application.properties* . Essas credenciais são usadas durante a execução de `DriverManager.getConnection(properties.getProperty("url"), properties);`, pois o arquivo de propriedades é passado como um argumento.
+> As credenciais de banco de dados são armazenadas nas propriedades *user* e *password* no arquivo *application.properties*. Essas credenciais são usadas durante a execução de `DriverManager.getConnection(properties.getProperty("url"), properties);`, pois o arquivo de propriedades é passado como um argumento.
 
 > [!NOTE]
 > A linha `AbandonedConnectionCleanupThread.uncheckedShutdown();` no final é um comando específico do driver MySQL para destruir um thread interno ao desligar o aplicativo.
@@ -326,11 +326,11 @@ public class Todo {
 }
 ```
 
-Essa classe é um modelo de domínio mapeado na tabela `todo` que você criou ao executar o script *schema.sql* .
+Essa classe é um modelo de domínio mapeado na tabela `todo` que você criou ao executar o script *schema.sql*.
 
 ### <a name="insert-data-into-azure-database-for-mysql"></a>Inserir dados no Banco de Dados do Azure para MySQL
 
-No arquivo *src/main/java/DemoApplication.java* , após o método principal, adicione o seguinte método para inserir dados no banco de dados:
+No arquivo *src/main/java/DemoApplication.java*, após o método principal, adicione o seguinte método para inserir dados no banco de dados:
 
 ```java
 private static void insertData(Todo todo, Connection connection) throws SQLException {
@@ -368,7 +368,7 @@ A execução da classe principal deve produzir a seguinte saída:
 
 Vamos ler os dados inseridos anteriormente para validar se o nosso código funciona corretamente.
 
-No arquivo *src/main/java/DemoApplication.java* , após o método `insertData`, adicione o seguinte método para ler dados do banco de dados:
+No arquivo *src/main/java/DemoApplication.java*, após o método `insertData`, adicione o seguinte método para ler dados do banco de dados:
 
 ```java
 private static Todo readData(Connection connection) throws SQLException {
@@ -412,7 +412,7 @@ A execução da classe principal deve produzir a seguinte saída:
 
 Vamos atualizar os dados que inserimos anteriormente.
 
-Ainda no arquivo *src/main/java/DemoApplication.java* , após o método `readData`, adicione o seguinte método para atualizar os dados no banco de dados:
+Ainda no arquivo *src/main/java/DemoApplication.java*, após o método `readData`, adicione o seguinte método para atualizar os dados no banco de dados:
 
 ```java
 private static void updateData(Todo todo, Connection connection) throws SQLException {
@@ -456,7 +456,7 @@ A execução da classe principal deve produzir a seguinte saída:
 
 Por fim, vamos excluir os dados que inserimos anteriormente.
 
-Ainda no arquivo *src/main/java/DemoApplication.java* , após o método `updateData`, adicione o seguinte método para excluir os dados no banco de dados:
+Ainda no arquivo *src/main/java/DemoApplication.java*, após o método `updateData`, adicione o seguinte método para excluir os dados no banco de dados:
 
 ```java
 private static void deleteData(Todo todo, Connection connection) throws SQLException {
@@ -493,7 +493,7 @@ A execução da classe principal deve produzir a seguinte saída:
 [INFO   ] Closing database connection 
 ```
 
-## <a name="conclusion-and-resources-clean-up"></a>Conclusão e limpeza de recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Parabéns! Você criou um aplicativo Java que usa o JDBC para armazenar e recuperar dados do Banco de Dados do Azure para MySQL.
 

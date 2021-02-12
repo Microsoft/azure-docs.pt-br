@@ -3,12 +3,12 @@ title: Análise Dinâmica de Vídeo com a Pesquisa Visual Computacional para An�
 description: Este tutorial mostra como usar a Análise Dinâmica de Vídeo junto com o recurso de IA de Pesquisa Visual Computacional para análise espacial dos Serviços Cognitivos do Azure para analisar um feed de vídeo ao vivo de uma câmera IP (simulada).
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 0dc89eaddf5cabc3063744dfe2c9f0236c70438c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: f8a828d27b69fedefe7ccbc2ad7290bf300afc16
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015678"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526782"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Análise Dinâmica de Vídeo com a Pesquisa Visual Computacional para Análise Espacial (versão prévia)
 
@@ -23,7 +23,8 @@ Neste tutorial, você irá:
 > * Monitorar eventos.
  
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
+  > [!NOTE]
+  > Você precisará ter uma assinatura do Azure com permissões para criar entidades de serviço (a **função de proprietário** fornece isso). Caso não tenha as permissões corretas, entre em contato com o administrador da conta para conceder a você as permissões corretas. 
 ## <a name="suggested-pre-reading"></a>Pré-leitura sugerida
 
 Leia estes artigos antes de começar:
@@ -51,7 +52,7 @@ Veja a seguir os pré-requisitos para conectar o módulo de análise espacial ao
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/spatial-analysis-tutorial/overview.png" alt-text="Visão geral da Análise Espacial":::
  
-O diagrama mostra como os sinais fluem neste tutorial. Um [módulo de borda](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simula uma câmera IP que hospeda um servidor RTSP (Real-Time Streaming Protocol). Um nó de [origem RTSP](media-graph-concept.md#rtsp-source) efetua pull do feed de vídeo desse servidor e envia quadros de vídeo para o nó do [processador de filtro de taxa de quadros](media-graph-concept.md#frame-rate-filter-processor). Esse processador limita a taxa de quadros do fluxo de vídeo que chega ao nó do processador MediaGraphCognitiveServicesVisionExtension.
+O diagrama mostra como os sinais fluem neste tutorial. Um [módulo de borda](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simula uma câmera IP que hospeda um servidor RTSP (Real-Time Streaming Protocol). Um nó de [origem RTSP](media-graph-concept.md#rtsp-source) efetua pull do feed de vídeo desse servidor e envia quadros de vídeo para o nó do `MediaGraphCognitiveServicesVisionExtension`processador.
 
 O nó MediaGraphCognitiveServicesVisionExtension desempenha a função de um proxy. Ele converte os quadros de vídeo no tipo de imagem especificado. Em seguida, ele retransmite a imagem por **memória compartilhada** para outro módulo de borda que executa operações de IA atrás de um ponto de extremidade gRPC. Neste exemplo, esse módulo de borda é o módulo de análise espacial. O nó do processador MediaGraphCognitiveServicesVisionExtension executa duas ações:
 
@@ -71,7 +72,7 @@ Há três parâmetros principais para todos os contêineres de Serviços Cogniti
 Uma chave é usada para iniciar o contêiner de análise espacial e está disponível na página `Keys and Endpoint` do portal do Azure do recurso de Serviço Cognitivo correspondente. Navegue até essa página e localize as chaves e o URI do ponto de extremidade.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/spatial-analysis-tutorial/keys-endpoint.png" alt-text="Visão geral da Análise Espacial":::
+> :::image type="content" source="./media/spatial-analysis-tutorial/keys-endpoint.png" alt-text="URI do ponto de extremidade":::
 
 ## <a name="set-up-azure-stack-edge"></a>Configurar o Azure Stack Edge
 
@@ -109,8 +110,8 @@ Siga [estas etapas](../../databox-online/azure-stack-edge-gpu-deploy-prep.md) co
     AAD_TENANT_ID="<AAD Tenant ID>"  
     AAD_SERVICE_PRINCIPAL_ID="<AAD SERVICE_PRINCIPAL ID>"  
     AAD_SERVICE_PRINCIPAL_SECRET="<AAD SERVICE_PRINCIPAL ID>"  
-    INPUT_VIDEO_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input"  
-    OUTPUT_VIDEO_FOLDER_ON_DEVICE="/var/media"
+    VIDEO_INPUT_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input"  
+    VIDEO_OUTPUT_FOLDER_ON_DEVICE="/var/media"
     APPDATA_FOLDER_ON_DEVICE="/var/local/mediaservices"
     CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"  
     CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry password>"   
@@ -136,10 +137,10 @@ Você precisa prestar atenção a algumas coisas no arquivo de modelo de implant
 1. O `IpcMode` em lvaEdge e createOptions do módulo de análise espacial devem ser iguais e definidos como host.
 1. Para que o simulador RTSP funcione, verifique se você configurou os limites de volume. Para obter mais informações, confira [Configurar a montagem de volume do Docker](deploy-azure-stack-edge-how-to.md#optional-setup-docker-volume-mounts).
 
-    1. [Conecte-se ao compartilhamento SMB](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) e copie o [arquivo de vídeo de retroescavadeira de exemplo](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv) para o compartilhamento local.
+    1. [Conecte-se ao compartilhamento SMB](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) e copie o [arquivo de vídeo de retroescavadeira de exemplo](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv) para o compartilhamento local.  
+        > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Mesi]  
     1. Veja que o módulo rtspsim tem a seguinte configuração:
-        
-        ```json
+        ```
         "createOptions": {
                             "HostConfig": {
                               "Mounts": [
@@ -159,6 +160,8 @@ Você precisa prestar atenção a algumas coisas no arquivo de modelo de implant
                             }
                           }
         ```
+        
+
 ## <a name="generate-and-deploy-the-deployment-manifest"></a>Gerar e implantar o manifesto de implantação
 
 O manifesto de implantação define quais módulos são implantados em um dispositivo de borda. Ele também define as configurações desses módulos.
@@ -166,20 +169,20 @@ O manifesto de implantação define quais módulos são implantados em um dispos
 Siga estas etapas para gerar o manifesto no arquivo de modelo e implantá-lo no dispositivo de borda.
 
 1. Abra o Visual Studio Code.
-1. Ao lado do painel HUB IOT DO AZURE, selecione o ícone Mais ações para definir a cadeia de conexão do Hub IoT. Você pode copiar a cadeia de caracteres do arquivo src/cloud-to-device-console-app/appsettings.json.
+1. Ao lado do painel HUB IOT DO AZURE, selecione o ícone Mais ações para definir a cadeia de conexão do Hub IoT. Você pode copiar a cadeia de caracteres do arquivo `src/cloud-to-device-console-app/appsettings.json`.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/spatial-analysis-tutorial/connection-string.png" alt-text="Visão geral da Análise Espacial":::
+    > :::image type="content" source="./media/spatial-analysis-tutorial/connection-string.png" alt-text="Análise Espacial: cadeia de conexão":::
 1. Clique com o botão direito do mouse em `src/edge/deployment.spatialAnalysis.template.json` e selecione gerar Manifesto de Implantação do IoT Edge.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/spatial-analysis-tutorial/deployment-template-json.png" alt-text="Visão geral da Análise Espacial":::
+    > :::image type="content" source="./media/spatial-analysis-tutorial/deployment-template-json.png" alt-text="Análise Espacial: implantação amd64 json":::
     
     Esta ação deve criar um arquivo de manifesto chamado deployment.amd64.json na pasta src/edge/config.
 1. Clique com o botão direito do mouse em `src/edge/config/deployment.spatialAnalysis.amd64.json`, selecione Criar Implantação para um Dispositivo Único e selecione o nome do dispositivo de borda.
     
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/spatial-analysis-tutorial/deployment-amd64-json.png" alt-text="Visão geral da Análise Espacial":::   
+    > :::image type="content" source="./media/spatial-analysis-tutorial/deployment-amd64-json.png" alt-text="Análise Espacial: json do modelo de implantação":::   
 1. Quando for solicitado a selecionar um dispositivo do Hub IoT, escolha o nome do Azure Stack Edge no menu suspenso.
 1. Após cerca de 30 segundos, no canto inferior esquerdo da janela, atualize o Hub IoT do Azure. Agora, o dispositivo de borda mostra os seguintes módulos implantados:
     
@@ -204,17 +207,17 @@ Para ver esses eventos, siga estas etapas:
 1. Clique com o botão direito do mouse e selecione **Configurações da Extensão**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Visão geral da Análise Espacial":::
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Configurações da Extensão":::
 1. Pesquise e habilite “Mostrar Mensagem Detalhada”.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Visão geral da Análise Espacial":::
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Mostrar Mensagem Detalhada":::
 1. Abra o painel do Explorer e procure o Hub IoT do Azure no canto inferior esquerdo.
 1. Expanda o nó Dispositivos.
 1. Clique com o botão direito do mouse em seu Azure Stack Edge e selecione Iniciar Monitoramento do Ponto de Extremidade do Evento Interno.
     
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/spatial-analysis-tutorial/start-monitoring.png" alt-text="Visão geral da Análise Espacial":::
+    > :::image type="content" source="./media/spatial-analysis-tutorial/start-monitoring.png" alt-text="Análise Espacial: iniciar monitoramento":::
      
 ## <a name="run-the-program"></a>Execute o programa
 
@@ -222,13 +225,13 @@ Há um program.cs que invocará os métodos diretos em src/cloud-to-device-conso
 
 Em operations.json:
 
-* Defina a topologia como esta (topologyFile para a topologia local, topologyUrl para a topologia online):
+* Defina a topologia desta forma:
 
 ```json
 {
     "opName": "GraphTopologySet",
     "opParams": {
-        "topologyFile": "../edge/spatialAnalysisTopology.json"
+        "topologyUrl": "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/lva-spatial-analysis/2.0/topology.json"
     }
 },
 ```
@@ -261,17 +264,6 @@ Em operations.json:
     }
 },
 ```
-* Altere o link para a topologia do grafo:
-
-`topologyUrl` : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/lva-spatial-analysis/topology.json"
-
-Em **GraphInstanceSet**, edite o nome da topologia de grafo para que corresponda ao valor no link anterior:
-
-`topologyName`: InferencingWithCVExtension
-
-Em **GraphTopologyDelete**, edite o nome:
-
-`name`: InferencingWithCVExtension
 
 >[!Note]
 Confira o uso da MediaGraphRealTimeComputerVisionExtension para se conectar com o módulo de análise espacial. Definia ${grpcUrl} como **tcp://spatialAnalysis:<PORT_NUMBER>** , por exemplo, tcp://spatialAnalysis:50051
@@ -281,40 +273,51 @@ Confira o uso da MediaGraphRealTimeComputerVisionExtension para se conectar com 
     "@type": "#Microsoft.Media.MediaGraphCognitiveServicesVisionExtension",
     "name": "computerVisionExtension",
     "endpoint": {
-    "@type": "#Microsoft.Media.MediaGraphUnsecuredEndpoint",
-    "url": "${grpcUrl}",
-    "credentials": {
-        "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
-        "username": "${spatialanalysisusername}",
-        "password": "${spatialanalysispassword}"
-    }
+        "@type": "#Microsoft.Media.MediaGraphUnsecuredEndpoint",
+        "url": "${grpcUrl}",
+        "credentials": {
+            "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
+            "username": "${spatialanalysisusername}",
+            "password": "${spatialanalysispassword}"
+        }
     },
     "image": {
-    "scale": {
-        "mode": "pad",
-        "width": "1408",
-        "height": "786"
+        "scale": {
+            "mode": "pad",
+            "width": "1408",
+            "height": "786"
+        },
+        "format": {
+            "@type": "#Microsoft.Media.MediaGraphImageFormatRaw",
+            "pixelFormat": "bgr24"
+        }
     },
-    "format": {
-        "@type": "#Microsoft.Media.MediaGraphImageFormatRaw",
-        "pixelFormat": "bgr24"
-    }
+    "samplingOptions": {
+        "skipSamplesWithoutAnnotation": "false",
+        "maximumSamplesPerSecond": "20"
     },
     "inputs": [
-    {
-        "nodeName": "frameRateFilter"
-    }
+        {
+            "nodeName": "rtspSource",
+            "outputSelectors": [
+                {
+                    "property": "mediaType",
+                    "operator": "is",
+                    "value": "video"
+                }
+            ]
+        }
     ]
 }
 ```
 
-Execute uma sessão de depuração e siga as instruções do TERMINAL, que definirá a topologia, definirá a instância do grafo, ativará a instância do grafo e, por fim, excluirá os recursos.
+Execute uma sessão de depuração e siga as instruções do **TERMINAL**, que definirá a topologia, definirá a instância do grafo, ativará a instância do grafo e, por fim, excluirá os recursos.
 
 ## <a name="interpret-results"></a>Interpretar os resultados
 
 Quando um grafo de mídia é instanciado, você deve ver o evento "MediaSessionEstablished", aqui, um [evento MediaSessionEstablished de exemplo](detect-motion-emit-events-quickstart.md#mediasessionestablished-event).
 
-O módulo de análise espacial também enviará eventos de insight de IA para a Análise Dinâmica de Vídeo e então para o IoTHub, também será exibido em OUTPUT. ENTITY são objetos de detecção e EVENT são eventos spaceanalytics. Essa saída será passada para a Análise Dinâmica de Vídeo.
+O módulo de análise espacial também enviará eventos de insight de IA para a Análise Dinâmica de Vídeo e então para o IoTHub, também será exibido em **OUTPUT**. ENTITY são objetos de detecção e EVENT são eventos spaceanalytics. Essa saída será passada para a Análise Dinâmica de Vídeo.
 
 Saída de exemplo para personZoneEvent (da operação cognitiveservices.vision.spatialanalysis-personcrossingpolygon.livevideoanalytics):
 

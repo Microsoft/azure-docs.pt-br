@@ -3,16 +3,17 @@ title: ST_DISTANCE na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função do sistema SQL ST_DISTANCE no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 11/23/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 0796ec0b69f7a6a1c3ab6beb2b74f04c8fe94af7
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 736cf488efbdc095823a1fa603f191442d907de3
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082327"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96004459"
 ---
 # <a name="st_distance-azure-cosmos-db"></a>ST_DISTANCE (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e27fe0589498de13f5eb6e17f8869bb9d7352a09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 980e9f1ffd453a070dde72f8c7ca34c7ef08f948
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372069"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964347"
 ---
 # <a name="list-azure-role-assignments-using-azure-powershell"></a>Listar atribuições de função do Azure usando Azure PowerShell
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] Este artigo descreve como listar atribuições de função usando Azure PowerShell.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control/definition-list.md)] Este artigo descreve como listar atribuições de função usando Azure PowerShell.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -32,7 +32,7 @@ ms.locfileid: "87372069"
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [PowerShell em Azure cloud Shell](/azure/cloud-shell/overview) ou [Azure PowerShell](/powershell/azure/install-az-ps)
+- [PowerShell em Azure cloud Shell](../cloud-shell/overview.md) ou [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="list-role-assignments-for-the-current-subscription"></a>Listar atribuições de função para a assinatura atual
 

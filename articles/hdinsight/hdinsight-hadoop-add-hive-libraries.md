@@ -1,19 +1,16 @@
 ---
 title: Bibliotecas de Apache Hive durante a criação do cluster-Azure HDInsight
 description: Saiba como adicionar bibliotecas de Apache Hive (arquivos jar) a um cluster HDInsight durante a criação do cluster.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 02/14/2020
-ms.openlocfilehash: c678372fbd54e528a8a16eacc601e815cfd32e58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6695e5e985a30d6f912095225c4899e1c910e34
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86082226"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945947"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Adicionar bibliotecas Apache Hive personalizadas ao criar seu cluster HDInsight
 
@@ -25,7 +22,7 @@ Ao criar um cluster, você pode usar uma ação de script para modificar nós de
 
 Durante a criação do cluster, o script enumera os arquivos, copia-os para o diretório `/usr/lib/customhivelibs/` nos nós de cabeçalho e de trabalho e adiciona-os à propriedade `hive.aux.jars.path` no arquivo `core-site.xml`. Em clusters baseados em Linux, ele também atualiza o arquivo `hive-env.sh` com o local dos arquivos.
 
-O uso da ação de script neste artigo torna as bibliotecas disponíveis ao usar um cliente do hive para **WebHCat**e **HiveServer2**.
+O uso da ação de script neste artigo torna as bibliotecas disponíveis ao usar um cliente do hive para **WebHCat** e **HiveServer2**.
 
 ## <a name="the-script"></a>O script
 
@@ -35,7 +32,7 @@ O uso da ação de script neste artigo torna as bibliotecas disponíveis ao usar
 
 ### <a name="requirements"></a>Requisitos
 
-* Os scripts devem ser aplicados nos**Nós do cabeçalho** e nos **Nós de trabalho**.
+* Os scripts devem ser aplicados nos **Nós do cabeçalho** e nos **Nós de trabalho**.
 
 * Os jars que você deseja instalar devem estar armazenados no Armazenamento de Blobs do Azure em um **único contêiner**.
 

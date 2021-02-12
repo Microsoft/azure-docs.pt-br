@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 05/25/2019
 ms.author: duau
 ms.openlocfilehash: 2a5730cd75ccb76d25897e9109555113f7355c2f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92202406"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Criando para recuperação de desastre com o emparelhamento privado do ExpressRoute
 
 O ExpressRoute foi projetado para alta disponibilidade a fim de fornecer conectividade de rede privada de nível Carrier para recursos da Microsoft. Em outras palavras, não há nenhum ponto único de falha no caminho do ExpressRoute dentro da rede da Microsoft. Para obter considerações de design para maximizar a disponibilidade de um circuito do ExpressRoute, consulte [projetando para alta disponibilidade com o ExpressRoute][HA].
 
-No entanto, tomando o adágio popular da Murphy –*se algo puder dar errado, ele entrará*em consideração. neste artigo, vamos nos concentrar em soluções que vão além das falhas que podem ser resolvidas usando um único circuito do ExpressRoute. Em outras palavras, neste artigo, vamos examinar as considerações de arquitetura de rede para criar uma conectividade de rede de back-end robusta para recuperação de desastres usando circuitos de ExpressRoute com redundância geográfica.
+No entanto, tomando o adágio popular da Murphy – *se algo puder dar errado, ele entrará* em consideração. neste artigo, vamos nos concentrar em soluções que vão além das falhas que podem ser resolvidas usando um único circuito do ExpressRoute. Em outras palavras, neste artigo, vamos examinar as considerações de arquitetura de rede para criar uma conectividade de rede de back-end robusta para recuperação de desastres usando circuitos de ExpressRoute com redundância geográfica.
 
 >[!NOTE]
 >Os conceitos descritos neste artigo se aplicam igualmente quando um circuito do ExpressRoute é criado sob a WAN virtual ou fora dele.
@@ -76,7 +76,7 @@ Como/25 é mais específico, comparado a/24, o Azure enviaria o tráfego destina
 
 A captura de tela a seguir ilustra a configuração do peso de uma conexão do ExpressRoute por meio de portal do Azure.
 
-[![3]][3]
+[![Beta]][3]
 
 O diagrama a seguir ilustra a influência da seleção de caminho do ExpressRoute usando o peso da conexão. O peso de conexão padrão é 0. No exemplo a seguir, o peso da conexão para o ExpressRoute 1 é configurado como 100. Quando uma VNet recebe um prefixo de rota anunciado por mais de um circuito de ExpressRoute, a VNet prefere a conexão com o peso mais alto.
 
@@ -88,7 +88,7 @@ Se ambas as conexões do ExpressRoute 1 ficarem inativas, a VNet veria o anúnci
 
 O diagrama a seguir ilustra influência na seleção de caminho do ExpressRoute usando AS precedes de caminho. No diagrama, o anúncio de rota no ExpressRoute 1 indica o comportamento padrão do eBGP. No anúncio de rota no ExpressRoute 2, o ASN da rede local é anexado adicionalmente na rota como caminho. Quando a mesma rota é recebida por meio de vários circuitos de ExpressRoute, de acordo com o processo de seleção de rota eBGP, a VNet prefere a rota com o caminho mais curto. 
 
-[![5]][5]
+[![05]][5]
 
 Se ambas as conexões do ExpressRoute 1 ficarem inativas, a VNet veria o anúncio de rota 10.1.11.0/24 somente por meio do ExpressRoute 2. De modo seqüencial, o caminho mais longo como se tornaria irrelevante. Portanto, o circuito em espera seria usado nesse estado de falha.
 

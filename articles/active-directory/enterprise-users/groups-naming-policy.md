@@ -6,20 +6,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
-ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 08/13/2019
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9456d663eb1600bf73b1fe253560c2d9f29205ae
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 894a90c50f968c892a76160a7375f11fe09390d6
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374386"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784992"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Impor uma política de nomenclatura em grupos de Microsoft 365 no Azure Active Directory
 
@@ -48,7 +48,7 @@ Prefixos e sufixos podem conter caracteres especiais que têm suporte no nome do
 
 #### <a name="fixed-strings"></a>Cadeias de caracteres fixas
 
-Você pode usar cadeias de caracteres para facilitar a verificação e diferenciar os grupos na lista de endereços global e nos links de navegação à esquerda de cargas de trabalho de grupo. Alguns dos prefixos comuns são palavras-chave como ' Grp\_nome ', '\#Nome', '\_Name'
+Você pode usar cadeias de caracteres para facilitar a verificação e diferenciar os grupos na lista de endereços global e nos links de navegação à esquerda de cargas de trabalho de grupo. Alguns dos prefixos comuns são palavras-chave como ' GRP \_ name ', ' \# name ', ' \_ name '
 
 #### <a name="user-attributes"></a>Atributos de usuário
 
@@ -72,6 +72,7 @@ Regras de lista de palavras bloqueadas:
 Para configurar a política de nomenclatura, uma das seguintes funções é necessária:
 - Administrador global
 - Administrador de grupo
+- Gravador de diretório
 
 
 Administradores selecionados podem ser isentos dessas políticas, em todas as cargas de trabalho de grupo e pontos de extremidade, para que eles possam criar grupos usando palavras bloqueadas e com suas próprias convenções de nomenclatura. A seguir estão a lista de funções de administrador isentos da política de nomenclatura de grupos.
@@ -80,7 +81,6 @@ Administradores selecionados podem ser isentos dessas políticas, em todas as ca
 - Suporte ao parceiro de Nível 1
 - Suporte ao parceiro de Nível 2
 - Administrador de usuários
-- Gravadores de diretório
 
 ## <a name="configure-naming-policy-in-azure-portal"></a>Configurar a política de nomenclatura no portal do Azure
 
@@ -249,7 +249,6 @@ Aplicativo móvel de grupos | Grupos criados no aplicativo móvel de grupos são
 Planner | Planejador é compatível com a política de nomenclatura. Planejador mostra a visualização de política de nomenclatura ao inserir o nome do plano. Quando um usuário digita uma palavra bloqueada personalizada, uma mensagem de erro é mostrada ao criar o plano.
 Dynamics 365 for Customer Engagement | O Dynamics 365 for Customer Engagement é compatível com a política de nomenclatura. O Dynamics 365 for Customer Engagement mostra o nome imposto da política de nomenclatura quando o usuário digita um nome de grupo ou alias de email de grupo. Quando o usuário digita uma palavra bloqueada personalizada, uma mensagem de erro é exibida com a palavra bloqueada para que o usuário possa removê-la.
 School Data Sync (SDS) | Grupos criados por meio de SDS estão em conformidade com a política de nomenclatura, mas a política de nomenclatura não é aplicada automaticamente. Os administradores de SDS têm que acrescentar os prefixos e sufixos para nomes de classe para os quais grupos precisam ser criados e, em seguida, carregados em SDS. Caso contrário, a criação ou edição de grupos falhará.
-Gerenciador de clientes do Outlook (OCM) | Gerenciador de clientes do Outlook está em conformidade com a política de nomenclatura, que é aplicada automaticamente para o grupo criado no Gerenciador de clientes do Outlook. Se uma palavra bloqueada personalizada for detectada, criação de grupo no OCM será bloqueada e o usuário será impedido de usar o aplicativo OCM.
 Aplicativo de sala de aula | Grupos criados no aplicativo de sala de aula estão em conformidade com a política de nomenclatura, mas a política de nomenclatura não é aplicada automaticamente, e a visualização de política de nomenclatura não é mostrada para os usuários ao inserir um nome de grupo de sala de aula. Os usuários devem digitar o nome imposto do grupo de sala de aula com prefixos e sufixos. Caso contrário, a operação para criar ou editar o grupo de sala de aula falhará com erros.
 Power BI | Os workspaces do Power BI estão em conformidade com a política de nomenclatura.    
 Yammer | Quando um usuário conectado ao Yammer com sua conta do Azure Active Directory criar um grupo ou editar o nome de um grupo, o nome do grupo estará em conformidade com a política de nomenclatura. Isso se aplica a Microsoft 365 grupos conectados e a todos os outros grupos do Yammer.<br>Se um grupo Microsoft 365 conectado tiver sido criado antes da política de nomenclatura estar em vigor, o nome do grupo não seguirá automaticamente as políticas de nomenclatura. Quando um usuário editar o nome do grupo, será solicitado que adicione o prefixo e o sufixo.

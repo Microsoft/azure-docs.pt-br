@@ -7,23 +7,23 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 09/25/2020
-ms.openlocfilehash: be45292552a7ac62c7131c637b044edc477328e2
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.date: 01/12/2021
+ms.openlocfilehash: d07b52d8abeab34d565ebde4bac58eec66780dce
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396783"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179258"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Início Rápido: Criar um conjunto de habilidades cognitivas da Pesquisa Cognitiva do Azure no portal do Azure
 
-Um conjunto de habilidades é um recurso baseado em IA que extrai informações e estrutura de grandes arquivos de texto não diferenciado ou de imagens e torna o conteúdo indexável e pesquisável no Azure Cognitive Search. 
+Um conjunto de habilidades é um recurso baseado em IA que usa modelos de aprendizado profundo para extrair informações e estrutura de grandes arquivos de texto não diferenciado ou de imagens, tornando o conteúdo indexável e pesquisável no Azure Cognitive Search. 
 
 Neste início rápido, você combinará serviços e dados na nuvem do Azure para criar o conjunto de habilidades. Quando tudo estiver configurado, você executará o assistente **Importar dados** no portal do Azure para reunir tudo. O resultado final é um índice pesquisável populado com dados criados pelo processamento de IA que você pode consultar no portal ([Gerenciador de pesquisa](search-explorer.md)).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, você deverá ter o seguinte:
+Antes de começar, os seguintes pré-requisitos precisam estar em vigor:
 
 + Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/).
 
@@ -60,13 +60,13 @@ Agora, você está pronto prosseguir para assistente de Importação de dados.
 
 1. [Encontre seu serviço de pesquisa](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) e, na página Visão Geral, clique em **Importar dados** na barra de comandos para configurar o aprimoramento cognitivo em quatro etapas.
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/import-data-cmd2.png" alt-text="Arquivos de origem no armazenamento de blobs do Azure" border="false":::
+   :::image type="content" source="media/cognitive-search-quickstart-blob/import-data-cmd2.png" alt-text="Comando Importar de dados" border="false":::
 
 ### <a name="step-1---create-a-data-source"></a>Etapa 1: Criar uma fonte de dados
 
 1. Em **Conectar-se aos seus dados**, escolha **Armazenamento de Blobs do Azure** e selecione a conta de Armazenamento e o contêiner criados. Dê um nome de fonte de dados e use valores padrão para o restante. 
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/blob-datasource.png" alt-text="Arquivos de origem no armazenamento de blobs do Azure" border="false":::
+   :::image type="content" source="media/cognitive-search-quickstart-blob/blob-datasource.png" alt-text="Configuração de BLOBs do Azure" border="false":::
 
     Continue para a próxima página.
 
@@ -76,7 +76,7 @@ Em seguida, configure o enriquecimento de IA para invocar o OCR, a análise de i
 
 1. Para este início rápido, estamos usando o recurso **gratuito** dos Serviços Cognitivos. Os dados de exemplo consistem em 14 arquivos e, portanto, a alocação gratuita de 20 transações nos Serviços Cognitivos é suficiente para este início rápido. 
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/cog-search-attach.png" alt-text="Arquivos de origem no armazenamento de blobs do Azure" border="false":::
+   :::image type="content" source="media/cognitive-search-quickstart-blob/cog-search-attach.png" alt-text="Anexar Serviços Cognitivos, anexar serviço base" border="false":::
 
 1. Expanda **Adicionar enriquecimentos** e faça quatro seleções. 
 
@@ -86,7 +86,7 @@ Em seguida, configure o enriquecimento de IA para invocar o OCR, a análise de i
 
    Escolha reconhecimento de entidade (pessoas, organizações, localizações) e habilidades de análise de imagem.
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/skillset.png" alt-text="Arquivos de origem no armazenamento de blobs do Azure" border="false":::
+   :::image type="content" source="media/cognitive-search-quickstart-blob/skillset.png" alt-text="Anexar Serviços Cognitivos, selecionar serviços para o conjunto de habilidades" border="false":::
 
    Continue para a próxima página.
 
@@ -102,7 +102,7 @@ Para este guia de início rápido, o assistente faz um bom trabalho configurando
 
 + Os atributos padrão são **Recuperável** e **Pesquisável**. **Pesquisável** permite a pesquisa de texto completo de um campo. **Recuperável** significa que os valores de campo podem ser retornados nos resultados. O assistente pressupõe que você deseja que esses campos sejam recuperáveis e pesquisáveis porque você os criou por meio de um conjunto de qualificações esses campos.
 
-  :::image type="content" source="media/cognitive-search-quickstart-blob/index-fields.png" alt-text="Arquivos de origem no armazenamento de blobs do Azure" border="false":::
+  :::image type="content" source="media/cognitive-search-quickstart-blob/index-fields.png" alt-text="Campos de índice" border="false":::
 
 Observe o ponto de interrogação e tachado no atributo **Recuperável** ao lado do campo `content`. Para documentos de blob com muito texto, o campo `content` contém a maior parte do arquivo, potencialmente em execução em milhares de linhas. Um campo como esse é complicado nos resultados da pesquisa. Você deve excluí-lo nesta demonstração. 
 
@@ -118,7 +118,7 @@ O indexador é um recurso de alto nível que orienta o processo de indexação. 
 
 1. Na página **Indexador**, você pode aceitar o nome padrão clicar na opção de agenda **Uma Vez** para executá-lo imediatamente. 
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-def.png" alt-text="Arquivos de origem no armazenamento de blobs do Azure" border="false":::
+   :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-def.png" alt-text="Definição de indexador" border="false":::
 
 1. Clique em **Enviar** para criar e executar simultaneamente o indexador.
 
@@ -126,7 +126,7 @@ O indexador é um recurso de alto nível que orienta o processo de indexação. 
 
 A indexação de habilidades cognitivas leva mais tempo para ser concluída em relação à indexação típica baseada em texto, especialmente, o OCR e a análise de imagem. Para monitorar o progresso, vá para a página Visão geral e clique em **Indexadores** no meio da página.
 
-  :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-notification.png" alt-text="Arquivos de origem no armazenamento de blobs do Azure" border="false":::
+  :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-notification.png" alt-text="Notificação da Pesquisa Cognitiva do Azure" border="false":::
 
 Os avisos são normais, considerando a ampla variedade de tipos de conteúdo. Alguns tipos de conteúdo não são válidos para determinadas habilidades e, em camadas inferiores, é comum encontrar [limites de indexador](search-limits-quotas-capacity.md#indexer-limits). Por exemplo, as notificações de truncamento de 32 mil caracteres são um limite de indexador na Camada gratuita. Se você executar esta demonstração em um nível superior, muitos avisos de truncamento desaparecerão.
 
@@ -134,11 +134,11 @@ Para verificar avisos ou erros, clique no status Aviso na lista Indexadores para
 
 Nessa página, clique no status Aviso novamente para ver a lista de avisos semelhante à mostrada abaixo. 
 
-  :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-warnings.png" alt-text="Arquivos de origem no armazenamento de blobs do Azure" border="false":::
+  :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-warnings.png" alt-text="Lista de avisos do indexador" border="false":::
 
 Os detalhes são exibidos quando você clica em uma linha de status específica. Esse aviso indica que a mesclagem foi parada depois de atingir um limite máximo (esse PDF específico é grande).
 
-  :::image type="content" source="media/cognitive-search-quickstart-blob/warning-detail.png" alt-text="Arquivos de origem no armazenamento de blobs do Azure" border="false":::
+  :::image type="content" source="media/cognitive-search-quickstart-blob/warning-detail.png" alt-text="Detalhes do aviso" border="false":::
 
 ## <a name="query-in-search-explorer"></a>Consultar no Gerenciador de pesquisa
 
@@ -157,7 +157,7 @@ Os resultados são retornados em JSON, que podem ser detalhados e difíceis de s
 
 As cadeias de consulta diferenciam maiúsculas de minúsculas e, portanto, se você receber uma mensagem "campo desconhecido", verifique **Campos** ou **Definição de Índice (JSON)** para verificar o nome e as maiúsculas e as minúsculas. 
 
-  :::image type="content" source="media/cognitive-search-quickstart-blob/search-explorer.png" alt-text="Arquivos de origem no armazenamento de blobs do Azure" border="false":::
+  :::image type="content" source="media/cognitive-search-quickstart-blob/search-explorer.png" alt-text="Exemplo Gerenciador de Pesquisa" border="false":::
 
 ## <a name="takeaways"></a>Observações
 

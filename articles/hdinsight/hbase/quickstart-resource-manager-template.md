@@ -1,19 +1,16 @@
 ---
 title: 'Início Rápido: Criar um cluster do Apache HBase usando um modelo – Azure HDInsight'
 description: Este guia de início rápido mostra como usar o modelo do Resource Manager para criar um cluster do Apache HBase no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/12/2020
-ms.openlocfilehash: ee69148f7dfe7a0ba39b4103a736ea09d3f57c13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a6b55ee2d665ee38df9a0e0f58260e97f3b81f5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91855762"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942946"
 ---
 # <a name="quickstart-create-apache-hbase-cluster-in-azure-hdinsight-using-arm-template"></a>Início Rápido: Criar um cluster do Apache HBase no Azure HDInsight usando um modelo do Resource Manager
 

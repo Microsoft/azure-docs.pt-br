@@ -7,16 +7,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 06/19/2019
-ms.openlocfilehash: e4709bf901ed74e0ea7589824a280651f8b73866
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8298c673ddc707130d0873f686e1baed3677a46f
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793374"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593937"
 ---
 # <a name="tutorial-add-an-azure-sql-database-to-an-autofailover-group"></a>Tutorial: Adicionar um Banco de Dados SQL do Azure a um grupo de failover automático
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -49,7 +49,7 @@ Para concluir o tutorial, verifique se você tem os seguintes itens:
 Para concluir o tutorial, verifique se você tem os seguintes itens:
 
 - Uma assinatura do Azure. [Crie uma conta gratuita](https://azure.microsoft.com/free/), caso ainda não tenha uma.
-- A última versão da [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+- A última versão da [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 ---
 
@@ -78,7 +78,7 @@ Crie o grupo de failover e adicione o banco de dados a ele usando o portal do Az
 1. Na página **Grupo de Failover** , insira ou selecione os seguintes valores e selecione **Criar** :
 
    - **Nome do grupo de failover** : digite um nome de grupo de failover exclusivo, como `failovergrouptutorial`.
-   - **Servidor secundário** : selecione a opção para *definir as configurações necessárias* e escolha **Criar um servidor** . Como alternativa, você pode escolher um servidor já existente como o servidor secundário. Depois de inserir os valores a seguir, escolha **Selecionar** .
+   - **Servidor secundário** : selecione a opção para *definir as configurações necessárias* e escolha **Criar um servidor**. Como alternativa, você pode escolher um servidor já existente como o servidor secundário. Depois de inserir os valores a seguir, escolha **Selecionar**.
       - **Nome do servidor** : digite um nome exclusivo para o servidor secundário, como `mysqlsecondary`.
       - **Logon de administrador do servidor** : Digite `azureuser`
       - **Senha** : Digite uma senha complexa que atenda aos requisitos de senha.
@@ -199,7 +199,7 @@ Esta parte do tutorial usa os seguintes cmdlets da CLI do Azure:
 |---|---|
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Cria um servidor que hospeda bancos de dados e pools elásticos. |
 | [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) | Cria as regras de firewall de um servidor. |
-| [az sql failover-group create](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create) | Cria um grupo de failover. |
+| [az sql failover-group create](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create&preserve-view=true) | Cria um grupo de failover. |
 
 ---
 
@@ -322,8 +322,8 @@ Esta parte do tutorial usa os seguintes cmdlets da CLI do Azure:
 
 | Comando | Observações |
 |---|---|
-| [az sql failover-group list](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list) | Lista grupos de failover em um servidor. |
-| [az sql failover-group set-primary](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary) | Define o primário do grupo de failover fazendo failover de todos os bancos de dados do servidor primário atual. |
+| [az sql failover-group list](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list&preserve-view=true) | Lista grupos de failover em um servidor. |
+| [az sql failover-group set-primary](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary&preserve-view=true) | Define o primário do grupo de failover fazendo failover de todos os bancos de dados do servidor primário atual. |
 
 ---
 
@@ -409,14 +409,14 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 
 | Comando | Observações |
 |---|---|
-| [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set) | Define uma assinatura como a assinatura ativa atual. |
+| [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true) | Define uma assinatura como a assinatura ativa atual. |
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Cria um servidor que hospeda bancos de dados individuais e pools elásticos no Banco de Dados SQL do Azure. |
 | [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) | Cria as regras de firewall de IP no nível do servidor no Banco de Dados SQL do Azure. |
-| [az sql db create](/cli/azure/sql/db?view=azure-cli-latest) | Cria um banco de dados no Banco de Dados SQL do Azure. |
-| [az sql failover-group create](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create) | Cria um grupo de failover no Banco de Dados SQL do Azure. |
-| [az sql failover-group list](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list) | Lista os grupos de failover de um servidor no Banco de Dados SQL do Azure. |
-| [az sql failover-group set-primary](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary) | Define o primário do grupo de failover fazendo failover de todos os bancos de dados do servidor primário atual. |
+| [az sql db create](/cli/azure/sql/db?view=azure-cli-latest&preserve-view=true) | Cria um banco de dados no Banco de Dados SQL do Azure. |
+| [az sql failover-group create](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create&preserve-view=true) | Cria um grupo de failover no Banco de Dados SQL do Azure. |
+| [az sql failover-group list](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list&preserve-view=true) | Lista os grupos de failover de um servidor no Banco de Dados SQL do Azure. |
+| [az sql failover-group set-primary](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary&preserve-view=true) | Define o primário do grupo de failover fazendo failover de todos os bancos de dados do servidor primário atual. |
 | [az group delete](/cli/azure/vm/extension#az-vm-extension-set) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 # <a name="the-portal"></a>[O portal](#tab/azure-portal)

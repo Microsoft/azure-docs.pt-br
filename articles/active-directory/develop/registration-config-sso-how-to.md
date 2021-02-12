@@ -11,12 +11,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-ms.openlocfilehash: 465adbb71abaa45160399ecba2ebfb692a8307c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: ba1e4305785d0ff4db85f805a780719ce179ab94
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88120670"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050289"
 ---
 # <a name="how-to-configure-single-sign-on-for-an-application"></a>Como configurar o logon único para um aplicativo
 
@@ -40,6 +41,6 @@ Para o iOS, consulte [Habilitando SSO entre aplicativos no iOS](../azuread-dev/h
 
 [Integrando aplicativos ao AzureAD](./quickstart-register-app.md)<br>
 
-[Permissões e consentimento no ponto de extremidade da plataforma de identidade da Microsoft](./v2-permissions-and-consent.md)<br>
+[Permissões e consentimento na plataforma de identidade da Microsoft](./v2-permissions-and-consent.md)<br>
 
-[StackOverflow do AzureAD](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[AzureAD Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)

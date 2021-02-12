@@ -7,12 +7,12 @@ ms.subservice: security
 ms.topic: article
 ms.author: jofrance
 ms.date: 09/21/2020
-ms.openlocfilehash: ddd6097fffbc02c9b7b027bcb712e20cc47f2f96
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 732a2ef3c6c33d0b17deaf3b9bdc5d1ac5e5934c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487952"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498907"
 ---
 # <a name="how-to-resize-logical-volume-management-devices-that-use-azure-disk-encryption"></a>Como redimensionar dispositivos de gerenciamento de volume lógico que usam Azure Disk Encryption
 
@@ -32,7 +32,7 @@ Você pode usar esse processo de redimensionamento nos seguintes ambientes:
 
 Este artigo supõe que você:
 
-- Uma configuração de LVM existente. Para obter mais informações, consulte [Configurar o LVM em uma VM do Linux](configure-lvm.md).
+- Uma configuração de LVM existente. Para obter mais informações, consulte [Configurar o LVM em uma VM do Linux](/previous-versions/azure/virtual-machines/linux/configure-lvm).
 
 - Discos que já estão criptografados pelo Azure Disk Encryption. Para obter mais informações, consulte [Configurar LVM e RAID em dispositivos criptografados](how-to-configure-lvm-raid-on-crypt.md).
 
@@ -318,7 +318,7 @@ Siga estas etapas para concluir a limpeza:
 
 #### <a name="extend-a-traditional-lvm-volume-by-resizing-an-existing-pv"></a>Estender um volume LVM tradicional redimensionando um PV existente
 
-Alguns cenários de IM, suas limitações podem exigir que você redimensione um disco existente. Este é o procedimento:
+Alguns cenários de IM, suas limitações podem exigir que você redimensione um disco existente. Aqui está como:
 
 1. Identifique os discos criptografados:
 
@@ -573,7 +573,7 @@ Você pode usar esse método para adicionar espaço a um LV existente. Ou você 
     >
     >Para obter mais informações, consulte [Configurar LVM e RAID em dispositivos criptografados](how-to-configure-lvm-raid-on-crypt.md).
 
-    Veja um exemplo:
+    Aqui está um exemplo:
 
     ``` bash
     az vm encryption enable \

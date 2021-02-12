@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 10/01/2020
+ms.date: 01/05/2021
 ms.author: alkohli
-ms.openlocfilehash: b193247fee843796da0cb2fcfc1a874b1a1b72fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 97d8da86565db73aa9a3866f39f793aaf0905470
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91660914"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900154"
 ---
 # <a name="azure-data-box-limits"></a>Limita o Azure Data Box
 
@@ -28,7 +28,7 @@ Considere estes limites ao implantar e operar o Microsoft Azure Data Box. A tabe
 - Data Box pode armazenar no máximo 500 milhões arquivos para importação e exportação.
 - Data Box dá suporte a um máximo de 512 contêineres ou compartilhamentos na nuvem. Os diretórios de nível superior no compartilhamento do usuário se tornam contêineres ou compartilhamentos de arquivos do Azure na nuvem. 
 - A capacidade de uso de Data Box pode ser menor que 80 TB devido ao consumo de espaço de metadados ReFS.
-- O Data Box dá suporte a um máximo de 5 conexões de cliente por vez em um compartilhamento NFS. 
+- O Data Box dá suporte a um máximo de 10 conexões de cliente por vez em um compartilhamento NFS.
 
 ## <a name="azure-storage-limits"></a>Limites de armazenamento do Azure
 
@@ -43,7 +43,7 @@ Data Box advertências para uma ordem de importação incluem:
 
 [!INCLUDE [data-box-data-upload-caveats](../../includes/data-box-data-upload-caveats.md)]
 
-## <a name="for-export-order"></a>Para a ordem de exportação
+### <a name="for-export-order"></a>Para a ordem de exportação
 
 Data Box advertências para uma ordem de exportação incluem:
 

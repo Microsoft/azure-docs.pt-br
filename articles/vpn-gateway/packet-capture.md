@@ -5,14 +5,14 @@ services: vpn-gateway
 author: radwiv
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 12/2/2020
 ms.author: radwiv
-ms.openlocfilehash: 3be01f6d8e1fb1f6ba541f8d1cb0c92d2a43b0da
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: caa9a0869d7d4bca58b91a0c682177e1408f8300
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073097"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97733783"
 ---
 # <a name="configure-packet-capture-for-vpn-gateways"></a>Configurar a captura de pacotes para gateways de VPN
 
@@ -31,6 +31,7 @@ Os exemplos a seguir de JSON e um esquema JSON fornecem explicações de cada pr
 - Você não pode executar várias capturas de pacote de todo o gateway ao mesmo tempo.
 - Você não pode executar várias capturas de pacote em uma única conexão ao mesmo tempo. Você pode executar várias capturas de pacote em diferentes conexões ao mesmo tempo.
 - Um máximo de cinco capturas de pacote pode ser executado em paralelo por gateway. Essas capturas de pacote podem ser uma combinação de capturas de pacotes em todo o gateway e capturas de pacotes por conexão.
+- A unidade para MaxPacketBufferSize é bytes e MaxFileSize é megabytes
 
 ### <a name="example-json"></a>JSON de exemplo
 ```JSON-interactive
@@ -318,7 +319,7 @@ Os exemplos a seguir de JSON e um esquema JSON fornecem explicações de cada pr
 
 ## <a name="set-up-packet-capture-by-using-powershell"></a>Configurar a captura de pacotes usando o PowerShell
 
-Os exemplos a seguir mostram os comandos do PowerShell que iniciam e param as capturas de pacote. Para obter mais informações sobre as opções de parâmetro, consulte [Start-AzVirtualnetworkGatewayPacketCapture](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
+Os exemplos a seguir mostram os comandos do PowerShell que iniciam e param as capturas de pacote. Para obter mais informações sobre as opções de parâmetro, consulte [Start-AzVirtualnetworkGatewayPacketCapture](/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
 
 ### <a name="start-packet-capture-for-a-vpn-gateway"></a>Iniciar captura de pacote para um gateway de VPN
 
@@ -354,7 +355,7 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 - A duração mínima da captura de pacotes sugerida é de 600 segundos. Devido a problemas de sincronização entre vários componentes no caminho, as capturas de pacotes mais curtas podem não fornecer dados completos.
 - Os arquivos de dados de captura de pacote são gerados no formato PCAP. Use o Wireshark ou outros aplicativos comumente disponíveis para abrir arquivos PCAP.
 - Não há suporte para capturas de pacote em gateways baseados em políticas.
-- Se o `SASurl` parâmetro não estiver configurado corretamente, o rastreamento poderá falhar com erros de armazenamento. Para obter exemplos de como gerar um `SASurl` parâmetro corretamente, consulte [Stop-AzVirtualNetworkGatewayPacketCapture](https://docs.microsoft.com/powershell/module/az.network/stop-azvirtualnetworkgatewaypacketcapture).
+- Se o `SASurl` parâmetro não estiver configurado corretamente, o rastreamento poderá falhar com erros de armazenamento. Para obter exemplos de como gerar um `SASurl` parâmetro corretamente, consulte [Stop-AzVirtualNetworkGatewayPacketCapture](/powershell/module/az.network/stop-azvirtualnetworkgatewaypacketcapture).
 
 
 

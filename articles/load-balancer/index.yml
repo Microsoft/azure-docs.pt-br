@@ -11,12 +11,12 @@ metadata:
   author: asudbring
   ms.author: allensu
   ms.date: 05/07/2020
-  ms.openlocfilehash: afc3b8c4d10bc55d8d7c8faa5e8d9eedd9e2a082
-  ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+  ms.openlocfilehash: de8b6cba87d0297841f4e6236ee69d4f6a856eb4
+  ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91929737"
+  ms.lasthandoff: 01/08/2021
+  ms.locfileid: "98027869"
 landingContent:
 - title: Sobre o Load Balancer
   linkLists:
@@ -61,7 +61,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Configurar regras de saída e de balanceamento de carga no Load Balancer (CLI do Azure)
-      url: configure-load-balancer-outbound-cli.md
+      url: ./quickstart-load-balancer-standard-public-cli.md#create-outbound-rule-configuration
     - text: Criar um balanceador de carga para a Internet com IPv6 (PowerShell)
       url: load-balancer-ipv6-internet-ps.md
     - text: Configurar o modo de distribuição
@@ -79,9 +79,9 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Criar um Load Balancer com front-end com redundância de zona
-      url: load-balancer-get-started-internet-az-portal.md
+      url: ./quickstart-load-balancer-standard-public-portal.md
     - text: Criar um Load Balancer com front-end de zona
-      url: load-balancer-get-started-internet-availability-zones-zonal-portal.md
+      url: ./quickstart-load-balancer-standard-public-portal.md
     - text: Balanceamento de carga em várias configurações de IP
       url: load-balancer-multiple-ip.md
 - title: Solucionar problemas
@@ -96,6 +96,10 @@ landingContent:
       url: load-balancer-common-deployment-errors.md
     - text: Resolver problemas comuns de conexão de saída
       url: troubleshoot-outbound-connection.md
+    - text: Problemas do status de investigação de integridade
+      url: load-balancer-troubleshoot-health-probe-status.md
+    - text: Tráfego de pool de back-end (VM)
+      url: load-balancer-troubleshoot-backend-traffic.md
   - linkListType: video
     links:
     - text: Criar e monitorar aplicativos altamente disponíveis com o Azure Load Balancer
@@ -105,10 +109,10 @@ landingContent:
   - linkListType: reference
     links:
     - text: Azure PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.network/?view=azps-2.5.0#load_balancer
+      url: /powershell/module/az.network/?view=azps-2.5.0#load_balancer
     - text: CLI do Azure
-      url: https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest
+      url: /cli/azure/network/lb?view=azure-cli-latest
     - text: Modelos de ARM
-      url: https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers#quickstart-templates
+      url: /azure/templates/microsoft.network/loadbalancers#quickstart-templates
     - text: Perguntas frequentes sobre o Load Balancer
       url: load-balancer-faqs.md

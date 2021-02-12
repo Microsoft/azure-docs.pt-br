@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 5fd949466978714fe1dc0c4ccc67a3cb8f993314
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ca489dc0c5c7ba8ba67f3456d04be953544a8fb
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934949"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987824"
 ---
 # <a name="scale-for-performance-on-azure-cognitive-search"></a>Escala para desempenho no Azure Pesquisa Cognitiva
 
@@ -30,7 +30,7 @@ Antes de realizar um esforço de implantação maior, certifique-se de que você
 
 1. Comece com um número baixo de consultas por segundo (QPS) e, em seguida, Aumente gradualmente o número executado no teste até que a latência da consulta fique abaixo do destino predefinido. Este é um parâmetro de comparação importante para ajudar você a planejar a escala à medida que o uso de seu aplicativo cresce.
 
-1. Sempre que possível, reutilize as conexões HTTP. Se você estiver usando o SDK do .NET Pesquisa Cognitiva do Azure, isso significa que você deve reutilizar uma instância do ou [SearchIndexClient](/dotnet/api/microsoft.azure.search.searchindexclient) e, se estiver usando a API REST, deverá reutilizar um único HttpClient.
+1. Sempre que possível, reutilize as conexões HTTP. Se você estiver usando o SDK do .NET Pesquisa Cognitiva do Azure, isso significa que você deve reutilizar uma instância do ou [SearchClient](/dotnet/api/azure.search.documents.searchclient) e, se estiver usando a API REST, deverá reutilizar um único HttpClient.
 
 1. Varie a substância de solicitações de consulta para que a pesquisa ocorra em diferentes partes do índice. A variação é importante porque, se você executar continuamente as mesmas solicitações de pesquisa, o cache de dados começará a fazer com que o desempenho seja melhor do que pode com um conjunto de consultas mais distintas.
 
@@ -43,7 +43,7 @@ Ao criar essas cargas de trabalho de teste, há algumas características do Azur
 + O Azure Pesquisa Cognitiva não executa tarefas de indexação em segundo plano. Se o seu serviço tratar as cargas de trabalho de consulta e indexação simultaneamente, leve isso em conta introduzindo trabalhos de indexação em seus testes de consulta ou explorando as opções para executar trabalhos de indexação fora do horário de pico.
 
 > [!Tip]
-> Você pode simular uma carga de consulta realista usando ferramentas de teste de carga. Experimente o [teste de carga com o Azure DevOps](/azure/devops/test/load-test/get-started-simple-cloud-load-test?view=azure-devops) ou use uma dessas [alternativas](/azure/devops/test/load-test/overview?view=azure-devops#alternatives).
+> Você pode simular uma carga de consulta realista usando ferramentas de teste de carga. Experimente o [teste de carga com o Azure DevOps](/azure/devops/test/load-test/get-started-simple-cloud-load-test) ou use uma dessas [alternativas](/azure/devops/test/load-test/overview#alternatives).
 
 ## <a name="scale-for-high-query-volume"></a>Escala para alto volume de consulta
 
@@ -86,6 +86,27 @@ As réplicas não apenas ajudam a reduzir a latência de consulta, mas também p
 Para obter mais detalhes sobre isso, visite o [contrato de nível de serviço de pesquisa cognitiva do Azure](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 Como as réplicas são cópias de seus dados, ter várias réplicas permite que o Azure Pesquisa Cognitiva faça reinicializações e manutenção do computador em uma réplica, enquanto a execução da consulta continua em outras réplicas. Por outro lado, se você tirar as réplicas de longe, incorrerá em degradação do desempenho da consulta, supondo que essas réplicas fossem um recurso subutilizado.
+
+### <a name="availability-zones"></a>Zonas de Disponibilidades
+
+[Zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview) dividir os data centers de uma região em grupos de locais físicos distintos para fornecer alta disponibilidade e região. O serviço de pesquisa é executado dentro de uma região; as réplicas são executadas em diferentes zonas.
+
+Você pode utilizar Zonas de Disponibilidade com o Pesquisa Cognitiva do Azure adicionando duas ou mais réplicas ao serviço de pesquisa. Cada réplica será colocada em uma zona de disponibilidade diferente dentro da região. Se você tiver mais réplicas do que Zonas de Disponibilidade, as réplicas serão distribuídas entre Zonas de Disponibilidade o mais uniforme possível.
+
+Atualmente, o Azure Pesquisa Cognitiva dá suporte a Zonas de Disponibilidade para serviços de camada Standard ou de pesquisa mais alta que foram criados em uma das seguintes regiões:
++ Leste da Austrália (criado em 30 de janeiro de 2021 ou posterior)
++ Centro do Canadá (criado em 30 de janeiro de 2021 ou posterior)
++ EUA Central (criado em 4 de dezembro de 2020 ou mais recente)
++ Leste dos EUA 2 (criado em 30 de janeiro de 2021 ou posterior)
++ França central (criado em 23 de outubro de 2020 ou posterior)
++ Leste do Japão (criado em 30 de janeiro de 2021 ou posterior)
++ Europa Setentrional (criado em 28 de janeiro de 2021 ou posterior)
++ Ásia Oriental do Sul (criado em 31 de janeiro de 2021 ou mais recente)
++ Sul do Reino Unido (criado em 30 de janeiro de 2021 ou posterior)
++ Europa Ocidental (criado em 29 de janeiro de 2021 ou posterior)
++ Oeste dos EUA 2 (criado em 30 de janeiro de 2021 ou posterior)
+
+Zonas de Disponibilidade não têm impacto sobre o [contrato de nível de serviço de pesquisa cognitiva do Azure](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 ## <a name="scale-for-geo-distributed-workloads-and-geo-redundancy"></a>Dimensionar para cargas de trabalho distribuídas geograficamente e redundância geográfica
 

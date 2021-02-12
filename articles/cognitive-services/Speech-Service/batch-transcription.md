@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 12/23/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fe864212eaccb67335586ef8b25049529ab36b81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e48fead4d4364fd84f178388dbfb9158296e687b
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360745"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98659964"
 ---
 # <a name="how-to-use-batch-transcription"></a>Como usar a transcrição do lote
 
-A transcrição do lote é um conjunto de operações da API REST que permite transcrever uma grande quantidade de áudio no armazenamento. Você pode apontar para arquivos de áudio usando um URI típico ou um URI de SAS (assinatura de acesso compartilhado) e receber os resultados de transcrição de forma assíncrona. Com a API v 3.0, você pode transcrever um ou mais arquivos de áudio ou processar um contêiner de armazenamento inteiro.
+A transcrição do lote é um conjunto de operações da API REST que permite transcrever uma grande quantidade de áudio no armazenamento. Você pode apontar para arquivos de áudio usando um URI típico ou um URI de [SAS (assinatura de acesso compartilhado)](../../storage/common/storage-sas-overview.md) e receber os resultados de transcrição de forma assíncrona. Com a API v 3.0, você pode transcrever um ou mais arquivos de áudio ou processar um contêiner de armazenamento inteiro.
 
 Você pode usar as APIs REST de transcrição do lote para chamar os seguintes métodos:
 
@@ -30,13 +30,11 @@ Você pode usar as APIs REST de transcrição do lote para chamar os seguintes m
 |    Recupera uma lista de transcrições para a assinatura autenticada.    |    GET       |    speechtotext/v 3.0/transcrições            |
 |    Obtém uma lista de localidades com suporte para transcrições offline.              |    GET       |    speechtotext/v 3.0/transcrições/localidades    |
 |    Atualiza os detalhes mutáveis da transcrição identificada por sua ID.    |    PATCH     |    speechtotext/v 3.0/transcrições/{ID}       |
-|    Exclui a tarefa de transcrição especificada.                                 |    Delete (excluir)    |    speechtotext/v 3.0/transcrições/{ID}       |
+|    Exclui a tarefa de transcrição especificada.                                 |    DELETE    |    speechtotext/v 3.0/transcrições/{ID}       |
 |    Obtém a transcrição identificada pela ID fornecida.                        |    GET       |    speechtotext/v 3.0/transcrições/{ID}       |
 |    Obtém os arquivos de resultado da transcrição identificada pela ID fornecida.    |    GET       |    speechtotext/v 3.0/transcrições/{ID}/arquivos |
 
 Você pode examinar e testar a API detalhada, que está disponível como um [documento do Swagger](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0).
-
-Essa API não requer pontos de extremidade personalizados e não tem requisitos de simultaneidade.
 
 Os trabalhos de transcrição do lote são agendados de acordo com a melhor iniciativa.
 Você não pode estimar quando um trabalho mudará para o estado de execução, mas isso deve ocorrer em minutos sob a carga normal do sistema. Uma vez no estado de execução, a transcrição ocorre mais rápido do que a velocidade de reprodução do tempo de execução de áudio.
@@ -46,9 +44,12 @@ Você não pode estimar quando um trabalho mudará para o estado de execução, 
 Como acontece com todos os recursos do serviço de fala, você cria uma chave de assinatura no [Portal do Microsoft Azure](https://portal.azure.com) seguindo nosso [Guia de primeiros passos](overview.md#try-the-speech-service-for-free).
 
 >[!NOTE]
-> Uma assinatura padrão (S0) para o serviço de fala é necessária para usar a transcrição do lote. As chaves de assinatura gratuitas (F0) não funcionam. Para obter mais informações, consulte [preços e limites](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> Uma assinatura padrão (S0) para o serviço de fala é necessária para usar a transcrição do lote. Chaves de assinatura gratuita (F0) não funcionarão. Para obter mais informações, consulte [preços e limites](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-Se você planeja personalizar modelos, siga as etapas em [personalização acústica](how-to-customize-acoustic-models.md) e [personalização de idioma](how-to-customize-language-model.md). Para usar os modelos criados na transcrição do lote, você precisa do local do modelo. Você pode recuperar o local do modelo ao inspecionar os detalhes do modelo ( `self` Propriedade). Um ponto de extremidade personalizado implantado *não é necessário* para o serviço de transcrição do lote.
+Se você planeja personalizar modelos, siga as etapas em [personalização acústica](./how-to-custom-speech-train-model.md) e [personalização de idioma](./how-to-custom-speech-train-model.md). Para usar os modelos criados na transcrição do lote, você precisa do local do modelo. Você pode recuperar o local do modelo ao inspecionar os detalhes do modelo ( `self` Propriedade). Um ponto de extremidade personalizado implantado *não é necessário* para o serviço de transcrição do lote.
+
+>[!NOTE]
+> Como parte da API REST, a transcrição do lote tem um conjunto de [cotas e limites](speech-services-quotas-and-limits.md#batch-transcription), que incentivamos a análise. Para aproveitar ao máximo a capacidade de transcrição do lote para transcrever com eficiência um grande número de arquivos de áudio, recomendamos sempre enviar vários arquivos por solicitação ou apontar para um contêiner de armazenamento de BLOBs com os arquivos de áudio para transcrever. O serviço irá transcrever os arquivos, reduzindo simultaneamente o tempo de retorno. O uso de vários arquivos em uma única solicitação é muito simples e direto – consulte a seção de [configuração](#configuration) . 
 
 ## <a name="batch-transcription-api"></a>Transcrição de lote API
 
@@ -65,12 +66,16 @@ Para criar uma transcrição final ordenada, use os carimbos de data/hora gerado
 
 ### <a name="configuration"></a>Configuração
 
-Os parâmetros de configuração são fornecidos como JSON (um ou mais arquivos individuais):
+Os parâmetros de configuração são fornecidos como JSON. 
+
+**Transcrever um ou mais arquivos individuais.** Se você tiver mais de um arquivo para transcrever, é recomendável enviar vários arquivos em uma solicitação. O exemplo a seguir está usando três arquivos:
 
 ```json
 {
   "contentUrls": [
-    "<URL to an audio file to transcribe>",
+    "<URL to an audio file 1 to transcribe>",
+    "<URL to an audio file 2 to transcribe>",
+    "<URL to an audio file 3 to transcribe>"
   ],
   "properties": {
     "wordLevelTimestampsEnabled": true
@@ -80,7 +85,7 @@ Os parâmetros de configuração são fornecidos como JSON (um ou mais arquivos 
 }
 ```
 
-Os parâmetros de configuração são fornecidos como JSON (processando um contêiner de armazenamento inteiro):
+**Processando um contêiner de armazenamento inteiro.** As [SAS](../../storage/common/storage-sas-overview.md) do contêiner devem conter `r` (leitura) e `l` as permissões (lista):
 
 ```json
 {
@@ -93,12 +98,14 @@ Os parâmetros de configuração são fornecidos como JSON (processando um cont�
 }
 ```
 
-O JSON a seguir especifica um modelo treinado personalizado a ser usado em uma transcrição do lote:
+**Use um modelo treinado personalizado em uma transcrição do lote.** O exemplo está usando três arquivos:
 
 ```json
 {
   "contentUrls": [
-    "<URL to an audio file to transcribe>",
+    "<URL to an audio file 1 to transcribe>",
+    "<URL to an audio file 2 to transcribe>",
+    "<URL to an audio file 3 to transcribe>"
   ],
   "properties": {
     "wordLevelTimestampsEnabled": true
@@ -170,12 +177,12 @@ Use essas propriedades opcionais para configurar a transcrição:
       `destinationContainerUrl`
    :::column-end:::
    :::column span="2":::
-      URL opcional com [SAS ad hoc de serviço](../../storage/common/storage-sas-overview.md) para um contêiner gravável no Azure. O resultado é armazenado nesse contêiner. **Não** há suporte para SAS com política de acesso armazenada. Quando não especificado, a Microsoft armazena os resultados em um contêiner de armazenamento gerenciado pela Microsoft. Quando a transcrição for excluída chamando a [transcrição de exclusão](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), os dados de resultado também serão excluídos.
+      URL opcional com [SAS ad hoc](../../storage/common/storage-sas-overview.md) para um contêiner gravável no Azure. O resultado é armazenado nesse contêiner. **Não** há suporte para SAS com política de acesso armazenada. Quando não especificado, a Microsoft armazena os resultados em um contêiner de armazenamento gerenciado pela Microsoft. Quando a transcrição for excluída chamando a [transcrição de exclusão](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), os dados de resultado também serão excluídos.
 :::row-end:::
 
 ### <a name="storage"></a>Armazenamento
 
-A transcrição do lote pode ler áudio de um URI da Internet disponível para o público e pode ler as transcrições de áudio ou gravação usando um URI de SAS com o [armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview).
+A transcrição do lote pode ler áudio de um URI da Internet disponível para o público e pode ler as transcrições de áudio ou gravação usando um URI de SAS com o [armazenamento de BLOBs do Azure](../../storage/blobs/storage-blobs-overview.md).
 
 ## <a name="batch-transcription-result"></a>Resultado da transcrição do lote
 
@@ -201,23 +208,23 @@ Cada arquivo de resultado da transcrição tem este formato:
   ],
   "recognizedPhrases": [                // results for each phrase and each channel individually
     {
-      "recognitionStatus": "Success",   // recognition state, e.g. "Success", "Failure"
+      "recognitionStatus": "Success",   // recognition state, e.g. "Success", "Failure"          
+      "speaker": 1,                     // if `diarizationEnabled` is `true`, this is the identified speaker (1 or 2), otherwise this property is not present
       "channel": 0,                     // channel number of the result
       "offset": "PT0.07S",              // offset in audio of this phrase, ISO 8601 encoded duration 
       "duration": "PT1.59S",            // audio duration of this phrase, ISO 8601 encoded duration
       "offsetInTicks": 700000.0,        // offset in audio of this phrase in ticks (1 tick is 100 nanoseconds)
       "durationInTicks": 15900000.0,    // audio duration of this phrase in ticks (1 tick is 100 nanoseconds)
-      
+
       // possible transcriptions of the current phrase with confidences
       "nBest": [
         {
           "confidence": 0.898652852,    // confidence value for the recognition of the whole phrase
-          "speaker": 1,                 // if `diarizationEnabled` is `true`, this is the identified speaker (1 or 2), otherwise this property is not present
           "lexical": "hello world",
           "itn": "hello world",
           "maskedITN": "hello world",
           "display": "Hello world.",
-          
+
           // if wordLevelTimestampsEnabled is `true`, there will be a result for each word of the phrase, otherwise this property is not present
           "words": [
             {
@@ -238,7 +245,7 @@ Cada arquivo de resultado da transcrição tem este formato:
             }
           ]
         }
-      ]    
+      ]
     }
   ]
 }
@@ -323,7 +330,80 @@ Atualize o código de exemplo com suas informações de assinatura, região de s
 
 O código de exemplo configura o cliente e envia a solicitação de transcrição. Em seguida, ele sonda as informações de status e os detalhes de impressão sobre o progresso da transcrição.
 
-[!code-csharp[Code to check batch transcription status](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#transcriptionstatus)]
+```csharp
+// get the status of our transcriptions periodically and log results
+int completed = 0, running = 0, notStarted = 0;
+while (completed < 1)
+{
+    completed = 0; running = 0; notStarted = 0;
+
+    // get all transcriptions for the user
+    paginatedTranscriptions = null;
+    do
+    {
+        // <transcriptionstatus>
+        if (paginatedTranscriptions == null)
+        {
+            paginatedTranscriptions = await client.GetTranscriptionsAsync().ConfigureAwait(false);
+        }
+        else
+        {
+            paginatedTranscriptions = await client.GetTranscriptionsAsync(paginatedTranscriptions.NextLink).ConfigureAwait(false);
+        }
+
+        // delete all pre-existing completed transcriptions. If transcriptions are still running or not started, they will not be deleted
+        foreach (var transcription in paginatedTranscriptions.Values)
+        {
+            switch (transcription.Status)
+            {
+                case "Failed":
+                case "Succeeded":
+                    // we check to see if it was one of the transcriptions we created from this client.
+                    if (!createdTranscriptions.Contains(transcription.Self))
+                    {
+                        // not created form here, continue
+                        continue;
+                    }
+
+                    completed++;
+
+                    // if the transcription was successful, check the results
+                    if (transcription.Status == "Succeeded")
+                    {
+                        var paginatedfiles = await client.GetTranscriptionFilesAsync(transcription.Links.Files).ConfigureAwait(false);
+
+                        var resultFile = paginatedfiles.Values.FirstOrDefault(f => f.Kind == ArtifactKind.Transcription);
+                        var result = await client.GetTranscriptionResultAsync(new Uri(resultFile.Links.ContentUrl)).ConfigureAwait(false);
+                        Console.WriteLine("Transcription succeeded. Results: ");
+                        Console.WriteLine(JsonConvert.SerializeObject(result, SpeechJsonContractResolver.WriterSettings));
+                    }
+                    else
+                    {
+                        Console.WriteLine("Transcription failed. Status: {0}", transcription.Properties.Error.Message);
+                    }
+
+                    break;
+
+                case "Running":
+                    running++;
+                    break;
+
+                case "NotStarted":
+                    notStarted++;
+                    break;
+            }
+        }
+
+        // for each transcription in the list we check the status
+        Console.WriteLine(string.Format("Transcriptions status: {0} completed, {1} running, {2} not started yet", completed, running, notStarted));
+    }
+    while (paginatedTranscriptions.NextLink != null);
+
+    // </transcriptionstatus>
+    // check again after 1 minute
+    await Task.Delay(TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+}
+```
 
 Para obter detalhes completos sobre as chamadas anteriores, consulte nosso [documento do Swagger](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0). Para o exemplo completo mostrado aqui, acesse [GitHub](https://aka.ms/csspeech/samples) no `samples/batch` subdiretório.
 

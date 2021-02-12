@@ -5,14 +5,14 @@ author: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 12/17/2020
 ms.author: banders
-ms.openlocfilehash: f0ace05d6a4df65282bd56cca8e7895b0dc24edf
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 511c0ecdef45a882bcc3a427d5ec602b3ebabc66
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686540"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673824"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Entender as funções administrativas do Contrato de Cliente da Microsoft no Azure
 
@@ -32,7 +32,7 @@ A tabela a seguir descreve as funções de cobrança usadas para gerenciar sua c
 |Proprietário do perfil de cobrança|Gerencia tudo para o perfil de cobrança|
 |Colaborador do perfil de cobrança|Gerencia tudo, exceto as permissões no perfil de cobrança|
 |Leitor do perfil de cobrança|Exibição somente leitura de tudo no perfil de cobrança|
-|Gerenciador de faturas|Exibir e pagar faturas do perfil de cobrança|
+|Gerenciador de faturas|Veja as faturas do perfil de cobrança|
 |Proprietário da seção da fatura|Gerencia tudo na seção da fatura|
 |Colaborador da seção da fatura|Gerencia tudo, exceto as permissões na seção da fatura|
 |Leitor da seção da fatura|Exibição somente leitura de tudo na seção da fatura|

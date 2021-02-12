@@ -3,20 +3,20 @@ title: Atividade do Azure Functions no Azure Data Factory
 description: Saiba como usar a atividade de função do Azure para executar uma função do Azure em um pipeline do Data Factory
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.openlocfilehash: ee2e59e794cf34a8fd5043a56867a81c2537f1ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7c8f1e5ae0da9e7c404a942fcb4f554281486a7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81415319"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500029"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Atividade de função do Azure no Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -42,15 +42,15 @@ O tipo de retorno da função do Azure deve ser um `JObject` válido. (Lembre-se
 | **Propriedade**  | **Descrição** | **Valores permitidos** | **Necessária** |
 | --- | --- | --- | --- |
 | name  | Nome da atividade no pipeline  | String | sim |
-| type  | O tipo de atividade é 'AzureFunctionActivity' | String | sim |
+| tipo  | O tipo de atividade é 'AzureFunctionActivity' | String | sim |
 | serviço vinculado | O serviço de função do Azure vinculado para o Aplicativo de funções correspondente do Azure  | Referência de serviço vinculado | sim |
 | nome da função  | Nome da função no Aplicativo de funções do Azure que essa atividade chama | String | sim |
 | method  | Método da API REST para a chamada de função | Tipos de cadeia de caracteres com suporte: "GET", "POST", "PUT"   | sim |
 | header  | Cabeçalhos que são enviados para a solicitação. Por exemplo, para definir o idioma e o tipo em uma solicitação: "cabeçalhos": { "Accept-Language": "en-us", "Content-Type": "application/json" } | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) | Não |
-| body  | corpo que é enviado junto com a solicitação para o método de api de função  | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) ou objeto.   | Necessário para os métodos PUT/POST |
+| body  | corpo que é enviado junto com a solicitação para o método de api de função  | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) ou objeto.   | Necessário para os métodos PUT/POST |
 |   |   |   | |
 
-Consulte o esquema da carga de solicitação na seção [esquema de carga de solicitação](control-flow-web-activity.md#request-payload-schema)   .
+Consulte o esquema da carga de solicitação na seção [Esquema de carga de solicitação](control-flow-web-activity.md#request-payload-schema).
 
 ## <a name="routing-and-queries"></a>Roteamento e consultas
 

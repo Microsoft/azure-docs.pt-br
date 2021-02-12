@@ -1,7 +1,7 @@
 ---
 title: Registrar em log experimentos e métricas de ML
 titleSuffix: Azure Machine Learning
-description: Monitore seus experimentos do Azure ML e monitore as métricas de execução para aprimorar o processo de criação de modelo. Adicione o log ao script de treinamento usando run.log, Run.start_logging ou ScriptRunConfig.
+description: Habilite o log em suas execuções de treinamento de ML para monitorar as métricas de execução em tempo real e para ajudar a diagnosticar erros e avisos.
 services: machine-learning
 author: likebupt
 ms.author: keli19
@@ -11,14 +11,14 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 7eaa2fbe6033f801a252f6f2c7afa5eb726bce2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e5f64d9ef61a272da488ad70e690db4c07ddccc
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318238"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625070"
 ---
-# <a name="enable-logging-in-azure-ml-training-runs"></a>Habilitar o log nas execuções de treinamento do Azure ML
+# <a name="enable-logging-in-ml-training-runs"></a>Habilitar log em execuções de treinamento de ML
 
 
 O SDK do Python do Azure Machine Learning permite que você registre em log informações em tempo real usando o pacote de log padrão do Python e a funcionalidade específica do SDK. Você pode fazer logon localmente e enviar os logs para o seu workspace no portal.
@@ -37,26 +37,29 @@ Os logs podem ajudar você a diagnosticar erros e avisos ou acompanhar métricas
 
 ## <a name="data-types"></a>Tipos de dados
 
-Registre em log vários tipos de dados, incluindo valores escalares, listas, tabelas, imagens, diretórios, entre outros. Para obter mais informações e exemplos de código Python para diferentes tipos de dados, confira a [página de referência da Classe de execução](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true).
+Registre em log vários tipos de dados, incluindo valores escalares, listas, tabelas, imagens, diretórios, entre outros. Para obter mais informações e exemplos de código Python para diferentes tipos de dados, confira a [página de referência da Classe de execução](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py).
 
 ## <a name="interactive-logging-session"></a>Sessão de log interativo
 
-As sessões de log interativo normalmente são usadas em ambientes de notebook. O método [Experiment.start_logging()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truestart-logging--args----kwargs-) inicia uma sessão de log interativo. Qualquer métrica registrada em log durante a sessão é adicionada ao registro de execução no experimento. O método [run.complete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecomplete--set-status-true-) encerra as sessões e marca a execução como concluída.
+As sessões de log interativo normalmente são usadas em ambientes de notebook. O método [Experiment.start_logging()](/python/api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truestart-logging--args----kwargs-) inicia uma sessão de log interativo. Qualquer métrica registrada em log durante a sessão é adicionada ao registro de execução no experimento. O método [run.complete()](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truecomplete--set-status-true-) encerra as sessões e marca a execução como concluída.
 
 ## <a name="scriptrun-logs"></a>Logs do ScriptRun
 
-Nesta seção, você aprenderá a adicionar o código de log dentro de execuções criadas durante a configuração do ScriptRunConfig. Use a classe [**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) para encapsular scripts e ambientes de execuções repetíveis. Use também essa opção para mostrar um widget de visual do Jupyter Notebooks para monitoramento.
+Nesta seção, você aprenderá a adicionar o código de log dentro de execuções criadas durante a configuração do ScriptRunConfig. Use a classe [**ScriptRunConfig**](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) para encapsular scripts e ambientes de execuções repetíveis. Use também essa opção para mostrar um widget de visual do Jupyter Notebooks para monitoramento.
 
-Este exemplo executa uma limpeza de parâmetro em valores alfa e captura os resultados usando o método [run.log()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truelog-name--value--description----).
+Este exemplo executa uma limpeza de parâmetro em valores alfa e captura os resultados usando o método [run.log()](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truelog-name--value--description----).
 
 1. Crie um script de treinamento que inclua a lógica de log, `train.py`.
 
-   [!code-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train.py)]
+   [!code-python[](~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train.py)]
 
 
 1. Envie o script ```train.py``` para execução em um ambiente gerenciado pelo usuário. Toda a pasta de script é enviada para treinamento.
 
-   [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=src)] [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=run)]
+   [! Notebook-Python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb? Name = src)]
+
+
+   [! Notebook-Python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb? Name = Run)]
 
     O parâmetro `show_output` ativa o log detalhado, o que permite visualizar os detalhes do processo de treinamento, bem como as informações sobre os recursos remotos ou os destinos de computação. Use o código a seguir para ativar o log detalhado ao enviar o experimento.
 

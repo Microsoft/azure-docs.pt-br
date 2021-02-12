@@ -1,5 +1,6 @@
 ---
-title: Chamar APIs Web de um aplicativo de desktop-plataforma Microsoft Identity | Azure
+title: Chamar APIs Web de um aplicativo de desktop | Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como criar um aplicativo de área de trabalho que chama APIs da Web
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 753892790a6f6b898b48d955e6806837967f3e92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51619fe049d580c21b338af2f86b2afea6765b04
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80882957"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756519"
 ---
 # <a name="desktop-app-that-calls-web-apis-call-a-web-api"></a>Aplicativo de área de trabalho que chama APIs da Web: chamar uma API da Web
 
@@ -129,5 +130,4 @@ catch(MsalUiRequiredException ex)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Mover para ambiente de produção](scenario-desktop-production.md)
+Vá para o próximo artigo neste cenário, [vá para produção](scenario-desktop-production.md).

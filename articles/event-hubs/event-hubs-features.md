@@ -3,12 +3,12 @@ title: Visão geral dos recursos - Hubs de Eventos do Azure | Microsoft Docs
 description: Este artigo fornece detalhes sobre os recursos e a terminologia dos Hubs de Eventos do Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 43ebf4e928cadfc87f52fc10b27f9c8419d11a8f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8860a8aa83a17b12236dd47d79479a82846fa8a8
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369634"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791939"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Recursos e terminologia em Hubs de Eventos do Azure
 
@@ -16,32 +16,48 @@ Os Hubs de Evento do Azure é um serviço de processamento de evento escalonáve
 
 Este artigo se baseia nas informações do [artigo de visão geral](./event-hubs-about.md) e fornece detalhes técnicos e de implementação sobre recursos e componentes dos Hubs de Eventos.
 
+> [!TIP]
+> [O suporte de protocolo para clientes **Apache Kafka**](event-hubs-for-kafka-ecosystem-overview.md)  (versões >= 1,0) fornece pontos de extremidade de rede que habilitam aplicativos criados para usar Apache Kafka com qualquer cliente para usar os hubs de eventos. A maioria dos aplicativos Kafka existentes pode simplesmente ser reconfigurada para apontar para um namespace de Hub de eventos em vez de um servidor de inicialização de cluster Kafka. 
+>
+>Da perspectiva do custo, do esforço operacional e da confiabilidade, os hubs de eventos do Azure são uma ótima alternativa para implantar e operar seus próprios clusters Kafka e Zookeeper e para ofertas Kafka como serviço não nativas para o Azure. 
+>
+> Além de obter a mesma funcionalidade básica do agente de Apache Kafka, você também obtém acesso aos recursos do hub de eventos do Azure, como o envio em lote automático e o arquivamento via [captura de hubs de eventos](event-hubs-capture-overview.md), dimensionamento automático e balanceamento, recuperação de desastres, suporte a zona de disponibilidade neutra de custo, integração de rede flexível e segura e suporte a vários protocolos, incluindo o protocolo AMQP-over
+
+
 ## <a name="namespace"></a>Namespace
-Um namespace de Hubs de Eventos fornece um contêiner de escopo exclusivo, referenciado pelo [nome de domínio totalmente qualificado](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), em que você cria uma ou mais hubs de eventos tópicos Kafka. 
-
-## <a name="event-hubs-for-apache-kafka"></a>Hubs de Eventos do Apache Kafka
-
-[Esse recurso](event-hubs-for-kafka-ecosystem-overview.md) fornece um ponto de extremidade que permite aos clientes se comunicarem com Hubs de Eventos usando o protocolo Kafka. Essa integração oferece aos clientes um ponto de extremidade do Kafka. Isso permite que os clientes configurem seus aplicativos Kafka existentes para se comunicar com Hubs de Eventos, fornecendo uma alternativa para executar seus próprios clusters do Kafka. Os Hubs de Eventos do Apache Kafka dá suporte ao protocolo Kafka 1.0 e posterior. 
-
-Com essa integração, você não precisa executar clusters Kafka ou gerenciá-los com o Zookeeper. Isso também permite que você trabalhe com alguns dos recursos mais exigentes de Hubs de Eventos, como Capturar, Inflação Automática e Recuperação de Desastre Geográfico.
-
-Essa integração também permite que aplicativos como o Mirror Maker ou estruturas como o Kafka Connect para trabalhar sem clusters somente com alterações de configuração. 
+Um namespace de hubs de eventos fornece pontos de extremidade de rede integrada de DNS e uma variedade de recursos de gerenciamento de integração de rede e controle de acesso, como [filtragem de IP](event-hubs-ip-filtering.md), ponto de extremidade de [serviço de rede virtual](event-hubs-service-endpoints.md)e [link privado](private-link-service.md) e é o contêiner de gerenciamento para uma das várias instâncias de Hub de eventos (ou tópicos, na linguagem Kafka).
 
 ## <a name="event-publishers"></a>Editores de eventos
 
-Qualquer entidade que envie dados para um hub de eventos é um produtor de eventos ou *editor de eventos*. Os editores de eventos podem publicar eventos usando HTTPS ou AMQP 1.0 ou Kafka e posterior. Os editores de eventos usam um token de SAS (Assinatura de Acesso Compartilhado) para se identificar para um hub de eventos e podem ter uma identidade exclusiva ou usar um token SAS comum.
+Qualquer entidade que envia dados para um hub de eventos é um *Editor de eventos* (como sinônimos usado com o produtor de *eventos*). Os editores de eventos podem publicar eventos usando HTTPS ou AMQP 1,0 ou o protocolo Kafka. Os editores de eventos usam a autorização baseada em Azure Active Directory com tokens JWT emitidos por OAuth2 ou um token SAS (assinatura de acesso compartilhado) específico ao Hub de eventos.
 
 ### <a name="publishing-an-event"></a>Publicar um evento
 
-Você pode publicar um evento por meio do AMQP 1.0, Kafka 1.0 (e posterior) ou HTTPS. O serviço de hubs de eventos fornece a [API REST](https://docs.microsoft.com/rest/api/eventhub/) e as bibliotecas de cliente [.net](event-hubs-dotnet-standard-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [JavaScript](event-hubs-node-get-started-send.md)e [go](event-hubs-go-get-started-send.md) para publicar eventos em um hub de eventos. Para outras plataformas e runtimes, você pode usar qualquer cliente AMQP 1.0, como o [Apache Qpid](https://qpid.apache.org/). 
+Você pode publicar um evento via AMQP 1,0, o protocolo Kafka ou HTTPS. O serviço de hubs de eventos fornece a [API REST](/rest/api/eventhub/) e as bibliotecas de cliente [.net](event-hubs-dotnet-standard-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [JavaScript](event-hubs-node-get-started-send.md)e [go](event-hubs-go-get-started-send.md) para publicar eventos em um hub de eventos. Para outras plataformas e runtimes, você pode usar qualquer cliente AMQP 1.0, como o [Apache Qpid](https://qpid.apache.org/). 
 
-Você pode publicar eventos individualmente ou em lotes. Uma única publicação (instância de dados do evento) tem um limite de 1 MB, independentemente de ser um único evento ou um lote. Publicar eventos maiores que esse limite resulta em erro. É uma prática recomendada para os editores não conhecerem as partições no Hub de eventos e especificar apenas uma *chave de partição* (introduzida na próxima seção) ou sua identidade por meio de seu token SAS.
+A opção de usar AMQP ou HTTPS é específica para o cenário de uso. O AMQP requer o estabelecimento de um soquete bidirecional persistente, além do TLS (segurança de nível de transporte) ou SSL/TLS. O AMQP tem custos de rede mais altos ao inicializar a sessão; no entanto, o HTTPS requer sobrecarga adicional de TLS para cada solicitação. O AMQP tem um desempenho significativamente maior para editores frequentes e pode atingir latências muito menores quando usado com código de publicação assíncrono.
 
-A opção de usar AMQP ou HTTPS é específica para o cenário de uso. O AMQP requer o estabelecimento de um soquete bidirecional persistente, além do TLS (segurança de nível de transporte) ou SSL/TLS. O AMQP tem custos de rede mais altos ao inicializar a sessão; no entanto, o HTTPS requer sobrecarga adicional de TLS para cada solicitação. O AMQP tem um melhor desempenho para editores frequentes.
+Você pode publicar eventos individualmente ou em lote. Uma única publicação tem um limite de 1 MB, independentemente de ser um único evento ou um lote. A publicação de eventos maiores que esse limite será rejeitada. 
+
+A taxa de transferência dos hubs de eventos é dimensionada usando partições e alocações de unidades de produtividade (veja abaixo). É uma prática recomendada para os editores permanecerem cientes do modelo de particionamento específico escolhido para um hub de eventos e especificar apenas uma *chave de partição* que seja usada para atribuir eventos relacionados de forma consistente à mesma partição.
 
 ![Chaves de partição](./media/event-hubs-features/partition_keys.png)
 
-Os Hubs de Eventos garantem que todos os eventos que compartilham um valor de chave de partição sejam entregues na ordem e para a mesma partição. Se forem usadas chaves de partição com políticas de editor, a identidade do editor e o valor da chave de partição devem corresponder. Caso contrário, ocorrerá um erro.
+Os hubs de eventos garantem que todos os eventos que compartilham um valor de chave de partição sejam armazenados juntos e entregues em ordem de chegada. Se forem usadas chaves de partição com políticas de editor, a identidade do editor e o valor da chave de partição devem corresponder. Caso contrário, ocorrerá um erro.
+
+### <a name="event-retention"></a>Retenção de eventos
+
+Os eventos publicados são removidos de um hub de eventos com base em uma política de retenção com base em tempo configurável. O valor padrão e o período de retenção mais curto possível é 1 dia (24 horas). Para os hubs de eventos Standard, o período de retenção máximo é de 7 dias. Por Hubs de Eventos Dedicados, o período de retenção máximo é de 90 dias.
+
+> [!NOTE]
+> Os hubs de eventos são um mecanismo de fluxo de eventos em tempo real e não são projetados para serem usados em vez de um banco de dados e/ou como um armazenamento permanente para fluxos de eventos infinitamente mantidos. 
+> 
+> Quanto mais profunda for o histórico de um fluxo de eventos, mais você precisará de índices auxiliares para encontrar uma determinada fatia histórica de um determinado fluxo. A inspeção de cargas de eventos e a indexação não estão dentro do escopo do recurso dos hubs de eventos (ou Apache Kafka). Bancos de dados e repositórios e mecanismos de análise especializados, como [Azure data Lake Store](../data-lake-store/data-lake-store-overview.md), [Azure data Lake Analytics](../data-lake-analytics/data-lake-analytics-overview.md) e [Synapse do Azure](../synapse-analytics/overview-what-is.md) , são, portanto, muito mais adequados para armazenar eventos históricos.
+>
+> A [captura de hubs de eventos](event-hubs-capture-overview.md) integra-se diretamente com o armazenamento de BLOBs do azure e Azure data Lake Storage e, por meio dessa integração, também permite o fluxo de [eventos diretamente no Azure Synapse](store-captured-data-data-warehouse.md).
+>
+> Se você quiser usar o padrão de [fornecimento do evento](/azure/architecture/patterns/event-sourcing) para seu aplicativo, você deve alinhar sua estratégia de instantâneo com os limites de retenção dos hubs de eventos. Não se desempenhe para recompilar exibições materializadas de eventos brutos a partir do início do tempo. Com certeza, você teria de alterar essa estratégia depois que seu aplicativo estiver em produção por um tempo e estiver bem utilizado, e seu construtor de projeção precisará fazer a variação por anos de eventos de alteração ao tentar obter as alterações mais recentes e em andamento. 
+
 
 ### <a name="publisher-policy"></a>Política de editor
 
@@ -53,7 +69,7 @@ Os Hubs de Eventos permitem um controle granular sobre os editores de eventos po
 
 Você não precisa criar nomes de editor com antecedência, mas eles devem coincidir com o token SAS usado ao publicar um evento, para garantir identidades de editores independentes. Ao usar as políticas do publicador, o valor **PartitionKey** é definido como o nome do publicador. Para funcionar adequadamente, esses valores devem corresponder.
 
-## <a name="capture"></a>Capturar
+## <a name="capture"></a>Captura
 
 A [Captura dos Hubs de Eventos](event-hubs-capture-overview.md) permite que você capture automaticamente os dados de streaming em Hubs de Eventos e salve-os em uma conta de armazenamento de blobs ou em uma conta de serviço do Azure Data Lake de sua escolha. Você pode habilitar a Captura do Portal do Azure e especificar um tamanho mínimo e a janela de tempo para executar a captura. A Captura de Hubs de Eventos permite que você especifique sua própria conta de Armazenamento de Blobs do Azure e o contêiner, ou conta de serviço do Azure Data Lake, uma das quais será usada para armazenar os dados capturados. Os dados capturados são gravados no formato Apache Avro.
 
@@ -88,7 +104,7 @@ Os exemplos a seguir mostram a Convenção de URI do grupo de consumidores:
 
 A figura a seguir mostra a arquitetura de processamento de fluxo dos Hubs de Eventos:
 
-![Arquitetura dos hubs de eventos](./media/event-hubs-features/event_hubs_architecture.png)
+![Arquitetura dos hubs de eventos](./media/event-hubs-about/event_hubs_architecture.svg)
 
 ### <a name="stream-offsets"></a>Deslocamentos de fluxo
 
@@ -104,7 +120,7 @@ Se um leitor se desconecta de uma partição, ao se reconectar, ele começa a le
 
 > [!NOTE]
 > Se você estiver usando o armazenamento de BLOBs do Azure como o armazenamento de ponto de verificação em um ambiente que dá suporte a uma versão diferente do SDK do Storage BLOB que os normalmente estão disponíveis no Azure, você precisará usar o código para alterar a versão da API do serviço de armazenamento para a versão específica com suporte desse ambiente. Por exemplo, se você estiver executando os [hubs de eventos em um hub de Azure Stack versão 2002](/azure-stack/user/event-hubs-overview), a versão mais alta disponível para o serviço de armazenamento é a versão 2017-11-09. Nesse caso, você precisa usar o código para direcionar a versão da API do serviço de armazenamento para 2017-11-09. Para obter um exemplo de como direcionar uma versão de API de armazenamento específica, consulte estes exemplos no GitHub: 
-> - [.Net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
+> - [.Net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/). 
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/)
 > - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript) ou  [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript)
 > - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/)

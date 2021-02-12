@@ -1,5 +1,5 @@
 ---
-title: Como gerar miniaturas usando o codificador dos serviços de mídia do Azure Standard com REST
+title: Gerar miniaturas usando Media Encoder Standard REST
 description: Este artigo mostra como usar REST para codificar um ativo e gerar miniaturas ao mesmo tempo usando Media Encoder Standard.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: ec2782297f2659341c9fa7e87ce15d3dbceb022c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: f4456a65f422c23da73f36dd74680fbb598db186
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019555"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955827"
 ---
 # <a name="how-to-generate-thumbnails-using-encoder-standard-with-rest"></a>Como gerar miniaturas usando o codificador padrão com REST
 

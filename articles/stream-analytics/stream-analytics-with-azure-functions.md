@@ -1,24 +1,27 @@
 ---
 title: Tutorial – Executar o Azure Functions nos trabalhos do Azure Stream Analytics
 description: Neste tutorial, você aprenderá a configurar o Azure Functions como um coletor de saída para trabalhos do Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 01/27/2020
-ms.openlocfilehash: 70ea5ec9ee91fdba8023b9c6af1ce65b691a17fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74e09e61a6132858d716686bdb6687bb670f0d33
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89006883"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879504"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Tutorial: Executar o Azure Functions a partir dos trabalhos do Azure Stream Analytics 
 
 É possível executar o Azure Functions a partir do Azure Stream Analytics configurando o Azure Functions como um dos coletores de saída para o trabalho do Stream Analytics. O Azure Functions é uma experiência de computação sob demanda controlada por evento que permite implementar o código que é disparado por eventos que ocorrem no Azure ou em serviços de terceiros. Essa capacidade do Azure Functions de responder a gatilhos faz dele uma saída natural para trabalhos do Stream Analytics.
 
 O Stream Analytics invoca o Azure Functions por meio de gatilhos HTTP. O adaptador de saída do Azure Functions permite que os usuários o conectem ao Stream Analytics, de modo que os eventos possam ser disparados com base em consultas do Stream Analytics. 
+
+> [!NOTE]
+> Não há suporte para a conexão com o Azure Functions em uma VNet (rede virtual) por meio de um trabalho do Stream Analytics que esteja sendo executado em um cluster multilocatário.
 
 Neste tutorial, você aprenderá como:
 
@@ -50,7 +53,7 @@ Siga o tutorial [Detecção de fraudes em tempo real](stream-analytics-real-time
 
 ## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-cache-for-redis"></a>Criar uma função no Azure Functions que pode gravar dados no Cache do Azure para Redis
 
-1. Consulte a seção [Criar um aplicativo de funções](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) da documentação do Azure Functions. Esta seção detalha como criar um aplicativo de funções e uma [Função disparada por HTTP no Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function) usando a linguagem CSharp.  
+1. Consulte a seção [Criar um aplicativo de funções](../azure-functions/functions-get-started.md) da documentação do Azure Functions. Esta seção detalha como criar um aplicativo de funções e uma [Função disparada por HTTP no Azure Functions](../azure-functions/functions-get-started.md) usando a linguagem CSharp.  
 
 2. Navegue até a função **run.csx**. Atualize-a com o código a seguir. Substitua **"\<your Azure Cache for Redis connection string goes here\>"** pela cadeia de conexão primária do Cache do Azure para Redis recuperada na seção anterior. 
 
@@ -130,11 +133,11 @@ Siga o tutorial [Detecção de fraudes em tempo real](stream-analytics-real-time
  
 4. Retorne ao portal do Azure. Na guia **Recursos da plataforma**, navegue até a função. Em **Ferramentas de Desenvolvimento**, selecione **Editor do Serviço de Aplicativo**. 
  
-   ![Captura de tela Editor do Serviço de Aplicativo](./media/stream-analytics-with-azure-functions/image3.png)
+   ![A captura de tela mostra a guia Recursos da plataforma com o Editor do Serviço de Aplicativo selecionado.](./media/stream-analytics-with-azure-functions/image3.png)
 
 5. No Editor do Serviço de Aplicativo, clique com o botão direito do mouse na pasta raiz e carregue o arquivo **project.json**. Após o upload bem-sucedido, atualize a página. Agora, você verá um arquivo gerado automaticamente chamado **project.lock.json**. O arquivo gerado automaticamente contém referências aos arquivos .dll que são especificados no arquivo project.json.  
 
-   ![Captura de tela Editor do Serviço de Aplicativo](./media/stream-analytics-with-azure-functions/image4.png)
+   ![A captura de tela mostra a opção Carregar Arquivos selecionada no menu.](./media/stream-analytics-with-azure-functions/image4.png)
 
 ## <a name="update-the-stream-analytics-job-with-the-function-as-output"></a>Atualizar o trabalho do Stream Analytics com a função como saída
 
@@ -192,13 +195,15 @@ Siga o tutorial [Detecção de fraudes em tempo real](stream-analytics-real-time
 Se ocorrer uma falha durante o envio de eventos para o Azure Functions, o Stream Analytics repetirá a maioria das operações. Todas as exceções http serão repetidas até serem bem-sucedidas, com exceção do erro http 413 (entidade grande demais). Um erro de entidade grande demais é tratado como um erro de dados que está sujeito à [política de repetição ou remoção](stream-analytics-output-error-policy.md).
 
 > [!NOTE]
-> O tempo limite para solicitações HTTP do Stream Analytics para Azure Functions é definido como 100 segundos. Se o aplicativo do Azure Functions levar mais de 100 segundos para processar um lote, o Stream Analytics apresentará erro.
+> O tempo limite para solicitações HTTP do Stream Analytics para Azure Functions é definido como 100 segundos. Se o aplicativo do Azure Functions levar mais de 100 segundos para processar um lote, o Stream Analytics apresentará erro e tentará executar o lote novamente.
+
+A repetição de tentativas após atingir o tempo limite pode levar à gravação de eventos duplicados no coletor de saída. Quando o Stream Analytics tenta executar novamente um lote com falha, ele tenta todos os eventos no lote. Por exemplo, considere um lote de 20 eventos que são enviados para o Azure Functions do Stream Analytics. Suponha que o Azure Functions leve 100 segundos para processar os 10 primeiros eventos nesse lote. Após os 100 segundos, o Stream Analytics suspende a solicitação, uma vez que não recebeu uma resposta positiva do Azure Functions, e outra solicitação é enviada para o mesmo lote. Os 10 primeiros eventos no lote são processados novamente pelo Azure Functions, o que causa uma duplicata. 
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
 No portal do Azure, quando você tenta redefinir o valor de Tamanho máximo do lote/Contagem máxima de lotes como vazio (padrão), o valor é alterado para o valor inserido anteriormente ao salvar. Nesse caso, insira manualmente os valores padrão para esses campos.
 
-Atualmente, o uso de [roteiros HTTP](https://docs.microsoft.com/sandbox/functions-recipes/routes?tabs=csharp) em seu Azure Functions não é compatível com o Stream Analytics.
+Atualmente, o uso de [roteiros HTTP](/sandbox/functions-recipes/routes?tabs=csharp) em seu Azure Functions não é compatível com o Stream Analytics.
 
 O suporte para se conectar ao Azure Functions hospedado em uma rede virtual não está habilitado.
 

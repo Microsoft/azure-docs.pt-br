@@ -7,12 +7,12 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: bcdda8d1bd08a26dcdbec294be88fd4540670596
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0c132d1aa7a37dc8e7620352bb7b9a078d79a09
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531416"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571599"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Como provisionar para multilocação 
 
@@ -38,11 +38,8 @@ Este artigo usa uma amostra de dispositivo simulado com o [SDK do Azure IoT C](h
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conclusão do guia de início rápido [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md).
-
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
+- Conclusão do guia de início rápido [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md).
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-two-regional-iot-hubs"></a>Criar dois Hubs IoT regionais
 
@@ -191,7 +188,7 @@ Para fazer a limpeza, essas VMs serão adicionadas ao mesmo grupo de recursos qu
 
 Nesta seção, você clona o SDK do Azure IoT C em cada VM. O SDK contém um exemplo que simulará a configuração de cada região do dispositivo de um locatário.
 
-1. Para cada VM, instale **CMake**, **g + +**, **gcc**e [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) usando os seguintes comandos:
+1. Para cada VM, instale **CMake**, **g + +**, **gcc** e [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) usando os seguintes comandos:
 
     ```bash
     sudo apt-get update

@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d33721a70f0a9d4cfb26516d2f252424cc924f8
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 205136437fa1a2a33b3b337f5cc9f2dde283faef
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503803"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491933"
 ---
-# <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar o gerenciamento da sessão de autenticação com Acesso Condicional
+# <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar o gerenciamento de sessão de autenticação com acesso condicional
 
 Em implantações complexas, as organizações podem ter a necessidade de restringir as sessões de autenticação. Alguns cenários podem incluir:
 
@@ -88,9 +88,9 @@ O padrão do Azure AD para persistência de sessão de navegador permite que os 
 O acesso condicional é um recurso Azure AD Premium e requer uma licença Premium. Se você quiser saber mais sobre o acesso condicional, consulte [o que é o acesso condicional no Azure Active Directory?](overview.md#license-requirements)
 
 > [!WARNING]
-> Se você estiver usando o recurso de [tempo de vida de token configurável](../develop/active-directory-configurable-token-lifetimes.md) atualmente em visualização pública, observe que não há suporte para a criação de duas políticas diferentes para a mesma combinação de usuário ou aplicativo: uma com esse recurso e outra com o recurso de tempo de vida de token configurável. A Microsoft planeja desativar o recurso de tempo de vida de token configurável para atualização e tempos de vida de token de sessão em 30 de janeiro de 2021 e substituí-lo pelo recurso de gerenciamento de sessão de autenticação de acesso condicional.  
+> Se você estiver usando o recurso de [tempo de vida de token configurável](../develop/active-directory-configurable-token-lifetimes.md) atualmente em visualização pública, observe que não há suporte para a criação de duas políticas diferentes para a mesma combinação de usuário ou aplicativo: uma com esse recurso e outra com o recurso de tempo de vida de token configurável. A Microsoft desativou o recurso de tempo de vida de token configurável para atualização e tempos de vida de token de sessão em 30 de janeiro de 2021 e substituído pelo recurso de gerenciamento de sessão de autenticação de acesso condicional.  
 >
-> Antes de habilitar a frequência de entrada, verifique se outras configurações de reautenticação estão desabilitadas em seu locatário. Se "lembrar MFA em dispositivos confiáveis" estiver habilitado, certifique-se de desabilitá-lo antes de usar a frequência de entrada, pois usar essas duas configurações em conjunto pode levar à solicitação de usuários inesperadamente. Para saber mais sobre prompts de reautenticação e tempo de vida da sessão, consulte o artigo [otimizar prompts de reautenticação e entender o tempo de vida da sessão para a autenticação multifator do Azure](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
+> Antes de habilitar a frequência de entrada, verifique se outras configurações de reautenticação estão desabilitadas em seu locatário. Se "lembrar MFA em dispositivos confiáveis" estiver habilitado, certifique-se de desabilitá-lo antes de usar a frequência de entrada, pois usar essas duas configurações em conjunto pode levar à solicitação de usuários inesperadamente. Para saber mais sobre prompts de reautenticação e tempo de vida da sessão, consulte o artigo [otimizar prompts de reautenticação e entender o tempo de vida da sessão para a autenticação multifator do Azure ad](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
 ### <a name="policy-1-sign-in-frequency-control"></a>Política 1: controle de frequência de entrada
 
@@ -100,7 +100,7 @@ O acesso condicional é um recurso Azure AD Premium e requer uma licença Premiu
    > [!NOTE]
    > É recomendável definir a frequência de prompt de autenticação igual para aplicativos de Microsoft Office de chave, como o Exchange Online e o SharePoint Online para melhor experiência do usuário.
 
-1. Acesse a sessão de **controles**  >  **Session** de acesso e clique em **frequência de entrada**
+1. Acesse a sessão de **controles**  >   de acesso e clique em **frequência de entrada**
 1. Insira o valor necessário de dias e horas na primeira caixa de texto
 1. Selecione um valor de **horas** ou **dias** no menu suspenso
 1. Salvar sua política
@@ -117,7 +117,7 @@ No Azure AD, os dispositivos registrados do Windows entram no dispositivo é con
    > [!NOTE]
    > Observe que esse controle exige que você escolha "todos os aplicativos de nuvem" como uma condição. A persistência da sessão do navegador é controlada pelo token da sessão de autenticação. Todas as guias em uma sessão de navegador compartilham um único token de sessão e, portanto, todos precisam compartilhar o estado de persistência.
 
-1. Acesse a sessão de **controles de acesso**  >  **Session** e clique em **sessão de navegador persistente**
+1. Acesse a sessão de **controles de acesso**  >   e clique em **sessão de navegador persistente**
 1. Selecione um valor na lista suspensa
 1. Salvar política
 

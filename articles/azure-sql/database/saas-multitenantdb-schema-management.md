@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: d222234cd6ff3d910e6dbc51a394695ce467edce
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793289"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011840"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-databases"></a>Gerenciar o esquema em um aplicativo SaaS que usa bancos de dados multilocatários fragmentados
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -75,7 +75,7 @@ Os scripts e o código-fonte do aplicativo de Banco de Dados Multilocatário Saa
 
 Este tutorial exige que você use o PowerShell para criar o banco de dados de agente de trabalho e o agente de trabalho. Assim como o banco de dados MSDB usado pelo SQL Agent, um agente de trabalho usa um Banco de Dados SQL do Azure para armazenar definições de trabalho, status de trabalho e histórico. Depois que o agente de trabalho é criado, você pode criar e monitorar trabalhos imediatamente.
 
-1. **No ISE do PowerShell** , abra … *Learning Modules\\Schema Management\\\\Demo-SchemaManagement.ps1* .
+1. **No ISE do PowerShell**, abra …*Learning Modules\\Schema Management\\\\Demo-SchemaManagement.ps1*.
 2. Pressione **F5** para executar o script.
 
 O script *Demo-SchemaManagement.ps1* chama o script *Deploy-SchemaManagement.ps1* para criar um banco de dados denominado _jobagent_ no servidor de catálogo. O script cria o agente de trabalho, passando o banco de dados _jobagent_ como um parâmetro.
@@ -84,12 +84,12 @@ O script *Demo-SchemaManagement.ps1* chama o script *Deploy-SchemaManagement.ps1
 
 #### <a name="prepare"></a>Preparar
 
-Cada banco de dados de locatários inclui um conjunto de tipos de local na tabela **VenueTypes** . Cada tipo de local define os tipos de eventos que podem ser hospedados em um local. Esses tipos de local correspondem às imagens de tela de fundo que você vê no aplicativo de eventos de locatário.  Neste exercício, você implanta uma atualização em todos os bancos de dados para adicionar dois tipos de local: *Motorcycle Racing* e *Swimming Club* .
+Cada banco de dados de locatários inclui um conjunto de tipos de local na tabela **VenueTypes**. Cada tipo de local define os tipos de eventos que podem ser hospedados em um local. Esses tipos de local correspondem às imagens de tela de fundo que você vê no aplicativo de eventos de locatário.  Neste exercício, você implanta uma atualização em todos os bancos de dados para adicionar dois tipos de local: *Motorcycle Racing* e *Swimming Club*.
 
 Primeiro, revise os tipos de local incluídos em cada banco de dados de locatário. Conecte-se a um banco de dados de locatário no SSMS (SQL Server Management Studio) e verifique a tabela VenueTypes.  Você também pode consultar essa tabela no Editor de consultas no portal do Azure, acessado pela página do banco de dados.
 
 1. Abra o SSMS e conecte-se ao servidor *tenants1-dpt-&lt;user&gt;.database.windows.net*
-1. Para confirmar que *Motorcycle Racing* e *Swimming Club* **não estão** na lista de resultados, navegue até o banco de dados *contosoconcerthall* do servidor *tenants1-dpt-&lt;usuário&gt;* e consulte a tabela *VenueTypes* .
+1. Para confirmar que *Motorcycle Racing* e *Swimming Club* **não estão** na lista de resultados, navegue até o banco de dados *contosoconcerthall* do servidor *tenants1-dpt-&lt;usuário&gt;* e consulte a tabela *VenueTypes*.
 
 
 
@@ -97,19 +97,19 @@ Primeiro, revise os tipos de local incluídos em cada banco de dados de locatár
 
 Agora você cria um trabalho para atualizar a tabela **VenueTypes** em cada banco de dados de locatários adicionando os novos tipos de local.
 
-Para criar um novo trabalho, você usa um conjunto de trabalhos que os procedimentos armazenados do sistema criou no banco de dados _jobagent_ . Os procedimentos armazenados foram criados quando a conta de trabalho foi criada.
+Para criar um novo trabalho, você usa um conjunto de trabalhos que os procedimentos armazenados do sistema criou no banco de dados _jobagent_. Os procedimentos armazenados foram criados quando a conta de trabalho foi criada.
 
 1. No SSMS, conecte-se ao servidor de locatário: tenants1-mt-&lt;user&gt;.database.windows.net
 
-2. Navegue até o banco de dados *tenants1* .
+2. Navegue até o banco de dados *tenants1*.
 
 3. Consulta a tabela *VenueTypes* para confirmar que *Motorcycle Racing* e *Swimming Club* ainda não estão na lista de resultados.
 
-4. Conecte-se ao servidor de catálogo, que é *catalog-mt-&lt;user&gt;.database.windows.net* .
+4. Conecte-se ao servidor de catálogo, que é *catalog-mt-&lt;user&gt;.database.windows.net*.
 
 5. Conecte-se ao banco de dados _jobagent_ no servidor de catálogo.
 
-6. No SSMS, abra o arquivo *…\\Learning Modules\\Schema Management\\DeployReferenceData.sql* .
+6. No SSMS, abra o arquivo *…\\Learning Modules\\Schema Management\\DeployReferenceData.sql*.
 
 7. Modifique a instrução: defina @User = &lt;user&gt; e substitua o valor User usado quando você implantou o aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets.
 
@@ -117,40 +117,40 @@ Para criar um novo trabalho, você usa um conjunto de trabalhos que os procedime
 
 #### <a name="observe"></a>Observar
 
-Observe os seguintes itens no script *DeployReferenceData.sql* :
+Observe os seguintes itens no script *DeployReferenceData.sql*:
 
 - **sp\_add\_target\_group** cria o nome do grupo de destino *DemoServerGroup* e adiciona os membros de destino ao grupo.
 
 - **sp\_add\_target\_group\_member** adicione os seguintes itens:
-    - Um tipo de membro de destino *server* .
+    - Um tipo de membro de destino *server*.
         - Este é o servidor *tenants1-mt-&lt;user&gt;* que contém os bancos de dados de locatários.
         - A inclusão do servidor inclui os bancos de dados de locatário que existem no momento em que o trabalho é executado.
-    - Um tipo de membro de destino *database* para o banco de dados final ( *basetenantdb* ) que reside no servidor *catalog-mt-&lt;user&gt;* ,
+    - Um tipo de membro de destino *database* para o banco de dados final (*basetenantdb*) que reside no servidor *catalog-mt-&lt;user&gt;*,
     - Um tipo de membro de destino *database* para incluir o banco de dados *adhocreporting* que é usado em um tutorial posterior.
 
-- **sp\_add\_job** cria um trabalho chamado *Reference Data Deployment* .
+- **sp\_add\_job** cria um trabalho chamado *Reference Data Deployment*.
 
 - **sp\_add\_jobstep** cria a etapa de trabalho que contém o texto do comando T-SQL para atualizar a tabela de referência, VenueTypes.
 
 - As exibições restantes no script exibem a existência dos objetos e monitoram a execução do trabalho. Use essas consultas para examinar o valor do status na coluna **lifecycle** para determinar quando o trabalho foi concluído. O trabalho atualiza o banco de dados de locatários e atualiza os dois outros bancos de dados que contêm a tabela de referência.
 
-No SSMS, navegue até o banco de dados de locatário no servidor *tenants1-mt-&lt;user&gt;* . Consulta a tabela *VenueTypes* para confirmar que *Motorcycle Racing* e *Swimming Club* ainda não foram adicionados à tabela. A contagem total de tipos de local deve ter aumentado em duas unidades.
+No SSMS, navegue até o banco de dados de locatário no servidor *tenants1-mt-&lt;user&gt;*. Consulta a tabela *VenueTypes* para confirmar que *Motorcycle Racing* e *Swimming Club* ainda não foram adicionados à tabela. A contagem total de tipos de local deve ter aumentado em duas unidades.
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>Criar um trabalho para gerenciar o índice da tabela de referência
 
 Este exercício cria um trabalho para recriar o índice de chave primária da tabela de referência em todos os bancos de dados de locatário. Uma recompilação de índice é uma operação de gerenciamento de banco de dados normal que um administrador pode executar após carregar uma grande quantidade de dados para melhorar o desempenho.
 
-1. No SSMS, conecte-se ao banco de dados _jobagent_ no servidor *catalog-mt-&lt;user&gt;.database.windows.net* .
+1. No SSMS, conecte-se ao banco de dados _jobagent_ no servidor *catalog-mt-&lt;user&gt;.database.windows.net*.
 
-2. No SSMS, abra *...\\Learning Modules\\Schema Management\\OnlineReindex.sql* .
+2. No SSMS, abra *...\\Learning Modules\\Schema Management\\OnlineReindex.sql*.
 
 3. Pressione **F5** para executar o script.
 
 #### <a name="observe"></a>Observar
 
-Observe os seguintes itens no script *OnlineReindex.sql* :
+Observe os seguintes itens no script *OnlineReindex.sql*:
 
-* **sp\_add\_job** cria um novo trabalho chamado *Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885* .
+* **sp\_add\_job** cria um novo trabalho chamado *Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885*.
 
 * **sp\_add\_jobstep** cria a etapa de trabalho que contém o texto do comando T-SQL para atualizar o índice.
 

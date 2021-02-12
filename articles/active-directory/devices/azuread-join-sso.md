@@ -11,22 +11,22 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba802cb86d68298cd4dfff94162069590744833c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da22a4e5e9ab13ec18347e58bea6cfc5f45333de
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91256455"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630693"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Como o SSO para recursos locais funciona em dispositivos associados ao Microsoft Azure Active Directory
 
-Provavelmente, não é surpresa que um dispositivo associado ao Azure Active Directory (Azure AD) forneça uma experiência de logon único (SSO) aos aplicativos em nuvem do seu locatário. Se o seu ambiente tiver um Active Directory local (AD), você poderá estender a experiência de SSO nesses dispositivos para recursos e aplicativos que dependem do AD local também. 
+Provavelmente, não é surpresa que um dispositivo associado ao Azure Active Directory (Azure AD) forneça uma experiência de logon único (SSO) aos aplicativos em nuvem do seu locatário. Se o seu ambiente tiver um Active Directory local (AD), você também poderá obter a experiência de SSO em dispositivos adicionados ao Azure AD a recursos e aplicativos que dependem do AD local. 
 
 Este artigo explica como isso funciona.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
- Se as máquinas Unidas do Azure AD não estiverem conectadas à rede da sua organização, uma VPN ou outra infraestrutura de rede será necessária. O SSO local requer comunicação de linha de visão com seus controladores de domínio AD DS locais.
+O SSO local requer comunicação de linha de visão com seus controladores de domínio AD DS locais. Se os dispositivos ingressados no Azure AD não estiverem conectados à rede da sua organização, uma VPN ou outra infraestrutura de rede será necessária. 
 
 ## <a name="how-it-works"></a>Como ele funciona 
 
@@ -34,10 +34,13 @@ Com um dispositivo associado ao Azure Active Directory, seus usuários já têm 
 
 Os dispositivos associados ao Azure Actibe Directory não têm conhecimento sobre seu ambiente de AD local porque não estão associados a ele. No entanto, você pode fornecer informações adicionais sobre seu AD local para esses dispositivos com o Azure AD Connect.
 
-Um ambiente que possui um Microsoft Azure Active Directory e um AD local também é conhecido como ambiente híbrido. Se você tiver um ambiente híbrido, é provável que você já tenha o Microsoft Azure Active Directory Connect implantado para sincronizar suas informações de identidade local com a nuvem. Como parte do processo de sincronização, Azure AD Connect sincroniza informações de usuário local para o Azure AD. Quando um usuário entra em um dispositivo associado ao Microsoft Azure Active Directory em um ambiente híbrido:
+Se você tiver um ambiente híbrido, com o AD do Azure e o AD local, é provável que você já tenha Azure AD Connect implantado para sincronizar as informações de identidade local para a nuvem. Como parte do processo de sincronização, Azure AD Connect sincroniza informações de usuário e domínio locais para o Azure AD. Quando um usuário entra em um dispositivo associado ao Microsoft Azure Active Directory em um ambiente híbrido:
 
 1. O Azure AD envia os detalhes do domínio local do usuário de volta para o dispositivo, juntamente com o [token de atualização primário](concept-primary-refresh-token.md)
 1. O serviço de autoridade de segurança local (LSA) habilita a autenticação Kerberos e NTLM no dispositivo.
+
+>[!NOTE]
+> O Windows Hello for Business requer configuração adicional para habilitar o SSO local de um dispositivo associado do Microsoft Azure Active Directory. Para obter mais informações, consulte [Configurar dispositivos associados do Microsoft Azure Active Directory para logon único local usando o Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base). 
 
 Durante uma tentativa de acesso a um recurso que solicita o Kerberos ou NTLM no ambiente local do usuário, o dispositivo:
 
@@ -45,8 +48,6 @@ Durante uma tentativa de acesso a um recurso que solicita o Kerberos ou NTLM no 
 1. Recebe um [TGT (tíquete de concessão de tíquete)](/windows/desktop/secauthn/ticket-granting-tickets) Kerberos ou um token NTLM com base no protocolo ao qual o recurso ou o aplicativo local dá suporte. Se a tentativa de obter o token Kerberos TGT ou NTLM para o domínio falhar (o tempo limite de DCLocator relacionado pode causar um atraso), as entradas do Gerenciador de credenciais serão tentadas ou o usuário poderá receber um pop-up de autenticação solicitando credenciais para o recurso de destino.
 
 Todos os aplicativos configurados para **autenticação integrada do Windows** obtêm SSO com facilidade quando um usuário tenta acessá-los.
-
-O Windows Hello for Business requer configuração adicional para habilitar o SSO local de um dispositivo associado do Microsoft Azure Active Directory. Para obter mais informações, consulte [Configurar dispositivos associados do Microsoft Azure Active Directory para logon único local usando o Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base). 
 
 ## <a name="what-you-get"></a>O que você obtém
 

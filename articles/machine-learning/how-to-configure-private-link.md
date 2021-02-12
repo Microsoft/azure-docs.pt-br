@@ -6,23 +6,23 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, devx-track-azurecli
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/30/2020
-ms.openlocfilehash: 89bad470d5ead43b79e3691343b53fff796f7abc
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5ba1b9d53255406a73b1b74dbc59fe39e3f9a0d7
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172781"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979174"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Configurar o link privado do Azure para um espaço de trabalho Azure Machine Learning
 
 Neste documento, você aprenderá a usar o link privado do Azure com seu espaço de trabalho Azure Machine Learning. Para obter informações sobre como criar uma rede virtual para Azure Machine Learning, consulte [visão geral de isolamento de rede virtual e privacidade](how-to-network-security-overview.md)
 
-O link privado do Azure permite que você se conecte ao seu espaço de trabalho usando um ponto de extremidade privado. O ponto de extremidade privado é um conjunto de endereços IP privados na sua rede virtual. Você pode, então, limitar o acesso ao seu espaço de trabalho para ocorrer somente nos endereços IP privados. O link privado ajuda a reduzir o risco de vazamento de dados. Para saber mais sobre pontos de extremidade privados, confira o artigo [Link Privado do Azure](/azure/private-link/private-link-overview).
+O link privado do Azure permite que você se conecte ao seu espaço de trabalho usando um ponto de extremidade privado. O ponto de extremidade privado é um conjunto de endereços IP privados na sua rede virtual. Você pode, então, limitar o acesso ao seu espaço de trabalho para ocorrer somente nos endereços IP privados. O link privado ajuda a reduzir o risco de vazamento de dados. Para saber mais sobre pontos de extremidade privados, confira o artigo [Link Privado do Azure](../private-link/private-link-overview.md).
 
 > [!IMPORTANT]
 > O link privado do Azure não afeta o plano de controle do Azure (operações de gerenciamento), como excluir o espaço de trabalho ou gerenciar recursos de computação. Por exemplo, criando, atualizando ou excluindo um destino de computação. Essas operações são executadas pela Internet pública normalmente. Operações de plano de dados, como usar o Azure Machine Learning Studio, APIs (incluindo pipelines publicados) ou o SDK usam o ponto de extremidade privado.
@@ -35,7 +35,8 @@ Se você planeja usar um espaço de trabalho habilitado para link privado com um
 
 ## <a name="limitations"></a>Limitações
 
-O uso de um espaço de trabalho Azure Machine Learning com o link privado não está disponível nas regiões do Azure governamental ou na 21Vianet do Azure na China.
+* O uso de um espaço de trabalho Azure Machine Learning com o link privado não está disponível nas regiões do Azure governamental ou na 21Vianet do Azure na China.
+* Se você habilitar o acesso público para um espaço de trabalho protegido com o link privado e usar o Azure Machine Learning Studio pela Internet pública, alguns recursos, como o designer, poderão falhar ao acessar seus dados. Esse problema ocorre quando os dados são armazenados em um serviço protegido por trás da VNet. Por exemplo, uma conta de armazenamento do Azure.
 
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>Criar um espaço de trabalho que usa um ponto de extremidade privado
 
@@ -46,7 +47,7 @@ Use um dos métodos a seguir para criar um espaço de trabalho com um ponto de e
 
 # <a name="python"></a>[Python](#tab/python)
 
-O SDK do Azure Machine Learning Python fornece a classe [PrivateEndpointConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.privateendpointconfig?view=azure-ml-py) , que pode ser usada com [Workspace. Create ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-) para criar um espaço de trabalho com um ponto de extremidade privado. Essa classe requer uma rede virtual existente.
+O SDK do Azure Machine Learning Python fornece a classe [PrivateEndpointConfig](/python/api/azureml-core/azureml.core.privateendpointconfig?view=azure-ml-py) , que pode ser usada com [Workspace. Create ()](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-) para criar um espaço de trabalho com um ponto de extremidade privado. Essa classe requer uma rede virtual existente.
 
 ```python
 from azureml.core import Workspace
@@ -64,7 +65,7 @@ ws = Workspace.create(name='myworkspace',
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-A [extensão de CLI do Azure para Machine Learning](reference-azure-machine-learning-cli.md) fornece o comando [AZ ml Workspace Create](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_create) . Os seguintes parâmetros para este comando podem ser usados para criar um espaço de trabalho com uma rede privada, mas requer uma rede virtual existente:
+A [extensão de CLI do Azure para Machine Learning](reference-azure-machine-learning-cli.md) fornece o comando [AZ ml Workspace Create](/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_create) . Os seguintes parâmetros para este comando podem ser usados para criar um espaço de trabalho com uma rede privada, mas requer uma rede virtual existente:
 
 * `--pe-name`: O nome do ponto de extremidade privado que é criado.
 * `--pe-auto-approval`: Se as conexões de ponto de extremidade privado com o espaço de trabalho devem ser aprovadas automaticamente.
@@ -101,11 +102,11 @@ ws = Workspace.from_config()
 ws.add_private_endpoint(private_endpoint_config=pe, private_endpoint_auto_approval=True, show_output=True)
 ```
 
-Para obter mais informações sobre as classes e os métodos usados neste exemplo, consulte [PrivateEndpointConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.privateendpointconfig?view=azure-ml-py) e [Workspace.add_private_endpoint](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#add-private-endpoint-private-endpoint-config--private-endpoint-auto-approval-true--location-none--show-output-true--tags-none-).
+Para obter mais informações sobre as classes e os métodos usados neste exemplo, consulte [PrivateEndpointConfig](/python/api/azureml-core/azureml.core.privateendpointconfig?view=azure-ml-py) e [Workspace.add_private_endpoint](/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#add-private-endpoint-private-endpoint-config--private-endpoint-auto-approval-true--location-none--show-output-true--tags-none-).
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-A [extensão de CLI do Azure para Machine Learning](reference-azure-machine-learning-cli.md) fornece o comando [AZ ml Workspace Private-Endpoint Add](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace/private-endpoint?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_private_endpoint_add) .
+A [extensão de CLI do Azure para Machine Learning](reference-azure-machine-learning-cli.md) fornece o comando [AZ ml Workspace Private-Endpoint Add](/cli/azure/ext/azure-cli-ml/ml/workspace/private-endpoint?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_private_endpoint_add) .
 
 ```azurecli
 az ml workspace private-endpoint add -w myworkspace  --pe-name myprivateendpoint --pe-auto-approval true --pe-vnet-name myvnet
@@ -129,7 +130,7 @@ Use um dos seguintes métodos para remover um ponto de extremidade privado de um
 
 # <a name="python"></a>[Python](#tab/python)
 
-Use [Workspace.delete_private_endpoint_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#delete-private-endpoint-connection-private-endpoint-connection-name-) para remover um ponto de extremidade privado.
+Use [Workspace.delete_private_endpoint_connection](/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#delete-private-endpoint-connection-private-endpoint-connection-name-) para remover um ponto de extremidade privado.
 
 ```python
 from azureml.core import Workspace
@@ -142,11 +143,11 @@ ws.delete_private_endpoint_connection(private_endpoint_connection_name=connectio
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-A [extensão de CLI do Azure para Machine Learning](reference-azure-machine-learning-cli.md) fornece o comando [AZ ml Workspace Private-Endpoint Delete](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace/private-endpoint?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_private_endpoint_delete) .
+A [extensão de CLI do Azure para Machine Learning](reference-azure-machine-learning-cli.md) fornece o comando [AZ ml Workspace Private-Endpoint Delete](/cli/azure/ext/azure-cli-ml/ml/workspace/private-endpoint?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_private_endpoint_delete) .
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-No espaço de trabalho Azure Machine Learning no portal, selecione __conexões de ponto de extremidade privadas__e, em seguida, selecione o ponto de extremidade que você deseja remover. Por fim, selecione __remover__.
+No espaço de trabalho Azure Machine Learning no portal, selecione __conexões de ponto de extremidade privadas__ e, em seguida, selecione o ponto de extremidade que você deseja remover. Por fim, selecione __remover__.
 
 ---
 
@@ -157,7 +158,32 @@ Como a comunicação com o espaço de trabalho só é permitida a partir da rede
 > [!IMPORTANT]
 > Para evitar a interrupção temporária da conectividade, a Microsoft recomenda liberar o cache DNS em computadores que se conectam ao espaço de trabalho depois de habilitar o link privado. 
 
-Para obter informações sobre máquinas virtuais do Azure, consulte a [documentação sobre máquinas virtuais](/azure/virtual-machines/).
+Para obter informações sobre máquinas virtuais do Azure, consulte a [documentação sobre máquinas virtuais](../virtual-machines/index.yml).
+
+## <a name="enable-public-access"></a>Habilitar acesso público
+
+Depois de configurar um espaço de trabalho com um ponto de extremidade privado, você pode opcionalmente habilitar o acesso público ao espaço de trabalho. Isso não remove o ponto de extremidade privado. Ele habilita o acesso público além do acesso privado. Para habilitar o acesso público a um espaço de trabalho habilitado para vínculo privado, use as seguintes etapas:
+
+# <a name="python"></a>[Python](#tab/python)
+
+Use [Workspace.delete_private_endpoint_connection](/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#delete-private-endpoint-connection-private-endpoint-connection-name-) para remover um ponto de extremidade privado.
+
+```python
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+ws.update(allow_public_access_when_behind_vnet=True)
+```
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+A [extensão de CLI do Azure para Machine Learning](reference-azure-machine-learning-cli.md) fornece o comando [AZ ml Workspace Update](/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_update) . Para habilitar o acesso público ao espaço de trabalho, adicione o parâmetro `--allow-public-access true` .
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Atualmente, não há nenhuma maneira de habilitar essa funcionalidade usando o Portal.
+
+---
 
 
 ## <a name="next-steps"></a>Próximas etapas

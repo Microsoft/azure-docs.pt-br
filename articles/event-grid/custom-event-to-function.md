@@ -3,12 +3,12 @@ title: 'Início Rápido: Enviar eventos personalizados para a Função do Azure 
 description: 'Início Rápido: Use a Grade de Eventos do Azure e a CLI do Azure ou o portal para publicar um tópico e assinar esse evento. Uma Função do Azure é usada para o ponto de extremidade.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: aea52bcaa94d6f288e86e44e1a0f294796d8e4a3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4fe4753de41443a0537636933364c7b69b25cb27
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91324358"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791720"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Início Rápido: Rotear eventos personalizados para uma Função do Azure com a Grade de Eventos
 
@@ -19,14 +19,14 @@ A Grade de Eventos do Azure é um serviço de eventos para a nuvem. O Azure Func
 ## <a name="create-azure-function"></a>Criar Função do Azure
 Antes de assinar o tópico personalizado, crie uma função para a lidar com os eventos. 
 
-1. Crie um aplicativo de funções usando instruções de [Criar um aplicativo de funções](../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
+1. Crie um aplicativo de funções usando instruções de [Criar um aplicativo de funções](../azure-functions/functions-get-started.md).
 2. Crie uma função usando o **Gatilho da Grade de Eventos**. Selecione Se esta for a primeira vez que você usa esse gatilho, talvez seja necessário clicar em 'Instalar' para instalar a extensão.
     1. Na página **Aplicativo de Funções**, selecione **Funções** no menu à esquerda, pesquise **Grade de Eventos** em modelos e escolha **Gatilho da Grade de Eventos do Azure**. 
 
         :::image type="content" source="./media/custom-event-to-function/function-event-grid-trigger.png" alt-text="Selecionar gatilho da Grade de Eventos":::
 3. Na página **Nova Função**, insira um nome para a função e selecione **Criar Função**.
 
-    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="Selecionar gatilho da Grade de Eventos":::
+    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="Página Nova Função":::
 4. Use a página **Código + Teste** para ver o código existente para a função e atualizá-lo. 
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
@@ -46,7 +46,7 @@ Um tópico de grade de evento fornece um ponto de extremidade definido pelo usu�
 4. Na página **Criar Tópico**, siga estas etapas:
 
     1. Informe um **nome** exclusivo para o tópico personalizado. O nome do tópico deve ser exclusivo, pois é representado por uma entrada DNS. Não use o nome mostrado na imagem. Em vez disso, crie seu próprio nome – ele deve ter entre 3 e 50 caracteres e conter apenas valores a-z, A-Z, 0-9 e "-".
-    2. Selecione sua **assinatura**do Azure.
+    2. Selecione sua **assinatura** do Azure.
     3. Selecione o mesmo grupo de recursos das etapas anteriores.
     4. Selecione um **local** para o tópico de grade de eventos.
     5. Mantenha o valor padrão **Esquema de Grade de Eventos** para o campo **Esquema de Eventos**. 
@@ -88,7 +88,7 @@ Você assina um tópico da grade de eventos para indicar à Grade de Eventos qua
     
         O envio em lote pode fornecer uma alta taxa de transferência. Para **Máximo de eventos por lote**, defina o número máximo de eventos que uma assinatura incluirá em um lote. O tamanho de lote preferencial define o limite superior preferencial do tamanho do lote em quilobytes, mas poderá ser excedido se um evento for maior do que esse limite.
     
-        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Selecionar gatilho da Grade de Eventos":::
+        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Habilitar o envio em lote":::
     6. Na página **Criar Assinatura de Evento**, selecione **Criar**.
 
 ## <a name="send-an-event-to-your-topic"></a>Enviar um evento para o tópico

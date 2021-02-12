@@ -5,11 +5,11 @@ author: ecfan
 ms.author: estfan
 ms.date: 06/06/2020
 ms.openlocfilehash: 1113201941ce0757b58e361c08c9d79d7dd374cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84449015"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999562"
 ---
 Quando você adiciona um gatilho ou uma ação que se conecta a um serviço ou sistema pela primeira vez, o Designer do Aplicativo Lógico solicita que você crie uma *conexão* fornecendo as informações necessárias, que variam de acordo com a conexão. Por exemplo:
 

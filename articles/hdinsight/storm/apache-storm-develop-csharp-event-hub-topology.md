@@ -1,19 +1,16 @@
 ---
 title: Processar eventos de Hubs de Eventos com o Storm – Azure HDInsight
 description: Saiba como processar dados de Hubs de Eventos do Azure com uma topologia Storm C# criada no Visual Studio usando as ferramentas do HDInsight para Visual Studio.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dac56059455a75f4d64a698c416dc22793432bc8
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4393c6797f5a164a063b55f8994d7d37d278f3c4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545592"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929195"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Processar eventos dos Hubs de Eventos do Azure com o Apache Storm no HDInsight (C#)
 
@@ -43,10 +40,10 @@ A Microsoft fornece um conjunto de componentes Java que podem ser usados para co
 
 Os componentes a seguir são usados neste exemplo:
 
-* __EventHubSpout__ : lê dados nos Hubs de Eventos.
-* __EventHubBolt__ : grava dados nos Hubs de Eventos.
-* __EventHubSpoutConfig__ : usado para configurar EventHubSpout.
-* __EventHubBoltConfig__ : usado para configurar EventHubBolt.
+* __EventHubSpout__: lê dados nos Hubs de Eventos.
+* __EventHubBolt__: grava dados nos Hubs de Eventos.
+* __EventHubSpoutConfig__: usado para configurar EventHubSpout.
+* __EventHubBoltConfig__: usado para configurar EventHubBolt.
 
 ### <a name="example-spout-usage"></a>Exemplo de uso do spout
 
@@ -68,7 +65,7 @@ O exemplo anterior cria um novo componente spout chamado __EventHubSpout__ e o c
 
 ### <a name="example-bolt-usage"></a>Exemplo de uso de bolt
 
-Use o método **JavaComponmentConstructor** para criar uma instância do parafuso. O exemplo a seguir demonstra como criar e configurar uma nova instância do **EventHubBolt** :
+Use o método **JavaComponmentConstructor** para criar uma instância do parafuso. O exemplo a seguir demonstra como criar e configurar uma nova instância do **EventHubBolt**:
 
 ```csharp
 // Java construcvtor for the Event Hub Bolt
@@ -99,7 +96,7 @@ Você pode baixar uma versão completa do projeto criado neste artigo do [GitHub
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster do Apache Storm no HDInsight. Confira [Criar clusters Apache Hadoop usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Storm** como **Tipo de cluster** .
+* Um cluster do Apache Storm no HDInsight. Confira [Criar clusters Apache Hadoop usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Storm** como **Tipo de cluster**.
 
 * Um [Hub de eventos do Azure](../../event-hubs/event-hubs-create.md).
 
@@ -122,16 +119,16 @@ Crie um diretório chamado `eventhubspout` e salve o arquivo no diretório.
 
 Hubs de Eventos é a fonte de dados para este exemplo. Use as informações na seção “Criar um hub de eventos” de [Introdução a Hubs de Eventos](../../event-hubs/event-hubs-create.md).
 
-1. Depois de criar o hub de eventos, exiba as configurações de **EventHub** no Portal do Azure e selecione **Políticas de acesso compartilhado** . Selecione **+ Adicionar** para criar as seguintes políticas:
+1. Depois de criar o hub de eventos, exiba as configurações de **EventHub** no Portal do Azure e selecione **Políticas de acesso compartilhado**. Selecione **+ Adicionar** para criar as seguintes políticas:
 
-   | Name | Permissões |
+   | Nome | Permissões |
    | --- | --- |
    | gravador |Enviar |
    | leitor |Escutar |
 
     ![Captura de tela da janela Políticas de acesso compartilhadas](./media/apache-storm-develop-csharp-event-hub-topology/share-access-policies.png)
 
-2. Selecione as políticas **leitor** e **gravador** . Copie e salve o valor de chave primária de ambas as políticas, pois esses valores serão usados posteriormente.
+2. Selecione as políticas **leitor** e **gravador**. Copie e salve o valor de chave primária de ambas as políticas, pois esses valores serão usados posteriormente.
 
 ## <a name="configure-the-eventhubwriter"></a>Configurar o EventHubWriter
 
@@ -139,41 +136,41 @@ Hubs de Eventos é a fonte de dados para este exemplo. Use as informações na s
 
 2. Baixe a solução de [eventhub-storm-hybrid](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub).
 
-3. Abra **EventHubExample. sln** . No projeto **EventHubWriter** , abra o arquivo **App.config** . Use as informações do hub de eventos que você configurou antes para preencher o valor das seguintes chaves:
+3. Abra **EventHubExample. sln**. No projeto **EventHubWriter**, abra o arquivo **App.config**. Use as informações do hub de eventos que você configurou antes para preencher o valor das seguintes chaves:
 
    | Chave | Valor |
    | --- | --- |
-   | EventHubPolicyName |gravador (se você usou um nome diferente para a política com a permissão *Enviar* , use-o.) |
+   | EventHubPolicyName |gravador (se você usou um nome diferente para a política com a permissão *Enviar*, use-o.) |
    | EventHubPolicyKey |A chave para a política de gravador. |
    | EventHubNamespace |O namespace que contém o seu hub de eventos. |
    | EventHubName |O nome do hub de eventos. |
    | EventHubPartitionCount |O número de partições no seu hub de eventos. |
 
-4. Salve e feche o arquivo **App.config** .
+4. Salve e feche o arquivo **App.config**.
 
 ## <a name="configure-the-eventhubreader"></a>Configurar o EventHubReader
 
-1. Abra o projeto **EventHubReader** .
+1. Abra o projeto **EventHubReader**.
 
-2. Abra o arquivo **App.config** para o **EventHubReader** . Use as informações do hub de eventos que você configurou antes para preencher o valor das seguintes chaves:
+2. Abra o arquivo **App.config** para o **EventHubReader**. Use as informações do hub de eventos que você configurou antes para preencher o valor das seguintes chaves:
 
    | Chave | Valor |
    | --- | --- |
-   | EventHubPolicyName |leitor (se você usou um nome diferente para a política com a permissão *Escutar* , use-o.) |
+   | EventHubPolicyName |leitor (se você usou um nome diferente para a política com a permissão *Escutar*, use-o.) |
    | EventHubPolicyKey |A chave para a política de leitor. |
    | EventHubNamespace |O namespace que contém o seu hub de eventos. |
    | EventHubName |O nome do hub de eventos. |
    | EventHubPartitionCount |O número de partições no seu hub de eventos. |
 
-3. Salve e feche o arquivo **App.config** .
+3. Salve e feche o arquivo **App.config**.
 
 ## <a name="deploy-the-topologies"></a>Implantar as topologias
 
-1. Em **Gerenciador de soluções** , clique com o botão direito do mouse no projeto **EventHubReader** e selecione **Enviar para o Storm no HDInsight** .
+1. Em **Gerenciador de soluções**, clique com o botão direito do mouse no projeto **EventHubReader** e selecione **Enviar para o Storm no HDInsight**.
 
     ![Captura de tela do Gerenciador de Soluções, com Enviar para Storm no HDInsight realçado](./media/apache-storm-develop-csharp-event-hub-topology/submit-to-apache-storm.png)
 
-2. Na caixa de diálogo **Enviar Topologia** caixa de diálogo, selecione seu **Cluster Storm** . Expanda **Configurações Adicionais** , selecione **Caminhos de Arquivo Java** , selecione **…** e selecione o diretório que contém o arquivo JAR baixado anteriormente. Por fim, clique em **Enviar** .
+2. Na caixa de diálogo **Enviar Topologia** caixa de diálogo, selecione seu **Cluster Storm**. Expanda **Configurações Adicionais**, selecione **Caminhos de Arquivo Java**, selecione **…** e selecione o diretório que contém o arquivo JAR baixado anteriormente. Por fim, clique em **Enviar**.
 
     ![Captura de tela da caixa de diálogo Enviar Topologia](./media/apache-storm-develop-csharp-event-hub-topology/submit-storm-topology.png)
 
@@ -181,17 +178,17 @@ Hubs de Eventos é a fonte de dados para este exemplo. Use as informações na s
 
     ![Captura de tela do Visualizador de Topologias do Storm](./media/apache-storm-develop-csharp-event-hub-topology/storm-topology-viewer.png)
 
-4. No **Gerenciador de Soluções** , clique com o botão direito do mouse no projeto **EventHubWriter** e escolha **Enviar para o Storm no HDInsight** .
+4. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **EventHubWriter** e escolha **Enviar para o Storm no HDInsight**.
 
-5. Na caixa de diálogo **Enviar Topologia** caixa de diálogo, selecione seu **Cluster Storm** . Expanda **Configurações Adicionais** , selecione **Caminhos de Arquivo Java** , selecione **…** e selecione o diretório que contém o arquivo JAR baixado anteriormente. Por fim, clique em **Enviar** .
+5. Na caixa de diálogo **Enviar Topologia** caixa de diálogo, selecione seu **Cluster Storm**. Expanda **Configurações Adicionais**, selecione **Caminhos de Arquivo Java**, selecione **…** e selecione o diretório que contém o arquivo JAR baixado anteriormente. Por fim, clique em **Enviar**.
 
 6. Depois que a topologia tiver sido enviada, atualize a lista de topologia no **Visualizador de Topologias Storm** para verificar se ambas estão em execução no cluster.
 
-7. No **Visualizador de topologias Storm** , selecione a topologia **EventHubReader** .
+7. No **Visualizador de topologias Storm**, selecione a topologia **EventHubReader** .
 
 8. Para abrir o resumo do componente para o parafuso, clique duas vezes no componente **LogBolt** no diagrama.
 
-9. Na seção **Executores** , selecione um dos links na coluna **Porta** . Isso exibe as informações registradas pelo componente. As informações registradas no log são semelhantes ao texto a seguir:
+9. Na seção **Executores**, selecione um dos links na coluna **Porta**. Isso exibe as informações registradas pelo componente. As informações registradas no log são semelhantes ao texto a seguir:
 
     ```output
     2017-03-02 14:51:29.255 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,255 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1830978598,"deviceId":"8566ccbc-034d-45db-883d-d8a31f34068e"}
@@ -201,7 +198,7 @@ Hubs de Eventos é a fonte de dados para este exemplo. Use as informações na s
 
 ## <a name="stop-the-topologies"></a>Interromper as topologias
 
-Para interromper as topologias, selecione cada topologia no **Visualizador de Topologia Storm** e clique em **Eliminar** .
+Para interromper as topologias, selecione cada topologia no **Visualizador de Topologia Storm** e clique em **Eliminar**.
 
 ![Captura de tela do Visualizador de Topologia do Storm, com o botão Encerrar realçado](./media/apache-storm-develop-csharp-event-hub-topology/kill-storm-topology1.png)
 

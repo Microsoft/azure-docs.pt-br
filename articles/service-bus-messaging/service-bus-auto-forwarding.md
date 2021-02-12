@@ -2,18 +2,21 @@
 title: Encaminhamento automático de entidades de mensagens do barramento de serviço do Azure
 description: Este artigo descreve como encadear uma fila ou assinatura do barramento de serviço do Azure para outra fila ou tópico.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 01/20/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8f5f93f65871c0b9658a75264ab959dbae7fefe7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80bef52d568130fa800a1da661f4867abb3df02c
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819576"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678981"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Encadeando entidades do Barramento de Serviço com o encaminhamento automático
 
 O recurso *encaminhamento automático* do Barramento de Serviço permite encadear uma fila ou assinatura a outra fila ou outro tópico que faz parte do mesmo namespace. Quando o encaminhamento automático está habilitado, o Barramento de Serviço remove automaticamente as mensagens colocadas na primeira fila ou assinatura (origem) e as coloca na segunda fila ou no segundo tópico (destino). Ainda é possível enviar uma mensagem diretamente para a entidade de destino.
+
+> [!NOTE]
+> A camada básica do barramento de serviço não dá suporte ao recurso de encaminhamento automático. As camadas Standard e Premium oferecem suporte ao recurso. Para conferir as diferenças entre essas camadas, consulte [preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ## <a name="using-autoforwarding"></a>Usar o encaminhamento automático
 

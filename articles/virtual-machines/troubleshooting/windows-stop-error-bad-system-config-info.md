@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: 7d1233c97ec80d5a2efa8b53c68e9e07a823165d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8d501bcc745ef19d15564951b8c0f29f9e2678ab
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977024"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661299"
 ---
 # <a name="windows-stop-error---0x00000074-bad-system-config-info"></a>Erro de parada do Windows-informações de configuração do sistema inadequadas do 0x00000074
 
@@ -30,11 +30,11 @@ Este artigo fornece etapas para resolver problemas em que o Windows não pode in
 Ao usar o [diagnóstico de inicialização](./boot-diagnostics.md) para exibir a captura de tela da VM, você verá que a captura de tela exibe o código de parada do Windows **#0x00000074** ou **BAD_SYSTEM_CONFIG_INFO**.
 
 *Seu PC encontrou um problema e precisa ser reiniciado. Você pode reiniciar o.* 
- *Para obter mais informações sobre esse problema e as possíveis correções, visite http://windows.com/stopcode * 
+ *Para obter mais informações sobre esse problema e as possíveis correções, visite http://windows.com/stopcode* 
  *Se você chamar uma pessoa de suporte, forneça estas informações:* 
  *Código de parada: BAD_SYSTEM_CONFIG_INFO*
 
-  ![O código Stop do Windows 0x00000074, que também é mostrado como "BAD_SYSTEM_CONFIG_INFO". O Windows informa ao usuário que seu computador encontrou um problema e precisa ser reiniciado.](./media/windows-stop-error-bad-system-config-info/1.png)
+  ![O código Stop do Windows 0x00000074, que também é mostrado como "BAD_SYSTEM_CONFIG_INFO". O Windows informa ao usuário que seu computador encontrou um problema e precisa ser reiniciado.](./media/windows-stop-error-bad-system-config-info/stop-code-0x00000074.png)
 
 ## <a name="cause"></a>Causa
 
@@ -48,13 +48,16 @@ O código de **BAD_SYSTEM_CONFIG_INFO** Stop ocorrerá se o hive do registro do 
 
 ### <a name="process-overview"></a>Visão geral do processo:
 
+> [!TIP]
+> Se você tiver um backup recente da VM, poderá tentar [restaurar a VM do backup](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema de inicialização.
+
 1. Criar e acessar uma VM de reparo.
 1. Verifique se há danos no hive.
 1. Habilitar o console serial e a coleção de despejo de memória.
 1. Recompilar a VM.
 
-> [!NOTE]
-> Ao encontrar esse erro, o sistema operacional convidado (SO) não está operacional. Você solucionará problemas no modo offline para resolver esse problema.
+   > [!NOTE]
+   > Ao encontrar esse erro, o sistema operacional convidado (SO) não está operacional. Você solucionará problemas no modo offline para resolver esse problema.
 
 ### <a name="create-and-access-a-repair-vm"></a>Criar e acessar uma VM de reparo
 
@@ -63,8 +66,8 @@ O código de **BAD_SYSTEM_CONFIG_INFO** Stop ocorrerá se o hive do registro do 
 1. Use Conexão de Área de Trabalho Remota para se conectar à VM de reparo.
 1. Copie a `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` pasta e salve-a em sua partição de disco íntegra ou em outro local seguro. Faça backup dessa pasta como precaução, pois você editará arquivos de registro críticos. 
 
-> [!NOTE]
-> Faça uma cópia da `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` pasta como um backup, caso precise reverter as alterações feitas no registro.
+   > [!NOTE]
+   > Faça uma cópia da `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` pasta como um backup, caso precise reverter as alterações feitas no registro.
 
 ### <a name="check-for-hive-corruption"></a>Verificar corrupção do hive
 
@@ -77,7 +80,7 @@ As instruções a seguir ajudarão você a determinar se a causa foi devido à c
 
    1. Se o hive não for aberto, ou se estiver vazio, o hive será corrompido. Se o hive estiver corrompido, [abra um tíquete de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-     ![Ocorre um erro informando que o editor do registro não pode carregar o hive.](./media/windows-stop-error-bad-system-config-info/2.png)
+      ![Ocorre um erro informando que o editor do registro não pode carregar o hive.](./media/windows-stop-error-bad-system-config-info/cannot-load-hive-error.png)
 
    1. Se o hive for aberto normalmente, o hive não foi fechado corretamente. Continue na etapa 5.
 
@@ -92,7 +95,7 @@ As instruções a seguir ajudarão você a determinar se a causa foi devido à c
 
    **Habilite o console serial**:
    
-   ```
+   ```ps
    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON 
    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
    ```
@@ -105,13 +108,13 @@ As instruções a seguir ajudarão você a determinar se a causa foi devido à c
 
    **Carregar o Hive do Registro do disco do sistema operacional danificado:**
 
-   ```
+   ```ps
    REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM
    ```
 
    **Habilitar em ControlSet001:**
 
-   ```
+   ```ps
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f 
@@ -119,7 +122,7 @@ As instruções a seguir ajudarão você a determinar se a causa foi devido à c
 
    **Habilitar em ControlSet002:**
 
-   ```
+   ```ps
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f 
@@ -127,7 +130,7 @@ As instruções a seguir ajudarão você a determinar se a causa foi devido à c
 
    **Descarregar disco do sistema operacional danificado:**
 
-   ```
+   ```ps
    REG UNLOAD HKLM\BROKENSYSTEM
    ```
    

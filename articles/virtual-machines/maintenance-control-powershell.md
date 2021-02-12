@@ -5,18 +5,18 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 01/31/2020
+ms.date: 11/19/2020
 ms.author: cynthn
-ms.openlocfilehash: efd35cfe2660f4597ec0c95dc29bcb4b839da680
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cc935e81e867609159b5c150b6ee7c346bb9f8e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306932"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026141"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Controlar atualizações com controle de manutenção e Azure PowerShell
 
-O controle de manutenção permite que você decida quando aplicar atualizações às VMs isoladas e aos hosts dedicados do Azure. Este tópico aborda as opções de Azure PowerShell para o controle de manutenção. Para obter mais informações sobre os benefícios de usar o controle de manutenção, suas limitações e outras opções de gerenciamento, consulte [gerenciando atualizações de plataforma com o controle de manutenção](maintenance-control.md).
+O controle de manutenção permite que você decida quando aplicar atualizações de plataforma à infraestrutura de host de suas VMs isoladas e hosts dedicados do Azure. Este tópico aborda as opções de Azure PowerShell para o controle de manutenção. Para obter mais informações sobre os benefícios de usar o controle de manutenção, suas limitações e outras opções de gerenciamento, consulte [gerenciando atualizações de plataforma com o controle de manutenção](maintenance-control.md).
  
 ## <a name="enable-the-powershell-module"></a>Habilitar o módulo do PowerShell
 
@@ -67,15 +67,9 @@ Você pode consultar as configurações de manutenção disponíveis usando [Get
 Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 ```
 
-### <a name="create-a-maintenance-configuration-with-scheduled-window-in-preview"></a>Criar uma configuração de manutenção com a janela agendada (em versão prévia)
+### <a name="create-a-maintenance-configuration-with-scheduled-window"></a>Criar uma configuração de manutenção com a janela agendada
 
-
-> [!IMPORTANT]
-> O recurso de janela agendada está atualmente em visualização pública.
-> Esta versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
-> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Use New-AzMaintenanceConfiguration para criar uma configuração de manutenção com uma janela agendada quando o Azure aplicar as atualizações em seus recursos. Este exemplo cria uma configuração de manutenção chamada myconfig com uma janela agendada de 5 horas na quarta segunda-feira de cada mês. Depois de criar uma janela agendada, você não precisa mais aplicar as atualizações manualmente.
+Você também pode declarar uma janela agendada quando o Azure aplicará as atualizações em seus recursos. Este exemplo cria uma configuração de manutenção chamada myconfig com uma janela agendada de 5 horas na quarta segunda-feira de cada mês. Depois de criar uma janela agendada, você não precisa mais aplicar as atualizações manualmente.
 
 ```azurepowershell-interactive
 $config = New-AzMaintenanceConfiguration `
@@ -91,8 +85,11 @@ $config = New-AzMaintenanceConfiguration `
 > [!IMPORTANT]
 > A **duração** da manutenção deve ser de *2 horas* ou mais. A **recorrência** de manutenção deve ser definida para pelo menos ocorrer uma vez em 35 dias.
 
-A **recorrência** da manutenção pode ser expressa como agendamentos diários, semanais ou mensais. Os exemplos de agendamento diários são recurEvery: Day, recurEvery: 3Days. Os exemplos de agendamento semanal são recurEvery: 3Weeks, recurEvery: Week sábado, domingo. Os exemplos de agendamento mensal são recurEvery: mês day23, day24, recurEvery: mês, último domingo, recurEvery: mês quarta segunda-feira.
-
+A **recorrência** da manutenção pode ser expressa como diária, semanal ou mensal. Alguns exemplos são:
+ - **Daily**-RecurEvery "Day" **ou** "3Days" 
+ - **Weekly**-RecurEvery "3Weeks" **ou** "Week sábado, domingo" 
+ - **mensal**-RecurEvery "mês day23, day24" **ou** "mês, último domingo" **ou** "mês quarta-feira"  
+      
 
 ## <a name="assign-the-configuration"></a>Atribuir a configuração
 

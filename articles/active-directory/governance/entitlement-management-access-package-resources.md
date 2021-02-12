@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 12/14/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b6e2ac9d80c1c3bf76b4a3d4c44f0654100670f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82247ae9817e5ff2e26d0862230654021876406b
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89567411"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223249"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Alterar funções de recurso para um pacote de acesso no gerenciamento de direitos do Azure AD
 
@@ -144,7 +144,13 @@ O Azure AD pode atribuir automaticamente acesso de usuários a um site do ShareP
 
 1. Na página **adicionar funções de recurso ao pacote de acesso** , clique em **sites do SharePoint** para abrir o painel selecionar sites do SharePoint Online.
 
-1. Selecione os sites do SharePoint Online que você deseja incluir no pacote de acesso.
+    :::image type="content" source="media/entitlement-management-access-package-resources/sharepoint-multigeo-portal.png" alt-text="Pacote de acesso-adicionar funções de recurso-selecionar sites do SharePoint-exibição do portal":::
+
+1. Se você tiver [várias geografias](https://docs.microsoft.com/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365?view=o365-worldwide) habilitadas para o SharePoint, selecione o ambiente do qual deseja selecionar sites.
+    
+    :::image type="content" source="media/entitlement-management-access-package-resources/sharepoint-multigeo-select.png" alt-text="Pacote de acesso-adicionar funções de recurso-selecionar sites de várias regiões do SharePoint":::
+
+1. Se várias regiões geográficas não estiverem habilitadas, você não precisará selecionar um ambiente. Selecione os sites do SharePoint Online que você deseja incluir no pacote de acesso.
 
     ![Pacote de acesso-adicionar funções de recurso-selecionar sites do SharePoint Online](./media/entitlement-management-access-package-resources/sharepoint-site-select.png)
 

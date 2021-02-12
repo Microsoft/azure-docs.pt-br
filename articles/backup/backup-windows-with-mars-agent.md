@@ -3,12 +3,12 @@ title: Fazer backup de computadores Windows usando o agente MARS
 description: Use o agente de Serviços de Recuperação do Microsoft Azure (MARS) para fazer backup de computadores Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: d2cdd5d1fa98462a70d72fd9f8723685952b665a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54932192d61633da55657e2ba57adf4e30c4fbc7
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90052215"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702761"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Fazer backup de arquivos e pastas do Windows Server no Azure
 
@@ -104,7 +104,7 @@ Para fazer uma transferência offline:
 1. Grave os dados de backup em um local de preparo.
 1. Use a ferramenta AzureOfflineBackupDiskPrep para copiar os dados do local de preparo para um ou mais discos SATA.
 
-    A ferramenta cria um trabalho de importação do Azure. Para obter mais informações, consulte [o que é o serviço de importação/exportação do Azure](../storage/common/storage-import-export-service.md).
+    A ferramenta cria um trabalho de importação do Azure. Para obter mais informações, consulte [o que é o serviço de importação/exportação do Azure](../import-export/storage-import-export-service.md).
 1. Envie os discos SATA para um datacenter do Azure.
 
     No datacenter, os dados do disco são copiados para uma conta de armazenamento do Azure. O backup do Azure copia os dados da conta de armazenamento para o cofre e os backups incrementais são agendados.

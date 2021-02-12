@@ -1,7 +1,7 @@
 ---
 title: Coletar dados em seus modelos de produção
 titleSuffix: Azure Machine Learning
-description: Saiba como coletar dados de um modelo de Azure Machine Learning implantado
+description: Saiba como coletar dados de um modelo de Azure Machine Learning implantado em um cluster do AKS (serviço de kubernetes do Azure).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,15 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: 5a04e5a7136ac1a33766bf543a27ff7794498c26
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.custom: how-to, data4ml
+ms.openlocfilehash: fc890dbaf717d3eb9ec87afcb69c87e80c7f14bc
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996369"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680957"
 ---
 # <a name="collect-data-from-models-in-production"></a>Coletar dados de modelos em produção
-
-
 
 Este artigo mostra como coletar dados de um modelo de Azure Machine Learning implantado em um cluster do AKS (serviço de kubernetes do Azure). Os dados coletados são então armazenados no armazenamento de BLOBs do Azure.
 
@@ -67,11 +65,11 @@ O caminho para os dados de saída no blob segue esta sintaxe:
 
 - Você precisa de um cluster AKS. Para obter informações sobre como criar um e implantá-lo, consulte [como implantar e onde](how-to-deploy-and-where.md).
 
-- [Configure seu ambiente](how-to-configure-environment.md) e instale o [SDK de monitoramento de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
+- [Configure seu ambiente](how-to-configure-environment.md) e instale o [SDK de monitoramento de Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
 
 ## <a name="enable-data-collection"></a>Habilitar coleta de dados
 
-Você pode habilitar a [coleta de dados](https://docs.microsoft.com/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?view=azure-ml-py&preserve-view=true) independentemente do modelo implantado por meio de Azure Machine Learning ou outras ferramentas.
+Você pode habilitar a [coleta de dados](/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?preserve-view=true&view=azure-ml-py) independentemente do modelo implantado por meio de Azure Machine Learning ou outras ferramentas.
 
 Para habilitar a coleta de dados, você precisa:
 
@@ -118,6 +116,12 @@ Para habilitar a coleta de dados, você precisa:
 
 1. Para criar uma nova imagem e implantar o modelo de aprendizado de máquina, consulte [como implantar e onde](how-to-deploy-and-where.md).
 
+1. Adicione o pacote de Pip do ' Azure-Monitoring ' às Conda do ambiente do serviço Web:
+  ```Python
+    env = Environment('webserviceenv')
+    env.python.conda_dependencies = CondaDependencies.create(conda_packages=['numpy'],pip_packages=['azureml-defaults','azureml-monitoring','inference-schema[numpy-support]'])
+  ```
+
 
 ## <a name="disable-data-collection"></a>Desativar coleta de dados
 
@@ -153,7 +157,7 @@ Você pode escolher uma ferramenta de sua preferência para analisar os dados co
 
 1. Baixe e abra [Power bi desktop](https://www.powerbi.com).
 
-1. Selecione **obter dados** e selecione [**armazenamento de BLOBs do Azure**](https://docs.microsoft.com/power-bi/desktop-data-sources).
+1. Selecione **obter dados** e selecione [**armazenamento de BLOBs do Azure**](/power-bi/desktop-data-sources).
 
     [![Power BI configuração de BLOB](./media/how-to-enable-data-collection/PBIBlob.png)](././media/how-to-enable-data-collection/PBIBlob.png#lightbox)
 
@@ -187,7 +191,7 @@ Você pode escolher uma ferramenta de sua preferência para analisar os dados co
 
 ### <a name="analyze-model-data-using-azure-databricks"></a><a id="databricks"></a> Analisar dados de modelo usando Azure Databricks
 
-1. Crie um [espaço de trabalho Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
+1. Crie um [espaço de trabalho Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal).
 
 1. Vá para seu workspace do Databricks.
 

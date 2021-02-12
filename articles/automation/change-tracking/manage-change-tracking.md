@@ -3,14 +3,14 @@ title: Controle de Alterações e Inventário na Automação do Azure
 description: Este artigo informa como usar o Controle de Alterações e Inventário para controlar as alterações de software e de serviço da Microsoft em seu ambiente.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 10/14/2020
+ms.date: 12/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: a599bb6f07683540f5b12c6a69d6565161f89a4f
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 636dbf95567f761aee19bd567b0835173ce36ccc
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209485"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093614"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Gerenciar Controle de Alterações e Inventário
 
@@ -59,6 +59,13 @@ Use as etapas a seguir para configurar o controle de arquivos em computadores Wi
     |Recursão     | True se a recursão for usada ao procurar o item a ser rastreado e, caso contrário, False.        |    
     |Carregar conteúdo do arquivo | True para carregar o conteúdo do arquivo em alterações controladas e, caso contrário, False.|
 
+    Se você planeja configurar o monitoramento de arquivos e pastas usando curingas, considere o seguinte:
+
+    - Caracteres curinga são necessários para acompanhar vários arquivos.
+    - Os curingas só podem ser usados no último segmento de um caminho, como *C:\folder\file* ou */etc/*. conf *
+    - Se uma variável de ambiente incluir um caminho que não é válido, a validação terá êxito, mas o caminho falhará quando o inventário for executado.
+    - Ao definir o caminho, evite caminhos gerais como *c:*. * *, que resultará em muitas pastas sendo percorridas.
+
 8. Certifique-se de especificar True para **Carregar o conteúdo do arquivo**. Essa configuração habilita o controle de conteúdo do arquivo para o caminho de arquivo indicado.
 
 ### <a name="configure-file-tracking-on-linux"></a>Configurar o controle de arquivos no Linux
@@ -67,7 +74,7 @@ Use as etapas a seguir para configurar o acompanhamento de arquivo em computador
 
 1. Selecione **Editar configurações** (o símbolo de engrenagem).
 
-2. Na página configuração do espaço de trabalho, selecione **arquivos do Linux**e, em seguida, selecione **+ Adicionar** para adicionar um novo arquivo a ser acompanhado.
+2. Na página configuração do espaço de trabalho, selecione **arquivos do Linux** e, em seguida, selecione **+ Adicionar** para adicionar um novo arquivo a ser acompanhado.
 
 3. Na página **Adicionar arquivo do Linux para controle de alterações** , insira as informações para o arquivo ou diretório a ser acompanhado e, em seguida, selecione **salvar**. A tabela a seguir define as propriedades que você pode usar para as informações.
 
@@ -92,6 +99,7 @@ Use as etapas a seguir para configurar o acompanhamento de arquivo em computador
 O controle de conteúdo de arquivo permite que você exiba o conteúdo de um arquivo antes e depois de uma alteração controlada. O recurso salva o conteúdo do arquivo em uma [conta de armazenamento](../../storage/common/storage-account-overview.md) após a ocorrência de cada alteração. Aqui estão algumas regras a serem seguidas para controlar o conteúdo do arquivo:
 
 * Uma conta de armazenamento Standard usando o modelo de implantação do Resource Manager é necessária para armazenar o conteúdo do arquivo.
+* Por padrão, as contas de armazenamento aceitam conexões de clientes em qualquer rede. Se você protegeu sua conta de armazenamento para permitir apenas determinado tráfego, precisará modificar suas regras de configuração para permitir que sua conta de automação se conecte a ela. Consulte [configurar redes virtuais e firewalls de armazenamento do Azure](../../storage/common/storage-network-security.md).
 * Não use contas de armazenamento do modelo de implantação Premium e Clássico. Consulte [Sobre as contas de Armazenamento do Azure](../../storage/common/storage-account-create.md).
 * Você pode conectar a conta de armazenamento a apenas uma conta de automação.
 * Controle de Alterações e inventário devem ser habilitados em sua conta de automação.
@@ -138,7 +146,7 @@ Use as etapas a seguir para configurar as chaves do registro para acompanhamento
 
 3. Selecione **+ Adicionar** para adicionar uma nova chave do registro a ser controlada.
 
-4. Na página **adicionar registro do Windows para controle de alterações** , insira as informações da chave a ser controlada e, em seguida, selecione **salvar**. A tabela a seguir define as propriedades que você pode usar para as informações.
+4. Na página **adicionar registro do Windows para controle de alterações** , insira as informações da chave a ser controlada e, em seguida, selecione **salvar**. A tabela a seguir define as propriedades que você pode usar para as informações. Ao especificar um caminho de registro, ele deve ser a chave e não um valor.
 
     |Propriedade  |Descrição  |
     |---------|---------|

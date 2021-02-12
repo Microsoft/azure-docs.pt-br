@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: v-demjoh
 keywords: reconhecimento de intenção
-ms.openlocfilehash: 0d718459e0fd0ea410232d3a165b560aa8c59cd1
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 215b25e440b8cad76e0656e47d32b184edf4ac66
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174627"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018694"
 ---
 # <a name="what-is-intent-recognition"></a>O que é o reconhecimento de intenção?
 
@@ -29,7 +29,7 @@ Usando o reconhecimento de intenção, seus aplicativos, ferramentas e dispositi
 
 * O LUIS integra-se ao serviço de Fala para reconhecer intenções de fala. Você não precisa de uma assinatura do serviço de Fala, apenas do LUIS.
 * O reconhecimento da intenção de fala é integrado ao SDK. Você pode usar uma chave LUIS com o serviço de fala.
-* O reconhecimento de intenção por meio do SDK de fala é [oferecido em um subconjunto de regiões com suporte do Luis](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#intent-recognition).
+* O reconhecimento de intenção por meio do SDK de fala é [oferecido em um subconjunto de regiões com suporte do Luis](./regions.md#intent-recognition).
 
 ## <a name="get-started"></a>Introdução
 
@@ -39,8 +39,8 @@ Consulte o guia de [início rápido](quickstarts/intent-recognition.md) para com
 
 Código de exemplo para reconhecimento de intenção:
 
-* [Início Rápido: usar aplicativo de automação Inicial predefinido](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app)
-* [Reconhecer as intenções da fala usando o SDK de Fala para C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp)
+* [Início Rápido: usar aplicativo de automação Inicial predefinido](../luis/luis-get-started-create-app.md)
+* [Reconhecer as intenções da fala usando o SDK de Fala para C#](./how-to-recognize-intents-from-speech-csharp.md)
 * [Reconhecimento de intenção e outros serviços de fala usando o Unity em C #](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/unity/speechrecognizer)
 * [Reconhecer tentativas usando o SDK de fala para Python](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/console)
 * [Reconhecimento de intenção e outros serviços de fala usando o SDK de fala para C++ no Windows](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/windows/console)
@@ -49,7 +49,7 @@ Código de exemplo para reconhecimento de intenção:
 
 ## <a name="reference-docs"></a>Documentos de Referência
 
-* [SDK da fala](speech-sdk-reference.md)
+* [SDK da fala](./speech-sdk.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

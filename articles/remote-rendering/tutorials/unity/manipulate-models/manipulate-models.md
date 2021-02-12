@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d9a7d7db93e00b9fcccab08522b3363935badf26
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 48c835070329b5cb0892b10760d37708e46bfa1d
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203833"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559126"
 ---
 # <a name="tutorial-manipulating-models"></a>Tutorial: Manipular modelos
 
@@ -176,7 +176,7 @@ Este tutorial está usando o MRTK para a interação de objeto. A maioria da imp
 1. Pressione o botão Reproduzir do Unity para reproduzir a cena e abra o menu **Ferramentas do Modelo** dentro do **AppMenu**.
 ![Controlador de exibição](./media/model-with-view-controller.png)
 
-O **AppMenu** tem um submenu **Ferramentas do Modelo** que implementa um controlador de exibição para associação com o modelo. Quando o GameObject contiver um componente **RemoteBounds**, o controlador de exibição adicionará um componente [**BoundingBox**](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_BoundingBox.html), que é um componente MRTK que renderiza uma caixa delimitadora em torno de um objeto com um **BoxCollider**. Um [**ObjectManipulator**](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/api/Microsoft.MixedReality.Toolkit.Experimental.UI.ObjectManipulator.html?q=ObjectManipulator), que é responsável por interações de mão. Esses scripts combinados permitirão mover, girar e dimensionar o modelo renderizado remotamente.
+O **AppMenu** tem um submenu **Ferramentas do Modelo** que implementa um controlador de exibição para associação com o modelo. Quando o GameObject contiver um componente **RemoteBounds**, o controlador de exibição adicionará um componente [**BoundingBox**](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_BoundingBox.html), que é um componente MRTK que renderiza uma caixa delimitadora em torno de um objeto com um **BoxCollider**. Um [**ObjectManipulator**](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/api/Microsoft.MixedReality.Toolkit.UI.ObjectManipulator.html), que é responsável por interações de mão. Esses scripts combinados permitirão mover, girar e dimensionar o modelo renderizado remotamente.
 
 1. Mova seu mouse para o painel Jogo e clique dentro dele para focalizá-lo.
 1. Usando a [simulação de mão do MRTK](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/InputSimulation/InputSimulationService.html#hand-simulation), pressione e mantenha pressionada a tecla Shift esquerda.
@@ -308,7 +308,7 @@ O método `OnPointerClicked` de **RemoteRayCastPointerHandler** é chamado pelo 
 
 O envio de solicitações para a conversão de raios em clique é uma estratégia eficiente para consultar objetos remotos. No entanto, não é uma experiência de usuário ideal porque o cursor colide com o colisor de caixa, não o próprio modelo.
 
-Você também pode criar um ponteiro MRTK que converte os raios dele na sessão remota com mais frequência. Embora essa seja uma abordagem mais complexa, a experiência do usuário seria melhor. Essa estratégia está fora do escopo deste tutorial, mas um exemplo dessa abordagem pode ser visto no Aplicativo de Demonstração, encontrado no [repositório de exemplos do ARR](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/AzureRemoteRenderingShowcase).
+Você também pode criar um ponteiro MRTK que converte os raios dele na sessão remota com mais frequência. Embora essa seja uma abordagem mais complexa, a experiência do usuário seria melhor. Essa estratégia está fora do escopo deste tutorial, mas um exemplo dessa abordagem pode ser visto no Aplicativo de Demonstração, encontrado no [repositório de exemplos do ARR](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/Showcase).
 
 Quando uma conversão de raios é concluída com êxito no **RemoteRayCastPointerHandler**, a `Entity` de impacto é emitida do evento Unity `OnRemoteEntityClicked`. Para responder a esse evento, criaremos um script auxiliar que aceita o `Entity` e executa uma ação sobre ele. Vamos começar obtendo o script para imprimir o nome do `Entity` para o log de depuração.
 

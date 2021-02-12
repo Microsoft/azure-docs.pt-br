@@ -4,65 +4,77 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/11/2020
 ms.author: nikuklic
-ms.openlocfilehash: 009bd57fdb82b8463352da8dc63c9aeebceab09b
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 2f884a09e6b51b1c72034a62eaea601a4e69ecd2
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91779526"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98024280"
 ---
 [!INCLUDE [Emergency Calling Notice](../../../includes/emergency-calling-notice-include.md)]
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Um recurso dos Serviços de Comunicação implantado. [Crie um recurso dos Serviços de Comunicação](../../create-communication-resource.md).
-- Um número de telefone adquirido no recurso dos Serviços de Comunicação. [como obter um número de telefone](../../telephony-sms/get-phone-number.md).
+- Um número de telefone adquirido no recurso Serviços de Comunicação. [como obter um número de telefone](../../telephony-sms/get-phone-number.md).
 - Um `User Access Token` para habilitar o cliente de chamada. Para obter mais informações sobre [como obter um `User Access Token`](../../access-tokens.md)
-- Conclua o guia de início rápido para [começar a adicionar chamadas ao seu aplicativo](../getting-started-with-calling.md)
 
-### <a name="prerequisite-check"></a>Verificação de pré-requisitos
 
-- Para exibir os números de telefone associados ao seu recurso dos Serviços de Comunicação, entre no [portal do Azure](https://portal.azure.com/), localize o recurso em questão e abra a guia **números de telefone** no painel de navegação esquerdo.
-- Você pode compilar e executar seu aplicativo com a biblioteca de clientes de Chamada dos Serviços de Comunicação do Azure para JavaScript:
+[!INCLUDE [Calling with JavaScript](./get-started-javascript-setup.md)]
 
-```console
-npx webpack-dev-server --entry ./client.js --output bundle.js
-```
-
-## <a name="setting-up"></a>Configurando
-
-### <a name="add-pstn-functionality-to-your-app"></a>Adicionar a funcionalidade de PSTN ao seu aplicativo
-
-Estenda seu layout com controles de discagem telefônica.
-
-Coloque este código no final da seção `<body />` de **index.html**, antes das marcas `<script />`:
+O código é o seguinte:
 
 ```html
-<input 
-  id="callee-phone-input"
-  type="text"
-  placeholder="Phone number you would like to dial"
-  style="margin-bottom:1em; width: 230px;"
-/>
-<div>
-  <button id="call-phone-button" type="button">
-    Start Phone Call
-  </button>
-  &nbsp;
-  <button id="hang-up-phone-button" type="button" disabled="true">
-    Hang Up Phone Call
-  </button>
-</div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Communication Client - Calling Sample</title>
+  </head>
+  <body>
+    <h4>Azure Communication Services</h4>
+    <h1>Calling Quickstart</h1>
+    <input 
+      id="callee-phone-input"
+      type="text"
+      placeholder="Who would you like to call?"
+      style="margin-bottom:1em; width: 230px;"
+    />
+    <div>
+      <button id="call-phone-button" type="button">
+        Start Call
+      </button>
+      &nbsp;
+      <button id="hang-up-phone-button" type="button" disabled="true">
+        Hang Up
+      </button>
+    </div>
+    <script src="./bundle.js"></script>
+  </body>
+</html>
 ```
 
-Estenda a lógica do aplicativo com a funcionalidade de telefonia.
-
-Adicione este código a **client.js**:
+Crie um arquivo no diretório raiz do projeto chamado **client.js** para conter a lógica do aplicativo deste guia de início rápido. Adicione o código a seguir para importar o cliente de chamada e obter referências aos elementos DOM para que possamos anexar a nossa lógica de negócios.
 
 ```javascript
+import { CallClient, CallAgent } from "@azure/communication-calling";
+import { AzureCommunicationUserCredential } from '@azure/communication-common';
+
+let call;
+let callAgent;
+
 const calleePhoneInput = document.getElementById("callee-phone-input");
 const callPhoneButton = document.getElementById("call-phone-button");
 const hangUpPhoneButton = document.getElementById("hang-up-phone-button");
+
+async function init() {
+    const callClient = new CallClient();
+    const tokenCredential = new AzureCommunicationUserCredential('your-token-here');
+    callAgent = await callClient.createCallAgent(tokenCredential);
+  //  callButton.disabled = false;
+}
+
+init();
+
 ```
 
 ## <a name="start-a-call-to-phone"></a>Iniciar uma chamada para um telefone
@@ -79,9 +91,8 @@ callPhoneButton.addEventListener("click", () => {
   // start a call to phone
   const phoneToCall = calleePhoneInput.value;
   call = callAgent.call(
-    [{phoneNumber: phoneToCall}], { alternateCallerId: {phoneNumber: '+18336528005'}
+    [{phoneNumber: phoneToCall}], { alternateCallerId: {phoneNumber: 'YOUR AZURE REGISTERED PHONE NUMBER HERE: +12223334444'}
   });
-
   // toggle button states
   hangUpPhoneButton.disabled = false;
   callPhoneButton.disabled = true;
@@ -118,8 +129,7 @@ npx webpack-dev-server --entry ./client.js --output bundle.js
 
 Abra o navegador e navegue até `http://localhost:8080/`. Você deve ver o seguinte:
 
-
-![Captura de tela do Aplicativo JavaScript concluído.](../media/javascript/pstn-calling-javascript-app.png)
+:::image type="content" source="../media/javascript/pstn-calling-javascript-app.png" alt-text="Captura de tela do Aplicativo JavaScript concluído.":::
 
 Faça uma chamada para um número de telefone real fornecendo um número de telefone no campo de texto adicionado e clicando no botão **Iniciar Chamada Telefônica**.
 

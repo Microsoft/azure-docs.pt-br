@@ -16,12 +16,12 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39e483c5cdb7e5acc0677b0d0cf2b41c390eef0b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fb23e60539c704dac457ab6e8706ec0cfe350ed9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371555"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835315"
 ---
 # <a name="configure-azure-ad-custom-roles-in-privileged-identity-management"></a>Configurar funções personalizadas do Azure AD no Privileged Identity Management
 
@@ -64,9 +64,9 @@ Além disso, você pode escolher uma destas opções de duração da atribuiçã
 - **Permitir atribuição ativa permanente**: os administradores podem atribuir uma associação ativa permanente.
 - **Expirar atribuição ativa após**: os administradores podem exigir que todas as atribuições ativas tenham uma data de início e de término especificada.
 
-### <a name="require-azure-multi-factor-authentication"></a>Exigir autenticação multifator do Azure
+### <a name="require-azure-ad-multi-factor-authentication"></a>Exigir autenticação multifator do Azure AD
 
-O Privileged Identity Management fornece imposição opcional da Autenticação Multifator do Azure para dois cenários diferentes.
+Privileged Identity Management fornece imposição opcional da autenticação multifator do Azure AD para dois cenários distintos.
 
 - **Exigir Autenticação Multifator na atribuição ativa**
 
@@ -74,7 +74,7 @@ O Privileged Identity Management fornece imposição opcional da Autenticação 
 
 - **Exigir a Autenticação Multifator na ativação**
 
-  Você pode exigir que usuários qualificados atribuídos a uma função se inscrevam na Autenticação Multifator do Azure antes de poderem ativar. Esse processo garante que o usuário solicitando ativação seja quem diz ser com uma certeza razoável. A imposição dessa opção protege funções críticas em situações em que a conta do usuário pode ter sido comprometida. Para solicitar que um membro qualificado execute a Autenticação Multifator do Azure antes da ativação, marque a caixa **Exigir Autenticação Multifator na ativação**.
+  Você pode exigir que usuários qualificados sejam atribuídos a uma função para se registrarem na autenticação multifator do Azure AD antes que eles possam ser ativados. Esse processo garante que o usuário solicitando ativação seja quem diz ser com uma certeza razoável. A imposição dessa opção protege funções críticas em situações em que a conta do usuário pode ter sido comprometida. Para exigir um membro qualificado para executar a autenticação multifator do Azure AD antes da ativação, selecione a caixa **exigir autenticação multifator no modo de ativação** .
 
 Para saber mais, confira [Autenticação multifator e Privileged Identity Management](pim-how-to-require-mfa.md).
 

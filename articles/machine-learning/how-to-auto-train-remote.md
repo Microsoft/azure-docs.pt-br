@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, automl
 ms.date: 03/09/2020
-ms.openlocfilehash: 57108bed97b59513309213d55a0654f4405d509c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6d21acc685ba840b585ada43e59230fdd73787f
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90893319"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796373"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Treinar modelos com o aprendizado de máquina automatizado na nuvem
 
@@ -43,7 +43,7 @@ ws = Workspace.from_config()
 
 ## <a name="create-resource"></a>Criar recurso
 
-Crie o [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py&preserve-view=true) destino em seu espaço de trabalho ( `ws` ) se ele ainda não existir.
+Crie o [`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?preserve-view=true&view=azure-ml-py) destino em seu espaço de trabalho ( `ws` ) se ele ainda não existir.
 
 **Tempo estimado**: a criação do destino AmlCompute leva aproximadamente 5 minutos.
 
@@ -90,7 +90,7 @@ As restrições de nome de cluster incluem:
 
 ## <a name="access-data-using-tabulardataset-function"></a>Acessar dados usando a função TabularDataset
 
-Definido training_data como [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) e o rótulo, que são passados para ml automatizado no [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) . O `TabularDataset` método `from_delimited_files` , por padrão, define o `infer_column_types` como true, o que inferirá o tipo de colunas automaticamente. 
+Definido training_data como [`TabularDataset`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) e o rótulo, que são passados para ml automatizado no [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) . O `TabularDataset` método `from_delimited_files` , por padrão, define o `infer_column_types` como true, o que inferirá o tipo de colunas automaticamente. 
 
 Se você deseja definir manualmente os tipos de coluna, pode definir o `set_column_types` argumento para definir manualmente o tipo de cada coluna. No exemplo de código a seguir, os dados vêm do pacote sklearn.
 
@@ -159,7 +159,7 @@ Agora, envie a configuração para selecionar automaticamente o algoritmo, os hi
 
 ```python
 from azureml.core.experiment import Experiment
-experiment = Experiment(ws, 'automl_remote')
+experiment = Experiment(ws, 'Tutorial-automl-remote')
 remote_run = experiment.submit(automl_config, show_output=True)
 ```
 
@@ -200,7 +200,7 @@ BEST: The best observed score thus far.
 
 ## <a name="explore-results"></a>Explorar os resultados
 
-Você pode usar o mesmo [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true) , conforme mostrado no [tutorial de treinamento](tutorial-auto-train-models.md#explore-the-results) para ver um gráfico e uma tabela de resultados.
+Você pode usar o mesmo [widget Jupyter](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) , conforme mostrado no [tutorial de treinamento](tutorial-auto-train-models.md#explore-the-results) para ver um gráfico e uma tabela de resultados.
 
 ```python
 from azureml.widgets import RunDetails
@@ -220,7 +220,7 @@ Se você não estiver em um notebook Jupyter, poderá exibir a URL da própria e
 remote_run.get_portal_url()
 ```
 
-As mesmas informações estão disponíveis no seu espaço de trabalho.  Para saber mais sobre esses resultados, confira [entender os resultados automatizados do Machine Learning](how-to-understand-automated-ml.md).
+As mesmas informações estão disponíveis no seu espaço de trabalho.  Para saber mais sobre esses resultados, confira [avaliar os resultados automatizados do Machine Learning](how-to-understand-automated-ml.md).
 
 ## <a name="example"></a>Exemplo
 

@@ -3,21 +3,98 @@ title: Faturas do Registro Enterprise do Azure
 description: Este artigo explica como gerenciar e usar sua fatura do Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2020
+ms.date: 01/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: fec013395af9aeb3d83f86ab47cc52b3fedd7a1f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 90ae9bdcee5f5f4c4281f2c3f931389b2ebf9486
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316130"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598070"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Faturas do Registro Enterprise do Azure
 
 Este artigo explica como gerenciar e usar sua fatura do Azure EA (Contrato Enterprise do Azure). A fatura é uma representação de sua conta. Examine sua precisão. Conheça outras tarefas que podem ser necessárias para gerenciar sua fatura.
+
+## <a name="view-usage-summary-and-download-reports"></a>Exibir resumo de uso e baixar relatórios
+
+Os administradores corporativos podem exibir um resumo dos dados de uso, do pagamento antecipado do Azure consumido e das cobranças associadas ao uso adicional no Azure Enterprise Portal. As cobranças são apresentadas no nível do resumo em todas as contas e assinaturas.
+
+Para exibir o uso detalhado de contas específicas, baixe o relatório de detalhes de uso:
+
+1. Entre no Azure Enterprise Portal.
+1. Selecione **Relatórios**.
+1. Selecione a guia **Baixar Uso**.
+1. Na lista de relatórios, selecione **Baixar** para o relatório mensal que deseja obter.
+
+   > [!NOTE]
+   > O relatório de detalhe de uso não inclui as tributos incidentes.
+   >
+   > Pode haver uma latência de até oito horas do momento em que o uso foi feito até ser refletido no relatório.
+
+Para exibir os relatórios e os grafos de resumo de uso:
+
+1. Entre no Azure Enterprise Portal.
+1. Selecione uma condição de Pagamento antecipado.
+   Para alterar o intervalo de datas do **Resumo de Uso**, você pode alternar de **M** (mensal) para **C** (personalizado) no canto superior direito da página e, em seguida, inserir as datas de início e término personalizadas.  
+   ![Criar e exibir o resumo de uso e baixar relatórios no modo de exibição personalizado](./media/ea-portal-enrollment-invoices/create-ea-view-usage-summary-and-download-reports-custom-view.png)
+1. Para exibir detalhes adicionais, selecione um período ou mês no gráfico.
+   - O gráfico mostra o uso mês a mês com um detalhamento do uso utilizado, os encargos adicionais de serviço, os encargos cobrados separadamente e os encargos do Azure Marketplace.
+   - Para o mês selecionado, use os campos abaixo do gráfico para filtrar por departamentos, contas e assinaturas.
+   - Você pode alternar entre **Cobrar por Serviços** e **Cobrar por Hierarquia**.
+   - Veja os detalhes de **Serviço do Azure**, dos **Encargos Cobrados Separadamente** e do **Azure Marketplace** expandindo as seções pertinentes.
+
+Assista a este vídeo para ver como exibir o uso:
+
+> [!VIDEO https://www.youtube.com/embed/Cv2IZ9QCn9E]
+
+### <a name="download-csv-reports"></a>Baixar relatórios CSV
+
+Os administradores corporativos usam a página de Download de Relatório Mensal para baixar vários relatórios como arquivos CSV:
+
+- Saldo e preço
+- Detalhes de uso
+- Encargos do Azure Marketplace
+- Tabela de preços
+
+Para baixar relatórios:
+
+1. No Azure Enterprise Portal, selecione **Relatórios**.
+2. Selecione **Baixar Uso** na parte superior da página.
+3. Selecione **Baixar** ao lado do relatório do mês.
+
+   > [!NOTE]
+   > Pode haver uma latência de até 72 horas entre a data em que o uso ocorreu e o momento em que ele é mostrado nos relatórios.
+   >
+   > Os usuários que baixarem arquivos CSV com o Safari para Excel poderão encontrar erros de formatação. Para evitar erros, abra o arquivo usando um editor de texto.
+
+![Exemplo mostrando a página Baixar Uso](./media/ea-portal-enrollment-invoices/create-ea-download-csv-reports.png)
+
+Assista a este vídeo para ver como baixar informações de uso:
+
+> [!VIDEO https://www.youtube.com/embed/eY797htT1qg]
+
+### <a name="advanced-report-download"></a>Download do relatório avançado
+
+Você pode usar o download de relatório avançado para obter relatórios que abrangem intervalos de datas ou contas específicas. O arquivo de saída está no formato CSV para acomodar grandes conjuntos de registros.
+
+1. No Azure Enterprise Portal, selecione **Download de Relatório Avançado**.
+1. Selecione um intervalo de datas e as contas apropriadas.
+1. Escolha **Solicitar dados de uso**.
+1. Selecione o botão **Atualizar** até que o status do relatório seja atualizado para **Baixar**.
+1. Baixe o relatório.
+
+### <a name="download-usage-reports-and-billing-information-for-a-prior-enrollment"></a>Baixar relatórios de uso e informações de cobrança de um registro anterior
+
+Você pode baixar relatórios de uso e informações de cobrança para um registro anterior depois que uma transferência de registro tiver sido feita. Os relatórios históricos estão disponíveis no Azure Enterprise Portal e no gerenciamento de custos.
+
+O Azure Enterprise Portal filtra os registros inativos, deixando-os fora da exibição. Você precisará desmarcar a caixa de **Ativo** para exibir registros transferidos inativos.  
+
+![Desmarcar a caixa Ativo permite que o usuário veja registros inativos](./media/ea-portal-enrollment-invoices/unchecked-active-box.png)
 
 ## <a name="change-a-po-number-for-an-upcoming-overage-invoice"></a>Alterar o número da OC de uma fatura de excedente a vencer
 
@@ -96,7 +173,7 @@ Os tributos incidentes são calculados somente sobre o valor líquido que excede
 
 O faturamento excedente é automatizado. O cronograma das notificações e das faturas depende da data de término do seu período de cobrança.
 
-- A notificação de excedente geralmente é enviada sete dias após a data de término da cobrança.
+- A notificação de excedente normalmente é enviada sete dias após a data de término da cobrança.
 - As faturas de excedentes são enviadas de sete a nove dias após a notificação.
 - Você pode examinar as cobranças e atualizar os números de OC gerados pelo sistema durante os sete dias entre a notificação de excedente e o faturamento.
 
@@ -161,7 +238,7 @@ Confira [serviços do Azure](https://azure.microsoft.com/services/) e [preços d
 
 ### <a name="enterprise-agreement-units-of-measure"></a>Unidades de medida do Contrato Enterprise
 
-As unidades de medida para Contratos Enterprise costumam ser diferentes daquelas utilizadas em nossos outros programas, como o programa MOSA (Contrato do Microsoft Online Services). Essa diferença significa que, para vários serviços, a unidade de medida é agregada para fornecer os preços normalizados. A unidade de medida mostrada na exibição Resumo do Uso do Azure Enterprise Portal é sempre a medida do Enterprise. Apresentamos uma lista completa das unidades atuais de medida e conversões de cada serviço no arquivo Excel [Nomes de serviços amigáveis](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx).
+As unidades de medida para Contratos Enterprise costumam ser diferentes daquelas utilizadas em nossos outros programas, como o programa MOSA (Contrato do Microsoft Online Services). Essa diferença significa que, para vários serviços, a unidade de medida é agregada para fornecer os preços normalizados. A unidade de medida mostrada na exibição Resumo do Uso do Azure Enterprise Portal é sempre a medida do Enterprise. Uma lista completa de unidades de medida e conversões atuais para cada serviço é fornecida enviando uma [solicitação de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="conversion-between-usage-detail-report-and-the-usage-summary-page"></a>Conversão entre o relatório de detalhes de uso e a página de resumo de uso
 
@@ -219,7 +296,7 @@ O Pagamento Antecipado do Azure é um valor pago antecipadamente pelos serviços
 
 ### <a name="charges-billed-separately"></a>Cobranças arrecadadas separadamente
 
-Alguns produtos e serviços fornecidos por fontes de terceiros não consomem o pagamento antecipado do Azure. Ao invés disso, esses itens são cobrados separadamente como parte da fatura excedente do ciclo de cobrança padrão.
+Alguns produtos e serviços fornecidos por fontes de terceiros não consomem o Pagamento Antecipado do Azure. Ao invés disso, esses itens são cobrados separadamente como parte da fatura excedente do ciclo de cobrança padrão.
 
 Combinamos todas as cobranças do Azure e do Azure Marketplace em uma fatura que se alinha com o ciclo de cobrança do registro. A fatura combinada não se aplica aos clientes na Austrália, no Japão ou em Singapura.
 
@@ -248,13 +325,6 @@ Se a alteração do COCP (parceiro de canal) ocorrer no meio do mês, um cliente
 As faturas serão lançadas no mês posterior ao término do período de cobrança. Se o ritmo de cobrança for mensal, a fatura de setembro será lançada em outubro para ambos os parceiros. Se o ciclo de cobrança for trimestral ou anual, o cliente poderá esperar uma fatura do parceiro associado anterior pelo uso no período dele; o restante será para o novo parceiro, com base no ritmo de cobrança.
 
 ## <a name="next-steps"></a>Próximas etapas
-
-- Os seguintes arquivos do Excel fornecem detalhes sobre os serviços do Azure e são atualizados no sexto e no vigésimo dia de cada mês:
-
-   | Title | Descrição | Nome do arquivo |
-   | --- | --- | --- |
-   | [Nomes de serviços amigáveis](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Lista todos os serviços ativos e inclui: <br>  <ul><li>categoria de serviço</li>   <li>nome de serviço amigável</li>   <li>Nome do pagamento antecipado e número da peça</li> <li>nome do consumo e número da peça</li>   <li>unidades de medida</li>   <li>fatores de conversão entre o uso relatado e o uso exibido no Enterprise Portal</li></ul> | Nomes\_Serviços\_Amigáveis.xlsx |
-   | [Campos de download do serviço](https://azurepricing.blob.core.windows.net/supplemental/Service_Download_Fields.xlsx) | Esta planilha fornece uma lista de todas as combinações possíveis dos campos relacionados ao serviço no relatório Baixar uso. | Campos\_Download\_Serviço.xlsx |
 
 - Para saber mais sobre como funcionam as faturas e as cobranças, confira [Entender a fatura do Contrato Enterprise do Azure](../understand/review-enterprise-agreement-bill.md).
 - Para começar a usar o Azure Enterprise Portal, confira [Introdução ao Portal do EA do Azure](ea-portal-get-started.md).

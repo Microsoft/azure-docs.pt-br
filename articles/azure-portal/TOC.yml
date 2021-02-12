@@ -14,6 +14,8 @@
       href: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
     - name: Criar um painel
       items:
+        - name: CLI do Azure
+          href: quickstart-portal-dashboard-azure-cli.md
         - name: Azure PowerShell
           href: quickstart-portal-dashboard-powershell.md
         - name: Modelo de ARM
@@ -25,6 +27,7 @@
       href: azure-portal-dashboard-share-access.md
     - name: Criar programaticamente os painéis do Azure
       href: azure-portal-dashboards-create-programmatically.md
+      displayName: 'Azure CLI, az portal dashboard, az portal'
 - name: Guias de instruções
   items:
     - name: Gerenciar configurações e preferências do portal do Azure
@@ -67,8 +70,6 @@
       items:
         - name: Recuperar um painel excluído
           href: recover-shared-deleted-dashboard.md
-        - name: Solucionar problemas de assinatura com o SKU ou com uma região
-          href: supportability/sku-series-unavailable.md
         - name: Capturar um rastreamento de navegador para solucionar problemas
           href: capture-browser-trace.md
 - name: Referência
@@ -81,6 +82,9 @@
       href: azure-portal-dashboards-structure.md
     - name: CLI do Azure
       href: /cli/azure/ext/portal/portal
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Roteiro do Azure

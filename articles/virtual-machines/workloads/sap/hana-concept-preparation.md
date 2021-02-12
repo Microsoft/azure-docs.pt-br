@@ -7,18 +7,19 @@ author: saghorpa
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 89da6935d85628b5ce4ff762ad31d3f280682921
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7f0782738a8aa57b2bc0b87e1378972e3fa5d31c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424243"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967849"
 ---
 # <a name="disaster-recovery-principles"></a>Princípios da recuperação de desastres
 

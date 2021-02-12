@@ -1,21 +1,21 @@
 ---
 title: Conectar-se à instância de computação no Visual Studio Code (versão prévia)
 titleSuffix: Azure Machine Learning
-description: Saiba como se conectar a uma instância de computação Azure Machine Learning no Visual Studio Code
+description: Saiba como se conectar a uma instância de computação Azure Machine Learning no Visual Studio Code para executar cargas de trabalho de desenvolvimento Jupyter Notebook e remotas interativas.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.author: jmartens
-author: j-martens
-ms.date: 09/03/2020
-ms.openlocfilehash: 6ac116b315d4a11b51b37c5b51edf35aa0676713
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: luquinta
+author: luisquintanilla
+ms.date: 11/16/2020
+ms.openlocfilehash: 3f3794ed4748eda44e863ff4627dedc0a34691af
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708366"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070092"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Conectar-se a uma instância de computação Azure Machine Learning no Visual Studio Code (visualização)
 
@@ -41,7 +41,7 @@ Para se conectar a uma instância de computação:
 1. Quando a experiência do notebook integrado for carregada, selecione **servidor Jupyter**.
 
     > [!div class="mx-imgBorder"]
-    > ![Iniciar Azure Machine Learning menu suspenso do servidor Remote Jupyter Notebook](media/how-to-set-up-vs-code-remote/launch-server-selection-dropdown.png)
+    > ![Iniciar Azure Machine Learning lista suspensa do servidor de Jupyter Notebook remoto](media/how-to-set-up-vs-code-remote/launch-server-selection-dropdown.png)
 
     Como alternativa, você também usa a paleta de comandos:
 
@@ -58,7 +58,7 @@ Para se conectar a uma instância de computação:
 > [!IMPORTANT]
 > Você **deve** executar uma célula para estabelecer a conexão.
 
-Neste ponto, você pode continuar a executar células em seu notebook Jupyter.
+Neste ponto, você pode continuar a executar células em seu Jupyter Notebook.
 
 > [!TIP]
 > Você também pode trabalhar com arquivos de script do Python (. py) que contêm células de código do tipo Jupyter. Para obter mais informações, consulte a [documentação interativa do Visual Studio Code Python](https://code.visualstudio.com/docs/python/jupyter-support-py).
@@ -135,7 +135,7 @@ Aqui estão alguns detalhes sobre os campos:
 |Host|Use qualquer abreviação que desejar para a instância de computação |
 |HostName|Este é o endereço IP da instância de computação |
 |Porta|Esta é a porta mostrada na caixa de diálogo SSH acima |
-|Usuário|Isso precisa ser `azureuser` |
+|User|Isso precisa ser `azureuser` |
 |IdentityFile|Deve apontar para o arquivo em que você salvou a chave privada |
 
 Agora, você deve ser capaz de usar o ssh em sua instância de computação usando a abreviação usada acima, `ssh azmlci1` .

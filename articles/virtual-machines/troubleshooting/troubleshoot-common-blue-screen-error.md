@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: genli
-ms.openlocfilehash: b382efc4d283d64ce0f833bde9104fa2e3bc973a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a95ddf882e5edba9daa8ff91c02d1df1f50bceb
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87088529"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632969"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>O Windows mostra um erro de tela azul durante a inicialização de uma VM do Azure
 Este artigo descreve o erro de tela azul que você pode encontrar ao inicializar uma VM (Máquina Virtual) do Windows no Microsoft Azure. Ele fornece as etapas para ajudar você a coletar dados para um tíquete de suporte. 
@@ -41,6 +41,9 @@ Pode haver vários motivos para você receber um erro com parada. As causas mais
 - Um aplicativo acessa a um setor proibido da memória
 
 ## <a name="collect-memory-dump-file"></a>Coletar o arquivo de despejo de memória
+
+> [!TIP]
+> Se você tiver um backup recente da VM, poderá tentar [restaurar a VM do backup](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema de inicialização.
 
 Para resolver o problema, primeiro você precisaria coletar o arquivo de despejo da falha e entrar em contato com o suporte de posse do arquivo. Para coletar o arquivo de despejo, siga estas etapas:
 

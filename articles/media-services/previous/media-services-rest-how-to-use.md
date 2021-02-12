@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 84e94a431efdc84ff6896de416bd222120784899
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f48a01bb81829ff2bc10b4db1ed543382f992b58
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89264276"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696220"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Visão geral da API REST das operações dos Serviços de Mídia
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 A API **REST das Operações dos Serviços de Mídia** é usada para criar trabalhos, ativos, canais ao vivo e outros recursos em uma conta de Serviços de Mídia do Azure. Para saber mais, consulte [Referência da API REST das Operações dos Serviços de Mídia](/rest/api/media/operations/azure-media-services-rest-api-reference).
 
@@ -106,7 +106,7 @@ A seguir está uma lista completa de verbos HTTP que podem ser usados quando faz
 | GET |Retorna o valor atual de um objeto. |
 | POST |Cria um objeto com base nos dados fornecidos ou envia um comando. |
 | PUT |Substitui um objeto ou cria um objeto nomeado (quando aplicável). |
-| Delete (excluir) |Exclui um objeto. |
+| DELETE |Exclui um objeto. |
 | MESCLAR |Atualiza um objeto existente com alterações de propriedade nomeada. |
 | HEAD |Retorna metadados de um objeto para uma resposta GET. |
 

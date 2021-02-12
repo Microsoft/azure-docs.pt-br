@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e991fb0c60e8f08eb43cb7799027d4200263c9b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bac3f53def6db1038a6dd7e45d7933daa22df9f0
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89659539"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703845"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definir estratégia de proteção de dados para sua solução de identidade híbrida
 Nesta tarefa, você definirá uma estratégia de proteção de dados para sua solução de identidade híbrida a fim de atender aos requisitos de negócios definidos em:
@@ -37,7 +37,7 @@ Como foi explicado em [Determinar requisitos de sincronização de diretório](p
 
 Uma vez autenticado, o nome UPN pode ser lido do token de autenticação. Em seguida, o sistema de autorização determina a partição replicada e o contêiner correspondente ao domínio do usuário. As informações sobre a existência do usuário, o estado habilitado e a função ajudam o sistema de autorização a determinar se o acesso ao locatário de destino está autorizado para o usuário nessa sessão. Determinadas ações autorizadas (especificamente, criar usuários e redefinir senha) criam uma trilha de auditoria que um administrador locatário utiliza para gerenciar os esforços ou investigações de conformidade.
 
-Mover os dados do seu datacenter local no Armazenamento do Azure por uma conexão com a Internet nem sempre pode ser possível devido ao volume de dados, à disponibilidade da largura de banda ou a outras considerações. O [Serviço de Importação/Exportação do Armazenamento do Azure](../../storage/common/storage-import-export-service.md) fornece uma opção baseada em hardware para colocar/recuperar grandes volumes de dados no armazenamento de blob. Ele permite a você enviar discos rígidos [criptografados pelo BitLocker](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn306081(v=ws.11)#BKMK_BL2012R2) diretamente a um datacenter do Azure, onde os operadores de nuvem carregarão o conteúdo para a conta de armazenamento, ou eles podem fazer o download de seus dados do Azure nas unidades a serem retornadas para você. Somente discos criptografados são aceitos nesse processo (usando uma chave do BitLocker gerada pelo serviço durante a configuração do trabalho). A chave do BitLocker é fornecida ao Azure separadamente, oferecendo compartilhamento de chave fora da banda.
+Mover os dados do seu datacenter local no Armazenamento do Azure por uma conexão com a Internet nem sempre pode ser possível devido ao volume de dados, à disponibilidade da largura de banda ou a outras considerações. O [Serviço de Importação/Exportação do Armazenamento do Azure](../../import-export/storage-import-export-service.md) fornece uma opção baseada em hardware para colocar/recuperar grandes volumes de dados no armazenamento de blob. Ele permite a você enviar discos rígidos [criptografados pelo BitLocker](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn306081(v=ws.11)#BKMK_BL2012R2) diretamente a um datacenter do Azure, onde os operadores de nuvem carregarão o conteúdo para a conta de armazenamento, ou eles podem fazer o download de seus dados do Azure nas unidades a serem retornadas para você. Somente discos criptografados são aceitos nesse processo (usando uma chave do BitLocker gerada pelo serviço durante a configuração do trabalho). A chave do BitLocker é fornecida ao Azure separadamente, oferecendo compartilhamento de chave fora da banda.
 
 Uma vez que os dados em trânsito podem ocorrer em diferentes cenários, também é relevante saber que o Microsoft Azure usa uma [rede virtual](https://azure.microsoft.com/documentation/services/virtual-network/) para isolar o tráfego dos locatários uns dos outros, empregando medidas como firewalls no nível de convidado e host, filtragem de pacote IP, bloqueio de porta e pontos de extremidade HTTPS. No entanto, a maioria das comunicações internas do Azure, incluindo infraestrutura para infraestrutura e infraestrutura para cliente (local), também é criptografada. Outro cenário importante é a comunicação em datacenters do Azure. A Microsoft gerencia redes para garantir que nenhuma VM possa representar ou interceptar o endereço IP de outra. O TLS/SSL é usado no acesso ao Armazenamento do Azure ou Bancos de Dados SQL ou na conexão com os Serviços de Nuvem. Nesse caso, o administrador do cliente é responsável por obter um certificado TLS/SSL e implantá-lo em sua infraestrutura de locatário. O tráfego de dados que se movimenta entre máquinas virtuais na mesma implantação ou entre locatários em uma única implantação por meio da Rede Virtual do Microsoft Azure pode ser protegido por meio de protocolos de comunicação criptografada como HTTPS, SSL/TLS, entre outros.
 

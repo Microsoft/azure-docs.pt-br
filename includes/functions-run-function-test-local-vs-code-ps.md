@@ -4,18 +4,17 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/19/2020
 ms.author: glenga
-ms.openlocfilehash: ca8da227c97a44abe14354a5c530d508ce357884
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a5c113849296275432acf1f5603377a1909a2c04
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88703623"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96842338"
 ---
 ## <a name="run-the-function-locally"></a>Executar a função localmente
 
 O Azure Functions Core Tools é integrado ao Visual Studio Code para permitir que você execute e depure um projeto do Azure Functions localmente. Para obter detalhes sobre como depurar no Visual Studio Code, confira [Depurar o Azure Functions do PowerShell localmente](../articles/azure-functions/functions-debug-powershell-local.md). 
-
-1. Pressione F5 para iniciar o projeto de aplicativo de funções. A saída do Core Tools é exibida no painel **Terminal**.
+1. Para chamar sua função, pressione <kbd>F5</kbd> para iniciar o projeto de aplicativo de funções. A saída do Core Tools é exibida no painel **Terminal**. Se você tiver problemas com a execução no Windows, verifique se o terminal padrão do Visual Studio Code não está definido como **bash WSL**.
 
 1. No painel **Terminal**, copie o ponto de extremidade de URL da sua função disparada por HTTP.
 

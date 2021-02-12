@@ -1,5 +1,6 @@
 ---
-title: Configurar aplicativos da área de trabalho que chamam APIs da Web-plataforma Microsoft Identity | Azure
+title: Configurar aplicativos da área de trabalho que chamam APIs da Web | Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como configurar o código de um aplicativo de desktop que chama APIs da Web
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 56d2e01d35f25ac469e808a805382463d2b23ceb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b74c817a974378a7fefc71e4eed67e6564765be
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88121095"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756565"
 ---
 # <a name="desktop-app-that-calls-web-apis-code-configuration"></a>Aplicativo de área de trabalho que chama APIs da Web: configuração de código
 
@@ -261,5 +262,4 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Adquirir um token para um aplicativo de área de trabalho](scenario-desktop-acquire-token.md)
+Vá para o próximo artigo neste cenário, [adquira um token para o aplicativo da área de trabalho](scenario-desktop-acquire-token.md).

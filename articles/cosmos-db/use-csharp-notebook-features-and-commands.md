@@ -3,16 +3,17 @@ title: Usar comandos e recursos de notebook integrado nos notebooks C# do Azure 
 description: Saiba como usar comandos e recursos internos para realizar operações comuns usando os notebooks C# internos do Azure Cosmos DB.
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 5fab63a0a0a34cd0417eb0a891133ac256ef3ac0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 67fe71d8e2d6ab239989cb30e9bf5a1b4d731037
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099157"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340462"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-c-notebooks-preview"></a>Usar comandos e recursos de notebook integrado nos notebooks C# do Azure Cosmos DB (versão prévia)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -118,12 +119,12 @@ No exemplo *GetingStarted_Csharp.ipynb* , podemos imprimir a variável com nosso
 
 :::image type="content" source="media/use-notebook-features-and-commands/csharp-query-cell.png" alt-text="Célula de consulta do Csharp":::
 
-:::image type="content" source="media/use-notebook-features-and-commands/csharp-nteract-built-in-chart.png" alt-text="Célula de consulta do Csharp":::
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-nteract-built-in-chart.png" alt-text="Explorador de dados nteract":::
 
 ## <a name="use-built-in-dictionary-viewer"></a>Usar o visualizador de dicionário interno
 Você pode usar o visualizador de dicionário interno para exibir uma variável. Em uma célula, coloque a variável que você deseja visualizar na última linha, que será exibida automaticamente quando a célula for executada.
 
-:::image type="content" source="media/use-notebook-features-and-commands/csharp-built-in-dictionary-viewer.png" alt-text="Célula de consulta do Csharp":::
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-built-in-dictionary-viewer.png" alt-text="Visualizador de dicionário interno":::
 
 ## <a name="upload-json-items-to-a-container"></a>Carregar itens JSON em um contêiner
 Você pode usar o comando mágico ``%%upload`` para carregar dados de um arquivo JSON em um contêiner específico do Azure Cosmos. Use o comando a seguir para carregar os itens:
@@ -161,7 +162,7 @@ Substitua ``{notebookName}`` pelo nome do notebook que você deseja executar. O 
 ## <a name="reset-notebooks-workspace"></a>Restaurar espaço de trabalho de notebook
 Para restaurar as configurações padrão do espaço de trabalho de notebooks, selecione **Restaurar espaço de trabalho** na barra de comandos. Isso removerá todos os pacotes personalizados instalados e reiniciará o servidor Jupyter. Seus notebooks, arquivos e recursos de Cosmos do Azure não serão afetados.  
 
-:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Célula de consulta do Csharp":::
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Restaurar espaço de trabalho de notebook":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

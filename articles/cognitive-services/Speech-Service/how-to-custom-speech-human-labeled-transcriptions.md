@@ -10,18 +10,21 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 81b4ffc8f77673e52bb78f891e3de618b67e0d1b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85f239afd1b9263440abff1f924c12cdb7eeadaa
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74806055"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99560277"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Como criar transcrições com rótulo humano
 
 Se você estiver procurando melhorar a precisão do reconhecimento, especialmente os problemas causados quando palavras são excluídas ou substituídas incorretamente, você desejará usar transcrições com rótulo humano junto com seus dados de áudio. O que são transcrições com rótulo humano? É fácil, eles são palavras-por-palavra, transcrições textuais de um arquivo de áudio.
 
-Um exemplo grande de dados de transcrição é necessário para melhorar o reconhecimento, sugerimos fornecer entre 10 e 1.000 horas de dados de transcrição. Nesta página, examinaremos as diretrizes criadas para ajudá-lo a criar transcrições de alta qualidade. Este guia é dividido por localidade, com seções para inglês americano, mandarim chinês e alemão.
+Um exemplo grande de dados de transcrição é necessário para melhorar o reconhecimento, sugerimos fornecer entre 10 e 20 horas de dados de transcrição. Nesta página, examinaremos as diretrizes criadas para ajudá-lo a criar transcrições de alta qualidade. Este guia é dividido por localidade, com seções para inglês americano, mandarim chinês e alemão.
+
+> [!NOTE]
+> Nem todos os modelos de base dão suporte à personalização com arquivos de áudio. Se um modelo base não oferecer suporte a ele, o treinamento usará apenas o texto das transcrições da mesma maneira como o texto relacionado é usado.
 
 ## <a name="us-english-en-us"></a>Inglês dos EUA (en-US)
 
@@ -44,6 +47,8 @@ A normalização de texto é a transformação de palavras em um formato consist
 - Caracteres não alfabéticos ou caracteres alfanuméricos mistos devem ser transcritas como pronunciados.
 - Abreviações pronunciadas como palavras não devem ser editadas (como "radar", "laser", "RAM" ou "OTAN").
 - Escreva abreviações que são pronunciadas como letras separadas com cada letra separada por um espaço.
+- Se você usar áudio, transcrever números como palavras que correspondem ao áudio (por exemplo, "101" poderia ser pronunciado como "1 0 1" ou "101").
+- Evite repetir caracteres, palavras ou grupos de palavras mais de três vezes, como "Sim Sim Sim Sim". As linhas com essas repetições podem ser descartadas pelo serviço de fala.
 
 Aqui estão alguns exemplos de normalização que você deve executar na transcrição:
 
@@ -162,10 +167,14 @@ Aqui estão alguns exemplos de normalização executadas automaticamente na tran
 | ¡Eine Frage!     | eine frage               |
 | wir, haben       | wir haben                |
 
+### <a name="text-normalization-for-japanese"></a>Normalização de texto para japonês
+
+Em Japonês (ja-JP), há um comprimento máximo de 90 caracteres para cada sentença. Linhas com frases mais longas serão descartadas. Para adicionar mais texto, insira um período entre.
+
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Preparar e testar seus dados](how-to-custom-speech-test-data.md)
+- [Preparar e testar seus dados](./how-to-custom-speech-test-and-train.md)
 - [Inspecione seus dados](how-to-custom-speech-inspect-data.md)
 - [Avalie seus dados](how-to-custom-speech-evaluate-data.md)
 - [Treinar seu modelo](how-to-custom-speech-train-model.md)
-- [Implantar o seu modelo](how-to-custom-speech-deploy-model.md)
+- [Implantar o seu modelo](./how-to-custom-speech-train-model.md)

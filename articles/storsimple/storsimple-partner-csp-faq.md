@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 2f606a2ff036c6bc3b4e3c508632d48ae8d40f15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36b96581d98465b860b630fe2f9a8aa64cf0f64f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400036"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964925"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple do programa de provedor de soluções de nuvem: perguntas frequentes
 
@@ -59,7 +59,7 @@ StorSimple Array Virtual para o CSP está disponível em todos os mercados de on
 Há várias soluções:
 
 - Os parceiros podem revendê Array Virtual StorSimple. 
-- Os parceiros podem oferecer soluções criadas em torno de StorSimple e outros serviços do Azure ou software de terceiros. Para saber mais, examine algumas das possíveis [soluções existentes em torno de StorSimple](https://aka.ms/storsimple-build-solutions).
+- Os parceiros podem oferecer soluções criadas em torno de StorSimple e outros serviços do Azure ou software de terceiros. Para saber mais, examine algumas das possíveis [soluções existentes em torno de StorSimple](./storsimple-disaster-recovery-using-azure-site-recovery.md).
 - Eles também podem descobrir novos modelos de negócios ao fornecer serviços gerenciados.
 
 ### <a name="what-are-the-incentives-available-for-storsimple-csp-partners-do-i-qualify-for-any-csp-program-incentives"></a>Quais são os incentivos disponíveis para parceiros StorSimple CSP? São qualificadas para qualquer incentivos do programa CSP?

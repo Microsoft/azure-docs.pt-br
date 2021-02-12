@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: f90d84b5897175dbda0a24591893c4e41a06822a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5d7d232ada814d5d3c30e7b012c6289f847d641f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973573"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395080"
 ---
 # <a name="deploy-azure-sql-edge"></a>Implantar o SQL do Azure no Edge 
 
@@ -52,7 +52,7 @@ O Azure Marketplace é um marketplace online de aplicativos e serviços onde voc
 
 4. Na página **definir módulos no dispositivo:** , clique no módulo do Azure SQL Edge em **módulos IOT Edge**. O nome do módulo padrão é definido como *AzureSQLEdge*. 
 
-5. Na seção *configurações do módulo* da folha **Atualizar IOT Edge módulo** , especifique os valores desejados para *o nome do módulo IOT Edge*, *reinicie a política* e o *status desejado*. 
+5. Na seção *configurações do módulo* da folha **Atualizar IOT Edge módulo** , especifique os valores desejados para *o nome do módulo IOT Edge* , *reinicie a política* e o *status desejado*. 
 
    > [!IMPORTANT]    
    > Não altere nem atualize as configurações de **URI de imagem** no módulo.
@@ -112,7 +112,7 @@ O Azure Marketplace é um marketplace online de aplicativos e serviços onde voc
 
 ## <a name="connect-to-azure-sql-edge"></a>Conectar-se ao SQL do Azure no Edge
 
-As etapas a seguir usam a ferramenta de linha de comando do SQL do Azure no Edge, **sqlcmd**, dentro do contêiner para se conectar ao SQL do Azure no Edge.
+As etapas a seguir usam a ferramenta de linha de comando do SQL do Azure no Edge, **sqlcmd** , dentro do contêiner para se conectar ao SQL do Azure no Edge.
 
 > [!NOTE]      
 > As ferramentas de linha de comando do SQL (sqlcmd) não estão disponíveis na versão ARM64 dos contêineres do Azure SQL Edge.
@@ -132,7 +132,7 @@ As etapas a seguir usam a ferramenta de linha de comando do SQL do Azure no Edge
    > [!TIP]    
    > É possível omitir a senha na linha de comando para receber uma solicitação para inseri-la.
 
-3. Se isso funcionar, você será levado a um prompt de comando **sqlcmd**: `1>`.
+3. Se isso funcionar, você será levado a um prompt de comando **sqlcmd** : `1>`.
 
 ## <a name="create-and-query-data"></a>Criar e consultar dados
 
@@ -142,7 +142,7 @@ As seções a seguir descrevem como usar o **sqlcmd** e o Transact-SQL para cria
 
 As etapas a seguir criam um novo banco de dados denominado `TestDB`.
 
-1. No prompt de comando **sqlcmd**, cole o seguinte comando Transact-SQL para criar um banco de dados de teste:
+1. No prompt de comando **sqlcmd** , cole o seguinte comando Transact-SQL para criar um banco de dados de teste:
 
    ```sql
    CREATE DATABASE TestDB
@@ -160,7 +160,7 @@ As etapas a seguir criam um novo banco de dados denominado `TestDB`.
 
 Em seguida, crie uma nova tabela, `Inventory`, e insira duas novas linhas.
 
-1. No prompt de comando **sqlcmd**, altere o contexto para o novo banco de dados `TestDB`:
+1. No prompt de comando **sqlcmd** , altere o contexto para o novo banco de dados `TestDB`:
 
    ```sql
    USE TestDB
@@ -188,7 +188,7 @@ Em seguida, crie uma nova tabela, `Inventory`, e insira duas novas linhas.
 
 Agora, execute uma consulta para retornar da tabela `Inventory`.
 
-1. No prompt de comando **sqlcmd**, digite uma consulta que retorna linhas de tabela `Inventory` em que a quantidade é maior que 152:
+1. No prompt de comando **sqlcmd** , digite uma consulta que retorna linhas de tabela `Inventory` em que a quantidade é maior que 152:
 
    ```sql
    SELECT * FROM Inventory WHERE quantity > 152;
@@ -202,7 +202,7 @@ Agora, execute uma consulta para retornar da tabela `Inventory`.
 
 ### <a name="exit-the-sqlcmd-command-prompt"></a>Saia do prompt de comando sqlcmd
 
-1. Para encerrar a sessão **sqlcmd**, digite `QUIT`:
+1. Para encerrar a sessão **sqlcmd** , digite `QUIT`:
 
    ```sql
    QUIT
@@ -212,7 +212,7 @@ Agora, execute uma consulta para retornar da tabela `Inventory`.
 
 ## <a name="connect-from-outside-the-container"></a> Conectar-se de fora do contêiner
 
-Você pode conectar e executar consultas SQL em sua instância do Azure SQL Edge de qualquer ferramenta externa do Linux, Windows ou macOS que ofereça suporte a conexões SQL. Para obter mais informações sobre como se conectar a um contêiner do SQL no Edge externamente, confira [Conectar e consultar o SQL do Azure no Edge](https://docs.microsoft.com/azure/azure-sql-edge/connect).
+Você pode conectar e executar consultas SQL em sua instância do Azure SQL Edge de qualquer ferramenta externa do Linux, Windows ou macOS que ofereça suporte a conexões SQL. Para obter mais informações sobre como se conectar a um contêiner do SQL no Edge externamente, confira [Conectar e consultar o SQL do Azure no Edge](./connect.md).
 
 Neste início rápido, você implantou um módulo do SQL no Edge em um dispositivo IoT Edge. 
 

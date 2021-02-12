@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 8554a78112d197ef8174ac9d18147d301745165e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c1d9b813db15900521968865c1036d53ad53f41
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83652166"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544778"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Monitorar e solucionar problemas de um aplicativo de armazenamento de nuvem
 
@@ -43,7 +43,7 @@ Em **Configurações de diagnóstico (clássico)** , defina **Status** para **At
 
 Quando concluir, clique em **Salvar**
 
-![Painel Diagnósticos](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
+![Captura de tela que realça a seção que contém as definições de configuração para ativar o registro em log e as métricas.](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
 
 ## <a name="enable-alerts"></a>Habilitar alertas
 
@@ -83,11 +83,11 @@ A imagem a seguir é um exemplo de alerta que é baseado em falha simulada execu
 
 Os logs de repositório armazenam dados em um conjunto de blobs em um contêiner de blob denominado **$logs** em sua conta de armazenamento. Este contêiner não será exibido se você listar todos os contêineres de blob em sua conta, mas você poderá ver o conteúdo dele se acessá-lo diretamente.
 
-Nesse cenário, você usa o [Analisador de Mensagens da Microsoft](https://technet.microsoft.com/library/jj649776.aspx) para interagir com a conta de Armazenamento do Azure.
+Nesse cenário, você usa o [Analisador de Mensagens da Microsoft](/message-analyzer/microsoft-message-analyzer-operating-guide) para interagir com a conta de Armazenamento do Azure.
 
 ### <a name="download-microsoft-message-analyzer"></a>Baixar Analisador de Mensagens da Microsoft
 
-Baixe o [Analisador de Mensagens da Microsoft](https://docs.microsoft.com/message-analyzer/installing-and-upgrading-message-analyzer) e instale o aplicativo.
+Baixe o [Analisador de Mensagens da Microsoft](/message-analyzer/installing-and-upgrading-message-analyzer) e instale o aplicativo.
 
 Inicie o aplicativo e escolha **Arquivo** > **Abrir** > **De Outras Fontes de Arquivo**.
 
@@ -97,7 +97,7 @@ Na caixa de diálogo **Seletor de Arquivos**, selecione **+ Adicionar Conexão d
 
 Quando você estiver conectado, expanda os contêineres no modo de exibição de árvore de armazenamento para exibir os blobs de log. Selecione o log mais recente e clique em **OK**.
 
-![Analisador de Mensagens da Microsoft – caixa de diálogo Adicionar Conexão do Armazenamento do Azure](media/storage-monitor-troubleshoot-storage-application/figure4.png)
+![Captura de tela que mostra o Analisador de Mensagens da Microsoft e realça o arquivo de log selecionado.](media/storage-monitor-troubleshoot-storage-application/figure4.png)
 
 Na caixa de diálogo **Nova Sessão**, clique em **Iniciar** para exibir o log.
 

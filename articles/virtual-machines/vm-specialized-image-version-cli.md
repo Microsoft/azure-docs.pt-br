@@ -10,16 +10,16 @@ ms.date: 04/23/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 478413132a09334c6b5fe6e4d7c4c31c988cd38d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dedefcd18a2860bbcae9a0ac6b5b07550d9cbf3f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87501041"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881933"
 ---
 # <a name="create-a-vm-using-a-specialized-image-version-with-the-azure-cli"></a>Criar uma VM usando uma versão de imagem especializada com o CLI do Azure
 
-Crie uma VM com base em uma [versão de imagem especializada](./linux/shared-image-galleries.md#generalized-and-specialized-images) armazenada em uma galeria de imagens compartilhada. Se desejar criar uma VM usando uma versão de imagem generalizada, consulte [criar uma VM com base em uma versão de imagem generalizada](vm-generalized-image-version-cli.md).
+Crie uma VM com base em uma [versão de imagem especializada](./shared-image-galleries.md#generalized-and-specialized-images) armazenada em uma galeria de imagens compartilhada. Se desejar criar uma VM usando uma versão de imagem generalizada, consulte [criar uma VM com base em uma versão de imagem generalizada](vm-generalized-image-version-cli.md).
 
 Substitua os nomes dos recursos conforme necessário no exemplo. 
 
@@ -51,7 +51,7 @@ az vm create --resource-group myResourceGroup \
 
 
 ## <a name="next-steps"></a>Próximas etapas
-O [Construtor de imagens do Azure (visualização)](./linux/image-builder-overview.md) pode ajudar a automatizar a criação da versão da imagem, até mesmo usá-la para atualizar e [criar uma nova versão da imagem a partir de uma versão de imagem existente](./linux/image-builder-gallery-update-image-version.md). 
+O [Construtor de imagens do Azure (visualização)](./image-builder-overview.md) pode ajudar a automatizar a criação da versão da imagem, até mesmo usá-la para atualizar e [criar uma nova versão da imagem a partir de uma versão de imagem existente](./linux/image-builder-gallery-update-image-version.md). 
 
 Você também pode criar um recurso de Galeria de imagens compartilhadas usando modelos. Há vários Modelos de Início Rápido do Azure disponíveis: 
 

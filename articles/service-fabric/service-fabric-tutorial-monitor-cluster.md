@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: f9ad0f443b1647499f7085693f34f4da9ec85398
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ecd05a838425d57e0eaff2fa571d72b5a87e92a6
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331984"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791771"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Tutorial: Monitorar um cluster do Service Fabric no Azure
 
@@ -74,7 +74,7 @@ A imagem acima é a home page da solução de Análise do Service Fabric. Essa h
 
 ### <a name="view-service-fabric-events-including-actions-on-nodes"></a>Exibir eventos do Service Fabric, incluindo ações em nós
 
-Na página Análise do Service Fabric, clique no grafo para **Eventos do Cluster** .  Os logs para todos os eventos do sistema que foram coletados aparecem. Para referência, esses são os de **WADServiceFabricSystemEventsTable** na conta de Armazenamento do Microsoft Azure, e igualmente os eventos de atores e serviços confiáveis que você vê ao lado são dessas respectivas tabelas.
+Na página Análise do Service Fabric, clique no grafo para **Eventos do Cluster**.  Os logs para todos os eventos do sistema que foram coletados aparecem. Para referência, esses são os de **WADServiceFabricSystemEventsTable** na conta de Armazenamento do Microsoft Azure, e igualmente os eventos de atores e serviços confiáveis que você vê ao lado são dessas respectivas tabelas.
     
 ![Canal Operacional de Consulta](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-events.png)
 
@@ -183,7 +183,7 @@ app('PlunkoServiceFabricCluster').traces
 
 ### <a name="view-service-fabric-application-events"></a>Visualizar os eventos do aplicativo do Service Fabric
 
-Você pode exibir eventos para os aplicativos de serviço confiáveis e atores confiáveis implantados no cluster.  Na página Análise do Service Fabric, clique no grafo para **Eventos do Aplicativo** .
+Você pode exibir eventos para os aplicativos de serviço confiáveis e atores confiáveis implantados no cluster.  Na página Análise do Service Fabric, clique no grafo para **Eventos do Aplicativo**.
 
 Execute a consulta a seguir para exibir eventos de seus aplicativos de serviços confiáveis:
 ```kusto
@@ -227,20 +227,20 @@ Para configurar os eventos mais detalhados para atores confiáveis, você pode a
 ## <a name="view-performance-counters-with-azure-monitor-logs"></a>Exibir contadores de desempenho com logs do Azure Monitor
 Para visualizar contadores de desempenho, vá para o [portal do Azure](https://portal.azure.com) e para o grupo de recursos em que você criou a solução de Análise do Service Fabric. 
 
-Selecione o recurso **ServiceFabric(mysfomsworkspace)** , em seguida, **Espaço de trabalho do Log Analytics** e então **Configurações avançadas** .
+Selecione o recurso **ServiceFabric(mysfomsworkspace)** , em seguida, **Espaço de trabalho do Log Analytics** e então **Configurações avançadas**.
 
-Clique em **Dados** , depois clique em **Contadores de Desempenho Windows** . Há uma lista de contadores padrão que você pode habilitar, além de também poder definir o intervalo de coleta. Você pode também adicionar [contadores de desempenho adicionais](service-fabric-diagnostics-event-generation-perf.md) para coletar. O formato correto é referenciado neste [artigo](/windows/desktop/PerfCtrs/specifying-a-counter-path). Clique em **Salvar** , depois em **OK** .
+Clique em **Dados**, depois clique em **Contadores de Desempenho Windows**. Há uma lista de contadores padrão que você pode habilitar, além de também poder definir o intervalo de coleta. Você pode também adicionar [contadores de desempenho adicionais](service-fabric-diagnostics-event-generation-perf.md) para coletar. O formato correto é referenciado neste [artigo](/windows/desktop/PerfCtrs/specifying-a-counter-path). Clique em **Salvar**, depois em **OK**.
 
-Feche a folha de Configurações Avançadas e selecione **Resumo de workspace** no título **Geral** . Para cada uma das soluções habilitadas existe é um bloco de gráfico, incluindo um para o Service Fabric. Clique no grafo **Service Fabric** para ir para a solução de Análise do Service Fabric.
+Feche a folha de Configurações Avançadas e selecione **Resumo de workspace** no título **Geral**. Para cada uma das soluções habilitadas existe é um bloco de gráfico, incluindo um para o Service Fabric. Clique no grafo **Service Fabric** para ir para a solução de Análise do Service Fabric.
 
-Há blocos gráficos para o canal operacional e eventos de serviços confiáveis. A representação gráfica dos dados que fluem para os contadores selecionados aparecerá nas **Métricas de Nó** . 
+Há blocos gráficos para o canal operacional e eventos de serviços confiáveis. A representação gráfica dos dados que fluem para os contadores selecionados aparecerá nas **Métricas de Nó**. 
 
 Selecione o grafo **Métrica de Contêiner** para visualizar os detalhes adicionais. Você também pode consultar dados do contador de desempenho da mesma forma que os eventos de cluster e filtrar por nome do contador de desempenho, nós e valores, usando a linguagem de consulta Kusto.
 
 ## <a name="query-the-eventstore-service"></a>Consultar o serviço EventStore
 O serviço do [EventStore](service-fabric-diagnostics-eventstore.md) fornece uma maneira de entender o estado do cluster ou cargas de trabalho em um determinado ponto no tempo. O EventStore é um serviço do Service Fabric com monitoramento de estado que mantém os eventos do cluster. Os eventos são expostos por meio do [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), REST e APIs. O EventStore consulta o cluster diretamente para obter os dados de diagnóstico em qualquer entidade no seu cluster para ver uma lista completa de eventos disponíveis na EventStore, consulte [eventos do Service Fabric](service-fabric-diagnostics-event-generation-operational.md).
 
-As APIs do EventStore podem ser consultadas programaticamente usando a [biblioteca de clientes do Service Fabric](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library).
+As APIs do EventStore podem ser consultadas programaticamente usando a [biblioteca de clientes do Service Fabric](/dotnet/api/overview/azure/service-fabric#client-library).
 
 Aqui está um exemplo de solicitação para todos os eventos de cluster entre 2018-04-03T18:00:00Z e 2018-04-04T18:00:00Z, por meio da função GetClusterEventListAsync.
 
@@ -299,10 +299,10 @@ O Service Fabric apresenta um [modelo de integridade](service-fabric-health-intr
 
 O cluster é populado automaticamente com relatórios de integridade enviados pelos componentes do sistema. Leia mais em [Usar relatórios de integridade do sistema para solução de problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
 
-A Malha do Serviço expõe consultas de integridade para cada um dos [tipos de entidade](service-fabric-health-introduction.md#health-entities-and-hierarchy)com suporte. Elas podem ser acessados pela API usando métodos de [FabricClient.HealthManager](/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet), por cmdlets do PowerShell e por REST. Essas consultas retornam informações de integridade completas sobre a entidade: o estado de integridade agregada, eventos de integridade da entidade, estados de integridade dos filhos (quando aplicável), avaliações não íntegras (quando a entidade não está íntegra) e estatísticas sobre a integridade dos filhos (quando aplicável).
+A Malha do Serviço expõe consultas de integridade para cada um dos [tipos de entidade](service-fabric-health-introduction.md#health-entities-and-hierarchy)com suporte. Elas podem ser acessados pela API usando métodos de [FabricClient.HealthManager](/dotnet/api/system.fabric.fabricclient.healthmanager), por cmdlets do PowerShell e por REST. Essas consultas retornam informações de integridade completas sobre a entidade: o estado de integridade agregada, eventos de integridade da entidade, estados de integridade dos filhos (quando aplicável), avaliações não íntegras (quando a entidade não está íntegra) e estatísticas sobre a integridade dos filhos (quando aplicável).
 
 ### <a name="get-cluster-health"></a>Obter integridade do cluster
-O [cmdlet Get-ServiceFabricClusterHealth](/powershell/module/servicefabric/get-servicefabricclusterhealth) retorna a integridade da entidade do cluster e contém os estados da integridade de aplicativos e nós (filhos do cluster).  Primeiro, conecte-se ao cluster usando o cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps).
+O [cmdlet Get-ServiceFabricClusterHealth](/powershell/module/servicefabric/get-servicefabricclusterhealth) retorna a integridade da entidade do cluster e contém os estados da integridade de aplicativos e nós (filhos do cluster).  Primeiro, conecte-se ao cluster usando o cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster).
 
 O estado do cluster é de 11 nós, o aplicativo do sistema e fabric:/Voting configurado conforme descrito.
 
@@ -454,7 +454,7 @@ HealthEvents            : None
 ```
 
 ### <a name="get-node-health"></a>Obter integridade do nó
-O [cmdlet Get-ServiceFabricNodeHealth](/powershell/module/servicefabric/get-servicefabricnodehealth) retorna a integridade de uma entidade de nó e contém os eventos de integridade reportados no nó. Primeiro, conecte-se ao cluster usando o cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps). O exemplo a seguir obtém a integridade de um nó específico usando políticas de integridade padrão:
+O [cmdlet Get-ServiceFabricNodeHealth](/powershell/module/servicefabric/get-servicefabricnodehealth) retorna a integridade de uma entidade de nó e contém os eventos de integridade reportados no nó. Primeiro, conecte-se ao cluster usando o cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster). O exemplo a seguir obtém a integridade de um nó específico usando políticas de integridade padrão:
 
 ```powershell
 Get-ServiceFabricNodeHealth _nt1vm_3

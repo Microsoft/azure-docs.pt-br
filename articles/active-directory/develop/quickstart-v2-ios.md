@@ -13,18 +13,18 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: b171688fa4dbff8d05b3ba03e4e4bd29028983be
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: ef2ab6511d80f7f1f836805055e7cc7f48a488e7
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016137"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754307"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Início Rápido: Conectar usuários e chamar a API do Microsoft Graph de um aplicativo iOS ou macOS
 
-Este início rápido contém um exemplo de código que demonstra como um aplicativo nativo iOS ou macOS pode usar a plataforma de identidade da Microsoft para conectar contas corporativas, pessoais ou de estudante, obter um token de acesso e chamar a API do Microsoft Graph.
+Neste guia de início rápido, você baixará e executará um exemplo de código que demonstra como um aplicativo iOS ou macOS nativo pode conectar usuários e obter um token de acesso para chamar a API do Microsoft Graph.
 
-Este início rápido se aplica a aplicativos iOS e macOS. Algumas etapas são necessárias apenas para aplicativos iOS. Essas etapas destacam que se aplicam somente ao iOS.
+O guia de início rápido se aplica a aplicativos iOS e macOS. Algumas etapas são necessárias apenas para aplicativos iOS e serão indicadas como tal.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -46,7 +46,7 @@ Este início rápido se aplica a aplicativos iOS e macOS. Algumas etapas são ne
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-the-code-sample"></a>Opção 1: Registrar e configurar automaticamente o aplicativo e, em seguida, baixar o exemplo de código
 > #### <a name="step-1-register-your-application"></a>Etapa 1: Registre seu aplicativo
 > Para registrar seu aplicativo,
-> 1. Acesse o novo painel do [portal do Azure – Registros de aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/IosQuickstartPage/sourceType/docs).
+> 1. Acesse a experiência de início rápido do <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/IosQuickstartPage/sourceType/docs" target="_blank">Portal do Azure – Registros de aplicativo<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 > 1. Insira um nome para seu aplicativo e selecione **Registrar**.
 > 1. Siga as instruções para baixar e configurar automaticamente o novo aplicativo com apenas um clique.
 >
@@ -55,16 +55,17 @@ Este início rápido se aplica a aplicativos iOS e macOS. Algumas etapas são ne
 > #### <a name="step-1-register-your-application"></a>Etapa 1: Registre seu aplicativo
 > Para registrar seu aplicativo e adicionar as informações de registro do aplicativo à solução manualmente, siga estas etapas:
 >
-> 1. Navegue até a página [Registros de aplicativo](https://aka.ms/MobileAppReg) da plataforma de identidade da Microsoft para desenvolvedores.
-> 1. Selecione **Novo registro**.
-> 1. Quando a página **Registrar um aplicativo** for exibida, insira as informações de registro do aplicativo:
->      - Na seção **Nome**, insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo quando eles se conectarem ou derem consentimento ao aplicativo.
->      - Ignore outras configurações nesta página.
->      - Selecione `Register`.
-> 1. Na seção **Gerenciar**, selecione `Authentication` > `Add Platform` > `iOS`.
->      - Insira o ***Identificador de pacote*** para seu aplicativo. O identificador de pacote é apenas uma cadeia de caracteres exclusiva que identifica exclusivamente seu aplicativo, por exemplo, `com.<yourname>.identitysample.MSALMacOS`. Anote o valor que for usado.
->      - Observe que a configuração do iOS também é aplicável a aplicativos macOS.
-> 1. Selecione `Configure` e salve os detalhes da ***Configuração da MSAL*** para uso posterior neste início rápido.
+> 1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
+> 1. Pesquise **Azure Active Directory** e selecione-o.    
+> 1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
+> 1. Insira um **Nome** para seu aplicativo. Os usuários do seu aplicativo podem ver esse nome e você pode alterá-lo mais tarde.
+> 1. Selecione **Registrar**.
+> 1. Em **Gerenciar**, selecione **Autenticação** > **Adicionar Plataforma** > **iOS**.
+> 1. Insira o **Identificador de pacote** para seu aplicativo. O identificador de pacote é uma cadeia de caracteres exclusiva que identifica exclusivamente seu aplicativo, por exemplo, `com.<yourname>.identitysample.MSALMacOS`. Anote o valor que for usado. Observe que a configuração do iOS também é aplicável a aplicativos macOS.
+> 1. Selecione **Configurar** e salve os detalhes da **Configuração da MSAL** para uso posterior neste guia de início rápido.
+> 1. Selecione **Concluído**.
+
 > [!div renderon="portal" class="sxs-lookup"]
 >
 > #### <a name="step-1-configure-your-application"></a>Etapa 1: Configurar seu aplicativo
@@ -117,7 +118,7 @@ Em uma janela do terminal, navegue até a pasta que contém o exemplo de código
 >     ```
 > 1. Abra as configurações do projeto. Na seção **Identidade**, insira o **Identificador do Pacote** que você inseriu no portal.
 > 1. Clique com o botão direito do mouse em **Info.plist** e selecione **Abrir Como** > **Código-Fonte**.
-> 1. No nó raiz dict, substitua `Enter_the_bundle_Id_Here` pela ***ID do Pacote*** que você usou no portal.
+> 1. No nó raiz dict, substitua `Enter_the_bundle_Id_Here` pela **_ID do Pacote_* _ que você usou no portal.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
@@ -179,8 +180,8 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 
 > |Em que: | Descrição |
 > |---------|---------|
-> | `clientId` | A ID do aplicativo registrado em *portal.azure.com* |
-> | `authority` | O ponto de extremidade da plataforma de identidade da Microsoft. Na maioria dos casos, ele estará em `https://login.microsoftonline.com/common` |
+> | `clientId` | A ID do Aplicativo registrado em _portal.azure.com* |
+> | `authority` | A plataforma de identidade da Microsoft. Na maioria dos casos, ele estará em `https://login.microsoftonline.com/common` |
 > | `redirectUri` | O URI de redirecionamento do aplicativo. Você pode passar “nulo” para usar o valor padrão ou o URI de redirecionamento personalizado. |
 
 ### <a name="for-ios-only-additional-app-requirements"></a>Somente para o iOS, requisitos adicionais do aplicativo
@@ -213,7 +214,7 @@ Seu aplicativo também deve ter o seguinte no `AppDelegate`. Isso permite que o 
     }
  ```
 
-Por fim, seu aplicativo deve ter uma entrada `LSApplicationQueriesSchemes` em ***Info.plist*** junto com `CFBundleURLTypes`. A amostra vem com isso incluído.
+Por fim, seu aplicativo precisa ter uma entrada `LSApplicationQueriesSchemes` em ***Info.plist** _ junto com `CFBundleURLTypes`. A amostra vem com isso incluído.
 
    ```xml
    <key>LSApplicationQueriesSchemes</key>
@@ -231,7 +232,7 @@ A MSAL tem dois métodos usados para adquirir tokens: `acquireToken` e `acquireT
 
 Algumas situações exigem que os usuários interajam com a plataforma de identidade da Microsoft. Nesses casos, o usuário final talvez precise selecionar sua conta, inserir suas credenciais ou dar consentimento às permissões do seu aplicativo. Por exemplo,
 
-* A primeira vez que os usuários entram no aplicativo
+_ A primeira vez que os usuários entram no aplicativo
 * Se um usuário redefinir a senha, ele precisará inserir as credenciais
 * Quando seu aplicativo estiver solicitando acesso a um recurso pela primeira vez
 * Quando a MFA ou outras políticas de Acesso Condicional forem necessárias
@@ -274,4 +275,3 @@ Prossiga para o tutorial passo a passo, em que você criará um aplicativo iOS o
 
 > [!div class="nextstepaction"]
 > [Tutorial: Conectar usuários e chamar o Microsoft Graph em um aplicativo iOS ou macOS](tutorial-v2-ios.md)
-

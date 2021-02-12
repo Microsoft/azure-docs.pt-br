@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 556aec071ccb59a0223bc07d134f3427755117f3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b29f4034b12ce43e6c051e454601f196365469f3
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745793"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636973"
 ---
 # <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Usar drivers da interface de armazenamento de contêiner de arquivos do Azure (CSI) no serviço kubernetes do Azure (AKS) (visualização)
 
@@ -212,7 +212,7 @@ Registre o `AllowNfsFileShares` sinalizador de recurso usando o comando [AZ Feat
 az feature register --namespace "Microsoft.Storage" --name "AllowNfsFileShares"
 ```
 
-Demora alguns minutos para o status exibir *Registrado* . Verifique o status do registro usando o comando [AZ Feature List][az-feature-list] :
+Demora alguns minutos para o status exibir *Registrado*. Verifique o status do registro usando o comando [AZ Feature List][az-feature-list] :
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.Storage/AllowNfsFileShares')].{Name:name,State:properties.state}"
@@ -229,7 +229,7 @@ az provider register --namespace Microsoft.Storage
 [Criar um `Premium_LRS` Conta de armazenamento do Azure](../storage/files/storage-how-to-create-premium-fileshare.md) com as seguintes configurações para dar suporte a compartilhamentos NFS:
 - tipo de conta: FileStorage
 - transferência segura necessária (somente habilitar tráfego HTTPS): false
-- Selecione a rede virtual de seus nós de agente em firewalls e redes virtuais
+- Selecione a rede virtual de seus nós de agente em firewalls e redes virtuais-portanto, talvez você prefira criar a conta de armazenamento no grupo de recursos MC_.
 
 ### <a name="create-nfs-file-share-storage-class"></a>Criar classe de armazenamento de compartilhamento de arquivos NFS
 
@@ -239,7 +239,7 @@ Salve um `nfs-sc.yaml` arquivo com o manifesto abaixo editando os respectivos es
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: azurefile-csi
+  name: azurefile-csi-nfs
 provisioner: file.csi.azure.com
 parameters:
   resourceGroup: EXISTING_RESOURCE_GROUP_NAME  # optional, required only when storage account is not in the same resource group as your agent nodes
@@ -275,6 +275,10 @@ Filesystem      Size  Used Avail Use% Mounted on
 accountname.file.core.windows.net:/accountname/pvc-fa72ec43-ae64-42e4-a8a2-556606f5da38  100G     0  100G   0% /mnt/azurefile
 ...
 ```
+
+>[!NOTE]
+> Observe que, como o compartilhamento de arquivos NFS está em conta Premium, o tamanho mínimo do compartilhamento de arquivos é de 100 GB. Se você criar um PVC com um tamanho de armazenamento pequeno, poderá encontrar um erro "falha ao criar o compartilhamento de arquivos... tamanho (5)... ".
+
 
 ## <a name="windows-containers"></a>Contêineres do Windows
 

@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 5f0893f53c18bfeead5135a7ffdbc3d9d806bc79
-  ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+  ms.openlocfilehash: 1d4eb69942ad9d58e4d0d358efc13c3dbcb77923
+  ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/29/2020
-  ms.locfileid: "92913000"
+  ms.lasthandoff: 01/26/2021
+  ms.locfileid: "98788359"
 landingContent:
 - title: Sobre o Reconhecimento de Formulários
   linkLists:
@@ -45,7 +45,11 @@ landingContent:
     - text: Usando o SDK do JavaScript
       url: quickstarts/client-library.md?pivots=programming-language-javascript
     - text: Usar a API REST (cURL)
-      url: quickstarts/curl-train-extract.md
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api
+  - linkListType: tutorial
+    links:
+    - text: Extrair dados de formulário em massa
+      url: tutorial-bulk-processing.md
 - title: Criar um conjunto de dados de treinamento
   linkLists:
   - linkListType: how-to-guide
@@ -62,8 +66,6 @@ landingContent:
     links:
     - text: Treinar usando a ferramenta de rotulagem de exemplo
       url: quickstarts/label-tool.md
-    - text: Treinar com rótulos usando a API REST e o Python
-      url: quickstarts/python-labeled-data.md
 - title: Extrair dados de destinatários
   linkLists:
   - linkListType: quickstart
@@ -77,24 +79,12 @@ landingContent:
     - text: Usando o SDK do JavaScript
       url: quickstarts/client-library.md?pivots=programming-language-javascript
     - text: Usar a API REST (cURL)
-      url: quickstarts/curl-train-extract.md
-    - text: Usar a API REST (cURL)
-      url: quickstarts/curl-receipts.md
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api
   - linkListType: concept
     links:
     - text: Conceitos de recebimento
       url: concept-receipts.md?
 - title: Extrair dados de cartões de visita
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: Usando a API REST
-      url: quickstarts/python-business-cards.md?
-  - linkListType: concept
-    links:
-    - text: Conceitos de cartão de visita
-      url: concept-business-cards.md?
-- title: Obter informações de layout de texto
   linkLists:
   - linkListType: quickstart
     links:
@@ -107,9 +97,29 @@ landingContent:
     - text: Usando o SDK do JavaScript
       url: quickstarts/client-library.md?pivots=programming-language-javascript
     - text: Usar a API REST (cURL)
-      url: quickstarts/curl-train-extract.md
-    - text: Usar a API REST (Python)
-      url: quickstarts/python-layout.md
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api
+  - linkListType: concept
+    links:
+    - text: Conceitos de cartão de visita
+      url: concept-business-cards.md?
+- title: Obter informações de layout de texto
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Conceitos de layout
+      url: concept-layout.md?
+  - linkListType: quickstart
+    links:
+    - text: Usar o .NET SDK
+      url: quickstarts/client-library.md?pivots=programming-language-csharp
+    - text: Usar o SDK do Python
+      url: quickstarts/client-library.md?pivots=programming-language-python
+    - text: Usar o SDK do Java
+      url: quickstarts/client-library.md?pivots=programming-language-java
+    - text: Usando o SDK do JavaScript
+      url: quickstarts/client-library.md?pivots=programming-language-javascript
+    - text: Usar a API REST (cURL)
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api
 - title: Usar contêineres
   linkLists:
   - linkListType: get-started
@@ -123,7 +133,7 @@ landingContent:
   - linkListType: deploy
     links:
     - text: Usar instâncias de contêiner
-      url: deploy-form-recognizer-on-container-instances.md
+      url: ../containers/azure-container-instance-recipe.md
 - title: Referência
   linkLists:
   - linkListType: reference

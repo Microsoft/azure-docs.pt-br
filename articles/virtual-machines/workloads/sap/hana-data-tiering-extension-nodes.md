@@ -7,25 +7,26 @@ author: msjuergent
 manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c3553ac9704ac26d0bdaae0f93b89f41a87ac716
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a1fc1c3b332d033e453db11ce4451cd626c4217
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77617155"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967798"
 ---
 # <a name="use-sap-hana-data-tiering-and-extension-nodes"></a>Usar os nós de extensão e camadas de dados do SAP HANA
 
 O SAP dá suporte a um modelo de camadas de dados para SAP BW de diferentes versões do SAP NetWeaver e SAP BW/4HANA. Para obter mais informações sobre o modelo de camadas de dados, consulte o documento do SAP [SAP BW/4HANA e SAP BW no HANA com nós de extensão do SAP HANA ](https://www.sap.com/documents/2017/05/ac051285-bc7c-0010-82c7-eda71af511fa.html#).
 Com o SAP HANA em Instâncias Grandes, é possível usar a configuração da opção 1 dos nós de extensão do SAP HANA, conforme explicado nos documentos de perguntas frequentes e no blog do SAP. Configurações de opção 2 podem ser definidas com os SKUs de instâncias do HANA grandes: S72m, S192, S192m, S384 e S384m. 
 
-Ao examinar a documentação, a vantagem pode não ser aparente à primeira vista. Mas quando você examina para as diretrizes de dimensionamento do SAP, é possível ver uma vantagem usando os nós de extensão da opção 1 e da opção 2 do SAP HANA. A seguir, são apresentados alguns exemplos:
+Ao examinar a documentação, a vantagem pode não ser aparente à primeira vista. Mas quando você examina para as diretrizes de dimensionamento do SAP, é possível ver uma vantagem usando os nós de extensão da opção 1 e da opção 2 do SAP HANA. Veja alguns exemplos:
 
 - Diretrizes de dimensionamento do SAP HANA geralmente exigem duas vezes mais volume de dados do que memória. Ao executar a instância do SAP HANA com os dados ativos, você terá apenas 50% ou menos da memória preenchida com dados. Idealmente, o restante da memória é mantido para o SAP HANA fazer seu trabalho.
 - Isso significa que, em uma unidade de instância do HANA grande S192 com 2 TB de memória executando um banco de dados do SAP BW, você tem apenas 1 TB como volume de dados.

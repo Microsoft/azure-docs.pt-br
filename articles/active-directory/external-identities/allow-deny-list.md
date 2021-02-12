@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 07/15/2018
+ms.date: 02/03/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b87650f364f8ccfd3a531d710bfbdc4715f0ac5a
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: bb5a785cba4a560fc15963363d4e5f6b811af97a
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442177"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548824"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Permitir ou bloquear convites para usuários B2B de organizações específicas
 
@@ -27,7 +27,7 @@ Você pode usar uma lista de permissões ou uma lista de negações para permiti
 
 - Você pode criar uma lista de permissões ou uma lista de negações. Você não pode configurar os dois tipos de listas. Por padrão, qualquer domínio que ão esteja na lista de permissão ou na lista de negação, e vice-versa. 
 - Você pode criar apenas uma política por organização. Você pode atualizar a política para incluir mais domínios ou você pode excluir a política para criar uma nova. 
-- O número de domínios que você pode adicionar a uma lista de permissões ou lista de negações é limitado apenas pelo tamanho da política. O tamanho máximo de toda a política é 25 KB (25.000 caracteres), que inclui a lista de permissões ou a lista de negações e quaisquer outros parâmetros configurados para outros recursos.
+- O número de domínios que você pode adicionar a uma lista de permissões ou lista de negações é limitado apenas pelo tamanho da política. Esse limite se aplica ao número de caracteres, para que você possa ter domínios mais curtos ou menos domínios maiores. O tamanho máximo de toda a política é 25 KB (25.000 caracteres), que inclui a lista de permissões ou a lista de negações e quaisquer outros parâmetros configurados para outros recursos.
 - Esta lista funciona independentemente das listas de permissão/bloqueio do OneDrive for Business e SharePoint Online. Se você quiser restringir o compartilhamento de arquivos no SharePoint Online, será necessário configurar uma lista de permissão ou negação para o One Drive for Business e para o SharePoint Online. Para obter mais informações, consulte [Compartilhamento de domínios restritos no SharePoint Online e OneDrive for Business ](https://support.office.com/article/restricted-domains-sharing-in-sharepoint-online-and-onedrive-for-business-5d7589cd-0997-4a00-a2ba-2320ec49c4e9).
 - A lista não se aplica a usuários externos que já resgataram o convite. A lista será aplicada depois que for configurada. Se um convite do usuário estiver em um estado pendente e você definir uma política que bloqueia seu domínio, a tentativa do usuário para resgatar o convite falhará.
 
@@ -42,7 +42,7 @@ Esse é o cenário mais comum, onde sua organização deseja trabalhar com quase
 Adicionar uma lista de negações:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Selecione **Azure Active Directory**  >  configurações de usuário**dos usuários**  >  **User settings**.
+2. Selecione **Azure Active Directory**  >  configurações de usuário **dos usuários**  >  .
 3. Em **usuários externos**, selecione **gerenciar configurações de colaboração externas**.
 4. Em **Restrições de colaboração**, selecione **Negar convites para os domínios especificados**.
 5. Em **DOMÍNIOS DE DESTINO**, insira o nome de um dos domínios que você deseja bloquear. Para vários domínios, insira cada domínio em uma nova linha. Por exemplo:
@@ -63,7 +63,7 @@ Se você quiser usar uma lista de permissões, certifique-se de avaliar completa
 Para adicionar uma lista de permissões:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Selecione **Azure Active Directory**  >  configurações de usuário**dos usuários**  >  **User settings**.
+2. Selecione **Azure Active Directory**  >  configurações de usuário **dos usuários**  >  .
 3. Em **usuários externos**, selecione **gerenciar configurações de colaboração externas**.
 4. Em **Restrições de colaboração**, selecione **Permitir convites somente para os domínios especificados (mais restritivos)**.
 5. Em **DOMÍNIOS DE DESTINO**, insira o nome de um dos domínios que você deseja permitir. Para vários domínios, insira cada domínio em uma nova linha. Por exemplo:
@@ -126,7 +126,7 @@ Se o módulo não estiver instalado ou se você não tem uma versão necessária
 
 ### <a name="use-the-azureadpolicy-cmdlets-to-configure-the-policy"></a>Use os cmdlets de AzureADPolicy para configurar a política
 
-Para criar uma lista de permissão ou negação, use o cmdlet [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview). O exemplo a seguir mostra como definir uma lista de negações que bloqueia o domínio "live.com".
+Para criar uma lista de permissão ou negação, use o cmdlet [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true). O exemplo a seguir mostra como definir uma lista de negações que bloqueia o domínio "live.com".
 
 ```powershell 
 $policyValue = @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}")
@@ -140,19 +140,19 @@ O mesmo exemplo é exibido a seguir, mas com de definição da política embutid
 New-AzureADPolicy -Definition @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}") -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
 ```
 
-Para definir uma lista de permissão ou negação, use o cmdlet [AzureADPolicy conjunto](/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview). Por exemplo:
+Para definir uma lista de permissão ou negação, use o cmdlet [AzureADPolicy conjunto](/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true). Por exemplo:
 
 ```powershell   
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
 ```
 
-Para obter a política, use o cmdlet [AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview). Por exemplo:
+Para obter a política, use o cmdlet [AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true). Por exemplo:
 
 ```powershell
-$currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
+$currentpolicy = Get-AzureADPolicy -All $true | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
 ```
 
-Para remover a política, use o cmdlet [Remove-AzureADPolicy](/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview). Por exemplo:
+Para remover a política, use o cmdlet [Remove-AzureADPolicy](/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true). Por exemplo:
 
 ```powershell
 Remove-AzureADPolicy -Id $currentpolicy.Id 

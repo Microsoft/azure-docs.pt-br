@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: 590416f077fc1ff9430e42e27217548476c9032f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55d1b7171201c962278d7c526528b36848c19449
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132765"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217882"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Recursos são informações sobre ações e contexto
 
@@ -37,12 +37,12 @@ O personalizador não prescreve, limita ou corrige quais recursos você pode env
 
 ## <a name="supported-feature-types"></a>Tipos de recursos compatíveis
 
-O Personalizador dá suporte a recursos de tipos de cadeia de caracteres, numéricos e boolianos.
+O Personalizador dá suporte a recursos de tipos de cadeia de caracteres, numéricos e boolianos. É muito provável que seu aplicativo use, principalmente, recursos de cadeia de caracteres, com algumas exceções.
 
 ### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Como a escolha do tipo de recurso afeta Machine Learning no Personalizador
 
-* **Strings**: para tipos de cadeia de caracteres, cada combinação de chave e valor cria novos pesos no modelo personalizado de aprendizado de máquina. 
-* **Numeric**: você deve usar valores numéricos quando o número deve afetar proporcionalmente o resultado da personalização. Isso depende muito do cenário. Em um exemplo simplificado, por exemplo, ao personalizar uma experiência de varejo, o NumberOfPetsOwned pode ser um recurso que é numérico, pois você pode querer que as pessoas com 2 ou 3 animais de estimação influenciem o resultado da personalização duas vezes ou três vezes por até um animal de estimação. Recursos que são baseados em unidades numéricas, mas em que o significado não é linear, como idade, temperatura ou altura da pessoa, são mais bem codificados como cadeias de caracteres, e a qualidade do recurso pode ser normalmente melhorada usando intervalos. Por exemplo, age pode ser codificada como "Age": "0-5", "Age": "6-10", etc.
+* **Strings**: para tipos de cadeia de caracteres, cada combinação de chave e valor é tratada como um recurso de One-Hot (por exemplo, Gênero: "ScienceFiction" e Gênero: "documentário" criaria dois novos recursos de entrada para o modelo de aprendizado de máquina.
+* **Numeric**: você deve usar valores numéricos quando o número for uma magnitude que deve afetar proporcionalmente o resultado da personalização. Isso depende muito do cenário. Em um exemplo simplificado, por exemplo, ao personalizar uma experiência de varejo, o NumberOfPetsOwned pode ser um recurso que é numérico, pois você pode querer que as pessoas com 2 ou 3 animais de estimação influenciem o resultado da personalização duas vezes ou três vezes por até um animal de estimação. Recursos que são baseados em unidades numéricas, mas onde o significado não é linear, como idade, temperatura ou altura da pessoa, são mais bem codificados como cadeias de caracteres. Por exemplo, DayOfMonth seria uma cadeia de caracteres com "1", "2"... "31". Se você tiver muitas categorias, a qualidade do recurso pode ser normalmente melhorada usando intervalos. Por exemplo, age pode ser codificada como "Age": "0-5", "Age": "6-10", etc.
 * Valores **boolianos** enviados com o valor "false" funcionam como se não tivessem sido enviados.
 
 Os recursos que não estão presentes devem ser omitidos da solicitação. Evite o envio de recursos com um valor nulo, pois ele será processado como existente e com um valor igual a "nulo" ao treinar o modelo.
@@ -80,12 +80,14 @@ Os objetos JSON podem incluir objetos JSON aninhados e propriedades/valores simp
         { 
             "user": {
                 "profileType":"AnonymousUser",
-                "latlong": [47.6, -122.1]
+                "latlong": ["47.6", "-122.1"]
             }
         },
         {
-            "state": {
-                "timeOfDay": "noon",
+            "environment": {
+                "dayOfMonth": "28",
+                "monthOfYear": "8",
+                "timeOfDay": "13:00",
                 "weather": "sunny"
             }
         },
@@ -93,6 +95,13 @@ Os objetos JSON podem incluir objetos JSON aninhados e propriedades/valores simp
             "device": {
                 "mobile":true,
                 "Windows":true
+            }
+        },
+        {
+            "userActivity" : {
+                "itemsInCart": 3,
+                "cartValue": 250,
+                "appliedCoupon": true
             }
         }
     ]
@@ -112,6 +121,8 @@ A cadeia de caracteres usada para nomear o namespace deve seguir algumas restri�
 Um bom conjunto de recursos ajuda o Personalizador a aprender a prever a ação que gerará a maior recompensa. 
 
 Considere o envio de recursos para a API de Classificação do Personalizador que sigam estas recomendações:
+
+* Use tipos categóricos e de cadeia de caracteres para recursos que não são uma magnitude. 
 
 * Há recursos suficientes para orientar a personalização. Quanto mais rigorosamente direcionado o conteúdo precisar ser, mais recursos serão necessários.
 
@@ -152,10 +163,10 @@ Por exemplo:
 
 Você pode usar vários outros [Serviços Cognitivos do Azure](https://www.microsoft.com/cognitive-services), como
 
-* [Vinculação de entidade](../entitylinking/home.md)
+* [Vinculação de Identidade](../text-analytics/index.yml)
 * [Análise de Texto](../text-analytics/overview.md)
-* [Emoção](../emotion/home.md)
-* [Pesquisa Visual Computacional](../computer-vision/home.md)
+* [Emoção](../face/overview.md)
+* [Pesquisa Visual Computacional](../computer-vision/overview.md)
 
 ## <a name="actions-represent-a-list-of-options"></a>As ações representam uma lista de opções
 
@@ -322,4 +333,4 @@ Os objetos JSON podem incluir objetos JSON aninhados e propriedades/valores simp
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Aprendizado de reforço](concepts-reinforcement-learning.md) 
+[Aprendizado de reforço](concepts-reinforcement-learning.md)

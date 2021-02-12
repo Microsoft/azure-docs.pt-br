@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8a3a51644f61d4a1e118798986f9c6fb6c52d0e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ae1d19ee3da59c43722ca1ea720eb441f6dd484
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89264157"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696203"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Criptografia do seu conteúdo com criptografia de armazenamento
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > não há novos recursos ou funcionalidades sendo adicionados aos serviços de mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > não há novos recursos ou funcionalidades sendo adicionados aos serviços de mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 >
 
 Este artigo fornece uma visão geral da criptografia de armazenamento do AMS e mostra como carregar o conteúdo de armazenamento criptografado:
@@ -116,7 +116,7 @@ A seguir, estão as etapas gerais para gerar chaves de conteúdo que você assoc
 
     Propriedade do corpo da solicitação    | Descrição
     ---|---
-    ID | A ID de ContentKey é gerada usando o seguinte formato, “nb:kid:UUID:\<NEW GUID>”.
+    Id | A ID de ContentKey é gerada usando o seguinte formato, “nb:kid:UUID:\<NEW GUID>”.
     ContentKeyType | O tipo de chave de conteúdo é um inteiro que define a chave. Para o formato de criptografia de armazenamento, o valor é 1.
     EncryptedContentKey | Criamos um novo valor de chave de conteúdo, que é um valor de 256 bits (32 bytes). A chave é criptografada usando o certificado X.509 de criptografia de armazenamento que recuperamos dos Serviços de Mídia do Microsoft Azure por meio da execução de uma solicitação HTTP GET para os métodos GetProtectionKeyId e GetProtectionKey. Como um exemplo, confira o seguinte código do .NET: o método **EncryptSymmetricKeyData** definido [aqui](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProtectionKeyId | Essa é a ID da chave de proteção para o certificado X.509 de criptografia de armazenamento usado para criptografar nossa chave de conteúdo.

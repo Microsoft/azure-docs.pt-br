@@ -4,20 +4,20 @@ description: Conheça os cluster básico e os componentes de carga de trabalho d
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 17203123ceb0c196bd8f9011e2962f5022e54698
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 54d6f4529c236c7ff9f6258122b5b49d6d3723e8
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901290"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674919"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceitos de Kubernetes para o serviço de Kubernetes do Azure (AKS)
 
 À medida que o desenvolvimento de aplicativos se move para uma abordagem baseada em contêiner, a necessidade de orquestrar e gerenciar recursos é importante. O Kubernetes é a plataforma líder que fornece a capacidade de fornecer agendamento confiável de cargas de trabalho de aplicativos tolerantes a falhas. O Azure Kubernetes Service (AKS) é uma oferta gerenciada da Kubernetes que simplifica ainda mais a implantação e o gerenciamento de aplicativos baseados em contêiner.
 
-Este artigo apresenta os principais componentes da infraestrutura kubernetes, como o *plano de controle* , *nós* e *pools de nós* . Recursos de carga de trabalho, como *pods* , *implantações* e *conjuntos* , também são apresentados, além de como agrupar recursos em *namespaces* .
+Este artigo apresenta os principais componentes da infraestrutura kubernetes, como o *plano de controle*, *nós* e *pools de nós*. Recursos de carga de trabalho, como *pods*, *implantações* e *conjuntos*, também são apresentados, além de como agrupar recursos em *namespaces*.
 
-## <a name="what-is-kubernetes"></a>O que é o Kubernetes?
+## <a name="what-is-kubernetes"></a>O que é Kubernetes?
 
 O Kubernetes é uma plataforma em rápida evolução que gerencia aplicativos baseados em contêiner e seus componentes de rede e armazenamento associados. O foco está nas cargas de trabalho de aplicativos, não nos componentes de infraestrutura subjacentes. O Kubernetes fornece uma abordagem declarativa para implementações, apoiada por um conjunto robusto de APIs para operações de gerenciamento.
 
@@ -57,7 +57,7 @@ Para obter as práticas recomendadas associadas, consulte [práticas recomendada
 
 ## <a name="nodes-and-node-pools"></a>Nós e pools de nós
 
-Para executar seus aplicativos e serviços de suporte, é necessário um Kubernetes *nó* . Um cluster AKS tem um ou mais nós, que é uma máquina virtual (VM) do Azure que executa os componentes do nó e o runtime do contêiner do Kubernetes:
+Para executar seus aplicativos e serviços de suporte, é necessário um Kubernetes *nó*. Um cluster AKS tem um ou mais nós, que é uma máquina virtual (VM) do Azure que executa os componentes do nó e o runtime do contêiner do Kubernetes:
 
 - O `kubelet` é o agente kubernetes que processa as solicitações de orquestração do plano de controle e o agendamento da execução dos contêineres solicitados.
 - A rede virtual é tratada pelos *kube-proxy* em cada nó. As rotas de proxy o tráfego de rede e gerencia o endereçamento IP para os serviços e os pods.
@@ -78,7 +78,6 @@ Os recursos de nó são utilizados pelo AKS para fazer a função de nó como pa
 Para localizar os recursos de localização de um nó, execute:
 ```kubectl
 kubectl describe node [NODE_NAME]
-
 ```
 
 Para manter o desempenho e a funcionalidade do nó, os recursos são reservados em cada nó por AKS. À medida que um nó cresce mais em recursos, a reserva de recursos aumenta devido a uma quantidade maior de pods implantados pelo usuário que precisam de gerenciamento.
@@ -86,22 +85,24 @@ Para manter o desempenho e a funcionalidade do nó, os recursos são reservados 
 >[!NOTE]
 > O uso de Complementos do AKS, como o OMS (insights de contêiner), consumirá recursos de nó adicionais.
 
+Dois tipos de recursos são reservados:
+
 - A CPU reservada para **CPU** depende do tipo de nó e da configuração de cluster, o que pode causar menos inlocalizável de CPU devido à execução de recursos adicionais
 
-| Núcleos de CPU no host | 1    | 2    | 4    | 8    | 16 | 32|64|
-|---|---|---|---|---|---|---|---|
-|Kube-reservado (milicores)|60|100|140|180|260|420|740|
+   | Núcleos de CPU no host | 1    | 2    | 4    | 8    | 16 | 32|64|
+   |---|---|---|---|---|---|---|---|
+   |Kube-reservado (milicores)|60|100|140|180|260|420|740|
 
 - **Memória** -memória utilizada por AKs inclui a soma de dois valores.
 
-1. O daemon do kubelet é instalado em todos os nós de agente do kubernetes para gerenciar a criação e o encerramento do contêiner. Por padrão, em AKS, esse daemon tem a seguinte regra de remoção: *memória. disponível<750Mi* , o que significa que um nó sempre deve ter pelo menos 750 de a $ locais de mi.  Quando um host está abaixo desse limite de memória disponível, o kubelet encerrará um dos pods em execução para liberar memória no computador host e protegê-lo. Essa ação é disparada quando a memória disponível diminui além do limite de 750Mi.
+   1. O daemon do kubelet é instalado em todos os nós de agente do kubernetes para gerenciar a criação e o encerramento do contêiner. Por padrão, em AKS, esse daemon tem a seguinte regra de remoção: *memória. disponível<750Mi*, o que significa que um nó sempre deve ter pelo menos 750 de a $ locais de mi.  Quando um host está abaixo desse limite de memória disponível, o kubelet encerrará um dos pods em execução para liberar memória no computador host e protegê-lo. Essa ação é disparada quando a memória disponível diminui além do limite de 750Mi.
 
-2. O segundo valor é uma taxa de regressão de reservas de memória para o daemon kubelet funcionar adequadamente (Kube).
-    - 25% dos primeiros 4 GB de memória
-    - 20% dos próximos 4 GB de memória (até 8 GB)
-    - 10% dos próximos 8 GB de memória (até 16 GB)
-    - 6% dos próximos 112 GB de memória (até 128 GB)
-    - 2% de qualquer memória acima de 128 GB
+   2. O segundo valor é uma taxa de regressão de reservas de memória para o daemon kubelet funcionar adequadamente (Kube).
+      - 25% dos primeiros 4 GB de memória
+      - 20% dos próximos 4 GB de memória (até 8 GB)
+      - 10% dos próximos 8 GB de memória (até 16 GB)
+      - 6% dos próximos 112 GB de memória (até 128 GB)
+      - 2% de qualquer memória acima de 128 GB
 
 As regras acima para a alocação de memória e CPU são usadas para manter os nós de agente íntegros, incluindo alguns pods de sistema de hospedagem que são essenciais para a integridade do cluster. Essas regras de alocação também fazem com que o nó reporte menos memória e CPU do que normalmente faria se não fosse parte de um cluster kubernetes. As reservas de recursos acima não podem ser alteradas.
 
@@ -115,7 +116,7 @@ Para obter as práticas recomendadas associadas, consulte [práticas recomendada
 
 ### <a name="node-pools"></a>Pools de nós
 
-Os nós da mesma configuração são agrupados em *conjuntos de nós* . Um cluster Kubernetes contém um ou mais pools de nó. O número inicial de nós e o tamanho são definidos quando você cria um cluster AKS, que cria um *conjunto de nós padrão* . Esse pool de nó padrão no AKS contém as VMs subjacentes que executam o agente de nós.
+Os nós da mesma configuração são agrupados em *conjuntos de nós*. Um cluster Kubernetes contém um ou mais pools de nó. O número inicial de nós e o tamanho são definidos quando você cria um cluster AKS, que cria um *conjunto de nós padrão*. Esse pool de nó padrão no AKS contém as VMs subjacentes que executam o agente de nós.
 
 > [!NOTE]
 > Para verificar se o seu cluster opera de maneira confiável, execute pelo menos 2 (dois) nós no pool de nós padrão.
@@ -128,7 +129,7 @@ Para obter mais informações sobre como usar vários pools de nós no AKS, cons
 
 Em um cluster AKS que contém vários pools de nós, talvez seja necessário informar ao agendador de kubernetes qual pool de nós usar para um determinado recurso. Por exemplo, controladores de entrada não devem ser executados em nós do Windows Server. Os seletores de nó permitem definir vários parâmetros, como o sistema operacional do nó, para controlar onde um pod deve ser agendado.
 
-O exemplo básico a seguir agenda uma instância de NGINX em um nó do Linux usando o seletor de nó *"beta.kubernetes.Io/os": Linux* :
+O exemplo básico a seguir agenda uma instância de NGINX em um nó do Linux usando o seletor de nó *"beta.kubernetes.Io/os": Linux*:
 
 ```yaml
 kind: Pod
@@ -240,7 +241,7 @@ Para obter mais informações, consulte [Kubernetes DaemonSets][kubernetes-daemo
 
 ## <a name="namespaces"></a>Namespaces
 
-Os recursos do Kubernetes, como pods e Deployments, são logicamente agrupados em um *namespace* . Esses agrupamentos fornecem uma maneira de dividir logicamente um cluster AKS e restringir o acesso para criar, exibir ou gerenciar recursos. Você pode criar namespaces para separar grupos de negócios, por exemplo. Os usuários podem interagir apenas com recursos dentro de seus namespaces atribuídos.
+Os recursos do Kubernetes, como pods e Deployments, são logicamente agrupados em um *namespace*. Esses agrupamentos fornecem uma maneira de dividir logicamente um cluster AKS e restringir o acesso para criar, exibir ou gerenciar recursos. Você pode criar namespaces para separar grupos de negócios, por exemplo. Os usuários podem interagir apenas com recursos dentro de seus namespaces atribuídos.
 
 ![Espaços de nomes do Kubernetes para dividir logicamente recursos e aplicativos](media/concepts-clusters-workloads/namespaces.png)
 

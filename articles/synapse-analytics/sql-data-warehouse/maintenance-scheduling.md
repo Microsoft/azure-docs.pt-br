@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1c5bc4400e99fb1c24e321e623aaee523b9c7383
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1565d4f7792dca5242965d11c58faa90e2222d3
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85210976"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920368"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Use agendas de manutenção para gerenciar atualizações e manutenção de serviços
 
@@ -38,7 +38,7 @@ A integração com notificações do Service Health e o Monitor de verificação
 Uma notificação antecipada de 24 horas precede todos os eventos de manutenção que não são para as camadas DWC400c e inferior.
 
 > [!NOTE]
-> No caso de ser necessário implantar uma atualização crítica de tempo, os tempos de notificação avançados podem ser reduzidos significativamente.
+> No caso de ser necessário implantar uma atualização crítica de tempo, os tempos de notificação avançados podem ser reduzidos significativamente. Isso pode ocorrer fora de uma janela de manutenção identificada devido à natureza crítica da atualização.
 
 Se você recebeu a notificação antecipada de que a manutenção ocorrerá, mas a manutenção não pode ser executada durante o período de tempo na notificação, você receberá uma notificação de cancelamento. A manutenção será retomada durante o próximo período de manutenção agendada.
 
@@ -77,7 +77,7 @@ Abra a página para configurações de agendamento de manutenção selecionando 
     ![Opções da folha Visão geral](./media/maintenance-scheduling/maintenance-change-option.png)
 
 3. Identifique o intervalo de dia preferencial para a janela de manutenção primário, usando as opções na parte superior da página. Essa seleção determina se a janela principal ocorrerá em um dia da semana ou no final de semana. Sua seleção irá atualizar os valores de lista suspensa.
-Durante a visualização, algumas regiões podem ainda não dar suporte ao conjunto completo de opções disponíveis de**Dia**.
+Durante a visualização, algumas regiões podem ainda não dar suporte ao conjunto completo de opções disponíveis de **Dia**.
 
    ![Folha de configurações de manutenção](./media/maintenance-scheduling/maintenance-settings-page.png)
 
@@ -88,7 +88,7 @@ Durante a visualização, algumas regiões podem ainda não dar suporte ao conju
 
    A área do **Resumo de agendamento** na parte inferior da folha é atualizada com base nos valores que você selecionou.
   
-5. Clique em **Salvar**. Será exibida uma mensagem confirmando que seu novo agendamento agora está ativo.
+5. Selecione **Salvar**. Será exibida uma mensagem confirmando que seu novo agendamento agora está ativo.
 
    Se você estiver salvando um agendamento em uma região que não dá suporte a agendamento de manutenção, a seguinte mensagem será exibida. As configurações são salvas e se tornam ativas quando o recurso estiver disponível em sua região selecionada.
 

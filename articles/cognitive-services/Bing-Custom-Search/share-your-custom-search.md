@@ -10,28 +10,28 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 90b6619a5a0c3d59b09eeb5a5002d15cf0c21e19
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6141bd67681df757536792981d47756a20ed33db
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095893"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353316"
 ---
 # <a name="share-your-custom-search-instance"></a>Compartilhar sua instância de Pesquisa Personalizada
 
 > [!WARNING]
-> APIs de Pesquisa do Bing estão mudando de serviços cognitivas para serviços Pesquisa do Bings. A partir de **30 de outubro de 2020** , todas as novas instâncias do pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
-> APIs de Pesquisa do Bing provisionado usando serviços cognitivas terão suporte nos próximos três anos ou até o final do seu Enterprise Agreement, o que ocorrer primeiro.
-> Para obter instruções de migração, consulte [serviços de pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Você pode facilmente permitir a edição e o teste colaborativo de sua instância, compartilhando-a com membros de sua equipe. Você pode compartilhar a instância com qualquer um usando apenas o endereço de email da pessoa. Para compartilhar uma instância:
 
 - Entre na [Pesquisa Personalizada](https://customsearch.ai)
 - Selecione uma instância de Pesquisa Personalizada
 - Clique no ícone de configurações (aparece como uma engrenagem). 
-- Em **Compartilhar sua instância** , insira o endereço de email da pessoa para compartilhar sua instância e clique em **Compartilhar** . 
+- Em **Compartilhar sua instância**, insira o endereço de email da pessoa para compartilhar sua instância e clique em **Compartilhar**. 
 
-Depois de adicionar o endereço de email, ele é adicionado à lista **Instância compartilhada com** . Repita o processo para cada pessoa com quem você deseja compartilhar sua instância. 
+Depois de adicionar o endereço de email, ele é adicionado à lista **Instância compartilhada com**. Repita o processo para cada pessoa com quem você deseja compartilhar sua instância. 
 
 Para adicionar o email de uma pessoa na lista não é necessário ter uma conta de Pesquisa Personalizada. No entanto, elas precisarão se inscrever na Pesquisa Personalizada antes de poderem alterar as configurações. Depois de compartilhar uma instância com alguém, essa pessoa a visualizará em sua respectiva lista de instâncias de Pesquisa Personalizada. Apenas uma pessoa pode modificar uma instância de cada vez. Se você tentar modificar uma instância que alguém está editando, um aviso é exibido. Uma instância pode ser compartilhada com um máximo de 10 usuários.
 

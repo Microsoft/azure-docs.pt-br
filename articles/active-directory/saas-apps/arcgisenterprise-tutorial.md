@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 61920b7c5356b6e1fa5683ac0553060c85e256d3
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: f7578972b054747c75cdbbc2371fc0bf35c6039a
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457802"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672552"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>Tutorial: Integração do Azure Active Directory com o ArcGIS Enterprise
 
@@ -54,11 +54,11 @@ Para configurar a integração do ArcGIS Enterprise com o Azure AD, você precis
 
 **Para adicionar o ArcGIS Enterprise da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory** .
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos** .
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -66,13 +66,13 @@ Para configurar a integração do ArcGIS Enterprise com o Azure AD, você precis
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **ArcGIS Enterprise** , selecione **ArcGIS Enterprise** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **ArcGIS Enterprise**, selecione **ArcGIS Enterprise** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-     ![ArcGIS Enterprise na lista de resultados](common/search-new-app.png)
+    ![ArcGIS Enterprise na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o [nome do aplicativo], com base em uma usuária de teste chamada **Brenda Fernandes** .
+Nesta seção, você configurará e testará o logon único do Azure AD com o [nome do aplicativo], com base em uma usuária de teste chamada **Brenda Fernandes**.
 Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do [nome do aplicativo].
 
 Para configurar e testar o logon único do Azure AD com o [nome do aplicativo], você precisará concluir os seguintes blocos de construção:
@@ -90,19 +90,19 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do AD do Azure com o [nome do aplicativo], execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **ArcGIS Enterprise** , clique em **Logon único** .
+1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **ArcGIS Enterprise**, clique em **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML** .
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica do SAML** , execute as etapas a seguir caso deseje configurar o aplicativo no modo iniciado por **IDP** :
+4. Na seção **Configuração básica do SAML**, execute as etapas a seguir caso deseje configurar o aplicativo no modo iniciado por **IDP**:
 
     ![Captura de tela que mostra a Configuração Básica de SAML, em que você pode inserir o Identificador e a URL de Resposta e selecionar Salvar.](common/idp-intiated.png)
 
@@ -114,18 +114,18 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 
     ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de logon** , digite um URL usando o seguinte padrão: `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte ao cliente do ArcGIS Enterprise](mailto:support@esri.com) para obter esses valores. Você obterá o valor do identificador na seção **Definir provedor de identidade** , que será explicada mais adiante neste tutorial.
+    > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte ao cliente do ArcGIS Enterprise](mailto:support@esri.com) para obter esses valores. Você obterá o valor do identificador na seção **Definir provedor de identidade**, que será explicada mais adiante neste tutorial.
 
-5. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , clique no botão copiar para copiar **URL de metadados de federação de aplicativos** e salve-a no computador.
+5. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar **URL de metadados de federação de aplicativos** e salve-a no computador.
 
     ![O link de download do Certificado](common/copy-metadataurl.png)
 
 ### <a name="configure-arcgis-enterprise-single-sign-on"></a>Configurar o logon único do ArcGIS Enterprise
 
-1. Para automatizar a configuração no ArcGIS Enterprise, é necessário instalar a **extensão do navegador Entrada Segura dos Meus Aplicativos** clicando em **Instalar a extensão** .
+1. Para automatizar a configuração no ArcGIS Enterprise, é necessário instalar a **extensão do navegador Entrada Segura dos Meus Aplicativos** clicando em **Instalar a extensão**.
 
     ![Extensão Meus Aplicativos](common/install-myappssecure-extension.png)
 
@@ -136,37 +136,37 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 1. Caso deseje configurar o ArcGIS Enterprise manualmente, faça logon no seu site de empresa do ArcGIS Enterprise como administrador.
 
 
-1. Selecione **Organização > EDITAR CONFIGURAÇÕES** .
+1. Selecione **Organização > EDITAR CONFIGURAÇÕES**.
 
     ![Captura de tela que mostra a guia Organização do ArcGIS Enterprise com Editar configurações em destaque.](./media/arcgisenterprise-tutorial/configure1.png)
 
-1. Selecione a guia **Segurança** .
+1. Selecione a guia **Segurança**.
 
     ![Captura de tela que mostra a guia Segurança selecionada.](./media/arcgisenterprise-tutorial/configure2.png)
 
-1. Role para baixo até a seção **Logons corporativos via SAML** e selecione **DEFINIR LOGON CORPORATIVO** .
+1. Role para baixo até a seção **Logons corporativos via SAML** e selecione **DEFINIR LOGON CORPORATIVO**.
 
     ![Captura de tela que mostra Logons Corporativos via SAML, em que pode selecionar Definir Logon Corporativo.](./media/arcgisenterprise-tutorial/configure3.png)
 
-1. Na seção **Configurar Provedores de Identidade** , execute as seguintes etapas:
+1. Na seção **Configurar Provedores de Identidade**, execute as seguintes etapas:
 
     ![Captura de tela que mostra Definir Provedor de Identidade, em que pode executar as etapas descritas aqui.](./media/arcgisenterprise-tutorial/configure4.png)
 
-    a. Forneça um nome como **Teste do Azure Active Directory** na caixa de texto **Nome** .
+    a. Forneça um nome como **Teste do Azure Active Directory** na caixa de texto **Nome**.
 
-    b. Na caixa de texto **URL** , cole o valor da **URL de Metadados de Federação do Aplicativo** que você copiou do portal do Azure.
+    b. Na caixa de texto **URL**, cole o valor da **URL de Metadados de Federação do Aplicativo** que você copiou do portal do Azure.
 
-    c. Clique em **Mostrar configurações avançadas** , copie o valor da **ID da Entidade** e cole-o na caixa de texto **Identificador** na seção **Domínio e URLs do ArcGIS Enterprise** no portal do Azure.
-    
+    c. Clique em **Mostrar configurações avançadas**, copie o valor da **ID da Entidade** e cole-o na caixa de texto **Identificador** na seção **Domínio e URLs do ArcGIS Enterprise** no portal do Azure.
+
     ![Captura de tela que mostra onde obter a ID da Entidade e atualizar o provedor de identidade.](./media/arcgisenterprise-tutorial/configure5.png)
 
-    d. Clique em **ATUALIZAR PROVEDOR DE IDENTIDADE** .
+    d. Clique em **ATUALIZAR PROVEDOR DE IDENTIDADE**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários** .
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -178,40 +178,40 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes** .
-  
-    b. No campo **Nome de usuário** , digite **brendafernandes\@dominiodaempresa.extensao**  
+    a. No campo **Nome**, insira **BrendaFernandes**.
+
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo a você o acesso ao ArcGIS Enterprise.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, selecione **ArcGIS Enterprise** .
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, selecione **ArcGIS Enterprise**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, digite e selecione **ArcGIS Enterprise** .
+2. Na lista de aplicativos, digite e selecione **ArcGIS Enterprise**.
 
     ![O link do ArcGIS Enterprise na lista de aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Usuários e grupos** .
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
     ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-arcgis-enterprise-test-user"></a>Criar um usuário de teste do ArcGIS Enterprise
 

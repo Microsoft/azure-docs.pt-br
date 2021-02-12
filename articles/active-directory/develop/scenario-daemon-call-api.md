@@ -1,5 +1,6 @@
 ---
-title: Chamar uma API da Web de um aplicativo daemon-plataforma Microsoft Identity | Azure
+title: Chamar uma API da Web de um aplicativo daemon | Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como criar um aplicativo daemon que chama uma API da Web.
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 576eaf2ad9350651e4400d980e6fedce236dfa57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd0d53049c68843a6fd2cb6128c473d7c4f8d639
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257598"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582784"
 ---
 # <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>Aplicativo daemon que chama APIs Web – chama uma API Web do aplicativo
 
@@ -63,23 +64,20 @@ JSONObject responseObject = HttpClientHelper.processResponse(responseCode, respo
 
 ## <a name="calling-several-apis"></a>Chamando várias APIs
 
-Para aplicativos daemon, as APIs da Web que você chama precisam ser aprovadas previamente. Não há nenhum consentimento incremental com aplicativos de daemon. (Não há interação do usuário.) O administrador de locatários precisa fornecer consentimento antecipadamente para o aplicativo e todas as permissões de API. Se você quiser chamar várias APIs, precisará adquirir um token para cada recurso, sempre chamando `AcquireTokenForClient` . MSAL usará o cache de token de aplicativo para evitar chamadas de serviço desnecessárias.
+Para aplicativos daemon, as APIs da Web que você chama precisam ser aprovadas previamente. Não há nenhum consentimento incremental com aplicativos de daemon. (Não há interação do usuário.) O administrador de locatários precisa fornecer consentimento antecipadamente para o aplicativo e todas as permissões de API. Se você quiser chamar várias APIs, adquira um token para cada recurso, cada vez chamando `AcquireTokenForClient` . MSAL usará o cache de token de aplicativo para evitar chamadas de serviço desnecessárias.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-> [!div class="nextstepaction"]
-> [Aplicativo de daemon – mover para produção](./scenario-daemon-production.md?tabs=dotnet)
+Vá para o próximo artigo neste cenário, [vá para produção](./scenario-daemon-production.md?tabs=dotnet).
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Aplicativo de daemon – mover para produção](./scenario-daemon-production.md?tabs=python)
+Vá para o próximo artigo neste cenário, [vá para produção](./scenario-daemon-production.md?tabs=python).
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Aplicativo de daemon – mover para produção](./scenario-daemon-production.md?tabs=java)
+Vá para o próximo artigo neste cenário, [vá para produção](./scenario-daemon-production.md?tabs=java).
 
 ---

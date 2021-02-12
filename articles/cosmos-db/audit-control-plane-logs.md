@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: sngun
-ms.openlocfilehash: 683fc553e7712e2a760a0af1b601207cb20f2f55
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a0feaf4a984f40ddee7a30291fe0a8f671b6512a
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092799"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636836"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Como auditar Azure Cosmos DB operações do plano de controle
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -28,7 +28,7 @@ Veja a seguir alguns cenários de exemplo em que as operações do plano de cont
 
 ## <a name="disable-key-based-metadata-write-access"></a>Desabilitar acesso de gravação de metadados com base em chave
 
-Antes de auditar as operações do plano de controle no Azure Cosmos DB, desabilite o acesso de gravação de metadados baseado em chave em sua conta. Quando o acesso de gravação de metadados com base em chave está desabilitado, os clientes que se conectam à conta do Azure Cosmos por meio de chaves de conta são impedidos de acessar Você pode desabilitar o acesso de gravação definindo a `disableKeyBasedMetadataWriteAccess` propriedade como true. Depois de definir essa propriedade, as alterações em qualquer recurso podem ocorrer de um usuário com a função e as credenciais adequadas do RBAC (controle de acesso baseado em função). Para saber mais sobre como definir essa propriedade, consulte o artigo [impedindo alterações de SDKs](role-based-access-control.md#prevent-sdk-changes) . 
+Antes de auditar as operações do plano de controle no Azure Cosmos DB, desabilite o acesso de gravação de metadados baseado em chave em sua conta. Quando o acesso de gravação de metadados com base em chave está desabilitado, os clientes que se conectam à conta do Azure Cosmos por meio de chaves de conta são impedidos de acessar Você pode desabilitar o acesso de gravação definindo a `disableKeyBasedMetadataWriteAccess` propriedade como true. Depois de definir essa propriedade, as alterações em qualquer recurso podem ocorrer de um usuário com a função e as credenciais adequadas do Azure. Para saber mais sobre como definir essa propriedade, consulte o artigo [impedindo alterações de SDKs](role-based-access-control.md#prevent-sdk-changes) . 
 
 Depois que o `disableKeyBasedMetadataWriteAccess` for ativado, se os clientes baseados em SDK executarem operações de criação ou atualização, um erro *"operação ' Post ' no recurso ' ContainerNameorDatabaseName ' não será permitido por meio de Azure Cosmos DB ponto de extremidade* será retornado. Você precisa ativar o acesso a essas operações para sua conta ou executar as operações de criação/atualização por meio de Azure Resource Manager, CLI do Azure ou Azure PowerShell. Para alternar de volta, defina disableKeyBasedMetadataWriteAccess como **false** usando CLI do Azure conforme descrito no artigo [impedindo alterações do SDK do cosmos](role-based-access-control.md#prevent-sdk-changes) . Certifique-se de alterar o valor de `disableKeyBasedMetadataWriteAccess` para falso em vez de true.
 
@@ -70,17 +70,17 @@ Depois de ativar o registro em log, use as seguintes etapas para rastrear as ope
 
 As capturas de tela a seguir capturam logs quando um nível de consistência é alterado para uma conta do Azure Cosmos:
 
-:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Habilitar log de solicitações de plano de controle":::
+:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Controlar os logs de plano quando uma VNet for adicionada":::
 
 As capturas de tela a seguir capturam logs quando o keyspace ou uma tabela de uma conta Cassandra são criados e quando a taxa de transferência é atualizada. Os logs do plano de controle para operações de criação e atualização no banco de dados e o contêiner são registrados separadamente, conforme mostrado na seguinte captura de tela:
 
-:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Habilitar log de solicitações de plano de controle":::
+:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Controlar os logs de plano quando a taxa de transferência for atualizada":::
 
 ## <a name="identify-the-identity-associated-to-a-specific-operation"></a>Identificar a identidade associada a uma operação específica
 
 Se você quiser depurar ainda mais, poderá identificar uma operação específica no log de **atividades** usando a ID da atividade ou o carimbo de data/hora da operação. O carimbo de data/hora é usado para alguns clientes do Resource Manager em que a ID da atividade não é aprovada explicitamente. O log de atividades fornece detalhes sobre a identidade com a qual a operação foi iniciada. A captura de tela a seguir mostra como usar a ID da atividade e localizar as operações associadas a ela no log de atividades:
 
-:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Habilitar log de solicitações de plano de controle":::
+:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Usar a ID da atividade e localizar as operações":::
 
 ## <a name="control-plane-operations-for-azure-cosmos-account"></a>Operações do plano de controle para a conta do Azure Cosmos
 

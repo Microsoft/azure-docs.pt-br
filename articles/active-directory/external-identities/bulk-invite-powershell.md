@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89e24d9ff76184c36aee5c14f15f9713b30f6f1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e047f11cc243ab1a36a8c61dd1b229d9e115115
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87906792"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892478"
 ---
 # <a name="tutorial-use-powershell-to-bulk-invite-azure-ad-b2b-collaboration-users"></a>Tutorial: Usar o PowerShell para convidar usuários de colaboração do Azure AD B2B em massa
 
@@ -116,7 +116,7 @@ foreach ($email in $invitations)
 
 O script envia um convite para os endereços de email no arquivo Invitations.csv. Você deverá ver uma saída semelhante ao exemplo a seguir para cada usuário:
 
-![Saída do PowerShell exibindo aceitações pendentes do usuário](media/tutorial-bulk-invite/B2BBulkImport.png)
+![Captura de tela que mostra a saída do PowerShell que inclui a aceitação do usuário pendente.](media/tutorial-bulk-invite/B2BBulkImport.png)
 
 ## <a name="verify-users-exist-in-the-directory"></a>Verificar se os usuários existem no diretório
 
@@ -126,7 +126,7 @@ Para verificar se os usuários convidados foram adicionados ao Azure AD, execute
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
 
-Você deverá ver os usuários que você convidou listados, com um nome UPN no formato *endereçodeemail*#EXT#\@*domínio*. Por exemplo, *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, em que contoso.onmicrosoft.com é a organização da qual você enviou os convites.
+Você deverá ver os usuários que você convidou listados, com um nome UPN no formato *endereçodeemail* #EXT#\@*domínio*. Por exemplo, *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com* , em que contoso.onmicrosoft.com é a organização da qual você enviou os convites.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

@@ -1,17 +1,17 @@
 ---
 title: Link privado-banco de dados do Azure para MariaDB
 description: Saiba como o link privado funciona para o banco de dados do Azure para MariaDB.
-author: kummanish
-ms.author: manishku
-ms.service: mariadb
+author: mksuni
+ms.author: sumuth
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 80bc77de30073b2872412f907251b1aad7e334d3
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 12f52cd497d606fda6bbea9b54f467522373eeb7
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425623"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98665133"
 ---
 # <a name="private-link-for-azure-database-for-mariadb"></a>Link privado para o banco de dados do Azure para MariaDB
 

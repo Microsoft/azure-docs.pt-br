@@ -1,14 +1,14 @@
 ---
 title: Recursos e camadas de serviço do registro
-description: Saiba mais sobre os recursos e limites nas camadas de serviço Básico, Standard e Premium (SKUs) do Registro de Contêiner do Azure.
+description: Saiba mais sobre os recursos e limites (cotas) nas camadas de serviço básico, Standard e Premium (SKUs) do registro de contêiner do Azure.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: e2a5ad52775e9000aa0beb0a926d809da1c5a0e0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b55fc16dcd6dcb544ed4597ce4bdc6ba17b52646
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048467"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015650"
 ---
 # <a name="azure-container-registry-service-tiers"></a>Criar camadas de serviço do Registro de Contêiner do Azure
 
@@ -30,7 +30,9 @@ A tabela a seguir detalha os recursos e limites de registro das camadas de servi
 
 ## <a name="changing-tiers"></a>Alterando camadas
 
-Você pode alterar a camada de serviço do registro com a CLI do Azure ou no portal do Azure. Você pode mudar livremente de camada, contanto que ela tenha a capacidade de armazenamento máxima necessária. 
+Você pode alterar a camada de serviço do registro com a CLI do Azure ou no portal do Azure. Você pode mover livremente entre as camadas, desde que a camada que você está alternando tenha a capacidade máxima de armazenamento necessária. 
+
+Não há nenhum tempo de inatividade do registro ou impacto nas operações de registro quando você se move entre as camadas de serviço.
 
 ### <a name="azure-cli"></a>CLI do Azure
 

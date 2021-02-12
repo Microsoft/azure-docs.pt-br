@@ -10,11 +10,11 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: e7f5b6f3685a94b5497784360f8f12b22fb95012
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87298797"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017825"
 ---
 ## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Criar um recurso de cluster do serviço kubernetes do Azure
 
@@ -39,10 +39,10 @@ ms.locfileid: "87298797"
 
     |Configuração|Valor|
     |--|--|
-    |Roteamento de aplicativo HTTP|Não|
-    |Configuração de rede|Basic|
+    |Roteamento de aplicativo HTTP|No|
+    |Configuração de rede|Básico|
 
-1. Na guia **integrações** , verifique se o **monitoramento do contêiner** está definido como **habilitado**e deixe **log Analytics espaço de trabalho** como o valor padrão.
+1. Na guia **integrações** , verifique se o **monitoramento do contêiner** está definido como **habilitado** e deixe **log Analytics espaço de trabalho** como o valor padrão.
 1. Na guia **marcas** , deixe os pares nome/valor em branco por enquanto.
 1. Selecione **revisar e criar**.
 1. Depois que a validação for aprovada, selecione **criar**.

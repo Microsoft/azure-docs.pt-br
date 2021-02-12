@@ -132,6 +132,8 @@
           href: how-to-connect-install-existing-tenant.md
         - name: Tarefas pós-instalação
           href: how-to-connect-post-installation.md
+        - name: Desinstalar o Azure AD Connect
+          href: how-to-connect-uninstall.md
     - name: Planejar e projetar
       items:
         - name: Conceitos de design

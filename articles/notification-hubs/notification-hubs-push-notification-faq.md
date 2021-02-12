@@ -15,12 +15,12 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 85ebb7f5ac52f4eea25f9e6f1a2b1b5ac6f4caa5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d476b1db645ed1f91b62fcf11464f7077a8fb3c
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87077917"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491419"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notificações por push com os Hubs de Notificação do Azure: perguntas frequentes
 
@@ -34,16 +34,16 @@ Os Hubs de Notificação do Azure têm dois níveis de recursos: hubs e namespac
 
 Os detalhes de preços mais recentes podem ser encontrados na página [Preços dos Hubs de Notificação]. Os Hubs de Notificação são cobrados no nível de namespace. (Para a definição de um namespace, veja "Qual é a estrutura de recursos dos Hubs de Notificação?") Os Hubs de Notificação oferecem três camadas:
 
-* **Livre**: esta camada é um bom ponto de partida para explorar os recursos de envio. Não é recomendável para aplicativos de produção. Obter 500 dispositivos e 1 milhão envia incluído por namespace por mês, com nenhuma garantia (SLA) contrato de nível de serviço.
-* **Básico**: essa camada (ou a Standard) é recomendável para aplicativos de produção menores. Obter 200.000 dispositivos e 10 milhões envia incluído por namespace por mês como uma linha de base.
-* **Padrão**:essa camada é recomendada para aplicativos de produção médios a grandes. Obter 10 milhões de dispositivos e 10 milhões envia incluído por namespace por mês como uma linha de base. Inclui telemetria avançada (dados adicionais sobre status de push fornecido).
+* **Livre** : esta camada é um bom ponto de partida para explorar os recursos de envio. Não é recomendável para aplicativos de produção. Obter 500 dispositivos e 1 milhão envia incluído por namespace por mês, com nenhuma garantia (SLA) contrato de nível de serviço.
+* **Básico** : essa camada (ou a Standard) é recomendável para aplicativos de produção menores. Obter 200.000 dispositivos e 10 milhões envia incluído por namespace por mês como uma linha de base.
+* **Padrão** :essa camada é recomendada para aplicativos de produção médios a grandes. Obter 10 milhões de dispositivos e 10 milhões envia incluído por namespace por mês como uma linha de base. Inclui telemetria avançada (dados adicionais sobre status de push fornecido).
 
 Recursos de camada padrão:
 
-* **Telemetria avançada**: você pode usar os Hubs de Notificação por Telemetria de Mensagem para rastrear quaisquer solicitações de envio por push e Comentários do Sistema de Notificação de Plataforma para depuração.
-* **Multilocação**: você pode trabalhar com sistema de notificação de plataforma credenciais em um nível de namespace. Esta opção permite que você dividida locatários facilmente em hubs no mesmo namespace.
-* **Push agendado**: você pode agendar que notificações sejam enviadas a qualquer momento.
-* **Operações em massa**: habilita a funcionalidade de exportação/importação de registros conforme descrito no documento de [exportação/importação de registros] .
+* **Telemetria avançada** : você pode usar os Hubs de Notificação por Telemetria de Mensagem para rastrear quaisquer solicitações de envio por push e Comentários do Sistema de Notificação de Plataforma para depuração.
+* **Multilocação** : você pode trabalhar com sistema de notificação de plataforma credenciais em um nível de namespace. Esta opção permite que você dividida locatários facilmente em hubs no mesmo namespace.
+* **Push agendado** : você pode agendar que notificações sejam enviadas a qualquer momento.
+* **Operações em massa** : habilita a funcionalidade de exportação/importação de registros conforme descrito no documento de [exportação/importação de registros] .
 
 ### <a name="what-is-the-notification-hubs-sla"></a>O que é o SLA dos Hubs de Notificação?
 
@@ -151,7 +151,7 @@ Todas as conexões do remetente para os Hubs de Notificações do Azure e para o
 
 Para enviar cargas confidenciais, é recomendável usar um padrão Push seguro. O remetente fornece uma notificação de ping com um identificador de mensagem para o dispositivo sem a carga confidencial. Quando o aplicativo no dispositivo recebe a carga, o aplicativo chama uma API segura diretamente para buscar os detalhes da mensagem. Para obter um guia sobre como implementar esse padrão, vá para a página [tutorial de Push Seguro de Hubs de Notificação].
 
-## <a name="operations"></a>Operações
+## <a name="operations"></a>Operations
 
 ### <a name="what-support-is-provided-for-disaster-recovery"></a>Qual suporte é fornecido para a recuperação de desastre?
 
@@ -159,15 +159,12 @@ Fornecemos uma cobertura de recuperação de desastre de metadados em nosso lado
 
 1. Crie um hub de notificações secundário em um datacenter diferente. É recomendável criar um desde o início para proteger você de um evento de recuperação de desastre que possa afetar sua capacidade de gerenciamento. Você também pode criar um no momento do evento de recuperação de desastre.
 
-2. Popule o hub de notificação secundário com os registros do hub de notificação primário. Não é recomendável tentar manter os registros em ambos os hubs e mantê-los em sincronia, à medida que os registros. Essa prática não funciona bem devido a tendência inerente de registros para expirar no lado do PNS. Os Hubs de Notificação limpa-os enquanto recebe comentários dos PNS sobre registros expirados ou inválidos.  
+2. Mantenha o Hub de notificação secundário em sincronia com o Hub de notificação principal usando uma das seguintes opções:
 
-Temos duas recomendações para back-ends de aplicativo:
+   * Use um back-end de aplicativo que cria e atualiza instalações simultaneamente em ambos os hubs de notificação. As instalações permitem que você especifique seu próprio identificador de dispositivo exclusivo, tornando-o mais adequado para o cenário de replicação. Para obter mais informações, consulte este [código de exemplo](https://github.com/Azure/azure-notificationhubs-dotnet/tree/main/Samples/RedundantHubSample).
+   * Use um back-end de aplicativo que obtenha um despejo regular de registros do hub de notificação principal como um backup. Ele pode realizar uma inserção em massa no hub de notificação secundário.
 
-* Use um back-end de aplicativo que mantenha um determinado conjunto de registros no final. Ele pode realizar uma inserção em massa no hub de notificação secundário.
-* Use um back-end de aplicativo que obtenha um despejo regular de registros do hub de notificação principal como um backup. Ele pode realizar uma inserção em massa no hub de notificação secundário.
-
-> [!NOTE]
-> A funcionalidade Exportação/Importação de Registros disponível na camada Standard é descrita no documento [Importação/Exportação de Registros] .
+O Hub de notificação secundário pode acabar com instalações/registros expirados. Quando o envio é feito para um identificador expirado, os hubs de notificação limpam automaticamente o registro de instalação/registro associado com base na resposta recebida do servidor PNS. Para limpar os registros expirados de um hub de notificação secundário, adicione uma lógica personalizada que processa os comentários de cada envio. Em seguida, expire a instalação/registro no Hub de notificação secundário.
 
 Se você não tem um back-end, quando o aplicativo inicia nos dispositivos de destino, eles executam um novo registro no hub de notificação secundário. Eventualmente, o hub de notificação secundário terá todos os dispositivos ativos registrados.
 
@@ -200,7 +197,7 @@ Você também pode acessar métricas programaticamente. Para obter mais informa�
 > [!NOTE]
 > Notificações com êxito significam simplesmente que as notificações por push foram entregues ao PNS externo (por exemplo, APNs para iOS e macOS ou FCM para dispositivos Android). É responsabilidade do PNS para entregar as notificações para dispositivos de destino. Normalmente, o PNS não expõe as métricas de entrega para terceiros.  
 
-[Azure portal]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com
 [Preços dos Hubs de Notificação]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [APIs REST dos Hubs de Notificação]: /previous-versions/azure/reference/dn530746(v=azure.100)

@@ -10,29 +10,29 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 57edc16f4396e0fe71380d4f51fa9e0dcca1ef03
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b2d4eb75002474bbec57753bbf0255cc4c2b4a16
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090810"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96338632"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configure sua experiência de Pesquisa Personalizada do Bing
 
 > [!WARNING]
-> APIs de Pesquisa do Bing estão mudando de serviços cognitivas para serviços Pesquisa do Bings. A partir de **30 de outubro de 2020** , todas as novas instâncias do pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
-> APIs de Pesquisa do Bing provisionado usando serviços cognitivas terão suporte nos próximos três anos ou até o final do seu Enterprise Agreement, o que ocorrer primeiro.
-> Para obter instruções de migração, consulte [serviços de pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-Uma instância de Pesquisa Personalizada permite adaptar a experiência de pesquisa para incluir conteúdo apenas de sites com os quais os usuários se importam. Em vez de realizar uma pesquisa em toda a Web, o Bing pesquisa apenas a parte da Web de interesse do usuário. Para criar a exibição personalizada da Web, use o [portal](https://customsearch.ai) da Pesquisa Personalizada do Bing.
+Uma instância de Pesquisa Personalizada permite adaptar a experiência de pesquisa para incluir conteúdo apenas de sites com os quais os usuários se importam. Em vez de realizar uma pesquisa em toda a Web, o Bing pesquisa apenas a parte da Web de interesse do usuário. Para criar a exibição personalizada da Web, use o [portal](https://www.customsearch.ai) da Pesquisa Personalizada do Bing.
 
 O portal permite criar uma instância de pesquisa que especifica as fatias da Web: os domínios, as subpáginas e páginas da Web que você quer que o Bing pesquise, e aqueles que você não quer que ele pesquise. O portal também pode sugerir conteúdo que você talvez queira incluir.
 
 Ao definir fatias da web, use o seguinte:
 
-| Nome da fatia | Description                                                                                                                                                                                                                                                                                                |
+| Nome da fatia | Descrição                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domínio     | Uma fatia de domínio inclui todo o conteúdo localizado em um domínio da Internet. Por exemplo, `www.microsoft.com`. Omitir `www.` faz com que o Bing também pesquise os subdomínios do domínio. Por exemplo, se você especificar `microsoft.com` , o Bing também retorna resultados de `support.microsoft.com` ou `technet.microsoft.com` . |
+| Domain     | Uma fatia de domínio inclui todo o conteúdo localizado em um domínio da Internet. Por exemplo, `www.microsoft.com`. Omitir `www.` faz com que o Bing também pesquise os subdomínios do domínio. Por exemplo, se você especificar `microsoft.com` , o Bing também retorna resultados de `support.microsoft.com` ou `technet.microsoft.com` . |
 | Subpágina    | Uma fatia de subpágina inclui todo o conteúdo localizado na subpágina e nos caminhos abaixo. É possível especificar no máximo duas subpáginas no caminho. Por exemplo, `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Página da web    | Uma fatia da página da Web pode incluir apenas essa página da Web em uma pesquisa personalizada. Opcionalmente, é possível especificar se quer incluir subpáginas.                                                                                                                                                                                  |
 
@@ -60,17 +60,17 @@ Se você não tiver certeza de quais fatias incluir, você pode enviar consultas
 
 Você pode acessar a lista de fatias ativas e bloqueadas, clicando nas guias **Ativo** e **Bloqueado** em sua instância de pesquisa personalizada. Fatias adicionadas à lista de ativos serão incluídas em sua pesquisa personalizada. Fatias bloqueadas não serão pesquisadas e não aparecerão nos resultados da pesquisa.
 
-Para especificar as fatias da web que você deseja que o Bing pesquise, clique na guia **Ativo** e adicione uma ou mais URLs. Para editar ou excluir URLs, use as opções na coluna **Controles** . 
+Para especificar as fatias da web que você deseja que o Bing pesquise, clique na guia **Ativo** e adicione uma ou mais URLs. Para editar ou excluir URLs, use as opções na coluna **Controles**. 
 
-Ao adicionar URLs à lista **Ativo** , você pode adicionar URLs únicas ou várias URLs simultaneamente carregando um arquivo de texto usando o ícone de upload.
+Ao adicionar URLs à lista **Ativo**, você pode adicionar URLs únicas ou várias URLs simultaneamente carregando um arquivo de texto usando o ícone de upload.
 
 ![A guia Ativo da Pesquisa Personalizada do Bing](media/file-upload-icon.png)
 
 Para carregar um arquivo, crie um arquivo de texto e especifique um único domínio, subpágina ou página da Web por linha. O arquivo será rejeitado se ele não estiver formatado corretamente.
 
 > [!NOTE]
-> * Você só pode carregar um arquivo para a lista **Ativo** . Você não pode usá-lo para adicionar fatias à lista **Bloqueado** .  
-> * Se a lista **Bloqueado** contiver um domínio, uma subpágina ou página da Web que você especificou no arquivo de upload, ele será removido da lista **Bloqueado** e adicionado à lista **Ativo** .
+> * Você só pode carregar um arquivo para a lista **Ativo**. Você não pode usá-lo para adicionar fatias à lista **Bloqueado**.  
+> * Se a lista **Bloqueado** contiver um domínio, uma subpágina ou página da Web que você especificou no arquivo de upload, ele será removido da lista **Bloqueado** e adicionado à lista **Ativo**.
 > * Entradas duplicadas no seu arquivo de upload serão ignoradas pela Pesquisa Personalizada do Bing. 
 
 ### <a name="get-website-suggestions-for-your-search-experience"></a>Obtenha sugestões de sites para a sua experiência de pesquisa
@@ -79,17 +79,17 @@ Depois de adicionar Web Slices à lista **ativa** , o portal de pesquisa persona
 
 ## <a name="search-for-images-and-videos"></a>Pesquisar imagens e vídeos
 
-Você pode pesquisar imagens e vídeos da mesma forma que o conteúdo da web usando a [API de Pesquisa de Imagem Personalizada do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) ou a [API de Pesquisa de Vídeo Personalizada do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference). Você pode exibir esses resultados com a [interface do usuário hospedada](hosted-ui.md) ou as APIs. 
+Você pode pesquisar imagens e vídeos da mesma forma que o conteúdo da web usando a [API de Pesquisa de Imagem Personalizada do Bing](/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) ou a [API de Pesquisa de Vídeo Personalizada do Bing](/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference). Você pode exibir esses resultados com a [interface do usuário hospedada](hosted-ui.md) ou as APIs. 
 
-Essas APIs são semelhantes às APIs de [Pesquisa de Imagem do Bing](../Bing-Image-Search/overview.md) e [Pesquisa de Vídeo do Bing](../Bing-Video-Search/search-the-web.md) não personalizadas, mas pesquisam toda a web e não exigem o parâmetro de consulta `customConfig`. Consulte esses conjuntos de documentação para obter mais informações sobre como trabalhar com imagens e vídeos. 
+Essas APIs são semelhantes às APIs de [Pesquisa de Imagem do Bing](../Bing-Image-Search/overview.md) e [Pesquisa de Vídeo do Bing](../bing-video-search/overview.md) não personalizadas, mas pesquisam toda a web e não exigem o parâmetro de consulta `customConfig`. Consulte esses conjuntos de documentação para obter mais informações sobre como trabalhar com imagens e vídeos. 
 
 ## <a name="test-your-search-instance-with-the-preview-pane"></a>Testar sua instância de pesquisa com o painel de visualização
 
 É possível testar a instância de pesquisa usando o painel de visualização no lado direito do portal para enviar consultas de pesquisa e exibir os resultados. 
 
-1. Abaixo da caixa de pesquisa, selecione **Minha instância** . Você pode comparar os resultados de sua experiência de pesquisa com o Bing, selecionando **Bing** . 
-2. Selecione um filtro de pesquisa seguro e qual mercado pesquisar (consulte [Parâmetros de Consulta](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)).
-3. Insira uma consulta e pressione Enter ou clique no ícone de pesquisa para exibir os resultados da configuração atual. Você pode alterar seu tipo de pesquisa que você executa clicando em **Web** , **Imagem** , ou **Vídeo** para obter resultados correspondentes. 
+1. Abaixo da caixa de pesquisa, selecione **Minha instância**. Você pode comparar os resultados de sua experiência de pesquisa com o Bing, selecionando **Bing**. 
+2. Selecione um filtro de pesquisa seguro e qual mercado pesquisar (consulte [Parâmetros de Consulta](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)).
+3. Insira uma consulta e pressione Enter ou clique no ícone de pesquisa para exibir os resultados da configuração atual. Você pode alterar seu tipo de pesquisa que você executa clicando em **Web**, **Imagem**, ou **Vídeo** para obter resultados correspondentes. 
 
 <a name="adjustrank"></a>
 
@@ -97,18 +97,18 @@ Essas APIs são semelhantes às APIs de [Pesquisa de Imagem do Bing](../Bing-Ima
 
 O portal permite que você ajuste a classificação da pesquisa de conteúdo de domínios, subpáginas e páginas da Web específicos. Depois de enviar uma consulta de pesquisa no painel de visualização, cada resultado de pesquisa contém uma lista de ajustes que você pode fazer para ele:  
 
-| Ajuste | Description |
+| Ajuste | Descrição |
 |------------|-------------|
 | Bloquear      | Mova o domínio, a subpágina ou a página da Web para a lista Bloqueado. O Bing excluirá o conteúdo do site selecionado para não aparecer nos resultados da pesquisa.                    |
 | Aumentar      | Aumenta o conteúdo do domínio ou da subpágina nos resultados da pesquisa.                                                                                        |
 | Rebaixar     | Rebaixa o conteúdo do domínio ou subpágina ao nível abaixo nos resultados da pesquisa. Você seleciona se quer rebaixar o conteúdo do domínio ou da subpágina à qual a página da Web pertence. |
-| Fixar no início | Move o domínio, a subpágina ou a página da Web para a lista **Fixado** . Isso força que a página da Web sejam exibida como o primeiro resultado de pesquisa para uma determinada consulta de pesquisa.                   |
+| Fixar no início | Move o domínio, a subpágina ou a página da Web para a lista **Fixado**. Isso força que a página da Web sejam exibida como o primeiro resultado de pesquisa para uma determinada consulta de pesquisa.                   |
 
 A classificação de ajuste não está disponível para pesquisas de imagem e vídeo.
 
 ### <a name="boosting-and-demoting-search-results"></a>Aumentar e rebaixar os resultados da pesquisa
 
-É possível aumentar, superaumentar ou rebaixar qualquer domínio ou subpágina na lista **Ativo** . Por padrão, todas as fatias são adicionadas sem ajustes de classificação. As fatias da Web que são Superaumentadas ou Aumentadas apresentam uma classificação superior nos resultados da pesquisa (com classificação superaumentada maior que aumentada). Itens rebaixados são classificados abaixo nos resultados da pesquisa.
+É possível aumentar, superaumentar ou rebaixar qualquer domínio ou subpágina na lista **Ativo**. Por padrão, todas as fatias são adicionadas sem ajustes de classificação. As fatias da Web que são Superaumentadas ou Aumentadas apresentam uma classificação superior nos resultados da pesquisa (com classificação superaumentada maior que aumentada). Itens rebaixados são classificados abaixo nos resultados da pesquisa.
 
 Você pode melhorar, aumentar ou rebaixar itens usando os controles de **ajuste de classificação** na lista **ativa** ou usando os controles Boost e rebaixar no painel de visualização. O serviço adiciona a fatia à lista Ativo e ajusta a classificação adequadamente.
 
@@ -125,11 +125,11 @@ Você pode fixar uma página da Web na parte superior de duas maneiras:
 
 * Na guia **fixado** , insira a URL da página da Web a ser fixada na parte superior e sua consulta correspondente.
 
-* No painel **Visualização** , insira uma consulta de pesquisa e clique em pesquisar. Localize a página da Web que você deseja fixar na consulta e clique em **fixar na parte superior** . A página da Web e a consulta serão adicionadas à lista **Fixado** .
+* No painel **Visualização**, insira uma consulta de pesquisa e clique em pesquisar. Localize a página da Web que você deseja fixar na consulta e clique em **fixar na parte superior**. A página da Web e a consulta serão adicionadas à lista **Fixado**.
 
 ### <a name="specify-the-pins-match-condition"></a>Especificar a condição de correspondência da fixação
 
-Por padrão, as páginas da Web só estão fixadas na parte superior dos resultados da pesquisa quando a cadeia de caracteres de consulta do usuário corresponde exatamente a um listado na lista **Fixado** . Você pode alterar este comportamento especificando uma das seguintes condições de correspondência:
+Por padrão, as páginas da Web só estão fixadas na parte superior dos resultados da pesquisa quando a cadeia de caracteres de consulta do usuário corresponde exatamente a um listado na lista **Fixado**. Você pode alterar este comportamento especificando uma das seguintes condições de correspondência:
 
 > [!NOTE]
 > Todas as comparações entre a consulta de pesquisa do usuário e a consulta de pesquisa da fixação diferenciam maiúsculas de minúsculas.
@@ -141,11 +141,11 @@ Por padrão, as páginas da Web só estão fixadas na parte superior dos resulta
 | Contém    | A fixação é uma correspondência se a cadeia de caracteres de consulta do usuário contém a cadeia de caracteres de consulta da fixação.   |
 
 
-Para alterar a condição de correspondência da fixação, clique no ícone de edição da fixação. Na coluna **Condição de correspondência de consulta** , clique na lista suspensa e selecione a nova condição a ser usada. Em seguida, clique no ícone de salvar para salvar as alterações.
+Para alterar a condição de correspondência da fixação, clique no ícone de edição da fixação. Na coluna **Condição de correspondência de consulta**, clique na lista suspensa e selecione a nova condição a ser usada. Em seguida, clique no ícone de salvar para salvar as alterações.
 
 ### <a name="change-the-order-of-your-pinned-sites"></a>Alterar a ordem dos seus sites fixados
 
-Para alterar a ordem de seus pins, você pode arrastá-los e soltá-los, ou editar o número da ordem, clicando no ícone "Editar" na coluna **Controles** da lista **Fixado** .
+Para alterar a ordem de seus pins, você pode arrastá-los e soltá-los, ou editar o número da ordem, clicando no ícone "Editar" na coluna **Controles** da lista **Fixado**.
 
 Se vários pins satisfazem uma condição de correspondência, a Pesquisa Personalizada do Bing usará a mais alta na lista.
 
@@ -165,4 +165,4 @@ Se você inscreveu-se na Pesquisa Personalizada no nível apropriado (consulte a
 - [Chamar sua pesquisa personalizada](./search-your-custom-view.md)
 - [Configurar a experiência de interface do usuário hospedada](./hosted-ui.md)
 - [Usar marcadores de decoração para realçar texto](../bing-web-search/hit-highlighting.md)
-- [Paginar páginas da Web](./page-webpages.md)
+- [Paginar páginas da Web](../bing-web-search/paging-search-results.md)

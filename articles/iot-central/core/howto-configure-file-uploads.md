@@ -4,15 +4,15 @@ description: Como configurar uploads de arquivos de seus dispositivos para a nuv
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/06/2020
+ms.date: 12/23/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: d6fbf84ec3822195f62970dbf08115059ffb7e4a
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: ed2eff4d6ccbb9f85dfaf7049fa3cc18711bae0f
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122595"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796897"
 ---
 # <a name="upload-files-from-your-devices-to-the-cloud"></a>Carregar arquivos de seus dispositivos para a nuvem
 
@@ -38,7 +38,7 @@ Para configurar carregamentos de arquivos do dispositivo:
 
 1. Se necessário, ajuste o tempo limite de carregamento que define por quanto tempo uma solicitação de upload permanece válida para. Os valores válidos são de 1 a 24 horas.
 
-1. Selecione **Salvar**. Quando o status mostrar **configurado**, você estará pronto para carregar arquivos de dispositivos.
+1. Clique em **Salvar**. Quando o status mostrar **configurado**, você estará pronto para carregar arquivos de dispositivos.
 
 :::image type="content" source="media/howto-configure-file-uploads/file-upload-configuration.png" alt-text="Configurar upload de arquivo no aplicativo":::
 

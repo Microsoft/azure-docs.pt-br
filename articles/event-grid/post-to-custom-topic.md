@@ -3,12 +3,12 @@ title: Publicar evento para tópico personalizado de Grade de Eventos do Azure
 description: Este artigo descreve como publicar um evento para um tópico personalizado. Ele mostra o formato dos dados de postagem e evento.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 197d8eb1963300bc6576e664c7c3fd470cf70bb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed126487938e524264c94544903460854ffc4d41
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86108236"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681593"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Publicar para tópico personalizado para Grade de Eventos do Azure
 
@@ -16,7 +16,7 @@ Este artigo descreve como publicar um evento para um tópico personalizado. Ele 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="endpoint"></a>Ponto de extremidade
+## <a name="endpoint"></a>Ponto de Extremidade
 
 Ao enviar o HTTP POST para um tópico personalizado, use o formato URI: `https://<topic-endpoint>?api-version=2018-01-01`.
 
@@ -71,10 +71,7 @@ Para tópicos personalizados, os dados de nível superior contêm os mesmos camp
 ]
 ```
 
-Para obter uma descrição dessas propriedades, consulte [esquema de evento de Grade de Eventos do Azure](event-schema.md). Ao postar eventos em um tópico da grade de eventos, a matriz pode ter um tamanho total de até 1 MB. Cada evento na matriz é limitado a 64 KB (disponibilidade geral) ou 1 MB (versão prévia).
-
-> [!NOTE]
-> Um evento de tamanho de até 64 KB é coberto pela disponibilidade geral (GA) Contrato de Nível de Serviço (SLA). O suporte para um evento de tamanho de até 1 MB está atualmente em visualização. Eventos acima de 64 KB são cobrados em incrementos de 64 KB. 
+Para obter uma descrição dessas propriedades, consulte [esquema de evento de Grade de Eventos do Azure](event-schema.md). Ao postar eventos em um tópico da grade de eventos, a matriz pode ter um tamanho total de até 1 MB. O tamanho máximo permitido para um evento também é de 1 MB. Eventos acima de 64 KB são cobrados em incrementos de 64 KB. 
 
 Por exemplo, um esquema de dados de evento válido é:
 

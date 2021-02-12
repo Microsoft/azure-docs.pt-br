@@ -1,17 +1,17 @@
 ---
-title: Laboratórios de sala de aula no Azure Lab Services – Perguntas frequentes | Microsoft Docs
-description: Este artigo fornece respostas a perguntas frequentes sobre os laboratórios de sala de aula no Azure Lab Services.
+title: Laboratórios em Azure Lab Services – perguntas frequentes | Microsoft Docs
+description: Este artigo fornece respostas para perguntas frequentes sobre os laboratórios em Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: ca35d70bc1106e46df4e3c68889b03679fd54b86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 757af8f30e9a71a3889d9f625c87a002af2e1302
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85443291"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437177"
 ---
-# <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Laboratórios de sala de aula no Azure Lab Services – Perguntas frequentes
-Obtenha respostas para algumas das perguntas mais comuns sobre laboratórios de sala de aula no Azure Lab Services. 
+# <a name="labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Laboratórios em Azure Lab Services – perguntas frequentes (FAQ)
+Obtenha respostas para algumas das perguntas mais comuns sobre os laboratórios em Azure Lab Services. 
 
 ## <a name="quotas"></a>Cotas
 
@@ -29,13 +29,14 @@ Não. Nem todas as VMs. Somente as VMs que são atribuídas aos usuários em um 
 ## <a name="lab-accounts"></a>Contas de laboratório
 
 ### <a name="why-am-i-not-able-to-create-a-lab-because-of-unavailability-of-the-address-range"></a>Por que não consigo criar um laboratório devido à indisponibilidade do intervalo de endereços? 
-Os laboratórios de sala de aula podem criar VMs de laboratório dentro de um intervalo de endereços IP especificado quando sua conta de laboratório é criada no portal do Azure. Quando um intervalo de endereços é fornecido, cada laboratório criado depois de serem alocados 512 endereços IP para VMs de laboratório. O intervalo de endereços para a conta do laboratório deve ser grande o suficiente para acomodar todos os laboratórios que você pretende criar na conta do laboratório. 
+
+Os laboratórios podem criar VMs de laboratório dentro de um intervalo de endereços IP especificado ao criar sua conta de laboratório no portal do Azure. Quando um intervalo de endereços é fornecido, cada laboratório criado depois de serem alocados 512 endereços IP para VMs de laboratório. O intervalo de endereços para a conta do laboratório deve ser grande o suficiente para acomodar todos os laboratórios que você pretende criar na conta do laboratório. 
 
 Por exemplo, se você tiver um bloco de /19 - 10.0.0.0/19, esse intervalo de endereços acomoda 8192 endereços IP e 16 laboratórios (8192/512 = 16 laboratórios). Nesse caso, a criação de laboratório falha na décima sétima criação de laboratório.
 
 ### <a name="what-port-ranges-should-i-open-on-my-organizations-firewall-setting-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Quais intervalos de porta devo abrir na configuração de firewall da minha organização para conexão a máquinas virtuais de laboratório via RDP/SSH?
 
-As portas são: 49152 a 65535. Os laboratórios de sala de aula ficam atrás de um balanceador de carga. Cada laboratório tem um único endereço IP público e cada máquina virtual no laboratório tem uma porta exclusiva. 
+As portas são: 49152 a 65535. Os laboratórios ficam atrás de um balanceador de carga. Cada laboratório tem um único endereço IP público e cada máquina virtual no laboratório tem uma porta exclusiva. 
 
 Você também pode ver o endereço IP privado de cada máquina virtual na guia **Pool de máquinas virtuais** da página inicial para o laboratório no portal do Azure. Se você republicar um laboratório, o endereço IP público do laboratório não será alterado, mas o IP privado e o número da porta de cada máquina virtual no laboratório poderão mudar. Saiba mais no artigo: [Configurações de firewall para o Azure Lab Services](how-to-configure-firewall-settings.md).
 

@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 03/20/2020
 ms.openlocfilehash: 32ad92b333eda8cd429303177dba160f0b58af54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445536"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95985791"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-to-understand-application-components"></a>Usar o recurso de mapa do Azure Monitor para VMs para entender os componentes do aplicativo
 No Azure Monitor para VMs, você pode exibir componentes de aplicativos descobertos em VMs (máquinas virtuais) do Windows e Linux que são executadas no Azure ou no seu ambiente. Você pode observar as VMs de duas maneiras. Exiba um mapa diretamente de uma VM ou exiba um mapa de Azure Monitor para ver os componentes em grupos de VMs. Este artigo o ajudará a entender esses dois métodos de exibição e como usar o recurso de mapa. 

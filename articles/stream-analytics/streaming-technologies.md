@@ -1,18 +1,17 @@
 ---
 title: Escolha uma solução de processamento em tempo real e de fluxo no Azure
 description: Saiba mais sobre como escolher a tecnologia correta de processamento de streaming e análise em tempo real para criar seu aplicativo no Azure.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: a204aacc0061091e0a273581e766bb669d191f0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c10a91971357001723adcb783253c9867cf6d87
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903697"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019050"
 ---
 # <a name="choose-a-real-time-analytics-and-streaming-processing-technology-on-azure"></a>Escolha uma análise em tempo real e tecnologia de processamento de streaming no Azure
 
@@ -52,7 +51,7 @@ Azure Stream Analytics é a tecnologia proprietária da Microsoft e está dispon
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Criar um trabalho de Stream Analytics usando o portal do Azure](stream-analytics-quick-create-portal.md)
-* [Criar um trabalho de Stream Analytics usando Azure PowerShell](stream-analytics-quick-create-powershell.md)
-* [Criar um trabalho de Stream Analytics usando o Visual Studio](stream-analytics-quick-create-vs.md)
-* [Criar um trabalho de Stream Analytics usando Visual Studio Code](quick-create-visual-studio-code.md)
+* [Criar um trabalho do Stream Analytics usando o portal do Azure](stream-analytics-quick-create-portal.md)
+* [Criar um trabalho do Stream Analytics usando o Azure PowerShell](stream-analytics-quick-create-powershell.md)
+* [Criar um trabalho do Stream Analytics usando o Visual Studio](stream-analytics-quick-create-vs.md)
+* [Criar um trabalho do Stream Analytics usando o Visual Studio Code](quick-create-visual-studio-code.md)

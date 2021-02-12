@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 1a76c753cdf22d2c9b8b56893017cdc3cee9c8cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d987797c2c25f685a3c9250afeb17cec3ad3cb2e
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90527285"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369538"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutorial: Integrar o Power BI ao Serviço Cognitivo de Análise de Texto
 
@@ -68,7 +68,7 @@ Talvez seja necessário transformar seus dados no Power BI Desktop antes que ele
 
 Os dados de exemplo contêm uma coluna `subject` e uma coluna `comment`. Com a função Mesclar colunas no Power BI Desktop, é possível extrair frases-chave dos dados em ambas as colunas, em vez de apenas da coluna `comment`.
 
-No Power BI Desktop, selecione a faixa de opções **Início**. No grupo **Dados externos**, clique em **Editar consultas**.
+No Power BI Desktop, selecione a faixa de opções **Início**. No grupo **Dados externos** , clique em **Editar consultas**.
 
 ![[O grupo Dados Externos na faixa de opções Página Inicial]](../media/tutorials/power-bi/edit-queries.png)
 
@@ -103,15 +103,15 @@ A [API de Frases-chave](https://westus.dev.cognitive.microsoft.com/docs/services
 Agora você está pronto para criar a função personalizada que integrará o Power BI e a Análise de Texto. A função recebe o texto a ser processado como um parâmetro. Ela converte os dados de e para o formato JSON necessário e realiza a solicitação HTTP para a API de Frases-chave. A função analisa a resposta da API e retorna uma cadeia de caracteres que contém uma lista separada por vírgulas das frases-chave extraídas.
 
 > [!NOTE]
-> As funções personalizadas do Power BI Desktop são escritas na [linguagem de fórmula Power Query M](https://docs.microsoft.com/powerquery-m/power-query-m-reference), ou sua forma abreviada "M”. M é uma linguagem de programação funcional com base em [F#](https://docs.microsoft.com/dotnet/fsharp/). Você não precisa ser um programador para concluir este tutorial, pois o código necessário está incluído abaixo.
+> As funções personalizadas do Power BI Desktop são escritas na [linguagem de fórmula Power Query M](/powerquery-m/power-query-m-reference), ou sua forma abreviada "M”. M é uma linguagem de programação funcional com base em [F#](/dotnet/fsharp/). Você não precisa ser um programador para concluir este tutorial, pois o código necessário está incluído abaixo.
 
-No Power BI Desktop, certifique-se de ainda estar na janela do Editor de consultas. Se não estiver, selecione a faixa de opções **Início** e, no grupo **Dados externos**, clique em **Editar consultas**.
+No Power BI Desktop, certifique-se de ainda estar na janela do Editor de consultas. Se não estiver, selecione a faixa de opções **Início** e, no grupo **Dados externos** , clique em **Editar consultas**.
 
-Agora, na faixa de opções **Início**, no grupo **Nova Consulta**, abra o menu suspenso **Nova fonte** e selecione **Consulta em branco**. 
+Agora, na faixa de opções **Início** , no grupo **Nova Consulta** , abra o menu suspenso **Nova fonte** e selecione **Consulta em branco**. 
 
 Uma nova consulta, nomeada inicialmente como `Query1`, é exibida na lista de consultas. Clique duas vezes nessa entrada e nomeie-a `KeyPhrases`.
 
-Agora, na faixa de opções **Início**, no grupo **Consulta**, clique em **Editor Avançado** para abrir a janela do Editor Avançado. Exclua o código que já está nessa janela e cole o código a seguir. 
+Agora, na faixa de opções **Início** , no grupo **Consulta** , clique em **Editor Avançado** para abrir a janela do Editor Avançado. Exclua o código que já está nessa janela e cole o código a seguir. 
 
 > [!NOTE]
 > Substitua o ponto de extremidade do exemplo abaixo (que contém `<your-custom-subdomain>`) pelo ponto de extremidade gerado para seu recurso de Análise de Texto. É possível encontrar esse ponto de extremidade entrando no [portal do Azure](https://azure.microsoft.com/features/azure-portal/), selecionando a assinatura da Análise de Texto e selecionando `Quick start`.
@@ -139,11 +139,11 @@ Substitua `YOUR_API_KEY_HERE` pela chave de acesso da Análise de Texto. Também
 
 Agora é possível usar a função personalizada para extrair as frases-chave de cada um dos comentários de clientes e armazená-las em uma nova coluna na tabela. 
 
-No Power BI Desktop, na janela do Editor de Consultas, retorne para a consulta `FabrikamComments`. Selecione a faixa de opções **Adicionar coluna**. No grupo **Geral**, clique em **Invocar função personalizada**.
+No Power BI Desktop, na janela do Editor de Consultas, retorne para a consulta `FabrikamComments`. Selecione a faixa de opções **Adicionar coluna**. No grupo **Geral** , clique em **Invocar função personalizada**.
 
 ![[Botão Invocar Função Personalizada]](../media/tutorials/power-bi/invoke-custom-function-button.png)<br><br>
 
-A caixa de diálogo Invocar função personalizada é exibida. No **Novo nome da coluna**, insira `keyphrases`. Na **Consulta de função**, selecione a função personalizada que você criou, `KeyPhrases`.
+A caixa de diálogo Invocar função personalizada é exibida. No **Novo nome da coluna** , insira `keyphrases`. Na **Consulta de função** , selecione a função personalizada que você criou, `KeyPhrases`.
 
 Um novo campo é exibido na caixa de diálogo **texto (opcional)** . Este campo está solicitando qual coluna queremos usar para fornecer valores para o parâmetro `text` da API de Frases-chave. (Lembre-se de que você já embutiu os valores em código para os parâmetros `language` e `id`.) Selecione `Merged` (a coluna que criamos [anteriormente](#PreparingData) mesclando os campos de assunto e mensagem) no menu suspenso.
 
@@ -160,7 +160,7 @@ Após fechar a caixa de diálogo Invocar função personalizada, uma faixa poder
 
 ![[faixa de credenciais]](../media/tutorials/power-bi/credentials-banner.png)
 
-Clique em **Editar credenciais**, certifique-se de que `Anonymous` está selecionado na caixa de diálogo e, em seguida, clique em **Conectar**. 
+Clique em **Editar credenciais** , certifique-se de que `Anonymous` está selecionado na caixa de diálogo e, em seguida, clique em **Conectar**. 
 
 > [!NOTE]
 > Você seleciona `Anonymous`, porque o serviço Análise de Texto faz a autenticação usando sua chave de acesso para que o Power BI não precise fornecer credenciais para a solicitação HTTP em si.
@@ -296,7 +296,7 @@ Saiba mais sobre o serviço Análise de Texto, a linguagem de fórmula Power Que
 > [Referência de API de Análise de Texto](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0)
 
 > [!div class="nextstepaction"]
-> [Referência do Power Query M](https://docs.microsoft.com/powerquery-m/power-query-m-reference)
+> [Referência do Power Query M](/powerquery-m/power-query-m-reference)
 
 > [!div class="nextstepaction"]
 > [Documentação do Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)

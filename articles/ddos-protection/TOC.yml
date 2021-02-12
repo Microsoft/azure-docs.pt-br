@@ -12,12 +12,17 @@
       href: manage-ddos-protection-powershell.md
     - name: Criar um plano de proteção contra DDoS – CLI
       href: manage-ddos-protection-cli.md
+    - name: Criar um plano de proteção contra DDoS – modelo do ARM
+      displayName: Resource Manager
+      href: manage-ddos-protection-template.md
 - name: Tutoriais
   items:
     - name: Exibir e configurar a telemetria da Proteção contra DDoS
-      href: telemetry-monitoring-alerting.md
-    - name: Configurar relatórios de mitigação de ataque de DDoS e logs de fluxo
-      href: reports-and-flow-logs.md
+      href: telemetry.md
+    - name: Exibir e configurar o log de diagnóstico de DDoS
+      href: diagnostic-logging.md
+    - name: Exibir e configurar os alertas da proteção contra DDoS
+      href: alerts.md
 - name: Conceitos
   items:
     - name: Tipos de ataques
@@ -45,21 +50,21 @@
 - name: Referência
   items:
     - name: CLI do Azure
-      href: 'https://docs.microsoft.com/cli/azure/network/ddos-protection?view=azure-cli-latest'
+      href: /cli/azure/network/ddos-protection?view=azure-cli-latest
     - name: Azure PowerShell
-      href: 'https://docs.microsoft.com/powershell/module/Az.Network/New-AzDdosProtectionPlan?view=azps-2.8.0'
+      href: /powershell/module/Az.Network/New-AzDdosProtectionPlan?view=azps-2.8.0
     - name: .NET
-      href: 'https://docs.microsoft.com/dotnet/api/'
+      href: /dotnet/api/
     - name: Java
-      href: 'https://docs.microsoft.com/java/api/'
+      href: /java/api/
     - name: Node.js
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
     - name: REST
-      href: 'https://docs.microsoft.com/rest/api/virtualnetwork/ddosprotectionplans'
+      href: /rest/api/virtualnetwork/ddosprotectionplans
     - name: Azure Resource Manager
-      href: 'https://docs.microsoft.com/azure/azure-resource-manager/management/overview'
+      href: ../azure-resource-manager/management/overview.md
 - name: Recursos
   items:
     - name: Perguntas frequentes

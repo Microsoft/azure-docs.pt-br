@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/11/2020
-ms.openlocfilehash: e3080836e8b9ed38e99c691c66e71a4620829c90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/25/2020
+ms.openlocfilehash: 7063452d23d2975cf0c26a89e7a08a422de54942
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890203"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751930"
 ---
 # <a name="train-model-module"></a>Módulo Treinar Modelo
 
@@ -40,16 +40,14 @@ Em Azure Machine Learning, criar e usar um modelo de aprendizado de máquina nor
 3. Após a conclusão do treinamento, use o modelo treinado com um dos [módulos de Pontuação](./score-model.md)para fazer previsões sobre novos dados.
 
 ## <a name="how-to-use-train-model"></a>Como usar o modelo de treinamento 
-  
-1.  Em Azure Machine Learning, configure um modelo de classificação ou um modelo de regressão.
     
-2. Adicione o módulo **modelo de treinamento** ao pipeline.  Você pode encontrar esse módulo na categoria **Machine Learning** . Expanda **treinar**e arraste o módulo **modelo de treinamento** para o pipeline.
+1. Adicione o módulo **modelo de treinamento** ao pipeline.  Você pode encontrar esse módulo na categoria **Machine Learning** . Expanda **treinar** e arraste o módulo **modelo de treinamento** para o pipeline.
   
-3.  Na entrada à esquerda, anexe o modo não treinado. Anexe o conjunto de dados de treinamento à entrada à direita do **modelo de treinamento**.
+1.  Na entrada à esquerda, anexe o modo não treinado. Anexe o conjunto de dados de treinamento à entrada à direita do **modelo de treinamento**.
 
     O conjunto de os de treinamento deve conter uma coluna de rótulo. Qualquer linha sem rótulos é ignorada.
   
-4.  Para **coluna de rótulo**, clique em **Editar coluna** no painel direito do módulo e escolha uma única coluna que contenha resultados que o modelo pode usar para treinamento.
+1.  Para **coluna de rótulo**, clique em **Editar coluna** no painel direito do módulo e escolha uma única coluna que contenha resultados que o modelo pode usar para treinamento.
   
     - Para problemas de classificação, a coluna de rótulo deve conter valores **categóricos** ou valores **discretos** . Alguns exemplos podem ser uma classificação Sim/Não, um código ou nome de classificação de doença ou um grupo de renda.  Se você escolher uma coluna não categórica, o módulo retornará um erro durante o treinamento.
   
@@ -62,14 +60,19 @@ Em Azure Machine Learning, criar e usar um modelo de aprendizado de máquina nor
     > [!TIP] 
     > Se você tiver problemas ao usar o seletor de coluna, consulte o artigo [selecionar colunas no conjunto de linhas](./select-columns-in-dataset.md) para obter dicas. Ele descreve alguns cenários comuns e dicas para usar as opções **with Rules** e **by Name** .
   
-5.  Envie o pipeline. Se você tiver muitos dados, isso pode levar algum tempo.
+1.  Envie o pipeline. Se você tiver muitos dados, isso pode levar algum tempo.
+
+    > [!IMPORTANT] 
+    > Se você tiver uma coluna de ID que é a ID de cada linha, ou uma coluna de texto, que contém muitos valores exclusivos, o **modelo de treinamento** poderá atingir um erro como "número de valores exclusivos na coluna:" {column_name} "é maior que o permitido.
+    >
+    > Isso ocorre porque a coluna atingiu o limite de valores exclusivos e pode causar memória insuficiente. Você pode usar [Editar metadados](edit-metadata.md) para marcar essa coluna como **recurso claro** e ela não será usada no treinamento ou [extrair recursos de N-Gram do módulo de texto](extract-n-gram-features-from-text.md) para pré-processar coluna de texto. Consulte o [código de erro do designer](././designer-error-codes.md) para obter mais detalhes de erro.
 
 ## <a name="results"></a>Resultados
 
 Depois que o modelo for treinado:
 
 
-+ Para usar o modelo em outros pipelines, selecione o módulo e selecione o ícone **registrar conjunto de registros** na guia **saídas** no painel direito. Você pode acessar modelos salvos na paleta de módulo em **conjuntos**de os.
++ Para usar o modelo em outros pipelines, selecione o módulo e selecione o ícone **registrar conjunto de registros** na guia **saídas** no painel direito. Você pode acessar modelos salvos na paleta de módulo em **conjuntos** de os.
 
 + Para usar o modelo na previsão de novos valores, conecte-o ao módulo [modelo de Pontuação](./score-model.md) , junto com os novos dados de entrada.
 

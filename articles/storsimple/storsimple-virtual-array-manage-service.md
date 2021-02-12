@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 29ea9300b2f86f442d95c96d4a5df3364628d866
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92041be4d3d5ef4d980c17fa0a5870b740c1784a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744127"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994988"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Implantar o serviço Gerenciador de Dispositivo do StorSimple para a Matriz Virtual do StorSimple
 
@@ -36,7 +36,7 @@ As tarefas comuns relacionadas a um serviço Gerenciador de Dispositivo do StorS
 * Obtenha a chave de registro do serviço
 * Regenerar a chave de registro do serviço
 
-Este tutorial descreve como executar cada uma dessas tarefas. As informações contidas neste artigo aplicam-se apenas a Matrizes Virtuais do StorSimple. Para obter mais informações sobre a série 8000 do StorSimple, acesse [implantar um serviço StorSimple Manager](storsimple-manage-service.md).
+Este tutorial descreve como executar cada uma dessas tarefas. As informações contidas neste artigo aplicam-se apenas a Matrizes Virtuais do StorSimple. Para obter mais informações sobre a série 8000 do StorSimple, acesse [implantar um serviço StorSimple Manager](./storsimple-8000-manage-service.md).
 
 ## <a name="create-a-service"></a>Criar um serviço
 
@@ -89,7 +89,7 @@ A lista de serviços será atualizada.
  ![Lista de serviços atualizada](./media/storsimple-virtual-array-manage-service/deleteservice7.png)
 
 ## <a name="get-the-service-registration-key"></a>Obtenha a chave de registro do serviço
-Depois de ter criado um serviço com êxito, você precisará registrar o dispositivo StorSimple no serviço. Para registrar seu primeiro dispositivo StorSimple, será necessária a chave de registro do serviço. Para registrar dispositivos adicionais em um serviço StorSimple existente, serão necessárias a chave de registro e a chave de criptografia dos dados de serviço (que é gerada durante o registro do primeiro dispositivo). Para obter mais informações sobre a chave de criptografia dos dados de serviço, consulte [Segurança do StorSimple](storsimple-security.md). Você pode obter a chave de registro acessando a folha **Chaves** de seu serviço.
+Depois de ter criado um serviço com êxito, você precisará registrar o dispositivo StorSimple no serviço. Para registrar seu primeiro dispositivo StorSimple, será necessária a chave de registro do serviço. Para registrar dispositivos adicionais em um serviço StorSimple existente, serão necessárias a chave de registro e a chave de criptografia dos dados de serviço (que é gerada durante o registro do primeiro dispositivo). Para obter mais informações sobre a chave de criptografia dos dados de serviço, consulte [Segurança do StorSimple](./storsimple-8000-security.md). Você pode obter a chave de registro acessando a folha **Chaves** de seu serviço.
 
 Execute as etapas a seguir para obter a chave de registro do serviço.
 
@@ -125,4 +125,3 @@ Execute as etapas a seguir para regenerar uma chave de registro de serviço.
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba [como começar com uma](storsimple-virtual-array-deploy1-portal-prep.md) matriz virtual StorSimple.
 * Saiba como [administrar o seu dispositivo StorSimple](storsimple-ova-web-ui-admin.md).
-

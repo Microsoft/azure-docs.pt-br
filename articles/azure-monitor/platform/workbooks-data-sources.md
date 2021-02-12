@@ -8,12 +8,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.openlocfilehash: d41629dd9a56272af89a06cb55e9bd88b604baee
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 3d94aca51d3d305b70c8c555e2b41e3d0ab857b3
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927899"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99061929"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Fontes de dados de Azure Monitor pastas de trabalho
 
@@ -59,7 +59,7 @@ Para fazer com que um controle de consulta Use essa fonte de dados, use a lista 
 
 ## <a name="azure-data-explorer"></a>Azure Data Explorer
 
-As pastas de trabalho agora têm suporte para a consulta de clusters do [Azure data Explorer](/azure/data-explorer/) com a poderosa linguagem de consulta [Kusto](/azure/kusto/query/index) .   
+As pastas de trabalho agora têm suporte para a consulta de clusters do [Azure data Explorer](/azure/data-explorer/) com a poderosa linguagem de consulta [Kusto](/azure/kusto/query/index) .
 
 ![Captura de tela da janela de consulta do Kusto](./media/workbooks-overview/data-explorer.png)
 
@@ -79,9 +79,43 @@ Para fazer com que um controle de consulta Use essa fonte de dados, use a lista 
 
 ![Captura de tela da consulta de alertas que mostra as listas de filtros de integridade.](./media/workbooks-overview/resource-health.png)
 
+## <a name="change-analysis-preview"></a>Análise de alterações (versão prévia)
+
+Para tornar um controle de consulta usando a [análise de alterações do aplicativo](../app/change-analysis.md) como a fonte de dados, use a lista suspensa fonte de *dados* e escolha *alterar análise (versão prévia)* e selecione um único recurso. As alterações até os últimos 14 dias podem ser mostradas. A lista suspensa *nível* pode ser usada para filtrar entre alterações "importantes", "normais" e "ruidosas", e essa lista suspensa dá suporte a parâmetros de pasta de trabalho do tipo [menu](workbooks-dropdowns.md)suspenso.
+
+> [!div class="mx-imgBorder"]
+> ![Uma captura de tela de uma pasta de trabalho com análise de alterações](./media/workbooks-data-sources/change-analysis-data-source.png)
+
+## <a name="merge-data-from-different-sources"></a>Mesclar dados de fontes diferentes
+
+Geralmente, é necessário reunir dados de diferentes fontes que melhoram a experiência de informações. Um exemplo é aumentar as informações de alerta ativas com dados de métrica relacionados. Isso permite que os usuários vejam não apenas o efeito (um alerta ativo), mas também as possíveis causas (por exemplo, alto uso da CPU). O domínio de monitoramento tem várias fontes de dados correlacionadas que geralmente são críticas para o fluxo de trabalho de triagem e diagnóstico.
+
+As pastas de trabalho permitem não apenas a consulta de diferentes fontes de dados, mas também fornecem controles simples que permitem que você mescle ou ingresse os dados para fornecer ideias sofisticadas. O `merge` controle é a maneira de obtê-lo.
+
+O exemplo a seguir combina dados de alerta com dados de desempenho de VM do log Analytics para obter uma grade de insights sofisticada.
+
+> [!div class="mx-imgBorder"]
+> ![Uma captura de tela de uma pasta de trabalho com um controle de mesclagem que combina dados de alerta e log Analytics](./media/workbooks-data-sources/merge-control.png)
+
+As pastas de trabalho oferecem suporte a várias mesclagens:
+
+* Junção exclusiva interna
+* Junção interna completa
+* Junção externa completa
+* Junção externa esquerda
+* Junção externa direita
+* Semijunção à esquerda
+* Semijunção à direita
+* Anti-junção esquerda
+* Anti-junção direita
+* Union
+* Duplicar tabela
+
 ## <a name="json"></a>JSON
 
 O provedor JSON permite que você crie um resultado de consulta de conteúdo JSON estático. Ele é mais comumente usado em parâmetros para criar parâmetros de lista suspensa de valores estáticos. Os objetos ou matrizes JSON simples serão convertidos automaticamente em linhas e colunas de grade.  Para comportamentos mais específicos, você pode usar a guia resultados e as configurações de JSONPath para configurar colunas.
+
+Este provedor dá suporte a [JSONPath](workbooks-jsonpath.md).
 
 ## <a name="alerts-preview"></a>Alertas (versão prévia)
 
@@ -94,18 +128,20 @@ O provedor JSON permite que você crie um resultado de consulta de conteúdo JSO
 
 As pastas de trabalho permitem que os usuários visualizem os alertas ativos relacionados aos seus recursos. Limitações: a fonte de dados de alertas requer acesso de leitura à assinatura para consultar recursos e pode não mostrar tipos de alertas mais recentes. 
 
-Para fazer com que um controle de consulta Use essa fonte de dados, use a lista suspensa _fonte de dados_ para escolher _alertas (versão prévia)_ e selecione as assinaturas, grupos de recursos ou recursos para o destino. Use os menus suspensos de filtro de alerta para selecionar um subconjunto interessante de alertas para suas necessidades analíticas.
+Para fazer com que um controle de consulta Use essa fonte de dados, use a lista suspensa _fonte de dados_ para escolher _alertas (versão prévia)_ e selecione as assinaturas, grupos de recursos ou recursos a serem direcionados. Use os menus suspensos de filtro de alerta para selecionar um subconjunto interessante de alertas para suas necessidades analíticas.
 
 ## <a name="custom-endpoint"></a>Ponto de extremidade personalizado
 
 As pastas de trabalho dão suporte à obtenção de dados de qualquer fonte externa. Se seus dados estiverem fora do Azure, você poderá colocá-los em pastas de trabalho usando esse tipo de fonte de dados.
 
-Para fazer com que um controle de consulta Use essa fonte de dados, use a lista suspensa _fonte de dados_ para escolher _ponto de extremidade personalizado_ . Forneça os parâmetros apropriados, como `Http method` , `url` , `headers` `url parameters` e/ou `body` . Verifique se a fonte de dados dá suporte a [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) , caso contrário, a solicitação falhará.
+Para fazer com que um controle de consulta Use essa fonte de dados, use a lista suspensa _fonte de dados_ para escolher _ponto de extremidade personalizado_. Forneça os parâmetros apropriados, como `Http method` , `url` , `headers` `url parameters` e/ou `body` . Verifique se a fonte de dados dá suporte a [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) , caso contrário, a solicitação falhará.
 
-Para evitar fazer chamadas automaticamente para hosts não confiáveis ao usar modelos, o usuário precisa marcar os hosts usados como confiáveis. Isso pode ser feito clicando no botão _Adicionar como confiável_ ou adicionando-o como um host confiável nas configurações da pasta de trabalho. Essas configurações serão salvas em navegadores que dão suporte a IndexDb com Web Workers, mais informações [aqui](https://caniuse.com/#feat=indexeddb).
+Para evitar fazer chamadas automaticamente para hosts não confiáveis ao usar modelos, o usuário precisa marcar os hosts usados como confiáveis. Isso pode ser feito clicando no botão _Adicionar como confiável_ ou adicionando-o como um host confiável nas configurações da pasta de trabalho. Essas configurações serão salvas em [navegadores que dão suporte a IndexDb com Web Workers](https://caniuse.com/#feat=indexeddb).
 
 > [!NOTE]
 > Não grave nenhum segredo em nenhum dos campos (,, `headers` `parameters` `body` , `url` ), pois eles ficarão visíveis para todos os usuários da pasta de trabalho.
+
+Este provedor dá suporte a [JSONPath](workbooks-jsonpath.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

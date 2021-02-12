@@ -1,17 +1,17 @@
 ---
 title: Ajuste de desempenho Azure Data Lake Storage Gen1-PowerShell
 description: Dicas sobre como melhorar o desempenho ao usar Azure PowerShell com Azure Data Lake Storage Gen1.
-author: stewu
+author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 01/09/2018
-ms.author: stewu
-ms.openlocfilehash: f5e6f6601a563a387476e4e2eaf353c8bef384ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: twooley
+ms.openlocfilehash: 4ac2bbb21fd1a987d544a536d0f52628824e0bf4
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85504688"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723772"
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Orientação de ajuste de desempenho para o uso do PowerShell com o Armazenamento de Data Lake do Azure Gen1
 
@@ -86,7 +86,7 @@ Portanto, **ConcurrentFileCount** se torna 96/20, que é igual a 4,8, arredondad
 
 Você pode continuar a ajustar essas configurações, alterando **PerFileThreadCount** para cima e para baixo dependendo da distribuição de seus tamanhos de arquivo.
 
-### <a name="limitation"></a>Limitações
+### <a name="limitation"></a>Limitação
 
 * **O número de arquivos é menor do que ConcurrentFileCount**: se o número de arquivos que você está carregando for menor do que o **ConcurrentFileCount** calculado, você deverá reduzir **ConcurrentFileCount** para ser igual ao número de arquivos. Você pode usar quaisquer segmentos restantes para aumentar **PerFileThreadCount**.
 

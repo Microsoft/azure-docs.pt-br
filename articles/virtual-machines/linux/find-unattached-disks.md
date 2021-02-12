@@ -8,11 +8,11 @@ ms.date: 03/30/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 0c3e8bb2ff6f3313e851a4253a95a5ad923a8f70
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913935"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016209"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks-using-the-azure-cli"></a>Localizar e excluir discos gerenciados e não gerenciados desanexados do Azure usando a CLI do Azure
 Quando você exclui uma VM (máquina virtual) no Azure, por padrão, nenhum disco anexado à máquina virtual é excluído. Esse recurso ajuda a evitar a perda de dados devido à exclusão não intencional de VMs. Depois que uma VM for excluída, você continuará a pagar pelos discos desanexados. Este artigo mostra como localizar e excluir discos desanexados e reduzir custos desnecessários. 
@@ -20,7 +20,7 @@ Quando você exclui uma VM (máquina virtual) no Azure, por padrão, nenhum disc
 
 ## <a name="managed-disks-find-and-delete-unattached-disks"></a>Discos gerenciados: Localizar e excluir discos desanexados 
 
-O script a seguir procura [discos gerenciados](../managed-disks-overview.md) desanexados examinando o valor da propriedade **ManagedBy** . Quando um disco gerenciado é anexado a uma VM, a propriedade **ManagedBy** contém a ID de recurso da VM. Quando um disco gerenciado é desanexado, a propriedade **ManagedBy** é nula. O script examina todos os discos gerenciados em uma assinatura do Azure. Quando o script localiza um disco gerenciado com a propriedade **ManagedBy** definida como null, o script determina que o disco está desanexado.
+O script a seguir procura [discos gerenciados](../managed-disks-overview.md) desanexados examinando o valor da propriedade **ManagedBy**. Quando um disco gerenciado é anexado a uma VM, a propriedade **ManagedBy** contém a ID de recurso da VM. Quando um disco gerenciado é desanexado, a propriedade **ManagedBy** é nula. O script examina todos os discos gerenciados em uma assinatura do Azure. Quando o script localiza um disco gerenciado com a propriedade **ManagedBy** definida como null, o script determina que o disco está desanexado.
 
 >[!IMPORTANT]
 >Primeiro, execute o script definindo a variável **deleteUnattachedDisks** como 0. Essa ação permite localizar e exibir todos os discos gerenciados desanexados.
@@ -50,7 +50,7 @@ done
 
 ## <a name="unmanaged-disks-find-and-delete-unattached-disks"></a>Discos não gerenciados: Localizar e excluir discos desanexados 
 
-Discos não gerenciados são arquivos VHD armazenados como [blobs de páginas](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) nas [Contas de Armazenamento do Microsoft Azure](../../storage/common/storage-account-overview.md). O script a seguir procura discos não gerenciados desanexados (blobs de página) examinando o valor da propriedade **LeaseStatus** . Se um disco não gerenciado estiver conectado a uma máquina virtual, a propriedade **LeaseStatus** estará configurada como **Locked** . Quando um disco não gerenciado é desanexado, a propriedade **LeaseStatus** está definida como **Unlocked** . O script examina todos os discos não gerenciados em todas as contas de armazenamento do Azure em uma assinatura do Azure. Quando o script localiza um disco não gerenciado com uma propriedade **LeaseStatus** propriedade definida como **Unlocked** , o script determina que o disco está desanexado.
+Discos não gerenciados são arquivos VHD armazenados como [blobs de páginas](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) nas [Contas de Armazenamento do Microsoft Azure](../../storage/common/storage-account-overview.md). O script a seguir procura discos não gerenciados desanexados (blobs de página) examinando o valor da propriedade **LeaseStatus**. Se um disco não gerenciado estiver conectado a uma máquina virtual, a propriedade **LeaseStatus** estará configurada como **Locked**. Quando um disco não gerenciado é desanexado, a propriedade **LeaseStatus** está definida como **Unlocked**. O script examina todos os discos não gerenciados em todas as contas de armazenamento do Azure em uma assinatura do Azure. Quando o script localiza um disco não gerenciado com uma propriedade **LeaseStatus** propriedade definida como **Unlocked**, o script determina que o disco está desanexado.
 
 >[!IMPORTANT]
 >Primeiro, execute o script definindo a variável **deleteUnattachedVHDs** como 0. Essa ação permite localizar e exibir todos os VHDs não gerenciados desanexados.

@@ -3,12 +3,12 @@ title: Adicionar um repositório de artefatos ao seu laboratório no Azure DevTe
 description: Saiba como especificar seu próprio repositório de artefatos para seu laboratório em Azure DevTest Labs para armazenar ferramentas indisponíveis no repositório público de artefatos.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7553f6b1afa416a5428577a8313bdadb669e32c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dd7d89020bf077e29b177f6871f43b52467b0d8
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88270947"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97512004"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Adicionar um repositório de artefatos ao seu laboratório no DevTest Labs
 O DevTest Labs permite que você especifique um artefato a ser adicionado a uma VM no momento da criação da VM ou após a criação da VM. Esse artefato pode ser uma ferramenta ou um aplicativo que você deseja instalar na VM. Os artefatos são definidos em um arquivo JSON carregado de um repositório do GitHub ou Azure DevOps git.
@@ -46,10 +46,10 @@ Para adicionar um repositório de artefatos ao laboratório, você deve primeiro
 8. Na página **criar um novo token de acesso pessoal** :
    1. Insira um **nome** para o token.
    2. Na lista **organização** , selecione **todas as organizações acessíveis**.
-   3. Na lista **expiração (UTC)** , selecione **90 dias**ou um período de expiração definido personalizado.
+   3. Na lista **expiração (UTC)** , selecione **90 dias** ou um período de expiração definido personalizado.
    4. Selecione a opção **acesso completo** para escopos.
    5. Selecione **Criar**.
-9. O novo token será exibido na lista de **Tokens de Acesso Pessoal**. Selecione **Copiar Token**e salve o valor do token para uso posterior.
+9. O novo token será exibido na lista de **Tokens de Acesso Pessoal**. Selecione **Copiar Token** e salve o valor do token para uso posterior.
 10. Continue para a seção Conectar seu laboratório ao repositório.
 
 ## <a name="use-azure-portal"></a>Usar o portal do Azure
@@ -71,7 +71,7 @@ Esta seção fornece etapas para adicionar um repositório de artefatos a um lab
    5. **Caminhos de pasta**. Insira, pelo menos, um caminho de pasta em relação a URL de clone que contém o artefato ou definições de modelo do Resource Manager. Ao especificar um subdiretório, verifique se você incluiu a barra "/" no caminho da pasta.
 
         ![Área de repositórios](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
 ## <a name="use-azure-resource-manager-template"></a>Usar o modelo do Azure Resource Manager
 Os modelos de gerenciamento de recursos do Azure (Azure Resource Manager) são arquivos JSON que descrevem os recursos no Azure que você deseja criar. Para obter mais informações sobre esses modelos, consulte [criando modelos de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
@@ -338,7 +338,7 @@ Set-AzContext -SubscriptionId <Your Azure subscription ID>
 ### <a name="parameters"></a>Parâmetros
 O script do PowerShell de exemplo neste artigo usa os seguintes parâmetros:
 
-| Parâmetro | DESCRIÇÃO |
+| Parâmetro | Descrição |
 | --------- | ----------- |
 | LabName | O nome do laboratório. |
 | ArtifactRepositoryName | Nome do novo repositório de artefatos. O script criará um nome aleatório para o repositório se ele não for especificado. |

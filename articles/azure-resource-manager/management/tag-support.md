@@ -3,12 +3,12 @@ title: Suporte a marcas para recursos
 description: Mostra quais tipos de recursos do Azure suportam tags. Fornece detalhes para todos os serviços do Azure.
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: c3a94ece52e5c5b17a50fed9810303480a9c974a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 12a57577241e3b2206aab9c3badb29502e7b0301
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370280"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656964"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
 Este artigo descreve se um tipo de recurso dá suporte a [marcas](tag-resources.md). A coluna rotulada **dá suporte a marcas** indica se o tipo de recurso tem uma propriedade para a marca. A coluna rotulada como **marca no relatório de custo** indica se esse tipo de recurso passa a marca para o relatório de custo. Você pode exibir os custos por marcas na [análise de custo de gerenciamento de custos](../../cost-management-billing/costs/group-filter.md) e na [fatura de cobrança do Azure e nos dados de uso diário](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -284,7 +284,7 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
-> | configurationStores | Sim | Sim |
+> | configurationStores | Sim | Não |
 > | configurationStores / eventGridFilters | Não | Não |
 > | configurationStores/valores de valor | Não | Não |
 
@@ -921,7 +921,7 @@ Pule para um namespace de provedor de recursos:
 > | Departments | Não | Não |
 > | Dimensões | Não | Não |
 > | EnrollmentAccounts | Não | Não |
-> | Port | Não | Não |
+> | Exportações | Não | Não |
 > | ExternalBillingAccounts | Não | Não |
 > | ExternalBillingAccounts/alertas | Não | Não |
 > | ExternalBillingAccounts/dimensões | Não | Não |
@@ -1764,9 +1764,9 @@ Pule para um namespace de provedor de recursos:
 > | expressRoutePorts | Sim | Sim |
 > | expressRouteServiceProviders | Não | Não |
 > | firewallPolicies | Sim | Sim |
-> | frontdoors | Sim, mas limitado (veja a [Observação abaixo](#frontdoor)) | Sim |
-> | frontdoorWebApplicationFirewallManagedRuleSets | Sim, mas limitado (veja a [Observação abaixo](#frontdoor)) | Não |
-> | frontdoorWebApplicationFirewallPolicies | Sim, mas limitado (veja a [Observação abaixo](#frontdoor)) | Sim |
+> | frontdoors | Sim, mas limitado (veja a [Observação abaixo](#frontdoor)) | Yes |
+> | frontdoorWebApplicationFirewallManagedRuleSets | Sim, mas limitado (veja a [Observação abaixo](#frontdoor)) | No |
+> | frontdoorWebApplicationFirewallPolicies | Sim, mas limitado (veja a [Observação abaixo](#frontdoor)) | Yes |
 > | getDnsResourceReference | Não | Não |
 > | internalNotify | Não | Não |
 > | ipGroups | Sim | Sim |
@@ -2045,7 +2045,7 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
 > | nuvens | Sim | Sim |
-> | VirtualMachines | Sim | Sim |
+> | Máquinas Virtuais | Sim | Sim |
 > | VirtualMachineTemplates | Sim | Sim |
 > | VirtualNetworks | Sim | Sim |
 > | vmmservers | Sim | Sim |
@@ -2253,7 +2253,7 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
 > | managedInstances | Sim | Sim |
-> | managedInstances/bancos de dados | Sim (veja a [Observação abaixo](#sqlnote)) | Sim |
+> | managedInstances/bancos de dados | Não | Não |
 > | managedInstances/bancos de dados/backupShortTermRetentionPolicies | Não | Não |
 > | managedInstances/bancos de dados/esquemas/tabelas/colunas/sensitivityLabels | Não | Não |
 > | managedInstances/bancos de dados/vulnerabilityAssessments | Não | Não |
@@ -2265,7 +2265,7 @@ Pule para um namespace de provedor de recursos:
 > | servers | Sim | Sim |
 > | servers/administrators | Não | Não |
 > | servidores/communicationLinks | Não | Não |
-> | servers/databases | Sim (veja a [Observação abaixo](#sqlnote)) | Sim |
+> | servers/databases | Sim (veja a [Observação abaixo](#sqlnote)) | Yes |
 > | servidores/encryptionProtector | Não | Não |
 > | servers / firewallRules | Não | Não |
 > | servers/keys | Não | Não |
@@ -2369,7 +2369,7 @@ Pule para um namespace de provedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | clusters | Sim | Sim |
 > | clusters/privateEndpoints | Não | Não |
-> | streamingjobs | Sim (veja a observação a seguir) | Sim |
+> | streamingjobs | Sim (veja a observação a seguir) | Yes |
 
 > [!NOTE]
 > Você não pode adicionar uma marca quando streamingjobs estiver em execução. Pare o recurso para adicionar uma marca.
@@ -2439,7 +2439,7 @@ Pule para um namespace de provedor de recursos:
 > | ArcZones | Sim | Sim |
 > | ResourcePools | Sim | Sim |
 > | VCenters | Sim | Sim |
-> | VirtualMachines | Sim | Sim |
+> | Máquinas Virtuais | Sim | Sim |
 > | VirtualMachineTemplates | Sim | Sim |
 > | VirtualNetworks | Sim | Sim |
 

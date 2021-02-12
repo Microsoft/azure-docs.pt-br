@@ -3,12 +3,12 @@ title: Coletar & analisar logs de recursos
 description: Registre e analise eventos de log de recursos para o registro de contêiner do Azure, como autenticação, push de imagem e pull de imagem.
 ms.topic: article
 ms.date: 06/01/2020
-ms.openlocfilehash: 63ccb944b9c3de9941acf55ca5ea85fda70a7008
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b05d34e6c50fea3760e30d28f59e55d8c5f211a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87553369"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348578"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>Logs de registro de contêiner do Azure para avaliação de diagnóstico e auditoria
 
@@ -70,7 +70,7 @@ A imagem a seguir mostra a criação de uma configuração de diagnóstico para 
 
 Depois de habilitar a coleta de logs de diagnóstico no Log Analytics, pode levar alguns minutos para que os dados apareçam em Azure Monitor. Para exibir os dados no portal, selecione o registro e selecione **monitoramento > logs**. Selecione uma das tabelas que contém dados para o registro. 
 
-Execute consultas para exibir os dados. Várias consultas de exemplo são fornecidas ou executam as suas próprias. Por exemplo, a consulta a seguir recupera as 24 horas de dados mais recentes da tabela **ContainerRegistryRepositoryEvents** :
+Execute consultas para ver os dados. Existem várias consultas de exemplo. Você também pode executar as suas. Por exemplo, a consulta a seguir recupera as 24 horas de dados mais recentes da tabela **ContainerRegistryRepositoryEvents** :
 
 ```Kusto
 ContainerRegistryRepositoryEvents
@@ -81,7 +81,7 @@ A imagem a seguir mostra a saída de exemplo:
 
 ![Consultar dados de log](media/container-registry-diagnostics-audit-logs/azure-monitor-query.png)
 
-Para obter um tutorial sobre como usar Log Analytics no portal do Azure, consulte Introdução [ao Azure Monitor log Analytics](../azure-monitor/log-query/get-started-portal.md)ou experimente o ambiente de [demonstração](https://portal.loganalytics.io/demo)do log Analytics. 
+Para obter um tutorial sobre como usar Log Analytics no portal do Azure, consulte Introdução [ao Azure Monitor log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)ou experimente o ambiente de [demonstração](https://portal.loganalytics.io/demo)do log Analytics. 
 
 Para obter mais informações sobre consultas de log, consulte [visão geral das consultas de log no Azure monitor](../azure-monitor/log-query/log-query-overview.md).
 
@@ -146,5 +146,5 @@ Você também pode transmitir eventos de log de diagnóstico para um [Hub de eve
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre como usar [log Analytics](../azure-monitor/log-query/get-started-portal.md) e criar [consultas de log](../azure-monitor/log-query/get-started-queries.md).
+* Saiba mais sobre como usar [log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) e criar [consultas de log](../azure-monitor/log-query/get-started-queries.md).
 * Consulte [visão geral dos logs da plataforma Azure](../azure-monitor/platform/platform-logs-overview.md) para saber mais sobre os logs de plataforma que estão disponíveis em diferentes camadas do Azure.

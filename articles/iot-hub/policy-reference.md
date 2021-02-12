@@ -1,18 +1,18 @@
 ---
 title: Definições de políticas internas para o Hub IoT do Azure
 description: Lista as definições de políticas internas do Azure Policy para o Hub IoT do Azure. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 10/20/2020
+ms.date: 02/09/2021
 ms.topic: reference
 author: robinsh
 ms.author: robinsh
 ms.service: iot-hub
 ms.custom: subject-policy-reference
-ms.openlocfilehash: fae56b1f1c8f6439548f6acd51a553b873e20196
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: e20975957de429741d773112fe94f4dfc1324fc8
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316725"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100091135"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-iot-hub"></a>Definições internas do Azure Policy para o Hub IoT do Azure
 

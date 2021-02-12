@@ -1,6 +1,5 @@
 ---
 title: Filtrar seus manifestos usando o Dynamic Packager
-titleSuffix: Azure Media Services
 description: Saiba como criar filtros usando o Dynamic Packager para filtrar e transmitir seletivamente seus manifestos.
 services: media-services
 documentationcenter: ''
@@ -14,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: acb30c1659c4c29e0af83da5594bdd9a7e3465d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ffdb41752630e0e5e22303ff58ecd798595a890
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89299024"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897655"
 ---
 # <a name="filter-your-manifests-using-dynamic-packager"></a>Filtrar seus manifestos usando o Dynamic Packager
 
@@ -141,7 +140,7 @@ Para obter mais informações, consulte [esta postagem do blog](https://azure.mi
 
 ## <a name="considerations-and-limitations"></a>Considerações e limitações
 
-- Os valores de **forceEndTimestamp**, **presentationWindowDuration**e **liveBackoffDuration** não devem ser definidos para um filtro VOD. Eles são usados somente para cenários de filtros em tempo real.
+- Os valores de **forceEndTimestamp**, **presentationWindowDuration** e **liveBackoffDuration** não devem ser definidos para um filtro VOD. Eles são usados somente para cenários de filtros em tempo real.
 - Um manifesto dinâmico opera em limites de GOP (quadros-chave), portanto, o corte tem precisão de GOP.
 - Você pode usar o mesmo nome de filtro para filtros de conta e de ativo. Os filtros de ativos têm maior precedência e substituirão os filtros de conta.
 - Se você atualizar um filtro, pode levar até 2 minutos para que o ponto de extremidade de streaming atualize as regras. Se você usou filtros para fornecer o conteúdo (e você armazenou em cache o conteúdo em proxies e caches CDN), a atualização desses filtros pode resultar em falhas do Player. Recomendamos que você limpe o cache depois de atualizar o filtro. Se essa opção não for possível, considere usar um filtro diferente.

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: a88894bb7462e9ac3afd16d69ae820dd98543a5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2058e5362a65b6cd5f3e5b7cb9c20ce32d020d30
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259366"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928691"
 ---
 # <a name="tutorial-for-configuring-experian-with-azure-active-directory-b2c"></a>Tutorial para configurar o Experian com o Azure Active Directory B2C
 
@@ -42,7 +42,7 @@ Para começar, você precisará de:
 
 - Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
 
-- [Um locatário Azure ad B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) que está vinculado à sua assinatura do Azure.
+- [Um locatário Azure ad B2C](./tutorial-create-tenant.md) que está vinculado à sua assinatura do Azure.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -77,14 +77,14 @@ O diagrama de arquitetura a seguir mostra a implementação.
 
 ### <a name="part-1---deploy-the-api"></a>Parte 1-implantar a API
 
-Implante o [código de API](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln) fornecido em um serviço do Azure. O código pode ser publicado no Visual Studio, seguindo estas [instruções](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Implante o [código de API](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln) fornecido em um serviço do Azure. O código pode ser publicado no Visual Studio, seguindo estas [instruções](/visualstudio/deployment/quickstart-deploy-to-azure).
 
 >[!NOTE]
 >Você precisará da URL do serviço implantado para configurar o Azure AD com as configurações necessárias.
 
 ### <a name="part-2---deploy-the-client-certificate"></a>Parte 2-implantar o certificado do cliente
 
-A chamada à API Experian é protegida por um certificado de cliente. Esse certificado de cliente será fornecido pelo Experian. Seguindo as instruções mencionadas neste [documento](https://docs.microsoft.com/azure/app-service/environment/certificates#private-client-certificate), o certificado deve ser carregado para o serviço de Azure app. A política de exemplo usa estas etapas de chaves no processo:
+A chamada à API Experian é protegida por um certificado de cliente. Esse certificado de cliente será fornecido pelo Experian. Seguindo as instruções mencionadas neste [documento](../app-service/environment/certificates.md#private-client-certificate), o certificado deve ser carregado para o serviço de Azure app. A política de exemplo usa estas etapas de chaves no processo:
 
 - Carregar o certificado
 
@@ -92,7 +92,7 @@ A chamada à API Experian é protegida por um certificado de cliente. Esse certi
 
 ### <a name="part-3---configure-the-api"></a>Parte 3-configurar a API
 
-As configurações do aplicativo podem ser [configuradas no serviço de aplicativo no Azure](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings). Com esse método, as configurações podem ser configuradas com segurança sem verificá-las em um repositório. Você precisará fornecer as seguintes configurações para a API REST:
+As configurações do aplicativo podem ser [configuradas no serviço de aplicativo no Azure](../app-service/configure-common.md#configure-app-settings). Com esse método, as configurações podem ser configuradas com segurança sem verificá-las em um repositório. Você precisará fornecer as seguintes configurações para a API REST:
 
 | Configurações do aplicativo | Fonte | Observações |
 | :-------- | :------------| :-----------|
@@ -110,7 +110,7 @@ As configurações do aplicativo podem ser [configuradas no serviço de aplicati
 
 ### <a name="part-4---create-api-policy-keys"></a>Parte 4-criar chaves de política de API
 
-Consulte este [documento](https://docs.microsoft.com/azure/active-directory-b2c/secure-rest-api#add-rest-api-username-and-password-policy-keys) e crie duas chaves de política – uma para o nome de usuário da API e outra para a senha da API que você definiu acima para autenticação básica http.
+Consulte este [documento](./secure-rest-api.md#add-rest-api-username-and-password-policy-keys) e crie duas chaves de política – uma para o nome de usuário da API e outra para a senha da API que você definiu acima para autenticação básica http.
 
 >[!NOTE]
 >Você precisará das chaves para configurar as políticas posteriormente.
@@ -133,7 +133,7 @@ Nas [políticas personalizadas](https://github.com/azure-ad-b2c/partner-integrat
 
 ### <a name="part-6---configure-the-azure-ad-b2c-policy"></a>Parte 6-configurar a política de Azure AD B2C
 
-Consulte este [documento](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) para obter instruções sobre como configurar seu locatário Azure ad B2C e configurar políticas.
+Consulte este [documento](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) para obter instruções sobre como configurar seu locatário Azure ad B2C e configurar políticas.
 
 >[!NOTE]
 >Esta política de exemplo se baseia no [pacote de início de contas locais](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts).
@@ -145,7 +145,7 @@ Consulte este [documento](https://docs.microsoft.com/azure/active-directory-b2c/
 
 1. Abra o locatário Azure AD B2C e, em políticas, selecione **fluxos de usuário**.
 
-2. Selecione o fluxo de **usuário**criado anteriormente.
+2. Selecione o fluxo de **usuário** criado anteriormente.
 
 3. Selecione **executar fluxo de usuário** e selecione as configurações:
 
@@ -167,6 +167,6 @@ Consulte este [documento](https://docs.microsoft.com/azure/active-directory-b2c/
 
 Para obter informações adicionais, examine os seguintes artigos:
 
-- [Políticas personalizadas no Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Políticas personalizadas no Azure AD B2C](./custom-policy-overview.md)
 
-- [Introdução às políticas personalizadas no Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Introdução às políticas personalizadas no Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

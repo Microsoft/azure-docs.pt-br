@@ -7,11 +7,11 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.openlocfilehash: 85ad78eeb095b427b1a6334f57c351e926022dff
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217806"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021870"
 ---
 # <a name="tutorial-add-cluster-nodes-to-an-azure-fxt-edge-filer-cluster"></a>Tutorial: Adicionar nós de cluster a um cluster do Azure FXT Edge Filer
 
@@ -73,7 +73,7 @@ Para saber mais sobre as opções nesta página, leia [**Cluster** > **Nós FXT*
 
 ## <a name="3-click-the-allow-to-join-button"></a>3. Clique no botão "Permitir Associação"
 
-Clique no botão **Permitir Associação*** na coluna **Ações** do nó que você deseja adicionar.
+Clique no botão **Permitir Associação** _ na coluna _ *Ações** do nó que você deseja adicionar.
 
 Depois de clicar no botão, o status do nó pode mudar conforme o software é atualizado na preparação para adicioná-lo ao cluster.
 

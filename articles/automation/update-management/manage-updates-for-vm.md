@@ -4,14 +4,13 @@ description: Este artigo informa como usar Gerenciamento de Atualizações para 
 services: automation
 ms.subservice: update-management
 ms.topic: conceptual
-ms.date: 07/28/2020
-ms.custom: mvc
-ms.openlocfilehash: 24dcb501872aabf9fac3da0cccc2a1af9c9b06ff
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.date: 01/27/2021
+ms.openlocfilehash: c86c9049bc0afc81f5dfd8553d2aa98cfd4b1a46
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222010"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915975"
 ---
 # <a name="manage-updates-and-patches-for-your-vms"></a>Gerenciar atualizações e patches para suas VMs
 
@@ -35,11 +34,13 @@ O Gerenciamento de Atualizações usa uma configuração de escopo dentro do wor
 
 Antes de implantar as atualizações de software em seus computadores, examine os resultados da avaliação de conformidade da atualização para computadores habilitados. Para cada atualização de software, seu estado de conformidade é registrado e, depois que a avaliação é concluída, ele é coletado e encaminhado em massa para Azure Monitor logs.
 
-Em um computador com Windows, a verificação de conformidade é executada a cada 12 horas por padrão. Além da verificação agendada, a verificação de conformidade de atualização é iniciada em 15 minutos do agente de Log Analytics para Windows que está sendo reiniciado, antes da instalação da atualização e após a instalação da atualização. Também é importante examinar nossas recomendações sobre como [Configurar o cliente do Windows Update](configure-wuagent.md) com gerenciamento de atualizações para evitar problemas que o impeçam de ser gerenciado corretamente.
+Em um computador Windows, a verificação de conformidade é executada a cada 12 horas por padrão e é iniciada dentro de 15 minutos do Log Analytics agente para Windows é reiniciado. Os dados de avaliação são encaminhados para o espaço de trabalho e atualiza a tabela de **atualizações** . Antes e depois da instalação da atualização, uma verificação de conformidade de atualização é executada para identificar as atualizações ausentes, mas os resultados não são usados para atualizar os dados de avaliação na tabela.
+
+É importante examinar nossas recomendações sobre como [Configurar o cliente do Windows Update](configure-wuagent.md) com gerenciamento de atualizações para evitar problemas que o impeçam de ser gerenciado corretamente.
 
 Para um computador com Linux, a verificação de conformidade é executada a cada hora por padrão. Se o agente de Log Analytics para Linux for reiniciado, uma verificação de conformidade será iniciada dentro de 15 minutos.
 
-Os resultados de conformidade são apresentados em Gerenciamento de Atualizações para cada computador avaliado. Para um novo computador habilitado para gerenciamento, pode levar até 30 minutos para que o painel exiba dados atualizados a partir dele.
+Os resultados de conformidade são apresentados em Gerenciamento de Atualizações para cada computador avaliado. Pode levar até 30 minutos para o painel exibir dados atualizados de um novo computador habilitado para gerenciamento.
 
 Examine [as atualizações de software do monitor](view-update-assessments.md) para saber como exibir os resultados de conformidade.
 

@@ -5,12 +5,12 @@ description: Saiba como criar dinamicamente um volume persistente com Arquivos d
 services: container-service
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 08752f8aaa76d83e13eeea86db3048a6d29a4d99
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 2ad2affee34348e8c2fc7b734c8b49d0aec8db40
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126389"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744902"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Crie e use, dinamicamente, um volume persistente com Arquivos do Azure no AKS (Serviço de Kubernetes do Azure)
 
@@ -26,12 +26,12 @@ A CLI do Azure versão 2.0.59 ou posterior também precisa estar instalada e con
 
 ## <a name="create-a-storage-class"></a>Criar uma classe de armazenamento
 
-Uma classe de armazenamento é usada para definir como um compartilhamento de arquivos do Azure é criado. Uma conta de armazenamento é criada automaticamente no [grupo de recursos do nó][node-resource-group] para uso com a classe de armazenamento para reter os compartilhamentos do serviço Arquivos do Azure. Escolha a seguinte [redundância de armazenamento do Azure][storage-skus] para *skuName* :
+Uma classe de armazenamento é usada para definir como um compartilhamento de arquivos do Azure é criado. Uma conta de armazenamento é criada automaticamente no [grupo de recursos do nó][node-resource-group] para uso com a classe de armazenamento para reter os compartilhamentos do serviço Arquivos do Azure. Escolha a seguinte [redundância de armazenamento do Azure][storage-skus] para *skuName*:
 
-* *Standard_LRS* : armazenamento com redundância local (LRS)
-* *Standard_GRS* : armazenamento com redundância geográfica (GRS)
-* *Standard_ZRS* : armazenamento com redundância de zona (ZRS) padrão
-* *Standard_RAGRS* : armazenamento com redundância geográfica e acesso de leitura padrão (RA-GRS)
+* *Standard_LRS*: armazenamento com redundância local (LRS)
+* *Standard_GRS*: armazenamento com redundância geográfica (GRS)
+* *Standard_ZRS*: armazenamento com redundância de zona (ZRS) padrão
+* *Standard_RAGRS*: armazenamento com redundância geográfica e acesso de leitura padrão (RA-GRS)
 * *Premium_LRS* – Armazenamento com redundância local (LRS) premium.
 * *Premium_ZRS* -armazenamento com redundância de zona Premium (ZRS)
 
@@ -40,7 +40,7 @@ Uma classe de armazenamento é usada para definir como um compartilhamento de ar
 
 Para obter mais informações sobre classes de armazenamento do Kubernetes para o serviço Arquivos do Azure, veja [Classes de armazenamento do Kubernetes][kubernetes-storage-classes].
 
-Crie um arquivo chamado `azure-file-sc.yaml` e copie-o manifesto de exemplo a seguir. Para obter mais informações sobre *mountOptions* , veja a seção [Opções de montagem][mount-options].
+Crie um arquivo chamado `azure-file-sc.yaml` e copie-o manifesto de exemplo a seguir. Para obter mais informações sobre *mountOptions*, veja a seção [Opções de montagem][mount-options].
 
 ```yaml
 kind: StorageClass
@@ -55,6 +55,7 @@ mountOptions:
   - gid=0
   - mfsymlinks
   - cache=strict
+  - actimeo=30
 parameters:
   skuName: Standard_LRS
 ```
@@ -67,7 +68,7 @@ kubectl apply -f azure-file-sc.yaml
 
 ## <a name="create-a-persistent-volume-claim"></a>Criar uma declaração de volume persistente
 
-Uma PVC (declaração de volume persistente) usa o objeto de classe de armazenamento para provisionar dinamicamente um compartilhamento de arquivos do Azure. O YAML a seguir pode ser usado para criar uma declaração de volume persistente de *5 GB* de tamanho com acesso do tipo *ReadWriteMany* . Para obter mais informações sobre os modos de acesso, veja a documentação sobre [Volume persistente de Kubernetes][access-modes].
+Uma PVC (declaração de volume persistente) usa o objeto de classe de armazenamento para provisionar dinamicamente um compartilhamento de arquivos do Azure. O YAML a seguir pode ser usado para criar uma declaração de volume persistente de *5 GB* de tamanho com acesso do tipo *ReadWriteMany*. Para obter mais informações sobre os modos de acesso, veja a documentação sobre [Volume persistente de Kubernetes][access-modes].
 
 Agora, crie um arquivo chamado `azure-file-pvc.yaml` e copie no YAML a seguir. Certifique-se de que o *storageClassName* corresponde à classe de armazenamento criada na última etapa:
 
@@ -86,7 +87,7 @@ spec:
 ```
 
 > [!NOTE]
-> Se estiver usando a SKU *Premium_LRS* para sua classe de armazenamento, o valor mínimo para *storage* deve ser *100 Gi* .
+> Se estiver usando a SKU *Premium_LRS* para sua classe de armazenamento, o valor mínimo para *storage* deve ser *100 Gi*.
 
 Crie a declaração de volume persistente com o comando [kubectl apply][kubectl-apply]:
 
@@ -140,7 +141,7 @@ Crie o pod com o comando [kubectl apply][kubectl-apply].
 kubectl apply -f azure-pvc-files.yaml
 ```
 
-Agora você tem um pod em execução com seu compartilhamento de arquivos do Azure montado no diretório */mnt/azure* . Essa configuração pode ser vista ao inspecionar o pod via `kubectl describe pod mypod`. A seguinte saída de exemplo condensada mostra o volume montado no contêiner:
+Agora você tem um pod em execução com seu compartilhamento de arquivos do Azure montado no diretório */mnt/azure*. Essa configuração pode ser vista ao inspecionar o pod via `kubectl describe pod mypod`. A seguinte saída de exemplo condensada mostra o volume montado no contêiner:
 
 ```
 Containers:
@@ -165,7 +166,7 @@ Volumes:
 
 ## <a name="mount-options"></a>Opções de montagem
 
-O valor padrão para *fileMode* e *dirMode* é *0777* para o Kubernetes versão 1.13.0 e superior. Se estiver criando dinamicamente o volume persistente com uma classe de armazenamento, as opções de montagem podem ser especificadas no objeto da classe de armazenamento. O exemplo a seguir define *0777* :
+O valor padrão para *fileMode* e *dirMode* é *0777* para o Kubernetes versão 1.13.0 e superior. Se estiver criando dinamicamente o volume persistente com uma classe de armazenamento, as opções de montagem podem ser especificadas no objeto da classe de armazenamento. O exemplo a seguir define *0777*:
 
 ```yaml
 kind: StorageClass
@@ -180,6 +181,7 @@ mountOptions:
   - gid=0
   - mfsymlinks
   - cache=strict
+  - actimeo=30
 parameters:
   skuName: Standard_LRS
 ```

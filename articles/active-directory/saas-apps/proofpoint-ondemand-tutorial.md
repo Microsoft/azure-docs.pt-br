@@ -9,36 +9,32 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 01/29/2021
 ms.author: jeedes
-ms.openlocfilehash: 673856800ccb05a2b4b52511777a9a24769bcd6f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: c750d42179771313a7281fb8fbf3c043a030feac
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516623"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428717"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proofpoint-on-demand"></a>Tutorial: integração do Azure Active Directory ao Proofpoint on Demand
 
-Neste tutorial, você aprenderá a integrar o Proofpoint on Demand ao Azure AD (Azure Active Directory).
-Integrar o Proofpoint on Demand ao Azure AD oferece os seguintes benefícios:
+Neste tutorial, você aprenderá a integrar o Proofpoint on Demand ao Azure AD (Azure Active Directory). Ao integrar o Proofpoint on Demand ao Azure AD, você poderá:
 
-* Você pode controlar no Azure AD quem tem acesso ao Proofpoint on Demand.
-* Você pode permitir que os usuários sejam conectados automaticamente ao Proofpoint on Demand (Logon Único) com suas contas do Azure AD.
-* Você pode gerenciar suas contas em um único local central – o portal do Azure.
+* Controlar no Azure AD quem tem acesso ao Proofpoint on Demand.
+* Permitir que os usuários façam logon automaticamente no Proofpoint on Demand com as contas do Azure AD.
+* Gerenciar suas contas em um local central: o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
-Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="prerequisites"></a>Prerequisites
+Para começar, você precisará dos seguintes itens:
 
-Para configurar a integração do Azure AD ao Proofpoint on Demand, você precisa dos seguintes itens:
-
-* Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Assinatura habilitada para logon único do Proofpoint on Demand
+* Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
+* Assinatura habilitada para SSO (logon único) do Proofpoint on Demand.
 
 > [!NOTE]
-> Se você estiver usando a autenticação sem senha ou MFA com o Azure AD, desative o valor AuthnContext na Solicitação SAML. Caso contrário, o Azure AD vai gerar o erro na incompatibilidade de AuthnContext e não enviará o token de volta para o aplicativo.
+> Se você estiver usando a autenticação sem senha ou MFA com o Azure AD, desative o valor AuthnContext na solicitação SAML. Caso contrário, o Azure AD vai gerar o erro na incompatibilidade de AuthnContext e não enviará o token de volta para o aplicativo.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -46,156 +42,103 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 * O Proofpoint on Demand dá suporte ao SSO iniciado por **SP**
 
-## <a name="adding-proofpoint-on-demand-from-the-gallery"></a>Adicionar Proofpoint on Demand da galeria
+## <a name="add-proofpoint-on-demand-from-the-gallery"></a>Adicionar Proofpoint on Demand da galeria
 
 Para configurar a integração do Proofpoint on Demand ao Azure AD, você precisa adicionar o Proofpoint on Demand da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Proofpoint on Demand da galeria, execute as seguintes etapas:**
+1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
+1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
+1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
+1. Na seção **Adicionar por meio da galeria**, digite **Proofpoint on Demand** na caixa de pesquisa.
+1. Selecione **Proofpoint on Demand** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory** .
+## <a name="configure-and-test-azure-ad-sso-for-proofpoint-on-demand"></a>Configurar e testar o SSO do Azure AD para o Proofpoint on Demand
 
-    ![O botão Azure Active Directory](common/select-azuread.png)
+Configure e teste o SSO do Azure AD com o Proofpoint on Demand usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Proofpoint on Demand.
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos** .
+Para configurar e testar o SSO do Azure AD com o Proofpoint on Demand, execute as seguintes etapas:
 
-    ![A folha Aplicativos empresariais](common/enterprise-applications.png)
+1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+    1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
+    1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
+1. **[Configurar o SSO do Proofpoint on Demand](#configure-proofpoint-on-demand-sso)** – para definir as configurações de logon único no lado do aplicativo.
+    1. **[Criar um usuário de teste do Proofpoint on Demand](#create-proofpoint-on-demand-test-user)** – para ter um equivalente de B.Fernandes no Proofpoint on Demand que esteja vinculado à representação de usuário no Azure AD.
+1. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-    ![O botão Novo aplicativo](common/add-new-app.png)
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-4. Na caixa de pesquisa, digite **Proofpoint on Demand** , selecione **Proofpoint on Demand** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+1. No portal do Azure, na página de integração de aplicativos do **Proofpoint on Demand**, localize a seção **Gerenciar** e selecione **logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de caneta da **Configuração Básica do SAML** para editar as configurações.
 
-     ![Proofpoint on Demand na lista de resultados](common/search-new-app.png)
+   ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
-
-Nesta seção, você configurará e testará o logon único do Azure AD com o Proofpoint on Demand com base em um usuário de teste chamado **Brenda Fernandes** .
-Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Proofpoint on Demand.
-
-Para configurar e testar o logon único do Azure AD com o Proofpoint on Demand, você precisa concluir os seguintes blocos de construção:
-
-1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Configurar o Logon Único do Proofpoint on Demand](#configure-proofpoint-on-demand-single-sign-on)** – para definir as configurações de Logon Único no lado do aplicativo.
-3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar um usuário de teste do Proofpoint on Demand](#create-proofpoint-on-demand-test-user)** – para ter um equivalente de Brenda Fernandes no Proofpoint on Demand que esteja vinculado à representação de usuário no Azure AD.
-6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
-
-Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
-
-Para configurar o logon único do Azure AD com o Proofpoint on Demand, execute as seguintes etapas:
-
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Proofpoint on Demand** , selecione **Logon único** .
-
-    ![Link Configurar logon único](common/select-sso.png)
-
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
-
-    ![Modo de seleção de logon único](common/select-saml-option.png)
-
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML** .
-
-    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
-
-4. Na seção **Configuração básica de SAML** , realize as seguintes etapas:
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
     ![Informações de logon único em Domínio e URLs do Proofpoint on Demand](common/sp-identifier-reply.png)
 
     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<hostname>.pphosted.com/ppssamlsp_hostname`
 
-    b. Na caixa **Identificador** , digite uma URL usando o seguinte padrão: `https://<hostname>.pphosted.com/ppssamlsp`
+    b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `https://<hostname>.pphosted.com/ppssamlsp`
 
     c. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<hostname>.pphosted.com:portnumber/v1/samlauth/samlconsumer`
 
     > [!NOTE]
     > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, o Identificador e a URL de Resposta reais. Contate a [equipe de suporte do cliente Proofpoint on Demand](https://www.proofpoint.com/us/support-services) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-5. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+5. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-6. Na seção **Configurar o Proofpoint on Demand** , copie as URLs apropriadas de acordo com suas necessidades.
+6. Na seção **Configurar o Proofpoint on Demand**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    a. URL de logon
-
-    b. Identificador do Azure Ad
-
-    c. URL de logoff
-
-### <a name="configure-proofpoint-on-demand-single-sign-on"></a>Configurar o Logon Único do Proofpoint on Demand
-
-Para configurar o logon único no lado do **Proofpoint on Demand** , você precisará enviar o **Certificado (Base64)** baixado e as URLs copiadas apropriadas do portal do Azure para a [equipe de suporte do Proofpoint on Demand](https://www.proofpoint.com/us/support-services). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
-
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
-O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários** .
-
-    ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
-
-2. Selecione **Novo usuário** na parte superior da tela.
-
-    ![Botão Novo usuário](common/new-user.png)
-
-3. Nas Propriedades do usuário, execute as etapas a seguir.
-
-    ![A caixa de diálogo Usuário](common/user-properties.png)
-
-    a. No campo **Nome** , insira **BrendaFernandes** .
-  
-    b. No campo **Nome de usuário** , digite **brendafernandes\@dominiodaempresa.extensao**  
-    Por exemplo, BrittaSimon@contoso.com
-
-    c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
-
-    d. Clique em **Criar** .
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
+1. Selecione **Novo usuário** na parte superior da tela.
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure, concedendo a ela acesso ao Proofpoint on Demand.
+Nesta seção, você permitirá que B.Fernandes use o logon único do Azure, concedendo acesso ao Proofpoint on Demand.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, **Proofpoint on Demand** .
+1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. Na lista de aplicativos, selecione **Proofpoint on Demand**.
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
+1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
+### <a name="configure-proofpoint-on-demand-sso"></a>Configurar o SSO do Proofpoint on Demand
 
-2. Na lista de aplicativos, selecione **Proofpoint on Demand** .
-
-    ![O link do Proofpoint on Demand na lista Aplicativos](common/all-applications.png)
-
-3. No menu à esquerda, selecione **Usuários e grupos** .
-
-    ![O link “Usuários e grupos”](common/users-groups-blade.png)
-
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
-
-    ![O painel Adicionar Atribuição](common/add-assign-user.png)
-
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
-
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+Para configurar o logon único no lado do **Proofpoint on Demand**, você precisará enviar o **Certificado (Base64)** baixado e as URLs copiadas apropriadas do portal do Azure para a [equipe de suporte do Proofpoint on Demand](https://www.proofpoint.com/us/support-services). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-proofpoint-on-demand-test-user"></a>Criar um usuário de teste do Proofpoint on Demand
 
 Nesta seção, você cria uma usuária chamada Brenda Fernandes no Proofpoint on Demand. Trabalhe com a [equipe de suporte do cliente Proofpoint on Demand](https://www.proofpoint.com/us/support-services) para adicionar usuários na plataforma Proofpoint on Demand.
 
-### <a name="test-single-sign-on"></a>Testar logon único
+### <a name="test-sso"></a>Testar o SSO
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir. 
 
-Ao clicar no bloco do Proofpoint on Demand no Painel de Acesso, você deverá ser conectado automaticamente ao Proofpoint on Demand, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
+* Clique em **Testar este aplicativo** no portal do Azure. Isso redirecionará você à URL de Logon do Proofpoint on Demand, na qual poderá iniciar o fluxo de logon. 
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Acesse diretamente a URL de Logon do Proofpoint on Demand e inicie o fluxo de logon nela.
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
+* Você pode usar os Meus Aplicativos da Microsoft. Ao clicar no bloco do Proofpoint on Demand em Meus Aplicativos, você deverá ser conectado automaticamente ao Proofpoint on Demand, para o qual você configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Próximas etapas
 
-- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)
+Depois de configurar o Proofpoint on Demand, será possível impor o controle de sessão, que fornece proteção contra a infiltração e exfiltração dos dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

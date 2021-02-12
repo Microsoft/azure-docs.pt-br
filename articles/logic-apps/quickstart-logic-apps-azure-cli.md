@@ -5,27 +5,29 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: quickstart
-ms.custom: mvc, devx-track-azurecli
-ms.date: 07/30/2020
-ms.openlocfilehash: e6e53755d9231008d0f48c755ff9da297d7305d7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: mvc, devx-track-azurecli, contperf-fy21q2
+ms.date: 11/23/2020
+ms.openlocfilehash: bc172fd1702addf8f4e34094452a779b09320a4d
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747170"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033367"
 ---
 # <a name="quickstart-create-and-manage-logic-apps-using-the-azure-cli"></a>Início Rápido: Criar e gerenciar aplicativos lógicos usando a CLI do Azure
 
-Este guia de início rápido mostra como criar e gerenciar aplicativos lógicos usando a [extensão de Aplicativos Lógicos para a CLI do Azure](/cli/azure/ext/logic/logic?view=azure-cli-latest) (`az logic`). Na linha de comando, você pode criar um aplicativo lógico usando o arquivo JSON para uma definição de fluxo de trabalho do aplicativo lógico. Em seguida, você pode gerenciar seu aplicativo lógico executando operações como `list`, `show` (`get`), `update` e `delete` na linha de comando.
+Este guia de início rápido mostra como criar e gerenciar aplicativos lógicos usando a [extensão de Aplicativos Lógicos para a CLI do Azure](/cli/azure/ext/logic/logic) (`az logic`). Na linha de comando, você pode criar um aplicativo lógico usando o arquivo JSON para uma definição de fluxo de trabalho do aplicativo lógico. Em seguida, você pode gerenciar seu aplicativo lógico executando operações como `list`, `show` (`get`), `update` e `delete` na linha de comando.
 
 > [!WARNING]
-> Atualmente, a extensão de Aplicativos Lógicos para a CLI do Azure está em fase *experimental* e não é *coberta pelo atendimento ao cliente* . Use essa extensão da CLI com cuidado, especialmente se optar por usar a extensão em ambientes de produção.
+> Atualmente, a extensão de Aplicativos Lógicos para a CLI do Azure está em fase *experimental* e não é *coberta pelo atendimento ao cliente*. Use essa extensão da CLI com cuidado, especialmente se optar por usar a extensão em ambientes de produção.
+
+Se você não estiver familiarizado com os Aplicativos Lógicos, também poderá aprender a criar seus primeiros aplicativos lógicos [por meio do portal do Azure](quickstart-create-first-logic-app-workflow.md), [no Visual Studio](quickstart-create-logic-apps-with-visual-studio.md) e [no Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma conta do Azure com uma assinatura ativa. Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* A [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) instalada no computador local.
-* A [extensão de Aplicativos Lógicos para a CLI do Azure](/cli/azure/azure-cli-extensions-list?view=azure-cli-latest) instalada no computador. Para instalar essa extensão, use este comando: `az extension add --name logic`
+* A [CLI do Azure](/cli/azure/install-azure-cli) instalada no computador local.
+* A [extensão de Aplicativos Lógicos para a CLI do Azure](/cli/azure/azure-cli-extensions-list) instalada no computador. Para instalar essa extensão, use este comando: `az extension add --name logic`
 * Um [grupo de recursos do Azure](#example---create-resource-group) no qual o aplicativo lógico será criado.
 
 ### <a name="prerequisite-check"></a>Verificação de pré-requisitos
@@ -33,8 +35,8 @@ Este guia de início rápido mostra como criar e gerenciar aplicativos lógicos 
 Valide seu ambiente antes de começar:
 
 * Entre no portal do Azure e verifique se a sua assinatura está ativa executando `az login`.
-* Verifique sua versão da CLI do Azure em uma janela Comando ou de terminal executando `az --version`. Para obter a última versão, confira as [notas sobre a versão mais recente](/cli/azure/release-notes-azure-cli?tabs=azure-cli&view=azure-cli-latest).
-  * Caso não tenha a última versão, atualize a instalação seguindo o [guia de instalação para seu sistema operacional ou sua plataforma](/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Verifique sua versão da CLI do Azure em uma janela Comando ou de terminal executando `az --version`. Para obter a última versão, confira as [notas sobre a versão mais recente](/cli/azure/release-notes-azure-cli?tabs=azure-cli).
+  * Caso não tenha a última versão, atualize a instalação seguindo o [guia de instalação para seu sistema operacional ou sua plataforma](/cli/azure/install-azure-cli).
 
 ### <a name="example---create-resource-group"></a>Exemplo – criar grupo de recursos
 
@@ -61,13 +63,13 @@ A saída mostra o `provisioningState` como `Succeeded` quando o grupo de recurso
 
 ## <a name="workflow-definition"></a>Definição de fluxo de trabalho
 
-Para [criar um aplicativo lógico](#create-logic-apps-from-cli) ou [atualizar um aplicativo lógico existente](#update-logic-apps-from-cli) usando a CLI do Azure, você precisará ter uma definição de fluxo de trabalho para o aplicativo lógico. No portal do Azure, veja a definição de fluxo de trabalho subjacente do aplicativo lógico no formato JSON alternando a exibição de **Designer** para a **exibição de Código** .
+Para [criar um aplicativo lógico](#create-logic-apps-from-cli) ou [atualizar um aplicativo lógico existente](#update-logic-apps-from-cli) usando a CLI do Azure, você precisará ter uma definição de fluxo de trabalho para o aplicativo lógico. No portal do Azure, veja a definição de fluxo de trabalho subjacente do aplicativo lógico no formato JSON alternando a exibição de **Designer** para a **exibição de Código**.
 
 Quando você executa os comandos necessários para criar ou atualizar o aplicativo lógico, a definição de fluxo de trabalho é carregada como um parâmetro obrigatório (`--definition`). Você precisa criar a definição de fluxo de trabalho como um arquivo JSON que segue o [esquema da Linguagem de Definição de Fluxo de Trabalho](./logic-apps-workflow-definition-language.md).
 
 ## <a name="create-logic-apps-from-cli"></a>Criar aplicativos lógicos por meio da CLI
 
-Crie um fluxo de trabalho de aplicativo lógico por meio da CLI do Azure usando o comando [`az logic workflow create`](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-create) com um arquivo JSON para a definição.
+Crie um fluxo de trabalho de aplicativo lógico por meio da CLI do Azure usando o comando [`az logic workflow create`](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create) com um arquivo JSON para a definição.
 
 ```azurecli
 
@@ -84,7 +86,7 @@ az logic workflow create --definition
 
 ```
 
-O comando precisa incluir os seguintes [parâmetros obrigatórios](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-create-required-parameters):
+O comando precisa incluir os seguintes [parâmetros obrigatórios](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create-required-parameters):
 
 | Parâmetro | Valor | Descrição |
 | --------- | ----- | ----------- |
@@ -93,7 +95,7 @@ O comando precisa incluir os seguintes [parâmetros obrigatórios](/cli/azure/ex
 | Nome | `--name -n` | O nome do aplicativo lógico. O nome só pode conter letras, números, hifens (`-`), sublinhados (`_`), parênteses (`()`) e pontos (`.`). O nome também precisa ser exclusivo entre as regiões. |
 | Nome do grupo de recursos | `--resource-group -g` | O [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) no qual você deseja criar o aplicativo lógico. [Crie um grupo de recursos](#example---create-resource-group) antes de começar, caso ainda não tenha um para seu aplicativo lógico. |
 
-Inclua também [parâmetros opcionais](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-create-optional-parameters) adicionais para configurar os controles de acesso, os pontos de extremidade, a conta de integração, o ambiente de serviço de integração, o estado e as marcas de recurso do aplicativo lógico.
+Inclua também [parâmetros opcionais](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create-optional-parameters) adicionais para configurar os controles de acesso, os pontos de extremidade, a conta de integração, o ambiente de serviço de integração, o estado e as marcas de recurso do aplicativo lógico.
 
 ### <a name="example---create-logic-app"></a>Exemplo – criar aplicativo lógico
 
@@ -109,9 +111,9 @@ Quando o fluxo de trabalho é criado com êxito, a CLI mostra o código JSON da 
 
 ## <a name="update-logic-apps-from-cli"></a>Atualizar aplicativos lógicos por meio da CLI
 
-Atualize também o fluxo de trabalho de um aplicativo lógico por meio da CLI do Azure usando o comando [`az logic workflow create`](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-create).
+Atualize também o fluxo de trabalho de um aplicativo lógico por meio da CLI do Azure usando o comando [`az logic workflow create`](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create).
 
-O comando precisa incluir os mesmos [parâmetros obrigatórios](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-create-required-parameters) usados quando você [cria um aplicativo lógico](#create-logic-apps-from-cli). Adicione também os mesmos [parâmetros opcionais](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-create-optional-parameters) usados durante a criação de um aplicativo lógico.
+O comando precisa incluir os mesmos [parâmetros obrigatórios](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create-required-parameters) usados quando você [cria um aplicativo lógico](#create-logic-apps-from-cli). Adicione também os mesmos [parâmetros opcionais](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create-optional-parameters) usados durante a criação de um aplicativo lógico.
 
 ```azurecli
 
@@ -142,16 +144,16 @@ Quando o fluxo de trabalho é atualizado com êxito, a CLI mostra a definição 
 
 ## <a name="delete-logic-apps-from-cli"></a>Excluir aplicativos lógicos por meio da CLI
 
-Exclua o fluxo de trabalho de um aplicativo lógico por meio da CLI do Azure usando o comando [`az logic workflow delete`](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-delete).
+Exclua o fluxo de trabalho de um aplicativo lógico por meio da CLI do Azure usando o comando [`az logic workflow delete`](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-delete).
 
-O comando precisa incluir os seguintes [parâmetros obrigatórios](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-delete-required-parameters):
+O comando precisa incluir os seguintes [parâmetros obrigatórios](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-delete-required-parameters):
 
 | Parâmetro | Valor | Descrição |
 | --------- | ----- | ----------- |
 | Nome | `--name -n` | O nome do aplicativo lógico. |
 | Nome do grupo de recursos | `-resource-group -g` | O grupo de recursos no qual o aplicativo lógico está localizado. |
 
-Inclua também um [parâmetro opcional](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-delete-optional-parameters) para ignorar os avisos de confirmação, `--yes -y`.
+Inclua também um [parâmetro opcional](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-delete-optional-parameters) para ignorar os avisos de confirmação, `--yes -y`.
 
 ```azurecli
 
@@ -185,7 +187,7 @@ Depois que você responde ao aviso de confirmação com `y`, o aplicativo lógic
 
 ## <a name="show-logic-apps-in-cli"></a>Mostrar aplicativos lógicos na CLI
 
-Obtenha um fluxo de trabalho de aplicativo lógico específico usando o comando [`az logic workflow show`](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-show).
+Obtenha um fluxo de trabalho de aplicativo lógico específico usando o comando [`az logic workflow show`](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-show).
 
 ```azurecli
 
@@ -194,7 +196,7 @@ az logic workflow show --name
 
 ```
 
-O comando precisa incluir os [parâmetros obrigatórios](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-show-required-parameters) a seguir
+O comando precisa incluir os [parâmetros obrigatórios](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-show-required-parameters) a seguir
 
 | Parâmetro | Valor | Descrição |
 | --------- | ----- | ----------- |
@@ -213,9 +215,9 @@ az logic workflow show --resource-group "testResourceGroup" --name "testLogicApp
 
 ## <a name="list-logic-apps-in-cli"></a>Listar aplicativos lógicos na CLI
 
-Liste seus aplicativos lógicos por assinatura usando o comando [`az logic workflow list`](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-list). Esse comando retorna o código JSON para os fluxos de trabalho dos aplicativos lógicos.
+Liste seus aplicativos lógicos por assinatura usando o comando [`az logic workflow list`](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-list). Esse comando retorna o código JSON para os fluxos de trabalho dos aplicativos lógicos.
 
-Filtre os resultados pelos seguintes [parâmetros opcionais](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-list-optional-parameters):
+Filtre os resultados pelos seguintes [parâmetros opcionais](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-list-optional-parameters):
 
 | Parâmetro | Valor | Descrição |
 | --------- | ----- | ----------- |
@@ -265,7 +267,7 @@ Use os seguintes parâmetros opcionais globais da CLI do Azure com os comandos `
 
 | Parâmetro | Valor | Descrição |
 | --------- | ----- | ----------- |
-| Formato da saída | `--output -o` | Altere o [formato de saída](/cli/azure/format-output-azure-cli?view=azure-cli-latest) do JSON padrão. |
+| Formato da saída | `--output -o` | Altere o [formato de saída](/cli/azure/format-output-azure-cli) do JSON padrão. |
 | Mostrar somente erros | `--only-show-errors` | Suprime os avisos e mostra somente os erros. |
 | Detalhado | `--verbose` | Mostra logs detalhados. |
 | Depurar | `--debug` | Mostra todos os logs de depuração. |
@@ -274,8 +276,11 @@ Use os seguintes parâmetros opcionais globais da CLI do Azure com os comandos `
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre a CLI do Azure, confira a [Documentação da CLI do Azure](/cli/azure/?view=azure-cli-latest).
-
-Para ver um exemplo de como criar um aplicativo lógico básico usando a CLI, confira o [script de exemplo e a definição do fluxo de trabalho](sample-logic-apps-cli-script.md).
+Para saber mais sobre a CLI do Azure, confira a [Documentação da CLI do Azure](/cli/azure/).
 
 Veja exemplos de script adicionais da CLI dos Aplicativos Lógicos no [navegador de exemplos de código da Microsoft](/samples/browse/?products=azure-logic-apps).
+
+Em seguida, você poderá criar uma lógica de aplicativo de exemplo por meio da CLI do Azure usando uma definição de fluxo de trabalho e script de exemplo.
+
+> [!div class="nextstepaction"]
+> [Criar aplicativo lógico usando script de exemplo](sample-logic-apps-cli-script.md).

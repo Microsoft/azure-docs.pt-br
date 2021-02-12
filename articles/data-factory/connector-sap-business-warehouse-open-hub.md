@@ -11,15 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/12/2020
-ms.openlocfilehash: 930c7e7881a00cd0cb1f4abc6b219c0fbdeebac5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/02/2020
+ms.openlocfilehash: ca8fad59e581ef3f5a3ebf585356564d539f0bbd
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533403"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430723"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse via Open Hub com o Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de um banco de dados SAP BW (Business Warehouse) via Open Hub. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
@@ -38,8 +39,8 @@ Você pode copiar dados do SAP Business Warehouse via Open Hub para qualquer arm
 
 Especificamente, este conector do SAP Business Warehouse Open Hub dá suporte a:
 
-- SAP Business Warehouse **versão 7, 1 ou superior (em uma pilha recente do pacote de suporte SAP lançada após o ano 2015)**. Não há suporte para o SAP BW4/HANA neste conector.
-- Cópia de dados por meio da tabela de local de destino do Open Hub que pode ser, por baixo, DSO, InfoCube, MultiProvider, DataSource etc.
+- SAP Business Warehouse **versão 7, 1 ou superior (em uma pilha recente do pacote de suporte SAP lançada após o ano 2015)**. Não há suporte para SAP BW/4HANA por este conector.
+- Copiar dados por meio da tabela local de destino de Hub aberto, que embaixo pode ser DSO, InfoCube, multifornecedor, DataSource, etc.
 - À cópia de dados usando a autenticação Básica.
 - Conectando-se a um servidor de aplicativos SAP ou servidor de mensagens SAP.
 - Recuperando dados via RFC.
@@ -90,7 +91,7 @@ Para usar esse conector do SAP Business Warehouse Open Hub, você precisa:
     - Autorização para RFC e SAP BW. 
     - Permissões para a Atividade de "Executar" do Objeto de Autorização "S_SDSAUTH".
 
-- Criar tipo de Destino do SAP Open Hub como **Tabela de Banco de Dados** com opção "Chave Técnica" marcada.  Também é recomendável deixar a opção Excluir Dados da Tabela desmarcada, embora não seja necessário. Aproveite o DTP (execute ou integre diretamente na cadeia de processo existente) para descarregar dados do objeto de origem (como um cubo) que você escolheu para a tabela de destino do Open Hub.
+- Criar tipo de Destino do SAP Open Hub como **Tabela de Banco de Dados** com opção "Chave Técnica" marcada.  Também é recomendável deixar a opção Excluir Dados da Tabela desmarcada, embora não seja necessário. Use o DTP (executar ou integrar diretamente na cadeia de processo existente) para esterrar dados do objeto de origem (como cubo) que você escolheu para a tabela de destino de Hub aberto.
 
 ## <a name="getting-started"></a>Introdução
 
@@ -236,14 +237,14 @@ Ao copiar dados do SAP BW Open Hub, os seguintes mapeamentos são usados de tipo
 
 | Tipo SAP ABAP | Tipo de dados provisório do Data Factory |
 |:--- |:--- |
-| C (Cadeia de caracteres) | Cadeia de caracteres |
+| C (Cadeia de caracteres) | String |
 | I (inteiro) | Int32 |
 | F (Flutuante) | Double |
-| D (Data) | Cadeia de caracteres |
-| T (Hora) | Cadeia de caracteres |
+| D (Data) | String |
+| T (Hora) | String |
 | P (BCD Empacotado, Moeda, Decimal, Qtd) | Decimal |
-| N (Numc) | Cadeia de caracteres |
-| X (Binário e Bruto) | Cadeia de caracteres |
+| N (Numc) | String |
+| X (Binário e Bruto) | String |
 
 ## <a name="lookup-activity-properties"></a>Pesquisar propriedades de atividade
 

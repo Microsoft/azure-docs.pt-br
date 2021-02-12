@@ -3,12 +3,12 @@ title: Usar Azure Lab Services para Hackathon
 description: Este artigo descreve como usar Azure Lab Services para criar laboratórios que você pode usar para executar o hackathons.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8727fad6f37d1365983127a1a514e87e3a5003b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0917ede4502dcbb59d1a30b7985b06c06975599
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445875"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602573"
 ---
 # <a name="use-azure-lab-services-for-your-next-hackathon"></a>Usar Azure Lab Services para seu próximo Hackathon
 A Azure Lab Services foi projetada para ser leve e fácil de usar para que você possa criar rapidamente um novo laboratório de VMs (máquinas virtuais) para seu Hackathon.  Use a lista de verificação a seguir para garantir que o Hackathon seja o mais tranqüila possível. Esta lista de verificação deve ser concluída pelo seu departamento de ti ou corpo docente responsável por criar e gerenciar seu laboratório de Hackathon. 
@@ -39,9 +39,9 @@ Para usar os serviços de laboratório para seu Hackathon, certifique-se de que 
 
 - **Decida se deseja restringir o acesso ao laboratório**. 
 
-    Ao adicionar usuários ao laboratório, há uma opção de acesso restrito habilitada por padrão. Esse recurso exige que você adicione todos os emails dos seus participantes do Hackathon à lista antes que eles possam registrar e acessar o laboratório usando o link de registro. Se você tiver um Hackathon em que não saiba quem os participantes estarão antes do evento, você pode optar por desabilitar a opção de acesso restrito, que permite que qualquer pessoa Registre-se no laboratório usando o link de registro. Para obter mais informações, consulte o [Guia de instruções sobre como adicionar usuários](how-to-configure-student-usage.md#add-users-to-a-lab).
+    Ao adicionar usuários ao laboratório, há uma opção de acesso restrito habilitada por padrão. Esse recurso exige que você adicione todos os emails dos seus participantes do Hackathon à lista antes que eles possam registrar e acessar o laboratório usando o link de registro. Se você tiver um Hackathon em que não saiba quem os participantes estarão antes do evento, você pode optar por desabilitar a opção de acesso restrito, que permite que qualquer pessoa Registre-se no laboratório usando o link de registro. Para obter mais informações, consulte o [Guia de instruções sobre como adicionar usuários](how-to-configure-student-usage.md).
 
-- **Verifique as configurações de agendamento, cota e desligamento**automático. 
+- **Verifique as configurações de agendamento, cota e desligamento** automático. 
 
     Os serviços de laboratório fornecem vários controles de custo para limitar o uso de VMs. No entanto, se essas configurações estiverem configuradas incorretamente, elas poderão fazer com que as máquinas virtuais do laboratório sejam desligadas inesperadamente. Para garantir que essas configurações sejam definidas adequadamente para seu Hackathon, verifique as seguintes configurações:
 
@@ -49,7 +49,7 @@ Para usar os serviços de laboratório para seu Hackathon, certifique-se de que 
 
     **Cota**: a [cota](how-to-configure-student-usage.md#set-quotas-for-users) controla o número de horas que os participantes terão acesso a uma máquina virtual fora das horas agendadas. Se a cota for atingida enquanto um participante a estiver usando, a máquina será desligada automaticamente e o participante não poderá reiniciá-la, a menos que a cota seja aumentada. Por padrão, quando você cria um laboratório, a cota é definida como 10 horas. Novamente, você deve ter certeza de definir a cota para que ela permita tempo suficiente para o Hackathon, o que é especialmente importante se você não tiver criado uma agenda.
 
-    **Desligamento**automático: quando habilitado, a configuração de [desligamento](how-to-enable-shutdown-disconnect.md) automática faz com que as máquinas virtuais do Windows sejam desligadas automaticamente após um determinado período de tempo quando um aluno se desconectar da sessão RDP. Por padrão, essa configuração está desabilitada.
+    **Desligamento** automático: quando habilitado, a configuração de [desligamento](how-to-enable-shutdown-disconnect.md) automática faz com que as máquinas virtuais do Windows sejam desligadas automaticamente após um determinado período de tempo quando um aluno se desconectar da sessão RDP. Por padrão, essa configuração está desabilitada.
 
 - **Defina as configurações de firewall para permitir conexões com VMs de laboratório**. 
 
@@ -86,4 +86,4 @@ Esta seção descreve as etapas para concluir o dia de sua Hackathon.
         Para obter mais informações, consulte [o guia de instruções sobre como enviar convites para usuários](how-to-configure-student-usage.md?branch=master#send-invitations-to-users) e [conectar-se a VMs do Linux](how-to-use-remote-desktop-linux-student.md?branch=master). 
 
 ## <a name="next-steps"></a>Próximas etapas
-Comece com a criação de uma conta de laboratório nos laboratórios de sala de aula, seguindo as instruções no artigo: [Tutorial: Configurar uma conta de laboratório com o Azure Lab Services](tutorial-setup-lab-account.md).
+Comece com a criação de uma conta de laboratório em laboratórios seguindo as instruções no artigo: [tutorial: configurar uma conta de laboratório com Azure Lab Services](tutorial-setup-lab-account.md).

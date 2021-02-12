@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 09/30/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconhecimento de imagem, aplicativo de reconhecimento de imagem, visão personalizada
-ms.openlocfilehash: ab747ad5e7b9362e9c587741198a0191c032b124
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 5ecd5fee565a8d31e0ff05f3b234771446242d02
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91596884"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221288"
 ---
 # <a name="quickstart-build-an-object-detector-with-the-custom-vision-website"></a>Início Rápido: criar um detector de objeto com o site da Visão Personalizada
 
@@ -70,7 +70,7 @@ No navegador da Web, navegue até o [site Visão Personalizada](https://customvi
 
 Nesta seção, você carregará e marcará manualmente imagens para ajudar a treinar o detector. 
 
-1. Para adicionar imagens, clique no botão __Adicionar imagens__ e selecione __Procurar arquivos locais__. Selecione __Abrir__ para carregar as imagens.
+1. Para adicionar imagens, selecione __Adicionar imagens__ e selecione __Procurar arquivos locais__. Selecione __Abrir__ para carregar as imagens.
 
     ![O controle de adição de imagens é mostrado no canto superior esquerdo e como um botão na parte inferior central.](./media/get-started-build-detector/add-images.png)
 
@@ -78,7 +78,7 @@ Nesta seção, você carregará e marcará manualmente imagens para ajudar a tre
 
     ![Imagens carregadas, na seção Sem marcas](./media/get-started-build-detector/images-untagged.png)
 
-1. Clique e arraste um retângulo em torno do objeto na imagem. Em seguida, insira um novo nome de marca com o botão **+** ou selecione uma marca existente na lista suspensa. É muito importante marcar todas as instâncias dos objetos que você deseja detectar, pois o detector usa a área da tela de fundo sem marcas como um exemplo negativo no treinamento. Quando concluir a marcação, clique na seta à direita para salvar as marcas e passar para a próxima imagem.
+1. Clique e arraste um retângulo em torno do objeto na imagem. Em seguida, insira um novo nome de marca com o botão **+** ou selecione uma marca existente na lista suspensa. É importante marcar todas as instâncias dos objetos que você deseja detectar, pois o detector usa a área da tela de fundo sem marcas como um exemplo negativo no treinamento. Quando concluir a marcação, clique na seta à direita para salvar as marcas e passar para a próxima imagem.
 
     ![Como marcar um objeto com uma seleção retangular](./media/get-started-build-detector/image-tagging.png)
 
@@ -100,12 +100,17 @@ Depois que o treinamento for concluído, o desempenho do modelo será calculado 
 
 - A **precisão** indica a fração de classificações identificadas que estão corretas. Por exemplo, se o modelo identificou 100 imagens como cachorros e 99 delas são realmente de cachorros, a precisão é de 99%.
 - A **recuperação** indica a fração de classificações reais que foram corretamente identificadas. Por exemplo, se há de fato 100 imagens de maçãs e o modelo identifica 80 como maçãs, a recuperação é de 80%.
+- **A média da precisão média** é o valor médio da AP (precisão média). AP é a área sob a curva de precisão/recall (a precisão é plotada em relação à recuperação para cada previsão feita).
 
 ![Os resultados do treinamento mostram a precisão e o recall gerais, bem como a precisão média.](./media/get-started-build-detector/trained-performance.png)
 
 ### <a name="probability-threshold"></a>Limite de probabilidade
 
 [!INCLUDE [probability threshold](includes/probability-threshold.md)]
+
+### <a name="overlap-threshold"></a>Limite de sobreposição
+
+O controle deslizante do **Limite de Sobreposição** aborda o quão correta deve ser uma previsão de objeto para que seja considerada "correta" no treinamento. Ele define a sobreposição mínima permitida entre a caixa delimitadora do objeto previsto e a caixa delimitadora real inserida pelo usuário. Se as caixas delimitadoras não se sobrepuserem a esse grau, a previsão não será considerada correta.
 
 ## <a name="manage-training-iterations"></a>Gerenciar iterações de treinamento
 

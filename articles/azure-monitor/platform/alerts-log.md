@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: 0842efe304faa9a0d94fbf71075f1bc16ff34014
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 950482a96604165a8f1ff20cab9e3eafe1224c90
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217551"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028991"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, exibir e gerenciar alertas de log usando o Azure Monitor
 
 ## <a name="overview"></a>Visão geral
 
-Os alertas de log permitem que os usuários usem uma consulta [log Analytics](../log-query/get-started-portal.md) para avaliar os logs de recursos a cada frequência definida e acionar um alerta com base nos resultados. As regras podem disparar uma ou mais ações usando [grupos de ações](./action-groups.md). [Saiba mais sobre a funcionalidade e a terminologia de alertas de log](alerts-unified-log.md).
+Os alertas de log permitem que os usuários usem uma consulta [log Analytics](../log-query/log-analytics-tutorial.md) para avaliar os logs de recursos a cada frequência definida e acionar um alerta com base nos resultados. As regras podem disparar uma ou mais ações usando [grupos de ações](./action-groups.md). [Saiba mais sobre a funcionalidade e a terminologia de alertas de log](alerts-unified-log.md).
 
 Este artigo mostra como criar e gerenciar alertas de log usando o Azure Monitor. As regras de alerta são definidas por três componentes:
 - Destino: um recurso específico do Azure a ser monitorado.
@@ -27,15 +27,15 @@ Este artigo mostra como criar e gerenciar alertas de log usando o Azure Monitor.
 Você também pode criar regras de alerta de log usando modelos de Azure Resource Manager, que são descritos em [um artigo separado](alerts-log-create-templates.md).
 
 > [!NOTE]
-> Os dados de log de um [espaço de trabalho log Analytics](../log-query/get-started-portal.md) podem ser enviados para o repositório de métricas de Azure monitor. Os alertas de métricas têm [comportamento diferente](alerts-metric-overview.md), o que pode ser mais desejável, dependendo dos dados com os quais você está trabalhando. Para obter informações sobre o que e como você pode rotear logs para métricas, consulte [alerta de métrica para logs](alerts-metric-logs.md).
+> Os dados de log de um [espaço de trabalho log Analytics](../log-query/log-analytics-tutorial.md) podem ser enviados para o repositório de métricas de Azure monitor. Os alertas de métricas têm [comportamento diferente](alerts-metric-overview.md), o que pode ser mais desejável, dependendo dos dados com os quais você está trabalhando. Para obter informações sobre o que e como você pode rotear logs para métricas, consulte [alerta de métrica para logs](alerts-metric-logs.md).
 
 ## <a name="create-a-log-alert-rule-with-the-azure-portal"></a>Criar uma regra de alerta de log com o portal do Azure
 
 Aqui estão as etapas para começar a escrever consultas para alertas:
 
-1. Vá para o recurso no qual você gostaria de alertar.
+1. Vá para o recurso no qual você gostaria de alertar. Considere configurar regras de alerta em vários recursos selecionando uma assinatura ou um escopo de grupo de recursos sempre que possível. O alerta em vários recursos reduz os custos e a necessidade de gerenciar várias regras de alerta.
 1. Em **Monitor**, selecione **logs**.
-1. Consulte os dados de log que podem indicar o problema. Você pode usar o [tópico Exemplos de consulta de alerta](../log-query/saved-queries.md) para entender o que você pode descobrir ou começar [a escrever sua própria consulta](../log-query/get-started-portal.md). Além disso, [saiba como criar consultas de alerta otimizadas](alerts-log-query.md).
+1. Consulte os dados de log que podem indicar o problema. Você pode usar o [tópico Exemplos de consulta de alerta](../log-query/example-queries.md) para entender o que você pode descobrir ou começar [a escrever sua própria consulta](../log-query/log-analytics-tutorial.md). Além disso, [saiba como criar consultas de alerta otimizadas](alerts-log-query.md).
 1. Pressione o botão ' + nova regra de alerta ' para iniciar o fluxo de criação de alerta.
 
     ![Log Analytics – definir um alerta](media/alerts-log/AlertsAnalyticsCreate.png)
@@ -81,7 +81,7 @@ Aqui estão as etapas para começar a escrever consultas para alertas:
 
 1. Selecione **Concluído**. 
 
-1. Defina o **nome da regra de alerta**, a **Descrição**e selecione a **severidade**do alerta. Esses detalhes são usados em todas as ações de alerta. Além disso, você pode optar por não ativar a regra de alerta na criação selecionando **habilitar regra na criação**.
+1. Defina o **nome da regra de alerta**, a **Descrição** e selecione a **severidade** do alerta. Esses detalhes são usados em todas as ações de alerta. Além disso, você pode optar por não ativar a regra de alerta na criação selecionando **habilitar regra na criação**.
 
 1. Escolha se deseja suprimir as ações de regra para um tempo após o acionamento de um alerta, use a opção [**suprimir alertas**](alerts-unified-log.md#state-and-resolving-alerts) . A regra ainda será executada e criará alertas, mas as ações não serão disparadas para evitar ruídos. O valor de ações de mudo deve ser maior que a frequência de alerta para ser eficaz.
 
@@ -126,7 +126,7 @@ Aqui estão as etapas para começar a escrever consultas para alertas:
 
     ![Criar regra](media/alerts-log/AlertsPreviewAdd.png)
 
-1. Pressione no botão **selecionar recurso** . Filtre escolhendo a *assinatura*, o *tipo de recurso*e selecione um recurso. Verifique se o recurso tem logs disponíveis.
+1. Pressione no botão **selecionar recurso** . Filtre escolhendo a *assinatura*, o *tipo de recurso* e selecione um recurso. Verifique se o recurso tem logs disponíveis.
 
    ![Selecionar recurso](media/alerts-log/Alert-SelectResourceLog.png)
 
@@ -155,7 +155,7 @@ Aqui estão as etapas para começar a escrever consultas para alertas:
     1. Escolha [a divisão de alerta por dimensões](alerts-unified-log.md#split-by-alert-dimensions), se necessário: 
        - A **coluna ID de recurso** é selecionada automaticamente, se detectada, e altera o contexto do alerta acionado para o recurso do registro. 
        - A **coluna ID de recurso** pode ser desmarcada para acionar alertas em grupos de recursos ou de assinatura. A remoção de seleção é útil quando os resultados da consulta são baseados em recursos cruzados. Por exemplo, uma consulta que verifica se 80% das máquinas virtuais do grupo de recursos estão apresentando alto uso da CPU.
-       - Até seis divisores adicionais também podem ser selecionadas para qualquer tipo de colunas de texto ou número usando a tabela de dimensões.
+       - Até seis divisores também podem ser selecionados para qualquer tipo de colunas de texto ou número usando a tabela de dimensões.
        - Os alertas são acionados separadamente de acordo com a divisão com base em combinações exclusivas e a carga de alerta inclui essas informações.
     
         ![Selecionar parâmetros de agregação e divisão](media/alerts-log/select-aggregation-parameters-and-splitting.png)
@@ -176,7 +176,7 @@ Aqui estão as etapas para começar a escrever consultas para alertas:
 
     ![Guia ações](media/alerts-log/actions-tab.png)
 
-1. Na guia **detalhes** , defina os **detalhes da regra de alerta**e os detalhes do **projeto**. Opcionalmente, você pode definir se deseja não **iniciar a execução agora**ou fazer o [**mudo de ações**](alerts-unified-log.md#state-and-resolving-alerts) para um período após a regra de alerta ser acionada.
+1. Na guia **detalhes** , defina os **detalhes da regra de alerta** e os detalhes do **projeto**. Opcionalmente, você pode definir se deseja não **iniciar a execução agora** ou fazer o [**mudo de ações**](alerts-unified-log.md#state-and-resolving-alerts) para um período após a regra de alerta ser acionada.
 
     > [!NOTE]
     > Atualmente, as regras de alerta de log são sem estado e acionam uma ação sempre que um alerta é criado, a menos que o mudo seja definido.
@@ -312,7 +312,7 @@ Você também pode usar a CLI do Azure Resource Manager com arquivos de [modelos
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name AlertDeployment \
     --resource-group ResourceGroupofTargetResource \
     --template-file mylogalerttemplate.json \
@@ -327,4 +327,3 @@ Em caso de sucesso para a criação, 201 é retornado. Em caso de sucesso para a
 * Crie alertas de log usando [modelos de Azure Resource Manager](./alerts-log-create-templates.md).
 * Entenda as [ações de webhook para alertas de log](./alerts-log-webhook.md).
 * Saiba mais sobre [consultas de log](../log-query/log-query-overview.md).
-

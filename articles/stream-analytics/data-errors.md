@@ -1,17 +1,17 @@
 ---
 title: Azure Stream Analytics erros de dados de log de recursos
 description: Este artigo explica os diferentes erros de dados de entrada e saída que podem ocorrer ao usar o Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 08/07/2020
-ms.openlocfilehash: 416e6cb29ab2816d53cb837f72233a9fe098f659
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 2ca289cd52b9a406e486ee9c186be683e71f02d0
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131370"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020104"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Erros de dados do Azure Stream Analytics
 

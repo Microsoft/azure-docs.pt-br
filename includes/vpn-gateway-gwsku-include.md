@@ -9,11 +9,11 @@ ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 8087025810214f3edbb74e628698eb69558f3500
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74085216"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010740"
 ---
 Ao criar um gateway de rede virtual, você precisa especificar o SKU do gateway que você deseja usar. Selecione as SKUs que atendem às suas necessidades com base nos tipos de cargas de trabalho, taxas de transferência, recursos e SLAs. Para SKUs de gateway de rede virtual nas Zonas de Disponibilidade do Azure, confira [SKUs de gateway das Zonas de Disponibilidade do Azure](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
 

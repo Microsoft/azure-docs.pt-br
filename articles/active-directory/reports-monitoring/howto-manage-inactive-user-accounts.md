@@ -13,16 +13,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/07/2020
+ms.date: 01/21/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b48a84bb69a356815cccd1e33c555eeb667699f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8fb517f8c50ad2c32f23542e60069a0e0a496a2d
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89244714"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660657"
 ---
 # <a name="how-to-manage-inactive-user-accounts-in-azure-ad"></a>Como: Gerenciar contas de usuários inativos no Azure AD
 
@@ -85,7 +85,7 @@ Cada entrada interativa bem-sucedida resulta em uma atualização do armazenamen
 
 Para gerar um carimbo de data/hora lastSignInDateTime, você precisa de uma entrada bem-sucedida. Como a propriedade lastSignInDateTime é um novo recurso, o valor da propriedade lastSignInDateTime pode ficar em branco se:
 
-- A última entrada bem-sucedida de um usuário ocorreu antes do lançamento desse recurso (1º de dezembro de 2019).
+- A última entrada bem-sucedida de um usuário ocorreu antes de abril de 2020.
 - A conta de usuário afetada nunca foi usada para uma entrada bem-sucedida.
 
 ## <a name="next-steps"></a>Próximas etapas

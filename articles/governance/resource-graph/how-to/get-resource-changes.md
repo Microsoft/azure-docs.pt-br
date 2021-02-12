@@ -1,14 +1,14 @@
 ---
 title: Obter alterações de recurso
 description: Entenda como localizar quando um recurso foi alterado, obter uma lista das propriedades que foram alteradas e avaliar as diferenças.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: how-to
-ms.openlocfilehash: 70213caeaf71e1adc5a11ec0e9cbadfea032dca4
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 58dcb7256b0876d5e7fa9d7569db102538f92bab
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203459"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917413"
 ---
 # <a name="get-resource-changes"></a>Obter alterações de recurso
 

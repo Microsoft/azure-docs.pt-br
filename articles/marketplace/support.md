@@ -1,80 +1,64 @@
 ---
-title: Obtenha suporte para o portal do Marketplace comercial no Partner Center
-description: Saiba mais sobre suas opções de suporte no Partner Center, incluindo como arquivar uma solicitação de suporte.
+title: Obtenha suporte para o programa do Marketplace comercial no Partner Center
+description: Saiba mais sobre as opções de suporte para o programa comercial do Marketplace no Partner Center, incluindo como arquivar uma solicitação de suporte.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
-ms.date: 09/18/2020
-ms.openlocfilehash: 983f7e400a33cb36f30505e5a8a28811d9d4cdfb
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+author: navits09
+ms.author: navits
+ms.date: 01/19/2020
+ms.openlocfilehash: a1726b29c153bf680d29fe821ac34aa958064335
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283538"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879234"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Suporte para o programa do Marketplace comercial no Partner Center
 
 A Microsoft fornece suporte para uma ampla variedade de produtos e serviços. Encontrar a equipe de suporte correta é importante para garantir uma resposta apropriada e oportuna. Considere os seguintes cenários, que podem ajudá-lo a rotear sua consulta para a equipe apropriada:
 
 - Se você for um Publicador e tiver uma pergunta de um cliente, peça ao cliente para solicitar suporte usando os links de suporte no [portal do Azure](https://portal.azure.com/).
+- Se você for um Publicador e tiver detectado um problema de segurança com um aplicativo em execução no Azure, consulte [como registrar um tíquete de suporte de evento de segurança](../security/fundamentals/event-support-ticket.md). Os editores devem relatar eventos de segurança suspeitos, incluindo incidentes e vulnerabilidades de segurança das ofertas de serviço e de software do Microsoft Azure Marketplace na primeira oportunidade.
 - Se você for um Publicador e tiver uma pergunta relacionada ao seu aplicativo ou serviço, examine as opções de suporte a seguir.
 
-## <a name="support-options-for-publishers"></a>Opções de suporte para Publicadores
+## <a name="get-help-or-open-a-support-ticket"></a>Obter ajuda ou abrir um tíquete de suporte
 
-1. Entre no programa do [Marketplace comercial no Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) com sua conta corporativa (se você ainda não tiver feito isso, será necessário [criar uma conta do Partner Center](partner-center-portal/create-account.md).
+1. Entre com as informações da sua conta. Se você ainda não tiver feito isso, será necessário [criar uma conta do Partner Center](partner-center-portal/create-account.md).
 
-2. No menu superior no lado direito da página, selecione o ícone de **suporte** .
+1. No menu no canto superior direito da página, selecione o ícone de **suporte** . O painel **ajuda e suporte** é exibido no lado direito da página.
 
-3. O painel **ajuda e suporte** será exibido no lado direito da página.
+1. Para obter ajuda com o Marketplace comercial, selecione **Marketplace comercial**.
 
    ![Menu suspenso de suporte](./media/support/commercial-marketplace-support-pane.png)
 
-    Ou vá até o painel **página inicial** e selecione **ajuda e suporte**.
+1. Na caixa **Resumo do problema** , insira uma breve descrição do problema.
 
-   ![Ajuda e suporte da Home Page](./media/support/homepage-help-support.png)
+1. Na caixa **tipo de problema** , siga um destes procedimentos:
 
-4. Selecione a **[documentação](../index.yml)** para examinar as respostas abrangentes para perguntas e recursos.
+    - **Opção 1**: insira palavras-chave como: Marketplace, aplicativo do Azure, oferta de SaaS, gerenciamento de conta, gerenciamento de Lead, problema de implantação, pagamento ou migração de oferta de covenda. Em seguida, selecione um tipo de problema na lista recomendada que aparece.
 
-5. Selecione **[Fórum da comunidade de parceiros do Marketplace](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** para responder suas perguntas, aproveitando o conhecimento de outros publicadores da Microsoft.
+    - **Opção 2**: selecione **Procurar tópicos** na lista **categoria** e, em seguida, selecione **Marketplace comercial**. Em seguida, selecione o **tópico** e o **subtópico** apropriados.
 
-6. Selecione **[ajuda adicional](https://aka.ms/marketplacepublishersupport)** para abrir um **novo** tíquete de solicitação de suporte.  
+1. Depois de encontrar o tópico de sua escolha, selecione **examinar soluções**.
 
-## <a name="how-to-open-a-support-ticket"></a>Como abrir um tíquete de suporte
+    ![Próxima etapa](./media/support/next-step.png)
 
-Agora você está pronto para abrir um tíquete de suporte na tela de **ajuda e suporte** .
+As seguintes opções são mostradas:
 
-![Ajuda e suporte](./media/support/help-and-support.png)
+- Para selecionar um tópico diferente, clique em **selecionar um problema diferente**.
+- Para ajudar a resolver o problema, examine as etapas e os documentos recomendados, se disponíveis.
 
->[!Note]
->Se você estiver conectado ao Partner Center, receberá uma experiência melhor com o suporte.
+    ![Soluções recomendadas](./media/support/recommended-solutions.png)
 
-**Opção 1:** Insira palavras-chave como: Marketplace, aplicativo do Azure, oferta de SaaS, gerenciamento de conta, gerenciamento de Lead, problema de implantação, pagamento, etc.
-
-**Opção 2:** Procurar tópicos-> selecione **categoria** = Marketplace comercial – > selecione o **tópico** apropriado e **subtópico**.
-
-Depois de encontrar o tópico de sua escolha, selecione **examinar soluções**.
-
-![Próxima etapa](./media/support/next-step.png)
-
-As seguintes opções ficarão disponíveis:
-
-- Para selecionar um tópico diferente, selecione um link de tópico diferente em **problema selecionado**.
-- Examine a descrição desse problema, se disponível.  É o texto mostrado acima das **etapas recomendadas**.
-- Examine **as etapas recomendadas**, se disponíveis.
-- Examine os **documentos recomendados**, se disponíveis.
-
-![Soluções recomendadas](./media/support/recommended-solutions.png)
-
-Se você não conseguir encontrar sua resposta em **soluções recomendadas**, selecione **fornecer detalhes do problema**. Preencha todos os campos obrigatórios para acelerar o processo de resolução e selecione **Enviar**.
+Se você não conseguir encontrar sua resposta na autoajuda, selecione **fornecer detalhes do problema**. Preencha todos os campos obrigatórios para acelerar o processo de resolução e selecione **Enviar**.
 
 >[!Note]
->Se você não tiver feito logon no Partner Center e o tópico exigir autenticação, será solicitado que você faça logon antes de continuar.  Para tópicos públicos, a autenticação não é necessária.
+>Se você não tiver entrado no Partner Center, talvez seja necessário entrar antes de criar um tíquete.
 
 ## <a name="track-your-existing-support-requests"></a>Acompanhe suas solicitações de suporte existentes
 
-Para examinar todos os tíquetes abertos e fechados, vá para o **Marketplace comercial** na barra de navegação à esquerda e selecione **suporte**.
+Para examinar os tíquetes abertos e fechados, no menu de navegação esquerdo, selecione suporte do **Marketplace comercial**  >  .
 
 ## <a name="record-issue-details-with-a-har-file"></a>Registrar detalhes do problema com um arquivo HAR
 
@@ -88,7 +72,7 @@ Para ajudar os agentes de suporte a solucionar o problema, considere anexar um a
 Para gerar um arquivo HAR usando **o Microsoft Edge ou o** **Google Chrome**:
 
 1. Vá para a página da Web onde você está enfrentando o problema.
-2. No canto superior direito da janela, selecione o ícone de reticências e, **em seguida, ferramentas de**  >  **desenvolvedor**ferramentas. Você pode pressionar F12 como um atalho.
+2. No canto superior direito da janela, selecione o ícone de reticências e, **em seguida, ferramentas de**  >  **desenvolvedor** ferramentas. Você pode pressionar F12 como um atalho.
 3. No painel Ferramentas de desenvolvedor, selecione a guia **rede** .
 4. Selecione **parar a gravação do log de rede** e **desmarque** para remover os logs existentes. O ícone de registro ficará cinza.
 
@@ -109,7 +93,7 @@ Para gerar um arquivo HAR usando **o Microsoft Edge ou o** **Google Chrome**:
 Para gerar um arquivo HAR usando o **Mozilla Firefox**:
 
 1. Vá para a página da Web onde você está enfrentando o problema.
-1. No canto superior direito da janela, selecione o ícone de reticências e, em seguida, ferramentas de alternância de **desenvolvedor da Web**  >  **Toggle Tools**. Você pode pressionar F12 como um atalho.
+1. No canto superior direito da janela, selecione o ícone de reticências e, em seguida, ferramentas de alternância de **desenvolvedor da Web**  >  . Você pode pressionar F12 como um atalho.
 1. Selecione a guia **rede** e, em seguida, selecione **limpar** para remover os logs existentes.
 
     ![Como remover os logs existentes no Mozilla Firefox](media/support/firefox-clear-session.png)
@@ -123,7 +107,7 @@ Para gerar um arquivo HAR usando o **Mozilla Firefox**:
 
 Para gerar um arquivo HAR usando o **Safari**:
 
-1. Habilitar as ferramentas de desenvolvedor no Safari: selecione Preferências do **Safari**  >  **Preferences**. Vá para a guia **avançado** e, em seguida, selecione **Mostrar menu desenvolver na barra de menus**.
+1. Habilitar as ferramentas de desenvolvedor no Safari: selecione Preferências do **Safari**  >  . Vá para a guia **avançado** e, em seguida, selecione **Mostrar menu desenvolver na barra de menus**.
 1. Vá para a página da Web onde você está enfrentando o problema.
 1. Selecione **Desenvolver** e, em seguida, selecione **Mostrar Inspetor da Web**.
 1. Selecione a guia **rede** e, em seguida, selecione **limpar itens de rede** para remover os logs existentes.

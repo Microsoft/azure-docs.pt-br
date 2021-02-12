@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: e46a56742ab8b98c53c1cd05e840e8ad4b8a73da
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 53052097fa6616f889b710c58488a9f7a616168d
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88682054"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956219"
 ---
 Na etapa [Gerar e implantar o manifesto de implantação do IoT Edge](../../../detect-motion-emit-events-quickstart.md#generate-and-deploy-the-deployment-manifest), no Visual Studio Code, expanda o nó **lva-sample-device** em **HUB IOT DO AZURE** (na seção inferior esquerda). Você deverá ver os seguintes módulos implantados:
 
@@ -14,7 +14,7 @@ Na etapa [Gerar e implantar o manifesto de implantação do IoT Edge](../../../d
   ![Módulos](../../../media/quickstarts/lva-sample-device-node.png)
 
 > [!NOTE]
-> Se você estiver usando o próprio dispositivo de borda em vez de um provisionado pelo nosso script de instalação, acesse o dispositivo de borda e execute os seguintes comandos com **direitos de administrador**, para efetuar pull e armazenar o arquivo de vídeo de exemplo usado neste guia de início rápido:  
+> As etapas acima pressupõem que você esteja usando a máquina virtual criada pelo script de instalação. Se estiver usando um dispositivo de borda próprio, acesse o dispositivo de borda e execute os seguintes comandos com **direitos de administrador** para efetuar pull do arquivo de vídeo de exemplo usado neste guia de início rápido e armazená-lo:  
 
 ```
 mkdir /home/lvaadmin/samples

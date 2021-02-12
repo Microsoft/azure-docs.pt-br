@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/02/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a47126a48ea63efd4e49097428679b85b7a95a61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ec900f0537030d3ed0d1c875e8125806159bd51
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667156"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251447"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>Criar um pool de hosts da área de trabalho virtual do Windows com o PowerShell
 
@@ -124,13 +124,13 @@ Para registrar os agentes de Área de Trabalho Virtual do Windows, faça o segui
 
 Você precisará atualizar o agente se estiver em uma das seguintes situações:
 
-- Você deseja migrar uma sessão previamente registrada para um novo pool de hosts
+- Você deseja migrar um host de sessão registrado anteriormente para um novo pool de hosts
 - O host de sessão não aparece no pool de hosts após uma atualização
 
 Para atualizar o agente:
 
 1. Entre na VM como um administrador.
-2. Vá para **Serviços**e, em seguida, pare os processos do **carregador do agente** **RDAgent** e área de trabalho remota.
+2. Vá para **Serviços** e, em seguida, pare os processos do **carregador do agente** **RDAgent** e área de trabalho remota.
 3. Em seguida, localize o agente e o carregador de MSIs. Eles estarão localizados na pasta **C:\DeployAgent** ou em qualquer local em que você o salvou ao instalá-lo.
 4. Localize os seguintes arquivos e desinstale-os:
      

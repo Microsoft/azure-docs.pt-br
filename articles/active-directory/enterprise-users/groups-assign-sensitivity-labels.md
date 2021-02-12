@@ -6,24 +6,24 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
-ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 08/13/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63b754886d88e97134b30e4a2bee7bdf5ac5a9d3
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a78cf9b7d78078030ac0db8bd2f0fddb93a8dda4
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374352"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881389"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Atribuir rótulos de sensibilidade a grupos de Microsoft 365 no Azure Active Directory
 
-O Azure Active Directory (AD do Azure) dá suporte à aplicação de rótulos de sensibilidade publicados pelo [centro de conformidade do Microsoft 365](https://sip.protection.office.com/homepage) a grupos de Microsoft 365. Os rótulos de sensibilidade se aplicam ao grupo entre serviços, como o Outlook, o Microsoft Teams e o SharePoint. Esse recurso está atualmente em GA público. Para obter mais informações sobre o suporte a aplicativos Microsoft 365, consulte [suporte a Microsoft 365 para rótulos de sensibilidade](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
+O Azure Active Directory (AD do Azure) dá suporte à aplicação de rótulos de sensibilidade publicados pelo [centro de conformidade do Microsoft 365](https://sip.protection.office.com/homepage) a grupos de Microsoft 365. Os rótulos de sensibilidade se aplicam ao grupo entre serviços, como o Outlook, o Microsoft Teams e o SharePoint. Para obter mais informações sobre o suporte a aplicativos Microsoft 365, consulte [suporte a Microsoft 365 para rótulos de sensibilidade](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
 
 > [!IMPORTANT]
 > Para configurar esse recurso, deve haver pelo menos uma licença do Active Azure Active Directory Premium P1 na sua organização do Azure AD.
@@ -48,7 +48,7 @@ Para aplicar rótulos publicados a grupos, você deve primeiro habilitar o recur
     ```
 
     > [!NOTE]
-    > Se nenhuma configuração de grupo tiver sido criada para esta organização do Azure AD, você deverá primeiro criar as configurações. Siga as etapas em [Azure Active Directory cmdlets para definir configurações de grupo](../enterprise-users/groups-settings-cmdlets.md) para criar configurações de grupo para esta organização do Azure AD.
+    > Se nenhuma configuração de grupo tiver sido criada para esta organização do Azure AD, você receberá um erro no cmdlet acima que lê "não é possível associar o argumento ao parâmetro ' ID ' porque ele é nulo". Nesse caso, você deve primeiro criar as configurações. Siga as etapas em [Azure Active Directory cmdlets para definir configurações de grupo](../enterprise-users/groups-settings-cmdlets.md) para criar configurações de grupo para esta organização do Azure AD.
 
 1. Em seguida, exiba as configurações de grupo atuais.
 
@@ -68,13 +68,13 @@ Para aplicar rótulos publicados a grupos, você deve primeiro habilitar o recur
     Set-AzureADDirectorySetting -Id $Setting.Id -DirectorySetting $Setting
     ```
 
-Você também precisará sincronizar seus rótulos de sensibilidade com o Azure AD. Para obter instruções, consulte [como habilitar rótulos de sensibilidade para contêineres e sincronizar rótulos](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels).
+Você também precisará sincronizar seus rótulos de sensibilidade com o Azure AD. Para obter instruções, consulte [como habilitar rótulos de sensibilidade para contêineres e sincronizar rótulos](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels).
 
 ## <a name="assign-a-label-to-a-new-group-in-azure-portal"></a>Atribuir um rótulo a um novo grupo no portal do Azure
 
 1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com).
-1. Selecione **grupos**e, em seguida, selecione **novo grupo**.
-1. Na página **novo grupo** , selecione **Office 365**e preencha as informações necessárias para o novo grupo e selecione um rótulo de sensibilidade na lista.
+1. Selecione **grupos** e, em seguida, selecione **novo grupo**.
+1. Na página **novo grupo** , selecione **Office 365** e preencha as informações necessárias para o novo grupo e selecione um rótulo de sensibilidade na lista.
 
    ![Atribuir um rótulo de sensibilidade na página novos grupos](./media/groups-assign-sensitivity-labels/new-group-page.png)
 
@@ -136,7 +136,7 @@ Os rótulos podem ser trocados a qualquer momento usando as mesmas etapas que at
 1. Selecione **Grupos**.
 1. Na página **todos os grupos** , selecione o grupo que você deseja rotular.
 1. Na página do grupo selecionado, selecione **Propriedades** e selecione um novo rótulo de sensibilidade na lista.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ### <a name="group-setting-changes-to-published-labels-are-not-updated-on-the-groups"></a>As alterações de configuração de grupo em rótulos publicados não são atualizadas nos grupos
 

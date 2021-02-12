@@ -3,7 +3,7 @@ title: Configurar o consentimento do proprietário do grupo para aplicativos que
 description: Saiba como gerenciar se os proprietários de grupo e de equipe podem consentir com os aplicativos que terão acesso aos dados do grupo ou da equipe.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,17 +11,17 @@ ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.custom: contperfq2
-ms.openlocfilehash: df50231b03f71008f967c4f09ce09c5b5890802f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: cd1eb98fca9fe25b6672863c02b8a78e57063e5a
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427647"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259314"
 ---
 # <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Configurar o consentimento do proprietário do grupo em aplicativos que acessam dados do grupo
 
-Os proprietários de grupos e equipes podem autorizar aplicativos, como aplicativos publicados por fornecedores terceirizados, para acessar os dados da sua organização associados a um grupo. Por exemplo, um proprietário de equipe no Microsoft Teams pode permitir que um aplicativo leia todas as mensagens do Teams na equipe ou liste o perfil básico dos membros de um grupo. Consulte [consentimento específico de recursos no Microsoft Teams](https://docs.microsoft.com/microsoftteams/resource-specific-consent) para saber mais.
+Os proprietários de grupos e equipes podem autorizar aplicativos, como aplicativos publicados por fornecedores terceirizados, para acessar os dados da sua organização associados a um grupo. Por exemplo, um proprietário de equipe no Microsoft Teams pode permitir que um aplicativo leia todas as mensagens do Teams na equipe ou liste o perfil básico dos membros de um grupo. Consulte [consentimento específico de recursos no Microsoft Teams](/microsoftteams/resource-specific-consent) para saber mais.
 
 ## <a name="manage-group-owner-consent-to-apps"></a>Gerenciar consentimento do proprietário do grupo para aplicativos
 
@@ -31,7 +31,7 @@ Você pode configurar quais usuários têm permissão para consentir com os apli
 
 Siga estas etapas para gerenciar o consentimento do proprietário do grupo para os aplicativos que acessam os dados do Grupo:
 
-1. Entre no [portal do Azure](https://portal.azure.com) como um [Administrador Global](../roles/permissions-reference.md#global-administrator--company-administrator).
+1. Entre no [portal do Azure](https://portal.azure.com) como um [Administrador Global](../roles/permissions-reference.md#global-administrator).
 2. Selecione **Azure Active Directory** > **Aplicativos empresariais** > **Consentimento e permissões** > **Configurações de consentimento do usuário**.
 3. Em **Consentimento do proprietário do grupo em aplicativos que acessam dados**, selecione a opção que deseja habilitar.
 4. Selecione **salvar** para salvar suas configurações.
@@ -42,9 +42,9 @@ Neste exemplo, todos os proprietários de grupo têm permissão para dar consent
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Você pode usar o módulo de versão prévia do PowerShell do Azure AD, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), para habilitar ou desabilitar a capacidade dos proprietários do grupo de dar consentimento a aplicativos que acessam os dados da sua organização nos grupos que eles possuem.
+Você pode usar o módulo de versão prévia do PowerShell do Azure AD, [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview), para habilitar ou desabilitar a capacidade dos proprietários do grupo de dar consentimento a aplicativos que acessam os dados da sua organização nos grupos que eles possuem.
 
-1. Verifique se você está usando o módulo [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true). Esta etapa será importante se você tiver instalado os módulos [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) e [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true)).
+1. Verifique se você está usando o módulo [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview). Esta etapa será importante se você tiver instalado os módulos [AzureAD](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) e [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview)).
 
     ```powershell
     Remove-Module AzureAD
@@ -74,7 +74,7 @@ Você pode usar o módulo de versão prévia do PowerShell do Azure AD, [AzureAD
 
 1. Entenda os valores de configuração. Há dois valores de configurações que definem quais usuários podem permitir que um aplicativo acesse os dados do seu grupo:
 
-    | Configuração       | Digite         | Descrição  |
+    | Configuração       | Type         | Descrição  |
     | ------------- | ------------ | ------------ |
     | _EnableGroupSpecificConsent_   | Boolean | Sinalizador que indica se os proprietários de grupos têm permissão para conceder permissões específicas do grupo. |
     | _ConstrainGroupSpecificConsentToMembersOfGroupId_ | Guid | Se _EnableGroupSpecificConsent_ for definido como "true" e esse valor for definido como a ID de objeto de um grupo, os membros do grupo identificado terão autorização para conceder permissões específicas do grupo aos grupos que eles possuem. |
@@ -121,7 +121,7 @@ Para saber mais:
 * [Configurar o fluxo de trabalho de consentimento do administrador](configure-admin-consent-workflow.md)
 * [Saiba como gerenciar o consentimento em aplicativos e avaliar solicitações de consentimento](manage-consent-requests.md)
 * [Conceder consentimento de administrador em todo o locatário para um aplicativo](grant-admin-consent.md)
-* [Permissões e consentimento na plataforma de identidade da Microsoft](../develop/active-directory-v2-scopes.md)
+* [Permissões e consentimento na plataforma de identidade da Microsoft](../develop/v2-permissions-and-consent.md)
 
 Para obter ajuda ou encontrar respostas às suas perguntas:
-* [Azure AD no StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Azure AD no Microsoft Q&A ](https://docs.microsoft.com/answers/topics/azure-active-directory.html)

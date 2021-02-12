@@ -12,14 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 01/29/2021
 ms.author: b-juche
-ms.openlocfilehash: 4df96f1c508df22e98a9c611ed04fecf6734970a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions
+ms.openlocfilehash: fd3e8295820cd9388bd7999d3008b4c583dbf295
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278287"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220897"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Replicação entre regiões de volumes Azure NetApp Files
 
@@ -28,24 +29,31 @@ A funcionalidade de replicação de Azure NetApp Files fornece proteção de dad
 > [!IMPORTANT]
 > O recurso de replicação entre regiões está atualmente em visualização pública. Você precisa enviar uma solicitação Waitlist para acessar o recurso por meio da [página de envio de espera de replicação entre regiões Azure NetApp files](https://aka.ms/anfcrrpreviewsignup). Aguarde um email de confirmação oficial da equipe de Azure NetApp Files antes de usar o recurso de replicação entre regiões.
 
-## <a name="supported-region-pairs"></a>Pares de regiões com suporte
+## <a name="supported-cross-region-replication-pairs"></a><a name="supported-region-pairs"></a>Pares de replicação entre regiões com suporte
 
-A replicação de volume Azure NetApp Files está disponível atualmente nos seguintes pares de regiões fixas:  
+A replicação de volume Azure NetApp Files tem suporte entre vários pares regionais e não pares [do Azure](/azure/best-practices-availability-paired-regions#azure-regional-pairs) . No momento, a replicação de volume do Azure NetApp Files está disponível entre as seguintes regiões:  
 
-* Oeste dos EUA e leste dos EUA
-* Oeste dos EUA 2 e leste dos EUA 
-* Centro-Sul dos EUA e Centro dos EUA 
-* Centro-Sul dos EUA e leste dos EUA
-* Centro-Sul dos EUA e leste dos EUA 2 
-* Leste dos EUA 2 e Centro dos EUA 
-* Norte da Europa e Europa Ocidental
-* Sul do Reino Unido e Oeste do Reino Unido
+### <a name="azure-regional-pairs"></a>Pares regionais do Azure
+
+* Leste dos EUA e oeste dos EUA
+* Leste dos EUA 2 e EUA Central
 * Leste da Austrália e sudeste da Austrália
 * Canadá central e leste do Canadá
+* Sul da Índia e da Índia central 
+* Centro-oeste da Alemanha e Norte da Alemanha
 * Leste do Japão e oeste do Japão
-* Sul do Reino Unido e Centro-oeste da Alemanha
-* Sudeste Asiático e leste da Austrália
-* Índia central e sul da Índia
+* Norte da Europa e Europa Ocidental
+* Sul do Reino Unido e Oeste do Reino Unido
+
+### <a name="azure-regional-non-pairs"></a>Não pares regionais do Azure
+
+*   Oeste dos EUA 2 e leste dos EUA
+*   EUA Central do Sul e EUA Central
+*   Sul EUA Central e leste dos EUA
+*   EUA Central do Sul e leste dos EUA 2
+*   Leste dos EUA e leste dos EUA 2
+*   Leste da Austrália e sudeste asiático 
+*   Centro-oeste da Alemanha e Sul do Reino Unido
 
 ## <a name="service-level-objectives"></a>Objetivos de nível de serviço
 
@@ -111,10 +119,11 @@ O custo regular de capacidade de armazenamento Azure NetApp Files para o mês 2 
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Requisitos e considerações para usar a replicação entre regiões](cross-region-replication-requirements-considerations.md)
-* [Criar um emparelhamento de replicação](cross-region-replication-create-peering.md)
+* [Criar replicação de volume](cross-region-replication-create-peering.md)
 * [Exibir o status de integridade da relação de replicação](cross-region-replication-display-health-status.md)
-* [Gerenciar recuperação de desastre](cross-region-replication-manage-disaster-recovery.md)
+* [Gerenciar a recuperação de desastre](cross-region-replication-manage-disaster-recovery.md)
 * [Métricas de replicação de volume](azure-netapp-files-metrics.md#replication)
+* [Excluir volumes ou replicações de volume](cross-region-replication-delete.md)
 * [Solucionar problemas de replicação entre regiões](troubleshoot-cross-region-replication.md)
 
 

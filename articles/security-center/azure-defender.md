@@ -7,12 +7,12 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: c354447625d58f65615f8d3efb596e7a723e0bbf
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 23d00acc03ee879036a823f0c3d7fe2f67902e31
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331678"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797007"
 ---
 # <a name="introduction-to-azure-defender"></a>Introdução ao Azure Defender
 
@@ -20,7 +20,7 @@ Os recursos da Central de Segurança do Azure abrangem os dois pilares mais ampl
 
 - **GPSN (gerenciamento da postura de segurança na nuvem)** – A Central de Segurança está disponível **gratuitamente** para todos os usuários do Azure. A experiência gratuita inclui recursos de GPSN, como classificação de segurança, detecção de configurações incorretas de segurança em seus computadores do Azure, inventário de ativos e muito mais. Use esses recursos de GPSN para fortalecer sua postura de nuvem híbrida e controlar a conformidade com as políticas internas.
 
-- **PCTN (proteção de cargas de trabalho na nuvem)** – A PPCTN (plataforma de proteção de cargas de trabalho na nuvem) integrada da Central de Segurança, o **Azure Defender** , oferece proteção avançada e inteligente para cargas de trabalho e recursos híbridos do Azure. A habilitação do Azure Defender oferece uma série de recursos de segurança adicionais, conforme descrito nesta página. Além das políticas internas, ao habilitar qualquer plano do Azure Defender, você pode adicionar políticas e iniciativas personalizadas. Você pode adicionar padrões regulatórios, como NIST e Azure CIS, bem como o Azure Security Benchmark para obter uma exibição verdadeiramente personalizada da sua conformidade.
+- **PCTN (proteção de cargas de trabalho na nuvem)** – A PPCTN (plataforma de proteção de cargas de trabalho na nuvem) integrada da Central de Segurança, o **Azure Defender**, oferece proteção avançada e inteligente para cargas de trabalho e recursos híbridos do Azure. A habilitação do Azure Defender oferece uma série de recursos de segurança adicionais, conforme descrito nesta página. Além das políticas internas, ao habilitar qualquer plano do Azure Defender, você pode adicionar políticas e iniciativas personalizadas. Você pode adicionar padrões regulatórios, como NIST e Azure CIS, bem como o Azure Security Benchmark para obter uma exibição verdadeiramente personalizada da sua conformidade.
 
 O painel do Azure Defender na Central de Segurança fornece visibilidade e controle dos recursos de PCTN em seu ambiente:
 
@@ -39,6 +39,8 @@ Quando você habilita o Azure Defender na área **Preços e configurações** da
 - [Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)
 - [Azure Defender para registros de contêiner](defender-for-container-registries-introduction.md)
 - [Azure Defender para Key Vault](defender-for-key-vault-introduction.md)
+- [Azure Defender para Resource Manager](defender-for-resource-manager-introduction.md)
+- [Azure Defender para DNS](defender-for-dns-introduction.md)
 
 Cada um desses planos é explicado separadamente na documentação da Central de Segurança.
 
@@ -61,11 +63,11 @@ Para estender a proteção para máquinas virtuais e bancos de dados SQL em outr
 
 
 
-## <a name="azure-defender-alerts"></a>Alertas do Azure Defender 
+## <a name="azure-defender-security-alerts"></a>Alertas de segurança do Azure Defender 
 
-Quando o Azure Defender detecta uma ameaça em qualquer área do seu ambiente, ela gera um alerta. Esses alertas descrevem os detalhes dos recursos afetados, as etapas de correção sugeridas e, em alguns casos, uma opção para disparar um aplicativo lógico em resposta.
+Quando o Azure Defender detecta uma ameaça em qualquer área do seu ambiente, ele gera um alerta de segurança. Esses alertas descrevem os detalhes dos recursos afetados, as etapas de correção sugeridas e, em alguns casos, uma opção para disparar um aplicativo lógico em resposta.
 
-Seja um alerta for gerado pela Central de Segurança ou recebido pela Central de Segurança de um produto de segurança integrada, você pode exportá-lo. Para exportar seus alertas para o Azure Sentinel, qualquer SIEM de terceiros ou qualquer outra ferramenta externa, siga as instruções em [Exportar alertas para um SIEM](continuous-export.md).
+Seja um alerta for gerado pela Central de Segurança ou recebido pela Central de Segurança de um produto de segurança integrada, você pode exportá-lo. Para exportar seus alertas para o Azure Sentinel, qualquer SIEM de terceiros ou qualquer outra ferramenta externa, siga as instruções em [Transmitir alertas para uma solução de Gerenciamento de Serviço de TI, SOAR ou SIEM](export-to-siem.md).
 
 > [!NOTE]
 > Alertas de fontes diferentes podem levar diferentes quantidades de tempo para serem exibidos. Por exemplo, alertas que exigem análise de tráfego de rede podem levar mais tempo para aparecer do que alertas relacionados a processos suspeitos em execução em máquinas virtuais.
@@ -97,4 +99,4 @@ Saiba mais nas seguintes páginas:
 Neste artigo, você aprendeu mais sobre os benefícios do Azure Defender. 
 
 > [!div class="nextstepaction"]
-> [Habilitar o Azure Defender](security-center-pricing.md)
+> [Habilitar o Azure Defender](security-center-pricing.md#enable-azure-defender)

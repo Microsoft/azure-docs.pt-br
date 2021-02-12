@@ -16,12 +16,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad03942a2200c57475cf8a81d0fb08d475ec6964
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: e0b76d2f943f254eb06208e2c190bae4d4088030
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458025"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746063"
 ---
 # <a name="risky-ip-report-public-preview"></a>Relatório de IP arriscado (visualização pública)
 AD FS clientes podem expor pontos de extremidade de autenticação de senha à Internet para fornecer serviços de autenticação para que os usuários finais acessem aplicativos SaaS, como Microsoft 365. Nesse caso, é possível que um ator mal-intencionado tente fazer logons em seu sistema de AD FS adivinhando a senha do usuário final e obtendo acesso aos recursos do aplicativo. O AD FS fornece a funcionalidade de bloqueio de conta de extranet para evitar esses tipos de ataque desde a sua versão no Windows Server 2012 R2. Se você estiver usando uma versão inferior, recomendamos fortemente que atualize seu sistema do AD FS para o Windows Server 2016. <br />
@@ -36,7 +36,7 @@ Além disso, é possível que um único endereço IP tente vários logons em rel
 > [!NOTE]
 > Para usar esse relatório, você deve habilitar a auditoria do AD FS. Para obter mais informações, consulte [Habilitar a auditoria do AD FS](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
 > Para acessar a versão prévia, uma permissão de Administrador Global ou [Leitor de segurança](../../role-based-access-control/built-in-roles.md#security-reader) é necessária.  
-> 
+>
 
 ## <a name="what-is-in-the-report"></a>O que há no relatório?
 Os endereços IP do cliente de atividade de entrada com falha são agregados por meio de servidores proxy de aplicativo Web. Cada item no Relatório de IP arriscado mostra informações agregadas sobre atividades de entrada do AD FS com falha que excedem o limite designado. Ele fornece as seguintes informações: ![ captura de tela que mostra um relatório IP arriscado com cabeçalhos de coluna realçado.](./media/how-to-connect-health-adfs/report4a.png)

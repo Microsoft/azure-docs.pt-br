@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 69fe84d6546e3fcb9e905a6b77ad3d9af3ed4d51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2da4ebfa6a9ce64b03e6e1d29956f740f6cb3c1b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87077956"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960579"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>Analisar a segurança de máquina Virtual com o modo de exibição de grupo de segurança usando o PowerShell
 
@@ -27,7 +27,7 @@ ms.locfileid: "87077956"
 > - [REST API](network-watcher-security-group-view-rest.md)
 
 > [!NOTE]
-> A API de exibição do grupo de segurança não está mais sendo mantida e será substituída em breve. Use o [recurso de regras de segurança em vigor](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) , que fornece a mesma funcionalidade. 
+> A API de exibição do grupo de segurança não está mais sendo mantida e será substituída em breve. Use o [recurso de regras de segurança em vigor](./network-watcher-security-group-view-overview.md) , que fornece a mesma funcionalidade. 
 
 Exibição de grupo de segurança retorna as regras de segurança de rede configurados e eficaz que são aplicadas a uma máquina virtual. Esse recurso é útil para auditoria e diagnosticar grupos de segurança de rede e as regras configuradas em uma VM para garantir que o tráfego está sendo corretamente permitido ou negado. Neste artigo, mostraremos como recuperar as regras de segurança configuradas e em vigor para uma máquina virtual usando o PowerShell
 
@@ -132,5 +132,3 @@ NetworkInterfaces : [
 ## <a name="next-steps"></a>Próximas etapas
 
 Visite [auditoria de segurança grupos NSG (rede) com o Observador de Rede](network-watcher-nsg-auditing-powershell.md) para aprender a automatizar a validação dos grupos de segurança de rede.
-
-

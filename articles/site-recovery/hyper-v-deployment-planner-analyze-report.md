@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
 ms.openlocfilehash: f230445ecdb046c2b631e89567df71e1d09c3234
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369940"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999222"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analise o relatório do Planejador de Implantações do Azure Site Recovery
 Este artigo aborda as planilhas contidas no relatório do Excel gerado pelo Planejador de Implantações do Azure Site Recovery em um cenário Hyper-V para Azure.

@@ -6,20 +6,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
-ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 08/13/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63f0c55823899be8eb4146860787aede2cd2d6b5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8ad70aff7e1673681541a1b6b37a0bd50d822fed
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374384"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954390"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets do Azure Active Directory para definir configurações de grupo
 
@@ -28,7 +28,7 @@ Este artigo contém instruções sobre como usar cmdlets do PowerShell do Azure 
 > [!IMPORTANT]
 > Algumas configurações exigem uma licença do Azure Active Directory Premium P1. Para obter mais informações, consulte a tabela [Configurações de modelo](#template-settings).
 
-Para saber mais sobre como evitar que usuários não administradores criem grupos de segurança, defina `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` conforme descrito em [Set-MSOLCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
+Para saber mais sobre como evitar que usuários não administradores criem grupos de segurança, defina `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` conforme descrito em [Set-MSOLCompanySettings](/powershell/module/msonline/set-msolcompanysettings).
 
 Configurações de grupos de Microsoft 365 são definidas usando um objeto de configurações e um objeto Settingstemplate. Inicialmente, você não verá objetos Settings no seu diretório, pois o diretório foi configurado com as definições padrão. Para alterar as configurações padrão, você deve criar um novo objeto de configurações usando um modelo de configurações. Modelos de configurações são definidos pela Microsoft. Há vários modelos de configurações diferentes. Para definir Microsoft 365 configurações de grupo para seu diretório, use o modelo chamado "Group. Unified". Para definir Microsoft 365 configurações de grupo em um único grupo, use o modelo chamado "Group. Unified. Guest". Este modelo é usado para gerenciar o acesso de convidado a um grupo de Microsoft 365. 
 
@@ -84,10 +84,11 @@ Essas etapas criam configurações no nível do diretório, que se aplicam a tod
    ```powershell
    $Setting = $Template.CreateDirectorySetting()
    ```  
-4. Então, atualize o valor de diretriz de uso:
+4. Em seguida, atualize o objeto de configurações com um novo valor. Os dois exemplos abaixo alteram o valor de diretriz de uso e habilitam rótulos de sensibilidade. Defina essas configurações ou qualquer outra configuração no modelo, conforme necessário:
   
    ```powershell
    $Setting["UsageGuidelinesUrl"] = "https://guideline.example.com"
+   $Setting["EnableMIPLabels"] = "True"
    ```  
 5. Em seguida, aplique a configuração:
   
@@ -118,7 +119,7 @@ Para atualizar o valor de UsageGuideLinesUrl no modelo de configuração, leia a
    ```powershell
     Name                          Value
     ----                          -----
-    EnableMIPLabels               false
+    EnableMIPLabels               True
     CustomBlockedWordsList
     EnableMSStandardBlockedWords  False
     ClassificationDescriptions
@@ -319,7 +320,7 @@ Esta etapa remove configurações no nível do diretório, que se aplicam a todo
    ```
 
 ## <a name="cmdlet-syntax-reference"></a>Referência de sintaxe de cmdlet
-Você pode encontrar mais documentação do PowerShell do Azure Active Directory em [Cmdlets do Azure Active Directory](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+Você pode encontrar mais documentação do PowerShell do Azure Active Directory em [Cmdlets do Azure Active Directory](/powershell/azure/active-directory/install-adv2).
 
 ## <a name="additional-reading"></a>Leituras adicionais
 

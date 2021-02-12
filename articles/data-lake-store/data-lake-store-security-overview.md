@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
 ms.openlocfilehash: 240018381a3139a6378141d78514e43ae469de5d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92146302"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Segurança no Azure Data Lake Storage Gen1
@@ -117,7 +117,7 @@ Os clientes corporativos exigem uma plataforma de nuvem da análise de dados que
 
 Se você quer ver os novos recursos incluídos no Azure Data Lake Storage Gen1, envie seus comentários para o [Fórum UserVoice do Azure Data Lake Storage Gen1](https://feedback.azure.com/forums/327234-data-lake).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 * [Visão Geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Introdução ao Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)

@@ -4,12 +4,12 @@ description: Obter a exibição de página e contagens de sessão, dados de clie
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: b109aaea1ae5e751f40b55a3c703f0739661e10d
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 60b3e9229adb93ce32c97c2822a465f7f629d47d
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876202"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234351"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas da Web
 
@@ -19,8 +19,11 @@ O Application Insights pode ser usado com todas as páginas da Web: basta adicio
 
 ## <a name="adding-the-javascript-sdk"></a>Adicionando o SDK do JavaScript
 
+> [!IMPORTANT]
+> Novas regiões do Azure **exigem** o uso de cadeias de conexão em vez de chaves de instrumentação. A [cadeia de conexão](./sdk-connection-string.md?tabs=js) identifica o recurso ao qual você deseja associar os dados de telemetria. Ele também permite que você modifique os pontos de extremidade que o recurso usará como um destino para a telemetria. Você precisará copiar a cadeia de conexão e adicioná-la ao código do aplicativo ou a uma variável de ambiente.
+
 1. Primeiro, você precisa de um recurso Application Insights. Se você ainda não tiver uma chave de recurso e de instrumentação, siga as [instruções criar um novo recurso](create-new-resource.md).
-2. Copie a _chave de instrumentação_ (também conhecida como "iKey") para o recurso em que você deseja que sua telemetria JavaScript seja enviada (da etapa 1). Você irá adicioná-lo à `instrumentationKey` configuração do SDK Application insights JavaScript.
+2. Copie a _chave de instrumentação_ (também conhecida como "iKey") ou a [cadeia de conexão](#connection-string-setup) para o recurso em que você deseja que sua telemetria JavaScript seja enviada (da etapa 1.) Você irá adicioná-lo à `instrumentationKey` `connectionString` configuração ou do SDK Application insights JavaScript.
 3. Adicione o SDK Application Insights JavaScript à sua página da Web ou aplicativo por meio de uma das duas opções a seguir:
     * [Configuração do NPM](#npm-based-setup)
     * [Trecho de código JavaScript](#snippet-based-setup)
@@ -102,9 +105,9 @@ Todas as opções de configuração agora foram movidas para o final do script p
 
 Cada opção de configuração é mostrada acima em uma nova linha, se você não quiser substituir o valor padrão de um item listado como [opcional], poderá remover essa linha para minimizar o tamanho resultante da página retornada.
 
-As opções de configuração disponíveis são 
+As opções de configuração disponíveis são
 
-| Nome | Type | Descrição
+| Nome | Tipo | Descrição
 |------|------|----------------
 | src | Cadeia de caracteres **[obrigatório]** | A URL completa para onde carregar o SDK. Esse valor é usado para o atributo "src" de um &lt; script/marca dinamicamente adicionado &gt; . Você pode usar o local da CDN pública ou sua própria hospedada de forma privada.
 | name | Cadeia de caracteres *[opcional]* | O nome global do SDK inicializado, por padrão, é `appInsights` . Portanto, ```window.appInsights``` será uma referência à instância inicializada. Observação: se você fornecer um valor de nome ou uma instância anterior parece ser atribuída (por meio do nome global appInsightsSDK), esse valor de nome também será definido no namespace global como ```window.appInsightsSDK=<name value>``` , isso é exigido pelo código de inicialização do SDK para garantir que ele esteja inicializando e atualizando o esqueleto de trecho e os métodos de proxy corretos.
@@ -112,6 +115,20 @@ As opções de configuração disponíveis são
 | useXhr | booliano *[opcional]* | Essa configuração é usada apenas para falhas de carregamento do SDK de relatório. A geração de relatórios tentará primeiro usar Fetch () se disponível e, em seguida, fallback para XHR, definir esse valor como true Apenas ignora a verificação de busca. O uso desse valor só será necessário se o aplicativo estiver sendo usado em um ambiente em que a busca falha ao enviar os eventos de falha.
 | crossOrigin | Cadeia de caracteres *[opcional]* | Ao incluir essa configuração, a marca de script adicionada para baixar o SDK incluirá o atributo crossOrigin com esse valor de cadeia de caracteres. Quando não definido (o padrão) nenhum atributo crossOrigin é adicionado. Os valores recomendados não estão definidos (o padrão); ""; ou "Anonymous" (para todos os valores válidos, consulte [atributo `crossorigin` HTML:](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) documentação)
 | cfg | objeto **[obrigatório]** | A configuração passou para o SDK do Application Insights durante a inicialização.
+
+### <a name="connection-string-setup"></a>Configuração da cadeia de conexão
+
+Para a configuração de NPM ou de trecho de código, você também pode configurar sua instância do Application Insights usando uma cadeia de conexão. Basta substituir o `instrumentationKey` campo pelo `connectionString` campo.
+```js
+import { ApplicationInsights } from '@microsoft/applicationinsights-web'
+
+const appInsights = new ApplicationInsights({ config: {
+  connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE'
+  /* ...Other Configuration Options... */
+} });
+appInsights.loadAppInsights();
+appInsights.trackPageView();
+```
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Enviando telemetria para o portal do Azure
 
@@ -161,10 +178,10 @@ A maioria dos campos de configuração são nomeados de modo que eles podem ser 
 | sessionExpirationMs | 86,4 milhões | Uma sessão será registrada se continuar por esse período de tempo em milissegundos. O padrão é 24 horas |
 | maxBatchSizeInBytes | 10000 | Tamanho máximo do lote de telemetria. Se um lote exceder esse limite, ele será imediatamente enviado e um novo lote será iniciado |
 | maxBatchInterval | 15000 | Quanto tempo para a telemetria do lote antes de enviar (milissegundos) |
-| disableExceptionTracking | false | Se for true, as exceções não serão concolhidas. O padrão é false. |
+| disableExceptionTracking | false | Se for true, as exceções não serão coletadas. O padrão é false. |
 | disableTelemetry | false | Se for true, a telemetria não será coletada ou enviada. O padrão é false. |
-| enableDebug | false | Se for true, os dados de depuração **internos** serão lançados como uma exceção **em vez** de serem registrados, independentemente das configurações de log do SDK. O padrão é false. <br>***Observação:*** A habilitação dessa configuração resultará em uma telemetria descartada sempre que ocorrer um erro interno. Isso pode ser útil para identificar rapidamente problemas com sua configuração ou uso do SDK. Se você não quiser perder a telemetria durante a depuração, considere usar `consoleLoggingLevel` ou `telemetryLoggingLevel` em vez de `enableDebug` . |
-| loggingLevelConsole | 0 | Registra erros **internos** de Application insights no console do. <br>0: desativado, <br>1: somente erros críticos, <br>2: tudo (erros & avisos) |
+| enableDebug | false | Se for true, os dados de depuração **internos** serão lançados como uma exceção **em vez** de serem registrados, independentemente das configurações de log do SDK. O padrão é false. <br>**_Observação:_* a habilitação dessa configuração resultará em uma telemetria descartada sempre que ocorrer um erro interno. Isso pode ser útil para identificar rapidamente problemas com sua configuração ou uso do SDK. Se você não quiser perder a telemetria durante a depuração, considere usar `consoleLoggingLevel` ou `telemetryLoggingLevel` em vez de `enableDebug` . |
+| loggingLevelConsole | 0 | Logs _ * Application Insights erros *internos* para o console. <br>0: desativado, <br>1: somente erros críticos, <br>2: tudo (erros & avisos) |
 | loggingLevelTelemetry | 1 | Envia erros **internos** de Application insights como telemetria. <br>0: desativado, <br>1: somente erros críticos, <br>2: tudo (erros & avisos) |
 | diagnosticLogInterval | 10000 | interno Intervalo de sondagem (em MS) para fila de log interno |
 | samplingPercentage | 100 | Porcentagem de eventos que serão enviados. O padrão é 100, o que significa que todos os eventos são enviados. Defina isso se desejar preservar o limite de dados para aplicativos de grande escala. |
@@ -179,7 +196,7 @@ A maioria dos campos de configuração são nomeados de modo que eles podem ser 
 | correlationHeaderDomains |  | Habilitar cabeçalhos de correlação para domínios específicos |
 | disableFlushOnBeforeUnload | false | Padrão false. Se for true, o método Flush não será chamado quando o evento onBeforeUnload for disparado |
 | enableSessionStorageBuffer | true | Padrão verdadeiro. Se for true, o buffer com todas as telemetrias não enviadas será armazenado no armazenamento de sessão. O buffer é restaurado no carregamento da página |
-| isCookieUseDisabled | false | Padrão false. Se for true, o SDK não armazenará nem lerá nenhum dado de cookies.|
+| isCookieUseDisabled | false | Padrão false. Se for true, o SDK não armazenará nem lerá nenhum dado de cookies. Observe que isso desabilita os cookies de usuário e de sessão e renderiza as folhas de uso e as experiências inúteis. |
 | cookieDomain | null | Domínio de cookie personalizado. Isso será útil se você quiser compartilhar Application Insights cookies entre subdomínios. |
 | isRetryDisabled | false | Padrão false. Se for false, tente novamente 206 (êxito parcial), 408 (timeout), 429 (número excessivo de solicitações), 500 (erro interno do servidor), 503 (Serviço indisponível) e 0 (offline, somente se detectado) |
 | isStorageUseDisabled | false | Se for true, o SDK não armazenará nem lerá nenhum dado do armazenamento local e de sessão. O padrão é false. |
@@ -249,7 +266,8 @@ Atualmente, oferecemos um [plug-in reajam](javascript-react-plugin.md)separado, 
 |---------------|
 | [React](javascript-react-plugin.md)|
 | [React Native](javascript-react-native-plugin.md)|
-| [Angular](javascript-angular-plugin.md) |
+| [Angular](javascript-angular-plugin.md)|
+| [Clique em coleção de análise automática](javascript-click-analytics-plugin.md)|
 
 ## <a name="explore-browserclient-side-data"></a>Explorar dados do navegador/cliente
 
@@ -322,7 +340,7 @@ Alterações recentes na versão do SDK v2:
 - Para permitir melhores assinaturas de API, algumas das chamadas à API, como trackPageView e trackexception, foram atualizadas. Não há suporte para a execução no Internet Explorer 8 e em versões anteriores do navegador.
 - O envelope de telemetria tem alterações de estrutura e nome de campo devido a atualizações de esquema de dados.
 - Movido `context.operation` para `context.telemetryTrace` . Alguns campos também foram alterados ( `operation.id`  -->  `telemetryTrace.traceID` ).
-  - Para atualizar manualmente a ID de Pageview atual (por exemplo, em aplicativos de SPA), use `appInsights.properties.context.telemetryTrace.traceID = Util.generateW3CId()` .
+  - Para atualizar manualmente a ID de Pageview atual (por exemplo, em aplicativos de SPA), use `appInsights.properties.context.telemetryTrace.traceID = Microsoft.ApplicationInsights.Telemetry.Util.generateW3CId()` .
     > [!NOTE]
     > Para manter a ID de rastreamento exclusiva, onde você usou anteriormente `Util.newId()` , agora use `Util.generateW3CId()` . Os dois, finalmente, acabam sendo a ID da operação.
 

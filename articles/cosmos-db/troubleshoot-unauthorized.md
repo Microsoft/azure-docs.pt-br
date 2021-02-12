@@ -3,16 +3,17 @@ title: Solucionar problemas Azure Cosmos DB exceções não autorizadas
 description: Saiba como diagnosticar e corrigir exceções não autorizadas.
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 860748c7114017dcd1120551d9539e0d098fa1fa
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: aa9bf1fd706ccf6064893f1141be5e5b2f185ff3
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097829"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411160"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-unauthorized-exceptions"></a>Diagnosticar e solucionar problemas Azure Cosmos DB exceções não autorizadas
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -52,3 +53,5 @@ Há uma condição de corrida com a criação de contêiner. Uma instância do a
 ## <a name="next-steps"></a>Próximas etapas
 * [Diagnostique e solucione](troubleshoot-dot-net-sdk.md) problemas ao usar o SDK do .net Azure Cosmos DB.
 * Saiba mais sobre as diretrizes de desempenho para o [.net v3](performance-tips-dotnet-sdk-v3-sql.md) e o [.net v2](performance-tips.md).
+* [Diagnostique e solucione](troubleshoot-java-sdk-v4-sql.md) problemas ao usar o SDK do Azure Cosmos DB Java v4.
+* Saiba mais sobre as diretrizes de desempenho para o [SDK do Java v4](performance-tips-java-sdk-v4-sql.md).

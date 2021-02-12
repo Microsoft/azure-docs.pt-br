@@ -4,13 +4,15 @@ description: Depure instantâneos são coletados automaticamente quando exceçõ
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 10/23/2019
+author: cweining
+ms.author: cweining
 ms.reviewer: cweining
-ms.openlocfilehash: b439dcfc755f0113ffabf792850a2bd0fbcf322e
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 5913f5fa8d45e6bf92d6132468e0e3bf7a121c65
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996513"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673511"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Depurar instantâneos em exceções em aplicativos .NET
 Quando ocorrer uma exceção, você pode coletar automaticamente um Instantâneo de Depuração de seu aplicativo web ativo. O instantâneo mostra o estado do código-fonte e variáveis no momento em que a exceção foi lançada. O Depurador de Instantâneos no [insights do aplicativo Azure](./app-insights-overview.md) monitora a telemetria de exceção do seu aplicativo Web. Ele coleta instantâneos em suas exceções com mais lançamentos para que você tenha as informações necessárias para diagnosticar problemas na produção. Inclua o [pacote NuGet do coletor de instantâneos](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) em seu aplicativo e, opcionalmente, configure os parâmetros de coleção no [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Os instantâneos aparecem em [exceções](./asp-net-exceptions.md) no portal de Application insights.
@@ -39,7 +41,7 @@ Se você tiver habilitado Depurador de Instantâneos, mas não estiver vendo ins
 
 ## <a name="grant-permissions"></a>Conceder permissões
 
-O acesso a instantâneos é protegido por RBAC (controle de acesso baseado em função). Para inspecionar um instantâneo, primeiro você deve ser adicionado à função necessária por um proprietário da assinatura.
+O acesso a instantâneos é protegido pelo RBAC do Azure (controle de acesso baseado em função do Azure). Para inspecionar um instantâneo, primeiro você deve ser adicionado à função necessária por um proprietário da assinatura.
 
 > [!NOTE]
 > Proprietários e colaboradores não têm automaticamente essa função. Se quiserem exibir instantâneos, eles deverão ser adicionados à função.
@@ -47,7 +49,7 @@ O acesso a instantâneos é protegido por RBAC (controle de acesso baseado em fu
 Os proprietários de assinaturas deverão atribuir a função `Application Insights Snapshot Debugger` aos usuários que inspecionarão os instantâneos. Essa função pode ser atribuída a usuários individuais ou a grupos por proprietários de assinatura para o recurso Application Insights de destino ou seu grupo de recursos ou a assinatura.
 
 1. Navegue até o recurso Application Insights no portal do Azure.
-1. Clique em **Controle de acesso (IAM)** .
+1. Clique em **IAM (Controle de Acesso)**.
 1. Clique no botão **+ Adicionar atribuição de função** .
 1. Selecione **Application Insights depurador de instantâneos** na lista suspensa **funções** .
 1. Procure e insira um nome para o usuário a ser adicionado.

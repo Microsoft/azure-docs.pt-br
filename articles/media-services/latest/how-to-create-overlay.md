@@ -6,18 +6,19 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 08/31/2020
-ms.openlocfilehash: 6c93408bce8da9f8cd0e4a0d0bab615e2bd362dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 743fe146042c7b52394cc4ee8ced49a0f540e79c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89267319"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844277"
 ---
 # <a name="how-to-create-an-overlay-with-media-encoder-standard"></a>Como criar uma sobreposição com Media Encoder Standard
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-O Codificador de Mídia Padrão permite sobrepor uma imagem em um vídeo existente. Atualmente, há suporte para os seguintes formatos: png, jpg, gif e bmp.
+O Media Encoder Standard permite que você sobreponha uma imagem, um arquivo de áudio ou outro vídeo em outro vídeo. A entrada deve especificar exatamente um arquivo. Você pode especificar um arquivo de imagem no formato JPG, PNG, GIF ou BMP ou um arquivo de áudio (como um arquivo WAV, MP3, WMA ou M4A) ou um arquivo de vídeo.
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,7 +33,7 @@ O Codificador de Mídia Padrão permite sobrepor uma imagem em um vídeo existen
     "AccountName": "",
     "ArmAadAudience": "https://management.core.windows.net/",
     "ArmEndpoint": "https://management.azure.com/",
-    "Region": "",
+    "Location": "",
     "ResourceGroup": "",
     "SubscriptionId": ""
     }

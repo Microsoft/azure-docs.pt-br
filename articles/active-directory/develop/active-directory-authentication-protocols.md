@@ -12,12 +12,13 @@ ms.date: 12/18/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 41ea41b4d7c181dad9246653a68c329387ac5381
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 803f52666fb09a836eae3294410584ebbd71a1b6
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80884674"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755888"
 ---
 # <a name="microsoft-identity-platform-authentication-protocols"></a>Protocolos de autenticação da plataforma Microsoft Identity
 

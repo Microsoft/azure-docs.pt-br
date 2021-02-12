@@ -7,15 +7,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/11/2020
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
-ms.openlocfilehash: 3c7765d65b63c9cee83a76a13448506f61aa8472
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: fa71dc1e6b3a09827f2ad3d9f714622da5a36222
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637149"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862438"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorar um runtime de integração no Azure Data Factory
 
@@ -49,7 +49,7 @@ A tabela a seguir fornece descrições de propriedades retornadas pelo cmdlet pa
 -------- | ------------- | 
 | Nome | Nome do Azure Integration runtime. |  
 | Estado | Status do Azure Integration runtime. | 
-| Location | Local do Azure Integration runtime. Para obter detalhes sobre o local de Azure Integration runtime, consulte [Introdução ao runtime de integração](concepts-integration-runtime.md). |
+| Localização | Local do Azure Integration runtime. Para obter detalhes sobre o local de Azure Integration runtime, consulte [Introdução ao runtime de integração](concepts-integration-runtime.md). |
 | DataFactoryName | Nome do Data Factory ao qual o Azure Integration runtime pertence. | 
 | ResourceGroupName | Nome do grupo de recursos ao qual o data factory pertence.  |
 | Descrição | Descrição do runtime de integração.  |
@@ -72,7 +72,7 @@ Esta seção fornece descrições para propriedades retornadas pelo cmdlet Get-A
 
 ### <a name="properties"></a>Propriedades
 
-A tabela a seguir apresenta descrições das Propriedades de monitoramento para **cada nó** :
+A tabela a seguir apresenta descrições das Propriedades de monitoramento para **cada nó**:
 
 | Propriedade | Descrição | 
 | -------- | ----------- | 
@@ -82,7 +82,7 @@ A tabela a seguir apresenta descrições das Propriedades de monitoramento para 
 | Memória disponível | Memória disponível em um nó de runtime de integração auto-hospedada. Esse valor é um instantâneo quase em tempo real. | 
 | Utilização da CPU | Utilização da CPU de um nó de runtime de integração auto-hospedada. Esse valor é um instantâneo quase em tempo real. |
 | Rede (Entrada/Saída) | Utilização da rede de um nó de runtime de integração auto-hospedada. Esse valor é um instantâneo quase em tempo real. | 
-| Trabalhos Simultâneos (Executando/Limite) | **Em execução** . Número de trabalhos ou tarefas em execução em cada nó. Esse valor é um instantâneo quase em tempo real. <br/><br/>**Limite** . Limite significa a máxima de trabalhos simultâneos para cada nó. Esse valor é definido com base no tamanho do computador. Você pode aumentar o limite para escalar verticalmente a execução de trabalhos simultâneos em cenários avançados, em que as atividades estão atingindo o tempo limite mesmo quando há subutilização de memória, CPU ou rede. Essa funcionalidade também está disponível com runtime de integração auto-hospedada de nó único. |
+| Trabalhos Simultâneos (Executando/Limite) | **Em execução**. Número de trabalhos ou tarefas em execução em cada nó. Esse valor é um instantâneo quase em tempo real. <br/><br/>**Limite**. Limite significa a máxima de trabalhos simultâneos para cada nó. Esse valor é definido com base no tamanho do computador. Você pode aumentar o limite para escalar verticalmente a execução de trabalhos simultâneos em cenários avançados, em que as atividades estão atingindo o tempo limite mesmo quando há subutilização de memória, CPU ou rede. Essa funcionalidade também está disponível com runtime de integração auto-hospedada de nó único. |
 | Função | Há dois tipos de funções em um runtime de integração auto-hospedada com vários nós – dispatcher e de trabalho. Todos os nós são de trabalho, o que significa que eles podem ser usados para executar trabalhos. Há apenas um nó dispatcher, que é usado para efetuar pull de tarefas/trabalhos dos serviços de nuvem e distribuí-los para nós de trabalho diferentes. O nó dispatcher também é um nó de trabalho. |
 
 Algumas configurações das propriedades fazem mais sentido quando há dois ou mais nós no runtime de integração auto-hospedada (ou seja, no cenário de expansão).
@@ -104,7 +104,7 @@ A tabela a seguir fornece os possíveis status de um nó de runtime de integraç
 | Online | O nó está conectado ao serviço Data Factory. |
 | Offline | O nó está offline. |
 | Atualizando | O nó está sendo atualizado automaticamente. |
-| Limitado | Devido a um problema de conectividade. Pode ser devido a um problema de HTTP da porta 8050, problema de conectividade do barramento de serviço ou problema de sincronização de credenciais. |
+| Limitado | Devido a um problema de conectividade. Pode ser devido ao problema de porta HTTP 8060, problema de conectividade do barramento de serviço ou um problema de sincronização de credencial. |
 | Inativo | O nó está em uma configuração diferente da configuração de outros nós de maioria. |
 
 Um nó pode ficar inativo quando ele não pode se conectar a outros nós.
@@ -182,7 +182,7 @@ A tabela a seguir fornece descrições das propriedades retornadas pelo cmdlet a
 | OtherErrors                  | Os erros acionáveis não específicos do nó em seu Azure-SSIS IR. |
 | LastOperation                | O resultado da última operação de iniciar/parar no seu Azure-SSIS IR com erros acionáveis, caso tenha falhado. |
 | Estado                        | O status geral (inicial/iniciando/iniciado/parando/parado) do seu Azure-SSIS IR. |
-| Location                     | O local do seu Azure-SSIS IR. |
+| Localização                     | O local do seu Azure-SSIS IR. |
 | NodeSize                     | O tamanho de cada nó em seu Azure-SSIS IR. |
 | NodeCount                    | O número de nós em seu Azure-SSIS IR. |
 | MaxParallelExecutionsPerNode | O número máximo de execuções paralelas por nó em seu Azure-SSIS IR. |
@@ -234,7 +234,7 @@ Em seguida, selecione o nome do seu Azure-SSIS IR para abrir sua página de moni
 
 #### <a name="status-tile"></a>Bloco STATUS
 
-No bloco **status** da sua página de monitoramento de Azure-SSIS ir, você pode ver seu status geral, por exemplo, **em execução** ou **parado** . A seleção do status de **execução** abre uma janela com o botão **parar** ao vivo para parar o Azure-SSIS ir. A seleção do status **parado** exibe uma janela com o botão **Iniciar** ao vivo para iniciar o Azure-SSIS ir. A janela pop-up também tem um botão **Executar Pacote SSIS** para gerar automaticamente um pipeline do ADF com a atividade executar pacote SSIS que é executada no seu Azure-SSIS ir (consulte [executando pacotes do SSIS como executar atividades de pacote do SSIS em pipelines do ADF](./how-to-invoke-ssis-package-ssis-activity.md)) e uma caixa de texto **ID do recurso** , na qual você pode copiar sua Azure-SSIS ir ID do recurso ( `/subscriptions/YourAzureSubscripton/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR` ). O sufixo de sua ID de recurso de Azure-SSIS IR que contém os nomes do ADF e do Azure-SSIS IR forma uma ID de cluster que pode ser usada para comprar componentes adicionais do SSIS Premium/licenciado de fornecedores de software independentes (ISVs) e associá-los ao seu Azure-SSIS IR (consulte [instalando componentes premium/licenciados em seu Azure-SSIS ir](./how-to-develop-azure-ssis-ir-licensed-components.md)).
+No bloco **status** da sua página de monitoramento de Azure-SSIS ir, você pode ver seu status geral, por exemplo, **em execução** ou **parado**. A seleção do status de **execução** abre uma janela com o botão **parar** ao vivo para parar o Azure-SSIS ir. A seleção do status **parado** exibe uma janela com o botão **Iniciar** ao vivo para iniciar o Azure-SSIS ir. A janela pop-up também tem um botão **Executar Pacote SSIS** para gerar automaticamente um pipeline do ADF com a atividade executar pacote SSIS que é executada no seu Azure-SSIS ir (consulte [executando pacotes do SSIS como executar atividades de pacote do SSIS em pipelines do ADF](./how-to-invoke-ssis-package-ssis-activity.md)) e uma caixa de texto **ID do recurso** , na qual você pode copiar sua Azure-SSIS ir ID do recurso ( `/subscriptions/YourAzureSubscripton/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR` ). O sufixo de sua ID de recurso de Azure-SSIS IR que contém os nomes do ADF e do Azure-SSIS IR forma uma ID de cluster que pode ser usada para comprar componentes adicionais do SSIS Premium/licenciado de fornecedores de software independentes (ISVs) e associá-los ao seu Azure-SSIS IR (consulte [instalando componentes premium/licenciados em seu Azure-SSIS ir](./how-to-develop-azure-ssis-ir-licensed-components.md)).
 
 ![Monitore seu bloco Azure-SSIS IR STATUS](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-status.png)
 

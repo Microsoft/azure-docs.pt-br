@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: configurar o Tic-Tac Mobile para o provisionamento automático de usuário com Azure Active Directory | Microsoft Docs'
-description: Saiba como provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o Tic-Tac Mobile.
+title: 'Tutorial: Configurar o Tic-Tac Mobile para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+description: Saiba como provisionar e desprovisionar automaticamente contas de usuário do Azure AD para o Tic-Tac Mobile.
 services: active-directory
 documentationcenter: ''
 author: Zhchia
@@ -12,93 +12,93 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/08/2020
 ms.author: Zhchia
-ms.openlocfilehash: aae73d446b6feaf886f626818c7b63a1a3bd00cd
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
-ms.translationtype: MT
+ms.openlocfilehash: a09594d1bc6037f252ba71855ae302208b4980d4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795092"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182204"
 ---
-# <a name="tutorial-configure-tic-tac-mobile-for-automatic-user-provisioning"></a>Tutorial: configurar o Tic-Tac Mobile para o provisionamento automático de usuário
+# <a name="tutorial-configure-tic-tac-mobile-for-automatic-user-provisioning"></a>Tutorial: Configurar o Tic-Tac Mobile para o provisionamento automático de usuário
 
-Este tutorial descreve as etapas que você precisa executar em Tic-Tac dispositivos móveis e Azure Active Directory (AD do Azure) para configurar o provisionamento automático de usuários. Quando configurado, o Azure AD provisiona e desprovisiona automaticamente usuários e grupos para o [jogo-TAC Mobile](https://www.tictacmobile.com/) usando o serviço de provisionamento do Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../manage-apps/user-provisioning.md). 
+Este tutorial descreve as etapas que você precisa executar no Tic-Tac Mobile e no Azure AD (Azure Active Directory) para configurar o provisionamento automático de usuário. Quando configurado, o Azure AD provisiona e desprovisiona automaticamente usuários e grupos no [Tic-Tac Mobile](https://www.tictacmobile.com/) usando o serviço de provisionamento do Azure AD. Para obter informações sobre o que o serviço faz, como ele funciona e as perguntas frequentes, confira [Automatizar o provisionamento e o desprovisionamento de usuário para aplicativos SaaS (software como serviço) com o Azure AD](../app-provisioning/user-provisioning.md).
 
 
 ## <a name="capabilities-supported"></a>Funcionalidades com suporte
+
 > [!div class="checklist"]
-> * Criar usuários no Tic-Tac Mobile
-> * Remover usuários no Tic-Tac Mobile quando eles não precisam mais de acesso
-> * Manter os atributos de usuário sincronizados entre o Azure AD e o Tic-Tac Mobile
+> * Criar usuários no Tic-Tac Mobile.
+> * Remover usuários no Tic-Tac Mobile quando eles não precisarem mais de acesso.
+> * Manter os atributos de usuário sincronizados entre o Azure AD e o Tic-Tac Mobile.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
-* [Um locatário do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). 
-* Uma conta de usuário no Azure AD com [permissão](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) para configurar o provisionamento (por exemplo, Administrador de Aplicativo, Administrador de aplicativos de nuvem, Proprietário de Aplicativo ou Administrador Global). 
-* Uma conta [móvel jogo-TAC](https://www.tictacmobile.com/) com uma função de superadministrador.
+* [Um locatário do Azure AD](../develop/quickstart-create-new-tenant.md).
+* Uma conta de usuário no Azure AD com [permissão](../roles/permissions-reference.md) para configurar o provisionamento. São exemplos o Administrador de aplicativos, o Administrador de aplicativos de nuvem, o Proprietário do aplicativo ou o Administrador global.
+* Uma conta do [Tic-Tac Mobile](https://www.tictacmobile.com/) com uma função de superadministrador.
 
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Etapa 1. Planeje a implantação do provisionamento
-1. Saiba mais sobre [como funciona o serviço de provisionamento](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-2. Determine quem estará no [escopo de provisionamento](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Determine quais dados [mapeados entre o Azure AD e o Tic-Tac Mobile](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-tic-tac-mobile-to-support-provisioning-with-azure-ad"></a>Etapa 2. Configurar Tic-Tac Mobile para dar suporte ao provisionamento com o Azure AD
+1. Saiba mais sobre [como funciona o serviço de provisionamento](../app-provisioning/user-provisioning.md).
+1. Determine quem estará no [escopo de provisionamento](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Determine quais dados serão [mapeados entre o Azure AD e o Tic-Tac Mobile](../app-provisioning/customize-application-attributes.md).
 
-Entre em contato com support@tictacmobile.com para obter a **URL do locatário** e o **token secreto** . Você deve ter uma função de superadministrador no Tic-Tac Mobile para receber um token. O token será inserido no campo token secreto na guia provisionamento do seu aplicativo móvel jogo-TAC no portal do Azure.
+## <a name="step-2-configure-tic-tac-mobile-to-support-provisioning-with-azure-ad"></a>Etapa 2. Configurar o Tic-Tac Mobile para dar suporte ao provisionamento com o Azure AD
 
-## <a name="step-3-add-tic-tac-mobile-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicionar Tic-Tac Mobile da Galeria de aplicativos do Azure AD
+Entre em contato com support@tictacmobile.com para obter a **URL do locatário** e o **Token Secreto**. Você deve ter uma função de superadministrador no Tic-Tac Mobile para receber um token. Esse token será inserido na caixa **Token Secreto** na guia **Provisionamento** do aplicativo Tic-Tac Mobile no portal do Azure.
 
-Adicione Tic-Tac Mobile da Galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento para Tic-Tac Mobile. Se você tiver configurado anteriormente Tic-Tac dispositivos móveis para SSO, poderá usar o mesmo aplicativo. No entanto, recomendamos que você crie um aplicativo diferente ao testar a integração no início. Saiba mais sobre como adicionar um aplicativo da galeria [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+## <a name="step-3-add-tic-tac-mobile-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicionar o Tic-Tac Mobile por meio da galeria de aplicativos do Azure AD
 
-## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Etapa 4. Defina quem estará no escopo de provisionamento 
+Adicione o Tic-Tac Mobile por meio da galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento nele. Se já tiver configurado o Tic-Tac Mobile para logon único, você poderá usar o mesmo aplicativo. Ao testar a integração inicialmente, crie um aplicativo separado. Para saber mais sobre como adicionar um aplicativo por meio da galeria, confira [Provisionamento de aplicativos baseado em atributo com filtros de escopo](../manage-apps/add-application-portal.md).
 
-No Azure AD, é possível definir quem estará no escopo de provisionamento com base na atribuição ao aplicativo ou nos atributos do usuário/grupo. Se você optar por definir quem estará no escopo de provisionamento com base na atribuição, poderá usar as [etapas](../manage-apps/assign-user-or-group-access-portal.md) a seguir para atribuir usuários e grupos ao aplicativo. Se você optar por definir quem estará no escopo de provisionamento com base somente em atributos do usuário ou do grupo, poderá usar um filtro de escopo, conforme descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Etapa 4. Defina quem estará no escopo de provisionamento
 
-* Ao atribuir usuários e grupos para Tic-Tac dispositivos móveis, você deve selecionar uma função diferente de **acesso padrão** . Os usuários com a função Acesso Padrão são excluídos do provisionamento e serão marcados como "Não qualificado efetivamente" nos logs de provisionamento. Se a única função disponível no aplicativo for a de acesso padrão, você poderá [atualizar o manifesto do aplicativo](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) para adicionar outras funções. 
+Com o serviço de provisionamento do Azure AD, você pode definir o escopo de quem será provisionado com base na atribuição ao aplicativo ou nos atributos do usuário ou do grupo. Se você optar por definir quem estará no escopo de provisionamento com base na atribuição, siga as etapas em [Gerenciar a atribuição de usuário para um aplicativo no Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md) para atribuir usuários e grupos ao aplicativo. Se você optar por definir quem estará no escopo de provisionamento com base somente em atributos do usuário ou do grupo, use um filtro de escopo conforme descrito em [Provisionamento de aplicativo com base em atributo com filtros de escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-* Comece pequeno. Teste com um pequeno conjunto de usuários e grupos antes de implementar para todos. Quando o escopo de provisionamento é definido para usuários e grupos atribuídos, é possível controlar isso atribuindo um ou dois usuários ou grupos ao aplicativo. Quando o escopo é definido para todos os usuários e grupos, é possível especificar um [atributo com base no filtro de escopo](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+* Ao atribuir usuários e grupos ao Tic-Tac Mobile, você precisa selecionar uma função diferente de **Acesso Padrão**. Os usuários com a função Acesso Padrão são excluídos do provisionamento marcados como "Não qualificado efetivamente" nos logs de provisionamento. Se a única função disponível no aplicativo for a de acesso padrão, você poderá [atualizar o manifesto do aplicativo](../develop/howto-add-app-roles-in-azure-ad-apps.md) para adicionar mais funções.
+* Comece pequeno. Teste com um pequeno conjunto de usuários e grupos antes de implementar para todos. Quando o escopo de provisionamento é definido para usuários e grupos atribuídos, é possível manter o controle atribuindo um ou dois usuários ou grupos ao aplicativo. Quando o escopo é definido para todos os usuários e grupos, é possível especificar um [atributo com base no filtro de escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
+## <a name="step-5-configure-automatic-user-provisioning-to-tic-tac-mobile"></a>Etapa 5. Configurar o provisionamento automático de usuário no Tic-Tac Mobile
 
-## <a name="step-5-configure-automatic-user-provisioning-to-tic-tac-mobile"></a>Etapa 5. Configurar o provisionamento automático de usuário para Tic-Tac dispositivos móveis 
+Nesta seção, você verá orientações para seguir as etapas de configuração do serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários ou grupos no TestApp com base em atribuições de usuário ou grupo no Azure AD.
 
-Nesta seção, você verá orientações para seguir as etapas de configuração do serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos no TestApp com base em atribuições de usuário e/ou grupo no Azure AD.
+### <a name="configure-automatic-user-provisioning-for-tic-tac-mobile-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para o Tic-Tac Mobile no Azure AD
 
-### <a name="to-configure-automatic-user-provisioning-for-tic-tac-mobile-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para o Tic-Tac Mobile no Azure AD:
+1. Entre no [portal do Azure](https://portal.azure.com). Selecione **Aplicativos empresariais** > **Todos os aplicativos**.
 
-1. Entre no [portal do Azure](https://portal.azure.com). Selecione **Aplicativos Empresariais** e **Todos os Aplicativos** .
+    ![Captura de tela que mostra o painel Aplicativos empresariais.](common/enterprise-applications.png)
 
-    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
+1. Na lista de aplicativos, selecione **Tic-Tac Mobile**.
 
-2. Na lista de aplicativos, selecione **jogo-TAC Mobile** .
+    ![Captura de tela que mostra o link do Tic-Tac Mobile na lista de aplicativos.](common/all-applications.png)
 
-    ![O link do Tic-Tac Mobile na lista de aplicativos](common/all-applications.png)
+1. Selecione a guia **Provisionamento**.
 
-3. Selecione a guia **Provisionamento** .
+    ![Captura de tela que mostra a guia Provisionamento.](common/provisioning.png)
 
-    ![Guia Provisionamento](common/provisioning.png)
+1. Defina o **Modo de Provisionamento** como **Automático**.
 
-4. Defina o **Modo de Provisionamento** como **Automático** .
+    ![Captura de tela que mostra a opção Automático na guia Provisionamento.](common/provisioning-automatic.png)
 
-    ![Guia de provisionamento automático](common/provisioning-automatic.png)
+1. Na seção **Credenciais de Administrador**, insira a **URL do Locatário** e o **Token Secreto** do Tic-Tac Mobile. Selecione **Testar Conectividade** para verificar se o Azure AD pode se conectar ao Tic-Tac Mobile. Se a conexão falhar, verifique se a sua conta do Tic-Tac Mobile tem permissões de administrador e tente novamente.
 
-5. Na seção **credenciais de administrador** , insira seu Tic-Tac URL de locatário móvel e token secreto. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao Tic-Tac Mobile. Se a conexão falhar, verifique se sua conta do Tic-Tac Mobile tem permissões de administrador e tente novamente.
+    ![Captura de tela que mostra a caixa Token Secreto.](common/provisioning-testconnection-tenanturltoken.png)
 
-    ![Token](common/provisioning-testconnection-tenanturltoken.png)
+1. Na caixa **Email de Notificação**, insira o endereço de email de uma pessoa ou de um grupo que deve receber as notificações de erro de provisionamento. Marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
 
-6. No campo **Notificação por Email** , insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha** .
+    ![Captura de tela que mostra a caixa Email de Notificação.](common/provisioning-notification-email.png)
 
-    ![Email de notificação](common/provisioning-notification-email.png)
+1. Selecione **Salvar**.
 
-7. Clique em **Salvar** .
+1. Na seção **Mapeamentos**, selecione **Sincronizar Usuários do Azure Active Directory com o Tic-Tac Mobile**.
 
-8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para Tic-Tac Mobile** .
-
-9. Examine os atributos de usuário que são sincronizados do Azure AD para Tic-Tac Mobile na seção de **mapeamento de atributo** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no Tic-Tac Mobile para operações de atualização. Se você optar por alterar o [atributo de destino correspondente](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), será necessário garantir que o Tic-Tac API móvel dê suporte à filtragem de usuários com base nesse atributo. Selecione o botão **Salvar** para confirmar as alterações.
+1. Examine os atributos de usuário que serão sincronizados do Azure AD para o Tic-Tac Mobile na seção **Mapeamento de Atributos**. Os atributos selecionados como propriedades **Correspondentes** são usados para fazer a correspondência das contas de usuário no Tic-Tac Mobile em operações de atualização. Se alterar o [atributo de destino correspondente](../app-provisioning/customize-application-attributes.md), você precisará garantir que a API do Tic-Tac Mobile seja compatível com a filtragem de usuários com base nesse atributo. Selecione o botão **Salvar** para confirmar as alterações.
 
    |Atributo|Type|
    |---|---|
@@ -107,7 +107,7 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
    |name.familyName|String|
    |externalId|String|
    |título|String|
-   |emails [tipo EQ "trabalho"]. valor|String|
+   |emails[type eq"work"].value|String|
    |preferredLanguage|String|
    |externalId|String|
    |userType|String|
@@ -119,34 +119,35 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
 
-10. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Para configurar filtros de escopo, confira as instruções fornecidas no [tutorial sobre filtros de escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Para habilitar o serviço de provisionamento do Azure AD para Tic-Tac Mobile, altere o **status de provisionamento** para **ativado** na seção **configurações** .
+1. Para habilitar o serviço de provisionamento do Azure AD no Tic-Tac Mobile, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**.
 
-    ![Status do provisionamento ativado](common/provisioning-toggle-on.png)
+    ![Captura de tela que mostra o Status de Provisionamento Ativado.](common/provisioning-toggle-on.png)
 
-12. Defina os usuários e/ou grupos que você deseja provisionar para Tic-Tac dispositivos móveis escolhendo os valores desejados no **escopo** na seção **configurações** .
+1. Defina os usuários ou grupos que deseja provisionar no Tic-Tac Mobile selecionando os valores desejados em **Escopo** na seção **Configurações**.
 
-    ![Escopo de provisionamento](common/provisioning-scope.png)
+    ![Captura de tela que mostra o Escopo de provisionamento.](common/provisioning-scope.png)
 
-13. Quando estiver pronto para provisionar, clique em **Salvar** .
+1. Quando estiver pronto para fazer o provisionamento, selecione **Salvar**.
 
-    ![Salvando a configuração de provisionamento](common/provisioning-configuration-save.png)
+    ![Captura de tela que mostra como salvar a configuração de provisionamento.](common/provisioning-configuration-save.png)
 
-Essa operação começa o ciclo de sincronização inicial de todos os usuários e grupos definidos no **Escopo** na seção **Configurações** . O ciclo inicial leva mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. 
+Essa operação começa o ciclo de sincronização inicial de todos os usuários e grupos definidos no **Escopo** na seção **Configurações**. O ciclo inicial leva mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução.
 
 ## <a name="step-6-monitor-your-deployment"></a>Etapa 6. Monitorar a implantação
-Depois de configurar o provisionamento, use os seguintes recursos para monitorar a implantação:
 
-1. Use os [logs de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar quais usuários foram provisionados com êxito ou não
-2. Confira a [barra de progresso](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) para ver o status do ciclo de provisionamento e saber como fechá-la para concluir
-3. Se a configuração de provisionamento parecer estar em um estado não íntegro, o aplicativo entrará em quarentena. Saiba mais sobre os estados de quarentena [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
+Após configurar o provisionamento, use os recursos a seguir para monitorar a implantação.
+
+1. Use os [logs de provisionamento](../reports-monitoring/concept-provisioning-logs.md) para determinar quais usuários foram provisionados com êxito ou não.
+1. Confira a [barra de progresso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver o status do ciclo de provisionamento e saber como fechá-la para concluir.
+1. Se a configuração de provisionamento parecer estar em um estado não íntegro, o aplicativo entrará em quarentena. Para saber mais sobre os estados de quarentena, confira [Provisionamento de aplicativo no status de quarentena](../app-provisioning/application-provisioning-quarantine-status.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gerenciamento do provisionamento de conta de usuário para aplicativos empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)
+* [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)

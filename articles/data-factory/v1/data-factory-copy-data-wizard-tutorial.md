@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d1b17a3e4556f6a963f3ecacd31472ce3f75b0fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93360e48dad13b9ec57175d31ecb61d32974f066
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85248540"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128395"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Tutorial: Criar um pipeline com a Atividade de Cópia usando o Assistente de Cópia do Data Factory
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ Nesta etapa, você usa o Portal do Azure para criar um data factory do Azure den
        O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber o seguinte erro, `Data factory name “ADFTutorialDataFactory” is not available`, altere o nome do data factory (por exemplo, seunomeADFTutorialDataFactoryDDMMAAAA) e tente criá-lo novamente. Veja o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.  
       
        ![Nome da data factory indisponível](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-not-available.png)    
-   2. Selecione sua **assinatura**do Azure.
+   2. Selecione sua **assinatura** do Azure.
    3. Em relação ao Grupo de Recursos, execute uma das seguintes etapas: 
       
       - Selecione **Usar existente** para selecionar um grupo de recursos existente.
@@ -91,7 +91,7 @@ Nesta etapa, você usa o Portal do Azure para criar um data factory do Azure den
    
    1. Insira **AzureStorageLinkedService** para o **Nome do serviço vinculado**.
    2. Confirme se a opção **De assinaturas do Azure** foi selecionada em **Método de seleção de conta**.
-   3. Selecione sua **assinatura**do Azure.  
+   3. Selecione sua **assinatura** do Azure.  
    4. Selecione uma **Conta de armazenamento do Azure** na lista de contas de armazenamento do Azure disponíveis na assinatura selecionada. Você também pode inserir as configurações de conta de armazenamento manualmente selecionando a opção **Inserir manualmente** para o **Método de seleção de conta** e clicando em **Avançar**. 
       
       ![Ferramenta de Cópia - especifique a conta de armazenamento de Blobs do Azure](./media/data-factory-copy-data-wizard-tutorial/copy-tool-specify-azure-blob-storage-account.png)
@@ -100,10 +100,10 @@ Nesta etapa, você usa o Portal do Azure para criar um data factory do Azure den
    1. Clique duas vezes em **adftutorial** (pasta).
    2. Selecione **emp.txt** e clique em **Escolher**
       
-      ![Ferramenta de Cópia - escolha a pasta ou o arquivo de entrada](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
+      ![A captura de tela mostra a opção Escolher para o arquivo de entrada.](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
 6. Na página **Escolha o arquivo ou a pasta de entrada**, clique em **Avançar**. Não selecione **Cópia binária**. 
    
-    ![Ferramenta de Cópia - escolha a pasta ou o arquivo de entrada](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png) 
+    ![A captura de tela mostra a opção Cópia binária para a entrada.](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png) 
 7. Na página **Configurações de formato de arquivo**, você vê os delimitadores e o esquema é detectado automaticamente pelo assistente na análise do arquivo. Você também pode inserir os delimitadores manualmente para que o assistente de cópia pare de detectar automaticamente ou substitua. Clique em **Avançar** depois de revisar os delimitadores e visualizar os dados. 
    
     ![Ferramenta de Cópia - configurações de formato de arquivo](./media/data-factory-copy-data-wizard-tutorial/copy-tool-file-format-settings.png)  
@@ -114,7 +114,7 @@ Nesta etapa, você usa o Portal do Azure para criar um data factory do Azure den
    
    1. Digite **AzureSqlLinkedService** no campo **Nome da conexão**.
    2. Confirme se a opção **De assinaturas do Azure** foi selecionada em **Método de seleção de servidor/banco de dados**.
-   3. Selecione sua **assinatura**do Azure.  
+   3. Selecione sua **assinatura** do Azure.  
    4. Selecione **Nome do servidor** e **Banco de Dados**.
    5. Insira o **Nome de usuário** e a **Senha**.
    6. Clique em **Próximo**.  
@@ -128,10 +128,10 @@ Nesta etapa, você usa o Portal do Azure para criar um data factory do Azure den
     ![Ferramenta de Cópia - mapeamento de esquema](./media/data-factory-copy-data-wizard-tutorial/schema-mapping-page.png)
 12. Na página **Configurações de desempenho**, clique em **Avançar**. 
     
-    ![Ferramenta de cópia - configurações de desempenho](./media/data-factory-copy-data-wizard-tutorial/performance-settings.png)
+    ![A captura de tela mostra a página Configurações de desempenho, em que é possível selecionar Avançar.](./media/data-factory-copy-data-wizard-tutorial/performance-settings.png)
 13. Examine as informações na página **Resumo** e clique em **Concluir**. Esse assistente cria dois serviços vinculados, dois conjuntos de dados (entrada e saída) e um pipeline no data factory (de onde você iniciou o Assistente de Cópia). 
     
-    ![Ferramenta de cópia - configurações de desempenho](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
+    ![A captura de tela mostra o painel Resumo, em que é possível selecionar Avançar.](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
 
 ## <a name="launch-monitor-and-manage-application"></a>Iniciar o monitor e gerenciar aplicativo
 1. Na página **Implantação**, clique no link: `Click here to monitor copy pipeline`.

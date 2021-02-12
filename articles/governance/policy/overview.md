@@ -1,14 +1,14 @@
 ---
 title: Visão geral do Azure Policy
 description: O Azure Policy é um serviço no Azure que você pode usar para criar, atribuir e gerenciar definições de política em seu ambiente do Azure.
-ms.date: 10/05/2020
+ms.date: 01/14/2021
 ms.topic: overview
-ms.openlocfilehash: 8a32e32afb544588bb033cc64ede5ecbe6e2bac2
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: df430586af2e701ec2881f6ea760095fd2ca79d0
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097381"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220721"
 ---
 # <a name="what-is-azure-policy"></a>O que é o Azure Policy?
 
@@ -20,7 +20,7 @@ Todos os dados e objetos do Azure Policy são criptografados em repouso. Para ob
 
 ## <a name="overview"></a>Visão geral
 
-O Azure Policy avalia os recursos no Azure comparando as propriedades desses recursos com as regras de negócio. Essas regras de negócio, descritas em [Formato JSON](./concepts/definition-structure.md), são conhecidas como [definições de política](#policy-definition). Para simplificar o gerenciamento, várias regras de negócio podem ser agrupadas para formar uma [iniciativa de política](#initiative-definition) (às vezes chamada de _policySet_ ). Depois que as regras de negócios tiverem sido formadas, a definição ou a iniciativa da política será [atribuída](#assignments) a qualquer escopo de recursos compatível com o Azure, como [grupos de gerenciamento](../management-groups/overview.md), assinaturas, [grupos de recursos](../../azure-resource-manager/management/overview.md#resource-groups) ou recursos individuais. A atribuição se aplica a todos os recursos dentro do [escopo do Resource Manager](../../azure-resource-manager/management/overview.md#understand-scope) dessa atribuição. Os subescopos podem ser excluídos, se necessário. Para obter mais informações, confira [Escopo no Azure Policy](./concepts/scope.md).
+O Azure Policy avalia os recursos no Azure comparando as propriedades desses recursos com as regras de negócio. Essas regras de negócio, descritas em [Formato JSON](./concepts/definition-structure.md), são conhecidas como [definições de política](#policy-definition). Para simplificar o gerenciamento, várias regras de negócio podem ser agrupadas para formar uma [iniciativa de política](#initiative-definition) (às vezes chamada de _policySet_). Depois que as regras de negócios tiverem sido formadas, a definição ou a iniciativa da política será [atribuída](#assignments) a qualquer escopo de recursos compatível com o Azure, como [grupos de gerenciamento](../management-groups/overview.md), assinaturas, [grupos de recursos](../../azure-resource-manager/management/overview.md#resource-groups) ou recursos individuais. A atribuição se aplica a todos os recursos dentro do [escopo do Resource Manager](../../azure-resource-manager/management/overview.md#understand-scope) dessa atribuição. Os subescopos podem ser excluídos, se necessário. Para obter mais informações, confira [Escopo no Azure Policy](./concepts/scope.md).
 
 O Azure Policy usa um [formato JSON](./concepts/definition-structure.md) para formar a lógica que a avaliação usa para determinar se um recurso está em conformidade ou não. As definições incluem metadados e a regra de política. A regra definida pode usar funções, parâmetros, operadores lógicos, condições e [aliases](./concepts/definition-structure.md#aliases) de propriedade para corresponder exatamente ao cenário desejado. A regra de política determina quais recursos no escopo da atribuição são avaliados.
 
@@ -37,7 +37,7 @@ Para obter informações detalhadas sobre quando e como a avaliação de políti
 
 ### <a name="control-the-response-to-an-evaluation"></a>Controlar a resposta a uma avaliação
 
-As regras de negócio para lidar com recursos sem conformidade variam muito entre as organizações. Exemplos de como uma organização deseja que a plataforma responda a um recurso sem reclamação incluem:
+As regras de negócio para lidar com recursos sem conformidade variam muito entre as organizações. Exemplos de como uma organização deseja que a plataforma responda a um recurso sem conformidade, incluindo:
 
 - Negar a alteração do recurso
 - Registrar a alteração no recurso
@@ -61,7 +61,7 @@ A visão geral do Azure Policy a seguir é da versão 2018. Para download de ví
 
 ### <a name="azure-policy-and-azure-rbac"></a>Azure Policy e Azure RBAC
 
-Há algumas diferenças importantes entre o Azure Policy e o Azure RBAC (controle de acesso baseado em função). O Azure Policy avalia o estado examinando as propriedades dos recursos que são representados no Resource Manager e as propriedades de alguns provedores de recursos. O Azure Policy não restringe as ações (também chamadas de _operações_ ). O Azure Policy garante que o estado do recurso esteja em conformidade com as regras de negócio sem levar em conta quem fez a alteração ou quem tem permissão para fazer uma alteração.
+Há algumas diferenças importantes entre o Azure Policy e o Azure RBAC (controle de acesso baseado em função). O Azure Policy avalia o estado examinando as propriedades dos recursos que são representados no Resource Manager e as propriedades de alguns provedores de recursos. O Azure Policy não restringe as ações (também chamadas de _operações_). O Azure Policy garante que o estado do recurso esteja em conformidade com as regras de negócio sem levar em conta quem fez a alteração ou quem tem permissão para fazer uma alteração.
 
 O Azure RBAC concentra-se em gerenciar as [ações](../../role-based-access-control/resource-provider-operations.md) do usuário em escopos diferentes. Se o controle de uma ação é necessário, o Azure RBAC é a ferramenta correta a ser usada. Mesmo que um indivíduo tenha acesso para executar uma ação, se o resultado for um recurso que não está em conformidade, o Azure Policy ainda bloqueará a criação ou a atualização.
 
@@ -74,7 +74,7 @@ O Azure Policy tem diversas permissões, conhecidas como operações, em dois pr
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Muitas funções internas concedem permissão aos recursos do Azure Policy. A função **Colaborador da Política de Recursos** inclui a maioria das operações do Azure Policy. O **proprietário** tem direitos totais. Tanto o **Colaborador** quanto o **Leitor** têm acesso a todas as operações de _ler_ do Azure Policy. O **colaborador** pode disparar a correção de recursos, mas não pode _criar_ definições nem atribuições. O **Administrador de Acesso do Usuário** é necessário para conceder a identidade gerenciada nas permissões necessárias de atribuições **deployIfNotExists** ou **modify** .
+Muitas funções internas concedem permissão aos recursos do Azure Policy. A função **Colaborador da Política de Recursos** inclui a maioria das operações do Azure Policy. O **proprietário** tem direitos totais. Tanto o **Colaborador** quanto o **Leitor** têm acesso a todas as operações de _ler_ do Azure Policy. O **colaborador** pode disparar a correção de recursos, mas não pode _criar_ definições nem atribuições. O **Administrador de Acesso do Usuário** é necessário para conceder a identidade gerenciada nas permissões necessárias de atribuições **deployIfNotExists** ou **modify**.
 
 Se nenhuma das funções internas possui as permissões necessárias, crie uma [função personalizada](../../role-based-access-control/custom-roles.md).
 
@@ -83,7 +83,7 @@ Se nenhuma das funções internas possui as permissões necessárias, crie uma [
 
 ### <a name="resources-covered-by-azure-policy"></a>Recursos cobertos pelo Azure Policy
 
-O Azure Policy avalia todos os recursos no Azure e os recursos habilitados para Arc. Para determinados provedores de recursos, como [Configuração de Convidado](./concepts/guest-configuration.md), [Serviço de Kubernetes do Azure](../../aks/intro-kubernetes.md) e [Azure Key Vault](../../key-vault/general/overview.md), há uma integração mais profunda para o gerenciamento de configurações e objetos. Para obter mais informações, confira [Modos de provedor de recursos](./concepts/definition-structure.md).
+O Azure Policy avalia todos os recursos do Azure no nível de assinatura ou abaixo dele, incluindo recursos habilitados para Arc. Para determinados provedores de recursos, como [Configuração de Convidado](./concepts/guest-configuration.md), [Serviço de Kubernetes do Azure](../../aks/intro-kubernetes.md) e [Azure Key Vault](../../key-vault/general/overview.md), há uma integração mais profunda para o gerenciamento de configurações e objetos. Para obter mais informações, confira [Modos de provedor de recursos](./concepts/definition-structure.md).
 
 ### <a name="recommendations-for-managing-policies"></a>Recomendações para o gerenciamento de políticas
 
@@ -94,7 +94,7 @@ Aqui estão alguns ponteiros e dicas para ter em mente:
 - É importante manter em mente as hierarquias organizacionais ao criar definições e atribuições. É recomendável criar definições em nível de assinatura ou em níveis superiores, tais como o grupo de gerenciamento. Em seguida, crie a atribuição do próximo nível filho. Se você criar uma definição de um grupo de gerenciamento, a atribuição poderá ser definida para uma assinatura ou grupo de recursos nesse grupo de gerenciamento.
 
 - É recomendável criar e atribuir as definições de iniciativa até mesmo para uma única definição de política.
-  Por exemplo, você tem a definição de política _policyDefA_ e a cria sob a definição de iniciativa _initiativeDefC_ . Se criar outra definição de política mais tarde para _policyDefB_ com metas similares às de _policyDefA_ , você poderá adicioná-la sob _initiativeDefC_ e acompanhá-las juntas.
+  Por exemplo, você tem a definição de política _policyDefA_ e a cria sob a definição de iniciativa _initiativeDefC_. Se criar outra definição de política mais tarde para _policyDefB_ com metas similares às de _policyDefA_, você poderá adicioná-la sob _initiativeDefC_ e acompanhá-las juntas.
 
 - Depois de criar uma atribuição de iniciativa, definições de política adicionadas à iniciativa também se tornam parte dessas atribuições de iniciativas.
 
@@ -124,13 +124,13 @@ Para saber mais sobre as estruturas das definições de políticas, consulte [Es
 
 Parâmetros de política ajudam a simplificar o gerenciamento de política, reduzindo o número de definições de política que você precisa criar. Você pode definir parâmetros ao criar uma definição de política para torná-la mais genérica. Então você pode reutilizar essa definição de política para cenários diferentes. Faça isso passando valores diferentes ao atribuir a definição de política. Por exemplo, especificar um conjunto de locais para uma assinatura.
 
-Parâmetros são definidos durante a criação de uma definição de política. Quando um parâmetro é definido, ele recebe um nome e, opcionalmente, um valor. Por exemplo, é possível definir um parâmetro para uma política intitulada _local_ . Em seguida, você poderá atribuir valores diferentes, como _EastUS_ ou _WestUS_ ao atribuir uma política.
+Parâmetros são definidos durante a criação de uma definição de política. Quando um parâmetro é definido, ele recebe um nome e, opcionalmente, um valor. Por exemplo, é possível definir um parâmetro para uma política intitulada _local_. Em seguida, você poderá atribuir valores diferentes, como _EastUS_ ou _WestUS_ ao atribuir uma política.
 
 Para obter mais informações sobre parâmetros de política, confira [Estrutura de definição – parâmetros](./concepts/definition-structure.md#parameters).
 
 ### <a name="initiative-definition"></a>Definição de iniciativa
 
-Uma definição de iniciativa é uma coleção de definições de política que são adaptadas para atingirem uma única meta abrangente. Definições de iniciativa simplificam o gerenciamento e a atribuição de definições da política. Elas simplificam agrupando um conjunto de políticas como um único item. Por exemplo, você pode criar uma iniciativa intitulada **Habilitar Monitoramento na Central de Segurança do Azure** , com uma meta para monitorar todas as recomendações de segurança disponíveis na Central de Segurança do Azure.
+Uma definição de iniciativa é uma coleção de definições de política que são adaptadas para atingirem uma única meta abrangente. Definições de iniciativa simplificam o gerenciamento e a atribuição de definições da política. Elas simplificam agrupando um conjunto de políticas como um único item. Por exemplo, você pode criar uma iniciativa intitulada **Habilitar Monitoramento na Central de Segurança do Azure**, com uma meta para monitorar todas as recomendações de segurança disponíveis na Central de Segurança do Azure.
 
 > [!NOTE]
 > O SDK, como a CLI do Azure e o Azure PowerShell, usa propriedades e parâmetros chamados **PolicySet** para se referir a iniciativas.
@@ -143,17 +143,17 @@ Com essa iniciativa, você teria definições de política como:
 
 Assim como parâmetros de política, os parâmetros de iniciativa ajudam a simplificar o gerenciamento iniciativa reduzindo a redundância. Parâmetros de iniciativa são parâmetros que estão sendo usados pelas definições de política dentro da iniciativa.
 
-Por exemplo, veja um cenário em que você tem uma definição de iniciativa, **initiativeC** , com as definições de política **policyA** e **policyB** , cada um esperando um tipo de parâmetro diferente:
+Por exemplo, veja um cenário em que você tem uma definição de iniciativa, **initiativeC**, com as definições de política **policyA** e **policyB**, cada um esperando um tipo de parâmetro diferente:
 
 | Política | Nome do parâmetro |Tipo do parâmetro  |Observação |
 |---|---|---|---|
 | policyA | allowedLocations | matriz  |Esse parâmetro espera uma lista de cadeias de caracteres para um valor, pois o tipo de parâmetro foi definido como uma matriz |
 | policyB | allowedSingleLocation |string |Esse parâmetro espera uma palavra para um valor, pois o tipo de parâmetro foi definido como uma cadeia de caracteres |
 
-Nesse cenário, ao definir os parâmetros de iniciativa para **initiativeC** , você tem três opções:
+Nesse cenário, ao definir os parâmetros de iniciativa para **initiativeC**, você tem três opções:
 
-- Use os parâmetros das definições de política contidas nessa iniciativa: Neste exemplo, _allowedLocations_ e _allowedSingleLocation_ tornam-se parâmetros de iniciativa para **initiativeC** .
-- Forneça valores para os parâmetros das definições de política dessa definição de iniciativa. Neste exemplo, você pode fornecer uma lista de localizações para o parâmetro de **policyA** : **allowedLocations** ; e parâmetros de **policyB** : **allowedSingleLocation** . Você também pode fornecer valores ao atribuir essa iniciativa.
+- Use os parâmetros das definições de política contidas nessa iniciativa: Neste exemplo, _allowedLocations_ e _allowedSingleLocation_ tornam-se parâmetros de iniciativa para **initiativeC**.
+- Forneça valores para os parâmetros das definições de política dessa definição de iniciativa. Neste exemplo, você pode fornecer uma lista de localizações para o parâmetro de **policyA**: **allowedLocations**; e parâmetros de **policyB**: **allowedSingleLocation**. Você também pode fornecer valores ao atribuir essa iniciativa.
 - Forneça uma lista de opções de _valor_ que podem ser usadas ao atribuir essa iniciativa. Ao atribuir essa iniciativa, os parâmetros herdados das definições de política dentro da iniciativa só poderão ter valores dessa lista fornecida.
 
 Ao criar opções de valor em uma definição de iniciativa, você não consegue inserir um valor diferente durante a atribuição da iniciativa, porque ele não é parte da lista.

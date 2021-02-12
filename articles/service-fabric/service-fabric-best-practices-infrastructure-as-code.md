@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: c381c6e7d692eda32fea2033779bacddafc267bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0f0324d1f7308eb1392c4f7a98a6a5d226026be
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86253670"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705499"
 ---
 # <a name="infrastructure-as-code"></a>Infraestrutura como código
 
@@ -27,7 +27,7 @@ ResourceGroupName="sfclustergroup"
 Location="westus"
 
 az group create --name $ResourceGroupName --location $Location 
-az group deployment create --name $ResourceGroupName  --template-file azuredeploy.json --parameters @azuredeploy.parameters.json
+az deployment group create --name $ResourceGroupName  --template-file azuredeploy.json --parameters @azuredeploy.parameters.json
 ```
 
 Como criar um recurso usando o Powershell

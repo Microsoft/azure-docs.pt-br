@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 1e4a0199e8d9a04b07b52f90d9c1823f69e07c7d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 38b2ff6909dae15ff0f836316d5d12140ecc331a
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455979"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672919"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Tutorial: Integração do Active Directory do Azure ao Clarizen
 
@@ -49,11 +49,11 @@ Para configurar a integração do Clarizen ao Azure AD, você precisará adicion
 
 **Para adicionar o Clarizen da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory** .
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos** .
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Para configurar a integração do Clarizen ao Azure AD, você precisará adicion
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Clarizen** , selecione **Clarizen** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Clarizen**, selecione **Clarizen** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-     ![Clarizen na lista de resultados](common/search-new-app.png)
+    ![Clarizen na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Clarizen, com base em um usuário de teste chamado **Brenda Fernandes** .
+Nesta seção, você configurará e testará o logon único do Azure AD com o Clarizen, com base em um usuário de teste chamado **Brenda Fernandes**.
 Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Clarizen.
 
 Para configurar e testar o logon único do Azure AD com o Clarizen, você precisa concluir os seguintes blocos de construção:
@@ -85,34 +85,34 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Clarizen, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **Clarizen** , clique em **Logon único** .
+1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **Clarizen**, clique em **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML** .
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na página **Configurar Logon Único com SAML** , execute as seguintes etapas:
+4. Na página **Configurar Logon Único com SAML**, execute as seguintes etapas:
 
     ![Informações de logon único de Domínio e URLs do Clarizen](common/idp-intiated.png)
 
-    a. Na caixa de texto **Identificador** , digite um valor: `Clarizen`
+    a. Na caixa de texto **Identificador**, digite um valor: `Clarizen`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx`
 
     > [!NOTE]
     > Esses não são os valores reais. Você precisa usar o identificador real e a URL de resposta. Aqui, sugerimos que você use o valor exclusivo de uma cadeia de caracteres como o identificador. Para obter os valores reais, entre em contato com a [equipe de suporte do Clarizen](https://success.clarizen.com/hc/en-us/requests/new).
 
-4. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+4. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-6. Na seção **Configurar o Clarizen** , copie a URL apropriada de acordo com suas necessidades.
+6. Na seção **Configurar o Clarizen**, copie a URL apropriada de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -126,27 +126,27 @@ Para configurar o logon único do Azure AD com o Clarizen, execute as seguintes 
 
 1. Em outra janela do navegador da Web, entre em seu site de empresa do Clarizen como administrador.
 
-1. Clique no nome de usuário e em **Configurações** .
+1. Clique no nome de usuário e em **Configurações**.
 
     ![Clicar em "Configurações" em seu nome de usuário](./media/clarizen-tutorial/tutorial_clarizen_001.png "Configurações")
 
-1. Clique na guia **Configurações Globais** . Em seguida, próximo a **Autenticação Federada** , clique em **editar** .
+1. Clique na guia **Configurações Globais**. Em seguida, próximo a **Autenticação Federada**, clique em **editar**.
 
     ![Guia "Configurações Globais"](./media/clarizen-tutorial/tutorial_clarizen_002.png "Configurações globais")
 
-1. Na caixa de diálogo **Autenticação Federada** , execute as seguintes etapas:
+1. Na caixa de diálogo **Autenticação Federada**, execute as seguintes etapas:
 
     ![Caixa de diálogo "Autenticação Federada"](./media/clarizen-tutorial/tutorial_clarizen_003.png "Autenticação Federada")
 
-    a. Selecione **Habilitar Autenticação Federada** .
+    a. Selecione **Habilitar Autenticação Federada**.
 
     b. Clique em **Carregar** para carregar o certificado baixado.
 
-    c. Na caixa de texto **URL de Entrada** , insira o valor da **URL de Logon** da janela de configuração de aplicativo do Azure AD.
+    c. Na caixa de texto **URL de Entrada**, insira o valor da **URL de Logon** da janela de configuração de aplicativo do Azure AD.
 
-    d. Na caixa de texto **URL de Entrada** , insira o valor da **URL de Logon** da janela de configuração de aplicativo do Azure AD.
+    d. Na caixa de texto **URL de Entrada**, insira o valor da **URL de Logon** da janela de configuração de aplicativo do Azure AD.
 
-    e. Selecione **Usar POST** .
+    e. Selecione **Usar POST**.
 
     f. Clique em **Save** (Salvar).
 
@@ -154,7 +154,7 @@ Para configurar o logon único do Azure AD com o Clarizen, execute as seguintes 
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários** .
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -166,40 +166,40 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes** .
-  
-    b. No campo **Nome de usuário** , digite **brendafernandes\@dominiodaempresa.extensao**  
+    a. No campo **Nome**, insira **BrendaFernandes**.
+
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure, concedendo a ela acesso ao Clarizen.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, selecione **Clarizen** .
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, selecione **Clarizen**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **Clarizen** .
+2. Na lista de aplicativos, selecione **Clarizen**.
 
     ![O link do Clarizen na lista de Aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Usuários e grupos** .
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
     ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-clarizen-test-user"></a>Criar um usuário de teste do Clarizen
 
@@ -211,21 +211,21 @@ Para permitir que os usuários do Azure AD entrem no Clarizen, você deverá pro
 
 1. Entre em seu site de empresa do Clarizen como administrador.
 
-2. Clique em **Pessoas** .
+2. Clique em **Pessoas**.
 
     ![Clicar em "Pessoas"](./media/clarizen-tutorial/create_aaduser_001.png "Pessoas")
 
-3. Clique em **Convidar Usuário** .
+3. Clique em **Convidar Usuário**.
 
     ![Botão "Convidar Usuário"](./media/clarizen-tutorial/create_aaduser_002.png "Convidar Usuários")
 
-1. Na página **Convidar Pessoas** , execute as seguintes etapas:
+1. Na página **Convidar Pessoas**, execute as seguintes etapas:
 
     ![Caixa de diálogo "Convidar Pessoas"](./media/clarizen-tutorial/create_aaduser_003.png "Convidar Pessoas")
 
-    a. Na caixa **Email** , digite o endereço de email da conta de Brenda Fernandes.
+    a. Na caixa **Email**, digite o endereço de email da conta de Brenda Fernandes.
 
-    b. Clique em **Convidar** .
+    b. Clique em **Convidar**.
 
     > [!NOTE]
     > O titular da conta do Active Directory do Azure receberá um email e seguirá um link para confirmar a conta antes que ela se torne ativa.

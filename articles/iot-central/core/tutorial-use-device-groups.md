@@ -3,17 +3,16 @@ title: Tutorial – usar grupos de dispositivos no aplicativo Azure IoT Central 
 description: Tutorial – como um operador, saiba como usar grupos de dispositivos para analisar a telemetria de dispositivos no aplicativo do Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/12/2020
+ms.date: 11/16/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-manager: peterpfr
-ms.openlocfilehash: 3192a9f121d4380a3e681747596fc91997662bf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7d26eebb24662a448d8ccb44d037e7706fe776b
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90967940"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832837"
 ---
 # <a name="tutorial-use-device-groups-to-analyze-device-telemetry"></a>Tutorial: Usar grupos de dispositivos para analisar a telemetria do dispositivo
 
@@ -29,17 +28,18 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, você deve concluir os inícios rápidos [Criar um aplicativo do Azure IoT Central](./quick-deploy-iot-central.md) e [Adicionar um dispositivo simulado ao seu aplicativo do IoT Central](./quick-create-simulated-device.md) para criar o modelo de dispositivo **MXChip IoT DevKit** com o qual trabalhar.
+Antes de começar, você deve concluir os inícios rápidos [Criar um aplicativo do Azure IoT Central](./quick-deploy-iot-central.md) e [Adicionar um dispositivo simulado ao seu aplicativo do IoT Central](./quick-create-simulated-device.md) para criar o modelo de dispositivo **Controlador de Sensor** com o qual trabalhar.
 
 ## <a name="create-simulated-devices"></a>Criar dispositivos simulados
 
-Antes de criar um grupo de dispositivos, adicione pelo menos cinco dispositivos simulados do modelo de dispositivo **MXChip IoT DevKit** a ser usado neste tutorial:
+Antes de criar um grupo de dispositivos, adicione pelo menos cinco dispositivos simulados com base no modelo de dispositivo **Controlador de Sensor** a ser usado neste tutorial:
 
-![Cinco dispositivos de sensor simulados](./media/tutorial-use-device-groups/simulated-devices.png)
+
+:::image type="content" source="media/tutorial-use-device-groups/simulated-devices.png" alt-text="Captura de tela mostrando cinco dispositivos simulados do controlador de sensor":::
 
 Para quatro dos dispositivos de sensor simulados, use a exibição **Gerenciar dispositivo** para definir o nome do cliente como *Contoso*:
 
-![Definir o nome do cliente como Contoso](./media/tutorial-use-device-groups/customer-name.png)
+:::image type="content" source="media/tutorial-use-device-groups/customer-name.png" alt-text="Captura de tela que mostra como definir a propriedade de nuvem Nome do Cliente":::
 
 ## <a name="create-a-device-group"></a>Criar um grupo de dispositivos
 
@@ -47,20 +47,18 @@ Para criar um grupo de dispositivos:
 
 1. Escolha **Grupos de dispositivos** no painel esquerdo.
 
-1. Selecione **+** :
+1. Selecione **+ Novo**.
 
-    ![Novo grupo de dispositivos](media/tutorial-use-device-groups/image1.png)
+1. Dê ao seu grupo de dispositivos o nome *Dispositivos Contoso*. Também é possível adicionar uma descrição. Um grupo de dispositivos somente pode conter dispositivos de um único modelo de dispositivo. Escolha o modelo de dispositivo **Controlador de Sensor** a ser usado para esse grupo.
 
-1. Dê o nome *Dispositivos Contoso* ao grupo de dispositivos. Também é possível adicionar uma descrição. Um grupo de dispositivos somente pode conter dispositivos de um único modelo de dispositivo. Escolha o modelo de dispositivo **MXChip IoT DevKit** a ser usado para esse grupo.
-
-1. Para personalizar o grupo de dispositivos e incluir somente os dispositivos pertencentes ao **Contoso**, selecione **+ Filtrar**. Selecione a propriedade **Nome do Cliente**, o operador de comparação **Igual** e **Contoso** como o valor. É possível adicionar vários filtros e dispositivos que atendam a **todos** os critérios de filtro colocados no grupo de dispositivos. O grupo de dispositivos que você criou fica acessível a qualquer pessoa que tenha acesso ao aplicativo, portanto qualquer pessoa pode exibir, modificar ou excluir o grupo de dispositivos:
-
-    ![Consulta do grupo de dispositivos](media/tutorial-use-device-groups/image2.png)
+1. Para personalizar o grupo de dispositivos e incluir somente os dispositivos pertencentes ao **Contoso**, selecione **+ Filtrar**. Selecione a propriedade **Nome do Cliente**, o operador de comparação **Igual** e **Contoso** como o valor. É possível adicionar vários filtros e dispositivos que atendam a **todos** os critérios de filtro colocados no grupo de dispositivos. O grupo de dispositivos que você criou fica acessível a qualquer pessoa que tenha acesso ao aplicativo, portanto qualquer pessoa pode exibir, modificar ou excluir o grupo de dispositivos.
 
     > [!TIP]
     > O grupo de dispositivos é uma consulta dinâmica. Cada vez que você visualizar a lista de dispositivos, poderá haver diferentes dispositivos na lista. A lista depende de quais dispositivos atualmente atendem aos critérios da consulta.
 
 1. Selecione **Salvar**.
+
+:::image type="content" source="media/tutorial-use-device-groups/device-group-query.png" alt-text="Captura de tela que mostra a configuração de consulta do grupo de dispositivos":::
 
 > [!NOTE]
 > Para dispositivos do Azure IoT Edge, selecione modelos do Azure IoT Edge para criar um grupo de dispositivos.
@@ -75,15 +73,19 @@ Para analisar a telemetria de um grupo de dispositivos:
 
 1. Selecione o grupo de dispositivos **Dispositivos Contoso** que você criou. Em seguida, adicione os tipos de telemetria **Temperatura** e **Umidade**:
 
-    ![Criar análise](./media/tutorial-use-device-groups/create-analysis.png)
+    :::image type="content" source="media/tutorial-use-device-groups/create-analysis.png" alt-text="Captura de tela que mostra os tipos de telemetria selecionados para análise":::
 
-    Use os ícones de engrenagem ao lado dos tipos de telemetria para selecionar um tipo de agregação. O padrão é **Média**. Use **Dividir por** para alterar a forma como os dados agregados são mostrados. Por exemplo, se você dividir por ID do dispositivo, verá uma plotagem para cada dispositivo ao selecionar **Analisar**.
+    Use os ícones de engrenagem ao lado dos tipos de telemetria para selecionar um tipo de agregação. O padrão é **Média**. Use **Agrupar por** para alterar a forma como os dados agregados são mostrados. Por exemplo, se você dividir por ID do dispositivo, verá uma plotagem para cada dispositivo ao selecionar **Analisar**.
 
 1. Selecione **Analisar** para exibir os valores médios da telemetria:
 
-    ![Exibir análise](./media/tutorial-use-device-groups/view-analysis.png)
+    :::image type="content" source="media/tutorial-use-device-groups/view-analysis.png" alt-text="Captura de tela que mostra os valores médios para todos os dispositivos Contoso":::
 
     Você pode personalizar a exibição, alterar o período de tempo mostrado e exportar os dados.
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

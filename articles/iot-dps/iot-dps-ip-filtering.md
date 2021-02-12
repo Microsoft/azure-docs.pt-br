@@ -6,13 +6,13 @@ ms.author: wesmc
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 03/12/2020
-ms.openlocfilehash: 580c378df5fc3912aa540b5d85adf99bc42605e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/14/2020
+ms.openlocfilehash: e1b175a176255da465433b2db45cb3cb67d360d1
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511935"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934492"
 ---
 # <a name="use-azure-iot-dps-ip-connection-filters"></a>Usar filtros de conexão de IP do DPS em IoT do Azure
 
@@ -22,7 +22,7 @@ A segurança é um aspecto importante de qualquer solução de IoT. Às vezes vo
 
 Há dois casos de uso específicos em que é útil bloquear as conexões com um ponto de extremidade de DPS de determinados endereços IP:
 
-* Seu DPS deve receber tráfego somente de um intervalo especificado de endereços IP e rejeitar todos os outros. Por exemplo, você está usando o DPS com o [Azure ExpressRoute](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services) para criar conexões privadas entre um DPS e seus dispositivos.
+* Seu DPS deve receber tráfego somente de um intervalo especificado de endereços IP e rejeitar todos os outros. Por exemplo, você está usando o DPS com o [Azure ExpressRoute](../expressroute/expressroute-faqs.md#supported-services) para criar conexões privadas entre um DPS e seus dispositivos.
 
 * Você precisa rejeitar o tráfego dos endereços IP que foram identificados como suspeitos pelo administrador do DPS.
 
@@ -48,7 +48,7 @@ Após selecionar **Adicionar regra de filtro de IP**, preencha os campos.
 
 ![Após selecionar Adicionar uma regra de filtro de IP](./media/iot-dps-ip-filtering/ip-filter-after-selecting-add.png)
 
-* Forneça um **nome** para a regra de filtro de IP. O nome deve ser uma cadeia exclusiva de caracteres alfanuméricos, que não diferencia maiúsculas de minúsculas, de até 128 caracteres. Somente são aceitos caracteres alfanuméricos ASCII de 7 bits mais `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`.
+* Forneça um **nome** para a regra de filtro de IP. O nome deve ser uma cadeia exclusiva de caracteres alfanuméricos, que não diferencia maiúsculas de minúsculas, de até 128 caracteres. Somente são aceitos caracteres alfanuméricos ASCII de 7 bits mais `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`.
 
 * Forneça um endereço IPv4 único ou um bloco de endereços IP na notação CIDR. Por exemplo, uma notação CIDR 192.168.100.0/22 representa os 1024 endereços IPv4 de 192.168.100.0 a 192.168.103.255.
 
@@ -58,7 +58,7 @@ Depois de preencher os campos, selecione **Salvar** para salvar a regra. Você v
 
 ![Notificação sobre como salvar uma regra de filtro IP](./media/iot-dps-ip-filtering/ip-filter-save-new-rule.png)
 
-A opção **Adicionar** é desabilitada quando você atinge o máximo de dez regras de filtro IP.
+A opção **Adicionar** é desabilitada quando você atinge o máximo de 100 regras de filtro IP.
 
 Para editar uma regra existente, selecione os dados que você deseja alterar, faça a alteração e, em seguida, selecione **Salvar** para salvar a alteração.
 
@@ -74,7 +74,7 @@ Para excluir uma regra de filtro de IP, selecione o ícone de lixeira na respect
 
 ## <a name="update-ip-filter-rules-in-code"></a>Atualizar as regras de filtro de IP no código
 
-Você pode recuperar e modificar o filtro de IP do DPS usando o ponto de extremidade REST do provedor de recursos do Azure. Veja `properties.ipFilterRules` no [método createorupdate](https://docs.microsoft.com/rest/api/iot-dps/iotdpsresource/createorupdate).
+Você pode recuperar e modificar o filtro de IP do DPS usando o ponto de extremidade REST do provedor de recursos do Azure. Veja `properties.ipFilterRules` no [método createorupdate](/rest/api/iot-dps/iotdpsresource/createorupdate).
 
 No momento, não há suporte para a atualização das regras de filtro de IP do DPS na CLI do Azure nem no Azure PowerShell, mas ela pode ser realizada com os modelos do Azure Resource Manager. Confira [Modelos do Azure Resource Manager](../azure-resource-manager/templates/overview.md) para obter as diretrizes de como usar os modelos do Resource Manager. Os exemplos de modelo a seguir mostram como criar, editar e excluir regras de filtro de IP do DPS.
 
@@ -135,8 +135,8 @@ Atualize os atributos da regra de filtro de IP do modelo com base nos seus requi
 
 | Atributo                | Descrição |
 | ------------------------ | ----------- |
-| **FilterName**           | Forneça um nome para a regra de filtro de IP. O nome deve ser uma cadeia exclusiva de caracteres alfanuméricos, que não diferencia maiúsculas de minúsculas, de até 128 caracteres. Somente os caracteres alfanuméricos ASCII de 7 bits mais {'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''} são aceitos. |
-| **Ação**               | Os valores aceitos são **Accept** ou **Reject** como a ação para a regra de filtro de IP. |
+| **FilterName**           | Forneça um nome para a regra de filtro de IP. O nome deve ser uma cadeia exclusiva de caracteres alfanuméricos, que não diferencia maiúsculas de minúsculas, de até 128 caracteres. Somente os caracteres alfanuméricos ASCII de 7 bits mais  `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`   são aceitos. |
+| **Ação**               | Os valores aceitos são **Accept** ou  **Reject** como a ação para a regra de filtro de IP. |
 | **ipMask**               | Forneça um endereço IPv4 único ou um bloco de endereços IP na notação CIDR. Por exemplo, uma notação CIDR 192.168.100.0/22 representa os 1024 endereços IPv4 de 192.168.100.0 a 192.168.103.255. |
 
 
@@ -258,5 +258,5 @@ Para salvar a nova ordem das regras de filtro IP, clique em **Salvar**.
 Para explorar melhor o DPS de gerenciamento, confira:
 
 * [Noções básicas sobre os endereços IP do DPS em IoT](iot-dps-understand-ip-address.md)
-* [Configurar o DPS usando a CLI do Azure](how-to-manage-dps-with-cli.md)
+* [Configurar o DPS usando o CLI do Azure](quick-setup-auto-provision-cli.md)
 * [Controlar o acesso ao DPS](how-to-control-access.md)

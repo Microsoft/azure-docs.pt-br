@@ -1,19 +1,19 @@
 ---
 title: 'Início Rápido: Criar um Banco de Dados do Azure para MySQL usando az mysql up'
 description: Guia de Início Rápido para criar o servidor Banco de Dados do Azure para MySQL usando o comando para cima da CLI do Azure (interface de linha de comando).
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: a02d2e32a035581d486f22b97fc789957d0b4138
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: d89cc41ed26124ae4ad2e6689be6d59278c3d9da
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534032"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542160"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>Início Rápido: Criar um Banco de Dados do Azure para MySQL usando um comando de CLI do Azure simples - az postgres up (versão prévia)
 

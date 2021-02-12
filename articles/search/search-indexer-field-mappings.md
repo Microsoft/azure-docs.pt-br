@@ -3,19 +3,17 @@ title: Mapeamentos de campo em indexadores
 titleSuffix: Azure Cognitive Search
 description: Configure mapeamentos de campo em um indexador para considerar as diferenças em nomes de campo e representações de dados.
 manager: nitinme
-author: mattmsft
-ms.author: magottei
-ms.devlang: rest-api
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/11/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: a20b6509973c7dc7e54d2e4f702175ad61e88da8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/28/2021
+ms.openlocfilehash: fb3a77291d8b24d5774094533f8c214f1527d771
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532493"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430438"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mapeamentos de campo e transformações usando indexadores do Azure Pesquisa Cognitiva
 
@@ -44,16 +42,15 @@ Um mapeamento de campo é composto por três partes:
 Os mapeamentos de campo são adicionados à `fieldMappings` matriz da definição do indexador.
 
 > [!NOTE]
-> Se nenhum mapeamento de campo for adicionado, os indexadores presumirão que os campos de fonte de dados devem ser mapeados para campos de índice com o mesmo nome. A adição de um mapeamento de campo remove esses mapeamentos de campo padrão para o campo de origem e destino. Alguns indexadores, como [o indexador de armazenamento de BLOBs](search-howto-indexing-azure-blob-storage.md), adicionam mapeamentos de campo padrão para o campo chave de índice.
+> Se nenhum mapeamento de campo for adicionado, os indexadores presumirão que os campos de fonte de dados devem ser mapeados para campos de índice com o mesmo nome. A adição de um mapeamento de campo remove esses mapeamentos de campo padrão para o campo de origem e destino. Alguns indexadores, como o [indexador de armazenamento de BLOBs](search-howto-indexing-azure-blob-storage.md), adicionam mapeamentos de campo padrão para o campo chave de índice.
 
-## <a name="map-fields-using-the-rest-api"></a>Mapear campos usando a API REST
+## <a name="map-fields-using-rest"></a>Mapear campos usando REST
 
 Você pode adicionar mapeamentos de campo ao criar um novo indexador usando a solicitação criar API do [indexador](/rest/api/searchservice/create-Indexer) . Você pode gerenciar os mapeamentos de campo de um indexador existente usando a solicitação atualizar API do [indexador](/rest/api/searchservice/update-indexer) .
 
 Por exemplo, veja como mapear um campo de origem para um campo de destino com um nome diferente:
 
 ```JSON
-
 PUT https://[service name].search.windows.net/indexers/myindexer?api-version=[api-version]
 Content-Type: application/json
 api-key: [admin key]
@@ -77,11 +74,10 @@ Um campo de origem pode ser referenciado em vários mapeamentos de campo. O exem
 > [!NOTE]
 > O Azure Pesquisa Cognitiva usa a comparação que não diferencia maiúsculas de minúsculas para resolver os nomes de campo e função em mapeamentos de campo. Isso é conveniente (você não precisa obter todas as maiúsculas e minúsculas corretas), mas isso significa que a fonte de dados ou o índice não pode ter campos que diferem somente maiúsculas e minúsculas.  
 >
->
 
-## <a name="map-fields-using-the-net-sdk"></a>Mapear campos usando o SDK do .NET
+## <a name="map-fields-using-net"></a>Mapear campos usando o .NET
 
-Você define mapeamentos de campo no SDK do .NET usando a classe [FieldMapping](/dotnet/api/microsoft.azure.search.models.fieldmapping) , que tem as propriedades `SourceFieldName` e e `TargetFieldName` uma `MappingFunction` referência opcional.
+Você define mapeamentos de campo no SDK do .NET usando a classe [FieldMapping](/dotnet/api/azure.search.documents.indexes.models.fieldmapping) , que tem as propriedades `SourceFieldName` e e `TargetFieldName` uma `MappingFunction` referência opcional.
 
 Você pode especificar mapeamentos de campo ao construir o indexador, ou mais tarde, definindo diretamente a `Indexer.FieldMappings` propriedade.
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 0728e5d12b13164d127941a49603836ff92fd515
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: e46105f5889f4925be9873fd8613021fe5e8ac2d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045781"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920768"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Tutorial: Desenvolver módulos do IoT Edge para dispositivos Windows
 
@@ -33,24 +33,6 @@ Neste tutorial, você aprenderá como:
 > * Criar seu projeto como um contêiner e armazená-lo em um Registro de Contêiner do Azure.
 > * Implantar seu código em um dispositivo IoT Edge.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-## <a name="key-concepts"></a>Principais conceitos
-
-Este tutorial explica o desenvolvimento de um módulo do IoT Edge. Um *módulo do IoT Edge* ou, às vezes, apenas *módulo* de forma abreviada, é um contêiner que contém o código executável. É possível implantar um ou mais módulos em um dispositivo IoT Edge. Módulos executam tarefas específicas, como ingerir dados de sensores, executar análise de dados ou operações de limpeza de dados ou enviar mensagens a um hub IoT. Para saber mais, confira [Understand Azure IoT Edge modules](iot-edge-modules.md) (Noções básicas sobre módulos do Azure IoT Edge).
-
-Ao desenvolver módulos do IoT Edge, é importante entender as diferenças entre o computador de desenvolvimento e o dispositivo IoT Edge de destino em que o módulo será implantado eventualmente. O contêiner que você criar para armazenar seu código de módulo deverá corresponder ao SO (sistema operacional) do *dispositivo de destino*. Para o desenvolvimento de contêiner do Windows, esse conceito é mais simples porque os contêineres do Windows são executados somente em sistemas de operacionais do Windows. Entretanto, você poderia, por exemplo, usar seu computador de desenvolvimento do Windows para criar módulos para dispositivos Linux IoT Edge. Nesse cenário, você precisa garantir que seu computador de desenvolvimento estava executando contêineres do Linux. Ao percorrer este tutorial, lembre-se da diferença entre o *sistema operacional do computador de desenvolvimento* e o *sistema operacional do contêiner*.
-
-Este tutorial direciona dispositivos Windows que executam o IoT Edge. Os dispositivos Windows IoT Edge usam contêineres do Windows. É recomendável usar o Visual Studio para desenvolvimento para dispositivos Windows, portanto, é isso que este tutorial usará. É possível usar o Visual Studio Code também, embora haja diferenças no suporte entre as duas ferramentas.
-
-A tabela a seguir lista os cenários de desenvolvimento compatíveis com os **contêineres do Windows** no Visual Studio Code e no Visual Studio.
-
-|   | Visual Studio Code | Visual Studio 2017/2019 |
-| - | ------------------ | ------------------ |
-| **Serviços do Azure** | Funções do Azure <br> Stream Analytics do Azure |   |
-| **Idiomas** | C# (depuração não compatível) | C <br> C# |
-| **Mais informações** | [Azure IoT Edge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Ferramentas do Azure IoT Edge para Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)<br>[Ferramentas do Azure IoT Edge para Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Um computador de desenvolvimento:
@@ -68,6 +50,24 @@ Um dispositivo Azure IoT Edge no Windows:
 Recursos de nuvem:
 
 * Um [hub IoT](../iot-hub/iot-hub-create-through-portal.md) gratuito ou de camada padrão no Azure.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="key-concepts"></a>Principais conceitos
+
+Este tutorial explica o desenvolvimento de um módulo do IoT Edge. Um *módulo do IoT Edge* ou, às vezes, apenas *módulo* de forma abreviada, é um contêiner que contém o código executável. É possível implantar um ou mais módulos em um dispositivo IoT Edge. Módulos executam tarefas específicas, como ingerir dados de sensores, executar análise de dados ou operações de limpeza de dados ou enviar mensagens a um hub IoT. Para saber mais, confira [Understand Azure IoT Edge modules](iot-edge-modules.md) (Noções básicas sobre módulos do Azure IoT Edge).
+
+Ao desenvolver módulos do IoT Edge, é importante entender as diferenças entre o computador de desenvolvimento e o dispositivo IoT Edge de destino em que o módulo será implantado eventualmente. O contêiner que você criar para armazenar seu código de módulo deverá corresponder ao SO (sistema operacional) do *dispositivo de destino*. Para o desenvolvimento de contêiner do Windows, esse conceito é mais simples porque os contêineres do Windows são executados somente em sistemas de operacionais do Windows. Entretanto, você poderia, por exemplo, usar seu computador de desenvolvimento do Windows para criar módulos para dispositivos Linux IoT Edge. Nesse cenário, você precisa garantir que seu computador de desenvolvimento estava executando contêineres do Linux. Ao percorrer este tutorial, lembre-se da diferença entre o *sistema operacional do computador de desenvolvimento* e o *sistema operacional do contêiner*.
+
+Este tutorial direciona dispositivos Windows que executam o IoT Edge. Os dispositivos Windows IoT Edge usam contêineres do Windows. É recomendável usar o Visual Studio para desenvolvimento para dispositivos Windows, portanto, é isso que este tutorial usará. É possível usar o Visual Studio Code também, embora haja diferenças no suporte entre as duas ferramentas.
+
+A tabela a seguir lista os cenários de desenvolvimento compatíveis com os **contêineres do Windows** no Visual Studio Code e no Visual Studio.
+
+|   | Visual Studio Code | Visual Studio 2017/2019 |
+| - | ------------------ | ------------------ |
+| **Serviços do Azure** | Funções do Azure <br> Stream Analytics do Azure |   |
+| **Idiomas** | C# (depuração não compatível) | C <br> C# |
+| **Mais informações** | [Azure IoT Edge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Ferramentas do Azure IoT Edge para Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)<br>[Ferramentas do Azure IoT Edge para Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
 ## <a name="install-container-engine"></a>Instalar o mecanismo de contêiner
 
@@ -205,7 +205,7 @@ O código de exemplo C# que vem com o modelo de projeto usa a [classe ModuleClie
 
 7. Localize a propriedade **routes** das propriedades desejadas de $edgeHub.
 
-   Uma das funções do módulo do hub do IoT Edge é rotear mensagens entre todos os módulos em uma implantação. Examine os valores na propriedade routes. Uma das rotas, **IotEdgeModule1ToIoTHub**, usa um caractere curinga ( **\*** ) para incluir qualquer mensagem recebida de qualquer fila de saída no módulo IotEdgeModule1. Essas mensagens entram em *$upstream*, que é um nome reservado que indica o Hub IoT. A outra rota, **sensorToIotEdgeModule1**, usa mensagens provenientes do módulo SimulatedTemperatureSensor e as roteia para a fila de entrada *input1* do módulo IotEdgeModule1.
+   Uma das funções do módulo do hub do IoT Edge é rotear mensagens entre todos os módulos em uma implantação. Examine os valores na propriedade routes. Uma das rotas, **IotEdgeModule1ToIoTHub**, usa um caractere curinga (* *\** _) para incluir qualquer mensagem recebida de qualquer fila de saída no módulo IotEdgeModule1. Essas mensagens entram em _$upstream*, um nome reservado que indica o hub IoT. A outra rota, **sensorToIotEdgeModule1**, usa mensagens provenientes do módulo SimulatedTemperatureSensor e as roteia para a fila de entrada *input1* do módulo IotEdgeModule1.
 
    ![Examinar rotas em deployment.template.json](./media/tutorial-develop-for-windows/deployment-routes.png)
 

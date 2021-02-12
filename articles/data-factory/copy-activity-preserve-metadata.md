@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: jingwang
 ms.openlocfilehash: a96b04df56dc7d5ea26463073d673275b8a4a8c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324290"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015070"
 ---
 #  <a name="preserve-metadata-and-acls-using-copy-activity-in-azure-data-factory"></a>Preservar metadados e ACLs usando a atividade de cópia no Azure Data Factory
 
@@ -31,11 +31,11 @@ Ao migrar dados de um data Lake para outro, incluindo [Amazon S3](connector-amaz
 A atividade de cópia dá suporte à preservação dos seguintes atributos durante a cópia de dados:
 
 - **Todos os metadados especificados pelo cliente** 
-- E as **cinco Propriedades de sistema internas do repositório de dados**a seguir: `contentType` , `contentLanguage` (exceto para Amazon S3),, `contentEncoding` `contentDisposition` , `cacheControl` .
+- E as **cinco Propriedades de sistema internas do repositório de dados** a seguir: `contentType` , `contentLanguage` (exceto para Amazon S3),, `contentEncoding` `contentDisposition` , `cacheControl` .
 
 **Tratar diferenças nos metadados:** O Amazon S3 e o armazenamento do Azure permitem diferentes conjuntos de caracteres nas chaves dos metadados especificados pelo cliente. Quando você opta por preservar os metadados usando a atividade de cópia, o ADF substitui automaticamente os caracteres inválidos por ' _ '.
 
-Ao copiar arquivos no estado em que se encontram do Amazon S3/Azure data Lake Storage Gen2/blob do Azure/armazenamento de arquivos do Azure para Azure data Lake Storage Gen2/blob do Azure/armazenamento de arquivos do Azure com formato binário, você pode encontrar a opção **preservar** na **Copy Activity**  >  guia**configurações** da atividade de cópia para criação de atividade ou a página **configurações** na ferramenta copiar dados.
+Ao copiar arquivos no estado em que se encontram do Amazon S3/Azure data Lake Storage Gen2/blob do Azure/armazenamento de arquivos do Azure para Azure data Lake Storage Gen2/blob do Azure/armazenamento de arquivos do Azure com formato binário, você pode encontrar a opção **preservar** na **Copy Activity**  >  guia **configurações** da atividade de cópia para criação de atividade ou a página **configurações** na ferramenta copiar dados.
 
 ![Preservar metadados de atividade de cópia](./media/copy-activity-preserve-metadata/copy-activity-preserve-metadata.png)
 
@@ -98,7 +98,7 @@ Se você especificar para copiar de uma pasta, Data Factory Replica as ACLs para
 >[!IMPORTANT]
 >Ao optar por preservar as ACLs, certifique-se de conceder permissões altas o suficiente para Data Factory operar em sua conta de Data Lake Storage Gen2 do coletor. Por exemplo, use a autenticação de chave de conta ou atribua a função de proprietário de dados do blob de armazenamento à entidade de serviço ou à identidade gerenciada.
 
-Quando você configura a origem como data Lake Storage Gen1/Gen2 com o formato binário ou a opção de cópia binária, e o coletor como data Lake Storage Gen2 com formato binário ou a opção de cópia binária, você pode encontrar a opção **preservar** na página **configurações** na ferramenta copiar dados ou na **Copy Activity**  >  guia**configurações** da atividade de cópia para a criação de atividades.
+Quando você configura a origem como data Lake Storage Gen1/Gen2 com o formato binário ou a opção de cópia binária, e o coletor como data Lake Storage Gen2 com formato binário ou a opção de cópia binária, você pode encontrar a opção **preservar** na página **configurações** na ferramenta copiar dados ou na **Copy Activity**  >  guia **configurações** da atividade de cópia para a criação de atividades.
 
 ![Data Lake Storage Gen1/Gen2 Gen2 preservar ACL](./media/connector-azure-data-lake-storage/adls-gen2-preserve-acl.png)
 

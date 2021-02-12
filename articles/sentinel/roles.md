@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 0704f076ef7c5d1a39af67d3ec6ec2baece1fda5
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 9c100ca82b751a050e74cce85e1794701a789288
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517294"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95498462"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Permissões no Azure Sentinel
 
@@ -54,7 +54,7 @@ Os usuários com requisitos de trabalho específicos podem precisar receber fun�
 
 - Trabalhando com guias estratégicos para automatizar as respostas a ameaças
 
-    O Azure Sentinel usa **Guias estratégicos** para resposta automatizada contra ameaças. Os guias estratégicos são criados em **aplicativos lógicos do Azure**e são um recurso do Azure separado. Talvez você queira atribuir a membros específicos de sua equipe de operações de segurança a capacidade de usar aplicativos lógicos para operações de orquestração de segurança, automação e resposta (disparar). Você pode usar a função [colaborador do aplicativo lógico](../role-based-access-control/built-in-roles.md#logic-app-contributor) ou a função [operador do aplicativo lógico](../role-based-access-control/built-in-roles.md#logic-app-operator) para atribuir permissão explícita para usar guias estratégicos.
+    O Azure Sentinel usa **Guias estratégicos** para resposta automatizada contra ameaças. Os guias estratégicos são criados em **aplicativos lógicos do Azure** e são um recurso do Azure separado. Talvez você queira atribuir a membros específicos de sua equipe de operações de segurança a capacidade de usar aplicativos lógicos para operações de orquestração de segurança, automação e resposta (disparar). Você pode usar a função [colaborador do aplicativo lógico](../role-based-access-control/built-in-roles.md#logic-app-contributor) ou a função [operador do aplicativo lógico](../role-based-access-control/built-in-roles.md#logic-app-operator) para atribuir permissão explícita para usar guias estratégicos.
 
 - Conectando fontes de dados ao Azure Sentinel
 
@@ -91,7 +91,7 @@ A tabela a seguir resume as funções e as ações permitidas no Azure Sentinel.
 
 - Além de, ou em vez de usar funções internas do Azure, você pode criar funções personalizadas do Azure para o Azure Sentinel. As funções personalizadas do Azure para o Azure Sentinel são criadas da mesma maneira que você cria outras [funções personalizadas do Azure](../role-based-access-control/custom-roles-rest.md#create-a-custom-role), com base em [permissões específicas para o Azure Sentinel](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) e para [recursos de log Analytics do Azure](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).
 
-- Você pode usar o Log Analytics controle de acesso baseado em função avançado nos dados em seu espaço de trabalho do Azure Sentinel. Isso inclui o RBAC do Azure baseado em tipo de dados e o RBAC do Azure centrado em recursos. Para obter mais informações sobre Log Analytics funções, consulte [gerenciar dados de log e espaços de trabalho no Azure monitor](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
+- Você pode usar o Log Analytics controle de acesso baseado em função do Azure avançado nos dados em seu espaço de trabalho do Azure Sentinel. Isso inclui o RBAC do Azure baseado em tipo de dados e o RBAC do Azure centrado em recursos. Para obter mais informações sobre Log Analytics funções, consulte [gerenciar dados de log e espaços de trabalho no Azure monitor](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
 
 ## <a name="next-steps"></a>Próximas etapas
 

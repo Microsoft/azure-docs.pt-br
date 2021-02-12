@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 4c3b5674fe039a89eb97b915d13b5d472a6a0568
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96b9754908f437ccf81e002e9e9dd17af0bab4e3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316385"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019068"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Reconheça quais são os enunciados ideais para o aplicativo LUIS
 
@@ -29,7 +29,7 @@ Colete enunciados que você acredita que os usuários irão inserir. Inclua enun
 
 ## <a name="how-to-choose-varied-utterances"></a>Como escolher enunciados variados
 
-Quando você começar a [adicionar adicionando enunciados de exemplo](luis-how-to-add-example-utterances.md) ao seu modelo LUIS, aqui estão alguns princípios a ter em mente.
+Quando você começar a [adicionar adicionando enunciados de exemplo](./luis-how-to-add-entities.md) ao seu modelo LUIS, aqui estão alguns princípios a ter em mente.
 
 ### <a name="utterances-arent-always-well-formed"></a>Os enunciados nem sempre são bem formados
 
@@ -147,5 +147,4 @@ Se você quiser que uma entidade de evento localize todos os dados do evento, ro
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Consulte [Adicionar enunciados de exemplo](luis-how-to-add-example-utterances.md) para obter informações sobre o treinamento de um aplicativo de LUIS para entender enunciados do usuário.
-
+Consulte [Adicionar enunciados de exemplo](./luis-how-to-add-entities.md) para obter informações sobre o treinamento de um aplicativo de LUIS para entender enunciados do usuário.

@@ -2,23 +2,24 @@
 title: Quais são as soluções para executar o Oracle WebLogic Server no serviço kubernetes do Azure
 description: Saiba como executar o Oracle WebLogic Server no serviço kubernetes do Azure.
 author: rezar
-ms.service: container-service
+ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 10/28/2020
 ms.author: rezar
 ms.reviewer: cynthn
-ms.openlocfilehash: c797148bdc07481cb312739ef020e88963599374
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: cf44ad8d81656248329d993d86e9922dc4985258
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928731"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486667"
 ---
 # <a name="what-are-solutions-for-running-oracle-weblogic-server-on-the-azure-kubernetes-service"></a>Quais são as soluções para executar o Oracle WebLogic Server no serviço kubernetes do Azure?
 
 Esta página descreve as soluções para executar o Oracle WebLogic Server (WLS) no serviço kubernetes do Azure (AKS). Essas soluções são desenvolvidas e suportadas em conjunto pela Oracle e pela Microsoft.
 
-Também é possível executar o WebLogic Server em máquinas virtuais do Azure. As soluções para fazer isso são descritas neste [artigo da Microsoft](/azure/virtual-machines/workloads/oracle/oracle-weblogic).
+Também é possível executar o WebLogic Server em máquinas virtuais do Azure. As soluções para fazer isso são descritas neste [artigo da Microsoft](./oracle-weblogic.md).
 
 O WebLogic Server é um servidor de aplicativos Java líder que executa alguns dos aplicativos Java empresariais de missão crítica em todo o mundo. O WebLogic Server forma a base de middleware para o Oracle Software Suite. A Oracle e a Microsoft estão comprometidas em capacitar os clientes do WebLogic Server com opções e flexibilidade para executar cargas de trabalho no Azure como uma plataforma de nuvem líder.
 
@@ -30,11 +31,13 @@ Os clusters do WebLogic Server são totalmente habilitados para serem executados
 ## <a name="guidance-scripts-and-samples-for-wls-on-aks"></a>Orientações, scripts e exemplos para o WLS no AKS
 Além de certificar o WebLogic Server em AKS, a Oracle e a Microsoft conjuntas fornecem instruções, scripts e exemplos detalhados para executar o WebLogic Server no AKS. A orientação é incorporada na seção exemplo do serviço kubernetes do Azure da [documentação do operador](https://oracle.github.io/weblogic-kubernetes-operator/samples/simple/azure-kubernetes-service/). A orientação destina-se a tornar o WebLogic Server de produção em implantações AKS o mais fácil possível. A orientação usa as imagens oficiais do WebLogic Server Docker fornecidas pela Oracle. O failover é obtido por meio de arquivos do Azure acessados por meio de declarações de volume persistente kubernetes Os balanceadores de carga do Azure têm suporte quando provisionados usando um serviço kubernetes do tipo ' Load Balancer '. A orientação permite um alto grau de configuração e personalização.
 
+:::image type="content" source="media/oracle-weblogic/wls-on-aks.gif" alt-text="Você pode usar os scripts de exemplo para implantar o WebLogic Server no AKS":::
+
 Atualmente, as diretrizes pressupõem a implantação do domínio fora da imagem do Docker e o uso das imagens padrão do Docker da Oracle. Vamos adicionar orientações para habilitar imagens personalizadas com seu domínio dentro de uma imagem do Docker. As mais fáceis de usar e integrações de serviço do Azure são possíveis no futuro por meio das ofertas do Marketplace espelhando o Oracle WebLogic Server em soluções de máquinas virtuais do Azure.
 
-_Essas soluções são traga sua própria licença_ . Eles supõem que você já tenha as licenças apropriadas com o Oracle e que estejam devidamente licenciados para executar ofertas no Azure.
+_Essas soluções são traga sua própria licença_. Eles supõem que você já tenha as licenças apropriadas com o Oracle e que estejam devidamente licenciados para executar ofertas no Azure.
 
-_Se você estiver interessado em trabalhar de acordo com seus cenários de migração com a equipe de engenharia desenvolvendo essas soluções, preencha [esta breve pesquisa](https://aka.ms/wls-on-azure-survey) e inclua suas informações de contato_ . Gerentes de programas, arquitetos e engenheiros entrarão em contato novamente em breve e começarão a colaboração. A oportunidade de colaborar em um cenário de migração é gratuita enquanto as soluções estão sob o desenvolvimento inicial ativo.
+_Se você estiver interessado em trabalhar de acordo com seus cenários de migração com a equipe de engenharia desenvolvendo essas soluções, preencha [esta breve pesquisa](https://aka.ms/wls-on-azure-survey) e inclua suas informações de contato_. Gerentes de programas, arquitetos e engenheiros entrarão em contato novamente em breve e começarão a colaboração. A oportunidade de colaborar em um cenário de migração é gratuita enquanto as soluções estão sob o desenvolvimento inicial ativo.
 
 ## <a name="deployment-architectures"></a>Arquiteturas de implantação
 

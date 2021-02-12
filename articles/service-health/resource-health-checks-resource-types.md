@@ -3,12 +3,12 @@ title: Tipos de recurso com suporte por meio do Azure Resource Health | Microsof
 description: Tipos de recurso com suporte por meio do Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 79f979b55366d29ca8cf22a1e65ebdcc557ef594
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 1b0958732a96786b2fb86b2b145f5cb8d36c0c5a
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899491"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883360"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos e verificações de integridade no Azure Resource Health
 Abaixo, temos uma lista completa de todas as verificações executadas por meio do Resource Health segundo o tipo do recurso.
@@ -168,6 +168,11 @@ Abaixo, temos uma lista completa de todas as verificações executadas por meio 
 |Verificações executadas|
 |---|
 |<ul><li>O desempenho do Gateway de Aplicativo está degradado?</li><li>O Gateway de Aplicativo está disponível?</li></ul>|
+
+## <a name="microsoftnetworkbastionhosts"></a>Microsoft. Network/bastionhosts
+|Verificações executadas|
+|---|
+|<ul><li>O host de bastiões está em funcionamento?</li></ul>|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |Verificações executadas|

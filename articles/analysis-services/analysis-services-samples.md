@@ -1,5 +1,5 @@
 ---
-title: Amostras de banco de dados, código e projeto do Azure Analysis Services | Microsoft Docs
+title: Exemplos de código, projeto e banco de dados de Azure Analysis Services
 description: Este artigo descreve os recursos para aprender sobre códigos, projetos e amostras de banco de dados para Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b63581b5192c93a8377a642c21eacbd291579b22
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0ab0e64d9a088a332ba037dccf01dc445998ebfb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013671"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457566"
 ---
 # <a name="azure-analysis-services-samples"></a>Amostras do Azure Analysis Services
 
@@ -28,7 +28,7 @@ O repositório do [Analysis Services](https://github.com/Microsoft/Analysis-Serv
 
 ## <a name="sample-database-on-azure"></a>Banco de dados de exemplo no Azure
 
-O Azure Synapse Analytics (SQL Data Warehouse) fornece um exemplo de banco de dados AdventureWorksDW que pode ser incluído em um recurso provisionado. Para saber mais, consulte [início rápido: criar e consultar um pool de SQL do Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
+O Azure Synapse Analytics fornece um exemplo de banco de dados AdventureWorksDW que pode ser incluído em um recurso provisionado. Para saber mais, consulte [início rápido: criar e consultar um pool SQL dedicado no Azure Synapse Analytics ](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
 ## <a name="sample-databases-on-github"></a>Bancos de dados de exemplo no GitHub
 

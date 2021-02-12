@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 09/28/2020
 ms.author: apimpm
 ms.openlocfilehash: 979bdaa1e0dac4f45a321abda2a208f46983f9cd
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108126"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010224"
 ---
 # <a name="tutorial-transform-and-protect-your-api"></a>Tutorial: Transformar e proteger sua API
 
@@ -51,28 +51,28 @@ Esta seção mostra como ocultar os cabeçalhos HTTP que você não deseja mostr
 
 Para ver a resposta original:
 
-1. Em sua instância de serviço do Gerenciamento de API, selecione **APIs** .
+1. Em sua instância de serviço do Gerenciamento de API, selecione **APIs**.
 1. Selecione **API de Conferência de Demonstração** em sua lista de APIs.
 1. Selecione a guia **Testar** na parte superior da tela.
-1. Selecione a operação **GetSpeakers** e selecione **Enviar** .
+1. Selecione a operação **GetSpeakers** e selecione **Enviar**.
 
 A resposta original deve se parecer com a seguinte:
 
-:::image type="content" source="media/transform-api/original-response.png" alt-text="Políticas no portal":::
+:::image type="content" source="media/transform-api/original-response.png" alt-text="Resposta da API original":::
 
-Como você pode ver, a resposta inclui os cabeçalhos **X-AspNet-Version** e **X-Powered-By** .
+Como você pode ver, a resposta inclui os cabeçalhos **X-AspNet-Version** e **X-Powered-By**.
 
 ### <a name="set-the-transformation-policy"></a>Definir a política de transformação
 
-1. Selecione **API de Conferência de Demonstração** > **Design** > **Todas as operações** .
-4. Na seção **Processamento de saída** , selecione o ícone do editor de código ( **</>** ).
+1. Selecione **API de Conferência de Demonstração** > **Design** > **Todas as operações**.
+4. Na seção **Processamento de saída**, selecione o ícone do editor de código ( **</>** ).
 
-   :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png" alt-text="Políticas no portal" border="false":::
+   :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png" alt-text="Navegar para a política de saída" border="false":::
 
 1. Posicione o cursor dentro do elemento de **&lt;saída&gt;** e selecione **Mostrar snippets** no canto superior direito.
-1. Na janela à direita, em **Políticas de transformação** , selecione **Definir cabeçalho HTTP** duas vezes (para inserir dois snippets de política).
+1. Na janela à direita, em **Políticas de transformação**, selecione **Definir cabeçalho HTTP** duas vezes (para inserir dois snippets de política).
 
-   :::image type="content" source="media/transform-api/transform-api.png" alt-text="Políticas no portal":::
+   :::image type="content" source="media/transform-api/transform-api.png" alt-text="Definir política de cabeçalho HTTP":::
 
 1. Modifique seu código **\<outbound>** para ter a seguinte aparência:
 
@@ -81,9 +81,9 @@ Como você pode ver, a resposta inclui os cabeçalhos **X-AspNet-Version** e **X
    <set-header name="X-AspNet-Version" exists-action="delete" />
    ```
 
-   :::image type="content" source="media/transform-api/set-policy.png" alt-text="Políticas no portal":::
+   :::image type="content" source="media/transform-api/set-policy.png" alt-text="Definir cabeçalho HTTP":::
 
-1. Clique em **Salvar** .
+1. Clique em **Salvar**.
 
 ## <a name="replace-original-urls-in-the-body-of-the-api-response-with-apim-gateway-urls"></a>Substituir as URLs originais no corpo da resposta da API por URLs de gateway de APIM
 
@@ -93,33 +93,33 @@ Esta seção mostra como ocultar as URLs originais que aparecem no corpo da resp
 
 Para ver a resposta original:
 
-1. Selecione **API de Conferência de Demonstração** > **Testar** .
-1. Selecione a operação **GetSpeakers** e selecione **Enviar** .
+1. Selecione **API de Conferência de Demonstração** > **Testar**.
+1. Selecione a operação **GetSpeakers** e selecione **Enviar**.
 
     Como você pode ver, a resposta inclui as URLs de back-end originais:
 
-    :::image type="content" source="media/transform-api/original-response2.png" alt-text="Políticas no portal":::
+    :::image type="content" source="media/transform-api/original-response2.png" alt-text="URLs originais na resposta":::
 
 
 ### <a name="set-the-transformation-policy"></a>Definir a política de transformação
 
-1.  Selecione **API de Conferência de Demonstração** > **Todas as operações** > **Design** .
-1.  Na seção **Processamento de saída** , selecione o ícone do editor de código ( **</>** ).
+1.  Selecione **API de Conferência de Demonstração** > **Todas as operações** > **Design**.
+1.  Na seção **Processamento de saída**, selecione o ícone do editor de código ( **</>** ).
 1.  Posicione o cursor dentro do elemento de **&lt;saída&gt;** e selecione **Mostrar snippets** no canto superior direito.
-1.  Na janela à direita, em **Políticas de transformação** , selecione **Mascarar URLs no conteúdo** . 
-1.  Clique em **Salvar** .
+1.  Na janela à direita, em **Políticas de transformação**, selecione **Mascarar URLs no conteúdo**. 
+1.  Clique em **Salvar**.
 
 ## <a name="protect-an-api-by-adding-rate-limit-policy-throttling"></a>Proteger uma API adicionando a política de limite de taxa (limitação)
 
 Esta seção mostra como adicionar a proteção para a API de back-end configurando limites de taxa. Por exemplo, talvez você queira limitar a taxa de chamadas à API para que a API não seja usada em excesso pelos desenvolvedores. Neste exemplo, o limite é definido como 3 chamadas por 15 segundos para cada ID de assinatura. Depois de 15 segundos, um desenvolvedor pode repetir a chamada à API.
 
-1.  Selecione **API de Conferência de Demonstração** > **Todas as operações** > **Design** .
-1.  Na seção **Processamento de entrada** , selecione o ícone do editor de código ( **</>** ).
+1.  Selecione **API de Conferência de Demonstração** > **Todas as operações** > **Design**.
+1.  Na seção **Processamento de entrada**, selecione o ícone do editor de código ( **</>** ).
 1.  Posicione o cursor dentro do elemento de **&lt;entrada&gt;** e selecione **Mostrar snippets** no canto superior direito.
 
-    :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png" alt-text="Políticas no portal" border="false":::
+    :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png" alt-text="Definir política de entrada" border="false":::
 
-1.  Na janela à direita, em **Políticas de restrição de acesso** , clique em **+ Limitar taxa de chamada por chave** .
+1.  Na janela à direita, em **Políticas de restrição de acesso**, clique em **+ Limitar taxa de chamada por chave**.
 1.  Modifique o código **rate-limit-by-key** (no elemento **\<inbound\>** ) para o seguinte código:
 
     ```
@@ -155,32 +155,32 @@ O restante desta seção testa as transformações de política que você defini
 
 ### <a name="test-the-stripped-response-headers"></a>Testar os cabeçalhos de resposta retirados
 
-1. Selecione **API de Conferência de Demonstração** > **Testar** .
-1. Selecione a operação **GetSpeakers** e selecione **Enviar** .
+1. Selecione **API de Conferência de Demonstração** > **Testar**.
+1. Selecione a operação **GetSpeakers** e selecione **Enviar**.
 
     Como você pode ver, os cabeçalhos foram retirados:
 
-    :::image type="content" source="media/transform-api/final-response1.png" alt-text="Políticas no portal":::
+    :::image type="content" source="media/transform-api/final-response1.png" alt-text="Cabeçalhos de resposta retirados":::
 
 ### <a name="test-the-replaced-url"></a>Testar a URL substituída
 
-1. Selecione **API de Conferência de Demonstração** > **Testar** .
-1. Selecione a operação **GetSpeakers** e selecione **Enviar** .
+1. Selecione **API de Conferência de Demonstração** > **Testar**.
+1. Selecione a operação **GetSpeakers** e selecione **Enviar**.
 
     Como você pode ver, a URL foi substituída.
 
-    :::image type="content" source="media/transform-api/final-response2.png" alt-text="Políticas no portal":::
+    :::image type="content" source="media/transform-api/final-response2.png" alt-text="URL substituída":::
 
 ### <a name="test-the-rate-limit-throttling"></a>Testar o limite de taxa (limitação)
 
-1. Selecione **API de Conferência de Demonstração** > **Testar** .
-1. Selecione a operação **GetSpeakers** . Selecione **Enviar** três vezes seguidas.
+1. Selecione **API de Conferência de Demonstração** > **Testar**.
+1. Selecione a operação **GetSpeakers**. Selecione **Enviar** três vezes seguidas.
 
-    Depois de enviar a solicitação três vezes, você obtém a resposta **429 Muitas solicitações** .
+    Depois de enviar a solicitação três vezes, você obtém a resposta **429 Muitas solicitações**.
 
-    :::image type="content" source="media/transform-api/test-throttling.png" alt-text="Políticas no portal":::
+    :::image type="content" source="media/transform-api/test-throttling.png" alt-text="Número excessivo de solicitações":::
 
-1. Aguarde 15 segundos e selecione **Enviar** novamente. Neste momento, você deve obter uma resposta **200 OK** .
+1. Aguarde 15 segundos e selecione **Enviar** novamente. Neste momento, você deve obter uma resposta **200 OK**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

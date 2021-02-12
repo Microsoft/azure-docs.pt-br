@@ -3,16 +3,16 @@ title: Obtenha informações usando o centro de backup
 description: Saiba como analisar tendências históricas e obter informações mais aprofundadas sobre seus backups com o centro de backup.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: c0f687ee123abe2f95ad0d23a6fe302f4a5c22e1
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: c5f707ce3bc8d1172805ac14958a50bf59d1412d
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173751"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893686"
 ---
-# <a name="obtain-insights-using-backup-center"></a>Obtenha informações usando o centro de backup
+# <a name="obtain-insights-using-backup-center-preview"></a>Obter informações usando o centro de backup (versão prévia)
 
-Para analisar tendências históricas e obter informações mais aprofundadas sobre seus backups, o centro de backup fornece uma interface para [fazer backup de relatórios](configure-reports.md), que usa [logs de Azure monitor](../azure-monitor/platform/data-platform-logs.md) e [pastas de trabalho do Azure](../azure-monitor/platform/workbooks-overview.md). Os relatórios de backup oferecem os seguintes recursos:
+Para analisar as tendências históricas e obter informações mais aprofundadas sobre seus backups, o centro de backup fornece uma interface para os [relatórios de backup (versão prévia)](configure-reports.md), que usa [logs de Azure monitor](../azure-monitor/platform/data-platform-logs.md) e [pastas de trabalho do Azure](../azure-monitor/platform/workbooks-overview.md). Os relatórios de backup oferecem os seguintes recursos:
 
 - Alocação e previsão do armazenamento em nuvem consumido.
 
@@ -24,7 +24,7 @@ Para analisar tendências históricas e obter informações mais aprofundadas so
 
 ## <a name="supported-scenarios"></a>Cenários com suporte
 
-- Os relatórios de backup não estão disponíveis no momento para o backup do servidor do banco de dados do Azure para PostgreSQL.
+- Os relatórios de backup (visualização) não estão disponíveis no momento para o backup do servidor do banco de dados do Azure para PostgreSQL.
 
 - Consulte a [matriz de suporte](backup-center-support-matrix.md) para obter uma lista detalhada de cenários com e sem suporte.
 

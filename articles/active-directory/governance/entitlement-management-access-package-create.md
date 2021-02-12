@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c1734af799ee473d6ba75fe2e8ab8429afa51d0
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: b2ce3b362d02e7acb0a11e6d93b8e94ca8e4d04e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318190"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903523"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Criar um novo pacote de acesso no gerenciamento de direitos do Azure AD
 
@@ -83,13 +83,13 @@ Na guia **noções básicas** , você dá um nome ao pacote de acesso e especifi
 
     O pacote de acesso que você está criando e todos os recursos incluídos nele serão adicionados ao novo catálogo. Você também pode adicionar mais proprietários de catálogo posteriormente.
 
-1. Clique em **Próximo**.
+1. Clique em **Avançar**.
 
 ## <a name="resource-roles"></a>Funções de recurso
 
 Na guia **funções de recurso** , selecione os recursos a serem incluídos no pacote de acesso. Os usuários que solicitam e recebem o pacote de acesso receberão todas as funções de recurso no pacote de acesso.
 
-1. Clique no tipo de recurso que você deseja adicionar (**grupos e equipes**, **aplicativos**ou **sites do SharePoint**).
+1. Clique no tipo de recurso que você deseja adicionar (**grupos e equipes**, **aplicativos** ou **sites do SharePoint**).
 
 1. No painel Selecionar que aparece, selecione um ou mais recursos na lista.
 
@@ -105,7 +105,10 @@ Na guia **funções de recurso** , selecione os recursos a serem incluídos no p
 
     ![Pacote de acesso-seleção de função de recurso](./media/entitlement-management-access-package-create/resource-roles-role.png)
 
-1. Clique em **Próximo**.
+1. Clique em **Avançar**.
+
+>[!NOTE]
+>Você pode adicionar grupos dinâmicos a um catálogo e a um pacote do Access. No entanto, você poderá selecionar apenas a função de proprietário ao gerenciar um recurso de grupo dinâmico em um pacote de acesso.
 
 ## <a name="requests"></a>Requests
 
@@ -125,7 +128,7 @@ Na guia **revisar + criar** , você pode examinar as configurações e verificar
 
 1. Examinar as configurações do pacote de acesso
 
-    ![Pacote de acesso-configuração de política de habilitação de política](./media/entitlement-management-access-package-create/review-create.png)
+    ![Pacote de acesso – Habilitar configuração de política](./media/entitlement-management-access-package-create/review-create.png)
 
 1. Clique em **criar** para criar o pacote de acesso.
 

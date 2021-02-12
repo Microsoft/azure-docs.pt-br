@@ -1,5 +1,5 @@
 ---
-title: 'CLI: Fazer backup de um aplicativo'
+title: 'CLI: fazer backup de um aplicativo'
 description: Saiba como usar a CLI do Azure para automatizar a implantação e o gerenciamento do seu aplicativo do Serviço de Aplicativo. Esta amostra descreve como fazer backup de um aplicativo.
 author: msangapu-msft
 tags: azure-service-management
@@ -8,13 +8,13 @@ ms.topic: sample
 ms.date: 12/07/2017
 ms.author: msangapu
 ms.reviewer: cephalin
-ms.custom: mvc, seodec18
-ms.openlocfilehash: b0fdb3e7bbf2fa2482fbff78bdf1f143ca7656fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: 4f87e610c1f3315b21a9c157f127e713ff5444f2
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962741"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747535"
 ---
 # <a name="back-up-an-app-using-cli"></a>Fazer backup de um aplicativo usando a CLI
 
@@ -38,14 +38,14 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 
 | Comando | Observações |
 |---|---|
-| [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [`az storage account create`](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) | Cria uma conta de armazenamento. |
-| [`az storage container create`](/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) | Cria um contêiner de armazenamento do Azure. |
-| [`az storage container generate-sas`](/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-generate-sas) | Gera um token SAS para um contêiner de armazenamento do Azure.  |
-| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Cria um Plano do Serviço de Aplicativo. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria um aplicativo do Serviço de Aplicativo. |
-| [`az webapp config backup create`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-create) | Cria um backup para um aplicativo do Serviço de Aplicativo. |
-| [`az webapp config backup list`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-list) | Obtém uma lista de backups para um aplicativo do Serviço de Aplicativo. |
+| [`az group create`](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [`az storage account create`](/cli/azure/storage/account#az-storage-account-create) | Cria uma conta de armazenamento. |
+| [`az storage container create`](/cli/azure/storage/container#az-storage-container-create) | Cria um contêiner de armazenamento do Azure. |
+| [`az storage container generate-sas`](/cli/azure/storage/container#az-storage-container-generate-sas) | Gera um token SAS para um contêiner de armazenamento do Azure.  |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Cria um Plano do Serviço de Aplicativo. |
+| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Cria um aplicativo do Serviço de Aplicativo. |
+| [`az webapp config backup create`](/cli/azure/webapp/config/backup#az-webapp-config-backup-create) | Cria um backup para um aplicativo do Serviço de Aplicativo. |
+| [`az webapp config backup list`](/cli/azure/webapp/config/backup#az-webapp-config-backup-list) | Obtém uma lista de backups para um aplicativo do Serviço de Aplicativo. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

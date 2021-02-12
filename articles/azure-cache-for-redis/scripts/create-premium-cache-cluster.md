@@ -9,12 +9,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ad29c7d12428d8f010017f9ef3a66cecb82db43a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb5a6ac082ebaf978023321f15341ec7f35779a6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87502827"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184205"
 ---
 # <a name="create-a-premium-azure-cache-for-redis-with-clustering"></a>Criar um Cache do Azure para Redis Premium com clustering
 
@@ -34,12 +34,12 @@ Este script usa os seguintes comandos para criar um grupo de recursos e uma cama
 
 | Comando | Observações |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az redis create](https://docs.microsoft.com/cli/azure/redis) | Criar instância de Cache do Azure para Redis. |
+| [az group create](/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az redis create](/cli/azure/redis) | Criar instância de Cache do Azure para Redis. |
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
+Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](/cli/azure).
 
 Exemplos adicionais de scripts da CLI do Cache Redis do Azure podem ser encontrados na [Documentação do Cache Redis do Azure](../cli-samples.md).

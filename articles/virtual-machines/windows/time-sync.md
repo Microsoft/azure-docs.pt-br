@@ -8,11 +8,11 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
 ms.openlocfilehash: 830bdd45be4b0365ac45bc3ea366b99a34882a4c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88871472"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010615"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Sincronização de Data/Hora para VMs do Windows no Azure
 
@@ -174,5 +174,5 @@ Abaixo, são apresentados links para mais detalhes sobre a sincronização de da
 
 - [Ferramentas e configurações do Serviço de Tempo do Windows](/windows-server/networking/windows-time-service/windows-time-service-tools-and-settings)
 - [Aprimoramentos do Windows Server 2016 ](/windows-server/networking/windows-time-service/windows-server-2016-improvements)
-- [Hora precisa no Windows Server 2016](/windows-server/networking/windows-time-service/accurate-time)
+- [Tempo preciso para o Windows Server 2016](/windows-server/networking/windows-time-service/accurate-time)
 - [Limite de suporte para configurar o Serviço de Horário do Windows para ambientes de alta precisão](/windows-server/networking/windows-time-service/support-boundary)

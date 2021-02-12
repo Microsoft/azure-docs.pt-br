@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/06/2020
+ms.date: 02/02/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 20e48640d52fba7b3262014c2e84cfc56c7110cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 267fd57b2fd359a73d5c1e01568aba14594e9290
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767227"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980150"
 ---
 # <a name="blob-versioning"></a>Controle de versão de BLOB
 
@@ -36,13 +36,19 @@ Para saber como habilitar o controle de versão de BLOB, consulte [habilitar e g
 
 Uma versão captura o estado de um blob em um determinado ponto no tempo. Quando o controle de versão do blob está habilitado para uma conta de armazenamento, o armazenamento do Azure cria automaticamente uma nova versão de um blob cada vez que o blob é modificado ou excluído.
 
-Quando você cria um blob com o controle de versão habilitado, o novo BLOB é a versão atual do blob (ou o blob de base). Se você Modificar posteriormente esse BLOB, o armazenamento do Azure criará uma versão que captura o estado do blob antes de ser modificado. O blob modificado torna-se a nova versão atual. Uma nova versão é criada cada vez que você modifica o blob. Um blob pode ter até 1000 versões associadas.
+Quando você cria um blob com o controle de versão habilitado, o novo BLOB é a versão atual do blob (ou o blob de base). Se você Modificar posteriormente esse BLOB, o armazenamento do Azure criará uma versão que captura o estado do blob antes de ser modificado. O blob modificado torna-se a nova versão atual. Uma nova versão é criada cada vez que você modifica o blob.
+
+O diagrama a seguir mostra como as versões são criadas em operações de gravação e exclusão e como uma versão anterior pode ser promovida para a versão atual:
+
+:::image type="content" source="media/versioning-overview/blob-versioning-diagram.png" alt-text="Diagrama mostrando como funciona o controle de versão de BLOB":::
+
+Ter um grande número de versões por blob pode aumentar a latência para operações de listagem de BLOBs. A Microsoft recomenda a manutenção de menos de 1000 versões por blob. Você pode usar o gerenciamento do ciclo de vida para excluir automaticamente versões antigas. Para obter mais informações sobre o gerenciamento do ciclo de vida, consulte [otimizar custos automatizando as camadas de acesso do armazenamento de BLOBs do Azure](storage-lifecycle-management-concepts.md).
 
 Quando você exclui um blob com o controle de versão habilitado, o armazenamento do Azure cria uma versão que captura o estado do blob antes de ele ser excluído. A versão atual do blob é excluída, mas as versões do blob persistem, para que possam ser recriadas se necessário. 
 
 As versões de blob são imutáveis. Você não pode modificar o conteúdo ou os metadados de uma versão de blob existente.
 
-O controle de versão de blob está disponível para contas de armazenamento de BLOBs v2, BLOB de blocos e de uso geral. As contas de armazenamento com um namespace hierárquico habilitado para uso com Azure Data Lake Storage Gen2 não têm suporte no momento. 
+O controle de versão de blob está disponível para contas de armazenamento de BLOBs v2, BLOB de blocos e de uso geral. As contas de armazenamento com um namespace hierárquico habilitado para uso com Azure Data Lake Storage Gen2 não têm suporte no momento.
 
 A versão 2019-10-10 e superior da API REST do armazenamento do Azure dá suporte ao controle de versão de BLOB.
 
@@ -79,11 +85,11 @@ Chamar a operação [excluir blob](/rest/api/storageservices/delete-blob) sem um
 
 O diagrama a seguir mostra o efeito de uma operação de exclusão em um blob com versão:
 
-:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagrama mostrando como as operações de gravação afetam os BLOBs com versão.":::
+:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagrama mostrando a exclusão de blob com versão.":::
 
 Gravar novos dados no blob cria uma nova versão do blob. As versões existentes não são afetadas, conforme mostrado no diagrama a seguir.
 
-:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagrama mostrando como as operações de gravação afetam os BLOBs com versão.":::
+:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagrama mostrando a recriação de blob com versão após a exclusão.":::
 
 ### <a name="blob-types"></a>Tipos de blobs
 
@@ -93,7 +99,7 @@ Para BLOBs de páginas e blobs de acréscimo, apenas um subconjunto de operaçõ
 
 - [Put Blob](/rest/api/storageservices/put-blob)
 - [Put Block List](/rest/api/storageservices/put-block-list)
-- [Delete Blob](/rest/api/storageservices/delete-blob)
+- [Excluir blob](/rest/api/storageservices/delete-blob)
 - [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata)
 - [Copiar blob](/rest/api/storageservices/copy-blob)
 
@@ -122,11 +128,11 @@ Você pode ler ou excluir versões usando a ID de versão após a desabilitaçã
 
 O diagrama a seguir mostra como a modificação de um blob após o controle de versão é desabilitada cria um blob sem controle de versão. Todas as versões existentes associadas ao blob persistem.
 
-:::image type="content" source="media/versioning-overview/modify-base-blob-versioning-disabled.png" alt-text="Diagrama mostrando como as operações de gravação afetam os BLOBs com versão.":::
+:::image type="content" source="media/versioning-overview/modify-base-blob-versioning-disabled.png" alt-text="Diagrama mostrando o blob de base modificado após a desabilitação do controle de versão.":::
 
 ## <a name="blob-versioning-and-soft-delete"></a>Controle de versão e exclusão reversível do blob
 
-O controle de versão de BLOB e de exclusão reversível de blob funcionam juntos para fornecer proteção de dados ideal. Ao habilitar a exclusão reversível, você especifica por quanto tempo o armazenamento do Azure deve reter um blob excluído por software. Qualquer versão de blob com exclusão reversível permanece no sistema e pode ser reexcluída dentro do período de retenção de exclusão reversível. Para obter mais informações sobre exclusão reversível de BLOB, consulte [exclusão reversível para BLOBs de armazenamento do Azure](storage-blob-soft-delete.md).
+O controle de versão de BLOB e de exclusão reversível de blob funcionam juntos para fornecer proteção de dados ideal. Ao habilitar a exclusão reversível, você especifica por quanto tempo o armazenamento do Azure deve reter um blob excluído por software. Qualquer versão de blob com exclusão reversível permanece no sistema e pode ser reexcluída dentro do período de retenção de exclusão reversível. Para obter mais informações sobre exclusão reversível de BLOB, consulte [exclusão reversível para BLOBs de armazenamento do Azure](./soft-delete-blob-overview.md).
 
 ### <a name="deleting-a-blob-or-version"></a>Excluindo um BLOB ou uma versão
 
@@ -138,7 +144,7 @@ Para remover uma versão anterior de um blob, exclua-o explicitamente especifica
 
 O diagrama a seguir mostra o que acontece quando você exclui um BLOB ou uma versão de BLOB.
 
-:::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="Diagrama mostrando como as operações de gravação afetam os BLOBs com versão.":::
+:::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="Diagrama mostrando a exclusão de uma versão com exclusão reversível habilitada.":::
 
 Se o controle de versão e a exclusão reversível estiverem habilitados em uma conta de armazenamento, nenhum instantâneo excluído por software será criado quando uma versão BLOB ou blob for modificada ou excluída.
 
@@ -150,7 +156,7 @@ A restauração de versões com exclusão reversível com a operação **restaur
 
 O diagrama a seguir mostra como restaurar versões de blob com exclusão reversível com a operação **restaurar blob** e como restaurar a versão atual do blob com a operação **copiar blob** .
 
-:::image type="content" source="media/versioning-overview/undelete-version.png" alt-text="Diagrama mostrando como as operações de gravação afetam os BLOBs com versão.":::
+:::image type="content" source="media/versioning-overview/undelete-version.png" alt-text="Diagrama mostrando como restaurar versões com exclusão reversível.":::
 
 Depois que o período de retenção de exclusão reversível tiver decorrido, todas as versões de blob excluídas por software serão excluídas permanentemente.
 
@@ -169,7 +175,7 @@ Quando você tira um instantâneo de um blob com versão, uma nova versão é cr
 
 O diagrama a seguir mostra o que acontece quando você tira um instantâneo de um blob com versão. No diagrama, as versões de BLOB e os instantâneos com a ID de versão 2 e 3 contêm dados idênticos.
 
-:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagrama mostrando como as operações de gravação afetam os BLOBs com versão.":::
+:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagrama que mostra instantâneos de um blob com versão.":::
 
 ## <a name="authorize-operations-on-blob-versions"></a>Autorizar operações em versões de BLOB
 
@@ -185,7 +191,7 @@ O controle de versão de blob foi projetado para proteger seus dados contra excl
 
 A tabela a seguir mostra quais ações do RBAC do Azure dão suporte à exclusão de um BLOB ou uma versão de BLOB.
 
-| Descrição | Operação do serviço blob | Ação de dados RBAC do Azure necessária | Suporte de função interna do Azure |
+| Description | Operação do serviço blob | Ação de dados RBAC do Azure necessária | Suporte de função interna do Azure |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | Excluindo a versão atual do blob | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete** | Colaborador de dados de blob de armazenamento |
 | Excluindo uma versão | Delete Blob | **Microsoft. Storage/storageAccounts/blobservices/contêineres/BLOBs/deleteBlobVersion/ação** | Proprietário de Dados do Blob de Armazenamento |
@@ -269,7 +275,7 @@ A tabela a seguir descreve o comportamento de cobrança para um BLOB ou uma vers
 
 O diagrama a seguir ilustra como os objetos são cobrados quando um blob com versão é movido para uma camada diferente.
 
-:::image type="content" source="media/versioning-overview/versioning-billing-tiers.png" alt-text="Diagrama mostrando como as operações de gravação afetam os BLOBs com versão.":::
+:::image type="content" source="media/versioning-overview/versioning-billing-tiers.png" alt-text="Diagrama mostrando como os objetos são cobrados quando um blob com versão é explicitamente em camadas.":::
 
 A definição explícita da camada para um blob, versão ou instantâneo não pode ser desfeita. Se você mover um blob para uma nova camada e, em seguida, movê-lo de volta para sua camada original, você será cobrado pelo tamanho completo do conteúdo do objeto, mesmo se ele compartilhar blocos com outros objetos na camada original.
 
@@ -291,8 +297,8 @@ A tabela a seguir descreve o comportamento de cobrança para um blob que é excl
 | Se a exclusão reversível de BLOB e o controle de versão estiverem habilitados | Todas as versões existentes com tamanho de conteúdo completo, independentemente da camada. |
 | Se a exclusão reversível de blob estiver habilitada, mas o controle de versão estiver desabilitado | Todos os instantâneos de exclusão reversível existentes com tamanho de conteúdo completo, independentemente da camada. |
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 - [Habilitar e gerenciar o controle de versão de blob](versioning-enable.md)
 - [Criando um instantâneo de um blob](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
-- [Exclusão reversível para BLOBs de armazenamento do Azure](storage-blob-soft-delete.md)
+- [Exclusão reversível para BLOBs de armazenamento do Azure](./soft-delete-blob-overview.md)

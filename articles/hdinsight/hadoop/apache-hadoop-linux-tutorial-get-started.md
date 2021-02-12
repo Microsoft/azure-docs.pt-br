@@ -1,19 +1,16 @@
 ---
 title: 'Início Rápido: Criar um cluster do Apache Hadoop no Azure HDInsight usando o modelo do Resource Manager'
 description: Neste início rápido, você cria um cluster do Apache Hadoop no Azure HDInsight usando o modelo do Resource Manager
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: 02fd3e366b146937fb2d5775938dc9d74a275ce4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe1a76406c1a8a55996b4c099e04f0925daaa74c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91856532"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946523"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-arm-template"></a>Início Rápido: Criar um cluster do Apache Hadoop no Azure HDInsight usando um modelo do Resource Manager
 

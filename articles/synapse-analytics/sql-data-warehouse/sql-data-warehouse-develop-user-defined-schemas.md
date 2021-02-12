@@ -1,25 +1,25 @@
 ---
 title: Usando esquemas definidos pelo usuário
-description: Dicas para usar esquemas definidos pelo usuário do T-SQL para desenvolver soluções no pool do SQL Synapse.
+description: Dicas para usar esquemas definidos pelo usuário do T-SQL para desenvolver soluções para pools de SQL dedicados no Azure Synapse Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: fc5e035215e7cabd02861c6ee2498cadd1ef0534
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 3204c77dd076d9aac6eb5a60b489280caefcbf4b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213356"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460446"
 ---
-# <a name="user-defined-schemas-in-synapse-sql-pool"></a>Esquemas definidos pelo usuário no pool do SQL Synapse
-Este artigo se concentra em fornecer várias dicas para usar esquemas definidos pelo usuário do T-SQL para desenvolver soluções no pool do SQL Synapse.
+# <a name="user-defined-schemas-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Esquemas definidos pelo usuário para pools de SQL dedicados no Azure Synapse Analytics
+Este artigo se concentra em fornecer várias dicas para usar esquemas definidos pelo usuário do T-SQL para desenvolver soluções no pool dedicado do SQL.
 
 ## <a name="schemas-for-application-boundaries"></a>Esquemas para limites de aplicativo
 
@@ -27,7 +27,7 @@ Os data warehouses tradicionais normalmente usam bancos de dados separados para 
 
 Por exemplo, um SQL Server tradicional data warehouse pode incluir um banco de dados de preparo, um data warehouse banco de dados e alguns bancos de data mart. Nessa topologia, cada banco de dados funciona como um limite de carga de trabalho e segurança na arquitetura.
 
-Por outro lado, o pool do SQL executa toda a carga de trabalho de data warehouse dentro de um banco de dados. Junções entre bancos de dados não são permitidas. O pool do SQL espera que todas as tabelas usadas pelo warehouse sejam armazenadas dentro de um banco de dados.
+Por outro lado, um pool SQL dedicado executa toda a carga de trabalho de data warehouse dentro de um banco de dados. Junções entre bancos de dados não são permitidas. O pool SQL dedicado espera que todas as tabelas usadas pelo warehouse sejam armazenadas dentro de um banco de dados.
 
 > [!NOTE]
 > O pool SQL não dá suporte a consultas entre bancos de dados de qualquer tipo. Consequentemente, implementações de data warehouse que utilizam esse padrão precisarão ser revisadas.
@@ -37,11 +37,11 @@ Por outro lado, o pool do SQL executa toda a carga de trabalho de data warehouse
 ## <a name="recommendations"></a>Recomendações
 Veja a seguir as recomendações para consolidar cargas de trabalho, segurança, domínio e limites funcionais usando esquemas definidos pelo usuário:
 
-- Use um banco de dados do pool SQL para executar toda a carga de trabalho de data warehouse.
-- Consolide seu ambiente de data warehouse existente para usar um banco de dados do pool do SQL.
+- Use um banco de dados em um pool SQL dedicado para executar toda a carga de trabalho de data warehouse.
+- Consolide seu ambiente de data warehouse existente para usar um banco de dados do pool SQL dedicado.
 - Utilize **esquemas definidos pelo usuário** para fornecer o limite implementado anteriormente usando bancos de dados.
 
-Se os esquemas definidos pelo usuário não tiverem sido usados anteriormente, você terá um Slate limpo. Use o nome do banco de dados antigo como base para os esquemas definidos pelo usuário no banco de dados do pool SQL.
+Se os esquemas definidos pelo usuário não tiverem sido usados anteriormente, você terá um Slate limpo. Use o nome do banco de dados antigo como base para os esquemas definidos pelo usuário no banco de dados do pool do SQL dedicado.
 
 Se os esquemas já tiverem sido usados, você terá algumas opções:
 
@@ -50,7 +50,7 @@ Se os esquemas já tiverem sido usados, você terá algumas opções:
 - Manter os nomes de esquema herdados implementando exibições sobre a tabela em um esquema extra para recriar a estrutura do esquema antigo.
 
 > [!NOTE]
-> Na primeira inspeção, a opção 3 pode parecer a opção mais atraente. No entanto, o detalhe é traiçoeiro. As exibições são somente leitura no pool do SQL. Qualquer modificação nos dados ou na tabela precisariam ser executados em relação à tabela base. A opção 3 também apresenta uma camada de modos de exibição em seu sistema. Talvez você queira pensar um pouco sobre isso se já estiver usando modos de exibição em sua arquitetura.
+> Na primeira inspeção, a opção 3 pode parecer a opção mais atraente. No entanto, o detalhe é traiçoeiro. As exibições são somente leitura no pool do SQL dedicado. Qualquer modificação nos dados ou na tabela precisariam ser executados em relação à tabela base. A opção 3 também apresenta uma camada de modos de exibição em seu sistema. Talvez você queira pensar um pouco sobre isso se já estiver usando modos de exibição em sua arquitetura.
 > 
 > 
 

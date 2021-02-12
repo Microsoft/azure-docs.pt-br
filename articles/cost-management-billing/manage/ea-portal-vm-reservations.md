@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 16e325f029fc4c317a61db62df97ded5c213e0e5
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 072377f98939d996547cb6ee9f9a535b4b32a3dc
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132526"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597963"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Instâncias reservadas de VM de EA do Azure
 
@@ -25,7 +25,7 @@ Você pode trocar uma reserva por outra do mesmo tipo. Também é possível pedi
 
 ### <a name="partial-refunds"></a>Reembolsos parciais
 
-Emitiremos um reembolso parcial quando os clientes EA devolverem reservas que foram adquiridas por meio do excedente e não do compromisso monetário.
+Emitiremos um reembolso parcial quando os clientes EA devolverem reservas que foram adquiridas por meio do excedente e não Pagamento antecipado do Azure (anteriormente conhecido como compromisso monetário).
 
 O reembolso será exibido no Portal do EA como um ajuste negativo no mês anterior e um ajuste positivo no mês atual. Ele será exibido de maneira semelhante a uma troca de reservas. A nota de crédito referenciará o número da fatura original; portanto, para reconciliar a compra inicial com a nota de crédito, veja o número da fatura original.
 
@@ -63,13 +63,13 @@ As instâncias reservadas podem reduzir os custos de sua máquina virtual em at�
 
 ### <a name="how-to-buy-reserved-virtual-machine-instances"></a>Como comprar instância de máquina virtual reservada
 
-Para comprar uma instância de máquina virtual reservada do Azure, um administrador de registro do Azure Enterprise deve habilitar a opção de compra _Reservar Instância_ . Essa opção está na seção _Detalhes do Registro_ , na guia _Registro_ no [Portal do EA do Azure](https://ea.azure.com/).
+Para comprar uma instância de máquina virtual reservada do Azure, um administrador de registro do Azure Enterprise deve habilitar a opção de compra _Reservar Instância_. Essa opção está na seção _Detalhes do Registro_, na guia _Registro_ no [Portal do EA do Azure](https://ea.azure.com/).
 
-Depois que o registro de EA estiver habilitado para adicionar instâncias reservadas, qualquer proprietário de conta com uma assinatura ativa associada ao registro EA poderá comprar uma instância de máquina virtual reservada no [portal do Azure](https://aka.ms/reservations). Para obter mais informações, consulte [Pagar antecipadamente por máquinas virtuais e economizar dinheiro com Instâncias de Máquina Virtual Reservada](../../virtual-machines/windows/prepay-reserved-vm-instances.md).
+Depois que o registro de EA estiver habilitado para adicionar instâncias reservadas, qualquer proprietário de conta com uma assinatura ativa associada ao registro EA poderá comprar uma instância de máquina virtual reservada no [portal do Azure](https://aka.ms/reservations). Para obter mais informações, consulte [Pagar antecipadamente por máquinas virtuais e economizar dinheiro com Instâncias de Máquina Virtual Reservada](../../virtual-machines/prepay-reserved-vm-instances.md).
 
 ### <a name="how-to-view-reserved-instance-purchase-details"></a>Como exibir detalhes de compra da instância reservada
 
-Você pode exibir seus detalhes de compra da instância reservada por meio do menu _Reservas_ no lado esquerdo do [portal do Azure](https://aka.ms/reservations) ou no [portal de EA do Azure](https://ea.azure.com/). Selecione **Relatórios** no menu do lado esquerdo e role para baixo até a seção _Encargos por serviços_ na guia _Resumo de uso_ . Role até a parte inferior da seção e suas compras e uso da instância reservada serão listadas no final, como indicado pela designação de `1 year` ou `3 years` ao lado do nome do serviço, por exemplo: `Standard_DS1_v2 eastus 1 year` ou `Standard_D2s_v3 eastus2 3 years`.
+Você pode exibir seus detalhes de compra da instância reservada por meio do menu _Reservas_ no lado esquerdo do [portal do Azure](https://aka.ms/reservations) ou no [portal de EA do Azure](https://ea.azure.com/). Selecione **Relatórios** no menu do lado esquerdo e role para baixo até a seção _Encargos por serviços_ na guia _Resumo de uso_. Role até a parte inferior da seção e suas compras e uso da instância reservada serão listadas no final, como indicado pela designação de `1 year` ou `3 years` ao lado do nome do serviço, por exemplo: `Standard_DS1_v2 eastus 1 year` ou `Standard_D2s_v3 eastus2 3 years`.
 
 ### <a name="how-can-i-change-the-subscription-associated-with-reserved-instance-or-transfer-my-reserved-instance-benefits-to-a-subscription-under-the-same-account"></a>Como posso alterar a assinatura associada à instância reservada ou transferir meus benefícios de instância reservada para uma assinatura na mesma conta?
 
@@ -82,7 +82,7 @@ Para obter mais informações sobre como alterar o escopo de uma reserva, confir
 
 ### <a name="how-to-view-reserved-instance-usage-details"></a>Como exibir detalhes de uso da instância reservada
 
-Você pode exibir os detalhes de uso da instância reservada no [portal do Azure](https://aka.ms/reservations) ou no [portal do EA do Azure](https://ea.azure.com/) (para clientes do EA que têm acesso para exibir as informações de cobrança) em _Relatórios_ > _Resumo de uso_ > _Encargos por serviços_ . Suas instâncias reservadas podem ser identificadas como nomes de serviço que contêm "Reserva", por exemplo: `Reservation-Base VM or Virtual Machines Reservation-Windows Svr (1 Core)`.
+Você pode exibir os detalhes de uso da instância reservada no [portal do Azure](https://aka.ms/reservations) ou no [portal do EA do Azure](https://ea.azure.com/) (para clientes do EA que têm acesso para exibir as informações de cobrança) em _Relatórios_ > _Resumo de uso_ > _Encargos por serviços_. Suas instâncias reservadas podem ser identificadas como nomes de serviço que contêm "Reserva", por exemplo: `Reservation-Base VM or Virtual Machines Reservation-Windows Svr (1 Core)`.
 
 O seu arquivo CSV com detalhes de uso e download de relatório avançado contém informações adicionais de uso da instância reservada. O campo _Informações Adicionais_ ajuda a identificar o uso da instância reservada.
 

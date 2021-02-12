@@ -4,12 +4,12 @@ description: Neste tutorial, você usará um servidor de modelo de IA fornecido 
 ms.topic: tutorial
 ms.date: 09/08/2020
 titleSuffix: Azure
-ms.openlocfilehash: d03737f43ee719b72860e7ffeff076e3f156cade
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: db018c5c8d8f3990fd465f4d586ef4dc70980542
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776333"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955709"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>Tutorial: Analisar vídeos ao vivo usando o OpenVINO™ Model Server – Extensão de IA da Intel 
 
@@ -23,6 +23,8 @@ Este tutorial usa uma VM do Azure como dispositivo do IoT Edge, bem como um flux
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma conta do Azure que inclua uma assinatura ativa. [Crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) se não tiver uma.
+  > [!NOTE]
+  > Você precisará ter uma assinatura do Azure com permissões para criar entidades de serviço (a **função de proprietário** fornece isso). Caso não tenha as permissões corretas, entre em contato com o administrador da conta para conceder a você as permissões corretas. 
 * [Visual Studio Code](https://code.visualstudio.com/) com as extensões a seguir:
     * [Ferramentas do Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
     * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
@@ -38,6 +40,8 @@ Quando você configura os recursos do Azure, um vídeo curto de um estacionament
 
 Abra um aplicativo como o [VLC Media Player](https://www.videolan.org/vlc/). Selecione CTRL + N e cole um link para [o vídeo](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) para iniciar a reprodução. Você vê a filmagem de veículos em um estacionamento, a maioria deles estacionado e um em movimento.
 
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LUbN]
+
 Neste guia de início rápido, você usará a Análise Dinâmica de Vídeo no IoT Edge junto com o OpenVINO™ Model Server – Extensão de IA da Intel para detectar objetos como veículos ou classificá-los. Você publicará os eventos de inferência resultantes no Hub do IoT Edge.
 
 ## <a name="overview"></a>Visão geral
@@ -45,9 +49,9 @@ Neste guia de início rápido, você usará a Análise Dinâmica de Vídeo no Io
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/use-intel-openvino-tutorial/http-extension-with-vino.svg" alt-text="Visão geral":::
 
-O diagrama mostra como os sinais fluem neste guia de início rápido. Um [módulo de borda](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simula uma câmera IP que hospeda um servidor RTSP (Real-Time Streaming Protocol). Um nó de [origem RTSP](media-graph-concept.md#rtsp-source) efetua pull do feed de vídeo desse servidor e envia quadros de vídeo para o nó do [processador de filtro de taxa de quadros](media-graph-concept.md#frame-rate-filter-processor). Esse processador limita a taxa de quadros do fluxo de vídeo que alcança o nó do [processador de extensão HTTP](media-graph-concept.md#http-extension-processor). 
+O diagrama mostra como os sinais fluem neste guia de início rápido. Um [módulo de borda](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simula uma câmera IP que hospeda um servidor RTSP (Real-Time Streaming Protocol). Um nó de [origem RTSP](media-graph-concept.md#rtsp-source) efetua pull do feed de vídeo desse servidor e envia quadros de vídeo para o nó do [processador de extensão HTTP](media-graph-concept.md#http-extension-processor). 
 
-O nó de extensão HTTP desempenha a função de um proxy. Ele converte os quadros de vídeo no tipo de imagem especificado. Em seguida, ele retransmite a imagem por REST para outro módulo do Edge que executa modelos de IA por trás de um ponto de extremidade HTTP. Neste exemplo, esse módulo do Edge é o OpenVINO™ Model Server – Extensão de IA da Intel. O nó de processador de extensão HTTP reúne os resultados da detecção e publica eventos no nó do [coletor do Hub IoT](media-graph-concept.md#iot-hub-message-sink). Em seguida, o nó envia esses eventos para o [Hub do IoT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
+O nó de extensão HTTP desempenha a função de um proxy. Ele amostra os quadros de vídeo de entrada definidos por você, campo `samplingOptions`, e também converte os quadros de vídeo no tipo de imagem especificado. Em seguida, ele retransmite a imagem por REST para outro módulo do Edge que executa modelos de IA por trás de um ponto de extremidade HTTP. Neste exemplo, esse módulo do Edge é o OpenVINO™ Model Server – Extensão de IA da Intel. O nó de processador de extensão HTTP reúne os resultados da detecção e publica eventos no nó do [coletor do Hub IoT](media-graph-concept.md#iot-hub-message-sink). Em seguida, o nó envia esses eventos para o [Hub do IoT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
 
 Neste tutorial, você irá:
 
@@ -84,11 +88,11 @@ Como parte dos pré-requisitos, você baixou o código de exemplo para uma pasta
 
 1. Vá até a pasta *src/cloud-to-device-console-app*. Aqui, você vê o arquivo *appsettings.json* e alguns outros arquivos:
 
-    * ***c2d-console-app.csproj*** – o arquivo de projeto para o Visual Studio Code.
-    * ***operations.json*** – uma lista das operações que você deseja que o programa execute.
-    * ***Program.cs*** – o código do programa de exemplo. Esse código:
+    * ***c2d-console-app.csproj** _ – o arquivo de projeto para o Visual Studio Code.
+    _ ***operations.json** _ – uma lista das operações que você deseja que o programa execute.
+    _ ***Program.cs** _ – o código do programa de exemplo. Esse código:
 
-        * Carrega as configurações do aplicativo.
+        _ Carrega as configurações do aplicativo.
         * Invoca métodos diretos expostos pelo módulo da Análise Dinâmica de Vídeo no IoT Edge. Use o módulo para analisar fluxos de vídeo ao vivo invocando seus [métodos diretos](direct-methods.md).
         * Pausa para você examinar a saída do programa na janela **TERMINAL** e os eventos que foram gerados pelo módulo na janela **SAÍDA**.
         * Invoca métodos diretos para limpar recursos.
@@ -97,7 +101,7 @@ Como parte dos pré-requisitos, você baixou o código de exemplo para uma pasta
 1. Edite o arquivo *operations.json*:
     * Altere o link para a topologia do grafo:
 
-        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtensionOpenVINO/topology.json"`
+        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtensionOpenVINO/2.0/topology.json"`
 
     * Em `GraphInstanceSet`, edite o nome da topologia de grafo para corresponder ao valor no link anterior:
 
@@ -120,6 +124,12 @@ Como parte dos pré-requisitos, você baixou o código de exemplo para uma pasta
     Caso contrário, ao lado do painel **HUB IOT DO AZURE** no canto inferior esquerdo, selecione o ícone **Mais ações** e, em seguida, selecione **Definir Cadeia de Conexão do Hub IoT**. Você pode copiar a cadeia de caracteres do arquivo *appsettings.json*. Ou, para garantir que configurou o Hub IoT adequado dentro do Visual Studio Code, use o [comando Selecionar Hub IoT](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).
     
     ![Definir cadeia de conexão do Hub IoT](./media/quickstarts/set-iotconnection-string.png)
+
+> [!NOTE]
+> Talvez você precise fornecer informações sobre o ponto de extremidade interno para o Hub IoT. Para obter essas informações, no portal do Azure, navegue até o Hub IoT e procure a opção **Pontos de extremidade internos** no painel de navegação à esquerda. Clique nele e procure o **Ponto de extremidade compatível com hub de eventos** na seção **Ponto de extremidade compatível com hub de eventos**. Copie e use o texto na caixa. O ponto de extremidade será parecido com este:  
+    ```
+    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+    ```
 
 1. Clique com o botão direito do mouse em *src/edge/config/deployment.openvino.amd64.json* e selecione **Criar Implantação para Dispositivo Único**. 
 
@@ -145,11 +155,38 @@ Se você abrir a [topologia de grafo](https://raw.githubusercontent.com/Azure/li
 1. Clique com o botão direito do mouse e selecione **Configurações da Extensão**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Visão geral":::
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Configurações da Extensão":::
 1. Pesquise e habilite “Mostrar Mensagem Detalhada”.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Visão geral"
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Mostrar Mensagem Detalhada":::
+1. Para iniciar uma sessão de depuração, pressione F5. Você verá mensagens impressas na janela **TERMINAL**.
+1. O código *operations.json* começa fazendo chamadas para os métodos diretos `GraphTopologyList` e `GraphInstanceList`. Se você limpou os recursos após a conclusão dos inícios rápidos anteriores, esse processo retornará listas vazias e, em seguida, pausará. Para continuar, pressione Enter.
+
+    A janela **TERMINAL** mostra o próximo conjunto de chamadas de método direto:
+
+     * Uma chamada para `GraphTopologySet` que usa o `topologyUrl` anterior
+     * Uma chamada para `GraphInstanceSet` que usa o seguinte corpo:
+
+         ```
+         {
+           "@apiVersion": "2.0",
+           "name": "Sample-Graph-1",
+           "properties": {
+             "topologyName": "InferencingWithOpenVINO",
+             "description": "Sample graph description",
+             "parameters": [
+               {
+                 "name": "rtspUrl",
+                 "value": "rtsp://rtspsim:554/media/lots_015.mkv"
+               },
+               {
+                 "name": "rtspUserName",
+                 "value": "testuser"
+               },
+               {
+                 "name": "rtspPassword",
+                 "value": "testpassword"
                }
              ]
            }
@@ -176,7 +213,7 @@ Nas mensagens a seguir, o módulo da Análise Dinâmica de Vídeo define as prop
 
 ### <a name="mediasessionestablished-event"></a>Evento MediaSessionEstablished
 
-Quando a instância de um grafo de mídia é criada, o nó de origem RTSP tenta se conectar com o servidor RTSP em execução no contêiner rtspsim-live555. Se a conexão for bem-sucedida, o evento a seguir será impresso. O tipo de evento é `Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished`.
+Quando a instância de um grafo de mídia é criada, o nó de origem RTSP tenta se conectar com o servidor RTSP em execução no contêiner rtspsim-live555. Se a conexão for bem-sucedida, o evento a seguir será impresso. O tipo de evento é **Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished**.
 
 ```
 [IoTHubMonitor] [9:42:18 AM] Message received from [lvaedgesample/lvaEdge]:
@@ -365,4 +402,4 @@ Se você pretende experimentar outros guias de início rápido ou tutoriais, man
 Examine os desafios adicionais para usuários avançados:
 
 * Use uma [câmera IP](https://en.wikipedia.org/wiki/IP_camera) compatível com RTSP em vez de usar o simulador RTSP. Pesquise pelas câmeras IP compatíveis com RTSP na página [Produtos em conformidade com ONVIF](https://www.onvif.org/conformant-products/). Procure dispositivos em conformidade com os perfis G, S ou T.
-* Use um dispositivo Linux AMD64 ou x64 em vez de usar uma VM Linux do Azure. Esse dispositivo precisa estar na mesma rede que a câmera IP. Siga as instruções em [Instalar o runtime do Azure IoT Edge no Linux](../../iot-edge/how-to-install-iot-edge-linux.md). Depois, registre o dispositivo no Hub IoT do Azure seguindo as instruções em [Implantar seu primeiro módulo do IoT Edge em um dispositivo virtual Linux](../../iot-edge/quickstart-linux.md).
+* Use um dispositivo Linux AMD64 ou x64 em vez de usar uma VM Linux do Azure. Esse dispositivo precisa estar na mesma rede que a câmera IP. Siga as instruções em [Instalar o runtime do Azure IoT Edge no Linux](../../iot-edge/how-to-install-iot-edge.md). Depois, registre o dispositivo no Hub IoT do Azure seguindo as instruções em [Implantar seu primeiro módulo do IoT Edge em um dispositivo virtual Linux](../../iot-edge/quickstart-linux.md).

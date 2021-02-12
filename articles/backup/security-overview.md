@@ -3,12 +3,12 @@ title: Visão geral de recursos de segurança
 description: Saiba mais sobre as funcionalidades de segurança no Backup do Azure que ajudam a proteger seus dados de backup e a atender às necessidades de segurança de sua empresa.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 8c4d3af9205df43c3596da64d7fcad2a9eb82500
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 9aa1909f1590b477d9a7f7a09ad0c2b1936e3e29
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093337"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325648"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Visão geral dos recursos de segurança no Backup do Azure
 
@@ -26,7 +26,7 @@ O Backup do Azure oferece três [funções internas](../role-based-access-contro
 
 Saiba mais sobre o [controle de acesso baseado em função do Azure para gerenciar o backup do Azure](./backup-rbac-rs-vault.md).
 
-O Backup do Azure tem vários controles de segurança incorporados ao serviço para impedir, detectar e responder a vulnerabilidades de segurança. Saiba mais sobre [controles de segurança para o Backup do Azure](./backup-security-controls.md).
+O Backup do Azure tem vários controles de segurança incorporados ao serviço para impedir, detectar e responder a vulnerabilidades de segurança. Saiba mais sobre [controles de segurança para o Backup do Azure](./security-baseline.md).
 
 ## <a name="separation-between-guest-and-azure-storage"></a>Separação entre o convidado e o Armazenamento do Azure
 

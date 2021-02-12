@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/08/2018
+ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: ae87771e8a557ad7cb58c9cad9231784606cdd74
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: a5fdde954d2826f34c671552a88365f9276b89a0
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426540"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895216"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Perguntas frequentes sobre Análise de Tráfego
 
@@ -58,7 +58,7 @@ Para verificar funções atribuídas a um usuário para uma inscrição:
 
 3. Para listar todas as funções atribuídas a um usuário especificado, use  **Get-AzRoleAssignment-SignInName [email do usuário]-IncludeClassicAdministrators**. 
 
-Se você não estiver vendo nenhuma saída, entre em contato com o administrador da assinatura respectiva para obter acesso para executar os comandos. Para obter mais detalhes, consulte [Adicionar ou remover atribuições de função do Azure usando Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
+Se você não estiver vendo nenhuma saída, entre em contato com o administrador da assinatura respectiva para obter acesso para executar os comandos. Para obter mais detalhes, consulte [Adicionar ou remover atribuições de função do Azure usando Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 
 
 ## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>Em quais regiões do Azure a Análise de Tráfego está disponível?
@@ -126,7 +126,7 @@ Sim.
 
 ## <a name="can-i-use-an-existing-workspace"></a>Posso usar um workspace existente?
 
-Sim. Se você selecionar um workspace existente, verifique se ele foi migrado para o novo idioma de consulta. Se você não quiser atualizar o workspace, precisará criar um novo. Para obter mais informações sobre a nova linguagem de consulta, consulte [Azure monitor logs atualizar para a nova pesquisa de logs](../log-analytics/log-analytics-log-search-upgrade.md).
+Sim. Se você selecionar um workspace existente, verifique se ele foi migrado para o novo idioma de consulta. Se você não quiser atualizar o workspace, precisará criar um novo. Para obter mais informações sobre a nova linguagem de consulta, consulte [Azure monitor logs atualizar para a nova pesquisa de logs](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>A minha Conta de Armazenamento do Microsoft Azure pode estar em uma assinatura e meu espaço de trabalho do Log Analytics está em uma assinatura diferente?
 
@@ -176,7 +176,7 @@ Você está vendo a informação de recursos no painel, no entanto, não há est
 
 ## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>Posso configurar a análise de tráfego usando o PowerShell ou um modelo ou cliente do Azure Resource Manager?
 
-Você pode configurar a análise de tráfego usando o Windows PowerShell a partir da versão 6.2.1. Para configurar o log de fluxo e a análise de tráfego para um NSG específico usando o cmdlet Set, consulte [set-AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). Para obter o log de fluxo e o status da análise de tráfego para um NSG específico, consulte [Get-AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
+Você pode configurar a análise de tráfego usando o Windows PowerShell a partir da versão 6.2.1. Para configurar o log de fluxo e a análise de tráfego para um NSG específico usando o cmdlet Set, consulte [set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). Para obter o log de fluxo e o status da análise de tráfego para um NSG específico, consulte [Get-AzNetworkWatcherFlowLogStatus](/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
 
 Atualmente, você não pode usar um modelo do Azure Resource Manager para configurar a análise de tráfego.
 
@@ -250,7 +250,7 @@ Por exemplo, de acordo o [plano de preços](https://azure.microsoft.com/pricing/
 
 ## <a name="how-frequently-does-traffic-analytics-process-data"></a>Com que frequência Análise de Tráfego processar dados?
 
-Consulte a [seção de agregação de dados](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) no esquema de análise de tráfego e no documento de agregação de dados
+Consulte a [seção de agregação de dados](./traffic-analytics-schema.md#data-aggregation) no esquema de análise de tráfego e no documento de agregação de dados
 
 ## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>Como Análise de Tráfego decidir que um IP é mal-intencionado? 
 
@@ -262,7 +262,7 @@ Análise de Tráfego não tem suporte interno para alertas. No entanto, como An�
 - Você pode usar o Shortlink para Log Analytics no Análise de Tráfego. 
 - Use o [esquema documentado aqui](traffic-analytics-schema.md) para escrever suas consultas 
 - Clique em "nova regra de alerta" para criar o alerta
-- Consulte a [documentação de alertas de log](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) para criar o alerta
+- Consulte a [documentação de alertas de log](../azure-monitor/platform/alerts-log.md) para criar o alerta
 
 ## <a name="how-do-i-check-which-vms-are-receiving-most-on-premises-traffic"></a>Como fazer verificar quais VMs estão recebendo o tráfego local?
 
@@ -345,13 +345,13 @@ A página do mapa geográfico contém duas seções principais:
         
 ### <a name="keyboard-navigation-on-the-map"></a>Navegação do teclado no mapa
     
-- Depois de selecionar qualquer filtro no banner e pressionar `Ctrl+F6`, o foco será movido para um dos nós destacados (** datacenter do Azure ** ou ** País / Região **) na exibição do mapa.
+- Depois de selecionar qualquer filtro no banner e pressionar `Ctrl+F6`, o foco será movido para um dos nós destacados (**datacenter do Azure** ou **País / Região**) na exibição do mapa.
 - Para mover para outros nós destacados no mapa, use `Tab` ou a tecla `Right arrow` para o movimento de avanço. Use `Shift+Tab` ou a tecla `Left arrow` para movimento para trás.
 - Para selecionar qualquer nó destacado no mapa, utilize a tecla `Enter` ou `Down arrow`.
 - Na seleção de quaisquer desses nós, o foco move-se para a **Caixa de Ferramentas de Informações** do nó. Por padrão, o foco move-se para o botão próximo à **Caixa de Ferramentas de Informações**. Para mover-se ainda mais dentro da visão **Box**, use as teclas `Right arrow` e `Left arrow` para avançar e voltar, respectivamente. Pressionar `Enter` tem o mesmo efeito que selecionar o botão com foco na **Caixa de Ferramentas de Informações**.
-- Quando você pressiona `Tab` enquanto o foco está na ** Caixa de Ferramentas de Informações**, o foco se move para os pontos finais no mesmo continente que o nó selecionado. Use as teclas `Right arrow` e `Left arrow` para percorrer esses endpoints.
+- Quando você pressiona `Tab` enquanto o foco está na **Caixa de Ferramentas de Informações**, o foco se move para os pontos finais no mesmo continente que o nó selecionado. Use as teclas `Right arrow` e `Left arrow` para percorrer esses endpoints.
 - Para mover para outros pontos finais de fluxo ou clusters continentais, use `Tab` para o movimento de avanço e `Shift+Tab` para o movimento de retrocesso.
-- Quando o foco estiver em ** Continent clusters **, use as teclas de seta `Enter` ou `Down` para realçar os pontos de extremidade dentro do cluster do continente. Para percorrer os endpoints e o botão fechar na caixa de informações do cluster do continente, use a tecla `Right arrow` ou `Left arrow` para o movimento de avanço e retrocesso, respectivamente. Em qualquer ponto de extremidade você poderá utilizar `Shift+L` para alternar para a linha de conexão do nó selecionado para o ponto de extremidade. Você pode pressionar `Shift+L` novamente para ir para o terminal selecionado.
+- Quando o foco estiver em **Continent clusters**, use as teclas de seta `Enter` ou `Down` para realçar os pontos de extremidade dentro do cluster do continente. Para percorrer os endpoints e o botão fechar na caixa de informações do cluster do continente, use a tecla `Right arrow` ou `Left arrow` para o movimento de avanço e retrocesso, respectivamente. Em qualquer ponto de extremidade você poderá utilizar `Shift+L` para alternar para a linha de conexão do nó selecionado para o ponto de extremidade. Você pode pressionar `Shift+L` novamente para ir para o terminal selecionado.
         
 ### <a name="keyboard-navigation-at-any-stage"></a>Navegação do teclado em qualquer estágio
     
@@ -385,7 +385,7 @@ A página de topologia de redes virtuais contém duas seções principais:
 
 A página de topologia de sub-redes virtuais contém duas seções principais:
     
-- ** Banner **: o banner na parte superior da topologia de sub-redes virtuais fornece botões para selecionar filtros de distribuição de tráfego (por exemplo, sub-redes Ativas, Médias e de Gateway). Quando você seleciona um botão, o respectivo filtro é aplicado na topologia. Por exemplo, se você selecionar o botão Ativo, a topologia destacará a sub-rede virtual ativa em sua implantação.
+- **Banner**: o banner na parte superior da topologia de sub-redes virtuais fornece botões para selecionar filtros de distribuição de tráfego (por exemplo, sub-redes Ativas, Médias e de Gateway). Quando você seleciona um botão, o respectivo filtro é aplicado na topologia. Por exemplo, se você selecionar o botão Ativo, a topologia destacará a sub-rede virtual ativa em sua implantação.
 - **Topologia**: abaixo do banner, a seção de topologia mostra a distribuição de tráfego entre as sub-redes virtuais.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navegação do teclado no banner
@@ -400,4 +400,7 @@ A página de topologia de sub-redes virtuais contém duas seções principais:
 - Depois de selecionar qualquer filtro no banner e pressionar `Ctrl+F6`, o foco se moverá para um dos nós destacados (**Sub-rede**) na visualização de topologia.
 - Para mover para outros nós destacados na visualização de topologia, use a tecla `Shift+Right arrow` para o movimento de avanço. 
 - Em nós realçados, o foco é movido para a **Caixa de Ferramentas de Informações** para o nó. Por padrão, o foco é movido para o botão **Mais detalhes** na **Caixa de ferramentas de informações**. Para mover-se ainda mais dentro da visão **Box**, use as teclas `Right arrow` e `Left arrow` para avançar e voltar, respectivamente. Pressionar `Enter` tem o mesmo efeito que selecionar o botão com foco na **Caixa de Ferramentas de Informações**.
-- Na seleção de tais nós, você pode visitar todas as suas conexões, uma a uma, pressionando a tecla `Shift+Left arrow`. O foco se move para a **Caixa de ferramentas de informações** dessa conexão. A qualquer momento, o foco pode ser deslocado de volta para o nó pressionando `Shift+Right arrow` novamente.    
+- Na seleção de tais nós, você pode visitar todas as suas conexões, uma a uma, pressionando a tecla `Shift+Left arrow`. O foco se move para a **Caixa de ferramentas de informações** dessa conexão. A qualquer momento, o foco pode ser deslocado de volta para o nó pressionando `Shift+Right arrow` novamente.
+
+## <a name="are-classic-nsgs-supported"></a>Há suporte para NSGs clássicas?
+Não, Análise de Tráfego não dá suporte a NSG clássicas. É recomendável migrar recursos de IaaS do clássico para o Azure Resource Manager, pois os recursos clássicos serão [preteridos](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation). Consulte este artigo para entender [como migrar](https://docs.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-overview).

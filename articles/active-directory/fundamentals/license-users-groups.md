@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/06/2018
+ms.date: 12/14/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50e0fe1cf3bb628c40e774423e45ea88d6ab78a5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b6900647acf7182529f34c8cc065dbb039de38be
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359706"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504399"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Atribuir ou remover licenças no portal de Azure Active Directory
 
@@ -49,11 +49,18 @@ Você pode exibir os planos de serviço disponíveis, incluindo as licenças ind
 
 1. Selecione **Active Directory do Azure** e, em seguida, selecione **Licenças**.
 
-    ![Página licenças, com número de serviços comprados e licenças atribuídas](media/license-users-groups/license-details-blade.png)
+    :::image type="content" source="media/license-users-groups/license-details-blade.png" alt-text="Página licenças, com número de serviços comprados e licenças atribuídas":::
 
-1. Selecione o link **comprado** para exibir a **página produtos** e ver os números em breve **atribuídos**, **disponíveis**e **expirando** para seus planos de licença.
+1. Selecione **todos os produtos** para exibir a página todos os produtos e ver os números **totais**, **atribuídos**, **disponíveis** e **expirando em breve** para seus planos de licença.
 
-    ![página de serviços, com planos de licença de serviço e informações de licença associadas](media/license-users-groups/license-products-blade-with-products.png)
+    :::image type="content" source="media/license-users-groups/license-products-blade-with-products.png" alt-text="página de serviços-com planos de licença de serviço – informações de licença associadas":::
+
+    > [!NOTE]
+    > Os números são definidos como: 
+    > - Total: número total de licenças adquiridas
+    > - Atribuído: número de licenças atribuídas aos usuários
+    > - Disponível: número de licenças disponíveis para atribuição, incluindo expirando em breve
+    > - Expirando em breve: número de licenças expirando em breve
 
 1. Selecione um nome de plano para ver seus usuários e grupos licenciados.
 

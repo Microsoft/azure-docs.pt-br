@@ -2,15 +2,15 @@
 title: Ler dados capturados dos Hubs de Eventos do Azure de um aplicativo Python (mais recente)
 description: Este artigo mostra como escrever o código Python para capturar dados enviados para um hub de eventos e ler os dados de evento capturados de uma conta de armazenamento do Azure.
 ms.topic: quickstart
-ms.date: 06/23/2020
-ms.openlocfilehash: cb7165565516136a8425c4c77748c2e13715edb7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 01/04/2021
+ms.openlocfilehash: acc2ce04add5fd837e9edc789e9616a9f04fb4b9
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88927860"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883190"
 ---
-# <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub-version-5"></a>Capturar dados dos Hubs de Eventos no Armazenamento do Azure e lê-los usando o Python (azure-eventhub versão 5)
+# <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub"></a>Capturar dados dos Hubs de Eventos no Armazenamento do Azure e lê-los usando o Python (azure-eventhub)
 
 Você pode configurar um hub de eventos para que os dados enviados para um hub de eventos sejam capturados em uma conta de armazenamento do Azure ou no Azure Data Lake Storage Gen 1 ou Gen 2. Este artigo mostra como escrever o código Python para enviar eventos para um hub de eventos e ler os dados capturados do **Armazenamento de Blobs do Azure**. Para obter mais informações sobre esse recurso, confira [visão geral do recurso Captura dos Hubs de Eventos](event-hubs-capture-overview.md).
 
@@ -27,7 +27,11 @@ Neste início rápido, você:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Python 2.7 e 3.5 ou posterior, com PIP instalado e atualizado.  
+- Python com PIP e os pacotes a seguir instalados. O código deste artigo foi testado em relação a essas versões. 
+    - Python 3.7
+    - azure-eventhub 5.2.0
+    - azure-storage-blob 12.6.0
+    - avro-python3 1.10.1
 - Uma assinatura do Azure. Se você não tiver [uma conta gratuita](https://azure.microsoft.com/free/), crie uma antes de começar.  
 - Um namespace dos Hubs de Eventos e um hub de eventos ativos.
 [Criar um namespace dos Hubs de Eventos e um hub de eventos no namespace](event-hubs-create.md). Registre o nome do namespace dos Hubs de Eventos, o nome do hub de eventos e a chave de acesso primária do namespace. Para obter a chave de acesso, confira [Obter uma cadeia de conexão dos Hubs de Eventos](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). O nome da chave padrão é *RootManageSharedAccessKey*. Para este início rápido, você só precisará da chave primária. Não será necessária a cadeia de conexão.  
@@ -155,6 +159,13 @@ Neste exemplo, os dados capturados são armazenados no Armazenamento de Blobs do
    pip install azure-eventhub
    pip install avro-python3
    ```
+
+    > [!NOTE]
+    > O código deste artigo foi testado em relação a essas versões. 
+    > - Python 3.7
+    > - azure-eventhub 5.2.0
+    > - azure-storage-blob 12.6.0
+    > - avro-python3 1.10.1
 2. Altere o diretório para o diretório no qual você salvou *sender.py* e *capturereader.py* e execute este comando:
    
    ```

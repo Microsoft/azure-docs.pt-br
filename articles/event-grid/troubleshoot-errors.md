@@ -3,15 +3,20 @@ title: Grade de eventos do Azure-guia de solução de problemas
 description: Este artigo fornece uma lista de códigos de erro, mensagens de erro, descrições e ações recomendadas.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 1dd464339e7654f8886224ff07cf368b4724ff82
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 79533918ccc6995f459b39f058de9e01091c0958
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041399"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592984"
 ---
 # <a name="troubleshoot-azure-event-grid-errors"></a>Solucionar erros de grade de eventos do Azure
-Este guia de solução de problemas fornece uma lista de códigos de erro da grade de eventos do Azure, mensagens de erro, suas descrições e ações recomendadas que você deve executar ao receber esses erros. 
+Este guia de solução de problemas fornece as seguintes informações: 
+
+- Códigos de erro da grade de eventos do Azure
+- Mensagens de erro
+- Descrições para os erros
+- Ações recomendadas que você deve executar ao receber esses erros. 
 
 ## <a name="error-code-400"></a>Código de erro: 400
 | Código do erro | Mensagem de erro | Descrição | Recomendação |
@@ -31,27 +36,17 @@ Este guia de solução de problemas fornece uma lista de códigos de erro da gra
 
 | Código do erro | Mensagem de erro | Description | Ação recomendada |
 | ---------- | ------------- | ----------- | ------------------ |
-| HttpStatusCode. proibido <br/>403 | A publicação em {topic/Domain} pelo cliente {IpAddress} foi rejeitada devido a regras de filtragem IpAddress. | O tópico ou domínio tem regras de firewall IP configuradas e o acesso é restrito apenas a endereços IP configurados. | Adicionar o endereço IP às regras de firewall de IP, consulte [Configurar o firewall de IP](configure-firewall.md) |
-| HttpStatusCode. proibido <br/> 403 | A publicação em {topic/Domain} pelo cliente é rejeitada, pois a solicitação provém do ponto de extremidade privado e nenhuma conexão de ponto de extremidade privada correspondente foi encontrada para o recurso. | O tópico ou domínio tem pontos de extremidade privados configurados e a solicitação de publicação veio de um ponto de extremidade privado que não está configurado/aprovado. | Configure um ponto de extremidade privado para o tópico/domínio. [Configurar pontos de extremidade privados](configure-private-endpoints.md) |
+| HttpStatusCode. proibido <br/>403 | A publicação em {topic/Domain} pelo cliente {IpAddress} foi rejeitada devido às regras de filtragem IpAddress. | O tópico ou domínio tem regras de firewall IP configuradas e o acesso é restrito apenas a endereços IP configurados. | Adicionar o endereço IP às regras de firewall de IP, consulte [Configurar o firewall de IP](configure-firewall.md) |
+| HttpStatusCode. proibido <br/> 403 | A publicação em {topic/Domain} pelo cliente é rejeitada, pois a solicitação provém do ponto de extremidade privado e nenhuma conexão de ponto de extremidade privada correspondente foi encontrada para o recurso. | O tópico ou domínio tem pontos de extremidade privados e a solicitação de publicação veio de um ponto de extremidades privado que não está configurado ou aprovado. | Configure um ponto de extremidade privado para o tópico/domínio. [Configurar pontos de extremidade privados](configure-private-endpoints.md) |
 
-## <a name="troubleshoot-event-subscription-validation"></a>Solucionar problemas de validação de assinatura de evento
+Além disso, verifique se o webhook está atrás de um gateway de Aplicativo Azure ou de um firewall do aplicativo Web. Se for, desabilite as seguintes regras de firewall e faça um HTTP POST novamente:
 
-Durante a criação da assinatura do evento, se você estiver vendo uma mensagem de erro como `The attempt to validate the provided endpoint https://your-endpoint-here failed. For more details, visit https://aka.ms/esvalidation` , isso indica que há uma falha no handshake de validação. Para resolver esse erro, verifique os seguintes aspectos:
+- 920300 (solicitação faltando um cabeçalho de aceitação)
+- 942430 (detecção de anomalias de caracteres SQL restritos (args): número de caracteres especiais excedido (12))
+- 920230 (várias codificações de URL detectadas)
+- 942130 (ataque de injeção de SQL: SQL tautology detectado.)
+- 931130 (possível ataque de RFI (inclusão de arquivo remoto) = link/referência fora do domínio)
 
-- Faça um HTTP POST para a URL do webhook com um corpo de solicitação [SubscriptionValidationEvent de exemplo](webhook-event-delivery.md#validation-details) usando o postmaster ou a ondulação ou ferramenta semelhante.
-- Se o webhook estiver implementando o mecanismo de handshake de validação síncrona, verifique se o ValidationCode é retornado como parte da resposta.
-- Se o seu webhook estiver implementando o mecanismo de handshake de validação assíncrona, verifique se você é o HTTP POST está retornando 200 OK.
-- Se seu webhook estiver retornando 403 (Proibido) na resposta, verifique se o webhook está atrás de um Gateway de Aplicativo Azure AD ou de um firewall do aplicativo Web. Se for, você precisará desabilitar essas regras de firewall e executar um HTTP POST novamente:
-
-  920300 (Pedido Sem Cabeçalho de Aceitação, podemos consertar isso)
-
-  942430 (Detecção de Anomalias de Caractere SQL Restrito (args): # de caracteres especiais excedido (12))
-
-  920230 (Várias Codificações de URL Detectadas)
-
-  942130 (Ataque de Injeção de SQL: Tautologia do SQL Detectada.)
-
-  931130 (Possível Ataque de Remoção de Arquivo (RFI) = link/referência fora do domínio)
 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -5,17 +5,17 @@ services: data-factory
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: ''
 manager: anandsub
 ms.date: 09/08/2020
-ms.openlocfilehash: 6f8d74ade382db9bfa28c3ab6f03b95b5ac7947c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3204d33cac9f0944ec2ea2cf43be65c7afa46df
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89567105"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500131"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Criação visual no Azure Data Factory
 

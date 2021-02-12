@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: configurar o SmartSheet para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
-description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o SmartSheet.
+title: 'Tutorial: Configurar o Smartsheet para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário no Smartsheet.
 services: active-directory
 author: zchia
 writer: zchia
@@ -8,27 +8,27 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/07/2019
 ms.author: jeedes
-ms.openlocfilehash: a3c2567cf1799bca5750e90fbe5d89f6da952ff5
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: aa4e8c2baaaa0c8ccc9bcdda595f040fac72682f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514884"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181434"
 ---
-# <a name="tutorial-configure-smartsheet-for-automatic-user-provisioning"></a>Tutorial: configurar o SmartSheet para o provisionamento automático de usuário
+# <a name="tutorial-configure-smartsheet-for-automatic-user-provisioning"></a>Tutorial: Configurar o Smartsheet para o provisionamento automático de usuário
 
-O objetivo deste tutorial é demonstrar as etapas a serem executadas no SmartSheet e no Azure Active Directory (Azure AD) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos no [SmartSheet](https://www.smartsheet.com/pricing). Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../app-provisioning/user-provisioning.md). 
+O objetivo deste tutorial é demonstrar as etapas a serem executadas no Smartsheet e no Azure AD (Active Directory) a fim de configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos no [Smartsheet](https://www.smartsheet.com/pricing). Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Funcionalidades com suporte
 > [!div class="checklist"]
-> * Criar usuários no SmartSheet
-> * Remover usuários no SmartSheet quando eles não exigem mais acesso
-> * Manter os atributos de usuário sincronizados entre o Azure AD e o SmartSheet
-> * Logon único no SmartSheet (recomendado)
+> * Criar usuários no Smartsheet
+> * Remover usuários no Smartsheet quando eles não precisarem mais de acesso
+> * Manter os atributos de usuário sincronizados entre o Azure AD e o Smartsheet
+> * Logon único no Smartsheet (recomendado)
 
 > [!NOTE]
 > Atualmente, esse conector está em versão prévia pública. Para obter mais informações sobre os Termos de uso gerais do Microsoft Azure para a versão prévia de recursos, confira [Termos de uso adicionais para versões prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -38,92 +38,92 @@ O objetivo deste tutorial é demonstrar as etapas a serem executadas no SmartShe
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
 * [Um locatário do Azure AD](../develop/quickstart-create-new-tenant.md).
-* Uma conta de usuário no Azure AD com [permissão](../users-groups-roles/directory-assign-admin-roles.md) para configurar o provisionamento (por exemplo, Administrador de Aplicativo, Administrador de aplicativos de nuvem, Proprietário de Aplicativo ou Administrador global).
-* [Um locatário do SmartSheet](https://www.smartsheet.com/pricing).
-* Uma conta de usuário em um plano do SmartSheet Enterprise ou Enterprise Premier com permissões de administrador do sistema.
+* Uma conta de usuário no Azure AD com [permissão](../roles/permissions-reference.md) para configurar o provisionamento (por exemplo, Administrador de Aplicativo, Administrador de aplicativos de nuvem, Proprietário de Aplicativo ou Administrador global).
+* [Um locatário do Smartsheet](https://www.smartsheet.com/pricing).
+* Uma conta de usuário em um plano Enterprise ou Enterprise Premier do Smartsheet com permissões de administrador do sistema.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Etapa 1. Planeje a implantação do provisionamento
 1. Saiba mais sobre [como funciona o serviço de provisionamento](../app-provisioning/user-provisioning.md).
 2. Determine quem estará no [escopo de provisionamento](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-3. Determine quais dados [mapeados entre o Azure AD e o SmartSheet](../app-provisioning/customize-application-attributes.md). 
+3. Determine quais dados serão [mapeados entre o Azure AD e o Smartsheet](../app-provisioning/customize-application-attributes.md). 
 
-## <a name="step-2-configure-smartsheet-to-support-provisioning-with-azure-ad"></a>Etapa 2. Configurar o SmartSheet para dar suporte ao provisionamento com o Azure AD
+## <a name="step-2-configure-smartsheet-to-support-provisioning-with-azure-ad"></a>Etapa 2. Configurar o Smartsheet para dar suporte ao provisionamento com o Azure AD
 
-Antes de configurar o SmartSheet para o provisionamento automático de usuário com o Azure AD, será necessário habilitar o provisionamento do SCIM no SmartSheet.
+Antes de configurar o Smartsheet para o provisionamento automático de usuário com o Azure AD, você precisará habilitar o provisionamento do SCIM no Smartsheet.
 
-1. Entre como um **sysadmin** no portal do **[SmartSheet](https://app.smartsheet.com/b/home)** e navegue até **administrador da conta**.
+1. Entre como um **SysAdmin** no **[portal do Smartsheet](https://app.smartsheet.com/b/home)** e procure **Administrador da Conta**.
 
-    ![Administrador da conta do SmartSheet](media/smartsheet-provisioning-tutorial/smartsheet-accountadmin.png)
+    ![Administrador da Conta do Smartsheet](media/smartsheet-provisioning-tutorial/smartsheet-accountadmin.png)
 
-2. Vá para **controles de segurança > provisionamento automático do usuário > editar**.
+2. Acesse **Controles de Segurança > Provisionamento Automático de Usuário > Editar**.
 
-    ![Controles de segurança SmartSheet](media/smartsheet-provisioning-tutorial/smartsheet-securitycontrols.png)
+    ![Controles de Segurança do Smartsheet](media/smartsheet-provisioning-tutorial/smartsheet-securitycontrols.png)
 
-3. Adicione e valide os domínios de email para os usuários que você planeja provisionar do Azure AD para o SmartSheet. Escolha **não habilitado** para garantir que todas as ações de provisionamento sejam originadas somente do Azure AD e também para garantir que sua lista de usuários do SmartSheet esteja em sincronia com as atribuições do Azure AD.
+3. Adicione e valide os domínios de email para os usuários que você pretende provisionar do Azure AD para o Smartsheet. Escolha **Não Habilitado** para garantir que todas as ações de provisionamento sejam originadas somente do Azure AD e também para garantir que a sua lista de usuários do Smartsheet esteja em sincronia com as atribuições do Azure AD.
 
-    ![Provisionamento de usuário do SmartSheet](media/smartsheet-provisioning-tutorial/smartsheet-userprovisioning.png)
+    ![Provisionamento de Usuário no Smartsheet](media/smartsheet-provisioning-tutorial/smartsheet-userprovisioning.png)
 
 4. Depois que a validação for concluída, você precisará ativar o domínio. 
 
-    ![SmartSheet ativar domínio](media/smartsheet-provisioning-tutorial/smartsheet-activatedomain.png)
+    ![Ativar Domínio no Smartsheet](media/smartsheet-provisioning-tutorial/smartsheet-activatedomain.png)
 
-5. Gere o **token secreto** necessário para configurar o provisionamento automático de usuário com o Azure ad navegando para **aplicativos e integrações**.
+5. Gere o **Token Secreto** necessário para configurar o provisionamento automático de usuário com o Azure AD procurando **Aplicativos e Integrações**.
 
-    ![Captura de tela da página de administração do SmartSheet com o avatar do usuário e a opção aplicativos & integrações chamada out.](media/smartsheet-provisioning-tutorial/Smartsheet05.png)
+    ![Captura de tela da página Administrador do Smartsheet com o avatar do usuário e a opção Aplicativos e Integrações em destaque.](media/smartsheet-provisioning-tutorial/Smartsheet05.png)
 
-6. Escolha **acesso à API**. Clique em **gerar novo token de acesso**.
+6. Escolha **Acesso à API**. Clique em **Gerar novo token de acesso**.
 
-    ![Captura de tela da caixa de diálogo configurações pessoais com o acesso à API e gerar novas opções de token de acesso chamadas.](media/smartsheet-provisioning-tutorial/Smartsheet06.png)
+    ![Captura de tela da caixa de diálogo Configurações Pessoais com as opções Acesso à API e Gerar novo token de acesso em destaque.](media/smartsheet-provisioning-tutorial/Smartsheet06.png)
 
-7. Defina o nome do token de acesso à API. Clique em **OK**.
+7. Defina o nome do Token de Acesso à API. Clique em **OK**.
 
-    ![Captura de tela da etapa 1 de 2: gerar token de acesso de API com a opção OK chamada out.](media/smartsheet-provisioning-tutorial/Smartsheet07.png)
+    ![Captura de tela da Etapa 1 de 2: Gerar Token de Acesso à API com a opção OK em destaque.](media/smartsheet-provisioning-tutorial/Smartsheet07.png)
 
-8. Copie o token de acesso da API e salve-o, pois esse será o único momento que você pode exibi-lo. Isso é necessário no campo **token secreto** no Azure AD.
+8. Copie o Token de Acesso à API e salve-o, porque essa será a única vez que poderá vê-lo. Você precisará inseri-lo no campo **Token Secreto** do Azure AD.
 
-    ![Token SmartSheet](media/smartsheet-provisioning-tutorial/Smartsheet08.png)
+    ![Token do Smartsheet](media/smartsheet-provisioning-tutorial/Smartsheet08.png)
 
-## <a name="step-3-add-smartsheet-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicionar o SmartSheet da Galeria de aplicativos do Azure AD
+## <a name="step-3-add-smartsheet-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicionar o Smartsheet por meio da galeria de aplicativos do Azure AD
 
-Adicione o SmartSheet da Galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento no SmartSheet. Se você tiver configurado anteriormente o SmartSheet para SSO, poderá usar o mesmo aplicativo. No entanto, recomendamos que você crie um aplicativo diferente ao testar a integração no início. Saiba mais sobre como adicionar um aplicativo da galeria [aqui](../manage-apps/add-application-portal.md). 
+Adicione o Smartsheet por meio da galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento no Smartsheet. Se você já configurou o Smartsheet para SSO, use o mesmo aplicativo. No entanto, recomendamos que você crie um aplicativo diferente ao testar a integração no início. Saiba mais sobre como adicionar um aplicativo da galeria [aqui](../manage-apps/add-application-portal.md). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Etapa 4. Defina quem estará no escopo de provisionamento 
 
 No Azure AD, é possível definir quem estará no escopo de provisionamento com base na atribuição ao aplicativo ou nos atributos do usuário/grupo. Se você optar por definir quem estará no escopo de provisionamento com base na atribuição, poderá usar as [etapas](../manage-apps/assign-user-or-group-access-portal.md) a seguir para atribuir usuários e grupos ao aplicativo. Se você optar por definir quem estará no escopo de provisionamento com base somente em atributos do usuário ou do grupo, poderá usar um filtro de escopo, conforme descrito [aqui](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Ao atribuir usuários e grupos ao SmartSheet, você deve selecionar uma função diferente de **acesso padrão**. Os usuários com a função Acesso Padrão são excluídos do provisionamento e serão marcados como "Não qualificado efetivamente" nos logs de provisionamento. Se a única função disponível no aplicativo for a de acesso padrão, você poderá [atualizar o manifesto do aplicativo](../develop/howto-add-app-roles-in-azure-ad-apps.md) para adicionar outras funções. 
+* Ao atribuir usuários e grupos ao Smartsheet, você precisará selecionar uma função diferente de **Acesso Padrão**. Os usuários com a função Acesso Padrão são excluídos do provisionamento e serão marcados como "Não qualificado efetivamente" nos logs de provisionamento. Se a única função disponível no aplicativo for a de acesso padrão, você poderá [atualizar o manifesto do aplicativo](../develop/howto-add-app-roles-in-azure-ad-apps.md) para adicionar outras funções. 
 
-* Para garantir a paridade nas atribuições de função de usuário entre o SmartSheet e o Azure AD, é recomendável utilizar as mesmas atribuições de função preenchidas na lista completa de usuários do SmartSheet. Para recuperar essa lista de usuários do SmartSheet, navegue até **administrador da conta > gerenciamento de usuários > mais ações > baixar a lista de usuários (CSV)**.
+* Para garantir a paridade nas atribuições de função de usuário entre o Smartsheet e o Azure AD, recomendamos utilizar as mesmas atribuições de função preenchidas na lista completa de usuários do Smartsheet. Para recuperar essa lista de usuários do Smartsheet, acesse **Administrador da Conta > Gerenciamento de Usuários > Mais Ações > Baixar Lista de Usuários (CSV)** .
 
-* Para acessar determinados recursos no aplicativo, o SmartSheet exige que um usuário tenha várias funções. Para saber mais sobre tipos de usuário e permissões no SmartSheet, vá para [tipos de usuário e permissões](https://help.smartsheet.com/learning-track/shared-users/user-types-and-permissions).
+* Para acessar determinados recursos no aplicativo, o Smartsheet exige que um usuário tenha várias funções. Para saber mais sobre os tipos de usuários e as permissões no Smartsheet, acesse [Tipos de usuários e permissões](https://help.smartsheet.com/learning-track/shared-users/user-types-and-permissions).
 
-*  Se um usuário tiver várias funções atribuídas no SmartSheet, você **deverá** garantir que essas atribuições de função sejam replicadas no Azure ad para evitar um cenário em que os usuários possam perder o acesso a objetos SmartSheet permanentemente. Cada função exclusiva em SmartSheet **deve** ser atribuída a um grupo diferente no Azure AD. O usuário **deve** então ser adicionado a cada um dos grupos correspondentes às funções desejadas. 
+*  Se um usuário tiver várias funções atribuídas no Smartsheet, você **PRECISARÁ** garantir que essas atribuições de função sejam replicadas no Azure AD para evitar um cenário em que os usuários percam o acesso aos objetos do Smartsheet permanentemente. Cada função exclusiva no Smartsheet **PRECISA** ser atribuída a um grupo diferente no Azure AD. Depois, o usuário **PRECISA** ser adicionado a cada um dos grupos correspondentes às funções desejadas. 
 
 * Comece pequeno. Teste com um pequeno conjunto de usuários e grupos antes de implementar para todos. Quando o escopo de provisionamento é definido para usuários e grupos atribuídos, é possível controlar isso atribuindo um ou dois usuários ou grupos ao aplicativo. Quando o escopo é definido para todos os usuários e grupos, é possível especificar um [atributo com base no filtro de escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-## <a name="step-5-configure-automatic-user-provisioning-to-smartsheet"></a>Etapa 5. Configurar o provisionamento automático de usuário para o SmartSheet 
+## <a name="step-5-configure-automatic-user-provisioning-to-smartsheet"></a>Etapa 5. Configurar o provisionamento automático de usuário no Smartsheet 
 
-Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos no SmartSheet com base em atribuições de usuário e/ou grupo no Azure AD.
+Esta seção descreve as etapas de configuração do serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos no Smartsheet com base em atribuições de usuário e/ou de grupo no Azure AD.
 
-### <a name="to-configure-automatic-user-provisioning-for-smartsheet-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para SmartSheet no Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-smartsheet-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para o Smartsheet no Azure AD:
 
 1. Entre no [portal do Azure](https://portal.azure.com). Selecione **Aplicativos Empresariais** e **Todos os Aplicativos**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **SmartSheet**.
+2. Na lista de aplicativos, selecione **Smartsheet**.
 
-    ![O link do SmartSheet na lista de aplicativos](common/all-applications.png)
+    ![O link do Smartsheet na lista Aplicativos](common/all-applications.png)
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
+    ![Captura de tela das opções Gerenciar com a opção Provisionamento destacada.](common/provisioning.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa Modo de Provisionamento com a opção Automático destacada.](common/provisioning-automatic.png)
 
-5. Na seção **credenciais de administrador** , insira a **URL base do scim 2,0 e os valores de token de acesso** recuperados anteriormente de SmartSheet na URL do **locatário** e no **token secreto** , respectivamente. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao SmartSheet. Se a conexão falhar, verifique se sua conta do SmartSheet tem permissões SysAdmin e tente novamente.
+5. Na seção **Credenciais de Administrador**, insira os valores **da URL base do SCIM 2.0 e do Token de Acesso** recuperados anteriormente no Smartsheet em **URL do Locatário** e **Token Secreto**, respectivamente. Clique em **Testar Conectividade** para verificar se o Azure AD pode se conectar ao Smartsheet. Se a conexão falhar, verifique se a sua conta do Smartsheet tem permissões de SysAdmin e tente novamente.
 
     ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -133,9 +133,9 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 7. Clique em **Save** (Salvar).
 
-8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para SmartSheet**.
+8. Na seção **Mapeamentos**, selecione **Sincronizar Usuários do Azure Active Directory com o Smartsheet**.
 
-9. Examine os atributos de usuário que são sincronizados do Azure AD para o SmartSheet na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no SmartSheet para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
+9. Examine os atributos de usuário sincronizados do Azure AD para o Smartsheet na seção **Mapeamento de Atributos**. Os atributos selecionados como propriedades **Correspondentes** são usados para fazer a correspondência das contas de usuário do Smartsheet em operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
    |Atributo|Type|
    |---|---|
@@ -148,8 +148,8 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
    |phoneNumbers[type eq "mobile"].value|String|
    |phoneNumbers[type eq "fax"].value|String|
    |externalId|String|
-   |funções [EQ principal "true"]. display|Cadeia de caracteres|
-   |funções [EQ principal "true"]. Type|String|
+   |roles[primary eq "True"].display|String|
+   |roles[primary eq "True"].type|String|
    |roles[primary eq "True"].value|String|
    |funções|String|
    urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
@@ -160,11 +160,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 10. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Para habilitar o serviço de provisionamento do Azure AD para o SmartSheet, altere o **status de provisionamento** para **ativado** na seção **configurações** .
+11. Para habilitar o serviço de provisionamento do Azure AD no Smartsheet, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**.
 
     ![Status do provisionamento ativado](common/provisioning-toggle-on.png)
 
-12. Defina os usuários e/ou grupos que você deseja provisionar para o SmartSheet escolhendo os valores desejados no **escopo** na seção **configurações** .
+12. Defina os usuários e/ou os grupos que deseja provisionar no Smartsheet escolhendo os valores desejados em **Escopo** na seção **Configurações**.
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
@@ -183,11 +183,11 @@ Depois de configurar o provisionamento, use os seguintes recursos para monitorar
 
 ## <a name="connector-limitations"></a>Limitações do conector
 
-* SmartSheet não dá suporte a exclusões reversível. Quando o atributo **ativo** de um usuário é definido como false, o SmartSheet exclui o usuário permanentemente.
+* O Smartsheet não dá suporte a exclusões temporárias. Quando o atributo **active** de um usuário é definido como False, o Smartsheet exclui o usuário permanentemente.
 
 ## <a name="change-log"></a>Log de alterações
 
-* 06/16/2020-suporte adicionado para atributos de extensão Enterprise "centro de custo", "divisão", "gerente" e "departamento" para usuários.
+* 16/06/2020 – Adição de suporte aos atributos de extensão empresariais "Centro de Custo", "Divisão", "Gerente" e "Departamento" para os usuários.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

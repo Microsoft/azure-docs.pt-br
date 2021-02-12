@@ -1,190 +1,227 @@
 ---
-title: Usar filas do Barramento de Serviço do Azure com Java
-description: Neste tutorial, você aprenderá a criar aplicativos Java para enviar mensagens para uma fila do Barramento de Serviço do Azure e receber mensagens dela.
+title: Usar filas do Barramento de Serviço do Azure com o Java (azure-messaging-servicebus)
+description: Neste tutorial, você aprenderá a usar o Java para enviar e receber mensagens em uma fila do Barramento de Serviço do Azure. Você usará o novo pacote azure-messaging-servicebus.
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 11/09/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 8883b5959cc4c67d34efc3c9da7788f03fc6c9af
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: a910f61389183b77af1f73f8d3553f6c5bbc8452
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825199"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881577"
 ---
-# <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Início Rápido: Usar filas do Barramento de Serviço do Azure com Java para enviar e receber mensagens
+# <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-java"></a>Enviar e receber mensagens em filas do Barramento de Serviço do Azure (Java)
+Neste guia de início rápido, você criará um aplicativo Java para enviar e receber mensagens em uma fila do Barramento de Serviço do Azure. 
 
-[!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-Neste tutorial, você aprenderá a criar aplicativos Java para enviar mensagens para uma fila do Barramento de Serviço do Azure e receber mensagens dela. 
+> [!IMPORTANT]
+> Este início rápido usa o novo pacote azure-messaging-servicebus. Para ver um início rápido que usa o antigo pacote azure-servicebus, confira [Enviar e receber mensagens usando azure-servicebus](service-bus-java-how-to-use-queues-legacy.md).
 
-> [!NOTE]
-> Você pode encontrar amostras Java no GitHub no repositório [azure-service-bus](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-1. Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. Ative seus [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscreva-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Caso você não tenha uma fila para trabalhar, siga as etapas do artigo [Usar o portal do Azure para criar uma fila do Barramento de Serviço](service-bus-quickstart-portal.md) para criar uma fila.
-    1. Leia a **visão geral** rápida das **filas** do Barramento de Serviço. 
-    2. Crie um **namespace** do Barramento de Serviço. 
-    3. Obtenha a **cadeia de conexão**.
-    4. Criar uma **fila** do Barramento de Serviço.
-3. Instalar o [SDK do Azure para Java][Azure SDK for Java]. 
+- Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. Ative seus [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscreva-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Caso você não tenha uma fila para trabalhar, siga as etapas do artigo [Usar o portal do Azure para criar uma fila do Barramento de Serviço](service-bus-quickstart-portal.md) para criar uma fila. Anote a **cadeia de conexão** do namespace do Barramento de Serviço e o nome da **fila** que você criou.
+- Instalar o [SDK do Azure para Java][Azure SDK for Java]. Se estiver usando o Eclipse, instale o [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse], que inclui o SDK do Azure para Java. Você pode adicionar as **Bibliotecas do Microsoft Azure para Java** ao seu projeto. Se estiver usando o IntelliJ, confira [Instalar o Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/installation). 
 
-
-## <a name="configure-your-application-to-use-service-bus"></a>Configurar seu aplicativo para usar o Barramento de serviço
-Verifique se você instalou o [SDK do Azure para Java][Azure SDK for Java] antes de compilar este exemplo. 
-
-Se você estiver usando o Eclipse, instale o [Kit de ferramentas do Azure para Eclipse][Azure Toolkit for Eclipse], que inclui o SDK do Azure para Java. Você pode adicionar as **Bibliotecas do Microsoft Azure para Java** ao seu projeto. Se você está usando o IntelliJ, confira [Instalar o Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/installation). 
-
-![Adicionar Bibliotecas do Microsoft Azure para Java a seu projeto do Eclipse](./media/service-bus-java-how-to-use-queues/eclipse-azure-libraries-java.png)
-
-
-Adicione as seguintes instruções `import` à parte superior do arquivo Java:
-
-```java
-// Include the following imports to use Service Bus APIs
-import com.google.gson.reflect.TypeToken;
-import com.microsoft.azure.servicebus.*;
-import com.microsoft.azure.servicebus.primitives.ConnectionStringBuilder;
-import com.google.gson.Gson;
-
-import static java.nio.charset.StandardCharsets.*;
-
-import java.time.Duration;
-import java.util.*;
-import java.util.concurrent.*;
-
-import org.apache.commons.cli.*;
-
-```
 
 ## <a name="send-messages-to-a-queue"></a>Enviar mensagens a uma fila
-Para enviar mensagens para uma Fila de Barramento de Serviços, seu aplicativo instancia um objeto **QueueClient** e envia mensagens de forma assíncrona. O código a seguir mostra como enviar uma mensagem para uma fila que foi criada através do portal.
+Nesta seção, você criará um projeto de console Java e adicionará um código para enviar mensagens à fila criada anteriormente. 
 
-```java
-public void run() throws Exception {
-    // Create a QueueClient instance and then asynchronously send messages.
-    // Close the sender once the send operation is complete.
-    QueueClient sendClient = new QueueClient(new ConnectionStringBuilder(ConnectionString, QueueName), ReceiveMode.PEEKLOCK);
-    this.sendMessagesAsync(sendClient).thenRunAsync(() -> sendClient.closeAsync());
+### <a name="create-a-java-console-project"></a>Criar um projeto de console Java
+Crie um projeto Java usando o Eclipse ou uma ferramenta de sua preferência. 
 
-    sendClient.close();
-}
+### <a name="configure-your-application-to-use-service-bus"></a>Configurar seu aplicativo para usar o Barramento de serviço
+Adicione uma referência à biblioteca do Barramento de Serviço do Azure. A biblioteca de clientes Java para o Barramento de Serviço está disponível no [Repositório Central do Maven](https://search.maven.org/search?q=a:azure-messaging-servicebus). Você pode fazer referência a essa biblioteca usando a seguinte declaração de dependência em seu arquivo do projeto Maven:
 
-    CompletableFuture<Void> sendMessagesAsync(QueueClient sendClient) {
-        List<HashMap<String, String>> data =
-                GSON.fromJson(
-                        "[" +
-                                "{'name' = 'Einstein', 'firstName' = 'Albert'}," +
-                                "{'name' = 'Heisenberg', 'firstName' = 'Werner'}," +
-                                "{'name' = 'Curie', 'firstName' = 'Marie'}," +
-                                "{'name' = 'Hawking', 'firstName' = 'Steven'}," +
-                                "{'name' = 'Newton', 'firstName' = 'Isaac'}," +
-                                "{'name' = 'Bohr', 'firstName' = 'Niels'}," +
-                                "{'name' = 'Faraday', 'firstName' = 'Michael'}," +
-                                "{'name' = 'Galilei', 'firstName' = 'Galileo'}," +
-                                "{'name' = 'Kepler', 'firstName' = 'Johannes'}," +
-                                "{'name' = 'Kopernikus', 'firstName' = 'Nikolaus'}" +
-                                "]",
-                        new TypeToken<List<HashMap<String, String>>>() {}.getType());
-
-        List<CompletableFuture> tasks = new ArrayList<>();
-        for (int i = 0; i < data.size(); i++) {
-            final String messageId = Integer.toString(i);
-            Message message = new Message(GSON.toJson(data.get(i), Map.class).getBytes(UTF_8));
-            message.setContentType("application/json");
-            message.setLabel("Scientist");
-            message.setMessageId(messageId);
-            message.setTimeToLive(Duration.ofMinutes(2));
-            System.out.printf("\nMessage sending: Id = %s", message.getMessageId());
-            tasks.add(
-                    sendClient.sendAsync(message).thenRunAsync(() -> {
-                        System.out.printf("\n\tMessage acknowledged: Id = %s", message.getMessageId());
-                    }));
-        }
-        return CompletableFuture.allOf(tasks.toArray(new CompletableFuture<?>[tasks.size()]));
-    }
-
+```xml
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-messaging-servicebus</artifactId>
+    <version>7.0.0</version>
+</dependency>
 ```
 
-As mensagens enviadas para e recebidas das filas do Barramento de Serviço são instâncias da classe [Mensagem](/java/api/com.microsoft.azure.servicebus.message?view=azure-java-stable). Objetos de mensagem tem um conjunto de propriedades padrão (como o rótulo e o TimeToLive), um dicionário que é usado para manter propriedades personalizadas específicas ao aplicativo e um corpo de dados arbitrários do aplicativo. Um aplicativo pode definir o corpo da mensagem passando qualquer objeto serializável para o construtor da mensagem e o serializador adequado então será usado para serializar o objeto. Como alternativa, você pode fornecer um objeto **java.IO.InputStream**.
+### <a name="add-code-to-send-messages-to-the-queue"></a>Adicionar o código para enviar mensagens à fila
+1. Adicione as instruções `import` a seguir ao tópico do arquivo Java. 
 
+    ```java
+    import com.azure.messaging.servicebus.*;
+    import com.azure.messaging.servicebus.models.*;
+    import java.util.concurrent.TimeUnit;
+    import java.util.function.Consumer;
+    import java.util.Arrays;
+    import java.util.List;
+    ```    
+5. Na classe, defina variáveis para armazenar a cadeia de conexão e o nome da fila, conforme mostrado abaixo: 
 
-As filas do Barramento de Serviço dão suporte ao tamanho máximo de mensagem de 256 KB na [camada Standard](service-bus-premium-messaging.md) e 1 MB na [camada Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades de aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB.
+    ```java
+    static String connectionString = "<NAMESPACE CONNECTION STRING>";
+    static String queueName = "<QUEUE NAME>";    
+    ```
+
+    Substitua `<NAMESPACE CONNECTION STRING>` pela cadeia de conexão para o namespace do Barramento de Serviço. Além disso, substitua `<QUEUE NAME>` pelo nome da fila.
+3. Adicione um método chamado `sendMessage` à classe para enviar uma mensagem à fila. 
+
+    ```java
+    static void sendMessage()
+    {
+        // create a Service Bus Sender client for the queue 
+        ServiceBusSenderClient senderClient = new ServiceBusClientBuilder()
+                .connectionString(connectionString)
+                .sender()
+                .queueName(queueName)
+                .buildClient();
+        
+        // send one message to the queue
+        senderClient.sendMessage(new ServiceBusMessage("Hello, World!"));
+        System.out.println("Sent a single message to the queue: " + queueName);        
+    }
+    ```
+1. Adicione um método chamado `createMessages` à classe para criar uma lista de mensagens. Normalmente, você obtém essas mensagens de diferentes partes do seu aplicativo. Aqui, criamos uma lista de mensagens de exemplo.
+
+    ```java
+    static List<ServiceBusMessage> createMessages()
+    {
+        // create a list of messages and return it to the caller
+        ServiceBusMessage[] messages = {
+                new ServiceBusMessage("First message"),
+                new ServiceBusMessage("Second message"),
+                new ServiceBusMessage("Third message")
+        };
+        return Arrays.asList(messages);
+    }
+    ```
+1. Adicione um método chamado `sendMessageBatch` para enviar mensagens à fila criada. Esse método cria uma `ServiceBusSenderClient` para a fila, invoca o método `createMessages` para obter a lista de mensagens, prepara um ou mais lotes e envia os lotes à fila. 
+
+```java
+    static void sendMessageBatch()
+    {
+        // create a Service Bus Sender client for the queue 
+        ServiceBusSenderClient senderClient = new ServiceBusClientBuilder()
+                .connectionString(connectionString)
+                .sender()
+                .queueName(queueName)
+                .buildClient();
+
+        // Creates an ServiceBusMessageBatch where the ServiceBus.
+        ServiceBusMessageBatch messageBatch = senderClient.createMessageBatch();        
+        
+        // create a list of messages
+        List<ServiceBusMessage> listOfMessages = createMessages();
+        
+        // We try to add as many messages as a batch can fit based on the maximum size and send to Service Bus when
+        // the batch can hold no more messages. Create a new batch for next set of messages and repeat until all
+        // messages are sent.        
+        for (ServiceBusMessage message : listOfMessages) {
+            if (messageBatch.tryAddMessage(message)) {
+                continue;
+            }
+
+            // The batch is full, so we create a new batch and send the batch.
+            senderClient.sendMessages(messageBatch);
+            System.out.println("Sent a batch of messages to the queue: " + queueName);
+            
+            // create a new batch
+            messageBatch = senderClient.createMessageBatch();
+
+            // Add that message that we couldn't before.
+            if (!messageBatch.tryAddMessage(message)) {
+                System.err.printf("Message is too large for an empty batch. Skipping. Max size: %s.", messageBatch.getMaxSizeInBytes());
+            }
+        }
+        
+        if (messageBatch.getCount() > 0) {
+            senderClient.sendMessages(messageBatch);
+            System.out.println("Sent a batch of messages to the queue: " + queueName);
+        }
+
+        //close the client
+        senderClient.close();
+    }
+```
 
 ## <a name="receive-messages-from-a-queue"></a>Receber mensagens de uma fila
-A maneira mais fácil de receber mensagens de uma fila é usar um objeto **ServiceBusContract**. As mensagens recebidas podem funcionar em dois modos diferentes: **ReceiveAndDelete** ou **PeekLock**.
+Nesta seção, você adicionará o código para recuperar mensagens da fila. 
 
-Ao usar o modo **ReceiveAndDelete**, o recebimento é uma operação única, isto é, quando o Barramento de Serviço recebe uma solicitação de leitura de uma mensagem em uma fila, ele marca a mensagem como sendo consumida e a retorna para o aplicativo. O modo **ReceiveAndDelete** (que é o modo padrão) é o modelo mais simples e funciona melhor em cenários nos quais um aplicativo possa tolerar o não processamento de uma mensagem em caso de falha. Para compreender isso, considere um cenário no qual o consumidor emite a solicitação de recebimento e então falha antes de processá-la.
-Como o Barramento de Serviço marcou a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
+1. Adicione um método chamado `receiveMessages` para receber mensagens da fila. Esse método cria um `ServiceBusProcessorClient` para a fila especificando um manipulador para o processamento de mensagens e outro para o tratamento de erros. Em seguida, ele inicia o processador, aguarda alguns segundos, imprime as mensagens recebidas e, por fim, interrompe e fecha o processador.
 
-No modo **PeekLock**, o recebimento de uma mensagem se torna uma operação de dois estágios, o que possibilita o suporte aos aplicativos que não podem tolerar mensagens ausentes. Quando o Barramento de Serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo. Depois que o aplicativo conclui o processamento da mensagem (ou a armazena de forma segura para processamento futuro), ele conclui a segunda etapa do processo de recebimento chamando **complete()** na mensagem recebida. Quando o Barramento de Serviço vê a chamada **complete()** , ele marca a mensagem como consumida e a remove da fila. 
+    ```java
+    // handles received messages
+    static void receiveMessages() throws InterruptedException
+    {
+        // consumer that processes a single message received from Service Bus
+        Consumer<ServiceBusReceivedMessageContext> messageProcessor = context -> {
+            ServiceBusReceivedMessage message = context.getMessage();
+            System.out.println("Received message: " + message.getBody().toString());
+        };
 
-O exemplo a seguir demonstra como as mensagens podem ser recebidas e processadas usando o modo **PeekLock** (não o modo padrão). O exemplo a seguir usa o modelo de retorno de chamada com um manipulador de mensagens registrado e processa as mensagens à medida que elas chegam ao nosso `TestQueue`. Quando o retorno de chamada retorna normalmente, esse modo chama **complete()** , mas chama **abandon()** se o retorno de chamada gerar uma exceção. 
+        // handles any errors that occur when receiving messages
+        Consumer<Throwable> errorHandler = throwable -> {
+            System.out.println("Error when receiving messages: " + throwable.getMessage());
+            if (throwable instanceof ServiceBusReceiverException) {
+                ServiceBusReceiverException serviceBusReceiverException = (ServiceBusReceiverException) throwable;
+                System.out.println("Error source: " + serviceBusReceiverException.getErrorSource());
+            }
+        };
 
-```java
-    public void run() throws Exception {
-        // Create a QueueClient instance for receiving using the connection string builder
-        // We set the receive mode to "PeekLock", meaning the message is delivered
-        // under a lock and must be acknowledged ("completed") to be removed from the queue
-        QueueClient receiveClient = new QueueClient(new ConnectionStringBuilder(ConnectionString, QueueName), ReceiveMode.PEEKLOCK);
-        this.registerReceiver(receiveClient);
+        // create an instance of the processor through the ServiceBusClientBuilder
+        ServiceBusProcessorClient processorClient = new ServiceBusClientBuilder()
+            .connectionString(connectionString)
+            .processor()
+            .queueName(queueName)
+            .processMessage(messageProcessor)
+            .processError(errorHandler)
+            .buildProcessorClient();
 
-        // shut down receiver to close the receive loop
-        receiveClient.close();
-    }
-    void registerReceiver(QueueClient queueClient) throws Exception {
-        // register the RegisterMessageHandler callback
-        queueClient.registerMessageHandler(new IMessageHandler() {
-        // callback invoked when the message handler loop has obtained a message
-            public CompletableFuture<Void> onMessageAsync(IMessage message) {
-            // receives message is passed to callback
-                if (message.getLabel() != null &&
-                    message.getContentType() != null &&
-                    message.getLabel().contentEquals("Scientist") &&
-                    message.getContentType().contentEquals("application/json")) {
+        System.out.println("Starting the processor");
+        processorClient.start();
 
-                        byte[] body = message.getBody();
-                        Map scientist = GSON.fromJson(new String(body, UTF_8), Map.class);
+        TimeUnit.SECONDS.sleep(10);
+        System.out.println("Stopping and closing the processor");
+        processorClient.close();        
+    }    
+    ```
+2. Atualize o método `main` para invocar os métodos `sendMessage`, `sendMessageBatch` e `receiveMessages` e gerar `InterruptedException`.     
 
-                        System.out.printf(
-                            "\n\t\t\t\tMessage received: \n\t\t\t\t\t\tMessageId = %s, \n\t\t\t\t\t\tSequenceNumber = %s, \n\t\t\t\t\t\tEnqueuedTimeUtc = %s," +
-                            "\n\t\t\t\t\t\tExpiresAtUtc = %s, \n\t\t\t\t\t\tContentType = \"%s\",  \n\t\t\t\t\t\tContent: [ firstName = %s, name = %s ]\n",
-                            message.getMessageId(),
-                            message.getSequenceNumber(),
-                            message.getEnqueuedTimeUtc(),
-                            message.getExpiresAtUtc(),
-                            message.getContentType(),
-                            scientist != null ? scientist.get("firstName") : "",
-                            scientist != null ? scientist.get("name") : "");
-                    }
-                    return CompletableFuture.completedFuture(null);
-                }
+    ```java
+    public static void main(String[] args) throws InterruptedException {        
+        sendMessage();
+        sendMessageBatch();
+        receiveMessages();
+    }   
+    ```
 
-                // callback invoked when the message handler has an exception to report
-                public void notifyException(Throwable throwable, ExceptionPhase exceptionPhase) {
-                    System.out.printf(exceptionPhase + "-" + throwable.getMessage());
-                }
-        },
-        // 1 concurrent call, messages are auto-completed, auto-renew duration
-        new MessageHandlerOptions(1, true, Duration.ofMinutes(1)));
-    }
+## <a name="run-the-app"></a>Executar o aplicativo
+Ao executar o aplicativo, você verá as mensagens a seguir na janela do console. 
 
+```console
+Sent a single message to the queue: myqueue
+Sent a batch of messages to the queue: myqueue
+Starting the processor
+Received message: Hello, World!
+Received message: First message in the batch
+Received message: Second message in the batch
+Received message: Three message in the batch
+Stopping and closing the processor
 ```
 
-## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Como tratar falhas do aplicativo e mensagens ilegíveis
-O Barramento de Serviço proporciona funcionalidade para ajudá-lo a se recuperar normalmente dos erros no seu aplicativo ou das dificuldades no processamento de uma mensagem. Se um aplicativo receptor não for capaz de processar a mensagem por algum motivo, ele chamará o método **abandon()** no objeto de cliente com o token de bloqueio da mensagem recebida, obtido via **getLockToken()** . Isso fará com que o Barramento de Serviço desbloqueie a mensagem na fila e disponibilize-a para que ela possa ser recebida novamente pelo mesmo aplicativo de consumo ou por outro.
+Na página **Visão geral** do namespace do Barramento de Serviço no portal do Azure, você poderá ver a contagem de mensagens de **entrada** e **saída**. Talvez seja necessário aguardar alguns minutos e atualizar a página para ver os valores mais recentes. 
 
-Também há um tempo limite associado a uma mensagem bloqueada na fila e, se houver falha no processamento da mensagem pelo aplicativo da expiração do tempo limite de bloqueio (por exemplo, se o aplicativo travar), o Barramento de Serviço desbloqueará a mensagem automaticamente e a disponibilizará para ser recebida novamente.
+:::image type="content" source="./media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png" alt-text="Contagem de mensagens de entrada e saída" lightbox="./media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png":::
 
-Se houver falha do aplicativo após o processamento da mensagem, mas antes de a solicitação **complete()** ser emitida, a mensagem será entregue novamente ao aplicativo quando ele reiniciar. Isso é frequentemente chamado de *Processamento de pelo menos uma vez*, ou seja, cada mensagem será processada pelo menos uma vez, mas, em algumas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. Isso geralmente é feito com o método **getMessageId** da mensagem, que permanecerá constante nas tentativas da entrega.
+Selecione a fila nesta página **Visão geral** para acessar a página **Fila do Barramento de Serviço**. Você também verá a contagem de mensagens de **entrada** e **saída** nessa página. Além disso, verá outras informações, como o **tamanho atual** da fila, o **tamanho máximo**, a **contagem de mensagens ativas** etc. 
 
-> [!NOTE]
-> É possível gerenciar os recursos do Barramento de Serviço com o [Gerenciador de Barramento de Serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador de Barramento de Serviço permite que usuários se conectem a um namespace de serviço do Barramento de Serviço e administrem entidades de mensagens de uma maneira fácil. A ferramenta fornece recursos avançados, como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos. 
+:::image type="content" source="./media/service-bus-java-how-to-use-queues/queue-details.png" alt-text="Detalhes da fila" lightbox="./media/service-bus-java-how-to-use-queues/queue-details.png":::
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você aprendeu as noções básicas sobre as filas do Barramento de Serviço, veja [Filas, tópicos e assinaturas][Queues, topics, and subscriptions] para saber mais.
+Confira os seguintes exemplos e a documentação:
 
-Para obter mais informações, consulte o [Centro de desenvolvedores do Java](https://azure.microsoft.com/develop/java/).
+- [Biblioteca de clientes do Barramento de Serviço do Azure para Java – Leiame](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/README.md)
+- [Exemplos no GitHub](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Referência da API Java](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-messaging-servicebus/7.0.0/index.html)
 
 [Azure SDK for Java]: /azure/developer/java/sdk/java-sdk-azure-get-started
 [Azure Toolkit for Eclipse]: /azure/developer/java/toolkit-for-eclipse/installation

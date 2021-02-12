@@ -1,5 +1,5 @@
 ---
-title: Referência – estruturas de confiança no Azure Active Directory B2C | Microsoft Docs
+title: Visão geral da política personalizada de Azure AD B2C | Microsoft Docs
 description: Um tópico sobre as políticas personalizadas do Azure Active Directory B2C e a Estrutura de Experiência de Identidade.
 services: active-directory-b2c
 author: msmimart
@@ -7,121 +7,167 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/04/2017
+ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d3d29bd05f67d00047499dc256e5e1a82f98693a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb33e11af26d5f5a2676f5b236ac142179bdb550
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388792"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592833"
 ---
-# <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Definir estruturas confiáveis com a Estrutura de Experiência de Identidade do Azure AD B2C
+# <a name="azure-ad-b2c-custom-policy-overview"></a>Visão geral da política personalizada Azure AD B2C
 
-As políticas personalizadas do Azure AD B2C (Azure Active Directory B2C) que usam a Identity Experience Framework fornecem um serviço centralizado à sua organização. Esse serviço reduz a complexidade da federação de identidade em uma grande comunidade de interesse. A complexidade é reduzida para uma relação de confiança única e uma troca única de metadados.
+As políticas personalizadas são arquivos de configuração que definem o comportamento do locatário do Azure AD B2C (Azure Active Directory B2C). Embora os [fluxos de usuário](user-flow-overview.md) sejam predefinidos no portal de Azure ad B2C para as tarefas de identidade mais comuns, as políticas personalizadas podem ser totalmente editadas por um desenvolvedor de identidade para concluir várias tarefas diferentes.
 
-Azure AD B2C políticas personalizadas usam a estrutura de experiência de identidade para permitir que você responda às seguintes perguntas:
+Uma política personalizada é totalmente configurável e orientada por políticas. Uma política personalizada orquestra a relação de confiança entre entidades em formatos de protocolo padrão, como OpenID Connect, OAuth, SAML e alguns não padrão, por exemplo, trocas de declarações do sistema-para-sistema com base na API REST. A estrutura cria experiências com nome de usuário e em branco.
 
-- Quais são as políticas jurídicas, de segurança, de privacidade e de proteção de dados que devem ser cumpridas?
-- Quem são os contatos e quais são os processos para se tornar um participante autorizado?
-- Quem são os provedores de informações de identidade autorizados (também conhecidos como "provedores de declarações") e o que eles oferecem?
-- Quais são as terceiras partes confiáveis autorizadas (e, opcionalmente, quais são suas exigências)?
-- Quais são os requisitos interoperabilidade técnica "durante a transmissão" para os participantes?
-- Quais regras operacionais de "runtime" que devem ser aplicadas para a troca de informações de identidade digital?
+Uma política personalizada é representada como um ou vários arquivos formatados em XML que se referenciam entre si em uma cadeia hierárquica. Os elementos XML definem os blocos de construção, a interação com o usuário e outras partes e a lógica de negócios. 
 
-Para responder a todas essas perguntas, as políticas personalizadas do Azure AD B2C que usam a Identity Experience Framework, usam o constructo da TF (Estrutura Confiável). Vamos considerar esse constructo e o que ele oferece.
+## <a name="custom-policy-starter-pack"></a>Pacote de início de política personalizada
 
-## <a name="understand-the-trust-framework-and-federation-management-foundation"></a>Noções básicas sobre o gerenciamento de federação e a Estrutura Confiável
+Azure AD B2C pacote de [início](custom-policy-get-started.md#get-the-starter-pack) de política personalizada vem com várias políticas predefinidas para ajudá-lo a ir rapidamente. Cada um desses pacotes de início contém o menor número de perfis de técnicos e percurso do usuário necessários para alcançar os cenários descritos:
 
-A Estrutura Confiável é uma especificação escrita de identidade, segurança, privacidade e políticas de proteção de dados às quais os participantes de uma comunidade de interesse devem estar em conformidade.
+- **LocalAccounts** – permite o uso apenas de contas locais.
+- **SocialAccounts** – permite o uso apenas de contas sociais (ou federadas).
+- **SocialAndLocalAccounts** – permite o uso de contas locais e de contas sociais. A maioria dos nossos exemplos referem-se a essa política.
+- **SocialAndLocalAccountsWithMFA** – permite opções de autenticação locais, sociais e multifator.
 
-A identidade federada fornece uma base para alcançar a garantia de identidade do usuário final em escala de Internet. Ao delegar o gerenciamento de identidade para terceiros, uma única identidade digital para um usuário final pode ser reutilizada com várias terceiras partes confiáveis.
+## <a name="understanding-the-basics"></a>Noções básicas sobre noções básicas 
 
-A garantia de identidade requer que os IdPs (provedores de identidade) e AtPs (provedores de atributos) obedeçam a políticas e práticas específicas de segurança, de privacidade e operacionais.  Se não puderem realizar inspeções diretas, as RPs (terceiras partes confiáveis) devem desenvolver relações de confiança com os IdPs e AtPs com os quais escolherem trabalhar.
+### <a name="claims"></a>Declarações
 
-Conforme o número de consumidores e provedores de informações de identidade digital aumenta, torna-se difícil continuar gerenciamento de paridade dessas relações de confiança ou até mesmo a troca de paridade de metadados técnicos necessários para a conectividade de rede.  Os hubs de federação só alcançaram sucesso limitado na solução desses problemas.
+Uma declaração fornece armazenamento temporário de dados durante uma execução de política do Azure AD B2C. Ele pode armazenar informações sobre o usuário, como nome, sobrenome ou qualquer outra declaração obtida do usuário ou de outros sistemas (trocas de declarações). O [esquema de declarações](claimsschema.md) é o lugar em que você declara suas declarações. 
 
-### <a name="what-a-trust-framework-specification-defines"></a>O que uma especificação de Estrutura Confiável define
-As TFs são a base do modelo de estrutura confiável da OIX (Open Identity Exchange), em que cada comunidade de interesse é governada por uma especificação determinada de TF. Tal especificação TF define:
+Quando a política é executada, o Azure AD B2C envia e recebe declarações de e para partes internas e externas e, em seguida, envia um subconjunto dessas declarações para seu aplicativo de terceira parte confiável como parte do token. As declarações são usadas das seguintes maneiras: 
 
-- **As métricas de segurança e privacidade para a comunidade relevante com a definição de:**
-    - LOA (níveis de garantia) que são oferecidos/exigidos pelos participantes, ou seja, um conjunto ordenado de classificações de segurança para a autenticidade das informações de identidade digital.
-    - LOP (Níveis de proteção) que são oferecidos/exigidos pelos participantes; por exemplo, um conjunto ordenado de classificações de confiança para a proteção das informações de identidade digital que são manipuladas por participantes da comunidade de interesse.
+- Uma declaração é salva, lida ou atualizada no objeto de usuário do diretório.
+- Uma declaração é recebida de um provedor de identidade externo.
+- As declarações são enviadas ou recebidas usando um serviço de API REST personalizado.
+- Os dados são coletados como declarações do usuário durante os fluxos de inscrição ou edição de perfil.
 
-- **A descrição das informações de identidade digital que são oferecidas/exigidas pelos participantes**.
+### <a name="manipulating-your-claims"></a>Manipulando suas declarações
 
-- **As políticas técnicas para produção e consumo de informações de identidade digital e, portanto, para medir LOA e LOP. Essas políticas escritas normalmente incluem as seguintes categorias de políticas:**
-    - Políticas de verificação de identidade, por exemplo: *Qual é o nível de avaliação das informações de uma pessoa?*
-    - Políticas de segurança, por exemplo: *Qual é o nível de proteção de confidencialidade e integridade das informações?*
-    - Políticas de privacidade, por exemplo: *Qual controle um usuário tem sobre PII (informações pessoais identificáveis)*?
-    - Políticas de persistência, por exemplo: *Se um provedor interromper as operações, como funcionará a continuidade e a proteção de PII?*
+As [transformações de declarações](claimstransformations.md) são funções predefinidas que podem ser usadas para converter uma determinada declaração em outra, avaliar uma declaração ou definir um valor de declaração. Por exemplo, adicionar um item a uma coleção de cadeias de caracteres, alterar o caso de uma cadeia de caracteres ou avaliar uma declaração de data e hora. Uma transformação de declarações especifica um método de transformação. 
 
-- **Os perfis técnicos para produção e consumo de informações de identidade digital. Esses perfis incluem:**
-    - Interfaces de escopo para as quais as informações de identidade digital estão disponíveis em um LOA específico.
-    - Requisitos técnicos para a interoperabilidade durante a transmissão.
+### <a name="customize-and-localize-your-ui"></a>Personalizar e localizar sua interface do usuário
 
-- **As descrições das várias funções que os participantes da comunidade podem realizar e as qualificações necessárias para cumprir essas funções.**
+Quando você quiser coletar informações de seus usuários apresentando uma página em seu navegador da Web, use o [perfil técnico autodeclarado](self-asserted-technical-profile.md). Você pode editar seu perfil técnico autodeclarado para [adicionar declarações e personalizar a entrada do usuário](./configure-user-input.md).
 
-Dessa forma, uma especificação TF controla como as informações de identidade são trocadas entre os participantes da comunidade relevante: partes confiantes, identidade, provedores de atributos e verificadores de atributos.
+Para [Personalizar a interface do usuário](customize-ui-with-html.md) para seu perfil técnico autodeclarado, ESPECIFIQUE uma URL no elemento de [definição de conteúdo](contentdefinitions.md) com conteúdo HTML personalizado. No perfil técnico autodeclarado, você aponta para essa ID de definição de conteúdo.
 
-Uma especificação de TF é um ou vários documentos que servem como uma referência para o controle da comunidade de interesse que regula a instrução de declaração e o consumo de informações de identidade digital dentro da comunidade. É um conjunto documentado de políticas e procedimentos projetados para estabelecer confiança em identidades digitais que são usadas para transações online entre membros de uma comunidade de interesse.
+Para personalizar cadeias de caracteres específicas do idioma, use o elemento de [localização](localization.md) . Uma definição de conteúdo pode conter uma referência de [localização](localization.md) que especifica uma lista de recursos localizados a serem carregados. O Azure AD B2C mescla os elementos da interface do usuário com o conteúdo HTML carregado da URL e exibe a página ao usuário. 
 
-Em outras palavras, uma especificação de TF define as regras para a criação de um ecossistema de identidade federada viável para uma comunidade.
+## <a name="relying-party-policy-overview"></a>Visão geral da política de terceira parte confiável
 
-Atualmente há um acordo amplo a respeito do benefício dessa abordagem. Não há dúvidas de que as especificações da estrutura confiável facilitam o desenvolvimento de ecossistemas de identidade digital com segurança, garantia e características de privacidade verificáveis, de modo que possam ser reutilizados em várias comunidades de interesse.
+Um aplicativo de terceira parte confiável, que no protocolo SAML é conhecido como um provedor de serviços, chama a política de terceira parte [confiável](relyingparty.md) para executar um percurso de usuário específico. A política de terceira parte confiável especifica a jornada do usuário a ser executada e a lista de declarações que o token inclui. 
 
-Por esse motivo, as políticas personalizadas do Azure AD B2C que usam a Identity Experience Framework usam a especificação como a base de sua representação de dados para uma TF a fim de facilitar a interoperabilidade.
+![Diagrama mostrando o fluxo de execução da política](./media/custom-policy-trust-frameworks/custom-policy-execution.png)
 
-As políticas personalizadas do Azure AD B2C que aproveitam a Estrutura de Experiência de Identidade representam uma especificação de TF como uma combinação de dados humanos e dados legíveis por computador. Algumas seções desse modelo (normalmente seções que são mais orientadas para a governança) são representadas como referências à documentação publicada de política de privacidade e segurança, junto com os procedimentos relacionados (se houver). Outras seções descrevem em detalhes os metadados de configuração e as regras de runtime que facilitam a automação operacional.
+Todos os aplicativos de terceira parte confiável que usam a mesma política receberão as mesmas declarações de token e o usuário passará pela mesma jornada do usuário.
 
-## <a name="understand-trust-framework-policies"></a>Entender as políticas de estrutura confiável
+### <a name="user-journeys"></a>Percursos do usuário
 
-Em termos de implementação, a especificação de TF consiste em um conjunto de políticas que permitem o controle completo sobre comportamentos de identidade e experiências.  As políticas personalizadas do Azure AD B2C que aproveitam a Estrutura de Experiência de Identidade permitem que você escreva e crie sua própria TF por meio dessas políticas declarativas que podem definir e configurar:
+As [viagens do usuário](userjourneys.md) permitem que você defina a lógica de negócios com o caminho pelo qual o usuário seguirá para obter acesso ao seu aplicativo. O usuário é levado pelo percurso do usuário para recuperar as declarações que devem ser apresentadas ao seu aplicativo. Uma jornada do usuário é criada a partir de uma sequência de [etapas de orquestração](userjourneys.md#orchestrationsteps). Um usuário deve acessar a última etapa para adquirir um token. 
 
-- A referência ou as referências de documento que definem o ecossistema de identidade federada da comunidade que se relaciona com a TF. Eles são links para a documentação do TF. As regras de "runtime" operacionais (predefinidas), ou os percursos do usuário que automatizam e/ou controlam a troca e uso das declarações. Esses percursos do usuário são associados a um LOA (e um LOP). Portanto, uma política pode ter percursos do usuário com diversos LOAs (e LOPs).
+As instruções a seguir descrevem como você pode adicionar etapas de orquestração à política de [inicialização de conta social e local](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccounts) . Aqui está um exemplo de uma chamada à API REST que foi adicionada.
 
-- Os provedores de atributos e de identidade, ou os provedores de declarações na comunidade relevante e os perfis técnicos que eles suportam junto com a capacitação de LOA/LOP (fora de banda) relacionadas a eles.
+![jornada do usuário personalizado](media/custom-policy-trust-frameworks/user-journey-flow.png)
 
-- A integração com verificadores de atributo ou com provedores de declarações.
 
-- Partes confiáveis da comunidade (por inferência).
+### <a name="orchestration-steps"></a>Etapas de orquestração
 
-- Os metadados para estabelecer comunicações de rede entre os participantes. Esses metadados com os perfis técnicos são usados durante uma transação para inserir interoperabilidade "durante a transmissão" entre a terceira parte confiável e outros participantes da comunidade.
+A etapa de orquestração faz referência a um método que implementa sua finalidade ou funcionalidade pretendida. Esse método é chamado de [perfil técnico](technicalprofiles.md). Quando o percurso do usuário precisa de ramificação para representar melhor a lógica de negócios, a etapa de orquestração faz referência à [sub-rotina](subjourneys.md). Uma sub-rotina contém seu próprio conjunto de etapas de orquestração.
 
-- A conversão de protocolo, se houver (por exemplo, SAML 2.0, OAuth2, Web Services Federation e OpenID Connect).
+Um usuário deve acessar a última etapa de orquestração no percurso do usuário para adquirir um token. Mas os usuários talvez não precisem percorrer todas as etapas de orquestração. As etapas de orquestração podem ser executadas condicionalmente com base nas [pré-condições](userjourneys.md#preconditions) definidas na etapa de orquestração. 
 
-- Os requisitos de autenticação.
+Após a conclusão de uma etapa de orquestração, Azure AD B2C armazena as declarações de saída na **bolsa de declarações**. As declarações no recipiente de declarações podem ser utilizadas por outras etapas de orquestração na jornada do usuário.
 
-- A orquestração multifator, se houver.
+O diagrama a seguir mostra como as etapas de orquestração da jornada do usuário podem acessar o recipiente de declarações.
 
-- Um esquema compartilhado para todas as declarações que estão disponíveis e os mapeamentos para os participantes de uma comunidade de interesse.
+![Jornada do usuário Azure AD B2C](media/custom-policy-trust-frameworks/user-journey-diagram.png)
 
-- Todas as transformações de declarações, junto com a minimização de dados possíveis nesse contexto, para sustentar a troca e o uso das declarações.
+### <a name="technical-profile"></a>Perfil técnico
 
-- A associação e criptografia.
+Um perfil técnico fornece uma interface para se comunicar com diferentes tipos de partes. Um percurso do usuário combina a chamada de perfis técnicos por meio de etapas de orquestração para definir sua lógica de negócios.
 
-- O armazenamento das declarações.
+Todos os tipos de perfis técnicos compartilham o mesmo conceito. Você envia declarações de entrada, executa a transformação de declarações e comunica-se com a parte configurada. Depois que o processo for concluído, o perfil técnico retornará as declarações de saída para o recipiente de declarações. Para obter mais informações, consulte [visão geral de perfis técnicos](technicalprofiles.md).
 
-### <a name="understand-claims"></a>Entender as declarações
+### <a name="validation-technical-profile"></a>Perfil técnico de validação
 
-> [!NOTE]
-> Nos referimos, coletivamente, a todos os possíveis tipos de informações de identidade que poderão ser trocadas como "declarações": declarações sobre a credencial de autenticação do usuário final, análise de identidade, dispositivo de comunicação, localização física, atributos de identificação pessoal e assim por diante.
->
-> Usamos o termo "declarações" – em vez de "atributos" – pois, no caso de transações online, esses artefatos de dados não são fatos que podem ser verificados diretamente pela terceira parte confiável. Em vez disso, eles são instruções de declaração ou declarações sobre fatos para os quais a terceira parte confiável deve desenvolver confiança suficiente para conceder a transação solicitada pelo usuário final.
->
-> Nós também usamos o termo "declarações" porque as políticas personalizadas do Azure AD B2C que usam a Identity Experience Framework foram projetadas para simplificar a troca de todos os tipos de informações de identidade digital de maneira consistente, independentemente se o protocolo subjacente foi definido para autenticação de usuário ou recuperação de atributo.  Da mesma forma, usamos o termo "provedores de declarações" para nos referirmos coletivamente aos provedores de identidade, provedores de atributo e verificadores de atributo quando não queremos fazer distinção entre suas funções específicas.
+Quando um usuário interage com a interface do usuário, talvez você queira validar os dados coletados. Para interagir com o usuário, um [perfil técnico autodeclarado](self-asserted-technical-profile.md) deve ser usado.
 
-Assim, eles controlam como as informações de identidade são trocadas entre uma terceira parte confiável, identidade, provedores de atributos e verificadores de atributos. Elas controlam quais identidades e provedores de atributos são necessários para autenticação de uma terceira parte confiável. Eles devem ser considerados como uma DSL (Linguagem Específica de Domínio), ou seja, uma linguagem de computador especializada para um domínio do aplicativo específico com herança, instruções *if*, polimorfismo.
+Para validar a entrada do usuário, um [perfil técnico de validação](validation-technical-profile.md) é chamado do perfil técnico autodeclarado. Um perfil técnico de validação é um método para chamar qualquer perfil técnico não interativo. Nesse caso, o perfil técnico pode retornar declarações de saída ou uma mensagem de erro. A mensagem de erro é renderizada para o usuário na tela, permitindo que o usuário tente novamente.
 
-Essas políticas constituem a parte legível por computador do constructo da TF nas políticas personalizadas do Azure AD B2C que aproveitam a Estrutura de Experiência de Identidade. Elas incluem todos os detalhes operacionais, incluindo metadados e perfis técnicos de provedores de declarações, definições de esquema de declarações, funções de transformação de declarações e jornadas do usuário que são preenchidas para facilitar a automação e a orquestração operacional.
+O diagrama a seguir ilustra como o Azure AD B2C usa um perfil técnico de validação para validar as credenciais do usuário.
 
-Elas são consideradas *documentos vivos* porque há uma boa chance de que seu conteúdo seja alterado ao longo do tempo, no que diz respeito aos participantes ativos declarados nas políticas. Também há a possibilidade de que os termos e condições para se tornar um participante possam ser alterados.
+![Diagrama de perfil técnico de validação](media/custom-policy-trust-frameworks/validation-technical-profile.png)
 
-A configuração de federação e manutenção são amplamente simplificadas pela reconfiguração e confiança contínua de conectividade já que os verificadores/provedores de declarações ingressam ou saem (representados pela comunidade) do conjunto de políticas.
+## <a name="inheritance-model"></a>Modelo de herança
 
-A interoperabilidade é outro desafio significativo. Os verificadores/provedores de declarações adicionais devem ser integrados, porque é provável que as terceiras partes confiáveis não ofereçam suporte a todos os protocolos necessários. As políticas personalizadas do Azure AD B2C resolvem esse problema oferecendo suporte aos protocolos padrão do setor e aplicando percursos do usuário específicos para transpor solicitações quando as terceiras partes confiáveis e provedores de atributos não derem suporte ao mesmo protocolo.
+Cada pacote de início inclui os seguintes arquivos:
 
-Os percursos do usuário incluem perfis de protocolo e metadados que são usados para inserir interoperabilidade "durante a transmissão" entre a terceira parte confiável e outros participantes. Também há regras de runtime operacional que são aplicadas a mensagens de solicitação/resposta de informações de identidade para impor a conformidade com políticas publicadas como parte da especificação da TF. A ideia de jornadas do usuário é fundamental para a personalização da experiência do cliente. Ela também esclarece como o sistema funciona no nível do protocolo.
+- Um arquivo de **Base** que contém a maioria das definições. Para ajudar na solução de problemas e na manutenção de longo prazo de suas políticas, tente minimizar o número de alterações feitas nesse arquivo.
+- Um arquivo de **Extensões** que contém as alterações de configuração exclusivas para seu locatário. Esse arquivo de política é derivado do arquivo de Base. Use esse arquivo para adicionar novas funcionalidades ou substituir a funcionalidade existente. Por exemplo, use esse arquivo para federar com novos provedores de identidade.
+- Um arquivo **RP (Terceira Parte Confiável)** que é o único arquivo centrado em tarefa invocado diretamente pelo aplicativo de terceira parte confiável, como seus aplicativos Web, móveis ou da área de trabalho. Cada tarefa exclusiva, como inscrição, entrada, redefinição de senha ou edição de perfil, requer seu próprio arquivo de política de terceira parte confiável. Esse arquivo de política é derivado do arquivo de extensões.
 
-Com essa base, portais e aplicativos de terceira parte confiável podem, dependendo de seu contexto, invocar as políticas personalizadas do Azure AD B2C que aproveitam a Estrutura de Experiência de Identidade ao passar o nome de uma política específica e obter exatamente o comportamento e a troca de informações desejadas sem qualquer problema, confusão ou risco.
+O modelo de herança é assim:
+
+- A política filho em qualquer nível pode herdar de política pai e estendê-la adicionando novos elementos.
+- Para cenários mais complexos, você pode adicionar mais níveis de herança (até 10 no total).
+- Você pode adicionar mais políticas de terceira parte confiável. Por exemplo, exclua minha conta, altere um número de telefone, política de terceira parte confiável SAML e muito mais.
+
+O diagrama a seguir mostra a relação entre os arquivos de política e os aplicativos de terceira parte confiável.
+
+![Diagrama mostrando o modelo de herança de política de estrutura confiável](media/custom-policy-trust-frameworks/policies.png)
+
+
+## <a name="guidance-and-best-practices"></a>Diretrizes e melhores práticas
+
+### <a name="best-practices"></a>Práticas recomendadas
+
+Dentro de uma Azure AD B2C política personalizada, você pode integrar sua própria lógica de negócios para criar as experiências do usuário necessárias e estender a funcionalidade do serviço. Temos um conjunto de práticas recomendadas e recomendações para começar.
+
+- Crie sua lógica dentro da **política de extensão** ou da política de terceira parte **confiável**. Você pode adicionar novos elementos, que substituirão a política base referenciando a mesma ID. Isso permitirá que você Escale horizontalmente seu projeto enquanto torna mais fácil atualizar a política base posteriormente, se a Microsoft lançar novos pacotes de início.
+- Na **política de base**, é altamente recomendável evitar fazer qualquer alteração. Quando necessário, faça comentários onde as alterações são feitas.
+- Quando você estiver substituindo um elemento, como metadados de perfil técnico, evite copiar o perfil técnico inteiro da política de base. Em vez disso, copie apenas a seção necessária do elemento. Consulte [desabilitar a verificação de email](./disable-email-verification.md) para obter um exemplo de como fazer a alteração.
+- Para reduzir a duplicação de perfis técnicos, onde a funcionalidade principal é compartilhada, use a [inclusão de perfil técnico](technicalprofiles.md#include-technical-profile).
+- Evite gravar no diretório do AD do Azure durante a entrada, o que pode levar à limitação de problemas.
+- Se sua política tiver dependências externas, como APIs REST, verifique se elas estão altamente disponíveis.
+- Para uma melhor experiência de usuário, verifique se seus modelos HTML personalizados são implantados globalmente usando a [distribuição de conteúdo online](../cdn/index.yml). A CDN (rede de distribuição de conteúdo) do Azure permite reduzir os tempos de carregamento, economizar largura de banda e melhorar a velocidade de resposta.
+- Se você quiser fazer uma alteração no percurso do usuário, copie todo o percurso do usuário da política de base para a política de extensão. Forneça uma ID de jornada do usuário exclusiva para o percurso do usuário que você copiou. Em seguida, na política de terceira parte [confiável](relyingparty.md), altere o elemento de [jornada do usuário padrão](relyingparty.md#defaultuserjourney) para apontar para o novo percurso do usuário.
+
+## <a name="troubleshooting"></a>Solução de problemas
+
+Ao desenvolver com políticas de Azure AD B2C, você pode encontrar erros ou exceções ao executar a jornada do usuário. O pode ser investigado usando Application Insights.
+
+- Integre Application Insights com Azure AD B2C para [diagnosticar exceções](troubleshoot-with-application-insights.md).
+- A [extensão de Azure ad B2C para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) pode ajudá-lo [a acessar e visualizar os logs](https://github.com/azure-ad-b2c/vscode-extension/blob/master/src/help/app-insights.md) com base em um nome de política e hora.
+- O erro mais comum na configuração de políticas personalizadas é XML com erro de formatação. Use a [validação de esquema XML](troubleshoot-custom-policies.md) para identificar erros antes de carregar o arquivo XML.
+
+## <a name="continuous-integration"></a>Integração contínua
+
+Usando um pipeline de CI/CD (integração e entrega contínuas) que você configura no Azure Pipelines, você pode [incluir suas Azure ad B2C políticas personalizadas em sua distribuição de software](deploy-custom-policies-devops.md) e automação de controle de código. Conforme você implanta em diferentes ambientes de Azure AD B2C, por exemplo, desenvolvimento, teste e produção, recomendamos que você remova processos manuais e execute testes automatizados usando Azure Pipelines.
+
+## <a name="prepare-your-environment"></a>Prepare o seu ambiente
+
+Você começa a usar Azure AD B2C política personalizada:
+
+1. [Criar um locatário do Azure AD B2C](tutorial-create-tenant.md)
+1. [Registre um aplicativo Web](tutorial-register-applications.md) usando o portal do Azure para que você possa testar sua política.
+1. Adicione as [chaves de política](custom-policy-get-started.md#add-signing-and-encryption-keys) necessárias e [registre os aplicativos da estrutura de experiência de identidade](custom-policy-get-started.md#register-identity-experience-framework-applications).
+1. [Obtenha o pacote de início do Azure ad B2C Policy](custom-policy-get-started.md#get-the-starter-pack) e carregue-o em seu locatário. 
+1. Depois de carregar o pacote de início, [teste sua política de inscrição ou de entrada](custom-policy-get-started.md#test-the-custom-policy).
+1. Recomendamos que você baixe e instale o [Visual Studio Code](https://code.visualstudio.com/) (vs Code). Visual Studio Code é um editor de código-fonte leve, mas poderoso, que é executado em sua área de trabalho e está disponível para Windows, macOS e Linux. Com o VS Code, você pode navegar rapidamente e editar seus arquivos XML da política personalizada Azure AD B2C instalando a [extensão Azure ad B2C para vs Code](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c)
+ 
+## <a name="next-steps"></a>Próximas etapas
+
+Depois de configurar e testar sua política de Azure AD B2C, você pode começar a personalizar sua política. Siga os artigos a seguir para saber como:
+
+- [Adicione declarações e personalize a entrada do usuário](./configure-user-input.md) usando políticas personalizadas. Saiba como definir uma declaração e adicionar uma declaração à interface do usuário, personalizando alguns dos perfis técnicos do pacote inicial.
+- [Personalize a interface do usuário](customize-ui-with-html.md) do seu aplicativo usando uma política personalizada. Saiba como criar seu próprio conteúdo HTML e personalizar a definição de conteúdo.
+- [Localize a interface do usuário](./language-customization.md) do seu aplicativo usando uma política personalizada. Saiba como configurar a lista de idiomas com suporte e fornecer rótulos específicos do idioma, adicionando o elemento recursos localizados.
+- Durante o desenvolvimento e o teste de sua política, você pode [desabilitar a verificação de email](./disable-email-verification.md). Saiba como substituir os metadados de um perfil técnico.
+- [Configure a entrada com uma conta do Google](./identity-provider-google.md) usando políticas personalizadas. Saiba como criar um novo provedor de declarações com o perfil técnico do OAuth2. Em seguida, personalize a jornada do usuário para incluir a opção de entrada do Google.
+- Para diagnosticar problemas com suas políticas personalizadas, você pode [coletar logs de Azure Active Directory B2C com Application insights](troubleshoot-with-application-insights.md). Saiba como adicionar novos perfis técnicos e configurar sua política de terceira parte confiável.

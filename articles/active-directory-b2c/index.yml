@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   ms.date: 01/28/2020
-  ms.openlocfilehash: 3b1361646bb90677bf97d9666be361d3c439c8a7
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 389cd8b9812048bd8156201926dbba007b2cc983
+  ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91728396"
+  ms.lasthandoff: 01/21/2021
+  ms.locfileid: "98660167"
 landingContent:
 - title: Azure AD B2C
   linkLists:
@@ -26,7 +26,7 @@ landingContent:
     - text: O que é o Azure AD B2C?
       url: overview.md
     - text: Comparar soluções para Identidades Externas
-      url: https://docs.microsoft.com/azure/active-directory/b2b/compare-with-b2c?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+      url: ../active-directory/external-identities/compare-with-b2c.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
     - text: Introdução ao Azure AD B2C
       url: tutorial-create-tenant.md
     - text: Visão geral técnica e de recursos
@@ -38,15 +38,15 @@ landingContent:
   - linkListType: learn
     links:
     - text: Autenticação e autorização
-      url: https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+      url: ../active-directory/develop/authentication-vs-authorization.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
     - text: Tokens
-      url: https://docs.microsoft.com/azure/active-directory/develop/security-tokens?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+      url: ../active-directory/develop/security-tokens.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
     - text: Protocolos
-      url: https://docs.microsoft.com/azure/active-directory/develop/v2-app-types?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+      url: ../active-directory/develop/v2-app-types.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
     - text: Biblioteca de autenticação
-      url: https://docs.microsoft.com/azure/active-directory/develop/msal-overview?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+      url: ../active-directory/develop/msal-overview.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
     - text: 'Criar um site: HTML, CSS, JavaScript'
-      url: https://docs.microsoft.com/learn/modules/build-simple-website/
+      url: /learn/modules/build-simple-website/
 - title: Casos de uso comuns
   linkLists:
   - linkListType: how-to-guide
@@ -56,9 +56,9 @@ landingContent:
     - text: 'Adicionar identidades sociais e de trabalho: OIDC/OAuth2/SAML'
       url: tutorial-add-identity-providers.md
     - text: Habilitar o logon único (SSO)
-      url: session-overview.md
+      url: session-behavior.md
     - text: Personalizar sua interface do usuário/experiência do usuário
-      url: customize-ui-overview.md
+      url: customize-ui-with-html.md
     - text: Migração de usuários e aplicativos
       url: user-migration.md
 - title: Adicionar entrada a seus aplicativos
@@ -94,7 +94,7 @@ landingContent:
     - text: Saiba onde os dados do usuário são armazenados
       url: data-residency.md
     - text: Regulações
-      url: https://docs.microsoft.com/azure/compliance/
+      url: ../compliance/index.yml
     - text: Acesso do usuário e termos de uso
       url: manage-user-access.md
 - title: Operations
@@ -106,9 +106,9 @@ landingContent:
     - text: Monitoramento
       url: azure-monitor.md
     - text: Controle de acesso baseado em função para administradores
-      url: https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles
+      url: ../active-directory/roles/permissions-reference.md
     - text: Gerenciamento de Usuários
-      url: manage-user-accounts-graph-api.md
+      url: microsoft-graph-operations.md
     - text: Solução de problemas
       url: troubleshoot-custom-policies.md?tabs-app-reg-ga
     - text: Melhores práticas

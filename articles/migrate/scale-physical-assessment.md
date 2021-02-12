@@ -1,18 +1,17 @@
 ---
 title: Avaliar grandes números de servidores físicos para migração para o Azure com migrações para Azure | Microsoft Docs
 description: Descreve como avaliar grandes números de servidores físicos para migração para o Azure usando o serviço migrações para Azure.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
-ms.topic: conceptual
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 01/19/2020
-ms.author: hamusa
-ms.openlocfilehash: 227e27d25ad5d0c61ed4f36c234222a079315619
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 45954a42613fb1716e3b66305c0485a3966b8e37
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317149"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753681"
 ---
 # <a name="assess-large-numbers-of-physical-servers-for-migration-to-azure"></a>Avaliar grandes números de servidores físicos para migração para o Azure
 
@@ -73,7 +72,7 @@ De acordo com seus requisitos de planejamento, faça o seguinte:
 1. Criar um projeto do Migrações para Azure.
 2. Adicione a ferramenta de avaliação do servidor de migrações para projetos.
 
-[Saiba mais](how-to-add-tool-first-time.md)
+[Saiba mais](./create-manage-projects.md)
 
 ## <a name="create-and-review-an-assessment"></a>Criar e examinar uma avaliação
 

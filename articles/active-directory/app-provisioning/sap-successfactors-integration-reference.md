@@ -3,19 +3,19 @@ title: Referência de integração do Azure Active Directory e do SAP SuccessFac
 description: Aprofundamento técnico no provisionamento direcionado do SAP SuccessFactors-HR
 services: active-directory
 author: cmmdesai
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 07/20/2020
+ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: 805cdc0713afd43502bb224cce60167adbc418ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed97600ca1802629f81f93f4f51c92ad4b1c9bd1
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90969526"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256214"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-sap-successfactors"></a>Como Azure Active Directory provisionamento se integra ao SAP SuccessFactors 
 
@@ -55,21 +55,22 @@ Para cada usuário no SuccessFactors, o serviço de provisionamento do Azure AD 
 | 6  | Usuário                                   | employmentNav/userNav        | Sempre           |
 | 7  | EmpJob                                 | employmentNav/jobInfoNav     | Sempre           |
 | 8  | EmpEmploymentTermination               | activeEmploymentsCount       | Sempre           |
-| 9  | FOCompany                              | employmentNav/jobInfoNav/companyNav | Somente se `company` ou o `companyId` atributo for mapeado |
-| 10 | FODepartment                           | employmentNav/jobInfoNav/departmentNav | Somente se `department` ou o `departmentId` atributo for mapeado |
-| 11 | FOBusinessUnit                         | employmentNav/jobInfoNav/businessUnitNav | Somente se `businessUnit` ou o `businessUnitId` atributo for mapeado |
-| 12 | FOCostCenter                           | employmentNav/jobInfoNav/costCenterNav | Somente se `costCenter` ou o `costCenterId` atributo for mapeado |
-| 13 | FODivision                             | employmentNav/jobInfoNav/divisionNav  | Somente se `division` ou o `divisionId` atributo for mapeado |
-| 14 | FOJobCode                              | employmentNav/jobInfoNav/jobCodeNav  | Somente se `jobCode` ou o `jobCodeId` atributo for mapeado |
-| 15 | FOPayGrade                             | employmentNav/jobInfoNav/payGradeNav  | Somente se o `payGrade` atributo for mapeado |
-| 16 | FOLocation                             | employmentNav/jobInfoNav/locationNav  | Somente se o `location` atributo for mapeado |
-| 17 | FOCorporateAddressDEFLT                | employmentNav/jobInfoNav/addressNavDEFLT  | Se o mapeamento contiver um dos seguintes atributos: `officeLocationAddress,  officeLocationCity, officeLocationZipCode` |
-| 18 | FOEventReason                          | employmentNav/jobInfoNav/eventReasonNav  | Somente se o `eventReason` atributo for mapeado |
-| 19 | EmpGlobalAssignment                    | employmentNav/empGlobalAssignmentNav | Somente se `assignmentType` for mapeado |
-| 20 | Lista de seleção de empregos                | employmentNav/jobInfoNav/employmentTypeNav | Somente se `employmentType` for mapeado |
-| 21 | Lista de seleção de EmployeeClass                 | employmentNav/jobInfoNav/employeeClassNav | Somente se `employeeClass` for mapeado |
-| 22 | Lista de seleção de EmplStatus                    | employmentNav/jobInfoNav/emplStatusNav | Somente se `emplStatus` for mapeado |
-| 23 | Lista de seleção de assignmenttype                | employmentNav/empGlobalAssignmentNav/assignmentTypeNav | Somente se `assignmentType` for mapeado |
+| 9  | Gerente do usuário                         | employmentNav/userNav/gerente/empInfo | Sempre  |
+| 10 | FOCompany                              | employmentNav/jobInfoNav/companyNav | Somente se `company` ou o `companyId` atributo for mapeado |
+| 11 | FODepartment                           | employmentNav/jobInfoNav/departmentNav | Somente se `department` ou o `departmentId` atributo for mapeado |
+| 12 | FOBusinessUnit                         | employmentNav/jobInfoNav/businessUnitNav | Somente se `businessUnit` ou o `businessUnitId` atributo for mapeado |
+| 13 | FOCostCenter                           | employmentNav/jobInfoNav/costCenterNav | Somente se `costCenter` ou o `costCenterId` atributo for mapeado |
+| 14 | FODivision                             | employmentNav/jobInfoNav/divisionNav  | Somente se `division` ou o `divisionId` atributo for mapeado |
+| 15 | FOJobCode                              | employmentNav/jobInfoNav/jobCodeNav  | Somente se `jobCode` ou o `jobCodeId` atributo for mapeado |
+| 16 | FOPayGrade                             | employmentNav/jobInfoNav/payGradeNav  | Somente se o `payGrade` atributo for mapeado |
+| 17 | FOLocation                             | employmentNav/jobInfoNav/locationNav  | Somente se o `location` atributo for mapeado |
+| 18 | FOCorporateAddressDEFLT                | employmentNav/jobInfoNav/addressNavDEFLT  | Se o mapeamento contiver um dos seguintes atributos: `officeLocationAddress,  officeLocationCity, officeLocationZipCode` |
+| 19 | FOEventReason                          | employmentNav/jobInfoNav/eventReasonNav  | Somente se o `eventReason` atributo for mapeado |
+| 20 | EmpGlobalAssignment                    | employmentNav/empGlobalAssignmentNav | Somente se `assignmentType` for mapeado |
+| 21 | Lista de seleção de empregos                | employmentNav/jobInfoNav/employmentTypeNav | Somente se `employmentType` for mapeado |
+| 22 | Lista de seleção de EmployeeClass                 | employmentNav/jobInfoNav/employeeClassNav | Somente se `employeeClass` for mapeado |
+| 23 | Lista de seleção de EmplStatus                    | employmentNav/jobInfoNav/emplStatusNav | Somente se `emplStatus` for mapeado |
+| 24 | Lista de seleção de assignmenttype                | employmentNav/empGlobalAssignmentNav/assignmentTypeNav | Somente se `assignmentType` for mapeado |
 
 ## <a name="how-full-sync-works"></a>Como funciona a sincronização completa
 Com base no mapeamento de atributo, durante a sincronização completa, o serviço de provisionamento do Azure AD envia a seguinte consulta de API OData "GET" para buscar dados efetivos de todos os usuários ativos. 
@@ -113,12 +114,12 @@ Quando o serviço de provisionamento do Azure AD consulta SuccessFactors, ele re
 
 Para recuperar atributos adicionais, siga as etapas listadas abaixo:
     
-1. Navegue até **aplicativos empresariais**  ->  **SuccessFactors**  ->  **provisionamento**  ->  de aplicativo**Editar**  ->  **página de mapeamento de atributo de**provisionamento.
+1. Navegue até **aplicativos empresariais**  ->  **SuccessFactors**  ->  **provisionamento**  ->  de aplicativo **Editar**  ->  **página de mapeamento de atributo de** provisionamento.
 1. Role para baixo e clique em **Mostrar opções avançadas**.
-1. Clique em **Editar lista de atributos para SuccessFactors**. 
+1. Clique em **Editar lista de atributos do SuccessFactors**. 
 
    > [!NOTE] 
-   > Se a opção **Editar lista de atributos para SuccessFactors** não aparecer no portal do Azure, use a URL *https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true* para acessar a página. 
+   > Se a opção **Editar lista de atributos para o SuccessFactors** não aparecer no portal do Azure, use a URL *https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true* para acessar a página. 
 
 1. A coluna **expressão de API** nessa exibição exibe as expressões JSONPath usadas pelo conector.
 
@@ -167,7 +168,7 @@ O esquema padrão do aplicativo de provisionamento SuccessFactors do Azure AD é
    * Se o atributo fizer parte da entidade *EmpJob* , procure o atributo no nó *employmentNav/jobInfoNav* . 
 1. Construa o caminho JSON associado ao atributo e adicione esse novo atributo à lista de atributos SuccessFactors. 
    * Exemplo 1: digamos que você queira adicionar o atributo *okToRehire*, que faz parte da entidade *employmentNav* , em seguida, use o JSONPath  `$.employmentNav.results[0].okToRehire`
-   * Exemplo 2: digamos que você queira adicionar o *fuso horário*do atributo, que faz parte da entidade *userNav* , em seguida, use o JSONPath `$.employmentNav.results[0].userNav.timeZone`
+   * Exemplo 2: digamos que você queira adicionar o *fuso horário* do atributo, que faz parte da entidade *userNav* , em seguida, use o JSONPath `$.employmentNav.results[0].userNav.timeZone`
    * Exemplo 3: digamos que você queira adicionar o atributo *flsaStatus*, que faz parte da entidade *jobInfoNav* , em seguida, use o JSONPath `$.employmentNav.results[0].jobInfoNav.results[0].flsaStatus`
 1. Salve o esquema. 
 1. Reinicie o provisionamento.
@@ -244,8 +245,8 @@ Essa alteração de esquema também dá suporte ao cenário de conversão de tra
 ### <a name="handling-global-assignment-scenario"></a>Tratando do cenário de atribuição global
 
 Quando um usuário na central do funcionário é processado para atribuição global, o SuccessFactors adiciona uma nova entidade *EmpEmployment* e define o *ASSIGNMENTCLASS* como "Ga". Ele também cria uma nova entidade de *usuário* . Portanto, o usuário agora tem:
-* Uma *EmpEmployment*  +  entidade de*usuário* EmpEmployment que corresponde à atribuição inicial com *assignmentClass* definido como "St" e 
-* Outra *EmpEmployment*  +  entidade de*usuário* EmpEmployment que corresponde à atribuição global com *assignmentClass* definido como "Ga"
+* Uma   +  entidade de *usuário* EmpEmployment que corresponde à atribuição inicial com *assignmentClass* definido como "St" e 
+* Outra   +  entidade de *usuário* EmpEmployment que corresponde à atribuição global com *assignmentClass* definido como "Ga"
 
 Para buscar atributos que pertencem à atribuição padrão e ao perfil de usuário de atribuição global, use as etapas listadas abaixo: 
 
@@ -263,7 +264,7 @@ Para buscar atributos que pertencem à atribuição padrão e ao perfil de usuá
    * Novo JSONPath: `$.employmentNav.results[?(@.assignmentClass == 'ST')].jobInfoNav.results[0].departmentNav.name_localized`
 1. Recarregue a folha de mapeamento de atributo do aplicativo. 
 1. Role para baixo e clique em **Mostrar opções avançadas**.
-1. Clique em **Editar lista de atributos para SuccessFactors**.
+1. Clique em **Editar lista de atributos do SuccessFactors**.
 1. Adicione novos atributos para buscar dados de atribuição global. Por exemplo: se você quiser buscar o nome do departamento associado a um perfil de atribuição global, poderá adicionar o atributo *globalAssignmentDepartment* com a expressão JSONPath definida como `$.employmentNav.results[?(@.assignmentClass == 'GA')].jobInfoNav.results[0].departmentNav.name_localized` . 
 1. Agora você pode fluir ambos os valores de departamento para Active Directory atributos ou fluir seletivamente um valor usando o mapeamento de expressão. Exemplo: a expressão abaixo define o valor do atributo de *Departamento* do AD como *globalAssignmentDepartment* se presente, caso contrário, ele define o valor para *Department* associado à atribuição padrão. 
    * `IIF(IsPresent([globalAssignmentDepartment]),[globalAssignmentDepartment],[department])`
@@ -277,7 +278,7 @@ Quando um usuário na central do funcionário tem trabalhos simultâneos/múltip
 
 1. Abra a folha de mapeamento de atributo do seu aplicativo de provisionamento SuccessFactors. 
 1. Role para baixo e clique em **Mostrar opções avançadas**.
-1. Clique em **Editar lista de atributos para SuccessFactors**.
+1. Clique em **Editar lista de atributos do SuccessFactors**.
 1. Digamos que você deseja efetuar pull do departamento associado ao trabalho 1 e ao trabalho 2. O *Departamento* de atributos predefinido já busca o valor do departamento para o primeiro trabalho. Você pode definir um novo atributo chamado *secondJobDepartment* e definir a expressão JSONPath como `$.employmentNav.results[1].jobInfoNav.results[0].departmentNav.name_localized`
 1. Agora você pode fluir ambos os valores de departamento para Active Directory atributos ou fluir seletivamente um valor usando o mapeamento de expressão. 
 1. Salve o mapeamento. 
@@ -293,8 +294,8 @@ Esta seção aborda diferentes cenários de write-back. Ele recomenda abordagens
 |--|--|--|--|--|--|--|
 | 1 | * Definir somente email comercial como primário. <br> * Não defina números de telefone. | true | true | false | \[Não definido\] | \[Não definido\] | 
 | 2 | * No SuccessFactors, o email comercial e o telefone comercial são os principais <br> * Sempre flua o número de telefone do Azure AD para telefone comercial e móvel para telefone celular. | true | true | false | telephoneNumber | Serviço Móvel | 
-| 3 | * No SuccessFactors, o email comercial e o telefone celular são primários <br> * Sempre flua o número de telefone do Azure AD para telefone comercial e móvel para telefone celular | true | false | true |  telephoneNumber | Serviço Móvel | 
-| 4 | * No email comercial do SuccessFactors é o principal <br> * No Azure AD, verifique se o número de telefone de trabalho está presente, se presente, verifique se o número de celular também está presente, marque número de telefone comercial como primário somente se o número de celular não estiver presente. | true | Usar mapeamento de expressão: `IIF(IsPresent([telephoneNumber]), IIF(IsPresent([mobile]),"false", "true"), "false")` | Usar mapeamento de expressão: `IIF(IsPresent([mobile]),"false", "true")` | telephoneNumber | Serviço Móvel | 
+| 3 | * No SuccessFactors, o email comercial e o telefone celular são primários <br> * Sempre flua o número de telefone do Azure AD para telefone comercial e móvel para telefone celular | true | false | verdadeiro |  telephoneNumber | Serviço Móvel | 
+| 4 | * No email comercial do SuccessFactors é o principal <br> * No Azure AD, verifique se o número de telefone de trabalho está presente, se presente, verifique se o número de celular também está presente, marque número de telefone comercial como primário somente se o número de celular não estiver presente. | verdadeiro | Usar mapeamento de expressão: `IIF(IsPresent([telephoneNumber]), IIF(IsPresent([mobile]),"false", "true"), "false")` | Usar mapeamento de expressão: `IIF(IsPresent([mobile]),"false", "true")` | telephoneNumber | Serviço Móvel | 
 | 5 | * No SuccessFactors Business email e o telefone comercial é o principal. <br> * No Azure AD, se o Mobile estiver disponível, defina-o como o telefone comercial, caso contrário, use telephoneNumber. | true | true | false | `IIF(IsPresent([mobile]), [mobile], [telephoneNumber])` | \[Não definido\] | 
 
 * Se não houver mapeamento para o número de telefone no mapeamento de atributo write-back, somente o email será incluído no write-back.
@@ -310,7 +311,7 @@ Esta seção aborda diferentes cenários de write-back. Ele recomenda abordagens
 
 * [Saiba como configurar o SuccessFactors para Active Directory provisionamento](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
 * [Saiba como configurar o Write-back para SuccessFactors](../saas-apps/sap-successfactors-writeback-tutorial.md)
-* [Saiba mais sobre os atributos SuccessFactors com suporte para o provisionamento de entrada](sap-successfactors-attribute-reference.md)
+* [Saiba mais sobre os Atributos do SuccessFactors com suporte para o provisionamento de entrada](sap-successfactors-attribute-reference.md)
 
 
 

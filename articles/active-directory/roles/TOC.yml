@@ -2,42 +2,33 @@
   href: index.yml
 - name: Visão geral
   items:
-    - name: Funções do Azure AD
+    - name: O que é o RBAC do Azure AD?
       href: custom-overview.md
+    - name: Entender as funções do Azure AD
+      href: concept-understand-roles.md
 - name: Inícios rápidos
   items:
     - name: Criar registros de aplicativo ilimitados
       href: quickstart-app-registration-limits.md
 - name: Tutoriais
+  expanded: true
   items:
-    - name: Criar um grupo dinâmico
-      href: /azure/active-directory/enterprise-users/users-revoke-access
+    - name: Atribuir usuários a funções de administrador
+      href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Conceitos
   expanded: true
   items:
     - name: Delegar funções de administrador do Azure AD
       href: concept-delegation.md
     - name: Comparar permissões de usuário padrão
-      href: /azure/active-directory/fundamentals/users-default-permissions
+      href: ../fundamentals/users-default-permissions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: Comparar funções do Azure e do Azure AD
-      href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+      href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: Entender as unidades administrativas do Azure AD
       href: administrative-units.md
 - name: Guias de instruções
   expanded: true
   items:
-    - name: Usuários e funções
-      items:
-        - name: Atribuir usuários a funções de administrador
-          href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal
-        - name: Revogar o acesso de um usuário
-          href: /azure/active-directory/enterprise-users/users-revoke-access
-        - name: Atribuir função ao usuário convidado
-          href: /azure/active-directory/b2b/add-guest-to-role?context=azure/active-directory/roles/context/ugr-context
-        - name: Restringir o acesso do usuário convidado
-          href: /azure/active-directory/enterprise-users/users-restrict-guest-permissions?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
-        - name: Grupos e convidados dinâmicos
-          href: /azure/active-directory/b2b/use-dynamic-groups?context=azure/active-directory/roles/context/ugr-context
     - name: Funções e permissões
       expanded: true
       items:
@@ -50,14 +41,12 @@
     - name: Funções personalizadas
       expanded: true
       items:
-        - name: Visão geral de funções personalizadas
-          href: custom-overview.md
         - name: Criar uma função personalizada
           href: custom-create.md
         - name: Exibir atribuições de função personalizadas
           href: custom-view-assignments.md
         - name: Atribuir funções personalizadas no portal do Azure
-          href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal
+          href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
         - name: Atribuir funções personalizadas no PowerShell
           href: custom-assign-powershell.md
         - name: Atribuir funções personalizadas para aplicativos empresariais
@@ -111,7 +100,7 @@
     - name: Solucionar problemas
       items:
         - name: Obter suporte para o Azure AD
-          href: /azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto
+          href: ../fundamentals/active-directory-troubleshooting-support-howto.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Referência
   items:
     - name: Funções com privilégios mínimos por tarefa
@@ -119,10 +108,10 @@
     - name: Documentação da função do Microsoft 365
       href: m365-workload-docs.md
     - name: API do Graph
-      href: /graph/api/resources/azure-ad-overview?view=graph-rest-1.0
+      href: /graph/api/resources/directoryrole?view=graph-rest-1.0
     - name: CLI do Azure AD
       href: /cli/azure/ad
     - name: PowerShell do Azure AD para Graph
       href: /powershell/azure/active-directory/install-adv2?view=azureadps-2.0
     - name: Limites de serviço do Azure AD
-      href: /azure/active-directory/enterprise-users/directory-service-limits-restrictions
+      href: ../enterprise-users/directory-service-limits-restrictions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context

@@ -1,6 +1,6 @@
 ---
-title: Exibir resultados de roteamento de mensagens do Hub IoT do Azure (.NET) | Microsoft Docs
-description: Depois de configurar todos os recursos usando a Parte 1 do tutorial, adicione a capacidade de rotear mensagens para Azure Stream Analytics e exibir os resultados no PowerBI.
+title: Tutorial – Exibir resultados de roteamento de mensagens do Hub IoT do Azure (.NET) | Microsoft Docs
+description: Tutorial – Depois de configurar todos os recursos usando a Parte 1 do tutorial, adicione a capacidade de rotear mensagens para Azure Stream Analytics e exibir os resultados no Power BI.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 14f6fc685e99060474a17503cb13ba09a61a5a9a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: fdfb2470e83cefaeb6df35115f7bb46149d8ffe6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149209"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733906"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Tutorial: Parte 2 – Exibir as mensagens roteadas
 
@@ -48,7 +48,7 @@ Agora você pode criar os recursos para os quais as mensagens serão roteadas, e
 
    **Localização**: use sua localização. Este tutorial usa **Oeste dos EUA**.
 
-   **Log Analytics**: este controle de alternância deve ser desativado.
+   **Habilitar o Log Analytics**: este controle de alternância deve ser desativado.
 
    ![A tela Criar Aplicativo Lógico](./media/tutorial-routing-view-message-routing-results/create-logic-app.png)
 
@@ -151,6 +151,8 @@ Para ver os dados em uma visualização do Power BI, primeiro configure um traba
    **Nome do conjunto de dados**: nome do conjunto de dados a ser usado no Power BI. Este tutorial usa **contosodataset**. 
 
    **Nome da tabela**: nome da tabela a ser usada no Power BI. Este tutorial usa **contosotable**.
+
+  **Modo de autenticação**: selecione o modo a ser usado.
 
    Aceite os padrões para o restante dos campos.
 
@@ -280,7 +282,7 @@ Entre na sua conta do [Power BI](https://powerbi.microsoft.com/). Vá até seu w
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Usar a CLI do Azure para limpar os recursos
 
-Para remover o grupo de recursos, use o comando [excluir grupo az](/cli/azure/group?view=azure-cli-latest#az-group-delete). `$resourceGroup` foi definido como **ContosoResources** novamente no início deste tutorial.
+Para remover o grupo de recursos, use o comando [excluir grupo az](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true). `$resourceGroup` foi definido como **ContosoResources** novamente no início deste tutorial.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup

@@ -1,5 +1,5 @@
 ---
-title: Como usar a CLI para dimensionar unidades reservadas de mídia (MRUs) – Azure | Microsoft Docs
+title: CLI de dimensionar unidades reservadas de mídia (MRUs)
 description: Este tópico mostra como usar a CLI para dimensionar processamento de mídia com os Serviços de Mídia do Azure.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: bcbe5fe71e5a4d4d39a29d4a6828c104f6891c0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1c98bfa6b2cf45a59b70126001442ed80659668
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617138"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955878"
 ---
 # <a name="how-to-scale-media-reserved-units"></a>Como dimensionar unidades reservadas de mídia
 
@@ -52,6 +52,6 @@ Você é cobrado com base em quantos minutos as unidades reservadas de mídia s�
 
 [Analisar vídeos](analyze-videos-tutorial-with-api.md)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [Cotas e limites](limits-quotas-constraints.md)

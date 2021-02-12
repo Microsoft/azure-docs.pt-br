@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7651f84e14d6ea7dcb4e12d57e2bf494d5aeff1e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: d12679e64d690614aaf788837a02af007448f83d
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083177"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393669"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Como gerenciar dispositivos obsoletos no Azure AD
 
@@ -37,7 +37,7 @@ Os dispositivos obsoletos no Azure AD podem interferir nas políticas de ciclo d
 
 ## <a name="detect-stale-devices"></a>Detectar dispositivos obsoletos
 
-Como um dispositivo obsoleto é definido como dispositivo registrado que não foi usado para acessar nenhum aplicativo de nuvem durante um período específico, detectar dispositivos obsoletos requer uma propriedade relacionada ao carimbo de data/hora. No Azure AD, essa propriedade é chamada **ApproximateLastLogonTimestamp** ou **carimbo de data/hora de atividade** . Se o delta entre agora e o valor do **carimbo de data/hora da atividade** exceder o período de tempo definido para dispositivos ativos, um dispositivo será considerado obsoleto. Este **carimbo de data/hora de atividade** agora está em versão prévia pública.
+Como um dispositivo obsoleto é definido como dispositivo registrado que não foi usado para acessar nenhum aplicativo de nuvem durante um período específico, detectar dispositivos obsoletos requer uma propriedade relacionada ao carimbo de data/hora. No Azure AD, essa propriedade é chamada **ApproximateLastLogonTimestamp** ou **carimbo de data/hora de atividade**. Se o delta entre agora e o valor do **carimbo de data/hora da atividade** exceder o período de tempo definido para dispositivos ativos, um dispositivo será considerado obsoleto. Este **carimbo de data/hora de atividade** agora está em versão prévia pública.
 
 ## <a name="how-is-the-value-of-the-activity-timestamp-managed"></a>Como o valor do carimbo de data/hora da atividade é gerenciado?  
 
@@ -59,7 +59,7 @@ Você tem duas opções para recuperar o valor do carimbo de data/hora da ativid
 
 - O cmdlet [Get-AzureADDevice](/powershell/module/azuread/Get-AzureADDevice)
 
-    :::image type="content" source="./media/manage-stale-devices/02.png" alt-text="Captura de tela de uma página no portal do Azure listando o nome, o proprietário e outras informações sobre os dispositivos. Uma coluna lista o carimbo de data/hora da atividade." border="false":::
+    :::image type="content" source="./media/manage-stale-devices/02.png" alt-text="Captura de tela mostrando a saída da linha de comando. Uma linha é realçada e lista um carimbo de data/hora para o valor ApproximateLastLogonTimeStamp." border="false":::
 
 ## <a name="plan-the-cleanup-of-your-stale-devices"></a>Planejar a limpeza dos seus dispositivos obsoletos
 
@@ -147,7 +147,7 @@ Se você tiver um grande número de dispositivos em seu diretório, use o filtro
 
 ```PowerShell
 $dt = [datetime]’2017/01/01’
-Get-AzureADDevice | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
+Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
 ```
 
 ## <a name="what-you-should-know"></a>O que você deve saber

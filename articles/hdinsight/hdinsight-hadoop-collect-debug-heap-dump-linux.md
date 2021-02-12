@@ -1,19 +1,16 @@
 ---
 title: Ativar despejos de heap para serviços do Apache Hadoop no HDInsight - Azure
 description: Ative os dumps de heap para os serviços Apache Hadoop dos clusters HDInsight baseados em Linux para depuração e análise.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 1ef52d74f7ae6e7e0d8c58e3b1972a0a1227c6b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 824ba2c3316ccb34b59a9e435b9a6e582f137090
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85962196"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945917"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Ativar dumps de heap para serviços do Apache Hadoop no HDInsight baseado em Linux
 
@@ -37,7 +34,7 @@ Você também pode habilitar despejos de heap para os processos de mapeamento e 
 
 Despejos de heap são habilitados transmitindo opções (às vezes conhecidas como opts, ou parâmetros) para a JVM quando um serviço é iniciado. Para a maioria dos serviços do [Apache Hadoop](https://hadoop.apache.org/), você pode modificar o script de shell usado para iniciar o serviço para passar essas opções.
 
-Em cada **script, há uma exportação para as \* \_ **opções, que contém a opção passada para a JVM. Por exemplo, no script **hadoop-env.sh**, a linha que começa com `export HADOOP_NAMENODE_OPTS=` contém as opções para o serviço NameNode.
+Em cada **script, há uma exportação para as \* \_** opções, que contém a opção passada para a JVM. Por exemplo, no script **hadoop-env.sh**, a linha que começa com `export HADOOP_NAMENODE_OPTS=` contém as opções para o serviço NameNode.
 
 Os processos de mapeamento e redução são ligeiramente diferentes, uma vez que essas operações são processos filho do serviço MapReduce. Cada processo de mapeamento ou redução é executado em um contêiner filho, e há duas entradas que contêm as opções de JVM. Contidos em **mapred-site.xml**:
 
@@ -91,7 +88,7 @@ Para modificar a configuração de um serviço, use as seguintes etapas:
 
     ![Lista filtrada de configuração do Apache Ambari](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png)
 
-4. Localize a ** \* \_ entrada de** opções para o serviço para o qual você deseja habilitar os despejos de heap e adicione as opções que deseja habilitar. Na imagem a seguir, adicionei `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` à entrada **HADOOP\_NAMENODE\_OPTS**:
+4. Localize a **\* \_ entrada de** opções para o serviço para o qual você deseja habilitar os despejos de heap e adicione as opções que deseja habilitar. Na imagem a seguir, adicionei `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` à entrada **HADOOP\_NAMENODE\_OPTS**:
 
     ![Apache Ambari Hadoop-namenode-optas por](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png)
 

@@ -3,17 +3,16 @@ title: Depurar funções definidas pelo usuário no Azure Stream Analytics
 description: Este artigo descreve como depurar funções definidas pelo usuário no Azure Stream Analytics.
 author: jenssuessmeyer
 ms.author: jenss
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 567def7abaff3cd8d70eb56f0aa117d1eeb52a13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f5a24e4d351d7c133251900a80c70094b84cc4e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91300421"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019424"
 ---
 # <a name="debug-user-defined-functions-in-azure-stream-analytics"></a>Depurar funções definidas pelo usuário no Azure Stream Analytics 
 

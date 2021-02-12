@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/12/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 086ebf71e2da19a96433f32cfb1bae133e875400
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 3c4ab8362b2a717a348a59c0baf829b61e1a8006
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518036"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99808470"
 ---
 ![Gráfico mostrando as especificações D s v 3.](media/vm-disk-performance/dsv3-documentation.jpg)
 
@@ -137,6 +137,7 @@ Temos métricas no Azure que fornecem informações sobre como as máquinas virt
 - **Operações de gravação de disco/s**: o número de operações de saída que são gravadas em um segundo de todos os discos anexados a uma VM.
 
 ## <a name="storage-io-utilization-metrics"></a>Métricas de utilização de e/s de armazenamento
+As métricas a seguir ajudam a diagnosticar afunilamento na sua combinação de disco e máquina virtual. Essas métricas só estão disponíveis ao usar a VM habilitada Premium. Essas métricas estão disponíveis para todos os tipos de disco, exceto para ultra. 
 
 Métricas que ajudam a diagnosticar a e/s de disco com limitação:
 

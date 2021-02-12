@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 08/14/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f3e825f908ffe475b05a5e6748d9505e7283b50
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4122e645b76751e8944704a6405cf5dee09129f1
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362692"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932428"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planejamento Azure Active Directory implantação de revisões de acesso
 
@@ -333,9 +333,9 @@ Os grupos que são sincronizados do Active Directory local não podem ter um pro
 > [!NOTE]
 > É recomendável definir políticas de negócios que definem como os grupos são criados para garantir uma propriedade de grupo clara e responsabilidade para a revisão regular da associação. 
 
-### <a name="review-membership-of-exclusion-groups-in-ca-policies"></a>Examinar a associação de grupos de exclusão em políticas de CA 
+### <a name="review-membership-of-exclusion-groups-in-conditional-access-policies"></a>Examinar a associação de grupos de exclusão em políticas de acesso condicional 
 
-Há ocasiões em que as políticas de acesso condicional (CA) criadas para manter sua rede segura não devem ser aplicadas a todos os usuários. Por exemplo, uma política de autoridade de certificação que permite apenas que os usuários entrem enquanto estiver na rede corporativa pode não se aplicar à equipe de vendas, que viaja extensivamente. Nesse caso, os membros da equipe de vendas seriam colocados em um grupo e esse grupo seria excluído da política de autoridade de certificação. 
+Há ocasiões em que as políticas de acesso condicional projetadas para manter sua rede segura não devem ser aplicadas a todos os usuários. Por exemplo, uma política de acesso condicional que permite apenas que os usuários entrem enquanto na rede corporativa pode não se aplicar à equipe de vendas, que viaja extensivamente. Nesse caso, os membros da equipe de vendas seriam colocados em um grupo e esse grupo seria excluído da política de acesso condicional. 
 
 Examine essa associação de grupo regularmente, pois a exclusão representa um risco em potencial se os membros errados forem excluídos do requisito.
 
@@ -399,7 +399,7 @@ As revisões de acesso permitem que os revisores atestam se os usuários ainda p
 
 * Administrador de Autenticação Privilegiada
 
-* Administrador de acesso condicional
+* Administrador de Acesso Condicional
 
 * Administrador de Segurança
 

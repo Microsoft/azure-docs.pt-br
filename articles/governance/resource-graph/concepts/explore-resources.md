@@ -1,14 +1,14 @@
 ---
 title: Explore os recursos do Azure
 description: Aprenda a usar a linguagem de consulta do Resource Graph para explorar seus recursos e descobrir como eles estão conectados.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2b0ef3935d865618a9d4dda2825f7d4383baf772
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: a76ce2bb34fd6e99fedf5030c4723b6dd5acbb91
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056235"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917717"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Explore seus recursos do Azure com o Gráfico de Recursos
 
@@ -174,9 +174,6 @@ Resources
 | where disk.storageAccountType == 'Premium_LRS'
 | project disk.id
 ```
-
-> [!NOTE]
-> Outra maneira de obter o SKU seria usando a propriedade de **aliases** **Microsoft.Compute/virtualMachines/sku.name**. Veja os exemplos [Mostrar aliases](../samples/starter.md#show-aliases) e [Mostrar valores de alias distintos](../samples/starter.md#distinct-alias-values).
 
 ```azurecli-interactive
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"

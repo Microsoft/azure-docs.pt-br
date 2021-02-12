@@ -13,19 +13,19 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 03/23/2020
-ms.openlocfilehash: 940ea0ac471604b22c64dc008eebd8b580121cf7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d03bce1566d4f56a576c980723571f587296236f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782732"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452421"
 ---
-# <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autorizar o acesso ao banco de dados SQL, SQL Instância Gerenciada e Azure Synapse Analytics
+# <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autorizar acesso ao Banco de Dados SQL, à Instância Gerenciada de SQL e ao Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Neste artigo, você aprenderá sobre:
 
-- Opções para configurar o banco de dados SQL do Azure, o Azure SQL Instância Gerenciada e o Azure Synapse Analytics (anteriormente SQL Data Warehouse) para permitir que os usuários executem tarefas administrativas e acessem os dados armazenados nesses bancos.
+- Opções para configurar o banco de dados SQL do Azure, o Azure SQL Instância Gerenciada e o Azure Synapse Analytics para permitir que os usuários executem tarefas administrativas e acessem os dados armazenados nesses bancos.
 - A configuração de acesso e autorização depois de criar inicialmente um novo servidor.
 - Como adicionar logons e contas de usuário no banco de dados mestre e contas de usuário e conceder a essas contas permissões administrativas.
 - Como adicionar contas de usuário em bancos de dados de usuário, associadas a logons ou a contas de usuário contidas.
@@ -46,7 +46,7 @@ Uma conta de usuário e informações de autenticação são fornecidas quando u
 
   Com esse método de autenticação, o usuário envia um nome de conta de usuário e solicita que o serviço use as informações de credenciais armazenadas no Azure Active Directory (Azure AD).
 
-**Logons e usuários** : uma conta de usuário em um banco de dados pode ser associada a um logon que é armazenado no banco de dados mestre ou pode ser um nome de usuário que é armazenado em um banco de dados individual.
+**Logons e usuários**: uma conta de usuário em um banco de dados pode ser associada a um logon que é armazenado no banco de dados mestre ou pode ser um nome de usuário que é armazenado em um banco de dados individual.
 
 - Um **logon** é uma conta individual no banco de dados mestre para a qual uma conta de usuário pode ser vinculada em um ou mais bancos de dados. Com um logon, as informações de credencial para a conta de usuário são armazenadas com o logon.
 - Uma **conta de usuário** é uma conta individual em qualquer banco de dados que pode ser, mas não precisa estar vinculada a um logon. Com uma conta de usuário que não está vinculada a um logon, as informações da credencial são armazenadas com a conta de usuário.
@@ -55,7 +55,7 @@ A [**autorização**](security-overview.md#authorization) para acessar dados e e
 
 ## <a name="existing-logins-and-user-accounts-after-creating-a-new-database"></a>Logons existentes e contas de usuário após criar um novo banco de dados
 
-Ao implantar o SQL do Azure pela primeira vez, você especifica um logon de administrador e uma senha associada para esse logon. Essa conta administrativa é chamada de **Administrador do servidor** . A seguinte configuração de logons e de usuários nos bancos de dados mestre e de usuário ocorre durante a implantação:
+Ao implantar o SQL do Azure pela primeira vez, você especifica um logon de administrador e uma senha associada para esse logon. Essa conta administrativa é chamada de **Administrador do servidor**. A seguinte configuração de logons e de usuários nos bancos de dados mestre e de usuário ocorre durante a implantação:
 
 - Um logon do SQL com privilégios de administrador é criado usando o nome de logon especificado. Um [logon](/sql/relational-databases/security/authentication-access/principals-database-engine#sa-login) é uma conta de usuário individual para fazer logon no banco de dados SQL, SQL instância gerenciada e Azure Synapse.
 - Esse logon recebe permissões administrativas completas em todos os bancos de dados como uma [entidade de segurança no nível do servidor](/sql/relational-databases/security/authentication-access/principals-database-engine). O logon tem todas as permissões disponíveis e não pode ser limitado. Em um Instância Gerenciada do SQL, esse logon é adicionado à [função de servidor fixa sysadmin](/sql/relational-databases/security/authentication-access/server-level-roles) (essa função não existe no banco de dados SQL do Azure).
@@ -68,7 +68,7 @@ Para identificar as contas de administrador de um banco de dados, abra o portal 
 ![Captura de tela que realça a opção de menu Propriedades.](./media/logins-create-manage/sql-admins2.png)
 
 > [!IMPORTANT]
-> O nome de logon do administrador não pode ser alterado após ter sido criado. Para redefinir a senha para o administrador do servidor, vá para o [portal do Azure](https://portal.azure.com), clique em **Servidores SQL** , selecione o servidor na lista e clique em **Redefinir Senha** . Para redefinir a senha para o Instância Gerenciada do SQL, vá para o portal do Azure, clique na instância e clique em **Redefinir senha** . Você também pode usar o PowerShell ou a CLI do Azure.
+> O nome de logon do administrador não pode ser alterado após ter sido criado. Para redefinir a senha para o administrador do servidor, vá para o [portal do Azure](https://portal.azure.com), clique em **Servidores SQL**, selecione o servidor na lista e clique em **Redefinir Senha**. Para redefinir a senha para o Instância Gerenciada do SQL, vá para o portal do Azure, clique na instância e clique em **Redefinir senha**. Você também pode usar o PowerShell ou a CLI do Azure.
 
 ## <a name="create-additional-logins-and-users-having-administrative-permissions"></a>Crie logons e usuários adicionais com permissões administrativas
 
@@ -137,7 +137,7 @@ Após criar uma conta de usuário em um banco de dados, seja com base em um logo
 
 - **Funções de banco de dados fixa**
 
-  Adicione a conta do usuário a uma [função de banco de dados fixa](/sql/relational-databases/security/authentication-access/database-level-roles). Há 9 funções de banco de dados fixa, cada uma com um conjunto definido de permissões. As funções de banco de dados fixa mais comuns são: **db_owner** , **db_ddladmin** , **db_datawriter** , **db_datareader** , **db_denydatawriter** e **db_denydatareader** . **db_owner** é usada normalmente para conceder permissão total a apenas alguns usuários. As outras funções fixas de banco de dados são úteis para mover rapidamente um banco de dados simples para desenvolvimento, mas não são recomendadas para a maioria dos bancos de dados de produção. Por exemplo, a função de banco de dados fixa **db_datareader** concede acesso de leitura a todas as tabelas no banco de dados, sendo mais do que é estritamente necessário.
+  Adicione a conta do usuário a uma [função de banco de dados fixa](/sql/relational-databases/security/authentication-access/database-level-roles). Há 9 funções de banco de dados fixa, cada uma com um conjunto definido de permissões. As funções de banco de dados fixa mais comuns são: **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter** e **db_denydatareader**. **db_owner** é usada normalmente para conceder permissão total a apenas alguns usuários. As outras funções fixas de banco de dados são úteis para mover rapidamente um banco de dados simples para desenvolvimento, mas não são recomendadas para a maioria dos bancos de dados de produção. Por exemplo, a função de banco de dados fixa **db_datareader** concede acesso de leitura a todas as tabelas no banco de dados, sendo mais do que é estritamente necessário.
 
   - Para adicionar um usuário a uma função de banco de dados fixa:
 

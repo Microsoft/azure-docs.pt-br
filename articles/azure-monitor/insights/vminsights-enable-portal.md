@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: ba6ae9262fb0e55c53e1b1421c075e555fae8d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55e5ff2af62c903efeab5c4932eae0c9dc9b535c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87328103"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842302"
 ---
 # <a name="enable-azure-monitor-for-single-virtual-machine-or-virtual-machine-scale-set-in-the-azure-portal"></a>Habilitar o Azure Monitor para uma única máquina virtual ou para um conjunto de dimensionamento de máquinas virtuais no portal do Azure
 Este artigo descreve como habilitar Azure Monitor para VMs para uma máquina virtual ou um conjunto de dimensionamento de máquinas virtuais usando o portal do Azure. Esse procedimento pode ser usado para o seguinte:
@@ -27,7 +27,7 @@ Este artigo descreve como habilitar Azure Monitor para VMs para uma máquina vir
 
 ## <a name="enable-azure-monitor-for-vms"></a>Habilitar o Azure Monitor para VMs
 
-No portal do Azure, selecione **máquinas virtuais**, **conjuntos de dimensionamento de máquinas virtuais**ou **computadores – Arc do Azure** e selecione um recurso na lista. Na seção **monitoramento** do menu, selecione **insights** e, em seguida, **habilitar**. O exemplo a seguir mostra uma máquina virtual do Azure, mas o menu é semelhante para o conjunto de dimensionamento de máquinas virtuais do Azure ou o arco do Azure.
+No portal do Azure, selecione **máquinas virtuais**, **conjuntos de dimensionamento de máquinas virtuais** ou **servidores – arco do Azure** e selecione um recurso na lista. Na seção **monitoramento** do menu, selecione **insights** e, em seguida, **habilitar**. O exemplo a seguir mostra uma máquina virtual do Azure, mas o menu é semelhante para o conjunto de dimensionamento de máquinas virtuais do Azure ou o arco do Azure.
 
 ![Habilitar o Azure Monitor para VMs em uma VM](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 

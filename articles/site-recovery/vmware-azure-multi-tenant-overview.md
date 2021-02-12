@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 840049265d3b6e4d2fddd794646bfd5691aab9a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64e40341ec56a2e1c561b2bcbb5e584830c14015
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74083982"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145575"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Visão geral do suporte multilocatário para recuperação de desastre do VMware para o Azure com o CSP
 
@@ -24,11 +24,11 @@ Este artigo fornece uma visão geral de implementação e gerenciamento da repli
 
 Há três modelos principais de multilocatários:
 
-* **HSP (Provedor de Serviços de Hospedagem Compartilhada)**: o parceiro é o proprietário da infraestrutura física e usa recursos compartilhados (vCenter, datacenters, armazenamento físico e assim por diante) para hospedar VMs de vários locatários na mesma infraestrutura. O parceiro pode fornecer gerenciamento de recuperação de desastre como um serviço gerenciado ou o locatário pode ter recuperação de desastre como uma solução de autoatendimento.
+* **HSP (Provedor de Serviços de Hospedagem Compartilhada)** : o parceiro é o proprietário da infraestrutura física e usa recursos compartilhados (vCenter, datacenters, armazenamento físico e assim por diante) para hospedar VMs de vários locatários na mesma infraestrutura. O parceiro pode fornecer gerenciamento de recuperação de desastre como um serviço gerenciado ou o locatário pode ter recuperação de desastre como uma solução de autoatendimento.
 
-* **Provedor de Serviços de Hospedagem Dedicado**: o parceiro tem a infraestrutura física, mas usa recursos dedicados (vários vCenters, repositórios de dados físicos e assim por diante) para hospedar VMs de cada locatário em uma infraestrutura separada. O parceiro pode fornecer gerenciamento de recuperação de desastre como um serviço gerenciado ou o locatário pode já tê-la como uma solução de autoatendimento.
+* **Provedor de Serviços de Hospedagem Dedicado** : o parceiro tem a infraestrutura física, mas usa recursos dedicados (vários vCenters, repositórios de dados físicos e assim por diante) para hospedar VMs de cada locatário em uma infraestrutura separada. O parceiro pode fornecer gerenciamento de recuperação de desastre como um serviço gerenciado ou o locatário pode já tê-la como uma solução de autoatendimento.
 
-* **MSP (Provedor de Serviços Gerenciado)**: o cliente tem a infraestrutura física que hospeda as VMs e o parceiro fornece a habilitação e gerenciamento de recuperação de desastre.
+* **MSP (Provedor de Serviços Gerenciado)** : o cliente tem a infraestrutura física que hospeda as VMs e o parceiro fornece a habilitação e gerenciamento de recuperação de desastre.
 
 ## <a name="shared-hosting-services-provider-hsp"></a>HSP (provedor de serviços de hospedagem compartilhada)
 
@@ -56,9 +56,9 @@ Um servidor em processo dimensionado separado também está sob o controle do pa
 
 Cada servidor de configuração no cenário de multilocatário usa duas contas:
 
-- **Conta de acesso do vCenter**: essa conta é usada para descobrir VMs do locatário. Ela tem permissões de acesso do vCenter atribuídas a ela. Para ajudar a evitar perdas de acesso, recomendamos que os próprios parceiros insiram essas credenciais na ferramenta de configuração.
+- **Conta de acesso do vCenter** : essa conta é usada para descobrir VMs do locatário. Ela tem permissões de acesso do vCenter atribuídas a ela. Para ajudar a evitar perdas de acesso, recomendamos que os próprios parceiros insiram essas credenciais na ferramenta de configuração.
 
-- **Conta de acesso à máquina virtual**: essa conta é usada para instalar o agente do serviço de Mobilidade nas VMs do locatário, com um push automático. Ela é normalmente uma conta de domínio que um locatário pode fornecer a um parceiro ou uma conta que pode ser gerenciada diretamente pelo parceiro. Se um locatário não desejar compartilhar os detalhes diretamente com o parceiro, ele poderá inserir as credenciais por meio do acesso de tempo limitado no servidor de configuração. Ou, com a assistência do parceiro, ele poderá instalar o agente do serviço de Mobilidade manualmente.
+- **Conta de acesso à máquina virtual** : essa conta é usada para instalar o agente do serviço de Mobilidade nas VMs do locatário, com um push automático. Ela é normalmente uma conta de domínio que um locatário pode fornecer a um parceiro ou uma conta que pode ser gerenciada diretamente pelo parceiro. Se um locatário não desejar compartilhar os detalhes diretamente com o parceiro, ele poderá inserir as credenciais por meio do acesso de tempo limitado no servidor de configuração. Ou, com a assistência do parceiro, ele poderá instalar o agente do serviço de Mobilidade manualmente.
 
 ## <a name="vcenter-account-requirements"></a>Requisitos de conta do vCenter
 
@@ -75,11 +75,11 @@ Configure o servidor de configuração com uma conta que tem uma função especi
 1. Crie uma nova função clonando a função *somente leitura* predefinida e dê a ela um nome conveniente (como Azure_Site_Recovery, conforme mostrado neste exemplo).
 2. Atribua as seguintes permissões a essa função:
 
-   * **Repositório de dados**: Alocar espaço, Procurar repositório de dados, Operações de arquivo de baixo nível, Remover arquivo, Atualizar arquivos de máquina virtual
-   * **Rede**: atribuição de rede
-   * **Recurso**: Atribuir VM ao pool de recursos, Migrar VM desligada, Migrar VM ligada
-   * **Tarefas**: criar tarefa, atualizar tarefa
-   * **VM – Configuração**: tudo
+   * **Repositório de dados** : Alocar espaço, Procurar repositório de dados, Operações de arquivo de baixo nível, Remover arquivo, Atualizar arquivos de máquina virtual
+   * **Rede** : atribuição de rede
+   * **Recurso** : Atribuir VM ao pool de recursos, Migrar VM desligada, Migrar VM ligada
+   * **Tarefas** : criar tarefa, atualizar tarefa
+   * **VM – Configuração** : tudo
    * **VM – Interação** > Responder a perguntas, Conexão do dispositivo, Configurar mídia de CD, Configurar mídia de disquete, Desligar, Ligar, Instalação de ferramentas do VMware
    * **VM – Inventário** > Criar com base em existente, Criar novo, Registrar, Cancelar registro
    * **VM – Provisionamento** > Permitir download de máquina virtual, Permitir upload de arquivos de máquina virtual
@@ -120,13 +120,13 @@ Para restringir as operações de recuperação de desastre a somente failover (
 
 1. No portal do Azure, no cofre que você criou anteriormente, registre o servidor vCenter para o servidor de configuração, usando a conta do vCenter que você criou.
 2. Conclua o processo de “Preparação da infraestrutura” para o Site Recovery de acordo com o processo normal.
-3. Agora, as VMs estão prontas para serem replicadas. Verifique se apenas as VMs do locatário são exibidas em **replicar**  >  **selecionar máquinas virtuais**.
+3. Agora, as VMs estão prontas para serem replicadas. Verifique se apenas as VMs do locatário são exibidas em **replicar**  >  **selecionar máquinas virtuais** .
 
 ## <a name="dedicated-hosting-solution"></a>Solução de hospedagem dedicada
 
 Como mostrado no diagrama a seguir, a diferença de arquitetura em uma solução de hospedagem dedicada é que a infraestrutura de cada locatário está configurada somente para esse locatário.
 
-![architecture-shared-hsp](./media/vmware-azure-multi-tenant-overview/dedicated-hosting-scenario.png)  
+![O diagrama que mostra a diferença arquitetônica em uma solução de hospedagem dedicada é que a infraestrutura de cada locatário é configurada somente para esse locatário.](./media/vmware-azure-multi-tenant-overview/dedicated-hosting-scenario.png)  
 **Cenário de hospedagem dedicada com vários vCenters**
 
 ## <a name="managed-service-solution"></a>Solução de serviço gerenciado

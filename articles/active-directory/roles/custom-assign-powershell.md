@@ -1,28 +1,28 @@
 ---
-title: Atribuir funções personalizadas usando o Azure PowerShell-Azure AD | Microsoft Docs
-description: Gerenciar membros de uma função personalizada de administrador do Azure AD com o Azure PowerShell.
+title: Atribuir funções personalizadas usando o Azure AD PowerShell-Azure AD | Microsoft Docs
+description: Gerenciar membros de uma função personalizada de administrador do Azure AD com o PowerShell do Azure AD.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 04/29/2020
-ms.author: curtand
+ms.date: 11/04/2020
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13aa00924d20e53e2140315458e5ebbb34c3f367
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7828313844b8f95b2bac5bff37022a822686ab33
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374432"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740237"
 ---
 # <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>Atribuir funções personalizadas com o escopo de recurso usando o PowerShell no Azure Active Directory
 
-Este artigo descreve como criar uma atribuição de função em escopo de toda a organização no Azure Active Directory (AD do Azure). Atribuir uma função em escopo de toda a organização concede acesso na organização do Azure AD. Para criar uma atribuição de função com um escopo de um único recurso do Azure AD, consulte [como criar uma função personalizada e atribuí-la no escopo do recurso](custom-create.md). Este artigo usa o módulo [Azure Active Directory PowerShell versão 2](/powershell/module/azuread/?view=azureadps-2.0#directory_roles) .
+Este artigo descreve como criar uma atribuição de função em escopo de toda a organização no Azure Active Directory (AD do Azure). Atribuir uma função em escopo de toda a organização concede acesso na organização do Azure AD. Para criar uma atribuição de função com um escopo de um único recurso do Azure AD, consulte [como criar uma função personalizada e atribuí-la no escopo do recurso](custom-create.md). Este artigo usa o módulo [Azure Active Directory PowerShell versão 2](/powershell/module/azuread/#directory_roles) .
 
 Para obter mais informações sobre as funções de administrador do Azure AD, consulte [atribuindo funções de administrador no Azure Active Directory](permissions-reference.md).
 
@@ -32,26 +32,26 @@ Conecte-se à sua organização do Azure AD usando uma conta de administrador gl
 
 ## <a name="prepare-powershell"></a>Preparar o PowerShell
 
-Instale o módulo do PowerShell do Azure AD do [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Em seguida, importe o módulo de versão prévia do Azure AD PowerShell usando o seguinte comando:
+Instale o módulo do PowerShell do Azure AD do [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzureADPreview). Em seguida, importe o módulo de versão prévia do Azure AD PowerShell usando o seguinte comando:
 
 ``` PowerShell
-import-module azureadpreview
+Import-Module AzureADPreview
 ```
 
 Para verificar se o módulo está pronto para uso, a versão retornada pelo seguinte comando deve coincidir com o comando listado aqui:
 
 ``` PowerShell
-get-module azureadpreview
+Get-Module AzureADPreview
   ModuleType Version      Name                         ExportedCommands
   ---------- ---------    ----                         ----------------
   Binary     2.0.0.115    azureadpreview               {Add-AzureADMSAdministrati...}
 ```
 
-Agora você pode começar a usar os cmdlets do módulo. Para obter uma descrição completa dos cmdlets no módulo do Azure AD, consulte a documentação de referência online para o [módulo de visualização do Azure ad](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17).
+Agora você pode começar a usar os cmdlets do módulo. Para obter uma descrição completa dos cmdlets no módulo do Azure AD, consulte a documentação de referência online para o [módulo de visualização do Azure ad](https://www.powershellgallery.com/packages/AzureADPreview).
 
-## <a name="assign-a-role-to-a-user-or-service-principal-with-resource-scope"></a>Atribuir uma função a um usuário ou a uma entidade de serviço com escopo de recurso
+## <a name="assign-a-directory-role-to-a-user-or-service-principal-with-resource-scope"></a>Atribuir uma função de diretório a um usuário ou a uma entidade de serviço com escopo de recurso
 
-1. Abra o módulo PowerShell de visualização do Azure AD.
+1. Carregue o módulo PowerShell do Azure AD (versão prévia).
 1. Entre executando o comando `Connect-AzureAD` .
 1. Crie uma nova função usando o seguinte script do PowerShell.
 
@@ -69,13 +69,13 @@ $resourceScope = '/' + $appRegistration.objectId
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-Para atribuir a função a uma entidade de serviço em vez de um usuário, use o [cmdlet Get-AzureADMSServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0).
+Para atribuir a função a uma entidade de serviço em vez de um usuário, use o cmdlet [Get-AzureADMSServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) .
 
-## <a name="operations-on-roledefinition"></a>Operações no RoleDefinition
+## <a name="role-definitions"></a>Definições de função
 
-Os objetos de definição de função contêm a definição da função interna ou personalizada, juntamente com as permissões concedidas por essa atribuição de função. Esse recurso exibe as definições de função personalizadas e directoryRoles internas (que são exibidas na forma equivalente roleDefinition). Hoje, uma organização do Azure AD pode ter, no máximo, 30 RoleDefinitions personalizados exclusivos definidos.
+Os objetos de definição de função contêm a definição da função interna ou personalizada, juntamente com as permissões concedidas por essa atribuição de função. Esse recurso exibe definições de função personalizadas e funções de diretório internas (que são exibidas na forma equivalente roleDefinition). Hoje, uma organização do Azure AD pode ter no máximo 30 definições de função personalizadas exclusivas definidas.
 
-### <a name="create-operations-on-roledefinition"></a>Criar operações no RoleDefinition
+### <a name="create-a-role-definition"></a>Criar uma definição de função
 
 ``` PowerShell
 # Basic information
@@ -83,32 +83,32 @@ $description = "Can manage credentials of application registrations"
 $displayName = "Application Registration Credential Administrator"
 $templateId = (New-Guid).Guid
 
-# Set of actions to grant
-$allowedResourceAction =
-@(
-    "microsoft.directory/applications/standard/read",
-    "microsoft.directory/applications/credentials/update"
-)
-$rolePermissions = @{'allowedResourceActions'= $allowedResourceAction}
+# Set of actions to include
+$rolePermissions = @{
+    "allowedResourceActions" = @(
+        "microsoft.directory/applications/standard/read",
+        "microsoft.directory/applications/credentials/update"
+    )
+}
 
-# Create new custom admin role
+# Create new custom directory role
 $customAdmin = New-AzureADMSRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
 ```
 
-### <a name="read-operations-on-roledefinition"></a>Operações de leitura no RoleDefinition
+### <a name="read-and-list-role-definitions"></a>Ler e listar definições de função
 
 ``` PowerShell
 # Get all role definitions
 Get-AzureADMSRoleDefinitions
 
-# Get single role definition by objectId
+# Get single role definition by ID
 Get-AzureADMSRoleDefinition -Id 86593cfc-114b-4a15-9954-97c3494ef49b
 
 # Get single role definition by templateId
 Get-AzureADMSRoleDefinition -Filter "templateId eq 'c4e39bd9-1100-46d3-8c65-fb160da0071f'"
 ```
 
-### <a name="update-operations-on-roledefinition"></a>Operações de atualização no RoleDefinition
+### <a name="update-a-role-definition"></a>Atualizar uma definição de função
 
 ``` PowerShell
 # Update role definition
@@ -117,18 +117,18 @@ Get-AzureADMSRoleDefinition -Filter "templateId eq 'c4e39bd9-1100-46d3-8c65-fb16
 Set-AzureADMSRoleDefinition -Id c4e39bd9-1100-46d3-8c65-fb160da0071f -DisplayName "Updated DisplayName"
 ```
 
-### <a name="delete-operations-on-roledefinition"></a>Operações de exclusão no RoleDefinition
+### <a name="delete-a-role-definition"></a>Excluir uma definição de função
 
 ``` PowerShell
 # Delete role definition
 Remove-AzureADMSRoleDefinitions -Id c4e39bd9-1100-46d3-8c65-fb160da0071f
 ```
 
-## <a name="operations-on-roleassignment"></a>Operações no RoleAssignment
+## <a name="role-assignments"></a>Atribuições de função
 
-As atribuições de função contêm informações vinculando uma determinada entidade de segurança (uma entidade de serviço de usuário ou aplicativo) a uma definição de função. Se necessário, você pode adicionar um escopo de um único recurso do Azure AD para as permissões atribuídas.  A restrição do escopo de permissões tem suporte para funções internas e personalizadas.
+As atribuições de função contêm informações vinculando uma determinada entidade de segurança (uma entidade de serviço de usuário ou aplicativo) a uma definição de função. Se necessário, você pode adicionar um escopo de um único recurso do Azure AD para as permissões atribuídas.  A restrição do escopo de uma atribuição de função tem suporte para funções internas e personalizadas.
 
-### <a name="create-operations-on-roleassignment"></a>Criar operações no RoleAssignment
+### <a name="create-a-role-assignment"></a>Criar uma atribuição de função
 
 ``` PowerShell
 # Get the user and role definition you want to link
@@ -143,7 +143,7 @@ $resourceScope = '/' + $appRegistration.objectId
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-### <a name="read-operations-on-roleassignment"></a>Operações de leitura no RoleAssignment
+### <a name="read-and-list-role-assignments"></a>Ler e listar atribuições de função
 
 ``` PowerShell
 # Get role assignments for a given principal
@@ -153,7 +153,7 @@ Get-AzureADMSRoleAssignment -Filter "principalId eq '27c8ca78-ab1c-40ae-bd1b-eae
 Get-AzureADMSRoleAssignment -Filter "roleDefinitionId eq '355aed8a-864b-4e2b-b225-ea95482e7570'"
 ```
 
-### <a name="delete-operations-on-roleassignment"></a>Operações de exclusão no RoleAssignment
+### <a name="delete-a-role-assignment"></a>Excluir uma atribuição de função
 
 ``` PowerShell
 # Delete role assignment

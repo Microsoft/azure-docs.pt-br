@@ -5,21 +5,18 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: 75d22a5021c7c8ae3a12f25644f2875e0ccf8cdd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 01/08/2021
+ms.openlocfilehash: 0c75f9938b3bc4fa8a2e650f77a3708e91180fea
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098749"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059212"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB sem servidor (visualização)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-> [!IMPORTANT]
-> O Azure Cosmos DB sem servidor está atualmente em visualização. Esta versão de visualização é fornecida sem um Contrato de Nível de Serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte os [Termos de uso complementares de versões prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-O Azure Cosmos DB sem servidor permite que você use sua conta do cosmos do Azure em um modo baseado em consumo, no qual você é cobrado apenas pelas unidades de solicitação consumidas pelas operações de banco de dados e pelo armazenamento consumido pelos sua data. Não há nenhum encargo mínimo envolvido ao usar Azure Cosmos DB no modo sem servidor.
+O Azure Cosmos DB sem servidor permite que você use sua conta do cosmos do Azure em um modo baseado em consumo, no qual você é cobrado apenas pelas unidades de solicitação consumidas pelas operações de banco de dados e pelo armazenamento consumido pelos sua data. Os contêineres sem servidor podem atender a milhares de solicitações por segundo sem nenhum encargo mínimo e nenhum planejamento de capacidade é necessário.
 
 > [!IMPORTANT] 
 > Você tem algum comentário sobre o servidor? Queremos ouvir! Sinta-se à vontade para remover uma mensagem para a equipe Azure Cosmos DB sem servidor: [azurecosmosdbserverless@service.microsoft.com](mailto:azurecosmosdbserverless@service.microsoft.com) .
@@ -31,28 +28,20 @@ Ao usar Azure Cosmos DB, cada operação de banco de dados tem um custo expresso
 
 ## <a name="use-cases"></a>Casos de uso
 
-Azure Cosmos DB cenários de melhor desempenho sem servidor em que você espera:
+Os cenários de melhor Azure Cosmos DB servidor se encaixam em situações em que você espera **tráfego intermitente e imprevisível** com tempos ociosos longos. Como o provisionamento de capacidade nessas situações não é necessário e pode ser proibitivo, Azure Cosmos DB sem servidor deve ser considerado nos seguintes casos de uso:
 
-- **Tráfego leve** : como a capacidade de provisionamento nessas situações não é necessária e pode ser um custo inviável
-- **Intermitênciabilidade moderada** : como contêineres sem servidor podem entregar até 5.000 unidades de solicitação por segundo
-- **Desempenho moderado** : como os contêineres sem servidor têm [características de desempenho específicas](#performance)
-
-Por esses motivos, o Azure Cosmos DB sem servidor deve ser considerado para os seguintes tipos de carga de trabalho:
-
-- Desenvolvimento
-- Testando
-- Criação de protótipos
-- Prova de conceito
-- Aplicativo não crítico com tráfego leve
+- Introdução ao Azure Cosmos DB
+- Executando aplicativos com
+    - intermitência, tráfego intermitente que é difícil de prever ou
+    - baixo (<10%) taxa de tráfego média-para-pico
+- Desenvolvimento, teste, criação de protótipos e execução em aplicativos novos de produção em que o padrão de tráfego é desconhecido
+- Integração com serviços de computação sem servidor como [Azure Functions](../azure-functions/functions-overview.md)
 
 Consulte o artigo [como escolher entre produtividade provisionada e sem servidor](throughput-serverless.md) para obter mais diretrizes sobre como escolher a oferta que melhor se adapta ao seu caso de uso.
 
 ## <a name="using-serverless-resources"></a>Usando recursos sem servidor
 
 Sem servidor é um novo tipo de conta do Azure Cosmos, o que significa que você precisa escolher entre a **taxa de transferência provisionada** e sem **servidor** ao criar uma nova conta. Você deve criar uma nova conta sem servidor para começar com o servidor. Durante a versão de visualização, a única maneira com suporte para criar uma nova conta sem servidor é [usando o portal do Azure](create-cosmosdb-resources-portal.md). Atualmente, não há suporte para a migração de contas existentes para/do modo sem servidor.
-
-> [!NOTE]
-> No momento, há suporte para servidor somente na API do Azure Cosmos DB Core (SQL).
 
 Qualquer contêiner criado em uma conta sem servidor é um contêiner sem servidor. Os contêineres sem servidor expõem os mesmos recursos que os contêineres criados no modo de taxa de transferência provisionado, de modo que você lê, grava e consulta seus dados exatamente da mesma maneira. No entanto, as contas e os contêineres sem servidor também têm características específicas:
 
@@ -65,7 +54,6 @@ Qualquer contêiner criado em uma conta sem servidor é um contêiner sem servid
     - Você não pode passar nenhuma taxa de transferência ao criar um contêiner sem servidor e fazer isso retorna um erro.
     - Você não pode ler ou atualizar a taxa de transferência em um contêiner sem servidor e fazer isso retorna um erro.
     - Você não pode criar um banco de dados de produtividade compartilhado em uma conta sem servidor e fazer isso retorna um erro.
-- Os contêineres sem servidor podem fornecer uma intermitência máxima de taxa de transferência de 5.000 unidades de solicitação por segundo.
 - Contêineres sem servidor podem armazenar um máximo de 50 GB de dados e índices.
 
 ## <a name="monitoring-your-consumption"></a>Monitorando seu consumo
@@ -80,14 +68,7 @@ Você pode encontrar o mesmo gráfico ao usar Azure Monitor, conforme descrito [
 
 ## <a name="performance"></a><a id="performance"></a>Desempenho
 
-Os recursos sem servidor geram características de desempenho específicas que são diferentes das que os recursos de taxa de transferência provisionados oferecem:
-
-- **Disponibilidade** : depois que a oferta sem servidor ficar disponível para o público geral, a disponibilidade de contêineres sem servidor será coberta por um contrato de nível de serviço (SLA) de 99,9% quando zonas de disponibilidade (redundância de zona) não for usada. O SLA é de 99,99% quando Zonas de Disponibilidade são usados.
-- **Latência** : depois que a oferta sem servidor ficar disponível para o público geral, a latência de contêineres sem servidor será coberta por um SLO (objetivo de nível de serviço) de 10 milissegundos ou menos para leituras pontuais e 30 milissegundos ou menos para gravações. Uma operação de leitura de ponto consiste em buscar um único item por sua ID e valor de chave de partição.
-- **Intermitênciabilidade** : depois que a oferta sem servidor ficar disponível para o público geral, a intermitência de contêineres sem servidor será coberta por um SLO (objetivo de nível de serviço) de 95%. Isso significa que a intermitência máxima pode ser obtida em pelo menos 95% do tempo.
-
-> [!NOTE]
-> Como qualquer visualização do Azure, Azure Cosmos DB sem servidor é excluída dos contratos de nível de serviço (SLA). As características de desempenho mencionadas acima são fornecidas como uma visualização do que esta oferta fornecerá quando estiver disponível para o público geral.
+Os recursos sem servidor geram características de desempenho específicas que são diferentes das entregas dos recursos de taxa de transferência provisionados. Depois que a oferta sem servidor ficar disponível para o público geral, a latência de contêineres sem servidor será coberta por um SLO (objetivo de nível de serviço) de 10 milissegundos ou menos para leituras pontuais e 30 milissegundos ou menos para gravações. Uma operação de leitura de ponto consiste em buscar um único item por sua ID e valor de chave de partição.
 
 ## <a name="next-steps"></a>Próximas etapas
 

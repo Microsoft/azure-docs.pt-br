@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: cb12777a6a4fa1e75cd65bc597c87442d592aad5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8d96d7b5952c020493af278ee1ea8ad5ff46716
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598111"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016778"
 ---
 # <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Planejar o ambiente do Azure Time Series Insights Gen2
 
@@ -45,7 +45,7 @@ Como parte do processo de provisionamento, você especifica se deseja habilitar 
 As consultas na loja a quente são gratuitas, enquanto as consultas em armazenamento frio incorrem em custos. É importante entender seus padrões de consulta e planejar sua configuração de armazenamento quente adequadamente. É recomendável que a análise interativa nos dados mais recentes resida em sua loja e análise de padrões quentes e tendências de longo prazo residam em frio.
 
 > [!NOTE]
-> Para ler mais sobre como consultar seus dados quentes, leia a [referência da API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters).
+> Para ler mais sobre como consultar seus dados quentes, leia a [referência da API](/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters).
 
 Para começar, são necessários três itens adicionais:
 
@@ -64,7 +64,7 @@ Para criar um novo ambiente de Azure Time Series Insights, selecione uma ID de s
 > [!IMPORTANT]
 > As IDs de série temporal *não podem ser alteradas posteriormente*. Verifique cada uma antes da seleção final e do primeiro uso.
 
-Você pode selecionar até três chaves para diferenciar exclusivamente seus recursos. Para obter mais informações, leia [as práticas recomendadas para escolher uma ID de série temporal](./time-series-insights-update-how-to-id.md) e [regras de ingestão](concepts-json-flattening-escaping-rules.md).
+Você pode selecionar até três chaves para diferenciar exclusivamente seus recursos. Para obter mais informações, leia [as práticas recomendadas para escolher uma ID de série temporal](./how-to-select-tsid.md) e [regras de ingestão](concepts-json-flattening-escaping-rules.md).
 
 A propriedade **timestamp** também é importante. É possível designar essa propriedade ao adicionar origens de eventos. Cada origem de evento tem uma propriedade opcional de carimbo de data/hora usada para rastrear origens de eventos ao longo do tempo. Os valores de carimbo de data/hora diferenciam maiúsculas de minúsculas e precisam estar formatados de acordo com a especificação individual de cada origem de evento.
 
@@ -74,7 +74,7 @@ Quando deixado em branco, a hora em que o evento foi enfileirado no Hub IoT ou n
 
 Agora você pode configurar o modelo de série temporal do ambiente de Azure Time Series Insights. O novo modelo facilita localizar e analisar dados IoT. Permite a preservação, a manutenção e o enriquecimento dos dados de série temporal e ajuda a preparar conjuntos de dados prontos para consumo. O modelo usa IDs de série temporal, que mapeiam para uma instância que associa o recurso exclusivo com variáveis, conhecidas como tipos e hierarquias. Leia sobre a visão geral do [modelo de série temporal](./concepts-model-overview.md) para saber mais.
 
-O modelo é dinâmico, portanto, pode ser criado a qualquer momento. Para começar rapidamente, crie e carregue-o antes de enviar dados por push para Azure Time Series Insights. Para criar seu modelo, leia [usar o modelo de série temporal](/azure/time-series-insights/concepts-model-overview).
+O modelo é dinâmico, portanto, pode ser criado a qualquer momento. Para começar rapidamente, crie e carregue-o antes de enviar dados por push para Azure Time Series Insights. Para criar seu modelo, leia [usar o modelo de série temporal](./concepts-model-overview.md).
 
 Para muitos clientes, o modelo de série temporal mapeia um modelo existente do ativo ou sistema ERP já em vigor. Se você não tiver um modelo existente, uma experiência de usuário predefinida será [fornecida](https://github.com/Microsoft/tsiclient) para começar rapidamente. Para prever como um modelo poderá ajudar você, exiba o [exemplo de ambiente de demonstração](https://insights.timeseries.azure.com/preview/demo).
 

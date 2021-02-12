@@ -3,12 +3,12 @@ title: Perguntas comuns sobre a recuperação de desastres do VMware com o Azure
 description: Obtenha respostas para perguntas comuns sobre a recuperação de desastre de VMs VMware locais para o Azure usando Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 421a96255e7dbbec723122fb3920dcc27da72670
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a272486eea111ab8c8e489556986f12f382e3f65
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359791"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587785"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Perguntas comuns sobre a replicação do VMware para Azure
 
@@ -147,6 +147,10 @@ A replicação é contínua ao replicar VMs VMware para o Azure.
 
 Esse tipo de replicação estendida ou encadeada não tem suporte. Solicite esse recurso no [fórum de comentários](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
 
+### <a name="how-can-i-track-progress-of-initial-replicationsynchronization"></a>Como posso acompanhar o progresso da replicação/sincronização inicial?
+
+Esse recurso foi recentemente Site Recovery serviços. Atualize sua infraestrutura de Site Recovery (servidores de configuração, servidores de processo de expansão) e o agente de mobilidade para as versões 9,36 ou superiores para obter detalhes precisos. Saiba mais sobre como acompanhar o progresso [aqui](vmware-azure-enable-replication.md#monitor-initial-replication).
+
 ### <a name="can-i-do-an-offline-initial-replication"></a>É possível fazer uma replicação inicial offline?
 
 Não há suporte para replicação offline. Solicite esse recurso no [fórum de comentários](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
@@ -176,7 +180,7 @@ Para a replicação do VMware para o Azure, você pode modificar o tamanho do di
 
 ### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-server-without-impacting-ongoing-replication"></a>Posso migrar computadores locais para um novo vCenter Server sem afetar a replicação em andamento?
 
-Não. Uma alteração do VMware vCenter ou da migração afetará a replicação em andamento. Configure Site Recovery com o novo vCenter Server e habilite a replicação para computadores novamente.
+Consulte nossas [diretrizes](vmware-azure-manage-vcenter.md#migrate-all-vms-to-a-new-server) para migrar computadores para um novo vCenter
 
 ### <a name="can-i-replicate-to-a-cache-or-target-storage-account-that-has-a-virtual-network-with-azure-firewalls-configured-on-it"></a>Posso replicar para uma conta de armazenamento de destino ou de cache que tenha uma rede virtual (com firewalls do Azure) configurada nele?
 

@@ -4,23 +4,27 @@ description: Saiba como você pode usar o Azure Cosmos DB para armazenar e consu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 10/1/2019
+ms.date: 11/25/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: c3101b69b7ebf55367dbb52d0c2fd6d265cf33f5
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: ab335c8cc682f6b33dcb30509d682186a178c676
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475627"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861062"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>API do Azure Cosmos DB para MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 O [Azure Cosmos DB](introduction.md) é o serviço multimodelo de banco de dados da Microsoft, distribuído globalmente, para aplicativos críticos. O Azure Cosmos DB fornece [distribuição global imediata](distribute-data-globally.md), [dimensionamento elástico da taxa de transferência e do armazenamento](partitioning-overview.md) mundialmente, latências de milissegundos de um dígito no 99º percentil e garantia de alta disponibilidade, tudo isso com suporte de [SLAs líderes do setor](https://azure.microsoft.com/support/legal/sla/cosmos-db/). O Azure Cosmos DB [indexa dados automaticamente](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) sem a necessidade de lidar com o gerenciamento do esquema e do índice. Ele tem vários modelos e dá suporte a modelos de dados de colunas, grafos, valores-chave e documentos. O serviço Azure Cosmos DB implementa protocolos de transmissão para APIs NoSQL comuns incluindo o Cassandra, o MongoDB, o Gremlin e o Armazenamento de Tabelas do Azure. Isso permite que você use suas ferramentas e drivers de cliente NoSQL familiares para interagir com o banco de dados Cosmos.
 
+> [!NOTE]
+> O [modo de capacidade sem servidor](serverless.md) já está disponível na API do Azure Cosmos DB para MongoDB.
+
 ## <a name="wire-protocol-compatibility"></a>Compatibilidade de protocolo de transmissão
 
-O Azure Cosmos DB implementa o protocolo de transmissão para MongoDB. Essa implementação permite compatibilidade transparente com SDKs, drivers e ferramentas de cliente MongoDB nativos. O Azure Cosmos DB hospeda o mecanismo de banco de dados MongoDB. Os detalhes dos recursos com suporte do MongoDB podem ser encontrados aqui: 
+O Azure Cosmos DB implementa o protocolo de transmissão para MongoDB. Essa implementação permite compatibilidade transparente com SDKs, drivers e ferramentas de cliente MongoDB nativos. O Azure Cosmos DB não hospeda o mecanismo de banco de dados MongoDB. Os detalhes dos recursos com suporte do MongoDB podem ser encontrados aqui: 
 - [API do Azure Cosmos DB para o mecanismo Mongo DB versão 3.6](mongodb-feature-support-36.md)
 - [API do Azure Cosmos DB para o mecanismo Mongo DB versão 3.2](mongodb-feature-support.md)
 
@@ -52,7 +56,7 @@ Aqui estão algumas dicas para começar:
 
 * Siga o tutorial [Conectar um aplicativo do MongoDB ao Azure Cosmos DB](connect-mongodb-account.md) para saber como obter informações sobre a cadeia de conexão da conta.
 * Siga o tutorial [Usar o Studio 3T com o Azure Cosmos DB](mongodb-mongochef.md) para saber como criar uma conexão entre o banco de dados Cosmos DB e o aplicativo do MongoDB no Studio 3T.
-* Siga o tutorial [Importar dados do MongoDB no Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json) para importar os dados existentes para um banco de dados Cosmos DB.
+* Siga o tutorial [Importar dados do MongoDB no Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json) para importar os dados existentes para um banco de dados Cosmos DB.
 * Conectar-se a uma conta do Cosmos usando o [Robo 3T](mongodb-robomongo.md).
 * Saiba como [Configurar as preferências de leitura para aplicativos distribuídos globalmente](../cosmos-db/tutorial-global-distribution-mongodb.md).
 * Encontre as soluções para erros comumente encontrados em nosso [guia de solução de problemas](mongodb-troubleshoot.md)

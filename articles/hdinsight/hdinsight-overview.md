@@ -1,19 +1,16 @@
 ---
 title: O que é o Azure HDInsight
 description: Uma introdução ao HDInsight, à pilha e aos componentes da tecnologia Apache Hadoop e Apache Spark, incluindo Kafka, Hive, Storm e HBase para análise de Big Data.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.date: 08/21/2020
-ms.openlocfilehash: 657c29b79c98adf1041c49c0315edfd4e9363a36
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: d1c32bf749850ac40e23c1a9cb9c5cd7755d45c6
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91804054"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939430"
 ---
 # <a name="what-is-azure-hdinsight"></a>O que é o Azure HDInsight?
 
@@ -53,7 +50,7 @@ Extração, transformação e carregamento (ETL) é um processo em que os dados 
 
 ### <a name="data-warehousing"></a>Data warehousing
 
-É possível usar o HDInsight para executar consultas interativas em escalas petabyte sobre dados estruturados ou não estruturados em qualquer formato. Também é possível criar modelos conectando-os a ferramentas de BI. Para obter mais informações, [leia esta história de cliente](https://customers.microsoft.com/story/milliman).
+É possível usar o HDInsight para executar consultas interativas em escalas petabyte sobre dados estruturados ou não estruturados em qualquer formato. Também é possível criar modelos conectando-os a ferramentas de BI.
 
 Arquitetura do HDInsight: data warehousing
 

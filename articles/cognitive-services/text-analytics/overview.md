@@ -8,28 +8,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 09/09/2020
+ms.date: 11/17/2020
 ms.author: aahi
 keywords: mineração de texto, análise de sentimentos, análise de texto
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 544de4adb1891c3d558a524466a076daefb42aa4
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 6cef9dc65a72134e0aa70db5f89f4934263c48b4
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647457"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563221"
 ---
 # <a name="what-is-the-text-analytics-api"></a>O que é a API de Análise de Texto?
 
 A API de Análise de Texto é um serviço baseado em nuvem que fornece recursos de NLP (Processamento de Idioma Natural) para mineração e análise de texto, incluindo análise de sentimento, mineração de opiniões, extração de frases-chave, detecção de idioma e reconhecimento de entidade nomeada.
 
-A API faz parte dos [Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/), uma coleção de algoritmos de IA e aprendizado de máquina na nuvem para seus projetos de desenvolvimento. Use esses recursos com a [API REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/) ou a [biblioteca de clientes](quickstarts/text-analytics-sdk.md).
+A API faz parte dos [Serviços Cognitivos do Azure](../index.yml), uma coleção de algoritmos de IA e aprendizado de máquina na nuvem para seus projetos de desenvolvimento. Use esses recursos com a [API REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/) ou a [biblioteca de clientes](quickstarts/client-libraries-rest-api.md).
 
-> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player]
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Whats-New-in-Text-Analytics-Opinion-Mining-and-Async-API/player]
 
 ## <a name="sentiment-analysis"></a>Análise de sentimento
 
-Use a [análise de sentimento](how-tos/text-analytics-how-to-sentiment-analysis.md) para descobrir o que as pessoas pensam da sua marca ou do seu tópico minerando o texto em busca de pistas sobre sentimentos positivos ou negativos. Esse recurso de API retorna uma pontuação de sentimento entre 0 e 1 para cada documento, em que 1 é a mais positiva.
+Use a [análise de sentimento](how-tos/text-analytics-how-to-sentiment-analysis.md) para descobrir o que as pessoas pensam da sua marca ou do seu tópico minerando o texto em busca de pistas sobre sentimentos positivos ou negativos. 
+
+O recurso fornece rótulos de sentimentos (como "negativo", "neutro" e "positivo") com base na pontuação de confiança mais alta encontrada pelo serviço em um nível de frase e documento. Esse recurso também retorna pontuações de confiança entre 0 e 1 para cada documento e frase dentro dele para um sentimento positivo, neutro e negativo. Execute também o serviço no local [usando um contêiner](how-tos/text-analytics-how-to-install-containers.md).
 
 Começando na versão prévia v3.1, a mineração de opiniões é um recurso da Análise de Sentimento. Também conhecida como Análise de Sentimento baseada em aspecto no NLP (processamento de idioma natural), esse recurso fornece informações mais granulares sobre as opiniões relacionadas a aspectos (como os atributos de produtos ou serviços) no texto.
 
@@ -45,15 +47,24 @@ A detecção de idioma pode [detectar o idioma em que o texto de entrada foi esc
 
 O NER (Reconhecimento de Entidade Nomeada) pode [Identificar e categorizar entidades](how-tos/text-analytics-how-to-entity-linking.md) no seu texto como pessoas, lugares, organizações, quantidades. Entidades conhecidas também são reconhecidas e vinculadas a mais informações na Web.
 
-## <a name="use-containers"></a>Usar contêineres
+## <a name="deploy-on-premises-using-docker-containers"></a>Implantação local usando contêineres do Docker
 
-[Use os contêineres de Análise de Texto](how-tos/text-analytics-how-to-install-containers.md) como uma solução local para minerar texto e usar a API. Esses contêineres do Docker permitem que você extraia frases-chave, detecte o idioma e analise sentimentos mais perto dos seus dados.
+[Use os contêineres da Análise de Texto](how-tos/text-analytics-how-to-install-containers.md) para implantar recursos de API no local. Esses contêineres do Docker permitem que você aproxime o serviço dos seus dados para fins de conformidade, segurança ou outras razões operacionais. A Análise de Texto oferece os seguintes contêineres:
+
+* análise de sentimento
+* Extração de frases-chave (versão prévia)
+* Detecção de idioma (versão prévia)
+* Análise de Texto para integridade (versão prévia)
+
+## <a name="asynchronous-operations"></a>Operações assíncronas
+
+O ponto de extremidade `/analyze` permite que você use os recursos selecionados da API de Análise de Texto [de maneira assíncrona](how-tos/text-analytics-how-to-call-api.md), como o NER e a Extração de Frases-chave.
 
 ## <a name="typical-workflow"></a>Fluxo de trabalho típico
 
 O fluxo de trabalho é simples: você envia dados para análise e manipula as saídas no seu código. Os analisadores são consumidos como estão, sem nenhuma configuração ou personalização adicional.
 
-1. [Crie um recurso do Azure](../cognitive-services-apis-create-account.md) para Análise de Texto. Posteriormente, [obtenha a chave](../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) gerada para autenticar suas solicitações.
+1. [Crie um recurso do Azure](how-tos/text-analytics-how-to-call-api.md) para Análise de Texto. Posteriormente, [obtenha a chave](how-tos/text-analytics-how-to-call-api.md) gerada para autenticar suas solicitações.
 
 2. [Formular uma solicitação](how-tos/text-analytics-how-to-call-api.md#json-schema) contendo seus dados como texto bruto não estruturado, em JSON.
 
@@ -71,18 +82,18 @@ Você pode começar a usar a API de Análise de Texto em seus processos mesmo qu
 
 * Programação mínima necessária:
     * [Extrair informações no Excel usando a Análise de Texto e o Power Automate](tutorials/extract-excel-information.md)
-    * [Use a API de Análise de Texto e o MS Flow para identificar o sentimento dos comentários em um grupo do Yammer](https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
+    * [Use a API de Análise de Texto e o MS Flow para identificar o sentimento dos comentários em um grupo do Yammer](/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure?bc=%2f%2fazure%2fbread%2ftoc.json&toc=%2f%2fazure%2fcognitive-services%2ftext-analytics%2ftoc.json)
     * [Integre o Power BI com a API de Análise de Texto para analisar comentários dos clientes](tutorials/tutorial-power-bi-key-phrases.md)
 * Experiência de programação recomendada:
-    * [Análise de sentimento em dados de streaming usando o Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
-    * [Crie um aplicativo Flask para traduzir texto, analisar o sentimento e sintetizar fala](https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
+    * [Análise de sentimento em dados de streaming usando o Azure Databricks](/azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services?bc=%2f%2fazure%2fbread%2ftoc.json&toc=%2f%2fazure%2fcognitive-services%2ftext-analytics%2ftoc.json)
+    * [Crie um aplicativo Flask para traduzir texto, analisar o sentimento e sintetizar fala](../translator/tutorial-build-flask-app-translation-synthesis.md?bc=%2f%2fazure%2fbread%2ftoc.json&toc=%2f%2fazure%2fcognitive-services%2ftext-analytics%2ftoc.json)
 
 
 <a name="supported-languages"></a>
 
 ## <a name="supported-languages"></a>Idiomas com suporte
 
-Esta seção foi movida para um artigo separado para melhor capacidade de descoberta. Consulte [Idiomas compatíveis na API de Análise de Texto](text-analytics-supported-languages.md) para este conteúdo.
+Esta seção foi movida para um artigo separado para melhor capacidade de descoberta. Consulte [Idiomas compatíveis na API de Análise de Texto](./language-support.md) para este conteúdo.
 
 <a name="data-limits"></a>
 
@@ -92,16 +103,16 @@ Todos os pontos de extremidade da API de Análise de Texto aceitam dados de text
 
 ## <a name="unicode-encoding"></a>Codificação Unicode
 
-A API de Análise de Texto usa codificação Unicode para representação de texto e cálculos de contagem de caracteres. As solicitações podem ser enviadas em UTF-8 e UTF-16 sem diferenças mensuráveis na contagem de caracteres. Pontos de código Unicode são usados como heurística para comprimento de caracteres e são considerados equivalentes para fins de limites de dados de análise de texto. Se você usar [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements) para obter a contagem de caracteres, você estará usando o mesmo método que usamos para medir o tamanho dos dados.
+A API de Análise de Texto usa codificação Unicode para representação de texto e cálculos de contagem de caracteres. As solicitações podem ser enviadas em UTF-8 e UTF-16 sem diferenças mensuráveis na contagem de caracteres. Pontos de código Unicode são usados como heurística para comprimento de caracteres e são considerados equivalentes para fins de limites de dados de análise de texto. Se você usar [`StringInfo.LengthInTextElements`](/dotnet/api/system.globalization.stringinfo.lengthintextelements) para obter a contagem de caracteres, você estará usando o mesmo método que usamos para medir o tamanho dos dados.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 + [Crie um recurso do Azure](../cognitive-services-apis-create-account.md) para Análise de Texto e obtenha uma chave e um ponto de extremidade para seus aplicativos.
 
-+ Use o [início rápido](quickstarts/text-analytics-sdk.md) para começar a enviar chamadas à API. Saiba como enviar texto, escolher uma análise e exibir os resultados com o mínimo de código.
++ Use o [início rápido](quickstarts/client-libraries-rest-api.md) para começar a enviar chamadas à API. Saiba como enviar texto, escolher uma análise e exibir os resultados com o mínimo de código.
 
 + Veja [o que há de novo na API de Análise de Texto](whats-new.md) para obter informações sobre novas versões e recursos.
 
-+ Se aprofunde um pouco mais com este [tutorial de análise de sentimento](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services) usando o Azure Databricks.
++ Se aprofunde um pouco mais com este [tutorial de análise de sentimento](/azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services) usando o Azure Databricks.
 
 + Confira nossa lista de postagens em blog e outros vídeos demonstrando como usar a API de Análise de Texto com outras ferramentas e tecnologias em nossa [página Conteúdo da Comunidade e Externo](text-analytics-resource-external-community.md).

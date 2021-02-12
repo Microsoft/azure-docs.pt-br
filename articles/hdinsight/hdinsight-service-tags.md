@@ -1,18 +1,16 @@
 ---
 title: Marcas de serviço do NSG (grupo de segurança de rede) para o Azure HDInsight
 description: Use as marcas de serviço do HDInsight para permitir o tráfego de entrada para o cluster nos nós de serviços de integridade e gerenciamento, sem adicionar endereços IP ao seu NSGs.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 1a90bc6636dcb3aa81f09b0489850c1a95b3256d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: d17d067b88add3006bc5c7fb10caa6b80a80a827
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535239"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931764"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Marcas de serviço NSG para o Azure HDInsight
 
@@ -26,9 +24,9 @@ Se você quiser usar uma região específica e a marca de serviço ainda não es
 
 Você tem duas opções para usar marcas de serviço em seus grupos de segurança de rede:
 
-- **Usar uma única marcação de serviço hdinsight global** : essa opção abre sua rede virtual para todos os endereços IP que o serviço HDInsight usa para monitorar clusters em todas as regiões. Essa opção é o método mais simples, mas pode não ser apropriada se você tiver requisitos de segurança restritivos.
+- **Usar uma única marcação de serviço hdinsight global**: essa opção abre sua rede virtual para todos os endereços IP que o serviço HDInsight usa para monitorar clusters em todas as regiões. Essa opção é o método mais simples, mas pode não ser apropriada se você tiver requisitos de segurança restritivos.
 
-- **Usar várias marcas de serviço regional** : essa opção abre sua rede virtual somente para os endereços IP que o HDInsight usa nessa região específica. No entanto, se você estiver usando várias regiões, precisará adicionar várias marcas de serviço à sua rede virtual.
+- **Usar várias marcas de serviço regional**: essa opção abre sua rede virtual somente para os endereços IP que o HDInsight usa nessa região específica. No entanto, se você estiver usando várias regiões, precisará adicionar várias marcas de serviço à sua rede virtual.
 
 ## <a name="use-a-single-global-hdinsight-service-tag"></a>Usar uma única marca de serviço do HDInsight global
 
@@ -36,11 +34,11 @@ A maneira mais fácil de começar a usar marcas de serviço com o cluster HDInsi
 
 1. No [portal do Azure](https://portal.azure.com/), selecione o grupo de segurança de rede.
 
-1. Em **configurações** , selecione **regras de segurança de entrada** e, em seguida, selecione **+ Adicionar** .
+1. Em **configurações**, selecione **regras de segurança de entrada** e, em seguida, selecione **+ Adicionar**.
 
-1. Na lista suspensa **origem** , selecione **marca de serviço** .
+1. Na lista suspensa **origem** , selecione **marca de serviço**.
 
-1. Na lista suspensa **marca de serviço de origem** , selecione **HDInsight** .
+1. Na lista suspensa **marca de serviço de origem** , selecione **HDInsight**.
 
     ![Adicionar uma marca de serviço do portal do Azure](./media/hdinsight-service-tags/azure-portal-add-service-tag.png)
 
@@ -59,7 +57,7 @@ Se o cluster estiver localizado em uma região listada nesta tabela, você só p
 | País | Região | Marca de serviço |
 | ---- | ---- | ---- |
 | Austrália | Leste da Austrália | HDInsight. AustraliaEast |
-| &nbsp; | Sudeste da Austrália | HDInsight. AustraliaSoutheast |
+| &nbsp; | Australia Southeast | HDInsight. AustraliaSoutheast |
 | &nbsp; | Austrália Central | HDInsight. AustraliaCentral |
 | China | Leste da China 2 | HDInsight. ChinaEast2 |
 | &nbsp; | Norte da China 2 | HDInsight. ChinaNorth2 |

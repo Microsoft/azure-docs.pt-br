@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: ril
 ms.reviewer: juliako
-ms.openlocfilehash: 1a106874277f64a006584f9deb98fb9729263b1b
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 048635a33c3d84416dae00b731b386572aa3f89d
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040708"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802568"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Passo a passo de edição facial com o Azure Media Analytics
 
@@ -30,7 +30,7 @@ ms.locfileid: "93040708"
 
 **Azure Media Redactor** é um MP (processador de mídia) do [Azure Media Analytics](./legacy-components.md) que oferece edição facial escalonável na nuvem. A edição facial permite que você modifique seu vídeo para desfocar rostos de pessoas selecionadas. Você pode querer usar o serviço de edição facial em cenários de segurança pública e de notícias veiculadas. Alguns minutos de vídeo com vários rostos podem levar horas para serem editados manualmente, mas, com esse serviço, o processo de edição facial exigirá apenas algumas etapas simples. Para obter mais informações, consulte [este](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 
-Para obter detalhes sobre o **Azure Media Redactor** , veja o tópico [Visão geral da edição de face](media-services-face-redaction.md).
+Para obter detalhes sobre o **Azure Media Redactor**, veja o tópico [Visão geral da edição de face](media-services-face-redaction.md).
 
 Este tópico mostra instruções passo a passo sobre como executar um fluxo de trabalho de edição completo usando o AMSE (Explorador dos Serviços de Mídia do Azure) e o Azure Media Redactor Visualizer (ferramenta de código-fonte aberto).
 
@@ -74,7 +74,7 @@ A saída incluirá um arquivo json de anotações com dados de localização de 
     ![Captura de tela mostra a opção para carregar o arquivo de texto.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough006.png)
 
 3. (Opcional) Faça as edições no arquivo annotations.json, por exemplo, aumentar os limites da caixa delimitadora. 
-4. Clique com botão direito no ativo de saída da primeira aprovação, selecione o Redactor e execute com o modo **Editar** . 
+4. Clique com botão direito no ativo de saída da primeira aprovação, selecione o Redactor e execute com o modo **Editar**. 
 
     ![A captura de tela mostra Azure Media Redactor com o segundo passo: modo de edição selecionado.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough007.png)
 
@@ -133,6 +133,6 @@ Se você for um desenvolvedor que está tentando analisar os dados de anotação
 ## <a name="related-links"></a>Links relacionados
 [Visão geral do Azure Media Services Analytics](./legacy-components.md)
 
-[Demonstrações do Azure Media Analytics](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Demonstrações do Azure Media Analytics](http://amslabs.azurewebsites.net/demos/Analytics.html)
 
 [Anunciando a redação da face da Análise de Mídia do Azure](https://azure.microsoft.com/blog/azure-media-redactor/)

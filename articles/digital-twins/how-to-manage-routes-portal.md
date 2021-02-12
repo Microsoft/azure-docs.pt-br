@@ -7,22 +7,22 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6b1f53226b82a5342efda8665b6a366a3a7fd310
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 0f705aa61f1fe627dc0c8227242538e01ffce1d5
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461406"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070761"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gerenciar pontos de extremidade e rotas no gêmeos digital do Azure (Portal)
 
 [!INCLUDE [digital-twins-route-selector.md](../../includes/digital-twins-route-selector.md)]
 
-No Azure digital gêmeos, você pode rotear [notificações de eventos](how-to-interpret-event-data.md) para serviços de downstream ou recursos de computação conectados. Isso é feito primeiro Configurando **pontos de extremidade** que podem receber os eventos. Em seguida, você pode criar [**rotas de eventos**](concepts-route-events.md) que especificam quais eventos gerados pelo Azure digital gêmeos são entregues a quais pontos de extremidade.
+No Azure digital gêmeos, você pode rotear [notificações de eventos](how-to-interpret-event-data.md) para serviços de downstream ou recursos de computação conectados. Isso é feito primeiro configurando **pontos de extremidade** que podem receber os eventos. Em seguida, você pode criar [**rotas de eventos**](concepts-route-events.md) que especificam quais eventos gerados pelo Azure digital gêmeos são entregues a quais pontos de extremidade.
 
 Este artigo orienta você pelo processo de criação de pontos de extremidade e rotas usando o [portal do Azure](https://portal.azure.com).
 
-Você também pode gerenciar pontos de extremidade e rotas com as [APIs de rotas de eventos](/rest/api/digital-twins/dataplane/eventroutes), o [SDK do .net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)ou a [CLI do gêmeos digital do Azure](how-to-use-cli.md). Para obter uma versão deste artigo que usa esses mecanismos em vez do portal, consulte [*como: gerenciar pontos de extremidade e rotas (APIs e CLI)*](how-to-manage-routes-apis-cli.md).
+Como alternativa, você também pode gerenciar pontos de extremidade e rotas com as [APIs de rotas de eventos](/rest/api/digital-twins/dataplane/eventroutes), os [SDKS](how-to-use-apis-sdks.md#overview-data-plane-apis)ou a [CLI do gêmeos digital do Azure](how-to-use-cli.md). Para obter uma versão deste artigo que usa esses mecanismos em vez do portal, consulte [*como: gerenciar pontos de extremidade e rotas (APIs e CLI)*](how-to-manage-routes-apis-cli.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,11 +33,11 @@ Você também pode gerenciar pontos de extremidade e rotas com as [APIs de rotas
 
 Você pode encontrar esses detalhes no [portal do Azure](https://portal.azure.com) depois de configurar sua instância. Faça logon no portal e procure o nome da sua instância na barra de pesquisa do Portal.
  
-:::image type="content" source="media/how-to-manage-routes-portal/search-field-portal.png" alt-text="Captura de tela da barra de pesquisa portal do Azure.":::
+:::image type="content" source="media/how-to-manage-routes-portal/search-field-portal.png" alt-text="Captura de tela da barra de pesquisa portal do Azure." lightbox="media/how-to-manage-routes-portal/search-field-portal.png":::
 
-Selecione sua instância nos resultados para ver a página de detalhes da sua instância:
+Selecione sua instância nos resultados para ver esses detalhes na visão geral da sua instância:
 
-:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Captura de tela da barra de pesquisa portal do Azure." border="false":::
+:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Captura de tela da página de visão geral de uma instância do gêmeos digital do Azure. O nome e o grupo de recursos são realçados.":::
 
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Criar um ponto de extremidade para o gêmeos digital do Azure
 
@@ -48,83 +48,59 @@ Estes são os tipos de pontos de extremidade com suporte que você pode criar pa
 
 Para obter mais informações sobre os diferentes tipos de ponto de extremidade, consulte [*escolher entre os serviços de mensagens do Azure*](../event-grid/compare-messaging-services.md).
 
-Para vincular um ponto de extremidade ao Azure digital gêmeos, o tópico da grade de eventos, o Hub de eventos ou o barramento de serviço que você está usando para o ponto de extremidade precisa já existir. 
+Esta seção explica como criar um desses pontos de extremidade no [portal do Azure](https://portal.azure.com).
 
-### <a name="create-an-event-grid-endpoint"></a>Criar um ponto de extremidade de grade de eventos
+[!INCLUDE [digital-twins-endpoint-resources.md](../../includes/digital-twins-endpoint-resources.md)]
 
-**Pré-requisito**: Crie um tópico da grade de eventos seguindo as etapas na [seção *criar um tópico personalizado* ](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) do guia de início rápido *eventos personalizados* da grade de eventos.
+### <a name="create-the-endpoint"></a>Criar o ponto de extremidade 
 
-Depois de criar o tópico, você pode vinculá-lo ao Azure digital gêmeos na página da instância do gêmeos digital do Azure na [portal do Azure](https://portal.azure.com) (você pode encontrar a instância inserindo seu nome na barra de pesquisa do Portal).
+Depois de criar os recursos do ponto de extremidade, você poderá usá-los para um ponto de extremidade do Azure digital gêmeos. Para criar um novo ponto de extremidade, vá para a página da sua instância na [portal do Azure](https://portal.azure.com) (você pode encontrar a instância inserindo seu nome na barra de pesquisa do Portal).
 
-No menu instância, selecione _pontos de extremidade_. Em seguida, na página *pontos de extremidade* a seguir, selecione *+ criar um ponto de extremidade*. 
+1. No menu instância, selecione _pontos de extremidade_. Em seguida, na página *pontos de extremidade* a seguir, selecione *+ criar um ponto de extremidade*. Isso abrirá a página *criar um ponto de extremidade* , onde você preencherá os campos nas etapas a seguir.
 
-Na página *criar um ponto de extremidade* que é aberta, você pode criar um ponto de extremidade do tipo _grade de eventos_ selecionando o botão de opção correspondente. Preencha os outros detalhes: Insira um nome para o ponto de extremidade no campo _nome_ , escolha sua _assinatura_ na lista suspensa e escolha o tópico da  _grade de eventos_ pré-criado no terceiro menu suspenso.
+    :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Captura de tela da criação de um ponto de extremidade do tipo grade de eventos." lightbox="media/how-to-manage-routes-portal/create-endpoint-event-grid.png":::
 
-Em seguida, crie seu ponto de extremidade ao pressionar _salvar_.
+1. Insira um **nome** para o ponto de extremidade e escolha o **tipo de ponto de extremidade**.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Captura de tela da barra de pesquisa portal do Azure.":::
+1. Preencha os outros detalhes necessários para o tipo de ponto de extremidade, incluindo sua assinatura e os recursos de ponto de extremidade descritos [acima](#prerequisite-create-endpoint-resources).
+    1. Para os pontos de extremidade do hub de eventos e do barramento de serviço, você deve selecionar um **tipo de autenticação**. Você pode usar a autenticação baseada em chave com uma regra de autorização criada previamente ou a autenticação baseada em identidade se usar o ponto de extremidade com uma [identidade gerenciada](concepts-security.md#managed-identity-for-accessing-other-resources-preview) para sua instância do gêmeos digital do Azure. 
 
-Você pode verificar se o ponto de extremidade foi criado com êxito verificando o ícone de notificação na barra de portal do Azure superior: 
+    :::row:::
+        :::column:::
+            :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub-authentication.png" alt-text="Captura de tela da criação de um ponto de extremidade do tipo Hub de eventos." lightbox="media/how-to-manage-routes-portal/create-endpoint-event-hub-authentication.png":::
+        :::column-end:::
+        :::column:::
+        :::column-end:::
+    :::row-end:::
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Captura de tela da barra de pesquisa portal do Azure." border="false":::
+1. Conclua a criação do ponto de extremidade selecionando _salvar_.
+
+>[!IMPORTANT]
+> Para usar a autenticação baseada em identidade para o ponto de extremidade com êxito, você precisará criar uma identidade gerenciada para a instância seguindo as etapas em [*como: habilitar uma identidade gerenciada para eventos de roteamento (versão prévia)*](how-to-enable-managed-identities.md).
+
+Depois de criar seu ponto de extremidade, você pode verificar se o ponto de extremidade foi criado com êxito verificando o ícone de notificação na barra de portal do Azure superior: 
+
+:::row:::
+    :::column:::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Captura de tela de notificação para verificar a criação do ponto de extremidade. O ícone em forma de sino da barra superior do portal está selecionado e há uma notificação informando que ' Endpoint ADT-eh-Endpoint foi criado com êxito '.":::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
+
+Se a criação do ponto de extremidade falhar, observe a mensagem de erro e tente novamente após alguns minutos.
 
 Você também pode exibir o ponto de extremidade que foi criado de volta na página *pontos de extremidade* para sua instância do gêmeos digital do Azure.
 
-Se a criação do ponto de extremidade falhar, observe a mensagem de erro e tente novamente após alguns minutos.
-
-Agora, o tópico da grade de eventos está disponível como um ponto de extremidade dentro do Azure digital gêmeos, sob o nome especificado no campo _nome_ . Normalmente, você usará esse nome como o destino de uma **rota de evento**, que será criada [posteriormente neste artigo](#create-an-event-route).
-
-### <a name="create-an-event-hubs-endpoint"></a>Criar um ponto de extremidade de hubs de eventos
-
-**Pré-requisitos**: 
-* Você precisará de um _namespace de hubs de eventos_ e um hub de _eventos_. Crie ambos seguindo as etapas nos hubs de eventos [*criar um hub de eventos*](../event-hubs/event-hubs-create.md) início rápido.
-* Você precisará de uma _regra de autorização_. Para criar isso, consulte o artigo hubs de eventos [*autorizando o acesso a recursos de hubs de eventos usando assinaturas de acesso compartilhado*](../event-hubs/authorize-access-shared-access-signature.md) .
-
-Vá para a página de detalhes da instância do gêmeos digital do Azure no [portal do Azure](https://portal.azure.com) (você pode encontrá-la inserindo seu nome na barra de pesquisa do Portal).
-
-No menu instância, selecione _pontos de extremidade_. Em seguida, na página *pontos de extremidade* a seguir, selecione *+ criar um ponto de extremidade*. 
-
-Na página *criar um ponto de extremidade* que é aberta, você pode criar um ponto de extremidade do tipo _Hub de eventos_ selecionando o botão de opção correspondente. Insira um nome para o ponto de extremidade no campo _nome_ . Em seguida, selecione sua _assinatura_e o namespace do _Hub de eventos_pré-criado, o _Hub de eventos_e a regra de _autorização_ nas respectivas listas suspensas.
-
-Em seguida, crie seu ponto de extremidade ao pressionar _salvar_.
-
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Captura de tela da barra de pesquisa portal do Azure.":::
-
-Você pode verificar se o ponto de extremidade foi criado com êxito verificando o ícone de notificação na barra de portal do Azure superior. 
-
-Se a criação do ponto de extremidade falhar, observe a mensagem de erro e tente novamente após alguns minutos.
-
-Agora, o Hub de eventos está disponível como um ponto de extremidade dentro do Azure digital gêmeos, sob o nome especificado no campo _nome_ . Normalmente, você usará esse nome como o destino de uma **rota de evento**, que será criada [posteriormente neste artigo](#create-an-event-route).
-
-### <a name="create-a-service-bus-endpoint"></a>Criar um ponto de extremidade do barramento de serviço
-
-**Pré-requisitos**: 
-* Você precisará de um _namespace do barramento de serviço_ e um tópico do barramento de _serviço_. Crie ambos seguindo as etapas no início rápido [*criar tópicos e assinaturas*](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md) do barramento de serviço. Não é necessário concluir a seção [*criar assinaturas para o tópico*](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md#create-subscriptions-to-the-topic) .
-* Você precisará de uma _regra de autorização_. Para criar isso, consulte o artigo [*autenticação e autorização*](../service-bus-messaging/service-bus-authentication-and-authorization.md#shared-access-signature) do barramento de serviço.
-
-Vá para a página de detalhes da instância do gêmeos digital do Azure no [portal do Azure](https://portal.azure.com) (você pode encontrá-la inserindo seu nome na barra de pesquisa do Portal).
-
-No menu instância, selecione _pontos de extremidade_. Em seguida, na página *pontos de extremidade* a seguir, selecione *+ criar um ponto de extremidade*. 
-
-Na página *criar um ponto de extremidade* que é aberta, você pode criar um ponto de extremidade do tipo _barramento de serviço_ selecionando o botão de opção correspondente. Insira um nome para o ponto de extremidade no campo _nome_ . Em seguida, selecione sua _assinatura_e o namespace do _barramento de serviço_criado previamente, o tópico do _barramento de serviço_e a regra de _autorização_ nas respectivas listas suspensas.
-
-Em seguida, crie seu ponto de extremidade ao pressionar _salvar_.
-
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-service-bus.png" alt-text="Captura de tela da barra de pesquisa portal do Azure.":::
-
-Você pode verificar se o ponto de extremidade foi criado com êxito verificando o ícone de notificação na barra de portal do Azure superior. 
-
-Se a criação do ponto de extremidade falhar, observe a mensagem de erro e tente novamente após alguns minutos.
-
-Agora, o tópico do barramento de serviço está disponível como um ponto de extremidade dentro do Azure digital gêmeos, sob o nome especificado no campo _nome_ . Normalmente, você usará esse nome como o destino de uma **rota de evento**, que será criada [posteriormente neste artigo](#create-an-event-route).
+Agora, a grade de eventos, o Hub de eventos ou o tópico do barramento de serviço está disponível como um ponto de extremidade dentro do Azure digital gêmeos, sob o nome escolhido para o ponto de extremidade. Normalmente, você usará esse nome como o destino de uma **rota de evento**, que será criada [posteriormente neste artigo](#create-an-event-route).
 
 ### <a name="create-an-endpoint-with-dead-lettering"></a>Criar um ponto de extremidade com mensagens mortas
 
 Quando um ponto de extremidade não pode entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um determinado número de vezes, ele pode enviar o evento não entregue para uma conta de armazenamento. Esse processo é conhecido como **mensagens mortas**.
 
-Para criar um ponto de extremidade com mensagens mortas habilitadas, você deve usar as [APIs ARM](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) para criar seu ponto de extremidade, em vez de portal do Azure.
+Para criar um ponto de extremidade com mensagens mortas habilitadas, você deve usar os [comandos da CLI](how-to-use-cli.md) ou as APIs do [plano de controle](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) para criar seu ponto de extremidade, em vez do portal do Azure.
 
-Para obter instruções sobre como fazer isso com as APIs, consulte a versão de [*APIs e CLI*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) deste artigo.
+Para obter instruções sobre como fazer isso com essas ferramentas, consulte a versão de [*APIs e CLI*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) deste artigo.
 
 ## <a name="create-an-event-route"></a>Criar uma rota de eventos
 
@@ -140,7 +116,7 @@ Para realmente enviar dados do Azure digital gêmeos para um ponto de extremidad
 Uma definição de rota de evento contém estes elementos:
 * O nome da rota que você deseja usar
 * O nome do ponto de extremidade que você deseja usar
-* Um filtro que define quais eventos são enviados para o ponto de extremidade
+* Um filtro que defina quais eventos são enviados para o ponto de extremidade
     - Para desabilitar a rota para que nenhum evento seja enviado, use um valor de filtro de `false`
     - Para habilitar uma rota sem filtragem específica, use um valor de filtro de `true`
     - Para obter detalhes sobre qualquer outro tipo de filtro, consulte a seção [*filtrar eventos*](#filter-events) abaixo.
@@ -157,7 +133,7 @@ Na página *criar uma rota de eventos* que é aberta, escolha no mínimo:
 
 Para que a rota seja habilitada, você também deve **Adicionar um filtro de rota de evento** de pelo menos `true` . (Deixar o valor padrão de `false` criará a rota, mas nenhum evento será enviado a ela). Para fazer isso, alterne a opção do _Editor avançado_ para habilitá-lo e escreva `true` na caixa de *filtro* .
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Captura de tela da barra de pesquisa portal do Azure." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Captura de tela da criação de rota de evento para sua instância." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
 
 Quando terminar, pressione o botão _salvar_ para criar a rota de eventos.
 
@@ -182,7 +158,7 @@ Para usar os filtros básicos, expanda a opção _tipos de evento_ e marque as c
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-1.png" alt-text="Captura de tela da barra de pesquisa portal do Azure.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-1.png" alt-text="Captura de tela da criação de uma rota de eventos com um filtro básico. Marcando as caixas de seleção dos eventos.":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -192,7 +168,7 @@ Isso irá preencher automaticamente a caixa de texto de filtro com o texto do fi
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-2.png" alt-text="Captura de tela da barra de pesquisa portal do Azure.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-2.png" alt-text="Captura de tela da criação de uma rota de eventos com um filtro básico. Mostrando o texto do filtro preenchido automaticamente após a seleção dos eventos.":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -206,7 +182,7 @@ Para criar uma rota de eventos com opções de filtro avançadas, alterne a opç
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-advanced.png" alt-text="Captura de tela da barra de pesquisa portal do Azure.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-advanced.png" alt-text="Captura de tela da criação de uma rota de evento com um filtro avançado.":::
     :::column-end:::
     :::column:::
     :::column-end:::

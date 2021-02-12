@@ -11,12 +11,12 @@ ms.custom: devx-track-csharp, mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 5957ccb7bd7ff7e7acc0ed76899850bbca09ad6c
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: 9c3c63b6116e02e8a742b69e90c11e182d72ab2e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91664793"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953016"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Tutorial: Habilitar autenticação em um aplicativo Web usando o Azure Active Directory B2C
 
@@ -45,7 +45,7 @@ No tutorial concluído como parte dos pré-requisitos, você registrou um aplica
 
 ### <a name="add-a-redirect-uri-reply-url"></a>Adicionar um URI de redirecionamento (URL de resposta)
 
-Para atualizar um aplicativo no locatário do Azure AD B2C, você pode usar a nossa nova experiência unificada de **Registros de aplicativos** ou a nossa experiência herdada **Aplicativos (Herdado)** . [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregtraining).
+Para atualizar um aplicativo no locatário do Azure AD B2C, você pode usar a nossa nova experiência unificada de **Registros de aplicativos** ou a nossa experiência herdada **Aplicativos (Herdado)** . [Saiba mais sobre a nova experiência](./app-registrations-training-guide.md).
 
 #### <a name="app-registrations"></a>[Registros de aplicativo](#tab/app-reg-ga/)
 
@@ -77,7 +77,7 @@ Em seguida, crie um segredo do cliente para o aplicativo Web registrado. O exemp
 
 ## <a name="configure-the-sample"></a>Configurar o exemplo
 
-Neste tutorial, você deve configurar um exemplo que pode ser baixado do GitHub. O exemplo usa o ASP.NET para fornecer uma lista de tarefas pendentes simples. O exemplo usa os [componentes de middleware OWIN da Microsoft](https://docs.microsoft.com/aspnet/aspnet/overview/owin-and-katana/). [Baixe um arquivo zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) ou clone o exemplo do GitHub. Extraia o arquivo de exemplo em uma pasta cujo tamanho total de caracteres do caminho seja menor que 260.
+Neste tutorial, você deve configurar um exemplo que pode ser baixado do GitHub. O exemplo usa o ASP.NET para fornecer uma lista de tarefas pendentes simples. O exemplo usa os [componentes de middleware OWIN da Microsoft](/aspnet/aspnet/overview/owin-and-katana/). [Baixe um arquivo zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) ou clone o exemplo do GitHub. Extraia o arquivo de exemplo em uma pasta cujo tamanho total de caracteres do caminho seja menor que 260.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git

@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 4abd16d6b5c9593cb1a4df52a7135a658c513410
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: MT
+ms.openlocfilehash: ff377b0f93968eb6743187e4e659f4e888e5010e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455930"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358892"
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Tutorial: Configurar GoToMeeting para provisionamento automático de usuário
 
@@ -58,9 +58,9 @@ Esta seção orienta você quanto à conexão do Azure AD com a API de provision
 
 1. Selecione sua instância do GoToMeeting e selecione a guia **Provisionamento**.
 
-1. Defina o modo de **provisionamento** como **automático**. 
+1. Defina o **Modo de Provisionamento** como **Automático**. 
 
-    ![Captura de tela da guia provisionamento para GoToMeeting no portal do Azure. O modo de provisionamento é definido como automático e o nome de usuário do administrador, senha e conexão de teste são realçados.](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
+    ![Captura de tela da guia Provisionamento para o GoToMeeting no portal do Azure. O Modo de Provisionamento está definido como Automático e Nome do Usuário Administrador, Senha e Testar Conectividade estão realçados.](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
 
 1. Na seção “Credenciais de Administrador”, realize as seguintes etapas:
    
@@ -90,4 +90,4 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 * [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configurar logon único](./citrix-gotomeeting-tutorial.md)
+* [Configurar Logon Único](./citrix-gotomeeting-tutorial.md)

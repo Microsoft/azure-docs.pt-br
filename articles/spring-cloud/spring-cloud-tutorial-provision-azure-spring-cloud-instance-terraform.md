@@ -1,24 +1,24 @@
 ---
-title: Tutorial – Provisionar uma instância do Azure Spring Cloud com o Terraform
+title: Provisionar uma instância do Azure Spring Cloud com o Terraform
 description: Provisionar uma instância do Azure Spring Cloud com o Terraform.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: ed66da991df4dbe89c327a9a28ee28527c3da87b
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 060ef2d08b849706b47b24748142c608292971b5
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091637"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533784"
 ---
-# <a name="tutorial-provision-an-azure-spring-cloud-instance-with-terraform"></a>Tutorial: Provisionar uma instância do Azure Spring Cloud com o Terraform
+# <a name="provision-an-azure-spring-cloud-instance-with-terraform"></a>Provisionar uma instância do Azure Spring Cloud com o Terraform
 
 **Este artigo aplica-se a:** ✔️ Java ✔️ C#
 
-Este tutorial cria uma instância do Azure Spring Cloud usando o Terraform. Os procedimentos orientam você pela criação dos seguintes recursos:
+Este exemplo cria uma instância do Azure Spring Cloud usando o Terraform. Os procedimentos orientam você pela criação dos seguintes recursos:
 
 > [!div class="checklist"]
 > * Grupo de recursos
@@ -161,7 +161,7 @@ Esta seção mostra como atualizar a configuração para habilitar o log e as m�
 
 Quando não forem mais necessários, exclua os recursos criados neste artigo.
 
-Execute o comando [terraform destroy](https://www.terraform.io/docs/commands/destroy.html) para remover os recursos do Azure criados neste tutorial:
+Execute o comando [terraform destroy](https://www.terraform.io/docs/commands/destroy.html) para remover os recursos do Azure criados neste exercício:
 
 ```bash
 terraform destroy -auto-approve

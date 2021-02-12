@@ -7,19 +7,19 @@ ms.topic: how-to
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: bbb959b6b1d71c81f7b920b3962f693716041e16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1d433c7db36a3f4fe5f528b7fbd17549bc08e4a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89181741"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791486"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Expandir discos rígidos virtuais em uma VM do Linux com a CLI do Azure
 
 Este artigo descreve como expandir discos gerenciados para uma máquina virtual (VM) do Linux com a CLI do Azure. Você pode [adicionar discos de dados](add-disk.md) para fornecer espaço de armazenamento adicional e também expandir um disco de dados existente. O tamanho padrão do disco rígido virtual do sistema operacional (SO) é geralmente de 30 GB em uma VM do Linux no Azure. 
 
 > [!WARNING]
-> Sempre certifique-se de que seu sistema de arquivos está em um estado íntegro, o tipo de tabela de partição de disco dará suporte ao novo tamanho e certifique-se de que o backup dos dados seja feito antes de executar operações de redimensionamento de disco. Para saber mais, confira [Fazer backup de máquinas virtuais do Linux no Azure](tutorial-backup-vms.md). 
+> Sempre certifique-se de que seu sistema de arquivos está em um estado íntegro, o tipo de tabela de partição de disco dará suporte ao novo tamanho e certifique-se de que o backup dos dados seja feito antes de executar operações de redimensionamento de disco. Para obter mais informações, consulte [início rápido do backup do Azure](../../backup/quick-backup-vm-portal.md). 
 
 ## <a name="expand-an-azure-managed-disk"></a>Expandir um disco gerenciado do Azure
 Verifique se você tem o [CLI do Azure](/cli/azure/install-az-cli2) mais recente do Azure instalada e está conectada a uma conta do Azure usando [az login](/cli/azure/reference-index#az-login).
@@ -28,7 +28,7 @@ Este artigo requer uma VM existente no Azure com, pelo menos, um disco de dados 
 
 Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo, como *myResourceGroup* e *myVM* com seus próprios valores.
 
-1. Operações em discos rígidos virtuais não podem ser executadas com a VM em execução. Desaloque a VM com [az vm deallocate](/cli/azure/vm#az-vm-deallocate). O exemplo a seguir Desaloca a VM denominada *myVM* no grupo de recursos chamado *MyResource*Group:
+1. Operações em discos rígidos virtuais não podem ser executadas com a VM em execução. Desaloque a VM com [az vm deallocate](/cli/azure/vm#az-vm-deallocate). O exemplo a seguir Desaloca a VM denominada *myVM* no grupo de recursos chamado *MyResource* Group:
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM

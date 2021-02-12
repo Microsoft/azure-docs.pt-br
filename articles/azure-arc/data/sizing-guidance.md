@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 3bd54d8a23aca7e493cd3c0ddb7f057a6e1f5362
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e7f2e445c3e4e8df7420c0587e156968f3a2c92
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761474"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542670"
 ---
 # <a name="sizing-guidance"></a>Diretrizes de dimensionamento
 
@@ -89,6 +89,7 @@ Cada instância gerenciada do SQL deve ter as seguintes solicitações de recurs
 - Núcleos: 1
 
 Cada pod de instância gerenciada do SQL criado tem três contêineres:
+
 |Nome do contêiner|Solicitação de CPU|Solicitação de memória|Limite da CPU|Limite de Memória|Observações|
 |---|---|---|---|---|---|
 |fluentbit|100|100 ms|Não especificado|Não especificado|As solicitações de recurso de contêiner fluentbit são _além_ das solicitações especificadas para a instância gerenciada do SQL.||
@@ -104,6 +105,7 @@ Cada nó do grupo de servidores de hiperescala PostgreSQL deve ter as seguintes 
 - Núcleos: 1
 
 Cada coordenador de grupo de servidores de hiperescala do PostgreSQL ou pod de trabalho criado tem três contêineres:
+
 |Nome do contêiner|Solicitação de CPU|Solicitação de memória|Limite da CPU|Limite de Memória|Observações|
 |---|---|---|---|---|---|
 |fluentbit|100|100 ms|Não especificado|Não especificado|As solicitações de recurso de contêiner fluentbit são _além_ das solicitações especificadas para os nós do grupo de servidores de hiperescala PostgreSQL.|
@@ -122,9 +124,9 @@ Veja a seguir um exemplo de cálculo de dimensionamento.
 
 Requisitos:
 
-- **"SQL1"**: 1 instância gerenciada do SQL com 16 GB de RAM, 4 núcleos
-- **"Sql2"**: 1 instância gerenciada do SQL com 256 GB de RAM, 16 núcleos
-- **"Postgres1"**: 1 grupo de servidores de hiperescala PostgreSQL com 4 trabalhadores a 12 GB de RAM, 4 núcleos
+- **"SQL1"** : 1 instância gerenciada do SQL com 16 GB de RAM, 4 núcleos
+- **"Sql2"** : 1 instância gerenciada do SQL com 256 GB de RAM, 16 núcleos
+- **"Postgres1"** : 1 grupo de servidores de hiperescala PostgreSQL com 4 trabalhadores a 12 GB de RAM, 4 núcleos
 
 Cálculos de dimensionamento:
 

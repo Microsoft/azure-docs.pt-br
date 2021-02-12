@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: ab13d53e54317bac15b9e1b0067cbd29f72eb3c1
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: cd926875eda5676da6c154a57b0ac18ca12d9b79
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319021"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97671549"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Tutorial: Integração do Azure Active Directory ao Agiloft
 
@@ -64,7 +64,7 @@ Para configurar a integração do Agiloft ao Azure AD, você precisará adiciona
 
 4. Na caixa de pesquisa, digite **Agiloft**, selecione **Agiloft** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-     ![Agiloft na lista de resultados](common/search-new-app.png)
+    ![Agiloft na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
@@ -105,14 +105,12 @@ Para configurar o logon único do Azure AD com o Agiloft, siga estas etapas:
     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
 
     ```http
-    https://<subdomain>.saas.enterprisewizard.com/project/<KB_NAME>
-    https://<subdomain>.agiloft.com/project/<KB_NAME>
+    https://<subdomain>.agiloft.com/<KB_NAME>
     ```
 
     b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão:
 
     ```http
-    https://<subdomain>.saas.enterprisewizard.com:443/gui2/spsamlsso?project=<KB_NAME>
     https://<subdomain>.agiloft.com:443/gui2/spsamlsso?project=<KB_NAME>
     ```
 
@@ -123,7 +121,6 @@ Para configurar o logon único do Azure AD com o Agiloft, siga estas etapas:
     Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão:
 
     ```http
-    https://<subdomain>.saas.enterprisewizard.com/gui2/samlssologin.jsp?project=<KB_NAME>
     https://<subdomain>.agiloft.com/gui2/samlssologin.jsp?project=<KB_NAME>
     ```
 
@@ -187,7 +184,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
     a. No campo **Nome**, insira **BrendaFernandes**.
-  
+
     b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 

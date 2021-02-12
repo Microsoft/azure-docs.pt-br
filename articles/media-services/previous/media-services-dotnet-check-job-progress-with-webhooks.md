@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 24e4bf9940de0f7b0e851bdfdbd2d788757034e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e99d2c2676d05772106296d8b960dd55fd30501c
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89267727"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696465"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Usar o Azure Webhooks para monitorar as notificações de trabalho dos Serviços de Mídia com o .NET
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Quando você executa trabalhos, geralmente precisa de uma maneira de acompanhar o andamento do trabalho. Você pode monitorar as notificações de trabalho dos Serviços de Mídia usando o Azure WebHooks ou o [Armazenamento de Filas do Azure](media-services-dotnet-check-job-progress-with-queues.md). Este artigo mostra como trabalhar com webhooks.
 
@@ -64,7 +64,7 @@ Ao desenvolver funções dos Serviços de Mídia, é útil adicionar variáveis 
 
 A seção [configurações de aplicativo](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) define os parâmetros usados no webhook definido neste artigo. Também adicione os parâmetros a seguir às configurações de aplicativo. 
 
-|Nome|Definição|Exemplo| 
+|Name|Definição|Exemplo| 
 |---|---|---|
 |SigningKey |Uma chave de assinatura.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
 |WebHookEndpoint | Um endereço do ponto de extremidade do webhook. Depois que a função de webhook for criada, copie a URL do link **Obter URL de função**. | https: \/ /juliakofuncapp.azurewebsites.NET/API/Notification_Webhook_Function?Code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g = =.|

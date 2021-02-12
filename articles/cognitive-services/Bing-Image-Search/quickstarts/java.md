@@ -12,14 +12,19 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 79e5b5e0562c86668c276a94ab28835c13433eb8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c806780664576c424665d1d58c69d164f8504d3f
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87327235"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341913"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-api-and-java"></a>Início Rápido: Pesquisar imagens com a API de Pesquisa de Imagem do Bing e Java 
+
+> [!WARNING]
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Use este início rápido para aprender a enviar solicitações de pesquisa para a API de Pesquisa de Imagem do Bing nos Serviços Cognitivos do Azure. Esse aplicativo Java envia uma consulta de pesquisa para a API e exibe a URL da primeira imagem nos resultados. Embora esse aplicativo seja escrito em Java, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
@@ -27,7 +32,7 @@ O código-fonte para esse exemplo está disponível [no GitHub](https://github.c
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* O [Java Development Kit(JDK)](https://aka.ms/azure-jdks)
+* O [Java Development Kit(JDK)](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 
 * A [biblioteca Gson](https://github.com/google/gson)
 
@@ -161,8 +166,8 @@ As respostas da API de Pesquisa de Imagem do Bing são retornadas como JSON. Est
 
 ## <a name="see-also"></a>Confira também
 
-* [O que é a API de Pesquisa de Imagem do Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [O que é a API de Pesquisa de Imagem do Bing?](../overview.md)  
 * [Experimente uma demonstração interativa online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)
 * [Detalhes de preço para as APIs de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)
-* [Documentação dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services)
-* [Referência da API de Pesquisa de Imagem do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Documentação dos Serviços Cognitivos do Azure](../../index.yml)
+* [Referência da API de Pesquisa de Imagem do Bing](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

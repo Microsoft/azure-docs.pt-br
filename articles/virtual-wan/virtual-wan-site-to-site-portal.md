@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/08/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 8a25ead5983e56f56ba0daea23c2775b3332fb8b
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 7ba0f1b6f37da923e389964b99a02295dc3d6050
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057902"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359520"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutorial: Criar uma conexão site a site usando a WAN Virtual do Azure
 
@@ -41,13 +41,7 @@ Neste tutorial, você aprenderá a:
 
 Verifique se você atende aos seguintes critérios antes de iniciar a configuração:
 
-* Você tem uma rede virtual à qual deseja se conectar. Verifique se nenhuma das sub-redes das redes locais se sobrepõe às redes virtuais às quais você deseja se conectar. Para criar uma rede virtual no portal do Azure, consulte o [Início Rápido](../virtual-network/quick-create-portal.md).
-
-* Sua rede virtual não tem gateways de rede virtual. Se sua rede virtual tem um gateway (VPN ou ExpressRoute), remova todos os gateways. Essa configuração requer que as redes virtuais sejam conectadas ao gateway do hub da WAN Virtual.
-
-* Obtenha um intervalo de endereços IP para sua região de hub. O hub é uma rede virtual criada e usada pela WAN Virtual. O intervalo de endereços especificado para o hub não pode se sobrepor a nenhuma das redes virtuais existentes às quais você se conecta. Ele também não pode se sobrepor aos intervalos de endereços aos quais você se conecta localmente. Se não estiver familiarizado com os intervalos de endereços IP da sua configuração de rede local, trabalhe com alguém que possa lhe fornecer esses detalhes.
-
-* Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[!INCLUDE [Before you begin](../../includes/virtual-wan-before-include.md)]
 
 ## <a name="create-a-virtual-wan"></a><a name="openvwan"></a>Criar uma WAN Virtual
 
@@ -80,7 +74,7 @@ Nesta etapa, você conecta o site VPN ao hub.
 Use a configuração do dispositivo VPN para configurar seu dispositivo VPN local.
 
 1. Na página de sua WAN virtual, clique em **Visão Geral**.
-2. Na parte superior da página **Hub ->VPNSite**, clique em **Baixar a Configuração de VPN**. O Azure cria uma conta de armazenamento no grupo de recursos 'microsoft-network-[local]', em que local é o local da rede remota. Depois de aplicar a configuração a seus dispositivos VPN, você poderá excluir essa conta de armazenamento.
+2. Na parte superior da página **Hub ->VPNSite** , clique em **Baixar a Configuração de VPN**. O Azure cria uma conta de armazenamento no grupo de recursos 'microsoft-network-[local]', em que local é o local da rede remota. Depois de aplicar a configuração a seus dispositivos VPN, você poderá excluir essa conta de armazenamento.
 3. Depois que o arquivo foi criado, você pode clicar no link para baixá-lo.
 4. Aplique a configuração ao dispositivo de VPN local.
 
@@ -89,7 +83,7 @@ Use a configuração do dispositivo VPN para configurar seu dispositivo VPN loca
 O arquivo de configuração do dispositivo contém as configurações a serem usadas ao configurar o dispositivo VPN local. Ao exibir esse arquivo, observe as seguintes informações:
 
 * **vpnSiteConfiguration -** Essa seção indica os detalhes do dispositivo configurados como um site que se conecta à WAN Virtual. Inclui o nome e o endereço IP público do dispositivo de branch.
-* **vpnSiteConnections**: essa seção fornece informações sobre o seguinte:
+* **vpnSiteConnections** : essa seção fornece informações sobre o seguinte:
 
     * **Espaço de endereço** dos hubs virtuais da VNet<br>Exemplo:
  
@@ -233,14 +227,14 @@ Você pode ver e definir suas configurações de gateway de VPN a qualquer momen
 
 :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="Captura de tela que mostra a página 'VPN (site a site)' com uma seta apontando para a ação 'Exibir/Configurar'." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
 
-Na página **Editar o Gateway de VPN**, você pode ver as seguintes configurações:
+Na página **Editar o Gateway de VPN** , você pode ver as seguintes configurações:
 
 * Endereço IP Público do Gateway de VPN (atribuído pelo Azure)
 * Endereço IP Privado do Gateway de VPN (atribuído pelo Azure)
 * Endereço IP BGP Padrão do Gateway de VPN (atribuído pelo Azure)
 * Opção de configuração para o Endereço IP BGP Personalizado: Esse campo é reservado para APIPA (Endereçamento IP Privado Automático). O Azure dá suporte a IP BGP nos intervalos 169.254.21.* e 169.254.22.*. O Azure aceita conexões BGP nesses intervalos, mas discará a conexão com o IP BGP padrão.
 
-   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Captura de tela que mostra a página 'VPN (site a site)' com uma seta apontando para a ação 'Exibir/Configurar'." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
+   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Exibir configuração" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 
 ## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpar recursos
 

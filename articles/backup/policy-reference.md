@@ -1,15 +1,15 @@
 ---
 title: Definições de políticas internas para o Backup do Azure
 description: Lista as definições de políticas internas do Azure Policy para o Backup do Azure. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 10/20/2020
+ms.date: 02/04/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 4c667ed84a22c090a8df058860b3eafe559b07a8
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: bbc293241557b6cb4c4c0212108156d12927d17a
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310716"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99558074"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-backup"></a>Definições internas do Azure Policy para o Backup do Azure
 

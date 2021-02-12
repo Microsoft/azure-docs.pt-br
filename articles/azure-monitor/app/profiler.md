@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 4f5328bbe21bb5f4a7947d5a495f4a0c8759c8da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1158a614da9ba32f628aba5dd2ed2cc71b4b455
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87315630"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947032"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Criar o perfil ativo de aplicativos do Serviço de Aplicativo do Azure com o Application Insights
 
@@ -50,7 +50,7 @@ Aqui estão as configurações necessárias para habilitar o criador de perfil:
 |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
 
-Você pode definir esses valores usando [modelos de Azure Resource Manager](./azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [Azure PowerShell](/powershell/module/az.websites/set-azwebapp)  [CLI do Azure](/cli/azure/webapp/config/appsettings?view=azure-cli-latest).
+Você pode definir esses valores usando [modelos de Azure Resource Manager](./azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [Azure PowerShell](/powershell/module/az.websites/set-azwebapp)  [CLI do Azure](/cli/azure/webapp/config/appsettings).
 
 ### <a name="enabling-profiler-for-other-clouds-manually"></a>Como habilitar o criador de perfil para outras nuvens manualmente
 
@@ -58,7 +58,7 @@ Se você quiser habilitar o criador de perfil para outras nuvens, poderá usar a
 
 |Configurações de Aplicativo    | Valores do Governo dos EUA| Nuvem da China |   
 |---------------|---------------------|-------------|
-|ApplicationInsightsProfilerEndpoint         | `https://agent.serviceprofiler.azure.us`    | `https://profiler.applicationinsights.azure.cn` |
+|ApplicationInsightsProfilerEndpoint         | `https://profiler.monitor.azure.us`    | `https://profiler.monitor.azure.cn` |
 |ApplicationInsightsEndpoint | `https://dc.applicationinsights.us` | `https://dc.applicationinsights.azure.cn` |
 
 ## <a name="disable-profiler"></a>Desabilitar o Profiler

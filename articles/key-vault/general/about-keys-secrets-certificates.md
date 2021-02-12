@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c02a2658325fdd88ef1052937edc3b84c4545872
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e0a45bde32fed651c4b38d203b3c75a6d928e7c5
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91296830"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327076"
 ---
 # <a name="azure-key-vault-keys-secrets-and-certificates-overview"></a>Visão geral das chaves, dos segredos e dos certificados do Azure Key Vault
 
@@ -74,6 +75,7 @@ Objetos armazenados no Key Vault são submetidos ao controle de versão sempre q
 
 Os objetos no Key Vault podem ser abordados especificando uma versão ou omitindo a versão para operações na versão atual do objeto. Por exemplo, dada uma Chave com o nome `MasterKey`, executar operações sem especificar uma versão faz o sistema usar a versão mais recente disponível. Executar operações com o identificador de versão específico faz com que o sistema use essa versão específica do objeto.  
 
+### <a name="vault-name-and-object-name"></a>Nome do cofre e nome do objeto
 Os objetos são identificados de forma exclusiva no Key Vault usando uma URL. Não há dois objetos no sistema com a mesma URL, independentemente da localização geográfica. A URL completa para um objeto é chamada de Identificador do Objeto. A URL consiste em um prefixo que identifica o Key Vault, o tipo de objeto, o Nome do Objeto fornecido pelo usuário e uma Versão do Objeto. O nome do objeto é imutável e diferencia maiusculas de minúsculas. Identificadores que não incluem a versão do objeto são chamados de Identificadores de Base.  
 
 Para mais informações, consulte [Autenticação, solicitações e respostas](authentication-requests-and-responses.md)

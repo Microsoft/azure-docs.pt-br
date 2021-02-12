@@ -3,16 +3,15 @@ title: Entender as entradas para o Azure Stream Analytics
 description: Este artigo descreve o conceito de entradas em um trabalho do Azure Stream Analytics, comparando o streaming de entrada para entrada de dados de referência.
 author: jseb225
 ms.author: krishmam
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: a9f48d95281971fc49a6a3fda93e4ee13ed8d753
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 8c62bb2aad266d577a5f4c6f6343d6ed3f4f1979
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130775"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016194"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Entender as entradas para o Azure Stream Analytics
 
@@ -26,7 +25,7 @@ Stream Analytics tem integração de primeira classe com quatro tipos de recurso
 
 Esses recursos de entrada podem residir na mesma assinatura do Azure que seu trabalho de Stream Analytics ou em uma assinatura diferente.
 
-Você pode usar o [portal do Azure](stream-analytics-quick-create-portal.md#configure-job-input),  [Azure PowerShell](/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput), [API .net](/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [API REST](./stream-analytics-define-inputs.md)e o [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) para criar, editar e testar entradas de trabalho Stream Analytics.
+Você pode usar o [portal do Azure](stream-analytics-quick-create-portal.md#configure-job-input),  [Azure PowerShell](/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput), [API .net](/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [API REST](/rest/api/streamanalytics/2016-03-01/inputs)e o [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) para criar, editar e testar entradas de trabalho Stream Analytics.
 
 ## <a name="stream-and-reference-inputs"></a>Entradas de referência e de transmissão
 Como os dados são enviados a uma fonte de dados, eles são consumidos pelo trabalho do Stream Analytics e processados em tempo real. As entradas são divididas em dois tipos: entradas de fluxo de dados e entradas de dados de referência.
@@ -37,7 +36,7 @@ Um fluxo de dados é uma sequência ilimitada de eventos ao longo do tempo. Os t
 Para obter mais informações sobre entradas de dados de streaming, consulte [Dados de streaming como entrada no Stream Analytics](stream-analytics-define-inputs.md)
 
 ### <a name="reference-data-input"></a>Entrada de dados de referência
-O Stream Analytics também dá suporte à entrada conhecida como *dados de referência* . Dados de referência são totalmente estáticos ou são alterados lentamente. Normalmente, eles são usados para executar correlação e pesquisas. Por exemplo, você pode unir dados na entrada de fluxo de dados a dados nos dados de referência, assim como você realizaria uma junção SQL para pesquisar valores estáticos. O armazenamento de BLOBs do Azure, o Azure Data Lake Storage Gen2 e o banco de dados SQL do Azure são atualmente compatíveis como fontes de entrada para os mesmos. Os blobs de fonte de dados de referência têm um limite de até 300 MB de tamanho, dependendo da complexidade da consulta e das unidades de streaming alocadas (consulte a seção [limitação de tamanho](stream-analytics-use-reference-data.md#size-limitation) da documentação de dados de referência para obter mais detalhes).
+O Stream Analytics também dá suporte à entrada conhecida como *dados de referência*. Dados de referência são totalmente estáticos ou são alterados lentamente. Normalmente, eles são usados para executar correlação e pesquisas. Por exemplo, você pode unir dados na entrada de fluxo de dados a dados nos dados de referência, assim como você realizaria uma junção SQL para pesquisar valores estáticos. O armazenamento de BLOBs do Azure, o Azure Data Lake Storage Gen2 e o banco de dados SQL do Azure são atualmente compatíveis como fontes de entrada para os mesmos. Os blobs de fonte de dados de referência têm um limite de até 300 MB de tamanho, dependendo da complexidade da consulta e das unidades de streaming alocadas (consulte a seção [limitação de tamanho](stream-analytics-use-reference-data.md#size-limitation) da documentação de dados de referência para obter mais detalhes).
 
 Para obter mais informações sobre entradas de dados de referência, consulte [Usando dados de referência para pesquisas no Stream Analytics](stream-analytics-use-reference-data.md)
 

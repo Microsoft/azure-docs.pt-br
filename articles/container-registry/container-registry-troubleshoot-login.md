@@ -3,12 +3,12 @@ title: Solucionar problemas de logon no registro
 description: Sintomas, causas e resolução de problemas comuns ao fazer logon em um registro de contêiner do Azure
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: f7bac49a79d32af3a0e533f4c4e3431c62b82172
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5deb1717cf3886d8ea9c021d92afa358946b16dc
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148445"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052071"
 ---
 # <a name="troubleshoot-registry-login"></a>Solucionar problemas de logon do registro
 
@@ -39,6 +39,8 @@ Pode incluir um ou mais dos seguintes:
 Execute o comando [AZ ACR check-Health](/cli/azure/acr#az-acr-check-health) para obter mais informações sobre a integridade do ambiente do registro e, opcionalmente, o acesso a um registro de destino. Por exemplo, diagnostique erros de configuração do Docker ou problemas de logon do Azure Active Directory. 
 
 Consulte [verificar a integridade de um registro de contêiner do Azure](container-registry-check-health.md) para obter exemplos de comando. Se forem relatados erros, examine a [referência de erro](container-registry-health-error-reference.md) e as seções a seguir para obter as soluções recomendadas.
+
+Se você estiver tendo problemas ao usar o serviço wih do Azure kubernetes, execute o comando [AZ AKs check-ACR](/cli/azure/aks#az_aks_check_acr) para validar se o registro está acessível no cluster AKs.
 
 > [!NOTE]
 > Alguns erros de autenticação ou autorização também podem ocorrer se houver configurações de firewall ou de rede que impeçam o acesso ao registro. Consulte [solucionar problemas de rede com o registro](container-registry-troubleshoot-access.md).
@@ -79,8 +81,9 @@ Verifique a validade das credenciais usadas para o seu cenário ou foram forneci
 * Se estiver usando uma entidade de serviço Active Directory, certifique-se de usar as credenciais corretas no locatário Active Directory:
   * Nome de usuário-ID do aplicativo da entidade de serviço (também chamada de *ID do cliente*)
   * Senha-senha da entidade de serviço (também chamada de *segredo do cliente*)
-* Se estiver usando um serviço do Azure, como o serviço kubernetes do Azure ou o Azure DevOps para acessar o registro, confirme a configuração do registro para seu serviço.
+* Se estiver usando um serviço do Azure, como o serviço kubernetes do Azure ou o Azure DevOps para acessar o registro, confirme a configuração do registro para seu serviço. 
 * Se você executou `az acr login` com a `--expose-token` opção, que habilita o logon do registro sem usar o daemon do Docker, certifique-se de autenticar com o nome de usuário `00000000-0000-0000-0000-000000000000` .
+* Se o registro estiver configurado para [acesso de pull anônimo](container-registry-faq.md#how-do-i-enable-anonymous-pull-access), as credenciais existentes do Docker armazenadas de um logon anterior do Docker poderão impedir o acesso anônimo. Execute `docker logout` antes de tentar uma operação de pull anônima no registro.
 
 Links relacionados:
 
@@ -97,7 +100,9 @@ Links relacionados:
 
 Confirme as permissões de registro que estão associadas às credenciais, como a `AcrPull` função do Azure para efetuar pull de imagens do registro ou a `AcrPush` função para enviar imagens por push. 
 
-O acesso a um registro no portal ou gerenciamento de registro usando o CLI do Azure requer pelo menos a `Reader` função para executar Azure Resource Manager operações.
+O acesso a um registro no portal ou gerenciamento de registro usando o CLI do Azure requer pelo menos a `Reader` função ou permissões equivalentes para executar Azure Resource Manager operações.
+
+Se suas permissões foram alteradas recentemente para permitir o acesso ao registro por meio do portal, talvez seja necessário tentar uma sessão Incognito ou privada em seu navegador para evitar qualquer cookie ou cache de navegador obsoleto.
 
 Você ou um proprietário do registro deve ter privilégios suficientes na assinatura para adicionar ou remover atribuições de função.
 
@@ -140,7 +145,7 @@ Se você não resolver o problema aqui, consulte as opções a seguir.
 
 * Outros tópicos de solução de problemas de registro incluem:
   * [Solucionar problemas de rede com o registro](container-registry-troubleshoot-access.md)
-  * [Solucionar problemas de desempenho de registro](container-registry-troubleshoot-performance.md)
+  * [Solucionar problemas de desempenho do registro](container-registry-troubleshoot-performance.md)
 * Opções de [suporte da Comunidade](https://azure.microsoft.com/support/community/)
 * [P e R da Microsoft](/answers/products/)
 * [Abrir um tíquete de suporte](https://azure.microsoft.com/support/create-ticket/) -com base nas informações fornecidas, um diagnóstico rápido pode ser executado para falhas de autenticação no registro

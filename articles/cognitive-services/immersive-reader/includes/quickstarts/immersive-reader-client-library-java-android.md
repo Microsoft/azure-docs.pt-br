@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.custom: devx-track-java, devx-track-js
 ms.author: dylankil
-ms.openlocfilehash: 4118ef478f43c5887e2c5fba4595314e5a4ac02d
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 29bacfff2e7b555143c0483f9b7e4b4f61c9e973
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91779432"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97612659"
 ---
 A [Leitura Avançada](https://www.onenote.com/learningtools) é uma ferramenta inclusivamente desenvolvida que implementa técnicas comprovadas para melhorar a compreensão de leitura para novos leitores, aprendizes da idioma e pessoas com diferenças de aprendizado, como dislexia. Você pode usar a Leitura Avançada em seus aplicativos para isolar texto e aprimorar o foco, exibir imagens para palavras usadas com frequência, realçar partes de fala, ler o texto selecionado em voz alta, traduzir palavras e frases em tempo real e muito mais.
 
@@ -319,7 +319,6 @@ import java.lang.ref.WeakReference;
  * immersiveReader.read(ReadableTextChunk);
  */
 
-
 @Keep
 public class ImmersiveReader {
 
@@ -402,7 +401,6 @@ import java.lang.ref.WeakReference;
  * ImmersiveReader immersiveReader = new ImmersiveReader(Activity, IRAuthenticator);
  * immersiveReader.read(ReadableTextChunk);
  */
-
 
 @Keep
 public class ImmersiveReader {
@@ -770,7 +768,6 @@ public class IRAuthenticator implements ImmersiveReader.IAuthenticator {
             urlStringBuilder.append("/oauth2/token");
             URL tokenUrl = new URL(urlStringBuilder.toString());
 
-
             StringBuilder formStringBuilder = new StringBuilder();
             formStringBuilder.append("grant_type=client_credentials&resource=https://cognitiveservices.azure.com/&client_id=");
             formStringBuilder.append(clientId);
@@ -793,7 +790,6 @@ public class IRAuthenticator implements ImmersiveReader.IAuthenticator {
             if (responseCode == HTTP_OK) {
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
                 StringBuffer response = new StringBuffer();
-
 
                 String line = bufferedReader.readLine();
                 while (!TextUtils.isEmpty(line)) {

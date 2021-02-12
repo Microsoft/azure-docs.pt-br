@@ -1,17 +1,17 @@
 ---
 title: Ajuste de Azure Data Lake Storage Gen1 desempenho
 description: Saiba como usar toda a taxa de transferência disponível em Azure Data Lake Storage Gen1 é importante para obter o melhor desempenho executando tantos leituras e gravações em paralelo possível.
-author: stewu
+author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.author: stewu
-ms.openlocfilehash: e9a589b43490613834a810a68636c426e45c2656
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.author: twooley
+ms.openlocfilehash: c7f16dd9ea450185893164e10928c7022d6ab5a6
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332511"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724673"
 ---
 # <a name="tune-azure-data-lake-storage-gen1-for-performance"></a>Ajustar Azure Data Lake Storage Gen1 para desempenho
 
@@ -43,7 +43,7 @@ Depois de solucionar os afunilamentos de conectividade de rede e hardware de ori
 
 | Ferramenta          | Configurações | Mais detalhes                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| PowerShell       | PerFileThreadCount, ConcurrentFileCount | [Link](./data-lake-store-get-started-powershell.md) |
+| Powershell       | PerFileThreadCount, ConcurrentFileCount | [Link](./data-lake-store-get-started-powershell.md) |
 | AdlCopy    | Unidades do Azure Data Lake Analytics | [Link](./data-lake-store-copy-data-azure-storage-blob.md#performance-considerations-for-using-adlcopy)         |
 | DistCp            | -m (mapper) | [Link](./data-lake-store-copy-data-wasb-distcp.md#performance-considerations-while-using-distcp)                             |
 | Fábrica de dados do Azure| parallelCopies | [Link](../data-factory/copy-activity-performance.md)                          |

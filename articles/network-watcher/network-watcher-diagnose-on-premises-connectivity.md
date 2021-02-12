@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 632a1eb7b7ac53bd3d7df3f2722d6e53277c7926
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5db1ac9c70429d4b6a0b690de1b29c3656b3cc8
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84738746"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016704"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnosticar a conectividade local por meio do Gateway de VPN
 
@@ -35,7 +35,7 @@ Você deseja configurar uma conexão site a site entre a rede local e o Azure us
 
 1. Gateway de Rede Virtual - O Gateway de VPN no Azure
 1. Gateway de Rede Local - a representação do [Gateway de VPN (FortiGate) local](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) na nuvem do Azure
-1. Conexão site a site (baseada em rota) – [Conexão entre o Gateway de VPN e o roteador local](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#CreateConnection)
+1. Conexão site a site (baseada em rota) – [Conexão entre o Gateway de VPN e o roteador local](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#CreateConnection)
 1. [Configuração do FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
 Orientações passo a passo detalhadas para definir uma configuração de Site a Site podem ser encontradas ao consultar: [Criar uma VNet com uma conexão Site a Site usando o Portal do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
@@ -90,8 +90,8 @@ O recurso de solução de problemas do Observador de Rede do Azure permite diagn
 | PlatformInActive | Há um problema com a plataforma. | Não|
 | ServiceNotRunning | O serviço subjacente não está em execução. | Não|
 | NoConnectionsFoundForGateway | Não existe Conexões no gateway. Isso é apenas um aviso.| Não|
-| ConnectionsNotConnected | Nenhuma das Conexões está conectada. Isso é apenas um aviso.| Sim|
-| GatewayCPUUsageExceeded | O uso de CPU do Gateway atual é > 95%. | Sim |
+| ConnectionsNotConnected | Nenhuma das Conexões está conectada. Isso é apenas um aviso.| Yes|
+| GatewayCPUUsageExceeded | O uso de CPU do Gateway atual é > 95%. | Yes |
 
 ### <a name="connection"></a>Conexão
 
@@ -104,11 +104,11 @@ O recurso de solução de problemas do Observador de Rede do Azure permite diagn
 | VipUnResponsive | Não é possível acessar a instância primária do Gateway. Isso acontece quando a investigação de integridade falha. | Não |
 | ConnectionEntityNotFound | A configuração da Conexão está ausente. | Não |
 | ConnectionIsMarkedDisconnected | A Conexão está marcado como "desconectada". |Não|
-| ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a Conexão configurada. | Sim |
-| ConnectionMarkedStandby | O serviço subjacente está marcado como em espera.| Sim|
-| Autenticação | Incompatibilidade de chave pré-compartilhada. | Sim|
-| PeerReachability | O gateway correspondente não está acessível. | Sim|
-| IkePolicyMismatch | O gateway de mesmo nível tem diretivas IKE que não são suportadas pelo Azure. | Sim|
+| ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a Conexão configurada. | Yes |
+| ConnectionMarkedStandby | O serviço subjacente está marcado como em espera.| Yes|
+| Autenticação | Incompatibilidade de chave pré-compartilhada. | Yes|
+| PeerReachability | O gateway correspondente não está acessível. | Yes|
+| IkePolicyMismatch | O gateway de mesmo nível tem diretivas IKE que não são suportadas pelo Azure. | Yes|
 | WfpParse Error | Ocorreu um erro ao analisar o log WFP. |Sim|
 
 ## <a name="next-steps"></a>Próximas etapas

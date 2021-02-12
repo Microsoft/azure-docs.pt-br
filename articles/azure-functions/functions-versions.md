@@ -4,31 +4,29 @@ description: O Azure Functions é compatível com várias versões do runtime. A
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 12/09/2019
-ms.openlocfilehash: 6641461e63d7c9452351f3b0b99a274d2714a92e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 935291c461e275902cb6905c4440fe4d289f0c16
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88208115"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653343"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Visão geral de versões do Azure Functions runtime
 
 O Azure Functions atualmente dá suporte a três versões do host de tempo de execução: 1. x, 2. x e 3. x. Todas as três versões têm suporte para cenários de produção.  
 
 > [!IMPORTANT]
-> A versão 1. x está no modo de manutenção e só dá suporte ao desenvolvimento no portal do Azure ou localmente em computadores com Windows. Os aprimoramentos são fornecidos somente em versões posteriores. 
+> A versão 1. x está no modo de manutenção e só dá suporte ao desenvolvimento no portal do Azure, no portal do Hub Azure Stack ou localmente em computadores com Windows. Os aprimoramentos são fornecidos somente em versões posteriores. 
 
 Este artigo detalha algumas das diferenças entre as várias versões, como você pode criar cada versão e como alterar versões.
 
-## <a name="languages"></a>Languages
+## <a name="languages"></a>Idiomas
 
 A partir da versão 2. x, o tempo de execução usa um modelo de extensibilidade de linguagem e todas as funções em um aplicativo de funções devem compartilhar o mesmo idioma. O idioma das funções em um aplicativo de funções é escolhido ao criar o aplicativo e é mantido na configuração do [ \_ tempo de \_ execução do Works Worker](functions-app-settings.md#functions_worker_runtime) . 
 
 A tabela a seguir indica quais linguagens de programação são atualmente compatíveis com cada versão de runtime.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
-
-Para obter mais informações, consulte [Linguagens com suporte](supported-languages.md).
 
 ## <a name="run-on-a-specific-version"></a><a name="creating-1x-apps"></a>Executar em uma versão específica
 
@@ -118,7 +116,7 @@ No Visual Studio, você seleciona a versão de runtime quando cria um projeto. O
 ##### <a name="version-1x"></a>Versão 1.x
 
 ```xml
-<TargetFramework>net461</TargetFramework>
+<TargetFramework>net472</TargetFramework>
 <AzureFunctionsVersion>v1</AzureFunctionsVersion>
 ```
 

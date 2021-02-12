@@ -3,12 +3,12 @@ title: Gerenciar e monitorar backups de VM do Azure
 description: Saiba como gerenciar e monitorar backups de VM do Azure usando o serviço de backup do Azure.
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 2052d80428af89862b5348943b446f1b800ab36f
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: a56f13afa23a81b9cd2b34d34e1ca302c0c667f0
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174098"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "96002895"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gerenciar backups de VM do Azure com o serviço de backup do Azure
 
@@ -131,7 +131,7 @@ Há duas maneiras de interromper a proteção de uma VM:
 Para interromper a proteção e manter os dados de uma VM:
 
 1. No [painel do item do cofre](#view-vms-on-the-dashboard), selecione **parar backup**.
-2. Escolha **reter dados de backup**e confirme sua seleção, conforme necessário. Se desejar, adicione um comentário. Se você não tiver certeza do nome do item, passe o mouse sobre o ponto de exclamação para exibir o nome.
+2. Escolha **reter dados de backup** e confirme sua seleção, conforme necessário. Se desejar, adicione um comentário. Se você não tiver certeza do nome do item, passe o mouse sobre o ponto de exclamação para exibir o nome.
 
     ![Reter dados de backup](./media/backup-azure-manage-vms/retain-backup-data.png)
 
@@ -142,9 +142,9 @@ Uma notificação permite que você saiba que os trabalhos de backup foram inter
 Para interromper a proteção e excluir dados de uma VM:
 
 1. No [painel do item do cofre](#view-vms-on-the-dashboard), selecione **parar backup**.
-2. Escolha **excluir dados de backup**e confirme sua seleção, conforme necessário. Insira o nome do item de backup e adicione um comentário, se desejar.
+2. Escolha **excluir dados de backup** e confirme sua seleção, conforme necessário. Insira o nome do item de backup e adicione um comentário, se desejar.
 
-    ![Excluir dados de backup](./media/backup-azure-manage-vms/delete-backup-data1.png)
+    ![Excluir dados de backup](./media/backup-azure-manage-vms/delete-backup-data.png)
 
 > [!NOTE]
 > Depois de concluir a operação de exclusão, os dados de backup serão retidos por 14 dias no [estado de exclusão reversível](./soft-delete-virtual-machines.md). <br>Além disso, você também pode [habilitar ou desabilitar a exclusão reversível](./backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete).
@@ -177,7 +177,7 @@ Há duas maneiras de excluir os dados de backup de uma VM:
   * No [painel do item do cofre](#view-vms-on-the-dashboard), selecione **excluir dados de backup**.
   * Digite o nome do item de backup para confirmar que você deseja excluir os pontos de recuperação.
 
-    ![Excluir dados de backup](./media/backup-azure-manage-vms/delete-backup-data1.png)
+    ![Excluir dados de backup](./media/backup-azure-manage-vms/delete-backup-data.png)
 
   * Para excluir os dados de backup do item, selecione **excluir**. Uma mensagem de notificação permite que você saiba que os dados de backup foram excluídos.
 
@@ -190,7 +190,7 @@ Para proteger seus dados, o backup do Azure inclui o recurso de exclusão revers
 
 * Se as VMs do Azure configuradas para o backup do Azure forem excluídas ou movidas sem interromper a proteção, os trabalhos de backup agendados e os trabalhos de backup sob demanda (ad-hoc) falharão com o erro UserErrorVmNotFoundV2. A pré-verificação de backup será exibida como crítica somente para trabalhos de backup sob demanda com falha (os trabalhos agendados com falha não são exibidos).
 * Esses itens de backup permanecem ativos no sistema que aderem à política de backup e retenção definida pelo usuário. Os dados de backup para essas VMs do Azure serão mantidos de acordo com a política de retenção. Os pontos de recuperação expirados (exceto o ponto de recuperação mais recente) são limpos de acordo com o período de retenção definido na política de backup.
-* É recomendável excluir os itens de backup em que a fonte de dados primária não existe mais para evitar custos adicionais, se o item/dados de backup dos recursos de exclusão não for mais necessário, pois o ponto de recuperação mais recente é mantido para sempre e o usuário é cobrado de acordo com o preço de backup aplicável.
+* Para evitar qualquer custo adicional, é recomendável excluir os itens de backup em que a fonte de dados primária não existe mais. Isso ocorre em um cenário em que o item/dados de backup dos recursos excluídos não é mais necessário, pois o ponto de recuperação mais recente é mantido para sempre e você é cobrado de acordo com os preços de backup aplicáveis.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -9,12 +9,12 @@ ms.service: industrial-iot
 ms.custom: devx-track-azurecli
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 075f6f83e5af43cde3886f637a8ee326309e4218
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 1c12b1c7fd393227cb22d011f8b88f914cfded59
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071499"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445489"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Implantar o módulo OPC e as dependências do zero
 
@@ -117,7 +117,7 @@ A maneira mais fácil de implantar os módulos em um dispositivo Azure IoT Edge 
 
 1. Implante as [dependências](howto-opc-twin-deploy-dependencies.md) do OPC entrelaçado e obteve o `.env` arquivo resultante. Observe a implantação `hub name` da `PCS_IOTHUBREACT_HUB_NAME` variável no `.env` arquivo resultante.
 
-2. Registre e inicie um gateway de IoT Edge do [Linux](../iot-edge/how-to-install-iot-edge-linux.md) ou [Windows](../iot-edge/how-to-install-iot-edge-windows.md) e anote seu `device id` .
+2. Registre e inicie um gateway de IoT Edge do [Linux](../iot-edge/how-to-install-iot-edge.md) ou [Windows](../iot-edge/how-to-install-iot-edge.md) e anote seu `device id` .
 
 ### <a name="deploy-to-an-edge-device"></a>Implantar em um dispositivo de borda
 

@@ -3,19 +3,19 @@ title: Visão geral do Azure Resource Manager
 description: Descreve como usar o Gerenciador de Recursos do Azure para implantação, gerenciamento e controle de acesso dos recursos do Azure.
 ms.topic: overview
 ms.date: 09/01/2020
-ms.custom: contperfq1
-ms.openlocfilehash: f78b6015846253d79020752522c10af96839a854
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: fad49db94195bbd2f9e5e32f8596f33fab586752
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372265"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858511"
 ---
 # <a name="what-is-azure-resource-manager"></a>O que é o Azure Resource Manager?
 
 O Azure Resource Manager é p serviço de implantação e gerenciamento do Azure. Ele fornece uma camada de gerenciamento que lhe permite criar, atualizar e excluir recursos em sua conta do Azure. Use recursos de gerenciamento, como controle de acesso, bloqueios e marcas, para proteger e organizar seus recursos após a implantação.
 
-Para saber mais sobre os modelos do Azure Resource Manager, confira [Visão geral de implantação de modelo](../templates/overview.md).
+Para saber mais sobre os modelos do ARM (Azure Resource Manager), confira a [visão geral da implantação de modelo](../templates/overview.md).
 
 ## <a name="consistent-management-layer"></a>Camada de gerenciamento consistente
 
@@ -33,7 +33,7 @@ Se você for um novo usuário do Azure Resource Manager, há alguns termos com o
 
 * **recurso** -um item gerenciável que está disponível por meio do Azure. Máquinas virtuais, contas de armazenamento, aplicativos Web, bancos de dados e redes virtuais são exemplos de recursos. Grupos de recursos, assinaturas, grupos de gerenciamento e marcas também são exemplos de recursos.
 * **grupo de recursos** - Um contêiner que mantém os recursos relacionados a uma solução do Azure. O grupo de recursos inclui esses recursos que você deseja gerenciar como um grupo. Você decide quais recursos pertencem a um grupo de recursos com base no que faz mais sentido para sua organização. Confira [Grupos de recursos](#resource-groups).
-* **provedor de recursos** – um serviço que fornece recursos do Azure. Por exemplo, um provedor de recursos comum é Microsoft.Compute, que fornece o recurso de máquina virtual. Microsoft.Storage é outro provedor de recursos comum. Confira [Provedores e tipos de recurso](resource-providers-and-types.md).
+* **provedor de recursos** – um serviço que fornece recursos do Azure. Por exemplo, um provedor de recursos comum é `Microsoft.Compute`, que fornece o recurso de máquina virtual. `Microsoft.Storage` é outro provedor de recursos comum. Confira [Provedores e tipos de recurso](resource-providers-and-types.md).
 * **Modelo do Resource Manager** – um arquivo JSON (JavaScript Object Notation) que define um ou mais recursos para implantação em um grupo de recursos, assinatura, grupo de gerenciamento ou locatário. O modelo pode ser usado para implantar os recursos de forma consiste e repetida. Confira [Visão geral da implantação de modelo](../templates/overview.md).
 * **sintaxe declarativa** - sintaxe que permite a declaração "Isso é o que pretendo criar" sem precisar escrever a sequência de comandos de programação para criá-la. O modelo do Resource Manager é um exemplo de sintaxe declarativa. No arquivo, você define as propriedades da infraestrutura a ser implantada no Azure.  Confira [Visão geral da implantação de modelo](../templates/overview.md).
 
@@ -95,15 +95,15 @@ Existem alguns fatores importantes a considerar ao definir seu grupo de recursos
 
 * Alguns recursos podem existir fora de um grupo de recursos. Esses recursos são implantados na [assinatura](../templates/deploy-to-subscription.md), no [grupo de gerenciamento](../templates/deploy-to-management-group.md) ou no [locatário](../templates/deploy-to-tenant.md). Somente tipos de recursos específicos têm suporte nesses escopos.
 
-* Para criar um grupo de recursos, use o [portal](manage-resource-groups-portal.md#create-resource-groups), o [PowerShell](manage-resource-groups-powershell.md#create-resource-groups), a [CLI do Azure](manage-resource-groups-cli.md#create-resource-groups) ou um [modelo do ARM (Azure Resource Manager)](../templates/deploy-to-subscription.md#resource-groups).
+* Para criar um grupo de recursos, use o [portal](manage-resource-groups-portal.md#create-resource-groups), o [PowerShell](manage-resource-groups-powershell.md#create-resource-groups), a [CLI do Azure](manage-resource-groups-cli.md#create-resource-groups) ou um [modelo do ARM](../templates/deploy-to-subscription.md#resource-groups).
 
 ## <a name="resiliency-of-azure-resource-manager"></a>Resiliência do Azure Resource Manager
 
-O serviço do Azure Resource Manager foi projetado para resiliência e disponibilidade contínua. As operações do Resource Manager e do painel de controle (solicitações enviadas para management.azure.com) na API REST são:
+O serviço do Azure Resource Manager foi projetado para resiliência e disponibilidade contínua. As operações do Resource Manager e do painel de controle (solicitações enviadas para `management.azure.com`) na API REST são:
 
 * Distribuídas entre regiões. Alguns serviços são regionais.
 
-* Distribuídas entre Zonas de Disponibilidade (e também regiões) em locais que têm várias Zonas de Disponibilidade.
+* Distribuídas entre Zonas de Disponibilidade (e regiões) em localizações que têm várias Zonas de Disponibilidade.
 
 * Não dependem de um datacenter lógico único.
 

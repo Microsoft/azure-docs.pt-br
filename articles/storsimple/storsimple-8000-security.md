@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 4598f71f9b611e68f8eb00676138784833c39f32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72bf252488878c8b6fabb2ea2d61658a2cd87e14
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75891508"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966200"
 ---
 # <a name="storsimple-security-and-data-protection"></a>Proteção de dados e segurança de StorSimple
 
@@ -219,7 +219,7 @@ O Gerenciador de Dispositivos StorSimple para séries físicas e virtuais coleta
 
 Para mais informações, revise a Política de Privacidade da Microsoft na [Central de Confiabilidade](https://www.microsoft.com/trustcenter).
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes
+## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ)
 
 A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azure StorSimple.
 
@@ -269,7 +269,7 @@ A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azu
 
 **R:** Você pode baixar o novo certificado do serviço Gerenciador de Dispositivos StorSimple e depois fornecê-lo para instalação no repositório de certificados de clientes de acesso remoto. Para obter instruções, vá para:
 
-* [Certificado de importação de cmdlet](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate)
+* [Certificado de importação de cmdlet](/powershell/module/pkiclient/import-certificate)
 
 **P:** Os meus dados ficarão protegidos se o serviço Gerenciador de Dispositivos StorSimple estiver comprometido?
 
@@ -288,4 +288,3 @@ A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azu
 ## <a name="next-steps"></a>Próximas etapas
 
 [Implantar o dispositivo StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
-

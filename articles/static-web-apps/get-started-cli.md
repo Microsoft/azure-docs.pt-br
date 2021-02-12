@@ -1,20 +1,20 @@
 ---
-title: 'Início Rápido: Como criar seu primeiro aplicativo Web estático com os Aplicativos Web Estáticos do Azure usando a CLI do Azure'
-description: Saiba como criar uma instância dos Aplicativos Web Estáticos do Azure com a CLI dos Aplicativos Web Estáticos do Azure.
+title: 'Início Rápido: Como criar seu primeiro site estático com os Aplicativos Web Estáticos do Azure usando a CLI'
+description: Aprenda a implantar um site estático nos Aplicativos Web Estáticos do Azure com a CLI do Azure.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: ed49892284b53844c5c578b752a598cdbdd9b946
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: eec893321dd39511e1cfc20cb5a6713377ff5167
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320337"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680613"
 ---
-# <a name="quickstart-building-your-first-static-web-app-using-the-azure-cli"></a>Início Rápido: Como criar seu primeiro aplicativo Web estático usando a CLI do Azure
+# <a name="quickstart-building-your-first-static-site-using-the-azure-cli"></a>Início Rápido: Como criar seu primeiro site estático usando a CLI do Azure
 
 Os Aplicativos Web Estáticos do Azure publicam um site em um ambiente de produção por meio da criação de aplicativos por meio de um repositório GitHub. Neste guia de início rápido, você implantará um aplicativo Web nos Aplicativos Web Estáticos do Azure usando a CLI do Azure.
 
@@ -25,7 +25,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta de avaliação grat
 - [GitHub](https://github.com)
 - [O token de acesso pessoal do GitHub](https://docs.github.com/github/authenticating-to-github/creating-a-personal-access-token)
 - Conta do [Azure](https://portal.azure.com)
-- [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) instalada (versão 2.8.0 e superior)
+- [CLI do Azure](/cli/azure/install-azure-cli) instalada (versão 2.8.0 e superior)
 
 [!INCLUDE [create repository from template](../../includes/static-web-apps-get-started-create-repo.md)]
 
@@ -46,7 +46,7 @@ Agora que o repositório foi criado, você pode criar um aplicativo Web estátic
 
 1. Entre na CLI do Azure usando o comando a seguir.
 
-    ```bash
+    ```azurecli
     az login
     ```
 
@@ -54,7 +54,7 @@ Agora que o repositório foi criado, você pode criar um aplicativo Web estátic
 
     # <a name="no-framework"></a>[Nenhuma estrutura](#tab/vanilla-javascript)
 
-    ```bash
+    ```azurecli
     az staticwebapp create \
         -n my-first-static-web-app \
         -g <RESOURCE_GROUP_NAME> \
@@ -66,7 +66,7 @@ Agora que o repositório foi criado, você pode criar um aplicativo Web estátic
 
     # <a name="angular"></a>[Angular](#tab/angular)
 
-    ```bash
+    ```azurecli
     az staticwebapp create \
         -n my-first-static-web-app \
         -g <RESOURCE_GROUP_NAME> \
@@ -79,7 +79,7 @@ Agora que o repositório foi criado, você pode criar um aplicativo Web estátic
 
     # <a name="react"></a>[React](#tab/react)
 
-    ```bash
+    ```azurecli
     az staticwebapp create \
         -n my-first-static-web-app \
         -g <RESOURCE_GROUP_NAME> \
@@ -92,7 +92,7 @@ Agora que o repositório foi criado, você pode criar um aplicativo Web estátic
 
     # <a name="vue"></a>[Vue](#tab/vue)
 
-    ```bash
+    ```azurecli
     az staticwebapp create \
         -n my-first-static-web-app \
         -g <RESOURCE_GROUP_NAME> \
@@ -127,9 +127,9 @@ Agora que o repositório foi criado, você pode criar um aplicativo Web estátic
 
 Se você não pretende continuar usando esse aplicativo, exclua a instância dos Aplicativos Web Estáticos do Azure executando o seguinte comando:
 
-```bash
+```azurecli
 az staticwebapp delete \
-    --name my-first-static-web-app
+    --name my-first-static-web-app \
     --resource-group my-first-static-web-app
 ```
 

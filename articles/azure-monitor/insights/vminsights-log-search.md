@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 64884f07bc59e5ff2b29eac645ddb469ef3db465
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae0bc6ea35d5c6e3ebe0cd7f232e5c8b1e637d9d
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87325178"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234045"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Como consultar logs do Azure Monitor para VMs
 
@@ -49,7 +49,7 @@ Para gerenciar o custo e a complexidade, os registros de conexão não represent
 
 | Propriedade | Descrição |
 |:--|:--|
-|Direction |Direção da conexão, o valor é *entrada* ou *saída* |
+|Direção |Direção da conexão, o valor é *entrada* ou *saída* |
 |Computador |O FQDN do computador |
 |Processo |Identidade do processo ou grupos de processos, iniciando/aceitando a conexão |
 |SourceIp |Endereço IP da origem |
@@ -92,7 +92,7 @@ Aqui estão alguns pontos importantes a considerar:
 
 #### <a name="naming-and-classification"></a>Nomenclatura e Classificação
 
-Para sua conveniência, o endereço IP da extremidade remota de uma conexão é incluído na propriedade RemoteIp. No caso das conexões de entrada, RemoteIp é igual a SourceIp; já para conexões de saída, é igual a DestinationIp. A propriedade RemoteDnsCanonicalNames representa os nomes DNS aceitos relatados pelo computador para RemoteIp. As propriedades RemoteDnsQuestions e RemoteClassification são reservadas para uso futuro. 
+Para sua conveniência, o endereço IP da extremidade remota de uma conexão é incluído na propriedade RemoteIp. No caso das conexões de entrada, RemoteIp é igual a SourceIp; já para conexões de saída, é igual a DestinationIp. A propriedade RemoteDnsCanonicalNames representa os nomes DNS aceitos relatados pelo computador para RemoteIp. A propriedade RemoteDnsQuestions representa as perguntas de DNS relatadas pelo computador para RemoteIp. A propriedade RemoveClassification é reservada para uso futuro. 
 
 #### <a name="geolocation"></a>Geolocalização
 
@@ -446,12 +446,12 @@ Os registros com um tipo de *InsightsMetrics* têm dados de desempenho do sistem
 |Val | Valor coletado | 
 |Marcações | Detalhes relacionados sobre o registro. Consulte a tabela abaixo para ver as marcas usadas com diferentes tipos de registro.  |
 |AgentId | Identificador exclusivo para o agente de cada computador |
-|Type | *InsightsMetrics* |
+|Tipo | *InsightsMetrics* |
 |_ResourceId_ | ID de recurso da máquina virtual |
 
 Os contadores de desempenho atualmente coletados na tabela *InsightsMetrics* são listados na tabela a seguir:
 
-| Namespace | Nome | Descrição | Unit | Marcações |
+| Namespace | Nome | Descrição | Unidade | Marcações |
 |:---|:---|:---|:---|:---|
 | Computador    | Pulsação             | Pulsação do computador                        | | |
 | Memória      | AvailableMB           | Memória-bytes disponíveis                    | Megabytes      | memorySizeMB-tamanho total da memória|
@@ -473,7 +473,6 @@ Os contadores de desempenho atualmente coletados na tabela *InsightsMetrics* sã
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Se você for novo na gravação de consultas de log em Azure Monitor, examine [como usar log Analytics](../log-query/get-started-portal.md) no portal do Azure para gravar consultas de log.
+* Se você for novo na gravação de consultas de log em Azure Monitor, examine [como usar log Analytics](../log-query/log-analytics-tutorial.md) no portal do Azure para gravar consultas de log.
 
-* Saiba mais sobre como [escrever consultas de pesquisa](../log-query/search-queries.md).
-
+* Saiba mais sobre como [escrever consultas de pesquisa](../log-query/get-started-queries.md).

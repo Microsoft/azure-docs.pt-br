@@ -1,17 +1,17 @@
 ---
 title: Stop/Start-portal do Azure-banco de dados do Azure para MySQL servidor flexível
 description: Este artigo descreve como parar/iniciar operações no banco de dados do Azure para MySQL por meio do portal do Azure.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: e3e08ae9bbf00e1c9a44e6ba913cac1d842928b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15b08ea67afe0d307470b5a4fb0f7d26e0f4ea82
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567461"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241915"
 ---
 # <a name="stopstart-an-azure-database-for-mysql---flexible-server-preview"></a>Parar/iniciar um banco de dados do Azure para MySQL – servidor flexível (visualização)
 

@@ -4,13 +4,12 @@ description: Saiba como proteger pods com Azure Policy no AKS (serviço kubernet
 services: container-service
 ms.topic: article
 ms.date: 09/22/2020
-author: jluk
-ms.openlocfilehash: 5178aa30c3bfec014dd10e2c4f3de182aaef7e68
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 8e437095b3d527647a453ba89adaa2ab62672177
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900114"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348518"
 ---
 # <a name="secure-pods-with-azure-policy"></a>Proteger pods com Azure Policy
 
@@ -61,7 +60,7 @@ As seguintes limitações gerais se aplicam ao complemento de Azure Policy para 
 As seguintes limitações se aplicam somente ao complemento Azure Policy para AKS:
 
 - A [política de segurança de Pod AKs (versão prévia)](use-pod-security-policies.md) e o complemento Azure Policy para AKs não podem ser habilitados. 
-- Namespaces excluídos automaticamente por Azure Policy complemento para avaliação: _Kube-System_ , _gatekeeper-System_ e _AKs-Periscope_ .
+- Namespaces excluídos automaticamente por Azure Policy complemento para avaliação: _Kube-System_ , _gatekeeper-System_ e _AKs-Periscope_.
 
 ### <a name="recommendations"></a>Recomendações
 
@@ -108,8 +107,8 @@ Ambas as iniciativas internas são criadas a partir de definições usadas na [p
 |Restringir qualquer uso do sistema de arquivos do host|[Nuvem pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F098fc59e-46c7-4d99-9b16-64990e543d75)| Sim | Sim
 |Restringir os recursos do Linux ao [conjunto padrão](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)|[Nuvem pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc26596ff-4d70-4e6a-9a30-c2506bd2f80c) | Sim | Sim
 |Restringir o uso de tipos de volume definidos|[Nuvem pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F16697877-1118-4fb1-9b65-9898ec2509ec)| - | Sim-os tipos de volume permitidos são,,, `configMap` `emptyDir` `projected` `downwardAPI` , `persistentVolumeClaim`|
-|Elevação de privilégio para raiz|[Nuvem pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c6e92c9-99f0-4e55-9cf2-0c234dc48f99) | - | Sim |
-|Restringir as IDs de usuário e grupo do contêiner|[Nuvem pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Sim|
+|Elevação de privilégio para raiz|[Nuvem pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c6e92c9-99f0-4e55-9cf2-0c234dc48f99) | - | Yes |
+|Restringir as IDs de usuário e grupo do contêiner|[Nuvem pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Yes|
 |Restringir a alocação de um FSGroup que possui os volumes do pod|[Nuvem pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Sim-as regras permitidas são `runAsUser: mustRunAsNonRoot` ,, `supplementalGroup: mustRunAs 1:65536` `fsGroup: mustRunAs 1:65535` , `runAsGroup: mustRunAs 1:65535` .  |
 |Requer perfil seccomp|[Nuvem pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F975ce327-682c-4f2e-aa46-b9598289b86c) | - | Sim, allowedProfiles são * `docker/default` ou `runtime/default` |
 
@@ -150,7 +149,7 @@ If the built-in initiatives to address pod security do not match your requiremen
 > [!WARNING]
 > Os pods em namespaces de administrador, como Kube, devem ser executados para que um cluster permaneça íntegro, removendo um namespace necessário da lista de namespaces padrão excluídos pode disparar violações de política devido a um pod de sistema necessário.
 
-O AKS exige que o pods do sistema seja executado em um cluster para fornecer serviços críticos, como a resolução DNS. Políticas que limitam a funcionalidade Pod podem afetar a estabilidade do Pod do sistema. Como resultado, os namespaces a seguir são **excluídos da avaliação de política durante solicitações de admissão durante a criação, atualização e auditoria de política** . Isso força as novas implantações a esses namespaces serem excluídas das políticas do Azure.
+O AKS exige que o pods do sistema seja executado em um cluster para fornecer serviços críticos, como a resolução DNS. Políticas que limitam a funcionalidade Pod podem afetar a estabilidade do Pod do sistema. Como resultado, os namespaces a seguir são **excluídos da avaliação de política durante solicitações de admissão durante a criação, atualização e auditoria de política**. Isso força as novas implantações a esses namespaces serem excluídas das políticas do Azure.
 
 1. Kube-sistema
 1. sistema gatekeeper

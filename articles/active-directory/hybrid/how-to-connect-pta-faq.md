@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6db477a288ef41c2946cd550af6ff87999eff2f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75f797c40a276323cea9983c5340d2d854160c83
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461267"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368470"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticação de passagem do Azure Active Directory: perguntas frequentes
 
@@ -37,7 +37,7 @@ A Autenticação de Passagem é um recurso gratuito. Você não precisa de nenhu
 
 ## <a name="does-conditional-access-work-with-pass-through-authentication"></a>O [Acesso Condicional](../conditional-access/overview.md) funciona com a Autenticação de Passagem?
 
-Sim. Todos os recursos de acesso condicional, incluindo a autenticação multifator do Azure, funcionam com a autenticação de passagem.
+Sim. Todos os recursos de acesso condicional, incluindo a autenticação multifator do Azure AD, funcionam com a autenticação de passagem.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>A Autenticação de Passagem dá suporte à "ID alternativa" como nome de usuário, em vez de "userPrincipalName"?
 Sim, a entrada usando um valor não-UPN, como um email alternativo, tem suporte para PTA (autenticação de passagem) e PHS (sincronização de hash de senha). Para obter mais informações sobre a [ID de logon alternativa](../authentication/howto-authentication-use-email-signin.md).
@@ -137,10 +137,6 @@ Para a maioria dos clientes, um total de dois ou três agentes de autenticação
 
 >[!NOTE]
 >Há um limite do sistema de 40 Agentes de Autenticação por locatário.
-
-## <a name="can-i-install-the-first-pass-through-authentication-agent-on-a-server-other-than-the-one-that-runs-azure-ad-connect"></a>Eu posso instalar o primeiro Agente de Autenticação de Passagem em um servidor diferente daquele que executa o Azure AD Connect?
-
-Não, esse cenário _não_ tem suporte.
 
 ## <a name="why-do-i-need-a-cloud-only-global-administrator-account-to-enable-pass-through-authentication"></a>Por que eu preciso de uma conta de Administrador Global somente em nuvem para habilitar a autenticação de passagem?
 

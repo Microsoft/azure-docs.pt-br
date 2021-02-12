@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: f5e180cb85e65cf832ffe0a3746e25790644e1ba
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: c99d2489efe7c46b8d50b08861fcbbcd6f8a1966
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91829162"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97531814"
 ---
 1. No Visual Studio Code, abra a guia **Extensões** (ou pressione Ctrl+Shift+X) e pesquise pelo Hub IoT do Azure.
 1. Clique com o botão direito do mouse e selecione **Configurações da Extensão**.
@@ -14,7 +14,50 @@ ms.locfileid: "91829162"
 1. Pesquise e habilite “Mostrar Mensagem Detalhada”.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Configurações da Extensão"
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Mostrar Mensagem Detalhada":::
+1. Inicie uma sessão de depuração pressionando F5. A janela **TERMINAL** imprime algumas mensagens.
+1. O código *operations.json* chama os métodos diretos `GraphTopologyList` e `GraphInstanceList`. Se você limpou os recursos após os inícios rápidos anteriores, esse processo retornará listas vazias e, em seguida, pausará. Pressione Enter.
+    
+    ```
+    --------------------------------------------------------------------------
+    Executing operation GraphTopologyList
+    -----------------------  Request: GraphTopologyList  --------------------------------------------------
+    {
+      "@apiVersion": "2.0"
+    }
+    ---------------  Response: GraphTopologyList - Status: 200  ---------------
+    {
+      "value": []
+    }
+    --------------------------------------------------------------------------
+    Executing operation WaitForInput
+    Press Enter to continue
+    ```
+  
+  A janela **TERMINAL** mostra o próximo conjunto de chamadas de método direto:  
+  
+  * Uma chamada para `GraphTopologySet` que usa o `topologyUrl` 
+  * Uma chamada para `GraphInstanceSet` que usa o seguinte corpo:
+  
+  ```
+  {
+    "@apiVersion": "2.0",
+    "name": "Sample-Graph",
+    "properties": {
+      "topologyName": "EVRToFilesOnMotionDetection",
+      "description": "Sample graph description",
+      "parameters": [
+        {
+          "name": "rtspUrl",
+          "value": "rtsp://rtspsim:554/media/lots_015.mkv"
+        },
+        {
+          "name": "rtspUserName",
+          "value": "testuser"
+        },
+        {
+          "name": "rtspPassword",
+          "value": "testpassword"
         }
       ]
     }

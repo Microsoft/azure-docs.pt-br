@@ -8,11 +8,11 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 07/03/2018
 ms.openlocfilehash: 5f9410cc91174420662bb5efc67c8904b5d5e647
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219676"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018980"
 ---
 # <a name="run-u-sql-scripts-on-your-local-machine"></a>Execute scripts do U-SQL em sua máquina local
 
@@ -62,7 +62,7 @@ Um projeto U-SQL é necessário para uma execução local. O diretório de traba
 
 ## <a name="local-runs-with-a-local-project-account"></a>Execuções locais com uma conta de projeto local
 
-Uma conta do ** projeto local ** é uma conta de cálculo local isolada do projeto para cada projeto com uma pasta raiz de dados local isolada. Todo projeto U-SQL ativo aberto no Gerenciador de Soluções no Visual Studio tem uma conta `(Local-project: <project name>)` correspondente. As contas são listadas no Server Explorer no Visual Studio e na margem do editor de scripts do U-SQL.  
+Uma conta do **projeto local** é uma conta de cálculo local isolada do projeto para cada projeto com uma pasta raiz de dados local isolada. Todo projeto U-SQL ativo aberto no Gerenciador de Soluções no Visual Studio tem uma conta `(Local-project: <project name>)` correspondente. As contas são listadas no Server Explorer no Visual Studio e na margem do editor de scripts do U-SQL.  
 
 A conta de **projeto local** fornece um ambiente de desenvolvimento limpo e isolado. Um **Local-machine** terá uma pasta raiz local de dados compartilhada que armazena dados de metadados e de entrada e saída para todos os trabalhos locais. Mas uma conta de **projeto local** cria uma pasta raiz de dados local temporária sob um diretório de trabalho do projeto U-SQL sempre que um script U-SQL é executado. Essa pasta raiz temporária de dados é limpa quando uma recriação ou nova execução ocorre. 
 
@@ -72,7 +72,7 @@ Um projeto U-SQL gerencia o ambiente de execução local isolado por meio de uma
 
 Um projeto U-SQL cria uma pasta raiz de dados local e configura dados para uma conta de **projeto local**. Uma pasta raiz temporária de dados é limpa e recriada no diretório de trabalho do projeto U-SQL toda vez que uma reconstrução e uma execução local ocorrem. Todas as fontes de dados configuradas pelo projeto U-SQL são copiadas para essa pasta raiz de dados local temporária antes da execução da tarefa local. 
 
-Você pode configurar a pasta raiz das suas fontes de dados. Clique com o botão direito do mouse em **U-SQL**  >  **Propriedade**do projeto  >  **teste de fonte de dados**. Quando você executa um script U-SQL uma **projeto Local** conta, todos os arquivos e subpastas na **fonte de dados de teste** pasta são copiados para a pasta raiz de dados local temporário. Arquivos em subpastas são incluídos. Depois que uma tarefa local é executada, os resultados de saída também podem ser encontrados na pasta raiz de dados locais temporários no diretório de trabalho do projeto. Toda essa saída é excluída e limpa quando o projeto é reconstruído e limpo. 
+Você pode configurar a pasta raiz das suas fontes de dados. Clique com o botão direito do mouse em **U-SQL**  >  **Propriedade** do projeto  >  **teste de fonte de dados**. Quando você executa um script U-SQL uma **projeto Local** conta, todos os arquivos e subpastas na **fonte de dados de teste** pasta são copiados para a pasta raiz de dados local temporário. Arquivos em subpastas são incluídos. Depois que uma tarefa local é executada, os resultados de saída também podem ser encontrados na pasta raiz de dados locais temporários no diretório de trabalho do projeto. Toda essa saída é excluída e limpa quando o projeto é reconstruído e limpo. 
 
 ![Configurar a fonte de dados de teste de um projeto](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-configure-project-test-data-source.png)
 
@@ -85,7 +85,7 @@ Consulte o artigo relacionado:
 
 ## <a name="the-difference-between-local-machine-and-local-project-accounts"></a>A diferença entre **máquina Local** e contas **projeto Local**
 
-Uma conta de **máquina local ** simula uma conta do Azure Data Lake Analytics em computadores locais dos usuários. Ele compartilha a mesma experiência com uma conta do Azure Data Lake Analytics. Uma conta de **projeto local** fornece um ambiente de desenvolvimento local fácil de usar. Esse ambiente ajuda os usuários a implantar referências de banco de dados e dados de entrada antes de executar scripts localmente. Uma conta **Máquina local** fornece um ambiente permanente compartilhado que pode ser acessado por todos os projetos. Uma conta de **projeto local** fornece um ambiente de desenvolvimento isolado para cada projeto. Ele é atualizado para cada execução. Uma conta **projeto local** oferece uma experiência de desenvolvimento mais rápida por meio da aplicação rapidamente novas alterações.
+Uma conta de **máquina local** simula uma conta do Azure Data Lake Analytics em computadores locais dos usuários. Ele compartilha a mesma experiência com uma conta do Azure Data Lake Analytics. Uma conta de **projeto local** fornece um ambiente de desenvolvimento local fácil de usar. Esse ambiente ajuda os usuários a implantar referências de banco de dados e dados de entrada antes de executar scripts localmente. Uma conta **Máquina local** fornece um ambiente permanente compartilhado que pode ser acessado por todos os projetos. Uma conta de **projeto local** fornece um ambiente de desenvolvimento isolado para cada projeto. Ele é atualizado para cada execução. Uma conta **projeto local** oferece uma experiência de desenvolvimento mais rápida por meio da aplicação rapidamente novas alterações.
 
 Mais diferenças entre as contas **Máquina local** e **Projeto local** são mostradas na tabela a seguir:
 

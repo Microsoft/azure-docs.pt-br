@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 007409d755da2d879297b4b898663dcbd9fd6d7f
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: c5c4aed7a5ee1726d7afb1a671fea1519acfa67c
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329620"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806080"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Linha de base de segurança do Azure para hubs de eventos
 
@@ -72,7 +72,7 @@ Noções básicas sobre segurança de rede fornecida pela central de segurança 
 
 **Orientação**: habilite a proteção contra DDoS Standard nas redes virtuais associadas aos seus hubs de eventos para proteger contra ataques de DDoS (negação de serviço distribuído). Use a inteligência contra ameaças integrada da Central de Segurança do Azure para negar comunicações com endereços IP da Internet maliciosos conhecidos ou não usados.
 
-Como configurar a proteção contra DDoS: [https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](../virtual-network/manage-ddos-protection.md)
+Como configurar a proteção contra DDoS: [https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](../ddos-protection/manage-ddos-protection.md)
 
 Para obter mais informações sobre a inteligência de ameaças integrada da central de segurança do Azure: https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
@@ -293,9 +293,9 @@ Como integrar o Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quicks
 
 **Diretrizes**: o Azure Active Directory (AD) tem funções internas que devem ser explicitamente atribuídas e que podem ser consultadas. Use o módulo do PowerShell do Azure AD para executar consultas ad hoc para descobrir contas que são membros de grupos administrativos. 
 
-Como obter uma função de diretório no Azure AD com o PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+Como obter uma função de diretório no Azure AD com o PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole
 
-Como obter membros de uma função de diretório no Azure AD com o PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+Como obter membros de uma função de diretório no Azure AD com o PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -361,7 +361,7 @@ Como monitorar identidade e acesso na Central de Segurança do Azure: https://do
 
 **Diretrizes**: Use Paw (estações de trabalho com acesso privilegiado) com a MFA (autenticação multifator) configurada para fazer logon e configurar recursos habilitados para o Hub de eventos.
 
-Saiba mais sobre estações de trabalho com acesso privilegiado: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
+Saiba mais sobre estações de trabalho com acesso privilegiado: https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/
 
 Como habilitar a MFA no Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
@@ -633,7 +633,7 @@ Como criar alertas para eventos do log de atividades do Azure: https://docs.micr
 
 Como criar consultas com o Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-Como exibir suas assinaturas do Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+Como exibir suas assinaturas do Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription
 
 Entenda o RBAC do Azure: https://docs.microsoft.com/azure/role-based-access-control/overview
 
@@ -779,7 +779,7 @@ Como configurar o acesso condicional para bloquear o acesso ao Azure Resource Ma
 
 Política interna do Azure para namespace de hubs de eventos: https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#event-hub
 
-Como exibir os aliases do Azure Policy disponíveis: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Como exibir os aliases do Azure Policy disponíveis: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias
 
 Como configurar e gerenciar o Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -820,9 +820,9 @@ Para obter mais informações sobre os efeitos de Azure Policy:  https://docs.mi
 
 **Orientação**: se você estiver usando definições de Azure Policy personalizadas para seus hubs de eventos ou recursos relacionados, use Azure Repos para armazenar e gerenciar seu código com segurança.
 
-Como armazenar código no Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+Como armazenar código no Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow
 
-Documentação do Azure Repos: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+Documentação do Azure Repos: https://docs.microsoft.com/azure/devops/repos/index
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -986,7 +986,7 @@ Como fazer backup de Key Vault segredos: https://docs.microsoft.com/powershell/m
 
  
 
-Como restaurar chaves do Key Vault no Azure: https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+Como restaurar chaves do Key Vault no Azure: https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1054,7 +1054,7 @@ Como definir o contato de segurança da Central de Segurança do Azure: https://
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: incorporar alertas de segurança em seu sistema de resposta a incidentes
 
-**Diretriz**: exporte os alertas e recomendações da Central de Segurança do Azure usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da Central de Segurança do Azure para transmitir os alertas do Sentinel.
+**Diretriz**: exporte os alertas e recomendações da Central de Segurança do Azure usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da Central de Segurança do Azure para transmitir os alertas do Azure Sentinel.
 
 Como configurar a exportação contínua: https://docs.microsoft.com/azure/security-center/continuous-export
 

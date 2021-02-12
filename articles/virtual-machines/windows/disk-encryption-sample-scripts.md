@@ -1,5 +1,5 @@
 ---
-title: Azure Disk Encryption scripts de exemplo
+title: Azure Disk Encryption scripts de exemplo para VMs do Windows
 description: Este artigo é o apêndice para Microsoft Azure a criptografia de disco para VMs do Windows.
 author: msmbaldwin
 ms.service: virtual-machines-windows
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 255e284cf8d54a9be59f09f5613cb2728417d234
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: f113a1e559798328a2ef81336e8afff02732bb90
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912031"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99804947"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Azure Disk Encryption scripts de exemplo 
 
@@ -81,7 +81,7 @@ A tabela a seguir mostra quais parâmetros podem ser usados no script do PowerSh
 As seções a seguir são necessárias para preparar um VHD do Windows previamente criptografado para implantação como um VHD criptografado no Azure IaaS. Use as informações para preparar e inicializar uma nova VHD (VM do Windows) no Azure Site Recovery ou no Azure. Para obter mais informações sobre como preparar e carregar um VHD, consulte [Carregar um VHD generalizado e usá-lo para criar novas VMs no Azure](upload-generalized-managed.md).
 
 ### <a name="update-group-policy-to-allow-non-tpm-for-os-protection"></a>Atualizar a política de grupo para permitir não TPM na proteção do sistema operacional
-Configure a política de grupo do BitLocker **Criptografia de Unidade de Disco BitLocker** , que você encontrará em **Política de Computador Local** > **Configuração do Computador** > **Modelos Administrativos** > **Componentes do Windows** . Alterar essa configuração para **unidades do sistema operacional**  >  **exigir autenticação adicional na inicialização**  >  **permitir BitLocker sem um TPM compatível** , conforme mostrado na figura a seguir:
+Configure a política de grupo do BitLocker **Criptografia de Unidade de Disco BitLocker**, que você encontrará em **Política de Computador Local** > **Configuração do Computador** > **Modelos Administrativos** > **Componentes do Windows**. Alterar essa configuração para **unidades do sistema operacional**  >  **exigir autenticação adicional na inicialização**  >  **permitir BitLocker sem um TPM compatível**, conforme mostrado na figura a seguir:
 
 ![Microsoft Antimalware no Azure](../media/disk-encryption/disk-encryption-fig8.png)
 

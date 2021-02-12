@@ -1,19 +1,21 @@
 ---
-title: Cenários de recuperação de desastre
+title: Interrupções de serviço do Azure
 description: Saiba o que fazer caso uma interrupção de serviço do Azure afete as máquinas virtuais do Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 05/31/2017
 ms.author: cynthn
-ms.openlocfilehash: 0d659f0bc65d3dbe7cbb656d505275a52a9742eb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.reviewer: ''
+ms.openlocfilehash: 5c6036a65fa449986f5c085202fefa752e3a414a
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976616"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98701026"
 ---
 # <a name="what-if-an-azure-service-disruption-impacts-azure-vms"></a>E se uma interrupção do serviço do Azure impactar as VMs do Azure
+
 Na Microsoft, trabalhamos muito para garantir que nossos serviços estejam sempre disponíveis quando você precisar deles. Às vezes, forças além do nosso controle nos afetam de formas que causam interrupções de serviço não planejadas.
 
 A Microsoft fornece um SLA (Contrato de Nível de Serviço) para seus serviços como um compromisso com o tempo de atividade e a conectividade. O SLA para serviços individuais do Azure pode ser encontrado em [Contratos de Nível de Serviço do Azure](https://azure.microsoft.com/support/legal/sla/).

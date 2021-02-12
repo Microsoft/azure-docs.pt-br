@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 6fb3c9b6dbbab036ddb00edd7e1d5980bb425ebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 881a7fc915ab986577599b85f8412fa8107f7902
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326109"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017382"
 ---
 # <a name="encryption-scopes-for-blob-storage-preview"></a>Escopos de criptografia para armazenamento de BLOBs (visualização)
 
@@ -52,8 +52,8 @@ Quando um escopo de criptografia estiver desabilitado, você não será mais cob
 
 Se o escopo de criptografia estiver protegido com chaves gerenciadas pelo cliente, você também poderá excluir a chave associada no cofre de chaves para desabilitar o escopo de criptografia. Tenha em mente que as chaves gerenciadas pelo cliente são protegidas pela exclusão reversível e pela proteção de limpeza no cofre de chaves, e uma chave excluída está sujeita ao comportamento definido por essas propriedades. Para obter mais informações, consulte um dos seguintes tópicos na documentação do Azure Key Vault:
 
-- [Como usar a exclusão reversível com o PowerShell](../../key-vault/general/soft-delete-powershell.md)
-- [Como usar a exclusão temporária com a CLI](../../key-vault/general/soft-delete-cli.md)
+- [Como usar a exclusão reversível com o PowerShell](../../key-vault/general/key-vault-recovery.md)
+- [Como usar a exclusão temporária com a CLI](../../key-vault/general/key-vault-recovery.md)
 
 > [!NOTE]
 > Não é possível excluir um escopo de criptografia.

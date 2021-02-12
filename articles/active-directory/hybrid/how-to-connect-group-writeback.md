@@ -11,12 +11,12 @@ ms.date: 06/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2e24246c749978cd2bbb5b3d0821eea6d7dfb4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c506c87ad5901754175f18e6b50bc6ed46a3c19
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89660867"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246903"
 ---
 # <a name="azure-ad-connect-group-writeback"></a>Write-back de grupo de Azure AD Connect
 
@@ -34,7 +34,7 @@ Para habilitar o Write-back de grupo, use as seguintes etapas:
 
 1. Abra o assistente de Azure AD Connect, selecione **Configurar** e clique em **Avançar**.
 2. Selecione **Personalizar opções de sincronização** e clique em **Avançar**.
-3. Na página **conectar ao Azure ad** , insira suas credenciais. Clique em **Avançar**.
+3. Na página **conectar ao Azure ad** , insira suas credenciais. Clique em **Próximo**.
 4. Na página **recursos opcionais** , verifique se as opções configuradas anteriormente ainda estão selecionadas.
 5. Selecione **grupo write-back** e clique em **Avançar**.
 6. Na **página write-back**, selecione uma UO (unidade organizacional) Active Directory para armazenar objetos que são sincronizados do Microsoft 365 para sua organização local e, em seguida, clique em **Avançar**.
@@ -45,7 +45,13 @@ Para habilitar o Write-back de grupo, use as seguintes etapas:
 ```Powershell
 $AzureADConnectSWritebackAccountDN =  <MSOL_ account DN>
 Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\AdSyncConfig.psm1"
+
+# To grant the <MSOL_account> permission to all domains in the forest:
 Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN $AzureADConnectSWritebackAccountDN
+
+# To grant the <MSOL_account> permission to specific OU (eg. the OU chosen to writeback Office 365 Groups to):
+$GroupWritebackOU = <DN of OU where groups are to be written back to>
+Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN $AzureADConnectSWritebackAccountDN -ADObjectDN $GroupWritebackOU
 ```
 
 Para obter informações adicionais sobre como configurar os grupos de Microsoft 365, consulte [configurar grupos de Microsoft 365 com o Exchange híbrido local](/exchange/hybrid-deployment/set-up-microsoft-365-groups#enable-group-writeback-in-azure-ad-connect).
@@ -61,7 +67,7 @@ Para desabilitar o Write-back de grupo, use as seguintes etapas:
 
    ![Desmarcar caixa](media/how-to-connect-group-writeback/group2.png)
   
-3. Clique em **Avançar**.
+3. Clique em **Próximo**.
 4. Clique em **Configurar**.
 
  >[!NOTE]

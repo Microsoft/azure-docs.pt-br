@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de uma fonte REST usando Azure Data Factory
-description: Saiba como copiar dados de uma nuvem ou fonte REST local para armazenamentos de dados de coletor com suporte, usando uma atividade de cópia em um pipeline do Azure Data Factory.
+title: Copiar dados de e para um ponto de extremidade REST usando Azure Data Factory
+description: Saiba como copiar dados de uma nuvem ou fonte REST local para armazenamentos de dados de coletor com suporte ou de um armazenamento de dados de origem com suporte para um coletor REST usando uma atividade de cópia em um pipeline de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -9,36 +9,36 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 12/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 7b6fa2395e81089e8b4523929a4a7a583b0788a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fc567b7d4b2efab03e5d93adda62839d47f7522
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360762"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223080"
 ---
-# <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copiar dados de um ponto de extremidade REST usando o Azure Data Factory
+# <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Copiar dados de e para um ponto de extremidade REST usando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de um ponto de extremidade REST. O artigo baseia-se em [Atividade de Cópia no Azure Data Factory](copy-activity-overview.md), que apresenta uma visão geral da Atividade de Cópia.
+Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de e para um ponto de extremidade REST. O artigo baseia-se em [Atividade de Cópia no Azure Data Factory](copy-activity-overview.md), que apresenta uma visão geral da Atividade de Cópia.
 
 A diferença entre esse conector REST, o [conector http](connector-http.md)e o [conector de tabela da Web](connector-web-table.md) são:
 
 - O **conector REST** oferece suporte especificamente à cópia de dados de APIs RESTful; 
-- O **conector http** é genérico para recuperar dados de qualquer ponto de extremidade http, por exemplo, para baixar o arquivo. Antes desse conector REST se tornar disponível, você pode usar o conector HTTP para copiar dados do API RESTful, que é um suporte menos funcional em comparação ao conector REST.
+- O **conector http** é genérico para recuperar dados de qualquer ponto de extremidade http, por exemplo, para baixar o arquivo. Antes desse conector REST, você pode usar o conector HTTP para copiar dados da API RESTful, que tem suporte, mas a comparação menos funcional com o conector REST.
 - O **conector da tabela da Web** extrai o conteúdo da tabela de uma página da Web em HTML.
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
-Você pode copiar dados de uma origem REST para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados que o Copy Activity suporta como fontes e coletores, consulte [Armazenamentos de dados e formatos compatíveis](copy-activity-overview.md#supported-data-stores-and-formats).
+Você pode copiar dados de uma origem REST para qualquer armazenamento de dados de coletor com suporte. Você também pode copiar dados de qualquer armazenamento de dados de origem com suporte para um coletor REST. Para obter uma lista de armazenamentos de dados que o Copy Activity suporta como fontes e coletores, consulte [Armazenamentos de dados e formatos compatíveis](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Especificamente, esse conector REST genérico dá suporte para:
 
-- Recuperação de dados do ponto de extremidade REST usando os métodos **GET** ou **POST**.
-- Recuperando dados usando uma das seguintes autenticações: **anônima**, **básica**, entidade de **serviço do AAD**e **identidades gerenciadas para recursos do Azure**.
+- Copiar dados de um ponto de extremidade REST usando os métodos **Get** ou **post** e copiando dados para um ponto de extremidade REST usando os métodos **post**, **Put** ou **patch** .
+- Copiar dados usando uma das seguintes autenticações: **anônima**, **básica**, entidade de **serviço do AAD** e **identidades gerenciadas para recursos do Azure**.
 - **[Paginação](#pagination-support)** no APIs REST.
-- Copiar a resposta JSON do REST [como aparece](#export-json-response-as-is) ou analisá-la usando um [mapeamento de esquema](copy-activity-schema-and-type-mapping.md#schema-mapping). Somente o conteúdo de resposta na **JSON** tem suporte.
+- Para REST como fonte, copiar a resposta JSON REST [como está](#export-json-response-as-is) ou analisá-la usando o [mapeamento de esquema](copy-activity-schema-and-type-mapping.md#schema-mapping). Somente o conteúdo de resposta na **JSON** tem suporte.
 
 > [!TIP]
 > Para testar uma solicitação para recuperação de dados antes de configurar o conector REST no Data Factory, saiba mais sobre a especificação da API para os requisitos de cabeçalho e corpo. Você pode usar ferramentas como o Postman ou um navegador da Web para validar.
@@ -62,7 +62,7 @@ As seguintes propriedades são suportadas para o serviço vinculado REST:
 | type | A propriedade **Type** deve ser definida como **RestService**. | Sim |
 | url | A URL base do serviço REST. | Sim |
 | enableServerCertificateValidation | Se o certificado TLS/SSL do lado do servidor deve ser validado ao se conectar ao ponto de extremidade. | Não<br /> (o padrão é **true**) |
-| authenticationType | Tipo de autenticação usado para se conectar ao serviço REST. Os valores permitidos são **Anonymous**, **Basic**, **AadServicePrincipal**e **ManagedServiceIdentity**. Consulte respectivamente as seções correspondentes abaixo em mais propriedades e exemplos. | Sim |
+| authenticationType | Tipo de autenticação usado para se conectar ao serviço REST. Os valores permitidos são **Anonymous**, **Basic**, **AadServicePrincipal** e **ManagedServiceIdentity**. Consulte respectivamente as seções correspondentes abaixo em mais propriedades e exemplos. | Sim |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção [Pré-requisitos](#prerequisites). Se não especificado, essa propriedade usará o Azure Integration Runtime padrão. |Não |
 
 ### <a name="use-basic-authentication"></a>Usar autenticação básica
@@ -108,7 +108,7 @@ Defina a **authenticationType** na propriedade **AadServicePrincipal**. Além da
 | servicePrincipalKey | Especifique a chave do aplicativo do Azure Active Directory. Marque esse campo como **SecureString** para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Sim |
 | locatário | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. Para recuperá-lo, passe o mouse no canto superior direito do portal do Azure. | Sim |
 | aadResourceId | Especifique o recurso do AAD que você está solicitando para autorização, por exemplo, `https://management.core.windows.net` .| Sim |
-| azureCloudType | Para autenticação de entidade de serviço, especifique o tipo de ambiente de nuvem do Azure no qual seu aplicativo do AAD está registrado. <br/> Os valores permitidos são **AzurePublic**, **AzureChina**, **AzureUsGovernment**e **AzureGermany**. Por padrão, o ambiente de nuvem do data factory é usado. | Não |
+| azureCloudType | Para autenticação de entidade de serviço, especifique o tipo de ambiente de nuvem do Azure no qual seu aplicativo do AAD está registrado. <br/> Os valores permitidos são **AzurePublic**, **AzureChina**, **AzureUsGovernment** e **AzureGermany**. Por padrão, o ambiente de nuvem do data factory é usado. | Não |
 
 **Exemplo**
 
@@ -174,10 +174,10 @@ Para copiar dados do REST, há suporte para as seguintes propriedades:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade **tipo** do conjunto de dados deve ser definida como**RestResource**. | Sim |
+| type | A propriedade **tipo** do conjunto de dados deve ser definida como **RestResource**. | Sim |
 | relativeUrl | Uma URL relativa para o recurso que contém os dados. Quando essa propriedade não é especificada, somente o URL especificado na definição de serviço vinculada é usado. O conector HTTP copia dados da URL combinada: `[URL specified in linked service]/[relative URL specified in dataset]` . | Não |
 
-Se você definiu `requestMethod` , `additionalHeaders` `requestBody` e `paginationRules` no DataSet, ainda terá suporte como está, enquanto você é sugerido para usar o novo modelo na origem da atividade no futuro.
+Se você definiu `requestMethod` , `additionalHeaders` `requestBody` e `paginationRules` no DataSet, ainda terá suporte como está, enquanto você é sugerido para usar o novo modelo na atividade no futuro.
 
 **Exemplo:**
 
@@ -200,7 +200,7 @@ Se você definiu `requestMethod` , `additionalHeaders` `requestBody` e `paginati
 
 ## <a name="copy-activity-properties"></a>Propriedades da Atividade de Cópia
 
-Esta seção fornece uma lista de propriedades que a fonte REST suporta.
+Esta seção fornece uma lista das propriedades com suporte pela fonte REST e pelo coletor.
 
 Para obter uma lista completa de seções e propriedades que estão disponíveis para definir atividades, consulte [Pipelines](concepts-pipelines-activities.md). 
 
@@ -211,7 +211,7 @@ As propriedades a seguir têm suporte na seção **source** da atividade de cóp
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | O **tipo** de propriedade da fonte da atividade de cópia deve ser definida como: **RestSource**. | Sim |
-| requestMethod | O método HTTP. Valores permitidos são **Obtenha** (padrão) e **Post**. | Não |
+| requestMethod | O método HTTP. Os valores permitidos são **Get** (padrão) e **post**. | Não |
 | additionalHeaders | Cabeçalhos de solicitação HTTP adicionais. | Não |
 | requestBody | O corpo da solicitação HTTP. | Não |
 | paginationRules | As regras de paginação para compor as próximas solicitações de página. Consulte a seção [suporte à paginação](#pagination-support) em detalhes. | Não |
@@ -293,9 +293,69 @@ As propriedades a seguir têm suporte na seção **source** da atividade de cóp
 ]
 ```
 
+### <a name="rest-as-sink"></a>REST como coletor
+
+As propriedades a seguir têm suporte na seção **sink** da atividade de cópia:
+
+| Propriedade | Descrição | Obrigatório |
+|:--- |:--- |:--- |
+| type | A propriedade **Type** do coletor da atividade de cópia deve ser definida como **RestSink**. | Sim |
+| requestMethod | O método HTTP. Os valores permitidos são **post** (padrão), **Put** e **patch**. | Não |
+| additionalHeaders | Cabeçalhos de solicitação HTTP adicionais. | Não |
+| httpRequestTimeout | O tempo limite (o valor **TimeSpan**) para a solicitação HTTP para obter uma resposta. Esse valor é o tempo limite para obter uma resposta, não o tempo limite para gravar os dados. O valor padrão é **01:00:40**.  | Não |
+| requestInterval | O tempo de intervalo entre solicitações diferentes em milissegundos. O valor do intervalo de solicitação deve ser um número entre [10, 60000]. |  Não |
+| httpCompressionType | Tipo de compactação HTTP a ser usado ao enviar dados com o nível de compactação ideal. Os valores permitidos são **None** e **gzip**. | Não |
+| writeBatchSize | Número de registros a serem gravados no coletor REST por lote. O valor padrão é 10000. | Não |
+
+O conector REST como coletor funciona com as APIs REST que aceitam JSON. Os dados serão enviados em JSON com o padrão a seguir. Conforme necessário, você pode usar o mapeamento de [esquema](copy-activity-schema-and-type-mapping.md#schema-mapping) de atividade de cópia para remodelar os dados de origem para estar de acordo com a carga esperada pela API REST.
+
+```json
+[
+    { <data object> },
+    { <data object> },
+    ...
+]
+```
+
+**Exemplo:**
+
+```json
+"activities":[
+    {
+        "name": "CopyToREST",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<REST output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "RestSink",
+                "requestMethod": "POST",
+                "httpRequestTimeout": "00:01:40",
+                "requestInterval": 10,
+                "writeBatchSize": 10000,
+                "httpCompressionType": "none",
+            },
+        }
+    }
+]
+```
+
 ## <a name="pagination-support"></a>Suporte à paginação
 
-Normalmente, a API REST limita seu tamanho de carga de resposta de uma única solicitação em um número razoável; Embora seja possível retornar uma grande quantidade de dados, ele divide o resultado em várias páginas e exige que os chamadores enviem solicitações consecutivas para obter a próxima página do resultado. Geralmente, a solicitação para uma página é dinâmica e composta por informações retornadas da resposta de página anterior.
+Ao copiar dados de APIs REST, normalmente, a API REST limita seu tamanho de carga de resposta de uma única solicitação em um número razoável; Embora seja possível retornar uma grande quantidade de dados, ele divide o resultado em várias páginas e exige que os chamadores enviem solicitações consecutivas para obter a próxima página do resultado. Geralmente, a solicitação para uma página é dinâmica e composta por informações retornadas da resposta de página anterior.
 
 Esse conector genérico REST suporta os seguintes padrões de paginação: 
 
@@ -325,7 +385,7 @@ Os **Valores com suporte** nas regras de paginação:
 
 **Exemplo:**
 
-O API do Graph do Facebook retorna a resposta na próxima estrutura, em cada casa a URL da próxima página é representada por ***paging.next***:
+O Facebook API do Graph retorna a resposta na estrutura a seguir, caso em que a URL da próxima página é representada em **_paginação. avançar_* _:
 
 ```json
 {
@@ -380,7 +440,7 @@ Esta seção descreve como usar um modelo de solução para copiar dados do cone
 ### <a name="about-the-solution-template"></a>Sobre o modelo de solução
 
 O modelo contém duas atividades:
-- A atividade **da Web** recupera o token de portador e, em seguida, passa-o para a atividade de cópia subsequente como autorização.
+- _ A atividade *Web** recupera o token de portador e, em seguida, passa-o para a atividade de cópia subsequente como autorização.
 - A atividade de **cópia** copia dados do REST para o Azure data Lake Storage.
 
 O modelo define dois parâmetros:
@@ -406,13 +466,13 @@ O modelo define dois parâmetros:
 
 4. Você verá o pipeline criado conforme mostrado no exemplo a seguir:  ![ captura de tela mostra o pipeline criado a partir do modelo.](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
 
-5. Selecione atividade **da Web** . Em **configurações**, especifique a **URL**, o **método**, os **cabeçalhos**e o **corpo** correspondentes para recuperar o token de portador OAuth da API de logon do serviço do qual você deseja copiar dados. O espaço reservado no modelo demonstra um exemplo de OAuth Azure Active Directory (AAD). Observe que a autenticação do AAD tem suporte nativo do conector REST, aqui está apenas um exemplo para o fluxo OAuth. 
+5. Selecione atividade **da Web** . Em **configurações**, especifique a **URL**, o **método**, os **cabeçalhos** e o **corpo** correspondentes para recuperar o token de portador OAuth da API de logon do serviço do qual você deseja copiar dados. O espaço reservado no modelo demonstra um exemplo de OAuth Azure Active Directory (AAD). Observe que a autenticação do AAD tem suporte nativo do conector REST, aqui está apenas um exemplo para o fluxo OAuth. 
 
     | Propriedade | Descrição |
     |:--- |:--- |:--- |
     | URL |Especifique a URL da qual recuperar o token de portador OAuth. por exemplo, no exemplo, ele é https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
     | Método | O método HTTP. Os valores permitidos são **post** e **Get**. | 
-    | headers | O cabeçalho é definido pelo usuário, que faz referência a um nome de cabeçalho na solicitação HTTP. | 
+    | Cabeçalhos | O cabeçalho é definido pelo usuário, que faz referência a um nome de cabeçalho na solicitação HTTP. | 
     | Corpo | O corpo da solicitação HTTP. | 
 
     ![Pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/web-settings.png)

@@ -7,20 +7,20 @@ ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 565b781b5015f82cafe4e47be2170f2327660821
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 647564a9b9ca909d2f45ae66673d8beac168a4aa
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971584"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575967"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Utilize o portal para anexar um disco de dados a uma VM Linux 
-Este artigo mostra como anexar discos novos e existentes a uma máquina virtual Linux por meio do portal do Azure. Você também pode [anexar um disco de dados a uma VM do Windows no Portal do Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Este artigo mostra como anexar discos novos e existentes a uma máquina virtual Linux por meio do portal do Azure. Você também pode [anexar um disco de dados a uma VM do Windows no Portal do Azure](../windows/attach-managed-disk-portal.md). 
 
 Antes de anexar discos à sua VM, veja estas dicas:
 
-* O tamanho da máquina virtual controla quantos discos de dados você pode anexar a ela. Para obter detalhes, consulte [Tamanhos das máquinas virtuais](../sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Discos anexados às máquinas virtuais são, na verdade, os arquivos. vhd armazenados no Azure. Para obter detalhes, confira a [Introdução aos discos gerenciados](../managed-disks-overview.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json).
+* O tamanho da máquina virtual controla quantos discos de dados você pode anexar a ela. Para obter detalhes, consulte [Tamanhos das máquinas virtuais](../sizes.md).
+* Discos anexados às máquinas virtuais são, na verdade, os arquivos. vhd armazenados no Azure. Para obter detalhes, confira a [Introdução aos discos gerenciados](../managed-disks-overview.md).
 * Depois de anexar o disco, será necessário [conectar a VM Linux para montar o novo disco](#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 
@@ -225,4 +225,7 @@ Há duas maneiras de habilitar o suporte a TRIM em sua VM do Linux. Como de cost
     ```
 
 ## <a name="next-steps"></a>Próximas etapas
+
+Para obter mais informações e para ajudar a solucionar problemas de disco, consulte [solucionar problemas de nome do dispositivo VM Linux](../troubleshooting/troubleshoot-device-names-problems.md).
+
 Você também pode [anexar um disco de dados](add-disk.md) utilizando a CLI do Azure.

@@ -16,12 +16,12 @@ ms.custom:
 - devx-track-java
 - devx-track-azurecli
 ms.date: 06/21/2019
-ms.openlocfilehash: 915199a619ff7596596b92362de38338bda03029
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 04a685969097af5c6930fecafb1afad9666250de
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747545"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070671"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-azure-iot-hub-with-java"></a>Início Rápido: Controlar um dispositivo conectado a um hub IoT do Azure com Java
 
@@ -33,55 +33,47 @@ Neste início rápido, você usa um método direto para controlar um dispositivo
 
 * Uma conta do Azure com uma assinatura ativa. [Crie um gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* Java SE Development Kit 8. Em [Suporte de longo prazo do Java para o Azure e o Azure Stack](/java/azure/jdk/?view=azure-java-stable), em **Suporte de longo prazo** , selecione **Java 8** .
+* Java SE Development Kit 8. Em [Suporte de longo prazo do Java para o Azure e o Azure Stack](/java/azure/jdk/?view=azure-java-stable), em **Suporte de longo prazo**, selecione **Java 8**.
+
+    Verifique a versão atual do Java no computador de desenvolvimento usando o seguinte comando:
+
+    ```cmd/sh
+    java -version
+    ```
 
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
+
+    Você pode verificar a versão atual do Maven no computador de desenvolvimento usando o seguinte comando:
+
+    ```cmd/sh
+    mvn --version
+    ```
 
 * [Um projeto Java de exemplo](https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip).
 
 * Porta 8883 aberta no firewall. A amostra de dispositivo deste início rápido usa o protocolo MQTT, que se comunica pela porta 8883. Essa porta poderá ser bloqueada em alguns ambientes de rede corporativos e educacionais. Para obter mais informações e maneiras de resolver esse problema, confira [Como se conectar ao Hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-Verifique a versão atual do Java no computador de desenvolvimento usando o seguinte comando:
-
-```cmd/sh
-java -version
-```
-
-Você pode verificar a versão atual do Maven no computador de desenvolvimento usando o seguinte comando:
-
-```cmd/sh
-mvn --version
-```
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-### <a name="add-azure-iot-extension"></a>Adicionar Extensão do Azure IoT
-
-Execute o comando a seguir para adicionar a Extensão do Microsoft Azure IoT para a CLI do Azure à instância do Cloud Shell. A Extensão de IoT adiciona comandos específicos do Hub IoT, do IoT Edge e do DPS (Serviço de Provisionamento de Dispositivos IoT) à CLI do Azure.
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="create-an-iot-hub"></a>Crie um hub IoT
 
-Se tiver concluído o [Início Rápido: enviar telemetria de um dispositivo para um hub IoT](quickstart-send-telemetry-java.md), pode ignorar esta etapa.
+Se você tiver concluído o [Início Rápido: Enviar telemetria de um dispositivo para um Hub IoT](quickstart-send-telemetry-java.md) anterior, ignore esta etapa.
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Registrar um dispositivo
 
-Se tiver concluído o [Início Rápido: enviar telemetria de um dispositivo para um hub IoT](quickstart-send-telemetry-java.md), pode ignorar esta etapa.
+Se você tiver concluído o [Início Rápido: Enviar telemetria de um dispositivo para um Hub IoT](quickstart-send-telemetry-java.md) anterior, ignore esta etapa.
 
 Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste início rápido, você usa o Azure Cloud Shell para registrar um dispositivo simulado.
 
 1. Execute o comando a seguir no Azure Cloud Shell para criar a identidade do dispositivo.
 
-   **YourIoTHubName** : substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
+   **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
 
-   **MyJavaDevice** : esse é o nome do dispositivo que está sendo registrado. É recomendável usar **MyJavaDevice** conforme mostrado. Se escolher um nome diferente para seu dispositivo, você também precisará usar esse nome ao longo deste artigo, bem como atualizar o nome do dispositivo nos aplicativos de exemplo antes de executá-los.
+   **MyJavaDevice**: esse é o nome do dispositivo que está sendo registrado. É recomendável usar **MyJavaDevice** conforme mostrado. Se escolher um nome diferente para seu dispositivo, você também precisará usar esse nome ao longo deste artigo, bem como atualizar o nome do dispositivo nos aplicativos de exemplo antes de executá-los.
 
     ```azurecli-interactive
     az iot hub device-identity create \
@@ -90,10 +82,10 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
 
 2. Execute os seguintes comandos no Azure Cloud Shell para obter a _cadeia de conexão de dispositivo_ referente ao dispositivo que você acabou de registrar:
 
-   **YourIoTHubName** : substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
+   **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string \
+    az iot hub device-identity connection-string show\
       --hub-name {YourIoTHubName} \
       --device-id MyJavaDevice \
       --output table
@@ -109,10 +101,10 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
 
 Você também precisa de uma _cadeia de conexão de serviço_ para permitir que aplicativos de back-end se conectem ao seu hub IoT e recuperem mensagens. O comando abaixo recupera a cadeia de conexão de serviço para o hub IoT:
 
-**YourIoTHubName** : substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
+**YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
 
 ```azurecli-interactive
-az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
+az iot hub connection-string show --policy-name service --name {YourIoTHubName} --output table
 ```
 
 Tome nota da cadeia de conexão de serviço, que se parece com:
@@ -125,11 +117,11 @@ Você usará esse valor posteriormente no início rápido. A cadeia de conexão 
 
 O aplicativo de dispositivo simulado se conecta a um ponto de extremidade específico do dispositivo em seu hub IoT, envia telemetria simulada e escuta chamadas de método direto de seu hub. Neste início rápido, a chamada de método direto do hub informa ao dispositivo para alterar o intervalo de envio da telemetria. O dispositivo simulado envia uma confirmação para o hub depois de executar o método direto.
 
-1. Em uma janela de terminal local, navegue até a pasta raiz do projeto Java de exemplo. Em seguida, navegue até a pasta **iot-hub\Quickstarts\simulated-device-2** .
+1. Em uma janela de terminal local, navegue até a pasta raiz do projeto Java de exemplo. Em seguida, navegue até a pasta **iot-hub\Quickstarts\simulated-device-2**.
 
 2. Abra o arquivo **src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java** em um editor de texto de sua escolha.
 
-    Substitua o valor da variável `connString` pela cadeia de conexão do dispositivo que você anotou anteriormente. Salve as alterações no **SimulatedDevice.java** .
+    Substitua o valor da variável `connString` pela cadeia de conexão do dispositivo que você anotou anteriormente. Salve as alterações no **SimulatedDevice.java**.
 
 3. Na janela de terminal local, execute os seguintes comandos para instalar as bibliotecas necessárias e compile o aplicativo de dispositivo simulado:
 
@@ -151,11 +143,11 @@ O aplicativo de dispositivo simulado se conecta a um ponto de extremidade espec�
 
 O aplicativo de back-end se conecta a um ponto de extremidade do lado do serviço em seu Hub IoT. O aplicativo faz chamadas de método direto para um dispositivo por meio do hub IoT e escuta as confirmações. Um aplicativo de back-end do Hub IoT normalmente é executado na nuvem.
 
-1. Em outra janela de terminal local, navegue até a pasta raiz do projeto Java de exemplo. Em seguida, navegue até a pasta **iot-hub\Quickstarts\back-end-application** .
+1. Em outra janela de terminal local, navegue até a pasta raiz do projeto Java de exemplo. Em seguida, navegue até a pasta **iot-hub\Quickstarts\back-end-application**.
 
 2. Abra o arquivo **src/main/java/com/microsoft/docs/iothub/samples/BackEndApplication.java** em um editor de texto de sua escolha.
 
-    Substitua o valor da variável `iotHubConnectionString` pela cadeia de conexão do serviço que você anotou anteriormente. Salve suas alterações em **BackEndApplication.java** .
+    Substitua o valor da variável `iotHubConnectionString` pela cadeia de conexão do serviço que você anotou anteriormente. Salve suas alterações em **BackEndApplication.java**.
 
 3. Na janela de terminal local, execute os seguintes comandos para instalar as bibliotecas necessárias e compilar o aplicativo de back-end:
 

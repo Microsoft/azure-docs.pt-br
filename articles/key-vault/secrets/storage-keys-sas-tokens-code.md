@@ -9,19 +9,19 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0d2d28a525f38aad3f48e439992a23abde0b7718
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2a0202c5259ccebedf03ade217f57b6305b9fa1b
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786064"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444921"
 ---
 # <a name="create-sas-definition-and-fetch-shared-access-signature-tokens-in-code"></a>Criar definição SAS e buscar tokens de assinatura de acesso compartilhado no código
 
 Você pode gerenciar sua conta de armazenamento com tokens SAS (Assinatura de Acesso Compartilhado) armazenados no cofre de chaves. Para obter mais informações, confira [Permitir acesso limitado aos recursos do Armazenamento do Azure usando a SAS](../../storage/common/storage-sas-overview.md).
 
 > [!NOTE]
-> É recomendável usar o [RBAC (Controle de Acesso Baseado em Função)](../../storage/common/storage-auth-aad.md) para proteger a sua conta de armazenamento com segurança superior e com facilidade de uso da autorização de Chave Compartilhada.
+> É recomendável usar o [Azure RBAC (controle de acesso baseado em função)](../../storage/common/storage-auth-aad.md) para proteger a sua conta de armazenamento com segurança superior e com facilidade de uso da autorização de Chave Compartilhada.
 
 Este artigo fornece exemplos de código .NET que cria uma definição de SAS e busca tokens SAS. Confira nosso exemplo de [ShareLink](/samples/azure/azure-sdk-for-net/share-link/) para obter detalhes completos, incluindo o cliente gerado para contas de armazenamento gerenciadas pelo Key Vault. Para obter informações sobre como criar e armazenar tokens SAS, confira [Gerenciar chaves de conta de armazenamento com o Key Vault e a CLI do Azure](overview-storage-keys.md) ou [Gerenciar chaves de conta de armazenamento com o Key Vault e o Azure PowerShell](overview-storage-keys-powershell.md).
 

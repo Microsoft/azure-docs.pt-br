@@ -6,11 +6,11 @@ manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
 ms.openlocfilehash: dc14334668b76ee8cbb81e48abfe1eecf17fa138
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86130402"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007351"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Solucionar problemas de replicação na recuperação de desastre de VM do Azure
 
@@ -35,7 +35,7 @@ Você deve ver a taxa de alteração de dados do evento **além dos limites com 
 
 Se você selecionar o evento, deverá ver as informações exatas do disco:
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png" alt-text="Azure Site Recovery página que mostra uma alta taxa de alteração de dados que é muito alta.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png" alt-text="Página que mostra os detalhes do evento de taxa de alteração de dados.":::
 
 ### <a name="azure-site-recovery-limits"></a>Limites da Azure Site Recovery
 
@@ -56,7 +56,7 @@ Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou maior |20 MB/s | 1\.684 GB por
 
 Azure Site Recovery tem limites de taxas de alteração de dados, dependendo do tipo de disco. Para ver se esse problema é recorrente ou temporário, localize a taxa de alteração de dados da máquina virtual afetada. Acesse a máquina virtual de origem, localize as métricas em **Monitoramento** e adicione-as conforme mostrado nesta captura de tela:
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/churn.png" alt-text="Azure Site Recovery página que mostra uma alta taxa de alteração de dados que é muito alta.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/churn.png" alt-text="Página que mostra o processo de três etapas para localizar a taxa de alteração de dados.":::
 
 1. Selecione **Adicionar métrica** e adicione **Bytes de gravação de disco do sistema operacional/s** e **Bytes de gravação de disco de dados/s**.
 1. Monitore o pico, conforme mostrado na captura de tela.

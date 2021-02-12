@@ -11,18 +11,18 @@ ms.topic: reference
 ms.date: 10/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 39b61815c33f933e0cdf08bd46382e74eea2f806
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 682b83d7016a89b27b5c936853abda1438f59c28
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040464"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508009"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre resolvedores de declaração em políticas personalizadas do Azure Active Directory B2C
 
 Os resolvedores de declaração em [políticas personalizadas](custom-policy-overview.md) de Azure Active Directory B2C (Azure ad B2C) fornecem informações de contexto sobre uma solicitação de autorização, como o nome da política, ID de correlação de solicitação, idioma da interface do usuário e muito mais.
 
-Para usar um resolvedor de declaração em uma declaração de entrada ou saída, você define uma cadeia de caracteres **ClaimType** , no elemento [ClaimsSchema](claimsschema.md) e, em seguida, define **DefaultValue** como o resolvedor de declaração no elemento de declaração de entrada ou saída. O Azure AD B2C lê o valor do resolvedor de declaração e usa o valor no perfil técnico.
+Para usar um resolvedor de declaração em uma declaração de entrada ou saída, você define uma cadeia de caracteres **ClaimType**, no elemento [ClaimsSchema](claimsschema.md) e, em seguida, define **DefaultValue** como o resolvedor de declaração no elemento de declaração de entrada ou saída. O Azure AD B2C lê o valor do resolvedor de declaração e usa o valor no perfil técnico.
 
 No exemplo a seguir, um tipo de declaração denominado `correlationId` é definido com um **DataType** de `string`.
 
@@ -50,8 +50,8 @@ As seções a seguir listam os resolvedores de declarações disponíveis.
 | ----- | ----------- | --------|
 | {Culture:LanguageName} | As duas letras do código ISO para o idioma. | en |
 | {Culture:LCID}   | O LCID do código de idioma. | 1046 |
-| {Culture:RegionName} | As duas letras do código ISO para a região. | EUA |
-| {Culture:RFC5646} | O código de idioma RFC5646. | pt-BR |
+| {Culture:RegionName} | As duas letras do código ISO para a região. | US |
+| {Culture:RFC5646} | O código de idioma RFC5646. | en-US |
 
 ### <a name="policy"></a>Política
 
@@ -88,7 +88,7 @@ As seções a seguir listam os resolvedores de declarações disponíveis.
 | {Context:DateTimeInUtc} |A data e hora em UTC.  | 10/10/2018 12:00:00 PM |
 | {Context:DeploymentMode} |O modo de implantação de política.  | Produção |
 | {Context:IPAddress} | O endereço IP do usuário. | 11.111.111.11 |
-| {Context: KMSI} | Indica se a caixa [de seleção manter-me conectado](custom-policy-keep-me-signed-in.md) está marcada. |  true |
+| {Context: KMSI} | Indica se a caixa [de seleção manter-me conectado](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) está marcada. |  true |
 
 ### <a name="claims"></a>Declarações 
 
@@ -185,7 +185,7 @@ Usando resolvedores de declaração, você pode preencher previamente o nome de 
 
 ### <a name="dynamic-ui-customization"></a>Personalização de interface do usuário dinâmica
 
-Azure AD B2C permite passar parâmetros de cadeia de caracteres de consulta para seus pontos de extremidade de definição de conteúdo HTML para renderizar dinamicamente o conteúdo da página. Por exemplo, esse recurso permite a capacidade de modificar a imagem de plano de fundo na página Azure AD B2C inscrição ou entrada com base em um parâmetro personalizado que você passa de seu aplicativo Web ou móvel. Para obter mais informações, confira [Configurar dinamicamente a interface do usuário usando políticas personalizadas no Azure Active Directory B2C](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri). Você também pode localizar sua página HTML com base em um parâmetro de idioma, ou pode alterar o conteúdo com base na ID do cliente.
+Azure AD B2C permite passar parâmetros de cadeia de caracteres de consulta para seus pontos de extremidade de definição de conteúdo HTML para renderizar dinamicamente o conteúdo da página. Por exemplo, esse recurso permite a capacidade de modificar a imagem de plano de fundo na página Azure AD B2C inscrição ou entrada com base em um parâmetro personalizado que você passa de seu aplicativo Web ou móvel. Para obter mais informações, confira [Configurar dinamicamente a interface do usuário usando políticas personalizadas no Azure Active Directory B2C](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri). Você também pode localizar sua página HTML com base em um parâmetro de idioma, ou pode alterar o conteúdo com base na ID do cliente.
 
 O exemplo a seguir passa o parâmetro de cadeia de caracteres de consulta chamado **campaignid** com um valor de `Hawaii` , um código de **idioma** `en-US` , e o **aplicativo** que representa a ID do cliente:
 

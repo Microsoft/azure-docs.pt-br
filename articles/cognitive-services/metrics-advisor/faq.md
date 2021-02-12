@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 10/15/2020
+ms.date: 11/05/2020
 ms.author: mbullwin
-ms.openlocfilehash: da4dc3579630d641fcbc1d4321b56de0cc09d555
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 0c4c296cb1454ed89eef102732533589b1c8ca0d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92893570"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420947"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>Perguntas frequentes do assistente de métricas
 
@@ -88,7 +88,7 @@ Certifique-se de usar a granularidade correta para sua série temporal. Para uma
 
 Observe que essas consultas retornam apenas dados em um único carimbo de data/hora e contêm todas as combinações de dimensões a serem ingeridas pelo Orientador de métricas. 
 
-:::image type="content" source="media/query-result.png" alt-text="Mensagem quando um recurso F0 já existe" lightbox="media/query-result.png":::
+:::image type="content" source="media/query-result.png" alt-text="Um resultado de consulta com um carimbo de data/hora" lightbox="media/query-result.png":::
 
 
 ### <a name="how-do-i-detect-spikes--dips-as-anomalies"></a>Como fazer detectar picos & DIPs como anomalias?
@@ -104,6 +104,19 @@ Se não houver limites, você poderá usar a "detecção inteligente", que é al
 
 Se seus dados normalmente estiverem muito instáveis e flutuar muito e você quiser ser alertado quando ficar muito estável ou se se tornar uma linha simples, o "limite de alteração" poderá ser configurado para detectar esses pontos de dados quando a alteração for muito pequena.
 Veja [as configurações de detecção de anomalias](how-tos/configure-metrics.md#anomaly-detection-methods) para obter detalhes.
+
+### <a name="how-to-set-up-email-settings-and-enable-alerting-by-email"></a>Como definir configurações de email e habilitar alertas por email?
+
+1.  Um usuário com privilégios de administrador de assinatura ou grupo de recursos precisa navegar até o recurso do supervisor de métricas criado no portal do Azure e selecionar a guia **controle de acesso (iam)** . 
+2.  Selecione **Adicionar atribuições de função**
+3.  Escolha uma função de **administrador do Orientador de métricas de serviços cognitivas** , selecione sua conta como na imagem abaixo.
+4.  Clique no botão **salvar** e você foi adicionado com êxito como administrador do recurso do assistente de métricas. Observe que todas as ações acima precisam ser executadas pelo administrador da assinatura ou pelo administrador do grupo de recursos. 
+
+:::image type="content" source="media/access-control.png" alt-text="Página de menu de controle de acesso (IAM) com adicionar uma atribuição de função selecionada, seguida por uma caixa com atribuir acesso ao usuário selecionado exibido com uma função de acesso de administrador de métricas de serviços cognitivas, seguido pelo botão salvar da interface do usuário que está sendo selecionada para ilustrar as etapas de pesquisa de um usuário e adição de um nível específico de permissões de acesso." lightbox="media/access-control.png":::
+
+
+5.  Pode levar até um minuto para que as permissões se propaguem. Em seguida, selecione o espaço de trabalho do supervisor de métricas e selecione a opção de **configuração email** no painel de navegação esquerdo. Preencha os itens necessários, especialmente as informações relacionadas ao SMTP. 
+6.  Selecione **salvar** e, em seguida, você estará pronto para a configuração de email. Você pode criar novos ganchos e assinar anomalias de métricas para alertas quase em tempo real. 
 
 ## <a name="advanced-concepts"></a>Conceitos avançados
 
@@ -127,7 +140,7 @@ A partir do total `Response latency` , podemos fazer uma busca detalhada na mét
 
 No Orientador de métrica, os usuários podem especificar qualquer caminho que desejem fazer uma busca detalhada ou ROLLUP de um nó da topologia hierárquica. Mais precisamente, a topologia hierárquica é um grafo acíclico direcionado em vez de uma estrutura de árvore. Há uma topologia hierárquica completa que consiste em todas as combinações de dimensão em potencial, como esta: 
 
-:::image type="content" source="media/dimension-combinations-view.png" alt-text="Mensagem quando um recurso F0 já existe" lightbox="media/dimension-combinations-view.png":::
+:::image type="content" source="media/dimension-combinations-view.png" alt-text="diagrama de topologia hierárquica que consiste em vários vértices e bordas de interconexão com várias dimensões rotuladas S, DC e M com números correspondentes, variando de 1 a 6" lightbox="media/dimension-combinations-view.png":::
 
 Em teoria, se a dimensão `Service` tiver `Ls` valores distintos, a dimensão `Data center` tiver `Ldc` valores distintos e a dimensão `Machine` tiver `Lm` valores distintos, poderá haver `(Ls + 1) * (Ldc + 1) * (Lm + 1)` combinações de dimensões na topologia hierárquica. 
 

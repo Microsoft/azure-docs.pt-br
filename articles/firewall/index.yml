@@ -10,12 +10,12 @@ metadata:
   author: vhorne
   ms.author: victorh
   ms.date: 08/30/2019
-  ms.openlocfilehash: 28f591ba65a2e06900b84fe88815a12665fa3881
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 05898a0e0cd0dc5d97edca483d89f45960c26071
+  ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91400614"
+  ms.lasthandoff: 01/08/2021
+  ms.locfileid: "98046293"
 landingContent:
 - title: Saiba mais sobre o Firewall do Azure
   linkLists:
@@ -28,7 +28,7 @@ landingContent:
     - text: Lógica de processamento de regra do Firewall do Azure
       url: rule-processing.md
     - text: Perguntas frequentes
-      url: firewall-faq.md
+      url: firewall-faq.yml
   - linkListType: whats-new
     links:
     - text: Novidades

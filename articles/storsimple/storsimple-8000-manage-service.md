@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 73373f788a4a87a36a800d69ffcdc646f4cd2084
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66244bd8e24ff62be41df72f7a39c0ce0ed13135
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91249545"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360661"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Implantar o serviço do Gerenciador de Dispositivos do StorSimple para dispositivos StorSimple da série 8000
 
@@ -58,7 +58,7 @@ Execute as etapas a seguir para criar um serviço.
 Os atributos a seguir existem para cada serviço do Gerenciador de Dispositivos do StorSimple:
 
 * **Nome** – O nome que foi atribuído ao serviço do Gerenciador de Dispositivos do StorSimple quando ele foi criado. **O nome do serviço não pode ser alterado depois que o serviço é criado. Isso também é verdadeiro para outras entidades, como dispositivos, volumes, contêineres de volume e políticas de backup que não podem ser renomeadas no portal do Azure.**
-* **Status** - O status de um dispositivo, que pode ser **Ativo**, **Em criação**, ou **Online**.
+* **Status** - O status de um dispositivo, que pode ser **Ativo** , **Em criação** , ou **Online**.
 * **Local** : a localização geográfica em que o dispositivo StorSimple será implantado.
 * **Assinatura** - A assinatura de cobrança que está associada com seu serviço.
 
@@ -103,14 +103,14 @@ Você precisará regenerar uma chave de registro do serviço se for necessário 
 Execute as etapas a seguir para regenerar uma chave de registro de serviço.
 
 ### <a name="to-regenerate-the-service-registration-key"></a>Para regenerar a chave de registro de serviço
-1. No **Gerenciador de Dispositivo do StorSimple**, acesse **Gerenciamento&gt;** **Chaves**.
+1. No **Gerenciador de Dispositivo do StorSimple** , acesse **Gerenciamento&gt;** **Chaves**.
     
-    ![Folha Chaves](./media/storsimple-8000-manage-service/regenregkey2.png)
+    ![Ir para a folha chaves](./media/storsimple-8000-manage-service/regenregkey2.png)
 
-2. Na folha **Chaves**, clique em **Regenerar**.
+2. Na folha **Chaves** , clique em **Regenerar**.
 
     ![Clique em regenerar](./media/storsimple-8000-manage-service/regenregkey3.png)
-3. Na folha **Regenerar chave de registro do serviço**, revise a ação necessária quando as chaves forem geradas novamente. Todos os dispositivos subsequentes registrados com esse serviço usarão a nova chave de Registro. Clique em **Regenerar** para confirmar. Você será notificado quando a regeneração for concluída.
+3. Na folha **Regenerar chave de registro do serviço** , revise a ação necessária quando as chaves forem geradas novamente. Todos os dispositivos subsequentes registrados com esse serviço usarão a nova chave de Registro. Clique em **Regenerar** para confirmar. Você será notificado quando a regeneração for concluída.
 
     ![Confirmar a regeneração](./media/storsimple-8000-manage-service/regenregkey4.png)
 
@@ -191,23 +191,23 @@ No Portal do Azure, há suporte apenas para dispositivos StorSimple que executam
 
 | Operação                                                                                                                       | Com suporte      |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------|
-| Registrar um dispositivo                                                                                                               | Sim            |
-| Definir as configurações do dispositivo, tais como configurações gerais, de rede e de segurança                                                                | Sim            |
-| Examinar, baixar e instalar atualizações                                                                                             | Sim            |
-| Desativar um dispositivo                                                                                                               | Sim            |
-| Excluir um dispositivo                                                                                                                   | Sim            |
+| Registrar um dispositivo                                                                                                               | Yes            |
+| Definir as configurações do dispositivo, tais como configurações gerais, de rede e de segurança                                                                | Yes            |
+| Examinar, baixar e instalar atualizações                                                                                             | Yes            |
+| Desativar um dispositivo                                                                                                               | Yes            |
+| Excluir um dispositivo                                                                                                                   | Yes            |
 | Criar, modificar e excluir um contêiner de volume                                                                                   | Não             |
 | Criar, modificar e excluir um volume                                                                                             | Não             |
 | Criar, modificar e excluir uma política de backup                                                                                      | Não             |
 | Fazer um backup manual                                                                                                            | Não             |
 | Realizar um backup agendado                                                                                                         | Não aplicável |
 | Restaurar de um conjunto de backup                                                                                                        | Não             |
-| Clonar para um dispositivo que executa a Atualização 3.0 e posterior <br> O dispositivo de origem executa uma versão anterior à Atualização 3.0.                                | Sim            |
+| Clonar para um dispositivo que executa a Atualização 3.0 e posterior <br> O dispositivo de origem executa uma versão anterior à Atualização 3.0.                                | Yes            |
 | Clonar para um dispositivo que executa uma versão anterior à Atualização 3.0                                                                          | Não             |
-| Failover como dispositivo de origem <br> (de um dispositivo que executa uma versão anterior à Atualização 3.0 para um dispositivo que executa a Atualização 3.0 e posterior)                                                               | Sim            |
+| Failover como dispositivo de origem <br> (de um dispositivo que executa uma versão anterior à Atualização 3.0 para um dispositivo que executa a Atualização 3.0 e posterior)                                                               | Yes            |
 | Failover como dispositivo de destino <br> (para um dispositivo que executa uma versão de software anterior à Atualização 3.0)                                                                                   | Não             |
-| Limpar um alerta                                                                                                                  | Sim            |
-| Exibir políticas de backup, catálogo de backup, volumes, contêineres de volume, gráficos de monitoramento, trabalhos e alertas criados no portal clássico | Sim            |
+| Limpar um alerta                                                                                                                  | Yes            |
+| Exibir políticas de backup, catálogo de backup, volumes, contêineres de volume, gráficos de monitoramento, trabalhos e alertas criados no portal clássico | Yes            |
 | Ativar e desativar controladores de dispositivo                                                                                              | Sim            |
 
 

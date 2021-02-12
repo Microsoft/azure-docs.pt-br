@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 9ddfe3ea0d26a9032922423e7f2c2a2b6c3e411a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ca526b7ecbe20a54ec115521cdfbc93c713e0da
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295539"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360047"
 ---
 # <a name="input-metadata"></a>Metadados de entrada
 
@@ -65,7 +65,7 @@ Contém uma coleção de elementos AssetFile para o trabalho de codificação.
 
 ## <a name="videotracks"></a>VideoTracks
 
-| Nome |  | Descrição |
+| Nome | Descrição |
 | --- | --- |
 | **FourCC**<br />Obrigatório |Código FourCC do codec de vídeo relatado por ffmpeg.<br /><br />Exemplo: `"FourCC": "avc1"` |
 | **Perfil** |Perfil da faixa de vídeo. <br /><br />Exemplo: `"Profile": "Main"`|
@@ -112,8 +112,8 @@ Contém uma coleção de elementos AssetFile para o trabalho de codificação.
 
 | Nome | Descrição |
 | --- | --- |
-| **chave**<br />Obrigatório |A chave no par chave/valor. |
-| **value**<br /> Obrigatório |O valor do par chave/valor. |
+| **chave**<br />Obrigatório |A chave do par chave/valor. |
+| **value**<br /> Obrigatório |O valor no par chave/valor. |
 
 ## <a name="schema-example"></a>Exemplo de esquema
 

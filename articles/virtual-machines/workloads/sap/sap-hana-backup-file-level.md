@@ -7,17 +7,18 @@ author: hermanndms
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: 183273e6f93bbfda8ed4e5fe913192994a0b6ce2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70b0f8178a94735a6ef37a225044984508cc2233
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87833378"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617129"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>Backup do Azure do SAP HANA no nível do arquivo
 
@@ -27,7 +28,7 @@ Este artigo é um artigo relacionado ao [Guia de backup para SAP Hana em máquin
 
 Diferentes tipos de VM no Azure permitem que um número diferente de VHDs sejam anexados. Os detalhes exatos estão documentados em [Tamanhos de máquinas virtuais Linux no Azure](../../sizes.md). Para os testes mencionados nesta documentação, usamos uma VM do Azure GS5, que permite discos de dados anexados a 64. Para sistemas SAP HANA maiores, um número significativo de discos já pode estar ocupado com arquivos de log e de dados, possivelmente em combinação com a distribuição de software para obter a taxa de transferência de E/S de disco ideal. Para obter mais detalhes sobre as configurações de disco sugeridas para implantações de SAP HANA em VMs do Azure, leia o artigo [SAP Hana configurações de armazenamento de máquina virtual do Azure](./hana-vm-operations-storage.md). As sugestões também incluem recomendações de espaço em disco para backups locais.
 
-O modo padrão de gerenciamento de backup/restauração no nível do arquivo é com um backup baseado em arquivo via declarações do SAP HANA Studio ou do SAP HANA SQL. Para obter mais informações, leia o artigo [SAP Hana referência de exibições do SQL e do sistema](https://help.sap.com/hana/SAP_HANA_SQL_and_System_Views_Reference_en.pdf).
+O modo padrão de gerenciamento de backup/restauração no nível do arquivo é com um backup baseado em arquivo via declarações do SAP HANA Studio ou do SAP HANA SQL. Para obter mais informações, leia o artigo [SAP Hana referência de exibições do SQL e do sistema](https://help.sap.com/viewer/4fe29514fd584807ac9f2a04f6754767/2.0.05/en-US/3859e48180bb4cf8a207e15cf25a7e57.html).
 
 ![Esta figura mostra a caixa de diálogo do item de menu de backup no SAP HANA Studio](media/sap-hana-backup-file-level/backup-menue-dialog.png)
 

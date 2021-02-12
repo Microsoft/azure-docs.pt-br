@@ -11,12 +11,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: mbullwin
-ms.openlocfilehash: 8ef5d8e049ac4a779d5139945bf1073f38eb434c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0982f89d59f2ef9a282a46a93b98801b9df00a40
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017651"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368705"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Tutorial: Detecção de anomalias nos dados de streaming usando o Azure Databricks
 
@@ -47,7 +47,7 @@ Crie uma [assinatura do Azure](https://azure.microsoft.com/free/cognitive-servic
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Um [namespace dos Hubs de Eventos do Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) e um hub de eventos.
+- Um [namespace dos Hubs de Eventos do Azure](../../../event-hubs/event-hubs-create.md) e um hub de eventos.
 
 - A [cadeia de conexão](../../../event-hubs/event-hubs-get-connection-string.md) para acessar o namespace dos Hubs de Eventos. A cadeia de conexão deve ter um formato semelhante a:
 
@@ -65,7 +65,7 @@ Nesta seção, você criará um workspace do Azure Databricks usando o [portal d
 
     ![O Azure Databricks no portal](../media/tutorials/azure-databricks-on-portal.png "Databricks no portal do Azure")
 
-3. Em **Serviço do Azure Databricks**, forneça os valores a seguir para criar um workspace do Databricks:
+3. Em **Serviço do Azure Databricks** , forneça os valores a seguir para criar um workspace do Databricks:
 
 
     |Propriedade  |Descrição  |
@@ -88,7 +88,7 @@ Nesta seção, você criará um workspace do Azure Databricks usando o [portal d
 
     ![Databricks no Azure](../media/tutorials/databricks-on-azure.png "Databricks no Azure")
 
-3. Na página **Novo Cluster**, forneça os valores para criar um cluster.
+3. Na página **Novo Cluster** , forneça os valores para criar um cluster.
 
     ![Criar um cluster Spark do Databricks no Azure](../media/tutorials/create-databricks-spark-cluster.png "Criar um cluster Spark do Databricks no Azure")
 
@@ -109,7 +109,7 @@ Para receber uma transmissão de tweets, você deve criar um aplicativo no Twitt
 
     ![Criar um aplicativo do Twitter](../media/tutorials/databricks-create-twitter-app.png "Criar um aplicativo do Twitter")
 
-2. Na página **Criar um aplicativo**, forneça os detalhes para o novo aplicativo e selecione **Criar seu aplicativo do Twitter**.
+2. Na página **Criar um aplicativo** , forneça os detalhes para o novo aplicativo e selecione **Criar seu aplicativo do Twitter**.
 
     ![Detalhes do aplicativo do Twitter](../media/tutorials/databricks-provide-twitter-app-details.png "Detalhes do aplicativo do Twitter")
 
@@ -123,11 +123,11 @@ Salve os valores recuperados do aplicativo do Twitter. Mais tarde, você precisa
 
 Neste tutorial, você usará as APIs do Twitter para enviar tweets aos Hubs de Eventos. Também usará o [Conector de Hubs de Eventos do Apache Spark](https://github.com/Azure/azure-event-hubs-spark) para ler e gravar dados nos Hubs de Eventos do Azure. Para usar essas APIs como parte do cluster, adicione-as como bibliotecas do Azure Databricks, depois as associe ao seu cluster Spark. As instruções a seguir mostram como adicionar as bibliotecas à pasta **Compartilhada** no workspace.
 
-1. No workspace do Azure Databricks, selecione **Workspace**, depois clique com botão direito do mouse em **Compartilhado**. No menu de contexto, selecione **Criar** > **Biblioteca**.
+1. No workspace do Azure Databricks, selecione **Workspace** , depois clique com botão direito do mouse em **Compartilhado**. No menu de contexto, selecione **Criar** > **Biblioteca**.
 
    ![Caixa de diálogo Adicionar biblioteca](../media/tutorials/databricks-add-library-option.png "Caixa de diálogo Adicionar biblioteca")
 
-2. Na página Nova Biblioteca, em **Fonte**, selecione **Maven**. Em **Coordenadas**, insira a coordenada do pacote que deseja adicionar. Estas são as coordenadas Maven para as bibliotecas usadas neste tutorial:
+2. Na página Nova Biblioteca, em **Fonte** , selecione **Maven**. Em **Coordenadas** , insira a coordenada do pacote que deseja adicionar. Estas são as coordenadas Maven para as bibliotecas usadas neste tutorial:
 
    * Conector dos Hubs de Eventos do Spark – `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
    * API do Twitter – `org.twitter4j:twitter4j-core:4.0.7`
@@ -159,7 +159,7 @@ Neste tutorial, você usará as [APIs do Detector de Anomalias dos Serviços Cog
 
     ![Criar um recurso do Detector de Anomalias](../media/tutorials/databricks-cognitive-services-anomaly-detector.png "Criar um recurso do Detector de Anomalias")
 
-4. Na caixa de diálogo **Criar**, forneça os seguintes valores:
+4. Na caixa de diálogo **Criar** , forneça os seguintes valores:
 
     |Valor |Descrição  |
     |---------|---------|
@@ -172,11 +172,11 @@ Neste tutorial, você usará as [APIs do Detector de Anomalias dos Serviços Cog
 
      Selecione **Criar**.
 
-5. Depois que o recurso for criado, na guia **Visão Geral**, copie e salve a URL do **ponto de extremidade**, conforme mostrado na captura de tela. Em seguida, selecione **Mostrar chaves de acesso**.
+5. Depois que o recurso for criado, na guia **Visão Geral** , copie e salve a URL do **ponto de extremidade** , conforme mostrado na captura de tela. Em seguida, selecione **Mostrar chaves de acesso**.
 
     ![Mostrar chaves de acesso](../media/tutorials/cognitive-services-get-access-keys.png "Mostrar chaves de acesso")
 
-6. Em **Chaves**, selecione o ícone de cópia na chave que deseja usar. Salve a chave de acesso.
+6. Em **Chaves** , selecione o ícone de cópia na chave que deseja usar. Salve a chave de acesso.
 
     ![Copiar chaves de acesso](../media/tutorials/cognitive-services-copy-access-keys.png "Copiar chaves de acesso")
 
@@ -187,11 +187,11 @@ Nesta seção, você criará dois blocos de notas no workspace do Databricks com
 - **SendTweetsToEventHub** – um bloco de notas de produtor que você usa para obter tweets do Twitter e transmiti-los para Hubs de Eventos.
 - **AnalyzeTweetsFromEventHub** – um notebook do consumidor usado para ler os tweets dos Hubs de Eventos e executar a detecção de anomalias.
 
-1. No workspace do Azure Databricks, selecione **Workspace** no painel esquerdo. Na lista suspensa **Workspace**, selecione **Criar**e selecione **Bloco de Anotações**.
+1. No workspace do Azure Databricks, selecione **Workspace** no painel esquerdo. Na lista suspensa **Workspace** , selecione **Criar** e selecione **Bloco de Anotações**.
 
     ![Criar notebook no Databricks](../media/tutorials/databricks-create-notebook.png "Criar notebook no Databricks")
 
-2. Na caixa de diálogo **Criar Notebook**, insira **SendTweetsToEventHub** como o nome, selecione **Scala** como a linguagem e selecione o cluster Spark criado anteriormente.
+2. Na caixa de diálogo **Criar Notebook** , insira **SendTweetsToEventHub** como o nome, selecione **Scala** como a linguagem e selecione o cluster Spark criado anteriormente.
 
     ![Detalhes do notebook](../media/tutorials/databricks-notebook-details.png "Criar notebook no Databricks")
 
@@ -201,7 +201,7 @@ Nesta seção, você criará dois blocos de notas no workspace do Databricks com
 
 ## <a name="send-tweets-to-event-hubs"></a>Enviar tweets para Hubs de Eventos
 
-No notebook **SendTweetsToEventHub**, cole o código a seguir e substitua o espaço reservado por valores do namespace de Hubs de Eventos e do aplicativo do Twitter criado anteriormente. Esse notebook extrai a hora de criação e o número de "Curtidas" de tweets com a palavra-chave "Azure" e transmite-os como eventos nos Hubs de Eventos em tempo real.
+No notebook **SendTweetsToEventHub** , cole o código a seguir e substitua o espaço reservado por valores do namespace de Hubs de Eventos e do aplicativo do Twitter criado anteriormente. Esse notebook extrai a hora de criação e o número de "Curtidas" de tweets com a palavra-chave "Azure" e transmite-os como eventos nos Hubs de Eventos em tempo real.
 
 ```scala
 //
@@ -323,7 +323,7 @@ Para executar o bloco de notas, pressione **SHIFT+ENTER**. Você verá uma saíd
 
 ## <a name="read-tweets-from-event-hubs"></a>Ler tweets de Hubs de Eventos
 
-No notebook **AnalyzeTweetsFromEventHub**, cole o código a seguir e substitua o espaço reservado por valores do recurso do Detector de Anomalias criado anteriormente. Este bloco de anotações lê os tweets transmitidos anteriormente aos Hubs de Eventos usando o bloco de anotações  **SendTweetsToEventHub**.
+No notebook **AnalyzeTweetsFromEventHub** , cole o código a seguir e substitua o espaço reservado por valores do recurso do Detector de Anomalias criado anteriormente. Este bloco de anotações lê os tweets transmitidos anteriormente aos Hubs de Eventos usando o bloco de anotações  **SendTweetsToEventHub**.
 
 Primeiro, escreva um cliente para chamar o Detector de Anomalias.
 ```scala
@@ -684,7 +684,7 @@ Embora, neste tutorial, a granularidade seja por hora, você sempre poderá alte
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Depois de terminar de executar o tutorial, você poderá encerrar o cluster. Para fazer isso, no workspace do Azure Databricks, selecione **Clusters** no painel esquerdo. No cluster que deseja terminar, mova o cursor sobre as reticências na coluna **Ações**, selecione o ícone **Terminar** e, em seguida, selecione **Confirmar**.
+Depois de terminar de executar o tutorial, você poderá encerrar o cluster. Para fazer isso, no workspace do Azure Databricks, selecione **Clusters** no painel esquerdo. No cluster que deseja terminar, mova o cursor sobre as reticências na coluna **Ações** , selecione o ícone **Terminar** e, em seguida, selecione **Confirmar**.
 
 ![Interromper um cluster Databricks](../media/tutorials/terminate-databricks-cluster.png "Interromper um cluster Databricks")
 

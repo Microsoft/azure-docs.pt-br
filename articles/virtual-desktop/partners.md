@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9e5b9017854465724724638bfe5d32783a031030
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e116c590e07ffcdb1b7c8ae2e30b2e76bb909bff
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056366"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802704"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrações de parceiros de área de trabalho virtual do Windows
 
@@ -62,7 +62,7 @@ Quando estiver pronto para a inicialização, você poderá usar todos os script
 O Automai permite que você use os mesmos scripts para testes de desempenho, testes funcionais, monitoramento de desempenho e até mesmo automação de processo robótica, tudo em uma plataforma.
 
 - [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B76N).
-- [Acesse o site do parceiro](https://www.automai.com/wvd-testing-monitoring?hs_preview=EyZXkOWu-30742040580).
+- [Acesse o site do parceiro](https://www.automai.com/windows-virtual-desktop-performance-testing/).
 
 ## <a name="cloudhouse"></a>Cloudhouse
 
@@ -114,7 +114,7 @@ deviceTRUST é um provedor de serviços de valor agregado da área de trabalho v
 
 deviceTRUST estende o valor da área de trabalho virtual do Windows com sua tecnologia de segurança contextual. o deviceTRUST habilita o acesso condicional para um acesso de área de trabalho virtual seguro do Windows, acesso condicional a aplicativos na área de trabalho virtual do Windows e aplica políticas condicionais de área de trabalho virtual do Windows sem nenhuma infraestrutura adicional. O uso do deviceTRUST permite um espaço de trabalho móvel e flexível que atende a todos os requisitos de segurança, conformidade e regulamentação.
 
-- [Acesse o site do parceiro](https://devicetrust.com/wvd).
+- [Acesse o site do parceiro](https://devicetrust.com/).
 
 ## <a name="ekran-system"></a>Sistema ekran
 
@@ -350,7 +350,7 @@ SSH2 é um provedor de serviços de valor agregado da área de trabalho virtual 
 o appCURE captura detalhes do aplicativo da execução de aplicativos para garantir que todos os pontos que possam afetar os aplicativos do usuário final sejam compreendidos. em seguida, o appCURE atualiza e entrega para sua nova área de trabalho virtual do Windows. Ao capturar todos os pontos de integração do aplicativo em seu ambiente atual, o appCURE fornece a velocidade para otimizar os recursos de ti e planejar suas migrações melhor e mais rápido do que nunca, permitindo, assim, que as organizações cheguem mais rapidamente à produção.
 
 - [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4Fs38).
-- [Acesse a página do parceiro](https://www.ssh2.xyz/windows-virtual-desktop/).
+- [Acesse a página do parceiro](#ssh2).
 
 ## <a name="thinprint"></a>ThinPrint
 

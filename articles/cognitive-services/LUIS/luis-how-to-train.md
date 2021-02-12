@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/15/2019
-ms.openlocfilehash: a53857061110d5a77ac3d166277e7076f4f7f9c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47b006932aace3149dd94e136e334c1b6e5bfcef
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541366"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762692"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>Treinar sua versão ativa do aplicativo LUIS
 
@@ -40,9 +40,15 @@ A data e a hora de treinamento são GMT + 2.
 
 ## <a name="train-with-all-data"></a>Treinar com todos os dados
 
-O treinamento usa um pequeno percentual de amostragem negativa. Se você quiser usar todos os dados em vez da pequena amostragem negativa, use a [API](#version-settings-api-use-of-usealltrainingdata).
+O treinamento usa um pequeno percentual de amostragem negativa. Você pode usar todos os dados disponíveis em vez disso usando o portal ou a API. 
 
-### <a name="version-settings-api-use-of-usealltrainingdata"></a>Configurações de versão uso da API de UseAllTrainingData
+### <a name="using-the-luis-portal"></a>Usando o portal do LUIS
+
+Faça logon no [portal do Luis](https://www.luis.ai/) e clique em seu aplicativo. Selecione **gerenciar** na parte superior da tela e, em seguida, selecione **configurações** e habilite ou desabilite a opção de **treinamento de uso determinístico** . Quando desabilitado, o treinamento usará todos os dados disponíveis.
+
+![Um botão para habilitar ou desabilitar o treinamento não determinístico](./media/non-determinstic-training.png)
+
+### <a name="using-the-version-settings-api"></a>Usando a API de configurações de versão
 
 Use a [API de configurações de versão](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) com o `UseAllTrainingData` definido como true para desativar esse recurso.
 
@@ -52,7 +58,7 @@ Não é preciso treinar após cada alteração. O treinamento deve ser feito dep
 
 ## <a name="training-with-the-rest-apis"></a>Trenamento com as APIs REST
 
-O treinamento no portal do LUIS é uma etapa única para pressionar o botão**Treinar**. Treinamento com as APIs REST é um processo de duas etapas. A primeira é [solicitar treinamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45) com HTTP POST. Em seguida, solicite o [status de treinamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) com HTTP Get.
+O treinamento no portal do LUIS é uma etapa única para pressionar o botão **Treinar**. Treinamento com as APIs REST é um processo de duas etapas. A primeira é [solicitar treinamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45) com HTTP POST. Em seguida, solicite o [status de treinamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) com HTTP Get.
 
 Para saber quando o treinamento está concluído, você precisa sondar o status até que todos os modelos sejam treinados com êxito.
 

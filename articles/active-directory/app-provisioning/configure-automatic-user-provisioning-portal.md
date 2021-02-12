@@ -4,20 +4,20 @@ description: Saiba como gerenciar o provisionamento de contas de usuário para a
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 02/04/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 9c42a83b4f7f3c6b5ff501525a04ebd96c2a692a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02d415bd957b0490857081b996c592f90365f031
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88234832"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555620"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gerenciamento de provisionamento de conta de usuário para aplicativos empresariais no Portal do Azure
 
@@ -63,7 +63,7 @@ Selecione **Testar Conexão** para testar as credenciais, fazendo com que o Azur
 
 Expanda **Mapeamentos** para exibir e editar os atributos de usuário que fluem entre o Azure AD e o aplicativo de destino quando as contas de usuário são provisionadas ou atualizadas.
 
-Há um conjunto predefinido de mapeamentos entre os objetos de usuário do Azure AD e os objetos de usuário de cada aplicativo SaaS. Alguns aplicativos gerenciam outros tipos de objetos, como grupos ou contatos. Selecione um mapeamento na tabela para abrir o editor de mapeamento à direita, onde é possível exibi-los e personalizá-los.
+Há um conjunto predefinido de mapeamentos entre os objetos de usuário do Azure AD e os objetos de usuário de cada aplicativo SaaS. Alguns aplicativos também gerenciam objetos de grupo. Selecione um mapeamento na tabela para abrir o editor de mapeamento à direita, onde é possível exibi-los e personalizá-los.
 
 ![Mostra a tela Mapeamento de Atributo](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
 

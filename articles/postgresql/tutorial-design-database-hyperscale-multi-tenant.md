@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: 2939b3b3beac55b537c1dcf844f702a0ad73f06e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d8dee086f55c5596af50245b5271d98536eb7e57
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478602"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026192"
 ---
 # <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Tutorial: criar um banco de dados multilocatário usando o Banco de Dados do Azure para PostgreSQL – Hiperescala (Citus)
 
@@ -276,4 +276,4 @@ Nas etapas anteriores, você criou recursos do Azure em um grupo de servidores. 
 Neste tutorial, você aprendeu a provisionar um grupo de servidores Hyperscale (Citus). Você conectou ele com o psql, criou um esquema e distribuiu dados. Você aprendeu a consultar dados de dentro e entre locatários, além de personalizar o esquema por locatário.
 
 - Saiba mais sobre os [tipos de nó](./concepts-hyperscale-nodes.md) do grupo de servidores
-- Determinar o melhor [tamanho inicial](howto-hyperscale-scaling.md#picking-initial-size) para seu grupo de servidores
+- Determinar o melhor [tamanho inicial](howto-hyperscale-scale-initial.md) para seu grupo de servidores

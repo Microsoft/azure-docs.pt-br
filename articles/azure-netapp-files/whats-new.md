@@ -12,18 +12,38 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/30/2020
+ms.date: 12/04/2020
 ms.author: b-juche
-ms.openlocfilehash: 56ae3ac1331ed054a1fb808ae06e990b67c06bae
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: bba3dce2a2a18888cb88f4cf8b33cd48d6a4cd69
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932406"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631152"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Novidades do Azure NetApp Files
 
 O Azure NetApp Files é atualizado regularmente. Este artigo mostra um resumo dos novos recursos mais recentes e de melhorias. 
+
+## <a name="december-2020"></a>Dezembro de 2020
+
+* [Ferramenta de Instantâneo Consistente do Aplicativo Azure](azacsnap-introduction.md) (versão prévia pública)    
+
+    O AzAcSnap (Ferramenta de Instantâneo Consistente do Aplicativo Azure) é uma ferramenta de linha de comando que permite simplificar a proteção de dados para bancos de dados de terceiros (SAP HANA) em ambientes do Linux (por exemplo, SUSE e RHEL).   
+
+    O AzAcSnap aproveita as funcionalidades de replicação e instantâneo de volume do Azure NetApp Files e da Instância Grande do Azure. Ele oferece os seguintes benefícios:
+
+    * Proteção de dados consistente com o aplicativo 
+    * Gerenciamento de catálogo do banco de dados 
+    * Proteção *ad hoc* de volume 
+    * Clonagem de volumes de armazenamento 
+    * Suporte para recuperação de desastre 
+
+## <a name="november-2020"></a>Novembro de 2020
+
+* [Reversão de instantâneo](azure-netapp-files-manage-snapshots.md#revert-a-volume-using-snapshot-revert)
+
+    A funcionalidade de reversão de instantâneo permite que você reverta rapidamente um volume para o estado em que ele estava quando um determinado instantâneo foi tomado. Na maioria dos casos, reverter um volume é muito mais rápido do que restaurar arquivos individuais de um instantâneo para o sistema de arquivos ativo. Também é mais eficiente em termos de espaço em comparação com a restauração de um instantâneo para um novo volume.
 
 ## <a name="september-2020"></a>Setembro de 2020
 

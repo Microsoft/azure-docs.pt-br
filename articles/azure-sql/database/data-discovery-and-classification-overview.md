@@ -11,24 +11,24 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 09/21/2020
+ms.date: 12/01/2020
 tags: azure-synapse
-ms.openlocfilehash: ab974b0f68e831e672329f8af5ae1cb6a5fdbd4c
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 41ad711de81f075727e4c177c318054677cb0ece
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672080"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185344"
 ---
 # <a name="data-discovery--classification"></a>Descoberta e Classificação de Dados
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-A descoberta de dados & classificação é incorporada ao banco de dado SQL do Azure, SQL Instância Gerenciada do Azure e Azure Synapse Analytics. Ele fornece recursos avançados para descobrir, classificar, rotular e relatar os dados confidenciais em seus bancos de dado.
+A descoberta de dados & classificação é incorporada ao banco de dado SQL do Azure, SQL Instância Gerenciada do Azure e Azure Synapse Analytics. Ele fornece recursos básicos para descobrir, classificar, rotular e relatar os dados confidenciais em seus bancos de dado.
 
 Seus dados mais confidenciais podem incluir informações comerciais, financeiras, de saúde ou pessoais. Descobrir e classificar esses dados pode desempenhar uma função dinâmica na abordagem de proteção de informações da sua organização. Isso pode servir como infraestrutura para:
 
 - Ajudando a atender aos padrões de privacidade de dados e requisitos de conformidade regulatória.
-- Vários cenários de segurança, como monitoramento (auditoria) e alertas sobre acesso anômalo a dados confidenciais.
+- Vários cenários de segurança, como o monitoramento (auditoria) de acesso a dados confidenciais.
 - Controlando o acesso e protegendo a segurança de bancos de dados que contêm um dado altamente confidencial.
 
 > [!NOTE]
@@ -36,11 +36,11 @@ Seus dados mais confidenciais podem incluir informações comerciais, financeira
 
 ## <a name="what-is-data-discovery--classification"></a><a id="what-is-dc"></a>O que é a descoberta de dados & classificação?
 
-A classificação de & de descoberta de dados apresenta um conjunto de serviços avançados e novos recursos no Azure. Ele forma um novo paradigma de proteção de informações para o banco de dados SQL, o SQL Instância Gerenciada e o Azure Synapse, destinado à proteção dos mesmos, e não apenas ao banco. O paradigma inclui:
+A classificação de & de descoberta de dados apresenta um conjunto de serviços básicos e novos recursos no Azure. Ele forma um novo paradigma de proteção de informações para o banco de dados SQL, o SQL Instância Gerenciada e o Azure Synapse, destinado à proteção dos mesmos, e não apenas ao banco. O paradigma inclui:
 
 - **Descoberta e recomendações:** O mecanismo de classificação verifica seu banco de dados e identifica as colunas que contenham informações potencialmente confidenciais. Em seguida, ele fornece uma maneira fácil de revisar e aplicar a classificação recomendada por meio do portal do Azure.
 
-- **Rotulagem:** Você pode aplicar rótulos de classificação de sensibilidade persistentemente a colunas usando novos atributos de metadados que foram adicionados ao mecanismo de banco de dados SQL Server. Esses metadados podem então ser usados para cenários de proteção e auditoria avançada e baseada em sensibilidade.
+- **Rotulagem:** Você pode aplicar rótulos de classificação de sensibilidade persistentemente a colunas usando novos atributos de metadados que foram adicionados ao mecanismo de banco de dados SQL Server. Esses metadados podem ser usados para cenários de proteção e auditoria baseados em sensibilidade.
 
 - **Sensibilidade do conjunto de resultados da consulta:** A sensibilidade de um conjunto de resultados de consulta é calculada em tempo real para fins de auditoria.
 
@@ -55,8 +55,8 @@ Esta seção descreve as etapas para:
 
 A classificação inclui dois atributos de metadados:
 
-- **Rótulos** : os principais atributos de classificação, usados para definir o nível de sensibilidade dos dados armazenados na coluna.  
-- **Tipos de informações** : atributos que fornecem informações mais granulares sobre o tipo de dados armazenados na coluna.
+- **Rótulos**: os principais atributos de classificação, usados para definir o nível de sensibilidade dos dados armazenados na coluna.  
+- **Tipos de informações**: atributos que fornecem informações mais granulares sobre o tipo de dados armazenados na coluna.
 
 ### <a name="define-and-customize-your-classification-taxonomy"></a>Definir e personalizar sua taxonomia de classificação
 
@@ -77,7 +77,9 @@ Depois que a política de toda a organização tiver sido definida, você poder�
 
 1. Vá para o [Portal do Azure](https://portal.azure.com).
 
-1. Vá para **descoberta de dados & classificação** no título segurança em seu painel de banco de dados SQL do Azure. A guia Visão geral inclui um resumo do estado de classificação atual do banco de dados. O resumo inclui uma lista detalhada de todas as colunas classificadas, que você também pode filtrar para mostrar apenas partes de esquema, tipos de informações e rótulos específicos. Se você ainda não classificou nenhuma coluna, [pule para a etapa 4](#step-4).
+1. Vá para **descoberta de dados & classificação** no título **segurança** em seu painel de banco de dados SQL do Azure. A guia Visão geral inclui um resumo do estado de classificação atual do banco de dados. O resumo inclui uma lista detalhada de todas as colunas classificadas, que você também pode filtrar para mostrar apenas partes de esquema, tipos de informações e rótulos específicos. Se você ainda não classificou nenhuma coluna, [pule para a etapa 4](#step-4).
+
+    ![Visão geral](./media/data-discovery-and-classification-overview/data-discovery-and-classification.png)
 
 1. Para baixar um relatório no formato do Excel, selecione **Exportar** no menu superior do painel.
 
@@ -91,7 +93,9 @@ Depois que a política de toda a organização tiver sido definida, você poder�
 
    - Para aceitar uma recomendação para uma coluna específica, marque a caixa de seleção na coluna à esquerda da linha relevante. Para marcar todas as recomendações como aceitas, marque a caixa de seleção mais à esquerda no cabeçalho da tabela de recomendações.
 
-   - Para aplicar as recomendações selecionadas, selecione **aceitar recomendações selecionadas** .
+   - Para aplicar as recomendações selecionadas, selecione **aceitar recomendações selecionadas**.
+
+   ![Recomendações para classificação](./media/data-discovery-and-classification-overview/recommendation.png)
 
 1. Você também pode classificar colunas manualmente, como uma alternativa ou além da classificação baseada em recomendação:
 
@@ -101,7 +105,10 @@ Depois que a política de toda a organização tiver sido definida, você poder�
 
    1. Selecione **Adicionar classificação** na parte inferior da janela de contexto.
 
-1. Para concluir sua classificação e rotular de forma persistente (marca) as colunas do banco de dados com os novos metadados de classificação, selecione **salvar** no menu superior da janela.
+   ![Adicionar a classificação manualmente](./media/data-discovery-and-classification-overview/manually-add-classification.png)
+
+
+1. Para concluir sua classificação e rotular de forma persistente (marca) as colunas do banco de dados com os novos metadados de classificação, selecione **salvar** na página **classificação** .
 
 ## <a name="audit-access-to-sensitive-data"></a><a id="audit-sensitive-data"></a>Auditoria de acesso a dados confidenciais
 

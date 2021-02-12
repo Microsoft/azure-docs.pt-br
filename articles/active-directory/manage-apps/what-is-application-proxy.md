@@ -3,20 +3,20 @@ title: Publicar aplicativos locais com o Proxy de Aplicativo do Azure AD
 description: Entenda por que usar o Proxy de Aplicativo para publicar aplicativos Web locais externamente para usuários remotos. Saiba mais sobre a arquitetura, conectores, métodos de autenticação e benefícios de segurança do Proxy de Aplicativo.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/31/2019
+ms.date: 12/31/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: dbfe18c84217c741f8dd64481901747d068fcdd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1569e577ec535a4680cfaec6f7975c056275ecbe
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604131"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258771"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Usar o Proxy de Aplicativo do Azure AD para publicar aplicativos locais para usuários remotos
 
@@ -57,7 +57,7 @@ No atual mundo da nuvem, o Azure AD é o recurso ideal para controlar quem e o q
 
 ## <a name="the-future-of-remote-access"></a>O futuro do acesso remoto
 
-No espaço de trabalho digital atual, os usuários trabalham em qualquer lugar com vários dispositivos e aplicativos. A única constante é a identidade do usuário. É por isso que, atualmente, o primeiro passo para se ter uma rede segura é usar os recursos de [gerenciamento de identidades do Azure AD](https://docs.microsoft.com/azure/security/security-identity-management-overview) como seu plano de controle de segurança. Um modelo que usa a identidade como plano de controle geralmente é composto pelos seguintes componentes:
+No espaço de trabalho digital atual, os usuários trabalham em qualquer lugar com vários dispositivos e aplicativos. A única constante é a identidade do usuário. É por isso que, atualmente, o primeiro passo para se ter uma rede segura é usar os recursos de [gerenciamento de identidades do Azure AD](../../security/fundamentals/identity-management-overview.md) como seu plano de controle de segurança. Um modelo que usa a identidade como plano de controle geralmente é composto pelos seguintes componentes:
 
 * Um provedor de identidade para controlar os usuários e informações relacionadas ao usuário.
 * Um diretório de dispositivos para manter uma lista de dispositivos que têm acesso aos recursos corporativos. Esse diretório inclui informações sobre dispositivo correspondente (por exemplo, tipo de dispositivo, integridade etc.).
@@ -76,7 +76,7 @@ O Proxy de Aplicativo é um serviço do Azure AD que você configura no portal d
 
 Os componentes desse recurso incluem o serviço Proxy de Aplicativo, executado na nuvem, o conector do Proxy de Aplicativo, que é um agente leve executado em um servidor local, e o Azure AD, que é o provedor de identidade. Todos os três componentes trabalham em conjunto para fornecer ao usuário uma experiência de logon único para acessar aplicativos Web locais.
 
-Depois de entrar, os usuários externos podem acessar aplicativos Web locais usando uma URL familiar ou [meus aplicativos](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access) de seus dispositivos de área de trabalho ou Ios/Mac. Por exemplo, o Proxy de Aplicativo pode fornecer acesso remoto e o logon único para a Área de Trabalho Remota, o SharePoint, o Tableau, o Qlik, o Outlook na Web e aplicativos LOB (linha de negócios).
+Depois de entrar, os usuários externos podem acessar aplicativos Web locais usando uma URL familiar ou [meus aplicativos](../user-help/my-apps-portal-end-user-access.md) de seus dispositivos de área de trabalho ou Ios/Mac. Por exemplo, o Proxy de Aplicativo pode fornecer acesso remoto e o logon único para a Área de Trabalho Remota, o SharePoint, o Tableau, o Qlik, o Outlook na Web e aplicativos LOB (linha de negócios).
 
 ![Arquitetura do Proxy de Aplicativo do Azure AD](media/what-is-application-proxy/azure-ad-application-proxy-architecture.png)
 
@@ -87,7 +87,7 @@ Há várias maneiras de configurar um aplicativo para logon único e o método e
 * Aplicativos Web
 * APIs Web que você deseja expor a aplicativos avançados em diferentes dispositivos
 * Aplicativos hospedados por trás de um Gateway de Área de Trabalho Remota
-* Aplicativos cliente avançados integrados com a [MSAL (Biblioteca de Autenticação da Microsoft)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
+* Aplicativos cliente avançados integrados com a [MSAL (Biblioteca de Autenticação da Microsoft)](../develop/v2-overview.md)
 
 O Proxy de Aplicativo funciona com aplicativos que usam o seguinte protocolo de autenticação nativa:
 
@@ -95,7 +95,7 @@ O Proxy de Aplicativo funciona com aplicativos que usam o seguinte protocolo de 
 
 O Proxy de Aplicativo também é compatível com os seguintes protocolos de autenticação com integração de terceiros ou em cenários específicos de configuração:
 
-* [**Autenticação baseada em cabeçalho**](application-proxy-configure-single-sign-on-with-ping-access.md). Esse método de logon usa um serviço de autenticação de terceiros chamado PingAccess e é usado quando o aplicativo usa cabeçalhos para autenticações. Nesse cenário, a autenticação é manipulada pelo PingAccess.
+* [**Autenticação baseada em cabeçalho**](./application-proxy-configure-single-sign-on-with-headers.md). Esse método de logon usa um serviço de autenticação de terceiros chamado PingAccess e é usado quando o aplicativo usa cabeçalhos para autenticações. Nesse cenário, a autenticação é manipulada pelo PingAccess.
 * [**Autenticação baseada em senha ou formulários**](application-proxy-configure-single-sign-on-password-vaulting.md). Com esse método de autenticação, os usuários entram no aplicativo com um nome de usuário e uma senha na primeira vez que o acessam. Após o primeiro logon, o Azure AD fornece o nome de usuário e a senha ao aplicativo. Nesse cenário, a autenticação é manipulada pelo Azure AD.
 * [**Autenticação de SAML**](application-proxy-configure-single-sign-on-on-premises-apps.md). O logon único baseado em SAML é compatível com aplicativos que usam protocolos SAML 2.0 ou WS-Federation. Com o logon único SAML, o Azure AD realiza a autenticação do aplicativo usando a conta do Azure AD do usuário.
 
@@ -109,11 +109,11 @@ A solução de acesso remoto oferecida pelo Proxy de Aplicativo e o Azure AD dá
 * **Acesso condicional**. Controles de política mais rígidos podem ser aplicados antes que as conexões com sua rede sejam estabelecidas. Com acesso condicional, você pode definir restrições em relação ao que o tráfego pode acessar nos seus aplicativos de back-end. Crie políticas que restrinjam entradas com base no local, na força da autenticação e no perfil de risco do usuário. À medida que o acesso condicional evolui, mais controles são adicionados para fornecer segurança adicional, como a integração com o Microsoft Cloud App Security (MCAS). A integração com o MCAS permite configurar um aplicativo local para [monitoramento em tempo real](application-proxy-integrate-with-microsoft-cloud-application-security.md) aproveitando o acesso condicional para monitorar e controlar sessões em tempo real com base em políticas de acesso condicional.
 * **Encerramento de tráfego**. Todo o tráfego para o aplicativo de back-end é encerrado no serviço do Proxy de Aplicativo na nuvem enquanto a sessão é restabelecida com o servidor de back-end. Essa estratégia de conexão significa que os servidores de back-end não são expostos ao tráfego HTTP direto. Eles têm mais proteção contra ataques DoS (ataque de negação de serviço) direcionados já que seu firewall não está sob ataque.
 * **Todo acesso é de saída**. Os conectores do Proxy de Aplicativo só usam conexões de saída para o serviço do Proxy de Aplicativo na nuvem pelas portas 80 e 443. Sem conexões de entrada, não é necessário abrir portas de firewall para conexões de entrada ou componentes na DMZ. Todas as conexões são de saída e em um canal seguro.
-* **Inteligência baseada na Análise de Segurança e Machine Learning (ML)** . Como faz parte do Azure Active Directory, o Proxy de Aplicativo pode aproveitar a [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview) (exige o [licenciamento Premium P2](https://azure.microsoft.com/pricing/details/active-directory/)). O Azure AD Identity Protection combina a inteligência de segurança de aprendizado de máquina com feeds de dados da [Unidade de Crimes Digitais](https://news.microsoft.com/stories/cybercrime/index.html) e [Microsoft Security Response Center](https://www.microsoft.com/msrc) da Microsoft para identificar proativamente contas comprometidas. O Identity Protection oferece proteção em tempo real contra logons de alto risco. Ele leva em consideração fatores como acessos de dispositivos infectados por meio de redes anônimas ou de locais atípicos e improváveis para aumentar o perfil de risco de uma sessão. Este perfil de risco é usado para proteção em tempo real. Muitos desses relatórios e eventos já estão disponíveis por meio de uma API para integração aos sistemas SIEM.
+* **Inteligência baseada na Análise de Segurança e Machine Learning (ML)** . Como faz parte do Azure Active Directory, o Proxy de Aplicativo pode aproveitar a [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) (exige o [licenciamento Premium P2](https://azure.microsoft.com/pricing/details/active-directory/)). O Azure AD Identity Protection combina a inteligência de segurança de aprendizado de máquina com feeds de dados da [Unidade de Crimes Digitais](https://news.microsoft.com/stories/cybercrime/index.html) e [Microsoft Security Response Center](https://www.microsoft.com/msrc) da Microsoft para identificar proativamente contas comprometidas. O Identity Protection oferece proteção em tempo real contra logons de alto risco. Ele leva em consideração fatores como acessos de dispositivos infectados por meio de redes anônimas ou de locais atípicos e improváveis para aumentar o perfil de risco de uma sessão. Este perfil de risco é usado para proteção em tempo real. Muitos desses relatórios e eventos já estão disponíveis por meio de uma API para integração aos sistemas SIEM.
 
 * **Acesso remoto como um serviço**. Você não precisa se preocupar com a manutenção e a aplicação de patches em servidores locais para habilitar o acesso remoto. O Proxy de Aplicativo é um serviço em escala de Internet da Microsoft. Sendo assim, você sempre obterá os patches e as atualizações de segurança mais recentes. A não aplicação de patches no software ainda é responsável por um grande número de ataques. Segundo o Departamento de Segurança Interna, até [85% dos ataques direcionados podem ser evitados](https://www.us-cert.gov/ncas/alerts/TA15-119A). Com este modelo de serviço, você já não precisa carregar a responsabilidade de ter que gerenciar servidores de borda e se esforçar para corrigi-los sempre que necessário.
 
-* **Integração com o Intune**. Com o Intune, o tráfego corporativo é roteado separadamente do tráfego pessoal. O Proxy de Aplicativo garante que o tráfego corporativo seja autenticado. O [Proxy de Aplicativo e o Intune Managed Browser](https://docs.microsoft.com/intune/app-configuration-managed-browser#how-to-configure-application-proxy-settings-for-protected-browsers) também podem ser usados em conjunto para permitir que usuários remotos acessem sites internos com segurança em dispositivos iOS e Android.
+* **Integração com o Intune**. Com o Intune, o tráfego corporativo é roteado separadamente do tráfego pessoal. O Proxy de Aplicativo garante que o tráfego corporativo seja autenticado. O [Proxy de Aplicativo e o Intune Managed Browser](/intune/app-configuration-managed-browser#how-to-configure-application-proxy-settings-for-protected-browsers) também podem ser usados em conjunto para permitir que usuários remotos acessem sites internos com segurança em dispositivos iOS e Android.
 
 ### <a name="roadmap-to-the-cloud"></a>Roteiro para a nuvem
 
@@ -137,10 +137,10 @@ O diagrama a seguir ilustra, de forma geral, como os serviços de autenticação
 
 |**Componente**|**Descrição**|
 |:-|:-|
-|Ponto de extremidade|O ponto de extremidade é uma URL ou um  [portal do usuário final](end-user-experiences.md). Os usuários podem acessar aplicativos enquanto estão fora de sua rede ao acessar uma URL externa. Usuários dentro de sua rede podem acessar o aplicativo por meio de uma URL ou de um portal do usuário final. Quando os usuários acessam um desses pontos de extremidade, eles são autenticados no Azure AD e, em seguida, são direcionados por meio do conector até o aplicativo local.|
+|Ponto de extremidade|O ponto de extremidade é uma URL ou um [portal do usuário final](end-user-experiences.md). Os usuários podem acessar aplicativos enquanto estão fora de sua rede ao acessar uma URL externa. Usuários dentro de sua rede podem acessar o aplicativo por meio de uma URL ou de um portal do usuário final. Quando os usuários acessam um desses pontos de extremidade, eles são autenticados no Azure AD e, em seguida, são direcionados por meio do conector até o aplicativo local.|
 |AD do Azure|O Azure AD executa a autenticação usando o diretório do locatário armazenado na nuvem.|
 |Serviço do Proxy de Aplicativo|Esse serviço de Proxy de Aplicativo é executado na nuvem como parte do Azure AD. Ele passa o token de logon do usuário para o Conector de Proxy de Aplicativo. O Proxy de Aplicativo encaminha qualquer cabeçalho acessível na solicitação e define os cabeçalhos de acordo com seu protocolo para o endereço IP do cliente. Se a solicitação de entrada para o proxy já tiver esse cabeçalho, o endereço IP do cliente será adicionado ao final da lista separada por vírgulas que é o valor do cabeçalho.|
-|Conector do Proxy de Aplicativo|O conector é um agente leve executado em um Windows Server na sua rede. Ele gerencia a comunicação entre o serviço de Proxy de Aplicativo na nuvem e o aplicativo local. O conector usa apenas conexões de saída, portanto você não precisa abrir portas de entrada nem colocar nada na DMZ. Os conectores são sem monitoração de estado e efetuam pull de informações da nuvem conforme necessário. Para saber mais sobre conectores, como eles fazem o balanceamento de carga e a autenticação, confira  [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](application-proxy-connectors.md).|
+|Conector do Proxy de Aplicativo|O conector é um agente leve executado em um Windows Server na sua rede. Ele gerencia a comunicação entre o serviço de Proxy de Aplicativo na nuvem e o aplicativo local. O conector usa apenas conexões de saída, portanto você não precisa abrir portas de entrada nem colocar nada na DMZ. Os conectores são sem monitoração de estado e efetuam pull de informações da nuvem conforme necessário. Para obter mais informações sobre conectores, como eles fazem o balanceamento de carga e a autenticação, consulte [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](application-proxy-connectors.md).|
 |AD (Active Directory)|O Active Directory é executado localmente para realizar a autenticação para contas de domínio. Quando o logon único está configurado, o conector se comunica com o AD para realizar qualquer autenticação adicional necessária.|
 |Aplicativo local|Por fim, o usuário é capaz de acessar um aplicativo local.|
 
@@ -181,7 +181,7 @@ Para saber mais sobre como escolher o local de instalação dos conectores e oti
 
 Até este ponto, nos concentramos em usar o Proxy de Aplicativo para publicar aplicativos locais externamente também permitindo o logon único em todos os aplicativos na nuvem e no local. No entanto, vale a pena mencionar outros casos de uso do Proxy de Aplicativo. Elas incluem:
 
-* **Publicar APIs REST com segurança**. Quando você tem lógica de negócios ou APIs em execução no local ou hospedadas em máquinas virtuais na nuvem, o Proxy de Aplicativo fornece um ponto de extremidade público para acesso à API. O acesso ao ponto de extremidade da API permite controlar a autenticação e a autorização sem exigir portas de entrada. Ele fornece segurança adicional por meio dos recursos do Azure AD Premium, como autenticação multifator e acesso condicional baseado em dispositivo para áreas de trabalho, iOS, MAC e dispositivos Android usando o Intune. Para saber mais, confira [Como habilitar aplicativos cliente nativos para interagir com aplicativos de proxy](application-proxy-configure-native-client-application.md) e [Proteger uma API usando o OAuth 2.0 com o Azure Active Directory e o Gerenciamento de API](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad).
+* **Publicar APIs REST com segurança**. Quando você tem lógica de negócios ou APIs em execução no local ou hospedadas em máquinas virtuais na nuvem, o Proxy de Aplicativo fornece um ponto de extremidade público para acesso à API. O acesso ao ponto de extremidade da API permite controlar a autenticação e a autorização sem exigir portas de entrada. Ele fornece segurança adicional por meio dos recursos do Azure AD Premium, como autenticação multifator e acesso condicional baseado em dispositivo para áreas de trabalho, iOS, MAC e dispositivos Android usando o Intune. Para saber mais, confira [Como habilitar aplicativos cliente nativos para interagir com aplicativos de proxy](application-proxy-configure-native-client-application.md) e [Proteger uma API usando o OAuth 2.0 com o Azure Active Directory e o Gerenciamento de API](../../api-management/api-management-howto-protect-backend-with-aad.md).
 * **RDS** **(Serviços de Área de Trabalho Remota)** . As implantações de RDS padrão exigem conexões de entrada abertas. No entanto, a [implantação de RDS com o Proxy de Aplicativo](application-proxy-integrate-with-remote-desktop-services.md) tem uma conexão permanente de saída no servidor que executa o serviço do conector. Dessa forma, você pode oferecer mais aplicativos aos usuários finais publicando aplicativos locais por meio dos Serviços de Área de Trabalho Remota. Além disso, é possível reduzir a superfície de ataque da implantação com um conjunto limitado de verificação em duas etapas e controles de acesso condicional para o RDS.
 * **Publicar aplicativos que se conectam usando WebSockets**. O suporte ao [Qlik Sense](application-proxy-qlik.md) está em Versão prévia pública e será expandido para outros aplicativos no futuro.
 * **Habilitar aplicativos cliente nativos para interagir com aplicativos de proxy**. Você pode usar o Proxy de Aplicativo do Azure AD para publicar aplicativos Web. No entanto, ele também pode ser usado para publicar [aplicativos cliente nativos](application-proxy-configure-native-client-application.md) configurados com a ADAL (Biblioteca de Autenticação do AD). Os aplicativos cliente nativos diferem dos aplicativos Web porque eles são instalados em um dispositivo, enquanto os aplicativos Web são acessados por meio de um navegador.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 9e64d76e29ba98181aac12e1e3167351a9c1aa95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11539e7d6e685703810537cf69e0e7ed3ec0be4c
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88523985"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97609081"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wdesk"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Wdesk
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá a integrar o Wdesk ao Azure AD (Azure Active Di
 * Permitir que os usuários sejam conectados automaticamente ao Wdesk com as respectivas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,7 +40,7 @@ Para começar, você precisará dos seguintes itens:
 Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
 * O Wdesk dá suporte ao SSO iniciado por **SP** e **IDP**
-* Depois de configurar o Wdesk, você poderá impor controles de sessão, que fornecem proteção contra exportação e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Depois de configurar o Wdesk, você poderá impor controles de sessão, que fornecem proteção contra exportação e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-wdesk-from-the-gallery"></a>Adicionar o Wdesk da galeria
 
@@ -87,7 +87,7 @@ Para configurar o logon único do Azure AD com o Wdesk, execute as seguintes eta
 
 4. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IDP** execute as seguintes etapas:
 
-    ![Informações de logon único de Domínio e URLs do Wdesk](common/idp-intiated.png)
+    ![Captura de tela que mostra a Configuração Básica de SAML, em que você pode inserir o Identificador e a URL de Resposta e selecionar Salvar.](common/idp-intiated.png)
 
     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.wdesk.com/auth/saml/sp/metadata/<instancename>`
 
@@ -95,7 +95,7 @@ Para configurar o logon único do Azure AD com o Wdesk, execute as seguintes eta
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    ![Informações de logon único de Domínio e URLs do Wdesk](common/metadata-upload-additional-signon.png)
+    ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<subdomain>.wdesk.com/auth/login/saml/<instancename>`
 
@@ -170,41 +170,41 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 1. Em outra janela do navegador da Web, entre no Wdesk como Administrador de segurança.
 
-2. No canto inferior esquerdo, clique em **Administrador** e escolha **Conta de Administrador**:
+1. No canto inferior esquerdo, clique em **Administrador** e escolha **Conta de Administrador**:
  
-     ![Configurar o logon único](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
+    ![A captura de tela mostra o Administrador da Conta selecionado no menu Administrador.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
 
-3. Na Administração do Wdesk, navegue até **Segurança**, **SAML** > **Configurações de SAML**:
+1. Na Administração do Wdesk, navegue até **Segurança**, **SAML** > **Configurações de SAML**:
 
-    ![Configurar o logon único](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig2.png)
+    ![A captura de tela mostra a opção Configurações do SAML selecionada na guia SAML.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig2.png)
 
 1. Em **Configurações de ID de Usuário SAML**, verifique se a **ID de Usuário SAML é o Nome de Usuário do Wdesk**.
 
-    ![Configurar o logon único](./media/wdesk-tutorial/wdesk-username.png)
+    ![A captura de tela mostra a opção Configurações de ID de Usuário SAML, em que você pode selecionar a ID de Usuário SAML é o Nome de Usuário do Wdesk.](./media/wdesk-tutorial/wdesk-username.png)
 
 4. Em **Configurações Gerais**, marque **Habilitar Logon Único do SAML**:
 
-    ![Configurar o logon único](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig3.png)
+    ![A captura de tela mostra a opção Editar Configurações do SAML, em que você pode selecionar a opção Habilitar Logon Único do SAML.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig3.png)
 
 5. Em **Detalhes do Provedor de Serviço**, execute as seguintes etapas:
 
-    ![Configurar o logon único](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig4.png)
+    ![A captura de tela mostra os Detalhes do Provedor de Serviço, em que você pode inserir os valores descritos.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig4.png)
 
-      a. Copie a **URL de Logon** e cole-a na caixa de texto **Url de Logon** no Portal do Azure.
-   
-      b. Copie a **URL de Metadados** e cole-a na caixa de texto **Identificador** no Portal do Azure.
-       
-      c. Copie a **URL de Logon** e cole-a na caixa de texto **Url de Resposta** no Portal do Azure.
-   
-      d. Clique em **Salvar** no Portal do Azure para salvar as alterações.      
+    1. Copie a **URL de Logon** e cole-a na caixa de texto **Url de Logon** no Portal do Azure.
 
-6. Clique em **Definir Configurações do IdP** para abrir a caixa de diálogo **Editar Configurações do IdP**. Clique em **Escolher Arquivo** para localizar o arquivo **Metadata.xml** salvo no Portal do Azure, depois carregue-o.
+    1. Copie a **URL de Metadados** e cole-a na caixa de texto **Identificador** no Portal do Azure.
+
+    1. Copie a **URL de Logon** e cole-a na caixa de texto **Url de Resposta** no Portal do Azure.
+
+    1. Clique em **Salvar** no Portal do Azure para salvar as alterações.      
+
+1. Clique em **Definir Configurações do IdP** para abrir a caixa de diálogo **Editar Configurações do IdP**. Clique em **Escolher Arquivo** para localizar o arquivo **Metadata.xml** salvo no Portal do Azure, depois carregue-o.
     
-    ![Configurar o logon único](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig5.png)
+    ![A captura de tela mostra a opção Editar Configurações de IdP, em que você pode carregar metadados.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig5.png)
   
-7. Clique em **Salvar alterações**.
+1. Clique em **Salvar alterações**.
 
-    ![Configurar o logon único](./media/wdesk-tutorial/tutorial_wdesk_ssoconfigsavebutton.png)
+    ![A captura de tela mostra o botão Salvar alterações.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfigsavebutton.png)
 
 ### <a name="create-wdesk-test-user"></a>Criar um usuário de teste do Wdesk
 
@@ -216,21 +216,21 @@ Para permitir que os usuários do Azure AD entrem no Wdesk, eles precisam ser pr
 
 2. Navegue até **Administrador** > **Conta de Administrador**.
 
-     ![Configurar o logon único](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
+     ![A captura de tela mostra o Administrador da Conta selecionado no menu Administrador.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
 
 3. Clique em **Membros**, sob **Pessoas**.
 
 4. Agora clique em **Adicionar Membro** para abrir a caixa de diálogo **Adicionar Membro**. 
    
-    ![Criação de um usuário de teste do AD do Azure](./media/wdesk-tutorial/createuser1.png)  
+    ![A captura de tela mostra a guia Membros, em que você pode selecionar Adicionar Membro.](./media/wdesk-tutorial/createuser1.png)  
 
 5. Na caixa de texto **Usuário**, insira o nome do usuário, como b.simon@contoso.com e clique no botão **Continuar**.
 
-    ![Criação de um usuário de teste do AD do Azure](./media/wdesk-tutorial/createuser3.png)
+    ![A captura de tela mostra a caixa de diálogo Adicionar Membro, em que você pode inserir um usuário.](./media/wdesk-tutorial/createuser3.png)
 
 6.  Insira os detalhes, conforme mostrado abaixo:
   
-    ![Criação de um usuário de teste do AD do Azure](./media/wdesk-tutorial/createuser4.png)
+    ![A captura de tela mostra a caixa de diálogo Adicionar Membro, em que você pode adicionar Informações Básicas para um usuário.](./media/wdesk-tutorial/createuser4.png)
  
     a. Na caixa de texto **Email**, insira o email do usuário como b.simon@contoso.com.
 
@@ -240,20 +240,20 @@ Para permitir que os usuários do Azure AD entrem no Wdesk, eles precisam ser pr
 
 7. Clique no botão **Salvar Membro**.  
 
-    ![Criação de um usuário de teste do AD do Azure](./media/wdesk-tutorial/createuser5.png)
+    ![A captura de tela mostra a opção Enviar email de boas-vindas com o botão Salvar Membro.](./media/wdesk-tutorial/createuser5.png)
 
 ### <a name="test-sso"></a>Testar o SSO 
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Wdesk no Painel de Acesso, você deverá ser conectado automaticamente ao Wdesk, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Wdesk no Painel de Acesso, você deverá ser conectado automaticamente ao Wdesk, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
-- [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [O que é controle de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)

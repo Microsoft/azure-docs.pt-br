@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 8ed567ee20835cfe076c9b06234f2cba23f3a8bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98a16e0a60ddf149e8f0e1a092051f3e98ea8225
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86509113"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627055"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Solução de problemas de implantação de máquina virtual do Windows no Azure
 
@@ -70,7 +70,7 @@ Para o Enterprise Agreement:
 
 •   Carregar uma VM personalizada e implantar usando um modelo do Resource Manager ou do Azure PowerShell.
 
-Para saber mais, consulte os recursos a seguir:
+Para obter mais informações, consulte os seguintes recursos:
 
  - [Visão geral do benefício de uso híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
@@ -104,7 +104,7 @@ Você pode verificar a disponibilidade em [Produtos disponíveis pela tabela de 
 
 Você pode usar o Windows 7, Windows 8 ou Windows 10 no Azure para cenários de desenvolvimento + teste, desde que você tenha uma assinatura apropriada do Visual Studio (anteriormente conhecido como MSDN). 
 
-- Para sua conveniência, disponibilizamos algumas imagens do Windows 10 da Galeria do Azure em [ofertas de desenvolvimento/teste qualificadas](../windows/client-images.md#eligible-offers). 
+- Para sua conveniência, disponibilizamos algumas imagens do Windows 10 da Galeria do Azure em [ofertas de desenvolvimento/teste qualificadas](../windows/client-images.md). 
 - Os assinantes do Visual Studio em qualquer tipo de oferta também podem [preparar e criar de forma adequada](../windows/prepare-for-upload-vhd-image.md) uma imagem de 64 bits do Windows 7, Windows 8 ou Windows 10 e [carregá-la no Azure](../windows/upload-generalized-managed.md). O uso permanece limitado ao desenvolvimento/teste por assinantes ativos do Visual Studio.
 
 Este [artigo](../windows/client-images.md) descreve os requisitos de qualificação para execução do cliente do Windows no Azure e uso das imagens da Galeria do Azure.

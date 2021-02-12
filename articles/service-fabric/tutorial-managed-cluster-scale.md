@@ -3,12 +3,12 @@ title: Escalar horizontalmente um cluster gerenciado do Service Fabric (versão 
 description: Neste tutorial, saiba como escalar horizontalmente um tipo de nó de um cluster gerenciado do Service Fabric.
 ms.topic: tutorial
 ms.date: 09/28/2020
-ms.openlocfilehash: 01b299744d462496296884211eff08b7a9c64687
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 769bcb339b2cc1419c7a3d92d0f08130029a9f95
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316131"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785424"
 ---
 # <a name="tutorial-scale-out-a-service-fabric-managed-cluster-preview"></a>Tutorial: Escalar horizontalmente um cluster gerenciado do Service Fabric (versão prévia)
 
@@ -28,7 +28,7 @@ Esta parte da série aborda como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um cluster gerenciado do Service Fabric (confira [*Implantar um cluster gerenciado*](tutorial-managed-cluster-deploy.md)).
-* [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps?preserve-view=true&view=azps-4.7.0#azservicefabric) ou posteriores (confira [*Instalar o Azure PowerShell*](/powershell/azure/install-az-ps?preserve-view=true&view=azps-4.7.0)).
+* [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps#azservicefabric) ou posteriores (confira [*Instalar o Azure PowerShell*](/powershell/azure/install-az-ps)).
 
 ## <a name="scale-a-service-fabric-managed-cluster"></a>Escalar um cluster gerenciado do Service Fabric
 Altere a contagem de instâncias para aumentar ou diminuir o número de nós no tipo de nó que você deseja escalar. Você pode localizar nomes de tipo de nó no modelo do ARM (Azure Resource Manager) da sua implantação de cluster ou no Service Fabric Explorer.  

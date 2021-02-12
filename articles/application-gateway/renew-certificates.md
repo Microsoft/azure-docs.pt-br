@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 8/15/2018
+ms.date: 01/20/2021
 ms.author: victorh
-ms.openlocfilehash: de57a58f7c891009d2e0cc43b351c2cad42a2766
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0c06a94498f4d2481a6e953b959d766c60415fb
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84807885"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98622173"
 ---
 # <a name="renew-application-gateway-certificates"></a>Renovar certificados de Gateway do Aplicativo
 
@@ -22,11 +22,11 @@ Você pode renovar um certificado associado a um ouvinte usando o portal do Azur
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-Para renovar um certificado de ouvinte do portal, navegue para os ouvinte de gateway do aplicativo. Clique no ouvinte que tem um certificado que precisa ser renovado e, em seguida, clique em **Renovar ou editar o certificado selecionado**.
+Para renovar um certificado de ouvinte do portal, navegue para os ouvinte de gateway do aplicativo. Selecione o ouvinte que tem um certificado que precisa ser renovado e, em seguida, selecione **renovar ou editar certificado selecionado**.
 
-![Renovar certificado](media/renew-certificate/ssl-cert.png)
+:::image type="content" source="media/renew-certificate/ssl-cert.png" alt-text="Renovar o certificado":::
 
-Carregue o novo certificado PFX, atribua um nome, digite a senha e, em seguida, clique em **Salvar**.
+Carregue seu novo certificado PFX, dê a ele um nome, digite a senha e, em seguida, selecione **salvar**.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -62,4 +62,4 @@ az network application-gateway ssl-cert update \
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber como configurar o descarregamento de TLS com o gateway de Aplicativo Azure, consulte [Configurar o descarregamento de TLS](application-gateway-ssl-portal.md)
+Para saber como configurar o descarregamento de TLS com o gateway de Aplicativo Azure, consulte [Configurar o descarregamento de TLS](./create-ssl-portal.md)

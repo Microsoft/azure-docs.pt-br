@@ -1,20 +1,20 @@
 ---
-title: Codificadores de streaming dinâmicos recomendados pelos Serviços de Mídia – Azure | Microsoft Docs
+title: Codificadores de transmissão ao vivo recomendados pelos serviços de mídia
 description: Saiba mais sobre codificadores locais de transmissão ao vivo recomendados pelos Serviços de Mídia
 services: media-services
 keywords: codificação; codificadores; mídia
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 08/31/2020
+ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: media-services
-ms.openlocfilehash: 3532032f8fd3ac6e673d3913fd13f7f83ae7759e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf282b3fbba0f22cd41c0420014c46ddb7c958eb
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295352"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955132"
 ---
 # <a name="verified-on-premises-live-streaming-encoders"></a>Codificadores de streaming ao vivo no local verificados
 
@@ -50,6 +50,7 @@ Ao transmitir via RTMPS, verifique as configurações de firewall e/ou proxy par
 > Os codificadores devem dar suporte a TLS 1,2 ao usar os protocolos RTMPS.
 
 - Adobe Flash Media Live Encoder 3.2
+- [Antix digital](http://www.antixdigital.com/) StreamZ Live (anteriormente imagine Communication SelenioFlex Live)
 - [Blackmagic ATEM mini e ATEM mini PRO](https://www.blackmagicdesign.com/products/atemmini)
 - [Cambria Live 4.3](https://www.capellasystems.net/products/cambria-live/)
 - Elemento dinâmico (versão 2.14.15 e superior)
@@ -78,11 +79,11 @@ Os Serviços de Mídia recomendam usar um dos seguintes codificadores dinâmicos
 > Os codificadores devem dar suporte a TLS 1,2 ao usar protocolos HTTPS.
 
 - Ateme TITAN Live
+- [Antix digital](http://www.antixdigital.com/) StreamZ Live (anteriormente imagine Communication SelenioFlex Live)
 - Cisco Digital Media Encoder 2200
 - Elemento dinâmico (versão 2.14.15 e superior devido ao requisito de TLS 1,2)
 - Envivio 4Caster C4 Gen III 
 - [Ffmpeg](https://www.ffmpeg.org)
-- Imagine Communications Selenio MCP3
 - Mídia Hero ao vivo e Hero 4K (UHD/HEVC) do Excel
 
 > [!TIP]
@@ -116,7 +117,7 @@ Para reproduzir conteúdo, os fluxos de áudio e de vídeo devem estar presentes
 > [!IMPORTANT]
 > Observe a condição física da máquina (CPU/memória/etc.), já que o carregamento de fragmentos para a nuvem envolve operações de CPU e e/s. Se você alterar as configurações no codificador, será determinado que redefina os canais/evento ao vivo para que a alteração tenha efeito.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 [Transmissão ao vivo com os Serviços de Mídia v3](live-streaming-overview.md)
 

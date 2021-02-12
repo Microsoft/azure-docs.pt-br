@@ -3,17 +3,17 @@ title: Documentação do Banco de Dados do Azure para MySQL
 summary: O Banco de Dados do Azure para MySQL é um serviço de banco de dados relacional da plataforma MySQL Community Edition. É possível usar um servidor único ou um servidor flexível (versão prévia) para hospedar um banco de dados MySQL no Azure. Trata-se de um banco de dados totalmente gerenciado como uma oferta de serviço que pode lidar com cargas de trabalho críticas com desempenho previsível e escalabilidade dinâmica.
 metadata:
   description: O Banco de Dados do Azure para MySQL é um serviço de banco de dados relacional na nuvem da Microsoft que é voltado para desenvolvedores e que faz parte da plataforma MySQL Community Edition. É possível escolher um servidor único ou um servidor flexível (versão prévia) para implantar o banco de dados MySQL no Azure.
-  author: ajlam
-  ms.author: andrela
+  author: savjani
+  ms.author: pariks
   ms.date: 09/03/2019
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: 9ac045aac0587f7080ab7df277522674ca603040
-  ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+  ms.openlocfilehash: 82c736b3256a099aa0dbd2edca14f402a3b935be
+  ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/26/2020
-  ms.locfileid: "92546289"
+  ms.lasthandoff: 11/12/2020
+  ms.locfileid: "94543027"
 landingContent:
 - title: Sobre o Banco de Dados do Azure para MySQL
   linkLists:

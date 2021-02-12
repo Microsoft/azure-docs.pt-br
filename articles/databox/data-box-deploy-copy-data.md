@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/29/2019
+ms.date: 11/11/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 9427ec4530ac249d5b8059d04fc85f1183c0081c
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: c68f76e56f49f055466f7332d7751ac468e034d8
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123884"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616732"
 ---
 ::: zone target="docs"
 
@@ -74,7 +74,7 @@ Se estiver usando um computador host do Windows Server, siga estas etapas para c
 
     ![Obter credenciais de compartilhamento para compartilhamentos SMB](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
-2. No compartilhamento de acesso e caixa de diálogo de dados de cópia, copie o **nome de usuário** e o **senha** correspondente para o compartilhamento. Selecione **OK**.
+2. No compartilhamento de acesso e caixa de diálogo de dados de cópia, copie o **nome de usuário** e o **senha** correspondente para o compartilhamento. Depois, selecione **OK**.
     
     ![Obter nome de usuário e senha para um compartilhamento](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
@@ -87,11 +87,11 @@ Se estiver usando um computador host do Windows Server, siga estas etapas para c
     - Blob de páginas do Azure – `\\10.126.76.138\utSAC1_202006051000_PageBlob`
     - Arquivos do Azure – `\\10.126.76.138\utSAC1_202006051000_AzFile`
 
-4. Quando solicitado, digite a senha do compartilhamento. A amostra a seguir mostra a conexão a um compartilhamento por meio do comando anterior.
+4. Quando solicitado, digite a senha do compartilhamento. Se a senha tiver caracteres especiais, adicione aspas duplas antes e depois dela. A amostra a seguir mostra a conexão a um compartilhamento por meio do comando anterior.
 
     ```
     C:\Users\Databoxuser>net use \\10.126.76.138\utSAC1_202006051000_BlockBlob /u:testuser1
-    Enter the password for 'testuser1' to connect to '10.126.76.138':
+    Enter the password for 'testuser1' to connect to '10.126.76.138': "ab1c2def$3g45%6h7i&j8kl9012345"
     The command completed successfully.
     ```
 
@@ -229,11 +229,11 @@ Durante o processo de cópia, se houver algum erro, você verá uma notificaçã
 
 Selecione **Baixar lista de problemas**.
 
-![Baixar e exibir erros em Conectar e copiar 2](media/data-box-deploy-copy-data/view-errors-2.png)
+![Conectar e copiar – Baixar lista de problemas](media/data-box-deploy-copy-data/view-errors-2.png)
 
 Abra a lista para ver os detalhes do erro e selecione a URL de resolução para ver a resolução recomendada.
 
-![Baixar e exibir erros em Conectar e copiar 3](media/data-box-deploy-copy-data/view-errors-3.png)
+![Conectar e copiar – Baixar e exibir erros](media/data-box-deploy-copy-data/view-errors-3.png)
 
 Para obter mais informações, veja [Exibir logs de erros durante a cópia de dados para o Data Box](data-box-logs.md#view-error-log-during-data-copy). Para obter uma lista detalhada de erros durante a cópia de dados, veja [Solucionar problemas do Data Box](data-box-troubleshoot.md).
 

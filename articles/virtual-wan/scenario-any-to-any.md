@@ -6,19 +6,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 01/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 09dddad24794491b53a11f7b0e4347f43f11598b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3b5002873160490dfb7b8d3ad9790f9c6f1e8ae6
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440477"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525781"
 ---
 # <a name="scenario-any-to-any"></a>Cenário: qualquer-para-qualquer
 
-Ao trabalhar com o roteamento de Hub virtual de WAN virtual, há alguns cenários disponíveis. Em um cenário qualquer para qualquer, qualquer spoke pode alcançar outro spoke. Quando existem vários hubs, o roteamento de Hub para Hub (também conhecido como inter-Hub) é habilitado por padrão na WAN virtual padrão. Para obter mais informações sobre roteamento de Hub virtual, consulte [sobre roteamento de Hub virtual](about-virtual-hub-routing.md).
+Ao trabalhar com o roteamento de Hub virtual de WAN virtual, há alguns cenários disponíveis. Em um cenário qualquer para qualquer, qualquer spoke pode alcançar outro spoke. Quando existem vários hubs, o roteamento de Hub para Hub (também conhecido como inter-Hub) é habilitado por padrão na WAN virtual padrão. Você pode criar essa configuração usando uma variedade de métodos diferentes, como o portal do Azure ou um [modelo de início rápido do Azure](quickstart-any-to-any-template.md). Para obter mais informações sobre roteamento de Hub virtual, consulte [sobre roteamento de Hub virtual](about-virtual-hub-routing.md). 
 
 ## <a name="design"></a><a name="design"></a>Design
 
@@ -50,7 +50,7 @@ Na **Figura 1**, todos os VNets e branches (VPN, EXPRESSROUTE, P2S) podem alcan�
 * Uma conexão de rede virtual conecta uma rede virtual a um hub virtual. O roteador do Hub virtual fornece a funcionalidade de trânsito entre VNets.
 * Uma conexão do ExpressRoute conecta um circuito do ExpressRoute a um gateway de ExpressRoute.
 
-Essas conexões (por padrão, na criação) são associadas à tabela de rotas padrão, a menos que você defina a configuração de roteamento da conexão como **nenhuma**ou uma tabela de rotas personalizada. Essas conexões também propagam rotas, por padrão, para a tabela de rotas padrão. Isso é o que permite que um cenário de qualquer a qualquer em que qualquer spoke (VNet, VPN, ER, P2S) possa alcançar um ao outro.
+Essas conexões (por padrão, na criação) são associadas à tabela de rotas padrão, a menos que você defina a configuração de roteamento da conexão como **nenhuma** ou uma tabela de rotas personalizada. Essas conexões também propagam rotas, por padrão, para a tabela de rotas padrão. Isso é o que permite que um cenário de qualquer a qualquer em que qualquer spoke (VNet, VPN, ER, P2S) possa alcançar um ao outro.
 
 **Figura 1**
 
@@ -58,7 +58,7 @@ Essas conexões (por padrão, na criação) são associadas à tabela de rotas p
 
 ## <a name="workflow"></a><a name="workflow"></a>Fluxo de trabalho
 
-Esse cenário é habilitado por padrão para a WAN virtual padrão. Se a configuração de Branch para Branch estiver desabilitada na configuração de WAN, isso não permitirá a conectividade entre spokes de ramificação. VPN/ExpressRoute/VPN de usuário são considerados como spokes de ramificação na WAN virtual
+Esse cenário é habilitado por padrão para a WAN virtual padrão. Se as configurações de Branch para Branch estiverem desabilitadas na configuração de WAN, isso não permitirá a conectividade entre spokes de ramificação. VPN/ExpressRoute/VPN de usuário são considerados como spokes de ramificação na WAN virtual
 
 ## <a name="next-steps"></a>Próximas etapas
 

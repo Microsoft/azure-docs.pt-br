@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 22bedcf7921e3c8d4f2566a70515eef3e3b136b6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: a0f2b971eae5d37e8fb0771e213075289af6c519
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461015"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045250"
 ---
 # <a name="understand-event-data"></a>Entender os dados do evento
 
@@ -262,20 +262,7 @@ O corpo da `Twin.Update` notificação é um documento de patch JSON que contém
 
 Por exemplo, digamos que uma atualização digital tenha sido atualizada usando o patch a seguir.
 
-```json
-[
-    {
-        "op": "replace",
-        "value": 40,
-        "path": "/Temperature"
-    },
-    {
-        "op": "add",
-        "value": 30,
-        "path": "/comp1/prop1"
-    }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/patch-component-2.json":::
 
 A notificação correspondente (se executada de forma síncrona pelo serviço, como o Azure digital gêmeos atualizando um texto digital) teria um corpo como:
 

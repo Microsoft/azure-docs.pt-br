@@ -3,8 +3,8 @@ title: Transformar dados usando a atividade de streaming do Hadoop – Azure
 description: Saiba como usar a Atividade de Streaming do Hadoop em um Azure Data Factory para transformar dados executando programas de Streaming do Hadoop em um cluster HDInsight sob demanda ou em seu próprio cluster HDInsight.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.assetid: 4c3ff8f2-2c00-434e-a416-06dfca2c41ec
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 9c6661a762886140997b9305f88f5c4e25476e57
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 80f78e3d2e7fdcd8fef53ca0412676a37c6486c2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371691"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495592"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformar dados usando a Atividade de Streaming do Hadoop no Azure Data Factory
 > [!div class="op_single_selector" title1="Atividades de transformação"]
@@ -26,8 +26,8 @@ ms.locfileid: "92371691"
 > * [Atividade MapReduce](data-factory-map-reduce.md)
 > * [Atividade de streaming do Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Atividade do Spark](data-factory-spark.md)
-> * [Atividade de execução de lote Azure Machine Learning Studio (clássica)](data-factory-azure-ml-batch-execution-activity.md)
-> * [Atividade de recurso de atualização Azure Machine Learning Studio (clássica)](data-factory-azure-ml-update-resource-activity.md)
+> * [Atividade de execução em lotes do Azure Machine Learning Studio (clássico)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Atividade do recurso de atualização do Azure Machine Learning Studio (clássico)](data-factory-azure-ml-update-resource-activity.md)
 > * [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md)
 > * [Atividade do U-SQL da Análise Data Lake](data-factory-usql-activity.md)
 > * [Atividade personalizada do .NET](data-factory-use-custom-activities.md)
@@ -147,7 +147,7 @@ Em seguida, você cria um serviço vinculado para vincular seu cluster do HDInsi
 }
 ```
 
-### <a name="datasets"></a>Conjunto de dados
+### <a name="datasets"></a>Conjuntos de dados
 #### <a name="output-dataset"></a>Conjunto de dados de saída
 O pipeline neste exemplo não tem entradas. Você especifica um conjunto de dados de saída para a Atividade de Transmissão do HDInsight. Esse conjunto de dados é apenas um conjunto fictício exigido para direcionar a agenda de pipeline. 
 

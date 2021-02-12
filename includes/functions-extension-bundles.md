@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 05/27/2019
 ms.author: glenga
 ms.openlocfilehash: d697334fe56fb9133a06cee79067c60bc3a37281
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68639162"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010429"
 ---
 A maneira mais fácil de instalar as extensões de associação é habilitar [pacotes de extensão](../articles/azure-functions/functions-bindings-register.md#extension-bundles). Quando você habilita os pacotes, um conjunto predefinido de pacotes de extensão é instalado automaticamente.
 

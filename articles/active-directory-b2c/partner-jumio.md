@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 4e5becdd026b0a1c9e848b183ebeee5833654461
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66ec0d4b09dc983eb898d63d45b3dd7cab291c4c
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259264"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928657"
 ---
 # <a name="tutorial-for-configuring-jumio-with-azure-active-directory-b2c"></a>Tutorial para configurar o Jumio com o Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Para começar, você precisará de:
 
 - Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
 
-- Um [locatário Azure ad B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) que está vinculado à sua assinatura do Azure.
+- Um [locatário Azure ad B2C](./tutorial-create-tenant.md) que está vinculado à sua assinatura do Azure.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -65,7 +65,7 @@ Depois de criar uma conta do Jumio, use a conta para configurar Azure AD B2C. As
 
 ### <a name="deploy-the-api"></a>Implantar a API
 
-Implante o [código de API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/API/Jumio.Api) fornecido em um serviço do Azure. Você pode publicar o código do Visual Studio seguindo [estas instruções](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Implante o [código de API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/API/Jumio.Api) fornecido em um serviço do Azure. Você pode publicar o código do Visual Studio seguindo [estas instruções](/visualstudio/deployment/quickstart-deploy-to-azure).
 
 >[!NOTE]
 >Você precisará da URL do serviço implantado para configurar o Azure AD com as configurações necessárias.
@@ -85,7 +85,7 @@ Implante o [código de API](https://github.com/azure-ad-b2c/partner-integrations
 
    O certificado é então exportado para o local especificado para ``{your-local-path}`` .
 
-3. Importe o certificado para Azure App serviço seguindo as instruções neste [artigo](https://docs.microsoft.com/azure/app-service/configure-ssl-certificate#upload-a-private-certificate).
+3. Importe o certificado para Azure App serviço seguindo as instruções neste [artigo](../app-service/configure-ssl-certificate.md#upload-a-private-certificate).
 
 ### <a name="create-a-signingencryption-key"></a>Criar uma chave de assinatura/criptografia
 
@@ -102,7 +102,7 @@ Use o seguinte script do PowerShell para criar a cadeia de caracteres:
 
 ### <a name="configure-the-api"></a>Configurar a API
 
-Você pode [definir as configurações do aplicativo no serviço Azure app](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings). Com esse método, você pode configurar com segurança as configurações sem verificá-las em um repositório. Você precisará fornecer as seguintes configurações para a API REST:
+Você pode [definir as configurações do aplicativo no serviço Azure app](../app-service/configure-common.md#configure-app-settings). Com esse método, você pode configurar com segurança as configurações sem verificá-las em um repositório. Você precisará fornecer as seguintes configurações para a API REST:
 
 | Configurações do aplicativo | Fonte | Observações |
 | :-------- | :------------| :-----------|
@@ -118,7 +118,7 @@ Você pode [definir as configurações do aplicativo no serviço Azure app](http
 
 ### <a name="deploy-the-ui"></a>Implantar a interface do usuário
 
-1. Configure um [contêiner de armazenamento de BLOBs em sua conta de armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container).
+1. Configure um [contêiner de armazenamento de BLOBs em sua conta de armazenamento](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
 
 2. Armazene os arquivos de interface do usuário da [pasta de interface do usuário](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/UI) em seu contêiner de BLOB.
 
@@ -139,7 +139,7 @@ Você pode [definir as configurações do aplicativo no serviço Azure app](http
 
 1. Vá para a [política de Azure ad B2C](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/Policies) na pasta políticas.
 
-2. Siga [Este artigo](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) para baixar o [pacote de início do LocalAccounts](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts).
+2. Siga [Este artigo](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) para baixar o [pacote de início do LocalAccounts](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts).
 
 3. Configure a política para o locatário Azure AD B2C.
 
@@ -150,7 +150,7 @@ Você pode [definir as configurações do aplicativo no serviço Azure app](http
 
 1. Abra o locatário Azure AD B2C. Em **Políticas**, selecione **Identity Experience Framework**.
 
-2. Selecione o **SignUpSignIn**criado anteriormente.
+2. Selecione o **SignUpSignIn** criado anteriormente.
 
 3. Selecione **executar fluxo de usuário** e, em seguida:
 
@@ -168,6 +168,6 @@ Você pode [definir as configurações do aplicativo no serviço Azure app](http
 
 Para obter informações adicionais, examine os seguintes artigos:
 
-- [Políticas personalizadas no Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Políticas personalizadas no Azure AD B2C](./custom-policy-overview.md)
 
-- [Introdução às políticas personalizadas no Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Introdução às políticas personalizadas no Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 09/27/2020
 ms.author: jingwang
 ms.openlocfilehash: c99225b53266fc74ea357151de824cd8d8ed2088
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946137"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011601"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Formato parquet no Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -29,9 +29,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 | Propriedade         | Descrição                                                  | Obrigatório |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | A propriedade Type do conjunto de conjuntos deve ser definida como **parquet**. | Sim      |
-| local         | Configurações de local dos arquivos. Cada conector baseado em arquivo tem seu próprio tipo de local e propriedades com suporte em `location` . **Consulte os detalhes no artigo do conector – > seção Propriedades do conjunto de informações**. | Sim      |
-| compressionCodec | O codec de compactação a ser usado ao gravar em arquivos parquet. Ao ler de arquivos parquet, as fábricas de dados determinam automaticamente o codec de compactação com base nos metadados do arquivo.<br>Os tipos com suporte são "**None**", "**gzip**", "**encaixado**" (padrão) e "**LZO**". Observação a atividade de cópia atualmente não dá suporte a LZO quando arquivos parquet de leitura/gravação. | Não       |
+| type             | A propriedade Type do conjunto de conjuntos deve ser definida como **parquet**. | Yes      |
+| local         | Configurações de local dos arquivos. Cada conector baseado em arquivo tem seu próprio tipo de local e propriedades com suporte em `location` . **Consulte os detalhes no artigo do conector – > seção Propriedades do conjunto de informações**. | Yes      |
+| compressionCodec | O codec de compactação a ser usado ao gravar em arquivos parquet. Ao ler de arquivos parquet, as fábricas de dados determinam automaticamente o codec de compactação com base nos metadados do arquivo.<br>Os tipos com suporte são "**None**", "**gzip**", "**encaixado**" (padrão) e "**LZO**". Observação a atividade de cópia atualmente não dá suporte a LZO quando arquivos parquet de leitura/gravação. | No       |
 
 > [!NOTE]
 > Não há suporte para o espaço em branco no nome da coluna para arquivos parquet.
@@ -66,30 +66,30 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 ### <a name="parquet-as-source"></a>Parquet como fonte
 
-As propriedades a seguir têm suporte na seção *** \* origem \* *** da atividade de cópia.
+As propriedades a seguir têm suporte na seção atividade de cópia **_ \_ origem \****.
 
 | Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | A propriedade Type da fonte da atividade de cópia deve ser definida como **ParquetSource**. | Sim      |
-| storeSettings | Um grupo de propriedades sobre como ler dados de um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de leitura com suporte em `storeSettings` . **Veja os detalhes no artigo do conector – > seção Propriedades da atividade de cópia**. | Não       |
+| type          | A propriedade Type da fonte da atividade de cópia deve ser definida como **ParquetSource**. | Yes      |
+| storeSettings | Um grupo de propriedades sobre como ler dados de um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de leitura com suporte em `storeSettings` . **Veja os detalhes no artigo do conector – > seção Propriedades da atividade de cópia**. | No       |
 
 ### <a name="parquet-as-sink"></a>Parquet como coletor
 
-As propriedades a seguir têm suporte na seção *** \* coletor \* *** de atividade de cópia.
+As propriedades a seguir têm suporte na seção atividade de cópia **_ \_ Sink \****.
 
 | Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | A propriedade Type do coletor da atividade de cópia deve ser definida como **ParquetSink**. | Sim      |
-| formatSettings | Um grupo de propriedades. Consulte a tabela **configurações de gravação de parquet** abaixo. |    Não      |
-| storeSettings | Um grupo de propriedades sobre como gravar dados em um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de gravação com suporte em `storeSettings` . **Veja os detalhes no artigo do conector – > seção Propriedades da atividade de cópia**. | Não       |
+| type          | A propriedade Type do coletor da atividade de cópia deve ser definida como **ParquetSink**. | Yes      |
+| formatSettings | Um grupo de propriedades. Consulte a tabela **configurações de gravação de parquet** abaixo. |    No      |
+| storeSettings | Um grupo de propriedades sobre como gravar dados em um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de gravação com suporte em `storeSettings` . **Veja os detalhes no artigo do conector – > seção Propriedades da atividade de cópia**. | No       |
 
 **Configurações de gravação de parquet** com suporte em `formatSettings` :
 
 | Propriedade      | Descrição                                                  | Obrigatório                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| type          | O tipo de formatSettings deve ser definido como **ParquetWriteSettings**. | Sim                                                   |
-| maxRowsPerFile | Ao gravar dados em uma pasta, você pode optar por gravar em vários arquivos e especificar o máximo de linhas por arquivo.  | Não |
-| fileNamePrefix | Aplicável quando o `maxRowsPerFile` está configurado.<br> Especifique o prefixo do nome do arquivo ao gravar dados em vários arquivos, resultando neste padrão: `<fileNamePrefix>_00000.<fileExtension>` . Se não for especificado, o prefixo de nome de arquivo será gerado automaticamente. Essa propriedade não se aplica quando a origem é um armazenamento de [dados habilitado para opção](copy-activity-performance-features.md)de armazenamento ou de partição baseada em arquivo.  | Não |
+| type          | O tipo de formatSettings deve ser definido como **ParquetWriteSettings**. | Yes                                                   |
+| maxRowsPerFile | Ao gravar dados em uma pasta, você pode optar por gravar em vários arquivos e especificar o máximo de linhas por arquivo.  | No |
+| fileNamePrefix | Aplicável quando o `maxRowsPerFile` está configurado.<br> Especifique o prefixo do nome do arquivo ao gravar dados em vários arquivos, resultando neste padrão: `<fileNamePrefix>_00000.<fileExtension>` . Se não for especificado, o prefixo de nome de arquivo será gerado automaticamente. Essa propriedade não se aplica quando a origem é um armazenamento de [dados habilitado para opção](copy-activity-performance-features.md)de armazenamento ou de partição baseada em arquivo.  | No |
 
 ## <a name="mapping-data-flow-properties"></a>Propriedades do fluxo de dados de mapeamento
 
@@ -99,7 +99,7 @@ No mapeamento de fluxos de dados, você pode ler e gravar no formato parquet nos
 
 A tabela abaixo lista as propriedades com suporte por uma fonte parquet. Você pode editar essas propriedades na guia **Opções de origem** .
 
-| Nome | Descrição | Necessária | Valores permitidos | Propriedade de script de fluxo de dados |
+| Name | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formatar | O formato deve ser `parquet` | sim | `parquet` | format |
 | Caminhos curinga | Todos os arquivos correspondentes ao caminho curinga serão processados. Substitui a pasta e o caminho do arquivo definido no conjunto de um. | no | String[] | wildcardPaths |
@@ -129,7 +129,7 @@ source(allowSchemaDrift: true,
 
 A tabela abaixo lista as propriedades com suporte de um coletor parquet. Você pode editar essas propriedades na guia **configurações** .
 
-| Nome | Descrição | Necessária | Valores permitidos | Propriedade de script de fluxo de dados |
+| Name | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formatar | O formato deve ser `parquet` | sim | `parquet` | format |
 | Limpar a pasta | Se a pasta de destino for limpa antes da gravação | no | `true` ou `false` | truncate |

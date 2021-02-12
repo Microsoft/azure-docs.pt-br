@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/07/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d1a7baa25497cf1ba697725ac8530bc04c458aa5
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: c664df586c260b3e16f64c071190055dbaeccd24
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207421"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594037"
 ---
 # <a name="spatial-queries"></a>Consultas espaciais
 
@@ -34,7 +34,7 @@ As consultas espaciais são alimentadas pelo mecanismo [Havok](https://www.havok
 Uma *incidência de raio* é uma consulta espacial em que o runtime verifica quais objetos são interseccionados por um raio, começando em uma determinada posição e apontando para uma determinada direção. Como uma otimização, uma distância máxima de raios também é mostrada, para não procurar objetos que estejam muito distantes.
 
 ```cs
-async void CastRay(AzureSession session)
+async void CastRay(RenderingSession session)
 {
     // trace a line from the origin into the +z direction, over 10 units of distance.
     RayCast rayCast = new RayCast(new Double3(0, 0, 0), new Double3(0, 0, 1), 10);
@@ -42,8 +42,8 @@ async void CastRay(AzureSession session)
     // only return the closest hit
     rayCast.HitCollection = HitCollectionPolicy.ClosestHit;
 
-    RayCastHit[] hits = await session.Actions.RayCastQueryAsync(rayCast).AsTask();
-
+    RayCastQueryResult result = await session.Connection.RayCastQueryAsync(rayCast);
+    RayCastHit[] hits = result.Hits;
     if (hits.Length > 0)
     {
         var hitObject = hits[0].HitObject;
@@ -56,23 +56,23 @@ async void CastRay(AzureSession session)
 ```
 
 ```cpp
-void CastRay(ApiHandle<AzureSession> session)
+void CastRay(ApiHandle<RenderingSession> session)
 {
     // trace a line from the origin into the +z direction, over 10 units of distance.
     RayCast rayCast;
-    rayCast.StartPos = { 0, 0, 0 };
-    rayCast.EndPos = { 0, 0, 1 };
+    rayCast.StartPos = {0, 0, 0};
+    rayCast.EndPos = {0, 0, 1};
     rayCast.MaxHits = 10;
 
     // only return the closest hit
     rayCast.HitCollection = HitCollectionPolicy::ClosestHit;
 
-    ApiHandle<RaycastQueryAsync> castQuery = *session->Actions()->RayCastQueryAsync(rayCast);
-
-    castQuery->Completed([](const ApiHandle<RaycastQueryAsync>& async)
+    session->Connection()->RayCastQueryAsync(rayCast, [](Status status, ApiHandle<RayCastQueryResult> result)
+    {
+        if (status == Status::OK)
         {
             std::vector<RayCastHit> hits;
-            async->GetResult(hits);
+            result->GetHits(hits);
 
             if (hits.size() > 0)
             {
@@ -82,7 +82,8 @@ void CastRay(ApiHandle<AzureSession> session)
 
                 // do something with the hit information
             }
-        });
+        }
+    });
 }
 ```
 
@@ -115,8 +116,8 @@ Um impacto tem as seguintes propriedades:
 
 ## <a name="api-documentation"></a>Documentação da API
 
-* [C# Remotemanager. RayCastQueryAsync ()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.raycastqueryasync)
-* [C++ Remotomanager:: RayCastQueryAsync ()](/cpp/api/remote-rendering/remotemanager#raycastqueryasync)
+* [C# RenderingConnection. RayCastQueryAsync ()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.raycastqueryasync)
+* [C++ RenderingConnection:: RayCastQueryAsync ()](/cpp/api/remote-rendering/renderingconnection#raycastqueryasync)
 
 ## <a name="next-steps"></a>Próximas etapas
 

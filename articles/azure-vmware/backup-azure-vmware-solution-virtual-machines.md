@@ -2,13 +2,13 @@
 title: Fazer backup de VMs de solução do Azure VMware com Servidor de Backup do Azure
 description: Configure seu ambiente de solução do Azure VMware para fazer backup de máquinas virtuais usando Servidor de Backup do Azure.
 ms.topic: how-to
-ms.date: 06/09/2020
-ms.openlocfilehash: d4273980a134fbdaabe64215aaf0b66a53253788
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.date: 02/04/2021
+ms.openlocfilehash: ea2164ba19703660e54879c25b975342d824662c
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495693"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585017"
 ---
 # <a name="back-up-azure-vmware-solution-vms-with-azure-backup-server"></a>Fazer backup de VMs de solução do Azure VMware com Servidor de Backup do Azure
 
@@ -55,7 +55,7 @@ Por padrão, o Servidor de Backup do Azure se comunica com servidores VMware via
    > [!NOTE] 
    > Se for solicitado, confirme que você deseja permitir alterações no computador.
 
-1. Selecione **Coloque todos os certificados no repositório a seguir**e selecione **procurar** para escolher o repositório de certificados.
+1. Selecione **Coloque todos os certificados no repositório a seguir** e selecione **procurar** para escolher o repositório de certificados.
 
    ![Armazenamento de certificado](../backup/media/backup-azure-backup-server-vmware/cert-import-wizard-local-store.png)
 
@@ -133,7 +133,7 @@ O VMware 6,7 em diante tinha o TLS habilitado como o protocolo de comunicação.
 
    ![Abra o Assistente de Adição de Servidor de Produção](../backup/media/backup-azure-backup-server-vmware/add-vcenter-to-mabs.png)
 
-1. Selecione **servidores VMware**e selecione **Avançar**.
+1. Selecione **servidores VMware** e selecione **Avançar**.
 
    ![Assistente de Adição de Servidor de Produção](../backup/media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
 
@@ -200,7 +200,7 @@ Grupos de proteção reúnem várias VMs e aplicam as mesmas configurações de 
    - **Período de retenção**: o número de dias que os pontos de recuperação de disco são mantidos.
    - **Backup completo expresso**: com que frequência os pontos de recuperação de disco são obtidos. Para alterar os horários ou as datas em que os backups de curto prazo ocorrem, selecione **Modificar**.
 
-   :::image type="content" source="media/azure-vmware-solution-backup/new-protection-group-specify-short-term-goals.png" alt-text="Cliente Web vSphere":::
+   :::image type="content" source="media/azure-vmware-solution-backup/new-protection-group-specify-short-term-goals.png" alt-text="Especifique seus objetivos de curto prazo para a proteção baseada em disco":::
 
 1. Na página **examinar armazenamento em disco alocação** , examine o espaço em disco fornecido para os backups de VM.
 
@@ -209,7 +209,7 @@ Grupos de proteção reúnem várias VMs e aplicam as mesmas configurações de 
    - **Espaço em disco:** Quantidade recomendada de espaço em disco para o grupo de proteção. Se você quiser modificar essa configuração, selecione o espaço levemente maior do que a quantidade estimada de cada fonte de dados.
    - **Detalhes do pool de armazenamento:** Mostra o status do pool de armazenamento, que inclui o tamanho do disco total e restante.
 
-   :::image type="content" source="media/azure-vmware-solution-backup/review-disk-allocation.png" alt-text="Cliente Web vSphere":::
+   :::image type="content" source="media/azure-vmware-solution-backup/review-disk-allocation.png" alt-text="Examinar o espaço em disco fornecido no pool de armazenamento":::
 
    > [!NOTE]
    > Em alguns cenários, o tamanho dos dados relatados é maior que o tamanho real da VM. Estamos cientes do problema e atualmente investigamos.
@@ -259,9 +259,9 @@ Depois de configurar o grupo de proteção para fazer backup de VMs de solução
    - Em **alertas**, você pode monitorar erros, avisos e informações gerais.  Você pode exibir alertas ativos e inativos e configurar notificações por email.
    - Em **trabalhos**, você pode exibir os trabalhos iniciados por servidor de backup do Azure para uma fonte de dados protegida ou um grupo de proteção específico. Você pode seguir o progresso do trabalho ou verificar os recursos consumidos pelos trabalhos.
 - Na área de tarefa **proteção** , você pode verificar o status de volumes e compartilhamentos no grupo de proteção. Você também pode verificar as definições de configuração, como configurações de recuperação, alocação de disco e agendamento de backup.
-- Na área de tarefa **Gerenciamento** , você pode exibir as guias **discos, online**e **agentes** para verificar o status dos discos no pool de armazenamento, o registro no Azure e o status do agente do DPM implantado.
+- Na área de tarefa **Gerenciamento** , você pode exibir as guias **discos, online** e **agentes** para verificar o status dos discos no pool de armazenamento, o registro no Azure e o status do agente do DPM implantado.
 
-:::image type="content" source="media/azure-vmware-solution-backup/monitor-backup-jobs.png" alt-text="Cliente Web vSphere":::
+:::image type="content" source="media/azure-vmware-solution-backup/monitor-backup-jobs.png" alt-text="Monitorar o status dos trabalhos de backup no Servidor de Backup do Azure":::
 
 ## <a name="restore-vmware-virtual-machines"></a>Restaurar máquinas virtuais VMware
 
@@ -286,7 +286,7 @@ No Servidor de Backup do Azure Console do Administrador, há duas maneiras de lo
 
 1. Antes de recuperar de um ponto de recuperação online, verifique se o local de preparo contém espaço livre suficiente para abrigar o tamanho completo descompactado da VM que você deseja recuperar. O local de preparo pode ser exibido ou alterado executando o **Assistente para definir configurações de assinatura**.
 
-   :::image type="content" source="media/azure-vmware-solution-backup/mabs-recovery-folder-settings.png" alt-text="Cliente Web vSphere":::
+   :::image type="content" source="media/azure-vmware-solution-backup/mabs-recovery-folder-settings.png" alt-text="Servidor de Backup do Azure configurações da pasta de recuperação":::
 
 1. Selecione **recuperar** para abrir o **Assistente de recuperação**.
 
@@ -323,7 +323,7 @@ Você pode restaurar arquivos individuais de um ponto de recuperação de VM pro
 
 1. No painel **pontos de recuperação para** , use o calendário para selecionar a data que contém os pontos de recuperação desejados. Dependendo de como a política de backup foi configurada, as datas podem ter mais de um ponto de recuperação. 
 
-1. Depois de selecionar o dia em que o ponto de recuperação foi obtido, certifique-se de escolher o **tempo de recuperação**correto. 
+1. Depois de selecionar o dia em que o ponto de recuperação foi obtido, certifique-se de escolher o **tempo de recuperação** correto. 
 
    > [!NOTE]
    > Se a data selecionada tiver vários pontos de recuperação, escolha o ponto de recuperação selecionando-o no menu suspenso **Tempo de recuperação**. 
@@ -356,7 +356,7 @@ Você pode restaurar arquivos individuais de um ponto de recuperação de VM pro
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para solucionar problemas ao configurar backups, examine o guia de solução de problemas para o Servidor de Backup do Azure.
+Agora que você já abordou o backup de suas VMs de solução do Azure VMware com Servidor de Backup do Azure, convém aprender sobre: 
 
-> [!div class="nextstepaction"]
-> [Guia de solução de problemas para Servidor de Backup do Azure](../backup/backup-azure-mabs-troubleshoot.md)
+- [Solução de problemas ao configurar backups no servidor de backup do Azure](../backup/backup-azure-mabs-troubleshoot.md).
+- [Gerenciamento do ciclo de vida de VMs de solução do Azure VMware](lifecycle-management-of-azure-vmware-solution-vms.md).

@@ -2,19 +2,15 @@
 title: Como solucionar problemas do agente de atualização do Linux na Automação do Azure
 description: Este artigo explica como solucionar problemas e resolver problemas com o agente do Windows Update do Linux no Gerenciamento de Atualizações.
 services: automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 12/03/2019
-ms.topic: conceptual
-ms.service: automation
+ms.date: 01/25/2021
+ms.topic: troubleshooting
 ms.subservice: update-management
-manager: carmonm
-ms.openlocfilehash: f1351b29a0102a374b75d832687d66c3b5572c75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fd92d79a3322b17f528194b9d39c26bf4c93b0c
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83680866"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896250"
 ---
 # <a name="troubleshoot-linux-update-agent-issues"></a>Solucionar problemas do agente de atualização do Linux
 
@@ -27,7 +23,7 @@ Pode haver muitas razões pelas quais o computador não está aparecendo como pr
 > [!NOTE]
 > Pode haver um pequeno atraso entre o que o portal do Azure mostra e o estado atual de um computador.
 
-Este artigo descreve como executar a solução de problemas em computadores do Azure no portal do Azure e em computadores não Azure no [cenário offline](#troubleshoot-offline). 
+Este artigo descreve como executar a solução de problemas em computadores do Azure no portal do Azure e em computadores não Azure no [cenário offline](#troubleshoot-offline).
 
 > [!NOTE]
 > O script de solução de problemas atualmente não roteia o tráfego por um servidor proxy se houver um configurado.
@@ -90,7 +86,6 @@ Gerenciamento de Atualizações baixa pacotes do Hybrid Runbook Worker do ponto 
 
 Essa verificação garante que o Hybrid Runbook Worker esteja em execução no computador. Os processos no exemplo abaixo deverão estar presentes se o Hybrid Runbook Worker estiver sendo executado corretamente.
 
-
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
 nxautom+   8593      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/state/automationworker/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
@@ -129,7 +124,7 @@ Essa verificação verifica se o seu computador tem acesso aos pontos de extremi
 
 ## <a name="troubleshoot-offline"></a><a name="troubleshoot-offline"></a>Solucionar problemas offline
 
-Você pode usar a solução de problemas offline em um Hybrid Runbook Worker executando o script localmente. O script do Python [update_mgmt_health_check.py](https://gallery.technet.microsoft.com/scriptcenter/Troubleshooting-utility-3bcbefe6) pode ser encontrados no Script Center. Um exemplo da saída desse script é mostrado no seguinte exemplo:
+Você pode usar a solução de problemas offline em um Hybrid Runbook Worker executando o script localmente. O script Python, [UM_Linux_Troubleshooter_Offline. py](https://github.com/Azure/updatemanagement/blob/main/UM_Linux_Troubleshooter_Offline.py), pode ser encontrado no github. Um exemplo da saída desse script é mostrado no seguinte exemplo:
 
 ```output
 Debug: Machine Information:   Static hostname: LinuxVM2

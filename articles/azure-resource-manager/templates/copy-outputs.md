@@ -1,22 +1,22 @@
 ---
 title: Definir várias instâncias de um valor de saída
-description: Use a operação de cópia em um modelo de Azure Resource Manager para iterar várias vezes ao retornar um valor de uma implantação.
+description: Use a operação de cópia em um modelo de Azure Resource Manager (modelo ARM) para iterar várias vezes ao retornar um valor de uma implantação.
 ms.topic: conceptual
 ms.date: 04/17/2020
-ms.openlocfilehash: 50c4b4b8f301ad88d3dfde98ace1aed4431693db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ae20ed9ec3fdb3b76adbd370f5ba22f9386d613
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82583417"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905937"
 ---
 # <a name="output-iteration-in-arm-templates"></a>Iteração de saída em modelos ARM
 
-Este artigo mostra como criar mais de um valor para uma saída em seu modelo de Azure Resource Manager (ARM). Ao adicionar o elemento **copiar** à seção de saídas do modelo, você pode retornar dinamicamente vários itens durante a implantação.
+Este artigo mostra como criar mais de um valor para uma saída em seu modelo de Azure Resource Manager (modelo ARM). Ao adicionar o `copy` elemento à seção de saídas do modelo, você pode retornar dinamicamente vários itens durante a implantação.
 
 Você também pode usar copiar com [recursos](copy-resources.md), [Propriedades em um recurso](copy-properties.md)e [variáveis](copy-variables.md).
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 O elemento Copy tem o seguinte formato geral:
 
@@ -27,9 +27,9 @@ O elemento Copy tem o seguinte formato geral:
 }
 ```
 
-A propriedade **Count** especifica o número de iterações que você deseja para o valor de saída.
+A `count` propriedade especifica o número de iterações que você deseja para o valor de saída.
 
-A propriedade de **entrada** especifica as propriedades que você deseja repetir. Você cria uma matriz de elementos construídos com base no valor na propriedade de **entrada** . Pode ser uma única propriedade (como uma cadeia de caracteres) ou um objeto com várias propriedades.
+A `input` propriedade especifica as propriedades que você deseja repetir. Crie uma matriz de elementos construídos a partir do valor na propriedade `input`. Pode ser uma única propriedade (como uma cadeia de caracteres) ou um objeto com várias propriedades.
 
 ## <a name="copy-limits"></a>Limites de cópia
 
@@ -166,11 +166,10 @@ O exemplo anterior retorna uma matriz com os seguintes valores:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para percorrer um tutorial, consulte [tutorial: criar várias instâncias de recursos usando modelos ARM](template-tutorial-create-multiple-instances.md).
+* Para percorrer um tutorial, consulte [tutorial: criar várias instâncias de recurso com modelos ARM](template-tutorial-create-multiple-instances.md).
 * Para outros usos do elemento copiar, consulte:
   * [Iteração de recurso em modelos ARM](copy-resources.md)
   * [Iteração de propriedade em modelos ARM](copy-properties.md)
   * [Iteração variável em modelos ARM](copy-variables.md)
-* Se você quiser saber mais sobre as seções de um modelo, consulte [criação de modelos de ARM](template-syntax.md).
-* Para saber como implantar seu modelo, consulte [implantar um aplicativo com o modelo ARM](deploy-powershell.md).
-
+* Se você quiser saber mais sobre as seções de um modelo, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).
+* Para saber como implantar seu modelo, consulte [implantar recursos com modelos ARM e Azure PowerShell](deploy-powershell.md).

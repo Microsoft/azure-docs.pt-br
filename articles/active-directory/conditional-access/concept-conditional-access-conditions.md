@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dddad5692ab2eebb6ef9b427c091be449791d7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96d1eaff4d1b93ad3bb489f177020c351fe4d13d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91818352"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95904028"
 ---
 # <a name="conditional-access-conditions"></a>Acesso condicional: condições
 
@@ -174,13 +174,13 @@ Essa configuração tem um impacto nas tentativas de acesso feitas a partir dos 
 
 ### <a name="exchange-activesync-clients"></a>Clientes do Exchange ActiveSync
 
-- As organizações só podem selecionar clientes do Exchange ActiveSync ao atribuir a política a usuários ou grupos. Selecionar **todos os usuários**, **todos os usuários convidados e externos**ou **funções de diretório** fará com que todos os usuários se tornem bloqueados.
+- As organizações só podem selecionar clientes do Exchange ActiveSync ao atribuir a política a usuários ou grupos. Selecionar **todos os usuários**, **todos os usuários convidados e externos** ou **funções de diretório** fará com que todos os usuários se tornem bloqueados.
 - Ao criar uma política atribuída aos clientes do Exchange ActiveSync, o **Exchange Online** deve ser o único aplicativo de nuvem atribuído à política. 
 - As organizações podem restringir o escopo dessa política a plataformas específicas usando a condição de **plataformas de dispositivo** .
 
 Se o controle de acesso atribuído à política usar **exigir aplicativo cliente aprovado**, o usuário será direcionado para instalar e usar o cliente móvel do Outlook. No caso de a **autenticação multifator** ser necessária, os usuários afetados são bloqueados, pois a autenticação básica não oferece suporte à autenticação multifator.
 
-Para obter mais informações, consulte os seguintes artigos:
+Para obter mais informações, confira os seguintes artigos:
 
 - [Bloquear a autenticação herdada com acesso condicional](block-legacy-authentication.md)
 - [Exigindo aplicativos cliente aprovados com acesso condicional](app-based-conditional-access.md)
@@ -194,7 +194,7 @@ Ao selecionar **Outros clientes**, é possível especificar uma condição que a
 A condição de estado do dispositivo pode ser usada para excluir dispositivos que são ingressados no Azure AD híbrido e/ou dispositivos marcados como compatíveis com uma política de conformidade de Microsoft Intune das políticas de acesso condicional de uma organização.
 
 Por exemplo, *todos os usuários* que acessam o aplicativo de nuvem de *Gerenciamento de Microsoft Azure* , incluindo todo o estado do **dispositivo** , excluindo o dispositivo **híbrido do Azure ad** e o **dispositivo marcado como compatível** e para *controles de acesso*, **Bloquear**. 
-   - Este exemplo criaria uma política que permite apenas o acesso ao gerenciamento de Microsoft Azure de dispositivos que são ingressados no Azure AD híbrido e/ou dispositivos marcados como compatíveis.
+   - Este exemplo criaria uma política que permite apenas o acesso ao gerenciamento de Microsoft Azure de dispositivos que são ingressados no Azure AD híbrido ou dispositivos marcados como compatíveis.
 
 ## <a name="next-steps"></a>Próximas etapas
 

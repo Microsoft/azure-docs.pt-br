@@ -3,7 +3,7 @@ title: Entender e resolver problemas do Azure Proxy de Aplicativo do AD CORS
 description: Fornece uma compreensão do CORS no Azure Proxy de Aplicativo do AD e como identificar e resolver problemas de CORS.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,18 +11,18 @@ ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 2019802725e36c2400f57952fedf7af40877c8c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b57fc7e3af99819c9b27b6bc796e501d1db02818
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84759922"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259161"
 ---
-# <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>Entender e resolver problemas Proxy de Aplicativo do Azure Active Directory CORS
+# <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>Entender e resolver problemas de CORS de Proxy de Aplicativo no Azure Active Directory
 
-[CORS (compartilhamento de recursos entre origens)](https://www.w3.org/TR/cors/)   às vezes, podem apresentar desafios para os aplicativos e as APIs que você publica por meio do Proxy de Aplicativo do Azure Active Directory. Este artigo aborda os problemas e as soluções do Azure Proxy de Aplicativo do AD CORS.
+O [CORS (compartilhamento de recursos entre origens)](https://www.w3.org/TR/cors/) às vezes pode apresentar desafios para os aplicativos e as APIs que você publica por meio do proxy de aplicativo do Azure Active Directory. Este artigo aborda os problemas e as soluções do Azure Proxy de Aplicativo do AD CORS.
 
-A segurança do navegador geralmente impede que uma página da Web faça solicitações AJAX para outro domínio. Essa restrição é chamada de *política de mesma origem*e impede que um site mal-intencionado leia dados confidenciais de outro site. No entanto, às vezes, talvez você queira permitir que outros sites Chamem sua API da Web. O CORS é um padrão W3C que permite que um servidor Relaxe a política de mesma origem e permita algumas solicitações entre origens enquanto rejeita outras.
+A segurança do navegador geralmente impede que uma página da Web faça solicitações AJAX para outro domínio. Essa restrição é chamada de *política de mesma origem* e impede que um site mal-intencionado leia dados confidenciais de outro site. No entanto, às vezes, talvez você queira permitir que outros sites Chamem sua API da Web. O CORS é um padrão W3C que permite que um servidor Relaxe a política de mesma origem e permita algumas solicitações entre origens enquanto rejeita outras.
 
 ## <a name="understand-and-identify-cors-issues"></a>Entender e identificar problemas de CORS
 
@@ -66,7 +66,7 @@ Você pode resolver o problema de CORS anterior em qualquer uma das várias mane
 
 ### <a name="option-1-set-up-a-custom-domain"></a>Opção 1: configurar um domínio personalizado
 
-Use um [domínio personalizado](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) do Azure proxy de aplicativo do AD para publicar da mesma origem, sem precisar fazer alterações nas origens do aplicativo, código ou cabeçalhos. 
+Use um [domínio personalizado](./application-proxy-configure-custom-domain.md) do Azure proxy de aplicativo do AD para publicar da mesma origem, sem precisar fazer alterações nas origens do aplicativo, código ou cabeçalhos. 
 
 ### <a name="option-2-publish-the-parent-directory"></a>Opção 2: publicar o diretório pai
 
@@ -117,4 +117,4 @@ Alguns problemas de CORS não podem ser resolvidos, como quando seu aplicativo r
 ## <a name="see-also"></a>Confira também
 - [Tutorial: Adicionar um aplicativo local para acesso remoto por meio do Proxy de Aplicativo no Azure Active Directory](application-proxy-add-on-premises-application.md) 
 - [Planejar uma implantação do Proxy de Aplicativo do Azure AD](application-proxy-deployment-plan.md) 
-- [Acesso remoto a aplicativos locais por meio de Proxy de Aplicativo do Azure Active Directory](application-proxy.md) 
+- [Acesso remoto a aplicativos locais por meio de Proxy de Aplicativo do Azure Active Directory](application-proxy.md)

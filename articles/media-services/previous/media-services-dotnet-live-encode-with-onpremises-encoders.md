@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d513a11761fec64c8d0732a61740475be52d727f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 438e13abc04c959895cd371dfc29ce93d9b63f41
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89262016"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695614"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Como executar uma transmissão ao vivo com codificadores locais usando .NET
 
@@ -33,7 +33,7 @@ ms.locfileid: "89262016"
 > 
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Este tutorial descreve as etapas de uso do SDK do .NET dos Serviços de Mídia do Azure para criar um **Canal** configurado para uma entrega de passagem. 
 

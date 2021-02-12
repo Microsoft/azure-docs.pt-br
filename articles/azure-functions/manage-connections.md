@@ -4,12 +4,12 @@ description: Saiba como evitar problemas de desempenho no Azure Functions usando
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 02/25/2018
-ms.openlocfilehash: 6a426aff1721ac3565b53cf2eef7c5aa094dd7e2
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: ec16ce3e7f9793be2a012a029bcca31c9a7ea4cf
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168300"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936695"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Gerenciar conexões no Azure Functions
 
@@ -19,7 +19,7 @@ Funções em um aplicativo de funções compartilham recursos. Entre esses recur
 
 O número de conexões disponíveis é limitado parcialmente porque um aplicativo de funções é executado em um [ambiente de área restrita](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Uma das restrições que a área de proteção impõe em seu código é um limite no número de conexões de saída, que são atualmente 600 conexões ativas (total de 1.200) por instância. Quando você atinge esse limite, o tempo de execução do Functions grava a seguinte mensagem nos logs: `Host thresholds exceeded: Connections` . Para obter mais informações, consulte os [limites de serviço do Functions](functions-scale.md#service-limits).
 
-Esse limite é por instância. Quando o [controlador de escala adiciona instâncias do aplicativo de funções](functions-scale.md#how-the-consumption-and-premium-plans-work) para lidar com mais solicitações, cada instância tem um limite de conexão independente. Isso significa que não há nenhum limite de conexão global e você pode ter muito mais do que 600 conexões ativas em todas as instâncias ativas.
+Esse limite é por instância. Quando o [controlador de escala adiciona instâncias do aplicativo de funções](event-driven-scaling.md) para lidar com mais solicitações, cada instância tem um limite de conexão independente. Isso significa que não há nenhum limite de conexão global e você pode ter muito mais do que 600 conexões ativas em todas as instâncias ativas.
 
 Ao solucionar problemas, certifique-se de ter habilitado Application Insights para seu aplicativo de funções. Application Insights permite exibir métricas para seus aplicativos de funções, como execuções. Para obter mais informações, consulte [Exibir telemetria no Application insights](analyze-telemetry-data.md#view-telemetry-in-application-insights).  
 
@@ -103,7 +103,7 @@ public static async Task Run(string input)
     // Rest of function
 }
 ```
-Se você estiver trabalhando com o Functions v3. x, precisará de um referência para Microsoft.Azure.DocumentDB. Core. Adicione uma referência no código:
+Se você estiver trabalhando com funções v3. x, precisará de uma referência a Microsoft.Azure.DocumentDB. Core. Adicione uma referência no código:
 
 ```cs
 #r "Microsoft.Azure.DocumentDB.Core"

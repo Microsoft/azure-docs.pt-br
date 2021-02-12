@@ -10,23 +10,51 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 7fadbecc2c00a739afb2f94dd1d049805915cfa5
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 01e5095e5ff5c65bff508f4bd526ee5f85e3dc56
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427098"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575153"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migração de tráfego do banco de dados SQL do Azure para gateways mais recentes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 À medida que a infraestrutura do Azure melhora, a Microsoft atualizará periodicamente o hardware para garantir que forneceremos a melhor experiência possível para o cliente. Nos próximos meses, planejamos adicionar gateways criados em gerações de hardware mais recentes, migrar o tráfego para eles e eventualmente descomissionar os gateways criados em um hardware mais antigo em algumas regiões.  
 
-Os clientes serão notificados por email e na portal do Azure bem antes de qualquer alteração nos gateways disponíveis em cada região. As informações mais atualizadas serão mantidas na tabela [endereços IP do gateway do banco de dados SQL do Azure](connectivity-architecture.md#gateway-ip-addresses) .
+Os clientes serão notificados por meio de notificações de integridade do serviço com antecedência sobre qualquer alteração nos gateways disponíveis em cada região. Os clientes podem [usar o portal do Azure para configurar alertas do log de atividades](https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal).
+
+As informações mais atualizadas serão mantidas na tabela [endereços IP do gateway do banco de dados SQL do Azure](connectivity-architecture.md#gateway-ip-addresses) .
 
 ## <a name="status-updates"></a>Atualizações de status
 
 # <a name="in-progress"></a>[Em Andamento](#tab/in-progress-ip)
+## <a name="february-2021"></a>Fevereiro de 2021
+Novos gateways do SQL estão sendo adicionados às seguintes regiões:
+
+- EUA Central: 13.89.169.20
+
+Esses gateways do SQL devem começar a aceitar o tráfego do cliente em 28 de fevereiro de 2021.
+
+## <a name="january-2021"></a>Janeiro de 2021
+Novos gateways do SQL estão sendo adicionados às seguintes regiões:
+
+- Austrália Central: 20.36.104.6, 20.36.104.7 
+- Austrália Central 2:20.36.112.6 
+- Sul do Brasil: 191.234.144.16, 191.234.152.3 
+- Leste do Canadá: 40.69.105.9, 40.69.105.10
+- Índia central: 104.211.86.30, 104.211.86.31 
+- Ásia Oriental: 13.75.32.14 
+- França central: 40.79.137.8, 40.79.145.12 
+- Sul da França: 40.79.177.10, 40.79.177.12
+- Coreia central: 52.231.17.22, 52.231.17.23
+- Índia ocidental: 104.211.144.4
+
+Esses gateways do SQL devem começar a aceitar o tráfego do cliente em 31 de janeiro de 2021.
+
+# <a name="completed"></a>[Concluído](#tab/completed-ip)
+As seguintes migrações de gateway estão concluídas: 
+
 ### <a name="october-2020"></a>Outubro de 2020
 
 Novos gateways do SQL estão sendo adicionados às seguintes regiões:
@@ -70,9 +98,6 @@ Novos gateways do SQL estão sendo adicionados às regiões a seguir. Esses gate
 Os gateways SQL existentes começarão a aceitar o tráfego nas regiões a seguir. Esses gateways do SQL devem começar a aceitar o tráfego do cliente em **1 de setembro de 2020** :
 - Leste do Japão: 40.79.184.8, 40.79.192.5
 
-# <a name="completed"></a>[Concluído](#tab/completed-ip)
-
-As seguintes migrações de gateway estão concluídas: 
 
 ### <a name="august-2020"></a>Agosto de 2020
 
@@ -95,7 +120,7 @@ Esses gateways do SQL devem começar a aceitar o tráfego do cliente em 10 de ag
 - Norte da Europa
 - Centro-Norte dos EUA
 - Oeste do Japão
-- Leste do Japão
+- Japan East
 - Leste dos EUA 2
 - Leste da Ásia
 

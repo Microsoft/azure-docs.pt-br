@@ -10,13 +10,13 @@ ms.topic: how-to
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 04/14/2020
-ms.openlocfilehash: 42f6badabd27ceaa302f635a7a33b0161b870dc5
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 12/16/2020
+ms.openlocfilehash: a0653f24eeb0a96c28714d00f1d943dfc7d336db
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782851"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979684"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gerenciar a retenção de backup de longo prazo do Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -31,15 +31,15 @@ As seções a seguir mostram como usar o Portal do Azure para configurar a reten
 
 Você pode configurar o Banco de Dados SQL para [reter backups automatizados](long-term-retention-overview.md) por um período maior que o período de retenção da camada de serviço.
 
-1. No portal do Azure, selecione sua instância do SQL Server e clique em **gerenciar backups** . Na guia **Configurar políticas** , marque a caixa de seleção do banco de dados no qual deseja definir ou modificar políticas de retenção de backup de longo prazo. Se a caixa de seleção ao lado do banco de dados não estiver marcada, as alterações da política não se aplicarão ao banco de dados.  
+1. No portal do Azure, selecione sua instância do SQL Server e clique em **gerenciar backups**. Na guia **Configurar políticas**, marque a caixa de seleção do banco de dados no qual deseja definir ou modificar políticas de retenção de backup de longo prazo. Se a caixa de seleção ao lado do banco de dados não estiver marcada, as alterações da política não se aplicarão ao banco de dados.  
 
    ![link gerenciar backups](./media/long-term-backup-retention-configure/ltr-configure-ltr.png)
 
-2. No painel **Configurar políticas** , selecione se deseja reter backups semanais, mensais ou anuais e especifique o período de retenção para cada um.
+2. No painel **Configurar políticas**, selecione se deseja reter backups semanais, mensais ou anuais e especifique o período de retenção para cada um.
 
    ![configurar políticas](./media/long-term-backup-retention-configure/ltr-configure-policies.png)
 
-3. Quando concluir, clique em **Aplicar** .
+3. Quando concluir, clique em **Aplicar**.
 
 > [!IMPORTANT]
 > Quando você habilita uma política de retenção de backup de longo prazo, pode levar até sete dias para o primeiro backup ficar visível e disponível para restauração. Para obter detalhes sobre o ritmo de backup de LTR, confira [Retenção de backup de longo prazo](long-term-retention-overview.md).
@@ -48,11 +48,11 @@ Você pode configurar o Banco de Dados SQL para [reter backups automatizados](lo
 
 Exiba os backups que são retidos para um banco de dados específico com uma política EPD e restaure desses backups.
 
-1. No portal do Azure, selecione o servidor e clique em **gerenciar backups** . Na guia **Backups disponíveis** , selecione o banco de dados para o qual você deseja ver os backups disponíveis.
+1. No portal do Azure, selecione o servidor e clique em **gerenciar backups**. Na guia **Backups disponíveis**, selecione o banco de dados para o qual você deseja ver os backups disponíveis.
 
    ![selecionar banco de dados](./media/long-term-backup-retention-configure/ltr-available-backups-select-database.png)
 
-1. No painel **Backups disponíveis** , examine os backups disponíveis.
+1. No painel **Backups disponíveis**, examine os backups disponíveis.
 
    ![exibir backups](./media/long-term-backup-retention-configure/ltr-available-backups.png)
 
@@ -82,7 +82,7 @@ As seções a seguir mostram como usar o PowerShell para configurar a retenção
 
 ### <a name="azure-roles-to-manage-long-term-retention"></a>Funções do Azure para gerenciar a retenção de longo prazo
 
-Para **Get-AzSqlDatabaseLongTermRetentionBackup** e **Restore-AzSqlDatabase** , você precisará de uma das seguintes regras:
+Para **Get-AzSqlDatabaseLongTermRetentionBackup** e **Restore-AzSqlDatabase**, você precisará de uma das seguintes regras:
 
 - Função Proprietário da assinatura ou
 - Função Colaborador do SQL Server ou
@@ -90,7 +90,7 @@ Para **Get-AzSqlDatabaseLongTermRetentionBackup** e **Restore-AzSqlDatabase** , 
 
    Microsoft.Sql/locations/longTermRetentionBackups/read  Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read  Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/read
 
-Para **Remove-AzSqlDatabaseLongTermRetentionBackup** , você precisará ter uma das seguintes funções:
+Para **Remove-AzSqlDatabaseLongTermRetentionBackup**, você precisará ter uma das seguintes funções:
 
 - Função Proprietário da assinatura ou
 - Função personalizada com a seguinte permissão:
@@ -100,7 +100,7 @@ Para **Remove-AzSqlDatabaseLongTermRetentionBackup** , você precisará ter uma 
 > [!NOTE]
 > A função Colaborador do SQL Server não tem permissão para excluir backups de LTR.
 
-As permissões RBAC podem ser concedidas no escopo de *assinatura* ou *grupo de recursos* . No entanto, para acessar backups de LTR que pertencem a um servidor descartado, a permissão deve ser concedida no escopo de *assinatura* desse servidor.
+As permissões do RBAC do Azure podem ser concedidas em escopo de *assinatura* ou *grupo de recursos* . No entanto, para acessar backups de LTR que pertencem a um servidor descartado, a permissão deve ser concedida no escopo de *assinatura* desse servidor.
 
 - Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
 
@@ -183,7 +183,7 @@ Remove-AzSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
 
 > [!IMPORTANT]
-> A exclusão do backup LTR é irreversível. Para excluir um backup de LTR depois que o servidor tiver sido excluído, você deverá ter a permissão de escopo de Assinatura. Você pode configurar notificações sobre cada exclusão no Azure Monitor filtrando a operação "Exclui um backup de retenção de longo prazo". O log de atividades contém informações sobre quem fez a solicitação e quando. Confira [Criar alertas do log de atividades](../../azure-monitor/platform/alerts-activity-log.md) para obter instruções detalhadas.
+> A exclusão do backup LTR é irreversível. Para excluir um backup EPD após a exclusão do servidor ou do grupo de recursos, você deve ter a permissão de escopo da assinatura. Você pode configurar notificações sobre cada exclusão no Azure Monitor filtrando a operação "Exclui um backup de retenção de longo prazo". O log de atividades contém informações sobre quem fez a solicitação e quando. Confira [Criar alertas do log de atividades](../../azure-monitor/platform/alerts-activity-log.md) para obter instruções detalhadas.
 
 ### <a name="restore-from-ltr-backups"></a>Restaurar a partir de backups LTR
 
@@ -196,13 +196,14 @@ Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.Resour
 ```
 
 > [!IMPORTANT]
-> Para restaurar de um backup de LTR após o servidor ter sido excluído, você deverá ter permissões com escopo para a assinatura do servidor, e a assinatura deverá estar ativa. Você também deve omitir o parâmetro -ResourceGroupName opcional.
+> Para restaurar a partir de um backup EPD após a exclusão do servidor ou do grupo de recursos, você deve ter permissões com escopo para a assinatura do servidor e essa assinatura deve estar ativa. Você também deve omitir o parâmetro -ResourceGroupName opcional.
 
 > [!NOTE]
 > A partir daqui, você pode conectar o banco de dados restaurado usando o SQL Server Management Studio para executar as tarefas necessárias, tais como, extrair um pouco de dados do banco de dados restaurado para copiar para o banco de dados existente ou excluir o banco de dados existente e renomear o banco de dados restaurado com o nome do banco de dados existente. Confira [recuperação pontual](recovery-using-backups.md#point-in-time-restore).
 
 ## <a name="limitations"></a>Limitações
 - Ao restaurar de um backup EPD, a propriedade de escala de leitura é desabilitada. Para habilitar, leia escala no banco de dados restaurado, atualize o banco de dados depois que ele tiver sido criado.
+- Você precisa especificar o objetivo de nível de serviço de destino ao restaurar de um backup EPD, que foi criado quando o banco de dados estava em um pool elástico. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

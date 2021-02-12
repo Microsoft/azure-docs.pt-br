@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: cf90ff5b94eb03f76dffc8b64dd4d92a44ac20ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38bf12b46002e767bba50cf833637e2c8ace078f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91848901"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872325"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Perguntas frequentes para a computação confidencial do Azure
 
@@ -32,7 +32,7 @@ Aqui estão algumas maneiras que de implantar uma VM DCsv2:
 
 **Todas as imagens do sistema operacional funcionarão com a computação confidencial do Azure?**
 
-Não. As máquinas virtuais só podem ser implantadas em máquinas operacionais de geração 2 com o Ubuntu Server 18.04, o Ubuntu Server 16.04, o Windows Server 2019 datacenter e o Windows Server 2016 Datacenter. Leia mais sobre VMs de Gen 2 em [Linux](../virtual-machines/linux/generation-2.md) e [Windows](../virtual-machines/windows/generation-2.md)
+Não. As máquinas virtuais só podem ser implantadas em máquinas operacionais de geração 2 com o Ubuntu Server 18.04, o Ubuntu Server 16.04, o Windows Server 2019 datacenter e o Windows Server 2016 Datacenter. Leia mais sobre VMs de Gen 2 em [Linux](../virtual-machines/generation-2.md) e [Windows](../virtual-machines/generation-2.md)
 
 **As máquinas virtuais DCsv2 estão esmaecidas no portal e não consigo selecionar uma**
 
@@ -44,6 +44,14 @@ Com base na bolha de informações ao lado da VM, há ações diferentes a serem
 **As máquinas virtuais DCsv2 não aparecem quando tento procurá-las no seletor de tamanho do portal**
 
 Verifique se você selecionou uma [região disponível](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines). Além disso, certifique-se de selecionar "limpar todos os filtros" no seletor de tamanho. 
+
+**Posso habilitar a rede acelerada com a computação confidencial do Azure?**
+
+ Não. A rede acelerada não tem suporte em máquinas virtuais DC-Series ou DCsv2-Series. A rede acelerada não pode ser habilitada para nenhuma implantação de máquina virtual de computação confidencial ou implantação de cluster do serviço kubernetes do Azure em execução na computação confidencial.
+
+**Posso usar o host dedicado do Azure com esses computadores?**
+
+Sim. O host dedicado do Azure dá suporte a máquinas virtuais da série DCsv2. O host dedicado do Azure fornece um servidor físico de único locatário para executar suas máquinas virtuais. Os usuários geralmente usam o host dedicado do Azure para atender aos requisitos de conformidade relacionados à segurança física, à integridade dos dados e ao monitoramento. 
 
 **Obtenho um erro de falha de implantação de modelo do Azure Resource Manager: "Não foi possível concluir a operação, pois ela resulta em excedendo a cota de núcleos de família de DcsV2 padrão aprovada"**
 

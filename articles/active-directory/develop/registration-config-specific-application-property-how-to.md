@@ -11,12 +11,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
-ms.openlocfilehash: 1469fcfa68b10353b78d31ccc758c61bf7746692
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 6da6187e59bf028101eac2ea6f09fb1530821bfd
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88120687"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937858"
 ---
 # <a name="azure-portal-registration-fields-for-custom-developed-apps"></a>Campos de registro do portal do Azure para aplicativos personalizados
 
@@ -24,7 +25,7 @@ Este artigo oferece uma breve descrição de todos os campos disponíveis no for
 
 ## <a name="register-a-new-application"></a>Registrar um novo aplicativo
 
--   Para registrar um novo aplicativo, navegue até o [portal do Azure](https://portal.azure.com).
+-   Para registrar um novo aplicativo, navegue até a <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
 -   No painel de navegação esquerdo, clique em **Azure Active Directory.**
 
@@ -60,7 +61,7 @@ Depois de preencher os campos acima, o aplicativo será registrado na portal do 
 
 | Campo           | Descrição        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| URL de logoff      | Esta é a URL de logoff de logoff único. O Azure AD envia uma solicitação de logoff para essa URL quando o usuário limpa a sessão com o Azure AD usando qualquer outro aplicativo registrado.|
+| URL de logoff de front-Channel      | Esta é a URL de logoff de logoff único. O Azure AD envia uma solicitação de logoff para essa URL quando o usuário limpa a sessão com o Azure AD usando qualquer outro aplicativo registrado.|
 | Tipos de conta com suporte  | Esta opção especifica se o aplicativo pode ser usado por vários locatários. Normalmente, isso significa que organizações externas podem usar seu aplicativo registrando-o em seu locatário e concedendo acesso aos dados da organização.|
 | URLs de redirecionamento      | As URLs de redirecionamento, ou de resposta são os pontos de extremidade onde o Azure AD retorna quaisquer tokens que seu aplicativo solicita. Para aplicativos nativos, é para onde o usuário é enviado após uma autorização bem-sucedida. O Azure AD verifica se o URI de redirecionamento que seu aplicativo fornece na solicitação OAuth 2,0 corresponde a um dos valores registrados no Portal.|
 

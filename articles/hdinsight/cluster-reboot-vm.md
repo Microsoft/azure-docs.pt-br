@@ -1,19 +1,16 @@
 ---
 title: Reinicializar VMs para clusters do Azure HDInsight
 description: Saiba como reinicializar VMs sem resposta para clusters do Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/22/2020
-ms.openlocfilehash: 725b616fec9c2bc4a0540a7941098377e01732e2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a61735dba60860459d007eb54d4655f41d5ae51a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546459"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946866"
 ---
 # <a name="reboot-vms-for-hdinsight-clusters"></a>Reinicializar VMs para clusters HDInsight
 
@@ -60,7 +57,7 @@ Você pode usar o recurso **experimentar** no documento da API para enviar solic
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/listHosts?api-version=2018-06-01-preview
     ```
 
-1. Reinicie os hosts. Depois de obter os nomes dos nós que você deseja reinicializar, reinicie os nós usando a API REST para reinicializar os nós. O nome do nó segue o padrão de *NodeType (WN/HN/ZK/GW)*  +  *x* os  +  *primeiros seis caracteres do nome do cluster* . Para obter mais informações, consulte [host de reinicialização do HDInsight operação de API REST](/rest/api/hdinsight/virtualmachines/restarthosts).
+1. Reinicie os hosts. Depois de obter os nomes dos nós que você deseja reinicializar, reinicie os nós usando a API REST para reinicializar os nós. O nome do nó segue o padrão de *NodeType (WN/HN/ZK/GW)*  +  *x* os  +  *primeiros seis caracteres do nome do cluster*. Para obter mais informações, consulte [host de reinicialização do HDInsight operação de API REST](/rest/api/hdinsight/virtualmachines/restarthosts).
 
     ```
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/restartHosts?api-version=2018-06-01-preview

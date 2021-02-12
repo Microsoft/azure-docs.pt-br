@@ -3,13 +3,13 @@ title: Logs de execução de fluxo no Azure Functions
 description: 115-145 caracteres incluindo espaços. Este resumo é exibido no resultado da pesquisa.
 ms.date: 9/1/2020
 ms.topic: how-to
-ms.custom: contperfq2
-ms.openlocfilehash: 61756afb5111da3d5573e967a6ca13f25354aef5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.custom: contperf-fy21q2, devx-track-azurecli
+ms.openlocfilehash: 085849386fce929ceaec4536844cf31b94fe7539
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216089"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033044"
 ---
 # <a name="enable-streaming-execution-logs-in-azure-functions"></a>Habilitar logs de execução de streaming no Azure Functions
 

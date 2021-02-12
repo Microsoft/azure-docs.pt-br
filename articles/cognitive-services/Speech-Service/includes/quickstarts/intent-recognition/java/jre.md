@@ -6,12 +6,12 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 8bcc3e41f87570822f48a111fe98d1fdaf72679f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: a895af0f1a10796ad49898e37551f37d38418784
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470882"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947465"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,14 +41,14 @@ Antes de inicializar um objeto `IntentRecognizer`, é preciso criar uma configur
 Inserir este código no bloco try/catch no `main()`. Atualize estes valores:
 
 * Substitua `"YourLanguageUnderstandingSubscriptionKey"` pela sua chave de previsão do LUIS.
-* Substitua `"YourLanguageUnderstandingServiceRegion"` pelo seu local do LUIS. Use o **Identificador de região** da [região](https://aka.ms/speech/sdkregion) correta
+* Substitua `"YourLanguageUnderstandingServiceRegion"` pelo seu local do LUIS. Use o **Identificador de região** da [região](../../../../regions.md) correta
 
 >[!TIP]
 > Se precisar de ajuda para encontrar esses valores, confira [Criar um aplicativo LUIS para reconhecimento de intenção](#create-a-luis-app-for-intent-recognition).
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=27)]
 
-Esta amostra usa o método `FromSubscription()` para criar o `SpeechConfig`. Para ver uma lista completa dos métodos disponíveis, confira a [Classe SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true).
+Esta amostra usa o método `FromSubscription()` para criar o `SpeechConfig`. Para ver uma lista completa dos métodos disponíveis, confira a [Classe SpeechConfig](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig).
 
 O SDK de Fala usará como padrão o reconhecimento do uso de en-us como o idioma; confira [Especificar o idioma de origem para conversão de fala em texto](../../../../how-to-specify-source-language.md) para obter informações sobre como escolher o idioma de origem.
 
@@ -70,6 +70,13 @@ Insira este código abaixo de seu `IntentRecognizer`. Substitua `"YourLanguageUn
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=33-35)]
 
 Este exemplo usa a função `addIntent()` para adicionar intenções individualmente. Se você quiser adicionar todas as intenções de um modelo, use `addAllIntents(model)` e passe o modelo.
+
+> [!NOTE]
+> O SDK de Fala é compatível somente com os pontos de extremidade do LUIS v2.0.
+> Você deve modificar manualmente a URL do ponto de extremidade v3.0 encontrada no campo de consulta de exemplo a fim de usar um padrão de URL v2.0.
+> Os pontos de extremidade do LUIS v2.0 sempre seguem um destes dois padrões:
+> * `https://{AzureResourceName}.cognitiveservices.azure.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
+> * `https://{Region}.api.cognitive.microsoft.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
 
 ## <a name="recognize-an-intent"></a>Reconhecer uma intenção
 
@@ -104,7 +111,7 @@ Neste momento, seu código deverá ter a seguinte aparência:
 
 ## <a name="build-and-run-your-app"></a>Compilar e executar o aplicativo
 
-Pressione <kbd>F11</kbd> ou selecione **Executar** > **Depurar** .
+Pressione <kbd>F11</kbd> ou selecione **Executar** > **Depurar**.
 Os próximos 15 segundos de entrada de fala do microfone serão reconhecidos e registrados na janela do console.
 
 ## <a name="next-steps"></a>Próximas etapas

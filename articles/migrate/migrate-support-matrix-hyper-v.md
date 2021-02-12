@@ -1,14 +1,17 @@
 ---
 title: Suporte para avaliação do Hyper-V em migrações para Azure
 description: Saiba mais sobre o suporte à avaliação do Hyper-V com a avaliação do servidor de migrações para Azure
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 4c50bd2bdd0e5a0d68b545a914582352d7b34421
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 5b5c85b599f02cedc3bb1bda84c28ef2169c8e2d
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331967"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754038"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matriz de suporte para avaliação do Hyper-V
 
@@ -23,7 +26,7 @@ Para configurar a avaliação de VM do Hyper-V, você cria um projeto de migraç
 --- | ---
 **Limites de avaliação** | Você pode descobrir e avaliar até 35.000 VMs do Hyper-V em um único [projeto de migrações para Azure](migrate-support-matrix.md#azure-migrate-projects).
 **Limites do projeto** | Você pode criar vários projetos em uma assinatura do Azure. Além das VMs do Hyper-V, um projeto pode incluir VMs VMware e servidores físicos, até os limites de avaliação de cada um.
-**Descoberta** | O dispositivo de migrações para Azure pode descobrir até 5000 VMs do Hyper-V.<br/><br/> O dispositivo pode se conectar a até 300 hosts Hyper-V.
+**Discovery** | O dispositivo de migrações para Azure pode descobrir até 5000 VMs do Hyper-V.<br/><br/> O dispositivo pode se conectar a até 300 hosts Hyper-V.
 **Avaliação** | Você pode adicionar até 35.000 computadores em um único grupo.<br/><br/> Você pode avaliar até 35.000 VMs em uma única avaliação para um grupo.
 
 [Saiba mais](concepts-assessment-calculation.md) sobre as avaliações.
@@ -46,7 +49,7 @@ Para configurar a avaliação de VM do Hyper-V, você cria um projeto de migraç
 | :----------------------------- | :------------------- |
 | **Sistema operacional** | Todos os sistemas operacionais podem ser avaliados quanto à migração.  |
 | **Serviços de Integração**       | Os [Integration Services do Hyper-V](/virtualization/hyper-v-on-windows/reference/integration-services) devem estar em execução em VMs que você avaliar, a fim de capturar informações do sistema operacional. |
-| **Armazenamento** | Disco local, DAS, JBOD, espaços de armazenamento, CSV, SMB. Há suporte para esse armazenamento de host Hyper-V no qual VHD/VHDX são armazenados. <br/> Há suporte para os controladores virtuais IDE e SCSI| 
+| **Storage** | Disco local, DAS, JBOD, espaços de armazenamento, CSV, SMB. Há suporte para esse armazenamento de host Hyper-V no qual VHD/VHDX são armazenados. <br/> Há suporte para os controladores virtuais IDE e SCSI| 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Requisitos de dispositivo para as Migrações para Azure
 

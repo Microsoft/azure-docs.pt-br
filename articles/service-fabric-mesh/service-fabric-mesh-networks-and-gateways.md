@@ -6,14 +6,20 @@ ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 372e8a46bfe588aa22b0f3be0ef8ae442fa342e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef8b40be366afe24b960f7419d84cc2a9976b592
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842692"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625694"
 ---
 # <a name="introduction-to-networking-in-service-fabric-mesh-applications"></a>Introdução à rede nos aplicativos da Malha do Service Fabric
+
+> [!IMPORTANT]
+> A visualização da malha de Service Fabric do Azure foi desativada. Novas implantações não serão mais permitidas por meio da API de malha Service Fabric. O suporte para implantações existentes continuará até 28 de abril de 2021.
+> 
+> Para obter detalhes, consulte desativação da [Visualização da malha de Service Fabric do Azure](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 Este artigo descreve os diferentes tipos de balanceadores de carga, como gateways conectam a rede com os aplicativos às outras redes e como o tráfego é roteado entre os serviços nos aplicativos.
 
 ## <a name="layer-4-vs-layer-7-load-balancers"></a>Balanceadores de carga de camada 4 vs camada 7

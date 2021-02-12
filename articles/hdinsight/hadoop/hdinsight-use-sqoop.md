@@ -1,18 +1,15 @@
 ---
 title: Executar tarefas do Apache Sqoop com o Azure HDInsight (Apache Hadoop)
 description: Saiba como usar o Azure PowerShell em uma estação de trabalho para executar importação e exportação do Sqoop entre um cluster do Hadoop e um Banco de Dados SQL do Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/06/2019
-ms.openlocfilehash: c09a910ea5f6ac5c66a94c73bda49d1f65630708
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 1c34b673cd970a9e7577b7ff01d27eb0e4cc1ac1
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545218"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946424"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Usar Apache Sqoop com o Hadoop no HDInsight
 
@@ -81,8 +78,8 @@ O cluster, o banco de dados SQL e outros objetos são criados por meio do portal
     |Campo |Valor |
     |---|---|
     |Subscription |Selecione sua assinatura do Azure na lista suspensa.|
-    |Grupo de recursos |Selecione o grupo de recursos na lista suspensa ou crie um novo|
-    |Localização |Selecione uma região na lista suspensa.|
+    |Resource group |Selecione o grupo de recursos na lista suspensa ou crie um novo|
+    |Location |Selecione uma região na lista suspensa.|
     |Nome do cluster |Insira um nome para o cluster Hadoop. Use somente letra minúscula.|
     |Nome de usuário de logon do cluster |Mantenha o valor preenchido previamente `admin` .|
     |Senha de logon do cluster |Digite uma senha.|
@@ -93,13 +90,13 @@ O cluster, o banco de dados SQL e outros objetos são criados por meio do portal
     |_artifacts local | Use o valor padrão, a menos que você queira usar seu próprio arquivo bacpac em um local diferente.|
     |Token SAS do local _artifacts |Deixe em branco.|
     |Nome do arquivo Bacpac |Use o valor padrão, a menos que você queira usar seu próprio arquivo bacpac.|
-    |Localização |Use o valor padrão.|
+    |Location |Use o valor padrão.|
 
     O nome [lógico do SQL Server](../../azure-sql/database/logical-servers.md) será  `<ClusterName>dbserver` . O nome do banco de dados será `<ClusterName>db` . O nome da conta de armazenamento padrão será `e6qhezrh2pdqu` .
 
-3. Selecione **Concordo com os termos e as condições declarados acima** .
+3. Selecione **Concordo com os termos e as condições declarados acima**.
 
-4. Selecione **Comprar** . Você poderá ver um novo bloco intitulado Como enviar a implantação para a implantação do modelo. É preciso sobre cerca de 20 minutos para criar o cluster e o banco de dados SQL.
+4. Selecione **Comprar**. Você poderá ver um novo bloco intitulado Como enviar a implantação para a implantação do modelo. É preciso sobre cerca de 20 minutos para criar o cluster e o banco de dados SQL.
 
 ## <a name="run-sqoop-jobs"></a>Executar trabalhos do Sqoop
 

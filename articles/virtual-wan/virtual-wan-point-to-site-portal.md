@@ -5,27 +5,29 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/06/2020
+ms.date: 11/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3d03d0267ff4fb16042d5cc2016e87139b88281a
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 1876ab86e6f4c46edc23361dd884d8b32328f36c
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056575"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919052"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Tutorial: Criar uma conexão de VPN do Usuário usando a WAN Virtual do Azure
 
-Este tutorial mostra como usar a WAN Virtual para se conectar-se aos recursos no Azure em uma conexão VPN IPsec/IKE (IKEv2) ou OpenVPN. Esse tipo de conexão exige que um cliente seja configurado no computador cliente. Para obter mais informações sobre a WAN Virtual, consulte a [Visão Geral de WAN Virtual](virtual-wan-about.md)
+Este tutorial mostra como usar a WAN Virtual para se conectar-se aos recursos no Azure em uma conexão VPN IPsec/IKE (IKEv2) ou OpenVPN. Esse tipo de conexão exige que o cliente VPN seja configurado no computador cliente. Para saber mais sobre WAN Virtual, confira a [Visão geral de WAN Virtual](virtual-wan-about.md).
 
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Criar uma WAN
+> * Criar uma WAN virtual
 > * Criar uma configuração P2S
-> * Criar um hub
+> * Criar um hub virtual
+> * Escolher pools de endereços de cliente
 > * Especificar servidores de DNS
-> * Baixar um perfil de cliente VPN
+> * Gerar um pacote de configuração do perfil de cliente VPN
+> * Configurar clientes de VPN
 > * Exibir a WAN virtual
 
 ![Diagrama de WAN virtual](./media/virtual-wan-about/virtualwanp2s.png)
@@ -42,27 +44,33 @@ Neste tutorial, você aprenderá como:
 
 Uma configuração P2S (ponto a site) define os parâmetros para conexão de clientes remotos.
 
-[!INCLUDE [Create client profiles](../../includes/virtual-wan-p2s-configuration-include.md)]
+[!INCLUDE [Create P2S configuration](../../includes/virtual-wan-p2s-configuration-include.md)]
 
-## <a name="create-hub-with-point-to-site-gateway"></a><a name="hub"></a>Criar um hub com o gateway ponto a site
+## <a name="create-virtual-hub-and-gateway"></a><a name="hub"></a>Criar um hub virtual e um gateway
 
 [!INCLUDE [Create hub](../../includes/virtual-wan-p2s-hub-include.md)]
 
+
+## <a name="choose-p2s-client-address-pools"></a><a name="chooseclientpools"></a> Escolher pools de endereços de cliente P2S
+
+[!INCLUDE [Choose pools](../../includes/virtual-wan-allocating-p2s-pools.md)]
+
 ## <a name="specify-dns-server"></a><a name="dns"></a>Especificar servidor DNS
 
-Os gateways de VPN de Usuário da WAN Virtual permitem especificar até cinco servidores DNS. Você pode configurá-lo durante o processo de criação do hub ou modificá-lo posteriormente. Para fazer isso, localize o hub virtual. Em **VPN de Usuário (ponto a site)** , selecione **configurar** e insira os endereços IP do servidor DNS nas caixas de texto **Servidores DNS Personalizados**.
+Você pode definir essa configuração durante o processo de criação do hub ou modificá-la posteriormente. Para modificar, localize o hub virtual. Em **VPN de Usuário (ponto a site)** , selecione **Configurar** e insira os endereços IP do servidor DNS nas caixas de texto **Servidores DNS Personalizados**. Você pode especificar até cinco servidores DNS.
 
    :::image type="content" source="media/virtual-wan-point-to-site-portal/custom-dns.png" alt-text="DNS personalizado" lightbox="media/virtual-wan-point-to-site-portal/custom-dns-expand.png":::
 
-## <a name="download-vpn-profile"></a><a name="download"></a>Baixar o perfil de VPN
+## <a name="generate-vpn-client-profile-package"></a><a name="download"></a>Gerar pacote de perfil do cliente VPN
 
-Use o perfil VPN para configurar seus clientes.
+Gere e baixe o pacote de perfil de cliente VPN para configurar os clientes VPN.
 
 [!INCLUDE [Download profile](../../includes/virtual-wan-p2s-download-profile-include.md)]
 
-### <a name="configure-user-vpn-clients"></a>Configurar clientes VPN do usuário
+## <a name="configure-vpn-clients"></a><a name="configure-client"></a>Configurar clientes de VPN
 
-Use o perfil baixado para configurar os clientes de acesso remoto. O procedimento para cada sistema operacional é diferente, siga as instruções que se aplicam ao seu sistema.
+Use o pacote de perfil baixado para configurar os clientes VPN de acesso remoto. O procedimento para cada sistema operacional é diferente. Siga as instruções que se aplicam ao sistema.
+Depois de concluir a configuração do cliente, você poderá se conectar.
 
 [!INCLUDE [Configure clients](../../includes/virtual-wan-p2s-configure-clients-include.md)]
 
@@ -71,6 +79,8 @@ Use o perfil baixado para configurar os clientes de acesso remoto. O procediment
 1. Navegue até a WAN virtual.
 1. Na página **Visão Geral**, cada ponto no mapa representa um hub.
 1. Na seção **Hubs e conexões**, você pode ver o status do hub, o site, a região, o status de conexão de VPN e os bytes de entrada e saída.
+
+
 
 ## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpar recursos
 

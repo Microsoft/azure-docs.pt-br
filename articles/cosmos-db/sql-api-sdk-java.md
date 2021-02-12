@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 08/12/2020
+ms.date: 12/18/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 87ff11c33c909c7398ebced54ec81907dab2d991
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 59acbc545e6bb37ebd090ec458d98586de882133
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080508"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696280"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Java do Azure Cosmos DB para a API do SQL: Notas sobre a versão e recursos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,7 +40,7 @@ ms.locfileid: "93080508"
 Este é o SDK v2 do Java de sincronização do Azure Cosmos DB original para API do SQL compatível com operações síncronas.
 
 > [!IMPORTANT]  
-> Esse *não* é o SDK de Java mais recente para Azure Cosmos DB! Considere usar o [SDK do Java v4 do Azure Cosmos DB](sql-api-sdk-java-v4.md) em seu projeto. Para atualizar, siga as instruções no guia [Migrar para SDK do Java v4 do Azure Cosmos DB](migrate-java-v4-sdk.md) e o guia [Reator vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md). 
+> Esse *não* é o SDK de Java mais recente para Azure Cosmos DB! Considere usar o [SDK do Java v4 do Azure Cosmos DB](sql-api-sdk-java-v4.md) em seu projeto. Para atualizar, siga as instruções no guia [Migrar para SDK do Java v4 do Azure Cosmos DB](migrate-java-v4-sdk.md) e o guia [Reator vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md). 
 >
 
 | |  |
@@ -53,6 +53,12 @@ Este é o SDK v2 do Java de sincronização do Azure Cosmos DB original para API
 |**runtime mínimo com suporte**|[Java Development Kit (JDK) 7 +](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)|
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="261"></a><a name="2.6.1"></a>2.6.1
+* Correção de um bug no tratamento de uma consulta por meio da interoperabilidade de serviço.
+
+### <a name="260"></a><a name="2.6.0"></a>2.6.0
+* Adicionado suporte para consultar o feed de alterações a partir do ponto no tempo.
 
 ### <a name="251"></a><a name="2.5.1"></a>2.5.1
 * Corrige o problema de cache de partição primária na consulta documentcollection.
@@ -175,7 +181,7 @@ Este é o SDK v2 do Java de sincronização do Azure Cosmos DB original para API
 * Corrigidos alguns bugs no contêiner de sessão que podem causar uma exceção "Recurso proprietário não encontrado" para solicitações imediatamente após a criação da coleção.
 
 ### <a name="195"></a><a name="1.9.5"></a>1.9.5
-* Suporte adicionado para consultas de agregação (COUNT, MIN, MAX, SUM e AVG). Veja [Suporte de agregação](sql-query-aggregates.md).
+* Suporte adicionado para consultas de agregação (COUNT, MIN, MAX, SUM e AVG). Veja [Suporte de agregação](sql-query-aggregate-functions.md).
 * Adicionado suporte para alteração de feed.
 * Adicionado suporte para informações de cota de coleção por meio de RequestOptions.setPopulateQuotaInfo.
 * Foi adicionado suporte para o log de script de procedimento armazenado por meio de RequestOptions.setScriptLoggingEnabled.
@@ -271,6 +277,8 @@ A Microsoft fornecerá uma notificação pelo menos **12 meses** antes de desati
 
 | Versão | Data de lançamento | Data de desativação |
 | --- | --- | --- |
+| [2.6.1](#2.6.1) |17 de dezembro de 2020 |--- |
+| [2.6.0](#2.6.0) |16 de julho de 2020 |--- |
 | [2.5.1](#2.5.1) |03 de junho de 2020 |--- |
 | [2.5.0](#2.5.0) |12 de maio de 2020 |--- |
 | [2.4.7](#2.4.7) |Fev 20, 2020 |--- |

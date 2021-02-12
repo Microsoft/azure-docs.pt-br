@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 10/07/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 297b34fd9981308ece52545ac5878eaa144f4829
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 074b64debc0a5aa08967efce69b7e5d14b4d90e4
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91824397"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754046"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Início Rápido: Chamar a API do Microsoft Graph de um aplicativo da UWP (Plataforma Universal do Windows)
 
-Este guia de início rápido usa um exemplo de código para demonstrar como um aplicativo UWP (Plataforma Universal do Windows) pode conectar usuários com contas pessoais, corporativas ou de estudante, obter um token de acesso e chamar a API do Microsoft Graph. Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.
+Neste guia de início rápido, você baixará e executará um exemplo de código que demonstra como um aplicativo UWP (Plataforma Universal do Windows) pode conectar usuários e obter um token de acesso para chamar a API do Microsoft Graph. 
+
+Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.
 
 > [!div renderon="docs"]
 > ## <a name="prerequisites"></a>Pré-requisitos
@@ -37,21 +39,20 @@ Este guia de início rápido usa um exemplo de código para demonstrar como um a
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: Registrar e configurar o aplicativo automaticamente e, em seguida, baixar seu exemplo de código
 >
-> 1. Acesse o novo painel do [portal do Azure – Registros de aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/UwpQuickstartPage/sourceType/docs).
-> 1. Insira um nome para o aplicativo e clique em **Registrar**.
+> 1. Acesse a experiência de início rápido do <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/UwpQuickstartPage/sourceType/docs" target="_blank">portal do Azure – Registros de aplicativo<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Insira um nome para seu aplicativo e selecione **Registrar**.
 > 1. Siga as instruções para baixar e configurar automaticamente o novo aplicativo com apenas um clique.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2: Registrar e configurar manualmente o aplicativo e o exemplo de código
 > [!div renderon="docs"]
 > #### <a name="step-1-register-your-application"></a>Etapa 1: Registre seu aplicativo
 > Para registrar seu aplicativo e adicionar as informações de registro do aplicativo à solução, siga estas etapas:
-> 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-> 1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito e defina sua sessão do portal para o locatário desejado do Azure AD.
-> 1. Navegue até a página [Registros de aplicativo](https://aka.ms/MobileAppReg) da plataforma de identidade da Microsoft para desenvolvedores.
-> 1. Selecione **Novo registro**.
-> 1. Em **Registrar um aplicativo**, insira as informações de registro do aplicativo:
->      - Na seção **Nome**, insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo, por exemplo, `UWP-App-calling-MsGraph`.
->      - Na seção **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)** .
+> 1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
+> 1. Pesquise **Azure Active Directory** e selecione-o.
+> 1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
+> 1. Insira um **Nome** para seu aplicativo, por exemplo, `UWP-App-calling-MsGraph`. Os usuários do seu aplicativo podem ver esse nome e você pode alterá-lo mais tarde.
+> 1. Na seção **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)** .
 > 1. Selecione **Registrar** para criar o aplicativo e registre a **ID do Aplicativo (cliente)** para uso em uma etapa posterior.
 > 1. Em **Gerenciar**, selecione **Autenticação**.
 > 1. Selecione **Adicionar uma plataforma** > **Aplicativos móveis e de área de trabalho**.
@@ -123,7 +124,7 @@ Quando a janela do aplicativo for exibida, você poderá selecionar o botão **C
 
 ### <a name="msalnet"></a>MSAL.NET
 
-MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) é a biblioteca usada para conectar usuários e solicitar tokens de segurança. Os tokens de segurança são usados para acessar uma API protegida pela plataforma de identidade da Microsoft para desenvolvedores. Você pode instalar a MSAL executando o comando abaixo no *Console do Gerenciador de Pacotes* do Visual Studio:
+MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) é a biblioteca usada para conectar usuários e solicitar tokens de segurança. Os tokens de segurança são usados para acessar uma API protegida pela plataforma de identidade da Microsoft. Você pode instalar a MSAL executando o comando abaixo no *Console do Gerenciador de Pacotes* do Visual Studio:
 
 ```powershell
 Install-Package Microsoft.Identity.Client
@@ -154,7 +155,7 @@ A MSAL tem dois métodos para adquirir tokens em um aplicativo UWP: `AcquireToke
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de usuário interativamente
 
-Algumas situações exigem forçar os usuários a interagir com o ponto de extremidade da plataforma de identidade da Microsoft por meio de uma janela pop-up para validar suas credenciais ou para dar consentimento. Alguns exemplos incluem:
+Algumas situações exigem forçar os usuários a interagir com a plataforma de identidade da Microsoft por meio de uma janela pop-up para validar suas credenciais ou para dar consentimento. Alguns exemplos incluem:
 
 - A primeira vez que os usuários entram no aplicativo
 - Quando os usuários precisam reinserir suas credenciais porque a senha expirou

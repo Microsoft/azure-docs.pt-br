@@ -8,11 +8,11 @@ ms.topic: troubleshooting
 ms.date: 09/09/2019
 ms.author: raynew
 ms.openlocfilehash: ad1bec66edaa3fcc6049f4911684f6e6d6c3e366
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369396"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999172"
 ---
 # <a name="troubleshoot-the-process-server"></a>Solucionar problemas do servidor de processo
 

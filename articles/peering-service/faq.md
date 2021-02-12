@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: 55c5e6c5b718dc2de295b9b4418ddc8607a69f8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95ce90dbbf47ffe527fe6f25704d9cd28b834ea9
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84871356"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026688"
 ---
 # <a name="peering-service-faq"></a>Perguntas frequentes sobre o serviço de emparelhamento
 
@@ -36,7 +36,7 @@ a. Sim, os clientes podem fazer isso. Selecione o provedor de provedores de parc
 
 **Perguntas. O que é um PoP do Microsoft Edge?**
 
-a. É um local físico onde a Microsoft se conecta com outras redes. No local PoP do Microsoft Edge, serviços como a porta de front-end do Azure e a CDN do Azure são hospedados. Para saber mais, confira [CDN do Azure](https://docs.microsoft.com/azure/cdn/cdn-features).
+a. É um local físico onde a Microsoft se conecta com outras redes. No local PoP do Microsoft Edge, serviços como a porta de front-end do Azure e a CDN do Azure são hospedados. Para saber mais, confira [CDN do Azure](../cdn/cdn-features.md).
 
 ## <a name="peering-service-unique-characteristics"></a>Serviço de emparelhamento: características exclusivas
 

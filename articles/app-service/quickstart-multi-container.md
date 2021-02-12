@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: c67d4dbb68048d273b1f9acd83a8460447e5abe4
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2ba42e5e800ae607631e00aee50954bf2638ae43
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748897"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007120"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Criar um aplicativo multicontêiner (versão prévia) usando uma configuração do Docker Compose
 
@@ -21,13 +21,13 @@ ms.locfileid: "92748897"
 
 O [Aplicativo Web para Contêineres](overview.md#app-service-on-linux) fornece uma maneira flexível de usar imagens do Docker. Este guia de início rápido mostra como implantar um aplicativo multicontêiner (versão prévia) para o Aplicativo Web para Contêineres no [Cloud Shell](../cloud-shell/overview.md) usando uma configuração do Docker Compose.
 
-Você concluirá este início rápido no Cloud Shell, mas também pode executar esses comandos localmente com a [CLI do Azure](/cli/azure/install-azure-cli) (2.0.32 ou posterior). 
-
 ![Aplicativo multicontêiner de exemplo no Aplicativo Web para Contêineres][1]
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+Este artigo exige a versão 2.0.32 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="download-the-sample"></a>Baixar o exemplo
 
@@ -55,7 +55,7 @@ cd multicontainerwordpress
 
 [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
 
-No Cloud Shell, crie um grupo de recursos com o comando [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create). O exemplo a seguir cria um grupo de recursos nomeado *myResourceGroup* no localização *Centro-Sul dos EUA* . Para ver todos os locais com suporte para o Serviço de Aplicativo no Linux no nível **Standard** , execute o comando [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations).
+No Cloud Shell, crie um grupo de recursos com o comando [`az group create`](/cli/azure/group#az-group-create). O exemplo a seguir cria um grupo de recursos nomeado *myResourceGroup* no localização *Centro-Sul dos EUA*. Para ver todos os locais com suporte para o Serviço de Aplicativo no Linux no nível **Standard**, execute o comando [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice#az-appservice-list-locations).
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "South Central US"
@@ -67,7 +67,7 @@ Quando o comando for concluído, uma saída JSON mostra as propriedades do grupo
 
 ## <a name="create-an-azure-app-service-plan"></a>Criar um Plano do Serviço de Aplicativo do Azure
 
-No Cloud Shell, crie um plano do Serviço de Aplicativo no grupo de recursos com o comando [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create).
+No Cloud Shell, crie um plano do Serviço de Aplicativo no grupo de recursos com o comando [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create).
 
 O exemplo a seguir cria um plano do Serviço de Aplicativo denominado `myAppServicePlan` no tipo de preço **Standard** (`--sku S1`) e em um contêiner do Linux (`--is-linux`).
 
@@ -100,7 +100,7 @@ Quando o Plano do Serviço de Aplicativo for criado, a CLI do Azure mostrará in
 > [!NOTE]
 > O Docker Compose nos Serviços de Aplicativo do Azure tem um limite de 4 mil caracteres no momento.
 
-Em seu terminal do Cloud Shell, crie um [aplicativo Web](overview.md#app-service-on-linux) multicontêiner no plano do Serviço de Aplicativo do `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Não se esqueça de substituir _\<app_name>_ por um nome de aplicativo exclusivo (os caracteres válidos são `a-z`, `0-9` e `-`).
+Em seu terminal do Cloud Shell, crie um [aplicativo Web](overview.md#app-service-on-linux) multicontêiner no plano do Serviço de Aplicativo do `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp#az-webapp-create). Não se esqueça de substituir _\<app_name>_ por um nome de aplicativo exclusivo (os caracteres válidos são `a-z`, `0-9` e `-`).
 
 ```azurecli
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -129,7 +129,7 @@ Navegue até o aplicativo implantado em (`http://<app_name>.azurewebsites.net`).
 
 ![Aplicativo multicontêiner de exemplo no Aplicativo Web para Contêineres][1]
 
-**Parabéns** , você criou um aplicativo multicontêiner no Aplicativo Web para Contêineres.
+**Parabéns**, você criou um aplicativo multicontêiner no Aplicativo Web para Contêineres.
 
 [!INCLUDE [Clean-up section](../../includes/cli-script-clean-up.md)]
 

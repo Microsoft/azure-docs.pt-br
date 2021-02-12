@@ -13,12 +13,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: eedc3dc1422d4eb6dcce80766077e8056f8509cf
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 7bd991bd709bb4be69325afe967d7e5600a9e1a4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678051"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222557"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Visão geral da continuidade dos negócios com o Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -48,10 +48,10 @@ O banco de dados SQL e o SQL Instância Gerenciada também fornecem vários recu
 
 - [Tabelas temporais](../temporal-tables.md) permitem que você restaure versões de linhas de qualquer ponto no tempo.
 - [Os backups automatizados internos e a](automated-backups-overview.md) [restauração pontual](recovery-using-backups.md#point-in-time-restore) permitem que você restaure o banco de dados completo para algum momento dentro do período de retenção configurado de até 35 dias.
-- Você pode [restaurar um banco de dados excluído](recovery-using-backups.md#deleted-database-restore) para o ponto em que ele foi excluído se o **servidor não tiver sido excluído** .
+- Você pode [restaurar um banco de dados excluído](recovery-using-backups.md#deleted-database-restore) para o ponto em que ele foi excluído se o **servidor não tiver sido excluído**.
 - [Retenção de backup de longo prazo](long-term-retention-overview.md) permite manter os backups em até 10 anos. Isso está em visualização pública limitada para o SQL Instância Gerenciada
 - A [replicação geográfica ativa](active-geo-replication-overview.md) permite que você crie réplicas legíveis e faça failover manualmente para qualquer réplica no caso de uma interrupção do Datacenter ou da atualização do aplicativo.
-- O [grupo de failover automático](auto-failover-group-overview.md#terminology-and-capabilities) permite que o aplicativo seja automaticamente recuperado em caso de interrupção do datacenter.
+- O [grupo de failover automático](auto-failover-group-overview.md#terminology-and-capabilities) permite que o aplicativo se recupere automaticamente no caso de uma interrupção do datacenter.
 
 ## <a name="recover-a-database-within-the-same-azure-region"></a>Recuperar um banco de dados na mesma região do Azure
 

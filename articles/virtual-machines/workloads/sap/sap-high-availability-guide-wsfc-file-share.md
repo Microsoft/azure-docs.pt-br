@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/24/2019
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 721389b557fde41b1461654b03299601e2384108
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 469f6a1021fde661c4eae7951b86c9bb500c7050
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361323"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012486"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Clustering de uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando o arquivo compartilhado de cluster no Azure
 
@@ -92,7 +93,7 @@ A função de cluster do SAP não \<SID\> contém discos compartilhados de clust
 
 ![Figura 3: recursos de função do cluster SAP \<SID\> ao usar o compartilhamento de arquivos][sap-ha-guide-figure-8005]
 
-_**Figura 3: recursos de função do cluster **SAP &lt;SID&gt; ao usar o compartilhamento de arquivos_
+_**Figura 3: recursos de função do cluster** SAP &lt;SID&gt; ao usar o compartilhamento de arquivos_
 
 
 ## <a name="scale-out-file-shares-with-storage-spaces-direct-in-azure-as-an-sapmnt-file-share"></a>Expansão de compartilhamento de arquivos com Espaços de Armazenamento Diretos no Azure como compartilhamento de arquivos SAPMNT

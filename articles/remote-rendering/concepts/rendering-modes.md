@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3d8ff6640f856b3227cead6dc50befca5d5ef3e8
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 2cf1872bcdd7b1bda74046198f5fc32be1069913
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202762"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594494"
 ---
 # <a name="rendering-modes"></a>Renderização de modos
 
@@ -51,33 +51,33 @@ As características de desempenho para ambos os modos variam de acordo com o cas
 
 ## <a name="setting-the-render-mode"></a>Definindo o modo de renderização
 
-O modo de renderização usado em um servidor de renderização remoto é especificado durante `AzureSession.ConnectToRuntime` por meio do `ConnectToRuntimeParams` .
+O modo de renderização usado em um servidor de renderização remoto é especificado durante `RenderingSession.ConnectAsync` por meio do `RendererInitOptions` .
 
 ```cs
-async void ExampleConnect(AzureSession session)
+async void ExampleConnect(RenderingSession session)
 {
-    ConnectToRuntimeParams parameters = new ConnectToRuntimeParams();
+    RendererInitOptions parameters = new RendererInitOptions();
 
     // Connect with one rendering mode
-    parameters.mode = ServiceRenderMode.TileBasedComposition;
-    await session.ConnectToRuntime(parameters).AsTask();
+    parameters.RenderMode = ServiceRenderMode.TileBasedComposition;
+    await session.ConnectAsync(parameters);
 
-    session.DisconnectFromRuntime();
+    session.Disconnect();
 
     // Wait until session.IsConnected == false
 
     // Reconnect with a different rendering mode
-    parameters.mode = ServiceRenderMode.DepthBasedComposition;
-    await session.ConnectToRuntime(parameters).AsTask();
+    parameters.RenderMode = ServiceRenderMode.DepthBasedComposition;
+    await session.ConnectAsync(parameters);
 }
 ```
 
 ## <a name="api-documentation"></a>Documentação da API
 
-* [C# AzureSession. ConnectToRuntime ()](/dotnet/api/microsoft.azure.remoterendering.azuresession.connecttoruntime)
-* [Struct do C# ConnectToRuntimeParams](/dotnet/api/microsoft.azure.remoterendering.connecttoruntimeparams)
-* [C++ AzureSession:: ConnectToRuntime ()](/cpp/api/remote-rendering/azuresession#connecttoruntime)
-* [Struct C++ ConnectToRuntimeParams](/cpp/api/remote-rendering/connecttoruntimeparams)
+* [C# RenderingSession. ConnectAsync ()](/dotnet/api/microsoft.azure.remoterendering.renderingsession.connectasync)
+* [Struct do C# RendererInitOptions](/dotnet/api/microsoft.azure.remoterendering.rendererinitoptions)
+* [C++ RenderingSession:: ConnectToConnectAsyncRuntime ()](/cpp/api/remote-rendering/renderingsession#connectasync)
+* [Struct C++ RendererInitOptions](/cpp/api/remote-rendering/rendererinitoptions)
 
 ## <a name="next-steps"></a>Próximas etapas
 

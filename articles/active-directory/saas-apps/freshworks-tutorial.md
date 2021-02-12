@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/11/2019
+ms.date: 01/20/2021
 ms.author: jeedes
-ms.openlocfilehash: c953297d4e66f737250451b9a5f42ce7f45dd2e4
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 0070a91706fc7efe81a7679801e8c10ea9a05242
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91821262"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624735"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshworks"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Freshworks
 
@@ -25,8 +25,6 @@ Neste tutorial, você aprenderá a integrar o Freshworks ao Azure AD (Azure Acti
 * Controlar, no Azure AD, quem tem acesso ao Freshworks.
 * Permitir que os usuários sejam conectados automaticamente ao Freshworks com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
-
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -44,22 +42,22 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 
 * O Freshworks dá suporte ao SSO iniciado por **SP**
 
-## <a name="adding-freshworks-from-the-gallery"></a>Adicionar o Freshworks da galeria
+## <a name="add-freshworks-from-the-gallery"></a>Adicionar o Freshworks por meio da galeria
 
 Para configurar a integração do Freshworks ao Azure AD, é necessário adicionar o Freshworks da galeria à sua lista de aplicativos SaaS gerenciados.
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
 1. Na seção **Adicionar da galeria**, digite **Freshworks** na caixa de pesquisa.
 1. Selecione **Freshworks** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-freshworks"></a>Configurar e testar o logon único do Azure AD para o Freshworks
+## <a name="configure-and-test-azure-ad-sso-for-freshworks"></a>Configurar e testar o SSO do Azure AD com o Freshworks
 
 Configure e teste o SSO do Azure AD com o Freshworks usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Freshworks.
 
-Para configurar e testar o SSO do Azure AD com o Freshworks, conclua os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o Freshworks, execute as seguintes etapas:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
     1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
@@ -72,9 +70,9 @@ Para configurar e testar o SSO do Azure AD com o Freshworks, conclua os seguinte
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Freshworks**, localize a seção **Gerenciar** e selecione **Logon único**.
+1. No portal do Azure, na página de integração de aplicativos do **Freshworks**, localize a seção **Gerenciar** e selecione **Logon único**.
 1. Na página **Selecionar um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
@@ -91,9 +89,9 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-1. Para modificar as opções de **Autenticação** de acordo com suas necessidades, clique no botão **Editar** para abrir a caixa de diálogo **Certificado de Autenticação SAML** .
+1. Para modificar as opções de **Autenticação** de acordo com seus requisitos, clique no botão **Editar** para abrir a caixa de diálogo **Certificado de Autenticação SAML**.
 
-     ![image](common/edit-certificate.png)
+     ![image](common/edit-certificate.png)
 
      ![Captura de tela que mostra a caixa de diálogo "Certificado de Autenticação SAML" com o botão "Editar" selecionado.](./media/freshworks-tutorial/response.png)
 
@@ -124,22 +122,16 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
 1. Na lista de aplicativos, selecione **Freshworks**.
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
-
-   ![O link “Usuários e grupos”](common/users-groups-blade.png)
-
 1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
-
-    ![O link Adicionar Usuário](common/add-assign-user.png)
-
 1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-freshworks-sso"></a>Configurar o SSO do Freshworks
 
 1. Abra uma nova janela do navegador da Web e entre no site da empresa Freshworks como administrador e siga estas etapas:
 
-2. No lado esquerdo do menu, clique no ícone **Segurança** ; em seguida, marque a opção **Logon único** e selecione **SSO SAML** em **Métodos de Autenticação**.
+2. No lado esquerdo do menu, clique no ícone **Segurança**, marque a opção **Logon único** e selecione **SSO SAML** em **Métodos de Autenticação**.
 
     ![Captura de tela que mostra a seção "Segurança – Métodos de Autenticação" com a opção "Logon único" ativada e "SSO SAML" selecionado.](./media/freshworks-tutorial/configure01.png)
 
@@ -159,21 +151,18 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 ### <a name="create-freshworks-test-user"></a>Criar usuário de teste do Freshworks
 
-Nesta seção, você criará um usuário chamado B.Fernandes no Freshworks. Trabalhe com a [equipe de suporte do cliente Freshworks](mailto:support@freshworks.com) para adicionar usuários na plataforma do Freshworks. Os usuários devem ser criados e ativados antes de usar o logon único. 
+Nesta seção, você criará um usuário chamado B.Fernandes no Freshworks. Trabalhe com a [equipe de suporte do cliente Freshworks](mailto:support@freshworks.com) para adicionar usuários na plataforma do Freshworks. Os usuários devem ser criados e ativados antes de usar o logon único. 
 
 ## <a name="test-sso"></a>Testar o SSO 
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir. 
 
-Ao clicar no bloco do Freshworks no Painel de Acesso, você deverá ser conectado automaticamente ao Freshworks para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Clique em **Testar este aplicativo** no portal do Azure. Isso redirecionará você para a URL de Logon do Freshworks, na qual poderá iniciar o fluxo de logon. 
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Acesse diretamente a URL de Logon do Freshworks e inicie o fluxo de logon nela.
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* Você pode usar os Meus Aplicativos da Microsoft. Ao clicar no bloco do Freshworks em Meus Aplicativos, você será conectado automaticamente ao Freshworks, para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+## <a name="next-steps"></a>Próximas etapas
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
-- [Experimentar o Freshworks com o Azure AD](https://aad.portal.azure.com/)
-
+Depois de configurar o Freshworks, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

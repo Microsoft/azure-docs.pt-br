@@ -11,14 +11,19 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: ae049ede4ebfd6761665be9c9ea6b49e87111a20
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e2e423bd149c0d213872d00b10800dec5a8e96e9
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91309772"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353860"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>Início Rápido: Pesquisar vídeos usando a API de Pesquisa de Vídeo do Bing e Node.js
+
+> [!WARNING]
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Use este início rápido para fazer sua primeira chamada à API da Pesquisa de Vídeo do Bing. Este aplicativo JavaScript simples envia uma consulta de pesquisa de vídeo HTTP para a API e exibe a resposta JSON. Embora o aplicativo seja escrito em JavaScript e use Node.js, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. 
 

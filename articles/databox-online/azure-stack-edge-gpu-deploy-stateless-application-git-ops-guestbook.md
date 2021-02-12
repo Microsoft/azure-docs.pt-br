@@ -1,36 +1,41 @@
 ---
-title: Implantar o aplicativo de livro de visitas do PHP em Arc habilitado kubernetes no dispositivo de GPU pro Azure Stack Edge | Microsoft Docs
-description: Descreve como implantar um aplicativo sem monitoração de estado do livro de visitas do PHP com Redis usando o GitOps em um cluster de kubernetes habilitado para Arc do seu dispositivo Azure Stack Edge pro.
+title: Implantar o `PHP Guestbook` aplicativo em Arc habilitado kubernetes no dispositivo de GPU Pro Azure Stack Edge | Microsoft Docs
+description: Descreve como implantar um `Guestbook` aplicativo sem monitoração de estado do PHP com Redis usando o GitOps em um cluster de kubernetes habilitado para Arc do seu dispositivo Azure Stack Edge pro.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 3200cfe290cbba208c61e914b17ffa6cd65e6eee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba72617444a2c7ec30e4d1d25afe1edcda16ff35
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899555"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804873"
 ---
-# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Implantar um aplicativo sem monitoração de estado do PHP com Redis em um cluster kubernetes habilitado para Arc na GPU pro Azure Stack Edge
+# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Implantar um `Guestbook` aplicativo sem monitoração de estado do PHP com o Redis em Arc habilitado cluster kubernetes no Azure Stack GPU pro Edge
 
 Este artigo mostra como criar e implantar um aplicativo Web simples de várias camadas usando o kubernetes e o Arc do Azure. Este exemplo consiste nos seguintes componentes:
 
-- Um mestre Redis de instância única para armazenar entradas de livro de visitas
+- Um mestre de Redis de instância única para armazenar `guestbook` entradas
 - Várias instâncias de Redis replicadas para atender às leituras
 - Várias instâncias de front-end da Web
 
 A implantação é feita usando GitOps no cluster do kubernetes habilitado para ARC em seu dispositivo Azure Stack Edge pro. 
 
-Este procedimento destina-se a aqueles que revisaram as [cargas de trabalho do kubernetes no dispositivo Azure Stack Edge pro](azure-stack-edge-gpu-kubernetes-workload-management.md) e estão familiarizados com os conceitos do [que é o Azure Arc habilitado kubernetes (versão prévia)](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
+Este procedimento destina-se a pessoas que revisaram as [cargas de trabalho do kubernetes no dispositivo Azure Stack Edge pro](azure-stack-edge-gpu-kubernetes-workload-management.md) e estão familiarizados com os conceitos do [que é o Azure Arc habilitado kubernetes (versão prévia)](../azure-arc/kubernetes/overview.md).
 
+> [!NOTE]
+> Este artigo contém referências ao termo "servidor subordinado", um termo que a Microsoft não usa mais. Quando o termo for removido do software, também o removeremos deste artigo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de implantar o aplicativo sem estado, verifique se você concluiu os seguintes pré-requisitos no seu dispositivo e o cliente que será usado para acessar o dispositivo:
+
+> [!NOTE]
+> Este artigo contém referências ao termo "servidor subordinado", um termo que a Microsoft não usa mais. Quando o termo for removido do software, também o removeremos deste artigo.
 
 ### <a name="for-device"></a>Para dispositivo
 
@@ -44,18 +49,18 @@ Antes de implantar o aplicativo sem estado, verifique se você concluiu os segui
 
 1. Você tem um sistema cliente Windows que será usado para acessar o dispositivo Azure Stack Edge pro.
   
-    - O cliente está executando o Windows PowerShell 5,0 ou posterior. Para baixar a versão mais recente do Windows PowerShell, acesse [instalar o Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+    - O cliente está executando o Windows PowerShell 5,0 ou posterior. Para baixar a versão mais recente do Windows PowerShell, acesse [instalar o Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7&preserve-view = true).
     
     - Você também pode ter qualquer outro cliente com um [sistema operacional com suporte](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) . Este artigo descreve o procedimento ao usar um cliente do Windows. 
     
 1. Você concluiu o procedimento descrito em [acessar o cluster kubernetes no dispositivo Azure Stack Edge pro](azure-stack-edge-gpu-create-kubernetes-cluster.md). Você:
     
-    - Instalado `kubectl` no cliente  <!--and saved the `kubeconfig` file with the user configuration to C:\\Users\\&lt;username&gt;\\.kube. -->
+    - Instalado `kubectl` no cliente. <!--and saved the `kubeconfig` file with the user configuration to C:\\Users\\&lt;username&gt;\\.kube. -->
     
     - Verifique se a `kubectl` versão do cliente está distorcida sem mais de uma versão da versão mestre do kubernetes em execução no dispositivo pro Edge Azure Stack. 
       - Use `kubectl version` para verificar a versão do kubectl em execução no cliente. Anote a versão completa.
       - Na interface do usuário local do seu dispositivo Azure Stack Edge pro, acesse **visão geral** e anote o número do software kubernetes. 
-      - Verifique essas duas versões para compatibilidade com o mapeamento fornecido na versão do kubernetes com suporte <!--insert link-->.
+      - Verifique essas duas versões para compatibilidade com o mapeamento fornecido na versão do kubernetes com suporte. <!--insert link-->
 
 1. Você tem uma [configuração GitOps que pode ser usada para executar uma implantação do Azure Arc](https://github.com/kagoyal/dbehaikudemo). Neste exemplo, você usará os seguintes `yaml` arquivos para implantar em seu dispositivo Azure Stack Edge pro.
 
@@ -79,20 +84,20 @@ Siga estas etapas para configurar o recurso Arc do Azure para implantar uma conf
 
 1. Vá para **configurações** e selecione **+ Adicionar configuração**.
 
-    ![Ir para configurações](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
+    ![Captura de tela mostra o cluster kubernetes habilitado para Arc do Azure com adicionar configuração selecionada.](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
 
-1. Em **Adicionar configuração**, insira os valores apropriados para os campos e selecione **aplicar**.
+1. Em **Adicionar configuração**, insira os valores apropriados para os campos e, em seguida, selecione **aplicar**.
 
     |Parâmetro  |Descrição |
     |---------|---------|
     |Nome da configuração     | Nome para o recurso de configuração.        |
     |Nome da instância do operador     |Nome da instância do operador para identificar uma configuração específica. O nome é uma cadeia de caracteres de no máximo 253, que deve ser minúsculo, alfanumérico, hífen e ponto.         |
-    |Namespace do operador     | Defina como **demotestguestbook** , pois isso corresponde ao namespace especificado na implantação `yaml` . <br> O campo define o namespace em que o operador está instalado. O nome é uma cadeia de caracteres de no máximo 253, que deve ser minúsculo, alfanumérico, hífen e ponto.         |
+    |Namespace do operador     | Defina como **demotestguestbook** para corresponder ao namespace especificado na implantação `yaml` . <br> O campo define o namespace em que o operador está instalado. O nome é uma cadeia de caracteres de no máximo 253, que deve ser minúsculo, alfanumérico, hífen e ponto.         |
     |URL do repositório     |<br>Caminho para o repositório git no `http://github.com/username/repo` ou `git://github.com/username/repo` formato em que a configuração do GitOps está localizada.         |
-    |Escopo do operador     | Selecione **namespace**. <br>Isso define o escopo no qual o operador é instalado. Selecione como namespace. Seu operador será instalado no namespace especificado nos arquivos de implantação YAML.       |
-    |Tipo de operador     | Deixe no padrão. <br>Isso especifica o tipo do operador, por padrão, definido como fluxo.        |
-    |Parâmetros do operador     | Deixe em branco. <br>Este campo contém parâmetros a serem passados para o operador de fluxo.        |
-    |Helm     | Defina como **desabilitado**. <br>Habilite esta opção se você fizer implantações baseadas em gráfico.        |
+    |Escopo do operador     | Selecione **namespace**. <br>Esse parâmetro define o escopo no qual o operador é instalado. Selecione namespace para instalar o operador no namespace especificado nos arquivos de implantação YAML.       |
+    |Tipo de operador     | Deixe no padrão. <br>Esse parâmetro especifica o tipo do operador, por padrão, definido como fluxo.        |
+    |Parâmetros do operador     | Deixe em branco. <br>Esse parâmetro contém parâmetros a serem passados para o operador de fluxo.        |
+    |Helm     | Defina esse parâmetro como **desabilitado**. <br>Habilite esta opção se você for realizar implantações baseadas em gráfico.        |
 
 
     ![Adicionar configuração](media/azure-stack-edge-gpu-connect-powershell-interface/add-configuration-1.png)
@@ -100,14 +105,13 @@ Siga estas etapas para configurar o recurso Arc do Azure para implantar uma conf
 
 1. A implantação de configuração é iniciada e o **estado do operador** é exibido como **pendente**. 
 
-    ![Ir para configurações](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
+    ![Captura de tela mostra o cluster kubernetes habilitado para Arc do Azure em um estado pendente conforme ele é atualizado.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
 
 1. A implantação leva alguns minutos. Quando a implantação for concluída, o **estado do operador** será exibido como **instalado**.
 
-    ![Ir para configurações](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
+    ![Captura de tela mostra o cluster kubernetes habilitado para Arc do Azure em um estado instalado.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
 
-
-## <a name="verify-deployment"></a>Verificar implantação
+## <a name="verify-deployment"></a>Verificar a implantação
 
 A implantação por meio da configuração GitOps cria um `demotestguestbook` namespace conforme especificado nos arquivos de implantação `yaml` localizados no repositório git.
 
@@ -132,7 +136,7 @@ A implantação por meio da configuração GitOps cria um `demotestguestbook` na
     [10.128.44.240]: PS>
     ```  
 
-1. Neste exemplo, o serviço de front-end foi implantado como tipo: Balancer. Você precisará encontrar o endereço IP desse serviço para exibir o livro de visitas. Execute o comando a seguir.
+1. Neste exemplo, o serviço de front-end foi implantado como tipo: Balancer. Você precisará encontrar o endereço IP desse serviço para exibir o `guestbook` . Execute o comando a seguir.
 
     `kubectl get service -n <your-namespace>`
     
@@ -145,13 +149,13 @@ A implantação por meio da configuração GitOps cria um `demotestguestbook` na
     redis-slave    ClusterIP      10.104.215.146   <none>          6379/TCP       85m
     [10.128.44.240]: PS>
     ```
-1. O serviço de front-end do `type:LoadBalancer` tem um endereço IP externo. Esse IP é do intervalo de endereços IP que você especificou para serviços externos ao definir as configurações de rede de computação no dispositivo. Use este endereço IP para exibir o livro de visitas na URL: `https://<external-IP-address>` .
+1. O serviço de front-end do `type:LoadBalancer` tem um endereço IP externo. Esse IP é do intervalo de endereços IP que você especificou para serviços externos ao definir as configurações de rede de computação no dispositivo. Use este endereço IP para exibir a `guestbook` URL: `https://<external-IP-address>` .
 
     ![Exibir livro de visitas](media/azure-stack-edge-gpu-connect-powershell-interface/view-guestbook-1.png)
 
 ## <a name="delete-deployment"></a>Excluir implantação
 
-Para excluir a implantação, você pode excluir a configuração do portal do Azure. Isso excluiria os objetos criados, incluindo serviços e implantações.
+Para excluir a implantação, você pode excluir a configuração do portal do Azure. A exclusão da configuração excluirá os objetos que foram criados, incluindo implantações e serviços.
 
 1. Na portal do Azure, acesse o recurso Arc do Azure > configurações. 
 1. Localize a configuração que você deseja excluir. Selecione o... para invocar o menu de contexto e selecione **excluir**.

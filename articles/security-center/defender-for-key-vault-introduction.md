@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 6649a8d470a75922aac423bf0b411163bdd79f71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1dd559db2d736fa27de2884d2fe82edaaeaaf3c
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449090"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916635"
 ---
 # <a name="introduction-to-azure-defender-for-key-vault"></a>Introdução ao Azure Defender para Key Vault
 
@@ -25,7 +25,7 @@ Habilite o **Azure Defender para Key Vault** para proteção avançada e nativa 
 
 |Aspecto|Detalhes|
 |----|:----|
-|Estado da versão:|GA (em disponibilidade geral)|
+|Estado da versão:|GA (Disponibilidade Geral)|
 |Preço:|O **Azure Defender para Key Vault** é cobrado conforme mostrado na [página de preços](security-center-pricing.md)|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|
 |||
@@ -55,5 +55,5 @@ Neste artigo, você aprendeu sobre o Azure Defender para Key Vault.
 Para obter material relacionado, consulte os seguintes artigos: 
 
 - [Alertas de segurança do Key Vault](alerts-reference.md#alerts-azurekv) – A seção do Key Vault na tabela de referência para todos os alertas da Central de Segurança do Azure
-- [Exportando alertas para um SIEM](continuous-export.md)
+- [Exportar continuamente dados da Central de Segurança](continuous-export.md)
 - [Suprimir alertas do Azure Defender](alerts-suppression-rules.md)

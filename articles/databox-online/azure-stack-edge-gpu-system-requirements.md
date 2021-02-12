@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 02/05/2021
 ms.author: alkohli
-ms.openlocfilehash: d835507a17417f8b500c0fc13d0a662e606a37ff
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: d2fa464214f6a4201b1ecd62ee1a5dacdd7ec158
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996417"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832446"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>Requisitos do sistema para o Azure Stack Edge pro com GPU 
 
@@ -40,7 +40,7 @@ Os requisitos de sistema para o Azure Stack Edge pro incluem:
 
 As contas de armazenamento de borda a seguir têm suporte com a interface REST do dispositivo. As contas de armazenamento de borda são criadas no dispositivo. Para obter mais informações, consulte [Edge Storage accounts](azure-stack-edge-j-series-manage-storage-accounts.md#about-edge-storage-accounts).
 
-|Type  |Conta de armazenamento  |Comentários  |
+|Tipo  |Conta de armazenamento  |Comentários  |
 |---------|---------|---------|
 |Standard     |GPv1: BLOB de blocos         |         |
 
@@ -50,7 +50,7 @@ As contas de armazenamento de borda a seguir têm suporte com a interface REST d
 
 Essas contas de armazenamento são criadas por meio das APIs locais do dispositivo quando você está se conectando ao Azure Resource Manager local. Há suporte para as seguintes contas de armazenamento:
 
-|Type  |Conta de armazenamento  |Comentários  |
+|Tipo  |Conta de armazenamento  |Comentários  |
 |---------|---------|---------|
 |Standard     |GPv1: BLOB de blocos, BLOB de páginas        | O tipo de SKU é Standard_LRS       |
 |Premium     |GPv1: BLOB de blocos, BLOB de páginas        | O tipo de SKU é Premium_LRS        |
@@ -79,11 +79,11 @@ O Azure IoT Edge permite a comunicação de saíde de um dispositivo do Edge loc
 
 Use a tabela a seguir para a configuração de porta dos servidores que hospedam o runtime do Azure IoT Edge:
 
-| Nº da porta | Entrada ou saída | Escopo da porta | Necessária | Diretrizes |
+| Nº da porta | Entrada ou saída | Escopo da porta | Obrigatório | Diretrizes |
 |----------|-----------|------------|----------|----------|
 | TCP 443 (HTTPS)| Saída       | WAN        | Sim      | Saída aberta para o provisionamento do IoT Edge. Essa configuração é necessária ao usar scripts manuais ou o DPS (serviço de provisionamento de dispositivos) do Azure IoT.|
 
-Para todas as informações, acesse [Regras de configuração de firewall e de porta para implantação do IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
+Para todas as informações, acesse [Regras de configuração de firewall e de porta para implantação do IoT Edge](../iot-edge/troubleshoot.md).
 
 ## <a name="url-patterns-for-firewall-rules"></a>Padrões de URL para regras de firewall
 

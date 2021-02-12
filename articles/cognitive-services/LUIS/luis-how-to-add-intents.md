@@ -9,18 +9,18 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.service: cognitive-services
-ms.openlocfilehash: c2802f1b41ed2842e12c808a8c380ebd646ffa03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2401c032f0fc90024e0049fad5f696b8a184544
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540924"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018932"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Adicionar intenções para determinar a intenção do usuário de expressões
 
 Adicione [intents](luis-concept-intent.md) ao seu aplicativo LUIS para identificar grupos de perguntas ou comandos que tenham a mesma intenção.
 
-No portal do LUIS, as intenções são gerenciadas na seção de **Build** da barra de navegação superior e, em seguida, das **tentativas**do painel esquerdo.
+No portal do LUIS, as intenções são gerenciadas na seção de **Build** da barra de navegação superior e, em seguida, das **tentativas** do painel esquerdo.
 
 ## <a name="add-an-intent-to-your-app"></a>Adicionar uma intenção ao seu aplicativo
 
@@ -81,4 +81,4 @@ Depois de adicionar, editar ou remover intenções, [train](luis-how-to-train.md
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre como adicionar [declarações de exemplo](luis-how-to-add-example-utterances.md) com entidades.
+Saiba mais sobre como adicionar [declarações de exemplo](./luis-how-to-add-entities.md) com entidades.

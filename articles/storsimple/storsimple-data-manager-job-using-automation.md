@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: f13e402344111dea28514ed7b0d381b46ff73064
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d0103857b6f759560129dbe8e693ec6c0d7291e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743600"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961202"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Usar a Automação do Azure para disparar um trabalho
 
@@ -26,7 +26,7 @@ Este artigo fornece detalhes sobre como criar um runbook de Automação do Azure
 
 Antes de começar, verifique se você tem:
 
-*   Microsoft Azure PowerShell instalado no computador do cliente. [Baixar Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
+*   Microsoft Azure PowerShell instalado no computador do cliente. [Baixar Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 *   Uma definição de trabalho configurada corretamente em um serviço do Gerenciador de Dados StorSimple dentro de um grupo de recursos.
 *   Baixe  [`DataTransformationApp.zip`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) o arquivo do repositório github. 
 *   Baixe [`Trigger-DataTransformation-Job.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1) o script do repositório github.
@@ -58,7 +58,7 @@ Antes de começar, verifique se você tem:
     
       ![Notificação para implantação da conta de Automação](./media/storsimple-data-manager-job-using-automation/deployment-automation-account-notification1.png)
 
-      Para obter mais informações, acesse [Criar uma conta Executar como](../automation/automation-create-runas-account.md).
+      Para obter mais informações, acesse [Criar uma conta Executar como](../automation/manage-runas-account.md).
 
 3. Na conta recém-criada, vá para **Recursos Compartilhados > Módulos** e clique em **+ Adicionar módulo**.
 
@@ -98,7 +98,7 @@ Execute as etapas a seguir para importar, publicar e executar o runbook para dis
 
     ![Adicionar Runbook 4](./media/storsimple-data-manager-job-using-automation/add-runbook-4.png)
 
-6. Forneça os parâmetros, como o nome do seu serviço do Gerenciador de Dados StorSimple, o grupo de recursos associados e o nome da definição de trabalho. **Inicie** o teste. O relatório é gerado quando a execução é concluída. Para obter mais informações, acesse Como [testar um runbook](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook).
+6. Forneça os parâmetros, como o nome do seu serviço do Gerenciador de Dados StorSimple, o grupo de recursos associados e o nome da definição de trabalho. **Inicie** o teste. O relatório é gerado quando a execução é concluída. Para obter mais informações, acesse Como [testar um runbook](../automation/learn/automation-tutorial-runbook-textual-powershell.md#step-3---test-the-runbook).
 
     ![Adicionar Runbook 8](./media/storsimple-data-manager-job-using-automation/add-runbook-8.png)    
 

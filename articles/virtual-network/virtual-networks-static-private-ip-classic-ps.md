@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 669b8427f13efcc55a69bc7c970b6658a6719cd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e798f81102017b4d34c4b1b219a9f23035b0359
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86134726"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222829"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-powershell"></a>Configurar endereços IP particulares para uma máquina virtual (Clássica) usando o PowerShell
 
@@ -35,7 +35,7 @@ Este artigo aborda o modelo de implantação clássico. Você também pode [gere
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-Os exemplos de comando abaixo do PowerShell esperam um ambiente simples já criado. Se quiser executar os comandos da forma como eles aparecem neste documento, primeiro crie o ambiente de teste descrito em [Criar uma VNet](virtual-networks-create-vnet-classic-netcfg-ps.md).
+Os exemplos de comando abaixo do PowerShell esperam um ambiente simples já criado. Se quiser executar os comandos da forma como eles aparecem neste documento, primeiro crie o ambiente de teste descrito em [Criar uma VNet](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-netcfg-ps).
 
 ## <a name="how-to-verify-if-a-specific-ip-address-is-available"></a>Você pode verificar se um endereço IP específico está disponível
 Para verificar se o endereço IP *192.168.1.101* está disponível em uma VNet *TestVNet*, execute o seguinte comando do PowerShell e verifique o valor de *IsAvailable*:
@@ -154,7 +154,6 @@ Update-AzureVM       77d8cae2-87e6-0ead-9738-7c7dae9810cb Succeeded
 É recomendável que você não atribua estaticamente o IP privado atribuído à máquina virtual do Azure no sistema operacional de uma VM, a menos que seja necessário. Se você definir manualmente o endereço IP privado no sistema operacional, verifique se é o mesmo endereço que o endereço IP privado atribuído à VM do Azure ou se é possível perder a conectividade com a máquina virtual. Nunca atribua manualmente o endereço IP público atribuído a uma máquina virtual do Azure no sistema operacional da máquina virtual.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre endereços [IP públicos reservados](virtual-networks-reserved-public-ip.md) .
-* Saiba mais sobre endereços [ILPIP (IP público em nível de instância)](virtual-networks-instance-level-public-ip.md) .
-* Consulte as [APIs REST de IP reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx).
-
+* Saiba mais sobre endereços [IP públicos reservados](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) .
+* Saiba mais sobre endereços [ILPIP (IP público em nível de instância)](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip) .
+* Consulte as [APIs REST de IP reservado](/previous-versions/azure/reference/dn722420(v=azure.100)).

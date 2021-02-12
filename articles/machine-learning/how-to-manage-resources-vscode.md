@@ -1,7 +1,7 @@
 ---
 title: Criar e gerenciar recursos VS Code extensão (versão prévia)
 titleSuffix: Azure Machine Learning
-description: Criar e gerenciar recursos com a extensão VS Code
+description: Saiba como criar e gerenciar Azure Machine Learning recursos usando a extensão de Visual Studio Code de Azure Machine Learning.
 services: machine-learning
 author: luisquintanilla
 ms.author: luquinta
@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.date: 09/30/2020
-ms.openlocfilehash: 1120a3636b7ce24dde0d33c213f9063f910123c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/16/2020
+ms.openlocfilehash: f8eb18b190b72381f1a93575eb39b3d19d8d431b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530622"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010666"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Gerenciar Azure Machine Learning recursos com a extensão de VS Code (versão prévia)
 
@@ -92,7 +92,7 @@ Para obter mais informações, consulte [armazenamentos](concept-data.md#datasto
     - *Inspecione as configurações somente leitura*.
     - *Modificar*. Altere o tipo de autenticação e as credenciais. Os tipos de autenticação com suporte incluem chave de conta e token SAS.
 
-## <a name="datasets"></a>Conjuntos de dados
+## <a name="datasets"></a>Conjunto de dados
 
 Atualmente, a extensão dá suporte aos seguintes tipos de conjunto de conjuntos:
 
@@ -134,7 +134,7 @@ Essa opção permite que você veja os metadados associados a um conjunto de inf
 
 1. Expanda o nó do espaço de trabalho.
 1. Expanda o nó **conjuntos de valores** .
-1. Clique com o botão direito do mouse no conjunto de um que você deseja inspecionar e selecione **Exibir Propriedades do conjunto**de Isso exibirá um arquivo de configuração com as propriedades da versão mais recente do conjunto de informações.
+1. Clique com o botão direito do mouse no conjunto de um que você deseja inspecionar e selecione **Exibir Propriedades do conjunto** de Isso exibirá um arquivo de configuração com as propriedades da versão mais recente do conjunto de informações.
 
 > [!NOTE]
 > Se você tiver várias versões de seu conjunto de informações, poderá optar por exibir apenas as propriedades do conjunto de informações de uma versão específica expandindo o nó do conjunto de informações e executando as mesmas etapas descritas nesta seção sobre a versão de interesse.
@@ -257,7 +257,7 @@ Para obter mais informações, consulte [Compute instances](concept-compute-inst
     1. Forneça um nome para a instância de computação.
     1. Selecione um tamanho de VM na lista.
     1. Escolha se deseja habilitar o acesso SSH.
-        1. Se você habilitar o acesso SSH, também terá que fornecer a chave SSH pública ou o arquivo que contém a chave. Para obter mais informações, consulte o [guia sobre como criar e usar chaves SSH no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
+        1. Se você habilitar o acesso SSH, também terá que fornecer a chave SSH pública ou o arquivo que contém a chave. Para obter mais informações, consulte o [guia sobre como criar e usar chaves SSH no Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
 ### <a name="stop-or-restart-compute-instance"></a>Parar ou reiniciar instância de computação
 
@@ -293,7 +293,7 @@ Para obter mais informações, consulte [destinos de computação](concept-compu
 1. Clique com o botão direito do mouse no nó **clusters de computação** e selecione **criar computação**.
 1. No prompt:
     1. Escolher um tipo de computação
-    1. Escolha um tamanho de VM. Saiba mais sobre [tamanhos de VM](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+    1. Escolha um tamanho de VM. Saiba mais sobre [tamanhos de VM](../virtual-machines/sizes.md).
     1. Forneça um nome para a computação.
 
 ### <a name="view-compute-configuration"></a>Exibir configuração de computação

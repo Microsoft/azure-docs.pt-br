@@ -13,15 +13,15 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: dfe4f09d00a5629249a3041946190f56e83c3480
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c71ddbf1d2b435697b2707acf0b1262f2c5dc31
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68934880"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517182"
 ---
 # <a name="deploy-secure-applications-on-azure"></a>Implantar aplicativos seguros no Azure
-Neste artigo, apresentamos as atividades de segurança e os controles a serem considerados ao implantar aplicativos para a nuvem. As perguntas de segurança e os conceitos a serem considerados durante as fases de lançamento e resposta do [SDL (Microsoft Security Development Lifecycle)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) são abordados. O objetivo é ajudá-lo a definir atividades e serviços do Azure que você pode usar para implantar um aplicativo mais seguro.
+Neste artigo, apresentamos as atividades de segurança e os controles a serem considerados ao implantar aplicativos para a nuvem. As perguntas de segurança e os conceitos a serem considerados durante as fases de lançamento e resposta do [SDL (Microsoft Security Development Lifecycle)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) são abordados. O objetivo é ajudá-lo a definir atividades e serviços do Azure que você pode usar para implantar um aplicativo mais seguro.
 
 As seguintes fases do SDL são abordadas neste artigo:
 
@@ -40,7 +40,7 @@ Verifique o desempenho do aplicativo antes de iniciá-lo ou implantar atualizaç
 
 Os aplicativos Web cada vez mais são alvos de ataques mal-intencionados que exploram vulnerabilidades conhecidas comuns. O comum entre essas explorações são ataques de injeção de SQL e ataques de script entre sites. Impedir esses ataques no código do aplicativo pode ser desafiador. Ele pode exigir manutenção rigorosa, aplicação de patches e monitoramento em muitas camadas da topologia do aplicativo. Um WAF centralizado ajuda a tornar o gerenciamento de segurança mais simples. Uma solução WAF também pode reagir a uma ameaça de segurança por meio da aplicação de patch em uma vulnerabilidade conhecida em um local central em relação à proteção de cada aplicativo Web individual.
 
-O [WAF Gateway aplicativo Azure](../../application-gateway/waf-overview.md) fornece proteção centralizada de seus aplicativos Web contra explorações e vulnerabilidades comuns. O WAF é baseado em regras dos [conjuntos de regras principais do OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3,0 ou 2.2.9.
+O [WAF Gateway aplicativo Azure](../../web-application-firewall/ag/ag-overview.md) fornece proteção centralizada de seus aplicativos Web contra explorações e vulnerabilidades comuns. O WAF é baseado em regras dos [conjuntos de regras principais do OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3,0 ou 2.2.9.
 
 ### <a name="create-an-incident-response-plan"></a>Criar um plano de resposta a incidentes
 
@@ -75,9 +75,9 @@ O [Application insights](../../azure-monitor/app/app-insights-overview.md) é um
 
 #### <a name="azure-security-center"></a>Central de Segurança do Azure
 
-A [central de segurança do Azure](../../security-center/security-center-intro.md) ajuda você a prevenir, detectar e responder a ameaças com maior visibilidade no (e controle sobre) a segurança de seus recursos do Azure, incluindo aplicativos Web. A central de segurança do Azure ajuda a detectar ameaças que poderiam passar despercebidas. Ele funciona com várias soluções de segurança.
+A [central de segurança do Azure](../../security-center/security-center-introduction.md) ajuda você a prevenir, detectar e responder a ameaças com maior visibilidade no (e controle sobre) a segurança de seus recursos do Azure, incluindo aplicativos Web. A central de segurança do Azure ajuda a detectar ameaças que poderiam passar despercebidas. Ele funciona com várias soluções de segurança.
 
-A camada gratuita da Central de Segurança oferece segurança limitada somente para seus recursos do Azure. A [camada Standard da central de segurança](../../security-center/security-center-onboarding.md) estende esses recursos para recursos locais e outras nuvens.
+A camada gratuita da Central de Segurança oferece segurança limitada somente para seus recursos do Azure. A [camada Standard da central de segurança](../../security-center/security-center-get-started.md) estende esses recursos para recursos locais e outras nuvens.
 A central de segurança Standard ajuda você a:
 
   - Encontre e corrija vulnerabilidades de segurança.

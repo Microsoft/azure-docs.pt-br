@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: f44641dae7d8449f6dad1eb6ce34971d3e60433e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a8c0dee3a27fe1fe47b50cad1242fb59866261c0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960145"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995549"
 ---
 > [!IMPORTANT]
-> O Azure Dev Spaces foi preterido e será desativado em 31 de outubro de 2023. Considere migrar para o [Bridge to Kubernetes](../articles/dev-spaces/migrate-to-bridge-to-kubernetes.md).
+> O Azure Dev Spaces será desativado e deixará de funcionar em 31 de outubro de 2023. Considere migrar para o [Bridge to Kubernetes](../articles/dev-spaces/migrate-to-bridge-to-kubernetes.md).

@@ -3,12 +3,12 @@ title: Referência de configurações de aplicativo para Azure Functions
 description: Documentação de referência para as configurações de aplicativo ou variáveis de ambiente do Azure Functions.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 3d3def7057eeb022b3e207cbecf06ee3074a91af
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: a28530fd4e4731065c4ddcc2f39e9a4660529921
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043221"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881916"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicativo para Azure Functions
 
@@ -135,7 +135,7 @@ Especifica o repositório ou o provedor a ser usado para armazenar chaves. Atual
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 
-O Azure Functions runtime usa essa cadeia de conexão da conta armazenamento para todas as funções, exceto para as funções disparadas por HTTP. A conta de armazenamento deve ser de uso geral, com suporte para blobs, filas e tabelas. Consulte [Conta de armazenamento](functions-infrastructure-as-code.md#storage-account) e [Requisitos da conta de armazenamento](storage-considerations.md#storage-account-requirements).
+O tempo de execução de Azure Functions usa essa cadeia de conexão da conta de armazenamento para a operação normal. Alguns usos dessa conta de armazenamento incluem pontos de verificação de gerenciamento de chaves, gerenciamento de gatilho de temporizador e hubs de eventos. A conta de armazenamento deve ser de uso geral, com suporte para blobs, filas e tabelas. Consulte [Conta de armazenamento](functions-infrastructure-as-code.md#storage-account) e [Requisitos da conta de armazenamento](storage-considerations.md#storage-account-requirements).
 
 |Chave|Valor de exemplo|
 |---|------------|
@@ -186,6 +186,14 @@ Especifica o número máximo de processos de trabalho de idioma, com um valor pa
 |---|------------|
 |\_contagem de \_ processos de trabalho do Functions \_|2|
 
+## <a name="python_threadpool_thread_count"></a>\_contagem de \_ threads de THREADPOOL do Python \_
+
+Especifica o número máximo de threads que um trabalho do Python Language usaria para executar invocações de função, com um valor padrão de `1` para a versão do Python `3.8` e abaixo. Para a versão do Python `3.9` e superior, o valor é definido como `None` . Observe que essa configuração não garante o número de threads que seriam definidos durante as execuções. A configuração permite que o Python expanda o número de threads para o valor especificado. A configuração se aplica somente a aplicativos do Python functions. Além disso, a configuração se aplica à invocação de funções síncronas e não a corrotinas.
+
+|Chave|Valor de exemplo|Valor máximo|
+|---|------------|---------|
+|\_contagem de \_ threads de THREADPOOL do Python \_|2|32|
+
 
 ## <a name="functions_worker_runtime"></a>FUNÇÕES\_TRABALHADOR\_TEMPO DE EXECUÇÃO
 
@@ -221,15 +229,17 @@ O valor dessa chave é fornecido no formato `<DESTINATION>:<VERBOSITY>` , que é
 
 ## <a name="website_contentazurefileconnectionstring"></a>CONTENTAZUREFILECONNECTIONSTRING do site \_
 
-Para consumo & apenas planos Premium. Cadeia de conexão para a conta de armazenamento na qual o código do aplicativo de funções e a configuração são armazenados. Consulte [Criar um aplicativo de funções](functions-infrastructure-as-code.md#create-a-function-app).
+Cadeia de conexão para a conta de armazenamento em que o código e a configuração do aplicativo de funções são armazenados em planos de dimensionamento orientados a eventos em execução no Windows. Para obter mais informações, consulte [criar um aplicativo de funções](functions-infrastructure-as-code.md#windows).
 
 |Chave|Valor de exemplo|
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
 
+Usado somente ao implantar em um consumo ou planos Premium em execução no Windows. Sem suporte para Linux. Alterar ou remover essa configuração pode fazer com que seu aplicativo de funções não seja iniciado. Para saber mais, confira [Este artigo de solução de problemas](functions-recover-storage-account.md#storage-account-application-settings-were-deleted). 
+
 ## <a name="website_contentovervnet"></a>CONTENTOVERVNET do site \_
 
-Somente para planos Premium. Um valor `1` permite que seu aplicativo de funções seja dimensionado quando você tiver sua conta de armazenamento restrita a uma rede virtual. Você deve habilitar essa configuração ao restringir sua conta de armazenamento a uma rede virtual. Para saber mais, confira [restringir sua conta de armazenamento a uma rede virtual](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network-preview). 
+Somente para planos Premium. Um valor `1` permite que seu aplicativo de funções seja dimensionado quando você tiver sua conta de armazenamento restrita a uma rede virtual. Você deve habilitar essa configuração ao restringir sua conta de armazenamento a uma rede virtual. Para saber mais, confira [restringir sua conta de armazenamento a uma rede virtual](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).
 
 |Chave|Valor de exemplo|
 |---|------------|
@@ -237,18 +247,22 @@ Somente para planos Premium. Um valor `1` permite que seu aplicativo de funçõe
 
 ## <a name="website_contentshare"></a>WEBSITE\_CONTENTSHARE
 
-Para consumo & apenas planos Premium. O caminho do arquivo para o código do aplicativo de funções e a configuração. Usado com WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. O padrão é uma cadeia única que começa com o nome do aplicativo de funções. Consulte [Criar um aplicativo de funções](functions-infrastructure-as-code.md#create-a-function-app).
+O caminho do arquivo para o código do aplicativo de funções e a configuração em um plano de dimensionamento controlado por eventos no Windows. Usado com WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. O padrão é uma cadeia única que começa com o nome do aplicativo de funções. Consulte [Criar um aplicativo de funções](functions-infrastructure-as-code.md#windows).
 
 |Chave|Valor de exemplo|
 |---|------------|
 |WEBSITE_CONTENTSHARE|functionapp091999e2|
+
+Usado somente por aplicativos de funções em um consumo ou planos Premium em execução no Windows. Sem suporte para Linux. Alterar ou remover essa configuração pode fazer com que seu aplicativo de funções não seja iniciado. Para saber mais, confira [Este artigo de solução de problemas](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
+
+Ao usar um Azure Resource Manager para criar um aplicativo de funções durante a implantação, não inclua WEBSITE_CONTENTSHARE no modelo. Essa configuração de aplicativo é gerada durante a implantação. Para saber mais, confira [automatizar a implantação de recursos para seu aplicativo de funções](functions-infrastructure-as-code.md#windows).   
 
 ## <a name="website_max_dynamic_application_scale_out"></a>WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT
 
 O número máximo de instâncias que o aplicativo de funções pode alcançar. O padrão é sem limites.
 
 > [!IMPORTANT]
-> Essa configuração está em versão prévia.  Uma [propriedade de aplicativo para a função de expansão máxima](./functions-scale.md#limit-scale-out) foi adicionada e é a maneira recomendada para limitar a escala horizontal.
+> Essa configuração está em versão prévia.  Uma [propriedade de aplicativo para a função de expansão máxima](./event-driven-scaling.md#limit-scale-out) foi adicionada e é a maneira recomendada para limitar a escala horizontal.
 
 |Chave|Valor de exemplo|
 |---|------------|

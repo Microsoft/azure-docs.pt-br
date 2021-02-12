@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 56a9861f0e25e1dcdf741cfdf5c8830dd9b6fc1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 120335a7bce83bc3d4771ea64f665d67c7d1079a
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325803"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572792"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Desempenho e escala nas Funções Duráveis (Azure Functions)
 
@@ -20,13 +20,13 @@ Para entender o comportamento de escala, você precisa entender alguns dos detal
 
 ## <a name="history-table"></a>Tabela de histórico
 
-A tabela de **Histórico** é uma tabela do Armazenamento do Microsoft Azure que contém eventos de histórico de todas as instâncias de orquestração com um hub de tarefas. O nome da tabela está no formato *TaskHubName*histórico. Conforme as instâncias são executadas, novas linhas são adicionadas a essa tabela. A chave de partição da tabela é derivada da ID de instância da orquestração. Uma ID de instância é aleatória na maioria dos casos, o que garante a distribuição ideal das partições internas do Armazenamento do Microsoft Azure.
+A tabela de **Histórico** é uma tabela do Armazenamento do Microsoft Azure que contém eventos de histórico de todas as instâncias de orquestração com um hub de tarefas. O nome da tabela está no formato *TaskHubName* histórico. Conforme as instâncias são executadas, novas linhas são adicionadas a essa tabela. A chave de partição da tabela é derivada da ID de instância da orquestração. Uma ID de instância é aleatória na maioria dos casos, o que garante a distribuição ideal das partições internas do Armazenamento do Microsoft Azure.
 
 Quando uma instância de orquestração precisa ser executada, as linhas correspondentes da tabela de histórico são carregadas na memória. Esses *histórico de eventos* são, em seguida, copiados para o código de função do orquestrador para recuperá-lo em seu estado de ponto de verificação anteriormente. O uso do histórico de execução para recriar o estado dessa maneira é influenciado pelo [padrão de Fornecimento de Evento](/azure/architecture/patterns/event-sourcing).
 
 ## <a name="instances-table"></a>Tabela de instâncias
 
-A tabela de **instâncias** é outra tabela de armazenamento do Azure que contém os status de todas as instâncias de orquestração e entidade em um hub de tarefas. Conforme as instâncias são criadas, novas linhas são adicionadas a essa tabela. A chave de partição desta tabela é a ID da instância de orquestração ou a chave de entidade e a chave de linha é uma constante fixa. Há uma linha por orquestração ou instância de entidade.
+A tabela de **instâncias** é outra tabela de armazenamento do Azure que contém os status de todas as instâncias de orquestração e entidade em um hub de tarefas. Conforme as instâncias são criadas, novas linhas são adicionadas a essa tabela. A chave de partição desta tabela é a ID da instância de orquestração ou a chave de entidade e a chave de linha é uma cadeia de caracteres vazia. Há uma linha por orquestração ou instância de entidade.
 
 Essa tabela é usada para satisfazer solicitações de consulta de instância das `GetStatusAsync` APIs (.net) e `getStatus` (JavaScript), bem como a [API http de consulta de status](durable-functions-http-api.md#get-instance-status). Isso é mantido finalmente consistente com o conteúdo da tabela **Histórico** mencionada anteriormente. O uso de uma tabela separada do Armazenamento do Microsoft Azure para atender com eficiência as operações de consulta de instância dessa maneira é influenciado pelo [padrão de Comando e Segregação de Reponsabilidade (CQRS)](/azure/architecture/patterns/cqrs).
 
@@ -51,12 +51,12 @@ A extensão de tarefa durável implementa um algoritmo de retirada exponencial a
 O atraso máximo de sondagem é configurável por meio da `maxQueuePollingInterval` propriedade no [host.jsno arquivo](../functions-host-json.md#durabletask). Definir essa propriedade com um valor mais alto pode resultar em latências de processamento de mensagens mais altas. As latências mais altas seriam esperadas somente após períodos de inatividade. Definir essa propriedade com um valor mais baixo pode resultar em custos de armazenamento mais altos devido a maiores transações de armazenamento.
 
 > [!NOTE]
-> Durante a execução nos planos de consumo Azure Functions e Premium, o [controlador de escala de Azure Functions](../functions-scale.md#how-the-consumption-and-premium-plans-work) sondará cada controle e a fila de itens de trabalho uma vez a cada 10 segundos. Essa sondagem adicional é necessária para determinar quando ativar instâncias do aplicativo de funções e tomar decisões de escala. No momento da gravação, esse intervalo de 10 segundos é constante e não pode ser configurado.
+> Durante a execução nos planos de consumo Azure Functions e Premium, o [controlador de escala de Azure Functions](../event-driven-scaling.md) sondará cada controle e a fila de itens de trabalho uma vez a cada 10 segundos. Essa sondagem adicional é necessária para determinar quando ativar instâncias do aplicativo de funções e tomar decisões de escala. No momento da gravação, esse intervalo de 10 segundos é constante e não pode ser configurado.
 
 ### <a name="orchestration-start-delays"></a>Atrasos de início da orquestração
 As instâncias de orquestrações são iniciadas colocando uma `ExecutionStarted` mensagem em uma das filas de controle do hub de tarefas. Em determinadas condições, você pode observar atrasos de vários segundos entre quando uma orquestração está agendada para ser executada e quando ela realmente começa a ser executada. Durante esse intervalo de tempo, a instância de orquestração permanece no `Pending` estado. Há duas causas potenciais desse atraso:
 
-1. **Filas de controle de registro**posterior: se a fila de controle dessa instância contiver um grande número de mensagens, pode levar tempo antes que a `ExecutionStarted` mensagem seja recebida e processada pelo tempo de execução. Os registros de pendências de mensagem podem ocorrer quando orquestrações estão processando muitos eventos simultaneamente. Os eventos que entram na fila de controle incluem eventos de início de orquestração, conclusões de atividade, temporizadores duráveis, encerramento e eventos externos. Se esse atraso ocorrer em circunstâncias normais, considere a criação de um novo hub de tarefas com um número maior de partições. A configuração de mais partições fará com que o tempo de execução crie mais filas de controle para a distribuição de carga.
+1. **Filas de controle de registro** posterior: se a fila de controle dessa instância contiver um grande número de mensagens, pode levar tempo antes que a `ExecutionStarted` mensagem seja recebida e processada pelo tempo de execução. Os registros de pendências de mensagem podem ocorrer quando orquestrações estão processando muitos eventos simultaneamente. Os eventos que entram na fila de controle incluem eventos de início de orquestração, conclusões de atividade, temporizadores duráveis, encerramento e eventos externos. Se esse atraso ocorrer em circunstâncias normais, considere a criação de um novo hub de tarefas com um número maior de partições. A configuração de mais partições fará com que o tempo de execução crie mais filas de controle para a distribuição de carga.
 
 2. **Desfazer atrasos de sondagem**: outra causa comum de atrasos de orquestração é o [comportamento de sondagem de retirada descrito anteriormente para filas de controle](#queue-polling). No entanto, esse atraso só é esperado quando um aplicativo é escalado horizontalmente para duas ou mais instâncias. Se houver apenas uma instância de aplicativo ou se a instância do aplicativo que inicia a orquestração também for a mesma instância que está sondando a fila de controle de destino, não haverá um atraso de sondagem de fila. Os atrasos de sondagem podem ser reduzidos atualizando o **host.jsem** configurações, conforme descrito anteriormente.
 
@@ -103,7 +103,7 @@ As funções de atividade são sem estado e são expandidas automaticamente adic
   "extensions": {
     "durableTask": {
       "storageProvider": {
-          "partitionCount": 3
+        "partitionCount": 3
       }
     }
   }
@@ -122,7 +122,7 @@ As funções de atividade são sem estado e são expandidas automaticamente adic
 }
 ```
 
-Um hub de tarefa pode ser configurado com entre 1 e 16 partições. Se não for especificado, a contagem de participação padrão 4** será usada**.
+Um hub de tarefa pode ser configurado com entre 1 e 16 partições. Se não for especificado, a contagem de participação padrão 4 **será usada**.
 
 Ao expandir para várias instâncias de host de função (normalmente, em VMs diferentes), cada instância adquire um bloqueio de uma das filas de controle. Esses bloqueios são implementados internamente como concessões de armazenamento de BLOBs e garantem que uma instância ou entidade de orquestração seja executada somente em uma única instância de host de cada vez. Se um hub de tarefas estiver configurado com três filas de controle, as instâncias de orquestração e as entidades poderão ser balanceadas com balanceamento de carga em até três VMs. VMs adicionais podem ser adicionadas para aumentar a capacidade de execução da função de atividade.
 
@@ -138,7 +138,7 @@ De modo geral, as funções de orquestrador devem ser leves e não devem precisa
 
 ## <a name="auto-scale"></a>Dimensionamento automático
 
-Assim como todos os Azure Functions em execução nos planos de consumo e Premium elásticos, Durable Functions dá suporte ao dimensionamento automático por meio do [controlador de escala de Azure Functions](../functions-scale.md#runtime-scaling). O Controlador de Escala monitora a latência de todas as filas periodicamente emitindo comandos de _inspeção_. Com base nas latências das mensagens inspecionadas, o controlador de escala irá decidir se deseja adicionar ou remover VMs.
+Assim como todos os Azure Functions em execução nos planos de consumo e Premium elásticos, Durable Functions dá suporte ao dimensionamento automático por meio do [controlador de escala de Azure Functions](../event-driven-scaling.md#runtime-scaling). O Controlador de Escala monitora a latência de todas as filas periodicamente emitindo comandos de _inspeção_. Com base nas latências das mensagens inspecionadas, o controlador de escala irá decidir se deseja adicionar ou remover VMs.
 
 Se o controlador de escala determina que as latências de mensagem de fila de controle são muito altas, ele irá adicionar instâncias de VM até que a latência de mensagem diminua em um nível aceitável ou atinja a contagem de partições de fila do controle. Da mesma forma, o controlador de escala continuamente adiciona instâncias de VM se as latências de fila de item de trabalho são alta, independentemente da contagem de partição.
 

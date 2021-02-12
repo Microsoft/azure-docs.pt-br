@@ -23,6 +23,10 @@
           href: tutorial-net-virtual-machine.md
         - name: Usar o Azure Key Vault com uma máquina virtual no Python
           href: tutorial-python-virtual-machine.md
+    - name: Serviço de aplicativo do Azure
+      items:
+        - name: Usar o Azure Key Vault com um Aplicativo Web no .NET
+          href: tutorial-net-create-vault-azure-web-app.md
     - name: Serviço de Kubernetes do Azure
       items:
         - name: Integrar o Azure Key Vault ao Kubernetes
@@ -31,34 +35,30 @@
       items:
         - name: Acessar o Armazenamento de Blobs do Azure usando o Azure Databricks e o Azure Key Vault
           href: integrate-databricks-blob-storage.md
-    - name: Conectar o Key Vault a um aplicativo Web com uma identidade gerenciada e o .NET
-      href: tutorial-net-create-vault-azure-web-app.md
 - name: Exemplos
   items:
     - name: Exemplos de código do Key Vault
-      href: 'https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault'
+      href: /samples/browse/?expanded=azure&products=azure-key-vault
 - name: Conceitos
   items:
     - name: Conceitos básicos
       href: basic-concepts.md
+    - name: Práticas recomendadas
+      href: best-practices.md
     - name: Segurança
       items:
-        - name: Conceitos básicos sobre a Autenticação do Key Vault
+        - name: Visão geral
+          href: security-overview.md
+        - name: Proteger o acesso a um cofre de chaves
+          href: secure-your-key-vault.md
+        - name: Conceitos básicos sobre a autenticação do Key Vault
           href: authentication-fundamentals.md
-        - name: Segurança do Azure Key Vault
-          href: overview-security.md
-        - name: Práticas recomendadas para usar o Key Vault – Azure Key Vault
-          href: best-practices.md
-        - name: Mundos de segurança do Azure Key Vault
+        - name: Universos de segurança e limites geográficos
           href: overview-security-worlds.md
         - name: Segurança de rede
           href: network-security.md
-        - name: Proteger o acesso a um cofre de chaves – Azure Key Vault
-          href: secure-your-key-vault.md
         - name: Linha de base de segurança do Azure para o Key Vault
           href: security-baseline.md
-        - name: Recomendações de segurança para o Azure Key Vault
-          href: security-recommendations.md
         - name: Controles de segurança do Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ../security-controls-policy.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
@@ -80,11 +80,11 @@
       href: overview-throttling.md
     - name: Redundância e disponibilidade de Cofre de Chaves do Azure
       href: disaster-recovery-guidance.md
-    - name: Pontos de extremidade de serviço de rede virtual para o Azure Key Vault – Azure Key Vault
+    - name: Pontos de extremidade de serviço de rede virtual para o Azure Key Vault
       href: overview-vnet-service-endpoints.md
 - name: Guias de instruções
   items:
-    - name: Authenticate
+    - name: Autenticar e autorizar
       items:
         - name: Autenticar-se no Key Vault
           href: authentication.md
@@ -102,39 +102,41 @@
           href: rbac-migration.md
         - name: Solucionar problemas de acesso
           href: troubleshooting-access-issues.md
-    - name: Habilitar a exclusão reversível e a proteção contra limpeza
-      href: key-vault-recovery.md
-    - name: Habilitar o registro em log
-      href: howto-logging.md
     - name: Desenvolver
       items:
         - name: Guia do desenvolvedor do Cofre da Chave do Azure
           href: developers-guide.md
         - name: Usar o Azure Resource Manager para implantar o Key Vault
           href: vault-create-template.md
-        - name: Salvar segredos do Aplicativo Web
-          href: /previous-versions/azure/key-vault/vs-secure-secret-appsettings?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
-        - name: Autenticação serviço a serviço com .NET
-          href: service-to-service-authentication.md
         - name: Como usar o serviço conectado do Key Vault
           href: vs-key-vault-add-connected-service.md
     - name: Monitorar e controlar
       items:
-        - name: Configurar monitoramento e alertas para o Azure Key Vault
+        - name: Notificações da Grade de Eventos
+          items:
+            - name: Receber notificações por meio de Aplicativos Lógicos
+              href: event-grid-logicapps.md
+            - name: Receber notificações por meio da Automação do Azure
+              href: event-grid-tutorial.md
+        - name: Habilitar o registro em log
+          href: howto-logging.md
+        - name: Configurar monitoramento e alertas para o Azure Key Vault com o Azure Monitor
           href: alert.md
+        - name: Gerenciamento de recuperação com exclusão reversível e proteção contra limpeza
+          href: key-vault-recovery.md
         - name: Integrar o Azure Key Vault ao Azure Policy
           href: azure-policy.md
-        - name: Receber notificações pela Grade de Eventos do Azure e pelos Aplicativos Lógicos
-          href: event-grid-logicapps.md
-        - name: Receber notificações por meio da Grade de Eventos do Azure e da Automação do Azure
-          href: event-grid-tutorial.md
         - name: Fazer backup de objetos individuais do Key Vault
           href: backup.md
     - name: Seguro
       items:
-        - name: Integrar ao serviço de Link Privado do Azure
-          href: private-link-service.md
-        - name: Acessar o Key Vault por trás de um firewall – Azure Key Vault
+        - name: Link Privado do Azure
+          items:
+            - name: Integrar ao serviço de Link Privado do Azure
+              href: private-link-service.md
+            - name: Diagnosticar problemas de configuração de Links Privados
+              href: private-link-diagnostics.md
+        - name: Acessar um cofre de chaves por trás de um firewall
           href: access-behind-firewall.md
     - name: Mover o Key Vault
       items:
@@ -144,19 +146,15 @@
           href: move-subscription.md
         - name: Mover o Key Vault para outra região
           href: move-region.md
-    - name: Rede
-      items:
-        - name: Diagnosticar problemas de configuração de Links Privados
-          href: private-link-diagnostics.md
 - name: Referência
   items:
     - name: Novidades
       href: whats-new.md
     - name: Bibliotecas de cliente
       href: client-libraries.md
-    - name: Códigos de erro da API REST – Azure Key Vault
+    - name: Códigos de erro da API REST
       href: rest-error-codes.md
-    - name: Códigos de erro comuns – Azure Key Vault
+    - name: Códigos de erro comuns
       href: common-error-codes.md
     - name: Parâmetros e cabeçalhos comuns
       href: common-parameters-and-headers.md
@@ -167,13 +165,13 @@
     - name: CLI do Azure
       href: /cli/azure/keyvault
     - name: .NET
-      href: /dotnet/api/overview/azure/keyvault/management?view=azure-dotnet
+      href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
     - name: Java
       href: /java/api/overview/azure/keyvault?view=azure-java-stable
     - name: Node.js
-      href: 'https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index?view=azure-node-latest'
+      href: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
     - name: Python
-      href: /python/api/overview/azure/keyvault/management?view=azure-python
+      href: /python/api/overview/azure/key-vault-index?view=azure-python
     - name: REST
       href: /rest/api/keyvault
     - name: Modelo do Resource Manager
@@ -199,6 +197,6 @@
     - name: Atualizações de serviço
       href: 'https://azure.microsoft.com/updates/?product=key-vault'
     - name: Blog
-      href: 'https://blogs.technet.com/b/kv/'
+      href: /archive/blogs/kv/
     - name: Comentários sobre o Produto
       href: 'https://feedback.azure.com/forums/906355-azure-key-vault'

@@ -1,22 +1,21 @@
 ---
 title: Monitorar e coletar dados de Machine Learning pontos de extremidade de serviço Web
 titleSuffix: Azure Machine Learning
-description: Monitorar serviços Web implantados com Azure Machine Learning usando o Aplicativo Azure insights
+description: Saiba como coletar dados de modelos implantados em pontos de extremidade de serviço Web no AKS (serviço de kubernetes do Azure) ou em ACI (instâncias de contêiner do Azure).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.reviewer: jmartens
 ms.author: larryfr
 author: blackmist
 ms.date: 09/15/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a36f69c9956dd05c5fbd85d7e37b90c0b1e4c21e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: how-to, devx-track-python, data4ml
+ms.openlocfilehash: 2740a86c5ff68e851d592533b48dc8ee60d817ee
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90897659"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070790"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorar e coletar dados de pontos de extremidade de serviço Web do ML
 
@@ -157,14 +156,24 @@ Você também pode habilitar informações de Aplicativo Azure do Azure Machine 
 
 ### <a name="query-logs-for-deployed-models"></a>Logs de consulta para modelos implantados
 
-Você pode usar a `get_logs()` função para recuperar logs de um serviço Web implantado anteriormente. Os logs podem conter informações detalhadas sobre quaisquer erros ocorridos durante a implantação.
+Os logs de pontos de extremidade em tempo real são dados do cliente. Você pode usar a `get_logs()` função para recuperar logs de um serviço Web implantado anteriormente. Os logs podem conter informações detalhadas sobre quaisquer erros ocorridos durante a implantação.
 
 ```python
+from azureml.core import Workspace
 from azureml.core.webservice import Webservice
+
+ws = Workspace.from_config()
 
 # load existing web service
 service = Webservice(name="service-name", workspace=ws)
 logs = service.get_logs()
+```
+
+Se você tiver vários locatários, talvez seja necessário adicionar o seguinte código de autenticação antes `ws = Workspace.from_config()`
+
+```python
+from azureml.core.authentication import InteractiveLoginAuthentication
+interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in which your workspace resides")
 ```
 
 ### <a name="view-logs-in-the-studio"></a>Exibir logs no estúdio
@@ -204,9 +213,9 @@ Para registrar informações de solicitação de serviço Web, adicione `print` 
 ## <a name="export-data-for-retention-and-processing"></a>Exportar dados para retenção e processamento
 
 >[!Important]
-> Aplicativo Azure insights só dá suporte a exportações para o armazenamento de BLOBs. Para obter mais informações sobre os limites dessa implementação, consulte [Exportar telemetria do App insights](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry#continuous-export-advanced-storage-configuration).
+> Aplicativo Azure insights só dá suporte a exportações para o armazenamento de BLOBs. Para obter mais informações sobre os limites dessa implementação, consulte [Exportar telemetria do App insights](../azure-monitor/app/export-telemetry.md#continuous-export-advanced-storage-configuration).
 
-Use Application Insights ' [exportação contínua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) para exportar dados para uma conta de armazenamento de BLOBs em que você pode definir as configurações de retenção. Application Insights exporta os dados no formato JSON. 
+Use Application Insights ' [exportação contínua](../azure-monitor/app/export-telemetry.md) para exportar dados para uma conta de armazenamento de BLOBs em que você pode definir as configurações de retenção. Application Insights exporta os dados no formato JSON. 
 
 :::image type="content" source="media/how-to-enable-app-insights/continuous-export-setup.png" alt-text="Exportação contínua":::
 
@@ -215,8 +224,8 @@ Use Application Insights ' [exportação contínua](https://docs.microsoft.com/a
 Neste artigo, você aprendeu a habilitar o log e exibir logs para pontos de extremidade de serviço Web. Experimente estes artigos para as próximas etapas:
 
 
-* [Como implantar um modelo em um cluster AKS](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service)
+* [Como implantar um modelo em um cluster AKS](./how-to-deploy-azure-kubernetes-service.md)
 
-* [Como implantar um modelo em instâncias de contêiner do Azure](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-container-instance)
+* [Como implantar um modelo em instâncias de contêiner do Azure](./how-to-deploy-azure-container-instance.md)
 
-* [MLOps: Gerencie, implante e monitore modelos com Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment) para saber mais sobre como aproveitar os dados coletados de modelos em produção. Esses dados podem ajudar a melhorar continuamente o processo de aprendizado de máquina.
+* [MLOps: Gerencie, implante e monitore modelos com Azure Machine Learning](./concept-model-management-and-deployment.md) para saber mais sobre como aproveitar os dados coletados de modelos em produção. Esses dados podem ajudar a melhorar continuamente o processo de aprendizado de máquina.

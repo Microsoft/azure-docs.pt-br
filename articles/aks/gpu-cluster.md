@@ -6,16 +6,16 @@ ms.topic: article
 ms.date: 08/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: f631f8ee022f501cb30af4aae5cf48294b9ca3c2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: d7e312f049acc0b74aa0a253864bfce6100044bd
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125828"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929133"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Usar GPUs para cargas de trabalho de computação intensiva no AKS (Serviço de Kubernetes do Azure)
 
-As GPUs (unidades de processamento gráfico) geralmente são usadas para cargas de trabalho de computação intensiva, como gráficos e cargas de trabalho de visualização. O AKS dá suporte à criação de pools de nós habilitados para GPU para executar essas cargas de trabalho de computação intensiva no Kubernetes. Para obter mais informações sobre as VMs habilitadas para GPU disponíveis, confira [Tamanhos de VM otimizadas para GPU no Azure][gpu-skus]. Para nós do AKS, é recomendável um tamanho mínimo de *Standard_NC6* .
+As GPUs (unidades de processamento gráfico) geralmente são usadas para cargas de trabalho de computação intensiva, como gráficos e cargas de trabalho de visualização. O AKS dá suporte à criação de pools de nós habilitados para GPU para executar essas cargas de trabalho de computação intensiva no Kubernetes. Para obter mais informações sobre as VMs habilitadas para GPU disponíveis, confira [Tamanhos de VM otimizadas para GPU no Azure][gpu-skus]. Para nós do AKS, é recomendável um tamanho mínimo de *Standard_NC6*.
 
 > [!NOTE]
 > As VMs habilitadas para GPU contêm hardware especializado sujeito a maiores preços e disponibilidade da região. Para obter mais informações, confira a ferramenta [preço][azure-pricing] e a [disponibilidade de região][azure-availability].
@@ -32,7 +32,7 @@ Você também precisa do CLI do Azure versão 2.0.64 ou posterior instalada e co
 
 Se você precisar de um cluster do AKS que atenda aos requisitos mínimos (nó habilitado para GPU e Kubernetes versão 1.10 ou posterior), conclua as etapas a seguir. Se você já tiver um cluster AKS que atenda a esses requisitos, [pule para a próxima seção](#confirm-that-gpus-are-schedulable).
 
-Primeiro, crie um grupo de recursos para o cluster usando o comando [AZ Group Create][az-group-create] . O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na região *eastus* :
+Primeiro, crie um grupo de recursos para o cluster usando o comando [AZ Group Create][az-group-create] . O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na região *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -58,7 +58,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 Antes que as GPUs nos nós possam ser usadas, você deve implantar um Daemonset para o plug-in do dispositivo NVIDIA. Este DaemonSet executa um pod em cada nó para fornecer os drivers necessários para as GPUs.
 
-Primeiro, crie um namespace usando o comando [kubectl create namespace][kubectl-create], como *gpu-resources* :
+Primeiro, crie um namespace usando o comando [kubectl create namespace][kubectl-create], como *gpu-resources*:
 
 ```console
 kubectl create namespace gpu-resources
@@ -134,13 +134,13 @@ Registrar o recurso `GPUDedicatedVHDPreview`:
 az feature register --name GPUDedicatedVHDPreview --namespace Microsoft.ContainerService
 ```
 
-Pode levar vários minutos para que o status seja exibido como **Registrado** . Você pode verificar o status de registro usando o comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list):
+Pode levar vários minutos para que o status seja exibido como **Registrado**. Você pode verificar o status de registro usando o comando [az feature list](/cli/azure/feature#az-feature-list):
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/GPUDedicatedVHDPreview')].{Name:name,State:properties.state}"
 ```
 
-Quando o status aparecer como registrado, atualize o registro do provedor de recursos `Microsoft.ContainerService` usando o comando [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register):
+Quando o status aparecer como registrado, atualize o registro do provedor de recursos `Microsoft.ContainerService` usando o comando [az provider register](/cli/azure/provider#az-provider-register):
 
 ```azurecli
 az provider register --namespace Microsoft.ContainerService
@@ -196,9 +196,9 @@ NAME                       STATUS   ROLES   AGE   VERSION
 aks-nodepool1-28993262-0   Ready    agent   13m   v1.12.7
 ```
 
-Agora use o comando [kubectl describe node][kubectl-describe] para confirmar se as GPUs são agendáveis. Na seção *Capacidade* , a GPU deve ser listada como `nvidia.com/gpu:  1`.
+Agora use o comando [kubectl describe node][kubectl-describe] para confirmar se as GPUs são agendáveis. Na seção *Capacidade*, a GPU deve ser listada como `nvidia.com/gpu:  1`.
 
-O exemplo condensado a seguir mostra que uma GPU está disponível no nó chamado *aks-nodepool1-18821093-0* :
+O exemplo condensado a seguir mostra que uma GPU está disponível no nó chamado *aks-nodepool1-18821093-0*:
 
 ```console
 $ kubectl describe node aks-nodepool1-28993262-0
@@ -289,7 +289,7 @@ kubectl apply -f samples-tf-mnist-demo.yaml
 
 ## <a name="view-the-status-and-output-of-the-gpu-enabled-workload"></a>Exibir o status e a saída da carga de trabalho habilitada para GPU
 
-Monitore o andamento do trabalho usando o comando [kubectl get jobs][kubectl-get] com o argumento `--watch`. Poderá levar alguns minutos para efetuar pull da imagem e processar o conjunto de dados pela primeira vez. Quando a coluna *conclusões* mostra *1/1* , o trabalho foi concluído com êxito. Saia do `kubetctl --watch` comando com *Ctrl-C* :
+Monitore o andamento do trabalho usando o comando [kubectl get jobs][kubectl-get] com o argumento `--watch`. Poderá levar alguns minutos para efetuar pull da imagem e processar o conjunto de dados pela primeira vez. Quando a coluna *conclusões* mostra *1/1*, o trabalho foi concluído com êxito. Saia do `kubetctl --watch` comando com *Ctrl-C*:
 
 ```console
 $ kubectl get jobs samples-tf-mnist-demo --watch
@@ -386,7 +386,7 @@ Accuracy at step 490: 0.9494
 Adding run metadata for 499
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para remover os objetos de Kubernetes associados criados neste artigo, use o comando [kubectl delete job][kubectl delete] da seguinte maneira:
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 53fd2332224d903c5a4b33563470cf3569f82b13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec605fd30252b9a0cfb80d0bc3ff145ed3b5a1d4
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86526649"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573302"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Solucionar problemas de desempenho de máquina virtual do Azure no Linux ou Windows
 
@@ -52,7 +52,7 @@ Você pode verificar a conta de armazenamento usada para a configuração de dia
 
 O armazenamento é uma camada muito importante quando pretendemos analisar o desempenho de e/s de uma máquina virtual no Azure. Para métricas relacionadas ao armazenamento, precisamos habilitar o diagnóstico como uma etapa adicional. Isso também pode ser habilitado se quisermos apenas analisar os contadores relacionados ao armazenamento.
 
-1. Identifique qual conta de armazenamento (ou contas) sua VM está usando selecionando a VM. Clique em **configurações**e em **discos**:
+1. Identifique qual conta de armazenamento (ou contas) sua VM está usando selecionando a VM. Clique em **configurações** e em **discos**:
 
    ![Clique em configurações e em discos](media/troubleshoot-performance-virtual-machine-linux-windows/4-storage-disks-disks-selection.png)
 
@@ -208,7 +208,7 @@ Para identificar se você está atingindo o limite de IOPS, acesse o diagnóstic
 
 Com novas ofertas de disco no armazenamento Standard, os limites de IOPS e taxa de transferência poderiam ser diferentes, mas o limite cumulativo da conta de armazenamento Standard é de 20000 IOPS (o armazenamento Premium tem limites diferentes no nível de conta ou disco). Leia mais sobre as diferentes ofertas de disco de armazenamento Standard e por limites de disco:
 
-* [Escalabilidade e metas de desempenho para discos de VM no Windows](../windows/disk-scalability-targets.md).
+* [Escalabilidade e metas de desempenho para discos de VM no Windows](../disks-scalability-targets.md).
 
 #### <a name="references"></a>Referências
 
@@ -224,7 +224,7 @@ Verifique os limites de taxa de transferência dos VHDs anexados à VM. Adicione
 
 Novas ofertas de disco no armazenamento Standard têm diferentes limites de IOPS e taxa de transferência (IOPS não são expostos por VHD). Examine os dados para ver se você está atingindo os limites de taxa de transferência combinada de MB dos VHD no nível de VM usando leitura e gravação de disco e, em seguida, otimize sua configuração de armazenamento de VM para dimensionar os limites de VHD único. Leia mais sobre as diferentes ofertas de disco de armazenamento Standard e por limites de disco:
 
-* [Escalabilidade e metas de desempenho para discos de VM no Windows](../windows/disk-scalability-targets.md).
+* [Escalabilidade e metas de desempenho para discos de VM no Windows](../disks-scalability-targets.md).
 
 ### <a name="high-disk-utilizationlatency-remediation"></a>Alta correção de utilização/latência de disco
 

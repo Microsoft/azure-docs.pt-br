@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/20/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 078b24e7fc3668e9b5832f0bfa46024db9b33848
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0874f6aeb74b028e92e10d972757cc5971735e39
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965549"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744305"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Perguntas frequentes sobre redefinição de senha de autoatendimento
 
@@ -38,7 +38,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 
   > **R:** Sim. Desde que a redefinição de senha esteja habilitada e eles sejam licenciados, os usuários podem ir para o portal de registro de redefinição de senha (https://aka.ms/ssprsetup) ) para registrar as informações de autenticação. Os usuários também podem registrar por meio do painel de acesso (https://myapps.microsoft.com) ). Para registrar-se por meio do Painel de Acesso, eles precisam selecionar a imagem do perfil, selecionar **Perfil** e, em seguida, selecionar a opção **Registrar-se para redefinição de senha**.
   >
-  > Se você habilitar o [registro combinado](concept-registration-mfa-sspr-combined.md), os usuários poderão se registrar para o SSPR e a autenticação multifator do Azure ao mesmo tempo.
+  > Se você habilitar o [registro combinado](concept-registration-mfa-sspr-combined.md), os usuários poderão se registrar para o SSPR e a autenticação multifator do Azure AD ao mesmo tempo.
 * **P:  Se eu habilitar a redefinição de senha para um grupo e, em seguida, decidir habilitá-la para todos, os usuários deverão se registrar novamente?**
 
   > **R:** Não. Os usuários que possuem dados de autenticação populados não devem se registrar novamente.
@@ -263,7 +263,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
 * **P:  O write-back de senha funciona com quais tipos de conta?**
 
-  > **R:** O write-back de senha funciona com contas de usuário sincronizadas do Active Directory local para o Azure AD, incluindo usuários federados, sincronizados com hash de senha e de autenticação de passagem.
+  > **R:** O Write-back de senha funciona para contas de usuário que são sincronizadas do Active Directory local para o Azure AD, incluindo usuários federados, sincronizados com hash de senha e Pass-Through autenticação.
   >
   >
 * **P:  O write-back de senha impõe as políticas de senha do meu domínio?**
@@ -289,4 +289,4 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 * [O que é o write-back de senha e por que devo me importar com isso?](./tutorial-enable-sspr-writeback.md)
 * [Como faço para informar sobre a atividade no SSPR?](howto-sspr-reporting.md)
 * [Quais são todas as opções no SSPR e o que elas significam?](concept-sspr-howitworks.md)
-* [Acho que algo não está funcionando. Como faço para solucionar o problema no SSPR?](active-directory-passwords-troubleshoot.md)
+* [Acho que algo não está funcionando. Como faço para solucionar o problema no SSPR?](./troubleshoot-sspr.md)

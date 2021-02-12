@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: cd9b85f22866c529b66fa6df07bd524516726086
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 605bae706bbc1db2e008b8d050cbba9eacd16933
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165325"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702195"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparar dados para Fala Personalizada
 
@@ -46,9 +46,11 @@ Esta tabela lista os tipos de dados aceitos, quando cada tipo de dados deve ser 
 
 | Tipo de dados | Usado para teste | Quantidade recomendada | Usado para treinamento | Quantidade recomendada |
 |-----------|-----------------|----------|-------------------|----------|
-| [Áudio](#audio-data-for-testing) | Yes<br>Usado para inspeção visual | mais de 5 arquivos de áudio | Não | N/D |
-| [Áudio + transcrições com rótulo humano](#audio--human-labeled-transcript-data-for-testingtraining) | Yes<br>Usado para avaliar a precisão | 0,5 a 5 horas de áudio | Yes | 1 a 1.000 horas de áudio |
-| [Texto relacionado](#related-text-data-for-training) | No | N/A | Yes | 1-200 MB de texto relacionado |
+| [Sonoro](#audio-data-for-testing) | Sim<br>Usado para inspeção visual | mais de 5 arquivos de áudio | Não | N/D |
+| [Áudio + transcrições com rótulo humano](#audio--human-labeled-transcript-data-for-testingtraining) | Sim<br>Usado para avaliar a precisão | 0,5 a 5 horas de áudio | Sim | 1-20 horas de áudio |
+| [Texto relacionado](#related-text-data-for-training) | Não | N/A | Sim | 1-200 MB de texto relacionado |
+
+Ao treinar um novo modelo, comece com o [texto relacionado](#related-text-data-for-training). Esses dados já melhorarão o reconhecimento de termos e frases especiais. O treinamento com texto é muito mais rápido do que o treinamento com áudio (minutos versus dias).
 
 Os arquivos devem ser agrupados por tipo em um conjunto de um e carregados como um arquivo. zip. Cada conjunto de dados só pode conter um único tipo de dado.
 
@@ -117,13 +119,16 @@ Os arquivos de áudio podem ter silêncio no início e no final da gravação. S
 > [!NOTE]
 > Ao carregar dados de treinamento e teste, o tamanho do arquivo. zip não pode exceder 2 GB. Você só pode testar a partir de um *único* conjunto de um, certifique-se de mantê-lo dentro do tamanho apropriado do arquivo. Além disso, cada arquivo de treinamento não pode exceder 60 segundos, caso contrário, ocorrerá um erro.
 
-Para resolver problemas como exclusão ou substituição de palavras, uma quantidade significativa de dados é necessária para melhorar o reconhecimento. Em geral, é recomendável fornecer transcrições de palavra por palavra por aproximadamente 10 a 1.000 horas de áudio. As transcrições para todos os arquivos WAV devem estar contidas em um único arquivo de texto sem formatação. Cada linha do arquivo de transcrição deve conter o nome de um dos arquivos de áudio, seguido pela transcrição correspondente. O nome do arquivo e transcrição devem ser separados por uma tabulação (\t).
+Para resolver problemas como exclusão ou substituição de palavras, uma quantidade significativa de dados é necessária para melhorar o reconhecimento. Em geral, é recomendável fornecer transcrições de palavra por palavra por aproximadamente de 10 a 20 horas de áudio. As transcrições para todos os arquivos WAV devem estar contidas em um único arquivo de texto sem formatação. Cada linha do arquivo de transcrição deve conter o nome de um dos arquivos de áudio, seguido pela transcrição correspondente. O nome do arquivo e transcrição devem ser separados por uma tabulação (\t).
 
-  Por exemplo:
-```
-  speech01.wav  speech recognition is awesome
-  speech02.wav  the quick brown fox jumped all over the place
-  speech03.wav  the lazy dog was not amused
+Por exemplo:
+
+<!-- The following example contains tabs. Don't accidentally convert these into spaces. -->
+
+```input
+speech01.wav    speech recognition is awesome
+speech02.wav    the quick brown fox jumped all over the place
+speech03.wav    the lazy dog was not amused
 ```
 
 > [!IMPORTANT]
@@ -136,6 +141,10 @@ Depois de coletar os arquivos de áudio e as transcrições correspondentes, emp
 > [!div class="mx-imgBorder"]
 > ![Selecionar áudio no portal de fala](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
 
+Consulte [configurar sua conta do Azure](custom-speech-overview.md#set-up-your-azure-account) para obter uma lista de regiões recomendadas para suas assinaturas de serviço de fala. A configuração das assinaturas de fala em uma dessas regiões reduzirá o tempo necessário para treinar o modelo. Nessas regiões, o treinamento pode processar cerca de 10 horas de áudio por dia, em comparação a apenas uma hora por dia em outras regiões. Se o treinamento do modelo não puder ser concluído em uma semana, o modelo será marcado como com falha.
+
+Nem todos os modelos de base dão suporte ao treinamento com dados de áudio. Se o modelo base não oferecer suporte a ele, o serviço irá ignorar o áudio e apenas treinar com o texto das transcrições. Nesse caso, o treinamento será o mesmo que o treinamento com o texto relacionado.
+
 ## <a name="related-text-data-for-training"></a>Dados de texto relacionados para treinamento
 
 Os nomes de produtos ou recursos que são exclusivos devem incluir dados de texto relacionados para treinamento. O texto relacionado ajuda a garantir o reconhecimento correto. Dois tipos de dados de texto relacionados podem ser fornecidos para melhorar o reconhecimento:
@@ -146,6 +155,8 @@ Os nomes de produtos ou recursos que são exclusivos devem incluir dados de text
 | Pronúncias | Melhore a pronúncia de termos, acrônimos ou outras palavras incomuns, com pronúncias indefinidas. |
 
 As frases podem ser fornecidas como um único arquivo de texto ou vários arquivos de texto. Para melhorar a precisão, use dados de texto que estejam mais próximos do declarações falado esperado. As pronúncias devem ser fornecidas como um único arquivo de texto. Tudo pode ser empacotado como um único arquivo zip e carregado no <a href="https://speech.microsoft.com/customspeech" target="_blank">Portal <span class="docon docon-navigate-external x-hidden-focus"></span> de fala personalizada </a>.
+
+O treinamento com texto relacionado geralmente é concluído em alguns minutos.
 
 ### <a name="guidelines-to-create-a-sentences-file"></a>Diretrizes para criar um arquivo de sentenças
 
@@ -163,7 +174,7 @@ Use esta tabela para garantir que o arquivo de dados relacionado para declaraç�
 
 Além disso, você desejará considerar as seguintes restrições:
 
-* Evite repetir caracteres mais de quatro vezes. Por exemplo: "aaaa" ou "uuuu".
+* Evite repetir caracteres, palavras ou grupos de palavras mais de três vezes. Por exemplo: "aaaa", "Sim Sim Sim", ou "é isso é que isso é isso". O serviço de fala pode soltar as linhas com muitas repetições.
 * Não use caracteres especiais ou caracteres UTF-8 acima `U+00A1` .
 * Os URIs serão rejeitados.
 
@@ -186,7 +197,7 @@ O formulário falado é a seqüência fonética escrita. Ele pode ser composto p
 
 A pronúncia personalizada está disponível em inglês ( `en-US` ) e alemão ( `de-DE` ). Esta tabela mostra os caracteres com suporte por idioma:
 
-| Idioma | Localidade | Caracteres |
+| Idioma | Locale | Characters |
 |----------|--------|------------|
 | Inglês | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 | Alemão | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
@@ -204,4 +215,4 @@ Use a tabela a seguir para garantir que o arquivo de dados relacionado para pron
 * [Inspecione seus dados](how-to-custom-speech-inspect-data.md)
 * [Avalie seus dados](how-to-custom-speech-evaluate-data.md)
 * [Treinar seu modelo](how-to-custom-speech-train-model.md)
-* [Implantar o seu modelo](how-to-custom-speech-deploy-model.md)
+* [Implantar o seu modelo](./how-to-custom-speech-train-model.md)

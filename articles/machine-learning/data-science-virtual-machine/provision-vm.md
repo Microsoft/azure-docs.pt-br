@@ -8,12 +8,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
-ms.openlocfilehash: a955f035933955b88200e49e343f7dd0c257c89b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e876ddc9b4df32cad5bbf15215da5ce2f912bba1
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88816347"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109718"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Início Rápido: Configurar a Máquina Virtual de Ciência de Dados para Windows
 
@@ -41,7 +41,7 @@ Para criar uma instância de DSVM:
       * **Nome da máquina virtual**: Insira o nome da máquina virtual. É assim que ela aparecerá no seu portal do Azure.
       * **Localização**: selecione o datacenter mais apropriado. Para um acesso mais rápido à rede, é o data center que contém a maioria dos seus dados ou que está mais próximo de sua localização física. Leia mais sobre as [Regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/).
       * **Imagem**: Mantenha o valor padrão.
-      * **Size**: Isso deve ser preenchido automaticamente com um tamanho apropriado para cargas de trabalho gerais. Leia mais sobre [Tamanhos de VM do Windows no Azure](../../virtual-machines/windows/sizes.md).
+      * **Size**: Isso deve ser preenchido automaticamente com um tamanho apropriado para cargas de trabalho gerais. Leia mais sobre [Tamanhos de VM do Windows no Azure](../../virtual-machines/sizes.md).
       * **Nome de usuário**: Insira o nome de usuário do administrador. Esse é o nome de usuário que você usará para fazer logon em sua máquina virtual e não precisa ser o mesmo que o seu nome de usuário do Azure.
       * **Senha**: Insira a senha que você usará para fazer logon em sua máquina virtual.    
 1. Selecione **Examinar + criar**.
@@ -56,11 +56,9 @@ Para criar uma instância de DSVM:
 
 ## <a name="access-the-dsvm"></a>Acessar a DSVM
 
-Depois que a VM for criada e provisionada, siga as etapas listadas para [conectar-se à sua máquina virtual baseada no Azure](../../marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm.md). Use as credenciais da conta do administrador que você configurou na etapa **Básico** da criação da máquina virtual. 
+Depois que a VM for criada e provisionada, siga as etapas listadas para [conectar-se à sua máquina virtual baseada no Azure](../../marketplace/azure-vm-create-using-approved-base.md). Use as credenciais da conta do administrador que você configurou na etapa **Básico** da criação da máquina virtual. 
 
 Você está pronto para começar a usar as ferramentas que estão instaladas e pré-configuradas na VM. Muitas das ferramentas podem ser acessadas por meio de blocos do menu **Iniciar** e ícones da área de trabalho.
-
-Também é possível anexar uma DSVM ao Azure Notebooks para executar os Jupyter Notebooks na VM e ignorar as limitações da camada de serviço gratuita. Para saber mais, confira [Gerenciar e configurar projetos de Notebooks](../../notebooks/configure-manage-azure-notebooks-projects.md#manage-and-configure-projects).
 
 <a name="tools"></a>
 
@@ -70,4 +68,3 @@ Também é possível anexar uma DSVM ao Azure Notebooks para executar os Jupyter
 * Explore as ferramentas na DSVM abrindo o menu **Iniciar**.
 * Para saber mais sobre o Azure Machine Learning, leia [O que é o Azure Machine Learning?](../overview-what-is-azure-ml.md) e teste os [tutoriais](../index.yml).
 * Leia o artigo [Ciência de dados com uma Máquina Virtual de Ciência de Dados do Windows no Azure](./vm-do-ten-things.md)
-

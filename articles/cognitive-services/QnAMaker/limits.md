@@ -4,13 +4,13 @@ description: O QnA Maker tem limites de meta para partes do serviço e da base d
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
-ms.date: 02/14/2020
-ms.openlocfilehash: 773c9caa2fb25b3abe4fb451bc59598c485a6110
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 1e57ae537c271e61f0b2d37f5320cb177b04802b
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776248"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98164865"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limites e limites de base de dados de conhecimento do QnA Maker
 
@@ -51,6 +51,9 @@ Os nomes de arquivo não podem incluir os seguintes caracteres:
 
 O número máximo de arquivos que podem ser extraídos e o tamanho máximo do arquivo baseia-se nos limites do seu **[QnA Maker tipo de preço](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)**.
 
+> [!NOTE]
+> QnA Maker gerenciado (versão prévia) é um serviço gratuito sem limites no número de fontes que podem ser adicionadas. A taxa de transferência está atualmente limitada a 10 transações por segundo para APIs de gerenciamento e APIs de previsão.
+
 ### <a name="maximum-number-of-deep-links-from-url"></a>Número máximo de links profundos da URL
 
 O número máximo de links profundos que podem ser rastreados para extração de QnAs de uma página de URL é **20**.
@@ -79,10 +82,10 @@ O comprimento e os caracteres aceitáveis para o nome e o valor dos metadados s�
 
 ## <a name="knowledge-base-content-limits"></a>Limites de conteúdo da Base de Dados de Conhecimento
 Limites gerais sobre o conteúdo na base de dados de conhecimento:
-* Comprimento do texto de resposta: 25.000
-* Comprimento do texto da pergunta: 1.000
-* Comprimento do texto da chave de metadados: 100
-* Comprimento do texto do valor de metadados: 500
+* Tamanho do texto de resposta: 25.000 caracteres
+* Tamanho do texto da pergunta: 1.000 caracteres
+* Comprimento do texto da chave de metadados: 100 caracteres
+* Comprimento do texto do valor de metadados: 500 caracteres
 * Caracteres com suporte para nome de metadados: alfabetos, dígitos e `_`
 * Caracteres com suporte para valor de metadados: todos exceto `:` e `|`
 * Tamanho do nome do arquivo: 200
@@ -93,16 +96,18 @@ Limites gerais sobre o conteúdo na base de dados de conhecimento:
 
 ## <a name="create-knowledge-base-call-limits"></a>Criar limites de chamada da base de dados de conhecimento:
 Eles representam os limites de cada ação de criação da base de dados de conhecimento; ou seja, clicar em *Criar KB* ou chamar a API CreateKnowledgeBase.
-* Número máximo de perguntas alternativas por resposta: 300
+* Número máximo recomendado de perguntas alternativas por resposta: 300
 * Número máximo de URLs: 10
 * Número máximo de arquivos: 10
+* Número máximo de QnAs permitido por chamada: 1000
 
 ## <a name="update-knowledge-base-call-limits"></a>Atualizar limites de chamada da base de dados de conhecimento
 Eles representam os limites de cada ação de atualização; ou seja, clique em *Salvar e treinar* ou chame a API UpdateKnowledgeBase.
 * Tamanho de cada nome de origem: 300
-* Número máximo de perguntas alternativas adicionadas ou excluídas: 300
+* Número máximo recomendado de perguntas alternativas adicionadas ou excluídas: 300
 * Número máximo de campos de metadados adicionados ou excluídos: 10
 * Número máximo de URLs que podem ser atualizadas: 5
+* Número máximo de QnAs permitido por chamada: 1000
 
 ## <a name="next-steps"></a>Próximas etapas
 

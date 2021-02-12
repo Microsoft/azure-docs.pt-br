@@ -1,18 +1,18 @@
 ---
 title: Definições de política internas para Azure Machine Learning
 description: Lista Azure Policy definições de política internas para Azure Machine Learning. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 10/20/2020
-author: j-martens
-ms.author: jmartens
+ms.date: 02/04/2021
+ms.author: larryfr
+author: BlackMist
 ms.topic: reference
 ms.service: machine-learning
 ms.custom: subject-policy-reference
-ms.openlocfilehash: e9619051ff53afe263d4bcb26a7c7f3decf3fe6f
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: c3d433875f40e5bada974ef502b1baaeb876dbf1
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328021"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99558960"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-machine-learning"></a>Azure Policy definições de política internas para Azure Machine Learning
 

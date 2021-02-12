@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2019
+ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 84f34c9441805352422215fcbac300bd900024d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b73b8fa14271619d07fca63b01e4197f4f7c8cb
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84737947"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017843"
 ---
 # <a name="delete-network-security-group-flow-log-storage-blobs-in-network-watcher"></a>Excluir blobs de armazenamento de log de fluxo do grupo de segurança de rede no observador de rede
 

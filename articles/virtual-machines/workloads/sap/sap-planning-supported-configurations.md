@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: SAP
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ec29b6489712eeb67783aef03261a3606a390125
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 54f3f0e1b57525a3bd425575ff03a9f3c91b0044
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926607"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951206"
 ---
 # <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Carga de trabalho do SAP em cenários compatíveis com a máquina virtual do Azure
 A criação da arquitetura de sistemas SAP NetWeaver, Business One `Hybris` ou S/4HANA no Azure abre muitas oportunidades diferentes para várias arquiteturas e ferramentas a serem usadas para chegar a uma implantação escalonável, eficiente e altamente disponível. Embora dependam do sistema operacional ou do DBMS usado, há restrições. Além disso, nem todos os cenários com suporte no local têm suporte da mesma maneira no Azure. Este documento orientará as configurações de não alta disponibilidade e as arquiteturas e configurações de alta disponibilidade com suporte usando VMs do Azure exclusivamente. Para cenários com suporte com [instâncias grandes do Hana](./hana-overview-architecture.md), verifique o artigo [cenários com suporte para instâncias grandes do Hana](./hana-supported-scenario.md). 

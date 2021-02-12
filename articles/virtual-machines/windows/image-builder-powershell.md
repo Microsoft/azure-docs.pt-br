@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a221ba8fe14db37729183774197bfc2db8bf2baa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e902798284240b55a3b08ea55ab6ee55add2431
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328098"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575831"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder-using-powershell"></a>Versão prévia: criar uma VM do Windows com o construtor de imagem do Azure usando o PowerShell
 
@@ -231,13 +231,25 @@ $disSharedImg = New-AzImageBuilderDistributorObject @disObjParams
 Crie um objeto de personalização do Azure Image Builder.
 
 ```azurepowershell-interactive
-$ImgCustomParams = @{
+$ImgCustomParams01 = @{
   PowerShellCustomizer = $true
   CustomizerName = 'settingUpMgmtAgtPath'
   RunElevated = $false
-  Inline = @("mkdir c:\\buildActions", "echo Azure-Image-Builder-Was-Here  > c:\\buildActions\\buildActionsOutput.txt")
+  Inline = @("mkdir c:\\buildActions", "mkdir c:\\buildArtifacts", "echo Azure-Image-Builder-Was-Here  > c:\\buildActions\\buildActionsOutput.txt")
 }
-$Customizer = New-AzImageBuilderCustomizerObject @ImgCustomParams
+$Customizer01 = New-AzImageBuilderCustomizerObject @ImgCustomParams01
+```
+
+Crie um segundo objeto de personalização do Azure Image Builder.
+
+```azurepowershell-interactive
+$ImgCustomParams02 = @{
+  FileCustomizer = $true
+  CustomizerName = 'downloadBuildArtifacts'
+  Destination = 'c:\\buildArtifacts\\index.html'
+  SourceUri = 'https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html'
+}
+$Customizer02 = New-AzImageBuilderCustomizerObject @ImgCustomParams02
 ```
 
 Crie um modelo do Azure Image Builder.
@@ -248,7 +260,7 @@ $ImgTemplateParams = @{
   ResourceGroupName = $imageResourceGroup
   Source = $srcPlatform
   Distribute = $disSharedImg
-  Customize = $Customizer
+  Customize = $Customizer01, $Customizer02
   Location = $location
   UserAssignedIdentityId = $identityNameResourceId
 }
@@ -306,7 +318,7 @@ $ArtifactId = (Get-AzImageBuilderRunOutput -ImageTemplateName $imageTemplateName
 New-AzVM -ResourceGroupName $imageResourceGroup -Image $ArtifactId -Name myWinVM01 -Credential $Cred
 ```
 
-## <a name="verify-the-customization"></a>Verificar a personalização
+## <a name="verify-the-customizations"></a>Verificar as personalizações
 
 Crie uma Conexão de Área de Trabalho Remota com a VM usando o nome de usuário e a senha que você definiu quando criou a VM. Dentro da VM, abra o PowerShell e execute `Get-Content` conforme mostrado no exemplo a seguir:
 
@@ -319,6 +331,23 @@ Você deve ver a saída com base no conteúdo do arquivo criado durante o proces
 ```Output
 Azure-Image-Builder-Was-Here
 ```
+
+Na mesma sessão do PowerShell, verifique se a segunda personalização foi concluída com êxito verificando a presença do arquivo `c:\buildArtifacts\index.html` , conforme mostrado no exemplo a seguir:
+
+```azurepowershell-interactive
+Get-ChildItem c:\buildArtifacts\
+```
+
+O resultado deve ser uma listagem de diretório mostrando o arquivo baixado durante o processo de personalização da imagem.
+
+```Output
+    Directory: C:\buildArtifacts
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a---          29/01/2021    10:04            276 index.html
+```
+
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -342,4 +371,4 @@ Remove-AzResourceGroup -Name $imageResourceGroup
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre os componentes do arquivo. JSON usado neste artigo, consulte referência de [modelo do Image Builder](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para saber mais sobre os componentes do arquivo. JSON usado neste artigo, consulte referência de [modelo do Image Builder](../linux/image-builder-json.md).

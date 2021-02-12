@@ -5,12 +5,12 @@ author: gundarev
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: denisgun
-ms.openlocfilehash: 32d5c280e80b2f21b30bb34a182070da51e21026
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa7b80b021e00d25dea4f96432ae922c15474058
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88008484"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023047"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop-classic"></a>Configurar a aceleração da GPU (unidade de processamento gráfico) para a área de trabalho virtual do Windows (clássico)
 
@@ -23,24 +23,24 @@ Siga as instruções neste artigo para criar uma máquina virtual do Azure otimi
 
 ## <a name="select-a-gpu-optimized-azure-virtual-machine-size"></a>Selecione um tamanho de máquina virtual do Azure com otimização de GPU
 
-O Azure oferece uma série de [tamanhos de máquina virtual otimizada para GPU](/azure/virtual-machines/windows/sizes-gpu). A escolha certa para seu pool de host depende de vários fatores, incluindo suas cargas de trabalho de aplicativo específicas, a qualidade desejada da experiência do usuário e o custo. Em geral, GPUs maiores e mais compatíveis oferecem uma experiência de usuário melhor em uma determinada densidade do usuário.
+O Azure oferece uma série de [tamanhos de máquina virtual otimizada para GPU](../../virtual-machines/sizes-gpu.md). A escolha certa para seu pool de host depende de vários fatores, incluindo suas cargas de trabalho de aplicativo específicas, a qualidade desejada da experiência do usuário e o custo. Em geral, GPUs maiores e mais compatíveis oferecem uma experiência de usuário melhor em uma determinada densidade do usuário.
 
 ## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>Criar um pool de host, provisionar sua máquina virtual e configurar um grupo de aplicativos
 
-Crie um pool de host usando uma VM do tamanho selecionado. Para obter instruções, consulte [tutorial: criar um pool de hosts com o Azure Marketplace](/azure/virtual-desktop/create-host-pools-azure-marketplace).
+Crie um pool de host usando uma VM do tamanho selecionado. Para obter instruções, consulte [tutorial: criar um pool de hosts com o Azure Marketplace](../create-host-pools-azure-marketplace.md).
 
 A Área de Trabalho Virtual do Windows dá suporte à renderização e à codificação acelerada por GPU nos seguintes sistemas operacionais:
 
 * Windows 10 versão 1511 ou posterior
 * Windows Server 2016 ou mais recente
 
-Você também deve configurar um grupo de aplicativos ou usar o grupo de aplicativos da área de trabalho padrão (denominado “Grupo de Aplicativos da Área de Trabalho”) criado automaticamente quando você cria um pool de host. Para obter instruções, confira [Tutorial: Gerenciar grupos de aplicativos para a Área de Trabalho Virtual do Windows](/azure/virtual-desktop/manage-app-groups).
+Você também deve configurar um grupo de aplicativos ou usar o grupo de aplicativos da área de trabalho padrão (denominado “Grupo de Aplicativos da Área de Trabalho”) criado automaticamente quando você cria um pool de host. Para obter instruções, confira [Tutorial: Gerenciar grupos de aplicativos para a Área de Trabalho Virtual do Windows](../manage-app-groups.md).
 
 ## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>Instalar os drivers gráficos com suporte em sua máquina virtual
 
-Para aproveitar as funcionalidades de GPU de VMs da série N do Azure na Área de Trabalho Virtual do Windows, você deve instalar os drivers gráficos apropriados. Siga as instruções em [Sistemas operacionais e drivers com suporte](/azure/virtual-machines/windows/sizes-gpu#supported-operating-systems-and-drivers) para instalar drivers do fornecedor de gráficos apropriado, seja manualmente ou usando uma extensão de VM do Azure.
+Para aproveitar as funcionalidades de GPU de VMs da série N do Azure na Área de Trabalho Virtual do Windows, você deve instalar os drivers gráficos apropriados. Siga as instruções em [Sistemas operacionais e drivers com suporte](../../virtual-machines/sizes-gpu.md#supported-operating-systems-and-drivers) para instalar drivers do fornecedor de gráficos apropriado, seja manualmente ou usando uma extensão de VM do Azure.
 
-Há suporte apenas a drivers distribuídos pelo Azure na Área de Trabalho Virtual do Windows. Adicionalmente, para VMs do Azure com GPUs NVIDIA, somente os [Drivers NVIDIA Grid](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) têm suporte na área de trabalho virtual do Windows.
+Há suporte apenas a drivers distribuídos pelo Azure na Área de Trabalho Virtual do Windows. Adicionalmente, para VMs do Azure com GPUs NVIDIA, somente os [Drivers NVIDIA Grid](../../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers) têm suporte na área de trabalho virtual do Windows.
 
 Após a instalação do driver, será necessário reiniciar a VM. Use as etapas de verificação nas instruções acima para confirmar que os drivers gráficos foram instalados com êxito.
 
@@ -75,7 +75,7 @@ Por padrão, aplicativos e áreas de trabalho sendo executados em configuraçõe
 
 Para verificar se os aplicativos estão usando a GPU para renderização, tente qualquer um dos seguintes:
 
-* Para VMs do Azure com uma GPU NVIDIA, use o utilitário `nvidia-smi`, conforme descrito em [Verificar a instalação do driver](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) para verificar a utilização da GPU ao executar seus aplicativos.
+* Para VMs do Azure com uma GPU NVIDIA, use o utilitário `nvidia-smi`, conforme descrito em [Verificar a instalação do driver](../../virtual-machines/windows/n-series-driver-setup.md#verify-driver-installation) para verificar a utilização da GPU ao executar seus aplicativos.
 * Em versões do sistema operacional com suporte, você pode usar o Gerenciador de Tarefas para verificar a utilização da GPU. Selecione a GPU na guia "Desempenho" para ver se os aplicativos estão utilizando a GPU.
 
 ## <a name="verify-gpu-accelerated-frame-encoding"></a>Verificar a codificação de quadros acelerada por GPU
@@ -91,5 +91,5 @@ Para verificar se Área de Trabalho Remota está usando a codificação acelerad
 
 Essas instruções devem colocar você em funcionamento com a aceleração de GPU em um host da sessão (uma VM). Algumas considerações adicionais para habilitar a aceleração de GPU em um pool de host maior:
 
-* Considere usar uma [extensão de VM](/azure/virtual-machines/extensions/overview) para simplificar a instalação e as atualizações de driver em várias VMs. Use a [Extensão de Driver de GPU NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) para VMs com GPUs NVIDIA e use a Extensão de Driver de GPU AMD para VMs com GPUs AMD.
-* Considere usar a Política de Grupo do Active Directory para simplificar a configuração de política de grupo em várias VMs. Para obter informações sobre como implantar a Política de Grupo no domínio do Active Directory, confira [Trabalhar com Objetos de Política de Grupo](https://go.microsoft.com/fwlink/p/?LinkId=620889).
+* Considere usar uma [extensão de VM](../../virtual-machines/extensions/overview.md) para simplificar a instalação e as atualizações de driver em várias VMs. Use a [Extensão de Driver de GPU NVIDIA](../../virtual-machines/extensions/hpccompute-gpu-windows.md) para VMs com GPUs NVIDIA e use a Extensão de Driver de GPU AMD para VMs com GPUs AMD.
+* Considere usar a Política de Grupo do Active Directory para simplificar a configuração de política de grupo em várias VMs. Para obter informações sobre como implantar a Política de Grupo no domínio do Active Directory, confira [Trabalhar com Objetos de Política de Grupo](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731212(v=ws.11)).

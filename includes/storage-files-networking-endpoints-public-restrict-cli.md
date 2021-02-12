@@ -1,6 +1,6 @@
 ---
-title: arquivo de inclusão
-description: arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: storage
 author: roygara
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 6/2/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 3af8ecb049717da789df96f7dcc4e46668938ff8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a42f963f5eb79ef5b430f6fc9d2a0144c370353a
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84464935"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673833"
 ---
 Para restringir o acesso ao ponto de extremidade público da conta de armazenamento para redes virtuais específicas usando pontos de extremidades de serviço, primeiro precisamos coletar informações sobre a conta de armazenamento e a rede virtual. Preencha `<storage-account-resource-group>`, `<storage-account-name>`, `<vnet-resource-group-name>`, `<vnet-name>` e `<subnet-name>` para coletar essas informações.
 
@@ -84,7 +84,7 @@ fi
 
 A etapa final para restringir o tráfego para a conta de armazenamento é criar uma regra de rede e adicioná-la ao conjunto de regras de rede da conta de armazenamento.
 
-```bash
+```azurecli
 az storage account network-rule add \
         --resource-group $storageAccountResourceGroupName \
         --account-name $storageAccountName \

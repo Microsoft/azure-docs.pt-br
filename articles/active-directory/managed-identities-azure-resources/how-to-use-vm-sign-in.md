@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/01/2017
+ms.date: 01/29/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 08fe856fd43baad4189d81f7743396a71cd5de48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61e83bd27c9434c4222e0161e3b643b183d1aa84
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266316"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090953"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Como usar identidades gerenciadas para recursos do Azure em uma VM do Azure para entrada 
 
@@ -90,12 +90,7 @@ Respostas como a seguinte podem indicar que a identidade gerenciada da VM para r
 - PowerShell: *Invoke-WebRequest: não é possível conectar-se ao servidor remoto*
 - CLI: *MSI: falha ao recuperar um token de `http://localhost:50342/oauth2/token` com um erro de ' HTTPConnectionPool (host = ' localhost ', Port = 50342)* 
 
-Se você receber um desses erros, retorne para a VM do Azure no [Portal do Azure](https://portal.azure.com) e:
-
-- Vá para a página **Identidade** e assegure que **Sistema atribuído** esteja definido como "Sim".
-- Vá para a página **Extensões** e verifique se as identidades gerenciadas da extensão de recursos do Azure ** (reprovação planejada para janeiro de 2019)** foram implantadas com êxito.
-
-Se um deles estiver incorreto, talvez seja necessário reimplementar as identidades gerenciadas dos recursos do Azure no seu recurso novamente ou solucionar a falha de implantação. Consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM usando o portal do Azure](qs-configure-portal-windows-vm.md) se você precisar de assistência com a configuração da VM.
+Se você receber um desses erros, retorne à VM do Azure na [portal do Azure](https://portal.azure.com) e vá para a página **identidade** e verifique se o **sistema atribuído** está definido como "Sim".
 
 ## <a name="next-steps"></a>Próximas etapas
 

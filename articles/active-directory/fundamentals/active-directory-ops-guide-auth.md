@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: f91928812dd2f9f850b5e4c3af16ce5c82608e05
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 90e215ea445c8c700e351149e9c7a91d9a595252
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371045"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859514"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guia de referência de operações de gerenciamento de autenticação Azure Active Directory
 
@@ -95,7 +95,7 @@ As senhas por si só não são seguras o suficiente para evitar que atores ruins
 
 ### <a name="on-premises-outage-authentication-resiliency"></a>Resiliência local de autenticação de falha
 
-Além dos benefícios da simplicidade e da habilitação da detecção de credenciais vazadas, a PHS (sincronização de hash de senha) do Azure AD e o Azure MFA permitem que os usuários acessem aplicativos SaaS e Microsoft 365 apesar de interrupções locais devido a ataques cibernéticos como [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). Também é possível habilitar o PHS enquanto estiver em conjunto com a Federação. Habilitar o PHS permite o fallback de autenticação quando os serviços de Federação não estão disponíveis.
+Além dos benefícios da simplicidade e da habilitação da detecção de credenciais vazadas, a sincronização de hash de senha do Azure AD (PHS) e a MFA do Azure AD permitem que os usuários acessem aplicativos SaaS e Microsoft 365 apesar de interrupções locais devido a ataques cibernéticos como [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). Também é possível habilitar o PHS enquanto estiver em conjunto com a Federação. Habilitar o PHS permite o fallback de autenticação quando os serviços de Federação não estão disponíveis.
 
 Se sua organização local não estiver em uma estratégia de resiliência de interrupção ou se tiver uma que não esteja integrada ao Azure AD, você deverá implantar o Azure AD PHS e definir um plano de recuperação de desastres que inclua o PHS. Habilitar o Azure AD PHS permitirá que os usuários se autentiquem no Azure AD se seu local Active Directory estiver indisponível.
 
@@ -160,7 +160,7 @@ Fornecer um mecanismo de logon único padronizado para toda a empresa é crucial
 > [!NOTE]
 > Se você não tiver um mecanismo para descobrir aplicativos não gerenciados em sua organização, é recomendável implementar um processo de descoberta usando uma solução de agente de segurança de acesso à nuvem (CASB), como [Microsoft Cloud app Security](https://www.microsoft.com/enterprise-mobility-security/cloud-app-security).
 
-Por fim, se você tiver uma galeria de aplicativo do Azure AD e usar aplicativos que dão suporte a SSO com o Azure AD, é recomendável [listar o aplicativo na Galeria de aplicativos](../azuread-dev/howto-app-gallery-listing.md).
+Por fim, se você tiver uma galeria de aplicativo do Azure AD e usar aplicativos que dão suporte a SSO com o Azure AD, é recomendável [listar o aplicativo na Galeria de aplicativos](../develop/v2-howto-app-gallery-listing.md).
 
 #### <a name="single-sign-on-recommended-reading"></a>Leitura recomendada de logon único
 
@@ -255,7 +255,7 @@ O acesso condicional é uma ferramenta essencial para melhorar a postura de segu
 
 #### <a name="conditional-access-recommended-reading"></a>Leitura recomendada de acesso condicional
 
-- [Práticas recomendadas para acesso condicional no Azure Active Directory](../conditional-access/best-practices.md)
+- [Práticas recomendadas para acesso condicional no Azure Active Directory](../conditional-access/overview.md)
 - [Configurações de acesso à identidade e ao dispositivo](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Referência de configurações de acesso condicional Azure Active Directory](../conditional-access/concept-conditional-access-conditions.md)
 - [Políticas de acesso condicional comuns](../conditional-access/concept-conditional-access-policy-common.md)
@@ -288,7 +288,7 @@ Se a autenticação herdada for amplamente usada em seu ambiente, você deverá 
 
 #### <a name="legacy-authentication-recommended-reading"></a>Leitura recomendada de autenticação herdada
 
-- [Habilitar ou desabilitar o acesso POP3 ou IMAP4 às caixas de correio no Exchange Server](/exchange/clients/pop3-and-imap4/configure-mailbox-access?view=exchserver-2019)
+- [Habilitar ou desabilitar o acesso POP3 ou IMAP4 às caixas de correio no Exchange Server](/exchange/clients/pop3-and-imap4/configure-mailbox-access)
 
 ### <a name="consent-grants"></a>Concessões de consentimento
 

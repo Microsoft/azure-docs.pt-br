@@ -1,19 +1,19 @@
 ---
 title: Solução do Azure VMware por CloudSimple-configure a VPN entre a nuvem local e privada
 description: Descreve como configurar uma conexão VPN site a site ou ponto a site entre sua rede local e sua nuvem privada do CloudSimple
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5cd08ce938a25e3311358892c9afa9eefd6c6dbf
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: b7a119b538ee07b961011bfa98d748f92cc76f0e
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424680"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899211"
 ---
 # <a name="configure-a-vpn-connection-to-your-cloudsimple-private-cloud"></a>Configurar uma conexão VPN para sua nuvem privada do CloudSimple
 

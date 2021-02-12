@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 01/28/2020
 ms.author: b-juche
-ms.openlocfilehash: 54be34b2151aa88705559ac2913db4f528ea4492
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 70b42fb5522b31b5e7e15b5715717f0d010d56dc
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963509"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052406"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Criar um volume de protocolo duplo (NFSv3 e SMB) para Azure NetApp Files
 
-O Azure NetApp Files dá suporte à criação de volumes usando NFS (NFSv3 e NFSv 4.1), SMBv3 ou protocolo duplo. Este artigo mostra como criar um volume que usa o protocolo duplo de NFSv3 e SMB com suporte para mapeamento de usuário LDAP.  
+O Azure NetApp Files dá suporte à criação de volumes usando NFS (NFSv3 e NFSv 4.1), SMB3 ou protocolo duplo. Este artigo mostra como criar um volume que usa o protocolo duplo de NFSv3 e SMB com suporte para mapeamento de usuário LDAP.  
 
 
 ## <a name="before-you-begin"></a>Antes de começar 
@@ -38,8 +38,7 @@ O Azure NetApp Files dá suporte à criação de volumes usando NFS (NFSv3 e NFS
 * Verifique se você atende aos [requisitos de conexões de Active Directory](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
 * Crie uma zona de pesquisa inversa no servidor DNS e adicione um registro de ponteiro (PTR) do computador host do AD nessa zona de pesquisa inversa. Caso contrário, a criação do volume de protocolo duplo falhará.
 * Verifique se o cliente NFS está atualizado e executando as atualizações mais recentes para o sistema operacional.
-* Verifique se o servidor LDAP do Active Directory (AD) está ativo e em execução no AD. Você pode fazer isso instalando e configurando a função [Active Directory Lightweight Directory Services (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) no computador do AD.
-* Certifique-se de que uma AC (autoridade de certificação) seja criada no AD usando a função de [serviços de certificados do Active Directory (AD CS)](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) para gerar e exportar o certificado da AC raiz autoassinado.   
+* Verifique se o servidor LDAP do Active Directory (AD) está ativo e em execução no AD. Você pode fazer isso instalando e configurando a função [Serviços AD LDS (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) no computador do AD.
 * Atualmente, os volumes de protocolo duplo não dão suporte a Azure Active Directory Domain Services (AADDS).  
 * A versão do NFS usada por um volume de protocolo duplo é NFSv3. Assim, as seguintes considerações se aplicam:
     * O protocolo duplo não dá suporte aos atributos estendidos ACLS `set/get` do Windows de clientes NFS.
@@ -49,8 +48,12 @@ O Azure NetApp Files dá suporte à criação de volumes usando NFS (NFSv3 e NFS
     
     | Estilo de segurança    | Clientes que podem modificar permissões   | Permissões que os clientes podem usar  | Estilo de segurança efetivo resultante    | Clientes que podem acessar arquivos     |
     |-  |-  |-  |-  |-  |
-    | UNIX  | NFS   | Bits do modo NFSv3   | UNIX  | NFS e Windows   |
-    | NTFS  | Windows   | ACLs de NTFS     | NTFS  |NFS e Windows|
+    | `Unix`    | NFS   | Bits do modo NFSv3   | UNIX  | NFS e Windows   |
+    | `Ntfs`    | Windows   | ACLs de NTFS     | NTFS  |NFS e Windows|
+* Os usuários do UNIX que montam o volume de estilo de segurança NTFS usando o NFS serão autenticados como usuário `root` do Windows para UNIX `root` e `pcuser` para todos os outros usuários. Verifique se essas contas de usuário existem no seu Active Directory antes de montar o volume ao usar o NFS. 
+* Se você tiver grandes topologias e usar o `Unix` estilo de segurança com um volume de protocolo duplo ou LDAP com grupos estendidos, Azure NetApp files talvez não consiga acessar todos os servidores em suas topologias.  Se essa situação ocorrer, entre em contato com sua equipe de conta para obter assistência.  <!-- NFSAAS-15123 --> 
+* Você não precisa de um certificado de autoridade de certificação raiz do servidor para criar um volume de protocolo duplo. Ele será necessário somente se o LDAP sobre TLS estiver habilitado.
+
 
 ## <a name="create-a-dual-protocol-volume"></a>Criar um volume de protocolo duplo
 
@@ -58,7 +61,7 @@ O Azure NetApp Files dá suporte à criação de volumes usando NFS (NFSv3 e NFS
 
     ![Navegar até Volumes](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png) 
 
-2.  Na janela criar um volume, clique em **criar**e forneça informações para os seguintes campos na guia noções básicas:   
+2.  Na janela criar um volume, clique em **criar** e forneça informações para os seguintes campos na guia noções básicas:   
     * **Nome do volume**      
         Especifique o nome para o volume que você está criando.   
 
@@ -103,9 +106,6 @@ O Azure NetApp Files dá suporte à criação de volumes usando NFS (NFSv3 e NFS
 3. Clique em **Protocolo** e, em seguida, conclua as seguintes ações:  
     * Selecione **protocolo duplo (NFSv3 e SMB)** como o tipo de protocolo para o volume.   
 
-    * Selecione a conexão **Active Directory** na lista suspensa.  
-    O Active Directory usado deve ter um certificado de autoridade de certificação raiz do servidor. 
-
     * Especifique o **caminho do volume** para o volume.   
     Esse caminho de volume é o nome do volume compartilhado. O nome deve começar com um caractere alfabético e deve ser exclusivo em cada assinatura e em cada região.  
 
@@ -120,28 +120,6 @@ O Azure NetApp Files dá suporte à criação de volumes usando NFS (NFSv3 e NFS
     O volume que você criou aparece na página Volumes. 
  
     Um volume herda a assinatura, grupo de recursos, atributos de localização de seu pool de capacidade. Para monitorar o status de implantação do volume, você pode usar a guia Notificações.
-
-## <a name="upload-active-directory-certificate-authority-public-root-certificate"></a>Carregar Active Directory certificado raiz público da autoridade de certificação  
-
-1.  Siga [instalar a autoridade de certificação](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) para instalar e configurar o adiciona a autoridade de certificado. 
-
-2.  Siga [exibir certificados com o snap-in do MMC](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) para usar o snap-in do MMC e a ferramenta Gerenciador de certificados.  
-    Use o snap-in Gerenciador de certificados para localizar a raiz ou o certificado emissora para o dispositivo local. Você deve executar os comandos do snap-in de gerenciamento de certificados de uma das seguintes configurações:  
-    * Um cliente baseado em Windows que ingressou no domínio e tenha o certificado raiz instalado 
-    * Outro computador no domínio que contém o certificado raiz  
-
-3. Exporte o certificado raiz.  
-    Verifique se o certificado foi exportado no X. 509 codificado em base-64 (. CER) formato: 
-
-    ![Assistente de Exportação de Certificados](../media/azure-netapp-files/certificate-export-wizard.png)
-
-4. Vá para a conta do NetApp do volume de protocolo duplo, clique em **Active Directory conexões**e carregue o certificado de autoridade de certificação raiz usando a janela **ingressar Active Directory** :  
-
-    ![Certificado de autoridade de certificação raiz do servidor](../media/azure-netapp-files/server-root-ca-certificate.png)
-
-    Verifique se o nome da autoridade de certificação pode ser resolvido pelo DNS. Esse nome é o campo "emitido por" ou "emissor" no certificado:  
-
-    ![Informações de certificado](../media/azure-netapp-files/certificate-information.png)
 
 ## <a name="manage-ldap-posix-attributes"></a>Gerenciar atributos POSIX LDAP
 
@@ -161,5 +139,5 @@ Siga as instruções em [configurar um cliente NFS para Azure NetApp files](conf
 
 ## <a name="next-steps"></a>Próximas etapas  
 
-* [Perguntas frequentes sobre protocolo duplo](azure-netapp-files-faqs.md#dual-protocol-faqs)
 * [Configurar um cliente NFS para o Azure NetApp Files](configure-nfs-clients.md)
+* [Solucionar problemas de volumes de protocolo duplo](troubleshoot-dual-protocol-volumes.md)

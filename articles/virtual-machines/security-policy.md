@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 06d71713075b401c876edd87f0ec884bcb252589
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b7f6d30ffa849f78b0f7baa2d84e4fb01f3bf192
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977741"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500335"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Proteger e usar políticas em máquinas virtuais no Azure
 
@@ -41,7 +41,7 @@ A criptografia não afeta o desempenho dos discos gerenciados. Não há nenhum c
 
 Você pode contar com chaves gerenciadas pela plataforma para a criptografia do disco gerenciado ou gerenciar a criptografia usando suas próprias chaves. Se você optar por gerenciar a criptografia com suas próprias chaves, pode especificar uma *chave gerenciada pelo cliente* a ser usada para criptografar e descriptografar todos os dados nos discos gerenciados. 
 
-Para saber mais sobre a criptografia do lado do servidor, consulte os artigos para [Windows](windows/disk-encryption.md) ou [Linux](linux/disk-encryption.md).
+Para saber mais sobre a criptografia do lado do servidor, consulte os artigos para [Windows](./disk-encryption.md) ou [Linux](./disk-encryption.md).
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
@@ -67,10 +67,10 @@ As identidades de gerenciado para a funcionalidade de recursos do Azure no Azure
 
 As [Políticas do Azure](../governance/policy/overview.md) podem ser usadas para definir o comportamento desejado para as [VMs do Windows](./windows/policy.md) e [VMs do Linux](./linux/policy.md) da sua organização. Usando políticas, uma organização pode impor várias convenções e regras em toda a empresa. A imposição do comportamento desejado pode ajudar a reduzir o risco e contribui para o sucesso da organização.
 
-## <a name="role-based-access-control"></a>Controle de acesso baseado em função
+## <a name="azure-role-based-access-control"></a>Controle de acesso baseado em função do Azure
 
 Usando o Azure [RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md), você pode separar as tarefas dentro de sua equipe e conceder apenas a quantidade de acesso aos usuários em sua VM que eles precisam para executar seus trabalhos. Em vez de apresentar todas as permissões irrestritas na VM, você pode permitir que apenas determinadas ações. Você pode configurar o controle de acesso para a VM no [portal do Azure](../role-based-access-control/role-assignments-portal.md), usando a [CLI do Azure](/cli/azure/role) ou o [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Siga as etapas para monitorar a segurança da máquina virtual usando a Central de Segurança do Azure para [Linux](../security/fundamentals/overview.md) ou [Windows](windows/tutorial-azure-security.md).
+- Siga as etapas para monitorar a segurança da máquina virtual usando a Central de Segurança do Azure para [Linux](../security/fundamentals/overview.md) ou [Windows](./tutorial-azure-security.md).

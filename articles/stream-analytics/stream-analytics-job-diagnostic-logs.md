@@ -3,17 +3,16 @@ title: Solucionar problemas Azure Stream Analytics usando logs de recursos
 description: Este artigo descreve como analisar os logs de recursos no Azure Stream Analytics.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.date: 06/18/2020
-ms.openlocfilehash: 0e7777cba93706baea815521757b495209431ce6
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 56c7ad49fc9af3ca4f30aa5309623c31e9db7385
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124010"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011111"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Solucionar problemas do Azure Stream Analytics usando logs de recursos
 
@@ -38,13 +37,13 @@ O Stream Analytics oferece dois tipos de logs:
 
 Os logs de atividades são ativados por padrão e fornecem insights de alto nível sobre as operações realizadas pelo trabalho do Stream Analytics. As informações presentes nos logs de atividades podem ajudar a encontrar a causa raiz dos problemas que afetam seu trabalho. Execute as seguintes etapas para usar os logs de atividades no Stream Analytics:
 
-1. Entre no portal do Azure e selecione **Log de atividades** em **Visão Geral** .
+1. Entre no portal do Azure e selecione **Log de atividades** em **Visão Geral**.
 
    ![Log de atividades do Stream Analytics](./media/stream-analytics-job-diagnostic-logs/stream-analytics-menu.png)
 
 2. Você pode ver uma lista das operações que foram executadas. As operações que causaram a falha do trabalho têm uma bolha de informações em vermelho.
 
-3. Clique em uma operação para exibir o resumo. As informações fornecidas aqui geralmente são limitadas. Para obter mais detalhes sobre a operação, clique no **JSON** .
+3. Clique em uma operação para exibir o resumo. As informações fornecidas aqui geralmente são limitadas. Para obter mais detalhes sobre a operação, clique no **JSON**.
 
    ![Resumo de operações do log de atividades do Stream Analytics](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
 
@@ -62,11 +61,11 @@ Os logs de atividades são ativados por padrão e fornecem insights de alto nív
 
 1.  Crie um espaço de trabalho Log Analytics se você ainda não tiver um. É recomendável ter seu espaço de trabalho do Log Analytics na mesma região que o seu trabalho de Stream Analytics.
 
-2.  Entre no portal do Azure e navegue até o trabalho do Stream Analytics. Em **Monitoramento** , selecione **Logs de diagnóstico** . Em seguida, selecione **ativar o diagnóstico** .
+2.  Entre no portal do Azure e navegue até o trabalho do Stream Analytics. Em **Monitoramento**, selecione **Logs de diagnóstico**. Em seguida, selecione **ativar o diagnóstico**.
 
     ![Navegação de folha para logs de recursos](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Forneça um **nome** no **nome das configurações de diagnóstico** e marque as caixas de **execução** e **criação** em **log** e **biométricas** em **métrica** . Em seguida, selecione **Enviar para log Analytics** e escolha seu espaço de trabalho. Clique em **Salvar** .
+2.  Forneça um **nome** no **nome das configurações de diagnóstico** e marque as caixas de **execução** e **criação** em **log** e **biométricas** em **métrica**. Em seguida, selecione **Enviar para log Analytics** e escolha seu espaço de trabalho. Clique em **Salvar**.
 
     ![Configurações para logs de recursos](./media/stream-analytics-job-diagnostic-logs/logs-setup.png)
 
@@ -74,7 +73,7 @@ Os logs de atividades são ativados por padrão e fornecem insights de alto nív
 
    ![Captura de tela mostra o menu geral com logs selecionados.](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
 
-4. Stream Analytics fornece consultas predefinidas que permitem pesquisar facilmente os logs nos quais você está interessado. Você pode selecionar qualquer consulta predefinida no painel esquerdo e, em seguida, selecionar **executar** . Você verá os resultados da consulta no painel inferior. 
+4. Stream Analytics fornece consultas predefinidas que permitem pesquisar facilmente os logs nos quais você está interessado. Você pode selecionar qualquer consulta predefinida no painel esquerdo e, em seguida, selecionar **executar**. Você verá os resultados da consulta no painel inferior. 
 
    ![Captura de tela mostra os logs de um trabalho Stream Analytics.](./media/stream-analytics-job-diagnostic-logs/logs-example.png)
 
@@ -82,9 +81,9 @@ Os logs de atividades são ativados por padrão e fornecem insights de alto nív
 
 Azure Stream Analytics captura duas categorias de logs de recursos:
 
-* **Criação** : captura eventos de log relacionados a operações de criação de trabalho, como criação de trabalho, adição e exclusão de entradas e saídas, adição e atualização da consulta e início ou interrupção do trabalho.
+* **Criação**: captura eventos de log relacionados a operações de criação de trabalho, como criação de trabalho, adição e exclusão de entradas e saídas, adição e atualização da consulta e início ou interrupção do trabalho.
 
-* **Execução** : captura eventos que ocorrem durante a execução do trabalho.
+* **Execução**: captura eventos que ocorrem durante a execução do trabalho.
     * Erros de conectividade
     * Erros de processamento de dados, incluindo:
         * Eventos que não estão em conformidade com a definição de consulta (valores e tipos de campo sem correspondência, campos ausentes e assim por diante)
@@ -95,14 +94,14 @@ Azure Stream Analytics captura duas categorias de logs de recursos:
 
 Todos os logs são armazenados no formato JSON. Cada entrada tem os seguintes campos de cadeia de caracteres comuns:
 
-Name | Descrição
+Nome | Descrição
 ------- | -------
 time | Carimbo de data/hora (em UTC) do log.
-resourceId | ID do recurso em que a operação ocorreu, em maiúsculas. Inclui a ID da assinatura, o grupo de recursos e o nome do trabalho. Por exemplo, **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB** .
-category | Categoria do log, **Execução** ou **Criação** .
-operationName | Nome da operação que está registrada. Por exemplo, **enviar eventos: falha de gravação de saída do SQL em em mysqloutput** .
-status | Status da operação. Por exemplo, **Com Falha** ou **Com Êxito** .
-nível | Nível do log. Por exemplo, **Erro** , **Aviso** ou **Informativo** .
+resourceId | ID do recurso em que a operação ocorreu, em maiúsculas. Inclui a ID da assinatura, o grupo de recursos e o nome do trabalho. Por exemplo, **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
+category | Categoria do log, **Execução** ou **Criação**.
+operationName | Nome da operação que está registrada. Por exemplo, **enviar eventos: falha de gravação de saída do SQL em em mysqloutput**.
+status | Status da operação. Por exemplo, **Com Falha** ou **Com Êxito**.
+nível | Nível do log. Por exemplo, **Erro**, **Aviso** ou **Informativo**.
 properties | Detalhes específicos à entrada de log, serializados como uma cadeia de caracteres JSON. Para obter mais informações, consulte as próximas seções deste artigo.
 
 ### <a name="execution-log-properties-schema"></a>Esquema de propriedades do log de execução
@@ -113,20 +112,20 @@ Os logs de execução trazem informações sobre eventos que ocorreram durante a
 
 Qualquer erro ocorrido enquanto o trabalho processa os dados está nessa categoria de logs. Esses logs costumam ser criados durante operações de leitura, serialização e gravação de dados. Esses logs não incluem erros de conectividade. Os erros de conectividade são tratados como eventos genéricos. Você pode saber mais sobre a causa de vários [erros de dados de entrada e saída](./data-errors.md)diferentes.
 
-Name | Descrição
+Nome | Descrição
 ------- | -------
 Fonte | Nome da entrada ou saída do trabalho em que ocorreu o erro.
 Mensagem | Mensagem associada ao erro.
-Tipo | Tipo de erro. Por exemplo, **DataConversionError** , **CsvParserError** ou **ServiceBusPropertyColumnMissingError** .
+Type | Tipo de erro. Por exemplo, **DataConversionError**, **CsvParserError** ou **ServiceBusPropertyColumnMissingError**.
 Dados | Contém dados que são úteis para localizar com precisão a origem do erro. Sujeito a truncamento, dependendo do tamanho.
 
-Dependendo do valor de **operationName** , os erros de dados terão o seguinte esquema:
+Dependendo do valor de **operationName**, os erros de dados terão o seguinte esquema:
 
 * Os **eventos serializados** ocorrem durante operações de leitura de eventos. Eles ocorrem quando os dados na entrada não atendem ao esquema de consulta por um destes motivos:
 
-   * *Tipos incompatíveis durante (des)serialização de eventos* : identifica o campo que está causando o erro.
+   * *Tipos incompatíveis durante (des)serialização de eventos*: identifica o campo que está causando o erro.
 
-   * *Não é possível ler um evento, serialização inválida* : lista informações sobre o local nos dados de entrada em que ocorreu o erro. Inclui o nome do blob para a entrada do blob, o deslocamento e uma amostra dos dados.
+   * *Não é possível ler um evento, serialização inválida*: lista informações sobre o local nos dados de entrada em que ocorreu o erro. Inclui o nome do blob para a entrada do blob, o deslocamento e uma amostra dos dados.
 
 * Os **eventos de envio** ocorrem durante operações de gravação. Ele identifica o evento de streaming que causou o erro.
 
@@ -134,12 +133,12 @@ Dependendo do valor de **operationName** , os erros de dados terão o seguinte e
 
 Os eventos genéricos abrangem todo o resto.
 
-Name | Descrição
+Nome | Descrição
 -------- | --------
 Erro | (opcional) Informações sobre erros. Normalmente, essas são informações de exceção, se estiverem disponíveis.
 Mensagem| Mensagem de log.
-Tipo | Tipo de mensagem. É mapeado para a categorização interna de erros. Por exemplo, **JobValidationError** ou **BlobOutputAdapterInitializationFailure** .
-ID de Correlação | GUID que identifica exclusivamente a execução do trabalho. Todas as entradas do log de execução desde a hora em que o trabalho é iniciado até ele ser interrompido têm o mesmo valor de **ID de Correlação** .
+Type | Tipo de mensagem. É mapeado para a categorização interna de erros. Por exemplo, **JobValidationError** ou **BlobOutputAdapterInitializationFailure**.
+ID de Correlação | GUID que identifica exclusivamente a execução do trabalho. Todas as entradas do log de execução desde a hora em que o trabalho é iniciado até ele ser interrompido têm o mesmo valor de **ID de Correlação**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

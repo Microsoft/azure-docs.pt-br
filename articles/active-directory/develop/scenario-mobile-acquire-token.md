@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: dfccc274ef920c59d39c160055ab27a6900c839c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e6eda3d711710ea7450165ab02d7a260067bfcb
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88141271"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582546"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Obter um token para um aplicativo móvel que chama APIs da Web
 
@@ -26,7 +26,7 @@ Antes que seu aplicativo possa chamar APIs da Web protegidas, ele precisa de um 
 
 ## <a name="define-a-scope"></a>Definir um escopo
 
-Ao solicitar um token, você precisa definir um escopo. O escopo determina quais dados seu aplicativo pode acessar.
+Ao solicitar um token, defina um escopo. O escopo determina quais dados seu aplicativo pode acessar.
 
 A maneira mais fácil de definir um escopo é combinar as APIs da Web desejadas `App ID URI` com o escopo `.default` . Essa definição informa à plataforma de identidade da Microsoft que seu aplicativo requer todos os escopos definidos no Portal.
 
@@ -236,14 +236,14 @@ A classe define as constantes a seguir:
     Essa opção pode ser útil se a aquisição de token falhar e você quiser permitir que o usuário entre novamente. Nesse caso, a MSAL envia `prompt=login` para o provedor de identidade. Talvez você queira usar essa opção em aplicativos com foco em segurança, em que o controle da organização exige que o usuário entre cada vez que acessarem partes específicas do aplicativo.
 - `Never` é somente para .NET 4,5 e Windows Runtime (WinRT). Essa constante não solicitará o usuário, mas tentará usar o cookie armazenado na exibição da Web oculta inserida. Para obter mais informações, consulte [usando navegadores da Web com MSAL.net](./msal-net-web-browsers.md).
 
-    Se essa opção falhar, o `AcquireTokenInteractive` lançará uma exceção para notificá-lo de que uma interação de interface do usuário é necessária. Em seguida, você precisa usar outro `Prompt` parâmetro.
+    Se essa opção falhar, o `AcquireTokenInteractive` lançará uma exceção para notificá-lo de que uma interação de interface do usuário é necessária. Em seguida, use outro `Prompt` parâmetro.
 - `NoPrompt` não envia um prompt para o provedor de identidade.
 
     Essa opção é útil somente para políticas de edição de perfil no Azure Active Directory B2C. Para obter mais informações, consulte [especificações do B2C](https://aka.ms/msal-net-b2c-specificities).
 
 ##### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
 
-Use o `WithExtraScopeToConsent` modificador em um cenário avançado em que você deseja que o usuário forneça consentimento antecipado para vários recursos. Você pode usar esse modificador quando não quiser usar o consentimento incremental, que normalmente é usado com o MSAL.NET ou a plataforma de identidade da Microsoft 2,0. Para obter mais informações, consulte [Ter o consentimento de usuário antecipado para vários recursos](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources).
+Use o `WithExtraScopeToConsent` modificador em um cenário avançado em que você deseja que o usuário forneça consentimento antecipado para vários recursos. Você pode usar esse modificador quando não quiser usar o consentimento incremental, que normalmente é usado com o MSAL.NET ou a plataforma de identidade da Microsoft. Para obter mais informações, consulte [Ter o consentimento de usuário antecipado para vários recursos](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources).
 
 Este é um exemplo de código:
 
@@ -255,7 +255,7 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
 
 ##### <a name="other-optional-parameters"></a>Outros parâmetros opcionais
 
-Para saber mais sobre os outros parâmetros opcionais para `AcquireTokenInteractive` , consulte a [documentação de referência para AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods).
+Para saber mais sobre os outros parâmetros opcionais para `AcquireTokenInteractive` , consulte a [documentação de referência para AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder#methods).
 
 ### <a name="acquire-tokens-via-the-protocol"></a>Adquirir tokens por meio do protocolo
 
@@ -294,5 +294,4 @@ client_id=<CLIENT_ID>
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Chamar uma API Web](scenario-mobile-call-api.md)
+Vá para o próximo artigo neste cenário, [chamando uma API da Web](scenario-mobile-call-api.md).

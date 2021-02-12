@@ -1,116 +1,51 @@
 ---
-title: Criar fluxos de trabalho de automação (visualização) no Visual Studio Code
-description: Criar fluxos de trabalho de automação com ou sem estado com a extensão de aplicativos lógicos do Azure (versão prévia) no Visual Studio Code para integrar aplicativos, dados, serviços de nuvem e sistemas locais
+title: Criar fluxos de trabalho de visualização de aplicativos lógicos no Visual Studio Code
+description: Crie e execute fluxos de trabalho para cenários de automação e integração no Visual Studio Code com a extensão de aplicativos lógicos do Azure (versão prévia).
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
+ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 10/16/2020
-ms.openlocfilehash: 3b8bf89bc43781fdf6c1a640992f15e21691cd63
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 12/07/2020
+ms.openlocfilehash: be8d00d795c19399d494db21578e9a7ba8dd9711
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676424"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934009"
 ---
-# <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Criar fluxos de trabalho com ou sem estado no Visual Studio Code com a extensão do Aplicativos Lógicos do Azure (versão preliminar)
+# <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Criar fluxos de trabalho com e sem estado no Visual Studio Code com a extensão de aplicativos lógicos do Azure (versão prévia)
 
 > [!IMPORTANT]
 > Essa versão preliminar está na versão prévia pública, e é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho em produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Para criar fluxos de trabalho de aplicativo lógico que se integram entre aplicativos, dados, serviços de nuvem e sistemas, você pode usar Visual Studio Code e a extensão de aplicativos lógicos do Azure (versão prévia) para compilar e executar localmente [fluxos de trabalho de aplicativo lógico com *estado* e *sem estado*](#stateful-stateless) em seu ambiente de desenvolvimento.
+Com a [visualização dos aplicativos lógicos do Azure](logic-apps-overview-preview.md), você pode criar soluções de automação e integração entre aplicativos, dados, serviços de nuvem e sistemas criando e executando aplicativos lógicos que incluem [fluxos de trabalho com e *sem*](logic-apps-overview-preview.md#stateful-stateless) estado no Visual Studio Code usando a extensão de aplicativos lógicos do Azure (versão prévia). Usando esse novo tipo de aplicativo lógico, você pode criar vários fluxos de trabalho que são alimentados pelo tempo de execução da visualização dos aplicativos lógicos do Azure reprojetados, que fornece portabilidade, melhor desempenho e flexibilidade para implantação e execução em vários ambientes de hospedagem, não apenas no Azure, mas também em contêineres do Docker. Para saber mais sobre o novo tipo de aplicativo lógico, consulte [visão geral para visualização de aplicativos lógicos do Azure](logic-apps-overview-preview.md).
 
-![Captura de tela que mostra Visual Studio Code e o fluxo de trabalho do aplicativo lógico.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-logic-apps-overview.png)
+![Captura de tela que mostra Visual Studio Code, projeto de aplicativo lógico e fluxo de trabalho.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-logic-apps-overview.png)
 
-Os aplicativos lógicos que você cria com a extensão de visualização pública usam o novo tipo de recurso de **aplicativo lógico (versão prévia)** e são alimentados pelo tempo de execução de [Azure Functions](../azure-functions/functions-overview.md) no seu ambiente local. Esse novo tipo de recurso pode incluir vários fluxos de trabalho e é semelhante de algumas maneiras ao tipo de recurso **aplicativo de funções** , que pode incluir várias funções.
+No Visual Studio Code, você pode começar criando um projeto que compila *localmente* e executa os fluxos de trabalho do aplicativo lógico em seu ambiente de desenvolvimento usando a extensão de aplicativos lógicos do Azure (versão prévia). Embora você também possa começar [criando um novo recurso de **aplicativo lógico (versão prévia)** no portal do Azure](create-stateful-stateless-workflows-azure-portal.md), ambas as abordagens fornecem a capacidade de implantar e executar seu aplicativo lógico nos mesmos tipos de ambientes de hospedagem.
 
-Enquanto isso, o tipo de recurso **aplicativos lógicos** originais ainda existe para você criar e usar no Visual Studio Code e no portal do Azure. No entanto, as experiências para o tipo de recurso original são separadas do novo tipo de recurso. Neste momento, os tipos de recurso **aplicativos lógicos** e **aplicativo lógico (visualização)** podem existir ao mesmo tempo em Visual Studio Code e no portal do Azure. Você pode exibir e acessar todos os aplicativos lógicos implantados em sua assinatura do Azure, mas eles aparecem e são mantidos separadamente em suas próprias categorias e seções.
+Enquanto isso, você ainda pode criar o tipo de aplicativo lógico original. Embora as experiências de desenvolvimento em Visual Studio Code sejam diferentes entre os tipos de aplicativo lógico original e novo, sua assinatura do Azure pode incluir ambos os tipos. Você pode exibir e acessar todos os aplicativos lógicos implantados em sua assinatura do Azure, mas os aplicativos são organizados em suas próprias categorias e seções.
 
-Este artigo fornece uma visão geral de alto nível [sobre essa visualização pública](#whats-new), descreve vários aspectos sobre o tipo de recurso de **aplicativo lógico (versão prévia)** e como criar esse recurso usando Visual Studio Code:
+Este artigo mostra como criar seu aplicativo lógico e um fluxo de trabalho no Visual Studio Code usando a extensão de aplicativos lógicos do Azure (versão prévia) e executando estas tarefas de alto nível:
 
-* Como os aplicativos lógicos com [estado e sem estado](#stateful-stateless) diferem uns dos outros.
+* Crie um projeto para seu aplicativo lógico e fluxo de trabalho.
 
-* Como atender aos [requisitos de instalação](#prerequisites) e [configurar Visual Studio Code](#set-up) para a extensão de visualização pública.
+* Adicionar um gatilho e uma ação.
 
-* Como criar novos fluxos de trabalho de **aplicativo lógico (versão prévia)** [criando um projeto e selecionando um modelo de fluxo de trabalho](#create-project).
+* Execute, teste, depure e examine o histórico de execução localmente.
 
-* Como executar e depurar localmente seus novos aplicativos lógicos no Visual Studio Code.
+* Implante no Azure, que inclui, opcionalmente, a Application Insights.
 
-* Como publicar esses novos aplicativos lógicos diretamente do Visual Studio Code [no Azure](#publish-azure) ou [em um contêiner do Docker](#deploy-docker) que você pode executar em qualquer lugar. Para obter mais informações sobre o Docker, consulte [o que é o Docker](/dotnet/architecture/microservices/container-docker-introduction/docker-defined)?
+* Gerencie seu aplicativo lógico implantado no Visual Studio Code e no portal do Azure.
 
-<a name="whats-new"></a>
+* Habilite o histórico de execuções para fluxos de trabalho sem estado.
 
-## <a name="whats-in-this-public-preview"></a>O que há nesta visualização pública?
+* Habilite ou abra o Application Insights após a implantação.
 
-A extensão de aplicativos lógicos do Azure (versão prévia) traz vários recursos de aplicativos lógicos atuais e adicionais para sua experiência de desenvolvimento local em Visual Studio Code, por exemplo:
-
-* Crie aplicativos lógicos para fluxos de trabalho de integração e automação de [390 + conectores](/connectors/connector-reference/connector-reference-logicapps-connectors) para aplicativos de software como serviço (SaaS) e plataforma como serviço (PaaS) e serviços mais conectores para sistemas locais.
-
-  * Alguns conectores gerenciados, como o barramento de serviço do Azure, hubs de eventos do Azure e SQL Server executados de forma semelhante a gatilhos nativos internos e ações como a ação HTTP.
-
-  * Crie e implante aplicativos lógicos que podem ser executados em qualquer lugar porque o serviço de aplicativos lógicos do Azure gera cadeias de conexão de SAS (assinatura de acesso compartilhado) que esses aplicativos lógicos podem usar para enviar solicitações ao ponto de extremidade do tempo de execução de conexão de nuvem O serviço de aplicativos lógicos salva essas cadeias de conexão com outras configurações de aplicativo para que você possa armazenar facilmente esses valores em Azure Key Vault ao implantar no Azure.
-
-    > [!NOTE]
-    > Por padrão, um recurso de **aplicativo lógico (versão prévia)** tem sua [identidade gerenciada atribuída pelo sistema](../logic-apps/create-managed-service-identity.md) habilitada automaticamente para autenticar conexões em tempo de execução. Essa identidade difere das credenciais de autenticação ou da cadeia de conexão que você usa ao criar uma conexão. Se você desabilitar essa identidade, as conexões não funcionarão no tempo de execução.
-
-* Crie aplicativos lógicos sem estado que são executados somente na memória para que eles sejam concluídos mais rapidamente, respondam com mais rapidez, tenham maior taxa de transferência e custam menos para serem executados, pois os históricos e dados de execução entre as ações não persistem no armazenamento externo. Opcionalmente, você pode habilitar o histórico de execuções para uma depuração mais fácil. Para obter mais informações, consulte [aplicativos lógicos com estado versus sem estado](#stateful-stateless).
-
-* Execute e depure seus aplicativos lógicos localmente no ambiente de desenvolvimento de Visual Studio Code.
-
-* Publique e implante seus aplicativos lógicos de Visual Studio Code diretamente em vários ambientes de hospedagem, como [Azure app Service](../app-service/environment/intro.md) e [contêineres do Docker](/dotnet/core/docker/introduction).
+* Implante em um contêiner do Docker que você pode executar em qualquer lugar.
 
 > [!NOTE]
-> Para obter informações sobre os problemas atuais conhecidos, examine a [página do GitHub problemas conhecidos](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)da extensão de visualização.
-
-<a name="stateful-stateless"></a>
-
-## <a name="stateful-versus-stateless-logic-apps"></a>Aplicativos lógicos com estado versus sem estado
-
-* *Dinâmico*
-
-  Crie aplicativos lógicos com estado quando precisar manter, examinar ou referenciar dados de eventos anteriores. Esses aplicativos lógicos mantêm a entrada e a saída de cada ação e seus Estados de fluxo de trabalho no armazenamento externo, o que torna possível examinar os detalhes de execução e o histórico possível após a conclusão de cada execução. Os aplicativos lógicos com estado fornecem alta resiliência se ou quando ocorrerem interrupções. Depois que os serviços e sistemas forem restaurados, você poderá reconstruir o aplicativo lógico interrompido é executado a partir do estado salvo e executar novamente os aplicativos lógicos para conclusão. Fluxos de trabalho com estado podem continuar em execução por até um ano.
-
-* *Sem estado*
-
-  Crie aplicativos lógicos sem estado quando você não precisar salvar, examinar ou referenciar dados de eventos anteriores no armazenamento externo para revisão posterior. Esses aplicativos lógicos mantêm a entrada e a saída de cada ação e seus Estados de fluxo de trabalho somente na memória, em vez de transferir essas informações para o armazenamento externo. Como resultado, os aplicativos lógicos sem estado têm execuções mais curtas que geralmente não são mais do que 5 minutos, um desempenho mais rápido com tempos de resposta mais rápidos, maior taxa de transferência e custos de execução reduzidos, pois os detalhes e o histórico de execução não são mantidos no armazenamento externo. No entanto, se ou quando ocorrerem interrupções, as execuções interrompidas não serão automaticamente restauradas, portanto, o chamador precisará reenviar manualmente as execuções interrompidas. Esses aplicativos lógicos só podem ser executados de forma síncrona e para facilitar a depuração, você pode [habilitar o histórico de execução](#run-history), o que tem algum impacto sobre o desempenho.
-
-  Atualmente, os fluxos de trabalho sem estado dão suporte apenas a *ações* para [conectores gerenciados](../connectors/apis-list.md#managed-api-connectors), que são implantados no Azure e não gatilhos. Para iniciar o fluxo de trabalho, selecione a [solicitação interna, os hubs de eventos ou o gatilho do barramento de serviço](../connectors/apis-list.md#built-ins), que é executado nativamente com o tempo de execução dos aplicativos lógicos. Para obter mais informações sobre gatilhos, ações e conectores sem suporte, consulte [recursos sem suporte ou indisponíveis](#unsupported).
-
-Para obter informações sobre como os aplicativos lógicos aninhados se comportam de forma diferente entre os aplicativos lógicos com e sem estado, consulte [diferenças de comportamento aninhado entre aplicativos lógicos com estado](#nested-behavior)
-
-<a name="pricing-model"></a>
-
-## <a name="pricing-model"></a>Modelo de preços
-
-Ao implantar o novo tipo de recurso de **aplicativo lógico (versão prévia)** , você será solicitado a selecionar um plano de hospedagem, especificamente o plano do [serviço de aplicativo ou o plano Premium](../azure-functions/functions-scale.md) para usar como o modelo de preços. Se você selecionar o plano do serviço de aplicativo, você também será solicitado a selecionar um [tipo de preço](../app-service/overview-hosting-plans.md). Durante a visualização pública, a execução de aplicativos lógicos no serviço de aplicativo não incorre em encargos *adicionais* na parte superior do plano selecionado.
-
-Os aplicativos lógicos com estado usam [armazenamento externo](../azure-functions/functions-scale.md#storage-account-requirements), portanto, o modelo de preços do armazenamento do Azure se aplica às transações de armazenamento que o tempo de execução do aplicativo lógico do Azure executa Por exemplo, as filas são usadas para agendamento, enquanto tabelas e BLOBs são usados para armazenar Estados de fluxo de trabalho.
-
-Para obter mais informações sobre os modelos de preços que se aplicam a esse novo tipo de recurso, consulte estes tópicos:
-
-* [Escala e hospedagem do Azure Functions](../azure-functions/functions-scale.md)
-* [Escalar verticalmente um serviço de Azure App](../app-service/manage-scale-up.md)
-* [Detalhes de preços do Azure Functions](https://azure.microsoft.com/pricing/details/functions/)
-* [Detalhes de preços do serviço de aplicativo](https://azure.microsoft.com/pricing/details/app-service/windows/)
-* [Detalhes de preços do armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/)
-
-<a name="unsupported"></a>
-
-## <a name="unavailable-or-unsupported-capabilities"></a>Recursos indisponíveis ou sem suporte
-
-Para esta visualização pública, esses recursos não estão disponíveis ou não têm suporte:
-
-* A criação do novo recurso de **aplicativo lógico (versão prévia)** não está disponível no MacOS no momento.
-
-* Nem todas as regiões do Azure ainda têm suporte. Para as regiões disponíveis no momento, verifique a [lista de regiões](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions).
-
-* Para iniciar o fluxo de trabalho, use a [solicitação interna, o http, os hubs de eventos ou o gatilho do barramento de serviço](../connectors/apis-list.md), que são executados nativamente com o tempo de execução dos aplicativos lógicos. Atualmente, [conectores Enterprise](../connectors/apis-list.md#enterprise-connectors), gatilhos [de gateway de dados locais](../connectors/apis-list.md#on-premises-connectors), gatilhos baseados em webhook, gatilho de janela deslizante, [conectores personalizados](../connectors/apis-list.md#custom-apis-and-connectors), contas de integração, seus artefatos e [seus conectores](../connectors/apis-list.md#integration-account-connectors) não têm suporte nesta visualização. A funcionalidade "chamar uma função do Azure" não está disponível, portanto, por enquanto, use a *ação* http para chamar a URL de solicitação para a função do Azure.
-
-  Exceto para os gatilhos especificados anteriormente, os fluxos de trabalho com *estado* podem usar gatilhos e ações para [conectores gerenciados](../connectors/apis-list.md#managed-api-connectors), que são implantados no Azure. No entanto, fluxos de trabalho *sem estado* atualmente dão suporte apenas a *ações* para conectores gerenciados, não disparadores. Embora você tenha a opção de habilitar conectores no Azure para seu fluxo de trabalho sem estado, o designer não mostra nenhum gatilho de conector gerenciado para você selecionar.
-
-* Você pode implantar o novo tipo de recurso de **aplicativo lógico (versão prévia)** somente em um [plano de hospedagem do serviço de aplicativo ou Premium no Azure](#publish-azure) ou em um [contêiner do Docker](#deploy-docker), e não em [ambientes de serviço de integração (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Os planos de Hospedagem de **consumo** não têm suporte nem estão disponíveis para a implantação desse tipo de recurso.
-
-* No portal do Azure, não é possível criar novos aplicativos lógicos com o novo tipo de recurso de **aplicativo lógico (versão prévia)** . Você só pode criar esses aplicativos lógicos no Visual Studio Code. No entanto, depois de implantar aplicativos lógicos com esse tipo de recurso de Visual Studio Code para o Azure, você pode [Adicionar novos fluxos de trabalho a esses aplicativos lógicos](#add-workflows).
+> Para obter informações sobre os problemas atuais conhecidos, examine a [página problemas conhecidos da visualização pública de aplicativos lógicos no GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -124,16 +59,34 @@ Para esta visualização pública, esses recursos não estão disponíveis ou n�
 
   Se você optar por usar um [conector de email diferente com suporte dos aplicativos lógicos do Azure](/connectors/), como Outlook.com ou [gmail](../connectors/connectors-google-data-security-privacy-policy.md), ainda poderá seguir o exemplo, e as etapas gerais geral são as mesmas, mas a interface do usuário e as opções podem ser diferentes de algumas maneiras. Por exemplo, se você usar o conector Outlook.com, use seu conta Microsoft pessoal em vez de entrar.
 
+<a name="storage-requirements"></a>
+
 ### <a name="storage-requirements"></a>Requisitos de armazenamento
+
+#### <a name="windows-and-linux"></a>Windows e Linux
 
 1. Baixe e instale o [emulador de armazenamento do Azure 5,10](https://go.microsoft.com/fwlink/p/?linkid=717179).
 
 1. Para executar o emulador, você precisa ter uma instalação local do SQL DB, como a [versão gratuita SQL Server 2019 Express Edition](https://go.microsoft.com/fwlink/p/?linkid=866658). Para obter mais informações, consulte [usar o emulador de armazenamento do Azure para desenvolvimento e teste](../storage/common/storage-use-emulator.md).
 
    > [!IMPORTANT]
-   > Antes de abrir o designer do aplicativo lógico para criar o fluxo de trabalho do aplicativo lógico, certifique-se de iniciar o emulador. Caso contrário, você receberá uma mensagem informando que o `Workflow design time could not be started` .
+   > Antes de abrir o designer para criar seu fluxo de trabalho, certifique-se de iniciar o emulador. Caso contrário, você receberá uma mensagem informando que o `Workflow design time could not be started` .
    >
    > ![Captura de tela que mostra o emulador de armazenamento do Azure em execução.](./media/create-stateful-stateless-workflows-visual-studio-code/start-storage-emulator.png)
+
+#### <a name="macos"></a>macOS
+
+1. Entre no [portal do Azure](https://portal.azure.com)e [crie uma conta de armazenamento do Azure](../storage/common/storage-account-create.md?tabs=azure-portal), que é um [pré-requisito para Azure Functions](../azure-functions/storage-considerations.md).
+
+1. [Localize e copie a cadeia de conexão da conta de armazenamento](../storage/common/storage-account-keys-manage.md?tabs=azure-portal#view-account-access-keys), por exemplo:
+
+   `DefaultEndpointsProtocol=https;AccountName=fabrikamstorageacct;AccountKey=<access-key>;EndpointSuffix=core.windows.net`
+
+   ![Captura de tela que mostra a portal do Azure com chaves de acesso da conta de armazenamento e cadeia de conexão copiadas.](./media/create-stateful-stateless-workflows-visual-studio-code/find-storage-account-connection-string.png)
+
+1. Salve a cadeia de caracteres em um local seguro para que você possa adicionar posteriormente a cadeia de caracteres à **local.settings.jsem** arquivos no projeto que você usa para criar seu aplicativo lógico no Visual Studio Code.
+
+Quando você tentar abrir mais tarde o designer de um fluxo de trabalho em seu aplicativo lógico, receberá uma mensagem informando que o `Workflow design time could not be started` . Depois que essa mensagem for exibida, você precisará adicionar a cadeia de conexão da conta de armazenamento aos dois **local.settings.jsem** arquivos no projeto e tentar novamente a abertura do designer.
 
 ### <a name="tools"></a>Ferramentas
 
@@ -143,45 +96,61 @@ Para esta visualização pública, esses recursos não estão disponíveis ou n�
 
   * [C# para Visual Studio Code extensão](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), que habilita a funcionalidade F5 para executar seu aplicativo lógico.
 
-  * [Azure Functions Core Tools](../azure-functions/functions-run-local.md), a versão [3.0.2931](https://github.com/Azure/azure-functions-core-tools/releases/tag/3.0.2931) ou [2.7.2936](https://github.com/Azure/azure-functions-core-tools/releases/tag/2.7.2936), por meio do MSI (Microsoft Installer). Essas ferramentas incluem uma versão do mesmo tempo de execução que alimenta o Azure Functions Runtime executado no Visual Studio Code.
+  * [Azure Functions Core Tools 3.0.2931 ou posterior](https://github.com/Azure/azure-functions-core-tools/releases/tag/3.0.2931) usando o Microsoft Installer (MSI).
+
+    Essas ferramentas incluem uma versão do mesmo tempo de execução que alimenta o Azure Functions Runtime, que a extensão de visualização usa em Visual Studio Code.
 
     > [!IMPORTANT]
     > Se você tiver uma instalação anterior a essas versões, desinstale essa versão primeiro ou certifique-se de que a variável de ambiente PATH aponta para a versão que você baixa e instala.
-    >
-    > Se você quiser usar a ação de [ **código embutido**](../logic-apps/logic-apps-add-run-inline-code.md) para executar o código JavaScript, será necessário usar o Azure Functions Runtime versão 3x porque a ação não dá suporte à versão 2x. Além disso, essa ação atualmente não tem suporte em sistemas operacionais Linux.
 
-  * [Extensão de aplicativos lógicos do Azure (versão prévia) para Visual Studio Code](https://go.microsoft.com/fwlink/p/?linkid=2143167). Essa extensão de visualização pública fornece a capacidade de criar aplicativos lógicos com estado e sem estado e executá-los localmente no Visual Studio Code.
+  * [Extensão de aplicativos lógicos do Azure (versão prévia) para Visual Studio Code](https://go.microsoft.com/fwlink/p/?linkid=2143167). Essa extensão fornece a capacidade de criar aplicativos lógicos em que você pode criar fluxos de trabalho com e sem estado que são executados localmente no Visual Studio Code e, em seguida, implantar esses aplicativos lógicos diretamente no Azure ou em contêineres do Docker.
 
-    No momento, você pode ter a extensão original de **aplicativos lógicos do Azure** e a nova extensão de **aplicativos lógicos do Azure (versão prévia)** instalada ao mesmo tempo no Visual Studio Code. Selecionando o ícone do Azure na barra de ferramentas Visual Studio Code, você pode exibir todos os aplicativos lógicos implantados no Azure, mas cada tipo de recurso aparece em suas próprias seções de extensão, **aplicativos lógicos** e **aplicativos lógicos do Azure (versão prévia)** .
+    No momento, você pode ter a extensão original de aplicativos lógicos do Azure e a extensão de visualização pública instalada no Visual Studio Code. Embora as experiências de desenvolvimento sejam diferentes de algumas maneiras entre as extensões, sua assinatura do Azure pode incluir os tipos de aplicativos lógicos que você cria com as extensões. Visual Studio Code mostra todos os aplicativos lógicos implantados em sua assinatura do Azure, mas os organiza em diferentes seções por nomes de extensão, **aplicativos lógicos** e **aplicativos lógicos do Azure (versão prévia)**.
 
     > [!IMPORTANT]
-    > Se você criou aplicativos lógicos usando a extensão **aplicativos lógicos do Azure (versão prévia privada)** , esses aplicativos lógicos não funcionarão com a extensão de visualização pública. No entanto, você pode migrar esses aplicativos lógicos desinstalando a extensão de visualização privada, executando a limpeza necessária e instalando a extensão de visualização pública. Em seguida, você pode criar seu novo projeto no Visual Studio Code e copiar o arquivo **Workflow. Definition** do aplicativo lógico criado anteriormente para o novo projeto.
-    >
-    > Portanto, antes de instalar a extensão de visualização pública, certifique-se de desinstalar todas as versões anteriores e excluir esses artefatos:
-    >
-    > * A pasta **Microsoft. Azure. Functions. ExtensionBundle. workflows** , que contém pacotes de extensão anteriores e está localizada ao longo de um dos caminhos aqui:
-    >
-    >   * `C:\Users\{userName}\AppData\Local\Temp\Functions\ExtensionBundles`
-    >
-    >   * `C:\Users\{userName}.azure-functions-core-tools\Functions\ExtensionBundles`
-    >
-    > * A pasta **Microsoft. Azure. workflows. webjobs. Extension** , que é o cache do [NuGet](/nuget/what-is-nuget) para a extensão de visualização particular e está localizada ao longo deste caminho:
-    >
-    >   `C:\Users\{userName}\.nuget\packages`
+    > Se você criou aplicativos lógicos com a extensão de visualização privada anterior, esses aplicativos lógicos não funcionarão com a extensão de visualização pública. No entanto, você pode migrar esses aplicativos lógicos depois de desinstalar a extensão de visualização privada, excluir os arquivos associados e instalar a extensão de visualização pública. Em seguida, você cria um novo projeto no Visual Studio Code e copia o arquivo **Workflow. Definition** do aplicativo lógico criado anteriormente para o novo projeto. Para obter mais informações, consulte [migrar da extensão de visualização privada](#migrate-private-preview).
 
     Para instalar a extensão de **aplicativos lógicos do Azure (versão prévia)** , siga estas etapas:
 
-    1. No Visual Studio Code, na barra de ferramentas à esquerda, selecione **extensões** .
+    1. No Visual Studio Code, na barra de ferramentas à esquerda, selecione **extensões**.
 
-    1. Na caixa de pesquisa extensões, digite `azure logic apps preview` . Na lista de resultados, selecione **instalação de aplicativos lógicos do Azure (versão prévia)** **>** **Install** .
+    1. Na caixa de pesquisa extensões, digite `azure logic apps preview` . Na lista de resultados, selecione **instalação de aplicativos lógicos do Azure (versão prévia)** **>** .
 
-       Após a conclusão da instalação, a extensão de visualização pública aparecerá na lista **extensões: instalada** .
+       Após a conclusão da instalação, a extensão de visualização aparecerá na lista **extensões: instaladas** .
 
        ![Captura de tela que mostra Visual Studio Code lista de extensões instaladas com a extensão "aplicativos lógicos do Azure (visualização)" sublinhada.](./media/create-stateful-stateless-workflows-visual-studio-code/azure-logic-apps-extension-installed.png)
 
+* Para executar localmente gatilhos e ações baseados em webhook, como o [gatilho interno de webhook http](../connectors/connectors-native-webhook.md), no Visual Studio Code, você precisa [Configurar o encaminhamento para a URL de retorno de chamada](#webhook-setup).
+
 * Para testar o aplicativo lógico de exemplo que você cria neste artigo, você precisa de uma ferramenta que possa enviar chamadas para o gatilho de solicitação, que é a primeira etapa no aplicativo lógico de exemplo. Se você não tiver essa ferramenta, poderá baixar, instalar e usar o [postmaster](https://www.postman.com/downloads/).
 
-* Para facilitar o registro em log de diagnóstico e o recurso de rastreamento, você pode adicionar e usar um recurso de [Application insights](../azure-monitor/app/app-insights-overview.md) . Você pode criar esse recurso durante a implantação do aplicativo lógico ou no portal do Azure depois de implantar seu aplicativo lógico.
+* Se você criar seu aplicativo lógico e implantar com configurações que dão suporte ao uso de [Application insights](../azure-monitor/app/app-insights-overview.md), você pode opcionalmente habilitar o log de diagnóstico e o rastreamento para seu aplicativo lógico. Isso pode ser feito quando você implanta seu aplicativo lógico do Visual Studio Code ou após a implantação. Você precisa ter uma instância de Application Insights, mas você pode criar esse recurso com [antecedência](../azure-monitor/app/create-workspace-resource.md), ao implantar seu aplicativo lógico ou após a implantação.
+
+<a name="migrate-private-preview"></a>
+
+## <a name="migrate-from-private-preview-extension"></a>Migrar da extensão de visualização privada
+
+Todos os aplicativos lógicos que você criou com a extensão de **aplicativos lógicos do Azure (versão prévia privada)** não funcionarão com a extensão PublicPreview. No entanto, você pode migrar esses aplicativos lógicos para um novo projeto Visual Studio Code seguindo estas etapas:
+
+1. Desinstale a extensão de visualização particular.
+
+1. Exclua o pacote de extensão associado e as pastas de pacote NuGet nestes locais:
+
+   * A pasta **Microsoft. Azure. Functions. ExtensionBundle. workflows** , que contém pacotes de extensão anteriores e está localizada ao longo de um dos caminhos aqui:
+
+     * `C:\Users\{userName}\AppData\Local\Temp\Functions\ExtensionBundles`
+
+     * `C:\Users\{userName}.azure-functions-core-tools\Functions\ExtensionBundles`
+
+   * A pasta **Microsoft. Azure. workflows. webjobs. Extension** , que é o cache do [NuGet](/nuget/what-is-nuget) para a extensão de visualização particular e está localizada ao longo deste caminho:
+
+     `C:\Users\{userName}\.nuget\packages`
+
+1. Instale a extensão de **aplicativos lógicos do Azure (versão prévia)** .
+
+1. Crie um novo projeto no Visual Studio Code.
+
+1. Copie o arquivo **Workflow. Definition** do aplicativo lógico criado anteriormente para o novo projeto.
 
 <a name="set-up"></a>
 
@@ -189,29 +158,33 @@ Para esta visualização pública, esses recursos não estão disponíveis ou n�
 
 1. Para certificar-se de que todas as extensões estejam instaladas corretamente, recarregue ou reinicie Visual Studio Code.
 
-1. Habilite ou verifique se Visual Studio Code localiza e instala automaticamente atualizações de extensão para que sua extensão de visualização pública obtenha as atualizações mais recentes.
+1. Habilite ou confirme se Visual Studio Code localiza e instala automaticamente atualizações de extensão para que sua extensão PublicPreview obtenha as atualizações mais recentes. Caso contrário, você precisará desinstalar manualmente a versão desatualizada e instalar a versão mais recente.
 
    Para verificar essa configuração, siga estas etapas:
 
-   1. No menu **arquivo** , acesse **preferências** **>** **configurações** .
+   1. No menu **arquivo** , acesse **preferências** **>** **configurações**.
 
-   1. Na guia **usuário** , vá para extensões de **recursos** **>** **Extensions** .
+   1. Na guia **usuário** , vá para extensões de **recursos** **>** .
 
    1. Confirme se a **seleção automática de atualizações** e **atualização automática** está selecionada.
 
-1. Habilite ou verifique se essas configurações de extensão de **aplicativos lógicos do Azure (versão prévia)** estão configuradas no Visual Studio Code:
+1. Habilite ou confirme se essas configurações de extensão têm as seleções corretas:
 
    * **Aplicativos lógicos do Azure v2: modo de painel**
    * **Aplicativos lógicos do Azure v2: tempo de execução do projeto**
 
-   1. No menu **arquivo** , acesse **preferências** **>** **configurações** .
+   1. No menu **arquivo** , acesse **preferências** **>** **configurações**.
 
-   1. Na guia **usuário** , vá para **>** **extensões** **>** **aplicativos lógicos do Azure (versão prévia)** .
+   1. Na guia **usuário** , vá para **>** **extensões** **>** **aplicativos lógicos do Azure (versão prévia)**.
 
-   1. Em **aplicativo lógico do Azure v2: modo de painel** , confirme se o **modo habilitar painel** está selecionado. Em **aplicativos lógicos do Azure v2: tempo de execução do projeto** , defina a versão como **~ 3** ou **~ 2** , com base na [versão do Azure Functions Core Tools](#prerequisites) que você instalou anteriormente.
+   1. Confirme estas configurações de extensão:
 
-      > [!IMPORTANT]
-      > Se você quiser usar a ação de [ **código embutido**](../logic-apps/logic-apps-add-run-inline-code.md) para executar o código JavaScript, certifique-se de usar o tempo de execução do projeto versão 3 porque a ação não dá suporte à versão 2. Além disso, essa ação atualmente não tem suporte em sistemas operacionais Linux.
+      * Em **aplicativo lógico do Azure v2: modo de painel**, confirme se o **modo habilitar painel** está selecionado.
+
+      * Em **aplicativos lógicos do Azure v2: tempo de execução do projeto**, confirme se a versão está definida como **~ 3**.
+
+        > [!IMPORTANT]
+        > Para usar [ações de operações de código embutido](../logic-apps/logic-apps-add-run-inline-code.md), que atualmente não estão disponíveis para MacOS e Linux, a configuração de **tempo de execução do projeto** requer a versão 3.
 
       ![Captura de tela que mostra as configurações de Visual Studio Code para a extensão "aplicativos lógicos do Azure (visualização)".](./media/create-stateful-stateless-workflows-visual-studio-code/azure-logic-apps-preview-settings.png)
 
@@ -219,15 +192,15 @@ Para esta visualização pública, esses recursos não estão disponíveis ou n�
 
 ## <a name="connect-to-your-azure-account"></a>Conectar-se à sua conta do Azure
 
-1. Na barra de ferramentas Código do Visual Studio, selecione o ícone do Azure.
+1. Na barra de atividade do Visual Studio Code, selecione o ícone do Azure.
 
-   ![Captura de tela que mostra Visual Studio Code barra de ferramentas e o ícone do Azure selecionado.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-azure-icon.png)
+   ![Captura de tela que mostra Visual Studio Code barra de atividades e o ícone do Azure selecionado.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-azure-icon.png)
 
-1. No painel do Azure, em **Azure: aplicativos lógicos (versão prévia)** , selecione **entrar no Azure** . Quando a página de autenticação do Visual Studio Code for exibida, entre com sua conta do Azure.
+1. No painel do Azure, em **Azure: aplicativos lógicos (versão prévia)**, selecione **entrar no Azure**. Quando a página de autenticação do Visual Studio Code for exibida, entre com sua conta do Azure.
 
    ![Captura de tela que mostra o painel do Azure e o link selecionado para entrar no Azure.](./media/create-stateful-stateless-workflows-visual-studio-code/sign-in-azure-subscription.png)
 
-   Depois de entrar, o painel do Azure mostra as assinaturas em sua conta do Azure. Se você tiver a extensão aplicativos lógicos lançados publicamente, poderá encontrar todos os recursos de aplicativos lógicos originais que você criou usando a extensão original na seção **aplicativos lógicos** da extensão liberada, não a seção **aplicativos lógicos** da extensão de visualização (versão prévia).
+   Depois de entrar, o painel do Azure mostra as assinaturas em sua conta do Azure. Se você também tiver a extensão lançada publicamente, poderá encontrar todos os aplicativos lógicos que criou com essa extensão na seção **aplicativos lógicos** , não na seção **aplicativos lógicos (versão prévia)** .
    
    Se as assinaturas esperadas não aparecerem ou se você quiser que o painel mostre apenas assinaturas específicas, siga estas etapas:
 
@@ -237,53 +210,53 @@ Para esta visualização pública, esses recursos não estão disponíveis ou n�
 
       Ou, na barra de status Visual Studio Code, selecione sua conta do Azure. 
 
-   1. Quando outra lista de assinaturas for exibida, selecione as assinaturas desejadas e, em seguida, certifique-se de selecionar **OK** .
+   1. Quando outra lista de assinaturas for exibida, selecione as assinaturas desejadas e, em seguida, certifique-se de selecionar **OK**.
 
 <a name="create-project"></a>
 
 ## <a name="create-a-local-project"></a>Criar um projeto local
 
-Antes de criar seu aplicativo lógico, crie um projeto local para que você possa gerenciar e implantar seu aplicativo lógico do Visual Studio Code. O projeto subjacente é semelhante a um projeto Azure Functions, também conhecido como um projeto de aplicativo de funções. No entanto, esses tipos de projeto são separados uns dos outros, portanto, os fluxos de trabalho e as funções do aplicativo lógico não podem existir no mesmo projeto.
+Antes de criar seu aplicativo lógico, crie um projeto local para que você possa gerenciar e implantar seu aplicativo lógico do Visual Studio Code. O projeto subjacente é semelhante a um projeto Azure Functions, também conhecido como um projeto de aplicativo de funções. No entanto, esses tipos de projeto são separados uns dos outros, portanto, os aplicativos lógicos e os aplicativos de função não podem existir no mesmo projeto.
 
 1. Em seu computador, crie uma pasta local *vazia* a ser usada para o projeto que você criará posteriormente no Visual Studio Code.
 
 1. Em Visual Studio Code, feche qualquer e todas as pastas abertas.
 
-1. No painel do Azure, ao lado de **Azure: aplicativos lógicos (versão prévia)** , selecione **criar novo projeto** (ícone que mostra uma pasta e um raio).
+1. No painel do Azure, ao lado de **Azure: aplicativos lógicos (versão prévia)**, selecione **criar novo projeto** (ícone que mostra uma pasta e um raio).
 
    ![Captura de tela que mostra a barra de ferramentas do painel do Azure com "criar novo projeto" selecionado.](./media/create-stateful-stateless-workflows-visual-studio-code/create-new-project-folder.png)
 
-1. Se o Windows Defender firewall solicitar que você conceda acesso à rede para `Code.exe` , que é Visual Studio Code e, para `func.exe` , que é o Azure Functions Core Tools, selecione **redes privadas, como minha rede doméstica ou de trabalho** **>** **permitir acesso** .
+1. Se o Windows Defender firewall solicitar que você conceda acesso à rede para `Code.exe` , que é Visual Studio Code e, para `func.exe` , que é o Azure Functions Core Tools, selecione **redes privadas, como minha rede doméstica ou de trabalho** **>** **permitir acesso**.
 
 1. Navegue até o local onde você criou a pasta do projeto, selecione essa pasta e continue.
 
    ![Captura de tela que mostra a caixa de diálogo "Selecionar pasta" com uma pasta de projeto recém-criada e o botão "selecionar" selecionado.](./media/create-stateful-stateless-workflows-visual-studio-code/select-project-folder.png)
 
-1. Na lista de modelos exibida, selecione fluxo de **trabalho com estado** ou **fluxo de trabalho sem estado** . Este exemplo seleciona **fluxo de trabalho com estado** .
+1. Na lista de modelos exibida, selecione fluxo de **trabalho com estado** ou **fluxo de trabalho sem estado**. Este exemplo seleciona **fluxo de trabalho com estado**.
 
    ![Captura de tela que mostra a lista de modelos de fluxo de trabalho com "fluxo de trabalho com estado" selecionado.](./media/create-stateful-stateless-workflows-visual-studio-code/select-stateful-stateless-workflow.png)
 
-1. Forneça um nome para o fluxo de trabalho do aplicativo lógico e pressione Enter. Este exemplo usa `example-workflow` como o nome.
+1. Forneça um nome para seu fluxo de trabalho e pressione Enter. Este exemplo usa `Fabrikam-Stateful-Workflow` como o nome.
 
-   ![Captura de tela que mostra a caixa "criar um novo fluxo de trabalho com estado (3/4)" e "exemplo-fluxo de trabalho" como o nome do fluxo de trabalho.](./media/create-stateful-stateless-workflows-visual-studio-code/name-your-workflow.png)
+   ![Captura de tela que mostra a caixa "criar novo fluxo de trabalho com estado (3/3)" e "fabrikam-estado-fluxo de trabalho" como o nome do fluxo de trabalho.](./media/create-stateful-stateless-workflows-visual-studio-code/name-your-workflow.png)
 
-1. Na próxima lista exibida, selecione **abrir na janela atual** .
+   Visual Studio Code conclui a criação do projeto e abre o **workflow.jsno** arquivo para o fluxo de trabalho.
 
-   ![Captura de tela que mostra a lista com a seleção "abrir na janela atual" selecionada.](./media/create-stateful-stateless-workflows-visual-studio-code/select-project-location.png)
+1. Na barra de ferramentas do Visual Studio, abra o painel Gerenciador, se ainda não estiver aberto.
 
-   Visual Studio Code recarrega, abre o painel Gerenciador e mostra seu projeto, que agora inclui arquivos de projeto gerados automaticamente. Por exemplo, o projeto tem uma pasta que mostra o nome do fluxo de trabalho do aplicativo lógico. Dentro dessa pasta, o **workflow.jsno** arquivo contém a definição de JSON subjacente do fluxo de trabalho do aplicativo lógico.
+   O painel Gerenciador mostra seu projeto, que agora inclui arquivos de projeto gerados automaticamente. Por exemplo, o projeto tem uma pasta que mostra o nome do fluxo de trabalho. Dentro dessa pasta, o **workflow.jsno** arquivo contém a definição de JSON subjacente do fluxo de trabalho.
 
-   ![Captura de tela que mostra a janela do Explorer com a pasta do projeto, a pasta do fluxo de trabalho e o arquivo "workflow.jsem".](./media/create-stateful-stateless-workflows-visual-studio-code/local-project-created.png)
+   ![Captura de tela que mostra o painel do Explorer com a pasta do projeto, a pasta do fluxo de trabalho e o arquivo "workflow.jsem".](./media/create-stateful-stateless-workflows-visual-studio-code/local-project-created.png)
 
 <a name="open-workflow-definition-designer"></a>
 
-## <a name="open-the-workflow-definition-file-in-logic-app-designer"></a>Abrir o arquivo de definição de fluxo de trabalho no designer de aplicativo lógico
+## <a name="open-the-workflow-definition-file-in-the-designer"></a>Abrir o arquivo de definição de fluxo de trabalho no designer
 
-1. Verifique as versões que estão instaladas no seu computador executando o seguinte comando:
+1. Verifique as versões que estão instaladas no seu computador executando este comando:
 
    `..\Users\{yourUserName}\dotnet --list-sdks`
 
-   Se você tiver SDK do .NET Core 5. x, essa versão poderá impedi-lo de abrir a definição de fluxo de trabalho subjacente do aplicativo lógico no designer. Em vez de desinstalar esta versão, no local raiz do projeto, crie uma **global.jsno** arquivo que faz referência à versão 3. x do tempo de execução do .NET Core que você tem, por exemplo:
+   Se você tiver SDK do .NET Core 5. x, essa versão poderá impedi-lo de abrir a definição de fluxo de trabalho subjacente do aplicativo lógico no designer. Em vez de desinstalar esta versão, no nível raiz do seu projeto, crie uma **global.jsno** arquivo que faz referência à versão 3. x do tempo de execução do .NET Core que você tem, por exemplo:
 
    ```json
    {
@@ -294,70 +267,81 @@ Antes de criar seu aplicativo lógico, crie um projeto local para que você poss
    }
    ```
 
-   Certifique-se de adicionar explicitamente esse **global.jsno** arquivo ao seu projeto no local raiz de dentro Visual Studio Code. Caso contrário, o designer não será aberto.
+   Certifique-se de adicionar explicitamente o **global.jsno** arquivo ao nível raiz do seu projeto de dentro Visual Studio Code. Caso contrário, o designer não será aberto.
 
-1. Se Visual Studio Code estiver em execução no Windows ou Linux, verifique se o emulador de armazenamento do Azure está em execução. Para obter mais informações, examine os [pré-requisitos](#prerequisites).
+1. Se você estiver executando Visual Studio Code no Windows ou Linux, verifique se o emulador de armazenamento do Azure está em execução. Para obter mais informações, examine os [pré-requisitos](#prerequisites). Se você estiver executando Visual Studio Code no macOS, continue para a próxima etapa.
 
-1. Expanda a pasta do projeto do seu fluxo de trabalho. Abra o **workflow.jsno** menu de atalho do arquivo e selecione **abrir no designer** .
+1. Expanda a pasta do projeto do seu fluxo de trabalho. Abra o **workflow.jsno** menu de atalho do arquivo e selecione **abrir no designer**.
 
    ![Captura de tela que mostra o painel do Explorer e a janela de atalho para a workflow.jsno arquivo com "abrir no designer" selecionado.](./media/create-stateful-stateless-workflows-visual-studio-code/open-definition-file-in-designer.png)
 
-   Se você receber a mensagem de erro que o, verifique se `Workflow design time could not be started` o emulador de armazenamento do Azure está em execução. Caso contrário, experimente estas outras sugestões de solução de problemas:
+   Se você receber a mensagem de erro que o `Workflow design time could not be started` , verifique as seguintes condições:
 
-   Em Visual Studio Code, verifique a saída da extensão de visualização.
+   * **Windows ou Linux**: Verifique se o emulador de armazenamento do Azure está em execução. Caso contrário, consulte [solucionar problemas e erros](#troubleshooting).
 
-   1. No menu **Exibir** , selecione **saída** .
+   * **MacOS**: Experimente a solução a seguir e, se não for bem-sucedida, consulte [solucionar problemas e erros](#troubleshooting).
 
-   1. Na lista da barra de título de **saída** , selecione **aplicativos lógicos do Azure** para que você possa exibir a saída para a extensão de visualização, por exemplo:
+     1. Em seu projeto, abra o **local.settings.jsem** arquivos, que você pode encontrar na pasta raiz do projeto e na pasta **Workflow-designtime** .
 
-      ![Captura de tela que mostra a janela de saída do Visual Studio Code com "aplicativos lógicos do Azure" selecionado.](./media/create-stateful-stateless-workflows-visual-studio-code/check-outout-window-azure-logic-apps.png)
+        ![Captura de tela que mostra o painel do Explorer e os arquivos ' local.settings.jsem ' em seu projeto.](./media/create-stateful-stateless-workflows-visual-studio-code/local-settings-json-files.png)
 
-   1. Examine a saída e verifique se esta mensagem de erro é exibida:
+     1. Em cada arquivo, localize a `AzureWebJobsStorage` propriedade, por exemplo:
 
-      ```text
-      A host error has occurred during startup operation '{operationID}'.
-      System.Private.CoreLib: The file 'C:\Users\{userName}\AppData\Local\Temp\Functions\
-      ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle.Workflows\1.1.1\bin\
-      DurableTask.AzureStorage.dll' already exists.
-      Value cannot be null. (Parameter 'provider')
-      Application is shutting down...
-      Initialization cancellation requested by runtime.
-      Stopping host...
-      Host shutdown completed.
-      ```
+        ```json
+        {
+           "IsEncrypted": false,
+           "Values": {
+              "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+              "FUNCTIONS_WORKER_RUNTIME": "dotnet"
+            }
+        }
+        ```
 
-      Esse erro pode ocorrer se você tentou anteriormente abrir o designer e, em seguida, descontinuau ou excluiu seu projeto. Para resolver esse erro, exclua a pasta **ExtensionBundles** neste local **. ..\Users \\ {Your-username} \AppData\Local\Temp\Functions\ExtensionBundles** e tente abrir novamente o **workflow.jsno** arquivo no designer.
+      1. Substitua o `AzureWebJobsStorage` valor da propriedade pela cadeia de conexão que você salvou anteriormente da sua conta de armazenamento, por exemplo:
 
-1. Na lista **habilitar conectores no Azure** , selecione **usar conectores do Azure** , que se aplica a todos os conectores gerenciados que estão disponíveis e implantados no Azure, não apenas aos conectores dos serviços do Azure.
+         ```json
+         {
+            "IsEncrypted": false,
+            "Values": {
+               "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=fabrikamstorageacct;AccountKey=<access-key>;EndpointSuffix=core.windows.net",
+               "FUNCTIONS_WORKER_RUNTIME": "dotnet"
+            }
+         }
+         ```
+
+      1. Salve suas alterações e tente reabrir o **workflow.jsno** arquivo no designer.
+
+1. Na lista **habilitar conectores no Azure** , selecione **usar conectores do Azure**, que se aplica a todos os conectores gerenciados que estão disponíveis e implantados no Azure, não apenas aos conectores dos serviços do Azure.
 
    ![Captura de tela que mostra o painel do Explorer com a lista "Habilitar conectores no Azure" aberta e "usar conectores do Azure" selecionado.](./media/create-stateful-stateless-workflows-visual-studio-code/use-connectors-from-azure.png)
 
    > [!NOTE]
    > Atualmente, os fluxos de trabalho sem estado dão suporte apenas a *ações* para [conectores gerenciados](../connectors/apis-list.md#managed-api-connectors), que são implantados no Azure e não gatilhos. Embora você tenha a opção de habilitar conectores no Azure para seu fluxo de trabalho sem estado, o designer não mostra nenhum gatilho de conector gerenciado para você selecionar.
 
-1. Na lista grupos de recursos, selecione **criar novo grupo de recursos** .
+1. Na lista **selecionar assinatura** , selecione a assinatura do Azure a ser usada para seu projeto de aplicativo lógico.
 
-   ![Captura de tela que mostra o painel do Explorer com a lista de grupos de recursos e "criar novo grupo de recursos" selecionado](./media/create-stateful-stateless-workflows-visual-studio-code/create-select-resource-group.png)
+   ![Captura de tela que mostra o painel do Explorer com a caixa "selecionar assinatura" e sua assinatura selecionada.](./media/create-stateful-stateless-workflows-visual-studio-code/select-azure-subscription.png)
 
-1. Forneça um nome para o grupo de recursos e pressione Enter. Este exemplo usa o `example-logic-app-preview-rg`.
+1. Na lista grupos de recursos, selecione **criar novo grupo de recursos**.
+
+   ![Captura de tela que mostra o painel do Explorer com a lista grupos de recursos e "criar novo grupo de recursos" selecionado.](./media/create-stateful-stateless-workflows-visual-studio-code/create-select-resource-group.png)
+
+1. Forneça um nome para o grupo de recursos e pressione Enter. Este exemplo usa o `Fabrikam-Workflows-RG`.
 
    ![Captura de tela que mostra o painel do Explorer e a caixa nome do grupo de recursos.](./media/create-stateful-stateless-workflows-visual-studio-code/enter-name-for-resource-group.png)
 
-1. Na lista locais, localize e selecione uma [região do Azure com suporte](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions) a ser usada para criar o grupo de recursos e os recursos. Este exemplo usa **EUA Central ocidental** .
-
-   > [!IMPORTANT]
-   > Nem todas as regiões têm suporte no momento, mas as atualizações para adicionar mais regiões estão em andamento. A seleção de uma região sem suporte pode resultar em problemas, como a criação de conexões. Para as regiões com suporte no momento, examine a [página do GitHub problemas conhecidos](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions)da extensão de visualização.
+1. Na lista locais, localize e selecione a região do Azure a ser usada ao criar o grupo de recursos e os recursos. Este exemplo usa **EUA Central ocidental**.
 
    ![Captura de tela que mostra o painel do Explorer com a lista de locais e "Oeste EUA Central" selecionados.](./media/create-stateful-stateless-workflows-visual-studio-code/select-azure-region.png)
 
-   Depois de executar essa etapa, Visual Studio Code abrirá o designer do aplicativo lógico.
+   Depois de executar essa etapa, Visual Studio Code abrirá o designer de fluxo de trabalho.
 
    > [!NOTE]
-   > Quando Visual Studio Code inicia a API de tempo de design do fluxo de trabalho, é exibida uma mensagem informando que a inicialização pode levar alguns segundos. Você pode ignorar esta mensagem ou selecionar **OK** .
+   > Quando Visual Studio Code inicia a API de tempo de design do fluxo de trabalho, é exibida uma mensagem informando que a inicialização pode levar alguns segundos. Você pode ignorar esta mensagem ou selecionar **OK**.
 
-   Depois que o designer do aplicativo lógico for exibido, o prompt **escolher um operação** aparecerá no designer e será selecionado por padrão, que mostra o painel **Adicionar uma ação** .
+   Depois que o Designer for exibido, o prompt **escolher um operação** aparecerá no designer e será selecionado por padrão, que mostra o painel **Adicionar uma ação** .
 
-   ![Captura de tela que mostra o designer do aplicativo lógico.](./media/create-stateful-stateless-workflows-visual-studio-code/workflow-app-designer.png)
+   ![Captura de tela que mostra o designer de fluxo de trabalho.](./media/create-stateful-stateless-workflows-visual-studio-code/workflow-app-designer.png)
 
 1. Em seguida, [adicione um gatilho e ações](#add-trigger-actions) ao seu fluxo de trabalho.
 
@@ -365,13 +349,13 @@ Antes de criar seu aplicativo lógico, crie um projeto local para que você poss
 
 ## <a name="add-a-trigger-and-actions"></a>Adicionar um gatilho e ações
 
-Depois de abrir o designer do aplicativo lógico em seu **workflow.jsno** menu de atalho do arquivo, o prompt **escolher um operação** aparece no designer e é selecionado por padrão. Agora você pode começar a criar seu fluxo de trabalho adicionando um gatilho e ações.
+Depois de abrir o designer, o prompt **escolher um operação** aparecerá no designer e será selecionado por padrão. Agora você pode começar a criar seu fluxo de trabalho adicionando um gatilho e ações.
 
-O fluxo de trabalho do aplicativo lógico neste exemplo usa esse gatilho e estas ações:
+O fluxo de trabalho neste exemplo usa esse gatilho e estas ações:
 
-* O [gatilho de solicitação](../connectors/connectors-native-reqres.md)interno, **quando uma solicitação HTTP é recebida** , que recebe chamadas de entrada ou solicitações e cria um ponto de extremidade que outros serviços ou aplicativos lógicos podem chamar.
+* O [gatilho de solicitação](../connectors/connectors-native-reqres.md)interno, **quando uma solicitação HTTP é recebida**, que recebe chamadas de entrada ou solicitações e cria um ponto de extremidade que outros serviços ou aplicativos lógicos podem chamar.
 
-* A [ação do Outlook do Office 365](../connectors/connectors-create-api-office365-outlook.md), **enviar um email** .
+* A [ação do Outlook do Office 365](../connectors/connectors-create-api-office365-outlook.md), **enviar um email**.
 
 * A [ação de resposta](../connectors/connectors-native-reqres.md)interna, que você usa para enviar uma resposta e retornar dados de volta para o chamador.
 
@@ -379,47 +363,36 @@ O fluxo de trabalho do aplicativo lógico neste exemplo usa esse gatilho e estas
 
 1. Ao lado do designer, no painel **Adicionar um gatilho** , na caixa de pesquisa **escolher uma operação** , certifique-se de que o **interno** está selecionado para que você possa selecionar um gatilho que seja executado nativamente.
 
-1. Na caixa de pesquisa **escolher uma operação** , insira `when a http request` e selecione o gatilho de solicitação interno que é nomeado **quando uma solicitação HTTP é recebida** .
+1. Na caixa de pesquisa **escolher uma operação** , insira `when a http request` e selecione o gatilho de solicitação interno que é nomeado **quando uma solicitação HTTP é recebida**.
 
-   ![Captura de tela que mostra o designer de aplicativo lógico e * * adicionar um painel de gatilho * * com o gatilho "quando um pedido HTTP é recebido" selecionado.](./media/create-stateful-stateless-workflows-visual-studio-code/add-request-trigger.png)
+   ![Captura de tela que mostra o designer de fluxo de trabalho e * * adicionar um painel de gatilho * * com o gatilho "quando um pedido HTTP é recebido" selecionado.](./media/create-stateful-stateless-workflows-visual-studio-code/add-request-trigger.png)
 
    Quando o gatilho aparece no designer, o painel de detalhes do gatilho é aberto para mostrar as propriedades, as configurações e outras ações do gatilho.
 
-   ![Captura de tela que mostra o designer de aplicativo lógico com o gatilho "quando uma solicitação HTTP é recebida" está selecionado e o painel detalhes do gatilho é aberto.](./media/create-stateful-stateless-workflows-visual-studio-code/request-trigger-added-to-designer.png)
+   ![Captura de tela que mostra o designer de fluxo de trabalho com o gatilho "quando uma solicitação HTTP é recebida" está selecionado e o painel detalhes do gatilho é aberto.](./media/create-stateful-stateless-workflows-visual-studio-code/request-trigger-added-to-designer.png)
 
    > [!TIP]
    > Se o painel de detalhes não for exibido, verifique se o gatilho está selecionado no designer.
 
-1. Se você precisar excluir um item no designer, siga estas etapas:
-
-   1. No designer, selecione o item, que abre o painel detalhes do item no lado direito.
-
-   1. Expanda a janela de Visual Studio Code muito suficiente para que ao lado do gatilho ou do nome da ação, o botão de reticências ( **...** ) seja exibido no canto superior direito. 
-
-   1. Abra o menu de reticências ( **...** ) e selecione **excluir** . Para confirmar a exclusão, selecione **OK** .
-
-      ![Captura de tela que mostra o item selecionado no designer com o painel de detalhes aberto e com o botão de reticências selecionadas e a opção "excluir".](./media/create-stateful-stateless-workflows-visual-studio-code/delete-item-from-designer.png)
+1. Se você precisar excluir um item do designer, [siga estas etapas para excluir itens do designer](#delete-from-designer).
 
 ### <a name="add-the-office-365-outlook-action"></a>Adicionar a ação do Outlook do Office 365
 
-1. No designer, no gatilho que você adicionou, selecione **nova etapa** .
+1. No designer, no gatilho que você adicionou, selecione **nova etapa**.
 
-   O prompt **escolher uma operação** aparece no designer e o **painel Adicionar uma ação** é reaberto para que você possa selecionar a próxima ação.
+   O prompt **escolher uma operação** aparece no designer e o painel **Adicionar uma ação** é reaberto para que você possa selecionar a próxima ação.
 
 1. No painel **Adicionar uma ação** , na caixa de pesquisa **escolher uma operação** , selecione **Azure** para que você possa encontrar e selecionar uma ação para um conector gerenciado que é implantado no Azure.
 
-   Este exemplo seleciona e usa a ação do Outlook do Office 365, **enviar um email (v2)** .
+   Este exemplo seleciona e usa a ação do Outlook do Office 365, **enviar um email (v2)**.
 
-   ![Captura de tela que mostra o designer de aplicativo lógico e * * adicionar um painel ação * * com o Office 365 Outlook "enviar um email" ação selecionada.](./media/create-stateful-stateless-workflows-visual-studio-code/add-send-email-action.png)
+   ![Captura de tela que mostra o designer de fluxo de trabalho e * * adicionar um painel ação * * com o Office 365 Outlook "enviar um email" ação selecionada.](./media/create-stateful-stateless-workflows-visual-studio-code/add-send-email-action.png)
 
 1. No painel de detalhes da ação, selecione **entrar** para que você possa criar uma conexão com sua conta de email.
 
-   ![Captura de tela que mostra o designer de aplicativo lógico e * * enviar um email (v2) * * painel com "entrar" selecionado.](./media/create-stateful-stateless-workflows-visual-studio-code/send-email-action-sign-in.png)
+   ![Captura de tela que mostra o designer de fluxo de trabalho e * * enviar um email (v2) * * painel com "entrar" selecionado.](./media/create-stateful-stateless-workflows-visual-studio-code/send-email-action-sign-in.png)
 
-   > [!NOTE]
-   > Se você receber o erro, `Failed to create connection...` talvez tenha escolhido uma região atualmente sem suporte para seu aplicativo lógico. As atualizações para adicionar mais regiões estão em andamento. Enquanto isso, para as regiões com suporte no momento, examine a [página do GitHub de problemas conhecidos](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions)da extensão de visualização.
-
-1. Quando Visual Studio Code solicitar o consentimento para acessar sua conta de email, selecione **abrir** .
+1. Quando Visual Studio Code solicitar o consentimento para acessar sua conta de email, selecione **abrir**.
 
    ![Captura de tela que mostra o Visual Studio Code prompt para permitir o acesso.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-open-external-website.png)
 
@@ -431,20 +404,20 @@ O fluxo de trabalho do aplicativo lógico neste exemplo usa esse gatilho e estas
    > [!NOTE]
    > Se houver muito tempo antes de concluir os prompts, o processo de autenticação atingirá o tempo limite e falhará. Nesse caso, retorne ao designer e tente entrar novamente para criar a conexão.
 
-1. Quando a extensão de visualização de aplicativos lógicos do Azure solicitar o consentimento para acessar sua conta de email, selecione **abrir** . Siga o prompt subsequente para permitir o acesso.
+1. Quando a extensão aplicativos lógicos do Azure (versão prévia) solicitar o consentimento para acessar sua conta de email, selecione **abrir**. Siga o prompt subsequente para permitir o acesso.
 
    ![Captura de tela que mostra o prompt de extensão de visualização para permitir o acesso.](./media/create-stateful-stateless-workflows-visual-studio-code/allow-preview-extension-open-uri.png)
 
    > [!TIP]
-   > Para evitar solicitações futuras, selecione **não perguntar novamente para esta extensão** .
+   > Para evitar solicitações futuras, selecione **não perguntar novamente para esta extensão**.
 
-   Depois que Visual Studio Code cria sua conexão, alguns conectores mostram a mensagem que `The connection will be valid for {n} days only.` esse limite de tempo aplica somente à duração enquanto você cria seu aplicativo lógico no Visual Studio Code. Após a implantação, esse limite não se aplica mais porque seu aplicativo lógico pode autenticar em tempo de execução usando sua [identidade gerenciada atribuída pelo sistema](../logic-apps/create-managed-service-identity.md)habilitada automaticamente. Essa identidade gerenciada difere das credenciais de autenticação ou da cadeia de conexão que você usa ao criar uma conexão. Se você desabilitar essa identidade gerenciada atribuída pelo sistema, as conexões não funcionarão no tempo de execução.
+   Depois que Visual Studio Code criar sua conexão, alguns conectores mostrarão a mensagem `The connection will be valid for {n} days only` . Esse limite de tempo aplica-se apenas à duração enquanto você cria seu aplicativo lógico no Visual Studio Code. Após a implantação, esse limite não se aplica mais porque seu aplicativo lógico pode autenticar em tempo de execução usando sua [identidade gerenciada atribuída pelo sistema](../logic-apps/create-managed-service-identity.md)habilitada automaticamente. Essa identidade gerenciada difere das credenciais de autenticação ou da cadeia de conexão que você usa ao criar uma conexão. Se você desabilitar essa identidade gerenciada atribuída pelo sistema, as conexões não funcionarão no tempo de execução.
 
 1. No designer, se a ação **enviar um email** não aparecer selecionada, selecione essa ação.
 
 1. No painel detalhes da ação, na guia **parâmetros** , forneça as informações necessárias para a ação, por exemplo:
 
-   ![Captura de tela que mostra o designer de aplicativo lógico com detalhes para a ação "enviar um email" do Outlook do Office 365.](./media/create-stateful-stateless-workflows-visual-studio-code/send-email-action-details.png)
+   ![Captura de tela que mostra o designer de fluxo de trabalho com detalhes para a ação "enviar um email" do Outlook do Office 365.](./media/create-stateful-stateless-workflows-visual-studio-code/send-email-action-details.png)
 
    | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
@@ -454,21 +427,121 @@ O fluxo de trabalho do aplicativo lógico neste exemplo usa esse gatilho e estas
    ||||
 
    > [!NOTE]
-   > Se você quiser fazer alterações no painel de detalhes na guia **configurações** , **executar após** , ou **resultado estático** , certifique-se de selecionar **concluído** para confirmar essas alterações antes de alternar as guias ou alterar o foco para o designer. Caso contrário, Visual Studio Code não manterá suas alterações. Para obter mais informações, consulte a página do [GitHub de problemas conhecidos](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)da extensão de visualização.
+   > Se você quiser fazer alterações no painel de detalhes na guia **configurações**, **resultado estático** ou **executar após** , certifique-se de selecionar **concluído** para confirmar essas alterações antes de alternar as guias ou alterar o foco para o designer. Caso contrário, Visual Studio Code não manterá suas alterações. Para obter mais informações, consulte a [página problemas conhecidos da visualização pública de aplicativos lógicos no GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
 
-1. No designer, selecione **salvar** .
+1. No designer, selecione **salvar**.
 
-Em seguida, execute e depure seu fluxo de trabalho localmente no Visual Studio Code.
+> [!IMPORTANT]
+> Para executar localmente um fluxo de trabalho que usa um gatilho ou ações baseadas em webhook, como o [gatilho ou a ação de webhook http interno](../connectors/connectors-native-webhook.md), você deve habilitar esse recurso [Configurando o encaminhamento para a URL de retorno de chamada do webhook](#webhook-setup).
 
-<a name="debug-test-locally"></a>
+<a name="webhook-setup"></a>
 
-## <a name="run-and-debug-locally"></a>Executar e depurar localmente
+## <a name="enable-locally-running-webhooks"></a>Habilitar WebHooks em execução local
 
-Para testar seu aplicativo lógico, siga estas etapas para iniciar uma sessão de depuração e localizar a URL para o ponto de extremidade que é criado pelo gatilho de solicitação. Você precisa dessa URL para que possa enviar posteriormente uma solicitação para esse ponto de extremidade.
+Quando você usa um gatilho ou uma ação baseada em webhook, como **webhook http**, com um aplicativo lógico em execução no Azure, o tempo de execução dos aplicativos lógicos assina o ponto de extremidade de serviço gerando e registrando uma URL de retorno de chamada com esse ponto de extremidade. O gatilho ou a ação aguarda o ponto de extremidade de serviço chamar a URL. No entanto, quando você está trabalhando no Visual Studio Code, a URL de retorno de chamada gerada começa com `http://localhost:7071/...` . Essa URL é para o servidor localhost, que é privado para que o ponto de extremidade de serviço não possa chamar essa URL.
 
-1. Para ajudá-lo a depurar com mais facilidade um fluxo de trabalho de aplicativo lógico sem estado, você pode [habilitar o histórico de execução para esse fluxo de trabalho](#run-history).
+Para executar localmente gatilhos e ações baseados em webhook no Visual Studio Code, você precisa configurar uma URL pública que expõe o servidor localhost e encaminha com segurança as chamadas do ponto de extremidade de serviço para a URL de retorno de chamada do webhook. Você pode usar um serviço de encaminhamento e uma ferramenta como o [**ngrok**](https://ngrok.com/), que abre um túnel http para sua porta localhost ou você pode usar sua própria ferramenta.
 
-1. Na barra de ferramentas Visual Studio Code, abra o menu **executar** e selecione **Iniciar Depuração** (F5).
+#### <a name="set-up-call-forwarding-using-ngrok"></a>Configurar o encaminhamento de chamada usando **ngrok**
+
+1. [Inscreva-se em uma conta do **ngrok**](https://dashboard.ngrok.com/signup) se você não tiver uma. Caso contrário, [entre em sua conta](https://dashboard.ngrok.com/login).
+
+1. Obtenha seu token de autenticação pessoal, que o cliente do **ngrok** precisa para se conectar e autenticar o acesso à sua conta.
+
+   1. Para localizar sua [página de token de autenticação](https://dashboard.ngrok.com/auth/your-authtoken), no menu do painel de sua conta, expanda **autenticação** e selecione **seu authToken**.
+
+   1. Na caixa **seu authToken** , copie o token para um local seguro.
+
+1. Na página de download do [ **ngrok**](https://ngrok.com/download) ou [no painel da sua conta](https://dashboard.ngrok.com/get-started/setup), baixe a versão do **ngrok** que você deseja e extraia o arquivo. zip. Para obter mais informações, consulte [etapa 1: descompactar para instalar](https://ngrok.com/download).
+
+1. Em seu computador, abra a ferramenta de prompt de comando. Navegue até o local onde você tem o arquivo de **ngrok.exe** .
+
+1. Conecte o cliente **ngrok** à sua conta do **ngrok** executando o comando a seguir. Para obter mais informações, consulte [etapa 2: conectar sua conta](https://ngrok.com/download).
+
+   `ngrok authtoken <your_auth_token>`
+
+1. Abra o túnel HTTP para a porta localhost 7071 executando o comando a seguir. Para obter mais informações, consulte [Step 3: acionar](https://ngrok.com/download).
+
+   `ngrok http 7071`
+
+1. Na saída, localize a seguinte linha:
+
+   `http://<domain>.ngrok.io -> http://localhost:7071`
+
+1. Copie e salve a URL que tem este formato: `http://<domain>.ngrok.io`
+
+#### <a name="set-up-the-forwarding-url-in-your-app-settings"></a>Configurar a URL de encaminhamento nas configurações do aplicativo
+
+1. No Visual Studio Code, no nível raiz do seu projeto, abra o **local.settings.jsno** arquivo.
+
+1. No `Values` objeto, adicione uma propriedade chamada `Workflows.WebhookRedirectHostUri` e defina o valor para a URL de encaminhamento que você criou anteriormente, por exemplo:
+
+   ```json
+   {
+      "IsEncrypted": false,
+      "Values": {
+         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+         "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+         "FUNCTIONS_V2_COMPATIBILITY_MODE": "true",
+         "Workflows.WebhookRedirectHostUri": "http://xxxXXXXxxxXXX.ngrok.io",
+         <...>
+      }
+   }
+   ```
+
+Na primeira vez que você iniciar uma sessão de depuração local ou executar o fluxo de trabalho sem depuração, o tempo de execução dos aplicativos lógicos registrará o fluxo de trabalho com o ponto de extremidade de serviço e assinará esse ponto de extremidade para notificar as operações de webhook. Na próxima vez em que o fluxo de trabalho for executado, o tempo de execução não será registrado ou reassinado porque o registro de assinatura já existe no armazenamento local.
+
+Quando você interrompe a sessão de depuração para uma execução de fluxo de trabalho que usa gatilhos ou ações baseadas localmente em webhook, os registros de assinatura existentes não são excluídos. Para cancelar o registro, você precisa remover manualmente ou excluir os registros de assinatura.
+
+> [!NOTE]
+> Depois que o fluxo de trabalho começar a ser executado, a janela do terminal poderá mostrar erros como este exemplo:
+>
+> `message='Http request failed with unhandled exception of type 'InvalidOperationException' and message: 'System.InvalidOperationException: Synchronous operations are disallowed. Call ReadAsync or set AllowSynchronousIO to true instead.`
+>
+> Nesse caso, abra o **local.settings.jsno** arquivo no nível raiz do seu projeto e verifique se a propriedade está definida como `true` :
+>
+> `"FUNCTIONS_V2_COMPATIBILITY_MODE": "true"`
+
+<a name="manage-breakpoints"></a>
+
+## <a name="manage-breakpoints-for-debugging"></a>Gerenciar pontos de interrupção para depuração
+
+Antes de executar e testar o fluxo de trabalho do aplicativo lógico iniciando uma sessão de depuração, você pode definir [pontos de interrupção](https://code.visualstudio.com/docs/editor/debugging#_breakpoints) dentro do **workflow.jsno** arquivo para cada fluxo de trabalho. Nenhuma outra configuração é necessária. 
+
+Neste momento, os pontos de interrupção têm suporte apenas para ações, não para gatilhos. Cada definição de ação tem estes locais de ponto de interrupção:
+
+* Defina o ponto de interrupção inicial na linha que mostra o nome da ação. Quando esse ponto de interrupção atinge durante a sessão de depuração, você pode revisar as entradas da ação antes que elas sejam avaliadas.
+
+* Defina o ponto de interrupção final na linha que mostra a chave de fechamento da ação (**}**). Quando esse ponto de interrupção atinge durante a sessão de depuração, você pode examinar os resultados da ação antes de concluir a execução da ação.
+
+Para adicionar um ponto de interrupção, siga estas etapas:
+
+1. Abra o **workflow.jsno** arquivo para o fluxo de trabalho que você deseja depurar.
+
+1. Na linha em que você deseja definir o ponto de interrupção, na coluna à esquerda, selecione dentro dessa coluna. Para remover o ponto de interrupção, selecione esse ponto de interrupção.
+
+   Quando você inicia a sessão de depuração, o modo de exibição de execução aparece no lado esquerdo da janela de código, enquanto a barra de ferramentas de depuração aparece perto da parte superior.
+
+   > [!NOTE]
+   > Se a exibição de execução não aparecer automaticamente, pressione Ctrl + Shift + D.
+
+1. Para examinar as informações disponíveis quando um ponto de interrupção atinge, no modo de exibição de execução, examine o painel **variáveis** .
+
+1. Para continuar a execução do fluxo de trabalho, na barra de ferramentas depurar, selecione **continuar** (botão reproduzir). 
+
+Você pode adicionar e remover pontos de interrupção a qualquer momento durante a execução do fluxo de trabalho. No entanto, se você atualizar o **workflow.jsno** arquivo depois que a execução for iniciada, os pontos de interrupção não atualizarão automaticamente. Para atualizar os pontos de interrupção, reinicie o aplicativo lógico.
+
+Para obter informações gerais, consulte [pontos de interrupção-Visual Studio Code](https://code.visualstudio.com/docs/editor/debugging#_breakpoints).
+
+<a name="run-test-debug-locally"></a>
+
+## <a name="run-test-and-debug-locally"></a>Executar, testar e depurar localmente
+
+Para testar seu aplicativo lógico, siga estas etapas para iniciar uma sessão de depuração e localize a URL para o ponto de extremidade que é criado pelo gatilho de solicitação. Você precisa dessa URL para que possa enviar posteriormente uma solicitação para esse ponto de extremidade.
+
+1. Para depurar um fluxo de trabalho sem estado com mais facilidade, você pode [habilitar o histórico de execução para esse fluxo de trabalho](#enable-run-history-stateless).
+
+1. Na barra de atividade do Visual Studio Code, abra o menu **executar** e selecione **Iniciar Depuração** (F5).
 
    A janela do **terminal** é aberta para que você possa examinar a sessão de depuração.
 
@@ -476,7 +549,7 @@ Para testar seu aplicativo lógico, siga estas etapas para iniciar uma sessão d
 
    1. Reabra o painel do Explorer para que você possa exibir seu projeto.
 
-   1. Na **workflow.js** menu de atalho do arquivo, selecione **visão geral** .
+   1. Na **workflow.js** menu de atalho do arquivo, selecione **visão geral**.
 
       ![Captura de tela que mostra o painel do Explorer e a janela de atalho para a workflow.jsno arquivo com a "visão geral" selecionada.](./media/create-stateful-stateless-workflows-visual-studio-code/open-workflow-overview.png)
 
@@ -490,17 +563,17 @@ Para testar seu aplicativo lógico, siga estas etapas para iniciar uma sessão d
 
    Este exemplo continua usando o postmaster. Para obter mais informações, consulte [introdução do postmaster](https://learning.postman.com/docs/getting-started/introduction/).
 
-   1. Na barra de ferramentas do postmaster, selecione **novo** .
+   1. Na barra de ferramentas do postmaster, selecione **novo**.
 
       ![Captura de tela que mostra o postmaster com o botão novo selecionado](./media/create-stateful-stateless-workflows-visual-studio-code/postman-create-request.png)
 
-   1. No painel **criar novo** , em **blocos de construção** , selecione **solicitação** .
+   1. No painel **criar novo** , em **blocos de construção**, selecione **solicitação**.
 
-   1. Na janela **salvar solicitação** , em **nome da solicitação** , forneça um nome para a solicitação, por exemplo, `Test workflow trigger` .
+   1. Na janela **salvar solicitação** , em **nome da solicitação**, forneça um nome para a solicitação, por exemplo, `Test workflow trigger` .
 
-   1. Em **selecionar uma coleção ou pasta para salvar** , selecione **criar coleção** .
+   1. Em **selecionar uma coleção ou pasta para salvar**, selecione **criar coleção**.
 
-   1. Em **todas as coleções** , forneça um nome para a coleção a ser criada para organizar suas solicitações, pressione Enter e selecione **salvar para < *nome* > da coleção** . Este exemplo usa `Logic Apps requests` como o nome da coleção.
+   1. Em **todas as coleções**, forneça um nome para a coleção a ser criada para organizar suas solicitações, pressione Enter e selecione **salvar para <*nome* > da coleção**. Este exemplo usa `Logic Apps requests` como o nome da coleção.
 
       O painel de solicitação do postmaster é aberto para que você possa enviar uma solicitação para a URL de retorno de chamada para o gatilho de solicitação.
 
@@ -508,7 +581,7 @@ Para testar seu aplicativo lógico, siga estas etapas para iniciar uma sessão d
 
    1. Retornar para Visual Studio Code. na página Visão geral do fluxo de trabalho, copie o valor da propriedade **URL de retorno de chamada** .
 
-   1. Retornar ao postmaster. No painel de solicitação, próximo à lista de métodos, que atualmente mostra **Get** como o método de solicitação padrão, Cole a URL de retorno de chamada que você copiou anteriormente na caixa endereço e selecione **Enviar** .
+   1. Retornar ao postmaster. No painel de solicitação, próximo à lista de métodos, que atualmente mostra **Get** como o método de solicitação padrão, Cole a URL de retorno de chamada que você copiou anteriormente na caixa endereço e selecione **Enviar**.
 
       ![Captura de tela que mostra o postmaster e a URL de retorno de chamada na caixa de endereço com o botão enviar selecionado](./media/create-stateful-stateless-workflows-visual-studio-code/postman-test-call-back-url.png)
 
@@ -521,7 +594,7 @@ Para testar seu aplicativo lógico, siga estas etapas para iniciar uma sessão d
    Se você criou um fluxo de trabalho com estado, após a solicitação que você enviou dispara o fluxo de trabalho, a página Visão geral mostra o status e o histórico de execução do fluxo de trabalho.
 
    > [!TIP]
-   > Se o status de execução não for exibido, tente atualizar a página Visão geral selecionando **Atualizar** . Não acontece nenhuma execução para um gatilho que é ignorado devido a critérios não cumpridos ou não encontrar dados.
+   > Se o status de execução não for exibido, tente atualizar a página Visão geral selecionando **Atualizar**. Não acontece nenhuma execução para um gatilho que é ignorado devido a critérios não cumpridos ou não encontrar dados.
 
    ![Captura de tela que mostra a página Visão geral do fluxo de trabalho com o status de execução e o histórico](./media/create-stateful-stateless-workflows-visual-studio-code/post-trigger-call.png)
 
@@ -529,14 +602,14 @@ Para testar seu aplicativo lógico, siga estas etapas para iniciar uma sessão d
    |------------|-------------|
    | **Anulado** | A execução foi interrompida ou não foi concluída devido a problemas externos, por exemplo, uma interrupção do sistema ou uma assinatura do Azure enlapsada. |
    | **Cancelar** | A execução foi disparada e iniciada, mas recebeu uma solicitação de cancelamento. |
-   | **Com falha** | Falha em pelo menos uma ação na execução. Nenhuma ação subsequente no fluxo de trabalho foi configurada para lidar com a falha. |
-   | **Executando** | A execução foi disparada e está em andamento, mas esse status também pode aparecer para uma execução que é limitada devido a [limites de ação](logic-apps-limits-and-config.md) ou ao plano de [preços atual](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Dica** : se você configurar o [log de diagnóstico](monitor-logic-apps-log-analytics.md), poderá obter informações sobre os eventos de restrição que acontecerem. |
+   | **Falha** | Falha em pelo menos uma ação na execução. Nenhuma ação subsequente no fluxo de trabalho foi configurada para lidar com a falha. |
+   | **Executando** | A execução foi disparada e está em andamento, mas esse status também pode aparecer para uma execução que é limitada devido a [limites de ação](logic-apps-limits-and-config.md) ou ao plano de [preços atual](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Dica**: se você configurar o [log de diagnóstico](monitor-logic-apps-log-analytics.md), poderá obter informações sobre os eventos de restrição que acontecerem. |
    | **Êxito** | A execução foi bem-sucedida. Se alguma ação falhar, uma ação subsequente no fluxo de trabalho tratou dessa falha. |
-   | **Tempo limite atingido** | A execução atingiu o tempo limite porque a duração atual excedeu o limite de duração da execução, que é controlado pela [configuração **retenção do histórico de execuções em dias**](logic-apps-limits-and-config.md#run-duration-retention-limits). A duração de uma execução é calculada usando a hora de início e o limite de duração da execução na hora de início. <p><p>**Observação** : se a duração da execução também exceder o *limite de retenção do histórico de execução* atual, que também é controlado pela [configuração retenção do **histórico de execução em dias**](logic-apps-limits-and-config.md#run-duration-retention-limits), a execução será desmarcada do histórico de execuções por um trabalho de limpeza diário. Se a execução atingir o tempo limite ou for concluída, o período de retenção sempre será calculado usando a hora de início e o limite de retenção *atual* da execução. Portanto, se você reduzir o limite de duração de uma execução em andamento, a execução atingirá o tempo limite. No entanto, a execução permanece ou é desmarcada do histórico de execuções com base em se a duração da execução excedeu o limite de retenção. |
+   | **Tempo limite atingido** | A execução atingiu o tempo limite porque a duração atual excedeu o limite de duração da execução, que é controlado pela [configuração **retenção do histórico de execuções em dias**](logic-apps-limits-and-config.md#run-duration-retention-limits). A duração de uma execução é calculada usando a hora de início e o limite de duração da execução na hora de início. <p><p>**Observação**: se a duração da execução também exceder o *limite de retenção do histórico de execução* atual, que também é controlado pela [configuração retenção do **histórico de execução em dias**](logic-apps-limits-and-config.md#run-duration-retention-limits), a execução será desmarcada do histórico de execuções por um trabalho de limpeza diário. Se a execução atingir o tempo limite ou for concluída, o período de retenção sempre será calculado usando a hora de início e o limite de retenção *atual* da execução. Portanto, se você reduzir o limite de duração de uma execução em andamento, a execução atingirá o tempo limite. No entanto, a execução permanece ou é desmarcada do histórico de execuções com base em se a duração da execução excedeu o limite de retenção. |
    | **Aguardando** | A execução não foi iniciada ou está em pausa, por exemplo, devido a uma instância de fluxo de trabalho anterior que ainda está em execução. |
    |||
 
-1. Para examinar os status de cada etapa em uma execução específica e as entradas e saídas da etapa, selecione o botão de reticências ( **...** ) para essa execução e selecione **Mostrar execução** .
+1. Para examinar os status de cada etapa em uma execução específica e as entradas e saídas da etapa, selecione o botão de reticências (**...**) para essa execução e selecione **Mostrar execução**.
 
    ![Captura de tela que mostra a linha do histórico de execução do fluxo de trabalho com o botão de reticências e "mostrar execução" selecionado](./media/create-stateful-stateless-workflows-visual-studio-code/show-run-history.png)
 
@@ -544,16 +617,19 @@ Para testar seu aplicativo lógico, siga estas etapas para iniciar uma sessão d
 
    ![Captura de tela que mostra cada etapa na execução do fluxo de trabalho e seu status](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-action-status.png)
 
+   > [!NOTE]
+   > Se uma execução falhar e uma etapa na exibição de monitoramento mostrar o `400 Bad Request` erro, esse problema poderá resultar de um nome de gatilho mais longo ou de um nome de ação que faz com que o Uniform Resource Identifier (URI) subjacente exceda o limite de caracteres padrão. Para obter mais informações, consulte ["400 solicitação inadequada"](#400-bad-request).
+
    Estes são os possíveis status que cada etapa do fluxo de trabalho pode ter:
 
    | Status da ação | ícone | Descrição |
    |---------------|------|-------------|
    | Anulado | ![Ícone do status de ação "abortado"][aborted-icon] | A ação foi interrompida ou não foi concluída devido a problemas externos, por exemplo, uma interrupção do sistema ou uma assinatura do Azure enlapsada. |
    | Cancelado | ![Ícone do status de ação "cancelado"][cancelled-icon] | A ação estava em execução, mas recebeu uma solicitação de cancelamento. |
-   | Failed (Falha) | ![Ícone do status da ação "falha"][failed-icon] | Falha na ação. |
+   | Com falha | ![Ícone do status da ação "falha"][failed-icon] | Falha na ação. |
    | Executando | ![Ícone para o status de ação "em execução"][running-icon] | A ação está em execução no momento. |
    | Ignorado | ![Ícone do status de ação "ignorado"][skipped-icon] | A ação foi ignorada porque a ação imediatamente anterior falhou. Uma ação tem uma `runAfter` condição que requer que a ação anterior seja concluída com êxito antes que a ação atual possa ser executada. |
-   | Êxito | ![Ícone do status de ação "êxito"][succeeded-icon] | A ação foi bem-sucedida. |
+   | Com sucesso | ![Ícone do status de ação "êxito"][succeeded-icon] | A ação foi bem-sucedida. |
    | Êxito com novas tentativas | ![Ícone para o status de ação "êxito com novas tentativas"][succeeded-with-retries-icon] | A ação foi bem-sucedida, mas somente após uma ou mais tentativas. Para examinar o histórico de repetição, na exibição detalhes do histórico de execuções, selecione essa ação para que você possa exibir as entradas e saídas. |
    | Tempo limite atingido | ![Ícone do status de ação "tempo limite"][timed-out-icon] | A ação foi interrompida devido ao limite de tempo limite especificado pelas configurações dessa ação. |
    | Aguardando | ![Ícone do status de ação "aguardando"][waiting-icon] | Aplica-se a uma ação de webhook que está aguardando uma solicitação de entrada de um chamador. |
@@ -573,27 +649,27 @@ Para testar seu aplicativo lógico, siga estas etapas para iniciar uma sessão d
 
    ![Captura de tela que mostra o status de cada etapa no fluxo de trabalho mais as entradas e saídas na ação "enviar um email" expandida](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-details.png)
 
-1. Para examinar melhor as entradas e saídas brutas para essa etapa, selecione **Mostrar entradas brutas** ou **Mostrar saídas brutas** .
+1. Para examinar melhor as entradas e saídas brutas para essa etapa, selecione **Mostrar entradas brutas** ou **Mostrar saídas brutas**.
 
 1. Para interromper a sessão de depuração, no menu **executar** , selecione **parar depuração** (Shift + F5).
 
 <a name="return-response"></a>
 
-## <a name="return-a-response-to-the-caller"></a>Retornar uma resposta ao chamador
+## <a name="return-a-response"></a>Retornar uma resposta
 
-Para retornar uma resposta para o chamador que enviou uma solicitação ao seu aplicativo lógico, você pode usar a [ação de resposta](../connectors/connectors-native-reqres.md) interna para um fluxo de trabalho que começa com o gatilho de solicitação.
+Para retornar uma resposta ao chamador que enviou uma solicitação ao seu aplicativo lógico, você pode usar a [ação de resposta](../connectors/connectors-native-reqres.md) interna para um fluxo de trabalho que começa com o gatilho de solicitação.
 
-1. No designer do aplicativo lógico, na ação **enviar um email** , selecione **nova etapa** .
+1. No designer de fluxo de trabalho, na ação **enviar um email** , selecione **nova etapa**.
 
    O prompt **escolher uma operação** aparece no designer e o **painel Adicionar uma ação** é reaberto para que você possa selecionar a próxima ação.
 
 1. No painel **Adicionar uma ação** , na caixa de pesquisa **escolher uma ação** , certifique-se de que o **interno** está selecionado. Na caixa de pesquisa, insira `response` e selecione a ação de **resposta** .
 
-   ![Captura de tela que mostra o designer de aplicativo lógico com a ação de resposta selecionada.](./media/create-stateful-stateless-workflows-visual-studio-code/add-response-action.png)
+   ![Captura de tela que mostra o designer de fluxo de trabalho com a ação de resposta selecionada.](./media/create-stateful-stateless-workflows-visual-studio-code/add-response-action.png)
 
    Quando a ação de **resposta** aparece no designer, o painel detalhes da ação é aberto automaticamente.
 
-   ![Captura de tela que mostra o designer de aplicativo lógico com o painel de detalhes da ação "resposta" aberto e a propriedade "corpo" definida como o valor da propriedade "corpo" da ação "enviar um email".](./media/create-stateful-stateless-workflows-visual-studio-code/response-action-details.png)
+   ![Captura de tela que mostra o designer de fluxo de trabalho com o painel de detalhes da ação "resposta" aberto e a propriedade "corpo" definida como o valor da propriedade "corpo" da ação "enviar um email".](./media/create-stateful-stateless-workflows-visual-studio-code/response-action-details.png)
 
 1. Na guia **parâmetros** , forneça as informações necessárias para a função que você deseja chamar.
 
@@ -603,7 +679,7 @@ Para retornar uma resposta para o chamador que enviou uma solicitação ao seu a
 
       ![Captura de tela que mostra o painel de detalhes da ação "resposta" com o ponteiro do mouse dentro da propriedade "corpo" para que a lista de conteúdo dinâmico seja exibida.](./media/create-stateful-stateless-workflows-visual-studio-code/open-dynamic-content-list.png)
 
-   1. Na lista conteúdo dinâmico, em **enviar um email** , selecione **corpo** .
+   1. Na lista conteúdo dinâmico, em **enviar um email**, selecione **corpo**.
 
       ![Captura de tela que mostra a lista de conteúdo dinâmico aberto. Na lista, no cabeçalho "enviar um email", o valor de saída "corpo" é selecionado.](./media/create-stateful-stateless-workflows-visual-studio-code/select-send-email-action-body-output-value.png)
 
@@ -611,19 +687,19 @@ Para retornar uma resposta para o chamador que enviou uma solicitação ao seu a
 
       ![Captura de tela que mostra o status de cada etapa no fluxo de trabalho mais as entradas e saídas na ação expandida de "resposta".](./media/create-stateful-stateless-workflows-visual-studio-code/response-action-details-body-property.png)
 
-1. No designer, selecione **salvar** .
+1. No designer, selecione **salvar**.
 
 <a name="retest-workflow"></a>
 
 ## <a name="retest-your-logic-app"></a>Testar novamente seu aplicativo lógico
 
-Depois de fazer atualizações em seu aplicativo lógico, você pode executar outro teste executando novamente o depurador no Visual Studio e enviando outra solicitação para disparar seu aplicativo lógico atualizado, semelhante às etapas em [depurar e testar seu aplicativo lógico](#debug-test-locally).
+Depois de fazer atualizações em seu aplicativo lógico, você pode executar outro teste executando novamente o depurador no Visual Studio e enviando outra solicitação para disparar seu aplicativo lógico atualizado, semelhante às etapas em [Executar, testar e depurar localmente](#run-test-debug-locally).
 
-1. Na barra de ferramentas Visual Studio Code, abra o menu **executar** e selecione **Iniciar Depuração** (F5).
+1. Na barra de atividade do Visual Studio Code, abra o menu **executar** e selecione **Iniciar Depuração** (F5).
 
 1. No postmaster ou em sua ferramenta para criar e enviar solicitações, envie outra solicitação para disparar seu fluxo de trabalho.
 
-1. Se você criou um fluxo de trabalho com estado, na página Visão geral do fluxo de trabalho, verifique o status da execução mais recente. Para exibir o status, as entradas e as saídas de cada etapa na execução, selecione o botão de reticências ( **...** ) para essa execução e selecione **Mostrar execução** .
+1. Se você criou um fluxo de trabalho com estado, na página Visão geral do fluxo de trabalho, verifique o status da execução mais recente. Para exibir o status, as entradas e as saídas de cada etapa na execução, selecione o botão de reticências (**...**) para essa execução e selecione **Mostrar execução**.
 
    Por exemplo, aqui está o status passo a passo para uma execução após a atualização do fluxo de trabalho de exemplo com a ação de resposta.
 
@@ -631,22 +707,22 @@ Depois de fazer atualizações em seu aplicativo lógico, você pode executar ou
 
 1. Para interromper a sessão de depuração, no menu **executar** , selecione **parar depuração** (Shift + F5).
 
-<a name="publish-azure"></a>
+<a name="deploy-azure"></a>
 
-## <a name="publish-to-azure"></a>Publicar no Azure
+## <a name="deploy-to-azure"></a>Implantar no Azure
 
-Em Visual Studio Code, você pode implantar seu projeto diretamente no Azure, que publica seu aplicativo lógico usando o novo tipo de recurso de **aplicativo lógico (versão prévia)** . Semelhante ao recurso de aplicativo de funções no Azure Functions, a implantação para esse novo tipo de recurso requer que você selecione um [plano de hospedagem e tipo de preço](../app-service/overview-hosting-plans.md), que pode ser configurado durante a implantação. Para obter mais informações sobre planos de hospedagem e preços, consulte estes tópicos:
+No Visual Studio Code, você pode publicar diretamente seu projeto no Azure, que implanta seu aplicativo lógico usando o novo tipo de recurso de **aplicativo lógico (versão prévia)** . Semelhante ao recurso de aplicativo de funções no Azure Functions, a implantação para esse novo tipo de recurso requer que você selecione um [plano de hospedagem e tipo de preço](../app-service/overview-hosting-plans.md), que pode ser configurado durante a implantação. Para obter mais informações sobre planos de hospedagem e preços, consulte estes tópicos:
 
 * [Escalar verticalmente um serviço de Azure App](../app-service/manage-scale-up.md)
 * [Escala e hospedagem do Azure Functions](../azure-functions/functions-scale.md)
 
 Você pode publicar seu aplicativo lógico como um novo recurso, que cria automaticamente quaisquer recursos adicionais necessários, como uma [conta de armazenamento do Azure, semelhante aos requisitos do aplicativo de funções](../azure-functions/storage-considerations.md). Ou então, você pode publicar seu aplicativo lógico em um recurso de aplicativo lógico implantado anteriormente **(versão prévia)** , que substitui esse aplicativo lógico.
 
-### <a name="publish-as-a-new-logic-app-preview-resource"></a>Publicar como um novo recurso de aplicativo lógico (versão prévia)
+### <a name="publish-to-a-new-logic-app-preview-resource"></a>Publicar em um novo recurso de aplicativo lógico (versão prévia)
 
-1. Na barra de ferramentas Código do Visual Studio, selecione o ícone do Azure.
+1. Na barra de atividade do Visual Studio Code, selecione o ícone do Azure.
 
-1. Na barra de ferramentas **do painel Azure: aplicativos lógicos (visualização)** , selecione **implantar no aplicativo lógico** .
+1. Na barra de ferramentas **do painel Azure: aplicativos lógicos (visualização)** , selecione **implantar no aplicativo lógico**.
 
    ![Captura de tela que mostra o painel "Azure: aplicativos lógicos (visualização)" e a barra de ferramentas do painel com "implantar no aplicativo lógico" selecionado.](./media/create-stateful-stateless-workflows-visual-studio-code/deploy-to-logic-app.png)
 
@@ -656,21 +732,21 @@ Você pode publicar seu aplicativo lógico como um novo recurso, que cria automa
    * **Criar novo aplicativo lógico (versão prévia) no Azure avançado**
    * Um recurso de **aplicativo lógico** implantado anteriormente (versão prévia), se existir algum
 
-   Este exemplo continua com **criar novo aplicativo lógico (versão prévia) no Azure avançado** .
+   Este exemplo continua com **criar novo aplicativo lógico (versão prévia) no Azure avançado**.
 
    ![Captura de tela que mostra o painel "Azure: aplicativos lógicos (visualização)" com uma lista com "criar novo aplicativo lógico (visualização) no Azure" selecionado.](./media/create-stateful-stateless-workflows-visual-studio-code/select-create-logic-app-options.png)
 
 1. Para criar seu novo recurso de **aplicativo lógico (versão prévia)** , siga estas etapas:
 
-   1. Forneça um nome global exclusivo para seu novo aplicativo lógico, que é o nome a ser usado para o recurso de **aplicativo lógico (versão prévia)** . Este exemplo usa o `example-logic-app-preview`.
+   1. Forneça um nome global exclusivo para seu novo aplicativo lógico, que é o nome a ser usado para o recurso de **aplicativo lógico (versão prévia)** . Este exemplo usa o `Fabrikam-Workflows-App`.
 
       ![Captura de tela que mostra o painel "Azure: aplicativos lógicos (visualização)" e um prompt para fornecer um nome para o novo aplicativo lógico a ser criado.](./media/create-stateful-stateless-workflows-visual-studio-code/enter-logic-app-name.png)
 
-   1. Selecione um plano de hospedagem para seu novo aplicativo lógico, ou para o [**plano do serviço de aplicativo**](../azure-functions/functions-scale.md#app-service-plan) ou [**Premium**](../azure-functions/functions-scale.md#premium-plan). Este exemplo seleciona o **plano do serviço de aplicativo** .
+   1. Selecione um plano de hospedagem para seu novo aplicativo lógico, ou para o [**plano do serviço de aplicativo**](../azure-functions/dedicated-plan.md) ou [**Premium**](../azure-functions/functions-premium-plan.md). Este exemplo seleciona o **plano do serviço de aplicativo**.
 
       ![Captura de tela que mostra o painel "Azure: aplicativos lógicos (visualização)" e um prompt para selecionar "plano do serviço de aplicativo" ou "Premium".](./media/create-stateful-stateless-workflows-visual-studio-code/select-hosting-plan.png)
 
-   1. Crie um novo plano do serviço de aplicativo ou selecione um plano existente. Este exemplo seleciona **criar novo plano do serviço de aplicativo** .
+   1. Crie um novo plano do serviço de aplicativo ou selecione um plano existente. Este exemplo seleciona **criar novo plano do serviço de aplicativo**.
 
       ![Captura de tela que mostra o painel "Azure: aplicativos lógicos (visualização)" e um prompt para "criar novo plano do serviço de aplicativo" ou selecionar um plano do serviço de aplicativo existente.](./media/create-stateful-stateless-workflows-visual-studio-code/create-app-service-plan.png)
 
@@ -687,42 +763,108 @@ Você pode publicar seu aplicativo lógico como um novo recurso, que cria automa
 
       ![Captura de tela que mostra o painel "Azure: aplicativos lógicos (visualização)" e um prompt para criar ou selecionar uma conta de armazenamento.](./media/create-stateful-stateless-workflows-visual-studio-code/create-storage-account.png)
 
-   1. Para facilitar o registro em log de diagnóstico e o recurso de rastreamento, você pode selecionar um recurso de Application Insights existente. Caso contrário, você pode selecionar **criar novo recurso de Application insights** ou configurar Application Insights no portal do Azure depois de implantar seu aplicativo.
+   1. Se a criação e as configurações de implantação do aplicativo lógico dão suporte ao uso de [Application insights](../azure-monitor/app/app-insights-overview.md), você pode opcionalmente habilitar o log e o rastreamento de diagnóstico para seu aplicativo lógico. Isso pode ser feito quando você implanta seu aplicativo lógico do Visual Studio Code ou após a implantação. Você precisa ter uma instância de Application Insights, mas você pode criar esse recurso com [antecedência](../azure-monitor/app/create-workspace-resource.md), ao implantar seu aplicativo lógico ou após a implantação.
 
-      Antes de implantar o, certifique-se de adicionar o `logLevel` objeto ao `logging` objeto no **host.jsno** arquivo que existe no nível raiz do projeto e defina `Host.Triggers.Workflow` como `Information` , por exemplo:
+      Para habilitar o log e o rastreamento agora, siga estas etapas:
 
-      ```json
-      "logLevel": {
-         "Host.Triggers.Workflow": "Information"
-      },
-      ```
+      1. Selecione um recurso de Application Insights existente ou **crie um novo recurso de Application insights**.
 
-      Veja como a **host.jsno** arquivo pode parecer:
+      1. Na [portal do Azure](https://portal.azure.com), vá para o recurso de Application insights.
 
-      ```json
-      {
-         "version": "2.0",
-         "logging": {
-            "applicationInsights": {
-               "samplingExcludedTypes": "Request",
-               "samplingSettings": {
-                  "isEnabled": true
-               }
-            },
-            "logLevel": {
-               "Host.Triggers.Workflow": "Information"
+      1. No menu de recursos, selecione **visão geral**. Localize e copie o valor da **chave de instrumentação** .
+
+      1. No Visual Studio Code, no nível raiz do seu projeto, abra o **local.settings.jsno** arquivo.
+
+      1. No `Values` objeto, adicione a `APPINSIGHTS_INSTRUMENTATIONKEY` propriedade e defina o valor para a chave de instrumentação, por exemplo:
+
+         ```json
+         {
+            "IsEncrypted": false,
+            "Values": {
+               "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+               "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+               "APPINSIGHTS_INSTRUMENTATIONKEY": <instrumentation-key>
             }
          }
-      }
-      ``` 
+         ```
 
-   Quando terminar, Visual Studio Code começará a criar e implantar os recursos necessários para publicar seu aplicativo lógico.
+         > [!TIP]
+         > Você pode verificar se os nomes do gatilho e da ação aparecem corretamente em sua instância de Application Insights.
+         >
+         > 1. Na portal do Azure, vá para o recurso de Application Insights.
+         >
+         > 2. No menu recurso de recurso, em **investigar**, selecione **mapa de aplicativos**.
+         >
+         > 3. Examine os nomes de operação que aparecem no mapa.
+         >
+         > Algumas solicitações de entrada de gatilhos internos podem aparecer como duplicatas no mapa do aplicativo. 
+         > Em vez de usar o `WorkflowName.ActionName` formato, essas duplicatas usam o nome do fluxo de trabalho como o nome da operação e são originadas no host Azure functions.
 
-1. Para revisar e monitorar o processo de implantação, no menu **Exibir** , selecione **saída** . Na lista da barra de ferramentas da janela saída, selecione **aplicativos lógicos do Azure** .
+      1. Em seguida, você pode, opcionalmente, ajustar o nível de severidade para os dados de rastreamento que seu aplicativo lógico coleta e envia para sua instância de Application Insights.
+
+         Cada vez que um evento relacionado ao fluxo de trabalho acontece, como quando um fluxo de trabalho é disparado ou quando uma ação é executada, o tempo de execução emite vários rastreamentos. Esses rastreamentos abordam o tempo de vida do fluxo de trabalho e incluem, mas não se limitam a, os seguintes tipos de evento:
+
+         * Atividade de serviço, como iniciar, parar e erros.
+         * Atividade de trabalhos e Dispatcher.
+         * Atividade de fluxo de trabalho, como gatilho, ação e execução.
+         * Atividade de solicitação de armazenamento, como êxito ou falha.
+         * Atividade de solicitação HTTP, como entrada, saída, êxito e falha.
+         * Rastreamentos de desenvolvimento ad hoc, como mensagens de depuração.
+
+         Cada tipo de evento é atribuído a um nível de severidade. Por exemplo, o `Trace` nível captura as mensagens mais detalhadas, enquanto o `Information` nível captura a atividade geral no fluxo de trabalho, como quando o aplicativo lógico, o fluxo de trabalho, o gatilho e as ações são iniciados e interrompidos. Esta tabela descreve os níveis de severidade e seus tipos de rastreamento:
+
+         | Nível de severidade | Tipo de rastreamento |
+         |----------------|------------|
+         | Crítico | Logs que descrevem uma Falha irrecuperável em seu aplicativo lógico. |
+         | Depurar | Logs que você pode usar para investigação durante o desenvolvimento, por exemplo, chamadas HTTP de entrada e saída. |
+         | Erro | Logs que indicam uma falha na execução do fluxo de trabalho, mas não uma falha geral em seu aplicativo lógico. |
+         | Informações | Logs que acompanham a atividade geral em seu aplicativo lógico ou fluxo de trabalho, por exemplo: <p><p>-Quando um gatilho, uma ação ou uma execução é iniciada e termina. <br>-Quando o aplicativo lógico é iniciado ou encerrado. |
+         | Trace | Logs que contêm as mensagens mais detalhadas, por exemplo, solicitações de armazenamento ou atividade do Dispatcher, além de todas as mensagens relacionadas à atividade de execução do fluxo de trabalho. |
+         | Aviso | Logs que realçam um estado anormal em seu aplicativo lógico, mas não impedem sua execução. |
+         |||
+
+         Para definir o nível de severidade, no nível raiz do seu projeto, abra o **host.jsno** arquivo e localize o `logging` objeto. Esse objeto controla a filtragem de log para todos os fluxos de trabalho em seu aplicativo lógico e segue o [layout de ASP.NET Core para a filtragem de tipo de log](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering).
+
+         ```json
+         {
+            "version": "2.0",
+            "logging": {
+               "applicationInsights": {
+                  "samplingExcludedTypes": "Request",
+                  "samplingSettings": {
+                     "isEnabled": true
+                  }
+               }
+            }
+         }
+         ```
+
+         Se o `logging` objeto não contiver um `logLevel` objeto que inclua a `Host.Triggers.Workflow` propriedade, adicione esses itens. Defina a propriedade para o nível de severidade para o tipo de rastreamento desejado, por exemplo:
+
+         ```json
+         {
+            "version": "2.0",
+            "logging": {
+               "applicationInsights": {
+                  "samplingExcludedTypes": "Request",
+                  "samplingSettings": {
+                     "isEnabled": true
+                  }
+               },
+               "logLevel": {
+                  "Host.Triggers.Workflow": "Information"
+               }
+            }
+         }
+         ```
+
+   Quando você terminar as etapas de implantação, Visual Studio Code começará a criar e implantar os recursos necessários para publicar seu aplicativo lógico.
+
+1. Para revisar e monitorar o processo de implantação, no menu **Exibir** , selecione **saída**. Na lista da barra de ferramentas da janela saída, selecione **aplicativos lógicos do Azure**.
 
    ![Captura de tela que mostra a janela de saída com o "aplicativo lógico do Azure" selecionado na lista de barras de ferramentas, juntamente com o progresso e os status da implantação.](./media/create-stateful-stateless-workflows-visual-studio-code/logic-app-deployment-output-window.png)
 
-   Quando Visual Studio Code concluir a implantação do fluxo de trabalho do aplicativo lógico no Azure, essa mensagem será exibida:
+   Quando Visual Studio Code concluir a implantação do aplicativo lógico no Azure, a seguinte mensagem será exibida:
 
    ![Captura de tela que mostra uma mensagem informando que a implantação para o Azure foi concluída com êxito.](./media/create-stateful-stateless-workflows-visual-studio-code/deployment-to-azure-completed.png)
 
@@ -730,15 +872,33 @@ Você pode publicar seu aplicativo lógico como um novo recurso, que cria automa
 
 Em seguida, você pode aprender a executar estas tarefas:
 
-* [Localize seu aplicativo lógico implantado na portal do Azure](#find-manage-deployed-workflows-portal) ou [no Visual Studio Code](#find-manage-deployed-workflows-vs-code).
+* [Adicione um fluxo de trabalho em branco ao seu projeto](#add-workflow-existing-project).
 
-* [Habilite o histórico de execução em fluxos de trabalho de aplicativo lógico sem estado](#run-history).
+* [Gerencie aplicativos lógicos implantados no Visual Studio Code](#manage-deployed-apps-vs-code) ou usando o [portal do Azure](#manage-deployed-apps-portal).
 
-* [Habilite o monitoramento em um recurso de aplicativo lógico implantado **(versão prévia)**](#enable-monitoring).
+* [Habilite o histórico de execução em fluxos de trabalho sem estado](#enable-run-history-stateless).
 
-<a name="find-manage-deployed-workflows-vs-code"></a>
+* [Habilite o modo de exibição de monitoramento no portal do Azure para um aplicativo lógico implantado](#enable-monitoring).
 
-## <a name="find-and-manage-deployed-logic-apps-in-visual-studio-code"></a>Localizar e gerenciar aplicativos lógicos implantados no Visual Studio Code
+<a name="add-workflow-existing-project"></a>
+
+## <a name="add-blank-workflow-to-project"></a>Adicionar fluxo de trabalho em branco ao projeto
+
+Você pode ter vários fluxos de trabalho em seu projeto de aplicativo lógico. Para adicionar um fluxo de trabalho em branco ao seu projeto, siga estas etapas:
+
+1. Na barra de atividade do Visual Studio Code, selecione o ícone do Azure.
+
+1. No painel do Azure, ao lado de **Azure: aplicativos lógicos (versão prévia)**, selecione **criar fluxo de trabalho** (ícone para aplicativos lógicos do Azure).
+
+1. Selecione o tipo de fluxo de trabalho que você deseja adicionar, com **estado** ou **sem estado**.
+
+1. Forneça um nome para o fluxo de trabalho.
+
+Quando terminar, uma nova pasta de fluxo de trabalho será exibida em seu projeto junto com um **workflow.jsno** arquivo para a definição de fluxo de trabalho.
+
+<a name="manage-deployed-apps-vs-code"></a>
+
+## <a name="manage-deployed-logic-apps-in-visual-studio-code"></a>Gerenciar aplicativos lógicos implantados no Visual Studio Code
 
 No Visual Studio Code, você pode exibir todos os aplicativos lógicos implantados em sua assinatura do Azure, sejam eles os **aplicativos lógicos** originais ou o tipo de recurso **aplicativo lógico (versão prévia)** e selecionar tarefas que ajudam a gerenciar esses aplicativos lógicos. No entanto, para acessar ambos os tipos de recurso, você precisa dos **aplicativos lógicos do Azure** e das extensões de **aplicativos lógicos do Azure (versão prévia)** para Visual Studio Code.
 
@@ -752,15 +912,15 @@ No Visual Studio Code, você pode exibir todos os aplicativos lógicos implantad
 
 1. Para exibir todos os fluxos de trabalho no aplicativo lógico, expanda seu aplicativo lógico e, em seguida, expanda o nó **fluxos de trabalho** .
 
-1. Para exibir um fluxo de trabalho específico, abra o menu de atalho do fluxo de trabalho e selecione **abrir no designer** , que abre o fluxo de trabalho no modo somente leitura.
+1. Para exibir um fluxo de trabalho específico, abra o menu de atalho do fluxo de trabalho e selecione **abrir no designer**, que abre o fluxo de trabalho no modo somente leitura.
 
    Para editar o fluxo de trabalho, você tem estas opções:
 
-   * No Visual Studio Code, abra o **workflow.js** do seu projeto no arquivo no designer do aplicativo lógico, faça suas edições e reimplante seu aplicativo lógico no Azure.
+   * No Visual Studio Code, abra oworkflow.jsdo projeto **no** arquivo no designer de fluxo de trabalho, faça suas edições e reimplante seu aplicativo lógico no Azure.
 
-   * Na portal do Azure, [Localize e abra seu aplicativo lógico](#find-manage-deployed-workflows-portal). Localize, edite e salve o fluxo de trabalho.
+   * Na portal do Azure, [Localize e abra seu aplicativo lógico](#manage-deployed-apps-portal). Localize, edite e salve o fluxo de trabalho.
 
-1. Para abrir o aplicativo lógico implantado no portal do Azure, abra o menu de atalho do aplicativo lógico e selecione **abrir no portal** .
+1. Para abrir o aplicativo lógico implantado no portal do Azure, abra o menu de atalho do aplicativo lógico e selecione **abrir no portal**.
 
    O portal do Azure é aberto no navegador, você entra no portal automaticamente se estiver conectado a Visual Studio Code e mostra seu aplicativo lógico.
 
@@ -770,18 +930,13 @@ No Visual Studio Code, você pode exibir todos os aplicativos lógicos implantad
 
    ![Captura de tela que mostra a portal do Azure e a barra de pesquisa com os resultados da pesquisa para o aplicativo lógico implantado, que aparece selecionado.](./media/create-stateful-stateless-workflows-visual-studio-code/find-deployed-workflow-azure-portal.png)
 
-<a name="find-manage-deployed-workflows-portal"></a>
+<a name="manage-deployed-apps-portal"></a>
 
-## <a name="find-and-manage-deployed-logic-apps-in-the-portal"></a>Localizar e gerenciar aplicativos lógicos implantados no portal
+## <a name="manage-deployed-logic-apps-in-the-portal"></a>Gerenciar aplicativos lógicos implantados no portal
 
-No portal do Azure, você pode exibir todos os aplicativos lógicos implantados que estão em sua assinatura do Azure, sejam eles o tipo de recurso **aplicativos lógicos** originais ou o tipo de recurso **aplicativo lógico (versão prévia)** . Atualmente, cada tipo de recurso é organizado e gerenciado como categorias separadas no Azure.
+No portal do Azure, você pode exibir todos os aplicativos lógicos implantados que estão em sua assinatura do Azure, sejam eles o tipo de recurso **aplicativos lógicos** originais ou o tipo de recurso **aplicativo lógico (versão prévia)** . Atualmente, cada tipo de recurso é organizado e gerenciado como categorias separadas no Azure. Para localizar aplicativos lógicos que têm o tipo de recurso **aplicativo lógico (versão prévia)** , siga estas etapas:
 
-> [!NOTE]
-> Para visualização pública, você só pode exibir recursos de aplicativo lógico implantado **(versão prévia)** no portal do Azure, não criar novos recursos de **aplicativo lógico (versão prévia)** . Você pode criar esses aplicativos lógicos somente no Visual Studio Code. No entanto, você pode [Adicionar fluxos de trabalho](#add-workflows) a aplicativos lógicos implantados com esse tipo de recurso.
-
-Para localizar aplicativos lógicos que têm o tipo de recurso **aplicativo lógico (versão prévia)** , siga estas etapas:
-
-1. Na caixa de pesquisa portal do Azure, digite `logic app preview` . Quando a lista de resultados aparecer, em **Serviços** , selecione **aplicativo lógico (versão prévia)** .
+1. Na caixa de pesquisa portal do Azure, digite `logic app preview` . Quando a lista de resultados aparecer, em **Serviços**, selecione **aplicativo lógico (versão prévia)**.
 
    ![Captura de tela que mostra a caixa de pesquisa portal do Azure com o texto de pesquisa "visualização do aplicativo lógico".](./media/create-stateful-stateless-workflows-visual-studio-code/portal-find-logic-app-preview-resource.png)
 
@@ -793,7 +948,7 @@ Para localizar aplicativos lógicos que têm o tipo de recurso **aplicativo lóg
 
    ![Captura de tela que mostra a página de recursos do fluxo de trabalho do aplicativo lógico no portal do Azure.](./media/create-stateful-stateless-workflows-visual-studio-code/deployed-workflow-azure-portal.png)
 
-1. Para exibir os fluxos de trabalho neste aplicativo lógico, no menu do aplicativo lógico, selecione **fluxos de trabalho** .
+1. Para exibir os fluxos de trabalho neste aplicativo lógico, no menu do aplicativo lógico, selecione **fluxos de trabalho**.
 
    O painel **fluxos de trabalho** mostra todos os fluxos de trabalho no aplicativo lógico atual. Este exemplo mostra o fluxo de trabalho que você criou no Visual Studio Code.
 
@@ -803,49 +958,47 @@ Para localizar aplicativos lógicos que têm o tipo de recurso **aplicativo lóg
 
    O painel fluxo de trabalho é aberto e mostra mais informações e tarefas que podem ser executadas nesse fluxo de trabalho.
 
-   Por exemplo, para exibir as etapas no fluxo de trabalho, selecione **Designer** .
+   Por exemplo, para exibir as etapas no fluxo de trabalho, selecione **Designer**.
 
    ![Captura de tela que mostra o painel "visão geral" do fluxo de trabalho selecionado, enquanto o menu fluxo de trabalho mostra o comando "designer" selecionado.](./media/create-stateful-stateless-workflows-visual-studio-code/workflow-overview-pane-select-designer.png)
 
-   O designer do aplicativo lógico é aberto e mostra o fluxo de trabalho que você criou Visual Studio Code. Agora você pode fazer alterações nesse fluxo de trabalho na portal do Azure.
+   O designer de fluxo de trabalho é aberto e mostra o fluxo de trabalho que você criou Visual Studio Code. Agora você pode fazer alterações nesse fluxo de trabalho na portal do Azure.
 
-   ![Captura de tela que mostra o designer de aplicativo lógico e o fluxo de trabalho implantado de Visual Studio Code.](./media/create-stateful-stateless-workflows-visual-studio-code/opened-workflow-designer.png)
+   ![Captura de tela que mostra o Workflow Designer e o fluxo de trabalho implantados de Visual Studio Code.](./media/create-stateful-stateless-workflows-visual-studio-code/opened-workflow-designer.png)
 
-<a name="add-workflows"></a>
+<a name="add-workflow-portal"></a>
 
-## <a name="add-a-workflow-to-deployed-logic-apps"></a>Adicionar um fluxo de trabalho a aplicativos lógicos implantados
+## <a name="add-another-workflow-in-the-portal"></a>Adicionar outro fluxo de trabalho no portal
 
 Por meio do portal do Azure, você pode adicionar fluxos de trabalho em branco a um recurso de **aplicativo lógico (versão prévia)** implantado de Visual Studio Code e criar esses fluxos de trabalho no portal do Azure.
 
 1. Na [portal do Azure](https://portal.azure.com), localize e selecione o recurso aplicativo lógico implantado **(versão prévia)** .
 
-1. No menu do aplicativo lógico, selecione **fluxos de trabalho** . No painel **fluxos de trabalho** , selecione **Adicionar** .
+1. No menu do aplicativo lógico, selecione **fluxos de trabalho**. No painel **fluxos de trabalho** , selecione **Adicionar**.
 
    ![Captura de tela que mostra o painel "fluxos de trabalho" do aplicativo lógico selecionado e a barra de ferramentas com o comando "Adicionar" selecionado.](./media/create-stateful-stateless-workflows-visual-studio-code/add-new-workflow.png)
 
-1. No **novo painel fluxo de trabalho** , forneça um nome para o fluxo de trabalho. Selecione a opção com **estado** ou **sem monitoração de estado** **>** **Create** .
+1. No **novo painel fluxo de trabalho** , forneça um nome para o fluxo de trabalho. Selecione a opção com **estado** ou **sem monitoração de estado** **>** .
 
-   Depois que o Azure implantar o novo fluxo de trabalho, que aparece no painel **fluxos de trabalho** , selecione esse fluxo de trabalho para executar o gerenciamento e outras tarefas, como abrir o designer de aplicativo lógico ou o modo de exibição de código.
+   Depois que o Azure implantar o novo fluxo de trabalho, que aparece no painel **fluxos de trabalho** , selecione esse fluxo de trabalho para que você possa gerenciar e executar outras tarefas, como abrir o designer ou a exibição de código.
 
    ![Captura de tela que mostra o fluxo de trabalho selecionado com opções de gerenciamento e revisão.](./media/create-stateful-stateless-workflows-visual-studio-code/view-new-workflow.png)
 
    Por exemplo, abrir o designer para um novo fluxo de trabalho mostra uma tela em branco. Agora você pode criar esse fluxo de trabalho no portal do Azure.
 
-   ![Captura de tela que mostra o designer do aplicativo lógico e um fluxo de trabalho em branco.](./media/create-stateful-stateless-workflows-visual-studio-code/opened-blank-workflow-designer.png)
+   ![Captura de tela que mostra o designer de fluxo de trabalho e um fluxo de trabalho em branco.](./media/create-stateful-stateless-workflows-visual-studio-code/opened-blank-workflow-designer.png)
 
-<a name="run-history"></a>
+<a name="enable-run-history-stateless"></a>
 
-## <a name="run-history-for-stateless-logic-app-workflows"></a>Histórico de execuções de fluxos de trabalho de aplicativo lógico sem estado
+## <a name="enable-run-history-for-stateless-workflows"></a>Habilitar o histórico de execuções para fluxos de trabalho sem estado
 
-Para depurar mais facilmente um fluxo de trabalho de aplicativo lógico sem estado, você pode habilitar o histórico de execução para esse fluxo de trabalho em Visual Studio Code ou no portal do Azure e, em seguida, desabilitar o histórico de execução quando terminar.
+Para depurar um fluxo de trabalho sem estado com mais facilidade, você pode habilitar o histórico de execução para esse fluxo de trabalho e, em seguida, desabilitar o histórico de execução quando terminar. Siga estas etapas para Visual Studio Code ou, se estiver trabalhando no portal do Azure, confira [criar fluxos de trabalho com e sem estado no portal do Azure](create-stateful-stateless-workflows-azure-portal.md#enable-run-history-stateless).
 
-### <a name="for-a-stateless-logic-app-workflow-in-visual-studio-code"></a>Para um fluxo de trabalho de aplicativo lógico sem estado no Visual Studio Code
-
-Se você estiver trabalhando no e executando o fluxo de trabalho do aplicativo lógico sem estado localmente no Visual Studio Code, siga estas etapas:
-
-1. Em seu projeto, localize e expanda a pasta **fluxo de trabalho-designtime** . Localize e abra o **local.settings.jsno** arquivo.
+1. Em seu projeto de Visual Studio Code, expanda a pasta **Workflow-designtime** e abra o **local.settings.jsno** arquivo.
 
 1. Adicione a `Workflows.{yourWorkflowName}.operationOptions` propriedade e defina o valor como `WithStatelessRunHistory` , por exemplo:
+
+   **Windows ou Linux**
 
    ```json
    {
@@ -858,97 +1011,134 @@ Se você estiver trabalhando no e executando o fluxo de trabalho do aplicativo l
    }
    ```
 
-1. Para desabilitar o histórico de execuções quando terminar, exclua a `Workflows.{yourWorkflowName}.OperationOptions` propriedade e seu valor ou defina a propriedade como `None` .
+   **macOS**
 
-### <a name="for-a-stateless-logic-app-workflow-in-the-azure-portal"></a>Para um fluxo de trabalho de aplicativo lógico sem estado no portal do Azure
+   ```json
+   {
+      "IsEncrypted": false,
+      "Values": {
+         "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=fabrikamstorageacct; \
+             AccountKey=<access-key>;EndpointSuffix=core.windows.net",
+         "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+         "Workflows.{yourWorkflowName}.OperationOptions": "WithStatelessRunHistory"
+      }
+   }
+   ```
 
-Se você já implantou seu projeto no portal do Azure, siga estas etapas:
-
-1. Na [portal do Azure](https://portal.azure.com), localize e abra seu recurso de **aplicativo lógico (versão prévia)** .
-
-1. No menu do aplicativo lógico, em **configurações** , selecione **configuração** .
-
-1. Na guia **configurações do aplicativo** , selecione **nova configuração de aplicativo** .
-
-1. No painel **Adicionar/Editar configuração de aplicativo** , na caixa **nome** , digite este nome de opção de operação: 
-
-   `Workflows.{yourWorkflowName}.OperationOptions`
-
-1. Na caixa **valor** , insira o seguinte valor: `WithStatelessRunHistory`
-
-   Por exemplo:
-
-   ![Captura de tela que mostra o portal do Azure e o recurso de aplicativo lógico (versão prévia) com a "configuração" > "nova configuração de aplicativo" < painel "Adicionar/Editar configuração de aplicativo" aberto e os "fluxos de trabalho. {yourWorkflowName}. Operationoptions ", opção definida como" WithStatelessRunHistory ".](./media/create-stateful-stateless-workflows-visual-studio-code/stateless-operation-options-run-history.png)
-
-1. Quando terminar, selecione **OK** . No painel **configuração** , selecione **salvar** .
-
-Para habilitar o monitoramento em seu recurso de aplicativo lógico implantado (versão prévia), continue na próxima seção.
+1. Para desabilitar o histórico de execuções quando terminar, defina a `Workflows.{yourWorkflowName}.OperationOptions` propriedade como `None` ou exclua a propriedade e seu valor.
 
 <a name="enable-monitoring"></a>
 
-## <a name="enable-monitoring-for-deployed-logic-app-preview-resources"></a>Habilitar o monitoramento de recursos do aplicativo lógico implantado (versão prévia)
+## <a name="enable-monitoring-view-in-the-azure-portal"></a>Habilitar o modo de exibição de monitoramento no portal do Azure
 
-Para habilitar o monitoramento em um recurso de aplicativo lógico implantado **(versão prévia)** , siga estas etapas:
+Depois de implantar um recurso de **aplicativo lógico (versão prévia)** de Visual Studio Code para o Azure, você pode examinar qualquer histórico de execução disponível e detalhes de um fluxo de trabalho nesse recurso usando o portal do Azure e a experiência de **Monitor** para esse fluxo de trabalho. No entanto, primeiro você precisa habilitar a funcionalidade de exibição de **Monitor** nesse recurso de aplicativo lógico.
 
 1. Na [portal do Azure](https://portal.azure.com), localize e selecione o recurso aplicativo lógico implantado **(versão prévia)** .
 
-1. No menu desse recurso, em **API** , selecione **CORS** .
+1. No menu desse recurso, em **API**, selecione **CORS**.
 
-1. No painel **CORS** , em **origens permitidas** , adicione o caractere curinga (*).
+1. No painel **CORS** , em **origens permitidas**, adicione o caractere curinga (*).
 
-1. Quando terminar, na barra de ferramentas **CORS** , selecione **salvar** .
+1. Quando terminar, na barra de ferramentas **CORS** , selecione **salvar**.
 
-   ![Captura de tela que mostra a portal do Azure com um recurso de aplicativos lógicos implantados (versão prévia). No menu de recursos, "CORS" é selecionado com uma nova entrada para "origens permitidas" definida como o caractere curinga "*".](./media/create-stateful-stateless-workflows-visual-studio-code/enable-run-history-deployed-logic-app.png)
+   ![Captura de tela que mostra a portal do Azure com um recurso de aplicativo lógico implantado (versão prévia). No menu de recursos, "CORS" é selecionado com uma nova entrada para "origens permitidas" definida como o caractere curinga "*".](./media/create-stateful-stateless-workflows-visual-studio-code/enable-run-history-deployed-logic-app.png)
+
+<a name="enable-open-application-insights"></a>
+
+## <a name="enable-or-open-application-insights-after-deployment"></a>Habilitar ou abrir Application Insights após a implantação
+
+Durante a execução do fluxo de trabalho, seu aplicativo lógico emite telemetria junto com outros eventos. Você pode usar essa telemetria para obter melhor visibilidade sobre o quão bem o fluxo de trabalho é executado e como o tempo de execução dos aplicativos lógicos funciona de várias maneiras. Você pode monitorar seu fluxo de trabalho usando [Application insights](../azure-monitor/app/app-insights-overview.md), que fornece telemetria quase em tempo real (métricas ao vivo). Esse recurso pode ajudá-lo a investigar falhas e problemas de desempenho mais facilmente ao usar esses dados para diagnosticar problemas, configurar alertas e criar gráficos.
+
+Se a criação e as configurações de implantação do aplicativo lógico dão suporte ao uso de [Application insights](../azure-monitor/app/app-insights-overview.md), você pode opcionalmente habilitar o log e o rastreamento de diagnóstico para seu aplicativo lógico. Isso pode ser feito quando você implanta seu aplicativo lógico do Visual Studio Code ou após a implantação. Você precisa ter uma instância de Application Insights, mas você pode criar esse recurso com [antecedência](../azure-monitor/app/create-workspace-resource.md), ao implantar seu aplicativo lógico ou após a implantação.
+
+Para habilitar Application Insights em um aplicativo lógico implantado ou examinar Application Insights dados quando já estiver habilitado, siga estas etapas:
+
+1. Na portal do Azure, localize seu aplicativo lógico implantado.
+
+1. No menu do aplicativo lógico, em **configurações**, selecione **Application insights**.
+
+1. Se Application Insights não estiver habilitado, no painel **Application insights** , selecione **Ativar Application insights**. Depois que o painel for atualizado, na parte inferior, selecione **aplicar**.
+
+   Se Application Insights estiver habilitado, no painel **Application insights** , selecione **exibir dados de Application insights**.
+
+Depois que Application Insights for aberto, você poderá examinar várias métricas para seu aplicativo lógico. Para obter mais informações, consulte [aplicativos lógicos do Azure em execução em qualquer lugar-monitor com Application insights-parte 1](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/1877849).
 
 <a name="deploy-docker"></a>
 
-## <a name="deploy-to-docker-container"></a>Implantar no contêiner do Docker
+## <a name="deploy-to-docker"></a>Implantar no Docker
 
-Usando a [ferramenta CLI (interface de linha de comando) do .NET Core](/dotnet/core/tools/), você pode criar seu projeto e, em seguida, publicar sua compilação. Em seguida, você pode criar e usar um [contêiner do Docker](/visualstudio/docker/tutorials/docker-tutorial#what-is-a-container) como o destino para implantar o fluxo de trabalho do aplicativo lógico. Para obter mais informações, consulte estes tópicos:
+Você pode implantar seu aplicativo lógico em um [contêiner do Docker](/visualstudio/docker/tutorials/docker-tutorial#what-is-a-container) como o ambiente de hospedagem usando a [CLI do .net](/dotnet/core/tools/). Com esses comandos, você pode criar e publicar o projeto do aplicativo lógico. Em seguida, você pode compilar e executar o contêiner do Docker como o destino para implantar seu aplicativo lógico.
 
+Se você não estiver familiarizado com o Docker, leia estes tópicos:
+
+* [O que é o Docker?](/dotnet/architecture/microservices/container-docker-introduction/docker-defined)
 * [Introdução aos contêineres e ao Docker](/dotnet/architecture/microservices/container-docker-introduction/)
 * [Introdução ao .NET e ao Docker](/dotnet/core/docker/introduction)
-* [Terminologia do Docker](/dotnet/architecture/microservices/container-docker-introduction/docker-terminology)
-* [Tutorial: introdução ao Docker](/visualstudio/docker/tutorials/docker-tutorial)
+* [Registros, imagens e contêineres do Docker](/dotnet/architecture/microservices/container-docker-introduction/docker-containers-images-registries)
+* [Tutorial: introdução ao Docker (Visual Studio Code)](/visualstudio/docker/tutorials/docker-tutorial)
 
-1. Para criar seu projeto, abra um prompt de linha de comando e execute este comando:
+### <a name="requirements"></a>Requisitos
+
+* A conta de armazenamento do Azure que seu aplicativo lógico usa para implantação
+
+* Um arquivo do Docker para um fluxo de trabalho do .NET que você usa ao criar o contêiner do Docker
+
+   Por exemplo, este arquivo do Docker de exemplo implanta um aplicativo lógico com um fluxo de trabalho com estado. O arquivo especifica a cadeia de conexão e a chave de acesso para a conta de armazenamento do Azure que foi usada para publicar o aplicativo lógico no portal do Azure.
+
+   ```text
+   FROM mcr.microsoft.com/dotnet/core/sdk3.1 AS installer-env
+
+   COPY . /src/dotnet-function-app
+   RUN cd /src/dotnet-function-app && \
+       mkdir -p /home/site/wwwroot && \
+       dotnet publish *.csproj --output /home/site/wwwroot
+
+   FROM mcr.microsoft.com/azure-functions/dotnet:3.0
+   ENV AzureWebJobsStorage <storage-account-connection-string>
+   ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
+       AzureFunctionsJobHost__Logging__Console__IsEnabled=true \
+       FUNCTIONS_V2_COMPATIBILITY_MODE=true
+
+   COPY --from=installer-env ["/home/site/wwwroot", "/home/site/wwwroot"]
+   ```
+
+   Para obter mais informações, consulte [práticas recomendadas para gravar arquivos do Docker](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
+
+### <a name="build-and-publish-your-app"></a>Crie e publique seu aplicativo
+
+1. Para criar o projeto do aplicativo lógico localmente, abra um prompt de linha de comando e execute este comando:
 
    `dotnet build -c release`
 
    Para obter mais informações, consulte a página de referência de [Build do dotnet](/dotnet/core/tools/dotnet-build/) .
 
-1. Publique sua compilação executando este comando:
+1. Publique o Build do seu projeto em uma pasta a ser usada para implantação no ambiente de hospedagem executando este comando:
 
    `dotnet publish -c release`
 
    Para obter mais informações, consulte a página de referência do [dotnet Publish](/dotnet/core/tools/dotnet-publish/) .
 
-1. Crie um contêiner do Docker usando um arquivo do Docker para um fluxo de trabalho do .NET e execute este comando:
+### <a name="access-to-your-storage-account"></a>Acesso à sua conta de armazenamento
 
-   `docker build --tag local/workflowcontainer .`
+Antes de criar e executar o contêiner do Docker, você precisa obter a cadeia de conexão que contém as chaves de acesso para sua conta de armazenamento.
 
-   Por exemplo, aqui está um exemplo de arquivo Docker que implanta um aplicativo lógico com estado e especifica a cadeia de conexão para a conta de armazenamento do Azure que foi usada para publicar o aplicativo lógico no portal do Azure. Para localizar e copiar a cadeia de conexão da conta de armazenamento no portal do Azure, examine [gerenciar chaves da conta de armazenamento](../storage/common/storage-account-keys-manage.md?tabs=azure-portal#view-account-access-keys).
+1. No portal do Azure, no menu da conta de armazenamento, em **configurações**, selecione **chaves de acesso**. 
 
    ![Captura de tela que mostra a portal do Azure com chaves de acesso da conta de armazenamento e cadeia de conexão copiadas.](./media/create-stateful-stateless-workflows-visual-studio-code/find-storage-account-connection-string.png)
 
-   A cadeia de conexão é semelhante a este exemplo:
+1. Em **cadeia de conexão**, copie a cadeia de conexão da sua conta de armazenamento. A cadeia de conexão é semelhante a este exemplo:
 
-   `DefaultEndpointsProtocol=https;AccountName=fabrikamstorageaccount;AccountKey={access-key};EndpointSuffix=core.windows.net`
+   `DefaultEndpointsProtocol=https;AccountName=fabrikamstorageacct;AccountKey={access-key};EndpointSuffix=core.windows.net`
 
-   Este é o formato do arquivo do Docker:
+   Para obter mais informações, consulte [gerenciar chaves de conta de armazenamento](../storage/common/storage-account-keys-manage.md?tabs=azure-portal#view-account-access-keys).
 
+1. Salve a cadeia de conexão em algum lugar seguro. Em seu projeto de aplicativo lógico, você precisa adicionar essa cadeia de caracteres a ambos **local.settings.jsem** arquivos. Você também precisa adicionar essa cadeia de caracteres ao arquivo do Docker.
 
-   ```text
-   FROM mcr.microsoft.com/azure-functions/dotnet:3.0.14492-appservice
+### <a name="build-and-run-your-docker-container-image"></a>Compilar e executar a imagem de contêiner do Docker
 
-   ENV AzureWebJobsStorage <storage-account-connection-string>
-   ENV AZURE_FUNCTIONS_ENVIRONMENT Development
-   ENV AzureWebJobsScriptRoot=/home/site/wwwroot
-   ENV AzureFunctionsJobHost__Logging__Console__IsEnabled=true
-   ENV FUNCTIONS_V2_COMPATIBILITY_MODE=true
+1. Crie a imagem de contêiner do Docker usando o arquivo do Docker e execute este comando:
 
-   COPY ./bin/Release/netcoreapp3.1/publish/ /home/site/wwwroot
-   ```
+   `docker build --tag local/workflowcontainer .`
 
    Para obter mais informações, consulte [Docker Build](https://docs.docker.com/engine/reference/commandline/build/).
 
@@ -960,71 +1150,144 @@ Usando a [ferramenta CLI (interface de linha de comando) do .NET Core](/dotnet/c
 
    Para obter mais informações, consulte [Docker Run](https://docs.docker.com/engine/reference/commandline/run/).
 
-1. Para obter a URL de retorno de chamada para o gatilho de solicitação, envie esta solicitação:
+### <a name="get-callback-url-for-request-trigger"></a>Obter URL de retorno de chamada para o gatilho de solicitação
 
-   `POST /runtime/webhooks/workflow/api/management/workflows/{workflow-name}/triggers/{trigger-name}/listCallbackUrl?api-version=2019-10-01-edge-preview&code={master-key}`
+Para obter a URL de retorno de chamada para o gatilho de solicitação, envie esta solicitação:
 
-   O valor < *master-key* > é definido na conta de armazenamento do Azure que você definiu para `AzureWebJobsStorage` no arquivo, **Azure-webjobs-segredos/{Deployment-Name}/host.jsem** , onde você pode encontrar o valor nesta seção:
+`POST /runtime/webhooks/workflow/api/management/workflows/{workflow-name}/triggers/{trigger-name}/listCallbackUrl?api-version=2020-05-01-preview&code={master-key}`
 
-   ```json
-   {
-     <...>
-     "masterKey": {
-        "name": "master",
-        "value": "<master-key>",
-        "encrypted": false
-     },
-     <...>
+O valor <*master-key*> é definido na conta de armazenamento do Azure que você definiu para `AzureWebJobsStorage` no arquivo, **Azure-webjobs-segredos/{Deployment-Name}/host.jsem**, onde você pode encontrar o valor nesta seção:
+
+```json
+{
+   <...>
+   "masterKey": {
+      "name": "master",
+      "value": "<master-key>",
+      "encrypted": false
+   },
+   <...>
    }
+```
+
+<a name="delete-from-designer"></a>
+
+## <a name="delete-items-from-the-designer"></a>Excluir itens do designer
+
+Para excluir um item em seu fluxo de trabalho do designer, siga qualquer uma destas etapas:
+
+* Selecione o item, abra o menu de atalho do item (Shift + F10) e selecione **excluir**. Para confirmar, selecione **OK**.
+
+* Selecione o item e pressione a tecla Delete. Para confirmar, selecione **OK**.
+
+* Selecione o item para que o painel de detalhes seja aberto para esse item. No canto superior direito do painel, abra o menu de reticências (**...**) e selecione **excluir**. Para confirmar, selecione **OK**.
+
+  ![Captura de tela que mostra um item selecionado no designer com o painel de detalhes aberto mais o botão de reticências selecionadas e o comando "excluir".](./media/create-stateful-stateless-workflows-visual-studio-code/delete-item-from-designer.png)
+
+  > [!TIP]
+  > Se o menu de reticências não estiver visível, expanda Visual Studio Code janela larga o suficiente para que o painel detalhes mostre o botão de reticências (**...**) no canto superior direito.
+
+<a name="troubleshooting"></a>
+
+## <a name="troubleshoot-errors-and-problems"></a>Solucionar problemas e erros
+
+<a name="designer-fails-to-open"></a>
+
+### <a name="opening-designer-fails-with-error-workflow-design-time-could-not-be-started"></a>Falha ao abrir o designer com o erro: "não foi possível iniciar o tempo de design do fluxo de trabalho"
+
+1. Em Visual Studio Code, abra a janela saída. No menu **Exibir** , selecione **saída**.
+
+1. Na lista da barra de título da janela de saída, selecione **aplicativos lógicos do Azure (versão prévia)** para que você possa examinar a saída da extensão, por exemplo:
+
+   ![Captura de tela que mostra a janela de saída com "aplicativos lógicos do Azure" selecionado.](./media/create-stateful-stateless-workflows-visual-studio-code/check-outout-window-azure-logic-apps.png)
+
+1. Examine a saída e verifique se esta mensagem de erro é exibida:
+
+   ```text
+   A host error has occurred during startup operation '{operationID}'.
+   System.Private.CoreLib: The file 'C:\Users\{userName}\AppData\Local\Temp\Functions\
+   ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle.Workflows\1.1.1\bin\
+   DurableTask.AzureStorage.dll' already exists.
+   Value cannot be null. (Parameter 'provider')
+   Application is shutting down...
+   Initialization cancellation requested by runtime.
+   Stopping host...
+   Host shutdown completed.
    ```
 
-<a name="nested-behavior"></a>
+   Esse erro pode ocorrer se você tentou anteriormente abrir o designer e, em seguida, descontinuau ou excluiu seu projeto. Para resolver esse erro, exclua a pasta **ExtensionBundles** neste local **. ..\Users \\ {Your-username} \AppData\Local\Temp\Functions\ExtensionBundles** e tente abrir novamente o **workflow.jsno** arquivo no designer.
 
-## <a name="nested-behavior-differences-between-stateful-and-stateless-logic-apps"></a>Diferenças de comportamento aninhado entre aplicativos lógicos com estado e sem estado
+<a name="missing-triggers-actions"></a>
 
-Você pode [fazer com que um fluxo de trabalho de aplicativo lógico](../logic-apps/logic-apps-http-endpoint.md) possa ser chamado por outros fluxos de trabalho de aplicativo lógico que existam no mesmo recurso de **aplicativo lógico (versão prévia)** usando o gatilho de [solicitação](../connectors/connectors-native-reqres.md) , o gatilho de [webhook http](../connectors/connectors-native-webhook.md) ou gatilhos de conector gerenciado que têm o [tipo ApiConnectionWehook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) e podem receber solicitações HTTPS.
+### <a name="new-triggers-and-actions-are-missing-from-the-designer-picker-for-previously-created-workflows"></a>Novos gatilhos e ações estão ausentes no seletor de designer para fluxos de trabalho criados anteriormente
 
-Aqui estão os padrões de comportamento que os fluxos de trabalho de aplicativo lógico aninhados podem seguir depois que um fluxo de trabalho pai chama um fluxo de trabalho filho:
+A versão prévia dos aplicativos lógicos do Azure dá suporte a ações internas para operações de Azure Function, operações de Liquid e operações XML, como **validação de XML** e **XML de transformação**. No entanto, para aplicativos lógicos criados anteriormente, essas ações podem não aparecer no seletor de designer para que você selecione se Visual Studio Code usa uma versão desatualizada do pacote de extensão, `Microsoft.Azure.Functions.ExtensionBundle.Workflows` .
 
-* Padrão de sondagem assíncrona
+Além disso, o conector de operações e as ações do **Azure function** não aparecem no seletor de designer, a menos que você tenha habilitado ou selecionado os **conectores de uso do Azure** quando você criou seu aplicativo lógico. Se você não habilitou os conectores implantados pelo Azure no momento da criação do aplicativo, poderá habilitá-los em seu projeto no Visual Studio Code. Abra o **workflow.jsno** menu de atalho e selecione **usar conectores do Azure**.
 
-  O pai não aguarda uma resposta para sua chamada inicial, mas verifica continuamente o histórico de execução do filho até que o filho termine a execução. Por padrão, os fluxos de trabalho com estado seguem esse padrão, que é ideal para fluxos de trabalho filho de longa execução que podem exceder [os limites de tempo limite de solicitação](../logic-apps/logic-apps-limits-and-config.md).
+Para corrigir o pacote desatualizado, siga estas etapas para excluir o pacote desatualizado, que faz Visual Studio Code atualizar automaticamente o pacote de extensão para a versão mais recente.
 
-* Padrão síncrono ("disparar e esquecer")
+> [!NOTE]
+> Essa solução se aplica somente a aplicativos lógicos que você cria e implanta usando Visual Studio Code com a extensão de aplicativos lógicos do Azure (versão prévia), não os aplicativos lógicos que você criou usando o portal do Azure. Consulte [gatilhos e ações com suporte estão faltando no designer no portal do Azure](create-stateful-stateless-workflows-azure-portal.md#missing-triggers-actions).
 
-  O filho reconhece a chamada retornando imediatamente uma `202 ACCEPTED` resposta, e o pai continua para a próxima ação sem esperar os resultados do filho. Em vez disso, o pai recebe os resultados quando o filho termina de ser executado. Fluxos de trabalho com estado filho que não incluem uma ação de resposta sempre seguem o padrão síncrono. Para fluxos de trabalho com estado filho, o histórico de execução está disponível para análise.
+1. Salve qualquer trabalho que você não deseja perder e feche o Visual Studio.
 
-  Para habilitar esse comportamento, na definição JSON do fluxo de trabalho, defina a `operationOptions` propriedade como `DisableAsyncPattern` . Para obter mais informações, consulte [gatilho e tipos de ação – opções de operação](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options).
+1. Em seu computador, navegue até a seguinte pasta, que contém pastas com controle de versão para o pacote existente:
 
-* Gatilho e espera
+   `...\Users\{your-username}\.azure-functions-core-tools\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle.Workflows`
 
-  Para um fluxo de trabalho com estado filho, o pai espera por uma resposta que retorna os resultados do filho. Esse padrão funciona de forma semelhante ao uso do [gatilho http interno ou da ação](../connectors/connectors-native-http.md) para chamar um fluxo de trabalho filho. Fluxos de trabalho sem estado filho que não incluem uma ação de resposta retornam imediatamente uma `202 ACCEPTED` resposta, mas o pai espera que o filho termine antes de continuar para a próxima ação. Esses comportamentos se aplicam somente a fluxos de trabalho sem estado filho.
+1. Exclua a pasta versão do pacote anterior, por exemplo, se você tiver uma pasta para a versão 1.1.3, exclua essa pasta.
 
-Esta tabela especifica o comportamento do fluxo de trabalho filho com base em se o pai e o filho estão com estado, sem monitoração de estado ou são tipos de fluxo de trabalho mistos:
+1. Agora, navegue até a seguinte pasta, que contém pastas com versão para o pacote NuGet necessário:
 
-| Fluxo de trabalho pai | Fluxo de trabalho filho | Comportamento filho |
-|-----------------|----------------|----------------|
-| Com estado | Com estado | Assíncrono ou síncrono com `"operationOptions": "DisableAsyncPattern"` configuração |
-| Com estado | Sem estado | Gatilho e espera |
-| Sem estado | Com estado | Síncrono |
-| Sem estado | Sem estado | Gatilho e espera |
-||||
+   `...\Users\{your-username}\.nuget\packages\microsoft.azure.workflows.webjobs.extension`
 
-## <a name="limits"></a>limites
+1. Exclua a pasta versão do pacote anterior, por exemplo, se você tiver uma pasta para a versão 1.0.0.8-Preview, exclua essa pasta.
 
-Embora muitos [limites existentes para aplicativos lógicos do Azure](../logic-apps/logic-apps-limits-and-config.md) sejam os mesmos para esse tipo de recurso, aqui estão as diferenças nesta extensão de visualização pública:
+1. Reabra Visual Studio Code, seu projeto e o **workflow.jsno** arquivo no designer.
 
-* Conectores gerenciados: 50 solicitações por minuto por conexão
+Os gatilhos e as ações ausentes agora aparecem no designer.
 
-* Para a [ação de código embutido para a ação de JavaScript](../logic-apps/logic-apps-add-run-inline-code.md) , esses limites foram alterados:
+<a name="400-bad-request"></a>
 
-  * O limite de caracteres de código aumenta de 1.024 caracteres para 100.000 caracteres.
+### <a name="400-bad-request-appears-on-a-trigger-or-action"></a>"400 solicitação inadequada" aparece em um gatilho ou uma ação
 
-  * O limite de tempo para executar o código aumenta de cinco segundos para 15 segundos.
+Quando uma execução falha e você inspeciona a execução no modo de exibição monitoramento, esse erro pode aparecer em um gatilho ou ação que tem um nome mais longo, o que faz com que o URI (Uniform Resource Identifier) subjacente exceda o limite de caracteres padrão.
+
+Para resolver esse problema e ajustar para o URI mais longo, edite as `UrlSegmentMaxCount` `UrlSegmentMaxLength` chaves do registro e no seu computador seguindo as etapas abaixo. Os valores padrão dessa chave são descritos neste tópico, [Http.sys configurações do registro para Windows](/troubleshoot/iis/httpsys-registry-windows).
+
+> [!IMPORTANT]
+> Antes de começar, certifique-se de salvar seu trabalho. Essa solução exige que você reinicie o computador depois de terminar para que as alterações entrem em vigor.
+
+1. No computador, abra a janela **executar** e execute o `regedit` comando, que abre o editor do registro.
+
+1. Na caixa **controle de conta de usuário** , selecione **Sim** para permitir suas alterações no computador.
+
+1. No painel esquerdo, em **computador**, expanda os nós ao longo do caminho, **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters** e selecione **parâmetros**.
+
+1. No painel direito, localize as `UrlSegmentMaxCount` chaves do `UrlSegmentMaxLength` registro e.
+
+1. Aumente esses valores de chave o suficiente para que os URIs possam acomodar os nomes que você deseja usar. Se essas chaves não existirem, adicione-as à pasta **parâmetros** seguindo estas etapas:
+
+   1. No menu de atalho **parâmetros** , selecione **novo**  >  **valor DWORD (32 bits)**.
+
+   1. Na caixa de edição que aparece, insira `UrlSegmentMaxCount` como o novo nome de chave.
+
+   1. Abra o menu de atalho da nova chave e selecione **Modificar**.
+
+   1. Na caixa **Editar Cadeia de caracteres** exibida, insira o valor da chave de **dados do valor** desejado no formato hexadecimal ou Decimal. Por exemplo, `400` em hexadecimal é equivalente a `1024` em decimal.
+
+   1. Para adicionar o `UrlSegmentMaxLength` valor da chave, repita essas etapas.
+
+   Depois que você aumentar ou adicionar esses valores de chave, o editor do registro será semelhante a este exemplo:
+
+   ![Captura de tela que mostra o editor do registro.](media/create-stateful-stateless-workflows-visual-studio-code/edit-registry-settings-uri-length.png)
+
+1. Quando estiver pronto, reinicie o computador para que as alterações entrem em vigor.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Gostaríamos de conhecer suas experiências com essa extensão de visualização pública!
+Gostaríamos de conhecer suas experiências com a extensão de aplicativos lógicos do Azure (versão prévia)!
 
 * Para bugs ou problemas, [crie seus problemas no GitHub](https://github.com/Azure/logicapps/issues).
 * Para perguntas, solicitações, comentários e outros comentários, [Use este formulário de comentários](https://aka.ms/lafeedback).

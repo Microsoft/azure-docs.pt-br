@@ -12,12 +12,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 55c884375372b3fea2ff3153aa936893cf668903
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f702633f6311d4ae4a79452e9b1c9176125c56f9
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359978"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508386"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Atividade de procedimento armazenado do SQL Server
 > [!div class="op_single_selector" title1="Atividades de transformação"]
@@ -26,8 +26,8 @@ ms.locfileid: "92359978"
 > * [Atividade MapReduce](data-factory-map-reduce.md)
 > * [Atividade de streaming do Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Atividade do Spark](data-factory-spark.md)
-> * [Atividade de execução de lote Azure Machine Learning Studio (clássica)](data-factory-azure-ml-batch-execution-activity.md)
-> * [Atividade de recurso de atualização Azure Machine Learning Studio (clássica)](data-factory-azure-ml-update-resource-activity.md)
+> * [Atividade de execução em lotes do Azure Machine Learning Studio (clássico)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Atividade do recurso de atualização do Azure Machine Learning Studio (clássico)](data-factory-azure-ml-update-resource-activity.md)
 > * [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md)
 > * [Atividade do U-SQL da Análise Data Lake](data-factory-usql-activity.md)
 > * [Atividade personalizada do .NET](data-factory-use-custom-activities.md)
@@ -41,7 +41,7 @@ Use atividades de transformação de dados em um [pipeline](data-factory-create-
 Use a Atividade de Procedimento Armazenado para invocar um procedimento armazenado em um dos seguintes armazenamentos de dados em sua empresa ou em uma VM (máquina virtual) do Azure:
 
 - Banco de Dados SQL do Azure
-- Azure Synapse Analytics (antigo SQL Data Warehouse)
+- Azure Synapse Analytics
 - Banco de Dados do SQL Server. Se estiver usando o SQL Server, instale o Gateway de Gerenciamento de Dados no mesmo computador que hospeda o banco de dados ou em um computador separado com acesso ao banco de dados. O Gateway de Gerenciamento de Dados é um componente que conecta fontes de dados locais ou em uma VM do Azure a serviços de nuvem de maneira segura e gerenciada. Consulte o artigo [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md) para obter detalhes.
 
 > [!IMPORTANT]
@@ -127,7 +127,7 @@ Depois de criar o data factory, você cria um serviço vinculado do SQL do Azure
 ### <a name="create-an-output-dataset"></a>Criar um conjunto de dados de saída
 É necessário especificar um conjunto de dados de saída para uma atividade de procedimento armazenado, mesmo que o procedimento armazenado não produza dados. Isso ocorre porque é o conjunto de dados de saída que controla o agendamento da atividade (a frequência com que a atividade é executada – por hora, diária, etc.). O conjunto de dados de saída deve usar um **serviço vinculado** que se refere a um banco de dados SQL do Azure ou a uma análise Synapse do Azure ou a um banco de dados SQL Server no qual você deseja que o procedimento armazenado seja executado. O conjunto de resultados de saída pode servir como uma maneira de passar o resultado do procedimento armazenado para processamento subsequente por outra atividade ([encadeando atividades](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) no pipeline. No entanto, o Data Factory não trava automaticamente a saída de um procedimento armazenado para esse conjunto de dados. É o procedimento armazenado que grava em uma tabela SQL para a qual o conjunto de dados de saída aponta. Em alguns casos, o conjunto de dados de saída pode ser um **conjunto de dados fictício** (um conjunto de dados que aponta para uma tabela que realmente não contém a saída do procedimento armazenado). Esse conjunto de dados fictício é usado somente para especificar o agendamento para a execução da atividade de procedimento armazenado.
 
-1. Clique em... ** Mais** na barra de ferramentas, clique em **novo conjunto**de informações e clique em **SQL do Azure**. **Novo conjunto de dados** na barra de comandos e selecione **SQL Azure**.
+1. Clique em... **Mais** na barra de ferramentas, clique em **novo conjunto** de informações e clique em **SQL do Azure**. **Novo conjunto de dados** na barra de comandos e selecione **SQL Azure**.
 
     ![modo de exibição de árvore com serviço vinculado 2](media/data-factory-stored-proc-activity/new-dataset.png)
 2. Copie/cole o script JSON a seguir no editor de JSON.
@@ -161,7 +161,7 @@ Observe as seguintes propriedades:
 - O **storedProcedureName** nas propriedades de tipo está definido como **usp_sample** (nome do procedimento armazenado).
 - A seção **storedProcedureParameters** contém um parâmetro chamado **DateTime**. O nome e o uso de maiúsculas e minúsculas do parâmetro no JSON devem corresponder ao nome e ao uso de maiúsculas e minúsculas do parâmetro na definição de procedimento armazenado. Se você precisar passar nulo para um parâmetro, use a sintaxe: `"param1": null` (todas as letras minúsculas).
 
-1. Clique em... ** Mais** na barra de comandos e clique em **novo pipeline**.
+1. Clique em... **Mais** na barra de comandos e clique em **novo pipeline**.
 2. Copie/cole o seguinte snippet de código JSON:
 
     ```JSON

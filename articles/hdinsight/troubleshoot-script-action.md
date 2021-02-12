@@ -1,19 +1,16 @@
 ---
 title: Solucionar problemas de ações de script no Azure HDInsight
 description: Etapas gerais de solução de problemas para ações de script no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 977e3571a24e8be9d9ef6cd79e80e654ca944fa4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7158e9f82ee01b320d448baeab51fcfd122be00d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538809"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944675"
 ---
 # <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>Solucionar problemas de ações de script no Azure HDInsight
 
@@ -27,15 +24,15 @@ Você pode usar a interface do usuário da Web do Apache Ambari para exibir info
 
 1. Em um navegador da Web, navegue até `https://CLUSTERNAME.azurehdinsight.net`, em que `CLUSTERNAME` é o nome do cluster.
 
-1. Na barra na parte superior da página, selecione a entrada **ops** . Uma lista exibe as operações atuais e anteriores realizadas no cluster por meio do Ambari.
+1. Na barra na parte superior da página, selecione a entrada **ops**. Uma lista exibe as operações atuais e anteriores realizadas no cluster por meio do Ambari.
 
     ![Barra de interface do usuário da Web do Ambari com o item "ops" selecionado](./media/troubleshoot-script-action/hdi-apache-ambari-nav.png)
 
-1. Localize as entradas com **run\_customscriptaction** na coluna **Operações** . Essas entradas são criadas quando as ações de script são executadas.
+1. Localize as entradas com **run\_customscriptaction** na coluna **Operações**. Essas entradas são criadas quando as ações de script são executadas.
 
     ![Operações de ação de script do Apache Ambari](./media/troubleshoot-script-action/ambari-script-action.png)
 
-    Para exibir as saídas **STDOUT** e **STDERR** , selecione a entrada **run\customscriptaction** e faça drill down pelos links. Essa saída é gerada ao executar o script e pode conter informações úteis.
+    Para exibir as saídas **STDOUT** e **STDERR**, selecione a entrada **run\customscriptaction** e faça drill down pelos links. Essa saída é gerada ao executar o script e pode conter informações úteis.
 
 ### <a name="default-storage-account"></a>Conta de armazenamento padrão
 
@@ -45,13 +42,13 @@ Se a criação do cluster falhar devido a um erro de script, os logs serão mant
 
     ![Logs de ação de script](./media/troubleshoot-script-action/script-action-logs-in-storage.png)
 
-    Nesse diretório, os logs são organizados separadamente em **nó de cabeçalho** , **nó de trabalho** e **nó do zookeeper** . Veja os exemplos a seguir:
+    Nesse diretório, os logs são organizados separadamente em **nó de cabeçalho**, **nó de trabalho** e **nó do zookeeper**. Veja os exemplos a seguir:
 
-    * **Cabeçalho** : `<ACTIVE-HEADNODE-NAME>.cloudapp.net`
+    * **Cabeçalho**: `<ACTIVE-HEADNODE-NAME>.cloudapp.net`
 
-    * **Nó de trabalho** : `<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
+    * **Nó de trabalho**: `<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
 
-    * **Nó Zookeeper** : `<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
+    * **Nó Zookeeper**: `<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
 
 * Todos os **stdout** e **stderr** do host correspondente são carregados na conta de armazenamento. Há um **output-\*.txt** e um **errors-\*.txt** para cada ação de script. O arquivo **output-*.txt** contém informações sobre o URI do script que foi executado no host. O texto a seguir é um exemplo destas informações:
 
@@ -59,7 +56,7 @@ Se a criação do cluster falhar devido a um erro de script, os logs serão mant
     'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
     ```
 
-* É possível criar repetidamente um cluster de ação de script com o mesmo nome. Nesse caso, você pode distinguir os logs relevantes com base no nome da pasta **DATE** . Por exemplo, a estrutura de pastas de um cluster, **mycluster** , criado em datas diferentes será semelhante às seguintes entradas de log:
+* É possível criar repetidamente um cluster de ação de script com o mesmo nome. Nesse caso, você pode distinguir os logs relevantes com base no nome da pasta **DATE**. Por exemplo, a estrutura de pastas de um cluster, **mycluster**, criado em datas diferentes será semelhante às seguintes entradas de log:
 
     `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-04` `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-05`
 
@@ -75,7 +72,7 @@ Não altere a senha do watchdog Ambari, hdinsightwatchdog, no seu cluster do HDI
 
 ## <a name="cant-import-name-blobservice"></a>Não é possível importar o BlobService de nome
 
-__Sintomas__ . Falha ao executar a ação de script. Um texto semelhante ao seguinte erro é exibido quando você visualiza a operação no Ambari:
+__Sintomas__. Falha ao executar a ação de script. Um texto semelhante ao seguinte erro é exibido quando você visualiza a operação no Ambari:
 
 ```
 Traceback (most recent call list):
@@ -84,9 +81,9 @@ Traceback (most recent call list):
 ImportError: cannot import name BlobService
 ```
 
-__Causa__ . Esse erro ocorre se você atualizar o cliente de Armazenamento do Microsoft Azure do Python incluído com o cluster do HDInsight. O HDInsight espera o cliente de Armazenamento do Azure 0.20.0.
+__Causa__. Esse erro ocorre se você atualizar o cliente de Armazenamento do Microsoft Azure do Python incluído com o cluster do HDInsight. O HDInsight espera o cliente de Armazenamento do Azure 0.20.0.
 
-__Resolução__ . Para resolver esse erro, conecte-se manualmente a cada nó de cluster usando `ssh`. Execute o seguinte comando para reinstalar a versão de cliente de armazenamento correta:
+__Resolução__. Para resolver esse erro, conecte-se manualmente a cada nó de cluster usando `ssh`. Execute o seguinte comando para reinstalar a versão de cliente de armazenamento correta:
 
 ```bash
 sudo pip install azure-storage==0.20.0
@@ -110,10 +107,4 @@ Há duas exceções:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
-
-* Obtenha respostas de especialistas do Azure por meio do [Suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
-
-* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Como se conectar à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
-
-* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte** . Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]

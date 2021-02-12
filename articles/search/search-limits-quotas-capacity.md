@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: f3763857af1df8f34f38b36835a667c6610e1909
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.date: 02/02/2021
+ms.openlocfilehash: 994ed74750d159dfdb83259e9fe921f870ec2241
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107820"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509360"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limites de serviço no Azure Cognitive Search
 
@@ -125,29 +125,25 @@ O número máximo de mapas de sinônimos varia por camada. Cada regra pode ter a
 | Mapas máximos de sinônimos |3 |3|5 |10 |20 |20 | 10 | 10 |
 | Número máximo de regras por mapa |5.000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |
 
-## <a name="queries-per-second-qps"></a>Consultas por segundo (QPS)
-
-As estimativas QPS devem ser desenvolvidas independentemente por cada cliente. Tamanho do índice e complexidade, o tamanho da consulta e complexidade e a quantidade de tráfego são determinantes principais de QPS. Não é possível oferecer estimativas significativas quando esses fatores são desconhecidos.
-
-As previsões são mais previsíveis quando calculada em serviços em execução em recursos dedicados (camadas Básico e Standard). No nível padrão, é possível estimar melhor o QPS, porque você tem controle sobre mais parâmetros. Para obter orientação sobre como a estimativa da abordagem, consulte [Desempenho e otimização do Azure Cognitive Search](search-performance-optimization.md).
-
-Para as camadas de Otimizado para armazenamento (L1 e L2), você deve esperar uma taxa de transferência de consulta inferior e uma latência mais alta do que as camadas Standard.
-
 ## <a name="data-limits-ai-enrichment"></a>Limites de dados (enriquecimento de IA)
 
 Um [pipeline de enriquecimento de IA](cognitive-search-concept-intro.md) que faz chamadas a um recurso de Análise de Texto para [reconhecimento de entidade](cognitive-search-skill-entity-recognition.md), [extração de frases-chave](cognitive-search-skill-keyphrases.md), [análise de sentimento](cognitive-search-skill-sentiment.md), [detecção de idioma](cognitive-search-skill-language-detection.md) e [detecção de informações pessoais](cognitive-search-skill-pii-detection.md) está sujeito a limites de dados. O tamanho máximo de um registro deve ser 50.000 caracteres conforme medido por [`String.Length`](/dotnet/api/system.string.length). Se você precisar interromper o backup de seus dados antes de enviá-lo ao analisador de sentimentos, use a [habilidade Text Split](cognitive-search-skill-textsplit.md).
 
 ## <a name="throttling-limits"></a>Limitações
 
-As consultas de pesquisa e solicitações de indexação são limitadas à medida que o sistema se aproxima da capacidade máxima. A limitação se comporta de maneira diferente para diferentes APIs. As APIs de consulta (pesquisa/sugestão/preenchimento automático) e as APIs de indexação são limitadas dinamicamente com base na carga no serviço. As APIs de índice têm limites de taxa de solicitação estática. 
+As solicitações de API são limitadas conforme o sistema se aproxima da capacidade de pico. A limitação se comporta de maneira diferente para diferentes APIs. As APIs de consulta (pesquisa/sugestão/preenchimento automático) e as APIs de indexação são limitadas dinamicamente com base na carga no serviço. As APIs de índice e a API de operações de serviço têm limites de taxa de solicitação estáticos. 
 
 Limites de solicitação de taxa estática para operações relacionadas a um índice:
 
-+ Listar índices (GET/índices): 5 por segundo por unidade de pesquisa
++ Listar índices (GET/indexes): 3 por segundo por unidade de pesquisa
 + Obter índice (GET/índices/myindex): 10 por segundo por unidade de pesquisa
 + Criar índice (POST/índices): 12 por minuto por unidade de pesquisa
 + Criar ou atualizar índice (PUT/índices/myindex): 6 por segundo por unidade de pesquisa
 + Excluir índice (DELETE/índices/myindex): 12 por minuto por unidade de pesquisa 
+
+Limites de solicitação de taxa estática para operações relacionadas a um serviço:
+
++ Estatísticas de serviço (GET/servicestats): 4 por segundo por unidade de pesquisa
 
 ## <a name="api-request-limits"></a>Limites de solicitação de API
 * Máximo de 16 MB por solicitação <sup>1</sup>

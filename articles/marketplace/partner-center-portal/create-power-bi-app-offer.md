@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/22/2020
-ms.openlocfilehash: 99c60cf541b3997f2aeca2ccef5a5af6b9c88e08
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: bff20468e8185073f5c192c1e115bc405dd089eb
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131489"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693618"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Criar uma oferta do aplicativo Power BI
 
@@ -23,8 +23,8 @@ Antes de começar, [crie uma conta do marketplace comercial no Partner Center](c
 ## <a name="create-a-new-offer"></a>Criar uma oferta
 
 1. Entre no [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. No menu de navegação esquerdo, selecione **Marketplace Comercial** > **Visão geral** .
-3. Na página de Visão geral, selecione **+ Nova oferta** > **Aplicativo de Serviço Power BI** .
+2. No menu de navegação esquerdo, selecione **Marketplace Comercial** > **Visão geral**.
+3. Na página de Visão geral, selecione **+ Nova oferta** > **Aplicativo de Serviço Power BI**.
 
    ![Ilustra o menu de navegação à esquerda.](./media/new-offer-power-bi-app.png)
 
@@ -36,16 +36,16 @@ Antes de começar, [crie uma conta do marketplace comercial no Partner Center](c
 
 ## <a name="new-offer"></a>Nova oferta
 
-Insira uma **ID da oferta** . Esse é um identificador exclusivo para cada oferta em sua conta.
+Insira uma **ID da oferta**. Esse é um identificador exclusivo para cada oferta em sua conta.
 
 - Essa ID é visível para os clientes no endereço Web para a oferta do marketplace e nos modelos do Azure Resource Manager, se aplicável.
 - Use apenas letras minúsculas e números. Ela pode incluir hifens e sublinhados, mas sem espaços, e está limitada a 50 caracteres. Por exemplo, se você inserir **test-offer-1** aqui, o endereço web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
-- A ID da oferta não pode ser alterada depois que você seleciona **Criar** .
+- A ID da oferta não pode ser alterada depois que você seleciona **Criar**.
 
-Insira um **Alias da oferta** . Esse é o nome usado para a oferta no Partner Center.
+Insira um **Alias da oferta**. Esse é o nome usado para a oferta no Partner Center.
 
 - Esse nome não é usado no Marketplace e é diferente do nome da oferta e de outros valores mostrados aos clientes.
-- O Alias da oferta não pode ser alterado depois que você seleciona **Criar** .
+- O Alias da oferta não pode ser alterado depois que você seleciona **Criar**.
 
 Selecione **Criar** para gerar a oferta e continuar.
 
@@ -97,7 +97,7 @@ Esta página permite que você defina as categorias e os setores usados para agr
 Selecione categorias e subcategorias para posicionar sua oferta nas áreas de pesquisa do Marketplace apropriadas. Descreva como sua oferta dá suporte a essas categorias na descrição da oferta. Selecione:
 
 - Pelo menos uma e até duas categorias, incluindo uma categoria primária e uma secundária (opcional).
-- Até duas subcategorias para cada categoria primária e/ou secundária. Se nenhuma subcategoria for aplicável à sua oferta, selecione **não aplicável** .
+- Até duas subcategorias para cada categoria primária e/ou secundária. Se nenhuma subcategoria for aplicável à sua oferta, selecione **não aplicável**.
 
 Veja a lista completa de categorias e subcategorias nas [melhores práticas de listagem de ofertas](../gtm-offer-listing-best-practices.md).
 
@@ -109,9 +109,7 @@ Veja a lista completa de categorias e subcategorias nas [melhores práticas de l
 
 #### <a name="terms-and-conditions"></a>Termos e condições
 
-Para fornecer os termos e as condições personalizados, insira até 10.000 caracteres na caixa **Termos e condições** . Se os termos e as condições exigirem uma descrição mais longa, insira um único link da Web no qual eles podem ser encontrados. Ele será exibido aos clientes como um link ativo.
-
-Para que os clientes experimentem sua oferta, eles devem aceitar esses termos.
+Para fornecer os termos e as condições personalizados, insira até 10.000 caracteres na caixa **Termos e condições**. Os clientes precisam aceitar esses termos antes de poderem experimentar sua oferta.
 
 Selecione **Salvar rascunho** antes de seguir para a próxima seção chamada Listagem de ofertas.
 
@@ -186,13 +184,13 @@ Insira o endereço Web para a política de privacidade da sua organização. Voc
 
 ### <a name="contact-information"></a>Informações de contato
 
-Você deve fornecer o nome, o e-mail e o número de telefone de um **Contato de suporte** e um **Contato de engenharia** . Essas informações não são mostradas aos clientes. Elas estão disponíveis para a Microsoft e podem ser fornecidas a parceiros CSP (provedores de solução de nuvem).
+Você deve fornecer o nome, o e-mail e o número de telefone de um **Contato de suporte** e um **Contato de engenharia**. Essas informações não são mostradas aos clientes. Elas estão disponíveis para a Microsoft e podem ser fornecidas a parceiros CSP (provedores de solução de nuvem).
 
 - Contato de suporte (obrigatório): Para questões gerais de suporte.
 - Contato de engenharia (obrigatório): para questões técnicas e problemas de certificação.
 - Contato de programa CSP (opcional): Para questões sobre o revendedor relacionadas ao programa CSP.
 
-Na seção **Contato do suporte** , forneça o endereço Web do **site de suporte** onde os parceiros podem encontrar suporte para sua oferta.
+Na seção **Contato do suporte**, forneça o endereço Web do **site de suporte** onde os parceiros podem encontrar suporte para sua oferta.
 
 ### <a name="supporting-documents"></a>Documentos de suporte
 
@@ -248,7 +246,7 @@ Opcionalmente, adicione instruções (até 3.000 caracteres) para ajudar a equip
 
 Depois de concluir todas as seções necessárias da oferta, você pode enviá-la para revisão e publicação.
 
-No canto superior direito do portal, selecione **Revisar e publicar** .
+No canto superior direito do portal, selecione **Revisar e publicar**.
 
 Na página de revisão, você pode:
 
@@ -258,6 +256,6 @@ Na página de revisão, você pode:
   - **Concluída** – a seção tem todos os dados necessários e não há erros. Todas as seções da oferta precisam ser concluídas para que você envie a oferta.
 - Forneça instruções de teste à equipe de certificação para garantir que seu aplicativo seja testado corretamente. Também forneça observações suplementares que ajudem a entender a sua oferta.
 
-Para enviar a oferta para publicação, selecione **Publicar** .
+Para enviar a oferta para publicação, selecione **Publicar**.
 
-Enviaremos um email para que você saiba quando uma versão prévia da oferta estiver disponível para revisão e aprovação. Para publicar sua oferta no público, vá para o Partner Center e selecione **Go-Live** .
+Enviaremos um email para que você saiba quando uma versão prévia da oferta estiver disponível para revisão e aprovação. Para publicar sua oferta no público, vá para o Partner Center e selecione **Go-Live**.

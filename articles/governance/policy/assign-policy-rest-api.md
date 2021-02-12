@@ -1,14 +1,14 @@
 ---
 title: 'Início Rápido: Nova atribuição de política com a API REST'
 description: Neste início rápido, use a API REST para criar uma atribuição do Azure Policy para identificar recursos sem conformidade.
-ms.date: 10/14/2020
+ms.date: 01/29/2021
 ms.topic: quickstart
-ms.openlocfilehash: ab05079c5bb319f0808a743a1d668649df51b1b3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 438d8004cd50e6e2ef7586c51adc63257f37978b
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073998"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219970"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-rest-api"></a>Início Rápido: Criar uma atribuição de política para identificar recursos sem conformidade com a API REST
 
@@ -47,6 +47,11 @@ Execute o comando a seguir para criar uma atribuição de política:
          "displayName": "Audit VMs without managed disks Assignment",
          "description": "Shows all virtual machines not using managed disks",
          "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d",
+         "nonComplianceMessages": [
+             {
+                 "message": "Virtual machines should use a managed disk"
+             }
+         ]
        }
      }
      ```
@@ -54,17 +59,18 @@ Execute o comando a seguir para criar uma atribuição de política:
 O ponto de extremidade e o corpo da solicitação anteriores usam as seguintes informações:
 
 URI da API REST:
-- **Escopo** : um escopo determina em quais recursos ou agrupamento de recursos a atribuição de política é imposta. Ele pode variar de um grupo de gerenciamento a um recurso individual. Substitua `{scope}` por um dos seguintes padrões:
+- **Escopo**: um escopo determina em quais recursos ou agrupamento de recursos a atribuição de política é imposta. Ele pode variar de um grupo de gerenciamento a um recurso individual. Substitua `{scope}` por um dos seguintes padrões:
   - Grupo de gerenciamento: `/providers/Microsoft.Management/managementGroups/{managementGroup}`
   - Assinatura: `/subscriptions/{subscriptionId}`
   - Grupo de recursos: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}`
   - Recurso: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}`
-- **Nome** - O nome real da atribuição. Neste exemplo, usamos _audit-vm-manageddisks_ .
+- **Nome** - O nome real da atribuição. Neste exemplo, usamos _audit-vm-manageddisks_.
 
 Corpo da solicitação:
-- **DisplayName** - O nome de exibição da atribuição de política. Nesse caso, você está usando _Auditar VMs sem atribuição de discos gerenciados_ .
+- **DisplayName** - O nome de exibição da atribuição de política. Nesse caso, você está usando _Auditar VMs sem atribuição de discos gerenciados_.
 - **Description** – uma explicação mais detalhada do que a política faz ou de por que ela está atribuída a esse escopo.
-- **policyDefinitionId** – a ID de definição da política, com base naquela que você está usando para criar a atribuição. Nesse caso, é a ID da definição de política _Auditar VMs que não usam discos gerenciados_ .
+- **policyDefinitionId** – a ID de definição da política, com base naquela que você está usando para criar a atribuição. Nesse caso, é a ID da definição de política _Auditar VMs que não usam discos gerenciados_.
+- **nonComplianceMessages**: define a mensagem vista quando um recurso é negado devido à não conformidade ou avaliado como fora de conformidade. Para obter mais informações, confira [Mensagens de não conformidade de atribuição](./concepts/assignment-structure.md#non-compliance-messages).
 
 ## <a name="identify-non-compliant-resources"></a>Identificar recursos fora de conformidade
 

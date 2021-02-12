@@ -1,18 +1,19 @@
 ---
-title: Requisitos de sistema
+title: Requisitos do sistema
 description: Lista os requisitos de sistema para renderização remota do Azure
 author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
-ms.openlocfilehash: 536f5e7d2fa12d1f9a9f09a31b463d2096dcad37
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.custom: references_regions
+ms.openlocfilehash: 4380f14610fb0775c82aa79ec7cda9dc70cf0715
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207403"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722684"
 ---
-# <a name="system-requirements"></a>Requisitos de sistema
+# <a name="system-requirements"></a>Requisitos do sistema
 
 > [!IMPORTANT]
 > No momento, o **Azure Remote Rendering** está em versão prévia pública.
@@ -64,7 +65,32 @@ Consulte o capítulo dedicado para [requisitos de rede](../reference/network-req
 
 Para solucionar problemas de rede, consulte o [Guia de solução de problemas](../resources/troubleshoot.md#unstable-holograms).
 
-### <a name="network-ports"></a>Portas de rede
+### <a name="network-firewall"></a>Firewall de rede
+
+### <a name="sdk-version--0176"></a>Versão do SDK >= 0.1.76
+
+As máquinas virtuais de renderização remota usam endereços IP compartilhados dos seguintes intervalos de IP:
+
+| Nome             | Região         | Prefixo de IP         |
+|------------------|:---------------|:------------------|
+| Leste da Austrália   | australiaeast  | 20.53.44.240/28   |
+| Leste dos EUA          | eastus         | 20.62.129.224/28  |
+| Leste dos EUA 2        | eastus2        | 20.49.103.240/28  |
+| Japan East       | japaneast      | 20.191.165.112/28 |
+| Norte da Europa     | northeurope    | 52.146.133.64/28  |
+| Centro-Sul dos Estados Unidos | southcentralus | 20.65.132.80/28   |
+| Sudeste Asiático   | southeastasia  | 20.195.64.224/28  |
+| Sul do Reino Unido         | uksouth        | 51.143.209.144/28 |
+| Europa Ocidental      | westeurope     | 20.61.99.112/28   |
+| Oeste dos EUA 2        | westus2        | 20.51.9.64/28     |
+
+Certifique-se de que seus firewalls (no dispositivo, dentro de roteadores, etc.) não bloqueiem esses intervalos de IP e os seguintes intervalos de porta:
+
+| Porta              | Protocolo  | Allow    |
+|-------------------|---------- |----------|
+| 49152-65534       | TCP/UDP | Saída |
+
+#### <a name="sdk-version--0176"></a>Versão do SDK < 0.1.76
 
 Verifique se os firewalls (no dispositivo, dentro de roteadores etc.) não bloqueiam as seguintes portas:
 

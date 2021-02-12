@@ -13,12 +13,12 @@ ms.date: 07/17/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: ea8629e53ec793b4a63c817b6ec83278a2d23871
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: e12beafc81cbc41ea070fbdda1d68990f6f3fcda
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674088"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063681"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Inicializar aplicativos cliente usando MSAL.js
 
@@ -37,8 +37,8 @@ Depois de registrar seu aplicativo, você precisará de alguns ou de todos os va
 | Valor | Obrigatório | Descrição |
 |:----- | :------: | :---------- |
 | ID do aplicativo (cliente) | Obrigatório | Um GUID que identifica exclusivamente seu aplicativo na plataforma de identidade da Microsoft. |
-| Authority | Opcional | A URL do provedor de identidade (a *instância* ) e o *público-alvo de entrada* para seu aplicativo. A instância e o público de entrada, quando concatenados, compõem a *autoridade* . |
-| ID do diretório (locatário) | Opcional | Especifique isso se você estiver criando um aplicativo de linha de negócios somente para sua organização, geralmente chamado de *aplicativo de locatário único* . |
+| Authority | Opcional | A URL do provedor de identidade (a *instância*) e o *público-alvo de entrada* para seu aplicativo. A instância e o público de entrada, quando concatenados, compõem a *autoridade*. |
+| ID do diretório (locatário) | Opcional | Especifique isso se você estiver criando um aplicativo de linha de negócios somente para sua organização, geralmente chamado de *aplicativo de locatário único*. |
 | URI de redirecionamento | Opcional | Se você estiver criando um aplicativo Web, o `redirectUri` especifica onde o provedor de identidade (a plataforma de identidade da Microsoft) deve retornar os tokens de segurança que ele emitiu. |
 
 ## <a name="initialize-msaljs-2x-apps"></a>Inicializar aplicativos MSAL.js 2. x
@@ -108,7 +108,7 @@ Invoque [handleRedirectPromise][msal-js-handleredirectpromise] quando seu aplica
 Há três resultados possíveis da promessa:
 
 - `.then` é invocado e `tokenResponse` é a verdade: o aplicativo está retornando de uma operação de redirecionamento que foi bem-sucedida.
-- `.then` é invocado e `tokenResponse` é falso ( `null` ): o aplicativo não está retornando de uma operação de redirecionamento.
+- `.then` é invocado e `tokenResponse` é false ( `null` ): o aplicativo não está retornando de uma operação de redirecionamento.
 - `.catch` é invocado: o aplicativo está retornando de uma operação de redirecionamento e ocorreu um erro.
 
 ## <a name="initialize-msaljs-1x-apps"></a>Inicializar aplicativos MSAL.js 1. x

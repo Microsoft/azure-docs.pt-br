@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: wellsi
-ms.openlocfilehash: a2652bed6c8e7dec0a6fe8f9471793c3873646bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf0580c96f5bf78f0444b2bb39088f2a417fd658
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82781752"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025054"
 ---
 # <a name="how-to-configure-a-microphone-array"></a>Como configurar uma Matriz de Microfone
 
-Neste artigo, você aprenderá a configurar uma [matriz de microfone](https://aka.ms/sdsdk-microphone). Ele inclui a definição do ângulo de trabalho e como selecionar qual microfone é usado para o SDK de dispositivos de fala.
+Neste artigo, você aprenderá a configurar uma [matriz de microfone](./speech-devices-sdk-microphone.md). Ele inclui a definição do ângulo de trabalho e como selecionar qual microfone é usado para o SDK de dispositivos de fala.
 
-O SDK dos dispositivos de fala funciona melhor com uma matriz de microfone que foi projetada de acordo com [nossas diretrizes](https://aka.ms/sdsdk-microphone). A configuração da matriz de microfone pode ser fornecida pelo sistema operacional ou fornecida por meio de um dos métodos a seguir.
+O SDK dos dispositivos de fala funciona melhor com uma matriz de microfone que foi projetada de acordo com [nossas diretrizes](./speech-devices-sdk-microphone.md). A configuração da matriz de microfone pode ser fornecida pelo sistema operacional ou fornecida por meio de um dos métodos a seguir.
 
 Inicialmente, o SDK de dispositivos de fala suportava matrizes de microfone selecionando um conjunto fixo de configurações.
 
@@ -49,7 +49,7 @@ Se uma matriz de microfone for especificada usando `AudioConfig::FromMicrophoneI
 A pilha de áudio da Microsoft no SDK de dispositivos de fala só dá suporte à diminuição de resolução para taxas de amostra que são integralmente múltiplos de 16 KHz. Além disso, há suporte para os seguintes formatos: IEEE de 32 bits little endian float, 32 de little endian de bits assinado int, little endian de 24 bits assinados int, 16 bits little endian int assinado e int com sinal de 8 bits.
 
 ## <a name="android"></a>Android
-Atualmente, somente o [Roobo v1](speech-devices-sdk-android-quickstart.md) é suportado pelo SDK dos dispositivos de fala. O comportamento é o mesmo que as versões anteriores, exceto que `MicArrayGeometryConfigFile` a propriedade Now pode ser usada para especificar o arquivo JSON que contém o intervalo beamforming.
+Atualmente, somente o [Roobo v1](./speech-devices-sdk-quickstart.md?pivots=platform-android%253fpivots%253dplatform-android) é suportado pelo SDK dos dispositivos de fala. O comportamento é o mesmo que as versões anteriores, exceto que `MicArrayGeometryConfigFile` a propriedade Now pode ser usada para especificar o arquivo JSON que contém o intervalo beamforming.
 
 ## <a name="microphone-array-configuration-json"></a>JSON de configuração de matriz de microfone
 

@@ -10,19 +10,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: a982c150349ca31fdf93a38b38910c3572b14d2f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 72b4755c6f01a10851e79cf274842f1599bc2c55
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078757"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349530"
 ---
 # <a name="what-are-the-bing-search-apis"></a>Quais são as APIs de Pesquisa do Bing?
 
 > [!WARNING]
-> APIs de Pesquisa do Bing estão mudando de serviços cognitivas para serviços Pesquisa do Bings. A partir de **30 de outubro de 2020** , todas as novas instâncias do pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
-> APIs de Pesquisa do Bing provisionado usando serviços cognitivas terão suporte nos próximos três anos ou até o final do seu Enterprise Agreement, o que ocorrer primeiro.
-> Para obter instruções de migração, consulte [serviços de pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Com as APIs de Pesquisa do Bing, é possível criar aplicativos e serviços conectados à Web que encontram páginas da Web, imagens, notícias, locais e muito mais, sem anúncios. Enviando solicitações de pesquisa usando os SDKs ou as APIs REST de Pesquisa do Bing, você pode obter conteúdo e informações relevantes para pesquisas na Web. Use este artigo para saber mais sobre as diferentes APIs de pesquisa do Bing e como você pode integrar pesquisas cognitivas em seus aplicativos e serviços. Preços e limites de taxa podem variar entre as APIs.
 
@@ -36,7 +36,7 @@ Considere usar a API de Pesquisa na Web do Bing em aplicativos que talvez precis
 
 As seguintes APIs de pesquisa do Bing retornam conteúdo específico da Web como imagens, notícias, empresas locais e vídeos.
 
-| API do Bing | Description |
+| API do Bing | Descrição |
 | -- | -- |
 | [Pesquisa de Entidade](../Bing-Entities-Search/overview.md) | A API de Pesquisa de Entidade do Bing retorna resultados da pesquisa contendo entidades, as quais podem ser pessoas, lugares ou coisas. Dependendo da consulta, a API retornará uma ou mais entidades que satisfaçam a consulta de pesquisa. A consulta de pesquisa pode incluir indivíduos notáveis, empresas locais, pontos de referência, destinos e muito mais. |
 | [Pesquisa de Imagem](../Bing-Image-Search/overview.md) | O API de Pesquisa de Imagem do Bing permite pesquisar e localizar imagens estáticas e animadas de alta qualidade semelhantes a [Bing.com/images](https://www.Bing.com/images). Você pode refinar a pesquisa para incluir ou excluir imagens por atributo, incluindo o tamanho, cor, licença e atualização. Você também pode pesquisar imagens mais populares, carregar imagens para obter informações sobre eles e exibir visualizações em miniatura. |

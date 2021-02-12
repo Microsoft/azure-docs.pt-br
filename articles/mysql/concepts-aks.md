@@ -1,17 +1,17 @@
 ---
 title: Conectar-se ao serviço kubernetes do Azure-banco de dados do Azure para MySQL
 description: Saiba como conectar o Serviço de Kubernetes do Azure ao Banco de Dados do Azure para MySQL
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: bc40903de09ebfe04858c631eee0233561784418
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5c4a5f5d792a60ed3fef07797fdbdfa0c9cfb8fe
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546901"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534323"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-mysql"></a>Conexão do Serviço de Kubernetes do Azure e Banco de Dados do Azure para MySQL
 
@@ -26,10 +26,10 @@ A partir de novembro de 2018, o AKS oferece suporte à rede acelerada nessas ins
 Você pode confirmar se o seu cluster AKS acelerou a rede:
 1. Vá para o portal do Azure e selecione seu cluster AKS.
 2. Selecione a guia Propriedades.
-3. Copie o nome do **Grupo de Recursos de Infraestrutura** .
+3. Copie o nome do **Grupo de Recursos de Infraestrutura**.
 4. Use a barra de pesquisa do portal para localizar e abrir o grupo de recursos de infraestrutura.
 5. Selecione uma VM nesse grupo de recursos.
-6. Vá para a guia VM **Rede** .
+6. Vá para a guia VM **Rede**.
 7. Confirme se a **Rede acelerada** está "Ativada".
 
 Ou por meio da CLI do Azure usando os dois comandos a seguir:

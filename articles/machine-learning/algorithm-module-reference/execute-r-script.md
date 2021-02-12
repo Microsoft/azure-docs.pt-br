@@ -1,20 +1,20 @@
 ---
 title: 'Executar script R: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo executar script R no Azure Machine Learning para executar o código R.
+description: Saiba como usar o módulo executar script R no Azure Machine Learning designer para executar código R personalizado.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/21/2020
-ms.openlocfilehash: a86c0b115ef866453e457ad528dd694ed7b49b48
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.date: 12/17/2020
+ms.openlocfilehash: bdd7fd8e19bf2de6d0b3c6b2edd4515771fae237
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330386"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118992"
 ---
 # <a name="execute-r-script-module"></a>Executar módulo de script R
 
@@ -49,7 +49,12 @@ azureml_main <- function(dataframe1, dataframe2){
 Para instalar pacotes de R adicionais, use o `install.packages()` método. Os pacotes são instalados para cada módulo executar script R. Eles não são compartilhados entre outros módulos executar script R.
 
 > [!NOTE]
+> **Não** é recomendável instalar o pacote R do grupo de script. É recomendável instalar pacotes diretamente no editor de scripts.
 > Especifique o repositório CRAN quando você estiver instalando pacotes, como `install.packages("zoo",repos = "http://cran.us.r-project.org")` .
+
+> [!WARNING]
+> O módulo excute R script não dá suporte à instalação de pacotes que exigem compilação nativa, como `qdap` o pacote, que requer Java e `drc` pacote que requer C++. Isso ocorre porque esse módulo é executado em um ambiente pré-instalado com permissão de não administrador.
+> Não instale pacotes pré-criados no/para Windows, pois os módulos de designer estão em execução no Ubuntu. Para verificar se um pacote é pré-compilado no Windows, você pode ir para [Cran](https://cran.r-project.org/) e pesquisar seu pacote, baixar um arquivo binário de acordo com seu sistema operacional e verificar a **compilação:** Part no arquivo de **Descrição** . Veja a seguir um exemplo: :::image type="content" source="media/module/r-package-description.png" alt-text="Descrição do pacote R" lightbox="media/module/r-package-page.png":::
 
 Este exemplo mostra como instalar o Zoo:
 ```R
@@ -78,25 +83,27 @@ azureml_main <- function(dataframe1, dataframe2){
  > [!NOTE]
  > Antes de instalar um pacote, verifique se ele já existe, para que você não repita uma instalação. As instalações repetitivas podem fazer com que as solicitações de serviço Web expirem o tempo limite.     
 
+## <a name="access-to-registered-dataset"></a>Acesso ao DataSet registrado
+
+Você pode consultar o seguinte código de exemplo para acessar os [conjuntos de valores registrados](../how-to-create-register-datasets.md) em seu espaço de trabalho:
+
+```R
+azureml_main <- function(dataframe1, dataframe2){
+  print("R script run.")
+  run = get_current_run()
+  ws = run$experiment$workspace
+  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "YOUR DATASET NAME")
+  dataframe2 <- dataset$to_pandas_dataframe()
+  # Return datasets as a Named List
+  return(list(dataset1=dataframe1, dataset2=dataframe2))
+}
+```
+
 ## <a name="uploading-files"></a>Carregando arquivos
 O módulo executar script R dá suporte ao carregamento de arquivos usando o SDK do R Azure Machine Learning.
 
 O exemplo a seguir mostra como carregar um arquivo de imagem em executar script R:
 ```R
-
-# R version: 3.5.1
-# The script MUST contain a function named azureml_main,
-# which is the entry point for this module.
-
-# Note that functions dependent on the X11 library,
-# such as "View," are not supported because the X11 library
-# is not preinstalled.
-
-# The entry point function MUST have two input arguments.
-# If the input port is not connected, the corresponding
-# dataframe argument will be null.
-#   Param<dataframe1>: a R DataFrame
-#   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){
   print("R script run.")
 
@@ -118,22 +125,6 @@ Depois que a execução do pipeline for concluída, você poderá visualizar a i
 
 > [!div class="mx-imgBorder"]
 > ![Visualização da imagem carregada](media/module/upload-image-in-r-script.png)
-
-## <a name="access-to-registered-dataset"></a>Acesso ao DataSet registrado
-
-Você pode consultar o seguinte código de exemplo para [acessar os conjuntos de valores registrados](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets#access-datasets-in-your-script) em seu espaço de trabalho:
-
-```R
-        azureml_main <- function(dataframe1, dataframe2){
-  print("R script run.")
-  run = get_current_run()
-  ws = run$experiment$workspace
-  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "YOUR DATASET NAME")
-  dataframe2 <- dataset$to_pandas_dataframe()
-  # Return datasets as a Named List
-  return(list(dataset1=dataframe1, dataset2=dataframe2))
-}
-```
 
 ## <a name="how-to-configure-execute-r-script"></a>Como configurar o executar script R
 
@@ -237,7 +228,7 @@ Há várias maneiras de estender seu pipeline usando scripts R personalizados. E
 
 O módulo executar script R dá suporte a arquivos de script R arbitrários como entradas. Para usá-los, você deve carregá-los em seu espaço de trabalho como parte do arquivo. zip.
 
-1. Para carregar um arquivo. zip que contém o código R para seu espaço de trabalho, vá para a página de ativos de **conjuntos** de arquivos. Selecione **criar conjunto**de texto e, em seguida, selecione **do arquivo local** e a opção tipo de conjunto de **arquivos** .  
+1. Para carregar um arquivo. zip que contém o código R para seu espaço de trabalho, vá para a página de ativos de **conjuntos** de arquivos. Selecione **criar conjunto** de texto e, em seguida, selecione **do arquivo local** e a opção tipo de conjunto de **arquivos** .  
 
 1. Verifique se o arquivo compactado aparece em **meus conjuntos** de arquivos na categoria **conjuntos** de arquivos na árvore de módulos à esquerda.
 
@@ -505,4 +496,4 @@ Os seguintes pacotes de R pré-instalados estão disponíveis no momento:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning.

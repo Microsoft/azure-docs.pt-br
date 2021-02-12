@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ebadaf51a7dfbb286dac0bbdb0c3c8437ae2356f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a278b6e725488d6107e6b0819e002d1dafe4774
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022217"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99591656"
 ---
 # <a name="tutorial-interfaces-and-custom-models"></a>Tutorial: Interfaces e modelos personalizados
 
@@ -30,18 +30,18 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="get-started-with-the-mixed-reality-toolkit-mrtk"></a>Introdução ao MRTK (Kit de Ferramentas de Realidade Misturada)
 
-O MRTK (Kit de Ferramentas de Realidade Misturada) é um kit de ferramentas de multiplataforma para criação de experiências de realidade misturada. Usaremos o MRTK 2.3 devido a seus recursos de interação e visualização.
+O MRTK (Kit de Ferramentas de Realidade Misturada) é um kit de ferramentas de multiplataforma para criação de experiências de realidade misturada. Usaremos o MRTK 2.5.1 devido aos recursos de interação e visualização.
 
-Para adicionar o MRTK, siga as [Etapas necessárias](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/Documentation/GettingStartedWithTheMRTK.html#required) listadas em [Introdução ao MRTK](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/Documentation/GettingStartedWithTheMRTK.html).
+Para adicionar o MRTK, siga as [Etapas necessárias](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/Documentation/Installation.html#required) listadas no [Guia de instalação do MRTK](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/Documentation/Installation.html).
 
 Essas etapas são:
- - [Obter os pacotes mais recentes do MRTK para Unity](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/Documentation/GettingStartedWithTheMRTK.html#get-the-latest-mrtk-unity-packages)
-     - Embora esteja indicado como "mais recente", ele é referente à versão 2.3.
+ - [Obter os pacotes mais recentes do MRTK para Unity](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/Documentation/Installation.html#1-get-the-latest-mrtk-unity-packages)
+     - Embora esteja escrito "mais recente", use a versão 2.5.1 na página de versão do MRTK.
      - Usamos apenas o pacote *Foundation* neste tutorial. Os pacotes *Extensions*, *Tools* e *Examples* não são necessários.
- - [Importar pacotes do MRTK para o projeto do Unity](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/Documentation/GettingStartedWithTheMRTK.html#import-mrtk-packages-into-your-unity-project)
- - [Mudar o projeto do Unity para a plataforma de destino](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/Documentation/GettingStartedWithTheMRTK.html#switch-your-unity-project-to-the-target-platform)
+ - [Importar pacotes do MRTK para o projeto do Unity](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/Documentation/Installation.html#2-import-mrtk-packages-into-your-unity-project)
+ - [Mudar o projeto do Unity para a plataforma de destino](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/Documentation/Installation.html#3-switch-your-unity-project-to-the-target-platform)
      - Você já deve ter executado essa etapa no primeiro capítulo, mas este é um bom momento para conferir novamente!
- - [Adicionar o MRTK a uma nova cena ou a um novo projeto](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/Documentation/GettingStartedWithTheMRTK.html#add-mrtk-to-a-new-scene-or-new-project)
+ - [Adicionar o MRTK a uma nova cena ou a um novo projeto](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/Documentation/Installation.html#4-add-and-configure-mrtk-with-a-new-scene)
      - Você pode adicionar o MRTK a uma nova cena e adicionar novamente os objetos/scripts de modelo e coordenador ou pode adicionar o MRTK à cena existente usando o comando de menu *Kit de Ferramentas de Realidade Misturada -> Adicionar à Cena e Configurar*.
 
 ## <a name="import-assets-used-by-this-tutorial"></a>Importar os ativos usados por este tutorial
@@ -94,7 +94,7 @@ Observe que o script **RemoteRenderedModel** implementa **BaseRemoteRenderedMode
 
 1. Crie um script chamado **RemoteRenderedModel** na mesma pasta que **RemoteRenderingCoordinator**. Substitua todo o conteúdo pelo seguinte código:
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 

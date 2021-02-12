@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.date: 12/07/2020
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fa1c2627917bfe386c488470f6a78db4c51f2ec
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 496a8dba9b9ea7fb82ad9016479154d6a61cb767
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363667"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703268"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Redefinição de senha de autoatendimento do Azure AD
 
@@ -69,11 +69,8 @@ Para começar a usar o SSPR, conclua o seguinte tutorial:
 > [!div class="nextstepaction"]
 > [Tutorial: habilitar redefinição de senha de autoatendimento (SSPR)](tutorial-enable-sspr.md)
 
-## <a name="registration-options"></a>Opções de registro
 
-Antes que os usuários possam redefinir ou alterar sua senha usando SSPR, eles devem se registrar e os métodos de autenticação a serem usados. Conforme mencionado na seção anterior, um usuário deve ser registrado para SSPR e ter uma licença apropriada aplicada.
-
-### <a name="require-users-to-register-when-they-sign-in"></a>Exigir que os usuários se cadastram ao entrarem
+## <a name="require-users-to-register-when-they-sign-in"></a>Exigir que os usuários se cadastram ao entrarem
 
 Você pode habilitar a opção para exigir que um usuário conclua o registro do SSPR se eles entrarem em qualquer aplicativo usando o Azure AD. Esse fluxo de trabalho inclui os seguintes aplicativos:
 
@@ -92,7 +89,7 @@ Quando você não exige registro, os usuários não são solicitados durante a e
 >
 > Essa interrupção para registrar para SSPR não interromperá a conexão do usuário se já tiver entrado.
 
-### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Definir o número de dias antes que os usuários precisem reconfirmar suas informações de autenticação
+## <a name="reconfirm-authentication-information"></a>Reconfirmar informações de autenticação
 
 Para certificar-se de que os métodos de autenticação estejam corretos quando forem necessários para redefinir ou alterar sua senha, você pode exigir que os usuários confirmem suas informações registradas sobre a informação após um determinado período de tempo. Essa opção só estará disponível se você habilitar a opção **exigir que os usuários se registrem ao entrar** .
 
@@ -140,7 +137,7 @@ Ao usar um aplicativo móvel como um método para redefinição de senha, como o
 Os usuários não têm a opção de registrar seu aplicativo móvel ao se registrar para redefinição de senha de autoatendimento do [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) . Os usuários podem registrar seu aplicativo móvel em [https://aka.ms/mfasetup](https://aka.ms/mfasetup) ou no registro de informações de segurança combinadas em [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo) .
 
 > [!IMPORTANT]
-> O aplicativo autenticador não pode ser selecionado como o único método de autenticação quando apenas o método é necessário. Da mesma forma, o aplicativo autenticador e apenas um método adicional não podem ser selecionados ao exigir dois métodos.
+> O aplicativo autenticador não pode ser selecionado como o único método de autenticação quando apenas um método é necessário. Da mesma forma, o aplicativo autenticador e apenas um método adicional não podem ser selecionados ao exigir dois métodos.
 >
 > Ao configurar políticas de SSPR que incluem o aplicativo autenticador como um método, pelo menos um método adicional deve ser selecionado quando um método é necessário e pelo menos dois métodos adicionais devem ser selecionados quando a configuração de dois métodos é necessária.
 >
@@ -152,7 +149,7 @@ Os usuários não têm a opção de registrar seu aplicativo móvel ao se regist
 
 Se você iniciar com uma política que tenha apenas um método de autenticação requerido para reiniciar ou desbloquear registrado e você alterar esse número para dois métodos, o que acontece?
 
-| Número de métodos registrados | Número de métodos necessários | Resultado |
+| Número de métodos registrados | Número de métodos necessários | Result |
 | :---: | :---: | :---: |
 | 1 ou mais | 1 | **Capaz** de redefinir ou desbloquear |
 | 1 | 2 | **Incapaz** de redefinir ou desbloquear |
@@ -182,7 +179,7 @@ Considere o seguinte cenário de exemplo:
 
 * Há quatro administradores em um ambiente.
 * *O administrador A* redefine sua senha usando SSPR.
-* Os administradores *B*, *C*e *D* recebem um email alertando-os sobre a redefinição de senha.
+* Os administradores *B*, *C* e *D* recebem um email alertando-os sobre a redefinição de senha.
 
 ## <a name="on-premises-integration"></a>Integração local
 
@@ -195,9 +192,9 @@ O Azure AD verifica sua conectividade híbrida atual e fornece uma das seguintes
 * Seu cliente de write-back local está em execução.
 * O Azure Active Directory está online e conectado ao seu cliente de write-back local. No entanto, parece que a versão instalada do Azure AD Connect está desatualizada. Considere [Atualizar o Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) para garantir que você tenha os recursos de conectividade e correções de bugs importantes mais recentes.
 * Infelizmente, não é possível verificar seu status do cliente de write-back local porque a versão instalada do Azure AD Connect está desatualizada. [Atualize o Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) para poder verificar o status da conexão.
-* Infelizmente, parece que neste momento não é possível conectarmos ao seu cliente de write-back local. [Solucionar problemas do Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) para restaurar a conexão.
+* Infelizmente, parece que neste momento não é possível conectarmos ao seu cliente de write-back local. [Solucionar problemas do Azure AD Connect](./troubleshoot-sspr-writeback.md) para restaurar a conexão.
 * Infelizmente, não podemos nos conectar ao seu cliente de write-back local porque o write-back de senha não foi configurado corretamente. [Configurar o write-back de senha](./tutorial-enable-sspr-writeback.md) para restaurar a conexão.
-* Infelizmente, parece que neste momento não é possível conectarmos ao seu cliente de write-back local. Isso pode ocorrer devido a problemas temporários em nossa extremidade. Se o problema persistir, consulte [Solucionar problemas o Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) para restaurar a conexão.
+* Infelizmente, parece que neste momento não é possível conectarmos ao seu cliente de write-back local. Isso pode ocorrer devido a problemas temporários em nossa extremidade. Se o problema persistir, consulte [Solucionar problemas o Azure AD Connect](./troubleshoot-sspr-writeback.md) para restaurar a conexão.
 
 Para começar a usar o write-back da SSPR, conclua o seguinte tutorial:
 

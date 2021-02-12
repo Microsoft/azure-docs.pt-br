@@ -3,12 +3,12 @@ title: Tutorial – fazer backup de bancos de dados do SAP HANA em VMs do Azure
 description: Neste tutorial, saiba o backup de bancos de dados SAP HANA executados em uma VM do Azure pode ser realizado no cofre dos Serviços de Recuperação do Backup do Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 8de567b9f895ea0b3fa4a0f85a8bbad8bf82588f
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 31a0a773096ec0f69e87bfd4a05f8ba98185e6cf
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173776"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695207"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Fazer backup de bancos de dados do SAP HANA em uma VM do Azure
 
@@ -107,9 +107,10 @@ O script de pré-registro executa as seguintes funções:
 * Executa verificações de conectividade de rede de saída com servidores de Backup do Azure e serviços dependentes como Azure Active Directory e o Armazenamento do Azure.
 * Ele faz logon em seu sistema HANA usando a chave de usuário listada como parte dos [pré-requisitos](#prerequisites). A chave do usuário é usada para criar um usuário de backup (AZUREWLBACKUPHANAUSER) no sistema HANA e **pode ser excluída após a execução bem-sucedida do script de pré-registro**.
 * Estas funções e permissões necessárias são atribuídas a AZUREWLBACKUPHANAUSER:
-  * ADMINISTRADOR DE BANCO DE DADOS (no caso de MDC) e ADMINISTRADOR DE BACKUP (no caso de SDC): para criar bancos de dados durante a restauração.
+  * Para MDC: ADMINISTRADOR DE BANCO DE DADOS e ADMINISTRADOR DE BACKUP (no caso do HANA 2.0 SPS05 em diante): para criar bancos de dados durante a restauração.
+  * Para SDC: ADMIN DO BANCO DE DADOS: para criar bancos de dados durante a restauração.
   * LEITURA DO CATÁLOGO: para ler o catálogo de backup.
-  * SAP_INTERNAL_HANA_SUPPORT: para acessar algumas tabelas privadas.
+  * SAP_INTERNAL_HANA_SUPPORT: para acessar algumas tabelas privadas. Necessário apenas para versões SDC e MDC anteriores ao HANA 2.0 SPS04 Rev 46. Isso não é necessário para o HANA 2.0 SPS04 Rev 46 e versões posteriores, já que estamos obtendo as informações necessárias de tabelas públicas agora com a correção da equipe do HANA.
 * O script adiciona uma chave a **hdbuserstore** para AZUREWLBACKUPHANAUSER para o plug-in de backup do HANA lidar com todas as operações (consultas de banco de dados, operações de restauração, configuração e execução de backup).
 
 >[!NOTE]
@@ -174,7 +175,7 @@ O cofre dos Serviços de Recuperação agora está criado.
 
    ![Descobrir os bancos de dados](./media/tutorial-backup-sap-hana-db/database-discovery.png)
 
-## <a name="configure-backup"></a>Configurar o backup
+## <a name="configure-backup"></a>Configurar backup
 
 Agora que os bancos de dados dos quais desejamos fazer backup foram descobertos, vamos habilitar o backup.
 
@@ -226,11 +227,16 @@ Especifique as configurações de política da seguinte maneira:
    ![Política de backup diferencial](./media/tutorial-backup-sap-hana-db/differential-backup-policy.png)
 
    >[!NOTE]
-   >Atualmente, backups incrementais não são compatíveis.
+   >Backups incrementais já estão disponíveis em versão prévia pública. Você pode escolher um diferencial ou um incremental como um backup diário, mas não ambos.
    >
+7. Em **Política de Backup Incremental**, selecione **Habilitar** para abrir os controles de retenção e frequência.
+    * No máximo, você pode disparar um backup incremental por dia.
+    * Backups incrementais podem ser retidos por até 180 dias. Se você precisar de retenção mais longa, deverá usar os backups completos.
 
-7. Selecione **OK** para salvar a política e retornar para o menu principal da **Política de backup**.
-8. Selecione **Backup de Log** para adicionar uma política de backup de log transacional.
+    ![Política de backup incremental](./media/backup-azure-sap-hana-database/incremental-backup-policy.png)
+
+8. Selecione **OK** para salvar a política e retornar para o menu principal da **Política de backup**.
+9. Selecione **Backup de Log** para adicionar uma política de backup de log transacional.
    * **Backup de Log** é definido por padrão como **Habilitar**. Isso não pode ser desabilitado, pois o SAP HANA gerencia todos os backups de log.
    * Definimos **duas horas** como a agenda de backup e **15 dias** de período de retenção.
 
@@ -240,8 +246,8 @@ Especifique as configurações de política da seguinte maneira:
    > Os backups de log só começam a fluir depois que um backup completo bem-sucedido é concluído.
    >
 
-9. Selecione **OK** para salvar a política e retornar para o menu principal da **Política de backup**.
-10. Depois de terminar de definir a política de backup, selecione **OK**.
+10. Selecione **OK** para salvar a política e retornar para o menu principal da **Política de backup**.
+11. Depois de terminar de definir a política de backup, selecione **OK**.
 
 Você configurou com êxito os backups para seus bancos de dados do SAP HANA.
 

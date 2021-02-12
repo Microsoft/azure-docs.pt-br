@@ -14,11 +14,11 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: de529a8ffb0c72854904717c71dbc322c919f1a8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370807"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996688"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Adicionar ou excluir usuários usando o Azure Active Directory
 
@@ -34,7 +34,7 @@ Para adicionar um novo usuário, siga estas etapas:
 
 1. Procure e selecione *Azure Active Directory* em qualquer página.
 
-1. Selecione **usuários**e, em seguida, selecione **novo usuário**.
+1. Selecione **usuários** e, em seguida, selecione **novo usuário**.
 
     ![Adicionar um usuário por meio de usuários-todos os usuários no Azure AD](media/add-users-azure-active-directory/add-user-in-users-all-users.png)
 
@@ -44,7 +44,7 @@ Para adicionar um novo usuário, siga estas etapas:
 
    - **Nome de usuário**. Obrigatórios. O nome de usuário do novo usuário. Por exemplo, `mary@contoso.com`.
 
-     A parte do domínio do nome de usuário deve usar o nome de domínio padrão inicial, * \<yourdomainname> . onmicrosoft.com*ou um nome de domínio personalizado, como *contoso.com*. Para obter mais informações sobre como criar um nome de domínio personalizado, consulte [Adicionar seu nome de domínio personalizado usando o portal de Azure Active Directory](add-custom-domain.md).
+     A parte do domínio do nome de usuário deve usar o nome de domínio padrão inicial, *\<yourdomainname> . onmicrosoft.com* ou um nome de domínio personalizado, como *contoso.com*. Para obter mais informações sobre como criar um nome de domínio personalizado, consulte [Adicionar seu nome de domínio personalizado usando o portal de Azure Active Directory](add-custom-domain.md).
 
    - **Grupos**. Opcionalmente, você pode adicionar o usuário a um ou mais grupos existentes. Você também pode adicionar o usuário aos grupos posteriormente. Para obter mais informações sobre como adicionar usuários a grupos, consulte [criar um grupo básico e adicionar membros usando Azure Active Directory](active-directory-groups-create-azure-portal.md).
 

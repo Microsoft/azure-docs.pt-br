@@ -4,15 +4,14 @@ description: Este artigo fornece informações sobre como adicionar um ponto de 
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1b62f69bad4484239b3a6c5d6f7ae910fbdef03f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8005a2c43d42908a9ad6ebea10b6a13ef381084c
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843372"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427642"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>Permitir acesso ao namespace do barramento de serviço do Azure de redes virtuais específicas
-
 A integração do barramento de serviço com [pontos de extremidade de serviço de rede virtual (VNet)][vnet-sep] permite o acesso seguro a recursos de mensagens de cargas de trabalho, como máquinas virtuais associadas a redes virtuais, com o caminho de tráfego de rede protegido em ambas as extremidades.
 
 Uma vez configurado para ser associado a pelo menos um ponto de extremidade de serviço de sub-rede de rede virtual, o respectivo namespace do barramento de serviço não aceitará mais tráfego de qualquer lugar, mas redes virtuais autorizadas e, opcionalmente, endereços IP específicos da Internet. Da perspectiva da rede virtual, a associação de um namespace de Barramento de Serviço a um ponto de extremidade de serviço configura um túnel de rede isolado da sub-rede da rede virtual para o serviço de sistema de mensagens.
@@ -20,24 +19,14 @@ Uma vez configurado para ser associado a pelo menos um ponto de extremidade de s
 O resultado é um relacionamento privado e isolado entre as cargas de trabalho associadas à sub-rede e o respectivo namespace de Barramento de Serviço, apesar do endereço de rede observável do ponto de extremidade de serviço de mensagens estar em um intervalo de IP público.
 
 >[!WARNING]
-> Implementar a integração de redes virtuais pode impedir que outros serviços do Azure interajam com o Barramento de Serviço.
+> Implementar a integração de redes virtuais pode impedir que outros serviços do Azure interajam com o Barramento de Serviço. Como exceção, você pode permitir o acesso aos recursos do barramento de serviço de determinados serviços confiáveis, mesmo quando os pontos de extremidade de serviço de rede estão habilitados. Para obter uma lista de serviços confiáveis, consulte [serviços confiáveis](#trusted-microsoft-services).
 >
-> Não há suporte para serviços confiáveis da Microsoft quando as Redes Virtuais são implementadas.
->
-> Cenários comuns do Azure que não funcionam com Redes Virtuais (observe que a lista **NÃO** é exaustiva):
-> - Integração com a Grade de Eventos do Azure
-> - Rotas do Hub IoT do Azure
-> - Device Explorer do Azure IoT
->
-> Os serviços da Microsoft abaixo devem estar em uma rede virtual
+> Os serviços da Microsoft a seguir devem estar em uma rede virtual
 > - Serviço de aplicativo do Azure
 > - Funções do Azure
-> - Azure Monitor (configuração de diagnóstico)
 
 > [!IMPORTANT]
-> As redes virtuais têm suporte apenas em namespaces do Barramento de Serviço [camada Premium](service-bus-premium-messaging.md).
-> 
-> Ao usar pontos de extremidade de serviço de VNet com o barramento de serviço, você não deve habilitar esses pontos de extremidade em aplicativos que misturam namespaces de barramento de serviço de camada Standard e Premium. Porque a camada Standard não oferece suporte a VNets. O ponto de extremidade é restrito somente a namespaces da camada Premium.
+> As redes virtuais têm suporte apenas em namespaces do Barramento de Serviço [camada Premium](service-bus-premium-messaging.md). Ao usar pontos de extremidade de serviço de VNet com o barramento de serviço, você não deve habilitar esses pontos de extremidade em aplicativos que misturam namespaces de barramento de serviço de camada Standard e Premium. Porque a camada Standard não oferece suporte a VNets. O ponto de extremidade é restrito somente a namespaces da camada Premium.
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Cenários avançados de segurança habilitados pela integração de VNet 
 
@@ -96,17 +85,19 @@ Esta seção mostra como usar portal do Azure para adicionar um ponto de extremi
     > [!NOTE]
     > Para obter instruções sobre como permitir o acesso de intervalos ou endereços IP específicos, consulte [permitir o acesso de intervalos ou endereços IP específicos](service-bus-ip-filtering.md).
 
+[!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
+
 ## <a name="use-resource-manager-template"></a>Usar modelo do Resource Manager
 O modelo do Resource Manager a seguir permite incluir uma regra da rede virtual em um namespace de Barramento de Serviço existente.
 
 Parâmetros de modelo:
 
-* **namespaceName**: namespace de Barramento de serviço.
-* **virtualNetworkingSubnetId**: caminho do Resource Manager totalmente qualificado para a sub-rede da rede virtual, por exemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede padrão de uma rede virtual.
+* **namespaceName** : namespace de Barramento de serviço.
+* **virtualNetworkingSubnetId** : caminho do Resource Manager totalmente qualificado para a sub-rede da rede virtual, por exemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede padrão de uma rede virtual.
 
 > [!NOTE]
 > Embora não haja nenhuma regra de negação possível, o modelo do Azure Resource Manager tem a ação padrão definida como **"Allow"** , que não restringe as conexões.
-> Ao criar as regras de rede virtual ou de firewalls, devemos alterar a ***"defaultAction"***
+> Ao tornar as regras de rede virtual ou firewalls, devemos alterar o **_"DefaultAction"_**
 > 
 > de
 > ```json

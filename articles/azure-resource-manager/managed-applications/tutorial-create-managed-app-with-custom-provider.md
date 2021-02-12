@@ -6,12 +6,12 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ace58bd3bb89f9e8545bf125f272e62c3a134061
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 50a65583c41dd94b174a33432afcf42b31e67df0
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949805"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437041"
 ---
 # <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>Tutorial: criar um aplicativo gerenciado com ações e recursos personalizados
 
@@ -41,7 +41,7 @@ Para concluir este tutorial, você precisará saber:
 
 Neste tutorial, você criará um aplicativo gerenciado e o grupo de recursos gerenciados dele conterá a instância do provedor personalizado, a conta de armazenamento e a função. A função do Azure usada neste exemplo implementa uma API que trata operações de provedor personalizadas para ações e recursos. A conta de armazenamento do Azure é usada como armazenamento básico para os recursos do provedor personalizado.
 
-A definição da interface do usuário para criar uma instância de aplicativo gerenciado inclui os elementos de entrada `funcname` e `storagename`. O nome da conta de armazenamento e o nome da função devem ser globalmente exclusivos. Por padrão, os arquivos de função serão implantados do [pacote de funções de amostra](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip), mas você pode alterar isso adicionando um elemento de entrada para um link de pacote em *createUIDefinition.json*:
+A definição da interface do usuário para criar uma instância de aplicativo gerenciado inclui os elementos de entrada `funcname` e `storagename`. O nome da conta de armazenamento e o nome da função devem ser globalmente exclusivos. Por padrão, os arquivos de função serão implantados do [pacote de funções de amostra](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip). No entanto, é possível alterar isso adicionando um elemento de entrada a um link de pacote em *createUiDefinition.json*:
 
 ```json
 {
@@ -74,7 +74,7 @@ A definição da interface do usuário para criar uma instância de aplicativo g
 }
 ```
 
-e uma saída em *createUIDefinition.json*:
+e uma saída em *createUiDefinition.json*:
 
 ```json
   "funcname": "[steps('applicationSettings').funcname]",
@@ -82,13 +82,13 @@ e uma saída em *createUIDefinition.json*:
   "zipFileBlobUri": "[steps('applicationSettings').zipFileBlobUri]"
 ```
 
-A amostra *createUIDefinition.json* completa pode ser encontrada na [Referência: artefatos de elementos da interface do usuário](reference-createuidefinition-artifact.md).
+a amostra *createUiDefinition.json* completa pode ser encontrada em [Referência: artefatos de elementos da interface do usuário](reference-createuidefinition-artifact.md).
 
 ## <a name="template-with-custom-provider"></a>Modelo com provedor personalizado
 
 Para criar uma instância de aplicativo gerenciado com provedor personalizado, você precisa definir um recurso de provedor personalizado com nome **público** e digitar **Microsoft.CustomProviders/resourceProviders** em seu **mainTemplate.json**. Nesse recurso, você define os tipos de recursos e as ações para o serviço. Para implantar instâncias da função do Azure e da conta de armazenamento do Azure, defina recursos do tipo `Microsoft.Web/sites` e `Microsoft.Storage/storageAccounts`, respectivamente.
 
-Neste tutorial, você criará um tipo de recurso `users`, a ação personalizada `ping` e a ação personalizada `users/contextAction` que será executada no contexto de um recurso personalizado `users`. Para cada tipo de recurso e ação, forneça um ponto de extremidade que aponte para a função com o nome fornecido em [createUIDefinition.json](#user-interface-definition). Especifique o **routingType** como `Proxy,Cache` para os tipos de recurso e como `Proxy` para ações:
+Neste tutorial, você criará um tipo de recurso `users`, a ação personalizada `ping` e a ação personalizada `users/contextAction` que será executada no contexto de um recurso personalizado `users`. Para cada tipo de recurso e ação, forneça um ponto de extremidade que aponte para a função com o nome fornecido em [createUiDefinition.json](#user-interface-definition). Especifique o **routingType** como `Proxy,Cache` para os tipos de recurso e como `Proxy` para ações:
 
 ```json
 {
@@ -339,11 +339,11 @@ Você pode ir para a instância do aplicativo gerenciado e executar a **ação p
 
 * Vá para a página de "Usuários" e clique no botão "Adicionar". Forneça entradas para criar um recurso e enviar o formulário:
 
-![Criar um recurso personalizado](./media/tutorial-create-managed-app-with-custom-provider/create-custom-resource.png)
+![Captura de tela mostra o botão "Adicionar" selecionado em "Usuários".](./media/tutorial-create-managed-app-with-custom-provider/create-custom-resource.png)
 
 * Vá para a página de "Usuários", selecione um recurso "usuários" e clique em "Ação de contexto personalizado":
 
-![Criar um recurso personalizado](./media/tutorial-create-managed-app-with-custom-provider/perform-custom-resource-action.png)
+![Captura de tela mostra a opção "Ação de Contexto Personalizado" selecionada.](./media/tutorial-create-managed-app-with-custom-provider/perform-custom-resource-action.png)
 
 [!INCLUDE [clean-up-section-portal](../../../includes/clean-up-section-portal.md)]
 
@@ -353,6 +353,6 @@ Se você tiver dúvidas sobre os Aplicativos Gerenciados do Azure, tente pergunt
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para publicar o aplicativo gerenciado no Azure Marketplace, veja [Aplicativos Gerenciados do Azure no Marketplace](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).
+Para publicar o aplicativo gerenciado no Azure Marketplace, veja [Aplicativos Gerenciados do Azure no Marketplace](../../marketplace/create-new-azure-apps-offer.md).
 
 Saiba mais sobre os [Provedores Personalizados do Azure](../custom-providers/overview.md).

@@ -4,32 +4,37 @@ description: Saiba como configurar o controle do código-fonte no Azure Data Fac
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
 ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/08/2020
-ms.openlocfilehash: 43e3916e47aa0305209b8e6e32803426ac1ebe3d
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/02/2020
+ms.openlocfilehash: 27f14834e45dd32bdf3a26d22d38ab250aa1bcbe
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637557"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127729"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controle do código-fonte no Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Por padrão, a UX (experiência de interface do usuário) do Azure Data Factory faz a autenticação diretamente no serviço de Data Factory. Essa experiência tem as seguintes limitações:
 
-- O serviço de Data Factory não inclui um repositório para armazenar as entidades JSON para as alterações. A única maneira de salvar as alterações é por meio do botão **Publicar Tudo** , e todas as alterações são publicadas diretamente no serviço de Data Factory.
+- O serviço de Data Factory não inclui um repositório para armazenar as entidades JSON para as alterações. A única maneira de salvar as alterações é por meio do botão **Publicar Tudo**, e todas as alterações são publicadas diretamente no serviço de Data Factory.
 - O serviço de Data Factory não está otimizado para colaboração e controle de versão.
+- O modelo de Azure Resource Manager necessário para implantar Data Factory em si não é incluído.
 
-Para fornecer uma experiência de criação melhor, o Azure Data Factory permite que você configure um repositório Git com o Azure Repos ou o GitHub. O Git é um sistema de controle de versão que facilita o controle de alterações e a colaboração. Este tutorial descreverá como configurar e trabalhar em um repositório Git, além de destacar as melhores práticas e fornecer um guia de solução de problemas.
+Para fornecer uma experiência de criação melhor, o Azure Data Factory permite que você configure um repositório Git com o Azure Repos ou o GitHub. O Git é um sistema de controle de versão que facilita o controle de alterações e a colaboração. Este artigo descreverá como configurar e trabalhar em um repositório git juntamente com as práticas recomendadas de realce e um guia de solução de problemas.
 
 > [!NOTE]
-> A integração do Azure Data Factory com o Git não está disponível na nuvem do Azure Governamental.
+> Azure Data Factory integração com o git só está disponível para o GitHub Enterprise na nuvem do Azure governamental.
+
+Para saber mais sobre como o Azure Data Factory se integra ao git, veja o vídeo do tutorial de 15 minutos abaixo:
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4GNKv]
 
 ## <a name="advantages-of-git-integration"></a>Vantagens da integração do Git
 
@@ -38,7 +43,7 @@ Abaixo está uma lista de algumas das vantagens que a integração com o Git for
 -   **Controle do código-fonte:** Conforme as cargas de trabalho do data factory se tornam cruciais, você desejaria integrar seu factory ao Git para aproveitar os vários benefícios de controle do código-fonte com o seguinte:
     -   Capacidade de controlar/auditar as alterações.
     -   Capacidade de reverter as alterações que introduziram bugs.
--   **Salvamento parcial:** Quando você cria no serviço de Data Factory, não pode salvar as alterações como um rascunho, e todas as publicações devem passar pela validação do data factory. Se seus pipelines não forem concluídos, ou se você simplesmente não quiser perder as alterações no caso de uma falha no computador, a integração com o Git permitirá alterações incrementais de recursos do data factory independentemente do estado em que estiverem. A configuração de um repositório Git permite que você salve as alterações e possa publicar apenas quando tiver testado as alterações a contento.
+-   **Salvamento parcial:** Quando você cria no serviço de Data Factory, não pode salvar as alterações como um rascunho, e todas as publicações devem passar pela validação do data factory. Se seus pipelines não forem concluídos ou se você simplesmente não quiser perder as alterações se o computador falhar, a integração do git permitirá alterações incrementais de data factory recursos, independentemente do estado em que estão. A configuração de um repositório Git permite que você salve as alterações e possa publicar apenas quando tiver testado as alterações a contento.
 -   **Colaboração e controle:** Se você tiver vários membros da equipe contribuindo para o mesmo alocador, talvez queira permitir que seus colegas de equipe colaborem entre si por meio de um processo de revisão de código. Você também pode configurar seu alocador de forma que nem todos os colaboradores tenham permissões iguais. Alguns membros da equipe podem fazer alterações apenas por meio do Git, e somente determinadas pessoas da equipe têm permissão para publicar as alterações no seu alocador.
 -   **Melhor CI/CD:**  Se você estiver implantando em vários ambientes com um [processo de entrega contínua](continuous-integration-deployment.md), a integração com o Git facilitará certas ações. Algumas dessas ações incluem:
     -   Configurar seu pipeline de liberação para disparar automaticamente assim que houver uma alteração feita no alocador de "desenvolvimento".
@@ -48,29 +53,45 @@ Abaixo está uma lista de algumas das vantagens que a integração com o Git for
 > [!NOTE]
 > A criação direta com o serviço de Data Factory é desabilitada na UX do Azure Data Factory quando um repositório Git é configurado. As alterações feitas por meio do PowerShell ou de um SDK são publicadas diretamente no serviço de Data Factory e não são inseridas no git.
 
+## <a name="connect-to-a-git-repository"></a>Conectar-se a um repositório git
+
+Há quatro maneiras diferentes de conectar um repositório git ao seu data factory para Azure Repos e GitHub. Depois de se conectar a um repositório git, você pode exibir e gerenciar sua configuração no [Hub de gerenciamento](author-management-hub.md) em **configuração do git** na seção controle do **código-fonte**
+
+### <a name="configuration-method-1-home-page"></a>Método de configuração 1: Home Page
+
+Na home page Azure Data Factory, selecione **configurar repositório de código**.
+
+![Configurar um repositório de código do home page](media/author-visually/configure-repo.png)
+
+### <a name="configuration-method-2-authoring-canvas"></a>Método de configuração 2: tela de criação
+
+Na tela de criação de UX do Azure Data Factory, selecione o menu suspenso **Data Factory** e selecione **Configurar o repositório de código**.
+
+![Definir as configurações do repositório de código da criação](media/author-visually/configure-repo-2.png)
+
+### <a name="configuration-method-3-management-hub"></a>Método de configuração 3: Hub de gerenciamento
+
+Vá para o Hub de gerenciamento no UX do ADF. Selecione **configuração do git** na seção **controle do código-fonte** . Se você não tiver um repositório conectado, clique em **configurar repositório de código**.
+
+![Definir as configurações do repositório de código do hub de gerenciamento](media/author-visually/configure-repo-3.png)
+
+### <a name="configuration-method-4-during-factory-creation"></a>Método de configuração 4: durante a criação de fábrica
+
+Ao criar um novo data factory no portal do Azure, você pode configurar as informações do repositório git na guia **configuração do git** .
+
+> [!NOTE]
+> Ao configurar o Git no portal do Azure, as configurações, como nome do projeto e nome do repositório, devem ser inseridas manualmente em vez de serem parte de uma lista suspensa.
+
+![Definir as configurações do repositório de código no portal do Azure](media/author-visually/configure-repo-4.png)
+
 ## <a name="author-with-azure-repos-git-integration"></a>Criar com a integração do Git ao Azure Repos
 
 A criação visual com a integração do Git ao Azure Repos dá suporte ao controle do código-fonte e à colaboração para trabalhar nos pipelines de data factory. Você pode associar um data factory a um repositório da organização do Git do Azure Repos para obter controle do código-fonte, colaboração, controle de versão e assim por diante. Uma única organização do Git do Azure Repos pode ter vários repositórios, mas um repositório Git do Azure Repos pode ser associado a apenas um data factory. Se você não tiver uma organização ou um repositório do Azure Repos, siga [estas instruções](/azure/devops/organizations/accounts/create-organization-msa-or-work-student) para criar seus recursos.
 
 > [!NOTE]
-> Você pode armazenar arquivos de script e de dados em um repositório Git do Azure Repos. No entanto, você precisa carregar os arquivos manualmente para o Armazenamento do Azure. Um pipeline do Data Factory não faz upload automaticamente dos arquivos de dados ou de script armazenados em um repositório Git do Azure Repos para o Armazenamento do Azure.
+> Você pode armazenar arquivos de script e de dados em um repositório Git do Azure Repos. No entanto, você precisa carregar os arquivos manualmente para o Armazenamento do Azure. Um pipeline data factory não carrega automaticamente arquivos de script ou de dados armazenados em um repositório git Azure Repos no armazenamento do Azure.
 
-### <a name="configure-an-azure-repos-git-repository-with-azure-data-factory"></a>Configurar um repositório Git do Azure Repos com o Azure Data Factory
-
-Você pode configurar um repositório Git do Azure Repos com um data factory usando dois métodos.
-
-#### <a name="configuration-method-1-azure-data-factory-home-page"></a>Método de configuração 1: Página inicial do Azure Data Factory
-
-Na página inicial do Azure Data Factory, selecione **Configurar o repositório de código** .
-
-![Configurar um repositório de código do Azure Repos](media/author-visually/configure-repo.png)
-
-#### <a name="configuration-method-2-ux-authoring-canvas"></a>Método de configuração 2: Tela de criação de UX
-Na tela de criação de UX do Azure Data Factory, selecione o menu suspenso **Data Factory** e selecione **Configurar o repositório de código** .
-
-![Configurar as definições do repositório de código para a criação de UX](media/author-visually/configure-repo-2.png)
-
-Ambos os métodos abrem o painel de configurações do repositório.
+### <a name="azure-repos-settings"></a>Configurações de Azure Repos
 
 ![Configurar as definições do repositório de código](media/author-visually/repo-settings.png)
 
@@ -83,7 +104,7 @@ O painel de configuração mostra as seguintes configurações do repositório d
 | **Organização do Azure Repos** | O nome da organização do Azure Repos. Localize o nome de organização do Azure Repos em `https://{organization name}.visualstudio.com`. Você pode [entrar na sua organização do Azure Repos](https://www.visualstudio.com/team-services/git/) para acessar seu perfil do Visual Studio e ver seus repositórios e projetos. | `<your organization name>` |
 | **ProjectName** | O nome do projeto do Azure Repos. Localize o nome do projeto do Azure Repos em `https://{organization name}.visualstudio.com/{project name}`. | `<your Azure Repos project name>` |
 | **RepositoryName** | O nome do seu repositório de código do Azure Repos. Os projetos do Azure Repos contêm repositórios Git para gerenciar seu código-fonte à medida que o projeto aumenta. Você pode criar um novo repositório ou usar um existente que já esteja no projeto. | `<your Azure Repos code repository name>` |
-| **Ramificação de colaboração** | Seu branch de colaboração do Azure Repos que é usado para publicação. Por padrão, é o `master`. Altere essa configuração se você desejar publicar recursos de outra ramificação. | `<your collaboration branch name>` |
+| **Ramificação de colaboração** | Seu branch de colaboração do Azure Repos que é usado para publicação. Por padrão, é `main` . Altere essa configuração se você desejar publicar recursos de outra ramificação. | `<your collaboration branch name>` |
 | **Pasta raiz** | A pasta raiz em seu branch de colaboração do Azure Repos. | `<your root folder name>` |
 | **Importar recursos existentes do Data Factory para o repositório** | Especifica se é necessário importar recursos existentes do data factory da **Tela de criação** da UX em um repositório Git do Azure Repos. Selecione a caixa para importar os recursos do data factory para o repositório do Git associado no formato JSON. Esta ação exporta cada recurso individualmente (ou seja, os serviços vinculados e conjuntos de dados são exportados para JSONs separados). Quando essa caixa não está selecionada, os recursos existentes não são importados. | Selecionada (padrão) |
 | **Branch para importar o recurso** | Especifica em qual branch os recursos do data factory (pipelines, conjuntos de dados, serviços vinculados etc.) serão importados. Você pode importar recursos para um dos seguintes branches: a. Colaboração b. Criar novo c. Usar Existente |  |
@@ -94,6 +115,9 @@ O painel de configuração mostra as seguintes configurações do repositório d
 ### <a name="use-a-different-azure-active-directory-tenant"></a>Usar um locatário do Azure Active Directory diferente
 
 O repositório Git do Azure Repos pode estar em um locatário diferente do Azure Active Directory. Para especificar outro locatário do Azure AD, você precisa ter permissões de administrador para a assinatura do Azure que está usando. Para obter mais informações, consulte [alterar o administrador da assinatura](../cost-management-billing/manage/add-change-subscription-administrator.md#to-assign-a-user-as-an-administrator)
+
+> [!IMPORTANT]
+> Para se conectar a outro Azure Active Directory, o usuário conectado deve fazer parte do Active Directory. 
 
 ### <a name="use-your-personal-microsoft-account"></a>Usar sua conta Microsoft pessoal
 
@@ -117,27 +141,7 @@ A integração do GitHub com o Data Factory dá suporte ao GitHub público (ou s
 
 Para configurar um repositório GitHub, você precisará ter permissões de administrador para a assinatura do Azure que está usando.
 
-Para ver uma introdução de nove minutos e uma demonstração desse recurso, assista ao seguinte vídeo:
-
-> [!VIDEO https://channel9.msdn.com/shows/azure-friday/Azure-Data-Factory-visual-tools-now-integrated-with-GitHub/player]
-
-### <a name="configure-a-github-repository-with-azure-data-factory"></a>Configurar um repositório do GitHub com o Azure Data Factory
-
-Você pode configurar um repositório do GitHub com um data factory por meio de dois métodos.
-
-#### <a name="configuration-method-1-azure-data-factory-home-page"></a>Método de configuração 1: Página inicial do Azure Data Factory
-
-Na página inicial do Azure Data Factory, selecione **Configurar o repositório de código** .
-
-![Configurar um repositório de código do Azure Repos](media/author-visually/configure-repo.png)
-
-#### <a name="configuration-method-2-ux-authoring-canvas"></a>Método de configuração 2: Tela de criação de UX
-
-Na tela de criação de UX do Azure Data Factory, selecione o menu suspenso **Data Factory** e selecione **Configurar o repositório de código** .
-
-![Configurar as definições do repositório de código para a criação de UX](media/author-visually/configure-repo-2.png)
-
-Ambos os métodos abrem o painel de configurações do repositório.
+### <a name="github-settings"></a>Configurações do GitHub
 
 ![Configurações do repositório do GitHub](media/author-visually/github-integration-image2.png)
 
@@ -150,10 +154,42 @@ O painel de configuração mostra as seguintes configurações do repositório d
 | **URL do GitHub Enterprise** | A URL raiz do GitHub Enterprise (precisa ser HTTPS para o servidor do GitHub Enterprise local). Por exemplo: `https://github.mydomain.com`. Obrigatório somente se a opção **Usar o GitHub Enterprise** for selecionada | `<your GitHub enterprise url>` |                                                           
 | **Conta do GitHub** | Seu nome de conta do GitHub. Esse nome pode ser encontrado em https:\//github.com/{nome da conta}/{nome do repositório}. Navegar até essa página solicita que você insira as credenciais do GitHub OAuth para sua conta do GitHub. | `<your GitHub account name>` |
 | **Nome do repositório**  | O nome do repositório de código do GitHub. As contas do GitHub contêm repositórios Git para gerenciar seu código-fonte. Você pode criar um novo repositório ou usar um existente que já esteja na conta. | `<your repository name>` |
-| **Ramificação de colaboração** | Sua ramificação de colaboração do GitHub usada para publicação. Por padrão, seu mestre. Altere essa configuração se você desejar publicar recursos de outra ramificação. | `<your collaboration branch>` |
+| **Ramificação de colaboração** | Sua ramificação de colaboração do GitHub usada para publicação. Por padrão, é principal. Altere essa configuração se você desejar publicar recursos de outra ramificação. | `<your collaboration branch>` |
 | **Pasta raiz** | Sua pasta raiz em sua ramificação de colaboração GitHub. |`<your root folder name>` |
 | **Importar recursos existentes do Data Factory para o repositório** | Especifica se deve-se importar recursos do data factory existentes da UX Tela de criação em um repositório do GitHub. Selecione a caixa para importar os recursos do data factory para o repositório do Git associado no formato JSON. Esta ação exporta cada recurso individualmente (ou seja, os serviços vinculados e conjuntos de dados são exportados para JSONs separados). Quando essa caixa não está selecionada, os recursos existentes não são importados. | Selecionada (padrão) |
 | **Branch para importar o recurso** | Especifica em qual branch os recursos do data factory (pipelines, conjuntos de dados, serviços vinculados etc.) serão importados. Você pode importar recursos para um dos seguintes branches: a. Colaboração b. Criar novo c. Usar Existente |  |
+
+### <a name="github-organizations"></a>Organizações do GitHub
+
+Conectar-se a uma organização do GitHub requer que a organização Conceda permissão para Azure Data Factory. Um usuário com permissões de administrador na organização deve executar as etapas a seguir para permitir que data factory se conectem.
+
+#### <a name="connecting-to-github-for-the-first-time-in-azure-data-factory"></a>Conectando-se ao GitHub pela primeira vez no Azure Data Factory
+
+Se você estiver se conectando ao GitHub do Azure Data Factory pela primeira vez, siga estas etapas para se conectar a uma organização do GitHub.
+
+1. No painel configuração do git, insira o nome da organização no campo *conta do GitHub* . Será exibido um prompt para fazer logon no GitHub. 
+1. Faça logon usando suas credenciais de usuário.
+1. Você será solicitado a autorizar Azure Data Factory como um aplicativo chamado *AzureDataFactory*. Nessa tela, você verá uma opção para conceder permissão para o ADF acessar a organização. Se você não vir a opção de conceder permissão, peça a um administrador para conceder manualmente a permissão por meio do GitHub.
+
+Depois de seguir essas etapas, sua fábrica poderá se conectar a repositórios públicos e privados em sua organização. Se você não conseguir se conectar, tente limpar o cache do navegador e tentar novamente.
+
+#### <a name="already-connected-to-github-using-a-personal-account"></a>Já conectado ao GitHub usando uma conta pessoal
+
+Se você já se conectou ao GitHub e concedeu apenas permissão para acessar uma conta pessoal, siga as etapas abaixo para conceder permissões a uma organização. 
+
+1. Vá para GitHub e abra **configurações**.
+
+    ![Abrir configurações do GitHub](media/author-visually/github-settings.png)
+
+1. Selecione **Aplicativos**. Na guia **aplicativos OAuth autorizados** , você deve ver *AzureDataFactory*.
+
+    ![Selecionar aplicativos OAuth](media/author-visually/github-organization-select-application.png)
+
+1. Selecione o aplicativo e conceda o acesso do aplicativo à sua organização.
+
+    ![Permitir acesso](media/author-visually/github-organization-grant.png)
+
+Depois de seguir essas etapas, sua fábrica poderá se conectar a repositórios públicos e privados em sua organização. 
 
 ### <a name="known-github-limitations"></a>Limitações conhecidas do GitHub
 
@@ -163,21 +199,20 @@ O painel de configuração mostra as seguintes configurações do repositório d
 
 - A integração do GitHub com as ferramentas de criação visual do Data Factory funciona apenas na versão geralmente disponível do Data Factory.
 
-- Azure Data Factory não dá suporte a contas da organização do GitHub
 
 - É possível buscar um máximo de 1.000 entidades por tipo de recurso (como pipelines e conjuntos de valores) em uma única ramificação do GitHub. Se esse limite for atingido, sugerimos dividir seus recursos em alocadores separados. O Git do Azure DevOps não tem essa limitação.
 
 ## <a name="version-control"></a>Controle de versão
 
-Os sistemas de controle de versão (também conhecidos como _controle do código-fonte_ ) permitem aos desenvolvedores colaborar em código e acompanhar as alterações feitas no código base. O controle do código-fonte é uma ferramenta essencial para projetos de vários desenvolvedores.
+Os sistemas de controle de versão (também conhecidos como _controle do código-fonte_) permitem aos desenvolvedores colaborar em código e acompanhar as alterações feitas no código base. O controle do código-fonte é uma ferramenta essencial para projetos de vários desenvolvedores.
 
 ### <a name="creating-feature-branches"></a>Criando branches de recurso
 
-Cada repositório Git do Azure Repos que está associado a um data factory tem um branch de colaboração. (`master` é a ramificação de colaboração padrão). Os usuários também podem criar branches de recurso clicando em **+ Novo Branch** na lista suspensa do branch. Depois que o novo painel do branch for exibido, insira o nome do branch de recurso.
+Cada repositório Git do Azure Repos que está associado a um data factory tem um branch de colaboração. ( `main` ) é a ramificação de colaboração padrão). Os usuários também podem criar branches de recurso clicando em **+ Novo Branch** na lista suspensa do branch. Depois que o novo painel do branch for exibido, insira o nome do branch de recurso.
 
 ![Criar uma nova ramificação](media/author-visually/new-branch.png)
 
-Quando você estiver pronto para mesclar as alterações do branch de recurso com o branch de colaboração, clique na lista suspensa do branch e selecione **Criar solicitação de pull** . Essa ação o levará para o Git do Azure Repos, em que será possível gerar solicitações de pull, realizar revisões de código e mesclar alterações com o branch de colaboração. (`master` é o padrão). Você só tem permissão para publicar no serviço do Data Factory de sua ramificação de colaboração. 
+Quando você estiver pronto para mesclar as alterações do branch de recurso com o branch de colaboração, clique na lista suspensa do branch e selecione **Criar solicitação de pull**. Essa ação o levará para o Git do Azure Repos, em que será possível gerar solicitações de pull, realizar revisões de código e mesclar alterações com o branch de colaboração. (`main` é o padrão). Você só tem permissão para publicar no serviço do Data Factory de sua ramificação de colaboração. 
 
 ![Criar uma nova solicitação pull](media/author-visually/create-pull-request.png)
 
@@ -198,7 +233,7 @@ O Azure Data Factory pode ter apenas um branch de publicação por vez. Quando v
 
 ### <a name="publish-code-changes"></a>Publicar alterações de código
 
-Depois de ter mesclado alterações para a ramificação de colaboração (`master` é o padrão), clique em **Publicar** para publicar manualmente as alterações de código no branch mestre para o serviço do Data Factory.
+Depois de mesclar as alterações para a ramificação de colaboração ( `main` é o padrão), clique em **publicar** para publicar manualmente as alterações de código na ramificação principal para o serviço de data Factory.
 
 ![Publicar as alterações no serviço do Data Factory](media/author-visually/publish-changes.png)
 
@@ -207,7 +242,7 @@ Um painel lateral será aberto para você confirmar que o branch de publicação
 ![Confirmar o branch de publicação correto](media/author-visually/configure-publish-branch.png)
 
 > [!IMPORTANT]
-> O branch mestre não é representativo do que é implantado no serviço de Data Factory. O branch mestre *deve* ser publicado manualmente no serviço de Data Factory.
+> A ramificação principal não representa o que está implantado no serviço de Data Factory. O Branch principal *deve* ser publicado manualmente para o serviço de data Factory.
 
 ## <a name="best-practices-for-git-integration"></a>Melhores práticas para a integração do Git
 
@@ -230,21 +265,21 @@ Usar a autenticação do Key Vault ou MSI também facilita a integração e a im
 
 ### <a name="stale-publish-branch"></a>Branch de publicação obsoleto
 
-Se o branch de publicação estiver fora de sincronia com o branch mestre e contiver recursos desatualizados apesar de ter havido uma publicação recente, tente seguir estas etapas:
+Se a ramificação de publicação estiver fora de sincronia com a ramificação principal e contiver recursos desatualizados, independentemente de uma publicação recente, tente seguir estas etapas:
 
 1. Remover seu repositório Git atual
 1. Reconfigure o Git com as mesmas configurações, mas verifique se **Importar recursos de Data Factory existentes para o repositório** está selecionado e escolha **Novo branch**
 1. Criar uma solicitação de pull para mesclar as alterações com o branch de colaboração 
 
 Abaixo estão alguns exemplos de situações que podem tornar um branch de publicação obsoleto:
-- Um usuário tem vários branches. Em um branch de recurso, eles excluíram um serviço vinculado que não está associado ao AKV (os serviços vinculados que não são do AKV são publicados imediatamente, independentemente de estarem no Git ou não) e nunca mesclaram o branch de recursos com o branch de colaboração.
+- Um usuário tem vários branches. Em um Branch de recurso, eles excluíram um serviço vinculado que não está associado a AKV (os serviços vinculados não AKV são publicados imediatamente, independentemente de estarem em git ou não) e nunca mesclaram a ramificação de recursos na ramificação de colaboração.
 - Um usuário modificou o data factory usando o SDK ou o PowerShell
 - Um usuário moveu todos os recursos para um novo branch e tentou publicar pela primeira vez. Os serviços vinculados devem ser criados manualmente na importação de recursos.
 - Um usuário carrega um serviço vinculado que não é o AKV ou um Integration Runtime JSON manualmente. Eles fazem referência a esse recurso de outro recurso, como um conjunto de dados, um serviço vinculado ou um pipeline. Um serviço vinculado que não é o AKV criado por meio da UX é publicado imediatamente porque as credenciais precisam ser criptografadas. Se você carregar um conjunto de dados que faz referência a esse serviço vinculado e tentar publicá-lo, a UX permitirá porque ele existe no ambiente do Git. Ele será rejeitado no momento da publicação, pois não existe no serviço de Data Factory.
 
 ## <a name="switch-to-a-different-git-repository"></a>Alternar para um repositório Git diferente
 
-Para alternar para um repositório git diferente, vá para a página de configuração do git no Hub de gerenciamento sob **controle do código-fonte** . Selecione **Desconectar** . 
+Para alternar para um repositório git diferente, vá para a página de configuração do git no Hub de gerenciamento sob **controle do código-fonte**. Selecione **Desconectar**. 
 
 ![Ícone do Git](media/author-visually/remove-repository.png)
 

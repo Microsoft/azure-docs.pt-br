@@ -1,19 +1,16 @@
 ---
 title: Uma introdução ao Apache Kafka no HDInsight – Azure
 description: 'Saiba mais sobre o Apache Kafka no HDInsight: o que é o que ele faz e onde encontrar exemplos e informações de introdução.'
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive
 ms.date: 02/25/2020
-ms.openlocfilehash: c6209ae985f8e59e1acae2d8fd6a1c821acae5a7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fbe4041b74f90b2ef8a9ef4384e83c7aa2d56461
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91449552"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939268"
 ---
 # <a name="what-is-apache-kafka-in-azure-hdinsight"></a>O que é o Apache Kafka no Azure HDInsight
 

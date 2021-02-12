@@ -2,23 +2,23 @@
 title: Criar funções personalizadas no controle de acesso baseado em função do Azure AD | Microsoft Docs
 description: Criar e atribuir funções do Azure AD personalizadas com escopo de recurso em recursos do Azure Active Directory.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/08/2019
-ms.author: curtand
+ms.date: 01/05/2021
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1aa5671a73c8a4de945a2013d8678d7f0f74625e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ba8ecf5442ea3da6db02335520eef3856ea48c62
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097984"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740152"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Criar e atribuir uma função personalizada no Azure Active Directory
 
@@ -31,21 +31,21 @@ As funções personalizadas podem ser criadas na guia [Funções e administrador
 ### <a name="create-a-new-custom-role-to-grant-access-to-manage-app-registrations"></a>Criar uma função personalizada para permitir acesso para gerenciar registros de aplicativo
 
 1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com) com permissões de administrador de função privilegiada ou de administrador global na organização do Azure AD.
-1. Selecione **Azure Active Directory** > **Funções e administradores** > **Nova função personalizada** .
+1. Selecione **Azure Active Directory** > **Funções e administradores** > **Nova função personalizada**.
 
    ![Criar ou editar funções na página Funções e administradores](./media/custom-create/new-custom-role.png)
 
-1. Na guia **Noções básicas** , forneça um nome e uma descrição para a função e clique em **Próximo** .
+1. Na guia **Noções básicas**, forneça um nome e uma descrição para a função e clique em **Próximo**.
 
    ![forneça um nome e uma descrição para uma função personalizada na guia Noções básicas](./media/custom-create/basics-tab.png)
 
-1. Na guia **Permissões** , selecione as permissões necessárias para gerenciar propriedades básicas e propriedades de credenciais de registros de aplicativo. Para obter uma descrição detalhada de cada permissão, confira [Subtipos e permissões de registro de aplicativo no Azure Active Directory](custom-available-permissions.md).
+1. Na guia **Permissões**, selecione as permissões necessárias para gerenciar propriedades básicas e propriedades de credenciais de registros de aplicativo. Para obter uma descrição detalhada de cada permissão, confira [Subtipos e permissões de registro de aplicativo no Azure Active Directory](custom-available-permissions.md).
    1. Primeiro, insira "credenciais" na barra de pesquisa e selecione a permissão `microsoft.directory/applications/credentials/update`.
 
       ![Selecione as permissões para uma função personalizada na guia Permissões](./media/custom-create/permissions-tab.png)
 
-   1. Em seguida, insira "básico" na barra de pesquisa, selecione a permissão `microsoft.directory/applications/basic/update` e, em seguida, clique **Próximo** .
-1. Na guia **Examinar + criar** , examine as permissões e selecione **Criar** .
+   1. Em seguida, insira "básico" na barra de pesquisa, selecione a permissão `microsoft.directory/applications/basic/update` e, em seguida, clique **Próximo**.
+1. Na guia **Examinar + criar**, examine as permissões e selecione **Criar**.
 
 Sua função personalizada aparecerá na lista de funções disponíveis a serem atribuídas.
 
@@ -58,17 +58,26 @@ Primeiramente, você deve [baixar o módulo de versão prévia do PowerShell do 
 Para instalar o módulo PowerShell do Azure AD, use os seguintes comandos:
 
 ``` PowerShell
-Install-Module AzureADPreview
-Import-Module AzureADPreview
+install-module azureadpreview 
+import-module azureadpreview 
 ```
 
 Para verificar se o módulo está pronto para ser usado, use o seguinte comando:
 
 ``` PowerShell
-Get-Module AzureADPreview
-  ModuleType Version      Name                         ExportedCommands
-  ---------- ---------    ----                         ----------------
-  Binary     2.0.2.31     azuread                      {Add-AzureADAdministrati...}
+get-module azureadpreview 
+
+  ModuleType Version      Name                         ExportedCommands 
+  ---------- ---------    ----                         ---------------- 
+  Binary     2.0.0.115    azureadpreview               {Add-AzureADAdministrati...} 
+```
+
+### <a name="connect-to-azure"></a>Conectar-se ao Azure
+
+Para se conectar ao Azure Active Directory, use o seguinte comando:
+
+``` PowerShell
+Connect-AzureAD
 ```
 
 ### <a name="create-the-custom-role"></a>Criar a função personalizada
@@ -169,18 +178,18 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
 Como funções internas, as funções personalizadas são atribuídas por padrão no escopo de toda a organização padrão para conceder permissões de acesso em todos os registros de aplicativo em sua organização. Contudo, diferentemente das funções internas, as funções personalizadas também podem ser atribuídas no escopo de um único recurso do Azure AD. Com isso, você pode oferecer ao usuário a permissão de atualizar credenciais e propriedades básicas de um único aplicativo sem precisar criar uma segunda função personalizada.
 
 1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com) com permissões de desenvolvedor de aplicativo na organização do Azure AD.
-1. Selecione **Registros do Aplicativo** .
+1. Selecione **Registros do Aplicativo**.
 1. Selecione o registro do aplicativo ao qual você está concedendo acesso para gerenciar. Talvez seja necessário selecionar **Todos os aplicativos** para ver a lista completa de registros de aplicativo em sua organização do Azure AD.
 
     ![Selecionar o registro do aplicativo como um escopo de recurso para uma atribuição de função](./media/custom-create/appreg-all-apps.png)
 
-1. No registro do aplicativo, selecione **Funções e administradores** . Se você ainda não criou uma, as instruções estão no [procedimento anterior](#create-a-new-custom-role-to-grant-access-to-manage-app-registrations).
+1. No registro do aplicativo, selecione **Funções e administradores**. Se você ainda não criou uma, as instruções estão no [procedimento anterior](#create-a-new-custom-role-to-grant-access-to-manage-app-registrations).
 
-1. Selecione a função para abrir a página **Atribuições** .
+1. Selecione a função para abrir a página **Atribuições**.
 1. Selecione **Adicionar atribuição** para adicionar um usuário. O usuário receberá as permissões apenas pelo registro do aplicativo selecionado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Fique à vontade para compartilhar seus comentários conosco no [fórum de funções administrativas do Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
 - Para obter mais informações sobre funções e a atribuição de função de Administrador, confira [Atribuir funções de administrador](permissions-reference.md).
-- Para obter as permissões de usuário padrão, confira uma [comparação entre as permissões de usuário membro e convidado padrão](/azure/active-directory/fundamentals/users-default-permissions).
+- Para obter as permissões de usuário padrão, confira uma [comparação entre as permissões de usuário membro e convidado padrão](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context).

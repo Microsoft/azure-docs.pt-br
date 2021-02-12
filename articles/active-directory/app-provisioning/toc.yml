@@ -10,8 +10,12 @@
 - name: Tutoriais
   expanded: true
   items:
-    - name: Criar um ponto de extremidade SCIM e configurar o provisionamento
+    - name: Planejar o provisionamento para um ponto de extremidade SCIM
       href: use-scim-to-provision-users-and-groups.md
+    - name: Desenvolver um ponto de extremidade SCIM de exemplo
+      href: use-scim-to-build-users-and-groups-endpoints.md
+    - name: Personalizar mapeamentos do atributo
+      href: customize-application-attributes.md
     - name: Tutoriais de provisionamento de aplicativos específicos
       href: /azure/active-directory/saas-apps
 - name: Conceitos
@@ -30,8 +34,6 @@
   items:
     - name: Configurar provisionamento para um aplicativo da galeria
       href: configure-automatic-user-provisioning-portal.md
-    - name: Personalizar mapeamentos do atributo
-      href: customize-application-attributes.md
     - name: Incluir ou excluir usuários e grupos do escopo
       items:
         - name: Definir o escopo de usuários ou grupos a serem provisionados
@@ -49,9 +51,9 @@
         - name: Exportar e importar sua configuração
           href: export-import-provisioning-configuration.md
         - name: Provisionamento de relatórios
-          href: ../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+          href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - name: Automatizar configuração usando o MS Graph
-      href: 'https://docs.microsoft.com/graph/application-provisioning-configure-api'
+      href: /graph/application-provisioning-configure-api
     - name: Solucionar problemas de provisionamento de aplicativos
       items:
         - name: Problemas conhecidos
@@ -65,7 +67,7 @@
         - name: Atributo de origem ausente
           href: user-provisioning-sync-attributes-for-mapping.md
         - name: Provisionando logs
-          href: ../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+          href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
 - name: Referência
   items:
     - name: Conformidade com o protocolo SCIM 2.0
@@ -80,6 +82,8 @@
           href: sap-successfactors-integration-reference.md
         - name: Referência de atributos do SuccessFactors
           href: sap-successfactors-attribute-reference.md
+        - name: Integração do Workday
+          href: workday-integration-reference.md
         - name: Referência de atributos do Workday
           href: workday-attribute-reference.md
         - name: Histórico de versões do agente de provisionamento

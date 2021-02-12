@@ -4,12 +4,12 @@ description: Monitorar aplicativos web ASP.NET Core de disponibilidade, desempen
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: 825cd451120f06597922c142dfc6bf8c10f5c700
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 2f17f4fbed196932ad7a5680338c459740e4d3bd
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875114"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249101"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights para aplicativos ASP.NET Core
 
@@ -36,6 +36,10 @@ O [SDK do Application insights para ASP.NET Core](https://nuget.org/packages/Mic
 - Um aplicativo ASP.NET Core funcionando. Se você precisar criar um aplicativo ASP.NET Core, siga este [tutorial de ASP.NET Core](/aspnet/core/getting-started/).
 - Uma chave de instrumentação de Application Insights válida. Essa chave é necessária para enviar qualquer telemetria para Application Insights. Se você precisar criar um novo recurso de Application Insights para obter uma chave de instrumentação, consulte [criar um recurso de Application insights](./create-new-resource.md).
 
+> [!IMPORTANT]
+> Novas regiões do Azure **exigem** o uso de cadeias de conexão em vez de chaves de instrumentação. A [cadeia de conexão](./sdk-connection-string.md?tabs=net) identifica o recurso ao qual você deseja associar os dados de telemetria. Ele também permite que você modifique os pontos de extremidade que o recurso usará como um destino para a telemetria. Você precisará copiar a cadeia de conexão e adicioná-la ao código do aplicativo ou a uma variável de ambiente.
+
+
 ## <a name="enable-application-insights-server-side-telemetry-visual-studio"></a>Habilitar Application Insights telemetria do lado do servidor (Visual Studio)
 
 Por Visual Studio para Mac use as [diretrizes manuais](#enable-application-insights-server-side-telemetry-no-visual-studio). Somente a versão do Windows do Visual Studio dá suporte a esse procedimento.
@@ -49,7 +53,7 @@ Por Visual Studio para Mac use as [diretrizes manuais](#enable-application-insig
 
 3. Selecione **Introdução**. O texto dessa seleção pode variar, dependendo da sua versão do Visual Studio. Em vez disso, algumas versões anteriores usam um botão **Iniciar gratuito** .
 
-4. Selecione sua assinatura. Em seguida, selecione registro de **recursos**  >  **Register**.
+4. Selecione sua assinatura. Em seguida, selecione registro de **recursos**  >  .
 
 5. Depois de adicionar Application Insights ao seu projeto, verifique se você está usando a versão estável mais recente do SDK. Vá para **projeto**  >  **gerenciar pacotes NuGet**  >  **Microsoft. ApplicationInsights. AspNetCore**. Se necessário, escolha **Atualizar**.
 
@@ -65,7 +69,7 @@ Por Visual Studio para Mac use as [diretrizes manuais](#enable-application-insig
 
     ```xml
         <ItemGroup>
-          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.13.1" />
+          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.16.0" />
         </ItemGroup>
     ```
 
@@ -142,7 +146,7 @@ A coleção de dependências é habilitada por padrão. [Este](asp-net-dependenc
 
 ### <a name="performance-counters"></a>Contadores de desempenho
 
-O suporte para [contadores de desempenho](./web-monitor-performance.md) no ASP.NET Core é limitado:
+O suporte para [contadores de desempenho](./performance-counters.md) no ASP.NET Core é limitado:
 
 * As versões 2.4.1 e posteriores do SDK coletarão contadores de desempenho se o aplicativo estiver sendo executado em aplicativos Web do Azure (Windows).
 * As versões 2.7.1 e posteriores do SDK coletarão contadores de desempenho se o aplicativo estiver sendo executado no Windows e se destinar a `NETSTANDARD2.0` ou posterior.
@@ -228,7 +232,7 @@ Consulte as [configurações configuráveis `ApplicationInsightsServiceOptions` 
 
 ### <a name="configuration-recommendation-for-microsoftapplicationinsightsaspnetcore-sdk-2150--above"></a>Recomendação de configuração para Microsoft. ApplicationInsights. AspNetCore SDK 2.15.0 & acima
 
-A partir do Microsoft. ApplicationInsights. AspNetCore SDK versão [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0) a recomendação é definir todas as configurações disponíveis no `ApplicationInsightsServiceOptions` , incluindo instrumentationkey usando a instância de aplicativos `IConfiguration` . As configurações devem estar na seção "ApplicationInsights", conforme mostrado no exemplo abaixo. A seção a seguir de appsettings.jsem configura a chave de instrumentação e também desabilita a amostragem adaptável e a coleta do contador de desempenho.
+A partir do Microsoft. ApplicationInsights. AspNetCore SDK versão [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0), a recomendação é definir todas as configurações disponíveis no `ApplicationInsightsServiceOptions` , incluindo instrumentationkey usando a instância de aplicativos `IConfiguration` . As configurações devem estar na seção "ApplicationInsights", conforme mostrado no exemplo a seguir. A seção a seguir de appsettings.jsem configura a chave de instrumentação e também desabilita a amostragem adaptável e a coleta do contador de desempenho.
 
 ```json
 {
@@ -261,6 +265,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+> [!NOTE]
+> `services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();` funciona para inicializadores simples. Para outros, é necessário o seguinte: `services.AddSingleton(new MyCustomTelemetryInitializer() { fieldName = "myfieldName" });`
+    
 ### <a name="removing-telemetryinitializers"></a>Removendo TelemetryInitializers
 
 Os inicializadores de telemetria estão presentes por padrão. Para remover todos os inicializadores de telemetria específicos, use o código de exemplo a seguir *depois* de chamar `AddApplicationInsightsTelemetry()` .

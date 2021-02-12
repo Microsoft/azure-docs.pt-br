@@ -4,18 +4,18 @@ description: Saiba mais sobre como empacotar um aplicativo de Service Fabric do 
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 11a3fdd5dbaef53af321342952f786ed8119689c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 168e6d6dc7ab5bfeccc4e1dabc7bd50efcbe8f34
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012391"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789695"
 ---
 # <a name="package-an-application"></a>Preparar um aplicativo
 
 Este artigo descreve como empacotar um aplicativo do Service Fabric e deixá-lo pronto para implantação.
 
-## <a name="package-layout"></a>Layout do pacote
+## <a name="package-layout"></a>Layout de pacote
 
 O manifesto do aplicativo, um ou mais manifestos do serviço e outros arquivos de pacote necessários devem ser organizados em um layout específico para implantação em um cluster do Service Fabric. Os manifestos de exemplo neste artigo precisariam estar organizados na seguinte estrutura de diretórios:
 
@@ -75,7 +75,7 @@ D:\Temp> msbuild HelloWorld.sfproj /t:Package
 
 ## <a name="test-the-package"></a>Teste o pacote
 
-Você pode verificar a estrutura do pacote localmente por meio do PowerShell usando o comando [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) .
+Você pode verificar a estrutura do pacote localmente por meio do PowerShell usando o comando [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage) .
 Esse comando verifica se há problemas de análise de manifesto e também todas as referências. Observe que esse comando só verifica a correção estrutural de diretórios e arquivos no pacote.
 Ele não verificará nenhum código ou conteúdo do pacote de dados além de verificar se todos os arquivos necessários estão presentes.
 
@@ -121,7 +121,7 @@ Test-ServiceFabricApplicationPackage .\MyApplicationType
 True
 ```
 
-Se seu aplicativo tiver [parâmetros do aplicativo](service-fabric-manage-multiple-environment-app-configuration.md) definidos, você poderá passá-los em [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) para a validação correta.
+Se seu aplicativo tiver [parâmetros do aplicativo](service-fabric-manage-multiple-environment-app-configuration.md) definidos, você poderá passá-los em [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage) para a validação correta.
 
 Se você souber o cluster em que o aplicativo será implantado, é recomendado passar o parâmetro `ImageStoreConnectionString`. Nesse caso, o pacote também é validado para as versões anteriores do aplicativo que já estão em execução no cluster. Por exemplo, a validação pode detectar se um pacote com a mesma versão mas conteúdo diferente já foi implantado.  
 
@@ -135,9 +135,9 @@ Para um pacote de aplicativos compactados, [carregar o pacote de aplicativos](se
 O mecanismo de implantação é o mesmo para pacotes compactados e não compactados. Se o pacote for compactado ele será armazenado como tal no repositório de imagens do cluster e será descompactado no nó antes que o aplicativo seja executado.
 A compactação substitui o pacote do Service Fabric válido pela versão compactada. A pasta deve aceitar permissões de gravação. A execução da compactação em um pacote já compactado não produz nenhuma alteração.
 
-Você pode compactar um pacote executando o comando do PowerShell [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) com a opção `CompressPackage`. Você pode descompactar o pacote com o mesmo comando, usando a opção `UncompressPackage`.
+Você pode compactar um pacote executando o comando do PowerShell [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) com a opção `CompressPackage`. Você pode descompactar o pacote com o mesmo comando, usando a opção `UncompressPackage`.
 
-O comando a seguir compacta o pacote sem copiá-lo para o repositório de imagens. Você pode copiar um pacote compactado para um ou mais clusters do Service Fabric, conforme necessário, usando [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) sem o sinalizador `SkipCopy`.
+O comando a seguir compacta o pacote sem copiá-lo para o repositório de imagens. Você pode copiar um pacote compactado para um ou mais clusters do Service Fabric, conforme necessário, usando [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) sem o sinalizador `SkipCopy`.
 O pacote agora inclui arquivos compactados para os pacotes `code`, `config` e `data`. O manifesto do aplicativo e os manifestos do serviço não estão compactados porque são necessários para muitas operações internas. Por exemplo, compartilhamento de pacotes, extração de nome e versão do tipo de aplicativo para determinadas validações, todos precisam acessar os manifestos. Compactar os manifestos tornaria essas operações ineficientes.
 
 ```
@@ -179,7 +179,7 @@ D:\TEMP\MYAPPLICATIONTYPE
 
 ```
 
-Como alternativa, você pode compactar e copiar o pacote com [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) em uma única etapa.
+Como alternativa, você pode compactar e copiar o pacote com [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) em uma única etapa.
 Se o pacote for grande, forneça um tempo limite suficientemente longo para que haja tempo tanto para a compactação do pacote quanto para o upload para o cluster.
 
 ```powershell
@@ -212,7 +212,7 @@ Com essa opção, o pacote de aplicativos não precisa ser copiado para o reposi
 O `sfpkg` é um arquivo zip que contém o pacote de aplicativos inicial e tem a extensão ".sfpkg".
 Dentro do zip, o pacote de aplicativos pode estar compactado ou não. A compactação do pacote de aplicativos dentro do zip é feita nos níveis de código, configuração e pacote de dados, como [mencionado anteriormente](service-fabric-package-apps.md#compress-a-package).
 
-Para criar um `sfpkg`, comece com uma pasta que contém o pacote de aplicativos original, compactado ou não. Em seguida, use qualquer utilitário para compactar a pasta com a extensão ".sfpkg". Por exemplo, use [ZipFile.CreateFromDirectory](/dotnet/api/system.io.compression.zipfile.createfromdirectory?view=netcore-3.1#System_IO_Compression_ZipFile_CreateFromDirectory_System_String_System_String_System_IO_Compression_CompressionLevel_System_Boolean_).
+Para criar um `sfpkg`, comece com uma pasta que contém o pacote de aplicativos original, compactado ou não. Em seguida, use qualquer utilitário para compactar a pasta com a extensão ".sfpkg". Por exemplo, use [ZipFile.CreateFromDirectory](/dotnet/api/system.io.compression.zipfile.createfromdirectory#System_IO_Compression_ZipFile_CreateFromDirectory_System_String_System_String_System_IO_Compression_CompressionLevel_System_Boolean_).
 
 ```csharp
 ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);

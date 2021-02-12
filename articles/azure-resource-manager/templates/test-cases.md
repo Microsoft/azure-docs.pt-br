@@ -2,15 +2,15 @@
 title: Casos de teste para o kit de ferramentas de teste
 description: Descreve os testes que são executados pelo kit de ferramentas de teste do modelo ARM.
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 12/03/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: dda8e92c17029126e7f473a6aee03acfc970e04b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 451323058ad743d6e26fc8bcea27d1b44c76f543
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378110"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674035"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Casos de teste padrão para o kit de ferramentas de teste do modelo ARM
 
@@ -137,9 +137,11 @@ O exemplo a seguir **passa** esse teste.
 
 Nome do teste: o **local não deve ser codificado**
 
-Os usuários do seu modelo podem ter regiões limitadas disponíveis para eles. Quando você define o local do recurso como `"[resourceGroup().location]"` , o grupo de recursos pode ter sido criado em uma região que os outros usuários não podem acessar. Esses usuários estão impedidos de usar o modelo.
+Seus modelos devem ter um parâmetro chamado local. Use esse parâmetro para definir o local dos recursos em seu modelo. No modelo principal (chamado azuredeploy.jsno ou mainTemplate.jsem), esse parâmetro pode padrão para o local do grupo de recursos. Em modelos vinculados ou aninhados, o parâmetro de local não deve ter um local padrão.
 
-Ao definir o local para cada recurso, use um parâmetro que usa como padrão o local do grupo de recursos. Ao fornecer esse parâmetro, os usuários podem usar o valor padrão quando conveniente, mas também especificar um local diferente.
+Os usuários do seu modelo podem ter regiões limitadas disponíveis para eles. Quando você embuti código o local do recurso, os usuários podem ser impedidos de criar um recurso nessa região. Os usuários podem ser bloqueados mesmo se você definir o local do recurso como `"[resourceGroup().location]"` . O grupo de recursos pode ter sido criado em uma região que os outros usuários não podem acessar. Esses usuários estão impedidos de usar o modelo.
+
+Ao fornecer um parâmetro de local que usa como padrão o local do grupo de recursos, os usuários podem usar o valor padrão quando conveniente, mas também especificar um local diferente.
 
 O exemplo a seguir **falha** nesse teste porque o local no recurso está definido como `resourceGroup().location` .
 
@@ -195,7 +197,7 @@ O exemplo a seguir usa um parâmetro Location, mas **falha** esse teste porque o
 }
 ```
 
-Em vez disso, crie um parâmetro que usa como padrão o local do grupo de recursos, mas permite que os usuários forneçam um valor diferente. O exemplo a seguir **passa** esse teste.
+Em vez disso, crie um parâmetro que usa como padrão o local do grupo de recursos, mas permite que os usuários forneçam um valor diferente. O exemplo a seguir **passa** esse teste quando o modelo é usado como o modelo principal.
 
 ```json
 {
@@ -227,6 +229,8 @@ Em vez disso, crie um parâmetro que usa como padrão o local do grupo de recurs
     "outputs": {}
 }
 ```
+
+No entanto, se o exemplo anterior for usado como um modelo vinculado, o teste **falhará**. Quando usado como um modelo vinculado, remova o valor padrão.
 
 ## <a name="resources-should-have-location"></a>Os recursos devem ter o local
 
@@ -689,4 +693,5 @@ O exemplo a seguir **falha** porque ele usa uma função [list *](template-funct
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre como executar o kit de ferramentas de teste, consulte [usar o kit de ferramentas do ARM template](test-toolkit.md).
+- Para saber mais sobre como executar o kit de ferramentas de teste, consulte [usar o kit de ferramentas do ARM template](test-toolkit.md).
+- Para um módulo Microsoft Learn que abrange o uso do kit de ferramentas de teste, consulte [Visualizar alterações e validar recursos do Azure usando o What-If e o ARM template Test Toolkit](/learn/modules/arm-template-test/).

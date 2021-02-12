@@ -1,5 +1,6 @@
 ---
-title: API Web que chama APIs da Web-plataforma de identidade da Microsoft | Azure
+title: API Web que chama APIs Web | Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como criar uma API Web que chama APIs da Web.
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 9212e99ae317a3abec4bebfc7fb131c6774f8e4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c69cea7055476bcc4c4a28cea0a0cf8c8f66f88
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396188"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753452"
 ---
 # <a name="a-web-api-that-calls-web-apis-call-an-api"></a>Uma API Web que chama APIs da Web: chamar uma API
 
@@ -164,5 +165,4 @@ Um exemplo que demonstra esse fluxo com o MSAL Python ainda não está disponív
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Uma API Web que chama APIs da Web: mover para produção](scenario-web-api-call-api-production.md)
+Vá para o próximo artigo neste cenário, [vá para produção](scenario-web-api-call-api-production.md).

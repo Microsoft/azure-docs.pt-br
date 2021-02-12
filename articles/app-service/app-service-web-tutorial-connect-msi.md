@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
-ms.openlocfilehash: 633e3a6386b9e6098e167c7fdd542d98c16fae48
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2c19ee2b8e7ec3c695b2c76c46402c118c559b40
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737882"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736231"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: proteger a conexão do Banco de Dados SQL do Azure no Serviço de Aplicativo usando uma identidade gerenciada
 
@@ -47,7 +47,9 @@ Este artigo continua do ponto em que você parou no [Tutorial: Criar um aplicati
 
 Para depurar seu aplicativo usando o banco de dados SQL como back-end, verifique se você permitiu a conexão do cliente no seu computador. Caso contrário, adicione o IP do cliente seguindo as etapas descritas em [Gerenciar regras de firewall de IP no nível do servidor usando o portal do Azure](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Prepare seu ambiente para a CLI do Azure.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="grant-database-access-to-azure-ad-user"></a>Conceder acesso de banco de dados ao usuário do Azure AD
 
@@ -55,7 +57,7 @@ Primeiro, habilite a autenticação do Azure AD para o Banco de Dados SQL atribu
 
 Se o locatário do Azure AD ainda não tiver um usuário, crie um seguindo as etapas em [Adicionar ou excluir usuários usando o Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md).
 
-Encontre a ID de objeto do usuário do Azure AD usando [`az ad user list`](/cli/azure/ad/user?view=azure-cli-latest#az-ad-user-list) e substitua *\<user-principal-name>* . O resultado é salvo em uma variável.
+Encontre a ID de objeto do usuário do Azure AD usando [`az ad user list`](/cli/azure/ad/user#az-ad-user-list) e substitua *\<user-principal-name>* . O resultado é salvo em uma variável.
 
 ```azurecli-interactive
 azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query [].objectId --output tsv)
@@ -64,7 +66,7 @@ azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-na
 > Para ver a lista de todos os nomes de entidade de usuário no Azure AD, execute `az ad user list --query [].userPrincipalName`.
 >
 
-Adicione o usuário do Azure AD como um administrador do Active Directory usando o comando [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin-create) no Cloud Shell. No comando a seguir, substitua *\<server-name>* pelo nome do servidor (sem o sufixo `.database.windows.net`).
+Adicione o usuário do Azure AD como um administrador do Active Directory usando o comando [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) no Cloud Shell. No comando a seguir, substitua *\<server-name>* pelo nome do servidor (sem o sufixo `.database.windows.net`).
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server-name> --display-name ADMIN --object-id $azureaduser
@@ -75,9 +77,9 @@ Para obter mais informações sobre como adicionar um administrador do Active Di
 ## <a name="set-up-visual-studio"></a>Configurar o Visual Studio
 
 ### <a name="windows-client"></a>Windows Client
-O Visual Studio para Windows é integrado à autenticação do Azure AD. Para habilitar o desenvolvimento e a depuração no Visual Studio, adicione o usuário do Azure AD no Visual Studio selecionando **Arquivo** > **Configurações de Conta** no menu e clicando em **Adicionar uma conta** .
+O Visual Studio para Windows é integrado à autenticação do Azure AD. Para habilitar o desenvolvimento e a depuração no Visual Studio, adicione o usuário do Azure AD no Visual Studio selecionando **Arquivo** > **Configurações de Conta** no menu e clicando em **Adicionar uma conta**.
 
-Para definir o usuário do Azure AD para autenticação de serviço do Azure, selecione **Ferramentas** > **Opções** no menu, em seguida, selecione **Autenticação de Serviço do Azure** > **Seleção de conta** . Selecione o usuário do Azure AD que você adicionou e clique em **OK** .
+Para definir o usuário do Azure AD para autenticação de serviço do Azure, selecione **Ferramentas** > **Opções** no menu, em seguida, selecione **Autenticação de Serviço do Azure** > **Seleção de conta**. Selecione o usuário do Azure AD que você adicionou e clique em **OK**.
 
 Agora você está pronto para desenvolver e depurar seu aplicativo com o banco de dados SQL como back-end, usando a autenticação do Azure AD.
 
@@ -87,7 +89,7 @@ O Visual Studio para Mac não é integrado à autenticação do Azure AD. No ent
 
 Quando a CLI do Azure estiver instalada no computador local, entre nela com o seguinte comando usando o usuário do Azure AD:
 
-```bash
+```azurecli
 az login --allow-no-subscriptions
 ```
 Agora você está pronto para desenvolver e depurar seu aplicativo com o banco de dados SQL como back-end, usando a autenticação do Azure AD.
@@ -107,7 +109,7 @@ No Visual Studio, abra o Console do Gerenciador de Pacotes e adicione o pacote N
 Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.4.0
 ```
 
-Em *Web.config* , comece pela parte superior do arquivo e faça as seguintes alterações:
+Em *Web.config*, comece pela parte superior do arquivo e faça as seguintes alterações:
 
 - Em `<configSections>`, adicione a seguinte declaração de seção:
 
@@ -128,7 +130,7 @@ Em *Web.config* , comece pela parte superior do arquivo e faça as seguintes alt
 - Localizar a cadeia de caracteres de conexão chamada `MyDbConnection` e substitua seu valor `connectionString` por `"server=tcp:<server-name>.database.windows.net;database=<db-name>;UID=AnyString;Authentication=Active Directory Interactive"`. Substitua _\<server-name>_ e _\<db-name>_ pelos nomes do servidor e do banco de dados.
 
 > [!NOTE]
-> O SqlAuthenticationProvider recém-registrado baseia-se na biblioteca AppAuthentication instalada anteriormente. Por padrão, ele usa uma identidade atribuída ao sistema. Para aproveitar uma identidade atribuída ao usuário, será necessário fornecer uma configuração adicional. Confira [Suporte à cadeia de conexão](../key-vault/general/service-to-service-authentication.md#connection-string-support) da biblioteca AppAuthentication.
+> O SqlAuthenticationProvider recém-registrado baseia-se na biblioteca AppAuthentication instalada anteriormente. Por padrão, ele usa uma identidade atribuída ao sistema. Para aproveitar uma identidade atribuída ao usuário, será necessário fornecer uma configuração adicional. Confira [Suporte à cadeia de conexão](/dotnet/api/overview/azure/service-to-service-authentication#connection-string-support) da biblioteca AppAuthentication.
 
 Isso é tudo de que você precisa para se conectar ao Banco de Dados SQL. Ao depurar no Visual Studio, seu código utiliza o usuário do Azure AD que você configurou na seção [Configurar Visual Studio](#set-up-visual-studio). Você vai configurar o Banco de Dados SQL posteriormente para permitir a conexão na identidade gerenciada do aplicativo do Serviço de Aplicativo.
 
@@ -142,17 +144,17 @@ No Visual Studio, abra o Console do Gerenciador de Pacotes e adicione o pacote N
 Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.4.0
 ```
 
-No [tutorial do ASP.NET Core e do Banco de Dados SQL](tutorial-dotnetcore-sqldb-app.md), a cadeia de conexão `MyDbConnection` não é usada porque o ambiente de desenvolvimento local usa um arquivo de banco de dados do SQLite e o ambiente de produção do Azure usa uma cadeia de conexão do Serviço de Aplicativo. Com a autenticação do Active Directory, o ideal é que ambos os ambientes usem a mesma cadeia de conexão. Em *appsettings.json* , substitua o valor da cadeia de conexão `MyDbConnection` por:
+No [tutorial do ASP.NET Core e do Banco de Dados SQL](tutorial-dotnetcore-sqldb-app.md), a cadeia de conexão `MyDbConnection` não é usada porque o ambiente de desenvolvimento local usa um arquivo de banco de dados do SQLite e o ambiente de produção do Azure usa uma cadeia de conexão do Serviço de Aplicativo. Com a autenticação do Active Directory, o ideal é que ambos os ambientes usem a mesma cadeia de conexão. Em *appsettings.json*, substitua o valor da cadeia de conexão `MyDbConnection` por:
 
 ```json
 "Server=tcp:<server-name>.database.windows.net,1433;Database=<database-name>;"
 ```
 
-Em seguida, você fornece o contexto de banco de dados do Entity Framework com o token de acesso para o Banco de Dados SQL. Em *Data\MyDatabaseContext.cs* , adicione o código a seguir dentro das chaves do construtor `MyDatabaseContext (DbContextOptions<MyDatabaseContext> options)` vazio:
+Em seguida, você fornece o contexto de banco de dados do Entity Framework com o token de acesso para o Banco de Dados SQL. Em *Data\MyDatabaseContext.cs*, adicione o código a seguir dentro das chaves do construtor `MyDatabaseContext (DbContextOptions<MyDatabaseContext> options)` vazio:
 
 ```csharp
-var conn = (Microsoft.Data.SqlClient.SqlConnection)Database.GetDbConnection();
-conn.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceTokenProvider()).GetAccessTokenAsync("https://database.windows.net/").Result;
+var connection = (SqlConnection)Database.GetDbConnection();
+connection.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceTokenProvider()).GetAccessTokenAsync("https://database.windows.net/").Result;
 ```
 
 > [!NOTE]
@@ -174,7 +176,7 @@ Em seguida, você pode configurar o aplicativo de seu Serviço de Aplicativo par
 
 ### <a name="enable-managed-identity-on-app"></a>Habilitar a identidade gerenciada no aplicativo
 
-Para habilitar uma identidade gerenciada para o aplicativo do Azure, use o comando [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) no Cloud Shell. No comando a seguir, substitua *\<app-name>* .
+Para habilitar uma identidade gerenciada para o aplicativo do Azure, use o comando [az webapp identity assign](/cli/azure/webapp/identity#az-webapp-identity-assign) no Cloud Shell. No comando a seguir, substitua *\<app-name>* .
 
 ```azurecli-interactive
 az webapp identity assign --resource-group myResourceGroup --name <app-name>
@@ -194,7 +196,7 @@ Veja um exemplo da saída:
 ### <a name="grant-permissions-to-managed-identity"></a>Conceder permissões para a identidade gerenciada
 
 > [!NOTE]
-> Se quiser, você pode adicionar a identidade a um [Grupo do Azure AD](../active-directory/fundamentals/active-directory-manage-groups.md) e conceder acesso ao Banco de Dados SQL ao grupo do Azure AD em vez da identidade. Por exemplo, os comandos a seguir adicionam a identidade gerenciada da etapa anterior a um novo grupo chamado _myAzureSQLDBAccessGroup_ :
+> Se quiser, você pode adicionar a identidade a um [Grupo do Azure AD](../active-directory/fundamentals/active-directory-manage-groups.md) e conceder acesso ao Banco de Dados SQL ao grupo do Azure AD em vez da identidade. Por exemplo, os comandos a seguir adicionam a identidade gerenciada da etapa anterior a um novo grupo chamado _myAzureSQLDBAccessGroup_:
 > 
 > ```azurecli-interactive
 > groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
@@ -206,7 +208,7 @@ Veja um exemplo da saída:
 
 No Cloud Shell, entre no Banco de Dados SQL usando o comando SQLCMD. Substitua _\<server-name>_ pelo nome do servidor, _\<db-name>_ pelo nome do banco de dados usado pelo aplicativo e _\<aad-user-name>_ e _\<aad-password>_ pelas credenciais do usuário do Azure AD.
 
-```azurecli-interactive
+```bash
 sqlcmd -S <server-name>.database.windows.net -d <db-name> -U <aad-user-name> -P "<aad-password>" -G -l 30
 ```
 
@@ -220,12 +222,15 @@ ALTER ROLE db_ddladmin ADD MEMBER [<identity-name>];
 GO
 ```
 
-*\<identity-name>* é o nome da identidade gerenciada no Azure AD. Se a identidade for atribuída ao sistema, o nome será sempre igual ao nome do aplicativo do Serviço de Aplicativo. Para conceder permissões para um grupo do Azure AD, use o nome de exibição do grupo em vez disso (por exemplo, *myAzureSQLDBAccessGroup* ).
+*\<identity-name>* é o nome da identidade gerenciada no Azure AD. Se a identidade for atribuída ao sistema, o nome será sempre igual ao nome do aplicativo do Serviço de Aplicativo. Para conceder permissões para um grupo do Azure AD, use o nome de exibição do grupo em vez disso (por exemplo, *myAzureSQLDBAccessGroup*).
 
 Digite `EXIT` para retornar ao prompt do Cloud Shell.
 
 > [!NOTE]
 > Os serviços de back-end das identidades gerenciadas também [mantêm um cache de token](overview-managed-identity.md#obtain-tokens-for-azure-resources) que atualiza o token para um recurso de destino somente quando ele expira. Se você cometer um erro ao configurar as permissões do Banco de Dados SQL e tentar modificar as permissões *depois* de tentar obter um token com o seu aplicativo, você não obterá um novo token com as permissões atualizadas até que o token armazenado em cache expire.
+
+> [!NOTE]
+> O AAD não tem suporte para SQL Server local e isso inclui MSIs. 
 
 ### <a name="modify-connection-string"></a>Modificar cadeia de conexão
 
@@ -239,17 +244,17 @@ az webapp config connection-string delete --resource-group myResourceGroup --nam
 
 Agora, só falta publicar suas alterações no Azure.
 
-**Se você veio do [Tutorial: Criar um aplicativo ASP.NET no Azure com o Banco de Dados SQL](app-service-web-tutorial-dotnet-sqldatabase.md)** , publique suas alterações no Visual Studio. No **Gerenciador de Soluções** , clique com botão direito no projeto **DotNetAppSqlD** e selecione **Publicar** .
+**Se você veio do [Tutorial: Criar um aplicativo ASP.NET no Azure com o Banco de Dados SQL](app-service-web-tutorial-dotnet-sqldatabase.md)** , publique suas alterações no Visual Studio. No **Gerenciador de Soluções**, clique com botão direito no projeto **DotNetAppSqlD** e selecione **Publicar**.
 
 ![Publicar no Gerenciador de Soluções](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
 
-Na página de publicação, clique em **Publicar** . 
+Na página de publicação, clique em **Publicar**. 
 
 **Se você veio do [Tutorial: Criar um aplicativo ASP.NET Core e do Banco de Dados SQL no Serviço de Aplicativo do Azure](tutorial-dotnetcore-sqldb-app.md)** , publique suas alterações usando o Git, com os comandos a seguir:
 
 ```bash
 git commit -am "configure managed identity"
-git push azure master
+git push azure main
 ```
 
 Quando a nova página da Web mostra a lista de tarefas pendentes, seu aplicativo se conecta ao banco de dados usando a identidade gerenciada.

@@ -13,16 +13,16 @@ ms.date: 9/18/2019
 ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
-ms.openlocfilehash: 0ad5fab685757d2efd91cd1df0e48a5f1258d17e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f87f2e79bd9439fddb52fad82c7ab4712fc68fb9
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119871"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680358"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Usar o MSAL para Android com B2C
 
-A MSAL (Biblioteca de Autenticação da Microsoft) permite que os desenvolvedores de aplicativos autentiquem os usuários com identidades sociais e locais usando o [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml). O Azure AD B2C é um serviço de gerenciamento de identidades. Use-o para personalizar e controlar como os clientes se inscrevem, entram e gerenciam seus perfis quando usam seus aplicativos.
+A MSAL (biblioteca de autenticação da Microsoft) permite que os desenvolvedores de aplicativos autentiquem usuários com identidades locais e sociais usando [Azure Active Directory B2C (Azure ad B2C)](../../active-directory-b2c/index.yml). O Azure AD B2C é um serviço de gerenciamento de identidades. Use-o para personalizar e controlar como os clientes se inscrevem, entram e gerenciam seus perfis quando usam seus aplicativos.
 
 ## <a name="configure-known-authorities-and-redirect-uri"></a>Configurar autoridades conhecidas e URI de redirecionamento
 
@@ -36,11 +36,14 @@ Dado um aplicativo B2C que tem duas políticas:
 
 O arquivo de configuração para o aplicativo declararia dois `authorities` . Uma para cada política. A `type` propriedade de cada autoridade é `B2C` .
 
+>Observação: o `account_mode` deve ser definido como **vários** para aplicativos B2C. Consulte a documentação para obter mais informações sobre [aplicativos cliente públicos de várias contas](./single-multi-account.md#multiple-account-public-client-application).
+
 ### `app/src/main/res/raw/msal_config.json`
 ```json
 {
     "client_id": "<your_client_id_here>",
     "redirect_uri": "<your_redirect_uri_here>",
+    "account_mode" : "MULTIPLE",
     "authorities": [{
             "type": "B2C",
             "authority_url": "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/",
@@ -129,7 +132,7 @@ AcquireTokenSilentParameters parameters = new AcquireTokenSilentParameters.Build
 
         @Override
         public void onError(MsalException exception) {
-            // Token request was unsuccesful, inspect the exception
+            // Token request was unsuccessful, inspect the exception
         }
     })
     .build();

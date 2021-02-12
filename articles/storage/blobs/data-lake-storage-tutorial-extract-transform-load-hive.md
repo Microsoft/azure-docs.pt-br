@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: b247a72b5d7db9892c6a2a763b7b71dc5f972d95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8210c3bc0437180ace110f8decd9f83e18650ed
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86045290"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661926"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>Tutorial: extrair, transformar e carregar dados usando o Azure HDInsight
 
@@ -32,15 +32,15 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 * **Uma conta de armazenamento do Azure Data Lake Storage Gen2 configurada para HDInsight**
 
-    Consulte [Usar o Azure Data Lake Storage Gen2 com clusters de HDInsight do Azure](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2).
+    Consulte [Usar o Azure Data Lake Storage Gen2 com clusters de HDInsight do Azure](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 * **Um cluster Hadoop baseado em Linux no HDInsight**
 
-    Confira [Início Rápido: Introdução ao Apache Hadoop e ao Apache Hive no Azure HDInsight usando o portal do Azure](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal).
+    Confira [Início Rápido: Introdução ao Apache Hadoop e ao Apache Hive no Azure HDInsight usando o portal do Azure](../../hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md).
 
-* **Banco de Dados SQL do Azure**: use o Banco de Dados SQL do Azure como um armazenamento de dados de destino. Se você não tiver um banco de dados no Banco de Dados SQL, confira [Criar um banco de dados no Banco de Dados SQL do Azure no portal do Azure](../../sql-database/sql-database-get-started.md).
+* **Banco de Dados SQL do Azure**: use o Banco de Dados SQL do Azure como um armazenamento de dados de destino. Se você não tiver um banco de dados no Banco de Dados SQL, confira [Criar um banco de dados no Banco de Dados SQL do Azure no portal do Azure](../../azure-sql/database/single-database-create-quickstart.md).
 
-* **CLI do Azure**: Se você ainda não instalou a CLI do Azure, confira [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* **CLI do Azure**: Se você ainda não instalou a CLI do Azure, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 * **Um cliente do Secure Shell (SSH)** : Para obter mais informações, confira [Conectar-se ao HDInsight (Hadoop) usando SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -344,4 +344,4 @@ Todos os recursos usados neste tutorial são preexistentes. Nenhuma limpeza é n
 Para saber mais maneiras de trabalhar usando dados no HDInsight, confira o artigo a seguir:
 
 > [!div class="nextstepaction"]
-> [Usar Gen2 de armazenamento do Azure Data Lake com clusters de HDInsight do Azure](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Usar Gen2 de armazenamento do Azure Data Lake com clusters de HDInsight do Azure](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

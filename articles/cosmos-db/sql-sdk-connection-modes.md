@@ -3,16 +3,17 @@ title: Azure Cosmos DB modos de conectividade do SDK do SQL
 description: Saiba mais sobre os diferentes modos de conectividade disponíveis no Azure Cosmos DB SDKs do SQL.
 author: ealsur
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: maquaran
-ms.custom: devx-track-dotnet
-ms.openlocfilehash: 95396f28fd835091258bccbfdb0a0c0eafebea91
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: devx-track-dotnet, contperf-fy21q2
+ms.openlocfilehash: cf985999bac0cf45eec5d8f0f5f9e921b6f4591c
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93093547"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934944"
 ---
 # <a name="azure-cosmos-db-sql-sdk-connectivity-modes"></a>Azure Cosmos DB modos de conectividade do SDK do SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -27,7 +28,7 @@ Os dois modos de conectividade disponíveis são:
       
     O modo de gateway tem suporte em todas as plataformas SDK. Se seu aplicativo for executado em uma rede corporativa com restrições de firewall estritas, o modo de gateway será a melhor opção porque ele usa a porta HTTPS padrão e um único ponto de extremidade DNS. No entanto, a compensação de desempenho é que o modo de gateway envolve um salto de rede adicional toda vez que os dados são lidos ou gravados em Azure Cosmos DB. Também recomendamos o modo de conexão de gateway quando você executa aplicativos em ambientes que têm um número limitado de conexões de soquete.
 
-    Ao usar o SDK no Azure Functions, especialmente no plano de [consumo](../azure-functions/functions-scale.md#consumption-plan), esteja ciente dos limites atuais das [conexões](../azure-functions/manage-connections.md).
+    Ao usar o SDK no Azure Functions, especialmente no plano de [consumo](../azure-functions/consumption-plan.md), esteja ciente dos limites atuais das [conexões](../azure-functions/manage-connections.md).
 
   * Modo direto
 
@@ -46,7 +47,7 @@ A tabela a seguir mostra um resumo dos modos de conectividade disponíveis para 
 |Modo da conexão  |Protocolo com Suporte  |SDKs com suporte  |Porta/serviço de API  |
 |---------|---------|---------|---------|
 |Gateway  |   HTTPS    |  Todos os SDKs    |   SQL (443), MongoDB (10250, 10255, 10256), tabela (443), Cassandra (10350), grafo (443) <br> A porta 10250 é mapeada para uma API de Azure Cosmos DB padrão para a instância do MongoDB sem replicação geográfica. Enquanto as portas 10255 e 10256 são mapeadas para a instância que tem replicação geográfica.   |
-|Direto    |     TCP    |  SDK .NET    | Ao usar pontos de extremidade de serviço/público: portas no intervalo de 10000 a 20000<br>Ao usar pontos de extremidade privados: portas no intervalo de 0 a 65535 |
+|Direto    |     TCP    |  SDK Java do SDK do .NET    | Ao usar pontos de extremidade de serviço/público: portas no intervalo de 10000 a 20000<br>Ao usar pontos de extremidade privados: portas no intervalo de 0 a 65535 |
 
 ## <a name="next-steps"></a>Próximas etapas
 

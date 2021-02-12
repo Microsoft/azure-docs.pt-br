@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: db4f49c1b788cd7a55fd6fbbd48f845f2c94d757
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: df19f32be41b17e13a9da575e828830e29da4e55
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073522"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98894755"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Iniciar runbook a partir de um webhook
 
@@ -151,7 +151,7 @@ Você pode estender um webhook que não atingiu seu prazo de validade. Para este
 O runbook de exemplo a seguir aceita os dados do webhook e inicia as máquinas virtuais especificadas no corpo da solicitação. Para testar esse runbook em sua conta de Automação, em **Runbooks**, clique em **Criar um Runbook**. Se você não souber como criar um runbook, confira [Criando um runbook](automation-quickstart-create-runbook.md).
 
 > [!NOTE]
-> Para runbooks não gráficos do PowerShell, `Add-AzAccount` e `Add-AzureRMAccount` são aliases para [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Você pode usar esses cmdlets ou pode [atualizar seus módulos](automation-update-azure-modules.md) em sua conta de Automação para as versões mais recentes. Talvez você precise atualizar os módulos mesmo que você tenha acabado de criar uma conta de Automação.
+> Para runbooks não gráficos do PowerShell, `Add-AzAccount` e `Add-AzureRMAccount` são aliases para [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Você pode usar esses cmdlets ou pode [atualizar seus módulos](automation-update-azure-modules.md) em sua conta de Automação para as versões mais recentes. Talvez você precise atualizar os módulos mesmo que você tenha acabado de criar uma conta de Automação.
 
 ```powershell
 param

@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: df0620308fab2e813fe3802dc7effb9dc1ce226c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17bdae658c7095c44a7ae9f30fd85a6c45bf1546
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285376"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779967"
 ---
 # <a name="scale-out-your-azure-arc-enabled-postgresql-hyperscale-server-group-by-adding-more-worker-nodes"></a>Escalar horizontalmente seu grupo de servidores de hiperescala PostgreSQL habilitado para o Azure Arc adicionando mais nós de trabalho
 Este documento explica como escalar horizontalmente um grupo de servidores de hiperescala PostgreSQL habilitados para o Azure Arc. Ele faz isso fazendo um cenário. **Se você não quiser executar o cenário e quiser apenas ler sobre como escalar horizontalmente, vá para a [escala](#scale-out)horizontal do parágrafo**.
@@ -252,5 +252,4 @@ Observe o tempo de execução.
  > \* Nos documentos acima, ignore as seções **entrar no portal do Azure**, & **criar um banco de dados do Azure para PostgreSQL-Citus (hiperescala)**. Implemente as etapas restantes em sua implantação do Azure Arc. Essas seções são específicas para o banco de dados do Azure para PostgreSQL Citus (hiperescala) oferecida como um serviço de PaaS na nuvem do Azure, mas as outras partes dos documentos são diretamente aplicáveis à sua hiperescala PostgreSQL habilitada para o Arc do Azure.
 
 - [Configuração de armazenamento e conceitos de armazenamento kubernetes](storage-configuration.md)
-- [Expandindo declarações de volume persistentes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Modelo de recurso kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)

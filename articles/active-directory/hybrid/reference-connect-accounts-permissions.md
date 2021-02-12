@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 05/18/2020
+ms.date: 01/04/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1efafd353bea20ea1ada0b5e92a9e6df00deb78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b0771687aa7ccf9b749c107a6b1c507cb3ba08d
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273593"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881932"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Contas e permissões
 
@@ -44,7 +44,7 @@ Além desses três contas usadas para executar o Azure AD Connect, você precisa
 
 - **Conta de administrador corporativo do AD DS**: usada opcionalmente para criar a "conta do Conector AD DS" acima.
 
-- **Conta de administrador global do Azure AD**: usada para criar a conta do Azure AD Connector e configurar o Azure AD.
+- **Conta de administrador global do Azure AD**: usada para criar a conta do Azure AD Connector e configurar o Azure AD.  Você pode exibir contas de administrador global no portal do Azure.  Consulte [exibir funções](../../active-directory/roles/manage-roles-portal.md#view-all-roles).
 
 - **Conta SA do SQL (opcional)** : usada para criar o banco de dados do ADSync ao usar a versão completa do SQL Server.  Esse SQL Server pode ser local ou remoto para a instalação do Azure AD Connect.  Essa conta pode ser a mesma conta do administrador corporativo.  O provisionamento do banco de dados agora pode ser realizado fora da banda pelo administrador do SQL e, em seguida, instalado pelo administrador do Azure AD Connect com direitos de proprietário do banco de dados.  Para obter informações sobre isso, consulte [instalar o Azure AD Connect usando permissões de administrador do SQL delegado](how-to-connect-install-sql-delegation.md)
 
@@ -252,7 +252,7 @@ Há um limite de 20 contas de serviço de sincronização no Azure AD. Para obte
 Para remover contas de serviço do Azure AD não utilizadas, execute o seguinte cmdlet do PowerShell do Azure AD:`Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 >[!NOTE]
->Para usar os comandos do PowerShell acima, instale o [módulo do Azure Active Directory PowerShell para Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) e conecte-se à sua instância do Azure AD usando o [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0)
+>Para usar os comandos do PowerShell acima, instale o [módulo do Azure Active Directory PowerShell para Graph](/powershell/azure/active-directory/install-adv2#installing-the-azure-ad-module) e conecte-se à sua instância do Azure AD usando o [Connect-AzureAD](/powershell/module/azuread/connect-azuread)
 
 Para obter informações adicionais sobre como gerenciar ou redefinir a senha para a conta do Azure AD Connector, confira [Gerenciar a conta do Azure AD Connect](how-to-connect-azureadaccount.md)
 

@@ -3,25 +3,37 @@ title: Grade de Eventos do Azure – Solucionar problemas de validação de assi
 description: Este artigo mostra como você pode solucionar problemas de validação de assinatura.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 48844859013507ab684ef8879b7b85dd6b6fe8cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 857760182675d5673a3b09495c2faaf7372a4164
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86118980"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592933"
 ---
 # <a name="troubleshoot-azure-event-grid-subscription-validations"></a>Solucionar problemas de validações de assinatura da Grade de Eventos do Azure
-Este artigo fornece informações sobre como solucionar problemas de validações de assinatura de evento. 
+Durante a criação da assinatura do evento, se você estiver vendo uma mensagem de erro como `The attempt to validate the provided endpoint https://your-endpoint-here failed. For more details, visit https://aka.ms/esvalidation` , isso indica que há uma falha no handshake de validação. Para resolver esse erro, verifique os seguintes aspectos:
+
+- Faça um HTTP POST para a URL do webhook com um corpo de solicitação [SubscriptionValidationEvent de exemplo](webhook-event-delivery.md#validation-details) usando o postmaster ou a ondulação ou ferramenta semelhante.
+- Se o webhook estiver implementando o mecanismo de handshake de validação síncrona, verifique se o ValidationCode é retornado como parte da resposta.
+- Se seu webhook estiver implementando o mecanismo de handshake de validação assíncrona, verifique se você é o HTTP POST está retornando 200 OK.
+- Se o webhook estiver retornando `403 (Forbidden)` na resposta, verifique se o webhook está atrás de um gateway de aplicativo Azure ou firewall do aplicativo Web. Se for, você precisará desabilitar essas regras de firewall e executar um HTTP POST novamente:
+    - 920300 (solicitação faltando um cabeçalho de aceitação)
+    - 942430 (detecção de anomalias de caracteres SQL restritos (args): número de caracteres especiais excedido (12))
+    - 920230 (várias codificações de URL detectadas)
+    - 942130 (ataque de injeção de SQL: SQL tautology detectado.)
+    - 931130 (possível ataque de RFI (inclusão de arquivo remoto) = link/referência fora do domínio)
 
 > [!IMPORTANT]
 > Para informações detalhadas sobre a validação de ponto de extremidade para webhooks, confira [Entrega de eventos de webhook](webhook-event-delivery.md).
+
+As seções a seguir mostram como validar uma assinatura de evento usando o postmaster e a ondulação.  
 
 ## <a name="validate-event-grid-event-subscription-using-postman"></a>Validar a assinatura de evento da Grade de Eventos com o Postman
 Confira um exemplo de como usar o Postman para validar uma assinatura de webhook de um evento da Grade de Eventos: 
 
 ![Validação de assinatura de evento da Grade de Eventos com o Postman](./media/troubleshoot-subscription-validation/event-subscription-validation-postman.png)
 
-Confira aqui o exemplo JSON **SubscriptionValidationEvent**:
+Confira aqui o exemplo JSON **SubscriptionValidationEvent** :
 
 ```json
 [
@@ -65,14 +77,7 @@ Confira um exemplo de como usar o Postman para validar uma assinatura de webhook
 
 Use o método **HTTP OPTIONS** para a validação com eventos em nuvem. Para saber mais sobre a validação de eventos em nuvem para webhooks, confira [Validação de ponto de extremidade com eventos em nuvem](webhook-event-delivery.md#endpoint-validation-with-event-grid-events).
 
-## <a name="error-code-403"></a>Código de erro: 403
-Se seu webhook estiver retornando 403 (Proibido) na resposta, verifique se o webhook está atrás de um Gateway de Aplicativo Azure AD ou de um firewall do aplicativo Web. Em caso positivo, você precisará desabilitar as seguintes regras de firewall e executar um HTTP POST novamente:
-
-  - 920300 (Pedido Sem Cabeçalho de Aceitação, podemos consertar isso)
-  - 942430 (Detecção de Anomalias de Caractere SQL Restrito (args): # de caracteres especiais excedido (12))
-  - 920230 (Várias Codificações de URL Detectadas)
-  - 942130 (Ataque de Injeção de SQL: Tautologia do SQL Detectada.)
-  - 931130 (Possível Ataque de Remoção de Arquivo (RFI) = link/referência fora do domínio)
+## <a name="troubleshoot-event-subscription-validation"></a>Solucionar problemas de validação de assinatura de evento
 
 ## <a name="next-steps"></a>Próximas etapas
 Se precisar de mais ajuda, poste seu problema no [fórum do Stack Overflow](https://stackoverflow.com/questions/tagged/azure-eventgrid) ou abra um [tíquete de suporte](https://azure.microsoft.com/support/options/). 

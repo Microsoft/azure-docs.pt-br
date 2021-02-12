@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 03/05/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66df1bbe531c072ff5aa2bebe7b197201e6931a2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6f17f6eb913d1ea54e8db6acd369d165553e16ec
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077720"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100091033"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planejar e implantar a proteção de senha do Azure Active Directory local
 
@@ -85,7 +85,8 @@ Os seguintes requisitos básicos se aplicam:
 * Todas as máquinas, incluindo controladores de domínio, que têm os componentes de proteção de senha do Azure AD instalados, devem ter o tempo de execução universal C instalado.
     * Você pode obter o tempo de execução, certificando-se de que você tenha todas as atualizações de Windows Update. Ou você pode obtê-lo em um pacote de atualização específico do sistema operacional. Para obter mais informações, consulte [atualizar para tempo de execução C universal no Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
 * Você precisa de uma conta que tenha Active Directory privilégios de administrador de domínio no domínio raiz da floresta para registrar a floresta do Windows Server Active Directory com o Azure AD.
-* O serviço de distribuição de chaves deve ser habilitado em todos os controladores de domínio no domínio que executam o Windows Server 2012. Por padrão, esse serviço é habilitado por meio do início do gatilho manual.
+* O serviço de distribuição de chaves deve ser habilitado em todos os controladores de domínio no domínio que executam o Windows Server 2012 e versões posteriores. Por padrão, esse serviço é habilitado por meio do início do gatilho manual.
+
 * A conectividade de rede deve existir entre pelo menos um controlador de domínio em cada domínio e pelo menos um servidor que hospede o serviço de proxy para a proteção de senha do Azure AD. Essa conectividade deve permitir que o controlador de domínio acesse a porta 135 do mapeador de ponto de extremidade RPC e a porta do servidor RPC no serviço de proxy.
     * Por padrão, a porta do servidor RPC é uma porta RPC dinâmica, mas pode ser configurada para [usar uma porta estática](#static).
 * Todas as máquinas em que o serviço proxy de proteção de senha do Azure AD será instalado devem ter acesso à rede para os seguintes pontos de extremidade:
@@ -99,7 +100,7 @@ Os seguintes requisitos básicos se aplicam:
 
 Os seguintes requisitos se aplicam ao agente DC da proteção de senha do Azure AD:
 
-* Todos os computadores em que o software do agente DC da proteção de senha do Azure AD serão instalados devem executar o Windows Server 2012 ou posterior.
+* Todos os computadores em que o software do agente DC da proteção de senha do Azure AD serão instalados devem executar o Windows Server 2012 ou posterior, incluindo as edições do Windows Server Core.
     * O domínio ou floresta Active Directory não precisa estar no nível funcional de domínio do Windows Server 2012 (DFL) ou no nível funcional de floresta (FFL). Conforme mencionado nos [princípios de design](concept-password-ban-bad-on-premises.md#design-principles), não há nenhum DFL ou FFL mínimo necessário para a execução do agente DC ou do software proxy.
 * Todos os computadores que executam o agente DC de proteção de senha do Azure AD devem ter o .NET 4,5 instalado.
 * Qualquer domínio Active Directory que executa o serviço de agente de DC de proteção de senha do Azure AD deve usar a replicação de Sistema de Arquivos Distribuído (DFSR) para replicação de SYSVOL.
@@ -116,7 +117,7 @@ Os seguintes requisitos se aplicam ao agente DC da proteção de senha do Azure 
 
 Os seguintes requisitos se aplicam ao serviço de proxy de proteção de senha do Azure AD:
 
-* Todos os computadores nos quais o serviço proxy de proteção de senha do Azure AD será instalado devem executar o Windows Server 2012 R2 ou posterior.
+* Todos os computadores nos quais o serviço proxy de proteção de senha do Azure AD será instalado devem executar o Windows Server 2012 R2 ou posterior, incluindo as edições do Windows Server Core.
 
     > [!NOTE]
     > A implantação do serviço proxy de proteção de senha do Azure AD é um requisito obrigatório para implantar a proteção de senha do Azure AD, embora o controlador de domínio possa ter conectividade de Internet direta de saída.
@@ -142,8 +143,8 @@ O serviço atualizador do agente do Microsoft Azure AD Connect é instalado lado
 
 Há dois instaladores necessários para uma implantação de proteção de senha do Azure AD local:
 
-* Agente DC de proteção de senha do Azure AD ( *AzureADPasswordProtectionDCAgentSetup.msi* )
-* Proxy de proteção de senha do Azure AD ( *AzureADPasswordProtectionProxySetup.exe* )
+* Agente DC de proteção de senha do Azure AD (*AzureADPasswordProtectionDCAgentSetup.msi*)
+* Proxy de proteção de senha do Azure AD (*AzureADPasswordProtectionProxySetup.exe*)
 
 Baixe ambos os instaladores do [centro de download da Microsoft](https://www.microsoft.com/download/details.aspx?id=57071).
 
@@ -193,7 +194,7 @@ Para instalar o serviço de proxy de proteção de senha do Azure AD, conclua as
     Get-Service AzureADPasswordProtectionProxy | fl
     ```
 
-    O resultado deve mostrar o **status** *em execução* .
+    O resultado deve mostrar o **status** *em execução*.
 
 1. O serviço de proxy está em execução no computador, mas não tem credenciais para se comunicar com o Azure AD. Registre o servidor proxy de proteção por senha do Azure AD com o Azure AD usando o `Register-AzureADPasswordProtectionProxy` cmdlet.
 
@@ -201,7 +202,7 @@ Para instalar o serviço de proxy de proteção de senha do Azure AD, conclua as
 
     Depois que esse comando for executado uma vez para um serviço de proxy de proteção de senha do Azure AD, as invocações adicionais serão realizadas com sucesso, mas são desnecessárias.
 
-    O `Register-AzureADPasswordProtectionProxy` cmdlet dá suporte aos três modos de autenticação a seguir. Os dois primeiros modos dão suporte à autenticação multifator do Azure, mas o terceiro modo não.
+    O `Register-AzureADPasswordProtectionProxy` cmdlet dá suporte aos três modos de autenticação a seguir. Os dois primeiros modos dão suporte à autenticação multifator do Azure AD, mas o terceiro modo não.
 
     > [!TIP]
     > Pode haver um atraso perceptível antes da conclusão na primeira vez em que esse cmdlet for executado para um locatário específico do Azure. A menos que uma falha seja relatada, não se preocupe com esse atraso.
@@ -231,11 +232,11 @@ Para instalar o serviço de proxy de proteção de senha do Azure AD, conclua as
         ```
 
         > [!NOTE]
-        > Esse modo falhará se a autenticação multifator do Azure for necessária para sua conta. Nesse caso, use um dos dois modos de autenticação anteriores ou, em vez disso, use uma conta diferente que não exija MFA.
+        > Esse modo falhará se a autenticação multifator do Azure AD for necessária para sua conta. Nesse caso, use um dos dois modos de autenticação anteriores ou, em vez disso, use uma conta diferente que não exija MFA.
         >
         > Você também poderá ver a MFA necessária se o registro de dispositivo do Azure (que é usado na capa pela proteção de senha do Azure AD) tiver sido configurado para exigir globalmente a MFA. Para solucionar esse requisito, você pode usar uma conta diferente que dá suporte a MFA com um dos dois modos de autenticação anteriores, ou pode também relaxar temporariamente o requisito de MFA de registro de dispositivo do Azure.
         >
-        > Para fazer essa alteração, procure e selecione **Azure Active Directory** na portal do Azure e, em seguida, selecione **dispositivos > configurações do dispositivo** . Set **requer autenticação multifator para unir dispositivos** ao *.* Certifique-se de reconfigurar essa configuração de volta para *Sim* quando o registro for concluído.
+        > Para fazer essa alteração, procure e selecione **Azure Active Directory** na portal do Azure e, em seguida, selecione **dispositivos > configurações do dispositivo**. Set **requer autenticação multifator para unir dispositivos** ao *.* Certifique-se de reconfigurar essa configuração de volta para *Sim* quando o registro for concluído.
         >
         > Recomendamos que os requisitos de MFA sejam ignorados apenas para fins de teste.
 
@@ -252,7 +253,7 @@ Para instalar o serviço de proxy de proteção de senha do Azure AD, conclua as
     
     Esta etapa é executada uma vez por floresta.
 
-    O `Register-AzureADPasswordProtectionForest` cmdlet dá suporte aos três modos de autenticação a seguir. Os dois primeiros modos dão suporte à autenticação multifator do Azure, mas o terceiro modo não.
+    O `Register-AzureADPasswordProtectionForest` cmdlet dá suporte aos três modos de autenticação a seguir. Os dois primeiros modos dão suporte à autenticação multifator do Azure AD, mas o terceiro modo não.
 
     > [!TIP]
     > Pode haver um atraso perceptível antes da conclusão na primeira vez em que esse cmdlet for executado para um locatário específico do Azure. A menos que uma falha seja relatada, não se preocupe com esse atraso.
@@ -282,11 +283,11 @@ Para instalar o serviço de proxy de proteção de senha do Azure AD, conclua as
         ```
 
         > [!NOTE]
-        > Esse modo falhará se a autenticação multifator do Azure for necessária para sua conta. Nesse caso, use um dos dois modos de autenticação anteriores ou, em vez disso, use uma conta diferente que não exija MFA.
+        > Esse modo falhará se a autenticação multifator do Azure AD for necessária para sua conta. Nesse caso, use um dos dois modos de autenticação anteriores ou, em vez disso, use uma conta diferente que não exija MFA.
         >
         > Você também poderá ver a MFA necessária se o registro de dispositivo do Azure (que é usado na capa pela proteção de senha do Azure AD) tiver sido configurado para exigir globalmente a MFA. Para solucionar esse requisito, você pode usar uma conta diferente que dá suporte a MFA com um dos dois modos de autenticação anteriores, ou pode também relaxar temporariamente o requisito de MFA de registro de dispositivo do Azure.
         >
-        > Para fazer essa alteração, procure e selecione **Azure Active Directory** na portal do Azure e, em seguida, selecione **dispositivos > configurações do dispositivo** . Set **requer autenticação multifator para unir dispositivos** ao *.* Certifique-se de reconfigurar essa configuração de volta para *Sim* quando o registro for concluído.
+        > Para fazer essa alteração, procure e selecione **Azure Active Directory** na portal do Azure e, em seguida, selecione **dispositivos > configurações do dispositivo**. Set **requer autenticação multifator para unir dispositivos** ao *.* Certifique-se de reconfigurar essa configuração de volta para *Sim* quando o registro for concluído.
         >
         > Recomendamos que os requisitos de MFA sejam ignorados apenas para fins de teste.
 

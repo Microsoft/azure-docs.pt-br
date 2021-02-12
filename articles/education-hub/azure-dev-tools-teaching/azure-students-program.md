@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
-ms.openlocfilehash: 9719aea3a16a07f8c4ccbd21ea53c8b8982aefd5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 7260683ab42a64381f80af834ee2b3945b0c1e4c
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674985"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490909"
 ---
 # <a name="azure-for-students"></a>Azure for Students
 
@@ -20,7 +20,7 @@ Por meio do programa Azure Dev Tools for Teaching, os alunos que têm uma assina
 
 O Azure for Students fornece um crédito de 100 dólares por 12 meses. Ele inclui acesso a mais de 25 serviços gratuitos, incluindo computação, rede, armazenamento e bancos de dados. Qualquer custo gerado durante esse período será deduzido do crédito. Você poderá ver seu crédito restante no [portal do Azure Sponsorship](https://www.microsoftazuresponsorships.com/).
 
-Depois que você esgotar seu crédito disponível ou alcançar o final de 12 meses, sua assinatura do Azure será desabilitada. A assinatura do Azure for Students não é renovável. Para continuar usando o Azure, você poderá atualizar sua assinatura para uma assinatura paga conforme o uso no [portal de Contas do Azure](https://account.azure.com/). Se optar por não fazer a atualização no final de 12 meses ou depois que você tiver esgotado seu crédito de US$ 100 (o que ocorrer primeiro), todos os produtos implantados serão descomissionados e não será possível acessá-los. Você terá 90 dias a contar do final da sua assinatura gratuita para atualizá-la para uma assinatura paga conforme o uso.
+Depois que você esgotar seu crédito disponível ou alcançar o final de 12 meses, sua assinatura do Azure será desabilitada. A assinatura do Azure for Students não é renovável. Para continuar usando o Azure, você poderá atualizar para uma assinatura paga conforme o uso no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Se optar por não fazer a atualização no final de 12 meses ou depois que você tiver esgotado seu crédito de US$ 100 (o que ocorrer primeiro), todos os produtos implantados serão descomissionados e não será possível acessá-los. Você terá 90 dias a contar do final da sua assinatura gratuita para atualizá-la para uma assinatura paga conforme o uso.
 
 Para obter os termos de uso detalhados do Azure for Students, confira os [termos da oferta](https://azure.microsoft.com/offers/ms-azr-0170p/).
 

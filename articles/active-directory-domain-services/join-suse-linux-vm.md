@@ -2,20 +2,20 @@
 title: Ingresse em uma VM de EPU para Azure AD Domain Services | Microsoft Docs
 description: Saiba como configurar e ingressar em uma máquina virtual SUSE Linux Enterprise em um Azure AD Domain Services domínio gerenciado.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/12/2020
-ms.author: joflore
-ms.openlocfilehash: 607d3bc8eca3bd969f0f47ca95923040fb22591e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.author: justinha
+ms.openlocfilehash: f2f421d95dfc376aed373c718198db33a870d9dc
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275858"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619599"
 ---
 # <a name="join-a-suse-linux-enterprise-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Ingressar em uma máquina virtual SUSE Linux Enterprise em um Azure Active Directory Domain Services domínio gerenciado
 
@@ -105,7 +105,7 @@ Para ingressar a VM no domínio gerenciado, conclua as seguintes etapas:
 
 1. Na caixa de diálogo, selecione **Adicionar domínio**.
 
-1. Especifique o *nome de domínio*correto, como *aaddscontoso.com*, e especifique os serviços a serem usados para dados de identidade e autenticação. Selecione *Microsoft Active Directory* para ambos.
+1. Especifique o *nome de domínio* correto, como *aaddscontoso.com*, e especifique os serviços a serem usados para dados de identidade e autenticação. Selecione *Microsoft Active Directory* para ambos.
 
     Verifique se a opção *habilitar o domínio* está selecionada.
 
@@ -137,9 +137,9 @@ Depois que a VM for inscrita no domínio gerenciado, configure o cliente usando 
 
 1. Para permitir que os usuários no domínio gerenciado tenham diretórios base na VM, marque a caixa *criar diretórios base*.
 
-1. Na barra lateral, selecione **Opções de serviço › Switch de nome**e, em seguida, *Opções estendidas*. Nessa janela, selecione *fallback_homedir* ou *override_homedir*e, em seguida, selecione **Adicionar**.
+1. Na barra lateral, selecione **Opções de serviço › Switch de nome** e, em seguida, *Opções estendidas*. Nessa janela, selecione *fallback_homedir* ou *override_homedir* e, em seguida, selecione **Adicionar**.
 
-1. Especifique um valor para o local do diretório base. Para que os diretórios base sigam o formato de */home/user_name*, use */Home/%u*. Para obter mais informações sobre variáveis possíveis, consulte a página do Man SSSD. conf ( `man 5 sssd.conf` ), *override_homedir*de seção.
+1. Especifique um valor para o local do diretório base. Para que os diretórios base sigam o formato de */home/user_name*, use */Home/%u*. Para obter mais informações sobre variáveis possíveis, consulte a página do Man SSSD. conf ( `man 5 sssd.conf` ), *override_homedir* de seção.
 
 1. Selecione **OK**.
 
@@ -187,7 +187,7 @@ Para ingressar no domínio gerenciado usando o **Winbind** e a *interface de lin
 
 ## <a name="join-vm-to-the-managed-domain-using-winbind-from-the-terminal"></a>Ingressar a VM no domínio gerenciado usando o Winbind do terminal
 
-Para ingressar no domínio gerenciado usando **Winbind** e o * `samba net` comando*:
+Para ingressar no domínio gerenciado usando **Winbind** e o *`samba net` comando*:
 
 1. Instalar o cliente Kerberos e o samba-Winbind:
 

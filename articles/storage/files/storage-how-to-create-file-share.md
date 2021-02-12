@@ -1,5 +1,5 @@
 ---
-title: Criar um compartilhamento de arquivos do Azure
+title: Criar um compartilhamento de arquivo do Azure
 titleSuffix: Azure Files
 description: Como criar um compartilhamento de arquivos do Azure usando o portal do Azure, o PowerShell ou o CLI do Azure.
 author: roygara
@@ -9,14 +9,14 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 15f9387aac909c0245d25b3a208ed24444b2b343
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ff7b3cd29740461a4f94f3c1d433086db119a09
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329375"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673799"
 ---
-# <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivos do Azure
+# <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivo do Azure
 Para criar um compartilhamento de arquivos do Azure, você precisa responder a três perguntas sobre como você irá usá-lo:
 
 - **Quais são os requisitos de desempenho para o compartilhamento de arquivos do Azure?**  
@@ -34,8 +34,8 @@ Para obter mais informações sobre essas três opções, consulte [planejando u
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Este artigo pressupõe que você já tenha criado uma assinatura do Azure. Se você ainda não tiver uma assinatura, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-- Se pretende usar o Azure PowerShell, [instale a versão mais recente](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- Se pretende usar a CLI do Azure, [instale a versão mais recente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+- Se pretende usar o Azure PowerShell, [instale a versão mais recente](/powershell/azure/install-az-ps).
+- Se pretende usar a CLI do Azure, [instale a versão mais recente](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 Os compartilhamentos de arquivo do Azure são implantados em *contas de armazenamento*, que são objetos de nível superior que representam um pool de armazenamento compartilhado. Esse pool de armazenamento pode ser usado para implantar vários compartilhamentos de arquivos. 
@@ -56,7 +56,7 @@ A primeira seção a ser concluída para criar uma conta de armazenamento é rot
 
 ![Uma captura de tela do botão de opção de desempenho com padrão selecionado e tipo de conta com StorageV2 selecionado](media/storage-how-to-create-file-share/create-storage-account-1.png)
 
-Para criar uma conta de armazenamento do FileStorage, verifique se o botão de opção **desempenho** está definido como *Premium* e se a lista suspensa **tipo de conta** está selecionada para *armazenamento*em File.
+Para criar uma conta de armazenamento do FileStorage, verifique se o botão de opção **desempenho** está definido como *Premium* e se a lista suspensa **tipo de conta** está selecionada para *armazenamento* em File.
 
 ![Uma captura de tela do botão de opção de desempenho com Premium selecionado e tipo de conta com FileStorage selecionado](media/storage-how-to-create-file-share/create-storage-account-2.png)
 
@@ -84,7 +84,7 @@ A seção avançado contém várias configurações importantes para compartilha
 
 As outras configurações disponíveis na guia Avançado (exclusão reversível de BLOB, namespace hierárquico para Azure Data Lake armazenamento Gen 2 e NFSv3 para armazenamento de BLOB) não se aplicam aos arquivos do Azure.
 
-#### <a name="tags"></a>Marcações
+#### <a name="tags"></a>Marcas
 Marcas são pares nome/valor que permitem categorizar recursos e exibir a cobrança consolidada por meio da aplicação da mesma marca a vários recursos e grupos de recursos. Eles são opcionais e podem ser aplicados após a criação da conta de armazenamento.
 
 #### <a name="review--create"></a>Examinar + criar
@@ -129,7 +129,7 @@ Para criar uma conta de armazenamento usando o CLI do Azure, usaremos o comando 
 
 Para simplificar a criação da conta de armazenamento e o compartilhamento de arquivos subsequente, armazenaremos vários parâmetros em variáveis. Você pode substituir o conteúdo da variável por quaisquer valores que desejar. no entanto, observe que o nome da conta de armazenamento deve ser globalmente exclusivo.
 
-```bash
+```azurecli
 resourceGroupName="myResourceGroup"
 storageAccountName="mystorageacct$RANDOM"
 region="westus2"
@@ -137,7 +137,7 @@ region="westus2"
 
 Para criar uma conta de armazenamento capaz de armazenar compartilhamentos de arquivos padrão do Azure, usaremos o comando a seguir. O `--sku` parâmetro está relacionado ao tipo de redundância desejado; se desejar uma conta de armazenamento com redundância geográfica ou com redundância de zona geográfica, você também deverá remover o `--enable-large-file-share` parâmetro.
 
-```bash
+```azurecli
 az storage account create \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
@@ -149,7 +149,7 @@ az storage account create \
 
 Para criar uma conta de armazenamento capaz de armazenar compartilhamentos de arquivos premium do Azure, usaremos o comando a seguir. Observe que o `--sku` parâmetro foi alterado para incluir `Premium` e o nível de redundância desejado de localmente redundante ( `LRS` ). O `--kind` parâmetro é `FileStorage` , em vez de, `StorageV2` porque os compartilhamentos de arquivos Premium devem ser criados em uma conta de armazenamento de armazenamento em vez de uma conta de armazenamento GPv2.
 
-```bash
+```azurecli
 az storage account create \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
@@ -172,7 +172,7 @@ A propriedade **quota** significa algo ligeiramente diferente entre compartilham
 
 - Para compartilhamentos de arquivos padrão, ele é um limite superior do compartilhamento de arquivos do Azure, além do qual os usuários finais não podem ir. O objetivo principal da cota de um compartilhamento de arquivos padrão é o orçamentário: "não quero que esse compartilhamento de arquivos cresça além desse ponto". Se uma cota não for especificada, o compartilhamento de arquivos padrão poderá abranger até 100 TiB (ou 5 TiB se a propriedade compartilhamentos de arquivos grandes não estiver definida para uma conta de armazenamento).
 
-- Para compartilhamentos de arquivos premium, a cota é sobrecarregada para significar o **tamanho provisionado**. O tamanho provisionado é o valor para o qual você será cobrado, independentemente do uso real. Ao provisionar um compartilhamento de arquivos premium, você deve considerar dois fatores: 1) o crescimento futuro do compartilhamento de uma perspectiva de utilização de espaço e 2) o IOPS necessário para sua carga de trabalho. Cada GiB provisionada lhe dá direito a IOPS reservada e de intermitência adicional. Para obter mais informações sobre como planejar um compartilhamento de arquivos premium, consulte [Provisionando compartilhamentos de arquivos Premium](storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
+- Para compartilhamentos de arquivos premium, a cota é sobrecarregada para significar o **tamanho provisionado**. O tamanho provisionado é o valor para o qual você será cobrado, independentemente do uso real. Ao provisionar um compartilhamento de arquivos premium, você deve considerar dois fatores: 1) o crescimento futuro do compartilhamento de uma perspectiva de utilização de espaço e 2) o IOPS necessário para sua carga de trabalho. Cada GiB provisionada lhe dá direito a IOPS reservada e de intermitência adicional. Para obter mais informações sobre como planejar um compartilhamento de arquivos premium, consulte [Provisionando compartilhamentos de arquivos Premium](understanding-billing.md#provisioned-model).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Se você acabou de criar sua conta de armazenamento, poderá navegar até ela na tela de implantação selecionando **ir para o recurso**. Se você já tiver criado a conta de armazenamento, poderá navegar para ela por meio do grupo de recursos que a contém. Uma vez na conta de armazenamento, selecione o bloco rotulado **compartilhamentos de arquivos** (você também pode navegar até **compartilhamentos de arquivos** por meio do Sumário da conta de armazenamento).
@@ -226,14 +226,14 @@ New-AzRmStorageShare `
 > A capacidade de definir e alterar as camadas por meio do PowerShell é fornecida no módulo de visualização AZ. Storage PowerShell. Esses cmdlets ou sua saída podem ser alterados antes de serem liberados no módulo AZ. Storage PowerShell disponível para o público geral. portanto, crie scripts com isso em mente.
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
-Você pode criar um compartilhamento de arquivos do Azure com o [`az storage share-rm create`](https://docs.microsoft.com/cli/azure/storage/share-rm?view=azure-cli-latest&preserve-view=true#az_storage_share_rm_create) comando. Os comandos CLI do Azure a seguir pressupõem que você definiu as variáveis `$resourceGroupName` e `$storageAccountName` conforme definido acima na seção criando uma conta de armazenamento com CLI do Azure.
+Você pode criar um compartilhamento de arquivos do Azure com o [`az storage share-rm create`](/cli/azure/storage/share-rm?preserve-view=true&view=azure-cli-latest#az_storage_share_rm_create) comando. Os comandos CLI do Azure a seguir pressupõem que você definiu as variáveis `$resourceGroupName` e `$storageAccountName` conforme definido acima na seção criando uma conta de armazenamento com CLI do Azure.
 
-A funcionalidade para criar ou mover um compartilhamento de arquivos para uma camada específica está disponível na atualização mais recente do CLI do Azure. A atualização CLI do Azure é específica para a distribuição do sistema operacional/Linux que você está usando. Para obter instruções sobre como atualizar CLI do Azure em seu sistema, consulte [instalar o CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+A funcionalidade para criar ou mover um compartilhamento de arquivos para uma camada específica está disponível na atualização mais recente do CLI do Azure. A atualização CLI do Azure é específica para a distribuição do sistema operacional/Linux que você está usando. Para obter instruções sobre como atualizar CLI do Azure em seu sistema, consulte [instalar o CLI do Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 > [!Important]  
 > Para compartilhamentos de arquivos premium, o `--quota` parâmetro refere-se ao tamanho provisionado do compartilhamento de arquivos. O tamanho provisionado do compartilhamento de arquivos é o valor que será cobrado, independentemente do uso. Os compartilhamentos de arquivos padrão são cobrados com base no uso em vez do tamanho provisionado.
 
-```bash
+```azurecli
 shareName="myshare"
 
 az storage share-rm create \
@@ -251,7 +251,7 @@ az storage share-rm create \
 ---
 
 > [!Note]  
-> O nome do seu compartilhamento de arquivo deve estar em minúsculas. Para obter detalhes completos sobre como nomear arquivos e compartilhamentos de arquivos, consulte [nomenclatura e referência de compartilhamentos, diretórios, arquivos e metadados](https://msdn.microsoft.com/library/azure/dn167011.aspx).
+> O nome do seu compartilhamento de arquivo deve estar em minúsculas. Para obter detalhes completos sobre como nomear arquivos e compartilhamentos de arquivos, confira [Nomenclatura e referência de compartilhamentos, diretórios, arquivos e metadados](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
 ### <a name="changing-the-tier-of-an-azure-file-share"></a>Alterando a camada de um compartilhamento de arquivos do Azure
 Os compartilhamentos de arquivos implantados na **conta de armazenamento de uso geral v2 (GPv2)** podem estar nas camadas de transação otimizada, quente ou fria. Você pode alterar a camada do compartilhamento de arquivos do Azure a qualquer momento, sujeito a custos de transações, conforme descrito acima.
@@ -285,7 +285,7 @@ Update-AzRmStorageShare `
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 O comando a seguir CLI do Azure pressupõe que você definiu `$resourceGroupName` as `$storageAccountName` variáveis, e `$shareName` conforme descrito nas seções anteriores deste documento.
 
-```bash
+```azurecli
 az storage share-rm update \
     --resource-group $resourceGroupName \
     --storage-account $storageAccountName \

@@ -3,21 +3,20 @@ title: Práticas recomendadas de configuração do Azure App | Microsoft Docs
 description: Conheça as práticas recomendadas ao usar a configuração de Azure App. Os tópicos abordados incluem agrupamentos de chaves, composições de valor-chave, inicialização de configuração de aplicativo e muito mais.
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.author: lcozzens
+ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: c45d1668ad39e9584a89921f46218ba243978a05
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 1e5a04d385ba6c6dda5b52b23fd4793860f991dc
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078044"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737194"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Práticas recomendadas de configuração do Azure App
 
@@ -42,7 +41,7 @@ Os *Rótulos* são um atributo nas chaves. Eles são usados para criar variantes
 
 A configuração de aplicativo trata todas as chaves armazenadas com ela como entidades independentes. A configuração do aplicativo não tenta inferir nenhuma relação entre as chaves ou para herdar valores de chave com base em sua hierarquia. Você pode agregar vários conjuntos de chaves, no entanto, usando rótulos acoplados ao empilhamento de configuração adequado no código do aplicativo.
 
-Vejamos um exemplo. Suponha que você tenha uma configuração chamada **Asset1**, cujo valor pode variar com base no ambiente de desenvolvimento. Você cria uma chave chamada "Asset1" com um rótulo vazio e um rótulo chamado "desenvolvimento". No primeiro rótulo, você coloca o valor padrão para **Asset1**e coloca um valor específico para "desenvolvimento" no último.
+Vejamos um exemplo. Suponha que você tenha uma configuração chamada **Asset1**, cujo valor pode variar com base no ambiente de desenvolvimento. Você cria uma chave chamada "Asset1" com um rótulo vazio e um rótulo chamado "desenvolvimento". No primeiro rótulo, você coloca o valor padrão para **Asset1** e coloca um valor específico para "desenvolvimento" no último.
 
 No seu código, você primeiro recupera os valores de chave sem rótulos e, em seguida, recupera o mesmo conjunto de valores de chave pela segunda vez com o rótulo "desenvolvimento". Quando você recupera os valores da segunda vez, os valores anteriores das chaves são substituídos. O sistema de configuração do .NET Core permite que você "empilhe" vários conjuntos de dados de configuração em cima um do outro. Se existir uma chave em mais de um conjunto, o último conjunto que a contém será usado. Com uma estrutura de programação moderna, como o .NET Core, você obterá essa capacidade de empilhamento gratuitamente se usar um provedor de configuração nativo para acessar a configuração do aplicativo. O trecho de código a seguir mostra como você pode implementar o empilhamento em um aplicativo .NET Core:
 
@@ -90,6 +89,10 @@ A configuração de aplicativo oferece a opção de [importar](./howto-import-ex
 ## <a name="multi-region-deployment-in-app-configuration"></a>Implantação em várias regiões na configuração do aplicativo
 
 A configuração do aplicativo é um serviço regional. Para aplicativos com configurações diferentes por região, armazenar essas configurações em uma instância pode criar um ponto único de falha. A implantação de instâncias de configuração de um aplicativo por região em várias regiões pode ser uma opção melhor. Ele pode ajudar com a recuperação de desastre regional, o desempenho e o silo de segurança. A configuração por região também melhora a latência e usa cotas de limitação separadas, pois a limitação é por instância. Para aplicar a mitigação de recuperação de desastres, você pode usar [vários repositórios de configuração](./concept-disaster-recovery.md). 
+
+## <a name="client-applications-in-app-configuration"></a>Aplicativos cliente na configuração do aplicativo 
+
+Solicitações excessivas para a configuração do aplicativo podem resultar na limitação ou encargos excedentes. Os aplicativos aproveitam o Caching e a atualização inteligente disponíveis no momento para otimizar o número de solicitações que eles enviam. Esse processo pode ser espelhado em aplicativos cliente de alto volume, evitando conexões diretas com o repositório de configurações. Em vez disso, os aplicativos cliente se conectam a um serviço personalizado e esse serviço se comunica com o repositório de configuração. Essa solução de proxy pode garantir que os aplicativos cliente não se aproximam do limite de limitação no repositório de configuração. Para obter mais informações sobre a limitação, consulte [as perguntas frequentes](./faq.md#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration).  
 
 ## <a name="next-steps"></a>Próximas etapas
 

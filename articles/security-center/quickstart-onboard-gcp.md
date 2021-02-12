@@ -3,16 +3,16 @@ title: Conectar a conta da GCP à Central de Segurança do Azure
 description: Monitorando seus recursos da GCP por meio da Central de Segurança do Azure
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 02/07/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 71f1de7b4ff265a5740181a2bb2032f33a83abe3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ee7b37861be299dd36a596ae1cd4899b0ebffab
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448981"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809398"
 ---
 #  <a name="connect-your-gcp-accounts-to-azure-security-center"></a>Conectar as contas da GCP à Central de Segurança do Azure
 
@@ -36,13 +36,18 @@ Na captura de tela abaixo, você pode ver os projetos da GCP exibidos no dashboa
 
 |Aspecto|Detalhes|
 |----|:----|
-|Estado da versão:|Versão Prévia|
+|Estado da versão:|GA (Disponibilidade Geral)|
 |Preço:|Requer [Azure Defender para Servidores](defender-for-servers-introduction.md)|
 |Funções e permissões necessárias:|**Proprietário** ou **Colaborador** na Assinatura relevante do Azure|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|
 |||
 
 ## <a name="connect-your-gcp-account"></a>Conectar-se à sua conta da GCP
+
+Siga as etapas abaixo para criar seu conector de nuvem da GCP para conectar seus recursos do Google Cloud no nível da organização ou do projeto. 
+
+> [!TIP]
+> Saiba mais sobre a hierarquia de recursos do Google Cloud na documentação online [aqui](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy).
 
 ### <a name="step-1-set-up-gcp-security-command-center-with-security-health-analytics"></a>Etapa 1. Configurar a Central de Comandos de Segurança da GCP com a Análise de Integridade da Segurança
 
@@ -80,7 +85,7 @@ Saiba mais sobre a [API da Central de Comandos de Segurança](https://cloud.goog
     1. Selecione **AICIONAR**.
     1. No campo **Novos membros**, cole o **valor do Email** copiado anteriormente.
     1. Especifique a Função como **Visualizador de Administração da Central de Segurança** e selecione Salvar.
-        :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="3 projetos da GCP listados no dashboard de visão geral da Central de Segurança":::
+        :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="Configurando as permissões relevantes da GCP":::
 
 
 ### <a name="step-4-create-a-private-key-for-the-dedicated-service-account"></a>Etapa 4. Criar uma chave privada para a conta de serviço dedicada
@@ -107,7 +112,7 @@ Saiba mais sobre a [API da Central de Comandos de Segurança](https://cloud.goog
 Quando o conector for criado com sucesso e a Central de Comandos de Segurança da GCP tiver sido configurada corretamente:
 
 - O padrão CIS da GCP será mostrado no dashboard de conformidade regulatória da Central de Segurança.
-- Recomendações de segurança para os recursos da GCP serão exibidas no portal da Central de Segurança e no dashboard de conformidade regulatória, de 5 a 10 minutos após a conclusão da integração:   :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resources-in-recommendations.png" alt-text="3 projetos da GCP listados no dashboard de visão geral da Central de Segurança":::
+- Recomendações de segurança para os recursos da GCP serão exibidas no portal da Central de Segurança e no dashboard de conformidade regulatória, de 5 a 10 minutos após a conclusão da integração:   :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resources-in-recommendations.png" alt-text="Recursos e recomendações da GCP na página de recomendações da Central de Segurança":::
 
 
 ## <a name="monitoring-your-gcp-resources"></a>Monitorando os recursos da GCP
@@ -116,8 +121,17 @@ Conforme mostrado acima, a página de recomendações de segurança da Central d
 
 Para exibir todas as recomendações ativas dos seus recursos por tipo de recurso, use a página de estoque de ativos da Central de Segurança e filtre para o tipo de recurso da GCP no qual você está interessado:
 
-:::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="3 projetos da GCP listados no dashboard de visão geral da Central de Segurança"::: 
+:::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="Filtro do tipo de recurso da página de estoque de ativos mostrando as opções da GCP"::: 
 
+
+## <a name="faq-for-connecting-gcp-accounts-to-azure-security-center"></a>Perguntas frequentes sobre como conectar as contas da GCP à Central de Segurança do Azure
+
+### <a name="can-i-connect-multiple-gcp-accounts-to-security-center"></a>Posso conectar várias contas da GCP à Central de Segurança?
+Sim. Conforme mencionado acima, você pode conectar seus recursos do Google Cloud no nível da organização ou do projeto. Saiba mais sobre a hierarquia de recursos do Google Cloud na sua documentação online [aqui](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy).
+
+
+### <a name="is-there-an-api-for-connecting-my-gcp-resources-to-security-center"></a>Há uma API para conectar meus recursos da GCP à Central de Segurança?
+Sim. Para criar, editar ou excluir conectores de nuvem da Central de Segurança com uma API REST, confira os detalhes da [API de conectores](/rest/api/securitycenter/connectors).
 
 ## <a name="next-steps"></a>Próximas etapas
 

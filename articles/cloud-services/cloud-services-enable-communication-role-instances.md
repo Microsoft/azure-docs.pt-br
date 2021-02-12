@@ -1,22 +1,25 @@
 ---
-title: Comunicação para funções nos Serviços de Nuvem | Microsoft Docs
+title: Comunicação para funções nos serviços de nuvem (clássico) | Microsoft Docs
 description: As instâncias de função nos Serviços de Nuvem podem ter pontos de extremidade (http, https, tcp, udp) definidos que se comunicam com a parte externa ou entre outras instâncias de função.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-manager: carmonm
-ms.service: cloud-services
 ms.topic: article
-ms.date: 12/14/2016
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 094e08becf4f3a60c98d89bfae7e7c3a69b677f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 82aa1579a1f7feb36732153341e1eacf266a7218
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75386333"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743025"
 ---
-# <a name="enable-communication-for-role-instances-in-azure"></a>Habilitar a comunicação para instâncias de função no Azure
+# <a name="enable-communication-for-role-instances-in-azure-cloud-services-classic"></a>Habilitar a comunicação para instâncias de função nos serviços de nuvem do Azure (clássico)
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
+
 As funções de serviço de nuvem se comunicam por meio de conexões internas e externas. As conexões externas são chamadas de **pontos de extremidade de entrada**, enquanto as conexões internas são chamadas de **pontos de extremidade internos**. Este tópico descreve como modificar a [definição de serviço](cloud-services-model-and-package.md#csdef) para criar pontos de extremidade.
 
 ## <a name="input-endpoint"></a>Ponto de extremidade de entrada
@@ -106,7 +109,7 @@ A propriedade **Instances** retorna uma coleção de objetos **RoleInstance**. E
 > 
 > 
 
-Para determinar o número da porta de um ponto de extremidade interno em uma instância de função, você poderá usar a propriedade [InstanceEndpoints](/previous-versions/azure/reference/ee741917(v=azure.100)) para retornar um objeto de Dicionário que contenha nomes de ponto de extremidade e seus endereços IP e portas correspondentes. A propriedade [IPEndpoint](/previous-versions/azure/reference/ee741919(v=azure.100)) retorna o endereço IP e a porta de um ponto de extremidade especificado. A propriedade **PublicIPEndpoint** retorna a porta de um ponto de extremidade com balanceamento de carga. A parte do endereço IP da propriedade **PublicIPEndpoint** não é usada.
+Para determinar o número da porta para um ponto de extremidade interno em uma instância de função, você pode usar a [`InstanceEndpoints`](/previous-versions/azure/reference/ee741917(v=azure.100)) propriedade para retornar um objeto Dictionary que contém nomes de ponto de extremidade e seus endereços IP e portas correspondentes. A [`IPEndpoint`](/previous-versions/azure/reference/ee741919(v=azure.100)) propriedade retorna o endereço IP e a porta para um ponto de extremidade especificado. A `PublicIPEndpoint` propriedade retorna a porta para um ponto de extremidade com balanceamento de carga. A parte do endereço IP da `PublicIPEndpoint` propriedade não é usada.
 
 Veja um exemplo que itera instâncias de função.
 
@@ -124,7 +127,7 @@ foreach (RoleInstance roleInst in RoleEnvironment.CurrentRoleInstance.Role.Insta
 Veja um exemplo de função de trabalho que expõe o ponto de extremidade por meio da definição de serviço e começa a escutar conexões.
 
 > [!WARNING]
-> Este código só funcionará para um serviço implantado. Quando executados no Emulador de Computação do Azure, os elementos de configuração de serviço que criam pontos de extremidade de porta direta (elementos**InstanceInputEndpoint** ) são ignorados.
+> Este código só funcionará para um serviço implantado. Quando executados no Emulador de Computação do Azure, os elementos de configuração de serviço que criam pontos de extremidade de porta direta (elementos **InstanceInputEndpoint** ) são ignorados.
 > 
 > 
 

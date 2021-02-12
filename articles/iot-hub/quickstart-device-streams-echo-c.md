@@ -1,5 +1,5 @@
 ---
-title: Comunicar-se com o aplicativo do dispositivo no C com os fluxos de dispositivos do Hub IoT do Azure
+title: Guia de Início Rápido – Comunicar-se com o aplicativo do dispositivo no C com os fluxos de dispositivos do Hub IoT do Azure
 description: Neste início rápido, você executará um aplicativo do lado do dispositivo do C que se comunica com um dispositivo IoT por meio de um fluxo de dispositivos.
 author: robinsh
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: ad31eb04f53197c4c3ccdd173cd57564c65d5a35
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 403fe82c46c90c5f8efb48ce0a394a2f63488fed
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747460"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624618"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Início Rápido: comunicar-se com um aplicativo de dispositivo no C por meio de fluxos de dispositivos do Hub IoT (versão prévia)
 
@@ -36,9 +36,7 @@ Neste início rápido, o aplicativo C no lado do dispositivo tem a funcionalidad
 
 O código demonstra o processo de inicialização de um fluxo de dispositivos, assim como usá-lo para enviar e receber dados.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -48,13 +46,9 @@ Você precisa dos pré-requisitos a seguir:
 
 * Instale a versão mais recente do [Git](https://git-scm.com/download/).
 
-* Execute o comando a seguir para adicionar a Extensão do Azure IoT para a CLI do Azure à instância do Cloud Shell. A Extensão de IoT adiciona comandos específicos do Hub IoT, do IoT Edge e do DPS (Serviço de Provisionamento de Dispositivos IoT) à CLI do Azure.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-
-   [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 Atualmente, a versão prévia dos fluxos de dispositivos só é compatível com hubs IoT criados nas seguintes regiões:
 
@@ -68,7 +62,7 @@ Atualmente, a versão prévia dos fluxos de dispositivos só é compatível com 
 Neste início rápido, você usará o [SDK do dispositivo IoT do Azure para C](iot-hub-device-sdk-c-intro.md). Você preparará um ambiente de desenvolvimento usado para clonar e criar o [SDK do C do IoT do Azure](https://github.com/Azure/azure-iot-sdk-c) no GitHub. O SDK no GitHub inclui o código de exemplo usado neste início rápido.
 
    > [!NOTE]
-   > Antes de iniciar este procedimento, certifique-se de que o Visual Studio esteja instalado com a carga de trabalho **Desenvolvimento de desktop com C++** .
+   > Antes de iniciar este procedimento, certifique-se de que o Visual Studio esteja instalado com a carga de trabalho **Desenvolvimento de desktop com C++**.
 
 1. Instale o [Sistema de build CMake](https://cmake.org/download/) conforme descrito na página de download.
 
@@ -82,7 +76,7 @@ Neste início rápido, você usará o [SDK do dispositivo IoT do Azure para C](i
 
     Essa operação pode levar alguns minutos.
 
-1. Crie um subdiretório *cmake* no diretório raiz do repositório git e navegue até essa pasta. Execute os seguintes comandos no diretório *azure-iot-sdk-c* :
+1. Crie um subdiretório *cmake* no diretório raiz do repositório git e navegue até essa pasta. Execute os seguintes comandos no diretório *azure-iot-sdk-c*:
 
     ```cmd/sh
     mkdir cmake
@@ -98,7 +92,7 @@ Neste início rápido, você usará o [SDK do dispositivo IoT do Azure para C](i
       make -j
       ```
 
-   * No Windows, abra um [Prompt de Comando do Desenvolvedor para Visual Studio](/dotnet/framework/tools/developer-command-prompt-for-vs). Execute o comando para sua versão do Visual Studio. Este início rápido usa o Visual Studio 2019. Esses comandos criam uma solução do Visual Studio para o dispositivo simulado no diretório *cmake* .
+   * No Windows, abra um [Prompt de Comando do Desenvolvedor para Visual Studio](/dotnet/framework/tools/developer-command-prompt-for-vs). Execute o comando para sua versão do Visual Studio. Este início rápido usa o Visual Studio 2019. Esses comandos criam uma solução do Visual Studio para o dispositivo simulado no diretório *cmake*.
 
       ```cmd
       rem For VS2015
@@ -120,7 +114,7 @@ Neste início rápido, você usará o [SDK do dispositivo IoT do Azure para C](i
 
 ## <a name="register-a-device"></a>Registrar um dispositivo
 
-É necessário registrar um dispositivo no hub IoT antes de conectá-lo. Nesta seção, você usará o Azure Cloud Shell com a [Extensão de IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) para registrar um dispositivo simulado.
+É necessário registrar um dispositivo no hub IoT antes de conectá-lo. Nesta seção, você usará o Azure Cloud Shell com a [Extensão de IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest&preserve-view=true) para registrar um dispositivo simulado.
 
 1. Para criar a identidade do dispositivo, execute o seguinte comando no Cloud Shell:
 
@@ -138,7 +132,7 @@ Neste início rápido, você usará o [SDK do dispositivo IoT do Azure para C](i
    > Substitua o espaço reservado *YourIoTHubName* com o nome escolhido para o hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
+    az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
     Anote a cadeia de conexão de dispositivo retornada para uso posterior neste início rápido. Ela se parece com o seguinte exemplo:

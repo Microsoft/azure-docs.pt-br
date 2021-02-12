@@ -1,14 +1,17 @@
 ---
 title: Suporte de avaliação do VMware nas Migrações para Azure
 description: Saiba mais sobre o suporte para a avaliação de VM DO VMware com a Avaliação do Servidor de Migrações para Azure.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 06/08/2020
-ms.openlocfilehash: 0fd884a7d95edaf6586e7eecd644400c05c15e5a
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 11/10/2020
+ms.openlocfilehash: ce8a1d77ae74a3946174ef58abf9add2e81eb90b
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315805"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762999"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de suporte para avaliação do VMware 
 
@@ -20,7 +23,7 @@ Se você quiser migrar as VMs do VMware para o Azure, examine a [matriz de supor
 
 ## <a name="limitations"></a>Limitações
 
-**Suporte** | **Detalhes**
+**Requisito** | **Detalhes**
 --- | ---
 **Limites do projeto** | Você pode criar vários projetos em uma assinatura do Azure.<br/><br/> É possível descobrir e avaliar até 35.000 VMs do VMware em um único [projeto](migrate-support-matrix.md#azure-migrate-projects). Um projeto também pode incluir servidores físicos e VMs do Hyper-V, até os limites de avaliação de cada um.
 **Descoberta** | O dispositivo de Migrações para Azure pode descobrir até 10.000 VMs do VMware em um vCenter Server.
@@ -34,7 +37,7 @@ Se você quiser migrar as VMs do VMware para o Azure, examine a [matriz de supor
 **VMware** | **Detalhes**
 --- | ---
 **vCenter Server** | As máquinas que você deseja descobrir e avaliar devem ser gerenciadas por vCenter Server versão 5,5, 6,0, 6,5, 6,7 ou 7,0.<br/><br/> Atualmente, não há suporte para a descoberta de VMs VMware fornecendo os detalhes do host ESXi no dispositivo.
-**Permissões** | A avaliação do servidor precisa de um vCenter Server conta somente leitura para descoberta e avaliação.<br/><br/> Se você quiser fazer a descoberta de aplicativos ou a visualização de dependência, a conta precisará de privilégios habilitados para operações de convidado de **máquinas virtuais**  >  **Guest Operations**.
+**Permissões** | A avaliação do servidor precisa de um vCenter Server conta somente leitura para descoberta e avaliação.<br/><br/> Se você quiser fazer a descoberta de aplicativos ou a visualização de dependência, a conta precisará de privilégios habilitados para operações de convidado de **máquinas virtuais**  >  .
 
 ## <a name="vm-requirements"></a>Requisitos de VM
 **VMware** | **Detalhes**
@@ -66,34 +69,31 @@ Além de descobrir as máquinas, a avaliação do servidor pode descobrir aplica
 
 **Suporte** | **Detalhes**
 --- | ---
-**Computadores compatíveis** | No momento, a descoberta de aplicativos é compatível apenas com as VMs do VMware.
-**Descoberta** | A descoberta de aplicativos é sem agente. Ele usa as credenciais de convidado do computador e acessa os computadores remotamente, usando chamadas de WMI e SSH.
-**Suporte à VM** | A descoberta de aplicativo tem suporte para VMs que executam todas as versões do Windows e Linux.
-**vCenter** | A vCenter Server conta somente leitura usada para avaliação, precisa de privilégios habilitados para operações de convidado de **máquinas virtuais**  >  **Guest Operations**, a fim de interagir com a VM para descoberta de aplicativos.
+**Computadores compatíveis** | No momento, compatível apenas com as VMs do VMware. Você pode descobrir aplicativos instalados em até 10000 VMs VMware de cada dispositivo migrações para Azure.
+**Sistemas operacionais** | Suporte para VMs que executam todas as versões do Windows e Linux.
+**Requisitos de VM** | As ferramentas do VMware devem ser instaladas e executadas em VMs nas quais você deseja descobrir aplicativos. <br/><br/> A versão das ferramentas do VMware deve ser posterior à 10.2.0.<br/><br/> As VMs devem ter o PowerShell versão 2.0 ou posterior instalado.
+**Discovery** | As informações sobre os aplicativos instalados em uma VM são coletadas do vCenter Server, usando as ferramentas do VMware instaladas na VM. O dispositivo reúne as informações do aplicativo do vCenter Server, usando APIs vSphere. A descoberta de aplicativos é sem agente. Nada é instalado em VMs e o dispositivo não se conecta diretamente às VMs. O WMI/SSH deve estar habilitado e disponível em VMs.
+**vCenter** | A vCenter Server conta somente leitura usada para avaliação, precisa de privilégios habilitados para operações de convidado de **máquinas virtuais**  >  , a fim de interagir com a VM para descoberta de aplicativos.
 **Acesso à VM** | A descoberta de aplicativos precisa de uma conta de usuário local na VM para descoberta de aplicativos.<br/><br/> Atualmente, as migrações para Azure dão suporte ao uso de uma credencial para todos os servidores Windows e uma credencial para todos os servidores Linux.<br/><br/> Crie uma conta de usuário convidado para VMs do Windows e uma conta de usuário regular/normal (acesso não sudo) para todas as VMs do Linux.
-**Ferramentas do VMware** | As ferramentas do VMware devem ser instaladas e executadas nas VMs que você deseja descobrir. <br/><br/> A versão das ferramentas do VMware deve ser posterior à 10.2.0.
-**PowerShell** | As VMs devem ter o PowerShell versão 2.0 ou posterior instalado.
-**Acesso à porta** | Nos hosts ESXi que executam as VMs que você deseja descobrir, o dispositivo de Migrações para Azure deve ser conectado à porta TCP 443.
-**Limites** | Para a descoberta de aplicativos, você pode descobrir até 10.000 VMs em cada dispositivo de Migrações para Azure.
+**Acesso à porta** | O dispositivo de migrações para Azure deve ser capaz de se conectar à porta TCP 443 em hosts ESXi que executam VMs nas quais você deseja descobrir aplicativos. O vCenter Server retorna uma conexão de host ESXI para baixar o arquivo que contém as informações do aplicativo.
+
 
 
 ## <a name="dependency-analysis-requirements-agentless"></a>Requisitos de análise de dependência (sem agente)
 
-A [análise de dependência](concepts-dependency-visualization.md) ajuda a identificar dependências entre os computadores locais que você deseja avaliar e migrar para o Azure. A tabela resume os requisitos para configurar a análise de dependência sem agente.
+A [análise de dependência](concepts-dependency-visualization.md) ajuda a identificar dependências entre os computadores locais que você deseja avaliar e migrar para o Azure. A tabela resume os requisitos para configurar a análise de dependência sem agente. 
 
-**Requisito** | **Detalhes**
+**Suporte** | **Detalhes**
 --- | --- 
-**Antes da implantação** | Você deve ter um projeto de Migrações para Azure em vigor, com a ferramenta de Avaliação do Servidor adicionada ao projeto.<br/><br/>  Você implanta a visualização de dependência depois de configurar um dispositivo de migrações para Azure para descobrir suas máquinas VMware locais.<br/><br/> [Aprenda](create-manage-projects.md) a criar um projeto pela primeira vez.<br/> [Aprenda](how-to-assess.md) a adicionar uma ferramenta de avaliação a um projeto existente.<br/> [Aprenda](how-to-set-up-appliance-vmware.md) a configurar o dispositivo de Migrações para Azure para avaliação das VMs do VMware.
 **Computadores compatíveis** | No momento, compatível apenas com as VMs do VMware.
-**VMs do Windows** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64 bits).<br/>Microsoft Windows Server 2008 (32 bits). Verifique se o PowerShell está instalado.
-**Credenciais do vCenter Server** | A visualização de dependência precisa de uma conta do vCenter Server com acesso somente leitura e privilégios habilitados para Máquinas Virtuais > Operações de Convidado.
-**Permissões de VM do Windows** |  Para a análise de dependência, o dispositivo de Migrações para Azure precisa de uma conta de administrador de domínio ou de uma conta de administrador local para acessar as VMs do Windows.
-**VMs do Linux** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.<br/> SUSE Linux Enterprise Server 11 e mais recente
-**Conta do Linux** | Para análise de dependência, em computadores Linux, o dispositivo de migrações para Azure precisa de uma conta de usuário raiz<br/><br/> Como alternativa, a conta de usuário precisa dessas permissões nos arquivos /bin/netstat e/bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE. Defina esses recursos usando os seguintes comandos: <br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = EP/bin/ls <br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = EP/bin/netstat
-**Agentes necessários** | Nenhum agente é necessário nos computadores que você deseja analisar.
-**Ferramentas do VMware** | As ferramentas do VMware (posterior à 10.2) devem ser instaladas e executadas em cada VM que você deseja analisar.
-**PowerShell** | As VMs do Windows devem ter o PowerShell versão 2.0 ou posterior instalado.
-**Acesso à porta** | Nos hosts ESXi que executam as VMs que você deseja analisar, o dispositivo de Migrações para Azure deve ser conectado à porta TCP 443.
+**VMs do Windows** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64 bits).<br/>Microsoft Windows Server 2008 (32 bits). 
+**VMs do Linux** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.<br/> SUSE Linux Enterprise Server 11 e posterior.
+**Requisitos de VM** | As ferramentas do VMware (posteriores a 10.2.0) devem ser instaladas e executadas em VMs que você deseja analisar.<br/><br/> As VMs devem ter o PowerShell versão 2.0 ou posterior instalado.
+**Método de descoberta** |  As informações de dependência entre as VMs são coletadas do vCenter Server, usando as ferramentas do VMware instaladas na VM. O dispositivo reúne as informações do vCenter Server, usando APIs vSphere. A descoberta é sem agente. Nada é instalado na VM e o dispositivo não se conecta diretamente às VMs. O WMI/SSH deve estar habilitado e disponível em VMs.
+**conta do vCenter** | A conta somente leitura usada pela migração do Azure para avaliação precisa de privilégios habilitados para **máquinas virtuais > operações de convidado**.
+**Permissões de VM do Windows** |  Uma conta (administrador local ou domínio) com permissões de administrador local em VMs.
+**Conta do Linux** | Conta de usuário raiz ou uma conta com essas permissões em arquivos/bin/netstat e/bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE.<br/><br/> Defina esses recursos usando os seguintes comandos: <br/><br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = EP/bin/ls<br/><br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = EP/bin/netstat
+**Acesso à porta** | O dispositivo de migrações para Azure deve ser capaz de se conectar à porta TCP 443 em hosts ESXI que executam as VMs cujas dependências você deseja descobrir. O vCenter Server retorna uma conexão de host ESXI para baixar o arquivo que contém as informações de dependência.
 
 
 ## <a name="dependency-analysis-requirements-agent-based"></a>Requisitos de análise de dependência (baseado em agente)

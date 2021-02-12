@@ -12,12 +12,12 @@ ms.date: 08/03/2020
 ms.author: marsma
 ms.custom: aaddev
 ms.reviewer: celested
-ms.openlocfilehash: 153115789430a9c52c16acefe00333f257f14637
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: bb5e4a1d4dc3977e8bc50885b02e3fe3ba6c5e7a
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077703"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116102"
 ---
 # <a name="microsoft-identity-platform-videos"></a>Vídeos da plataforma de identidade da Microsoft
 
@@ -41,6 +41,18 @@ ___
     :::column-end:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=7_vxnHiUA1M" target="_blank"> <img src="./media/identity-videos/id-for-devs-08.jpg" alt="Video thumbnail for a video about modern authentication and the Microsoft identity platform." class="mx-imgBorder"> </a>
+    :::column-end:::
+:::row-end:::
+:::row:::
+  :::column:::
+        <a href="https://www.youtube.com/watch?v=JpeMeTjQJ04" target="_blank">Visão geral: Implementando o logon único em aplicativos móveis-plataforma <span class="docon docon-navigate-external x-hidden-focus"></span> de identidade da Microsoft</a> (20:30)
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=JpeMeTjQJ04" target="_blank"><img src="./media/identity-videos/mobile-single-sign-on.jpg" alt="Video thumbnail for a video about implementing mobile single sign on using the Microsoft identity platform."> </a> (20:30)
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+    :::column:::
     :::column-end:::
 :::row-end:::
 

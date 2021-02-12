@@ -6,57 +6,69 @@ ms.service: marketplace
 ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 07/01/2020
-ms.openlocfilehash: 0bb5dccfc99a693ec89ed08ac31b77eb16442f73
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 01/28/2021
+ms.openlocfilehash: 786ecbf553ace6a90515347e8138eeb6e022589b
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129959"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063089"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Ofertas privadas no Microsoft Commercial Marketplace
 
-As ofertas privadas no [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/) permitem que os editores criem planos que só são visíveis para os clientes de destino. Este artigo discute as opções e os benefícios das ofertas privadas.
+Ofertas privadas, também chamadas de planos privados, permitem que os editores criem planos que são visíveis apenas para clientes direcionados. Este artigo discute as opções e os benefícios das ofertas privadas.
 
 ## <a name="unlock-enterprise-deals-with-private-offers"></a>Desbloqueie acordos empresariais com ofertas privadas
 
-Os clientes empresariais usam cada vez mais os mercados on-line para encontrar, experimentar e comprar soluções em nuvem. Agora, com ofertas privadas, os editores podem usar o marketplace para compartilhar de forma privada soluções personalizadas com clientes segmentados com recursos que as empresas exigem:
+Ao criar ofertas privadas, os editores podem oferecer soluções personalizadas para clientes de destino com recursos que as empresas necessitam:
 
-- *O preço negociado* permite aos editores estender descontos e preços fora da lista de ofertas disponíveis publicamente.
-- *Termos e condições particulares* permitem que os editores personalizem os termos e condições para um cliente específico.
-- *Configurações especializadas* permitem que os editores personalizem suas máquinas virtuais, aplicativos do Azure e aplicativos SaaS para atender às necessidades individuais de um cliente. Essa opção também permite que os editores forneçam acesso antecipado a novos recursos do produto antes de serem lançados de forma mais ampla para todos os clientes.
+- _O preço negociado_ permite aos editores estender descontos e preços fora da lista de ofertas disponíveis publicamente.
+- _Termos e condições particulares_ permitem que os editores personalizem os termos e condições para um cliente específico.
+- _As configurações especializadas_ permitem que os editores personalizem suas máquinas virtuais, aplicativos do Azure e software como serviço (SaaS) para as necessidades de um cliente individual. Essa opção também permite que os editores forneçam acesso de visualização aos novos recursos do produto, antes de iniciá-los para todos os clientes.
 
-As ofertas privadas permitem que os editores aproveitem a escala e a disponibilidade global de um mercado público, com a flexibilidade e o controle necessários para negociar e entregar ofertas e configurações personalizadas. Juntos, esses recursos abrem as portas para uma forte adoção corporativa de mercados de nuvem. As empresas agora podem comprar e vender da maneira que esperam e exigem.
+As ofertas privadas permitem que os editores aproveitem a escala e a disponibilidade global de um Marketplace público, com a flexibilidade e o controle necessários para negociar e fornecer negócios e configurações personalizadas. As empresas agora podem comprar e vender de formas que esperam 
 
-As ofertas privadas estão agora disponíveis para a Máquina Virtual, o Aplicativo Azure (implementado como modelos de solução ou aplicativos gerenciados) e as ofertas de Aplicativos SaaS.
+## <a name="create-private-offers-using-plans"></a>Criar ofertas privadas usando planos
 
-<!--- Like public offers, private offers can be created and managed via the [Cloud Partner Portal](). Customers can be granted or revoked access to private offers in minutes.
---->
-
-## <a name="creating-private-offers-using-plans"></a>Criando ofertas privadas usando planos
-
-Para *ofertas novas ou existentes com planos* , os editores podem criar facilmente novas variações privadas criando novos planos (anteriormente conhecidos como SKUs) e marcá-los como particulares. Cada oferta pode ter até 45 planos privados.
+Para *ofertas novas ou existentes com planos*, os editores podem criar facilmente novas variações privadas criando novos planos (anteriormente conhecidos como SKUs) e marcá-los como particulares. Cada oferta pode ter até 45 planos privados.
 
 <!--- [Private SKUs]() --->
 
-Os planos privados são componentes de uma oferta e só são visíveis e compráveisdos pelos clientes de destino. Os planos privados podem reutilizar as imagens base e/ou oferecer metadados já publicados para um plano público. Essa opção permite que os editores criem várias variações privadas de uma oferta pública sem precisar publicar várias versões da mesma imagem de base e oferecer metadados. Para as ofertas de máquina virtual e aplicativo do Azure somente, quando um plano privado compartilha uma imagem base com um plano público, todas as alterações na imagem base da oferta serão propagadas em todos os planos públicos e privados usando essa imagem base.
+Os planos privados estão disponíveis para os seguintes tipos de oferta:
 
-Para *novas ofertas que incluem apenas planos privados* , os editores podem criar suas ofertas como qualquer outra oferta e, em seguida, marcar os planos como particulares. As ofertas que têm apenas planos privados não poderão ser descobertos ou acessíveis por meio do Microsoft Commercial Marketplace ou do [portal do Azure](https://azure.microsoft.com/features/azure-portal/) por clientes que não estão associados à oferta.
+- Máquina Virtual do Azure
+- Aplicativo Azure (implementado como modelos de solução ou aplicativos gerenciados)
+- Serviço gerenciado
+- Ofertas de SaaS
+
+Os planos privados são componentes de uma oferta e só são visíveis e compráveisdos pelos clientes de destino. Os planos privados só são visíveis e compráveisdos pelos clientes de destino.  Os planos privados podem ser disponibilizados para clientes no Azure global e no Azure governamental.
+
+Os planos privados podem reutilizar as imagens base e/ou oferecer metadados já publicados para um plano público. Essa opção permite que os editores criem várias variações privadas de uma oferta pública sem precisar publicar várias versões da mesma imagem base e oferecer metadados. Para a máquina virtual do Azure e as ofertas de aplicativo do Azure somente, quando um plano privado compartilha uma imagem base com um plano público, todas as alterações na imagem base da oferta serão propagadas em todos os planos públicos e privados usando essa imagem base.
+
+Para *novas ofertas que incluem apenas planos privados*, os editores podem criar suas ofertas como qualquer outra oferta e, em seguida, marcar os planos como particulares. As ofertas que têm apenas planos privados não poderão ser descobertos ou acessíveis em [portal do Azure](https://azure.microsoft.com/features/azure-portal/) por clientes que não estão associados à oferta.
 
 >[!NOTE]
 >Uma oferta que contém apenas planos privados não será visível no Azure Marketplace ou no AppSource público.
 
-## <a name="targeting-customers-with-private-offers"></a>Direcionando clientes com ofertas privadas
+## <a name="target-customers-with-private-offers"></a>Direcionar clientes com ofertas privadas
 
-Para ofertas privadas novas e existentes, os editores podem segmentar clientes usando identificadores de assinatura. Os Publicadores que usam uma máquina virtual ou Aplicativo Azure oferta podem restringir a disponibilidade de um plano privado para uma ID de assinatura individual do Azure ou carregar um CSV de até 20.000 IDs de assinatura do Azure. Ao usar uma oferta privada de aplicativo SaaS, os editores podem associar uma ID de locatário para restringir a disponibilidade de um plano privado, usando a abordagem de carregamento manual ou CSV.
+Para ofertas privadas novas e existentes, os editores podem segmentar clientes usando identificadores de assinatura. Para as ofertas de máquina virtual, Aplicativo Azure e serviço gerenciado do Azure, os editores podem restringir a disponibilidade de um plano privado para uma ID de assinatura individual do Azure ou carregar um CSV de até 10.000 IDs de assinatura do Azure. Para ofertas de SaaS, os editores podem associar uma ID de locatário Azure Active Directory para restringir a disponibilidade de um plano privado, usando a abordagem de carregamento manual ou CSV.
 
-Depois que uma oferta tiver sido certificada e publicada, os clientes poderão ser atualizados ou removidos do plano em minutos usando o recurso Sincronizar assinaturas privadas. Essa funcionalidade permite que os editores atualizem com rapidez e facilidade a lista de clientes para os quais o plano privado é apresentado sem certificar ou publicar a oferta novamente.
+Depois que uma oferta tiver sido certificada e publicada, os clientes poderão ser atualizados ou removidos do plano usando o recurso Sincronizar assinaturas privadas. Essa funcionalidade permite que os editores atualizem com rapidez e facilidade a lista de clientes para os quais o plano privado é apresentado sem certificar ou publicar a oferta novamente.
 
 ## <a name="deploying-private-offers"></a>Implantando ofertas privadas
 
-As ofertas privadas só são descobertas por meio do [portal do Azure](https://azure.microsoft.com/features/azure-portal/) e não são mostradas no [Microsoft AppSource](https://appsource.microsoft.com/) ou no [Azure Marketplace](https://azuremarketplace.microsoft.com). Para saber mais sobre como publicar para as diferentes lojas online do Marketplace comercial, consulte [determinar sua opção de publicação](./determine-your-listing-type.md).
+Depois de entrar no portal do Azure, os clientes podem seguir estas etapas para selecionar suas ofertas particulares.
 
-Depois de entrar no portal do Azure, os clientes podem selecionar o elemento de navegação do Marketplace para acessar suas ofertas particulares. As ofertas privadas também aparecerão nos resultados da pesquisa e poderão ser implantadas por meio de modelos de linha de comando e Azure Resource Manager como qualquer outra oferta.
+1. Faça logon no [portal do Azure](https://ms.portal.azure.com/).
+1. Em **Serviços do Azure**, selecione **criar um recurso**.
+1. Na **nova** página, ao lado **do Azure Marketplace**, selecione **ver tudo**. A página do Marketplace é exibida.
+1. No painel de navegação esquerdo, selecione **ofertas privadas**.
+
+> [!NOTE]
+> As ofertas privadas só são detectáveis em [portal do Azure](https://azure.microsoft.com/features/azure-portal/). Eles não são mostrados no [Microsoft AppSource](https://appsource.microsoft.com/) ou no [Azure Marketplace](https://azuremarketplace.microsoft.com). Para saber mais sobre como publicar para as diferentes lojas online do Marketplace comercial, consulte [introdução às opções de listagem](./determine-your-listing-type.md).
+
+As ofertas privadas também aparecerão nos resultados da pesquisa e poderão ser implantadas por meio de modelos de linha de comando e Azure Resource Manager, como qualquer outra oferta.
 
 ![[Ofertas privadas]](./media/marketplace-publishers-guide/private-offer.png)
 

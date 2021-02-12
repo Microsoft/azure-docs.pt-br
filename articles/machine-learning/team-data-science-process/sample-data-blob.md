@@ -1,6 +1,6 @@
 ---
-title: Dados de exemplo no armazenamento de blobs do Azure – Processo de Ciência de Dados de Equipe
-description: Os dados de exemplo vão para o armazenamento de blobs do Azure por download realizado via programação e, em seguida, é feita a sua amostragem usando procedimentos escritos em Python.
+title: Dados de exemplo no armazenamento de BLOBs do Azure – processo de ciência de dados da equipe
+description: Dados de amostragem armazenados no armazenamento de BLOBs do Azure baixando-os programaticamente e, em seguida, fazendo amostragem usando procedimentos escritos em Python.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -11,21 +11,21 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 04528d28e9f54710cd0a63372e32b099c2e07fb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5827a0e07e537b66684f852d8f3e1500cd9febb
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86026161"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788834"
 ---
-# <a name="sample-data-in-azure-blob-storage"></a><a name="heading"></a>Dados de exemplo no armazenamento de blobs do Azure
+# <a name="sample-data-in-azure-blob-storage"></a><a name="heading"></a>Dados de exemplo no armazenamento de BLOBs do Azure
 
-Este artigo aborda os dados armazenados no armazenamento de blobs do Azure fazendo o download por meio de programação e, em seguida, amostrando-os usando procedimentos escritos em Python.
+Este artigo aborda os dados de amostragem armazenados no armazenamento de BLOBs do Azure baixando-os programaticamente e, em seguida, fazendo amostragem usando os procedimentos escritos em Python.
 
 **Por que fazer amostragem dos dados?**
 Se o conjunto de dados que você deseja analisar for grande, geralmente, é uma boa ideia reduzir os dados para um tamanho menor, mas representativo e mais gerenciável. A amostragem facilita a compreensão dos dados, a exploração e a engenharia de recursos. Sua função no Processo de Análise do Cortana é habilitar a rápida criação de protótipos de funções de processamento de dados e modelos de aprendizado de máquina.
 
-Essa tarefa de amostragem é uma etapa do [TDSP (Processo de Ciência de Dados de Equipe)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Essa tarefa de amostragem é uma etapa do [TDSP (Processo de Ciência de Dados de Equipe)](./index.yml).
 
 ## <a name="download-and-down-sample-data"></a>Baixar e reduzir os dados de exemplo
 1. Baixe os dados do armazenamento de BLOBs do Azure usando o serviço blob do seguinte código Python de exemplo: 
@@ -102,7 +102,6 @@ Agora você pode trabalhar com o quadro de dados acima com a amostra de um perce
         print ("Something went wrong with uploading to the blob:"+ BLOBNAME)
     ```
 
-3. Leia os dados do blob do Azure usando o [Importar Dados](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) do Azure Machine Learning, como mostrado na imagem abaixo:
+3. Leia os dados do blob do Azure usando o [Importar Dados](/azure/machine-learning/studio-module-reference/import-data) do Azure Machine Learning, como mostrado na imagem abaixo:
 
 ![blob de leitor](./media/sample-data-blob/reader_blob.png)
-

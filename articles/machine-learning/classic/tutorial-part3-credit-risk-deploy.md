@@ -9,17 +9,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 148a3deb23219036f2fd9d8fe4dad93e9fb96b9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3afcf87c360651ac314450910fbf5ab72afd289a
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91337624"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95503907"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Tutorial 3: Implantar modelo de risco de crédito – Azure Machine Learning Studio (clássico)
 
-**APLICA-SE A:**  ![sim](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico)   ![não](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
-
+**APLICA-SE A:**  ![Essa é uma marca de seleção, o que significa que este artigo se aplica ao Machine Learning Studio (clássico).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico) ![Este é um X, o que significa que este artigo se aplica ao Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 Neste tutorial, você analisará de maneira aprofundada o processo de desenvolvimento de uma solução de análise preditiva. Você desenvolverá um modelo simples no Machine Learning Studio (clássico).  Em seguida, você implantará o modelo como um serviço Web do Azure Machine Learning.  Esse modelo implantado pode fazer previsões usando novos dados. Este tutorial é a **terceira parte de uma série com três partes**.
 
@@ -49,12 +48,12 @@ Concluir a [segunda parte do tutorial](tutorial-part2-credit-risk-train.md).
 ## <a name="prepare-for-deployment"></a>Preparar para a implantação
 Para que outras pessoas possam usar o modelo preditivo que você desenvolveu neste tutorial, implante-o como um serviço Web no Azure.
 
-Até este ponto, você esteve testando nosso modelo de treinamento. Mas o serviço implantado não fará mais o treinamento – ele gerará previsões pontuando a entrada do usuário com base em nosso modelo. Então, vamos fazer algumas preparações para converter esse teste de um teste de ***treinamento*** em um teste ***preditivo***. 
+Até este ponto, você esteve testando nosso modelo de treinamento. Mas o serviço implantado não fará mais o treinamento – ele gerará previsões pontuando a entrada do usuário com base em nosso modelo. Então, vamos fazer algumas preparações para converter esse experimento de um teste de ***treinamento** _ em um teste _*_preditivo_*_. 
 
 A preparação para a implantação é um processo de três etapas:  
 
 1. Remova um dos modelos
-1. Converta o *teste de treinamento* criado em um *teste preditivo*
+1. Converta o _teste de treinamento* criado em um *teste preditivo*
 1. Implantar o teste preditivo como um serviço Web
 
 ### <a name="remove-one-of-the-models"></a>Remova um dos modelos
@@ -232,7 +231,7 @@ O serviço Web é um serviço Web do Azure que pode receber e retornar dados usa
 > [!NOTE]
 > Os nomes de coluna de recurso no Studio (clássico) **diferenciam maiúsculas e minúsculas**. Verifique se os dados de entrada para invocar o serviço Web têm os mesmos nomes de coluna do conjunto de dados de treinamento.
 
-Para obter mais informações sobre como acessar e consumir o serviço Web, confira [Consumir um serviço Web do Azure Machine Learning com um modelo de aplicativo Web](/azure/machine-learning/studio/consume-web-services).
+Para obter mais informações sobre como acessar e consumir o serviço Web, confira [Consumir um serviço Web do Azure Machine Learning com um modelo de aplicativo Web](./consume-web-services.md).
 
 
 
@@ -257,13 +256,13 @@ Você também pode desenvolver um aplicativo personalizado para acessar o servi�
 > [Consumir um serviço Web do Azure Machine Learning](consume-web-services.md)
 
 <!-- Module References -->
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[normalize-data]: https://msdn.microsoft.com/library/azure/986df333-6748-4b85-923d-871df70d6aaf/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
-[two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
+[metadata-editor]: /azure/machine-learning/studio-module-reference/edit-metadata
+[normalize-data]: /azure/machine-learning/studio-module-reference/normalize-data
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[train-model]: /azure/machine-learning/studio-module-reference/train-model
+[two-class-boosted-decision-tree]: /azure/machine-learning/studio-module-reference/two-class-boosted-decision-tree
+[two-class-support-vector-machine]: /azure/machine-learning/studio-module-reference/two-class-support-vector-machine
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset

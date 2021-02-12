@@ -3,12 +3,12 @@ title: Planejar uma implantação de Cluster Service Fabric do Azure
 description: Saiba mais sobre planejamento e preparação para uma implantação de cluster de Service Fabric de produção no Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 1064e59491b7144aafade24bd50131478fe025eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9de59811397eb47809c6d71f608e43beae5bfadb
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87281320"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109616"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planejar e preparar uma implantação de cluster
 
@@ -20,7 +20,7 @@ Para gerenciar aplicativos e clusters do Azure Service Fabric com êxito, há op
 ## <a name="select-the-os-for-the-cluster"></a>Selecione o sistema operacional para o cluster
 O Service Fabric permite a criação de clusters do Service Fabric em qualquer VM ou computador que esteja executando o Windows Server ou o Linux.  Antes de implantar o cluster, você deve escolher o sistema operacional: Windows ou Linux.  Cada nó (máquina virtual) no cluster executa o mesmo sistema operacional, não é possível misturar VMs Windows e Linux no mesmo cluster.
 
-## <a name="capacity-planning"></a>planejamento de capacidade
+## <a name="capacity-planning"></a>Planejamento da capacidade
 Para qualquer implantação de produção, o planejamento de capacidade é uma etapa importante. Aqui estão alguns pontos a serem considerados como parte desse processo.
 
 * O número inicial de tipos de nó para o cluster 
@@ -89,8 +89,6 @@ OS discos do sistema operacional efêmero não são um recurso Service Fabric es
 
 > [!NOTE]
 > Os aplicativos de usuário não devem ter nenhuma dependência/arquivo/artefato no disco do sistema operacional, pois o disco do sistema operacional seria perdido no caso de uma atualização do sistema operacional.
-> Portanto, não é recomendável usar [PatchOrchestrationApplication](https://github.com/microsoft/Service-Fabric-POA) com discos efêmeras.
->
 
 > [!NOTE]
 > O VMSS não efêmero existente não pode ser atualizado in-loco para usar discos efêmeros.

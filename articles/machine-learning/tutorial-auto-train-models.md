@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial de regressão: ML automatizado'
 titleSuffix: Azure Machine Learning
-description: Neste tutorial, você aprenderá a gerar um modelo de machine learning usando machine learning automatizado. O Azure Machine Learning pode executar o pré-processamento de dados, a seleção de algoritmo e a seleção de hiperparâmetro de maneira automatizada para você.
+description: Crie um experimento de machine learning automatizado que gere um modelo de regressão com base nos dados de treinamento e nas definições de configuração que você fornecer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ author: aniththa
 ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: cf6616dcc3935946ad4a7213263bb20281d25354
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-python, automl
+ms.openlocfilehash: f4d26ba6bec8f3e63ba89ed9abae789704a0828b
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90896782"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184094"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutorial: Usar aprendizado de máquina automatizado para prever tarifas de táxi
 
@@ -39,7 +39,9 @@ Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de co
 * Conclua o [tutorial de instalação](tutorial-1st-experiment-sdk-setup.md) caso ainda não tenha uma máquina virtual de notebook ou um Workspace do Azure Machine Learning.
 * Depois de concluir o tutorial de instalação, abra o notebook *tutorials/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb* usando o mesmo servidor de notebook.
 
-Este tutorial também está disponível no [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) caso você deseje executá-lo em seu próprio [ambiente local](how-to-configure-environment.md#local). Execute `pip install azureml-sdk[automl] azureml-opendatasets azureml-widgets` para obter os pacotes necessários.
+Este tutorial também está disponível no [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) caso você deseje executá-lo em seu próprio [ambiente local](how-to-configure-environment.md#local). Para obter os pacotes necessários, 
+* [Instale o cliente `automl` completo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment).
+* Execute `pip install azureml-opendatasets azureml-widgets` para obter os pacotes necessários.
 
 ## <a name="download-and-prepare-data"></a>Baixar e preparar dados
 
@@ -173,7 +175,7 @@ final_df.describe()
 
 ## <a name="configure-workspace"></a>Configurar o workspace
 
-Crie um objeto de workspace a partir do workspace existente. Um [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) é uma classe que aceita suas informações de recursos e assinatura do Azure. Ele também cria um recurso de nuvem para monitorar e acompanhar a execução do seu modelo. `Workspace.from_config()` lê o arquivo **config. json** e carrega os detalhes de autenticação em um objeto chamado `ws`. `ws` é usado em todo o restante do código neste tutorial.
+Crie um objeto de workspace a partir do workspace existente. Um [Workspace](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) é uma classe que aceita suas informações de recursos e assinatura do Azure. Ele também cria um recurso de nuvem para monitorar e acompanhar a execução do seu modelo. `Workspace.from_config()` lê o arquivo **config. json** e carrega os detalhes de autenticação em um objeto chamado `ws`. `ws` é usado em todo o restante do código neste tutorial.
 
 ```python
 from azureml.core.workspace import Workspace
@@ -208,7 +210,7 @@ Defina as configurações de modelos e os parâmetros do experimento para o trei
 
 |Propriedade| Valor neste tutorial |Descrição|
 |----|----|---|
-|**iteration_timeout_minutes**|2|Limite de tempo em minutos para cada iteração. Reduza esse valor para diminuir o runtime total.|
+|**iteration_timeout_minutes**|10|Limite de tempo em minutos para cada iteração. Aumente esse valor para conjuntos de dados maiores que precisam de mais tempo para cada iteração.|
 |**experiment_timeout_hours**|0.3|Quantidade máxima de tempo em horas que todas as iterações combinadas podem levar antes que o experimento seja encerrado.|
 |**enable_early_stopping**|True|Sinalizador para permitir o encerramento antecipado se a pontuação não estiver melhorando em curto prazo.|
 |**primary_metric**| spearman_correlation | Métrica que você deseja otimizar. O modelo mais adequado será escolhido com base nessa métrica.|
@@ -220,7 +222,7 @@ Defina as configurações de modelos e os parâmetros do experimento para o trei
 import logging
 
 automl_settings = {
-    "iteration_timeout_minutes": 2,
+    "iteration_timeout_minutes": 10,
     "experiment_timeout_hours": 0.3,
     "enable_early_stopping": True,
     "primary_metric": 'spearman_correlation',
@@ -253,7 +255,7 @@ Após começar o experimento, a saída mostrada é atualizada em tempo real enqu
 
 ```python
 from azureml.core.experiment import Experiment
-experiment = Experiment(ws, "taxi-experiment")
+experiment = Experiment(ws, "Tutorial-NYCTaxi")
 local_run = experiment.submit(automl_config, show_output=True)
 ```
 
@@ -300,7 +302,7 @@ BEST: The best observed score thus far.
 
 ## <a name="explore-the-results"></a>Explorar os resultados
 
-Explore os resultados do treinamento automático com um [widget do Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true). O widget permite que você veja um grafo e uma tabela de todas as iterações de execução individuais, em conjunto com metadados e métricas de precisão de treinamento. Além disso, você pode filtrar em métricas de precisão diferentes da métrica primária com o seletor de lista suspensa.
+Explore os resultados do treinamento automático com um [widget do Jupyter](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py). O widget permite que você veja um grafo e uma tabela de todas as iterações de execução individuais, em conjunto com metadados e métricas de precisão de treinamento. Além disso, você pode filtrar em métricas de precisão diferentes da métrica primária com o seletor de lista suspensa.
 
 ```python
 from azureml.widgets import RunDetails

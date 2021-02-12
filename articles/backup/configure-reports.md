@@ -3,14 +3,14 @@ title: Configurar relatórios de Backup do Azure
 description: Configurar e exibir relatórios para o Backup do Azure usando o Log Analytics e as pastas de trabalho do Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 11893488c59781bb78cf913a30069e920c66bc71
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 39d1aa17c5e92eccd34013738937e49890109561
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172461"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897268"
 ---
-# <a name="configure-azure-backup-reports"></a>Configurar relatórios de Backup do Azure
+# <a name="configure-azure-backup-reports-preview"></a>Configurar relatórios de backup do Azure (visualização)
 
 Um requisito comum para administradores de backup é obter insights sobre backups com base em dados que abrangem um longo período. Os casos de uso para essa solução incluem:
 
@@ -18,7 +18,7 @@ Um requisito comum para administradores de backup é obter insights sobre backup
 - Auditoria de backups e restaurações.
 - Identificação das principais tendências em diferentes níveis de granularidade.
 
-Hoje, o Backup do Azure fornece uma solução de relatório que usa os [logs do Azure Monitor](../azure-monitor/log-query/get-started-portal.md) e as [pastas de trabalho do Azure](../azure-monitor/platform/workbooks-overview.md). Esses recursos ajudam você a obter informações detalhadas sobre os backups em toda a sua propriedade de backups. Este artigo explica como configurar e ver Relatórios de Backup do Azure.
+Hoje, o Backup do Azure fornece uma solução de relatório que usa os [logs do Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md) e as [pastas de trabalho do Azure](../azure-monitor/platform/workbooks-overview.md). Esses recursos ajudam você a obter informações detalhadas sobre os backups em toda a sua propriedade de backups. Este artigo explica como configurar e ver Relatórios de Backup do Azure.
 
 ## <a name="supported-scenarios"></a>Cenários com suporte
 

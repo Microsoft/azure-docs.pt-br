@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8dca22303edc3b75625df88dac98557c6a2e6162
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 4406e3875bd2d56a33bcc9a94a24ad874fecf8da
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202845"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592170"
 ---
 # <a name="materials"></a>Materiais
 
@@ -87,11 +87,11 @@ void SetMaterialColorToGreen(ApiHandle<Material> material)
 * [Classe de material C#](/dotnet/api/microsoft.azure.remoterendering.material)
 * [Classe C# ColorMaterial](/dotnet/api/microsoft.azure.remoterendering.colormaterial)
 * [Classe C# PbrMaterial](/dotnet/api/microsoft.azure.remoterendering.pbrmaterial)
-* [C# remotamente. creatematerial ()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
+* [C# RenderingConnection. creatematerial ()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.creatematerial)
 * [Classe de material do C++](/cpp/api/remote-rendering/material)
 * [Classe C++ ColorMaterial](/cpp/api/remote-rendering/colormaterial)
 * [Classe C++ PbrMaterial](/cpp/api/remote-rendering/pbrmaterial)
-* [C++ Remotemanager:: creatematerial ()](/cpp/api/remote-rendering/remotemanager#creatematerial)
+* [C++ RenderingConnection:: creatematerial ()](/cpp/api/remote-rendering/renderingconnection#creatematerial)
 
 ## <a name="next-steps"></a>Próximas etapas
 

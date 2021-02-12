@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 01/22/2021
 ms.custom: seodec18
-ms.openlocfilehash: 5810bea7920dbfe91a836814124cbe4c7f6f3bee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55e102cc7e27cbcd9a65999f590c8264f1ad4434
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653784"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736845"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Gerenciador do Azure Time Series Insights
 
@@ -25,11 +25,11 @@ Este artigo descreve os vários recursos e opções disponíveis no [ambiente de
 
 Para começar a usar o Azure Time Series Insights Explorer, você deve:
 
-* Ter um ambiente de Azure Time Series Insights Gen2 provisionado. Saiba mais sobre como provisionar uma instância lendo o tutorial [Azure Time Series insights Gen2](./time-series-insights-update-create-environment.md) .
-* [Forneça acesso a dados](./time-series-insights-data-access.md) para o ambiente de Azure Time Series insights Gen2 que você criou para a conta. Você pode fornecer acesso a outras pessoas, bem como para si mesmo.
+* Ter um ambiente de Azure Time Series Insights Gen2 provisionado. Saiba mais sobre como provisionar uma instância lendo o tutorial [Azure Time Series insights Gen2](./tutorials-set-up-tsi-environment.md) .
+* [Forneça acesso a dados](./concepts-access-policies.md) para o ambiente de Azure Time Series insights Gen2 que você criou para a conta. Você pode fornecer acesso a outras pessoas, bem como para si mesmo.
 * Adicione uma origem do evento ao ambiente Azure Time Series Insights Gen2 para enviar dados por push para o ambiente:
-  * Saiba [como se conectar a um hub de eventos](./time-series-insights-how-to-add-an-event-source-eventhub.md)
-  * Saiba [como se conectar a um hub IOT](./time-series-insights-how-to-add-an-event-source-iothub.md)
+  * Saiba [como se conectar a um hub de eventos](./how-to-ingest-data-event-hub.md)
+  * Saiba [como se conectar a um hub IOT](./how-to-ingest-data-iot-hub.md)
 
 ## <a name="explore-the-azure-time-series-insights-explorer"></a>Explorar o Azure Time Series Insights Explorer
 
@@ -133,7 +133,7 @@ Aqui, um exemplo de um **gráfico sobreposto** é fornecido:
 
   [![Opção de gráfico sobreposto](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png)](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png#lightbox)
 
-O **botão mais ações** se expande para exibir o **download como CSV**, **conectar-se a Power bi**, **Mostrar dados do gráfico como uma tabela**e explorar as opções de **eventos brutos** .
+O **botão mais ações** se expande para exibir o **download como CSV**, **conectar-se a Power bi**, **Mostrar dados do gráfico como uma tabela** e explorar as opções de **eventos brutos** .
 
   [![Opção de mais ações](media/v2-update-explorer/more-actions-icon.png)](media/v2-update-explorer/more-actions-icon.png#lightbox)
 
@@ -156,11 +156,11 @@ Os seguintes controles da Web estão disponíveis em Azure Time Series Insights 
 
 1. **Botões aumentar e diminuir intervalo de datas**: aumente ou diminua seu período selecionando um dos botões para o intervalo desejado.
 
-1. **Controle de recolhimento**de intervalo de tempo: esse controle da Web permite que você oculte todos os controles, exceto a ferramenta de controle deslizante intervalo de datas internas.
+1. **Controle de recolhimento** de intervalo de tempo: esse controle da Web permite que você oculte todos os controles, exceto a ferramenta de controle deslizante intervalo de datas internas.
 
 1. **Controle deslizante de intervalo de datas externas**: Use os controles de ponto de extremidade para selecionar o intervalo de datas externas, que estará disponível para o controle de intervalo de datas interna.
 
-1. **Controle deslizante de intervalo de tempo**: Use-o para alternar rapidamente entre as seleções de intervalo de tempo predefinido, como os últimos **30 minutos**, as **últimas 12 horas**ou um **intervalo personalizado**. A alteração desse valor também muda os intervalos de intervalo disponíveis discutidos na ferramenta de controle deslizante de tamanho do intervalo.
+1. **Controle deslizante de intervalo de tempo**: Use-o para alternar rapidamente entre as seleções de intervalo de tempo predefinido, como os últimos **30 minutos**, as **últimas 12 horas** ou um **intervalo personalizado**. A alteração desse valor também muda os intervalos de intervalo disponíveis discutidos na ferramenta de controle deslizante de tamanho do intervalo.
 
    [![De e para o painel de seleção](media/v2-update-explorer/to-and-from-element.png)](media/v2-update-explorer/to-and-from-element.png#lightbox)
 
@@ -221,7 +221,7 @@ O painel do editor de termos do Azure Time Series Insights Gen2 usa os seguintes
 | `IN` | String, Bool, Double, DateTime, TimeSpan, NULL | Todos os operandos devem ser do mesmo tipo ou ser uma constante NULL. |
 | `HAS` | String | Somente literais de cadeia de caracteres constantes são permitidos no lado direito. Cadeia de caracteres vazia e NULL não são permitidos. |
 
-Para saber mais sobre os tipos de dados e operações de consulta com suporte, consulte [TSX (expressão de série temporal)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
+Para saber mais sobre os tipos de dados e operações de consulta com suporte, consulte [TSX (expressão de série temporal)](/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 ### <a name="examples-of-where-clauses"></a>Exemplos de cláusulas WHERE
 
@@ -233,7 +233,7 @@ Para saber mais sobre os tipos de dados e operações de consulta com suporte, c
 
   [![Exibição consultada e filtrada um](media/v2-update-explorer/s1-s2-preview-filtered-view.png)](media/v2-update-explorer/s1-s2-preview-filtered-view.png#lightbox)
 
-Você pode mostrar e ocultar elementos no painel de gráfico selecionando o ícone visível, conforme mostrado na imagem a seguir. Para remover completamente as consultas, selecione o **X**vermelho.
+Você pode mostrar e ocultar elementos no painel de gráfico selecionando o ícone visível, conforme mostrado na imagem a seguir. Para remover completamente as consultas, selecione o **X** vermelho.
 
   [![Cancelar uma opção consultada e filtrada](media/v2-update-explorer/s1-s2-preview-filtered-view-cancel.png)](media/v2-update-explorer/s1-s2-preview-filtered-view-cancel.png#lightbox)
 
@@ -245,4 +245,4 @@ Você pode mostrar e ocultar elementos no painel de gráfico selecionando o íco
 
 * Leia sobre [modelagem de dados](./concepts-model-overview.md) no Azure Time Series insights Gen2.
 
-* Saiba [como diagnosticar e solucionar problemas](./time-series-insights-update-how-to-troubleshoot.md) de seu ambiente.
+* Saiba [como diagnosticar e solucionar problemas](./how-to-diagnose-troubleshoot.md) de seu ambiente.

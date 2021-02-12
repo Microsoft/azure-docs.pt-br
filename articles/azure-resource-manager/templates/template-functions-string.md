@@ -1,18 +1,18 @@
 ---
 title: Funções de modelo – cadeia de caracteres
-description: Descreve as funções a serem usadas em um modelo do Azure Resource Manager para trabalhar com cadeias de caracteres.
+description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager (modelo ARM) para trabalhar com cadeias de caracteres.
 ms.topic: conceptual
-ms.date: 04/08/2020
-ms.openlocfilehash: a0733ffc790854c60dca46da3f763738b7820215
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.date: 11/18/2020
+ms.openlocfilehash: a70aaff91f701c0ba8d26db2488b82e052dd905d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874706"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920010"
 ---
 # <a name="string-functions-for-arm-templates"></a>Funções de cadeia de caracteres para modelos ARM
 
-O Gerenciador de recursos fornece as seguintes funções para trabalhar com cadeias de caracteres em seus modelos de Azure Resource Manager (ARM):
+O Gerenciador de recursos fornece as seguintes funções para trabalhar com cadeias de caracteres em seu modelo de Azure Resource Manager (modelo ARM):
 
 * [base64](#base64)
 * [base64ToJson](#base64tojson)
@@ -48,6 +48,8 @@ O Gerenciador de recursos fornece as seguintes funções para trabalhar com cade
 * [uriComponent](#uricomponent)
 * [uriComponentToString](#uricomponenttostring)
 
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+
 ## <a name="base64"></a>base64
 
 `base64(inputString)`
@@ -68,42 +70,60 @@ Uma cadeia de caracteres que contém a representação base64.
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) a seguir mostra como usar a função base64.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "stringData": {
-            "type": "string",
-            "defaultValue": "one, two, three"
-        },
-        "jsonFormattedData": {
-            "type": "string",
-            "defaultValue": "{'one': 'a', 'two': 'b'}"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "stringData": {
+      "type": "string",
+      "defaultValue": "one, two, three"
     },
-    "variables": {
-        "base64String": "[base64(parameters('stringData'))]",
-        "base64Object": "[base64(parameters('jsonFormattedData'))]"
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "base64Output": {
-            "type": "string",
-            "value": "[variables('base64String')]"
-        },
-        "toStringOutput": {
-            "type": "string",
-            "value": "[base64ToString(variables('base64String'))]"
-        },
-        "toJsonOutput": {
-            "type": "object",
-            "value": "[base64ToJson(variables('base64Object'))]"
-        }
+    "jsonFormattedData": {
+      "type": "string",
+      "defaultValue": "{'one': 'a', 'two': 'b'}"
     }
+  },
+  "variables": {
+    "base64String": "[base64(parameters('stringData'))]",
+    "base64Object": "[base64(parameters('jsonFormattedData'))]"
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "base64Output": {
+      "type": "string",
+      "value": "[variables('base64String')]"
+    },
+    "toStringOutput": {
+      "type": "string",
+      "value": "[base64ToString(variables('base64String'))]"
+    },
+    "toJsonOutput": {
+      "type": "object",
+      "value": "[base64ToJson(variables('base64Object'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param stringData string = 'one, two, three'
+param jsonFormattedData string = '{\'one\': \'a\', \'two\': \'b\'}'
+
+var base64String = base64(stringData)
+var base64Object = base64(jsonFormattedData)
+
+output base64Output string = base64String
+output toStringOutput string = base64ToString(base64String)
+output toJsonOutput object = base64ToJson(base64Object)
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -133,42 +153,61 @@ Um objeto JSON.
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) a seguir usa a função base64ToJson para converter um valor base64:
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "stringData": {
-            "type": "string",
-            "defaultValue": "one, two, three"
-        },
-        "jsonFormattedData": {
-            "type": "string",
-            "defaultValue": "{'one': 'a', 'two': 'b'}"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "stringData": {
+      "type": "string",
+      "defaultValue": "one, two, three"
     },
-    "variables": {
-        "base64String": "[base64(parameters('stringData'))]",
-        "base64Object": "[base64(parameters('jsonFormattedData'))]"
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "base64Output": {
-            "type": "string",
-            "value": "[variables('base64String')]"
-        },
-        "toStringOutput": {
-            "type": "string",
-            "value": "[base64ToString(variables('base64String'))]"
-        },
-        "toJsonOutput": {
-            "type": "object",
-            "value": "[base64ToJson(variables('base64Object'))]"
-        }
+    "jsonFormattedData": {
+      "type": "string",
+      "defaultValue": "{'one': 'a', 'two': 'b'}"
     }
+  },
+  "variables": {
+    "base64String": "[base64(parameters('stringData'))]",
+    "base64Object": "[base64(parameters('jsonFormattedData'))]"
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "base64Output": {
+      "type": "string",
+      "value": "[variables('base64String')]"
+    },
+    "toStringOutput": {
+      "type": "string",
+      "value": "[base64ToString(variables('base64String'))]"
+    },
+    "toJsonOutput": {
+      "type": "object",
+      "value": "[base64ToJson(variables('base64Object'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param stringData string = 'one, two, three'
+param jsonFormattedData string = '{\'one\': \'a\', \'two\': \'b\'}'
+
+var base64String = base64(stringData)
+var base64Object = base64(jsonFormattedData)
+
+output base64Output string = base64String
+output toStringOutput string = base64ToString(base64String)
+output toJsonOutput object = base64ToJson(base64Object)
+
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -198,42 +237,60 @@ Uma cadeia de caracteres do valor base64 convertido.
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) a seguir usa a função base64ToString para converter um valor base64:
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "stringData": {
-            "type": "string",
-            "defaultValue": "one, two, three"
-        },
-        "jsonFormattedData": {
-            "type": "string",
-            "defaultValue": "{'one': 'a', 'two': 'b'}"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "stringData": {
+      "type": "string",
+      "defaultValue": "one, two, three"
     },
-    "variables": {
-        "base64String": "[base64(parameters('stringData'))]",
-        "base64Object": "[base64(parameters('jsonFormattedData'))]"
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "base64Output": {
-            "type": "string",
-            "value": "[variables('base64String')]"
-        },
-        "toStringOutput": {
-            "type": "string",
-            "value": "[base64ToString(variables('base64String'))]"
-        },
-        "toJsonOutput": {
-            "type": "object",
-            "value": "[base64ToJson(variables('base64Object'))]"
-        }
+    "jsonFormattedData": {
+      "type": "string",
+      "defaultValue": "{'one': 'a', 'two': 'b'}"
     }
+  },
+  "variables": {
+    "base64String": "[base64(parameters('stringData'))]",
+    "base64Object": "[base64(parameters('jsonFormattedData'))]"
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "base64Output": {
+      "type": "string",
+      "value": "[variables('base64String')]"
+    },
+    "toStringOutput": {
+      "type": "string",
+      "value": "[base64ToString(variables('base64String'))]"
+    },
+    "toJsonOutput": {
+      "type": "object",
+      "value": "[base64ToJson(variables('base64Object'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param stringData string = 'one, two, three'
+param jsonFormattedData string = '{\'one\': \'a\', \'two\': \'b\'}'
+
+var base64String = base64(stringData)
+var base64Object = base64(jsonFormattedData)
+
+output base64Output string = base64String
+output toStringOutput string = base64ToString(base64String)
+output toJsonOutput object = base64ToJson(base64Object)
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -266,25 +323,37 @@ Uma cadeia de caracteres ou matriz de valores concatenados.
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) a seguir mostra como combinar dois valores de cadeia de caracteres e retornar uma cadeia de caracteres concatenada.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "prefix": {
-            "type": "string",
-            "defaultValue": "prefix"
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "concatOutput": {
-            "value": "[concat(parameters('prefix'), '-', uniqueString(resourceGroup().id))]",
-            "type" : "string"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "prefix": {
+      "type": "string",
+      "defaultValue": "prefix"
     }
+  },
+  "resources": [],
+  "outputs": {
+    "concatOutput": {
+      "type": "string",
+      "value": "[concat(parameters('prefix'), '-', uniqueString(resourceGroup().id))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param prefix string = 'prefix'
+
+output concatOutput string = concat(prefix, '-', uniqueString(resourceGroup().id))
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -294,38 +363,59 @@ A saída do exemplo anterior com os valores padrão é:
 
 O próximo [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) mostra como combinar duas matrizes.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "firstArray": {
-            "type": "array",
-            "defaultValue": [
-                "1-1",
-                "1-2",
-                "1-3"
-            ]
-        },
-        "secondArray": {
-            "type": "array",
-            "defaultValue": [
-                "2-1",
-                "2-2",
-                "2-3"
-            ]
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "firstArray": {
+      "type": "array",
+      "defaultValue": [
+        "1-1",
+        "1-2",
+        "1-3"
+      ]
     },
-    "resources": [
-    ],
-    "outputs": {
-        "return": {
-            "type": "array",
-            "value": "[concat(parameters('firstArray'), parameters('secondArray'))]"
-        }
+    "secondArray": {
+      "type": "array",
+      "defaultValue": [
+        "2-1",
+        "2-2",
+        "2-3"
+      ]
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "return": {
+      "type": "array",
+      "value": "[concat(parameters('firstArray'), parameters('secondArray'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param firstArray array = [
+  '1-1'
+  '1-2'
+  '1-3'
+]
+param secondArray array = [
+  '2-1'
+  '2-2'
+  '2-3'
+]
+
+output return array = concat(firstArray, secondArray)
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -354,54 +444,85 @@ Verifica se uma matriz contém um valor, um objeto contém uma chave ou uma cade
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json) a seguir mostra como usar contains com tipos diferentes:
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "stringToTest": {
-            "type": "string",
-            "defaultValue": "OneTwoThree"
-        },
-        "objectToTest": {
-            "type": "object",
-            "defaultValue": {"one": "a", "two": "b", "three": "c"}
-        },
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": ["one", "two", "three"]
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "stringToTest": {
+      "type": "string",
+      "defaultValue": "OneTwoThree"
     },
-    "resources": [
-    ],
-    "outputs": {
-        "stringTrue": {
-            "type": "bool",
-            "value": "[contains(parameters('stringToTest'), 'e')]"
-        },
-        "stringFalse": {
-            "type": "bool",
-            "value": "[contains(parameters('stringToTest'), 'z')]"
-        },
-        "objectTrue": {
-            "type": "bool",
-            "value": "[contains(parameters('objectToTest'), 'one')]"
-        },
-        "objectFalse": {
-            "type": "bool",
-            "value": "[contains(parameters('objectToTest'), 'a')]"
-        },
-        "arrayTrue": {
-            "type": "bool",
-            "value": "[contains(parameters('arrayToTest'), 'three')]"
-        },
-        "arrayFalse": {
-            "type": "bool",
-            "value": "[contains(parameters('arrayToTest'), 'four')]"
-        }
+    "objectToTest": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "b",
+        "three": "c"
+      }
+    },
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [ "one", "two", "three" ]
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "stringTrue": {
+      "type": "bool",
+      "value": "[contains(parameters('stringToTest'), 'e')]"
+    },
+    "stringFalse": {
+      "type": "bool",
+      "value": "[contains(parameters('stringToTest'), 'z')]"
+    },
+    "objectTrue": {
+      "type": "bool",
+      "value": "[contains(parameters('objectToTest'), 'one')]"
+    },
+    "objectFalse": {
+      "type": "bool",
+      "value": "[contains(parameters('objectToTest'), 'a')]"
+    },
+    "arrayTrue": {
+      "type": "bool",
+      "value": "[contains(parameters('arrayToTest'), 'three')]"
+    },
+    "arrayFalse": {
+      "type": "bool",
+      "value": "[contains(parameters('arrayToTest'), 'four')]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param stringToTest string = 'OneTwoThree'
+param objectToTest object = {
+  'one': 'a'
+  'two': 'b'
+  'three': 'c'
+}
+param arrayToTest array = [
+  'one'
+  'two'
+  'three'
+]
+
+output stringTrue bool = contains(stringToTest, 'e')
+output stringFalse bool = contains(stringToTest, 'z')
+output objectTrue bool = contains(objectToTest, 'one')
+output objectFalse bool = contains(objectToTest, 'a')
+output arrayTrue bool = contains(arrayToTest, 'three')
+output arrayFalse bool = contains(arrayToTest, 'four')
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -434,33 +555,47 @@ Uma cadeia de caracteres formatada como um URI de dados.
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json) a seguir converte um valor em um URI de dados e um URI de dados em uma cadeia de caracteres:
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "stringToTest": {
-            "type": "string",
-            "defaultValue": "Hello"
-        },
-        "dataFormattedString": {
-            "type": "string",
-            "defaultValue": "data:;base64,SGVsbG8sIFdvcmxkIQ=="
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "stringToTest": {
+      "type": "string",
+      "defaultValue": "Hello"
     },
-    "resources": [],
-    "outputs": {
-        "dataUriOutput": {
-            "value": "[dataUri(parameters('stringToTest'))]",
-            "type" : "string"
-        },
-        "toStringOutput": {
-            "type": "string",
-            "value": "[dataUriToString(parameters('dataFormattedString'))]"
-        }
+    "dataFormattedString": {
+      "type": "string",
+      "defaultValue": "data:;base64,SGVsbG8sIFdvcmxkIQ=="
     }
+  },
+  "resources": [],
+  "outputs": {
+    "dataUriOutput": {
+      "value": "[dataUri(parameters('stringToTest'))]",
+      "type": "string"
+    },
+    "toStringOutput": {
+      "type": "string",
+      "value": "[dataUriToString(parameters('dataFormattedString'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param stringToTest string = 'Hello'
+param dataFormattedString string = 'data:;base64,SGVsbG8sIFdvcmxkIQ=='
+
+output dataUriOutput string = dataUri(stringToTest)
+output toStringOutput string = dataUriToString(dataFormattedString)
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -489,33 +624,47 @@ Uma cadeia de caracteres que contém o valor convertido.
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json) a seguir converte um valor em um URI de dados e um URI de dados em uma cadeia de caracteres:
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "stringToTest": {
-            "type": "string",
-            "defaultValue": "Hello"
-        },
-        "dataFormattedString": {
-            "type": "string",
-            "defaultValue": "data:;base64,SGVsbG8sIFdvcmxkIQ=="
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "stringToTest": {
+      "type": "string",
+      "defaultValue": "Hello"
     },
-    "resources": [],
-    "outputs": {
-        "dataUriOutput": {
-            "value": "[dataUri(parameters('stringToTest'))]",
-            "type" : "string"
-        },
-        "toStringOutput": {
-            "type": "string",
-            "value": "[dataUriToString(parameters('dataFormattedString'))]"
-        }
+    "dataFormattedString": {
+      "type": "string",
+      "defaultValue": "data:;base64,SGVsbG8sIFdvcmxkIQ=="
     }
+  },
+  "resources": [],
+  "outputs": {
+    "dataUriOutput": {
+      "value": "[dataUri(parameters('stringToTest'))]",
+      "type": "string"
+    },
+    "toStringOutput": {
+      "type": "string",
+      "value": "[dataUriToString(parameters('dataFormattedString'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param stringToTest string = 'Hello'
+param dataFormattedString string = 'data:;base64,SGVsbG8sIFdvcmxkIQ=='
+
+output dataUriOutput string = dataUri(stringToTest)
+output toStringOutput string = dataUriToString(dataFormattedString)
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -544,42 +693,58 @@ Retorna **True** se o valor é vazio; caso contrário, **False**.
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json) a seguir verifica se uma matriz, um objeto e uma cadeia de caracteres estão vazios.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "testArray": {
-            "type": "array",
-            "defaultValue": []
-        },
-        "testObject": {
-            "type": "object",
-            "defaultValue": {}
-        },
-        "testString": {
-            "type": "string",
-            "defaultValue": ""
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "testArray": {
+      "type": "array",
+      "defaultValue": []
     },
-    "resources": [
-    ],
-    "outputs": {
-        "arrayEmpty": {
-            "type": "bool",
-            "value": "[empty(parameters('testArray'))]"
-        },
-        "objectEmpty": {
-            "type": "bool",
-            "value": "[empty(parameters('testObject'))]"
-        },
-        "stringEmpty": {
-            "type": "bool",
-            "value": "[empty(parameters('testString'))]"
-        }
+    "testObject": {
+      "type": "object",
+      "defaultValue": {}
+    },
+    "testString": {
+      "type": "string",
+      "defaultValue": ""
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "arrayEmpty": {
+      "type": "bool",
+      "value": "[empty(parameters('testArray'))]"
+    },
+    "objectEmpty": {
+      "type": "bool",
+      "value": "[empty(parameters('testObject'))]"
+    },
+    "stringEmpty": {
+      "type": "bool",
+      "value": "[empty(parameters('testString'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param testArray array = []
+param testObject object = {}
+param testString string = ''
+
+output arrayEmpty bool = empty(testArray)
+output objectEmpty bool = empty(testObject)
+output stringEmpty bool = empty(testString)
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -610,39 +775,54 @@ Determina se uma cadeia de caracteres termina com um valor. A comparação não 
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json) a seguir mostra como usar as funções startsWith e endsWith:
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "startsTrue": {
-            "value": "[startsWith('abcdef', 'ab')]",
-            "type" : "bool"
-        },
-        "startsCapTrue": {
-            "value": "[startsWith('abcdef', 'A')]",
-            "type" : "bool"
-        },
-        "startsFalse": {
-            "value": "[startsWith('abcdef', 'e')]",
-            "type" : "bool"
-        },
-        "endsTrue": {
-            "value": "[endsWith('abcdef', 'ef')]",
-            "type" : "bool"
-        },
-        "endsCapTrue": {
-            "value": "[endsWith('abcdef', 'F')]",
-            "type" : "bool"
-        },
-        "endsFalse": {
-            "value": "[endsWith('abcdef', 'e')]",
-            "type" : "bool"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "startsTrue": {
+      "value": "[startsWith('abcdef', 'ab')]",
+      "type": "bool"
+    },
+    "startsCapTrue": {
+      "value": "[startsWith('abcdef', 'A')]",
+      "type": "bool"
+    },
+    "startsFalse": {
+      "value": "[startsWith('abcdef', 'e')]",
+      "type": "bool"
+    },
+    "endsTrue": {
+      "value": "[endsWith('abcdef', 'ef')]",
+      "type": "bool"
+    },
+    "endsCapTrue": {
+      "value": "[endsWith('abcdef', 'F')]",
+      "type": "bool"
+    },
+    "endsFalse": {
+      "value": "[endsWith('abcdef', 'e')]",
+      "type": "bool"
     }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output startsTrue bool = startsWith('abcdef', 'ab')
+output startsCapTrue bool = startsWith('abcdef', 'A')
+output startsFalse bool = startsWith('abcdef', 'e')
+output endsTrue bool = endsWith('abcdef', 'ef')
+output endsCapTrue bool = endsWith('abcdef', 'F')
+output endsFalse bool = endsWith('abcdef', 'e')
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -675,30 +855,47 @@ Uma cadeia de caracteres do primeiro caractere ou o tipo (cadeia de caracteres, 
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json) a seguir mostra como usar a primeira função com uma matriz e cadeia de caracteres.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": ["one", "two", "three"]
-        }
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "arrayOutput": {
-            "type": "string",
-            "value": "[first(parameters('arrayToTest'))]"
-        },
-        "stringOutput": {
-            "type": "string",
-            "value": "[first('One Two Three')]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [ "one", "two", "three" ]
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "arrayOutput": {
+      "type": "string",
+      "value": "[first(parameters('arrayToTest'))]"
+    },
+    "stringOutput": {
+      "type": "string",
+      "value": "[first('One Two Three')]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param arrayToTest array = [
+  'one'
+  'two'
+  'three'
+]
+
+output arrayOutput string = first(arrayToTest)
+output stringOutput string = first('One Two Three')
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -729,34 +926,48 @@ Use essa função para formatar uma cadeia de caracteres em seu modelo. Ele usa 
 
 O modelo de exemplo a seguir mostra como usar a função Format.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "greeting": {
-            "type": "string",
-            "defaultValue": "Hello"
-        },
-        "name": {
-            "type": "string",
-            "defaultValue": "User"
-        },
-        "numberToFormat": {
-            "type": "int",
-            "defaultValue": 8175133
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "greeting": {
+      "type": "string",
+      "defaultValue": "Hello"
     },
-    "resources": [
-    ],
-    "outputs": {
-        "formatTest": {
-            "type": "string",
-            "value": "[format('{0}, {1}. Formatted number: {2:N0}', parameters('greeting'), parameters('name'), parameters('numberToFormat'))]"
-        }
+    "name": {
+      "type": "string",
+      "defaultValue": "User"
+    },
+    "numberToFormat": {
+      "type": "int",
+      "defaultValue": 8175133
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "formatTest": {
+      "type": "string",
+      "value": "[format('{0}, {1}. Formatted number: {2:N0}', parameters('greeting'), parameters('name'), parameters('numberToFormat'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param greeting string = 'Hello'
+param name string = 'User'
+param numberToFormat int = 8175133
+
+output formatTest string = format('{0}, {1}. Formatted number: {2:N0}', greeting, name, numberToFormat)
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -787,21 +998,51 @@ Os exemplos a seguir mostram como usar guid para criar um valor exclusivo para n
 
 Escopo exclusivo para a assinatura
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 "[guid(subscription().subscriptionId)]"
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+guid(subscription().subscriptionId)
+```
+
+---
+
 Escopo exclusivo para o grupo de recursos
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "[guid(resourceGroup().id)]"
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+guid(resourceGroup().id)
+```
+
+---
+
 Escopo exclusivo para a implantação de um grupo de recursos
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "[guid(resourceGroup().id, deployment().name)]"
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+guid(resourceGroup().id, deployment().name)
+```
+
+---
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -811,29 +1052,41 @@ Uma cadeia de caracteres que contém 36 caracteres no formato de um identificado
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/guid.json) abaixo retorna os resultados de guid:
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "variables": {},
-    "resources": [],
-    "outputs": {
-        "guidPerSubscription": {
-            "value": "[guid(subscription().subscriptionId)]",
-            "type": "string"
-        },
-        "guidPerResourceGroup": {
-            "value": "[guid(resourceGroup().id)]",
-            "type": "string"
-        },
-        "guidPerDeployment": {
-            "value": "[guid(resourceGroup().id, deployment().name)]",
-            "type": "string"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {},
+  "resources": [],
+  "outputs": {
+    "guidPerSubscription": {
+      "value": "[guid(subscription().subscriptionId)]",
+      "type": "string"
+    },
+    "guidPerResourceGroup": {
+      "value": "[guid(resourceGroup().id)]",
+      "type": "string"
+    },
+    "guidPerDeployment": {
+      "value": "[guid(resourceGroup().id, deployment().name)]",
+      "type": "string"
     }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output guidPerSubscription string = guid(subscription().subscriptionId)
+output guidPerResourceGroup string = guid(resourceGroup().id)
+output guidPerDeployment string = guid(resourceGroup().id, deployment().name)
+```
+
+---
 
 ## <a name="indexof"></a>indexOf
 
@@ -856,45 +1109,61 @@ Um inteiro que representa a posição do item a ser encontrado. O valor é basea
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json) a seguir mostra como usar as funções indexOf e lastIndexOf:
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "firstT": {
-            "value": "[indexOf('test', 't')]",
-            "type" : "int"
-        },
-        "lastT": {
-            "value": "[lastIndexOf('test', 't')]",
-            "type" : "int"
-        },
-        "firstString": {
-            "value": "[indexOf('abcdef', 'CD')]",
-            "type" : "int"
-        },
-        "lastString": {
-            "value": "[lastIndexOf('abcdef', 'AB')]",
-            "type" : "int"
-        },
-        "notFound": {
-            "value": "[indexOf('abcdef', 'z')]",
-            "type" : "int"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "firstT": {
+      "value": "[indexOf('test', 't')]",
+      "type": "int"
+    },
+    "lastT": {
+      "value": "[lastIndexOf('test', 't')]",
+      "type": "int"
+    },
+    "firstString": {
+      "value": "[indexOf('abcdef', 'CD')]",
+      "type": "int"
+    },
+    "lastString": {
+      "value": "[lastIndexOf('abcdef', 'AB')]",
+      "type": "int"
+    },
+    "notFound": {
+      "value": "[indexOf('abcdef', 'z')]",
+      "type": "int"
     }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output firstT int = indexOf('test', 't')
+output lastT int = lastIndexOf('test', 't')
+output firstString int = indexOf('abcdef', 'CD')
+output lastString int = lastIndexOf('abcdef', 'AB')
+output notFound int = indexOf('abcdef', 'z')
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| firstT | Int | 0 |
-| lastT | Int | 3 |
-| firstString | Int | 2 |
-| lastString | Int | 0 |
-| NotFound | Int | -1 |
+| firstT | int | 0 |
+| lastT | int | 3 |
+| firstString | int | 2 |
+| lastString | int | 0 |
+| NotFound | int | -1 |
+
+<a id="json"></a>
 
 ## <a name="json"></a>json
 
@@ -922,30 +1191,47 @@ Uma cadeia de caracteres do último caractere ou o tipo (cadeia de caracteres, i
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json) a seguir mostra como usar a última função com uma matriz e cadeia de caracteres.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": ["one", "two", "three"]
-        }
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "arrayOutput": {
-            "type": "string",
-            "value": "[last(parameters('arrayToTest'))]"
-        },
-        "stringOutput": {
-            "type": "string",
-            "value": "[last('One Two Three')]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [ "one", "two", "three" ]
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "arrayOutput": {
+      "type": "string",
+      "value": "[last(parameters('arrayToTest'))]"
+    },
+    "stringOutput": {
+      "type": "string",
+      "value": "[last('One Two Three')]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param arrayToTest array = [
+  'one'
+  'two'
+  'three'
+]
+
+output arrayOutput string = last(arrayToTest)
+output stringOutput string = last('One Two Three')
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -975,45 +1261,59 @@ Um inteiro que representa a última posição do item a ser encontrado. O valor 
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json) a seguir mostra como usar as funções indexOf e lastIndexOf:
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "firstT": {
-            "value": "[indexOf('test', 't')]",
-            "type" : "int"
-        },
-        "lastT": {
-            "value": "[lastIndexOf('test', 't')]",
-            "type" : "int"
-        },
-        "firstString": {
-            "value": "[indexOf('abcdef', 'CD')]",
-            "type" : "int"
-        },
-        "lastString": {
-            "value": "[lastIndexOf('abcdef', 'AB')]",
-            "type" : "int"
-        },
-        "notFound": {
-            "value": "[indexOf('abcdef', 'z')]",
-            "type" : "int"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "firstT": {
+      "value": "[indexOf('test', 't')]",
+      "type": "int"
+    },
+    "lastT": {
+      "value": "[lastIndexOf('test', 't')]",
+      "type": "int"
+    },
+    "firstString": {
+      "value": "[indexOf('abcdef', 'CD')]",
+      "type": "int"
+    },
+    "lastString": {
+      "value": "[lastIndexOf('abcdef', 'AB')]",
+      "type": "int"
+    },
+    "notFound": {
+      "value": "[indexOf('abcdef', 'z')]",
+      "type": "int"
     }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output firstT int = indexOf('test', 't')
+output lastT int = lastIndexOf('test', 't')
+output firstString int = indexOf('abcdef', 'CD')
+output lastString int = lastIndexOf('abcdef', 'AB')
+output notFound int = indexOf('abcdef', 'z')
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| firstT | Int | 0 |
-| lastT | Int | 3 |
-| firstString | Int | 2 |
-| lastString | Int | 0 |
-| NotFound | Int | -1 |
+| firstT | int | 0 |
+| lastT | int | 3 |
+| firstString | int | 2 |
+| lastString | int | 0 |
+| NotFound | int | -1 |
 
 ## <a name="length"></a>comprimento
 
@@ -1035,61 +1335,89 @@ Um inteiro.
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json) a seguir mostra como usar length com uma matriz e cadeia de caracteres:
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": [
-                "one",
-                "two",
-                "three"
-            ]
-        },
-        "stringToTest": {
-            "type": "string",
-            "defaultValue": "One Two Three"
-        },
-        "objectToTest": {
-            "type": "object",
-            "defaultValue": {
-                "propA": "one",
-                "propB": "two",
-                "propC": "three",
-                "propD": {
-                    "propD-1": "sub",
-                    "propD-2": "sub"
-                }
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [
+        "one",
+        "two",
+        "three"
+      ]
     },
-    "resources": [],
-    "outputs": {
-        "arrayLength": {
-            "type": "int",
-            "value": "[length(parameters('arrayToTest'))]"
-        },
-        "stringLength": {
-            "type": "int",
-            "value": "[length(parameters('stringToTest'))]"
-        },
-        "objectLength": {
-            "type": "int",
-            "value": "[length(parameters('objectToTest'))]"
+    "stringToTest": {
+      "type": "string",
+      "defaultValue": "One Two Three"
+    },
+    "objectToTest": {
+      "type": "object",
+      "defaultValue": {
+        "propA": "one",
+        "propB": "two",
+        "propC": "three",
+        "propD": {
+          "propD-1": "sub",
+          "propD-2": "sub"
         }
+      }
     }
+  },
+  "resources": [],
+  "outputs": {
+    "arrayLength": {
+      "type": "int",
+      "value": "[length(parameters('arrayToTest'))]"
+    },
+    "stringLength": {
+      "type": "int",
+      "value": "[length(parameters('stringToTest'))]"
+    },
+    "objectLength": {
+      "type": "int",
+      "value": "[length(parameters('objectToTest'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param arrayToTest array = [
+  'one'
+  'two'
+  'three'
+]
+param stringToTest string = 'One Two Three'
+param objectToTest object = {
+  'propA': 'one'
+  'propB': 'two'
+  'propC': 'three'
+  'propD': {
+    'propD-1': 'sub'
+    'propD-2': 'sub'
+  }
+}
+
+output arrayLength int = length(arrayToTest)
+output stringLength int = length(stringToTest)
+output objectLength int = length(objectToTest)
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| arrayLength | Int | 3 |
-| stringLength | Int | 13 |
-| ObjectLength | Int | 4 |
+| arrayLength | int | 3 |
+| stringLength | int | 13 |
+| ObjectLength | int | 4 |
 
 ## <a name="newguid"></a>newGuid
 
@@ -1119,76 +1447,111 @@ Uma cadeia de caracteres que contém 36 caracteres no formato de um identificado
 
 O modelo de exemplo a seguir mostra um parâmetro com um novo identificador.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "guidValue": {
-            "type": "string",
-            "defaultValue": "[newGuid()]"
-        }
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "guidOutput": {
-            "type": "string",
-            "value": "[parameters('guidValue')]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "guidValue": {
+      "type": "string",
+      "defaultValue": "[newGuid()]"
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "guidOutput": {
+      "type": "string",
+      "value": "[parameters('guidValue')]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param guidValue string = newGuid()
+
+output guidOutput string = guidValue
+```
+
+---
 
 A saída do exemplo anterior varia de acordo com cada implantação, mas será semelhante a:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| guidOutput | cadeia de caracteres | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
+| guidOutput | string | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
 O exemplo a seguir usa a função newGuid para criar um nome exclusivo para uma conta de armazenamento. Esse modelo pode funcionar para o ambiente de teste em que a conta de armazenamento existe por um curto período e não é reimplantada.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "guidValue": {
-            "type": "string",
-            "defaultValue": "[newGuid()]"
-        }
-    },
-    "variables": {
-        "storageName": "[concat('storage', uniqueString(parameters('guidValue')))]"
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[variables('storageName')]",
-            "location": "West US",
-            "apiVersion": "2018-07-01",
-            "sku":{
-                "name": "Standard_LRS"
-            },
-            "kind": "StorageV2",
-            "properties": {}
-        }
-    ],
-    "outputs": {
-        "nameOutput": {
-            "type": "string",
-            "value": "[variables('storageName')]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "guidValue": {
+      "type": "string",
+      "defaultValue": "[newGuid()]"
     }
+  },
+  "variables": {
+    "storageName": "[concat('storage', uniqueString(parameters('guidValue')))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageName')]",
+      "location": "West US",
+      "apiVersion": "2018-07-01",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "StorageV2",
+      "properties": {}
+    }
+  ],
+  "outputs": {
+    "nameOutput": {
+      "type": "string",
+      "value": "[variables('storageName')]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param guidValue string = newGuid()
+
+var storageName = concat('storage', uniqueString(guidValue))
+
+resource myStorage 'Microsoft.Storage/storageAccounts@2018-07-01' = {
+  name: storageName
+  location: 'West US'
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'StorageV2'
+  properties: {}
+}
+
+output nameOutput string = storageName
+```
+
+---
 
 A saída do exemplo anterior varia de acordo com cada implantação, mas será semelhante a:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| nameOutput | cadeia de caracteres | storagenziwvyru7uxie |
-
+| nameOutput | string | storagenziwvyru7uxie |
 
 ## <a name="padleft"></a>padLeft
 
@@ -1214,25 +1577,37 @@ Uma cadeia de caracteres com, pelo menos, o número de caracteres especificado.
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/padleft.json) a seguir mostra como preencher o valor de parâmetro fornecido pelo usuário adicionando o caractere zero até que ele atinja o número total de caracteres.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "testString": {
-            "type": "string",
-            "defaultValue": "123"
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "stringOutput": {
-            "type": "string",
-            "value": "[padLeft(parameters('testString'),10,'0')]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "testString": {
+      "type": "string",
+      "defaultValue": "123"
     }
+  },
+  "resources": [],
+  "outputs": {
+    "stringOutput": {
+      "type": "string",
+      "value": "[padLeft(parameters('testString'),10,'0')]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param testString string = '123'
+
+output stringOutput string = padLeft(testString, 10, '0')
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -1262,29 +1637,42 @@ Uma cadeia de caracteres com os caracteres substituídos.
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/replace.json) a seguir mostra como remover todos os traços da cadeia de caracteres fornecida pelo usuário e como substituir parte da cadeia de caracteres por outra cadeia de caracteres.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "testString": {
-            "type": "string",
-            "defaultValue": "123-123-1234"
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "firstOutput": {
-            "type": "string",
-            "value": "[replace(parameters('testString'),'-', '')]"
-        },
-        "secondOutput": {
-            "type": "string",
-            "value": "[replace(parameters('testString'),'1234', 'xxxx')]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "testString": {
+      "type": "string",
+      "defaultValue": "123-123-1234"
     }
+  },
+  "resources": [],
+  "outputs": {
+    "firstOutput": {
+      "type": "string",
+      "value": "[replace(parameters('testString'),'-', '')]"
+    },
+    "secondOutput": {
+      "type": "string",
+      "value": "[replace(parameters('testString'),'1234', 'xxxx')]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param testString string = '123-123-1234'
+
+output firstOutput string = replace(testString, '-', '')
+output secondOutput string = replace(testString, '1234', 'xxxx')
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -1314,45 +1702,65 @@ Uma matriz ou cadeia de caracteres.
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json) a seguir ignora o número especificado de elementos na matriz e o número especificado de caracteres em uma cadeia de caracteres.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "testArray": {
-            "type": "array",
-            "defaultValue": [
-                "one",
-                "two",
-                "three"
-            ]
-        },
-        "elementsToSkip": {
-            "type": "int",
-            "defaultValue": 2
-        },
-        "testString": {
-            "type": "string",
-            "defaultValue": "one two three"
-        },
-        "charactersToSkip": {
-            "type": "int",
-            "defaultValue": 4
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "testArray": {
+      "type": "array",
+      "defaultValue": [
+        "one",
+        "two",
+        "three"
+      ]
     },
-    "resources": [],
-    "outputs": {
-        "arrayOutput": {
-            "type": "array",
-            "value": "[skip(parameters('testArray'),parameters('elementsToSkip'))]"
-        },
-        "stringOutput": {
-            "type": "string",
-            "value": "[skip(parameters('testString'),parameters('charactersToSkip'))]"
-        }
+    "elementsToSkip": {
+      "type": "int",
+      "defaultValue": 2
+    },
+    "testString": {
+      "type": "string",
+      "defaultValue": "one two three"
+    },
+    "charactersToSkip": {
+      "type": "int",
+      "defaultValue": 4
     }
+  },
+  "resources": [],
+  "outputs": {
+    "arrayOutput": {
+      "type": "array",
+      "value": "[skip(parameters('testArray'),parameters('elementsToSkip'))]"
+    },
+    "stringOutput": {
+      "type": "string",
+      "value": "[skip(parameters('testString'),parameters('charactersToSkip'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param testArray array = [
+  'one'
+  'two'
+  'three'
+]
+param elementsToSkip int = 2
+param testString string = 'one two three'
+param charactersToSkip int = 4
+
+output arrayOutput array = skip(testArray, elementsToSkip)
+output stringOutput string = skip(testString, charactersToSkip)
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -1382,36 +1790,55 @@ Uma matriz de cadeias de caracteres.
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/split.json) a seguir divide a cadeia de caracteres de entrada com uma vírgula e com uma vírgula ou um ponto-e-vírgula.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "firstString": {
-            "type": "string",
-            "defaultValue": "one,two,three"
-        },
-        "secondString": {
-            "type": "string",
-            "defaultValue": "one;two,three"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "firstString": {
+      "type": "string",
+      "defaultValue": "one,two,three"
     },
-    "variables": {
-        "delimiters": [ ",", ";" ]
-    },
-    "resources": [],
-    "outputs": {
-        "firstOutput": {
-            "type": "array",
-            "value": "[split(parameters('firstString'),',')]"
-        },
-        "secondOutput": {
-            "type": "array",
-            "value": "[split(parameters('secondString'),variables('delimiters'))]"
-        }
+    "secondString": {
+      "type": "string",
+      "defaultValue": "one;two,three"
     }
+  },
+  "variables": {
+    "delimiters": [ ",", ";" ]
+  },
+  "resources": [],
+  "outputs": {
+    "firstOutput": {
+      "type": "array",
+      "value": "[split(parameters('firstString'),',')]"
+    },
+    "secondOutput": {
+      "type": "array",
+      "value": "[split(parameters('secondString'),variables('delimiters'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param firstString string = 'one,two,three'
+param secondString string = 'one;two,three'
+
+var delimiters = [
+  ','
+  ';'
+]
+
+output firstOutput array = split(firstString, ',')
+output secondOutput array = split(secondString, delimiters)
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -1441,39 +1868,54 @@ Determina se uma cadeia de caracteres começa com um valor. A comparação não 
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json) a seguir mostra como usar as funções startsWith e endsWith:
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "startsTrue": {
-            "value": "[startsWith('abcdef', 'ab')]",
-            "type" : "bool"
-        },
-        "startsCapTrue": {
-            "value": "[startsWith('abcdef', 'A')]",
-            "type" : "bool"
-        },
-        "startsFalse": {
-            "value": "[startsWith('abcdef', 'e')]",
-            "type" : "bool"
-        },
-        "endsTrue": {
-            "value": "[endsWith('abcdef', 'ef')]",
-            "type" : "bool"
-        },
-        "endsCapTrue": {
-            "value": "[endsWith('abcdef', 'F')]",
-            "type" : "bool"
-        },
-        "endsFalse": {
-            "value": "[endsWith('abcdef', 'e')]",
-            "type" : "bool"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "startsTrue": {
+      "value": "[startsWith('abcdef', 'ab')]",
+      "type": "bool"
+    },
+    "startsCapTrue": {
+      "value": "[startsWith('abcdef', 'A')]",
+      "type": "bool"
+    },
+    "startsFalse": {
+      "value": "[startsWith('abcdef', 'e')]",
+      "type": "bool"
+    },
+    "endsTrue": {
+      "value": "[endsWith('abcdef', 'ef')]",
+      "type": "bool"
+    },
+    "endsCapTrue": {
+      "value": "[endsWith('abcdef', 'F')]",
+      "type": "bool"
+    },
+    "endsFalse": {
+      "value": "[endsWith('abcdef', 'e')]",
+      "type": "bool"
     }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output startsTrue bool = startsWith('abcdef', 'ab')
+output startsCapTrue bool = startsWith('abcdef', 'A')
+output startsFalse bool = startsWith('abcdef', 'e')
+output endsTrue bool = endsWith('abcdef', 'ef')
+output endsCapTrue bool = endsWith('abcdef', 'F')
+output endsFalse bool = endsWith('abcdef', 'e')
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -1506,48 +1948,71 @@ Uma cadeia de caracteres do valor convertido.
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/string.json) a seguir mostra como converter diferentes tipos de valores em cadeias de caracteres:
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "testObject": {
-            "type": "object",
-            "defaultValue": {
-                "valueA": 10,
-                "valueB": "Example Text"
-            }
-        },
-        "testArray": {
-            "type": "array",
-            "defaultValue": [
-                "a",
-                "b",
-                "c"
-            ]
-        },
-        "testInt": {
-            "type": "int",
-            "defaultValue": 5
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "testObject": {
+      "type": "object",
+      "defaultValue": {
+        "valueA": 10,
+        "valueB": "Example Text"
+      }
     },
-    "resources": [],
-    "outputs": {
-        "objectOutput": {
-            "type": "string",
-            "value": "[string(parameters('testObject'))]"
-        },
-        "arrayOutput": {
-            "type": "string",
-            "value": "[string(parameters('testArray'))]"
-        },
-        "intOutput": {
-            "type": "string",
-            "value": "[string(parameters('testInt'))]"
-        }
+    "testArray": {
+      "type": "array",
+      "defaultValue": [
+        "a",
+        "b",
+        "c"
+      ]
+    },
+    "testInt": {
+      "type": "int",
+      "defaultValue": 5
     }
+  },
+  "resources": [],
+  "outputs": {
+    "objectOutput": {
+      "type": "string",
+      "value": "[string(parameters('testObject'))]"
+    },
+    "arrayOutput": {
+      "type": "string",
+      "value": "[string(parameters('testArray'))]"
+    },
+    "intOutput": {
+      "type": "string",
+      "value": "[string(parameters('testInt'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param testObject object = {
+  'valueA': 10
+  'valueB': 'Example Text'
+}
+param testArray array = [
+  'a'
+  'b'
+  'c'
+]
+param testInt int = 5
+
+output objectOutput string = string(testObject)
+output arrayOutput string = string(testArray)
+output intOutput string = string(testInt)
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -1579,38 +2044,63 @@ A subcadeia de caracteres. Ou, uma cadeia de caracteres vazia se o comprimento f
 
 A função falhará quando a subcadeia de caracteres ultrapassar o final da cadeia de caracteres, ou quando o comprimento for menor que zero. O exemplo a seguir falha com o erro “Os parâmetros de índice e de tamanho devem se referir a uma localização na cadeia de caracteres. O parâmetro de índice: '0', o parâmetro de comprimento: '11', o comprimento do parâmetro de cadeia de caracteres: '10'”.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 "parameters": {
-    "inputString": { "type": "string", "value": "1234567890" }
-},
-"variables": {
-    "prefix": "[substring(parameters('inputString'), 0, 11)]"
+  "inputString": {
+    "type": "string",
+    "value": "1234567890"
+  }
+}, "variables": {
+  "prefix": "[substring(parameters('inputString'), 0, 11)]"
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param inputString string = '1234567890'
+
+var prefix = substring(inputString, 0, 11)
+```
+
+---
 
 ### <a name="examples"></a>Exemplos
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/substring.json) a seguir extrai uma subcadeia de caracteres de um parâmetro.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "testString": {
-            "type": "string",
-            "defaultValue": "one two three"
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "substringOutput": {
-            "value": "[substring(parameters('testString'), 4, 3)]",
-            "type": "string"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "testString": {
+      "type": "string",
+      "defaultValue": "one two three"
     }
+  },
+  "resources": [],
+  "outputs": {
+    "substringOutput": {
+      "value": "[substring(parameters('testString'), 4, 3)]",
+      "type": "string"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param testString string = 'one two three'
+output substringOutput string = substring(testString, 4, 3)
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -1639,45 +2129,65 @@ Uma matriz ou cadeia de caracteres.
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json) a seguir extrai o número especificado de elementos da matriz e de caracteres de uma cadeia de caracteres.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "testArray": {
-            "type": "array",
-            "defaultValue": [
-                "one",
-                "two",
-                "three"
-            ]
-        },
-        "elementsToTake": {
-            "type": "int",
-            "defaultValue": 2
-        },
-        "testString": {
-            "type": "string",
-            "defaultValue": "one two three"
-        },
-        "charactersToTake": {
-            "type": "int",
-            "defaultValue": 2
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "testArray": {
+      "type": "array",
+      "defaultValue": [
+        "one",
+        "two",
+        "three"
+      ]
     },
-    "resources": [],
-    "outputs": {
-        "arrayOutput": {
-            "type": "array",
-            "value": "[take(parameters('testArray'),parameters('elementsToTake'))]"
-        },
-        "stringOutput": {
-            "type": "string",
-            "value": "[take(parameters('testString'),parameters('charactersToTake'))]"
-        }
+    "elementsToTake": {
+      "type": "int",
+      "defaultValue": 2
+    },
+    "testString": {
+      "type": "string",
+      "defaultValue": "one two three"
+    },
+    "charactersToTake": {
+      "type": "int",
+      "defaultValue": 2
     }
+  },
+  "resources": [],
+  "outputs": {
+    "arrayOutput": {
+      "type": "array",
+      "value": "[take(parameters('testArray'),parameters('elementsToTake'))]"
+    },
+    "stringOutput": {
+      "type": "string",
+      "value": "[take(parameters('testString'),parameters('charactersToTake'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param testArray array = [
+  'one'
+  'two'
+  'three'
+]
+param elementsToSkip int = 2
+param testString string = 'one two three'
+param charactersToSkip int = 2
+
+output arrayOutput array = take(testArray, elementsToSkip)
+output stringOutput string = take(testString, charactersToSkip)
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -1706,29 +2216,42 @@ A cadeia de caracteres convertida em minúsculas.
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json) a seguir converte um valor de parâmetro em letras minúsculas e maiúsculas.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "testString": {
-            "type": "string",
-            "defaultValue": "One Two Three"
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "toLowerOutput": {
-            "value": "[toLower(parameters('testString'))]",
-            "type": "string"
-        },
-        "toUpperOutput": {
-            "type": "string",
-            "value": "[toUpper(parameters('testString'))]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "testString": {
+      "type": "string",
+      "defaultValue": "One Two Three"
     }
+  },
+  "resources": [],
+  "outputs": {
+    "toLowerOutput": {
+      "value": "[toLower(parameters('testString'))]",
+      "type": "string"
+    },
+    "toUpperOutput": {
+      "type": "string",
+      "value": "[toUpper(parameters('testString'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param testString string = 'One Two Three'
+
+output toLowerOutput string = toLower(testString)
+output toUpperOutput string = toUpper(testString)
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -1757,29 +2280,42 @@ A cadeia de caracteres convertida em maiúsculas.
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json) a seguir converte um valor de parâmetro em letras minúsculas e maiúsculas.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "testString": {
-            "type": "string",
-            "defaultValue": "One Two Three"
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "toLowerOutput": {
-            "value": "[toLower(parameters('testString'))]",
-            "type": "string"
-        },
-        "toUpperOutput": {
-            "type": "string",
-            "value": "[toUpper(parameters('testString'))]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "testString": {
+      "type": "string",
+      "defaultValue": "One Two Three"
     }
+  },
+  "resources": [],
+  "outputs": {
+    "toLowerOutput": {
+      "value": "[toLower(parameters('testString'))]",
+      "type": "string"
+    },
+    "toUpperOutput": {
+      "type": "string",
+      "value": "[toUpper(parameters('testString'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param testString string = 'One Two Three'
+
+output toLowerOutput string = toLower(testString)
+output toUpperOutput string = toUpper(testString)
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -1808,25 +2344,37 @@ A cadeia de caracteres sem caracteres de espaço em branco à esquerda e à dire
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/trim.json) a seguir remove os caracteres de espaço em branco do parâmetro.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "testString": {
-            "type": "string",
-            "defaultValue": "    one two three   "
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "return": {
-            "type": "string",
-            "value": "[trim(parameters('testString'))]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "testString": {
+      "type": "string",
+      "defaultValue": "    one two three   "
     }
+  },
+  "resources": [],
+  "outputs": {
+    "return": {
+      "type": "string",
+      "value": "[trim(parameters('testString'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param testString string = '    one two three   '
+
+output return string = trim(testString)
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -1859,30 +2407,73 @@ Os exemplos a seguir mostram como usar uniqueString para criar um valor exclusiv
 
 Escopo exclusivo para a assinatura
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 "[uniqueString(subscription().subscriptionId)]"
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+uniqueString(subscription().subscriptionId)
+```
+
+---
+
 Escopo exclusivo para o grupo de recursos
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "[uniqueString(resourceGroup().id)]"
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+uniqueString(resourceGroup().id)
+```
+
+---
+
 Escopo exclusivo para a implantação de um grupo de recursos
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "[uniqueString(resourceGroup().id, deployment().name)]"
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+uniqueString(resourceGroup().id, deployment().name)
+```
+
+---
+
 O exemplo a seguir mostra como criar um nome exclusivo para uma conta de armazenamento com base em seu grupo de recursos. Dentro do grupo de recursos, o nome não é exclusivo se construído da mesma maneira.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "resources": [{
-    "name": "[concat('storage', uniqueString(resourceGroup().id))]",
-    "type": "Microsoft.Storage/storageAccounts",
-    ...
+  "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+  "type": "Microsoft.Storage/storageAccounts",
+  ...
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+resource mystorage 'Microsoft.Storage/storageAccounts@@2018-07-01' = {
+  name: concat('storage, uniqueString(resourceGroup().id)')
+  ...
+}
+```
+
+---
 
 Se você precisar criar um novo nome exclusivo cada vez que implantar um modelo e não pretender atualizar o recurso, poderá usar a função [UtcNow](template-functions-date.md#utcnow) com uniquestring. Você pode usar essa abordagem em um ambiente de teste. Para obter um exemplo, consulte [UtcNow](template-functions-date.md#utcnow).
 
@@ -1894,23 +2485,34 @@ Uma cadeia de caracteres que contém 13 caracteres.
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uniquestring.json) abaixo retorna os resultados da cadeia exclusiva:
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "uniqueRG": {
-            "value": "[uniqueString(resourceGroup().id)]",
-            "type" : "string"
-        },
-        "uniqueDeploy": {
-            "value": "[uniqueString(resourceGroup().id, deployment().name)]",
-            "type" : "string"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "uniqueRG": {
+      "value": "[uniqueString(resourceGroup().id)]",
+      "type": "string"
+    },
+    "uniqueDeploy": {
+      "value": "[uniqueString(resourceGroup().id, deployment().name)]",
+      "type": "string"
     }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output uniqueRG string = uniqueString(resourceGroup().id)
+output uniqueDeploy string = uniqueString(resourceGroup().id, deployment().name)
+```
+
+---
 
 ## <a name="uri"></a>uri
 
@@ -1951,38 +2553,63 @@ Uma cadeia de caracteres que representa o URI absoluto dos valores base e relati
 
 O exemplo a seguir mostra como criar um link para um modelo aninhado com base no valor do modelo pai.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+templateLink: uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')
+```
+
+---
+
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) a seguir mostra como usar uri, uriComponent e uriComponentToString:
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "variables": {
-        "uriFormat": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]",
-        "uriEncoded": "[uriComponent(variables('uriFormat'))]"
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "uriFormat": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]",
+    "uriEncoded": "[uriComponent(variables('uriFormat'))]"
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "uriOutput": {
+      "type": "string",
+      "value": "[variables('uriFormat')]"
     },
-    "resources": [
-    ],
-    "outputs": {
-        "uriOutput": {
-            "type": "string",
-            "value": "[variables('uriFormat')]"
-        },
-        "componentOutput": {
-            "type": "string",
-            "value": "[variables('uriEncoded')]"
-        },
-        "toStringOutput": {
-            "type": "string",
-            "value": "[uriComponentToString(variables('uriEncoded'))]"
-        }
+    "componentOutput": {
+      "type": "string",
+      "value": "[variables('uriEncoded')]"
+    },
+    "toStringOutput": {
+      "type": "string",
+      "value": "[uriComponentToString(variables('uriEncoded'))]"
     }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+var uriFormat = uri('http://contoso.com/resources/', 'nested/azuredeploy.json')
+var uriEncoded = uriComponent(uriFormat)
+
+output uriOutput string = uriFormat
+output componentOutput string = uriEncoded
+output toStringOutput string = uriComponentToString(uriEncoded)
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -2012,32 +2639,47 @@ Uma cadeia de caracteres do valor codificado em URI.
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) a seguir mostra como usar uri, uriComponent e uriComponentToString:
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "variables": {
-        "uriFormat": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]",
-        "uriEncoded": "[uriComponent(variables('uriFormat'))]"
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "uriFormat": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]",
+    "uriEncoded": "[uriComponent(variables('uriFormat'))]"
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "uriOutput": {
+      "type": "string",
+      "value": "[variables('uriFormat')]"
     },
-    "resources": [
-    ],
-    "outputs": {
-        "uriOutput": {
-            "type": "string",
-            "value": "[variables('uriFormat')]"
-        },
-        "componentOutput": {
-            "type": "string",
-            "value": "[variables('uriEncoded')]"
-        },
-        "toStringOutput": {
-            "type": "string",
-            "value": "[uriComponentToString(variables('uriEncoded'))]"
-        }
+    "componentOutput": {
+      "type": "string",
+      "value": "[variables('uriEncoded')]"
+    },
+    "toStringOutput": {
+      "type": "string",
+      "value": "[uriComponentToString(variables('uriEncoded'))]"
     }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+var uriFormat = uri('http://contoso.com/resources/', 'nested/azuredeploy.json')
+var uriEncoded = uriComponent(uriFormat)
+
+output uriOutput string = uriFormat
+output componentOutput string = uriEncoded
+output toStringOutput string = uriComponentToString(uriEncoded)
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -2067,32 +2709,47 @@ Uma cadeia de caracteres decodificada de valores codificados em URI.
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) a seguir mostra como usar uri, uriComponent e uriComponentToString:
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "variables": {
-        "uriFormat": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]",
-        "uriEncoded": "[uriComponent(variables('uriFormat'))]"
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "uriFormat": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]",
+    "uriEncoded": "[uriComponent(variables('uriFormat'))]"
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "uriOutput": {
+      "type": "string",
+      "value": "[variables('uriFormat')]"
     },
-    "resources": [
-    ],
-    "outputs": {
-        "uriOutput": {
-            "type": "string",
-            "value": "[variables('uriFormat')]"
-        },
-        "componentOutput": {
-            "type": "string",
-            "value": "[variables('uriEncoded')]"
-        },
-        "toStringOutput": {
-            "type": "string",
-            "value": "[uriComponentToString(variables('uriEncoded'))]"
-        }
+    "componentOutput": {
+      "type": "string",
+      "value": "[variables('uriEncoded')]"
+    },
+    "toStringOutput": {
+      "type": "string",
+      "value": "[uriComponentToString(variables('uriEncoded'))]"
     }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+var uriFormat = uri('http://contoso.com/resources/', 'nested/azuredeploy.json')
+var uriEncoded = uriComponent(uriFormat)
+
+output uriOutput string = uriFormat
+output componentOutput string = uriEncoded
+output toStringOutput string = uriComponentToString(uriEncoded)
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -2103,8 +2760,8 @@ A saída do exemplo anterior com os valores padrão é:
 | toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter uma descrição das seções de um modelo do Azure Resource Manager, veja [Criando modelos do Azure Resource Manager](template-syntax.md).
-* Para mesclar vários modelos, veja [Usando modelos vinculados com o Azure Resource Manager](linked-templates.md).
-* Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](copy-resources.md).
-* Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o Modelo do Azure Resource Manager](deploy-powershell.md).
 
+* Para obter uma descrição das seções em um modelo do ARM, consulte [entender a estrutura e a sintaxe de modelos do ARM](template-syntax.md).
+* Para mesclar vários modelos, consulte [usando modelos vinculados e aninhados ao implantar recursos do Azure](linked-templates.md).
+* Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte [iteração de recurso em modelos ARM](copy-resources.md).
+* Para ver como implantar o modelo que você criou, consulte [implantar recursos com modelos ARM e Azure PowerShell](deploy-powershell.md).

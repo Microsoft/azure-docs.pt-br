@@ -1,19 +1,16 @@
 ---
 title: 'Tutorial: As APIs de produtor e consumidor do Apache Kafka – Azure HDInsight'
 description: Saiba como utilizar as APIs de produtor e consumidor do Apache Kafka com o Kafka no HDInsight. Neste tutorial, você aprenderá como usar essas APIs com Kafka no HDInsight de um aplicativo Java.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 260a3fbb8486a1e9eeaa87e920143615e5fae867
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5a635a8837aadaf423c6f3a0925dbac4080e60f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83681826"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945174"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Tutorial: Usar as APIs de produtor e consumidor do Apache Kafka
 
@@ -34,7 +31,7 @@ Para obter mais informações sobre as APIs, consulte a documentação do Apache
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Apache Kafka no cluster do HDInsight. Para saber como criar o cluster, confira [Primeiros passos com o Apache Kafka no HDInsight](apache-kafka-get-started.md).
-* [JDK (Java Developer Kit) versão 8](https://aka.ms/azure-jdks) ou um equivalente, como o OpenJDK.
+* [JDK (Java Developer Kit) versão 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) ou um equivalente, como o OpenJDK.
 * [Apache Maven](https://maven.apache.org/download.cgi) corretamente [instalado](https://maven.apache.org/install.html) de acordo com o Apache.  O Maven é um sistema de construção de projetos para projetos Java.
 * Um cliente SSH como Putty. Para saber mais, confira [Conectar-se ao HDInsight (Apache Hadoop) usando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -217,9 +214,9 @@ Os registros armazenados no Kafka são armazenados na ordem em que são recebido
 
 ## <a name="common-issues-faced"></a>Problemas comuns
 
-1. **Falha na criação do tópico** Se o cluster estiver com o Pacote de Segurança Enterprise habilitado, use os [arquivos JAR pré-criados para produtor e consumidor](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Prebuilt-Jars/kafka-producer-consumer-esp.jar). O jar do ESP pode ser criado do código no [subdiretório `DomainJoined-Producer-Consumer`](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer). Observe que as propriedades do produtor e do consumidor têm uma propriedade `CommonClientConfigs.SECURITY_PROTOCOL_CONFIG` adicional para os clusters habilitados para ESP.
+1. **Falha na criação do tópico** Se o cluster estiver com o Pacote de Segurança Enterprise habilitado, use os [arquivos JAR pré-criados para produtor e consumidor](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Prebuilt-Jars/kafka-producer-consumer-esp.jar). O jar do ESP pode ser criado com base no código no [subdiretório `DomainJoined-Producer-Consumer`](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer). As propriedades do produtor e do consumidor têm uma propriedade `CommonClientConfigs.SECURITY_PROTOCOL_CONFIG` adicional para os clusters habilitados para ESP.
 
-2. **Problema com os clusters habilitados para ESP** Se as operações de produção e consumo falharem e você estiver usando um cluster habilitado para ESP, verifique se o usuário `kafka` está presente em todas as políticas do Ranger. Se não estiver presente, adicione-o a todas as políticas do Ranger.
+2. **Falha em clusters habilitados para ESP**: se as operações de produção e consumo falharem e você estiver usando um cluster habilitado para ESP, verifique se o usuário `kafka` está presente em todas as políticas do Ranger. Se não estiver presente, adicione-o a todas as políticas do Ranger.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

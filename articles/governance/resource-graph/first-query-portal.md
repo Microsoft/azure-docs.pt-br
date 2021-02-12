@@ -1,14 +1,14 @@
 ---
 title: 'Início Rápido: Sua primeira consulta do portal'
 description: Neste início rápido, você segue etapas necessárias para executar sua primeira consulta no portal do Azure usando o Azure Resource Graph Explorer.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: b5f5203b3842ebc3edbd97bca1ca3c101f47e397
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: cb62a1ae3a29a7aae793fcee6fd896fe0260dc10
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057375"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920087"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Início Rápido: Executar a primeira consulta do Resource Graph usando o Azure Resource Graph Explorer
 
@@ -94,7 +94,7 @@ Para fornecer exemplos de consultas do Resource Graph e de como o Resource Graph
 
 - [Resource Graph Explorer – Painel de Amostra 2](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-2/resourcegraphexplorer-sample-2.json)
 
-  :::image type="content" source="./media/arge-sample2-small.png" alt-text="Exemplo de imagem do Painel de Amostra 1" lightbox="./media/arge-sample2-large.png":::
+  :::image type="content" source="./media/arge-sample2-small.png" alt-text="Exemplo de imagem do Painel de Amostra 2" lightbox="./media/arge-sample2-large.png":::
 
 > [!NOTE]
 > As contagens e os gráficos nas capturas de tela do painel de exemplo acima variam de acordo com o ambiente do Azure.

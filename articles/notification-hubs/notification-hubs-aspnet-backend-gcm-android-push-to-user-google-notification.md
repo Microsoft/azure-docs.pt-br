@@ -16,11 +16,11 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: c137cbf0c2290bdbe228f7902e616e7f79cb459e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91307782"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016974"
 ---
 # <a name="tutorial-send-push-notification-to-specific-android-users-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Tutorial: Enviar uma notificação por push para usuários Android específicos usando os Hubs de Notificação do Azure e o Google Cloud Messaging (preterido)
 

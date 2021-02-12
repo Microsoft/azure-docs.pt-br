@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 1681217c9e55b67ee2a6737aeece5303256bc1e6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 08d30fb72398c4b43422eb21f132d5fddd5502b7
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461797"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853129"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>O que é monitorado pelo Azure Monitor?
 Este artigo descreve os diferentes aplicativos e serviços monitorados pelo Azure Monitor. 
@@ -126,7 +126,6 @@ A tabela a seguir lista os serviços do Azure e os dados coletados no Azure Moni
 |Aplicativos gerenciados  | Não | Não | Não |  |
 |Mapas  | Não | Não | Não |  |
 |Serviços de mídia | Sim | Sim | Não |  |
-|Microsoft Flow | Não | Não | Não |  |
 |Área de Trabalho Gerenciada da Microsoft | Não | Não | Não |  |
 |Microsoft PowerApps | Não | Não | Não |  |
 |Engajamento social da Microsoft | Não | Não | Não |  |
@@ -137,6 +136,7 @@ A tabela a seguir lista os serviços do Azure e os dados coletados no Azure Moni
 |Hubs de Notificação | Sim | Não | Não |  |
 |Conjuntos de dados em aberto | Não | Não | Não |  |
 |Política | Não | Não | Não |  |
+|Power Automate | Não | Não | Não |  |
 |Power BI Embedded | Sim | Sim | Não |  |
 |Link Privado | Não | Não | Não |  |
 |Plataforma de comunicação do spool do projeto | Não | Não | Não |  |
@@ -177,7 +177,7 @@ Consulte [visão geral dos agentes de Azure monitor](platform/agents-overview.md
 
 | Agente |  Métricas | Logs |
 |:---|:---|:---|:---|
-| [Agente de Azure Monitor (versão prévia)](platform/azure-monitor-agent-overview.md) | Sim | Sim |
+| [Agente do Azure Monitor (versão prévia)](platform/azure-monitor-agent-overview.md) | Sim | Sim |
 | [Agente do Log Analytics](platform/log-analytics-agent.md) | Não | Sim|
 | [Extensão de diagnóstico](platform/diagnostics-extension-overview.md) | Sim | Não |
 | [Agente Telegraf](platform/collect-custom-metrics-linux-telegraf.md) | Sim | Não |
@@ -189,12 +189,12 @@ Os serviços e as soluções na tabela a seguir armazenam seus dados em um works
 
 | Produto/Serviço | Descrição |
 |:---|:---|
-| [Automação do Azure](../automation/index.yml) | Gerenciar atualizações do sistema operacional e controlar alterações em computadores Windows e Linux. Confira [Controle de Alterações](../automation/change-tracking/overview.md) e [Gerenciamento de Atualizações](../automation/update-management/update-mgmt-overview.md). |
+| [Automação do Azure](../automation/index.yml) | Gerenciar atualizações do sistema operacional e controlar alterações em computadores Windows e Linux. Confira [Controle de Alterações](../automation/change-tracking/overview.md) e [Gerenciamento de Atualizações](../automation/update-management/overview.md). |
 | [Proteção de Informações do Azure ](/azure/information-protection/) | Classifique e, opcionalmente, proteja documentos e emails. Confira [Relatórios centrais para a Proteção de Informações do Azure](/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
 | [Central de Segurança do Azure](../security-center/index.yml) | Colete e analise eventos de segurança e execute a análise de ameaças. Confira [Coleta de dados na Central de Segurança do Azure](../security-center/security-center-enable-data-collection.md) |
 | [Azure Sentinel](../sentinel/index.yml) | Conecta-se a fontes diferentes, incluindo o Office 365 e o Amazon Web Services CloudTrail. Confira [Conectar fontes de dados](../sentinel/connect-data-sources.md). |
 | [Microsoft Intune](/intune/) | Crie uma configuração de diagnóstico para enviar logs para o Azure Monitor. Confira [Enviar dados de log para armazenamento, hubs de eventos ou análise de logs no Intune (versão prévia)](/intune/fundamentals/review-logs-using-azure-monitor).  |
-| Rede  | [Monitor de Desempenho de Rede](insights/network-performance-monitor.md) – monitore a conectividade de rede e o desempenho para pontos de extremidade de serviço e aplicativo.<br>[Gateway de Aplicativo do Azure](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) – analise os logs e as métricas do Gateway de Aplicativo do Azure.<br>[Análise de Tráfego](../network-watcher/traffic-analytics.md) –analisa os logs de fluxo de NSG (grupo de segurança de rede) do Observador de Rede para fornecer informações sobre o fluxo de tráfego em sua nuvem do Azure. |
+| Rede  | [Monitor de Desempenho de Rede](insights/network-performance-monitor.md) – monitore a conectividade de rede e o desempenho para pontos de extremidade de serviço e aplicativo.<br>[Gateway de Aplicativo do Azure](insights/azure-networking-analytics.md#azure-application-gateway-analytics) – analise os logs e as métricas do Gateway de Aplicativo do Azure.<br>[Análise de Tráfego](../network-watcher/traffic-analytics.md) –analisa os logs de fluxo de NSG (grupo de segurança de rede) do Observador de Rede para fornecer informações sobre o fluxo de tráfego em sua nuvem do Azure. |
 | [Office 365](insights/solution-office-365.md) | Monitore seu ambiente do Office 365. Versão atualizada com integração aprimorada disponível por meio do Azure Sentinel. |
 | [Análise de SQL](insights/azure-sql.md) | Monitore o desempenho de bancos de dados SQL do Azure e instâncias gerenciadas do SQL em escala e em várias assinaturas. |
 | [Hub de Superfície](insights/surface-hubs.md) | Acompanhe a integridade e o uso de dispositivos Surface Hub. |
@@ -245,4 +245,3 @@ O Azure Monitor pode coletar dados de recursos fora do Azure usando os métodos 
 - Conclua um [tutorial sobre como gravar uma consulta de log para analisar dados em logs do Azure Monitor](learn/tutorial-resource-logs.md).
 - Conclua um [tutorial sobre como criar um gráfico de métricas para analisar dados nas métricas do Azure Monitor](learn/tutorial-metrics-explorer.md).
 
- 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: bb00595a5d5be130bf6c1177004bf3042ef8f9f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c901d4024292ad03a9195ad0cbd226f473917ee4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327180"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98738077"
 ---
 # <a name="data-collection-for-your-app"></a>Coleta de dados para seu aplicativo
 
@@ -26,7 +26,7 @@ Selecione declarações para seu conjunto de treinamento com base nos seguintes 
 
 * **Os dados reais são os melhores**:
     * **Dados reais do aplicativo cliente**: selecione declarações que são dados reais do aplicativo cliente.  Se o cliente envia um formulário da Web com sua consulta hoje e você está criando um bot, você pode começar usando os dados do formulário da Web.
-    * **Dados de origem**da alocação: se você não tiver dados existentes, considere a possibilidade de declarações de público-fonte.  Tente fazer a declarações de origem da sua população de usuário real para seu cenário para obter a melhor aproximação dos dados reais que seu aplicativo verá. A declarações humana de alta geração é melhor do que a declarações gerada por computador.  Quando você cria um conjunto de dados de declarações sintético gerado em padrões específicos, ele não terá grande parte da variação natural que você verá com pessoas criando o declarações e não acabará generalizando bem na produção.
+    * **Dados de origem** da alocação: se você não tiver dados existentes, considere a possibilidade de declarações de público-fonte.  Tente fazer a declarações de origem da sua população de usuário real para seu cenário para obter a melhor aproximação dos dados reais que seu aplicativo verá. A declarações humana de alta geração é melhor do que a declarações gerada por computador.  Quando você cria um conjunto de dados de declarações sintético gerado em padrões específicos, ele não terá grande parte da variação natural que você verá com pessoas criando o declarações e não acabará generalizando bem na produção.
 * **Diversidade de dados**:
     * **Diversidade de região**: Verifique se os dados de cada tentativa são tão diversificados quanto possível, incluindo _frases_ (escolha do Word) e _gramática_.  Se você estiver ensinando uma intenção sobre as políticas de RH sobre dias de férias, verifique se você tem declarações que representam os termos que são usados para todas as regiões que você está servindo.  Por exemplo, na Europa, as pessoas podem perguntar sobre `taking a holiday` e nos EUA `taking vacation days` .
     * **Diversidade de idioma**: se você tiver usuários com várias linguagens nativas que estão se comunicando em uma segunda linguagem, certifique-se de ter declarações que representem alto-falantes não nativos.
@@ -71,7 +71,7 @@ As etapas de pré-processamento a seguir ajudarão a criar um aplicativo LUIS me
 
 ## <a name="test-data-selection-for-batch-testing"></a>Testar a seleção de dados para teste em lotes
 
-Todos os princípios listados acima para treinar o declarações se aplicam ao declarações que você deve usar para o [conjunto de teste](luis-concept-batch-test.md). Certifique-se de que a distribuição entre tentativas e entidades espelhe a distribuição real o mais próximo possível.
+Todos os princípios listados acima para treinar o declarações se aplicam ao declarações que você deve usar para o [conjunto de teste](./luis-how-to-batch-test.md). Certifique-se de que a distribuição entre tentativas e entidades espelhe a distribuição real o mais próximo possível.
 
 Não reutilize declarações do seu conjunto de treinamento em seu conjunto de teste. Isso diferencia os resultados de forma inadequada e não lhe dará a indicação correta de como seu aplicativo LUIS será executado na produção.
 

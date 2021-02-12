@@ -2,19 +2,15 @@
 title: Solucionar problemas do recurso Iniciar/Parar VMs fora do horário comercial da Automação do Azure
 description: Este artigo informa como solucionar problemas que surgem durante o uso do recurso Iniciar/Parar VMs fora do horário comercial.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/04/2019
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: bb8fa53fa07d666693ae545c193faaf3d6d0a30c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.topic: troubleshooting
+ms.openlocfilehash: ff2ef8970afa21c0218da20a5b79ea2fb782dd5c
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187142"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053577"
 ---
 # <a name="troubleshoot-startstop-vms-during-off-hours-issues"></a>Solucionar problemas de Iniciar/Parar VMs fora do horário comercial
 
@@ -113,7 +109,7 @@ Vejas as possíveis resoluções na lista a seguir:
   * **ScheduledStartStop_Parent**
   * **SequencedStartStop_Parent**
 
-* Verifique se a sua [conta Executar como](../manage-runas-account.md) tem as permissões apropriadas para acessar as VMs que você está tentando iniciar ou parar. Para saber como verificar as permissões em um recurso, confira [Início Rápido: exibir funções atribuídas a um usuário usando o portal do Azure](../../role-based-access-control/check-access.md). Você precisará fornecer a ID de aplicativo da entidade de serviço usada pela conta Executar como. Você pode recuperar esse valor acessando sua conta de Automação no portal do Azure. Selecione **Conta Executar como** em **Configurações da Conta** e escolha a conta Executar como apropriada.
+* Verifique se a sua [conta Executar como](../automation-security-overview.md#run-as-accounts) tem as permissões apropriadas para acessar as VMs que você está tentando iniciar ou parar. Para saber como verificar as permissões em um recurso, confira [Início Rápido: exibir funções atribuídas a um usuário usando o portal do Azure](../../role-based-access-control/check-access.md). Você precisará fornecer a ID de aplicativo da entidade de serviço usada pela conta Executar como. Você pode recuperar esse valor acessando sua conta de Automação no portal do Azure. Selecione **Conta Executar como** em **Configurações da Conta** e escolha a conta Executar como apropriada.
 
 * Você não pode iniciar ou parar as VMs caso elas estejam sendo excluídas explicitamente. As VMs excluídas estão definidas na variável `External_ExcludeVMNames` na conta de Automação na qual o recurso está implantado. O exemplo a seguir mostra como você pode consultar esse valor com o PowerShell.
 
@@ -205,7 +201,7 @@ Esse problema pode ser causado por uma conta Executar como configurada incorreta
 
 Para verificar se sua conta Executar como está configurada corretamente, acesse sua conta de Automação no portal do Azure e selecione **Contas Executar como** em **Configurações da Conta**. Se uma conta Executar como estiver configurada incorretamente ou expirada, o status mostrará a condição.
 
-Se a conta Executar como estiver configurada incorretamente, exclua a conta Executar como e crie novamente. Para saber mais, confira [Gerenciar contas Executar como de Automação do Azure](../manage-runas-account.md).
+Se a conta Executar como estiver configurada incorretamente, exclua a conta Executar como e crie novamente. Para obter mais informações, consulte [contas Executar como da automação do Azure](../automation-security-overview.md#run-as-accounts).
 
 Se o certificado da conta Executar como expirou, siga as etapas de [Renovação do certificado autoassinados](../manage-runas-account.md#cert-renewal) para renová-lo.
 

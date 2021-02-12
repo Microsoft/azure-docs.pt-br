@@ -1,17 +1,17 @@
 ---
-title: Acessar com segurança o Key Vault com o Lote
+title: Usar certificados e acessar Azure Key Vault com segurança com o lote
 description: Saiba como acessar programaticamente suas credenciais de Key Vault usando o lote do Microsoft Azure.
 ms.topic: how-to
 ms.date: 10/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 71e647c05a84c70fe61a66458801bf7390dcb653
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: eaaeaa05caca7897eb649b56504b643038f08d53
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913204"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260122"
 ---
-# <a name="securely-access-key-vault-with-batch"></a>Acessar com segurança o Key Vault com o Lote
+# <a name="use-certificates-and-securely-access-azure-key-vault-with-batch"></a>Usar certificados e acessar Azure Key Vault com segurança com o lote
 
 Neste artigo, você aprenderá a configurar os nós do lote para acessar com segurança as credenciais armazenadas no [Azure Key Vault](../key-vault/general/overview.md). Não há nenhum ponto em colocar suas credenciais de administrador em Key Vault e, em seguida, codificar as credenciais para acessar Key Vault de um script. A solução é usar um certificado que concede aos nós do lote acesso ao Key Vault.
 
@@ -46,7 +46,7 @@ pvk2pfx -pvk batchcertificate.pvk -spc batchcertificate.cer -pfx batchcertificat
 
 ## <a name="create-a-service-principal"></a>Criar uma entidade de serviço
 
-O acesso a Key Vault é concedido a um **usuário** ou a uma **entidade de serviço** . Para acessar Key Vault de forma programática, use uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o certificado que você criou na etapa anterior. A entidade de serviço deve estar no mesmo locatário do Microsoft Azure Active Directory que o Key Vault.
+O acesso a Key Vault é concedido a um **usuário** ou a uma **entidade de serviço**. Para acessar Key Vault de forma programática, use uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o certificado que você criou na etapa anterior. A entidade de serviço deve estar no mesmo locatário do Microsoft Azure Active Directory que o Key Vault.
 
 ```powershell
 $now = [System.DateTime]::Parse("2020-02-10")
@@ -67,7 +67,7 @@ As URLs para o aplicativo não são importantes, pois estamos apenas usando-as p
 
 ## <a name="grant-rights-to-key-vault"></a>Conceder direitos para Key Vault
 
-A entidade de serviço criada na etapa anterior precisa de permissão para recuperar os segredos de Key Vault. A permissão pode ser concedida por meio do [portal do Azure](/key-vault/general/assign-access-policy-portal.md) ou com o comando do PowerShell abaixo.
+A entidade de serviço criada na etapa anterior precisa de permissão para recuperar os segredos de Key Vault. A permissão pode ser concedida por meio do [portal do Azure](../key-vault/general/assign-access-policy-portal.md) ou com o comando do PowerShell abaixo.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'BatchVault' -ServicePrincipalName '"https://batch.mydomain.com' -PermissionsToSecrets 'Get'
@@ -77,7 +77,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'BatchVault' -ServicePrincipalName '"
 
 Crie um pool do Lote, vá para a guia certificado no pool e atribua o certificado que você criou. O certificado agora está em todos os nós do Lote.
 
-Em seguida, atribua o certificado à conta do lote. Atribuir o certificado à conta permite que o lote o atribua aos pools e, em seguida, aos nós. A maneira mais fácil de fazer isso é acessar sua conta do Lote no portal, navegar até **Certificados** e selecionar **Adicionar** . Carregue o `.pfx` arquivo gerado anteriormente e forneça a senha. Depois de concluído, o certificado é adicionado à lista e você pode verificar a impressão digital.
+Em seguida, atribua o certificado à conta do lote. Atribuir o certificado à conta permite que o lote o atribua aos pools e, em seguida, aos nós. A maneira mais fácil de fazer isso é acessar sua conta do Lote no portal, navegar até **Certificados** e selecionar **Adicionar**. Carregue o `.pfx` arquivo gerado anteriormente e forneça a senha. Depois de concluído, o certificado é adicionado à lista e você pode verificar a impressão digital.
 
 Agora, ao criar um pool do lote, você pode navegar até os **certificados** dentro do pool e atribuir o certificado criado a esse pool. Ao fazer isso, certifique-se de selecionar **LocalMachine** para o local de armazenamento. O certificado é carregado em todos os nós do Lote no pool.
 
@@ -94,7 +94,7 @@ if($psModuleCheck.count -eq 0) {
 
 ## <a name="access-key-vault"></a>Acessar Key Vault
 
-Agora você está pronto para acessar Key Vault em scripts em execução em seus nós do lote. Para acessar o Key Vault de um script, tudo o que você precisa é que seu script seja autenticado no Microsoft Azure Active Directory usando o certificado. Para fazer isso no PowerShell, use os comandos de exemplo a seguir. Especifique o GUID apropriado para **impressão digital** , **ID do aplicativo** (a ID da entidade de serviço) e a **ID do locatário** (o locatário onde a entidade de serviço existe).
+Agora você está pronto para acessar Key Vault em scripts em execução em seus nós do lote. Para acessar o Key Vault de um script, tudo o que você precisa é que seu script seja autenticado no Microsoft Azure Active Directory usando o certificado. Para fazer isso no PowerShell, use os comandos de exemplo a seguir. Especifique o GUID apropriado para **impressão digital**, **ID do aplicativo** (a ID da entidade de serviço) e a **ID do locatário** (o locatário onde a entidade de serviço existe).
 
 ```powershell
 Add-AzureRmAccount -ServicePrincipal -CertificateThumbprint -ApplicationId

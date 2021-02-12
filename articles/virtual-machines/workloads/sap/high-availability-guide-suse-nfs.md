@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: d121430452e0ed445af19f9b1ac89cfdfccdcdae
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 6b0504f5e4199ee3cd8e86660b866fddf2568485
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167314"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608564"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidade do NFSVMs do Azure no SUSE Linux Enterprise Server
 
@@ -52,6 +53,10 @@ ms.locfileid: "92167314"
 
 Este artigo descreve como implantar as máquinas virtuais, configurar as máquinas virtuais, instalar a estrutura de cluster e instalar um servidor NFS com alta disponibilidade que pode ser usado para armazenar dados compartilhados de um sistema SAP altamente disponível.
 Este guia descreve como configurar um servidor NFS altamente disponível que é usado pelos dois sistemas SAP, NW1 e NW2. Os nomes dos recursos (por exemplo, máquinas virtuais, redes virtuais) no exemplo pressupõem que você tenha usado o [modelo de servidor de arquivo SAP][template-file-server] com o **prod** de prefixo de recurso.
+
+
+> [!NOTE]
+> Este artigo contém referências aos termos *subordinado* e *mestre*, termos que a Microsoft não usa mais. Quando os termos forem removidos do software, nós os removeremos deste artigo.
 
 Primeiro, leia os seguintes documentos e Notas SAP
 
@@ -120,7 +125,7 @@ Você pode usar um dos modelos de início rápido no GitHub para implantar todos
    4. Nome de Usuário de Administrador e Senha do Administrador  
       É criado um novo usuário que pode ser usado para fazer logon no computador.
    5. ID da Sub-rede  
-      Se você deseja implantar a VM em uma rede virtual existente em que você tem uma sub-rede definida para a qual a VM deve ser designada, nomeie a identificação dessa sub-rede específica. A ID geralmente se parece com a** &lt; ID &gt; da assinatura**/subscriptions//resourceGroups/** &lt; &gt; **** &lt; &gt; **nome do grupo de recursos,/Providers/Microsoft.Network/virtualNetworks/nome da rede virtual/Subnets/** &lt; nome &gt; da sub-rede**
+      Se você deseja implantar a VM em uma rede virtual existente em que você tem uma sub-rede definida para a qual a VM deve ser designada, nomeie a identificação dessa sub-rede específica. A ID geralmente se parece com a **&lt; ID &gt; da assinatura**/subscriptions//resourceGroups/**&lt; &gt;****&lt; &gt;** nome do grupo de recursos,/Providers/Microsoft.Network/virtualNetworks/nome da rede virtual/Subnets/**&lt; nome &gt; da sub-rede**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Implantar o Linux manualmente por meio do portal do Azure
 
@@ -158,7 +163,7 @@ Primeiro, você precisa criar as máquinas virtuais para este cluster NFS. Poste
          1. Porta 61000 para NW1
             1. Abra o balanceador de carga, selecione as investigações de integridade e clique em Adicionar
             1. Digite o nome da nova investigação de integridade (por exemplo, **nw1-hp**)
-            1. Escolha TCP como protocolo, porta 610**00**, mantenha o Intervalo como 5 e o Limite de não integridade como 2
+            1. Escolha TCP como protocolo, porta 610 **00**, mantenha o Intervalo como 5 e o Limite de não integridade como 2
             1. Clique em OK
          1. Porta 61001 para NW2
             * Repita as etapas acima para criar uma investigação de integridade para NW2
@@ -192,14 +197,14 @@ Primeiro, você precisa criar as máquinas virtuais para este cluster NFS. Poste
          1. Porta 61000 para NW1
             1. Abra o balanceador de carga, selecione as investigações de integridade e clique em Adicionar
             1. Digite o nome da nova investigação de integridade (por exemplo, **nw1-hp**)
-            1. Escolha TCP como protocolo, porta 610**00**, mantenha o Intervalo como 5 e o Limite de não integridade como 2
+            1. Escolha TCP como protocolo, porta 610 **00**, mantenha o Intervalo como 5 e o Limite de não integridade como 2
             1. Clique em OK
          1. Porta 61001 para NW2
             * Repita as etapas acima para criar uma investigação de integridade para NW2
       1. Regras de balanceamento de carga
          1. TCP 2049 para NW1
             1. Clique no balanceador de carga, escolha as regras de balanceamento de carga e clique em Adicionar
-            1. Insira o nome da nova regra de balanceador de carga (por exemplo ** nw1-lb-2049**)
+            1. Insira o nome da nova regra de balanceador de carga (por exemplo **nw1-lb-2049**)
             1. Selecione o endereço IP de front-end, o pool de back-end e a investigação de integridade criados anteriormente (por exemplo **, nw1-frontend**)
             1. Mantenha o protocolo **TCP**, insira a porta **2049**
             1. Aumente o tempo limite de ociosidade para 30 minutos
@@ -213,7 +218,7 @@ Primeiro, você precisa criar as máquinas virtuais para este cluster NFS. Poste
             * Repita as etapas acima para a porta 2049 e UDP para NW2
 
 > [!IMPORTANT]
-> Não há suporte para IP flutuante em uma configuração de IP secundário de NIC em cenários de balanceamento de carga. Para obter detalhes, consulte [limitações do Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Se você precisar de um endereço IP adicional para a VM, implante uma segunda NIC.  
+> Não há suporte para IP flutuante em uma configuração de IP secundário de NIC em cenários de balanceamento de carga. Para obter detalhes, consulte [limitações do Azure Load Balancer](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Se você precisar de um endereço IP adicional para a VM, implante uma segunda NIC.  
 
 > [!Note]
 > Quando as VMs sem endereços IP públicos forem colocadas no pool de back-end do Standard Azure Load Balancer (sem endereço IP público), não haverá nenhuma conectividade de saída com a Internet se não houver configuração adicional a fim de permitir o roteamento para pontos de extremidade públicos. Para obter detalhes sobre como alcançar conectividade de saída, confira [Conectividade de ponto de extremidade público para Máquinas Virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
@@ -244,7 +249,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    <b>10.0.0.5 nw2-nfs</b>
    </code></pre>
 
-1. **[A] ** Habilitar o servidor NFS
+1. **[A]** Habilitar o servidor NFS
 
    Criar a entrada de exportação NFS de raiz
 
@@ -301,7 +306,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    sudo lvcreate -l 100%FREE -n <b>NW2</b> vg-<b>NW2</b>-NFS
    </code></pre>
 
-1. **[A] ** Configurar drbd
+1. **[A]** Configurar drbd
 
    <pre><code>sudo vi /etc/drbd.conf
    </code></pre>
@@ -422,7 +427,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    sudo drbdadm new-current-uuid --clear-bitmap <b>NW2</b>-nfs
    </code></pre>
 
-1. **[1] ** Definir o nó principal
+1. **[1]** Definir o nó principal
 
    <pre><code>sudo drbdadm primary --force <b>NW1</b>-nfs
    sudo drbdadm primary --force <b>NW2</b>-nfs
@@ -463,7 +468,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    sudo umount /srv/nfs/NW2
    </code></pre>
 
-1. **[A] ** Configuração da detecção de divisão de dupla personalidade drbd
+1. **[A]** Configuração da detecção de divisão de dupla personalidade drbd
 
    Ao usar o drbd para sincronizar os dados de um host para outro, pode ocorrer a chamada divisão de dupla personalidade. Uma divisão Brain é um cenário em que ambos os nós de cluster promoveram o dispositivo DRBD para ser o primário e não foram sincronizados. Pode ser uma situação rara, mas você ainda deseja manipular e resolver uma divisão de cabeça o mais rápido possível. Portanto, é importante ser notificado quando ocorrer uma divisão de dupla personalidade.
 

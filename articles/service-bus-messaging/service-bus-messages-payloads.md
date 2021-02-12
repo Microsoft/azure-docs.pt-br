@@ -2,13 +2,13 @@
 title: Mensagens, payloads e serialização do Barramento de Serviço do Azure | Microsoft Docs
 description: Este artigo fornece uma visão geral das mensagens, cargas, roteamento de mensagens e serialização do barramento de serviço do Azure.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: d426489776dff652cbf72d640f3e74b1bc8e30d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/29/2021
+ms.openlocfilehash: db1989004e60c305341e54e62e42f31e40e47487
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85341682"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219172"
 ---
 # <a name="messages-payloads-and-serialization"></a>Mensagens, payloads e serialização
 
@@ -70,8 +70,6 @@ Diferentemente das variantes Java ou .NET Standard, a versão .NET Framework da 
 Ao usar o protocolo SBMP herdado, esses objetos são serializados com o serializador binário padrão ou com um serializador fornecido externamente. Ao usar o protocolo AMQP, o objeto é serializado em um objeto AMQP. O receptor pode recuperar esses objetos com o método [GetBody\<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1), fornecendo o tipo esperado. Com AMQP, os objetos são serializados em um gráfico AMQP dos objetos **ArrayList** e **IDictionary <string,object>**, e qualquer cliente do AMQP pode decodificá-los. 
 
 Embora essa mágica de serialização oculta seja conveniente, os aplicativos devem assumir o controle explícito da serialização do objeto e transformar os grafos dos seus objetos em fluxos antes de incluí-los em uma mensagem e fazer o contrário no lado do receptor. Isso produz resultados interoperáveis. Também deve-se observar que, embora o AMQP tenha um avançado modelo de codificação binária, ele está vinculado ao ecossistema de mensagens AMQP e os clientes HTTP terão problemas para decodificar esses payloads. 
-
-Geralmente, recomendamos JSON e Apache Avro como formatos de payload para dados estruturados.
 
 As variantes de .NET Standard e Java API só aceitam matrizes de bytes, o que significa que o aplicativo deve lidar com o controle de serialização do objeto. 
 

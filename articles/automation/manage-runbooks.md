@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 30979f49a48954280942d786af7e7ff592089062
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: ed5eda668f6bd52ba144aa664119ab613fdb7742
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521060"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183576"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gerenciar runbooks na Automação do Azure
 
@@ -223,12 +223,12 @@ Para usar um script personalizado:
 
 1. Crie uma conta da Automação e obtenha uma [Função de colaborador](automation-role-based-access-control.md).
 2. [Vincule a conta ao workspace do Azure](../security-center/security-center-enable-data-collection.md).
-3. Habilite o [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), [Gerenciamento de Atualizações](update-management/update-mgmt-overview.md) ou outro recurso da Automação. 
+3. Habilite o [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), [Gerenciamento de Atualizações](./update-management/overview.md) ou outro recurso da Automação. 
 4. Se estiver em um computador Linux, você precisa de altas permissões. Faça logon para [desativar as verificações de assinatura](automation-linux-hrw-install.md#turn-off-signature-validation).
 
 ## <a name="test-a-runbook"></a>Testar um runbook
 
-Quando você testa um runbook, a [Versão de rascunho](#publish-a-runbook) é executada e as ações que ela realiza são concluídas. Nenhum histórico de trabalho é criado, mas os fluxos de [saída](automation-runbook-output-and-messages.md#use-the-output-stream) e [aviso e erro](automation-runbook-output-and-messages.md#monitor-message-streams) são exibidos no painel de saída de Teste. As mensagens para o [fluxo detalhado](automation-runbook-output-and-messages.md#monitor-message-streams) serão exibidas no painel Saída somente se a variável [VerbosePreference](automation-runbook-output-and-messages.md#work-with-preference-variables) for definida para `Continue`.
+Quando você testa um runbook, a [Versão de rascunho](#publish-a-runbook) é executada e as ações que ela realiza são concluídas. Nenhum histórico de trabalho é criado, mas os fluxos de [saída](automation-runbook-output-and-messages.md#use-the-output-stream) e [aviso e erro](automation-runbook-output-and-messages.md#working-with-message-streams) são exibidos no painel de saída de Teste. As mensagens para o [fluxo detalhado](automation-runbook-output-and-messages.md#write-output-to-verbose-stream) serão exibidas no painel Saída somente se a variável [VerbosePreference](automation-runbook-output-and-messages.md#work-with-preference-variables) for definida para `Continue`.
 
 Mesmo que a versão de rascunho esteja em execução, o runbook ainda será executado normalmente e executará qualquer ação nos recursos do ambiente. Por esse motivo, você deve testar apenas runbooks nos recursos de não produção.
 
@@ -298,7 +298,7 @@ Você pode filtrar a lista de trabalhos selecionando **Filtrar trabalhos**. Filt
 
 Como alternativa, você pode exibir detalhes de resumo do trabalho para um runbook específico selecionando esse runbook na página Runbooks da sua conta da Automação e selecionando **Trabalhos**. Essa ação apresenta a página Trabalhos. A partir daqui, você pode clicar em um registro de trabalho para exibir seus detalhes e saída.
 
-:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="Captura de tela da página trabalhos.":::
+:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="Captura de tela da página trabalhos com o botão erros realçado.":::
 
 ### <a name="retrieve-job-statuses-using-powershell"></a>Recuperar status de trabalho usando o PowerShell
 

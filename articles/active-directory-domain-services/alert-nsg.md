@@ -2,21 +2,21 @@
 title: Resolver alertas do grupo de segurança de rede no Azure AD DS | Microsoft Docs
 description: Saiba como solucionar problemas e resolver alertas de configuração de grupo de segurança de rede para Azure Active Directory Domain Services
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 95f970a7-5867-4108-a87e-471fa0910b8c
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: f8917d7bd8fc1a4091607b9a405cfefbb51bc188
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.date: 12/16/2020
+ms.author: justinha
+ms.openlocfilehash: 5b48d326efad889adbcf25d487ee27b8200f558f
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962778"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693912"
 ---
 # <a name="known-issues-network-configuration-alerts-in-azure-active-directory-domain-services"></a>Problemas conhecidos: alertas de configuração de rede no Azure Active Directory Domain Services
 
@@ -40,12 +40,14 @@ As regras de segurança de entrada e saída padrão a seguir são aplicadas ao g
 
 | Prioridade | Nome | Porta | Protocolo | Fonte | Destino | Ação |
 |----------|------|------|----------|--------|-------------|--------|
-| 101      | AllowSyncWithAzureAD | 443 | TCP | AzureActiveDirectoryDomainServices | Qualquer | Allow |
-| 201      | AllowRD | 3389 | TCP | CorpNetSaw | Qualquer | Allow |
 | 301      | AllowPSRemoting | 5986| TCP | AzureActiveDirectoryDomainServices | Qualquer | Allow |
+| 201      | AllowRD | 3389 | TCP | CorpNetSaw | Qualquer | Negar<sup>1</sup> |
 | 65000    | AllVnetInBound | Qualquer | Qualquer | VirtualNetwork | VirtualNetwork | Allow |
 | 65001    | AllowAzureLoadBalancerInBound | Qualquer | Qualquer | AzureLoadBalancer | Qualquer | Allow |
 | 65500    | DenyAllInBound | Qualquer | Qualquer | Qualquer | Qualquer | Negar |
+
+
+<sup>1</sup> Opcional para depuração. Permitir quando necessário para solução de problemas avançada.
 
 > [!NOTE]
 > Você também pode ter uma regra adicional que permita o tráfego de entrada se [Configurar o LDAP seguro][configure-ldaps]. Essa regra adicional é necessária para a comunicação de LDAPs correta.
@@ -80,7 +82,7 @@ Para adicionar uma regra de segurança ausente, conclua as seguintes etapas:
 1. Na portal do Azure, procure e selecione grupos de **segurança de rede**.
 1. Escolha o grupo de segurança de rede associado ao domínio gerenciado, como *AADDS-contoso.com-NSG*.
 1. Em **configurações** no painel esquerdo, clique em regras de *segurança de entrada* ou em *regras de segurança de saída* , dependendo de qual regra você precisa adicionar.
-1. Selecione **Adicionar**e crie a regra necessária com base na porta, no protocolo, na direção, etc. Quando estiver pronto, selecione **OK**.
+1. Selecione **Adicionar** e crie a regra necessária com base na porta, no protocolo, na direção, etc. Quando estiver pronto, selecione **OK**.
 
 Leva alguns minutos para que a regra de segurança seja adicionada e mostrada na lista.
 

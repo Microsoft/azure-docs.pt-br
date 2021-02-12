@@ -11,19 +11,19 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee0c5093fc1dab69e0502b8ed1efe42fa63f1eb9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 765bfe0f805ae4219110d689e8f7f8fd54a26cf3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363718"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173929"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planejar uma implantação de redefinição de senha self-service do Azure Active Directory
 
 > [!IMPORTANT]
 > Este plano de implantação oferece orientações e melhores práticas para implantar a SSPR (redefinição de senha self-service) do Azure AD.
 >
-> **Se você for um usuário final e precisar voltar à sua conta, vá para [https://aka.ms/sspr](https://aka.ms/sspr) **.
+> **Se você for um usuário final e precisar voltar à sua conta, vá para [https://aka.ms/sspr](https://aka.ms/sspr)**.
 
 A [SSPR (redefinição de senha self-service)](https://www.youtube.com/watch?v=tnb2Qf4hTP8) é um recurso do Azure Active Directory (AD) que permite que os usuários redefinam suas senhas sem entrar em contato com a equipe de TI para obter ajuda. Os usuários podem rapidamente se desbloquear e continuar trabalhando independentemente de onde estiverem ou da hora do dia. Ao permitir que os funcionários se desbloqueiem, sua organização pode reduzir o tempo não produtivo e os altos custos de suporte para os problemas mais comuns relacionados a senhas.
 
@@ -115,7 +115,7 @@ Antes de implantar o SSPR, você pode optar por determinar o número e o custo m
 
 A Microsoft recomenda que as organizações habilitem a experiência de registro combinada para SSPR e autenticação multifator. Quando você habilita essa experiência de registro combinada, os usuários só precisam selecionar suas informações de registro uma vez para habilitar os dois recursos.
 
-A experiência de registro combinada não exige que as organizações habilitem o SSPR e a autenticação multifator do Azure. O registro combinado fornece às organizações uma melhor experiência do usuário. Para obter mais informações, consulte [Registro de informações de segurança combinadas](concept-registration-mfa-sspr-combined.md)
+A experiência de registro combinada não exige que as organizações habilitem o SSPR e a autenticação multifator do Azure AD. O registro combinado fornece às organizações uma melhor experiência do usuário. Para obter mais informações, consulte [Registro de informações de segurança combinadas](concept-registration-mfa-sspr-combined.md)
 
 ## <a name="plan-the-deployment-project"></a>Planejar o projeto de implantação
 
@@ -123,7 +123,7 @@ Considere suas necessidades organizacionais enquanto determina a estratégia par
 
 ### <a name="engage-the-right-stakeholders"></a>Envolva os participantes certos
 
-Quando os projetos de tecnologia falham, eles normalmente fazem isso devido a expectativas incompatíveis com o impacto, os resultados e as responsabilidades. Para evitar essas armadilhas, [verifique se você está participando dos stakeholders certos](https://aka.ms/deploymentplans) e que as funções de stakeholder no projeto sejam bem compreendidas ao documentar os stakeholders, a entrada e as responsabilidades no projeto.
+Quando os projetos de tecnologia falham, eles normalmente fazem isso devido a expectativas incompatíveis com o impacto, os resultados e as responsabilidades. Para evitar essas armadilhas, [verifique se você está participando dos stakeholders certos](../fundamentals/active-directory-deployment-plans.md) e que as funções de stakeholder no projeto sejam bem compreendidas ao documentar os stakeholders, a entrada e as responsabilidades no projeto.
 
 #### <a name="required-administrator-roles"></a>Funções de administrador necessárias
 
@@ -321,11 +321,11 @@ Os logs de auditoria para registro e redefinição de senha estão disponíveis 
 
 ### <a name="authentication-methods--usage-and-insights"></a>Métodos de autenticação – Uso e insights
 
-[O uso e insights](./howto-authentication-methods-usage-insights.md) permitem que você entenda como os métodos de autenticação para recursos, como o Azure MFA e o SSPR, estão trabalhando em sua organização. Essa funcionalidade de relatório fornece à sua organização os meios para entender quais métodos se registram e como usá-los.
+O [uso e as informações](./howto-authentication-methods-usage-insights.md) permitem que você entenda como os métodos de autenticação para recursos como o Azure ad MFA e SSPR estão trabalhando em sua organização. Essa funcionalidade de relatório fornece à sua organização os meios para entender quais métodos se registram e como usá-los.
 
 ### <a name="troubleshoot"></a>Solucionar problemas
 
-* Consulte [Solucionar problemas de redefinição de senha self-service](./active-directory-passwords-troubleshoot.md) 
+* Consulte [Solucionar problemas de redefinição de senha self-service](./troubleshoot-sspr.md) 
 
 * Siga [Perguntas frequentes sobre gerenciamento de senhas](./active-directory-passwords-faq.md) 
 

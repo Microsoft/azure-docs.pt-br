@@ -7,12 +7,12 @@ ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: fbcb3656bc824e2fd352f92314652bd04167b4d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf8b1e04e11dee4e636826430838a467fe034e3f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531399"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951121"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Como implantar certificados de dispositivo X.509
 
@@ -51,7 +51,7 @@ Quando um dispositivo for inicialmente provisionado por meio do provisionamento 
 
 Depois que um novo certificado de folha for revertido para o dispositivo, ele pode não mais se conectar ao Hub IoT porque ele está usando um novo certificado para se conectar. O Hub IoT só reconhece o dispositivo com o certificado antigo. O resultado da tentativa de conexão do dispositivo será um erro de conexão "não autorizado". Para resolver esse erro, você deve atualizar a entrada de registro do dispositivo para a conta para o novo certificado de folha do dispositivo. Em seguida, o serviço de provisionamento pode atualizar as informações de registro de dispositivo Hub IoT conforme necessário, quando o dispositivo for provisionado novamente. 
 
-Uma possível exceção para essa falha de conexão seria um cenário que você criou um [Grupo de Registro](concepts-service.md#enrollment-group) para seu dispositivo no serviço de provisionamento. Nesse caso, se você não estiver implatando a raiz ou os certificados intermediários na cadeia de certificados do dispositivo de confiança, em seguida, o dispositivo será reconhecido se o novo certificado fizer parte da cadeia de confiança definida no grupo de registro. Se esse cenário surgir como uma reação a uma violação de segurança, você deve, pelo menos, impedir que os certificados de dispositivo específicos no grupo sejam considerados violados. Para obter mais informações, consulte não [Permitir dispositivos específicos em um grupo de registro](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#disallow-specific-devices-in-an-enrollment-group).
+Uma possível exceção para essa falha de conexão seria um cenário que você criou um [Grupo de Registro](concepts-service.md#enrollment-group) para seu dispositivo no serviço de provisionamento. Nesse caso, se você não estiver implatando a raiz ou os certificados intermediários na cadeia de certificados do dispositivo de confiança, em seguida, o dispositivo será reconhecido se o novo certificado fizer parte da cadeia de confiança definida no grupo de registro. Se esse cenário surgir como uma reação a uma violação de segurança, você deve, pelo menos, impedir que os certificados de dispositivo específicos no grupo sejam considerados violados. Para obter mais informações, consulte não [Permitir dispositivos específicos em um grupo de registro](./how-to-revoke-device-access-portal.md#disallow-specific-devices-in-an-enrollment-group).
 
 Atualização das entradas de registro para certificados implantados é realizada na página **Gerenciar Registros**. Para acessar essa página, siga essas etapas:
 
@@ -69,7 +69,7 @@ Como tratar a atualização da entrada de registro dependerá se você estiver u
 
 Se você estiver implantando certificados em resposta a uma violação de segurança, você deve usar a abordagem a seguir que exclui o certificado atual imediatamente:
 
-1. Clique em **Registros Individuais**e clique na entrada da ID de registro na lista. 
+1. Clique em **Registros Individuais** e clique na entrada da ID de registro na lista. 
 
 2. Clique no botão **Excluir o certificado atual** e em seguida, clique no ícone de pasta para selecionar o novo certificado a ser carregado para a entrada de registro. Clique em **Salvar** ao terminar.
 
@@ -92,9 +92,9 @@ Se você estiver implantando certificados para lidar com as expirações de cert
 Mais tarde quando o certificado secundário também se aproximar da expiração e precisar ser implantado, você pode rotacionar usando a configuração primária. Girar entre os certificados primários e secundários dessa maneira reduz o tempo de inatividade para dispositivos de tentativa de provisionar.
 
 
-1. Clique em **Registros Individuais**e clique na entrada da ID de registro na lista. 
+1. Clique em **Registros Individuais** e clique na entrada da ID de registro na lista. 
 
-2. Clique em **Certificado Secundário** e, em seguida, clique no ícone de pasta para selecionar o novo certificado a ser carregado para a entrada de registro. Clique em **Salvar**.
+2. Clique em **Certificado Secundário** e, em seguida, clique no ícone de pasta para selecionar o novo certificado a ser carregado para a entrada de registro. Clique em **Save** (Salvar).
 
     ![Gerenciar registros individuais usando a expiração do certificado secundário](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
 
@@ -116,7 +116,7 @@ Para atualizar um registro de grupo em resposta a uma violação de segurança, 
 
 4. Clique na guia **Gerenciar inscrições** para a instância do serviço de provisionamento de dispositivos e clique na lista **Grupos de inscrição**. Clique no nome do grupo de registro na lista.
 
-5. Clique em **Certificado de Autoridade de Certificação**e selecione o novo certificado de Autoridade de Certificação raiz. Em seguida, clique em **Salvar**. 
+5. Clique em **Certificado de Autoridade de Certificação** e selecione o novo certificado de Autoridade de Certificação raiz. Em seguida, clique em **Salvar**. 
 
     ![Selecione o novo certificado de autoridade de certificação raiz para um certificado comprometido](./media/how-to-roll-certificates/select-new-root-cert.png)
 
@@ -132,7 +132,7 @@ Para atualizar um registro de grupo em resposta a uma violação de segurança, 
 
 #### <a name="update-compromised-intermediate-certificates"></a>Atualize os certificados intermediários comprometidos
 
-1. Clique em **Grupos de Registro**e, em seguida, clique no nome de grupo na lista. 
+1. Clique em **Grupos de Registro** e, em seguida, clique no nome de grupo na lista. 
 
 2. Clique em **Certificado Intermediário**, e **Excluir o Certificado Atual**. Clique no ícone de pasta para navegar até o novo certificado intermediário a ser carregado para o grupo de registros. Quando tiver terminado, clique em **Salvar**. Essas etapas devem ser concluídas para o certificado primário e secundário, se ambos estiverem comprometidos.
 
@@ -162,7 +162,7 @@ Mais tarde quando o certificado secundário também se aproximar da expiração 
 
 2. Clique na guia **Gerenciar inscrições** para a instância do serviço de provisionamento de dispositivos e clique na lista **Grupos de inscrição**. Clique no nome do grupo de registro na lista.
 
-3. Clique em **Certificado de Autoridade de Certificação**e selecione o novo certificado de autoridade de certificação raiz na configuração do **Certificado Secundário**. Em seguida, clique em **Salvar**. 
+3. Clique em **Certificado de Autoridade de Certificação** e selecione o novo certificado de autoridade de certificação raiz na configuração do **Certificado Secundário**. Em seguida, clique em **Salvar**. 
 
     ![Selecione o novo certificado de autoridade de certificação raiz para expiração](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
 
@@ -175,9 +175,9 @@ Mais tarde quando o certificado secundário também se aproximar da expiração 
 #### <a name="update-expiring-intermediate-certificates"></a>Mesclar certificados intermediários em expiração
 
 
-1. Clique em **Grupos de Registro**e, em seguida, clique no nome de grupo na lista. 
+1. Clique em **Grupos de Registro** e, em seguida, clique no nome de grupo na lista. 
 
-2. Clique em **Certificado Secundário** e, em seguida, clique no ícone de pasta para selecionar o novo certificado a ser carregado para a entrada de registro. Clique em **Salvar**.
+2. Clique em **Certificado Secundário** e, em seguida, clique no ícone de pasta para selecionar o novo certificado a ser carregado para a entrada de registro. Clique em **Save** (Salvar).
 
     Esse novo certificado intermediário deve ser assinado por um certificado de autoridade de certificação de raiz verificado que já foi adicionado ao serviço de provisionamento. Para saber mais, confira [Certificados X.509](concepts-x509-attestation.md#x509-certificates).
 

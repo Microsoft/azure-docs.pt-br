@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: 8267a678f35d01119ae3e7d89a07c789dc969614
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70b6231829173059ffee675105bacbe1bd1532f2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85507493"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023884"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Usar o Gerenciador de Dispositivos do StorSimple para gerenciar credenciais da conta de armazenamento para o StorSimple Virtual Array
 
@@ -31,7 +31,7 @@ A seção **Configuração** da folha do serviço Gerenciador de Dispositivos do
   
   ![Painel do serviço Gerenciador de Dispositivos](./media/storsimple-virtual-array-manage-storage-accounts/ova-storageaccts-dashboard.png)  
 
-Este tutorial explica como você pode adicionar, editar ou excluir credenciais de conta de armazenamento para sua Matriz Virtual StorSimple. As informações neste tutorial aplicam-se apenas à Matriz Virtual StorSimple. Para obter informações sobre como gerenciar contas de armazenamento na série 8000, veja [Usar o serviço StorSimple Manager para gerenciar sua conta de armazenamento](storsimple-manage-storage-accounts.md).
+Este tutorial explica como você pode adicionar, editar ou excluir credenciais de conta de armazenamento para sua Matriz Virtual StorSimple. As informações neste tutorial aplicam-se apenas à Matriz Virtual StorSimple. Para obter informações sobre como gerenciar contas de armazenamento na série 8000, veja [Usar o serviço StorSimple Manager para gerenciar sua conta de armazenamento](./storsimple-8000-manage-storage-accounts.md).
 
 As credenciais de conta de armazenamento contêm as credenciais que o dispositivo usa para acessar sua conta de armazenamento com seu provedor de serviços de nuvem. Para contas de armazenamento do Microsoft Azure, essas credenciais podem ser o nome da conta e a chave de acesso primário, por exemplo.
 
@@ -52,7 +52,7 @@ As tarefas mais comuns relacionadas a credenciais de conta de armazenamento que 
 Há três tipos de credenciais de conta de armazenamento que podem ser usados com o dispositivo StorSimple.
 
 * **Credenciais de conta de armazenamento geradas automaticamente** – como o nome sugere, esse tipo de credencial de conta de armazenamento é gerada automaticamente quando o serviço é criado pela primeira vez. Para saber mais sobre como essa credencial de conta de armazenamento é criada, confira [Criar um novo serviço](storsimple-virtual-array-manage-service.md#create-a-service).
-* **Credenciais de conta de armazenamento na assinatura do serviço** – essas são as credenciais de conta de armazenamento do Azure que estão associadas com a mesma assinatura que o serviço. Para saber mais sobre como essas credenciais de conta de armazenamento são criadas, consulte [Sobre contas do Armazenamento do Azure](../storage/common/storage-create-storage-account.md).
+* **Credenciais de conta de armazenamento na assinatura do serviço** – essas são as credenciais de conta de armazenamento do Azure que estão associadas com a mesma assinatura que o serviço. Para saber mais sobre como essas credenciais de conta de armazenamento são criadas, consulte [Sobre contas do Armazenamento do Azure](../storage/common/storage-account-create.md).
 * **Credenciais de conta de armazenamento fora do serviço de assinatura** – essas são as contas do armazenamento do Azure que não estão associadas ao seu serviço e que provavelmente existiam antes da criação do serviço.
 
 ## <a name="add-a-storage-account-credential"></a>Adicionar uma credencial de conta de armazenamento
@@ -152,4 +152,3 @@ Para informar o serviço Gerenciador de Dispositivos StorSimple da alteração, 
 
 ## <a name="next-steps"></a>Próximas etapas
 * Aprenda como [administrar sua StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-

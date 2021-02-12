@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b34d5cdd95f44082d05153390209de5145e56d3f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 84053df34ffda0d4686ad80a9e5f3af00ac53d72
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089563"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949472"
 ---
 # <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Passo a passo: Adicionar trocas de declarações da API REST a políticas personalizadas no Azure Active Directory B2C
 
@@ -53,7 +53,7 @@ Depois que a API REST validar os dados, ela deverá retornar um HTTP 200 (Ok), c
 }
 ```
 
-A configuração do ponto de extremidade da API REST está fora do escopo deste artigo. Criamos um exemplo do [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference). Você pode acessar o código completo de função do Azure no [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
+A configuração do ponto de extremidade da API REST está fora do escopo deste artigo. Criamos um exemplo do [Azure Functions](../azure-functions/functions-reference.md). Você pode acessar o código completo de função do Azure no [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
 
 ## <a name="define-claims"></a>Definir declarações
 
@@ -77,7 +77,7 @@ Uma declaração fornece armazenamento temporário de dados durante uma execuç�
 
 ## <a name="add-the-restful-api-technical-profile"></a>Adicionar o perfil técnico da API RESTful 
 
-Um[perfil técnico RESTful](restful-technical-profile.md) fornece suporte para a interface com seu próprio serviço RESTful. O Azure AD B2C envia dados para o serviço RESTful em uma coleção`InputClaims` e recebe dados de volta em uma coleção`OutputClaims`. Localize o elemento**ClaimsProviders**no seu arquivo <em> **`TrustFrameworkExtensions.xml`**</em> e adicione um novo provedor de declarações da seguinte maneira:
+Um[perfil técnico RESTful](restful-technical-profile.md) fornece suporte para a interface com seu próprio serviço RESTful. O Azure AD B2C envia dados para o serviço RESTful em uma coleção`InputClaims` e recebe dados de volta em uma coleção`OutputClaims`. Localize o elemento **ClaimsProviders** no seu arquivo <em> **`TrustFrameworkExtensions.xml`**</em> e adicione um novo provedor de declarações da seguinte maneira:
 
 ```xml
 <ClaimsProvider>

@@ -4,14 +4,14 @@ description: Como definir destinos de armazenamento para que o cache HPC do Azur
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 01/28/2021
 ms.author: v-erkel
-ms.openlocfilehash: c1edbaf394a4abd36e47843a6f419eb9d62f08d7
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: b4df5863cc746490f13685a8d412232217af3bc8
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340301"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054358"
 ---
 # <a name="add-storage-targets"></a>Adicionar destinos de armazenamento
 
@@ -103,9 +103,9 @@ Etapas para adicionar as funções do Azure:
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
-
 ### <a name="prerequisite-storage-account-access"></a>Pré-requisito: acesso à conta de armazenamento
+
+[Configurar CLI do Azure para o cache do HPC do Azure](./az-cli-prerequisites.md).
 
 Antes de adicionar um destino de armazenamento de BLOBs, verifique se o cache tem as funções corretas para acessar a conta de armazenamento e se as configurações de firewall permitirão a criação do destino de armazenamento.
 
@@ -165,19 +165,21 @@ Um destino de armazenamento NFS tem configurações diferentes de um destino de 
 
 Ao criar um destino de armazenamento que aponta para um sistema de armazenamento NFS, você precisa escolher o modelo de uso para esse destino. Esse modelo determina como os dados são armazenados em cache.
 
+Os modelos de uso internos permitem que você escolha como balancear a resposta rápida com o risco de obter dados obsoletos. Se você quiser otimizar a velocidade de leitura do arquivo, talvez não se importa se os arquivos no cache são verificados em relação aos arquivos de back-end. Por outro lado, se você quiser ter certeza de que os arquivos estão sempre atualizados com o armazenamento remoto, escolha um modelo que verifica com frequência.
+
 Há três opções:
 
 * **Ler gravações pesadas e frequentes** – Use essa opção se você quiser acelerar o acesso de leitura para arquivos que são estáticos ou raramente alterados.
 
-  Essa opção armazena em cache os arquivos que os clientes lêem, mas passa gravações para o armazenamento de back-end imediatamente. Os arquivos armazenados no cache nunca são comparados aos arquivos no volume de armazenamento NFS.
+  Essa opção armazena em cache os arquivos que os clientes lêem, mas passa gravações para o armazenamento de back-end imediatamente. Os arquivos armazenados no cache não são automaticamente comparados aos arquivos no volume de armazenamento NFS. (Leia a observação abaixo sobre a verificação de back-end para saber mais.)
 
-  Não use essa opção se houver um risco de que um arquivo possa ser modificado diretamente no sistema de armazenamento sem primeiro gravá-lo no cache. Se isso acontecer, a versão armazenada em cache do arquivo nunca será atualizada com alterações do back-end e o conjunto de dados poderá se tornar inconsistente.
+  Não use essa opção se houver um risco de que um arquivo possa ser modificado diretamente no sistema de armazenamento sem primeiro gravá-lo no cache. Se isso acontecer, a versão em cache do arquivo estará fora de sincronia com o arquivo de back-end.
 
 * **Mais de 15% de gravações** – essa opção acelera o desempenho de leitura e gravação. Ao usar essa opção, todos os clientes devem acessar arquivos por meio do cache HPC do Azure em vez de montar o armazenamento de back-end diretamente. Os arquivos armazenados em cache terão alterações recentes que não são armazenadas no back-end.
 
-  Nesse modelo de uso, os arquivos no cache não são verificados em relação aos arquivos no armazenamento de back-end. Pressupõe-se que a versão em cache do arquivo seja mais atual. Um arquivo modificado no cache é gravado no sistema de armazenamento de back-end depois que ele está no cache por uma hora sem nenhuma alteração adicional.
+  Nesse modelo de uso, os arquivos no cache só são verificados em relação aos arquivos no armazenamento de back-end a cada oito horas. Pressupõe-se que a versão em cache do arquivo seja mais atual. Um arquivo modificado no cache é gravado no sistema de armazenamento de back-end depois que ele está no cache por uma hora sem nenhuma alteração adicional.
 
-* **Os clientes gravam no destino NFS, ignorando o cache** -escolha esta opção se algum cliente em seu fluxo de trabalho gravar dados diretamente no sistema de armazenamento sem primeiro gravar no cache. Os arquivos que os clientes solicitam são armazenados em cache, mas quaisquer alterações nesses arquivos do cliente são passadas de volta para o sistema de armazenamento de back-end imediatamente.
+* **Os clientes gravam no destino NFS, ignorando o cache** -escolha esta opção se algum cliente em seu fluxo de trabalho gravar dados diretamente no sistema de armazenamento sem primeiro gravar no cache ou se você quiser otimizar a consistência dos dados. Os arquivos que os clientes solicitam são armazenados em cache, mas quaisquer alterações nesses arquivos do cliente são passadas de volta para o sistema de armazenamento de back-end imediatamente.
 
   Com esse modelo de uso, os arquivos no cache são verificados frequentemente em relação às versões de back-end para atualizações. Essa verificação permite que os arquivos sejam alterados fora do cache enquanto mantêm a consistência dos dados.
 
@@ -186,8 +188,11 @@ Esta tabela resume as diferenças do modelo de uso:
 | Modelo de uso                   | Modo de cache | Verificação de back-end | Atraso máximo de write-back |
 |-------------------------------|--------------|-----------------------|--------------------------|
 | Leia gravações pesadas e frequentes | Ler         | Nunca                 | Nenhum                     |
-| Mais de 15% de gravações       | Leitura/gravação   | Nunca                 | 1 hora                   |
+| Mais de 15% de gravações       | Leitura/gravação   | 8 horas               | 1 hora                   |
 | Clientes ignoram o cache      | Ler         | 30 segundos            | Nenhum                     |
+
+> [!NOTE]
+> O valor de **verificação de back-end** mostra quando o cache compara automaticamente seus arquivos com os arquivos de origem no armazenamento remoto. No entanto, você pode forçar o cache do Azure HPC a comparar arquivos executando uma operação de diretório que inclui uma solicitação readdirplus. Readdirplus é uma API padrão do NFS (também chamada de leitura estendida) que retorna os metadados do diretório, o que faz com que o cache compare e atualize arquivos.
 
 ### <a name="create-an-nfs-storage-target"></a>Criar um destino de armazenamento NFS
 
@@ -217,7 +222,7 @@ Quando terminar, clique em **OK** para adicionar o destino de armazenamento.
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurar CLI do Azure para o cache do HPC do Azure](./az-cli-prerequisites.md).
 
 Use o comando CLI do Azure [AZ HPC-cache NFS-Storage-Target Add](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-add) para criar o destino de armazenamento.
 
@@ -301,7 +306,7 @@ Leia [Editar destinos de armazenamento](hpc-cache-edit-storage.md) para saber ma
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurar CLI do Azure para o cache do HPC do Azure](./az-cli-prerequisites.md).
 
 Use a opção [AZ HPC-cache Storage-Target List](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) para mostrar os destinos de armazenamento existentes para um cache. Forneça o nome do cache e o grupo de recursos (a menos que você o tenha definido globalmente).
 

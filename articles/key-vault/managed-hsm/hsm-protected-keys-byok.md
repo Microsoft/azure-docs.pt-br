@@ -6,14 +6,14 @@ author: amitbapat
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 09/17/2020
+ms.date: 02/04/2021
 ms.author: ambapat
-ms.openlocfilehash: ce275674704cd7538f25a2d3f31d0e65aecd7925
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a15ed6b92ade96dd2ed9ef6ffbbe17e2b1452ef
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320601"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581390"
 ---
 # <a name="import-hsm-protected-keys-to-managed-hsm-byok"></a>Importar chaves protegidas por HSM para HSM gerenciado (BYOK)
 
@@ -67,14 +67,22 @@ Para saber mais sobre as opções de logon por meio da CLI, veja [Entrar com a C
 |Fortanix|Fabricante,<br/>HSM como serviço|<ul><li>SDKMS (Serviço de Gerenciamento de Chaves de Proteção Automática)</li><li>Equinix SmartKey</li></ul>|[Como exportar chaves SDKMS para provedores de nuvem para BYOK – Azure Key Vault](https://support.fortanix.com/hc/en-us/articles/360040071192-Exporting-SDKMS-keys-to-Cloud-Providers-for-BYOK-Azure-Key-Vault)|
 |Marvell|Fabricante|Todos os HSMs LiquidSecurity com<ul><li>Firmware versão 2.0.4 ou posterior</li><li>Firmware versão 3.2 ou mais recente</li></ul>|[Ferramenta BYOK Marvell e documentação](https://www.marvell.com/products/security-solutions/nitrox-hs-adapters/exporting-marvell-hsm-keys-to-cloud-azure-key-vault.html)|
 |Cryptomathic|ISV (Sistema de Gerenciamento de Chaves Empresariais)|Várias marcas e modelos de HSM, incluindo<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>Acesse o [site da Cryptomathic para obter detalhes](https://www.cryptomathic.com/azurebyok)|[Ferramenta BYOK Cryptomathic e documentação](https://www.cryptomathic.com/azurebyok)|
+|Securosys SA|Fabricante, HSM como serviço|Família HSM Primus, Securosys Clouds HSM|[Ferramenta e documentação do Primus BYOK](https://www.securosys.com/primus-azure-byok)|
+|StorMagic|ISV (Sistema de Gerenciamento de Chaves Empresariais)|Várias marcas e modelos de HSM, incluindo<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>Confira o [site da StorMagic para obter detalhes](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|[SvKMS e Azure Key Vault BYOK](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|
+|IBM|Fabricante|IBM 476x, CryptoExpress|[IBM Enterprise Key Management Foundation](https://www.ibm.com/security/key-management/ekmf-bring-your-own-key-azure)|
+||||
+
 
 ## <a name="supported-key-types"></a>Tipos de chave com suporte
 
-|Nome da chave|Tipo de chave|Tamanho da chave|Origem|Descrição|
+|Nome da chave|Tipo de chave|Tamanho/curva da chave|Origem|Descrição|
 |---|---|---|---|---|
 |KEK (Chave de Troca de Chaves)|RSA| 2\.048 bits<br />3\.072 bits<br />4\.096 bits|HSM Gerenciado|Um par de chaves RSA com suporte para HSM gerado em HSM gerenciado|
-|Chave de destino|RSA|2\.048 bits<br />3\.072 bits<br />4\.096 bits|HSM do fornecedor|A chave a ser transferida para o HSM gerenciado|
-
+|Chave de destino|
+||RSA|2\.048 bits<br />3\.072 bits<br />4\.096 bits|HSM do fornecedor|A chave a ser transferida para o HSM gerenciado|
+||EC|P-256<br />P-384<br />P-521|HSM do fornecedor|A chave a ser transferida para o HSM gerenciado|
+||Chave simétrica (out-HSM)|128 bits<br />192 bits<br />256 bits|HSM do fornecedor|A chave a ser transferida para o HSM gerenciado|
+||||
 ## <a name="generate-and-transfer-your-key-to-the-managed-hsm"></a>Gerar e transferir sua chave para o HSM gerenciado
 
 Para gerar e transferir sua chave para um HSM gerenciado:

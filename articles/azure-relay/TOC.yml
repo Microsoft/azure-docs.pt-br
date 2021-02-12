@@ -65,9 +65,9 @@
               href: relay-hybrid-connections-node-ws-api-overview.md
     - name: Seguro
       items:
-        - name: Configurar firewall do IP (versão prévia)
+        - name: Configurar firewall do IP
           href: ip-firewall-virtual-networks.md
-        - name: Configurar pontos de extremidade privados (versão prévia)
+        - name: Configurar pontos de extremidade privados
           href: private-link-service.md
     - name: Gerenciar e monitorar
       items:

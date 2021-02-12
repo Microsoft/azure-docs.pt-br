@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a015c3881e2fa51ecfaaba57e6bb6262194012d6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b5ce8e3d6482c13a8ba02065f2a97074610c25bb
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367866"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98877707"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>Linha de base de segurança do Azure para conjuntos de dimensionamento de máquinas virtuais
 
@@ -76,7 +76,7 @@ Você também pode implantar o WAF (firewall do aplicativo Web) do Azure na fren
 
 Você pode usar o acesso à rede just in time da central de segurança do Azure para limitar a exposição de Máquinas Virtuais do Windows aos endereços IP aprovados por um período limitado. Além disso, use a proteção de rede adaptável da central de segurança do Azure para recomendar configurações de NSG que limitam portas e IPs de origem com base no tráfego real e na inteligência contra ameaças.
 
-* [Como configurar a proteção contra DDoS](../virtual-network/manage-ddos-protection.md)
+* [Como configurar a proteção contra DDoS](../ddos-protection/manage-ddos-protection.md)
 
 * [Como implantar o Firewall do Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -284,7 +284,7 @@ Como alternativa, você pode habilitar o e os dados integrados para o Azure Sent
 
 * [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Compreender o workspace do Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+* [Compreender o workspace do Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -318,7 +318,7 @@ Como alternativa, você pode habilitar o e os dados integrados para o Azure Sent
 
 * [Instruções para integração de servidores Linux à central de segurança do Azure](../security-center/quickstart-onboard-machines.md)
 
-* [O link a seguir fornece as diretrizes de segurança recomendadas da Microsoft, que podem servir como uma lista de critérios para o software de vulnerabilidade selecionado](../virtual-machines/linux/security-recommendations.md)
+* [O link a seguir fornece as diretrizes de segurança recomendadas da Microsoft, que podem servir como uma lista de critérios para o software de vulnerabilidade selecionado](../virtual-machines/security-recommendations.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -412,7 +412,7 @@ Para máquinas virtuais do Linux, você pode configurar manualmente o log do con
 
 **Diretrizes**: Use PAWs (estações de trabalho com acesso privilegiado) com a MFA configurada para fazer logon e configurar recursos do Azure.
 
-* [Saiba mais sobre Estações de Trabalho com Acesso Privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Saiba mais sobre Estações de Trabalho com Acesso Privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [Como habilitar a MFA no Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -472,7 +472,7 @@ Para máquinas virtuais do Linux, você pode configurar manualmente o log do con
 
 **Orientação**: definir configurações de diagnóstico para Azure Active Directory enviar os logs de auditoria e os logs de entrada para um espaço de trabalho log Analytics. Além disso, use Azure Monitor para examinar os logs e executar consultas em dados de log de máquinas virtuais do Azure.
 
-* [Compreender o workspace do Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+* [Compreender o workspace do Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Como integrar os logs de atividades do Azure ao Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -612,7 +612,7 @@ A Microsoft usa o protocolo TLS para proteger dados quando está viajando entre 
 
 * [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/platform/alerts-activity-log.md)
 
-* [Registro em log da Análise de Armazenamento do Azure](../storage/common/storage-analytics-logging.md)
+* [Log da análise do Armazenamento do Azure](../storage/common/storage-analytics-logging.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -756,7 +756,7 @@ Atualmente, os controles de aplicativo adaptáveis não estão disponíveis para
 
 * [Uma introdução à Automação do Azure](../automation/automation-intro.md)
 
-* [Controlar alterações no ambiente com a solução Controle de Alterações](../automation/change-tracking.md)
+* [Controlar alterações no ambiente com a solução Controle de Alterações](../automation/change-tracking/overview.md)
 
 * [Visão geral da configuração do estado de automação do Azure](../automation/automation-dsc-overview.md)
 
@@ -848,7 +848,7 @@ Atualmente, os controles de aplicativo adaptáveis não estão disponíveis para
 
 * [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Informações sobre como baixar o modelo de VM](../virtual-machines/windows/download-template.md)
+* [Informações sobre como baixar o modelo de VM](/previous-versions/azure/virtual-machines/windows/download-template)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -892,7 +892,7 @@ Atualmente, os controles de aplicativo adaptáveis não estão disponíveis para
 
 Para a maioria dos cenários, os modelos de VM base da Microsoft combinados com a configuração de estado desejado da automação do Azure podem ajudar na reunião e manutenção dos requisitos de segurança.
 
-* [Informações sobre como baixar o modelo de VM](../virtual-machines/windows/download-template.md)
+* [Informações sobre como baixar o modelo de VM](/previous-versions/azure/virtual-machines/windows/download-template)
 
 * [Informações sobre a criação de modelos do ARM](../virtual-machines/windows/ps-template.md)
 
@@ -974,7 +974,7 @@ Para a maioria dos cenários, os modelos de VM base da Microsoft combinados com 
 
 * [Como integrar com identidades gerenciadas do Azure](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-* [Como criar um Key Vault](../key-vault/secrets/quick-create-portal.md)
+* [Como criar um Key Vault](../key-vault/general/quick-create-portal.md)
 
 * [Como autenticar-se no Key Vault](../key-vault/general/authentication.md)
 
@@ -1036,7 +1036,7 @@ Você precisará de uma ferramenta de terceiros para proteção contra malware n
 
 * [Proteção Avançada contra Ameaças do Microsoft Defender](/windows/security/threat-protection/microsoft-defender-atp/onboard-configure)
 
-* [Como configurar o Microsoft antimalware para serviços de nuvem e máquinas virtuais](../virtual-machines/linux/security-recommendations.md)
+* [Como configurar o Microsoft antimalware para serviços de nuvem e máquinas virtuais](../virtual-machines/security-recommendations.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1188,9 +1188,9 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 **Diretrizes**: siga as regras de envolvimento da Microsoft para garantir que seus testes de penetração não sejam violações das políticas da Microsoft. Use a estratégia da Microsoft e a execução de equipes vermelhas e testes de penetração de sites ativos em infraestrutura de nuvem, serviços e aplicativos gerenciados pela Microsoft.
 
-* [Regras de teste de penetração do Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+* [Regras de participação para testes de penetração](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [Microsoft Cloud o agrupamento vermelho](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+* [Equipes Vermelhas do Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

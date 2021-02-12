@@ -10,203 +10,232 @@ ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: 5da31d45e068f414c8afa38bcb46cdf1f790a9e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7e63ea56edc2b76383ee4c034fd39dd8b8259c1
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843270"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785998"
 ---
-# <a name="automate-the-rotation-of-a-secret-for-resources-with-two-sets-of-authentication-credentials"></a>Automatizar a rotação de um segredo para recursos com dois conjuntos de credenciais de autenticação
+# <a name="automate-the-rotation-of-a-secret-for-resources-that-have-two-sets-of-authentication-credentials"></a>Automatizar a rotação de um segredo para recursos com dois conjuntos de credenciais de autenticação
 
-A melhor maneira de se autenticar nos serviços do Azure é usando uma [identidade gerenciada](../general/authentication.md), mas há alguns cenários em que essa não é uma opção. Nesses casos, são usadas chaves de acesso ou senhas. A rotação das chaves de acesso e das senhas deve ser realizada com frequência.
+A melhor maneira de se autenticar nos serviços do Azure é usando uma [identidade gerenciada](../general/authentication.md), mas há alguns cenários em que essa não é uma opção. Nesses casos, são usadas chaves de acesso ou senhas. Você deve fazer a rotação das chaves de acesso e senhas com frequência.
 
-Este tutorial mostra como automatizar a rotação periódica de segredos para bancos de dados e serviços que usam dois conjuntos de credenciais de autenticação. Especificamente, este tutorial realiza a rotação das senhas da conta de Armazenamento do Azure armazenadas como segredos no Azure Key Vault usando uma função disparada pela notificação da Grade de Eventos do Azure. :
+Este tutorial mostra como automatizar a rotação periódica de segredos para bancos de dados e serviços que usam dois conjuntos de credenciais de autenticação. Especificamente, este tutorial mostra como fazer a rotação das chaves de conta do Armazenamento do Azure armazenadas no Azure Key Vault como segredos. Você usará uma função disparada pela notificação da Grade de Eventos do Azure. 
 
 > [!NOTE]
-> As chaves da conta de armazenamento podem ser gerenciadas automaticamente no Key Vault fornecendo tokens de assinatura de acesso compartilhado para acesso delegado à conta de armazenamento. Há serviços que exigem a cadeia de conexão da conta de armazenamento com a chave de acesso e, para esse cenário, essa solução é recomendada
+> As chaves da conta de armazenamento poderão ser gerenciadas automaticamente no Key Vault se você fornecer tokens de assinatura de acesso compartilhado para acesso delegado à conta de armazenamento. Há serviços que exigem cadeias de conexão de conta de armazenamento com chaves de acesso. Para esse cenário, recomendamos esta solução.
 
-![Diagrama de solução de rotação](../media/secrets/rotation-dual/rotation-diagram.png)
+Aqui está a solução de rotação descrita neste tutorial: 
 
-Na solução acima, o Azure Key Vault armazena as chaves de acesso individuais da conta de Armazenamento como versões do mesmo segredo, alternando entre a chave primária e a secundária nas versões subsequentes. Quando uma chave de acesso é armazenada na versão mais recente do segredo, a chave alternativa é regenerada e adicionada ao Key Vault como uma versão nova e mais recente do segredo. Essa solução fornece um ciclo de rotação inteiro aos aplicativos, a fim de atualizar para a chave regenerada mais recente. 
+![Diagrama que mostra a solução de rotação.](../media/secrets/rotation-dual/rotation-diagram.png)
 
-1. 30 dias antes da data de validade de um segredo, o Key Vault publica o evento de "expiração próxima" na Grade de Eventos.
+Nesta solução, o Azure Key Vault armazena as chaves de acesso individuais da conta de Armazenamento como versões do mesmo segredo, alternando entre a chave primária e a secundária nas versões subsequentes. Quando uma chave de acesso é armazenada na versão mais recente do segredo, a chave alternativa é regenerada e adicionada ao Key Vault como a nova versão mais recente do segredo. A solução fornece um ciclo de rotação inteiro do aplicativo a fim de fazer a atualização para a chave regenerada mais recente. 
+
+1. Trinta dias antes da data de validade de um segredo, o Key Vault publica o evento de expiração próxima na Grade de Eventos.
 1. A Grade de Eventos verifica as assinaturas de eventos e usa HTTP POST para chamar o ponto de extremidade do aplicativo de funções assinado para o evento.
-1. O aplicativo de funções identifica a chave alternativa (diferente da mais recente) e chama a conta de armazenamento para regenerá-la
+1. O aplicativo de funções identifica a chave alternativa (não a mais recente) e chama a conta de armazenamento para regenerá-la.
 1. O aplicativo de funções adiciona nova chave regenerada ao Azure Key Vault como uma nova versão do segredo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Cofre de Chave do Azure
-* Duas contas de Armazenamento do Azure
+* Uma assinatura do Azure. [Crie uma gratuitamente.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Azure [Cloud Shell](https://shell.azure.com/). Este tutorial está usando o portal do Cloud Shell com o PowerShell
+* Azure Key Vault.
+* Duas contas de armazenamento do Azure.
 
-O link de implantação abaixo poderá ser usado se você não tiver um cofre de chaves nem contas de armazenamento existentes:
+Você poderá usar este link de implantação se não tiver um cofre de chaves existente e contas de armazenamento existentes:
 
-[![Imagem mostrando um botão rotulado como "Implantar no Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json)
+[![Link rotulado como Fazer a implantação no Azure.](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2FARM-Templates%2FInitial-Setup%2Fazuredeploy.json)
 
-1. Em **Grupo de recursos**, selecione **Criar**. Nomeie o grupo **akvrotation** e clique em **Ok**.
-1. Selecione **Revisar + Criar**.
-1. Escolha **Criar**
+1. Em **Grupo de recursos**, selecione **Criar**. Nomeie o grupo como **akvrotation** e clique em **Ok**.
+1. Selecione **Examinar + criar**.
+1. Selecione **Criar**.
 
-    ![Criar um grupo de recursos](../media/secrets/rotation-dual/dual-rotation-1.png)
+    ![Captura de tela que mostra como criar um grupo de recursos.](../media/secrets/rotation-dual/dual-rotation-1.png)
 
 Agora você terá um cofre de chaves e duas contas de armazenamento. Você pode verificar essa configuração na CLI do Azure executando o seguinte comando:
 
 ```azurecli
-az resource list -o table -g akvrotation
+az resource list -o table -g vaultrotation
 ```
 
-O resultado terá uma aparência semelhante à da seguinte saída:
+Os resultados serão algo parecido com esta saída:
 
 ```console
 Name                     ResourceGroup         Location    Type                               Status
 -----------------------  --------------------  ----------  ---------------------------------  --------
-akvrotation-kv         akvrotation      eastus      Microsoft.KeyVault/vaults
-akvrotationstorage     akvrotation      eastus      Microsoft.Storage/storageAccounts
-akvrotationstorage2    akvrotation      eastus      Microsoft.Storage/storageAccounts
+vaultrotation-kv         vaultrotation      westus      Microsoft.KeyVault/vaults
+vaultrotationstorage     vaultrotation      westus      Microsoft.Storage/storageAccounts
+vaultrotationstorage2    vaultrotation      westus      Microsoft.Storage/storageAccounts
 ```
 
-## <a name="create-and-deploy-storage-account-key-rotation-function"></a>Criar e implantar a função de rotação de chaves da conta de armazenamento
-> [!IMPORTANT]
-> O modelo abaixo requer que o Key Vault, a Conta de Armazenamento do Azure e o Azure Function estejam no mesmo grupo de recursos
+## <a name="create-and-deploy-the-key-rotation-function"></a>Criar e implantar a função de rotação de chaves
 
-Em seguida, crie um aplicativo de funções com uma identidade gerenciada pelo sistema, juntamente com os outros componentes necessários e, por fim, implante as funções de rotação de chaves da conta de armazenamento
+Em seguida, você criará um aplicativo de funções com uma identidade gerenciada pelo sistema, além dos outros componentes necessários. Você também implantará a função de rotação para as chaves da conta de armazenamento.
 
-As funções de rotação do aplicativo de funções exigem estes componentes e configuração:
+A função de rotação do aplicativo de funções exige os seguintes componentes e a seguinte configuração:
 - Um plano do Serviço de Aplicativo do Azure
-- Uma conta de armazenamento necessária para o gerenciamento de gatilho do aplicativo de funções
+- Uma conta de armazenamento para gerenciar gatilhos do aplicativo de funções
 - Uma política de acesso para acessar segredos no Key Vault
-- Atribuição de uma função do serviço de operador da chave da conta de armazenamento ao aplicativo de funções para acessar as chaves de acesso da conta de armazenamento
-- Funções de rotação de chaves da conta de armazenamento com gatilho de evento e gatilho HTTP (rotação sob demanda)
-- Assinatura de evento da Grade de Eventos para o evento **SecretNearExpiry**
+- A função do serviço de operador da chave da conta de armazenamento atribuída ao aplicativo de funções para que ela possa acessar as chaves de acesso da conta de armazenamento
+- Uma função de rotação de chaves com um gatilho de evento e um gatilho HTTP (rotação sob demanda)
+- Uma assinatura de evento da Grade de Eventos para o evento **SecretNearExpiry**
 
 1. Selecione o link de implantação de modelo do Azure: 
 
-   [![Imagem mostrando um botão rotulado como "Implantar no Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FFunction%2Fazuredeploy.json)
+   [![Link de implantação de modelo do Azure.](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2FARM-Templates%2FFunction%2Fazuredeploy.json)
 
-1. Na lista **Grupo de recursos**, selecione **akvrotation**.
-1. No **Nome da Conta de Armazenamento**, digite o nome da conta de armazenamento com as chaves de acesso cuja rotação deverá ser realizada
-1. No **Nome do Cofre de Chaves**, digite o nome do cofre de chaves
-1. No **Nome do Aplicativo de Funções**, digite o nome do aplicativo de funções
-1. No **Nome do Segredo**, digite o nome do segredo em que as chaves de acesso seriam armazenadas
-1. Na **URL do Repositório**, digite a localização do GitHub do código de função ( **https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell.git** )
-1. Selecione **Revisar + Criar**.
-1. Escolha **Criar**
+1. Na lista **Grupo de recursos**, selecione **vaultrotation**.
+1. Na caixa **GR da Conta de Armazenamento**, insira o nome do grupo de recursos em que sua conta de armazenamento está localizada. Mantenha o valor padrão **[resourceGroup().name]** se sua conta de armazenamento já estiver localizada no mesmo grupo de recursos em que você implantará a função de rotação de chaves.
+1. Na caixa **Nome da Conta de Armazenamento**, insira o nome da conta de armazenamento que contém as chaves de acesso cuja rotação será feita. Mantenha o valor padrão **[concat(resourceGroup().name, 'storage')]** caso use a conta de armazenamento criada em [Pré-requisitos](#prerequisites).
+1. Na caixa **GR do Cofre de Chaves**, insira o nome do grupo de recursos no qual seu cofre de chaves estará localizado. Mantenha o valor padrão **[resourceGroup().name]** se seu cofre de chaves já existir no mesmo grupo de recursos em que você implantará a função de rotação de chaves.
+1. Na caixa **Nome do Cofre de Chaves**, insira o nome do cofre de chaves. Mantenha o valor padrão **[concat(resourceGroup().name, '-kv')]** caso use o cofre de chaves criado em [Pré-requisitos](#prerequisites).
+1. Na caixa **Tipo de Plano do Serviço de Aplicativo**, selecione o plano de hospedagem. O **Plano Premium** será necessário somente quando o cofre de chaves estiver atrás do firewall.
+1. Na caixa **Nome do Aplicativo de Funções**, insira o nome do aplicativo de funções.
+1. Na caixa **Nome do Segredo**, insira o nome do segredo em que você armazenará as chaves de acesso.
+1. Na caixa **URL do Repositório**, insira a localização do GitHub do código de função. Neste tutorial, será possível usar **https://github.com/Azure-Samples/KeyVault-Rotation-StorageAccountKey-PowerShell.git** .
+1. Selecione **Examinar + criar**.
+1. Selecione **Criar**.
 
-   ![Examinar e criar a primeira conta de armazenamento](../media/secrets/rotation-dual/dual-rotation-2.png)
+   ![Uma captura de tela que mostra como criar e implantar uma função.](../media/secrets/rotation-dual/dual-rotation-2.png)
 
-Depois de concluir as etapas anteriores, você terá uma conta de armazenamento, um farm de servidores, um aplicativo de funções e insights do aplicativo. Você deverá ver a tela abaixo depois que a implantação for concluída: ![Implantação concluída](../media/secrets/rotation-dual/dual-rotation-3.png)
+Depois de concluir as etapas anteriores, você terá uma conta de armazenamento, um farm de servidores, um aplicativo de funções e o Application Insights. Quando a implantação estiver concluída, você verá esta página:
+
+   ![Uma captura de tela que mostra se a página Sua implantação está concluída.](../media/secrets/rotation-dual/dual-rotation-3.png)
 > [!NOTE]
-> No caso de qualquer falha, você pode clicar em **reimplantar** para concluir a implantação dos componentes restantes.
+> Se você encontrar uma falha, poderá selecionar **Reimplantar** para concluir a implantação dos componentes.
 
 
-Os modelos de implantação e o código de funções de rotação podem ser encontrados no [GitHub](https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell).
+É possível encontrar modelos de implantação e o código da função de rotação em [Exemplos do Azure](https://github.com/Azure-Samples/KeyVault-Rotation-StorageAccountKey-PowerShell).
 
-## <a name="add-storage-account-access-key-to-key-vault"></a>Adicionar chave de acesso da conta de armazenamento ao Key Vault
+## <a name="add-the-storage-account-access-keys-to-key-vault"></a>Adicionar chaves de acesso da conta de armazenamento ao Key Vault
 
-Primeiro, defina sua política de acesso para conceder as permissões para *gerenciar segredos* a usuários:
-
-```azurecli
-az keyvault set-policy --upn <email-address-of-user> --name akvrotation-kv --secret-permissions set delete get list
-```
-
-Agora você pode criar um segredo, usando uma chave de acesso da conta de armazenamento como valor. Você também precisará da ID do recurso da conta de armazenamento, do período de validade do segredo e da ID da chave a ser adicionada ao segredo, para que a função de rotação possa regenerar a chave na conta de armazenamento.
-
-Recupere a ID do recurso da conta de armazenamento. O valor pode ser encontrado sob a propriedade `id`
-```azurecli
-az storage account show -n akvrotationstorage
-```
-
-Listar as chaves de acesso da conta de armazenamento para recuperar valores de chave
+Primeiro, defina sua política de acesso a fim de conceder à entidade de usuário permissões para **gerenciar segredos**:
 
 ```azurecli
-az storage account keys list -n akvrotationstorage 
+az keyvault set-policy --upn <email-address-of-user> --name vaultrotation-kv --secret-permissions set delete get list
 ```
 
-Popular valores recuperados para **key1Value** e **storageAccountResourceId**
+Agora você pode criar um segredo com uma chave de acesso da conta de armazenamento como valor. Você também precisará da ID do recurso da conta de armazenamento, do período de validade do segredo e da ID da chave a ser adicionada ao segredo para que a função de rotação possa regenerar a chave na conta de armazenamento.
+
+Determine a ID do recurso da conta de armazenamento. É possível encontrar esse valor na propriedade `id`.
 
 ```azurecli
-$tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddThh:mm:ssZ")
-az keyvault secret set --name storageKey --vault-name akvrotation-kv --value <key1Value> --tags "CredentialId=key1" "ProviderAddress=<storageAccountResourceId>" "ValidityPeriodDays=60" --expires $tomorrowDate
+az storage account show -n vaultrotationstorage
 ```
 
-A criação de um segredo com uma data de validade curta publicará um evento `SecretNearExpiry` em questão de minutos, o que, por sua vez, disparará a função para realizar a rotação do segredo.
+Liste as chaves de acesso da conta de armazenamento para que você possa obter os principais valores:
 
-Você pode verificar se as chaves de acesso são regeneradas recuperando e comparando as chaves da conta de armazenamento e o segredo do Key Vault.
-
-Você pode mostrar informações secretas usando o comando abaixo:
 ```azurecli
-az keyvault secret show --vault-name akvrotation-kv --name storageKey
+az storage account keys list -n vaultrotationstorage 
 ```
-Observe que `CredentialId` é atualizado para alternar `keyName` e `value` é regenerado ![Saída de az keyvault secret show para a primeira conta de armazenamento](../media/secrets/rotation-dual/dual-rotation-4.png)
 
-Recuperar chaves de acesso para validar o valor
+Adicione um segredo ao cofre de chaves com uma data de validade definida como amanhã, um período de validade de 60 dias e uma ID de recurso da conta de armazenamento. Execute este comando, usando os valores recuperados para `key1Value` e `storageAccountResourceId`:
+
 ```azurecli
-az storage account keys list -n akvrotationstorage 
+$tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddTHH:mm:ssZ")
+az keyvault secret set --name storageKey --vault-name vaultrotation-kv --value <key1Value> --tags "CredentialId=key1" "ProviderAddress=<storageAccountResourceId>" "ValidityPeriodDays=60" --expires $tomorrowDate
 ```
-![Saída de az storage account keys list para a primeira conta de armazenamento](../media/secrets/rotation-dual/dual-rotation-5.png)
 
-## <a name="add-additional-storage-accounts-for-rotation"></a>Adicionar outras contas de armazenamento para rotação
+O segredo acima disparará o evento `SecretNearExpiry` em alguns minutos. Esse evento disparará uma função para girar o segredo com um término definido como 60 dias. Nessa configuração, o evento 'SecretNearExpiry' disparará a cada 30 dias (30 dias antes da expiração) e a função de rotação alternará a rotação entre key1 e key2.
 
-O mesmo aplicativo de funções pode ser reutilizado para realizar a rotação de várias contas de armazenamento. 
+É possível verificar se as chaves de acesso foram regeneradas recuperando a chave de conta de armazenamento, bem como o segredo do Key Vault e comparando-os.
 
-A adição de outras chaves de conta de armazenamento à função existente para rotação requer:
-- Atribuição de uma função do serviço de operador da chave da conta de armazenamento ao aplicativo de funções para acessar as chaves de acesso da conta de armazenamento
-- Assinatura de evento da Grade de Eventos para o evento **SecretNearExpiry**
+Use este comando para obter as informações secretas:
+```azurecli
+az keyvault secret show --vault-name vaultrotation-kv --name storageKey
+```
+
+Observe que a `CredentialId` é atualizada para o `keyName` alternativo e o `value` é regenerado:
+
+![Uma captura de tela que mostra a saída do comando 'az keyvault secret show' para a primeira conta de armazenamento.](../media/secrets/rotation-dual/dual-rotation-4.png)
+
+Recupere as chaves de acesso para comparar os valores:
+```azurecli
+az storage account keys list -n vaultrotationstorage 
+```
+Observe que o `value` da chave é igual ao segredo do cofre de chaves:
+
+![Captura de tela que mostra a saída do comando a z storage account keys list para a primeira conta de armazenamento.](../media/secrets/rotation-dual/dual-rotation-5.png)
+
+## <a name="add-storage-accounts-for-rotation"></a>Adicionar chaves de armazenamento para rotação
+
+Você pode reutilizar o mesmo aplicativo de funções para fazer a rotação das chaves para várias contas de armazenamento. 
+
+Para adicionar chaves da conta de armazenamento a uma função existente para rotação, você precisa:
+- Da função do serviço de operador da chave da conta de armazenamento atribuída ao aplicativo de funções para que ela possa acessar as chaves de acesso da conta de armazenamento.
+- De uma assinatura de evento da Grade de Eventos para o evento **SecretNearExpiry**.
 
 1. Selecione o link de implantação de modelo do Azure: 
 
-   [![Imagem mostrando um botão rotulado como "Implantar no Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FAdd-Event-Subscription%2Fazuredeploy.json)
+   [![Link de implantação de modelo do Azure.](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2FARM-Templates%2FAdd-Event-Subscriptions%2Fazuredeploy.json)
 
-1. Na lista **Grupo de recursos**, selecione **akvrotation**.
-1. No **Nome da Conta de Armazenamento**, digite o nome da conta de armazenamento com as chaves de acesso cuja rotação deverá ser realizada
-1. No **Nome do Cofre de Chaves**, digite o nome do cofre de chaves
-1. No **Nome do Aplicativo de Funções**, digite o nome do aplicativo de funções
-1. No **Nome do Segredo**, digite o nome do segredo em que as chaves de acesso seriam armazenadas
-1. Selecione **Revisar + Criar**.
-1. Escolha **Criar**
+1. Na lista **Grupo de recursos**, selecione **vaultrotation**.
+1. Na caixa **GR da Conta de Armazenamento**, insira o nome do grupo de recursos em que sua conta de armazenamento está localizada. Mantenha o valor padrão **[resourceGroup().name]** se sua conta de armazenamento já estiver localizada no mesmo grupo de recursos em que você implantará a função de rotação de chaves.
+1. Na caixa **Nome da Conta de Armazenamento**, insira o nome da conta de armazenamento que contém as chaves de acesso cuja rotação será feita.
+1. Na caixa **GR do Cofre de Chaves**, insira o nome do grupo de recursos no qual seu cofre de chaves estará localizado. Mantenha o valor padrão **[resourceGroup().name]** se seu cofre de chaves já existir no mesmo grupo de recursos em que você implantará a função de rotação de chaves.
+1. Na caixa **Nome do Cofre de Chaves**, insira o nome do cofre de chaves.
+1. Na caixa **Nome do Aplicativo de Funções**, insira o nome do aplicativo de funções.
+1. Na caixa **Nome do Segredo**, insira o nome do segredo em que você armazenará as chaves de acesso.
+1. Selecione **Examinar + criar**.
+1. Selecione **Criar**.
 
-   ![Examinar e criar a segunda conta de armazenamento](../media/secrets/rotation-dual/dual-rotation-7.png)
+   ![Captura de tela que mostra como criar uma conta de armazenamento adicional.](../media/secrets/rotation-dual/dual-rotation-7.png)
 
 ### <a name="add-another-storage-account-access-key-to-key-vault"></a>Adicionar outra chave de acesso da conta de armazenamento ao Key Vault
 
-Recupere a ID do recurso da conta de armazenamento. O valor pode ser encontrado sob a propriedade `id`
+Determine a ID do recurso da conta de armazenamento. É possível encontrar esse valor na propriedade `id`.
 ```azurecli
-az storage account show -n akvrotationstorage2
+az storage account show -n vaultrotationstorage2
 ```
 
-Listar as chaves de acesso da conta de armazenamento para recuperar key2Value
+Liste as chaves de acesso da conta de armazenamento para que você possa obter o valor key2:
 
 ```azurecli
-az storage account keys list -n akvrotationstorage2 
+az storage account keys list -n vaultrotationstorage2 
 ```
 
-Popular os valores recuperados para **key2Value** e **storageAccountResourceId**
+Adicione um segredo ao cofre de chaves com uma data de validade definida como amanhã, um período de validade de 60 dias e uma ID de recurso da conta de armazenamento. Execute este comando, usando os valores recuperados para `key2Value` e `storageAccountResourceId`:
 
 ```azurecli
-tomorrowDate=`date -d tomorrow -Iseconds -u | awk -F'+' '{print $1"Z"}'`
-az keyvault secret set --name storageKey2 --vault-name akvrotation-kv --value <key2Value> --tags "CredentialId=key2" "ProviderAddress=<storageAccountResourceId>" "ValidityPeriodDays=60" --expires $tomorrowDate
+$tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddTHH:mm:ssZ")
+az keyvault secret set --name storageKey2 --vault-name vaultrotation-kv --value <key2Value> --tags "CredentialId=key2" "ProviderAddress=<storageAccountResourceId>" "ValidityPeriodDays=60" --expires $tomorrowDate
 ```
 
-Mostre informações secretas usando o comando abaixo:
+Use este comando para obter as informações secretas:
 ```azurecli
-az keyvault secret show --vault-name akvrotation-kv --name storageKey2
+az keyvault secret show --vault-name vaultrotation-kv --name storageKey2
 ```
-Observe que `CredentialId` é atualizado para alternar `keyName` e `value` é regenerado ![Saída de az keyvault secret show para a segunda conta de armazenamento](../media/secrets/rotation-dual/dual-rotation-8.png)
 
-Recuperar chaves de acesso para validar o valor
+Observe que a `CredentialId` é atualizada para o `keyName` alternativo e o `value` é regenerado:
+
+![Uma captura de tela que mostra a saída do comando 'az keyvault secret show' para a segunda conta de armazenamento.](../media/secrets/rotation-dual/dual-rotation-8.png)
+
+Recupere as chaves de acesso para comparar os valores:
 ```azurecli
-az storage account keys list -n akvrotationstorage 
+az storage account keys list -n vaultrotationstorage 
 ```
-![Saída de az storage account keys list para a segunda conta de armazenamento](../media/secrets/rotation-dual/dual-rotation-9.png)
 
-## <a name="available-key-vault-dual-credential-rotation-functions"></a>Funções disponíveis de rotação de credenciais duplas do Key Vault
+Observe que o `value` da chave é igual ao segredo do cofre de chaves:
 
-- [Conta de armazenamento](https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell)
-- [Cache Redis](https://github.com/jlichwa/KeyVault-Rotation-RedisCacheKey-PowerShell)
+![Captura de tela que mostra a saída do comando a z storage account keys list para a segunda conta de armazenamento.](../media/secrets/rotation-dual/dual-rotation-9.png)
 
-## <a name="learn-more"></a>Saiba mais
+## <a name="key-vault-rotation-functions-for-two-sets-of-credentials"></a>Funções de rotação do Key Vault para dois conjuntos de credenciais
+
+Um modelo de funções de rotação para dois conjuntos de credenciais e várias funções prontas para uso:
+
+- [Modelo do projeto](https://serverlesslibrary.net/sample/bc72c6c3-bd8f-4b08-89fb-c5720c1f997f)
+- [Cache Redis](https://serverlesslibrary.net/sample/0d42ac45-3db2-4383-86d7-3b92d09bc978)
+- [Conta de armazenamento](https://serverlesslibrary.net/sample/0e4e6618-a96e-4026-9e3a-74b8412213a4)
+- [Cosmos DB](https://serverlesslibrary.net/sample/bcfaee79-4ced-4a5c-969b-0cc3997f47cc)
+
+> [!NOTE]
+> As funções de rotação acima serão criadas por um membro da comunidade, não pela Microsoft. O Azure Functions da Comunidade não é compatível com nenhum programa ou serviço de suporte da Microsoft. Além disso, ele será disponibilizado no estado atual, sem garantias de qualquer tipo.
+
+## <a name="next-steps"></a>Próximas etapas
+
+- Tutorial: [Rotação de segredos para um conjunto de credenciais](./tutorial-rotation.md)
 - Visão geral: [Monitoramento do Key Vault com a Grade de Eventos do Azure](../general/event-grid-overview.md)
-- Como fazer: [Criar sua primeira função no portal do Azure](../../azure-functions/functions-create-first-azure-function.md)
-- Como fazer: [Receber emails quando o status do cofre de chaves secreto é alterado](../general/event-grid-logicapps.md)
-- [Esquema de eventos da Grade de Eventos do Azure para o Azure Key Vault](../../event-grid/event-schema-key-vault.md)
+- Como fazer: [Criar sua primeira função no portal do Azure](../../azure-functions/functions-get-started.md)
+- Como [Receber emails quando um segredo do Key Vault for alterado](../general/event-grid-logicapps.md)
+- Referência: [Esquema de eventos da Grade de Eventos do Azure para o Azure Key Vault](../../event-grid/event-schema-key-vault.md)

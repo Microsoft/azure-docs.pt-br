@@ -1,19 +1,16 @@
 ---
 title: Endereços IP de gerenciamento do Azure HDInsight
 description: Saiba quais endereços IP você deve permitir o tráfego de entrada, para configurar corretamente grupos de segurança de rede e rotas definidas pelo usuário para rede virtual com o Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 35f2f82b4fe6862f0d023a70b32c964698b0c0eb
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5f694dec6deffde9efb32fefbab91ae3b7a44a2c
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547802"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99490853"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Endereços IP de gerenciamento do HDInsight
 
@@ -28,11 +25,13 @@ Se você usar NSGs (grupos de segurança de rede) ou UDRs (rotas definidas pelo 
 
 Se você precisar de endereços IP para uma região não listada aqui, poderá usar a [API de descoberta de marca de serviço](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) para localizar endereços IP para sua região. Se não for possível usar a API, baixe o [arquivo JSON da marca de serviço](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) e procure a região desejada.
 
+O HDInsight faz a validação para essas regras com a criação e o dimensionamento do cluster para evitar erros adicionais. Se a validação não for aprovada, a criação e o dimensionamento falharão.
+
 As seções a seguir discutem os endereços IP específicos que devem ser permitidos.
 
 ## <a name="azure-dns-service"></a>Serviço DNS do Azure
 
-Se você estiver usando o serviço DNS fornecido pelo Azure, permita o acesso de __168.63.129.16__ na porta 53. Para obter mais informações, consulte o documento [resolução de nomes para VMs e instâncias de função](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) . Se você estiver usando o DNS personalizado, ignore esta etapa.
+Se você estiver usando o serviço DNS fornecido pelo Azure, permita o acesso a __168.63.129.16__ na porta 53 para TCP e UDP. Para obter mais informações, consulte o documento [resolução de nomes para VMs e instâncias de função](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) . Se você estiver usando o DNS personalizado, ignore esta etapa.
 
 ## <a name="health-and-management-services-all-regions"></a>Serviços de integridade e gerenciamento: todas as regiões
 
@@ -57,7 +56,7 @@ Permita o tráfego dos endereços IP listados para os serviços de integridade e
 | Ásia | Leste da Ásia | 23.102.235.122</br>52.175.38.134 | \*: 443 | Entrada |
 | &nbsp; | Sudeste Asiático | 13.76.245.160</br>13.76.136.249 | \*: 443 | Entrada |
 | Austrália | Leste da Austrália | 104.210.84.115</br>13.75.152.195 | \*: 443 | Entrada |
-| &nbsp; | Sudeste da Austrália | 13.77.2.56</br>13.77.2.94 | \*: 443 | Entrada |
+| &nbsp; | Australia Southeast | 13.77.2.56</br>13.77.2.94 | \*: 443 | Entrada |
 | Brasil | Sul do Brasil | 191.235.84.104</br>191.235.87.113 | \*: 443 | Entrada |
 | Canada | Leste do Canadá | 52.229.127.96</br>52.229.123.172 | \*: 443 | Entrada |
 | &nbsp; | Canadá Central | 52.228.37.66</br>52.228.45.222 |\*: 443 | Entrada |
@@ -80,6 +79,7 @@ Permita o tráfego dos endereços IP listados para os serviços de integridade e
 | &nbsp; | Sul do Reino Unido | 51.140.47.39</br>51.140.52.16 | \*: 443 | Entrada |
 | Estados Unidos | Centro dos EUA | 13.89.171.122</br>13.89.171.124 | \*: 443 | Entrada |
 | &nbsp; | Leste dos EUA | 13.82.225.233</br>40.71.175.99 | \*: 443 | Entrada |
+| &nbsp; | Leste dos EUA 2 | 20.44.16.8/29</br>20.49.102.48/29 | \*: 443 | Entrada |
 | &nbsp; | Centro-Norte dos EUA | 157.56.8.38</br>157.55.213.99 | \*: 443 | Entrada |
 | &nbsp; | Centro-Oeste dos EUA | 52.161.23.15</br>52.161.10.167 | \*: 443 | Entrada |
 | &nbsp; | Oeste dos EUA | 13.64.254.98</br>23.101.196.19 | \*: 443 | Entrada |

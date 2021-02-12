@@ -1,19 +1,16 @@
 ---
 title: 'Início Rápido: Criar Apache Kafka com o Azure PowerShell-HDInsight'
 description: Neste início rápido, você aprenderá a criar um cluster Apache Kafka no Azure HDInsight usando o Azure PowerShell. Você também aprenderá sobre tópicos, assinantes e consumidores de Kafka.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 57cbfa356961aca778032b6e3552cffb88b6ab3d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 74fa512711dfb9226fcc88d949f5ddfeb0f9812b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92532995"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942625"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Início Rápido: Criar um cluster do Apache Kafka no Azure HDInsight usando o PowerShell
 
@@ -176,7 +173,7 @@ Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
 
 ## <a name="get-the-apache-zookeeper-and-broker-host-information"></a><a id="getkafkainfo"></a>Obter as informações de host do Apache Zookeeper e do Broker
 
-Ao trabalhar com Kafka, você deve conhecer os hosts do *Apache Zookeeper* e *Broker* . Esses hosts são usados com a API Kafka e muitos dos utilitários fornecidos com o Kafka.
+Ao trabalhar com Kafka, você deve conhecer os hosts do *Apache Zookeeper* e *Broker*. Esses hosts são usados com a API Kafka e muitos dos utilitários fornecidos com o Kafka.
 
 Nesta seção, você obtém as informações do host da API REST do Apache Ambari no cluster.
 
@@ -232,15 +229,15 @@ Nesta seção, você obtém as informações do host da API REST do Apache Ambar
 
 ## <a name="manage-apache-kafka-topics"></a>Gerenciar tópicos do Apache Kafka
 
-O Kafka armazena fluxos de dados em *tópicos* . Você pode usar o utilitário `kafka-topics.sh` para gerenciar tópicos.
+O Kafka armazena fluxos de dados em *tópicos*. Você pode usar o utilitário `kafka-topics.sh` para gerenciar tópicos.
 
-* **Para criar um tópico** , use o seguinte comando para criar uma conexão SSH:
+* **Para criar um tópico**, use o seguinte comando para criar uma conexão SSH:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
     ```
 
-    Esse comando se conecta ao Zookeeper usando as informações de host armazenadas em `$KAFKAZKHOSTS`. Depois, ele cria um tópico Kafka chamado **teste** . 
+    Esse comando se conecta ao Zookeeper usando as informações de host armazenadas em `$KAFKAZKHOSTS`. Depois, ele cria um tópico Kafka chamado **teste**. 
 
     * Os dados armazenados neste tópico são particionados em oito partições.
 
@@ -262,7 +259,7 @@ O Kafka armazena fluxos de dados em *tópicos* . Você pode usar o utilitário `
 
         * Você escalar um cluster verticalmente
 
-* **Para listar os tópicos** , use o seguinte comando:
+* **Para listar os tópicos**, use o seguinte comando:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS
@@ -270,7 +267,7 @@ O Kafka armazena fluxos de dados em *tópicos* . Você pode usar o utilitário `
 
     Esse comando lista os tópicos disponíveis no cluster Kafka.
 
-* **Para excluir um tópico** , use o seguinte comando:
+* **Para excluir um tópico**, use o seguinte comando:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic topicname --zookeeper $KAFKAZKHOSTS
@@ -289,7 +286,7 @@ Para saber mais sobre os comandos disponíveis com o utilitário `kafka-topics.s
 
 ## <a name="produce-and-consume-records"></a>Produzir e consumir registros
 
-O Kafka armazena *registros* nos tópicos. Os registros são produzidos por *produtores* e consumidos por *consumidores* . Os produtores e consumidores se comunicam com o serviço *Agente de Kafka* . Cada nó de trabalho no cluster HDInsight é um host de agente do Kafka.
+O Kafka armazena *registros* nos tópicos. Os registros são produzidos por *produtores* e consumidos por *consumidores*. Os produtores e consumidores se comunicam com o serviço *Agente de Kafka*. Cada nó de trabalho no cluster HDInsight é um host de agente do Kafka.
 
 Para armazenar registros no tópico teste criado anteriormente e lê-los usando um consumidor, use as seguintes etapas:
 

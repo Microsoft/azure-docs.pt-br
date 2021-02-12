@@ -1,6 +1,6 @@
 ---
-title: Analisar sua carga de trabalho
-description: Técnicas para analisar a priorização de consulta para sua carga de trabalho no Azure Synapse Analytics.
+title: Analisar sua carga de trabalho para o pool SQL dedicado
+description: Técnicas para analisar a priorização de consulta para o pool SQL dedicado no Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,20 +11,20 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: c547263be8c61d75491d1517b58c03b6365ef929
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14c3ad30bac7cec4c11822d825323bb9db2ba440
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85208392"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454535"
 ---
-# <a name="analyze-your-workload-in-azure-synapse-analytics"></a>Analisar sua carga de trabalho no Azure Synapse Analytics
+# <a name="analyze-your-workload-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Analisar sua carga de trabalho para o pool SQL dedicado no Azure Synapse Analytics
 
-Técnicas para analisar sua carga de trabalho do SQL Synapse no Azure Synapse Analytics. 
+Técnicas para analisar sua carga de trabalho dedicada do pool SQL no Azure Synapse Analytics. 
 
 ## <a name="resource-classes"></a>Classes de recursos
 
-Synapse SQL fornece classes de recursos para atribuir recursos do sistema a consultas.  Para obter mais informações sobre classes de recursos, consulte [classes de recursos & gerenciamento de carga de trabalho](resource-classes-for-workload-management.md).  As consultas aguardarão se a classe de recurso atribuída a uma consulta precisar de mais recursos do que o disponível no momento.
+O pool SQL dedicado fornece classes de recursos para atribuir recursos do sistema a consultas.  Para obter mais informações sobre classes de recursos, consulte [classes de recursos & gerenciamento de carga de trabalho](resource-classes-for-workload-management.md).  As consultas aguardarão se a classe de recurso atribuída a uma consulta precisar de mais recursos do que o disponível no momento.
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>Detecção de consulta enfileirada e outros DMVs
 
@@ -63,7 +63,7 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 ;
 ```
 
-Synapse SQL tem os seguintes tipos de espera:
+O pool SQL dedicado tem os seguintes tipos de espera:
 
 * **LocalQueriesConcurrencyResourceType**: consultas que ficam fora da estrutura de slot de simultaneidade. Consultas DMV e funções de sistema, como `SELECT @@VERSION` , são exemplos de consultas de locais.
 * **UserConcurrencyResourceType**: consultas que ficam dentro da estrutura de slot de simultaneidade. Consultas em tabelas do usuário final representam exemplos que usariam esse tipo de recurso.
@@ -153,4 +153,4 @@ FROM    sys.dm_pdw_wait_stats w
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre como gerenciar usuários de banco de dados e segurança, confira [Proteger um banco de dados no SQL do Synapse](sql-data-warehouse-overview-manage-security.md). Para obter mais informações sobre como as classes de recursos maiores podem melhorar a qualidade do índice columnstore clusterizado, consulte [recriando índices para melhorar a qualidade do segmento](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+Para obter mais informações sobre como gerenciar usuários e segurança de banco de dados, consulte [proteger um pool SQL dedicado (anteriormente conhecido como SQL DW)](sql-data-warehouse-overview-manage-security.md). Para obter mais informações sobre como as classes de recursos maiores podem melhorar a qualidade do índice columnstore clusterizado, consulte [recriando índices para melhorar a qualidade do segmento](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).

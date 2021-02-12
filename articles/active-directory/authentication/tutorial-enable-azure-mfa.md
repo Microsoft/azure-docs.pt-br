@@ -1,37 +1,37 @@
 ---
-title: Habilitar a Autenticação Multifator do Microsoft Azure
-description: Neste tutorial, você aprende como habilitar a Autenticação Multifator do Azure para um grupo de usuários e testar o prompt do fator secundário durante um evento de entrada.
+title: Habilitar a Autenticação Multifator do Azure AD
+description: Neste tutorial, você aprenderá a habilitar a Autenticação Multifator do Azure AD para um grupo de usuários e testar o prompt do fator secundário durante um evento de entrada.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/13/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ddb252d7ba5534269d3da1e14064740690879816
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f2e8bf2ccbf7a53563013c7ba653a6f6e8905337
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963798"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881303"
 ---
-# <a name="tutorial-secure-user-sign-in-events-with-azure-multi-factor-authentication"></a>Tutorial: Proteger eventos de entrada do usuário com a Autenticação Multifator do Azure
+# <a name="tutorial-secure-user-sign-in-events-with-azure-ad-multi-factor-authentication"></a>Tutorial: Proteger eventos de entrada do usuário com a Autenticação Multifator do Azure AD
 
 A MFA (autenticação multifator) é um processo em que um usuário é solicitado durante um evento de entrada para formas adicionais de identificação. Esse prompt pode ser o de inserir um código no celular ou fornecer uma digitalização de impressão digital. Quando você precisar de uma segunda forma de autenticação, a segurança será aprimorada, pois esse fator adicional não será algo fácil de ser obtido ou duplicado por um invasor.
 
-As políticas de Acesso Condicional e Autenticação Multifator do Azure oferecem a flexibilidade para habilitar a MFA para usuários durante eventos de entrada específicos.
+As políticas de Acesso Condicional e Autenticação Multifator do Azure AD oferecem a flexibilidade para habilitar a MFA para usuários durante eventos de entrada específicos. Veja aqui um vídeo sobre [Como configurar e aplicar a autenticação multifator no locatário](https://www.youtube.com/watch?v=qNndxl7gqVM) (**recomendado**)
 
 > [!IMPORTANT]
-> Este tutorial mostra a um administrador como habilitar a Autenticação Multifator do Azure.
+> Este tutorial mostra a um administrador como habilitar a Autenticação Multifator do Azure AD.
 >
-> Se a sua equipe de TI não tiver habilitado a capacidade de usar a Autenticação Multifator do Azure ou se você tiver problemas durante a entrada, entre em contato com o suporte técnico para obter assistência adicional.
+> Se a sua equipe de TI não tiver habilitado a capacidade de usar a Autenticação Multifator do Azure AD ou se você tiver problemas durante a entrada, entre em contato com o suporte técnico para obter assistência adicional.
 
 Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
-> * Criar uma política de Acesso Condicional para habilitar a Autenticação Multifator do Microsoft Azure para um grupo de usuários
+> * Criar uma política de Acesso Condicional para habilitar a Autenticação Multifator do Azure AD para um grupo de usuários
 > * Configurar as condições de política que solicitam MFA
 > * Testar o processo de MFA como um usuário
 
@@ -42,18 +42,18 @@ Para concluir este tutorial, você precisará dos seguintes recursos e privilég
 * Um locatário do Azure AD em funcionamento com pelo menos uma licença de avaliação ou Premium P1 do Azure AD habilitada.
     * Se necessário, [crie um gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Uma conta com privilégios de *administrador global*.
-* Um usuário que não seja administrador com uma senha que você conheça, como *testuser*. Você testa a experiência de Autenticação Multifator do Microsoft Azure usando essa conta neste tutorial.
+* Um usuário que não seja administrador com uma senha que você conheça, como *testuser*. Você testa a experiência de Autenticação Multifator do Azure AD usando essa conta neste tutorial.
     * Se você precisar criar um usuário, confira [Início rápido: Adicionar novos usuários ao Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
-* Um grupo do qual o usuário não administrador seja membro, como *MFA-Test-Group*. Você habilita a Autenticação Multifator do Azure para este grupo neste tutorial.
+* Um grupo do qual o usuário não administrador seja membro, como *MFA-Test-Group*. Você habilita a Autenticação Multifator do Azure AD para este grupo neste tutorial.
     * Se você precisar criar um grupo, confira como [Criar um grupo e adicionar membros no Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## <a name="create-a-conditional-access-policy"></a>Criar uma política de Acesso Condicional
 
-A maneira recomendada de habilitar e usar a Autenticação Multifator do Azure é com políticas de Acesso Condicional. O Acesso Condicional permite criar e definir políticas que reagem à entrada de eventos e solicitam ações adicionais antes que um usuário tenha acesso a um aplicativo ou serviço.
+A maneira recomendada de habilitar e usar a Autenticação Multifator do Azure AD é com políticas de Acesso Condicional. O Acesso Condicional permite criar e definir políticas que reagem à entrada de eventos e solicitam ações adicionais antes que um usuário tenha acesso a um aplicativo ou serviço.
 
 ![Diagrama de visão geral de como o Acesso Condicional funciona para proteger o processo de entrada](media/tutorial-enable-azure-mfa/conditional-access-overview.png)
 
-As políticas de Acesso Condicional podem ser granulares e específicas, com o objetivo de capacitar os usuários a serem produtivos onde e quando quer que seja, mas também proteger sua organização. Neste tutorial, vamos criar uma política básica de Acesso Condicional para solicitar a MFA quando um usuário entrar no portal do Azure. Em um tutorial posterior desta série, você configura a Autenticação Multifator do Azure usando uma política de Acesso Condicional com base em risco.
+As políticas de Acesso Condicional podem ser granulares e específicas, com o objetivo de capacitar os usuários a serem produtivos onde e quando quer que seja, mas também proteger sua organização. Neste tutorial, vamos criar uma política básica de Acesso Condicional para solicitar a MFA quando um usuário entrar no portal do Azure. Em um tutorial posterior desta série, você configurará a Autenticação Multifator do Azure AD usando uma política de Acesso Condicional com base em risco.
 
 Primeiro, crie uma política de Acesso Condicional e atribua seu grupo de usuários de teste da seguinte maneira:
 
@@ -92,23 +92,23 @@ Os controles de acesso permitem definir os requisitos para a concessão de acess
 1. Em *Controles de acesso*, escolha **Conceder** e, em seguida, verifique se o botão de opção **Conceder acesso** está selecionado.
 1. Marque a caixa de seleção **Exigir autenticação multifator** e escolha **Selecionar**.
 
-As políticas de acesso condicional poderão ser definidas como *Somente relatório* se você quiser ver como a configuração afetaria os usuários ou *Desativada* se não desejar a política de uso no momento. Como um grupo de usuários de teste foi direcionado para este tutorial, vamos habilitar a política e testar a Autenticação Multifator do Azure.
+As políticas de acesso condicional poderão ser definidas como *Somente relatório* se você quiser ver como a configuração afetaria os usuários ou *Desativada* se não desejar a política de uso no momento. Como um grupo de usuários de teste foi direcionado para este tutorial, vamos habilitar a política e testar a Autenticação Multifator do Azure AD.
 
 1. Defina a alternância *Habilitar política* para **Ativado**.
 1. Para aplicar a política de Acesso Condicional selecione **Criar**.
 
-## <a name="test-azure-multi-factor-authentication"></a>Testar a Autenticação Multifator do Microsoft Azure
+## <a name="test-azure-ad-multi-factor-authentication"></a>Testar a Autenticação Multifator do Azure AD
 
-Vamos ver sua política de Acesso Condicional e a Autenticação Multifator do Azure em ação. Primeiro, entre em um recurso que não requer MFA, da seguinte maneira:
+Vamos ver sua política de Acesso Condicional e a Autenticação Multifator do Azure AD em ação. Primeiro, entre em um recurso que não requer MFA, da seguinte maneira:
 
 1. Abra uma nova janela do navegador no modo InPrivate ou incógnito e navegue até [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)
 1. Entre com seu usuário de teste não administrador, como *testuser*. Não há nenhum prompt para você concluir a MFA.
 1. Feche a janela do navegador.
 
-Agora, entre no portal do Azure. Como o portal do Azure foi configurado na política de Acesso Condicional para exigir verificação adicional, você recebe um prompt de Autenticação Multifator do Azure.
+Agora, entre no portal do Azure. Como o portal do Azure foi configurado na política de Acesso Condicional para exigir verificação adicional, você recebe um prompt de Autenticação Multifator do Azure AD.
 
 1. Abra uma nova janela do navegador no modo InPrivate ou incógnito e navegue até [https://portal.azure.com](https://portal.azure.com).
-1. Entre com seu usuário de teste não administrador, como *testuser*. Você é solicitado a se registrar e usar a Autenticação Multifator do Microsoft Azure. Siga os prompts para concluir o processo e verifique se você se inscreveu com êxito no portal do Azure.
+1. Entre com seu usuário de teste não administrador, como *testuser*. Você deve se registrar e usar a Autenticação Multifator do Azure AD. Siga os prompts para concluir o processo e verifique se você se inscreveu com êxito no portal do Azure.
 
     ![Siga os prompts do navegador e, em seguida, no prompt de autenticação multifator registrado, faça login](media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-browser-prompt.png)
 
@@ -116,7 +116,7 @@ Agora, entre no portal do Azure. Como o portal do Azure foi configurado na polí
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se você não quiser mais usar a política de Acesso Condicional para habilitar a Autenticação Multifator do Azure configurada como parte deste tutorial, exclua a política seguindo as etapas:
+Se você não quiser mais usar a política de Acesso Condicional para habilitar a Autenticação Multifator do Azure AD configurada como parte deste tutorial, exclua a política seguindo as etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Procure e selecione **Azure Active Directory**. Em seguida, escolha **Segurança** no menu no lado esquerdo.
@@ -125,10 +125,10 @@ Se você não quiser mais usar a política de Acesso Condicional para habilitar 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você habilitou a Autenticação Multifator do Azure usando políticas de Acesso Condicional para um grupo selecionado de usuários. Você aprendeu a:
+Neste tutorial, você habilitou a Autenticação Multifator do Azure AD usando políticas de Acesso Condicional para um grupo selecionado de usuários. Você aprendeu a:
 
 > [!div class="checklist"]
-> * Criar uma política de Acesso Condicional para habilitar a Autenticação Multifator do Microsoft Azure para um grupo de usuários do Azure AD
+> * Criar uma política de Acesso Condicional para habilitar a Autenticação Multifator do Azure AD para um grupo de usuários do Azure AD
 > * Configurar as condições de política que solicitam MFA
 > * Testar o processo de MFA como um usuário
 

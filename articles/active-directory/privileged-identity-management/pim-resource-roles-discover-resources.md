@@ -14,12 +14,12 @@ ms.subservice: pim
 ms.date: 09/29/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be48e6e175beae751003895e60322a458cfbc8bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42d38990289169412f06b0c7e4bcbdf67f688da7
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568073"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539002"
 ---
 # <a name="discover-azure-resources-to-manage-in-privileged-identity-management"></a>Descubra os recursos do Azure para gerenciar no Privileged Identity Management
 
@@ -66,7 +66,7 @@ Ao configurar o Privileged Identity Management para recursos do Azure pela prime
 
     ![Painel de descoberta com um recurso selecionado e a opção de gerenciar recurso realçada](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
 
-1. Se você vir uma mensagem para confirmar a integração do recurso selecionado para gerenciamento, selecione **Sim**.
+1. Se você vir uma mensagem para confirmar a integração do recurso selecionado para gerenciamento, selecione **Sim**. O PIM será então configurado para gerenciar todos os objetos filho novos e existentes sob os recursos.
 
     ![Mensagem confirmando a integração dos recursos selecionados para gerenciamento](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
 

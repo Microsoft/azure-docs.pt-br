@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/24/2020
+ms.date: 11/05/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5deb84cdc2dee61474c9f2bd1f93311d89f8918
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 4e240e8ec53ce007be1a858af7b6e41273ca8831
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92308874"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093631"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>Por quanto tempo o Azure AD armazena dados de relatório?
 
@@ -41,19 +41,13 @@ Neste artigo, você saberá mais sobre as políticas de retenção de dados dos 
 ### <a name="when-is-the-activity-data-available-in-the-azure-portal"></a>Quando os dados da atividade estarão disponíveis no portal do Azure?
 
 - **Imediatamente** -se você já tiver trabalhado com relatórios no portal do Azure.
-- ** Dentro de 2 horas **: se você não tiver ativado os relatórios no portal do Azure.
+- **Dentro de 2 horas**: se você não tiver ativado os relatórios no portal do Azure.
 
 ---
 
 ### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>Em quanto tempo devo ver os dados das atividades após obter uma licença Premium?
 
-Se você já tiver dados de atividades com sua licença gratuita, poderá vê-los imediatamente ao atualizar. Se você não tiver nenhum dado, serão necessários um ou dois dias para os dados serem exibidos nos relatórios depois de atualizar para uma licença premium.
-
----
-
-### <a name="can-i-see-last-months-data-after-getting-an-azure-ad-premium-license"></a>Eu poderei visualizar os dados do último mês, após obter uma licença Premium do Azure AD?
-
-Se você mudou recentemente para uma versão Premium (incluindo uma versão de avaliação), pode inicialmente ver dados de até sete dias. Quando os dados forem acumulados, será possível visualizar os dados dos últimos 30 dias.
+Se você já tiver dados de atividades com sua licença gratuita, poderá vê-los imediatamente ao atualizar. Se você não tiver dados, levará até três dias para que os dados sejam exibidos nos relatórios após a atualização para uma licença Premium.
 
 ---
 
@@ -71,7 +65,7 @@ Para sinais de segurança, o processo de coleção é iniciado quando você acei
 | :--                    | :--           | :--                 | :--                 |
 | Logs de auditoria             | 7 dias        | 30 dias             | 30 dias             |
 | Entradas               | 7 dias        | 30 dias             | 30 dias             |
-| Uso do Azure MFA        | 30 dias       | 30 dias             | 30 dias             |
+| Uso do Azure AD MFA        | 30 dias       | 30 dias             | 30 dias             |
 
 É possível manter os dados da atividade de entrada e de auditoria por mais tempo que o período de retenção padrão descrito acima, roteando-os para uma conta de armazenamento do Azure usando o Azure Monitor. Para obter mais informações, consulte [Arquivar logs do Azure AD em uma conta de armazenamento do Azure](quickstart-azure-monitor-route-logs-to-storage-account.md).
 
@@ -80,6 +74,12 @@ Para sinais de segurança, o processo de coleção é iniciado quando você acei
 | Relatório         | AD do Azure Gratuito | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--            | :--           | :--                 | :--                 |
 | Usuários em risco  | 7 dias        | 30 dias             | 90 dias             |
-| Entradas de risco | 7 dias        | 30 dias             | 90 dias             |
+| Entradas suspeitas | 7 dias        | 30 dias             | 90 dias             |
+
+---
+
+### <a name="can-i-see-last-months-data-after-getting-an-azure-ad-premium-license"></a>Eu poderei visualizar os dados do último mês, após obter uma licença Premium do Azure AD?
+
+**Não**, você não pode. O Azure armazena até sete dias de dados de atividade para uma versão gratuita. Isso significa que, quando você alternar de uma versão gratuita para uma para a Premium, só poderá ver até 7 dias de dados.
 
 ---

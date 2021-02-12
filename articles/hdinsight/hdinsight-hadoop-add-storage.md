@@ -1,19 +1,16 @@
 ---
 title: Adicionar outras contas de armazenamento do Azure ao HDInsight
 description: Saiba como adicionar mais contas de armazenamento do Azure a um cluster HDInsight existente.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 51977c00dc8c9932def89d54ec1b6ec34afad652
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 11852046442901c70112b5e80fef371671546412
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541988"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945932"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adicionar outras contas de armazenamento ao HDInsight
 
@@ -97,7 +94,7 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 1. Em um navegador da Web, navegue até `https://CLUSTERNAME.azurehdinsight.net`, em que `CLUSTERNAME` é o nome do cluster.
 
-1. Navegue até o **HDFS**  >  **configurações**  >  **avançado**  >  **personalizado Core-site** .
+1. Navegue até o **HDFS**  >  **configurações**  >  **avançado**  >  **personalizado Core-site**.
 
 1. Observe as chaves que começam com `fs.azure.account.key` . O nome da conta fará parte da chave, como visto nesta imagem de exemplo:
 
@@ -107,7 +104,7 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 1. Em um navegador da Web, navegue até `https://CLUSTERNAME.azurehdinsight.net`, em que `CLUSTERNAME` é o nome do cluster.
 
-1. Navegue até o **HDFS**  >  **configurações**  >  **avançado**  >  **personalizado Core-site** .
+1. Navegue até o **HDFS**  >  **configurações**  >  **avançado**  >  **personalizado Core-site**.
 
 1. Remova as seguintes chaves:
     * `fs.azure.account.key.<STORAGE_ACCOUNT_NAME>.blob.core.windows.net`
@@ -119,7 +116,7 @@ Depois de remover essas chaves e salvar a configuração, você precisa reinicia
 
 ### <a name="storage-firewall"></a>Firewall de armazenamento
 
-Se você optar por proteger sua conta de armazenamento com as restrições de **redes virtuais e firewalls** em **redes selecionadas** , certifique-se de habilitar a exceção **permitir serviços confiáveis da Microsoft...** para que o HDInsight possa acessar sua conta de armazenamento`.`
+Se você optar por proteger sua conta de armazenamento com as restrições de **redes virtuais e firewalls** em **redes selecionadas**, certifique-se de habilitar a exceção **permitir serviços confiáveis da Microsoft...** para que o HDInsight possa acessar sua conta de armazenamento`.`
 
 ### <a name="unable-to-access-storage-after-changing-key"></a>Não é possível acessar o armazenamento após a alteração da chave
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: duau
-ms.openlocfilehash: fc6e8bcda17f9d788a430ed763bd9f8702eaf250
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d5a888bf132725ff64c2a128b77f0257f435585
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89392911"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184247"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Adicionar, desabilitar, habilitar ou excluir pontos de extremidade
 
@@ -45,7 +45,7 @@ Você também pode desabilitar pontos de extremidade individuais que fazem parte
 7.  Quando a adição de ambos os pontos de extremidade estiver concluída, eles serão exibidos na folha **Perfil do Gerenciador de Tráfego** com seu status de monitoramento como **Online**.
 
 > [!NOTE]
-> Depois de adicionar ou remover um ponto de extremidade de um perfil usando o método de roteamento de tráfego *Failover*, a lista de prioridade de failover poderá não ser ordenada da forma desejada. Você pode ajustar a ordem da Lista de Prioridade de Failover na página de Configuração. Para obter mais informações, consulte [Configurar roteamento de tráfego de Failover](traffic-manager-configure-failover-routing-method.md).
+> Depois de adicionar ou remover um ponto de extremidade de um perfil usando o método de roteamento de tráfego *Failover*, a lista de prioridade de failover poderá não ser ordenada da forma desejada. Você pode ajustar a ordem da Lista de Prioridade de Failover na página de Configuração. Para obter mais informações, consulte [Configurar roteamento de tráfego de Failover](./traffic-manager-configure-priority-routing-method.md).
 
 ## <a name="to-disable-an-endpoint"></a>Para desabilitar um ponto de extremidade
 
@@ -53,7 +53,7 @@ Você também pode desabilitar pontos de extremidade individuais que fazem parte
 2. Na barra de pesquisa do portal, pesquise o nome do **perfil do Gerenciador de Tráfego** que você deseja modificar e clique no perfil do Gerenciador de Tráfego nos resultados exibidos.
 3. Na folha **Perfil do Gerenciador de Tráfego**, na seção **Configurações**, clique em **Pontos de Extremidade**. 
 4. Clique no ponto de extremidade que você deseja desabilitar.
-5. Na folha **Ponto de extremidade**, altere o status de ponto de extremidade para **Desabilitado**e, em seguida, clique em **Salvar**.
+5. Na folha **Ponto de extremidade**, altere o status de ponto de extremidade para **Desabilitado** e, em seguida, clique em **Salvar**.
 6. Os clientes continuam a enviar o tráfego para o ponto de extremidade durante o tempo de vida (TTL). Você pode alterar a TTL na página Configuração do perfil do Gerenciador de Tráfego.
 
 ## <a name="to-enable-an-endpoint"></a>Para habilitar um ponto de extremidade
@@ -62,7 +62,7 @@ Você também pode desabilitar pontos de extremidade individuais que fazem parte
 2. Na barra de pesquisa do portal, pesquise o nome do **perfil do Gerenciador de Tráfego** que você deseja modificar e clique no perfil do Gerenciador de Tráfego nos resultados exibidos.
 3. Na folha **Perfil do Gerenciador de Tráfego**, na seção **Configurações**, clique em **Pontos de Extremidade**. 
 4. Clique no ponto de extremidade que você deseja habilitar.
-5. Na folha **Ponto de extremidade**, altere o status de ponto de extremidade para **Habilitado**e, em seguida, clique em **Salvar**.
+5. Na folha **Ponto de extremidade**, altere o status de ponto de extremidade para **Habilitado** e, em seguida, clique em **Salvar**.
 6. Os clientes continuam a enviar o tráfego para o ponto de extremidade durante o tempo de vida (TTL). Você pode alterar a TTL na página Configuração do perfil do Gerenciador de Tráfego.
 
 ## <a name="to-delete-an-endpoint"></a>Como excluir um ponto de extremidade
@@ -77,8 +77,7 @@ Você também pode desabilitar pontos de extremidade individuais que fazem parte
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Gerenciar perfis do Gerenciador de tráfego](traffic-manager-manage-profiles.md)
-* [Configurar métodos de roteamento](traffic-manager-configure-routing-method.md)
+* [Configurar métodos de roteamento](./traffic-manager-configure-priority-routing-method.md)
 * [Solucionando problemas de estado degradado do Gerenciador de Tráfego](traffic-manager-troubleshooting-degraded.md)
 * [Considerações sobre desempenho do Gerenciador de Tráfego](traffic-manager-performance-considerations.md)
-* [Operações no Gerenciador de Tráfego (referência de API REST)](https://go.microsoft.com/fwlink/p/?LinkID=313584)
-
+* [Operações no Gerenciador de Tráfego (referência de API REST)](/previous-versions/azure/reference/hh758255(v=azure.100))

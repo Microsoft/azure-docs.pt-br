@@ -3,19 +3,19 @@ title: Impedir tradução de conteúdo-Tradutor
 titleSuffix: Azure Cognitive Services
 description: Impedir tradução de conteúdo com o tradutor. O tradutor permite que você marque o conteúdo para que ele não seja traduzido.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.author: swmachan
-ms.openlocfilehash: ec39b3692a90f22409e85b5502d3ea874e3282d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: lajanuar
+ms.openlocfilehash: e89ff3f4c1f54d9e137d3dd51e325b908c826b03
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742053"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897469"
 ---
 # <a name="how-to-prevent-translation-of-content-with-the-translator"></a>Como impedir a tradução de conteúdo com o tradutor
 
@@ -49,14 +49,15 @@ O tradutor permite que você marque o conteúdo para que ele não seja traduzido
    ```html
    <div translate="no">This will not be translated.</div>
    <div>This will be translated. </div>
+   ```
+   
+3. use o [dicionário dinâmico](dynamic-dictionary.md) para prescrever uma tradução específica.
 
-3. Use the [dynamic dictionary](dynamic-dictionary.md) to prescribe a specific translation.
+4. Não transmita a cadeia de caracteres para o tradutor para tradução.
 
-4. Don't pass the string to the Translator for translation.
-
-5. Custom Translator: Use a [dictionary in Custom Translator](custom-translator/what-is-dictionary.md) to prescribe the translation of a phrase with 100% probability.
+5. Tradutor personalizado: Use um [dicionário no Tradutor personalizado](custom-translator/what-is-dictionary.md) para prescrever a tradução de uma frase com uma probabilidade de 100%.
 
 
-## Next steps
+## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
-> [Use the Translate operation to translate text](reference/v3-0-translate.md)
+> [Usar a operação de conversão para traduzir o texto](reference/v3-0-translate.md)

@@ -11,21 +11,23 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: e8f78d6031e57da42e1d69587aedca0763c9fec2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59fa68d12f1d8be598810399fc5623c2af983979
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289065"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462251"
 ---
 # <a name="use-query-labels-in-synapse-sql"></a>Usar rótulos de consulta no SQL Synapse
+
 Estão incluídos neste artigo dicas essenciais para usar rótulos de consulta no SQL Synapse.
 
 > [!NOTE]
-> O SQL sob demanda (versão prévia) não dá suporte a consultas de rotulagem.
+> O pool SQL sem servidor não dá suporte a consultas rotulais.
 
 ## <a name="what-are-query-labels"></a>O que são rótulos de consulta
-O pool SQL dá suporte a um conceito chamado rótulos de consulta. Antes de entrar em qualquer profundidade, vamos examinar um exemplo:
+
+O pool SQL dedicado dá suporte a um conceito chamado rótulos de consulta. Antes de entrar em qualquer profundidade, vamos examinar um exemplo:
 
 ```sql
 SELECT *

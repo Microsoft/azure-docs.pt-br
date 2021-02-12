@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: shuawan
-ms.openlocfilehash: ee5f70f40103a92ff26cfcabc6adf9e2b825b59b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c388bd22ba20dd681997064496a90a81dabb292f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074831"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426717"
 ---
 # <a name="integrate-with-kubernetes-deployment-using-helm"></a>Integrar com a Implantação do Kubernetes usando o Helm
 
@@ -57,10 +57,10 @@ Este tutorial pressupõe uma compreensão básica do gerenciamento de Kubernetes
 3. Selecione **Gerenciador de Configurações**.
 
 4. Clique em **+ Criar** > **Referência do Key Vault** e especifique os seguintes valores:
-    - **Chave**: Selecione **secrets.password**.
-    - **Rótulo**: deixe esse valor em branco.
-    - **Assinatura**, **Grupo de recursos** e **Cofre de chaves**: insira os valores correspondentes àqueles no cofre de chaves criado na etapa anterior.
-    - **Segredo**: selecione o segredo chamado **Password** criado na seção anterior.
+    - **Chave** : Selecione **secrets.password**.
+    - **Rótulo** : deixe esse valor em branco.
+    - **Assinatura** , **Grupo de recursos** e **Cofre de chaves** : insira os valores correspondentes àqueles no cofre de chaves criado na etapa anterior.
+    - **Segredo** : selecione o segredo chamado **Password** criado na seção anterior.
 
 ## <a name="create-helm-chart"></a>Criar gráfico do Helm ##
 Primeiro, crie um gráfico do Helm de exemplo com o comando a seguir
@@ -229,9 +229,9 @@ Verifique se as configurações e os segredos foram definidos com êxito acessan
 
 ![Inicialização local do aplicativo do Início Rápido](./media/kubernetes-dashboard-env-variables.png)
 
-Um segredo, **password**, armazenado como uma referência do Key Vault na Configuração de Aplicativos, também foi adicionado aos Segredos do Kubernetes. 
+Um segredo, **password** , armazenado como uma referência do Key Vault na Configuração de Aplicativos, também foi adicionado aos Segredos do Kubernetes. 
 
-![Inicialização local do aplicativo do Início Rápido](./media/kubernetes-dashboard-secrets.png)
+![Captura de tela que realça a senha na seção Dados.](./media/kubernetes-dashboard-secrets.png)
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

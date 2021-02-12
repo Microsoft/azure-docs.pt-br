@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 49922599adb30e6c631f29b4831fda60cc000a40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa3a6d16b79800043bdcd3f183dd86fa278dd1a9
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360116"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026020"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Integrar com um aplicativo cliente usando o SDK de fala
 
@@ -35,7 +35,7 @@ Você também precisará de:
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) ou superior. Este guia se baseia no Visual Studio 2019.
 > * Uma chave de assinatura do Azure para os Serviços de Fala. [Obtenha um gratuitamente](overview.md#try-the-speech-service-for-free) ou crie-o no [portal do Azure](https://portal.azure.com)
-> * [Habilitar o dispositivo para desenvolvimento](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
+> * [Habilitar o dispositivo para desenvolvimento](/windows/uwp/get-started/enable-your-device-for-development)
 
 ## <a name="step-1-publish-custom-commands-application"></a>Etapa 1: publicar o aplicativo de comandos personalizados
 
@@ -43,7 +43,7 @@ Você também precisará de:
 1. Vá para **configurações**, selecione **recurso Luis**
 1. Se o **recurso de previsão** não for atribuído, selecione uma chave de previsão de consulta ou crie uma nova
 
-    A chave de previsão de consulta sempre é necessária antes de publicar um aplicativo. Para obter mais informações sobre os recursos do LUIS, consulte [Create Luis Resource](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription)
+    A chave de previsão de consulta sempre é necessária antes de publicar um aplicativo. Para obter mais informações sobre os recursos do LUIS, consulte [Create Luis Resource](../luis/luis-how-to-azure-subscription.md)
 
 1. Volte para edição de comandos, selecione **publicar**
 
@@ -404,7 +404,7 @@ Adicione a fonte code-behind da seguinte maneira:
 
 1. Na barra de menus, escolha **arquivo**  >  **salvar tudo** para salvar suas alterações
 
-## <a name="try-it-out"></a>Experimentar
+## <a name="try-it-out"></a>Experimente
 
 1. Na barra de menus, escolha **Compilar** > **Compilar Solução** para compilar o aplicativo. O código deve compilar sem erros.
 
@@ -416,7 +416,7 @@ Adicione a fonte code-behind da seguinte maneira:
 
    ![Solicitação de permissão de acesso ao microfone](media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
-1. Selecione **falar**e fale uma frase ou sentença em inglês no microfone do seu dispositivo. Sua fala será transmitida para o canal de Fala do Direct Line e transcrita em texto, que será exibida na janela.
+1. Selecione **falar** e fale uma frase ou sentença em inglês no microfone do seu dispositivo. Sua fala será transmitida para o canal de Fala do Direct Line e transcrita em texto, que será exibida na janela.
 
 ## <a name="next-steps"></a>Próximas etapas
 

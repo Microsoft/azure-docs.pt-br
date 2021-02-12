@@ -3,7 +3,7 @@ title: Tutorial – Criar pacote de acesso – gerenciamento de direitos do Azur
 description: Tutorial passo a passo sobre como criar seu primeiro pacote de acesso no gerenciamento de direitos do Azure Active Directory.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
 ms.date: 09/30/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4030dedfb0d7308bb5a0f7a86bc49ee168e6d0c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 2625b1e0ccc4c3129f412eff144f47d9dc97b961
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362800"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937902"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Tutorial: Criar seu primeiro pacote de acesso no gerenciamento de direitos do Azure AD
 
@@ -117,8 +117,9 @@ Um *pacote de acesso* é um pacote de recursos de que uma equipe ou projeto prec
 11. Na lista suspensa **Função**, selecione **Membro**.
 
     ![Novo pacote de acesso – Guia Funções de recurso](./media/entitlement-management-access-package-first/resource-roles.png)
+
     >[!IMPORTANT]
-    >Os grupos atribuíveis a funções adicionados a um pacote de acesso serão indicados usando o subtipo **Atribuível a funções**. Confira [Criar um grupo atribuível a função](../roles/groups-create-eligible.md) no Azure Active Directory para obter mais detalhes sobre os grupos atribuíveis a funções do Azure AD. Se não vir um grupo atribuível a funções que deseja adicionar ou se não puder adicioná-lo, verifique se você tem a função de gerenciamento de direitos e a função do Azure AD necessárias para executar essa operação. Talvez seja necessário solicitar que alguém com as funções necessárias adicione o recurso ao seu catálogo. Para obter mais informações, confira [Funções necessárias para adicionar recursos a um catálogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
+    >Os grupos atribuíveis a funções adicionados a um pacote de acesso serão indicados usando o subtipo **Atribuível a funções**. Confira [Criar um grupo atribuível a função](../roles/groups-create-eligible.md) no Azure Active Directory para obter mais detalhes sobre os grupos atribuíveis a funções do Azure AD. Tenha em mente que, uma vez que um grupo de atribuição de função está presente em um catálogo de pacotes de acesso, os usuários administrativos capazes de realizar o gerenciamento de direitos, incluindo administradores globais, administradores de usuários e proprietários do catálogo, poderão controlar os pacotes de acesso no catálogo, permitindo que eles escolham quem pode ser adicionado a esses grupos. Se não vir um grupo atribuível a funções que deseja adicionar ou se não puder adicioná-lo, verifique se você tem a função de gerenciamento de direitos e a função do Azure AD necessárias para executar essa operação. Talvez seja necessário solicitar que alguém com as funções necessárias adicione o recurso ao seu catálogo. Para obter mais informações, confira [Funções necessárias para adicionar recursos a um catálogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
     >[!NOTE]
     > Ao usar [grupos dinâmicos](../enterprise-users/groups-create-rule.md), você não verá outras funções disponíveis além do proprietário. Isso ocorre por design.

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 4dd592cb1b0037e2e1054bb24d987d4456f15e2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d90c9b9b2c9aa97083e17d5ab7d20fc6b471658
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380616"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94492116"
 ---
 # <a name="how-to-configure-your-saas-offer-properties"></a>Como configurar suas propriedades de oferta de SaaS
 
@@ -23,16 +23,16 @@ Na guia **Propriedades** , você definirá as categorias e os setores aplicávei
 
 ## <a name="select-a-category-for-your-offer"></a>Selecione uma categoria para sua oferta
 
-Em **categoria**, selecione pelo menos uma e até duas categorias para agrupar sua oferta nas áreas de pesquisa do Marketplace apropriadas. Com base nas categorias escolhidas, determinamos quais lojas online listam sua oferta: o Azure Marketplace, o Microsoft AppSource ou ambos.
+Em **categoria** , selecione pelo menos uma e até duas categorias para agrupar sua oferta nas áreas de pesquisa do Marketplace apropriadas. Com base nas categorias escolhidas, determinamos quais lojas online listam sua oferta: o Azure Marketplace, o Microsoft AppSource ou ambos.
 
 ## <a name="select-industries-optional"></a>Selecionar setores (opcional)
 
-Em **setores**, você pode selecionar até dois setores e até dois submercados (também chamados de verticais) para cada setor. Esses setores são usados para exibir sua oferta quando os clientes filtram sua pesquisa em setores e subsetors na loja online.
+Em **setores** , você pode selecionar até dois setores e até dois submercados (também chamados de verticais) para cada setor. Esses setores são usados para exibir sua oferta quando os clientes filtram sua pesquisa em setores e subsetors na loja online.
 
 > [!NOTE]
 > Se sua oferta não for específica do setor, deixe esta seção em branco.
 
-1. Em **setores**, selecione o link **+ indústrias** .
+1. Em **setores** , selecione o link **+ indústrias** .
 1. Selecione um setor na lista do **setor** .
 1. Selecione pelo menos um e no máximo dois verticais **da lista de subsetors** . Use a tecla CTRL para selecionar vários subsetors.
 1. Para adicionar outro setor e vertical, selecione **+ setores** e repita as etapas de 1 a 3.
@@ -43,7 +43,7 @@ Em **setores**, você pode selecionar até dois setores e até dois submercados 
 
 ## <a name="provide-terms-and-conditions"></a>Fornecer termos e condições
 
-Sob **legal**, forneça os termos e condições para sua oferta. Você tem duas opções:
+Sob **legal** , forneça os termos e condições para sua oferta. Você tem duas opções:
 
 - [Use o contrato padrão com emendas opcionais](#use-the-standard-contract)
 - [Usar seus termos e condições](#use-your-own-terms-and-conditions)
@@ -73,7 +73,7 @@ Nos **termos de emendas universais para o contrato padrão da caixa do Marketpla
 
 #### <a name="add-one-or-more-custom-amendments"></a>Adicionar uma ou mais emendas personalizadas
 
-1. Em **termos de emendas personalizadas ao contrato padrão do Marketplace comercial da Microsoft**, selecione o link **Adicionar termo de emenda personalizada (máx. 10)** .
+1. Em **termos de emendas personalizadas ao contrato padrão do Marketplace comercial da Microsoft** , selecione o link **Adicionar termo de emenda personalizada (máx. 10)** .
 1. Na caixa **termos personalizados de emenda** , insira seus termos de emenda.
 1. Na caixa **ID do locatário** , insira uma ID de locatário. Somente os clientes associados às IDs de locatário que você especificar para esses termos personalizados poderão vê-los no fluxo de compra da oferta na portal do Azure.
    > [!TIP]
@@ -87,12 +87,8 @@ Nos **termos de emendas universais para o contrato padrão da caixa do Marketpla
 
 Você pode optar por fornecer seus próprios termos e condições, em vez do contrato Standard. Os clientes precisam aceitar esses termos antes de poderem experimentar sua oferta.
 
-1. Em **ofício**, verifique se a caixa de seleção **usar o contrato padrão para o Marketplace comercial da Microsoft** está desmarcada.
+1. Em **ofício** , verifique se a caixa de seleção **usar o contrato padrão para o Marketplace comercial da Microsoft** está desmarcada.
 1. Na caixa **termos e condições** , insira até 10.000 caracteres de texto.
-
-   > [!NOTE]
-   > Se você precisar de uma descrição mais longa, insira um único endereço Web que aponte para onde os termos e condições podem ser encontrados. Ele será exibido aos clientes como um link ativo.
-
 1. Selecione **salvar rascunho** antes de continuar para a próxima guia, **lista de ofertas**.
 
 ## <a name="next-steps"></a>Próximas etapas

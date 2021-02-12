@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 3c404f0028705754a68be113a331132eec02f7cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff54d605fd81fa640314d99359f1aabacf7a469e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91304025"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350374"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Tutorial: Criar um aplicativo de página única usando a API de Pesquisa na Web do Bing
+
+> [!WARNING]
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisaram ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Este aplicativo de página única demonstra como recuperar, analisar e exibir os resultados da pesquisa com base na API de Pesquisa na Web do Bing. O tutorial usa o HTML e CSS clichês e concentra-se no código JavaScript. Arquivos HTML, CSS e JS estão disponíveis no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) com instruções de início rápido.
 
@@ -31,7 +36,7 @@ Este aplicativo de exemplo pode:
 > * Gerenciar chaves de assinatura
 > * Tratar erros
 
-Para usar este aplicativo, é necessária uma [conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com APIs de Pesquisa do Bing.
+Para usar este aplicativo, é necessária uma [conta dos Serviços Cognitivos do Azure](../cognitive-services-apis-create-account.md) com APIs de Pesquisa do Bing.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -81,7 +86,7 @@ O `index.html` inclui um formulário que permite que os usuários pesquisem e se
 
 ## <a name="query-options"></a>Opções de consulta
 
-O formulário HTML inclui opções mapeadas para parâmetros de consulta na [API de Pesquisa na Web do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters). Esta tabela fornece um detalhamento de como os usuários podem filtrar os resultados da pesquisa usando o aplicativo de exemplo:
+O formulário HTML inclui opções mapeadas para parâmetros de consulta na [API de Pesquisa na Web do Bing v7](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters). Esta tabela fornece um detalhamento de como os usuários podem filtrar os resultados da pesquisa usando o aplicativo de exemplo:
 
 | Parâmetro | Descrição |
 |-----------|-------------|
@@ -94,7 +99,7 @@ O formulário HTML inclui opções mapeadas para parâmetros de consulta na [API
 | `offset` | Campo oculto. O deslocamento do primeiro resultado da pesquisa na solicitação, usado para paginação. Ele é redefinido para `0` com cada nova solicitação. |
 
 > [!NOTE]
-> A API de Pesquisa na Web do Bing oferece parâmetros de consulta adicionais para ajudar a refinar os resultados da pesquisa. Este exemplo usa apenas alguns. Para obter uma lista completa de parâmetros disponíveis, consulte [Referência da API de Pesquisa na Web do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters).
+> A API de Pesquisa na Web do Bing oferece parâmetros de consulta adicionais para ajudar a refinar os resultados da pesquisa. Este exemplo usa apenas alguns. Para obter uma lista completa de parâmetros disponíveis, consulte [Referência da API de Pesquisa na Web do Bing v7](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters).
 
 A função `bingSearchOptions()` converte essas opções para corresponder ao formato exigido pela API de Pesquisa do Bing.
 
@@ -298,7 +303,7 @@ Os erros são tratados por meio da chamada a `renderErrorMessage()`. Se a respos
 
 ## <a name="display-search-results"></a>Exibir os resultados da pesquisa
 
-Há [requisitos de uso e de exibição](useanddisplayrequirements.md) para os resultados retornados pela API de Pesquisa na Web do Bing. Como uma resposta pode incluir vários tipos de resultado, não é suficiente iterar por meio da coleção `WebPages` de nível superior. Em vez disso, o aplicativo de exemplo usa `RankingResponse` para ordenar os resultados de acordo com a especificação.
+Há [requisitos de uso e de exibição](./use-display-requirements.md) para os resultados retornados pela API de Pesquisa na Web do Bing. Como uma resposta pode incluir vários tipos de resultado, não é suficiente iterar por meio da coleção `WebPages` de nível superior. Em vez disso, o aplicativo de exemplo usa `RankingResponse` para ordenar os resultados de acordo com a especificação.
 
 > [!NOTE]
 > Se você desejar um tipo de resultado único, use o parâmetro de consulta `responseFilter` ou considere usar um dos outros pontos de extremidade da Pesquisa do Bing, como a Pesquisa de Imagem do Bing.

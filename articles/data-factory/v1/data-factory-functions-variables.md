@@ -2,20 +2,20 @@
 title: Funções Data Factory e variáveis do sistema
 description: Fornece uma lista de funções do Azure Data Factory e variáveis do sistema
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: cbc7fd22915af1c9645d915a9898679a3a7c30d0
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 9b5f91655367e866858a04b941cec4ee61dfe180
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631505"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495643"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - Funções e Variáveis do Sistema
 > [!NOTE]
@@ -37,7 +37,7 @@ Este artigo fornece informações sobre funções e variáveis com suporte no Az
 > 
 
 ### <a name="example-for-using-a-system-variable"></a>Exemplo para usar uma variável de sistema
-No exemplo a seguir, o ano, o mês, o dia e a hora de **SliceStart** são extraídos em variáveis separadas que são usadas pelas propriedades **folderPath** e **fileName** .
+No exemplo a seguir, o ano, o mês, o dia e a hora de **SliceStart** são extraídos em variáveis separadas que são usadas pelas propriedades **folderPath** e **fileName**.
 
 ```json
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
@@ -61,7 +61,7 @@ Você pode usar funções no Data Factory junto com as variáveis do sistema par
    
     $$ não é necessário para especificar expressões de dependência de entrada.     
 
-No exemplo a seguir, a propriedade **sqlReaderQuery** em um arquivo JSON é atribuída a um valor retornado pela função `Text.Format`. Este exemplo também usa uma variável de sistema chamada **WindowStart** , que representa a hora de início da janela de execução de atividade.
+No exemplo a seguir, a propriedade **sqlReaderQuery** em um arquivo JSON é atribuída a um valor retornado pela função `Text.Format`. Este exemplo também usa uma variável de sistema chamada **WindowStart**, que representa a hora de início da janela de execução de atividade.
 
 ```json
 {
@@ -175,7 +175,7 @@ No exemplo a seguir, o parâmetro DateTime da Atividade de Procedimento Armazena
 }
 ```
 
-### <a name="example-3"></a>Exemplo 3:
+### <a name="example-3"></a>Exemplo 3
 Para ler dados do dia anterior em vez do dia representado pelo SliceStart, use a função AddDays conforme mostrado no exemplo a seguir: 
 
 ```json

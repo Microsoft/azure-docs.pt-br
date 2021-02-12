@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: baa6e10d33d1c0a1a9c367baa8888fdfb5a47c01
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: df74a15a84ba04addb75b021d3b77b06cfe2ea48
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746229"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96781106"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Cenários de Azure Disk Encryption em VMs Windows
 
@@ -123,7 +123,7 @@ Use o comando [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryptio
 É possível habilitar a criptografia de disco em VMs do Windows da IaaS em execução ou existentes no Azure usando o [modelo do Resource Manager para criptografar uma VM do Windows em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad).
 
 
-1. No modelo de início rápido do Azure, clique em **Implantar no Azure** .
+1. No modelo de início rápido do Azure, clique em **Implantar no Azure**.
 
 2. Selecione a assinatura, o grupo de recursos, o local, as configurações, os termos legais e o contrato. Clique em **Comprar** para habilitar a criptografia na VM da IaaS em execução ou existente.
 
@@ -135,7 +135,7 @@ A tabela a seguir lista os parâmetros de modelo do Resource Manager existentes 
 | keyVaultName | Nome do cofre de chaves no qual a chave do BitLocker deve ser carregada. É possível obtê-lo, usando o cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` ou o comando `az keyvault list --resource-group "MyKeyVaultResourceGroup"` da CLI do Azure|
 | keyVaultResourceGroup | Nome do grupo de recursos que contém o cofre de chaves|
 |  keyEncryptionKeyURL | A URL da chave de criptografia de chave, no formato https:// &lt; keyvault-name &gt; . Vault.Azure.net/Key/ &lt; Key-Name &gt; . Se você não quiser usar um KEK, deixe esse campo em branco. |
-| volumeType | Tipo de volume em que a operação de criptografia é executada. Os valores válidos são _OS_ , _Data_ e _All_ . 
+| volumeType | Tipo de volume em que a operação de criptografia é executada. Os valores válidos são _OS_, _Data_ e _All_. 
 | forceUpdateTag | Passe um valor exclusivo como um GUID sempre que a execução da operação precise ser forçada. |
 | resizeOSDisk | A partição do SO deve ser redimensionada para ocupar o VHD do SO completo antes de dividir o volume do sistema. |
 | local | Local de todos os recursos. |
@@ -264,8 +264,10 @@ Azure Disk Encryption não funciona para os seguintes cenários, recursos e tecn
 - Criar uma imagem ou um instantâneo de uma VM criptografada e usá-la para implantar VMs adicionais.
 - VMs Gen2 (consulte: [suporte para VMs de geração 2 no Azure](../generation-2.md#generation-1-vs-generation-2-capabilities))
 - VMs da série M com discos Acelerador de Gravação.
-- Aplicando ADE a uma VM que tem discos criptografados com [criptografia do lado do servidor com chaves gerenciadas pelo cliente](disk-encryption.md) (SSE + CMK). A aplicação de SSE + CMK a um disco de dados em uma VM criptografada com ADE também é um cenário sem suporte.
-- Migrar uma VM criptografada com ADE ou **já** foi criptografada com Ade, para a [criptografia do lado do servidor com chaves gerenciadas pelo cliente](disk-encryption.md).
+- Aplicando ADE a uma VM que tem discos criptografados com [criptografia do lado do servidor com chaves gerenciadas pelo cliente](../disk-encryption.md) (SSE + CMK). A aplicação de SSE + CMK a um disco de dados em uma VM criptografada com ADE também é um cenário sem suporte.
+- Migrar uma VM criptografada com ADE ou **já** foi criptografada com Ade, para a [criptografia do lado do servidor com chaves gerenciadas pelo cliente](../disk-encryption.md).
+- [Tamanhos de VM do Azure sem disco temporário local](../azure-vms-no-temp-disk.md); especificamente, DV4, Dsv4, Ev4 e Esv4.
+- Criptografia de VMs em clusters de failover.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -3,12 +3,12 @@ title: Custo de monitoramento para Azure Monitor para contêineres | Microsoft D
 description: Este artigo descreve o custo de monitoramento para métricas & dados de inventário coletados por Azure Monitor para contêineres para ajudar os clientes a gerenciar o uso e os custos associados.
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: a03e94fa7650c56a4d3b3beda3c27283329aebbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81a20f564af68c3da6d63394e4cffe7caed91b46
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84204643"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903200"
 ---
 # <a name="understand-monitoring-costs-for-azure-monitor-for-containers"></a>Entender os custos de monitoramento para Azure Monitor para contêineres
 
@@ -127,19 +127,21 @@ Usando o [preço](https://azure.microsoft.com/pricing/details/monitor/) padrão 
 
 ## <a name="controlling-ingestion-to-reduce-cost"></a>Controlando a ingestão para reduzir o custo
 
-Considere um cenário em que a unidade de negócios diferente de sua organização compartilha a infraestrutura kubernetes e um espaço de trabalho Log Analytics. Com cada unidade de negócios separada por um namespace kubernetes. Você pode visualizar a quantidade de dados ingerida em cada espaço de trabalho usando uma pasta de trabalho lançada recentemente. A pasta de trabalho **uso de contêineres** , encontrada na [Galeria de pastas de trabalho](../platform/workbooks-overview.md#getting-started), ajuda você a visualizar a origem dos dados sem precisar criar sua própria biblioteca de consultas a partir do que compartilhamos em nossa documentação. Nesta pasta de trabalho, há gráficos com os quais você pode exibir dados faturáveis de tais perspectivas como:
+Considere um cenário em que a unidade de negócios diferente de sua organização compartilha a infraestrutura kubernetes e um espaço de trabalho Log Analytics. Com cada unidade de negócios separada por um namespace kubernetes. Você pode visualizar a quantidade de dados que é ingerida em cada espaço de trabalho usando o runbook de **uso de dados** que está disponível na lista suspensa **exibir pastas de trabalho** .
+
+[![Menu suspenso exibir pastas de trabalho](media/container-insights-cost/workbooks-dropdown.png)](media/container-insights-cost/workbooks-dropdown.png#lightbox)
+
+
+Esta pasta de trabalho ajuda a visualizar a origem dos seus dados sem precisar criar sua própria biblioteca de consultas do que compartilhamos em nossa documentação. Nesta pasta de trabalho, há gráficos com os quais você pode exibir dados faturáveis de tais perspectivas como:
 
 - Total de dados faturáveis ingeridos em GB por solução
-
 - Dados faturáveis ingeridos por logs de contêiner (logs de aplicativo)
-
 - Logs de contêiner Faturável dados ingeridos por namespace kubernetes
-
 - Logs de contêiner Faturável dados ingeridos, separados por nome de cluster
-
 - Dados de log de contêiner Faturável ingeridos pela entrada LogSource
-
 - Dados de diagnóstico Faturável ingeridos por logs de nó mestre de diagnóstico
+
+[![Pasta de trabalho de uso de dados](media/container-insights-cost/data-usage-workbook.png)](media/container-insights-cost/data-usage-workbook.png#lightbox)
 
 Para saber mais sobre como gerenciar direitos e permissões para a pasta de trabalho, examine o [controle de acesso](../platform/workbooks-access-control.md).
 

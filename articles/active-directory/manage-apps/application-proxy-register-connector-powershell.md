@@ -4,7 +4,7 @@ description: Aborda como realizar a instalação autônoma do Conector de roxy d
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5fc1b84e624828d7feb64bd53e8fe8ffff2a7ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ac442e895850de04bedf7673ffe267ac8697d26
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88054827"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258143"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Criar um script de instalação autônoma para o conector de Proxy de Aplicativo do Azure AD
 
@@ -39,7 +39,7 @@ Para que o [conector de proxy de aplicativo](application-proxy-connectors.md) fu
 Há duas etapas para uma instalação autônoma. Primeiro, instale o conector. Segundo, registre o conector com o Azure AD.
 
 > [!IMPORTANT]
-> Se você estiver instalando o conector para a nuvem do Azure governamental, examine os [pré-requisitos](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) e [as etapas de instalação](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud). Isso requer a habilitação do acesso a um conjunto diferente de URLs e um parâmetro adicional para executar a instalação.
+> Se você estiver instalando o conector para a nuvem do Azure governamental, examine os [pré-requisitos](../hybrid/reference-connect-government-cloud.md#allow-access-to-urls) e [as etapas de instalação](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud). Isso requer a habilitação do acesso a um conjunto diferente de URLs e um parâmetro adicional para executar a instalação.
 
 ## <a name="install-the-connector"></a>Instalar o conector
 Use as seguintes etapas para instalar o conector sem registrá-lo:

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 8e9739b705848edd721c9ebe0d36c25dd5b8d80c
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 39b3104f9d6cbc004383bf2c50d07c4dd345fa3c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517765"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353571"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>Tutorial: Integração do Azure Active Directory com o UserVoice
 
@@ -49,11 +49,11 @@ Para configurar a integração do UserVoice com o Azure AD, você precisará adi
 
 **Para adicionar o UserVoice pela galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory** .
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos** .
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Para configurar a integração do UserVoice com o Azure AD, você precisará adi
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **UserVoice** , selecione **UserVoice** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **UserVoice**, selecione **UserVoice** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![UserVoice na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o UserVoice, com base em um usuário de teste chamado **Brenda Fernandes** .
+Nesta seção, você configurará e testará o logon único do Azure AD com o UserVoice, com base em um usuário de teste chamado **Brenda Fernandes**.
 Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do UserVoice.
 
 Para configurar e testar o logon único do AD do Azure com o UserVoice, você precisa concluir os seguintes blocos de construção:
@@ -85,38 +85,38 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o UserVoice, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **UserVoice** , selecione **Logon único** .
+1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **UserVoice**, selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML** .
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica de SAML** , realize as seguintes etapas:
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
     ![Informações de logon único de URLs e Domínio do UserVoice](common/sp-identifier.png)
 
-    a. Na caixa de texto **URL de Logon** , digite uma URL usando o seguinte padrão: `https://<tenantname>.UserVoice.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<tenantname>.UserVoice.com`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<tenantname>.UserVoice.com`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com a [equipe de suporte do cliente do UserVoice](https://www.uservoice.com/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-5. Na seção **Certificado de Autenticação SAML** , clique no botão **Editar** para abrir a caixa de diálogo **Certificado de Autenticação SAML** .
+5. Na seção **Certificado de Autenticação SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Certificado de Autenticação SAML**.
 
     ![Editar o Certificado de Autenticação SAML](common/edit-certificate.png)
 
-6. Na seção **Certificado de Autenticação SAML** , copie a **Impressão Digital** e salve-a no computador.
+6. Na seção **Certificado de Autenticação SAML**, copie a **Impressão Digital** e salve-a no computador.
 
     ![Copiar o valor da Impressão Digital](common/copy-thumbprint.png)
 
-7. Na seção **Configurar o UserVoice** , copie as URLs apropriadas de acordo com suas necessidades.
+7. Na seção **Configurar o UserVoice**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -134,7 +134,7 @@ Para configurar o logon único do Azure AD com o UserVoice, execute as seguintes
    
     ![Seção Configurações no lado do aplicativo](./media/uservoice-tutorial/ic777519.png "Configurações")
 
-3. Na guia **Portal da Web** , na seção **Autenticação de usuário** , clique em **Editar** para abrir a página do diálogo **Editar Autenticação de Usuário** .
+3. Na guia **Portal da Web**, na seção **Autenticação de usuário**, clique em **Editar** para abrir a página do diálogo **Editar Autenticação de Usuário**.
    
     ![Guia Portal Web](./media/uservoice-tutorial/ic777520.png "Portal da Web")
 
@@ -144,19 +144,19 @@ Para configurar o logon único do Azure AD com o UserVoice, execute as seguintes
    
     a. Clique em **SSO (Logon Único)** .
  
-    b. Cole o valor da **URL de Logon** copiado do portal do Azure para a caixa de texto **Entrada Remota de SSO** .
+    b. Cole o valor da **URL de Logon** copiado do portal do Azure para a caixa de texto **Entrada Remota de SSO**.
 
-    c. Cole o valor da **URL de Logoff** copiado do portal do Azure para a **caixa de texto Saída Remota de SSO** .
+    c. Cole o valor da **URL de Logoff** copiado do portal do Azure para a **caixa de texto Saída Remota de SSO**.
  
-    d. Cole o valor da **Impressão digital** copiado do portal do Azure na caixa de texto **Impressão digital de certificado SHA1 atual** .
+    d. Cole o valor de **Impressão Digital** copiado do portal do Azure na caixa de texto **Impressão digital do certificado SHA1 atual**.
     
-    e. Clique em **Salvar Configurações de Autenticação** .
+    e. Clique em **Salvar Configurações de Autenticação**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários** .
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -168,39 +168,39 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes** .
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário** , digite brittasimon@yourcompanydomain.extension. Por exemplo, BrittaSimon@contoso.com
+    b. No campo **Nome de usuário**, digite brittasimon@yourcompanydomain.extension. Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo acesso ao UserVoice.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, **UserVoice** .
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **UserVoice**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **UserVoice** .
+2. Na lista de aplicativos, selecione **UserVoice**.
 
     ![O link do UserVoice na lista de Aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Usuários e grupos** .
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
     ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-uservoice-test-user"></a>Criar usuário de teste do UserVoice
 
@@ -208,19 +208,19 @@ Para permitir que os usuários do Azure AD entrem no UserVoice, eles devem ser p
 
 ### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Para provisionar uma conta de usuário, execute as seguintes etapas:
 
-1. Entre no seu locatário **UserVoice** .
+1. Entre no seu locatário **UserVoice**.
 
-2. Vá para **Configurações** .
+2. Vá para **Configurações**.
    
     ![Configurações](./media/uservoice-tutorial/ic777811.png "Configurações")
 
-3. Clique em **Geral** .
+3. Clique em **Geral**.
 
-4. Clique em **Agentes e permissões** .
+4. Clique em **Agentes e permissões**.
    
     ![Agentes e permissões](./media/uservoice-tutorial/ic777812.png "Agentes e permissões")
 
-5. Clique em **Adicionar administradores** .
+5. Clique em **Adicionar administradores**.
    
     ![Adicionar administradores](./media/uservoice-tutorial/ic777813.png "Adicionar administradores")
 
@@ -228,9 +228,9 @@ Para permitir que os usuários do Azure AD entrem no UserVoice, eles devem ser p
    
     ![Convidar administradores](./media/uservoice-tutorial/ic777814.png "Convidar administradores")
    
-    a. Na caixa de texto Emails, digite o endereço de email da conta que você deseja provisionar e clique em **Adicionar** .
+    a. Na caixa de texto Emails, digite o endereço de email da conta que você deseja provisionar e clique em **Adicionar**.
    
-    b. Clique em **Convidar** .
+    b. Clique em **Convidar**.
 
 > [!NOTE]
 > Você pode usar qualquer outra ferramenta de criação de conta de usuário do UserVoice ou APIs fornecidas pelo UserVoice para provisionar contas de usuário do Azure AD.

@@ -6,11 +6,11 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 04/30/2018
 ms.openlocfilehash: ba69098f32e131714a15923aef64c3f6ba17e18f
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219489"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013302"
 ---
 # <a name="manage-azure-data-lake-analytics-using-account-policies"></a>Gerenciar Azure Data Lake Analytics usando políticas de conta
 
@@ -27,7 +27,7 @@ Para alterar o número de AUs da sua conta do Data Lake Analytics:
 1. No portal do Azure, acesse sua conta do Data Lake Analytics.
 2. Clique em **limites e políticas**.
 3. Em **Máximo de AUs**, mova o controle deslizante para selecionar um valor ou insira o valor na caixa de texto.
-4. Clique em **Salvar**.
+4. Clique em **Save** (Salvar).
 
    > [!NOTE]
    > Se você precisar de mais do que as AUs padrão (250), no portal, clique em **Ajuda + Suporte** para enviar uma solicitação de suporte. O número de AUs disponíveis em sua conta do Data Lake Analytics pode ser aumentado.
@@ -41,7 +41,7 @@ Para alterar o número de trabalhos que podem ser executadas simultaneamente:
 1. No portal do Azure, acesse sua conta do Data Lake Analytics.
 2. Clique em **limites e políticas**.
 3. Em **Número Máximo de Trabalhos em Execução**, mova o controle deslizante para selecionar um valor ou insira o valor na caixa de texto.
-4. Clique em **Salvar**.
+4. Clique em **Save** (Salvar).
 
    > [!NOTE]
    > Se você precisar executar mais do que o número de trabalhos padrão (20) no portal, clique em **Ajuda + Suporte** para enviar uma solicitação de suporte. O número de trabalhos que podem ser executados simultaneamente em sua conta do Data Lake Analytics pode ser aumentado.
@@ -55,7 +55,7 @@ Para alterar o tempo para reter os recursos e metadados de trabalho:
 1. No portal do Azure, acesse sua conta do Data Lake Analytics.
 2. Clique em **limites e políticas**.
 3. Em **Dias para Reter Consultas de Trabalho**, mova o controle deslizante para selecionar um valor ou insira o valor na caixa de texto.  
-4. Clique em **Salvar**.
+4. Clique em **Save** (Salvar).
 
 ## <a name="job-level-policies"></a>Políticas no nível do trabalho
 

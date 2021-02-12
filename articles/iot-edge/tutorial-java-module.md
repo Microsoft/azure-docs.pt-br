@@ -12,12 +12,12 @@ ms.custom:
 - mvc
 - mqtt
 - devx-track-java
-ms.openlocfilehash: d68522d92409cfcba38abeb86f2db7c4b78869e6
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 51b7f6e814a9fad286a934466daeb1ffced225c1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045594"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968053"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>Tutorial: Desenvolver um módulo do IoT Edge do Java para dispositivos Linux
 
@@ -34,7 +34,7 @@ O módulo IoT Edge que criado neste tutorial filtra os dados de temperatura gera
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="solution-scope"></a>Escopo da solução
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este tutorial demonstra como desenvolver um módulo em **Java**, usando o **Visual Studio Code** e como implantá-lo em um **dispositivo Linux**. O IoT Edge não é compatível com módulos do Java para dispositivos Windows.
 
@@ -44,8 +44,6 @@ Use a tabela a seguir para entender suas opções para desenvolver e implantar m
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Use o VS Code para módulos do Java no Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Use o VS Code para módulos do Java no Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
-
-## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de iniciar este tutorial, você deve ter passado pelo tutorial anterior para configurar seu ambiente de desenvolvimento para o desenvolvimento de contêiner do Linux: [Desenvolver módulos do IoT Edge para dispositivos Linux](tutorial-develop-for-linux.md). Ao concluir qualquer um desses tutoriais, você deve ter os seguintes pré-requisitos implementados:
 

@@ -4,12 +4,12 @@ description: Aprenda os conceitos e técnicas do Azure Functions que você preci
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: 9a3c0643f4fc965ff64106758320aeb445aaf9ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd9a517749030f9f99731d36947c4d4ff2f13b01
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85921741"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936729"
 ---
 # <a name="azure-functions-developer-guide"></a>Guia do desenvolvedor do Azure Functions
 No Azure Functions, funções específicas compartilham alguns componentes e conceitos técnicos, independentemente da linguagem ou da associação usada. Antes de aprender detalhes específicos de uma determinada linguagem ou binding, leia esta visão geral que se aplica a todos eles.
@@ -61,7 +61,7 @@ A estrutura de pastas acima é a estrutura padrão (e recomendada) de um aplicat
 > Ao implantar um pacote manualmente, implante seu arquivo _host.json_ e pastas da função diretamente na pasta `wwwroot`. Não inclua a pasta `wwwroot` nas implantações. Caso contrário, você acabará com pastas `wwwroot\wwwroot`.
 
 #### <a name="use-local-tools-and-publishing"></a>Usar ferramentas locais e publicação
-Os aplicativos de funções podem ser criados e publicados com várias ferramentas, incluindo o [Visual Studio](./functions-develop-vs.md), o [Visual Studio Code](functions-create-first-function-vs-code.md), o [IntelliJ](./functions-create-maven-intellij.md), o [Eclipse](./functions-create-maven-eclipse.md) e o [Azure Functions Core Tools](./functions-develop-local.md). Para mais informações, confira [Codificar e testar o Azure Functions localmente](./functions-develop-local.md).
+Os aplicativos de funções podem ser criados e publicados com várias ferramentas, incluindo o [Visual Studio](./functions-develop-vs.md), o [Visual Studio Code](./create-first-function-vs-code-csharp.md), o [IntelliJ](./functions-create-maven-intellij.md), o [Eclipse](./functions-create-maven-eclipse.md) e o [Azure Functions Core Tools](./functions-develop-local.md). Para mais informações, confira [Codificar e testar o Azure Functions localmente](./functions-develop-local.md).
 
 <!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --glenga -->
 
@@ -69,7 +69,7 @@ Os aplicativos de funções podem ser criados e publicados com várias ferrament
 O editor do Functions interno do portal do Azure permite que você atualize o código e o arquivo *function.json* diretamente em linha. Isso é recomendado apenas para pequenas alterações ou provas de conceito. A melhor prática é usar uma ferramenta de desenvolvimento local, como o VS Code.
 
 ## <a name="parallel-execution"></a>Execução paralela
-Quando vários eventos de gatilho ocorrem mais rápido do que um runtime single-threaded de função pode processar, o runtime pode invocar a função várias vezes em paralelo.  Se um aplicativo de funções estiver usando o [Plano de hospedagem de consumo](functions-scale.md#how-the-consumption-and-premium-plans-work), ele poderá escalar horizontalmente de maneira automática.  Cada instância do aplicativo de funções, quer seja executada no Plano de hospedagem de consumo, quer em um [Plano de hospedagem do Serviço de Aplicativo](../app-service/overview-hosting-plans.md) comum, pode processar invocações de função simultâneas em paralelo usando vários threads.  O número máximo de invocações de função simultâneas em cada instância do aplicativo de funções varia com base no tipo de gatilho que está sendo usado, bem como nos recursos usados por outras funções no aplicativo de funções.
+Quando vários eventos de gatilho ocorrem mais rápido do que um runtime single-threaded de função pode processar, o runtime pode invocar a função várias vezes em paralelo.  Se um aplicativo de funções estiver usando o [Plano de hospedagem de consumo](event-driven-scaling.md), ele poderá escalar horizontalmente de maneira automática.  Cada instância do aplicativo de funções, quer seja executada no Plano de hospedagem de consumo, quer em um [Plano de hospedagem do Serviço de Aplicativo](../app-service/overview-hosting-plans.md) comum, pode processar invocações de função simultâneas em paralelo usando vários threads.  O número máximo de invocações de função simultâneas em cada instância do aplicativo de funções varia com base no tipo de gatilho que está sendo usado, bem como nos recursos usados por outras funções no aplicativo de funções.
 
 ## <a name="functions-runtime-versioning"></a>Controle de versão de runtime de funções
 

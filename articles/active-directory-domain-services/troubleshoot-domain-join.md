@@ -2,20 +2,20 @@
 title: Solucionar problemas de ingresso no domínio com Azure AD Domain Services | Microsoft Docs
 description: Saiba como solucionar problemas comuns ao tentar ingressar em um domínio uma VM ou conectar um aplicativo a Azure Active Directory Domain Services e você não pode se conectar ou autenticar no domínio gerenciado.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: ee60b684d64ef49fbb669de8c98203e2df5268bf
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 86d6ca79a12e4706f558e92c3c83c5bddaa99b3c
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967504"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618596"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Solucionar problemas de ingresso no domínio com um Azure Active Directory Domain Services domínio gerenciado
 

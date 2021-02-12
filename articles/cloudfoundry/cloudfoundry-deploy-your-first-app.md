@@ -7,12 +7,12 @@ ms.subservice: workloads
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: 18f9f62ba28595289d37975200352c26788e69cc
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: c8afc4f15f421a7b60b95d09b954e7742c24c66e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040025"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519669"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Implantar seu primeiro aplicativo no Cloud Foundry no Microsoft Azure
 
@@ -41,7 +41,7 @@ cf login -a https://api.SYSTEMDOMAINURL --skip-ssl-validation
 
 Você deverá fazer logon no Cloud Controller. Use as credenciais da conta do administrador que você obteve nas etapas de implantação do marketplace.
 
-O Cloud Foundry fornece *organizações* e *espaços* como namespaces para isolar as equipes e os ambientes em uma implantação compartilhada. A implantação do marketplace PCF inclui a organização padrão *sistema* e um conjunto de espaços criados para conter os componentes base, como o serviço de dimensionamento automático e o Azure Service Broker. Por enquanto, escolha o espaço *sistema* .
+O Cloud Foundry fornece *organizações* e *espaços* como namespaces para isolar as equipes e os ambientes em uma implantação compartilhada. A implantação do marketplace PCF inclui a organização padrão *sistema* e um conjunto de espaços criados para conter os componentes base, como o serviço de dimensionamento automático e o Azure Service Broker. Por enquanto, escolha o espaço *sistema*.
 
 
 ## <a name="create-an-org-and-space"></a>Criar uma organização e um espaço
@@ -64,7 +64,7 @@ cf target -o testorg -s dev
 Agora, quando você implanta um aplicativo, ele é criado automaticamente na nova organização e no novo espaço. Para confirmar se atualmente não existem aplicativos na nova organização/espaço, digite `cf apps` novamente.
 
 > [!NOTE] 
-> Para obter mais informações sobre organizações e espaços e como eles podem ser usados para o RBAC (controle de acesso baseado em função), consulte a [documentação do Cloud Foundry][cf-orgs-spaces-docs].
+> Para obter mais informações sobre organizações e espaços e como eles podem ser usados para Cloud Foundry controle de acesso baseado em função (Cloud Foundry RBAC), consulte a [documentação do Cloud Foundry][cf-orgs-spaces-docs].
 
 ## <a name="deploy-an-application"></a>Implantar um aplicativo
 
@@ -95,7 +95,7 @@ Você pode implantar a maioria dos aplicativos no Cloud Foundry usando o comando
 cf push
 ```
 
-Quando você *envia por push* um aplicativo, o Cloud Foundry detecta o tipo de aplicativo (nesse caso, um aplicativo Java) e identifica suas dependências (nesse caso, o Spring Framework). Em seguida, ele empacota tudo o que é necessário para executar o código em uma imagem de contêiner autônoma, conhecida como *droplet* . Por fim, o Cloud Foundry agenda o aplicativo em um dos computadores disponíveis no ambiente e cria uma URL na qual você pode acessá-lo, que está disponível na saída do comando.
+Quando você *envia por push* um aplicativo, o Cloud Foundry detecta o tipo de aplicativo (nesse caso, um aplicativo Java) e identifica suas dependências (nesse caso, o Spring Framework). Em seguida, ele empacota tudo o que é necessário para executar o código em uma imagem de contêiner autônoma, conhecida como *droplet*. Por fim, o Cloud Foundry agenda o aplicativo em um dos computadores disponíveis no ambiente e cria uma URL na qual você pode acessá-lo, que está disponível na saída do comando.
 
 ![Saída do comando cf push][cf-push-output]
 
@@ -114,7 +114,7 @@ Use a CLI do Cloud Foundry para exibir os logs de um aplicativo pelo nome:
 cf logs hello-spring-cloud
 ```
 
-Por padrão, o comando dos logs usa a *parte final* , que mostra os novos logs conforme eles são gravados. Para ver os novos logs serem exibidos, atualize o aplicativo hello-spring-cloud no navegador.
+Por padrão, o comando dos logs usa a *parte final*, que mostra os novos logs conforme eles são gravados. Para ver os novos logs serem exibidos, atualize o aplicativo hello-spring-cloud no navegador.
 
 Para exibir os logs que já foram gravados, adicione a opção `recent`:
 

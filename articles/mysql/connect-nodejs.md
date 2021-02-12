@@ -1,19 +1,19 @@
 ---
 title: 'Início Rápido: Conectar-se usando o Node.js – Banco de Dados do Azure para MySQL'
 description: Este guia de início rápido fornece vários exemplos de código Node.js que podem ser usados para conectar e consultar dados do banco de dados do Azure para MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 5/26/2020
-ms.openlocfilehash: 48e6a2a6bcf20e22edbf0d2f98607b8310d2f22d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 12/11/2020
+ms.openlocfilehash: 6a9134e13e3145daea1eed81c4aa8795a0a49950
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91307850"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588226"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-mysql"></a>Início Rápido: Usar o Node.js para conectar e consultar dados no Banco de Dados do Azure para MySQL
 
@@ -53,7 +53,13 @@ Dependendo de sua plataforma, siga as instruções na seção apropriada para in
 1. Insira os seguintes comandos para instalar o **Node.js** e o gerenciador de pacotes **npm** para Node.js.
 
    ```bash
-   sudo apt-get install -y nodejs npm
+    # Using Ubuntu
+    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+
+    # Using Debian, as root
+    curl -sL https://deb.nodesource.com/setup_14.x | bash -
+    apt-get install -y nodejs
    ```
 
 2. Execute os seguintes comandos para criar uma pasta de projeto `mysqlnodejs` e instale o pacote do mysql nessa pasta.
@@ -66,14 +72,10 @@ Dependendo de sua plataforma, siga as instruções na seção apropriada para in
    ```
 3. Verifique a instalação conferindo o texto de saída da lista npm. O número de versão pode variar quando novos patches são publicados.
 
-### <a name="mac-os"></a>Mac OS
+### <a name="macos"></a>macOS
 
-1. Insira os seguintes comandos para instalar **brew**, um gerenciador de pacotes fácil de usar para Mac OS X e **Node. js**.
+1. Visite a [página de downloads do Node.js](https://nodejs.org/en/download/) e selecione o instalador do macOS.
 
-   ```bash
-   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-   brew install node
-   ```
 2. Execute os seguintes comandos para criar uma pasta de projeto `mysqlnodejs` e instale o pacote do mysql nessa pasta.
 
    ```bash
@@ -135,38 +137,38 @@ conn.connect(
     {
        console.log("Connection established.");
            queryDatabase();
-    }   
+    }
 });
 
 function queryDatabase(){
-       conn.query('DROP TABLE IF EXISTS inventory;', function (err, results, fields) { 
-            if (err) throw err; 
-            console.log('Dropped inventory table if existed.');
-        })
-       conn.query('CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);', 
+    conn.query('DROP TABLE IF EXISTS inventory;', function (err, results, fields) { 
+        if (err) throw err; 
+        console.log('Dropped inventory table if existed.');
+    })
+        conn.query('CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);', 
             function (err, results, fields) {
                 if (err) throw err;
-            console.log('Created inventory table.');
-        })
-       conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['banana', 150], 
+        console.log('Created inventory table.');
+    })
+    conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['banana', 150], 
             function (err, results, fields) {
                 if (err) throw err;
-            else console.log('Inserted ' + results.affectedRows + ' row(s).');
+        else console.log('Inserted ' + results.affectedRows + ' row(s).');
         })
-       conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['orange', 154], 
+    conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['orange', 154], 
             function (err, results, fields) {
                 if (err) throw err;
-            console.log('Inserted ' + results.affectedRows + ' row(s).');
+        console.log('Inserted ' + results.affectedRows + ' row(s).');
         })
-       conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['apple', 100], 
-        function (err, results, fields) {
+    conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['apple', 100], 
+    function (err, results, fields) {
                 if (err) throw err;
-            console.log('Inserted ' + results.affectedRows + ' row(s).');
+        console.log('Inserted ' + results.affectedRows + ' row(s).');
         })
-       conn.end(function (err) { 
-        if (err) throw err;
-        else  console.log('Done.') 
-        });
+    conn.end(function (err) { 
+    if (err) throw err;
+    else  console.log('Done.') 
+    });
 };
 ```
 
@@ -202,24 +204,24 @@ conn.connect(
         else {
             console.log("Connection established.");
             readData();
-        }   
+        }
     });
 
 function readData(){
-        conn.query('SELECT * FROM inventory', 
-            function (err, results, fields) {
-                if (err) throw err;
-                else console.log('Selected ' + results.length + ' row(s).');
-                for (i = 0; i < results.length; i++) {
-                    console.log('Row: ' + JSON.stringify(results[i]));
-                }
-                console.log('Done.');
-            })
-       conn.end(
-           function (err) { 
-                if (err) throw err;
-                else  console.log('Closing connection.') 
-        });
+    conn.query('SELECT * FROM inventory', 
+        function (err, results, fields) {
+            if (err) throw err;
+            else console.log('Selected ' + results.length + ' row(s).');
+            for (i = 0; i < results.length; i++) {
+                console.log('Row: ' + JSON.stringify(results[i]));
+            }
+            console.log('Done.');
+        })
+    conn.end(
+        function (err) { 
+            if (err) throw err;
+            else  console.log('Closing connection.') 
+    });
 };
 ```
 
@@ -255,7 +257,7 @@ conn.connect(
         else {
             console.log("Connection established.");
             updateData();
-        }   
+        }
     });
 
 function updateData(){
@@ -263,7 +265,7 @@ function updateData(){
             function (err, results, fields) {
                 if (err) throw err;
                 else console.log('Updated ' + results.affectedRows + ' row(s).');
-        })
+           })
        conn.end(
            function (err) { 
                 if (err) throw err;
@@ -304,7 +306,7 @@ conn.connect(
         else {
             console.log("Connection established.");
             deleteData();
-        }   
+        }
     });
 
 function deleteData(){
@@ -312,13 +314,23 @@ function deleteData(){
             function (err, results, fields) {
                 if (err) throw err;
                 else console.log('Deleted ' + results.affectedRows + ' row(s).');
-        })
+           })
        conn.end(
            function (err) { 
                 if (err) throw err;
                 else  console.log('Done.') 
         });
 };
+```
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Para limpar todos os recursos usados durante este guia de início rápido, exclua o grupo de recursos usando o seguinte comando:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

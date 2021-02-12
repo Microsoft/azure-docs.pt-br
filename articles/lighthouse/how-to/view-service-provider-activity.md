@@ -1,14 +1,14 @@
 ---
 title: Exibir atividade do provedor de serviços
 description: Os clientes podem exibir a atividade registrada para ver as ações executadas pelos provedores de serviço por meio do gerenciamento de recursos delegado do Azure.
-ms.date: 10/12/2020
+ms.date: 12/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 56c8b88274909aa55e19a4b364aaa3ace2a0c26d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: dcf177cc41dac846d096607445ff4c3d433620ca
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371079"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356371"
 ---
 # <a name="view-service-provider-activity"></a>Exibir atividade do provedor de serviços
 
@@ -42,6 +42,12 @@ Para obter mais informações, consulte [criar e gerenciar alertas do log de ati
 Você pode criar consultas para analisar sua atividade registrada ou se concentrar em itens específicos. Por exemplo, talvez uma auditoria exija que você relate todas as ações de nível administrativo executadas em uma assinatura. Você pode criar uma consulta para filtrar apenas essas ações e classificar os resultados por usuário, data ou outro valor.
 
 Para obter mais informações, consulte [visão geral das consultas de log no Azure monitor](../../azure-monitor/log-query/log-query-overview.md).
+
+## <a name="view-user-activity-across-domains"></a>Exibir atividade do usuário entre domínios
+
+Você pode exibir a atividade de usuários individuais em vários domínios usando a pasta de trabalho de exemplo [logs de atividades por domínio](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) .
+
+Os resultados podem ser filtrados por nome de domínio. Você também pode aplicar filtros adicionais, como categoria, nível ou grupo de recursos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

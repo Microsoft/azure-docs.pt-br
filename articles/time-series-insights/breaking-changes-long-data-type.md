@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: diviso
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 12/07/2020
 ms.custom: dpalled
-ms.openlocfilehash: 2cf86ed4fd4305a37d27bf7a88e8493821ef085c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f7ac9844bfe7eac7094d3b7fdf653e07f236599
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629090"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780817"
 ---
 # <a name="adding-support-for-long-data-type-in-azure-time-series-insights-gen2"></a>Adicionando suporte para o tipo de dados Long no Azure Time Series Insights Gen2
 
@@ -42,11 +42,11 @@ Dependendo de sua solução e restrições de IoT, talvez você não tenha visib
 - Você pode, de forma preventiva, fazer as alterações recomendadas para todas as marcas numéricas.
 - Você pode rotear temporariamente um subconjunto de eventos para o armazenamento para entender melhor e explorar seu esquema.
 
-Para armazenar eventos, ative a [captura de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) para os hubs de eventos do Azure ou a [rota](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c#azure-storage) do Hub IOT para o armazenamento de BLOBs do Azure.
+Para armazenar eventos, ative a [captura de eventos](../event-hubs/event-hubs-capture-overview.md) para os hubs de eventos do Azure ou a [rota](../iot-hub/iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint) do Hub IOT para o armazenamento de BLOBs do Azure.
 
-Os dados também podem ser observados por meio do [Gerenciador de Hub de eventos](https://marketplace.visualstudio.com/items?itemName=Summer.azure-event-hub-explorer)ou usando o host do processador de [eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send#receive-events).
+Os dados também podem ser observados por meio do [Gerenciador de Hub de eventos](https://marketplace.visualstudio.com/items?itemName=Summer.azure-event-hub-explorer)ou usando o host do processador de [eventos](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md#receive-events).
 
-Se você usar o Hub IoT, vá para [ler mensagens do dispositivo para a nuvem do ponto de extremidade interno](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) para saber como acessar o ponto de extremidade interno.
+Se você usar o Hub IoT, vá para [ler mensagens do dispositivo para a nuvem do ponto de extremidade interno](../iot-hub/iot-hub-devguide-messages-read-builtin.md) para saber como acessar o ponto de extremidade interno.
 
 > [!NOTE]
 > Você poderá enfrentar uma interrupção se não fizer as alterações recomendadas. Por exemplo, as variáveis Time Series Insights afetadas que são acessadas por meio das APIs de consulta ou do Time Series Insights Explorer retornarão **NULL** (ou seja, não mostrar nenhum dado no Gerenciador).
@@ -66,7 +66,7 @@ Se você enviar dados de telemetria de inteiros no momento, seus dados serão di
 
 Seus dados de inteiro gravam em **propertyValue_long**. Dados numéricos ingeridos anteriormente (e ingeridos futuramente) no **propertyValue_double** não são copiados.
 
-Se você quiser consultar dados entre essas duas colunas para a propriedade **PropertyValue** , precisará usar a função escalar de **adesão ()** no TSX. A função aceita argumentos do mesmo **tipo de dados** e retorna o primeiro valor não nulo na lista de argumentos. Para obter mais informações, consulte [Azure Time Series insights conceitos de acesso a dados do Gen2](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#other-functions).
+Se você quiser consultar dados entre essas duas colunas para a propriedade **PropertyValue** , precisará usar a função escalar de **adesão ()** no TSX. A função aceita argumentos do mesmo **tipo de dados** e retorna o primeiro valor não nulo na lista de argumentos. Para obter mais informações, consulte [Azure Time Series insights conceitos de acesso a dados do Gen2](/rest/api/time-series-insights/reference-time-series-expression-syntax#other-functions).
 
 #### <a name="variable-definition-in-tsx---numeric"></a>Definição de variável em TSX-numeric
 
@@ -78,7 +78,7 @@ Se você quiser consultar dados entre essas duas colunas para a propriedade **Pr
 
 [![Captura de tela mostra a caixa de diálogo Adicionar uma nova variável para a variável PropertyValue com um valor personalizado, Numeric.](media/time-series-insights-long-data-type/var-def.png)](media/time-series-insights-long-data-type/var-def.png#lightbox)
 
-Você também pode usar o **adesão ($Event. PropertyValue. Double e toduplo ($Event. PropertyValue. Long))** como a [expressão de série temporal](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)personalizada.
+Você também pode usar o **adesão ($Event. PropertyValue. Double e toduplo ($Event. PropertyValue. Long))** como a [expressão de série temporal](/rest/api/time-series-insights/reference-time-series-expression-syntax)personalizada.
 
 #### <a name="inline-variable-definition-using-tsx-query-apis---numeric"></a>Definição de variável embutida usando APIs de consulta TSX-numeric
 
@@ -126,7 +126,7 @@ Você também pode usar o **adesão ($Event. PropertyValue. Double e toduplo ($E
 }
 ```
 
-Você também pode usar o **adesão ($Event. PropertyValue. Double e toduplo ($Event. PropertyValue. Long))** como a [expressão de série temporal](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)personalizada.
+Você também pode usar o **adesão ($Event. PropertyValue. Double e toduplo ($Event. PropertyValue. Long))** como a [expressão de série temporal](/rest/api/time-series-insights/reference-time-series-expression-syntax)personalizada.
 
 > [!NOTE]
 > Recomendamos que você atualize essas variáveis em todos os locais em que elas possam ser usadas. Esses locais incluem o modelo de série temporal, consultas salvas e consultas de conector de Power BI.
@@ -145,9 +145,9 @@ Se, no momento, você usar variáveis categóricas que mapeiem valores inteiros 
 
 [![Captura de tela mostra a caixa de diálogo Adicionar uma nova variável para a variável PropertyValue com um valor personalizado, categórico.](media/time-series-insights-long-data-type/var-def-cat.png)](media/time-series-insights-long-data-type/var-def-cat.png#lightbox)
 
-Você também pode usar o **adesão ($Event. PropertyValue. Double e toduplo ($Event. PropertyValue. Long))** como a [expressão de série temporal](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)personalizada.
+Você também pode usar o **adesão ($Event. PropertyValue. Double e toduplo ($Event. PropertyValue. Long))** como a [expressão de série temporal](/rest/api/time-series-insights/preview#time-series-expression-and-syntax)personalizada.
 
-Variáveis categóricas ainda exigem que o valor seja de um tipo inteiro. O **DataType** de todos os argumentos em **adesão ()** deve ser do tipo **Long** na [expressão de série temporal personalizada.](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)
+Variáveis categóricas ainda exigem que o valor seja de um tipo inteiro. O **DataType** de todos os argumentos em **adesão ()** deve ser do tipo **Long** na [expressão de série temporal personalizada.](/rest/api/time-series-insights/reference-time-series-expression-syntax)
 
 #### <a name="inline-variable-definition-using-tsx-query-apis---categorical"></a>Definição de variável embutida usando APIs de consulta TSX-categórica
 
@@ -227,7 +227,7 @@ Variáveis categóricas ainda exigem que o valor seja de um tipo inteiro. O **Da
 }
 ```
 
-Variáveis categóricas ainda exigem que o valor seja de um tipo inteiro. O **DataType** de todos os argumentos em **adesão ()** deve ser do tipo **Long** na [expressão de série temporal](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)personalizada.
+Variáveis categóricas ainda exigem que o valor seja de um tipo inteiro. O **DataType** de todos os argumentos em **adesão ()** deve ser do tipo **Long** na [expressão de série temporal](/rest/api/time-series-insights/reference-time-series-expression-syntax)personalizada.
 
 > [!NOTE]
 > Recomendamos que você atualize essas variáveis em todos os locais em que elas possam ser usadas. Esses locais incluem o modelo de série temporal, consultas salvas e consultas de conector de Power BI.

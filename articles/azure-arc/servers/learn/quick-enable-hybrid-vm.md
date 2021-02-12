@@ -2,13 +2,13 @@
 title: Conectar o computador híbrido com os servidores habilitados para Azure Arc
 description: Saiba como se conectar e registrar o seu computador híbrido com os servidores habilitados para Azure Arc.
 ms.topic: quickstart
-ms.date: 09/23/2020
-ms.openlocfilehash: b57f30821a105a99041d8187716b75096116ea8e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 12/15/2020
+ms.openlocfilehash: 68869854cbfcf6d7297137e6239b2229a20c04a1
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91327877"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516793"
 ---
 # <a name="quickstart-connect-hybrid-machine-with-azure-arc-enabled-servers"></a>Início Rápido: Conectar o computador híbrido com os servidores habilitados para Azure Arc
 
@@ -30,6 +30,9 @@ ms.locfileid: "91327877"
 
     * Os servidores habilitados para Azure Arc dão suporte apenas às regiões especificadas [aqui](../overview.md#supported-regions).
 
+> [!WARNING]
+> O nome do host do Linux ou do computador Windows não pode usar nenhuma das palavras reservadas nem marcas no nome. Caso contrário, a tentativa de registrar o computador conectado com o Azure falhará. Confira [Resolver erros de nome de recurso reservado](../../../azure-resource-manager/templates/error-reserved-resource-name.md) para obter uma lista das palavras reservadas.
+
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="register-azure-resource-providers"></a>Registrar provedores de recursos do Azure
@@ -42,34 +45,40 @@ Os servidores habilitados do Azure Arc dependem dos seguintes provedores de recu
 Registre-os usando os seguintes comandos:
 
 ```azurecli-interactive
-az account set --subscription "{Your Subscription Name}"
-az provider register --namespace 'Microsoft.HybridCompute'
-az provider register --namespace 'Microsoft.GuestConfiguration'
+az account set --subscription "{Your Subscription Name}"
+az provider register --namespace 'Microsoft.HybridCompute'
+az provider register --namespace 'Microsoft.GuestConfiguration'
 ```
 
 ## <a name="generate-installation-script"></a>Gerar o script de instalação
 
 O script usado para automatizar o download, a instalação e para estabelecer a conexão com o Azure Arc está disponível no portal do Azure. Para concluir o processo, faça o seguinte:
 
-1. Inicie o serviço do Azure Arc no portal do Azure clicando em **Todos os serviços** e, em seguida, pesquisando e selecionando **Computadores – Azure Arc**.
+1. Inicie o serviço do Azure Arc no portal do Azure clicando em **Todos os serviços** e pesquisando e selecionando **Servidores – Azure Arc**.
 
     :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="Pesquisar os servidores habilitados para Arc em Todos os Serviços" border="false":::
 
-1. Na página **Computadores – Azure Arc**, selecione **Adicionar** no canto superior esquerdo ou a opção **Criar computador – Azure Arc** na parte inferior do painel central.
+1. Na página **Servidores – Azure Arc**, selecione **Adicionar** no canto superior esquerdo.
 
-1. Na página **Selecionar um método**, selecione o bloco **Adicionar computadores usando o script interativo** e, em seguida, selecione **Gerar script**.
+1. Na página **Selecionar um método**, escolha o bloco **Adicionar servidores usando o script interativo** e selecione **Gerar script**.
 
-1. Na página **Gerar script**, selecione a assinatura e o grupo de recursos nos quais você deseja que o computador seja gerenciado no Azure. Selecione uma localização do Azure em que os metadados do computador serão armazenados.
+1. Na página **Gerar script**, selecione a assinatura e o grupo de recursos nos quais você deseja que o computador seja gerenciado no Azure. Selecione uma localização do Azure em que os metadados do computador serão armazenados. Essa localização pode ser a mesma ou uma diferente, assim como ocorre com a localização do grupo de recursos.
 
-1. Na página **Gerar script**, na lista suspensa **Sistema operacional**, selecione o sistema operacional no qual o script será executado.
+1. Na página **Pré-requisitos**, examine as informações e selecione **Avançar: Detalhes do recurso**.
 
-1. Se o computador estiver se comunicando por meio de um servidor proxy para se conectar à Internet, selecione **Próximo: Servidor Proxy**.
+1. Na página **Detalhes do recurso**, forneça o seguinte:
 
-1. Na guia **Servidor proxy**, especifique o endereço IP do servidor proxy ou o nome e o número da porta que o computador usará para se comunicar com o servidor proxy. Digite o valor no formato `http://<proxyURL>:<proxyport>`.
+    1. Na lista suspensa **Grupo de recursos**, selecione o grupo de recursos no qual o computador será gerenciado.
+    1. Na lista suspensa **Região**, selecione a região do Azure que armazenará os metadados dos servidores.
+    1. Na lista suspensa **Sistema operacional**, selecione o sistema operacional no qual o script será configurado para execução.
+    1. Se o computador estiver se comunicando com a Internet por meio de um servidor proxy, especifique o endereço IP do servidor proxy ou o nome e o número da porta que o computador usará para se comunicar com o servidor proxy. Digite o valor no formato `http://<proxyURL>:<proxyport>`.
+    1. Selecione **Avançar: Marcas**.
 
-1. Selecione **Examinar + gerar**.
+1. Na página **Marcas**, examine as **Marcas de localização física** padrão sugeridas e insira um valor ou especifique uma ou mais **Marcas personalizadas** a fim de dar suporte aos seus padrões.
 
-1. Na guia **Examinar + gerar**, examine as informações de resumo e, em seguida, selecione **Baixar**. Se você ainda precisar fazer alterações, selecione **Anterior**.
+1. Selecione **Avançar: Baixar e executar o script**.
+
+1. Na página **Baixar e executar o script**, examine as informações de resumo e selecione **Baixar**. Se você ainda precisar fazer alterações, selecione **Anterior**.
 
 ## <a name="install-the-agent-using-the-script"></a>Instalar o agente usando o script
 
@@ -99,7 +108,7 @@ O script usado para automatizar o download, a instalação e para estabelecer a 
 
 Depois de instalar o agente e configurá-lo para se conectar aos servidores habilitados para Azure Arc, acesse o portal do Azure para verificar se o servidor foi conectado com êxito. Exiba o seu computador no [portal do Azure](https://aka.ms/hybridmachineportal).
 
-:::image type="content" source="./media/quick-enable-hybrid-vm/enabled-machine.png" alt-text="Pesquisar os servidores habilitados para Arc em Todos os Serviços" border="false":::
+:::image type="content" source="./media/quick-enable-hybrid-vm/enabled-machine.png" alt-text="Uma conexão com o computador bem-sucedida" border="false":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

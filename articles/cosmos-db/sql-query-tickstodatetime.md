@@ -3,16 +3,17 @@ title: TicksToDateTime na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função do sistema SQL TicksToDateTime no Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 12d286fb5c8cf6d602d95da53ef8de376f9a49cf
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f40286a39694307ac43ecd60f6861d509f760990
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93093853"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340781"
 ---
 # <a name="tickstodatetime-azure-cosmos-db"></a>TicksToDateTime (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

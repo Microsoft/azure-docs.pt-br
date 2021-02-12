@@ -6,6 +6,8 @@
       href: overview-reports.md
     - name: O que é monitoramento do Azure AD?
       href: overview-monitoring.md
+    - name: O que é o diagnóstico de entrada?
+      href: overview-sign-in-diagnostics.md
 - name: Inícios rápidos
   expanded: true
   items:
@@ -96,9 +98,9 @@
     - name: Cmdlets do PowerShell do Azure AD para relatórios
       href: reference-powershell-reporting.md
     - name: Referência da API de logs de auditoria
-      href: /graph/api/resources/directoryaudit?view=graph-rest-beta
+      href: /graph/api/resources/directoryaudit?view=graph-rest-1.0
     - name: Referência da API de logs de entrada
-      href: /graph/api/resources/signin?view=graph-rest-beta
+      href: /graph/api/resources/signin?view=graph-rest-1.0
     - name: Atividades de auditoria
       href: reference-audit-activities.md
     - name: Políticas de retenção de dados

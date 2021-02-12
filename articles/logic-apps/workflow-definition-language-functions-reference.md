@@ -3,15 +3,15 @@ title: Guia de referência de funções em expressões
 description: Guia de referência de funções em expressões para os Aplicativos Lógicos do Azure e o Power Automate
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm
-ms.topic: conceptual
-ms.date: 09/04/2020
-ms.openlocfilehash: 3910b6ffcce6c5bc4a8d565071c4b07db9e3ff63
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.reviewer: estfan, logicappspm, azla
+ms.topic: reference
+ms.date: 01/13/2021
+ms.openlocfilehash: 4ed5a26e1f871f7ac5fd8f29f0a66bc39a8013a1
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279026"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507241"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guia de referência do uso de funções em expressões para os Aplicativos Lógicos do Azure e o Power Automate
 
@@ -556,7 +556,7 @@ addDays('<timestamp>', <days>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 | <*days*> | Sim | Integer | O número positivo ou negativo de dias a ser adicionado |
-| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS. fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
@@ -569,10 +569,10 @@ addDays('<timestamp>', <days>, '<format>'?)
 Esse exemplo adiciona 10 dias ao carimbo de data/hora especificado:
 
 ```
-addDays('2018-03-15T13:00:00Z', 10)
+addDays('2018-03-15T00:00:00Z', 10)
 ```
 
-E retorna este resultado: `"2018-03-25T00:00:0000000Z"`
+E retorna este resultado: `"2018-03-25T00:00:00.0000000Z"`
 
 *Exemplo 2*
 
@@ -582,7 +582,7 @@ Esse exemplo subtrai cinco dias do carimbo de data/hora especificado:
 addDays('2018-03-15T00:00:00Z', -5)
 ```
 
-E retorna este resultado: `"2018-03-10T00:00:0000000Z"`
+E retorna este resultado: `"2018-03-10T00:00:00.0000000Z"`
 
 <a name="addHours"></a>
 
@@ -598,7 +598,7 @@ addHours('<timestamp>', <hours>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 | <*hours*> | Sim | Integer | O número positivo ou negativo de horas a ser adicionado |
-| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS. fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
@@ -614,7 +614,7 @@ Esse exemplo adiciona 10 horas ao carimbo de data/hora especificado:
 addHours('2018-03-15T00:00:00Z', 10)
 ```
 
-E retorna este resultado: `"2018-03-15T10:00:0000000Z"`
+E retorna este resultado: ' "2018-03-15T10:00:00.0000000 Z"
 
 *Exemplo 2*
 
@@ -624,7 +624,7 @@ Esse exemplo subtrai cinco horas do carimbo de data/hora especificado:
 addHours('2018-03-15T15:00:00Z', -5)
 ```
 
-E retorna este resultado: `"2018-03-15T10:00:0000000Z"`
+E retorna este resultado: `"2018-03-15T10:00:00.0000000Z"`
 
 <a name="addMinutes"></a>
 
@@ -640,7 +640,7 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 | <*minutes*> | Sim | Integer | O número positivo ou negativo de minutos a ser adicionado |
-| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS. fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
@@ -781,7 +781,7 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 | <*seconds*> | Sim | Integer | O número positivo ou negativo de segundos a ser adicionado |
-| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS. fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
@@ -825,7 +825,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*timestamp*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 | <*interval*> | Sim | Integer | O número de unidades de tempo especificadas a ser adicionado |
 | <*timeUnit*> | Sim | String | Unidade de tempo a ser usado com *intervalo*: "Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês", "Ano" |
-| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS. fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
@@ -1136,7 +1136,7 @@ Se você estiver usando `bool()` com um objeto, o valor do objeto deverá ser um
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| `true` ou `false` | Boolean | A versão booliana do valor especificado. |
+| `true` ou `false` | Booliano | A versão booliana do valor especificado. |
 ||||
 
 *Saídas*
@@ -1149,7 +1149,7 @@ Estes exemplos mostram os diferentes tipos de entrada com suporte para `bool()` 
 | `bool(0)` | Integer    | `false` |
 | `bool(-1)` | Integer | `true` |
 | `bool('true')` | String | `true` |
-| `bool('false')` | String | `false` |
+| `bool('false')` | Cadeia de caracteres | `false` |
 
 <a name="coalesce"></a>
 
@@ -1278,7 +1278,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 | <*destinationTimeZone*> | Sim | String | O nome do fuso horário de destino. Para obter nomes de fuso horário, confira [Valores de índice de fuso horário da Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values). Talvez seja necessário remover alguma pontuação do nome do fuso horário. |
-| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS. fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
@@ -1321,7 +1321,7 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | <*timestamp*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 | <*sourceTimeZone*> | Sim | String | O nome do fuso horário de origem. Para obter nomes de fuso horário, confira [Valores de índice de fuso horário da Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values). Talvez seja necessário remover alguma pontuação do nome do fuso horário. |
 | <*destinationTimeZone*> | Sim | String | O nome do fuso horário de destino. Para obter nomes de fuso horário, confira [Valores de índice de fuso horário da Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values). Talvez seja necessário remover alguma pontuação do nome do fuso horário. |
-| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS. fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
@@ -1363,7 +1363,7 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 | <*sourceTimeZone*> | Sim | String | O nome do fuso horário de origem. Para obter nomes de fuso horário, confira [Valores de índice de fuso horário da Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values). Talvez seja necessário remover alguma pontuação do nome do fuso horário. |
-| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS. fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
@@ -1678,7 +1678,7 @@ decodeUriComponent('<value>')
 Esse exemplo substitui os caracteres de escape nesta cadeia de caracteres por versões decodificadas:
 
 ```
-decodeUriComponent('http%3A%2F%2Fcontoso.com')
+decodeUriComponent('https%3A%2F%2Fcontoso.com')
 ```
 
 E retorna este resultado: `"https://contoso.com"`
@@ -1701,7 +1701,7 @@ div(<dividend>, <divisor>)
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*quotient-result*> | Integer ou Float | O resultado da divisão do primeiro número pelo segundo número. Se o dividendo ou o divisor tiver um tipo float, o resultado terá o tipo float. <p><p>**Observação**: para converter o resultado float em um inteiro, tente [criar e chamar uma função do Azure](../logic-apps/logic-apps-azure-functions.md) de seu aplicativo lógico. |
+| <*quotient-result*> | Integer ou Float | O resultado da divisão do primeiro número pelo segundo número. Se o dividendo ou o divisor tiver um tipo float, o resultado terá o tipo float. <p><p>**Observação**: para converter o resultado float em um número inteiro, tente [criar e chamar uma função no Azure](../logic-apps/logic-apps-azure-functions.md) de seu aplicativo lógico. |
 ||||
 
 *Exemplo 1*
@@ -1753,7 +1753,7 @@ Esse exemplo cria uma versão codificada para URI para esta cadeia de caracteres
 encodeUriComponent('https://contoso.com')
 ```
 
-E retorna este resultado: `"http%3A%2F%2Fcontoso.com"`
+E retorna este resultado: `"https%3A%2F%2Fcontoso.com"`
 
 <a name="empty"></a>
 
@@ -1948,7 +1948,7 @@ formatDateTime('<timestamp>', '<format>'?)
 | Parâmetro | Obrigatório | Type | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
-| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS. fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
@@ -2072,7 +2072,7 @@ formatNumber(1234567890, '0,0.00', 'is-is')
 Suponha que você deseje formatar o número `17.35`. Este exemplo formata o número como a cadeia de caracteres "US$ 17,35".
 
 ```
-formatNumber(17.36, 'C2')
+formatNumber(17.35, 'C2')
 ```
 
 *Exemplo 4*
@@ -2080,7 +2080,7 @@ formatNumber(17.36, 'C2')
 Suponha que você deseje formatar o número `17.35`. Este exemplo formata o número como a cadeia de caracteres "17,35 kr".
 
 ```
-formatNumber(17.36, 'C2', 'is-is')
+formatNumber(17.35, 'C2', 'is-is')
 ```
 
 <a name="getFutureTime"></a>
@@ -2097,7 +2097,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 | --------- | -------- | ---- | ----------- |
 | <*interval*> | Sim | Integer | O número de unidades de tempo especificadas a ser adicionado |
 | <*timeUnit*> | Sim | String | Unidade de tempo a ser usado com *intervalo*: "Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês", "Ano" |
-| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS. fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
@@ -2141,7 +2141,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 | --------- | -------- | ---- | ----------- |
 | <*interval*> | Sim | Integer | O número de unidades de tempo especificadas a serem subtraídas |
 | <*timeUnit*> | Sim | String | Unidade de tempo a ser usado com *intervalo*: "Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês", "Ano" |
-| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS. fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
@@ -2263,7 +2263,7 @@ guid('<format>')
 
 | Parâmetro | Obrigatório | Type | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*format*> | Não | String | Um único [especificador de formato](/dotnet/api/system.guid.tostring?view=netcore-3.1#system_guid_tostring_system_string_) para o GUID retornado. Por padrão, o formato é "D", mas é possível usar "N", "D", "B", "P" ou "X". |
+| <*format*> | Não | String | Um único [especificador de formato](/dotnet/api/system.guid.tostring#system_guid_tostring_system_string_) para o GUID retornado. Por padrão, o formato é "D", mas é possível usar "N", "D", "B", "P" ou "X". |
 |||||
 
 | Valor retornado | Type | Descrição |
@@ -2532,11 +2532,17 @@ Este exemplo cria uma variável de contador e incrementa essa variável em um du
 
 ### <a name="json"></a>json
 
-Retornar o objeto ou valor de tipo JSON (JavaScript Object Notation) correspondente a uma cadeia de caracteres ou XML.
+Retorna o valor do tipo de JavaScript Object Notation (JSON), o objeto ou a matriz de objetos para uma cadeia de caracteres ou XML.
 
 ```
 json('<value>')
+json(xml('value'))
 ```
+
+> [!IMPORTANT]
+> Sem um esquema XML que define a estrutura da saída, a função pode retornar resultados em que a estrutura difere muito do formato esperado, dependendo da entrada.
+>  
+> Esse comportamento torna essa função inadequada para cenários em que a saída deve estar em conformidade com um contrato bem definido, por exemplo, em sistemas de negócios ou soluções críticas.
 
 | Parâmetro | Obrigatório | Type | Descrição |
 | --------- | -------- | ---- | ----------- |
@@ -2545,12 +2551,12 @@ json('<value>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*JSON-result*> | Objeto ou tipo JSON nativo | O objeto ou valor de tipo JSON nativo para a cadeia de caracteres ou XML especificado. Se a cadeia de caracteres for nula, a função retornará um objeto vazio. |
+| <*JSON-result*> | Tipo nativo JSON, objeto ou matriz | O valor do tipo nativo JSON, o objeto ou a matriz de objetos da cadeia de caracteres de entrada ou XML. <p><p>-Se você passar o XML que tem um único elemento filho no elemento raiz, a função retornará um único objeto JSON para esse elemento filho. <p> -Se você passar o XML que tem vários elementos filho no elemento raiz, a função retornará uma matriz que contém objetos JSON para esses elementos filho. <p>-Se a cadeia de caracteres for nula, a função retornará um objeto vazio. |
 ||||
 
 *Exemplo 1*
 
-Esse exemplo converte essa cadeia de caracteres no valor JSON:
+Este exemplo converte essa cadeia de caracteres em um valor JSON:
 
 ```
 json('[1, 2, 3]')
@@ -2560,7 +2566,7 @@ E retorna este resultado: `[1, 2, 3]`
 
 *Exemplo 2*
 
-Esse exemplo converte essa cadeia de caracteres em JSON:
+Este exemplo converte essa cadeia de caracteres em JSON:
 
 ```
 json('{"fullName": "Sophia Owen"}')
@@ -2568,7 +2574,7 @@ json('{"fullName": "Sophia Owen"}')
 
 E retorna este resultado:
 
-```
+```json
 {
   "fullName": "Sophia Owen"
 }
@@ -2576,23 +2582,53 @@ E retorna este resultado:
 
 *Exemplo 3*
 
-Esse exemplo converte esse XML em JSON:
+Este exemplo usa as `json()` `xml()` funções e para converter XML que tem um único elemento filho no elemento raiz em um objeto JSON chamado `person` para esse elemento filho:
 
-```
-json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))
-```
+`json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))`
 
 E retorna este resultado:
 
 ```json
 {
-   "?xml": { "@version": "1.0" },
+   "?xml": { 
+      "@version": "1.0" 
+   },
    "root": {
-      "person": [ {
+      "person": {
          "@id": "1",
          "name": "Sophia Owen",
          "occupation": "Engineer"
-      } ]
+      }
+   }
+}
+```
+
+*Exemplo 4*
+
+Este exemplo usa as `json()` `xml()` funções e para converter XML que tem vários elementos filho no elemento raiz em uma matriz chamada `person` que contém objetos JSON para esses elementos filho:
+
+`json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> <person id='2'> <name>John Doe</name> <occupation>Engineer</occupation> </person> </root>'))`
+
+E retorna este resultado:
+
+```json
+{
+   "?xml": {
+      "@version": "1.0"
+   },
+   "root": {
+      "person": [
+         {
+            "@id": "1",
+            "name": "Sophia Owen",
+            "occupation": "Engineer"
+         },
+         {
+            "@id": "2",
+            "name": "John Doe",
+            "occupation": "Engineer"
+         }
+      ]
    }
 }
 ```
@@ -2719,15 +2755,11 @@ lastIndexOf('<text>', '<searchText>')
 
 Se o valor da cadeia de caracteres ou da Subcadeia estiver vazio, ocorrerá o seguinte comportamento:
 
-* Se o valor da cadeia de caracteres estiver vazio, `-1` será retornado:
+* Se apenas o valor da cadeia de caracteres estiver vazio, a função retornará `-1` .
 
-* Se os valores String e substring estiverem vazios, `0` será retornado.
+* Se os valores String e substring estiverem vazios, a função retornará `0` .
 
-* Se apenas o valor da subcadeia de caracteres estiver vazio, o maior dos dois valores a seguir será retornado:
-
-  * `0`
-
-  * O comprimento da cadeia de caracteres, menos 1.
+* Se apenas o valor da subcadeia de caracteres estiver vazio, a função retornará o comprimento da cadeia de caracteres menos 1.
 
 *Exemplos*
 
@@ -3703,7 +3735,7 @@ startOfDay('<timestamp>', '<format>'?)
 | Parâmetro | Obrigatório | Type | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
-| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS. fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
@@ -3734,7 +3766,7 @@ startOfHour('<timestamp>', '<format>'?)
 | Parâmetro | Obrigatório | Type | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
-| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS. fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
@@ -3765,7 +3797,7 @@ startOfMonth('<timestamp>', '<format>'?)
 | Parâmetro | Obrigatório | Type | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
-| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS. fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
@@ -3925,12 +3957,12 @@ substring('<text>', <startIndex>, <length>)
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Sim | String | A cadeia de caracteres cujos caracteres você deseja |
 | <*startIndex*> | Sim | Integer | Um número positivo igual ou superior a 0 que você deseja usar como a posição inicial ou o valor do índice |
-| <*length*> | Sim | Integer | Um número positivo de caracteres que você deseja na subcadeia de caracteres |
+| <*length*> | Não | Integer | Um número positivo de caracteres que você deseja na subcadeia de caracteres |
 |||||
 
 > [!NOTE]
 > Certifique-se de que a soma de adicionar os valores de parâmetro *startIndex* e *Length* seja menor do que o comprimento da cadeia de caracteres que você fornece para o parâmetro de *texto* .
-> Caso contrário, você receberá um erro, diferentemente de funções semelhantes em outras linguagens em que o resultado é a subcadeia de *startIndex* para o final da cadeia de caracteres.
+> Caso contrário, você receberá um erro, diferentemente de funções semelhantes em outras linguagens em que o resultado é a subcadeia de *startIndex* para o final da cadeia de caracteres. O parâmetro de *comprimento* é opcional e, se não for fornecido, a função **substring ()** usa todos os caracteres que começam de *startIndex* até o final da cadeia de caracteres.
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
@@ -3963,7 +3995,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*timestamp*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 | <*interval*> | Sim | Integer | O número de unidades de tempo especificadas a serem subtraídas |
 | <*timeUnit*> | Sim | String | Unidade de tempo a ser usado com *intervalo*: "Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês", "Ano" |
-| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS. fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
@@ -3979,7 +4011,7 @@ Esse exemplo subtrai um dia desse carimbo de data/hora:
 subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day')
 ```
 
-E retorna este resultado: `"2018-01-01T00:00:00:0000000Z"`
+E retorna este resultado: `"2018-01-01T00:00:00.0000000Z"`
 
 *Exemplo 2*
 
@@ -4031,7 +4063,7 @@ E retornam estes resultados:
 
 ### <a name="ticks"></a>ticks
 
-Retorna o número de tiques, que são intervalos de 100 nanossegundos, desde 1º de janeiro de 0001 12h00min00s meia-noite (ou DateTime.Ticks em C#) até o carimbo de data/hora especificado. Para obter mais informações, confira este tópico: [Propriedade DateTime.Ticks (sistema)](/dotnet/api/system.datetime.ticks?view=netframework-4.7.2#remarks).
+Retorna o número de tiques, que são intervalos de 100 nanossegundos, desde 1º de janeiro de 0001 12h00min00s meia-noite (ou DateTime.Ticks em C#) até o carimbo de data/hora especificado. Para obter mais informações, confira este tópico: [Propriedade DateTime.Ticks (sistema)](/dotnet/api/system.datetime.ticks).
 
 ```
 ticks('<timestamp>')
@@ -4174,7 +4206,7 @@ Este exemplo cria uma matriz do valor de chave "feedUrl" em uma saída de dados 
 triggerFormDataMultiValues('feedUrl')
 ```
 
-E retorna esta matriz como um resultado de exemplo: `["http://feeds.reuters.com/reuters/topNews"]`
+E retorna esta matriz como um resultado de exemplo: `["https://feeds.a.dj.com/rss/RSSMarketsMain.xml"]`
 
 <a name="triggerFormDataValue"></a>
 
@@ -4205,7 +4237,7 @@ Este exemplo cria uma cadeia de caracteres do valor de chave "feedUrl" em uma sa
 triggerFormDataValue('feedUrl')
 ```
 
-E retorna esta cadeia de caracteres como um resultado de exemplo: `"http://feeds.reuters.com/reuters/topNews"`
+E retorna esta cadeia de caracteres como um resultado de exemplo: `"https://feeds.a.dj.com/rss/RSSMarketsMain.xml"`
 
 <a name="triggerMultipartBody"></a>
 
@@ -4336,7 +4368,7 @@ Esse exemplo cria uma versão codificada para URI para esta cadeia de caracteres
 uriComponent('https://contoso.com')
 ```
 
-E retorna este resultado: `"http%3A%2F%2Fcontoso.com"`
+E retorna este resultado: `"https%3A%2F%2Fcontoso.com"`
 
 <a name="uriComponentToBinary"></a>
 
@@ -4363,7 +4395,7 @@ uriComponentToBinary('<value>')
 Esse exemplo cria a versão binária para esta cadeia de caracteres codificada para URI:
 
 ```
-uriComponentToBinary('http%3A%2F%2Fcontoso.com')
+uriComponentToBinary('https%3A%2F%2Fcontoso.com')
 ```
 
 E retorna este resultado:
@@ -4398,7 +4430,7 @@ uriComponentToString('<value>')
 Esse exemplo cria a versão de cadeia de caracteres decodificada para esta cadeia de caracteres codificada para URI:
 
 ```
-uriComponentToString('http%3A%2F%2Fcontoso.com')
+uriComponentToString('https%3A%2F%2Fcontoso.com')
 ```
 
 E retorna este resultado: `"https://contoso.com"`
@@ -4458,7 +4490,7 @@ uriPath('<uri>')
 Esse exemplo localiza o valor `path` para este URI:
 
 ```
-uriPath('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriPath('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 E retorna este resultado: `"/catalog/shownew.htm"`
@@ -4488,7 +4520,7 @@ uriPathAndQuery('<uri>')
 Esse exemplo localiza os valores `path` e `query` para este URI:
 
 ```
-uriPathAndQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriPathAndQuery('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 E retorna este resultado: `"/catalog/shownew.htm?date=today"`
@@ -4518,7 +4550,7 @@ uriPort('<uri>')
 Esse exemplo retorna o valor `port` deste URI:
 
 ```
-uriPort('http://www.localhost:8080')
+uriPort('https://www.localhost:8080')
 ```
 
 E retorna este resultado: `8080`
@@ -4548,7 +4580,7 @@ uriQuery('<uri>')
 Esse exemplo retorna o valor `query` deste URI:
 
 ```
-uriQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriQuery('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 E retorna este resultado: `"?date=today"`
@@ -4578,7 +4610,7 @@ uriScheme('<uri>')
 Esse exemplo retorna o valor `scheme` deste URI:
 
 ```
-uriScheme('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriScheme('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 E retorna este resultado: `"http"`
@@ -4598,7 +4630,7 @@ Ou é possível especificar um formato diferente com o parâmetro <*formato*>.
 
 | Parâmetro | Obrigatório | Type | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS. fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
@@ -4918,16 +4950,16 @@ Aqui está o resultado: `30`
 
 *Exemplo 8*
 
-Neste exemplo, suponha que você tenha essa cadeia de caracteres XML, que inclui o namespace do documento XML, `xmlns="http://contoso.com"` :
+Neste exemplo, suponha que você tenha essa cadeia de caracteres XML, que inclui o namespace do documento XML, `xmlns="https://contoso.com"` :
 
 ```xml
-<?xml version="1.0"?><file xmlns="http://contoso.com"><location>Paris</location></file>
+<?xml version="1.0"?><file xmlns="https://contoso.com"><location>Paris</location></file>
 ```
 
-Essas expressões usam a expressão XPath `/*[name()="file"]/*[name()="location"]` ou `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]` , para localizar nós que correspondam ao `<location></location>` nó. Estes exemplos mostram a sintaxe que você usa no designer de aplicativo lógico ou no editor de expressão:
+Essas expressões usam a expressão XPath `/*[name()="file"]/*[name()="location"]` ou `/*[local-name()="file" and namespace-uri()="https://contoso.com"]/*[local-name()="location"]` , para localizar nós que correspondam ao `<location></location>` nó. Estes exemplos mostram a sintaxe que você usa no designer de aplicativo lógico ou no editor de expressão:
 
 * `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
-* `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]')`
+* `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="https://contoso.com"]/*[local-name()="location"]')`
 
 Veja o nó de resultado correspondente ao nó `<location></location>`: 
 

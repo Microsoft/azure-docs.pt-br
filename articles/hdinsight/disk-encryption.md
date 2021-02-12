@@ -2,18 +2,15 @@
 title: Criptografia dupla para dados em repouso
 titleSuffix: Azure HDInsight
 description: Este artigo descreve as duas camadas de criptografia disponíveis para dados em repouso em clusters do Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 9afab87e0d7f0e7a9e5c05b36ace1dfc09c9aa9f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 58b3d892ea24430a9d951a5a0230282f6c4fd584
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548023"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988613"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Criptografia dupla do Azure HDInsight para dados em repouso
 
@@ -71,17 +68,17 @@ Consulte [criar uma identidade gerenciada atribuída pelo usuário](../active-di
 
 ### <a name="create-azure-key-vault"></a>Criar Azure Key Vault
 
-Crie um cofre da chave. Consulte [criar Azure Key Vault](../key-vault/secrets/quick-create-portal.md) para obter etapas específicas.
+Crie um cofre da chave. Consulte [criar Azure Key Vault](../key-vault/general/quick-create-portal.md) para obter etapas específicas.
 
 O HDInsight é compatível apenas com o Azure Key Vault. Se você tiver seu próprio cofre de chaves, poderá importar suas chaves para o Azure Key Vault. Lembre-se de que o cofre de chaves deve ter a **exclusão reversível** habilitada. Para obter mais informações sobre como importar as chaves existentes, visite [Sobre chaves, segredos e certificados](../key-vault/general/about-keys-secrets-certificates.md).
 
 ### <a name="create-key"></a>Chave Create
 
-1. Em seu novo cofre de chaves, navegue até **configurações**  >  **chaves**  >  **+ gerar/importar** .
+1. Em seu novo cofre de chaves, navegue até **configurações**  >  **chaves**  >  **+ gerar/importar**.
 
     ![Gerar uma nova chave no Azure Key Vault](./media/disk-encryption/create-new-key.png "Gerar uma nova chave no Azure Key Vault")
 
-1. Forneça um nome e, em seguida, selecione **criar** . Mantenha o **tipo de chave** padrão do **RSA** .
+1. Forneça um nome e, em seguida, selecione **criar**. Mantenha o **tipo de chave** padrão do **RSA**.
 
     ![gera o nome da chave](./media/disk-encryption/create-key.png "Gerar nome da chave")
 
@@ -95,7 +92,7 @@ O HDInsight é compatível apenas com o Azure Key Vault. Se você tiver seu pró
 
 ### <a name="create-access-policy"></a>Criar política de acesso
 
-1. Em seu novo cofre de chaves, navegue até **configurações**  >  **políticas de acesso**  >  **+ Adicionar política de acesso** .
+1. Em seu novo cofre de chaves, navegue até **configurações**  >  **políticas de acesso**  >  **+ Adicionar política de acesso**.
 
     ![Criar uma nova política de acesso do Azure Key Vault](./media/disk-encryption/key-vault-access-policy.png)
 
@@ -103,15 +100,15 @@ O HDInsight é compatível apenas com o Azure Key Vault. Se você tiver seu pró
 
     |Propriedade |Descrição|
     |---|---|
-    |Permissões de chave|Selecione **obter** , **desencapsular chave** e **encapsular chave** .|
-    |Permissões de segredo|Selecione **obter** , **definir** e **excluir** .|
+    |Permissões de chave|Selecione **obter**, **desencapsular chave** e **encapsular chave**.|
+    |Permissões de segredo|Selecione **obter**, **definir** e **excluir**.|
     |Selecionar entidade de segurança|Selecione a identidade gerenciada atribuída pelo usuário que você criou anteriormente.|
 
     ![Definir Selecionar Entidade de Segurança para a política de acesso do Azure Key Vault](./media/disk-encryption/azure-portal-add-access-policy.png)
 
-1. Selecione **Adicionar** .
+1. Selecione **Adicionar**.
 
-1. Clique em **Salvar** .
+1. Clique em **Salvar**.
 
     ![Salvar política de acesso de Azure Key Vault](./media/disk-encryption/add-key-vault-access-policy-save.png)
 
@@ -119,15 +116,24 @@ O HDInsight é compatível apenas com o Azure Key Vault. Se você tiver seu pró
 
 Agora você está pronto para criar um novo cluster do HDInsight. As chaves gerenciadas pelo cliente só podem ser aplicadas a novos clusters durante a criação do cluster. A criptografia não pode ser removida de clusters de chaves gerenciados pelo cliente, e chaves gerenciadas pelo cliente não podem ser adicionadas a clusters existentes.
 
+A partir da versão de novembro de 2020, o HDInsight dá suporte à criação de clusters usando URIs de chave com versão e menos de versão. Se você criar o cluster com um URI de chave sem versão, o cluster HDInsight tentará executar a rotação automática de chave quando a chave for atualizada em seu Azure Key Vault. Se você criar o cluster com um URI de chave com versão, será necessário executar uma rotação de chave manual, conforme discutido em [girando a chave de criptografia](#rotating-the-encryption-key).
+
+Para clusters criados antes da versão de novembro de 2020, você precisará executar a rotação de chaves manualmente usando o URI de chave com versão.
+
 #### <a name="using-the-azure-portal"></a>Usando o portal do Azure
 
-Durante a criação do cluster, forneça o **identificador de chave** completo, incluindo a versão da chave. Por exemplo, `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Você também precisa atribuir a identidade gerenciada ao cluster e fornecer o URI da chave.
+Durante a criação do cluster, você pode usar uma chave com versão ou uma chave não com versão da seguinte maneira:
+
+- Com **controle de versão** -durante a criação do cluster, forneça o identificador de **chave** completo, incluindo a versão da chave. Por exemplo, `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`.
+- **Versão** não-durante a criação do cluster, forneça somente o **identificador de chave**. Por exemplo, `https://contoso-kv.vault.azure.net/keys/myClusterKey`.
+
+Você também precisa atribuir a identidade gerenciada ao cluster.
 
 ![Criar novo cluster](./media/disk-encryption/create-cluster-portal.png)
 
 #### <a name="using-azure-cli"></a>Usando a CLI do Azure
 
-O exemplo a seguir mostra como usar CLI do Azure para criar um novo cluster de Apache Spark com a criptografia de disco habilitada. Para obter mais informações, consulte [CLI do Azure AZ hdinsight Create](/cli/azure/hdinsight#az-hdinsight-create).
+O exemplo a seguir mostra como usar CLI do Azure para criar um novo cluster de Apache Spark com a criptografia de disco habilitada. Para obter mais informações, consulte [CLI do Azure AZ hdinsight Create](/cli/azure/hdinsight#az-hdinsight-create). O parâmetro `encryption-key-version` é opcional.
 
 ```azurecli
 az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
@@ -141,7 +147,7 @@ az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
 
 #### <a name="using-azure-resource-manager-templates"></a>Usar modelos do Azure Resource Manager
 
-O exemplo a seguir mostra como usar um modelo de Azure Resource Manager para criar um novo cluster de Apache Spark com a criptografia de disco habilitada. Para obter mais informações, consulte [o que são modelos de ARM?](../azure-resource-manager/templates/overview.md).
+O exemplo a seguir mostra como usar um modelo de Azure Resource Manager para criar um novo cluster de Apache Spark com a criptografia de disco habilitada. Para obter mais informações, consulte [o que são modelos de ARM?](../azure-resource-manager/templates/overview.md). A propriedade de modelo do Resource Manager `diskEncryptionKeyVersion` é opcional.
 
 Este exemplo usa o PowerShell para chamar o modelo.
 
@@ -355,11 +361,11 @@ O conteúdo do modelo de gerenciamento de recursos, `azuredeploy.json` :
 
 ### <a name="rotating-the-encryption-key"></a>Girando a chave de criptografia
 
-Pode haver cenários em que você talvez queira alterar as chaves de criptografia usadas pelo cluster HDInsight depois que ele tiver sido criado. Isso pode ser facilmente por meio do Portal. Para essa operação, o cluster deve ter acesso à chave atual e à nova chave pretendida, caso contrário, a operação de rotação de teclas falhará.
+Você pode alterar as chaves de criptografia usadas no cluster em execução, usando o portal do Azure ou CLI do Azure. Para essa operação, o cluster deve ter acesso à chave atual e à nova chave pretendida, caso contrário, a operação de rotação de teclas falhará. Para clusters criados após a versão de novembro de 2020, você pode escolher se deseja que sua nova chave tenha uma versão ou não. Para clusters criados antes da versão de novembro de 2020, você deve usar uma chave com versão ao girar a chave de criptografia.
 
 #### <a name="using-the-azure-portal"></a>Usando o portal do Azure
 
-Para girar a chave, você precisa do URI do cofre de chaves de base. Depois de fazer isso, vá para a seção de propriedades do cluster HDInsight no portal e clique em **alterar chave** em **URL da chave de criptografia do disco** . Insira na nova URL de chave e envie para girar a chave.
+Para girar a chave, você precisa do URI do cofre de chaves de base. Depois de fazer isso, vá para a seção de propriedades do cluster HDInsight no portal e clique em **alterar chave** em **URL da chave de criptografia do disco**. Insira na nova URL de chave e envie para girar a chave.
 
 ![girar chave de criptografia de disco](./media/disk-encryption/change-key.png)
 

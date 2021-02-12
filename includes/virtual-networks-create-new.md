@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 03/01/2020
 ms.author: allensu
 ms.custom: include file
-ms.openlocfilehash: 81db46b52c9b4fe800f2fbfeadad966995d66e12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1d4d29f8edca87ec1cca0ffced7b3e1bca90717
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78244962"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99808463"
 ---
-## <a name="create-the-virtual-network"></a>Criar a rede virtual
+## <a name="create-the-virtual-network-and-subnet"></a>Criar a rede virtual e a sub-rede
 
 Nesta seção, você criará uma rede virtual e uma sub-rede.
 

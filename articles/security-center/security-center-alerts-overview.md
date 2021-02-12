@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: memildin
-ms.openlocfilehash: 7f5f920f14a556d63f433b36658d7b265d51a28d
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: b26d42ca32f0048bb2bedcb5fef337c3ac1d7d65
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340369"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807217"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertas de segurança na Central de Segurança do Azure
 
@@ -23,9 +23,9 @@ Na central de segurança, há uma variedade de alertas para vários tipos de rec
 
 Os alertas de segurança são disparados por detecções avançadas e estão disponíveis somente com o Azure defender. Há uma avaliação gratuita disponível. Você pode atualizar da página de **configurações de & de preços** . Saiba mais sobre os [preços da central de segurança](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="respond-to-todays-threats"></a>Responder às ameaças <a name="respond-threats"> </a> atuais
+## <a name="respond-to-todays-threats"></a>Responder às ameaças <a name="respond-threats"></a> atuais
 
-Houve alterações significativas no panorama de ameaças nos últimos 20 anos. Antigamente, as empresas normalmente só precisavam preocupar-se com a desfiguração do site por invasores individuais, que basicamente tinham interesse em ver “o que poderiam fazer”. Os hackers de hoje em dia são muito mais sofisticados e organizados. Eles geralmente têm objetivos estratégicos e financeiros específicos. Eles também têm mais recursos disponíveis, já que podem ser financiados por nações ou pelo crime organizado.
+Houve alterações significativas no panorama de ameaças nos últimos 20 anos. Antigamente, as empresas normalmente só precisavam preocupar-se com a desfiguração do site por invasores individuais, que basicamente tinham interesse em ver “o que poderiam fazer”. Os hackers de hoje em dia são muito mais sofisticados e organizados. Eles geralmente têm objetivos estratégicos e financeiros específicos. Eles também têm mais recursos disponíveis, pois podem ser financiados por Estados da nação ou crimes organizados.
 
 As mudanças nessa realidade levaram a um nível de profissionalismo nas classificações do invasor sem precedentes. Eles não estão mais interessados em desfiguração da Web. Agora, eles estão interessados em roubo de informações, de contas financeiras e de dados privados, que podem usar para gerar dinheiro no mercado aberto ou para se aproveitar de um negócio específico, para fins políticos ou militares. Ainda mais preocupante que esses invasores com um objetivo financeiro, são os invasores que violam as redes prejudicar a infraestrutura e pessoas.
 
@@ -67,12 +67,12 @@ A Central de Segurança atribui uma severidade aos alertas, para ajudá-lo a pri
 > A severidade do alerta é exibida diferente no portal e nas versões da API REST antes de 01-01-2019. Se você estiver usando uma versão mais antiga da API, atualize para a experiência consistente descrita abaixo.
 
 - **Alta:** Há uma grande probabilidade de que o recurso seja comprometido. Você deve analisá-lo imediatamente. A Central de Segurança tem alta confiança em ambas as más intenções e em descobertas usadas para emitir o alerta. Por exemplo, um alerta que detecta a execução de uma ferramenta mal-intencionada conhecida como Mimikatz, uma ferramenta comum usada para roubo de credenciais.
-- **Média:** Isso provavelmente é uma atividade suspeita que pode indicar que um recurso está comprometido.
+- **Médio:** Isso provavelmente é uma atividade suspeita que pode indicar que um recurso está comprometido.
 A confiança da Central de Segurança na análise ou localização é média e a confiança de más intenções é média a alta. Normalmente, essas seriam machine learning ou detecções baseadas em anomalia. Por exemplo, uma tentativa de conexão de um local anômalo.
 - **Baixa:** Isso pode ser um positivo benigno ou um ataque bloqueado.
-   * A Central de Segurança não está confiante o suficiente para que a intenção seja mal-intencionada e a atividade possa ser inocente. Por exemplo, limpar log é uma ação que pode acontecer quando um invasor tenta ocultar seus rastros, mas em muitos casos é uma operação de rotina executada por administradores.
+   * A central de segurança não tem confiança suficiente de que a intenção é mal-intencionada e a atividade pode ser inocente. Por exemplo, o log Clear é uma ação que pode acontecer quando um invasor tenta ocultar suas faixas, mas em muitos casos é uma operação de rotina executada pelos administradores.
    * A Central de Segurança geralmente não informa quando ataques foram bloqueados, a menos que seja um caso interessante que sugerimos que você examine. 
-- **Informacional:** Você só verá alertas informativos ao fazer busca detalhada em um incidente de segurança ou se você usar a API REST com uma determinada ID de alerta. Um incidente geralmente é composto de um número de alertas, alguns dos quais podem aparecer por conta própria e são apenas informativo, mas no contexto de outros alertas podem ser dignos de uma análise mais detalhada. 
+- **Informacional:** Você só verá alertas informativos ao fazer busca detalhada em um incidente de segurança ou se você usar a API REST com uma determinada ID de alerta. Um incidente normalmente é composto por vários alertas, alguns dos quais podem aparecer por conta própria para serem apenas informativos, mas no contexto dos outros alertas podem ser mais valiosos. 
 
 ## <a name="continuous-monitoring-and-assessments"></a>Monitoramento e avaliações contínuos
 
@@ -91,7 +91,7 @@ Você tem uma variedade de opções para exibir seus alertas fora da central de 
 
 - **Baixar o relatório CSV** no painel alertas fornece uma única exportação para CSV.
 - A **exportação contínua** de configurações de & de preços permite que você configure fluxos de alertas de segurança e recomendações para log Analytics espaços de trabalho e hubs de eventos. [Saiba mais sobre a exportação contínua](continuous-export.md)
-- O **conector do Azure Sentinel** transmite alertas do Azure defender da central de segurança do Azure para o Azure Sentinel. [Saiba mais sobre como conectar a central de segurança do Azure com o sentinela](../sentinel/connect-azure-security-center.md)
+- O **conector do Azure Sentinel** transmite alertas de segurança da central de segurança do Azure para o Azure Sentinel. [Saiba mais sobre como conectar a central de segurança do Azure com o Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 
 ## <a name="next-steps"></a>Próximas etapas

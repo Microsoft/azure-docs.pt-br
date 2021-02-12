@@ -1,6 +1,6 @@
 ---
 title: Autenticação baseada em senha com Azure Active Directory
-description: Diretrizes arquitetônicas sobre como atingir esse padrão de autenticação
+description: Diretrizes arquitetônicas sobre a obtenção de autenticação baseada em senha com o Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f05bf8f5f7ec4907c2cd61ff48e3438dfa1e097a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 5bd6a5c8af117bf6cb39969a5f1b1f17ff08681c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114054"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172815"
 ---
 # <a name="password-based-authentication-with-azure-active-directory"></a>Autenticação baseada em senha com Azure Active Directory
 
@@ -45,10 +45,9 @@ Você precisa proteger com pré-autenticação e fornecer SSO por meio de compar
 
 ## <a name="implement-password-based-sso-with-azure-ad"></a>Implementar SSO baseado em senha com o Azure AD
 
-* [O que é SSO baseado em senha](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) 
+* [O que é SSO baseado em senha](../manage-apps/what-is-single-sign-on.md) 
 
-* [Configurar SSO baseado em senha para aplicativos de nuvem ](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-password-single-sign-on-non-gallery-applications)
+* [Configurar SSO baseado em senha para aplicativos de nuvem ](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 
-* [Configurar o SSO baseado em senha para aplicativos locais com o proxy de aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-password-vaulting)
+* [Configurar o SSO baseado em senha para aplicativos locais com o proxy de aplicativo](../manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md)
 
- 

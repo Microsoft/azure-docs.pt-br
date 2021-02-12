@@ -3,12 +3,12 @@ title: Limites e cotas de assinatura do Azure
 description: Fornece uma lista de assinaturas comuns do Azure e limites de serviço, cotas e restrições. Este artigo inclui informações sobre como aumentar os limites juntamente com os valores máximos.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: f18bd4589ea995696175fa23300432793f0f5974
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 0a20d38d0f8d5be4a19dcdb8b6b846699bac6cc1
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950237"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920453"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Assinatura do Azure e limite de serviços, cotas e restrições
 
@@ -21,7 +21,7 @@ Para saber mais sobre os preços do Azure, consulte [visão geral de preços do 
 > [!NOTE]
 > Alguns serviços têm limites ajustáveis.
 >
-> Quando um serviço não tem limites ajustáveis, as tabelas a seguir usam o **limite**de cabeçalho. Nesses casos, os limites padrão e máximo são os mesmos.
+> Quando um serviço não tem limites ajustáveis, as tabelas a seguir usam o **limite** de cabeçalho. Nesses casos, os limites padrão e máximo são os mesmos.
 >
 > Quando o limite pode ser ajustado, as tabelas incluem o **limite padrão** e os cabeçalhos de **limite máximo** . O limite pode ser gerado acima do limite padrão, mas não acima do limite máximo.
 >
@@ -132,7 +132,7 @@ Para limites do Banco de Dados do Azure para PostgreSQL, consulte [Limitações 
 
 [!INCLUDE [functions-limits](../../../includes/functions-limits.md)]
 
-Para obter mais informações, consulte [comparação de funções de Hospedagem de planos](../../azure-functions/functions-scale.md#hosting-plans-comparison).
+Para obter mais informações, consulte [comparação de funções de Hospedagem de planos](../../azure-functions/functions-scale.md).
 
 ## <a name="azure-kubernetes-service-limits"></a>Limites do serviço kubernetes do Azure
 
@@ -156,6 +156,10 @@ Os valores mais recentes para Azure Machine Learning cotas de computação podem
 
 [!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-action-groups.md)]
 
+### <a name="autoscale"></a>Autoscale
+
+[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-autoscale.md)]
+
 ### <a name="log-queries-and-language"></a>Consultas de log e idioma
 
 [!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-log-queries.md)]
@@ -171,6 +175,14 @@ Os valores mais recentes para Azure Machine Learning cotas de computação podem
 ## <a name="azure-policy-limits"></a>Limites do Azure Policy
 
 [!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
+
+## <a name="azure-quantum-limits"></a>Limites do quantum do Azure
+
+[!INCLUDE [quantum-limits](../../../includes/azure-quantum-limits.md)]
+
+## <a name="azure-role-based-access-control-limits"></a>Limites de controle de acesso baseado em função do Azure
+
+[!INCLUDE [role-based-access-control-limits](../../../includes/role-based-access-control/limits.md)]
 
 ## <a name="azure-signalr-service-limits"></a>Limites do serviço de Signaler do Azure
 
@@ -285,7 +297,11 @@ Para limites específicos para os serviços de mídia v2 (herdados), consulte [s
 
 ### <a name="virtual-network-gateway-limits"></a>Limites de gateway de rede virtual
 
-[!INCLUDE [virtual-wan-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
+[!INCLUDE [virtual-network-gateway-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
+
+### <a name="nat-gateway-limits"></a>Limites de gateway NAT
+
+[!INCLUDE [nat-gateway-limits](../../../includes/azure-nat-gateway-limits.md)]
 
 ### <a name="virtual-wan-limits"></a>Limites de WAN virtual
 
@@ -303,6 +319,10 @@ A tabela a seguir se aplica aos SKUs v1, v2, Standard e WAF, salvo indicação e
 ### <a name="private-link-limits"></a>Limites de Link Privado
 
 [!INCLUDE [private-link-limits](../../../includes/private-link-limits.md)]
+
+## <a name="purview-limits"></a>Limites de alcance
+
+Os valores mais recentes para cotas do Azure alcance podem ser encontrados na [página de cota do Azure alcance](../../purview/how-to-manage-quotas.md)
 
 ### <a name="traffic-manager-limits"></a>Limites do Gerenciador de Tráfego
 
@@ -327,10 +347,6 @@ A tabela a seguir se aplica aos SKUs v1, v2, Standard e WAF, salvo indicação e
 ## <a name="notification-hubs-limits"></a>Limites de hubs de notificação
 
 [!INCLUDE [notification-hub-limits](../../../includes/notification-hub-limits.md)]
-
-## <a name="azure-role-based-access-control-limits"></a>Limites de controle de acesso baseado em função do Azure
-
-[!INCLUDE [role-based-access-control-limits](../../../includes/role-based-access-control-limits.md)]
 
 ## <a name="service-bus-limits"></a>Limites de Barramento de Serviço
 
@@ -390,7 +406,7 @@ Para obter mais informações, consulte [tamanhos de máquina virtual](../../vir
 
 #### <a name="disk-encryption-sets"></a>Conjuntos de criptografia de disco
 
-Há uma limitação de 50 conjuntos de criptografia de disco por região, por assinatura. Para obter mais informações, consulte a documentação de criptografia para máquinas virtuais [Linux](../../virtual-machines/linux/disk-encryption.md#restrictions) ou [Windows](../../virtual-machines/windows/disk-encryption.md#restrictions) . Se você precisar aumentar a cota, entre em contato com o suporte do Azure.
+Há uma limitação de 1000 conjuntos de criptografia de disco por região, por assinatura. Para obter mais informações, consulte a documentação de criptografia para máquinas virtuais [Linux](../../virtual-machines/disk-encryption.md#restrictions) ou [Windows](../../virtual-machines/disk-encryption.md#restrictions) . Se você precisar aumentar a cota, entre em contato com o suporte do Azure.
 
 ### <a name="managed-virtual-machine-disks"></a>Discos de máquina virtual gerenciados
 

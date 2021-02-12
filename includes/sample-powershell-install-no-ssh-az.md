@@ -5,11 +5,11 @@ author: mikefrobbins
 ms.author: mirobb
 manager: barbkess
 ms.openlocfilehash: 32a725f6f84a1a79df9b1211d95ecb2ac530aa07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85378504"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998117"
 ---
 Este exemplo exige o Azure PowerShell. Execute `Get-Module -ListAvailable Az` para encontrar a versão.
 Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). 

@@ -6,16 +6,16 @@ author: su-jie
 ms.author: sujie
 ms.date: 4/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 756604b71efd1715ae3b4ca3d5eebf0fdfa41e34
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 988b9d364f09a4c88bcaab1fe81ae80c8de5d4d9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129789"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491563"
 ---
 # <a name="intellisense-in-azure-stream-analytics-tools-for-visual-studio-code"></a>IntelliSense no Azure Stream Analytics Tools para Visual Studio Code
 
-O IntelliSense está disponível para [Stream Analytics linguagem de consulta](/stream-analytics-query/stream-analytics-query-language-reference?bc=https%253a%252f%252fdocs.microsoft.com%252fazure%252fbread%252ftoc.json&toc=https%253a%252f%252fdocs.microsoft.com%252fazure%252fstream-analytics%252ftoc.json) no [Azure Stream Analytics Tools para vs Code](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa&ssr=false#overview). O IntelliSense é uma ajuda de preenchimento de código que inclui inúmeras funcionalidades: Listar Membros, Informações do Parâmetro, Informações Rápidas e Completar Palavra. Os recursos do IntelliSense às vezes são chamados por outros nomes, como "auto-completar de código", "assistência a conteúdo" e "dicas de código".
+O IntelliSense está disponível para [Stream Analytics linguagem de consulta](/stream-analytics-query/stream-analytics-query-language-reference?bc=https%253a%2f%2fdocs.microsoft.com%2fazure%2fbread%2ftoc.json&toc=https%253a%2f%2fdocs.microsoft.com%2fazure%2fstream-analytics%2ftoc.json) no [Azure Stream Analytics Tools para vs Code](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa&ssr=false#overview). O IntelliSense é uma ajuda de preenchimento de código que inclui inúmeras funcionalidades: Listar Membros, Informações do Parâmetro, Informações Rápidas e Completar Palavra. Os recursos do IntelliSense às vezes são chamados por outros nomes, como "auto-completar de código", "assistência a conteúdo" e "dicas de código".
 
 ![Demonstração do IntelliSense](./media/vs-code-intellisense/intellisense.gif)
 

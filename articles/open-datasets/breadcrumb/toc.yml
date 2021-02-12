@@ -3,5 +3,5 @@
   topicHref: /azure/index
   items:
     - name: Conjunto de Dados em Aberto no Azure
-      tocHref: /azure/machine-learning/service
+      tocHref: /azure/machine-learning
       topicHref: /azure/open-datasets/index

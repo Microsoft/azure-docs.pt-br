@@ -13,18 +13,15 @@ ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 425809339cf4c468293801460fdeb79d9e467968
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 562162e0bd42b0a46b2b0c6d44ca9b37f1841750
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565592"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052853"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>Inscreva-se nas edições do Azure Active Directory Premium
 Você pode comprar e associar as edições do Azure Active Directory (Azure AD) Premium à sua assinatura do Azure. Se você precisar criar uma nova assinatura do Azure, também precisará ativar seu plano de licenciamento e o acesso ao serviço do Azure AD.
-
-> [!NOTE]
->As edições Azure AD Premium e Básico estão disponíveis para clientes na China por meio da instância mundial do Azure Active Directory. Atualmente, as edições Azure AD Premium e Básico não têm suporte no serviço do Azure operado pela 21Vianet na China. Para obter mais informações, fale conosco usando o [Fórum do Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 Antes de se inscrever no Active Directory Premium 1 ou Premium 2, primeiro determine qual assinatura existente ou plano você deseja usar:
 
@@ -69,7 +66,7 @@ Se você se inscreveu usando um novo plano de licença do Azure AD, ative-o para
 
     - **Entrar.** Escolha este link se você tiver um locatário existente e entre usando sua conta de administrador existente. Você precisa ser um administrador global no locatário em que as licenças estão sendo ativadas.
 
-    - **Criar conta.** Escolha este link se você quiser abrir a página **Criar Perfil da Conta** e criar um novo locatário do Azure AD para seu plano de licenciamento.
+    - **Inscrição.** Escolha este link se você quiser abrir a página **Criar Perfil da Conta** e criar um novo locatário do Azure AD para seu plano de licenciamento.
 
         ![Criar uma página de perfil de conta, com informações de exemplo](media/active-directory-get-started-premium/MOLSAccountProfile.png)
 

@@ -2,17 +2,17 @@
 title: 'Início Rápido: Criar um trabalho do Azure Stream Analytics no Visual Studio Code'
 description: Este início rápido apresenta uma introdução para criar um trabalho do Stream Analytics, configurar entradas e saídas e definir uma consulta com o Visual Studio Code.
 ms.service: stream-analytics
-author: mamccrea
-ms.author: mamccrea
+author: su-jie
+ms.author: sujie
 ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 5ba47522f483b6c9b2a03e99f3608c58e916e010
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 104dfe7b2ce253d7ae42c7484532cfd5b2993aec
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90943323"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014604"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code-preview"></a>Início Rápido: Criar um trabalho do Azure Stream Analytics no Visual Studio Code (versão prévia)
 
@@ -63,7 +63,7 @@ Antes de definir o trabalho do Stream Analytics, você deve preparar os dados qu
 
    |**Configuração**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
-   |Subscription  | \<Your subscription\> |  Selecione a assinatura do Azure que deseja usar. |
+   |Subscription  | \<Your subscription\> |  Selecione a assinatura do Azure que você deseja usar. |
    |Grupo de recursos   |   asaquickstart-resourcegroup  |   Selecione **Criar Novo** e insira um novo nome de grupo de recursos para a conta. |
    |Região  |  \<Select the region that is closest to your users\> | Selecione uma localização geográfica na qual você possa hospedar o hub IoT. Use a localização mais próxima dos usuários. |
    |Nome do Hub IoT  | MyASAIoTHub  |   Selecione um nome para o hub IoT.   |
@@ -281,4 +281,4 @@ Para saber mais sobre as Ferramentas do Azure Stream Analytics para Visual Studi
 
 * [Usar o Visual Studio Code para exibir trabalhos do Azure Stream Analytics](visual-studio-code-explore-jobs.md)
 
-* [Configurar pipelines da CI/CD usando o pacote npm](setup-cicd-vs-code.md)
+* [Configurar pipelines da CI/CD usando o pacote npm](./cicd-overview.md)

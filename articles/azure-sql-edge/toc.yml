@@ -28,14 +28,6 @@
       href: tutorial-sync-data-factory.md
     - name: Sincronizar dados à Sincronização de Dados SQL
       href: tutorial-sync-data-sync.md
-    - name: Criar uma solução IoT de ponta a ponta com o SQL no Edge
-      items:
-        - name: Configurar recursos do Azure
-          href: tutorial-deploy-azure-resources.md
-        - name: Configurar módulos do IoT Edge
-          href: tutorial-set-up-iot-edge-modules.md
-        - name: Implantar modelo no SQL no Edge
-          href: tutorial-run-ml-model-on-sql-edge.md
 - name: Conceitos
   items:
     - name: Implantar
@@ -47,7 +39,7 @@
         - name: Implantar no Kubernetes
           href: deploy-kubernetes.md
         - name: Implantar com o Azure Data Studio
-          href: 'https://docs.microsoft.com/sql/azure-data-studio/deploy-azure-sql-edge?toc=/azure/azure-sql-edge/toc.json'
+          href: /sql/azure-data-studio/deploy-azure-sql-edge?toc=%2fazure%2fazure-sql-edge%2ftoc.json
     - name: Aprendizado de máquina
       items:
         - name: Aprendizado de máquina e IA com ONNX
@@ -91,9 +83,9 @@
         - name: DATE_BUCKET (Transact-SQL)
           href: date-bucket-tsql.md
         - name: FIRST_VALUE (Transact-SQL)
-          href: 'https://docs.microsoft.com/sql/t-sql/functions/first-value-transact-sql?toc=/azure/azure-sql-edge/toc.json'
+          href: /sql/t-sql/functions/first-value-transact-sql?toc=%2fazure%2fazure-sql-edge%2ftoc.json
         - name: LAST_VALUE (Transact-SQL)
-          href: 'https://docs.microsoft.com/sql/t-sql/functions/last-value-transact-sql?toc=/azure/azure-sql-edge/toc.json'
+          href: /sql/t-sql/functions/last-value-transact-sql?toc=%2fazure%2fazure-sql-edge%2ftoc.json
         - name: Retenção e limpeza de dados
           items:
             - name: Visão geral da retenção de dados
@@ -109,11 +101,11 @@
         - name: Visão geral da segurança
           href: security-overview.md
         - name: Recursos de segurança
-          href: 'https://docs.microsoft.com/sql/linux/sql-server-linux-security-get-started?toc=/azure/azure-sql-edge/toc.json'
+          href: /sql/linux/sql-server-linux-security-get-started?toc=%2fazure%2fazure-sql-edge%2ftoc.json
         - name: Criptografar conexões
-          href: 'https://docs.microsoft.com/sql/linux/sql-server-linux-encrypted-connections?toc=/azure/azure-sql-edge/toc.json'
+          href: /sql/linux/sql-server-linux-encrypted-connections?toc=%2fazure%2fazure-sql-edge%2ftoc.json
         - name: Central de Segurança do Azure para IoT
-          href: 'https://docs.microsoft.com/azure/asc-for-iot/overview?toc=/azure/azure-sql-edge/toc.json&bc=/azure/azure-sql-edge/breadcrumb/toc.json'
+          href: ../defender-for-iot/overview.md?bc=%2fazure%2fazure-sql-edge%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-sql-edge%2ftoc.json
 - name: Como
   items:
     - name: Configurar o SQL no Edge
@@ -138,10 +130,22 @@
       href: create-stream-analytics-job.md
     - name: Solucionar problemas de implantação
       href: troubleshoot.md
+- name: Exemplos
+  items:
+    - name: Previsão de sílica de minério de ferro
+      items:
+        - name: Configurar recursos do Azure
+          href: tutorial-deploy-azure-resources.md
+        - name: Configurar módulos do IoT Edge
+          href: tutorial-set-up-iot-edge-modules.md
+        - name: Implantar modelo no SQL no Edge
+          href: tutorial-run-ml-model-on-sql-edge.md
+    - name: Energia renovável – análise de turbinas eólicas
+      href: tutorial-renewable-energy-demo.md
 - name: Referência
   items:
     - name: Referência do T-SQL (Transact-SQL)
-      href: 'https://docs.microsoft.com/sql/t-sql/language-reference'
+      href: /sql/t-sql/language-reference
 - name: Recursos
   items:
     - name: Parceiros

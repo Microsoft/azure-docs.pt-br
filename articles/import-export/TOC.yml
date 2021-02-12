@@ -1,0 +1,54 @@
+- name: Documentação da Importação/Exportação do Azure
+  href: ./index.yml
+- name: Visão geral
+  expanded: true
+  items:
+    - name: O que é a Importação/Exportação?
+      href: storage-import-export-service.md
+- name: Conceitos
+  items:
+    - name: Examinar os requisitos
+      href: storage-import-export-requirements.md
+    - name: Perguntas frequentes
+      href: storage-import-export-service-faq.md
+- name: Como
+  expanded: true
+  items:
+    - name: Implantar
+      items:
+        - name: Importar dados para blobs
+          href: storage-import-export-data-to-blobs.md
+        - name: Importar dados para arquivos
+          href: storage-import-export-data-to-files.md
+        - name: Exportar dados dos blobs
+          href: storage-import-export-data-from-blobs.md
+    - name: Usar chaves gerenciadas pelo cliente
+      href: storage-import-export-encryption-key-portal.md
+    - name: Monitoramento
+      items:
+        - name: Exibir status da unidade
+          href: storage-import-export-view-drive-status.md
+        - name: Revisar status do trabalho
+          href: storage-import-export-tool-reviewing-job-status-v1.md
+    - name: Solucionar problemas
+      items:
+        - name: Corrigir erros comuns
+          href: storage-import-export-tool-troubleshooting-v1.md
+        - name: Reparar um trabalho de importação
+          href: storage-import-export-tool-repairing-an-import-job-v1.md
+        - name: Reparar um trabalho de exportação
+          href: storage-import-export-tool-repairing-an-export-job-v1.md
+        - name: Contatar o suporte
+          href: storage-import-export-contact-microsoft-support.md
+- name: Referência
+  items:
+    - name: API REST
+      href: /rest/api/storageimportexport/jobs
+    - name: Azure PowerShell
+      href: /powershell/module/Az.ImportExport
+- name: Recursos
+  items:
+    - name: Exportar os dados offline
+      href: /learn/modules/export-data-with-azure-import-export
+    - name: Outras opções de transferência offline
+      href: ../databox/index.yml

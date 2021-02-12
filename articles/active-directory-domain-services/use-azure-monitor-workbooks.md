@@ -1,20 +1,20 @@
 ---
 title: Usar pastas de trabalho Azure Monitor com Azure AD Domain Services | Microsoft Docs
 description: Saiba como usar pastas de trabalho do Azure Monitor para examinar auditorias de segurança e entender problemas em um domínio Azure Active Directory Domain Services gerenciado.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: joflore
-ms.openlocfilehash: 02c4679016ea80a4ac8bb53b502292945cbe9d7b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 3067388265fb69b916fe0e179cb896401b7c2dc4
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967062"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618154"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Examinar eventos de auditoria de segurança em Azure Active Directory Domain Services usando pastas de trabalho Azure Monitor
 
@@ -103,7 +103,7 @@ Assim como no relatório de visão geral de segurança, você pode fazer uma bus
 
 As duas pastas de trabalho de modelo fornecidas pelo Azure AD DS são um bom local para começar com sua própria análise de dados. Se você precisar obter mais granular nas consultas e investigações de dados, poderá salvar suas próprias pastas de trabalho e editar as consultas.
 
-1. Para salvar uma cópia de um dos modelos de pasta de trabalho, selecione **editar > salvar como > relatórios compartilhados**e, em seguida, forneça um nome e salve-o.
+1. Para salvar uma cópia de um dos modelos de pasta de trabalho, selecione **editar > salvar como > relatórios compartilhados** e, em seguida, forneça um nome e salve-o.
 1. Em sua própria cópia do modelo, selecione **Editar** para entrar no modo de edição. Você pode escolher o botão de **edição** azul ao lado de qualquer parte do relatório e alterá-lo.
 
 Todos os gráficos e tabelas em Azure Monitor pastas de trabalho são gerados usando consultas Kusto. Para obter mais informações sobre como criar suas próprias consultas, consulte Azure Monitor o [tutorial][kusto-queries] [consultas de log][azure-monitor-queries] e consultas do Kusto.
@@ -122,5 +122,5 @@ Para problemas com os usuários, saiba como solucionar problemas de [conexão de
 [password-policy]: password-policy.md
 [troubleshoot-sign-in]: troubleshoot-sign-in.md
 [troubleshoot-account-lockout]: troubleshoot-account-lockout.md
-[azure-monitor-queries]: ../azure-monitor/log-query/query-language.md
+[azure-monitor-queries]: /azure/data-explorer/kusto/query/
 [kusto-queries]: /azure/kusto/query/tutorial?pivots=azuredataexplorer

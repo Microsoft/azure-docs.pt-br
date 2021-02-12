@@ -3,21 +3,21 @@ title: Entenda como funciona o provisionamento do Azure Active Directory | Micro
 description: Entenda como funciona o provisionamento do Azure Active Directory
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/20/2020
+ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.custom: contperfq2
-ms.openlocfilehash: c9d8bf42d8856ffcf7bb0247172f6c0fd49600e0
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 048adee21d5c2e49ef02f518002a1dc6025c1ecd
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424645"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988973"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o provisionamento
 
@@ -43,9 +43,7 @@ Para solicitar um conector de provisionamento automático do Azure Active Direct
 
 ## <a name="authorization"></a>Autorização
 
-As credenciais são necessárias para que o Azure Active Directory se conecte à API de gerenciamento de usuários do aplicativo. Enquanto estiver configurando o provisionamento automático de usuário para um aplicativo, você precisará inserir credenciais válidas. Para encontrar os requisitos e tipos de credenciais do aplicativo, você pode consultar o tutorial do aplicativo. No portal do Azure, para testar as credenciais, faça com que o Azure Active Directory tente se conectar ao aplicativo de provisionamento de aplicativo com as credenciais fornecidas.
-
-Se o logon único baseado em SAML também estiver configurado para o aplicativo, o limite de armazenamento por aplicativo interno do Azure Active Directory será de 1024 bytes. Esse limite inclui todos os certificados, tokens secretos, credenciais e dados de configuração relacionados associados a uma única instância de um aplicativo (também conhecido como registro de entidade de serviço no Azure Active Directory). Ao configurar o logon único baseado no SAML, o certificado usado para assinar os tokens SAML geralmente consome mais 50% do espaço. Itens adicionais (tokens secretos, URIs, endereços de email de notificação, nomes de usuário e senhas) inseridos durante a configuração de provisionamento do usuário podem exceder o limite de armazenamento. Para obter mais informações, consulte [Problema ao salvar credenciais do administrador ao configurar o provisionamento do usuário](./application-provisioning-config-problem-storage-limit.md).
+As credenciais são necessárias para que o Azure Active Directory se conecte à API de gerenciamento de usuários do aplicativo. Enquanto estiver configurando o provisionamento automático de usuário para um aplicativo, você precisará inserir credenciais válidas. Para aplicativos da galeria, você pode encontrar os requisitos e tipos de credenciais para o aplicativo consultando o tutorial do aplicativo. Para aplicativos que não são da galeria, você pode consultar a documentação do [scim](./use-scim-to-provision-users-and-groups.md#authorization-to-provisioning-connectors-in-the-application-gallery) para entender os tipos de credenciais e os requisitos. No portal do Azure, para testar as credenciais, faça com que o Azure Active Directory tente se conectar ao aplicativo de provisionamento de aplicativo com as credenciais fornecidas.
 
 ## <a name="mapping-attributes"></a>Atributos de mapeamento
 
@@ -192,7 +190,7 @@ Os cenários a seguir dispararão uma desabilitação ou uma exclusão:
 * Um usuário não é atribuído de um aplicativo.
 * Um usuário vai de um escopo para fora do escopo (o não passa mais um filtro de escopo).
 
-:::image type="content" source="./media/how-provisioning-works/delete-user.png" alt-text="Desabilitar um usuário" lightbox="./media/how-provisioning-works/delete-user.png":::
+:::image type="content" source="./media/how-provisioning-works/delete-user.png" alt-text="Excluir um usuário" lightbox="./media/how-provisioning-works/delete-user.png":::
 
 Por padrão, o serviço de provisionamento do Azure Active Directory exclui ou desabilita usuários que saem de escopo. Se você quiser substituir esse comportamento padrão, poderá definir um sinalizador para [ignorar exclusões fora do escopo.](skip-out-of-scope-deletions.md)
 

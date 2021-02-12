@@ -1,5 +1,5 @@
 ---
-title: Usar a CLI para criar filtros com os Serviços de Mídia do Azure | Microsoft Docs
+title: Usar a CLI para criar filtros com os serviços de mídia do Azure
 description: Este artigo mostra como usar a CLI para criar filtros com os serviços de mídia do Azure v3.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: f86b3fbebfaa2eb6fc35d5373eab2bb296ff5043
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 75df01ff65a0910dab140942b520978cd7728775
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740606"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897570"
 ---
 # <a name="creating-filters-with-cli"></a>Criando filtros com a CLI
 
@@ -132,6 +132,6 @@ A tabela a seguir mostra alguns exemplos de URLs com filtros:
 
 [Vídeos do Stream](stream-files-tutorial-with-api.md) 
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 [CLI do Azure](/cli/azure/ams?view=azure-cli-latest)

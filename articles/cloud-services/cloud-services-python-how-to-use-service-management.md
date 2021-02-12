@@ -1,28 +1,25 @@
 ---
 title: Usar a API de Gerenciamento de Serviços (Python) - guia de recursos
 description: Saiba como executar tarefas de gerenciamento de serviços comuns de forma programática no Python.
-services: cloud-services
-documentationcenter: python
-author: tanmaygore
-manager: vashan
-editor: ''
-ms.assetid: 61538ec0-1536-4a7e-ae89-95967fe35d73
-ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: python
 ms.topic: article
-ms.date: 05/30/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.custom: devx-track-python
-ms.openlocfilehash: ef155116904ee0d3ecab250a254010e2f7664757
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 02993f2b79e37e5e50c20c4ee07220bcbd36edb8
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073981"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741393"
 ---
 # <a name="use-service-management-from-python"></a>Usar o gerenciamento de serviços do Python
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
+
 Este guia mostra como executar tarefas de gerenciamento de serviços comuns de forma programática no Python. A classe **ServiceManagementService** no [SDK do Azure para Python](https://github.com/Azure/azure-sdk-for-python) dá suporte a acesso programático para grande parte da funcionalidade relacionada ao gerenciamento de serviços que está disponível no [Portal do Azure][management-portal]. Você pode usar essa funcionalidade para criar, atualizar e excluir serviços de nuvem, implantações, serviços de gerenciamento de dados e máquinas virtuais. Essa funcionalidade pode ser útil na criação de aplicativos que precisam de acesso programático ao gerenciamento de serviços.
 
 ## <a name="what-is-service-management"></a><a name="WhatIs"> </a>O que é gerenciamento de serviços?
@@ -127,7 +124,7 @@ Ao criar um serviço de nuvem ou de armazenamento, é preciso fornecer uma local
 * Leste dos EUA
 * Leste do Japão
 * Oeste do Japão
-* Brazil South
+* Sul do Brasil
 * Leste da Austrália
 * Sudeste da Austrália
 

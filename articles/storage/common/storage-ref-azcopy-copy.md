@@ -4,16 +4,16 @@ description: Este artigo fornece informações de referência para o comando azc
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 07/24/2020
+ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: a5c0d8bb47b337b0415565a0b6dad5c6822d0b94
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c4e85195ace0a24aa11d4a03b8f429f2714399b0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781729"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879149"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -37,7 +37,7 @@ Para obter mais informações, consulte a seção exemplos deste artigo.
 ## <a name="related-conceptual-articles"></a>Artigos conceituais relacionados
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
-- [Transferir dados com o armazenamento de BLOBs e AzCopy](storage-use-azcopy-blobs.md)
+- [Transferir dados com o armazenamento de BLOBs e AzCopy](./storage-use-azcopy-v10.md#transfer-data)
 - [Transferir dados com o AzCopy e o Armazenamento de Arquivos](storage-use-azcopy-files.md)
 - [Configurar, otimizar e solucionar problemas do AzCopy](storage-use-azcopy-configure.md)
 
@@ -107,6 +107,14 @@ Carregar arquivos e diretórios usando um token SAS e caracteres curinga (*):
 ```azcopy
 azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive
 ```
+
+Carregue arquivos e diretórios na conta de armazenamento do Azure e defina as marcas codificadas da cadeia de caracteres de consulta no BLOB. 
+
+- Para definir as marcas {Key = "bla bla", Val = "foo"} e {Key = "bla bla 2", Val = "bar"}, use a seguinte sintaxe: `azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
+    
+- Chaves e valores são codificados em URL e os pares chave-valor são separados por um e comercial (' & ')
+
+- Ao definir marcas nos BLOBs, há permissões adicionais (' T' para marcas) em SAS sem a qual o serviço dará erro de autorização.
 
 Baixe um único arquivo usando a autenticação OAuth. Se você ainda não fez logon no AzCopy, execute o `azcopy login` comando antes de executar o comando a seguir.
 
@@ -214,9 +222,19 @@ Copie um subconjunto de buckets usando um símbolo curinga (*) no nome do Bucket
 - azcopy cp "https://s3.amazonaws.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive
 ```
 
+Transfira arquivos e diretórios para a conta de armazenamento do Azure e defina as marcas codificadas de cadeia de caracteres de consulta no BLOB. 
+
+- Para definir as marcas {Key = "bla bla", Val = "foo"} e {Key = "bla bla 2", Val = "bar"}, use a seguinte sintaxe: `azcopy cp "https://[account].blob.core.windows.net/[source_container]/[path/to/directory]?[SAS]" "https://[account].blob.core.windows.net/[destination_container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
+        
+- Chaves e valores são codificados em URL e os pares chave-valor são separados por um e comercial (' & ')
+    
+- Ao definir marcas nos BLOBs, há permissões adicionais (' T' para marcas) em SAS sem a qual o serviço dará erro de autorização.
+
 ## <a name="options"></a>Opções
 
 **--backup** Ativa o Windows ' SeBackupPrivilege para carregamentos ou SeRestorePrivilege para downloads, para permitir que o AzCopy Veja e Leia todos os arquivos, independentemente de suas permissões do sistema de arquivos e restaure todas as permissões. Requer que a conta que executa o AzCopy já tenha essas permissões (por exemplo, tenha direitos de administrador ou seja um membro do `Backup Operators` grupo). Esse sinalizador ativa os privilégios que a conta já tem.
+
+**--as marcas de blob** definem as marcas em BLOBs para categorizar os dados em sua conta de armazenamento.
 
 **--blob-Type** cadeia de caracteres define o tipo de blob no destino. Isso é usado para carregar BLOBs e ao copiar entre contas (padrão `Detect` ). Os valores válidos incluem `Detect`, `BlockBlob`, `PageBlob` e `AppendBlob`. Ao copiar entre contas, um valor de `Detect` faz com que o AzCopy use o tipo de blob de origem para determinar o tipo do blob de destino. Ao carregar um arquivo, `Detect` determina se o arquivo é um VHD ou um arquivo VHDX com base na extensão de arquivo. Se o arquivo for ether a um VHD ou arquivo VHDX, AzCopy tratará o arquivo como um blob de páginas. (padrão "detectar")
 
@@ -258,13 +276,15 @@ Copie um subconjunto de buckets usando um símbolo curinga (*) no nome do Bucket
 
 --a cadeia de caracteres **include-After** inclui apenas os arquivos modificados em ou após a data/hora determinada. O valor deve estar no formato ISO8601. Se nenhum fuso horário for especificado, o valor será considerado no fuso horário local do computador que executa o AzCopy. por exemplo, `2020-08-19T15:04:00Z` para uma hora UTC ou `2020-08-19` para meia-noite (00:00) no fuso horário local. Como em AzCopy 10,5, esse sinalizador se aplica somente a arquivos, não a pastas, portanto, as propriedades de pasta não serão copiadas ao usar esse sinalizador com `--preserve-smb-info` ou `--preserve-smb-permissions` .
 
+ --a cadeia de caracteres **include-before** inclui apenas os arquivos modificados antes ou na data/hora determinada. O valor deve estar no formato ISO8601. Se nenhum fuso horário for especificado, o valor será considerado no fuso horário local do computador que executa o AzCopy. Por ex.: `2020-08-19T15:04:00Z` por uma hora UTC ou `2020-08-19` para meia-noite (00:00) no fuso horário local. A partir do AzCopy 10,7, esse sinalizador se aplica somente a arquivos, não a pastas, portanto, as propriedades da pasta não serão copiadas ao usar esse sinalizador com `--preserve-smb-info` ou `--preserve-smb-permissions` .
+
 **--include-** a cadeia de caracteres de atributos (somente Windows) inclui arquivos cujos atributos correspondem à lista de atributos. Por exemplo: A; & D
 
 --a cadeia de caracteres **include-path** inclui apenas esses caminhos ao copiar. Essa opção não dá suporte a caracteres curinga (*). Verifica o prefixo de caminho relativo (por exemplo: `myFolder;myFolder/subDirName/file.pdf` ).
 
 **--include-a cadeia de caracteres de padrão** inclui apenas esses arquivos ao copiar. Essa opção dá suporte a caracteres curinga (*). Separe arquivos usando um `;` .
 
-**--a cadeia de caracteres da lista de versões** especifica um arquivo onde cada ID de versão é listada em uma linha separada. Verifique se a origem deve apontar para um único BLOB e se todas as IDs de versão especificadas no arquivo usando esse sinalizador devem pertencer somente ao blob de origem. O AzCopy baixará as versões especificadas na pasta de destino fornecida. Para obter mais informações, consulte [baixar versões anteriores de um blob](storage-use-azcopy-blobs.md#download-previous-versions-of-a-blob).
+**--a cadeia de caracteres da lista de versões** especifica um arquivo onde cada ID de versão é listada em uma linha separada. Verifique se a origem deve apontar para um único BLOB e se todas as IDs de versão especificadas no arquivo usando esse sinalizador devem pertencer somente ao blob de origem. O AzCopy baixará as versões especificadas na pasta de destino fornecida. Para obter mais informações, consulte [baixar versões anteriores de um blob](./storage-use-azcopy-v10.md#transfer-data).
 
 **--** cadeia de caracteres de nível de log defina o detalhamento de log para o arquivo de log, níveis disponíveis: informações (todas as solicitações/respostas), aviso (respostas lentas), erro (somente solicitações com falha) e nenhum (nenhum log de saída). (padrão `INFO` ). 
 
@@ -304,6 +324,6 @@ Copie um subconjunto de buckets usando um símbolo curinga (*) no nome do Bucket
 
 **--a cadeia de caracteres Trusted-Microsoft-suffixs** especifica sufixos de domínio adicionais onde Azure Active Directory tokens de logon podem ser enviados.  O padrão é `*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net`. Todos listados aqui são adicionados ao padrão. Por segurança, você só deve colocar Microsoft Azure domínios aqui. Separe várias entradas com ponto e vírgula.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 - [azcopy](storage-ref-azcopy.md)

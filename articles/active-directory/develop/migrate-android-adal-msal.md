@@ -14,12 +14,12 @@ ms.date: 10/14/2020
 ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: 752e7dae9040059c662a93d9a9d668bac0e8e2d8
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ba639bc023affc7c2e6b2b675cdedc1229636893
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074661"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581033"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Guia de migração do ADAL para MSAL para Android
 
@@ -71,7 +71,7 @@ Em seu registro de aplicativo no portal, você verá uma guia **permissões de A
 Com a ADAL e o ponto de extremidade do Azure AD v1, o consentimento do usuário para os recursos de sua propriedade foi concedido no primeiro uso. Com o MSAL e a plataforma de identidade da Microsoft, o consentimento pode ser solicitado de forma incremental. O consentimento incremental é útil para permissões que um usuário pode considerar alto privilégio ou, caso contrário, pergunta se não foi fornecida uma explicação clara de por que a permissão é necessária. No ADAL, essas permissões podem ter resultado no usuário abandonar a entrada em seu aplicativo.
 
 > [!TIP]
-> Recomendamos o uso de consentimento incremental em cenários em que você precisa fornecer contexto adicional para o usuário sobre por que seu aplicativo precisa de uma permissão.
+> Use o consentimento incremental para fornecer contexto adicional aos usuários sobre por que seu aplicativo precisa de uma permissão.
 
 ### <a name="admin-consent"></a>Consentimento do administrador
 
@@ -89,7 +89,7 @@ Se você estiver usando a ADAL e não precisar usar o consentimento incremental,
 > [!CAUTION]
 > Não é possível definir os escopos e uma ID de recurso. A tentativa de definir ambos resultará em um `IllegalArgumentException` .
 
- Isso resultará no mesmo comportamento v1 que você está acostumado. Todas as permissões solicitadas no registro do aplicativo são solicitadas pelo usuário durante sua primeira interação.
+Isso resultará no mesmo comportamento v1 que você está acostumado. Todas as permissões solicitadas no registro do aplicativo são solicitadas pelo usuário durante sua primeira interação.
 
 ### <a name="authenticate-and-request-permissions-only-as-needed"></a>Autenticar e solicitar permissões somente quando necessário
 
@@ -131,13 +131,13 @@ Se você tentar usar uma autoridade que não seja conhecida pela Microsoft e nã
 ### <a name="logging"></a>Registro em log
 Agora você pode configurar o log de forma declarativa como parte de sua configuração, como esta:
 
- ```
- "logging": {
-    "pii_enabled": false,
-    "log_level": "WARNING",
-    "logcat_enabled": true
-  }
-  ```
+```json
+"logging": {
+  "pii_enabled": false,
+  "log_level": "WARNING",
+  "logcat_enabled": true
+}
+```
 
 ## <a name="migrate-from-userinfo-to-account"></a>Migrar de UserInfo para conta
 
@@ -147,7 +147,7 @@ Considere uma conta bancária. Você pode ter mais de uma conta em mais de uma i
 
 Por analogia, como contas em uma instituição financeira, as contas na plataforma Microsoft Identity são acessadas usando credenciais. Essas credenciais são registradas com o, ou emitidas pela Microsoft. Ou pela Microsoft em nome de uma organização.
 
-Onde a plataforma de identidade da Microsoft difere de uma instituição financeira, nessa analogia, é que a plataforma de identidade da Microsoft fornece uma estrutura que permite que um usuário use uma conta e suas credenciais associadas para acessar recursos que pertencem a vários indivíduos e organizações. Isso é como ser capaz de usar um cartão emitido por um banco, no entanto, em outra instituição financeira. Isso funciona porque todas as organizações em questão estão usando a plataforma de identidade da Microsoft, que permite que uma conta seja usada em várias organizações. Veja um exemplo:
+Onde a plataforma de identidade da Microsoft difere de uma instituição financeira, nessa analogia, é que a plataforma de identidade da Microsoft fornece uma estrutura que permite que um usuário use uma conta e suas credenciais associadas para acessar recursos que pertencem a vários indivíduos e organizações. Isso é como ser capaz de usar um cartão emitido por um banco, no entanto, em outra instituição financeira. Isso funciona porque todas as organizações em questão estão usando a plataforma de identidade da Microsoft, que permite que uma conta seja usada em várias organizações. Aqui está um exemplo:
 
 O Sam funciona para Contoso.com, mas gerencia as máquinas virtuais do Azure que pertencem ao Fabrikam.com. Para que o Sam gerencie as máquinas virtuais da Fabrikam, ele precisa estar autorizado a acessá-las. Esse acesso pode ser concedido adicionando a conta de Sam ao Fabrikam.com e concedendo a ela uma função que permita que ele trabalhe com as máquinas virtuais. Isso seria feito com o portal do Azure.
 
@@ -278,30 +278,30 @@ No MSAL, há uma hierarquia de exceções e cada uma tem seu próprio conjunto d
 // New interface
   StringBuilder logs = new StringBuilder();
   Logger.getInstance().setExternalLogger(new ILoggerCallback() {
-            @Override
-            public void log(String tag, Logger.LogLevel logLevel, String message, boolean containsPII) {
-                logs.append(message).append('\n');
-            }
-        });
+      @Override
+      public void log(String tag, Logger.LogLevel logLevel, String message, boolean containsPII) {
+          logs.append(message).append('\n');
+      }
+  });
 
 // New Log Levels:
 public enum LogLevel
 {
-        /**
-         * Error level logging.
-         */
-        ERROR,
-        /**
-         * Warning level logging.
-         */
-        WARNING,
-        /**
-         * Info level logging.
-         */
-        INFO,
-        /**
-         * Verbose level logging.
-         */
-        VERBOSE
+    /**
+     * Error level logging.
+     */
+    ERROR,
+    /**
+     * Warning level logging.
+     */
+    WARNING,
+    /**
+     * Info level logging.
+     */
+    INFO,
+    /**
+     * Verbose level logging.
+     */
+    VERBOSE
 }
 ```

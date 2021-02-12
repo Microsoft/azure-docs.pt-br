@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 01/18/2021
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 7c6f9203385c47da9803fb05358889d00d77d3e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6ae9ff27e773c36626812387b1284d660cbf39d
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511629"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602466"
 ---
 # <a name="understand-azure-role-definitions"></a>Entender as definições de função do Azure
 
@@ -264,7 +264,7 @@ Para visualizar e trabalhar com operações de dados, você deve ter as versões
 
 | Ferramenta  | Versão  |
 |---------|---------|
-| [PowerShell do Azure](/powershell/azure/install-az-ps) | 1.1.0 ou posterior |
+| [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 ou posterior |
 | [CLI do Azure](/cli/azure/install-azure-cli) | 2.0.30 ou posterior |
 | [Azure para .NET](/dotnet/azure/) | 2.8.0-versão prévia ou posterior |
 | [SDK do Azure para ir](/azure/go/azure-sdk-go-install) | 15.0.0 ou posterior |
@@ -291,11 +291,27 @@ Uma permissão `Actions`especifica as operações de gerenciamento permitidas pe
 
 ## <a name="notactions"></a>NotActions
 
-A permissão `NotActions` especifica as operações de gerenciamento que são excluídas do `Actions` permitido. Use a permissão `NotActions` se o conjunto de operações que você deseja permitir fica definido mais facilmente excluindo as operações restritas. O acesso concedido por uma função (permissões efetivas) é calculado subtraindo as operações `NotActions` das operações `Actions`.
+A `NotActions` permissão especifica as operações de gerenciamento que são subtraídas ou excluídas do permitido `Actions` que têm um curinga ( `*` ). Use a `NotActions` permissão se o conjunto de operações que você deseja permitir for definido mais facilmente com a subtração de `Actions` que tenha um curinga ( `*` ). O acesso concedido por uma função (permissões efetivas) é calculado subtraindo as operações `NotActions` das operações `Actions`.
+
+`Actions - NotActions = Effective management permissions`
+
+A tabela a seguir mostra dois exemplos de permissões efetivas para uma operação curinga [Microsoft. CostManagement](resource-provider-operations.md#microsoftcostmanagement) :
+
+> [!div class="mx-tableFixed"]
+> | Actions | NotActions | Permissões de gerenciamento efetivas |
+> | --- | --- | --- |
+> | `Microsoft.CostManagement/exports/*` | *nenhum* | `Microsoft.CostManagement/exports/action`</br>`Microsoft.CostManagement/exports/read`</br>`Microsoft.CostManagement/exports/write`</br>`Microsoft.CostManagement/exports/delete`</br>`Microsoft.CostManagement/exports/run/action` |
+> | `Microsoft.CostManagement/exports/*` | `Microsoft.CostManagement/exports/delete` | `Microsoft.CostManagement/exports/action`</br>`Microsoft.CostManagement/exports/read`</br>`Microsoft.CostManagement/exports/write`</br>`Microsoft.CostManagement/exports/run/action` |
 
 > [!NOTE]
 > Se um usuário for atribuído a uma função que exclui uma operação em `NotActions` e for atribuído a uma segunda função que concede acesso à mesma operação, ele terá permissão para executar essa operação. `NotActions` não é uma regra de negação, é simplesmente uma maneira conveniente de criar um conjunto de operações permitidas quando for necessário excluir operações específicas.
 >
+
+### <a name="differences-between-notactions-and-deny-assignments"></a>Diferenças entre não ações e atribuições de negação
+
+`NotActions` e as atribuições de negação não são as mesmas e servem para fins diferentes. `NotActions` são uma maneira conveniente de subtrair ações específicas de uma `*` operação curinga ().
+
+As designações de negação impedem que os usuários executem ações específicas, mesmo que uma atribuição de função conceda a eles acesso. Para obter mais informações, confira [Compreender atribuições de negação do Azure](deny-assignments.md).
 
 ## <a name="dataactions"></a>DataActions
 
@@ -311,7 +327,17 @@ Uma permissão `DataActions` que especifica as operações de dados permitidas p
 
 ## <a name="notdataactions"></a>NotDataActions
 
-O `NotDataActions` permissão especifica as operações de dados que são excluídas do permitidos `DataActions`. O acesso concedido por uma função (permissões efetivas) é calculado subtraindo as operações `NotDataActions` das operações `DataActions`. Cada provedor de recursos fornece seu respectivo conjunto de APIs para atender as operações de dados.
+A `NotDataActions` permissão especifica as operações de dados que são subtraídas ou excluídas do permitido `DataActions` que têm um curinga ( `*` ). Use a `NotDataActions` permissão se o conjunto de operações que você deseja permitir for definido mais facilmente com a subtração de `DataActions` que tenha um curinga ( `*` ). O acesso concedido por uma função (permissões efetivas) é calculado subtraindo as operações `NotDataActions` das operações `DataActions`. Cada provedor de recursos fornece seu respectivo conjunto de APIs para atender as operações de dados.
+
+`DataActions - NotDataActions = Effective data permissions`
+
+A tabela a seguir mostra dois exemplos de permissões efetivas para uma operação curinga do [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) :
+
+> [!div class="mx-tableFixed"]
+> | DataActions | NotDataActions | Permissões de dados efetivas |
+> | --- | --- | --- |
+> | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/*` | *nenhum* | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/read`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/write`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action` |
+> | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/*` | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete`</br> | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/read`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/write`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action` |
 
 > [!NOTE]
 > Se um usuário é atribuído a uma função que exclui uma operação de dados em `NotDataActions`e é atribuído a uma segunda função que concede acesso à mesma operação de dados, o usuário tem permissão para executar essa operação de dados. `NotDataActions` não é uma negação de regra – é simplesmente uma maneira conveniente de criar um conjunto de operações de dados permitidos quando precisam de operações de dados específicos a serem excluídos.
@@ -339,4 +365,4 @@ Para obter informações sobre as `AssignableScopes` funções personalizadas, c
 
 * [Funções internas do Azure](built-in-roles.md)
 * [Funções personalizadas do Azure](custom-roles.md)
-* [Operações do provedor de recursos do Azure Resource Manager](resource-provider-operations.md)
+* [Operações do provedor de recursos do Azure](resource-provider-operations.md)

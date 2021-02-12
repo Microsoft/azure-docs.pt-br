@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 99c8bc00beb7b189b200e0b02435262ae34835d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5727a08159f750a69920f66f4b743c187aa00885
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91856085"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588957"
 ---
 # <a name="create-a-cicd-pipeline-for-php-with-azure-devops-starter"></a>Criar um pipeline de CI/CD para PHP com o Azure DevOps Starter
 
@@ -64,9 +64,9 @@ Caso não tenha uma assinatura do Azure, você pode obter uma gratuitamente via 
 
  O DevOps Starter cria um repositório Git no Azure Repos ou no GitHub. Para exibir o repositório e fazer alterações de código no seu aplicativo, siga estas etapas:
 
-1. Na esquerda do dashboard do DevOps Starter, selecione o link para a ramificação mestre. Esse link abre uma exibição do repositório de Git recém-criado.
+1. Na esquerda do painel do DevOps Starter, selecione o link para a ramificação principal. Esse link abre uma exibição do repositório de Git recém-criado.
 
-1. Para exibir a URL de clone do repositório, selecione **Clone** na parte superior direita do navegador. Você pode clonar seu repositório Git no seu IDE favorito. Nas próximas etapas, use o navegador da Web para criar e confirmar as alterações de código diretamente no branch mestre.
+1. Para exibir a URL de clone do repositório, selecione **Clone** na parte superior direita do navegador. Você pode clonar seu repositório Git no seu IDE favorito. Nas próximas etapas, use o navegador da Web para criar e confirmar as alterações de código diretamente na ramificação principal.
 
 1. À esquerda, vá até o arquivo **resources/views/welcome.blade.php**.
 

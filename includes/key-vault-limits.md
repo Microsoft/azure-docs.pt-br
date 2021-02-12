@@ -4,12 +4,12 @@ ms.service: key-vault
 ms.topic: include
 ms.date: 04/21/2020
 ms.author: jroth
-ms.openlocfilehash: 01b3c9584f3ecddbcdcc6938f5eb469510a47a4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4abbeadb0d30911d99fff57c0e99a3e427a6d8d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85838996"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96028384"
 ---
 ### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Principais transações (máximo de transações permitidas a cada 10 segundos por cofre e por região<sup>1</sup>):
 
@@ -40,7 +40,7 @@ ms.locfileid: "85838996"
 | --- | --- |
 | Todas as transações |2\.000 |
 
-Para obter informações sobre como lidar com a limitação quando esses limites forem excedidos, confira [Diretrizes de limitação do Azure Key Vault](../articles/key-vault/key-vault-ovw-throttling.md).
+Para obter informações sobre como lidar com a limitação quando esses limites forem excedidos, confira [Diretrizes de limitação do Azure Key Vault](../articles/key-vault/general/overview-throttling.md).
 
 <sup>1</sup> O limite de assinaturas para todos os tipos de transações será cinco vezes o limite do cofre de chaves. Por exemplo, outras transações HSM por assinatura são limitadas a 5.000 transações a cada 10 segundos por assinatura.
 

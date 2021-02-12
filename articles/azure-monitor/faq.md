@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 180490dc79554efa072311e9a2b7f5df348b432b
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: a8d3ded1d11a350ff53ffda71348b2cc707760b8
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014232"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008410"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Perguntas frequentes sobre o Azure Monitor
 
@@ -31,7 +31,7 @@ Em setembro de 2018, a Microsoft combinou o Azure Monitor, o Log Analytics e o A
 Os recursos do Azure Monitor que são habilitados automaticamente, como a coleta de métricas e logs de atividade, são fornecidos sem custo. Há um custo associado a outros recursos, como consultas de log e alertas. Confira a [página de preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/) para obter informações detalhadas sobre preços.
 
 ### <a name="how-do-i-enable-azure-monitor"></a>Como faço para habilitar o Azure Monitor?
-O Azure Monitor é habilitado no momento em que você cria uma assinatura do Azure e o [Log de atividades](./platform/platform-logs-overview.md) e as [métricas](platform/data-platform-metrics.md) de plataforma são coletadas automaticamente. Crie [configurações de diagnóstico](platform/diagnostic-settings.md) para coletar informações mais detalhadas sobre a operação dos recursos do Azure e adicione [soluções de monitoramento](insights/solutions.md) e [insights](insights/insights-overview.md) para fornecer análise adicional sobre os dados coletados de serviços específicos. 
+O Azure Monitor é habilitado no momento em que você cria uma assinatura do Azure e o [Log de atividades](./platform/platform-logs-overview.md) e as [métricas](platform/data-platform-metrics.md) de plataforma são coletadas automaticamente. Crie [configurações de diagnóstico](platform/diagnostic-settings.md) para coletar informações mais detalhadas sobre a operação dos recursos do Azure e adicione [soluções de monitoramento](insights/solutions.md) e [insights](./monitor-reference.md) para fornecer análise adicional sobre os dados coletados de serviços específicos. 
 
 ### <a name="how-do-i-access-azure-monitor"></a>Como faço para acessar o Azure Monitor?
 Acesse todos os recursos e dados do Azure Monitor no menu **Monitorar** no portal do Azure. A seção **Monitoramento** do menu para diferentes serviços do Azure oferece acesso às mesmas ferramentas com os dados filtrados para um recurso específico. Os dados do Azure Monitor também podem ser acessados de várias formas, usando a CLI, o PowerShell e uma API REST.
@@ -65,7 +65,7 @@ As informações e soluções fornecem uma experiência personalizada para traba
 ## <a name="solutions-and-insights"></a>Soluções e insights
 
 ### <a name="what-is-an-insight-in-azure-monitor"></a>O que é um insight no Azure Monitor?
-Os insights fornecem uma experiência de monitoramento personalizada para determinados serviços do Azure. Eles usam as mesmas métricas e logs que outros recursos no Azure Monitor, mas podem coletar dados adicionais e fornecer uma experiência única no portal do Azure. Confira [Insights no Azure Monitor](insights/insights-overview.md).
+Os insights fornecem uma experiência de monitoramento personalizada para determinados serviços do Azure. Eles usam as mesmas métricas e logs que outros recursos no Azure Monitor, mas podem coletar dados adicionais e fornecer uma experiência única no portal do Azure. Confira [Insights no Azure Monitor](./monitor-reference.md).
 
 Para ver insights no portal do Azure, confira a seção **Insights** do menu **Monitorar** ou a seção **Monitoramento** do menu do serviço.
 
@@ -77,7 +77,7 @@ Para ver soluções no portal do Azure, clique em **Mais** na seção **Insights
 ## <a name="logs"></a>Logs
 
 ### <a name="whats-the-difference-between-azure-monitor-logs-and-azure-data-explorer"></a>Qual é a diferença entre os logs do Azure Monitor e o Azure Data Explorer?
-O Azure Data Explorer é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. Os Logs do Azure Monitor são criados com base no Azure Data Explorer e usam a mesma KQL (Linguagem de Consulta Kusto) com algumas pequenas diferenças. Confira [Diferenças na linguagem de consulta de log do Azure Monitor](log-query/data-explorer-difference.md).
+O Azure Data Explorer é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. Os Logs do Azure Monitor são criados com base no Azure Data Explorer e usam a mesma KQL (Linguagem de Consulta Kusto) com algumas pequenas diferenças. Confira [Diferenças na linguagem de consulta de log do Azure Monitor](/azure/data-explorer/kusto/query/).
 
 ### <a name="how-do-i-retrieve-log-data"></a>Como faço para recuperar dados de log?
 Todos os dados são recuperados de um workspace do Log Analytics usando uma consulta de log escrita em KQL (Linguagem de Consulta Kusto). Você pode escrever suas consultas ou usar soluções e insights que incluem consultas de log para um determinado aplicativo ou serviço. Confira [Visão geral sobre consultas de log no Azure Monitor](log-query/log-query-overview.md).
@@ -85,6 +85,8 @@ Todos os dados são recuperados de um workspace do Log Analytics usando uma cons
 ### <a name="can-i-delete-data-from-a-log-analytics-workspace"></a>Posso excluir dados de um espaço de trabalho Log Analytics?
 Os dados são removidos de um espaço de trabalho de acordo com seu [período de retenção](platform/manage-cost-storage.md#change-the-data-retention-period). Você pode excluir dados específicos por motivos de privacidade ou conformidade. Consulte [como exportar e excluir dados privados](platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) para obter mais informações.
 
+### <a name="is-log-analytics-storage-immutable"></a>Log Analytics armazenamento é imutável?
+Não é possível alterar os dados no armazenamento de banco de dado após a ingestão, mas podem ser excluídos por meio [do caminho de API de *limpeza* para excluir dados privados](platform/personal-data-mgmt.md#delete). Embora os dados não possam ser alterados, algumas certificações exigem que os dados sejam mantidos imutáveis e não possam ser alterados ou excluídos no armazenamento. A imutabilidade dos dados pode ser obtida usando a [exportação de dados](platform/logs-data-export.md) para uma conta de armazenamento configurada como [armazenamento imutável](../storage/blobs/storage-blob-immutability-policies-manage.md).
 
 ### <a name="what-is-a-log-analytics-workspace"></a>O que é um workspace do Log Analytics?
 Todos os dados de log coletados pelo Azure Monitor são armazenados em um workspace do Log Analytics. Um workspace é essencialmente um contêiner em que os dados de log são coletados de uma variedade de fontes. Você pode ter um workspace do Log Analytics para todos os seus dados de monitoramento ou pode ter requisitos para vários workspaces. Confira [Projeto da implantação de logs do Azure Monitor](platform/design-logs-deployment.md).
@@ -224,7 +226,7 @@ O Designer de Exibição só está disponível para os usuários atribuídos com
 * [Aplicativos do Node.js](app/nodejs.md)
 * [Aplicativos Web no Azure](app/azure-web-apps.md)
 * [Serviços de Nuvem no Azure](app/cloudservices.md)
-* [Servidores de aplicativo executando em Docker](app/docker.md)
+* [Servidores de aplicativo executando em Docker](./azure-monitor-app-hub.yml)
 * [Aplicativos Web de página única](app/javascript.md)
 * [SharePoint](app/sharepoint.md)
 * [Aplicativo da área de trabalho do Windows](app/windows-desktop.md)
@@ -268,6 +270,10 @@ Consulte as [notas de versão](app/release-notes.md) para o SDK adequado ao seu 
 
 ### <a name="how-can-i-change-which-azure-resource-my-project-sends-data-to"></a><a name="update"></a>Como alterar o recurso do Azure ao qual meu projeto envia dados?
 No Gerenciador de Soluções, clique com o botão direito do mouse em `ApplicationInsights.config` e escolha **Atualizar o Application Insights**. Você pode enviar os dados para um recurso novo ou existente no Azure. O assistente de atualização altera a chave de instrumentação em Applicationinsights. config, que por sua vez determina para onde o SDK do servidor envia seus dados. A menos que você desmarque a opção "Atualizar tudo", a chave onde ele aparece em suas páginas da Web também será alterada.
+
+### <a name="do-new-azure-regions-require-the-use-of-connection-strings"></a>As novas regiões do Azure exigem o uso de cadeias de conexão?
+
+Novas regiões do Azure **exigem** o uso de cadeias de conexão em vez de chaves de instrumentação. A [cadeia de conexão](./app/sdk-connection-string.md) identifica o recurso ao qual você deseja associar os dados de telemetria. Ele também permite que você modifique os pontos de extremidade que o recurso usará como um destino para a telemetria. Você precisará copiar a cadeia de conexão e adicioná-la ao código do aplicativo ou a uma variável de ambiente.
 
 ### <a name="can-i-use-providersmicrosoftinsights-componentsapiversions0-in-my-azure-resource-manager-deployments"></a>Posso usar `providers('Microsoft.Insights', 'components').apiVersions[0]` em minhas implantações do Azure Resource Manager?
 
@@ -341,7 +347,9 @@ Isso é possível se o seu código envia tais dados. Isso também pode acontecer
 
 **Todos** os octetos do endereço web do cliente são sempre definidos como 0 depois que os atributos de localização geográfica são pesquisados.
 
-### <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>Minha Chave de Instrumentação está visível na origem da minha página da Web. 
+O [SDK Application insights JavaScript](app/javascript.md) não inclui nenhum dado pessoal em seu preenchimento automático por padrão. No entanto, alguns dados pessoais usados em seu aplicativo podem ser selecionados pelo SDK (por exemplo, nomes completos em `window.title` ou IDs de conta em parâmetros de consulta de URL XHR). Para mascaramento de dados pessoais personalizados, adicione um [inicializador de telemetria](app/api-filtering-sampling.md#javascript-web-applications).
+
+### <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>Minha Chave de Instrumentação está visível na origem da minha página da Web.
 
 * Essa é uma prática comum em soluções de monitoramento.
 * Ele não pode ser usado para roubar seus dados.
@@ -375,6 +383,12 @@ Use um recurso único para todos os componentes ou funções em um único sistem
 * Se um usuário real usar seu site em diferentes navegadores, usar navegação em modo privado/incógnito ou usar diferentes computadores, então, eles serão contados mais de uma vez.
 * Para identificar um usuário conectado entre navegadores e computadores, adicione uma chamada a [setAuthenticatedUserContext()](app/api-custom-events-metrics.md#authenticated-users).
 
+### <a name="how-does-application-insights-generate-device-information-browser-os-language-model"></a>Como Application Insights geram informações do dispositivo (navegador, sistema operacional, idioma, modelo)?
+
+O navegador passa a cadeia de caracteres do agente do usuário no cabeçalho HTTP da solicitação e o serviço de ingestão de Application Insights usa o [analisador de UA](https://github.com/ua-parser/uap-core) para gerar os campos que você vê nas tabelas de dados e experiências. Como resultado, Application Insights usuários não podem alterar esses campos.
+
+Ocasionalmente, esses dados podem estar ausentes ou imprecisos se o usuário ou a empresa desabilitar o envio de agente do usuário nas configurações do navegador. Além disso, os [regexes do analisador UA](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml) podem não incluir todas as informações do dispositivo ou Application insights pode não ter adotado as atualizações mais recentes.
+
 ### <a name="have-i-enabled-everything-in-application-insights"></a><a name="q17"></a> Eu habilitei tudo no Application Insights?
 | O que você deverá ver | Como obter isso | Por que você deseja isso |
 | --- | --- | --- |
@@ -399,9 +413,9 @@ Cada item transmitido carrega uma propriedade `itemCount` que mostra quantos eve
 
 ### <a name="how-do-i-move-an-application-insights-resource-to-a-new-region"></a>Como fazer mover um recurso de Application Insights para uma nova região?
 
-**Não há suporte**para a movimentação de recursos de Application insights existentes de uma região para outra no momento. Os dados históricos que você coletou **não podem ser migrados** para uma nova região. A única solução parcial é:
+**Não há suporte** para a movimentação de recursos de Application insights existentes de uma região para outra no momento. Os dados históricos que você coletou **não podem ser migrados** para uma nova região. A única solução parcial é:
 
-1. Crie um recurso novo Application Insights ([clássico](app/create-new-resource.md) ou [baseado em espaço de trabalho](/azure/azure-monitor/app/create-workspace-resource)) na nova região.
+1. Crie um recurso novo Application Insights ([clássico](app/create-new-resource.md) ou [baseado em espaço de trabalho](./app/create-workspace-resource.md)) na nova região.
 2. Recrie todas as personalizações exclusivas específicas para o recurso original no novo recurso.
 3. Modifique seu aplicativo para usar a [chave de instrumentação](app/create-new-resource.md#copy-the-instrumentation-key) ou a cadeia de [conexão](app/sdk-connection-string.md)do novo recurso de região.  
 4. Teste para confirmar se tudo está continuando a funcionar conforme o esperado com o novo recurso Application Insights. 
@@ -412,9 +426,9 @@ Personalizações exclusivas que normalmente precisam ser recriadas ou atualizad
 - Recrie painéis e pastas de trabalho personalizados. 
 - Recrie ou atualize o escopo de qualquer alerta de log/métrica personalizado. 
 - Recrie alertas de disponibilidade.
-- Recrie qualquer configuração de RBAC (controle de acesso Role-Based) personalizada que seja necessária para que os usuários acessem o novo recurso. 
+- Recrie qualquer configuração personalizada de RBAC (controle de acesso baseado em função) do Azure que seja necessária para que seus usuários acessem o novo recurso. 
 - Replique as configurações que envolvem amostragem de ingestão, retenção de dados, limite diário e habilitação de métricas personalizadas. Essas configurações são controladas por meio do painel **uso e custos estimados** .
-- Qualquer integração que dependa de chaves de API, como [anotações de versão](/azure/azure-monitor/app/annotations), o canal de [controle seguro de métricas ao vivo](app/live-stream.md#secure-the-control-channel) , etc. Será necessário gerar novas chaves de API e atualizar a integração associada. 
+- Qualquer integração que dependa de chaves de API, como [anotações de versão](./app/annotations.md), o canal de [controle seguro de métricas ao vivo](app/live-stream.md#secure-the-control-channel) , etc. Será necessário gerar novas chaves de API e atualizar a integração associada. 
 - A exportação contínua em recursos clássicos precisaria ser configurada novamente.
 - As configurações de diagnóstico em recursos baseados em espaço de trabalho precisariam ser configuradas novamente.
 
@@ -551,7 +565,7 @@ Nesse cenário, uma resposta 502 ou 503 poderia ser retornada a um cliente devid
 
 ### <a name="what-is-opentelemetry"></a>O que é OpenTelemetry
 
-Um novo padrão de código aberto para a observação. Saiba mais em [https://opentelemetry.io/](https://opentelemetry.io/) .
+Um novo padrão de código aberto para a observação. Saiba mais em [https://opentelemetry.io/](https://opentelemetry.io/).
 
 ### <a name="why-is-microsoft--azure-monitor-investing-in-opentelemetry"></a>Por que a Microsoft/Azure Monitor investindo em OpenTelemetry?
 
@@ -594,10 +608,6 @@ O coletor OpenTelemetry é descrito em seu [arquivo Leiame do GitHub](https://gi
 
 
 ## <a name="azure-monitor-for-containers"></a>Azure Monitor para contêineres
-
-### <a name="health-feature-is-in-private-preview"></a>O recurso de integridade está em versão prévia privada
-
-Estamos planejando fazer uma série de alterações para adicionar funcionalidades e abordar seus comentários. O recurso de integridade fará transição para uma versão prévia privada no final de junho de 2020 e, para obter mais informações, examine este [comunicado sobre atualizações do Azure](https://azure.microsoft.com/updates/ci-health-limited-preview/).
 
 ### <a name="what-does-other-processes-represent-under-the-node-view"></a>O que *Outros processos* representam na Exibição de nó?
 
@@ -684,13 +694,13 @@ A tabela ContainerInventory contém informações sobre contêineres parados e e
 
 Se você receber o erro **Registro de assinatura ausente para o Microsoft.OperationsManagement**, resolva-o registrando o provedor de recursos **Microsoft.OperationsManagement** na assinatura em que o workspace está definido. A documentação para saber como fazer isso pode ser encontrada [aqui](../azure-resource-manager/templates/error-register-resource-provider.md).
 
-### <a name="is-there-support-for-rbac-enabled-aks-clusters"></a>Há suporte para clusters do AKS habilitados para RBAC?
+### <a name="is-there-support-for-kubernetes-rbac-enabled-aks-clusters"></a>Há suporte para clusters AKS habilitados para RBAC kubernetes?
 
-A solução de monitoramento de contêiner não é compatível com o RBAC, mas é compatível com o Azure Monitor para Contêineres. A página de detalhes da solução pode não mostrar as informações corretas nas folhas que mostram dados desses clusters.
+A solução de monitoramento de contêiner não dá suporte a RBAC kubernetes, mas tem suporte com Azure Monitor para contêineres. A página de detalhes da solução pode não mostrar as informações corretas nas folhas que mostram dados desses clusters.
 
 ### <a name="how-do-i-enable-log-collection-for-containers-in-the-kube-system-namespace-through-helm"></a>Como habilito a coleta de log para contêineres no namespace kube-system por meio do Helm?
 
-A coleta de log de contêineres no namespace kube-system está desabilitada por padrão. A coleta de log pode ser habilitada definindo uma variável de ambiente no omsagent. Para saber mais, confira a página do GitHub [Azure Monitor para contêineres](https://github.com/helm/charts/tree/master/incubator/azuremonitor-containers). 
+A coleta de log de contêineres no namespace kube-system está desabilitada por padrão. A coleta de log pode ser habilitada definindo uma variável de ambiente no omsagent. Para saber mais, confira a página do GitHub [Azure Monitor para contêineres](https://aka.ms/azuremonitor-containers-helm-chart). 
 
 ### <a name="how-do-i-update-the-omsagent-to-the-latest-released-version"></a>Como posso atualizar o omsagent para a versão mais recente?
 

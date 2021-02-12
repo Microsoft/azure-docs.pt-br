@@ -1,14 +1,17 @@
 ---
-title: Descobrir aplicativos, funções e recursos em servidores locais com as migrações para Azure
+title: Descobrir aplicativos em servidores locais com as migrações para Azure
 description: Saiba como descobrir aplicativos, funções e recursos em servidores locais com a avaliação de servidor de migrações para Azure.
-ms.topic: article
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 06/10/2020
-ms.openlocfilehash: 6bdc26ac3a27026183e889bf258e2e1a5dadebfb
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: eb589c08122cd47747c005c13d12b336319fd558
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315204"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751998"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Descobrir aplicativos, funções e recursos de computador
 
@@ -23,14 +26,14 @@ Descobrir o inventário de aplicativos, funções e recursos em execução em co
 ## <a name="before-you-start"></a>Antes de começar
 
 - Verifique se você:
-    - [Criou](how-to-add-tool-first-time.md) um projeto de migrações para Azure.
+    - [Criou](./create-manage-projects.md) um projeto de migrações para Azure.
     - [Adicionada](how-to-assess.md) a ferramenta migrações do Azure: Server Assessment para um projeto.
 - Examine o [suporte e os requisitos de descoberta de aplicativos](migrate-support-matrix-vmware.md#vmware-requirements).
 - Verifique se as VMs em que você está executando a descoberta de aplicativos têm o PowerShell versão 2,0 ou posterior instalado e as ferramentas do VMware (posterior à 10.2.0) estão instaladas.
 - Verifique os [requisitos](migrate-appliance.md) para implantar o dispositivo de migrações para Azure.
 
 
-## <a name="deploy-the-azure-migrate-appliance"></a>Implantar o dispositivo de migrações para Azure
+## <a name="deploy-the-azure-migrate-appliance"></a>Implantar o dispositivo das Migrações para Azure
 
 1. [Examine](migrate-appliance.md#appliance---vmware) os requisitos para implantar o dispositivo de migrações para Azure.
 2. Examine as URLs do Azure que o dispositivo precisará acessar nas nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais](migrate-appliance.md#government-cloud-urls).

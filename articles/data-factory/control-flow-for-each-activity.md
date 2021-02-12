@@ -3,27 +3,27 @@ title: Atividade ForEach no Azure Data Factory
 description: A atividade For Each define um fluxo de controle repetitivo no seu pipeline. Ela é usada para iterar em uma coleção e executar atividades especificadas.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: 35d61e896a395c3044a51780fef72d54c211a31f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71e96e6245d4cf922b82162e01a972264699f3ac
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81417190"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499502"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Atividade ForEach no Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 A atividade ForEach define um fluxo de controle repetitivo no seu pipeline. Essa atividade é usada para iterar em uma coleção e executa atividades especificadas em um loop. A implementação dessa atividade em loop é semelhante à estrutura em loop Foreach nas linguagens de programação.
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 As propriedades são descritas posteriormente neste artigo. A propriedade dos itens é a coleção e cada item na coleção é referenciada usando o `@item()` conforme mostrado na sintaxe a seguir:  
 
 ```json
@@ -479,7 +479,7 @@ Para agregar saídas da atividade __foreach__ , utilize _variáveis_ e _acrescen
 
 Primeiro, declare uma `array` _variável_ no pipeline. Em seguida, invoque a atividade _Append Variable_ dentro de cada loop __foreach__. Posteriormente, você pode recuperar a agregação na sua matriz.
 
-## <a name="limitations-and-workarounds"></a>Limitações e Soluções Alternativas
+## <a name="limitations-and-workarounds"></a>Limitações e soluções alternativas
 
 Aqui estão algumas limitações da atividade ForEach e sugestões de soluções alternativas.
 

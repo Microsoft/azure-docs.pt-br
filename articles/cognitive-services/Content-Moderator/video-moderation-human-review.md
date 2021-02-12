@@ -1,5 +1,5 @@
 ---
-title: Moderação de vídeo com revisão humana – Content Moderator
+title: Moderação de vídeo com a ferramenta de revisão – Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Use a moderação de vídeo assistida por computador e a ferramenta de revisão para conteúdo moderado inadequado
 services: cognitive-services
@@ -8,101 +8,98 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 07/20/2020
 ms.author: pafarley
-ms.openlocfilehash: 0c031a890efc7fad7e5d9caefce3b0e66c515d90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05ece4d8ea24fb9da106ec3daa2cc1a63706dab9
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81404248"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853491"
 ---
-# <a name="video-moderation-with-human-review"></a>Moderação de vídeo com revisão humana
+# <a name="video-moderation-with-the-review-tool"></a>Moderação de vídeo com a ferramenta de revisão
 
 Use a [ferramenta de análise](Review-Tool-User-Guide/human-in-the-loop.md) e [moderação de vídeo](video-moderation-api.md) assistida por computador Content moderator para vídeos moderados e transcrições para conteúdo adulto (explícito) e erótico (Sugestor) para obter os melhores resultados para seus negócios.
 
-## <a name="video-trained-classifier-preview"></a>Classificador treinado para vídeo (versão prévia)
+## <a name="view-videos-under-review"></a>Exibir vídeos em revisão
 
-A classificação de vídeo assistido por computador é obtida com os modelos treinados de imagem ou modelos treinados de vídeo. Ao contrário de classificadores de vídeos treinados de imagem, o classificador de vídeos adultos e obscenos da Microsoft é treinado com vídeos. Esse método resulta em melhor qualidade da correspondência.
+No painel, selecione qualquer uma das filas de revisão no tipo de conteúdo vídeo. Isso iniciará uma revisão e abrirá a página de moderação de conteúdo do vídeo.
 
-## <a name="shot-detection"></a>Detecção de captura
+> [!div class="mx-imgBorder"]
+> ![Em Content Moderator (visualização), o controle deslizante é realçado e definido como 4 revisões. As opções desfoque All e preto e branco são realçadas e ambas são definidas.](./Review-Tool-User-Guide/images/video-moderation-detailed.png)
 
-Ao emitir os detalhes de classificação, a inteligência adicional de vídeo ajuda com mais flexibilidade na análise de vídeos. Em vez de emitir apenas os quadros, o serviço de moderação de vídeo da Microsoft fornece informações de nível de captura também. Agora você tem a opção para analisar seus vídeos no nível de captura e o nível de quadro.
+### <a name="review-count"></a>Contagem de revisão
 
-## <a name="key-frame-detection"></a>Detecção de quadro-chave
+Use o controle deslizante no canto superior direito para definir o número de revisões que você gostaria de exibir na página.
 
-Em vez de emitir quadros em intervalos regulares, o serviço de moderação de vídeo identifica e emite apenas os quadros potencialmente completos (bons). O recurso permite a geração de quadro eficiente para análise de adultos e obscenos em nível de quadro.
+### <a name="view-type"></a>Tipo de exibição
 
-A extração a seguir mostra uma resposta parcial com capturas potenciais, quadros-chave e pontuações de adultos e obscenos:
+Você pode exibir as diferentes entradas de conteúdo como blocos ou em uma exibição detalhada. A exibição de **detalhes** permitirá que você veja quadros-chave e outras informações sobre o vídeo selecionado. 
 
-```json
-"fragments":[  
-  {  
-    "start":0,
-    "duration":18000
-  },
-  {  
-    "start":18000,
-    "duration":3600,
-    "interval":3600,
-    "events":[  
-      [  
-        {  
-          "reviewRecommended":false,
-          "adultScore":0.00001,
-          "racyScore":0.03077,
-          "index":5,
-          "timestamp":18000,
-          "shotIndex":0
-        }
-      ]
-    ]
-  },
-  {  
-    "start":18386372,
-    "duration":119149,
-    "interval":119149,
-    "events":[  
-      [  
-        {  
-          "reviewRecommended":true,
-          "adultScore":0.00000,
-          "racyScore":0.91902,
-          "index":5085,
-          "timestamp":18386372,
-          "shotIndex":62
-        }
-      ]
-    ]
-```
+> [!NOTE]
+> Em vez de emitir quadros em intervalos regulares, o serviço de moderação de vídeo identifica e emite apenas os quadros potencialmente completos (bons). Esse recurso permite uma geração de quadros eficiente para análise de adulto e erótico no nível do quadro.
 
-## <a name="visualization-for-human-reviews"></a>Visualização para revisões humanas
+O modo de exibição **xadrez** mostrará cada vídeo como um único bloco. Selecione o botão expandir acima de um quadro de vídeo para ampliar o vídeo e ocultar os outros.
 
-Para obter casos mais sutis, as empresas precisam de uma solução de revisão humana para renderizar o vídeo, seus quadros e marcas atribuídas por máquinas. Os moderadores humanos que revisam vídeos e quadros obtêm uma visão completa das informações, alteram marcas e enviam suas decisões.
+### <a name="content-obscuring-effects"></a>Efeitos de disfarce de conteúdo
 
-![modo de exibição padrão da ferramenta de análise de vídeo](images/video-review-default-view.png)
+Use as alternâncias **borrar tudo** e **preto e branco** para definir esses efeitos de disfarce de conteúdo. Eles são ativados por padrão. No modo de exibição por **lado** , você pode alternar os efeitos individualmente para cada vídeo.
 
-## <a name="player-view-for-video-level-review"></a>Modo de exibição de Player para análise de nível de vídeo
+## <a name="check-video-details"></a>Verificar detalhes do vídeo
 
-Decisões binárias de nível de vídeo são possíveis com um modo de exibição do player de vídeo que mostra os quadros potencialmente adultos e obscenos. Os revisores humanos navegam pelo vídeo com várias opções de velocidade para examinar as cenas. Eles confirmam suas decisões alternando as marcas.
+No modo de exibição de **detalhes** , o painel direito mostrará várias guias que fornecem detalhes sobre o vídeo.
 
-![modo de exibição do player da ferramenta de análise de vídeo](images/video-review-player-view.PNG)
+* Selecione a guia **observações** para adicionar anotações personalizadas a vídeos.
+* Selecione a guia **transcrição** para ver a transcrição do vídeo que &mdash; o serviço extrai automaticamente uma transcrição de qualquer fala no vídeo. Quando você seleciona uma seção de texto, o player de vídeo saltará para essa parte do vídeo.
+* Selecione a guia **metadados** para exibir os metadados do arquivo de vídeo.
+* Selecione a guia **histórico** para ver o histórico da revisão, como quando ela foi criada e como ela foi modificada.
 
-## <a name="frames-view-for-detailed-reviews"></a>Modo de exibição de quadros para análises detalhadas
+> [!div class="mx-imgBorder"]
+> ![O painel direito é realçado e a guia observações é selecionada. Há uma área de teste rotulada adicionar uma anotação.](./Review-Tool-User-Guide/images/video-moderation-video-details.png)
 
-Uma análise de vídeo detalhada para análise quadro-a-quadro é possibilitada por uma exibição com base no quadro. Os revisores humanos revisam e selecionam um ou mais quadros e alternam marcas para confirmar suas decisões. Uma próxima etapa opcional é redação dos quadros ou conteúdos ofensivos.
+## <a name="apply-moderation-tags"></a>Aplicar marcas de moderação
 
-![exibição de quadros da ferramenta de análise de vídeo](images/video-review-frames-view-apply-tags.PNG)
+A principal tarefa de uma revisão de vídeo é aplicar ou remover marcas de moderação em vídeos ou em partes de vídeos.
 
-## <a name="transcript-moderation"></a>Moderação de transcrição
+### <a name="bulk-tagging"></a>Marcação em massa
 
-Os vídeos normalmente têm narração que também precisa de moderação para fala ofensiva. Você pode usar o serviço do Azure Media Indexer para converter fala em texto e usar a API de análise do Content Moderator para enviar a transcrição de moderação de texto dentro da ferramenta de análise.
+A barra de ferramentas de **marcas em massa** permite que você adicione marcas a vários vídeos selecionados de uma vez. Selecione um ou mais vídeos e, em seguida, selecione as marcas que você deseja aplicar e clique em **Enviar**. 
 
-![exibição de transcrição da ferramenta de análise de vídeo](images/video-review-transcript-view.png)
+> [!div class="mx-imgBorder"]
+> ![O botão + é realçado no painel marcas em massa.](./Review-Tool-User-Guide/images/video-moderation-bulk-tags.png)
+
+
+### <a name="key-frame-tagging"></a>Marcação de quadro-chave
+
+Você também pode adicionar marcas de moderação a quadros-chave específicos. Selecione os quadros no painel do bloco do quadro chave e selecione **marcas de quadro** -chave + para aplicar as marcas desejadas.
+
+> [!NOTE]
+> Se o serviço não pôde extrair os quadros-chave, o painel do bloco do quadro chave não mostrará **nenhum quadro disponível** e a opção para selecionar quadros-chave ficará esmaecida. Nesse caso, você só pode aplicar marcas ao vídeo como um todo (usando as marcas de **vídeo +** botão).
+
+> [!div class="mx-imgBorder"]
+> ![O painel de bloco, player de vídeo, painel de marcas de quadro-chave e painéis de marcas de vídeo são mostrados. As marcas de quadro-chave + e marcas de vídeo + botões são realçadas.](./Review-Tool-User-Guide/images/video-moderation-tagging-options.png)
+
+## <a name="put-a-review-on-hold"></a>Refazer uma revisão em espera
+
+O botão **manter** na parte inferior do painel de vídeo permite que você coloque uma revisão em espera para que possa recuperá-la e concluí-la mais tarde. Você pode fazer isso para uma revisão que exige uma consulta de outro membro da equipe ou gerente que não está disponível no momento. 
+
+Você pode exibir os vídeos em espera clicando no botão **manter** na parte superior da tela. O painel de espera aparece à direita. A partir daqui, você pode selecionar várias revisões em espera e liberá-las de volta na fila ou definir o tempo de expiração. Após o período pré-configurado, as revisões em espera são liberadas de volta para a fila. Selecione **salvar** para começar a contar a partir da hora de expiração selecionada no momento.
+
+> [!div class="mx-imgBorder"]
+> ![No painel vídeo, o botão manter é realçado. Na parte inferior do painel, uma caixa de combinação de tempo de espera é realçada, juntamente com os botões liberar e salvar.](./Review-Tool-User-Guide/images/video-moderation-hold.png)
+
+## <a name="submit-a-review"></a>Enviar uma revisão
+
+Depois de aplicar as marcas, selecione o botão **Enviar** na parte inferior do painel de vídeo. Se você marcou vários vídeos, poderá enviá-los em uma única revisão ou como revisões separadas.
+
+## <a name="limbo-state"></a>Estado limbo
+
+Depois de enviar uma revisão, o vídeo é movido para o estado **limbo** , que pode ser exibido selecionando o botão **limbo** na parte superior da tela. Os vídeos permanecem no estado limbo para um período de tempo pré-configurado (que você pode alterar no menu na parte inferior) ou até que eles sejam revisados novamente ou enviados manualmente.
+
+Depois que os vídeos expirarem de limbo, suas revisões serão marcadas como concluídas.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Introdução com o [Início rápido de moderação de vídeo](video-moderation-api.md).
 - Saiba como gerar [análises de vídeos](video-reviews-quickstart-dotnet.md) para seus revisores humanos do seu resultado moderado.
 - Adicione [análises de transcrição de vídeo](video-transcript-reviews-quickstart-dotnet.md) às suas análises de vídeo.
-- Confira o tutorial detalhado sobre como desenvolver uma [solução completa de moderação de vídeo](video-transcript-moderation-review-tutorial-dotnet.md).

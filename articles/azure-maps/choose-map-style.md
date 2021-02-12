@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: f2d7c9e39cb3eb14a2c2c6a7b13e37f3a526184b
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 556e265cc0d1aae33823185ec98d23f191ed1694
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92889792"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680020"
 ---
 # <a name="change-the-style-of-the-map"></a>Alterar o estilo do mapa
 
@@ -29,9 +29,9 @@ As opções de estilo podem ser definidas durante a inicialização do controle 
 var map = new atlas.Map('map', {
     renderWorldCopies: false,
     showBuildingModels: false,
-    showLogo = true,
-    showFeedbackLink = true,
-    style='road'
+    showLogo: true,
+    showFeedbackLink: true,
+    style: 'road'
 
     //Additional map options.
 };
@@ -40,8 +40,8 @@ var map = new atlas.Map('map', {
 map.setStyle({
     renderWorldCopies: true,
     showBuildingModels: true,
-    showLogo = false,
-    showFeedbackLink = false
+    showLogo: false,
+    showFeedbackLink: false
 });
 ```
 
@@ -101,7 +101,7 @@ A imagem abaixo mostra o controle seletor de estilo exibido no `icon` layout.
 
 A imagem abaixo mostra o controle seletor de estilo exibido no `list` layout.
 
-:::image type="content" source="./media/choose-map-style/style-picker-list-layout.png" alt-text="Layout do ícone do seletor de estilo":::
+:::image type="content" source="./media/choose-map-style/style-picker-list-layout.png" alt-text="Layout da lista do seletor de estilo":::
 
 > [!IMPORTANT]
 > Por padrão, o controle seletor de estilo lista todos os estilos disponíveis no tipo de preço S0 dos mapas do Azure. Se você quiser reduzir o número de estilos nessa lista, passe uma matriz dos estilos que você deseja que apareça na lista na `mapStyle` opção do seletor de estilo. Se você estiver usando S1 e quiser mostrar todos os estilos disponíveis, defina a `mapStyles` opção do seletor de estilo como `"all"` .
@@ -129,10 +129,13 @@ Para saber mais sobre as classes e os métodos usados neste artigo:
 > [!div class="nextstepaction"]
 > [StyleControlOptions](/javascript/api/azure-maps-control/atlas.stylecontroloptions)
 
-Adicione controles aos seus mapas:
+Consulte os artigos a seguir para obter mais exemplos de código para adicionar aos seus mapas:
 
 > [!div class="nextstepaction"]
 > [Adicionar controles de mapa](map-add-controls.md)
 
 > [!div class="nextstepaction"]
-> [Adicionar um PIN](map-add-pin.md)
+> [Adicionar uma camada de símbolo](map-add-pin.md)
+
+> [!div class="nextstepaction"]
+> [Adicionar uma camada de bolhas](map-add-bubble-layer.md)

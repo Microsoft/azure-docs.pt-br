@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/21/2020
 ms.author: v-mibufo
-ms.openlocfilehash: b13b61aff819271ed1722572f251f9a6d14b17ab
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8af656e00c457dfa3d438f0cb104d85ccc687745
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976990"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661231"
 ---
 # <a name="windows-stop-error---0xc000021a-status-system-process-terminated"></a>Erro de parada do Windows-o processo do sistema de status 0xC000021A foi encerrado
 
@@ -47,6 +47,10 @@ Esse erro ocorre quando um processo crítico, como WinLogon (winlogon.exe) ou o 
 ## <a name="solution"></a>Solução
 
 ### <a name="collect-the-memory-dump-file"></a>Coletar o arquivo de despejo de memória
+
+> [!TIP]
+> Se você tiver um backup recente da VM, poderá tentar [restaurar a VM do backup](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema de inicialização.
+
 
 Para resolver esse problema, será necessário analisar o despejo de memória. Colete o arquivo de despejo de memória para a falha e contate o suporte. Para coletar o arquivo de despejo, siga estas etapas:
 

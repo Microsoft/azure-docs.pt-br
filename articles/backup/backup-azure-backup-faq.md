@@ -3,12 +3,12 @@ title: Respostas a perguntas comuns
 description: 'Respostas para perguntas comuns sobre: recursos de Backup do Azure incluindo cofres dos Serviços de Recuperação, do que ele pode fazer backup, como ele funciona, criptografia e limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 72a4f805b34ba8a536cd398efd5e6809bd66f0d4
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: f819440001180a3c446f366e61e3ac0f983fa67f
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096616"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806638"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Backup do Azure — Perguntas frequentes
 
@@ -58,15 +58,19 @@ Se você já tiver configurado o backup e precisar passar de GRS para LRS, consu
 - O ILR tem suporte para VMs do Azure com backup pelo backup de VM do Azure. Para saber mais, confira este [artigo](backup-azure-restore-files-from-vm.md)
 - Não há suporte para ILR para pontos de recuperação online de VMs locais com backup pelo Servidor de Backup do Azure (MABS) ou pelo System Center DPM.
 
-### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>Como posso mover dados do cofre dos serviços de recuperação para o local?
+### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>Como posso mover dados do cofre dos Serviços de Recuperação para o local?
 
-Não há suporte para a exportação de dados diretamente do cofre dos serviços de recuperação para o local usando o Data Box. Os dados devem ser restaurados para uma conta de armazenamento e, em seguida, podem ser movidos para o local por meio de [Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) ou de [importação/exportação](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
+Não há suporte para a exportação de dados diretamente do cofre dos serviços de recuperação para o local usando o Data Box. Os dados devem ser restaurados para uma conta de armazenamento e, em seguida, podem ser movidos para o local por meio de [Data Box](../databox/data-box-overview.md) ou de [importação/exportação](../import-export/storage-import-export-service.md).
+
+### <a name="what-is-the-difference-between-a-geo-redundant-storage-grs-vault-with-and-without-the-cross-region-restore-crr-capability-enabled"></a>Qual é a diferença entre um cofre de armazenamento com redundância geográfica (GRS) com e sem a capacidade de restauração entre regiões (CRR) habilitada?
+
+No caso de um cofre [grs](azure-backup-glossary.md#grs) sem recurso de [CRR](azure-backup-glossary.md#cross-region-restore-crr) habilitado, os dados na região secundária não podem ser acessados até que o Azure declare um desastre na região primária. Nesse cenário, a restauração ocorre da região secundária. Quando a CRR estiver habilitada, mesmo que a região primária esteja em funcionamento, você poderá disparar uma restauração na região secundária.
 
 ## <a name="azure-backup-agent"></a>Agente de Backup do Azure
 
 ### <a name="where-can-i-find-common-questions-about-the-azure-backup-agent-for-azure-vm-backup"></a>Onde posso encontrar perguntas comuns sobre o agente do Backup do Azure para o backup da VM do Azure?
 
-- Para o agente em execução nas VMs do Azure, leia estas [Perguntas frequentes](backup-azure-vm-backup-faq.md).
+- Para o agente em execução nas VMs do Azure, leia estas [Perguntas frequentes](backup-azure-vm-backup-faq.yml).
 - Para o agente usado para fazer backup de pastas de arquivos do Azure, leia estas [Perguntas frequentes](backup-azure-file-folder-backup-faq.md).
 
 ## <a name="general-backup"></a>Backup geral
@@ -124,7 +128,7 @@ A tabela a seguir explica como cada tamanho de fonte de dados é determinado.
 **Fonte de dados** | **Detalhes**
 --- | ---
 Volume |A quantidade de dados incluída no backup da VM de volume único que está sendo submetida a backup.
-Banco de dados do SQL Server |Tamanho do tamanho do banco de dados individual cujo backup está sendo feito.
+Banco de dados SQL Server |Tamanho do tamanho do banco de dados individual cujo backup está sendo feito.
 SharePoint | A soma dos bancos de dados de conteúdo e de configuração em um farm do SharePoint do qual está sendo feito o backup.
 Exchange |Soma de todos os bancos de dados do Exchange em um servidor Exchange do qual está sendo feito o backup.
 Estado do sistema/BMR |Cada cópia individual do BMR ou do estado do sistema da máquina da qual está sendo feito o backup.
@@ -232,5 +236,5 @@ A chave usada para criptografar os dados de backup está presente apenas no seu 
 
 Leia as outras perguntas frequentes:
 
-- [Perguntas comuns](backup-azure-vm-backup-faq.md) sobre backups de VM do Azure.
+- [Perguntas comuns](backup-azure-vm-backup-faq.yml) sobre backups de VM do Azure.
 - [Perguntas comuns](backup-azure-file-folder-backup-faq.md) sobre o agente do Backup do Azure

@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 07/09/2020
-ms.custom: contperfq4
-ms.openlocfilehash: a13bec5fa557bed1b9ce84836588e6a3e501ddf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: contperf-fy20q4
+ms.openlocfilehash: 937b5ebb13bfbf27ff04b6944f2de7e32e7e656c
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906703"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185845"
 ---
 # <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>Treinar e implantar um modelo do TensorFlow de classificação de imagem usando a extensão do Azure Machine Learning para Visual Studio Code (versão prévia)
 
@@ -78,7 +78,7 @@ Um ou mais experimentos podem ser criados no workspace para acompanhar e analisa
     > [!div class="mx-imgBorder"]
     > ![Criar um experimento](./media/tutorial-train-deploy-image-classification-model-vscode/create-experiment.png)
 
-1. Dê ao experimento o nome "MNIST" e pressione **Enter** para criá-lo. 
+1. Dê ao experimento o nome "Tutorial-VSCode-MNIST" e pressione **Enter** para criá-lo. 
 
 Assim como os workspaces, uma solicitação é enviada ao Azure para criar um experimento com as configurações fornecidas. Após alguns minutos, o novo experimento será exibido no nó *Experimentos* do workspace. 
 
@@ -97,7 +97,7 @@ Para criar um destino de computação:
     > ![Criar um destino de computação](./media/tutorial-train-deploy-image-classification-model-vscode/create-compute.png)
 
 1. Selecione **Computação do Azure Machine Learning (AmlCompute)** . A Computação do Azure Machine Learning é uma infraestrutura de computação gerenciada que permite ao usuário criar com facilidade uma computação de único nó ou vários nós que possa ser usada com outros usuários no workspace.
-1. Escolha um tamanho de VM. Selecione **Standard_F2s_v2** na lista de opções. O tamanho da VM tem um impacto no tempo necessário para treinar os modelos. Para obter mais informações sobre os tamanhos de VMs, confira [Tamanhos das Máquinas Virtuais do Linux no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+1. Escolha um tamanho de VM. Selecione **Standard_F2s_v2** na lista de opções. O tamanho da VM tem um impacto no tempo necessário para treinar os modelos. Para obter mais informações sobre os tamanhos de VMs, confira [Tamanhos das Máquinas Virtuais do Linux no Azure](../virtual-machines/sizes.md).
 1. Dê à computação o nome "TeamWkspc-com" e pressione **Enter** para criá-la.
 
     Um arquivo será exibido no VS Code com um conteúdo semelhante ao mostrado abaixo:
@@ -414,4 +414,3 @@ Neste ponto, uma solicitação é enviada ao Azure para implantar o serviço Web
 
 * Para obter um passo a passo de como fazer o treinamento com o Azure Machine Learning fora do Visual Studio Code, confira [Tutorial: Treinar modelos com o Azure Machine Learning](tutorial-train-models-with-aml.md).
 * Para obter um passo a passo de como editar, executar e depurar o código localmente, confira o [Tutorial hello-world do Python](https://code.visualstudio.com/docs/Python/Python-tutorial).
-

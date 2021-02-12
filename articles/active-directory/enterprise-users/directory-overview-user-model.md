@@ -5,21 +5,21 @@ keywords: ''
 author: curtand
 manager: daveba
 ms.author: curtand
-ms.reviewer: vincesm
-ms.date: 06/16/2020
+ms.reviewer: krbain
+ms.date: 12/02/2020
 ms.topic: overview
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 services: active-directory
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3083bd524ee7918535c3c3915fe14cc0906f3c0f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ce4330b72ef7e1440689e0ec4af9009f551553a3
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378545"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547263"
 ---
 # <a name="what-is-enterprise-user-management"></a>O que é o gerenciamento de usuários empresariais?
 
@@ -68,7 +68,7 @@ O Azure AD também fornece controle granular dos dados que fluem entre o aplicat
 * Fornecer as credenciais para conectar-se à API de gerenciamento de usuário do aplicativo
 * Configurar os mapeamentos que controlam os atributos de usuário de fluxo entre o Azure AD e o aplicativo quando as contas de usuário são provisionadas ou atualizadas
 * Iniciar e parar o serviço de provisionamento do Azure AD para um aplicativo, limpar o cache de provisionamento ou reiniciar o serviço
-* Exibir o **Relatório de atividade de provisionamento** , que fornece um log de todos os usuários e grupos criados, atualizados e removidos entre o Azure AD e o aplicativo, e o **Relatório de erros de provisionamento** , que fornece mensagens de erro mais detalhadas
+* Exibir o **Relatório de atividade de provisionamento**, que fornece um log de todos os usuários e grupos criados, atualizados e removidos entre o Azure AD e o aplicativo, e o **Relatório de erros de provisionamento**, que fornece mensagens de erro mais detalhadas
 
 ## <a name="next-steps"></a>Próximas etapas
 

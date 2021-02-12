@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: amgowda
-ms.openlocfilehash: b4b6c04a1e35031387a006b6350ebf6cbe502fee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51e2095b0df8fdc965926c6c612c45f582c9b9d2
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90994371"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874477"
 ---
 # <a name="frequently-asked-questions-about-confidential-computing-nodes-on-azure-kubernetes-service-aks"></a>Perguntas frequentes sobre nós de computação confidencial no AKS (serviço kubernetes do Azure)
 
@@ -24,6 +24,10 @@ O SLA não é fornecido durante a visualização do produto, conforme definido [
 ## <a name="what-is-attestation-and-how-can-we-do-attestation-of-apps-running-in-enclaves"></a>O que é atestado e como podemos fazer atestado de aplicativos em execução no enclaves? 
 
 O atestado é o processo de demonstrar e validar que uma parte do software foi instanciada corretamente na plataforma de hardware específica. Ele também garante que sua evidência seja verificável para fornecer garantias de que ela está sendo executada em uma plataforma segura e que não foi violada. [Leia mais](attestation.md) sobre como o atestado é feito para aplicativos enclave.
+
+## <a name="can-i-enable-accelerated-networking-with-azure-confidential-computing-aks-clusters"></a>Posso habilitar a rede acelerada com clusters AKS de computação confidencial do Azure? 
+
+Não. A rede acelerada não tem suporte em nós de computação confidencial no AKS. Verifique se a rede acelerada está desabilitada na sua implantação. 
 
 ## <a name="can-i-bring-my-existing-containerized-applications-and-run-it-on-aks-with-azure-confidential-computing"></a>Posso colocar meus aplicativos em contêineres existentes e executá-los em AKS com a computação confidencial do Azure? 
 

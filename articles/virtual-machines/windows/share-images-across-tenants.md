@@ -1,24 +1,24 @@
 ---
 title: Compartilhar imagens da Galeria entre locatários no Azure
-description: Saiba como compartilhar imagens de VM em locatários do Azure usando galerias de imagens compartilhadas usando exemplos do Windows.
+description: Saiba como compartilhar imagens de VM em locatários do Azure usando galerias de imagens compartilhadas e o PowerShell.
 author: axayjo
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/15/2019
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 4fb4589d072b57113e1f40675786d012ec699d16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84998182081c6a681668fbd9bc05446357beb959
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331430"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96781038"
 ---
-# <a name="share-gallery-vm-images-across-azure-tenants"></a>Compartilhar imagens de VM da galeria em locatários do Azure
+# <a name="share-gallery-vm-images-across-azure-tenants-using-powershell"></a>Compartilhar imagens de VM da galeria em locatários do Azure usando o PowerShell
 
-As galerias de imagens compartilhadas permitem compartilhar imagens usando o RBAC. Você pode usar o RBAC para compartilhar imagens dentro de seu locatário e até mesmo para indivíduos fora do seu locatário. Para obter mais informações sobre essa opção de compartilhamento simples, consulte [compartilhar a Galeria](./shared-images-portal.md#share-the-gallery).
+As galerias de imagens compartilhadas permitem compartilhar imagens usando o RBAC do Azure. Você pode usar o RBAC do Azure para compartilhar imagens dentro de seu locatário e até mesmo para indivíduos fora do seu locatário. Para obter mais informações sobre essa opção de compartilhamento simples, consulte [compartilhar a Galeria](./shared-images-portal.md#share-the-gallery).
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 

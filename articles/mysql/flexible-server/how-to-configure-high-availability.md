@@ -1,18 +1,18 @@
 ---
 title: Gerenciar alta disponibilidade redundante de zona-portal do Azure-banco de dados do Azure para servidor flexível MySQL
 description: Este artigo descreve como habilitar ou desabilitar a alta disponibilidade redundante de zona no banco de dados do Azure para o servidor flexível do MySQL por meio do portal do Azure.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
 ms.custom: references_regions
-ms.openlocfilehash: 09cd7428519cbf84c785efa16b61b9507a3c0b94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d65b074385311e74444929ef74901e402e29ec03
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933752"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241728"
 ---
 # <a name="manage-zone-redundant-high-availability-in-azure-database-for-mysql-flexible-server-preview"></a>Gerenciar alta disponibilidade redundante de zona no banco de dados do Azure para MySQL servidor flexível (versão prévia)
 
@@ -32,18 +32,18 @@ Esta página fornece diretrizes de como você pode habilitar ou desabilitar a al
 
 Esta seção fornece detalhes especificamente para campos relacionados à HA. Você pode seguir estas etapas para implantar a alta disponibilidade ao criar seu servidor flexível.
 
-1.  Na [portal do Azure](https://portal.azure.com/), escolha servidor flexível e clique em **criar**.  Para obter detalhes sobre como preencher detalhes como **assinatura**, **grupo de recursos**, **nome do servidor**, **região**e outros campos, consulte a documentação de instruções para a criação do servidor.
+1.  Na [portal do Azure](https://portal.azure.com/), escolha servidor flexível e clique em **criar** .  Para obter detalhes sobre como preencher detalhes como **assinatura** , **grupo de recursos** , **nome do servidor** , **região** e outros campos, consulte a documentação de instruções para a criação do servidor.
 
 2.  Clique na caixa de seleção de **alta disponibilidade com redundância de zona** na opção disponibilidade.
 
-3.  Se você quiser alterar a computação e o armazenamento padrão, clique em  **Configurar servidor**.
+3.  Se você quiser alterar a computação e o armazenamento padrão, clique em  **Configurar servidor** .
 
 4.  Se a opção de alta disponibilidade estiver marcada, a camada expansível não estará disponível para escolher. Você pode escolher as camadas de computação de **uso geral** ou **otimizado para memória** .
 
     > [!IMPORTANT]
-    > Há suporte apenas para alta disponibilidade redundante de zona para o tipo de preço de ***uso geral*** e ***otimizado para memória*** .
+    > Há suporte apenas para alta disponibilidade redundante de zona para o tipo de preço * *_uso geral_* _ e com _*_otimização de memória_*_ .
 
-5.  Selecione o **tamanho de computação** para sua escolha no menu suspenso.
+5.  Selecione o _ *tamanho da computação* * para sua escolha na lista suspensa.
 
 6.  Selecione o **tamanho do armazenamento** em GIB usando a barra deslizante e selecione o período de retenção de **backup** entre 7 dias e 35 dias.   
 
@@ -51,11 +51,11 @@ Esta seção fornece detalhes especificamente para campos relacionados à HA. Vo
 
 Siga estas etapas para desabilitar a alta disponibilidade para seu servidor flexível que já está configurado com redundância de zona.
 
-1.  Na [portal do Azure](https://portal.azure.com/), selecione o servidor existente banco de dados do Azure para MySQL flexível.
+1.  Na [portal do Azure](https://portal.azure.com/), selecione o servidor existente banco de dados do Azure para MySQL flexível.
 
-2.  Na página servidor flexível, clique em **alta disponibilidade** no painel frontal para abrir a página alta disponibilidade.
+2.  Na página servidor flexível, clique em **alta disponibilidade** no painel frontal para abrir a página alta disponibilidade.
 
-3.  Clique na caixa de seleção **alta disponibilidade com redundância de zona** para desabilitar a opção e clique em **salvar**   para salvar a alteração.
+3.  Clique na caixa de seleção **alta disponibilidade com redundância de zona** para desabilitar a opção e clique em **salvar** para salvar a alteração.
 
 4.  Uma caixa de diálogo de confirmação será mostrada onde você pode confirmar a desabilitação da HA.
 
@@ -66,4 +66,4 @@ Siga estas etapas para desabilitar a alta disponibilidade para seu servidor flex
 ## <a name="next-steps"></a>Próximas etapas
 
 -   Saiba mais sobre a [continuidade dos negócios](./concepts-business-continuity.md)
--   Saiba mais sobre [alta disponibilidade redundante de zona](./concepts-high-availability.md)
+-   Saiba mais sobre [alta disponibilidade redundante de zona](./concepts-high-availability.md)

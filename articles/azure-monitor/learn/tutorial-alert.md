@@ -3,16 +3,16 @@ title: Envie alertas do Azure Application Insights | Microsoft Docs
 description: Tutorial para enviar alertas em resposta a erros em seu aplicativo usando o Azure Application Insights.
 ms.subservice: application-insights
 ms.topic: tutorial
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 04/10/2019
 ms.custom: mvc
-ms.openlocfilehash: 706f3913e25eca6240c186e45709faf6c77620bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbf2cbe08fa1ba1ab79446e9068b4fb1fce381b0
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324566"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210249"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Monitorar e alertar sobre a integridade do aplicativo com o Azure Application Insights
 
@@ -28,7 +28,7 @@ Você aprenderá como:
 
 Para concluir este tutorial:
 
-Crie um [recurso do Application Insights](./dotnetcore-quick-start.md#enable-application-insights).
+Crie um [recurso do Application Insights](../app/create-new-resource.md).
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 

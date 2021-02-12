@@ -18,12 +18,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: 34962686ae36764a6dc16b164e91004be9ef038d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7ef6ef85ea9d256303852e4b281071da455ebb0
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250412"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097666"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Enviar notificações por push com os Hubs de Notificação do Azure e o Node.js
 
@@ -83,7 +83,7 @@ var notificationHubService = azure.createNotificationHubService('hubname','conne
 Obtenha o valor `connectionstring` de conexão do [portal do Azure] executando as seguintes etapas:
 
 1. No painel de navegação esquerdo, clique em **Procurar**.
-2. Selecione **Hubs de Notificação**e localize o hub que você deseja usar no exemplo. Você pode consultar o [tutorial de introdução da Windows Store](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) se precisar de ajuda com a criação de um novo hub de notificação.
+2. Selecione **Hubs de Notificação** e localize o hub que você deseja usar no exemplo. Você pode consultar o [tutorial de introdução da Windows Store](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) se precisar de ajuda com a criação de um novo hub de notificação.
 3. Selecione **Configurações**.
 4. Clique em **Políticas de Acesso**. Você verá as duas cadeias de conexão de acesso compartilhado e completo.
 
@@ -109,7 +109,7 @@ O objeto `GcmService` fornece um método `send` que pode ser usado para enviar n
 - **Payload** : o JSON ou o conteúdo bruto de cadeia de caracteres da mensagem.
 - **Callback** : a função de retorno de chamada.
 
-Para obter mais informações sobre o formato da carga, consulte a [documentação da carga](https://distriqt.github.io/ANE-PushNotifications/m.FCM-GCM%20Payload).
+Para obter mais informações sobre o formato da carga, consulte a [documentação da carga](https://payload.readthedocs.io/en/latest/).
 
 O código a seguir usa a instância `GcmService` exposta por `NotificationHubService` para enviar uma notificação por push para todos os clientes registrados.
 
@@ -155,7 +155,7 @@ O objeto `MpnsService` fornece um método `send` que pode ser usado para enviar 
 
 - **Tags** : o identificador da etiqueta. Se nenhuma marca for fornecida, a notificação será enviada a todos os clientes.
 - **Payload** : o conteúdo XML da mensagem.
-- **TargetName**  -  TargetName `toast` para notificações do sistema. `token` para notificações de bloco.
+-   -  TargetName `toast` para notificações do sistema. `token` para notificações de bloco.
 - **NotificationClass** : a prioridade da notificação. Veja a seção **Elementos de cabeçalhos HTTP** do documento [Notificações por push de um servidor](/previous-versions/windows/xna/bb200104(v=xnagamestudio.41)) para obter os valores válidos.
 - **Options** : cabeçalhos de solicitação opcionais.
 - **Callback** : a função de retorno de chamada.

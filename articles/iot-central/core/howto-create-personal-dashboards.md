@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: f7dca7352a49e668231f64632371a445985e4de3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68bb4e2ac525270004a698471cd44955cd25fefc
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83634629"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146102"
 ---
 # <a name="create-and-manage-multiple-dashboards"></a>Criar e gerenciar vários painéis
 
@@ -23,7 +23,7 @@ Se você for um **administrador** do aplicativo, também pode criar até 10 pain
 
 ## <a name="create-dashboard"></a>Criar painel
 
-A captura de tela a seguir mostra o painel em um aplicativo criado com base no modelo de **Aplicativo personalizado**. Você pode substituir o painel do aplicativo padrão por um painel pessoal ou, se você for um administrador, por outro painel de nível de aplicativo. Para fazer isso, selecione **+ Novo** na parte superior esquerda da página.
+A captura de tela a seguir mostra o painel em um aplicativo criado com base no modelo de **Aplicativo personalizado** . Você pode substituir o painel do aplicativo padrão por um painel pessoal ou, se você for um administrador, por outro painel de nível de aplicativo. Para fazer isso, selecione **+ Novo** na parte superior esquerda da página.
 
 > [!div class="mx-imgBorder"]
 > ![Painel para aplicativos com base no modelo de "Aplicativo personalizado"](media/howto-create-personal-dashboards/dashboard-custom-app.png)
@@ -42,7 +42,7 @@ Por exemplo, você pode adicionar um bloco de **Telemetria** para a temperatura 
 
 1. Selecionar um **Modelo de dispositivo**
 1. Selecione um dispositivo em **Dispositivos** para o dispositivo que você deseja ver em um bloco do painel. Em seguida, você verá uma lista das propriedades do dispositivo que podem ser usadas no bloco.
-1. Para criar o bloco no painel, clique em **Temperatura** e arraste para a área do painel. Você também pode clicar na caixa de seleção ao lado de **Temperatura** e clicar em **Adicionar bloco**. A captura de tela a seguir mostra a seleção de um dispositivo e modelo de dispositivo, criando um bloco de Telemetria de temperatura no painel.
+1. Para criar o bloco no painel, clique em **Temperatura** e arraste para a área do painel. Você também pode clicar na caixa de seleção ao lado de **Temperatura** e clicar em **Adicionar bloco** . A captura de tela a seguir mostra a seleção de um dispositivo e modelo de dispositivo, criando um bloco de Telemetria de temperatura no painel.
 1. Selecione **Salvar** na parte superior esquerda para salvar as alterações no painel.
 
 > [!div class="mx-imgBorder"]
@@ -51,7 +51,7 @@ Por exemplo, você pode adicionar um bloco de **Telemetria** para a temperatura 
 Agora, quando você exibir seu painel pessoal, verá o novo bloco com a configuração de **Temperatura** do dispositivo:
 
 > [!div class="mx-imgBorder"]
-> Guia !["Painel" com detalhes para bloco de Temperatura](media/howto-create-personal-dashboards/temperature-tile-complete.png)
+> ![Captura de tela que mostra o novo bloco com a configuração de temperaturas para o dispositivo.](media/howto-create-personal-dashboards/temperature-tile-complete.png)
 
 Você pode explorar outros tipos de bloco na biblioteca para descobrir como personalizar ainda mais seus painéis pessoais.
 
@@ -64,7 +64,7 @@ Você pode ter vários painéis pessoais e alternar entre eles ou escolher um do
 > [!div class="mx-imgBorder"]
 > ![Alternar entre os painéis](media/howto-create-personal-dashboards/switch-dashboards.png)
 
-Você pode editar seus painéis pessoais e excluir os painéis que não são mais necessários. Se você for um **administrador**, também pode editar ou excluir painéis de nível de aplicativo.
+Você pode editar seus painéis pessoais e excluir os painéis que não são mais necessários. Se você for um **administrador** , também pode editar ou excluir painéis de nível de aplicativo.
 
 > [!div class="mx-imgBorder"]
 > ![Excluir painéis](media/howto-create-personal-dashboards/delete-dashboards.png)

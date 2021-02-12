@@ -1,7 +1,7 @@
 ---
 title: O que é um espaço de trabalho
 titleSuffix: Azure Machine Learning
-description: O workspace é o recurso de nível superior do Azure Machine Learning. Ele mantém um histórico de todas as execuções de treinamento, incluindo logs, métricas, saída e um instantâneo de seus scripts. Você usa essas informações para determinar qual execução de treinamento produz o melhor modelo
+description: O workspace é o recurso de nível superior do Azure Machine Learning. Ele mantém um histórico de todas as execuções de treinamento, com logs, métricas, saída e um instantâneo de seus scripts.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2020
-ms.openlocfilehash: 5b40ce0951e2d9c8933d4f0ea9d24b1673e254d6
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 5211555102c0a8d29eb05abd7a680935d828f9dc
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495722"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683433"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>O que é um workspace do Azure Machine Learning?
 
@@ -52,9 +52,9 @@ Você pode interagir com seu espaço de trabalho das seguintes maneiras:
 + Na Web:
     + [Azure Machine Learning Studio ](https://ml.azure.com) 
     + [Designer do Azure Machine Learning](concept-designer.md) 
-+ Em qualquer ambiente do Python com o [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
++ Em qualquer ambiente do Python com o [SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
 + Em qualquer ambiente de R com o [SDK do Azure Machine Learning para R (versão prévia)](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
-+ Na linha de comando usando a [extensão da CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) do Azure Machine Learning
++ Na linha de comando usando a [extensão da CLI](./reference-azure-machine-learning-cli.md) do Azure Machine Learning
 + [Extensão de VS Code de Azure Machine Learning](how-to-manage-resources-vscode.md#workspaces)
 
 
@@ -89,7 +89,7 @@ Você também pode executar as seguintes tarefas de gerenciamento de espaço de 
 Há várias maneiras de criar um espaço de trabalho:  
 
 * Use o [portal do Azure](how-to-manage-workspace.md?tabs=azure-portal#create-a-workspace) para uma interface de apontar e clicar para orientá-lo em cada etapa.
-* Use o [SDK do Azure Machine Learning para Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) para criar um espaço de trabalho instantaneamente de scripts Python ou notebooks Júpiter
+* Use o [SDK do Azure Machine Learning para Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) para criar um espaço de trabalho instantaneamente de scripts Python ou notebooks Jupyter
 * Use um [modelo de Azure Resource Manager](how-to-create-workspace-template.md) ou a [CLI do Azure Machine Learning](reference-azure-machine-learning-cli.md) quando precisar automatizar ou personalizar a criação com os padrões de segurança corporativa.
 * Se você trabalhar em Visual Studio Code, use a [extensão vs Code](how-to-manage-resources-vscode.md#create-a-workspace).
 
@@ -103,7 +103,7 @@ Quando você cria um novo workspace, ele automaticamente cria vários recursos d
 + [Conta de armazenamento do Azure](https://azure.microsoft.com/services/storage/): é usada como o repositório de armazenamento padrão para o espaço de trabalho.  Os blocos de anotações do Jupyter que são usados com suas instâncias de computação Azure Machine Learning também são armazenados aqui. 
   
   > [!IMPORTANT]
-  > Por padrão, a conta de armazenamento é uma conta v1 de uso geral. Você pode [atualizar isso para a finalidade geral v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) depois que o espaço de trabalho tiver sido criado. Não habilite o namespace hierárquico na conta de armazenamento após a atualização para o uso geral v2.
+  > Por padrão, a conta de armazenamento é uma conta v1 de uso geral. Você pode [atualizar isso para a finalidade geral v2](../storage/common/storage-account-upgrade.md) depois que o espaço de trabalho tiver sido criado. Não habilite o namespace hierárquico na conta de armazenamento após a atualização para o uso geral v2.
 
   Para usar uma conta de armazenamento do Azure existente, ela não pode ser uma conta Premium (Premium_LRS e Premium_GRS). Ele também não pode ter um namespace hierárquico (usado com Azure Data Lake Storage Gen2). Não há suporte para namespaces hierárquicos ou de armazenamento Premium com a conta de armazenamento _padrão_ do espaço de trabalho. Você pode usar o armazenamento Premium ou o namespace hierárquico com contas _de armazenamento não padrão_ .
   
@@ -134,6 +134,5 @@ Para começar a usar o Azure Machine Learning, confira:
 + [Criar e gerenciar um espaço de trabalho](how-to-manage-workspace.md)
 + [Tutorial: introdução ao Azure Machine Learning em seu ambiente de desenvolvimento](tutorial-1st-experiment-sdk-setup-local.md)
 + [Tutorial: introdução à criação de seu primeiro experimento do ML em uma instância de computação](tutorial-1st-experiment-sdk-setup.md)
-+ [Tutorial: introdução ao Azure Machine Learning com o SDK do R](tutorial-1st-r-experiment.md)
 + [Tutorial: Crie seu primeiro modelo de classificação com o machine learning automatizado](tutorial-first-experiment-automated-ml.md) 
 + [Tutorial: Prever preço de automóvel com o designer](tutorial-designer-automobile-price-train-score.md)

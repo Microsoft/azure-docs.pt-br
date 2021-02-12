@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: f071a66fef632afe9e54fecfa253e4604679baa2
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 013eadedc00dee23a09eff89147406cc14f017ab
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92105576"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516572"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>Tutorial: Integração do Azure Active Directory ao Rightscale
 
@@ -27,7 +27,7 @@ A integração do Rightscale ao Azure AD oferece os seguintes benefícios:
 * Você pode habilitar seus usuários para serem automaticamente conectados no Rightscale (Logon único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -49,11 +49,11 @@ Para configurar a integração do Rightscale ao Azure AD, é necessário adicion
 
 **Para adicionar o Rightscale por meio da galeria, realize as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory** .
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos** .
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -67,7 +67,7 @@ Para configurar a integração do Rightscale ao Azure AD, é necessário adicion
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Rightscale, com base em uma usuária de teste chamada **Brenda Fernandes** .
+Nesta seção, você configurará e testará o logon único do Azure AD com o Rightscale, com base em uma usuária de teste chamada **Brenda Fernandes**.
 Para que o logon único funcione, uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Rightscale precisa ser estabelecida.
 
 Para configurar e testar o logon único do Azure AD com o Rightscale, você precisa concluir os seguintes blocos de construção:
@@ -85,7 +85,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Rightscale, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Rightscale** , selecione **Logon único** .
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Rightscale** , selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
@@ -93,7 +93,7 @@ Para configurar o logon único do Azure AD com o Rightscale, execute as seguinte
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML** .
+3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
@@ -125,11 +125,11 @@ Para configurar o logon único do Azure AD com o Rightscale, execute as seguinte
 
 1. Para configurar o SSO para o aplicativo, você precisa entrar no locatário do RightScale como administrador.
 
-2. No menu na parte superior, clique na guia **Configurações** e selecione **Logon Único** .
+2. No menu na parte superior, clique na guia **Configurações** e selecione **Logon Único**.
 
     ![Captura de tela que mostra a opção Logon Único selecionada em Configurações.](./media/rightscale-tutorial/tutorial_rightscale_001.png)
 
-3. Clique no botão **Novo** para adicionar **Seus provedores de identidade SAML** .
+3. Clique no botão **Novo** para adicionar **Seus provedores de identidade SAML**.
 
     ![Captura de tela que mostra os novos botões selecionados usados para adicionar um Provedor de Identidade do SAML.](./media/rightscale-tutorial/tutorial_rightscale_002.png)
 
@@ -159,7 +159,7 @@ Para configurar o logon único do Azure AD com o Rightscale, execute as seguinte
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários** .
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -171,32 +171,32 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes** .
+    a. No campo **Nome** , insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário** , digite `brittasimon@yourcompanydomain.extension`  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao Rightscale.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , selecione **Todos os aplicativos** , em seguida, selecione **Rightscale** .
+1. No portal do Azure, selecione **Aplicativos Empresariais** , selecione **Todos os aplicativos** , em seguida, selecione **Rightscale**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **Rightscale** .
+2. Na lista de aplicativos, selecione **Rightscale**.
 
     ![O link do Rightscale na lista Aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Usuários e grupos** .
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
     ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
@@ -204,22 +204,22 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
 6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
 
 ### <a name="create-rightscale-test-user"></a>Criar um usuário de teste do Rightscale
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no Rightscale. Trabalhe com a [equipe de suporte do cliente ao do Rightscale](mailto:support@rightscale.com) para adicionar os usuários à plataforma Rightscale. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no Rightscale. Trabalhe com a [equipe de suporte ao cliente do Rightscale](mailto:support@rightscale.com) para adicionar os usuários na plataforma do RightScale. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando você clica no bloco do Rightscale no Painel de Acesso, você deve ser conectado automaticamente ao Rightscale para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando você clica no bloco do Rightscale no Painel de Acesso, você deve ser conectado automaticamente ao Rightscale para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

@@ -25,24 +25,14 @@
           href: spring-cloud-quickstart-logs-metrics-tracing.md
 - name: Tutoriais
   items:
-    - name: Escalar um aplicativo manualmente
-      href: spring-cloud-tutorial-scale-manual.md
-    - name: Dimensionar um aplicativo automaticamente
-      href: spring-cloud-tutorial-setup-autoscale.md
     - name: Alertas e grupos de ações
       href: spring-cloud-tutorial-alerts-action-groups.md
-    - name: Usar o IntelliJ para implantar aplicativos
-      href: spring-cloud-tutorial-intellij-deploy-apps.md
     - name: Painel do disjuntor
       href: spring-cloud-tutorial-circuit-breaker.md
     - name: Nome DNS personalizado
       href: spring-cloud-tutorial-custom-domain.md
-    - name: Provisionar uma instância do Azure Spring Cloud com o Terraform
-      href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
     - name: Usar identidade gerenciada para conectar o Key Vault ao aplicativo do Azure Spring Cloud
       href: spring-cloud-tutorial-managed-identities-key-vault.md
-    - name: Implantar o Azure Spring Cloud na rede virtual
-      href: spring-cloud-tutorial-deploy-in-azure-virtual-network.md
     - name: Usar identidade gerenciada para invocar o Azure Functions de um aplicativo do Azure Spring Cloud
       href: spring-cloud-tutorial-managed-identities-functions.md
 - name: Conceitos
@@ -55,8 +45,12 @@
       href: spring-cloud-concept-metrics.md
     - name: Atuador do Spring Boot do Azure
       href: spring-cloud-concept-manage-monitor-app-spring-boot-actuator.md
-    - name: Controles de segurança
-      href: spring-cloud-concept-security-controls.md
+    - name: Segurança
+      items:
+        - name: Controles de segurança
+          href: spring-cloud-concept-security-controls.md
+        - name: Controles de segurança do Azure Policy
+          href: ./security-controls-policy.md
     - name: Entender o status do aplicativo
       href: spring-cloud-concept-app-status.md
     - name: Planejar-se para a eventualidade de uma recuperação de desastre
@@ -77,12 +71,26 @@
           href: spring-cloud-howto-staging-environment.md
         - name: Iniciar o aplicativo Java do código-fonte
           href: spring-cloud-howto-launch-from-source.md
+        - name: Usar o IntelliJ para implantar aplicativos
+          href: spring-cloud-tutorial-intellij-deploy-apps.md
+        - name: Usar o VS Code para implantar aplicativos
+          href: 'https://code.visualstudio.com/docs/java/java-spring-cloud'
+        - name: Implantar o Azure Spring Cloud com o Azure PowerShell
+          href: spring-cloud-howto-deploy-powershell.md
     - name: Configurar
       items:
         - name: 'Iniciar, parar e excluir um aplicativo'
           href: spring-cloud-howto-start-stop-delete.md
         - name: Usar armazenamento persistente
           href: spring-cloud-howto-persistent-storage.md
+    - name: Escala
+      items:
+        - name: Escalar um aplicativo manualmente
+          href: spring-cloud-tutorial-scale-manual.md
+        - name: Dimensionar um aplicativo automaticamente
+          href: spring-cloud-tutorial-setup-autoscale.md
+        - name: Identificar um endereço IP público de saída
+          href: spring-cloud-howto-outbound-public-ip.md
     - name: Monitoramento
       items:
         - name: Rastreamento distribuído e insights do aplicativo
@@ -91,6 +99,24 @@
           href: diagnostic-services.md
         - name: Transmitir logs em tempo real
           href: spring-cloud-howto-log-streaming.md
+        - name: Application Insights usando o agente em processo Java
+          href: spring-cloud-howto-application-insights.md
+        - name: Métricas do disjuntor Resilience4J
+          href: spring-cloud-howto-circuit-breaker-metrics.md
+        - name: Log de aplicativo estruturado
+          href: spring-cloud-structured-app-log.md
+    - name: Rede
+      items:
+        - name: Implantar o Azure Spring Cloud em uma rede virtual
+          href: spring-cloud-tutorial-deploy-in-azure-virtual-network.md
+        - name: Acessar seu aplicativo em uma rede privada
+          href: spring-cloud-access-app-virtual-network.md
+        - name: Expor aplicativos à Internet
+          href: spring-cloud-expose-apps-gateway-azure-firewall.md
+        - name: Responsabilidades do cliente para executar o Azure Spring Cloud na VNET
+          href: spring-cloud-vnet-customer-responsibilities.md
+        - name: Solução de problemas do Azure Spring Cloud em redes virtuais
+          href: spring-cloud-troubleshooting-vnet.md
     - name: Seguro
       items:
         - name: Habilitar identidade gerenciada atribuída pelo sistema
@@ -115,6 +141,8 @@
           href: spring-cloud-howto-github-actions.md
         - name: Autenticação com Key Vault no GitHub Actions
           href: spring-cloud-github-actions-key-vault.md
+        - name: Provisionar uma instância do Azure Spring Cloud com o Terraform
+          href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
     - name: Solucionar problemas
       items:
         - name: Autodiagnosticar e resolver problemas
@@ -124,11 +152,23 @@
     - name: Migrações
       items:
         - name: Spring Cloud
-          href: 'https://docs.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud'
+          href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud
         - name: Spring Boot
-          href: 'https://docs.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud'
+          href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
         - name: Tomcat
-          href: 'https://docs.microsoft.com/azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud'
+          href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
+- name: Implantação do DevOps
+  items:
+    - name: CI/CD com o Azure DevOps
+      href: spring-cloud-howto-cicd.md
+    - name: CI/CD com GitHub Actions
+      href: spring-cloud-howto-github-actions.md
+    - name: Autenticação com Key Vault no GitHub Actions
+      href: spring-cloud-github-actions-key-vault.md
+- name: Solucionar problemas
+  items:
+    - name: Guia de solução de problemas
+      href: spring-cloud-troubleshoot.md
 - name: Referência
   items:
     - name: Plug-in da CLI do Azure
@@ -140,7 +180,7 @@
     - name: Perguntas frequentes
       href: spring-cloud-faq.md
     - name: Referência da API REST
-      href: /rest/api/azurespringclould/
+      href: /rest/api/azurespringcloud/
     - name: Itens internos do Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 7dbb7b3fdc15c0a9d502fbe9a0d12d084f9ddf29
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 69a0272061d8518119114e8fe7b023c889639844
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91760386"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171550"
 ---
 # <a name="managed-hsm-disaster-recovery"></a>Recuperação de desastre do HSM Gerenciado
 
@@ -35,7 +35,7 @@ Aqui estão as etapas do procedimento de recuperação de desastre:
 1. Faça um backup do novo HSM. É necessário um backup antes de qualquer operação de restauração, mesmo quando o HSM está vazio. Os backups facilitam a reversão.
 1. Restaurar o backup recente do HSM de origem
 
-O conteúdo de seu cofre de chaves é replicado na região e em uma região secundária a pelo menos 150 milhas de distância, mas na mesma região geográfica. Esse recurso mantém a alta durabilidade das chaves e dos segredos. Consulte o documento [Regiões emparelhadas do Azure](../../best-practices-availability-paired-regions.md) para obter detalhes sobre pares de regiões específicos.
+Estas etapas permitirão que você replique manualmente o conteúdo do HSM para outra região. O nome do HSM (e o URI do ponto de extremidade de serviço) será diferente. Portanto, talvez seja necessário alterar a configuração do aplicativo para usar essas chaves em outra localização.
 
 ## <a name="create-a-new-managed-hsm"></a>Criar um HSM Gerenciado
 
@@ -107,6 +107,7 @@ Usamos o comando `az keyvault backup` para o backup do HSM no contêiner de arma
 ```azurecli-interactive
 end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
 skey=$(az storage account keys list --query '[0].value' -o tsv --account-name ContosoBackup)
+az storage container create --account-name  mhsmdemobackup --name mhsmbackupcontainer  --account-key $skey
 sas=$(az storage container generate-sas -n mhsmbackupcontainer --account-name ContosoBackup --permissions crdw --expiry $end --account-key $skey -o tsv)
 az keyvault backup start --hsm-name ContosoMHSM2 --storage-account-name ContosoBackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas
 

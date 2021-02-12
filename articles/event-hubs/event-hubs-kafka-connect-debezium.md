@@ -1,27 +1,39 @@
 ---
-title: Integrar o Apache Kafka Connect nos hubs de eventos do Azure (versão prévia) com o Debezium para captura de dados de alterações
+title: Integrar o Apache Kafka conectar-se aos hubs de eventos do Azure com Debezium para captura de dados de alterações
 description: Este artigo fornece informações sobre como usar o Debezium com os hubs de eventos do Azure para Kafka.
 ms.topic: how-to
 author: abhirockzz
 ms.author: abhishgu
-ms.date: 08/11/2020
-ms.openlocfilehash: a13713f01a6bdb0ffcd787ef9c1d2f9a0336f63c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 01/06/2021
+ms.openlocfilehash: 0ad1df23e71e652f7d380ffbabb542b81954e038
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369549"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935165"
 ---
-# <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview-with-debezium-for-change-data-capture"></a>Integrar o suporte do Apache Kafka Connect nos hubs de eventos do Azure (versão prévia) com o Debezium para captura de dados de alterações
+# <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-with-debezium-for-change-data-capture"></a>Integrar o suporte do Apache Kafka Connect nos hubs de eventos do Azure com o Debezium para captura de dados de alterações
 
 A **captura de dados de alteração (CDC)** é uma técnica usada para rastrear alterações em nível de linha em tabelas de banco de dado em resposta a operações de criação, atualização e exclusão. O [Debezium](https://debezium.io/) é uma plataforma distribuída que se baseia em recursos de captura de dados de alteração disponíveis em diferentes bancos (por exemplo, [decodificação lógica no PostgreSQL](https://www.postgresql.org/docs/current/static/logicaldecoding-explanation.html)). Ele fornece um conjunto de [conectores do Kafka Connect](https://debezium.io/documentation/reference/1.2/connectors/index.html) que tocam em alterações em nível de linha em tabelas de banco de dados e os convertem em fluxos de eventos que são enviados para [Apache Kafka](https://kafka.apache.org/).
 
+> [!WARNING]
+> O uso da estrutura do Apache Kafka Connect, bem como a plataforma Debezium e seus conectores, **não são elegíveis para suporte ao produto por meio de Microsoft Azure**.
+>
+> O Apache Kafka Connect pressupõe que sua configuração dinâmica seja mantida em tópicos compactados com retenção ilimitada. Os hubs de eventos do Azure [não implementam a compactação como um recurso de agente](event-hubs-federation-overview.md#log-projections) e sempre impõe um limite de retenção com base no tempo em eventos retidos, raiz do princípio de que os hubs de eventos do Azure são um mecanismo de streaming de eventos em tempo real e não um repositório de dados ou de configuração de longo prazo.
+>
+> Embora o projeto de Apache Kafka possa se sentir confortável com a combinação dessas funções, o Azure acredita que essas informações são mais bem gerenciadas em um banco de dados ou repositório de configuração adequado.
+>
+> Muitos cenários do Apache Kafka Connect serão funcionais, mas essas diferenças conceituais entre os modelos de retenção dos Apache Kafka e dos hubs de eventos do Azure podem fazer com que determinadas configurações não funcionem conforme o esperado. 
+
 Este tutorial orienta você sobre como configurar um sistema baseado na captura de dados de alterações no Azure usando os [hubs de eventos do Azure](./event-hubs-about.md?WT.mc_id=devto-blog-abhishgu) (para Kafka), o [BD do Azure para PostgreSQL](../postgresql/overview.md) e o Debezium. Ele usará o [conector Debezium PostgreSQL](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html) para transmitir modificações de banco de dados do PostgreSQL para tópicos do Kafka nos hubs de eventos do Azure
+
+> [!NOTE]
+> Este artigo contém referências ao termo *lista de permissões*, um termo que a Microsoft não usa mais. Quando o termo for removido do software, também o removeremos deste artigo.
 
 Neste tutorial, você deve executar as seguintes etapas:
 
 > [!div class="checklist"]
-> * Criar um namespace dos hubs de eventos
+> * Criar um namespace de Hubs de Eventos
 > * Instalar e configurar o banco de dados do Azure para PostgreSQL
 > * Configurar e executar o Kafka Connect com o conector do Debezium PostgreSQL
 > * Testar captura de dados de alterações
@@ -35,7 +47,7 @@ Para concluir essa orientação, você precisará de:
 - Kafka (versão 1.1.1, versão do Scala 2.11), disponível em [kafka.apache.org](https://kafka.apache.org/downloads#1.1.1)
 - Leia o artigo introdutório [Hubs de Eventos para o Apache Kafka](./event-hubs-for-kafka-ecosystem-overview.md)
 
-## <a name="create-an-event-hubs-namespace"></a>Criar um namespace dos hubs de eventos
+## <a name="create-an-event-hubs-namespace"></a>Criar um namespace de Hubs de Eventos
 É necessário um namespace do Hubs de Eventos para enviar e receber de qualquer serviço de Hub de Eventos. Consulte [criando um hub de eventos](event-hubs-create.md) para obter instruções para criar um namespace e um hub de eventos. Obtenha a cadeia de conexão dos Hubs de Eventos e o FQDN (nome de domínio totalmente qualificado) para uso posterior. Para obter instruções, confira [Obter uma cadeia de conexão dos Hubs de Eventos](event-hubs-get-connection-string.md). 
 
 ## <a name="setup-and-configure-azure-database-for-postgresql"></a>Instalar e configurar o banco de dados do Azure para PostgreSQL
@@ -100,7 +112,7 @@ plugin.path={KAFKA.DIRECTORY}/libs # path to the libs directory within the Kafka
 ```
 
 > [!IMPORTANT]
-> Substitua `{YOUR.EVENTHUBS.CONNECTION.STRING}` pela cadeia de conexão do seu namespace dos Hubs de Eventos. Para obter instruções sobre como obter a cadeia de conexão, consulte [obter uma cadeia de conexão de hubs de eventos](event-hubs-get-connection-string.md). Aqui está um exemplo de configuração: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+> Substitua `{YOUR.EVENTHUBS.CONNECTION.STRING}` pela cadeia de conexão do seu namespace dos Hubs de Eventos. Para ver as instruções sobre como obter uma cadeia de conexão, confira [Obter cadeia de conexão para Hubs de Eventos](event-hubs-get-connection-string.md). Aqui está um exemplo de configuração: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
 
 
 ### <a name="run-kafka-connect"></a>Executar o Kafka Connect

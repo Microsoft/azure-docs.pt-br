@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 8e951e6cb18596b19f49bf42179297f656e3fa5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 849afe54125588cb7664ee221e4f229e83be8f96
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91304280"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185471"
 ---
 # <a name="camera-placement-guide"></a>Guia de posicionamento da câmera
 
@@ -52,7 +52,7 @@ A ilustração a seguir mostra a exibição de elevação para direção de movi
 
 ## <a name="camera-height"></a>Altura da câmera
 
-Em geral, as câmeras devem ser montadas a 12-14 pés a partir do zero. Ao planejar a montagem da câmera nesse intervalo, considere as obstruções (por exemplo: prateleiras, luzes deslocadas, sinais de cima e telas) que podem afetar a exibição da câmera e, em seguida, ajuste a altura conforme necessário.
+Em geral, as câmeras devem ser montadas a 12-14 pés a partir do zero. Para detecção de máscara facial, recomendamos que as câmeras sejam montadas em 8-12 pés a partir do zero. Ao planejar a montagem da câmera nesse intervalo, considere as obstruções (por exemplo: prateleiras, luzes deslocadas, sinais de cima e telas) que podem afetar a exibição da câmera e, em seguida, ajuste a altura conforme necessário.
 
 ## <a name="camera-to-focal-point-distance"></a>Distância do ponto de câmera para o focal
 
@@ -68,7 +68,7 @@ Acima, ele tem a seguinte aparência:
 
 ![Como a distância do ponto de câmera a focalidade é medida acima](./media/spatial-analysis/camera-focal-point-above.png)
 
-Use a tabela abaixo para determinar a distância da câmera do ponto focal com base em alturas de montagem específicas. Essas distâncias são para o posicionamento ideal. Observe que a tabela fornece orientação abaixo da recomendação de 12 '-14 ', já que alguns tetos podem limitar a altura.
+Use a tabela abaixo para determinar a distância da câmera do ponto focal com base em alturas de montagem específicas. Essas distâncias são para o posicionamento ideal. Observe que a tabela fornece orientação abaixo da recomendação de 12 '-14 ', já que alguns tetos podem limitar a altura. Para detecção de máscara facial, a distância recomendada da câmera-para-Focal Point (min/max) é 4 '-10 ' para a altura da câmera entre 8 ' e 12 '.
 
 | Altura da câmera | A distância da câmera para o ponto focal (mín/máx.) |  
 | ------------- | ---------------------------------------- |  
@@ -91,7 +91,7 @@ Esta seção descreve os intervalos de montagem de ângulo de câmera aceitávei
 
 ### <a name="line-configuration"></a>Configuração de linha
 
-A tabela a seguir mostra as recomendações para câmeras configuradas para a operação **cognitivaservices. Vision. spatialanalysis-personcrossingline** . 
+A tabela a seguir mostra as recomendações para câmeras configuradas para a operação **cognitivaservices. Vision. spatialanalysis-personcrossingline** . Para detecção de máscara facial, +/-30 graus é o ângulo de montagem da câmera ideal para a altura da câmera entre 8 e 12 '.
 
 | Altura da câmera | Distância do ponto de câmera para o focal | Ângulo de montagem de câmera ideal (mín/máx.) |  
 | ------------- | ------------------------------ | ------------------------------------------ |  
@@ -127,7 +127,7 @@ A ilustração a seguir fornece simulações para as exibições da câmera esqu
 
 #### <a name="queues"></a>Filas
 
-As habilidades **cognitivaservices. Vision. spatialanalysis-personcount**, **cognitivaservices. Vision. spatialanalysis-persondistance**e **cognitivaservices. Vision. spatialanalysis-personcrossingpolygon** podem ser usadas para monitorar filas. Para qualidade de dados de fila ideal, as barreiras de correia remanejáveis são preferenciais para minimizar o oclusão das pessoas na fila e garantir que o local das filas seja consistente ao longo do tempo.
+As habilidades **cognitivaservices. Vision. spatialanalysis-personcount**, **cognitivaservices. Vision. spatialanalysis-persondistance** e **cognitivaservices. Vision. spatialanalysis-personcrossingpolygon** podem ser usadas para monitorar filas. Para qualidade de dados de fila ideal, as barreiras de correia remanejáveis são preferenciais para minimizar o oclusão das pessoas na fila e garantir que o local das filas seja consistente ao longo do tempo.
 
 ![Fila de correia remanejável](./media/spatial-analysis/retractable-belt-queue.png)
 

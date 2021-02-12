@@ -4,12 +4,12 @@ description: Neste artigo, descubra respostas para perguntas comuns sobre o MABS
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.openlocfilehash: cd974181c78586f915dad6cc6ed39d9255a1456b
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 1663a842b7e00c611543451d4caef96b5b5a913f
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172580"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954984"
 ---
 # <a name="azure-backup-server-and-dpm---faq"></a>Servidor de Backup do Azure e o DPM-perguntas frequentes
 
@@ -56,6 +56,10 @@ Você não precisa separar licenciamento para a proteção de VMware/Hyper-V.
 
 - Se você for um cliente do System Center, use o System Center Data Protection Manager (DPM) para proteger as VMs do VMware.
 - Se você não for um cliente do System Center, você pode usar o Servidor de Backup do Azure (pré-pago) para proteger as VMs VMware.
+
+### <a name="can-i-restore-a-backup-of-a-hyper-v-or-vmware-vm-stored-in-azure-to-azure-as-an-azure-vm"></a>Posso restaurar um backup de uma VM Hyper-V ou VMware, armazenada no Azure, no Azure como uma VM do Azure?
+
+Não, isso não é possível no momento. Você só pode restaurar para um host local.
 
 ## <a name="sharepoint"></a>SharePoint
 

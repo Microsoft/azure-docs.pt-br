@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 21fd5f5c94b56f2f63d0e90d9982edd60a2d95d6
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: db7006c01f59e8a11872d99b3a16f24f65ef7588
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895436"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413370"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Usar o controle de mapeamento do Azure Mapas
 
 O Controle de Mapeamento biblioteca JavaScript do lado do cliente permite renderizar mapas e a funcionalidade do Azure Maps incorporada em seu aplicativo Web ou móvel.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para usar o Controle de Mapeamento em uma página da Web, você deve ter um dos seguintes pré-requisitos:
 
@@ -75,7 +75,7 @@ Você pode inserir um mapa em uma página da Web usando o Controle de Mapeamento
     </style>
    ```
 
-4. No corpo da página, adicione um elemento `<div>` e dê a ele um `id` de **myMap** .
+4. No corpo da página, adicione um elemento `<div>` e dê a ele um `id` de **myMap**.
 
    ```HTML
     <body onload="InitMap()">
@@ -99,8 +99,8 @@ Você pode inserir um mapa em uma página da Web usando o Controle de Mapeamento
                     authType: 'subscriptionKey',
                     subscriptionKey: '<Your Azure Maps Key>'
                 }
-            }
-        });
+            });
+       }
     </script>
     ```
 
@@ -120,8 +120,8 @@ Você pode inserir um mapa em uma página da Web usando o Controle de Mapeamento
                     aadAppId: '<Your AAD App Id>',
                     aadTenant: '<Your AAD Tenant Id>'
                 }
-            }
-        });
+            });
+        }
     </script>
    ```
 

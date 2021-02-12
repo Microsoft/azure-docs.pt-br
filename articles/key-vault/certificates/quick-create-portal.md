@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/24/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 0a2c1b39f5688b4fc544e5456666ccb8b4801517
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e55c0832638105ad681f74cbeb6429a6704b7fb2
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91281042"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935131"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-the-azure-portal"></a>Início Rápido: Definir e recuperar um certificado do Azure Key Vault usando o portal do Azure
 
@@ -88,4 +88,4 @@ Neste início rápido, você criou um Key Vault e armazenou um certificado nele.
 
 - Leia uma [Visão geral do Azure Key Vault](../general/overview.md)
 - Confira o [Guia do desenvolvedor do Azure Key Vault](../general/developers-guide.md)
-- Examine as [Melhores práticas do Azure Key Vault](../general/best-practices.md)
+- Examine a [Visão geral de segurança do Key Vault](../general/security-overview.md)

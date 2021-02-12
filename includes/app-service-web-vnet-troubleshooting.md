@@ -4,17 +4,17 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
-ms.openlocfilehash: b62e5057d8f144fc56d0e35927d17de27a1c8863
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cec44bbabdb7d528c30a8d3396b819f2eb3c5386
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91255224"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999411"
 ---
-O recurso é fácil de configurar, mas isso não significa que sua experiência estará livre de problemas. Se você encontrar problemas para acessar o ponto de extremidade desejado, há alguns utilitários que podem ser usados para testar a conectividade no console do aplicativo. Há dois consoles que você pode usar. Um é o console do Kudu e o outro é o console do na portal do Azure. Para acessar o console do kudu do seu aplicativo, acesse **ferramentas**  >  **kudu**. Você também pode acessar o console do Kudo em [SiteName]. SCM. azurewebsites. net. Depois que o site for carregado, vá para a guia **console de depuração** . Para acessar o console do portal do Azure hospedado do seu aplicativo, vá para o **Tools**  >  **console**de ferramentas.
+O recurso é fácil de configurar, mas isso não significa que sua experiência estará livre de problemas. Se você encontrar problemas para acessar o ponto de extremidade desejado, há alguns utilitários que podem ser usados para testar a conectividade no console do aplicativo. Há dois consoles que você pode usar. Um é o console do Kudu e o outro é o console do na portal do Azure. Para acessar o console do kudu do seu aplicativo, acesse **ferramentas**  >  **kudu**. Você também pode acessar o console do Kudo em [SiteName]. SCM. azurewebsites. net. Depois que o site for carregado, vá para a guia **console de depuração** . Para acessar o console do portal do Azure hospedado do seu aplicativo, vá para o **Tools**  >  **console** de ferramentas.
 
 #### <a name="tools"></a>Ferramentas
-Em aplicativos nativos do Windows, as ferramentas **ping**, **nslookup**e **tracert** não funcionarão no console do devido a restrições de segurança (elas funcionam em [contêineres personalizados do Windows](../articles/app-service/quickstart-custom-container.md)). Para preencher o void, duas ferramentas separadas são adicionadas. Para testar a funcionalidade do DNS, adicionamos uma ferramenta chamada **nameresolver.exe**. A sintaxe do é:
+Em aplicativos nativos do Windows, as ferramentas **ping**, **nslookup** e **tracert** não funcionarão no console do devido a restrições de segurança (elas funcionam em [contêineres personalizados do Windows](../articles/app-service/quickstart-custom-container.md)). Para preencher o void, duas ferramentas separadas são adicionadas. Para testar a funcionalidade do DNS, adicionamos uma ferramenta chamada **nameresolver.exe**. A sintaxe do é:
 
 ```console
 nameresolver.exe hostname [optional: DNS Server]
@@ -46,7 +46,7 @@ Se esses itens não responderem a seus problemas, veja primeiro algo como:
 * Seu destino é um endereço não RFC1918 e você não tem WEBSITE_VNET_ROUTE_ALL definido como 1?
 * Há um NSG bloqueando a saída de sua sub-rede de integração?
 * Se você estiver entrando no Azure ExpressRoute ou em uma VPN, seu gateway local será configurado para rotear o tráfego de volta para o Azure? Se você puder acessar pontos de extremidade em sua rede virtual, mas não no local, verifique suas rotas.
-* Você tem permissões suficientes para definir a delegação na sub-rede de integração? Durante a configuração de integração VNet regional, sua sub-rede de integração é delegada para Microsoft. Web. A interface do usuário de integração VNet delega a sub-rede ao Microsoft. Web automaticamente. Se sua conta não tiver permissões de rede suficientes para definir a delegação, você precisará de alguém que possa definir atributos em sua sub-rede de integração para delegar a sub-rede. Para delegar manualmente a sub-rede de integração, vá para a interface do usuário da sub-rede da rede virtual do Azure e defina a delegação para Microsoft. Web.
+* Você tem permissões suficientes para definir a delegação na sub-rede de integração? Durante a configuração de integração VNet regional, sua sub-rede de integração é delegada para Microsoft. Web/serverFarms. A interface do usuário de integração VNet delega a sub-rede para Microsoft. Web/serverFarms automaticamente. Se sua conta não tiver permissões de rede suficientes para definir a delegação, você precisará de alguém que possa definir atributos em sua sub-rede de integração para delegar a sub-rede. Para delegar manualmente a sub-rede de integração, vá para a interface do usuário da sub-rede da rede virtual do Azure e defina a delegação para Microsoft. Web/serverFarms.
 
 **Integração de VNet necessária ao gateway**
 * É o intervalo de endereços de ponto a site nos intervalos RFC 1918 (10.0.0.0-10.255.255.255/172.16.0.0-172.31.255.255/192.168.0.0-192.168.255.255)?

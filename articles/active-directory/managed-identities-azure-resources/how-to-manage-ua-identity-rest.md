@@ -12,19 +12,17 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/26/2018
+ms.date: 12/02/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37fad118fe314b1392c31906a3f0a0989e39d876
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 117f9a1c173f2083dd4621f4f3f41b6e83d1d46b
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90969413"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546685"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Criar, listar ou excluir uma identidade gerenciada atribuída pelo usuário usando chamadas à API REST
-
-[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
 Identidades gerenciadas para recursos do Azure fornecem aos serviços do Azure a capacidade de autenticar para serviços que dão suporte à autenticação do Azure AD, sem precisar de credenciais em seu código. 
 

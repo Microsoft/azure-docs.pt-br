@@ -7,16 +7,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2018
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
 ms.custom: devx-track-python
-ms.openlocfilehash: 8c13e0e3f1cb8809a126b11409becd2211864c32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5d1f0c0d6aa848e590e68e1f18abf7861674483
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87876539"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556555"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Monitorar programaticamente um Azure Data Factory
 
@@ -68,7 +68,7 @@ Para ver um passo a passo completo da criação e monitoramento de um pipeline u
     Console.ReadKey();
     ```
 
-Consulte [Referência do SDK do .NET do Data Factory](/dotnet/api/microsoft.azure.management.datafactory?view=azure-dotnet) para obter uma documentação completa sobre o SDK do .NET.
+Consulte [Referência do SDK do .NET do Data Factory](/dotnet/api/microsoft.azure.management.datafactory) para obter uma documentação completa sobre o SDK do .NET.
 
 ## <a name="python"></a>Python
 Para ver um passo a passo completo da criação e monitoramento de um pipeline usando o SDK de Python, consulte [Criar um data factory e um pipeline usando Python](quickstart-create-data-factory-python.md).
@@ -86,7 +86,7 @@ activity_runs_paged = list(adf_client.activity_runs.list_by_pipeline_run(
 print_activity_run_details(activity_runs_paged[0])
 ```
 
-Para obter uma documentação completa sobre o SDK do Python, consulte [Referência do SDK do Python do Data Factory](/python/api/overview/azure/datafactory?view=azure-python).
+Para obter uma documentação completa sobre o SDK do Python, consulte [Referência do SDK do Python do Data Factory](/python/api/overview/azure/datafactory).
 
 ## <a name="rest-api"></a>API REST
 Para ver um passo a passo completo da criação e monitoramento de um pipeline usando a API REST, consulte [Criar um data factory e um pipeline usando a API REST](quickstart-create-data-factory-rest-api.md).

@@ -9,15 +9,15 @@ ms.topic: quickstart
 ms.date: 10/06/2020
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: b0939191a8029ef30f17500bbaaa7eb32b5a6d7e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f31eb0fa6dbb881f7a09b21b9dd4842fdfd291f5
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486541"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090283"
 ---
 # <a name="quickstart-build-a-spring-data-azure-cosmos-db-v3-app-to-manage-azure-cosmos-db-sql-api-data"></a>Início Rápido: criar um de aplicativo do Spring Data Azure Cosmos DB v3 a fim de gerenciar os dados da API do SQL do Azure Cosmos DB
-
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -54,7 +54,7 @@ Neste início rápido, você criará e gerenciará uma conta da API do SQL do Az
 
 :::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Entidades de conta do Azure Cosmos" border="false":::
 
-Você pode ler mais sobre bancos de dados, contêineres e itens [aqui.](account-databases-containers-items.md) Algumas propriedades importantes são definidas no nível do contêiner, entre elas a *taxa de transferência provisionada* e a *chave de partição* . 
+Você pode ler mais sobre bancos de dados, contêineres e itens [aqui.](account-databases-containers-items.md) Algumas propriedades importantes são definidas no nível do contêiner, entre elas a *taxa de transferência provisionada* e a *chave de partição*. 
 
 A taxa de transferência provisionada é medida em *RUs* (Unidades de Solicitação) que têm um preço monetário e são um fator determinante substancial no custo operacional da conta. A taxa de transferência provisionada pode ser selecionada na granularidade por contêiner ou na granularidade por banco de dados. No entanto, há preferência pela especificação da taxa de transferência no nível de contêiner normalmente. Você pode ler mais sobre o provisionamento da taxa de transferência [aqui.](set-throughput.md)
 

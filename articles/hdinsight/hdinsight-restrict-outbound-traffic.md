@@ -1,19 +1,16 @@
 ---
 title: Configurar a restrição de tráfego de rede de saída – Azure HDInsight
 description: Saiba como configurar a restrição de tráfego de rede de saída para clusters do Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: dc6412a85beba67551e7683c8127a65730f9218f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 79e3349f009f71c5cd387a7c7265ad4904f2a40d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535460"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932124"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configurar o tráfego de rede de saída para clusters do Azure HDInsight usando o firewall
 
@@ -53,11 +50,11 @@ Crie uma coleção de regras de aplicativo que permita que o cluster envie e rec
 
 1. Selecione o novo firewall **Test-FW01** do portal do Azure.
 
-1. Navegue até **Configurações** > **Regras** > **Coleção de regras de aplicativos** >  **+ Adicionar coleção de regras de aplicativos** .
+1. Navegue até **Configurações** > **Regras** > **Coleção de regras de aplicativos** >  **+ Adicionar coleção de regras de aplicativos**.
 
     ![Título: Adicionar coleção de regras de aplicativos](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
-1. Na tela **Adicionar coleção de regras de aplicativos** , forneça as seguintes informações:
+1. Na tela **Adicionar coleção de regras de aplicativos**, forneça as seguintes informações:
 
     **Seção superior**
 
@@ -83,15 +80,15 @@ Crie uma coleção de regras de aplicativo que permita que o cluster envie e rec
 
    ![Título: Entrar nos detalhes da coleção de regras de aplicativo](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
 
-1. Selecione **Adicionar** .
+1. Selecione **Adicionar**.
 
 ### <a name="configure-the-firewall-with-network-rules"></a>Configurar o firewall com regras de rede
 
 Crie as regras de rede para configurar corretamente o cluster do HDInsight.
 
-1. Continuando da etapa anterior, navegue até **Coleção de regras de rede** >  **+ Adicionar coleção de regras de rede** .
+1. Continuando da etapa anterior, navegue até **Coleção de regras de rede** >  **+ Adicionar coleção de regras de rede**.
 
-1. Na tela **Adicionar coleção de regras de rede** , forneça as seguintes informações:
+1. Na tela **Adicionar coleção de regras de rede**, forneça as seguintes informações:
 
     **Seção superior**
 
@@ -105,28 +102,28 @@ Crie as regras de rede para configurar corretamente o cluster do HDInsight.
 
     | Nome | Protocolo | Endereços de Origem | Marcas de serviço | Portas de destino | Observações |
     | --- | --- | --- | --- | --- | --- |
-    | Rule_5 | TCP | * | SQL | 1433 | Se você estiver usando os SQL Servers padrão fornecidos pelo HDInsight, configure uma regra de rede na seção marcas de serviço para SQL que permitirá que você registre e audite o tráfego do SQL. A menos que você tenha configurado pontos de extremidade de serviço para SQL Server na sub-rede do HDInsight, que ignorará o firewall. Se você estiver usando o SQL Server personalizado para Ambari, Oozie, Ranger e Hive metastroes, você só precisará permitir o tráfego para seus próprios servidores SQL personalizados.|
+    | Rule_5 | TCP | * | SQL | 1433 | Se você estiver usando os SQL Servers padrão fornecidos pelo HDInsight, configure uma regra de rede na seção marcas de serviço para SQL que permitirá que você registre e audite o tráfego do SQL. A menos que você tenha configurado pontos de extremidade de serviço para SQL Server na sub-rede do HDInsight, que ignorará o firewall. Se você estiver usando o SQL Server personalizado para metastores do Ambari, Oozie, Ranger e Hive, você só precisará permitir o tráfego para seus próprios servidores SQL personalizados.|
     | Rule_6 | TCP | * | Azure Monitor | * | (Opcional) Os clientes que planejam usar o recurso de dimensionamento automático devem adicionar essa regra. |
     
    ![Título: Inserir coleção de regras de aplicativos](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
-1. Selecione **Adicionar** .
+1. Selecione **Adicionar**.
 
 ### <a name="create-and-configure-a-route-table"></a>Criar e configurar uma tabela de rotas
 
 Crie uma tabela de rotas com as seguintes entradas:
 
-* Todos os endereços IP dos [serviços de integridade e gerenciamento](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions) com um tipo de próximo salto de **Internet** . Ele deve incluir 4 IPs de regiões genéricas, bem como 2 IPs para sua região específica. Essa regra só será necessária se o ResourceProviderConnection estiver definido como *entrada* . Se o ResourceProviderConnection for definido como *saída* , esses IPS não serão necessários no UDR. 
+* Todos os endereços IP dos [serviços de integridade e gerenciamento](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions) com um tipo de próximo salto de **Internet**. Ele deve incluir 4 IPs de regiões genéricas, bem como 2 IPs para sua região específica. Essa regra só será necessária se o ResourceProviderConnection estiver definido como *entrada*. Se o ResourceProviderConnection for definido como *saída* , esses IPS não serão necessários no UDR. 
 
 * Uma rota da Solução de Virtualização para o endereço IP 0.0.0.0/0 com o próximo salto sendo seu endereço IP privado do Firewall do Azure.
 
 Por exemplo, para configurar a tabela de rotas para um cluster criado na região dos EUA "Leste dos EUA", use as seguintes etapas:
 
-1. Selecione o firewall **Test-FW01** do Azure. Copie o **endereço IP privado** listado na página **Visão geral** . Para este exemplo, usaremos um **endereço de exemplo de 10.0.2.4** .
+1. Selecione o firewall **Test-FW01** do Azure. Copie o **endereço IP privado** listado na página **Visão geral**. Para este exemplo, usaremos um **endereço de exemplo de 10.0.2.4**.
 
-1. Em seguida, navegue até **Todos os serviços** > **Rede** > **Tabelas de rede** e **Criar Tabela de Rotas** .
+1. Em seguida, navegue até **Todos os serviços** > **Rede** > **Tabelas de rede** e **Criar Tabela de Rotas**.
 
-1. Em sua nova rota, navegue até **Configurações** > **Rotas** >  **+ Adicionar** . Adicione as seguintes rotas:
+1. Em sua nova rota, navegue até **Configurações** > **Rotas** >  **+ Adicionar**. Adicione as seguintes rotas:
 
 | Nome da rota | Prefixo de endereço | Tipo do próximo salto | Endereço do próximo salto |
 |---|---|---|---|
@@ -140,13 +137,13 @@ Por exemplo, para configurar a tabela de rotas para um cluster criado na região
 
 Conclua a configuração da tabela de rotas:
 
-1. Atribua a tabela de rotas que você criou à sub-rede do HDInsight selecionando **Sub-redes** em **Configurações** .
+1. Atribua a tabela de rotas que você criou à sub-rede do HDInsight selecionando **Sub-redes** em **Configurações**.
 
-1. Selecione **+ Associar** .
+1. Selecione **+ Associar**.
 
-1. Na tela **Associar sub-rede** , selecione a rede virtual na qual o cluster foi criado. E a **Sub-rede** usada para o cluster do HDInsight.
+1. Na tela **Associar sub-rede**, selecione a rede virtual na qual o cluster foi criado. E a **Sub-rede** usada para o cluster do HDInsight.
 
-1. Selecione **OK** .
+1. Selecione **OK**.
 
 ## <a name="edge-node-or-custom-application-traffic"></a>Nó de borda ou tráfego de aplicativo personalizado
 
@@ -170,7 +167,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 
 A integração do Firewall do Azure aos logs do Azure Monitor é útil ao colocar um aplicativo para ser executado pela primeira vez. Especialmente quando você não está ciente de todas as dependências do aplicativo. Saiba mais sobre os logs do Azure Monitor em [Analisar dados de log no Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 
-Para saber mais sobre os limites de escala do Firewall do Azure e solicitar aumentos, confira [este](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits) documento ou consulte as [Perguntas frequentes](../firewall/firewall-faq.md).
+Para saber mais sobre os limites de escala do Firewall do Azure e solicitar aumentos, confira [este](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits) documento ou consulte as [Perguntas frequentes](../firewall/firewall-faq.yml).
 
 ## <a name="access-to-the-cluster"></a>Acessar o cluster
 

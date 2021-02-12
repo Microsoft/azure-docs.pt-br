@@ -2,17 +2,17 @@
 title: Importar ou exportar dados com a configuração Azure App
 description: Saiba como importar ou exportar dados de configuração de ou para a configuração do Azure App. Troque dados entre o repositório de configuração do aplicativo e o projeto de código.
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.author: lcozzens
-ms.openlocfilehash: 0e127a11f3821325602a78d46c69b2330bfb8293
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.author: alkemper
+ms.openlocfilehash: 5e4eeb37bb5efa11a656600072e4aa364fc71500
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074610"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931785"
 ---
 # <a name="import-or-export-configuration-data"></a>Importar ou exportar dados de configuração
 
@@ -28,7 +28,7 @@ Importe dados usando o [portal do Azure](https://portal.azure.com) ou o [CLI do 
 
 1. Navegue até o repositório de configuração do aplicativo e selecione **importar/exportar** no menu **operações** .
 
-1. Na guia **importar** , selecione arquivo de configuração do **serviço de origem**  >  **Configuration File**.
+1. Na guia **importar** , selecione arquivo de configuração do **serviço de origem**  >  .
 
 1. Selecione **para idioma** e selecione o tipo de entrada desejado.
 
@@ -36,7 +36,7 @@ Importe dados usando o [portal do Azure](https://portal.azure.com) ou o [CLI do 
 
     ![Arquivo de importação](./media/import-file.png)
 
-1. Selecione um **separador**e, opcionalmente, insira um **prefixo** a ser usado para nomes de chave importados.
+1. Selecione um **separador** e, opcionalmente, insira um **prefixo** a ser usado para nomes de chave importados.
 
 1. Opcionalmente, selecione um **rótulo**.
 
@@ -52,11 +52,11 @@ Exporte dados usando o [portal do Azure](https://portal.azure.com) ou o [CLI do 
 
 1. Navegue até o repositório de configuração do aplicativo e selecione **importar/exportar**.
 
-1. Na guia **Exportar** , selecione o **Target service**  >  **arquivo de configuração**do serviço de destino.
+1. Na guia **Exportar** , selecione o   >  **arquivo de configuração** do serviço de destino.
 
 1. Opcionalmente, insira um **prefixo** e selecione um **rótulo** e um ponto no tempo para que as chaves sejam exportadas.
 
-1. Selecione um **File type**  >  **separador**de tipo de arquivo.
+1. Selecione um   >  **separador** de tipo de arquivo.
 
 1. Selecione **aplicar** para concluir a exportação.
 

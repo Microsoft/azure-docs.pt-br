@@ -4,15 +4,15 @@ description: Entenda como usar gatilhos de temporizador no Azure Functions.
 author: craigshoemaker
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
-ms.date: 09/08/2018
+ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 6423ec481c65155b511e398885b4954522bbb376
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 0d9852659801040d64fe4143f024fd52ffec16ee
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93025894"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874076"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Gatilho de temporizador para o Azure Functions
 
@@ -56,7 +56,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 O exemplo a seguir mostra uma associação de gatilho de temporizador em um arquivo *function.json* e uma [função C# script](functions-reference-csharp.md) que usa a associação. A função grava um log que indica se esta chamada de função deve-se a uma ocorrência de agendamento ausente. O [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) objeto é passado para a função.
 
-Aqui estão os dados de associação no arquivo *function.json* :
+Aqui estão os dados de associação no arquivo *function.json*:
 
 ```json
 {
@@ -99,7 +99,7 @@ public void keepAlive(
 
 O exemplo a seguir mostra uma associação de gatilho de temporizador em um arquivo *function.json* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função grava um log que indica se esta chamada de função deve-se a uma ocorrência de agendamento ausente. Um [objeto de timer](#usage) é passado para a função.
 
-Aqui estão os dados de associação no arquivo *function.json* :
+Aqui estão os dados de associação no arquivo *function.json*:
 
 ```json
 {
@@ -163,9 +163,9 @@ Uma instância do [objeto de timer](#usage) é passada como o primeiro argumento
 
 # <a name="python"></a>[Python](#tab/python)
 
-O exemplo a seguir usa uma associação de gatilho de temporizador cuja configuração é descrita na *function.jsno* arquivo. A [função Python](functions-reference-python.md) real que usa a associação é descrita no arquivo *__init__ . py* . O objeto passado para a função é do tipo [objeto Azure. Functions. TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). A lógica de função grava nos logs indicando se a invocação atual é devido a uma ocorrência de agendamento ausente.
+O exemplo a seguir usa uma associação de gatilho de temporizador cuja configuração é descrita na *function.jsno* arquivo. A [função Python](functions-reference-python.md) real que usa a associação é descrita no arquivo *__init__. py* . O objeto passado para a função é do tipo [objeto Azure. Functions. TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). A lógica de função grava nos logs indicando se a invocação atual é devido a uma ocorrência de agendamento ausente.
 
-Aqui estão os dados de associação no arquivo *function.json* :
+Aqui estão os dados de associação no arquivo *function.json*:
 
 ```json
 {
@@ -299,11 +299,11 @@ Cada campo pode ter um dos seguintes tipos de valores:
 
 |Type  |Exemplo  |Quando disparado  |
 |---------|---------|---------|
-|Um valor específico |<nobr>"0 5 * * * *"</nobr>|em hh:05:00, em que hh é cada hora (uma vez por hora)|
-|Todos os valores (`*`)|<nobr>"0 * 5 * * *"</nobr>|em 5:mm: 00 diariamente, em que mm é cada minuto da hora (60 vezes por dia)|
-|Um intervalo (`-` operador)|<nobr>"5-7 * * * * *"</nobr>|em hh:mm:05, hh:mm:06 e hh:mm:07, em que hh é cada minuto de cada hora (3 vezes por minuto)|
-|Um conjunto de valores (`,` operador)|<nobr>"5,8,10 * * * * *"</nobr>|em hh:mm:05, hh:mm:08 e hh:mm:10, em que hh é cada minuto de cada hora (3 vezes por minuto)|
-|Um valor de intervalo (`/` operador)|<nobr>"0 */5 * * * *"</nobr>|em hh: 00:00, hh: 05:00, hh: 10:00 e assim por diante por meio de hh: 55:00, em que HH é a cada hora (12 vezes por hora)|
+|Um valor específico |<nobr>`0 5 * * * *`</nobr>| Uma vez a cada hora do dia, no minuto 5 de cada hora |
+|Todos os valores (`*`)|<nobr>`0 * 5 * * *`</nobr>| A cada minuto na hora, começando na hora 5 |
+|Um intervalo (`-` operador)|<nobr>`5-7 * * * * *`</nobr>| Três vezes por minuto em segundos de 5 a 7 durante cada minuto de cada hora de cada dia |
+|Um conjunto de valores (`,` operador)|<nobr>`5,8,10 * * * * *`</nobr>| Três vezes por minuto em segundos 5, 8 e 10 durante cada minuto de cada hora de cada dia |
+|Um valor de intervalo (`/` operador)|<nobr>`0 */5 * * * *`</nobr>| 12 vezes por hora – em segundo 0 de cada quinto minuto de cada hora de cada dia |
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
@@ -311,18 +311,18 @@ Cada campo pode ter um dos seguintes tipos de valores:
 
 Aqui estão alguns exemplos de expressões NCRONTAB que você pode usar para o gatilho de temporizador no Azure Functions.
 
-|Exemplo|Quando disparado  |
-|---------|---------|
-|`"0 */5 * * * *"`|uma vez a cada cinco minutos|
-|`"0 0 * * * *"`|uma vez a cada hora|
-|`"0 0 */2 * * *"`|uma vez a cada duas horas|
-|`"0 0 9-17 * * *"`|uma vez a cada hora entre 9h e 17h|
-|`"0 30 9 * * *"`|às 9h30 todos os dias|
-|`"0 30 9 * * 1-5"`|às 9h30 todo dia útil|
-|`"0 30 9 * Jan Mon"`|em 9H30 toda segunda-feira em janeiro|
+| Exemplo            | Quando disparado                     |
+|--------------------|------------------------------------|
+| `0 */5 * * * *`    | uma vez a cada cinco minutos            |
+| `0 0 * * * *`      | uma vez a cada hora      |
+| `0 0 */2 * * *`    | uma vez a cada duas horas               |
+| `0 0 9-17 * * *`   | uma vez a cada hora entre 9h e 17h  |
+| `0 30 9 * * *`     | às 9h30 todos os dias               |
+| `0 30 9 * * 1-5`   | às 9h30 todo dia útil           |
+| `0 30 9 * Jan Mon` | em 9H30 toda segunda-feira em janeiro |
 
 > [!NOTE]
-> A expressão NCRONTAB requer seis formatos de **campo** . Não há suporte para expressões cron de cinco campos no Azure.
+> A expressão NCRONTAB requer um formato de **seis campos** . A posição sexto campo é um valor para segundos que é colocado no início da expressão. Não há suporte para expressões cron de cinco campos no Azure.
 
 ### <a name="ncrontab-time-zones"></a>NCRONTAB fuso horário
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 235010cbcdde326cf17643cec81f3b6fcb1eea59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3225aa9eaff5c3cd0acca99261935feb9774810f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548762"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010241"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rolepoint"></a>Tutorial: Integração do Azure Active Directory ao RolePoint
 
@@ -27,7 +27,7 @@ Essa integração oferece estes benefícios:
 * Você pode permitir que os usuários sejam conectados automaticamente ao RolePoint (logon único) com suas contas do Azure AD.
 * Gerencie suas contas em um único local: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [Logon único em aplicativos no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [Logon único em aplicativos no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -182,18 +182,18 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 ### <a name="create-a-rolepoint-test-user"></a>Criar um usuário de teste do RolePoint
 
-Em seguida, você precisará criar um usuário chamado Brenda Fernandes no RolePoint. Trabalhe com a  [equipe de suporte do RolePoint](mailto:info@rolepoint.com) para adicionar usuários ao RolePoint. Os usuários precisam ser criados e ativados para que você use o logon único.
+Em seguida, você precisará criar um usuário chamado Brenda Fernandes no RolePoint. Trabalhe com a [equipe de suporte do RolePoint](mailto:info@rolepoint.com) para adicionar usuários ao RolePoint. Os usuários precisam ser criados e ativados para que você use o logon único.
 
 ### <a name="test-single-sign-on"></a>Testar logon único
 
 Agora você precisará testar a configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao selecionar o bloco do RolePoint no Painel de Acesso, você deverá ser conectado automaticamente à instância do RolePoint, para a qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, confira [Acessar e usar aplicativos no portal Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao selecionar o bloco do RolePoint no Painel de Acesso, você deverá ser conectado automaticamente à instância do RolePoint, para a qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, confira [Acessar e usar aplicativos no portal Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Tutoriais para a integração de aplicativos SaaS ao Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutoriais para a integração de aplicativos SaaS ao Azure Active Directory](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

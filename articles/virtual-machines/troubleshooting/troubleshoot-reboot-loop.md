@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
-ms.openlocfilehash: 4c336fe9a65d7bcc44790a4bfb02bed44f028733
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad0ed7e9619f0b789bf8949fe398aa27bc36b9e0
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86500915"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629633"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Loop de reinicialização do Windows em uma VM do Azure
 Este artigo descreve o loop de reinicialização pode ocorrer em uma VM (Máquina Virtual) do Windows no Microsoft Azure.
@@ -49,6 +49,9 @@ Algumas alterações foram feitas ao sistema operacional. Geralmente, elas estã
 Um dano no sistema de arquivos pode causar esse erro. No entanto, é difícil diagnosticar e identificar a alteração que causa o dano no sistema operacional.
 
 ## <a name="solution"></a>Solução
+
+> [!TIP]
+> Se você tiver um backup recente da VM, poderá tentar [restaurar a VM do backup](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema de inicialização.
 
 Para resolver esse problema, [faça backup do disco do sistema operacional](../windows/snapshot-copy-managed-disk.md) e [anexe o disco do sistema operacional a uma VM de resgate](./troubleshoot-recovery-disks-portal-windows.md), então siga as opções de solução adequadamente ou experimente as soluções individualmente.
 

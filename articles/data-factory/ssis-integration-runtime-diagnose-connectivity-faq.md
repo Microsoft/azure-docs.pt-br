@@ -10,12 +10,12 @@ author: meiyl
 ms.reviewer: sawinark
 manager: yidetu
 ms.date: 06/07/2020
-ms.openlocfilehash: ede36b20353f00ed9a4f80bec2d7bc5a3512a9ea
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 698a9c062596a3439d95ac0d586854fc6616fdd6
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637948"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556538"
 ---
 # <a name="use-the-diagnose-connectivity-feature-in-the-ssis-integration-runtime"></a>Usar o recurso diagnosticar conectividade no Integration Runtime do SSIS
 
@@ -38,13 +38,13 @@ Use as seções a seguir para saber mais sobre os erros mais comuns que ocorrem 
 
 ## <a name="error-code-invalidinput"></a>Código de erro: InvalidInput
 
-- **Mensagem de erro** : "Verifique se sua entrada está correta".
-- **Causa potencial** : sua entrada está incorreta.
-- **Recomendação** : Verifique sua entrada.
+- **Mensagem de erro**: "Verifique se sua entrada está correta".
+- **Causa potencial**: sua entrada está incorreta.
+- **Recomendação**: Verifique sua entrada.
 
 ## <a name="error-code-firewallornetworkissue"></a>Código de erro: FirewallOrNetworkIssue
 
-- **Mensagem de erro** : "Verifique se essa porta está aberta no seu firewall/servidor/NSG e a rede está estável".
+- **Mensagem de erro**: "Verifique se essa porta está aberta no seu firewall/servidor/NSG e a rede está estável".
 - **Possíveis causas:**
   - O servidor não abre a porta.
   - Seu grupo de segurança de rede tem o tráfego de saída negado na porta.
@@ -56,17 +56,17 @@ Use as seções a seguir para saber mais sobre os erros mais comuns que ocorrem 
 
 ## <a name="error-code-misconfigureddnssettings"></a>Código de erro: MisconfiguredDnsSettings
 
-- **Mensagem de erro** : "se você estiver usando seu próprio servidor DNS na VNet ingressado pelo seu Azure-SSIS ir, verifique se ele pode resolver o nome do host".
+- **Mensagem de erro**: "se você estiver usando seu próprio servidor DNS na VNet ingressado pelo seu Azure-SSIS ir, verifique se ele pode resolver o nome do host".
 - **Possíveis causas:**
   -  Há um problema com o DNS personalizado.
   -  Você não está usando um FQDN (nome de domínio totalmente qualificado) para seu nome de host privado.
 - **Recommendations**
   -  Corrija seu problema de DNS personalizado para certificar-se de que ele pode resolver o nome do host.
-  -  Use o FQDN. Azure-SSIS IR não acrescentará automaticamente seu próprio sufixo DNS. Por exemplo, use **<your_private_server>. contoso.com** em vez de **<your_private_server>** .
+  -  Use o FQDN. Azure-SSIS IR não acrescentará automaticamente seu próprio sufixo DNS. Por exemplo, use **<your_private_server>. contoso.com** em vez de **<your_private_server>**.
 
 ## <a name="error-code-servernotallowremoteconnection"></a>Código de erro: ServerNotAllowRemoteConnection
 
-- **Mensagem de erro** : "Verifique se o servidor permite conexões TCP remotas por meio desta porta."
+- **Mensagem de erro**: "Verifique se o servidor permite conexões TCP remotas por meio desta porta."
 - **Possíveis causas:**
   -  O Firewall do servidor não permite conexões TCP remotas.
   -  O servidor não está online.
@@ -76,7 +76,7 @@ Use as seções a seguir para saber mais sobre os erros mais comuns que ocorrem 
    
 ## <a name="error-code-misconfigurednsgsettings"></a>Código de erro: MisconfiguredNsgSettings
 
-- **Mensagem de erro** : "Verifique se o NSG da sua VNet permite o tráfego de saída por essa porta. Se você estiver usando o Azure ExpressRoute e o ou um UDR, verifique se essa porta está aberta no seu firewall/servidor. "
+- **Mensagem de erro**: "Verifique se o NSG da sua VNet permite o tráfego de saída por essa porta. Se você estiver usando o Azure ExpressRoute e o ou um UDR, verifique se essa porta está aberta no seu firewall/servidor. "
 - **Possíveis causas:**
   -  Seu grupo de segurança de rede tem o tráfego de saída negado na porta.
   -  Seu firewall do NVA/firewall/local do Azure não abre a porta.
@@ -86,24 +86,24 @@ Use as seções a seguir para saber mais sobre os erros mais comuns que ocorrem 
 
 ## <a name="error-code-genericissues"></a>Código de erro: GenericIssues
 
-- **Mensagem de erro** : "falha no teste de conexão devido a problemas genéricos".
-- **Causa potencial** : a conexão de teste encontrou um problema temporário geral.
-- **Recomendação** : repita a conexão de teste mais tarde. Se tentar novamente não ajudar, entre em contato com a equipe de suporte do Azure Data Factory.
+- **Mensagem de erro**: "falha no teste de conexão devido a problemas genéricos".
+- **Causa potencial**: a conexão de teste encontrou um problema temporário geral.
+- **Recomendação**: repita a conexão de teste mais tarde. Se tentar novamente não ajudar, entre em contato com a equipe de suporte do Azure Data Factory.
 
 ## <a name="error-code-pspingexecutiontimeout"></a>Código de erro: PSPingExecutionTimeout
 
-- **Mensagem de erro** : "tempo limite de conexão de teste, tente novamente mais tarde".
-- **Causa potencial** : o tempo limite de conectividade de teste expirou.
-- **Recomendação** : repita a conexão de teste mais tarde. Se tentar novamente não ajudar, entre em contato com a equipe de suporte do Azure Data Factory.
+- **Mensagem de erro**: "tempo limite de conexão de teste, tente novamente mais tarde".
+- **Causa potencial**: o tempo limite de conectividade de teste expirou.
+- **Recomendação**: repita a conexão de teste mais tarde. Se tentar novamente não ajudar, entre em contato com a equipe de suporte do Azure Data Factory.
 
 ## <a name="error-code-networkinstable"></a>Código de erro: NetworkInstable
 
-- **Mensagem de erro** : "testar conexão irregular com êxito devido à instabilidade da rede".
-- **Causa potencial** : problema de rede transitório.
-- **Recomendação** : Verifique se a rede do servidor ou do firewall está estável.
+- **Mensagem de erro**: "testar conexão irregular com êxito devido à instabilidade da rede".
+- **Causa potencial**: problema de rede transitório.
+- **Recomendação**: Verifique se a rede do servidor ou do firewall está estável.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Implantar um projeto do SSIS no Azure com o SSMS](/sql/integration-services/ssis-quickstart-deploy-ssms)
 - [Executar pacotes do SSIS no Azure com o SSMS](/sql/integration-services/ssis-quickstart-run-ssms)
-- [Agendar pacotes do SSIS no Azure](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms?view=sql-server-ver15)
+- [Agendar pacotes do SSIS no Azure](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms)

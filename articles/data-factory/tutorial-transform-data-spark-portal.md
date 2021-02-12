@@ -11,11 +11,11 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.openlocfilehash: 5b0bcdd66e17fb93a560b6073c13e3170e3ab37b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81409254"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010139"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Transformar os dados na nuvem usando uma atividade Spark no Azure Data Factory
 
@@ -86,7 +86,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
 1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
-1. Selecione **Novo** no menu à esquerda, selecione **Dados + Análise**e, em seguida, selecione **Data Factory**. 
+1. Selecione **Novo** no menu à esquerda, selecione **Dados + Análise** e, em seguida, selecione **Data Factory**. 
    
    ![Seleção de Data Factory no painel "Novo"](./media/tutorial-transform-data-spark-portal/new-azure-data-factory-menu.png)
 1. No painel **Novo data factory**, insira **ADFTutorialDataFactory** no campo **Nome**. 
@@ -99,8 +99,8 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 1. Para **Assinatura**, selecione a assinatura do Azure na qual você deseja criar o data factory. 
 1. Em **Grupo de Recursos**, use uma das seguintes etapas:
      
-   - Selecione **Usar existente**e selecione um grupo de recursos existente na lista suspensa. 
-   - Selecione **Criar novo**e insira o nome de um grupo de recursos.   
+   - Selecione **Usar existente** e selecione um grupo de recursos existente na lista suspensa. 
+   - Selecione **Criar novo** e insira o nome de um grupo de recursos.   
          
    Algumas das etapas neste guia de início rápido supõem que você usa o nome **ADFTutorialResourceGroup** para o grupo de recursos. Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md).  
 1. Para **Versão**, selecione **V2**.

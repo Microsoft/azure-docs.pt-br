@@ -1,19 +1,16 @@
 ---
 title: Usar o Apache Maven para criar um cliente HBase Java para o Azure HDInsight
 description: Saiba como usar o Apache Maven para compilar um aplicativo do Apache HBase baseado em Java e depois implantá-lo no HBase no HDInsight do Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seodec18, devx-track-java
 ms.date: 12/24/2019
-ms.openlocfilehash: 61b8aaf9ea61ebe85eac6708d7390c386dea2696
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 13616cf99db39ec4dac1d13e3dcd2cefc5a44614
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547904"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942963"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Compilar aplicativos Java para Apache HBase
 
@@ -48,7 +45,7 @@ cd C:\HDI
 
 ## <a name="create-a-maven-project"></a>Criar um projeto Maven
 
-1. Digite o seguinte comando para criar um projeto Maven chamado **hbaseapp** :
+1. Digite o seguinte comando para criar um projeto Maven chamado **hbaseapp**:
 
     ```cmd
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=hbaseapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -95,7 +92,7 @@ No `pom.xml` , adicione o seguinte texto na `<dependencies>` seção:
 </dependency>
 ```  
 
-Esta seção indica que o projeto precisa dos componentes **hbase-client** e **phoenix-core** . Em tempo de compilação, essa dependência será baixada do repositório padrão do Maven. Você pode usar a [Pesquisa de repositório central do Maven](https://search.maven.org/artifact/org.apache.hbase/hbase-client/1.1.2/jar) para saber mais sobre essa dependência.
+Esta seção indica que o projeto precisa dos componentes **hbase-client** e **phoenix-core**. Em tempo de compilação, essa dependência será baixada do repositório padrão do Maven. Você pode usar a [Pesquisa de repositório central do Maven](https://search.maven.org/artifact/org.apache.hbase/hbase-client/1.1.2/jar) para saber mais sobre essa dependência.
 
 > [!IMPORTANT]  
 > O número da versão do hbase-client deve corresponder à versão do Apache HBase que é fornecida com o cluster do HDInsight. Use a tabela a seguir para localizar o número da versão correta.

@@ -11,17 +11,17 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: 47edaec54a2470e9b657b2f214be923439e1e8a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5165f7d6e16e0d136dbf8d4507090c78372185cb
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80999586"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97348043"
 ---
 # <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>Tutorial:  Personalizar o painel do operador e gerenciar dispositivos no Azure IoT Central
 
 
-Neste tutorial, como construtor, saiba como personalizar o painel do operador no aplicativo de análise na loja do Azure IoT Central. Os operadores do aplicativo podem usar o painel personalizado para executar o aplicativo e gerenciar os dispositivos anexados.
+Neste tutorial, como construtor, você aprenderá a personalizar o painel do operador no aplicativo de análise na loja do Azure IoT Central. Os operadores do aplicativo podem usar o painel personalizado para executar o aplicativo e gerenciar os dispositivos anexados.
 
 Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
@@ -80,7 +80,7 @@ Para personalizar o bloco de imagem que exibe uma imagem de marca no painel:
 
     ![Salvar imagem da marca – Azure IoT Central](./media/tutorial-in-store-analytics-customize-dashboard/brand-image-save.png)
 
-1. Como opção, escolha **Configurar** no bloco intitulado **Documentação**e especifique uma URL para o conteúdo de suporte. 
+1. Como opção, escolha **Configurar** no bloco intitulado **Documentação** e especifique uma URL para o conteúdo de suporte. 
 
 Para personalizar o bloco de imagem que exibe um mapa das zonas abrangidas pelo sensor na loja:
 

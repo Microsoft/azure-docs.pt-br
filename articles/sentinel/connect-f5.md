@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/20/2020
 ms.author: yelevin
-ms.openlocfilehash: 63e20467750e9a4b0c85de33180d4fa51831e59b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81a0f0e01827c48518f2eb1fba062e9e6536d9df
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85555412"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655690"
 ---
 # <a name="connect-f5-asm-to-azure-sentinel"></a>Conectar o F5 ASM ao Azure Sentinel
 
@@ -43,6 +43,5 @@ Este artigo explica como usar o conector de dados do F5 ASM para extrair facilme
 ## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu a conectar o F5 ASM ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
-- Comece a [detectar ameaças com o Azure Sentinel](tutorial-detect-threats.md).
+- Comece a [detectar ameaças com o Azure Sentinel](./tutorial-detect-threats-built-in.md).
 - [Use pastas de trabalho](tutorial-monitor-your-data.md) para monitorar seus dados.
-

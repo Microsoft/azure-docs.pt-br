@@ -6,14 +6,17 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 2c20f668c57e8c2e74c320ca535aea18e633daf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6502d4259aa383c1466967d01282cecfbb8d1ded
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326113"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832956"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Solução do Monitor de Desempenho de Rede – Monitoramento de Desempenho
+
+> [!IMPORTANT]
+> A partir de 1 de julho de 2021, você não poderá adicionar novos testes em um espaço de trabalho existente ou habilitar um novo espaço de trabalho no Monitor de Desempenho de Rede. Você pode continuar a usar os testes criados antes de 1 de julho de 2021. Para minimizar a interrupção do serviço para suas cargas de trabalho atuais, [migre seus testes de monitor de desempenho de rede para o novo monitor de conexão](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) no observador de rede do Azure antes de 29 de fevereiro de 2024.
 
 O recurso Monitor de Desempenho no [Monitor de Desempenho de Rede](network-performance-monitor.md) ajuda a monitorar a conectividade de rede em vários pontos em sua rede. Você pode monitorar as implantações de nuvem e locais internos, vários data centers e filiais, e aplicativos críticos ou microsserviços de várias camadas. Com o Monitor de Desempenho, você pode detectar problemas de rede antes de seus usuários reclamarem. As principais vantagens são que você pode: 
 
@@ -65,7 +68,7 @@ Para criar regras de monitoramento personalizadas:
 6. Escolha as condições de monitoramento. Para definir limites personalizados para geração de eventos de integridade, digite os valores de limite. Sempre que o valor da condição exceder o limite selecionado para o par de rede ou sub-rede selecionado, será gerado um evento de integridade. 
 7. Selecione **salvar** para salvar a configuração. 
 
-Depois de salvar uma regra de monitoramento, você pode integrar essa regra ao Gerenciamento de Alertas selecionando **Criar Alerta**. Uma regra de alerta é criada automaticamente com a consulta de pesquisa. Outros parâmetros necessários são preenchidos automaticamente. Usando uma regra de alerta, você pode receber alertas baseados em email, além de alertas existentes em Monitor de Desempenho de Rede. Os alertas podem disparar ações corretivas com runbooks ou podem integrar soluções de gerenciamento de serviço existentes usando webhooks. Selecione **Gerenciar Alerta** para editar as configurações de alerta. 
+Depois de salvar uma regra de monitoramento, você pode integrar essa regra ao Gerenciamento de Alertas selecionando **Criar Alerta**. Uma regra de alerta é criada automaticamente com a consulta de pesquisa. Outros parâmetros necessários são preenchidos automaticamente. Usando uma regra de alerta, você pode receber alertas baseados em email, além de alertas existentes em Monitor de Desempenho de Rede. Os alertas também podem disparar ações corretivas com runbooks, ou podem se integrar a soluções de gerenciamento de serviços existentes usando WebHooks. Selecione **Gerenciar Alerta** para editar as configurações de alerta. 
 
 Agora você pode criar mais regras para o Monitor de Desempenho ou passar para o painel de solução a fim de usar o recurso.
 
@@ -94,7 +97,7 @@ Antes de escolher um protocolo, considere as seguintes informações:
 
 Se você optar por usar o ICMP durante a implantação, poderá mudar para TCP a qualquer momento, editando a regra de monitoramento padrão.
 
-1. Vá para monitor de **desempenho de rede**   >  **Monitor**   >  **Configurar**   >  **Monitor**. Em seguida, selecione **Regra padrão**. 
+1. Vá para monitor de **desempenho de rede**   >  ****   >  **Configurar**   >  **Monitor**. Em seguida, selecione **Regra padrão**. 
 2. Role até a seção **Protocolo** e selecione o protocolo que você deseja usar. 
 3. Selecione **Salvar** para aplicar a configuração. 
 
@@ -129,4 +132,3 @@ Na imagem a seguir, a causa raiz das áreas problemáticas para a seção espec�
 
 ## <a name="next-steps"></a>Próximas etapas
 [Pesquisar logs](../log-query/log-query-overview.md) para exibir registros de dados de desempenho de rede detalhados.
-

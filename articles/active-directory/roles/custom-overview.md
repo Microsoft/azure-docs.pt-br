@@ -1,62 +1,62 @@
 ---
-title: Funções de administrador personalizadas no Azure Active Directory | Microsoft Docs
-description: Saiba como entender as funções personalizadas do Azure AD no Azure AD (Azure Active Directory) com o controle de acesso baseado em funções e escopos de recursos.
+title: Visão geral do RBAC (controle de acesso baseado em função) do Azure Active Directory
+description: Entenda as partes de uma atribuição de função e o escopo restrito no Azure Active Directory.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: overview
-ms.date: 09/12/2020
-ms.author: curtand
+ms.date: 11/20/2020
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d45223c3f8b4f457af520950b17f9ef54c4562d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b66b004a0371b76f82d525972feefab9c89efb2d
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378567"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742039"
 ---
-# <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Funções de administrador personalizadas no Azure Active Directory (versão prévia)
+# <a name="overview-of-role-based-access-control-in-azure-active-directory"></a>Visão geral do controle de acesso baseado em função no Azure Active Directory
 
-Este artigo descreve como entender as funções personalizadas do Azure AD no Azure AD (Azure Active Directory) com o controle de acesso baseado em funções e escopos de recursos. As funções personalizadas do Azure AD expõem as permissões subjacentes das [funções internas](permissions-reference.md), para que você possa criar e organizar suas próprias funções personalizadas. Essa abordagem permite que você conceda acesso de modo mais granular do que as funções internas, sempre que elas forem necessárias. Esta primeira versão das funções personalizadas do Azure AD inclui a capacidade de criar uma função para atribuir permissões para gerenciar registros de aplicativo. Ao longo do tempo, permissões adicionais para recursos da organização, como aplicativos empresariais, usuários e dispositivos, serão adicionadas.  
+Este artigo descreve o controle de acesso baseado em função do Azure AD (Azure Active Directory). As funções do Azure AD permitem conceder permissões granulares aos administradores, cumprindo o princípio dos privilégios mínimos. As funções internas e personalizadas do Azure AD operam segundo conceitos semelhantes aos que você encontrará no [sistema de controle de acesso baseado em função para recursos do Azure](../../role-based-access-control/overview.md) (funções do Azure). A [diferença entre esses dois sistemas de controle de acesso baseado em função](../../role-based-access-control/rbac-and-directory-admin-roles.md) é:
 
-Além disso, as funções personalizadas do Azure AD dão suporte a atribuições por recurso, além das atribuições mais tradicionais em toda a organização. Essa abordagem oferece a capacidade de permitir acesso para gerenciar alguns recursos (por exemplo, um registro de aplicativo) sem conceder acesso a todos os recursos (todos os registros de aplicativo).
+- As funções do Azure AD controlam o acesso a recursos do Azure AD como usuários, grupos e aplicativos usando a API do Graph
+- As funções do Azure controlam o acesso a recursos do Azure como máquinas virtuais ou armazenamento usando o Gerenciamento de Recursos do Azure
 
-O controle de acesso baseado em função do Azure AD é uma versão prévia do recurso pública do Azure AD e está disponível com qualquer plano de licença pago do Azure AD. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Os dois sistemas têm semelhanças no uso de definições de função e atribuições de função. No entanto, as permissões de função do Azure AD não podem ser usadas em funções personalizadas do Azure e vice-versa.
 
 ## <a name="understand-azure-ad-role-based-access-control"></a>Noções básicas sobre o controle de acesso baseado em função do Azure AD
+O Azure AD dá suporte a dois tipos de definições de função – 
+* [Funções internas](./permissions-reference.md)
+* [Funções personalizadas](./custom-create.md)
 
-Conceder permissão usando funções personalizadas do Azure AD é um processo de duas etapas que envolve a criação de uma definição de função personalizada e, em seguida, a atribuição dela usando uma atribuição de função. Uma definição de função personalizada é uma coleção de permissões que podem ser adicionadas de uma lista predefinida. Essas permissões são as mesmas permissões usadas nas funções internas.  
+As funções internas são funções prontas para uso que têm um conjunto fixo de permissões. Essas definições de função não podem ser modificadas. Há muitas [funções internas](./permissions-reference.md) às quais o Azure AD dá suporte, e a lista está crescendo. Para arredondar as bordas e atender aos seus requisitos sofisticados, o Azure AD também dá suporte a [funções personalizadas](./custom-create.md). Conceder permissão usando funções personalizadas do Azure AD é um processo de duas etapas que envolve a criação de uma definição de função personalizada e, em seguida, a atribuição dela usando uma atribuição de função. Uma definição de função personalizada é uma coleção de permissões que podem ser adicionadas de uma lista predefinida. Essas permissões são as mesmas permissões usadas nas funções internas.  
 
-Após criar sua definição de função, você poderá atribuí-la a um usuário criando uma atribuição de função. Uma atribuição de função concede ao usuário as permissões em uma definição de função em um escopo especificado. Esse processo de duas etapas permite criar uma única definição de função e atribuí-la muitas vezes em escopos diferentes. Um escopo define o conjunto de recursos do Azure AD ao qual o membro da função tem acesso. O escopo mais comum é o escopo de toda a organização (toda a empresa). Uma função personalizada pode ser atribuída no escopo de toda a organização, o que significa que o membro da função tem as permissões de função sobre todos os recursos na empresa. Uma função personalizada também pode ser atribuída em um escopo de objeto. Um exemplo de escopo de objeto seria um único aplicativo. A mesma função pode ser atribuída a um usuário em todos os aplicativos da organização e, em seguida, a outro usuário com um escopo apenas do aplicativo de Relatórios de Despesas da Contoso.  
+Quando você tiver criado sua definição de função personalizada (ou usando uma função interna), você poderá atribuí-la a um usuário criando uma atribuição de função. Uma atribuição de função concede ao usuário as permissões em uma definição de função em um escopo especificado. Esse processo de duas etapas permite criar uma única definição de função e atribuí-la muitas vezes em escopos diferentes. Um escopo define o conjunto de recursos do Azure AD ao qual o membro da função tem acesso. O escopo mais comum é o escopo de toda a organização (toda a empresa). Uma função personalizada pode ser atribuída no escopo de toda a organização, o que significa que o membro da função tem as permissões de função sobre todos os recursos na empresa. Uma função personalizada também pode ser atribuída em um escopo de objeto. Um exemplo de escopo de objeto seria um único aplicativo. A mesma função pode ser atribuída a um usuário em todos os aplicativos da organização e, em seguida, a outro usuário com um escopo apenas do aplicativo de Relatórios de Despesas da Contoso.  
 
-As funções internas e personalizadas do Azure AD operam em conceitos semelhantes ao [Azure RBAC (controle de acesso baseado em função do Azure)](../../active-directory-b2c/overview.md). A [diferença entre esses dois sistemas de controle de acesso baseado em função](../../role-based-access-control/rbac-and-directory-admin-roles.md) é que o Azure RBAC controla o acesso aos recursos do Azure, como máquinas virtuais ou armazenamento usando o Gerenciamento de Recursos do Azure, e as funções personalizadas do Azure AD controlam o acesso aos recursos do Azure AD usando a API do Graph. Os dois sistemas utilizam o conceito de definições de função e atribuições de função. As permissões do RBAC do Azure AD não podem ser incluídas nas funções RBAC do Azure e vice-versa.
+As funções internas e personalizadas do Azure AD operam em conceitos semelhantes ao [Azure RBAC (controle de acesso baseado em função do Azure)](../develop/access-tokens.md#payload-claims). A [diferença entre esses dois sistemas de controle de acesso baseado em função](../../role-based-access-control/rbac-and-directory-admin-roles.md) é que o Azure RBAC controla o acesso aos recursos do Azure, como máquinas virtuais ou armazenamento usando o Gerenciamento de Recursos do Azure, e as funções personalizadas do Azure AD controlam o acesso aos recursos do Azure AD usando a API do Graph. Os dois sistemas utilizam o conceito de definições de função e atribuições de função. As permissões do RBAC do Azure AD não podem ser incluídas nas funções do Azure e vice-versa.
 
 ### <a name="how-azure-ad-determines-if-a-user-has-access-to-a-resource"></a>Como o Azure AD determina se um usuário tem acesso a um recurso
 
 Veja a seguir as etapas de alto nível que o Azure AD usa para determinar se você tem acesso a um recurso de gerenciamento. Use essas informações para solucionar problemas de acesso.
 
 1. Um usuário (ou entidade de serviço) adquire um token para o ponto de extremidade do Microsoft Graph ou do Azure AD Graph.
-
 1. O usuário faz uma chamada à API para o Azure AD (Azure Active Directory) por meio do Microsoft Graph ou do Azure AD Graph usando o token emitido.
-
 1. Dependendo da circunstância, o Azure AD usa uma das seguintes ações:
-
-    - Avalia as associações de função do usuário com base na [declaração de wids](../../active-directory-b2c/access-tokens.md) no token de acesso do usuário.
-    - Recupera todas as atribuições de função que se aplicam para usuário, diretamente ou por meio da associação de grupo, ao recurso no qual a ação está sendo executada.
-
+   - Avalia as associações de função do usuário com base na [declaração de wids](../../active-directory-b2c/access-tokens.md) no token de acesso do usuário.
+   - Recupera todas as atribuições de função que se aplicam para usuário, diretamente ou por meio da associação de grupo, ao recurso no qual a ação está sendo executada.
 1. O Azure AD determina se a ação na chamada à API está incluída nas funções que o usuário tem para este recurso.
 1. Se o usuário não tem uma função com a ação no escopo solicitado, o acesso não é concedido. Caso contrário, o acesso será permitido.
 
-### <a name="role-assignments"></a>Atribuições de função
+## <a name="role-assignment"></a>Atribuição de função
 
-Uma atribuição de função é o objeto que anexa uma definição de função a um usuário em um escopo específico para conceder acesso de recurso do Azure AD. O acesso é concedido criando uma atribuição de função, e é revogado removendo uma atribuição de função. Em essência, uma atribuição de função consiste em três elementos:
+Uma atribuição de função é um recurso do Azure AD que anexa uma *definição de função* a um *usuário* em um *escopo* específico para conceder acesso a recursos do Azure AD. O acesso é concedido criando uma atribuição de função, e é revogado removendo uma atribuição de função. Em essência, uma atribuição de função consiste em três elementos:
 
-- Usuário (um indivíduo que tem um perfil do usuário no Azure Active Directory)
+- Usuário do Azure AD
 - Definição de função
 - Escopo do recurso
 
@@ -68,7 +68,7 @@ O diagrama a seguir mostra um exemplo de uma atribuição de função. Neste exe
 
 ### <a name="security-principal"></a>Entidade de segurança
 
-A entidade de segurança representa o usuário que deve receber acesso aos recursos do Azure AD. Um *usuário* é um indivíduo que tem um perfil do usuário no Azure Active Directory.
+A entidade de segurança representa o usuário que deve receber acesso aos recursos do Azure AD. Um usuário é um indivíduo que tem um perfil do usuário no Azure Active Directory.
 
 ### <a name="role"></a>Função
 
@@ -81,15 +81,12 @@ Uma definição de função, ou função, é um conjunto de permissões. Uma def
 
 Um escopo é a restrição de ações permitidas a um recurso específico do Azure AD como parte de uma atribuição de função. Ao atribuir uma função, você pode especificar um escopo que limita o acesso do administrador a um recurso específico. Por exemplo, se desejar conceder uma função personalizada a um desenvolvedor, mas apenas para gerenciar um registro de aplicativo específico, você poderá incluir o registro de aplicativo específico como um escopo na atribuição de função.
 
-  > [!Note]
-  > Funções personalizadas podem ser atribuídas no escopo do diretório e no escopo do recurso. Elas ainda não podem ser atribuídas no escopo da Unidade Administrativa.
-  > As funções internas podem ser atribuídas no escopo do diretório e, em alguns casos, no escopo da Unidade Administrativa. Elas ainda não podem ser atribuídas no escopo do recurso do Azure AD.
-
 ## <a name="required-license-plan"></a>Plano de licença necessária
 
-[!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
+O uso de funções internas no Azure AD é gratuito, enquanto as funções personalizadas exigem uma licença P1 do Azure AD Premium. Para localizar a licença correta para os requisitos, consulte [Comparar recursos geralmente disponíveis nas edições Gratuita, Básica e Premium](https://azure.microsoft.com/pricing/details/active-directory).
 
 ## <a name="next-steps"></a>Próximas etapas
 
+- [Entender as funções do Azure AD](concept-understand-roles.md)
 - Criar atribuições de função personalizada usando [o portal do Azure, o Azure AD PowerShell e a API do Graph](custom-create.md)
 - [Exibir as atribuições de uma função personalizada](custom-view-assignments.md)

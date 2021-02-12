@@ -9,13 +9,13 @@ ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, sstein
-ms.date: 05/07/2019
-ms.openlocfilehash: 73fa4d4988c7a036dc1d2eb7dc81c3c1c5d77026
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 02/08/2021
+ms.openlocfilehash: 7d5f40be895aea26a234d9ae622aa5bf22528231
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788274"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981435"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-managed-instance"></a>Configurar um ponto de extremidade público na Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -112,7 +112,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 ## <a name="obtaining-the-managed-instance-public-endpoint-connection-string"></a>Obtendo a cadeia de conexão de ponto de extremidade público da instância gerenciada
 
 1. Navegue até a página de configuração de instância gerenciada que foi habilitada para o ponto de extremidade público. Selecione a guia **cadeias de conexão** na configuração **configurações** .
-1. Observe que o nome do host do ponto de extremidade público é fornecido no formato <mi_name>. **Public** . <dns_zone>. Database.Windows.net e que a porta usada para a conexão é 3342.
+1. Observe que o nome do host do ponto de extremidade público é fornecido no formato <mi_name>. **Public**. <dns_zone>. Database.Windows.net e que a porta usada para a conexão é 3342. Veja um exemplo de um valor de servidor da cadeia de conexão que indica a porta do ponto de extremidade público que pode ser usada em conexões SQL Server Management Studio ou Azure Data Studio: `<mi_name>.public.<dns_zone>.database.windows.net,3342`
 
     ![Captura de tela mostra as cadeias de conexão para seus pontos de extremidade públicos e privados.](./media/public-endpoint-configure/mi-public-endpoint-conn-string.png)
 

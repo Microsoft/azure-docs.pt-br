@@ -9,11 +9,11 @@ ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: 302c5d6e8e523a11b8773f10bb6089e3bea09bdd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101554"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006841"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-sql-api"></a>Criar um contêiner em Azure Cosmos DB API do SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -31,13 +31,13 @@ Este artigo explica as diferentes maneiras de criar um contêiner em Azure Cosmo
 
 1. [Crie uma conta do Azure Cosmos](create-sql-api-dotnet.md#create-account) ou selecione uma existente.
 
-1. Abra o painel **Data Explorer** e selecione **novo contêiner** . Em seguida, forneça os seguintes detalhes:
+1. Abra o painel **Data Explorer** e selecione **novo contêiner**. Em seguida, forneça os seguintes detalhes:
 
    * Indique se você está criando um banco de dados ou usando um existente.
    * Insira uma ID de contêiner.
    * Insira uma chave de partição.
    * Insira uma taxa de transferência a ser provisionada (por exemplo, 1.000 RUs).
-   * Selecione **OK** .
+   * Selecione **OK**.
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-sql.png" alt-text="Captura de tela do painel de Data Explorer, com o novo contêiner realçado":::
 

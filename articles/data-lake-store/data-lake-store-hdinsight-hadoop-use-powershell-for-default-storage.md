@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 675f68a36963d19f42cb7c0c5d49ae8c4f0006f2
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 5e899f28cf5b3c11ae5f935d7bc273c566214225
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92103417"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606769"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Criar clusters do HDInsight com o Armazenamento de Data Lake do Azure Gen1 como armazenamento padrão usando o PowerShell
 
@@ -77,7 +77,7 @@ Para criar uma conta do Data Lake Storage Gen1, faça o seguinte:
     New-AzResourceGroup -Name $resourceGroupName -Location "East US 2"
     ```
 
-    Você verá uma saída como esta:
+    Você deverá ver uma saída como esta:
 
     ```output
     ResourceGroupName : hdiadlgrp
@@ -127,7 +127,7 @@ Esta seção ilustra como conceder a um serviço de aplicativo, como o HDInsight
 
 Para configurar a autenticação do Active Directory para o Data Lake Storage Gen1, execute as tarefas nas duas seções a seguir.
 
-### <a name="create-a-self-signed-certificate"></a>Crie um certificado autoassinado
+### <a name="create-a-self-signed-certificate"></a>Criará um certificado autoassinado
 Verifique se o [SDK do Windows](https://dev.windows.com/en-us/downloads) está instalado antes de continuar com as etapas nesta seção. Também é necessário ter criado um diretório, como *C:\mycertdir*, no qual o certificado é criado.
 
 1. Na janela do PowerShell, acesse a localização em que você instalou o SDK do Windows (normalmente, *C:\Program Files (x86)\Windows Kits\10\bin\x86*) e use o utilitário [MakeCert][makecert] para criar um certificado autoassinado e uma chave privada. Use os seguintes comandos:
@@ -207,8 +207,8 @@ Nesta seção, você cria um cluster do HDInsight Hadoop Linux com o Data Lake S
     # Set these variables
 
     $location = "East US 2"
-    $storageAccountName = $dataLakeStorageGen1Name                         # Data Lake Storage Gen1 account name
-        $storageRootPath = "<Storage root path you specified earlier>" # E.g. /clusters/hdiadlcluster
+    $storageAccountName = $dataLakeStorageGen1Name    # Data Lake Storage Gen1 account name
+        $storageRootPath = "<Storage root path you specified earlier>"     # e.g. /clusters/hdiadlcluster
         $clusterName = "<unique cluster name>"
     $clusterNodes = <ClusterSizeInNodes>            # The number of nodes in the HDInsight cluster
     $httpCredentials = Get-Credential
@@ -236,7 +236,7 @@ Nesta seção, você cria um cluster do HDInsight Hadoop Linux com o Data Lake S
     Após a conclusão bem-sucedida do cmdlet, você deverá ver uma saída que lista os detalhes do cluster.
 
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-data-lake-storage-gen1"></a>Executar trabalhos de teste no cluster HDInsight para usar Data Lake Storage Gen1
-Depois de configurar um cluster do HDInsight, você poderá executar tarefas de teste nele para garantir que ele possa acessar o Data Lake Storage Gen1. Para fazer isso, execute um trabalho de hive de exemplo para criar uma tabela que usa os dados de exemplo que já estão disponíveis em Data Lake Storage Gen1 em * \<cluster root> /example/data/Sample.log*.
+Depois de configurar um cluster do HDInsight, você poderá executar tarefas de teste nele para garantir que ele possa acessar o Data Lake Storage Gen1. Para fazer isso, execute um trabalho de hive de exemplo para criar uma tabela que usa os dados de exemplo que já estão disponíveis em Data Lake Storage Gen1 em *\<cluster root> /example/data/Sample.log*.
 
 Nesta seção, você estabelece uma conexão SSH (Secure Shell) com o cluster Linux HDInsight criado e, em seguida, executa uma consulta do Hive de exemplo.
 
@@ -281,7 +281,7 @@ hdfs dfs -ls adl:///
 
 Também é possível usar o comando `hdfs dfs -put` para carregar alguns arquivos no Data Lake Storage Gen1 e, em seguida, usar `hdfs dfs -ls` para verificar se os arquivos foram carregados com êxito.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 * [Usar Data Lake Storage Gen1 com clusters HDInsight do Azure](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md)
 * [Portal do Azure: criar um cluster de HDInsight para usar o Data Lake armazenamento Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 

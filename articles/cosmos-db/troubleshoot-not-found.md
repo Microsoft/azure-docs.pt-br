@@ -3,16 +3,17 @@ title: Solucionar problemas Azure Cosmos DB exceções não encontradas
 description: Saiba como diagnosticar e corrigir exceções não encontradas.
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 94aebd768987a9e56baf31967c13135031172ac5
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7b112cc80984a761e780f134731476f9dff4f687
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081392"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525764"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>Diagnosticar e solucionar problemas Azure Cosmos DB exceções não encontradas
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,6 +25,11 @@ Há muitos cenários válidos em que um aplicativo espera um código 404 e manip
 
 ## <a name="a-not-found-exception-was-returned-for-an-item-that-should-exist-or-does-exist"></a>Uma exceção não encontrada foi retornada para um item que deveria existir ou existe
 Aqui estão os possíveis motivos para um código de status 404 ser retornado se o item deve existir ou existir.
+
+### <a name="the-read-session-is-not-available-for-the-input-session-token"></a>A sessão de leitura não está disponível para o token de sessão de entrada
+
+#### <a name="solution"></a>Solução:
+1. Atualize seu SDK atual para a versão mais recente disponível. As causas mais comuns para esse erro específico foram corrigidas nas versões mais recentes do SDK.
 
 ### <a name="race-condition"></a>Condição de corrida
 Há várias instâncias de cliente SDK e a leitura aconteceu antes da gravação.
@@ -42,7 +48,7 @@ Corrija a lógica do aplicativo que está causando a combinação incorreta.
 Um item é inserido em Azure Cosmos DB com um [caractere inválido](/dotnet/api/microsoft.azure.documents.resource.id?preserve-view=true&view=azure-dotnet#remarks) na ID do item.
 
 #### <a name="solution"></a>Solução:
-Altere a ID para um valor diferente que não contenha os caracteres especiais. Se a alteração da ID não for uma opção, você poderá codificar a ID em base64 para escapar os caracteres especiais.
+Altere a ID para um valor diferente que não contenha os caracteres especiais. Se a alteração da ID não for uma opção, você poderá codificar a ID em base64 para escapar os caracteres especiais. A base64 ainda pode produzir um nome com um caractere inválido '/' que precisa ser substituído.
 
 Os itens já inseridos no contêiner para a ID podem ser substituídos usando valores de RID em vez de referências baseadas em nome.
 ```c#
@@ -64,7 +70,7 @@ while (invalidItemsIterator.HasMoreResults)
         // Choose a new ID that doesn't contain special characters.
         // If that isn't possible, then Base64 encode the ID to escape the special characters.
         byte[] plainTextBytes = Encoding.UTF8.GetBytes(itemWithInvalidId["id"].ToString());
-        itemWithInvalidId["id"] = Convert.ToBase64String(plainTextBytes);
+        itemWithInvalidId["id"] = Convert.ToBase64String(plainTextBytes).Replace('/', '!');
 
         // Update the item with the new ID value by using the RID-based container reference.
         JObject item = await containerByRid.ReplaceItemAsync<JObject>(
@@ -96,7 +102,7 @@ Aguarde até que a indexação acompanhe ou altere a política de indexação.
 O banco de dados ou o contêiner no qual o item existe foi excluído.
 
 #### <a name="solution"></a>Solução:
-1. [Restaure](./online-backup-and-restore.md#request-data-restore-from-a-backup) o recurso pai ou recrie os recursos.
+1. [Restaure](./configure-periodic-backup-restore.md#request-restore) o recurso pai ou recrie os recursos.
 1. Crie um novo recurso para substituir o recurso excluído.
 
 ### <a name="7-containercollection-names-are-case-sensitive"></a>7. os nomes de contêiner/coleção diferenciam maiúsculas de minúsculas
@@ -108,3 +114,5 @@ Certifique-se de usar o nome exato ao conectar-se a Cosmos DB.
 ## <a name="next-steps"></a>Próximas etapas
 * [Diagnostique e solucione](troubleshoot-dot-net-sdk.md) problemas ao usar o SDK do .net Azure Cosmos DB.
 * Saiba mais sobre as diretrizes de desempenho para o [.net v3](performance-tips-dotnet-sdk-v3-sql.md) e o [.net v2](performance-tips.md).
+* [Diagnostique e solucione](troubleshoot-java-sdk-v4-sql.md) problemas ao usar o SDK do Azure Cosmos DB Java v4.
+* Saiba mais sobre as diretrizes de desempenho para o [SDK do Java v4](performance-tips-java-sdk-v4-sql.md).

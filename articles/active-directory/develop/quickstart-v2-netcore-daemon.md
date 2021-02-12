@@ -13,16 +13,18 @@ ms.date: 10/05/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: b6b02348f9d77348976f6b814c982c5250dab7aa
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: c5c89b285e8ef98f83d0bfa923aaca402491315d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896507"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754225"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Início Rápido: Adquirir um token e chamar a API do Microsoft Graph usando a identidade de aplicativo do console
 
-Neste início rápido, você aprenderá a escrever um aplicativo .NET Core que pode obter um token de acesso usando a identidade do aplicativo e, em seguida, chamar a API do Microsoft Graph para exibir uma [lista de usuários](/graph/api/user-list) no diretório. Esse cenário é útil para situações em que o trabalho autônomo e sem periféricos, ou um serviço de janela, precisa ser executado com uma identidade do aplicativo em vez de uma identidade de usuário. (Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.)
+Neste guia de início rápido, você baixará e executará um exemplo de código que demonstra como um aplicativo de console .NET Core pode obter um token de acesso para chamar a API do Microsoft Graph e exibir uma [lista de usuários](/graph/api/user-list) no diretório. O exemplo de código também demonstra como um trabalho ou um serviço Windows pode ser executado com uma identidade de aplicativo, em vez de uma identidade do usuário. 
+
+Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,8 +39,8 @@ Este guia de início rápido exige o [.NET Core 3.1](https://www.microsoft.com/n
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: Registrar e configurar o aplicativo automaticamente e, em seguida, baixar seu exemplo de código
 >
-> 1. Acesse o novo painel do [portal do Azure – Registros de aplicativo](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs).
-> 1. Insira um nome para seu aplicativo e selecione **Registrar** .
+> 1. Acesse a experiência de início rápido do <a href="https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs" target="_blank">portal do Azure – Registros de aplicativo<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Insira um nome para seu aplicativo e selecione **Registrar**.
 > 1. Siga as instruções para baixar e configurar automaticamente o novo aplicativo com apenas um clique.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2: Registrar e configurar manualmente o aplicativo e o exemplo de código
@@ -47,17 +49,17 @@ Este guia de início rápido exige o [.NET Core 3.1](https://www.microsoft.com/n
 > #### <a name="step-1-register-your-application"></a>Etapa 1: Registre seu aplicativo
 > Para registrar seu aplicativo e adicionar as informações de registro do aplicativo à solução manualmente, siga estas etapas:
 >
-> 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-> 1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito e defina sua sessão do portal para o locatário desejado do Azure AD.
-> 1. Navegue até a página [Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) da plataforma de identidade da Microsoft para desenvolvedores pesquisando **Registros de aplicativo** na barra de pesquisa do portal do Azure.
-> 1. Selecione **Novo registro** .
-> 1. Quando a página **Registrar um aplicativo** for exibida, insira as informações de registro do aplicativo.
-> 1. Na seção **Nome** , insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo, por exemplo, `Daemon-console`, e selecione **Registrar** para criar o aplicativo.
-> 1. Após o registro, selecione o menu **Certificados e segredos** .
-> 1. Em **Segredos do cliente** , selecione **+ Novo segredo do cliente** . Dê a ele um nome e selecione **Adicionar** . Copie o segredo em um local seguro. Você precisará dele para usá-lo no código, e ele não será exibido novamente no portal.
-> 1. Agora, selecione o menu **Permissões de API** , selecione o botão **+ Adicionar uma permissão** e selecione **Microsoft Graph** .
-> 1. Selecione **Permissões de aplicativo** .
-> 1. No nó **Usuário** , selecione **User.Read.All** e selecione **Adicionar permissões**
+> 1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
+> 1. Pesquise **Azure Active Directory** e selecione-o.
+> 1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
+> 1. Insira um **Nome** para seu aplicativo, por exemplo, `Daemon-console`. Os usuários do seu aplicativo podem ver esse nome e você pode alterá-lo mais tarde.
+> 1. Selecione **Registrar** para criar o aplicativo.
+> 1. Em **Gerenciar**, selecione **Certificados e Segredos**.
+> 1. Em **Segredos do cliente**, selecione **Novo segredo do cliente**, insira um nome e selecione **Adicionar**. Registre o valor secreto em uma localização segura para uso em uma etapa posterior.
+> 1. Em **Gerenciar**, selecione **Permissões de API** > **Adicionar uma permissão**. Selecione **Microsoft Graph**.
+> 1. Selecione **Permissões de aplicativo**.
+> 1. No nó **Usuário**, selecione **User.Read.All** e selecione **Adicionar permissões**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > ### <a name="download-and-configure-your-quickstart-app"></a>Baixar e configurar seu aplicativo de início rápido
@@ -90,7 +92,7 @@ Este guia de início rápido exige o [.NET Core 3.1](https://www.microsoft.com/n
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-visual-studio-project"></a>Etapa 3: Configurar o projeto do Visual Studio
 >
-> 1. Extraia o arquivo zip para uma pasta local mais próxima da raiz do disco, por exemplo, **C:\Azure-Samples** .
+> 1. Extraia o arquivo zip para uma pasta local mais próxima da raiz do disco, por exemplo, **C:\Azure-Samples**.
 > 1. Abra a solução no Visual Studio – **1-Call-MSGraph\daemon-console.sln** (opcional).
 > 1. Edite **appsettings.json** e substitua os valores dos campos `ClientId`, `Tenant` e `ClientSecret` pelo seguinte:
 >
@@ -106,7 +108,7 @@ Este guia de início rápido exige o [.NET Core 3.1](https://www.microsoft.com/n
 
 > [!div renderon="docs"]
 > > [!TIP]
-> > Para encontrar os valores de **ID do aplicativo (cliente)** , **ID de diretório (locatário)** , acesse a página **Visão Geral** do aplicativo no portal do Azure. Para gerar uma nova chave, acesse a página **Certificados e segredos** .
+> > Para encontrar os valores de **ID do aplicativo (cliente)** , **ID de diretório (locatário)** , acesse a página **Visão Geral** do aplicativo no portal do Azure. Para gerar uma nova chave, acesse a página **Certificados e segredos**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-admin-consent"></a>Etapa 3: Consentimento do administrador
@@ -114,15 +116,15 @@ Este guia de início rápido exige o [.NET Core 3.1](https://www.microsoft.com/n
 > [!div renderon="docs"]
 > #### <a name="step-4-admin-consent"></a>Etapa 4: Consentimento do administrador
 
-Se você tentar executar o aplicativo neste ponto, receberá o erro *HTTP 403 – Proibido* : `Insufficient privileges to complete the operation`. Isso acontece porque qualquer *permissão somente do aplicativo* exige o consentimento do administrador, ou seja, um administrador global do seu diretório precisa dar consentimento ao seu aplicativo. Selecione uma das opções abaixo, dependendo de sua função:
+Se você tentar executar o aplicativo neste ponto, receberá o erro *HTTP 403 – Proibido*: `Insufficient privileges to complete the operation`. Isso acontece porque qualquer *permissão somente do aplicativo* exige o consentimento do administrador, ou seja, um administrador global do seu diretório precisa dar consentimento ao seu aplicativo. Selecione uma das opções abaixo, dependendo de sua função:
 
 ##### <a name="global-tenant-administrator"></a>Administrator de locatário global
 
 > [!div renderon="docs"]
-> Se você for um administrador de locatários global, no portal do Azure, navegue até **Aplicativos empresariais** > clique no seu registro de aplicativo > escolha **"Permissões"** na seção Segurança do painel de navegação esquerdo. Clique no botão grande rotulado **Conceder consentimento do administrador para {Nome do Locatário}** (em que {Nome do Locatário} é o nome do seu diretório).
+> Se você for um administrador de locatários global, no portal do Azure, navegue até **Aplicativos empresariais** > Selecione seu registro de aplicativo > escolha **"Permissões"** na seção Segurança do painel de navegação esquerdo. Selecione o botão grande rotulado **Conceder consentimento do administrador para {Nome do Locatário}** (em que {Nome do Locatário} é o nome do seu diretório).
 
 > [!div renderon="portal" class="sxs-lookup"]
-> Se você for um administrador global, acesse a página **Permissões de API** , selecione **Dar consentimento de administrador para Insira_o_nome_do_locatário_aqui**
+> Se você for um administrador global, acesse a página **Permissões de API**, selecione **Dar consentimento de administrador para Insira_o_nome_do_locatário_aqui**
 > > [!div id="apipermissionspage"]
 > > [Acesse a página Permissões de API]()
 

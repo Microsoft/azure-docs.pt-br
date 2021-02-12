@@ -1,17 +1,15 @@
 ---
 title: Converter aplicativos dos serviços de nuvem do Azure para Service Fabric
 description: Este guia compara as funções de trabalho e Web dos Serviços de Nuvem e os serviços sem estado do Service Fabric para ajudar a migrar dos Serviços de Nuvem para o Service Fabric.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 24a411403fc139a7e7fa6644690c57a3b2729bf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf593f793aabf2a0650684ed8d02fe02d756ec2b
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89002276"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575730"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guia de conversão de funções de trabalho e Web em serviços sem estado do Service Fabric
 Este artigo descreve como migrar suas funções de trabalho e Web dos Serviços de Nuvem para serviços sem estado do Service Fabric. Esse é o caminho mais simples de migração dos Serviços de Nuvem para o Service Fabric, no caso de aplicativos cuja arquitetura geral permanecerá basicamente igual.
@@ -43,7 +41,7 @@ As APIs de função de trabalho e do Service Fabric oferecem pontos de entrada s
 
 | **Entry Point** | **Função de trabalho** | **Serviço Service Fabric** |
 | --- | --- | --- |
-| Processing |`Run()` |`RunAsync()` |
+| Processamento |`Run()` |`RunAsync()` |
 | Iniciar VM |`OnStart()` |N/D |
 | Parar VM |`OnStop()` |N/D |
 | Abrir escuta para solicitações de cliente |N/D |<ul><li> `CreateServiceInstanceListener()` para serviços sem estado</li><li>`CreateServiceReplicaListener()` para serviços com estado</li></ul> |

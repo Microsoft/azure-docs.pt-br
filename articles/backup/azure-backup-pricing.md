@@ -44,7 +44,7 @@ Para estimar os custos de backup de VMs do Azure ou de servidores locais usando 
 
   - Escolha **Baixa** ou **Moderada** para servidores de arquivos e **Alta** se estiver executando bancos de dados
 
-  - Se você sabe o **% da variação** , use a opção **Inserir um % próprio**
+  - Se você sabe o **% da variação**, use a opção **Inserir um % próprio**
 
 - Escolher a política de backup
 
@@ -60,15 +60,15 @@ Para estimar os custos de backup de VMs do Azure ou de servidores locais usando 
 
     - Essa opção permite que você faça uma restauração que abranja até sete dias de maneira rápida usando instantâneos armazenados em discos.
 
-- **Opcional** : backup de disco seletivo
+- **Opcional**: backup de disco seletivo
 
   - Se você estiver usando a opção **Backup de Disco Seletivo** ao fazer backup de VMs do Azure, escolha a opção **Excluir Disco** e insira o percentual de discos excluídos do backup em termos de tamanho. Por exemplo, se você tiver uma VM conectada a três discos com 200 GB utilizados em cada um e quiser excluir dois deles do backup, insira 66,7%.
 
-- **Opcional** : redundância do armazenamento de backup
+- **Opcional**: redundância do armazenamento de backup
 
   - Isso indica a redundância da conta de armazenamento na qual os dados de backup serão copiados. Recomendamos usar o **GRS** para obter a maior disponibilidade. Como ele garante que uma cópia dos seus dados de backup seja mantida em uma região diferente, ele ajuda a atender a vários padrões de conformidade. Altere a redundância para **LRS** se estiver fazendo backup de ambientes de desenvolvimento ou de teste que não precisem ter um backup de nível empresarial. Selecione a opção **RAGRS** na folha se desejar entender os custos quando a [Restauração Entre Regiões](backup-azure-arm-restore-vms.md#cross-region-restore) estiver habilitada para os backups.
 
-- **Opcional** : modificar os preços regionais ou aplicar taxas com desconto
+- **Opcional**: modificar os preços regionais ou aplicar taxas com desconto
 
   - Caso deseje verificar suas estimativas para outra região ou as taxas com desconto, selecione **Sim** na opção **Experimentar estimativas para outra região?** e insira as taxas com as quais deseja executar as estimativas.
 
@@ -82,7 +82,7 @@ Para estimar os custos de backup de SQL Servers em execução em VMs do Azure us
 
 - Qual é a compactação esperada para os dados de backup dos SQL Servers?
 
-  - A maioria dos clientes do Backup do Azure observa que os dados de backup têm 80% de compactação comparado ao tamanho do SQL Server quando a compactação do SQL está **habilitada** .
+  - A maioria dos clientes do Backup do Azure observa que os dados de backup têm 80% de compactação comparado ao tamanho do SQL Server quando a compactação do SQL está **habilitada**.
 
   - Se você espera ver outra compactação, insira o número neste campo
 
@@ -94,7 +94,7 @@ Para estimar os custos de backup de SQL Servers em execução em VMs do Azure us
 
   - Normalmente, os bancos de dados têm uma variação “Alta”
 
-  - Se você sabe o **% da variação** , use a opção **Inserir um % próprio**
+  - Se você sabe o **% da variação**, use a opção **Inserir um % próprio**
 
 - Escolher a política de backup
 
@@ -114,11 +114,11 @@ Para estimar os custos de backup de SQL Servers em execução em VMs do Azure us
 
   - Por quanto tempo você espera manter os backups “Anuais”? (em anos)
 
-- **Opcional** : redundância do armazenamento de backup
+- **Opcional**: redundância do armazenamento de backup
 
   - Isso indica a redundância da conta de armazenamento na qual os dados de backup serão copiados. Recomendamos usar o **GRS** para obter a maior disponibilidade. Como ele garante que uma cópia dos seus dados de backup seja mantida em uma região diferente, ele ajuda a atender a vários padrões de conformidade. Altere a redundância para **LRS** se estiver fazendo backup de ambientes de desenvolvimento ou de teste que não precisem ter um backup de nível empresarial.
 
-- **Opcional** : modificar os preços regionais ou aplicar taxas com desconto
+- **Opcional**: modificar os preços regionais ou aplicar taxas com desconto
 
   - Caso deseje verificar suas estimativas para outra região ou as taxas com desconto, selecione **Sim** na opção **Experimentar estimativas para outra região?** e insira as taxas com as quais deseja executar as estimativas.
 
@@ -134,20 +134,20 @@ Para estimar os custos de backup de servidores SAP HANA em execução em VMs do 
 - Qual é o volume esperado da variação de dados diários nesses servidores?
   - O % indica o tamanho médio diário da variação como um % do tamanho total dos bancos de dados SAP HANA que você está fazendo backup no servidor SAP HANA
   - Normalmente, os bancos de dados têm uma variação “Alta”
-  - Se você sabe o **% da variação** , use a opção **Inserir um % próprio**
+  - Se você sabe o **% da variação**, use a opção **Inserir um % próprio**
 - Escolher a política de backup
   - Tipo de backup
-    - A política mais efetiva que você pode escolher é **Diferenciais diários** com backups completos **semanais/mensais/anuais** . O Backup do Azure também pode ser restaurado por meio de diferenciais com um clique.
-    - Você também pode optar por ter uma política com backups completos **diários/semanais/mensais/anuais** . Essa opção consumirá um pouco mais de armazenamento do que a primeira.
+    - A política mais efetiva que você pode escolher é **Diferenciais diários** com backups completos **semanais/mensais/anuais**. O Backup do Azure também pode ser restaurado por meio de diferenciais com um clique.
+    - Você também pode optar por ter uma política com backups completos **diários/semanais/mensais/anuais**. Essa opção consumirá um pouco mais de armazenamento do que a primeira.
   - Por quanto tempo você espera manter os backups de “log”? (em dias) [7-35]
   - Por quanto tempo você espera manter os backups “Diários”? (em dias)
   - Por quanto tempo você espera manter os backups “Semanais”? (em semanas)
   - Por quanto tempo você espera manter os backups “Mensais”? (em meses)
   - Por quanto tempo você espera manter os backups “Anuais”? (em anos)
-- **Opcional** : redundância do armazenamento de backup
+- **Opcional**: redundância do armazenamento de backup
   
   - Isso indica a redundância da conta de armazenamento na qual os dados de backup serão copiados. Recomendamos usar o **GRS** para obter a maior disponibilidade. Como ele garante que uma cópia dos seus dados de backup seja mantida em uma região diferente, ele ajuda a atender a vários padrões de conformidade. Altere a redundância para **LRS** se estiver fazendo backup de ambientes de desenvolvimento ou de teste que não precisem ter um backup de nível empresarial.
-- **Opcional** : modificar os preços regionais ou aplicar taxas com desconto
+- **Opcional**: modificar os preços regionais ou aplicar taxas com desconto
   
   - Caso deseje verificar suas estimativas para outra região ou as taxas com desconto, selecione **Sim** na opção **Experimentar estimativas para outra região?** e insira as taxas com as quais deseja executar as estimativas.
   
@@ -155,7 +155,7 @@ Para estimar os custos de backup de servidores SAP HANA em execução em VMs do 
 
 Para estimar os custos de fazer backup de compartilhamentos de arquivo do Azure usando a [solução de backup baseada em instantâneo](azure-file-share-backup-overview.md) oferecida pelo Backup do Azure, você precisará dos seguintes parâmetros:
 
-- Tamanho ( **em GB** ) dos compartilhamentos de arquivo que você deseja fazer backup.
+- Tamanho (**em GB**) dos compartilhamentos de arquivo que você deseja fazer backup.
 
 - Se você quiser fazer backup de compartilhamentos de arquivo distribuídos entre várias contas de armazenamento, especifique o número de contas de armazenamento que hospedam os compartilhamentos de arquivo com o tamanho indicado acima.
 
@@ -174,7 +174,7 @@ Para estimar os custos de fazer backup de compartilhamentos de arquivo do Azure 
 
   Veja [a matriz de suporte do compartilhamento de arquivo do Azure](azure-file-share-support-matrix.md#retention-limits) para obter os valores máximos de retenção compatíveis em cada categoria.
 
-- **Opcional** : modificar os preços regionais ou aplicar taxas com desconto.
+- **Opcional**: modificar os preços regionais ou aplicar taxas com desconto.
   - Os valores padrão definidos para o custo do armazenamento de instantâneo por GB e o custo da instância protegida no avaliador referem-se à região Leste dos EUA. Caso deseje verificar suas estimativas para outra região ou as taxas com desconto, selecione **Sim** na opção **Experimentar estimativas para outra região?** e insira as taxas com as quais deseja executar as estimativas.
 
 ## <a name="next-steps"></a>Próximas etapas

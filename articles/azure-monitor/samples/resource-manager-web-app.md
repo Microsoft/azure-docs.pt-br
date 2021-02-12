@@ -4,15 +4,15 @@ description: Modelos do Azure Resource Manager de exemplo para implantar um Serv
 ms.subservice: application-insights
 ms.topic: sample
 ms.custom: devx-track-dotnet
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 08/06/2020
-ms.openlocfilehash: 966dc0650d445a2181dc6a7d6ea1c57f223fd6f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fcc325d94f4577c00dade183d423f5d35eec8800
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934235"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209144"
 ---
 # <a name="resource-manager-template-samples-for-creating-azure-app-services-web-apps-with-application-insights-monitoring"></a>Exemplos de modelo do Resource Manager para criar aplicativos Web de Serviços de Aplicativos do Azure com monitoramento do Application Insights
 

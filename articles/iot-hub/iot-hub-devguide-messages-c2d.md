@@ -8,13 +8,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.custom: mqtt
-ms.openlocfilehash: daf4fb2ab9650c3a68b8862fd391817d5ff626b0
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: mqtt, devx-track-azurecli
+ms.openlocfilehash: ba58f7897827cf7ce7f6156df1434733d89d7f42
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147755"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844447"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Enviar mensagens da nuvem para o dispositivo de um hub IoT
 
@@ -81,7 +81,7 @@ Quando você envia uma mensagem da nuvem para o dispositivo, o serviço pode sol
 | negativo | Se a mensagem da nuvem para o dispositivo atingir o estado *inativo* , o Hub IOT gerará uma mensagem de comentários. |
 | completa     | O Hub IoT gera uma mensagem de comentários em ambos os casos. |
 
-Se o valor de **ACK** estiver *cheio*e você não receber uma mensagem de comentários, isso significa que a mensagem de comentários expirou. O serviço não pode saber o que aconteceu com a mensagem original. Na prática, um serviço deve garantir que possa processar os comentários antes que eles expirem. O tempo de expiração máximo é de dois dias, o que deixa o tempo para que o serviço seja executado novamente se ocorrer uma falha.
+Se o valor de **ACK** estiver *cheio* e você não receber uma mensagem de comentários, isso significa que a mensagem de comentários expirou. O serviço não pode saber o que aconteceu com a mensagem original. Na prática, um serviço deve garantir que possa processar os comentários antes que eles expirem. O tempo de expiração máximo é de dois dias, o que deixa o tempo para que o serviço seja executado novamente se ocorrer uma falha.
 
 Conforme explicado em [pontos](iot-hub-devguide-endpoints.md)de extremidade, o Hub IOT entrega comentários por meio de um ponto de extremidades voltado para o serviço, */messages/servicebound/feedback*, como mensagens. A semântica de recebimento dos comentários é a mesma das mensagens da nuvem para o dispositivo. Sempre que possível, os comentários de mensagem são feitos em lotes em uma única mensagem, com o seguinte formato:
 
@@ -98,7 +98,7 @@ O corpo é uma matriz de registros serializada em JSON, cada um com as seguintes
 | EnqueuedTimeUtc    | Um carimbo de data/hora que indica quando o resultado da mensagem ocorreu (por exemplo, o Hub recebeu a mensagem de comentário ou a mensagem original expirou) |
 | OriginalMessageId  | A *MessageId* da mensagem da nuvem para o dispositivo à qual essas informações de comentários se relacionam |
 | StatusCode         | Uma cadeia de caracteres necessária, usada em mensagens de comentários que são geradas pelo Hub IoT: <br/> *Êxito* <br/> *Expirada* <br/> *DeliveryCountExceeded* <br/> *Rejeitado* <br/> *Limpos* |
-| Description        | Valores de cadeia de caracteres para *StatusCode* |
+| Descrição        | Valores de cadeia de caracteres para *StatusCode* |
 | DeviceId           | A *DeviceID* do dispositivo de destino da mensagem da nuvem para o dispositivo à qual esse comentário se relaciona |
 | DeviceGenerationId | O *DeviceGenerationId* do dispositivo de destino da mensagem da nuvem para o dispositivo à qual esse comentário se relaciona |
 

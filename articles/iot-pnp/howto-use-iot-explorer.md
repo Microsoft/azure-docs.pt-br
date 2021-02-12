@@ -1,30 +1,30 @@
 ---
 title: Instalar e usar o Azure IoT Explorer | Microsoft Docs
-description: Instale a ferramenta do Azure IoT Explorer e use-a para interagir com os dispositivos IoT Plug and Play conectados ao Hub IoT.
-author: rido-min
-ms.author: rmpablos
-ms.date: 09/23/2020
+description: Instale a ferramenta do Azure IoT Explorer e use-a para interagir com dispositivos IoT Plug and Play conectados ao Hub IoT. Embora este artigo se concentre em trabalhar com dispositivos IoT Plug and Play, você pode usar a ferramenta com qualquer dispositivo conectado ao seu hub.
+author: dominicbetts
+ms.author: dobett
+ms.date: 11/10/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc
-ms.openlocfilehash: bf68bdafbb8b6fde187a2d787bb5464e5ece4cb2
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: b0a86a32148086a3b644d0bf147d12be0d812536
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019147"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030308"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Instalar e usar o Azure IoT Explorer
 
-O Azure IoT Explorer é uma ferramenta gráfica para interagir com e testar seus dispositivos IoT Plug and Play. Depois de instalar a ferramenta em seu computador local, você pode usá-la para se conectar a um Hub. Você pode usar a ferramenta para exibir a telemetria que os dispositivos estão enviando, trabalhar com propriedades de dispositivo e invocar comandos.
+O Azure IoT Explorer é uma ferramenta gráfica para interagir com dispositivos conectados ao Hub IoT. Este artigo se concentra em usar a ferramenta para testar seus dispositivos de Plug and Play de IoT. Depois de instalar a ferramenta em seu computador local, você pode usá-la para se conectar a um Hub. Você pode usar a ferramenta para exibir a telemetria que os dispositivos estão enviando, trabalhar com propriedades de dispositivo e invocar comandos.
 
 Este artigo mostra como:
 
 - Instale e configure a ferramenta do Azure IoT Explorer.
-- Use a ferramenta para interagir com e testar seus dispositivos.
+- Use a ferramenta para interagir com e testar seus dispositivos IoT Plug and Play.
 
-## <a name="prerequisites"></a>Pré-requisitos
+Para obter mais informações gerais sobre como usar a ferramenta, consulte o [Leiame](https://github.com/Azure/azure-iot-explorer/blob/master/README.md)do github.
 
 Para usar a ferramenta do Azure IoT Explorer, você precisa de:
 
@@ -40,7 +40,7 @@ Vá para [versões do Azure IOT Explorer](https://github.com/Azure/azure-iot-exp
 
 ## <a name="use-azure-iot-explorer"></a>Usar o Azure IoT Explorer
 
-Para um dispositivo, você pode conectar seu próprio dispositivo ou usar um dos dispositivos simulados de exemplo. Siga [estas instruções](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples) para executar o exemplo de dispositivo simulado.
+Para um dispositivo, você pode conectar seu próprio dispositivo ou usar um dos dispositivos simulados de exemplo. Para alguns exemplos de dispositivos simulados escritos em linguagens diferentes, consulte o início rápido [conectar um aplicativo de dispositivo de plug and Play IOT para o Hub IOT](quickstart-connect-device.md) .
 
 ### <a name="connect-to-your-hub"></a>Conectar-se ao seu hub
 
@@ -89,7 +89,7 @@ Esta seção inclui a **identidade do dispositivo**,  **dispositivos de disposit
 
 ### <a name="iot-plug-and-play-components"></a>Componentes de Plug and Play de IoT
 
-Se o dispositivo estiver conectado ao Hub usando uma **ID de modelo**, a ferramenta mostrará a guia de **componentes de plug and Play IOT** ' ', onde você poderá ver a **ID do modelo**.
+Se o dispositivo estiver conectado ao Hub usando uma **ID de modelo**, a ferramenta mostrará a guia **componentes de plug and Play IOT** , onde você poderá ver a **ID do modelo**.
 
 Se a **ID do modelo** estiver disponível em uma das fontes configuradas-repositório público ou pasta local, a lista de componentes será exibida. A seleção de um componente mostra as propriedades, os comandos e a telemetria disponíveis.
 
@@ -99,7 +99,7 @@ Na página **componente** , você pode exibir as propriedades somente leitura, a
 
 #### <a name="properties"></a>Propriedades
 
-:::image type="content" source="media/howto-use-iot-explorer/properties-iot-explorer.png" alt-text="Exibir componentes no Azure IoT Explorer":::
+:::image type="content" source="media/howto-use-iot-explorer/properties-iot-explorer.png" alt-text="Exibir Propriedades no Azure IoT Explorer":::
 
 Você pode exibir as propriedades somente leitura definidas em uma interface na guia **Propriedades (somente leitura)** . Você pode atualizar as propriedades graváveis definidas em uma interface na guia **Propriedades (gravável)** :
 
@@ -109,7 +109,7 @@ Você pode exibir as propriedades somente leitura definidas em uma interface na 
 1. Visualize o conteúdo a ser enviado para o dispositivo.
 1. Envie a alteração.
 
-Depois de enviar uma alteração, você pode acompanhar o status da atualização: **sincronização**, **êxito**ou **erro**. Quando a sincronização estiver concluída, você verá o novo valor da propriedade na coluna **Propriedade relatada** . Se você navegar para outras páginas antes de a sincronização ser concluída, a ferramenta ainda o notificará quando a atualização for concluída. Você também pode usar o centro de notificações da ferramenta para ver o histórico de notificações.
+Depois de enviar uma alteração, você pode acompanhar o status da atualização: **sincronização**, **êxito** ou **erro**. Quando a sincronização estiver concluída, você verá o novo valor da propriedade na coluna **Propriedade relatada** . Se você navegar para outras páginas antes de a sincronização ser concluída, a ferramenta ainda o notificará quando a atualização for concluída. Você também pode usar o centro de notificações da ferramenta para ver o histórico de notificações.
 
 #### <a name="commands"></a>Comandos
 
@@ -124,15 +124,9 @@ Para enviar um comando para um dispositivo, vá para a guia **comandos** :
 
 Para exibir a telemetria da interface selecionada, vá para a guia **telemetria** .
 
-#### <a name="known-issues"></a>Problemas Conhecidos
+#### <a name="known-issues"></a>Problemas conhecidos
 
-- Suporte a IoT Edge: a versão atual não mostra IoT Edge dispositivos na lista de dispositivos.
-- Recursos de linguagem DTDL: o IoT Explorer 0.12. x não é totalmente compatível com DTDL v2, recursos sem suporte incluem:
-  - Herança de interface com `extends`
-  - Mapa no mapa (mapa aninhado)
-  - Tipo de matriz
-  - Esquemas personalizados
-  - Tipos semânticos personalizados
+Para obter uma lista dos recursos de IoT com suporte da versão mais recente da ferramenta, consulte [lista de recursos](https://github.com/Azure/azure-iot-explorer/wiki).
 
 ## <a name="next-steps"></a>Próximas etapas
 

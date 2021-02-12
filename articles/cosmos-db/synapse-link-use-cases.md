@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: 3132f19bd80d6958d4d073f63eb6a01c103c2776
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9855a53ebdf7501907b3e1e63d59823d3a0b0209
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101327"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463115"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Link do Azure Synapse para Azure Cosmos DB: casos de uso de análise quase em tempo real
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 O [Link do Azure Synapse](synapse-link.md) para Azure Cosmos DB é uma funcionalidade de HTAP (processamento transacional híbrido e analítico) nativa de nuvem que permite executar análises quase em tempo real sobre dados operacionais. O Link do Synapse cria uma integração perfeita entre o Azure Cosmos DB e o Azure Synapse Analytics.
 
@@ -53,9 +53,9 @@ Com base na arquitetura anterior, você pode obter os seguintes casos de uso com
 
   O Link do Synapse para Azure Cosmos DB habilita a criação de cenários ricos de BI (business intelligence)/relatórios:
 
-  * Consultar dados operacionais de Azure Cosmos DB repositório analítico usando a integração nativa com o Synapse SQL Server sem servidor e a expressividade completa da linguagem T-SQL.
+  * Consultar dados operacionais de Azure Cosmos DB repositório analítico usando a integração nativa com o pool SQL sem servidor e a expressividade completa da linguagem T-SQL.
 
-  * Modele e publique os painéis de BI de atualização automática em Azure Cosmos DB por meio do suporte Synapse SQL Server para ferramentas de BI familiares. Por exemplo, Azure Analysis Services, Power BI Premium etc.
+  * Modele e publique os painéis de BI de atualização automática em Azure Cosmos DB por meio do suporte a pool do SQL sem servidor para ferramentas de BI familiares. Por exemplo, Azure Analysis Services, Power BI Premium etc.
 
 A seguir, há algumas diretrizes para a integração de dados do lote e de dados de streaming ao Azure Cosmos DB:
 
@@ -71,7 +71,7 @@ A seguir, há algumas diretrizes para a integração de dados do lote e de dados
 
 Atualmente, os varejistas precisam criar soluções de comércio eletrônico seguras e escalonáveis que atendam às demandas empresariais e dos clientes. Essas soluções de comércio eletrônico precisam envolver os clientes por meio de ofertas e produtos personalizados, processe transações de maneira rápida e segura e concentre-se na entrega e no atendimento ao cliente. O Azure Cosmos DB, junto com o Link do Synapse mais recente para Azure Cosmos DB, permite que os varejistas gerem recomendações personalizadas para clientes em tempo real. Eles usam configurações de consistência ajustáveis e de baixa latência para insights imediatas, conforme mostrado na seguinte arquitetura:
 
-:::image type="content" source="./media/synapse-link-use-cases/real-time-personalization.png" alt-text="Link do Azure Synapse para Azure Cosmos DB na análise de cadeia de suprimentos " border="false":::
+:::image type="content" source="./media/synapse-link-use-cases/real-time-personalization.png" alt-text="Link do Azure Synapse para Azure Cosmos DB com personalização em tempo real" border="false":::
 
 Caso de uso do Link do Synapse para Azure Cosmos DB:
 
@@ -83,7 +83,7 @@ As inovações na IoT industrial reduziram drasticamente o tempo de inatividade 
 
 A seguir, há uma arquitetura que usa as funcionalidades de HTAP nativos de nuvem do Link do Azure Synapse para Azure Cosmos DB na manutenção preditiva da IoT:
 
-:::image type="content" source="./media/synapse-link-use-cases/iot-predictive-maintenance.png" alt-text="Link do Azure Synapse para Azure Cosmos DB na análise de cadeia de suprimentos " border="false" :::
+:::image type="content" source="./media/synapse-link-use-cases/iot-predictive-maintenance.png" alt-text="O Link do Azure Synapse para Azure Cosmos DB na manutenção preditiva da IoT" border="false" :::
 
 Casos de uso do Link do Synapse para Azure Cosmos DB:
 
@@ -105,7 +105,7 @@ A lista a seguir mostra uma visão geral dos diversos padrões de carga de traba
 
 O Link do Azure Synapse permite que o Azure Cosmos DB não apenas capacite cargas de trabalho transacionais, como também execute cargas de trabalho analíticas quase em tempo real em relação a dados operacionais históricos. Isso acontece sem requisitos de ETL e com a garantia de isolamento de desempenho das cargas de trabalho transacionais.
 
-A imagem a seguir mostra os padrões de carga de trabalho usando o Azure Cosmos DB: :::image type="content" source="./media/synapse-link-use-cases/synapse-link-workload-patterns.png" alt-text="Link do Azure Synapse para Azure Cosmos DB na análise de cadeia de suprimentos " border="false":::
+A imagem a seguir mostra os padrões de carga de trabalho usando o Azure Cosmos DB: :::image type="content" source="./media/synapse-link-use-cases/synapse-link-workload-patterns.png" alt-text="Link do Azure Synapse para padrões de carga de trabalho do Azure Cosmos DB" border="false":::
 
 Vamos pegar o exemplo de uma empresa de comércio eletrônico, a EmpresaXYZ, com operações globais em 20 países/regiões para ilustrar os benefícios por escolher o Azure Cosmos DB como o único banco de dados em tempo real, o que capacita os requisitos transacionais e analíticos de uma plataforma de gerenciamento de inventário.
 
@@ -143,4 +143,4 @@ Para saber mais, consulte a seguinte documentação:
 
 * [Apache Spark no Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md)
 
-* [Suporte a tempo de execução sem SQL Server no Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md)
+* [Suporte a tempo de execução do pool SQL sem servidor no Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md)

@@ -3,12 +3,12 @@ title: Quais são as novidades? Notas sobre a versão – Grade de Eventos do Az
 description: Conheça as novidades da Grade de Eventos do Azure, como as últimas notas sobre a versão, problemas conhecidos, correções de bugs, funcionalidades preteridas e alterações futuras.
 ms.topic: overview
 ms.date: 07/23/2020
-ms.openlocfilehash: 1edfa3e2bc4c8adae113b2215b7fb0483fba4c02
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7528cef7007704bbf434f16622707da8920eec2b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87172679"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350000"
 ---
 # <a name="whats-new-in-azure-event-grid"></a>O que há de novo na Grade de Eventos do Azure?
 
@@ -40,7 +40,7 @@ A Grade de Eventos do Azure é aprimorada continuamente. Para se manter atualiza
 - Esta versão inclui correções de bugs adicionais para aprimorar a qualidade.
 - Como a 5.3.1-preview, esta versão corresponde à versão da API 2020-04-01-Preview, que inclui as seguintes novas funcionalidades: 
     - [Suporte para filtragem de IP ao publicar eventos em domínios e tópicos](configure-firewall.md)
-    - [Tópicos de parceiros](partner-topics-overview.md)
+    - [Tópicos de parceiros](./partner-events-overview.md)
     - [Tópicos do sistema como recursos controlados no portal do Azure](system-topics.md)
     - [Entrega de eventos com identidade do serviço gerenciado](managed-service-identity.md) 
     - [Suporte ao Serviço de Link Privado](configure-private-endpoints.md)
@@ -49,7 +49,7 @@ A Grade de Eventos do Azure é aprimorada continuamente. Para se manter atualiza
 - Esta versão inclui diversas correções de bugs para aprimorar a qualidade.
 - Como a 5.3.0-preview, esta versão corresponde à versão da API 2020-04-01-Preview, que inclui as seguintes novas funcionalidades: 
     - [Suporte para filtragem de IP ao publicar eventos em domínios e tópicos](configure-firewall.md)
-    - [Tópicos de parceiros](partner-topics-overview.md)
+    - [Tópicos de parceiros](./partner-events-overview.md)
     - [Tópicos do sistema como recursos controlados no portal do Azure](system-topics.md)
     - [Entrega de eventos com identidade do serviço gerenciado](managed-service-identity.md) 
     - [Suporte ao Serviço de Link Privado](configure-private-endpoints.md)
@@ -59,7 +59,7 @@ A Grade de Eventos do Azure é aprimorada continuamente. Para se manter atualiza
 - Como versão 5.2.0-preview, esta versão corresponde à versão da API 2020-04-01-Preview.
 - Ela adiciona suporte às seguintes novas funcionalidades: 
     - [Suporte para filtragem de IP ao publicar eventos em domínios e tópicos](configure-firewall.md)
-    - [Tópicos de parceiros](partner-topics-overview.md)
+    - [Tópicos de parceiros](./partner-events-overview.md)
     - [Tópicos do sistema como recursos controlados no portal do Azure](system-topics.md)
     - [Entrega de eventos com identidade do serviço gerenciado](managed-service-identity.md) 
     - [Suporte ao Serviço de Link Privado](configure-private-endpoints.md)

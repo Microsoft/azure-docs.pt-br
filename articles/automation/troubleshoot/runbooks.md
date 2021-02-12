@@ -2,16 +2,16 @@
 title: Solucionar problemas de runbook da Automação do Azure
 description: Este artigo informa como solucionar problemas e resolver dúvidas com runbooks de Automação do Azure.
 services: automation
-ms.date: 07/28/2020
-ms.topic: conceptual
-ms.service: automation
+ms.subservice: ''
+ms.date: 11/03/2020
+ms.topic: troubleshooting
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1cbb5be8c1a4045b218c0e6bf5ac7ed0b901aa80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e154284df8eaad798c5cfaf4de69c40601863cf4
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87904795"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053662"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Solucionar problemas de runbook
 
@@ -42,7 +42,7 @@ Ao receber erros durante a execução do runbook na Automação do Azure, você 
     * [Renovar o certificado](../manage-runas-account.md#cert-renewal) se a conta Executar como expirou.
     * [Renove o de webhook](../automation-webhooks.md#renew-a-webhook) se você estiver tentando usar um webhook expirado para iniciar o runbook.
     * [Verifique os status do trabalho](../automation-runbook-execution.md#job-statuses) para determinar os status atuais do runbook e algumas das possíveis causas do problema.
-    * [Adicione outra saída](../automation-runbook-output-and-messages.md#monitor-message-streams) ao runbook para identificar o que acontece antes da suspensão do runbook.
+    * [Adicione outra saída](../automation-runbook-output-and-messages.md#working-with-message-streams) ao runbook para identificar o que acontece antes da suspensão do runbook.
     * [Lidar com exceções](../automation-runbook-execution.md#exceptions) lançadas por seu trabalho.
 
 1. Execute esta etapa se o trabalho de runbook ou o ambiente em Hybrid Runbook Worker não responder.
@@ -134,7 +134,7 @@ Run Login-AzureRMAccount to login.
 
 ### <a name="cause"></a>Causa
 
-Esse erro pode ocorrer quando você não está usando uma conta Executar Como ou quando a conta Executar Como expirou. Para saber mais, confira [Gerenciar contas Executar Como de Automação do Azure](../manage-runas-account.md).
+Esse erro pode ocorrer quando você não está usando uma conta Executar Como ou quando a conta Executar Como expirou. Para obter mais informações, consulte [visão geral das contas Executar como da automação do Azure](../automation-security-overview.md#run-as-accounts).
 
 Esse erro tem duas causas principais:
 
@@ -201,7 +201,7 @@ Esse erro pode acontecer se:
 Siga estas etapas para determinar se você se autenticou no Azure e se tem acesso à assinatura que está tentando selecionar:
 
 1. Para ter certeza de que o seu script funciona de maneira independente, teste-o fora da Automação do Azure.
-1. Verifique se o script executa o cmdlet [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0) antes de executar o cmdlet `Select-*`.
+1. Verifique se o script executa o cmdlet [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) antes de executar o cmdlet `Select-*`.
 1. Adicione `Disable-AzContextAutosave –Scope Process` ao início do seu runbook. Esse cmdlet garante que todas as credenciais sejam aplicadas apenas à execução do runbook atual.
 1. Se essa mensagem de erro ainda for exibida, modifique o código adicionando o parâmetro `AzContext` para `Connect-AzAccount` e depois execute o código.
 
@@ -251,7 +251,7 @@ Start-AzAutomationRunbook `
     –AutomationAccountName 'MyAutomationAccount' `
     –Name 'Test-ChildRunbook' `
     -ResourceGroupName 'LabRG' `
-    -AzContext $AzureContext `
+    -AzContext $AzContext `
     –Parameters $params –wait
 ```
 
@@ -291,7 +291,7 @@ Esse erro pode ser causado por meio de módulos do Azure desatualizados.
 
 Esse erro pode ser resolvido atualizando os módulos do Azure para a versão mais recente:
 
-1. Na sua conta de Automação, selecione **Módulos**e depois **Atualizar módulos do Azure**.
+1. Na sua conta de Automação, selecione **Módulos** e depois **Atualizar módulos do Azure**.
 1. A atualização leva aproximadamente 15 minutos. Após a conclusão, execute novamente o runbook que falhou.
 
 Para saber mais sobre como atualizar seus módulos, consulte [Atualizar os módulos do Azure na Automação do Azure](../automation-update-azure-modules.md).
@@ -398,7 +398,7 @@ Se o fluxo contiver objetos, `Start-AzAutomationRunbook` não tratará o Fluxo d
 
 ### <a name="resolution"></a>Resolução
 
-Implemente uma lógica de sondagem e use o cmdlet [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.7.0) para recuperar a saída. Um exemplo dessa lógica é definido aqui:
+Implemente uma lógica de sondagem e use o cmdlet [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput) para recuperar a saída. Um exemplo dessa lógica é definido aqui:
 
 ```powershell
 $automationAccountName = "ContosoAutomationAccount"
@@ -476,14 +476,14 @@ Você receberá a seguinte mensagem de erro ao executar o cmdlet `Get-AzAutomati
 
 ### <a name="cause"></a>Causa
 
-Esse erro pode ocorrer ao recuperar a saída do trabalho de um runbook que tenha muitos [fluxos detalhados](../automation-runbook-output-and-messages.md#monitor-verbose-stream).
+Esse erro pode ocorrer ao recuperar a saída do trabalho de um runbook que tenha muitos [fluxos detalhados](../automation-runbook-output-and-messages.md#write-output-to-verbose-stream).
 
 ### <a name="resolution"></a>Resolução
 
 Para resolver esse erro, execute um destes procedimentos:
 
 * Edite o runbook e reduza o número de fluxos de trabalho que ele emite.
-* Reduza o número de fluxos a ser recuperado ao executar o cmdlet. Para fazer isso, você pode definir o valor do parâmetro `Stream` para o cmdlet [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.7.0) para recuperar somente os Fluxos de saída. 
+* Reduza o número de fluxos a ser recuperado ao executar o cmdlet. Para fazer isso, você pode definir o valor do parâmetro `Stream` para o cmdlet [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput) para recuperar somente os Fluxos de saída. 
 
 ## <a name="scenario-runbook-job-fails-because-allocated-quota-was-exceeded"></a><a name="quota-exceeded"></a>Cenário: O trabalho de runbook falhou porque excedeu a cota alocada
 
@@ -576,7 +576,7 @@ Esse erro pode indicar que os runbooks executados em uma área restrita do Azure
 
 Há três maneiras de resolver esse erro:
 
-* Em vez de usar [Start-Job](/powershell/module/microsoft.powershell.core/start-job?view=powershell-7), use [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) para iniciar o runbook.
+* Em vez de usar [Start-Job](/powershell/module/microsoft.powershell.core/start-job), use [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook) para iniciar o runbook.
 * Tente executar o runbook em um Hybrid Runbook Worker.
 
 Para saber mais sobre esse comportamento e outros comportamentos dos runbooks de Automação do Azure, confira [Execução de runbook na Automação do Azure](../automation-runbook-execution.md).
@@ -605,8 +605,8 @@ Outra opção é otimizar o runbook criando [runbooks filhos](../automation-chil
 
 Os cmdlets do PowerShell que habilitam o cenário do runbook filho são:
 
-* [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0). Esse cmdlet permite que você inicie um runbook e passe parâmetros para o runbook.
-* [Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0). Se há operações que precisam ser executadas após a conclusão do runbook filho, este cmdlet permite verificar o status de trabalho para cada filho.
+* [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook). Esse cmdlet permite que você inicie um runbook e passe parâmetros para o runbook.
+* [Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob). Se há operações que precisam ser executadas após a conclusão do runbook filho, este cmdlet permite verificar o status de trabalho para cada filho.
 
 ## <a name="scenario-error-in-job-streams-about-the-get_serializationsettings-method"></a><a name="get-serializationsettings"></a>Cenário: Erro em fluxos de trabalho sobre o método get_SerializationSettings
 
@@ -642,7 +642,7 @@ Quando o runbook ou aplicativo tenta ser executado em uma área restrita do Azur
 
 ### <a name="cause"></a>Causa
 
-Esse problema pode ocorrer porque as áreas restritas do Azure impedem o acesso a todos os servidores COM fora do processo. Por exemplo, um aplicativo ou runbook em área restrita não pode fazer chamada em Instrumentação de Gerenciamento do Windows (WMI) ou no serviço Windows Installer (msiserver.exe). 
+Esse problema pode ocorrer porque as áreas restritas do Azure impedem o acesso a todos os servidores COM fora do processo. Por exemplo, um aplicativo ou runbook em área restrita não pode fazer chamada em Instrumentação de Gerenciamento do Windows (WMI) ou no serviço Windows Installer (msiserver.exe).
 
 ### <a name="resolution"></a>Resolução
 

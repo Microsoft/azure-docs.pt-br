@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 341d24e73c9e07bb3155535d98a88145643c1692
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 889a70005f1cbabaad525147b4661ea04886138a
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201776"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445601"
 ---
 # <a name="use-the-model-conversion-rest-api"></a>Usar a API REST de conversão de modelo
 
@@ -26,7 +26,7 @@ Consulte a [lista de regiões disponíveis](../../reference/regions.md) para as 
 
 Esses cabeçalhos devem ser especificados para todas as solicitações:
 
-- O cabeçalho **Authorization** deve ter o valor de "portador [*token*]", onde [*token*] é um [token de acesso de serviço](../tokens.md).
+- O cabeçalho **Authorization** deve ter o valor de "portador [ *token* ]", onde [ *token* ] é um [token de acesso de serviço](../tokens.md).
 
 ### <a name="common-response-headers"></a>Cabeçalhos de resposta comuns
 
@@ -47,7 +47,7 @@ Sua conta de renderização remota do Azure precisa ter acesso à conta de armaz
 
 | Ponto de extremidade | Método |
 |-----------|:-----------|
-| /v1/accounts/**AccountId**/Conversions/Create | POST |
+| /v1/accounts/ **AccountId** /Conversions/Create | POST |
 
 Retorna a ID da conversão em andamento, encapsulada em um documento JSON. O nome do campo é "conversãoid".
 
@@ -79,7 +79,7 @@ Se sua conta do ARR não estiver vinculada à sua conta de armazenamento, essa i
 
 | Ponto de extremidade | Método |
 |-----------|:-----------|
-| /v1/accounts/**AccountId**/Conversions/createWithSharedAccessSignature | POST |
+| /v1/accounts/ **AccountId** /Conversions/createWithSharedAccessSignature | POST |
 
 Retorna a ID da conversão em andamento, encapsulada em um documento JSON. O nome do campo é `conversionId` .
 
@@ -120,7 +120,7 @@ O status de uma conversão em andamento iniciada com uma das chamadas REST acima
 
 | Ponto de extremidade | Método |
 |-----------|:-----------|
-| /v1/accounts/**AccountId**/Conversions/**conversionid** | GET |
+| /v1/accounts/ **AccountId** /Conversions/ **conversionid** | GET |
 
 Retorna um documento JSON com um campo "status" que pode ter os seguintes valores:
 
@@ -130,6 +130,21 @@ Retorna um documento JSON com um campo "status" que pode ter os seguintes valore
 - Failure
 
 Se o status for "Failure", haverá um campo "Error" adicional com um subcampo "Message" contendo informações de erro. Logs adicionais serão carregados no seu contêiner de saída.
+
+## <a name="list-conversions"></a>Conversões de lista
+
+Para obter uma lista de todas as conversões de uma conta, use a interface:
+
+| Ponto de extremidade | Método |
+|-----------|:-----------|
+| /v1/accounts/ **AccountId** /Conversions? skiptoken = **skiptoken** | GET |
+
+| Parâmetro | Obrigatório |
+|-----------|:-----------|
+| accountID | Yes |
+| skiptoken | No |
+
+Retorna um documento JSON que contém uma matriz de conversões e seus detalhes. Essa consulta retorna um máximo de 50 conversões por vez. Na situação em que há mais conversões a serem recuperadas, a resposta conterá uma propriedade **nextLink** contendo o skipToken que pode ser consultado para recuperar o próximo conjunto de resultados.
 
 ## <a name="next-steps"></a>Próximas etapas
 

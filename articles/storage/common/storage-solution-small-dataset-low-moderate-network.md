@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: alkohli
 ms.openlocfilehash: f59d1e297ba4d7607d7abd07a78da4784f55d20f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792898"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023220"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Transferência de dados para conjuntos de dados pequenos com largura de banda de rede baixa a moderada
  
@@ -32,12 +32,12 @@ Conjunto de dados pequenos referem-se a tamanhos de dados na ordem de GBs a algu
 
 As opções recomendadas nesse cenário são:
 
-- **Ferramentas de interface gráfica** , como o Gerenciador de Armazenamento do Azure e o Armazenamento do Azure no portal do Azure. Elas fornecem uma maneira fácil de exibir os dados e transferir rapidamente alguns arquivos.
+- **Ferramentas de interface gráfica**, como o Gerenciador de Armazenamento do Azure e o Armazenamento do Azure no portal do Azure. Elas fornecem uma maneira fácil de exibir os dados e transferir rapidamente alguns arquivos.
 
     - **Gerenciador de Armazenamento do Azure** – essa ferramenta multiplataforma permite gerenciar o conteúdo de suas contas de Armazenamento do Azure. Ele permite carregar, baixar e gerenciar blogs, arquivos, filas, tabelas e entidades do Azure Cosmos DB. Use-o com o armazenamento de Blobs para gerenciar blobs e pastas, bem como carregar e baixar blobs entre o sistema de arquivos local e o armazenamento de Blobs ou entre contas de armazenamento.
     - **Portal do Azure** – o Armazenamento do Azure no portal do Azure fornece uma interface baseada na Web para explorar arquivos e carregar novos arquivos um de cada vez. Essa é uma boa opção se você não deseja instalar nenhuma ferramenta nem emitir comandos para explorar rapidamente os arquivos ou para simplesmente carregar novos arquivos.
 
-- **Ferramentas de script/programação** , como AzCopy/PowerShell/CLI do Azure e APIs REST do Armazenamento do Azure.
+- **Ferramentas de script/programação**, como AzCopy/PowerShell/CLI do Azure e APIs REST do Armazenamento do Azure.
 
     - **AzCopy** – use essa ferramenta de linha de comando para copiar dados facilmente de e para Blobs do Azure, Arquivos e armazenamento de Tabela com um desempenho ideal. O AzCopy dá suporte à simultaneidade e ao paralelismo e à capacidade de retomar as operações de cópia quando elas forem interrompidas.
     - **Azure PowerShell** – para usuários familiarizados com a administração do sistema, use o módulo de Armazenamento do Azure no Azure PowerShell para transferir dados.
@@ -55,9 +55,9 @@ A tabela a seguir resume as diferenças nas principais funcionalidades.
 | Interface gráfica | Sim | Sim | Não | Não |
 | Plataformas com suporte | Windows, Mac, Linux | Baseado na Web |Windows, Mac, Linux |Todas as plataformas |
 | Operações de Armazenamento de Blobs permitidas<br>para blobs e pastas | Carregar<br>Baixar<br>Gerenciar | Carregar<br>Baixar<br>Gerenciar |Carregar<br>Baixar<br>Gerenciar | Sim, personalizável |
-| Armazenamento do Data Lake Gen1 permitido<br>operações para arquivos e pastas | Carregar<br>Baixar<br>Gerenciar | Não |Carregar<br>Baixar<br>Gerenciar                   | Não |
+| Armazenamento do Data Lake Gen1 permitido<br>operações para arquivos e pastas | Carregar<br>Baixar<br>Gerenciar | No |Carregar<br>Baixar<br>Gerenciar                   | No |
 | Operações de armazenamento de Arquivo permitidas<br>para arquivos e diretórios | Carregar<br>Baixar<br>Gerenciar | Carregar<br>Baixar<br>Gerenciar   |Carregar<br>Baixar<br>Gerenciar | Sim, personalizável |
-| Operações de armazenamento de Tabela permitidas<br>para tabelas |Gerenciar | Não |Suporte de tabela no AzCopy v7 |Sim, personalizável|
+| Operações de armazenamento de Tabela permitidas<br>para tabelas |Gerenciar | No |Suporte de tabela no AzCopy v7 |Sim, personalizável|
 | Armazenamento de Fila permitido | Gerenciar | Não  |Não | Sim, é personalizável|
 
 

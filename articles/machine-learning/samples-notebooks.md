@@ -1,7 +1,7 @@
 ---
 title: Exemplos de Notebooks Jupyter
 titleSuffix: Azure Machine Learning
-description: Encontre e use Jupyter Notebooks de exemplo para explorar o SDK do Python do Azure Machine Learning.
+description: Saiba como encontrar e usar os Jupyter Notebooks projetados para ajudar você a explorar o SDK e que servem como modelos para seus projetos de machine learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,17 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 14ae5f01e23a7922f508c4a2674e1a3f29e354b8
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 38d0c350718480506e1267c161a85505ece4b69d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166056"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452254"
 ---
-# <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Explorar o Azure Machine Learning com os Jupyter Notebooks
+# <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Explorar o Azure Machine Learning com Jupyter Notebooks
+
+> [!NOTE] 
+> Um repositório de exemplo voltado para a comunidade pode ser encontrado em https://github.com/Azure/azureml-examples.
 
 O [exemplo de repositório de Notebooks do Azure Machine Learning](https://github.com/azure/machinelearningnotebooks) inclui as amostras mais recentes do SDK do Python do Azure Machine Learning. Esses notebooks Jupyter foram projetados para ajudá-lo a explorar o SDK e servem como modelos para seus próprios projetos de aprendizado de máquina.
 
@@ -29,7 +32,7 @@ Este artigo mostra como acessar o repositório nos seguintes ambientes:
 - [Máquina Virtual de Ciência de Dados](#dsvm)
 
 > [!NOTE]
-> Depois de clonar o repositório, você encontrará notebooks do tutorial na pasta **tutorials** e notebooks específicos do recurso na pasta **how-to-use-azureml** .
+> Depois de clonar o repositório, você encontrará notebooks do tutorial na pasta **tutorials** e notebooks específicos do recurso na pasta **how-to-use-azureml**.
 
 <a name="notebookvm"></a>
 ## <a name="get-samples-on-azure-machine-learning-compute-instance"></a>Obter amostras na instância de computação do Azure Machine Learning
@@ -44,7 +47,7 @@ Caso deseje trazer seu próprio servidor de notebook para o desenvolvimento loca
 
 [!INCLUDE [aml-your-server](../../includes/aml-your-server.md)]
 
-Essas instruções instalam os pacotes base do SDK necessários para o início rápido e os notebooks do tutorial. Outros notebooks de exemplo podem exigir a instalação de componentes extras. Para obter mais informações, confira [Instalar o SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
+Essas instruções instalam os pacotes base do SDK necessários para o início rápido e os notebooks do tutorial. Outros notebooks de exemplo podem exigir a instalação de componentes extras. Para obter mais informações, confira [Instalar o SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/install).
 
 <a name="dsvm"></a>
 ## <a name="get-samples-on-dsvm"></a>Obter exemplos no DSVM

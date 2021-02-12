@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.openlocfilehash: ef63bf68fec592b768986a1329663508443c514b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b33f765e936d7c0db301a5b2fcf38ccaf137f771
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535841"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787546"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Testando os enunciados de exemplo no LUIS
 
@@ -33,7 +33,7 @@ Confira os conceitos [Pontuação de previsão](luis-concept-prediction-score.md
 O teste interativo é feito no painel de **teste** do portal do Luis. É possível inserir uma declaração para ver como as intenções e entidades são identificadas e pontuadas. Se LUIS não estiver prevendo as intenções e entidades esperadas em um expressão no painel de teste, copie-as para a página de **intenção** como um novo expressão. Em seguida, rotule as partes do expressão para entidades e treine o LUIS. 
 
 ## <a name="batch-testing"></a>Teste em lote
-Confira o [teste de lote](luis-concept-batch-test.md) se estiver testando mais de uma declaração por vez.
+Confira o [teste de lote](./luis-how-to-batch-test.md) se estiver testando mais de uma declaração por vez.
 
 ## <a name="endpoint-testing"></a>Teste do ponto de extremidade
 É possível testar usando o [ponto de extremidade](luis-glossary.md#endpoint) com no máximo duas versões do seu aplicativo. Com sua versão principal ou em tempo real do seu aplicativo definida como o ponto de extremidade de **produção**, adicione uma segunda versão ao ponto de extremidade de **preparo**. Essa abordagem oferece três versões de uma declaração: o modelo atual no painel de teste do site do [LUIS](luis-reference-regions.md) e as duas versões nos dois pontos de extremidade diferentes. 

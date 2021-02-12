@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01f762ef1fa3a997c01873df02abf87362b8c06f
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 85e6a66f4520f12278266203211e1d1ae224c97f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055946"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180448"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Integrar logs do Azure AD com logs de Azure Monitor
 
@@ -46,7 +46,7 @@ Você pode rotear os logs de atividade de auditoria e logs de atividade de entra
 
 * **Logs de auditoria**: o [relatório de atividade de logs de auditoria](concept-audit-logs.md) fornece acesso ao histórico de todas as tarefas que são executadas em seu locatário.
 * **Logs de entrada**: com o [relatório de atividade de entrada](concept-sign-ins.md), você pode determinar quem executou as tarefas que são relatadas nos logs de auditoria.
-* **Logs de provisionamento**: com os [logs de provisionamento](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics), você pode monitorar quais usuários foram criados, atualizados e excluídos em todos os aplicativos de terceiros. 
+* **Logs de provisionamento**: com os [logs de provisionamento](../app-provisioning/application-provisioning-log-analytics.md), você pode monitorar quais usuários foram criados, atualizados e excluídos em todos os aplicativos de terceiros. 
 
 > [!NOTE]
 > Não há suporte para logs de atividades de auditoria e entradas relacionados ao B2C no momento.
@@ -69,7 +69,7 @@ O uso desse recurso requer uma licença Azure AD Premium P1 ou P2. Para localiza
 
 1. Entre no [portal do Azure](https://portal.azure.com). 
 
-2. Selecione **Azure Active Directory**  >  **configurações de diagnóstico**  ->  **Adicionar configuração de diagnóstico**. Você também pode selecionar a página**Exportar Configurações** dos **Logs de Auditoria** ou **Assinaturas** para obter a página de configuração de configurações de diagnóstico.  
+2. Selecione **Azure Active Directory**  >  **configurações de diagnóstico**  ->  **Adicionar configuração de diagnóstico**. Você também pode selecionar a página **Exportar Configurações** dos **Logs de Auditoria** ou **Assinaturas** para obter a página de configuração de configurações de diagnóstico.  
     
 3. No menu **Configurações de Diagnóstico**, marque a caixa de seleção **Enviar para o espaço de trabalho do Log Analytics** e, em seguida, selecione **Configurar**.
 

@@ -1,14 +1,17 @@
 ---
 title: Configurar a análise de dependência sem agente na avaliação do servidor de migrações para Azure
 description: Configure a análise de dependência sem agente na avaliação do servidor de migrações para Azure.
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: 57e5add810cf4fac232bce08fc7ca96df0a7c3a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d84c85326c6f5d87189a2c24a3b13654f157cb05
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667462"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754276"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Analisar dependências do computador (sem agente)
 
@@ -25,13 +28,13 @@ Este artigo descreve como configurar a análise de dependência sem agente em mi
 
 - No modo de exibição de análise de dependência, não é possível adicionar ou remover um servidor de um grupo no momento.
 - Um mapa de dependências para um grupo de servidores não está disponível no momento.
-- A coleta de dados de dependência pode ser configurada simultaneamente para servidores 1000. Você pode analisar um número maior de servidores por meio do sequenciamento em lotes de 1000.
+- Em um projeto de migrações para Azure, a coleta de dados de dependência pode ser configurada simultaneamente para servidores 1000. Você pode analisar um número maior de servidores por meio do sequenciamento em lotes de 1000.
 
 ## <a name="before-you-start"></a>Antes de começar
 
 - [Examine](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) os sistemas operacionais com suporte e as permissões necessárias.
 - Verifique se você:
-    - Ter um projeto de migrações para Azure. Se você não fizer isso, [crie](how-to-add-tool-first-time.md) um agora.
+    - Ter um projeto de migrações para Azure. Se você não fizer isso, [crie](./create-manage-projects.md) um agora.
     - Verifique se você [adicionou](how-to-assess.md) a ferramenta migrações do Azure: Server Assessment ao projeto.
     - Configure um [dispositivo de migrações para Azure](migrate-appliance.md) para descobrir computadores locais. [Configure um dispositivo](how-to-set-up-appliance-vmware.md) para VMs VMware. O dispositivo descobre computadores locais e envia metadados e dados de desempenho para migrações para Azure: avaliação do servidor.
 - Verifique se as ferramentas do VMware (posterior à 10,2) estão instaladas em cada VM que você deseja analisar.
@@ -50,7 +53,7 @@ Adicione a conta de usuário ao dispositivo.
 2. Navegue até o painel **fornecer detalhes do vCenter** .
 3. Em **descobrir aplicativo e dependências em VMs**, clique em **Adicionar credenciais**
 3. Escolha o **sistema operacional**, forneça um nome amigável para a conta e a senha do **nome de usuário** / **Password**
-6. Clique em **Salvar**.
+6. Clique em **Save** (Salvar).
 7. Clique em **salvar e iniciar descoberta**.
 
     ![Adicionar conta de usuário da VM](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)

@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 3157eda4e2a21b0d153e7300db54f445fdb6878d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2d9b0d97fa1823314f5109a1c7fc79054806c148
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547751"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146919"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Entender o registro de identidade no Hub IoT
 
@@ -112,7 +112,7 @@ Propriedades: as propriedades do sistema de mensagens são prefixadas com o sím
 
 Mensagem de notificação para dispositivo:
 
-| Nome | Valor |
+| Name | Valor |
 | --- | --- |
 |$content-type | aplicativo/json |
 |$iothub-enqueuedtime |  Hora em que a notificação foi enviada |
@@ -148,7 +148,7 @@ Corpo: esta seção está no formato JSON e representa o gêmeo da identidade de
 ```
 Mensagem de notificação para módulo:
 
-| Nome | Valor |
+| Name | Valor |
 | --- | --- |
 $content-type | aplicativo/json |
 $iothub-enqueuedtime |  Hora em que a notificação foi enviada |
@@ -200,7 +200,7 @@ As identidades do dispositivo são representadas como documentos JSON com as seg
 | statusUpdateTime |somente leitura |Um indicador temporal, mostrando a data e hora da última atualização de status. |
 | connectionState |somente leitura |Um campo indicando o status da conexão: **Conectado** ou **Desconectado** . Esse campo representa a exibição do Hub IoT do status de conexão do dispositivo. **Importante** : esse campo deve ser usado apenas para fins de desenvolvimento/depuração. O estado da conexão é atualizado somente nos dispositivos que usam MQTT ou AMQP. Além disso, ele se baseia nos pings do nível de protocolo (pings MQTT ou AMQP) e pode ter um atraso máximo de apenas cinco minutos. Por esses motivos, pode haver falsos positivos, como dispositivos relatados como conectados, mas que estão desconectados. |
 | connectionStateUpdatedTime |somente leitura |Um indicador temporal, mostrando a data e a hora da última atualização do estado da conexão. |
-| lastActivityTime |somente leitura |Um indicador temporal, mostrando a data e hora da última vez em que o dispositivo se conectou, recebeu ou enviou uma mensagem. |
+| lastActivityTime |somente leitura |Um indicador temporal, mostrando a data e hora da última vez em que o dispositivo se conectou, recebeu ou enviou uma mensagem. Essa propriedade é eventualmente consistente, mas pode ser atrasada até 5 a 10 minutos. Por esse motivo, ele não deve ser usado em cenários de produção. |
 
 > [!NOTE]
 > O estado da conexão pode representar apenas a visão do Hub IoT do status da conexão. As atualizações para esse estado podem ser atrasadas, dependendo das configurações e das condições da rede.

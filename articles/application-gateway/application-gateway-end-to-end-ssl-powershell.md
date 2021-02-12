@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: victorh
-ms.openlocfilehash: e35569a1dc5ce7c1cb2889ac3e2ca8f60f8ccd42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47891dfa7fc0c9b30ccdbf2ed7710125eb36e4a3
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808206"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397800"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-powershell"></a>Configurar o TLS de ponta a ponta usando o Gateway de Aplicativo com o PowerShell
 
@@ -20,7 +20,7 @@ ms.locfileid: "84808206"
 
 O Gateway de Aplicativo do Azure dá suporte à criptografia de tráfego de ponta a ponta. O Gateway de Aplicativo termina a conexão TLS/SSL no gateway de aplicativo. O gateway, em seguida, aplica as regras de roteamento ao tráfego, criptografa o pacote novamente e encaminha o pacote para o servidor de back-end apropriado com base nas regras de roteamento definidas. Qualquer resposta do servidor Web passa pelo mesmo processo de volta para o usuário final.
 
-O Gateway de Aplicativo dá suporte para definir opções personalizadas de TLS. Ele também dá suporte para desabilitar as seguintes versões do protocolo: **TLSv1.0**, **TLSv1.1** e **TLSv1.2**, bem como definir quais conjuntos de criptografia usar e a ordem de preferência. Para saber mais sobre as opções configuráveis de TLS, acesse [Visão geral da política de TLS](application-gateway-SSL-policy-overview.md).
+O Gateway de Aplicativo dá suporte para definir opções personalizadas de TLS. Ele também dá suporte para desabilitar as seguintes versões do protocolo: **TLSv1.0** , **TLSv1.1** e **TLSv1.2** , bem como definir quais conjuntos de criptografia usar e a ordem de preferência. Para saber mais sobre as opções configuráveis de TLS, acesse [Visão geral da política de TLS](application-gateway-SSL-policy-overview.md).
 
 > [!NOTE]
 > O SSL 2.0 e o SSL 3.0 estão desabilitados por padrão e não podem ser habilitados. Eles são considerados não seguros e não podem ser usados com o Gateway de Aplicativo.
@@ -202,7 +202,7 @@ Todos os itens de configuração são definidos antes da criação do gateway de
    $rule = New-AzApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
    ```
 
-10. Configure o tamanho da instância do gateway de aplicativo. Os tamanhos disponíveis são **Standard\_Small**, **Standard\_Medium** e **Standard\_Large**.  Para a capacidade, os valores disponíveis são **1** a **10**.
+10. Configure o tamanho da instância do gateway de aplicativo. Os tamanhos disponíveis são **Standard\_Small** , **Standard\_Medium** e **Standard\_Large**.  Para a capacidade, os valores disponíveis são **1** a **10**.
 
     ```powershell
     $sku = New-AzApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
@@ -219,7 +219,7 @@ Todos os itens de configuração são definidos antes da criação do gateway de
     - **TLSV1_1**
     - **TLSV1_2**
     
-    O exemplo a seguir define a versão mínima do protocolo para **TLSv1_2** e habilita apenas **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** e **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256**.
+    O exemplo a seguir define a versão mínima do protocolo para **TLSv1_2** e habilita apenas **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256** , **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** e **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256**.
 
     ```powershell
     $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -PolicyType Custom
@@ -312,7 +312,7 @@ As etapas anteriores levaram você pela criação de um aplicativo com TLS de po
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
 
-2. Defina uma política de TLS. No exemplo a seguir, **TLSv1.0** e **TLSv1.1** estão desabilitadas e os conjuntos de criptografia **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** e **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** são os únicos permitidos.
+2. Defina uma política de TLS. No exemplo a seguir, **TLSv1.0** e **TLSv1.1** estão desabilitadas e os conjuntos de criptografia **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256** , **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** e **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** são os únicos permitidos.
 
    ```powershell
    Set-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
@@ -359,6 +359,6 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para mais informações sobre como otimizar a segurança dos seus aplicativos Web com o Firewall do Aplicativo Web por meio do Gateway de Aplicativo, consulte [Visão geral do Firewall de Aplicativo Web](application-gateway-webapplicationfirewall-overview.md).
+Para mais informações sobre como otimizar a segurança dos seus aplicativos Web com o Firewall do Aplicativo Web por meio do Gateway de Aplicativo, consulte [Visão geral do Firewall de Aplicativo Web](../web-application-firewall/ag/ag-overview.md).
 
 [scenario]: ./media/application-gateway-end-to-end-SSL-powershell/scenario.png

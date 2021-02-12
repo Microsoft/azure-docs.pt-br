@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: bc24d6670cbf0c2ac72c9a1d100467b8724779b3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 426c735dfd0d015cdc1a734edde9d336fb88cfbc
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88682060"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97486823"
 ---
 Como parte dos pré-requisitos deste início rápido, você baixou o código de exemplo para uma pasta. Siga estas etapas para examinar e editar o código de exemplo.
 
@@ -12,11 +12,11 @@ Como parte dos pré-requisitos deste início rápido, você baixou o código de 
 
     O modelo de implantação refere-se ao manifesto de implantação do dispositivo de borda, onde são usadas variáveis para algumas propriedades. O arquivo *.env* inclui os valores dessas variáveis.
 1. Vá até a pasta *src/cloud-to-device-console-app*. Aqui, você vê o arquivo *appsettings.json* e alguns outros arquivos:
-    * ***c2d-console-app.csproj*** – o arquivo de projeto para o Visual Studio Code.
-    * ***operations.json*** – a lista de operações que você deseja que o programa execute.
-    * ***Program.cs*** – o código do programa de exemplo. Esse código:
+    * ***c2d-console-app.csproj** _ – o arquivo de projeto para o Visual Studio Code.
+    _ ***operations.json** _ – a lista de operações que você deseja que o programa execute.
+    _ ***Program.cs** _ – o código do programa de exemplo. Esse código:
 
-        * Carrega as configurações do aplicativo.
+        _ Carrega as configurações do aplicativo.
         * Invoca métodos diretos expostos pelo módulo da Análise Dinâmica de Vídeo no IoT Edge. Use o módulo para analisar fluxos de vídeo ao vivo invocando seus [métodos diretos](../../../direct-methods.md). 
         * Pausa para você examinar a saída do programa na janela **TERMINAL** e os eventos gerados pelo módulo na janela **SAÍDA**.
         * Invoca métodos diretos para limpar recursos.
@@ -24,7 +24,7 @@ Como parte dos pré-requisitos deste início rápido, você baixou o código de 
 1. Edite o arquivo *operations.json*:
     * Altere o link para a topologia do grafo:
 
-        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-motion-files/topology.json"`
+        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-motion-files/2.0/topology.json"`
     * Em `GraphInstanceSet`, edite o nome da topologia de grafo para corresponder ao valor no link anterior:
     
       `"topologyName" : "EVRToFilesOnMotionDetection"`

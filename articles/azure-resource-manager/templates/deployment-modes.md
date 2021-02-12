@@ -3,12 +3,12 @@ title: Modos de implantação
 description: Descreve como especificar se um modo de implantação completo ou incremental deve ser usado com o Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: e584acd4af1dc6adb5f5d383acd5d16da0815f32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45eee255cec06925095ed0696c669b5c205f8b56
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87371576"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724401"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implantação do Azure Resource Manager
 
@@ -29,11 +29,11 @@ Se o seu modelo inclui um recurso que não está implantado porque a [condição
 
 Tenha cuidado ao usar o modo completo com [loops de cópia](copy-resources.md). Todos os recursos que não são especificados no modelo após a resolução do loop de cópia são excluídos.
 
-Se você implantar em [mais de um grupo de recursos em um modelo](cross-scope-deployment.md), os recursos no grupo de recursos especificado na operação de implantação poderão ser excluídos. Os recursos nos grupos de recursos secundários não são excluídos.
+Se você implantar em [mais de um grupo de recursos em um modelo](./deploy-to-resource-group.md), os recursos no grupo de recursos especificado na operação de implantação poderão ser excluídos. Os recursos nos grupos de recursos secundários não são excluídos.
 
 Há algumas diferenças em como os tipos de recursos lidam com exclusões de modo completo. Os recursos pai serão excluídos automaticamente quando não estiverem em um modelo que é implantado no modo completo. Alguns recursos filho não são excluídos automaticamente quando não estão no modelo. No entanto, esses recursos filho serão excluídos se o recurso pai for excluído.
 
-Por exemplo, se seu grupo de recursos contém uma zona DNS (tipo de recurso Microsoft.Network/dnsZones) e um registro CNAME (tipo de recurso Microsoft.Network/dnsZones/CNAME), a zona DNS é o recurso pai para o registro CNAME. Se você implantar com o modo completo e não incluir a zona DNS em seu modelo, a zona DNS e o registro CNAME são ambos excluídos. Se você incluir a zona DNS em seu modelo, mas não incluir o registro CNAME, o CNAME não será excluído.
+Por exemplo, se o grupo de recursos contiver uma zona DNS ( `Microsoft.Network/dnsZones` tipo de recurso) e um registro CNAME ( `Microsoft.Network/dnsZones/CNAME` tipo de recurso), a zona DNS será o recurso pai do registro CNAME. Se você implantar com o modo completo e não incluir a zona DNS em seu modelo, a zona DNS e o registro CNAME são ambos excluídos. Se você incluir a zona DNS em seu modelo, mas não incluir o registro CNAME, o CNAME não será excluído.
 
 Para obter uma lista de como os tipos de recursos tratam a exclusão, confira [Exclusão de recursos do Azure para implantações no modo completo](complete-mode-deletion.md).
 
@@ -113,19 +113,19 @@ O exemplo a seguir mostra um conjunto de modelos vinculados para o modo de impla
 ```json
 "resources": [
   {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2017-05-10",
-      "name": "linkedTemplate",
-      "properties": {
-          "mode": "Incremental",
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2017-05-10",
+    "name": "linkedTemplate",
+    "properties": {
+      "mode": "Incremental",
           <nested-template-or-external-template>
-      }
+    }
   }
 ]
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre como criar modelos do Resource Manager, confira [criação de modelos de Azure Resource Manager](template-syntax.md).
-* Para saber mais sobre como implantar recursos, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](deploy-powershell.md).
+* Para saber mais sobre como criar modelos do Resource Manager, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).
+* Para saber mais sobre a implantação de recursos, consulte [implantar recursos com modelos ARM e Azure PowerShell](deploy-powershell.md).
 * Para exibir as operações para um provedor de recursos, consulte [API REST do Azure](/rest/api/).

@@ -3,17 +3,18 @@ title: Dicas de desempenho para o SDK do Java Assíncrono v2 do Azure Cosmos DB
 description: Saiba mais sobre as opções de configuração do cliente para aprimorar o desempenho de banco de dados do Azure Cosmos para o SDK do Java Assíncrono v2
 author: anfeldma-ms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.custom: devx-track-java
-ms.openlocfilehash: 53171fedac23401b7d696a9e611c53da86b1bb60
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: devx-track-java, contperf-fy21q2
+ms.openlocfilehash: bd009ae4909c8cb016a31323294df3a359eb7c51
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078060"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033656"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Dicas de desempenho para o SDK do Java Assíncrono v2 do Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -27,7 +28,7 @@ ms.locfileid: "93078060"
 
 
 > [!IMPORTANT]  
-> Esse *não* é o SDK de Java mais recente para Azure Cosmos DB! Você deve atualizar seu projeto para [SDK do Java SDK v4 do Azure Cosmos DB](sql-api-sdk-java-v4.md) e, em seguida, ler o [guia de dicas de desempenho](performance-tips-java-sdk-v4-sql.md) do SDK do Java v4 do Azure Cosmos DB. Siga as instruções no guia [Migrar para SDK do Java v4 do Azure Cosmos DB](migrate-java-v4-sdk.md) e o guia [Reator vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) para atualizar. 
+> Esse *não* é o SDK de Java mais recente para Azure Cosmos DB! Você deve atualizar seu projeto para [SDK do Java SDK v4 do Azure Cosmos DB](sql-api-sdk-java-v4.md) e, em seguida, ler o [guia de dicas de desempenho](performance-tips-java-sdk-v4-sql.md) do SDK do Java v4 do Azure Cosmos DB. Siga as instruções no guia [Migrar para SDK do Java v4 do Azure Cosmos DB](migrate-java-v4-sdk.md) e o guia [Reator vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) para atualizar. 
 > 
 > As dicas de desempenho neste artigo são apenas para o SDK do Java Assíncrono v2 do Azure Cosmos DB. Confira as [Notas sobre a versão](sql-api-sdk-async-java.md) do SDK do Java v2 do Azure Cosmos DB, o [repositório do Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb), o [Guia de solução de problemas](troubleshoot-java-async-sdk.md) do SDK do Java Assíncrono v2 do Azure Cosmos DB para saber mais.
 >
@@ -47,7 +48,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
   
   O modo Gateway é compatível com todas as plataformas SDK e é a opção configurada por padrão. Se seus aplicativos são executados em uma rede corporativa com restrições de firewall estritas, o modo de gateway é a melhor opção, pois ele usa a porta HTTPS padrão e um único ponto de extremidade.   No entanto, a compensação de desempenho é que o modo de gateway envolve um salto de rede adicional toda vez que os dados são lidos ou gravados Azure Cosmos DB. Por isso, o modo Direto oferece um melhor desempenho devido a menos saltos de rede.
   
-  O *ConnectionMode* é configurado durante a construção da instância do *DocumentClient* com o parâmetro *ConnectionPolicy* .
+  O *ConnectionMode* é configurado durante a construção da instância do *DocumentClient* com o parâmetro *ConnectionPolicy*.
 
 ### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-connectionpolicy"></a>SDK do Java Assíncrono V2 (Maven com.microsoft.azure::azure-cosmosdb)
 
@@ -87,9 +88,9 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
   * ***Visão geral do modo direto** _
 
-  :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Ilustração da política de conexão do Azure Cosmos DB" border="false":::
+  :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Ilustração da arquitetura do modo direto" border="false":::
   
-  A arquitetura do lado do cliente empregada no modo direto permite a utilização de rede previsível e o acesso multiplexado a réplicas de Azure Cosmos DB. O diagrama acima mostra como o modo direto encaminha solicitações de cliente para réplicas no back-end do Cosmos DB. A arquitetura do modo direto aloca até 10 _ *canais* * no lado do cliente por réplica de BD. Um canal é uma conexão TCP precedida por um buffer de solicitação, que é de 30 solicitações de profundidade. Os canais que pertencem a uma réplica são alocados dinamicamente conforme necessário pelo **ponto de extremidade de serviço** da réplica. Quando o usuário emite uma solicitação no modo direto, o **TransportClient** roteia a solicitação para o ponto de extremidade de serviço apropriado com base na chave de partição. A **Fila de Solicitação** armazena em buffer as solicitações antes do Ponto de Extremidade de Serviço.
+  A arquitetura do lado do cliente empregada no modo direto permite a utilização de rede previsível e o acesso multiplexado a réplicas de Azure Cosmos DB. O diagrama acima mostra como o modo direto encaminha solicitações de cliente para réplicas no back-end do Cosmos DB. A arquitetura do modo direto aloca até 10 _ *canais** no lado do cliente por réplica de BD. Um canal é uma conexão TCP precedida por um buffer de solicitação, que é de 30 solicitações de profundidade. Os canais que pertencem a uma réplica são alocados dinamicamente conforme necessário pelo **ponto de extremidade de serviço** da réplica. Quando o usuário emite uma solicitação no modo direto, o **TransportClient** roteia a solicitação para o ponto de extremidade de serviço apropriado com base na chave de partição. A **Fila de Solicitação** armazena em buffer as solicitações antes do Ponto de Extremidade de Serviço.
 
   * ***Opções de configuração do ConnectionPolicy para o modo direto** _
 
@@ -138,7 +139,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
     É importante observar que as consultas paralelas produzirão os melhores benefícios se os dados forem distribuídos uniformemente em todas as partições com relação à consulta. Se a coleção particionada for particionada de uma forma que todos ou a maioria dos dados retornados por uma consulta ficarem concentrados em algumas partições (uma partição, na pior das hipóteses), o desempenho da consulta seria um gargalo dessas partições.
 
-  _ * **Ajustando \: setMaxBufferedItemCount** _
+  _ ***Ajustando \: setMaxBufferedItemCount** _
     
     A consulta paralela destina-se a buscar previamente resultados enquanto o lote atual de resultados está sendo processado pelo cliente. A busca prévia ajuda a melhorar a latência geral de uma consulta. setMaxBufferedItemCount limita o número de resultados pré-buscados. Definir setMaxBufferedItemCount para o número esperado de resultados retornados (ou um número mais alto) permite que a consulta receba o benefício máximo da busca prévia.
 
@@ -259,7 +260,7 @@ _ **Implementar retirada em intervalos de getRetryAfterInMilliseconds**
     collectionDefinition.setIndexingPolicy(indexingPolicy);
     ```
 
-    Para obter mais informações, consulte [Políticas de indexação do Azure Cosmos DB](/azure/cosmos-db/index-policy).
+    Para obter mais informações, consulte [Políticas de indexação do Azure Cosmos DB](./index-policy.md).
 
 ## <a name="throughput"></a><a id="measure-rus"></a>Produtividade
 

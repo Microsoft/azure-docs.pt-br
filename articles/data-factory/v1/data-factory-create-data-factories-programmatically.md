@@ -3,8 +3,8 @@ title: Criar pipelines de dados usando o SDK do .NET do Azure
 description: Aprenda como criar, monitorar e gerenciar as data factories do Azure programaticamente usando o SDK da Data Factory.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c9dce90b0dc563fb0fa7ecaaa0882167eef444a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0305094d3883fa6fc3254a682f9aa6f3202c9e48
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019888"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555518"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Criar, monitorar e gerenciar data factories do Azure usando o SDK do .NET do Azure Data Factory
 > [!NOTE]
@@ -27,7 +27,7 @@ ms.locfileid: "89019888"
 Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamente usando o SDK do .NET da Data Factory. Este artigo contém uma explicação passo a passo que você pode seguir para criar um aplicativo de console .NET de exemplo que cria e monitora uma Data Factory. 
 
 > [!NOTE]
-> Este artigo não abrange toda a API .NET de Data Factory. Consulte [Referência da API do .NET do Data Factory](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) para obter uma documentação abrangente sobre a API do .NET do de Data Factory. 
+> Este artigo não abrange toda a API .NET de Data Factory. Consulte [Referência da API do .NET do Data Factory](/dotnet/api/overview/azure/data-factory) para obter uma documentação abrangente sobre a API do .NET do de Data Factory. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -93,7 +93,7 @@ Crie um aplicativo do Azure Active Directory, crie uma entidade de serviço para
 9. Obtenha a ID do aplicativo.
 
     ```powershell
-    $azureAdApplication 
+    $azureAdApplication    
     ```
     Anote a ID do aplicativo (IDaplicativo) na saída.
 
@@ -138,7 +138,7 @@ A atividade de cópia realiza a movimentação de dados no Azure Data Factory. A
         </appSettings>
     </configuration>
     ```
-5. No arquivo App.Config, atualize os valores para ** &lt; ID &gt; do aplicativo**, ** &lt; senha &gt; **, ID ** &lt; &gt; da assinatura**e ID ** &lt; &gt; do locatário** com seus próprios valores.
+5. No arquivo App.Config, atualize os valores para **&lt; ID &gt; do aplicativo**, **&lt; senha &gt;**, ID **&lt; &gt; da assinatura** e ID **&lt; &gt; do locatário** com seus próprios valores.
 6. Adicione as seguintes instruções **using** ao arquivo **Program.cs** no projeto.
 
     ```csharp
@@ -221,7 +221,7 @@ A atividade de cópia realiza a movimentação de dados no Azure Data Factory. A
     ```
 9. Adicione o seguinte código que cria **conjuntos de dados de entrada e de saída** para o método **Main**.
 
-    O **FolderPath** para o blob de entrada é definido como **adftutorial/** em que **adftutoria**l é o nome do contêiner no seu armazenamento de blobs. Se esse contêiner não existir em seu armazenamento de blob do Azure, crie um contêiner com o nome **adftutorial** e carregue um arquivo de texto no contêiner.
+    O **FolderPath** para o blob de entrada é definido como **adftutorial/** em que **adftutoria** l é o nome do contêiner no seu armazenamento de blobs. Se esse contêiner não existir em seu armazenamento de blob do Azure, crie um contêiner com o nome **adftutorial** e carregue um arquivo de texto no contêiner.
 
     O FolderPath para o blob de saída é definido como: **adftutorial/apifactoryoutput /{Slice}**, em que a **Slice** é dinamicamente calculada com base no valor de **SliceStart** (data e hora de início de cada fatia).
 
@@ -446,7 +446,7 @@ A atividade de cópia realiza a movimentação de dados no Azure Data Factory. A
     }
     ```
 
-15. No Gerenciador de Soluções, expanda o projeto: **DataFactoryAPITestApp**, clique com o botão direito do mouse em **referências**e clique em **Adicionar referência**. Selecione caixa de seleção para o assembly `System.Configuration` e clique em **OK**.
+15. No Gerenciador de Soluções, expanda o projeto: **DataFactoryAPITestApp**, clique com o botão direito do mouse em **referências** e clique em **Adicionar referência**. Selecione caixa de seleção para o assembly `System.Configuration` e clique em **OK**.
 15. Compile o aplicativo de console. Clique no menu **Compilar** e clique em **Solução de Compilação**.
 16. Confirme se há pelo menos um arquivo no contêiner adftutorial no seu armazenamento de BLOBs do Azure. Caso contrário, crie o arquivo de Emp.txt no bloco de notas com o seguinte conteúdo e carregue-o no contêiner adftutorial.
 

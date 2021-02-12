@@ -1,19 +1,19 @@
 ---
 title: Solução VMware do Azure-encaminhamento de DNS da nuvem privada para o local
 description: Descreve como habilitar o servidor DNS da nuvem privada do CloudSimple para encaminhar a pesquisa de recursos locais
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 02/29/2020
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3571455db6ecc600bf0948087b40c281d72512ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3481e21a93fbf5f658c5ca00513ea179c8f95400
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87091242"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899194"
 ---
 # <a name="enable-cloudsimple-private-cloud-dns-servers-to-forward-dns-lookup-of-on-premises-resources-to-your-dns-servers"></a>Habilitar servidores DNS da nuvem privada do CloudSimple para encaminhar a pesquisa DNS de recursos locais para seus servidores DNS
 

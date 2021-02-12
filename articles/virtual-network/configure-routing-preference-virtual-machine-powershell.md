@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/18/2020
+ms.date: 12/01/2020
 ms.author: mnayak
-ms.openlocfilehash: 2002e4a11a2accbbc639c200372c393b8dc2f228
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cdd86984e5594d330f0080ee5f4cf0e9a8374652
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84707524"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223536"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-azure-powershell"></a>Configurar a preferência de roteamento de uma VM usando o Azure PowerShell
 
@@ -28,12 +28,6 @@ Este artigo mostra como criar uma máquina virtual com um IP público definido p
 > [!IMPORTANT]
 > A preferência de roteamento está atualmente em versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## <a name="register-the-feature-for-your-subscription"></a>Registrar recurso para sua assinatura
-O recurso Preferência de Roteamento está atualmente na versão prévia. Registrar recurso para sua assinatura como a seguir:
-```azurepowershell
-Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature -ProviderNamespace Microsoft.Network
-```
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 1. Se usar o Cloud Shell, vá para a etapa 2. Abra uma sessão de comando e entre no Azure com `Connect-AzAccount`.
@@ -156,5 +150,5 @@ Quando não forem mais necessários, você poderá usar o comando [Remove-AzReso
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre a [preferência de roteamento em endereços IP públicos](routing-preference-overview.md).
-* Saiba mais sobre os [endereços IP públicos](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) no Azure.
+* Saiba mais sobre os [endereços IP públicos](./public-ip-addresses.md#public-ip-addresses) no Azure.
 * Saiba mais sobre as [configurações de endereço IP público](virtual-network-public-ip-address.md#create-a-public-ip-address).

@@ -7,19 +7,19 @@ author: bwren
 ms.author: bwren
 ms.date: 05/16/2018
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: abfac23ad37d750a6d7ef84e5dec2559904ebb1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 196a1d580bd5888a6604c3f98b108e39c08a3412
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87496297"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945028"
 ---
 # <a name="azure-monitor-cli-samples"></a>Exemplos de CLI do Azure Monitor
 Este artigo mostra um exemplo de CLI (interface de linha de comando) que ajudará você a acessar os recursos do Azure Monitor. O Azure Monitor permite que você dimensione automaticamente Serviços de Nuvem, Máquinas Virtuais e Aplicativos Web e envie notificações de alerta ou chame URLs da Web com base em valores de dados de telemetria configurados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se você ainda não instalou a CLI do Azure, siga as instruções para [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Você também pode usar o [Azure Cloud Shell](/azure/cloud-shell) para executar a CLI como uma experiência interativa no navegador. Veja uma referência completa de todos os comandos disponíveis na [referência da CLI do Azure Monitor](/cli/azure/monitor?view=azure-cli-latest). 
+Se você ainda não instalou a CLI do Azure, siga as instruções para [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Você também pode usar o [Azure Cloud Shell](/azure/cloud-shell) para executar a CLI como uma experiência interativa no navegador. Veja uma referência completa de todos os comandos disponíveis na [referência da CLI do Azure Monitor](/cli/azure/monitor). 
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 A primeira etapa é fazer logon na conta do Azure.

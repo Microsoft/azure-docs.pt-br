@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d8ec8eec28d66cf93608393ddca45f78460d831
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7454733233f1fd487d774d52a6f46187354ae05c
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279764"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246699"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect Sync: referência de funções
 No Azure Active Directory Sync, as funções são usadas para manipular um valor de atributo durante a sincronização.  
@@ -125,7 +125,7 @@ As funções com os tipos **mvbin**, **mvstr** e **mvref** funcionam somente nos
   * [IIF](#iif)
   * [Selecionar](#select)
   * [Switch](#switch)
-  * [Onde](#where)
+  * [Where](#where)
   * [Por](#with)
 * **Text**
   * [GUID](#guid)
@@ -509,7 +509,7 @@ Converte o valor de uma matriz de inteiros em sua representação equivalente de
  retorna 48656C6C6F20776F726C6421
 
 ---
-### <a name="count"></a>Count
+### <a name="count"></a>Contagem
 **Descrição:**  
  a função Count retorna o número de elementos em um atributo de valores múltiplos
 
@@ -625,7 +625,7 @@ Se dn for "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com" então
  ambos retornam US.
 
 ---
-### <a name="error"></a>Erro do
+### <a name="error"></a>Erro
 **Descrição:**  
  a função Error é usada para retornar um erro personalizado.
 
@@ -664,7 +664,7 @@ Os valores possíveis para o formato podem ser encontrados aqui: [formatos de da
 
 **Exemplo:**  
 
-`FormatDateTime(CDate("12/25/2007"),"yyyy-mm-dd")`  
+`FormatDateTime(CDate("12/25/2007"),"yyyy-MM-dd")`  
  resulta em "25/12/2007".
 
 `FormatDateTime(DateFromNum([pwdLastSet]),"yyyyMMddHHmmss.0Z")`  
@@ -703,7 +703,7 @@ A função GUID gera um novo GUID aleatório
 
 `num InStr(str stringcheck, str stringmatch)`  
 `num InStr(str stringcheck, str stringmatch, num start)`  
-`num InStr(str stringcheck, str stringmatch, num start , enum compare)`
+`num InStr(str stringcheck, str stringmatch, num start, enum compare)`
 
 * stringcheck: cadeia de caracteres a ser pesquisada
 * stringmatch: cadeia de caracteres a ser localizada

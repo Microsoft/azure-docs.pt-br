@@ -3,16 +3,17 @@ title: IS_PRIMITIVE na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função do sistema SQL IS_PRIMITIVE no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 2d4ff33ee6bfd1707b84a3e0065da7252056b29d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6006a56fd9a8ed6bcb323aebb4e075fa42a2966e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095740"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341868"
 ---
 # <a name="is_primitive-azure-cosmos-db"></a>IS_PRIMITIVE (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

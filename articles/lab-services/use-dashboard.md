@@ -3,17 +3,17 @@ title: Use o painel para um laboratório de sala de aula no Azure Lab Services |
 description: Saiba como usar o painel para um laboratório de sala de aula no Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 607a3e7faaae65adb67afc0ab0ffd5698adf4655
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a91e1649d913956219ddcf192ab315a245b32eae
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90528254"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434593"
 ---
-# <a name="dashboard-for-classroom-labs"></a>Painel para laboratórios de sala de aula
+# <a name="dashboard-for-labs"></a>Painel para laboratórios
 Este artigo descreve a exibição de painel de um laboratório de sala de aula no Azure Lab Services. 
 
-![A tela capature mostra a exibição de painel de um laboratório de sala de aula no Azure Lab Services.](./media/use-dashboard/dashboard.png)
+![Captura de tela mostra a exibição de painel de um laboratório de sala de aula no Azure Lab Services](./media/use-dashboard/dashboard.png)
 
 ## <a name="costs-and-billing-tile"></a>Bloco de custos e cobrança
 Este bloco fornece os seguintes detalhes de estimativa de custo:

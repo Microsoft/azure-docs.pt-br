@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 3097f7b0b6b69dc470877d4951efbcbd3c7482b1
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c0c7a6b25c15be2e521e0985c315baf819650aa5
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078486"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491749"
 ---
 # <a name="api-management-transformation-policies"></a>Políticas de transformação de Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](./api-management-policies.md).
@@ -75,7 +75,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 ### <a name="attributes"></a>Atributos
 
-|Name|Descrição|Obrigatório|Padrão|
+|Nome|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
 |aplicar|O atributo deve ser definido como um dos valores a seguir.<br /><br /> –  always – sempre aplicar conversão.<br />–  content-type-json – converter somente se o cabeçalho Content-Type da resposta indica a presença de JSON.|Sim|N/D|
 |consider-accept-header|O atributo deve ser definido como um dos valores a seguir.<br /><br /> –  true – aplica conversão se XML é solicitado no cabeçalho Accept da solicitação.<br />–  false – sempre aplicar conversão.|Não|true|
@@ -119,7 +119,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 ### <a name="attributes"></a>Atributos
 
-|Name|Descrição|Obrigatório|Padrão|
+|Nome|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
 |kind|O atributo deve ser definido como um dos valores a seguir.<br /><br /> – javascript-friendly – o JSON convertido tem um formato amigável para desenvolvedores de JavaScript.<br />– direct – o JSON convertido reflete a estrutura do documento XML original.|Sim|N/D|
 |aplicar|O atributo deve ser definido como um dos valores a seguir.<br /><br /> – always – converter sempre.<br />–  content-type-xml – converter somente se o cabeçalho Content-Type da resposta indica a presença de XML.|Sim|N/D|
@@ -155,10 +155,10 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 ### <a name="attributes"></a>Atributos
 
-|Name|Descrição|Obrigatório|Padrão|
+|Nome|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
 |de|A cadeia de caracteres a ser pesquisada.|Sim|N/D|
-|para|A cadeia de caracteres substituta. Especifique uma cadeia de substituição de comprimento zero para remover a cadeia de caracteres de pesquisa.|Sim|N/D|
+|como|A cadeia de caracteres substituta. Especifique uma cadeia de substituição de comprimento zero para remover a cadeia de caracteres de pesquisa.|Sim|N/D|
 
 ### <a name="usage"></a>Uso
  Essa política pode ser usada nas [seções](./api-management-howto-policies.md#sections) e nos [escopos](./api-management-howto-policies.md#scopes) da política a seguir.
@@ -214,7 +214,7 @@ ou
 ```
 
 > [!NOTE]
-> Entidades de back-end podem ser gerenciadas por meio da [API](/rest/api/apimanagement/2019-12-01/backend) de gerenciamento e do [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+> As entidades de back-end podem ser gerenciadas por meio de [portal do Azure](how-to-configure-service-fabric-backend.md), [API](/rest/api/apimanagement)de gerenciamento e [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
 
 ### <a name="example"></a>Exemplo
 
@@ -266,10 +266,10 @@ Neste exemplo, a política encaminha a solicitação para um back-end de Service
 
 ### <a name="attributes"></a>Atributos
 
-|Name|Descrição|Obrigatório|Padrão|
+|Nome|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
 |base-url|Nova URL base do serviço de back-end.|Um `base-url` ou `backend-id` deve estar presente.|N/D|
-|backend-id|Identificador do back-end para o qual encaminhar. (As entidades de back-end são gerenciadas por meio da [API](/rest/api/apimanagement/2019-12-01/backend) e do [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|Um `base-url` ou `backend-id` deve estar presente.|N/D|
+|backend-id|Identificador do back-end para o qual encaminhar. (As entidades de back-end são gerenciadas por meio de [portal do Azure](how-to-configure-service-fabric-backend.md), [API](/rest/api/apimanagement)e [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|Um `base-url` ou `backend-id` deve estar presente.|N/D|
 |sf-partition-key|Aplicável somente quando o back-end é um serviço do Service Fabric e é especificado usando 'backend-id'. Usado para resolver uma partição específica do serviço de resolução de nome.|Não|N/D|
 |sf-replica-type|Aplicável somente quando o back-end é um serviço do Service Fabric e é especificado usando 'backend-id'. Controla se a solicitação deve ir para a réplica primária ou secundária de uma partição. |Não|N/D|
 |sf-resolve-condition|Aplicável somente quando o back-end é um serviço do Service Fabric. Condição que identifica se a chamada para o back-end do Service Fabric deve ser repetida com a nova resolução.|Não|N/D|
@@ -316,12 +316,12 @@ Neste exemplo, a política encaminha a solicitação para um back-end de Service
 
 ```xml
 <set-body>
-@{ 
-    string inBody = context.Request.Body.As<string>(preserveContent: true); 
-    if (inBody[0] =='c') { 
-        inBody[0] = 'm'; 
-    } 
-    return inBody; 
+@{ 
+    string inBody = context.Request.Body.As<string>(preserveContent: true); 
+    if (inBody[0] =='c') { 
+        inBody[0] = 'm'; 
+    } 
+    return inBody; 
 }
 </set-body>
 ```
@@ -329,14 +329,14 @@ Neste exemplo, a política encaminha a solicitação para um back-end de Service
 #### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accessing-it-later-in-the-pipeline-will-result-in-an-exception"></a>Exemplo de acesso ao corpo como um JObject. Observe que, como não estamos reservando o corpo da solicitação original, acessá-lo mais tarde no pipeline resultará em uma exceção.
 
 ```xml
-<set-body> 
-@{ 
-    JObject inBody = context.Request.Body.As<JObject>(); 
-    if (inBody.attribute == <tag>) { 
-        inBody[0] = 'm'; 
-    } 
-    return inBody.ToString(); 
-} 
+<set-body> 
+@{ 
+    JObject inBody = context.Request.Body.As<JObject>(); 
+    if (inBody.attribute == <tag>) { 
+        inBody[0] = 'm'; 
+    } 
+    return inBody.ToString(); 
+} 
 </set-body>
 
 ```
@@ -513,7 +513,7 @@ OriginalUrl.
 |Nome|Descrição|Obrigatório|
 |----------|-----------------|--------------|
 |set-header|Elemento raiz.|Sim|
-|value|Especifica o valor do cabeçalho a ser definido. Para adicionar vários cabeçalhos com o mesmo nome, adicione elementos `value` adicionais.|Não|
+|valor|Especifica o valor do cabeçalho a ser definido. Para adicionar vários cabeçalhos com o mesmo nome, adicione elementos `value` adicionais.|Não|
 
 ### <a name="properties"></a>Propriedades
 
@@ -568,7 +568,7 @@ OriginalUrl.
 |Nome|Descrição|Obrigatório|
 |----------|-----------------|--------------|
 |set-query-parameter|Elemento raiz.|Sim|
-|value|Especifica o valor do parâmetro de consulta a ser definido. Para adicionar vários parâmetros de consulta com o mesmo nome, adicione elementos `value` adicionais.|Sim|
+|valor|Especifica o valor do parâmetro de consulta a ser definido. Para adicionar vários parâmetros de consulta com o mesmo nome, adicione elementos `value` adicionais.|Sim|
 
 ### <a name="properties"></a>Propriedades
 
@@ -697,7 +697,7 @@ OriginalUrl.
   <outbound>
       <base />
       <xsl-transform>
-        <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+          <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
             <xsl:output omit-xml-declaration="yes" method="xml" indent="yes" />
             <!-- Copy all nodes directly-->
             <xsl:template match="node()| @*|*">
@@ -705,7 +705,7 @@ OriginalUrl.
                     <xsl:apply-templates select="@* | node()|*" />
                 </xsl:copy>
             </xsl:template>
-        </xsl:stylesheet>
+          </xsl:stylesheet>
     </xsl-transform>
   </outbound>
 </policies>
@@ -728,7 +728,7 @@ OriginalUrl.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações, consulte estes tópicos:
+Para mais informações, consulte os seguintes tópicos:
 
 + [Políticas no Gerenciamento de API](api-management-howto-policies.md)
 + [Referência de Política](./api-management-policies.md) para uma lista completa das instruções de política e suas configurações

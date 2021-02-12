@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 888e2287c869200434e198204881d5bd5014f87d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fcc482e215e646fec20516f35641bd05398d2f2d
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363854"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928708"
 ---
 # <a name="manage-azure-ad-b2c-custom-policies-with-azure-powershell"></a>Gerenciar Azure AD B2C políticas personalizadas com Azure PowerShell
 
@@ -31,7 +31,7 @@ Azure PowerShell fornece vários cmdlets para o gerenciamento de políticas pers
 
 * [Azure ad B2C locatário](tutorial-create-tenant.md)e credenciais para um usuário no diretório com a função de [administrador da política IEF B2C](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)
 * [Políticas personalizadas](custom-policy-get-started.md) carregadas para seu locatário
-* [**Módulo de visualização** do PowerShell do Azure ad para Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
+* [**Módulo de visualização** do PowerShell do Azure ad para Graph](/powershell/azure/active-directory/install-adv2)
 
 ## <a name="connect-powershell-session-to-b2c-tenant"></a>Conectar sessão do PowerShell ao locatário B2C
 
@@ -191,15 +191,15 @@ Message: Validation failed: 1 validation error(s) found in policy "B2C_1A_SIGNUP
 ...
 ```
 
-Para obter informações sobre como solucionar problemas de políticas personalizadas, consulte [solucionar problemas Azure ad B2C políticas personalizadas e estrutura de experiência de identidade](active-directory-b2c-guide-troubleshooting-custom.md).
+Para obter informações sobre como solucionar problemas de políticas personalizadas, consulte [solucionar problemas Azure ad B2C políticas personalizadas e estrutura de experiência de identidade](./troubleshoot-custom-policies.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para obter informações sobre como usar o PowerShell para implantar políticas personalizadas como parte de um pipeline de CI/CD (integração contínua/entrega contínua), consulte [implantar políticas personalizadas de um pipeline de DevOps do Azure](deploy-custom-policies-devops.md).
 
 <!-- LINKS - External -->
-[Connect-AzureAD]: https://docs.microsoft.com/powershell/module/azuread/get-azureadmstrustframeworkpolicy
-[Get-AzureADMSTrustFrameworkPolicy]: https://docs.microsoft.com/powershell/module/azuread/get-azureadmstrustframeworkpolicy
-[New-AzureADMSTrustFrameworkPolicy]: https://docs.microsoft.com/powershell/module/azuread/new-azureadmstrustframeworkpolicy
-[Remove-AzureADMSTrustFrameworkPolicy]: https://docs.microsoft.com/powershell/module/azuread/remove-azureadmstrustframeworkpolicy
-[Set-AzureADMSTrustFrameworkPolicy]: https://docs.microsoft.com/powershell/module/azuread/set-azureadmstrustframeworkpolicy
+[Connect-AzureAD]: /powershell/module/azuread/get-azureadmstrustframeworkpolicy
+[Get-AzureADMSTrustFrameworkPolicy]: /powershell/module/azuread/get-azureadmstrustframeworkpolicy
+[New-AzureADMSTrustFrameworkPolicy]: /powershell/module/azuread/new-azureadmstrustframeworkpolicy
+[Remove-AzureADMSTrustFrameworkPolicy]: /powershell/module/azuread/remove-azureadmstrustframeworkpolicy
+[Set-AzureADMSTrustFrameworkPolicy]: /powershell/module/azuread/set-azureadmstrustframeworkpolicy

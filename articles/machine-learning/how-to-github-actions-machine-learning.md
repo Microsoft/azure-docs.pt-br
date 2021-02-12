@@ -1,5 +1,5 @@
 ---
-title: Ações do GitHub para CI/CD
+title: GitHub Actions para CI/CD
 titleSuffix: Azure Machine Learning
 description: Saiba mais sobre como criar um fluxo de trabalho de ações do GitHub para treinar um modelo no Azure Machine Learning
 services: machine-learning
@@ -10,16 +10,16 @@ ms.author: jukullam
 ms.date: 10/19/2020
 ms.topic: conceptual
 ms.custom: github-actions-azure
-ms.openlocfilehash: 4336827dc7f8cb45f04e4cef94d79d1e6409d5c0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f5abeee3b1e1e44f5ce0423fc7f8170644d74508
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795083"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880467"
 ---
-# <a name="use-github-actions-with-azure-machine-learning"></a>Usar ações do GitHub com Azure Machine Learning
+# <a name="use-github-actions-with-azure-machine-learning"></a>Usar GitHub Actions com o Azure Machine Learning
 
-Introdução às [ações do GitHub](https://help.github.com/en/articles/about-github-actions) para treinar um modelo em Azure Machine Learning. 
+Introdução às [ações do GitHub](https://docs.github.com/en/actions) para treinar um modelo em Azure Machine Learning. 
 
 > [!NOTE]
 > As ações do GitHub para Azure Machine Learning são fornecidas no estado em que se encontram e não têm suporte total da Microsoft. Se você encontrar problemas com uma ação específica, abra um problema no repositório para a ação. Por exemplo, se você encontrar um problema com a ação AML-Deploy, relate o problema no [https://github.com/Azure/aml-deploy]( https://github.com/Azure/aml-deploy) repositório.
@@ -27,7 +27,7 @@ Introdução às [ações do GitHub](https://help.github.com/en/articles/about-g
 ## <a name="prerequisites"></a>Pré-requisitos 
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Uma conta do GitHub. Se você não tiver uma, Inscreva-se [gratuitamente](https://github.com/join).  
+- Uma conta do GitHub. Caso ainda não tenha uma, inscreva-se [gratuitamente](https://github.com/join).  
 
 ## <a name="workflow-file-overview"></a>Visão geral do arquivo do fluxo de trabalho
 
@@ -47,7 +47,7 @@ O arquivo tem quatro seções:
 Crie um novo repositório fora das [operações do ml com ações do GitHub e Azure Machine Learning modelo](https://github.com/machine-learning-apps/ml-template-azure). 
 
 1. Abra o [modelo](https://github.com/machine-learning-apps/ml-template-azure) no github. 
-2. Selecione **Usar este modelo** . 
+2. Selecione **Usar este modelo**. 
 
     :::image type="content" source="media/how-to-github-actions-machine-learning/gh-actions-use-template.png" alt-text="Selecione usar este modelo":::
 3. Crie um novo repositório a partir do modelo. Defina o nome do repositório como `ml-learning` ou como um nome de sua escolha. 
@@ -55,7 +55,7 @@ Crie um novo repositório fora das [operações do ml com ações do GitHub e Az
 
 ## <a name="generate-deployment-credentials"></a>Gerar as credenciais de implantação
 
-Crie uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) na [CLI do Azure](/cli/azure/). Execute esse comando com o [Azure Cloud Shell](https://shell.azure.com/) no portal do Azure ou selecionando o botão **Experimentar** .
+Crie uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) na [CLI do Azure](/cli/azure/). Execute esse comando com o [Azure Cloud Shell](https://shell.azure.com/) no portal do Azure ou selecionando o botão **Experimentar**.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myML" --role contributor \
@@ -63,7 +63,7 @@ az ad sp create-for-rbac --name "myML" --role contributor \
                             --sdk-auth
 ```
 
-No exemplo acima, substitua os espaços reservados pela sua ID de assinatura, pelo nome do grupo de recursos e pelo nome do aplicativo. A saída é um objeto JSON com as credenciais de atribuição de função que fornecem acesso ao seu aplicativo do serviço de aplicativo semelhante ao mostrado abaixo. Copie este objeto JSON para mais tarde.
+No exemplo acima, substitua os espaços reservados pela sua ID de assinatura, pelo nome do grupo de recursos e pelo nome do aplicativo. A saída é um objeto JSON com as credenciais de atribuição de função que fornecem acesso ao aplicativo do Serviço de Aplicativo semelhante ao mostrado abaixo. Copie esse objeto JSON para uso posterior.
 
 ```output 
   {
@@ -77,7 +77,7 @@ No exemplo acima, substitua os espaços reservados pela sua ID de assinatura, pe
 
 ## <a name="configure-the-github-secret"></a>Configurar o segredo do GitHub
 
-1. No [GitHub](https://github.com/), procure seu repositório, selecione **configurações > segredos > adicionar um novo segredo** .
+1. No [GitHub](https://github.com/), procure seu repositório, selecione **configurações > segredos > adicionar um novo segredo**.
 
 2. Cole toda a saída JSON do comando da CLI do Azure no campo valor do segredo. Dê ao segredo o nome `AZURE_CREDENTIALS`.
 
@@ -228,4 +228,4 @@ Quando o grupo de recursos e o repositório não forem mais necessários, limpe 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Crie e execute pipelines de machine learning com o SDK do Azure Machine Learning](how-to-create-your-first-pipeline.md)
+> [Crie e execute pipelines de machine learning com o SDK do Azure Machine Learning](./how-to-create-machine-learning-pipelines.md)

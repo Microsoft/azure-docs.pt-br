@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 06/22/2017
 ms.author: cynthn
 ms.custom: devx-track-python
-ms.openlocfilehash: 402a61b4b5335c19d75cd1182243783453a0e7fa
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d99f9326b3113742fdc0c14a4ae39d552df47edd
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974848"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730149"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Criar e gerenciar VMs Windows no Azure usando Python
 
-Uma [VM (Máquina Virtual) do Azure](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) precisa de vários recursos do Azure suporte. Este artigo aborda a criação, o gerenciamento e a exclusão de recursos da VM usando Python. Você aprenderá como:
+Uma [VM (Máquina Virtual) do Azure](overview.md) precisa de vários recursos do Azure suporte. Este artigo aborda a criação, o gerenciamento e a exclusão de recursos da VM usando Python. Você aprenderá como:
 
 > [!div class="checklist"]
 > * Criar um projeto do Visual Studio
@@ -342,7 +342,7 @@ Agora que você criou todos os recursos de suporte, você pode criar uma máquin
     ```
 
     > [!NOTE]
-    > Este tutorial cria uma máquina virtual executando uma versão do sistema operacional do Windows Server. Para saber mais sobre a seleção de outras imagens, veja [Navegar e selecionar imagens de máquina virtual do Azure com o Windows PowerShell e a CLI do Azure](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    > Este tutorial cria uma máquina virtual executando uma versão do sistema operacional do Windows Server. Para saber mais sobre a seleção de outras imagens, veja [Navegar e selecionar imagens de máquina virtual do Azure com o Windows PowerShell e a CLI do Azure](../linux/cli-ps-findimage.md).
     > 
     > 
 
@@ -492,7 +492,7 @@ Muitos aspectos da implantação devem ser considerados ao decidir sobre um tama
 
 ### <a name="add-a-data-disk-to-the-vm"></a>Adicionar um disco de dados à VM
 
-Máquinas virtuais podem ter um ou mais [discos de dados](../managed-disks-overview.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) que são armazenados como VHDs.
+Máquinas virtuais podem ter um ou mais [discos de dados](../managed-disks-overview.md) que são armazenados como VHDs.
 
 1. Para adicionar um disco de dados à máquina virtual, adicione essa função após as variáveis no arquivo .py: 
 
@@ -567,4 +567,4 @@ Como você é cobrado pelos recursos usados no Azure, sempre é uma boa prática
 ## <a name="next-steps"></a>Próximas etapas
 
 - Se houver problemas com a implantação, uma próxima etapa será examinar [Solucionando problemas de implantações do grupo de recursos com o portal do Azure](../../azure-resource-manager/templates/deployment-history.md)
-- Saiba mais sobre a [Biblioteca do Python do Azure](/python/api/overview/azure/?view=azure-python)
+- Saiba mais sobre a [Biblioteca do Python do Azure](/python/api/overview/azure/)

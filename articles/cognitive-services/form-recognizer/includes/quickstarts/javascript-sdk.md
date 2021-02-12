@@ -7,27 +7,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 09/21/2020
+ms.date: 10/26/2020
 ms.author: pafarley
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 5e5d7c48508cc13d2ad36906df7d31c8926c75f1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a4d29dfb2a57dde2bb21244b2e5335f1a8ea1fcf
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963020"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948046"
 ---
 > [!IMPORTANT]
-> * No momento, o SDK do Reconhecimento de Formulários direciona a v2.0 do serviço de Reconhecimento de Formulários.
 > * O código neste artigo usa métodos síncronos e armazenamento de credenciais não seguras por motivos de simplicidade. Confira a documentação de referência abaixo. 
 
-[Documentação de referência](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/) | [Pacote (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [Exemplos](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
+[Documentação de referência](../../index.yml) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/) | [Pacote (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [Exemplos](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
-* Um blob do Armazenamento do Azure contendo um conjunto de dados de treinamento. Confira [Criar um conjunto de dados de treinamento para um modelo personalizado](../../build-training-data-set.md) para obter dicas e opções para compilar o conjunto de dados de treinamento. Para este guia de início rápido, você pode usar os arquivos na pasta **Train** do [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451) (baixe e extraia o *sample_data.zip*).
 * A versão atual do [Node.js](https://nodejs.org/)
+* Um blob do Armazenamento do Azure contendo um conjunto de dados de treinamento. Confira [Criar um conjunto de dados de treinamento para um modelo personalizado](../../build-training-data-set.md) para obter dicas e opções para compilar o conjunto de dados de treinamento. Para este guia de início rápido, você pode usar os arquivos na pasta **Train** do [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451) (baixe e extraia o *sample_data.zip*).
 * Depois de ter sua assinatura do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Criar um recurso do Reconhecimento de Formulários"  target="_blank">crie um Reconhecimento de Formulários <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter a chave e o ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
     * Você precisará da chave e do ponto de extremidade do recurso criado para conectar seu aplicativo à API do Reconhecimento de Formulários. Cole a chave e o ponto de extremidade no código abaixo mais adiante no guia de início rápido.
     * Use o tipo de preço gratuito (`F0`) para experimentar o serviço e atualizar mais tarde para um nível pago para produção.
@@ -48,13 +47,6 @@ Execute o comando `npm init` para criar um aplicativo do Node com um arquivo `pa
 npm init
 ```
 
-Crie um arquivo chamado `index.js`, abra-o e importe as seguintes bibliotecas:
-
-```javascript
-const { FormRecognizerClient, FormTrainingClient, AzureKeyCredential } = require("@azure/ai-form-recognizer");
-const fs = require("fs");
-```
-
 ### <a name="install-the-client-library"></a>Instalar a biblioteca de clientes
 
 Instale o pacote NPM do `ai-form-recognizer`:
@@ -64,6 +56,23 @@ npm install @azure/ai-form-recognizer
 ```
 
 O arquivo `package.json` do seu aplicativo será atualizado com as dependências.
+
+Crie um arquivo chamado `index.js`, abra-o e importe as seguintes bibliotecas:
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_imports)]
+
+
+> [!TIP]
+> Deseja exibir todo o arquivo de código do início rápido de uma vez? Você pode encontrá-lo no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/FormRecognizerQuickstart.js), que contém os exemplos de código neste início rápido.
+
+Crie variáveis para a chave e o ponto de extremidade do Azure do recurso. 
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_creds)]
+
+> [!IMPORTANT]
+> Acesse o portal do Azure. Se o recurso do Reconhecimento de Formulários que você criou na seção **Pré-requisitos** tiver sido implantado com êxito, clique no botão **Ir para o Recurso** em **Próximas etapas**. Encontre a chave e o ponto de extremidade na página da **chave e do ponto de extremidade** do recurso, em **gerenciamento de recursos**. 
+>
+> Lembre-se de remover a chave do seu código quando terminar e nunca poste-a publicamente. Para produção, considere o uso de uma maneira segura de armazenar e acessar suas credenciais. Confira o artigo [segurança](../../../cognitive-services-security.md) de Serviços Cognitivos para obter mais informações.
 
 ## <a name="object-model"></a>Modelo de objeto 
 
@@ -85,7 +94,7 @@ Com o Reconhecimento de Formulários, você pode criar dois tipos diferentes de 
 * Copiar um modelo personalizado de um recurso de Reconhecimento de Formulários para outro.
 
 > [!NOTE]
-> Os modelos também podem ser treinados usando uma interface gráfica do usuário, como a [Ferramenta de Rotulagem do Reconhecimento de Formulários](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool).
+> Os modelos também podem ser treinados usando uma interface gráfica do usuário, como a [Ferramenta de Rotulagem do Reconhecimento de Formulários](../../quickstarts/label-tool.md).
 
 
 ## <a name="code-examples"></a>Exemplos de código
@@ -93,70 +102,39 @@ Com o Reconhecimento de Formulários, você pode criar dois tipos diferentes de 
 Estes snippets de códigos mostram como executar as seguintes tarefas com a biblioteca de clientes do Reconhecimento de Formulários para JavaScript:
 
 * [Autenticar o cliente](#authenticate-the-client)
-* [Reconhecer o conteúdo do formulário](#recognize-form-content)
-* [Reconhecer recibos](#recognize-receipts)
+* [Analisar layout](#analyze-layout)
+* [Analisar recibos](#analyze-receipts)
 * [Treinar um modelo personalizado](#train-a-custom-model)
 * [Analisar formulários com um modelo personalizado](#analyze-forms-with-a-custom-model)
 * [Gerenciar seus modelos personalizados](#manage-your-custom-models)
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-Em seu aplicativo, crie variáveis para a chave e o ponto de extremidade do Azure do recurso. 
 
-```javascript
-// You will need to set these environment variables or edit the following values
-const endpoint = "<paste-your-form-recognizer-endpoint-here>";
-const apiKey = "<paste-your-form-recognizer-key-here>";
-```
 
-Em seguida, autentique um objeto de cliente usando as variáveis de assinatura definidas. Você usará um objeto `AzureKeyCredential`, para, se necessário, atualizar a chave de API sem criar objetos de cliente. Você também criará um objeto de cliente de treinamento.
+Autentique um objeto de cliente usando as variáveis de assinatura definidas. Você usará um objeto `AzureKeyCredential`, para, se necessário, atualizar a chave de API sem criar objetos de cliente. Você também criará um objeto de cliente de treinamento.
 
-```javascript
-const trainingClient = new FormTrainingClient(endpoint, new AzureKeyCredential(apiKey));
-const client = new FormRecognizerClient(endpoint, new AzureKeyCredential(apiKey));
-```
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_auth)]
+
 
 ## <a name="get-assets-for-testing"></a>Obter ativos para teste
 
-Os snippets de código deste guia usam formulários remotos acessados por URLs. Caso deseje processar documentos de formulário local, confira os métodos relacionados na [documentação de referência](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer) e nas [amostras](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
-
 Você também precisará adicionar referências às URLs para os dados de treinamento e teste.
-* Para recuperar a URL de SAS para os dados de treinamento do modelo personalizado, abra o Gerenciador de Armazenamento do Microsoft Azure, clique com o botão direito do mouse no contêiner e selecione **Obter Assinatura de Acesso Compartilhado**. Verifique se as permissões de **Leitura** e **Lista** estão marcadas e clique em **Criar**. Em seguida, copie o valor na seção **URL**. Deve ter o formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
-* Use as imagens de exemplo e de recibo incluídas nos exemplos abaixo (também disponíveis no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms) ou use as etapas acima para obter a URL SAS de um documento individual no Armazenamento de Blobs. 
+* [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
+   
+   :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="Recuperação da URL SAS":::
+* Use as imagens de exemplo e de recibo incluídas nos exemplos abaixo (também disponíveis no [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/test-assets)) ou use as etapas acima para obter a URL SAS de um documento individual no armazenamento de blobs. 
 
-> [!NOTE]
-> Os snippets de código deste guia usam formulários remotos acessados por URLs. Caso deseje processar documentos de formulário local, confira os métodos relacionados na [documentação de referência](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/).
 
-## <a name="recognize-form-content"></a>Reconhecer o conteúdo do formulário
+## <a name="analyze-layout"></a>Analisar layout
 
 Use o Reconhecimento de Formulários para reconhecer tabelas, linhas e palavras em documentos, sem a necessidade de treinar um modelo. Para reconhecer o conteúdo de um arquivo em um URI especificado, use o método `beginRecognizeContentFromUrl`.
 
-```javascript
-async function recognizeContent() {
-    const formUrl = "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/tests/sample_forms/forms/Invoice_1.pdf";
-    const poller = await client.beginRecognizeContentFromUrl(formUrl);
-    const pages = await poller.pollUntilDone();
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_getcontent)]
 
-    if (!pages || pages.length === 0) {
-        throw new Error("Expecting non-empty list of pages!");
-    }
 
-    for (const page of pages) {
-        console.log(
-            `Page ${page.pageNumber}: width ${page.width} and height ${page.height} with unit ${page.unit}`
-        );
-        for (const table of page.tables) {
-            for (const cell of table.cells) {
-                console.log(`cell [${cell.rowIndex},${cell.columnIndex}] has text ${cell.text}`);
-            }
-        }
-    }
-}
-
-recognizeContent().catch((err) => {
-    console.error("The sample encountered an error:", err);
-});
-```
+> [!TIP]
+> Você também pode obter o conteúdo em um arquivo local. Confira os métodos de [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient), como **beginRecognizeContent**. Ou veja o código de exemplo no [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para obter cenários que envolvam imagens locais.
 
 ### <a name="output"></a>Saída
 
@@ -174,61 +152,16 @@ cell [1,3] has text $56,651.49
 cell [1,5] has text PT
 ```
 
-## <a name="recognize-receipts"></a>Reconhecer recibos
+## <a name="analyze-receipts"></a>Analisar recibos
 
 Esta seção demonstra como reconhecer e extrair campos comuns de recibos dos EUA usando um modelo de recibo pré-treinado.
 
 Para reconhecer recibos de um URI, use o método `beginRecognizeReceiptsFromUrl`. O código a seguir processa um recibo no URI fornecido e imprime os valores e os campos principais no console.
 
-```javascript
-async function recognizeReceipt() {
-    receiptUrl = "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/tests/sample_forms/receipt/contoso-receipt.png";
-    const client = new FormRecognizerClient(endpoint, new AzureKeyCredential(apiKey));
-    const poller = await client.beginRecognizeReceiptsFromUrl(receiptUrl, {
-        onProgress: (state) => { console.log(`status: ${state.status}`); }
-    });
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_receipts)]
 
-    const receipts = await poller.pollUntilDone();
-
-    if (!receipts || receipts.length <= 0) {
-        throw new Error("Expecting at lease one receipt in analysis result");
-    }
-
-    const receipt = receipts[0];
-    console.log("First receipt:");
-    const receiptTypeField = receipt.fields["ReceiptType"];
-    if (receiptTypeField.valueType === "string") {
-        console.log(`  Receipt Type: '${receiptTypeField.value || "<missing>"}', with confidence of ${receiptTypeField.confidence}`);
-    }
-    const merchantNameField = receipt.fields["MerchantName"];
-    if (merchantNameField.valueType === "string") {
-        console.log(`  Merchant Name: '${merchantNameField.value || "<missing>"}', with confidence of ${merchantNameField.confidence}`);
-    }
-    const transactionDate = receipt.fields["TransactionDate"];
-    if (transactionDate.valueType === "date") {
-        console.log(`  Transaction Date: '${transactionDate.value || "<missing>"}', with confidence of ${transactionDate.confidence}`);
-    }
-    const itemsField = receipt.fields["Items"];
-    if (itemsField.valueType === "array") {
-        for (const itemField of itemsField.value || []) {
-            if (itemField.valueType === "object") {
-                const itemNameField = itemField.value["Name"];
-                if (itemNameField.valueType === "string") {
-                    console.log(`    Item Name: '${itemNameField.value || "<missing>"}', with confidence of ${itemNameField.confidence}`);
-                }
-            }
-        }
-    }
-    const totalField = receipt.fields["Total"];
-    if (totalField.valueType === "number") {
-        console.log(`  Total: '${totalField.value || "<missing>"}', with confidence of ${totalField.confidence}`);
-    }
-}
-
-recognizeReceipt().catch((err) => {
-    console.error("The sample encountered an error:", err);
-});
-```
+> [!TIP]
+> Você também pode reconhecer imagens de recebimento local. Confira os métodos de [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient), como **beginRecognizeReceipts**. Ou veja o código de exemplo no [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para obter cenários que envolvam imagens locais.
 
 ### <a name="output"></a>Saída
 
@@ -258,55 +191,12 @@ Treine modelos personalizados para reconhecer todos os campos e valores encontra
 
 A função a seguir treina um modelo em um conjunto especificado de documentos e imprime o status do modelo no console. 
 
-```javascript
-async function trainModel() {
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_train)]
 
-    const containerSasUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";
-    const trainingClient = new FormTrainingClient(endpoint, new AzureKeyCredential(apiKey));
-
-    const poller = await trainingClient.beginTraining(containerSasUrl, false, {
-        onProgress: (state) => { console.log(`training status: ${state.status}`); }
-    });
-    const model = await poller.pollUntilDone();
-
-    if (!model) {
-        throw new Error("Expecting valid training result!");
-    }
-
-    console.log(`Model ID: ${model.modelId}`);
-    console.log(`Status: ${model.status}`);
-    console.log(`Training started on: ${model.trainingStartedOn}`);
-    console.log(`Training completed on: ${model.trainingCompletedOn}`);
-
-    if (model.submodels) {
-        for (const submodel of model.submodels) {
-            // since the training data is unlabeled, we are unable to return the accuracy of this model
-            console.log("We have recognized the following fields");
-            for (const key in submodel.fields) {
-                const field = submodel.fields[key];
-                console.log(`The model found field '${field.name}'`);
-            }
-        }
-    }
-    // Training document information
-    if (model.trainingDocuments) {
-        for (const doc of model.trainingDocuments) {
-            console.log(`Document name: ${doc.name}`);
-            console.log(`Document status: ${doc.status}`);
-            console.log(`Document page count: ${doc.pageCount}`);
-            console.log(`Document errors: ${doc.errors}`);
-        }
-    }
-}
-
-trainModel().catch((err) => {
-    console.error("The sample encountered an error:", err);
-});
-```
 
 ### <a name="output"></a>Saída
 
-Esta é a saída de um modelo treinado com os dados de treinamento disponíveis do [SDK do Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/training). Esta saída de exemplo foi truncada para facilitar a leitura.
+Esta é a saída de um modelo treinado com os dados de treinamento disponíveis do [SDK do JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer). Esta saída de exemplo foi truncada para facilitar a leitura.
 
 ```console
 training status: creating
@@ -344,55 +234,12 @@ Document errors:
 
 Você também pode treinar modelos personalizados rotulando manualmente os documentos de treinamento. O treinamento com rótulos leva a um melhor desempenho em alguns cenários. Para o treinamento com rótulos, você precisará ter arquivos de informações de rótulo especiais (`\<filename\>.pdf.labels.json`) no contêiner do Armazenamento de Blobs junto com os documentos de treinamento. A [ferramenta de rotulagem de exemplo Reconhecimento de Formulários](../../quickstarts/label-tool.md) fornece uma interface do usuário para ajudar você a criar esses arquivos de rótulo. Depois de obtê-los, chame o método `beginTraining` com o parâmetro `uselabels` definido como `true`.
 
-```javascript
-async function trainModelLabels() {
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_trainlabels)]
 
-    const containerSasUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";
-    const trainingClient = new FormTrainingClient(endpoint, new AzureKeyCredential(apiKey));
-
-    const poller = await trainingClient.beginTraining(containerSasUrl, true, {
-        onProgress: (state) => { console.log(`training status: ${state.status}`); }
-    });
-    const model = await poller.pollUntilDone();
-
-    if (!model) {
-        throw new Error("Expecting valid training result!");
-    }
-
-    console.log(`Model ID: ${model.modelId}`);
-    console.log(`Status: ${model.status}`);
-    console.log(`Training started on: ${model.trainingStartedOn}`);
-    console.log(`Training completed on: ${model.trainingCompletedOn}`);
-
-    if (model.submodels) {
-        for (const submodel of model.submodels) {
-            // since the training data is unlabeled, we are unable to return the accuracy of this model
-            console.log("We have recognized the following fields");
-            for (const key in submodel.fields) {
-                const field = submodel.fields[key];
-                console.log(`The model found field '${field.name}'`);
-            }
-        }
-    }
-    // Training document information
-    if (model.trainingDocuments) {
-        for (const doc of model.trainingDocuments) {
-            console.log(`Document name: ${doc.name}`);
-            console.log(`Document status: ${doc.status}`);
-            console.log(`Document page count: ${doc.pageCount}`);
-            console.log(`Document errors: ${doc.errors}`);
-        }
-    }
-}
-
-trainModelLabels().catch((err) => {
-    console.error("The sample encountered an error:", err);
-});
-```
 
 ### <a name="output"></a>Saída 
 
-Esta é a saída de um modelo treinado com os dados de treinamento disponíveis do [SDK do Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/training). Esta saída de exemplo foi truncada para facilitar a leitura.
+Esta é a saída de um modelo treinado com os dados de treinamento disponíveis do [SDK do JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples). Esta saída de exemplo foi truncada para facilitar a leitura.
 
 ```console
 training status: creating
@@ -431,47 +278,11 @@ Esta seção demonstra como extrair informações de chave/valor e outro conteú
 
 Você usará o método `beginRecognizeCustomFormsFromUrl`. O valor retornado é uma coleção de objetos `RecognizedForm`: um para cada página no documento enviado.
 
-```javascript
-async function recognizeCustom() {
-    // Model ID from when you trained your model.
-    const modelId = "<modelId>";
-    const formUrl = "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/tests/sample_forms/forms/Invoice_1.pdf";
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_analyze)]
 
-    const client = new FormRecognizerClient(endpoint, new AzureKeyCredential(apiKey));
-    const poller = await client.beginRecognizeCustomForms(modelId, formUrl, {
-        onProgress: (state) => { console.log(`status: ${state.status}`); }
-    });
-    const forms = await poller.pollUntilDone();
+> [!TIP]
+> Você também pode analisar arquivos locais. Confira os métodos de [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient), como **beginRecognizeCustomForms**. Ou veja o código de exemplo no [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para obter cenários que envolvam imagens locais.
 
-    console.log("Forms:");
-    for (const form of forms || []) {
-        console.log(`${form.formType}, page range: ${form.pageRange}`);
-        console.log("Pages:");
-        for (const page of form.pages || []) {
-            console.log(`Page number: ${page.pageNumber}`);
-            console.log("Tables");
-            for (const table of page.tables || []) {
-                for (const cell of table.cells) {
-                    console.log(`cell (${cell.rowIndex},${cell.columnIndex}) ${cell.text}`);
-                }
-            }
-        }
-
-        console.log("Fields:");
-        for (const fieldName in form.fields) {
-            // each field is of type FormField
-            const field = form.fields[fieldName];
-            console.log(
-                `Field ${fieldName} has value '${field.value}' with a confidence score of ${field.confidence}`
-            );
-        }
-    }
-}
-
-recognizeCustom().catch((err) => {
-    console.error("The sample encountered an error:", err);
-});
-```
 
 ### <a name="output"></a>Saída
 
@@ -515,27 +326,19 @@ Field Total has value 'undefined' with a confidence score of undefined
 
 Esta seção demonstra como gerenciar os modelos personalizados armazenados na sua conta. O código a seguir executa todas as tarefas de gerenciamento de modelos em uma só função, como um exemplo. 
 
+### <a name="get-number-of-models"></a>Obter o número de modelos
+
+O bloco de código a seguir obtém o número de modelos atualmente em sua conta.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_manage_count)]
+
+
 ### <a name="get-list-of-models-in-account"></a>Obter lista de modelos na conta
 
-O bloco e código a seguir fornece uma lista completa dos modelos disponíveis em sua conta, incluindo informações sobre quando o modelo foi criado e o status atual dele.
+O bloco de código a seguir fornece uma lista completa dos modelos disponíveis em sua conta, incluindo informações sobre quando o modelo foi criado e o status atual dele.
 
-```javascript
-async function listModels() {
-    const client = new FormTrainingClient(endpoint, new AzureKeyCredential(apiKey));
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_manage_list)]
 
-    // returns an async iteratable iterator that supports paging
-    const result = client.listCustomModels();
-    let i = 0;
-    for await (const modelInfo of result) {
-        console.log(`model ${i++}:`);
-        console.log(modelInfo);
-    }
-}
-
-listModels().catch((err) => {
-    console.error("The sample encountered an error:", err);
-});
-```
 
 ### <a name="output"></a>Saída
 
@@ -570,52 +373,12 @@ model 3:
 }
 ```
 
-### <a name="get-list-of-model-ids"></a>Obter lista de IDs de modelo
-
-Esse bloco de código fornece uma lista de modelos e IDs de modelo.
-
-```javascript
-async function listModelIds(){
-    const client = new FormTrainingClient(endpoint, new AzureKeyCredential(apiKey));
-    // using `iter.next()`
-    i = 1;
-    let iter = client.listCustomModels();
-    let modelItem = await iter.next();
-    while (!modelItem.done) {
-        console.log(`model ${i++}: ${modelItem.value.modelId}`);
-        modelItem = await iter.next();
-    }
-}
-```
-
-### <a name="output"></a>Saída
-
-```console
-model 1: 453cc2e6-e3eb-4e9f-aab6-e1ac7b87e09e
-model 2: 628739de-779c-473d-8214-d35c72d3d4f7
-model 3: 789b1b37-4cc3-4e36-8665-9dde68618072
-```
-
 ### <a name="get-list-of-model-ids-by-page"></a>Obter lista de IDs de modelo por página
 
 Esse bloco de código fornece uma lista paginada de modelos e IDs de modelo.
 
-```javascript
-async function listModelsByPage(){
-    const client = new FormTrainingClient(endpoint, new AzureKeyCredential(apiKey));
-    // using `byPage()`
-    i = 1;
-    for await (const response of client.listCustomModels().byPage()) {
-        for (const modelInfo of response.modelList) {
-            console.log(`model ${i++}: ${modelInfo.modelId}`);
-        }
-    }
-}
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_manage_listpages)]
 
-listModelsByPage().catch((err) => {
-    console.error("The sample encountered an error:", err);
-});
-```
 
 ### <a name="output"></a>Saída
 
@@ -625,21 +388,19 @@ model 2: 628739de-779c-473d-8214-d35c72d3d4f7
 model 3: 789b1b37-4cc3-4e36-8665-9dde68618072
 ```
 
+### <a name="get-model-by-id"></a>Obter o modelo por ID
+
+A função a seguir usa uma ID de modelo e obtém o objeto de modelo correspondente. Essa função não é chamada por padrão.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_manage_getmodel)]
+
+
 ### <a name="delete-a-model-from-the-resource-account"></a>Excluir um modelo da conta do recurso
 
-Exclua também um modelo da sua conta referenciando a ID. Esse código exclui o modelo usado na seção anterior.
+Exclua também um modelo da sua conta referenciando a ID. Essa função exclui o modelo com a ID fornecida. Essa função não é chamada por padrão.
 
-```javascript
-    await client.deleteModel(firstModel.modelId);
-    try {
-        const deleted = await trainingClient.deleteModel(firstModel.modelId);
-        console.log(deleted);
-    } catch (err) {
-        // Expected
-        console.log(`Model with id ${firstModel.modelId} has been deleted`);
-    }
-}
-```
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_manage_delete)]
+
 
 ### <a name="output"></a>Saída
 
@@ -649,7 +410,7 @@ Model with id 789b1b37-4cc3-4e36-8665-9dde68618072 has been deleted
 
 ## <a name="run-the-application"></a>Executar o aplicativo
 
-Você pode executar o aplicativo a qualquer momento com várias funções sobre as quais você leu neste início rápido com este comando:
+Execute o aplicativo com o comando `node` no seu arquivo de início rápido.
 
 ```console
 node index.js
@@ -676,7 +437,7 @@ Para obter instruções mais detalhadas sobre como habilitar logs, confira a [do
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você usou a biblioteca de clientes Python do Reconhecimento de Formulários para treinar modelos personalizado e analisar formulários de diferentes maneiras. Em seguida, aprenda dicas para criar um conjunto de dados de treinamento melhor e produzir modelos mais precisos.
+Neste início rápido, você usou a biblioteca de clientes JavaScript do Reconhecimento de Formulários para treinar modelos personalizados e analisar formulários de diferentes maneiras. Em seguida, aprenda dicas para criar um conjunto de dados de treinamento melhor e produzir modelos mais precisos.
 
 > [!div class="nextstepaction"]
 > [Criar um conjunto de dados de treinamento](../../build-training-data-set.md)
@@ -684,3 +445,4 @@ Neste início rápido, você usou a biblioteca de clientes Python do Reconhecime
 ## <a name="see-also"></a>Confira também
 
 * [O que é o Reconhecimento de Formulários?](../../overview.md)
+* Encontre o código de exemplo deste guia no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/FormRecognizerQuickstart.js).

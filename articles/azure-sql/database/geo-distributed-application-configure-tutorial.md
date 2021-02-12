@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 14031118a93f5760b302e4d2b76334205be6d087
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 98e3eb4927b8eb9e52fd974c1ef7c417aff2ad54
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789617"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422783"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>Tutorial: implementar um banco de dados distribuído geograficamente (banco de dados SQL do Azure)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,14 +40,14 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Para concluir o tutorial, verifique se você instalou os seguintes itens:
 
-- [Azure PowerShell](/powershell/azure/)
+- [PowerShell do Azure](/powershell/azure/)
 - Um banco de dados individual no banco de dados SQL do Azure. Para criar um, use
   - [O portal do Azure](single-database-create-quickstart.md)
   - [A CLI do Azure](az-cli-script-samples-content-guide.md)
   - [PowerShell](powershell-script-content-guide.md)
 
   > [!NOTE]
-  > O tutorial usa o banco de dados de exemplo *AdventureWorksLT* .
+  > O tutorial usa o banco de dados de exemplo *AdventureWorksLT*.
 
 - Java e Maven, confira [Compilar um aplicativo usando o SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), realce **Java** e selecione seu ambiente; em seguida, siga as etapas.
 
@@ -120,7 +120,7 @@ az sql failover-group create --name $failoverGroup --partner-server $drServer `
 
 * * *
 
-As configurações de replicação geográfica também podem ser alteradas no portal do Azure, selecionando seu banco de dados e, em seguida, **configurações** de  >  **replicação geográfica** .
+As configurações de replicação geográfica também podem ser alteradas no portal do Azure, selecionando seu banco de dados e, em seguida, **configurações** de  >  **replicação geográfica**.
 
 ![Configurações da replicação geográfica](./media/geo-distributed-application-configure-tutorial/geo-replication.png)
 
@@ -132,7 +132,7 @@ As configurações de replicação geográfica também podem ser alteradas no po
    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
    ```
 
-1. Digite **Y** e pressione **Enter** .
+1. Digite **Y** e pressione **Enter**.
 
 1. Altere os diretórios para o novo projeto.
 
@@ -182,7 +182,7 @@ As configurações de replicação geográfica também podem ser alteradas no po
    </build>
    ```
 
-1. Salve e feche o arquivo *pom.xml* .
+1. Salve e feche o arquivo *pom.xml*.
 
 1. Abra o arquivo *App.java* localizado em ..\SqlDbSample\src\main\java\com\sqldbsamples e substitua o conteúdo pelo código a seguir:
 
@@ -333,7 +333,7 @@ Para testar um failover:
 1. Inicie um failover manual do grupo de failover:
 
    ```powershell
-   Switch-AzSqlDatabaseFailoverGroup -ResourceGroupName $myresourcegroupname `
+   Switch-AzSqlDatabaseFailoverGroup -ResourceGroupName $resourceGroup `
     -ServerName $drServer -FailoverGroupName $failoverGroup
    ```
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: akjosh
-ms.openlocfilehash: ba6dda86475456b6797d27e11727d70261be2e1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33bd7c82568f836e498a05411d2b3cf1c6a950b9
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440000"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878622"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Solucionar problemas de conexões de Área de Trabalho Remota a uma máquina virtual do Azure
 A conexão do protocolo RDP à sua VM (máquina virtual) do Azure baseada no Windows pode falhar por vários motivos, impedindo o seu acesso à VM. O problema pode ser com o serviço de Área de Trabalho Remota na VM, a conexão de rede ou o cliente de Área de Trabalho Remota no computador host. Este artigo explica alguns dos métodos mais comuns para resolver problemas de conexão de RDP. 
@@ -46,7 +46,7 @@ Após cada etapa da solução de problemas, tente se reconectar à VM:
 Caso você precise de etapas e explicações mais detalhadas, continue lendo. Verifique se equipamentos de rede local, como roteadores e firewalls, não estão bloqueando a porta de saída TCP 3389, conforme observado nos [cenários detalhados de solução de problemas de RDP](detailed-troubleshoot-rdp.md).
 
 > [!TIP]
-> Se o botão **Conectar** para a VM estiver esmaecido e você não estiver conectado ao Azure por meio de uma [Rota Expressa](../../expressroute/expressroute-introduction.md) ou de uma conexão [VPN Site a Site](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), será necessário criar um endereço IP público e atribui-lo à VM antes que seja possível usar o RDP. Leia mais sobre [endereços IP públicos no Azure](../../virtual-network/public-ip-addresses.md).
+> Se o botão **Conectar** para a VM estiver esmaecido e você não estiver conectado ao Azure por meio de uma [Rota Expressa](../../expressroute/expressroute-introduction.md) ou de uma conexão [VPN Site a Site](../../vpn-gateway/tutorial-site-to-site-portal.md), será necessário criar um endereço IP público e atribui-lo à VM antes que seja possível usar o RDP. Leia mais sobre [endereços IP públicos no Azure](../../virtual-network/public-ip-addresses.md).
 
 
 ## <a name="ways-to-troubleshoot-rdp-issues"></a>Maneiras de solucionar problemas com RDP
@@ -101,7 +101,7 @@ Após cada etapa de solução de problemas, tente se conectar à VM novamente. C
 
 10. Certifique-se de que qualquer firewall local, ou firewall em seu computador, permita o tráfego de saída TCP 3389 no Azure.
 
-Caso ainda esteja tendo problemas de RDP, você poderá [abrir uma solicitação](https://azure.microsoft.com/support/options/) de suporte ou ler [conceitos e etapas de solução de problemas de RDP mais detalhados](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Caso ainda esteja tendo problemas de RDP, você poderá [abrir uma solicitação](https://azure.microsoft.com/support/options/) de suporte ou ler [conceitos e etapas de solução de problemas de RDP mais detalhados](detailed-troubleshoot-rdp.md).
 
 ## <a name="troubleshoot-using-azure-powershell"></a>Solucionar problemas usando o Azure PowerShell
 Se você ainda não fez isso, [instale e configure o último Azure PowerShell](/powershell/azure/).
@@ -154,7 +154,7 @@ Após cada etapa de solução de problemas, tente se conectar à VM novamente. C
     Direction                : Inbound
     ```
    
-    Se você não tiver uma regra que permita o tráfego RDP, deverá [criar uma regra de Grupo de Segurança de Rede](../windows/nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Permita a porta TCP 3389.
+    Se você não tiver uma regra que permita o tráfego RDP, deverá [criar uma regra de Grupo de Segurança de Rede](../windows/nsg-quickstart-powershell.md). Permita a porta TCP 3389.
 3. **Redefina as credenciais do usuário**. Essa etapa de solução de problemas redefinirá a senha da conta de administrador local, que você especificará quando não tiver certeza ou tiver esquecido quais são as credenciais.
    
     Primeiro, especifique o nome de usuário e uma nova senha, atribuindo as credenciais à variável `$cred` da seguinte maneira:
@@ -190,7 +190,7 @@ Após cada etapa de solução de problemas, tente se conectar à VM novamente. C
 
 7. Certifique-se de que qualquer firewall local, ou firewall em seu computador, permita o tráfego de saída TCP 3389 no Azure.
 
-Caso ainda esteja tendo problemas de RDP, você poderá [abrir uma solicitação](https://azure.microsoft.com/support/options/) de suporte ou ler [conceitos e etapas de solução de problemas de RDP mais detalhados](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Caso ainda esteja tendo problemas de RDP, você poderá [abrir uma solicitação](https://azure.microsoft.com/support/options/) de suporte ou ler [conceitos e etapas de solução de problemas de RDP mais detalhados](detailed-troubleshoot-rdp.md).
 
 ## <a name="troubleshoot-vms-created-using-the-classic-deployment-model"></a>Solucionar problemas de VMs criadas com o modelo de implantação Clássico
 
@@ -234,7 +234,7 @@ Após cada etapa de solução de problemas, tente se reconectar à VM.
 
 7. Certifique-se de que qualquer firewall local, ou firewall em seu computador, permita o tráfego de saída TCP 3389 no Azure.
 
-Caso ainda esteja tendo problemas de RDP, você poderá [abrir uma solicitação](https://azure.microsoft.com/support/options/) de suporte ou ler [conceitos e etapas de solução de problemas de RDP mais detalhados](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Caso ainda esteja tendo problemas de RDP, você poderá [abrir uma solicitação](https://azure.microsoft.com/support/options/) de suporte ou ler [conceitos e etapas de solução de problemas de RDP mais detalhados](detailed-troubleshoot-rdp.md).
 
 ## <a name="troubleshoot-specific-rdp-errors"></a>Solucionar problemas de erros de RDP específicos
 Você pode encontrar uma mensagem de erro específica ao tentar se conectar à sua VM por meio do RDP. Veja abaixo as mensagens de erro mais comuns:
@@ -246,6 +246,6 @@ Você pode encontrar uma mensagem de erro específica ao tentar se conectar à s
 * [Este computador não pode se conectar ao computador remoto](troubleshoot-specific-rdp-errors.md#rdpconnect).
 
 ## <a name="additional-resources"></a>Recursos adicionais
-Se nenhum desses erros ocorreu e ainda não for possível se conectar à VM por meio da Área de Trabalho Remota, leia o [guia detalhado de solução de problemas para Área de Trabalho Remota](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Se nenhum desses erros ocorreu e ainda não for possível se conectar à VM por meio da Área de Trabalho Remota, leia o [guia detalhado de solução de problemas para Área de Trabalho Remota](detailed-troubleshoot-rdp.md).
 * Para obter etapas de solução de problema de acesso a aplicativos em execução, consulte [Solucionar problemas de acesso a um aplicativo em execução em uma VM do Azure](./troubleshoot-app-connection.md?toc=/azure/virtual-machines/linux/toc.json).
 * Se você estiver enfrentando problemas ao usar o Secure Shell (SSH) para se conectar a uma VM do Linux no Azure, consulte [Solucionar problemas de conexões SSH a uma VM do Linux no Azure](./troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json).

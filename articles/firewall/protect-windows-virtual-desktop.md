@@ -7,12 +7,12 @@ services: firewall
 ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: victorh
-ms.openlocfilehash: ae33d763bda49756e9f90a05feda5089b63ef28b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad4f42d0e33f6d70c75abfcd1daab4f5aa9a515f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400143"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654976"
 ---
 # <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Usar o Firewall do Azure para proteger as implantações da Área de Trabalho Virtual do Windows
 
@@ -36,7 +36,7 @@ Para saber mais sobre ambientes de área de trabalho virtual do Windows, consult
 As máquinas virtuais do Azure que você cria para a área de trabalho virtual do Windows devem ter acesso a vários FQDNs (nomes de domínio totalmente qualificados) para funcionar corretamente. O Firewall do Azure fornece uma marca de FQDN de área de trabalho virtual do Windows para simplificar essa configuração. Use as etapas a seguir para permitir o tráfego de saída da plataforma de área de trabalho virtual do Windows:
 
 - Implante o Firewall do Azure e configure sua UDR (rota definida pelo usuário) da sub-rede do pool de hosts de área de trabalho virtual do Windows para rotear todo o tráfego pelo firewall do Azure. Sua rota padrão agora aponta para o firewall.
-- Crie uma coleção de regras de aplicativo e adicione uma regra para habilitar a marca de FQDN *WindowsVirtualDesktop* . O intervalo de endereços IP de origem é a rede virtual do pool de hosts, o protocolo é **https**e o destino é **WindowsVirtualDesktop**.
+- Crie uma coleção de regras de aplicativo e adicione uma regra para habilitar a marca de FQDN *WindowsVirtualDesktop* . O intervalo de endereços IP de origem é a rede virtual do pool de hosts, o protocolo é **https** e o destino é **WindowsVirtualDesktop**.
 
 - O conjunto de contas de armazenamento e barramento de serviço necessárias para o pool de hosts da área de trabalho virtual do Windows é específico da implantação, portanto, ele ainda não foi capturado na marca de FQDN WindowsVirtualDesktop. Você pode resolver isso de uma das seguintes maneiras:
 
@@ -63,7 +63,7 @@ As máquinas virtuais do Azure que você cria para a área de trabalho virtual d
 
 Dependendo das necessidades da sua organização, talvez você queira habilitar o acesso seguro à Internet de saída para seus usuários finais. Nos casos em que a lista de destinos permitidos é bem definida (por exemplo, [Microsoft 365 acesso](/microsoft-365/enterprise/microsoft-365-ip-web-service)), você pode usar o aplicativo de firewall do Azure e as regras de rede para configurar o acesso necessário. Isso roteia o tráfego do usuário final diretamente para a Internet para obter o melhor desempenho.
 
-Se você quiser filtrar o tráfego de Internet do usuário de saída usando um gateway Web seguro local existente, poderá configurar navegadores da Web ou outros aplicativos em execução no pool de hosts da área de trabalho virtual do Windows com uma configuração de proxy explícita. Por exemplo, consulte [como usar as opções de linha de comando do Microsoft Edge para definir as configurações de proxy](https://docs.microsoft.com/deployedge/edge-learnmore-cmdline-options-proxy-settings). Essas configurações de proxy influenciam apenas o acesso à Internet do usuário final, permitindo o tráfego de saída da plataforma de área de trabalho virtual do Windows diretamente por meio do firewall do Azure.
+Se você quiser filtrar o tráfego de Internet do usuário de saída usando um gateway Web seguro local existente, poderá configurar navegadores da Web ou outros aplicativos em execução no pool de hosts da área de trabalho virtual do Windows com uma configuração de proxy explícita. Por exemplo, consulte [como usar as opções de linha de comando do Microsoft Edge para definir as configurações de proxy](/deployedge/edge-learnmore-cmdline-options-proxy-settings). Essas configurações de proxy influenciam apenas o acesso à Internet do usuário final, permitindo o tráfego de saída da plataforma de área de trabalho virtual do Windows diretamente por meio do firewall do Azure.
 
 ## <a name="additional-considerations"></a>Considerações adicionais
 

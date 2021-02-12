@@ -4,12 +4,12 @@ description: Saiba mais sobre a serialização de objeto de coleções confiáve
 ms.topic: conceptual
 ms.date: 5/8/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1d29f5d3391bdea0b21997a392d4d2e053b7ec65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29bb9a2dfb028d223d63559b35735e78d7e6bcf8
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018613"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784352"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Serialização de objeto de Coleções Confiáveis no Azure Service Fabric
 As Coleções Confiáveis replicam e persistem seus itens para garantir que eles são duráveis durante falhas do computador e interrupções de energia.
@@ -20,7 +20,7 @@ O Gerenciador de Estado Confiável contém serializadores internos e permite que
 
 ## <a name="built-in-serializers"></a>Serializadores internos
 
-O Gerenciador de Estado Confiável inclui um serializador interno para alguns tipos comuns, de forma que eles possam ser serializados com eficiência por padrão. Para outros tipos, o Gerenciador de Estado Confiável recorre ao uso do [DataContractSerializer](/dotnet/api/system.runtime.serialization.datacontractserializer?view=netcore-3.1).
+O Gerenciador de Estado Confiável inclui um serializador interno para alguns tipos comuns, de forma que eles possam ser serializados com eficiência por padrão. Para outros tipos, o Gerenciador de Estado Confiável recorre ao uso do [DataContractSerializer](/dotnet/api/system.runtime.serialization.datacontractserializer).
 Serializadores internos são mais eficientes, pois sabem que seus tipos não podem ser alterados e não precisam incluir informações sobre o tipo, como seu nome de tipo.
 
 O Gerenciador de Estado Confiável tem um serializador interno para os seguintes tipos: 
@@ -140,7 +140,7 @@ Dessa forma, cada versão pode ler o máximo que puder e pular para a parte rest
 
 ## <a name="next-steps"></a>Próximas etapas
   * [Serialização e atualização](service-fabric-application-upgrade-data-serialization.md)
-  * [Referência do desenvolvedor para Coleções Confiáveis](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
+  * [Referência do desenvolvedor para Coleções Confiáveis](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)
   * [Atualização do aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta você durante a atualização de aplicativo usando o Visual Studio.
   * [Atualizar seu aplicativo usando o PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) orienta você durante uma atualização de aplicativo usando o PowerShell.
   * Controle como o aplicativo é atualizado usando [parâmetros de atualização](service-fabric-application-upgrade-parameters.md).

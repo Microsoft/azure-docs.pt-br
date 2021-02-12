@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Aprender as práticas recomendadas do operador de cluster sobre como gerenciar as atualizações e a segurança de clusters no AKS (Serviço de Kubernetes do Azure)
 services: container-service
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.openlocfilehash: 9cb51cb0f5b902553bda0b881c8392d74905c4bc
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.date: 11/12/2020
+ms.openlocfilehash: ad1f14fc92433e8d9cb31de165645e4a5731f01a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073624"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019459"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para atualizações e segurança de clusters no AKS (Serviço de Kubernetes do Azure)
 
@@ -19,7 +19,7 @@ Ao gerenciar clusters no serviço de Kubernetes do Azure (AKS), a segurança dos
 Este artigo se concentra em como proteger seu cluster do AKS. Você aprenderá como:
 
 > [!div class="checklist"]
-> * Usar Azure Active Directory e RBAC (controle de acesso baseado em função) para proteger o acesso do servidor de API
+> * Azure Active Directory usar o kubernetes e o controle de acesso baseado em função (kubernetes RBAC) para proteger o acesso do servidor de API
 > * Proteger o acesso do contêiner a recursos do nó
 > * Atualizar um cluster do AKS para a versão mais recente do Kubernetes
 > * Manter os nós atualizados e aplicar automaticamente os patches de segurança
@@ -30,7 +30,7 @@ Você também pode usar a [integração dos serviços Kubernetess do Azure com a
 
 ## <a name="secure-access-to-the-api-server-and-cluster-nodes"></a>Proteger o acesso aos nós de cluster e ao servidor de API
 
-**Diretrizes de práticas recomendadas** – proteger o acesso ao servidor de API do Kubernetes é uma das coisas mais importantes que você pode fazer para proteger o cluster. Integre o RBAC (controle de acesso baseado em função) do Kubernetes com o Azure Active Directory para controlar o acesso ao servidor de API. Esses controles permitem que você proteja o AKS da mesma maneira que protege o acesso às assinaturas do Azure.
+**Diretrizes de práticas recomendadas** – proteger o acesso ao servidor de API do Kubernetes é uma das coisas mais importantes que você pode fazer para proteger o cluster. Integre o controle de acesso baseado em função do kubernetes (kubernetes RBAC) com Azure Active Directory para controlar o acesso ao servidor de API. Esses controles permitem que você proteja o AKS da mesma maneira que protege o acesso às assinaturas do Azure.
 
 O servidor de API do Kubernetes fornece um único ponto de conexão para que as solicitações realizem ações em um cluster. Para proteger e auditar o acesso ao servidor de API, limite o acesso e forneça as permissões de acesso com o mínimo necessário de privilégios. Essa abordagem não é exclusiva para o Kubernetes, mas é especialmente importante quando o cluster do AKS é logicamente isolado para uso com vários locatários.
 
@@ -38,11 +38,11 @@ O Azure AD (Active Directory) fornece uma solução de gerenciamento de identida
 
 ![Integração ao Azure Active Directory para clusters do AKS](media/operator-best-practices-cluster-security/aad-integration.png)
 
-Use o RBAC do Kubernetes e a integração com o Azure AD para proteger o servidor de API e fornecer o menor número necessário de permissões para um conjunto de recursos com escopo, assim como um único namespace. Diferentes funções de RBAC podem ser concedidas a diferentes usuários ou grupos no Azure AD. Essas permissões granulares permitem que você restrinja o acesso ao servidor de API e forneça uma trilha de auditoria clara das ações realizadas.
+Use o RBAC do Kubernetes e a integração com o Azure AD para proteger o servidor de API e fornecer o menor número necessário de permissões para um conjunto de recursos com escopo, assim como um único namespace. Diferentes usuários ou grupos no Azure AD podem receber diferentes funções kubernetes. Essas permissões granulares permitem que você restrinja o acesso ao servidor de API e forneça uma trilha de auditoria clara das ações realizadas.
 
-A prática recomendada é usar grupos para fornecer acesso a arquivos e pastas em vez de identidades individuais, usar o a associação de *grupo* do Azure AD para associar usuários a funções de RBAC, em vez de fazê-lo com *usuários* individuais. Conforme a associação de grupo de um usuário sofre alterações, suas permissões de acesso no cluster do AKS são alteradas correspondentemente. Se você associar o usuário diretamente a uma função, a função de trabalho desse usuário poderá mudar. As associações a grupos do Azure AD seriam atualizadas, mas as permissões no cluster do AKS não refletiriam isso. Nesse cenário, acabam sendo concedidas mais permissões ao usuário do que ele precisa.
+A prática recomendada é usar grupos para fornecer acesso a arquivos e pastas versus identidades individuais, usar a associação de *grupo* do Azure ad para associar usuários a funções kubernetes em vez de *usuários* individuais. Conforme a associação de grupo de um usuário sofre alterações, suas permissões de acesso no cluster do AKS são alteradas correspondentemente. Se você associar o usuário diretamente a uma função, a função de trabalho desse usuário poderá mudar. As associações a grupos do Azure AD seriam atualizadas, mas as permissões no cluster do AKS não refletiriam isso. Nesse cenário, acabam sendo concedidas mais permissões ao usuário do que ele precisa.
 
-Para obter mais informações sobre RBAC e integração com o Azure AD, confira [Práticas recomendadas para autenticação e autorização no AKS][aks-best-practices-identity].
+Para obter mais informações sobre a integração do Azure AD, o RBAC do kubernetes e o RBAC do Azure, consulte [práticas recomendadas para autenticação e autorização no AKs][aks-best-practices-identity].
 
 ## <a name="secure-container-access-to-resources"></a>Proteger o acesso do contêiner a recursos
 
@@ -53,7 +53,7 @@ Da mesma forma que você deve conceder aos usuários ou grupos o menor número n
 Para um controle mais granular das ações de contêiner, você também pode usar recursos internos de segurança do Linux, tais como *AppArmor* e *seccomp*. Esses recursos são definidos no nível do nó e, em seguida, são implementados por meio de um manifesto de pod. Os recursos de segurança internos do Linux estão disponíveis apenas em nós e pods do Linux.
 
 > [!NOTE]
-> Os ambientes do Kubernetes, no AKS ou em outro lugar, não estão completamente seguros para uso de vários locatários hostis. Recursos de segurança adicionais, como *AppArmor*, *seccomp*, *políticas de segurança Pod*, ou RBAC (controle de acesso baseado em função) mais refinado para nós tornam as explorações mais difíceis. No entanto, para ter uma segurança de verdade ao executar cargas de trabalho de vários locatários hostis, um hipervisor é o único nível de segurança no qual você deve confiar. O domínio de segurança para o Kubernetes se torna o cluster inteiro, não um nó individual. Para esses tipos de cargas de trabalho de vários locatários hostis, você deve usar clusters fisicamente isolados.
+> Os ambientes do Kubernetes, no AKS ou em outro lugar, não estão completamente seguros para uso de vários locatários hostis. Recursos de segurança adicionais como *AppArmor*, *seccomp*, *políticas de segurança Pod* ou mais refinado kubernetes controle de acesso baseado em função (kubernetes RBAC) para nós tornam as explorações mais difíceis. No entanto, para ter uma segurança de verdade ao executar cargas de trabalho de vários locatários hostis, um hipervisor é o único nível de segurança no qual você deve confiar. O domínio de segurança para o Kubernetes se torna o cluster inteiro, não um nó individual. Para esses tipos de cargas de trabalho de vários locatários hostis, você deve usar clusters fisicamente isolados.
 
 ### <a name="app-armor"></a>Armadura de aplicativo
 
@@ -117,7 +117,7 @@ Para obter mais informações sobre AppArmor, confira [Perfis do AppArmor no Kub
 
 ### <a name="secure-computing"></a>Computação segura
 
-Enquanto o AppArmor funciona para qualquer aplicativo do Linux, o [seccomp (*comp*utação *seg*ura)][seccomp] funciona no nível do processo. O seccomp também é um módulo de segurança de kernel do Linux e tem compatibilidade nativa com o runtime do Docker usado por nós do AKS. Com o seccomp, as chamadas de processo que os contêineres podem executar são limitadas. Você cria filtros que definem quais ações permitir ou negar e, em seguida, usa anotações em um manifesto YAML do pod para associar com o filtro do seccomp. Isso se alinha com a prática recomendada de conceder ao contêiner apenas o mínimo necessário de permissões para sua execução e nada mais.
+Enquanto o AppArmor funciona para qualquer aplicativo do Linux, o [seccomp (*comp* utação *seg* ura)][seccomp] funciona no nível do processo. O seccomp também é um módulo de segurança de kernel do Linux e tem compatibilidade nativa com o runtime do Docker usado por nós do AKS. Com o seccomp, as chamadas de processo que os contêineres podem executar são limitadas. Você cria filtros que definem quais ações permitir ou negar e, em seguida, usa anotações em um manifesto YAML do pod para associar com o filtro do seccomp. Isso se alinha com a prática recomendada de conceder ao contêiner apenas o mínimo necessário de permissões para sua execução e nada mais.
 
 Para ver o seccomp em ação, crie um filtro que impeça a alteração das permissões em um arquivo. Conecte-se por [SSH][aks-ssh] a um nó do AKS e, em seguida, crie um filtro do seccomp chamado */var/lib/kubelet/seccomp/prevent-chmod* e cole o seguinte conteúdo:
 

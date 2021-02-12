@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f88548b57cee9b5f637247fda1536488382ae2f6
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: bc811ab3cab4b79b81b16dd94a2c72225046e35a
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042602"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488271"
 ---
 # <a name="define-a-conditional-access-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico de acesso condicional em uma política personalizada de Azure Active Directory B2C
 
@@ -59,7 +59,7 @@ Para cada entrada, Azure AD B2C avalia todas as políticas e garante que todos o
 
 O elemento **InputClaims** contém uma lista de declarações a serem enviadas ao acesso condicional. Você também pode mapear o nome da sua declaração para o nome definido no perfil técnico de acesso condicional.
 
-| ClaimReferenceId | Obrigatório | Tipo de Dados | Descrição |
+| ClaimReferenceId | Obrigatório | Tipo de dados | Descrição |
 | --------- | -------- | ----------- |----------- |
 | UserId | Sim | string | O identificador do usuário que entra. |
 | AuthenticationMethodsUsed | Sim |stringCollection | A lista de métodos que o usuário usou para entrar. Valores possíveis: `Password` , e `OneTimePasscode` . |
@@ -73,7 +73,7 @@ O elemento **InputClaimsTransformations** pode conter uma coleção de elementos
 
 O elemento **OutputClaims** contém uma lista de declarações geradas pelo ConditionalAccessProtocolProvider. Você também pode mapear o nome da sua declaração para o nome definido abaixo.
 
-| ClaimReferenceId | Obrigatório | Tipo de Dados | Descrição |
+| ClaimReferenceId | Obrigatório | Tipo de dados | Descrição |
 | --------- | -------- | ----------- |----------- |
 | Desafios | Sim |stringCollection | Lista de ações para corrigir a ameaça identificada. Valores possíveis: `block` |
 | MultiConditionalAccessStatus | Sim | stringCollection |  |
@@ -121,7 +121,7 @@ O modo de **correção** do perfil técnico de acesso condicional informa Azure 
 
 O elemento **InputClaims** contém uma lista de declarações a serem enviadas ao acesso condicional. Você também pode mapear o nome da sua declaração para o nome definido no perfil técnico de acesso condicional.
 
-| ClaimReferenceId | Obrigatório | Tipo de Dados | Descrição |
+| ClaimReferenceId | Obrigatório | Tipo de dados | Descrição |
 | --------- | -------- | ----------- |----------- |
 | ChallengesSatisfied | Sim | stringCollection| A lista de desafios satisfeitos para corrigir a ameaça identificada como retorno do modo de avaliação, desafia a reivindicação.|
 
@@ -130,7 +130,7 @@ O elemento **InputClaimsTransformations** pode conter uma coleção de elementos
 
 ### <a name="output-claims"></a>Declarações de saída
 
-O provedor de protocolo de acesso condicional não retorna nenhum **OutputClaims**, portanto, não é necessário especificar declarações de saída. No entanto, você pode incluir declarações que não são retornadas pelo provedor de protocolo de acesso condicional, desde que você defina o `DefaultValue` atributo.
+O provedor de protocolo de acesso condicional não retorna nenhum **OutputClaims** , portanto, não é necessário especificar declarações de saída. No entanto, você pode incluir declarações que não são retornadas pelo provedor de protocolo de acesso condicional, desde que você defina o `DefaultValue` atributo.
 
 O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **OutputClaimsTransformation** usados para modificar as declarações de saída ou gerar novas declarações.
 
@@ -428,7 +428,7 @@ Adicione um percurso do usuário que usa as novas declarações, conforme mostra
             </Precondition>
             <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
               <Value>CAChallengeIsMfa</Value>
-              <Value>false</Value>
+              <Value>False</Value>
               <Action>SkipThisOrchestrationStep</Action>
             </Precondition>
           </Preconditions>
@@ -458,7 +458,7 @@ Adicione um percurso do usuário que usa as novas declarações, conforme mostra
             </Precondition>
             <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
               <Value>CAChallengeIsBlock</Value>
-              <Value>true</Value>
+              <Value>True</Value>
               <Action>SkipThisOrchestrationStep</Action>
             </Precondition>
           </Preconditions>

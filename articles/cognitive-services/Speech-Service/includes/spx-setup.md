@@ -5,59 +5,66 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 4b04558077f6b59d0fef613308a6ab96680d7ff8
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d94b83dd658193069f24202b978d32389eb82ac1
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470662"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580390"
 ---
 ## <a name="download-and-install"></a>Fazer o download e instalar
 
 #### <a name="windows-install"></a>[Instalação do Windows](#tab/windowsinstall)
 
-> [!NOTE]
-> No Windows, é necessário ter os [Pacotes Redistribuíveis do Microsoft Visual C++ para Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para a sua plataforma. Ao instalá-los pela primeira vez, pode ser necessário reiniciar o Windows.
-
 Siga estas etapas para instalar a CLI de Fala no Windows:
 
-1. Baixe o [arquivo zip](https://aka.ms/speech/spx-zips.zip) da CLI de Fala e, em seguida, extraia o arquivo.
-2. Acesse o diretório raiz `spx-zips` que você extraiu do download e extraia o subdiretório necessário (`spx-net471` para .NET Framework 4.7 ou `spx-netcore-win-x64` para .NET Core 3.0 em uma CPU x64).
+1. No Windows, é necessário ter os [Pacotes Redistribuíveis do Microsoft Visual C++ para Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para a sua plataforma. Ao instalá-los pela primeira vez, pode ser necessária uma reinicialização.
+1. Instale o [.NET Core 3.1](/dotnet/core/install/linux).
+2. Instale a CLI de Fala usando o NuGet por meio deste comando:
 
-No prompt de comando, altere o diretório para esse local e, em seguida, digite `spx` para ver a ajuda da CLI de Fala.
+    `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
 
-> [!NOTE]
-> No Windows, a CLI de Fala só pode mostrar as fontes disponíveis no prompt de comando do computador local.
-> O [Terminal do Windows](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701) dá suporte a todas as fontes produzidas de maneira interativa pela CLI de Fala.
-> Se você produzir a saída em um arquivo, um editor de texto como o Bloco de notas ou um navegador da Web como o Microsoft Edge também poderá mostrar todas as fontes.
+Digite `spx` para ver a ajuda da CLI de Fala.
 
 > [!NOTE]
-> O PowerShell não verifica o diretório local ao procurar um comando. No PowerShell, altere o diretório para a localização `spx` e chame a ferramenta inserindo `.\spx`.
-> Se você adicionar esse diretório ao caminho, o PowerShell e o prompt de comando do Windows encontrarão `spx` em qualquer diretório sem incluir o prefixo `.\`.
+> Como alternativa ao NuGet, você pode baixar e extrair o [arquivo .zip](https://aka.ms/speech/spx-zips.zip) da CLI de Fala, localizar e extrair sua plataforma do diretório `spx-zips` e adicionar o caminho `spx` à variável **PATH** do seu sistema.
+
+
+### <a name="font-limitations"></a>Limitações de fontes
+
+No Windows, a CLI de Fala só pode mostrar as fontes disponíveis no prompt de comando do computador local.
+O [Terminal do Windows](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701) dá suporte a todas as fontes produzidas de maneira interativa pela CLI de Fala.
+
+Se você produzir a saída em um arquivo, um editor de texto como o Bloco de notas ou um navegador da Web como o Microsoft Edge também poderá mostrar todas as fontes.
 
 #### <a name="linux-install"></a>[Instalação do Linux](#tab/linuxinstall)
 
 Siga estas etapas para instalar a CLI de Fala no Linux em uma CPU x64:
 
-1. Instalar o [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0).
-2. Baixe o [arquivo zip](https://aka.ms/speech/spx-zips.zip) da CLI de Fala e, em seguida, extraia o arquivo.
-3. Acesse o diretório raiz `spx-zips` que você extraiu no download e extraia `spx-netcore-30-linux-x64` para um novo diretório `~/spx`.
-4. Em um terminal, digite estes comandos:
-   1. `cd ~/spx`
-   2. `sudo chmod +r+x spx`
-   3. `PATH=~/spx:$PATH`
+1. Instale o [.NET Core 3.1](/dotnet/core/install/linux).
+2. Instale a CLI de Fala usando o NuGet por meio deste comando:
+
+    `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
 
 Digite `spx` para ver a ajuda da CLI de Fala.
 
-#### <a name="docker-install"></a>[Instalação do Docker](#tab/dockerinstall)
-
 > [!NOTE]
-> <a href="https://www.docker.com/get-started" target="_blank">O Docker Desktop para sua plataforma <span class="docon docon-navigate-external x-hidden-focus"></span></a> precisa ser instalado.
+> Como alternativa ao NuGet, você pode baixar os binários no [arquivo .zip](https://aka.ms/speech/spx-zips.zip), extrair `spx-netcore-30-linux-x64` para um novo diretório `~/spx`, digitar `sudo chmod +r+x spx` no binário e adicionar o caminho `~/spx` à variável de sistema PATH.
+
+
+#### <a name="docker-install-windows-linux-macos"></a>[Instalação do Docker (Windows, Linux, macOS)](#tab/dockerinstall)
 
 Siga estas etapas para instalar a CLI de Fala em um contêiner do Docker:
 
-1. Em um novo prompt de comando ou terminal, digite este comando: `docker pull msftspeech/spx`
-2. Digite este comando. Você verá informações da Ajuda para a CLI de Fala: `docker run -it --rm msftspeech/spx help`
+1. <a href="https://www.docker.com/get-started" target="_blank">Instale o Docker Desktop<span class="docon docon-navigate-external x-hidden-focus"></span></a> para sua plataforma, se ainda não estiver instalado.
+2. Em um novo prompt de comando ou terminal, digite este comando: 
+   ```console   
+   docker pull msftspeech/spx
+   ```
+3. Digite este comando. Você verá informações da Ajuda para a CLI de Fala: 
+   ```console 
+   docker run -it --rm msftspeech/spx help
+   ```
 
 ### <a name="mount-a-directory-in-the-container"></a>Montar um diretório no contêiner
 
@@ -68,7 +75,7 @@ No Windows, digite este comando para criar um diretório local que possa ser usa
 
 `mkdir c:\spx-data`
 
-Ou então, no Linux ou no Mac, digite este comando em um terminal para criar um diretório e ver o caminho absoluto dele:
+Ou então, no Linux ou no macOS, digite este comando em um terminal para criar um diretório e ver o caminho absoluto dele:
 
 ```bash
 mkdir ~/spx-data
@@ -82,27 +89,69 @@ Você usará o caminho absoluto ao chamar a CLI de Fala.
 
 Esta documentação mostra o comando `spx` da CLI de Fala usado nas instalações que não são do Docker.
 Ao chamar o comando `spx` em um contêiner do Docker, você precisará montar um diretório no contêiner para o sistema de arquivos em que a CLI de Fala possa armazenar e localizar valores de configuração, bem como ler e gravar arquivos.
+
 No Windows, os comandos serão iniciados da seguinte maneira:
 
-`docker run -it -v c:\spx-data:/data --rm msftspeech/spx`
+```console
+docker run -it -v c:\spx-data:/data --rm msftspeech/spx
+```
 
-No Linux ou no Mac, os comandos serão iniciados de maneira semelhante a esta:
+No Linux ou macOS, os comandos se parecerão com o exemplo abaixo. Substitua `ABSOLUTE_PATH` pelo caminho absoluto do diretório montado. Esse caminho foi retornado pelo comando `pwd` na seção anterior. 
 
-`sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx`
-
-> [!NOTE]
-> Substitua `/ABSOLUTE_PATH` pelo caminho absoluto mostrado pelo comando `pwd` na seção acima.
+Se você executar esse comando antes de definir sua chave e região, receberá uma mensagem de erro informando que você deve definir sua chave e região:
+```console   
+sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx
+```
 
 Para usar o comando `spx` instalado em um contêiner, sempre insira o comando completo mostrado acima, seguido dos parâmetros da solicitação.
 Por exemplo, no Windows, este comando define a chave:
 
-`docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY`
+```console
+docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
+```
 
-> [!NOTE]
-> Não é possível usar o microfone nem o alto-falante do computador durante a execução da CLI de Fala em um contêiner do Docker.
-> Para usar esses dispositivos, transmita os arquivos de áudio na CLI de Fala para gravação/reprodução fora do contêiner do Docker.
-> A ferramenta CLI de Fala pode acessar o diretório local configurado nas etapas acima.
+Para obter uma interação mais estendida com a ferramenta de linha de comando, inicie um contêiner com um shell do Bash interativo adicionando um parâmetro de ponto de entrada.
+No Windows, insira este comando para iniciar um contêiner que expõe uma interface de linha de comando interativa, na qual você pode inserir vários comandos `spx`:
+```console
+docker run -it --entrypoint=/bin/bash -v c:\spx-data:/data --rm msftspeech/spx
+```
 
+> [!WARNING]
+> Não é possível usar o microfone do computador durante a execução da CLI da Fala em um contêiner do Docker. No entanto, você pode ler e salvar arquivos de áudio em seu diretório montado local. 
+
+<!-- Need to troubleshoot issues with docker pull image
+
+### Optional: Create a command line shortcut
+
+If you're running the the Speech CLI from a Docker container on Linux or macOS you can create a shortcut. 
+
+Follow these instructions to create a shortcut:
+1. Open `.bash_profile` with your favorite text editor. For example:
+   ```shell
+   nano ~/.bash_profile
+   ```
+2. Next, add this function to your `.bash_profile`. Make sure you update this function with the correct path to your mounted directory:
+   ```shell   
+   spx(){
+       sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx
+   }
+   ```
+3. Source your profile:
+   ```shell
+   source ~/.bash_profile
+   ```
+4. Now instead of running `sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx`, you can just type `spx` followed by arguments. For example: 
+   ```shell
+   // Get some help
+   spx help recognize
+
+   // Recognize speech from an audio file 
+   spx recognize --file /mounted/directory/file.wav
+   ```
+
+> [!WARNING]
+> If you change the mounted directory that Docker is referencing, you need to update the function in `.bash_profile`.
+--->
 ***
 
 ## <a name="create-subscription-config"></a>Criar configuração da assinatura
@@ -110,7 +159,7 @@ Por exemplo, no Windows, este comando define a chave:
 Para começar a usar a CLI de Fala, você precisa inserir a chave de assinatura de Fala e o identificador de região. Obtenha essas credenciais seguindo as etapas em [Experimente o serviço de Fala gratuitamente](../overview.md#try-the-speech-service-for-free).
 Depois de obter a chave de assinatura e o identificador da região (por exemplo, `eastus`, `westus`), execute os comandos a seguir.
 
-```shell
+```console
 spx config @key --set SUBSCRIPTION-KEY
 spx config @region --set REGION
 ```

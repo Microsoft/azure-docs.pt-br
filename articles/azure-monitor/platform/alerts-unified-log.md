@@ -6,28 +6,28 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
-ms.openlocfilehash: 8081c60833c3c02d55ae66ca695ba106dba01450
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a913bc0ae01507cb26c1650d63918a8319eeacf4
+ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294131"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857419"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de log no Azure Monitor
 
 ## <a name="overview"></a>Visão geral
 
-Os alertas de log são um dos tipos de alertas que têm suporte nos [alertas do Azure](./alerts-overview.md). Os alertas de log permitem que os usuários usem uma consulta [log Analytics](../log-query/get-started-portal.md) para avaliar os logs de recursos a cada frequência definida e acionar um alerta com base nos resultados. As regras podem disparar uma ou mais ações usando [grupos de ações](./action-groups.md).
+Os alertas de log são um dos tipos de alertas que têm suporte nos [alertas do Azure](./alerts-overview.md). Os alertas de log permitem que os usuários usem uma consulta [log Analytics](../log-query/log-analytics-tutorial.md) para avaliar os logs de recursos a cada frequência definida e acionar um alerta com base nos resultados. As regras podem disparar uma ou mais ações usando [grupos de ações](./action-groups.md).
 
 > [!NOTE]
-> Os dados de log de um [espaço de trabalho log Analytics](../log-query/get-started-portal.md) podem ser enviados para o repositório de métricas de Azure monitor. Os alertas de métricas têm [comportamento diferente](alerts-metric-overview.md), o que pode ser mais desejável, dependendo dos dados com os quais você está trabalhando. Para obter informações sobre o que e como você pode rotear logs para métricas, consulte [alerta de métrica para logs](alerts-metric-logs.md).
+> Os dados de log de um [espaço de trabalho log Analytics](../log-query/log-analytics-tutorial.md) podem ser enviados para o repositório de métricas de Azure monitor. Os alertas de métricas têm [comportamento diferente](alerts-metric-overview.md), o que pode ser mais desejável, dependendo dos dados com os quais você está trabalhando. Para obter informações sobre o que e como você pode rotear logs para métricas, consulte [alerta de métrica para logs](alerts-metric-logs.md).
 
 > [!NOTE]
 > No momento, não há encargos adicionais para a versão da API `2020-05-01-preview` e alertas de log centrados no recurso.  Os preços para os recursos que estão na versão prévia serão anunciados no futuro e um aviso fornecido antes do início da cobrança. Se você optar por continuar usando a nova versão da API e alertas de log centrados no recurso após o período de aviso, você será cobrado na taxa aplicável.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os alertas de log executam consultas em Log Analytics dados. Primeiro, você deve começar a [coletar dados de log](resource-logs.md) e consultar os dados de log para problemas. Você pode usar o [tópico Exemplos de consulta de alerta](../log-query/saved-queries.md) no log Analytics para entender o que você pode descobrir ou começar [a escrever sua própria consulta](../log-query/get-started-portal.md).
+Os alertas de log executam consultas em Log Analytics dados. Primeiro, você deve começar a [coletar dados de log](resource-logs.md) e consultar os dados de log para problemas. Você pode usar o [tópico Exemplos de consulta de alerta](../log-query/example-queries.md) no log Analytics para entender o que você pode descobrir ou começar [a escrever sua própria consulta](../log-query/log-analytics-tutorial.md).
 
 O [colaborador de monitoramento do Azure](./roles-permissions-security.md) é uma função comum que é necessária para criar, modificar e atualizar alertas de log. O acesso & direitos de execução de consulta para os logs de recursos também são necessários. O acesso parcial aos logs de recursos pode falhar em consultas ou retornar resultados parciais. [Saiba mais sobre como configurar alertas de log no Azure](./alerts-log.md).
 
@@ -44,7 +44,7 @@ A definição da condição de regras de pesquisa de logs começa com:
 As seções a seguir descrevem os diferentes parâmetros que você pode usar para definir a lógica acima.
 
 ### <a name="log-query"></a>Consulta de log
-A consulta [log Analytics](../log-query/get-started-portal.md) usada para avaliar a regra. Os resultados retornados por essa consulta são usados para determinar se um alerta deve ser disparado. A consulta pode ser delimitada para:
+A consulta [log Analytics](../log-query/log-analytics-tutorial.md) usada para avaliar a regra. Os resultados retornados por essa consulta são usados para determinar se um alerta deve ser disparado. A consulta pode ser delimitada para:
 
 - Um recurso específico, como uma máquina virtual.
 - Um recurso em escala, como uma assinatura ou grupo de recursos.
@@ -62,7 +62,7 @@ O intervalo de tempo é definido na definição da condição da regra. Em espa�
 
 Assim como no log Analytics, o intervalo de tempo limita os dados de consulta ao intervalo especificado. Mesmo que o comando **atrás** seja usado na consulta, o intervalo de tempo será aplicado.
 
-Por exemplo, uma consulta examina 60 minutos, quando o intervalo de tempo é de 60 minutos, mesmo se o texto contiver **atrás (1D)**. O intervalo de tempo e a filtragem de tempo de consulta precisam corresponder. No caso de exemplo, alterar o **Period**  /  **intervalo de tempo de consulta de substituição** de período para um dia funcionaria como esperado.
+Por exemplo, uma consulta examina 60 minutos, quando o intervalo de tempo é de 60 minutos, mesmo se o texto contiver **atrás (1D)**. O intervalo de tempo e a filtragem de tempo de consulta precisam corresponder. No caso de exemplo, alterar o   /  **intervalo de tempo de consulta de substituição** de período para um dia funcionaria como esperado.
 
 ### <a name="measure"></a>Medida
 
@@ -74,7 +74,7 @@ A contagem de resultados é a medida padrão. Ideal para trabalhar com eventos c
 
 Os alertas de log funcionam melhor quando você tenta detectar dados no log. Ele funciona menos bem quando você tenta detectar falta de dados nos logs. Por exemplo, alertas na pulsação da máquina virtual.
 
-Para espaços de trabalho e Application Insights, ele é chamado com **base no** **número de resultados da**seleção. Em todos os outros tipos de recursos, ele é chamado de **medida** com **linhas da tabela**de seleção.
+Para espaços de trabalho e Application Insights, ele é chamado com **base no** **número de resultados da** seleção. Em todos os outros tipos de recursos, ele é chamado de **medida** com **linhas da tabela** de seleção.
 
 > [!NOTE]
 > Como os logs são dados semiestruturados, eles são inerentemente mais latentes do que a métrica, que você pode enfrentar inconvenientes ao tentar detectar a falta de dados nos logs e deve considerar o uso de [alertas de métricas](alerts-metric-overview.md). Você pode enviar dados para o repositório de métricas de logs usando [alertas de métricas para logs](alerts-metric-logs.md).
@@ -90,7 +90,7 @@ requests
 | where resultCode == "500"
 ```
 
-- **Período de tempo:** 15 minutos
+- **Período de tempo/granularidade de agregação:** 15 minutos
 - **Frequência de alerta:** 15 minutos
 - **Valor de limite:** maior que 0
 
@@ -98,7 +98,7 @@ Em seguida, as regras de alerta monitoram as solicitações que terminam com o c
 
 #### <a name="calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value"></a>Cálculo de medida com base em uma coluna numérica (como o valor do contador de CPU)
 
-Para espaços de trabalho e Application Insights, ele é chamado com **base em** **medição de métrica**de seleção. Em todos os outros tipos de recursos, ele é chamado de **medida** com a seleção de qualquer nome de coluna de número.
+Para espaços de trabalho e Application Insights, ele é chamado com **base em** **medição de métrica** de seleção. Em todos os outros tipos de recursos, ele é chamado de **medida** com a seleção de qualquer nome de coluna de número.
 
 ### <a name="aggregation-type"></a>Tipo de agregação
 
@@ -120,6 +120,8 @@ Em espaços de trabalho e Application Insights, há suporte apenas em tipo de me
 ### <a name="split-by-alert-dimensions"></a>Dividir por dimensões de alerta
 
 Divida os alertas por número ou colunas de cadeia de caracteres em alertas separados agrupando em combinações exclusivas. Ao criar alertas centrados em recursos em escala (assinatura ou escopo do grupo de recursos), você pode dividir pela coluna ID de recurso do Azure. A divisão na coluna ID de recurso do Azure alterará o destino do alerta para o recurso especificado.
+
+A divisão pela coluna ID de recurso do Azure é recomendada quando você deseja monitorar a mesma condição em vários recursos do Azure. Por exemplo, monitorar todas as máquinas virtuais para uso da CPU acima de 80%. Você também pode optar por não dividir quando quiser uma condição em vários recursos no escopo, como o monitoramento de que pelo menos cinco computadores no escopo do grupo de recursos têm o uso da CPU acima de 80%.
 
 Em espaços de trabalho e Application Insights, há suporte apenas em tipo de medida de **medida métrica** . O campo é chamado de **agregação em**. Ele é limitado a três colunas. Ter mais de três grupos por colunas na consulta pode levar a resultados inesperados. Em todos os outros tipos de recursos, ele é configurado na seção **dividir por dimensões** da condição (limitada a seis divisões).
 
@@ -145,7 +147,7 @@ Por exemplo, você deseja monitorar erros para várias máquinas virtuais que ex
 - **Coluna de ID de recurso:** _ResourceId (divisão por coluna de ID de recurso nas regras de alerta só está disponível para assinaturas e grupos de recursos no momento)
 - **Dimensões/agregadas em:**
   - Computer = VM1, VM2 (os valores de filtragem na definição de regras de alerta não estão disponíveis atualmente para espaços de trabalho e Application Insights. Filtrar no texto da consulta.)
-- **Período de tempo:** 15 minutos
+- **Período de tempo/granularidade de agregação:** 15 minutos
 - **Frequência de alerta:** 15 minutos
 - **Valor de limite:** maior que 0
 
@@ -209,4 +211,3 @@ As informações de preços estão localizadas na [página de preços do Azure m
 * Entenda os [webhooks nos alertas de log no Azure](alerts-log-webhook.md).
 * Saiba mais sobre os [Alertas do Azure](./alerts-overview.md).
 * Saiba mais sobre [log Analytics](../log-query/log-query-overview.md).
-

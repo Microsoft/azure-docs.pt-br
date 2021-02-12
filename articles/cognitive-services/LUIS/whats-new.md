@@ -4,19 +4,29 @@ description: Este artigo é atualizado regularmente com notícias sobre a API de
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 06/15/2020
-ms.openlocfilehash: fffe337a59ff343164a155fcd0f4d5616a32bf41
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 01/21/2021
+ms.openlocfilehash: 5fdde81d31eae4c50b86a5553742f9b599f32505
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91334609"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693588"
 ---
 # <a name="whats-new-in-language-understanding"></a>Novidades sobre reconhecimento vocal
 
 Conheça o que há de novo no serviço. Esses itens incluem notas sobre a versão, vídeos, postagens no blog e outros tipos de informações. Marque esta página para manter-se atualizado quanto ao serviço.
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="january-2021"></a>Janeiro de 2021
+
+* Agora, a API de previsão V3 dá suporte à [API de Verificação Ortográfica do Bing](luis-how-to-publish-app.md#spelling-correction).
+* Os portais regionais (au.luis.ai e eu.luis.ai) foram consolidados em um só portal e uma só URL. Se estiver usando um desses portais, você será automaticamente redirecionado para luis.ai.
+
+### <a name="december-2020"></a>Dezembro de 2020
+
+* Os usuários do LUIS deverão [migrar para um recurso de criação de LUIS](luis-migration-authoring.md)
+* Novos [pontos de extremidade de avaliação](luis-how-to-batch-test.md#batch-testing-using-the-rest-api) que permitem enviar testes em lotes usando a API REST e obter resultados precisos para suas intenções e entidades. Disponível do Ponto de Extremidade do LUIS v3.0-preview em diante.
 
 ### <a name="june-2020"></a>Junho de 2020
 

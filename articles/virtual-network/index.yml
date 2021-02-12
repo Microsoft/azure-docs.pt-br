@@ -10,13 +10,13 @@ metadata:
   ms.collection: collection
   author: KumudD
   ms.author: kumud
-  ms.date: 08/28/2019
-  ms.openlocfilehash: a6c0bee32fbeb50c1eef0a9625706bcee9e1ae17
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.date: 01/28/2021
+  ms.openlocfilehash: 11e3de57bdf2853e94ec61a21ab54ae085f4f6b1
+  ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "82086463"
+  ms.lasthandoff: 01/29/2021
+  ms.locfileid: "99062139"
 landingContent:
 - title: Sobre a Rede Virtual
   linkLists:
@@ -27,7 +27,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: Perguntas frequentes sobre a rede virtual
-      url: virtual-networks-overview.md
+      url: virtual-networks-faq.md
 - title: Introdução
   linkLists:
   - linkListType: quickstart
@@ -45,9 +45,9 @@ landingContent:
   - linkListType: concept
     links:
     - text: Grupos de segurança de rede
-      url: security-overview.md
+      url: ./network-security-groups-overview.md
     - text: Grupos de segurança do aplicativo
-      url: security-overview.md#application-security-groups
+      url: ./network-security-groups-overview.md#application-security-groups
     - text: Pontos de extremidade de serviço de rede virtual
       url: virtual-network-service-endpoints-overview.md
     - text: Perguntas frequentes sobre a segurança da rede virtual
@@ -63,7 +63,7 @@ landingContent:
   - linkListType: learn
     links:
     - text: Proteger e isolar o acesso aos recursos do Azure
-      url: https://docs.microsoft.com/learn/modules/secure-and-isolate-with-nsg-and-service-endpoints
+      url: /learn/modules/secure-and-isolate-with-nsg-and-service-endpoints
   - linkListType: video
     links:
     - text: Acesse com segurança seus recursos de Paas do Azure com o Link Privado do Azure
@@ -93,7 +93,7 @@ landingContent:
   - linkListType: learn
     links:
     - text: Comunicar-se pela rede virtual com o emparelhamento
-      url: https://docs.microsoft.com/learn/modules/integrate-vnets-with-vnet-peering
+      url: /learn/modules/integrate-vnets-with-vnet-peering
 - title: Rotear tráfego de rede
   linkLists:
   - linkListType: concept
@@ -109,7 +109,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: Métodos de alocação e tipos de endereço IP
-      url: virtual-network-ip-addresses-overview-arm.md
+      url: ./public-ip-addresses.md
   - linkListType: how-to-guide
     links:
     - text: Criar, alterar ou excluir um endereço IP público
@@ -151,7 +151,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: Métodos de alocação e tipos de endereço IP
-      url: virtual-network-ip-addresses-overview-arm.md
+      url: ./public-ip-addresses.md
     - text: O que é IPv6 para a rede virtual do Azure?
       url: ipv6-overview.md
     - text: Prefixo de endereço IP público

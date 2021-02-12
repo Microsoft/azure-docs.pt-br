@@ -5,12 +5,12 @@ author: aagup
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 04d8bb4a9f8157a229751d073e8d351f5448fa68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7986c8cd8d0714215c7b4dc57170be346e627ed
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86247890"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928040"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Backup sob demanda no Azure Service Fabric
 
@@ -21,11 +21,16 @@ O Azure Service Fabric é equipado com recursos para [backup periódico dos dado
 Os recursos de backup sob demanda são úteis para capturar o estado dos serviços antes de você acionar manualmente uma operação de serviço ou ambiente de serviço. Por exemplo, se você fizer uma alteração nos binários de serviço ao atualizar ou fazer o downgrade do serviço. Nesse caso, o backup sob demanda pode ajudar a proteger os dados contra corrupção por bugs no código do aplicativo.
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Instale o módulo Microsoft. perfabric. PowerShell. http [em versão prévia] para fazer chamadas de configuração.
+- Instale o módulo Microsoft. perfabric. PowerShell. http (versão prévia) para fazer chamadas de configuração.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
+
+> [!NOTE]
+> Se sua versão do PowerShellGet for menor que 1.6.0, você precisará atualizar para adicionar suporte ao sinalizador *-AllowPrerelease* :
+>
+> `Install-Module -Name PowerShellGet -Force`
 
 - Verifique se o cluster está conectado usando o `Connect-SFCluster` comando antes de fazer qualquer solicitação de configuração usando o módulo Microsoft. perfabric. PowerShell. http.
 
@@ -149,7 +154,7 @@ Solicitações de backup sob demanda podem estar nos seguintes estados:
   LsnOfLastBackupRecord   : 0
   FailureError            :
   ```
-- **Êxito**, **falha**ou **tempo limite**: um backup sob demanda solicitado pode ser concluído em qualquer um dos seguintes Estados:
+- **Êxito**, **falha** ou **tempo limite**: um backup sob demanda solicitado pode ser concluído em qualquer um dos seguintes Estados:
   - **Êxito**: um estado de backup _bem-sucedido_ indica que o backup do estado da partição foi realizado com êxito. A resposta fornece _BackupEpoch_ e _BackupLSN_ para a partição e a hora em UTC.
     ```
     BackupState             : Success

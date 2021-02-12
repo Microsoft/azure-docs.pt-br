@@ -1,20 +1,20 @@
 ---
 title: O que é o Azure Machine Learning
-description: Visão geral do Azure Machine Learning – uma solução integrada de ciência de dados de ponta a ponta para cientistas de dados profissionais desenvolver, experimentar e implantar aplicativos de análise avançada em escala de nuvem.
+description: O Azure Machine Learning é uma solução integrada de ciência de dados para que os cientistas de dados e o MLops modelem e implantem aplicativos ML em escala de nuvem.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: overview
-author: j-martens
-ms.author: jmartens
-ms.date: 11/04/2019
+ms.author: larryfr
+author: BlackMist
+ms.date: 11/04/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: e214607b82a44fb1b6859a3c73d58907fbb279d9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a9d471e81c348bfaa92c5d15774517f0d9e0e43f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91710729"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683350"
 ---
 # <a name="what-is-azure-machine-learning"></a>O que é o Azure Machine Learning?
 
@@ -25,8 +25,6 @@ O Azure Machine Learning pode ser usado para qualquer tipo de aprendizado de má
 Inicie o treinamento do seu computador local e escale horizontalmente para a nuvem. 
 
 O serviço também interopera com ferramentas populares de software livre de aprendizado profundo e reforço como o PyTorch, TensorFlow, scikit-learn e Ray RLlib. 
-
-> [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
 
 > [!Tip]
 > **Avaliação gratuita!**  Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree). Você recebe créditos para gastar em serviços do Azure. Depois que eles forem utilizados, você poderá manter a conta e usar os [serviços gratuitos do Azure](https://azure.microsoft.com/free/). Seu cartão de crédito nunca será cobrado, a menos que você altere explicitamente suas configurações, solicitando esse tipo de cobrança.
@@ -43,13 +41,13 @@ As estimativas ou previsões de aprendizado de máquina podem tornar aplicativos
 O Azure Machine Learning fornece todas as ferramentas que desenvolvedores de ferramentas e cientistas de dados precisam para seus fluxos de trabalho de aprendizado de máquina, incluindo:
 + O [Azure Machine Learning Designer](tutorial-designer-automobile-price-train-score.md): arraste e solte módulos para compilar seus experimentos e, depois, implante pipelines.
 
-+ Notebooks Jupyter: use nossos [notebooks de exemplo](https://github.com/Azure/MachineLearningNotebooks) ou crie seus próprios notebooks para aproveitar nossas amostras de <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK para Python</a> em seu aprendizado de máquina. 
++ Notebooks Jupyter: use nossos [notebooks de exemplo](https://github.com/Azure/MachineLearningNotebooks) ou crie seus próprios notebooks para aproveitar nossas amostras de <a href="/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK para Python</a> em seu aprendizado de máquina. 
 
 + Scripts R ou notebooks nos quais você usa o <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK para R</a> para escrever seu próprio código ou usar os módulos do R no designer.
 
-+ + O [Acelerador de Solução de Muitos Modelos](https://aka.ms/many-models) (versão prévia) é baseado no Azure Machine Learning e permite treinar, operar e gerenciar centenas ou até milhares de modelos de machine learning.
++ O [Acelerador de Solução de Muitos Modelos](https://aka.ms/many-models) (versão prévia) é baseado no Azure Machine Learning e permite treinar, operar e gerenciar centenas ou até milhares de modelos de machine learning.
 
-+ [Extensão do Visual Studio Code](tutorial-setup-vscode-extension.md)
++ [Extensão de machine learning para usuários do Visual Studio Code](tutorial-setup-vscode-extension.md)
 
 + [CLI de aprendizado de máquina](reference-azure-machine-learning-cli.md)
 
@@ -61,9 +59,9 @@ Você pode até mesmo usar [MLflow para controlar as métricas e implantar model
 
 ## <a name="build-ml-models-in-python-or-r"></a>Criar modelos de ML em Python ou R
 
-Inicie o treinamento em seu computador local usando o <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK de Python</a> ou o <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK de R</a> do Azure Machine Learning. Em seguida, você pode escalar horizontalmente para a nuvem. 
+Inicie o treinamento em seu computador local usando o <a href="/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK de Python</a> ou o <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK de R</a> do Azure Machine Learning. Em seguida, você pode escalar horizontalmente para a nuvem. 
 
-Com muitos [destinos de computação](how-to-create-attach-compute-studio.md) disponíveis, como a Computação do Azure Machine Learning e o [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), além de [serviços avançados de ajuste de hiperparâmetro](how-to-tune-hyperparameters.md), você pode criar modelos melhores com mais rapidez usando o poder da nuvem.
+Com muitos [destinos de computação](how-to-create-attach-compute-studio.md) disponíveis, como a Computação do Azure Machine Learning e o [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks), além de [serviços avançados de ajuste de hiperparâmetro](how-to-tune-hyperparameters.md), você pode criar modelos melhores com mais rapidez usando o poder da nuvem.
 
 Também é possível [automatizar o treinamento e o ajuste do modelo](tutorial-auto-train-models.md) usando o SDK.
 
@@ -92,9 +90,9 @@ O [estúdio do Azure Machine Learning](https://studio.azureml.net) é um portal 
 ## <a name="mlops-deploy--lifecycle-management"></a>MLOps: Gerenciamento de implantação e ciclo de vida
 Quando você tem o modelo certo, é possível usá-lo facilmente em um serviço Web, em um dispositivo IoT ou do Power BI. Para obter mais informações, confira o artigo [Como e onde implantar](how-to-deploy-and-where.md).
 
-Em seguida, você pode gerenciar seus modelos implantados usando o [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true), o [Azure Machine Learning Studio](https://ml.azure.com) ou a [CLI de aprendizado de máquina](reference-azure-machine-learning-cli.md).
+Em seguida, você pode gerenciar seus modelos implantados usando o [SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py), o [Azure Machine Learning Studio](https://ml.azure.com) ou a [CLI de aprendizado de máquina](reference-azure-machine-learning-cli.md).
 
-Esses modelos podem ser consumidos e retornar previsões em [tempo real](how-to-consume-web-service.md) ou [assincronamente](how-to-use-parallel-run-step.md) em grandes quantidades de dados.
+Esses modelos podem ser consumidos e retornar previsões em [tempo real](how-to-consume-web-service.md) ou [assincronamente](./tutorial-pipeline-batch-scoring-classification.md) em grandes quantidades de dados.
 
 E com [pipelines de aprendizado de máquina](concept-ml-pipelines.md) avançados, é possível colaborar em cada etapa desde a preparação de dados, do treinamento do modelo e da avaliação, por meio da implantação. Os pipelines permitem:
 
@@ -112,13 +110,13 @@ Para começar a usar o Azure Machine Learning, confira [Próximas etapas](#next-
 O Azure Machine Learning trabalha com outros serviços na plataforma do Azure e também se integra a ferramentas de software livre, como Git e MLFlow.
 
 + Destinos de computação, como __Serviço de Kubernetes do Azure__, __Instâncias de Contêiner do Azure__, __Azure Databricks__, __Azure Data Lake Analytics__ e __Azure HDInsight__. Para obter mais informações sobre destinos de computação, confira [O que são destinos de computação?](concept-compute-target.md).
-+ __Grade de Eventos do Azure__. Para obter mais informações, confira [Consumir eventos do Azure Machine Learning](concept-event-grid-integration.md).
++ __Grade de Eventos do Azure__. Para obter mais informações, confira [Consumir eventos do Azure Machine Learning](./how-to-use-event-grid.md).
 + __Azure Monitor__. Para obter mais informações, confira [Monitoramento do Azure Machine Learning](monitor-azure-machine-learning.md).
 + Os armazenamentos de dados, como __contas de Armazenamento do Azure__, __Azure Data Lake Storage__, __Banco de Dados SQL do Azure__, __Banco de Dados do Azure para PostgreSQL__ e __Azure Open Datasets__. Para obter mais informações, confira [Acessar dados nos serviços de armazenamento do Azure](how-to-access-data.md) e [Criar conjuntos de dados com os Azure Open Datasets](how-to-create-register-datasets.md).
 + __Redes Virtuais do Azure__. Para obter mais informações, confira [Visão geral de isolamento de rede virtual e privacidade](how-to-network-security-overview.md).
 + __Azure Pipelines__. Para obter mais informações, confira [Treinar e implantar modelos de machine learning](/azure/devops/pipelines/targets/azure-machine-learning).
 + __Logs do repositório Git__. Para obter mais informações, confira [Integração do Git](concept-train-model-git-integration.md).
-+ __MLFlow__. Para obter mais informações, confira [MLFlow para acompanhar métricas e implantar modelos](how-to-use-mlflow.md) 
++ __MLFlow__. Para obter mais informações, confira [MLFlow para acompanhar métricas](how-to-use-mlflow.md) e [Implantar modelos como um serviço Web](how-to-deploy-mlflow-models.md) 
 + __Kubeflow__. Para obter mais informações, confira [Criar pipelines de fluxo de trabalho de ponta a ponta](https://www.kubeflow.org/docs/azure/).
 
 ### <a name="secure-communications"></a>Comunicações seguras
@@ -128,8 +126,8 @@ Sua conta de Armazenamento do Azure, os destinos de computação e outros recurs
 ## <a name="next-steps"></a>Próximas etapas
 
 - Crie seu primeiro experimento com seu método preferencial:
-  + [Usar notebooks do Python para treinar e implantar modelos de Machine Learning](tutorial-1st-experiment-sdk-setup.md)
-  + [Usar R Markdown para treinar e implantar modelos de Machine Learning](tutorial-1st-r-experiment.md) 
+- + [Comece a usar seu próprio ambiente de desenvolvimento](tutorial-1st-experiment-sdk-setup-local.md)
+  + [Use blocos de anotações do Jupyter em uma instância de computação para treinar e implantar modelos de ML](tutorial-1st-experiment-sdk-setup.md)
   + [Usar machine learning automatizado para treinar e implantar modelos de Machine Learning](tutorial-first-experiment-automated-ml.md) 
   + [Usar os recursos de arrastar e soltar do designer para treinar e implantar](tutorial-designer-automobile-price-train-score.md) 
   + [Usar a interface de linha de comando de aprendizado de máquina para treinar e implantar um modelo](tutorial-train-deploy-model-cli.md)

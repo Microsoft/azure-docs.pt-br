@@ -13,18 +13,18 @@ ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: ed3e9da628ab779ab47673fa2ce728c5c25539be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b28454e9b60654541d4f62ec1d8455b30cfc2906
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88166426"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580820"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Usar o MSAL.NET para conectar usuários com identidades sociais
 
-Você pode usar o MSAL.NET para conectar usuários com identidades sociais usando [Azure Active Directory B2C (Azure ad B2C)](https://aka.ms/aadb2c). Azure AD B2C é criado com base na noção de políticas. No MSAL.NET, a especificação de uma política se traduz em fornecer uma autoridade.
+Você pode usar o MSAL.NET para conectar usuários com identidades sociais usando [Azure Active Directory B2C (Azure ad B2C)](../../active-directory-b2c/overview.md). Azure AD B2C é criado com base na noção de políticas. No MSAL.NET, a especificação de uma política se traduz em fornecer uma autoridade.
 
-- Ao instanciar o aplicativo cliente público, você precisa especificar a política como parte da autoridade.
+- Ao instanciar o aplicativo cliente público, especifique a política como parte da autoridade.
 - Quando você quiser aplicar uma política, chame uma substituição de `AcquireTokenInteractive` que aceita o `authority` parâmetro.
 
 Este artigo se aplica a MSAL.NET 3. x. Para MSAL.NET 2. x, consulte [Azure ad B2C especificos no MSAL 2. x](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-Specifics-MSAL-2.x) no Wiki do MSAL.net no github.
@@ -74,7 +74,7 @@ AuthenticationResult ar = await application.AcquireTokenInteractive(scopes)
                                            .ExecuteAsync();
 ```
 
-No trecho de código anterior:
+No snippet de código anterior:
 
 - `policy` é uma cadeia de caracteres que contém o nome do seu Azure AD B2C fluxo de usuário ou política personalizada (por exemplo, `PolicySignUpSignIn` ).
 - `ParentActivityOrWindow` é necessário para o Android (a atividade) e é opcional para outras plataformas que dão suporte a uma interface do usuário pai como Windows no Microsoft Windows e UIViewController no iOS. Para obter mais informações sobre a caixa de diálogo da interface do usuário, consulte [WithParentActivityOrWindow](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow) no wiki do MSAL.
@@ -134,7 +134,7 @@ Usando o nome de usuário/senha em um fluxo ROPC, você sacrifica várias coisas
 
 ### <a name="configure-the-ropc-flow-in-azure-ad-b2c"></a>Configurar o fluxo ROPC no Azure AD B2C
 
-Em seu locatário do Azure AD B2C, crie um novo fluxo de usuário e selecione **entrar usando ROPC** para habilitar o ROPC para o fluxo do usuário. Para obter mais informações, consulte [Configurar o fluxo de credenciais de senha do proprietário do recurso](../../active-directory-b2c/configure-ropc.md).
+Em seu locatário do Azure AD B2C, crie um novo fluxo de usuário e selecione **entrar usando ROPC** para habilitar o ROPC para o fluxo do usuário. Para obter mais informações, consulte [Configurar o fluxo de credenciais de senha do proprietário do recurso](../../active-directory-b2c/add-ropc-policy.md).
 
 `IPublicClientApplication` contém o `AcquireTokenByUsernamePassword` método:
 
@@ -165,7 +165,7 @@ Forneceremos uma atualização para esse [problema](https://github.com/AzureAD/m
 
 ### <a name="known-issue-with-azure-ad-b2c"></a>Problema conhecido com o Azure AD B2C
 
-O MSAL.NET dá suporte a um [cache de token](/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet). A chave de cache de token é baseada nas declarações retornadas pelo IdP (provedor de identidade).
+O MSAL.NET dá suporte a um [cache de token](/dotnet/api/microsoft.identity.client.tokencache). A chave de cache de token é baseada nas declarações retornadas pelo IdP (provedor de identidade).
 
 Atualmente, o MSAL.NET precisa de duas declarações para criar uma chave de cache de token:
 

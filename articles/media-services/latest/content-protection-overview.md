@@ -1,6 +1,5 @@
 ---
 title: Proteger seu conteúdo com a criptografia dinâmica dos serviços de mídia v3
-titleSuffix: Azure Media Services
 description: Saiba mais sobre a proteção de conteúdo com criptografia dinâmica, protocolos de streaming e tipos de criptografia nos serviços de mídia do Azure.
 services: media-services
 documentationcenter: ''
@@ -15,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 5d6530cf7b8d8611ff23a3517112cb0aa7442d6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edea46e86475f1731ecfae465f969ca45d63f0a2
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91595993"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897621"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Proteger seu conteúdo com a criptografia dinâmica dos serviços de mídia
 
@@ -128,7 +127,7 @@ O protocolo HLS dá suporte aos seguintes formatos de contêiner e esquemas de c
 
 |Formato de contêiner|Esquema de criptografia|Exemplo de URL|
 |---|---|---|
-|Todos|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
+|Tudo|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
 |MPG2-TS |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbcs-aapl)`|
 |CMAF(fmp4) |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`|
 |MPG2-TS |CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cenc)`|
@@ -146,7 +145,7 @@ O protocolo MPEG-DASH dá suporte aos seguintes formatos de contêiner e esquema
 
 |Formato de contêiner|Esquema de criptografia|Exemplos de URL
 |---|---|---|
-|Todos|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
+|Tudo|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
 |CSF(fmp4) |CENC (Widevine + PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cenc)`|
 |CMAF(fmp4)|CENC (Widevine + PlayReady)|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-cmaf,encryption=cenc)`|
 

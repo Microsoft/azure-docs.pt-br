@@ -11,14 +11,14 @@ ms.date: 05/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 691cdcb525f8e9e3d1fb914372b9f62366f4bfba
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1f4d113f3bc6add67dd34a7ef5e3f8cdc08cecf0
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85213016"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677514"
 ---
-# <a name="quickstart-create-a-synapse-sql-pool-workload-classifier-using-the-azure-portal"></a>Início Rápido: Criar um classificador de carga de trabalho do pool de SQL do Synapse usando o portal do Azure
+# <a name="quickstart-create-a-dedicated-sql-pool-workload-classifier-using-the-azure-portal"></a>Início rápido: Criar um classificador de carga de trabalho do pool de SQL dedicado usando o portal do Azure
 
 Neste início rápido, você criará um [classificador de carga de trabalho](sql-data-warehouse-workload-classification.md) para atribuir consultas a um grupo de carga de trabalho.  O classificador atribuirá solicitações do usuário SQL `ELTLogin` ao grupo de carga de trabalho `DataLoads`.   Siga o tutorial [Início rápido: Configurar o isolamento de carga de trabalho](quickstart-configure-workload-isolation-portal.md) para criar o grupo de carga de trabalho `DataLoads`.  Este tutorial criará um classificador de carga de trabalho com a opção WLM_LABEL para ajudar a classificar as solicitações mais corretamente.  O classificador atribuirá a [prioridade de carga de trabalho](sql-data-warehouse-workload-importance.md) `HIGH` a essas solicitações também.
 
@@ -31,21 +31,21 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 Entre no [portal do Azure](https://portal.azure.com/).
 
 > [!NOTE]
-> A criação de uma instância de pool de SQL no Azure Synapse Analytics pode resultar em um novo serviço faturável.  Para obter mais informações, confira [Preços do Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> A criação de uma instância de pool de SQL dedicado no Azure Synapse Analytics pode resultar em um novo serviço faturável.  Para obter mais informações, confira [Preços do Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este início rápido pressupõe que você já tem uma instância de pool de SQL no Synapse SQL e que você tem permissões do tipo CONTROL DATABASE. Se precisar, use [Criar e conectar – portal](create-data-warehouse-portal.md) para criar um data warehouse chamado **mySampleDataWarehouse**.
+Este início rápido pressupõe que você já tem uma instância de pool de SQL dedicado e que você tem permissões do tipo CONTROL DATABASE. Se precisar criar, use [Criar e conectar – portal](create-data-warehouse-portal.md) para criar um pool de SQL dedicado chamado **mySampleDataWarehouse**.
 <br><br>
 Há um grupo de carga de trabalho `DataLoads`.  Confira o [Início rápido: Configurar o isolamento de carga de trabalho](quickstart-configure-workload-isolation-portal.md) para criar o grupo de carga de trabalho.
 <br><br>
 >[!IMPORTANT] 
->Seu pool de SQL precisa estar online para configurar o gerenciamento de carga de trabalho. 
+>Seu pool de SQL dedicado precisa estar online para configurar o gerenciamento de carga de trabalho. 
 
 
 ## <a name="create-a-login-for-eltlogin"></a>Criar um logon para ELTLogin
 
-Crie um logon de autenticação do SQL Server no banco de dados `master` usando [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para `ELTLogin`.
+Crie um logon de autenticação do SQL Server no banco de dados `master` usando [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para `ELTLogin`.
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.sql_logins WHERE name = 'ELTLogin')
@@ -57,7 +57,7 @@ END
 
 ## <a name="create-user-and-grant-permissions"></a>Criar usuário e conceder permissões
 
-Após o logon ser criado, é necessário criar um usuário no banco de dados.  Use [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para criar o usuário SQL `ELTRole` em **mySampleDataWarehouse**.  Como vamos testar a classificação durante este tutorial, conceda permissões `ELTLogin` para **mySampleDataWarehouse**. 
+Após o logon ser criado, é necessário criar um usuário no banco de dados.  Use [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para criar o usuário SQL `ELTRole` em **mySampleDataWarehouse**.  Como vamos testar a classificação durante este tutorial, conceda permissões `ELTLogin` para **mySampleDataWarehouse**. 
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = 'ELTLogin')
@@ -72,18 +72,17 @@ END
 A classificação permite que você encaminhe solicitações, com base em um conjunto de regras, para um grupo de carga de trabalho.  No tutorial [Início rápido: Configurar o isolamento de carga de trabalho](quickstart-configure-workload-isolation-portal.md), criamos o grupo de carga de trabalho `DataLoads`.  Agora, você criará um classificador de carga de trabalho para encaminhar consultas para o grupo de carga de trabalho `DataLoads`.
 
 
-1.  Clique em **Azure Synapse Analytics (antigo SQL DW)** na página à esquerda do portal do Azure.
-2.  Selecione **mySampleDataWarehouse** na página **Azure Synapse Analytics (antigo SQL DW)** . O pool de SQL é aberto.
-3.  Clique em **Gerenciamento da carga de trabalho**.
+1.  Navegue até a página do pool de SQL dedicado **mySampleDataWarehouse**.
+3.  Selecione **Gerenciamento de carga de trabalho**.
 
     ![Clique no Menu](./media/quickstart-create-a-workload-classifier-portal/menu.png)
 
-4.  Clique em **Configurações e classificadores** no lado direito do grupo de carga de trabalho `DataLoads`.
+4.  Selecione **Configurações e classificadores** no lado direito do grupo de carga de trabalho `DataLoads`.
 
     ![Clique em Criar. ](./media/quickstart-create-a-workload-classifier-portal/settings-classifiers.png)
 
-5. Clique em **Classificadores**.
-6. Clique em **Adicionar classificador**.
+5. Selecione **Não configurado** na coluna Classificadores.
+6. Selecione **+ Adicionar classificador**.
 
     ![Clique em Adicionar](./media/quickstart-create-a-workload-classifier-portal/add-wc.png)
 
@@ -91,19 +90,19 @@ A classificação permite que você encaminhe solicitações, com base em um con
 8.  Insira `ELTLogin` para **Membro**.
 9.  Escolha `High` para **Prioridade da solicitação**.  *Opcional*, a prioridade normal é o padrão.
 10. Insira `fact_loads` para **Rótulo**.
-11. Clique em **Adicionar**.
-12. Clique em **Save** (Salvar).
+11. Selecione **Adicionar**.
+12. Clique em **Salvar**.
 
     ![Clique em Configuração](./media/quickstart-create-a-workload-classifier-portal/config-wc.png)
 
 ## <a name="verify-and-test-classification"></a>Verificar e testar a classificação
-Verifique a exibição de catálogo [sys.workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql?view=azure-sqldw-latest) para confirmar a existência do classificador `ELTLoginDataLoads`.
+Verifique a exibição de catálogo [sys.workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql?view=azure-sqldw-latest&preserve-view=true) para confirmar a existência do classificador `ELTLoginDataLoads`.
 
 ```sql
 SELECT * FROM sys.workload_management_workload_classifiers WHERE name = 'ELTLoginDataLoads'
 ```
 
-Verifique a exibição de catálogo [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?view=azure-sqldw-latest) para confirmar os detalhes do classificador.
+Verifique a exibição de catálogo [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?view=azure-sqldw-latest&preserve-view=true) para confirmar os detalhes do classificador.
 
 ```sql
 SELECT c.[name], c.group_name, c.importance, cd.classifier_type, cd.classifier_value
@@ -135,8 +134,6 @@ WHERE [label] = 'fact_loads'
 ORDER BY submit_time DESC
 ```
 
-
-
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para excluir o classificador de carga de trabalho `ELTLoginDataLoads` neste tutorial:
@@ -152,24 +149,20 @@ Para excluir o classificador de carga de trabalho `ELTLoginDataLoads` neste tuto
 
     ![Clique em Salvar](./media/quickstart-create-a-workload-classifier-portal/delete-save-wc.png)
 
-Você está sendo cobrado por unidades de data warehouse e pelos dados armazenados em seu data warehouse. Esses recursos de computação e armazenamento são cobrados separadamente.
+Você está sendo cobrado por unidades de data warehouse e pelos dados armazenados em seu pool de SQL dedicado. Esses recursos de computação e armazenamento são cobrados separadamente.
 
-- Se desejar manter os dados no armazenamento, será possível pausar a computação quando você não estiver usando o data warehouse. Ao pausar a computação, você será cobrado apenas pelo armazenamento de dados. Quando você estiver pronto para trabalhar com os dados, retome a computação.
-- Se desejar remover encargos futuros, será possível excluir o data warehouse.
+- Se desejar manter os dados no armazenamento, será possível pausar a computação quando você não estiver usando o pool de SQL dedicado. Ao pausar a computação, você será cobrado apenas pelo armazenamento de dados. Quando você estiver pronto para trabalhar com os dados, retome a computação.
+- Se você quiser remover encargos futuros, poderá excluir o pool de SQL dedicado.
 
 Siga estas etapas para limpar os recursos.
 
-1. Entre no [portal do Azure](https://portal.azure.com) e selecione seu data warehouse.
+1. Entre no [portal do Azure](https://portal.azure.com), selecione seu pool de SQL dedicado.
 
     ![Limpar os recursos](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Para pausar a computação, selecione o botão **Pausar**. Quando o data warehouse for pausado, você verá um botão **Iniciar**.  Para retomar a computação, selecione **Iniciar**.
+2. Para pausar a computação, selecione o botão **Pausar**. Quando o pool de SQL dedicado estiver em pausa, você verá um botão **Iniciar**.  Para retomar a computação, selecione **Iniciar**.
 
-3. Para remover o data warehouse para não ser cobrado pela computação ou pelo armazenamento, selecione **Excluir**.
-
-4. Para remover o SQL Server criado, selecione **sqlpoolservername.database.windows.net** na imagem anterior e, em seguida, selecione **Excluir**.  Tenha cuidado com essa exclusão, uma vez que a exclusão do servidor também exclui todos os bancos de dados atribuídos ao servidor.
-
-5. Para remover o grupo de recursos, selecione **myResourceGroup** e, em seguida, **Excluir grupo de recursos**.
+3. Para remover o pool de SQL dedicado para que não seja cobrado pela computação ou pelo armazenamento, selecione **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

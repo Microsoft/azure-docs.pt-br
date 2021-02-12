@@ -1,6 +1,6 @@
 ---
 title: Copiar uma tabela incrementalmente usando o PowerShell
-description: Neste tutorial, você cria um pipeline do Azure Data Factory que copia dados incrementalmente de um Banco de Dados SQL do Azure para um Armazenamento de Blobs do Azure.
+description: Neste tutorial, você criará um pipeline do Azure Data Factory que copia dados de maneira incremental de um Banco de Dados SQL do Azure para um Armazenamento de Blobs do Azure.
 services: data-factory
 author: dearandyxu
 ms.author: yexu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 267c82981ca91dc8fd437222c80368b5ab6f4a46
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50608870fa397ad5586c626f1d1fe5c9d893b4ca
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320856"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222812"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Carregar incrementalmente os dados do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure usando o PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Neste tutorial, você cria um Azure Data Factory com um pipeline que carrega dados delta de uma tabela no Banco de Dados SQL do Azure para um Armazenamento de Blobs do Azure.
+Neste tutorial, você usará o Azure Data Factory para criar um pipeline que carrega dados delta de uma tabela no Banco de Dados SQL do Azure para um Armazenamento de Blobs do Azure.
 
 Neste tutorial, você realizará os seguintes procedimentos:
 
@@ -141,8 +141,8 @@ AS
 
 BEGIN
 
-    UPDATE watermarktable
-    SET [WatermarkValue] = @LastModifiedtime
+UPDATE watermarktable
+SET [WatermarkValue] = @LastModifiedtime
 WHERE [TableName] = @TableName
 
 END
@@ -222,7 +222,7 @@ Os serviços vinculados são criados em um data factory para vincular seus armaz
 
     Veja o exemplo de saída:
 
-    ```json
+    ```console
     LinkedServiceName : AzureStorageLinkedService
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -253,7 +253,7 @@ Os serviços vinculados são criados em um data factory para vincular seus armaz
 
     Veja o exemplo de saída:
 
-    ```json
+    ```console
     LinkedServiceName : AzureSQLDatabaseLinkedService
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
@@ -327,7 +327,7 @@ Nesta etapa, você cria conjuntos de dados para representar dados de origem e de
     ```
 
     > [!IMPORTANT]
-    > Esse snippet de código supõe que você tenha um contêiner de blob denominado adftutorial no Armazenamento de Blobs. Crie o contêiner caso ele não exista ou defina-o com o nome de um contêiner existente. A pasta de saída `incrementalcopy` será criada automaticamente se o contêiner não existir. Neste tutorial, o nome do arquivo é gerado dinamicamente pelo uso da expressão `@CONCAT('Incremental-', pipeline().RunId, '.txt')`.
+    > Esse snippet pressupõe que você tenha um contêiner de blob chamado `adftutorial` no Armazenamento de Blobs. Crie o contêiner caso ele não exista ou defina-o com o nome de um contêiner existente. A pasta de saída `incrementalcopy` será criada automaticamente se o contêiner não existir. Neste tutorial, o nome do arquivo é gerado dinamicamente pelo uso da expressão `@CONCAT('Incremental-', pipeline().RunId, '.txt')`.
 
 2. Execute o cmdlet **Set-AzDataFactoryV2Dataset** para criar o conjunto de dados SinkDataset.
 
@@ -505,7 +505,7 @@ Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma ativ
 
    Veja o exemplo de saída:
 
-   ```json
+   ```console
     PipelineName      : IncrementalCopyPipeline
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
@@ -528,7 +528,7 @@ Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma ativ
 
     Veja o exemplo de saída:
 
-    ```json
+    ```console
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
     ActivityName      : LookupNewWaterMarkActivity
@@ -608,7 +608,7 @@ Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma ativ
 
     TableName | WatermarkValue
     --------- | --------------
-    data_source_table | 2017-09-05  8:06:00.000
+    data_source_table | 05-09-2017 8:06:00.000
 
 ### <a name="insert-data-into-the-data-source-store-to-verify-delta-data-loading"></a>Insira dados no repositório de fonte de dados para verificar o carregamento de dados delta
 
@@ -648,7 +648,7 @@ Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma ativ
 
     Veja o exemplo de saída:
 
-    ```json
+    ```console
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
     ActivityName      : LookupNewWaterMarkActivity

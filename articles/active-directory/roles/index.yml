@@ -12,23 +12,23 @@ metadata:
   ms.date: 10/19/2020
   author: curtand
   ms.author: curtand
-  ms.openlocfilehash: 16a64fd66ab391436f991b5f92f306f7ecf2eb58
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: 8dd6ac6fef0dbc84c77ccacfd048b2af21771f6a
+  ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92372675"
+  ms.lasthandoff: 12/02/2020
+  ms.locfileid: "96499196"
 landingContent:
 - title: Sobre as funções do Azure AD
   linkLists:
   - linkListType: overview
     links:
-    - text: Visão geral de funções personalizadas
+    - text: Visão geral do controle de acesso baseado em função do Azure AD
       url: custom-overview.md
   - linkListType: concept
     links:
-    - text: Delegar a administração
-      url: concept-delegation.md
+    - text: Entender as funções do Azure AD
+      url: concept-understand-roles.md
     - text: Entender as unidades administrativas do Azure AD
       url: administrative-units.md
     - text: Usar grupos de nuvem para gerenciar atribuições de função

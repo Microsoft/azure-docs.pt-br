@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6f2608dafb77aeba98f188ec04f78649656ef969
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: b74de2bdf1f6239f1006c820579a336946939421
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089648"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949574"
 ---
 # <a name="custom-email-verification-with-mailjet"></a>Verificação de email personalizada com Mailjet
 
 Use o email personalizado no Azure Active Directory B2C (Azure AD B2C) para enviar email personalizado aos usuários que se inscrevem para usar seus aplicativos. Usando o [DisplayControls](display-controls.md) (atualmente em visualização) e o provedor de email de terceiros Mailjet, você pode usar seu próprio modelo de email e *de:* endereço e assunto, bem como a localização de suporte e configurações de OTP (senha de uso único) personalizadas.
 
-A verificação de email personalizada requer o uso de um provedor de email de terceiros, como [Mailjet](https://Mailjet.com), [SendGrid](custom-email.md)ou [SparkPost](https://sparkpost.com), uma API REST personalizada ou qualquer provedor de email baseado em http (incluindo o seu próprio). Este artigo descreve como configurar uma solução que usa Mailjet.
+A verificação de email personalizada requer o uso de um provedor de email de terceiros, como [Mailjet](https://Mailjet.com), [SendGrid](./custom-email-sendgrid.md)ou [SparkPost](https://sparkpost.com), uma API REST personalizada ou qualquer provedor de email baseado em http (incluindo o seu próprio). Este artigo descreve como configurar uma solução que usa Mailjet.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -60,7 +60,7 @@ Em seguida, armazene a chave de API Mailjet em uma chave de política de Azure A
 Com uma conta do Mailjet criada e a chave de API do Mailjet armazenada em uma chave de política Azure AD B2C, crie um [modelo transacional dinâmico](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/)Mailjet.
 
 1. No site do Mailjet, abra a página [modelos transacionais](https://app.mailjet.com/templates/transactional) e selecione **criar um novo modelo**.
-1. Selecione **codificando-o em HTML**e, em seguida, selecione **código do zero**.
+1. Selecione **codificando-o em HTML** e, em seguida, selecione **código do zero**.
 1. Insira um nome de modelo exclusivo como `Verification email` e, em seguida, selecione **criar**.
 1. No editor de HTML, Cole o modelo HTML a seguir ou use o seu próprio. Os `{{var:otp:""}}` `{{var:email:""}}` parâmetros e serão substituídos dinamicamente pelo valor de senha de uso único e pelo endereço de email do usuário.
 
@@ -163,7 +163,7 @@ Com uma conta do Mailjet criada e a chave de API do Mailjet armazenada em uma ch
     1. Para o **nome**, digite o nome da sua empresa.
     1. Para o **endereço**, selecione seu endereço de email
     1. Selecione **Salvar**.
-1. No canto superior direito, selecione **salvar & publicar**e, em seguida **, sim, publicar alterações**
+1. No canto superior direito, selecione **salvar & publicar** e, em seguida **, sim, publicar alterações**
 1. Registre a **ID do modelo** do modelo criado para uso em uma etapa posterior. Você especifica essa ID ao [Adicionar a transformação declarações](#add-the-claims-transformation).
 
 

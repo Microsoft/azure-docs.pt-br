@@ -1,7 +1,7 @@
 ---
 title: Implantar modelos de ml no serviço de Azure App (versão prévia)
 titleSuffix: Azure Machine Learning
-description: Saiba como usar Azure Machine Learning para implantar um modelo em um aplicativo Web no serviço Azure App.
+description: Saiba como usar Azure Machine Learning para implantar um modelo de ML treinado em um aplicativo Web usando o serviço Azure App.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: 31c9f203a8602b6c078fe2e9c672c539140f9990
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5f3861d43715ed68116d25206efe4347ea96805c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744427"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452142"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Implantar um modelo de aprendizado de máquina no serviço Azure App (versão prévia)
 
@@ -28,11 +28,11 @@ Saiba como implantar um modelo de Azure Machine Learning como um aplicativo Web 
 
 Com Azure Machine Learning, você pode criar imagens do Docker de modelos de aprendizado de máquina treinados. Essa imagem contém um serviço Web que recebe dados, envia-os para o modelo e, em seguida, retorna a resposta. Azure App serviço pode ser usado para implantar a imagem e fornece os seguintes recursos:
 
-* [Autenticação](/azure/app-service/configure-authentication-provider-aad) avançada para segurança aprimorada. Os métodos de autenticação incluem Azure Active Directory e autenticação multifator.
-* [Dimensionamento automático](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json) sem precisar reimplantar.
-* [Suporte a TLS](/azure/app-service/configure-ssl-certificate-in-code) para comunicações seguras entre clientes e o serviço.
+* [Autenticação](../app-service/configure-authentication-provider-aad.md) avançada para segurança aprimorada. Os métodos de autenticação incluem Azure Active Directory e autenticação multifator.
+* [Dimensionamento automático](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json) sem precisar reimplantar.
+* [Suporte a TLS](../app-service/configure-ssl-certificate-in-code.md) para comunicações seguras entre clientes e o serviço.
 
-Para obter mais informações sobre os recursos fornecidos pelo serviço Azure App, consulte [visão geral do serviço de aplicativo](/azure/app-service/overview).
+Para obter mais informações sobre os recursos fornecidos pelo serviço Azure App, consulte [visão geral do serviço de aplicativo](../app-service/overview.md).
 
 > [!IMPORTANT]
 > Se você precisar da capacidade de registrar em log os dados de Pontuação usados com seu modelo implantado ou os resultados da pontuação, você deverá implantar no serviço kubernetes do Azure. Para obter mais informações, consulte [coletar dados em seus modelos de produção](how-to-enable-data-collection.md).
@@ -40,7 +40,7 @@ Para obter mais informações sobre os recursos fornecidos pelo serviço Azure A
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um Workspace do Azure Machine Learning. Para obter mais informações, consulte o artigo [criar um espaço de trabalho](how-to-manage-workspace.md) .
-* O [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* O [CLI do Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 * Um modelo de aprendizado de máquina treinado registrado em seu espaço de trabalho. Se você não tiver um modelo, use o [tutorial de classificação de imagem: treinar modelo](tutorial-train-models-with-aml.md) para treinar e registrar um.
 
     > [!IMPORTANT]
@@ -56,7 +56,7 @@ Para obter mais informações sobre os recursos fornecidos pelo serviço Azure A
 
 Antes de implantar o, você deve definir o que é necessário para executar o modelo como um serviço Web. A lista a seguir descreve os principais itens necessários para uma implantação:
 
-* Um __script de entrada__ . Esse script aceita solicitações, pontua a solicitação usando o modelo e retorna os resultados.
+* Um __script de entrada__. Esse script aceita solicitações, pontua a solicitação usando o modelo e retorna os resultados.
 
     > [!IMPORTANT]
     > O script de entrada é específico para seu modelo; Ele deve entender o formato dos dados de solicitação de entrada, o formato dos dados esperados pelo seu modelo e o formato dos dados retornados aos clientes.
@@ -66,16 +66,16 @@ Antes de implantar o, você deve definir o que é necessário para executar o mo
     > [!IMPORTANT]
     > O SDK do Azure Machine Learning não fornece uma maneira para o serviço Web acessar seu datastore ou conjuntos de dados. Se você precisar que o modelo implantado acesse dados armazenados fora da implantação, como em uma conta de armazenamento do Azure, você deve desenvolver uma solução de código personalizado usando o SDK relevante. Por exemplo, o [SDK do armazenamento do Azure para Python](https://github.com/Azure/azure-storage-python).
     >
-    > Outra alternativa que pode funcionar para seu cenário é [previsões de lote](how-to-use-parallel-run-step.md), que fornece acesso a repositórios de armazenamento durante a pontuação.
+    > Outra alternativa que pode funcionar para seu cenário é [previsões de lote](./tutorial-pipeline-batch-scoring-classification.md), que fornece acesso a repositórios de armazenamento durante a pontuação.
 
     Para obter mais informações sobre scripts de entrada, confira [Implantar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
 
-* **Dependências** , como scripts auxiliares ou pacotes python/Conda necessários para executar o script ou modelo de entrada
+* **Dependências**, como scripts auxiliares ou pacotes python/Conda necessários para executar o script ou modelo de entrada
 
-Essas entidades são encapsuladas em uma __configuração de inferência__ . A configuração de inferência faz referência ao script de entrada e a outras dependências.
+Essas entidades são encapsuladas em uma __configuração de inferência__. A configuração de inferência faz referência ao script de entrada e a outras dependências.
 
 > [!IMPORTANT]
-> Ao criar uma configuração de inferência para uso com Azure App Service, você deve usar um objeto de [ambiente](https://docs.microsoft.com//python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true) . Observe que, se você estiver definindo um ambiente personalizado, deverá adicionar o azureml-padrões com a versão >= 1.0.45 como uma dependência Pip. Esse pacote contém a funcionalidade necessária para hospedar o modelo como um serviço Web. O exemplo a seguir demonstra como criar um objeto de ambiente e usá-lo com uma configuração de inferência:
+> Ao criar uma configuração de inferência para uso com Azure App Service, você deve usar um objeto de [ambiente](/python/api/azureml-core/azureml.core.environment(class)?preserve-view=true&view=azure-ml-py) . Observe que, se você estiver definindo um ambiente personalizado, deverá adicionar o azureml-padrões com a versão >= 1.0.45 como uma dependência Pip. Esse pacote contém a funcionalidade necessária para hospedar o modelo como um serviço Web. O exemplo a seguir demonstra como criar um objeto de ambiente e usá-lo com uma configuração de inferência:
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -97,11 +97,11 @@ Para obter mais informações sobre ambientes, consulte [criar e gerenciar ambie
 Para obter mais informações sobre a configuração de inferência, consulte [implantar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
 
 > [!IMPORTANT]
-> Ao implantar no Azure App Service, você não precisa criar uma __configuração de implantação__ .
+> Ao implantar no Azure App Service, você não precisa criar uma __configuração de implantação__.
 
 ## <a name="create-the-image"></a>Criar a imagem
 
-Para criar a imagem do Docker que é implantada no serviço Azure App, use [Model. Package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-). O trecho de código a seguir demonstra como criar uma nova imagem a partir do modelo e da configuração de inferência:
+Para criar a imagem do Docker que é implantada no serviço Azure App, use [Model. Package](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py). O trecho de código a seguir demonstra como criar uma nova imagem a partir do modelo e da configuração de inferência:
 
 > [!NOTE]
 > O trecho de código pressupõe que `model` contém um modelo registrado e que `inference_config` contém a configuração para o ambiente de inferência. Para obter mais informações, consulte [implantar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
@@ -146,7 +146,7 @@ Quando `show_output=True` , a saída do processo de Build do Docker é mostrada.
     }
     ```
 
-    Salve o valor de __nome de usuário__ e uma das __senhas__ .
+    Salve o valor de __nome de usuário__ e uma das __senhas__.
 
 1. Se você ainda não tiver um grupo de recursos ou um plano do serviço de aplicativo para implantar o serviço, os comandos a seguir demonstrarão como criar ambos:
 
@@ -271,7 +271,7 @@ print(response.json())
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba como configurar seu aplicativo Web na documentação do [serviço de aplicativo no Linux](/azure/app-service/containers/) .
-* Saiba mais sobre o dimensionamento em introdução [ao dimensionamento automático no Azure](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json).
-* [Use um certificado TLS/SSL em seu serviço de Azure app](/azure/app-service/configure-ssl-certificate-in-code).
-* [Configure seu aplicativo do serviço de aplicativo para usar Azure Active Directory entrar](/azure/app-service/configure-authentication-provider-aad).
+* Saiba mais sobre o dimensionamento em introdução [ao dimensionamento automático no Azure](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json).
+* [Use um certificado TLS/SSL em seu serviço de Azure app](../app-service/configure-ssl-certificate-in-code.md).
+* [Configure seu aplicativo do serviço de aplicativo para usar Azure Active Directory entrar](../app-service/configure-authentication-provider-aad.md).
 * [Consumir um modelo de ML implantado como um serviço Web](how-to-consume-web-service.md)

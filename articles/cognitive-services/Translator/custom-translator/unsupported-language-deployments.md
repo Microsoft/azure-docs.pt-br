@@ -3,19 +3,19 @@ title: Implantações de idioma sem suporte – Tradutor personalizado
 titleSuffix: Azure Cognitive Services
 description: Este artigo mostra como implantar pares de idiomas sem suporte no Tradutor personalizado de serviços cognitivas do Azure.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
-ms.author: swmachan
-ms.openlocfilehash: a5918adfb6724c984f4a59fda802e2f4c5cde7c1
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.author: lajanuar
+ms.openlocfilehash: fb31388647fc6022a2e6670baf7b3e73f345c36a
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221189"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898063"
 ---
 # <a name="unsupported-language-deployments"></a>Implantações de linguagem sem suporte
 
@@ -57,4 +57,4 @@ Ao contrário dos modelos de Tradutor personalizado padrão, os modelos de Hub s
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Treinar um modelo](how-to-train-model.md).
-- Comece a usar o modelo de tradução personalizado implantado por meio da [API de Tradução de Texto V3 da Microsoft](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Comece a usar o modelo de tradução personalizado implantado por meio da [API de Tradução de Texto V3 da Microsoft](../reference/v3-0-translate.md?tabs=curl).

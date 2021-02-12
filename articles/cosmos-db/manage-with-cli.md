@@ -3,24 +3,25 @@ title: Gerenciar recursos de API do Azure Cosmos DB Core (SQL) usando CLI do Azu
 description: Gerenciar recursos da API do Azure Cosmos DB Core (SQL) usando CLI do Azure.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: e5e5a057d6c88e0963ab674aa7dbf2d420ff21b8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b13f5bfffced9afd80663d606e30e028e52643ac
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083892"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563827"
 ---
 # <a name="manage-azure-cosmos-core-sql-api-resources-using-azure-cli"></a>Gerenciar recursos da API do Azure Cosmos Core (SQL) usando o CLI do Azure
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 O guia a seguir descreve os comandos comuns para automatizar o gerenciamento de contas, os bancos de dados e os contêineres do Azure Cosmos DB usando a CLI do Azure. As páginas de referência de todos os comandos do Azure Cosmos DB CLI estão disponíveis na [Referência de CLI do Azure](/cli/azure/cosmosdb). Você também pode encontrar mais exemplos em [amostras de CLI do Azure para o Azure Cosmos DB](cli-samples.md), incluindo como criar e gerenciar contas, bancos de dados e contêineres do Cosmos DB para MongoDB, Gremlin, Cassandra e API de Tabela.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tópico exigirá a execução da CLI do Azure versão 2.12.1 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+- Este artigo requer a versão 2.12.1 ou posterior do CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 Para obter exemplos da CLI do Azure para outras APIs, confira [Exemplos de CLI para o Cassandra](cli-samples-cassandra.md), [Exemplos de CLI para a API do MongoDB](cli-samples-mongodb.md), [Exemplos de CLI para o Gremlin](cli-samples-gremlin.md), [Exemplos de CLI para a Tabela](cli-samples-table.md)
 

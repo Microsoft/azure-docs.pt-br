@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 95f92d4e5616d7754c355610685701a8e089b84e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85847567"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019643"
 ---
 # <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>Mover dados de uma fonte OData usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -45,7 +45,7 @@ Você pode criar um pipeline com uma atividade de cópia que mova dados de uma o
 
 A maneira mais fácil de criar um pipeline é usar o **Assistente de cópia**. Confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
 
-Você também pode usar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo de Azure Resource Manager**, **API .net**e **API REST**. Confira o [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções detalhadas para criar um pipeline com uma atividade de cópia.
+Você também pode usar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo de Azure Resource Manager**, **API .net** e **API REST**. Confira o [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções detalhadas para criar um pipeline com uma atividade de cópia.
 
 Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
@@ -68,7 +68,7 @@ A tabela a seguir fornece a descrição para elementos JSON específicos do serv
 | Nome de Usuário |Especifique o nome de usuário se você estiver usando a autenticação Básica. |Sim (apenas se você estiver usando a autenticação Básica) |
 | password |Especifique a senha da conta de usuário que você especificou para o nome de usuário. |Sim (apenas se você estiver usando a autenticação Básica) |
 | authorizedCredential |Se você estiver usando OAuth, clique no botão **Autorizar** no Editor ou Assistente de Cópia do Data Factory e digite suas credenciais. O valor dessa propriedade será gerado automaticamente. |Sim (apenas se você estiver usando a autenticação OAuth) |
-| gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao serviço OData local. Especifique somente se você estiver copiando dados da fonte OData local. |Não |
+| gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao serviço OData local. Especifique somente se você estiver copiando dados da fonte OData local. |No |
 
 ### <a name="using-basic-authentication"></a>Usando a autenticação Básica
 ```json
@@ -147,7 +147,7 @@ A seção **typeproperties** é diferente para cada tipo de conjunto de dados e 
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| caminho |Caminho para o recurso OData |Não |
+| path |Caminho para o recurso OData |No |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
 Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Criando pipelines](data-factory-create-pipelines.md). As propriedades, como nome, descrição, tabelas de entrada e saída, e política, estão disponíveis para todos os tipos de atividades.
@@ -158,7 +158,7 @@ Quando a fonte é do tipo **RelationalSource** (que inclui o OData), as seguinte
 
 | Propriedade | Descrição | Exemplo | Obrigatório |
 | --- | --- | --- | --- |
-| Consulta |Utiliza a consulta personalizada para ler os dados. |"?$select=Name, Description&$top=5" |Não |
+| Consulta |Utiliza a consulta personalizada para ler os dados. |"?$select=Name, Description&$top=5" |No |
 
 ## <a name="type-mapping-for-odata"></a>Mapeamento de tipos para OData
 Conforme mencionado no artigo sobre as [atividades de movimentação de dados](data-factory-data-movement-activities.md) , a atividade de cópia executa conversões automáticas dos tipos de origem nos tipos de coletor com a seguinte abordagem de duas etapas.

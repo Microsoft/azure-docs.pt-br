@@ -9,12 +9,12 @@ metadata:
   author: anastasia-ms
   ms.author: v-stharr
   ms.date: 1/15/2020
-  ms.openlocfilehash: 30606a38660e3113c6dfce4607333ef77584040f
-  ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+  ms.openlocfilehash: 17113e3a2564ed56ecbcf8e34de27c4fe398ce03
+  ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/29/2020
-  ms.locfileid: "92927457"
+  ms.lasthandoff: 12/18/2020
+  ms.locfileid: "97680677"
 landingContent:
 - title: Sobre o Azure Mapas
   linkLists:
@@ -25,7 +25,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: Cobertura do Azure Mapas
-      url: render-coverage.md
+      url: geographic-coverage.md
     - text: Suporte de Localização
       url: supported-languages.md
     - text: Estilos de mapa compatíveis
@@ -40,6 +40,8 @@ landingContent:
     links:
     - text: Crie um aplicativo Web usando o Azure Mapas
       url: quick-demo-map-app.md
+    - text: Criar um aplicativo Android usando o Azure Mapas
+      url: quick-android-map.md
   - linkListType: concept
     links:
     - text: Escolha o tipo de preço certo para a conta do Azure Mapas
@@ -130,12 +132,26 @@ landingContent:
       url: /javascript/api/azure-maps-spatial-io/
 - title: Como desenvolver com o SDK do Android
   linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Carregar dados GeoJSON no mapa
+      url: tutorial-load-geojson-file-android.md
   - linkListType: how-to-guide
     links:
     - text: Introdução ao controle de mapeamento do Android
       url: how-to-use-android-map-control-library.md
-    - text: Exibir informações de metadados de um recurso
-      url: display-feature-information-android.md
+    - text: Criar uma fonte de dados
+      url: create-data-source-android-sdk.md
+    - text: Adicionar uma camada de bolha
+      url: map-add-bubble-layer-android.md
+    - text: Adicionar uma camada de símbolo
+      url: how-to-add-symbol-to-android-map.md
+    - text: Adicionar uma camada de linha
+      url: android-map-add-line-layer.md
+    - text: Adicionar uma camada de polígono
+      url: how-to-add-shapes-to-android-map.md
+    - text: Usar expressões de estilo orientadas por dados
+      url: data-driven-style-expressions-android-sdk.md
     - text: Adicionar uma camada de bloco a um mapa
       url: how-to-add-tile-layer-android-map.md
     - text: Adicionar uma forma a um mapa
@@ -172,6 +188,16 @@ landingContent:
       url: /rest/api/maps/traffic
     - text: Serviço de fuso horário
       url: /rest/api/maps/timezone
+- title: Como desenvolver usando o serviço Elevação
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Como recuperar e usar os dados de elevação
+      url: how-to-request-elevation-data.md
+  - linkListType: reference
+    links:
+    - text: Serviço Elevação
+      url: /rest/api/maps/elevation/
 - title: Análise espacial
   linkLists:
   - linkListType: concept
@@ -204,7 +230,7 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: Estrutura de dados do serviço Mobilidade
+    - text: Serviço de mobilidade
       url: mobility-service-data-structure.md
   - linkListType: how-to-guide
     links:
@@ -214,14 +240,16 @@ landingContent:
       url: how-to-request-real-time-data.md
   - linkListType: reference
     links:
-    - text: Serviço de Mobilidade
+    - text: Serviço de mobilidade
       url: /rest/api/maps/mobility
-- title: Como desenvolver com os Serviços de Clima
+- title: Como desenvolver com os serviços meteorológicos
   linkLists:
   - linkListType: concept
     links:
-    - text: Conceito de Serviço de Clima
+    - text: Conceitos de serviços meteorológicos
       url: weather-services-concepts.md
+    - text: Perguntas frequentes sobre serviços meteorológicos
+      url: weather-services-faq.md
   - linkListType: tutorial
     links:
     - text: Analisar dados climáticos usando o Azure Notebooks (Python)
@@ -232,5 +260,5 @@ landingContent:
       url: how-to-request-weather-data.md
   - linkListType: reference
     links:
-    - text: Serviço de Clima
+    - text: Serviços meteorológicos
       url: /rest/api/maps/weather

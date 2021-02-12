@@ -4,21 +4,21 @@ description: Baixe as propriedades do grupo em massa no centro de administraçã
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 04/16/2020
+manager: daveba
+ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db800f3827d1b818115c886412ff7d4ffea3e768
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 98c61679fed04c0a696b60bb7ee53009a8a530e0
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374343"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547671"
 ---
 # <a name="bulk-download-a-list-of-groups-in-azure-active-directory"></a>Baixar em massa uma lista de grupos no Azure Active Directory
 

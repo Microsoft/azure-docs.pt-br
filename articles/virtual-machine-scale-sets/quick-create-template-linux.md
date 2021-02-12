@@ -9,12 +9,12 @@ ms.subservice: linux
 ms.date: 03/27/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, subject-armqs, devx-track-azurecli
-ms.openlocfilehash: d040215968b0ebb433edba03e4839ffe7add0e5c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 52e0e50d3c0c68b57181645c3eb695308fdac65a
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745856"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703816"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-arm-template"></a>Início Rápido: Criar um conjunto de dimensionamento de máquinas virtuais do Linux com um modelo do Resource Manager
 
@@ -24,7 +24,7 @@ Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenci
 
 Os modelos do Resource Manager permitem implantar grupos de recursos relacionados. Em um único modelo, é possível criar o conjunto de dimensionamento de máquinas virtuais, instalar aplicativos e configurar regras de dimensionamento automático. Com o uso de variáveis e parâmetros, esse modelo pode ser reutilizado para atualizar conjuntos de dimensionamento existentes ou criar conjuntos adicionais. Você pode implantar modelos por meio do portal do Azure, do Azure CLI ou do Azure PowerShell ou de pipelines de integração contínua / entrega contínua (CI / CD).
 
-Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure** . O modelo será aberto no portal do Azure.
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
 
@@ -77,7 +77,7 @@ Para testar seu conjunto de dimensionamento, instale um aplicativo Web básico. 
 
 O modelo usa a Extensão de Script Personalizado para instalar o [Bottle](https://bottlepy.org/docs/dev/), uma estrutura da Web Python e um servidor HTTP simples.
 
-Dois scripts são definidos em **fileUris** - *installserver.sh* e *workserver.py* . Esses arquivos são baixados do GitHub e, em seguida, *commandToExecute* executa `bash installserver.sh` para instalar e configurar o aplicativo.
+Dois scripts são definidos em **fileUris** - *installserver.sh* e *workserver.py*. Esses arquivos são baixados do GitHub e, em seguida, *commandToExecute* executa `bash installserver.sh` para instalar e configurar o aplicativo.
 
 ## <a name="deploy-the-template"></a>Implantar o modelo
 
@@ -92,7 +92,7 @@ Implante também um modelo do Resource Manager usando a CLI do Azure:
 az group create --name myResourceGroup --location EastUS
 
 # Deploy template into resource group
-az group deployment create \
+az deployment group create \
     --resource-group myResourceGroup \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/azuredeploy.json
 ```
@@ -109,7 +109,7 @@ az network public-ip list \
     --query [*].ipAddress -o tsv
 ```
 
-Insira o endereço IP público do balanceador de carga em um navegador da Web no formato *http:\//publicIpAddress:9000/do_work* . O balanceador de carga distribui o tráfego para uma de suas instâncias de VM, conforme mostrado no exemplo a seguir:
+Insira o endereço IP público do balanceador de carga em um navegador da Web no formato *http:\//publicIpAddress:9000/do_work*. O balanceador de carga distribui o tráfego para uma de suas instâncias de VM, conforme mostrado no exemplo a seguir:
 
 ![Página da Web padrão em NGINX](media/virtual-machine-scale-sets-create-template/running-python-app.png)
 

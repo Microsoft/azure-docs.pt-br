@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: e3a48fa9f84a047a08e73bbaa239563dca541541
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 71e0f2e87fc71deef0bdc4dd48425cdc9dd99dc8
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978358"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200763"
 ---
 # <a name="deploy-spot-vms-using-the-azure-cli"></a>Implantar VMs especiais usando o CLI do Azure
 
@@ -85,4 +85,4 @@ Você também pode criar uma VM Spot usando [Azure PowerShell](../windows/spot-p
 
 Consulte as informações de preços atuais usando a [API de preços de varejo do Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) para obter informações sobre preços especiais. O `meterName` e `skuName` os dois conterão `Spot` .
 
-Se você encontrar um erro, consulte [códigos de erro](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Se você encontrar um erro, consulte [códigos de erro](../error-codes-spot.md).

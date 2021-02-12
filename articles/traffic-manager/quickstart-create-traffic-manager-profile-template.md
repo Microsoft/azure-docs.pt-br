@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: duau
 ms.date: 09/01/2020
-ms.openlocfilehash: dbdb6a255fdf0214103a0011f25b0a6d25014e69
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ec569781a6318062810358c2c5e17ba71efc4f71
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89299143"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676012"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-an-arm-template"></a>Início Rápido: Criar um perfil do Gerenciador de Tráfego usando um modelo do ARM
 
@@ -43,7 +43,7 @@ Para encontrar mais modelos relacionados ao Gerenciador de Tráfego do Azure, co
 
 ## <a name="deploy-the-template"></a>Implantar o modelo
 
-1. Clique em **Experimentar** no bloco de código a seguir para abrir o Azure Cloud Shell e então acompanhe as instruções para entrar no Azure. 
+1. Clique em **Experimentar** no bloco de código a seguir para abrir o Azure Cloud Shell e então acompanhe as instruções para entrar no Azure.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -66,7 +66,7 @@ Para encontrar mais modelos relacionados ao Gerenciador de Tráfego do Azure, co
 
 1. Insira os valores.
 
-    A implantação de modelo cria um perfil com dois pontos de extremidade externos. **Endpoint1** usa o ponto de extremidade de destino *w<span>ww.microsoft</span>.com* com a localização **Norte da Europa**. **Endpoint2** usa o ponto de extremidade de destino *d<span>ocs.microsoft</span>.com* com a localização **Centro-Sul dos EUA**. 
+    A implantação de modelo cria um perfil com dois pontos de extremidade externos. **Endpoint1** usa o ponto de extremidade de destino `www.microsoft.com` com a localização **Norte da Europa**. **Endpoint2** usa o ponto de extremidade de destino `docs.microsoft.com` com a localização no **Centro-Sul dos EUA**.
 
     O nome do grupo de recursos é o nome do projeto com o acréscimo de **rg**.
 
@@ -87,21 +87,23 @@ O Azure PowerShell é usado para implantar o modelo. Além do Azure PowerShell, 
     Get-AzTrafficManagerProfile -Name ExternalEndpointExample -ResourceGroupName $resourceGroupName | Select RelativeDnsName
     ```
 
-    Copie o valor **RelativeDnsName**. O nome DNS do perfil do Gerenciador de Tráfego é *<* relativednsname *>.trafficmanager.net*. 
+    Copie o valor **RelativeDnsName**. O nome DNS do seu perfil do Gerenciador de Tráfego é `<relativednsname>.trafficmanager.net`.
 
-1. Em um PowerShell local, execute o comando a seguir substituindo a variável **{relativeDNSname}** por *<* relativednsname *>.trafficmanager.net*.
+1. Em um PowerShell local, execute o comando a seguir substituindo a variável **{relativeDNSname}** por `<relativednsname>.trafficmanager.net`.
 
     ```powershell
     Resolve-DnsName -Name {relativeDNSname} | Select-Object NameHost | Select -First 1
     ```
-    Você deve obter um NameHost igual a *w<span>ww.microsoft</span>.com* ou *d<span>ocs.microsoft</span>.com*, dependendo de qual região está mais perto de você.
 
-1. Para verificar se você pode resolver o endereço para o outro ponto de extremidade, desabilite o ponto de extremidade no destino obtido na última etapa. Substitua o **{endpointName}** por **endpoint1** ou **endpoint2** para desabilitar o destino para *w<span>ww.microsoft</span>.com* ou *d<span>ocs.microsoft</span>.com*, respectivamente.
+    Você deve obter um NameHost igual a `www.microsoft.com` ou `docs.microsoft.com`, dependendo de qual região está mais perto de você.
+
+1. Para verificar se você pode resolver o endereço para o outro ponto de extremidade, desabilite o ponto de extremidade no destino obtido na última etapa. Substitua o **{endpointName}** por **endpoint1** ou **endpoint2** para desabilitar o destino para `www.microsoft.com` ou `docs.microsoft.com`, respectivamente.
 
     ```azurepowershell-interactive
     Disable-AzTrafficManagerEndpoint -Name {endpointName} -Type ExternalEndpoints -ProfileName ExternalEndpointExample -ResourceGroupName $resourceGroupName -Force
     ```
-1. Execute o comando da Etapa 2 novamente em um PowerShell local. Desta vez, você deverá obter o outro NameHost para o outro ponto de extremidade. 
+
+1. Execute o comando da Etapa 2 novamente em um PowerShell local. Desta vez, você deverá obter o outro NameHost para o outro ponto de extremidade.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -115,8 +117,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você criou:
-* Perfil do Gerenciador de Tráfego
+Neste início rápido, você criou um perfil do Gerenciador de Tráfego.
 
 Para saber mais sobre o encaminhamento de tráfego, prossiga para os tutoriais do Gerenciador de Tráfego.
 

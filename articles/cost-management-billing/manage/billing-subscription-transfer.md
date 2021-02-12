@@ -8,15 +8,15 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 01/06/2021
 ms.author: banders
-ms.custom: contperfq1
-ms.openlocfilehash: d2814a989cb82216081083f3198d52ccd70210ff
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: ae588708a41c1259628b726a3a471034dba7d131
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131914"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601549"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de cobrança de uma assinatura do Azure para outra conta
 
@@ -24,7 +24,7 @@ Este artigo mostra as etapas necessárias para transferir a propriedade da cobra
 
 Se desejar manter a propriedade da cobrança, mas alterar o tipo de assinatura, confira [Mudar sua assinatura do Azure para outra oferta](switch-azure-offer.md). Para controlar quem pode acessar recursos na assinatura, confira [Funções internas do Azure](../../role-based-access-control/built-in-roles.md).
 
-Se você for cliente EA (Contrato Enterprise), seus administradores corporativos poderão transferir a propriedade da cobrança de suas assinaturas entre contas. Para obter mais informações, confira [Alterar o proprietário da conta](ea-portal-get-started.md#change-account-owner).
+Se você for cliente EA (Contrato Enterprise), seus administradores corporativos poderão transferir a propriedade da cobrança de suas assinaturas entre contas. Para obter mais informações, confira [Alterar a propriedade de assinatura ou de conta do Azure](ea-portal-administration.md#change-azure-subscription-or-account-ownership).
 
 Somente o administrador de cobrança de uma conta pode transferir a propriedade de uma assinatura.
 
@@ -72,6 +72,18 @@ Se você aceitou a propriedade de cobrança de uma assinatura do Azure, recomend
    1. Chaves de acesso para serviços como Armazenamento. Para saber mais, consulte [Sobre as contas de Armazenamento do Azure](../../storage/common/storage-account-create.md)
    1. Credenciais de Acesso Remoto para serviços como Máquinas Virtuais do Azure.
 1. Se estiver trabalhando com um parceiro, considere a atualização da ID do parceiro na assinatura. Você pode atualizar a ID do parceiro no [Portal do Azure](https://portal.azure.com). Para obter mais informações, confira [Vincular uma ID de parceiro a suas contas do Azure](link-partner-id.md)
+
+## <a name="cancel-a-transfer-request"></a>Cancelar uma solicitação de transferência
+
+Apenas uma solicitação de transferência está ativa por vez. Uma solicitação de transferência é válida por 15 dias. Depois de 15 dias, a solicitação de transferência vai expirar.
+
+Para cancelar uma solicitação de transferência:
+
+1. Entre no [portal do Azure](https://portal.azure.com).
+1. Navegue até **Assinaturas** > selecione a assinatura para a qual você enviou uma solicitação de transferência > selecione **Transferir propriedade da cobrança**.
+1. Na parte inferior da página, selecione **Cancelar a solicitação de transferência**.
+
+:::image type="content" source="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" alt-text="Exemplo mostrando a janela Transferir propriedade da cobrança com a opção Cancelar a solicitação de transferência" lightbox="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" :::
 
 ## <a name="troubleshooting"></a>Solução de problemas
 

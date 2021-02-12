@@ -10,12 +10,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 7128a11ae9d5c9844353404309f8ad40cba53972
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9d03496634c5d30d30b23a76b5b47b1e810af288
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787577"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635391"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Autorizar o acesso a BLOBs e filas usando Azure Active Directory
 
@@ -75,15 +75,15 @@ O acesso a dados de BLOB ou de fila por meio do portal do Azure, PowerShell ou C
 
 O portal do Azure pode usar sua conta do Azure AD ou as chaves de acesso da conta para acessar dados de BLOB e de fila em uma conta de armazenamento do Azure. O esquema de autorização que o portal do Azure usa depende das funções do Azure atribuídas a você.
 
-Quando você tenta acessar dados de BLOB ou de fila, a portal do Azure primeiro verifica se você recebeu uma função do Azure com **Microsoft. Storage/storageAccounts/listkeys/Action** . Se você tiver recebido uma função com essa ação, o portal do Azure usará a chave de conta para acessar dados de BLOB e de fila por meio da autorização de chave compartilhada. Se você não tiver recebido uma função com essa ação, a portal do Azure tentará acessar os dados usando sua conta do Azure AD.
+Quando você tenta acessar dados de BLOB ou de fila, a portal do Azure primeiro verifica se você recebeu uma função do Azure com **Microsoft. Storage/storageAccounts/listkeys/Action**. Se você tiver recebido uma função com essa ação, o portal do Azure usará a chave de conta para acessar dados de BLOB e de fila por meio da autorização de chave compartilhada. Se você não tiver recebido uma função com essa ação, a portal do Azure tentará acessar os dados usando sua conta do Azure AD.
 
 Para acessar dados de BLOB ou de fila do portal do Azure usando sua conta do Azure AD, você precisa de permissões para acessar dados de BLOB e de fila e também precisa de permissões para navegar pelos recursos da conta de armazenamento no portal do Azure. As funções internas fornecidas pelo armazenamento do Azure concedem acesso aos recursos de BLOB e fila, mas não concedem permissões aos recursos da conta de armazenamento. Por esse motivo, o acesso ao portal também requer a atribuição de uma função de Azure Resource Manager, como a função [leitor](../../role-based-access-control/built-in-roles.md#reader) , no escopo do nível da conta de armazenamento ou superior. A função **leitor** concede as permissões mais restritas, mas outra função de Azure Resource Manager que concede acesso aos recursos de gerenciamento da conta de armazenamento também é aceitável. Para saber mais sobre como atribuir permissões a usuários para acesso a dados no portal do Azure com uma conta do Azure AD, consulte [usar o portal do Azure para atribuir uma função do Azure para acesso a dados de BLOB e de fila](storage-auth-aad-rbac-portal.md).
 
-O portal do Azure indica qual esquema de autorização está em uso quando você navega para um contêiner ou uma fila. Para obter mais informações sobre o acesso a dados no portal, consulte [escolher como autorizar o acesso a dados de blob no portal do Azure](../blobs/authorize-blob-access-portal.md) e [escolher como autorizar o acesso aos dados da fila no portal do Azure](../queues/authorize-queue-access-portal.md).
+O portal do Azure indica qual esquema de autorização está em uso quando você navega para um contêiner ou uma fila. Para obter mais informações sobre o acesso a dados no portal, consulte [escolher como autorizar o acesso a dados de blob no portal do Azure](../blobs/authorize-data-operations-portal.md) e [escolher como autorizar o acesso aos dados da fila no portal do Azure](../queues/authorize-data-operations-portal.md).
 
 ### <a name="data-access-from-powershell-or-azure-cli"></a>Acesso a dados do PowerShell ou CLI do Azure
 
-O CLI do Azure e o PowerShell dão suporte à entrada com as credenciais do Azure AD. Depois de entrar, sua sessão é executada sob essas credenciais. Para saber mais, confira [executar comandos do CLI do Azure ou do PowerShell com as credenciais do Azure ad para acessar dados de BLOB ou fila](../blobs/authorize-active-directory-powershell.md).
+O CLI do Azure e o PowerShell dão suporte à entrada com as credenciais do Azure AD. Depois de entrar, sua sessão é executada sob essas credenciais. Para saber mais, confira [executar comandos do CLI do Azure ou do PowerShell com as credenciais do Azure ad para acessar dados de BLOB ou fila](../blobs/authorize-data-operations-powershell.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

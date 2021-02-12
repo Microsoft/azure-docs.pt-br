@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 8406074933489e53e9235a8a6a05b68f1dd42a85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99741a412ae02a2d30293e1aa254245f5ca7b662
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259129"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171425"
 ---
 # <a name="tutorial-for-configuring-saviynt-with-azure-active-directory-b2c"></a>Tutorial para configurar o Saviynt com o Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ Para começar, você precisará de:
 
 - Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
 
-- Um [locatário Azure ad B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant). O locatário está vinculado à sua assinatura do Azure.
+- Um [locatário Azure ad B2C](./tutorial-create-tenant.md). O locatário está vinculado à sua assinatura do Azure.
 
 - Uma [assinatura](https://saviynt.com/contact-us/) do Saviynt
 
@@ -48,7 +48,7 @@ A integração do Saviynt inclui os seguintes componentes:
 
 - [Saviynt](https://saviynt.com/integrations/azure-ad/for-b2c/) – a plataforma de governança de identidade que fornece administração delegada refinada para gerenciamento do ciclo de vida do usuário e governança de acesso de Azure ad B2C usuários.  
 
-- [API de Microsoft Graph](https://docs.microsoft.com/graph/use-the-api) – essa API fornece as interfaces para Saviynt para gerenciar os Azure ad B2C usuários e seu acesso no Azure ad B2C.
+- [API de Microsoft Graph](/graph/use-the-api) – essa API fornece as interfaces para Saviynt para gerenciar os Azure ad B2C usuários e seu acesso no Azure ad B2C.
 
 O diagrama de arquitetura a seguir mostra a implementação.
 
@@ -69,7 +69,7 @@ O diagrama de arquitetura a seguir mostra a implementação.
 
 1. Para criar uma conta do Saviynt, entre em contato com [Saviynt](https://saviynt.com/contact-us/)
 
-2. Crie políticas de administração delegadas e atribua usuários como [administradores delegados](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-concept-delegation) com várias funções.
+2. Crie políticas de administração delegadas e atribua usuários como [administradores delegados](../active-directory/roles/concept-delegation.md) com várias funções.
 
 ## <a name="configure-azure-ad-b2c-with-saviynt"></a>Configurar Azure AD B2C com Saviynt
 
@@ -91,7 +91,7 @@ O diagrama de arquitetura a seguir mostra a implementação.
 
 8. Vá para a próxima página e selecione **permissões de aplicativo**.
 
-9. Selecione **diretório**e selecione **diretório. ler. todas as** caixas de seleção Directory **. ReadWrite. All** .
+9. Selecione **diretório** e selecione **diretório. ler. todas as** caixas de seleção Directory **. ReadWrite. All** .
 
 10. Selecione **adicionar permissões**. Revise as permissões adicionadas.
 
@@ -113,7 +113,7 @@ O diagrama de arquitetura a seguir mostra a implementação.
 As etapas a seguir explicam como habilitar o Saviynt para executar operações de exclusão de usuário no Azure AD B2C.
 
 >[!NOTE]
->[Avalie o risco antes de conceder acesso às funções de administrador a uma entidade de serviço.](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
+>[Avalie o risco antes de conceder acesso às funções de administrador a uma entidade de serviço.](../active-directory/develop/app-objects-and-service-principals.md)
 
 1. Instale a versão mais recente do módulo MSOnline do PowerShell em uma estação de trabalho do Windows/servidor.
 
@@ -133,8 +133,8 @@ Navegue até o locatário do aplicativo Saviynt e teste o gerenciamento do ciclo
 
 Para obter informações adicionais, examine os seguintes artigos:
 
-- [Políticas personalizadas no Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Políticas personalizadas no Azure AD B2C](./custom-policy-overview.md)
 
-- [Introdução às políticas personalizadas no Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Introdução às políticas personalizadas no Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
 
-- [Criar um aplicativo de API Web](https://docs.microsoft.com/azure/active-directory-b2c/add-web-api-application)
+- [Criar um aplicativo de API Web](./add-web-api-application.md)

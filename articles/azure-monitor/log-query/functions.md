@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/31/2020
-ms.openlocfilehash: 155f27b9f04db74955640aad8f582fdf05539368
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 678a6f0dc19d966f3d15e713008c19c8fbb96f5e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87511931"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024357"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Usar funções nas consultas de log no Azure Monitor
 
@@ -56,10 +56,10 @@ security_updates_last_day | where Title contains "SQL"
 ## <a name="next-steps"></a>Próximas etapas
 Confira outras lições para escrever consultas de log no Azure Monitor:
 
-- [Operações de cadeia de caracteres](string-operations.md)
-- [Operações de data e hora](datetime-operations.md)
-- [Funções de agregação](aggregations.md)
-- [Agregações avançadas](advanced-aggregations.md)
-- [JSON e estruturas de dados](json-data-structures.md)
-- [Junções](joins.md)
-- [Gráficos](charts.md)
+- [Operações de cadeia de caracteres](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#string-operations)
+- [Operações de data e hora](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#date-and-time-operations)
+- [Funções de agregação](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#aggregations)
+- [Agregações avançadas](/azure/data-explorer/write-queries#advanced-aggregations)
+- [JSON e estruturas de dados](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#json-and-data-structures)
+- [Junções](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#joins)
+- [Gráficos](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#charts)

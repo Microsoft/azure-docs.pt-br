@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a48a72aa021a17c59adb86bece66cec966e234bd
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 0c4fde22b1b8d72ae8ae775c090e0da25ce0665f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056133"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181162"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analisar logs de atividade do Azure AD com os logs do Azure Monitor
 
@@ -104,9 +104,9 @@ Você também pode configurar alertas em sua consulta. Por exemplo, para configu
 
 As pastas de trabalho fornecem vários relatórios relacionados a cenários comuns envolvendo auditoria, entrada e eventos de provisionamento. Você também pode alertar sobre qualquer um dos dados fornecidos nos relatórios seguindo as etapas descritas na seção anterior.
 
-* **Análise de provisionamento**: esta [pasta de trabalho](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) mostra relatórios relacionados à atividade de provisionamento de auditoria, como o número de novos usuários provisionados e falhas de provisionamento, número de usuários atualizados e falhas de atualização e o número de usuários desprovisionados e falhas correspondentes.    
+* **Análise de provisionamento**: esta [pasta de trabalho](../app-provisioning/application-provisioning-log-analytics.md) mostra relatórios relacionados à atividade de provisionamento de auditoria, como o número de novos usuários provisionados e falhas de provisionamento, número de usuários atualizados e falhas de atualização e o número de usuários desprovisionados e falhas correspondentes.    
 * **Eventos de entradas**: esta pasta de trabalho mostra os relatórios mais relevantes relacionados à atividade de entrada de monitoramento, como entradas por aplicativo, usuário, dispositivo, bem como uma exibição de resumo que controla o número de entradas ao longo do tempo.
-* **Informações de acesso condicional**: a [pasta de trabalho](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-insights-reporting) informações de acesso condicional e relatórios permite que você entenda o impacto das políticas de acesso condicional em sua organização ao longo do tempo. 
+* **Informações de acesso condicional**: a [pasta de trabalho](../conditional-access/howto-conditional-access-insights-reporting.md) informações de acesso condicional e relatórios permite que você entenda o impacto das políticas de acesso condicional em sua organização ao longo do tempo. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

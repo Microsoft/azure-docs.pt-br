@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3fcbc386c60611493912fdfb17226490549cdc53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ccb287a63cf372ff78c750a4690188de7ccc59e6
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89396804"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807930"
 ---
 # <a name="azure-security-baseline-for-azure-container-registry"></a>Linha de base de segurança do Azure para registro de contêiner do Azure
 
@@ -366,7 +366,7 @@ Como monitorar a identidade e o acesso na central de segurança do Azure:  https
 
 **Diretrizes**: Use PAWs (estações de trabalho com acesso privilegiado) com a MFA configurada para fazer logon e configurar recursos do Azure.
 
-Saiba mais sobre estações de trabalho com acesso privilegiado:  https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
+Saiba mais sobre estações de trabalho com acesso privilegiado:  https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/
 
 Como habilitar a MFA no Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
@@ -1154,7 +1154,7 @@ Como definir o contato da segurança da central de segurança do Azure:  https:/
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: incorporar alertas de segurança em seu sistema de resposta a incidentes
 
-**Diretriz**: exporte os alertas e recomendações da Central de Segurança do Azure usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da Central de Segurança do Azure para transmitir os alertas do Sentinel.
+**Diretriz**: exporte os alertas e recomendações da Central de Segurança do Azure usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da Central de Segurança do Azure para transmitir os alertas do Azure Sentinel.
 
 Como configurar a exportação contínua:  https://docs.microsoft.com/azure/security-center/continuous-export
 

@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
 ms.openlocfilehash: 50e047325ad17710794b1640715ab1938373fe85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542165"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019456"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Balanceamento de carga com o pacote de entrega de aplicativos do Azure
 
@@ -82,7 +82,7 @@ Além disso, o pool de VMs padrão que atende o conteúdo dinâmico precisa se c
 
 O diagrama a seguir mostra a arquitetura desse cenário:
 
-:::image type="content" source="./media/front-door-lb-with-azure-app-delivery-suite/application-delivery-figure2.png" alt-text="Pacote de entrega de aplicativos":::
+:::image type="content" source="./media/front-door-lb-with-azure-app-delivery-suite/application-delivery-figure2.png" alt-text="Arquitetura detalhada do pacote de entrega de aplicativos":::
 
 > [!NOTE]
 > Este exemplo é apenas uma das muitas configurações possíveis dos serviços de balanceamento de carga oferecidos pelo Azure. O Gateway de Aplicativo, o Front Door, o Load Balancer e o Gerenciador de Tráfego podem ser associados e combinados para melhor atender às necessidades de balanceamento de carga. Por exemplo, se o descarregamento de TLS/SSL ou o processamento de camada 7 não for necessário, Load Balancer poderá ser usado no lugar do gateway de aplicativo.

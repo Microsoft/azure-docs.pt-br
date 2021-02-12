@@ -7,11 +7,11 @@ ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: apimpm
 ms.openlocfilehash: 2f298f240d8aa7a38b42a8c78ee3c90fe3423d10
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91630538"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993543"
 ---
 # <a name="tutorial-create-and-publish-a-product"></a>Tutorial: Criar e publicar um produto  
 
@@ -38,7 +38,7 @@ Neste tutorial, você aprende a:
 1. No painel de navegação esquerdo, selecione **Produtos** >  **+ Adicionar**.
 1.  Na janela **Adicionar produto**, insira os valores descritos na tabela a seguir para criar seu produto.
 
-    :::image type="content" source="media/api-management-howto-add-products/02-create-publish-product-01.png" alt-text="Produtos do Gerenciamento de API no portal":::
+    :::image type="content" source="media/api-management-howto-add-products/02-create-publish-product-01.png" alt-text="Adicionar produto no portal":::
 
     | Nome                     | Descrição                                                                                                                                                                                                                                                                                                             |
     |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -80,7 +80,7 @@ Os Desenvolvedores devem primeiro se inscrever em um produto para obter acesso �
 1. Selecione **+ Adicionar**.
 1. Selecione uma ou mais APIs e escolha **Selecionar**.
 
-:::image type="content" source="media/api-management-howto-add-products/02-create-publish-product-02.png" alt-text="Produtos do Gerenciamento de API no portal":::
+:::image type="content" source="media/api-management-howto-add-products/02-create-publish-product-02.png" alt-text="Adicionar API a um produto existente":::
 
 > [!TIP]
 > Você pode criar ou atualizar a assinatura de um usuário para um produto com chaves de assinatura personalizadas por meio de uma [API REST](/rest/api/apimanagement/2019-12-01/subscription/createorupdate) ou de um comando do PowerShell.

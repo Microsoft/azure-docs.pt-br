@@ -3,16 +3,17 @@ title: TETO na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre como a função de sistema SQL de teto em Azure Cosmos DB retorna o menor valor inteiro maior que, ou igual a, a expressão numérica especificada.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 2ffc1ba208ca6b587354fcce683dc7db3a8ccb64
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 8c5fdda416aca698b9ad0a68ef050957f32aef31
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081681"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332399"
 ---
 # <a name="ceiling-azure-cosmos-db"></a>TETO (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

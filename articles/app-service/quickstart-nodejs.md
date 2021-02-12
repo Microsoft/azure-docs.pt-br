@@ -6,12 +6,13 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 ms.custom: mvc, devcenter, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: f105acaa4e2801ca6dc8c33b404fdb9f9d65adc8
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+adobe-target: true
+ms.openlocfilehash: b42abfda863ed38eb3c29004630f905edef075c4
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633715"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359095"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Criar um aplicativo Web do Node.js no Azure
 
@@ -64,28 +65,28 @@ Nesta seção, você implantará o aplicativo Node.js no Azure usando o VS Code 
     code .
     ```
 
-1. Na barra de atividade do VS Code, selecione o logotipo do Azure para mostrar o gerenciador do **SERVIÇO DE APLICATIVO DO AZURE** . Selecione **Entrar no Azure...** e siga as instruções. (Confira [Solução de problemas de entrada no Azure](#troubleshooting-azure-sign-in) abaixo em caso de erros.) Após a conexão, o gerenciador deverá mostrar o nome da sua assinatura do Azure.
+1. Na barra de atividade do VS Code, selecione o logotipo do Azure para mostrar o gerenciador do **SERVIÇO DE APLICATIVO DO AZURE**. Selecione **Entrar no Azure...** e siga as instruções. (Confira [Solução de problemas de entrada no Azure](#troubleshooting-azure-sign-in) abaixo em caso de erros.) Após a conexão, o gerenciador deverá mostrar o nome da sua assinatura do Azure.
 
     ![Entrar no Azure](media/quickstart-nodejs/sign-in.png)
 
 1. No gerenciador do **SERVIÇO DE APLICATIVO DO AZURE** do VS Code, selecione o ícone de seta azul para cima para implantar o aplicativo no Azure. (Invoque também o mesmo comando na **paleta de comandos** ( **CTRL**+**Shift**+**P** ) digitando 'implantar no aplicativo Web' e escolhendo **Serviço de Aplicativo do Azure: Implantar no Aplicativo Web** ).
 
-    :::image type="content" source="media/quickstart-nodejs/deploy.png" alt-text="Captura de tela do serviço de Aplicativo do Azure no VS Code que mostra o ícone de seta azul selecionado.&quot;:::
+    :::image type="content" source="media/quickstart-nodejs/deploy.png" alt-text="Captura de tela do serviço de Aplicativo do Azure no VS Code que mostra o ícone de seta azul selecionado.":::
         
-1. Escolha a pasta *nodejs-docs-hello-world* .
+1. Escolha a pasta *nodejs-docs-hello-world*.
 
 1. Escolha uma opção de criação com base no sistema operacional no qual você deseja implantar:
 
     - Linux: Escolha **Criar Aplicativo Web**
     - Windows: Escolha **Criar Aplicativo Web... Avançado**
 
-1. Digite um nome global exclusivo para o aplicativo Web e selecione **Enter** . O nome precisa ser exclusivo em todo o Azure e usar somente caracteres alfanuméricos ('A-Z', 'a-z' e '0-9') e hifens ('-').
+1. Digite um nome global exclusivo para o aplicativo Web e selecione **Enter**. O nome precisa ser exclusivo em todo o Azure e usar somente caracteres alfanuméricos ('A-Z', 'a-z' e '0-9') e hifens ('-').
 
 1. Se estiver direcionando para o Linux, selecione uma versão do Node.js quando solicitado. Uma versão **LTS** é recomendada.
 
 1. Se o destino for o Windows, siga os avisos adicionais:
     1. Selecione **Criar um grupo de recursos** e, em seguida, insira um nome para o grupo de recursos, como `AppServiceQS-rg`.
-    1. Para o sistema operacional, selecione **Windows** .
+    1. Para o sistema operacional, selecione **Windows**.
     1. Selecione **Criar Plano do Serviço de Aplicativo** , insira um nome para o plano (como `AppServiceQS-plan`) e, em seguida, selecione **F1 Gratuito** como o tipo de preço.
     1. Escolha **Ignorar por enquanto** o Application Insights for solicitado.
     1. Escolha uma região perto de você ou perto dos recursos que deseja acessar.
@@ -96,9 +97,9 @@ Nesta seção, você implantará o aplicativo Node.js no Azure usando o VS Code 
 
     ![Aviso para atualizar a configuração no servidor Linux de destino](media/quickstart-nodejs/server-build.png)
 
-1. Selecione **Sim** quando for exibido o aviso **Sempre implantar o workspace &quot;nodejs-docs-hello-world&quot; em (nome do aplicativo)&quot;** . A seleção da opção **Sim** instrui o VS Code a ter automaticamente como destino o mesmo aplicativo Web do Serviço de Aplicativo com as implantações seguintes.
+1. Selecione **Sim** quando for exibido o aviso **Sempre implantar o workspace "nodejs-docs-hello-world" em (nome do aplicativo)"** . A seleção da opção **Sim** instrui o VS Code a ter automaticamente como destino o mesmo aplicativo Web do Serviço de Aplicativo com as implantações seguintes.
 
-1. Na implantação no Linux, selecione **Procurar no Site** no aviso para ver o aplicativo Web recém-implantado após a conclusão da implantação. O navegador deverá exibir &quot;Olá, Mundo!"
+1. Na implantação no Linux, selecione **Procurar no Site** no aviso para ver o aplicativo Web recém-implantado após a conclusão da implantação. O navegador deverá exibir "Olá, Mundo!"
 
 1. Se estiver fazendo a implantação no Windows, primeiro, você precisará definir o número de versão do Node.js para o aplicativo Web:
 
@@ -112,7 +113,7 @@ Nesta seção, você implantará o aplicativo Node.js no Azure usando o VS Code 
 
         ![Comando Reiniciar serviço de aplicativo](media/quickstart-nodejs/restart.png)
 
-    1. Clique com o botão direito do mouse no nó do serviço de aplicativo mais uma vez e selecione **Procurar no Site** .
+    1. Clique com o botão direito do mouse no nó do serviço de aplicativo mais uma vez e selecione **Procurar no Site**.
 
 > [!div class="nextstepaction"]
 > [Encontrei um problema](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=deploy-app)
@@ -136,41 +137,13 @@ Você pode implantar alterações nesse aplicativo fazendo edições no VS Code,
 
 Veja a saída de log (chamadas a `console.log`) no aplicativo diretamente na Janela de Saída do VS Code.
 
-1. No gerenciador do **SERVIÇO DE APLICATIVO DO AZURE** , clique com o botão direito do mouse no nó do aplicativo e escolha **Iniciar Streaming de Logs** .
+1. No gerenciador do **SERVIÇO DE APLICATIVO DO AZURE** , clique com o botão direito do mouse no nó do aplicativo e escolha **Iniciar Streaming de Logs**.
 
     ![Iniciar Streaming de Logs](media/quickstart-nodejs/view-logs.png)
 
 1. Quando solicitado, escolha habilitar o registro em log e reinicie o aplicativo. Depois que o aplicativo for reiniciado, a janela de saída do VS Code será aberta com uma conexão com o fluxo de log. 
 
-    :::image type="content" source="media/quickstart-nodejs/enable-restart.png" alt-text="Captura de tela do serviço de Aplicativo do Azure no VS Code que mostra o ícone de seta azul selecionado.&quot;:::
-        
-1. Escolha a pasta *nodejs-docs-hello-world* .
-
-1. Escolha uma opção de criação com base no sistema operacional no qual você deseja implantar:
-
-    - Linux: Escolha **Criar Aplicativo Web**
-    - Windows: Escolha **Criar Aplicativo Web... Avançado**
-
-1. Digite um nome global exclusivo para o aplicativo Web e selecione **Enter** . O nome precisa ser exclusivo em todo o Azure e usar somente caracteres alfanuméricos ('A-Z', 'a-z' e '0-9') e hifens ('-').
-
-1. Se estiver direcionando para o Linux, selecione uma versão do Node.js quando solicitado. Uma versão **LTS** é recomendada.
-
-1. Se o destino for o Windows, siga os avisos adicionais:
-    1. Selecione **Criar um grupo de recursos** e, em seguida, insira um nome para o grupo de recursos, como `AppServiceQS-rg`.
-    1. Para o sistema operacional, selecione **Windows** .
-    1. Selecione **Criar Plano do Serviço de Aplicativo** , insira um nome para o plano (como `AppServiceQS-plan`) e, em seguida, selecione **F1 Gratuito** como o tipo de preço.
-    1. Escolha **Ignorar por enquanto** o Application Insights for solicitado.
-    1. Escolha uma região perto de você ou perto dos recursos que deseja acessar.
-
-1. Depois de responder a todos os avisos, o VS Code mostrará os recursos do Azure que estão sendo criados para o aplicativo no pop-up de notificação.
-
-    Na implantação no Linux, selecione **Sim** quando precisar atualizar a configuração para executar `npm install` no servidor Linux de destino.
-
-    ![Aviso para atualizar a configuração no servidor Linux de destino](media/quickstart-nodejs/server-build.png)
-
-1. Selecione **Sim** quando for exibido o aviso **Sempre implantar o workspace &quot;nodejs-docs-hello-world&quot; em (nome do aplicativo)&quot;** . A seleção da opção **Sim** instrui o VS Code a ter automaticamente como destino o mesmo aplicativo Web do Serviço de Aplicativo com as implantações seguintes.
-
-1. Na implantação no Linux, selecione **Procurar no Site** no aviso para ver o aplicativo Web recém-implantado após a conclusão da implantação. O navegador deverá exibir &quot;Olá, Mundo!":::
+    :::image type="content" source="media/quickstart-nodejs/enable-restart.png" alt-text="Captura de tela do prompt do Visual Studio Code para habilitar o registro em log e reiniciar o aplicativo com o botão Sim selecionado.":::
 
 1. Após alguns segundos, a Janela de Saída mostrará uma mensagem indicando que você está conectado ao serviço de streaming de log. Gere mais atividades de saída atualizando a página no navegador.
 
@@ -215,7 +188,7 @@ Será necessário instalar a [extensão do Serviço de Aplicativo do Azure](http
 
 ### <a name="sign-in"></a>Entrar
 
-Depois que a extensão for instalada, faça logon em sua conta do Azure. Na Barra de Atividades, clique no logotipo do Azure para mostrar o explorador **SERVIÇO DE APLICATIVO DO AZURE** . Selecione **Entrar no Azure...** e siga as instruções.
+Depois que a extensão for instalada, faça logon em sua conta do Azure. Na Barra de Atividades, clique no logotipo do Azure para mostrar o explorador **SERVIÇO DE APLICATIVO DO AZURE**. Selecione **Entrar no Azure...** e siga as instruções.
 
 ![entrar no Azure](./media/quickstart-nodejs/sign-in.png)
 
@@ -234,7 +207,7 @@ Se a configuração das variáveis de ambiente não corrigir o problema, contate
 
 Antes de continuar, verifique se você tem todos os pré-requisitos instalados e configurados.
 
-No VS Code, você deverá ver o endereço de email do Azure na Barra de Status e sua assinatura no explorador **SERVIÇO DE APLICATIVO DO AZURE** .
+No VS Code, você deverá ver o endereço de email do Azure na Barra de Status e sua assinatura no explorador **SERVIÇO DE APLICATIVO DO AZURE**.
 
 > [!div class="nextstepaction"]
 > [Encontrei um problema](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=getting-started)
@@ -292,35 +265,7 @@ code .
 
 No explorador **SERVIÇO DE APLICATIVO DO AZURE** , selecione o ícone de seta azul para cima para implantar seu aplicativo no Azure.
 
-:::image type="content" source="./media/quickstart-nodejs/deploy.png" alt-text="Captura de tela do serviço de Aplicativo do Azure no VS Code que mostra o ícone de seta azul selecionado.&quot;:::
-        
-1. Escolha a pasta *nodejs-docs-hello-world* .
-
-1. Escolha uma opção de criação com base no sistema operacional no qual você deseja implantar:
-
-    - Linux: Escolha **Criar Aplicativo Web**
-    - Windows: Escolha **Criar Aplicativo Web... Avançado**
-
-1. Digite um nome global exclusivo para o aplicativo Web e selecione **Enter** . O nome precisa ser exclusivo em todo o Azure e usar somente caracteres alfanuméricos ('A-Z', 'a-z' e '0-9') e hifens ('-').
-
-1. Se estiver direcionando para o Linux, selecione uma versão do Node.js quando solicitado. Uma versão **LTS** é recomendada.
-
-1. Se o destino for o Windows, siga os avisos adicionais:
-    1. Selecione **Criar um grupo de recursos** e, em seguida, insira um nome para o grupo de recursos, como `AppServiceQS-rg`.
-    1. Para o sistema operacional, selecione **Windows** .
-    1. Selecione **Criar Plano do Serviço de Aplicativo** , insira um nome para o plano (como `AppServiceQS-plan`) e, em seguida, selecione **F1 Gratuito** como o tipo de preço.
-    1. Escolha **Ignorar por enquanto** o Application Insights for solicitado.
-    1. Escolha uma região perto de você ou perto dos recursos que deseja acessar.
-
-1. Depois de responder a todos os avisos, o VS Code mostrará os recursos do Azure que estão sendo criados para o aplicativo no pop-up de notificação.
-
-    Na implantação no Linux, selecione **Sim** quando precisar atualizar a configuração para executar `npm install` no servidor Linux de destino.
-
-    ![Aviso para atualizar a configuração no servidor Linux de destino](media/quickstart-nodejs/server-build.png)
-
-1. Selecione **Sim** quando for exibido o aviso **Sempre implantar o workspace &quot;nodejs-docs-hello-world&quot; em (nome do aplicativo)&quot;** . A seleção da opção **Sim** instrui o VS Code a ter automaticamente como destino o mesmo aplicativo Web do Serviço de Aplicativo com as implantações seguintes.
-
-1. Na implantação no Linux, selecione **Procurar no Site** no aviso para ver o aplicativo Web recém-implantado após a conclusão da implantação. O navegador deverá exibir &quot;Olá, Mundo!":::
+:::image type="content" source="./media/quickstart-nodejs/deploy.png" alt-text="Captura de tela do menu do Serviço de Aplicativo do Azure no Visual Studio Code com a seta de implantação azul selecionada.":::
 
 > [!TIP]
 > Você também pode implantar na **Paleta de Comandos** (CTRL + SHIFT + P) digitando “implantar no aplicativo Web” e executando o comando **Serviço de Aplicativo do Azure: Implantar no comando** do aplicativo Web.
@@ -337,67 +282,11 @@ No explorador **SERVIÇO DE APLICATIVO DO AZURE** , selecione o ícone de seta a
 
 1. Selecione **Sim** quando solicitado a atualizar sua configuração para ser executar `npm install` no servidor de destino. Seu aplicativo será implantado.
 
-    :::image type="content" source="./media/quickstart-nodejs/server-build.png" alt-text="Captura de tela do serviço de Aplicativo do Azure no VS Code que mostra o ícone de seta azul selecionado.&quot;:::
-        
-1. Escolha a pasta *nodejs-docs-hello-world* .
-
-1. Escolha uma opção de criação com base no sistema operacional no qual você deseja implantar:
-
-    - Linux: Escolha **Criar Aplicativo Web**
-    - Windows: Escolha **Criar Aplicativo Web... Avançado**
-
-1. Digite um nome global exclusivo para o aplicativo Web e selecione **Enter** . O nome precisa ser exclusivo em todo o Azure e usar somente caracteres alfanuméricos ('A-Z', 'a-z' e '0-9') e hifens ('-').
-
-1. Se estiver direcionando para o Linux, selecione uma versão do Node.js quando solicitado. Uma versão **LTS** é recomendada.
-
-1. Se o destino for o Windows, siga os avisos adicionais:
-    1. Selecione **Criar um grupo de recursos** e, em seguida, insira um nome para o grupo de recursos, como `AppServiceQS-rg`.
-    1. Para o sistema operacional, selecione **Windows** .
-    1. Selecione **Criar Plano do Serviço de Aplicativo** , insira um nome para o plano (como `AppServiceQS-plan`) e, em seguida, selecione **F1 Gratuito** como o tipo de preço.
-    1. Escolha **Ignorar por enquanto** o Application Insights for solicitado.
-    1. Escolha uma região perto de você ou perto dos recursos que deseja acessar.
-
-1. Depois de responder a todos os avisos, o VS Code mostrará os recursos do Azure que estão sendo criados para o aplicativo no pop-up de notificação.
-
-    Na implantação no Linux, selecione **Sim** quando precisar atualizar a configuração para executar `npm install` no servidor Linux de destino.
-
-    ![Aviso para atualizar a configuração no servidor Linux de destino](media/quickstart-nodejs/server-build.png)
-
-1. Selecione **Sim** quando for exibido o aviso **Sempre implantar o workspace &quot;nodejs-docs-hello-world&quot; em (nome do aplicativo)&quot;** . A seleção da opção **Sim** instrui o VS Code a ter automaticamente como destino o mesmo aplicativo Web do Serviço de Aplicativo com as implantações seguintes.
-
-1. Na implantação no Linux, selecione **Procurar no Site** no aviso para ver o aplicativo Web recém-implantado após a conclusão da implantação. O navegador deverá exibir &quot;Olá, Mundo!":::
+    :::image type="content" source="./media/quickstart-nodejs/server-build.png" alt-text="Captura de tela do prompt para atualizar a sua configuração no servidor de destino com o botão Sim selecionado.":::
 
 1. Quando a implantação é iniciada, você deve atualizar o workspace para que futuras implantações direcionem automaticamente o mesmo Aplicativo Web do Serviço de Aplicativo. Escolha **Sim** para que suas alterações sejam implantadas no aplicativo correto.
 
-    :::image type="content" source="./media/quickstart-nodejs/save-configuration.png" alt-text="Captura de tela do serviço de Aplicativo do Azure no VS Code que mostra o ícone de seta azul selecionado.&quot;:::
-        
-1. Escolha a pasta *nodejs-docs-hello-world* .
-
-1. Escolha uma opção de criação com base no sistema operacional no qual você deseja implantar:
-
-    - Linux: Escolha **Criar Aplicativo Web**
-    - Windows: Escolha **Criar Aplicativo Web... Avançado**
-
-1. Digite um nome global exclusivo para o aplicativo Web e selecione **Enter** . O nome precisa ser exclusivo em todo o Azure e usar somente caracteres alfanuméricos ('A-Z', 'a-z' e '0-9') e hifens ('-').
-
-1. Se estiver direcionando para o Linux, selecione uma versão do Node.js quando solicitado. Uma versão **LTS** é recomendada.
-
-1. Se o destino for o Windows, siga os avisos adicionais:
-    1. Selecione **Criar um grupo de recursos** e, em seguida, insira um nome para o grupo de recursos, como `AppServiceQS-rg`.
-    1. Para o sistema operacional, selecione **Windows** .
-    1. Selecione **Criar Plano do Serviço de Aplicativo** , insira um nome para o plano (como `AppServiceQS-plan`) e, em seguida, selecione **F1 Gratuito** como o tipo de preço.
-    1. Escolha **Ignorar por enquanto** o Application Insights for solicitado.
-    1. Escolha uma região perto de você ou perto dos recursos que deseja acessar.
-
-1. Depois de responder a todos os avisos, o VS Code mostrará os recursos do Azure que estão sendo criados para o aplicativo no pop-up de notificação.
-
-    Na implantação no Linux, selecione **Sim** quando precisar atualizar a configuração para executar `npm install` no servidor Linux de destino.
-
-    ![Aviso para atualizar a configuração no servidor Linux de destino](media/quickstart-nodejs/server-build.png)
-
-1. Selecione **Sim** quando for exibido o aviso **Sempre implantar o workspace &quot;nodejs-docs-hello-world&quot; em (nome do aplicativo)&quot;** . A seleção da opção **Sim** instrui o VS Code a ter automaticamente como destino o mesmo aplicativo Web do Serviço de Aplicativo com as implantações seguintes.
-
-1. Na implantação no Linux, selecione **Procurar no Site** no aviso para ver o aplicativo Web recém-implantado após a conclusão da implantação. O navegador deverá exibir &quot;Olá, Mundo!":::
+    :::image type="content" source="./media/quickstart-nodejs/save-configuration.png" alt-text="Captura de tela do prompt para atualizar o seu workspace com o botão Sim selecionado.":::
 
 > [!TIP]
 > Verifique se seu aplicativo está escutando na porta fornecida pela variável de ambiente PORT: `process.env.PORT`.
@@ -421,41 +310,13 @@ Você pode implantar alterações nesse aplicativo usando o mesmo processo e esc
 
 Nesta seção, você aprenderá a exibir (ou “seguir”) os logs do aplicativo do Serviço de Aplicativo em execução. Chamadas a `console.log` no aplicativo são exibidas na Janela de Saída no Visual Studio Code.
 
-Localize o aplicativo no explorador **SERVIÇO DE APLICATIVO DO AZURE** , clique com o botão direito do mouse no aplicativo e escolha **Exibir logs de streaming** .
+Localize o aplicativo no explorador **SERVIÇO DE APLICATIVO DO AZURE** , clique com o botão direito do mouse no aplicativo e escolha **Exibir logs de streaming**.
 
 A Janela de Saída do VS Code será aberta com uma conexão com o fluxo de log.
 
 ![Exibir logs de streaming](./media/quickstart-nodejs/view-logs.png)
 
-:::image type="content" source="./media/quickstart-nodejs/enable-restart.png" alt-text="Captura de tela do serviço de Aplicativo do Azure no VS Code que mostra o ícone de seta azul selecionado.&quot;:::
-        
-1. Escolha a pasta *nodejs-docs-hello-world* .
-
-1. Escolha uma opção de criação com base no sistema operacional no qual você deseja implantar:
-
-    - Linux: Escolha **Criar Aplicativo Web**
-    - Windows: Escolha **Criar Aplicativo Web... Avançado**
-
-1. Digite um nome global exclusivo para o aplicativo Web e selecione **Enter** . O nome precisa ser exclusivo em todo o Azure e usar somente caracteres alfanuméricos ('A-Z', 'a-z' e '0-9') e hifens ('-').
-
-1. Se estiver direcionando para o Linux, selecione uma versão do Node.js quando solicitado. Uma versão **LTS** é recomendada.
-
-1. Se o destino for o Windows, siga os avisos adicionais:
-    1. Selecione **Criar um grupo de recursos** e, em seguida, insira um nome para o grupo de recursos, como `AppServiceQS-rg`.
-    1. Para o sistema operacional, selecione **Windows** .
-    1. Selecione **Criar Plano do Serviço de Aplicativo** , insira um nome para o plano (como `AppServiceQS-plan`) e, em seguida, selecione **F1 Gratuito** como o tipo de preço.
-    1. Escolha **Ignorar por enquanto** o Application Insights for solicitado.
-    1. Escolha uma região perto de você ou perto dos recursos que deseja acessar.
-
-1. Depois de responder a todos os avisos, o VS Code mostrará os recursos do Azure que estão sendo criados para o aplicativo no pop-up de notificação.
-
-    Na implantação no Linux, selecione **Sim** quando precisar atualizar a configuração para executar `npm install` no servidor Linux de destino.
-
-    ![Aviso para atualizar a configuração no servidor Linux de destino](media/quickstart-nodejs/server-build.png)
-
-1. Selecione **Sim** quando for exibido o aviso **Sempre implantar o workspace &quot;nodejs-docs-hello-world&quot; em (nome do aplicativo)&quot;** . A seleção da opção **Sim** instrui o VS Code a ter automaticamente como destino o mesmo aplicativo Web do Serviço de Aplicativo com as implantações seguintes.
-
-1. Na implantação no Linux, selecione **Procurar no Site** no aviso para ver o aplicativo Web recém-implantado após a conclusão da implantação. O navegador deverá exibir &quot;Olá, Mundo!":::
+:::image type="content" source="./media/quickstart-nodejs/enable-restart.png" alt-text="Captura de tela do prompt do VS Code para habilitar o registro em log do arquivo e reiniciar o aplicativo Web, com o botão Sim selecionado.":::
 
 Após alguns segundos, vocês verá uma mensagem indicando que você está conectado ao serviço de streaming de log. Atualize a página algumas vezes para ver mais atividades.
 

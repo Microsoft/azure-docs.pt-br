@@ -1,17 +1,17 @@
 ---
 title: Reiniciar o servidor-portal do Azure-banco de dados do Azure para MySQL
 description: Este artigo descreve como você pode reiniciar um servidor de banco de dados do Azure para MySQL usando o portal do Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: d885cc64eeebd4873ad5993b39b48845d1365c23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d19c0bd4ef5c49b8be82ffa11115ff6a1c6b302
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90902745"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541786"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-azure-portal"></a>Reiniciar o servidor Banco de Dados do Azure para MySQL usando o portal do Azure
 Este tópico descreve como você pode reiniciar um servidor do Banco de Dados do Azure para MySQL. Você talvez precise reiniciar o servidor por razões de manutenção, o que causa uma breve interrupção, conforme o servidor executa a operação.
@@ -36,15 +36,15 @@ As etapas a seguir reiniciam o servidor MySQL:
 
 3. Clique em **Sim** para confirmar a reinicialização do servidor.
 
-   :::image type="content" source="./media/howto-restart-server-portal/3-restart-confirm.png" alt-text="Banco de Dados do Azure para MySQL - Visão geral - botão Reiniciar":::
+   :::image type="content" source="./media/howto-restart-server-portal/3-restart-confirm.png" alt-text="Banco de Dados do Azure para MySQL - Restaurar confirmação":::
 
 4. Observe que o status do servidor muda para "Reiniciando".
 
-   :::image type="content" source="./media/howto-restart-server-portal/4-restarting-status.png" alt-text="Banco de Dados do Azure para MySQL - Visão geral - botão Reiniciar":::
+   :::image type="content" source="./media/howto-restart-server-portal/4-restarting-status.png" alt-text="Banco de Dados do Azure para MySQL - Reiniciar status":::
 
 5. Confirme se a reinicialização do servidor foi bem-sucedida.
 
-   :::image type="content" source="./media/howto-restart-server-portal/5-restart-success.png" alt-text="Banco de Dados do Azure para MySQL - Visão geral - botão Reiniciar":::
+   :::image type="content" source="./media/howto-restart-server-portal/5-restart-success.png" alt-text="Banco de Dados do Azure para MySQL - Reiniciar status":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

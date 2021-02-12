@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 43d593a65fd08542eb2829fcebcea81ea0c99986
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: e10f45af89e19f6fe62ff729f96d870e008c96ec
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995448"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611093"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Metas de desempenho e escalabilidade do Arquivos do Azure
 
@@ -87,16 +87,16 @@ Para ajudá-lo a planejar a implantação para cada um dos estágios, abaixo sã
 | Número de objetos | 25 milhões de objetos |
 | Tamanho do conjunto de dados| ~ 4,7 TiB |
 | Tamanho médio de arquivo | ~ 200 KiB (maior arquivo: 100 GiB) |
-| Enumeração de alteração de nuvem inicial | 7 objetos por segundo  |
+| Enumeração de alteração de nuvem inicial | 20 objetos por segundo  |
 | Carregue a taxa de transferência | 20 objetos por segundo por grupo de sincronização |
 | Taxa de transferência de download de namespace | 400 objetos por segundo |
 
 ### <a name="initial-one-time-provisioning"></a>Provisionamento inicial de uso único
 
 **Enumeração de alteração de nuvem inicial**: quando um novo grupo de sincronização é criado, a enumeração de alteração de nuvem inicial é a primeira etapa que será executada. Nesse processo, o sistema irá enumerar todos os itens no compartilhamento de arquivos do Azure. Durante esse processo, não haverá nenhuma atividade de sincronização, ou seja, nenhum item será baixado do ponto de extremidade de nuvem para o ponto de extremidade do servidor e nenhum item será carregado do ponto de extremidade do servidor para o ponto de extremidade da nuvem. A atividade de sincronização será retomada após a conclusão da enumeração de alteração de nuvem inicial.
-A taxa de desempenho é de 7 objetos por segundo. Os clientes podem estimar o tempo necessário para concluir a enumeração inicial de alteração na nuvem determinando o número de itens no compartilhamento de nuvem e usando a fórmula a seguir para obter o tempo em dias. 
+A taxa de desempenho é de 20 objetos por segundo. Os clientes podem estimar o tempo necessário para concluir a enumeração inicial de alteração na nuvem determinando o número de itens no compartilhamento de nuvem e usando a fórmula a seguir para obter o tempo em dias. 
 
-   **Tempo (em dias) para a enumeração de nuvem inicial = (número de objetos no ponto de extremidade de nuvem)/(7 * 60 * 60 * 24)**
+   **Tempo (em dias) para a enumeração de nuvem inicial = (número de objetos no ponto de extremidade de nuvem)/(20 * 60 * 60 * 24)**
 
 **Taxa de transferência de download de namespace** Quando um novo ponto de extremidade do servidor é adicionado a um grupo de sincronização existente, o agente de Sincronização de Arquivos do Azure não baixa nenhum conteúdo do arquivo do ponto de extremidade da nuvem. Sincronizar primeiro namespace completo e, em seguida, os gatilhos em segundo plano Lembre-se de fazer o download dos arquivos, em sua totalidade ou, se camadas na nuvem está habilitado para a política de camadas de nuvem definido no ponto de extremidade do servidor.
 
@@ -119,7 +119,7 @@ Como um guia geral para sua implantação, você deve manter alguns pontos em me
 - A taxa de transferência do objeto é dimensionado aproximadamente proporcionalmente ao número de grupos de sincronização no servidor. Dividir dados em vários grupos de sincronização em um servidor resulta em melhor taxa de transferência, que também é limitada pelo servidor e rede.
 - A taxa de transferência do objeto é inversamente proporcional à MiB por segundo taxa de transferência. Para os arquivos menores, você terá maior taxa de transferência em termos de número de objetos processados por segundo, mas inferior MiB por segundo taxa de transferência. Por outro lado, para arquivos maiores, você terá menos objetos processados por segundo, mas superior MiB por segundo taxa de transferência. A MiB por segundo taxa de transferência é limitada pelos destinos de escala de arquivos do Azure.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
-- [Planejando uma implantação de Arquivos do Azure](storage-files-planning.md)
+- [Como planejar uma implantação de Arquivos do Azure](storage-files-planning.md)
 - [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)

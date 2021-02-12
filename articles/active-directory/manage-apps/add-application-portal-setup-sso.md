@@ -3,19 +3,19 @@ title: 'Início Rápido: Configurar o SSO (logon único) baseado em SAML para um
 description: Este início rápido orienta você no processo de configuração do SSO (logon único) baseado em SAML para um aplicativo em seu locatário do Azure AD (Azure Active Directory).
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 2e5c588db6f372a50b2a80afd8a2a023ece34502
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 3278c9956dd5017572f063059250c97727656923
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203613"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99252365"
 ---
 # <a name="quickstart-set-up-saml-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Início Rápido: Configurar o SSO (logon único) baseado em SAML para um aplicativo no locatário do Azure AD (Azure Active Directory)
 
@@ -43,8 +43,8 @@ Depois de concluir a adição de um aplicativo ao locatário do Azure AD, a pág
 
 Para configurar o logon único para um aplicativo:
 
-1. No portal do Azure AD, selecione **Aplicativos empresariais** . Em seguida, encontre e selecione o aplicativo para o qual você deseja configurar o logon único.
-1. Na seção **Gerenciar** , selecione **Logon único** para abrir o painel **Logon único** para edição.
+1. No portal do Azure AD, selecione **Aplicativos empresariais**. Em seguida, encontre e selecione o aplicativo para o qual você deseja configurar o logon único.
+1. Na seção **Gerenciar**, selecione **Logon único** para abrir o painel **Logon único** para edição.
 
     > [!IMPORTANT]
     > Se o aplicativo usar o padrão OIDC (OpenID Connect ) para SSO, você não verá a opção de logon único na navegação. Confira o início rápido sobre SSO baseado em OIDC para saber como configurá-lo.
@@ -53,17 +53,17 @@ Para configurar o logon único para um aplicativo:
 
 1. Selecione **SAML** para abrir a página de configuração de SSO. Neste exemplo, o aplicativo que estamos configurando para SSO é o GitHub. Após a configuração do GitHub, os usuários poderão entrar no GitHub usando as credenciais deles por meio do seu locatário do Azure AD.
 
-    :::image type="content" source="media/add-application-portal-setup-sso/github-sso.png" alt-text="Captura de tela mostrando a página de configuração de logon único no portal do Azure AD.":::
+    :::image type="content" source="media/add-application-portal-setup-sso/github-sso.png" alt-text="Captura de tela mostrando a página de configuração de logon único no GitHub.":::
 
-1. O processo para configurar um aplicativo para usar o Azure AD para SSO baseado em SAML varia conforme o aplicativo. Há um link para as diretrizes do GitHub. Para encontrar guias para outros aplicativos, confira [Tutoriais para a integração de aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/).
+1. O processo para configurar um aplicativo para usar o Azure AD para SSO baseado em SAML varia conforme o aplicativo. Há um link para as diretrizes do GitHub. Para encontrar guias para outros aplicativos, confira [Tutoriais para a integração de aplicativos SaaS com o Azure Active Directory](/azure/active-directory/saas-apps/).
 1. Siga o guia para configurar o SSO para o aplicativo. Muitos aplicativos têm requisitos de assinatura específicos para a funcionalidade de SSO. Por exemplo, o GitHub requer uma assinatura Enterprise.
     > [!TIP]
     > Para saber mais sobre as opções de configuração do SAML, confira [Configurar o logon único baseado em SAML](configure-saml-single-sign-on.md).
 
-    :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="Captura de tela mostrando a página de configuração de logon único no portal do Azure AD.":::
+    :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="Captura de tela mostrando a opção logon único na assinatura Enterprise da página de preços do GitHub.":::
 
 > [!TIP]
-> Para automatizar o gerenciamento de aplicativos usando a API do Graph, confira [Automatizar o gerenciamento de aplicativos com a API do Microsoft Graph](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> Para automatizar o gerenciamento de aplicativos usando a API do Graph, confira [Automatizar o gerenciamento de aplicativos com a API do Microsoft Graph](/graph/application-saml-sso-configure-api).
 
 
 ## <a name="clean-up-resources"></a>Limpar os recursos

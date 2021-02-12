@@ -1,21 +1,21 @@
 ---
 title: Tutorial – adicionar funções de modelo
-description: Adicione funções de modelo ao modelo do Azure Resource Manager para construir valores.
+description: Adicione funções de modelo ao modelo do ARM (modelo do Azure Resource Manager) para construir valores.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: c6ced832cad6809e7cd016eee132713c6b266480
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52b5bd0650b3a069adc3ef7f101c48a4674deaab
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613842"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107100"
 ---
 # <a name="tutorial-add-template-functions-to-your-arm-template"></a>Tutorial: Adicionar funções de modelo ao modelo do ARM
 
-Neste tutorial, você aprenderá como adicionar [funções de modelo](template-functions.md) ao modelo do ARM (Azure Resource Manager). Você usa essas funções para construir valores dinamicamente. Além dessas funções de modelo fornecidas pelo sistema, você também pode criar [funções definidas pelo usuário](./template-user-defined-functions.md). Este tutorial leva **7 minutos** para ser concluído.
+Neste tutorial, você aprenderá a adicionar [funções de modelo](template-functions.md) ao modelo do ARM (modelo do Azure Resource Manager). Você usa essas funções para construir valores dinamicamente. Além dessas funções de modelo fornecidas pelo sistema, você também pode criar [funções definidas pelo usuário](./template-user-defined-functions.md). Este tutorial leva **7 minutos** para ser concluído.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,11 +33,11 @@ A localização da conta de armazenamento é embutida em código para **Leste do
 
 ## <a name="use-function"></a>Usar uma função
 
-Se você completou o tutorial anterior nesta série, você já usou uma função. Quando adicionou **"[parameters('storageName')]"** , você usou a função [parameters](template-functions-deployment.md#parameters). Os colchetes indicam que a sintaxe dentro dos colchetes é uma [expressão de modelo](template-expressions.md). O Resource Manager resolve a sintaxe, em vez de tratá-la como um valor literal.
+Se você completou o tutorial anterior nesta série, você já usou uma função. Quando adicionou `"[parameters('storageName')]"`, você usou a função [parameters](template-functions-deployment.md#parameters). Os colchetes indicam que a sintaxe dentro dos colchetes é uma [expressão de modelo](template-expressions.md). O Resource Manager resolve a sintaxe, em vez de tratá-la como um valor literal.
 
 As funções adicionam flexibilidade ao modelo ao obter valores dinamicamente durante a implantação. Neste tutorial, você usa uma função para obter a localização do grupo de recursos que você está usando para implantação.
 
-O exemplo a seguir realça as alterações para adicionar um parâmetro chamado **location**.  O valor padrão do parâmetro chama a função [resourceGroup](template-functions-resource.md#resourcegroup). Essa função retorna um objeto com informações sobre o grupo de recursos que está sendo usado para implantação. Uma das propriedades no objeto é uma propriedade de localização. Quando você usa o valor padrão, a localização da conta de armazenamento é a mesma que a do grupo de recursos. Os recursos dentro de um grupo de recursos não precisam compartilhar a mesma localização. Você também pode fornecer uma localização diferente quando necessário.
+O exemplo a seguir realça as alterações para adicionar um parâmetro chamado `location`. O valor padrão do parâmetro chama a função [resourceGroup](template-functions-resource.md#resourcegroup). Essa função retorna um objeto com informações sobre o grupo de recursos que está sendo usado para implantação. Uma das propriedades no objeto é uma propriedade de localização. Quando você usa o valor padrão, a localização da conta de armazenamento é a mesma que a do grupo de recursos. Os recursos dentro de um grupo de recursos não precisam compartilhar a mesma localização. Você também pode fornecer uma localização diferente quando necessário.
 
 Copie o arquivo inteiro e substitua o modelo pelo conteúdo.
 
@@ -47,7 +47,7 @@ Copie o arquivo inteiro e substitua o modelo pelo conteúdo.
 
 Nos tutoriais anteriores, você criou uma conta de armazenamento no Leste dos EUA, mas o grupo de recursos foi criado em EUA Central. Para este tutorial, sua conta de armazenamento é criada na mesma região que o grupo de recursos. Use o valor padrão para localização, para que você não precise fornecer esse valor de parâmetro. Você precisa fornecer um novo nome para a conta de armazenamento, porque está criando uma conta de armazenamento em uma localização diferente. Por exemplo, use **store2** como o prefixo em vez de **store1**.
 
-Caso você não tenha criado o grupo de recursos, confira [Criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que você tenha definido a variável **templateFile** como o caminho para o arquivo de modelo, conforme mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
+Caso você não tenha criado o grupo de recursos, confira [Criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que você tenha definido a variável `templateFile` como o caminho para o arquivo de modelo, conforme mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -74,7 +74,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Se a implantação falhar, use a opção **detalhado** para obter informações sobre os recursos que estão sendo criados. Use a opção **depurar** para obter mais informações de depuração.
+> Se a implantação falhar, use a opção `verbose` para obter informações sobre os recursos que estão sendo criados. Use a opção `debug` para obter mais informações de depuração.
 
 ## <a name="verify-deployment"></a>Verificar implantação
 

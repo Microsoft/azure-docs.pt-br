@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/18/2020
-ms.openlocfilehash: fcc803e87b2efd3e94b90eb17258ab3bb156359f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2dd06a7b4c8e6296cda747d17fd3d5be5db0af6b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541418"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018881"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Criar um aplicativo LUIS no portal do LUIS
 Há algumas maneiras de criar um aplicativo do LUIS. Você pode criar um aplicativo do LUIS no portal do LUIS ou por meio das [APIs](developer-reference-resource.md) de criação do LUIS.
@@ -24,7 +24,7 @@ Há algumas maneiras de criar um aplicativo do LUIS. Você pode criar um aplicat
 Você pode criar um novo aplicativo no portal de várias maneiras:
 
 * Inicie com um aplicativo vazio e crie intenções, declarações e entidades.
-* Inicie com um aplicativo vazio e adicione um [domínio predefinido](luis-how-to-use-prebuilt-domains.md).
+* Inicie com um aplicativo vazio e adicione um [domínio predefinido](./howto-add-prebuilt-models.md).
 * Importe um aplicativo LUIS de um `.lu` `.json` arquivo ou que já contenha intenções, declarações e entidades.
 
 ## <a name="using-the-authoring-apis"></a>Usando as APIs de criação
@@ -43,7 +43,7 @@ Você pode criar um aplicativo com as APIs de criação de várias maneiras:
 
 ## <a name="create-new-app-in-luis"></a>Criar aplicativo no LUIS
 
-1. Na página **meus aplicativos** , selecione sua **assinatura**e crie o  **recurso** e, em seguida, **+ criar**. 
+1. Na página **meus aplicativos** , selecione sua **assinatura** e crie o  **recurso** e, em seguida, **+ criar**. 
 
 > [!div class="mx-imgBorder"]
 > ![Lista de aplicativos LUIS](./media/create-app-in-portal.png)
@@ -75,4 +75,4 @@ A barra de ferramentas de contexto fornece outras ações:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se o design do aplicativo incluir a detecção de intenção, [crie novas tentativas](luis-how-to-add-intents.md)e adicione o exemplo declarações. Se o design do aplicativo for apenas extração de dados, adicione o exemplo declarações à intenção nenhum, [crie entidades](luis-how-to-add-example-utterances.md)e Rotule o exemplo declarações com essas entidades.
+Se o design do aplicativo incluir a detecção de intenção, [crie novas tentativas](luis-how-to-add-intents.md)e adicione o exemplo declarações. Se o design do aplicativo for apenas extração de dados, adicione o exemplo declarações à intenção nenhum, [crie entidades](./luis-how-to-add-entities.md)e Rotule o exemplo declarações com essas entidades.

@@ -1,18 +1,18 @@
 ---
 title: Funções de modelo – matrizes
-description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager para trabalhar com matrizes.
+description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager (modelo ARM) para trabalhar com matrizes.
 ms.topic: conceptual
-ms.date: 10/12/2020
-ms.openlocfilehash: a5cf73203cf59a0b9f2b5f49c923d0a077c065fc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.date: 11/18/2020
+ms.openlocfilehash: 40a6815bb10ce9725405d68498b9a554706f3af8
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979131"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920543"
 ---
 # <a name="array-functions-for-arm-templates"></a>Funções de matriz para modelos ARM
 
-O Gerenciador de recursos fornece várias funções para trabalhar com matrizes no modelo de Azure Resource Manager (ARM).
+O Gerenciador de recursos fornece várias funções para trabalhar com matrizes em seu modelo de Azure Resource Manager (modelo ARM):
 
 * [array](#array)
 * [concat](#concat)
@@ -32,6 +32,8 @@ O Gerenciador de recursos fornece várias funções para trabalhar com matrizes 
 
 Para obter uma matriz de valores de cadeia de caracteres delimitada por um valor, confira [split](template-functions-string.md#split).
 
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+
 ## <a name="array"></a>matriz
 
 `array(convertToArray)`
@@ -50,44 +52,66 @@ Uma matriz .
 
 ### <a name="example"></a>Exemplo
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/array.json) mostra como usar a função array com tipos diferentes.
+O seguinte exemplo mostra como usar a função array com tipos diferentes.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "intToConvert": {
-            "type": "int",
-            "defaultValue": 1
-        },
-        "stringToConvert": {
-            "type": "string",
-            "defaultValue": "efgh"
-        },
-        "objectToConvert": {
-            "type": "object",
-            "defaultValue": {"a": "b", "c": "d"}
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "intToConvert": {
+      "type": "int",
+      "defaultValue": 1
     },
-    "resources": [
-    ],
-    "outputs": {
-        "intOutput": {
-            "type": "array",
-            "value": "[array(parameters('intToConvert'))]"
-        },
-        "stringOutput": {
-            "type": "array",
-            "value": "[array(parameters('stringToConvert'))]"
-        },
-        "objectOutput": {
-            "type": "array",
-            "value": "[array(parameters('objectToConvert'))]"
-        }
+    "stringToConvert": {
+      "type": "string",
+      "defaultValue": "efgh"
+    },
+    "objectToConvert": {
+      "type": "object",
+      "defaultValue": {
+        "a": "b",
+        "c": "d"
+      }
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "intOutput": {
+      "type": "array",
+      "value": "[array(parameters('intToConvert'))]"
+    },
+    "stringOutput": {
+      "type": "array",
+      "value": "[array(parameters('stringToConvert'))]"
+    },
+    "objectOutput": {
+      "type": "array",
+      "value": "[array(parameters('objectToConvert'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param intToConvert int = 1
+param stringToConvert string = 'efgh'
+param objectToConvert object = {
+  'a': 'b'
+  'c': 'd'
+}
+
+output intOutput array = array(intToConvert)
+output stringOutput array = array(stringToConvert)
+output objectOutput array = array(objectToConvert)
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -118,40 +142,61 @@ Uma cadeia de caracteres ou matriz de valores concatenados.
 
 ### <a name="example"></a>Exemplo
 
-O próximo [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) mostra como combinar duas matrizes.
+O próximo exemplo mostra como combinar duas matrizes.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "firstArray": {
-            "type": "array",
-            "defaultValue": [
-                "1-1",
-                "1-2",
-                "1-3"
-            ]
-        },
-        "secondArray": {
-            "type": "array",
-            "defaultValue": [
-                "2-1",
-                "2-2",
-                "2-3"
-            ]
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "firstArray": {
+      "type": "array",
+      "defaultValue": [
+        "1-1",
+        "1-2",
+        "1-3"
+      ]
     },
-    "resources": [
-    ],
-    "outputs": {
-        "return": {
-            "type": "array",
-            "value": "[concat(parameters('firstArray'), parameters('secondArray'))]"
-        }
+    "secondArray": {
+      "type": "array",
+      "defaultValue": [
+        "2-1",
+        "2-2",
+        "2-3"
+      ]
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "return": {
+      "type": "array",
+      "value": "[concat(parameters('firstArray'), parameters('secondArray'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param firstArray array = [
+  '1-1'
+  '1-2'
+  '1-3'
+]
+param secondArray array = [
+  '2-1'
+  '2-2'
+  '2-3'
+]
+
+output return array = concat(firstArray, secondArray)
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -161,25 +206,37 @@ A saída do exemplo anterior com os valores padrão é:
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) a seguir mostra como combinar dois valores de cadeia de caracteres e retornar uma cadeia de caracteres concatenada.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "prefix": {
-            "type": "string",
-            "defaultValue": "prefix"
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "concatOutput": {
-            "value": "[concat(parameters('prefix'), '-', uniqueString(resourceGroup().id))]",
-            "type" : "string"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "prefix": {
+      "type": "string",
+      "defaultValue": "prefix"
     }
+  },
+  "resources": [],
+  "outputs": {
+    "concatOutput": {
+      "type": "string",
+      "value": "[concat(parameters('prefix'), '-', uniqueString(resourceGroup().id))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param prefix string = 'prefix'
+
+output concatOutput string = concat(prefix, '-', uniqueString(resourceGroup().id))
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -206,56 +263,87 @@ Verifica se uma matriz contém um valor, um objeto contém uma chave ou uma cade
 
 ### <a name="example"></a>Exemplo
 
-O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json) a seguir mostra como usar contains com tipos diferentes:
+O seguinte exemplo mostra como usar contains com tipos diferentes:
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "stringToTest": {
-            "type": "string",
-            "defaultValue": "OneTwoThree"
-        },
-        "objectToTest": {
-            "type": "object",
-            "defaultValue": {"one": "a", "two": "b", "three": "c"}
-        },
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": ["one", "two", "three"]
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "stringToTest": {
+      "type": "string",
+      "defaultValue": "OneTwoThree"
     },
-    "resources": [
-    ],
-    "outputs": {
-        "stringTrue": {
-            "type": "bool",
-            "value": "[contains(parameters('stringToTest'), 'e')]"
-        },
-        "stringFalse": {
-            "type": "bool",
-            "value": "[contains(parameters('stringToTest'), 'z')]"
-        },
-        "objectTrue": {
-            "type": "bool",
-            "value": "[contains(parameters('objectToTest'), 'one')]"
-        },
-        "objectFalse": {
-            "type": "bool",
-            "value": "[contains(parameters('objectToTest'), 'a')]"
-        },
-        "arrayTrue": {
-            "type": "bool",
-            "value": "[contains(parameters('arrayToTest'), 'three')]"
-        },
-        "arrayFalse": {
-            "type": "bool",
-            "value": "[contains(parameters('arrayToTest'), 'four')]"
-        }
+    "objectToTest": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "b",
+        "three": "c"
+      }
+    },
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [ "one", "two", "three" ]
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "stringTrue": {
+      "type": "bool",
+      "value": "[contains(parameters('stringToTest'), 'e')]"
+    },
+    "stringFalse": {
+      "type": "bool",
+      "value": "[contains(parameters('stringToTest'), 'z')]"
+    },
+    "objectTrue": {
+      "type": "bool",
+      "value": "[contains(parameters('objectToTest'), 'one')]"
+    },
+    "objectFalse": {
+      "type": "bool",
+      "value": "[contains(parameters('objectToTest'), 'a')]"
+    },
+    "arrayTrue": {
+      "type": "bool",
+      "value": "[contains(parameters('arrayToTest'), 'three')]"
+    },
+    "arrayFalse": {
+      "type": "bool",
+      "value": "[contains(parameters('arrayToTest'), 'four')]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param stringToTest string = 'OneTwoThree'
+param objectToTest object = {
+  'one': 'a'
+  'two': 'b'
+  'three': 'c'
+}
+param arrayToTest array = [
+  'one'
+  'two'
+  'three'
+]
+
+output stringTrue bool = contains(stringToTest, 'e')
+output stringFalse bool = contains(stringToTest, 'z')
+output objectTrue bool = contains(objectToTest, 'one')
+output objectFalse bool = contains(objectToTest, 'a')
+output arrayTrue bool = contains(arrayToTest, 'three')
+output arrayFalse bool = contains(arrayToTest, 'four')
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -268,11 +356,11 @@ A saída do exemplo anterior com os valores padrão é:
 | arrayTrue | Bool | True |
 | arrayFalse | Bool | Falso |
 
-## <a name="createarray"></a>createarray
+## <a name="createarray"></a>createArray
 
 `createArray (arg1, arg2, arg3, ...)`
 
-Cria uma matriz de parâmetros.
+Cria uma matriz de parâmetros. A `createArray` função não é suportada pelo bicep.  Construa um literal de matriz usando `[]` .
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -286,48 +374,61 @@ Uma matriz . Quando nenhum parâmetro é fornecido, ele retorna uma matriz vazia
 
 ### <a name="example"></a>Exemplo
 
-O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/createarray.json) a seguir mostra como usar createArray com tipos diferentes:
+O seguinte exemplo mostra como usar createArray com tipos diferentes:
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "objectToTest": {
-            "type": "object",
-            "defaultValue": {"one": "a", "two": "b", "three": "c"}
-        },
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": ["one", "two", "three"]
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "objectToTest": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "b",
+        "three": "c"
+      }
     },
-    "resources": [
-    ],
-    "outputs": {
-        "stringArray": {
-            "type": "array",
-            "value": "[createArray('a', 'b', 'c')]"
-        },
-        "intArray": {
-            "type": "array",
-            "value": "[createArray(1, 2, 3)]"
-        },
-        "objectArray": {
-            "type": "array",
-            "value": "[createArray(parameters('objectToTest'))]"
-        },
-        "arrayArray": {
-            "type": "array",
-            "value": "[createArray(parameters('arrayToTest'))]"
-        },
-        "emptyArray": {
-            "type": "array",
-            "value": "[createArray()]"
-        }
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [ "one", "two", "three" ]
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "stringArray": {
+      "type": "array",
+      "value": "[createArray('a', 'b', 'c')]"
+    },
+    "intArray": {
+      "type": "array",
+      "value": "[createArray(1, 2, 3)]"
+    },
+    "objectArray": {
+      "type": "array",
+      "value": "[createArray(parameters('objectToTest'))]"
+    },
+    "arrayArray": {
+      "type": "array",
+      "value": "[createArray(parameters('arrayToTest'))]"
+    },
+    "emptyArray": {
+      "type": "array",
+      "value": "[createArray()]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+> [!NOTE]
+> `createArray()` Não é suportado pelo bicep.  Construa um literal de matriz usando `[]` .
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -357,44 +458,60 @@ Retorna **True** se o valor é vazio; caso contrário, **False**.
 
 ### <a name="example"></a>Exemplo
 
-O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json) a seguir verifica se uma matriz, um objeto e uma cadeia de caracteres estão vazios.
+O exemplo a seguir verifica se uma matriz, um objeto e uma cadeia de caracteres estão vazios.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "testArray": {
-            "type": "array",
-            "defaultValue": []
-        },
-        "testObject": {
-            "type": "object",
-            "defaultValue": {}
-        },
-        "testString": {
-            "type": "string",
-            "defaultValue": ""
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "testArray": {
+      "type": "array",
+      "defaultValue": []
     },
-    "resources": [
-    ],
-    "outputs": {
-        "arrayEmpty": {
-            "type": "bool",
-            "value": "[empty(parameters('testArray'))]"
-        },
-        "objectEmpty": {
-            "type": "bool",
-            "value": "[empty(parameters('testObject'))]"
-        },
-        "stringEmpty": {
-            "type": "bool",
-            "value": "[empty(parameters('testString'))]"
-        }
+    "testObject": {
+      "type": "object",
+      "defaultValue": {}
+    },
+    "testString": {
+      "type": "string",
+      "defaultValue": ""
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "arrayEmpty": {
+      "type": "bool",
+      "value": "[empty(parameters('testArray'))]"
+    },
+    "objectEmpty": {
+      "type": "bool",
+      "value": "[empty(parameters('testObject'))]"
+    },
+    "stringEmpty": {
+      "type": "bool",
+      "value": "[empty(parameters('testString'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param testArray array = []
+param testObject object = {}
+param testString string = ''
+
+output arrayEmpty bool = empty(testArray)
+output objectEmpty bool = empty(testObject)
+output stringEmpty bool = empty(testString)
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -422,32 +539,49 @@ O tipo (cadeia de caracteres, inteiro, matriz ou objeto) do primeiro elemento em
 
 ### <a name="example"></a>Exemplo
 
-O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json) a seguir mostra como usar a primeira função com uma matriz e cadeia de caracteres.
+O exemplo a seguir mostra como usar a primeira função com uma matriz e cadeia de caracteres.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": ["one", "two", "three"]
-        }
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "arrayOutput": {
-            "type": "string",
-            "value": "[first(parameters('arrayToTest'))]"
-        },
-        "stringOutput": {
-            "type": "string",
-            "value": "[first('One Two Three')]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [ "one", "two", "three" ]
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "arrayOutput": {
+      "type": "string",
+      "value": "[first(parameters('arrayToTest'))]"
+    },
+    "stringOutput": {
+      "type": "string",
+      "value": "[first('One Two Three')]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param arrayToTest array = [
+  'one'
+  'two'
+  'three'
+]
+
+output arrayOutput string = first(arrayToTest)
+output stringOutput string = first('One Two Three')
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -476,44 +610,86 @@ Uma matriz ou objeto com os elementos comuns.
 
 ### <a name="example"></a>Exemplo
 
-O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/intersection.json) a seguir mostra como usar a interseção com matrizes e objetos:
+O exemplo a seguir mostra como usar a interseção com matrizes e objetos:
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "firstObject": {
-            "type": "object",
-            "defaultValue": {"one": "a", "two": "b", "three": "c"}
-        },
-        "secondObject": {
-            "type": "object",
-            "defaultValue": {"one": "a", "two": "z", "three": "c"}
-        },
-        "firstArray": {
-            "type": "array",
-            "defaultValue": ["one", "two", "three"]
-        },
-        "secondArray": {
-            "type": "array",
-            "defaultValue": ["two", "three"]
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "firstObject": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "b",
+        "three": "c"
+      }
     },
-    "resources": [
-    ],
-    "outputs": {
-        "objectOutput": {
-            "type": "object",
-            "value": "[intersection(parameters('firstObject'), parameters('secondObject'))]"
-        },
-        "arrayOutput": {
-            "type": "array",
-            "value": "[intersection(parameters('firstArray'), parameters('secondArray'))]"
-        }
+    "secondObject": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "z",
+        "three": "c"
+      }
+    },
+    "firstArray": {
+      "type": "array",
+      "defaultValue": [ "one", "two", "three" ]
+    },
+    "secondArray": {
+      "type": "array",
+      "defaultValue": [ "two", "three" ]
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "objectOutput": {
+      "type": "object",
+      "value": "[intersection(parameters('firstObject'), parameters('secondObject'))]"
+    },
+    "arrayOutput": {
+      "type": "array",
+      "value": "[intersection(parameters('firstArray'), parameters('secondArray'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param firstObject object = {
+  'one': 'a'
+  'two': 'b'
+  'three': 'c'
+}
+
+param secondObject object = {
+  'one': 'a'
+  'two': 'z'
+  'three': 'c'
+}
+
+param firstArray array = [
+  'one'
+  'two'
+  'three'
+]
+
+param secondArray array = [
+  'two'
+  'three'
+]
+
+output objectOutput object = intersection(firstObject, secondObject)
+output arrayOutput array = intersection(firstArray, secondArray)
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -540,32 +716,49 @@ O tipo (cadeia de caracteres, inteiro, matriz ou objeto) do último elemento em 
 
 ### <a name="example"></a>Exemplo
 
-O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json) a seguir mostra como usar a última função com uma matriz e cadeia de caracteres.
+O exemplo a seguir mostra como usar a última função com uma matriz e cadeia de caracteres.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": ["one", "two", "three"]
-        }
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "arrayOutput": {
-            "type": "string",
-            "value": "[last(parameters('arrayToTest'))]"
-        },
-        "stringOutput": {
-            "type": "string",
-            "value": "[last('One Two Three')]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [ "one", "two", "three" ]
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "arrayOutput": {
+      "type": "string",
+      "value": "[last(parameters('arrayToTest'))]"
+    },
+    "stringOutput": {
+      "type": "string",
+      "value": "[last('One Two Three')]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param arrayToTest array = [
+  'one'
+  'two'
+  'three'
+]
+
+output arrayOutput string = last(arrayToTest)
+output stringOutput string = last('One Two three')
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -592,74 +785,111 @@ Um inteiro.
 
 ### <a name="example"></a>Exemplo
 
-O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json) a seguir mostra como usar length com uma matriz e cadeia de caracteres:
+O seguinte exemplo mostra como usar length com uma matriz e cadeia de caracteres:
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": [
-                "one",
-                "two",
-                "three"
-            ]
-        },
-        "stringToTest": {
-            "type": "string",
-            "defaultValue": "One Two Three"
-        },
-        "objectToTest": {
-            "type": "object",
-            "defaultValue": {
-                "propA": "one",
-                "propB": "two",
-                "propC": "three",
-                "propD": {
-                    "propD-1": "sub",
-                    "propD-2": "sub"
-                }
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [
+        "one",
+        "two",
+        "three"
+      ]
     },
-    "resources": [],
-    "outputs": {
-        "arrayLength": {
-            "type": "int",
-            "value": "[length(parameters('arrayToTest'))]"
-        },
-        "stringLength": {
-            "type": "int",
-            "value": "[length(parameters('stringToTest'))]"
-        },
-        "objectLength": {
-            "type": "int",
-            "value": "[length(parameters('objectToTest'))]"
+    "stringToTest": {
+      "type": "string",
+      "defaultValue": "One Two Three"
+    },
+    "objectToTest": {
+      "type": "object",
+      "defaultValue": {
+        "propA": "one",
+        "propB": "two",
+        "propC": "three",
+        "propD": {
+          "propD-1": "sub",
+          "propD-2": "sub"
         }
+      }
     }
+  },
+  "resources": [],
+  "outputs": {
+    "arrayLength": {
+      "type": "int",
+      "value": "[length(parameters('arrayToTest'))]"
+    },
+    "stringLength": {
+      "type": "int",
+      "value": "[length(parameters('stringToTest'))]"
+    },
+    "objectLength": {
+      "type": "int",
+      "value": "[length(parameters('objectToTest'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param arrayToTest array = [
+  'one'
+  'two'
+  'three'
+]
+param stringToTest string = 'One Two Three'
+param objectToTest object = {
+  'propA': 'one'
+  'propB': 'two'
+  'propC': 'three'
+  'propD': {
+    'propD-1': 'sub'
+    'propD-2': 'sub'
+  }
+}
+
+output arrayLength int = length(arrayToTest)
+output stringLength int = length(stringToTest)
+output objectLength int = length(objectToTest)
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| arrayLength | Int | 3 |
-| stringLength | Int | 13 |
-| ObjectLength | Int | 4 |
+| arrayLength | int | 3 |
+| stringLength | int | 13 |
+| ObjectLength | int | 4 |
 
 Essa função pode ser usada com uma matriz para especificar o número de iterações durante a criação de recursos. No exemplo a seguir, o parâmetro **siteNames** faz referência a uma matriz de nomes a serem usados durante a criação de sites da web.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 "copy": {
-    "name": "websitescopy",
-    "count": "[length(parameters('siteNames'))]"
+  "name": "websitescopy",
+  "count": "[length(parameters('siteNames'))]"
 }
 ```
 
-Para saber mais sobre como usar essa função com uma matriz, confira [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](copy-resources.md).
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+> [!NOTE]
+> Os loops ainda não foram implementados em bicep.  Consulte [loops](https://github.com/Azure/bicep/blob/main/docs/spec/loops.md).
+
+---
+
+Para obter mais informações sobre como usar essa função com uma matriz, consulte [iteração de recurso em modelos ARM](copy-resources.md).
 
 ## <a name="max"></a>max
 
@@ -679,38 +909,57 @@ Um inteiro que representa o valor máximo.
 
 ### <a name="example"></a>Exemplo
 
-O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json) a seguir mostra como usar max com uma matriz e uma lista de inteiros:
+O seguinte exemplo mostra como usar max com uma matriz e uma lista de inteiros:
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": [0,3,2,5,4]
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "arrayOutput": {
-            "type": "int",
-            "value": "[max(parameters('arrayToTest'))]"
-        },
-        "intOutput": {
-            "type": "int",
-            "value": "[max(0,3,2,5,4)]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [ 0, 3, 2, 5, 4 ]
     }
+  },
+  "resources": [],
+  "outputs": {
+    "arrayOutput": {
+      "type": "int",
+      "value": "[max(parameters('arrayToTest'))]"
+    },
+    "intOutput": {
+      "type": "int",
+      "value": "[max(0,3,2,5,4)]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param arrayToTest array = [
+  0
+  3
+  2
+  5
+  4
+]
+
+output arrayOutput int = max(arrayToTest)
+output intOutput int = max(0,3,2,5,4)
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | Int | 5 |
-| intOutput | Int | 5 |
+| arrayOutput | int | 5 |
+| intOutput | int | 5 |
 
 ## <a name="min"></a>Min
 
@@ -730,38 +979,57 @@ Um inteiro que representa o valor mínimo.
 
 ### <a name="example"></a>Exemplo
 
-O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json) a seguir mostra como usar min com uma matriz e uma lista de inteiros:
+O seguinte exemplo mostra como usar min com uma matriz e uma lista de inteiros:
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": [0,3,2,5,4]
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "arrayOutput": {
-            "type": "int",
-            "value": "[min(parameters('arrayToTest'))]"
-        },
-        "intOutput": {
-            "type": "int",
-            "value": "[min(0,3,2,5,4)]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [ 0, 3, 2, 5, 4 ]
     }
+  },
+  "resources": [],
+  "outputs": {
+    "arrayOutput": {
+      "type": "int",
+      "value": "[min(parameters('arrayToTest'))]"
+    },
+    "intOutput": {
+      "type": "int",
+      "value": "[min(0,3,2,5,4)]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param arrayToTest array = [
+  0
+  3
+  2
+  5
+  4
+]
+
+output arrayOutput int = min(arrayToTest)
+output intOutput int = min(0,3,2,5,4)
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | Int | 0 |
-| intOutput | Int | 0 |
+| arrayOutput | int | 0 |
+| intOutput | int | 0 |
 
 ## <a name="range"></a>range
 
@@ -782,31 +1050,44 @@ Uma matriz de inteiros.
 
 ### <a name="example"></a>Exemplo
 
-O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/range.json) a seguir mostra como usar a função range:
+O exemplo a seguir mostra como usar a função range:
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "startingInt": {
-            "type": "int",
-            "defaultValue": 5
-        },
-        "numberOfElements": {
-            "type": "int",
-            "defaultValue": 3
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "startingInt": {
+      "type": "int",
+      "defaultValue": 5
     },
-    "resources": [],
-    "outputs": {
-        "rangeOutput": {
-            "type": "array",
-            "value": "[range(parameters('startingInt'),parameters('numberOfElements'))]"
-        }
+    "numberOfElements": {
+      "type": "int",
+      "defaultValue": 3
     }
+  },
+  "resources": [],
+  "outputs": {
+    "rangeOutput": {
+      "type": "array",
+      "value": "[range(parameters('startingInt'),parameters('numberOfElements'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param startingInt int = 5
+param numberOfElements int = 3
+
+output rangeOutput array = range(startingInt, numberOfElements)
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -833,47 +1114,67 @@ Uma matriz ou cadeia de caracteres.
 
 ### <a name="example"></a>Exemplo
 
-O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json) a seguir ignora o número especificado de elementos na matriz e o número especificado de caracteres em uma cadeia de caracteres.
+O exemplo a seguir ignora o número especificado de elementos na matriz e o número especificado de caracteres em uma cadeia de caracteres.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "testArray": {
-            "type": "array",
-            "defaultValue": [
-                "one",
-                "two",
-                "three"
-            ]
-        },
-        "elementsToSkip": {
-            "type": "int",
-            "defaultValue": 2
-        },
-        "testString": {
-            "type": "string",
-            "defaultValue": "one two three"
-        },
-        "charactersToSkip": {
-            "type": "int",
-            "defaultValue": 4
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "testArray": {
+      "type": "array",
+      "defaultValue": [
+        "one",
+        "two",
+        "three"
+      ]
     },
-    "resources": [],
-    "outputs": {
-        "arrayOutput": {
-            "type": "array",
-            "value": "[skip(parameters('testArray'),parameters('elementsToSkip'))]"
-        },
-        "stringOutput": {
-            "type": "string",
-            "value": "[skip(parameters('testString'),parameters('charactersToSkip'))]"
-        }
+    "elementsToSkip": {
+      "type": "int",
+      "defaultValue": 2
+    },
+    "testString": {
+      "type": "string",
+      "defaultValue": "one two three"
+    },
+    "charactersToSkip": {
+      "type": "int",
+      "defaultValue": 4
     }
+  },
+  "resources": [],
+  "outputs": {
+    "arrayOutput": {
+      "type": "array",
+      "value": "[skip(parameters('testArray'),parameters('elementsToSkip'))]"
+    },
+    "stringOutput": {
+      "type": "string",
+      "value": "[skip(parameters('testString'),parameters('charactersToSkip'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param testArray array = [
+  'one'
+  'two'
+  'three'
+]
+param elementsToSkip int = 2
+param testString string = 'one two three'
+param charactersToSkip int = 4
+
+output arrayOutput array = skip(testArray, elementsToSkip)
+output stringOutput string = skip(testString, charactersToSkip)
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -901,47 +1202,67 @@ Uma matriz ou cadeia de caracteres.
 
 ### <a name="example"></a>Exemplo
 
-O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json) a seguir extrai o número especificado de elementos da matriz e de caracteres de uma cadeia de caracteres.
+O exemplo a seguir extrai o número especificado de elementos da matriz e de caracteres de uma cadeia de caracteres.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "testArray": {
-            "type": "array",
-            "defaultValue": [
-                "one",
-                "two",
-                "three"
-            ]
-        },
-        "elementsToTake": {
-            "type": "int",
-            "defaultValue": 2
-        },
-        "testString": {
-            "type": "string",
-            "defaultValue": "one two three"
-        },
-        "charactersToTake": {
-            "type": "int",
-            "defaultValue": 2
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "testArray": {
+      "type": "array",
+      "defaultValue": [
+        "one",
+        "two",
+        "three"
+      ]
     },
-    "resources": [],
-    "outputs": {
-        "arrayOutput": {
-            "type": "array",
-            "value": "[take(parameters('testArray'),parameters('elementsToTake'))]"
-        },
-        "stringOutput": {
-            "type": "string",
-            "value": "[take(parameters('testString'),parameters('charactersToTake'))]"
-        }
+    "elementsToTake": {
+      "type": "int",
+      "defaultValue": 2
+    },
+    "testString": {
+      "type": "string",
+      "defaultValue": "one two three"
+    },
+    "charactersToTake": {
+      "type": "int",
+      "defaultValue": 2
     }
+  },
+  "resources": [],
+  "outputs": {
+    "arrayOutput": {
+      "type": "array",
+      "value": "[take(parameters('testArray'),parameters('elementsToTake'))]"
+    },
+    "stringOutput": {
+      "type": "string",
+      "value": "[take(parameters('testString'),parameters('charactersToTake'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param testArray array = [
+  'one'
+  'two'
+  'three'
+]
+param elementsToTake int = 2
+param testString string = 'one two three'
+param charactersToTake int = 2
+
+output arrayOutput array = take(testArray, elementsToTake)
+output stringOutput string = take(testString, charactersToTake)
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -970,44 +1291,86 @@ Uma matriz ou objeto.
 
 ### <a name="example"></a>Exemplo
 
-O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/union.json) a seguir mostra como usar a union com matrizes e objetos:
+O exemplo a seguir mostra como usar a union com matrizes e objetos:
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "firstObject": {
-            "type": "object",
-            "defaultValue": {"one": "a", "two": "b", "three": "c1"}
-        },
-        "secondObject": {
-            "type": "object",
-            "defaultValue": {"three": "c2", "four": "d", "five": "e"}
-        },
-        "firstArray": {
-            "type": "array",
-            "defaultValue": ["one", "two", "three"]
-        },
-        "secondArray": {
-            "type": "array",
-            "defaultValue": ["three", "four"]
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "firstObject": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "b",
+        "three": "c1"
+      }
     },
-    "resources": [
-    ],
-    "outputs": {
-        "objectOutput": {
-            "type": "object",
-            "value": "[union(parameters('firstObject'), parameters('secondObject'))]"
-        },
-        "arrayOutput": {
-            "type": "array",
-            "value": "[union(parameters('firstArray'), parameters('secondArray'))]"
-        }
+    "secondObject": {
+      "type": "object",
+      "defaultValue": {
+        "three": "c2",
+        "four": "d",
+        "five": "e"
+      }
+    },
+    "firstArray": {
+      "type": "array",
+      "defaultValue": [ "one", "two", "three" ]
+    },
+    "secondArray": {
+      "type": "array",
+      "defaultValue": [ "three", "four" ]
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "objectOutput": {
+      "type": "object",
+      "value": "[union(parameters('firstObject'), parameters('secondObject'))]"
+    },
+    "arrayOutput": {
+      "type": "array",
+      "value": "[union(parameters('firstArray'), parameters('secondArray'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param firstObject object = {
+  'one': 'a'
+  'two': 'b'
+  'three': 'c1'
+}
+
+param secondObject object = {
+  'three': 'c2'
+  'four': 'd'
+  'five': 'e'
+}
+
+param firstArray array = [
+  'one'
+  'two'
+  'three'
+]
+
+param secondArray array = [
+  'three'
+  'four'
+]
+
+output objectOutput object = union(firstObject, secondObject)
+output arrayOutput array = union(firstArray, secondArray)
+```
+
+---
 
 A saída do exemplo anterior com os valores padrão é:
 
@@ -1018,4 +1381,4 @@ A saída do exemplo anterior com os valores padrão é:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter uma descrição das seções em um modelo de Azure Resource Manager, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).
+* Para obter uma descrição das seções em um modelo do ARM, consulte [entender a estrutura e a sintaxe de modelos do ARM](template-syntax.md).

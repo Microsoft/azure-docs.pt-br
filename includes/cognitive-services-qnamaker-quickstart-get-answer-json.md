@@ -1,21 +1,21 @@
 ---
-title: arquivo de inclusão
-description: arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: cognitive-services
-author: diberry
-manager: cgronlun
+author: mrbullwinkle
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: include
 ms.custom: include file
-ms.date: 11/12/2018
-ms.author: diberry
-ms.openlocfilehash: fd6a4a4e2d779047d252fdc5e3eae8e3fba8b507
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/29/2020
+ms.author: mrbullwin
+ms.openlocfilehash: 8269cd3905ec7ea3ad0ff2ab6bfa31cc95da5b4f
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67172222"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820712"
 ---
 ## <a name="request-and-response-json"></a>JSON de solicitação e resposta
 

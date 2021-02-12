@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: tutorial
-ms.date: 03/06/2020
+ms.date: 01/26/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56b0685dee518399ae8328ddac18f03e82918a38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3da63503c80652bc8737f2cb4894e25d8bc6fc0
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89268410"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893399"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configurar o ingresso no Azure Active Directory híbrido para os domínios gerenciados
 
@@ -90,23 +90,21 @@ Para configurar um ingresso no Azure AD híbrido usando o Azure AD Connect:
 
 1. Inicie o Azure AD Connect e selecione **Configurar**.
 
-   ![Bem-Vindo](./media/hybrid-azuread-join-managed-domains/welcome-azure-ad-connect.png)
-
 1. Em **Tarefas adicionais**, selecione **Configurar opções de dispositivo** e, em seguida, **Avançar**.
 
    ![Tarefas adicionais](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-additional-tasks.png)
 
 1. Em **Visão geral**, selecione **Avançar**.
 
-   ![Visão geral](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-overview.png)
-
 1. Em **Conectar o Azure AD**, insira as credenciais de um administrador global para o locatário do Azure AD.  
-
-   ![Conecte-se ao AD do Azure](./media/hybrid-azuread-join-managed-domains/connect-to-azure-ad-username-password.png)
 
 1. Em **Opções do dispositivo**, selecione **Configurar ingresso no Azure AD Híbrido** e, em seguida, selecione **Avançar**.
 
    ![Opções do dispositivo](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-options.png)
+
+1. Em **Sistemas operacionais do dispositivo**, selecione os sistemas operacionais que os dispositivos no ambiente do Active Directory usam e selecione **Avançar**.
+
+   ![Sistema operacional do dispositivo](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-operating-systems.png)
 
 1. Em **Configuração de SCP**, de cada floresta em que você deseja que o Azure AD Connect configure o SCP, conclua as seguintes etapas e selecione **Avançar**.
 
@@ -116,17 +114,9 @@ Para configurar um ingresso no Azure AD híbrido usando o Azure AD Connect:
 
    ![SCP](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-scp-configuration.png)
 
-1. Em **Sistemas operacionais do dispositivo**, selecione os sistemas operacionais que os dispositivos no ambiente do Active Directory usam e selecione **Avançar**.
-
-   ![Sistema operacional do dispositivo](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-operating-systems.png)
-
 1. Em **Pronto para configurar**, selecione **Configurar**.
 
-   ![Pronto para configurar](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-ready-to-configure.png)
-
 1. Em **Configuração completa** selecione **Sair**.
-
-   ![Configuração concluída](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-configuration-complete.png)
 
 ## <a name="enable-windows-down-level-devices"></a>Habilitar dispositivos de nível inferior do Windows
 
@@ -180,7 +170,7 @@ Aqui estão três maneiras de localizar e verificar o estado do dispositivo:
 
 ### <a name="using-powershell"></a>Usando o PowerShell
 
-Verifique o estado de registro do dispositivo em seu locatário do Azure usando **[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)** . Esse cmdlet está no [módulo do PowerShell do Azure Active Directory](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-2.0).
+Verifique o estado de registro do dispositivo em seu locatário do Azure usando **[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)** . Esse cmdlet está no [módulo do PowerShell do Azure Active Directory](/powershell/azure/active-directory/install-msonlinev1).
 
 Ao usar o cmdlet **Get-MSolDevice** para verificar os detalhes do serviço:
 

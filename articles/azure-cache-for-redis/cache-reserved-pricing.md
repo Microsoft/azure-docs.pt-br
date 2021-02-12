@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 76da267ae14a1f58ee2cadbf48f4b2ec419312b4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2f3472aa495042749410bc0b9635f0924a02e1fd
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543518"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598547"
 ---
 # <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>Pagar antecipadamente pelo cache do Azure para recursos de computação Redis com capacidade reservada
 
@@ -37,8 +37,10 @@ Por exemplo, vamos supor que você esteja executando dois caches-um a 13 GB e o 
 
 ## <a name="buy-azure-cache-for-redis-reserved-capacity"></a>Comprar o cache do Azure para capacidade reservada do Redis
 
+Você pode comprar uma instância de VM reservada no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/). Pague pela reserva [antecipadamente ou com pagamentos mensais](../cost-management-billing/reservations/prepare-buy-reservation.md).
+
 1. Entre no [portal do Azure](https://portal.azure.com/).
-2. Selecione **Todos os serviços** > **Reservas** .
+2. Selecione **Todos os serviços** > **Reservas**.
 3. Selecione **Adicionar** e, em seguida, no painel reservas de compra, selecione **cache do Azure para Redis** para comprar uma nova reserva para seus caches.
 4. Preencha os campos obrigatórios. Bancos de dados novos ou existentes que correspondem aos atributos que você selecionar qualificar para obter o desconto de capacidade reservada. O número real de seu cache do Azure para instâncias Redis que obtém o desconto depende do escopo e da quantidade selecionada.
 
@@ -50,8 +52,8 @@ A tabela a seguir descreve os campos obrigatórios.
 
 | Campo | Descrição |
 | :------------ | :------- |
-| Subscription   | A assinatura usada para pagar pelo cache do Azure para reserva de capacidade reservada do Redis. O método de pagamento na assinatura é cobrado pelos custos antecipados para o cache do Azure para reserva de capacidade reservada Redis. O tipo de assinatura deve ser um Enterprise Agreement (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou um contrato individual com preço pago conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Para uma assinatura de empresa, os encargos são deduzidos do saldo do compromisso monetário do registro ou cobrados como média. Para uma assinatura individual com o preço pago conforme o uso, os encargos são cobrados no cartão de crédito ou no método de pagamento de fatura na assinatura.
-| Escopo | O escopo de assinatura pode abranger uma ou várias assinaturas (escopo compartilhado). Se você selecionar: </br></br> **Compartilhado** , o desconto de reserva é aplicado ao cache do Azure para instâncias Redis em execução em qualquer assinatura em seu contexto de cobrança. Para clientes empresariais, o escopo compartilhado é o registro e inclui todas as assinaturas no registro. Para clientes de Pagamento Conforme o Uso, o escopo compartilhado consiste em todas as assinaturas de Pagamento Conforme o Uso criadas pelo administrador da conta.</br></br> **Assinatura única** , o desconto de reserva é aplicado ao cache do Azure para instâncias Redis nesta assinatura. </br></br> **Um grupo de recursos único** , o desconto de reserva é aplicado ao cache do Azure para instâncias Redis na assinatura selecionada e o grupo de recursos selecionado dentro dessa assinatura.
+| Assinatura   | A assinatura usada para pagar pelo cache do Azure para reserva de capacidade reservada do Redis. O método de pagamento na assinatura é cobrado pelos custos antecipados para o cache do Azure para reserva de capacidade reservada Redis. O tipo de assinatura deve ser um Enterprise Agreement (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou um contrato individual com preço pago conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Para uma assinatura empresarial, os encargos são deduzidos do saldo antecipado do Azure do registro (anteriormente chamado de compromisso monetário) ou cobrados como excedentes. Para uma assinatura individual com o preço pago conforme o uso, os encargos são cobrados no cartão de crédito ou no método de pagamento de fatura na assinatura.
+| Escopo | O escopo de assinatura pode abranger uma ou várias assinaturas (escopo compartilhado). Se você selecionar: </br></br> **Compartilhado**, o desconto de reserva é aplicado ao cache do Azure para instâncias Redis em execução em qualquer assinatura em seu contexto de cobrança. Para clientes empresariais, o escopo compartilhado é o registro e inclui todas as assinaturas no registro. Para clientes de Pagamento Conforme o Uso, o escopo compartilhado consiste em todas as assinaturas de Pagamento Conforme o Uso criadas pelo administrador da conta.</br></br> **Assinatura única**, o desconto de reserva é aplicado ao cache do Azure para instâncias Redis nesta assinatura. </br></br> **Um grupo de recursos único**, o desconto de reserva é aplicado ao cache do Azure para instâncias Redis na assinatura selecionada e o grupo de recursos selecionado dentro dessa assinatura.
 | Região | A região do Azure que é coberta pelo cache do Azure para reserva de capacidade reservada do Redis.
 | Tipo de preço | A camada de serviço para o cache do Azure para servidores Redis.
 | Termo | Um ano ou três anos

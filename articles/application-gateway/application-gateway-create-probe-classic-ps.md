@@ -7,17 +7,17 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 1445d1418bde6d5d15e365c59ceb56e7661faccb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13441899eeb5ca2b7c60977ab2858fe40a398d1a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87088063"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397851"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Criar uma investigação personalizada para o Gateway de Aplicativo (clássico) pelo uso do PowerShell
 
 > [!div class="op_single_selector"]
-> * [Azure portal](application-gateway-create-probe-portal.md)
+> * [Portal do Azure](application-gateway-create-probe-portal.md)
 > * [PowerShell do Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [PowerShell clássico do Azure](application-gateway-create-probe-classic-ps.md)
 
@@ -200,7 +200,6 @@ Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você quiser configurar o protocolo TLS, anteriormente conhecido como descarregamento protocolo SSL (SSL), consulte [configurar um gateway de aplicativo para descarregamento de TLS](application-gateway-ssl.md).
+Se você quiser configurar o protocolo TLS, anteriormente conhecido como descarregamento protocolo SSL (SSL), consulte [configurar um gateway de aplicativo para descarregamento de TLS](./tutorial-ssl-powershell.md).
 
-Para configurar um gateway de aplicativo para usar com um balanceador de carga interno, confira [Criar um gateway de aplicativo com um ILB (balanceador de carga interno)](application-gateway-ilb.md).
-
+Para configurar um gateway de aplicativo para usar com um balanceador de carga interno, confira [Criar um gateway de aplicativo com um ILB (balanceador de carga interno)](./application-gateway-ilb-arm.md).

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bf8fe68c28457fd01704762e537fe259a96a6bce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d6fb23d7325347a1b27165d3e9bc3bf33797682
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116226"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95994342"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configurar o fluxo de credenciais de senha de proprietário do recurso no Azure Active Directory B2C usando uma política personalizada
 
@@ -247,7 +247,7 @@ Em seguida, atualize o arquivo de terceira parte confiável que iniciará o perc
 
 Use seu aplicativo favorito de desenvolvimento de API para gerar uma chamada de API e analise a resposta para depurar sua política. Construa uma chamada de exemplo com as seguintes informações no corpo da solicitação POST:
 
-`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token`
 
 - Substitua `<tenant-name>` pelo nome de seu locatário do Azure AD B2C.
 - Substitua `B2C_1A_ROPC_Auth` com o nome completo da política de credenciais de senha do proprietário do recurso.
@@ -269,7 +269,7 @@ Use seu aplicativo favorito de desenvolvimento de API para gerar uma chamada de 
 A solicitação POST real tem a aparência do exemplo a seguir:
 
 ```https
-POST /<tenant-name>.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
+POST /<tenant-name>.onmicrosoft.com/oauth2/v2.0/token?B2C_1A_ROPC_Auth HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
@@ -292,7 +292,7 @@ Uma resposta bem-sucedida com acesso offline se parece com o seguinte exemplo:
 
 Construa uma chamada POST como esta. Use as informações na tabela a seguir como o corpo da solicitação:
 
-`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token`
 
 - Substitua `<tenant-name>` pelo nome de seu locatário do Azure AD B2C.
 - Substitua `B2C_1A_ROPC_Auth` com o nome completo da política de credenciais de senha do proprietário do recurso.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 07/17/2020
 ms.author: cynthn
-ms.openlocfilehash: 36ac0058f8f2cf3ca106b30c86207e46d0712193
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a702fbf405011a9df3e7e77936a9a37f0fdfad7
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87830539"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730631"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Usar ferramentas de automação de infraestrutura com máquinas virtuais no Azure
 
@@ -53,7 +53,7 @@ O [Puppet](https://www.puppet.com) é uma plataforma de automação pronta para 
 
 Saiba como:
 
-- [Implantar o Puppet no Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Puppet.puppet-agent-windows-asm?tab=Overview).
+- [Implantar Puppet](https://puppet.com/docs/puppet/5.5/install_windows.html).
 
 
 ## <a name="cloud-init"></a>Cloud-init
@@ -87,8 +87,8 @@ Os scripts podem ser baixados do armazenamento do Azure ou de qualquer local pú
 
 Saiba como:
 
-- [Criar uma VM Linux com a CLI do Azure e usar a Extensão de Script Personalizado](./scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fcli%2fazure%2ftoc.json).
-- [Criar uma VM Windows com o Azure PowerShell e usar a Extensão de Script Personalizado](./scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fpowershell%2fmodule%2ftoc.json).
+- [Criar uma VM Linux com a CLI do Azure e usar a Extensão de Script Personalizado](/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nginx?toc=%2fcli%2fazure%2ftoc.json).
+- [Criar uma VM Windows com o Azure PowerShell e usar a Extensão de Script Personalizado](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis).
 
 
 ## <a name="packer"></a>Packer
@@ -126,7 +126,7 @@ O [Azure DevOps Services](https://www.visualstudio.com/team-services/) é um pac
 
 Saiba mais sobre:
 
-- [Azure DevOps Services](/azure/devops/user-guide/index?view=vsts).
+- [Azure DevOps Services](/azure/devops/user-guide/index).
 
 
 ## <a name="jenkins"></a>Jenkins
@@ -138,13 +138,13 @@ Saiba como:
 
 
 ## <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
-[Azure Resource Manager](../azure-resource-manager/templates/overview.md) é o serviço de implantação e gerenciamento do Azure. Ele fornece uma camada de gerenciamento que lhe permite criar, atualizar e excluir recursos em sua assinatura do Azure. Use recursos de gerenciamento, como controle de acesso, bloqueios e marcas, para proteger e organizar seus recursos após a implantação.
+O [Azure Resource Manager](../azure-resource-manager/templates/overview.md) é o serviço de implantação e gerenciamento do Azure. Ele fornece uma camada de gerenciamento que lhe permite criar, atualizar e excluir recursos em sua assinatura do Azure. Use recursos de gerenciamento, como controle de acesso, bloqueios e marcas, para proteger e organizar seus recursos após a implantação.
 
 Saiba como:
 
 - [Implante VMs pontuais usando um modelo do Resource Manager](./linux/spot-template.md).
 - [Crie uma máquina virtual do Windows a partir de um modelo do Resource Manager](./windows/ps-template.md).
-- [Baixe o modelo para uma VM](./windows/download-template.md).
+- [Baixe o modelo para uma VM](/previous-versions/azure/virtual-machines/windows/download-template).
 - [Crie um modelo do Azure Image Builder](./linux/image-builder-json.md).
 
 ## <a name="next-steps"></a>Próximas etapas

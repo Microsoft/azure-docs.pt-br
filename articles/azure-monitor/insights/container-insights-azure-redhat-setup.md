@@ -3,12 +3,12 @@ title: Configurar o Azure Red Hat OpenShift v3. x com Azure Monitor para contêi
 description: Este artigo descreve como configurar o monitoramento de um cluster kubernetes com Azure Monitor hospedado no Azure Red Hat OpenShift versão 3 e superior.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 1186056559d6497b2b48cb3533a0967d6d61f38e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: f21a338a06d4a0947e2623854d828c720fb2d4bb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216361"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944540"
 ---
 # <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>Configurar o Azure Red Hat OpenShift v3 com Azure Monitor para contêineres
 
@@ -18,7 +18,7 @@ ms.locfileid: "92216361"
 > A partir de outubro de 2020, você não poderá mais criar novos clusters 3,11.
 > Os clusters 3,11 existentes continuarão a operar até 2022 de junho, mas não haverá mais suporte após essa data.
 >
-> Siga este guia para [criar um cluster do Azure Red Hat OpenShift 4](https://docs.microsoft.com/azure/openshift/tutorial-create-cluster).
+> Siga este guia para [criar um cluster do Azure Red Hat OpenShift 4](../../openshift/tutorial-create-cluster.md).
 > Se você tiver dúvidas específicas, [entre em contato conosco](mailto:aro-feedback@microsoft.com).
 
 Azure Monitor para contêineres fornece experiência de monitoramento avançada para os clusters do AKS (serviço kubernetes do Azure) e do mecanismo do AKS. Este artigo descreve como habilitar o monitoramento de clusters kubernetes hospedados no [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) versão 3 e a versão mais recente com suporte da versão 3, para obter uma experiência de monitoramento semelhante.
@@ -30,7 +30,7 @@ Azure Monitor para contêineres fornece experiência de monitoramento avançada 
 Azure Monitor para contêineres podem ser habilitados para novas ou uma ou mais implantações existentes do Azure Red Hat OpenShift usando os seguintes métodos com suporte:
 
 - Para um cluster existente do portal do Azure ou usando o modelo Azure Resource Manager.
-- Para um novo cluster usando Azure Resource Manager modelo ou ao criar um novo cluster usando o [CLI do Azure](/cli/azure/openshift?view=azure-cli-latest#az-openshift-create).
+- Para um novo cluster usando Azure Resource Manager modelo ou ao criar um novo cluster usando o [CLI do Azure](/cli/azure/openshift#az-openshift-create).
 
 ## <a name="supported-and-unsupported-features"></a>Recursos com e sem suporte
 
@@ -81,7 +81,7 @@ Azure Monitor para contêineres dá suporte ao monitoramento do Azure Red Hat Op
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
-1. Na saída, localize o nome do espaço de trabalho e copie a ID de recurso completo do espaço de trabalho Log Analytics sob a **ID**do campo.
+1. Na saída, localize o nome do espaço de trabalho e copie a ID de recurso completo do espaço de trabalho Log Analytics sob a **ID** do campo.
 
 ## <a name="enable-for-a-new-cluster-using-an-azure-resource-manager-template"></a>Habilitar para um novo cluster usando um modelo de Azure Resource Manager
 
@@ -153,7 +153,7 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
 5. A etapa a seguir implanta o cluster com monitoramento habilitado usando o CLI do Azure.
 
     ```azurecli
-    az group deployment create --resource-group <ClusterResourceGroupName> --template-file ./newClusterWithMonitoring.json --parameters @./newClusterWithMonitoringParam.json
+    az deployment group create --resource-group <ClusterResourceGroupName> --template-file ./newClusterWithMonitoring.json --parameters @./newClusterWithMonitoringParam.json
     ```
 
     A saída é semelhante ao seguinte:
@@ -174,7 +174,7 @@ Execute as etapas a seguir para habilitar o monitoramento de um cluster do Azure
 
 3. Na página **Monitor – contêineres**, selecione **Clusters não monitorados**.
 
-4. Na lista de clusters não monitorados, localize o cluster na lista e clique em **habilitar**. Você pode identificar os resultados na lista procurando o valor **toa** sob o **tipo de cluster**de coluna.
+4. Na lista de clusters não monitorados, localize o cluster na lista e clique em **habilitar**. Você pode identificar os resultados na lista procurando o valor **toa** sob o **tipo de cluster** de coluna.
 
 5. Na página **Integração do Azure Monitor para contêineres**, se você tiver um espaço de trabalho do Log Analytics existente na mesma assinatura do cluster, selecione-o na lista suspensa.  
     A lista seleciona o espaço de trabalho padrão e o local no qual o cluster é implantado na assinatura.
@@ -235,7 +235,7 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
 6. Para implantar com o CLI do Azure, execute os seguintes comandos:
 
     ```azurecli
-    az group deployment create --resource-group <ClusterResourceGroupName> --template-file ./ExistingClusterOnboarding.json --parameters @./existingClusterParam.json
+    az deployment group create --resource-group <ClusterResourceGroupName> --template-file ./ExistingClusterOnboarding.json --parameters @./existingClusterParam.json
     ```
 
     A saída é semelhante ao seguinte:

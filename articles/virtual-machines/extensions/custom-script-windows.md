@@ -5,17 +5,18 @@ services: virtual-machines-windows
 manager: carmonm
 author: bobbytreed
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/31/2020
 ms.author: robreed
-ms.openlocfilehash: 0bb1e4cb9b24c9b46f623e1604930367b82a47eb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d4cfb8d6a48ac41b4deb8913d4277f07cbb43208
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973811"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258697"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de script personalizado para o Windows
 
@@ -50,6 +51,8 @@ Você pode configurar a extensão para usar suas credenciais do Armazenamento de
 
 Se você precisar fazer o download um script externamente, como do GitHub ou do Armazenamento do Azure, será necessário abrir portas adicionais do firewall e do Grupo de Segurança de Rede. Por exemplo, se o script estiver localizado no Armazenamento do Azure, você poderá permitir acesso usando Marcas de Serviço do NSG do Azure para [Armazenamento](../../virtual-network/network-security-groups-overview.md#service-tags).
 
+Observe que a extensão CustomScript não tem nenhuma maneira de ignorar a validação do certificado. Portanto, se você estiver baixando de um local seguro com por exemplo. um certificado autoassinado, você pode acabar com erros como *"o certificado remoto é inválido de acordo com o procedimento de validação"*. Certifique-se de que o certificado esteja instalado corretamente no repositório *"autoridades de certificação raiz confiáveis"* na máquina virtual.
+
 Se o script estiver em um servidor local, ainda poderá ser necessário abrir portas adicionais do firewall e do Grupo de Segurança de Rede.
 
 ### <a name="tips-and-tricks"></a>Dicas e truques
@@ -60,7 +63,7 @@ Se o script estiver em um servidor local, ainda poderá ser necessário abrir po
 * É permitido que o script seja executado em até 90 minutos e um período mais longo resultará em falha na provisão da extensão.
 * Não coloque reinicializações dentro do script, pois essa ação causará problemas com outras extensões que estão sendo instaladas. Após a reinicialização, a extensão não continuará depois de reiniciar.
 * Se você tiver um script que causará uma reinicialização, instalará aplicativos e executará scripts, você poderá agendar a reinicialização usando uma Tarefa Agendada do Windows ou usar ferramentas como as extensões DSC, Chef ou Puppet.
-* Não é recomendável executar um script que causará uma parada ou atualização do agente de VM. Isso pode permitir a extensão em um estado de transição, levando a um tempo limite.
+* Não é recomendável executar um script que causará uma parada ou atualização do agente de VM. Isso pode deixar a extensão em um estado de transição, levando a um tempo limite.
 * A extensão executará um script somente uma vez. Se você quiser executar um script em cada inicialização, use a extensão pra criar uma Tarefa Agendada do Windows.
 * Se você quiser agendar quando um script será executado, use a extensão para criar uma Tarefa Agendada do Windows.
 * Quando o script for executado, você só verá um status da extensão 'em transição' no portal do Azure ou no CLI. Se quiser atualizações de status mais frequentes de um script em execução, será necessário criar sua própria solução.
@@ -244,8 +247,8 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
     -Publisher "Microsoft.Compute" `
     -ExtensionType "CustomScriptExtension" `
     -TypeHandlerVersion "1.10" `
-    -Settings $settings    `
-    -ProtectedSettings $protectedSettings `
+    -Settings $settings `
+    -ProtectedSettings $protectedSettings;
 ```
 
 ### <a name="running-scripts-from-a-local-share"></a>Executando scripts de um compartilhamento local
@@ -284,7 +287,7 @@ The response content cannot be parsed because the Internet Explorer engine is no
 ```
 ## <a name="virtual-machine-scale-sets"></a>Conjuntos de Dimensionamento de Máquinas Virtuais
 
-Para implantar a extensão de script personalizado em um conjunto de dimensionamento, confira [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension?view=azps-3.3.0)
+Para implantar a extensão de script personalizado em um conjunto de dimensionamento, confira [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension)
 
 ## <a name="classic-vms"></a>VMs clássicas
 

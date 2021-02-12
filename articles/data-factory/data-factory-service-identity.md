@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 117b0db4f04c3fd631f6692d288945019507f5c6
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 819f84eeb7540050fb001111690fb6d2ba484b2a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632797"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452313"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identidade gerenciada para o Data Factory
 
@@ -32,16 +32,16 @@ Ao criar um data factory, uma identidade gerenciada pode ser criada junto com a 
 A identidade gerenciada para Data Factory beneficia os seguintes recursos:
 
 - [Armazene a credencial em Azure Key Vault](store-credentials-in-key-vault.md), nesse caso data Factory identidade gerenciada é usada para Azure Key Vault autenticação.
-- Conectores, incluindo o [armazenamento de BLOBs do Azure](connector-azure-blob-storage.md), [Azure data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure data Lake Storage Gen2](connector-azure-data-lake-storage.md), [banco de dados SQL do azure](connector-azure-sql-database.md)e [Azure Synapse Analytics (anteriormente SQL data warehouse)](connector-azure-sql-data-warehouse.md).
+- Conectores, incluindo o [armazenamento de BLOBs do Azure](connector-azure-blob-storage.md), [Azure data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure data Lake Storage Gen2](connector-azure-data-lake-storage.md), [banco de dados SQL do Azure](connector-azure-sql-database.md)e [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md).
 - [Atividade da Web](control-flow-web-activity.md).
 
 ## <a name="generate-managed-identity"></a>Gerar identidade gerenciada
 
 A identidade gerenciada para Data Factory é gerada da seguinte maneira:
 
-- Ao criar data factory por meio do **portal do Azure ou do PowerShell** , a identidade gerenciada será sempre criada automaticamente.
-- Ao criar data factory por meio do **SDK** , a identidade gerenciada será criada somente se você especificar "Identity = New FactoryIdentity ()" no objeto de fábrica para criação. Consulte o exemplo do [início rápido do .NET - criar data factory](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
-- Ao criar data factory por meio da **API REST** , a identidade gerenciada será criada somente se você especificar a seção "identidade" no corpo da solicitação. Consulte o exemplo do [início rápido do REST - criar data factory](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
+- Ao criar data factory por meio do **portal do Azure ou do PowerShell**, a identidade gerenciada será sempre criada automaticamente.
+- Ao criar data factory por meio do **SDK**, a identidade gerenciada será criada somente se você especificar "Identity = New FactoryIdentity ()" no objeto de fábrica para criação. Consulte o exemplo do [início rápido do .NET - criar data factory](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
+- Ao criar data factory por meio da **API REST**, a identidade gerenciada será criada somente se você especificar a seção "identidade" no corpo da solicitação. Consulte o exemplo do [início rápido do REST - criar data factory](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
 
 Se você achar que o data factory não tem uma identidade gerenciada associada após a instrução [recuperar identidade gerenciada](#retrieve-managed-identity) , você pode gerar explicitamente uma atualizando a data Factory com o iniciador de identidade programaticamente:
 
@@ -79,7 +79,7 @@ Chame a API abaixo com a seção "identity" no corpo da solicitação:
 PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<data factory name>?api-version=2018-06-01
 ```
 
-**Corpo da solicitação** : adicionar "identity": {"type": "SystemAssigned"}.
+**Corpo da solicitação**: adicionar "identity": {"type": "SystemAssigned"}.
 
 ```json
 {
@@ -92,7 +92,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-**Resposta** : a identidade gerenciada é criada automaticamente e a seção "identidade" é preenchida de acordo.
+**Resposta**: a identidade gerenciada é criada automaticamente e a seção "identidade" é preenchida de acordo.
 
 ```json
 {
@@ -117,7 +117,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 
 ### <a name="generate-managed-identity-using-an-azure-resource-manager-template"></a>Gerar identidade gerenciada usando um modelo de Azure Resource Manager
 
-**Modelo** : adicionar "identity": {"type": "SystemAssigned"}.
+**Modelo**: adicionar "identity": {"type": "SystemAssigned"}.
 
 ```json
 {
@@ -201,7 +201,7 @@ Chame a API abaixo na solicitação:
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}?api-version=2018-06-01
 ```
 
-**Resposta** : você receberá uma resposta como mostrada no exemplo abaixo. A seção "identidade" é preenchida de acordo.
+**Resposta**: você receberá uma resposta como mostrada no exemplo abaixo. A seção "identidade" é preenchida de acordo.
 
 ```json
 {

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 027305d953a24de17e62aa74b33b72494b03e652
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: d790b466f669ed067863b6643c8f59662eb628a7
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825921"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226431"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Tutorial: Conectar usuários e chamar a API do Microsoft Graph de um SPA (aplicativo de página única) JavaScript
 
-Neste tutorial, você criará um SPA (aplicativo de página única) em JavaScript que pode conectar usuários com contas pessoais da Microsoft ou contas corporativas e de estudante e adquirirá um token de acesso para chamar a API do Microsoft Graph.
+Neste tutorial, você criará um SPA (aplicativo de página única) JavaScript que conecta usuários e chama o Microsoft Graph usando o fluxo implícito. O SPA que você cria usa a MSAL (Biblioteca de Autenticação da Microsoft) para JavaScript v1.0.
 
 Neste tutorial:
 
@@ -45,7 +45,7 @@ Neste tutorial:
 
 ![Mostra como funciona o aplicativo de exemplo gerado por este tutorial](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
 
-O aplicativo de exemplo criado por este guia permite que um SPA JavaScript consulte a API do Microsoft Graph ou uma API Web que aceita tokens do ponto de extremidade da plataforma de identidade da Microsoft. Nesse cenário, depois que um usuário se conecta, um token de acesso é adicionado às solicitações HTTP por meio do cabeçalho de autorização. Esse token será usado para adquirir o perfil e os emails do usuário por meio da **API do MS Graph**.
+O aplicativo de exemplo criado por este guia permite que um SPA JavaScript consulte a API do Microsoft Graph ou uma API Web que aceita tokens da plataforma de identidade da Microsoft. Nesse cenário, depois que um usuário se conecta, um token de acesso é adicionado às solicitações HTTP por meio do cabeçalho de autorização. Esse token será usado para adquirir o perfil e os emails do usuário por meio da **API do MS Graph**.
 
 A aquisição e a renovação de tokens são manipuladas pela [MSAL (Biblioteca de Autenticação da Microsoft) para JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js).
 
@@ -265,16 +265,17 @@ Agora você tem um servidor simples para atender ao seu SPA. A estrutura de past
 
 Antes de continuar com a autenticação, registre seu aplicativo no **Azure Active Directory**.
 
-1. Entre no [portal do Azure](https://portal.azure.com/).
-1. Se a conta fornecer acesso a mais de um locatário, selecione a conta no canto superior direito e defina sua sessão do portal para o locatário Azure AD que deseja usar.
-1. Vá até a página [Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) da plataforma de identidade da Microsoft para desenvolvedores.
-1. Quando a página **Registrar um aplicativo** aparecer, insira um nome para o seu aplicativo.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
+1. Pesquise **Azure Active Directory** e selecione-o.
+1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
+1. Insira um **Nome** para seu aplicativo. Os usuários do seu aplicativo podem ver esse nome e você pode alterá-lo mais tarde.
 1. Em **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft**.
 1. Na seção **URI de Redirecionamento**, selecione a plataforma **Web** na lista suspensa e defina o valor para a URL do aplicativo com base em seu servidor Web.
 1. Selecione **Registrar**.
 1. Na página **Visão geral** do aplicativo, anote o valor de **ID do aplicativo (cliente)** para uso posterior.
-1. Este início rápido requer que o [fluxo de concessão implícita](v2-oauth2-implicit-grant-flow.md) seja ativado. No painel esquerdo do aplicativo registrado, selecione **Autenticação**.
-1. Em **Configurações avançadas**, em **Concessão implícita**, marque as caixas de seleção **Tokens de ID** e **Tokens de Acesso**. Os tokens de ID e tokens de acesso são necessários porque esse aplicativo precisa conectar usuários e chamar uma API.
+1. Em **Gerenciar**, selecione **Autenticação**.
+1. Na seção **Concessão implícita e fluxos híbridos**, selecione **Tokens de ID** e **Tokens de acesso**. Os tokens de ID e tokens de acesso são necessários porque esse aplicativo precisa conectar usuários e chamar uma API.
 1. Clique em **Salvar**.
 
 > ### <a name="set-a-redirect-url-for-nodejs"></a>Configurar a URL de redirecionamento para o Node.js
@@ -412,13 +413,13 @@ O SPA gerado por este guia chama `acquireTokenSilent` e/ou `acquireTokenPopup` p
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de usuário interativamente
 
-Depois da entrada inicial, você não deseja solicitar aos usuários que autentiquem novamente sempre que precisam solicitar um token para acessar um recurso. Portanto, *acquireTokenSilent* deve ser usado na maioria das vezes para adquirir tokens. Entretanto, há situações em que é necessário forçar os usuários a interagir com o ponto de extremidade da plataforma de identidade da Microsoft. Os exemplos incluem:
+Depois da entrada inicial, você não deseja solicitar aos usuários que autentiquem novamente sempre que precisam solicitar um token para acessar um recurso. Portanto, *acquireTokenSilent* deve ser usado na maioria das vezes para adquirir tokens. Entretanto, há situações em que é necessário forçar os usuários a interagir com a plataforma de identidade da Microsoft. Os exemplos incluem:
 
 - Os usuários precisam reinserir suas credenciais, pois a senha expirou.
 - Seu aplicativo está solicitando acesso a um recurso e você precisa do consentimento do usuário.
 - A autenticação de dois fatores é necessária.
 
-Chamar *acquireTokenPopup* abre uma janela pop-up (ou *acquireTokenRedirect* redireciona os usuários para o ponto de extremidade da plataforma de identidade da Microsoft). Nessa janela, os usuários precisam interagir confirmando suas credenciais, concedendo consentimento ao recurso necessário ou concluindo a autenticação de dois fatores.
+Chamar *acquireTokenPopup* abre uma janela pop-up (ou *acquireTokenRedirect* redireciona os usuários para a plataforma de identidade da Microsoft). Nessa janela, os usuários precisam interagir confirmando suas credenciais, concedendo consentimento ao recurso necessário ou concluindo a autenticação de dois fatores.
 
 #### <a name="get-a-user-token-silently"></a>Obter um token de usuário no modo silencioso
 
@@ -482,7 +483,7 @@ No aplicativo de exemplo criado por este guia, o método `callMSGraph()` é usad
    ```
 1. No navegador, digite **http://localhost:3000** ou **http://localhost:{port}** , em que *port* é a porta na qual o servidor Web está escutando. Você deve ver o conteúdo do seu arquivo *index.html* e o botão **Entrar**.
 
-Depois que o navegador carregar seu arquivo *index.html*, selecione **Entrar**. Você será solicitado a entrar com o ponto de extremidade da plataforma de identidade da Microsoft:
+Depois que o navegador carregar seu arquivo *index.html*, selecione **Entrar**. Você deverá entrar na plataforma de identidade da Microsoft:
 
 ![A janela de entrada do conta SPA do JavaScript](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
 
@@ -513,4 +514,3 @@ Aprofunde-se no desenvolvimento de SPA (aplicativo de página única) na platafo
 
 > [!div class="nextstepaction"]
 > [Cenário: Aplicativo de página única](scenario-spa-overview.md)
-

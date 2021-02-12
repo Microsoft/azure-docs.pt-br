@@ -8,22 +8,22 @@ ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 190aaae81d51434b57b5aaa6817a443dc541d26e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5acb8e347046780c84f0aa324b997abb5e2aa840
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069129"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629216"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Habilitar e criar compartilhamentos de arquivos grandes
 
-Quando você habilita grandes compartilhamentos de arquivos em sua conta de armazenamento, seus compartilhamentos de arquivos podem ser escalados verticalmente até 100 TiB. Você pode habilitar esse dimensionamento em suas contas de armazenamento existentes para seus compartilhamentos de arquivos existentes.
+Quando você habilita grandes compartilhamentos de arquivos em sua conta de armazenamento, os compartilhamentos de arquivos podem ser escalados verticalmente até 100 TiB, ao mesmo tempo em que aumentam os limites de IOPS e taxa de transferência para os Você também pode habilitar esse dimensionamento em suas contas de armazenamento existentes para seus compartilhamentos de arquivos existentes. Consulte [compartilhamento de arquivos e destinos de escala de arquivo](storage-files-scale-targets.md#azure-files-scale-targets) para obter detalhes. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-- Se pretende usar a CLI do Azure, [instale a versão mais recente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-- Se você pretende usar o módulo Azure PowerShell, [Instale a versão mais recente](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-4.6.0).
+- Se pretende usar a CLI do Azure, [instale a versão mais recente](/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Se você pretende usar o módulo Azure PowerShell, [Instale a versão mais recente](/powershell/azure/install-az-ps?view=azps-4.6.0).
 
 ## <a name="restrictions"></a>Restrições
 
@@ -40,7 +40,7 @@ A habilitação de grandes compartilhamentos de arquivos em uma conta é um proc
 1. Na lista de recursos, insira **contas de armazenamento**. A lista filtra com base em sua entrada, à medida que você digita. Selecione **Contas de Armazenamento**.
 1. Na janela **contas de armazenamento** que aparece, selecione **Adicionar**.
 1. Selecione a assinatura que você usará para criar a conta de armazenamento.
-1. No campo **Grupo de recursos**, selecione **Criar novo**. Insira um nome para o novo grupo de recursos.
+1. No campo **Grupo de recursos** , selecione **Criar novo**. Insira um nome para o novo grupo de recursos.
 
     ![Captura de tela mostrando como criar um grupo de recursos no portal](media/storage-files-how-to-create-large-file-share/create-large-file-share.png)
 
@@ -56,7 +56,7 @@ A habilitação de grandes compartilhamentos de arquivos em uma conta é um proc
    |Tipo de conta     |StorageV2 (uso geral v2)         |
    |Camada de acesso     |Frequente         |
 
-1. Selecione **avançado**e, em seguida, selecione o botão de opção **habilitado** à direita de **grandes compartilhamentos de arquivos**.
+1. Selecione **avançado** e, em seguida, selecione o botão de opção **habilitado** à direita de **grandes compartilhamentos de arquivos**.
 1. Selecione **Revisar + Criar** para examinar as configurações da conta de armazenamento e criar a conta.
 
     ![Captura de tela com o botão de opção "habilitado" em uma nova conta de armazenamento no portal do Azure](media/storage-files-how-to-create-large-file-share/large-file-shares-advanced-enable.png)
@@ -65,7 +65,7 @@ A habilitação de grandes compartilhamentos de arquivos em uma conta é um proc
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Primeiro, [Instale a versão mais recente do CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para que você possa habilitar grandes compartilhamentos de arquivos.
+Primeiro, [Instale a versão mais recente do CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) para que você possa habilitar grandes compartilhamentos de arquivos.
 
 Para criar uma conta de armazenamento com grandes compartilhamentos de arquivos habilitados, use o comando a seguir. Substitua `<yourStorageAccountName>` , `<yourResourceGroup>` e `<yourDesiredRegion>` pelas suas informações.
 
@@ -76,7 +76,7 @@ az storage account create --name <yourStorageAccountName> -g <yourResourceGroup>
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Primeiro, [Instale a versão mais recente do PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0) para que você possa habilitar compartilhamentos de arquivos grandes.
+Primeiro, [Instale a versão mais recente do PowerShell](/powershell/azure/install-az-ps?view=azps-3.0.0) para que você possa habilitar compartilhamentos de arquivos grandes.
 
 Para criar uma conta de armazenamento com grandes compartilhamentos de arquivos habilitados, use o comando a seguir. Substitua `<yourStorageAccountName>` , `<yourResourceGroup>` e `<yourDesiredRegion>` pelas suas informações.
 
@@ -94,7 +94,7 @@ Você também pode habilitar compartilhamentos de arquivos grandes em suas conta
 
 1. Abra o [portal do Azure](https://portal.azure.com)e vá para a conta de armazenamento onde você deseja habilitar grandes compartilhamentos de arquivos.
 1. Abra a conta de armazenamento e selecione **configuração**.
-1. Selecione **habilitado** em **compartilhamentos de arquivos grandes**e, em seguida, selecione **salvar**.
+1. Selecione **habilitado** em **compartilhamentos de arquivos grandes** e, em seguida, selecione **salvar**.
 1. Selecione **visão geral** e selecione **Atualizar**.
 
 ![Selecionando o botão de opção habilitado em uma conta de armazenamento existente no portal do Azure](media/storage-files-how-to-create-large-file-share/enable-large-file-shares-on-existing.png)

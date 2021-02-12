@@ -4,12 +4,12 @@ description: Respostas para algumas das perguntas e cenários mais comuns de red
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.reviewer: glenga
-ms.openlocfilehash: d07484943f8ba85cc8e46737f3ef85b6e25d5187
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e8a992aac95b6c2688cb45aa980bf0b01883a53
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538051"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578222"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Perguntas frequentes sobre rede em Azure Functions
 
@@ -31,11 +31,9 @@ Tenha em mente que o editor de portal do Azure requer acesso direto à sua funç
 
 ## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>Como fazer restringir meu aplicativo de funções a uma rede virtual?
 
-Você pode restringir o tráfego de **entrada** para um aplicativo de funções a uma rede virtual usando [pontos de extremidade de serviço](./functions-networking-options.md#private-site-access). Essa configuração ainda permite que o aplicativo de funções faça chamadas de saída para a Internet.
+Você pode restringir o tráfego de **entrada** para um aplicativo de funções a uma rede virtual usando [pontos de extremidade de serviço](./functions-networking-options.md#use-service-endpoints). Essa configuração ainda permite que o aplicativo de funções faça chamadas de saída para a Internet.
 
-A única maneira de restringir totalmente uma função de forma que todo o tráfego flua por meio de uma rede virtual é usar um Ambiente do Serviço de Aplicativo com balanceamento de carga internamente. Essa opção implanta seu site em uma infraestrutura dedicada dentro de uma rede virtual e envia todos os gatilhos e tráfego por meio da rede virtual. 
-
-Para obter detalhes sobre como usar um Ambiente do Serviço de Aplicativo, comece com o artigo [criar e usar um balanceador de carga interno com um ambiente do serviço de aplicativo](../app-service/environment/create-ilb-ase.md).
+Para restringir completamente uma função de forma que todo o tráfego flua por meio de uma rede virtual, você pode usar [pontos de extremidade privados](./functions-networking-options.md#private-endpoint-connections) com integração de rede virtual de saída ou um ambiente do serviço de aplicativo.
 
 ## <a name="how-can-i-access-resources-in-a-virtual-network-from-a-function-app"></a>Como posso acessar recursos em uma rede virtual por meio de um aplicativo de funções?
 
@@ -47,7 +45,7 @@ Usando a integração de rede virtual, você pode acessar recursos protegidos po
 
 ## <a name="how-can-i-trigger-a-function-from-a-resource-in-a-virtual-network"></a>Como posso disparar uma função de um recurso em uma rede virtual?
 
-Você pode permitir que gatilhos HTTP sejam chamados de uma rede virtual usando [pontos de extremidade de serviço](./functions-networking-options.md#private-site-access). 
+Você pode permitir que gatilhos HTTP sejam chamados por meio de uma rede virtual usando pontos de extremidade de [serviço](./functions-networking-options.md#use-service-endpoints) ou conexões de [ponto de extremidades privadas](./functions-networking-options.md#private-endpoint-connections). 
 
 Você também pode disparar uma função de todos os outros recursos em uma rede virtual implantando seu aplicativo de funções em um plano Premium, plano do serviço de aplicativo ou Ambiente do Serviço de Aplicativo. Consulte [gatilhos de rede virtual não http](./functions-networking-options.md#virtual-network-triggers-non-http) para obter mais informações
 

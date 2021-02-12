@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: f4d9cc4c02ab062c73e9dbd977d9ea9e6ccdb60d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43cd03e8f4a66d18adc33c943481002ff7b326d3
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532597"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813200"
 ---
 # <a name="integrate-azure-storage-for-notifications-and-backup"></a>Integrar o armazenamento do Azure para notificações e backup
 
@@ -206,4 +206,5 @@ O `"exportStatus"` campo pode ser `"ExportCompleted"` ou `"ExportFailed"` . O `"
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste guia, você aprendeu a copiar e mover um projeto entre Visão Personalizada recursos. Em seguida, explore os documentos de referência da API para ver o que mais você pode fazer com Visão Personalizada.
-* [Documentação de referência da API REST](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3)
+* [Documentação de referência da API REST (treinamento)](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3)
+* [Documentação de referência da API REST (previsão)](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.1/operations/5eb37d24548b571998fde5f3)

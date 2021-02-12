@@ -1,5 +1,5 @@
 ---
-title: Criar uma entrada de trabalho dos Serviços de Mídia do Azure com base em uma URL HTTPS | Microsoft Docs
+title: Criar uma entrada de trabalho de uma URL HTTPS
 description: Este tópico demonstra como criar uma entrada de trabalho dos serviços de mídia do Azure de uma URL HTTPS.
 services: media-services
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: e440e4393065d2bc1cad1a96b4f8c975624faa11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1073a13f477894e1b35d732fd1cd6191747a62a2
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295505"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955980"
 ---
 # <a name="create-a-job-input-from-an-https-url"></a>Criar uma entrada de trabalho de uma URL HTTPS
 

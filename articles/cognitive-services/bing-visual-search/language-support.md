@@ -10,19 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: scottwhi
-ms.openlocfilehash: f32c7a97036319dcae610fd0baa2dad48763d8ae
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6d93b6d024fc966f3b260602f4798a2d77669a35
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094924"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501151"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Idiomas e regiões compatíveis com a API da Pesquisa Visual do Bing
 
 > [!WARNING]
-> APIs de Pesquisa do Bing estão mudando de serviços cognitivas para serviços Pesquisa do Bings. A partir de **30 de outubro de 2020** , todas as novas instâncias do pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
-> APIs de Pesquisa do Bing provisionado usando serviços cognitivas terão suporte nos próximos três anos ou até o final do seu Enterprise Agreement, o que ocorrer primeiro.
-> Para obter instruções de migração, consulte [serviços de pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 A API de Pesquisa Visual do Bing dá suporte a mais de trinta países/regiões, muitos com mais de um idioma. Cada solicitação deve incluir o país/região e idioma de preferência do usuário. O conhecimento do mercado do usuário ajuda o Bing a retornar resultados apropriados. Se você não especificar um país/região e um idioma, o Bing se esforçará para determinar o país/região e o idioma do usuário. Como os resultados podem conter links para o Bing, o conhecimento do país/região e do idioma poderá fornecer uma experiência do usuário preferencial localizada do Bing, caso o usuário clique nos links do Bing.
 
@@ -83,7 +83,7 @@ Como alternativa, é possível especificar o país/região usando o parâmetro d
 
 ## <a name="markets"></a>Mercados
 
-|País/Região|Idioma|Código de mercado|
+|País/Região|Linguagem|Código de mercado|
 |-------|--------|-----------|
 |Argentina|Espanhol|es-AR|
 |Austrália|Inglês|en-AU|
@@ -91,8 +91,8 @@ Como alternativa, é possível especificar o país/região usando o parâmetro d
 |Bélgica|Holandês|nl-BE|
 |Bélgica|Francês|fr-BE|
 |Brasil|Português|pt-BR|
-|Canadá|Inglês|en-CA|
-|Canadá|Francês|fr-CA|
+|Canada|Inglês|en-CA|
+|Canada|Francês|fr-CA|
 |Chile|Espanhol|es-CL|
 |Dinamarca|Dinamarquês|da-DK|
 |Finlândia|Finlandês|fi-FI|
@@ -122,5 +122,5 @@ Como alternativa, é possível especificar o país/região usando o parâmetro d
 |Taiwan|Chinês tradicional|zh-TW|
 |Turquia|Turco|tr-TR|
 |Reino Unido|Inglês|en-GB|
-|Estados Unidos|Inglês|pt-BR|
+|Estados Unidos|Inglês|en-US|
 |Estados Unidos|Espanhol|es-US|

@@ -4,11 +4,11 @@ description: Este artigo aborda alguns problemas comuns em torno da atualizaçã
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: d462f2c2482e0fbb4d252967754a9675ed362674
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75377915"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009340"
 ---
 # <a name="troubleshoot-application-upgrades"></a>Solucionar problemas de atualizações de aplicativo
 
@@ -80,7 +80,7 @@ O comando **Get-ServiceFabricNode** pode ser usado para verificar se esses dois 
 
 Uma *UpgradePhase* de *PreUpgradeSafetyCheck* significa que houve problemas na preparação do domínio de atualização antes de a atualização ser executada. Nesse caso, os problemas mais comuns são erros de serviço no fechamento ou rebaixamento de caminhos de código principal.
 
-O **UpgradeState** atual é *RollingBackCompleted*; portanto, a atualização original deve ter sido realizada com uma reversão **FailureAction**, que automaticamente reverteu a atualização em caso de falha. Se a atualização original tivesse sido realizada com um **FailureAction**manual, a atualização estaria em um estado suspenso para permitir a depuração dinâmica do aplicativo.
+O **UpgradeState** atual é *RollingBackCompleted*; portanto, a atualização original deve ter sido realizada com uma reversão **FailureAction**, que automaticamente reverteu a atualização em caso de falha. Se a atualização original tivesse sido realizada com um **FailureAction** manual, a atualização estaria em um estado suspenso para permitir a depuração dinâmica do aplicativo.
 
 Em casos raros, o campo **UpgradeDomainProgressAtFailure** poderá estar vazio se a atualização geral atingir o tempo limite assim que o sistema concluir todo o trabalho para o domínio de atualização atual. Se isso acontecer, experimente aumentar os valores de parâmetro de atualização **UpgradeTimeout** e **UpgradeDomainTimeout** e tente novamente a atualização.
 
@@ -148,7 +148,7 @@ A atualização foi suspensa com falha, especificando um **FailureAction** manua
 
 ### <a name="recover-from-a-suspended-upgrade"></a>Recuperar de uma atualização suspensa
 
-Com uma reversão de **FailureAction**, não há nenhuma recuperação necessária, já que a atualização é revertida automaticamente após a falha. Com uma **FailureAction**manual, há várias opções de recuperação:
+Com uma reversão de **FailureAction**, não há nenhuma recuperação necessária, já que a atualização é revertida automaticamente após a falha. Com uma **FailureAction** manual, há várias opções de recuperação:
 
 1.  disparar uma reversão
 2. Continuar com o restante da atualização manualmente

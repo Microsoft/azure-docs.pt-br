@@ -6,12 +6,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: 32734ff9df2e55d24789742cd49984d8da212a17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3d09ec4c4ab578a87f0d983c0f243bee2a84597
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212181"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94991223"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Associações do SendGrid no Azure Functions
 
@@ -41,6 +41,7 @@ O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) q
 
 ```cs
 using SendGrid.Helpers.Mail;
+using System.Text.Json;
 
 ...
 
@@ -49,7 +50,7 @@ public static void Run(
     [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] Message email,
     [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] out SendGridMessage message)
 {
-var emailObject = JsonConvert.DeserializeObject<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
+var emailObject = JsonSerializer.Deserialize<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
 
 message = new SendGridMessage();
 message.AddTo(emailObject.To);
@@ -71,15 +72,16 @@ public class OutgoingEmail
 
 ```cs
 using SendGrid.Helpers.Mail;
+using System.Text.Json;
 
 ...
 
 [FunctionName("SendEmail")]
-public static async void Run(
+public static async Task Run(
  [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] Message email,
  [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] IAsyncCollector<SendGridMessage> messageCollector)
 {
- var emailObject = JsonConvert.DeserializeObject<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
+ var emailObject = JsonSerializer.Deserialize<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
 
  var message = new SendGridMessage();
  message.AddTo(emailObject.To);
@@ -189,7 +191,7 @@ Aqui está o código JavaScript:
 ```javascript
 module.exports = function (context, input) {
     var message = {
-         "personalizations": [ { "to": [ { "email": "sample@sample.com" } ] } ],
+         "personalizations": [ { "to": [ { "email": "sample@sample.com" } ] } ],
         from: { email: "sender@contoso.com" },
         subject: "Azure news",
         content: [{
@@ -357,14 +359,14 @@ A tabela a seguir lista as propriedades de configuração de associação dispon
 
 | *function.jsna* Propriedade | Propriedade de atributo/anotação | Descrição | Opcional |
 |--------------------------|-------------------------------|-------------|----------|
-| type |n/d| Deve ser definido como `sendGrid`.| Não |
+| tipo |n/d| Deve ser definido como `sendGrid`.| No |
 | direction |n/d| Deve ser definido como `out`.| Não |
-| name |n/a| O nome da variável usada no código de função para a solicitação ou o corpo da solicitação. Esse valor é `$return` quando há apenas um valor retornado. | Não |
+| name |N/D| O nome da variável usada no código de função para a solicitação ou o corpo da solicitação. Esse valor é `$return` quando há apenas um valor retornado. | No |
 | apiKey | ApiKey | O nome de uma configuração de aplicativo que contém sua chave de API. Se não estiver definido, o nome da configuração do aplicativo padrão será *AzureWebJobsSendGridApiKey*.| Não |
-| para| Para | O endereço de email do destinatário. | Sim |
-| de| De | O endereço de email do remetente. |  Sim |
+| para| Para | O endereço de email do destinatário. | Yes |
+| de| De | O endereço de email do remetente. |  Yes |
 | subject| Assunto | O assunto do email. | Sim |
-| text| Texto | O conteúdo do email. | Sim |
+| text| Texto | O conteúdo do email. | Yes |
 
 As propriedades opcionais podem ter valores padrão definidos na associação e adicionadas ou substituídas programaticamente.
 
@@ -392,7 +394,7 @@ Esta seção descreve as definições de configuração global disponíveis para
 
 |Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
-|de|n/a|Endereço de email do remetente em todas as funções.| 
+|de|N/D|Endereço de email do remetente em todas as funções.| 
 
 
 ## <a name="next-steps"></a>Próximas etapas

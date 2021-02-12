@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: duau
-ms.openlocfilehash: 93a8076f12b8f006d600cbd32ce39169f4b47c67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e0e2acfb0ec0068dcd08ae660e397f65e039a665
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89392588"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183737"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>Apontar um domínio de Internet da empresa para um domínio do Gerenciador de Tráfego do Azure
 
@@ -33,5 +33,5 @@ Todas as solicitações de tráfego para *www \. contoso.com* são direcionadas 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Métodos de roteamento do Gerenciador de Tráfego](traffic-manager-routing-methods.md)
-* [Gerenciador de Tráfego - Desabilitar, habilitar ou excluir um perfil](disable-enable-or-delete-a-profile.md)
-* [Gerenciador de Tráfego - Desabilitar ou habilitar um ponto de extremidade](disable-or-enable-an-endpoint.md)
+* [Gerenciador de Tráfego - Desabilitar, habilitar ou excluir um perfil](./traffic-manager-manage-profiles.md)
+* [Gerenciador de Tráfego - Desabilitar ou habilitar um ponto de extremidade](./traffic-manager-manage-endpoints.md)

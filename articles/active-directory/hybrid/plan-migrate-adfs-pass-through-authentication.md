@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0ee8661ca985e1882cff54d2fc2cdc5e9ad0a22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a10c4c0e6e40636e4803e054155d6fdaa12a9366
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335962"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858545"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrar da federação para a autenticação de passagem do Azure Active Directory
 
@@ -100,15 +100,15 @@ Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
 
 Verifique quaisquer configurações que possam ter sido personalizadas para sua documentação de implantação e design de federação. Especificamente, procure as personalizações em **PreferredAuthenticationProtocol**, **SupportsMfa** e **PromptLoginBehavior**.
 
-Para obter mais informações, consulte estes artigos:
+Para obter mais informações, confira estes tópicos:
 
 * [Prompt do AD FS = suporte ao parâmetro de logon](/windows-server/identity/ad-fs/operations/ad-fs-prompt-login)
-* [Set-MsolDomainAuthentication](/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
+* [Set-MsolDomainAuthentication](/powershell/module/msonline/set-msoldomainauthentication)
 
 > [!NOTE]
 > Se **SupportsMfa** está definido como **Verdadeiro**, você está usando uma solução de autenticação multifator localmente para injetar um desafio de segundo fator no fluxo de autenticação de usuário. Essa configuração não funciona para cenários de autenticação do Azure AD. 
 >
-> Em vez disso, use o serviço de autenticação multifator do Azure baseado em nuvem para executar a mesma função. Avalie seus requisitos de autenticação multifator com cuidado antes de continuar. Antes de converter seus domínios, verifique se você compreendeu como usar a autenticação multifator do Azure, as implicações de licenciamento e o processo de registro do usuário.
+> Em vez disso, use o serviço baseado em nuvem da autenticação multifator do Azure AD para executar a mesma função. Avalie seus requisitos de autenticação multifator com cuidado antes de continuar. Antes de converter seus domínios, certifique-se de que você entendeu como usar a autenticação multifator do Azure AD, as implicações de licenciamento e o processo de registro do usuário.
 
 #### <a name="back-up-federation-settings"></a>Configurações de federação de backup
 
@@ -132,9 +132,9 @@ Antes de converter a identidade federada para a identidade gerenciada, examine c
 |-|-|
 | Você planeja continuar usando AD FS com outros aplicativos (além do Azure AD e Microsoft 365). | Depois de converter seus domínios, você usará tanto o AD FS quanto o Azure AD. Considere a experiência do usuário. Em alguns cenários, os usuários podem ser solicitados a autenticar duas vezes: uma vez ao Azure AD (em que um usuário obtém acesso SSO a outros aplicativos, como Microsoft 365), e novamente para todos os aplicativos que ainda estão associados a AD FS como uma relação de confiança de terceira parte confiável. |
 | Sua instância do AD FS é muito personalizada e depende das configurações de personalização específicas no arquivo onload.js (por exemplo, se você tiver alterado a experiência de conexão para que os usuários usem apenas um formato **SamAccountName** para o nome de usuário, em vez de um nome UPN, ou sua organização tiver aplicado fortemente a identidade de marca à experiência de conexão). O arquivo onload.js não pode ser duplicado no Azure AD. | Antes de continuar, verifique se que o Azure AD pode atender aos seus atuais requisitos de personalização. Para obter mais informações e diretrizes, veja as seções sobre identidade visual do AD FS e personalização do AD FS.|
-| Você usa o AD FS para bloquear versões anteriores de clientes de autenticação.| Considere substituir os controles de AD FS que bloqueiam versões anteriores de clientes de autenticação usando uma combinação de [controles de acesso condicional](../conditional-access/concept-conditional-access-conditions.md) e [regras de acesso para cliente do Exchange Online](https://aka.ms/EXOCAR). |
-| Você exige que os usuários realizem a autenticação multifator em relação a uma solução de servidor de autenticação multifator local quando os usuários se autenticam para o AD FS.| Em um domínio de identidade gerenciada, você não pode injetar um desafio de autenticação multifator por meio da solução de autenticação multifator local no fluxo de autenticação. No entanto, você pode usar o serviço de Autenticação Multifator do Azure para a autenticação multifator depois da conversão do domínio.<br /><br /> Se os usuários no momento não usam Autenticação Multifator do Azure, é necessária uma etapa de registro de usuário realizada uma única vez. Você deve preparar e comunicar o registro planejado a seus usuários. |
-| Atualmente, você usa políticas de controle de acesso (regras de AuthZ) em AD FS para controlar o acesso ao Microsoft 365.| Considere substituir as políticas com as [políticas de acesso condicional](../conditional-access/overview.md) do Azure ad equivalentes e as [regras de acesso para cliente do Exchange Online](https://aka.ms/EXOCAR).|
+| Você usa o AD FS para bloquear versões anteriores de clientes de autenticação.| Considere substituir os controles de AD FS que bloqueiam versões anteriores de clientes de autenticação usando uma combinação de [controles de acesso condicional](../conditional-access/concept-conditional-access-conditions.md) e [regras de acesso para cliente do Exchange Online](/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules). |
+| Você exige que os usuários realizem a autenticação multifator em relação a uma solução de servidor de autenticação multifator local quando os usuários se autenticam para o AD FS.| Em um domínio de identidade gerenciada, você não pode injetar um desafio de autenticação multifator por meio da solução de autenticação multifator local no fluxo de autenticação. No entanto, você pode usar o serviço de autenticação multifator do Azure AD para autenticação multifator depois que o domínio é convertido.<br /><br /> Se os usuários não usam atualmente a autenticação multifator do Azure AD, é necessária uma etapa de registro de usuário de OneTime. Você deve preparar e comunicar o registro planejado a seus usuários. |
+| Atualmente, você usa políticas de controle de acesso (regras de AuthZ) em AD FS para controlar o acesso ao Microsoft 365.| Considere substituir as políticas com as [políticas de acesso condicional](../conditional-access/overview.md) do Azure ad equivalentes e as [regras de acesso para cliente do Exchange Online](/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules).|
 
 ### <a name="common-ad-fs-customizations"></a>Personalizações de comuns do AD FS
 
@@ -160,7 +160,7 @@ Para contas de computador do Windows 8 e Windows 7, a associação híbrida usa 
 
 Para obter mais informações, veja [Configurar dispositivos ingressados no Azure AD híbrido](../devices/hybrid-azuread-join-plan.md).
 
-#### <a name="branding"></a>Identidade visual
+#### <a name="branding"></a>Consolidação da marca
 
 Se sua organização tiver [personalizadas suas páginas de entrada no AD FS](/windows-server/identity/ad-fs/operations/ad-fs-user-sign-in-customization) para exibir informações mais pertinentes para a organização, considere fazer [personalizações de página de entrada do Azure AD](../fundamentals/customize-branding.md) similares.
 
@@ -247,7 +247,7 @@ Use esse método se você tiver configurado inicialmente seu ambiente do AD FS u
 Primeiro, altere o método de entrada:
 
 1. No servidor do Azure AD Connect, abra o Assistente do Azure AD Connect.
-2. Selecione **alterar entrada do usuário**e, em seguida, selecione **Avançar**. 
+2. Selecione **alterar entrada do usuário** e, em seguida, selecione **Avançar**. 
 3. Na página **Conectar ao Azure AD**, insira o nome de usuário e a senha de uma conta de Administrador Global.
 4. Na página **Entrada do usuário**, selecione o botão **Autenticação de passagem**, selecione **Habilitar logon único** e, em seguida, selecione **Avançar**.
 5. Na página **Habilitar logon único**, insira as credenciais de uma conta de administrador de domínio e, em seguida, selecione **Avançar**.
@@ -272,7 +272,7 @@ Primeiro, altere o método de entrada:
 
 Avançar. implantar métodos de autenticação adicionais:
 
-1. Na portal do Azure, vá para **Azure Active Directory**  >  **Azure ad Connect**e, em seguida, selecione **autenticação de passagem**.
+1. Na portal do Azure, vá para **Azure Active Directory**  >  **Azure ad Connect** e, em seguida, selecione **autenticação de passagem**.
 2. Na página **Autenticação de passagem**, selecione o botão **Baixar**.
 3. Na página **Baixar agente**, selecione **Aceitar os termos e baixar**.
 
@@ -301,7 +301,7 @@ Use esta opção se você não tiver configurado inicialmente seus domínios fed
 Primeiro, habilite a autenticação de passagem:
 
 1. No Servidor do Azure AD Connect, abra o Assistente do Azure AD Connect.
-2. Selecione **alterar entrada do usuário**e, em seguida, selecione **Avançar**.
+2. Selecione **alterar entrada do usuário** e, em seguida, selecione **Avançar**.
 3. Na página **Conectar ao Azure AD**, insira o nome de usuário e a senha de uma conta de Administrador Global.
 4. Na página **Entrada do usuário**, selecione o botão **Autenticação de passagem**. Selecione **Habilitar o logon único** e selecione **Avançar**.
 5. Na página **Habilitar logon único**, insira as credenciais de uma conta de administrador de domínio e, em seguida, selecione **Avançar**.
@@ -334,7 +334,7 @@ Primeiro, habilite a autenticação de passagem:
 
 Em seguida, implante agentes de autenticação adicionais:
 
-1. Na portal do Azure, vá para **Azure Active Directory**  >  **Azure ad Connect**e, em seguida, selecione **autenticação de passagem**.
+1. Na portal do Azure, vá para **Azure Active Directory**  >  **Azure ad Connect** e, em seguida, selecione **autenticação de passagem**.
 2. Na página **Autenticação de passagem**, selecione o botão **Baixar**. 
 3. Na página **Baixar agente**, selecione **Aceitar os termos e baixar**.
  

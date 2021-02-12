@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2020
 ms.author: memildin
-ms.openlocfilehash: 68cb738ae6e4689a0356ea56c1de2d383ea83ad6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31ff3620bcab6b10b59582daa255ff1f259ab0d3
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449945"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852635"
 ---
 # <a name="supported-platforms"></a>Plataformas compatíveis 
 
@@ -44,8 +44,10 @@ A Central de Segurança depende do [Agente do Log Analytics](../azure-monitor/pl
 
 Verifique também se o Agente do Log Analytics está [corretamente configurado para enviar dados à Central de Segurança](security-center-enable-data-collection.md#manual-agent)
 
-> [!TIP]
-> Para saber mais sobre os recursos específicos da Central de Segurança disponíveis no Windows e no Linux, confira [Cobertura dos recursos para os computadores](security-center-services.md).
+Para saber mais sobre os recursos específicos da Central de Segurança disponíveis no Windows e no Linux, confira [Cobertura dos recursos para os computadores](security-center-services.md).
+
+> [!NOTE]
+> Embora o Azure Defender tenha a finalidade de proteger servidores, a maioria dos recursos do **Azure Defender para servidores** tem suporte para computadores com Windows 10. Um recurso que atualmente não tem suporte é a [Solução de EDR integrada da Central de Segurança: Microsoft Defender para ponto de extremidade](security-center-wdatp.md).
 
 ## <a name="managed-virtual-machine-services"></a>Serviços de máquina virtual gerenciados <a name="virtual-machine"></a>
 

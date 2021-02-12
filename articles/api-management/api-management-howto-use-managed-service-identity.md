@@ -9,14 +9,14 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 06/12/2020
+ms.date: 11/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 8a7fa295bdc8881c0c1ba58c95872a9380231b81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ec0f8cf090b3ae85a8602fb39cb07f03a417133
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85558039"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605591"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Usar identidades gerenciadas no gerenciamento de API do Azure
 
@@ -35,10 +35,9 @@ Para configurar uma identidade gerenciada no portal do Azure, primeiro você cri
 
 1. Crie uma instância de Gerenciamento de API no portal, como você faria normalmente. Navegue até ele no Portal.
 2. Selecione **identidades gerenciadas**.
-3. Na guia **atribuído pelo sistema** , alterne o **status** para **ativado**. Clique em **Salvar**.
+3. Na guia **atribuído pelo sistema** , alterne o **status** para **ativado**. Selecione **Salvar**.
 
     :::image type="content" source="./media/api-management-msi/enable-system-msi.png" alt-text="Seleções para habilitar uma identidade gerenciada atribuída pelo sistema" border="true":::
-
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -119,13 +118,12 @@ Quando a instância é criada, ela tem as seguintes propriedades adicionais:
 
 A `tenantId` propriedade identifica a qual locatário do Azure ad a identidade pertence. A `principalId` propriedade é um identificador exclusivo para a nova identidade da instância. No Azure AD, a entidade de serviço tem o mesmo nome que você atribuiu à sua instância de gerenciamento de API.
 
-
 > [!NOTE]
 > Uma instância de gerenciamento de API pode ter identidades atribuídas pelo sistema e atribuídas pelo usuário ao mesmo tempo. Nesse caso, a `type` propriedade seria `SystemAssigned,UserAssigned` .
 
-### <a name="supported-scenarios"></a>Cenários com suporte
+## <a name="supported-scenarios-using-system-assigned-identity"></a>Cenários com suporte usando a identidade atribuída pelo sistema
 
-#### <a name="obtain-a-custom-tlsssl-certificate-for-the-api-management-instance-from-azure-key-vault"></a><a name="use-ssl-tls-certificate-from-azure-key-vault"></a>Obter um certificado TLS/SSL personalizado para a instância de gerenciamento de API do Azure Key Vault
+### <a name="obtain-a-custom-tlsssl-certificate-for-the-api-management-instance-from-azure-key-vault"></a><a name="use-ssl-tls-certificate-from-azure-key-vault"></a>Obter um certificado TLS/SSL personalizado para a instância de gerenciamento de API do Azure Key Vault
 Você pode usar a identidade atribuída pelo sistema de uma instância de gerenciamento de API para recuperar certificados TLS/SSL personalizados armazenados no Azure Key Vault. Você pode atribuir esses certificados a domínios personalizados na instância de gerenciamento de API. Lembre-se do seguinte:
 
 - O tipo de conteúdo do segredo deve ser *Application/x-PKCS12*.
@@ -262,10 +260,9 @@ O exemplo a seguir mostra um modelo do Azure Resource Manager que contém as seg
 }
 ```
 
-#### <a name="authenticate-to-the-back-end-by-using-an-api-management-identity"></a>Autenticar para o back-end usando uma identidade de gerenciamento de API
+### <a name="authenticate-to-the-back-end-by-using-an-api-management-identity"></a>Autenticar para o back-end usando uma identidade de gerenciamento de API
 
 Você pode usar a identidade atribuída pelo sistema para se autenticar no back-end por meio da política de [identidade gerenciada por autenticação](api-management-authentication-policies.md#ManagedIdentity) .
-
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Criar uma identidade gerenciada atribuída ao usuário
 
@@ -281,7 +278,7 @@ Para configurar uma identidade gerenciada no portal, primeiro você criará uma 
 3. Na guia **atribuído pelo usuário** , selecione **Adicionar**.
 4. Pesquise a identidade que você criou anteriormente e selecione-a. Selecione **Adicionar**.
 
-   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="Seleções para habilitar uma identidade gerenciada atribuída pelo sistema" border="true":::
+   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="Seleções para habilitar uma identidade gerenciada atribuída pelo usuário" border="true":::
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -361,7 +358,7 @@ Por exemplo, um modelo completo do Azure Resource Manager pode ter a seguinte ap
                 "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('identityName'))]": {}
              }
         },
-        "dependsOn": [       
+         "dependsOn": [       
           "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('identityName'))]"
         ]
     }]
@@ -387,12 +384,34 @@ A `principalId` propriedade é um identificador exclusivo para a identidade usad
 > [!NOTE]
 > Uma instância de gerenciamento de API pode ter identidades atribuídas pelo sistema e atribuídas pelo usuário ao mesmo tempo. Nesse caso, a `type` propriedade seria `SystemAssigned,UserAssigned` .
 
-### <a name="supported-scenarios"></a>Cenários com suporte
+## <a name="supported-scenarios-using-user-assigned-managed-identity"></a>Cenários com suporte usando a identidade gerenciada atribuída pelo usuário
 
-#### <a name="authenticate-to-the-back-end-by-using-a-user-assigned-identity"></a>Autenticar para o back-end usando uma identidade atribuída pelo usuário
+### <a name="obtain-a-custom-tlsssl-certificate-for-the-api-management-instance-from-azure-key-vault"></a><a name="use-ssl-tls-certificate-from-azure-key-vault-ua"></a>Obter um certificado TLS/SSL personalizado para a instância de gerenciamento de API do Azure Key Vault
+Você pode usar qualquer identidade atribuída pelo usuário para estabelecer a confiança entre uma instância de gerenciamento de API e o keyvault. Essa relação de confiança pode ser usada para recuperar certificados TLS/SSL personalizados armazenados no Azure Key Vault. Você pode atribuir esses certificados a domínios personalizados na instância de gerenciamento de API. 
+
+Lembre-se do seguinte:
+
+- O tipo de conteúdo do segredo deve ser *Application/x-PKCS12*.
+- Use o ponto de extremidade do segredo do certificado Key Vault, que contém o segredo.
+
+> [!Important]
+> Se você não fornecer a versão do objeto do certificado, o gerenciamento de API obterá automaticamente a versão mais recente do certificado dentro de quatro horas após sua atualização no Key Vault.
+
+Para obter o modelo completo, consulte [Gerenciamento de API com SSL baseado em keyvault usando a identidade atribuída pelo usuário](https://github.com/Azure/azure-quickstart-templates/blob/master/101-api-management-key-vault-create/azuredeploy.json).
+
+Neste modelo, você implantará:
+
+* Gerenciamento de API do Azure
+* Identidade atribuída ao usuário gerenciado do Azure
+* Azure keyvault para armazenar o certificado SSL/TLS
+
+Para executar a implantação automaticamente, clique no seguinte botão:
+
+[![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-api-management-key-vault-create%2Fazuredeploy.json)
+
+### <a name="authenticate-to-the-back-end-by-using-a-user-assigned-identity"></a>Autenticar para o back-end usando uma identidade atribuída pelo usuário
 
 Você pode usar a identidade atribuída pelo usuário para se autenticar no back-end por meio da política de [identidade gerenciada por autenticação](api-management-authentication-policies.md#ManagedIdentity) .
-
 
 ## <a name="remove-an-identity"></a><a name="remove"></a>Remover uma identidade
 

@@ -3,12 +3,12 @@ title: MABS & matriz de suporte do System Center DPM
 description: Este artigo resume o suporte ao backup do Azure quando você usa o Backup do Microsoft Azure Server (MABS) ou o System Center DPM para fazer backup de recursos locais e da VM do Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0180135da793aaf7869441ee290f6125ea88fc88
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: aaa68dba0bbd1f3f5ffb5480a2bdb0a48ae85656
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276964"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986049"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de suporte para backup com o Backup do Microsoft Azure Server ou o System Center DPM
 
@@ -111,13 +111,18 @@ Você pode implantar o MABS em uma VM do Azure Stack para poder gerenciar o back
 
 ### <a name="url-access"></a>acesso à URL
 
-O servidor MABS/DPM precisa de acesso a estas URLs:
+O servidor DPM/MABS precisa acessar essas URLs e endereços IP:
 
-- `http://www.msftncsi.com/ncsi.txt`
-- `*.Microsoft.com`
-- `*.WindowsAzure.com`
-- `*.microsoftonline.com`
-- `*.windows.net`
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Endereços IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18:
 
 ### <a name="azure-expressroute-support"></a>Suporte do Azure ExpressRoute
 
@@ -125,11 +130,16 @@ Você pode fazer backup dos dados por meio do Azure ExpressRoute com o emparelha
 
 Com o emparelhamento público: Verifique o acesso aos seguintes domínios/endereços:
 
-- `http://www.msftncsi.com/ncsi.txt`
-- `microsoft.com`
-- `.WindowsAzure.com`
-- `.microsoftonline.com`
-- `.windows.net`
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Endereços IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 Com o emparelhamento da Microsoft, selecione os seguintes serviços/regiões e os valores de comunidade relevantes:
 

@@ -4,21 +4,20 @@ description: Remova os membros do grupo em operações em massa no centro de adm
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 04/27/2020
+manager: daveba
+ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5da3da152fa8d0f568ee0f4075dafb8da8c3bf8a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 874d434e545555013812714df4d1bd23de9c8543
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374337"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95488939"
 ---
 # <a name="bulk-remove-group-members-in-azure-active-directory"></a>Remover membros do grupo em massa no Azure Active Directory
 

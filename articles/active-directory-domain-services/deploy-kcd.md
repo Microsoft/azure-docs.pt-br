@@ -2,7 +2,7 @@
 title: Delegação restrita de Kerberos para Azure AD Domain Services | Microsoft Docs
 description: Saiba como habilitar a KCD (delegação restrita de Kerberos com base em recursos) em um domínio gerenciado Azure Active Directory Domain Services.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 949dbfd4cc2e4ac05cddf035e22119bfb16e306f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 138b90a33ff1dbc4b014f17fa0098112e1da66e4
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960704"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619769"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-in-azure-active-directory-domain-services"></a>Configurar a KCD (delegação restrita de Kerberos) no Azure Active Directory Domain Services
 

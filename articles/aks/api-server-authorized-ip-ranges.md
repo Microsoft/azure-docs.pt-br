@@ -4,12 +4,12 @@ description: Saiba como proteger seu cluster usando um intervalo de endereços I
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: 99c6b173d96bbd54f12a0edc501d49e8c65caf01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca6e1c06b3ad90ef12c9bf375bae50d46c5f7c37
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613723"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98890622"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Proteger o acesso ao servidor de API usando intervalos de endereços IP autorizados no serviço de kubernetes do Azure (AKS)
 
@@ -21,7 +21,7 @@ Este artigo mostra como usar intervalos de endereços IP autorizados do servidor
 
 Este artigo mostra como criar um cluster AKS usando o CLI do Azure.
 
-Você precisará da CLI do Azure versão 2.0.76 ou posterior instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
+Você precisará da CLI do Azure versão 2.0.76 ou posterior instalada e configurada. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][install-azure-cli].
 
 ### <a name="limitations"></a>Limitações
 
@@ -31,9 +31,9 @@ O recurso de intervalos de IP autorizados do servidor de API tem as seguintes li
 
 ## <a name="overview-of-api-server-authorized-ip-ranges"></a>Visão geral dos intervalos de IP autorizados do servidor de API
 
-O servidor de API do kubernetes é como as APIs subjacentes do kubernetes são expostas. Esse componente fornece a interação para ferramentas de gerenciamento, tais como `kubectl` ou o painel do Kubernetes. O AKS fornece um plano de controle de cluster de locatário único, com um servidor de API dedicado. Por padrão, o servidor de API recebe um endereço IP público e você deve controlar o acesso usando o RBAC (controle de acesso baseado em função).
+O servidor de API do kubernetes é como as APIs subjacentes do kubernetes são expostas. Esse componente fornece a interação para ferramentas de gerenciamento, tais como `kubectl` ou o painel do Kubernetes. O AKS fornece um plano de controle de cluster de locatário único, com um servidor de API dedicado. Por padrão, o servidor de API recebe um endereço IP público e você deve controlar o acesso usando o controle de acesso baseado em função do kubernetes (kubernetes RBAC) ou o RBAC do Azure.
 
-Para proteger o acesso ao servidor do plano de controle AKS/API publicamente acessível, você pode habilitar e usar intervalos de IP autorizados. Esses intervalos de IP autorizados permitem que os intervalos de endereços IP definidos se comuniquem com o servidor de API. Uma solicitação feita ao servidor de API de um endereço IP que não faz parte desses intervalos de IP autorizado é bloqueada. Continue a usar o RBAC para autorizar os usuários e as ações que eles solicitam.
+Para proteger o acesso ao servidor do plano de controle AKS/API publicamente acessível, você pode habilitar e usar intervalos de IP autorizados. Esses intervalos de IP autorizados permitem que os intervalos de endereços IP definidos se comuniquem com o servidor de API. Uma solicitação feita ao servidor de API de um endereço IP que não faz parte desses intervalos de IP autorizado é bloqueada. Continue a usar o RBAC do kubernetes ou o RBAC do Azure para autorizar usuários e as ações que eles solicitam.
 
 Para obter mais informações sobre o servidor de API e outros componentes de cluster, consulte [kubernetes Core Concepts for AKs][concepts-clusters-workloads].
 
@@ -108,7 +108,7 @@ az aks create \
 
 Para atualizar os intervalos de IP autorizados do servidor de API em um cluster existente, use o comando [AZ AKs Update][az-aks-update] e use os *`--api-server-authorized-ip-ranges`* parâmetros,--Load-Balancer-Outbound-IP-Prefixes *, *`--load-balancer-outbound-ips`* ou--Load-Balancer-IP-Prefixes* .
 
-O exemplo a seguir atualiza os intervalos de IP autorizados do servidor de API no cluster chamado *myAKSCluster* no grupo de recursos chamado *MyResource*Group. O intervalo de endereços IP a ser autorizado é *73.140.245.0/24*:
+O exemplo a seguir atualiza os intervalos de IP autorizados do servidor de API no cluster chamado *myAKSCluster* no grupo de recursos chamado *MyResource* Group. O intervalo de endereços IP a ser autorizado é *73.140.245.0/24*:
 
 ```azurecli-interactive
 az aks update \
@@ -129,6 +129,23 @@ az aks update \
     --name myAKSCluster \
     --api-server-authorized-ip-ranges ""
 ```
+
+## <a name="find-existing-authorized-ip-ranges"></a>Localizar intervalos de IP autorizados existentes
+
+Para localizar intervalos de IP que foram autorizados, use [AZ AKs show][az-aks-show] e especifique o nome do cluster e o grupo de recursos. Por exemplo:
+
+```azurecli-interactive
+az aks show \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --query apiServerAccessProfile.authorizedIpRanges'
+```
+
+## <a name="update-disable-and-find-authorized-ip-ranges-using-azure-portal"></a>Atualizar, desabilitar e localizar intervalos de IP autorizados usando o portal do Azure
+
+As operações acima de adicionar, atualizar, localizar e desabilitar intervalos de IP autorizados também podem ser executadas no portal do Azure. Para acessar o, navegue até **rede** em **configurações** na folha do menu do recurso de cluster.
+
+:::image type="content" source="media/api-server-authorized-ip-ranges/ip-ranges-specified.PNG" alt-text="Em um navegador, mostra a página de portal do Azure de configurações de rede do recurso de cluster. As opções ' definir intervalo de IP especificado ' e ' intervalos de IP especificados ' são realçadas.":::
 
 ## <a name="how-to-find-my-ip-to-include-in---api-server-authorized-ip-ranges"></a>Como encontrar meu IP para incluir em `--api-server-authorized-ip-ranges` ?
 
@@ -170,6 +187,7 @@ Para obter mais informações, consulte [conceitos de segurança para aplicativo
 <!-- LINKS - internal -->
 [az-aks-update]: /cli/azure/ext/aks-preview/aks#ext-aks-preview-az-aks-update
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-show]: /cli/azure/aks#az_aks_show
 [az-network-public-ip-list]: /cli/azure/network/public-ip#az-network-public-ip-list
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
 [concepts-security]: concepts-security.md

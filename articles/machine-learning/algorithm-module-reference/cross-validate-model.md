@@ -1,7 +1,7 @@
 ---
 title: 'Modelo de validação cruzada: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo modelo de validação cruzada em Azure Machine Learning para validar as estimativas de parâmetro de classificação ou regressão cruzada, Particionando os dados.
+description: Use o módulo modelo de validação cruzada no designer de Azure Machine Learning para validar as estimativas de parâmetro de classificação ou regressão cruzada.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,18 +9,18 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 63c61b12ad68a3add2e7b40ab0bec38d3c2835e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4099ecf6e6bcc6654391e54292878393fb22914
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898577"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421338"
 ---
 # <a name="cross-validate-model"></a>Modelo de validação cruzada
 
 Este artigo descreve como usar o módulo modelo de validação cruzada no designer de Azure Machine Learning. A *validação cruzada* é uma técnica usada com frequência no aprendizado de máquina para avaliar a variabilidade de um conjunto de dados e a confiabilidade de qualquer modelo treinado por meio desse dado.  
 
-O módulo modelo de validação cruzada usa como entrada um conjunto de dados rotulado, junto com um modelo de classificação ou regressão não treinado. Ele divide o conjunto de valores em alguns subconjuntos (*dobras*), cria um modelo em cada dobra e retorna um conjunto de estatísticas de precisão para cada dobra. Ao comparar as estatísticas de precisão de todas as dobras, você pode interpretar a qualidade do conjunto de dados. Em seguida, você pode entender se o modelo é suscetível a variações nos dados.  
+O módulo modelo de validação cruzada usa como entrada um conjunto de dados rotulado, junto com um modelo de classificação ou regressão não treinado. Ele divide o conjunto de valores em alguns subconjuntos ( *dobras* ), cria um modelo em cada dobra e retorna um conjunto de estatísticas de precisão para cada dobra. Ao comparar as estatísticas de precisão de todas as dobras, você pode interpretar a qualidade do conjunto de dados. Em seguida, você pode entender se o modelo é suscetível a variações nos dados.  
 
 O modelo de validação cruzada também retorna resultados previstos e probabilidades para o conjunto de os, para que você possa avaliar a confiabilidade das previsões.  
 
@@ -30,7 +30,7 @@ O modelo de validação cruzada também retorna resultados previstos e probabili
 
    O algoritmo padroniza para 10 dobras se anteriormente você não particionou do conjunto de dados. Para dividir o conjunto de espaço em um número diferente de dobras, você pode usar o módulo [partição e exemplo](partition-and-sample.md) e indicar quantas dobras deseja usar.  
 
-2.  O módulo separa os dados na dobra 1 para usar para validação. (Às vezes, isso é chamado de *dobra*de controle.) O módulo usa as dobras restantes para treinar um modelo. 
+2.  O módulo separa os dados na dobra 1 para usar para validação. (Às vezes, isso é chamado de *dobra* de controle.) O módulo usa as dobras restantes para treinar um modelo. 
 
     Por exemplo, se você criar cinco dobras, o módulo gerará cinco modelos durante a validação cruzada. O módulo treina cada modelo usando quatro quintas dos dados. Ele testa cada modelo no restante de um quinto.  
 
@@ -109,9 +109,9 @@ Para exibir os resultados, no pipeline, clique com o botão direito do mouse no 
 
 O módulo também inclui as seguintes métricas para cada dobra, dependendo do tipo de modelo que você está avaliando: 
 
-+ **Modelos de classificação**: precisão, recall, F-score, AUC, precisão  
++ **Modelos de classificação** : precisão, recall, F-score, AUC, precisão  
 
-+ **Modelos de regressão**: erro absoluto médio, erro de raiz quadrada média, erro absoluto relativo, erro de quadrado relativo e coeficiente de determinação
++ **Modelos de regressão** : erro absoluto médio, erro de raiz quadrada média, erro absoluto relativo, erro de quadrado relativo e coeficiente de determinação
 
 
 ## <a name="technical-notes"></a>Observações técnicas  

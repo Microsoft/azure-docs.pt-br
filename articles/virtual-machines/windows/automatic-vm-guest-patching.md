@@ -5,14 +5,14 @@ author: mayanknayar
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 12/23/2020
 ms.author: manayar
-ms.openlocfilehash: 8c7574daced9cec078b6e98e378212ce30d6f4f6
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e22e8b81382614c2930c72a8150606f859be501d
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744721"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97762972"
 ---
 # <a name="preview-automatic-vm-guest-patching-for-windows-vms-in-azure"></a>Visualização: Aplicação de patch automática de convidado de VMs para Windows no Azure
 
@@ -34,11 +34,11 @@ A aplicação automática de patches de convidado de VM tem as seguintes caracte
 
 Se a aplicação automática de patches de convidado de VM estiver habilitada em uma VM, os patches *críticos* e de *segurança* disponíveis serão baixados e aplicados automaticamente na VM. Esse processo é ativado automaticamente todos os meses quando novos patches são lançados por meio de Windows Update. A avaliação e a instalação do patch são automáticas e o processo inclui a reinicialização da VM, conforme necessário.
 
-A VM é avaliada periodicamente para determinar os patches aplicáveis para essa VM. Os patches podem ser instalados em qualquer dia na VM fora do horário de pico da VM. Essa avaliação automática garante que todos os patches ausentes sejam descobertos na primeira oportunidade possível.
+A VM é avaliada periodicamente a cada poucos dias e várias vezes em qualquer período de 30 dias para determinar os patches aplicáveis para essa VM. Os patches podem ser instalados em qualquer dia na VM fora do horário de pico da VM. Essa avaliação automática garante que todos os patches ausentes sejam descobertos na primeira oportunidade possível.
 
-Os patches são instalados dentro de 30 dias da versão mensal do Windows Update, após a primeira orquestração de disponibilidade descrita abaixo. Os patches são instalados somente fora do horário de pico para a VM, dependendo do fuso horário da VM. A VM deve estar em execução durante os horários de pico para que os patches sejam instalados automaticamente. Se uma VM for desligada durante uma avaliação periódica, a VM será automaticamente avaliada e os patches aplicáveis serão instalados automaticamente durante a próxima avaliação periódica quando a VM estiver ligada.
+Os patches são instalados dentro de 30 dias da versão mensal do Windows Update, após a primeira orquestração de disponibilidade descrita abaixo. Os patches são instalados somente fora do horário de pico para a VM, dependendo do fuso horário da VM. A VM deve estar em execução durante os horários de pico para que os patches sejam instalados automaticamente. Se uma VM for desligada durante uma avaliação periódica, a VM será automaticamente avaliada e os patches aplicáveis serão instalados automaticamente durante a próxima avaliação periódica (normalmente em alguns dias) quando a VM estiver ligada.
 
-Para instalar patches com outras classificações de patch ou agendar a instalação de patch em sua própria janela de manutenção personalizada, você pode usar [Gerenciamento de atualizações](tutorial-config-management.md#manage-windows-updates).
+Atualizações de definições e outros patches não classificados como *críticos* ou *segurança* não serão instalados por meio da aplicação automática de patches de convidado de VM. Para instalar patches com outras classificações de patch ou agendar a instalação de patch em sua própria janela de manutenção personalizada, você pode usar [Gerenciamento de atualizações](tutorial-config-management.md#manage-windows-updates).
 
 ### <a name="availability-first-patching"></a>Disponibilidade-primeira aplicação de patches
 
@@ -69,11 +69,11 @@ Atualmente, há suporte para as seguintes SKUs de plataforma (e mais são adicio
 
 | Publicador               | Oferta de sistema operacional      |  Sku               |
 |-------------------------|---------------|--------------------|
-| Microsoft Corporation   | WindowsServer | 2012-R2-Datacenter |
-| Microsoft Corporation   | WindowsServer | 2016-Datacenter    |
-| Microsoft Corporation   | WindowsServer | 2016-Datacenter-Server-Core |
-| Microsoft Corporation   | WindowsServer | 2019-Datacenter |
-| Microsoft Corporation   | WindowsServer | 2019-Datacenter-servidor-núcleo |
+| MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter    |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Server-Core |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-Core |
 
 ## <a name="patch-orchestration-modes"></a>Modos de orquestração de patch
 As VMs do Windows no Azure agora dão suporte aos seguintes modos de orquestração de patch:
@@ -83,7 +83,7 @@ As VMs do Windows no Azure agora dão suporte aos seguintes modos de orquestraç
 - Esse modo é necessário para a aplicação de patches de disponibilidade.
 - A definição desse modo também desabilita o Atualizações Automáticas nativo na máquina virtual do Windows para evitar a duplicação.
 - Esse modo só tem suporte para VMs que são criadas usando as imagens de plataforma de sistema operacional com suporte acima.
-- Para usar esse modo, defina a propriedade `osProfile.windowsConfiguration.enableAutomaticUpdates=true` e defina a propriedade  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatfom` no modelo de VM.
+- Para usar esse modo, defina a propriedade `osProfile.windowsConfiguration.enableAutomaticUpdates=true` e defina a propriedade  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatform` no modelo de VM.
 
 **AutomaticByOS:**
 - Esse modo permite Atualizações Automáticas na máquina virtual do Windows e os patches são instalados na VM por meio de Atualizações Automáticas.
@@ -107,7 +107,7 @@ As VMs do Windows no Azure agora dão suporte aos seguintes modos de orquestraç
 - A máquina virtual deve ser capaz de acessar Windows Update pontos de extremidade. Se sua máquina virtual estiver configurada para usar o Windows Server Update Services (WSUS), os pontos de extremidade relevantes do servidor do WSUS deverão estar acessíveis.
 - Use a API de computação versão 2020-06-01 ou superior.
 
-A habilitação da funcionalidade de visualização requer uma aceitação única para o recurso *InGuestAutoPatchVMPreview* por assinatura, conforme detalhado abaixo.
+A habilitação da funcionalidade de visualização requer uma aceitação única para o recurso **InGuestAutoPatchVMPreview** por assinatura, conforme detalhado abaixo.
 
 ### <a name="rest-api"></a>API REST
 O exemplo a seguir descreve como habilitar a visualização para sua assinatura:
@@ -254,10 +254,10 @@ Os resultados da instalação do patch para sua VM podem ser examinados na `last
 ## <a name="on-demand-patch-assessment"></a>Avaliação de patch sob demanda
 Se a aplicação automática de patches de convidado de VM já estiver habilitada para sua VM, uma avaliação de patch periódica será executada na VM durante os horários de fora de pico da VM. Esse processo é automático e os resultados da avaliação mais recente podem ser examinados por meio da exibição de instância da VM, conforme descrito anteriormente neste documento. Você também pode disparar uma avaliação de patch sob demanda para sua VM a qualquer momento. A avaliação de patch pode levar alguns minutos para ser concluída e o status da avaliação mais recente é atualizado na exibição de instância da VM.
 
-Habilitar a funcionalidade de visualização requer uma aceitação única para o recurso *InGuestPatchVMPreview* por assinatura. A versão prévia do recurso para avaliação de patch sob demanda pode ser habilitada seguindo o [processo de habilitação de visualização](automatic-vm-guest-patching.md#requirements-for-enabling-automatic-vm-guest-patching) descrito anteriormente para aplicação automática de patches de convidado de VM.
+Habilitar a funcionalidade de visualização requer uma aceitação única para o recurso **InGuestPatchVMPreview** por assinatura. Essa visualização de recurso é diferente do registro de recurso de aplicação de patch de convidado de VM automático feito anteriormente para **InGuestAutoPatchVMPreview**. Habilitar a visualização de recurso adicional é um requisito separado e adicional. A versão prévia do recurso para avaliação de patch sob demanda pode ser habilitada seguindo o [processo de habilitação de visualização](automatic-vm-guest-patching.md#requirements-for-enabling-automatic-vm-guest-patching) descrito anteriormente para aplicação automática de patches de convidado de VM.
 
 > [!NOTE]
->A avaliação de patch sob demanda não dispara automaticamente a instalação do patch. Os patches avaliados e aplicáveis para a VM serão instalados somente durante os horários de pico de disponibilidade da VM, seguindo o processo de aplicação de patch da primeira atualização descrito anteriormente neste documento.
+>A avaliação de patch sob demanda não dispara automaticamente a instalação do patch. Se você tiver habilitado a aplicação automática de patches de convidado de VM, os patches avaliados e aplicáveis para a VM serão instalados durante o horário de pico da VM, seguindo o processo de aplicação de patch de disponibilidade-primeiro descrito anteriormente neste documento.
 
 ### <a name="rest-api"></a>API REST
 ```

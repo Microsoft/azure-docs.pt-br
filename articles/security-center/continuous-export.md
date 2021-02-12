@@ -6,16 +6,16 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: cd4f2198721e0d92abe22b1b6d95dceda2dc874d
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 845ff6f0905b232b9ec68dbe127ef7f47a6ad898
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789175"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916770"
 ---
-# <a name="continuously-export-security-center-data"></a>Exportar continuamente os dados da central de segurança
+# <a name="continuously-export-security-center-data"></a>Exportar continuamente os dados da Central de Segurança
 
 A central de segurança do Azure gera recomendações e alertas de segurança detalhados. Você pode exibi-los no portal ou por meio de ferramentas programáticas. Talvez você também precise exportar algumas ou todas essas informações para acompanhamento com outras ferramentas de monitoramento em seu ambiente. 
 
@@ -24,6 +24,9 @@ A **exportação contínua** permite que você personalize totalmente *o que* se
 - Todos os alertas de severidade alta são enviados para um hub de eventos do Azure
 - Todas as conclusões de severidade médias ou mais altas das verificações de avaliação de vulnerabilidade de seus SQL Servers são enviadas para um espaço de trabalho específico do Log Analytics
 - Recomendações específicas são entregues a um hub de eventos ou Log Analytics espaço de trabalho sempre que são geradas 
+- A pontuação segura de uma assinatura é enviada para um espaço de trabalho Log Analytics sempre que a pontuação de um controle é alterada por 0, 1 ou mais 
+
+Embora o recurso seja chamado de *contínuo*, também há uma opção para exportar instantâneos semanais de Pontuação segura ou dados de conformidade regulatória.
 
 Este artigo descreve como configurar a exportação contínua para Log Analytics espaços de trabalho ou hubs de eventos do Azure.
 
@@ -38,15 +41,25 @@ Este artigo descreve como configurar a exportação contínua para Log Analytics
 
 |Aspecto|Detalhes|
 |----|:----|
-|Estado da versão:|GA (em disponibilidade geral)|
+|Estado da versão:|GA (Disponibilidade Geral)|
 |Preço:|Gratuita|
 |Funções e permissões necessárias:|<ul><li>**Administrador de segurança** ou **proprietário** no grupo de recursos</li><li>Permissões de gravação para o recurso de destino</li><li>Se você estiver usando as Azure Policy políticas ' DeployIfNotExist ' descritas abaixo, também precisará de permissões para atribuir políticas</li></ul>|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Sim](./media/icons/yes-icon.png) China gov (para o Hub de eventos), outros gov|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov, outros governos<br>![Sim](./media/icons/yes-icon.png) China gov (para o Hub de eventos)|
 |||
 
 
+## <a name="what-data-types-can-be-exported"></a>Quais tipos de dados podem ser exportados?
 
+A exportação contínua pode exportar os seguintes tipos de dados sempre que eles forem alterados:
 
+- Alertas de segurança
+- Recomendações de segurança 
+- Conclusões de segurança que podem ser consideradas como recomendações "sub", como descobertas de scanners de avaliação de vulnerabilidade ou atualizações específicas do sistema. Você pode optar por incluí-las com suas recomendações "pai", como "as atualizações do sistema devem ser instaladas em seus computadores".
+- Pontuação segura (por assinatura ou por controle)
+- Dados de conformidade regulatória
+
+> [!NOTE]
+> A exportação de dados de conformidade regulatória e de Pontuação segura é um recurso de visualização e não está disponível em nuvens governamentais. 
 
 ## <a name="set-up-a-continuous-export"></a>Configurar uma exportação contínua 
 
@@ -58,23 +71,32 @@ Você pode configurar a exportação contínua nas páginas da central de segura
 
 As etapas a seguir são necessárias se você estiver configurando uma exportação contínua para Log Analytics espaço de trabalho ou hubs de eventos do Azure.
 
-1. Na barra lateral da central de segurança, selecione **preços & configurações** .
+1. Na barra lateral da central de segurança, selecione **preços & configurações**.
 1. Selecione a assinatura específica para a qual você deseja configurar a exportação de dados.
-1. Na barra lateral da página de configurações dessa assinatura, selecione **exportação contínua** .
-    [ ![ Opções de exportação na central de segurança do Azure](media/continuous-export/continuous-export-options-page.png)](media/continuous-export/continuous-export-options-page.png#lightbox) aqui você vê as opções de exportação. Há uma guia para cada destino de exportação disponível. 
+1. Na barra lateral da página de configurações dessa assinatura, selecione **exportação contínua**.
+
+    :::image type="content" source="./media/continuous-export/continuous-export-options-page.png" alt-text="Opções de exportação na central de segurança do Azure":::
+
+    Aqui você vê as opções de exportação. Há uma guia para cada destino de exportação disponível. 
+
 1. Selecione o tipo de dados que você deseja exportar e escolha um dos filtros em cada tipo (por exemplo, exportar somente alertas de severidade alta).
-1. Opcionalmente, se sua seleção incluir uma dessas quatro recomendações, você poderá incluir as descobertas de avaliação de vulnerabilidade junto com elas:
+1. Selecione a frequência de exportação apropriada:
+    - **Streaming** – as avaliações serão enviadas em tempo real quando o estado de integridade de um recurso for atualizado (se nenhuma atualização ocorrer, nenhum dado será enviado).
+    - **Instantâneos** – um instantâneo do estado atual de todas as avaliações de conformidade regulatória será enviado toda semana (esse é um recurso de visualização para instantâneos semanais de pontuações seguras e dados de conformidade regulatória).
+
+1. Opcionalmente, se sua seleção incluir uma dessas recomendações, você poderá incluir as descobertas de avaliação de vulnerabilidade junto com elas:
     - As descobertas de avaliação de vulnerabilidade em seus bancos de dados SQL devem ser corrigidas
     - As descobertas de avaliação de vulnerabilidade em seus SQL Servers em computadores devem ser corrigidas (visualização)
     - As vulnerabilidades nas imagens do Registro de Contêiner do Azure devem ser corrigidas (da plataforma Qualys)
     - As vulnerabilidades nas suas máquinas virtuais devem ser corrigidas
+    - As atualizações do sistema devem ser instaladas em suas máquinas
 
     Para incluir as conclusões com essas recomendações, habilite a opção **incluir conclusões de segurança** .
 
     :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Incluir a alternância de descobertas de segurança na configuração de exportação contínua" :::
 
 1. Na área "destino de exportação", escolha onde você deseja que os dados sejam salvos. Os dados podem ser salvos em um destino em uma assinatura diferente (por exemplo, em uma instância central de Hub de eventos ou em um espaço de trabalho central Log Analytics).
-1. Clique em **Salvar** .
+1. Selecione **Salvar**.
 
 ### <a name="use-the-rest-api"></a>[**Usar a API REST**](#tab/rest-api)
 
@@ -124,11 +146,11 @@ Para implantar suas configurações de exportação contínua em sua organizaç�
     > [!TIP]
     > Você também pode encontrá-los pesquisando Azure Policy:
     > 1. Abra Azure Policy.
-    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Incluir a alternância de descobertas de segurança na configuração de exportação contínua":::
+    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Acessando Azure Policy":::
     > 2. No menu Azure Policy, selecione **definições** e pesquise-as por nome. 
 
-1. Na página Azure Policy relevante, selecione **atribuir** .
-    :::image type="content" source="./media/continuous-export/export-policy-assign.png" alt-text="Incluir a alternância de descobertas de segurança na configuração de exportação contínua":::
+1. Na página Azure Policy relevante, selecione **atribuir**.
+    :::image type="content" source="./media/continuous-export/export-policy-assign.png" alt-text="Atribuindo o Azure Policy":::
 
 1. Abra cada guia e defina os parâmetros conforme desejado:
     1. Na guia **noções básicas** , defina o escopo da política. Para usar o gerenciamento centralizado, atribua a política ao grupo de gerenciamento que contém as assinaturas que usarão a configuração de exportação contínua. 
@@ -137,9 +159,9 @@ Para implantar suas configurações de exportação contínua em sua organizaç�
         > Cada parâmetro tem uma dica de ferramenta explicando as opções disponíveis para você.
         >
         > A guia de parâmetros de Azure Policy (1) fornece acesso a opções de configuração semelhantes como página de exportação contínua da central de segurança (2).
-        > :::image type="content" source="./media/continuous-export/azure-policy-next-to-continuous-export.png" alt-text="Incluir a alternância de descobertas de segurança na configuração de exportação contínua" lightbox="./media/continuous-export/azure-policy-next-to-continuous-export.png":::
+        > :::image type="content" source="./media/continuous-export/azure-policy-next-to-continuous-export.png" alt-text="Comparando os parâmetros na exportação contínua com Azure Policy" lightbox="./media/continuous-export/azure-policy-next-to-continuous-export.png":::
     1. Opcionalmente, para aplicar essa atribuição a assinaturas existentes, abra a guia **correção** e selecione a opção para criar uma tarefa de correção.
-1. Examine a página Resumo e selecione **criar** .
+1. Examine a página Resumo e selecione **criar**.
 
 --- 
 
@@ -154,7 +176,7 @@ Alertas de segurança e recomendações são armazenados nas tabelas *SecurityAl
 O nome da solução de Log Analytics que contém essas tabelas depende se você tem o Azure defender habilitado: segurança (' Segurança e Auditoria ') ou SecurityCenterFree. 
 
 > [!TIP]
-> Para ver os dados no espaço de trabalho de destino, você deve habilitar uma dessas soluções **segurança e auditoria** ou **SecurityCenterFree** .
+> Para ver os dados no espaço de trabalho de destino, você deve habilitar uma dessas soluções **segurança e auditoria** ou **SecurityCenterFree**.
 
 ![A tabela * SecurityAlert * no Log Analytics](./media/continuous-export/log-analytics-securityalert-solution.png)
 
@@ -163,21 +185,21 @@ Para exibir os esquemas de eventos dos tipos de dados exportados, visite os [esq
 
 ##  <a name="view-exported-alerts-and-recommendations-in-azure-monitor"></a>Exibir alertas exportados e recomendações no Azure Monitor
 
-Em alguns casos, você pode optar por exibir os alertas de segurança exportados e/ou as recomendações em [Azure monitor](../azure-monitor/platform/alerts-overview.md). 
+Você também pode optar por exibir alertas de segurança exportados e/ou recomendações em [Azure monitor](../azure-monitor/platform/alerts-overview.md). 
 
 O Azure Monitor fornece uma experiência de alerta unificada para uma variedade de alertas do Azure, incluindo log de diagnóstico, alertas de métrica e alertas personalizados com base em consultas de espaço de trabalho Log Analytics.
 
 Para exibir alertas e recomendações da central de segurança no Azure Monitor, configure uma regra de alerta com base em consultas Log Analytics (alerta de log):
 
-1. Na página **alertas** do Azure monitor, selecione **nova regra de alerta** .
+1. Na página **alertas** do Azure monitor, selecione **nova regra de alerta**.
 
     ![Página de alertas do Azure Monitor](./media/continuous-export/azure-monitor-alerts.png)
 
 1. Na página Criar regra, configure sua nova regra (da mesma maneira que você configurou uma [regra de alerta de log em Azure monitor](../azure-monitor/platform/alerts-unified-log.md)):
 
-    * Para **recurso** , selecione o espaço de trabalho log Analytics para o qual você exportou alertas de segurança e recomendações.
+    * Para **recurso**, selecione o espaço de trabalho log Analytics para o qual você exportou alertas de segurança e recomendações.
 
-    * Para **condição** , selecione **pesquisa de logs personalizada** . Na página que aparece, configure a consulta, o período de lookback e o período de frequência. Na consulta de pesquisa, você pode digitar *SecurityAlert* ou *SecurityRecommendation* para consultar os tipos de dados que a central de segurança exporta continuamente para quando você habilita a exportação contínua para log Analytics recurso. 
+    * Para **condição**, selecione **pesquisa de logs personalizada**. Na página que aparece, configure a consulta, o período de lookback e o período de frequência. Na consulta de pesquisa, você pode digitar *SecurityAlert* ou *SecurityRecommendation* para consultar os tipos de dados que a central de segurança exporta continuamente para quando você habilita a exportação contínua para log Analytics recurso. 
     
     * Opcionalmente, configure o [grupo de ações](../azure-monitor/platform/action-groups.md) que você gostaria de disparar. Os grupos de ações podem disparar envio de email, tíquetes de ITSM, WebHooks e muito mais.
     ![Azure Monitor regra de alerta](./media/continuous-export/azure-monitor-alert-rule.png)
@@ -207,10 +229,13 @@ Saiba mais sobre os [preços do hub de eventos do Azure](https://azure.microsoft
 
 ### <a name="does-the-export-include-data-about-the-current-state-of-all-resources"></a>A exportação inclui dados sobre o estado atual de todos os recursos?
 
-Não. A exportação contínua foi criada para streaming de **eventos** :
+Não. A exportação contínua foi criada para streaming de **eventos**:
 
 - Os **alertas** recebidos antes de habilitar a exportação não serão exportados.
 - As **recomendações** são enviadas sempre que o estado de conformidade de um recurso é alterado. Por exemplo, quando um recurso muda de íntegro para não íntegro. Portanto, assim como os alertas, as recomendações para recursos que não mudaram de estado desde que você habilitou a exportação não serão exportadas.
+- A **Pontuação segura (versão prévia)** por controle de segurança ou assinatura é enviada quando a pontuação de um controle de segurança é alterada por 0, 1 ou mais. 
+- O **status de conformidade regulatória (versão prévia)** é enviado quando o status da conformidade do recurso é alterado.
+
 
 
 ### <a name="why-are-recommendations-sent-at-different-intervals"></a>Por que as recomendações são enviadas em intervalos diferentes?

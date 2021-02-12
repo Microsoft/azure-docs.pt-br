@@ -3,7 +3,7 @@ title: Referência de atributos do Workday
 description: Saiba quais atributos você pode buscar do workday usando consultas XPATH.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/25/2020
 ms.author: kenwith
 ms.reviewer: celested
-ms.openlocfilehash: 5892100140c6022763453a4141d87e6a7ba4ed75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ff9b3d4cc3bee28c8e5e95d8854f64eaa546b0c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91266557"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255467"
 ---
 # <a name="workday-attribute-reference"></a>Referência de atributos do Workday
 
@@ -117,7 +117,7 @@ A tabela a seguir captura a lista de atributos do Workday e as expressões XPATH
 
 Se você estiver usando a API WWS v 30.0 ou superior na URL de conexão, conforme mostrado abaixo:
 
-:::image type="content" source="../saas-apps/media/workday-inbound-tutorial/workday-url-version-info.png" alt-text="Workday sem informações de versão":::
+:::image type="content" source="../saas-apps/media/workday-inbound-tutorial/workday-url-version-info.png" alt-text="Informações de versão do Workday":::
 
 ...então, antes de ligar o trabalho de provisionamento, atualize as **expressões de API XPATH** em **Mapeamento de atributos -> Opções avançadas > Editar lista de atributos do Workday** para usar os valores listados na tabela. 
 
@@ -226,7 +226,7 @@ Para adicionar mais atributos à tabela XPATH para o benefício dos clientes que
 ## <a name="supported-xpath-functions"></a>Funções XPATH com suporte
 A seguir está a lista de funções XPATH com suporte pela [biblioteca xpath Microsoft .net](/previous-versions/dotnet/netframework-4.0/ms256138(v=vs.100)) que você pode usar ao criar sua expressão de API XPath. 
 
-* name
+* Nome
 * last
 * position
 * string
@@ -240,7 +240,7 @@ A seguir está a lista de funções XPATH com suporte pela [biblioteca xpath Mic
 * normalize-space
 * substring-before
 * booleano
-* true
+* verdadeiro
 * not
 * false
 * número

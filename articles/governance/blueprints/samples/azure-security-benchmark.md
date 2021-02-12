@@ -1,18 +1,18 @@
 ---
 title: Visão geral do exemplo de blueprint do Azure Security Benchmark
 description: Visão geral do exemplo de blueprint do Azure Security Benchmark. Este exemplo de blueprint ajuda os clientes a avaliar controles específicos.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: sample
-ms.openlocfilehash: 6b147ffd4efbf814b6119f5d7e90dc7af2ea2687
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 38a50970999965b6a86b8ce8882006c169f2dc5a
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057579"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919232"
 ---
 # <a name="azure-security-benchmark-blueprint-sample"></a>Exemplo de blueprint do Azure Security Benchmark
 
-O exemplo de blueprint do Azure Security Benchmark oferece proteções de governança por meio do [Azure Policy](../../policy/overview.md) que ajudam a avaliar controles específicos do [Azure Security Benchmark](../../../security/benchmarks/overview.md). Esse blueprint ajuda os clientes a implantar um conjunto principal de políticas em qualquer arquitetura implantada pelo Azure em que se pretende implementar os controles do Azure Security Benchmark.
+O exemplo de blueprint do Azure Security Benchmark oferece proteções de governança por meio do [Azure Policy](../../policy/overview.md) que ajudam a avaliar controles específicos do [Azure Security Benchmark v1](../../../security/benchmarks/overview.md). Esse blueprint ajuda os clientes a implantar um conjunto principal de políticas em qualquer arquitetura implantada pelo Azure em que se pretende implementar os controles do Azure Security Benchmark.
 
 ## <a name="control-mapping"></a>Mapeamento de controle
 
@@ -37,7 +37,7 @@ Primeiro, implemente a amostra de blueprint criando um blueprint no ambiente usa
 
 1. Na página **Introdução** à esquerda, selecione o botão **Criar** em _Criar um blueprint_.
 
-1. Localize o exemplo de blueprint do **Azure Security Benchmark** em _Outros Exemplos_ e clique no nome para selecionar este exemplo.
+1. Localize o exemplo de blueprint do **Azure Security Benchmark v1** em _Outros Exemplos_ e clique no nome para selecionar este exemplo.
 
 1. Insira as informações _Básicas_ do exemplo de blueprint:
 

@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 231f2e4df1445c60378ac06aab0d0e56f410c1c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15f2ff5aaa1d731c13125d0a3ab4ac32acb9276c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530129"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023268"
 ---
 # <a name="diagnose-and-solve-issues-in-your-azure-time-series-insights-gen1-environment"></a>Diagnosticar e resolver problemas em seu ambiente de Azure Time Series Insights Gen1
 
@@ -37,7 +37,7 @@ Se nenhum dado estiver aparecendo no [Azure Time Series insights Explorer](https
 
 ### <a name="cause-a-event-source-data-isnt-in-json-format"></a>Causa: os dados de origem do evento não estão no formato JSON
 
-O Azure Time Series Insights dá suporte somente a dados JSON. Para obter exemplos do JSON, consulte [Formas de JSON com suporte](./how-to-shape-query-json.md).
+O Azure Time Series Insights dá suporte somente a dados JSON. Para obter exemplos do JSON, consulte [Formas de JSON com suporte](./concepts-json-flattening-escaping-rules.md).
 
 ### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Causa B: a chave de origem do evento não tem uma permissão necessária
 
@@ -85,7 +85,7 @@ Imagine um ambiente que ingere mensagens de um hub de eventos. Ele tem uma taxa 
 
 Um ambiente de SKU S1 que tem uma capacidade de 3 pode ingressar apenas 2.100 eventos por minuto (1 milhão de eventos por dia = 700 eventos por minuto em 3 unidades = 2.100 eventos por minuto).
 
-Para obter uma compreensão de alto nível de como funciona a lógica de mesclagem, consulte [formas de JSON com suporte](./how-to-shape-query-json.md).
+Para obter uma compreensão de alto nível de como funciona a lógica de mesclagem, consulte [formas de JSON com suporte](./concepts-json-flattening-escaping-rules.md).
 
 #### <a name="recommended-resolutions-for-excessive-throttling"></a>Resolução recomendadas para limitação excessiva
 
@@ -127,7 +127,7 @@ Tenha em mente que o nome da propriedade Timestamp diferencia maiúsculas de min
 
 A maneira mais fácil de garantir que o nome da propriedade de carimbo de data/hora seja capturado e funcionando corretamente é usar o Azure Time Series Insights Explorer. No Azure Time Series Insights Explorer, usando o gráfico, selecione um período de tempo depois de inserir o nome da propriedade de carimbo de data/hora. Clique com o botão direito do mouse na seleção e selecione **explorar eventos**.
 
-O cabeçalho da primeira coluna deve ser o nome da propriedade de carimbo de data/hora. Ao lado do **carimbo de data/hora**do Word, **($TS)** será exibido.
+O cabeçalho da primeira coluna deve ser o nome da propriedade de carimbo de data/hora. Ao lado do **carimbo de data/hora** do Word, **($TS)** será exibido.
 
 Os seguintes valores não serão exibidos:
 

@@ -8,16 +8,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: fcfefb2b6cd5c23e9b77d7d27413d1ff6d775bfe
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: cc1d375de9f45369f6d2902b106a1740f316ad8d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89321528"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947821"
 ---
-[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices) | [Pacote (NPM)](https://www.npmjs.com/package/@azure/arm-cognitiveservices) | [Exemplos](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices#sample-code)
+[Documentação de referência](/javascript/api/@azure/arm-cognitiveservices/) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices) | [Pacote (NPM)](https://www.npmjs.com/package/@azure/arm-cognitiveservices) | [Exemplos](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices#sample-code)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="javascript-prerequisites"></a>Pré-requisitos para usar o JavaScript
 
 * Uma assinatura válida do Azure; [crie uma gratuitamente](https://azure.microsoft.com/free/).
 * A versão atual do [Node.js](https://nodejs.org/)
@@ -74,7 +74,11 @@ Em seguida, adicione a função `quickstart` a seguir para cuidar do trabalho pr
 
 Adicione o código a seguir ao final de sua função `quickstart` para listar os recursos disponíveis, criar um recurso de exemplo, listar os recursos de sua propriedade e excluir o recurso de exemplo. Você definirá essas funções nas etapas a seguir.
 
-## <a name="create-a-cognitive-services-resource"></a>Criar um recurso dos Serviços Cognitivos
+## <a name="create-a-cognitive-services-resource-nodejs"></a>Criar um recurso dos Serviços Cognitivos (Node.js)
+
+Para criar e assinar um recurso dos Serviços Cognitivos, use a função **Criar**. Essa função adiciona um novo recurso que pode ser cobrado ao grupo de recursos que você passa. Ao criar o recurso, você precisará saber qual "tipo" de serviço deseja usar, bem como o tipo de preço (ou SKU) desejado e um local do Azure. A função a seguir usa todos esses argumentos e cria um recurso.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/azure_management_service/create_delete_resource.js?name=snippet_create)]
 
 ### <a name="choose-a-service-and-pricing-tier"></a>Escolher um serviço e um tipo de preço
 
@@ -85,12 +89,6 @@ Ao criar um recurso, você precisará saber qual "tipo" de serviço deseja usar,
 [!INCLUDE [cognitive-services-subscription-types](../../../../includes/cognitive-services-subscription-types.md)]
 
 [!INCLUDE [SKUs and pricing](./sku-pricing.md)]
-
-## <a name="create-a-cognitive-services-resource"></a>Criar um recurso dos Serviços Cognitivos
-
-Para criar e assinar um recurso dos Serviços Cognitivos, use a função **Criar**. Essa função adiciona um novo recurso que pode ser cobrado ao grupo de recursos que você passa. Ao criar o recurso, você precisará saber qual "tipo" de serviço deseja usar, bem como o tipo de preço (ou SKU) desejado e um local do Azure. A função a seguir usa todos esses argumentos e cria um recurso.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/azure_management_service/create_delete_resource.js?name=snippet_create)]
 
 ## <a name="view-your-resources"></a>Exibir os recursos
 
@@ -118,7 +116,7 @@ node index.js
 
 ## <a name="see-also"></a>Veja também
 
-* [Documentação de referência do SDK de Gerenciamento do Azure](https://docs.microsoft.com/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest)
-* [O que são os Serviços Cognitivos do Azure?](../../Welcome.md)
+* [Documentação de referência do SDK de Gerenciamento do Azure](/javascript/api/@azure/arm-cognitiveservices/)
+* [O que são os Serviços Cognitivos do Azure?](../../what-are-cognitive-services.md)
 * [Autenticar solicitações para os Serviços Cognitivos do Azure](../../authentication.md)
 * [Criar um recurso usando o portal do Azure](../../cognitive-services-apis-create-account.md)

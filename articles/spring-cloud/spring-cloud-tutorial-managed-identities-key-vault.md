@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: b3505f8bf31c2e700ce1cc57e106c33a13e0aa9b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: fc44dd6cf91d687f47afadf1c3378956d838bc9d
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737167"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579497"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-spring-cloud-app"></a>Tutorial: Usar uma identidade gerenciada para conectar o Key Vault a um aplicativo do Azure Spring Cloud
 
@@ -77,6 +77,8 @@ Use `az keyvault set-policy` para permitir ao aplicativo acesso apropriado ao Ke
 ```azurecli
 az keyvault set-policy --name "<your-keyvault-name>" --object-id ${SERVICE_IDENTITY} --secret-permissions set get list
 ```
+> [!NOTE]
+> Use `az keyvault delete-policy --name "<your-keyvault-name>" --object-id ${SERVICE_IDENTITY}` para remover o acesso ao seu aplicativo após a desabilitação da identidade gerenciada atribuída ao sistema.
 
 ## <a name="build-a-sample-spring-boot-app-with-spring-boot-starter"></a>Criar um aplicativo Spring Boot de exemplo com o inicializador do Spring Boot
 Este aplicativo terá acesso para obter segredos do Azure Key Vault. Usar o aplicativo inicializador: [Inicializador do Spring Boot para segredos do Azure Key Vault](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-keyvault-secrets).  O Azure Key Vault é adicionado como uma instância do **PropertySource** do Spring.  Os segredos armazenados no Azure Key Vault podem ser acessados e usados de maneira conveniente como qualquer propriedade de configuração externa, como propriedades em arquivos. 
@@ -184,7 +186,7 @@ A biblioteca de clientes de segredo do Azure Key Vault permite armazenar e contr
     vim src/main/resources/application.properties
     ```
 
-    Para usar a identidade gerenciada para aplicativos do Azure Spring Cloud, adicione propriedades com o conteúdo a seguir para *src/main/resources/application.properties* .
+    Para usar a identidade gerenciada para aplicativos do Azure Spring Cloud, adicione propriedades com o conteúdo a seguir para *src/main/resources/application.properties*.
 
     ```
     azure.keyvault.enabled=true

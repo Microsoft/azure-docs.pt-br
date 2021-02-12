@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 78f473a7c4b10475c6c206764ce526c70fa056fe
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 5fe070bc1abe0592b3082c597c1812781335448a
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92313344"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673172"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-acquireio"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao AcquireIO
 
@@ -73,7 +73,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 1. Na página **Selecionar um método de logon único**, escolha **SAML**.
 1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
-   ![Editar a Configuração Básica de SAML](common/edit-urls.png)
+    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
 1. Na seção **Configuração Básica do SAML**, insira os valores para os seguintes campos:
 
@@ -110,7 +110,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure dand
 1. Na lista de aplicativos, selecione **AcquireIO**.
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
 
-   ![O link “Usuários e grupos”](common/users-groups-blade.png)
+    ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
 1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
@@ -134,7 +134,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure dand
 
 1. Do lado esquerdo do menu, clique em **App Store**.
 
-     ![Captura de tela que realça App Store.](./media/acquireio-tutorial/config01.png)
+    ![Captura de tela que realça App Store.](./media/acquireio-tutorial/config01.png)
 
 1. Role a página para baixo até **Active Directory** e clique em **Instalar**.
 
@@ -162,7 +162,7 @@ Para permitir que os usuários do Microsoft Azure AD façam logon na AcquireIO, 
 
 1. No lado esquerdo do menu, clique em **Perfis** e navegue até **Adicionar Perfil**.
 
-     ![Captura de tela que realça os Perfis no menu no lado esquerdo da tela, bem como a opção Adicionar Perfil.](./media/acquireio-tutorial/config04.png)
+    ![Captura de tela que realça os Perfis no menu no lado esquerdo da tela, bem como a opção Adicionar Perfil.](./media/acquireio-tutorial/config04.png)
 
 1. No pop-up **Adicionar cliente**, execute as seguintes etapas:
 
@@ -182,9 +182,9 @@ Ao clicar no bloco do AcquireIO no Painel de Acesso, você deverá ser conectado
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](./tutorial-list.md)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 - [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 

@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: duau
 ms.openlocfilehash: 85e088dda767a6f6c80ac0a9f6eed84e8802e5ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401037"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994920"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Configurar o método de roteamento de Múltiplos Valores no Gerenciador de Tráfego
 
@@ -37,7 +37,7 @@ Crie um grupo de recursos para o perfil do Gerenciador de Tráfego.
 ## <a name="create-a-traffic-manager-profile"></a>Criar um perfil do Gerenciador de Tráfego
 Crie um perfil do Gerenciador de Tráfego que direciona o tráfego do usuário enviando-os para o ponto de extremidade com a menor latência.
 
-1. No canto superior esquerdo da tela, selecione **criar um recurso**  >  **rede**  >  **perfil do Gerenciador de tráfego**  >  **criar**.
+1. No canto superior esquerdo da tela, selecione **Criar um recurso** > **Rede** > **Perfil do Gerenciador de Tráfego** > **Criar**.
 2. Em **Criar perfil do Gerenciador de Tráfego**, insira ou selecione as informações a seguir, aceite os padrões para as configurações restantes e, em seguida, selecione **Criar**:
     
     | Configuração                 | Valor                                              |
@@ -46,7 +46,7 @@ Crie um perfil do Gerenciador de Tráfego que direciona o tráfego do usuário e
     | Método de roteamento          | Selecione o método de roteamento de **Múltiplos valores**.                                       |
     | Subscription            | Selecione sua assinatura.                          |
     | Resource group          | Selecione *myResourceGroupTM1*. |
-    | Localização                | Essa configuração refere-se ao local do grupo de recursos e não tem impacto no perfil do Gerenciador de Tráfego que será implantado globalmente.                              |
+    | Location                | Essa configuração refere-se ao local do grupo de recursos e não tem impacto no perfil do Gerenciador de Tráfego que será implantado globalmente.                              |
    |        |           | 
   
    ![Criar um perfil do Gerenciador de Tráfego](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
@@ -62,7 +62,7 @@ Adicione dois endereços IP como pontos de extremidade externos ao perfil do Ger
     | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
     | Tipo                    | Ponto de extremidade externo                                   |
-    | Nome           | myEndpoint1                                        |
+    | Name           | myEndpoint1                                        |
     | FQDN (nome de domínio totalmente qualificado) ou IP           | Digite o endereço IP público do ponto de extremidade que você que adicionar a esse perfil do Gerenciador de Tráfego                         |
     |        |           |
 

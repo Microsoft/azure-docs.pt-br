@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: a78c67892e2bccb7c98d680539a84c2cc1f49a95
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: cd41f740d3cdb8130199a5dda6e73209637d5142
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372286"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745927"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Criar o controlador de dados de arco do Azure
 
@@ -36,7 +36,8 @@ Atualmente, a lista de serviços e distribuições com suporte do kubernetes é 
 - Software livre, Kubernetes upstream normalmente implantado usando kubeadm
 
 > [!IMPORTANT]
-> * A versão mínima com suporte do kubernetes é v 1.14.
+> * A versão mínima com suporte do kubernetes é v 1.17. Consulte [problemas conhecidos](./release-notes.md#known-issues) para obter informações adicionais. 
+> * A versão mínima com suporte do OCP é 4,3.
 > * Consulte os [requisitos de conectividade](connectivity.md) para entender qual conectividade é necessária entre seu ambiente e o Azure.
 > * Consulte as [diretrizes de configuração de armazenamento](storage-configuration.md) para entender os detalhes de como configurar o armazenamento persistente.
 > * Se você estiver usando o serviço kubernetes do Azure, o tamanho da VM do nó de trabalho do cluster deverá ser pelo menos **Standard_D8s_v3** e usar **discos Premium.** O cluster não deve abranger várias zonas de disponibilidade. 
@@ -53,7 +54,7 @@ Independentemente da opção que você escolher, durante o processo de criação
 - **Nome** de usuário do controlador de dados-qualquer nome de usuários do administrador do controlador de dados.
 - **Senha do controlador de dados** -uma senha para o usuário administrador do controlador de dados.
 - **Nome do seu namespace kubernetes** -o nome do namespace kubernetes no qual você deseja criar o controlador de dados.
-- **Modo de conectividade** -o [modo de conectividade](./connectivity.md) do cluster. Atualmente, apenas "indireto" tem suporte.
+- **Modo de conectividade** – o modo de conectividade determina o grau de conectividade de seu ambiente de serviços de dados habilitados para o Azure ARC para o Azure. Atualmente, a visualização só dá suporte a modos conectados indiretamente e conectados diretamente.  Para obter informações, consulte [modo de conectividade](./connectivity.md). 
 - **ID de assinatura do Azure** -a GUID de assinatura do Azure para onde você deseja que o recurso de controlador de dados no Azure seja criado.
 - **Nome do grupo de recursos do Azure** -o nome do grupo de recursos em que você deseja que o recurso de controlador de dados no Azure seja criado.
 - **Local do Azure** -o local do Azure onde os metadados de recurso do controlador de dados serão armazenados no Azure. Para obter uma lista de regiões disponíveis, consulte [infraestrutura global/produtos do Azure por região](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
@@ -63,10 +64,10 @@ Independentemente da opção que você escolher, durante o processo de criação
 Há várias opções para criar o controlador de dados de arco do Azure:
 
 > **Quer apenas experimentar as novidades?**  
-> Comece rapidamente com o [Azure Arc JumpStart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) no Azure kubernetes Service (AKs), AWS elástico kubernetes Service (EKS), Google Cloud kubernetes Engine (GKE) ou em uma VM do Azure!
+> Comece rapidamente com o [Azure Arc JumpStart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) no Azure kubernetes Service (AKs), AWS elástico kubernetes Service (EKS), Google Cloud kubernetes Engine (GKE) ou em uma VM do Azure!
 > 
 - [Criar um controlador de dados com [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]](create-data-controller-using-azdata.md)
 - [Criar um controlador de dados com Azure Data Studio](create-data-controller-azure-data-studio.md)
 - [Criar um controlador de dados do portal do Azure por meio de um notebook Jupyter no Azure Data Studio](create-data-controller-resource-in-azure-portal.md)
 - [Criar um controlador de dados com ferramentas de kubernetes como kubectl ou OC](create-data-controller-using-kubernetes-native-tools.md)
-- [Crie um controlador de dados com o Azure Arc JumpStart para uma experiência acelerada de uma implantação de teste](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services)
+- [Crie um controlador de dados com o Azure Arc JumpStart para uma experiência acelerada de uma implantação de teste](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/)

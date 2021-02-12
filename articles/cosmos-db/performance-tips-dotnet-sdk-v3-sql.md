@@ -3,16 +3,17 @@ title: Azure Cosmos DB dicas de desempenho para o SDK do .NET v3
 description: Aprenda as opções de configuração do cliente para ajudar a melhorar o desempenho do SDK do .NET v3 Azure Cosmos DB.
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: jawilley
-ms.custom: devx-track-dotnet
-ms.openlocfilehash: 21821bbb41126a53c2b137bf1f5e5684ff1ae267
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: devx-track-dotnet, contperf-fy21q2
+ms.openlocfilehash: f503f132794f6d04b587a78b8f838acba26f9ac3
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096269"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032007"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Dicas de desempenho para o Azure Cosmos DB e .NET
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,16 +41,16 @@ Para Linux e outras plataformas sem suporte em que o ServiceInterop.dll não est
 
 Os quatro tipos de aplicativos listados aqui usam o processamento de host de 32 bits por padrão. Para alterar o processamento de host para o processamento de 64 bits para o tipo de aplicativo, faça o seguinte:
 
-- **Para aplicativos executáveis** : na janela de **Propriedades do projeto** , no painel de **compilação** , defina o [destino da plataforma](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) como **x64** .
+- **Para aplicativos executáveis**: na janela de **Propriedades do projeto** , no painel de **compilação** , defina o [destino da plataforma](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) como **x64**.
 
-- **Para projetos de teste baseados em VSTest** : no menu de **teste** do Visual Studio **, selecione**  >  **configurações de teste** de teste e, em seguida, defina a **arquitetura de processador padrão** como **x64** .
+- **Para projetos de teste baseados em VSTest**: no menu de **teste** do Visual Studio **, selecione**  >  **configurações de teste** de teste e, em seguida, defina a **arquitetura de processador padrão** como **x64**.
 
-- **Para aplicativos Web ASP.net implantados localmente** : selecione **ferramentas**  >  **Opções**  >  **projetos e soluções**  >  **projetos da Web** e, em seguida, selecione **usar a versão de 64 bits do IIS Express para sites e projetos** .
+- **Para aplicativos Web ASP.net implantados localmente**: selecione **ferramentas**  >  **Opções**  >  **projetos e soluções**  >  **projetos da Web** e, em seguida, selecione **usar a versão de 64 bits do IIS Express para sites e projetos**.
 
-- **Para aplicativos web ASP.net implantados no Azure** : no portal do Azure, em **configurações do aplicativo** , selecione a plataforma de **64 bits** .
+- **Para aplicativos web ASP.net implantados no Azure**: no portal do Azure, em **configurações do aplicativo**, selecione a plataforma de **64 bits** .
 
 > [!NOTE] 
-> Por padrão, novos projetos do Visual Studio são definidos para **qualquer CPU** . Recomendamos que você defina seu projeto como **x64** para que ele não mude para **x86** . Um projeto que é definido como **qualquer CPU** pode mudar facilmente para **x86** se uma dependência somente x86 for adicionada.<br/>
+> Por padrão, novos projetos do Visual Studio são definidos para **qualquer CPU**. Recomendamos que você defina seu projeto como **x64** para que ele não mude para **x86**. Um projeto que é definido como **qualquer CPU** pode mudar facilmente para **x86** se uma dependência somente x86 for adicionada.<br/>
 > O arquivo de ServiceInterop.dll precisa estar na pasta da qual a DLL do SDK está sendo executada. Isso deve ser uma preocupação apenas se você copiar DLLs manualmente ou se tiver sistemas personalizados de compilação ou implantação.
     
 **Ativar a coleta de lixo do lado do servidor**
@@ -155,13 +156,13 @@ O SDK do SQL .NET dá suporte a consultas paralelas, que permitem consultar um c
 
 As consultas paralelas fornecem dois parâmetros que você pode ajustar para atender às suas necessidades: 
 
-- **MaxConcurrency** : controla o número máximo de partições que podem ser consultadas em paralelo.
+- **MaxConcurrency**: controla o número máximo de partições que podem ser consultadas em paralelo.
 
    A consulta paralela funciona consultando várias partições em paralelo. Mas os dados de uma partição individual são buscados em série em relação à consulta. A configuração `MaxConcurrency` no [SDK v3](https://github.com/Azure/azure-cosmos-dotnet-v3) para o número de partições tem a melhor chance de obter a consulta de melhor desempenho, desde que todas as outras condições do sistema permaneçam as mesmas. Se você não souber o número de partições, poderá definir o grau de paralelismo como um número alto. O sistema escolherá o mínimo (número de partições, entrada fornecida pelo usuário) como o grau de paralelismo.
 
     As consultas paralelas produzem mais benefícios se os dados forem distribuídos uniformemente entre todas as partições em relação à consulta. Se a coleção particionada for particionada para que todos ou a maioria dos dados retornados por uma consulta se concentrasse em algumas partições (uma partição é o pior caso), essas partições causarão um afunilamento do desempenho da consulta.
    
-- **MaxBufferedItemCount** : controla o número de resultados previamente buscados.
+- **MaxBufferedItemCount**: controla o número de resultados previamente buscados.
 
    A consulta paralela destina-se a buscar previamente resultados enquanto o lote atual de resultados está sendo processado pelo cliente. Essa pré-busca ajuda a melhorar a latência geral de uma consulta. O `MaxBufferedItemCount` parâmetro limita o número de resultados previamente buscados. Defina `MaxBufferedItemCount` como o número esperado de resultados retornados (ou um número mais alto) para permitir que a consulta receba o benefício máximo da busca prévia.
 

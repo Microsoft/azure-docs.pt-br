@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: dd5c6527cd6a0beea291dce94ff0e5949ba00671
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 965e765e22a4da8f2ac3b7151337cf62b65be4fe
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791249"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732604"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Conectar seu aplicativo à Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -56,7 +56,7 @@ Você também pode conectar seu aplicativo local ao SQL Instância Gerenciada. O
 
 Há duas opções de como conectar-se localmente a uma rede virtual do Azure:
 
-- Conexão VPN site a site ([portal do Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) [CLI do Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
+- Conexão VPN site a site ([portal do Azure](../../vpn-gateway/tutorial-site-to-site-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) [CLI do Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
 - Conexão [do Azure ExpressRoute](../../expressroute/expressroute-introduction.md)  
 
 Se você tiver estabelecido uma conexão local para o Azure com êxito e não puder estabelecer uma conexão com o SQL Instância Gerenciada, verifique se o firewall tem uma conexão de saída aberta na porta do SQL 1433, bem como o intervalo 11000-11999 de portas para redirecionamento.
@@ -71,10 +71,10 @@ Outro cenário implementado por clientes é o local em que um gateway de VPN é 
 
 ![Emparelhamento de rede virtual](./media/connect-application-instance/vnet-peering.png)
 
-Depois que a infraestrutura básica estiver configurada, você precisará modificar algumas configurações para que o gateway de VPN possa ver os endereços IP na rede virtual que hospeda o SQL Instância Gerenciada. Para fazer isso, faça as seguintes alterações muito específicas nas **Configurações de emparelhamento** .
+Depois que a infraestrutura básica estiver configurada, você precisará modificar algumas configurações para que o gateway de VPN possa ver os endereços IP na rede virtual que hospeda o SQL Instância Gerenciada. Para fazer isso, faça as seguintes alterações muito específicas nas **Configurações de emparelhamento**.
 
-1. Na rede virtual que hospeda o gateway de VPN, acesse **emparelhamentos** , vá para a conexão de rede virtual emparelhada para o SQL instância gerenciada e, em seguida, clique em **Permitir trânsito de gateway** .
-2. Na rede virtual que hospeda o SQL Instância Gerenciada, acesse **emparelhamentos** , vá para a conexão de rede virtual emparelhada para o gateway de VPN e, em seguida, clique em **usar gateways remotos** .
+1. Na rede virtual que hospeda o gateway de VPN, acesse **emparelhamentos**, vá para a conexão de rede virtual emparelhada para o SQL instância gerenciada e, em seguida, clique em **Permitir trânsito de gateway**.
+2. Na rede virtual que hospeda o SQL Instância Gerenciada, acesse **emparelhamentos**, vá para a conexão de rede virtual emparelhada para o gateway de VPN e, em seguida, clique em **usar gateways remotos**.
 
 ## <a name="connect-azure-app-service"></a>Conectar Azure App serviço 
 

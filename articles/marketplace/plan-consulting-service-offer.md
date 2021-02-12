@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: dfc812771f0eeb8dcb0d95bdad1e76ed0b12297e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 10c06f5b36de880302f17dc17c1d47d5209dd902
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92754309"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588464"
 ---
 # <a name="how-to-plan-a-consulting-service-offer-in-the-commercial-marketplace"></a>Como planejar uma oferta de serviço de consultoria no Marketplace comercial
 
@@ -27,7 +27,46 @@ As ofertas de serviço de consultoria são publicadas como listagens de **contat
 
 ## <a name="primary-products-and-online-stores"></a>Produtos primários e lojas online
 
-Cada oferta de serviço de consultoria deve se concentrar em um produto da Microsoft, chamado de **produto principal** . O produto principal selecionado no Partner Center determina se sua oferta será publicada no Microsoft AppSource ou no Azure Marketplace.
+Cada serviço de consultoria deve se concentrar em um desses produtos da Microsoft, chamado de **produto principal** da oferta:
+
+:::row:::
+    :::column:::
+        Azure
+
+        Dynamics 365 Business Central
+
+        Dynamics 365 Commerce
+
+        Customer Insights do Dynamics 365
+
+        Dynamics 365 Customer Service
+
+        Dynamics 365 Field Service
+
+        Dynamics 365 Finance
+
+        Dynamics 365 Marketing
+    :::column-end:::
+    :::column:::
+        Dynamics 365 Project Service Automation
+
+        Dynamics 365 Sales
+
+        Gerenciamento da cadeia de fornecedores do Dynamics 365
+
+        Microsoft 365
+
+        Power Apps
+
+        Power Automate
+
+        Power BI
+
+        Power Virtual Agents
+    :::column-end:::
+:::row-end:::
+
+O produto principal selecionado no Partner Center determina se sua oferta será publicada no Microsoft AppSource ou no Azure Marketplace.
 
 * Se o produto principal do seu serviço de consultoria for o Azure, a oferta será listada no Azure Marketplace.
 * Se o produto principal não for o Azure, a oferta será listada em AppSource.
@@ -36,7 +75,7 @@ Para saber mais sobre as diferenças entre o AppSource e o Azure Marketplace, co
 
 ## <a name="eligibility-requirements"></a>Requisitos de qualificação
 
-Para demonstrar aos clientes sua experiência em um campo, você deve atender a um conjunto de requisitos de qualificação antes de publicar uma oferta de serviço de consultoria. Os requisitos dependem do produto no núcleo da sua oferta. A lista completa de requisitos de qualificação para cada produto principal está nas [políticas de certificação para serviços de consultoria](https://docs.microsoft.com/legal/marketplace/certification-policies#800-consulting-services).
+Para demonstrar aos clientes sua experiência em um campo, você deve atender a um conjunto de requisitos de qualificação antes de publicar uma oferta de serviço de consultoria. Os requisitos dependem do produto no núcleo da sua oferta. A lista completa de requisitos de qualificação para cada produto principal está nas [políticas de certificação para serviços de consultoria](/legal/marketplace/certification-policies#800-consulting-services).
 
 > [!NOTE]
 > Para alguns produtos principais, você deve ter uma competência Gold ou prata da Microsoft na sua área de solução. Para obter mais informações, consulte [competências de Microsoft Partner Network](https://partner.microsoft.com/membership/competencies).
@@ -45,11 +84,11 @@ Para demonstrar aos clientes sua experiência em um campo, você deve atender a 
 
 O Marketplace comercial dá suporte a cinco tipos de serviço de consultoria:
 
-* **Avaliação** : uma avaliação do ambiente de um cliente para determinar a aplicabilidade de uma solução e estimar o custo e a linha do tempo de sua implementação.
-* **Resumo** : uma introdução a uma solução ou um serviço usando estruturas, demonstrações e exemplos de clientes.
-* **Implementação** : uma instalação completa que resulta em uma solução totalmente funcional.
-* **Prova de conceito** : uma implementação de escopo limitado para determinar se uma solução atende aos requisitos do cliente.
-* **Workshop** : um engajamento interativo realizado nos locais do cliente. Ele pode envolver treinamentos, resumos, avaliações ou demonstrações criados nos dados ou no ambiente do cliente.
+* **Avaliação**: uma avaliação do ambiente de um cliente para determinar a aplicabilidade de uma solução e estimar o custo e a linha do tempo de sua implementação.
+* **Resumo**: uma introdução a uma solução ou um serviço usando estruturas, demonstrações e exemplos de clientes.
+* **Implementação**: uma instalação completa que resulta em uma solução totalmente funcional.
+* **Prova de conceito**: uma implementação de escopo limitado para determinar se uma solução atende aos requisitos do cliente.
+* **Workshop**: um engajamento interativo realizado nos locais do cliente. Ele pode envolver treinamentos, resumos, avaliações ou demonstrações criados nos dados ou no ambiente do cliente.
 
 Seu serviço deve ter uma duração fixa e predeterminada de até 10 semanas. A duração do serviço deve se tornar explícita na listagem da oferta.
 
@@ -84,17 +123,18 @@ Ao criar sua oferta de serviço de consultoria no Partner Center, você inserir�
 
 Para ajudar a criar sua oferta com mais facilidade, prepare alguns desses itens antecipadamente. Os itens a seguir são necessários, salvo indicação em contrário.
 
-**Nome** : esse nome será exibido como o título da sua listagem de ofertas no Marketplace comercial. Uma marca comercial pode ser atribuída ao nome. Ele não pode conter emojis (a menos que sejam a marca registrada e os símbolos de direitos autorais) e deve ser limitado a 50 caracteres. O nome deve incluir a duração e o tipo de serviço da oferta para maximizar a SEO (otimização do mecanismo de pesquisa). O formato necessário é *nome: duração + tipo* . Não inclua o nome da sua empresa, a menos que também seja o nome do produto. Estes são alguns exemplos:
+**Nome**: esse nome será exibido como o título da sua listagem de ofertas no Marketplace comercial. Uma marca comercial pode ser atribuída ao nome. Ele não pode conter emojis (a menos que sejam a marca registrada e os símbolos de direitos autorais) e deve ser limitado a 50 caracteres. O nome deve incluir a duração e o tipo de serviço da oferta para maximizar a SEO (otimização do mecanismo de pesquisa). O formato necessário é *nome: duração + tipo*. Não inclua o nome da sua empresa, a menos que também seja o nome do produto. Estes são alguns exemplos:
 
 |Não diga |Diga  |
 |---|---|
 |Introdução ao Azure IoT Edge em Fabricação |IoT para Manufatura: avaliação de dois dias |
 |Workshop sobre Smart Toasters |Torradeiras inteligentes: Workshop de 1 semana |
 |SQL Server VDC de migração pela contoso |Migração de SQL: Prova de conceito de 3 semanas |
+| | |
 
-**Resumo dos resultados da pesquisa** : Descreva a finalidade ou o objetivo da sua oferta em 200 caracteres ou menos. Esse resumo é usado no Marketplace comercial listando os resultados da pesquisa. Ele não deve ser idêntico ao título. Considere a inclusão de suas principais palavras-chave de SEO.
+**Resumo dos resultados da pesquisa**: Descreva a finalidade ou o objetivo da sua oferta em 200 caracteres ou menos. Esse resumo é usado no Marketplace comercial listando os resultados da pesquisa. Ele não deve ser idêntico ao título. Considere a inclusão de suas principais palavras-chave de SEO.
 
-**Descrição** : essa descrição será exibida na listagem do Marketplace comercial. Considere incluir uma proposta de valor, os principais benefícios, a base de usuários pretendida e qualquer categoria ou associação do setor.
+**Descrição**: essa descrição será exibida na listagem do Marketplace comercial. Considere incluir uma proposta de valor, os principais benefícios, a base de usuários pretendida e qualquer categoria ou associação do setor.
 
 Ao escrever a descrição, siga estes critérios, de acordo com o tipo de serviço:
 
@@ -105,6 +145,7 @@ Ao escrever a descrição, siga estes critérios, de acordo com o tipo de servi�
 |Implementação |Inclua uma agenda detalhada de implementações por mais de um dia e descreva quais alterações de engenharia, artefatos técnicos ou outros artefatos que um cliente pode esperar como resultados do envolvimento. |
 |Prova de conceito |Descreva quais alterações de engenharia, artefatos técnicos ou outros artefatos que um cliente pode esperar como resultados do envolvimento. |
 |Workshop |Inclua uma agenda detalhada diária, semanal ou mensal, dependendo da duração da sua oferta. Articule os objetivos de aprendizado ou outras entregas de seu workshop. |
+| | |
 
 Aqui estão algumas dicas para escrever sua descrição:
 
@@ -119,13 +160,13 @@ Você pode usar marcas HTML para formatar sua descrição. Você pode inserir at
 
 **Pesquisar palavras-chave** (opcional): forneça até três palavras-chave de pesquisa que os clientes podem usar para localizar sua oferta nas lojas online. Você não precisa incluir o **nome** e a **Descrição** da oferta.
 
-**Duração** : sua oferta de serviço de consultoria deve ter uma duração predeterminada de até 10 semanas.
+**Duração**: sua oferta de serviço de consultoria deve ter uma duração predeterminada de até 10 semanas.
 
-**Informações de contato** : no Partner Center, você será solicitado a fornecer nome, endereço de email e número de telefone de duas pessoas em sua empresa (você pode ser um dos dois contatos). Usaremos essas informações para se comunicar com você sobre sua oferta. Essas informações não são mostradas aos clientes, mas podem ser fornecidas aos parceiros do CSP (provedor de soluções na nuvem).
+**Informações de contato**: no Partner Center, você será solicitado a fornecer nome, endereço de email e número de telefone de duas pessoas em sua empresa (você pode ser um dos dois contatos). Usaremos essas informações para se comunicar com você sobre sua oferta. Essas informações não são mostradas aos clientes, mas podem ser fornecidas aos parceiros do CSP (provedor de soluções na nuvem).
 
-**Documentos de suporte** : carregue pelo menos um e até três documentos PDF voltados para o cliente que fornecem informações sobre sua oferta. Por exemplo, eles podem ser White papers ou folhetos.
+**Documentos de suporte**: carregue pelo menos um e até três documentos PDF voltados para o cliente que fornecem informações sobre sua oferta. Por exemplo, eles podem ser White papers ou folhetos.
 
-**Mídia do Marketplace – logotipos** : forneça um arquivo PNG para o logotipo de tamanho grande. O Partner Center vai usá-lo para criar um logotipo pequeno. Opcionalmente, você pode substituir o logotipo pequeno por uma imagem diferente mais tarde.
+**Mídia do Marketplace – logotipos**: forneça um arquivo PNG para o logotipo de tamanho grande. O Partner Center vai usá-lo para criar um logotipo pequeno. Opcionalmente, você pode substituir o logotipo pequeno por uma imagem diferente mais tarde.
 
 * Grande (de 216 x 216 a 350 x 350 px, required)
 * Pequeno (48 x 48 px, opcional)
@@ -139,9 +180,14 @@ Siga estas diretrizes para seus logotipos:
 * Se você usar um plano de fundo transparente, verifique se o logotipo e o texto não estão em branco, preto ou azul.
 * Evite gradientes no logotipo ou no plano de fundo. Não coloque texto no logotipo, nem mesmo o nome ou marca da sua empresa.
 
-**Mídia do Marketplace – capturas de tela** : Adicione pelo menos uma e até cinco imagens que demonstram sua oferta. Todas as imagens devem ter 1280 x 720 pixels de tamanho e em. Formato PNG.
+**Mídia do Marketplace – capturas de tela**: Adicione pelo menos uma e até cinco imagens que demonstram sua oferta. Todas as imagens devem ter 1280 x 720 pixels de tamanho e em. Formato PNG.
 
 **Mídia do Marketplace – vídeos** (opcional): você pode adicionar até quatro vídeos que demonstram sua oferta. Os vídeos devem ser hospedados no YouTube ou no Vimeo e ter uma miniatura (arquivo PNG 1280 x 720).
+
+## <a name="pricing-and-availability"></a>Preços e disponibilidade
+
+Sua oferta de serviço de consultoria pode ser disponibilizada em um ou mais países ou regiões. No Partner Center, você pode decidir o preço de cada mercado selecionado. Para obter a lista completa de mercados e moedas com suporte, confira [disponibilidade geográfica e suporte de moeda para o Marketplace comercial](./marketplace-geo-availability-currencies.md).
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

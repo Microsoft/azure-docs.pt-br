@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 60f781ddfa5717bbe5bcbb05ec8c236c8594c587
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b4b1234b88eafedbd03b78241baaa40231a6cbd6
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793085"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356796"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>O que é o SQL Server nas Máquinas Virtuais do Azure (Windows)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -109,18 +109,18 @@ Se você tiver um banco de dados existente, o ideal será movê-lo para a VM do 
 
 O portal do Azure fornece uma página em que você pode gerenciar [todos os seus recursos SQL do Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Sql%2Fazuresql) incluindo suas máquinas virtuais do SQL.
 
-Para acessar a página de **recursos do SQL do Azure** , selecione **SQL do Azure** no menu do portal do Azure ou pesquise e selecione **SQL do Azure** em qualquer página.
+Para acessar a página de **recursos do SQL do Azure**, selecione **SQL do Azure** no menu do portal do Azure ou pesquise e selecione **SQL do Azure** em qualquer página.
 
 ![Pesquisar SQL do Azure](./media/sql-server-on-azure-vm-iaas-what-is-overview/search-for-azure-sql.png)
 
 > [!NOTE]
 > O SQL do Azure oferece uma forma rápida e fácil de acessar todos os seus bancos de dados SQL do Azure, pools elásticos, servidores lógicos, instâncias gerenciadas e máquinas virtuais. O SQL do Azure não é um serviço nem um recurso. 
 
-Para gerenciar os recursos existentes, selecione o item desejado na lista. Para criar recursos de SQL do Azure, selecione **+ Adicionar** . 
+Para gerenciar os recursos existentes, selecione o item desejado na lista. Para criar recursos de SQL do Azure, selecione **+ Adicionar**. 
 
 ![Criar recurso de SQL do Azure](./media/sql-server-on-azure-vm-iaas-what-is-overview/create-azure-sql-resource.png)
 
-Depois de selecionar **+ Adicionar** , veja informações adicionais sobre as diferentes opções selecionando **Mostrar detalhes** em qualquer bloco.
+Depois de selecionar **+ Adicionar**, veja informações adicionais sobre as diferentes opções selecionando **Mostrar detalhes** em qualquer bloco.
 
 ![detalhes do bloco bancos de dados](./media/sql-server-on-azure-vm-iaas-what-is-overview/sql-vm-details.png)
 
@@ -147,7 +147,7 @@ O CEIP (Programa de Aperfeiçoamento da Experiência do Usuário) está habilita
 ### <a name="networking"></a>Rede
 * [Visão geral da Rede Virtual](../../../virtual-network/virtual-networks-overview.md)
 * [Endereços IP no Azure](../../../virtual-network/public-ip-addresses.md)
-* [Criar um nome de domínio totalmente qualificado no portal do Azure](../../../virtual-machines/linux/portal-create-fqdn.md)
+* [Criar um nome de domínio totalmente qualificado no portal do Azure](../../../virtual-machines/create-fqdn.md)
 
 ### <a name="sql"></a>SQL
 * [Documentação do SQL Server](/sql/index)

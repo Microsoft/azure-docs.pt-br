@@ -7,15 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 10/26/2020
 ms.author: banders
-ms.custom: contperfq1
-ms.openlocfilehash: be3de838e340400da09ad261d82328f6793aed2e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 776c207387ee55b998615131baf77e6c13655b49
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91297718"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033930"
 ---
 # <a name="change-contact-information-for-an-azure-billing-account"></a>Alterar informações de contato para uma conta de cobrança do Azure
 
@@ -31,7 +31,7 @@ Se desejar atualizar suas informações de perfil do usuário do Azure Active Di
 
 ## <a name="update-an-mosp-billing-account-address"></a>Atualizar um endereço da conta de cobrança do MOSP
 
-1. Entre no [portal do Azure](https://portal.azure.com/) usando o endereço de email, que tem permissão de administrador da conta na conta em questão.
+1. Entre no portal do Azure usando o endereço de email, que tem permissão de administrador da conta na conta em questão.
 1. Pesquise **Gerenciamento de Custos + Cobrança**.  
     ![Captura de tela que mostra o local no qual pesquisar no portal do Azure para o gerenciamento de custos e cobrança](./media/change-azure-account-profile/search-cmb.png)
 1. Selecione **Propriedades** no lado esquerdo.  
@@ -41,7 +41,7 @@ Se desejar atualizar suas informações de perfil do usuário do Azure Active Di
 
 ## <a name="update-an-mca-billing-account-sold-to-address"></a>Atualizar um endereço do comprador de conta de cobrança do MCA
 
-1. Entre no [portal do Azure](https://portal.azure.com/) usando o endereço de email, que tem uma função de proprietário ou colaborador na conta de cobrança para um Contrato de Cliente da Microsoft.
+1. Entre no portal do Azure usando o endereço de email, que tem uma função de proprietário ou colaborador na conta de cobrança para um Contrato de Cliente da Microsoft.
 1. Pesquise **Gerenciamento de Custos + Cobrança**.  
     ![Captura de tela que mostra o local no qual pesquisar no portal do Azure](./media/change-azure-account-profile/search-cmb.png)
 1. Selecione **Propriedades** do lado esquerdo e escolha **Atualizar o campo Comprador**.  
@@ -54,7 +54,7 @@ Se desejar atualizar suas informações de perfil do usuário do Azure Active Di
 
 ## <a name="update-an-mca-billing-account-address"></a>Atualizar um endereço da conta de cobrança do MCA
 
-1. Entre no [portal do Azure](https://portal.azure.com/) usando o endereço de email, que tem uma função de proprietário ou colaborador em uma conta de cobrança ou um perfil de cobrança para um MCA.
+1. Entre no portal do Azure usando o endereço de email, que tem uma função de proprietário ou colaborador em uma conta de cobrança ou um perfil de cobrança para um MCA.
 1. Pesquise **Gerenciamento de Custos + Cobrança**.  
 1. Selecione **Perfis de cobrança** do lado esquerdo.
 1. Selecione um perfil de cobrança para atualizar o endereço para cobrança.  
@@ -67,7 +67,7 @@ Se desejar atualizar suas informações de perfil do usuário do Azure Active Di
 
 ## <a name="service-and-marketing-emails"></a>Emails de serviço e de marketing
 
-No [portal do Azure](https://portal.azure.com), você é solicitado a verificar ou atualizar seu endereço de email a cada 90 dias. A Microsoft envia emails para esse endereço de email com as informações relacionadas à conta do Azure para:
+No portal do Azure, você é solicitado a verificar ou atualizar seu endereço de email a cada 90 dias. A Microsoft envia emails para esse endereço de email com as informações relacionadas à conta do Azure para:
 
 - Notificações de serviço
 - Alertas de segurança
@@ -86,7 +86,7 @@ Insira o endereço de email em que você deseja receber comunicações sobre sua
 
 1. Se você for um administrador de uma conta do MOSP, siga as instruções em [Atualizar um endereço da conta de cobrança do MOSP](#update-an-mosp-billing-account-address) e selecione **Atualizar informações de contato** na última etapa. Em seguida, insira o novo endereço de email.
 1. Acesse a área [Informações de contato](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) no portal do Azure e insira o novo endereço de email. 
-1. No [portal do Azure](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade), selecione o ícone com suas iniciais ou imagem. Em seguida, selecione o menu de contexto ( **...** ). Em seguida, selecione **Minhas Informações de Contato** no menu e insira o novo endereço de email.
+1. No portal do Azure, selecione o ícone com suas iniciais ou imagem. Em seguida, selecione o menu de contexto ( **...** ). Em seguida, selecione **Minhas Informações de Contato** no menu e insira o novo endereço de email.
 
 ![Exemplo de atualizar um endereço de email no Azure](./media/change-azure-account-profile/azure-contact-information.png)
 
@@ -102,7 +102,7 @@ Quando você cancela o recebimento de comunicações de marketing, você ainda r
 
 ## <a name="update-the-email-address-that-you-sign-in-with"></a>Atualizar o endereço de email com o qual você entra
 
-Não é possível atualizar o endereço de email que você usa para acessar sua conta. No entanto, se você tiver uma conta de cobrança para um MOSP, poderá se inscrever para outra conta usando o novo endereço de email e transferir a propriedade de suas assinaturas para a próxima conta. Para uma conta de cobrança do MCA, [você pode conceder as novas permissões de endereço de email em sua conta](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
+Não é possível atualizar o endereço de email que você usa para acessar sua conta. No entanto, se você tiver uma conta de cobrança para um MOSP, poderá se inscrever para outra conta usando o novo endereço de email e transferir a propriedade de suas assinaturas para a próxima conta. Para uma conta de cobrança do MCA, você pode conceder as novas permissões de endereço de email em sua conta.
 
 ## <a name="update-your-credit-card"></a>Atualizar seu cartão de crédito
 
@@ -114,7 +114,7 @@ A alteração do país ou região de uma conta existente não é um procedimento
 
 ## <a name="change-the-subscription-name"></a>Alterar o nome da assinatura
 
-1. Entre no [portal do Azure](https://portal.azure.com), selecione **Assinatura** no painel esquerdo e, em seguida, selecione a assinatura que você deseja renomear.
+1. Entre no portal do Azure, selecione **Assinatura** no painel esquerdo e escolha a assinatura que você deseja renomear.
 1. Selecione **Visão Geral** e, em seguida, selecione **Renomear** na barra de comandos.  
     ![Exemplo de renomeação da assinatura do Azure](./media/change-azure-account-profile/rename-sub.png)
 1. Depois de alterar o nome, selecione **Salvar**.

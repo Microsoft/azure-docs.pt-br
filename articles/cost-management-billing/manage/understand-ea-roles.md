@@ -1,23 +1,24 @@
 ---
-title: Noções básicas das funções de administrador do Enterprise no Azure
+title: Noções básicas sobre as funções de administrador do EA (Contratos Enterprise) no Azure
 description: Aprenda sobre as funções de administrador corporativo no Azure. Você pode atribuir cinco funções administrativas distintas.
 author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 12/10/2020
 ms.author: banders
-ms.openlocfilehash: 13b344d3f13993dc7b6acf7bfe9a0ccdea0c866b
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: e8420f68fba40ddb61d06770f9f5bc2fafe5616a
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371347"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560518"
 ---
-# <a name="managing-azure-enterprise-roles"></a>Gerenciando funções do Azure Enterprise
+# <a name="managing-azure-enterprise-agreement-roles"></a>Como gerenciar funções do Contrato Enterprise do Azure
 
-Para ajudar a gerenciar o uso e o gasto de sua organização, os clientes do Azure com um Contrato Enterprise (EA) podem atribuir cinco funções administrativas distintas:
+Para ajudar a gerenciar o uso e os gastos da sua organização, os clientes do Azure com um Contrato Enterprise podem atribuir cinco funções administrativas distintas:
 
 - Administrador corporativo
 - Administrador corporativo (somente leitura)<sup>1</sup>
@@ -34,6 +35,88 @@ O primeiro administrador de registro que é configurado durante o provisionament
 Por exemplo, se o tipo de autenticação inicial for definido como Misto, o EA será adicionado como uma conta Microsoft e o contato de cobrança terá privilégios de administrador de EA somente leitura. Se o administrador de EA não aprovar a autorização da conta Microsoft para um contato de cobrança existente, o administrador de EA poderá excluir o usuário em questão e pedir ao cliente para adicionar o usuário novamente como um administrador somente leitura com uma conta corporativa ou de estudante definida apenas no nível de registro no Portal do EA.
 
 Essas funções são específicas para gerenciar os Contratos Enterprise do Azure e são complementares às funções internas que o Azure controla para acessar os recursos. Para obter mais informações, veja [Funções internas do Azure](../../role-based-access-control/built-in-roles.md).
+
+## <a name="azure-enterprise-portal-hierarchy"></a>Hierarquia do Azure Enterprise Portal
+
+A hierarquia do Azure Enterprise Portal consiste em:
+
+- **Azure Enterprise Portal** – um portal de gerenciamento online que ajuda você a gerenciar os custos dos serviços de EA do Azure. Você pode:
+
+  - Criar uma hierarquia de EA do Azure com departamentos, contas e assinaturas.
+  - Reconciliar os custos de seus serviços consumidos, baixar relatórios de uso e exibir listas de preços.
+  - Criar chaves de API para seu registro.
+
+- Os **departamentos** ajudam a segmentar os custos em agrupamentos lógicos. Os departamentos permitem que você defina um orçamento ou uma cota no nível do departamento.
+
+- As **contas** são unidades organizacionais no Azure Enterprise Portal. Você pode usar as contas para gerenciar assinaturas e acessar relatórios.
+
+- As **assinaturas** são a menor unidade no Azure Enterprise Portal. Elas são contêineres para os serviços do Azure gerenciados pelo administrador de serviços.
+
+O diagrama a seguir ilustra as hierarquias simples do EA do Azure.
+
+![Diagrama de hierarquias simples do EA do Azure](./media/understand-ea-roles/ea-hierarchies.png)
+
+## <a name="enterprise-user-roles"></a>Funções de usuário corporativo
+
+As seguintes funções de usuário administrativas fazem parte do seu Registro Enterprise:
+
+- Administrador corporativo
+- Administrador de departamento
+- Proprietário da conta
+- Administrador de serviço
+- Contato de notificação
+
+As funções funcionam em dois portais diferentes para concluir as tarefas. Você usa o [Azure Enterprise Portal](https://ea.azure.com) para gerenciar a cobrança e os custos e o [portal do Azure](https://portal.azure.com) para gerenciar serviços do Azure.
+
+As funções de usuário são associadas a uma conta de usuário. Para validar a autenticidade do usuário, cada usuário deve ter uma conta Microsoft, corporativa ou de estudante válida. Verifique se cada conta está associada a um endereço de email monitorado ativamente. As notificações de conta são enviadas para o endereço de email.
+
+Ao configurar usuários, você pode atribuir várias contas à função Administrador corporativo. No entanto, apenas uma conta pode conter a função de proprietário da conta. Além disso, você pode atribuir as funções administrador corporativo e proprietário da conta a uma conta.
+
+### <a name="enterprise-administrator"></a>Administrador corporativo
+
+Os usuários com essa função têm o nível mais alto de acesso. Eles podem:
+
+- Gerenciar contas e proprietários da conta.
+- Gerenciar outros administradores corporativos.
+- Gerenciar administradores de departamento.
+- Gerenciar contatos de notificação.
+- Exibir o uso em todas as contas.
+- Exibir encargos não cobrados em todas as contas.
+- Ver e gerenciar todos os pedidos de reserva e as reservas que se aplicam ao Contrato Enterprise.
+  - O administrador corporativo (somente leitura) pode ver os pedidos de reserva e as reservas. Eles não podem gerenciá-los.
+
+Você pode ter vários administradores corporativos em um Registro Enterprise. Você pode permitir acesso somente leitura a administradores corporativos. Todos eles herdam a função de administrador do departamento.
+
+### <a name="department-administrator"></a>Administrador de departamento
+
+Os usuários com essa função podem:
+
+- Criar e gerenciar departamentos.
+- Criar proprietários da conta.
+- Exibir detalhes de uso dos departamentos que eles gerenciam.
+- Exibir custos, se tiverem as permissões necessárias.
+
+Você pode ter vários administradores de departamento para cada Registro Enterprise.
+
+Você pode conceder acesso somente leitura aos administradores de departamento ao editar ou criar um administrador de departamento. Defina a opção somente leitura como **Sim**.
+
+### <a name="account-owner"></a>Proprietário da conta
+
+Os usuários com essa função podem:
+
+- Criar e gerenciar assinaturas.
+- Gerenciar administradores de serviços.
+- Exibir o uso de assinaturas.
+
+Cada conta requer uma conta Microsoft, corporativa ou de estudante, exclusiva. Para obter mais informações sobre as funções administrativas do Azure Enterprise Portal, confira [Entendendo as funções administrativas do Contrato Enterprise do Azure](understand-ea-roles.md).
+
+### <a name="service-administrator"></a>Administrador de serviço
+
+A função administrador de serviços tem permissões para gerenciar serviços no portal do Azure e atribuir usuários à função de coadministrador.
+
+### <a name="notification-contact"></a>Contato de notificação
+
+O contato de notificação pode receber notificações de uso relacionadas ao registro.
 
 As seções a seguir descrevem as limitações e os recursos de cada função.
 
@@ -69,7 +152,7 @@ As seções a seguir descrevem as limitações e os recursos de cada função.
 
 ## <a name="add-a-new-enterprise-administrator"></a>Adicionar um novo administrador corporativo
 
-Os administradores corporativos têm mais privilégios ao gerenciar um registro de EA do Azure. O administrador inicial do EA do Azure foi criado quando o contrato de EA foi configurado. No entanto, você pode adicionar ou remover novos administradores a qualquer momento. Novos administradores são adicionados somente por administradores existentes. Para obter mais informações sobre como adicionar outros admins corporativos, confira [Criar outro admin corporativo](ea-portal-get-started.md#create-another-enterprise-administrator). Para saber mais sobre funções e tarefas do perfil de cobrança, confira [Funções e tarefas do perfil de cobrança](understand-mca-roles.md#billing-profile-roles-and-tasks).
+Os administradores corporativos têm mais privilégios ao gerenciar um registro de EA do Azure. O administrador inicial do EA do Azure foi criado quando o contrato de EA foi configurado. No entanto, você pode adicionar ou remover novos administradores a qualquer momento. Novos administradores são adicionados somente por administradores existentes. Para obter mais informações sobre como adicionar outros admins corporativos, confira [Criar outro admin corporativo](ea-portal-administration.md#create-another-enterprise-administrator). Para saber mais sobre funções e tarefas do perfil de cobrança, confira [Funções e tarefas do perfil de cobrança](understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ## <a name="update-account-owner-state-from-pending-to-active"></a>Atualizar estado do proprietário da conta de pendente para ativo
 
@@ -79,7 +162,7 @@ Quando novos AOs (proprietários de conta) são adicionados a um registro de EA 
 
 Depois que um administrador de EA cria um departamento, o administrador corporativo do Azure pode adicionar administradores de departamento e associar cada um deles a um departamento. Um administrador de departamento pode criar novas contas. Novas contas são necessárias para que as assinaturas de EA do Azure sejam criadas.
 
-Para obter mais informações sobre como adicionar um administrador de departamento, confira [Criar um administrador de departamento do Azure EA](ea-portal-get-started.md#add-a-department-administrator).
+Para obter mais informações sobre como adicionar um administrador de departamento, confira [Criar um administrador de departamento do Azure EA](ea-portal-administration.md#add-a-department-administrator).
 
 ## <a name="usage-and-costs-access-by-role"></a>Acesso de uso e os custos por função
 
@@ -114,12 +197,12 @@ A tabela a seguir mostra o relacionamento entre as funções de administração 
 |Proprietário da conta ou administrador de departamento|✘ Desabilitado |none|Não há preços|
 |Nenhum|Não aplicável |Proprietário|Preço de varejo|
 
-Você define a função de administrador da empresa e exibe as políticas de cobranças no portal da empresa. A função do Azure pode ser atualizada no portal do Azure. Para obter mais informações, confira [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
+Você define a função de administrador da empresa e exibe as políticas de cobranças no portal da empresa. A função do Azure pode ser atualizada no portal do Azure. Para obter mais informações, confira [gerenciar o acesso usando o portal do Azure e o RBAC](../../role-based-access-control/role-assignments-portal.md).
 
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Gerenciar o acesso a informações de faturamento do Azure](manage-billing-access.md)
-- [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md)
+- [Gerenciar acesso usando o RBAC e o Portal do Azure](../../role-based-access-control/role-assignments-portal.md)
 - [Funções internas do Azure](../../role-based-access-control/built-in-roles.md)

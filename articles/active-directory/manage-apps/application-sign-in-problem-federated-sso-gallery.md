@@ -3,7 +3,7 @@ title: Problemas ao entrar em aplicativos configurados para logon único baseado
 description: Diretrizes para os erros específicos ao entrar em um aplicativo que você configurou para logon único federado baseado em SAML com o Azure Active Directory
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,32 +11,34 @@ ms.topic: troubleshooting
 ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
-ms.custom: contperfq2
-ms.openlocfilehash: ec39a6d106973808e26b7c06dce8b3054af490ff
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: d5a90909345599b2389d1752e00a7bc917d06822
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427374"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430404"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problemas ao entrar em aplicativos configurados para logon único baseado em SAML
 Para solucionar os problemas de entrada abaixo, recomendamos o seguinte para diagnosticar melhor e automatizar as etapas de resolução:
 
-- Instale a [extensão do navegador seguro meus aplicativos](access-panel-extension-problem-installing.md) para ajudar a Azure Active Directory (Azure AD) a fornecer melhor diagnóstico e resoluções ao usar a experiência de teste no portal do Azure.
-- Reproduza o erro usando a experiência de teste na página de configuração do aplicativo no portal do Azure. Saiba mais em [depurar aplicativos de logon único baseados em SAML](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+- Instale a [extensão do navegador My Apps Secure](my-apps-deployment-plan.md) para ajudar o Azure Active Directory (AAD) a fornecer melhores diagnósticos e resoluções ao usar a experiência de teste no portal do Azure.
+- Reproduza o erro usando a experiência de teste na página de configuração do aplicativo no portal do Azure. Saiba mais em [depurar aplicativos de logon único baseados em SAML](./debug-saml-sso-issues.md)
 
-Se você usar a [experiência de teste](../azuread-dev/howto-v1-debug-saml-sso-issues.md) no portal do Azure com a extensão de navegador seguro meus aplicativos, não precisará seguir as etapas abaixo para abrir a página de configuração de logon único baseada em SAML.
+Se você usar a [experiência de teste](./debug-saml-sso-issues.md) no portal do Azure com a extensão de navegador seguro meus aplicativos, não precisará seguir as etapas abaixo para abrir a página de configuração de logon único baseada em SAML.
 
 Para abrir a página de configuração de logon único baseado em SAML:
 1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global** ou **coadministrador**.
 1.  Abra a **extensão Azure Active Directory** selecionando **todos os serviços** na parte superior do menu de navegação esquerdo principal.
 1.  Digite **"Azure Active Directory"** na caixa de pesquisa de filtro e selecione o item de **Azure Active Directory** .
-1.  Selecione **aplicativos empresariais** no Azure Active Directory menu de navegação à esquerda.
-1.  Selecione **todos os aplicativos** para exibir uma lista de todos os seus aplicativos.
-    Se você não vir o aplicativo que deseja exibir aqui, use o controle de **filtro** na parte superior da **lista todos os aplicativos** e defina a opção **Mostrar** como **todos os aplicativos**.
+1.  Escolha **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+1.  Marque **Todos os aplicativos** para exibir uma lista com todos os seus aplicativos.
+
+    Se você não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos**.
+
 1.  Selecione o aplicativo para o qual você deseja configurar o logon único.
 1. Depois que o aplicativo for carregado, selecione **logon único** no menu de navegação esquerdo do aplicativo.
-1. Selecione SSO baseado em SAML.
+1. Escolha SSO baseado em SAML.
 
 ## <a name="application-not-found-in-directory"></a>Aplicativo não encontrado no diretório
 `Error AADSTS70001: Application with Identifier 'https:\//contoso.com' was not found in the directory.`
@@ -52,7 +54,7 @@ Verifique se o `Issuer` atributo na solicitação SAML corresponde ao valor do i
 Na página configuração do SSO baseado em SAML, na seção **configuração básica do SAML** , verifique se o valor na caixa de texto identificador corresponde ao valor do valor do identificador exibido no erro.
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>O endereço de resposta não corresponde aos endereços de resposta configurados para o aplicativo
-`Error AADSTS50011: The reply address 'https:\//contoso.com' does not match the reply addresses configured for the application.`
+`Error AADSTS50011: The reply URL specified in the request does not match the reply URLs configured for the application: '{application identifier}'.`
 
 **Causa possível**
 
@@ -63,7 +65,7 @@ O `AssertionConsumerServiceURL` valor na solicitação SAML não corresponde ao 
 Verifique se o `AssertionConsumerServiceURL` valor na solicitação SAML corresponde ao valor da URL de resposta configurado no Azure AD. 
 
 Verifique ou atualize o valor na caixa de texto URL de resposta para corresponder ao `AssertionConsumerServiceURL` valor na solicitação SAML.   
-    
+
 Depois de atualizar o valor da URL de resposta no Azure AD, e ele corresponder ao valor enviado pelo aplicativo na solicitação SAML, você deverá ser capaz de entrar no aplicativo.
 
 ## <a name="user-not-assigned-a-role"></a>Usuário não atribuído a uma função
@@ -88,7 +90,7 @@ O Azure Active Directory não oferece suporte para a solicitação SAML enviada 
 
 **Resolução**
 
-1. Capture a solicitação SAML. Siga o tutorial [como depurar o logon único baseado em SAML para aplicativos no Azure ad](../azuread-dev/howto-v1-debug-saml-sso-issues.md) para saber como capturar a solicitação SAML.
+1. Capture a solicitação SAML. Siga o tutorial [como depurar o logon único baseado em SAML para aplicativos no Azure ad](./debug-saml-sso-issues.md) para saber como capturar a solicitação SAML.
 1. Entre em contato com o fornecedor do aplicativo e compartilhe as seguintes informações:
     - Solicitação SAML
     - [Requisitos de protocolo SAML de logon único do Azure AD](../develop/single-sign-on-saml-protocol.md)
@@ -147,6 +149,23 @@ Exclua as URLs de resposta não utilizadas configuradas para o aplicativo.
 
 Na página configuração do SSO baseado em SAML, na seção **URL de resposta (URL do serviço do consumidor de asserção)** , exclua as URLs de resposta não usadas ou padrão criadas pelo sistema. Por exemplo, `https://127.0.0.1:444/applications/default.aspx`.
 
+
+## <a name="authentication-method-by-which-the-user-authenticated-with-the-service-doesnt-match-requested-authentication-method"></a>Método de autenticação pelo qual o usuário autenticado com o serviço não corresponde ao método de autenticação solicitado
+`Error: AADSTS75011 Authentication method by which the user authenticated with the service doesn't match requested authentication method 'AuthnContextClassRef'. `
+
+**Causa possível**
+
+O `RequestedAuthnContext` está na solicitação SAML. Isso significa que o aplicativo está esperando o `AuthnContext` especificado pelo `AuthnContextClassRef` . No entanto, o usuário já foi autenticado antes de acessar o aplicativo e o `AuthnContext` (método de autenticação) usado para a autenticação anterior é diferente daquele que está sendo solicitado. Por exemplo, ocorreu um acesso de usuário federado a myapps e WIA. O `AuthnContextClassRef` será `urn:federation:authentication:windows` . O AAD não executará uma nova solicitação de autenticação, ele usará o contexto de autenticação que foi passado por ele pelo IdP (ADFS ou qualquer outro serviço de Federação, neste caso). Portanto, haverá uma incompatibilidade se o aplicativo solicitar outros `urn:federation:authentication:windows` . Outro cenário é quando multifator foi usado: `'X509, MultiFactor` .
+
+**Resolução**
+
+
+`RequestedAuthnContext` é um valor opcional. Em seguida, se possível, pergunte ao aplicativo se ele pode ser removido.
+
+Outra opção é verificar se o `RequestedAuthnContext` será respeitado. Isso será feito solicitando uma nova autenticação. Ao fazer isso, quando a solicitação SAML é processada, uma nova autenticação será feita e o `AuthnContext` será cumprido. Para solicitar uma nova autenticação, a solicitação SAML mais contém o valor `forceAuthn="true"` . 
+
+
+
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problema ao personalizar as declarações SAML enviadas para um aplicativo
 Para saber como personalizar as declarações de atributo SAML enviadas ao seu aplicativo, consulte [mapeamento de declarações em Azure Active Directory](../develop/active-directory-claims-mapping.md).
 
@@ -157,5 +176,5 @@ Compare o recurso que você está solicitando acesso no código com as permissõ
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Série de Início Rápido no Gerenciamento de Aplicativos](add-application-portal-assign-users.md)
-- [Como depurar o logon único baseado em SAML em aplicativos no do Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
-- [Requisitos de protocolo SAML de logon único do Azure AD](../develop/active-directory-single-sign-on-protocol-reference.md)
+- [Como depurar o logon único baseado em SAML em aplicativos no do Azure AD](./debug-saml-sso-issues.md)
+- [Requisitos de protocolo SAML de logon único do Azure AD](../develop/single-sign-on-saml-protocol.md)

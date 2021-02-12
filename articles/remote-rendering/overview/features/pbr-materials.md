@@ -5,18 +5,18 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 76e7b3d0b0dd514feb7d16a6bc23d1b908be683f
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: e9908c106e57801cb1b7def8b3353a983cc97de0
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207199"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99591932"
 ---
 # <a name="pbr-materials"></a>Materiais de PBR
 
 Os *materiais de PBR* são um dos [tipos de material](../../concepts/materials.md) com suporte na renderização remota do Azure. Eles são usados para [malhas](../../concepts/meshes.md) que devem receber iluminação realista.
 
-PBR significa **P**hysically **B**ased **R**endering e significa que o material descreve as propriedades visuais de uma superfície de uma maneira realmente plausível, de modo que os resultados realistas sejam possíveis em todas as condições de iluminação. A maioria dos mecanismos de jogo e ferramentas de criação de conteúdo modernos dão suporte aos materiais do PBR porque eles são considerados a melhor aproximação de cenários do mundo real para renderização em tempo real.
+PBR significa **P** hysically **B** ased **R** endering e significa que o material descreve as propriedades visuais de uma superfície de uma maneira realmente plausível, de modo que os resultados realistas sejam possíveis em todas as condições de iluminação. A maioria dos mecanismos de jogo e ferramentas de criação de conteúdo modernos dão suporte aos materiais do PBR porque eles são considerados a melhor aproximação de cenários do mundo real para renderização em tempo real.
 
 ![Modelo de exemplo de capacete glTF renderizado por ARR](media/helmet.png)
 
@@ -26,7 +26,7 @@ No entanto, os materiais de PBR não são uma solução universal. Há materiais
 
 Essas propriedades são comuns a todos os materiais:
 
-* **albedoColor:** Essa cor é multiplicada por outras cores, como *albedoMap* ou * :::no-loc text="vertex "::: cores*. Se a *transparência* estiver habilitada em um material, o canal alfa será usado para ajustar a opacidade, com `1` significado totalmente opaco e `0` significado totalmente transparente. O padrão é branco.
+* **albedoColor:** Essa cor é multiplicada por outras cores, como *albedoMap* ou *:::no-loc text="vertex "::: cores*. Se a *transparência* estiver habilitada em um material, o canal alfa será usado para ajustar a opacidade, com `1` significado totalmente opaco e `0` significado totalmente transparente. O padrão é branco.
 
   > [!NOTE]
   > Quando um material de PBR é totalmente transparente, como um pedaço de vidro perfeitamente limpo, ele ainda reflete o ambiente. Pontos brilhantes, como o sol, ainda estão visíveis na reflexão. Isso é diferente para [materiais de cores](color-materials.md).
@@ -43,9 +43,15 @@ Essas propriedades são comuns a todos os materiais:
 
 * **TransparencyWritesDepth:** Se o sinalizador TransparencyWritesDepth estiver definido no material e o material for transparente, os objetos que usam esse material também contribuirão para o buffer de profundidade final. Consulte o sinalizador de material do PBR *transparente* na próxima seção. Habilitar esse recurso é recomendado se o caso de uso precisar de uma [Reprojeção de estágio tardia](late-stage-reprojection.md) mais plausível de cenas totalmente transparentes. Para cenas mistas/transparentes misturadas, essa configuração pode introduzir comportamento de Reprojeção inplausível ou artefatos de Reprojeção. Por esse motivo, a configuração padrão e recomendada para o caso de uso geral é desabilitar esse sinalizador. Os valores de profundidade gravados são obtidos da camada de profundidade por pixel do objeto mais próximo da câmera.
 
+* **FresnelEffect:** Esse sinalizador de material habilita o [efeito Fresnel](../../overview/features/fresnel-effect.md) aditivo no respectivo material. A aparência do efeito é regida pelos outros parâmetros de Fresnel explicados a seguir. 
+
+* **FresnelEffectColor:** A cor Fresnel usada para este material. Somente importante quando o bit de efeito Fresnel tiver sido definido neste material (veja acima). Essa propriedade controla a cor base do brilho Fresnel (consulte [Fresnel Effect](../../overview/features/fresnel-effect.md) para obter uma explicação completa). No momento, apenas os valores de canal RGB são importantes e o valor alfa será ignorado.
+
+* **FresnelEffectExponent:** O expoente Fresnel usado para este material. Somente importante quando o bit de efeito Fresnel tiver sido definido neste material (veja acima). Essa propriedade controla a disseminação do Fresnel brilhar. O valor mínimo 0, 1 causa uma propagação em todo o objeto. O valor máximo 10,0 restringe o brilho para apenas as bordas mais gracing visíveis.
+
 ## <a name="pbr-material-properties"></a>Propriedades do material PBR
 
-A ideia principal da renderização com base fisicamente é usar as propriedades *BaseColor*, *metal*e *de propriedade* para emular uma ampla gama de materiais do mundo real. Uma descrição detalhada do PBR está além do escopo deste artigo. Para obter mais informações sobre o PBR, consulte [outras fontes](http://www.pbr-book.org). As propriedades a seguir são específicas para os materiais do PBR:
+A ideia principal da renderização com base fisicamente é usar as propriedades *BaseColor*, *metal* e *de propriedade* para emular uma ampla gama de materiais do mundo real. Uma descrição detalhada do PBR está além do escopo deste artigo. Para obter mais informações sobre o PBR, consulte [outras fontes](http://www.pbr-book.org). As propriedades a seguir são específicas para os materiais do PBR:
 
 * **baseColor:** Em materiais de PBR, a *cor albedo* é conhecida como a *cor base*. Na renderização remota do Azure, a propriedade de *cor albedo* já está presente nas propriedades de material comuns, portanto, não há nenhuma propriedade de cor de base adicional.
 
@@ -86,9 +92,9 @@ Nem sempre é possível converter de glossários de *especulação* para a *irre
 ## <a name="api-documentation"></a>Documentação da API
 
 * [Classe C# PbrMaterial](/dotnet/api/microsoft.azure.remoterendering.pbrmaterial)
-* [C# remotamente. creatematerial ()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
+* [C# RenderingConnection. creatematerial ()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.creatematerial)
 * [Classe C++ PbrMaterial](/cpp/api/remote-rendering/pbrmaterial)
-* [C++ Remotemanager:: creatematerial ()](/cpp/api/remote-rendering/remotemanager#creatematerial)
+* [C++ RenderingConnection:: creatematerial ()](/cpp/api/remote-rendering/renderingconnection#creatematerial)
 
 ## <a name="next-steps"></a>Próximas etapas
 

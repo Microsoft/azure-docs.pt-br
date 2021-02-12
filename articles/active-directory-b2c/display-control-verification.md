@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e42c889277f937a33e72eaf57819385166d6a409
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd90be6d93dc5ca399ac87daba0ca44fa7e88ff8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85202307"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532487"
 ---
 # <a name="verification-display-control"></a>Controle de exibição de verificação
 
@@ -30,11 +30,9 @@ O controle de exibição de verificação consiste em duas etapas (ações):
 
     ![Página de exemplo para enviar ação de código](media/display-control-verification/display-control-verification-email-action-01.png)
 
-1. Depois que o código tiver sido enviado, o usuário lê a mensagem, insere o código de verificação no controle fornecido pelo controle de exibição e seleciona **verificar código**. Ao selecionar **verificar código**, a **ação VerifyCode** é executada para verificar o código associado ao endereço. Se o usuário selecionar **Enviar novo código**, a primeira ação será executada novamente.
+1. Depois que o código tiver sido enviado, o usuário lê a mensagem, insere o código de verificação no controle fornecido pelo controle de exibição e seleciona **verificar código**. Ao selecionar **verificar código** , a **ação VerifyCode** é executada para verificar o código associado ao endereço. Se o usuário selecionar **Enviar novo código** , a primeira ação será executada novamente.
 
     ![Página de exemplo para verificar a ação de código](media/display-control-verification/display-control-verification-email-action-02.png)
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="verificationcontrol-required-elements"></a>Elementos necessários do VerificationControl
 
@@ -49,7 +47,7 @@ O **VerificationControl** deve conter os seguintes elementos:
   - **SendCode** – envia um código para o usuário. Essa ação geralmente contém dois perfis técnicos de validação, para gerar um código e enviá-lo.
   - **VerifyCode** -verifica o código. Essa ação geralmente contém um único perfil técnico de validação.
 
-No exemplo a seguir, uma caixa de texto de **email** é exibida na página. Quando o usuário insere seu endereço de email e seleciona **SendCode**, a ação **SendCode** é disparada no back-end Azure ad B2C.
+No exemplo a seguir, uma caixa de texto de **email** é exibida na página. Quando o usuário insere seu endereço de email e seleciona **SendCode** , a ação **SendCode** é disparada no back-end Azure ad B2C.
 
 Em seguida, o usuário insere o **verificationCode** e seleciona **VerifyCode** para disparar a ação **VerifyCode** no back-end. Se todas as validações forem aprovadas, o **VerificationControl** será considerado concluído e o usuário poderá continuar para a próxima etapa.
 

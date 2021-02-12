@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/19/2019
 ms.author: zhchia
-ms.openlocfilehash: bf75c4fe2053483b94c5f645816422909645854a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 07c476c0de644ac63c577d466f4691b5cf415334
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285895"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357922"
 ---
 # <a name="tutorial-configure-starleaf-for-automatic-user-provisioning"></a>Tutorial: configurar o StarLeaf para o provisionamento automático de usuário
 
@@ -36,7 +36,7 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes pr�
 * Uma conta de usuário no StarLeaf com permissões de administrador.
 
 ## <a name="assign-users-to-starleaf"></a>Atribuir usuários ao StarLeaf
-O Azure Active Directory usa um conceito chamado atribuições para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
+Azure Active Directory usa um conceito chamado atribuições para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
 
 Antes de configurar e habilitar o provisionamento automático de usuário, você deve decidir quais usuários e grupos no Azure AD precisam de acesso ao StarLeaf. Em seguida, você pode atribuir os usuários e grupos ao StarLeaf seguindo [estas instruções](../manage-apps/assign-user-or-group-access-portal.md).
 
@@ -68,11 +68,11 @@ Para configurar o StarLeaf para o provisionamento automático de usuário com o 
 
 **Para adicionar o StarLeaf da Galeria de aplicativos do Azure AD, execute as seguintes etapas:**
 
-1. No **[portal do Azure](https://portal.azure.com)**, no painel de navegação à esquerda, selecione **Azure Active Directory**.
+1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação à esquerda, selecione **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os aplicativos**.
+2. Vá para **Aplicativos da empresa** , em seguida, selecione **Todos os aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -80,7 +80,7 @@ Para configurar o StarLeaf para o provisionamento automático de usuário com o 
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **StarLeaf**, selecione **StarLeaf** no painel de resultados.
+4. Na caixa de pesquisa, digite **StarLeaf** , selecione **StarLeaf** no painel de resultados.
     ![StarLeaf na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-automatic-user-provisioning-to-starleaf"></a>Configurar o provisionamento automático de usuário para o StarLeaf
@@ -111,7 +111,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Salvar**.
+7. Clique em **Save** (Salvar).
 
 8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para StarLeaf**.
 

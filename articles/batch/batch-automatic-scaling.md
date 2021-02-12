@@ -2,14 +2,14 @@
 title: Dimensionar automaticamente nós de computação em um pool do Lote do Azure
 description: Habilite o dimensionamento automático em um pool de nuvem para ajustar dinamicamente o número de nós de computação no pool.
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 11/23/2020
 ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 5774acbfc035ab61267dddb31b01b0e82689f690
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 033272f22b98b27c67e9a551bce952368d35a043
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849785"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95737285"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Criar uma fórmula de dimensionamento automático de nós de computação em um pool do Lote
 
@@ -135,6 +135,9 @@ Você pode obter o valor dessas variáveis definidas pelo serviço para fazer aj
 > [!TIP]
 > Essas variáveis definidas pelo serviço somente leitura são *objetos* que fornecem vários métodos para acessar os dados associados a cada um. Para obter mais informações, consulte [Obter amostras de dados](#obtain-sample-data) a seguir neste artigo.
 
+> [!NOTE]
+> Use `$RunningTasks` ao dimensionar com base no número de tarefas em execução em um ponto no tempo e `$ActiveTasks` ao dimensionar com base no número de tarefas que estão na fila para serem executadas.
+
 ## <a name="types"></a>Tipos
 
 As fórmulas de dimensionamento automático dão suporte aos seguintes tipos:
@@ -226,7 +229,7 @@ Você pode usar as métricas do recurso e da tarefa quando estiver definindo uma
 
 <table>
   <tr>
-    <th>Métrica</th>
+    <th>Metric</th>
     <th>Descrição</th>
   </tr>
   <tr>
@@ -381,7 +384,7 @@ $NodeDeallocationOption = taskcompletion;
 ```
 
 > [!NOTE]
-> Se você optar por, poderá incluir comentários e quebras de linha em cadeias de caracteres de fórmula.
+> Se você optar por, poderá incluir comentários e quebras de linha em cadeias de caracteres de fórmula. Lembre-se também de que o ponto-e-vírgula ausente pode resultar em erros de avaliação.
 
 ## <a name="automatic-scaling-interval"></a>Intervalo de dimensionamento automático
 

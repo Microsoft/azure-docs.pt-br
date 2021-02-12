@@ -4,16 +4,16 @@ description: Criar um aplicativo de funções e implantar o código de função 
 ms.date: 07/03/2018
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 7f7c272fa95d2697d41cb751e39ef72b0da86a12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 219e993ad7132c90de6db680facc9b8f815947cc
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87498507"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934374"
 ---
 # <a name="create-a-function-app-in-azure-that-is-deployed-from-github"></a>Criar um aplicativo de funções no Azure que é implantado no GitHub
 
-Este script de exemplo do Azure Functions cria um aplicativo de funções usando o [Plano de consumo](../functions-scale.md#consumption-plan), junto com seus recursos relacionados. O script também configura o código de função para implantação contínua de um repositório do GitHub. 
+Este script de exemplo do Azure Functions cria um aplicativo de funções usando o [Plano de consumo](../consumption-plan.md), junto com seus recursos relacionados. O script também configura o código de função para implantação contínua de um repositório do GitHub. 
 
 Neste exemplo, você precisa de:
 
@@ -22,9 +22,9 @@ Neste exemplo, você precisa de:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se você preferir usar a CLI do Azure localmente, será necessário usar a versão 2.0 ou uma versão posterior. Para determinar a versão da CLI do Azure, execute `az --version`. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
+ - Este tutorial exige a versão 2.0 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada. 
 
 ## <a name="sample-script"></a>Exemplo de script
 
@@ -42,7 +42,7 @@ Cada comando da tabela é vinculado à documentação específica do comando. Es
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Cria a conta de armazenamento necessária para o aplicativo de funções. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Cria um aplicativo de funções sem servidor [Plano de consumo](../functions-scale.md#consumption-plan) e a associa a um repositório Git ou Mercurial. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Cria um aplicativo de funções sem servidor [Plano de consumo](../consumption-plan.md) e a associa a um repositório Git ou Mercurial. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

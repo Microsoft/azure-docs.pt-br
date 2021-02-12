@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 7a0d3c60841cb12f2999a929eb4af351716abda7
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 81d82bccd6b6bd97b84df5269dd59ffac4903370
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635772"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980347"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory rede virtual gerenciada (versão prévia)
 
@@ -51,7 +51,7 @@ Pontos de extremidade privados gerenciados são pontos de extremidade privados c
 
 ![Novo ponto de extremidade privado gerenciado](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
-Azure Data Factory dá suporte a links privados. O link privado permite que você acesse os serviços do Azure (PaaS) (como o armazenamento do Azure, Azure Cosmos DB, Azure Synapse Analytics (anteriormente chamado de SQL Data Warehouse do Azure)).
+Azure Data Factory dá suporte a links privados. O link privado permite que você acesse os serviços do Azure (PaaS) (como o armazenamento do Azure, Azure Cosmos DB, Azure Synapse Analytics (anteriormente SQL Data Warehouse)).
 
 Quando você usa um link privado, o tráfego entre os armazenamentos de dados e a rede virtual gerenciada atravessa totalmente a rede de backbone da Microsoft. O Link Privado protege contra riscos de exfiltração dos dados. Você estabelece um link privado para um recurso criando um ponto de extremidade privado.
 
@@ -73,6 +73,11 @@ Se o proprietário aprova a conexão, o link privado é estabelecido. Caso contr
 
 Somente um Ponto de extremidade privado gerenciado em um estado aprovado pode enviar tráfego para um determinado recurso de link privado.
 
+## <a name="interactive-authoring"></a>Criação interativa
+Os recursos de criação interativa são usados para funcionalidades como conexão de teste, procurar lista de pastas e lista de tabelas, obter esquema e Visualizar dados. Você pode habilitar a criação interativa ao criar ou editar um Azure Integration Runtime que está na rede virtual gerenciada pelo ADF. O serviço de back-end irá pré-configurar a computação para funcionalidades de criação interativa. Caso contrário, a computação será alocada toda vez que qualquer operação interativa for executada, o que levará mais tempo. O TTL (vida útil) para a criação interativa é de 60 minutos, o que significa que ele será desabilitado automaticamente após 60 minutos da última operação de criação interativa.
+
+![Criação interativa](./media/managed-vnet/interactive-authoring.png)
+
 ## <a name="limitations-and-known-issues"></a>Limitações e problemas conhecidos
 ### <a name="supported-data-sources"></a>Fontes de dados com suporte
 As fontes de dados a seguir têm suporte para se conectar por meio do link privado da rede virtual gerenciada do ADF.
@@ -81,7 +86,7 @@ As fontes de dados a seguir têm suporte para se conectar por meio do link priva
 - Arquivos do Azure
 - Azure Data Lake Gen2
 - Banco de dados SQL do Azure (sem incluir o Azure SQL Instância Gerenciada)
-- Azure Synapse Analytics (antigo SQL Data Warehouse do Azure)
+- Azure Synapse Analytics (antigo SQL Data Warehouse)
 - SQL CosmosDB do Azure
 - Cofre de Chave do Azure
 - Serviço de vínculo privado do Azure

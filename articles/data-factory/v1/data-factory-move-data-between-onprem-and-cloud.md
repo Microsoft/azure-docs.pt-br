@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 7f07f08cd320d94495403b0f5ae65d60d8dc93b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84195988"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019677"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Mover dados entre fontes locais e a nuvem com o Gateway de Gerenciamento de Dados
 > [!NOTE]
@@ -277,7 +277,7 @@ Nesta etapa, você cria conjuntos de dados de entrada e saída que representam d
    * **type** é definido como **AzureBlob**.
    * O **linkedServiceName** é definido como **AzureStorageLinkedService** (você criou esse serviço vinculado na Etapa 2).
    * **folderPath** é definido como **adftutorial/outfromonpremdf**, em que outfromonpremdf é a pasta no contêiner adftutorial. Crie o contêiner **adftutorial** se ele ainda não existir.
-   * A **disponibilidade** é definida como por **hora** (a**frequência** é definida como **hora** e o **intervalo** definido como **1**).  O serviço Data Factory gera uma fatia de dados de saída a cada hora na tabela **emp** no banco de dados SQL do Azure.
+   * A **disponibilidade** é definida como por **hora** (a **frequência** é definida como **hora** e o **intervalo** definido como **1**).  O serviço Data Factory gera uma fatia de dados de saída a cada hora na tabela **emp** no banco de dados SQL do Azure.
 
    Se você não especificar um **nome de arquivo** para uma **tabela de saída**, os arquivos gerados no **FolderPath** serão nomeados no seguinte formato: `Data.<Guid>.txt` (por exemplo:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
@@ -302,7 +302,7 @@ Nesta etapa, você cria conjuntos de dados de entrada e saída que representam d
 ## <a name="create-pipeline"></a>Criar um pipeline
 Nesta etapa, você criará um **pipeline** com uma **Atividade de Cópia** que usa **EmpOnPremSQLTable** como entrada e **OutputBlobTable** como saída.
 
-1. No editor de Data Factory, clique em **... Mais**e clique em **novo pipeline**.
+1. No editor de Data Factory, clique em **... Mais** e clique em **novo pipeline**.
 2. Substitua o JSON no painel direito pelo texto a seguir:    
 
     ```JSON   

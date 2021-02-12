@@ -3,18 +3,18 @@ title: Anexar ou desanexar uma galeria de imagens compartilhadas no Azure Lab Se
 description: Este artigo descreve como anexar uma galeria de imagens compartilhadas a um laboratório de sala de aula no Azure Lab Services.
 ms.topic: article
 ms.date: 09/11/2020
-ms.openlocfilehash: 08d2a97138633a43e9acd69575c4b44e245d4faa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99b944ad85e311cd66b0a1cec4e585de37f83500
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056465"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786394"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Anexar ou desanexar uma galeria de imagens compartilhadas no Azure Lab Services
 Este artigo mostra como anexar uma galeria de imagens compartilhadas a uma conta de laboratório ou desanexá-la dessa conta. 
 
 > [!NOTE]
-> Quando você [salva uma imagem de modelo de um laboratório](how-to-use-shared-image-gallery.md#save-an-image-to-the-shared-image-gallery) no Azure Lab Services em uma galeria de imagens compartilhada, a imagem é carregada na galeria como uma imagem especializada. [Imagens especializadas](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#generalized-and-specialized-images) mantêm informações específicas do computador e perfis de usuário. Você ainda pode carregar diretamente uma imagem generalizada para a Galeria fora do Azure Lab Services. 
+> Quando você [salva uma imagem de modelo de um laboratório](how-to-use-shared-image-gallery.md#save-an-image-to-the-shared-image-gallery) no Azure Lab Services em uma galeria de imagens compartilhada, a imagem é carregada na galeria como uma imagem especializada. [Imagens especializadas](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) mantêm informações específicas do computador e perfis de usuário. Você ainda pode carregar diretamente uma imagem generalizada para a Galeria fora do Azure Lab Services. 
 >
 > Um criador de laboratório pode criar uma VM de modelo baseada em imagens generalizadas e especializadas em Azure Lab Services. 
 
@@ -24,7 +24,7 @@ Aqui estão alguns dos cenários aos quais esse recurso dá suporte:
 - Um administrador de conta de laboratório anexa uma galeria de imagens compartilhadas à conta de laboratório e carrega uma imagem para a galeria de imagens compartilhadas fora do contexto de um laboratório. Em seguida, os criadores de laboratório podem usar essa imagem da galeria de imagens compartilhadas para criar laboratórios. 
 - Um administrador de conta de laboratório anexa uma galeria de imagens compartilhadas à conta de laboratório. Um criador de laboratório (instrutor) salva a imagem personalizada do laboratório na galeria de imagens compartilhadas. Em seguida, outros criadores de laboratório podem selecionar essa imagem na galeria de imagens compartilhadas para criar um modelo para os laboratórios deles. 
 
-    Quando uma imagem é salva em uma galeria de imagens compartilhadas, o Azure Lab Services replica a imagem salva em outras regiões disponíveis na mesma [geografia](https://azure.microsoft.com/global-infrastructure/geographies/). Isso verifica se a imagem está disponível para laboratórios criados em outras regiões na mesma geografia. Salvar imagens em uma galeria de imagens compartilhadas gera um custo adicional, que inclui o custo de todas as imagens replicadas. Esse custo é separado do custo de uso do Azure Lab Services. Para obter mais informações sobre o preço da Galeria de Imagens Compartilhadas, confira [Galeria de Imagens Compartilhadas – cobrança](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#billing).
+    Quando uma imagem é salva em uma galeria de imagens compartilhadas, o Azure Lab Services replica a imagem salva em outras regiões disponíveis na mesma [geografia](https://azure.microsoft.com/global-infrastructure/geographies/). Isso verifica se a imagem está disponível para laboratórios criados em outras regiões na mesma geografia. Salvar imagens em uma galeria de imagens compartilhadas gera um custo adicional, que inclui o custo de todas as imagens replicadas. Esse custo é separado do custo de uso do Azure Lab Services. Para obter mais informações sobre o preço da Galeria de Imagens Compartilhadas, confira [Galeria de Imagens Compartilhadas – cobrança](../virtual-machines/shared-image-galleries.md#billing).
 
 > [!IMPORTANT]
 > Ao usar uma galeria de imagens compartilhadas, o Azure Lab Services dá suporte apenas a imagens com menos de 128 GB de espaço em disco do sistema operacional. Imagens com mais de 128 GB de espaço em disco ou vários discos não serão mostradas na lista de imagens de máquina virtual durante a criação do laboratório.
@@ -89,4 +89,4 @@ Apenas uma galeria de imagens compartilhadas pode ser anexada a um laboratório.
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre como salvar uma imagem de laboratório na galeria de imagens compartilhadas ou usar uma imagem da galeria de imagens compartilhadas para criar uma VM, confira [Como usar a galeria de imagens compartilhadas](how-to-use-shared-image-gallery.md).
 
-Para obter mais informações sobre galerias de imagens compartilhadas em geral, confira [galeria de imagens compartilhadas](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries).
+Para obter mais informações sobre galerias de imagens compartilhadas em geral, confira [galeria de imagens compartilhadas](../virtual-machines/shared-image-galleries.md).

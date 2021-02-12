@@ -5,23 +5,24 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: include
-ms.date: 09/12/2019
+ms.date: 12/16/2020
 ms.author: jonels
 ms.custom: include file
-ms.openlocfilehash: e7a6f7b4ba4219483cd3eb8f4600bc94213df131
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26289f6bdfa086708548d17125a6dfdf50b02a8f
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74973400"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97665140"
 ---
+## <a name="create-a-hyperscale-citus-server-group"></a>Criar um grupo de servidores Hyperscale (Citus)
+
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
+### <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
 Entre no [portal do Azure](https://portal.azure.com).
 
-## <a name="create-an-azure-database-for-postgresql---hyperscale-citus"></a>Criar um Banco de Dados do Azure para PostgreSQL – Hiperescala (Citus)
 
 Siga estas etapas para criar um Banco de Dados do Azure para o servidor PostgreSQL:
 1. Clique em **Criar um recurso** no canto superior esquerdo do portal do Azure.
@@ -53,7 +54,7 @@ Siga estas etapas para criar um Banco de Dados do Azure para o servidor PostgreS
 10. A página será redirecionada para monitorar a implantação. Quando o status em tempo real mudar de **Sua implantação está em andamento** para **Sua implantação está concluída**, clique no item de menu **Saídas** no lado esquerdo da página.
 11. A página de saídas conterá um nome do host do coordenador com um botão ao lado dele para copiar o valor para a área de transferência. Registre essas informações para uso posterior.
 
-## <a name="connect-to-the-database-using-psql"></a>Conectar-se ao banco de dados usando psql
+### <a name="connect-to-the-database-using-psql"></a>Conectar-se ao banco de dados usando psql
 
 Ao criar o servidor do Banco de Dados do Azure para PostgreSQL, um banco de dados padrão chamado **citus** é criado. Para se conectar ao seu servidor de banco de dados, é necessário uma cadeia de conexão e a senha de administrador.
 

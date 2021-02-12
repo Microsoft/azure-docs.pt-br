@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/26/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: a08756a1e3153aa69bd0e79dc23e88d4bf211e5d
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: bad4bc4d0016b2898b315bfb9799dc8972be7b12
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950679"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785863"
 ---
 # <a name="tutorial-add-paging-to-search-results-using-the-net-sdk"></a>Tutorial: Adicionar paginação aos resultados da pesquisa usando o SDK do .NET
 

@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 10/14/2020
-ms.openlocfilehash: 1b3804029a4174698ed1e4e4f8d75fbed4fba981
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.date: 01/23/2021
+ms.openlocfilehash: 57867cc4fb539b07fc1e4117f6e956078c41e2c6
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102805"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746689"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Início Rápido: Criar um serviço da Pesquisa Cognitiva do Azure no portal
 
-O Azure Cognitive Search é um recurso autônomo usado para conectar uma experiência de pesquisa a aplicativos personalizados. O Cognitive Search integra-se com facilidade a outros serviços do Azure, a aplicativos em servidores de rede ou ao software em execução em outras plataformas de nuvem.
+O [Azure Cognitive Search](search-what-is-azure-search.md) é um recurso do Azure usado para adicionar uma experiência de pesquisa de texto completo a aplicativos personalizados. Você pode integrá-lo a outros serviços do Azure que fornecem dados ou processamento adicional, a aplicativos em servidores de rede ou a software em execução em outras plataformas de nuvem.
 
-Neste artigo, saiba como criar um recurso no [portal do Azure](https://portal.azure.com/).
+Neste artigo, saiba como criar um serviço de pesquisa no [portal do Azure](https://portal.azure.com/).
 
 [![GIF animado](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
@@ -30,8 +30,8 @@ Prefere o PowerShell? Use o [modelo de serviço](https://azure.microsoft.com/res
 As propriedades de serviço a seguir são corrigidas durante o tempo de vida do serviço; a alteração de cada uma delas exige um novo serviço. Como elas são corrigidas, considere as implicações de uso conforme você preenche cada propriedade:
 
 * o nome do serviço passa a fazer parte do ponto de extremidade da URL ([examine as dicas](#name-the-service) para obter nomes de serviço úteis).
-* A camada de serviço [afeta a cobrança](search-sku-tier.md) e define um limite ascendente da capacidade. Alguns recursos não estão disponíveis na Camada gratuita.
-* A região do serviço pode determinar a disponibilidade de alguns cenários. Caso precise de [recursos de alta segurança](search-security-overview.md) ou de [enriquecimento de IA](cognitive-search-concept-intro.md), coloque o Azure Cognitive Search na mesma região de outros serviços ou em regiões que fornecem o recurso em questão. 
+* A [camada de serviço](search-sku-tier.md) afeta a cobrança e define um limite ascendente da capacidade. Alguns recursos não estão disponíveis na Camada gratuita.
+* A região do serviço pode determinar a disponibilidade de alguns cenários. Caso precise de [recursos de alta segurança](search-security-overview.md) ou de [enriquecimento de IA](cognitive-search-concept-intro.md), crie o Azure Cognitive Search na mesma região de outros serviços ou em regiões que fornecem o recurso em questão. 
 
 ## <a name="subscribe-free-or-paid"></a>Assinar (gratuito ou pago)
 
@@ -43,9 +43,9 @@ Alternativamente, você pode [ativar os benefícios de assinante MSDN](https://a
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 
-1. Clique no sinal de adição ("+ Criar Recurso") no canto superior esquerdo.
+1. Clique no sinal de adição ( **"+ Criar Recurso"** ) no canto superior esquerdo.
 
-1. Use a barra de pesquisa para localizar a "Pesquisa Cognitiva do Azure" ou navegue para o recurso por meio de **Web** > **Pesquisa Cognitiva do Azure** .
+1. Use a barra de pesquisa para localizar a "Pesquisa Cognitiva do Azure" ou navegue para o recurso por meio de **Web** > **Pesquisa Cognitiva do Azure**.
 
 :::image type="content" source="media/search-create-service-portal/find-search3.png" alt-text="Criar um recurso no portal" border="false":::
 
@@ -59,18 +59,18 @@ Um grupo de recursos é um contêiner que mantém os recursos relacionados da su
 
 Se você não estiver combinando recursos em um único grupo ou se os grupos de recursos existentes estiverem preenchidos com recursos usados em soluções não relacionadas, crie um grupo de recursos apenas para o recurso da Pesquisa Cognitiva do Azure. 
 
-:::image type="content" source="media/search-create-service-portal/new-resource-group.png" alt-text="Criar um recurso no portal" border="false":::
+:::image type="content" source="media/search-create-service-portal/new-resource-group.png" alt-text="Criar um novo grupo de recursos" border="false":::
 
 Ao longo do tempo, você pode acompanhar os custos atuais e projetados por completo ou ver os preços de recursos individuais. A captura de tela a seguir mostra o tipo de informação de custo que você pode esperar ver ao combinar vários recursos em um grupo.
 
-:::image type="content" source="media/search-create-service-portal/resource-group-cost-management.png" alt-text="Criar um recurso no portal" border="false":::
+:::image type="content" source="media/search-create-service-portal/resource-group-cost-management.png" alt-text="Gerenciar custos no nível do grupo de recursos" border="false":::
 
 > [!TIP]
 > Os grupos de recursos simplificam a limpeza, porque a exclusão de um grupo exclui todos os serviços dentro dele. Para projetos de protótipo utilizando vários serviços, colocar todos eles no mesmo grupo de recursos facilita a limpeza depois da conclusão do projeto.
 
 ## <a name="name-the-service"></a>Dê um nome ao serviço
 
-Em Detalhes da Instância, dê um nome ao serviço no campo **URL** . O nome faz parte do ponto de extremidade da URL na qual as chamadas à API são emitidas: `https://your-service-name.search.windows.net`. Por exemplo, caso deseje que o ponto de extremidade seja `https://myservice.search.windows.net`, insira `myservice`.
+Em Detalhes da Instância, dê um nome ao serviço no campo **URL**. O nome faz parte do ponto de extremidade da URL na qual as chamadas à API são emitidas: `https://your-service-name.search.windows.net`. Por exemplo, caso deseje que o ponto de extremidade seja `https://myservice.search.windows.net`, insira `myservice`.
 
 Requisitos de nome de serviço:
 
@@ -94,7 +94,7 @@ O Azure Cognitive Search está disponível na maioria das regiões. A lista de r
 
 ### <a name="requirements"></a>Requisitos
 
- Se estiver usando o enriquecimento de IA, crie o serviço de pesquisa na mesma região dos Serviços Cognitivos. *A colocalização da Pesquisa Cognitiva do Azure e dos Serviços Cognitivos na mesma região é um requisito do enriquecimento de IA* .
+ Se estiver usando o enriquecimento de IA, crie o serviço de pesquisa na mesma região dos Serviços Cognitivos. *A colocalização da Pesquisa Cognitiva do Azure e dos Serviços Cognitivos na mesma região é um requisito do enriquecimento de IA*.
 
  Os clientes com requisitos de BCDR (continuidade dos negócios e recuperação de desastres) devem criar os serviços deles em [pares regionais](../best-practices-availability-paired-regions.md#azure-regional-pairs). Por exemplo, se você estiver operando na América do Norte, poderá escolher Leste dos EUA e Oeste dos EUA ou Centro-Norte dos EUA e Centro-Sul dos EUA para cada serviço.
 
@@ -114,21 +114,21 @@ Lembre-se de que o tipo de preço não pode ser alterado após a criação do se
 
 Depois de fornecer as entradas necessárias, crie o serviço. 
 
-:::image type="content" source="media/search-create-service-portal/new-service3.png" alt-text="Criar um recurso no portal" border="false":::
+:::image type="content" source="media/search-create-service-portal/new-service3.png" alt-text="Revisar e criar o serviço" border="false":::
 
 O serviço é implantado em minutos. Monitore o progresso por meio de notificações do Azure. Considere a possibilidade de fixar o serviço no painel para facilitar o acesso no futuro.
 
-:::image type="content" source="media/search-create-service-portal/monitor-notifications.png" alt-text="Criar um recurso no portal" border="false":::
+:::image type="content" source="media/search-create-service-portal/monitor-notifications.png" alt-text="Monitorar e fixar o serviço" border="false":::
 
 ## <a name="get-a-key-and-url-endpoint"></a>Obter uma chave e um ponto de extremidade de URL
 
 A menos que você esteja usando o portal, o acesso ao novo serviço exigirá o fornecimento do ponto de extremidade de URL e de uma chave de API de autenticação.
 
-1. Na página **Visão Geral** , localize e copie o ponto de extremidade de URL do lado direito da página.
+1. Na página **Visão Geral**, localize e copie o ponto de extremidade de URL do lado direito da página.
 
-2. Na página **Chaves** , copie uma das chaves administrativas (elas são equivalentes). As chaves de API do administrador são necessárias para criar, atualizar e excluir objetos em seu serviço. Por outro lado, as chaves de consulta fornecem acesso de leitura ao conteúdo do índice.
+2. Na página **Chaves**, copie uma das chaves administrativas (elas são equivalentes). As chaves de API do administrador são necessárias para criar, atualizar e excluir objetos em seu serviço. Por outro lado, as chaves de consulta fornecem acesso de leitura ao conteúdo do índice.
 
-   :::image type="content" source="media/search-create-service-portal/get-url-key.png" alt-text="Criar um recurso no portal" border="false":::
+   :::image type="content" source="media/search-create-service-portal/get-url-key.png" alt-text="Página de visão geral do serviço com ponto de extremidade de URL" border="false":::
 
 Um ponto de extremidade e uma chave não são necessários para tarefas baseadas no portal. O portal já está vinculado ao recuso da Pesquisa Cognitiva do Azure com direitos de administrador. Para obter um passo a passo do portal, comece com [Início rápido: Criar um índice da Pesquisa Cognitiva do Azure no portal](search-get-started-portal.md).
 
@@ -136,9 +136,9 @@ Um ponto de extremidade e uma chave não são necessários para tarefas baseadas
 
 Depois que o serviço é fornecido, você pode dimensioná-lo para atender às suas necessidades. Se escolher o nível Standard para o serviço da Pesquisa Cognitiva do Azure, você poderá dimensionar o serviço em duas dimensões: réplicas e partições. Com a escolha do tipo Básico, você pode apenas adicionar réplicas. Se você provisionou o serviço gratuito, o dimensionamento não estará disponível.
 
-As ***partições*** permitem que o seu serviço armazene e pesquise mais documentos.
+As **_partições_* _ permitem que seu serviço armazene e pesquise mais documentos.
 
-***Réplicas*** permitem que seu serviço lide com uma carga maior de consultas de pesquisa.
+As _*_réplicas_*_ permitem que seu serviço lide com uma carga maior de consultas de pesquisa.
 
 A adição de recursos aumenta sua fatura mensal. A [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) pode ajudá-lo a entender as implicações de cobrança de adição de recursos. Lembre-se de que você pode ajustar os recursos com base na carga. Por exemplo, você pode aumentar os recursos para criar um índice inicial completo e reduzir recursos posteriormente para um nível mais adequado para indexação incremental.
 
@@ -146,10 +146,10 @@ A adição de recursos aumenta sua fatura mensal. A [calculadora de preços](htt
 > Um serviço deve ter [duas réplicas para o SLA somente leitura e três réplicas para o SLA de leitura/gravação](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 1. Vá até a folha de serviço de pesquisa no Portal do Azure.
-2. No painel de navegação esquerdo, selecione **Configurações** > **Escala** .
+2. No painel de navegação esquerdo, selecione _ *Configurações** > **Escala**.
 3. Use a barra deslizante para adicionar recursos de qualquer tipo.
 
-:::image type="content" source="media/search-create-service-portal/settings-scale.png" alt-text="Criar um recurso no portal" border="false":::
+:::image type="content" source="media/search-create-service-portal/settings-scale.png" alt-text="Adicionar capacidade por meio de réplicas e partições" border="false":::
 
 > [!Note]
 > A velocidade e o armazenamento por partição aumentam em camadas superiores. Para obter mais informações, confira [Capacidade e limites](search-limits-quotas-capacity.md).

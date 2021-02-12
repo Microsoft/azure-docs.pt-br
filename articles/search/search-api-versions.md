@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: fab49c4242afc2e4f2d0595e2aa95f19f3d976f8
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 11/05/2020
+ms.openlocfilehash: 489c6be7bf977d01207fee4d1bd1fda13dc12025
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951572"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820510"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>Versões de API no Azure Pesquisa Cognitiva
 
@@ -87,8 +87,8 @@ A tabela a seguir fornece links para versões mais recentes do SDK.
 
 | Versão do SDK | Status | Descrição |
 |-------------|--------|------------------------------|
-| [Azure.Search.Documents 11,0](/dotnet/api/overview/azure/search.documents-readme) | Estável | Nova biblioteca de cliente do SDK do .NET do Azure, lançada em julho de 2020. Destina-se à API REST de pesquisa-Version = 2020-06-30, e ainda não oferece suporte a, filtros geográficos ou [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder). |
-| [Microsoft. Azure. Search 10,0](https://www.nuget.org/packages/Microsoft.Azure.Search/) | Estável | Lançada em maio de 2019. Tem como destino a API REST de pesquisa-Version = 2019-05-06.|
+| [Azure.Search.Documents 11](/dotnet/api/overview/azure/search.documents-readme) | Estável | Nova biblioteca de cliente do SDK do .NET do Azure, lançada em julho de 2020. Tem como alvo a API REST de pesquisa-Version = 2020-06-30, e ainda não fornece suporte nativo para filtros geográficos. Recomendamos [o pacote Microsoft. Spatial](https://www.nuget.org/packages/Microsoft.Spatial/) para operações geográficas. Os exemplos estão disponíveis para [System.Text.Jsno](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.Spatial/README.md) e [Newtonsoft.Jsem](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.Spatial.NewtonsoftJson/README.md). |
+| [Microsoft. Azure. Search 10](https://www.nuget.org/packages/Microsoft.Azure.Search/) | Estável | Lançada em maio de 2019. Tem como destino a API REST de pesquisa-Version = 2019-05-06.|
 | [Microsoft. Azure. Management. Search 4.0.0](/dotnet/api/overview/azure/search/management) | Estável | Destina-se à API REST de gerenciamento-versão = 2020-08-01.  |
 | Microsoft. Azure. Management. Search 3.0.0 | Estável | Destina-se à API REST de gerenciamento-versão = 2015-08-19.  |
 

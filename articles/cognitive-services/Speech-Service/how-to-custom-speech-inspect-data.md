@@ -10,17 +10,17 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: erhopf
-ms.openlocfilehash: c55d69e99715a0c646c4e836df06cf105f9770bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87bc411903604a7068f346604853a2a61c9a6f1c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319088"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499179"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspecionar dados da Fala Personalizada
 
 > [!NOTE]
-> Esta página pressupõe que você tenha lido [preparar dados de teste para fala personalizada](how-to-custom-speech-test-data.md) e ter carregado um DataSet para inspeção.
+> Esta página pressupõe que você tenha lido [preparar dados de teste para fala personalizada](./how-to-custom-speech-test-and-train.md) e ter carregado um DataSet para inspeção.
 
 Fala Personalizada fornece ferramentas que permitem inspecionar visualmente a qualidade de reconhecimento de um modelo, comparando dados de áudio com o resultado de reconhecimento correspondente. No [portal de fala personalizada](https://speech.microsoft.com/customspeech), você pode reproduzir áudio carregado e determinar se o resultado de reconhecimento fornecido está correto. Essa ferramenta ajuda a inspecionar a qualidade do modelo de fala-para-texto de linha de base da Microsoft, inspecionar um modelo personalizado treinado ou comparar a transcrição por dois modelos.
 
@@ -99,9 +99,9 @@ Os arquivos exportados para dados serão usados como um conjunto de dados totalm
 
 - [Avalie seus dados](how-to-custom-speech-evaluate-data.md)
 - [Treinar seu modelo](how-to-custom-speech-train-model.md)
-- [Melhorar o modelo](how-to-custom-speech-improve-accuracy.md)
-- [Implantar o seu modelo](how-to-custom-speech-deploy-model.md)
+- [Melhorar o modelo](./how-to-custom-speech-evaluate-data.md)
+- [Implantar o seu modelo](./how-to-custom-speech-train-model.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Preparar dados de teste para Fala Personalizada](how-to-custom-speech-test-data.md)
+- [Preparar dados de teste para Fala Personalizada](./how-to-custom-speech-test-and-train.md)

@@ -1,23 +1,23 @@
 ---
 title: Link privado-portal do Azure-banco de dados do Azure para PostgreSQL-servidor único
 description: Saiba como configurar o link privado para o banco de dados do Azure para PostgreSQL-servidor único do portal do Azure
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 4da1c1e142c5d70bea342fd9513061710228e61d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 23b9774f28f915596abafbd8c1f6c38fc4f55748
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489924"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995277"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Criar e gerenciar um link privado para o banco de dados do Azure para PostgreSQL-servidor único usando o portal
 
 Um ponto de extremidade privado é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado.  Neste artigo, você aprenderá a usar o portal do Azure para criar uma VM em uma rede virtual do Azure e um servidor único do banco de dados do Azure para PostgreSQL com um ponto de extremidade privado do Azure.
 
-Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 > [!NOTE]
 > O recurso de link privado só está disponível para servidores do banco de dados do Azure para PostgreSQL nos tipos de preço Uso Geral ou com otimização de memória. Verifique se o servidor de banco de dados está em um desses tipos de preço.
@@ -32,7 +32,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM qu
 ### <a name="create-the-virtual-network"></a>Criar a rede virtual
 Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM usada para acessar o recurso de Link Privado.
 
-1. No lado superior esquerdo da tela, selecione **criar um recurso**rede redes  >  **Networking**  >  **virtuais**.
+1. No lado superior esquerdo da tela, selecione **criar um recurso** rede redes  >  **Networking**  >  **virtuais**.
 2. Em **Criar rede virtual**, insira ou selecione estas informações:
 
     | Configuração | Valor |
@@ -103,7 +103,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM us
 
 Nesta seção, você criará um servidor de banco de dados do Azure para PostgreSQL no Azure. 
 
-1. No lado superior esquerdo da tela na portal do Azure, selecione **criar um recurso**  >  **bancos**de  >  **dados do Azure para PostgreSQL**.
+1. No lado superior esquerdo da tela na portal do Azure, selecione **criar um recurso**  >  **bancos** de  >  **dados do Azure para PostgreSQL**.
 
 1. Na **opção de implantação banco de dados do Azure para PostgreSQL**, selecione **servidor único** e forneça estas informações:
 
@@ -118,7 +118,7 @@ Nesta seção, você criará um servidor de banco de dados do Azure para Postgre
     | Senha | Insira uma senha de sua escolha. A senha deve ter no mínimo 8 caracteres e atender a requisitos complexidade definidos. |
     | Location | Selecione uma região do Azure em que você deseja que o servidor PostgreSQL resida. |
     |Versão  | Selecione a versão do banco de dados do servidor PostgreSQL necessária.|
-    | Computação + armazenamento| Selecione o tipo de preço necessário para o servidor com base na carga de trabalho. |
+    | Computação + Armazenamento| Selecione o tipo de preço necessário para o servidor com base na carga de trabalho. |
     |||
  
 7. Selecione **OK**. 
@@ -176,7 +176,7 @@ Nesta seção, você criará um servidor PostgreSQL e adicionará um ponto de ex
 1. Selecione **Examinar + criar**. Você é levado até a página **Examinar + criar**, na qual o Azure valida sua configuração. 
 2. Quando vir a mensagem **Validação aprovada**, selecione **Criar**. 
 
-    :::image type="content" source="media/concepts-data-access-and-security-private-link/show-postgres-private-link.png" alt-text="Visão geral do link privado":::
+    :::image type="content" source="media/concepts-data-access-and-security-private-link/show-postgres-private-link.png" alt-text="Link privado criado":::
 
     > [!NOTE] 
     > O FQDN na configuração de DNS do cliente não é resolvido para o IP privado configurado. Você precisará configurar uma zona DNS para o FQDN configurado, conforme mostrado [aqui](../dns/dns-operations-recordsets-portal.md).
@@ -222,7 +222,7 @@ Depois de criar **myVm**, conecte-se a ela pela Internet da seguinte maneira:
     Address:  10.1.3.4
     ```
 
-3. Teste a conexão de link particular para o servidor PostgreSQL usando qualquer cliente disponível. No exemplo abaixo, usei o [Azure Data Studio](/sql/azure-data-studio/download?view=sql-server-ver15) para realizar a operação.
+3. Teste a conexão de link particular para o servidor PostgreSQL usando qualquer cliente disponível. No exemplo abaixo, usei o [Azure Data Studio](/sql/azure-data-studio/download?view=sql-server-ver15&preserve-view=true) para realizar a operação.
 
 4. Em **nova conexão**, insira ou selecione estas informações:
 
@@ -243,10 +243,10 @@ Depois de criar **myVm**, conecte-se a ela pela Internet da seguinte maneira:
 
 8. Feche a conexão de área de trabalho remota para myVm.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Quando você terminar de usar o ponto de extremidade privado, o servidor PostgreSQL e a VM, exclua o grupo de recursos e todos os recursos que ele contém:
 
-1. Insira *MyResource* The na caixa de **pesquisa** na parte superior do portal e selecione *MyResource*   Bedos resultados da pesquisa.
+1. Insira *MyResource* The na caixa de **pesquisa** na parte superior do portal e selecione  *MyResource*   Bedos resultados da pesquisa.
 2. Selecione **Excluir grupo de recursos**.
 3. Insira MyResource GROUP para **digite o nome do grupo de recursos** e selecione **excluir**.
 

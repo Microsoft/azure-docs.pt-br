@@ -1,23 +1,24 @@
 ---
-title: Gerenciar os Serviços de Nuvem do Azure usando a Automação do Azure | Microsoft Docs
+title: Gerenciar serviços de nuvem do Azure (clássico) usando a automação do Azure | Microsoft Docs
 description: Saiba mais sobre como o serviço de Automação do Azure pode ser usado para gerenciar serviços de nuvem do Azure em grande escala.
-services: cloud-services, automation
-author: jodoglevy
-manager: timlt
-editor: ''
-ms.assetid: 3789810a-2892-4eef-bf29-c781c1b5af48
-ms.service: cloud-services
 ms.topic: article
-ms.date: 06/20/2016
-ms.author: timlt
-ms.openlocfilehash: 67830f8c00d9f74f62883e0714ffe1c2bbbd6903
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 530efd09f3632637c6a12648495dcff0e7bf0e6d
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075613"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743484"
 ---
-# <a name="managing-azure-cloud-services-using-azure-automation"></a>Gerenciamento de Serviços de Nuvem do Azure usando a Automação do Azure
+# <a name="managing-azure-cloud-services-classic-using-azure-automation"></a>Gerenciando os serviços de nuvem do Azure (clássico) usando a automação do Azure
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
 Este guia apresentará o serviço de Automação do Azure e como ele pode ser usado para simplificar o gerenciamento de seus serviços de nuvem do Azure.
 
 ## <a name="what-is-azure-automation"></a>O que é Automação do Azure?

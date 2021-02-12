@@ -1,19 +1,18 @@
 ---
 title: Entradas de solução de problemas do Azure Stream Analytics
 description: Este artigo descreve técnicas para solucionar problemas de suas conexões de entrada em tarefas do Stream Analytics do Azure.
-author: sidram
+author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 760c98ce9464e4d40f01256a973e07d9084c6dfe
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 2d7171c9ec1e60447fb3342caa72098fb2eb9337
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123278"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019900"
 ---
 # <a name="troubleshoot-input-connections"></a>Solucionar problemas de conexões de entrada
 
@@ -75,11 +74,11 @@ Para adicionar um novo grupo de consumidores à instância dos Hubs de Eventos, 
 
 2. Localize seu Hub de Eventos.
 
-3. Selecione **Hubs de Eventos** sob o **Entidades** .
+3. Selecione **Hubs de Eventos** sob o **Entidades**.
 
 4. Selecione o Hub de Eventos por nome.
 
-5. Na página **Instância de Hubs de Eventos** no cabeçalho **Entidades** , selecione **Grupos de consumidores** . Um grupo de consumidores com nome **$Default** está listado.
+5. Na página **Instância de Hubs de Eventos** no cabeçalho **Entidades**, selecione **Grupos de consumidores**. Um grupo de consumidores com nome **$Default** está listado.
 
 6. Selecione **+ Grupo de Consumidores** para adicionar um novo grupo de consumidores. 
 

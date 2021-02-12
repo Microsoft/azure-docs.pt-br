@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/24/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a356e96b82e6fbe855d0b474dcb6b1f59c98333
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b204aa508370c62aaf33688aeb7ec63d3f8f1b0e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855223"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019354"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>Alta disponibilidade de vários SIDs da instância do SAP ASCS com clustering de failover do Windows Server e compartilhamento de arquivos no Azure
 
@@ -71,13 +72,13 @@ A meta é instalar várias instâncias clusterizadas do SAP Advanced Business Ap
 
 _**Figura 2:** Configuração de vários SID do SAP em dois clusters_
 
-A instalação de um sistema **SAP \<SID2> ** adicional é idêntica à instalação de um \<SID> sistema. Duas etapas adicionais de preparação são necessárias no cluster ASCS/SCS, bem como no cluster SOFS de compartilhamento de arquivos.
+A instalação de um sistema **SAP \<SID2>** adicional é idêntica à instalação de um \<SID> sistema. Duas etapas adicionais de preparação são necessárias no cluster ASCS/SCS, bem como no cluster SOFS de compartilhamento de arquivos.
 
 ## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a>Prepare a infraestrutura para um cenário de vários SIDs do SAP
 
 ### <a name="prepare-the-infrastructure-on-the-domain-controller"></a>Prepare a infraestrutura no controlador de domínio
 
-Crie o grupo de domínio ** \<Domain> \ SAP_ \<SID2> _GlobalAdmin**, por exemplo, com \<SID2> = PR2. O nome do grupo de domínio é \<Domain> \ SAP_PR2_GlobalAdmin.
+Crie o grupo de domínio **\<Domain> \ SAP_ \<SID2> _GlobalAdmin**, por exemplo, com \<SID2> = PR2. O nome do grupo de domínio é \<Domain> \ SAP_PR2_GlobalAdmin.
 
 ### <a name="prepare-the-infrastructure-on-the-ascsscs-cluster"></a>Prepare a infraestrutura no cluster ASCS/SCS
 

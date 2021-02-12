@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/03/2020
 ms.author: marsma
-ms.custom: aaddev, contperfq1
+ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 72d66bd4c738ed60bbaefc123daae90ecc0db163
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bf8b705aff8ac608d0eb3626026797f1d106414b
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89442115"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017745"
 ---
 # <a name="quickstart-configure-an-application-to-expose-a-web-api"></a>Início Rápido: Configurar um aplicativo para expor uma API Web
 
@@ -45,7 +45,7 @@ O código em um aplicativo cliente solicita permissão para executar operações
 
 Primeiro, siga estas etapas para criar um escopo de exemplo chamado `Employees.Read.All`:
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/quickstart-configure-app-expose-web-apis/portal-01-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário que contém o registro do aplicativo cliente.
 1. Selecione **Azure Active Directory** > **Registros de aplicativo** e o registro do aplicativo da API.
 1. Selecione **Expor uma API** > **Adicionar um escopo**.
@@ -95,7 +95,7 @@ Para adicionar o exemplo de escopo `Employees.Write.All`, siga as etapas na seç
 
 Se você tiver adicionado com êxito os dois escopos de exemplo descritos nas seções anteriores, eles aparecerão no painel **Expor uma API** do registro de aplicativo da API Web, semelhante a esta imagem:
 
-:::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="Um registro de aplicativo expõe um painel de API no portal do Azure":::
+:::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="Captura de tela do painel Expor uma API mostrando dois escopos expostos.":::
 
 Conforme mostrado na imagem, a cadeia de caracteres completa de um escopo é a concatenação do **URI da ID do Aplicativo** da sua API Web e o **Nome do escopo**.
 

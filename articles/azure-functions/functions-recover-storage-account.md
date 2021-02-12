@@ -3,12 +3,12 @@ title: 'Erro de solução de problemas: Azure Functions Runtime está inacessív
 description: Saiba como solucionar o problema de uma conta de armazenamento inválida.
 ms.topic: article
 ms.date: 09/05/2018
-ms.openlocfilehash: 094f4f45be0ae4173af434be178f2eae2b21b6be
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 9f6592b6d5ef88127a9dfca1e868564be0aa4ed5
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92054722"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217287"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>Erro de solução de problemas: "Azure Functions Runtime está inacessível"
 
@@ -16,15 +16,15 @@ Este artigo ajuda você a solucionar problemas da seguinte cadeia de caracteres 
 
 > "Erro: Azure Functions Runtime está inacessível. Clique aqui para obter detalhes sobre a configuração de armazenamento. "
 
-Esse problema ocorre quando o Azure Functions Runtime não pode iniciar. O motivo mais comum para o problema é que o aplicativo de funções perdeu o acesso à sua conta de armazenamento. Para obter mais informações, consulte [requisitos da conta de armazenamento](./functions-create-function-app-portal.md#storage-account-requirements).
+Esse problema ocorre quando o tempo de execução do Functions não pode iniciar. O motivo mais comum para isso é que o aplicativo de funções perdeu o acesso à sua conta de armazenamento. Para obter mais informações, consulte [requisitos da conta de armazenamento](storage-considerations.md#storage-account-requirements).
 
-O restante deste artigo ajuda você a solucionar as seguintes causas desse erro, incluindo como identificar e resolver cada caso.
+O restante deste artigo ajuda você a solucionar problemas específicos desse erro, incluindo como identificar e resolver cada caso.
 
 ## <a name="storage-account-was-deleted"></a>A conta de armazenamento foi excluída
 
-Cada aplicativo de funções exige uma conta de armazenamento para ser operado. Se essa conta for excluída, a função não funcionará.
+Cada aplicativo de funções exige uma conta de armazenamento para ser operado. Se essa conta for excluída, suas funções não funcionarão.
 
-Comece pesquisando o nome da conta de armazenamento nas configurações do aplicativo. `AzureWebJobsStorage`Ou `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` contém o nome da sua conta de armazenamento empacotado em uma cadeia de conexão. Para obter mais informações, consulte [referência de configurações de aplicativo para Azure Functions](./functions-app-settings.md#azurewebjobsstorage).
+Comece pesquisando o nome da conta de armazenamento nas configurações do aplicativo. `AzureWebJobsStorage`Or ou `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` contém o nome da sua conta de armazenamento como parte de uma cadeia de conexão. Para obter mais informações, consulte [referência de configurações de aplicativo para Azure Functions](./functions-app-settings.md#azurewebjobsstorage).
 
 Pesquise sua conta de armazenamento no portal do Azure para ver se ela ainda existe. Se ele tiver sido excluído, recrie a conta de armazenamento e substitua as cadeias de conexão de armazenamento. O código de função é perdido e você precisa reimplantá-lo.
 
@@ -44,7 +44,7 @@ Para obter mais informações, consulte [referência de configurações de aplic
 
 ### <a name="guidance"></a>Diretrizes
 
-* Não marque "configuração de slot" para qualquer uma dessas configurações. Se você trocar os slots de implantação, o aplicativo de funções será interrompido.
+* Não Verifique a **configuração de slot** para nenhuma dessas configurações. Se você trocar os slots de implantação, o aplicativo de funções será interrompido.
 * Não modifique essas configurações como parte das implantações automatizadas.
 * Essas configurações precisam ser fornecidas e estarem válidas no momento da criação. Uma implantação automatizada que não contém essas configurações resulta em um aplicativo de funções que não será executado, mesmo que as configurações sejam adicionadas posteriormente.
 
@@ -56,7 +56,7 @@ As cadeias de conexão da conta de armazenamento abordadas anteriormente devem s
 
 Seu aplicativo de funções deve ser capaz de acessar a conta de armazenamento. Os problemas comuns que bloqueiam o acesso de um aplicativo de funções a uma conta de armazenamento são:
 
-* O aplicativo de funções é implantado em seu Ambiente do Serviço de Aplicativo sem as regras de rede corretas para permitir o tráfego de e para a conta de armazenamento.
+* O aplicativo de funções é implantado em seu Ambiente do Serviço de Aplicativo (ASE) sem as regras de rede corretas para permitir o tráfego de e para a conta de armazenamento.
 
 * O firewall da conta de armazenamento está habilitado e não está configurado para permitir o tráfego de e para funções. Para saber mais, consulte [Configurar Redes Virtuais e Firewalls de Armazenamento do Azure](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
@@ -72,16 +72,16 @@ Para resolver esse problema, remova ou aumente a cota diária e reinicie o aplic
 
 ## <a name="app-is-behind-a-firewall"></a>O aplicativo está protegido por um firewall
 
-Seu tempo de execução de função pode estar inacessível por qualquer um dos seguintes motivos:
+Seu aplicativo de funções pode estar inacessível por qualquer um dos seguintes motivos:
 
 * Seu aplicativo de funções está hospedado em um [ambiente do serviço de aplicativo com balanceamento de carga internamente](../app-service/environment/create-ilb-ase.md) e está configurado para bloquear o tráfego de Internet de entrada.
 
-* Seu aplicativo de funções tem [restrições de IP de entrada](functions-networking-options.md#inbound-ip-restrictions) que são configuradas para bloquear o acesso à Internet. 
+* Seu aplicativo de funções tem [restrições de IP de entrada](functions-networking-options.md#inbound-access-restrictions) que são configuradas para bloquear o acesso à Internet. 
 
 O portal do Azure faz chamadas diretamente para o aplicativo em execução para buscar a lista de funções e faz chamadas HTTP para o ponto de extremidade kudu. As configurações de nível de plataforma na guia **recursos da plataforma** ainda estão disponíveis.
 
-Para verificar sua configuração de Ambiente do Serviço de Aplicativo:
-1. Vá para o grupo de segurança de rede (NSG) da sub-rede onde reside o Ambiente do Serviço de Aplicativo.
+Para verificar sua configuração do ASE:
+1. Vá para o grupo de segurança de rede (NSG) da sub-rede onde reside o ASE.
 1. Valide as regras de entrada para permitir o tráfego proveniente do IP público do computador em que você está acessando o aplicativo. 
    
 Você também pode usar o portal de um computador que está conectado à rede virtual que está executando seu aplicativo ou a uma máquina virtual que está sendo executada em sua rede virtual. 

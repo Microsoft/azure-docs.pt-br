@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a6cbb574245c7b11d2437693d60fd952becedba3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: feedc0065419162237c4f4826fe275a6fd947e53
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257547"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753724"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Cenário: Aplicativo da área de trabalho que chama APIs Web
 
@@ -61,5 +61,4 @@ Os aplicativos da área de trabalho têm várias especificidades. Eles baseiam-s
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Aplicativo da área de trabalho: registro do aplicativo](scenario-desktop-app-registration.md)
+Vá para o próximo artigo neste cenário, registro de [aplicativo](scenario-desktop-app-registration.md).

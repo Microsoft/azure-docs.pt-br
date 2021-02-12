@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: a36b9d20fa20df56ec53e090976ea86e689ac74b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 799e879b4d9fd54367d54c17b3d275acfc5f34c1
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322505"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054764"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados no local para os Aplicativos Lógicos do Azure
 
@@ -138,9 +138,15 @@ Este artigo mostra como baixar, instalar e configurar o gateway de dados local p
 
 1. Agora [crie o recurso do Azure para a instalação do gateway](../logic-apps/logic-apps-gateway-connection.md).
 
+<a name="communication-settings"></a>
+
 ## <a name="check-or-adjust-communication-settings"></a>Verificar ou ajustar as configurações de comunicação
 
-O gateway de dados local depende do [sistema de mensagens do barramento de serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md) para conectividade de nuvem e estabelece as conexões de saída correspondentes à região do Azure associada do gateway. Se o seu ambiente de trabalho exigir que o tráfego passe por um proxy ou firewall para acessar a Internet, essa restrição poderá impedir que o gateway de dados local se conecte ao serviço de nuvem do gateway e às mensagens do barramento de serviço do Azure. O gateway tem várias configurações de comunicação que você pode ajustar. Para saber mais, consulte esses tópicos:
+O gateway de dados local depende do [sistema de mensagens do barramento de serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md) para conectividade de nuvem e estabelece as conexões de saída correspondentes à região do Azure associada do gateway. Se o seu ambiente de trabalho exigir que o tráfego passe por um proxy ou firewall para acessar a Internet, essa restrição poderá impedir que o gateway de dados local se conecte ao serviço de nuvem do gateway e às mensagens do barramento de serviço do Azure. O gateway tem várias configurações de comunicação que você pode ajustar.
+
+Um cenário de exemplo é o local em que você usa conectores personalizados que acessam recursos locais usando o recurso de gateway de dados local no Azure. Se você também tiver um firewall que limita o tráfego para endereços IP específicos, precisará configurar a instalação do gateway para permitir o acesso aos *[endereços IP de saída](logic-apps-limits-and-config.md#outbound)dos conectores gerenciados* correspondentes. *Todos* os aplicativos lógicos na mesma região usam os mesmos intervalos de endereço IP.
+
+Para saber mais, consulte esses tópicos:
 
 * [Ajustar configurações de comunicação para gateway de dados local](/data-integration/gateway/service-gateway-communication)
 * [Definir configurações de proxy para o gateway de dados local](/data-integration/gateway/service-gateway-proxy)

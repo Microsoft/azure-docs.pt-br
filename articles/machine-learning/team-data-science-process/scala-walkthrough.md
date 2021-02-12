@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 56f266eaba76bb990a4d2bc3d902f4c5911d9c47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ae4549fe343422bbf60275a97768ca407f2dc7c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86026178"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321375"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Ciência de Dados usando o Scala e o Spark no Azure
-Este artigo mostra como usar o Scala para tarefas de aprendizado de máquina supervisionadas com a MLlib escalonável do Spark e os pacotes de AM do Spark em um cluster Azure HDInsight Spark. Ele explica as tarefas que constituem o [Processo Ciência de Dados](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): ingestão e exploração de dados, visualização, engenharia de recursos, modelagem e consumo de modelo. Os modelos no artigo incluem regressão logística e linear, florestas aleatórias e GBTs (árvores com aumento de gradiente), além de duas tarefas comuns de aprendizado de máquina supervisionadas:
+Este artigo mostra como usar o Scala para tarefas de aprendizado de máquina supervisionadas com a MLlib escalonável do Spark e os pacotes de AM do Spark em um cluster Azure HDInsight Spark. Ele explica as tarefas que constituem o [Processo Ciência de Dados](./index.yml): ingestão e exploração de dados, visualização, engenharia de recursos, modelagem e consumo de modelo. Os modelos no artigo incluem regressão logística e linear, florestas aleatórias e GBTs (árvores com aumento de gradiente), além de duas tarefas comuns de aprendizado de máquina supervisionadas:
 
 * Problema de regressão: previsão do valor da gorjeta (US$) para uma corrida de táxi
 * Classificação binária: previsão da gorjeta ou não (1/0) para uma corrida de táxi
@@ -257,9 +257,9 @@ sqlResultsDF.show(3)
 
 | fare_amount | passenger_count | tip_amount | tipped |
 | --- | --- | --- | --- |
-|        13,5 |1,0 |2,9 |1,0 |
-|        16,0 |2,0 |3.4 |1,0 |
-|        10.5 |2,0 |1.0 |1.0 |
+|        13,5 |1.0 |2,9 |1.0 |
+|        16,0 |2.0 |3.4 |1.0 |
+|        10.5 |2.0 |1.0 |1.0 |
 
 ## <a name="data-exploration-and-visualization"></a>Visualização e exploração de dados
 Depois de trazer os dados para o Spark, a próxima etapa no processo de Ciência de dados será obter uma compreensão mais profunda dos dados por meio de exploração e visualização. Nesta seção, você examinará os dados de táxi usando consultas SQL. Em seguida, importe os resultados em um quadro de dados para plotar as variáveis de destino e os recursos potenciais para inspeção visual usando o recurso de Jupyter de visualização automática.
@@ -353,7 +353,7 @@ Para as funções de modelagem baseadas em árvore no SparkML e na MLlib, você 
 1. Crie um novo recurso **compartimentalização** horas em buckets de tempo de tráfego.
 2. Aplicar **indexação e codificação one-hot** em recursos categóricos.
 3. **Criar amostras e dividir o conjunto de dados** em frações de teste e treinamento.
-4. **Especificar os recursos e a variável de treinamento**e depois criar RDDs (conjuntos de dados distribuídos e resilientes) de ponto de sinalização de entrada para treinamentos de codificação indexada e one-hot, ou quadros de dados.
+4. **Especificar os recursos e a variável de treinamento** e depois criar RDDs (conjuntos de dados distribuídos e resilientes) de ponto de sinalização de entrada para treinamentos de codificação indexada e one-hot, ou quadros de dados.
 5. **Categorizar e vetorizar recursos e destinos** automaticamente para uso como entradas para modelos de aprendizado de máquina.
 
 ### <a name="create-a-new-feature-by-binning-hours-into-traffic-time-buckets"></a>Criar um novo recurso reunindo horários em blocos de tempo de tráfego
@@ -552,7 +552,7 @@ val indexedTESTwithCatFeat = indexerModel.transform(indexedTESTregDF)
 ## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>Modelo de classificação binária: prevê se uma gorjeta será paga ou não
 Nesta seção, você cria três tipos de modelo de classificação binária para prever se uma gorjeta será paga ou não:
 
-* Um **modelo de regressão logística`LogisticRegression()` usando a função ** do ML do Spark
+* Um **modelo de regressão logística`LogisticRegression()` usando a função** do ML do Spark
 * Um **modelo de classificação de floresta aleatória** usando a função `RandomForestClassifier()` da AM do Spark
 * Um **modelo de classificação de árvore de aumento gradiente** usando a função `GradientBoostedTrees()` da MLlib
 
@@ -922,7 +922,7 @@ Nesta seção, use utilitários de aprendizado de máquina que os desenvolvedore
 * Otimizar o modelo usando a validação cruzada e a limpeza de hiperparâmetro com a função CrossValidator do SparkML (classificação binária)
 * Otimizar o modelo usando o código personalizado de validação cruzada e limpeza de parâmetro para utilizar qualquer função de aprendizado de máquina e o conjunto de parâmetros (regressão linear)
 
-**Validação cruzada** é uma técnica que avalia quão bem um modelo treinado em um conjunto de dados conhecido será generalizado para prever os recursos dos conjuntos de dados nos quais ele não foi treinado. A ideia geral por trás dessa técnica é que um modelo é treinado em um conjunto de dados conhecidos em e, em seguida, a precisão de suas previsões é testada em relação a um conjunto de dados independente. Uma implementação comum é dividir um conjunto de dados em partições *k*e, em seguida, treinar o modelo em um estilo round-robin em todas, exceto uma das partições.
+**Validação cruzada** é uma técnica que avalia quão bem um modelo treinado em um conjunto de dados conhecido será generalizado para prever os recursos dos conjuntos de dados nos quais ele não foi treinado. A ideia geral por trás dessa técnica é que um modelo é treinado em um conjunto de dados conhecidos em e, em seguida, a precisão de suas previsões é testada em relação a um conjunto de dados independente. Uma implementação comum é dividir um conjunto de dados em partições *k* e, em seguida, treinar o modelo em um estilo round-robin em todas, exceto uma das partições.
 
 A **otimização do Hyper-Parameter** é o problema de escolher um conjunto de hiperparâmetros para um algoritmo de aprendizado, geralmente com o objetivo de otimizar uma medida do desempenho do algoritmo em um conjunto de dados independente. Um hiperparâmetro é um valor que você deve especificar fora do procedimento de treinamento do modelo. As suposições sobre esses valores de hiperparâmetro podem afetar a flexibilidade e a precisão do modelo. As árvores de decisão têm hiperparâmetros, por exemplo, como a profundidade desejada e o número de folhas na árvore. Configure de um termo de penalidade de classificação incorreta para uma SVM (máquina de vetor de suporte).
 
@@ -1135,9 +1135,8 @@ val test_rsqr = new RegressionMetrics(labelAndPreds).r2
 Tempo de execução da célula: 61 segundos.
 
 ## <a name="consume-spark-built-machine-learning-models-automatically-with-scala"></a>Consumir automaticamente modelos da aprendizado de máquina compilados no Spark com o Scala
-Para obter uma visão geral dos tópicos que explicam as tarefas que compõem o processo de Ciência de dados no Azure, confira [Processo de Ciência de Dados de Equipe](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Para obter uma visão geral dos tópicos que explicam as tarefas que compõem o processo de Ciência de dados no Azure, confira [Processo de Ciência de Dados de Equipe](./index.yml).
 
 [Passo a passo do processo de ciência de dados de equipe](walkthroughs.md) descreve outras orientações de ponta a ponta que demonstram as etapas no Processo de ciência de dados de equipe para cenários específicos. As orientações também mostram como combinar ferramentas e serviços de nuvem e locais em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente.
 
 [Pontuar modelos de aprendizado de máquina criados no Spark](spark-model-consumption.md) mostra como usar o código Scala para carregar e pontuar automaticamente novos conjuntos de dados com modelos de aprendizado de máquina compilados no Spark e salvos no armazenamento de Blobs do Azure. Você pode seguir as instruções fornecidas nele e simplesmente substituir o código Python pelo código Scala neste artigo para o consumo automatizado.
-

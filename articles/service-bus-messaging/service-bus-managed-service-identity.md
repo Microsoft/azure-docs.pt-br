@@ -2,13 +2,13 @@
 title: Identidades gerenciadas para recursos do Azure com Barramento de Serviço
 description: Este artigo descreve como usar identidades gerenciadas para acessar as entidades do barramento de serviço do Azure (filas, tópicos e assinaturas).
 ms.topic: article
-ms.date: 10/21/2020
-ms.openlocfilehash: 1efcd3c48e7e4a431a0c72c4b3b84531b44e973e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.date: 01/21/2021
+ms.openlocfilehash: bd985acd9b775d6baef0abf488952e28c17aef2a
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425519"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954303"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticar uma identidade gerenciada com Azure Active Directory para acessar recursos do barramento de serviço do Azure
 [Identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) é um recurso do Azure que permite criar uma identidade segura associada à implantação na qual o código do aplicativo é executado. Em seguida, você pode associar essa identidade a funções de controle de acesso que concedem permissões personalizadas para acessar os recursos do Azure específicos que seu aplicativo precisa.
@@ -45,7 +45,7 @@ Antes de atribuir uma função do Azure a uma entidade de segurança, determine 
 
 A lista a seguir descreve os níveis nos quais você pode fazer o escopo de acesso aos recursos do barramento de serviço, começando com o escopo mais estreito:
 
-- **Fila**, **tópico**ou **assinatura**: a atribuição de função se aplica à entidade de barramento de serviço específica. Atualmente, o portal do Azure não dá suporte à atribuição de usuários/grupos/identidades gerenciadas às funções do Azure do barramento de serviço no nível da assinatura. Veja um exemplo de como usar o comando CLI do Azure: [AZ-role-Assignment-Create](/cli/azure/role/assignment?#az-role-assignment-create) para atribuir uma identidade a uma função do Azure do barramento de serviço: 
+- **Fila**, **tópico** ou **assinatura**: a atribuição de função se aplica à entidade de barramento de serviço específica. Atualmente, o portal do Azure não dá suporte à atribuição de usuários/grupos/identidades gerenciadas às funções do Azure do barramento de serviço no nível da assinatura. Veja um exemplo de como usar o comando CLI do Azure: [AZ-role-Assignment-Create](/cli/azure/role/assignment?#az-role-assignment-create) para atribuir uma identidade a uma função do Azure do barramento de serviço: 
 
     ```azurecli
     az role assignment create \
@@ -107,20 +107,22 @@ Para atribuir uma função a um namespace do barramento de serviço, navegue at�
 1. Na portal do Azure, navegue até o namespace do barramento de serviço e exiba a **visão geral** do namespace. 
 1. Selecione **controle de acesso (iam)** no menu à esquerda para exibir as configurações de controle de acesso para o namespace do barramento de serviço.
 1.  Selecione a guia **Atribuições de função** para ver as atribuições de função atuais.
-3.  Selecione **Adicionar** para adicionar uma nova função.
-4.  Na página **Adicionar atribuição de função** , selecione as funções do barramento de serviço do Azure que você deseja atribuir. Em seguida, pesquise para localizar a identidade do serviço que você registrou para atribuir a função.
-    
-    ![Página Adicionar atribuição de função](./media/service-bus-managed-service-identity/add-role-assignment-page.png)
-5.  Selecione **Salvar**. A identidade à qual você atribuiu a função aparece listada sob essa função. Por exemplo, a imagem a seguir mostra que a identidade do serviço tem proprietário de dados do barramento de serviço do Azure.
-    
-    ![Identidade atribuída a uma função](./media/service-bus-managed-service-identity/role-assigned.png)
+3.  Selecione **Adicionar** e, em seguida, selecione **Adicionar atribuição de função**.
+4.  Na página **Adicionar atribuição de função** , siga estas etapas:
+    1. Para **função**, selecione a função de barramento de serviço que você deseja atribuir. Neste exemplo, é o **proprietário dos dados do barramento de serviço do Azure**.
+    1. Para o campo **atribuir acesso a** , selecione **serviço de aplicativo** em **identidade gerenciada atribuída pelo sistema**. 
+    1. Selecione a **assinatura** na qual a identidade gerenciada para o aplicativo Web foi criada.
+    1. Selecione a **identidade gerenciada** para o aplicativo Web que você criou. O nome padrão da identidade é o mesmo que o nome do aplicativo Web. 
+    1. Em seguida, selecione **Salvar**.
+        
+        ![Página Adicionar atribuição de função](./media/service-bus-managed-service-identity/add-role-assignment-page.png)
 
-Depois de atribuir a função, o aplicativo Web terá acesso às entidades do barramento de serviço sob o escopo definido. 
+    Depois de atribuir a função, o aplicativo Web terá acesso às entidades do barramento de serviço sob o escopo definido. 
 
+    > [!NOTE]
+    > Para obter uma lista de serviços que dão suporte a identidades gerenciadas, consulte [serviços que dão suporte a identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
 
-
-
-### <a name="run-the-app"></a>Executar o aplicativo
+### <a name="run-the-app"></a>Execute o aplicativo
 Agora, modifique a página padrão do aplicativo ASP.NET que você criou. Também é possível usar o código do aplicativo Web [deste repositório GitHub](https://github.com/Azure-Samples/app-service-msi-servicebus-dotnet).  
 
 A página Default.aspx é sua página de aterrissagem. O código pode ser encontrado no arquivo Default.aspx.cs. O resultado é um aplicativo Web mínimo com alguns campos de entrada e os botões **enviar** e **receber** que se conectam ao Barramento de Serviço para enviar ou receber mensagens.
@@ -135,9 +137,7 @@ Para enviar ou receber mensagens, insira o nome do namespace e o nome da entidad
 
 
 > [!NOTE]
-> - A identidade gerenciada funciona somente dentro do ambiente do Azure, em serviços de aplicativos, VMs do Azure e nos conjuntos de dimensionamento. Para aplicativos .NET, a biblioteca Microsoft.Azure.Services.AppAuthentication, que é usada pelo pacote NuGet do Barramento de Serviço, fornece uma abstração sobre esse protocolo e dá suporte a uma experiência de desenvolvimento local. Essa biblioteca também permite testar o código localmente no computador de desenvolvimento, usando a conta de usuário do Visual Studio, a CLI 2.0 do Azure ou a Autenticação Integrada do Active Directory. Para obter mais informações sobre as opções de desenvolvimento local com essa biblioteca, consulte [Autenticação de serviço a serviço para o Azure Key Vault usando .NET](../key-vault/general/service-to-service-authentication.md).  
-> 
-> - Atualmente, as identidades gerenciadas não funcionam com slots de implantação do Serviço de Aplicativo.
+> - A identidade gerenciada funciona somente dentro do ambiente do Azure, em serviços de aplicativos, VMs do Azure e nos conjuntos de dimensionamento. Para aplicativos .NET, a biblioteca Microsoft.Azure.Services.AppAuthentication, que é usada pelo pacote NuGet do Barramento de Serviço, fornece uma abstração sobre esse protocolo e dá suporte a uma experiência de desenvolvimento local. Essa biblioteca também permite testar o código localmente no computador de desenvolvimento, usando a conta de usuário do Visual Studio, a CLI 2.0 do Azure ou a Autenticação Integrada do Active Directory. Para obter mais informações sobre as opções de desenvolvimento local com essa biblioteca, consulte [Autenticação de serviço a serviço para o Azure Key Vault usando .NET](/dotnet/api/overview/azure/service-to-service-authentication).  
 
 ## <a name="next-steps"></a>Próximas etapas
 

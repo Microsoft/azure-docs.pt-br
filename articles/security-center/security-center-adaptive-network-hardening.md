@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: e2b17e15c5548b4c9b93a62a7d4dfe62ff44404c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: ca60d5afa38a560492c8574aadd43d6170eca253
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341746"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916177"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Proteção de rede adaptável na central de segurança do Azure
 Saiba como configurar a proteção de rede adaptável na central de segurança.
@@ -26,7 +26,7 @@ Saiba como configurar a proteção de rede adaptável na central de segurança.
 ## <a name="availability"></a>Disponibilidade
 |Aspecto|Detalhes|
 |----|:----|
-|Estado da versão:|GA (em disponibilidade geral)|
+|Estado da versão:|GA (Disponibilidade Geral)|
 |Preço:|Requer [Azure Defender para Servidores](defender-for-servers-introduction.md)|
 |Funções e permissões necessárias:|Permissões de gravação nos NSGs do computador|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|
@@ -60,7 +60,7 @@ Por exemplo, digamos que a regra NSG existente seja permitir o tráfego de 140.2
       * **Não há dados suficientes disponíveis**: para gerar recomendações precisas de proteção de tráfego, a central de segurança requer pelo menos 30 dias de dados de tráfego.
       * A **VM não está protegida pelo Azure defender**: somente as VMs protegidas com o [Azure defender para servidores](defender-for-servers-introduction.md) são elegíveis para esse recurso.
 
-    :::image type="content" source="./media/security-center-adaptive-network-hardening/recommendation-details-page.png" alt-text="Acessando as ferramentas de proteção de rede adaptável":::
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/recommendation-details-page.png" alt-text="A página de detalhes das recomendações de proteção de rede adaptável de recomendação deve ser aplicada em máquinas virtuais voltadas para a Internet":::
 
 1. Na guia **recursos não íntegros** , selecione uma VM para exibir seus alertas e as regras de proteção recomendadas a serem aplicadas.
 
@@ -78,12 +78,12 @@ Por exemplo, digamos que a regra NSG existente seja permitir o tráfego de 140.2
     > [!TIP]
     > Se os intervalos de IP de origem permitidos aparecerem como ' nenhum ', isso significa que a regra recomendada é uma regra de *negação* , caso contrário, é uma regra de *permissão* .
 
-    :::image type="content" source="./media/security-center-adaptive-network-hardening/hardening-alerts.png" alt-text="Acessando as ferramentas de proteção de rede adaptável":::
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/hardening-alerts.png" alt-text="Gerenciando regras de proteção de rede adaptável":::
 
       > [!NOTE]
       > As regras impostas são adicionadas às NSG que protegem a VM. (Uma VM pode ser protegida por um NSG associado à sua NIC, ou a sub-rede na qual a VM reside, ou ambos)
 
-### <a name="modify-a-rule"></a>Modificar uma regra <a name ="modify-rule"> </a>
+### <a name="modify-a-rule"></a>Modificar uma regra <a name ="modify-rule"></a>
 
 Talvez você queira modificar os parâmetros de uma regra que tenha sido recomendada. Por exemplo, talvez você queira alterar os intervalos de IP recomendados.
 
@@ -116,7 +116,7 @@ Algumas diretrizes importantes para modificar uma regra de proteção de rede ad
 
     ![impor regra](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
-### <a name="add-a-new-rule"></a>Adicionar uma nova regra <a name ="add-rule"> </a>
+### <a name="add-a-new-rule"></a>Adicionar uma nova regra <a name ="add-rule"></a>
 
 Você pode adicionar uma regra "permitir" que não foi recomendada pela central de segurança.
 
@@ -139,7 +139,7 @@ Você pode adicionar uma regra "permitir" que não foi recomendada pela central 
     ![impor regra](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
 
-### <a name="delete-a-rule"></a>Excluir uma regra <a name ="delete-rule"> </a>
+### <a name="delete-a-rule"></a>Excluir uma regra <a name ="delete-rule"></a>
 
 Quando necessário, você pode excluir uma regra recomendada para a sessão atual. Por exemplo, você pode determinar que a aplicação de uma regra sugerida poderia bloquear o tráfego legítimo.
 

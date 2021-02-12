@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
 ms.date: 10/13/2020
-ms.openlocfilehash: b4a8b809fc135a4af26fae10912890f2017153f4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: cacd43502a01352c24f8fcfd85b12aac781dccbd
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780913"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602515"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-sql-database--sql-managed-instance"></a>Economize custos para recursos com capacidade reservada-banco de dados SQL do Azure & SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)] 
@@ -47,7 +47,7 @@ Por exemplo, vamos supor que você esteja executando uma finalidade geral, Gen5 
 ## <a name="buy-reserved-capacity"></a>Comprar uma capacidade reservada
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Selecione **Todos os serviços** > **Reservas** .
+2. Selecione **Todos os serviços** > **Reservas**.
 3. Selecione **Adicionar** e, em seguida, no painel **reservas de compra** , selecione **banco de dados SQL** para comprar uma nova reserva para o banco de dados SQL.
 4. Preencha os campos obrigatórios. Bancos de dados existentes no banco de dados SQL e SQL Instância Gerenciada que correspondem aos atributos que você selecionar qualificar para obter o desconto de capacidade reservada. O número real de bancos de dados ou instâncias gerenciadas que obtém o desconto depende do escopo e da quantidade selecionada.
 
@@ -57,8 +57,8 @@ Por exemplo, vamos supor que você esteja executando uma finalidade geral, Gen5 
     
     | Campo      | Descrição|
     |------------|--------------|
-    |Subscription|A assinatura usada para pagar pela reserva de capacidade. São cobrados os custos iniciais para a reserva à forma de pagamento na assinatura. O tipo de assinatura deve ser um Enterprise Agreement (número da oferta MS-AZR-0017P ou MS-AZR-0148P) ou um contrato individual com preço pago conforme o uso (número da oferta MS-AZR-0003P ou MS-AZR-0023P). Para uma assinatura de empresa, os encargos são deduzidos do saldo do compromisso monetário do registro ou cobrados como média. Para uma assinatura individual com o preço pago conforme o uso, os encargos são cobrados no cartão de crédito ou no método de pagamento de fatura na assinatura.|
-    |Escopo       |O escopo da reserva de vCore pode cobrir uma assinatura ou várias assinaturas (escopo compartilhado). Se você selecionar <br/><br/>**Compartilhado** , o desconto de reserva vCore é aplicado ao banco de dados ou instância gerenciada em execução em qualquer assinatura no contexto de cobrança. Para clientes empresariais, o escopo compartilhado é o registro e inclui todas as assinaturas no registro. Para clientes de Pagamento Conforme o Uso, o escopo compartilhado consiste em todas as assinaturas de Pagamento Conforme o Uso criadas pelo administrador da conta.<br/><br/>**Assinatura única** , o desconto de reserva vCore é aplicado aos bancos de dados ou instâncias gerenciadas nesta assinatura. <br/><br/>**Um grupo de recursos único** , o desconto de reserva é aplicado às instâncias de bancos de dados ou instâncias gerenciadas na assinatura selecionada e ao grupo de recursos selecionado dentro dessa assinatura.|
+    |Assinatura|A assinatura usada para pagar pela reserva de capacidade. São cobrados os custos iniciais para a reserva à forma de pagamento na assinatura. O tipo de assinatura deve ser um Enterprise Agreement (número da oferta MS-AZR-0017P ou MS-AZR-0148P) ou um contrato individual com preço pago conforme o uso (número da oferta MS-AZR-0003P ou MS-AZR-0023P). Para uma assinatura empresarial, os encargos são deduzidos do saldo antecipado do Azure do registro (anteriormente chamado de compromisso monetário) ou cobrados como excedentes. Para uma assinatura individual com o preço pago conforme o uso, os encargos são cobrados no cartão de crédito ou no método de pagamento de fatura na assinatura.|
+    |Escopo       |O escopo da reserva de vCore pode cobrir uma assinatura ou várias assinaturas (escopo compartilhado). Se você selecionar <br/><br/>**Compartilhado**, o desconto de reserva vCore é aplicado ao banco de dados ou instância gerenciada em execução em qualquer assinatura no contexto de cobrança. Para clientes empresariais, o escopo compartilhado é o registro e inclui todas as assinaturas no registro. Para clientes de Pagamento Conforme o Uso, o escopo compartilhado consiste em todas as assinaturas de Pagamento Conforme o Uso criadas pelo administrador da conta.<br/><br/>**Assinatura única**, o desconto de reserva vCore é aplicado aos bancos de dados ou instâncias gerenciadas nesta assinatura. <br/><br/>**Um grupo de recursos único**, o desconto de reserva é aplicado às instâncias de bancos de dados ou instâncias gerenciadas na assinatura selecionada e ao grupo de recursos selecionado dentro dessa assinatura.|
     |Região      |A região do Azure que é coberta pela reserva de capacidade.|
     |Tipo de implantação|O tipo de recurso de SQL para o qual você deseja comprar a reserva.|
     |Nível de desempenho|A camada de serviço para os bancos de dados ou instâncias gerenciadas. |
@@ -66,7 +66,7 @@ Por exemplo, vamos supor que você esteja executando uma finalidade geral, Gen5 
     |Quantidade    |A quantidade de recursos de computação que está sendo adquirida dentro da reserva de capacidade. A quantidade é um número de vCores na região do Azure e no nível de desempenho selecionados que estão sendo reservados e receberão o desconto de cobrança. Por exemplo, se você executar ou planejar a execução de vários bancos de dados com a capacidade de computação total de Gen5 16 vCores na região leste dos EUA, você especificaria a quantidade como 16 para maximizar o benefício de todos os bancos de dados. |
 
 1. Examine o custo da reserva de capacidade na seção de **custos** .
-1. Selecione **Comprar** .
+1. Selecione **Comprar**.
 1. Selecione **Exibir essa Reserva** para ver o status de sua compra.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
@@ -77,7 +77,7 @@ Por exemplo, vamos supor que você esteja executando uma finalidade geral, Gen5 
 
 A flexibilidade de tamanho do vCore ajuda você a aumentar ou diminuir dentro de uma região e nível de desempenho sem perder o benefício de capacidade reservada. A capacidade reservada também fornece a flexibilidade para mover temporariamente seus bancos de dados ativos para dentro e fora de pools elásticos (dentro da mesma região e nível de desempenho) como parte de suas operações normais sem perder o benefício de capacidade reservada. Ao manter um buffer não aplicado em sua reserva, você pode gerenciar efetivamente os picos de desempenho sem exceder seu orçamento.
 
-## <a name="limitation"></a>Limitações
+## <a name="limitation"></a>Limitação
 
 Não é possível reservar bancos de dados baseados em DTU (básico, Standard ou Premium) no banco de dados SQL.
 

@@ -3,12 +3,12 @@ title: Instalar Servidor de Backup do Azure no Azure Stack
 description: Neste artigo, saiba como usar o Servidor de Backup do Azure para proteger ou fazer backup de cargas de trabalho no Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 7153e2ff03a4f78ee1cc92ca04054fb2955d11a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12dfd15c2bd43816dd361fdf45995bcbcd6fba56
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970240"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986998"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalar Servidor de Backup do Azure no Azure Stack
 
@@ -335,13 +335,19 @@ Quando você souber o estado da conectividade do Azure e da assinatura do Azure,
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recuperação de perda de conectividade
 
-Se um firewall ou um proxy estiver impedindo o acesso ao Azure, adicione os seguintes endereços de domínio na lista de permissões no perfil do firewall/proxy:
+Se o seu computador tiver acesso limitado à Internet, verifique se as configurações de firewall no computador ou proxy permitem as seguintes URLs e endereços IP:
 
-- `http://www.msftncsi.com/ncsi.txt`
-- \*.Microsoft.com
-- \*.WindowsAzure.com
-- \*.microsoftonline.com
-- \*.windows.net
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Endereços IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
+
 
 Depois que a conectividade com o Azure for restaurada para o Servidor de Backup do Azure, o estado da assinatura do Azure determinará as operações que podem ser realizadas. Depois que o servidor estiver **Conectado**, use a tabela em [Conectividade de rede](backup-mabs-install-azure-stack.md#network-connectivity) para ver as operações disponíveis.
 

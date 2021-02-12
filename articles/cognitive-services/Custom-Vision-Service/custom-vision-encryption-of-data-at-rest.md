@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 39257419f179bdce8c94f2ddb3a7cd8f5ac2d34f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c65f28c040b15aaa2ec8f3425209351e4b60486
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89077748"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616205"
 ---
 # <a name="custom-vision-encryption-of-data-at-rest"></a>Visão Personalizada criptografia de dados em repouso
 
@@ -39,5 +39,5 @@ Atualmente, as chaves gerenciadas pelo cliente estão disponíveis nestas regiõ
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para obter uma lista completa de serviços que dão suporte a CMK, consulte [chaves gerenciadas pelo cliente para serviços cognitivas](../encryption/cognitive-services-encryption-keys-portal.md)
-* [O que é Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?
+* [O que é Azure Key Vault](../../key-vault/general/overview.md)?
 * [Customer-Managed formulário de solicitação de chave de serviços cognitivas](https://aka.ms/cogsvc-cmk)

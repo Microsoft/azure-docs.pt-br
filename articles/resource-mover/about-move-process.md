@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: overview
 ms.date: 09/09/2020
 ms.author: raynew
-ms.openlocfilehash: 4d520f51717aa11dba55697d63852b17e0ba9cf0
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 5261904dd1ee7f280209015d8f756a055dfab57e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604488"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522933"
 ---
 # <a name="about-the-move-process"></a>Sobre o processo de movimentação
 
@@ -25,8 +25,8 @@ Esses componentes são usados durante a movimentação da região.
 
 **Componente** | **Detalhes**
 --- | ---
-**Resource Mover** |  O Resource Mover coordena-se com [provedores de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types) para orquestrar a movimentação de recursos entre regiões. O Resource Mover analisa as dependências de recursos e mantém e gerencia o estado dos recursos durante o processo de movimentação. 
-**Mover coleção** |  Uma coleção de movimentação é um objeto do [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview).<br/><br/> A coleção de movimentação é criada durante o processo de movimentação de região, para cada combinação emparelhada de regiões de origem e de destino em uma assinatura. A coleção contém metadados e informações de configuração sobre os recursos que você deseja mover.<br/><br/>Os recursos adicionados a uma coleção de movimentação precisam estar na mesma assinatura, mas podem estar em grupos de recursos diferentes. 
+**Resource Mover** |  O Resource Mover coordena-se com [provedores de recursos do Azure](../azure-resource-manager/management/resource-providers-and-types.md) para orquestrar a movimentação de recursos entre regiões. O Resource Mover analisa as dependências de recursos e mantém e gerencia o estado dos recursos durante o processo de movimentação. 
+**Mover coleção** |  Uma coleção de movimentação é um objeto do [Azure Resource Manager](../azure-resource-manager/management/overview.md).<br/><br/> A coleção de movimentação é criada durante o processo de movimentação de região, para cada combinação emparelhada de regiões de origem e de destino em uma assinatura. A coleção contém metadados e informações de configuração sobre os recursos que você deseja mover.<br/><br/>Os recursos adicionados a uma coleção de movimentação precisam estar na mesma assinatura, mas podem estar em grupos de recursos diferentes. 
 **Recurso de movimentação** | Quando você adiciona um recurso a uma coleção de movimentação, ele é rastreado pelo Resource Mover como um recurso de movimentação.<br/><br/> O Resource Mover mantém informações para todos os recursos de movimentação na coleção de movimentação e mantém uma relação um-para-um entre o recurso de origem e de destino. 
 **Dependências** | O Resource Mover valida os recursos que você adiciona a uma coleção e verifica se os recursos têm dependências que não estejam na coleção de movimentação.<br/><br/> Depois de identificar as dependências de um recurso, você poderá adicionar as dependências à coleção de movimentação e movê-las também ou poderá selecionar recursos existentes alternativos na região de destino. Todas as dependências precisam ser resolvidas antes de você iniciar a movimentação. 
 

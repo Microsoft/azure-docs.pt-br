@@ -3,21 +3,22 @@ title: ST_WITHIN na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função do sistema SQL ST_WITHIN no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 11/23/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: da475ced067f19cddd4a20284ba556c8a0b52677
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e808f6f56041e6cdc577164140910af8d6c42731
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93079964"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96004391"
 ---
 # <a name="st_within-azure-cosmos-db"></a>ST_WITHIN (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
- Retorna uma expressão booliana que indica se o objeto GeoJSON (Ponto, Polígono ou LineString) especificado no primeiro argumento está dentro do GeoJSON (Ponto, Polígono ou LineString) no segundo argumento.  
+ Retorna uma expressão booliana que indica se o objeto geojson (ponto, polígono, MultiPolygon ou LineString) especificado no primeiro argumento está dentro do geojson (ponto, polígono, MultiPolygon ou LineString) no segundo argumento.  
   
 ## <a name="syntax"></a>Sintaxe
   

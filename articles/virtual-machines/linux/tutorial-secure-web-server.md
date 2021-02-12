@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4a790c51cd0caa2c81275e7eafdd663f2f2f0116
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e4e80990b32175842556059d005563a220d14688
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740204"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878453"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>Tutorial: Proteger um servidor Web em uma máquina virtual do Linux no Azure com certificados TLS/SSL armazenados no Key Vault
 Para proteger servidores Web, um certificado de protocolo TLS, anteriormente conhecido como protocolo SSL, pode ser usado para criptografar o tráfego da Web. Esses certificados TLS/SSL podem ser armazenados no Azure Key Vault e permitem implantações seguras de certificados em VMs (máquinas virtuais) do Linux no Azure. Neste tutorial, você aprenderá a:
@@ -42,7 +42,7 @@ Em vez de usar uma imagem de VM personalizada que inclui certificados incorporad
 
 
 ## <a name="create-an-azure-key-vault"></a>Criar um Cofre de chaves do Azure
-Antes de criar um Key Vault e os certificados, crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroupSecureWeb* no local *eastus* :
+Antes de criar um Key Vault e os certificados, crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroupSecureWeb* no local *eastus*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupSecureWeb --location eastus
@@ -157,4 +157,4 @@ Neste tutorial, você protegeu um servidor Web NGINX com um certificado TLS/SSL 
 Siga este link para ver exemplos de script de máquina virtual predefinido.
 
 > [!div class="nextstepaction"]
-> [Exemplos de script de máquina virtual do Linux](./cli-samples.md)
+> [Exemplos de script de máquina virtual do Linux](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

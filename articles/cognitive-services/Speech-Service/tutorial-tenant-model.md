@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5e861182ee57a0b49d3e62a858fc97dbf0890ea3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48cde51ee9941f705aa848d121c419a8f0c9ad1a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399696"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013708"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Tutorial: Criar um modelo de locatário (versão prévia)
 
@@ -105,7 +105,7 @@ Quando a instância do modelo de locatário estiver pronta, implante-a fazendo o
 
 Agora que você implantou o modelo, poderá usá-lo com o SDK de Fala. Nesta seção, você usará o código de exemplo para chamar o Serviço de Fala usando a autenticação do Azure AD (Azure Active Directory).
 
-Vamos analisar o código que você usará para chamar o SDK de Fala no C#. Neste exemplo, você executará o reconhecimento de fala usando seu modelo de locatário. Este guia presume que sua plataforma já está configurada. Se precisar de ajuda para a instalação, confira o [Início rápido: Reconheça a fala, C# (.NET Core)](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore).
+Vamos analisar o código que você usará para chamar o SDK de Fala no C#. Neste exemplo, você executará o reconhecimento de fala usando seu modelo de locatário. Este guia presume que sua plataforma já está configurada. Se precisar de ajuda para a instalação, confira o [Início rápido: Reconheça a fala, C# (.NET Core)](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore).
 
 Copie este código em seu projeto:
 

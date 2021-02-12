@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/30/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 8c908b7f72e5581122427a7d711ae9cf61d2d90f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef9efe389894af7c792e980922ca422e9d05929b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665575"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027513"
 ---
 A tabela a seguir descreve os limites padrão das contas de armazenamento de uso geral v1 e v2, de Armazenamento de Blobs e de Armazenamento de Blobs de Blocos do Azure. O limite de *entrada* refere-se a todos os dados enviados a uma conta de armazenamento. O limite de *saída* refere-se a todos os dados recebidos de uma conta de armazenamento.
 
@@ -41,5 +41,4 @@ A tabela a seguir descreve os limites padrão das contas de armazenamento de uso
 > [!NOTE]
 > A Microsoft recomenda o uso de contas de armazenamento de uso geral v2 na maioria dos cenários. É possível atualizar facilmente uma conta do Armazenamento de Blobs do Azure ou de uso geral v1 para uma conta de uso geral v2 sem tempo de inatividade e sem precisar copiar dados. Para obter mais informações, confira [Atualizar para uma conta de armazenamento de uso geral v2](../articles/storage/common/storage-account-upgrade.md).
 
-Todas as contas de armazenamento são executadas em uma topologia de rede simples, independentemente de quando foram criadas. Para obter mais informações sobre a arquitetura de rede simples do armazenamento do Azure e sobre escalabilidade, confira [Armazenamento do Microsoft Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](https://docs.microsoft.com/archive/blogs/hanuk/windows-azures-flat-network-storage-to-enable-higher-scalability-targets). 
-
+Todas as contas de armazenamento são executadas em uma topologia de rede simples, independentemente de quando foram criadas. Para obter mais informações sobre a arquitetura de rede simples do armazenamento do Azure e sobre escalabilidade, confira [Armazenamento do Microsoft Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](/archive/blogs/hanuk/windows-azures-flat-network-storage-to-enable-higher-scalability-targets).

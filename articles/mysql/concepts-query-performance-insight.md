@@ -1,17 +1,17 @@
 ---
 title: Análise de Desempenho de Consultas – Banco de Dados do Azure para MySQL
 description: Este artigo descreve o recurso Análise de Desempenho de Consultas no Banco de Dados do Azure para MySQL
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
-ms.openlocfilehash: 7aefa6cd048c41feb1535f2ae7fa5c87bf628b2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30457b950e6400c799f35924e7b2ee90d868a465
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90884903"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535173"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>Análise de Desempenho de Consultas no Banco de Dados do Azure para MySQL
 
@@ -56,7 +56,7 @@ Você pode clicar e arrastar no gráfico para restringi-lo a uma janela de tempo
 ### <a name="wait-statistics"></a>Estatísticas de espera
 
 > [!NOTE]
-> As estatísticas de espera servem para solucionar problemas de desempenho da consulta. É recomendável que elas sejam ativadas apenas para fins de solução de problemas. <br>Se você receber a mensagem de erro no portal do Azure "*O problema encontrado para 'Microsoft.DBforMySQL'; não pode atender à solicitação. Se o problema continuar ou for inesperado, entre em contato com o suporte com essas informações.* " ao exibir as estatísticas de espera, use um período de tempo menor.
+> As estatísticas de espera servem para solucionar problemas de desempenho da consulta. É recomendável que elas sejam ativadas apenas para fins de solução de problemas. <br>Se você receber a mensagem de erro no portal do Azure " *O problema encontrado para 'Microsoft.DBforMySQL'; não pode atender à solicitação. Se o problema continuar ou for inesperado, entre em contato com o suporte com essas informações.* " ao exibir as estatísticas de espera, use um período de tempo menor.
 
 As estatísticas de espera fornecem uma exibição dos eventos de espera que ocorrem durante a execução de uma consulta específica. Saiba mais sobre os tipos de evento de espera na [documentação do mecanismo MySQL](https://go.microsoft.com/fwlink/?linkid=2098206).
 
@@ -64,7 +64,7 @@ Selecione a guia das **Estatísticas de Espera** guia para exibir as visualizaç
 
 As consultas exibidas na visualização de estatísticas de espera são agrupadas pelas consultas que exibem as maiores esperas durante o intervalo de tempo especificado.
 
-:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Consultas de execução longa da Análise de Desempenho de Consultas":::
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Estatísticas de esperas de Análise de Desempenho de Consultas":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

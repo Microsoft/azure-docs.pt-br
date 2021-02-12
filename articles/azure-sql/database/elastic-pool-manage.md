@@ -10,12 +10,12 @@ ms.author: moslake
 ms.reviewer: sstein
 ms.date: 03/12/2019
 ms.custom: seoapril2019 sqldbrb=1, devx-track-azurecli
-ms.openlocfilehash: 5916a687c4eff4c6c8890b14a8c204cbabc145ea
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9c9af6e3bc3dfd798f4b3f0cad9319aa573c425d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792184"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455992"
 ---
 # <a name="manage-elastic-pools-in-azure-sql-database"></a>Gerenciar Pools elásticos no banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -24,7 +24,7 @@ Com um pool elástico, você pode determinar a quantidade de recursos que o pool
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-Todas as configurações de pool podem ser localizadas em um só local: na folha **Configurar pool** . Para obter aqui, localize um pool elástico no portal do Azure e clique em **Configurar pool** na parte superior da folha ou no menu de recursos à esquerda.
+Todas as configurações de pool podem ser localizadas em um só local: na folha **Configurar pool**. Para obter aqui, localize um pool elástico no portal do Azure e clique em **Configurar pool** na parte superior da folha ou no menu de recursos à esquerda.
 
 A partir deste ponto, é possível fazer qualquer combinação das alterações a seguir e salvá-las em um lote:
 
@@ -94,7 +94,7 @@ Para criar e mover bancos de dados dentro de pools elásticos existentes ou para
 | [ALTER DATABASE (Banco de Dados SQL do Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Move um banco de dados para dentro de um pool elástico, para fora dele ou entre pools elásticos.|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Exclui um banco de dados.|
 |[sys.elastic_pool_resource_stats (Banco de Dados SQL do Azure)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Retorna estatísticas de uso de recursos para todos os pools elásticos em um servidor. Para cada pool elástico, há uma linha para cada janela de relatórios de 15 segundos (quatro linhas por minuto). Isso inclui a utilização de CPU, E/S, log, consumo de armazenamento e solicitações/sessões simultâneas de todos os bancos de dados no pool.|
-|[sys.database_service_objectives (Banco de Dados SQL do Azure)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Retorna a edição (camada de serviço), o objetivo de serviço (tipo de preço) e o nome do pool elástico, se houver, para um banco de dados no banco de dados SQL ou o Azure Synapse Analytics (anteriormente SQL Data Warehouse). Se estiver conectado ao banco de dados mestre em um servidor, o retornará informações sobre todos os bancos. Para o Azure Synapse Analytics, você deve estar conectado ao banco de dados mestre.|
+|[sys.database_service_objectives (Banco de Dados SQL do Azure)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Retorna a edição (camada de serviço), o objetivo de serviço (tipo de preço) e o nome do pool elástico, se houver, para um banco de dados no banco de dados SQL ou o Azure Synapse Analytics. Se estiver conectado ao banco de dados mestre em um servidor, o retornará informações sobre todos os bancos. Para o Azure Synapse Analytics, você deve estar conectado ao banco de dados mestre.|
 
 ## <a name="rest-api"></a>API REST
 

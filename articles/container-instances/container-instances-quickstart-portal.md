@@ -5,11 +5,11 @@ ms.topic: quickstart
 ms.date: 08/24/2020
 ms.custom: seodec18, mvc, devx-track-js
 ms.openlocfilehash: c8477bd91c3a02a2cd02d341c38c16da251902ae
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91324511"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004799"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Início Rápido: Implantar uma instância de contêiner no Azure usando o portal do Azure
 
@@ -29,7 +29,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita][azure-fre
 
 Selecione **Criar um recurso** > **Contêineres** > **Instâncias de Contêiner**.
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-01.png" alt-text="Aplicativos implantados por meio das Instâncias de Contêiner do Azure exibidos no navegador":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-01.png" alt-text="Começar a criar uma nova instância de contêiner no Portal do Azure":::
 
 Na página **Noções básicas**, insira os seguintes valores nas caixas de texto **Grupo de recursos**, **Nome do contêiner** e **Imagem de contêiner**. Deixe os outros valores com seus padrões e selecione **OK**.
 
@@ -38,25 +38,25 @@ Na página **Noções básicas**, insira os seguintes valores nas caixas de text
 * Origem da imagem: **Imagens de início rápido**
 * Imagem de contêiner: `mcr.microsoft.com/azuredocs/aci-helloworld` (Linux)
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-03.png" alt-text="Aplicativos implantados por meio das Instâncias de Contêiner do Azure exibidos no navegador":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-03.png" alt-text="Configurando as definições básicas para uma nova instância de contêiner no Portal do Azure":::
 
 Para este início rápido, você usará configurações padrão para implantar a imagem `aci-helloworld` da Microsoft pública. Esta imagem de exemplo do Linux empacota um pequeno aplicativo Web escrito no Node.js que veicula a uma página HTML estática. Você também pode colocar suas próprias imagens de contêiner armazenadas no Registro de Contêiner do Azure, no Docker Hub ou em outros Registros.
 
 Na página **Rede**, especifique um **Rótulo de nome DNS** para seu contêiner. O nome precisa ser exclusivo dentro da região do Azure em que você cria a instância de contêiner. Seu contêiner estará publicamente acessível em `<dns-name-label>.<region>.azurecontainer.io`. Se você receber uma mensagem de erro “Rótulo de nome DNS não disponível”, tente usar um rótulo de nome DNS diferente.
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-04.png" alt-text="Aplicativos implantados por meio das Instâncias de Contêiner do Azure exibidos no navegador":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-04.png" alt-text="Configurar as definições de rede para uma nova instância de contêiner no portal do Azure":::
 
 Deixe as outras configurações com seus padrões e selecione **Examinar + criar**.
 
 Quando a validação for concluída, um resumo das configurações de seu contêiner será exibido. Selecione **Criar** para enviar sua solicitação de implantação de contêiner.
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-05.png" alt-text="Aplicativos implantados por meio das Instâncias de Contêiner do Azure exibidos no navegador":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-05.png" alt-text="Resumo das configurações para uma nova instância de contêiner no Portal do Azure":::
 
 Quando a implantação é iniciada, aparece uma notificação para indicar que a implantação está em andamento. Outra notificação será exibida quando o grupo de contêiner tiver sido implantado.
 
 Abra a visão geral do grupo de contêiner navegando até **Grupos de Recursos** > **myresourcegroup** > **mycontainer**. Anote o **FQDN** (nome de domínio totalmente qualificado) da instância do contêiner, bem como seu **Status**.
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-06.png" alt-text="Aplicativos implantados por meio das Instâncias de Contêiner do Azure exibidos no navegador":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-06.png" alt-text="Visão geral do grupo de contêineres no Portal do Azure":::
 
 Uma vez seu **Status** é *Executando*, navegue para o FQDN do contêiner em seu navegador.
 
@@ -70,18 +70,18 @@ Exibir os logs para uma instância de contêiner é útil ao solucionar problema
 
 Para exibir os logs do contêiner, em **Configurações**, selecione **Contêineres** e, em seguida, **Logs**. Você verá a solicitação HTTP GET gerada quando você exibiu o aplicativo em seu navegador.
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-11.png" alt-text="Aplicativos implantados por meio das Instâncias de Contêiner do Azure exibidos no navegador":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-11.png" alt-text="Logs de contêiner no portal do Azure":::
 
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando tiver terminado com o contêiner, selecione **Visão geral** para a instância de contêiner *mycontainer*, em seguida, selecione **Excluir**.
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-09.png" alt-text="Aplicativos implantados por meio das Instâncias de Contêiner do Azure exibidos no navegador":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-09.png" alt-text="Excluir a instância de contêiner no portal do Azure]":::
 
 Escolha **Sim** quando a caixa de diálogo de confirmação aparecer.
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-10.png" alt-text="Aplicativos implantados por meio das Instâncias de Contêiner do Azure exibidos no navegador":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-10.png" alt-text="Confirmação de exclusão de uma instância de contêiner no portal do Azure]":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

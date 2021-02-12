@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: d3e856256e02e2c1914aeec493a87ffe992bbf13
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 3b6928b759d2349051dbb69258952f2f1ee10a31
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740311"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878131"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Cenários do Azure Disk Encryption em VMs Linux
 
@@ -42,11 +42,11 @@ O Azure Disk Encryption pode ser habilitado e gerenciado por meio da [CLI do Azu
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-O [CLI 2.0 do Azure](/cli/azure) é uma ferramenta de linha de comando para gerenciar recursos do Azure. A CLI é projetada para consultar dados com flexibilidade, dar suporte a operações de longa execução como processos desbloqueados e facilitar o script. Você pode instalá-la localmente seguindo as etapas em [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+O [CLI 2.0 do Azure](/cli/azure) é uma ferramenta de linha de comando para gerenciar recursos do Azure. A CLI é projetada para consultar dados com flexibilidade, dar suporte a operações de longa execução como processos desbloqueados e facilitar o script. Você pode instalá-la localmente seguindo as etapas em [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
  
 
-Para [Entrar na assinatura do Azure com a CLI do Azure](/cli/azure/authenticate-azure-cli), use o comando [az login](/cli/azure/reference-index?view=azure-cli-latest#az-login).
+Para [Entrar na assinatura do Azure com a CLI do Azure](/cli/azure/authenticate-azure-cli), use o comando [az login](/cli/azure/reference-index#az_login).
 
 ```azurecli
 az login
@@ -72,13 +72,13 @@ O [módulo az do Azure PowerShell](/powershell/azure/new-azureps-module-az) forn
 
 Se você já tiver instalado localmente, verifique se que você usar a versão mais recente do SDK do Azure PowerShell para configurar o Azure Disk Encryption. Baixe a última versão do [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
-Para [Entrar em sua conta do Azure com o Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-2.5.0), use o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0).
+Para [Entrar em sua conta do Azure com o Azure PowerShell](/powershell/azure/authenticate-azureps), use o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 ```powershell
 Connect-AzAccount
 ```
 
-Se você tiver várias assinaturas e quiser especificar uma, use o cmdlet [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) para listá-las, seguido pelo cmdlet [Set-AzContext](/powershell/module/az.accounts/set-azcontext?view=azps-2.5.0):
+Se você tiver várias assinaturas e quiser especificar uma, use o cmdlet [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) para listá-las, seguido pelo cmdlet [Set-AzContext](/powershell/module/az.accounts/set-azcontext):
 
 ```powershell
 Set-AzContext -Subscription -Subscription <SubscriptionId>
@@ -86,7 +86,7 @@ Set-AzContext -Subscription -Subscription <SubscriptionId>
 
 A execução do cmdlet [Get-AzContext](/powershell/module/Az.Accounts/Get-AzContext) verificará se a assinatura correta foi selecionada.
 
-Para confirmar que os cmdlets do Azure Disk Encryption estão instalados, use o cmdlet [Get-command](/powershell/module/microsoft.powershell.core/get-command?view=powershell-6):
+Para confirmar que os cmdlets do Azure Disk Encryption estão instalados, use o cmdlet [Get-command](/powershell/module/microsoft.powershell.core/get-command):
      
 ```powershell
 Get-command *diskencryption*
@@ -104,9 +104,9 @@ Nesse cenário, é possível habilitar a criptografia usando o modelo do Resourc
 
 ### <a name="enable-encryption-on-an-existing-or-running-linux-vm-using-azure-cli"></a>Habilitar criptografia em uma VM Linux existente ou em execução usando a CLI do Azure 
 
-É possível habilitar a criptografia de disco no VHD criptografado, instalando e usando a ferramenta de linha de comando da [CLI do Azure](/cli/azure/?view=azure-cli-latest). Você pode usá-lo em seu navegador com o [Azure Cloud Shell](../../cloud-shell/overview.md), ou você pode instalá-lo em seu computador local e usá-lo em qualquer sessão do PowerShell. Para habilitar a criptografia em VMs Linux existentes ou em execução no Azure, use os seguintes comandos da CLI:
+É possível habilitar a criptografia de disco no VHD criptografado, instalando e usando a ferramenta de linha de comando da [CLI do Azure](/cli/azure/). Você pode usá-lo em seu navegador com o [Azure Cloud Shell](../../cloud-shell/overview.md), ou você pode instalá-lo em seu computador local e usá-lo em qualquer sessão do PowerShell. Para habilitar a criptografia em VMs Linux existentes ou em execução no Azure, use os seguintes comandos da CLI:
 
-Use o comando [az vm encryption enable](/cli/azure/vm/encryption?view=azure-cli-latest#az-vm-encryption-show) para habilitar a criptografia em uma máquina virtual em execução no Azure.
+Use o comando [az vm encryption enable](/cli/azure/vm/encryption#az_vm_encryption_show) para habilitar a criptografia em uma máquina virtual em execução no Azure.
 
 - **Criptografar uma VM em execução:**
 
@@ -200,8 +200,8 @@ A tabela a seguir lista os parâmetros de modelo do Resource Manager existente p
 | vmName | Nome da VM para executar a operação de criptografia. |
 | keyVaultName | Nome do cofre de chaves em que a chave de criptografia deve ser carregada. É possível obtê-lo usando o cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` ou o comando `az keyvault list --resource-group "MyKeyVaultResourceGroupName"` da CLI do Azure.|
 | keyVaultResourceGroup | Nome do grupo de recursos que contém o cofre de chaves. |
-|  keyEncryptionKeyURL | URL da chave de criptografia de chave usada para criptografar a chave de criptografia. Esse parâmetro será opcional se você selecionar **nokek** na lista suspensa UseExistingKek. Se selecionar **kek** na lista suspensa UseExistingKek, você deverá inserir o valor _keyEncryptionKeyURL_ . |
-| volumeType | Tipo de volume em que a operação de criptografia é executada. Os valores válidos são _OS_ , _Data_ e _All_ . 
+|  keyEncryptionKeyURL | URL da chave de criptografia de chave usada para criptografar a chave de criptografia. Esse parâmetro será opcional se você selecionar **nokek** na lista suspensa UseExistingKek. Se selecionar **kek** na lista suspensa UseExistingKek, você deverá inserir o valor _keyEncryptionKeyURL_. |
+| volumeType | Tipo de volume em que a operação de criptografia é executada. Os valores válidos são _OS_, _Data_ e _All_. 
 | forceUpdateTag | Passe um valor exclusivo como um GUID sempre que a execução da operação precise ser forçada. |
 | local | Local de todos os recursos. |
 
@@ -283,7 +283,7 @@ Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $vmName -Di
     echo "/dev/disk/azure/scsi1/lun0-part1 /mnt/mountpoint ext4 defaults,nofail 0 2" >> /etc/fstab
     ```
     
-1. Execute o cmdlet [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-3.8.0) do Azure PowerShell com -EncryptFormatAll para criptografar esses discos.
+1. Execute o cmdlet [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) do Azure PowerShell com -EncryptFormatAll para criptografar esses discos.
 
     ```azurepowershell-interactive
     $KeyVault = Get-AzKeyVault -VaultName "MySecureVault" -ResourceGroupName "MySecureGroup"
@@ -412,9 +412,12 @@ O Azure Disk Encryption não funciona para os seguintes cenários, recursos e te
 - Os discos NVMe das VMs da série Lsv2 (consulte: [Lsv2-Series](../lsv2-series.md)).
 - Uma VM com "pontos de montagem aninhados"; ou seja, vários pontos de montagem em um só caminho (como "/1stmountpoint/data/2stmountpoint").
 - Uma VM com uma unidade de dados montada na parte superior de uma pasta do sistema operacional.
+- Uma VM na qual um volume lógico (disco do sistema operacional) foi estendido usando um disco de dados.
 - VMs da série M com discos Acelerador de Gravação.
-- Aplicando ADE a uma VM que tem discos criptografados com [criptografia do lado do servidor com chaves gerenciadas pelo cliente](disk-encryption.md) (SSE + CMK). A aplicação de SSE + CMK a um disco de dados em uma VM criptografada com ADE também é um cenário sem suporte.
-- Migrar uma VM criptografada com ADE ou **já** foi criptografada com Ade, para a [criptografia do lado do servidor com chaves gerenciadas pelo cliente](disk-encryption.md).
+- Aplicando ADE a uma VM que tem discos criptografados com [criptografia do lado do servidor com chaves gerenciadas pelo cliente](../disk-encryption.md) (SSE + CMK). A aplicação de SSE + CMK a um disco de dados em uma VM criptografada com ADE também é um cenário sem suporte.
+- Migrar uma VM criptografada com ADE ou **já** foi criptografada com Ade, para a [criptografia do lado do servidor com chaves gerenciadas pelo cliente](../disk-encryption.md).
+- [Tamanhos de VM do Azure sem disco temporário local](../azure-vms-no-temp-disk.md); especificamente, DV4, Dsv4, Ev4 e Esv4.
+- Criptografia de VMs em clusters de failover.
 
 ## <a name="next-steps"></a>Próximas etapas
 

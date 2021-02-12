@@ -7,15 +7,15 @@ metadata:
   ms.service: marketplace
   ms.subservice: partnercenter-marketplace-publisher
   ms.topic: landing-page
-  author: keferna
-  ms.author: keferna
+  author: mingshen-ms
+  ms.author: mingshen
   ms.date: 09/02/2020
-  ms.openlocfilehash: 01ab8b0e27e8f1b9bfc326330214bcdb118dd6bd
-  ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+  ms.openlocfilehash: 95903c1068d64545ae025fb5899a80014b8f26f2
+  ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/30/2020
-  ms.locfileid: "93127273"
+  ms.lasthandoff: 12/06/2020
+  ms.locfileid: "96746379"
 landingContent:
 - title: Trabalho no marketplace comercial
   linkLists:
@@ -45,8 +45,8 @@ landingContent:
     links:
     - text: Clientes potenciais de sua oferta do marketplace
       url: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
-    - text: Opção de venda conjunta na Central de Parceiros
-      url: ./partner-center-portal/commercial-marketplace-co-sell.md
+    - text: Opção de venda conjunta no marketplace comercial
+      url: commercial-marketplace-co-sell.md
     - text: Participação de parceiros de venda conjunta
       url: ./marketplace-co-sell.md
     - text: Disponibilize soluções no Microsoft AppSource e no Office
@@ -60,15 +60,15 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Painel de resumo
-      url: ./partner-center-portal/summary-dashboard.md
+      url: ./summary-dashboard.md
     - text: Painel Insights do Marketplace
-      url: ./partner-center-portal/insights-dashboard.md
+      url: ./insights-dashboard.md
     - text: Painel de uso
-      url: ./partner-center-portal/usage-dashboard.md
+      url: ./usage-dashboard.md
     - text: Painel de cliente
-      url: ./partner-center-portal/customer-dashboard.md
+      url: ./customer-dashboard.md
     - text: Painel de pedidos
-      url: ./partner-center-portal/orders-dashboard.md
+      url: ./orders-dashboard.md
     - text: Painel de downloads
       url: ./partner-center-portal/downloads-dashboard.md
     - text: Painel de classificações e opiniões
@@ -82,7 +82,7 @@ landingContent:
     - text: Ofertas de máquinas virtuais
       url: ./marketplace-virtual-machines.md
     - text: Ofertas de aplicativo do Azure
-      url: ./partner-center-portal/create-new-azure-apps-offer.md
+      url: ./create-new-azure-apps-offer.md
     - text: Ofertas do Dynamics 365 for Customer Engagement e do PowerApps
       url: ./partner-center-portal/create-new-customer-engagement-offer.md
     - text: Ofertas do Dynamics 365 Business Central

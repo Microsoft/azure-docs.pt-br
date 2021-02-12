@@ -6,20 +6,19 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.subservice: users-groups-roles
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/29/2020
+ms.date: 12/02/2020
 ms.author: curtand
-ms.reviewer: elkuzmen
+ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6a7dcb1d24f3c1ff848e3393687b04d79d28058
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0af74967e2de47afeb357e2ac31b1a0ee849ef36
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374368"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547093"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Controlar um diretório não gerenciado como administrador no Azure Active Directory
 
@@ -100,7 +99,7 @@ Os planos de serviço com suporte incluem:
 
 O tomada de administração externa não tem suporte para nenhum serviço que tenha planos de serviço que incluam o SharePoint, OneDrive ou Skype for Business; por exemplo, por meio de uma assinatura gratuita do Office. 
 
-Opcionalmente, você pode usar a [opção **ForceTakeover** ](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) para remover o nome de domínio da organização não gerenciada e verificá-lo na organização desejada. 
+Opcionalmente, você pode usar a [opção **ForceTakeover**](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) para remover o nome de domínio da organização não gerenciada e verificá-lo na organização desejada. 
 
 #### <a name="more-information-about-rms-for-individuals"></a>Mais informações sobre o RMS para pessoas
 
@@ -174,7 +173,7 @@ Um desafio bem-sucedido fará com que você retorne ao prompt sem erros.
 * [Como instalar e configurar o PowerShell do Azure](/powershell/azure/)
 * [Azure PowerShell](/powershell/azure/)
 * [Referência de Cmdlets do Azure](/powershell/azure/get-started-azureps)
-* [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
+* [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0&preserve-view=true)
 
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png

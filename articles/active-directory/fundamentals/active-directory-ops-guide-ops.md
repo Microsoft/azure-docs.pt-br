@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 2de3f78b58e10a4fbf65bb00d516448a089f85b6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d5a8fe4192c3778e259ed18239a4198398d8807b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370943"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836828"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Referência geral do guia de operações do Azure Active Directory
 
@@ -43,7 +43,7 @@ O gerenciamento de Azure Active Directory requer a execução contínua das prin
 | Monitorar logs híbridos: agentes de autenticação de passagem | Equipe de operações IAM |
 | Monitorar logs híbridos: serviço de write-back de senha | Equipe de operações IAM |
 | Monitorar logs híbridos: gateway de proteção de senha local | Equipe de operações IAM |
-| Monitorar logs híbridos: extensão NPS do Azure MFA (se aplicável) | Equipe de operações IAM |
+| Monitorar logs híbridos: extensão NPS do Azure AD MFA (se aplicável) | Equipe de operações IAM |
 
 Ao examinar sua lista, você pode achar necessário atribuir um proprietário para tarefas que não têm um proprietário ou ajustar a propriedade para tarefas com proprietários que não estão alinhadas com as recomendações acima.
 
@@ -86,7 +86,7 @@ Ao monitorar a integridade do seu ambiente, você deve resolver imediatamente to
 
 ### <a name="on-premises-agents-logs"></a>Logs de agentes locais
 
-Alguns serviços de gerenciamento de identidade e acesso exigem agentes locais para habilitar cenários híbridos. Os exemplos incluem redefinição de senha, PTA (autenticação de passagem), Azure Proxy de Aplicativo do AD e extensão NPS do Azure MFA. É fundamental que a linha de base da equipe de operações e monitore a integridade desses componentes, arquivando e analisando os logs do agente de componentes usando soluções como o System Center Operations Manager ou o SIEM. É igualmente importante que sua equipe de operações do batalha ou suporte técnico entenda como solucionar problemas de padrões de erros.
+Alguns serviços de gerenciamento de identidade e acesso exigem agentes locais para habilitar cenários híbridos. Os exemplos incluem redefinição de senha, PTA (autenticação de passagem), Azure Proxy de Aplicativo do AD e extensão NPS do Azure AD MFA. É fundamental que a linha de base da equipe de operações e monitore a integridade desses componentes, arquivando e analisando os logs do agente de componentes usando soluções como o System Center Operations Manager ou o SIEM. É igualmente importante que sua equipe de operações do batalha ou suporte técnico entenda como solucionar problemas de padrões de erros.
 
 #### <a name="on-premises-agents-logs-recommended-reading"></a>Leitura recomendada de logs de agentes locais
 
@@ -94,7 +94,7 @@ Alguns serviços de gerenciamento de identidade e acesso exigem agentes locais p
 - [Solução de problemas de redefinição de senha por autoatendimento – Azure Active Directory](../authentication/troubleshoot-sspr.md)
 - [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](../manage-apps/application-proxy-connectors.md)
 - [Azure AD Connect: solucionar problemas de autenticação de passagem](../hybrid/tshoot-connect-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs)
-- [Solucionar problemas de códigos de erro para a extensão NPS do Azure MFA](../authentication/howto-mfa-nps-extension-errors.md)
+- [Solucionar problemas de códigos de erro para a extensão NPS do Azure AD MFA](../authentication/howto-mfa-nps-extension-errors.md)
 
 ### <a name="on-premises-agents-management"></a>Gerenciamento de agentes locais
 

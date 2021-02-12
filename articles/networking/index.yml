@@ -12,12 +12,12 @@ metadata:
   ms.author: kumud
   manager: mtillman
   ms.date: 09/28/2020
-  ms.openlocfilehash: e348e1e93506a668f448e834ad1eaa5ce0c36d4a
-  ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+  ms.openlocfilehash: 0f0536c259bb8b4168ab5fcf3e05016a281b05d5
+  ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/28/2020
-  ms.locfileid: "92900306"
+  ms.lasthandoff: 01/15/2021
+  ms.locfileid: "98233943"
 highlightedContent:
   items:
   - title: O que é a Rede do Azure?
@@ -28,10 +28,10 @@ highlightedContent:
     url: https://azure.microsoft.com/updates/?category=networking
   - title: Opções de balanceamento de carga no Azure
     itemType: architecture
-    url: https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview
+    url: /azure/architecture/guide/technology-choices/load-balancing-overview
   - title: Topologia de rede hub-spoke no Azure
     itemType: architecture
-    url: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+    url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
   - title: O que é o Azure Orbital?
     itemType: concept
     url: azure-orbital-overview.md
@@ -62,7 +62,7 @@ conceptualContent:
     - url: ../vpn-gateway/vpn-gateway-about-vpngateways.md
       itemType: overview
       text: O que é o Gateway de VPN do Azure?
-    - url: ../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md
+    - url: ../vpn-gateway/tutorial-site-to-site-portal.md
       itemType: tutorial
       text: Conexões site a site
     - url: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md
@@ -141,7 +141,7 @@ conceptualContent:
       text: Solucionar problemas de status degradado do Gerenciador de Tráfego
     footerLink:
       url: ../traffic-manager/index.yml
-      text: Veja mais
+      text: Ver mais
   - title: Balanceador de carga de aplicativo Web
     links:
     - url: ../application-gateway/overview.md
@@ -150,7 +150,7 @@ conceptualContent:
     - url: ../application-gateway/quick-create-portal.md
       itemType: quickstart
       text: Direcionar o tráfego da Web usando o portal
-    - url: ../application-gateway/application-gateway-faq.md
+    - url: ../application-gateway/application-gateway-faq.yml
       itemType: concept
       text: Perguntas frequentes
     - url: ../application-gateway/application-gateway-troubleshooting-502.md
@@ -189,7 +189,7 @@ conceptualContent:
       text: Registrar em log o fluxo de tráfego de e para uma VM
     footerLink:
       url: ../network-watcher/index.yml
-      text: Veja mais
+      text: Ver mais
   - title: Firewall de rede
     links:
     - url: ../firewall/overview.md
@@ -209,7 +209,7 @@ conceptualContent:
     - url: ../bastion/bastion-overview.md
       itemType: overview
       text: O que é o Azure Bastion?
-    - url: ../bastion/bastion-create-host-portal.md
+    - url: ../bastion/tutorial-create-host-portal.md
       itemType: how-to-guide
       text: Criar um Azure Bastion host
     - url: ../bastion/troubleshoot.md
@@ -333,10 +333,10 @@ additionalContent:
   - items:
     - title: Comandos do Azure PowerShell para redes do Azure
       summary: Saiba mais sobre os cmdlets de rede do Azure.
-      url: https://docs.microsoft.com/en-us/powershell/module/az.network/?view=azps-3.5.0#networking
+      url: /powershell/module/az.network/?view=azps-3.5.0#networking
     - title: Comandos da CLI do Azure para a rede do Azure
       summary: Encontre os comandos de rede do Azure na referência da CLI.
-      url: https://docs.microsoft.com/en-us/cli/azure/network?view=azure-cli-latest
+      url: /cli/azure/network?view=azure-cli-latest
     - title: Blog da rede do Azure
       summary: Exibir os blogs mais recentes no sistema de rede do Azure.
       url: https://azure.microsoft.com/blog/topics/networking/

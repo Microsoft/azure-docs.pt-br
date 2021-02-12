@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
+ms.date: 11/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d22d0da692516c89f6dd5ca7377ec83d7c430280
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e74c33a18baff3e1cb39328ce265f16975ef1b5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85203428"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994835"
 ---
 # <a name="string-claims-transformations"></a>Transformações de declarações de cadeias de caracteres
 
@@ -464,7 +464,7 @@ A transformação de declarações procura o texto do item e retorna seu valor. 
     <InputClaim ClaimTypeReferenceId="responseCode" TransformationClaimType="mapFromClaim" />
   </InputClaims>
   <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />        
+    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />        
   </OutputClaims>
 </ClaimsTransformation>
 ```
@@ -886,7 +886,7 @@ Por exemplo, normalize um número de telefone removendo os caracteres `-`
     - **inputClaim**: "+164-411-452-054"
 - Parâmetros de entrada:
     - **oldValue**: "-"
-    - **length**:  ""
+    - **NewValue**: ""
 - Declarações de saída:
     - **outputClaim**: "+164411452054"
 

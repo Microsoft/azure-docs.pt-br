@@ -5,11 +5,11 @@ ms.date: 08/22/2019
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: 8b3d856d255968b4a6736db908ce3999cbd56193
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86108882"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996367"
 ---
 ## <a name="validate-that-a-container-is-running"></a>Validar se um contêiner está em execução 
 

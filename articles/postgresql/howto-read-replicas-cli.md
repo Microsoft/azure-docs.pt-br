@@ -5,14 +5,14 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 12/17/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9fd828baed5a03cbce5d5327248eb34045ffd6bc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7e74a58a14bdcc2a6fe1e9f86305aae415c6abf7
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489703"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674507"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Criar e gerenciar réplicas de leitura do CLI do Azure, API REST
 
@@ -27,7 +27,9 @@ Para configurar o nível certo de registro em log, use o parâmetro de suporte d
 * **Réplica** -mais detalhada do que **desativado**. Esse é o nível mínimo de log necessário para que as [réplicas de leitura](concepts-read-replicas.md) funcionem. Essa configuração é o padrão na maioria dos servidores.
 * **Logical** -mais detalhado que a **réplica**. Este é o nível mínimo de registro em log para que a decodificação lógica funcione. As réplicas de leitura também funcionam nessa configuração.
 
-O servidor precisa ser reiniciado após uma alteração desse parâmetro. Internamente, esse parâmetro define os parâmetros postgres `wal_level` , `max_replication_slots` e `max_wal_senders` .
+
+> [!NOTE]
+> Ao implantar réplicas de leitura para cargas de trabalho primárias com uso intensivo de demandas persistentes, o retardo de replicação pode continuar crescendo e talvez nunca seja capaz de se deslocar com o primário. Isso também pode aumentar o uso de armazenamento no primário, pois os arquivos WAL não são excluídos até que sejam recebidos na réplica.
 
 ## <a name="azure-cli"></a>CLI do Azure
 Você pode criar e gerenciar réplicas de leitura usando o CLI do Azure.
@@ -187,7 +189,7 @@ Você pode interromper a replicação entre um servidor primário e uma réplica
 Depois de parar a replicação em um servidor primário e em uma réplica de leitura, ela não pode ser desfeita. A réplica de leitura se torna um servidor autônomo que dá suporte a leituras e gravações. O servidor autônomo não pode se tornar uma réplica novamente.
 
 ```http
-PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}?api-version=2017-12-01
+PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{replicaServerName}?api-version=2017-12-01
 ```
 
 ```json

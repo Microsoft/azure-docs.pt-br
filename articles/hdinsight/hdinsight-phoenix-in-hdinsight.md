@@ -1,19 +1,16 @@
 ---
 title: Apache Phoenix no HDInsight - Azure HDInsight
 description: Visão geral do Apache Phoenix
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: f98021d1e94b3796b2aeb6ba2e883e4e1380b8ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3af48c93633709c9b5814caa99c222e24e402a4a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504325"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945220"
 ---
 # <a name="apache-phoenix-in-azure-hdinsight"></a>Apache Phoenix no Azure HDInsight
 
@@ -99,7 +96,7 @@ ALTER TABLE my_other_table SET TRANSACTIONAL=true;
 
 O *hotspotting do servidor de região* pode ocorrer ao gravar registros com chaves sequenciais no HBase. Embora você tenha vários servidores de região no seu cluster, suas gravações estão ocorrendo em apenas um. Essa concentração cria o problema de hotspotting onde, em vez de sua carga de trabalho de gravação ser distribuída em todos os servidores de região disponíveis, apenas um deles está controlando a carga. Como cada região tem um tamanho máximo predefinido, quando uma região atinge esse limite de tamanho, ela é dividida em duas regiões pequenas. Quando isso acontece, uma nova região tem todos os novos registros, tornando-se o novo ponto de acesso.
 
-Para atenuar esse problema e obter melhor desempenho, pré-dividir tabelas de modo que todos os servidores de região são igualmente usados. Phoenix fornece*tabelas distribuídas*, de modo transparente adicionando o byte salting para a chave de linha para uma tabela específica. A tabela é previamente dividida em limites salt byte para garantir a distribuição de carga entre os servidores de região durante a fase inicial da tabela. Essa abordagem distribui a carga de trabalho de gravação em todos os servidores de região disponíveis, melhorando a gravação e o desempenho de leitura. Para distribuir uma tabela, especifique a `SALT_BUCKETS` propriedade de tabela quando a tabela for criada:
+Para atenuar esse problema e obter melhor desempenho, pré-dividir tabelas de modo que todos os servidores de região são igualmente usados. Phoenix fornece *tabelas distribuídas*, de modo transparente adicionando o byte salting para a chave de linha para uma tabela específica. A tabela é previamente dividida em limites salt byte para garantir a distribuição de carga entre os servidores de região durante a fase inicial da tabela. Essa abordagem distribui a carga de trabalho de gravação em todos os servidores de região disponíveis, melhorando a gravação e o desempenho de leitura. Para distribuir uma tabela, especifique a `SALT_BUCKETS` propriedade de tabela quando a tabela for criada:
 
 ```sql
 CREATE TABLE Saltedweblogs (
@@ -134,7 +131,7 @@ Um cluster HDInsight HBase inclui a [interface de usuário do Ambari](hdinsight-
 
     ![Seção de configuração do Ambari Phoenix SQL](./media/hdinsight-phoenix-in-hdinsight/apache-ambari-phoenix.png)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [Usar o Apache Phoenix com clusters do HBase baseados em Linux no HDInsight](hbase/apache-hbase-query-with-phoenix.md)
 

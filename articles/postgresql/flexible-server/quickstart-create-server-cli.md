@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 9/22/2020
-ms.custom: mvc
-ms.openlocfilehash: 75d76c64c10bf3ecc28c32452618048119bb9a59
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: d43fab43b05ccfd88308390f58ba48ff9111b295
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547615"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842814"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-flexible-server-using-azure-cli"></a>Início Rápido: Criar um Servidor Flexível do Banco de Dados do Azure para PostgreSQL usando a CLI do Azure
 
@@ -32,7 +32,7 @@ Caso prefira instalar e usar a CLI localmente, este início rápido exigirá a C
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisará fazer logon em sua conta usando o comando [az login](/cli/azure/reference-index#az-login). Observe a propriedade **id** , que se refere à **ID da Assinatura** para sua conta do Azure.
+Você precisará fazer logon em sua conta usando o comando [az login](/cli/azure/reference-index#az-login). Observe a propriedade **id**, que se refere à **ID da Assinatura** para sua conta do Azure.
 
 ```azurecli-interactive
 az login
@@ -79,7 +79,7 @@ Para se conectar ao servidor, é preciso fornecer credenciais de acesso e inform
 az postgres flexible-server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-O resultado está no formato JSON. Anote o **fullyQualifiedDomainName** e o **administratorLogin** .
+O resultado está no formato JSON. Anote o **fullyQualifiedDomainName** e o **administratorLogin**.
 
 <!--FIXME-->
 ```json

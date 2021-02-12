@@ -5,16 +5,16 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 11/16/2020
 ms.author: cherylmc
-ms.openlocfilehash: 016741606bad5536985a38b0e0664b39006e1df5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01d87bcb5697326fa87b25b20354897049900d9d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776554"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880518"
 ---
-# <a name="configure-a-site-to-site-vpn-connection-over-expressroute-private-peering-preview"></a>Configurar uma conexão VPN site a site por meio do emparelhamento privado do ExpressRoute (versão prévia)
+# <a name="configure-a-site-to-site-vpn-connection-over-expressroute-private-peering"></a>Configurar uma conexão VPN site a site por meio do emparelhamento privado do ExpressRoute
 
 Você pode configurar uma VPN site a site para um gateway de rede virtual em um emparelhamento privado do ExpressRoute usando um endereço IP RFC 1918. Essa configuração fornece os seguintes benefícios:
 
@@ -72,24 +72,24 @@ Em ambos os exemplos, o Azure enviará tráfego para 10.0.1.0/24 pela conexão V
 
 ## <a name="portal-steps"></a><a name="portal"></a>Etapas do portal
 
-1. Configure uma conexão site a site. Para obter as etapas, consulte o artigo [configuração site a site](vpn-gateway-howto-site-to-site-resource-manager-portal.md) . Certifique-se de escolher um SKU de gateway com redundância de zona para o gateway. 
+1. Configure uma conexão site a site. Para obter as etapas, consulte o artigo [configuração site a site](./tutorial-site-to-site-portal.md) . Certifique-se de escolher um SKU de gateway com redundância de zona para o gateway. 
 
    Os SKUs com redundância de zona têm "AZ" no final da SKU. Por exemplo, **VpnGw1AZ**. Gateways com redundância de zona só estão disponíveis em regiões em que o serviço de zona de disponibilidade está disponível. Para obter informações sobre as regiões nas quais damos suporte a zonas de disponibilidade, consulte [regiões que dão suporte a zonas de disponibilidade](../availability-zones/az-region.md).
 
-   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway.png" alt-text="Figura 1":::
-1. Habilite os IPs privados no gateway. Selecione **configuração**e defina **IPS privados de gateway** como **habilitado**. Selecione **Salvar** para salvar as alterações.
+   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway.png" alt-text="IPs privados do gateway":::
+1. Habilite os IPs privados no gateway. Selecione **configuração** e defina **IPS privados de gateway** como **habilitado**. Selecione **Salvar** para salvar as alterações.
 1. Na página **visão geral** , selecione **Ver mais** para exibir o endereço IP privado. Anote essas informações para uso posterior nas etapas de configuração.
 
-   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway-overview.png" alt-text="Figura 1" lightbox="media/site-to-site-vpn-private-peering/gateway-overview.png":::
-1. Para habilitar o **uso do endereço IP privado do Azure** na conexão, selecione  **configuração**. Defina **usar o endereço IP privado do Azure** como **habilitado**e, em seguida, selecione **salvar**.
+   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway-overview.png" alt-text="Página de visão geral" lightbox="media/site-to-site-vpn-private-peering/gateway-overview.png":::
+1. Para habilitar o **uso do endereço IP privado do Azure** na conexão, selecione  **configuração**. Defina **usar o endereço IP privado do Azure** como **habilitado** e, em seguida, selecione **salvar**.
 
-   :::image type="content" source="media/site-to-site-vpn-private-peering/connection.png" alt-text="Figura 1":::
+   :::image type="content" source="media/site-to-site-vpn-private-peering/connection.png" alt-text="Habilitado para IPs privados de gateway":::
 1. No firewall, execute ping no IP privado que você anotou na etapa 3. O IP privado deve ser acessível pelo emparelhamento privado do ExpressRoute.
 1. Use esse IP privado como o IP remoto no firewall local para estabelecer o túnel site a site por meio do emparelhamento privado do ExpressRoute.
 
 ## <a name="powershell-steps"></a><a name="powershell"></a>etapas do PowerShell
 
-1. Configure uma conexão site a site. Para obter as etapas, consulte o artigo [Configurar uma VPN site a site](vpn-gateway-howto-site-to-site-resource-manager-portal.md) . Certifique-se de escolher um SKU de gateway com redundância de zona para o gateway. Os SKUs com redundância de zona têm "AZ" no final da SKU. Por exemplo, VpnGw1AZ.
+1. Configure uma conexão site a site. Para obter as etapas, consulte o artigo [Configurar uma VPN site a site](./tutorial-site-to-site-portal.md) . Certifique-se de escolher um SKU de gateway com redundância de zona para o gateway. Os SKUs com redundância de zona têm "AZ" no final da SKU. Por exemplo, VpnGw1AZ.
 1. Defina o sinalizador para usar o IP privado no gateway usando os seguintes comandos do PowerShell:
 
    ```azurepowershell-interactive

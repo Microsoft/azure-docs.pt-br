@@ -10,12 +10,12 @@ metadata:
   author: georgewallace
   ms.author: gwallace
   ms.date: 03/08/2020
-  ms.openlocfilehash: 6813a3cb284f83c599344c7673f1a5d148adef0b
-  ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+  ms.openlocfilehash: 5a3b09c3835e09d734c1083f84893224c3fe8cfd
+  ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/15/2020
-  ms.locfileid: "92071159"
+  ms.lasthandoff: 12/14/2020
+  ms.locfileid: "97399087"
 landingContent:
 - title: Sobre o Gerenciamento de API
   linkLists:
@@ -60,7 +60,9 @@ landingContent:
     - text: 8. Publicar várias versões da sua API
       url: api-management-get-started-publish-versions.md
     - text: 9. Personalizar o estilo das páginas do Portal do Desenvolvedor
-      url: api-management-customize-styles.md
+      url: api-management-howto-developer-portal-customize.md
+    - text: 10. Gerenciar APIs no Visual Studio Code
+      url: visual-studio-code-tutorial.md
 - title: Exemplos
   linkLists:
   - linkListType: sample

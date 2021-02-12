@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 03566dccbb453aa06a2b5f86bd02b86d85d61b28
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 36a15560b88c823ff2ae41f160839796bf21e4f8
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91322046"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730778"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é a Área de Trabalho Virtual do Windows?
 
@@ -71,7 +71,7 @@ Damos suporte aos seguintes sistemas operacionais; portanto, verifique se você 
 
 A infraestrutura precisa dos seguintes itens para dar suporte à Área de Trabalho Virtual do Windows:
 
-* Um [Azure Active Directory](/azure/active-directory/).
+* Um [Azure Active Directory](../active-directory/index.yml).
 * Um Windows Server Active Directory em sincronia com o Azure Active Directory. Configure isso usando o Azure AD Connect (para organizações híbridas) ou o Azure AD Domain Services (para organizações híbridas ou de nuvem).
   * Um Windows Server AD em sincronia com o Azure Active Directory. O usuário é originado do Windows Server AD, e a VM da Área de Trabalho Virtual do Windows é ingressada no domínio do Windows Server AD.
   * Um Windows Server AD em sincronia com o Azure Active Directory. O usuário é originado do Windows Server AD, e a VM da Área de Trabalho Virtual do Windows é ingressada no domínio do Azure AD Domain Services.
@@ -85,7 +85,7 @@ Requisitos do usuário para se conectar à Área de Trabalho Virtual do Windows:
 
 As máquinas virtuais do Azure criadas para a Área de Trabalho Virtual do Windows precisam ser:
 
-* [Ingressadas no domínio padrão](../active-directory-domain-services/active-directory-ds-comparison.md) ou [Ingressadas no AD híbridas](../active-directory/devices/hybrid-azuread-join-plan.md). As máquinas virtuais não podem ser ingressadas no Azure AD.
+* [Ingressadas no domínio padrão](../active-directory-domain-services/compare-identity-solutions.md) ou [Ingressadas no AD híbridas](../active-directory/devices/hybrid-azuread-join-plan.md). As máquinas virtuais não podem ser ingressadas no Azure AD.
 * A execução de uma das seguintes [imagens do sistema operacional compatíveis](#supported-virtual-machine-os-images).
 
 >[!NOTE]
@@ -101,7 +101,7 @@ Para otimizar o desempenho, verifique se a rede atende aos seguintes requisitos:
 * O tráfego de rede poderá fluir para fora das fronteiras do país/região quando as VMs que hospedam os aplicativos e as áreas de trabalho se conectarem ao serviço de gerenciamento.
 * Para otimizar o desempenho da rede, recomendamos que as VMs do host da sessão sejam colocadas na mesma região do Azure do serviço de gerenciamento.
 
-Você pode ver uma configuração de arquitetura típica da Área de Trabalho Virtual do Windows para a empresa em nossa [documentação de arquitetura](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop).
+Você pode ver uma configuração de arquitetura típica da Área de Trabalho Virtual do Windows para a empresa em nossa [documentação de arquitetura](/azure/architecture/example-scenario/wvd/windows-virtual-desktop).
 
 ## <a name="supported-remote-desktop-clients"></a>Clientes compatíveis da Área de Trabalho Remota
 
@@ -130,7 +130,7 @@ A Área de Trabalho Virtual do Windows é compatível com as seguintes imagens d
 * Windows Server 2016
 * Windows Server 2012 R2
 
-A Área de Trabalho Virtual do Windows não é compatível com imagens do sistema operacional x86 (32 bits), Windows 10 Enterprise N ou Windows 10 Enterprise KN. O Windows 7 também não dá suporte a nenhuma solução de perfil baseada em VHD ou VHDX hospedada no Armazenamento do Azure gerenciado devido a uma limitação de tamanho de setor.
+A Área de Trabalho Virtual do Windows não é compatível com imagens do sistema operacional x86 (32 bits), Windows 10 Enterprise N, Windows 10 Pro ou Windows 10 Enterprise KN. O Windows 7 também não dá suporte a nenhuma solução de perfil baseada em VHD ou VHDX hospedada no Armazenamento do Azure gerenciado devido a uma limitação de tamanho de setor.
 
 As opções de automação e implantação disponíveis dependem do sistema operacional e da versão escolhidos, conforme mostrado na tabela a seguir:
 

@@ -4,17 +4,16 @@ description: Perguntas frequentes sobre o HDInsight
 keywords: perguntas frequentes, FAQ
 author: Ramakoni1
 ms.author: ramakoni
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: 0240510a2232bd12a94d5cdd59672270289e5e8f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 13282962886d8682b6056d10f8f0cc5a7f626d60
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547513"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946019"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: perguntas frequentes
 
@@ -198,7 +197,7 @@ Em cenários nos quais você deve controlar a agenda, você pode usar as seguint
 
 1. Desabilite a execução automática usando o seguinte comando:
    
-   `/usr/local/vbin/azsecd config -s clamav -d Disabled`
+  `usr/local/bin/azsecd config -s clamav -d Disabled`reinicialização azsecd do serviço sudo sudo 
    
 1. Adicione um trabalho cron que execute o seguinte comando como raiz:
    
@@ -272,7 +271,7 @@ Consulte [usar nós de borda vazios em clusters de Apache Hadoop no HDInsight](h
 
 ### <a name="how-can-i-connect-to-an-edge-node"></a>Como posso me conectar a um nó de borda?
 
-Depois de criar um nó de borda, você pode se conectar a ele usando SSH na porta 22. Você pode encontrar o nome do nó de borda no portal do cluster. Os nomes geralmente terminam com *-Ed* .
+Depois de criar um nó de borda, você pode se conectar a ele usando SSH na porta 22. Você pode encontrar o nome do nó de borda no portal do cluster. Os nomes geralmente terminam com *-Ed*.
 
 ### <a name="why-are-persisted-scripts-not-running-automatically-on-newly-created-edge-nodes"></a>Por que os scripts persistentes não são executados automaticamente em nós de borda recém-criados?
 

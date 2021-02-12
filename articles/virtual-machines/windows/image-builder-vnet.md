@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: 94e3b95e5e1d3c65550046c5db56e0f783fd60c3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f4f55e9a5d08b2c2cd14b1ca94efac15f84f1978
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976276"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879520"
 ---
 # <a name="use-azure-image-builder-for-windows-vms-allowing-access-to-an-existing-azure-vnet"></a>Usar o construtor de imagens do Azure para VMs do Windows permitindo o acesso a uma VNET do Azure existente
 
@@ -258,7 +258,7 @@ $runOutJsonStatus
 ```
 ## <a name="create-a-vm"></a>Criar uma máquina virtual
 
-Agora que a compilação foi concluída, você pode criar uma VM a partir da imagem. Use os exemplos da [documentação New-AzVM do PowerShell](/powershell/module/az.compute/new-azvm?view=azps-2.5.0#description).
+Agora que a compilação foi concluída, você pode criar uma VM a partir da imagem. Use os exemplos da [documentação New-AzVM do PowerShell](/powershell/module/az.compute/new-azvm#description).
 
 ## <a name="clean-up"></a>Limpar
 
@@ -296,4 +296,4 @@ Remove-AzResourceGroup $imageResourceGroup -Force
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre as [Galerias de Imagens Compartilhadas do no Azure](shared-image-galleries.md).
+Saiba mais sobre as [Galerias de Imagens Compartilhadas do no Azure](../shared-image-galleries.md).

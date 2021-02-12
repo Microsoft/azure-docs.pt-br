@@ -3,20 +3,20 @@ title: Atividade da Web no Azure Data Factory
 description: Saiba como você pode usar a atividade da Web, uma das atividades de fluxo de controle com suporte pelo Data Factory, para invocar um ponto de extremidade REST de um pipeline.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: e74361d6fb3eb1f9708f39f198506d16c7c046c4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: fbe37152f4ff1ce24754bc2d7b968c8e1c76ca10
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635092"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387710"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Atividade da Web no Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -26,6 +26,9 @@ A atividade da Web pode ser usada para chamar um ponto de extremidade REST perso
 
 > [!NOTE]
 > A atividade da Web também pode invocar URLs que são hospedadas em uma rede virtual privada aproveitando o runtime de integração auto-hospedada. O runtime de integração deve ter uma linha de visão para o ponto de extremidade da URL. 
+
+> [!NOTE]
+> O tamanho máximo de carga de resposta de saída com suporte é 4 MB.  
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -73,8 +76,8 @@ A atividade da Web pode ser usada para chamar um ponto de extremidade REST perso
 Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
 name | Nome da atividade da Web | String | Sim
-type | Deve ser definido como **WebActivity** . | String | Sim
-method | Método da API REST para o ponto de extremidade de destino. | Cadeia. <br/><br/>Tipos com suporte: "GET", "POST", "PUT" | Sim
+type | Deve ser definido como **WebActivity**. | String | Sim
+method | Método da API REST para o ponto de extremidade de destino. | Cadeia de caracteres. <br/><br/>Tipos com suporte: "GET", "POST", "PUT" | Sim
 url | Ponto de extremidade de destino e o caminho | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres). A atividade atingirá o tempo limite em 1 minuto com um erro se não receber uma resposta do ponto de extremidade. | Sim
 headers | Cabeçalhos que são enviados para a solicitação. Por exemplo, para definir o idioma e o tipo em uma solicitação: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) | Sim, o cabeçalho Content-Type é necessário. `"headers":{ "Content-Type":"application/json"}`
 body | Representa o conteúdo enviado para o ponto de extremidade.  | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres). <br/><br/>Consulte o esquema da carga de solicitação na seção [Esquema de carga de solicitação](#request-payload-schema). | Necessário para os métodos PUT/POST.
@@ -104,7 +107,7 @@ Abaixo estão os tipos de autenticação com suporte na atividade da Web.
 
 Se a autenticação não for necessária, não inclua a propriedade "authentication".
 
-### <a name="basic"></a>Basic
+### <a name="basic"></a>Básico
 
 Especifique o nome de usuário e senha a serem usados com a autenticação básica.
 

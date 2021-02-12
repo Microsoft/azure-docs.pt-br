@@ -29,6 +29,10 @@
           href: cache-nodejs-get-started.md
         - name: Aplicativo Python
           href: cache-python-get-started.md
+        - name: Aplicativo Go
+          href: cache-go-get-started.md
+        - name: Aplicativo Rust
+          href: cache-rust-get-started.md
 - name: Tutoriais
   items:
     - name: ASP.NET
@@ -41,6 +45,14 @@
       items:
         - name: Usar o inicializador do Spring Boot
           href: /azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache
+    - name: Grade de Eventos do Azure
+      items:
+        - name: Rotear eventos com o portal do Azure
+          href: cache-event-grid-quickstart-portal.md
+        - name: Rotear eventos com a CLI do Azure
+          href: cache-event-grid-quickstart-cli.md
+        - name: Rotear eventos com o PowerShell
+          href: cache-event-grid-quickstart-powershell.md
     - name: Criar placares de líderes
       href: cache-web-app-cache-aside-leaderboard.md
     - name: Implantar um modelo de machine learning
@@ -67,7 +79,7 @@
         - name: Linha de base de segurança
           href: security-baseline.md
     - name: Arquitetura de cache
-      href: /azure/architecture/best-practices/caching?toc=%252fazure%252fredis-cache%252ftoc.json
+      href: /azure/architecture/best-practices/caching?toc=%2fazure%2fredis-cache%2ftoc.json
 - name: Guias de instruções
   items:
     - name: Plano
@@ -124,6 +136,8 @@
           href: cache-administration.md#schedule-updates
         - name: Configurar o acesso do redis-cli.exe
           href: cache-how-to-redis-cli-tool.md
+        - name: Como publicar os eventos do Cache do Azure para Redis
+          href: cache-event-grid.md
         - name: Remover o TLS 1.0 e 1.1
           href: cache-remove-tls-10-11.md
         - name: Perguntas frequentes sobre gerenciamento

@@ -9,18 +9,18 @@ ms.topic: how-to
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: 751fa9f9fe2ba17a982b71a6332be302804f0dcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b63ec5b8a5d0684a0e144de7dfe4114af9777e2
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89047285"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881882"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Criar uma imagem gerenciada de uma VM generalizada no Azure
 
 Um recurso de imagem gerenciada pode ser criado de uma VM (máquina virtual) generalizada que é armazenada como um disco gerenciado ou um disco não gerenciado em uma conta de armazenamento. Em seguida, a imagem pode ser usada para criar várias VMs. Para obter informações de como as imagens gerenciadas são cobradas, confira [Preços do Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
-Uma imagem gerenciada dá suporte a até 20 implantações simultâneas. A tentativa de criar simultaneamente mais de 20 VMs a partir da mesma imagem gerenciada pode exceder os tempos limite de provisionamento devido às limitações de desempenho de armazenamento de um único VHD. Para criar simultaneamente mais de 20 VMs, use uma imagem das [Galerias de Imagens Compartilhadas](shared-image-galleries.md), configurada com uma réplica para cada 20 implantações simultâneas de VM.
+Uma imagem gerenciada dá suporte a até 20 implantações simultâneas. A tentativa de criar simultaneamente mais de 20 VMs a partir da mesma imagem gerenciada pode exceder os tempos limite de provisionamento devido às limitações de desempenho de armazenamento de um único VHD. Para criar simultaneamente mais de 20 VMs, use uma imagem das [Galerias de Imagens Compartilhadas](../shared-image-galleries.md), configurada com uma réplica para cada 20 implantações simultâneas de VM.
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Generalizar a VM Windows usando Sysprep
 
@@ -33,7 +33,7 @@ Verifique se as funções de servidor em execução no computador são suportada
 >
 >O Sysprep requer que as unidades sejam totalmente descriptografadas. Se você habilitou a criptografia em sua VM, desabilite a criptografia antes de executar o Sysprep.
 >
-> Se você planeja executar o Sysprep antes de carregar o VHD (disco rígido virtual) no Azure pela primeira vez, [prepare a VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
+> Se você planeja executar o Sysprep antes de carregar o VHD (disco rígido virtual) no Azure pela primeira vez, [prepare a VM](prepare-for-upload-vhd-image.md).  
 > 
 > 
 
@@ -250,4 +250,4 @@ Para criar uma imagem gerenciada de uma VM que não usa discos gerenciados, é n
 
     
 ## <a name="next-steps"></a>Próximas etapas
-- [Criar uma VM de uma imagem gerenciada](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).    
+- [Criar uma VM de uma imagem gerenciada](create-vm-generalized-managed.md). 

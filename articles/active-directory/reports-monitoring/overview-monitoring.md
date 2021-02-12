@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efa4b625afb641209d3920c8663ed810ee27e1ad
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 427cf2614f81a086dcb174db06cd636df4876c7e
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89228640"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778488"
 ---
 # <a name="what-is-azure-active-directory-monitoring"></a>O que é o monitoramento do Azure Active Directory?
 
@@ -39,6 +39,22 @@ No momento, você pode rotear os logs para:
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+## <a name="licensing-and-prerequisites-for-azure-ad-reporting-and-monitoring"></a>Licenciamento e pré-requisitos para relatórios e monitoramento do Azure AD
+
+Você precisará de uma licença Premium do Azure AD para acessar os logs de entrada do Azure AD.
+
+Para obter informações detalhadas sobre os recursos e o licenciamento, confira o [Guia de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+
+Para implantar o monitoramento e o relatório do Azure AD, você precisará de um usuário que seja um Administrador global ou um administrador de segurança do locatário do Azure AD.
+
+Dependendo do destino final dos dados de log, você precisará de um dos seguintes:
+
+* Uma conta de armazenamento do Azure para a qual você tem permissões ListKeys. Recomendamos que você use uma conta de armazenamento geral e não uma conta do Armazenamento de blobs. Para saber mais sobre preços do armazenamento, confira a [Calculadora de preços do armazenamento do Azure](https://azure.microsoft.com/pricing/calculator/?service=storage).
+
+* Um namespace dos Hubs de Eventos do Azure para integração a soluções SIEM de terceiros.
+
+* Um espaço de trabalho do Log Analytics do Azure para enviar logs aos logs do Azure Monitor.
 
 ## <a name="diagnostic-settings-configuration"></a>Definição das configurações de diagnóstico
 

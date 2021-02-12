@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 022b6eb6595f25af4189d783a6a91031f95c7216
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b94cb6d6302cd92816fe25f6e672b1ce3bb9398d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479350"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791990"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Copiar dados do Amazon S3 para o armazenamento do Azure usando o AzCopy
 
@@ -34,17 +34,17 @@ Consulte o artigo [introdução ao AzCopy](storage-use-azcopy-v10.md) para baixa
 >
 > Se você preferir usar um token SAS para autorizar o acesso a dados BLOB, poderá acrescentar esse token à URL do recurso em cada comando AzCopy.
 >
-> Por exemplo, `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>`.
+> Por exemplo: `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>`.
 
 ### <a name="authorize-with-aws-s3"></a>Autorizar com AWS S3
 
-Reúna sua chave de acesso do AWS e a chave de acesso secreta e defina as variáveis de ambiente a seguir:
+Reúna sua chave de acesso do AWS e a chave de acesso secreta e defina essas variáveis de ambiente:
 
 | Sistema operacional | Comando  |
 |--------|-----------|
 | **Windows** | `set AWS_ACCESS_KEY_ID=<access-key>`<br>`set AWS_SECRET_ACCESS_KEY=<secret-access-key>` |
 | **Linux** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>` |
-| **MacOS** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>`|
+| **macOS** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>`|
 
 ## <a name="copy-objects-directories-and-buckets"></a>Copiar objetos, diretórios e buckets
 
@@ -155,11 +155,11 @@ AzCopy executa estas etapas:
 
 2. Adiciona a cadeia de caracteres `rename_` ao início de uma nova chave válida.
 
-   Essa chave será usada para salvar o **valor**de metadados original.
+   Essa chave será usada para salvar o **valor** de metadados original.
 
 3. Adiciona a cadeia de caracteres `rename_key_` ao início de uma nova chave válida.
-   Essa chave será usada para salvar a **chave**inválida de metadados originais.
-   Você pode usar essa chave para tentar recuperar os metadados no lado do Azure, uma vez que a chave de metadados é preservada como um valor no serviço de armazenamento de BLOBs.
+   Essa chave será usada para salvar a **chave** inválida de metadados originais.
+   Você pode usar essa chave para tentar recuperar os metadados no lado do Azure, pois a chave de metadados é preservada como um valor no serviço de armazenamento de BLOBs.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -167,7 +167,7 @@ Encontre mais exemplos em qualquer um destes artigos:
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
 
-- [Transferir dados com o AzCopy e o Armazenamento de Blobs](storage-use-azcopy-blobs.md)
+- [Transferir dados](storage-use-azcopy-v10.md#transfer-data)
 
 - [Transferir dados com o AzCopy e o Armazenamento de Arquivos](storage-use-azcopy-files.md)
 

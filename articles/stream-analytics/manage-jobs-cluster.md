@@ -3,19 +3,18 @@ title: Criar e excluir trabalhos em um cluster do Azure Stream Analytics
 description: Saiba como gerenciar trabalhos do Stream Analytics em um cluster do Azure Stream Analytics
 author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: 6b475e34c01ca26abd3d8ab1d904521de19f941b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 09a67d11ac4daf3e87a50ee2171f1ca49060c5bf
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90943103"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018115"
 ---
-# <a name="create-and-delete-jobs-in-an-azure-stream-analytics-cluster"></a>Criar e excluir trabalhos em um cluster do Azure Stream Analytics
+# <a name="add-and-remove-jobs-in-an-azure-stream-analytics-cluster"></a>Adicionar e remover trabalhos em um cluster do Azure Stream Analytics
 
 Execute vários trabalhos do Azure Stream Analytics em um cluster do Stream Analytics. A execução de trabalhos em um cluster é um processo simples de duas etapas: adicionar o trabalho ao cluster e iniciar o trabalho. Este artigo mostra como adicionar e remover trabalhos de um cluster existente. Siga o guia de início rápido para [criar um cluster do Stream Analytics](create-cluster.md), caso ainda não tenha um.
 

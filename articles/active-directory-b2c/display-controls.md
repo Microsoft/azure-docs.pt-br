@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/12/2020
+ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 49626d418f90f8b4bc7288a6d2f7d195cd906f7a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 441a77823c77305e567e9e1436715bc51ca48c11
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961350"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387047"
 ---
 # <a name="display-controls"></a>Controles de exibição
 
@@ -27,8 +27,6 @@ Um **controle de exibição** é um elemento de interface do usuário que tem fu
 A imagem a seguir ilustra uma página de inscrição autodeclarada com dois controles de exibição que validam um endereço de email primário e secundário.
 
 ![Exemplo de controle de exibição renderizado](media/display-controls/display-control-email.png)
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -48,16 +46,16 @@ O elemento **DisplayControl** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ID | Sim | Um identificador que é usado para o controle de exibição. Ele pode ser [referenciado](#referencing-display-controls). |
+| Id | Sim | Um identificador que é usado para o controle de exibição. Ele pode ser [referenciado](#referencing-display-controls). |
 | UserInterfaceControlType | Sim | O tipo do controle de exibição. Atualmente, há suporte para [VerificationControl](display-control-verification.md) |
 
 O elemento **DisplayControl** contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| InputClaims | 0:1 | **InputClaims** são usados para preencher previamente o valor das declarações a serem coletadas do usuário. Para obter mais informações, consulte elemento [InputClaims](technicalprofiles.md#inputclaims) . |
+| InputClaims | 0:1 | **InputClaims** são usados para preencher previamente o valor das declarações a serem coletadas do usuário. Para obter mais informações, consulte elemento [InputClaims](technicalprofiles.md#input-claims) . |
 | DisplayClaims | 0:1 | **DisplayClaims** são usados para representar as declarações a serem coletadas do usuário. Para obter mais informações, consulte elemento [DisplayClaim](technicalprofiles.md#displayclaim) .|
-| OutputClaims | 0:1 | **OutputClaims** são usados para representar as declarações a serem salvas temporariamente para este **DisplayControl**. Para obter mais informações, consulte elemento [OutputClaims](technicalprofiles.md#outputclaims) .|
+| OutputClaims | 0:1 | **OutputClaims** são usados para representar as declarações a serem salvas temporariamente para este **DisplayControl**. Para obter mais informações, consulte elemento [OutputClaims](technicalprofiles.md#output-claims) .|
 | Ações | 0:1 | As **ações** são usadas para listar os perfis técnicos de validação a serem invocados para ações do usuário que ocorrem no front-end. |
 
 ### <a name="input-claims"></a>Declarações de entrada
@@ -96,7 +94,7 @@ Para emergir as declarações de saída para a próxima etapa de orquestração,
 
 As **ações** de um controle de exibição são procedimentos que ocorrem no back-end de Azure ad B2C quando um usuário executa uma determinada ação no lado do cliente (o navegador). Por exemplo, as validações a serem executadas quando o usuário seleciona um botão na página.
 
-Uma ação define uma lista de **perfis técnicos de validação**. Eles são usados para validar algumas ou todas as declarações de exibição do controle de exibição. O perfil técnico de validação valida a entrada do usuário e pode retornar um erro para o usuário. Você pode usar **ContinueOnError**, **ContinueOnSuccess**e **pré-condições** na ação de controle de exibição semelhante à forma como são usados em [perfis técnicos de validação](validation-technical-profile.md) em um perfil técnico autodeclarado.
+Uma ação define uma lista de **perfis técnicos de validação**. Eles são usados para validar algumas ou todas as declarações de exibição do controle de exibição. O perfil técnico de validação valida a entrada do usuário e pode retornar um erro para o usuário. Você pode usar **ContinueOnError**, **ContinueOnSuccess** e **pré-condições** na ação de controle de exibição semelhante à forma como são usados em [perfis técnicos de validação](validation-technical-profile.md) em um perfil técnico autodeclarado.
 
 #### <a name="actions"></a>Ações
 
@@ -112,7 +110,7 @@ O elemento **Action** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ID | Sim | O tipo de operação. Valores possíveis: `SendCode` ou `VerifyCode`. O `SendCode` valor envia um código para o usuário. Essa ação pode conter dois perfis técnicos de validação: um para gerar um código e outro para enviá-lo. O `VerifyCode` valor verifica o código que o usuário digitou na caixa de texto de entrada. |
+| Id | Sim | O tipo de operação. Valores possíveis: `SendCode` ou `VerifyCode`. O `SendCode` valor envia um código para o usuário. Essa ação pode conter dois perfis técnicos de validação: um para gerar um código e outro para enviá-lo. O `VerifyCode` valor verifica o código que o usuário digitou na caixa de texto de entrada. |
 
 O elemento **Action** contém o seguinte elemento:
 

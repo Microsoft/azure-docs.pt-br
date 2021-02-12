@@ -3,16 +3,17 @@ title: Como configurar gravações de várias regiões no Azure Cosmos DB
 description: Saiba como configurar gravações de várias regiões para seus aplicativos usando SDKs diferentes no Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: mjbrown
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 35c0b5529cd9ada612caf4884683fbeaacb25b33
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, "seo-nov-2020"
+ms.openlocfilehash: 6f71f4c0ec353f36614ea6dcabf4d698b31baacb
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100126"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336719"
 ---
 # <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Configurar gravações de várias regiões em seus aplicativos que usam Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -21,6 +22,22 @@ Depois que uma conta tiver sido criada com várias regiões de gravação habili
 
 > [!Note]
 > As contas do cosmos inicialmente configuradas com uma única região de gravação podem ser configuradas para várias regiões de gravação com tempo de inatividade zero. Para saber mais, consulte [Configurar a gravação de várias regiões](how-to-manage-database-account.md#configure-multiple-write-regions)
+
+## <a name="azure-portal"></a><a id="portal"></a> portal do Azure
+
+Para habilitar gravações de várias regiões de portal do Azure, use as seguintes etapas:
+
+1. Entre no [portal do Azure](https://portal.azure.com/).
+
+1. Navegue até sua conta do Azure Cosmos e, no menu, abra o painel **replicar dados globalmente** .
+
+1. Na opção **gravações de várias regiões** , escolha **habilitar**. Ele adiciona automaticamente as regiões existentes às regiões de leitura e gravação.
+
+1. Você pode adicionar outras regiões selecionando os ícones no mapa ou selecionando o botão **Adicionar região** . Todas as regiões que você adicionar terão a leitura e a gravação habilitadas.
+
+1. Depois de atualizar a lista região, selecione **salvar** para aplicar as alterações.
+
+   :::image type="content" source="./media/how-to-multi-master/enable-multi-region-writes.png" alt-text="Captura de tela para habilitar gravações em várias regiões usando portal do Azure" lightbox="./media/how-to-multi-master/enable-multi-region-writes.png":::
 
 ## <a name="net-sdk-v2"></a><a id="netv2"></a>SDK v2 do .NET
 

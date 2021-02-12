@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 0c37c8f108e9bcbb827c05242d8863994dfc64cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a668024db126c82f96756555aba513b77f7d7366
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89177084"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422953"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Depurar Azure Functions do PowerShell localmente
 
@@ -38,7 +38,7 @@ PSFunctionApp
  | - profile.ps1
 ```
 
-Esse aplicativo de funções é semelhante ao que você obtém quando conclui o [início rápido do PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell).
+Esse aplicativo de funções é semelhante ao que você obtém quando conclui o [início rápido do PowerShell](./create-first-function-vs-code-powershell.md).
 
 O código de função `run.ps1` é semelhante ao seguinte script:
 
@@ -95,10 +95,10 @@ Com `Wait-Debugger` o no local, agora você pode depurar as funções usando o V
 Para depurar as funções do PowerShell no Visual Studio Code, você deve ter o seguinte instalado:
 
 * [Extensão do PowerShell para Visual Studio Code](/powershell/scripting/components/vscode/using-vscode)
-* [Extensão do Azure Functions para Visual Studio Code](functions-create-first-function-vs-code.md)
+* [Extensão do Azure Functions para Visual Studio Code](./create-first-function-cli-powershell.md)
 * [PowerShell Core 6,2 ou superior](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-Depois de instalar essas dependências, carregue um projeto de funções do PowerShell existente ou [crie seu primeiro projeto de funções do PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell).
+Depois de instalar essas dependências, carregue um projeto de funções do PowerShell existente ou [crie seu primeiro projeto de funções do PowerShell](./create-first-function-vs-code-powershell.md).
 
 >[!NOTE]
 > Se o seu projeto não tiver os arquivos de configuração necessários, você será solicitado a adicioná-los.
@@ -111,7 +111,7 @@ O PowerShell Core é instalado lado a lado com o Windows PowerShell. Defina o Po
 
 1. Escolha o **menu do PowerShell: mostrar sessão**.
 
-1. Se a **sessão atual** não for o **PowerShell Core 6**, escolha **alternar para: PowerShell Core 6**.
+1. Se a **sessão atual** não for o **PowerShell Core 6** , escolha **alternar para: PowerShell Core 6**.
 
 Quando você tiver um arquivo do PowerShell aberto, verá a versão exibida em verde na parte inferior direita da janela. A seleção desse texto também exibe o menu sessão. Para saber mais, consulte [escolhendo uma versão do PowerShell para usar com a extensão](/powershell/scripting/components/vscode/using-vscode#choosing-a-version-of-powershell-to-use-with-the-extension).
 
@@ -132,7 +132,7 @@ A operação iniciar depuração realiza as seguintes tarefas:
 * Anexe o depurador do PowerShell ao runspace do PowerShell dentro do tempo de execução do functions.
 
 >[!NOTE]
-> Você precisa garantir que PSWorkerInProcConcurrencyUpperBound esteja definido como 1 para garantir a experiência de depuração correta em Visual Studio Code. Este é o padrão.
+> Você precisa garantir que PSWorkerInProcConcurrencyUpperBound esteja definido como 1 para garantir a experiência de depuração correta em Visual Studio Code. Esse é o padrão.
 
 Com seu aplicativo de funções em execução, você precisa de um console do PowerShell separado para chamar a função disparada por HTTP.
 

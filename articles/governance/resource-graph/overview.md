@@ -1,14 +1,14 @@
 ---
 title: Visão geral do Azure Resource Graph
 description: Entenda como o serviço do Azure Resource Graph habilita a consulta complexa de recursos em grande escala entre assinaturas e locatários.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: overview
-ms.openlocfilehash: 8e61dadc44a2b07066f7bac761c366c746cef1f1
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: b5df124d07b8ecfb20f5dec08830d8156e8df2cd
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057766"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919134"
 ---
 # <a name="what-is-azure-resource-graph"></a>O que é o Azure Resource Graph?
 
@@ -23,7 +23,7 @@ Nesta documentação, você estudará cada recurso em detalhes.
 
 > [!NOTE]
 > O Azure Resource Graph alimenta a barra de pesquisa do portal do Azure, a nova experiência de navegação de "Todos os recursos" e a comparação visual do [Histórico de alterações](../policy/how-to/determine-non-compliance.md#change-history)
-> _ do Azure Policy_. É projetado para ajudar os clientes a gerenciar ambientes de grande escala.
+> _do Azure Policy_. É projetado para ajudar os clientes a gerenciar ambientes de grande escala.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 

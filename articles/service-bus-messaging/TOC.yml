@@ -26,18 +26,24 @@
               href: service-bus-resource-manager-namespace-queue.md
         - name: Enviar e receber mensagens
           items:
-            - name: .NET
+            - name: .NET (Azure.Messaging.ServiceBus)
               href: service-bus-dotnet-get-started-with-queues.md
-            - name: Java
+            - name: Java (azure-messaging-servicebus)
               href: service-bus-java-how-to-use-queues.md
-            - name: Node.js
-              href: service-bus-nodejs-how-to-use-queues-new-package.md
+            - name: Python (azure-servicebus)
+              href: service-bus-python-how-to-use-queues.md
+            - name: JavaScript (@azure/service-bus)
+              href: service-bus-nodejs-how-to-use-queues.md
             - name: PHP
               href: service-bus-php-how-to-use-queues.md
-            - name: Python
-              href: service-bus-python-how-to-use-queues.md
             - name: Ruby
               href: service-bus-ruby-how-to-use-queues.md
+        - name: Enviar e receber mensagens (versões antigas/pacotes antigos)
+          items:
+            - name: .NET (Microsoft.Azure.ServiceBus)
+              href: service-bus-dotnet-get-started-with-queues-legacy.md
+            - name: Java (azure-servicebus)
+              href: service-bus-java-how-to-use-queues-legacy.md
     - name: Tópicos e assinaturas do Barramento de Serviços
       items:
         - name: Criar tópicos e assinaturas
@@ -50,24 +56,34 @@
               href: service-bus-resource-manager-namespace-topic.md
         - name: Publicar e assinar mensagens
           items:
-            - name: .NET
+            - name: .NET (Azure.Messaging.ServiceBus)
               href: service-bus-dotnet-how-to-use-topics-subscriptions.md
-            - name: Java
+            - name: Java (azure-messaging-servicebus)
               href: service-bus-java-how-to-use-topics-subscriptions.md
-            - name: Node.js
-              href: service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md
+            - name: Python (azure-servicebus)
+              href: service-bus-python-how-to-use-topics-subscriptions.md
+            - name: JavaScript (@azure/service-bus)
+              href: service-bus-nodejs-how-to-use-topics-subscriptions.md
             - name: PHP
               href: service-bus-php-how-to-use-topics-subscriptions.md
-            - name: Python
-              href: service-bus-python-how-to-use-topics-subscriptions.md
             - name: Ruby
               href: service-bus-ruby-how-to-use-topics-subscriptions.md
+        - name: Publicar e assinar mensagens (versões antigas/pacotes antigos)
+          items:
+            - name: .NET (Microsoft.Azure.ServiceBus)
+              href: service-bus-dotnet-how-to-use-topics-subscriptions-legacy.md
+            - name: Java (azure-servicebus)
+              href: service-bus-java-how-to-use-topics-subscriptions-legacy.md
 - name: Tutoriais
   items:
     - name: Atualizar inventário
       href: service-bus-tutorial-topics-subscriptions-portal.md
-    - name: Responder a eventos por meio da Grade de Eventos
-      href: service-bus-to-event-grid-integration-example.md
+    - name: Manipular eventos do Barramento de Serviço por meio da Grade de Eventos
+      items:
+        - name: Aplicativos Lógicos do Azure
+          href: service-bus-to-event-grid-integration-example.md
+        - name: Azure Functions
+          href: service-bus-to-event-grid-integration-function.md
 - name: Exemplos
   items:
     - name: Exemplos do Barramento de Serviço
@@ -80,6 +96,22 @@
       href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
     - name: Otimizar desempenho
       href: service-bus-performance-improvements.md
+    - name: Federação
+      items:
+        - name: Replicação de mensagem e federação entre regiões
+          href: service-bus-federation-overview.md
+        - name: Tarefas e aplicativos de replicação de mensagens
+          href: service-bus-federation-replicator-functions.md
+        - name: Padrões de tarefa de replicação de mensagem
+          href: service-bus-federation-patterns.md
+        - name: Tarefas de replicação configuradas
+          href: service-bus-federation-configuration.md
+        - name: Replicar eventos entre entidades de Barramento de Serviço
+          href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopy'
+        - name: Replicar mensagens aos Hubs de Eventos
+          href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub'
+        - name: Adquirir mensagens de Hubs de Eventos
+          href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus'
     - name: Recuperação de desastres geográficos e replicação geográfica
       href: service-bus-geo-dr.md
     - name: Mensagens assíncronas e de alta disponibilidade
@@ -178,18 +210,20 @@
               href: service-bus-auto-forwarding.md
             - name: Processamento de transação
               href: service-bus-transactions.md
-        - name: Rastreamento de ponta a ponta e diagnóstico
-          href: service-bus-end-to-end-tracing.md
         - name: Criar um aplicativo de Barramento de Serviço com várias camadas
           href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
-        - name: Enviar e receber mensagens de filas (azure-sb herdado)
-          href: service-bus-nodejs-how-to-use-queues.md
-        - name: Publicar e assinar mensagens (azure-sb herdado)
-          href: service-bus-nodejs-how-to-use-topics-subscriptions.md
     - name: Migrar
       items:
         - name: Migrar do ActiveMQ para o Barramento de Serviço do Azure
           href: migrate-jms-activemq-to-servicebus.md
+    - name: Monitor
+      items:
+        - name: Rastreamento de ponta a ponta e diagnóstico
+          href: service-bus-end-to-end-tracing.md
+        - name: Logs de diagnóstico
+          href: service-bus-diagnostic-logs.md
+        - name: Métricas do Azure Monitor
+          href: service-bus-metrics-azure-monitor.md
     - name: Integração
       items:
         - name: Integrar com o RabbitMQ
@@ -200,12 +234,8 @@
           href: automate-update-messaging-units.md
         - name: Usar Azure PowerShell para provisionar entidades
           href: service-bus-manage-with-ps.md
-        - name: Monitorar Barramento de Serviço com o Azure Monitor
-          href: service-bus-metrics-azure-monitor.md
         - name: Bibliotecas de gerenciamento do Barramento de Serviço
           href: service-bus-management-libraries.md
-        - name: Logs de recursos
-          href: service-bus-diagnostic-logs.md
         - name: Suspender e reativar entidades de mensagens
           href: entity-suspend.md
         - name: Usar o Service Bus Explorer para executar operações de dados no Barramento de Serviço
@@ -241,16 +271,38 @@
   items:
     - name: .NET
       items:
-        - name: Microsoft.ServiceBus.Messaging (.NET Framework)
-          href: /dotnet/api/microsoft.servicebus.messaging
+        - name: Fazer a migração de Microsoft.Azure.ServiceBus para Azure.Messaging.ServiceBus
+          href: 'https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md'
+        - name: Azure.Messaging.ServiceBus (.NET Standard – mais recente)
+          href: /dotnet/api/azure.messaging.servicebus
         - name: Microsoft.Azure.ServiceBus (.NET Standard)
           href: /dotnet/api/microsoft.azure.servicebus
+        - name: Microsoft.ServiceBus.Messaging (.NET Framework)
+          href: /dotnet/api/microsoft.servicebus.messaging
     - name: Java
-      href: /java/api/overview/azure/servicebus
+      items:
+        - name: Fazer a migração de azure-servicebus para azure-messaging-servicebus
+          href: 'https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/migration-guide.md'
+        - name: azure-messaging-servicebus (mais recente)
+          href: /java/api/overview/azure/servicebus?view=azure-java-preview
+        - name: azure-servicebus
+          href: /java/api/overview/azure/servicebus
     - name: Python
-      href: /python/api/overview/azure/servicebus?view=azure-python
-    - name: Node.js
-      href: /javascript/api/overview/azure/service-bus
+      items:
+        - name: Fazer a migração de azure-servicebus versão 0.50 para a versão 7
+          href: 'https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/migration_guide.md'
+        - name: azure-servicebus versão 7
+          href: /python/api/overview/azure/servicebus?view=azure-python-preview
+        - name: azure-servicebus versão 0.50
+          href: /python/api/overview/azure/servicebus
+    - name: JavaScript
+      items:
+        - name: Fazer a migração da versão 1 para a versão 7
+          href: 'https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/migrationguide.md'
+        - name: azure/service-bus versão 7
+          href: /javascript/api/overview/azure/service-bus?view=azure-node--preview
+        - name: azure/service-bus versão 1
+          href: /javascript/api/overview/azure/service-bus?view=azure-node-latest
     - name: PHP
       href: 'https://github.com/Azure/azure-sdk-for-php'
     - name: Ruby
@@ -265,9 +317,9 @@
       href: /azure/templates/microsoft.servicebus/allversions
     - name: Cotas
       href: service-bus-quotas.md
-    - name: Sintaxe SQLFilter
+    - name: Sintaxe de filtro SQL da Regra de Assinatura
       href: service-bus-messaging-sql-filter.md
-    - name: Sintaxe SQLRuleAction
+    - name: Sintaxe da ação SQL da Regra de Assinatura
       href: service-bus-messaging-sql-rule-action.md
     - name: Itens internos do Azure Policy
       displayName: 'samples, policies, definitions'

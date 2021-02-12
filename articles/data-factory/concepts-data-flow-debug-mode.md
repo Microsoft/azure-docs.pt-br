@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/11/2020
-ms.openlocfilehash: 2cfd498f73646b0021d5fbb3e982dc82871ef35c
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.date: 12/04/2020
+ms.openlocfilehash: 87465ff381c62343a11c54130378b48580ca40e2
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026982"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621630"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mapeando o modo de depuração do fluxo de dados
 
@@ -25,9 +25,9 @@ O modo de depuração do fluxo de dados de mapeamento de Azure Data Factory perm
 
 ![Depurar controle deslizante](media/data-flow/debugbutton.png "Depurar controle deslizante")
 
-Depois de ativar o controle deslizante, você será solicitado a selecionar qual configuração do Integration Runtime você deseja usar. Se AutoResolveIntegrationRuntime for escolhido, um cluster com oito núcleos de computação geral com um tempo de vida de 60 minutos será girado. Para obter mais informações sobre tempos de execução de integração de fluxo de dados, consulte [desempenho do fluxo de dados](concepts-data-flow-performance.md#ir).
+Depois de ativar o controle deslizante, você será solicitado a selecionar qual configuração do Integration Runtime você deseja usar. Se AutoResolveIntegrationRuntime for escolhido, um cluster com oito núcleos de computação geral com um padrão de vida útil de 60 minutos será rotacionado. Se você quiser permitir mais equipe ociosa antes que sua sessão expire, você pode escolher uma configuração de TTL mais alta. Para obter mais informações sobre tempos de execução de integração de fluxo de dados, consulte [desempenho do fluxo de dados](concepts-data-flow-performance.md#ir).
 
-![Depurar seleção de IR](media/data-flow/debugbutton2.png "Depurar seleção de IR")
+![Depurar seleção de IR](media/data-flow/debug-new-1.png "Depurar seleção de IR")
 
 Quando o modo de depuração estiver ativado, você criará interativamente seu fluxo de dados com um cluster do Spark ativo. A sessão fecha quando você desativa a depuração no Azure Data Factory. Você deve estar ciente das cobranças por hora incorridas pelo Azure Databricks durante o tempo em que a sessão de depuração está ativa.
 
@@ -36,7 +36,7 @@ Na maioria dos casos, é uma boa prática criar seus fluxos de dados no modo de 
 ![Exibir sessões de depuração do fluxo de dados](media/iterative-development-debugging/view-dataflow-debug-sessions.png)
 
 > [!NOTE]
-> Cada sessão de depuração que um usuário inicia de sua interface do usuário do navegador ADF é uma nova sessão com seu próprio cluster Spark. Você pode usar o modo de exibição de monitoramento para sessões de depuração acima para exibir e gerenciar sessões de depuração por fábrica.
+> Cada sessão de depuração que um usuário inicia de sua interface do usuário do navegador ADF é uma nova sessão com seu próprio cluster Spark. Você pode usar o modo de exibição de monitoramento para sessões de depuração acima para exibir e gerenciar sessões de depuração por fábrica. Você é cobrado por cada hora que cada sessão de depuração está executando, incluindo a hora TTL.
 
 ## <a name="cluster-status"></a>Status do cluster
 

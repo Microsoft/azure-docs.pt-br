@@ -6,5 +6,5 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/23/2020
 ms.locfileid: "90533312"
 ---
-<Token>**APLICA-SE A:** :::image type="icon" source="../media/applies-to/yes.png" border="false":::Banco de Dados SQL do Azure :::image type="icon" source="../media/applies-to/yes.png" border="false":::Instância Gerenciada de SQL do Azure </Token> 
+<Token>**APLICA-SE A:** :::image type="icon" source="../media/applies-to/yes.png" border="false":::Banco de Dados SQL do Azure :::image type="icon" source="../media/applies-to/yes.png" border="false":::Instância Gerenciada de SQL do Azure</Token> 
 

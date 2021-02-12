@@ -40,7 +40,7 @@ Primeiro, obtenha o nome do servidor de logon completo para o registro de contê
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-Por exemplo, se o registro é denominado *mycontainerregistry082* :
+Por exemplo, se o registro é denominado *mycontainerregistry082*:
 
 ```azurecli
 az acr show --name mycontainerregistry082 --query loginServer --output table

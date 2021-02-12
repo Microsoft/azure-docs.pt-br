@@ -12,7 +12,7 @@
       href: az-overview.md
     - name: Documentação de Zonas de Disponibilidade
       items:
-        - name: Regiões que oferecem suporte às Zonas de Disponibilidade
+        - name: Serviços do Azure compatíveis com as zonas de disponibilidade
           href: az-region.md
         - name: Máquinas virtuais
           items:

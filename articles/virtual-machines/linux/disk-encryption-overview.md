@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: a6f5526b01588649d1e094036241d616a8392949
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 91ef5ca35cc96aa2028522d370ffbade45ecc2de
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996474"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779763"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>VMs do Azure Disk Encryption para Linux 
 
@@ -48,6 +48,8 @@ O Azure Disk Encryption também está disponível para VMs com armazenamento pre
 
 Azure Disk Encryption não está disponível em VMs de [geração 2](../generation-2.md#generation-1-vs-generation-2-capabilities) e em [VMs da série Lsv2](../lsv2-series.md). Para obter mais exceções, consulte [Azure Disk Encryption: Cenários sem suporte](disk-encryption-linux.md#unsupported-scenarios).
 
+Azure Disk Encryption não está disponível em imagens de VM sem discos temporários (DV4, Dsv4, Ev4 e Esv4).  Confira [tamanhos de VM do Azure sem disco temporário local](../azure-vms-no-temp-disk.md).
+
 ### <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
 O Azure Disk Encryption é compatível com um subconjunto de [distribuições Linux endossadas pelo Azure](endorsed-distros.md) que, na verdade, é um subconjunto de todas as distribuições possíveis do servidor Linux.
@@ -65,7 +67,7 @@ As distribuições do servidor Linux que não são endossadas pelo Azure não s�
 | Canônico | Ubuntu 14.04.5</br>[com kernel ajustado para Azure atualizado para 4.15 ou posterior](disk-encryption-troubleshooting.md) | 14.04.5-LTS-DIÁRIO | Canonical:UbuntuServer:14.04.5-DAILY-LTS:latest | SO e disco de dados |
 | RedHat | RHEL 7,8 | 7.8 | RedHat: RHEL: 7.8: mais recente | Sistema operacional e disco de dados (veja a observação abaixo) |
 | RedHat | RHEL 7.7 | 7.7 | RedHat:RHEL:7.7:latest | Sistema operacional e disco de dados (veja a observação abaixo) |
-| RedHat | RHEL 7.7 | 7-LVM | RedHat:RHEL:7-LVM:latest | Sistema operacional e disco de dados (veja a observação abaixo) |
+| RedHat | RHEL 7-LVM | 7-LVM | RedHat: RHEL: 7-LVM: 7.8.2020111201 | Sistema operacional e disco de dados (veja a observação abaixo) |
 | RedHat | RHEL 7.6 | 7.6 | RedHat:RHEL:7.6:latest | Sistema operacional e disco de dados (veja a observação abaixo) |
 | RedHat | RHEL 7.5 | 7.5 | RedHat:RHEL:7.5:latest | Sistema operacional e disco de dados (veja a observação abaixo) |
 | RedHat | RHEL 7.4 | 7.4 | RedHat:RHEL:7.4:latest | Sistema operacional e disco de dados (veja a observação abaixo) |
@@ -73,8 +75,9 @@ As distribuições do servidor Linux que não são endossadas pelo Azure não s�
 | RedHat | RHEL 7.2 | 7.2 | RedHat:RHEL:7.2:latest | Sistema operacional e disco de dados (veja a observação abaixo) |
 | RedHat | RHEL 6.8 | 6,8 | RedHat:RHEL:6.8:latest | Disco de dados (consulte a observação abaixo) |
 | RedHat | RHEL 6.7 | 6.7 | RedHat:RHEL:6.7:latest | Disco de dados (consulte a observação abaixo) |
+| OpenLogic | CentOS 7,8 | 7.8 | OpenLogic: CentOS: 7_8: mais recente | SO e disco de dados |
 | OpenLogic | CentOS 7.7 | 7.7 | OpenLogic:CentOS:7.7:latest | SO e disco de dados |
-| OpenLogic | CentOS 7.7 | 7-LVM | OpenLogic:CentOS:7-LVM:latest | SO e disco de dados |
+| OpenLogic | CentOS 7 – LVM | 7-LVM | OpenLogic: CentOS-LVM: 7-LVM: 7.8.2020111100 | SO e disco de dados |
 | OpenLogic | CentOS 7.6 | 7.6 | OpenLogic:CentOS:7.6:latest | SO e disco de dados |
 | OpenLogic | CentOS 7.5 | 7.5 | OpenLogic:CentOS:7.5:latest | SO e disco de dados |
 | OpenLogic | CentOS 7.4 | 7.4 | OpenLogic:CentOS:7.4:latest | SO e disco de dados |

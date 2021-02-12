@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 09/04/2019
-  ms.openlocfilehash: 5090ae0c5380a16a911ee433d85d288bd9d8fb25
-  ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+  ms.openlocfilehash: 950ed3c6c8a5d4b495dc3f72e1e6105c9391c3fa
+  ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/19/2020
-  ms.locfileid: "92205295"
+  ms.lasthandoff: 01/26/2021
+  ms.locfileid: "98786211"
 highlightedContent:
   items:
   - title: O que é o Azure IoT?
@@ -57,6 +57,9 @@ conceptualContent:
     - url: ../iot-hub/quickstart-control-device-node.md
       itemType: quickstart
       text: Controlar um dispositivo da novem
+    - url: /azure-stack/operator/iot-hub-rp-overview
+      itemType: overview
+      text: Explorar o Hub IoT no Azure Stack Hub
     footerLink:
       url: ../iot-hub/index.yml
       text: Ver mais
@@ -68,7 +71,7 @@ conceptualContent:
     - url: ../iot-central/core/quick-deploy-iot-central.md
       itemType: quickstart
       text: Criar um aplicativo IoT Central
-    - url: ../iot-central/core/tutorial-connect-device-nodejs.md
+    - url: ../iot-central/core/tutorial-connect-device.md
       itemType: tutorial
       text: Conectar um dispositivo
     footerLink:
@@ -121,10 +124,10 @@ conceptualContent:
     - url: ../iot-pnp/overview-iot-plug-and-play.md
       itemType: overview
       text: O que é IoT Plug and Play?
-    - url: ../iot-pnp/quickstart-connect-device-node.md
+    - url: ../iot-pnp/quickstart-connect-device.md
       itemType: quickstart
       text: Conectar um dispositivo de exemplo ao Hub IoT
-    - url: ../iot-pnp/concepts-developer-guide-device-csharp.md
+    - url: ../iot-pnp/concepts-developer-guide-device.md
       itemType: concept
       text: Guia do desenvolvedor
     footerLink:
@@ -163,9 +166,6 @@ conceptualContent:
     - url: ../iot-accelerators/about-iot-accelerators.md
       itemType: overview
       text: O que são aceleradores de solução do Azure IoT?
-    - url: ../iot-accelerators/quickstart-remote-monitoring-deploy.md
-      itemType: quickstart
-      text: Experimente uma solução de monitoramento remoto
     - url: ../iot-accelerators/quickstart-connected-factory-deploy.md
       itemType: quickstart
       text: Experimente uma solução de fábrica conectada

@@ -3,18 +3,21 @@ title: Entrega e repetição da Grade de Eventos do Azure
 description: Descreve como a Grade de Eventos do Azure entrega eventos e como ela trata mensagens não entregues.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 483a868022d4ae8f7c564e51344dfbede4314232
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 3c4ed6ec2c9eae4dbcf70a831e3e7f70a28a57a0
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042964"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247362"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega e repetição de mensagens da Grade de Eventos
 
 Este artigo descreve como a Grade de Eventos do Azure manipula eventos quando a entrega não é confirmada.
 
-A entrega proporcionada pela Grade de Eventos tem um tempo de duração. Cada mensagem é entregue pelo menos uma vez para cada assinatura. Os eventos são enviados para o ponto de extremidade registrado de cada assinatura imediatamente. Se um ponto de extremidade não confirmar o recebimento de um evento, a Grade de Eventos tentará entregá-lo novamente.
+A entrega proporcionada pela Grade de Eventos tem um tempo de duração. Ele entrega cada mensagem **pelo menos uma vez** para cada assinatura. Os eventos são enviados para o ponto de extremidade registrado de cada assinatura imediatamente. Se um ponto de extremidade não confirmar o recebimento de um evento, a Grade de Eventos tentará entregá-lo novamente.
+
+> [!NOTE]
+> A grade de eventos não garante a ordem de entrega de eventos, portanto, o assinante pode recebê-las fora de ordem. 
 
 ## <a name="batched-event-delivery"></a>Entrega de eventos em lote
 
@@ -52,6 +55,22 @@ Para obter mais informações sobre como usar CLI do Azure com a grade de evento
 
 ## <a name="retry-schedule-and-duration"></a>Agendamento de nova tentativa e duração
 
+Quando o EventGrid recebe um erro para uma tentativa de entrega de evento, o EventGrid decide se deve tentar novamente a entrega ou mensagens mortas ou descartar o evento com base no tipo de erro. 
+
+Se o erro retornado pelo ponto de extremidade assinado for um erro relacionado à configuração que não pode ser corrigido com repetições (por exemplo, se o ponto de extremidade for excluído), EventGrid irá executar mensagens mortas no evento ou descartar o evento se a letra inativa não estiver configurada.
+
+A seguir estão os tipos de pontos de extremidade para os quais repetir não acontece:
+
+| Tipo de Ponto de Extremidade | Códigos do Erro |
+| --------------| -----------|
+| Recursos do Azure | 400 solicitação inadequada, entidade de solicitação 413 muito grande, 403 Proibido | 
+| webhook | 400 solicitação inválida, entidade de solicitação 413 muito grande, 403 Proibido, 404 não encontrado, 401 não autorizado |
+ 
+> [!NOTE]
+> Se Dead-Letter não estiver configurado para o ponto de extremidade, os eventos serão descartados quando ocorrerem erros acima. Considere configurar mensagens mortas se você não quiser que esses tipos de eventos sejam removidos.
+
+Se o erro retornado pelo ponto de extremidade assinado não estiver entre a lista acima, o EventGrid executará a repetição usando as políticas descritas abaixo:
+
 A grade de eventos aguarda 30 segundos por uma resposta depois de entregar uma mensagem. Após 30 segundos, se o ponto de extremidade não tiver respondido, a mensagem será enfileirada para tentar novamente. A Grade de Eventos usa uma política de repetição de retirada exponencial para a entrega de eventos. A grade de eventos repete a entrega na seguinte agenda com base no melhor esforço:
 
 - 10 segundos
@@ -61,7 +80,10 @@ A grade de eventos aguarda 30 segundos por uma resposta depois de entregar uma m
 - 10 minutos
 - 30 minutos
 - 1 hora
-- Por hora por até 24 horas
+- 3 horas
+- 6 horas
+- A cada 12 horas até 24 horas
+
 
 Se o ponto de extremidade responder em 3 minutos, a grade de eventos tentará remover o evento da fila de repetição em uma base de melhor esforço, mas as duplicatas ainda poderão ser recebidas.
 
@@ -78,14 +100,14 @@ Como um ponto de extremidade apresenta falhas de entrega, a grade de eventos com
 A finalidade funcional da entrega atrasada é proteger pontos de extremidade não íntegros, bem como o sistema de grade de eventos. Sem retirada e atraso de entrega para pontos de extremidade não íntegros, a política de repetição da grade de eventos e os recursos de volume podem facilmente sobrecarregar um sistema.
 
 ## <a name="dead-letter-events"></a>Eventos de mensagens mortas
-Quando a grade de eventos não pode entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um determinado número de vezes, ele pode enviar o evento não entregue a uma conta de armazenamento. Esse processo é conhecido como **mensagens mortas** . A grade de eventos não segue um evento quando **uma das condições a seguir** é atendida. 
+Quando a grade de eventos não pode entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um determinado número de vezes, ele pode enviar o evento não entregue a uma conta de armazenamento. Esse processo é conhecido como **mensagens mortas**. A grade de eventos não segue um evento quando **uma das condições a seguir** é atendida. 
 
 - O evento não é entregue dentro do período de **vida útil** . 
 - O **número de tentativas** de entregar o evento excedeu o limite.
 
 Se qualquer uma das condições for atendida, o evento será descartado ou inativo.  Por padrão, a Grade de Eventos não ativa o armazenamento de mensagens mortas. Para habilitá-lo, você deve especificar uma conta de armazenamento para reter eventos que não foram entregues ao criar a assinatura do evento. Você aciona eventos dessa conta de armazenamento para resolver as entregas.
 
-A Grade de Eventos enviará um evento ao local de mensagens mortas quando ela tiver tentado todas as suas tentativas de repetição. Se a Grade de Eventos receber um código de resposta 400 (Solicitação incorreta) ou 413 (A entidade da solicitação é grande demais), ela enviará o evento imediatamente ao ponto de extremidade de mensagens mortas. Esses códigos de resposta indicam que a entrega do evento nunca terá êxito.
+A Grade de Eventos enviará um evento ao local de mensagens mortas quando ela tiver tentado todas as suas tentativas de repetição. Se a grade de eventos receber um código de resposta 400 (solicitação inadequada) ou 413 (entidade de solicitação muito grande), ele agendará imediatamente o evento para mensagens mortas. Esses códigos de resposta indicam que a entrega do evento nunca terá êxito.
 
 A expiração de vida útil é verificada apenas na próxima tentativa de entrega agendada. Portanto, mesmo se o tempo de vida expirar antes da próxima tentativa de entrega agendada, a expiração do evento será verificada somente no momento da próxima entrega e, em seguida, mensagens mortas em seguida. 
 
@@ -253,16 +275,16 @@ A grade de eventos considera **apenas** os seguintes códigos de resposta http c
 
 ### <a name="failure-codes"></a>Códigos de falha
 
-Todos os outros códigos que não estão no conjunto acima (200-204) são considerados falhas e serão repetidos. Alguns têm políticas de repetição específicas ligadas a eles descritos abaixo, todos os outros seguem o modelo de retirada exponencial padrão. É importante ter em mente que, devido à natureza altamente paralelizada da arquitetura da grade de eventos, o comportamento de repetição é não determinístico. 
+Todos os outros códigos que não estão no conjunto acima (200-204) são considerados falhas e serão repetidos (se necessário). Alguns têm políticas de repetição específicas ligadas a eles descritos abaixo, todos os outros seguem o modelo de retirada exponencial padrão. É importante ter em mente que, devido à natureza altamente paralelizada da arquitetura da grade de eventos, o comportamento de repetição é não determinístico. 
 
 | Código de status | Tentar comportamento novamente |
 | ------------|----------------|
-| 400 Solicitação Inválida | Tente novamente após 5 minutos ou mais (mensagens mortas imediatamente se a instalação de mensagens mortas) |
-| 401 Não Autorizado | Tente novamente após 5 minutos ou mais |
-| 403 Proibido | Tente novamente após 5 minutos ou mais |
-| 404 Não Encontrado | Tente novamente após 5 minutos ou mais |
+| 400 Solicitação Inválida | Não repetido |
+| 401 Não Autorizado | Tente novamente após 5 minutos ou mais para os pontos de extremidade de recursos do Azure |
+| 403 Proibido | Não repetido |
+| 404 Não Encontrado | Tente novamente após 5 minutos ou mais para os pontos de extremidade de recursos do Azure |
 | 408 Tempo Limite da Solicitação | Tentar novamente após 2 minutos ou mais |
-| Solicitação 413 entidade muito grande | Tente novamente após 10 segundos ou mais (mensagens mortas imediatamente se a instalação de mensagens mortas) |
+| Solicitação 413 entidade muito grande | Não repetido |
 | 503 Serviço Indisponível | Tentar novamente após 30 segundos ou mais |
 | Todos os outros | Tentar novamente após 10 segundos ou mais |
 

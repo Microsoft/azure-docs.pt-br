@@ -2,7 +2,7 @@
 title: Habilitar o Azure DS Domain Services usando o PowerShell | Microsoft Docs
 description: Saiba como configurar e habilitar o Azure Active Directory Domain Services usando o PowerShell do Azure AD e o Azure PowerShell.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: d4bc5583-6537-4cd9-bc4b-7712fdd9272a
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
 ms.date: 10/02/2020
-ms.author: joflore
+ms.author: justinha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4b2ea0806f70d9f99982b9d9af9c462ff0099966
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 89061af04147d7cfaa0fdb3a6b1a8fb1cd8c8da7
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967946"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619140"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Habilitar o Azure Active Directory Domain Services usando PowerShell
 
@@ -44,12 +44,12 @@ Para concluir este artigo, você precisa dos seguintes recursos:
 
 O Azure AD DS requer uma entidade de serviço e um grupo do Azure AD. Esses recursos permitem que o domínio gerenciado do Azure AD DS sincronize dados e defina quais usuários têm permissões administrativas no domínio gerenciado.
 
-Primeiro, crie uma entidade de serviço do Azure AD para o Azure AD DS para se comunicar e se autenticar. É usada uma ID de aplicativo específica denominada *Serviços de Controlador de Domínio* com uma ID de *2565bd9d-da50-47d4-8b85-4c97f669dc36*. Não altere essa ID de aplicativo.
+Primeiro, crie uma entidade de serviço do Azure AD para o Azure AD DS para se comunicar e se autenticar. É usada uma ID de aplicativo específica denominada *Serviços de Controlador de Domínio* com uma ID de *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. Não altere essa ID de aplicativo.
 
 Crie uma entidade de serviço do Azure AD usando o cmdlet [New-AzureADServicePrincipal][New-AzureADServicePrincipal]:
 
 ```powershell
-New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
+New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
 ```
 
 Agora crie um grupo do Azure AD chamado *Administradores do AAD DC*. Os usuários adicionados a esse grupo recebem permissões para executar tarefas de administração no domínio gerenciado.
@@ -206,7 +206,7 @@ Se você escolher uma região com suporte a Zonas de Disponibilidade, os recurso
 
 As Zonas de Disponibilidade são locais físicos exclusivos em uma região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas.
 
-Não é preciso configurar nada para que o Azure AD DS seja distribuído entre as zonas. A plataforma do Azure lida automaticamente com a distribuição de recursos na zona. Para saber mais e ver a disponibilidade da região, consulte [O que são as Zonas de Disponibilidade no Azure?][availability-zones].
+Não é preciso configurar nada para que o Azure AD DS seja distribuído entre as zonas. A plataforma do Azure lida automaticamente com a distribuição de recursos na zona. Para obter mais informações e ver a disponibilidade da região, confira [O que são as Zonas de Disponibilidade no Azure?][availability-zones].
 
 ```powershell
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
@@ -252,7 +252,7 @@ Connect-AzureAD
 Connect-AzAccount
 
 # Create the service principal for Azure AD Domain Services.
-New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
+New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
 
 # First, retrieve the object ID of the 'AAD DC Administrators' group.
 $GroupObjectId = Get-AzureADGroup `

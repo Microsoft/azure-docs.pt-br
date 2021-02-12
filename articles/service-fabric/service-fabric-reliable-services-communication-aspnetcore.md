@@ -1,17 +1,15 @@
 ---
 title: Comunicação de serviço com o ASP.NET Core
 description: Saiba como usar ASP.NET Core em aplicativos com e sem estado do Azure Service Fabric Reliable Services.
-author: vturecek
 ms.topic: conceptual
 ms.date: 10/12/2018
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 69423e7545178fd74ad44f5cab7b37b6f24b3577
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a125c6a1972b51f518175a4c69248119f71ada7c
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022183"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791587"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core no Service Fabric do Azure Reliable Services
 
@@ -192,7 +190,7 @@ Uma porta dinâmica alocada por uma `Endpoint` configuração fornece apenas uma
 ## <a name="kestrel-in-reliable-services"></a>Kestrel em Serviços Confiáveis
 Você pode usar o Kestrel em Reliable Services importando o pacote NuGet **Microsoft. Microsoft. AspNetCore. Kestrel** . Este pacote contém `KestrelCommunicationListener` , uma implementação do `ICommunicationListener` . `KestrelCommunicationListener` permite que você crie um Webhost ASP.NET Core dentro de um serviço confiável usando o Kestrel como o servidor Web.
 
-O Kestrel é um servidor Web multiplataforma para o ASP.NET Core. Ao contrário de HTTP.sys, Kestrel não usa um Gerenciador de ponto de extremidade centralizado. Além disso, ao contrário de HTTP.sys, o Kestrel não dá suporte ao compartilhamento de porta entre vários processos. Cada instância do Kestrel deve usar uma porta exclusiva. Para obter mais informações sobre Kestrel, consulte os [detalhes da implementação](/aspnet/core/fundamentals/servers/kestrel?view=aspnetcore-2.2).
+O Kestrel é um servidor Web multiplataforma para o ASP.NET Core. Ao contrário de HTTP.sys, Kestrel não usa um Gerenciador de ponto de extremidade centralizado. Além disso, ao contrário de HTTP.sys, o Kestrel não dá suporte ao compartilhamento de porta entre vários processos. Cada instância do Kestrel deve usar uma porta exclusiva. Para obter mais informações sobre Kestrel, consulte os [detalhes da implementação](/aspnet/core/fundamentals/servers/kestrel).
 
 ![Diagrama de Kestrel][4]
 
@@ -471,7 +469,7 @@ Kestrel é o servidor Web sugerido para serviços de front-end que expõem ponto
  
 Quando exposto à Internet, um serviço sem estado deve usar um ponto de extremidade bem conhecido e estável acessível por meio de um balanceador de carga. Você fornecerá essa URL para os usuários do seu aplicativo. Recomendamos a seguinte configuração:
 
-| Tipo | Recomendação | Observações |
+| Type | Recomendação | Observações |
 | ---- | -------------- | ----- |
 | Servidor Web | Kestrel | Kestrel é o servidor Web preferencial, pois tem suporte no Windows e no Linux. |
 | Configuração de portas | static | Uma porta estática conhecida deve ser configurada na configuração do `Endpoints` de ServiceManifest.XML, como 80 para HTTP ou 443 para HTTPS. |
@@ -496,7 +494,7 @@ Se vários serviços expostos externamente compartilharem o mesmo conjunto de n�
 ### <a name="internal-only-stateless-aspnet-core-service"></a>Serviço do Núcleo do ASP.NET sem estado somente para uso interno
 Os serviços sem monitoração de estado que são chamados apenas de dentro do cluster devem usar URLs exclusivas e portas atribuídas dinamicamente para garantir a cooperação entre vários serviços. Recomendamos a seguinte configuração:
 
-| Tipo | Recomendação | Observações |
+| Type | Recomendação | Observações |
 | ---- | -------------- | ----- |
 | Servidor Web | Kestrel | Embora você possa usar HTTP.sys para serviços sem estado internos, o Kestrel é o melhor servidor para permitir que várias instâncias de serviço compartilhem um host.  |
 | Configuração de portas | atribuídas dinamicamente | Várias réplicas de um serviço com estado podem compartilhar um processo de host ou sistema operacional do host e, portanto, precisarão de portas exclusivas. |
@@ -506,7 +504,7 @@ Os serviços sem monitoração de estado que são chamados apenas de dentro do c
 ### <a name="internal-only-stateful-aspnet-core-service"></a>Somente interno serviço com estado do Núcleo do ASP.NET
 Os serviços com monitoração de estado que são chamados apenas de dentro do cluster devem usar portas atribuídas dinamicamente para garantir a cooperação entre vários serviços. Recomendamos a seguinte configuração:
 
-| Tipo | Recomendação | Observações |
+| Type | Recomendação | Observações |
 | ---- | -------------- | ----- |
 | Servidor Web | Kestrel | O `HttpSysCommunicationListener` não é projetado para uso por serviços com estado em que as réplicas compartilham um processo de host. |
 | Configuração de portas | atribuídas dinamicamente | Várias réplicas de um serviço com estado podem compartilhar um processo de host ou sistema operacional do host e, portanto, precisarão de portas exclusivas. |

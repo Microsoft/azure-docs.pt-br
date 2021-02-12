@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.author: b-juche
-ms.openlocfilehash: edb084a3539f4ab25f328d4cc59ee4ef3279bf07
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 69168060cbce4a904c53d7f79895e909c8c42e01
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217041"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935216"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Configurar a criptografia Kerberos do NFSv 4.1 para Azure NetApp Files
 
@@ -40,7 +40,7 @@ Os seguintes requisitos se aplicam à criptografia de cliente do NFSv 4.1:
 
 1.  Siga as etapas em [criar um volume de NFS para Azure NetApp files](azure-netapp-files-create-volumes.md) para criar o volume nfsv 4.1.   
 
-    Na página criar um volume, defina a versão do NFS como **nfsv 4.1**e defina Kerberos como **habilitado**.
+    Na página criar um volume, defina a versão do NFS como **nfsv 4.1** e defina Kerberos como **habilitado**.
 
     > [!IMPORTANT] 
     > Você não pode modificar a seleção de habilitação de Kerberos após a criação do volume.
@@ -172,6 +172,7 @@ Impacto no desempenho do krb5p:
 
 ## <a name="next-steps"></a>Próximas etapas  
 
+* [Solucionar problemas de volume do NFSv 4.1 Kerberos](troubleshoot-nfsv41-kerberos-volumes.md)
 * [Perguntas frequentes sobre Azure NetApp Files](azure-netapp-files-faqs.md)
 * [Criar um volume NFS para o Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Criar uma conexão do Active Directory](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection)

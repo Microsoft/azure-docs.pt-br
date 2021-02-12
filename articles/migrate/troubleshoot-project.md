@@ -1,17 +1,17 @@
 ---
 title: Solucionar problemas nos projetos de Migrações para Azure
 description: Ajuda a solucionar problemas com a criação e o gerenciamento de projetos de migrações para Azure.
-ms.topic: troubleshooting
-author: musa-57
+author: ms-psharma
+ms.author: panshar
 ms.manager: abhemraj
-ms.author: hamusa
+ms.topic: troubleshooting
 ms.date: 01/01/2020
-ms.openlocfilehash: f2245e13f348706f662055408196ea7a26484811
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: f68a57d3780f388488d48835f322ff04ab7c7187
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314637"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753375"
 ---
 # <a name="troubleshoot-azure-migrate-projects"></a>Solucionar problemas nos projetos de Migrações para Azure
 
@@ -19,7 +19,7 @@ Este artigo ajuda a solucionar problemas ao criar e gerenciar projetos de [migra
 
 ## <a name="how-to-add-new-project"></a>Como adicionar um novo projeto?
 
-Você pode ter vários projetos das Migrações para Azure em uma assinatura. [Saiba como](how-to-add-tool-first-time.md) criar um projeto pela primeira vez ou [Adicionar outros](create-manage-projects.md#create-additional-projects) projetos.
+Você pode ter vários projetos das Migrações para Azure em uma assinatura. [Saiba como](./create-manage-projects.md) criar um projeto pela primeira vez ou [Adicionar outros](create-manage-projects.md#create-additional-projects) projetos.
 
 ## <a name="what-azure-permissions-are-needed"></a>Quais permissões do Azure são necessárias?
 
@@ -40,7 +40,7 @@ Você pode avaliar até 35.000 VMs VMware ou até 35.000 VMs Hyper-V em um únic
 
 ## <a name="can-i-upgrade-old-project"></a>Posso atualizar o projeto antigo?
 
-Os projetos da versão anterior do migrações para Azure não podem ser atualizados. Você precisa [criar um novo projeto](how-to-add-tool-first-time.md)e adicionar ferramentas a ele.
+Os projetos da versão anterior do migrações para Azure não podem ser atualizados. Você precisa [criar um novo projeto](./create-manage-projects.md)e adicionar ferramentas a ele.
 
 ## <a name="cant-create-a-project"></a>Não é possível criar um projeto
 

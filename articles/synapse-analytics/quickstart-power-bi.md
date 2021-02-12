@@ -9,39 +9,39 @@ ms.subservice: business-intelligence
 ms.date: 10/27/2020
 ms.author: jocaplan
 ms.reviewer: jrasnick
-ms.openlocfilehash: 36334142595d4a6bd4865a690f154279967a70d5
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 9c63e5e24495f373f288d2789780a6c671a7cc24
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746326"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218392"
 ---
 # <a name="quickstart-linking-a-power-bi-workspace-to-a-synapse-workspace"></a>Início Rápido: Vincular um workspace do Power BI a um workspace do Synapse
 
-Neste início rápido, você aprenderá a conectar um workspace do Power BI a um workspace do Synapse Analytics para criar relatórios e conjunto de dados do Power BI por meio do Synapse Studio (versão prévia).
+Neste início rápido, você aprenderá a conectar um workspace do Power BI a um workspace do Azure Synapse Analytics para criar relatórios e conjunto de dados do Power BI por meio do Synapse Studio.
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita antes de começar](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Criar um workspace do Azure Synapse e uma conta de armazenamento associada](quickstart-create-workspace.md)
-- [Um workspace do Power BI Professional ou Premium](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces)
+- [Um workspace do Power BI Professional ou Premium](/power-bi/service-create-the-new-workspaces)
 
 ## <a name="link-power-bi-workspace-to-your-synapse-workspace"></a>Vincular o workspace do Power BI ao workspace do Synapse
 
-1. Começando no Synapse Studio, clique em **Gerenciar** .
+1. Começando no Synapse Studio, clique em **Gerenciar**.
 
     ![No Synapse Studio, clique em gerenciar.](media/quickstart-link-powerbi/synapse-studio-click-manage.png)
 
-2. Em **Conexões externas** , clique em **Serviços vinculados** .
+2. Em **Conexões externas**, clique em **Serviços vinculados**.
 
     ![Serviços vinculados é realçado.](media/quickstart-link-powerbi/manage-click-linked-services.png)
 
-3. Clique em **+ Novo** .
+3. Clique em **+ Novo**.
 
     ![+ Novos serviços vinculados é realçado.](media/quickstart-link-powerbi/new-highlighted.png)
 
-4. Clique em **Power BI** e depois em **Continuar** .
+4. Clique em **Power BI** e depois em **Continuar**.
 
     ![Exibindo o serviço vinculado do Power BI.](media/quickstart-link-powerbi/powerbi-linked-service.png)
 
@@ -49,13 +49,13 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita antes de c
 
     ![Como exibir a configuração do serviço vinculado do Power BI.](media/quickstart-link-powerbi/workspace-link-dialog.png)
 
-6. Clique em **Criar** .
+6. Clique em **Criar**.
 
 ## <a name="view-power-bi-workspace-in-synapse-studio"></a>Exibir o workspace do Power BI no Synapse Studio
 
 Depois que seus workspaces estiverem vinculados, você poderá navegar em seus conjuntos de dados do Power BI e editar/criar relatórios do Power BI por meio do Synapse Studio.
 
-1. Clique em **Desenvolver** .
+1. Clique em **Desenvolver**.
 
     ![No Synapse Studio, clique em desenvolver.](media/quickstart-link-powerbi/synapse-studio-click-develop.png)
 
@@ -63,7 +63,7 @@ Depois que seus workspaces estiverem vinculados, você poderá navegar em seus c
 
     ![Expanda o Power BI e o workspace.](media/quickstart-link-powerbi/develop-expand-powerbi.png)
 
-Novos relatórios podem ser criados clicando em **+** , na parte superior da guia **Desenvolver** . Os relatórios existentes podem ser editados clicando em seus respectivos nomes. Todas as alterações salvas serão gravadas de volta no workspace do Power BI.
+Novos relatórios podem ser criados clicando em **+** , na parte superior da guia **Desenvolver**. Os relatórios existentes podem ser editados clicando em seus respectivos nomes. Todas as alterações salvas serão gravadas de volta no workspace do Power BI.
 
 ![Exibir e editar relatórios do Power BI.](media/quickstart-link-powerbi/powerbi-report.png)
 

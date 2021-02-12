@@ -1,7 +1,7 @@
 ---
 title: Criar e gerenciar a política de grupo no Azure AD Domain Services | Microsoft Docs
 description: Saiba como editar os GPOs (objetos de diretiva de grupo) internos e criar suas próprias políticas personalizadas em um Azure Active Directory Domain Services domínio gerenciado.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -9,13 +9,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: deefcb66e05199896e8997d707a06e45f397adec
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: f1f2499c49c4adf16b632bc75c246a28330ad27b
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963729"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619378"
 ---
 # <a name="administer-group-policy-in-an-azure-active-directory-domain-services-managed-domain"></a>Administrar Política de Grupo em um domínio Azure Active Directory Domain Services gerenciado
 
@@ -102,7 +102,7 @@ Para agrupar configurações de política semelhantes, você geralmente cria GPO
 
     ![Criar um GPO personalizado no console de gerenciamento de Política de Grupo](./media/active-directory-domain-services-admin-guide/gp-create-gpo.png)
 
-1. Especifique um nome para o novo GPO, como *meu GPO personalizado*e, em seguida, selecione **OK**. Opcionalmente, você pode basear esse GPO personalizado em um GPO existente e no conjunto de opções de política.
+1. Especifique um nome para o novo GPO, como *meu GPO personalizado* e, em seguida, selecione **OK**. Opcionalmente, você pode basear esse GPO personalizado em um GPO existente e no conjunto de opções de política.
 
     ![Especifique um nome para o novo GPO personalizado](./media/active-directory-domain-services-admin-guide/gp-specify-gpo-name.png)
 

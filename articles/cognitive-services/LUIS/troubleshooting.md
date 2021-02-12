@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
-ms.openlocfilehash: 8eb37b993ee5bc3944228cba72be0557b52e3dc6
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e4de77a8a56ce21511ad099af59a77e10ab1815d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149265"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787529"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o LUIS (Serviço Inteligente de Reconhecimento Vocal)
 
@@ -83,7 +83,7 @@ Confira [Recursos do Azure Active Directory](luis-how-to-collaborate.md#azure-ac
 
 <a name="luis-endpoint"></a>
 
-## <a name="endpoint"></a>Ponto de extremidade
+## <a name="endpoint"></a>Ponto de Extremidade
 
 ### <a name="i-received-an-http-403-error-status-code-how-do-i-fix-it"></a>Recebi um código de status de erro HTTP 403. Como corrigi-la?
 
@@ -91,7 +91,7 @@ Você obtém códigos de status de erro 403 e 429 ao exceder as transações por
 
 Quando você usar todas essas consultas de ponto de extremidade 1000 gratuitas ou exceder a cota de transações mensais do seu tipo de preço, você receberá um código de status de erro HTTP 403.
 
-Para corrigir esse erro, você precisa [alterar seu tipo de preço](luis-how-to-azure-subscription.md#change-pricing-tier) para uma camada superior ou [criar um novo recurso](get-started-portal-deploy-app.md#create-the-endpoint-resource) e [atribuí-lo ao seu aplicativo](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
+Para corrigir esse erro, você precisa [alterar seu tipo de preço](luis-how-to-azure-subscription.md#change-the-pricing-tier) para uma camada superior ou [criar um novo recurso](get-started-portal-deploy-app.md#create-the-endpoint-resource) e [atribuí-lo ao seu aplicativo](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
 
 As soluções para esse erro incluem:
 
@@ -106,9 +106,9 @@ Esse código de status é retornado quando suas transações por segundo excedem
 
 As soluções incluem:
 
-* Você pode [aumentar seu tipo de preço](luis-how-to-azure-subscription.md#change-pricing-tier), se não estiver na camada mais alta.
+* Você pode [aumentar seu tipo de preço](luis-how-to-azure-subscription.md#change-the-pricing-tier), se não estiver na camada mais alta.
 * Se seu uso exceder o tipo de preço mais alto, adicione mais recursos Reconhecimento vocal com um balanceador de carga na frente deles. O [contêiner reconhecimento vocal](luis-container-howto.md) com Kubernetes ou Docker Compose pode ajudar com isso.
-* Você pode portar suas solicitações de aplicativo cliente com uma [política de repetição](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) que você mesmo implementa quando obtém esse código de status.
+* Você pode portar suas solicitações de aplicativo cliente com uma [política de repetição](/azure/architecture/best-practices/transient-faults#general-guidelines) que você mesmo implementa quando obtém esse código de status.
 
 ### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>Minha consulta de terminal retornou resultados inesperados. O que devo fazer?
 
@@ -177,7 +177,7 @@ Os erros indicam que há alguma discrepância entre os rótulos e as previsões 
 * Para ajudar o LUIS a melhorar a discriminação entre intenções, adicione mais rótulos.
 * Para ajudar o LUIS a aprender mais rápido, adicione recursos de lista de frases que introduzam vocabulário específico do domínio.
 
-Veja o tutorial [Teste em lote](luis-tutorial-batch-testing.md).
+Veja o tutorial [Teste em lote](./luis-how-to-batch-test.md).
 
 ### <a name="when-an-app-is-exported-then-reimported-into-a-new-app-with-a-new-app-id-the-luis-prediction-scores-are-different-why-does-this-happen"></a>Quando um aplicativo é exportado e reimportado em um novo aplicativo (com uma nova ID do aplicativo), as pontuações de previsão de LUIS são diferentes. Por que isso acontece?
 
@@ -268,7 +268,7 @@ O primeiro problema é descobrir se o problema está relacionado ao LUIS ou se o
 #### <a name="resolve-issue-in-luis"></a>Resolver problema no LUIS
 Transmita o mesmo enunciado do [ponto de extremidade do LUIS](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) para o LUIS. Se você receber um erro, resolva o problema no LUIS até que o erro já não seja retornado. Os erros comuns incluem:
 
-* `Out of call volume quota. Quota will be replenished in <time>.` - É um problema que indica a necessidade de mudar de uma chave de criação para uma [chave do ponto de extremidade](luis-how-to-azure-subscription.md) ou a necessidade de alterar [camadas de serviço](luis-how-to-azure-subscription.md#change-pricing-tier).
+* `Out of call volume quota. Quota will be replenished in <time>.` - É um problema que indica a necessidade de mudar de uma chave de criação para uma [chave do ponto de extremidade](luis-how-to-azure-subscription.md) ou a necessidade de alterar [camadas de serviço](luis-how-to-azure-subscription.md#change-the-pricing-tier).
 
 #### <a name="resolve-issue-in-azure-bot-service"></a>Resolver o problema no Serviço de Bot do Azure
 
@@ -286,7 +286,7 @@ Se você estiver usando o Serviço de Bot do Azure e o problema for que o **Test
 
 #### <a name="resolve-issue-while-debugging-on-local-machine-with-bot-framework"></a>Resolva o problema durante a depuração no computador local com o Bot Framework.
 
-Para saber mais sobre a depuração local de um bot, confira [Depurar um bot](https://docs.microsoft.com/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0).
+Para saber mais sobre a depuração local de um bot, confira [Depurar um bot](/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0).
 
 ## <a name="integrating-luis"></a>Integrando LUIS
 
@@ -296,7 +296,7 @@ Se você selecionar um modelo de LUIS e o botão **Selecionar** no painel de mod
 ![Região do bot do aplicativo Web de modelo de LUIS](./media/luis-faq/web-app-bot-location.png)
 
 ### <a name="what-luis-regions-support-bot-framework-speech-priming"></a>Que regiões de LUIS são compatíveis com a preparação de fala do Bot Framework?
-[Preparação de fala](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming) é compatível apenas com aplicativos LUIS na instância central (EUA).
+[Preparação de fala](/bot-framework/bot-service-manage-speech-priming) é compatível apenas com aplicativos LUIS na instância central (EUA).
 
 ## <a name="api-programming-strategies"></a>Estratégias de programação de API
 
@@ -334,4 +334,4 @@ Vídeos:
 
 Para saber mais sobre o LUIS, veja os seguintes recursos:
 * [Perguntas do Stack Overflow marcadas com LUIS](https://stackoverflow.com/questions/tagged/luis)
-* [Microsoft Q&uma página de perguntas para o MSDN Reconhecimento vocal Intelligent Services (LUIS)](https://docs.microsoft.com/answers/topics/azure-language-understanding.html)
+* [Microsoft Q&uma página de perguntas para o MSDN Reconhecimento vocal Intelligent Services (LUIS)](/answers/topics/azure-language-understanding.html)

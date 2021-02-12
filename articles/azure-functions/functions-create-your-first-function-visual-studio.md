@@ -3,14 +3,14 @@ title: 'Início Rápido: Criar sua primeira função no Azure usando o Visual St
 description: Neste início rápido, você aprenderá a criar e publicar uma Função do Azure de gatilho HTTP usando o Visual Studio.
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
-ms.date: 03/06/2020
+ms.date: 09/30/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: d7cfcd02c5e6c9ff57241288bd79efb45d4ac7ab
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c9ddd6e74e25d8de415e24038e99da9d21dab867
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88213980"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "96014458"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Início Rápido: Criar sua primeira função no Azure usando o Visual Studio
 
@@ -74,7 +74,7 @@ Antes de publicar o projeto, você deve ter um aplicativo de funções em sua as
 
 2. Vá para essa URL e você verá uma resposta no navegador à solicitação GET remota retornada pela função, que é semelhante ao seguinte exemplo:
 
-    :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png" alt-text="Aplicativo de funções em execução":::
+    :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png" alt-text="Resposta da função no navegador":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -88,7 +88,7 @@ Você criou recursos para concluir esses guias de início rápido. Você pode se
 
 1. Na página do aplicativo de funções, selecione a guia **Visão geral** e depois selecione o link em **Grupo de recursos**.
 
-   :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-app-delete-resource-group.png" alt-text="Aplicativo de funções em execução":::
+   :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-app-delete-resource-group.png" alt-text="Selecione o grupo de recursos a ser excluído da página do aplicativo de funções":::
 
 2. Na página **Grupo de recursos**, examine a lista de recursos incluídos e verifique se eles são aqueles que deseja excluir.
  

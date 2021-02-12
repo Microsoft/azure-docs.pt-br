@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 74bad563de60abc0c1eb7623a81c83fea03f5ee6
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 6258365ab00ab538f3f3502682078d29a391578c
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207216"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724911"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Início Rápido: Renderizar um modelo com o Unity
 
@@ -74,8 +74,8 @@ O modelo padrão que renderizamos é um [modelo de exemplo interno](../samples/s
 ![Informações de Conta do ARR](./media/arr-sample-account-info.png)
 
 > [!IMPORTANT]
-> O portal do Azure exibe o domínio da sua conta somente como *mixedreality.azure.com*. Isso é insuficiente para uma conexão bem-sucedida.
-> Defina **AccountDomain** como `<region>.mixedreality.azure.com`, em que `<region>` é [uma das regiões disponíveis perto de você](../reference/regions.md).
+> Defina **AccountDomain** como `<region>.mixedreality.azure.com`, em que `<region>` é [uma das regiões disponíveis perto de você](../reference/regions.md).\
+> Defina **AccountAuthenticationDomain** como [domínio de contas](../how-tos/create-an-account.md#retrieve-the-account-information), conforme exibido no portal do Azure.
 
 Posteriormente, convém implantar esse projeto em um HoloLens e conectar-ao serviço do Remote Rendering nesse dispositivo. Como não temos uma forma fácil de inserir as credenciais no dispositivo, o exemplo de início rápido **salvará as credenciais na cena do Unity**.
 
@@ -92,9 +92,7 @@ Parabéns! Agora você está exibindo um modelo processado remotamente!
 
 ## <a name="inspecting-the-scene"></a>Inspecionar a cena
 
-Após a execução da conexão da renderização remota, o painel Inspetor será atualizado com informações de status adicionais:
-
-![Reprodução de exemplo do Unity](./media/arr-sample-configure-session-running.png)
+Após a execução da conexão da renderização remota, o painel Inspetor será atualizado com informações de status adicionais: ![Reprodução de exemplo do Unity](./media/arr-sample-configure-session-running.png)
 
 Agora você pode explorar o grafo de cena selecionando o novo nó e clicando em **Mostrar filhos** no Inspetor.
 

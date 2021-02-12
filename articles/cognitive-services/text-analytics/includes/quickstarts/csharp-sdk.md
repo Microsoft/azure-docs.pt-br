@@ -6,29 +6,29 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 10/07/2020
+ms.date: 01/20/2021
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: b5249850a572090a32b0d3515cbeaec9bfb112ae
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6e71d9b4006d0353b094306424ba0fe99c581279
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977776"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090683"
 ---
 <a name="HOLTop"></a>
 
 # <a name="version-31-preview"></a>[Versão 3.1, versão prévia](#tab/version-3-1)
 
-[Documentação de referência da v3.1](https://docs.microsoft.com/dotnet/api/azure.ai.textanalytics?view=azure-dotnet-previews&preserve-view=true) | [Código-fonte da biblioteca v3.1](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics) | [Pacote da v3.1 (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.1.0-beta.1) | [Amostras da v3.1](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
+[Documentação de referência da v3.1](/dotnet/api/azure.ai.textanalytics?preserve-view=true&view=azure-dotnet-preview) | [Código-fonte da biblioteca v3.1](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics) | [Pacote da v3.1 (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.1.0-beta.3) | [Amostras da v3.1](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
 
 # <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
-[Documentação de referência da v3](https://aka.ms/azsdk-net-textanalytics-ref-docs) | [Código-fonte da biblioteca v3](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.TextAnalytics_5.0.0/sdk/textanalytics/Azure.AI.TextAnalytics) | [Pacote da v3 (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics) | [Amostras da v3](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.TextAnalytics_5.0.0/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
+[Documentação de referência da v3](/dotnet/api/azure.ai.textanalytics?preserve-view=true&view=azure-dotnet) | [Código-fonte da biblioteca v3](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.TextAnalytics_5.0.0/sdk/textanalytics/Azure.AI.TextAnalytics) | [Pacote da v3 (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics) | [Amostras da v3](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.TextAnalytics_5.0.0/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
 
 # <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
-[Documentação de referência da v2](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics) | [Código-fonte da biblioteca v2](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.TextAnalytics) | [Pacote da v2 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics/) | [Amostras da v2](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
+[Documentação de referência da v2](/dotnet/api/overview/azure/cognitiveservices/client) | [Código-fonte da biblioteca v2](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.TextAnalytics) | [Pacote da v2 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics/) | [Amostras da v2](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
 
 ---
 
@@ -39,6 +39,7 @@ ms.locfileid: "91977776"
 * Após ter sua assinatura do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Crie um recurso de Análise de Texto"  target="_blank">criar um recurso de Análise de Texto <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter sua chave e seu ponto de extremidade.  Após a implantação, clique em **Ir para o recurso**.
     * Você precisará da chave e do ponto de extremidade do recurso que você criar para conectar seu aplicativo à API de Análise de Texto. Cole a chave e o ponto de extremidade no código abaixo mais adiante no guia de início rápido.
     * Use o tipo de preço gratuito (`F0`) para experimentar o serviço e atualizar mais tarde para um nível pago para produção.
+* Para usar o recurso Analisar, você precisará de um recurso de Análise de Texto com o tipo de preço S (Standard).
 
 ## <a name="setting-up"></a>Configurando
 
@@ -48,11 +49,11 @@ Usando o IDE do Visual Studio, crie um aplicativo de console do .NET Core. Isso 
 
 # <a name="version-31-preview"></a>[Versão 3.1, versão prévia](#tab/version-3-1)
 
-Instale a biblioteca de cliente clicando com o botão direito do mouse na solução no **Gerenciador de Soluções** e selecionando **Gerenciar Pacotes do NuGet**. No gerenciador de pacotes que é aberto, selecione **Procurar** e pesquise por `Azure.AI.TextAnalytics`. Marque a caixa **Incluir pré-lançamento**, selecione a versão `5.1.0-beta.1` e clique em **Instalar**. Você também pode usar o [Console do Gerenciador de Pacotes](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
+Instale a biblioteca de cliente clicando com o botão direito do mouse na solução no **Gerenciador de Soluções** e selecionando **Gerenciar Pacotes do NuGet**. No gerenciador de pacotes que é aberto, selecione **Procurar** e pesquise por `Azure.AI.TextAnalytics`. Marque a caixa **Incluir pré-lançamento**, selecione a versão `5.1.0-beta.3` e clique em **Instalar**. Você também pode usar o [Console do Gerenciador de Pacotes](/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
 # <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
-Instale a biblioteca de cliente clicando com o botão direito do mouse na solução no **Gerenciador de Soluções** e selecionando **Gerenciar Pacotes do NuGet**. No gerenciador de pacotes que é aberto, selecione **Procurar** e pesquise por `Azure.AI.TextAnalytics`. Selecione a versão `5.0.0` e, em seguida, **Instalar**. Você também pode usar o [Console do Gerenciador de Pacotes](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
+Instale a biblioteca de cliente clicando com o botão direito do mouse na solução no **Gerenciador de Soluções** e selecionando **Gerenciar Pacotes do NuGet**. No gerenciador de pacotes que é aberto, selecione **Procurar** e pesquise por `Azure.AI.TextAnalytics`. Selecione a versão `5.0.0` e, em seguida, **Instalar**. Você também pode usar o [Console do Gerenciador de Pacotes](/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
 
 > [!TIP]
@@ -60,7 +61,7 @@ Instale a biblioteca de cliente clicando com o botão direito do mouse na soluç
 
 # <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
-Instale a biblioteca de cliente clicando com o botão direito do mouse na solução no **Gerenciador de Soluções** e selecionando **Gerenciar Pacotes do NuGet**. No gerenciador de pacotes que é aberto, selecione **Procurar** e pesquise `Microsoft.Azure.CognitiveServices.Language.TextAnalytics`. Clique nele e então em **Instalar**. Você também pode usar o [Console do Gerenciador de Pacotes](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
+Instale a biblioteca de cliente clicando com o botão direito do mouse na solução no **Gerenciador de Soluções** e selecionando **Gerenciar Pacotes do NuGet**. No gerenciador de pacotes que é aberto, selecione **Procurar** e pesquise `Microsoft.Azure.CognitiveServices.Language.TextAnalytics`. Clique nele e então em **Instalar**. Você também pode usar o [Console do Gerenciador de Pacotes](/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
 > [!TIP]
 > Deseja exibir todo o arquivo de código do início rápido de uma vez? Você pode encontrá-lo [no GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/samples/TextAnalytics/synchronous/Program.cs), que contém os exemplos de código neste início rápido. 
@@ -175,7 +176,7 @@ Se estiver usando a versão `3.x` do serviço, use uma instância `TextAnalytics
 ## <a name="code-examples"></a>Exemplos de código
 
 * [Análise de sentimento](#sentiment-analysis)
-* [Mineração de opinião](#opinion-mining)
+* [Mineração de opiniões](#opinion-mining)
 * [Detecção de idioma](#language-detection)
 * [Reconhecimento de entidade nomeada](#named-entity-recognition-ner)
 * [Vinculação de entidade](#entity-linking)
@@ -205,7 +206,7 @@ Crie uma nova classe `ApiKeyServiceClientCredentials` para armazenar as credenci
 
 [!code-csharp[Client class](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=clientClass)]
 
-Crie um método para criar uma instância do objeto [TextAnalyticsClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclient) com o ponto de extremidade e um objeto `ApiKeyServiceClientCredentials` que contenha a chave.
+Crie um método para criar uma instância do objeto [TextAnalyticsClient](/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclient) com o ponto de extremidade e um objeto `ApiKeyServiceClientCredentials` que contenha a chave.
 
 [!code-csharp[Client authentication](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=authentication)]
 
@@ -262,37 +263,38 @@ static void SentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client
 {
     var documents = new List<string>
     {
-        "The food and service were unacceptable, but the concierge were nice.",
-        "The rooms were beautiful. The AC was good and quiet.",
-        "The breakfast was good, but the toilet was smelly.",
-        "Loved this hotel - good breakfast - nice shuttle service - clean rooms.",
-        "I had a great unobstructed view of the Microsoft campus.",
-        "Nice rooms but bathrooms were old and the toilet was dirty when we arrived.",
-        "We changed rooms as the toilet smelled."
+        "The food and service were unacceptable, but the concierge were nice."
     };
 
     AnalyzeSentimentResultCollection reviews = client.AnalyzeSentimentBatch(documents, options: new AnalyzeSentimentOptions()
     {
-        AdditionalSentimentAnalyses = AdditionalSentimentAnalyses.OpinionMining
+        IncludeOpinionMining = true
     });
 
     foreach (AnalyzeSentimentResult review in reviews)
     {
         Console.WriteLine($"Document sentiment: {review.DocumentSentiment.Sentiment}\n");
+        Console.WriteLine($"\tPositive score: {review.DocumentSentiment.ConfidenceScores.Positive:0.00}");
+        Console.WriteLine($"\tNegative score: {review.DocumentSentiment.ConfidenceScores.Negative:0.00}");
+        Console.WriteLine($"\tNeutral score: {review.DocumentSentiment.ConfidenceScores.Neutral:0.00}\n");
         foreach (SentenceSentiment sentence in review.DocumentSentiment.Sentences)
         {
             Console.WriteLine($"\tText: \"{sentence.Text}\"");
             Console.WriteLine($"\tSentence sentiment: {sentence.Sentiment}");
-            Console.WriteLine($"\tPositive score: {sentence.ConfidenceScores.Positive:0.00}");
-            Console.WriteLine($"\tNegative score: {sentence.ConfidenceScores.Negative:0.00}");
-            Console.WriteLine($"\tNeutral score: {sentence.ConfidenceScores.Neutral:0.00}\n");
+            Console.WriteLine($"\tSentence positive score: {sentence.ConfidenceScores.Positive:0.00}");
+            Console.WriteLine($"\tSentence negative score: {sentence.ConfidenceScores.Negative:0.00}");
+            Console.WriteLine($"\tSentence neutral score: {sentence.ConfidenceScores.Neutral:0.00}\n");
 
             foreach (MinedOpinion minedOpinion in sentence.MinedOpinions)
             {
                 Console.WriteLine($"\tAspect: {minedOpinion.Aspect.Text}, Value: {minedOpinion.Aspect.Sentiment}");
+                Console.WriteLine($"\tAspect positive score: {minedOpinion.Aspect.ConfidenceScores.Positive:0.00}");
+                Console.WriteLine($"\tAspect negative score: {minedOpinion.Aspect.ConfidenceScores.Negative:0.00}");
                 foreach (OpinionSentiment opinion in minedOpinion.Opinions)
                 {
                     Console.WriteLine($"\t\tRelated Opinion: {opinion.Text}, Value: {opinion.Sentiment}");
+                    Console.WriteLine($"\t\tRelated Opinion positive score: {opinion.ConfidenceScores.Positive:0.00}");
+                    Console.WriteLine($"\t\tRelated Opinion negative score: {opinion.ConfidenceScores.Negative:0.00}");
                 }
             }
         }
@@ -306,117 +308,37 @@ static void SentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client
 ```console
 Document sentiment: Positive
 
-        Text: "The food and service were unacceptable, but the concierge were nice."
-        Sentence sentiment: Positive
         Positive score: 0.84
         Negative score: 0.16
         Neutral score: 0.00
 
+        Text: "The food and service were unacceptable, but the concierge were nice."
+        Sentence sentiment: Positive
+        Sentence positive score: 0.84
+        Sentence negative score: 0.16
+        Sentence neutral score: 0.00
+
         Aspect: food, Value: Negative
+        Aspect positive score: 0.01
+        Aspect negative score: 0.99
                 Related Opinion: unacceptable, Value: Negative
+                Related Opinion positive score: 0.01
+                Related Opinion negative score: 0.99
         Aspect: service, Value: Negative
+        Aspect positive score: 0.01
+        Aspect negative score: 0.99
                 Related Opinion: unacceptable, Value: Negative
+                Related Opinion positive score: 0.01
+                Related Opinion negative score: 0.99
         Aspect: concierge, Value: Positive
+        Aspect positive score: 1.00
+        Aspect negative score: 0.00
                 Related Opinion: nice, Value: Positive
+                Related Opinion positive score: 1.00
+                Related Opinion negative score: 0.00
 
 
-Document sentiment: Positive
-
-        Text: "The rooms were beautiful."
-        Sentence sentiment: Positive
-        Positive score: 1.00
-        Negative score: 0.00
-        Neutral score: 0.00
-
-        Aspect: rooms, Value: Positive
-                Related Opinion: beautiful, Value: Positive
-        Text: "The AC was good and quiet."
-        Sentence sentiment: Positive
-        Positive score: 1.00
-        Negative score: 0.00
-        Neutral score: 0.00
-
-        Aspect: AC, Value: Positive
-                Related Opinion: good, Value: Positive
-                Related Opinion: quiet, Value: Positive
-
-
-Document sentiment: Negative
-
-        Text: "The breakfast was good, but the toilet was smelly."
-        Sentence sentiment: Negative
-        Positive score: 0.01
-        Negative score: 0.99
-        Neutral score: 0.00
-
-        Aspect: breakfast, Value: Positive
-                Related Opinion: good, Value: Positive
-        Aspect: toilet, Value: Negative
-                Related Opinion: smelly, Value: Negative
-
-
-Document sentiment: Positive
-
-        Text: "Loved this hotel - good breakfast - nice shuttle service - clean rooms."
-        Sentence sentiment: Positive
-        Positive score: 1.00
-        Negative score: 0.00
-        Neutral score: 0.00
-
-        Aspect: hotel, Value: Positive
-                Related Opinion: good, Value: Positive
-        Aspect: breakfast, Value: Positive
-                Related Opinion: nice, Value: Positive
-        Aspect: shuttle service, Value: Positive
-                Related Opinion: loved, Value: Positive
-        Aspect: rooms, Value: Positive
-                Related Opinion: good, Value: Positive
-                Related Opinion: nice, Value: Positive
-                Related Opinion: clean, Value: Positive
-                Related Opinion: loved, Value: Positive
-
-
-Document sentiment: Positive
-
-        Text: "I had a great unobstructed view of the Microsoft campus."
-        Sentence sentiment: Positive
-        Positive score: 1.00
-        Negative score: 0.00
-        Neutral score: 0.00
-
-        Aspect: view, Value: Positive
-                Related Opinion: great, Value: Positive
-                Related Opinion: unobstructed, Value: Positive
-
-
-Document sentiment: Negative
-
-        Text: "Nice rooms but bathrooms were old and the toilet was dirty when we arrived."
-        Sentence sentiment: Negative
-        Positive score: 0.00
-        Negative score: 1.00
-        Neutral score: 0.00
-
-        Aspect: rooms, Value: Positive
-                Related Opinion: nice, Value: Positive
-        Aspect: bathrooms, Value: Negative
-                Related Opinion: old, Value: Negative
-        Aspect: toilet, Value: Negative
-                Related Opinion: dirty, Value: Negative
-
-
-Document sentiment: Neutral
-
-        Text: "We changed rooms as the toilet smelled."
-        Sentence sentiment: Neutral
-        Positive score: 0.01
-        Negative score: 0.03
-        Neutral score: 0.96
-
-        Aspect: rooms, Value: Negative
-                Related Opinion: smelled, Value: Negative
-        Aspect: toilet, Value: Negative
-                Related Opinion: smelled, Value: Negative
+Press any key to exit.
 ```
 
 # <a name="version-30"></a>[Versão 3.0](#tab/version-3)
@@ -461,7 +383,7 @@ Document sentiment: Positive
 
 # <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
-Crie uma nova função chamada `SentimentAnalysisExample()` que use o cliente que você criou anteriormente e chame sua função [Sentiment()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment). O objeto [SentimentResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult) retornado conterá o sentimento `Score` se for bem-sucedido e um `errorMessage` se não. 
+Crie uma nova função chamada `SentimentAnalysisExample()` que use o cliente que você criou anteriormente e chame sua função [Sentiment()](/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment). O objeto [SentimentResult](/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult) retornado conterá o sentimento `Score` se for bem-sucedido e um `errorMessage` se não. 
 
 Uma pontuação mais próxima de 0 indica um sentimento negativo, enquanto uma pontuação mais próxima de 1 indica um sentimento positivo.
 
@@ -525,7 +447,7 @@ Language:
 
 # <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
-Crie uma nova função chamada `languageDetectionExample()` que use o cliente que você criou anteriormente e chame sua função [DetectLanguage()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.detectlanguage#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_DetectLanguage_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_). O objeto [LanguageResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.languageresult) retornado conterá a lista de idiomas detectados em `DetectedLanguages` se for bem-sucedido e um `errorMessage` se não. Imprima o primeiro idioma retornado.
+Crie uma nova função chamada `languageDetectionExample()` que use o cliente que você criou anteriormente e chame sua função [DetectLanguage()](/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.detectlanguage#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_DetectLanguage_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_). O objeto [LanguageResult](/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.languageresult) retornado conterá a lista de idiomas detectados em `DetectedLanguages` se for bem-sucedido e um `errorMessage` se não. Imprima o primeiro idioma retornado.
 
 > [!Tip]
 > Em alguns casos, pode ser difícil eliminar a ambiguidade de idiomas com base na entrada. Você pode usar o parâmetro `countryHint` para especificar um código de duas letras de país/região. Por padrão, a API está usando o "US" como o countryHint padrão, para remover esse comportamento, você pode redefinir esse parâmetro configurando esse valor como uma cadeia de caracteres vazia `countryHint = ""`.
@@ -806,7 +728,7 @@ Linked Entities:
 > [!NOTE]
 > Na versão 2.1, a vinculação de entidade está incluída na resposta do NER.
 
-Crie uma nova função chamada `RecognizeEntitiesExample()` que use o cliente que você criou anteriormente e chame sua função [Entities()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.entities#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_Entities_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_). Itere pelos resultados. O objeto [EntitiesResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.entitiesresult) retornado conterá a lista de entidades detectadas em `Entities` se for bem-sucedido e um `errorMessage` se não. Para cada entidade detectada, imprima seu tipo, subtipo, nome da Wikipédia (se houver), bem como os locais do texto original.
+Crie uma nova função chamada `RecognizeEntitiesExample()` que use o cliente que você criou anteriormente e chame sua função [Entities()](/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.entities#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_Entities_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_). Itere pelos resultados. O objeto [EntitiesResult](/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.entitiesresult) retornado conterá a lista de entidades detectadas em `Entities` se for bem-sucedido e um `errorMessage` se não. Para cada entidade detectada, imprima seu tipo, subtipo, nome da Wikipédia (se houver), bem como os locais do texto original.
 
 [!code-csharp[Entity Recognition example](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=entityRecognition)]
 
@@ -871,7 +793,7 @@ Key phrases:
 
 # <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
-Crie uma nova função chamada `KeyPhraseExtractionExample()` que use o cliente que você criou anteriormente e chame sua função [KeyPhrases()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.keyphrases#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_KeyPhrases_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_). O resultado conterá a lista de frases-chave detectadas em `KeyPhrases` se for bem sucedido e um `errorMessage` se não. Imprima todas as frases-chave detectadas.
+Crie uma nova função chamada `KeyPhraseExtractionExample()` que use o cliente que você criou anteriormente e chame sua função [KeyPhrases()](/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.keyphrases#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_KeyPhrases_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_). O resultado conterá a lista de frases-chave detectadas em `KeyPhrases` se for bem sucedido e um `errorMessage` se não. Imprima todas as frases-chave detectadas.
 
 [!code-csharp[Key phrase extraction example](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=keyPhraseExtraction)]
 
@@ -883,5 +805,102 @@ Key phrases:
     cat
     veterinarian
 ```
+
+---
+
+## <a name="use-the-api-asynchronously-with-the-analyze-operation"></a>Usar a API de modo assíncrono com a operação Analisar
+
+# <a name="version-31-preview"></a>[Versão 3.1, versão prévia](#tab/version-3-1)
+
+[!INCLUDE [Analyze operation pricing](../analyze-operation-pricing-caution.md)]
+
+Crie uma função chamada `AnalyzeOperationExample()` que use o cliente que você criou anteriormente e chame sua função `StartAnalyzeOperationBatch()`. O objeto `AnalyzeOperation` retornado conterá o objeto de interface `Operation` para `AnalyzeOperationResult`. Como se trata de uma operação de execução prolongada, `await` em `operation.WaitForCompletionAsync()` para que o valor seja atualizado. Quando `WaitForCompletionAsync()` for concluído, a coleção deverá ser atualizada em `operation.Value`. Se houver um erro, ele gerará uma `RequestFailedException`.
+
+
+```csharp
+static async Task AnalyzeOperationExample(TextAnalyticsClient client)
+{
+    string inputText = "Microsoft was founded by Bill Gates and Paul Allen.";
+
+    var batchDocuments = new List<string> { inputText };
+
+    AnalyzeOperationOptions operationOptions = new AnalyzeOperationOptions()
+    {
+        EntitiesTaskParameters = new EntitiesTaskParameters(),
+        DisplayName = "Analyze Operation Quick Start Example"
+    };
+
+    AnalyzeOperation operation = client.StartAnalyzeOperationBatch(batchDocuments, operationOptions, "en");
+
+    await operation.WaitForCompletionAsync();
+
+    AnalyzeOperationResult resultCollection = operation.Value;
+
+    RecognizeEntitiesResultCollection entitiesResult = resultCollection.Tasks.EntityRecognitionTasks[0].Results;
+
+    Console.WriteLine("Analyze Operation Request Details");
+    Console.WriteLine($"    Status: {resultCollection.Status}");
+    Console.WriteLine($"    DisplayName: {resultCollection.DisplayName}");
+    Console.WriteLine("");
+
+    Console.WriteLine("Recognized Entities");
+
+    foreach (RecognizeEntitiesResult result in entitiesResult)
+    {
+        Console.WriteLine($"    Recognized the following {result.Entities.Count} entities:");
+
+        foreach (CategorizedEntity entity in result.Entities)
+        {
+            Console.WriteLine($"    Entity: {entity.Text}");
+            Console.WriteLine($"    Category: {entity.Category}");
+            Console.WriteLine($"    Offset: {entity.Offset}");
+            Console.WriteLine($"    ConfidenceScore: {entity.ConfidenceScore}");
+            Console.WriteLine($"    SubCategory: {entity.SubCategory}");
+        }
+        Console.WriteLine("");
+    }
+}
+```
+
+Depois de adicionar este exemplo ao seu aplicativo, chame o método `main()` usando `await`.
+
+```csharp
+await AnalyzeOperationExample(client).ConfigureAwait(false);
+```
+### <a name="output"></a>Saída
+
+```console
+Analyze Operation Request Details
+    Status: succeeded
+    DisplayName: Analyze Operation Quick Start Example
+
+Recognized Entities
+    Recognized the following 3 entities:
+    Entity: Microsoft
+    Category: Organization
+    Offset: 0
+    ConfidenceScore: 0.83
+    SubCategory: 
+    Entity: Bill Gates
+    Category: Person
+    Offset: 25
+    ConfidenceScore: 0.85
+    SubCategory: 
+    Entity: Paul Allen
+    Category: Person
+    Offset: 40
+    ConfidenceScore: 0.9
+    SubCategory: 
+```
+
+Você também pode usar a operação Analisar para detectar PII e a extração de frases chave. Confira o [Exemplo do Analisar](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample_AnalyzeOperation.md) no GitHub.
+
+# <a name="version-30"></a>[Versão 3.0](#tab/version-3)
+
+Este recurso não está disponível na versão 3.0.
+
+# <a name="version-21"></a>[Versão 2.1](#tab/version-2)
+
+Este recurso não está disponível na versão 2.1.
 
 ---

@@ -1,17 +1,17 @@
 ---
 title: Servidores-Banco de dados do Azure para MariaDB
 description: Este tópico fornece considerações e diretrizes para trabalhar com o Banco de Dados do Azure para servidores MariaDB.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 444d7f1574cf1517b01250bcb9d810731030182d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: abe17556d9ff62c44a33bfe4c4546a284785522e
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79527785"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664122"
 ---
 # <a name="server-concepts-in-azure-database-for-mariadb"></a>Conceitos de servidor no banco de dados do Azure para MariaDB
 Este artigo fornece considerações e diretrizes para trabalhar com o Banco de Dados do Azure para servidores MariaDB.
@@ -44,6 +44,19 @@ Os elementos a seguir ajudam a garantir o acesso seguro ao seu banco de dados.
 | **TCP/IP** | O protocolo tem suporte em TCP/IP e em soquetes de domínio do Unix. |
 | **Firewall** | Para ajudar a proteger seus dados, uma regra de firewall impede todo acesso ao servidor de banco de dados até que você especifique quais computadores têm permissão. Consulte [Banco de dados do Azure para regras de firewall do servidor MariaDB](./concepts-firewall-rules.md). |
 | **SSL** | O serviço oferece suporte à imposição de conexões SSL entre seus aplicativos e o servidor de banco de dados. Confira [Configurar conectividade SSL em seu aplicativo para se conectar com segurança ao Banco de Dados do Azure para MariaDB](./howto-configure-ssl.md). |
+
+## <a name="stopstart-an-azure-database-for-mariadb-preview"></a>Parar/iniciar um banco de dados do Azure para MariaDB (versão prévia)
+O banco de dados do Azure para MariaDB oferece a capacidade de **parar** o servidor quando não estiver em uso e **Iniciar** o servidor quando você retomar a atividade. Isso é essencialmente feito para economizar custos nos servidores de banco de dados e pagar apenas pelo recurso quando estiver em uso. Isso se torna ainda mais importante para cargas de trabalho de desenvolvimento e teste e quando você está usando o servidor apenas para parte do dia. Quando você parar o servidor, todas as conexões ativas serão descartadas. Posteriormente, quando você quiser colocar o servidor online novamente, poderá usar o [portal do Azure](../mysql/how-to-stop-start-server.md) ou a [CLI](../mysql/how-to-stop-start-server.md).
+
+Quando o servidor estiver no estado **parado** , a computação do servidor não será cobrada. No entanto, o armazenamento continua a ser cobrado, pois o armazenamento do servidor permanece para garantir que os arquivos de dados estejam disponíveis quando o servidor for iniciado novamente.
+
+> [!IMPORTANT]
+> Quando você **interrompe** o servidor, ele permanece nesse estado para os próximos 7 dias em um Stretch. Se você não **iniciá** -lo manualmente durante esse tempo, o servidor será iniciado automaticamente no final de 7 dias. Você pode optar por **interrompê** -lo novamente se não estiver usando o servidor.
+
+Durante a interrupção do servidor de horário, nenhuma operação de gerenciamento pode ser executada no servidor. Para alterar as definições de configuração no servidor, você precisará [iniciar o servidor](../mysql/how-to-stop-start-server.md).
+
+### <a name="limitations-of-stopstart-operation"></a>Limitações da operação de parar/iniciar
+- Sem suporte com configurações de réplica de leitura (origem e réplicas).
 
 ## <a name="how-do-i-manage-a-server"></a>Como posso gerenciar um servidor?
 Você pode gerenciar o Banco de Dados do Azure para servidores MariaDB usando o portal do Azure ou a CLI do Azure.

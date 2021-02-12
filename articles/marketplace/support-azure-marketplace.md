@@ -4,15 +4,15 @@ description: Informações e links de suporte para o Azure Marketplace e o AppSo
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: navits09
+ms.author: navits
 ms.date: 04/14/2020
-ms.openlocfilehash: 7008c305525c7564e57fd225e961b462bf6939f2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 02e64c6c6e5ab2ef77f02959ada6f95d1042b76d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130826"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488750"
 ---
 # <a name="support-for-the-microsoft-commercial-marketplace"></a>Suporte para o Marketplace comercial da Microsoft
 

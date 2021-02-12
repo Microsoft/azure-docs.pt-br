@@ -5,12 +5,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/27/2019
 ms.author: pafarley
-ms.openlocfilehash: b3d24ce4dd42ea8122610943379160ca93406c21
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7cf3d86eeea9d1b0f5fcbb757d3597e21cbcc369
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548135"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98900761"
 ---
 O Reconhecimento de Formulários funciona em documentos de entrada que atendem aos seguintes requisitos:
 
@@ -25,8 +25,3 @@ O Reconhecimento de Formulários funciona em documentos de entrada que atendem a
 * O texto precisa usar o alfabeto latino (caracteres em português).
 * Para aprendizado não supervisionado (sem dados rotulados), os dados devem conter chaves e valores.
 * Para aprendizado não supervisionado (sem dados rotulados), as chaves devem aparecer acima ou à esquerda dos valores. Não podem aparecer abaixo nem à direita.
-
-Atualmente o Reconhecimento de Formulários não dá suporte aos seguintes tipos de dados de entrada:
-
-* Tabelas complexas (tabelas aninhadas, células ou cabeçalhos mesclados e assim por diante).
-* Caixas de seleção ou botões de opção.

@@ -4,7 +4,7 @@ description: Solução de problemas comuns que ocorrem quando você não consegu
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 05/21/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29aa4eb0bc40f0b2b960c49cf7b17dc62d92b0ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a92ce03b4a8ad241a21b29bbff4e7367d656fab
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85367709"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259987"
 ---
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problemas ao entrar em um aplicativo local usando o proxy de aplicativo do Azure AD
 
@@ -48,7 +48,7 @@ Os documentos a seguir podem ajudá-lo a resolver alguns dos problemas mais comu
 ## <a name="im-having-a-problem-setting-up-back-end-authentication-to-my-application"></a>Estou tendo um problema de configuração da autenticação de back-end em meu aplicativo
   Os documentos a seguir podem ajudá-lo a resolver alguns dos problemas mais comuns nessa categoria.
   * [Não sei como configurar a delegação restrita de Kerberos](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
-  * [Não sei como configurar meu aplicativo com o PingAccess](application-proxy-back-end-ping-access-how-to.md)
+  * [Não sei como configurar meu aplicativo com o PingAccess](./application-proxy-ping-access-publishing-guide.md)
 
 ## <a name="im-having-a-problem-when-signing-in-to-my-application"></a>Estou tendo um problema ao entrar em meu aplicativo
   Os documentos a seguir podem ajudá-lo a resolver alguns dos problemas mais comuns nessa categoria.

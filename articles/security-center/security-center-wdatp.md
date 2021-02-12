@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 372ff1dc53f15a1338cad933fec64746b6736f40
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 519285f2bad352aa16bdc8d9a1db7a63c2eb04e5
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368071"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876386"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja seus pontos de extremidade com a solução EDR integrada da central de segurança: Microsoft defender para Endpoint
 
@@ -42,10 +42,11 @@ O Microsoft defender for Endpoint é uma solução de segurança de ponto de ext
 |---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Estado da versão:                  | GA (em disponibilidade geral)                                                                                                                                                                                                                                                                                      |
 | Preço:                        | Requer [Azure Defender para Servidores](security-center-pricing.md)                                                                                                                                                                                                                                             |
-| Plataformas compatíveis:            | ![Sim](./media/icons/yes-icon.png) Máquinas do Azure executando o Windows<br>![Sim](./media/icons/yes-icon.png) Computadores do Arc do Azure executando o Windows|
-| Versões do Windows com suporte:  | O defender for Endpoint é integrado ao Windows 10 1703 (e mais recente) e ao Windows Server 2019.<br>A central de segurança dá suporte à detecção no Windows Server 2016, 2012 R2 e 2008 R2 SP1.<br>O monitoramento do ponto de extremidade do servidor usando essa integração foi desabilitado para clientes do Office 365 GCC. |
-| Funções e permissões necessárias: | Para habilitar/desabilitar a integração: **administrador de segurança** ou **proprietário**<br>Para exibir alertas do MDATP na central de segurança: **leitor de segurança**, **leitor**, colaborador do **grupo de recursos**, proprietário do **grupo de recursos**, administrador de **segurança**, **proprietário da assinatura**ou colaborador da **assinatura**                         |
-| Nuvens:                         | ![Sim](./media/icons/yes-icon.png) Nuvens comerciais.<br>![Não](./media/icons/no-icon.png) Clientes GCC executando cargas de trabalho em nuvens globais do Azure<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Não](./media/icons/no-icon.png) Governo da China e outros governos                                                        |
+| Plataformas compatíveis:            | Máquinas do Azure executando o Windows<br>Computadores do Arc do Azure executando o Windows|
+| Versões do Windows com suporte:  |  • A central de segurança dá suporte à detecção no Windows Server 2016, 2012 R2 e 2008 R2 SP1<br> • O monitoramento do ponto de extremidade do servidor usando essa integração foi desabilitado para clientes do Office 365 GCC|
+| Sistemas operacionais sem suporte:  |  • Windows Server 2019<br> • Windows 10<br> • Linux|
+| Funções e permissões necessárias: | Para habilitar/desabilitar a integração: **administrador de segurança** ou **proprietário**<br>Para exibir alertas do MDATP na central de segurança: **leitor de segurança**, **leitor**, colaborador do **grupo de recursos**, proprietário do **grupo de recursos**, administrador de **segurança**, **proprietário da assinatura** ou colaborador da **assinatura**|
+| Nuvens:                         | ![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Não](./media/icons/no-icon.png) Governo da China e outros governos<br>![Não](./media/icons/no-icon.png) Clientes GCC executando cargas de trabalho em nuvens globais do Azure                                                        |
 |                                 |                                                                                                                                                                                                                                                                                                               |
 
 
@@ -61,7 +62,7 @@ O Microsoft defender for Endpoint fornece:
 
 Ao integrar o defender for Endpoint à central de segurança, você se beneficiará dos seguintes recursos adicionais:
 
-- **Integração automatizada**. A central de segurança habilita automaticamente o sensor do Microsoft defender for Endpoint para todos os servidores Windows monitorados pela central de segurança (a menos que estejam executando o Windows Server 2019).
+- **Integração automatizada**. A central de segurança habilita automaticamente o sensor Microsoft defender for Endpoint para todos os servidores Windows monitorados pela central de segurança. Exceto aqueles que executam o Windows Server 2019, que deve ser integrado por meio de script local, objeto de Política de Grupo (GPO) ou [Microsoft Endpoint Configuration Manager](/mem/configmgr/) (anteriormente SCCM).
 
 - **Painel único de vidro**. O console da central de segurança exibe o Microsoft defender para alertas de ponto de extremidade. Para investigar ainda mais, use as páginas do portal da própria Microsoft defender para o ponto de extremidade, em que você verá informações adicionais, como a árvore de processo de alerta e o grafo de incidentes. Você também pode ver uma linha do tempo detalhada do computador, mostrando cada comportamento por um período de histórico de até seis meses.
 
@@ -71,7 +72,7 @@ Ao integrar o defender for Endpoint à central de segurança, você se beneficia
 
 Quando você usa a central de segurança do Azure para monitorar seus servidores, um locatário do Microsoft defender para ponto de extremidade é criado automaticamente. Os dados coletados pelo defender para ponto de extremidade são armazenados na localização geográfica do locatário, conforme identificado durante o provisionamento. Dados do cliente – no formulário pseudônimos – também podem ser armazenados no armazenamento central e nos sistemas de processamento no Estados Unidos. 
 
-Depois de configurar o local, você não poderá alterá-lo. Se você precisar mover seus dados para outro local, entre em contato com Suporte da Microsoft para redefinir o locatário.
+Depois de configurar o local, você não poderá alterá-lo. Se você tiver sua própria licença para o Microsoft defender para ponto de extremidade e precisar mover seus dados para outro local, entre em contato com Suporte da Microsoft para redefinir o locatário.
 
 
 ## <a name="enabling-the-microsoft-defender-for-endpoint-integration"></a>Habilitando a integração do Microsoft defender para ponto de extremidade
@@ -85,9 +86,9 @@ Depois de configurar o local, você não poderá alterá-lo. Se você precisar m
 1. No menu da Central de Segurança, selecione **Preço e configurações**.
 1. Selecione a assinatura que deseja alterar.
 1. Selecione **Detecção de ameaças**.
-1. Selecione **permitir que o Microsoft defender para ponto de extremidade acesse meus dados**e selecione **salvar**.
+1. Selecione **permitir que o Microsoft defender para ponto de extremidade acesse meus dados** e selecione **salvar**.
 
-    :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Central de segurança da própria Microsoft defender para ponto de extremidade":::
+    :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Habilitar a integração entre a central de segurança do Azure e a solução EDR da Microsoft, Microsoft defender para ponto de extremidade":::
 
     A central de segurança do Azure integrará automaticamente seus servidores ao Microsoft defender para ponto de extremidade. A integração pode levar até 24 horas.
 
@@ -105,29 +106,37 @@ Depois de configurar o local, você não poderá alterá-lo. Se você precisar m
 Para gerar um alerta de teste benigno do Microsoft defender for Endpoint:
 
 1. Crie uma pasta ' C:\test-MDATP-test '.
-1. Use a Área de Trabalho Remota para acessar uma VM do Windows Server 2012 R2 ou uma VM do Windows Server 2016.
+1. Use Área de Trabalho Remota para acessar seu computador.
 1. Abra uma janela de linha de comando.
 1. No prompt, copie e execute o comando a seguir. A janela do prompt de comando será fechada automaticamente.
 
     ```powershell
     powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden (New-Object System.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe', 'C:\\test-MDATP-test\\invoice.exe'); Start-Process 'C:\\test-MDATP-test\\invoice.exe'
     ```
-    :::image type="content" source="./media/security-center-wdatp/generate-edr-alert.png" alt-text="Central de segurança da própria Microsoft defender para ponto de extremidade":::
+    :::image type="content" source="./media/security-center-wdatp/generate-edr-alert.png" alt-text="Uma janela de prompt de comando com o comando para gerar um alerta de teste.":::
 
 1. Se o comando for bem-sucedido, você verá um novo alerta no painel da central de segurança do Azure e no portal do Microsoft defender para ponto de extremidade. Esse alerta pode levar alguns minutos para aparecer.
-1. Para examinar o alerta na central de segurança, acesse **alertas de segurança aviso**de  >  **linha de comando do PowerShell suspeito**.
+1. Para examinar o alerta na central de segurança, acesse **alertas de segurança aviso** de  >  **linha de comando do PowerShell suspeito**.
 1. Na janela investigação, selecione o link para acessar o portal do Microsoft defender para ponto de extremidade.
 
+    > [!TIP]
+    > O alerta é disparado com severidade **informativa** .
 
 ## <a name="faq-for-security-centers-integrated-microsoft-defender-for-endpoint"></a>Perguntas frequentes sobre o Microsoft defender para ponto de extremidade integrado da central de segurança
 
-### <a name="what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint"></a>Quais são os requisitos de licenciamento para o Microsoft defender para ponto de extremidade?
+- [Quais são os requisitos de licenciamento para o Microsoft defender para ponto de extremidade?](#what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint)
+- [Se eu já tenho uma licença para o Microsoft Defender para ponto de extremidade, ganho desconto no Azure Defender?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
+- [Como fazer mudar de uma ferramenta de EDR de terceiros?](#how-do-i-switch-from-a-third-party-edr-tool)
 
+### <a name="what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint"></a>Quais são os requisitos de licenciamento para o Microsoft defender para ponto de extremidade?
 O defender for Endpoint está incluído sem custo adicional com o **Azure defender para servidores**. Como alternativa, ele pode ser adquirido separadamente para 50 computadores ou mais.
 
+### <a name="if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender"></a>Se eu já tenho uma licença para o Microsoft Defender para ponto de extremidade, ganho desconto no Azure Defender?
+Se você já tem uma licença para o Microsoft Defender para ponto de extremidade, não precisa pagar por essa parte da sua licença do Azure Defender.
+
+Para confirmar o desconto, entre em contato com a equipe de suporte da Central de Segurança e forneça a ID, a região e as informações de licença relevantes do workspace para cada licença relevante.
 
 ### <a name="how-do-i-switch-from-a-third-party-edr-tool"></a>Como fazer mudar de uma ferramenta de EDR de terceiros?
-
 As instruções completas para alternar de uma solução de ponto de extremidade não Microsoft estão disponíveis na documentação do Microsoft defender para ponto de extremidade: [visão geral da migração](/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).
   
 

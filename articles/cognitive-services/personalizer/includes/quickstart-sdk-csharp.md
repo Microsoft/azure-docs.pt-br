@@ -8,14 +8,14 @@ ms.subservice: personalizer
 ms.topic: include
 ms.custom: cog-serv-seo-aug-2020
 ms.date: 08/25/2020
-ms.openlocfilehash: f0e7e0909de80ead7b300a4d396bf3eb84515745
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c43bd1cbea65d9d6a651488500a85760a441acd2
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89055357"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948670"
 ---
-[Documentação de referência](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.Personalizer?view=azure-dotnet-preview) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Personalizer) | [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/) | [Exemplos](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/Personalizer)
+[Documentação de referência](/dotnet/api/Microsoft.Azure.CognitiveServices.Personalizer) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Personalizer) | [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/) | [Exemplos](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/Personalizer)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -78,11 +78,11 @@ using System.Linq;
 
 ## <a name="object-model"></a>Modelo de objeto
 
-O cliente do Personalizador é um objeto [PersonalizerClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.personalizerclient?view=azure-dotnet) que se autentica no Azure usando Microsoft.Rest.ServiceClientCredentials, que contém sua chave.
+O cliente do Personalizador é um objeto [PersonalizerClient](/dotnet/api/microsoft.azure.cognitiveservices.personalizer.personalizerclient) que se autentica no Azure usando Microsoft.Rest.ServiceClientCredentials, que contém sua chave.
 
-Para solicitar o melhor item do conteúdo, crie uma [RankRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.models.rankrequest?view=azure-dotnet-preview) e, em seguida, transmita-a para o método [client.Rank](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.personalizerclientextensions.rank?view=azure-dotnet-preview). O método Rank retornará uma RankResponse.
+Para solicitar o melhor item do conteúdo, crie uma [RankRequest](/dotnet/api/microsoft.azure.cognitiveservices.personalizer.models.rankrequest) e, em seguida, transmita-a para o método [client.Rank](/dotnet/api/microsoft.azure.cognitiveservices.personalizer.personalizerclientextensions.rank). O método Rank retornará uma RankResponse.
 
-Para enviar uma pontuação de recompensa ao Personalizador, crie uma [RewardRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.models.rewardrequest?view=azure-dotnet-preview) e, em seguida, transmita-a para método [client.Reward](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.personalizerclientextensions.reward?view=azure-dotnet-preview).
+Para enviar uma pontuação de recompensa ao Personalizador, crie uma [RewardRequest](/dotnet/api/microsoft.azure.cognitiveservices.personalizer.models.rewardrequest) e, em seguida, transmita-a para método [client.Reward](/dotnet/api/microsoft.azure.cognitiveservices.personalizer.personalizerclientextensions.reward).
 
 Determinar a pontuação de recompensa neste início rápido é trivial. Em um sistema de produção, a determinação do que afeta a [pontuação de recompensa](../concept-rewards.md) e em que medida pode ser um processo complexo; você pode decidir alterá-lo ao longo do tempo. Essa decisão de design deve ser uma das principais decisões na arquitetura do Personalizador.
 

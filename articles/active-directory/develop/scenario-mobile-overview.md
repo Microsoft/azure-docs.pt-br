@@ -13,14 +13,14 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 70ddc2191cc06a1bede87adc5940e0f7dea63384
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a678e8545f761e98abbdf026886afa624f9d2b4e
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257530"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753636"
 ---
-# <a name="scenario-mobile-application-that-calls-web-apis"></a>Cenário: aplicativo móvel que chama APIs da Web
+# <a name="scenario-mobile-application-that-calls-web-apis"></a>Cenário: Aplicativo móvel que chama APIs Web
 
 Saiba como criar um aplicativo móvel que chama as APIs Web.
 
@@ -34,7 +34,7 @@ Se você ainda não fez isso, crie seu primeiro aplicativo concluindo um início
 
 ## <a name="overview"></a>Visão geral
 
-Uma experiência de usuário personalizada e direta é essencial para aplicativos móveis.  A plataforma de identidade da Microsoft permite que os desenvolvedores móveis criem essa experiência para usuários de iOS e Android. Seu aplicativo pode entrar Azure Active Directory (Azure AD) usuários, usuários pessoais conta Microsoft e Azure AD B2C usuários. Ele também pode adquirir tokens para chamar uma API da Web em seu nome. Para implementar esses fluxos, usaremos a MSAL (biblioteca de autenticação da Microsoft). O MSAL implementa o fluxo de código de autorização padrão do setor [OAuth 2.0](v2-oauth2-auth-code-flow.md).
+Uma experiência de usuário personalizada e direta é essencial para aplicativos móveis. A plataforma de identidade da Microsoft permite que os desenvolvedores móveis criem essa experiência para usuários de iOS e Android. Seu aplicativo pode entrar Azure Active Directory (Azure AD) usuários, usuários pessoais conta Microsoft e Azure AD B2C usuários. Ele também pode adquirir tokens para chamar uma API da Web em seu nome. Para implementar esses fluxos, usaremos a MSAL (biblioteca de autenticação da Microsoft). O MSAL implementa o fluxo de código de autorização padrão do setor [OAuth 2.0](v2-oauth2-auth-code-flow.md).
 
 ![Aplicativos Daemon](./media/scenarios/mobile-app.svg)
 
@@ -59,5 +59,4 @@ Tenha em mente as seguintes considerações ao criar um aplicativo móvel na pla
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Registro do aplicativo](scenario-mobile-app-registration.md)
+Vá para o próximo artigo neste cenário, registro de [aplicativo](scenario-mobile-app-registration.md).

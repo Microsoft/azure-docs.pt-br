@@ -11,13 +11,13 @@ metadata:
   author: mtillman
   ms.author: mtillman
   manager: daveba
-  ms.date: 10/22/2020
-  ms.openlocfilehash: e0b1c8946c1bdd8acfe1c7a21458fee456b2b84f
-  ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+  ms.date: 12/01/2020
+  ms.openlocfilehash: de96c1ed6828a6933102755d6c020cf01c4c9c7b
+  ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/29/2020
-  ms.locfileid: "92926811"
+  ms.lasthandoff: 01/20/2021
+  ms.locfileid: "98611144"
 highlightedContent:
   items:
   - title: O que é o Azure AD?
@@ -28,16 +28,16 @@ highlightedContent:
     url: ./fundamentals/whats-new.md
   - title: Proteja sua força de trabalho remota
     itemType: get-started
-    url: https://docs.microsoft.com/enterprise-mobility-security/remote-work/
+    url: /enterprise-mobility-security/remote-work/
   - title: Atribuir funções aos usuários
     itemType: how-to-guide
     url: ./fundamentals/active-directory-users-assign-role-azure-portal.md
   - title: Lista de verificação da implantação do Azure Active Directory
     itemType: concept
     url: ./fundamentals/active-directory-deployment-checklist-p2.md
-  - title: Adicionar uma assinatura ao seu locatário
-    itemType: how-to-guide
-    url: ./fundamentals/active-directory-how-subscriptions-associated-directory.md
+  - title: Incorporar resiliência no gerenciamento de identidade e acesso com o Azure AD
+    itemType: overview
+    url: ./fundamentals/resilience-overview.md
 conceptualContent:
   items:
   - title: Gerenciamento de aplicativos
@@ -78,30 +78,30 @@ conceptualContent:
       text: Habilitar a redefinição de senha por autoatendimento
     - url: ./authentication/tutorial-enable-azure-mfa.md
       itemType: tutorial
-      text: Habilitar a Autenticação Multifator do Microsoft Azure
+      text: Habilitar a Autenticação Multifator do Azure AD
     footerLink:
       url: ./authentication/index.yml
       text: Ver mais
-  - title: Provisionamento em nuvem
+  - title: Sincronização de nuvem
     links:
-    - url: ./cloud-provisioning/what-is-cloud-provisioning.md
+    - url: ./cloud-sync/what-is-cloud-sync.md
       itemType: overview
-      text: O que é o provisionamento em nuvem?
-    - url: ./cloud-provisioning/tutorial-single-forest.md
+      text: O que é sincronização de nuvem?
+    - url: ./cloud-sync/tutorial-single-forest.md
       itemType: tutorial
       text: Integrar uma única floresta a um único locatário do Azure AD
-    - url: ./cloud-provisioning/how-to-install.md
+    - url: ./cloud-sync/how-to-install.md
       itemType: how-to-guide
-      text: Instalar o agente de provisionamento de nuvem do Azure AD Connect
+      text: Instalar o agente de provisionamento Azure AD Connect
     footerLink:
-      url: ./cloud-provisioning/index.yml
+      url: ./cloud-sync/index.yml
       text: Ver mais
   - title: Acesso Condicional
     links:
     - url: ./conditional-access/overview.md
       itemType: overview
       text: O que é Acesso Condicional?
-    - url: ./conditional-access/app-based-mfa.md
+    - url: ./authentication/tutorial-enable-azure-mfa.md
       itemType: quickstart
       text: Requer MFA para aplicativos específicos
     - url: ./conditional-access/location-condition.md
@@ -126,13 +126,13 @@ conceptualContent:
       text: Ver mais
   - title: Serviços do domínio
     links:
-    - url: ../active-directory-domain-services/active-directory-ds-overview.md
+    - url: ../active-directory-domain-services/overview.md
       itemType: overview
       text: O que são os Serviços de Domínio do Azure AD?
-    - url: ../active-directory-domain-services/active-directory-ds-getting-started.md
+    - url: ../active-directory-domain-services/tutorial-create-instance.md
       itemType: quickstart
       text: Habilitar os Serviços de Domínio do Azure AD
-    - url: ../active-directory-domain-services/active-directory-ds-admin-guide-administer-group-policy.md
+    - url: ../active-directory-domain-services/manage-group-policy.md
       itemType: how-to-guide
       text: Administrar política de grupo
     footerLink:
@@ -154,17 +154,17 @@ conceptualContent:
       text: Ver mais
   - title: Identidades externas
     links:
-    - url: ./b2b/compare-with-b2c.md
+    - url: ./external-identities/compare-with-b2c.md
       itemType: overview
       text: Comparar soluções para usuários externos
-    - url: ../active-directory-b2c/active-directory-b2c-overview.md
+    - url: ../active-directory-b2c/overview.md
       itemType: overview
       text: Dimensionar seus aplicativos para consumidores (B2C)
-    - url: ./b2b/what-is-b2b.md
+    - url: ./external-identities/what-is-b2b.md
       itemType: overview
       text: Colaborar com usuários fora de sua organização (B2B)
     footerLink:
-      url: ./b2b/index.yml
+      url: ./external-identities/index.yml
       text: Ver mais
   - title: Identidade híbrida
     links:
@@ -267,9 +267,9 @@ conceptualContent:
   - title: Funções
     links:
     - url: ./roles/groups-assign-role.md
-      itemType: how-to-guide
-      text: Atribuir uma função a um grupo de nuvem
-    - url: ./roles/custom-create.md
+      itemType: concept
+      text: Entender as funções do Azure AD
+    - url: ./roles/concept-understand-roles.md
       itemType: how-to-guide
       text: Criar uma função personalizada
     - url: ./roles/groups-view-assignments.md
@@ -297,10 +297,10 @@ additionalContent:
   - items:
     - title: Microsoft 365
       summary: Explore o Microsoft 365, uma solução completa que inclui o Azure AD.
-      url: https://docs.microsoft.com/microsoft-365/
+      url: /microsoft-365/
     - title: Azure AD PowerShell
       summary: Saiba como instalar e usar o módulo PowerShell do Azure AD.
-      url: https://docs.microsoft.com/powershell/module/azuread/
+      url: /powershell/module/azuread/
     - title: Comandos da CLI do Azure para Azure AD
       summary: Encontre os comandos do Azure AD na referência da CLI.
-      url: https://docs.microsoft.com/cli/azure/ad
+      url: /cli/azure/ad

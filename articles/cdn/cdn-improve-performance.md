@@ -15,11 +15,11 @@ ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
 ms.openlocfilehash: ceed62d466627d6a23554229bd6f4b96c674c7e9
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148745"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993662"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Melhorar o desempenho compactando os arquivos na CDN do Azure
 A compactação de arquivo é um método simples e eficiente para melhorar a velocidade de transferência de arquivos e aumentar o desempenho de carregamento de páginas, reduzindo o tamanho de arquivos antes de serem enviados do servidor. Ela pode reduzir os custos de largura de banda e oferece uma experiência mais responsiva para os seus usuários.
@@ -117,7 +117,7 @@ Se a origem usar a CTE (codificação de transferência em bloco) para enviar da
 
 ### <a name="azure-cdn-from-verizon-profiles"></a>Perfis da CDN do Azure da Verizon
 
-Para os perfis da **CDN Standard do Azure da Verizon** e ** CDN Premium do Azure da Verizon**, apenas arquivos qualificáveis são comprimidos. Para se qualificar para a compactação, um arquivo deve:
+Para os perfis da **CDN Standard do Azure da Verizon** e **CDN Premium do Azure da Verizon**, apenas arquivos qualificáveis são comprimidos. Para se qualificar para a compactação, um arquivo deve:
 - Ser maior que 128 bytes
 - Ser menor que 3 MB
 

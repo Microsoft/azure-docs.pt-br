@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 12/08/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0b67761b3c765e202505d442647b3ba034ef15a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 2a618da7c9a66b8f687c1b75914530080ed56bea
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372490"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905818"
 ---
 # <a name="create-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Criar uma revisão de acesso das funções de recurso do Azure no Privileged Identity Management
 
@@ -40,7 +40,7 @@ Este artigo descreve como criar uma ou mais revisões de acesso para funções p
 
 1. No menu à esquerda, selecione **recursos do Azure**.
 
-1. Selecione o recurso que você deseja gerenciar, como uma assinatura ou grupo de gerenciamento.
+1. Selecione o recurso que você deseja gerenciar, como uma assinatura.
 
 1. Em gerenciar, selecione **revisões de acesso**.
 

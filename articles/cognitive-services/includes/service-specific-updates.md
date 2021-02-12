@@ -1,5 +1,5 @@
 ---
-title: arquivo de inclusão
+title: incluir arquivo
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 07/09/2020
 ms.author: erhopf
 ms.custom: include
-ms.openlocfilehash: e4c1310d8f27e00bf46f8f4de4ae7b76e3d796d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10b89fe04da4cd83d47e5601a2b3a81ac42371fc
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86225041"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99532238"
 ---
 ## <a name="service-specific-updates"></a>Atualizações específicas do serviço 
 
@@ -22,5 +22,4 @@ ms.locfileid: "86225041"
 * [Reconhecimento Vocal (LUIS)](../LUIS/whats-new.md)
 * [Personalizador](../personalizer/whats-new.md)
 * [O QnA Maker](../QnAMaker/whats-new.md)
-* [Serviço de Fala](../Speech-Service/whats-new.md)
 * [Análise de Texto](../text-analytics/whats-new.md)

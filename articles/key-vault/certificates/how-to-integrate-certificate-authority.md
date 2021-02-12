@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: d5370343ac83d75df94e7291d26c87ce0c419d0e
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: c36353448c140450044f352062c3349939e3f7b5
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327409"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789003"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Como integrar o Key Vault à autoridade de certificação DigiCert
 
@@ -23,7 +23,7 @@ O Azure Key Vault permite que você provisione, gerencie e implante facilmente c
 
 Os usuários do Azure Key Vault podem gerar certificados DigiCert diretamente do Key Vault. O Key Vault garante o gerenciamento de ciclo de vida do certificado de ponta a ponta para os certificados emitidos pela DigiCert por meio da parceria confiável do Key Vault com a autoridade de certificação DigiCert.
 
-Para obter mais informações gerais sobre certificados, confira [Certificados do Azure Key Vault](/azure/key-vault/certificates/about-certificates).
+Para obter mais informações gerais sobre certificados, confira [Certificados do Azure Key Vault](./about-certificates.md).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -31,9 +31,9 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Para concluir este guia, você deve ter os recursos a seguir.
 * Um cofre de chaves. Você pode usar um cofre de chaves existente ou criar um seguindo as etapas em um destes inícios rápidos:
-   - [Criar um cofre de chaves com a CLI do Azure](../secrets/quick-create-cli.md)
-   - [Criar um cofre de chaves com o Azure PowerShell](../secrets/quick-create-powershell.md)
-   - [Criar um cofre de chaves com o portal do Azure](../secrets/quick-create-portal.md).
+   - [Criar um cofre de chaves com a CLI do Azure](../general/quick-create-cli.md)
+   - [Criar um cofre de chaves com o Azure PowerShell](../general/quick-create-powershell.md)
+   - [Criar um cofre de chaves com o portal do Azure](../general/quick-create-portal.md).
 *   Você precisa ativar a conta DigiCert CertCentral. [Inscreva-se](https://www.digicert.com/account/signup/) para sua conta do CertCentral.
 *   Permissões em nível de administrador em suas contas.
 
@@ -51,17 +51,17 @@ Depois de coletar as informações acima da conta do DigiCert CertCentral, agora
 ### <a name="azure-portal"></a>Portal do Azure
 
 1.  Para adicionar a autoridade de certificação DigiCert, navegue até o cofre de chaves ao qual você deseja adicionar DigiCert. 
-2.  Na página de propriedades do Key Vault, selecione **Certificados** .
-3.  Selecione a guia **Autoridades de Certificação** . ![Selecione autoridades de certificação](../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png)
-4.  Selecione a opção **Adicionar** .
+2.  Na página de propriedades do Key Vault, selecione **Certificados**.
+3.  Selecione a guia **Autoridades de Certificação**. ![Selecione autoridades de certificação](../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png)
+4.  Selecione a opção **Adicionar**.
  ![adicionar autoridades de certificação](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
-5.  Na tela **Criar uma autoridade de certificado** , escolha os seguintes valores:
-    -   **Name** : Adicione um nome de emissor identificável. Exemplo de DigicertCA
-    -   **Provedor** : selecione DigiCert no menu.
-    -   **ID da Conta** : insira sua ID da conta do DigiCert CertCentral
-    -   **Senha da Conta** : insira a chave de API que você gerou em sua conta do DigiCert CertCentral
-    -   **ID da organização** : insira a OrgID coletada da conta DigiCert CertCentral 
-    -   Clique em **Criar** .
+5.  Na tela **Criar uma autoridade de certificado**, escolha os seguintes valores:
+    -   **Name**: Adicione um nome de emissor identificável. Exemplo de DigicertCA
+    -   **Provedor**: selecione DigiCert no menu.
+    -   **ID da Conta**: insira sua ID da conta do DigiCert CertCentral
+    -   **Senha da Conta**: insira a chave de API que você gerou em sua conta do DigiCert CertCentral
+    -   **ID da organização**: insira a OrgID coletada da conta DigiCert CertCentral 
+    -   Clique em **Criar**.
    
 6.  Você verá que a DigicertCA agora foi adicionada à lista de autoridades de certificação.
 
@@ -108,7 +108,7 @@ $org = New-AzKeyVaultCertificateOrganizationDetail -Id OrganizationIDfromDigiCer
 $secureApiKey = ConvertTo-SecureString DigiCertCertCentralAPIKey -AsPlainText –Force
 ```
 
-4. Defina o **Emissor** . Isso adicionará DigiCert como uma autoridade de certificação no cofre de chaves. Para saber mais sobre os parâmetros, [leia aqui](https://docs.microsoft.com/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer)
+4. Defina o **Emissor**. Isso adicionará DigiCert como uma autoridade de certificação no cofre de chaves. Para saber mais sobre os parâmetros, [leia aqui](/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer)
 ```azurepowershell-interactive
 Set-AzKeyVaultCertificateIssuer -VaultName "Contoso-Vaultname" -Name "TestIssuer01" -IssuerProvider DigiCert -AccountId $accountId -ApiKey $secureApiKey -OrganizationDetails $org -PassThru
 ```
@@ -127,6 +127,9 @@ O certificado foi emitido com êxito pela AC DigiCert dentro do Key Vault especi
 Se o certificado emitido estiver no status "desabilitado" no portal do Azure, prossiga para exibir a **Operação de Certificado** para examinar a mensagem de erro DigiCert para esse certificado.
 
  ![Operação de certificado](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
+
+Mensagem de erro 'Faça uma mesclagem para concluir esta solicitação de certificado'.
+Você precisará mesclar o CSR assinado pela AC para concluir essa solicitação. Saiba mais [aqui](./create-certificate-signing-request.md)
 
 Para obter mais informações, veja [Operações de certificado na referência de API REST do Key Vault](/rest/api/keyvault). Para obter informações sobre como estabelecer permissões, confira [Cofres – criar ou atualizar](/rest/api/keyvault/vaults/createorupdate) e [Cofres – atualizar política de acesso](/rest/api/keyvault/vaults/updateaccesspolicy).
 

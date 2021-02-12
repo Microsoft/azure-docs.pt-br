@@ -3,12 +3,12 @@ title: Fazer backup do SQL Server no Azure como uma carga de trabalho do DPM
 description: Uma introdução ao backup de bancos de dados SQL Server usando o serviço de backup do Azure
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 8130990f86311221ae6d097137a66a6e9b81be73
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 592a51051a0d02a6c1d491db0fe559e2e62babb2
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218078"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327042"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Fazer backup do SQL Server no Azure como uma carga de trabalho do DPM
 
@@ -24,7 +24,7 @@ Para fazer backup de um banco de dados SQL Server no Azure e recuperá-lo do Azu
 
 >[!NOTE]
 >O DPM 2019 UR2 dá suporte a SQL Server FCI (instâncias de cluster de failover) usando CSV (volumes compartilhados do cluster).<br><br>
->A proteção da [instância de cluster de failover SQL Server com espaços de armazenamento diretos no Azure](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure)  e [SQL Server instância de cluster de failover com o Azure Shared disks](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure) tem suporte com esse recurso. O servidor DPM deve ser implantado na máquina virtual do Azure para proteger a instância do SQL FCI implantada em VMs do Azure. 
+>A proteção da [instância de cluster de failover SQL Server com espaços de armazenamento diretos no Azure](../azure-sql/virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md)  e [SQL Server instância de cluster de failover com o Azure Shared disks](../azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md) tem suporte com esse recurso. O servidor DPM deve ser implantado na máquina virtual do Azure para proteger a instância do SQL FCI implantada em VMs do Azure. 
 
 ## <a name="prerequisites-and-limitations"></a>Pré-requisitos e limitações
 

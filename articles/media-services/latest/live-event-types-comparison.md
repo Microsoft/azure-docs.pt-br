@@ -1,6 +1,6 @@
 ---
-title: Tipos de LiveEvent do Azure Media Services | Microsoft Docs
-description: Nos serviços de mídia do Azure, um evento ao vivo pode ser definido como uma *codificação ativa*ou de *passagem* . Este artigo mostra uma tabela detalhada que compara os tipos de eventos ao vivo.
+title: Tipos de LiveEvent dos serviços de mídia do Azure
+description: Nos serviços de mídia do Azure, um evento ao vivo pode ser definido como uma *codificação ativa* ou de *passagem* . Este artigo mostra uma tabela detalhada que compara os tipos de eventos ao vivo.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: c79d45cfac22f41f05071b619c444e7b7ab7956a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3126cbf4f9d87e9baa7267e309210b751a47069d
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397297"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897791"
 ---
 # <a name="live-event-types-comparison"></a>Comparação de tipos de Eventos ao Vivo
 
@@ -78,12 +78,12 @@ Se o feed de contribuição for de 720p ou de resolução superior, a predefini�
 
 | Bitrate | Largura | Altura | MáxFPS | Perfil |
 | --- | --- | --- | --- | --- |
-| 3500 |1280 |720 |30 |Alto |
-| 2200 |960 |540 |30 |Alto |
-| 1350 |704 |396 |30 |Alto |
-| 850 |512 |288 |30 |Alto |
-| 550 |384 |216 |30 |Alto |
-| 200 |340 |192 |30 |Alto |
+| 3500 |1280 |720 |30 |Alta |
+| 2200 |960 |540 |30 |Alta |
+| 1350 |704 |396 |30 |Alta |
+| 850 |512 |288 |30 |Alta |
+| 550 |384 |216 |30 |Alta |
+| 200 |340 |192 |30 |Alta |
 
 > [!NOTE]
 > Se você precisar personalizar a predefinição de codificação ativa, abra um tíquete de suporte por meio do portal do Azure. Você deve especificar a tabela desejada de taxa de bits e resolução de vídeo. Não há suporte para a personalização da taxa de bits de codificação de áudio. Verifique se há apenas uma camada em 720p e no máximo seis camadas. Além disso, especifique que você está solicitando uma predefinição.
@@ -94,12 +94,12 @@ Se o feed de contribuição for de 1080p resolução, a predefinição de **defa
 
 | Bitrate | Largura | Altura | MáxFPS | Perfil |
 | --- | --- | --- | --- | --- |
-| 5500 |1920 |1080 |30 |Alto |
-| 3000 |1280 |720 |30 |Alto |
-| 1600 |960 |540 |30 |Alto |
-| 800 |640 |360 |30 |Alto |
-| 400 |480 |270 |30 |Alto |
-| 200 |320 |180 |30 |Alto |
+| 5500 |1920 |1080 |30 |Alta |
+| 3000 |1280 |720 |30 |Alta |
+| 1600 |960 |540 |30 |Alta |
+| 800 |640 |360 |30 |Alta |
+| 400 |480 |270 |30 |Alta |
+| 200 |320 |180 |30 |Alta |
 
 > [!NOTE]
 > Se você precisar personalizar a predefinição de codificação ativa, abra um tíquete de suporte por meio do portal do Azure. Você deve especificar a tabela desejada da resolução e das taxas de bits. Verifique se há apenas uma camada em 1080p e no máximo 6 camadas. Além disso, especifique que você está solicitando uma predefinição para um codificador ao vivo Premium1080p. Os valores específicos das taxas de bits e resoluções podem ser ajustados ao longo do tempo.

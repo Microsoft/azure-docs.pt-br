@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: e6ccba27fb599cb26da86e94d3500f4f806ecb76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14f37d0779f245301b3750329658a580dc3f9e42
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328863"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946214"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Instalar e configurar a extensão WAD (Diagnóstico do Azure para Windows)
 A [extensão de diagnóstico do Azure](diagnostics-extension-overview.md) é um agente no Azure Monitor que coleta dados de monitoramento do sistema operacional convidado e cargas de trabalho de máquinas virtuais do Azure e outros recursos de computação. Este artigo fornece detalhes sobre como instalar e configurar a extensão de diagnóstico do Windows e uma descrição de como os dados são armazenados na conta de armazenamento do Azure.
@@ -78,7 +78,7 @@ Você pode instalar e configurar a extensão de diagnóstico em uma máquina vir
 Confira [Use monitoramento e diagnóstico com uma VM do Windows e modelos do Azure Resource Manager](../../virtual-machines/extensions/diagnostics-template.md) sobre como implantar a extensão de diagnóstico com os modelos do Azure Resource Manager. 
 
 ## <a name="azure-cli-deployment"></a>Implantação da CLI do Azure
-A CLI do Azure pode ser usado para implantar a extensão de Diagnóstico do Azure para uma máquina virtual existente usando [az vm extension set](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-set) como no exemplo a seguir. 
+A CLI do Azure pode ser usado para implantar a extensão de Diagnóstico do Azure para uma máquina virtual existente usando [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) como no exemplo a seguir. 
 
 ```azurecli
 az vm extension set \

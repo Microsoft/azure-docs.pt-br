@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: 43cdb9de111bdea5486e49a56d58d38279b685c7
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996375"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95985536"
 ---
 # <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Criar relatórios interativos do Azure Monitor para VMs com pastas de trabalho
 
@@ -26,7 +26,7 @@ As pastas de trabalho são úteis para cenários como:
 
 A tabela a seguir resume as pastas de trabalho que o Azure Monitor para VMs inclui para ajudá-lo a começar.
 
-| Pasta de trabalho | Descrição | Escopo |
+| Pasta de trabalho | Description | Escopo |
 |----------|-------------|-------|
 | Desempenho | Fornece uma versão personalizável do nosso modo de exibição de lista e gráficos em uma única pasta de trabalho que aproveita todos os contadores de desempenho de Log Analytics que você habilitou.| Em escala |
 | Contadores de desempenho | Uma exibição de gráfico N superior em um amplo conjunto de contadores de desempenho. | Em escala |

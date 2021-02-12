@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2830d8b82f5b53300d0af3f48e55b573d78ad295
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 268f1c4bff84a2c9ef67c3f6b5749bc8d0b90e85
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287382"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735174"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Criar um pool de host com o portal do Azure
 
@@ -118,7 +118,7 @@ Para configurar sua máquina virtual dentro do processo de configuração do poo
       - Windows 10 Enterprise multissessão, versão 2004
       - Windows 10 Enterprise multissessão, versão 2004 + Aplicativos Microsoft 365
 
-     Se você não vir a imagem desejada, selecione **Procurar todas as imagens e discos**, o que permite que você selecione outra imagem na galeria ou uma imagem fornecida pela Microsoft e outros editores.
+     Se você não vir a imagem desejada, selecione **Procurar todas as imagens e discos**, o que permite que você selecione outra imagem na galeria ou uma imagem fornecida pela Microsoft e outros editores. Verifique se a imagem escolhida é uma das [imagens do sistema operacional com suporte](overview.md#supported-virtual-machine-os-images).
 
      > [!div class="mx-imgBorder"]
      > ![Uma captura de tela do Marketplace com uma lista de imagens da Microsoft exibida.](media/marketplace-images.png)

@@ -1,23 +1,24 @@
 ---
-title: Exibições T-SQL usando Synapse SQL
-description: Dicas para usar exibições T-SQL e desenvolver soluções com Synapse SQL.
+title: Modos de exibição T-SQL usando pools SQL
+description: Dicas para usar exibições T-SQL e desenvolver soluções com o pool SQL dedicado e o pool SQL sem servidor no Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: fafa0c2e1b02cc49bfb852ed7770b0927b0e9334
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de04be2495c6e81e9c5f8d32f9d876b49482c5fe
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90032717"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678365"
 ---
-# <a name="t-sql-views-using-synapse-sql"></a>Exibições T-SQL usando Synapse SQL
-Neste artigo, você encontrará dicas para usar exibições T-SQL e desenvolver soluções com o Synapse SQL. 
+# <a name="t-sql-views-with-dedicated-sql-pool-and-serverless-sql-pool-in-azure-synapse-analytics"></a>Exibições T-SQL com pool dedicado de SQL e pool SQL sem servidor no Azure Synapse Analytics
+
+Neste artigo, você encontrará dicas para usar modos de exibição T-SQL e desenvolver soluções com o pool SQL dedicado e o pool SQL sem servidor no Azure Synapse Analytics.
 
 ## <a name="why-use-views"></a>Por que usar modos de exibição
 
@@ -26,16 +27,11 @@ As exibições podem ser usadas em diversas maneiras diferentes de melhorar a qu
 ### <a name="sql-pool---create-view"></a>Pool do SQL – criar exibição
 
 > [!NOTE]
-> **Pool do SQL**: a sintaxe para Create View não é discutida neste artigo. Para saber mais, consulte a documentação [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
-
-### <a name="sql-on-demand-preview---create-view"></a>SQL sob demanda (visualização)-criar exibição
-
-> [!NOTE]
-> **SQL sob demanda**: a sintaxe para Create View não é discutida neste artigo. Para saber mais, consulte a documentação [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+> A sintaxe para CREATE VIEW não é discutida neste artigo. Para saber mais, consulte a documentação [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="architectural-abstraction"></a>Abstração de arquitetura
 
-Um padrão de aplicativo comum é recriar tabelas usando [CREATE TABLE como SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (CTAS), que é seguido por um padrão de renomeação de objeto ao carregar dados.
+Um padrão de aplicativo comum é recriar tabelas usando [CREATE TABLE como SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (CTAS), que é seguido por um padrão de renomeação de objeto ao carregar dados.
 
 O exemplo a seguir adiciona novos registros de data para uma dimensão de data. Observe como uma nova tabela, DimDate_New, é criada pela primeira vez e renomeada para substituir a versão original da tabela.
 
@@ -54,7 +50,6 @@ FROM   dbo.DimDate_stg AS stg
 
 RENAME OBJECT DimDate TO DimDate_Old;
 RENAME OBJECT DimDate_New TO DimDate;
-
 ```
 
 Lembre-se de que essa abordagem pode resultar em tabelas aparecendo e desaparecendo da exibição de um usuário e solicita mensagens de erro "a tabela não existe". As exibições podem ser usadas para fornecer aos usuários uma camada de apresentação consistente enquanto os objetos subjacentes são renomeados.

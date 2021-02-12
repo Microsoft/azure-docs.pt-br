@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: harahma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5f3f6238bb72704d13fef4a7171aeaebee5f9141
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9932c11332a616928d59c213d4f4806feb81cfe2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708689"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791638"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Modelo de hospedagem do Microsoft Azure Service Fabric
 Este artigo fornece uma visão geral dos modelos de hospedagem de aplicativos fornecidos pelo Microsoft Azure Service Fabric e descreve as diferenças entre os modelos de **Processo Compartilhado** e **Processo Exclusivo**. Ele descreve a aparência de um aplicativo implantado em um nó do Service Fabric e a relação entre réplicas (ou instâncias) do serviço e o processo de host de serviço.
@@ -100,7 +100,7 @@ Ao utilizar apenas o modelo de Processo Compartilhado para um aplicativo, haver�
 >
 >- O modelo de hospedagem de Processo Exclusivo corresponde a **ServicePackageActivationMode** igual a **ExclusiveProcess**. Para usar essa configuração, é necessário especificá-la explicitamente no momento da criação do serviço. 
 >
->- Para exibir o modelo de hospedagem de um serviço, consulte a[descrição do serviço][p2], e observe o valor de **ServicePackageActivationMode**.
+>- Para exibir o modelo de hospedagem de um serviço, consulte a [descrição do serviço][p2], e observe o valor de **ServicePackageActivationMode**.
 >
 >
 
@@ -110,7 +110,7 @@ Uma cópia ativa de um *ServicePackage* em um nó é referido como um [pacote de
 É possível localizar o **ServicePackageActivationId** de um pacote de serviço implantado, consultando a lista de [pacotes de serviço implantados][p3] em um nó. Quando estiver consultando os [tipos de serviço implantado][p6], [réplicas implantadas][p7] e [pacotes de códigos implantados][p8] em um nó, o resultado da consulta também conterá o **ServicePackageActivationId** do pacote de serviço primário implantado.
 
 > [!NOTE]
->- No modelo de hospedagem do Processo Compartilhado, em um determinado nó, para um determinado aplicativo, apenas uma cópia de um *ServicePackage* é ativada. Ele tem um**ServicePackageActivationId** igual a *cadeia de caracteres vazia* e não precisa ser especificado durante a execução de operações relacionadas ao pacote de serviço implantado. 
+>- No modelo de hospedagem do Processo Compartilhado, em um determinado nó, para um determinado aplicativo, apenas uma cópia de um *ServicePackage* é ativada. Ele tem um **ServicePackageActivationId** igual a *cadeia de caracteres vazia* e não precisa ser especificado durante a execução de operações relacionadas ao pacote de serviço implantado. 
 >
 > - No modelo de hospedagem de Processo Exclusivo, em um determinado nó, para um determinado aplicativo, uma ou mais cópias de um *ServicePackage* podem estar ativas. Cada ativação tem um *ServicePackageActivationId* **não vazio**, especificado durante a execução de operações relacionadas ao pacote de serviço implantado. 
 >
@@ -168,11 +168,11 @@ Na ativação de 'MultiTypeServicePackage' para a réplica da partição **P1** 
 ![Diagrama da exibição do nó do aplicativo implantado][node-view-six]
 
 
-No exemplo anterior, é possível pensar que, se o 'MyCodePackageA' registrar ambos o 'MyServiceTypeA' e o 'MyServiceTypeB' e não houver 'MyCodePackageB', então, não haverá *CodePackage* redundante em execução. Embora isso esteja correto, esse modelo de aplicativo não está alinhado ao modelo de hospedagem de Processo Exclusivo. Se a meta é colocar cada réplica em seu próprio processo dedicado, não é necessário registrar os *ServiceTypes* do mesmo*CodePackage*. Em vez disso, você simplesmente coloca cada *ServiceType* em seu próprio *ServicePackage*.
+No exemplo anterior, é possível pensar que, se o 'MyCodePackageA' registrar ambos o 'MyServiceTypeA' e o 'MyServiceTypeB' e não houver 'MyCodePackageB', então, não haverá *CodePackage* redundante em execução. Embora isso esteja correto, esse modelo de aplicativo não está alinhado ao modelo de hospedagem de Processo Exclusivo. Se a meta é colocar cada réplica em seu próprio processo dedicado, não é necessário registrar os *ServiceTypes* do mesmo *CodePackage*. Em vez disso, você simplesmente coloca cada *ServiceType* em seu próprio *ServicePackage*.
 
 ### <a name="reliable-services-and-actor-forking-subprocesses"></a>Reliable Services e subprocessos de bifurcação de ator
 
-O Service Fabric não dá suporte a serviços confiáveis e, subsequentemente, a subprocessos confiáveis de bifurcação de atores. Um exemplo do motivo pelo qual não há suporte para ele é o fato de que [CodePackageActivationContext](/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) não pode ser usado para registrar um subprocesso sem suporte e que tokens de cancelamento são enviados somente para processos registrados, resultando em diversos tipos de problemas, como falhas de atualização, quando os subprocessos não são fechados depois que o processo pai recebe um token de cancelamento.
+O Service Fabric não dá suporte a serviços confiáveis e, subsequentemente, a subprocessos confiáveis de bifurcação de atores. Um exemplo do motivo pelo qual não há suporte para ele é o fato de que [CodePackageActivationContext](/dotnet/api/system.fabric.codepackageactivationcontext) não pode ser usado para registrar um subprocesso sem suporte e que tokens de cancelamento são enviados somente para processos registrados, resultando em diversos tipos de problemas, como falhas de atualização, quando os subprocessos não são fechados depois que o processo pai recebe um token de cancelamento.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Empacotar um aplicativo][a4] e prepará-lo para a implantação.

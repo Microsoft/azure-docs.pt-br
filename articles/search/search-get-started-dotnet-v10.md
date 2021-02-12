@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c6dd64ae8b7b7307d7dcd510d1fdb877365c6f36
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 8dc2eb898c12e374bc503c5a05f00eb20667443b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675948"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701833"
 ---
 # <a name="quickstart-create-a-search-index-using-the-legacy-microsoftazuresearch-v10-client-library"></a>Início rápido: criar um índice de pesquisa usando a biblioteca de cliente herdada Microsoft. Azure. Search v10
 
@@ -51,11 +51,11 @@ As chamadas ao serviço exigem um ponto de extremidade de URL e uma chave de ace
 
 1. [Entre no portal do Azure](https://portal.azure.com/) e, na página **Visão Geral** do serviço de pesquisa, obtenha a URL. Um ponto de extremidade de exemplo pode parecer com `https://mydemo.search.windows.net`.
 
-2. Em **Configurações** > **Chaves** , obtenha uma chave de administração para adquirir todos os direitos sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso seja necessário sobrepor uma. É possível usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
+2. Em **Configurações** > **Chaves**, obtenha uma chave de administração para adquirir todos os direitos sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso seja necessário sobrepor uma. É possível usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
 
    Obtenha a chave de consulta também. É uma melhor prática para emitir solicitações de consulta com acesso somente leitura.
 
-![Obter um ponto de extremidade HTTP e uma chave de acesso](media/search-get-started-postman/get-url-key.png "Obter um ponto de extremidade HTTP e uma chave de acesso")
+![Obter um ponto de extremidade HTTP e uma chave de acesso](media/search-get-started-rest/get-url-key.png "Obter um ponto de extremidade HTTP e uma chave de acesso")
 
 Todas as solicitações requerem uma chave de api em cada pedido enviado ao serviço. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
 
@@ -69,9 +69,9 @@ O [pacote Microsoft. Azure. Search](https://www.nuget.org/packages/Microsoft.Azu
 
 Para este projeto, use a versão 10 do `Microsoft.Azure.Search` pacote NuGet e o `Microsoft.Extensions.Configuration.Json` pacote NuGet mais recente.
 
-1. Em **Ferramentas** > **Gerenciador de Pacotes NuGet** , selecione **Gerenciar Pacotes NuGet para a Solução...** . 
+1. Em **Ferramentas** > **Gerenciador de Pacotes NuGet**, selecione **Gerenciar Pacotes NuGet para a Solução...** . 
 
-1. Clique em **Procurar** .
+1. Clique em **Procurar**.
 
 1. Pesquise `Microsoft.Azure.Search` e selecione a versão 10.
 
@@ -86,9 +86,9 @@ Para este projeto, use a versão 10 do `Microsoft.Azure.Search` pacote NuGet e o
 
 1. Em Adicionar Novo Item, pesquise "JSON" para retornar uma lista relacionada ao JSON de tipos de itens.
 
-1. Escolha **Arquivo JSON** , nomeie o arquivo "appsettings.json" e clique em **Adicionar** . 
+1. Escolha **Arquivo JSON**, nomeie o arquivo "appsettings.json" e clique em **Adicionar**. 
 
-1. Adicione o arquivo ao diretório de saída. Clique com o botão direito do mouse em appsettings.json e selecione **Propriedades** . Em **Copiar para Diretório de Saída** , selecione **Copiar se for o mais recente** .
+1. Adicione o arquivo ao diretório de saída. Clique com o botão direito do mouse em appsettings.json e selecione **Propriedades**. Em **Copiar para Diretório de Saída**, selecione **Copiar se for o mais recente**.
 
 1. Copie o JSON a seguir para o novo arquivo JSON. 
 
@@ -201,7 +201,7 @@ O índice de hotéis consiste em campos simples e complexos, em que um campo sim
     > [!NOTE]
     > No SDK do .Net, os campos devem ser atribuídos explicitamente como [`IsSearchable`](/dotnet/api/microsoft.azure.search.models.field.issearchable), [`IsFilterable`](/dotnet/api/microsoft.azure.search.models.field.isfilterable), [`IsSortable`](/dotnet/api/microsoft.azure.search.models.field.issortable) e [`IsFacetable`](/dotnet/api/microsoft.azure.search.models.field.isfacetable). Esse comportamento contrasta com a API REST, que habilita implicitamente a atribuição com base no tipo de dados (por exemplo, campos de cadeia de caracteres simples são pesquisáveis automaticamente).
 
-    Exatamente um campo no índice do tipo `string` precisa ser o campo *key* , identificando exclusivamente cada documento. Nesse esquema, a chave é `HotelId`.
+    Exatamente um campo no índice do tipo `string` precisa ser o campo *key*, identificando exclusivamente cada documento. Nesse esquema, a chave é `HotelId`.
 
     Nesse índice, os campos de descrição usam a propriedade opcional [`analyzer`](/dotnet/api/microsoft.azure.search.models.field.analyzer), especificada quando você deseja substituir o analisador Lucene padrão. O campo `description_fr` está usando o analisador Lucene em francês ([FrLucene](/dotnet/api/microsoft.azure.search.models.analyzername.frlucene)) porque ele armazena o texto em francês. O `description` está usando o analisador de linguagem opcional da Microsoft ([EnMicrosoft](/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft)).
 
@@ -553,7 +553,7 @@ A classe [`DocumentsSearchResult`](/dotnet/api/microsoft.azure.search.models.doc
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando você está trabalhando em sua própria assinatura, é uma boa ideia identificar, no final de um projeto, se você ainda precisa dos recursos criados. Recursos deixados em execução podem custar dinheiro. Você pode excluir os recursos individualmente ou excluir o grupo de recursos para excluir todo o conjunto de recursos.
+Quando você está trabalhando em sua própria assinatura, é uma boa ideia identificar, no final de um projeto, se você ainda precisa dos recursos criados. Os recursos mantidos em execução podem gerar custos. Você pode excluir os recursos individualmente ou excluir o grupo de recursos para excluir todo o conjunto de recursos.
 
 Você pode localizar e gerenciar recursos no portal usando o link **Todos os recursos** ou **Grupos de recursos** no painel de navegação à esquerda.
 

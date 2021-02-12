@@ -1,6 +1,6 @@
 ---
 title: Copiar incrementalmente várias tabelas usando o PowerShell
-description: Neste tutorial, você criará um Azure Data Factory com um pipeline que carrega os dados delta de várias tabelas em um banco de dados do SQL Server para o Banco de Dados SQL do Azure.
+description: Neste tutorial, você criará um Azure Data Factory com um pipeline que carrega dados delta de várias tabelas em um banco de dados do SQL Server no Banco de Dados SQL do Azure.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: be98ff2a31e3216088fb9197fab477d9b1088f26
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 61a4119947b1412d3e874458e06748fd40a381b4
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634089"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510253"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>Carregar dados de maneira incremental de várias tabelas no SQL Server para o Banco de Dados SQL do Azure usando o PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Neste tutorial, você criará um Azure Data Factory com um pipeline que carrega os dados delta de várias tabelas em um banco de dados do SQL Server para o Banco de Dados SQL do Azure.    
+Neste tutorial, você criará um Azure Data Factory com um pipeline que carrega dados delta de várias tabelas em um banco de dados do SQL Server no Banco de Dados SQL do Azure.    
 
 Neste tutorial, você realizará os seguintes procedimentos:
 
@@ -42,15 +42,15 @@ Neste tutorial, você realizará os seguintes procedimentos:
 ## <a name="overview"></a>Visão geral
 Aqui estão as etapas importantes ao criar essa solução: 
 
-1. **Selecione a coluna de marca-d'água** .
+1. **Selecione a coluna de marca-d'água**.
 
     Selecione uma coluna para cada tabela no armazenamento de dados de origem, na qual você poderá identificar os registros novos ou atualizados de cada execução. Normalmente, os dados nessa coluna selecionada (por exemplo, ID ou last_modify_time) seguem crescendo quando linhas são criadas ou atualizadas. O valor máximo dessa coluna é usado como uma marca-d'água.
 
-2. **Prepare um armazenamento de dados para armazenar o valor de marca-d'água** .
+2. **Prepare um armazenamento de dados para armazenar o valor de marca-d'água**.
 
     Neste tutorial, você deve armazenar o valor de marca-d'água em um banco de dados SQL.
 
-3. **Crie um pipeline com as seguintes atividades** :
+3. **Crie um pipeline com as seguintes atividades**:
     
     a. Crie uma atividade ForEach que itere em uma lista de nomes de tabela de origem passada como um parâmetro para o pipeline. Para cada tabela de origem, são chamadas as próximas atividades necessárias para o carregamento delta.
 
@@ -69,14 +69,14 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **SQL Server** . Você usa um banco de dados do SQL Server como o armazenamento de dados de origem neste tutorial. 
-* **Banco de dados SQL do Azure** . Você usa um banco de dados no Banco de Dados SQL do Azure como o armazenamento de dados do coletor. Se você não tiver um Banco de Dados SQL, confira [Criar um banco de dados no Banco de Dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md) para saber as etapas para criar um. 
+* **SQL Server**. Você usa um banco de dados do SQL Server como o armazenamento de dados de origem neste tutorial. 
+* **Banco de dados SQL do Azure**. Você usa um banco de dados no Banco de Dados SQL do Azure como o armazenamento de dados do coletor. Se você não tiver um Banco de Dados SQL, confira [Criar um banco de dados no Banco de Dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md) para saber as etapas para criar um. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Criar tabelas de origem no banco de dados do SQL Server
 
 1. Abra o [SSMS (SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms) ou o [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) e conecte-se ao banco de dados do SQL Server.
 
-2. No **SSMS (Gerenciador de Servidores)** ou no **painel Conexões (Azure Data Studio)** , clique com o botão direito do mouse no banco de dados e escolha **Nova Consulta** .
+2. No **SSMS (Gerenciador de Servidores)** ou no **painel Conexões (Azure Data Studio)** , clique com o botão direito do mouse no banco de dados e escolha **Nova Consulta**.
 
 3. Execute o seguinte comando SQL no banco de dados para criar as tabelas `customer_table` e `project_table`:
 
@@ -115,7 +115,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 1. Abra o [SSMS (SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms) ou o [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) e conecte-se ao banco de dados do SQL Server.
 
-2. No **SSMS (Gerenciador de Servidores)** ou no **painel Conexões (Azure Data Studio)** , clique com o botão direito do mouse no banco de dados e escolha **Nova Consulta** .
+2. No **SSMS (Gerenciador de Servidores)** ou no **painel Conexões (Azure Data Studio)** , clique com o botão direito do mouse no banco de dados e escolha **Nova Consulta**.
 
 3. Execute o seguinte comando SQL no banco de dados para criar as tabelas `customer_table` e `project_table`:  
 
@@ -167,8 +167,8 @@ AS
 
 BEGIN
 
-    UPDATE watermarktable
-    SET [WatermarkValue] = @LastModifiedtime 
+UPDATE watermarktable
+SET [WatermarkValue] = @LastModifiedtime 
 WHERE [TableName] = @TableName
 
 END
@@ -265,7 +265,7 @@ Instale os módulos mais recentes do Azure PowerShell seguindo as instruções e
     ```powershell
     $dataFactoryName = "ADFIncMultiCopyTutorialFactory";
     ```
-5. Para criar o data factory, execute o seguinte cmdlet **Set-AzDataFactoryV2** : 
+5. Para criar o data factory, execute o seguinte cmdlet **Set-AzDataFactoryV2**: 
     
     ```powershell
     Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
@@ -283,7 +283,7 @@ Observe os seguintes pontos:
 
 * Para criar instâncias de Data Factory, a conta de usuário usada para entrar no Azure deve ser um membro das funções colaborador ou proprietário, ou um administrador da assinatura do Azure.
 
-* Para obter uma lista de regiões do Azure no qual o Data Factory está disponível no momento, selecione as regiões que relevantes para você na página a seguir e, em seguida, expanda **Análise** para localizar **Data Factory** : [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os armazenamentos de dados (Banco de Dados SQL, Instância Gerenciada de SQL, Armazenamento do Azure etc.) e serviços de computação (Azure HDInsight etc.) usados pelo data factory podem estar em outras regiões.
+* Para obter uma lista de regiões do Azure no qual o Data Factory está disponível no momento, selecione as regiões que relevantes para você na página a seguir e, em seguida, expanda **Análise** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os armazenamentos de dados (Banco de Dados SQL, Instância Gerenciada de SQL, Armazenamento do Azure etc.) e serviços de computação (Azure HDInsight etc.) usados pelo data factory podem estar em outras regiões.
 
 [!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
 
@@ -357,7 +357,7 @@ Nesta etapa, você vincula seu banco de dados do SQL Server ao data factory.
     Set-Location 'C:\ADFTutorials\IncCopyMultiTableTutorial'
     ```
 
-3. Execute o cmdlet **Set-AzDataFactoryV2LinkedService** para criar o serviço vinculado AzureStorageLinkedService. No exemplo a seguir, você passa valores para os parâmetros *ResourceGroupName* e *DataFactoryName* : 
+3. Execute o cmdlet **Set-AzDataFactoryV2LinkedService** para criar o serviço vinculado AzureStorageLinkedService. No exemplo a seguir, você passa valores para os parâmetros *ResourceGroupName* e *DataFactoryName*: 
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerLinkedService" -File ".\SqlServerLinkedService.json"
@@ -365,7 +365,7 @@ Nesta etapa, você vincula seu banco de dados do SQL Server ao data factory.
 
     Veja o exemplo de saída:
 
-    ```json
+    ```console
     LinkedServiceName : SqlServerLinkedService
     ResourceGroupName : <ResourceGroupName>
     DataFactoryName   : <DataFactoryName>
@@ -398,7 +398,7 @@ Nesta etapa, você vincula seu banco de dados do SQL Server ao data factory.
 
     Veja o exemplo de saída:
 
-    ```json
+    ```console
     LinkedServiceName : AzureSQLDatabaseLinkedService
     ResourceGroupName : <ResourceGroupName>
     DataFactoryName   : <DataFactoryName>
@@ -773,7 +773,7 @@ O pipeline usa uma lista de nomes de tabela como um parâmetro. A **atividade Fo
 
    Veja o exemplo de saída: 
 
-   ```json
+   ```console
     PipelineName      : IncrementalCopyPipeline
     ResourceGroupName : <ResourceGroupName>
     DataFactoryName   : <DataFactoryName>
@@ -804,7 +804,7 @@ O pipeline usa uma lista de nomes de tabela como um parâmetro. A **atividade Fo
         ]
     }
     ```
-2. Execute o pipeline IncrementalCopyPipeline usando o cmdlet **Invoke-AzDataFactoryV2Pipeline** . Substitua os espaços reservados com seus próprios nomes de grupo de recursos e de data factory.
+2. Execute o pipeline IncrementalCopyPipeline usando o cmdlet **Invoke-AzDataFactoryV2Pipeline**. Substitua os espaços reservados com seus próprios nomes de grupo de recursos e de data factory.
 
     ```powershell
     $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"        
@@ -814,21 +814,21 @@ O pipeline usa uma lista de nomes de tabela como um parâmetro. A **atividade Fo
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-2. Clique em **Todos os serviços** , pesquise com a palavra-chave *Data factories* e selecione **Data factories** . 
+2. Clique em **Todos os serviços**, pesquise com a palavra-chave *Data factories* e selecione **Data factories**. 
 
-3. Procure seu data factory na lista de data factories e selecione-o para abrir a página **Data factory** . 
+3. Procure seu data factory na lista de data factories e selecione-o para abrir a página **Data factory**. 
 
-4. Na página **Data Factory** , selecione **Criar e Monitorar** para iniciar o Azure Data Factory em uma guia separada.
+4. Na página **Data Factory**, selecione **Criar e Monitorar** para iniciar o Azure Data Factory em uma guia separada.
 
-5. Na página **Vamos começar** , selecione **Monitorar** no lado esquerdo. 
+5. Na página **Vamos começar**, selecione **Monitorar** no lado esquerdo. 
 ![A captura de tela mostra a página Introdução para Azure Data Factory.](media/doc-common-process/get-started-page-monitor-button.png)    
 
-6. Você pode ver todas as execuções de pipeline e seus status. Observe que, no exemplo a seguir, o status da execução de pipeline é **Com Êxito** . Para verificar os parâmetros passados para o pipeline, selecione o link da coluna **Parâmetros** . Se houver um erro, você verá um link na coluna **Erro** .
+6. Você pode ver todas as execuções de pipeline e seus status. Observe que, no exemplo a seguir, o status da execução de pipeline é **Com Êxito**. Para verificar os parâmetros passados para o pipeline, selecione o link da coluna **Parâmetros**. Se houver um erro, você verá um link na coluna **Erro**.
 
     ![A captura de tela mostra execuções de pipeline para um data factory incluindo seu pipeline.](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
-7. Ao selecionar o link na coluna **Ações** , você verá todas as execuções de atividade para o pipeline. 
+7. Ao selecionar o link na coluna **Ações**, você verá todas as execuções de atividade para o pipeline. 
 
-8. Para voltar à exibição **Execuções de Pipeline** , selecione **Todas as Execuções de Pipeline** . 
+8. Para voltar à exibição **Execuções de Pipeline**, selecione **Todas as Execuções de Pipeline**. 
 
 ## <a name="review-the-results"></a>Revise os resultados
 
@@ -907,7 +907,7 @@ VALUES
     ```powershell
     $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupname -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"
     ```
-2. Monitore as execuções de pipeline seguindo as instruções da seção [Monitorar o pipeline](#monitor-the-pipeline). Quando o status do pipeline for **Em Andamento** , você verá outro link de ação em **Ações** para cancelar a execução do pipeline. 
+2. Monitore as execuções de pipeline seguindo as instruções da seção [Monitorar o pipeline](#monitor-the-pipeline). Quando o status do pipeline for **Em Andamento**, você verá outro link de ação em **Ações** para cancelar a execução do pipeline. 
 
 3. Selecione **Atualizar** para atualizar a lista até que a execução do pipeline seja bem-sucedida. 
 

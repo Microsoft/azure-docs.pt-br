@@ -2,19 +2,16 @@
 title: Topologias Apache Storm com Visual Studio e C# – Azure HDInsight
 description: Aprenda como criar topologias Storm em C#. Crie uma topologia de contagem de palavras no Visual Studio usando as ferramentas do Hadoop para Visual Studio.
 ROBOTS: NOINDEX
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/31/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 271f62625433a6651ba0e3230a62be51e5147f3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a81f2b21545a5362168482f3f0a65fbbbf381c10
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000185"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929153"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Desenvolver topologias C# para Apache Storm usando ferramentas do Data Lake para Visual Studio
 
@@ -59,30 +56,30 @@ using System;
 using System.IO;
 namespace ConsoleApplication2
 {
-   class Program
-   {
-       static void Main(string[] args)
-       {
-           string javaHome = Environment.GetEnvironmentVariable("JAVA_HOME");
-           if (!string.IsNullOrEmpty(javaHome))
-           {
-               string jarExe = Path.Combine(javaHome + @"\bin", "jar.exe");
-               if (File.Exists(jarExe))
-               {
-                   Console.WriteLine("JAVA Is Installed properly");
-                    return;
-               }
-               else
-               {
-                   Console.WriteLine("A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.");
-               }
-           }
-           else
-           {
-             Console.WriteLine("A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.");
-           }
-       }  
-   }
+   class Program
+   {
+       static void Main(string[] args)
+       {
+           string javaHome = Environment.GetEnvironmentVariable("JAVA_HOME");
+           if (!string.IsNullOrEmpty(javaHome))
+           {
+               string jarExe = Path.Combine(javaHome + @"\bin", "jar.exe");
+               if (File.Exists(jarExe))
+               {
+                   Console.WriteLine("JAVA Is Installed properly");
+                    return;
+               }
+               else
+               {
+                   Console.WriteLine("A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.");
+               }
+           }
+           else
+           {
+             Console.WriteLine("A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.");
+           }
+       }  
+   }
 }
 ```
 
@@ -127,7 +124,7 @@ Para criar um projeto de topologia C# no Visual Studio:
 
 1. Na janela **Iniciar**, selecione **Criar projeto**.
 
-1. Na janela **criar um novo projeto** , role para e selecione **aplicativo Storm**e, em seguida, selecione **Avançar**.
+1. Na janela **criar um novo projeto** , role para e selecione **aplicativo Storm** e, em seguida, selecione **Avançar**.
 
 1. Na janela **configurar seu novo projeto** , insira um **nome de projeto** de *WordCount*, vá para ou crie um caminho de diretório de **localização** para o projeto e, em seguida, selecione **criar**.
 
@@ -575,9 +572,9 @@ Embora seja fácil implantar uma topologia em um cluster, em alguns casos, talve
    > [!NOTE]
    > Lembre-se de alterar o **Tipo de saída** de volta para **Biblioteca de Classes** antes de implantar a topologia em um cluster.
 
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e selecione **Adicionar** > **Novo Item**. Selecione **classe**e insira *LocalTest.cs* como o nome da classe. Por fim, selecione **Adicionar**.
+1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e selecione **Adicionar** > **Novo Item**. Selecione **classe** e insira *LocalTest.cs* como o nome da classe. Por fim, selecione **Adicionar**.
 
-1. Abra *LocalTest.cs*e adicione a seguinte `using` instrução na parte superior:
+1. Abra *LocalTest.cs* e adicione a seguinte `using` instrução na parte superior:
 
     ```csharp
     using Microsoft.SCP;
@@ -664,7 +661,7 @@ Embora seja fácil implantar uma topologia em um cluster, em alguns casos, talve
 
     Tome um momento para ler os comentários do código. Esse código usa `LocalContext` o para executar os componentes no ambiente de desenvolvimento. Ele persiste o fluxo de dados entre componentes em arquivos de texto na unidade local.
 
-1. Abra *Program.cs*e adicione o seguinte código ao `Main` método:
+1. Abra *Program.cs* e adicione o seguinte código ao `Main` método:
 
     ```csharp
     Console.WriteLine("Starting tests");
@@ -687,7 +684,7 @@ Embora seja fácil implantar uma topologia em um cluster, em alguns casos, talve
 
 1. Salve as alterações e, em seguida, selecione **F5** ou escolha **depurar**  >  **Iniciar Depuração** para iniciar o projeto. Uma janela de console deve aparecer e o status do log colocado como progresso dos testes. Quando `Tests finished` aparecer, selecione qualquer chave para fechar a janela.
 
-1. Use **Windows Explorer** para localizar o diretório que contém seu projeto. (Por exemplo: *C: \\ Users \\ \<your_user_name> \\ Source \\ repositórios \\ WordCount \\ WordCount*.) Em seguida, nesse diretório, abra *bin*e, em seguida, selecione *depurar*. Você deve ver os arquivos de texto que foram produzidos quando os testes foram executados: *sentences.txt*, *counter.txt*e *splitter.txt*. Abra cada arquivo de texto e inspecione os dados.
+1. Use **Windows Explorer** para localizar o diretório que contém seu projeto. (Por exemplo: *C: \\ Users \\ \<your_user_name> \\ Source \\ repositórios \\ WordCount \\ WordCount*.) Em seguida, nesse diretório, abra *bin* e, em seguida, selecione *depurar*. Você deve ver os arquivos de texto que foram produzidos quando os testes foram executados: *sentences.txt*, *counter.txt* e *splitter.txt*. Abra cada arquivo de texto e inspecione os dados.
 
    > [!NOTE]  
    > Os dados da cadeia de caracteres persistem como uma matriz de valores decimais nesses arquivos. Por exemplo, `[[97,103,111]]` no arquivo **splitter.txt** representa a palavra *atrás*.

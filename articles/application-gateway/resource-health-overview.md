@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 7/9/2019
 ms.author: victorh
-ms.openlocfilehash: db29551a8150b70e797d45fe659482470c8aca2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e30a93f8270cfaf8910130cc1e2633bb80c2b8e
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67659496"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397165"
 ---
 # <a name="azure-application-gateway-resource-health-overview"></a>Visão geral do Aplicativo Azure gateway Resource Health
 
@@ -43,7 +43,7 @@ O Resource Health fornece detalhes adicionais sobre o evento e o processo de rec
 
 ![Status indisponível](media/resource-health-overview/unavailable.png)
 
-## <a name="unknown"></a>Unknown
+## <a name="unknown"></a>Desconhecido
 
 O status de integridade **desconhecido** indica Resource Health não recebeu informações sobre o gateway por mais de 10 minutos. Esse status não é uma indicação definitiva do estado do gateway. Mas é um ponto de dados importante no processo de solução de problemas.
 
@@ -61,4 +61,4 @@ O status de integridade **degradado** indica que o gateway detectou uma perda no
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre como solucionar problemas do firewall do aplicativo Web do gateway de aplicativo (WAF), consulte [solucionar problemas de WAF (firewall do aplicativo Web) para aplicativo Azure gateway](web-application-firewall-troubleshoot.md).
+Para saber mais sobre como solucionar problemas do firewall do aplicativo Web do gateway de aplicativo (WAF), consulte [solucionar problemas de WAF (firewall do aplicativo Web) para aplicativo Azure gateway](../web-application-firewall/ag/web-application-firewall-troubleshoot.md).

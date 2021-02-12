@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5eec15871279f3ca38c726fcd1ef1b21d0d38699
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ba314963058389e171601407ff00411049eecd45
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88750193"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845427"
 ---
 # <a name="durable-orchestrations"></a>Orquestrações Duráveis
 
@@ -293,7 +293,7 @@ Não é possível passar vários parâmetros para uma função de atividade dire
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-No .NET, use também objetos [ValueTuples](/dotnet/csharp/tuples). O exemplo a seguir usa os novos recursos de [ValueTuples](/dotnet/csharp/tuples) adicionados com [C# 7](/dotnet/csharp/whats-new/csharp-7#tuples):
+No .NET, use também objetos [ValueTuple](/dotnet/csharp/tuples). O seguinte exemplo usa os novos recursos de [ValueTuple](/dotnet/csharp/tuples) adicionados com [C# 7](/dotnet/csharp/whats-new/csharp-7#tuples):
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]

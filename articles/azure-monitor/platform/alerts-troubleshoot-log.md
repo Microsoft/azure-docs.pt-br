@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 10/29/2018
-ms.openlocfilehash: ec2ffe71a32781a855da258f3621738f1a5f6be4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9a1bef582053eccdbfef63c2159cf540ffd9bfb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294284"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186585"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Solucionar problemas de alertas de log no Azure Monitor  
 
 Este artigo mostra como resolver problemas comuns com alertas de log no Azure Monitor. Ele também fornece soluções para problemas comuns com a funcionalidade e a configuração de alertas de log.
 
-Os alertas de log permitem que os usuários usem uma consulta [log Analytics](../log-query/get-started-portal.md) para avaliar os logs de recursos a cada frequência definida e acionar um alerta com base nos resultados. As regras podem disparar uma ou mais ações usando [grupos de ações](./action-groups.md). [Saiba mais sobre a funcionalidade e a terminologia de alertas de log](alerts-unified-log.md).
+Os alertas de log permitem que os usuários usem uma consulta [log Analytics](../log-query/log-analytics-tutorial.md) para avaliar os logs de recursos a cada frequência definida e acionar um alerta com base nos resultados. As regras podem disparar uma ou mais ações usando [grupos de ações](./action-groups.md). [Saiba mais sobre a funcionalidade e a terminologia de alertas de log](alerts-unified-log.md).
 
 > [!NOTE]
 > Este artigo não considera casos em que a portal do Azure mostra uma regra de alerta disparada e uma notificação não é executada por um grupo de ação associado. Para esses casos, consulte os detalhes sobre solução de problemas [aqui](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected).
@@ -131,7 +131,7 @@ Se você atingiu o limite de cota, as etapas a seguir podem ajudar a resolver o 
 
     - IDs de assinatura e IDs de recurso para os quais o limite de cota precisa ser aumentado.
     - Motivo para aumento de cota.
-    - Tipo de recurso para o aumento de cota: **log Analytics**, **Application insights**e assim por diante.
+    - Tipo de recurso para o aumento de cota: **log Analytics**, **Application insights** e assim por diante.
     - Limite de cota solicitado.
 
 

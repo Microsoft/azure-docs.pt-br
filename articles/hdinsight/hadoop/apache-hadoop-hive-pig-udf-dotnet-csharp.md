@@ -1,19 +1,16 @@
 ---
 title: C#, Apache Hive & Apache Pig no Apache Hadoop-Azure HDInsight
 description: Aprenda a usar as funções definidas pelo usuário (UDF) do C# com o Apache Hive e o streaming do Apache Pig no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/06/2019
-ms.openlocfilehash: e99d68d31f1da4dcb3ef1086a2bbd90f0ab30410
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 97b23a2b9e3b95a5ea0efcd27d0ec185b1c456f1
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488989"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946546"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Usar funções definidas pelo usuário do C# com Apache Hive e Apache Pig no Apache Hadoop no HDInsight
 
@@ -58,7 +55,7 @@ Para criar um projeto C# para um Apache Hive UDF:
 
 3. Na janela **criar um novo projeto** , escolha o modelo **aplicativo de console (.NET Framework)** (a versão C#). Em seguida, selecione **Avançar**.
 
-4. Na janela **configurar seu novo projeto** , insira um **nome de projeto** de *HiveCSharp*e navegue até ou crie um **local** para salvar o novo projeto. Em seguida, selecione **Criar**.
+4. Na janela **configurar seu novo projeto** , insira um **nome de projeto** de *HiveCSharp* e navegue até ou crie um **local** para salvar o novo projeto. Em seguida, selecione **Criar**.
 
 5. No IDE do Visual Studio, substitua o conteúdo de *Program.cs* pelo código a seguir:
 
@@ -125,7 +122,7 @@ Para criar um projeto C# para um Apache Hive UDF:
 
 3. Na janela **criar um novo projeto** , escolha o modelo **aplicativo de console (.NET Framework)** (a versão C#). Em seguida, selecione **Avançar**.
 
-4. Na janela **configurar seu novo projeto** , insira um **nome de projeto** de *PigUDF*e vá para ou crie um **local** para salvar o novo projeto. Em seguida, selecione **Criar**.
+4. Na janela **configurar seu novo projeto** , insira um **nome de projeto** de *PigUDF* e vá para ou crie um **local** para salvar o novo projeto. Em seguida, selecione **Criar**.
 
 5. No IDE do Visual Studio, substitua o conteúdo de *Program.cs* pelo código a seguir:
 
@@ -160,7 +157,7 @@ Para criar um projeto C# para um Apache Hive UDF:
 
     Esse código analisa as linhas enviadas do Pig e reformata as linhas que começam com `java.lang.Exception`.
 
-6. Na barra de menus, escolha **Compilar**compilar  >  **solução** para compilar o projeto.
+6. Na barra de menus, escolha **Compilar** compilar  >  **solução** para compilar o projeto.
 
 7. Deixe a solução aberta.
 
@@ -170,7 +167,7 @@ Em seguida, carregue os aplicativos do hive e do Pig UDF para armazenamento em u
 
 1. No Visual Studio, navegue até **Exibir**  >  **Gerenciador de servidores**.
 
-1. Em **Gerenciador de servidores**, clique com o botão direito do mouse em **Azure**, selecione **conectar à assinatura do Microsoft Azure**e conclua o processo de entrada.
+1. Em **Gerenciador de servidores**, clique com o botão direito do mouse em **Azure**, selecione **conectar à assinatura do Microsoft Azure** e conclua o processo de entrada.
 
 1. Expanda o cluster HDInsight no qual você deseja implantar esse aplicativo. Uma entrada com o texto **(Conta de armazenamento padrão)** é listada.
 
@@ -224,7 +221,7 @@ Agora você pode executar uma consulta de Hive que usa o aplicativo UDF do hive.
 
     Essa consulta seleciona os `clientid` `devicemake` campos, e `devicemodel` de `hivesampletable` e passa os campos para o aplicativo *HiveCSharp.exe* . A consulta espera que o aplicativo retorne três campos, que são armazenados como `clientid`, `phoneLabel` e `phoneHash`. A consulta também espera localizar *HiveCSharp.exe* na raiz do contêiner de armazenamento padrão.
 
-5. Alterne o padrão **interativo** para o **lote**e, em seguida, selecione **Enviar** para enviar o trabalho para o cluster HDInsight. A janela **Resumo do trabalho Hive** é aberta.
+5. Alterne o padrão **interativo** para o **lote** e, em seguida, selecione **Enviar** para enviar o trabalho para o cluster HDInsight. A janela **Resumo do trabalho Hive** é aberta.
 
 6. Selecione **Atualizar** para atualizar o resumo até que o **status do trabalho** seja alterado para **concluído**. Para exibir a saída do trabalho, selecione **saída do trabalho**.
 

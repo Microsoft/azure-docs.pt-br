@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/01/2020
+ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: a603f55bd5bff7b2ed68623e9c712faaf8ac766f
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 8da1130809c1802f4db963f4b4b000a848e9abaa
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876878"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011094"
 ---
 # <a name="quickstart-deploy-and-manage-nsg-flow-logs-using-azure-policy"></a>Início rápido: implantar e gerenciar logs de fluxo de NSG usando Azure Policy 
 
@@ -25,8 +25,8 @@ ms.locfileid: "91876878"
 O Azure Policy ajuda a impor padrões organizacionais e a avaliar a conformidade em escala. Casos de uso comuns do Azure Policy incluem implementar a governança para consistência de recursos, conformidade regulatória, segurança, custo e gerenciamento. Neste artigo, usaremos duas políticas internas disponíveis para logs de fluxo de NSG para gerenciar sua configuração de logs de fluxo. A primeira política sinaliza qualquer NSGs sem logs de fluxo habilitados. A segunda política implanta automaticamente os logs de fluxo para NSGs sem os logs de fluxo habilitados. 
 
 Se você estiver criando uma política do Azure pela primeira vez, poderá ler: 
-- [Visão geral de Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) 
-- [Tutorial para a criação de política](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal#create-a-policy-assignment).
+- [Visão geral da política do Azure](../governance/policy/overview.md) 
+- [Tutorial para a criação de política](../governance/policy/assign-policy-portal.md#create-a-policy-assignment).
 
 
 ## <a name="locate-the-policies"></a>Localizar as políticas
@@ -134,5 +134,5 @@ Você deve ver algo como a captura de tela a seguir depois de sua política. Cas
 
 ## <a name="next-steps"></a>Próximas etapas 
 
--   Use este [tutorial](https://docs.microsoft.com/azure/network-watcher/quickstart-configure-network-security-group-flow-logs-from-arm-template) para aprofundar-se usando modelos ARM para implantar logs de fluxo e análise de tráfego.
--   Saiba mais sobre o [observador de rede](https://docs.microsoft.com/azure/network-watcher/)
+-   Use este [tutorial](./quickstart-configure-network-security-group-flow-logs-from-arm-template.md) para aprofundar-se usando modelos ARM para implantar logs de fluxo e análise de tráfego.
+-   Saiba mais sobre o [observador de rede](./index.yml)

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: alkohli
-ms.openlocfilehash: 730774f33d43754d4ca198ed170159fa4f872e09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c35bde40cac9629f084d69d52f119651b5655f7
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903677"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784470"
 ---
 # <a name="return-your-azure-stack-edge-pro-device"></a>Retornar seu dispositivo pro Edge Azure Stack
 
@@ -101,7 +101,7 @@ Para iniciar o processo de devolução, execute as etapas a seguir.
 Para agendar uma retirada, execute as etapas a seguir.
 
 1. Desligar o dispositivo. Na interface do usuário de web local, vá para **manutenção > configurações de energia**.
-2. Selecione **Desligar**. Quando precisar confirmar, clique em **Sim** para continuar. Para obter mais informações, confira [Gerenciar energia](data-box-gateway-manage-access-power-connectivity-mode.md#manage-power).
+2. Selecione **Desligar**. Quando precisar confirmar, clique em **Sim** para continuar. Para obter mais informações, confira [Gerenciar energia](../databox-gateway/data-box-gateway-manage-access-power-connectivity-mode.md#manage-power).
 3. Desconecte os cabos de alimentação e remova todos os cabos de rede do dispositivo.
 4. Use sua própria caixa ou uma vazia recebida da Azure para embalar o equipamento para envio. Coloque o dispositivo e os cabos de alimentação que foram enviados com o dispositivo na caixa.
 5. Cole a etiqueta de remessa recebida da Azure no pacote.

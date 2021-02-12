@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 22e91d50227fcb44c7b90478d76379c14161ae05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 878a2a47dfaddf1d3399a1dbd98865332838e148
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76718596"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321743"
 ---
 # <a name="sample-data-in-azure-blob-containers-sql-server-and-hive-tables"></a><a name="heading"></a>Exemplo de dados em contêineres de blob do Azure, SQL Server e tabelas Hive
 
@@ -26,9 +26,8 @@ Os artigos a seguir descrevem como exemplos de dados armazenados em um dos três
 * [**Dados do SQL Server**](sample-data-sql-server.md) são amostrados usando o SQL e a linguagem de programação Python. 
 * [**Dados da tabela do hive**](sample-data-hive.md) é realizada usando consultas de Hive.
 
-Essa tarefa de amostragem é uma etapa do [TDSP (Processo de Ciência de Dados de Equipe)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Essa tarefa de amostragem é uma etapa do [TDSP (Processo de Ciência de Dados de Equipe)](./index.yml).
 
 **Por que fazer a amostragem de dados?**
 
 Se o conjunto de dados que você deseja analisar for grande, geralmente, é uma boa ideia reduzir os dados para um tamanho menor, mas representativo e mais gerenciável. O downsizing pode facilitar a compreensão dos dados, a exploração e a engenharia de recursos. Essa função de amostragem no processo do Cortana Analytics é habilitar o rápido protótipo das funções de processamento de dados e dos modelos de aprendizado de máquina.
-

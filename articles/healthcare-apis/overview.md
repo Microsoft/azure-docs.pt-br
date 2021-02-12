@@ -6,14 +6,14 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 08/03/2020
+ms.date: 11/13/2020
 ms.author: matjazl
-ms.openlocfilehash: 78dec9180da2a78903ae5d5e87bca515b212f167
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 386003d7dae80e086f523b2cebe61aa0eee7b89e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87843429"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95527812"
 ---
 # <a name="what-is-azure-api-for-fhirreg"></a>O que é a API do Azure para FHIR&reg;?
 
@@ -24,7 +24,7 @@ A API do Azure para FHIR permite a troca rápida de dados por meio de APIs do FH
 - Alto desempenho, baixa latência
 - Gerenciamento seguro de PHI (dados de saúde protegidos) em um ambiente de nuvem em conformidade
 - SMART on FHIR para implementações móveis e da Web
-- Controlar seus dados em escala com RBAC (Controle de Acesso Baseado em Função)
+- Controlar seus dados em escala com RBAC (controle de acesso baseado em função)
 - Acompanhamento de log de auditoria para acesso, criação, modificação e leituras em cada armazenamento de dados
 
 A API do Azure para FHIR permite que você crie e implante um serviço FHIR em poucos minutos para aproveitar a escala elástica da nuvem.  Você paga apenas pela taxa de transferência e pelo armazenamento de que precisa. Os serviços do Azure que capacitam a API do Azure para FHIR são projetados para desempenho rápido, independentemente do tamanho dos conjuntos de dados que você está gerenciando.
@@ -53,7 +53,7 @@ Usar a API do Azure para FHIR permite que você se conecte a qualquer sistema qu
 
 ### <a name="control-data-access-at-scale"></a>Controlar o acesso a dados em escala
 
-Você controla seus dados. O RBAC (Controle de Acesso Baseado em Função) permite que você gerencie como os dados são armazenados e acessados.  Fornecendo maior segurança e reduzindo a carga de trabalho administrativa, você determina quem tem acesso aos conjuntos de dados que você cria dependendo das definições de função criadas para o seu ambiente.  
+Você controla seus dados. O RBAC (controle de acesso baseado em função) permite que você gerencie como os dados são armazenados e acessados.  Fornecendo maior segurança e reduzindo a carga de trabalho administrativa, você determina quem tem acesso aos conjuntos de dados que você cria dependendo das definições de função criadas para o seu ambiente.  
 
 ### <a name="audit-logs-and-tracking"></a>Logs e acompanhamento de auditoria 
 
@@ -84,9 +84,9 @@ Para casos de uso que exigem estender ou personalizar o servidor FHIR ou acesso 
 
 ## <a name="azure-iot-connector-for-fhir-preview"></a>Conector IoT do Azure para FHIR (versão prévia)
 
-O Conector IoT do Azure para FHIR* é um recurso opcional da API do Azure para FHIR que fornece a capacidade de ingerir dados de dispositivos IoMT (Internet das Coisas Médicas). A Internet das Coisas Médicas é uma categoria de dispositivos IoT que capturam e trocam dados de saúde e bem-estar com outros sistemas de TI de saúde pela rede. Alguns exemplos de dispositivos IoMT incluem dispositivos fitness e clínicos vestíveis, sensores de monitoramento, rastreadores de atividade, quiosques de atendimento ou até mesmo uma pílula inteligente. O recurso Conector IoT do Azure para FHIR permite que você configure rapidamente um serviço para ingerir dados IoMT na API do Azure para FHIR de maneira escalonável, segura e em conformidade.
+O Conector IoT do Azure para FHIR (Fast Healthcare Interoperability Resources&#174;)* é um recurso opcional da API do Azure para FHIR que fornece a capacidade de ingerir dados de dispositivos IoMT (Internet das Coisas Médicas). A Internet das Coisas Médicas é uma categoria de dispositivos IoT que capturam e trocam dados de saúde e bem-estar com outros sistemas de TI de saúde pela rede. Alguns exemplos de dispositivos IoMT incluem dispositivos fitness e clínicos vestíveis, sensores de monitoramento, rastreadores de atividade, quiosques de atendimento ou até mesmo uma pílula inteligente. O recurso Conector IoT do Azure para FHIR permite que você configure rapidamente um serviço para ingerir dados IoMT na API do Azure para FHIR de maneira escalonável, segura e em conformidade.
 
-O Conector IoT do Azure para FHIR pode aceitar mensagens baseadas em JSON enviadas por um dispositivo IoMT. Esses dados são transformados primeiramente em recursos adequados de [Observação baseada em FHIR](https://www.hl7.org/fhir/observation.html) e mantidos na API do Azure para FHIR. A lógica de transformação de dados é definida por meio de um par de modelos de mapeamento que você configura com base em seu esquema de mensagem e nos requisitos de FHIR. Os dados do dispositivo podem ser enviados por push diretamente para o Conector IoT do Azure para FHIR ou usados perfeitamente em conjunto com outras soluções de IoT do Azure ([Hub IoT do Azure](https://docs.microsoft.com/azure/iot-hub/) e [Azure IoT Central](https://docs.microsoft.com/azure/iot-central/)). O Conector IoT do Azure para FHIR fornece um pipeline de dados seguro e permite que as soluções de IoT do Azure gerenciem o provisionamento e a manutenção dos dispositivos físicos.
+O Conector IoT do Azure para FHIR pode aceitar mensagens baseadas em JSON enviadas por um dispositivo IoMT. Esses dados são transformados primeiramente em recursos adequados de [Observação baseada em FHIR](https://www.hl7.org/fhir/observation.html) e mantidos na API do Azure para FHIR. A lógica de transformação de dados é definida por meio de um par de modelos de mapeamento que você configura com base em seu esquema de mensagem e nos requisitos de FHIR. Os dados do dispositivo podem ser enviados por push diretamente para o Conector IoT do Azure para FHIR ou usados perfeitamente em conjunto com outras soluções de IoT do Azure ([Hub IoT do Azure](../iot-hub/index.yml) e [Azure IoT Central](../iot-central/index.yml)). O Conector IoT do Azure para FHIR fornece um pipeline de dados seguro e permite que as soluções de IoT do Azure gerenciem o provisionamento e a manutenção dos dispositivos físicos.
 
 ### <a name="applications-of-azure-iot-connector-for-fhir-preview"></a>Aplicativos do Conector IoT do Azure para FHIR (versão prévia)
 
@@ -108,6 +108,4 @@ Para experimentar o recurso Conector IoT do Azure para FHIR, confira o guia de i
 >[!div class="nextstepaction"]
 >[Implantar o Conector IoT do Azure para FHIR](iot-fhir-portal-quickstart.md)
 
-*No portal do Azure, o Conector IoT do Azure para FHIR é chamado de Conector IoT (versão prévia).
-
-FHIR é uma marca registrada da HL7, usada com permissão da HL7.
+*No portal do Azure, o Conector IoT do Azure para FHIR é chamado de Conector IoT (versão prévia). FHIR é uma marca registrada da HL7, usada com permissão da HL7. 

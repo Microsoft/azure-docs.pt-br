@@ -1,19 +1,16 @@
 ---
 title: Use o SDK do .NET HBase - HDInsight do Azure
 description: Use o SDK do .NET HBase para criar e excluir tabelas e para ler e gravar dados.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/02/2019
-ms.openlocfilehash: 17c3f07fe553e363d1eb2a997287feb77296a621
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: d1979e43adc76f4125097fc809ef137baee05f53
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540305"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939573"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>Usar o SDK do .NET para o Apache HBase
 
@@ -38,13 +35,13 @@ var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdins
 client = new HBaseClient(credentials);
 ```
 
-Substitua CLUSTERNAME pelo nome do cluster HDInsight HBase e por USERNAME e PASSWORD pelas credenciais do Apache Hadoop especificadas na criação do cluster. O nome de usuário Hadoop padrão é **admin** .
+Substitua CLUSTERNAME pelo nome do cluster HDInsight HBase e por USERNAME e PASSWORD pelas credenciais do Apache Hadoop especificadas na criação do cluster. O nome de usuário Hadoop padrão é **admin**.
 
 ## <a name="create-a-new-table"></a>Criar uma nova tabela
 
-O HBase armazena dados em tabelas. Uma tabela consiste em uma *Rowkey* , a chave primária e um ou mais grupos de colunas chamado *famílias de coluna* . Os dados em cada tabela horizontalmente são distribuídos por um intervalo de Rowkey em *regiões* . Cada região tem uma chave de início e término. Uma tabela pode ter uma ou mais regiões. À medida que os dados na tabela aumentam, o HBase divide regiões grandes em regiões menores. Regiões são armazenadas em *servidores de região* , em que um servidor de região pode armazenar várias regiões.
+O HBase armazena dados em tabelas. Uma tabela consiste em uma *Rowkey*, a chave primária e um ou mais grupos de colunas chamado *famílias de coluna*. Os dados em cada tabela horizontalmente são distribuídos por um intervalo de Rowkey em *regiões*. Cada região tem uma chave de início e término. Uma tabela pode ter uma ou mais regiões. À medida que os dados na tabela aumentam, o HBase divide regiões grandes em regiões menores. Regiões são armazenadas em *servidores de região*, em que um servidor de região pode armazenar várias regiões.
 
-Os dados são armazenados fisicamente no *HFiles* . Um único HFile contém dados para uma tabela, uma região e uma família de coluna. As linhas no HFile são armazenadas classificadas pelo Rowkey. Cada HFile tem um índice *Árvore B+* para a recuperação rápida das linhas.
+Os dados são armazenados fisicamente no *HFiles*. Um único HFile contém dados para uma tabela, uma região e uma família de coluna. As linhas no HFile são armazenadas classificadas pelo Rowkey. Cada HFile tem um índice *Árvore B+* para a recuperação rápida das linhas.
 
 Para criar uma nova tabela, especifique um `TableSchema` e colunas. O código a seguir verifica se a tabela 'RestSDKTable' já existe - caso contrário, a tabela é criada.
 

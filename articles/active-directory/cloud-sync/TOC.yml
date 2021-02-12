@@ -1,0 +1,88 @@
+- name: Sincronização de nuvem
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: O que é provisionamento de identidade?
+      href: what-is-provisioning.md
+    - name: O que é a sincronização de nuvem do Azure AD Connect?
+      href: what-is-cloud-sync.md
+      maintainContext: true
+- name: Tutoriais
+  expanded: true
+  items:
+    - name: Integrar uma única floresta do AD com um único locatário do Azure AD
+      href: tutorial-single-forest.md
+    - name: Integrar uma floresta existente e uma nova com um único locatário do Azure AD
+      href: tutorial-existing-forest.md
+    - name: Sincronização de nuvem piloto para uma floresta do AD sincronizada existente
+      href: tutorial-pilot-aadc-aadccp.md
+- name: Conceitos
+  items:
+    - name: Como ele funciona
+      href: concept-how-it-works.md
+    - name: O que é sincronização de hash de senha?
+      href: ../hybrid/whatis-phs.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcloud-provisioning-context
+    - name: 'Noções básicas sobre o esquema, atributos e expressões do Azure AD'
+      href: concept-attributes.md
+    - name: Escrevendo expressões para mapeamentos de atributo no Active Directory do Azure
+      href: reference-expressions.md
+- name: Guias de instruções
+  items:
+    - name: Instalação e atualização
+      items:
+        - name: Pré-requisitos da instalação
+          href: how-to-prerequisites.md
+        - name: Instalar o agente de provisionamento em nuvem do Azure AD Connect
+          href: how-to-install.md
+        - name: Configuração de sincronização de nuvem
+          href: how-to-configure.md
+        - name: Provisionamento sob demanda
+          href: how-to-on-demand-provision.md
+        - name: Mapeamento de atributos
+          href: how-to-attribute-mapping.md
+        - name: Usar logon único
+          href: how-to-sso.md
+    - name: Plano e design
+      items:
+        - name: Topologias e cenários para a sincronização de nuvem do Azure AD Connect
+          href: plan-cloud-sync-topologies.md
+    - name: Gerenciar
+      items:
+        - name: Atualização automática do agente
+          href: how-to-automatic-upgrade.md
+        - name: Exclusões acidentais
+          href: how-to-accidental-deletes.md
+        - name: Opções de registro do agente
+          href: how-to-manage-registry-options.md
+        - name: cmdlets do PowerShell da gMSA de agente
+          href: how-to-gmsa-cmdlets.md
+        - name: Instalar o agente de provisionamento usando o PowerShell
+          href: how-to-install-pshell.md
+    - name: Desenvolver
+      items:
+        - name: Transformações
+          href: how-to-transformation.md
+        - name: Configurar programaticamente a sincronização de nuvem usando a API do MS Graph
+          href: how-to-inbound-synch-ms-graph.md
+        - name: API de sincronização do Azure AD
+          href: /graph/api/resources/synchronization-overview
+    - name: Solucionar problemas
+      items:
+        - name: Solucionar problemas de sincronização de nuvem
+          href: how-to-troubleshoot.md
+        - name: Atributos duplicados
+          href: ../hybrid/how-to-connect-syncservice-duplicate-attribute-resiliency.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
+- name: Referência
+  items:
+    - name: Histórico de versões do agente de provisionamento em nuvem do Azure AD Connect
+      href: reference-version-history.md
+    - name: Perguntas frequentes sobre a sincronização de nuvem do Azure AD Connect
+      href: reference-cloud-sync-faq.md
+    - name: Módulo AADCloudSyncTools do PowerShell
+      href: reference-powershell.md
+    - name: Atributos sincronizados
+      href: ../hybrid/reference-connect-sync-attributes-synchronized.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
+    - name: Códigos de erro e descrições
+      href: reference-error-codes.md
+    - name: Ambiente básico do Azure Active Directory e do Azure AD
+      href: tutorial-basic-ad-azure.md

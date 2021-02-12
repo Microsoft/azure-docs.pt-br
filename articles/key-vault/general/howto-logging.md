@@ -9,14 +9,14 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8a975673bec3b3579eaa699f873fe8c4b1481d38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e1ce841f6da8f15bd977437bca6b835a7b0d745
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744729"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108731"
 ---
-# <a name="how-to-enable-key-vault-logging"></a>Como habilitar o log de Key Vault
+# <a name="how-to-enable-key-vault-logging"></a>Como habilitar o registro em log do Key Vault
 
 Depois de criar um ou mais cofres de chaves, provavelmente você desejará monitorar como e quando os cofres de chaves serão acessados e por quem. Para obter detalhes completos sobre o recurso, consulte [log de Key Vault](logging.md).
 
@@ -25,20 +25,10 @@ Depois de criar um ou mais cofres de chaves, provavelmente você desejará monit
 Para concluir este tutorial, é necessário ter o seguinte:
 
 * Um cofre da chave existente que você esteja usando.  
-* A CLI do Azure ou o Azure PowerShell.
+* Ambiente de [Azure cloud Shell](https://shell.azure.com) bash
 * Armazenamento suficiente no Azure para seus logs do Cofre da Chave.
 
-Se você optar por instalar e usar a CLI localmente, precisará do CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Para entrar no Azure usando a CLI, você pode digitar:
-
-```azurecli-interactive
-az login
-```
-
-Se você optar por instalar e usar o PowerShell localmente, precisará do módulo Azure PowerShell versão 1.0.0 ou posterior. Digite `$PSVersionTable.PSVersion` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
-
-```powershell-interactive
-Connect-AzAccount
-```
+Este guia comandos são formatados para [Cloud Shell](https://shell.azure.com) com bash como um ambiente.
 
 ## <a name="connect-to-your-key-vault-subscription"></a>Conectar-se à sua assinatura do Key Vault
 
@@ -64,7 +54,7 @@ Set-AzContext -SubscriptionId "<subscriptionID>"
 
 Embora você possa usar uma conta de armazenamento existente para seus logs, criaremos uma nova conta de armazenamento dedicada a logs de Key Vault. 
 
-Para facilidade de gerenciamento, também usaremos o mesmo grupo de recursos que contém o cofre de chaves. No guia de início rápido e de [Azure PowerShell](quick-create-powershell.md) [CLI do Azure](quick-create-cli.md) , esse grupo de recursos é denominado **MyResource**Group e o local é *lesteus*. Substitua esses valores pelos seus próprios, conforme aplicável. 
+Para facilidade de gerenciamento, também usaremos o mesmo grupo de recursos que contém o cofre de chaves. No guia de início rápido e de [Azure PowerShell](quick-create-powershell.md) [CLI do Azure](quick-create-cli.md) , esse grupo de recursos é denominado **MyResource** Group e o local é *lesteus*. Substitua esses valores pelos seus próprios, conforme aplicável. 
 
 Também precisaremos fornecer um nome de conta de armazenamento. Os nomes de conta de armazenamento devem ser exclusivos, entre 3 e 24 caracteres de comprimento e usar apenas números e letras minúsculas.  Por fim, criaremos uma conta de armazenamento do SKU "Standard_LRS".
 
@@ -147,7 +137,7 @@ O que é registrado em log:
   * A criação, modificação ou exclusão dessas chaves ou segredos.
   * A assinatura, verificação, criptografia, descriptografia, encapsulamento e desencapsulamento de chaves, obtenção de segredos e listagem de chaves e segredos (e suas versões).
 * Solicitações não autenticadas que resultam em uma resposta 401. Por exemplo, solicitações que não têm um token de portador estão malformadas ou expiradas ou têm um token inválido.  
-* Os eventos de notificação da Grade de Eventos sobre vencimento próximo, item vencido e política de acesso ao cofre foram alterados (o evento da nova versão não é registrado). Os eventos são registrados independentemente da presença de uma assinatura de evento criada no cofre de chaves. Para obter mais informações, confira [Esquema de evento da Grade de Eventos do Key Vault](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault)
+* Os eventos de notificação da Grade de Eventos sobre vencimento próximo, item vencido e política de acesso ao cofre foram alterados (o evento da nova versão não é registrado). Os eventos são registrados independentemente da presença de uma assinatura de evento criada no cofre de chaves. Para obter mais informações, confira [Esquema de evento da Grade de Eventos do Key Vault](../../event-grid/event-schema-key-vault.md)
 
 ## <a name="access-your-logs"></a>Acessar seus logs
 
@@ -162,7 +152,7 @@ az storage blob list --account-name "<your-unique-storage-account-name>" --conta
 Com Azure PowerShell, use a lista [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob?view=azps-4.7.0) todos os BLOBs neste contêiner, digite:
 
 ```powershell
-Get-AzStorageBlob -Container $container -Context $sa.Context
+Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context
 ```
 
 Como você verá na saída do comando CLI do Azure ou do cmdlet Azure PowerShell, o nome dos BLOBs está no formato `resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json` . Os valores de data e hora usam UTC.
@@ -178,7 +168,7 @@ az storage blob download --container-name "insights-logs-auditevent" --file <pat
 Com Azure PowerShell, use o cmdlet [gt-AzStorageBlobs](/powershell/module/az.storage/get-azstorageblob?view=azps-4.7.0) para obter uma lista dos BLOBs e, em seguida, redirecione-o para o cmdlet [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent?view=azps-4.7.0) para baixar os logs para o caminho escolhido.
 
 ```powershell-interactive
-$blobs = Get-AzStorageBlob -Container $container -Context $sa.Context | Get-AzStorageBlobContent -Destination "<path-to-file>"
+$blobs = Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context | Get-AzStorageBlobContent -Destination "<path-to-file>"
 ```
 
 Quando você executa esse segundo cmdlet no PowerShell, o **/** delimitador nos nomes de blob cria uma estrutura de pasta completa na pasta de destino. Você usará essa estrutura para baixar e armazenar os blobs como arquivos.
@@ -188,19 +178,19 @@ Use caracteres curinga para baixar seletivamente os blobs. Por exemplo:
 * Se você tiver vários cofres da chave e quiser baixar logs de apenas um cofre da chave, chamado CONTOSOKEYVAULT3:
 
   ```powershell
-  Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
+  Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
   ```
 
 * Se você tiver vários grupos de recursos e quiser baixar os logs para apenas um grupo de recursos, use `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
   ```powershell
-  Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
+  Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
   ```
 
 * Se você quiser baixar todos os logs do mês de janeiro de 2019, use `-Blob '*/year=2019/m=01/*'`:
 
   ```powershell
-  Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
+  Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context -Blob '*/year=2016/m=01/*'
   ```
 
 Agora você está pronto para começar a examinar o conteúdo dos logs. Mas, antes de passarmos para isso, você precisa conhecer mais dois comandos:

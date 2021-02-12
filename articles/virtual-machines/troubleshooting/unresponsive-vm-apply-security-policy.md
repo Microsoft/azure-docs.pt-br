@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 06/15/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 6b50bffd1a44c0cf53f15650f5ff4d938f45df4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 047c8afbfe7b489e5c3ac0ccb677f6fc021443a8
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84907881"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632632"
 ---
 # <a name="azure-vm-is-unresponsive-while-applying-security-policy-to-the-system"></a>A VM do Azure não está respondendo ao aplicar a política de segurança ao sistema
 
@@ -33,7 +33,7 @@ Quando você usar o [diagnóstico de inicialização](boot-diagnostics.md) para 
 
 :::image type="content" source="media/unresponsive-vm-apply-security-policy/apply-policy.png" alt-text="Captura de tela de inicialização do Windows Server 2012 R2 travada.":::
 
-:::image type="content" source="media/unresponsive-vm-apply-security-policy/apply-policy-2.png" alt-text="Captura de tela de inicialização do Windows Server 2012 R2 travada.":::
+:::image type="content" source="media/unresponsive-vm-apply-security-policy/apply-policy-2.png" alt-text="Captura de tela de inicialização do sistema operacional travada.":::
 
 ## <a name="cause"></a>Causa
 
@@ -42,6 +42,9 @@ Há uma infinidade de possíveis causas desse problema. Você não poderá saber
 ## <a name="resolution"></a>Resolução
 
 ### <a name="process-overview"></a>Visão geral do processo
+
+> [!TIP]
+> Se você tiver um backup recente da VM, poderá tentar [restaurar a VM do backup](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema de inicialização.
 
 1. [Criar e acessar uma VM de reparo](#create-and-access-a-repair-vm)
 2. [Habilitar o console serial e a coleção de despejo de memória](#enable-serial-console-and-memory-dump-collection)
@@ -68,7 +71,54 @@ Para habilitar a coleta de despejo de memória e o console serial, execute este 
 
         No comando, substitua \<BOOT PARTITON> pela letra da partição no disco anexado que contém a pasta de inicialização.
 
-        :::image type="content" source="media/unresponsive-vm-apply-security-policy/store-data.png" alt-text="Captura de tela de inicialização do Windows Server 2012 R2 travada." /v NMICrashDump /t REG_DWORD /d 1 /f
+        :::image type="content" source="media/unresponsive-vm-apply-security-policy/store-data.png" alt-text="O diagrama mostra a saída de listagem do repositório BCD em uma VM de geração 1, que lista no carregador de inicialização do Windows o número do identificador.":::
+
+     2. Para uma VM de geração 2, insira o seguinte comando e observe o identificador listado:
+
+        ```console
+        bcdedit /store <LETTER OF THE EFI SYSTEM PARTITION>:EFI\Microsoft\boot\bcd /enum
+        ```
+
+        - No comando, substitua \<LETTER OF THE EFI SYSTEM PARTITION> pela letra da partição do sistema EFI.
+        - Pode ser útil iniciar o console de gerenciamento de disco para identificar a partição de sistema apropriada rotulada como "partição do sistema EFI".
+        - O identificador pode ser um GUID exclusivo ou pode ser o "Bootmgr" padrão.
+3. Execute os seguintes comandos para habilitar o console serial:
+
+    ```console
+    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON
+    ```
+
+    ```console
+    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
+    ```
+
+    - No comando, substitua \<VOLUME LETTER WHERE THE BCD FOLDER IS> pela letra da pasta BCD.
+    - No comando, substitua \<BOOT LOADER IDENTIFIER> pelo identificador encontrado na etapa anterior.
+4. Verifique se o espaço livre no disco do sistema operacional é maior que o tamanho da memória (RAM) na VM.
+
+    1. Se não houver espaço suficiente no disco do sistema operacional, você deverá alterar o local em que o arquivo de despejo de memória será criado. Em vez de criar o arquivo no disco do sistema operacional, você pode consultá-lo para qualquer outro disco de dados anexado à VM que tenha espaço livre suficiente. Para alterar o local, substitua "% SystemRoot%" pela letra da unidade (por exemplo, "F:") do disco de dados nos comandos listados abaixo.
+    2. Insira os comandos abaixo (configuração de despejo sugerida):
+
+        Carregar disco danificado do sistema operacional:
+
+        ```console
+        REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM
+        ```
+
+        Habilitar em ControlSet001:
+
+        ```console
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
+        ```
+
+        Habilitar em ControlSet002:
+
+        ```console
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
         ```
 
         Descarregar disco do sistema operacional danificado:

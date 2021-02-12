@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 04ce45f428604275696d83938708bcee0c6c023f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b2925a532d722598ccf16c001c9e2591aed1f2b
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536759"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584983"
 ---
 # <a name="apply-math-operation"></a>Aplicar operação matemática
 
@@ -239,7 +239,7 @@ Retorna True se os valores em **Coluna definida** não forem iguais à constante
 
 ### <a name="pairmax"></a>PairMax
 
-Retorna o valor maior; o valor na **Coluna definida**ou o valor na coluna constante ou comparação.  
+Retorna o valor maior; o valor na **Coluna definida** ou o valor na coluna constante ou comparação.  
 
 ### <a name="pairmin"></a>PairMin
 
@@ -249,22 +249,25 @@ Retorna o valor menor — o valor em **coluna definida** ou o valor na coluna co
 
 Inclui as operações aritméticas básicas: adição e subtração, divisão e multiplicação.  Como a maioria das operações é binária, exigindo dois números, você primeiro escolhe a operação e, em seguida, escolhe a coluna ou os números a serem usados no primeiro e segundo argumentos.
 
-A ordem na qual você escolhe as colunas para divisão e subtração pode parecer muito intuitiva; no entanto, para facilitar a compreensão dos resultados, o título da coluna fornece o nome da operação e a ordem na qual as colunas foram usadas.
+A ordem de divisão e subtração são as seguintes: 
+- Subtrair (Arg1_Arg2) = arg1-ARG 2
+- Dividir (Arg1_Arg2) = arg1/ARG 2
 
+A tabela a seguir mostra alguns exemplos
 Operação|Núm1|Núm2|Coluna de resultado|Valor do resultado|
 ----|----|----|----|----
-|Adição|1|5|Adicionar (Num2_Num1)| 4|
+|Adição|1|5|Adicionar (Num2_Num1)| 6|
 |Multiplicação|1|5|Vários (Num2_Num1)|5|
-|Subtração|1|5|Subtrair (Num2_Num1)|4|
-|Subtração|0|1|Subtrair (Num2_Num1)|0|
-|Divisão|1|5|Dividir (Num2_Num1)|5|
-|Divisão|0|1|Dividir (Num2_Num1)|Infinito|
+|Subtração|5|1|Subtrair (Num2_Num1)|4|
+|Subtração|0|1|Subtrair (Num2_Num1)|-1|
+|Divisão|5|1|Dividir (Num2_Num1)|5|
+|Divisão|1|0|Dividir (Num2_Num1)|Infinito|
 
 ### <a name="add"></a>Adicionar
 
-Especifique as colunas de origem usando o **conjunto de colunas**e, em seguida, adicione a esses valores um número especificado no **segundo argumento**.  
+Especifique as colunas de origem usando o **conjunto de colunas** e, em seguida, adicione a esses valores um número especificado no **segundo argumento**.  
 
-Para adicionar os valores em duas colunas, escolha uma coluna ou colunas usando o **conjunto de colunas**e escolha uma segunda coluna usando o **segundo argumento**.  
+Para adicionar os valores em duas colunas, escolha uma coluna ou colunas usando o **conjunto de colunas** e escolha uma segunda coluna usando o **segundo argumento**.  
 
 ### <a name="divide"></a>Dividir
 
@@ -284,7 +287,7 @@ O designer de Azure Machine Learning dá suporte a uma variedade de operações 
 
 - Se você usar uma constante, defina **tipo de precisão** como **constante** e digite o número de dígitos como um número inteiro na caixa de texto **precisão constante** . Se você digitar um não inteiro, o módulo não gerará um erro, mas os resultados poderão ser inesperados.  
 
-- Para usar um valor de precisão diferente para cada linha em seu conjunto de linhas, defina **tipo de precisão** como **ColumnSet**e escolha a coluna que contém os valores de precisão apropriados.  
+- Para usar um valor de precisão diferente para cada linha em seu conjunto de linhas, defina **tipo de precisão** como **ColumnSet** e escolha a coluna que contém os valores de precisão apropriados.  
 
 ### <a name="ceiling"></a>Ceiling
 

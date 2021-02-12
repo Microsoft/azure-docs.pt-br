@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: dec354767875d91c6062cdfbb0009e857dbe2636
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: faf06775b78c5a7c90cea000ac0a1eb768107ef4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056544"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956833"
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>Atualizar seu dispositivo do StorSimple série 8000
 > [!NOTE]
-> O portal clássico para StorSimple foi preterido. Os Gerenciadores de Dispositivos do StorSimple migrarão automaticamente para o novo portal do Azure, seguindo o agendamento definido para preteri-los. Você receberá um email e uma notificação do portal para essa mudança. Este documento também será desativado em breve. Para dúvidas sobre a migração, consulte [Perguntas Frequentes: Migração para o portal do Azure](storsimple-8000-move-azure-portal-faq.md).
+> O portal clássico para StorSimple foi preterido. Os Gerenciadores de Dispositivos do StorSimple migrarão automaticamente para o novo portal do Azure, seguindo o agendamento definido para preteri-los. Você receberá um email e uma notificação do portal para essa mudança. Este documento também será desativado em breve. Para dúvidas sobre a migração, consulte [Perguntas Frequentes: Migração para o portal do Azure](./index.yml).
 
 ## <a name="overview"></a>Visão geral
 Os recursos de atualização do StorSimple permitem que você mantenha seu dispositivo StorSimple atualizado com facilidade. Dependendo do tipo de atualização, você poderá aplicar as atualizações ao dispositivo por meio do Portal Clássico do Azure ou por meio da interface do Windows PowerShell. Este tutorial descreve os tipos de atualização e como instalar cada um deles.
@@ -120,6 +120,5 @@ Os procedimentos a seguir explicam como usar o Windows PowerShell para StorSimpl
 Se um dispositivo for redefinido para as configurações de fábrica, então todas as atualizações serão perdidas. Depois que o dispositivo com a redefinição de fábrica for registrado e configurado, você precisará instalar manualmente as atualizações por meio do Portal clássico do Azure e/ou do Windows PowerShell para StorSimple. Para saber mais sobre as redefinições de fábrica, consulte [Redefinir o dispositivo para as configurações padrão de fábrica](storsimple-8000-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre [como usar o Windows PowerShell para StorSimple a fim de administrar seu dispositivo StorSimple](storsimple-windows-powershell-administration.md).
-* Saiba mais sobre como [usar o serviço do StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
-
+* Saiba mais sobre [como usar o Windows PowerShell para StorSimple a fim de administrar seu dispositivo StorSimple](./storsimple-8000-windows-powershell-administration.md).
+* Saiba mais sobre como [usar o serviço do StorSimple Manager para administrar seu dispositivo StorSimple](./storsimple-8000-manager-service-administration.md).

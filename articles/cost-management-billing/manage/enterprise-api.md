@@ -8,19 +8,19 @@ ms.subservice: enterprise
 ms.topic: reference
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: b78b046e2991fa4ebfb575e4f6a1cc900df0d298
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a1c420eed89b7b45ea6c50345737b8615f39ad8c
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686897"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602075"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Visão geral das APIs de Relatórios para clientes Enterprise
 
 > [!Note]
 > A Microsoft não atualiza mais as APIs de Relatórios Empresariais da Cobrança do Azure. Em vez disso, você deve usar APIs de [Consumo do Azure](/rest/api/consumption).
 
-As APIs de Relatórios permitem que clientes Enterprise do Azure efetuem pull de modo programático dos dados de consumo e cobrança nas ferramentas preferidas de análise de dados. Os clientes Enterprise assinaram um [EA (Enterprise Agreement)](https://azure.microsoft.com/pricing/enterprise-agreement/) com o Azure para fazer compromissos financeiros negociados e obter acesso a preços personalizados para recursos do Azure.
+As APIs de Relatórios permitem que clientes Enterprise do Azure efetuem pull de modo programático dos dados de consumo e cobrança nas ferramentas preferidas de análise de dados. Os clientes Enterprise assinaram um [EA (Contrato Enterprise)](https://azure.microsoft.com/pricing/enterprise-agreement/) com o Azure para fazer o Pagamento antecipado do Azure (anteriormente conhecido como compromisso monetário) negociado e obter acesso a preços personalizados para recursos do Azure.
 
 Todos os parâmetros de data e hora necessários para as APIs devem ser representados como valores combinados de UTC (Tempo Universal Coordenado). Os valores retornados por APIs são mostrados em formato UTC.
 

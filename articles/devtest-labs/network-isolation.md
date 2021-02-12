@@ -3,12 +3,12 @@ title: Isolamento de rede no Azure DevTest Labs
 description: Saiba mais sobre o isolamento de rede no Azure DevTest Labs.
 ms.topic: article
 ms.date: 08/25/2020
-ms.openlocfilehash: aafa6bf94c7963d69bfb67a28a520b811c4fbacf
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 28bfa048a8a6666deb58a8ecfff38779c91d95b8
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149163"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352925"
 ---
 # <a name="network-isolation-in-devtest-labs"></a>Isolamento de rede no DevTest Labs
 
@@ -38,7 +38,7 @@ Examine também os seguintes artigos:
 1. Se você optar por isolar os recursos de laboratório (conta de armazenamento de laboratório e cofre de chaves) para a rede padrão, nenhuma ação adicional será necessária e o laboratório tratará do isolamento de recursos no futuro.
  
     > [!div class="mx-imgBorder"]
-    > ![Isolamento de rede](./media/network-isolation/isolate-lab-resources.png)
+    > ![Isolamento da rede](./media/network-isolation/isolate-lab-resources.png)
 1. Se você optar por isolar os recursos do laboratório (conta de armazenamento do laboratório e cofre de chaves) em uma rede existente selecionada, será necessário concluir as etapas a seguir após a criação do laboratório para garantir que o laboratório continue a funcionar no modo isolado. 
  
     > [!div class="mx-imgBorder"]
@@ -74,7 +74,7 @@ Com isso, o armazenamento do Azure permitirá conexões de entrada da rede virtu
 
 Você também pode optar por automatizar essas etapas para definir essa configuração para vários laboratórios. 
 
-[Saiba mais sobre como gerenciar regras de acesso de rede padrão para o armazenamento do Azure usando o PowerShell e a CLI](../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#powershell)
+[Saiba mais sobre como gerenciar regras de acesso de rede padrão para o armazenamento do Azure usando o PowerShell e a CLI](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#powershell)
 
 ## <a name="things-to-remember-while-using-a-lab-in-a-network-isolated-mode"></a>Coisas a serem lembradas ao usar um laboratório em um modo isolado de rede
 

@@ -3,15 +3,15 @@ title: Usar referências de Key Vault
 description: Saiba como configurar Azure App serviço e Azure Functions para usar referências Azure Key Vault. Torne os segredos do Key Vault disponíveis para o código do aplicativo.
 author: mattchenderson
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 02/05/2021
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: bb220da0b906c9d7a5f45dcc841129e14c7c6c51
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: b55aeb68d5fa740d34c8823f555f804be54895a7
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205839"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988773"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Usar referências de Key Vault para o serviço de aplicativo e Azure Functions
 
@@ -40,24 +40,24 @@ Uma referência do Key Vault é da forma `@Microsoft.KeyVault({referenceString})
 > [!div class="mx-tdBreakAll"]
 > | Cadeia de caracteres de referência                                                            | Descrição                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | SecretUri = _secretUri_                                                       | O **SegredoUri** deve ser o URI do plano de dados completo de um segredo no Key Vault, incluindo uma versão, por exemplo, https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
-> | VaultName = _vaultName_; SecretName = _secretName_; SecretVersion = _secretVersion_ | O **VaultName** deve ser o nome do seu recurso Key Vault. O **SecretName** deve ser o nome do segredo de destino. O **SecretVersion** deve ser a versão do segredo a ser usado. |
+> | SecretUri = _secretUri_                                                       | O **SecretUri** deve ser o URI completo do plano de dados de um segredo em Key Vault, opcionalmente incluindo uma versão, por exemplo, `https://myvault.vault.azure.net/secrets/mysecret/` ou `https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931`  |
+> | VaultName = _vaultName_; SecretName = _secretName_; SecretVersion = _secretVersion_ | O **vaultname** é necessário e deve ter o nome do Key Vault recurso. O **secretname** é necessário e deve ser o nome do segredo de destino. O **SecretVersion** é opcional, mas, se presente, indica a versão do segredo a ser usado. |
 
-> [!NOTE] 
-> Atualmente, as versões são necessárias. Ao girar segredos, você precisará atualizar a versão na configuração do seu aplicativo.
 Por exemplo, uma referência completa seria semelhante ao seguinte:
 
-
 ```
-@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931)
+@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret)
 ```
 
 Como alternativa:
 
 ```
-@Microsoft.KeyVault(VaultName=myvault;SecretName=mysecret;SecretVersion=ec96f02080254f109c51a1f14cdb1931)
+@Microsoft.KeyVault(VaultName=myvault;SecretName=mysecret)
 ```
 
+## <a name="rotation"></a>Rotação
+
+Se uma versão não for especificada na referência, o aplicativo usará a versão mais recente que existe em Key Vault. Quando versões mais recentes estiverem disponíveis, como com um evento de rotação, o aplicativo será atualizado automaticamente e começará a usar a versão mais recente em um dia. As alterações de configuração feitas no aplicativo causarão uma atualização imediata para as versões mais recentes de todos os segredos referenciados.
 
 ## <a name="source-application-settings-from-key-vault"></a>Configurações de aplicativos de origem do cofre de chaves
 

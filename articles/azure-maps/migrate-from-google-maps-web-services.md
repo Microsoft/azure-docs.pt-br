@@ -9,19 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: f97d04ca40e69ba2516744adfc9f1f455cba97c0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 3bb0aadf81ba501070ce0c734847bb16c0378896
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896337"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624031"
 ---
-# <a name="tutorial---migrate-web-service-from-google-maps"></a>Tutorial – Migrar serviço Web do Google Maps
+# <a name="tutorial-migrate-web-service-from-google-maps"></a>Tutorial: Migrar serviço Web do Google Maps
 
 O Azure Mapas e o Google Maps dão acesso a APIs espaciais por meio de serviços Web REST. As interfaces de API dessas plataformas executam funcionalidades semelhantes. No entanto, cada uma delas usa convenções de nomenclatura e objetos de resposta diferentes.
 
 Neste tutorial, você aprenderá a:
 
+> [!div class="checklist"]
 > * Geocódigo direto e reverso
 > * Pesquisar pontos de interesse
 > * Calcular rotas e instruções
@@ -29,7 +30,7 @@ Neste tutorial, você aprenderá a:
 > * Calcular uma matriz de distância
 > * Obter detalhes do fuso horário
 
-Você também aprenderá: 
+Você também aprenderá:
 
 > [!div class="checklist"]
 > * Qual serviço REST do Azure Mapas usar ao migrar de um Serviço Web do Google Maps
@@ -40,24 +41,23 @@ A tabela mostra as APIs de serviço dos Azure Mapas, que têm uma funcionalidade
 
 | API de serviço do Google Maps | API de serviço do Azure Mapas                                                                      |
 |-------------------------|---------------------------------------------------------------------------------------------|
-| Instruções              | [Route](/rest/api/maps/route)                                     |
-| Matriz de Distância         | [Matrix de Rota](/rest/api/maps/route/postroutematrixpreview)       |
-| Geocodificação               | [Pesquisar](/rest/api/maps/search)                                   |
-| Pesquisa de locais           | [Pesquisar](/rest/api/maps/search)                                   |
-| Preenchimento automático de locais      | [Pesquisar](/rest/api/maps/search)                                   |
-| Ajustar à estrada            | Confira a seção [Calcular rotas e instruções](#calculate-routes-and-directions).            |
-| Limites de Velocidade            | Confira a seção [Geocodificação inversa de uma coordenada](#reverse-geocode-a-coordinate).                  |
-| Mapa estático              | [Render](/rest/api/maps/render/getmapimage)                       |
-| Fuso horário               | [Fuso horário](/rest/api/maps/timezone)                              |
+| Instruções              | [Route](/rest/api/maps/route)                                     |                         
+| Matriz de Distância         | [Matrix de Rota](/rest/api/maps/route/postroutematrixpreview)       |                         
+| Geocodificação               | [Pesquisar](/rest/api/maps/search)                                   |                         
+| Pesquisa de locais           | [Pesquisar](/rest/api/maps/search)                                   |                         
+| Preenchimento automático de locais      | [Pesquisar](/rest/api/maps/search)                                   |                         
+| Ajustar à estrada            | Confira a seção [Calcular rotas e instruções](#calculate-routes-and-directions).            
+| Limites de Velocidade            | Confira a seção [Geocodificação inversa de uma coordenada](#reverse-geocode-a-coordinate).                  
+| Mapa estático              | [Render](/rest/api/maps/render/getmapimage)                       |                         
+| Fuso horário               | [Fuso horário](/rest/api/maps/timezone)                              |                         
+| Elevação               | [Elevação (versão prévia)](/rest/api/maps/elevation)                   |                         |
 
 As seguintes APIs de serviço não estão atualmente disponíveis nos Azure Mapas:
 
-- Elevação
 - Geolocalização
 - Detalhes e fotos de locais – Números de telefone e a URL de site estão disponíveis na API de pesquisa dos Azure Mapas.
 - URLs de mapa
-- Estradas mais próximas – isso pode ser feito usando o SDK da Web, conforme mostrado [aqui](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Basic%20snap%20to%20road%20logic
-), mas não está disponível como um serviço no momento.
+- Estradas mais próximas – isso pode ser feito usando o SDK da Web, conforme mostrado [aqui](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Basic%20snap%20to%20road%20logic), mas não está disponível como um serviço no momento.
 - Exibição estática de rua
 
 O Azure Mapas tem vários serviços Web REST adicionais que podem ser interessantes:
@@ -65,7 +65,7 @@ O Azure Mapas tem vários serviços Web REST adicionais que podem ser interessan
 - [Operações Espaciais](/rest/api/maps/spatial): Descarregue operações e cálculos espaciais complexos, como cerca geográfica, para um serviço.
 - [Tráfego](/rest/api/maps/traffic): Acesse o fluxo de tráfego e os dados de incidentes em tempo real.
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Pré-requisitos
 
 1. Entre no [portal do Azure](https://portal.azure.com). Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 2. [Faça uma conta do Azure Mapas](quick-demo-map-app.md#create-an-azure-maps-account)
@@ -123,17 +123,17 @@ Examine [Melhores práticas de pesquisa](how-to-use-best-practices-for-search.md
 
 A API de geocódigo inverso dos Azure Mapas tem alguns recursos adicionais, que não estão disponíveis no Google Maps. Esses recursos podem ser úteis para integração ao seu aplicativo, durante a migração dele:
 
-- Recuperar dados de limite de velocidade
-- Recuperar informações de uso da estrada: estrada local, via arterial, acesso limitado, rampa etc.
-- Recuperar o lado da rua na qual uma coordenada está localizada
+* Recuperar dados de limite de velocidade
+* Recuperar informações de uso da estrada: estrada local, via arterial, acesso limitado, rampa etc.
+* Recuperar o lado da rua na qual uma coordenada está localizada
 
 ## <a name="search-for-points-of-interest"></a>Pesquisar pontos de interesse
 
 Os dados do ponto de interesse podem ser pesquisados no Google Maps usando a API de Pesquisa de Locais. Essa API fornece três maneiras diferentes de pesquisar pontos de interesse:
 
-- **Localizar local do texto:** Pesquisa um ponto de interesse com base em seu nome, endereço ou número de telefone.
-- **Pesquisa de Proximidade** : Pesquisa pontos de interesse dentro de uma determinada distância de uma localização.
-- **Pesquisa de Texto:** pesquisa locais usando um texto de forma livre, que inclui informações de ponto de interesse e localização. Por exemplo, "pizza em Nova York" ou "restaurantes perto da main st".
+* **Localizar local do texto:** Pesquisa um ponto de interesse com base em seu nome, endereço ou número de telefone.
+* **Pesquisa de Proximidade**: Pesquisa pontos de interesse dentro de uma determinada distância de uma localização.
+* **Pesquisa de Texto:** pesquisa locais usando um texto de forma livre, que inclui informações de ponto de interesse e localização. Por exemplo, "pizza em Nova York" ou "restaurantes perto da main st".
 
 O Azure Mapas fornece várias APIs de pesquisa para pontos de interesse:
 
@@ -192,9 +192,9 @@ A tabela mostra os parâmetros da API do Google Maps com os parâmetros compará
 
 Calcule as rotas e o trajeto usando os Azure Mapas. O Azure Mapas tem muitas das mesmas funcionalidades que o serviço de roteiros do Google Maps, como:
 
-- Horas de chegada e partida.
-- Rotas de tráfego preditivas e baseadas em tempo real.
-- Meios de transporte diferentes. Como automóvel, a pé e bicicleta.
+* Horas de chegada e partida.
+* Rotas de tráfego preditivas e baseadas em tempo real.
+* Meios de transporte diferentes. Como automóvel, a pé e bicicleta.
 
 > [!NOTE]
 > O Azure Mapas exige que todos os marcos sejam coordenadas. Os endereços precisam ser geocodificados primeiro.
@@ -203,7 +203,7 @@ O serviço de roteiros do Azure Mapas fornece as seguintes APIs para calcular ro
 
 - [**Calcular rota**](/rest/api/maps/route/getroutedirections): Calcule uma rota e tenha a solicitação seja processada imediatamente. Essa API é compatível com solicitações GET e POST. Solicitações POST são recomendadas ao especificar um grande número de marcos ou ao usar muitas das opções de rota para garantir que a solicitação de URL não se torne longa demais e cause problemas. A Direção da Rota POST nos Azure Mapas tem uma opção que pode admitir milhares de [pontos de suporte](/rest/api/maps/route/postroutedirections#supportingpoints) e os usará para recriar um caminho de rota lógico entre eles (ajustar à estrada). 
 - [**Rota de lote**](/rest/api/maps/route/postroutedirectionsbatchpreview): Crie uma solicitação contendo até 1.000 solicitação de rota e faça com que elas sejam processadas durante um período de tempo. Todos os dados serão processados em paralelo no servidor e, quando concluído, o conjunto de resultados completo poderá ser baixado.
-- [**Serviços de mobilidade**](/rest/api/maps/mobility): Calcule rotas e instruções usando o trânsito público.
+- [**Serviços Mobilidade (versão prévia) **](/rest/api/maps/mobility): Calcule rotas e instruções usando o trânsito público.
 
 A tabela faz uma referência cruzada dos parâmetros da API do Google Maps com os parâmetros comparáveis da API dos Azure Mapas.
 
@@ -219,10 +219,10 @@ A tabela faz uma referência cruzada dos parâmetros da API do Google Maps com o
 | `mode`                         | `travelMode`                       |
 | `optimize`                     | `computeBestOrder`                 |
 | `origin`                       | `query`                            |
-| `region`                       | *N/A* : este recurso está relacionado ao geocódigo. Use o parâmetro *countrySet* ao usar a API de geocódigo do Azure Mapas.  |
-| `traffic_model`               | *N/A* – só é possível especificar se os dados de tráfego devem ser usados com o parâmetro *traffic* . |
-| `transit_mode`                | Confira a [documentação de serviços de mobilidade](/rest/api/maps/mobility) |
-| `transit_routing_preference` | Confira a [documentação de serviços de mobilidade](/rest/api/maps/mobility) |
+| `region`                       | *N/A*: este recurso está relacionado ao geocódigo. Use o parâmetro *countrySet* ao usar a API de geocódigo do Azure Mapas.  |
+| `traffic_model`               | *N/A* – só é possível especificar se os dados de tráfego devem ser usados com o parâmetro *traffic*. |
+| `transit_mode`                | Confira a [Documentação dos serviços Mobilidade (versão prévia)](/rest/api/maps/mobility) |
+| `transit_routing_preference` | Confira a [Documentação dos serviços Mobilidade (versão prévia)](/rest/api/maps/mobility) |
 | `units`                        | *N/A* – o Azure Mapas usa apenas o sistema métrico.  |
 | `waypoints`                    | `query`                            |
 
@@ -231,16 +231,16 @@ A tabela faz uma referência cruzada dos parâmetros da API do Google Maps com o
 
 A API de roteiros dos Azure Mapas traz recursos adicionais que não estão disponíveis no Google Maps. Ao migrar seu aplicativo, considere o uso desses recursos; talvez eles sejam úteis.
 
-- Suporte para tipo de rota: mais curta, mais rápida, emocionante e mais econômica no consumo de combustível.
-- Suporte para modos de viagem adicionais: ônibus, motocicleta, táxi, caminhão e van.
-- Suporte para 150 marcos.
-- Calcular vários tempos de viagem em uma solicitação; tráfego histórico, tráfego ao vivo, sem tráfego.
-- Evite tipos de estrada adicionais: estradas com pista para veículos de alta ocupação, estradas não pavimentadas e estradas já usadas.
-- Especifique áreas personalizadas a serem evitadas.
-- Limite a elevação que a rota poderá subir.
-- Rota com base nas especificações do motor. Calcule as rotas para veículos elétricos ou de combustão com base nas especificações do motor e do combustível ou da carga restante.
-- Suporte a parâmetros de rota de veículo comercial. Como dimensões do veículo, peso, número de eixos e tipo de carga.
-- Especifique a velocidade máxima do veículo.
+* Suporte para tipo de rota: mais curta, mais rápida, emocionante e mais econômica no consumo de combustível.
+* Suporte para modos de viagem adicionais: ônibus, motocicleta, táxi, caminhão e van.
+* Suporte para 150 marcos.
+* Calcular vários tempos de viagem em uma solicitação; tráfego histórico, tráfego ao vivo, sem tráfego.
+* Evite tipos de estrada adicionais: estradas com pista para veículos de alta ocupação, estradas não pavimentadas e estradas já usadas.
+* Especifique áreas personalizadas a serem evitadas.
+* Limite a elevação que a rota poderá subir.
+* Rota com base nas especificações do motor. Calcule as rotas para veículos elétricos ou de combustão com base nas especificações do motor e do combustível ou da carga restante.
+* Suporte a parâmetros de rota de veículo comercial. Como dimensões do veículo, peso, número de eixos e tipo de carga.
+* Especifique a velocidade máxima do veículo.
 
 Além disso, o serviço de rota dos Azure Mapas dá suporte ao [cálculo de intervalos roteáveis](/rest/api/maps/route/getrouterange). O cálculo de intervalos roteáveis também é conhecido como isócronos. Isso envolve a geração de um polígono que abrange uma área que pode ser percorrida em qualquer direção, começando em um ponto de origem. Tudo isso conforme um período ou uma quantidade de carga ou combustível especificado.
 
@@ -290,7 +290,7 @@ Além de poder gerar uma imagem de mapa estático, o serviço de renderização 
 
 Adicione marcadores usando o parâmetro `markers` na URL. O parâmetro `markers` usa um estilo e uma lista de locais a serem renderizados no mapa com esse estilo, conforme mostrado abaixo:
 
-```
+```text
 &markers=markerStyles|markerLocation1|markerLocation2|...
 ```
 
@@ -300,21 +300,20 @@ Especifique as localizações de marcador com o formato "latitude, longitude".
 
 Adicione estilos de marcador com o formato `optionName:value`, com vários estilos separados por caracteres de barra vertical (\|) da seguinte maneira: "optionName1:value1\|optionName2:value2". Observe que os nomes e os valores de opção são separados por dois-pontos (:). Use os seguintes nomes de opções de estilo para marcadores de estilo no Google Maps:
 
-- `color` – a cor do ícone do marcador padrão. Pode ser uma cor hexadecimal de 24 bits (`0xrrggbb`) ou um dos valores a seguir: `black`, `brown`, `green`, `purple`, `yellow`, `blue`, `gray`, `orange`, `red`, `white`.
-- `label` – um caractere alfanumérico maiúsculo para exibir na parte superior do ícone.
-- `size` – o tamanho do marcador. Pode ser `tiny`, `mid` ou `small`.
+* `color` – a cor do ícone do marcador padrão. Pode ser uma cor hexadecimal de 24 bits (`0xrrggbb`) ou um dos valores a seguir: `black`, `brown`, `green`, `purple`, `yellow`, `blue`, `gray`, `orange`, `red`, `white`.
+* `label` – um caractere alfanumérico maiúsculo para exibir na parte superior do ícone.
+* `size` – o tamanho do marcador. Pode ser `tiny`, `mid` ou `small`.
 
 Use os seguintes nomes de opções de estilo para ícones personalizados no Google Maps:
 
-- `anchor` – especifica como alinhar a imagem do ícone à coordenada. Pode ser um valor de pixel (x,y) ou um dos valores a seguir: `top`, `bottom`, `left`, `right`, `center`, `topleft`, `topright`, `bottomleft` ou `bottomright`.
-- `icon` – uma URL que aponta para a imagem do ícone.
+* `anchor` – especifica como alinhar a imagem do ícone à coordenada. Pode ser um valor de pixel (x,y) ou um dos valores a seguir: `top`, `bottom`, `left`, `right`, `center`, `topleft`, `topright`, `bottomleft` ou `bottomright`.
+* `icon` – uma URL que aponta para a imagem do ícone.
 
 Por exemplo, vamos adicionar um marcador vermelho de tamanho médio ao mapa em longitude: -110, latitude: 45:
 
-```
+```text
 &markers=color:red|size:mid|45,-110
 ```
-
 
 ![Marcador do Google Maps](media/migrate-google-maps-web-services/google-maps-marker.png)
 
@@ -322,7 +321,7 @@ Por exemplo, vamos adicionar um marcador vermelho de tamanho médio ao mapa em l
 
 Adicione marcadores a uma imagem de mapa estático especificando o parâmetro `pins` na URL. Como o Google Maps, especifique um estilo e uma lista de localizações no parâmetro. O parâmetro `pins` pode ser especificado várias vezes para dar suporte a marcadores com estilos diferentes.
 
-```
+```text
 &pins=iconType|pinStyles||pinLocation1|pinLocation2|...
 ```
 
@@ -332,27 +331,27 @@ Nos Azure Mapas, a localização do marcador precisa estar no formato "longitude
 
 O `iconType` especifica o tipo de marcador a ser criado. Pode ter um dos valores a seguir:
 
-- `default` – o ícone de marcação padrão.
-- `none` – nenhum ícone é exibido, somente os rótulos serão renderizados.
-- `custom` – especifica que um ícone personalizado deve ser usado. Uma URL que aponta para a imagem do ícone pode ser adicionada ao final do parâmetro `pins` após as informações de localização do marcador.
-- `{udid}` – uma UDID (ID de dados exclusiva) para um ícone armazenado na plataforma de armazenamento de dados do Azure Mapas.
+* `default` – o ícone de marcação padrão.
+* `none` – nenhum ícone é exibido, somente os rótulos serão renderizados.
+* `custom` – especifica que um ícone personalizado deve ser usado. Uma URL que aponta para a imagem do ícone pode ser adicionada ao final do parâmetro `pins` após as informações de localização do marcador.
+* `{udid}` – uma UDID (ID de dados exclusiva) para um ícone armazenado na plataforma de armazenamento de dados do Azure Mapas.
 
 Adicione estilos de marcador com o formato `optionNameValue`. Separe vários estilos com os caracteres de barra vertical (\|). Por exemplo: `iconType|optionName1Value1|optionName2Value2`. Os nomes e os valores de opções não são separados. Use os seguintes nomes de opções de estilo para marcadores de estilo:
 
-- `al` – especifica a opacidade (alfa) do marcador. Escolha um número entre 0 e 1.
-- `an` – especifica a âncora do marcador. Especifique valores de pixel x e y no formato "x y".
-- `co` – a cor do marcador. Especifique uma cor hexa de 24 bits: `000000` a `FFFFFF`.
-- `la` – especifica a âncora do rótulo. Especifique valores de pixel x e y no formato "x y".
-- `lc` – a cor do rótulo. Especifique uma cor hexa de 24 bits: `000000` a `FFFFFF`.
-- `ls` – o tamanho do rótulo em pixels. Escolha um número maior que 0.
-- `ro` – um valor em graus para girar o ícone. Escolha um número entre -360 e 360.
-- `sc` – um valor de escala para o ícone de marcador. Escolha um número maior que 0.
+* `al` – especifica a opacidade (alfa) do marcador. Escolha um número entre 0 e 1.
+* `an` – especifica a âncora do marcador. Especifique valores de pixel x e y no formato "x y".
+* `co` – a cor do marcador. Especifique uma cor hexa de 24 bits: `000000` a `FFFFFF`.
+* `la` – especifica a âncora do rótulo. Especifique valores de pixel x e y no formato "x y".
+* `lc` – a cor do rótulo. Especifique uma cor hexa de 24 bits: `000000` a `FFFFFF`.
+* `ls` – o tamanho do rótulo em pixels. Escolha um número maior que 0.
+* `ro` – um valor em graus para girar o ícone. Escolha um número entre -360 e 360.
+* `sc` – um valor de escala para o ícone de marcador. Escolha um número maior que 0.
 
 Especifique valores de rótulo para cada localização do marcador. Essa abordagem é mais eficiente do que aplicar um só valor de rótulo a todos os marcadores na lista de localizações. O valor do rótulo pode ser uma cadeia de caracteres com vários caracteres. Coloque a cadeia de caracteres entre aspas simples para garantir que ela não seja confundida com um valor de estilo ou de localização.
 
 Vamos adicionar um ícone padrão vermelho (`FF0000`), com o rótulo "Space Needle", posicionado abaixo (15 50). O ícone está na longitude: -122,349300, latitude: 47,620180:
 
-```
+```text
 &pins=default|coFF0000|la15 50||'Space Needle' -122.349300 47.620180
 ```
 
@@ -360,7 +359,7 @@ Vamos adicionar um ícone padrão vermelho (`FF0000`), com o rótulo "Space Need
 
 Adicione três marcadores com os valores de rótulo '1', '2' e '3':
 
-```
+```text
 &pins=default||'1'-122 45|'2'-119.5 43.2|'3'-121.67 47.12
 ```
 
@@ -372,7 +371,7 @@ Adicione três marcadores com os valores de rótulo '1', '2' e '3':
 
 Adicione linhas e polígonos a uma imagem de mapa estático usando o parâmetro `path` na URL. O parâmetro `path` usa um estilo e uma lista de localizações a serem renderizados no mapa, conforme mostrado abaixo:
 
-```
+```text
 &path=pathStyles|pathLocation1|pathLocation2|...
 ```
 
@@ -382,14 +381,14 @@ As localizações de caminho são especificadas com o formato `latitude1,longitu
 
 Adicione estilos de caminho com o formato `optionName:value` e separe vários estilos pelos caracteres de barra vertical (\|). Separe nomes e valores de opções com dois-pontos (:). Desta forma: `optionName1:value1|optionName2:value2`. Os seguintes nomes de opção de estilo podem ser usados para caminhos de estilo no Google Maps:
 
-- `color` – a cor do caminho ou do contorno do polígono. Pode ser uma cor hexa de 24 bits (`0xrrggbb`), uma cor hexa de 32 bits (`0xrrggbbbaa`) ou um dos seguintes valores: preto, marrom, verde, roxo, amarelo, azul, cinza, laranja, vermelho ou branco.
-- `fillColor` – a cor com a qual preencher a área de caminho (polígono). Pode ser uma cor hexa de 24 bits (`0xrrggbb`), uma cor hexa de 32 bits (`0xrrggbbbaa`) ou um dos seguintes valores: preto, marrom, verde, roxo, amarelo, azul, cinza, laranja, vermelho ou branco.
-- `geodesic` – indica se o caminho deve ser uma linha que segue a curvatura da terra.
-- `weight` – a espessura da linha do caminho em pixels.
+* `color` – a cor do caminho ou do contorno do polígono. Pode ser uma cor hexa de 24 bits (`0xrrggbb`), uma cor hexa de 32 bits (`0xrrggbbbaa`) ou um dos seguintes valores: preto, marrom, verde, roxo, amarelo, azul, cinza, laranja, vermelho ou branco.
+* `fillColor` – a cor com a qual preencher a área de caminho (polígono). Pode ser uma cor hexa de 24 bits (`0xrrggbb`), uma cor hexa de 32 bits (`0xrrggbbbaa`) ou um dos seguintes valores: preto, marrom, verde, roxo, amarelo, azul, cinza, laranja, vermelho ou branco.
+* `geodesic` – indica se o caminho deve ser uma linha que segue a curvatura da terra.
+* `weight` – a espessura da linha do caminho em pixels.
 
 Adicione uma opacidade de linha vermelha e uma espessura de pixel ao mapa entre as coordenadas no parâmetro de URL. No exemplo abaixo, a linha tem uma opacidade de 50% e uma espessura de quatro pixels. As coordenadas são longitude: -110, latitude: 45 e longitude: -100, latitude: 50.
 
-```
+```text
 &path=color:0xFF000088|weight:4|45,-110|50,-100
 ```
 
@@ -399,7 +398,7 @@ Adicione uma opacidade de linha vermelha e uma espessura de pixel ao mapa entre 
 
 Adicione linhas e polígonos a uma imagem de mapa estático especificando o parâmetro `path` na URL. Como o Google Maps, especifique um estilo e uma lista de localizações nesse parâmetro. Especifique o parâmetro `path` várias vezes para renderizar vários círculos, linhas e polígonos com estilos diferentes.
 
-```
+```text
 &path=pathStyles||pathLocation1|pathLocation2|...
 ```
 
@@ -407,16 +406,16 @@ Quando se trata de localizações de caminho, os Azure Mapas exigem que as coord
 
 Adicione estilos de caminho com o formato `optionNameValue`. Separe vários estilos por caracteres de barra vertical (\|) da seguinte maneira: `optionName1Value1|optionName2Value2`. Os nomes e os valores de opções não são separados. Use os seguintes nomes de opções de estilo para caminhos de estilo nos Azure Mapas:
 
-- `fa` – a opacidade da cor de preenchimento (alfa) usada ao renderizar polígonos. Escolha um número entre 0 e 1.
-- `fc` – a cor de preenchimento usada para renderizar a área de um polígono.
-- `la` – a linha de opacidade (alfa) usada ao renderizar linhas e o contorno de polígonos. Escolha um número entre 0 e 1.
-- `lc` – a cor da linha usada para renderizar linhas e o contorno de polígonos.
-- `lw` – a largura da linha em pixels.
-- `ra` – especifica um raio de círculos em metros.
+* `fa` – a opacidade da cor de preenchimento (alfa) usada ao renderizar polígonos. Escolha um número entre 0 e 1.
+* `fc` – a cor de preenchimento usada para renderizar a área de um polígono.
+* `la` – a linha de opacidade (alfa) usada ao renderizar linhas e o contorno de polígonos. Escolha um número entre 0 e 1.
+* `lc` – a cor da linha usada para renderizar linhas e o contorno de polígonos.
+* `lw` – a largura da linha em pixels.
+* `ra` – especifica um raio de círculos em metros.
 
 Adicione uma opacidade de linha vermelha e uma espessura de pixel entre as coordenadas no parâmetro de URL. No exemplo abaixo, a linha tem uma opacidade de 50% e uma espessura de quatro pixels. As coordenadas têm os seguintes valores: longitude: -110, latitude: 45 e longitude: -100, latitude: 50.
 
-```
+```text
 &path=lcFF0000|la.5|lw4||-110 45|-100 50
 ```
 
@@ -443,10 +442,10 @@ Esta tabela faz uma referência cruzada dos parâmetros da API do Google Maps co
 | `language`                     | `language` – confira a documentação de [idiomas compatíveis](supported-languages.md).  |
 | `mode`                         | `travelMode`                         |
 | `origins`                      | `origins` – especifique no corpo da solicitação POST como GeoJSON.  |
-| `region`                       | *N/A* : este recurso está relacionado ao geocódigo. Use o parâmetro `countrySet` ao usar a API de geocódigo do Azure Mapas. |
+| `region`                       | *N/A*: este recurso está relacionado ao geocódigo. Use o parâmetro `countrySet` ao usar a API de geocódigo do Azure Mapas. |
 | `traffic_model`                | *N/A* – só é possível especificar se os dados de tráfego devem ser usados com o parâmetro `traffic`. |
-| `transit_mode`                 | *N/A* : no momento, não há suporte para matrizes de distância baseadas em trânsito.  |
-| `transit_routing_preference`   | *N/A* : no momento, não há suporte para matrizes de distância baseadas em trânsito.  |
+| `transit_mode`                 | *N/A*: no momento, não há suporte para matrizes de distância baseadas em trânsito.  |
+| `transit_routing_preference`   | *N/A*: no momento, não há suporte para matrizes de distância baseadas em trânsito.  |
 | `units`                        | *N/A* – o Azure Mapas usa apenas o sistema métrico. |
 
 > [!TIP]
@@ -481,11 +480,15 @@ Além dessa API, os Azure Mapas fornecem várias APIs de fuso horário. Essas AP
 
 O Azure Mapas fornece bibliotecas de cliente para as seguintes linguagens de programação:
 
-- JavaScript, TypeScript, Node.js – [documentação](how-to-use-services-module.md) \| [pacote NPM](https://www.npmjs.com/package/azure-maps-rest)
+* JavaScript, TypeScript, Node.js – [documentação](how-to-use-services-module.md) \| [pacote NPM](https://www.npmjs.com/package/azure-maps-rest)
 
 Estas bibliotecas de clientes open-source destinam-se a outras linguagens de programação:
 
-- .NET Standard 2.0 – [projeto GitHub](https://github.com/perfahlen/AzureMapsRestServices) \| [pacote NuGet](https://www.nuget.org/packages/AzureMapsRestToolkit/)
+* .NET Standard 2.0 – [projeto GitHub](https://github.com/perfahlen/AzureMapsRestServices) \| [pacote NuGet](https://www.nuget.org/packages/AzureMapsRestToolkit/)
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Não há recursos a serem limpos.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -493,18 +496,3 @@ Saiba mais sobre os serviços REST do Azure Mapas:
 
 > [!div class="nextstepaction"]
 > [Melhores práticas para pesquisar](how-to-use-best-practices-for-search.md)
-
-> [!div class="nextstepaction"]
-> [Pesquisar um endereço](how-to-search-for-address.md)
-
-> [!div class="nextstepaction"]
-> [Melhores práticas para roteamento](how-to-use-best-practices-for-routing.md)
-
-> [!div class="nextstepaction"]
-> [Documentação de referência da API do Serviço REST do Azure Mapas](https://docs.microsoft.com/rest/api/maps/)
-
-> [!div class="nextstepaction"]
-> [Exemplos de código](https://docs.microsoft.com/samples/browse/?products=azure-maps)
-
-> [!div class="nextstepaction"]
-> [Como usar o módulo de serviços (SDK da Web)](how-to-use-best-practices-for-routing.md)

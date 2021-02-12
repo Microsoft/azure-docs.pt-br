@@ -6,15 +6,15 @@ services: virtual-wan
 author: reyandap
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 12/08/2020
 ms.author: reyandap
 ms.custom: references_pricing
-ms.openlocfilehash: b4025990a1a62351d3971d788558dea8ecb390ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ced9bb33be341d35904967092414676a6ffe3ac
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327950"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905529"
 ---
 # <a name="about-virtual-wan-pricing"></a>Sobre os preços da WAN virtual
 
@@ -38,7 +38,7 @@ Uma **unidade de escala** fornece a unidade para a capacidade de agregação de 
 
 ### <a name="what-is-a-connection-unit"></a><a name="connection-unit"></a>O que é uma unidade de conexão?
 
-Uma **unidade de conexão** se aplica a qualquer ponto de extremidade local/não-Microsoft que se conecte aos gateways do Azure. Para VPN site a site, isso implica ramificações. Para VPN de usuário (ponto a site), isso implica usuários remotos. Para o ExpressRoute, isso implica conexões de circuito do ExpressRoute.<br>Por exemplo:
+Uma **unidade de conexão** se aplica a qualquer ponto de extremidade local/não-Microsoft que se conecte aos gateways do Azure. Para VPN site a site, esse valor implica ramificações. Para VPN de usuário (ponto a site), esse valor implica usuários remotos. Para o ExpressRoute, esse valor implica conexões de circuito do ExpressRoute.<br>Por exemplo:
 
 * Uma conexão de ramificação conectando-se à VPN do Azure em um hub virtual custa US $0,05/h. Portanto, as conexões de ramificação 100 que se conectam a um hub virtual do Azure custarão US $0,05 * 100/hr.
 
@@ -50,32 +50,7 @@ Uma **unidade de conexão** se aplica a qualquer ponto de extremidade local/não
 
 * Qualquer tráfego que insira o Azure não será cobrado. O tráfego que sai do Azure (via VPN, ExpressRoute ou conexões de VPN de usuário ponto a site) está sujeito aos [encargos de transferência de dados do Azure](https://azure.microsoft.com/pricing/details/bandwidth/)padrão.
 
-* Para encargos de transferência de dados entre um hub de WAN virtual e um hub remoto de WAN virtual ou VNet em uma região diferente do hub de origem, as tarifas de transferência de dados se aplicam para o tráfego que sai de um Hub. Exemplo: o tráfego que sai de um hub leste dos EUA será cobrado $0,02/GB para um hub oeste dos EUA. Não há nenhum encargo para o tráfego entrando no Hub oeste dos EUA. As tabelas a seguir mostram os encargos.
-
-As tabelas a seguir usam as seguintes abreviações: {nome: América do Norte}, {UE: Europa}, {MEA: África do Oriente Médio}, {OC: Oceania (Austrália Central e Austrália Central 2)}, {LATAm: América Latina} 
-
-**Preço dentro do continente (*)**
-
-| Intra-Continent| Preço ($/GB)|
-|---|---|
-| NAM to NAM|US$ 0,02 |
-| UE para a UE |US$ 0,02 |
-| Ásia-Ásia (exceto China)|$0.10 |
-| MEA MEA|$0.16 |
-| LATAÉ-LATA |$0.16 |
-| OC-OC|$0.12 |
-
-**Preço entre continental (*)**
-
-| Inter-Continental| Preço ($/GB)|
-|---|---|
-| DE bepara a UE ou para a UE |$0.07 |
-| DO inferem a qualquer lugar |$0.17 |
-| DE MEA para qualquer lugar |$0.17 |
-| DE OCEANIA para qualquer lugar |$0.12 |
-| DA Ásia (exceto a CHINA) a qualquer lugar |$0.12 |
-
-(*) Alguns encargos podem ser aplicados a partir de 1º de agosto de 2020.
+* Para encargos de transferência de dados entre um hub de WAN virtual e um hub remoto de WAN virtual ou VNet em uma região diferente do hub de origem, as tarifas de transferência de dados se aplicam para o tráfego que sai de um Hub. Exemplo: o tráfego que sai de um hub leste dos EUA será cobrado $0,02/GB para um hub oeste dos EUA. Não há nenhum encargo para o tráfego entrando no Hub oeste dos EUA. Todo o tráfego do hub para o Hub está sujeito a Inter-Region (intra/inter-continental) encargos de [transferência de dados do Azure](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
 ### <a name="what-is-the-difference-between-a-standard-hub-fee-and-a-standard-hub-processing-fee"></a><a name="fee"></a>Qual é a diferença entre uma taxa de Hub padrão e uma taxa de processamento de Hub padrão?
 

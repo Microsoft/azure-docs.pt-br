@@ -3,12 +3,12 @@ title: Conceder a um aplicativo acesso a outros recursos do Azure
 description: Este artigo explica como conceder acesso ao aplicativo Service Fabric habilitado para identidade gerenciada a outros recursos do Azure que dão suporte à autenticação baseada em Azure Active Directory.
 ms.topic: article
 ms.date: 12/09/2019
-ms.openlocfilehash: a1d963c49f9522000028b00c138b2e5731a9ccca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7560294fbf6d122396b6a5a8ffd3ee93bc89048
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333623"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507448"
 ---
 # <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources"></a>Concedendo um acesso de identidade gerenciada de Service Fabric aplicativo aos recursos do Azure
 

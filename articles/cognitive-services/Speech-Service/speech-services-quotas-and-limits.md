@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 12/07/2020
 ms.author: alexeyo
-ms.openlocfilehash: 7e22b772ec35ff9b63c99acd81ad6bb5abe328a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b923ba208dd2a5111a59f67401b1e4f080b7187
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567155"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754157"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Cotas e limites de serviços de fala
 
@@ -24,20 +24,35 @@ Este artigo contém uma referência rápida e a **Descrição detalhada** das co
 ## <a name="quotas-and-limits-quick-reference"></a>Referência rápida de cotas e limites
 Ir para [cotas e limites de conversão de texto em fala](#text-to-speech-quotas-and-limits-per-speech-resource)
 ### <a name="speech-to-text-quotas-and-limits-per-speech-resource"></a>Cotas e limites de conversão de fala em texto por recurso de fala
-Na tabela abaixo, os parâmetros sem a linha "ajustável" **não** são ajustáveis para todos os tipos de preço.
+Nas tabelas abaixo, os parâmetros sem a linha "ajustável" **não** são ajustáveis para todos os tipos de preço.
+
+#### <a name="online-transcription"></a>Transcrição online
 
 | Quota | Gratuito (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
-| **Limite de solicitações simultâneas de transcrição online (modelos básicos e personalizados)** |  |  |
-| Valor padrão | 1 | 20 |
+| **Limite de solicitações simultâneas (modelos básicos e personalizados)** | 1 | 20 (valor padrão) |
 | Ajustá | Não<sup>2</sup> | Sim<sup>2</sup> |
-| **Limite de solicitação da API REST (pontos de extremidade de[Gerenciamento de API](../../api-management/api-management-key-concepts.md) )** | 100 solicitações por 10 segundos | 100 solicitações por 10 segundos |
-| **Tamanho máximo do arquivo de conjunto de dados para importação** | 2 GB | 2 GB |
-| **Tamanho máximo de blob de entrada para a transcrição do lote** | N/D | 2,5 GB |
-| **Tamanho máximo do contêiner de BLOB para a transcrição do lote** | N/D | 5 GB |
-| **Número máximo de BLOBs por contêiner para a transcrição do lote** | N/D | 10000 |
-| **Número máximo de arquivos por solicitação de transcrição para a transcrição do lote (ao usar várias URLs de conteúdo como entrada)** | N/D | 1000  |
-| **Número máximo de trabalhos em execução simultaneamente para a transcrição do lote** | N/D | 2000  |
+
+#### <a name="batch-transcription"></a>Transcrição em lote
+| Quota | Gratuito (F0)<sup>1</sup> | Standard (S0) |
+|--|--|--|
+| Limite da API REST | A transcrição do lote não está disponível para F0 | 300 solicitações por minuto |
+| Tamanho máximo do arquivo de entrada de áudio | N/D | 1 GB |
+| Tamanho máximo de blob de entrada (pode conter mais de um arquivo, por exemplo, em um arquivo zip; certifique-se de anotar o limite de tamanho de arquivo acima) | N/D | 2,5 GB |
+| Tamanho máximo do contêiner de BLOB | N/D | 5 GB |
+| Número máximo de BLOBs por contêiner | N/D | 10000 |
+| Número máximo de arquivos por solicitação de transcrição (ao usar várias URLs de conteúdo como entrada) | N/D | 1000  |
+| Número máximo de trabalhos em execução simultaneamente | N/D | 2000  |
+
+#### <a name="model-customization"></a>Personalização do modelo
+| Quota | Gratuito (F0)<sup>1</sup> | Standard (S0) |
+|--|--|--|
+| Limite da API REST | 300 solicitações por minuto | 300 solicitações por minuto |
+| Número máximo de conjuntos de valores de fala | 2 | 500 |
+| Tamanho máximo do arquivo do conjunto de dados acústico | 2 GB | 2 GB |
+| Tamanho máximo do arquivo do conjunto de dados de linguagem para importação | 200 MB | 1.5 GB |
+| Tamanho máximo do arquivo do conjunto de dados de pronúncia para importação | 1 KB | 1 MB |
+| Tamanho de texto máximo ao usar o `text` parâmetro em criar solicitação de API de [modelo](https://westcentralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateModel/) | 200 KB | 500 KB |
 
 <sup>1</sup> para tipo de preço **gratuito (F0)** , consulte também concessões mensais na [página de preços](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
 <sup>2</sup> consulte [explicações adicionais](#detailed-description-quota-adjustment-and-best-practices), [práticas recomendadas](#general-best-practices-to-mitigate-throttling-during-autoscaling)e [instruções de ajuste](#speech-to-text-increasing-online-transcription-concurrent-request-limit).<br/> 
@@ -57,7 +72,7 @@ Na tabela abaixo, os parâmetros sem a linha "ajustável" **não** são ajustáv
 | **Cotas específicas do WebSocket** |  |  |
 |Tamanho máximo de áudio produzido por rodada | 10 min | 10 min |
 |Tamanho máximo da mensagem SSML por rodada |64 KB |64 KB |
-| **Limite de solicitação da API REST** | 20 solicitações por minuto | 25 solicitações por 5 segundos |
+| **Limite da API REST** | 20 solicitações por minuto | 25 solicitações por 5 segundos |
 
 
 <sup>3</sup> para tipo de preço **gratuito (F0)** , consulte também concessões mensais na [página de preços](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
@@ -89,7 +104,7 @@ Os limites de solicitações simultâneas para modelos **básicos** e **personal
 O valor existente do parâmetro de limite de solicitação simultânea **não** é visível por meio de portal do Azure, Command-Line ferramentas ou solicitações de API. Para verificar o valor existente, crie uma solicitação de suporte do Azure.
 
 >[!NOTE]
->Os [contêineres de fala](speech-container-howto.md) não exigem aumentos do limite de solicitações simultâneas, pois os contêineres são restritos apenas pelas CPUs do hardware em que estão hospedados.
+>Os [contêineres de fala](speech-container-howto.md) não exigem aumentos do limite de solicitações simultâneas, pois os contêineres são restritos apenas pelas CPUs do hardware em que estão hospedados. No entanto, os contêineres de fala têm suas próprias limitações de capacidade que devem ser levadas em conta. Veja a pergunta *"você pode ajudar com planejamento de capacidade e estimativa de custo de contêineres de fala em texto local?"* nas [perguntas frequentes sobre os contêineres de fala](speech-container-faq.md).
 
 #### <a name="have-the-required-information-ready"></a>Ter as informações necessárias prontas:
 - Para o **modelo base**:
@@ -102,7 +117,7 @@ O valor existente do parâmetro de limite de solicitação simultânea **não** 
 - **Como obter informações (modelo base)**:  
   - Ir para [portal do Azure](https://portal.azure.com/)
   - Selecione o recurso de fala para o qual você deseja aumentar o limite de solicitações de simultaneidade
-  - Selecionar *Propriedades* (grupo de*Gerenciamento de recursos* ) 
+  - Selecionar *Propriedades* (grupo de *Gerenciamento de recursos* ) 
   - Copie e salve os valores dos seguintes campos:
     - **ID de Recurso**
     - **Local** (sua região de ponto de extremidade)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 156da7504a1a5e2a704e52a783fcd3e437a59867
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2efd3e9c9ca97ea3d94b03bd5e440cd24d5da5da
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986268"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960573"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>Analisar a segurança de sua máquina virtual com o modo de exibição de Grupo de Segurança usando a API REST
 
@@ -27,7 +27,7 @@ ms.locfileid: "90986268"
 > - [REST API](network-watcher-security-group-view-rest.md)
 
 > [!NOTE]
-> A API de exibição do grupo de segurança não está mais sendo mantida e será substituída em breve. Use o [recurso de regras de segurança em vigor](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) , que fornece a mesma funcionalidade. 
+> A API de exibição do grupo de segurança não está mais sendo mantida e será substituída em breve. Use o [recurso de regras de segurança em vigor](./network-watcher-security-group-view-overview.md) , que fornece a mesma funcionalidade. 
 
 Exibição de grupo de segurança retorna as regras de segurança de rede configurados e eficaz que são aplicadas a uma máquina virtual. Esse recurso é útil para auditoria e diagnosticar grupos de segurança de rede e as regras configuradas em uma VM para garantir que o tráfego está sendo corretamente permitido ou negado. Neste artigo, mostraremos como recuperar as regras de segurança efetivas e aplicadas para uma máquina virtual usando a API REST
 
@@ -186,5 +186,3 @@ O exemplo a seguir é a resposta retornada do comando anterior. Os resultados mo
 ## <a name="next-steps"></a>Próximas etapas
 
 Visite [auditoria de segurança grupos NSG (rede) com o Observador de Rede](network-watcher-security-group-view-powershell.md) para aprender a automatizar a validação dos grupos de segurança de rede.
-
-

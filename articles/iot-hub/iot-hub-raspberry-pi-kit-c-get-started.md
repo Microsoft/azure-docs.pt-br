@@ -10,12 +10,12 @@ ms.date: 02/14/2019
 ms.author: wesmc
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: b21b161a03be7a37fe1d3e872e10d4de437670db
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 52da3c28faa375f8b308e3fe78329fec4f996af9
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145851"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97804047"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Conectar o Raspberry Pi ao Hub IoT do Azure (C)
 
@@ -99,7 +99,7 @@ Preparar o cartão microSD para instalação da imagem do Raspbian.
 
 1. Baixe o Raspbian.
 
-   1. [Baixe o Stretch do Raspbian com a área de trabalho](https://www.raspberrypi.org/downloads/raspbian/) (o arquivo. zip).
+   1. [Baixe o Stretch do Raspbian com a área de trabalho](https://www.raspberrypi.org/software/) (o arquivo. zip).
 
    2. Extraia a imagem do Raspbian em uma pasta no computador.
 

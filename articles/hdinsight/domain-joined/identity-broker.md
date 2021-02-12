@@ -1,20 +1,17 @@
 ---
-title: Usar o agente de ID (versão prévia) para o gerenciamento de credenciais-Azure HDInsight
+title: Agente de ID do Azure HDInsight (HIB)
 description: Saiba mais sobre o agente de ID do Azure HDInsight para simplificar a autenticação para clusters de Apache Hadoop ingressados no domínio.
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.topic: how-to
-ms.date: 09/23/2020
-ms.openlocfilehash: 6617c778c0b79a55058eafb40fd9b49b627819ea
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.date: 11/03/2020
+ms.openlocfilehash: 47ba11260c3b58566963e5a3ffac80ca461a8a23
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043255"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946824"
 ---
-# <a name="azure-hdinsight-id-broker-preview"></a>Agente de ID do Azure HDInsight (versão prévia)
+# <a name="azure-hdinsight-id-broker-hib"></a>Agente de ID do Azure HDInsight (HIB)
 
 Este artigo descreve como configurar e usar o recurso agente de ID do Azure HDInsight. Você pode usar esse recurso para obter a autenticação OAuth moderna para o Apache Ambari enquanto tem a imposição de autenticação multifator sem precisar de hashes de senha herdada no Azure Active Directory Domain Services (Azure AD DS).
 
@@ -45,7 +42,7 @@ Ainda pode haver muitos aplicativos herdados que dão suporte apenas à autentic
 
 O diagrama a seguir mostra o fluxo de autenticação básica para usuários federados. Primeiro, o gateway tenta concluir a autenticação usando o [fluxo ROPC](../../active-directory/develop/v2-oauth-ropc.md). Caso não haja hashes de senha sincronizados com o Azure AD, ele voltará a descobrir o ponto de extremidade AD FS e concluirá a autenticação acessando o ponto de extremidade AD FS.
 
-:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Diagrama que mostra o fluxo de autenticação com o agente de ID do HDInsight.":::
+:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Diagrama que mostra a arquitetura com autenticação básica.":::
 
 
 ## <a name="enable-hdinsight-id-broker"></a>Habilitar agente de ID do HDInsight
@@ -54,7 +51,7 @@ Para criar um cluster de Enterprise Security Package com o agente de ID do HDIns
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Siga as etapas de criação básicas para um cluster Enterprise Security Package. Para obter mais informações, consulte [criar um cluster HDInsight com Enterprise Security Package](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp).
-1. Selecione **habilitar agente de ID do HDInsight** .
+1. Selecione **habilitar agente de ID do HDInsight**.
 
 O recurso agente de ID do HDInsight adiciona uma VM extra ao cluster. Essa VM é o nó agente de ID do HDInsight e inclui componentes de servidor para dar suporte à autenticação. O nó do agente de ID do HDInsight está ingressado no domínio do Azure AD DS domínio.
 
@@ -126,9 +123,9 @@ Para solucionar problemas de autenticação, consulte [este guia](./domain-joine
 
 Na instalação do agente de ID do HDInsight, os aplicativos personalizados e clientes que se conectam ao gateway podem ser atualizados para adquirir o token OAuth necessário primeiro. Siga as etapas neste [documento](../../storage/common/storage-auth-aad-app.md) para adquirir o token com as seguintes informações:
 
-*   URI do recurso OAuth: `https://hib.azurehdinsight.net` 
+*    URI do recurso OAuth: `https://hib.azurehdinsight.net` 
 *   AppId: 7865c1d2-f040-46cc-875f-831a1ef6a28a
-*   Permissão: (nome: cluster. ReadWrite, ID: 8f89faa0-ffef-4007-974d-4989b39ad77d)
+*    Permissão: (nome: cluster. ReadWrite, ID: 8f89faa0-ffef-4007-974d-4989b39ad77d)
 
 Depois de adquirir o token OAuth, use-o no cabeçalho Authorization da solicitação HTTP para o gateway de cluster (por exemplo, https:// <clustername> -int.azurehdinsight.net). Um comando de ondulação de exemplo para a API do Apache Livy pode ser semelhante a este exemplo:
     
@@ -137,6 +134,25 @@ curl -k -v -H "Authorization: Bearer Access_TOKEN" -H "Content-Type: application
 ``` 
 
 Para usar beeline e Livy, você também pode seguir os códigos de exemplos fornecidos [aqui](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/HIB/HIBSamples) para configurar seu cliente para usar o OAuth e conectar-se ao cluster.
+
+## <a name="faq"></a>Perguntas frequentes
+### <a name="what-app-is-created-by-hdinsight-in-aad"></a>Qual aplicativo é criado pelo HDInsight no AAD?
+Para cada cluster, um aplicativo de terceiros será registrado no AAD com o URI do cluster como o identifierUri (como `https://clustername.azurehdinsight.net` ).
+
+### <a name="why-are-users-prompted-for-consent-before-using-hib-enabled-clusters"></a>Por que os usuários são solicitados a fornecer consentimento antes de usar os clusters habilitados para HIB?
+No AAD, o consentimento é necessário para todos os aplicativos de terceiros antes de poder autenticar usuários ou acessar dados.
+
+### <a name="can-the-consent-be-approved-programatically"></a>O consentimento pode ser aprovado de forma programática?
+Microsoft Graph API permite automatizar o consentimento, consulte a documentação da [API](/graph/api/resources/oauth2permissiongrant) a sequência para automatizar o consentimento é:
+
+* Registre um aplicativo e conceda ao Application. ReadWrite. todas as permissões para o aplicativo para acessar Microsoft Graph
+* Depois que um cluster é criado, consulte o aplicativo de cluster com base no URI do identificador
+* Registrar consentimento para o aplicativo
+
+Quando o cluster é excluído, o HDInsight exclui o aplicativo e não há necessidade de limpar nenhum consentimento.
+
+ 
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

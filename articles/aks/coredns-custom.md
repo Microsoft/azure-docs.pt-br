@@ -2,16 +2,16 @@
 title: Personalizar o CoreDNS para o AKS (serviço kubernetes do Azure)
 description: Saiba como personalizar o CoreDNS para adicionar subdomínios ou estender pontos de extremidade DNS personalizados usando o AKS (serviço kubernetes do Azure)
 services: container-service
-author: jnoller
+author: palma21
 ms.topic: article
 ms.date: 03/15/2019
-ms.author: jenoller
-ms.openlocfilehash: e99d841dcfb18b41df128283c37f46682e3fa129
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: jpalma
+ms.openlocfilehash: 5b13931bc6a13d988c21f728b996c51270769e0c
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88257120"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368674"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Personalizar o CoreDNS com o Serviço de Kubernetes do Azure
 

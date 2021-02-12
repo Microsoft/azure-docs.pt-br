@@ -4,11 +4,11 @@ description: Neste artigo, saiba como usar Servidor de Backup do Azure para faze
 ms.topic: conceptual
 ms.date: 05/24/2020
 ms.openlocfilehash: db5e5c4bdac64e2faf5babb107ecec61a02d6468
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90069825"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002946"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Faça backup de VMs VMware com o Servidor de Backup do Azure
 
@@ -104,7 +104,7 @@ Configure um canal seguro da seguinte maneira:
 
     ![Boas-Vindas do Assistente](./media/backup-azure-backup-server-vmware/certificate-import-wizard1.png)
 
-10. Na página **repositório de certificados** , selecione **Coloque todos os certificados no repositório a seguir**e, em seguida, selecione **procurar** para escolher o repositório de certificados.
+10. Na página **repositório de certificados** , selecione **Coloque todos os certificados no repositório a seguir** e, em seguida, selecione **procurar** para escolher o repositório de certificados.
 
     ![Armazenamento de certificado](./media/backup-azure-backup-server-vmware/cert-import-wizard-local-store.png)
 
@@ -143,11 +143,11 @@ O Servidor de Backup do Azure precisa de uma conta de usuário com permissões p
 
     ![Administração](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
 
-3. Em **Administration**  >  **funções**de administração, selecione o ícone Adicionar função (o símbolo +).
+3. Em **Administration**  >  **funções** de administração, selecione o ícone Adicionar função (o símbolo +).
 
     ![Adicionar função](./media/backup-azure-backup-server-vmware/vmware-define-new-role.png)
 
-4. Em **criar**  >  **nome da função**de função, insira *BackupAdminRole*. O nome da função pode ser o que você quiser, mas deve ser reconhecível para o objetivo da função.
+4. Em **criar**  >  **nome da função** de função, insira *BackupAdminRole*. O nome da função pode ser o que você quiser, mas deve ser reconhecível para o objetivo da função.
 
 5. Selecione os privilégios conforme resumido na tabela abaixo e, em seguida, selecione **OK**.  A nova função é exibida na lista no painel **Funções**.
    - Selecione o ícone ao lado do rótulo pai para expandir o pai e exibir os privilégios filho.
@@ -199,7 +199,7 @@ A seguinte tabela captura os privilégios que precisam ser atribuídos à conta 
 | Virtual machine .Provisioning.Allow disk access                            | Virtual machine .Provisioning.Allow disk access                            |
 | Virtual machine .Provisioning.Allow file access                            | Virtual machine .Provisioning.Allow file access                            |
 | Virtual machine .Provisioning.Allow read-only disk access                  | Virtual machine .Provisioning.Allow read-only disk access                  |
-| Virtual machine .Provisioning.Allow virtual machine download               | Virtual machine .Provisioning.Allow virtual machine download               |
+| Virtual machine .Provisioning.Allow virtual machine download               | Virtual machine .Provisioning.Allow virtual machine download               |
 | Virtual machine .Snapshot management. Create snapshot                      | Virtual machine .Snapshot management. Create snapshot                      |
 | Virtual machine .Snapshot management.Remove Snapshot                       | Virtual machine .Snapshot management.Remove Snapshot                       |
 | Virtual machine .Snapshot management.Revert to snapshot                    | Virtual machine .Snapshot management.Revert to snapshot                    |
@@ -292,7 +292,7 @@ Adicionar vCenter Server para o Servidor de Backup do Azure.
 
     ![Abra o Assistente de Adição de Servidor de Produção](./media/backup-azure-backup-server-vmware/add-vcenter-to-mabs.png)
 
-2. No **Assistente de adição de servidor de produção**,  >  Selecione a página**tipo de servidor de produção** , selecione **servidores VMware**e, em seguida, selecione **Avançar**.
+2. No **Assistente de adição de servidor de produção**,  >  Selecione a página **tipo de servidor de produção** , selecione **servidores VMware** e, em seguida, selecione **Avançar**.
 
     ![Assistente de Adição de Servidor de Produção](./media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
 

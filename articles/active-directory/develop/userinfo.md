@@ -13,12 +13,12 @@ ms.date: 09/21/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 8f3fd462a52b035cd5b5447560e5472b41f237fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bd0621d607b121f19bc47c717343b8e2e39b04f
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653223"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752722"
 ---
 # <a name="microsoft-identity-platform-userinfo-endpoint"></a>Ponto de extremidade de UserInfo da plataforma de identidade da Microsoft
 

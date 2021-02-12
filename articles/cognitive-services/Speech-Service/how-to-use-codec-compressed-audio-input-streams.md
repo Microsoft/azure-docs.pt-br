@@ -12,12 +12,12 @@ ms.date: 03/30/2020
 ms.author: amishu
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-twenty-two
-ms.openlocfilehash: 7d6a0388507d836050550a3a98255deabb826cde
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 410c0942b9040a6707a51e4ff9f375b9d4728668
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128311"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821563"
 ---
 # <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Usar a entrada de áudio compactada por codec com o SDK de fala
 
@@ -25,7 +25,7 @@ A API de **fluxo de entrada de áudio compactada** do SDK do serviço de fala fo
 
 Plataforma | Idiomas | Versão do GStreamer com suporte
 | :--- | ---: | :---:
-Windows (exceto UWP)  | C++, C#, Java, Python | [1.15.1](https://gstreamer.freedesktop.org/data/pkg/windows/1.15.1/)
+Windows (exceto UWP)  | C++, C#, Java, Python | [1.15.1](https://gstreamer.freedesktop.org/releases/gstreamer/1.5.1.html)
 Linux  | C++, C#, Java, Python | [distribuições e arquiteturas de destino do Linux com suporte](~/articles/cognitive-services/speech-service/speech-sdk.md)
 Android  | Java | [1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.14.4/)
 
@@ -35,7 +35,7 @@ Android  | Java | [1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="gstreamer-required-to-handle-compressed-audio"></a>GStreamer necessário para lidar com áudio compactado
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/csharp/prerequisites.md)]
@@ -74,4 +74,4 @@ Android  | Java | [1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Saiba como reconhecer a fala](quickstarts/speech-to-text-from-microphone.md)
+> [Saiba como reconhecer a fala](./get-started-speech-to-text.md)

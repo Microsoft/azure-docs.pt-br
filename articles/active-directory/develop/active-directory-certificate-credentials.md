@@ -9,22 +9,22 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 12/3/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 77e34e4a18012f15b9e907e3b9efc1965b98f824
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cfbcc8523ff1d5858317a3654b58ec7b2d23607a
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612113"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582019"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Credenciais de certificado de autenticação do aplicativo da plataforma de identidade da Microsoft
 
 A plataforma de identidade da Microsoft permite que um aplicativo use suas próprias credenciais para autenticação em qualquer lugar que um segredo do cliente possa ser usado, por exemplo, no fluxo de  [concessão de credenciais de cliente](v2-oauth2-client-creds-grant-flow.md) do OAuth 2,0 e no fluxo [em nome de](v2-oauth2-on-behalf-of-flow.md) (obo).
 
-Uma forma de credencial que um aplicativo pode usar para autenticação é uma asserção JWT ( [token Web JSON](./security-tokens.md#json-web-tokens-jwts-and-claims) ) assinada com um certificado que o aplicativo possui.
+Uma forma de credencial que um aplicativo pode usar para autenticação é uma asserção JWT ( [token Web JSON](./security-tokens.md#json-web-tokens-and-claims) ) assinada com um certificado que o aplicativo possui.
 
 ## <a name="assertion-format"></a>Formato de asserção
 
@@ -36,7 +36,7 @@ Para computar a asserção, você pode usar uma das várias bibliotecas JWT no i
 | --- | --- |
 | `alg` | Deve ser **RS256** |
 | `typ` | Deve ser **JWT** |
-| `x5t` | O hash de certificado X. 509 (também conhecido como a representação hexadecimal do certificado SHA-1 *impressão digital*) codificado como um valor de cadeia de caracteres base64. Por exemplo, dado um hash de certificado X. 509 de `84E05C1D98BCE3A5421D225B140B36E86A3D5534` (Hex), a `x5t` declaração seria `hOBcHZi846VCHSJbFAs26Go9VTQ=` (Base64). |
+| `x5t` | O hash de certificado X. 509 (também conhecido como a representação hexadecimal do certificado SHA-1 *impressão digital*) codificado como um valor de cadeia de caracteres Base64url. Por exemplo, dado um hash de certificado X. 509 de `84E05C1D98BCE3A5421D225B140B36E86A3D5534` (Hex), a `x5t` declaração seria `hOBcHZi846VCHSJbFAs26Go9VTQ=` (Base64url). |
 
 ### <a name="claims-payload"></a>Declarações (carga)
 
@@ -89,7 +89,7 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 
 ## <a name="register-your-certificate-with-microsoft-identity-platform"></a>Registrar o certificado na plataforma de identidade da Microsoft
 
-Você pode associar a credencial de certificado ao aplicativo cliente na plataforma de identidade da Microsoft por meio do portal do Azure usando qualquer um dos métodos a seguir:
+Você pode associar a credencial do certificado ao aplicativo cliente na plataforma de identidade da Microsoft por meio do portal do Azure usando qualquer um dos seguintes métodos:
 
 ### <a name="uploading-the-certificate-file"></a>Fazendo upload do arquivo de certificado
 
@@ -101,12 +101,12 @@ No registro do aplicativo do Azure para o aplicativo cliente:
 
 ### <a name="updating-the-application-manifest"></a>Atualizando o manifesto do aplicativo
 
-Com a suspensão de um certificado, você precisa calcular:
+Depois de adquirir um certificado, calcule esses valores:
 
 - `$base64Thumbprint` -Valor codificado na base64 do hash do certificado
 - `$base64Value` -Valor codificado na base64 dos dados brutos do certificado
 
-Você também deve fornecer um GUID para identificar a chave no manifesto do aplicativo (`$keyId`).
+Forneça um GUID para identificar a chave no manifesto do aplicativo ( `$keyId` ).
 
 No registro do aplicativo do Azure para o aplicativo cliente:
 1. Selecione **Manifesto** para abrir o manifesto do aplicativo.

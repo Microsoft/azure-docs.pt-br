@@ -1,19 +1,19 @@
 ---
 title: Configurar parâmetros do servidor-Azure PowerShell-banco de dados do Azure para MariaDB
 description: Este artigo descreve como configurar os parâmetros de serviço no banco de dados do Azure para MariaDB usando o PowerShell.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 10/1/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d116bdec2974fa2c39c6a56364e54ca7d776b682
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 891cb5c6e570269d0414e7b7cece760af143927f
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426028"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662450"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mariadb-using-powershell"></a>Configurar parâmetros de servidor no banco de dados do Azure para MariaDB usando o PowerShell
 
@@ -41,7 +41,7 @@ Se você optar por usar o PowerShell localmente, conecte-se à sua conta do Azur
 
 Para listar todos os parâmetros modificáveis em um servidor e seus valores, execute o `Get-AzMariaDbConfiguration` cmdlet.
 
-O exemplo a seguir lista os parâmetros de configuração do servidor para o **mydemoserver** do servidor no grupo de recursos **MyResource**Group.
+O exemplo a seguir lista os parâmetros de configuração do servidor para o **mydemoserver** do servidor no grupo de recursos **MyResource** Group.
 
 ```azurepowershell-interactive
 Get-AzMariaDbConfiguration -ResourceGroupName myresourcegroup -ServerName mydemoserver
@@ -53,7 +53,7 @@ Para a definição de cada um dos parâmetros listados, consulte a seção de re
 
 Para mostrar detalhes sobre um parâmetro de configuração específico para um servidor, execute o `Get-AzMariaDbConfiguration` cmdlet e especifique o parâmetro de **nome** .
 
-Este exemplo mostra detalhes do parâmetro de configuração do servidor de ** \_ \_ log de consulta lenta** para o servidor **mydemoserver** em grupo de recursos **MyResource**Group.
+Este exemplo mostra detalhes do parâmetro de configuração do servidor de **\_ \_ log de consulta lenta** para o servidor **mydemoserver** em grupo de recursos **MyResource** Group.
 
 ```azurepowershell-interactive
 Get-AzMariaDbConfiguration -Name slow_query_log -ResourceGroupName myresourcegroup -ServerName mydemoserver
@@ -63,7 +63,7 @@ Get-AzMariaDbConfiguration -Name slow_query_log -ResourceGroupName myresourcegro
 
 Você também pode modificar o valor de um determinado parâmetro de configuração do servidor, que atualiza o valor de configuração subjacente para o mecanismo do servidor MariaDB. Para atualizar a configuração, use o `Update-AzMariaDbConfiguration` cmdlet.
 
-Para atualizar o parâmetro de configuração do servidor ** \_ \_ log de consulta lenta** do servidor **mydemoserver** em grupo de recursos **MyResource**Group.
+Para atualizar o parâmetro de configuração do servidor **\_ \_ log de consulta lenta** do servidor **mydemoserver** em grupo de recursos **MyResource** Group.
 
 ```azurepowershell-interactive
 Update-AzMariaDbConfiguration -Name slow_query_log -ResourceGroupName myresourcegroup -ServerName mydemoserver -Value On

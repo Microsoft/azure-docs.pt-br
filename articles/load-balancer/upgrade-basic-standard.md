@@ -7,41 +7,61 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 66c56ae6730043022a0d8bf3c94f7c6ce14d9852
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bf910d3309285c8b700c39af68fb90715f8863a
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84809351"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987714"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Atualizar Load Balancer públicos do Azure
-O [Azure Standard Load Balancer](load-balancer-overview.md) oferece um conjunto avançado de funcionalidades e alta disponibilidade por meio de redundância de zona. Para saber mais sobre Load Balancer SKU, confira [tabela de comparação](https://docs.microsoft.com/azure/load-balancer/skus#skus).
+O [Azure Standard Load Balancer](load-balancer-overview.md) oferece um conjunto avançado de funcionalidades e alta disponibilidade por meio de redundância de zona. Para saber mais sobre Load Balancer SKU, confira [tabela de comparação](./skus.md#skus).
 
-Há três estágios em uma atualização:
+Há dois estágios em uma atualização:
 
-1. Migrar a configuração
-2. Adicionar VMs a pools de back-end de Standard Load Balancer
+1. Altere o método de alocação de IP de dinâmico para estático.
+2. Execute o script do PowerShell para concluir a atualização e a migração de tráfego.
 
-Este artigo aborda a migração de configuração. A adição de VMs a pools de back-end pode variar dependendo do seu ambiente específico. No entanto, algumas recomendações gerais de alto nível [são fornecidas](#add-vms-to-backend-pools-of-standard-load-balancer).
+> [!IMPORTANT]
+> O script está em manutenção no momento. Você pode consultar as instruções [aqui](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address-upgrade?tabs=option-upgrade-cli%2Coption-migrate-powershell#tabpanel_CeZOj-G++Q_option-upgrade-cli) sobre como atualizar endereços IP públicos de SKU básico e SKU Standard.
 
 ## <a name="upgrade-overview"></a>Visão geral da atualização
 
 Há um script de Azure PowerShell disponível que faz o seguinte:
 
-* Cria um Load Balancer de SKU padrão no grupo de recursos e no local que você especificar.
+* Cria um Load Balancer de SKU padrão com o local especificado no mesmo grupo de recursos do Standard Load Balancer básico.
+* Atualiza o endereço IP público do SKU básico para o SKU padrão in-loco.
 * Copia diretamente as configurações do Load Balancer SKU básico para o recém-criado Standard Load Balancer.
 * Cria uma regra de saída padrão que habilita a conectividade de saída.
 
 ### <a name="caveatslimitations"></a>Caveats\Limitations
 
-* O script só dá suporte à atualização de Load Balancer pública. Para a atualização de Load Balancer básica interna, consulte [esta página](https://docs.microsoft.com/azure/load-balancer/upgrade-basicinternal-standard) para obter instruções.
-* O Standard Load Balancer tem um novo endereço público. É impossível mover os endereços IP associados a Load Balancer básica existentes diretamente para Standard Load Balancer, já que eles têm SKUs diferentes.
-* Se o balanceador de carga padrão for criado em uma região diferente, você não poderá associar as VMs existentes na região antiga ao Standard Load Balancer recém-criado. Para contornar essa limitação, certifique-se de criar uma nova VM na nova região.
+* O script só dá suporte à atualização de Load Balancer pública. Para a atualização de Load Balancer básica interna, consulte [esta página](./upgrade-basicinternal-standard.md) para obter instruções.
+* O método de alocação do endereço IP público deve ser alterado para "estático" antes da execução do script. 
 * Se seu Load Balancer não tiver nenhuma configuração de IP de front-end ou pool de back-ends, provavelmente você encontrará um erro ao executar o script. Verifique se eles não estão vazios.
+
+### <a name="change-allocation-method-of-the-public-ip-address-to-static"></a>Alterar o método de alocação do endereço IP público para estático
+
+* * * Aqui estão nossas etapas recomendadas:
+
+    1. Para realizar todas as tarefas deste início rápido, entre no [portal do Azure](https://portal.azure.com).
+ 
+    1. Selecione **todos os recursos** no menu à esquerda e, em seguida, selecione o **endereço IP público básico associado ao Load Balancer básico** na lista de recursos.
+   
+    1. Em **configurações**, selecione **configurações**.
+   
+    1. Em **Atribuição**, selecione **Estático**.
+    1. Selecione **Salvar**.
+    >[!NOTE]
+    >Para VMs que têm IPs públicos, você precisará criar endereços IP padrão primeiro, em que o mesmo endereço IP não é garantido. Desassocie as VMs de IPs básicos e associe-as aos endereços IP padrão recém-criados. Em seguida, você poderá seguir as instruções para adicionar VMs ao pool de back-end de Standard Load Balancer. 
+
+* **Criar novas VMs para adicionar aos pools de back-end do Load Balancer público padrão criado recentemente**.
+    * Mais instruções sobre como criar uma VM e associá-las ao Standard Load Balancer podem ser encontradas [aqui](./quickstart-load-balancer-standard-public-portal.md#create-virtual-machines).
+
 
 ## <a name="download-the-script"></a>Baixar o script
 
-Baixe o script de migração do  [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/2.0).
+Baixe o script de migração do  [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/4.0).
 ## <a name="use-the-script"></a>Usar o script
 
 Há duas opções para você dependendo da configuração e das preferências do ambiente do PowerShell local:
@@ -75,44 +95,18 @@ Para executar o script:
 
    * **oldRgName: [String]: Required** – este é o grupo de recursos para o Load Balancer básico existente que você deseja atualizar. Para localizar esse valor de cadeia de caracteres, navegue até portal do Azure, selecione sua fonte de Load Balancer básica e clique na **visão geral** do balanceador de carga. O grupo de recursos está localizado nessa página.
    * **oldLBName: [String]: Required** – este é o nome do balanceador básico existente que você deseja atualizar. 
-   * **newrgName: [String]: Required** – este é o grupo de recursos no qual o Standard Load Balancer será criado. Pode ser um novo grupo de recursos ou um existente. Se você escolher um grupo de recursos existente, observe que o nome do Load Balancer deve ser exclusivo dentro do grupo de recursos. 
-   * **NewLocation: [String]: Required** – este é o local no qual o Standard Load Balancer será criado. É recomendável herdar o mesmo local do Load Balancer básico escolhido para o Standard Load Balancer para uma melhor associação com outros recursos existentes.
    * **newLBName: [String]: Required** – este é o nome do Standard Load Balancer a ser criado.
 1. Execute o script usando os parâmetros apropriados. Pode levar de cinco a sete minutos para ser concluído.
 
     **Exemplo**
 
    ```azurepowershell
-   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newlocation "centralus" -newLbName "LBForUpgrade"
+   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newLbName "LBForUpgrade"
    ```
-
-### <a name="add-vms-to-backend-pools-of-standard-load-balancer"></a>Adicionar VMs a pools de back-end de Standard Load Balancer
-
-Primeiro, verifique se o script criou com êxito um novo Load Balancer público padrão com a configuração exata migrada do seu Load Balancer público básico. Você pode verificar isso no portal do Azure.
-
-Lembre-se de enviar uma pequena quantidade de tráfego por meio do Standard Load Balancer como um teste manual.
-  
-Aqui estão alguns cenários de como adicionar VMs a pools de back-end do Load Balancer público padrão criado recentemente pode ser configurado e nossas recomendações para cada um deles:
-
-* **Mover VMs existentes de pools de back-end de Load Balancer públicas públicos antigos para pools de back-end de Load Balancer públicas padrão recém-criados**.
-    1. Para realizar todas as tarefas deste início rápido, entre no [portal do Azure](https://portal.azure.com).
- 
-    1. Selecione **todos os recursos** no menu à esquerda e, em seguida, selecione o **Standard Load Balancer recém-criado** na lista de recursos.
-   
-    1. Em **Configurações**, selecione **Pools de back-end**.
-   
-    1. Selecione o pool de back-end que corresponde ao pool de back-end do Load Balancer básico, selecione o seguinte valor: 
-      - **Máquina virtual**: lista suspensa e selecione as VMs do pool de back-end correspondente do Load Balancer básico.
-    1. Clique em **Salvar**.
-    >[!NOTE]
-    >Para VMs que têm IPs públicos, você precisará criar endereços IP padrão primeiro, em que o mesmo endereço IP não é garantido. Desassocie as VMs de IPs básicos e associe-as aos endereços IP padrão recém-criados. Em seguida, você poderá seguir as instruções para adicionar VMs ao pool de back-end de Standard Load Balancer. 
-
-* **Criar novas VMs para adicionar aos pools de back-end do Load Balancer público padrão criado recentemente**.
-    * Mais instruções sobre como criar uma VM e associá-las ao Standard Load Balancer podem ser encontradas [aqui](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines).
 
 ### <a name="create-an-outbound-rule-for-outbound-connection"></a>Criar uma regra de saída para conexão de saída
 
-Siga as [instruções](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-portal#create-outbound-rule-configuration) para criar uma regra de saída para que você possa
+Siga as [instruções](./quickstart-load-balancer-standard-public-powershell.md#create-outbound-rule-configuration) para criar uma regra de saída para que você possa
 * Defina o NAT de saída do zero.
 * Dimensione e ajuste o comportamento do NAT de saída existente.
 
@@ -122,13 +116,13 @@ Siga as [instruções](https://docs.microsoft.com/azure/load-balancer/configure-
 
 Sim. Consulte [Advertências/limitações](#caveatslimitations).
 
+### <a name="how-long-does-the-upgrade-take"></a>Quanto tempo a atualização leva?
+
+Geralmente leva cerca de 5-10 minutos para o script ser concluído e pode levar mais tempo dependendo da complexidade de sua configuração de Load Balancer. Portanto, mantenha o tempo de inatividade em mente e planeje o failover, se necessário.
+
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>O script de Azure PowerShell também alterna o tráfego do meu Load Balancer básico para o Standard Load Balancer recém-criado?
 
-Não. O script de Azure PowerShell migra apenas a configuração. A migração de tráfego real é sua responsabilidade e no seu controle.
-
-### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Ocorreu alguns problemas com o uso desse script. Como posso obter ajuda?
-  
-Você pode enviar um email para o slbupgradesupport@microsoft.com , abrir um caso de suporte com o suporte do Azure ou fazer ambos.
+Sim. O script Azure PowerShell não apenas atualiza o endereço IP público, copia a configuração de básico para Standard Load Balancer, mas também migra a VM para trás do Load Balancer público padrão recém-criado também. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

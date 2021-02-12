@@ -5,14 +5,19 @@ author: georgewallace
 ms.author: gwallace
 ms.date: 11/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: b8440a168d6d268cd27e1208ff54616a3b1e193a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 651329b1b061f2cf5a06dbdc9d60f73cec64e7d3
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843202"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625542"
 ---
 # <a name="state-management-with-service-fabric"></a>Gerenciamento de estado com o Service Fabric
+
+> [!IMPORTANT]
+> A visualização da malha de Service Fabric do Azure foi desativada. Novas implantações não serão mais permitidas por meio da API de malha Service Fabric. O suporte para implantações existentes continuará até 28 de abril de 2021.
+> 
+> Para obter detalhes, consulte desativação da [Visualização da malha de Service Fabric do Azure](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 O Service Fabric dá suporte a várias opções diferentes para armazenamento de estado. Para obter uma visão geral conceitual dos padrões de gerenciamento de estado e do Service Fabric, consulte [Conceitos do Service Fabric: Estado](../service-fabric/service-fabric-concepts-state.md). Os mesmos conceitos se aplicam se seus serviços forem executados dentro ou fora da Malha do Service Fabric. 
 

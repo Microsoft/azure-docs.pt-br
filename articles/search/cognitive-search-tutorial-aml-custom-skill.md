@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial: Criar e implantar uma habilidade personalizada com o Azure Machine Learning'
+title: 'Exemplo: Criar e implantar uma habilidade personalizada com o Azure Machine Learning'
 titleSuffix: Azure Cognitive Search
-description: Esse tutorial demonstra como usar Azure Machine Learning para criar e implantar uma habilidade personalizada para o pipeline de enriquecimento de IA do Azure Cognitive Search.
+description: Esse exemplo demonstra como usar o Azure Machine Learning para criar e implantar uma habilidade personalizada no pipeline de enriquecimento de IA do Azure Cognitive Search.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: fa961a5a6d3a3b827a082fbac2acc3431ac40949
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 98d8395236bf955eed88f36c03c96981fa0e4b6b
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057596"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745627"
 ---
-# <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Tutorial: Criar e implantar uma habilidade personalizada com o Azure Machine Learning 
+# <a name="example-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Exemplo: Criar e implantar uma habilidade personalizada com o Azure Machine Learning 
 
-Neste tutorial, você usará o [conjunto de dados de avaliações de hotel](https://www.kaggle.com/datafiniti/hotel-reviews) (distribuído sob a licença Creative Commons [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) para criar uma [habilidade personalizada](./cognitive-search-aml-skill.md) usando o Azure Machine Learning para extrair os sentimentos baseados em aspectos das avaliações. Isso permite que a atribuição de sentimentos positivos e negativos na mesma avaliação seja atribuída corretamente para entidades identificadas como equipe, quarto, saguão ou piscina.
+Nesse exemplo, você usará o [conjunto de dados de avaliações de hotel](https://www.kaggle.com/datafiniti/hotel-reviews) (distribuído sob a licença Creative Commons [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) para criar uma [habilidade personalizada](./cognitive-search-aml-skill.md) usando o Azure Machine Learning para extrair os sentimentos baseados em aspectos das avaliações. Isso permite que a atribuição de sentimentos positivos e negativos na mesma avaliação seja atribuída corretamente para entidades identificadas como equipe, quarto, saguão ou piscina.
 
 Para treinar o modelo de sentimentos baseado em aspectos no Azure Machine Learning, você usará o [repositório de receitas nlp](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa). O modelo será então implantado como um ponto de extremidade em um cluster do Kubernetes do Azure. Depois de implantado, o ponto de extremidade é adicionado ao pipeline de enriquecimento como uma habilidade do AML para uso pelo serviço Cognitive Search.
 
@@ -82,15 +82,15 @@ A seção 4 do notebook tem quatro células que atualizam o conjunto de habilida
 
 No portal, acesse o conjunto de habilidades e selecione o link Definição do Conjunto de Habilidades (JSON). O portal exibirá o JSON do seu conjunto de habilidades que foi criado nas primeiras células do notebook. À direita da exibição, há um menu suspenso em que você pode selecionar o modelo de definição de habilidade. Selecione o modelo do AML (Azure Machine Learning). Forneça o nome do workspace do Azure ML e o ponto de extremidade para o modelo implantado no cluster de inferência. O modelo será atualizado com o URI e a chave do ponto de extremidade.
 
-> :::image type="content" source="media/cognitive-search-aml-skill/portal-aml-skillset-definition.png" alt-text="Modelo de definição de conjunto de habilidades&quot;:::
+> :::image type="content" source="media/cognitive-search-aml-skill/portal-aml-skillset-definition.png" alt-text="Modelo de definição de conjunto de habilidades":::
 
 Copie o modelo do conjunto de habilidades da janela e cole-o na definição de conjunto de habilidades à esquerda. Edite o modelo para fornecer os valores ausentes para:
 
 * Nome
 * Descrição
 * Contexto
-* Nome e origem de &quot;inputs&quot;
-* Nome e targetName de &quot;outputs"
+* Nome e origem de "inputs"
+* Nome e targetName de "outputs"
 
 Salve o conjunto de habilidades.
 

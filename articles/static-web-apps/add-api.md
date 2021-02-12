@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
 ms.custom: devx-track-js
-ms.openlocfilehash: 0e90c023fa74711246c2e6e69eb576695e86a457
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 53be2ee9b6b3ab46f081747aec58b9c99fc54f0d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128497"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349949"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Adicionar uma API a aplicativos Web Estáticos do Azure com o Azure Functions
 
@@ -32,18 +32,18 @@ Você pode adicionar APIs sem servidor a aplicativos Web Estáticos do Azure por
 
 As etapas a seguir demonstram como criar um novo repositório e clonar os arquivos para o computador.
 
-1. Verifique se você está conectado ao GitHub e, em seguida, navegue até https://github.com/staticwebdev/vanilla-basic/generate para criar um novo repositório.
-1. Na caixa _Nome do repositório_ , insira **my-vanilla-api** .
-1. Clique em **Criar repositório do modelo** .
+1. Verifique se você está conectado ao GitHub e, em seguida, navegue até [https://github.com/staticwebdev/vanilla-basic/generate](https://github.com/login?return_to=/staticwebdev/vanilla-basic/generate) para criar um novo repositório.
+1. Na caixa _Nome do repositório_, insira **my-vanilla-api**.
+1. Clique em **Criar repositório do modelo**.
 
    :::image type="content" source="media/add-api/create-repository.png" alt-text="Criar um novo repositório do vanilla-basic":::
 
 Depois que o projeto for criado, copie a URL no navegador para o novo repositório. Use essa URL no Visual Studio Code para clonar o repositório git.
 
 1. Pressione **F1** para abrir o comando da Paleta de Comandos.
-1. Cole a URL no arquivo no _Git: Clone_ o prompt e pressione **Enter** .
+1. Cole a URL no arquivo no _Git: Clone_ o prompt e pressione **Enter**.
 
-   :::image type="content" source="media/add-api/vscode-git-0.png" alt-text="Criar um novo repositório do vanilla-basic":::
+   :::image type="content" source="media/add-api/vscode-git-0.png" alt-text="Clonar um projeto do GitHub usando o Visual Studio Code":::
 
     Siga os prompts para selecionar um local de repositório para clonar o projeto.
 
@@ -51,7 +51,7 @@ Depois que o projeto for criado, copie a URL no navegador para o novo repositór
 
 Em seguida, você cria um projeto Azure Functions como a API do aplicativo. 
 
-1. Dentro do projeto _my-vanilla-api_ , crie uma subpasta chamada **api** .
+1. Dentro do projeto _my-vanilla-api_, crie uma subpasta chamada **api**.
 1. Pressione **F1** para abrir a Paleta de Comandos
 1. Digite **Azure Functions: Crie um Novo Projeto...**
 1. Pressione **Enter**
@@ -59,14 +59,14 @@ Em seguida, você cria um projeto Azure Functions como a API do aplicativo.
 1. Selecione a pasta **API** como o diretório para o espaço de trabalho do projeto
 1. Escolha **Selecionar**
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-1.png" alt-text="Criar um novo repositório do vanilla-basic":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-1.png" alt-text="Captura de tela mostra a pasta P I e o botão Selecionar.":::
 
 1. Forneça as seguintes informações nos prompts:
 
-    - _Selecione um idioma_ : escolha **JavaScript**
-    - _Selecione um modelo para a primeira função do projeto_ : Escolha o **gatilho HTTP**
-    - _Forneça um nome de função_ : digite **GetMessage**
-    - _Nível de autorização_ : Escolha **Anônimo** , que permite que qualquer pessoa chame seu ponto de extremidade de função.
+    - _Selecione um idioma_: escolha **JavaScript**
+    - _Selecione um modelo para a primeira função do projeto_: Escolha o **gatilho HTTP**
+    - _Forneça um nome de função_: digite **GetMessage**
+    - _Nível de autorização_: Escolha **Anônimo**, que permite que qualquer pessoa chame seu ponto de extremidade de função.
         - Para saber mais sobre os níveis de autorização, consulte [Chaves de autorização](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys).
 
 Visual Studio Code gera um projeto de Azure Functions com uma função disparada por HTTP.
@@ -145,13 +145,13 @@ O Visual Studio Code integra-se ao [Azure Functions Core Tools](../azure-functio
 
     As ferramentas principais mostram a saída do aplicativo em execução no painel do _terminal_ . Como parte da saída, você pode ver o ponto de extremidade da URL de sua função disparada por HTTP localmente.
 
-    :::image type="content" source="media/add-api/create-azure-functions-vscode-2.png" alt-text="Criar um novo repositório do vanilla-basic":::
+    :::image type="content" source="media/add-api/create-azure-functions-vscode-2.png" alt-text="Captura de tela mostra a guia TERMINAL em que você pode ver o U R L.":::
 
 1. Com as ferramentas principais em execução, navegue até a seguinte URL para verificar se a API está sendo executada corretamente: `http://localhost:7071/api/message` .
 
    A resposta no navegador deve ser semelhante ao exemplo a seguir:
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-3.png" alt-text="Criar um novo repositório do vanilla-basic":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-3.png" alt-text="Alt textscreenion mostra uma resposta de texto em um navegador.":::
 
 1. Pressione **Shift + F5** para interromper a sessão de depuração.
 
@@ -195,11 +195,11 @@ Quando implantado no Azure, as solicitações para a API são automaticamente ro
 
 1. Pressione **F5** para iniciar o projeto de API.
 
-1. Pressione **F1** e escolha **Live Server: Abrir com Live Server** .
+1. Pressione **F1** e escolha **Live Server: Abrir com Live Server**.
 
     Agora você deve ver a mensagem da API na página da Web.
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-4.png" alt-text="Criar um novo repositório do vanilla-basic":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-4.png" alt-text="Captura de tela mostra a mensagem P I em um navegador.":::
 
    > [!NOTE]
    > Você pode usar outros servidores HTTP ou proxies para atender ao arquivo `index.html`. O acesso ao `index.html` do `file:///` não funcionará.
@@ -219,30 +219,32 @@ Ao usar o Visual Studio Code, confirme e envie por push suas alterações para o
 ## <a name="create-a-static-web-app"></a>Criar um aplicativo Web estático
 
 1. Navegue até o [portal do Azure](https://portal.azure.com)
-1. Clique em **Criar um Recurso**
+1. Clique em **Criar um Recurso**.
 1. Pesquisar **aplicativo Web estático**
 1. Clique em **aplicativo Web estático (visualização)**
 1. Clique em **Criar**
 
 Em seguida, adicione as configurações específicas do aplicativo.
 
-1. Selecione sua _Assinatura do Azure_ .
+1. Selecione sua _Assinatura do Azure_.
 1. Selecione ou crie um novo _Grupo de Recursos_
-1. Nomeie o aplicativo **my-baunilha-api** .
+1. Nomeie o aplicativo **my-baunilha-api**.
 1. Selecione a _Região_ mais próxima de você
 1. Selecione o **SKU** _gratuito_
 1. Clique no botão **Entrar com o GitHub** e autentique-se com o GitHub.
 1. Selecione sua _Organização_ de preferência.
 1. Selecione **my-vanilla-api** do menu suspenso do _Repositório_
 1. Selecione **mestre** na lista suspensa _Branch_
-1. Clique em **Avançar: Build >** para editar a configuração do build
+1. Selecione a estrutura de sua escolha para a configuração de Build na lista suspensa _criar predefinições de compilação_
 
-Em seguida, adicione os seguintes detalhes de build.
+ > Esses campos refletirão a estrutura de projeto padrão do tipo de aplicativo. Altere os valores para se adequar ao seu aplicativo.
 
-1. Insira **/** para o _local do aplicativo_ .
-1. Insira a **API** na caixa da _localização de API_ .
-1. Limpe o valor padrão fora do _Local do artefato de aplicativo_ , deixando a caixa vazia.
-1. Clique em **Revisar + Criar** .
+Em seguida, adicione os seguintes detalhes de compilação.
+
+1. Insira **/** para o _local do aplicativo_.
+1. Insira a **API** na caixa da _localização de API_.
+1. Limpe o valor padrão fora do _Local do artefato de aplicativo_, deixando a caixa vazia.
+1. Clique em **Revisar + Criar**.
 1. Clique no botão **Criar**
 
     Depois de clicar no botão _criar_ , o Azure faz duas coisas. Primeiro, os serviços de nuvem subjacentes são criados para dar suporte ao aplicativo. Em seguida, um processo em segundo plano começa a compilar e implantar o aplicativo.
@@ -251,11 +253,11 @@ Em seguida, adicione os seguintes detalhes de build.
 
     À medida que o aplicativo está sendo criado em segundo plano, você pode clicar na faixa que contém um link para exibir o status da compilação.
 
-    :::image type="content" source="media/add-api/github-action-flag.png" alt-text="Criar um novo repositório do vanilla-basic":::
+    :::image type="content" source="media/add-api/github-action-flag.png" alt-text="Fluxo de trabalho do GitHub":::
 
 1. Depois que a implantação for concluída, a UO poderá navegar para o aplicativo Web clicando no link da _URL_ mostrado na página _visão geral_ .
 
-    :::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="Criar um novo repositório do vanilla-basic":::
+    :::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="Acessar a URL do aplicativo estático no portal do Azure":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -265,10 +267,10 @@ Se você não quiser manter esse aplicativo para uso adicional, poderá usar as 
 1. Na barra de pesquisa superior, digite **Grupos de recursos**
 1. Clique em **Grupos de recursos**
 1. Selecione **myResourceGroup**
-1. Na página _myResourceGroup_ , certifique-se de que os recursos listados são aqueles que deseja excluir.
+1. Na página _myResourceGroup_, certifique-se de que os recursos listados são aqueles que deseja excluir.
 1. Selecione **Excluir**
 1. Digite **myResourceGroup** na caixa de entrada
-1. Selecione **Excluir** .
+1. Selecione **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

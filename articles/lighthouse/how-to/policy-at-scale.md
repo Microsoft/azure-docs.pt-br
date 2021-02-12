@@ -1,14 +1,14 @@
 ---
 title: Implantar o Azure Policy em assinaturas delegadas em escala
 description: Saiba como o Azure Lighthouse permite implantar uma definição de política e uma atribuição de política em vários locatários.
-ms.date: 08/12/2020
+ms.date: 11/09/2020
 ms.topic: how-to
-ms.openlocfilehash: 27d32a68c1a3806e514533efbae581aa97bc6d0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5af938c61ad3e42e36360a15c6011b54fa1e823d
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167276"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412061"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Implantar o Azure Policy em assinaturas delegadas em escala
 
@@ -64,7 +64,7 @@ New-AzStorageAccount -ResourceGroupName (New-AzResourceGroup -name policy-test -
                      -Verbose                  
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando tiver terminado, remova a definição de política e a atribuição criada pela implantação.
 
@@ -91,7 +91,11 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 }
 ```
 
+> [!NOTE]
+> Embora você possa implantar políticas em vários locatários, no momento, não é possível [Exibir detalhes de conformidade](../../governance/policy/how-to/determine-non-compliance.md#compliance-details) para recursos sem conformidade nesses locatários.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [Azure Policy](../../governance/policy/index.yml).
 - Saiba mais sobre as [experiências de gerenciamento entre locatários](../concepts/cross-tenant-management-experience.md).
+- Saiba como [implantar uma política que pode ser corrigida](deploy-policy-remediation.md) em uma assinatura delegada.

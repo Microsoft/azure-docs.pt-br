@@ -1,15 +1,15 @@
 ---
 title: Visão geral do Azure Blockchain Service
 description: Visão geral do Azure Blockchain Service
-ms.date: 05/22/2020
+ms.date: 01/04/2021
 ms.topic: overview
 ms.reviewer: ravastra
-ms.openlocfilehash: e82916d7366ad82746d2d3ddfc979264e113619b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 15d1126a98a4d3194a256ed07de3918cb066a4e2
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91334813"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963871"
 ---
 # <a name="what-is-azure-blockchain-service"></a>O que é o Azure Blockchain Service?
 
@@ -83,6 +83,8 @@ converse com engenheiros da Microsoft e com os especialistas da comunidade do Az
 
 Para começar, experimente o início rápido ou descubra mais detalhes desses recursos.
 * [Criar um membro de blockchain usando o portal do Azure](create-member.md) ou [Criar um membro de blockchain usando a CLI do Azure](create-member-cli.md)
-* Confira a [página de preços](https://azure.microsoft.com/pricing/details/blockchain-service) para ver comparações de custo e calculadoras.
+* Siga o caminho do Microsoft Learn [Introdução ao desenvolvimento de blockchain](/learn/paths/ethereum-blockchain-development)
+* Assista à [série para iniciantes sobre blockchain](https://channel9.msdn.com/Series/Beginners-Series-to-Blockchain)
+* Confira a [página de preços](https://azure.microsoft.com/pricing/details/blockchain-service) para ver comparações de custo e calculadoras
 * Crie seu primeiro aplicativo usando o [Azure Blockchain Development Kit](https://github.com/Azure-Samples/blockchain-devkit)
 * [Guia do usuário](https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki) da extensão VSCode do Azure Blockchain

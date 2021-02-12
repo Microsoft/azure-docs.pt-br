@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: a5760db2d6e453d631680d6154e6d9a03ce55cd6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59dfa439f6428f2db972a8f848887e1a74bc2622
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541332"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624296"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Alterações de ponto de extremidade de previsão para v3
 
@@ -60,15 +60,12 @@ Se você souber que nenhum de seus aplicativos cliente ou integrações (bot Fra
 
 ### <a name="bing-spell-check"></a>Verificação Ortográfica do Bing
 
-Esta API não tem suporte no ponto de extremidade de previsão v3-continue a usar o ponto de extremidade de previsão da API v2 para obter correções ortográficas. Se você precisar de correção ortográfica ao usar a API v3, faça com que o aplicativo cliente chame a API de [verificação ortográfica do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/overview) e altere o texto para a grafia correta, antes de enviar o texto para a API Luis.
+Esta API não tem suporte no ponto de extremidade de previsão v3-continue a usar o ponto de extremidade de previsão da API v2 para obter correções ortográficas. Se você precisar de correção ortográfica ao usar a API v3, faça com que o aplicativo cliente chame a API de [verificação ortográfica do Bing](../bing-spell-check/overview.md) e altere o texto para a grafia correta, antes de enviar o texto para a API Luis.
 
 ## <a name="bot-framework-and-azure-bot-service-client-applications"></a>Aplicativos cliente do bot Framework e do serviço de bot do Azure
 
 Continue a usar o ponto de extremidade de previsão da API v2 até que a V 4.7 da estrutura de bot seja lançada.
 
-## <a name="v2-api-deprecation"></a>Reprovação da API v2
-
-A API de previsão v2 não será preterida por pelo menos 9 meses após a visualização v3, 8 de junho de 2020.
 
 ## <a name="endpoint-url-changes"></a>Alterações de URL de ponto de extremidade
 
@@ -107,9 +104,9 @@ Se desejar consultar por versão, primeiro você precisará [publicar via API](h
 |--|--|--|--|--|
 |`dynamicLists`|matriz|Somente V3|Não necessário.|As [listas dinâmicas](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) permitem que você estenda uma entidade de lista treinada e publicada existente, já no aplicativo Luis.|
 |`externalEntities`|matriz|Somente V3|Não necessário.|[Entidades externas](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) dão ao seu aplicativo Luis a capacidade de identificar e rotular entidades durante o tempo de execução, que pode ser usado como recursos para entidades existentes. |
-|`options.datetimeReference`|cadeia de caracteres|Somente V3|Nenhum padrão|Usado para determinar o [deslocamento de datetimeV2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). O formato para o datetimeReference é [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
+|`options.datetimeReference`|string|Somente V3|Nenhum padrão|Usado para determinar o [deslocamento de datetimeV2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). O formato para o datetimeReference é [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
 |`options.preferExternalEntities`|booleano|Somente V3|false|Especifica se a [entidade externa do usuário (com o mesmo nome da entidade existente)](schema-change-prediction-runtime.md#override-existing-model-predictions) é usada ou a entidade existente no modelo é usada para previsão. |
-|`query`|cadeia de caracteres|Somente V3|Obrigatórios.|**Em v2**, o expressão a ser previsto está no `q` parâmetro. <br><br>**No v3**, a funcionalidade é passada no `query` parâmetro.|
+|`query`|string|Somente V3|Obrigatórios.|**Em v2**, o expressão a ser previsto está no `q` parâmetro. <br><br>**No v3**, a funcionalidade é passada no `query` parâmetro.|
 
 ## <a name="response-changes"></a>Alterações de resposta
 
@@ -268,9 +265,6 @@ Em v3, o mesmo resultado com o `verbose` sinalizador para retornar os metadados 
 
 Aprenda [conceitos](schema-change-prediction-runtime.md) sobre como estender o aplicativo no tempo de execução de previsão.
 
-## <a name="deprecation"></a>Reprovação
-
-A API v2 não será preterida por pelo menos 9 meses após a visualização v3.
 
 ## <a name="next-steps"></a>Próximas etapas
 

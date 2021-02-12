@@ -13,6 +13,10 @@
         - name: Modelo de ARM
           displayName: Resource Manager
           href: advisor-alerts-arm.md
+- name: Conceitos
+  items:
+    - name: Linha de base de segurança
+      href: security-baseline.md
 - name: Tutoriais
   items:
     - name: Introdução ao Assistente

@@ -7,22 +7,22 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 10/6/2018
 ms.author: rohink
-ms.openlocfilehash: 111d94db1cbec658daabfb1a4c38c8160d6f50b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22ceba69ecf865d906021068a39a9d273b842ca2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84696824"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965724"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Gerenciar registros e conjuntos de registros DNS usando o portal do Azure
 
 Este artigo mostra como gerenciar registros e conjuntos de registros da zona DNS usando o portal do Azure.
 
-É importante compreender a diferença entre os conjuntos de registros DNS e registros DNS individuais. Um conjunto de registros é uma coleção de registros em uma zona que tem o mesmo nome e o mesmo tipo. Para obter mais informações, veja [Criar registros e conjuntos de registros DNS usando o portal do Azure](dns-getstarted-create-recordset-portal.md).
+É importante compreender a diferença entre os conjuntos de registros DNS e registros DNS individuais. Um conjunto de registros é uma coleção de registros em uma zona que tem o mesmo nome e o mesmo tipo. Para obter mais informações, veja [Criar registros e conjuntos de registros DNS usando o portal do Azure](./dns-getstarted-portal.md).
 
 ## <a name="create-a-new-record-set-and-record"></a>Criar registro e um novo conjunto de registros
 
-Para criar um conjunto de registros no portal do Azure, veja [Create DNS records using the Azure portal](dns-getstarted-create-recordset-portal.md)(Criar registros DNS usando o Portal do Azure).
+Para criar um conjunto de registros no portal do Azure, veja [Create DNS records using the Azure portal](./dns-getstarted-portal.md)(Criar registros DNS usando o Portal do Azure).
 
 ## <a name="view-a-record-set"></a>Exibir um conjunto de registros
 
@@ -79,7 +79,7 @@ Você pode usar o Portal do Azure para remover registros de um conjunto de regis
 
 ## <a name="delete-a-record-set"></a><a name="delete"></a>Excluir um conjunto de registros
 
-1. Na folha **Propriedades do conjunto de registros**do conjunto de registros, clique em **Excluir**.
+1. Na folha **Propriedades do conjunto de registros** do conjunto de registros, clique em **Excluir**.
 
     ![Excluir um conjunto de registros](./media/dns-operations-recordsets-portal/deleterecordset500.PNG)
 

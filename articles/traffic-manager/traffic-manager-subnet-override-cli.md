@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: duau
-ms.openlocfilehash: c43b85f3c4b8d1b750e9f97e0be812bee683c702
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a448afb85a35674921ce74a25eaf2a97430dc61
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90600782"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201409"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-cli"></a>Substituição de sub-rede do Gerenciador de tráfego usando CLI do Azure
 
@@ -34,14 +34,12 @@ Há dois tipos de perfis de roteamento que dão suporte a substituições de sub
 
 Para criar uma substituição de sub-rede do Gerenciador de tráfego, você pode usar CLI do Azure para adicionar as sub-redes para a substituição para o ponto de extremidade do Gerenciador de tráfego.
 
-## <a name="azure-cli"></a>CLI do Azure
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.28 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+- Este artigo exige a versão 2.0.28 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="update-the-traffic-manager-endpoint-with-subnet-override"></a>Atualize o ponto de extremidade do Gerenciador de tráfego com a substituição de sub-rede.
-Use CLI do Azure para atualizar seu ponto de extremidade com [AZ Network Traffic-Manager Endpoint Update](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update).
+Use CLI do Azure para atualizar seu ponto de extremidade com [AZ Network Traffic-Manager Endpoint Update](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update).
 
 ```azurecli-interactive
 ### Add a range of IPs ###
@@ -61,7 +59,7 @@ az network traffic-manager endpoint update \
     --type AzureEndpoints
 ```
 
-Você pode remover os intervalos de endereços IP executando a [atualização de ponto de extremidade AZ Network Traffic-Manager](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update) com a opção **--Remove** .
+Você pode remover os intervalos de endereços IP executando a [atualização de ponto de extremidade AZ Network Traffic-Manager](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update) com a opção **--Remove** .
 
 ```azurecli-interactive
 az network traffic-manager endpoint update \
@@ -76,4 +74,4 @@ az network traffic-manager endpoint update \
 
 Saiba mais sobre os [métodos de roteamento de tráfego](traffic-manager-routing-methods.md)do Gerenciador de Tráfego.
 
-Saiba mais sobre o [método de roteamento de tráfego de sub-rede](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#subnet-traffic-routing-method)
+Saiba mais sobre o [método de roteamento de tráfego de sub-rede](./traffic-manager-routing-methods.md#subnet-traffic-routing-method)

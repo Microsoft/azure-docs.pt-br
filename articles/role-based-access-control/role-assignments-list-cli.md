@@ -11,26 +11,26 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/17/2020
+ms.date: 10/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9087722b54a805a0c217c236263bdcb39e5456e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6125252c22163306a79f5682a3a5fc4f0b55d4c
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84986254"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964381"
 ---
 # <a name="list-azure-role-assignments-using-azure-cli"></a>Listar atribuições de função do Azure usando CLI do Azure
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] Este artigo descreve como listar atribuições de função usando CLI do Azure.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control/definition-list.md)] Este artigo descreve como listar atribuições de função usando CLI do Azure.
 
 > [!NOTE]
 > Se sua organização tiver funções de gerenciamento terceirizadas para um provedor de serviços que usa o [Gerenciamento de recursos delegado do Azure](../lighthouse/concepts/azure-delegated-resource-management.md), as atribuições de função autorizadas por esse provedor de serviços não serão mostradas aqui.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Bash em Azure cloud Shell](/azure/cloud-shell/overview) ou [CLI do Azure](/cli/azure)
+- [Bash em Azure cloud Shell](../cloud-shell/overview.md) ou [CLI do Azure](/cli/azure)
 
 ## <a name="list-role-assignments-for-a-user"></a>Listar as atribuições de função de um usuário
 
@@ -163,15 +163,15 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
 
 ## <a name="list-role-assignments-for-a-managed-identity"></a>Listar atribuições de função para uma identidade gerenciada
 
-1. Obtenha a ID de objeto da identidade gerenciada atribuída pelo sistema ou pelo usuário.
+1. Obtenha a ID da entidade de segurança da identidade gerenciada atribuída pelo sistema ou pelo usuário.
 
-    Para obter a ID de objeto de uma identidade gerenciada atribuída pelo usuário, você pode usar [AZ ad SP List](/cli/azure/ad/sp#az-ad-sp-list) ou [AZ Identity List](/cli/azure/identity#az-identity-list).
+    Para obter a ID de entidade de segurança de uma identidade gerenciada atribuída pelo usuário, você pode usar [AZ ad SP List](/cli/azure/ad/sp#az-ad-sp-list) ou [AZ Identity List](/cli/azure/identity#az-identity-list).
 
     ```azurecli
     az ad sp list --display-name "{name}" --query [].objectId --output tsv
     ```
 
-    Para obter a ID de objeto de uma identidade gerenciada atribuída pelo sistema, você pode usar [AZ ad SP List](/cli/azure/ad/sp#az-ad-sp-list).
+    Para obter a ID de entidade de segurança de uma identidade gerenciada atribuída pelo sistema, você pode usar [AZ ad SP List](/cli/azure/ad/sp#az-ad-sp-list).
 
     ```azurecli
     az ad sp list --display-name "{vmname}" --query [].objectId --output tsv

@@ -3,19 +3,22 @@ title: Preparar e personalizar uma imagem VHD mestre – Azure
 description: Como preparar, personalizar e carregar uma imagem mestra de área de trabalho virtual do Windows no Azure.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/14/2019
+ms.date: 01/19/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 175b2268727364040640b319c24019bdf9b48df9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33af83934e8ecc5745f2edad3a7832a870406452
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89433697"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602370"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparar e personalizar uma imagem de VHD mestre
 
 Este artigo mostra como preparar uma imagem de VHD (disco rígido virtual) mestre para carregar no Azure, incluindo como criar máquinas virtuais (VMs) e instalar software neles. Essas instruções são referentes a uma configuração específica da Área de Trabalho Virtual do Windows que pode ser usada com os processos existentes de sua organização.
+
+>[!IMPORTANT]
+>Recomendamos que você use uma imagem da Galeria de imagens do Azure. No entanto, se você precisar usar uma imagem personalizada, certifique-se de que você ainda não tem o agente de área de trabalho virtual do WIndows instalado em seu dispositivo. Usar uma imagem personalizada com o agente de área de trabalho virtual do Windows pode causar problemas com a imagem.  
 
 ## <a name="create-a-vm"></a>Criar uma máquina virtual
 
@@ -189,7 +192,7 @@ As instruções a seguir lhe dirão como carregar sua imagem mestra em uma conta
 
 1. Converta a imagem de VM (VHD) para fixa se você ainda não tiver feito isso. Se você não converter a imagem em Fixed, não será possível criar a imagem com êxito.
 
-2. Carregue o VHD em um contêiner de BLOB em sua conta de armazenamento. Você pode carregar rapidamente com a [ferramenta de Gerenciador de armazenamento](https://azure.microsoft.com/features/storage-explorer/). Para saber mais sobre a ferramenta de Gerenciador de Armazenamento, consulte [Este artigo](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
+2. Carregue o VHD em um contêiner de BLOB em sua conta de armazenamento. Você pode carregar rapidamente com a [ferramenta de Gerenciador de armazenamento](https://azure.microsoft.com/features/storage-explorer/). Para saber mais sobre a ferramenta de Gerenciador de Armazenamento, consulte [Este artigo](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows).
 
     > [!div class="mx-imgBorder"]
     > ![Uma captura de tela da janela de pesquisa da ferramenta de Gerenciador de Armazenamento do Microsoft Azure. A caixa de seleção "carregar arquivos. VHD ou vhdx como BLOBs de página (recomendado)" está marcada.](media/897aa9a9b6acc0aa775c31e7fd82df02.png)

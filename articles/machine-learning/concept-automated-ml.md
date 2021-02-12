@@ -1,25 +1,25 @@
 ---
 title: O que é o ML automatizado? AutoML
 titleSuffix: Azure Machine Learning
-description: Saiba como o Azure Machine Learning pode escolher um algoritmo para você automaticamente e gerar um modelo proveniente para economizar tempo usando os parâmetros e os critérios que você fornecer ao selecionar o melhor algoritmo para seu modelo.
+description: Saiba como Azure Machine Learning pode gerar automaticamente um modelo usando os parâmetros e os critérios fornecidos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 10/27/2020
-ms.openlocfilehash: 8ffdd8c15cf225e4f5b99a0b84b71bdbed456234
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.custom: automl
+ms.openlocfilehash: ee9267637c5e3250bfcd543ca46c39d513725819
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130078"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98072217"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>O que é AutoML (machine learning automatizado)?
 
-O machine learning automatizado, também conhecido como ML automatizado ou AutoML, é o processo de automatizar as tarefas demoradas e iterativas do desenvolvimento de modelo de machine learning. Com ele, cientistas de dados, analistas e desenvolvedores podem criar modelos de ML com alta escala, eficiência e produtividade, ao mesmo tempo em que dão suporte à qualidade do modelo. O ML automatizado se baseia em uma inovação da nossa [divisão do Microsoft Research](https://www.microsoft.com/research/project/automl/).
+O machine learning automatizado, também conhecido como ML automatizado ou AutoML, é o processo de automatizar as tarefas demoradas e iterativas do desenvolvimento de modelo de machine learning. Com ele, cientistas de dados, analistas e desenvolvedores podem criar modelos de ML com alta escala, eficiência e produtividade, ao mesmo tempo em que dão suporte à qualidade do modelo. O ML automatizado no Azure Machine Learning é baseado em uma inovação da [divisão do Microsoft Research](https://www.microsoft.com/research/project/automl/).
 
 O desenvolvimento do modelo de machine learning tradicional tem uso intensivo de recursos, exigindo conhecimento de domínio significativo e tempo para produzir e comparar dezenas de modelos. Com o machine learning automatizado, você vai acelerar o tempo necessário para obter modelos de ML prontos para produção com grande facilidade e eficiência.
 
@@ -66,22 +66,22 @@ A configuração de previsão avançada inclui:
 
 Veja exemplos de regressão e machine learning automatizado para previsões nestes notebooks do Python: [Previsão de Vendas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb), [Previsão de Demanda](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) e [Previsão da Produção de Bebidas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb).
 
-## <a name="how-automl-works"></a>Como o AutoML funciona
+## <a name="how-automated-ml-works"></a>Como o ML automatizado funciona
 
 Durante o treinamento, o Azure Machine Learning cria um número de pipelines em paralelo que experimentam diferentes parâmetros e algoritmos para você. O serviço é iterado por meio de algoritmos de ML emparelhados com seleções de recursos, em que cada iteração produz um modelo com uma pontuação de treinamento. Quanto maior a pontuação, melhor o modelo é considerado para "ajustar" seus dados.  Ela vai parar depois que atingir os critérios de saída definidos no experimento. 
 
-Usando o **Azure Machine Learning** , você pode criar e executar seus experimentos de treinamento de ML automatizado com estas etapas:
+Usando o **Azure Machine Learning**, você pode criar e executar seus experimentos de treinamento de ML automatizado com estas etapas:
 
 1. **Identificar o problema de ML** a ser resolvido: classificação, previsão ou regressão
 
-1. **Escolha se deseja usar o SDK do Python ou a experiência na Web do Studio** : Saiba mais sobre a paridade entre o [SDK do Python e a experiência na Web do Studio](#parity).
+1. **Escolha se deseja usar o SDK do Python ou a experiência na Web do Studio**: Saiba mais sobre a paridade entre o [SDK do Python e a experiência na Web do Studio](#parity).
 
    * Para ter uma experiência limitada ou sem código, experimente a experiência na Web do Azure Machine Learning Studio em [https://ml.azure.com](https://ml.azure.com/)  
    * Para desenvolvedores Python, confira o [SDK do Python do Azure Machine Learning](how-to-configure-auto-train.md) 
     
-1. **Especifique a origem e o formato dos dados de treinamento rotulados** : Matrizes Numpy ou dataframe do Pandas
+1. **Especifique a origem e o formato dos dados de treinamento rotulados**: Matrizes Numpy ou dataframe do Pandas
 
-1. **Configure o destino de computação para o treinamento de modelo** , como o [computador local, as Computações do Azure Machine Learning, as VMs remotas ou o Azure Databricks](how-to-set-up-training-targets.md).  Saiba ais sobre o treinamento automatizado [em um recuso remoto](how-to-auto-train-remote.md).
+1. **Configure o destino de computação para o treinamento de modelo**, como o [computador local, as Computações do Azure Machine Learning, as VMs remotas ou o Azure Databricks](how-to-set-up-training-targets.md).  Saiba ais sobre o treinamento automatizado [em um recuso remoto](how-to-auto-train-remote.md).
 
 1. **Configure os parâmetros de machine learning automatizado** que determinam quantas iterações em diferentes modelos, configurações de hiperparâmetro, pré-processamento/definição de recursos avançados e quais métricas examinar ao determinar o melhor modelo.  
 1. **Enviar a execução de treinamento.**
@@ -140,8 +140,8 @@ Habilite essa configuração com:
 
 O machine learning automatizado dá suporte a modelos ensemble, que são habilitados por padrão. O aprendizado Ensemble aprimora os resultados do machine learning e o desempenho preditivo combinando vários modelos em contraste com o uso de modelos únicos. As iterações Ensemble são exibidas como as iterações finais de sua execução. O machine learning automatizado usa métodos Ensemble de votação e empilhamento para combinar modelos:
 
-* **Votação** : prevê com base na média ponderada das probabilidades de classe previstas (para tarefas de classificação) ou destinos de regressão previstos (para tarefas de regressão).
-* **Empilhamento** : o empilhamento combina modelos heterogêneos e treina um metamodelo com base na saída dos modelos individuais. Os metamodelos padrão atuais são LogisticRegression para tarefas de classificação e ElasticNet para tarefas de regressão/previsão.
+* **Votação**: prevê com base na média ponderada das probabilidades de classe previstas (para tarefas de classificação) ou destinos de regressão previstos (para tarefas de regressão).
+* **Empilhamento**: o empilhamento combina modelos heterogêneos e treina um metamodelo com base na saída dos modelos individuais. Os metamodelos padrão atuais são LogisticRegression para tarefas de classificação e ElasticNet para tarefas de regressão/previsão.
 
 O [algoritmo de seleção Caruana Ensemble](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) com a inicialização Ensemble classificada é usado para decidir quais modelos usar dentro do Ensemble. Em um alto nível, esse algoritmo Inicializa o Ensemble com até cinco modelos com as melhores pontuações individuais e verifica se esses modelos estão dentro do limite de 5% da melhor pontuação para evitar um Ensemble inicial inadequado. Em seguida, para cada iteração Ensemble, um novo modelo é adicionado ao Ensemble existente e a pontuação resultante é calculada. Se um novo modelo tiver aprimorado a pontuação Ensemble existente, o Ensemble será atualizado para incluir o novo modelo.
 
@@ -151,14 +151,14 @@ Confira o [guia de instruções](how-to-configure-auto-train.md#ensemble) para a
 
 A interface da Web para o ML automatizado sempre usa um [destino de computação](concept-compute-target.md) remota.  Contudo, ao usar o SDK do Python, você escolherá um destino de computação local ou remota para treinamento de ML automatizado.
 
-* **Computação local** : o treinamento ocorre em seu laptop local ou na computação da VM. 
-* **Computação remota** : o treinamento ocorre em clusters de computação do Machine Learning.  
+* **Computação local**: o treinamento ocorre em seu laptop local ou na computação da VM. 
+* **Computação remota**: o treinamento ocorre em clusters de computação do Machine Learning.  
 
 ### <a name="choose-compute-target"></a>Escolher o destino de computação
 Considere estes fatores ao escolher seu destino de computação:
 
- * **Escolher uma computação local** : se seu cenário for sobre explorações ou demonstrações iniciais que usam dados pequenos e treinamentos breves (por exemplo, segundos ou alguns minutos por execução filho), o treinamento em seu computador local poderá ser uma opção melhor.  Não há tempo de configuração e os recursos de infraestrutura (seu PC ou sua VM) estão diretamente disponíveis.
- * **Escolha um cluster de computação do ml remoto** : se você estiver treinando com grandes conjuntos de data, como em treinamento em produção criando modelos que precisam de treinamentos mais longos, a computação remota fornecerá um desempenho de ponta a ponta muito melhor, pois `AutoML` paralelizará as trens nos nós do cluster. Em uma computação remota, o tempo de inicialização para a infraestrutura interna será adicionado cerca de 1,5 minutos por execução de filho, além de minutos adicionais para a infraestrutura de cluster se as VMs ainda não estiverem em funcionamento.
+ * **Escolher uma computação local**: se seu cenário for sobre explorações ou demonstrações iniciais que usam dados pequenos e treinamentos breves (por exemplo, segundos ou alguns minutos por execução filho), o treinamento em seu computador local poderá ser uma opção melhor.  Não há tempo de configuração e os recursos de infraestrutura (seu PC ou sua VM) estão diretamente disponíveis.
+ * **Escolha um cluster de computação do ml remoto**: se você estiver treinando com grandes conjuntos de data, como em treinamento em produção criando modelos que precisam de treinamentos mais longos, a computação remota fornecerá um desempenho de ponta a ponta muito melhor, pois `AutoML` paralelizará as trens nos nós do cluster. Em uma computação remota, o tempo de inicialização para a infraestrutura interna será adicionado cerca de 1,5 minutos por execução de filho, além de minutos adicionais para a infraestrutura de cluster se as VMs ainda não estiverem em funcionamento.
 
 ### <a name="pros-and-cons"></a>Prós e contras
 Considere esses prós e contras ao optar por usar a computação local versus remota.
@@ -204,7 +204,7 @@ Por exemplo, criar um modelo __para cada instância ou indivíduo__ nos cenário
 
 O Azure Machine Learning oferece duas experiências para trabalhar com ML automatizado:
 
-* Para clientes experientes em código, [SDK do Python do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 
+* Para clientes experientes em código, [SDK do Python do Azure Machine Learning](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 
 
 * Para clientes com experiência limitada/sem código, confira o Azure Machine Learning Studio em [https://ml.azure.com](https://ml.azure.com/)  
 
@@ -271,9 +271,9 @@ Há vários recursos para colocá-lo em funcionamento com o AutoML.
 
 ### <a name="tutorials-how-tos"></a>TUTORIAIS/instruções
 Os tutoriais são exemplos introdutórios de ponta a ponta de cenários AutoML.
-+ **Para uma experiência de código inicial** , siga o [tutorial: treinar automaticamente um modelo de regressão com Azure Machine Learning SDK do Python](tutorial-auto-train-models.md).
++ **Para uma experiência de código inicial**, siga o [tutorial: treinar automaticamente um modelo de regressão com Azure Machine Learning SDK do Python](tutorial-auto-train-models.md).
 
- + **Para uma experiência baixa ou sem código** , consulte o [tutorial: criar modelos de classificação de ml automatizados com o Azure Machine Learning Studio](tutorial-first-experiment-automated-ml.md).
+ + **Para uma experiência baixa ou sem código**, consulte o [tutorial: criar modelos de classificação de ml automatizados com o Azure Machine Learning Studio](tutorial-first-experiment-automated-ml.md).
 
 Os artigos de instruções fornecem detalhes adicionais sobre a funcionalidade que o AutoML oferece. Por exemplo, 
 
@@ -289,8 +289,7 @@ Examine exemplos de código detalhados e casos de uso no [repositório do bloco 
 
 ### <a name="python-sdk-reference"></a>Referência do SDK do Python
 
-Aprofunde sua experiência em padrões de design do SDK e especificações de classe com a [documentação de referência da classe AutoML](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true). 
+Aprofunde sua experiência em padrões de design do SDK e especificações de classe com a [documentação de referência da classe AutoML](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py). 
 
 > [!Note]
-> Os recursos automatizados de aprendizado de máquina também estão disponíveis em outras soluções da Microsoft, como [ml.net](https://docs.microsoft.com/dotnet/machine-learning/automl-overview), [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power bi](https://docs.microsoft.com/power-bi/service-machine-learning-automated) e [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)
-
+> Os recursos automatizados de aprendizado de máquina também estão disponíveis em outras soluções da Microsoft, como [ml.net](/dotnet/machine-learning/automl-overview), [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power bi](/power-bi/service-machine-learning-automated) e [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)

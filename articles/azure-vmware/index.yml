@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: dikamath
   ms.author: dikamath
-  ms.date: 10/19/2020
-  ms.openlocfilehash: 31b3ad9c33ffd07b62067de3aa46333608522f97
-  ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+  ms.date: 11/19/2020
+  ms.openlocfilehash: dc7d344ea33686cc32d2817886ee2cafa829cf1b
+  ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/19/2020
-  ms.locfileid: "92172143"
+  ms.lasthandoff: 02/09/2021
+  ms.locfileid: "100006696"
 landingContent:
 - title: Sobre a Solução VMware no Azure
   linkLists:
@@ -32,15 +32,17 @@ landingContent:
       url: concepts-storage.md
     - text: Acesso e identidade para nuvens privadas
       url: concepts-identity.md
-    - text: Controle de acesso baseado em função
+    - text: Controle de acesso baseado em função do vSphere
       url: concepts-role-based-access-control.md
+    - text: Monitorar e reparar nuvens privadas
+      url: concepts-monitor-repair-private-cloud.md
     - text: Upgrades de nuvem privada
       url: concepts-upgrades.md
 - title: Introdução
   linkLists:
   - linkListType: deploy
     links:
-    - text: Planejar a implantação
+    - text: 0 – Planejar a implantação
       url: production-ready-deployment-steps.md
     - text: 1 – Implantar a Solução VMware no Azure
       url: deploy-azure-vmware-solution.md
@@ -94,6 +96,8 @@ landingContent:
       url: concepts-api-management.md
     - text: Hub e spoke
       url: concepts-hub-and-spoke.md
+    - text: Central de Segurança do Azure
+      url: azure-security-integration.md
     - text: Servidor de Backup do Azure
       url: set-up-backup-server-for-azure-vmware-solution.md
     - text: Gerenciamento do ciclo de vida em VMs
@@ -120,9 +124,15 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
+    - text: CLI do Azure
+      url: /cli/azure/ext/vmware/vmware
     - text: Azure PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.vmware
-    - text: Obter ajuda com a implantação ou com falhas de provisionamento
-      url: fix-deployment-provisioning-failures.md
+      url: /powershell/module/az.vmware
     - text: Perguntas frequentes
-      url: faq.md
+      url: faq.yml
+- title: Solução de problemas
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Abrir uma solicitação de suporte para falhas de implantação
+      url: fix-deployment-provisioning-failures.md

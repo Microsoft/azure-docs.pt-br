@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: 413786cf8946c1ffbb76bd0e18eae7c7ba16a9c1
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9b2333e38415a2c0ad50ce36c213ead711c70ab4
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790739"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928793"
 ---
 # <a name="quickstart-restore-a-database-to-azure-sql-managed-instance-with-ssms"></a>Início Rápido: restaurar um banco de dados em uma Instância Gerenciada de SQL do Azure com o SSMS
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -49,8 +49,11 @@ Este início rápido:
 No SQL Server Management Studio, siga estas etapas para restaurar o banco de dados da Wide World Importers na Instância gerenciada de SQL. O arquivo de backup de banco de dados é armazenado em uma conta pré-configurada de Armazenamento de Blobs do Azure.
 
 1. Abra o SSMS e conecte-se à instância gerenciada.
-2. No **Pesquisador de Objetos** , clique com o botão direito do mouse na instância gerenciada e selecione **Nova Consulta** para abrir uma nova janela de consulta.
+2. No **Pesquisador de Objetos**, clique com o botão direito do mouse na instância gerenciada e selecione **Nova Consulta** para abrir uma nova janela de consulta.
 3. Execute o script SQL a seguir, que usa uma conta de armazenamento pré-configurada e uma chave SAS para [criar uma credencial](/sql/t-sql/statements/create-credential-transact-sql) na instância gerenciada.
+ 
+   > [!IMPORTANT]
+   > `CREDENTIAL` precisa corresponder ao caminho do contêiner, começar com `https` e não pode conter uma barra "/" à direita. `IDENTITY` deve ser `SHARED ACCESS SIGNATURE`. `SECRET` precisa ser o token da Assinatura de Acesso Compartilhado e não pode conter um `?` à esquerda.
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases]

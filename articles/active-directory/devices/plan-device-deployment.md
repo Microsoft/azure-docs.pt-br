@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf30570f10f176c47aed0f99127e03a027eff775
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: fc631e4329c1df2cdcbfe57c2b43ccccf14afa85
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093082"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936440"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planejar a implantação do dispositivo Azure Active Directory
 
@@ -34,17 +34,17 @@ Há vários métodos para integrar seus dispositivos ao Azure AD:
 
 * [Crie uma junção híbrida do Azure ad](concept-azure-ad-join-hybrid.md) entre dispositivos no seu local Active Directory e no Azure AD. 
 
-## <a name="learn"></a>Saiba mais
+## <a name="learn"></a>Learn
 
 Antes de começar, verifique se você está familiarizado com a [visão geral do gerenciamento de identidade do dispositivo](overview.md).
 
-### <a name="benefits"></a>Vantagens
+### <a name="benefits"></a>Benefícios
 
 Os principais benefícios de fornecer a seus dispositivos uma identidade do Azure AD:
 
 * Aumentar a produtividade – com o Azure AD, os usuários podem fazer [logon contínuo (SSO)](./azuread-join-sso.md) para seus recursos locais e na nuvem, o que permite que eles sejam produtivos onde quer que estejam.
 
-* Aumentar a segurança – os dispositivos do Azure AD permitem que você aplique [políticas de acesso condicional (CA)](../conditional-access/require-managed-devices.md) a recursos com base na identidade do dispositivo ou usuário. As políticas de CA podem oferecer proteção extra usando [Azure ad Identity Protection](../identity-protection/overview-identity-protection.md). Ingressar um dispositivo no Azure AD é um pré-requisito para aumentar sua segurança com uma estratégia de [autenticação sem senha](../authentication/concept-authentication-passwordless.md) .
+* Aumentar a segurança – os dispositivos do Azure AD permitem que você aplique [políticas de acesso condicional](../conditional-access/require-managed-devices.md) a recursos com base na identidade do dispositivo ou usuário. As políticas de acesso condicional podem oferecer proteção extra usando [Azure ad Identity Protection](../identity-protection/overview-identity-protection.md). Ingressar um dispositivo no Azure AD é um pré-requisito para aumentar sua segurança com uma estratégia de [autenticação sem senha](../authentication/concept-authentication-passwordless.md) .
 
 * Melhorar a experiência do usuário – com identidades de dispositivo no Azure AD, você pode fornecer aos usuários acesso fácil aos recursos baseados em nuvem de sua organização de dispositivos pessoais e corporativos. Os administradores podem habilitar a [Enterprise State roaming](enterprise-state-roaming-overview.md) para uma experiência unificada em todos os dispositivos Windows.
 
@@ -102,10 +102,10 @@ Use esta árvore para determinar as opções para dispositivos de propriedade da
 
 dispositivos iOS e Android só podem ser registrados no AD do Azure. A tabela a seguir apresenta considerações de alto nível para dispositivos cliente do Windows. Use-o como uma visão geral e explore os métodos de integração diferentes detalhadamente.
 
-| Consideração | Registrado no Azure AD| Ingresso no Azure AD| Ingresso no Azure AD Híbrido |
+| Consideração | Azure AD registrado| Ingresso no Azure AD| Ingresso no Azure AD Híbrido |
 | - | - | - | - |
 | **Sistemas operacionais cliente**| | |  |
-| Dispositivos Windows 10| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) |
+| Dispositivos com Windows 10| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) |
 | Dispositivos de nível inferior do Windows (Windows 8.1 ou Windows 7)| | | ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) |
 |**Opções de entrada**| | |  |
 | Credenciais locais do usuário final| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| |  |
@@ -129,7 +129,7 @@ Acesso Condicional <br>(Exigir dispositivos ingressados no Azure AD híbrido)| |
 
 Dispositivos registrados geralmente são gerenciados com [Microsoft Intune](/mem/intune/enrollment/device-enrollment). Os dispositivos são registrados no Intune de várias maneiras, dependendo do sistema operacional. 
 
-Os dispositivos registrados no Azure AD fornecem suporte para BYOD (traga seus próprios dispositivos) e dispositivos corporativos para SSO para recursos de nuvem. O acesso a recursos é baseado nas políticas de [autoridade de certificação](../conditional-access/require-managed-devices.md) do Azure ad aplicadas ao dispositivo e ao usuário.
+Os dispositivos registrados no Azure AD fornecem suporte para BYOD (traga seus próprios dispositivos) e dispositivos corporativos para SSO para recursos de nuvem. O acesso a recursos é baseado nas políticas de [acesso condicional](../conditional-access/require-managed-devices.md) do Azure ad aplicadas ao dispositivo e ao usuário.
 
 ### <a name="registering-devices"></a>Registro de dispositivos
 
@@ -183,7 +183,7 @@ Você pode determinar que o ingresso no Azure AD é a melhor solução para um d
 | - | - | - |
 | Ingressado no domínio local| Ingresso no AD do Azure| Desassociar o dispositivo do domínio local antes de ingressar no Azure AD |
 | Ingresso híbrido no Azure AD| Ingresso no AD do Azure| Desassociar o dispositivo do domínio local e do Azure AD antes de ingressar no Azure AD |
-| Registrado no Azure AD| Ingresso no AD do Azure| Cancelar o registro do dispositivo antes de ingressar no Azure AD |
+| Azure AD registrado| Ingresso no AD do Azure| Cancelar o registro do dispositivo antes de ingressar no Azure AD |
 
 
 ## <a name="hybrid-azure-ad-join"></a>Ingresso no Azure AD Híbrido
@@ -237,7 +237,7 @@ Os administradores podem proteger e controlar ainda mais esses dispositivos regi
 
 Examine as plataformas com suporte e sem suporte para dispositivos integrados:
 
-| Ferramentas de gerenciamento de dispositivo| Registrado no Azure AD| Ingresso no Azure AD| Ingresso no Azure AD Híbrido|
+| Ferramentas de gerenciamento de dispositivo| Azure AD registrado| Ingresso no Azure AD| Ingresso no Azure AD Híbrido|
 | - | - | - | - |
 | [MDM (gerenciamento de dispositivo móvel) ](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Exemplo: Microsoft Intune| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)|  |
 | [Gerenciamento de co com Microsoft Intune e Microsoft Endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 e posterior)| | ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)|  |

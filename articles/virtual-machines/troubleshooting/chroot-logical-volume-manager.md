@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
 ms.openlocfilehash: 390443874ea63a8661ef8baea627015fcf679719
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167909"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002690"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Solução de problemas de uma VM do Linux quando não há acesso ao console serial do Azure e o layout do disco está usando o LVM (Gerenciador de volume lógico)
 
@@ -65,9 +65,9 @@ A maioria dos cenários, o disco de instantâneo anexado será visto como **/dev
 
 ![Fdisk](./media/chroot-logical-volume-manager/fdisk-output-sdc.png)
 
-O **\*** indica uma partição de inicialização, ambas as partições devem ser montadas.
+O * *\** _ indica uma partição de inicialização, ambas as partições devem ser montadas.
 
-Execute o comando **lsblk** para ver o LVMS da VM afetada
+Execute o comando _ *lsblk** para ver o LVMS da VM afetada
 
 `lsblk`
 
@@ -259,7 +259,7 @@ Salvar as alterações ![ salvar desanexar](./media/chroot-logical-volume-manage
 
 O disco agora ficará disponível, permitindo que ele seja trocado pelo disco do sistema operacional original da VM afetada.
 
-Navegue na portal do Azure para a VM com falha e selecione **discos**  ->  **alternar**disco de 
+Navegue na portal do Azure para a VM com falha e selecione **discos**  ->  **alternar** disco de 
  ![ permuta de disco do so](./media/chroot-logical-volume-manager/swap-disk.png) 
 
 Preencha os campos a **escolha disco** é o disco de instantâneo que acabou de ser desanexado na etapa anterior. O nome da VM da VM afetada também é necessário e, em seguida, selecione **OK**

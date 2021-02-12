@@ -2,153 +2,64 @@
 title: O Stream Analytics do Azure no IoT Edge
 description: Crie trabalhos do Edge no Azure Stream Analytics e implante-os nos dispositivos em execução no Azure IoT Edge.
 ms.service: stream-analytics
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
-ms.topic: how-to
-ms.date: 10/29/2020
-ms.custom: seodec18
-ms.openlocfilehash: cba81b8415f0f9cf7253e674e90ae09718b94d54
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+author: an-emma
+ms.author: raan
+ms.topic: conceptual
+ms.date: 12/18/2020
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: c2a062b75caa84a0e3c342ca1ce45ccce12f2bb7
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130469"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012607"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>O Stream Analytics do Azure no IoT Edge
  
-O ASA (Azure Stream Analytics) no IoT Edge oferece aos desenvolvedores a capacitação necessária para implantar inteligência analítica quase em tempo real próxima à dispositivos IoT, assim eles podem desbloquear o valor integral de dados gerados por dispositivos. O Azure Stream Analytics foi projetado para baixa latência, resiliência, uso eficiente da largura de banda e conformidade. Agora as empresas podem implantar a lógica de controle perto das operações industriais e complementar a análise de Big Data feita na nuvem.  
+Azure Stream Analytics no IoT Edge capacita os desenvolvedores a implantar a inteligência analítica quase em tempo real mais próxima de dispositivos IoT para que eles possam desbloquear o valor total dos dados gerados pelo dispositivo. O Azure Stream Analytics foi projetado para baixa latência, resiliência, uso eficiente da largura de banda e conformidade. As empresas podem implantar a lógica de controle perto das operações industriais e complementar a análise de Big data feita na nuvem.
 
-Azure Stream Analytics no IoT Edge executado dentro da estrutura do [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/). Depois que o trabalho é criado no ASA, você pode implantá-lo e gerenciá-lo usando um Hub IoT.
+Azure Stream Analytics no IoT Edge executado dentro da estrutura do [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/). Depois que o trabalho é criado no Stream Analytics, você pode implantá-lo e gerenciá-lo usando o Hub IoT.
 
-## <a name="scenarios"></a>Cenários
-![Diagrama de alto nível do IoT Edge](media/stream-analytics-edge/ASAedge-highlevel-diagram.png)
+## <a name="common-scenarios"></a>Cenários comuns
 
-* **Controle e comando de baixa latência** : por exemplo, sistemas de segurança de fabricação devem reagir aos dados operacionais com latência extremamente baixa. Com o ASA no IoT Edge, você pode analisar dados de sensor quase em tempo real e emitir comandos ao detectar anomalias para interromper um computador ou disparar gatilho.
-*   **Conectividade limitada com a nuvem** : sistemas críticos, como equipamentos de mineração remotos, embarcações conectadas ou perfuração offshore, precisam analisar e reagir aos dados, mesmo quando a conectividade de nuvem é intermitente. Com o ASA, a lógica de fluxo é executado independentemente da conectividade de rede, e você pode escolher o que envia para a nuvem para processamento adicional ou armazenamento.
-* **Largura de banda limitada** : o volume de dados produzidos por motores a jato ou carros conectados pode ser tão grande que os dados devem ser filtrados ou pré-processados antes de serem enviados para a nuvem. Usando o ASA, você pode filtrar ou agregar os dados que precisam ser enviados para a nuvem.
-* **Conformidade** : a conformidade normativa pode exigir que alguns dados sejam mantidos anônimos localmente ou agregados antes de serem enviados para a nuvem.
+Esta seção descreve os cenários comuns de Stream Analytics no IoT Edge. O diagrama a seguir mostra o fluxo de dados entre os dispositivos IoT e a nuvem do Azure.
+
+:::image type="content" source="media/stream-analytics-edge/edge-high-level-diagram.png" alt-text="Diagrama de alto nível de IoT Edge":::
+
+### <a name="low-latency-command-and-control"></a>Comando e controle de baixa latência
+
+Os sistemas de segurança de manufatura devem responder a dados operacionais com latência extremamente baixa. Com Stream Analytics em IoT Edge, você pode analisar os dados do sensor quase em tempo real e emitir comandos ao detectar anomalias para interromper um computador ou disparar alertas.
+
+### <a name="limited-connectivity-to-the-cloud"></a>Conectividade limitada com a nuvem
+
+sistemas críticos, como equipamentos de mineração remotos, embarcações conectadas ou perfuração offshore, precisam analisar e reagir aos dados, mesmo quando a conectividade de nuvem é intermitente. Com o Stream Analytics, a lógica de streaming é executada independentemente da conectividade de rede e você pode escolher o que você envia para a nuvem para processamento adicional ou armazenamento.
+
+### <a name="limited-bandwidth"></a>Largura de banda limitada
+
+o volume de dados produzidos por motores a jato ou carros conectados pode ser tão grande que os dados devem ser filtrados ou pré-processados antes de serem enviados para a nuvem. Usando Stream Analytics, você pode filtrar ou agregar os dados que precisam ser enviados para a nuvem.
+
+### <a name="compliance"></a>Conformidade
+
+a conformidade normativa pode exigir que alguns dados sejam mantidos anônimos localmente ou agregados antes de serem enviados para a nuvem.
 
 ## <a name="edge-jobs-in-azure-stream-analytics"></a>Trabalhos de borda no Azure Stream Analytics
-### <a name="what-is-an-edge-job"></a>O que é um trabalho de "borda"?
 
-Trabalhos ASA Edge são executados em contêineres implantados nos [dispositivos do Azure IoT Edge](../iot-edge/about-iot-edge.md). Eles são compostos de duas partes:
-1.  Uma parte de nuvem que é responsável pela definição de trabalho: os usuários definem entradas, saída, consulta e outras configurações (eventos fora de ordem etc.) na nuvem.
-2.  Um módulo em execução em seus dispositivos IoT. Ele contém o mecanismo do ASA e recebe a definição de trabalho da nuvem. 
+Stream Analytics trabalhos de borda são executados em contêineres implantados em [dispositivos Azure IOT Edge](../iot-edge/about-iot-edge.md). Os trabalhos de borda são compostos por duas partes:
 
-O ASA usa o Hub IoT para implantar os trabalhos de borda para o(s) dispositivo(s). Mais informações sobre a [implantação do IoT Edge podem ser vistas aqui](../iot-edge/module-deployment-monitoring.md).
+* Uma parte de nuvem que é responsável pela definição de trabalho: os usuários definem entradas, saída, consulta e outras configurações, como eventos fora de ordem, na nuvem.
 
-![Trabalho do Azure Stream Analytics no Edge](media/stream-analytics-edge/stream-analytics-edge-job.png)
+* Um módulo em execução em seus dispositivos IoT. O módulo contém o mecanismo de Stream Analytics e recebe a definição de trabalho da nuvem. 
 
+Stream Analytics usa o Hub IoT para implantar trabalhos de borda em dispositivos. Para obter mais informações, consulte [IOT Edge implantação](../iot-edge/module-deployment-monitoring.md).
 
-### <a name="installation-instructions"></a>Instruções de instalação
-As etapas de alto nível são descritas na tabela a seguir. Mais detalhes são fornecidos nas seções a seguir.
+:::image type="content" source="media/stream-analytics-edge/stream-analytics-edge-job.png" alt-text="Trabalho do Azure Stream Analytics no Edge":::
 
-| Etapa | Observações |
-| --- | --- |
-| **Criar um contêiner de armazenamento** | Contêineres de armazenamento são usados para salvar a definição de trabalho em que eles podem ser acessados por dispositivos IoT. <br>  Você pode reutilizar qualquer contêiner de armazenamento existente. |
-| **Criar um trabalho de borda ASA** | Crie um novo trabalho e selecione **Borda** como **ambiente de hospedagem** . <br> Esses trabalhos são criados/gerenciados na nuvem e executados em seus próprios dispositivos IoT Edge. |
-| **Configurar o ambiente IoT Edge nos dispositivos** | Instruções para [Windows](../iot-edge/quickstart.md) ou [Linux](../iot-edge/quickstart-linux.md).|
-| **Implantar o ASA em dispositivos IoT Edge** | A definição de trabalho ASA é exportada para o contêiner de armazenamento criado anteriormente. |
+## <a name="edge-job-limitations"></a>Limitações de trabalho do Edge
 
-Você pode seguir [este tutorial passo a passo](../iot-edge/tutorial-deploy-stream-analytics.md) para implantar seu primeiro trabalho ASA no IoT Edge. O vídeo a seguir deve ajudar a compreender o processo para executar um trabalho do Azure Stream Analytics em um dispositivo de borda IoT:  
-
-
-> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T157/player]
-
-#### <a name="create-a-storage-container"></a>Criar um contêiner de armazenamento
-Um contêiner de armazenamento é necessário para exportar a consulta compilada por ASA e a configuração de trabalho. Ele é usado para configurar a imagem do Docker ASA com sua consulta específica. 
-1. Execute [estas instruções](../storage/common/storage-account-create.md) para criar uma conta de armazenamento por meio do portal do Azure. Você pode manter todas as opções padrão para usar essa conta com o ASA.
-2. Na conta de armazenamento recém-criada, crie um contêiner de armazenamento de blobs:
-    1. Clique em **Blobs** e em **+ Contêiner** . 
-    2. Insira um nome e mantenha o contêiner como **Privado** .
-
-#### <a name="create-an-asa-edge-job"></a>Criar um trabalho de Borda ASA
-> [!Note]
-> Este tutorial se concentra na criação do trabalho ASA usando o Portal do Azure. Você também pode [usar o plug-in do Visual Studio para criar um trabalho de Borda do ASA](./stream-analytics-tools-for-visual-studio-edge-jobs.md)
-
-1. No portal do Azure, crie um novo "trabalho Stream Analytics". [Link direto para criar um novo trabalho ASA aqui](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
-
-2. Na tela de criação, selecione **Edge** como **ambiente de hospedagem** (veja a imagem a seguir)
-
-   ![Crie trabalho do Stream Analytics no Edge](media/stream-analytics-edge/create-asa-edge-job.png)
-3. Definição de trabalho
-    1. **Definir Fluxo(s) de Entrada** . Defina um ou mais fluxos de entrada para o trabalho.
-    2. Defina Dados de referência (opcionais).
-    3. **Definir Fluxo(s) de Saída** . Defina um ou vários fluxos de saída para o trabalho. 
-    4. **Definir consulta** . Defina a consulta ASA na nuvem usando o editor embutido. O compilador verifica automaticamente a sintaxe habilitada para a borda ASA. Você também pode testar a consulta carregando os dados de exemplo. 
-
-4. Defina as informações de contêiner de armazenamento no menu **Configurações do IoT Edge** .
-
-5. Definir configurações opcionais
-    1. **Ordenação de eventos** . Você pode configurar a política fora de ordem no portal. A documentação está disponível [aqui](/stream-analytics-query/time-skew-policies-azure-stream-analytics).
-    2. **Localidade** . Defina o formato de internacionalização.
-
-
-
-> [!Note]
-> Quando uma implantação é criada, o ASA exporta a definição de trabalho para um contêiner de armazenamento. Esta definição de trabalho permanece a mesma em toda a duração da implantação. Como consequência, se você quiser atualizar um trabalho em execução na borda, precisará editar o trabalho no ASA e criar uma nova implantação no Hub IoT.
-
-
-#### <a name="set-up-your-iot-edge-environment-on-your-devices"></a>Configurar o ambiente IoT Edge no(s) dispositivo(s)
-Os trabalhos de borda podem ser implantados em dispositivos que executam o Azure IoT Edge.
-Para isso, você precisa seguir estas etapas:
-- Crie um Hub IoT.
-- Instale o docker e o runtime do IoT Edge nos dispositivos de borda.
-- Defina os dispositivos como **Dispositivos IoT Edge** no Hub IoT.
-
-Essas etapas são descritas na documentação do IoT Edge para [Windows](../iot-edge/quickstart.md) ou [Linux](../iot-edge/quickstart-linux.md).  
-
-
-####  <a name="deployment-asa-on-your-iot-edge-devices"></a>Implantação do ASA em dispositivos IoT Edge
-##### <a name="add-asa-to-your-deployment"></a>Adicionar ASA à sua implantação
-- No portal do Azure, abra o Hub IoT, navegue até **IoT Edge** e clique no dispositivo que você deseja como destino para essa implantação.
-- Selecione **Definir módulos** , em seguida, selecione **+ Adicionar** e escolha **Módulo do Azure Stream Analytics** .
-- Selecione a assinatura e o trabalho do ASA no Edge criado. Clique em Salvar.
-![Adicionar módulo ASA em sua implantação](media/stream-analytics-edge/add-stream-analytics-module.png)
-
-
-> [!Note]
-> Durante esta etapa, o ASA cria uma pasta chamada "EdgeJobs" no contêiner de armazenamento (se ela ainda não existe). Para cada tipo de implantação, uma nova subpasta é criada na pasta "EdgeJobs".
-> Ao implantar o trabalho em dispositivos Azure IoT Edge, o ASA cria uma SAS (assinatura de acesso compartilhado) para o arquivo de definição de trabalho. A chave SAS é transmitida com segurança para os dispositivos IoT Edge usando o dispositivo gêmeo. A expiração dessa chave é de três anos a partir do dia de sua criação. Quando você atualiza um trabalho de IoT Edge, a SAS será alterada, mas a versão da imagem não. Quando você **atualizar** , siga o fluxo de trabalho de implantação, e uma notificação de atualização será registrada no dispositivo.
-
-
-Para obter mais detalhes sobre implantações do IoT Edge, confira [esta página](../iot-edge/module-deployment-monitoring.md).
-
-
-##### <a name="configure-routes"></a>Configurar rotas
-O IoT Edge fornece uma maneira para rotear de modo declarativo as mensagens entre módulos e entre módulos e o Hub IoT. A sintaxe completa é descrita [aqui](../iot-edge/module-composition.md).
-Os nomes das entradas e saídas criadas no trabalho ASA podem ser usados como pontos de extremidade para roteamento.  
-
-###### <a name="example"></a>Exemplo
-
-```json
-{
-    "routes": {
-        "sensorToAsa":   "FROM /messages/modules/tempSensor/* INTO BrokeredEndpoint(\"/modules/ASA/inputs/temperature\")",
-        "alertsToCloud": "FROM /messages/modules/ASA/* INTO $upstream",
-        "alertsToReset": "FROM /messages/modules/ASA/* INTO BrokeredEndpoint(\"/modules/tempSensor/inputs/control\")"
-    }
-}
-
-```
-Este exemplo mostra as rotas para o cenário descrito na figura a seguir. Ele contém um trabalho de borda chamado " **ASA** ", com uma entrada denominada " **temperatura** " e uma saída nomeada " **alerta** ".
-![Exemplo de diagrama de roteamento de mensagens](media/stream-analytics-edge/edge-message-routing-example.png)
-
-Este exemplo define as seguintes rotas:
-- Cada mensagem do **tempSensor** é enviada para o módulo chamado **ASA** para a entrada denominada **temperatura** ,
-- Todas as saídas do módulo **ASA** são enviadas para o Hub IoT vinculado a este dispositivo (upstream$),
-- Todas as saídas do módulo **ASA** são enviadas para o ponto de extremidade **control** de **tempSensor** .
-
-
-## <a name="technical-information"></a>Informações técnicas
-### <a name="current-limitations-for-iot-edge-jobs-compared-to-cloud-jobs"></a>Limitações atuais dos trabalhos do IoT Edge em comparação com os trabalhos de nuvem
-O objetivo é ter a paridade entre os trabalhos do IoT Edge e os trabalhos de nuvem. Há suporte para a maioria dos recursos da linguagem de consulta SQL, permitindo executar a mesma lógica em nuvem e IoT Edge.
-No entanto, os recursos a seguir ainda não têm suporte para trabalhos de borda:
+O objetivo é ter a paridade entre os trabalhos do IoT Edge e os trabalhos de nuvem. A maioria dos recursos de linguagem de consulta SQL tem suporte para o Edge e a nuvem. No entanto, os recursos a seguir não têm suporte para trabalhos do Edge:
 * Funções definidas pelo usuário (UDF) no JavaScript. Os UDF estão disponíveis no [C# para trabalhos do IoT Edge](./stream-analytics-edge-csharp-udf.md) (versão prévia).
 * Agregações definidas pelo usuário (UDA).
 * Funções do Azure ML.
-* Uso de mais de 14 agregações em uma única etapa.
 * Formato AVRO para entrada/saída. No momento, há suporte apenas para CSV e JSON.
 * Os seguintes operadores SQL:
     * PARTITION BY
@@ -156,47 +67,33 @@ No entanto, os recursos a seguir ainda não têm suporte para trabalhos de borda
 * Política de entrada tardia
 
 ### <a name="runtime-and-hardware-requirements"></a>Requisitos de hardware e de runtime
-Para executar o ASA no IoT Edge, você precisa de dispositivos que possam executar o [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/). 
+Para executar Stream Analytics no IoT Edge, você precisa de dispositivos que podem executar o [Azure IOT Edge](https://azure.microsoft.com/campaigns/iot-edge/). 
 
-O ASA e o Azure IoT Edge usam contêineres **Docker** para fornecer uma solução portátil que é executada em vários sistemas operacionais host (Windows, Linux).
+Stream Analytics e Azure IoT Edge usar contêineres do **Docker** para fornecer uma solução portátil que é executada em vários sistemas operacionais de host (Windows, Linux).
 
-O ASA no IoT Edge é disponibilizado como imagens do Windows e do Linux, em execução em arquiteturas x86-64 ou ARM (Máquinas RISC Avançadas). 
+Stream Analytics em IoT Edge é disponibilizada como imagens do Windows e do Linux, em execução em arquiteturas x86-64 ou ARM (Advanced RISC Machines). 
 
 
-### <a name="input-and-output"></a>Entrada e saída
-#### <a name="input-and-output-streams"></a>Fluxos de Entrada e Saída
-Os trabalhos ASA Edge podem obter entradas e saídas de outros módulos em execução em dispositivos de IoT Edge. Para se conectar de e para módulos específicos, você pode definir a configuração de roteamento no momento da implantação. Mais informações são descritas na [documentação do módulo de composição do IoT Edge](../iot-edge/module-composition.md).
+## <a name="input-and-output"></a>Entrada e saída
+
+Stream Analytics trabalhos do Edge podem obter entradas e saídas de outros módulos em execução em dispositivos IoT Edge. Para se conectar de e para módulos específicos, você pode definir a configuração de roteamento no momento da implantação. Mais informações são descritas na [documentação do módulo de composição do IoT Edge](../iot-edge/module-composition.md).
 
 Para entradas e saídas, há suporte para os formatos CSV e JSON.
 
-Para cada fluxo de entrada e saída que você cria no trabalho ASA, um ponto de extremidade correspondente é criado no módulo implantado. Esses pontos de extremidade podem ser usados nas rotas da implantação.
+Para cada fluxo de entrada e saída que você cria em seu trabalho de Stream Analytics, um ponto de extremidade correspondente é criado em seu módulo implantado. Esses pontos de extremidade podem ser usados nas rotas da implantação.
 
-No momento, os únicos tipos de entrada e saída de fluxo com suporte são do Hub do Edge. A entrada de referência dá suporte ao tipo de arquivo de referência. Outras saídas podem ser contatadas por meio de um downstream do trabalho de nuvem. Por exemplo, um trabalho do Stream Analytics hospedado no Edge envia a saída para o Hub do Edge, que pode então enviar a saída para o Hub IoT. Você pode usar um segundo trabalho do Azure Stream Analytics hospedado em nuvem com entrada do Hub IoT e saída para o Power BI ou outro tipo de saída.
+Os tipos de entrada de fluxo com suporte são:
+* Hub do Edge
+* Hub de evento
+* Hub IoT
 
+Os tipos de saída de fluxo com suporte são:
+* Hub do Edge
+* Banco de Dados SQL
+* Hub de evento
+* Armazenamento de BLOBs/ADLS Gen2
 
-
-##### <a name="reference-data"></a>Dados de referência
-Os dados de referência (também conhecidos como uma tabela de pesquisa) são um conjunto de dados finito estático ou com alteração lenta por natureza. Ele é usado para executar uma pesquisa ou para se correlacionar ao fluxo de dados. Para usar dados de referência no seu trabalho do Azure Stream Analytics geralmente é preciso usar uma [União de dados de referência](/stream-analytics-query/reference-data-join-azure-stream-analytics) em sua consulta. Para obter mais informações, consulte o [Usando dados de referência para pesquisas no Stream Analytics](stream-analytics-use-reference-data.md).
-
-Apenas dados de referência local são suportados. Quando um trabalho é implantado no dispositivo IoT Edge, ele carrega dados de referência do caminho do arquivo definido pelo usuário.
-
-Para criar um trabalho com dados de referência no Edge:
-
-1. Crie uma nova entrada para seu trabalho.
-
-2. Escolha **Dados de referência** como o **Tipo de Fonte** .
-
-3. Tenha um arquivo de dados de referência pronto no dispositivo. Para um contêiner do Windows, coloque o arquivo de dados de referência na unidade local e compartilhe a unidade local com o contêiner Docker. Para um contêiner do Linux, crie um volume do Docker e preencha o arquivo de dados para o volume.
-
-4. Defina o caminho do arquivo. Para o sistema operacional de Host do Windows e o contêiner do Windows, use o caminho absoluto: `E:\<PathToFile>\v1.csv`. Para um sistema operacional de Host do Windows e um contêiner do Linux ou um sistema operacional do Linux e um contêiner do Linux, use o caminho no volume: `<VolumeName>/file1.txt`.
-
-![Nova entrada de dados de referência para o job do Azure Stream Analytics no IoT Edge](./media/stream-analytics-edge/Reference-Data-New-Input.png)
-
-Os dados de referência na atualização do IoT Edge são acionados por uma implantação. Uma vez acionado, o módulo ASA seleciona os dados atualizados sem interromper o trabalho em execução.
-
-Existem duas maneiras de atualizar os dados de referência:
-* Atualize o caminho de dados de referência em sua tarefa ASA do portal do Azure.
-* Atualize a implantação do IoT Edge.
+A entrada de referência dá suporte ao tipo de arquivo de referência. Outras saídas podem ser contatadas por meio de um downstream do trabalho de nuvem. Por exemplo, um trabalho do Stream Analytics hospedado no Edge envia a saída para o Hub do Edge, que pode então enviar a saída para o Hub IoT. Você pode usar um segundo trabalho de Azure Stream Analytics hospedado na nuvem com entrada do Hub IoT e saída para Power BI ou outro tipo de saída.
 
 ## <a name="license-and-third-party-notices"></a>Licenças e notificações de terceiros
 * [Licença do Azure Stream Analytics no IoT Edge](https://go.microsoft.com/fwlink/?linkid=862827). 
@@ -204,7 +101,7 @@ Existem duas maneiras de atualizar os dados de referência:
 
 ## <a name="azure-stream-analytics-module-image-information"></a>Informações de imagem do módulo Azure Stream Analytics 
 
-Esta informação de versão foi atualizada pela última vez em 27/06/2019:
+Esta informação de versão foi atualizada pela última vez em 2020-09-21:
 
 - Imagem: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-amd64`
    - imagem base: mcr.microsoft.com/dotnet/core/runtime:2.1.13-alpine
@@ -230,8 +127,8 @@ Para obter mais assistência, experimente a [página de Perguntas e respostas da
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Mais informações sobre o Azure Iot Edge](../iot-edge/about-iot-edge.md)
-* [ASA no tutorial de IoT Edge](../iot-edge/tutorial-deploy-stream-analytics.md)
+* [Mais informações sobre o Azure IoT Edge](../iot-edge/about-iot-edge.md)
+* [Stream Analytics no tutorial IoT Edge](../iot-edge/tutorial-deploy-stream-analytics.md)
 * [Desenvolver trabalhos de Borda do Stream Analytics utilizando ferramentas do Visual Studio](./stream-analytics-tools-for-visual-studio-edge-jobs.md)
 * [Implementar CI/CD para Stream Analytics usando as APIs](stream-analytics-cicd-api.md)
 

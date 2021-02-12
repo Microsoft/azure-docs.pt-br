@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 649f02097a18a141d186434a91539563c64e72ba
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 3ed5c2c1c95822717981f7d30b91edd244420c59
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042117"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427678"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versões do Kubernetes com suporte no AKS (Serviço de Kubernetes do Azure)
 
@@ -95,7 +95,7 @@ New Supported Version List
 
 Você pode usar uma versão secundária mais antiga ou mais nova de `kubectl` em relação à sua versão do *Kube-apiserver* , que é consistente com a [política de suporte do kubernetes para kubectl](https://kubernetes.io/docs/setup/release/version-skew-policy/#kubectl).
 
-Por exemplo, se seu *Kube-apiserver* estiver em *1,17* , você poderá usar as versões *1,16* a *1,18* de `kubectl` com esse *Kube-apiserver* .
+Por exemplo, se seu *Kube-apiserver* estiver em *1,17*, você poderá usar as versões *1,16* a *1,18* de `kubectl` com esse *Kube-apiserver*.
 
 Para instalar ou atualizar sua versão do `kubectl` , execute `az aks install-cli` .
 
@@ -106,6 +106,9 @@ Você pode fazer referência a versões e substituições futuras da versão no 
 Para novas versões **secundárias** do kubernetes
 1. O AKS publica um pré-registro com a data planejada de um novo lançamento de versão e a respectiva substituição de versão antiga nas [notas](https://aka.ms/aks/releasenotes) de versão do AKs, pelo menos 30 dias antes da remoção.
 2. O AKS publica uma [notificação de integridade do serviço](../service-health/service-health-overview.md) disponível para todos os usuários com acesso ao portal e do AKs e envia um email para os administradores de assinatura com as datas de remoção da versão planejada.
+````
+To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator).
+````
 3. Os usuários têm **30 dias** desde a remoção da versão até a atualização para uma versão secundária com suporte para continuar recebendo suporte.
 
 Para novas versões de **patch** do kubernetes
@@ -121,9 +124,9 @@ Versões de patch específicas podem ser ignoradas ou a distribuição acelerada
 
 ## <a name="azure-portal-and-cli-versions"></a>Versões portal do Azure e CLI
 
-Quando você implanta um cluster AKS no portal ou com o CLI do Azure, o cluster é padronizado para a versão secundária N-1 e o patch mais recente. Por exemplo, se AKS dá suporte a *1.17. a* , *1.17. b* , *1.16. c* , *1.16. d* , *1.15. e* e *1.15. f* , a versão padrão selecionada é *1.16. c* .
+Quando você implanta um cluster AKS no portal ou com o CLI do Azure, o cluster é padronizado para a versão secundária N-1 e o patch mais recente. Por exemplo, se AKS dá suporte a *1.17. a*, *1.17. b*, *1.16. c*, *1.16. d*, *1.15. e* e *1.15. f*, a versão padrão selecionada é *1.16. c*.
 
-Para descobrir quais versões estão disponíveis atualmente para sua assinatura e região, use o comando [az aks get-versions][az-aks-get-versions]. O exemplo a seguir lista as versões disponíveis do Kubernetes para a região *EastUS* :
+Para descobrir quais versões estão disponíveis atualmente para sua assinatura e região, use o comando [az aks get-versions][az-aks-get-versions]. O exemplo a seguir lista as versões disponíveis do Kubernetes para a região *EastUS*:
 
 ```azurecli-interactive
 az aks get-versions --location eastus --output table
@@ -135,13 +138,13 @@ Para obter o histórico de lançamentos anteriores, consulte [kubernetes](https:
 
 |  Versão do K8s | Versão de upstream  | Visualização do AKS  | GA AKS  | Fim da vida útil |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.16  | Setembro de 19-19  | Jan 2019   | Mar 2020  | Jan 2021 * | 
 | 1,17  | Dec-09-19  | Jan 2019   | Julho de 2020  | 1,20 GA | 
 | 1,18  | Março de 23-20  | Maio de 2020   | 2020 de agosto  | 1,21 GA | 
 | 1,19  | Agosto de 04-20  | Setembro de 2020   | 2020 de novembro  | 1,22 GA | 
 | 1,20  | Dec-08-20  | Jan 2021   | Mar de 2021  | 1,23 GA |
+| 1,21  | Abr-08-21 * | Maio de 2021   | Jun 2021  | 1,24 GA |
 
-\* Devido à época de Natal, a AKS está estendendo a vida de 1,16 de novembro de 2020 até 2021 de Janeiro. [Leia mais](https://github.com/Azure/AKS/releases/tag/2020-10-12).
+\* A versão do upstream do kubernetes 1,21 está sujeita a alterações como o calendário upstream ainda para ser finalizado.
 
 
 ## <a name="faq"></a>Perguntas frequentes
@@ -179,7 +182,7 @@ O plano de controle deve estar dentro de uma janela de versões de todos os pool
 
 Quando você atualiza um cluster AKS com suporte, as versões secundárias do kubernetes não podem ser ignoradas. Por exemplo, as atualizações entre *1.12. x*  ->  *1.13. x* ou *1.13. x*  ->  *1.14.* x são permitidas, no entanto *1.12. x*  ->  *1.14. x* não é.
 
-Para atualizar, de *1.12. x*  ->  *1.14.* x, primeiro atualize de *1.12. x*  ->  *1.13. x* e, em seguida, atualize de *1.13. x*  ->  *1.14. x* .
+Para atualizar, de *1.12. x*  ->  *1.14.* x, primeiro atualize de *1.12. x*  ->  *1.13. x* e, em seguida, atualize de *1.13. x*  ->  *1.14. x*.
 
 Ignorar várias versões só pode ser feito ao atualizar de uma versão sem suporte de volta para uma versão com suporte. Por exemplo, atualizar de um *1,10. x* sem suporte > um *1.15. x* com suporte pode ser concluído.
 

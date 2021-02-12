@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
-ms.openlocfilehash: 8b3212dd7e1544d734c0f409bd4bcdf8ec22fbc2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 9921ed500f831f2a002335fe83eae8f1bb47ecd4
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147610"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095331"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Entender e usar os SDKs de Hub IoT do Azure
 
@@ -53,6 +53,14 @@ SDK do dispositivo de Hub IoT do Azure para .NET:
 * [Código-fonte](https://github.com/Azure/azure-iot-sdk-csharp)
 * [Referência de API](/dotnet/api/microsoft.azure.devices?view=azure-dotnet)
 * [Referência de módulo](/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)
+
+
+SDK do dispositivo do Hub IoT do Azure para C inserido (ANSI C-C99):
+* [Compilar o SDK do C inserido](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot#build)
+* [Código-fonte](https://github.com/Azure/azure-sdk-for-c)
+* [Gráfico de tamanho](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot#size-chart) para dispositivos restritos.
+* [Referência de API](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.Identity/1.0.0/api/index.html)
+
 
 SDK de dispositivos do Hub IoT do Azure para C (ANSIC - C99):
 

@@ -3,20 +3,20 @@ title: Atividade de execução de pipeline no Azure Data Factory
 description: Saiba como você pode usar a atividade de execução de pipeline para invocar um pipeline do Data Factory de outro pipeline do Data Factory.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 4bd667a2302136b5e12d2e4e548c9e8863715621
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7df636bbdc85b9fcdcbfef260daca905f9949d8c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81415273"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500031"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Atividade de execução de pipeline no Azure Data Factory
 
@@ -69,8 +69,8 @@ Propriedade | Descrição | Valores permitidos | Obrigatório
 name | Nome da atividade de execução de pipeline. | String | Sim
 type | Deve ser definido como: **ExecutePipeline**. | String | Sim
 pipeline | Referência de pipeline para o pipeline dependente que invoca esse pipeline. Um objeto de referência do pipeline tem duas propriedades: **referenceName** e **type**. A propriedade referenceName especifica o nome do pipeline de referência. A propriedade type deve ser definida como PipelineReference. | PipelineReference | Sim
-parameters | Parâmetros a serem passados para o pipeline invocado | Um objeto JSON que mapeia os nomes de parâmetro para os valores de argumento | Não
-waitOnCompletion | Define se a atividade de execução aguarda a execução do pipeline dependente ser concluída. O padrão é false. | Booliano | Não
+parâmetros | Parâmetros a serem passados para o pipeline invocado | Um objeto JSON que mapeia os nomes de parâmetro para os valores de argumento | Não
+waitOnCompletion | Define se a atividade de execução aguarda a execução do pipeline dependente ser concluída. O padrão é false. | Boolean | Não
 
 ## <a name="sample"></a>Amostra
 Este cenário tem dois pipelines:

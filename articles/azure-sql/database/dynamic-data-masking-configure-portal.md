@@ -11,12 +11,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
-ms.openlocfilehash: 3f8c296860fc36772a85039e27c86a72614c2a50
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e551925bbd1426256a81ac2ca3f245af7697245b
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791045"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98027988"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Introdução à máscara de dados dinâmicos do Banco de Dados SQL com o portal do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "92791045"
 Este artigo mostra como implementar a [máscara de dados dinâmicos](dynamic-data-masking-overview.md) com o Portal do Azure. Você também pode implementar a máscara de dados dinâmicos usando [cmdlets de Banco de Dados SQL do Azure](/powershell/module/az.sql/) ou a [API REST](/rest/api/sql/).
 
 > [!NOTE]
-> Este recurso não pode ser definido usando o portal para o Azure Synapse (use o PowerShell ou a API REST) ou o SQL Instância Gerenciada. Para obter mais informações, consulte [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
+> Este recurso não pode ser definido usando o portal para SQL Instância Gerenciada (use o PowerShell ou a API REST). Para obter mais informações, consulte [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-azure-portal"></a>Configurar o mascaramento de dados dinâmicos para o banco de dados usando o portal do Azure
 
@@ -34,15 +34,15 @@ Este artigo mostra como implementar a [máscara de dados dinâmicos](dynamic-dat
 
    ![Captura de tela que mostra a seção de segurança com Máscara de Dados Dinâmicos realçado.](./media/dynamic-data-masking-configure-portal/4_ddm_settings_tile.png)
 
-4. Na página de configuração **Máscara de Dados Dinâmicos** , você poderá ver algumas colunas de banco de dados que o mecanismo de recomendações sinalizou para mascaramento. Para aceitar as recomendações, basta clicar em **Adicionar Máscara** para uma ou mais colunas e uma máscara será criada com base no tipo padrão para essa coluna. Você pode alterar a função de mascaramento clicando na regra de mascaramento e editando o formato do campo de mascaramento para um formato diferente à sua escolha. Clique em **Salvar** para salvar suas configurações.
+4. Na página de configuração **Máscara de Dados Dinâmicos**, você poderá ver algumas colunas de banco de dados que o mecanismo de recomendações sinalizou para mascaramento. Para aceitar as recomendações, basta clicar em **Adicionar Máscara** para uma ou mais colunas e uma máscara será criada com base no tipo padrão para essa coluna. Você pode alterar a função de mascaramento clicando na regra de mascaramento e editando o formato do campo de mascaramento para um formato diferente à sua escolha. Clique em **Salvar** para salvar suas configurações.
 
     ![Captura de tela que mostra a página de configuração Máscara de Dados Dinâmicos.](./media/dynamic-data-masking-configure-portal/5_ddm_recommendations.png)
 
-5. Para adicionar uma máscara a uma coluna do banco de dados, na parte superior da página de configuração **Máscara de Dados Dinâmicos** , clique em **Adicionar Máscara** para abrir a página de configuração **Adicionar Regra de Mascaramento** .
+5. Para adicionar uma máscara a uma coluna do banco de dados, na parte superior da página de configuração **Máscara de Dados Dinâmicos**, clique em **Adicionar Máscara** para abrir a página de configuração **Adicionar Regra de Mascaramento**.
 
     ![Captura de tela que mostra a página de configuração Adicionar regra de mascaramento.](./media/dynamic-data-masking-configure-portal/6_ddm_add_mask.png)
 
-6. Selecione o **Esquema** , a **Tabela** e a **Coluna** para definir o campo designado para o mascaramento.
+6. Selecione o **Esquema**, a **Tabela** e a **Coluna** para definir o campo designado para o mascaramento.
 7. **Selecione como mascarar** na lista de categorias de mascaramento de dados confidenciais.
 
     ![Captura de tela que mostra as categorias de máscara de dados confidenciais na seção selecionar como mascarar.](./media/dynamic-data-masking-configure-portal/7_ddm_mask_field_format.png)

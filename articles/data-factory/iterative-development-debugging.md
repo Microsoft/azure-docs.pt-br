@@ -7,14 +7,14 @@ ms.service: data-factory
 services: data-factory
 documentationcenter: ''
 ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
-ms.openlocfilehash: f1f81af715bc4b2248a24076f3b12a74d0ee73e3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+author: dcstwh
+ms.author: weetok
+ms.openlocfilehash: 9b28fb24439354e09e5262281a99cd9dc0153a04
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102059"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485239"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Desenvolvimento iterativo e depuração com o Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -27,7 +27,7 @@ Para ver uma introdução de oito minutos e uma demonstração desse recurso, as
 
 ## <a name="debugging-a-pipeline"></a>Depuração de um pipeline
 
-Como você cria usando a tela de pipeline, você pode testar suas atividades usando a capacidade de **depuração** . Quando faz execuções de teste, você não precisa publicar suas alterações para o data factory antes de selecionar **Depurar** . Esse recurso é útil nos cenários em que você deseja garantir que as alterações funcionem conforme o esperado antes de atualizar o fluxo de trabalho de data factory.
+Como você cria usando a tela de pipeline, você pode testar suas atividades usando a capacidade de **depuração** . Quando faz execuções de teste, você não precisa publicar suas alterações para o data factory antes de selecionar **Depurar**. Esse recurso é útil nos cenários em que você deseja garantir que as alterações funcionem conforme o esperado antes de atualizar o fluxo de trabalho de data factory.
 
 ![Recurso Depurar na tela de pipeline](media/iterative-development-debugging/iterative-development-1.png)
 
@@ -44,7 +44,7 @@ Depois que uma execução de teste for bem-sucedida, adicione mais atividades ao
 
 ### <a name="setting-breakpoints"></a>Definindo pontos de interrupção
 
-Azure Data Factory permite que você depure um pipeline até alcançar uma atividade específica na tela do pipeline. Coloque um ponto de interrupção na atividade até o qual você deseja testar e selecione **depurar** . O Data Factory garante que o teste seja executado somente até a atividade de ponto de interrupção na tela de pipeline. Esse recurso *Depurar Até* é útil quando você não quer testar o pipeline de inteiro, mas apenas um subconjunto das atividades dentro do pipeline.
+Azure Data Factory permite que você depure um pipeline até alcançar uma atividade específica na tela do pipeline. Coloque um ponto de interrupção na atividade até o qual você deseja testar e selecione **depurar**. O Data Factory garante que o teste seja executado somente até a atividade de ponto de interrupção na tela de pipeline. Esse recurso *Depurar Até* é útil quando você não quer testar o pipeline de inteiro, mas apenas um subconjunto das atividades dentro do pipeline.
 
 ![Pontos de interrupção na tela de pipeline](media/iterative-development-debugging/iterative-development-3.png)
 
@@ -52,7 +52,7 @@ Para definir um ponto de interrupção, selecione um elemento na tela do pipelin
 
 ![Antes de configurar um ponto de interrupção no elemento selecionado](media/iterative-development-debugging/iterative-development-4.png)
 
-Depois de selecionar a opção *Depurar Até* , ele é alterado para um círculo vermelho preenchido para indicar que o ponto de interrupção está habilitado.
+Depois de selecionar a opção *Depurar Até*, ele é alterado para um círculo vermelho preenchido para indicar que o ponto de interrupção está habilitado.
 
 ![Depois de configurar um ponto de interrupção no elemento selecionado](media/iterative-development-debugging/iterative-development-5.png)
 

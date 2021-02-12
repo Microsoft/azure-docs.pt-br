@@ -1,6 +1,6 @@
 ---
-title: arquivo de inclusão
-description: arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/30/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9aa8857ab10423f460874870a3663929e8e5a5c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a61399bbb75639fdf4f03da7b77f22a2136adbe
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566934"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99628914"
 ---
 A habilitação de discos compartilhados só está disponível para um subconjunto de tipos de disco. No momento, apenas ultra discos e o SSDs Premium podem habilitar discos compartilhados. Cada disco gerenciado que tem discos compartilhados habilitados está sujeito às seguintes limitações, organizadas por tipo de disco:
 
@@ -24,7 +24,7 @@ Ultra discos têm sua própria lista separada de limitações, não relacionadas
 Ao compartilhar ultra disks, eles têm as seguintes limitações adicionais:
 
 - Atualmente limitado a suporte a Azure Resource Manager ou SDK. 
-- Somente discos básicos podem ser usados com algumas versões do cluster de failover do Windows Server, para obter detalhes, consulte [requisitos de hardware de clustering de failover e opções de armazenamento](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
+- Somente discos básicos podem ser usados com algumas versões do cluster de failover do Windows Server, para obter detalhes, consulte [requisitos de hardware de clustering de failover e opções de armazenamento](/windows-server/failover-clustering/clustering-requirements).
 
 Ultra discos compartilhados estão disponíveis em todas as regiões que dão suporte a ultra discos por padrão e não exigem que você se inscreva no Access para usá-los.
 
@@ -34,10 +34,11 @@ Ultra discos compartilhados estão disponíveis em todas as regiões que dão su
 - Só pode ser habilitado em discos de dados, não em discos do sistema operacional.
 - O cache de host **ReadOnly** não está disponível para o SSDs Premium com `maxShares>1` .
 - A intermitência de disco não está disponível para o SSDs Premium com `maxShares>1` .
-- Ao usar conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais com discos compartilhados do Azure, o [alinhamento do domínio de falha de armazenamento](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set) com o domínio de falha de máquina virtual não é imposto para o disco de dados compartilhado.
+- Ao usar conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais com discos compartilhados do Azure, o [alinhamento do domínio de falha de armazenamento](../articles/virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) com o domínio de falha de máquina virtual não é imposto para o disco de dados compartilhado.
 - Ao usar [PPG (grupos de posicionamento de proximidade)](../articles/virtual-machines/windows/proximity-placement-groups.md), todas as máquinas virtuais que compartilham um disco devem fazer parte do mesmo PPG.
-- Somente discos básicos podem ser usados com algumas versões do cluster de failover do Windows Server, para obter detalhes, consulte [requisitos de hardware de clustering de failover e opções de armazenamento](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
-- O backup do Azure e o suporte a Azure Site Recovery ainda não estão disponíveis.
+- Somente discos básicos podem ser usados com algumas versões do cluster de failover do Windows Server, para obter detalhes, consulte [requisitos de hardware de clustering de failover e opções de armazenamento](/windows-server/failover-clustering/clustering-requirements).
+- Azure Site Recovery suporte ainda não está disponível.
+- O backup do Azure está disponível por meio [do backup em disco do Azure (versão prévia)](../articles/backup/disk-backup-overview.md).
 
 #### <a name="regional-availability"></a>Disponibilidade regional
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 00035782a17936405b2b042035220dde87da12b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fdb301cd719d98d806e2a9e539cd81e6778461bb
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89257051"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695297"
 ---
 # <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>Carregar arquivos para uma conta dos Serviços de Mídia no portal do Azure
 
@@ -32,7 +32,7 @@ ms.locfileid: "89257051"
 > 
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. Para os arquivos de upload atualizados com o portal, consulte usar o [portal para carregar, codificar e transmitir conteúdo](../latest/manage-assets-quickstart.md).<br/>Além disso, confira: [serviços de mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. Para os arquivos de upload atualizados com o portal, consulte usar o [portal para carregar, codificar e transmitir conteúdo](../latest/manage-assets-quickstart.md).<br/>Além disso, confira: [serviços de mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Nos Serviços de Mídia do Azure, você pode carregar seus arquivos digitais para um ativo. O ativo pode conter vídeo, áudio, imagens, coleções de miniaturas, sequências de texto e arquivos de legendas (e os metadados desses arquivos). Depois que os arquivos são carregados, o conteúdo é armazenado com segurança na nuvem para processamento adicional e transmissão.
 

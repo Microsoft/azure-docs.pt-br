@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: b305be693f59b65a62570f656a0132f4f03cf099
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42a9caff0433808734ee853cbad90a2088bf4e1e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541791"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019238"
 ---
 # <a name="convert-data-format-of-utterances"></a>Converter o formato de dados de declarações
 O LUIS fornece as seguintes conversões de um usuário expressão antes da previsão "
@@ -26,7 +26,7 @@ O LUIS fornece as seguintes conversões de um usuário expressão antes da previ
 A fala em texto é fornecida como uma integração com o LUIS.
 
 ### <a name="intent-conversion-concepts"></a>Conceitos de conversão de intenção
-Conversão de fala em texto no LUIS permite que você envie expressões faladas a um ponto de extremidade e receba uma resposta de previsão LUIS. O processo é uma integração entre o serviço de [Fala](https://docs.microsoft.com/azure/cognitive-services/Speech) com LUIS. Saiba mais sobre a conversão de fala em intenção com um [tutorial](../speech-service/how-to-recognize-intents-from-speech-csharp.md).
+Conversão de fala em texto no LUIS permite que você envie expressões faladas a um ponto de extremidade e receba uma resposta de previsão LUIS. O processo é uma integração entre o serviço de [Fala](/azure/cognitive-services/Speech) com LUIS. Saiba mais sobre a conversão de fala em intenção com um [tutorial](../speech-service/how-to-recognize-intents-from-speech-csharp.md).
 
 ### <a name="key-requirements"></a>Requisitos de chave
 Você não precisa criar uma chave de **API de Fala do Bing** para esta integração. Uma chave de **Reconhecimento vocal** criada no portal do Azure funciona para este exercício. Não use a chave de inicialização do LUIS.
@@ -41,4 +41,3 @@ Consulte [limites de chave](luis-limits.md#key-limits) para obter informações.
 
 > [!div class="nextstepaction"]
 > [Extraindo dados](luis-concept-data-extraction.md)
-

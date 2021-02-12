@@ -9,19 +9,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 03/16/2018
+ms.date: 01/22/2021
 ms.author: duau
 ms.custom: ''
-ms.openlocfilehash: f1a3cc5ccb326d6a198895f9f459e661f7805b1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66376655c61903761d93ea228c6d72fa05734353
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401530"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743042"
 ---
 # <a name="traffic-manager-traffic-view"></a>Exibição do Tráfego do Gerenciador de Tráfego
 
-O Gerenciador de Tráfego fornece roteamento no nível do DNS para que os usuários finais sejam direcionados aos pontos de extremidade íntegros, com base no método de roteamento especificado quando o perfil foi criado. A Exibição de Tráfego fornece ao Gerenciador de Tráfego uma exibição das bases de usuários (em um nível de granularidade do resolvedor de DNS) e seu padrão de tráfego. Quando você habilita a Exibição do Tráfego, essas informações são processadas para fornecer ideias acionáveis. 
+O Gerenciador de tráfego fornece roteamento de nível de DNS (sistema de nomes de domínio). Esse serviço permite que os usuários finais sejam direcionados a pontos de extremidade íntegros com base no método de roteamento de sua escolha. A Exibição de Tráfego fornece ao Gerenciador de Tráfego uma exibição das bases de usuários (em um nível de granularidade do resolvedor de DNS) e seu padrão de tráfego. Quando você habilita a Exibição do Tráfego, essas informações são processadas para fornecer ideias acionáveis. 
 
 Usando a Exibição do Tráfego, você pode:
 - entender onde suas bases de usuários estão localizadas (granularidade até o nível de um resolvedor de DNS local).
@@ -29,27 +29,28 @@ Usando a Exibição do Tráfego, você pode:
 - obtenha informações para entender qual é a latência representativa experimentada por esses usuários.
 - mergulhar profundamente nos padrões de tráfego específicos de cada uma dessas bases de usuários para as regiões do Azure em que você tem pontos de extremidade. 
 
-Por exemplo, você pode usar a Exibição do Tráfego para entender quais regiões têm um grande número de tráfego, mas sofrem com latências mais altas. Em seguida, use essas informações para planejar a expansão da superfície para novas regiões do Azure, de modo que esses usuários tenham uma experiência de latência mais baixa.
+Por exemplo, você pode usar Exibição de Tráfego para entender quais regiões têm uma grande quantidade de tráfego, mas sofrem latências mais altas. Em seguida, use essas informações para planejar sua expansão de superfície para novas regiões do Azure. Dessa forma, os usuários terão uma experiência de latência mais baixa.
 
 ## <a name="how-traffic-view-works"></a>Como a Exibição do Tráfego funciona
 
-A Exibição do Tráfego funciona com o Gerenciador de Tráfego examinando as consultas de entrada recebidas nos últimos sete dias em relação a um perfil com esse recurso habilitado. Com base nas informações das consultas de entrada, a Exibição de Tráfego extrai o IP de origem do resolvedor de DNS, que é usado como uma representação da localização dos usuários. Em seguida, eles são agrupados em uma granularidade no nível do resolvedor de DNS para criar regiões de base de usuários usando as informações geográficas dos endereços IP mantidos pelo Gerenciador de Tráfego. Em seguida, o Gerenciador de Tráfego analisa as regiões do Azure para as quais a consulta foi roteada e constrói um mapa de fluxo de tráfego para os usuários dessas regiões.  
-Na próxima etapa, o Gerenciador de Tráfego correlaciona o mapeamento da região da base de usuários à região do Azure com as tabelas de latência de inteligência de rede que ele mantém para diferentes redes de usuários finais, a fim de entender a latência média experimentada pelos usuários nessas regiões durante a conexão com as regiões do Azure. Em seguida, todos esses cálculos são combinados no nível do IP do resolvedor de DNS local antes de serem apresentados. Você pode consumir as informações de várias maneiras.
+Exibição de Tráfego funciona examina as consultas recebidas nos últimos sete dias para um perfil. Nas informações de consultas de entrada, Exibição de Tráfego extrai o IP de origem do resolvedor de DNS usado para representar o local dos usuários. Essas informações são agrupadas em um nível de resolvedor de DNS para criar regiões de base de usuário. O Traffic Manager mantém as informações geográficas dos endereços IP. O Gerenciador de tráfego examina as regiões do Azure para as quais a consulta é roteada e constrói um mapa de fluxo de tráfego para os usuários dessas regiões.
+ 
+Na próxima etapa, o Gerenciador de tráfego correlaciona a região base de usuário ao mapeamento de região do Azure com as tabelas de latência de inteligência de rede. Essa tabela é mantida para diferentes redes de usuário final para entender a latência média realizada pelos usuários dessas regiões ao se conectarem às regiões do Azure. Todos esses cálculos são combinados em um nível de IP do resolvedor DNS por local antes de sua apresentação. Você pode consumir as informações de várias maneiras.
 
-A frequência da atualização de dados da exibição de tráfego depende de várias variáveis de serviço internas. No entanto, os dados geralmente são atualizados uma vez a cada 24 horas.
+A frequência da atualização de dados da exibição de tráfego depende de várias variáveis de serviço internas. No entanto, os dados são atualizados uma vez a cada 24 horas.
 
 >[!NOTE]
 >A latência descrita na Exibição de Tráfego é uma latência representativa entre o usuário final e as regiões do Azure às quais ele se conectou e não é a latência de pesquisa de DNS. A Exibição de Tráfego faz a melhor estimativa possível da latência entre o resolvedor de DNS local e a região do Azure para a qual a consulta foi roteada. Se houver dados insuficientes disponíveis, a latência retornada será nula. 
 
 ## <a name="visual-overview"></a>Visão geral do visual
 
-Ao navegar para a seção **Exibição de Tráfego** da página do Gerenciador de Tráfego, você verá um mapa geográfico com uma sobreposição dos insights da Exibição de Tráfego. O mapa fornece informações sobre a base de usuários e os pontos de extremidade para seu perfil do Gerenciador de Tráfego.
+Ao navegar até a seção **exibição de tráfego** na página do Gerenciador de tráfego, você verá um mapa geográfico com uma sobreposição de exibição de tráfego insights. O mapa fornece informações sobre a base de usuários e os pontos de extremidade para seu perfil do Gerenciador de Tráfego.
 
 ![Exibição geográfica de Exibição de Tráfego do Traffic Manager][1]
 
 ### <a name="user-base-information"></a>Informações da base de usuários
 
-Para os resolvedores de DNS locais para os quais as informações de localização estão disponíveis, elas serão mostradas no mapa. A cor do resolvedor de DNS indica a latência média experimentada pelos usuários finais que usaram o resolvedor de DNS para suas consultas do Gerenciador de Tráfego.
+Para os resolvedores DNS locais para os quais as informações de localização estão disponíveis, elas são mostradas no mapa. A cor do resolvedor de DNS indica a latência média experimentada pelos usuários finais que usaram o resolvedor de DNS para suas consultas do Gerenciador de Tráfego.
 
 Se você focalizar uma localização do resolvedor de DNS no mapa, ele mostrará:
 - o endereço IP do resolvedor de DNS
@@ -59,42 +60,50 @@ Se você focalizar uma localização do resolvedor de DNS no mapa, ele mostrará
 
 ### <a name="endpoint-information"></a>Informações do ponto de extremidade
 
-As regiões do Azure em que residem os pontos de extremidade são mostradas como pontos azuis no mapa. Se o ponto de extremidade for externo e não tiver uma região do Azure mapeada para ele, ele será mostrado na parte superior do mapa. Clique em qualquer ponto de extremidade para ver as diferentes localizações (com base no resolvedor DNS usado) de onde o tráfego foi direcionado para esse ponto de extremidade. As conexões são mostradas como uma linha entre o ponto de extremidade e a localização do resolvedor DNS e são coloridas de acordo com a latência representativa entre esse par. Além disso, você pode ver o nome do ponto de extremidade, a região do Azure em que ele é executado e o volume total de solicitações que foram direcionadas para ele por este perfil do Gerenciador de Tráfego.
+As regiões do Azure nas quais os pontos de extremidade estão localizados são mostradas como pontos azuis no mapa. Se o ponto de extremidade for externo e não tiver um mapa de região do Azure para ele, ele será mostrado na parte superior do mapa. Selecione qualquer ponto de extremidade para ver os diferentes locais (com base no resolvedor de DNS usado) de onde o tráfego foi direcionado para esse ponto de extremidade. As conexões são mostradas como uma linha entre o ponto de extremidade e o local do resolvedor de DNS. Eles são coloridos de acordo com a latência representativa entre esse par. Você pode ver o nome do ponto de extremidade e a região do Azure em que ele é executado. O volume total de solicitações que são direcionadas a ele por esse perfil do Gerenciador de tráfego também é exibido.
 
 
 ## <a name="tabular-listing-and-raw-data-download"></a>Download de listagem de tabela e de dados brutos
 
-Exiba os dados da Exibição de Tráfego em um formato de tabela no portal do Azure. Há uma entrada para cada par de IP de resolvedor de DNS/ponto de extremidade que mostra o endereço IP do resolvedor de DNS, o nome e o local geográfico da região do Azure em que o ponto de extremidade está localizado (se disponível), o volume de solicitações associadas ao resolvedor de DNS para esse o ponto de extremidade e a latência representativa associada aos usuários finais que usam esse DNS (quando disponível). Também baixe os dados da Exibição de Tráfego como um arquivo CSV que pode ser usado como parte de um fluxo de trabalho de análise de sua escolha.
+Exiba os dados da Exibição de Tráfego em um formato de tabela no portal do Azure. Há uma entrada para cada par de IP/ponto de extremidade do resolvedor de DNS que mostra:
+
+* O endereço IP do resolvedor de DNS.
+* O nome.
+* A localização geográfica da região do Azure na qual o ponto de extremidade está localizado (se disponível).
+* O volume de solicitações associadas a esse resolvedor DNS para esse ponto de extremidade.
+* A latência representativa associada aos usuários finais que usam esse DNS (quando disponível). 
+
+Também baixe os dados da Exibição de Tráfego como um arquivo CSV que pode ser usado como parte de um fluxo de trabalho de análise de sua escolha.
 
 ## <a name="billing"></a>Cobrança
 
-Ao usar a Exibição do Tráfego, você é cobrado com base no número de pontos de dados usados para criar as informações apresentadas. Atualmente, o único tipo de ponto de dados usado são as consultas recebidas em seu perfil do Gerenciador de Tráfego. Para obter mais detalhes sobre os preços, visite o [página de preços do Gerenciador de Tráfego](https://azure.microsoft.com/pricing/details/traffic-manager/).
+Ao usar Exibição de Tráfego, você será cobrado com base no número de pontos de dados usados para criar as informações apresentadas. Atualmente, o único tipo de ponto de dados usado são as consultas recebidas em seu perfil do Gerenciador de Tráfego. Para obter mais detalhes sobre os preços, visite o [página de preços do Gerenciador de Tráfego](https://azure.microsoft.com/pricing/details/traffic-manager/).
 
-## <a name="faqs"></a>Perguntas frequentes
+## <a name="faqs"></a>Perguntas Frequentes
 
-* [O que faz a Exibição do Tráfego faz?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-does-traffic-view-do)
+* [O que faz a Exibição do Tráfego faz?](./traffic-manager-faqs.md#what-does-traffic-view-do)
 
-* [Como posso me beneficiar do uso da Exibição do Tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-benefit-from-using-traffic-view)
+* [Como posso me beneficiar do uso da Exibição do Tráfego?](./traffic-manager-faqs.md#how-can-i-benefit-from-using-traffic-view)
 
-* [Por que a Exibição do Tráfego é diferente das métricas do Gerenciador de Tráfego disponíveis por meio do Azure Monitor?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-is-traffic-view-different-from-the-traffic-manager-metrics-available-through-azure-monitor)
+* [Por que a Exibição do Tráfego é diferente das métricas do Gerenciador de Tráfego disponíveis por meio do Azure Monitor?](./traffic-manager-faqs.md#how-is-traffic-view-different-from-the-traffic-manager-metrics-available-through-azure-monitor)
 
-* [A Exibição do Tráfego usa informações de sub-rede de cliente EDNS?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-view-use-edns-client-subnet-information)
+* [A Exibição do Tráfego usa informações de sub-rede de cliente EDNS?](./traffic-manager-faqs.md#does-traffic-view-use-edns-client-subnet-information)
 
-* [Quantos dias de dados a Exibição do Tráfego usa?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-days-of-data-does-traffic-view-use)
+* [Quantos dias de dados a Exibição do Tráfego usa?](./traffic-manager-faqs.md#how-many-days-of-data-does-traffic-view-use)
 
-* [Como a Exibição do Tráfego lida com pontos de extremidade externos?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-view-handle-external-endpoints)
+* [Como a Exibição do Tráfego lida com pontos de extremidade externos?](./traffic-manager-faqs.md#how-does-traffic-view-handle-external-endpoints)
 
-* [É necessário habilitar a Exibição do Tráfego para cada perfil na minha assinatura?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription)
+* [É necessário habilitar a Exibição do Tráfego para cada perfil na minha assinatura?](./traffic-manager-faqs.md#do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription)
 
-* [Como posso desligar a Exibição do Tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-turn-off-traffic-view)
+* [Como posso desligar a Exibição do Tráfego?](./traffic-manager-faqs.md#how-can-i-turn-off-traffic-view)
 
-* [Como funciona a cobrança da Exibição do Tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-view-billing-work)
+* [Como funciona a cobrança da Exibição do Tráfego?](./traffic-manager-faqs.md#how-does-traffic-view-billing-work)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba [como funciona o Gerenciador de Tráfego](traffic-manager-overview.md)
 - Saiba mais sobre os [métodos de roteamento do tráfego](traffic-manager-routing-methods.md) com suporte pelo Gerenciador de Tráfego
-- Saiba como [criar um perfil do Gerenciador de tráfego](traffic-manager-create-profile.md)
+- Saiba como [criar um perfil do Gerenciador de tráfego](./quickstart-create-traffic-manager-profile.md)
 
 <!--Image references-->
 [1]: ./media/traffic-manager-traffic-view-overview/trafficview.png

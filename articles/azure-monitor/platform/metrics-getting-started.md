@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 3e5514c4a54083bcc6ef8187f2cd97515d2dd680
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e31eb8deb3102ab03809f01e33b1e6548113dae4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88590176"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736382"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Introdução ao Azure Metrics Explorer
 
@@ -29,17 +29,16 @@ O Azure Monitor Metrics Explorer é um componente do portal do Microsoft Azure q
 
 Para criar um gráfico de métricas, em seu recurso, grupo de recursos, assinatura ou Azure Monitor exibição, abra a guia **métricas** e siga estas etapas:
 
-1. Usando o seletor de recursos, selecione o recurso para o qual você deseja ver as métricas. (O recurso será pré-selecionado se você tiver aberto as **métricas** no contexto de um recurso específico).
-
-    > ![Selecionar um recurso](./media/metrics-getting-started/resource-picker.png)
+1. Clique no botão "selecionar um escopo" para abrir o seletor de escopo de recurso. Isso permitirá que você selecione os recursos para os quais deseja ver as métricas. O recurso já deve estar preenchido se você tiver aberto o Metrics Explorer no menu do recurso. Para saber como exibir as métricas em vários recursos, [Leia este artigo](./metrics-dynamic-scope.md).
+    > ![Selecionar um recurso](./media/metrics-getting-started/scope-picker.png)
 
 2. Para alguns recursos, você deve escolher um namespace. O namespace é apenas uma maneira de organizar as métricas para que você possa encontrá-las com facilidade. Por exemplo, as contas de armazenamento têm namespaces separados para armazenar métricas de arquivos, tabelas, blobs e filas. Muitos tipos de recursos têm apenas um namespace.
 
 3. Selecione uma métrica em uma lista de métricas disponíveis.
 
-    > ![Selecione uma métrica](./media/metrics-getting-started/metric-picker.png)
+    > ![Selecione uma métrica](./media/metrics-getting-started/metrics-dropdown.png)
 
-4. Opcionalmente, você pode [alterar a agregação de métrica](metrics-charts.md#changing-aggregation). Por exemplo, talvez você queira que o gráfico mostre os valores mínimo, máximo ou médio da métrica.
+4. Opcionalmente, você pode [alterar a agregação de métrica](metrics-charts.md#aggregation). Por exemplo, talvez você queira que o gráfico mostre os valores mínimo, máximo ou médio da métrica.
 
 > [!TIP]
 > Use o botão **Adicionar métrica** e repita essas etapas se quiser ver várias métricas plotadas no mesmo gráfico. Para vários gráficos em uma exibição, selecione o botão **Adicionar gráfico** na parte superior.
@@ -51,14 +50,14 @@ Para criar um gráfico de métricas, em seu recurso, grupo de recursos, assinatu
 
 Por padrão, o gráfico mostra as últimas 24 horas de dados de métricas. Use o painel **seletor de tempo** para alterar o intervalo de tempo, ampliar ou reduzir seu gráfico. 
 
-![Alterar o painel de intervalo de tempo](./media/metrics-getting-started/time-picker.png)
+![Alterar o painel de intervalo de tempo](./media/metrics-getting-started/time.png)
 
 > [!TIP]
 > Use o **pincel de tempo** para investigar uma área interessante do gráfico (pico ou DIP). Coloque o ponteiro do mouse no início da área, clique e mantenha o botão esquerdo do mouse, arraste para o outro lado da área e, em seguida, solte o botão. O gráfico será ampliado naquele intervalo de tempo. 
 
 ## <a name="apply-dimension-filters-and-splitting"></a>Aplicar filtros de dimensão e divisão
 
-[Filtragem](metrics-charts.md#apply-filters-to-charts) e [divisão](metrics-charts.md#apply-splitting-to-a-chart) são ferramentas de diagnóstico poderosas para as métricas que têm dimensões. Esses recursos mostram como vários segmentos de métrica ("valores de dimensão") impactam o valor geral da métrica e permitem que você identifique possíveis exceções.
+[Filtragem](metrics-charts.md#filters) e [divisão](metrics-charts.md#apply-splitting) são ferramentas de diagnóstico poderosas para as métricas que têm dimensões. Esses recursos mostram como vários segmentos de métrica ("valores de dimensão") impactam o valor geral da métrica e permitem que você identifique possíveis exceções.
 
 - A **filtragem** permite que você escolha quais valores de dimensão serão incluídos no gráfico. Por exemplo, talvez você queira mostrar solicitações bem-sucedidas ao representar o gráfico da métrica de *tempo de resposta do servidor* . Você precisaria aplicar o filtro no *sucesso da dimensão de solicitação* . 
 
@@ -73,6 +72,7 @@ Você pode personalizar o estilo do gráfico, o título e modificar as configura
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba mais sobre os recursos avançados do Metrics Explorer](metrics-charts.md)
+* [Exibindo vários recursos no Metrics Explorer](metrics-dynamic-scope.md)
 * [Solução de problemas do Metrics Explorer](metrics-troubleshoot.md)
 * [Veja uma lista das métricas disponíveis para os serviços do Azure](metrics-supported.md)
 * [Veja exemplos de gráficos configurados](metric-chart-samples.md)

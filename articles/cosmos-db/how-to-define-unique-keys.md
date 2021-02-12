@@ -3,23 +3,24 @@ title: Definir chaves exclusivas para um contêiner do Azure Cosmos
 description: Saiba como definir chaves exclusivas para um contêiner Cosmos do Azure usando portal do Azure, PowerShell, .NET, Java e vários outros SDKs.
 author: ThomasWeiss
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: thweiss
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: b814100097897aff6047b8b6d6cc0e8ebaa409ba
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 55fc5222c1c245c56ba0a26caa816c5c845147c1
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101520"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336598"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definir chaves exclusivas para um contêiner do Azure Cosmos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este artigo apresenta as diferentes maneiras de definir [chaves exclusivas](unique-keys.md) durante a criação de um contêiner do Azure Cosmos. Atualmente é possível executar essa operação usando o portal do Azure ou por meio de um dos SDKs.
 
-## <a name="use-the-azure-portal"></a>Usar o portal do Azure
+## <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 
@@ -27,7 +28,7 @@ Este artigo apresenta as diferentes maneiras de definir [chaves exclusivas](uniq
 
 1. Abra o painel do **Data Explorer** e selecione o contêiner no qual deseja trabalhar.
 
-1. Clique em **Novo Contêiner** .
+1. Clique em **Novo Contêiner**.
 
 1. Na caixa de diálogo **Adicionar Contêiner** , clique em **+ Adicionar chave exclusiva** para adicionar uma entrada de chave exclusiva.
 

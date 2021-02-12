@@ -7,20 +7,20 @@ author: tamram
 ms.author: tamram
 ms.devlang: dotnet
 ms.topic: overview
-ms.date: 04/23/2018
+ms.date: 01/07/2021
 ms.subservice: tables
-ms.openlocfilehash: 2670d9ce568195fd97350bf678059ac89610422f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 292104651c6bb9b63e9d8cbe26fea2bf8c6acbf1
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88236158"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98027733"
 ---
 # <a name="what-is-azure-table-storage-"></a>O que é o armazenamento de Tabelas do Azure? 
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-tip-include.md)]
 
-O Armazenamento de Tabelas do Azure é um serviço que armazena dados NoSQL estruturados na nuvem, fornecendo um repositório chave/atributo com um design sem esquema. Como o armazenamento de Tabelas não tem um esquema, é fácil adaptar seus dados à medida que as necessidades de seu aplicativo evoluem. O acesso aos dados do Armazenamento de Tabelas é rápido e econômico para muitos tipos de aplicativos e normalmente tem um custo mais baixo que o SQL tradicional para volumes de dados semelhantes.
+O armazenamento de Tabelas do Azure é um serviço que armazena dados estruturados não relacionais (também conhecidos como dados NoSQL estruturados) na nuvem, fornecendo um repositório de chave/atributo com um design sem esquema. Como o armazenamento de Tabelas não tem um esquema, é fácil adaptar seus dados à medida que as necessidades de seu aplicativo evoluem. O acesso aos dados do Armazenamento de Tabelas é rápido e econômico para muitos tipos de aplicativos e normalmente tem um custo mais baixo que o SQL tradicional para volumes de dados semelhantes.
 
 Você pode usar o armazenamento de tabelas para armazenar conjuntos de dados flexíveis, como dados de usuário para aplicativos web, catálogos de endereços, informações sobre dispositivos ou outros tipos de metadados exigidos pelo serviço. Você pode armazenar qualquer número de entidades em uma tabela e uma conta de armazenamento pode conter um número ilimitado de tabelas, até o limite de capacidade da conta de armazenamento.
 
@@ -30,10 +30,10 @@ Você pode usar o armazenamento de tabelas para armazenar conjuntos de dados fle
 
 * [O Gerenciador de Armazenamento do Microsoft Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo e gratuito da Microsoft que possibilita o trabalho visual com os dados do Armazenamento do Azure no Windows, MacOS e Linux.
 
-* [Introdução ao Armazenamento de Tabelas do Azure no .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
+* [Introdução ao Armazenamento de Tabelas do Azure no .NET](../../cosmos-db/tutorial-develop-table-dotnet.md)
 
 * Consulte a documentação de referência do serviço Tabela para obter detalhes completos sobre as APIs disponíveis:
 
-    * [Referência à Biblioteca de Cliente de Armazenamento para .NET](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+    * [Referência à Biblioteca de Cliente de Armazenamento para .NET](/dotnet/api/overview/azure/storage)
 
-    * [Referência da API REST](https://msdn.microsoft.com/library/azure/dd179355)
+    * [Referência da API REST](/rest/api/storageservices/)

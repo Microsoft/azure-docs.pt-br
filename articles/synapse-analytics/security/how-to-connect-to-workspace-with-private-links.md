@@ -8,26 +8,29 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: ea791e4fc1031c0a5c041119c409f8623ce7aee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9782cce4165487b612c0295dc893d120ed043225
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91260369"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218256"
 ---
-# <a name="connect-to-your-azure-synapse-workspace-using-private-links-preview"></a>Conexão ao workspace do Azure Synapse usando links privados (versão prévia)
+# <a name="connect-to-your-azure-synapse-workspace-using-private-links"></a>Conectar-se ao espaço de trabalho Synapse do Azure usando links privados
 
-Este artigo ensina como criar um ponto de extremidade privado para o workspace do Azure Synapse. Veja [links privados e pontos de extremidade privados](https://docs.microsoft.com/azure/private-link/) para saber mais.
+Este artigo ensinará como criar um ponto de extremidade privado para seu espaço de trabalho Synapse do Azure. Veja [links privados e pontos de extremidade privados](../../private-link/index.yml) para saber mais.
 
 ## <a name="step-1-register-network-resource-provider"></a>Etapa 1: Registrar o provedor de recursos de rede
 
-Se você ainda não tiver feito isso, registre o provedor de recursos de rede. O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. Escolha *Microsoft.Network* na lista de provedores de recursos ao se [registrar](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types). Se o provedor de recursos de rede já estiver registrado, vá para a Etapa 2.
-
+Se você ainda não tiver feito isso, registre o provedor de recursos de rede. O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. Escolha *Microsoft.Network* na lista de provedores de recursos ao se [registrar](../../azure-resource-manager/management/resource-providers-and-types.md). Se o provedor de recursos de rede já estiver registrado, vá para a Etapa 2.
 
 ## <a name="step-2-open-your-azure-synapse-workspace-in-azure-portal"></a>Etapa 2: Abra o workspace do Azure Synapse no portal do Azure
 
-Selecione **Conexão de ponto de extremidade privado** em **Segurança** e, em seguida, selecione **+ Ponto de extremidade privado**.
+Selecione **conexão de ponto de extremidade privada** em **segurança**. 
 ![Abrir o workspace do Azure Synapse no portal do Azure](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-1.png)
+
+Na próxima tela, selecione **+ ponto de extremidade privado**.
+
+![Abrir ponto de extremidade privado no portal do Azure](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-1a.png)
 
 ## <a name="step-3-select-your-subscription-and-region-details"></a>Etapa 3: Selecione os detalhes da assinatura e da região
 

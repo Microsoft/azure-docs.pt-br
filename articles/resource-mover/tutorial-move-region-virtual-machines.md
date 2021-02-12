@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 3a5489241aa15ce105dbe4d89086aff00373ca55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f21db00ecc9ff2668698f53a4d20f5bae525721
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90603961"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95520434"
 ---
 # <a name="tutorial-move-azure-vms-across-regions"></a>Tutorial: mover VMs do Azure entre regiões
 
@@ -44,7 +44,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 -  Verifique se você tem acesso de *Proprietário* na assinatura que contém os recursos que deseja mover.
     - Na primeira vez que você adicionar um recurso para um par de origem e destino específico em uma assinatura do Azure, o Resource Mover criará uma [identidade gerenciada atribuída pelo sistema](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (anteriormente conhecida como MSI [Identidade Gerenciada de Serviço]) que é confiável para a assinatura.
     - Para criar a identidade e atribuir a ela a função necessária (colaborador ou administrador de acesso do usuário na assinatura de origem), a conta usada para adicionar recursos precisa de permissões de *Proprietário* na assinatura. [Saiba mais](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) sobre as funções do Azure.
-- A assinatura precisa de cota suficiente para criar os recursos que você está movendo na região de destino. Se não houver cota, [solicite limites adicionais](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+- A assinatura precisa de cota suficiente para criar os recursos que você está movendo na região de destino. Se não houver cota, [solicite limites adicionais](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Verifique os preços e os encargos associados à região de destino para a qual você está movendo as VMs. Use a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) para obter ajuda.
     
 

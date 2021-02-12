@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/17/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1cd40b8df0251aee7692df24e9bc3f7186c155d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: fa2d910c017d3cc626f737bdab50315aef8d1e77
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966501"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491378"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Habilitar a Azure Active Directory redefinição de senha de autoatendimento na tela de entrada do Windows
 
@@ -40,7 +40,7 @@ As seguintes limitações se aplicam ao uso do SSPR na tela de entrada do Window
 - Os computadores ingressados no Azure Active Directory híbrido devem ter a linha de visão de conectividade de rede para um controlador de domínio para usar a nova senha e atualizar as credenciais armazenadas em cache. Isso significa que os dispositivos devem estar na rede interna da organização ou em uma VPN com acesso à rede para um controlador de domínio local.
 - Se estiver usando uma imagem, antes de executar o sysprep, veja se o cache da Web está desmarcado para o Administrador interno, antes de executar a etapa CopyProfile. Mais informações sobre esse assunto podem ser encontradas no artigo de suporte [Desempenho insatisfatório ao usar perfil de usuário padrão personalizado](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 - As configurações a seguir são conhecidas por interferir na capacidade de usar e redefinir senhas em dispositivos Windows 10:
-    - Se Ctrl + Alt + Del for exigido pela política em versões do Windows 10 antes de v1909, a **redefinição de senha** não funcionará.
+    - Se Ctrl + Alt + Del for exigido pela política no Windows 10, a **redefinição de senha** não funcionará.
     - Se as notificações da tela de bloqueio estiverem desativadas, a opção **Redefinir senha** não funcionará.
     - *HideFastUserSwitching* é definido como Enabled ou 1
     - *DontDisplayLastUserName* é definido como Enabled ou 1
@@ -51,6 +51,10 @@ As seguintes limitações se aplicam ao uso do SSPR na tela de entrada do Window
     - Logon interativo: Não exigir CTRL+ALT+DEL = Desabilitado
     - *DisableLockScreenAppNotifications* = 1 ou habilitado
     - O SKU do Windows não é Home ou Professional Edition
+
+> [!NOTE]
+> Essas limitações também se aplicam à redefinição de PIN do Windows Hello para empresas na tela de bloqueio do dispositivo.
+>
 
 ## <a name="windows-10-password-reset"></a>Redefinição de senha do Windows 10
 
@@ -75,10 +79,10 @@ A implantação da alteração de configuração para habilitar o SSPR na tela d
 #### <a name="create-a-device-configuration-policy-in-intune"></a>Criar uma política de configuração do dispositivo no Intune
 
 1. Entre no [portal do Azure](https://portal.azure.com) e selecione **Intune**.
-1. Crie um novo perfil de configuração de dispositivo acessando o **dispositivo**  >  **perfis**de configuração e, em seguida, selecione **+ Criar perfil**
+1. Crie um novo perfil de configuração de dispositivo acessando o **dispositivo**  >  **perfis** de configuração e, em seguida, selecione **+ Criar perfil**
    - Para **plataforma** *, escolha Windows 10 e posterior*
    - Para **tipo de perfil**, escolha *personalizado*
-1. Selecione **criar**e forneça um nome significativo para o perfil, como a *tela de entrada do Windows 10 SSPR*
+1. Selecione **criar** e forneça um nome significativo para o perfil, como a *tela de entrada do Windows 10 SSPR*
 
     Opcionalmente, forneça uma descrição significativa do perfil e, em seguida, selecione **Avançar**.
 1. Em *definições de configuração*, selecione **Adicionar** e forneça a seguinte configuração de OMA-URI para habilitar o link Redefinir senha:
@@ -88,12 +92,12 @@ A implantação da alteração de configuração para habilitar o SSPR na tela d
       - **Tipo de dados** definido como **Inteiro**
       - **Valor** definido como **1**
 
-    Selecione **Adicionar**e **Avançar**.
+    Selecione **Adicionar** e **Avançar**.
 1. A política pode ser atribuída a usuários, dispositivos ou grupos específicos. Atribua o perfil conforme desejado para o seu ambiente, de preferência a um grupo de dispositivos de teste primeiro e selecione **Avançar**.
 
     Para obter mais informações, consulte [atribuir perfis de usuário e de dispositivo no Microsoft Intune](/mem/intune/configuration/device-profile-assign).
 
-1. Configure as regras de aplicabilidade conforme desejado para o seu ambiente, como para *atribuir o perfil se a edição do sistema operacional for Windows 10 Enterprise*e, em seguida, selecione **Avançar**.
+1. Configure as regras de aplicabilidade conforme desejado para o seu ambiente, como para *atribuir o perfil se a edição do sistema operacional for Windows 10 Enterprise* e, em seguida, selecione **Avançar**.
 1. Examine seu perfil e, em seguida, selecione **criar**.
 
 ### <a name="enable-for-windows-10-using-the-registry"></a>Habilitar para Windows 10 usando o registro

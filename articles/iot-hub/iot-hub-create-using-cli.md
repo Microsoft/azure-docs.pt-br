@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: robinsh
-ms.openlocfilehash: 6daed4f5f1871d76da707edec00010cd27dfa8db
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e9757b94330f889869080a0e961ab2728cee86f6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142325"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659906"
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Criar um Hub IoT usando a CLI do Azure
 
@@ -20,23 +20,9 @@ ms.locfileid: "92142325"
 
 Este artigo mostra como criar um Hub IoT usando a CLI do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Para concluir estas instruções, você precisa de uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## <a name="sign-in-and-set-your-azure-account"></a>Entre e configure sua conta do Azure
-
-Se você estiver executando a CLI do Azure localmente, em vez de usar o Cloud Shell, você precisará entrar em sua conta do Azure.
-
-No prompt de comando, execute o [comando de logon](/cli/azure/get-started-with-azure-cli):
-
-   ```azurecli
-   az login
-   ```
-
-Siga as instruções de autenticação usando o código e entre em sua conta do Azure por meio de um navegador da Web.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="create-an-iot-hub"></a>Crie um Hub IoT
 

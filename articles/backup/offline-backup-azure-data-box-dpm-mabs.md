@@ -3,12 +3,12 @@ title: Backup offline com Azure Data Box para o DPM e o MABS
 description: Você pode usar Azure Data Box para propagar dados de backup inicial offline do DPM e do MABS.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 80b3977a9fb886b90c3d48d54f4cda1abfd77df9
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 1cfd9131099ad6a8ccd3d43e93f3d97641514f03
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172228"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752542"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Propagação offline usando Azure Data Box para o DPM e MABS (visualização)
 
@@ -177,7 +177,7 @@ Especifique uma fonte alternativa: *WIM:D:\Sources\Install.wim:4*
 
     Com isso, a replicação inicial dos dados ocorre no disco do DPM/MABS. Quando a proteção for concluída, o status do grupo mostrará o status de proteção como **OK** na página **proteção** .
 
-17. Para iniciar a cópia de backup offline para seu dispositivo Azure Data Box, clique com o botão direito do mouse no **grupo de proteção**e escolha a opção **criar ponto de recuperação** . Em seguida, escolha a opção **Proteção Online**.
+17. Para iniciar a cópia de backup offline para seu dispositivo Azure Data Box, clique com o botão direito do mouse no **grupo de proteção** e escolha a opção **criar ponto de recuperação** . Em seguida, escolha a opção **Proteção Online**.
 
     ![Criar Ponto de Recuperação](./media/offline-backup-azure-data-box-dpm-mabs/create-recovery-point.png)
 
@@ -230,7 +230,7 @@ Verifique se você vê a seguinte mensagem de erro no console do DPM/MABS no mom
 
 Para resolver esse problema, execute as etapas a seguir e tente a configuração da política novamente.
 
-1. Entre na página de entrada do Azure que aparece na interface do usuário do servidor DPM/MABS usando uma conta diferente com acesso de administrador na assinatura que terá o trabalho de exportação de importação criado.
+1. Entre na página de entrada do Azure que aparece na interface do usuário do servidor DPM/MABS usando uma conta diferente com acesso de administrador na assinatura que terá o trabalho de Data Box criado.
 2. Caso nenhum outro servidor tenha a propagação offline configurada, nem seja dependente do aplicativo `AzureOfflineBackup_<Azure User Id>`, exclua esse aplicativo em **portal do Azure > Azure Active Directory > Registros de aplicativo**.
 
    > [!NOTE]

@@ -3,12 +3,12 @@ title: Preparar o servidor DPM para fazer backup de cargas de trabalho
 description: Neste artigo, saiba como preparar os backups do System Center Data Protection Manager (DPM) para o Azure usando o serviço de backup do Azure.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 0089c3d86eb36b82287570ecdfd6e8c782e6fb8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 823b23d99959df5f2eed20cf4136254e1702fe89
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975455"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985624"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparar-se para fazer backup de cargas de trabalho no Azure com o System Center DPM
 
@@ -48,7 +48,7 @@ Tipos de arquivo com suporte | É possível fazer backup destes tipos de arquivo
 Tipos de arquivo sem suporte | <li>Servidores em sistemas de arquivos que diferenciam maiúsculas de minúsculas<li> links físicos (ignorados)<li> pontos de nova análise (ignorados)<li> criptografado e compactado (ignorado)<li> criptografado e esparso (ignorado)<li> Fluxo compactado<li> analisar fluxo
 Armazenamento local | Cada computador que você deseja fazer backup deve ter armazenamento local livre que tenha pelo menos 5% do tamanho dos dados que estão sendo submetidos a backup. Por exemplo, um backup de 100 GB de dados requer um mínimo de 5 GB de espaço livre na localização temporária.
 Armazenamento de cofre | Não há limite para a quantidade de dados que você pode fazer backup em um cofre de backup do Azure, mas o tamanho de uma fonte de dados (por exemplo, uma máquina virtual ou banco de dado) não deve exceder 54.400 GB.
-Azure ExpressRoute | Você pode fazer backup dos dados por meio do Azure ExpressRoute com o emparelhamento público (disponível para circuitos antigos) e o emparelhamento da Microsoft. Não há suporte para backup em emparelhamento privado.<br/><br/> **Com o emparelhamento público**: Verifique o acesso aos seguintes domínios/endereços:<br/><br/>- `http://www.msftncsi.com/ncsi.txt` <br/><br/>- `microsoft.com` <br/><br/>-`.WindowsAzure.com`<br/><br/>-`.microsoftonline.com`<br/><br/>-`.windows.net`<br/><br/> **Com o emparelhamento da Microsoft**, selecione os seguintes serviços/regiões e os valores de comunidade relevantes:<br/><br/>-Azure Active Directory (12076:5060)<br/><br/>-Microsoft Azure região (de acordo com o local do cofre dos serviços de recuperação)<br/><br/>-Armazenamento do Azure (de acordo com o local do cofre dos serviços de recuperação)<br/><br/>Para obter mais informações, consulte [requisitos de roteamento do ExpressRoute](../expressroute/expressroute-routing.md).<br/><br/>**Observação**: o emparelhamento público foi preterido para novos circuitos.
+Azure ExpressRoute | Você pode fazer backup dos dados por meio do Azure ExpressRoute com o emparelhamento público (disponível para circuitos antigos) e o emparelhamento da Microsoft. Não há suporte para backup em emparelhamento privado.<br/><br/> **Com o emparelhamento público**: Verifique o acesso aos seguintes domínios/endereços:<br/><br/> URLs:<br> `www.msftncsi.com` <br> . Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>`www.msftconnecttest.com`<br><br>Endereços IP<br>  20.190.128.0/18 <br>  40.126.0.0/18<br> <br/>**Com o emparelhamento da Microsoft**, selecione os seguintes serviços/regiões e os valores de comunidade relevantes:<br/><br/>-Azure Active Directory (12076:5060)<br/><br/>-Microsoft Azure região (de acordo com o local do cofre dos serviços de recuperação)<br/><br/>-Armazenamento do Azure (de acordo com o local do cofre dos serviços de recuperação)<br/><br/>Para obter mais informações, consulte [requisitos de roteamento do ExpressRoute](../expressroute/expressroute-routing.md).<br/><br/>**Observação**: o emparelhamento público foi preterido para novos circuitos.
 Agente de Backup do Azure | Se o DPM estiver sendo executado no System Center 2012 SP1, instale o pacote cumulativo de atualizações 2 ou posterior para o DPM SP1. Isso é necessário para a instalação do agente.<br/><br/> Este artigo descreve como implantar a versão mais recente do agente do Backup do Azure, também conhecido como agente do Serviço de Recuperação do Microsoft Azure (MARS). Se você tiver uma versão anterior implantada, atualize para a versão mais recente para garantir que o backup funcione conforme o esperado.
 
 Antes de começar, você precisará de uma conta Azure com o recurso de Backup do Azure habilitado. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Leia sobre os [preços do Backup do Azure](https://azure.microsoft.com/pricing/details/backup/).
@@ -127,12 +127,12 @@ Todos os computadores cujo backup é feito pelo Backup do Azure devem ter o agen
 7. O agente do Backup do Azure instala o .NET Framework 4.5 e o Windows PowerShell (se não estiverem instalados) para concluir a instalação.
 8. Depois que o agente for instalado, você pode **Fechar** a janela.
 
-    ![Feche](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)
+    ![Fechar](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)
 
 ## <a name="register-the-dpm-server-in-the-vault"></a>Registrar o servidor DPM no cofre
 
 1. No console do administrador do DPM > **Gerenciamento**, selecione **online**. Selecione **Registrar**. O Assistente do Servidor de Registro será aberto.
-2. Em ** Configuração de Proxy**, especifique as configurações de proxy conforme necessário.
+2. Em **Configuração de Proxy**, especifique as configurações de proxy conforme necessário.
 
     ![Configuração de proxy](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Proxy.png)
 3. Em **Cofre de Backup**, procure e selecione o arquivo de credenciais do cofre que você baixou.

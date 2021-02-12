@@ -3,15 +3,16 @@ title: Modelos do Resource Manager para a API de Tabela do Azure Cosmos DB
 description: Use modelos do Azure Resource Manager para criar e configurar a API de Tabela do Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-table
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: 41f3a4fe5afad1f993d91af83c7da27ac28e3759
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e8fb47cc54d520d44085c8d007a4dfe92972d1d4
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101061"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340576"
 ---
 # <a name="manage-azure-cosmos-db-table-api-resources-using-azure-resource-manager-templates"></a>Gerenciar recursos da API de Tabela do Azure Cosmos DB usando modelos do Azure Resource Manager
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]

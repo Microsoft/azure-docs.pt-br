@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 11/13/2018
 ms.author: guybo
-ms.openlocfilehash: 80272896bd314a1f5f05094afa83568e077ab480
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d822aa30926c473d08bc5d785211c82d038ef652
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87368193"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203177"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Preparar um VHD do Debian para o Azure
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -20,7 +20,7 @@ Esta seção pressupõe que você já instalou um sistema operacional Linux Debi
 ## <a name="installation-notes"></a>Notas de instalação
 * Veja também as [Notas de Instalação Geral do Linux](create-upload-generic.md#general-linux-installation-notes) para obter mais dicas sobre como preparar o Linux para o Azure.
 * Não há suporte para o formato VHDX mais recente no Azure. Você pode converter o disco para o formato VHD usando o Gerenciador do Hyper-V ou o cmdlet **Convert-VHD** .
-* Ao instalar o sistema Linux, é recomendável que você use partições padrão em vez de LVM (geralmente o padrão para muitas instalações). Isso irá evitar conflitos de nome LVM com VMs clonadas, especialmente se um disco do sistema operacional precisar ser anexado a outra VM para solução de problemas. Se você preferir, é possível usar [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) em discos de dados.
+* Ao instalar o sistema Linux, é recomendável que você use partições padrão em vez de LVM (geralmente o padrão para muitas instalações). Isso irá evitar conflitos de nome LVM com VMs clonadas, especialmente se um disco do sistema operacional precisar ser anexado a outra VM para solução de problemas. Se você preferir, é possível usar [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) ou [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) em discos de dados.
 * Não configure uma partição de permuta no disco do SO. O agente Linux do Azure pode ser configurado para criar um arquivo de permuta no disco de recursos temporários. Verifique as etapas a seguir para obter mais informações.
 * Todos os VHDs no Azure devem ter um tamanho virtual alinhado a 1 MB. Ao converter de um disco não processado para VHD, certifique-se de que o tamanho do disco não processado seja um múltiplo de 1 MB antes da conversão. Para obter mais informações, consulte [Notas de Instalação do Linux](create-upload-generic.md#general-linux-installation-notes).
 
@@ -58,7 +58,7 @@ Há ferramentas disponíveis para gerar VHDs de Debian para o Azure, como os scr
     # sudo update-grub
     ```
 
-6. Adicione repositórios do Azure do Debian a /etc/apt/sources.list para Debian 8 ou 9:
+6. Adicione repositórios do Azure de Debian ao/etc/apt/sources.List para o Debian 8, 9 ou 10:
 
     **Debian 8.x "Jessie"**
 
@@ -85,7 +85,18 @@ Há ferramentas disponíveis para gerar VHDs de Debian para o Azure, como os scr
     deb http://debian-archive.trafficmanager.net/debian stretch-backports main
     deb-src http://debian-archive.trafficmanager.net/debian stretch-backports main
     ```
-
+    
+    **Debian 10. x "Buster"**
+    ```config-grub
+    deb http://debian-archive.trafficmanager.net/debian buster main
+    deb-src http://debian-archive.trafficmanager.net/debian buster main
+    deb http://debian-archive.trafficmanager.net/debian-security buster/updates main
+    deb-src http://debian-archive.trafficmanager.net/debian-security buster/updates main
+    deb http://debian-archive.trafficmanager.net/debian buster-updates main
+    deb-src http://debian-archive.trafficmanager.net/debian buster-updates main
+    deb http://debian-archive.trafficmanager.net/debian buster-backports main
+    deb-src http://debian-archive.trafficmanager.net/debian buster-backports main
+    ```
 
 7. Instale o Agente Linux do Azure:
 

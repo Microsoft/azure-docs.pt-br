@@ -11,19 +11,19 @@ ms.topic: how-to
 ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 558e6cea4d5e0c9bd0f6222f9070d2b867a5bf44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6064bd2c62922abea44508b8bf6cdfa3e7ecbc92
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85384933"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953297"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: entrar usando um aplicativo iOS
 
 A plataforma de identidade da Microsoft usa padrões abertos, como OAuth2 e OpenID Connect. O uso de um protocolo de padrão aberto oferece mais opções de desenvolvedor ao selecionar uma biblioteca para integrar aos nossos serviços. Fornecemos este passo a passo e outros como ele para ajudar os desenvolvedores a escrever aplicativos que se conectam à plataforma Microsoft Identity. A maioria das bibliotecas que implementam [a especificação RFC6749 do OAuth2](https://tools.ietf.org/html/rfc6749) pode conectar-se à plataforma Microsoft Identity.
 
 > [!WARNING]
-> A Microsoft não fornece correções para bibliotecas de terceiros e não as analisou. Esse exemplo usa uma biblioteca de terceiros chamada AppAuth que foi testada com relação à compatibilidade em cenários básicos com o Azure AD B2C. Os problemas e solicitações de recursos devem ser direcionados ao projeto de software livre da biblioteca. Para obter mais informações, consulte [este artigo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries).
+> A Microsoft não fornece correções para bibliotecas de terceiros e não as analisou. Esse exemplo usa uma biblioteca de terceiros chamada AppAuth que foi testada com relação à compatibilidade em cenários básicos com o Azure AD B2C. Os problemas e solicitações de recursos devem ser direcionados ao projeto de software livre da biblioteca. Para obter mais informações, consulte [este artigo](../active-directory/develop/reference-v2-libraries.md).
 >
 >
 

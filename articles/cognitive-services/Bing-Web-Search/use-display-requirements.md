@@ -10,19 +10,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: 93be72f2afcda90dde1b74c5ee317a7ad3350be1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4300860039b76bd076f19acfc252f59ef10d462b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075680"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351837"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Requisitos de uso e exibição da API de Pesquisa do Bing
 
 > [!WARNING]
-> APIs de Pesquisa do Bing estão mudando de serviços cognitivas para serviços Pesquisa do Bings. A partir de **30 de outubro de 2020** , todas as novas instâncias do pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
-> APIs de Pesquisa do Bing provisionado usando serviços cognitivas terão suporte nos próximos três anos ou até o final do seu Enterprise Agreement, o que ocorrer primeiro.
-> Para obter instruções de migração, consulte [serviços de pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Esses requisitos de uso e exibição se aplicam a qualquer implementação do conteúdo e informações associadas das seguintes APIs de Pesquisa do Bing, incluindo relações, metadados e outros sinais.
 
@@ -104,7 +104,7 @@ Não:
 ### <a name="notices-and-branding"></a>Notificações e identidade visual 
 Você deve
 
-- Proeminentemente incluem um hiperlink funcional para a [Declaração de Privacidade da Microsoft](https://go.microsoft.com/fwlink/?LinkId=521839), perto de cada ponto na experiência do usuário (UX) que oferece a capacidade de uma consulta de pesquisa de entrada de um usuário. Rotule o hiperlink **política de privacidade da Microsoft** .
+- Proeminentemente incluem um hiperlink funcional para a [Declaração de Privacidade da Microsoft](https://go.microsoft.com/fwlink/?LinkId=521839), perto de cada ponto na experiência do usuário (UX) que oferece a capacidade de uma consulta de pesquisa de entrada de um usuário. Rotule o hiperlink **política de privacidade da Microsoft**.
 
 - Exibir em proeminentemente a identidade visual do Bing, consistente com as [Diretrizes de Uso da Marca Registrada do Bing](https://go.microsoft.com/fwlink/?linkid=833278), perto de cada ponto de UX que oferece a capacidade de uma consulta de pesquisa de entrada a um usuário. Essa marca deve claramente indicar ao usuário que a Microsoft está incluindo a experiência de pesquisa da Internet.
 
@@ -172,5 +172,4 @@ As seções anteriores de APIs de Pesquisa usam e exibem requisitos que não se 
 
 ## <a name="gdpr-compliance"></a>Conformidade de GDPR  
 
-Com relação a alguns dados pessoais sujeitos à Regulação de Proteção de Dados Gerais da União Europeia (GDPR) e que é processada em conexão com as chamadas para as APIs de Pesquisa, API de Verificação Ortográfica do Bing ou API de Sugestão Automática do Bing, você entende que você e a Microsoft são controladores de dados independentes da GDPR. Você é responsável independentemente de sua conformidade com a GDPR.  
-
+Com relação a alguns dados pessoais sujeitos à Regulação de Proteção de Dados Gerais da União Europeia (GDPR) e que é processada em conexão com as chamadas para as APIs de Pesquisa, API de Verificação Ortográfica do Bing ou API de Sugestão Automática do Bing, você entende que você e a Microsoft são controladores de dados independentes da GDPR. Você é responsável independentemente de sua conformidade com a GDPR.

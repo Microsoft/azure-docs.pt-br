@@ -1,5 +1,5 @@
 ---
-title: Publicar seu aplicativo na Galeria de aplicativos do Azure AD
+title: Publicar seu aplicativo na Galeria de aplicativos Azure Active Directory
 description: Saiba como listar um aplicativo que dá suporte ao logon único na Galeria de aplicativos Azure Active Directory.
 services: active-directory
 author: kenwith
@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/19/2020
+ms.date: 12/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5ade98e04853ae8293f762f237b3b3154c876f7e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: f2a04a341239b62290eecac8c0e1ce70b7c927c1
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275686"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988912"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publicar seu aplicativo na Galeria de aplicativos do Azure AD
 
@@ -36,7 +36,7 @@ Além disso, há muitos benefícios quando seus clientes usam o Azure AD como um
 - Forneça logon único para seus usuários. Com o SSO, você reduz os custos de suporte, tornando mais fácil para seus clientes o logon único. Se o SSO de um clique estiver habilitado, os administradores de ti de seus clientes não precisarão saber como configurar seu aplicativo para uso em sua organização. Para saber mais sobre o logon único, consulte [O que é logon único?](../manage-apps/what-is-single-sign-on.md).
 - Seu aplicativo pode ser detectável na Galeria de aplicativos Microsoft 365, no iniciador de aplicativos Microsoft 365 e no Microsoft Search no Office.com. 
 - Gerenciamento de aplicativo integrado. Para saber mais sobre o gerenciamento de aplicativos no Azure AD, consulte [o que é gerenciamento de aplicativos?](../manage-apps/what-is-application-management.md).
-- Seu aplicativo pode usar o [API do Graph](https://docs.microsoft.com/graph/) para acessar os dados que impulsionam a produtividade do usuário no ecossistema da Microsoft.
+- Seu aplicativo pode usar o [API do Graph](/graph/) para acessar os dados que impulsionam a produtividade do usuário no ecossistema da Microsoft.
 - A documentação específica do aplicativo coproduzida com a equipe do Azure AD para nossos clientes mútuos facilita a adoção.
 - Você fornece aos seus clientes a capacidade de gerenciar completamente sua autenticação e autorização de funcionários e de identidades de convidado.
 - Colocar todas as responsabilidades de conformidade e gerenciamento de conta com o proprietário do cliente dessas identidades.
@@ -47,7 +47,7 @@ Além disso, há muitos benefícios quando seus clientes usam o Azure AD como um
 - Adicione segurança e conveniência quando os usuários entram em aplicativos usando o SSO do Azure AD e removendo a necessidade de credenciais separadas.
 
 > [!TIP]
-> Quando você oferece seu aplicativo para uso por outras empresas por meio de uma compra ou assinatura, torna seu aplicativo disponível para clientes em seus próprios locatários do Azure. Isso é conhecido como criar um aplicativo multilocatário. Para obter uma visão geral desse conceito, consulte [aplicativos multilocatário no Azure](https://docs.microsoft.com/azure/dotnet-develop-multitenant-applications) e [locação em Azure Active Directory](single-and-multi-tenant-apps.md).
+> Quando você oferece seu aplicativo para uso por outras empresas por meio de uma compra ou assinatura, torna seu aplicativo disponível para clientes em seus próprios locatários do Azure. Isso é conhecido como criar um aplicativo multilocatário. Para obter uma visão geral desse conceito, consulte [aplicativos multilocatário no Azure](../../dotnet-develop-multitenant-applications.md) e [locação em Azure Active Directory](single-and-multi-tenant-apps.md).
 
 > [!IMPORTANT]
 > Para publicar seu aplicativo na galeria do Azure AD, você deve concordar com termos e condições específicos. Antes de começar, certifique-se de ler e concordar com os [termos e condições](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/).
@@ -60,15 +60,32 @@ As etapas para publicar seu aplicativo na Galeria de aplicativos do Azure AD sã
 5. Envie seu aplicativo.
 6. Ingresse no Microsoft Partner Network.
 
+## <a name="what-is-the-azure-ad-application-gallery"></a>O que é a galeria de aplicativos do Azure Active Directory?
+
+- Os clientes encontram a melhor experiência de logon único possível.
+- A configuração do aplicativo é simples e mínima.
+- Uma pesquisa rápida localiza seu aplicativo na galeria.
+- Clientes do Azure Active Directory Premium, Básico e Gratuito podem usar essa integração.
+- Os clientes mútuos recebem um tutorial de configuração passo a passo.
+- Os clientes que usam o sistema para[scim](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)(gerenciamento de identidade entre domínios) podem usar o provisionamento para o mesmo aplicativo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Você precisa de uma conta permanente para testar com pelo menos dois usuários registrados.
 
+- Para aplicativos federados (Open ID e SAML/WS-enalimentado), o aplicativo deve oferecer suporte ao modelo de software como serviço (SaaS) para ser listado na Galeria de aplicativos do Azure AD. Os aplicativos da Galeria empresarial devem dar suporte a várias configurações de clientes e não a nenhum cliente específico.
+- Para Open ID Connect, o aplicativo deve ter multilocatário e a [estrutura de consentimento do Azure ad](../develop/consent-framework.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) deve ser implementada corretamente para o aplicativo. O usuário pode enviar a solicitação de entrada para um ponto de extremidade comum para que qualquer cliente possa fornecer consentimento para o aplicativo. É possível controlar acesso de usuário com base na ID do locatário e o UPN do usuário recebido no token.
+- Para SAML 2.0/WS-enalimentado, seu aplicativo deve ter a capacidade de fazer a integração de SSO de SAML/WS-alimentada no modo SP ou IDP. Verifique se esse recurso está funcionando corretamente antes de enviar a solicitação.
+- Para SSO de senha, certifique-se de que seu aplicativo dá suporte à autenticação de formulário para que o cofre de senha possa ser feito para que o logon único funcione conforme o esperado.
+- Você precisa de uma conta permanente para testar com pelo menos dois usuários registrados.
+
+**Como obter o Azure AD para desenvolvedores?**
+
+Você pode obter uma conta de teste gratuita com todos os recursos premium do Azure AD-90 dias gratuitos e pode ser estendido desde que os desenvolvedores trabalhem com ele: https://docs.microsoft.com/office/developer-program/office-365-developer-program
 
 ## <a name="step-1---choose-the-right-single-sign-on-standard-for-your-app"></a>Etapa 1-escolher o padrão de logon único certo para seu aplicativo
 
-Para listar um aplicativo na Galeria de aplicativos do Azure AD, você precisa implementar pelo menos uma das opções de logon único com suporte. Para entender as opções de logon único e como os clientes irão configurá-las no Azure AD, consulte [Opções de SSO](../manage-apps/sso-options.md).
+Para listar um aplicativo na Galeria de aplicativos do Azure AD, implemente pelo menos uma das opções de logon único com suporte. Para entender as opções de logon único e como os clientes irão configurá-las no Azure AD, consulte [Opções de SSO](../manage-apps/sso-options.md).
 
 A tabela a seguir compara os principais padrões: autenticação aberta 2,0 (OAuth 2,0) com OpenID Connect (OIDC), Security Assertion Markup Language (SAML) e especificação Web Services Federation (WS-alimentado).
 
@@ -78,9 +95,10 @@ A tabela a seguir compara os principais padrões: autenticação aberta 2,0 (OAu
 | Logout único baseado na Web| √| √ |
 | Logon único baseado em móvel| √| √* |
 | Logout único baseado em celular| √| √* |
-| Políticas de acesso condicional para aplicativos móveis| √| X |
-| Experiência de MFA direta para aplicativos móveis| √| X |
-| Microsoft Graph de acesso| √| X |
+| Políticas de acesso condicional para aplicativos móveis| √| √* |
+| Experiência de MFA direta para aplicativos móveis| √| √* |
+| Provisionamento de SCIM| √| √ |
+| Acessar o Microsoft Graph| √| X |
 
 * Possível, mas a Microsoft não fornece exemplos ou diretrizes.
 
@@ -130,7 +148,7 @@ Para saber mais sobre autenticação, consulte [o que é autenticação?](../azu
 
 Para o OpenID Connect, o aplicativo deve ter vários locatários e a [estrutura de consentimento do Azure ad](consent-framework.md) deve ser implementada corretamente para o aplicativo. O usuário pode enviar a solicitação de entrada para um ponto de extremidade comum para que qualquer cliente possa fornecer consentimento para o aplicativo. É possível controlar acesso de usuário com base na ID do locatário e o UPN do usuário recebido no token.
 
-Para examinar exemplos específicos, consulte [exemplos de código da plataforma de identidade da Microsoft](sample-v2-code.md). 
+Para examinar exemplos específicos, consulte os [exemplos de código da plataforma Microsoft Identity](sample-v2-code.md). 
 
 Para examinar os exemplos específicos de dispositivos móveis, consulte: 
 * [Android](quickstart-v2-android.md)
@@ -144,20 +162,31 @@ Se seu aplicativo der suporte ao SAML 2,0, você poderá integrá-lo diretamente
 A Microsoft não fornece, nem recomenda, bibliotecas para implementações de SAML. Há muitas bibliotecas de código-fonte aberto disponíveis.
 
 ### <a name="implement-ws-fed"></a>Implementar WS-Fed
-Para saber mais sobre WS-Fed em ASP.NET Core, confira [autenticar usuários com WS-Federation no ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/authentication/ws-federation).
+Para saber mais sobre WS-Fed em ASP.NET Core, confira [autenticar usuários com WS-Federation no ASP.NET Core](/aspnet/core/security/authentication/ws-federation).
 
 ### <a name="implement-password-vaulting"></a>Implementar a compartimentação de senha
 
 Crie um aplicativo Web que tenha uma página de entrada HTML. Certifique-se de que seu aplicativo dá suporte à autenticação de formulário para que o cofre de senha possa ser feito para que o logon único funcione conforme o esperado.
 
+## <a name="step-3---implement-scim-user-provisioning-in-your-app"></a>Etapa 3 – implementar o provisionamento de usuário do SCIM em seu aplicativo
+O suporte ao provisionamento do [scim](https://aka.ms/scimoverview) é uma etapa opcional, mas altamente recomendada, na criação do seu aplicativo. O suporte ao padrão SCIM é fácil e permite que os clientes criem e atualizem automaticamente as contas de usuário em seu aplicativo, sem depender de processos manuais, como o carregamento de arquivos CSV. Além disso, os clientes podem automatizar a remoção de usuários e a manutenção de associações de grupo em sincronia, o que não pode ser feito com uma solução como o SAML JIT. 
 
-## <a name="step-3---create-your-azure-tenant-and-test-your-app"></a>Etapa 3 – criar seu locatário do Azure e testar seu aplicativo
+### <a name="learn-about-scim"></a>Saiba mais sobre o SCIM
+Para saber mais sobre os padrões e benefícios do SCIM para seus clientes, consulte [Provisionando com o scim-introdução](https://aka.ms/scimoverview).
+
+### <a name="understand-the-azure-ad-scim-implementation"></a>Entender a implementação de SCIM do Azure AD
+Para saber mais sobre a implementação do Azure AD SCIM, consulte [criar um ponto de extremidade scim e configurar o provisionamento de usuário com o Azure ad](../app-provisioning/use-scim-to-provision-users-and-groups.md).
+
+### <a name="implement-scim"></a>Implementar SCIM
+O Azure AD fornece o [código de referência](https://aka.ms/scimoverview) para ajudá-lo a criar um ponto de extremidade SCIM. Também há muitas referências/bibliotecas de terceiros que você pode encontrar no GitHub.  
+
+## <a name="step-4---create-your-azure-tenant-and-test-your-app"></a>Etapa 4 – criar seu locatário do Azure e testar seu aplicativo
 
 Você precisará de um locatário do Azure AD para testar seu aplicativo. Para configurar seu ambiente de desenvolvimento, consulte [início rápido: configurar um locatário](quickstart-create-new-tenant.md).
 
-Como alternativa, um locatário do Azure AD vem com cada assinatura Microsoft 365. Para configurar um ambiente de desenvolvimento de Microsoft 365 gratuito, consulte [ingressar no Microsoft 365 programa de desenvolvedor](https://docs.microsoft.com/office/developer-program/microsoft-365-developer-program).
+Como alternativa, um locatário do Azure AD vem com cada assinatura Microsoft 365. Para configurar um ambiente de desenvolvimento de Microsoft 365 gratuito, consulte [ingressar no Microsoft 365 programa de desenvolvedor](/office/developer-program/microsoft-365-developer-program).
 
-Depois de ter um locatário, você precisa habilitar e testar o acesso de logon único. 
+Quando você tiver um locatário, teste o logon único e o [provisionamento](../app-provisioning/use-scim-to-provision-users-and-groups.md#integrate-your-scim-endpoint-with-the-aad-scim-client). 
 
 **Para aplicativos OIDC ou Oath**, [Registre seu aplicativo](quickstart-register-app.md) como um aplicativo multilocatário. Selecione a opção contas em qualquer diretório organizacional e contas pessoais da Microsoft em tipos de conta com suporte.
 
@@ -166,7 +195,7 @@ Depois de ter um locatário, você precisa habilitar e testar o acesso de logon 
 Você também pode [converter um aplicativo de locatário único para multilocatário,](howto-convert-app-to-be-multi-tenant.md) se necessário.
 
 
-## <a name="step-4---create-and-publish-documentation"></a>Etapa 4: criar e publicar a documentação
+## <a name="step-5---create-and-publish-documentation"></a>Etapa 5: criar e publicar a documentação
 
 ### <a name="documentation-on-your-site"></a>Documentação no seu site
 
@@ -188,13 +217,14 @@ A facilidade de adoção é um fator significativo nas decisões de software emp
 * Etapas de teste para usuários piloto
 * Informações de solução de problemas, incluindo códigos de erro e mensagens
 * Mecanismos de suporte para clientes
+* Detalhes sobre o ponto de extremidade do SCIM, incluindo os recursos e atributos com suporte
 
 ### <a name="documentation-on-the-microsoft-site"></a>Documentação no site da Microsoft
 
-Quando você listar seu aplicativo com a Galeria de aplicativos Azure Active Directory, que também publica seu aplicativo no Azure Marketplace, a Microsoft gerará documentação para nossos clientes mútuos explicando o processo passo a passo. Você pode ver um exemplo [aqui](https://aka.ms/appstutorial). Esta documentação é criada com base no seu envio para a galeria e você pode atualizá-la facilmente se fizer alterações em seu aplicativo usando sua conta do GitHub.
+Quando você listar seu aplicativo com a Galeria de aplicativos Azure Active Directory, que também publica seu aplicativo no Azure Marketplace, a Microsoft gerará documentação para nossos clientes mútuos explicando o processo passo a passo. Você pode ver um exemplo [aqui](../saas-apps/tutorial-list.md). Esta documentação é criada com base no seu envio para a galeria e você pode atualizá-la facilmente se fizer alterações em seu aplicativo usando sua conta do GitHub.
 
 
-## <a name="step-5---submit-your-app"></a>Etapa 5 – enviar seu aplicativo
+## <a name="step-6---submit-your-app"></a>Etapa 6 – enviar seu aplicativo
 
 Depois de testar se a integração de aplicativos funciona com o Azure AD, envie a solicitação de aplicativo no [portal de rede de aplicativos da Microsoft](https://microsoft.sharepoint.com/teams/apponboarding/Apps).
 
@@ -244,7 +274,7 @@ Se você quiser adicionar seu aplicativo para listar na Galeria usando o SSO de 
 
 ![Listando um aplicativo SSO de senha na Galeria](./media/howto-app-gallery-listing/passwordsso.png)
 
-Se você estiver implementando um ponto de extremidade SCIM 2,0 para provisionamento de usuário, selecione a opção conforme mostrado. 
+Se você estiver implementando um ponto de extremidade [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2,0 para provisionamento de usuário, selecione a opção conforme mostrado. Ao fornecer o esquema na solicitação de integração, siga as instruções [aqui](../app-provisioning/export-import-provisioning-configuration.md) para baixar seu esquema. Usaremos o esquema que você configurou ao testar o aplicativo inexistente na galeria para compilar o aplicativo da galeria. 
 
    ![Solicitação de provisionamento de usuário](./media/howto-app-gallery-listing/user-provisioning.png)
 
@@ -256,6 +286,16 @@ Você pode atualizar ou remover um aplicativo de galeria existente no [portal de
 
 > [!NOTE]
 > Se você tiver problemas com o Access, examine a seção anterior sobre como criar sua conta. Se isso não funcionar, entre em contato com a [equipe de integração de SSO do Azure ad](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+
+### <a name="list-requests-by-customers"></a>Listar solicitações por clientes
+
+Os clientes podem enviar uma solicitação para listar um aplicativo selecionando **solicitações de aplicativo por clientes**  >  **Enviar nova solicitação**.
+
+![Mostra o bloco aplicativos solicitados pelo cliente](./media/howto-app-gallery-listing/customer-submit-request.png)
+
+Este é o fluxo de aplicativos solicitados pelo cliente.
+
+![Mostra o fluxo de aplicativos solicitados pelo cliente](./media/howto-app-gallery-listing/customer-request-2.png)
 
 
 ### <a name="timelines"></a>Linhas do tempo
@@ -273,7 +313,7 @@ A linha do tempo para o processo de listagem de um aplicativo do OpenID Connect 
 Para qualquer escalonamento, envie um email para a [equipe de integração de SSO do Azure ad](mailto:SaaSApplicationIntegrations@service.microsoft.com)e responderemos assim que possível.
 
 
-## <a name="step-6---join-the-microsoft-partner-network"></a>Etapa 6-ingressar no Microsoft Partner Network
+## <a name="step-7---join-the-microsoft-partner-network"></a>Etapa 7-ingressar no Microsoft Partner Network
 O Microsoft Partner Network fornece acesso instantâneo a recursos, programas, ferramentas e conexões exclusivos. Para ingressar na rede e criar seu plano ir para o mercado, consulte [acessar clientes comerciais](https://partner.microsoft.com/explore/commercial#gtm).
 
 

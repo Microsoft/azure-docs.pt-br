@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes (FAQ)
+title: Perguntas frequentes
 titleSuffix: Azure SQL Managed Instance
 description: Perguntas frequentes (FAQ) sobre a Instância Gerenciada de SQL do Azure
 services: sql-database
@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 6b217e77310224779ea3ea840e613e28da6c86a3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f58811411a447eae4ff9a5c0fd2a9888b4a39a34
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779859"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428666"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ) sobre a Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -118,7 +118,7 @@ Não há suporte para a alteração de um nome de instância gerenciada.
 
 Sim, Instância Gerenciada zona DNS padrão *. Database.Windows.net* pode ser alterado. 
 
-Para usar outra zona DNS em vez do padrão, por exemplo, *.contoso.com* : 
+Para usar outra zona DNS em vez do padrão, por exemplo, *.contoso.com*: 
 - Use CliConfig para definir um alias. A ferramenta é apenas um wrapper de configurações do registro, portanto, ela também pode ser feita usando a política de grupo ou um script.
 - Use *CNAME* com a opção *TrustServerCertificate = true* .
 
@@ -339,7 +339,7 @@ O emparelhamento de circuito de rota expressa é a maneira preferida de fazer is
 > [!IMPORTANT]
 > [Em 9/22/2020 anunciamos o emparelhamento de rede virtual global para clusters virtuais recém-criados](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Isso significa que o emparelhamento de rede virtual global tem suporte para instâncias gerenciadas do SQL criadas em sub-redes vazias após a data do anúncio, bem como para todas as instâncias gerenciadas subsequentes criadas nessas sub-redes. Para todas as outras instâncias gerenciadas do SQL, o suporte ao emparelhamento é limitado às redes na mesma região devido às [restrições do emparelhamento de rede virtual global](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consulte também a seção relevante do artigo [perguntas frequentes sobre redes virtuais do Azure](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para obter mais detalhes. 
 
-Se o emparelhamento de circuito de rota expressa e o emparelhamento de rede virtual global não forem possíveis, a única opção é criar uma conexão VPN site a site ([portal do Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) [CLI do Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)).
+Se o emparelhamento de circuito de rota expressa e o emparelhamento de rede virtual global não forem possíveis, a única opção é criar uma conexão VPN site a site ([portal do Azure](../../vpn-gateway/tutorial-site-to-site-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) [CLI do Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)).
 
 ## <a name="mitigate-data-exfiltration-risks"></a>Reduzir riscos de vazamento de dados  
 
@@ -363,14 +363,7 @@ Sim. Consulte [como configurar um DNS personalizado para o Azure SQL instância 
 
 **Posso fazer a atualização de DNS?**
 
-Atualmente, não fornecemos um recurso para atualizar a configuração do servidor DNS para o SQL Instância Gerenciada.
-
-A configuração de DNS é, por fim, atualizada:
-
-- Quando a concessão de DHCP expirar.
-- Na atualização da plataforma.
-
-Como alternativa, faça downgrade do SQL Instância Gerenciada para 4 vCores e atualize-o novamente depois. Isso tem um efeito colateral de atualizar a configuração de DNS.
+Sim. Confira a [configuração sincronizar servidores DNS da rede virtual no cluster virtual do SQL instância gerenciada](./synchronize-vnet-dns-servers-setting-on-virtual-cluster.md).
 
 ## <a name="change-time-zone"></a>Alterar fuso horário
 
@@ -409,8 +402,8 @@ Você pode girar o protetor de TDE para Instância Gerenciada usando Azure Cloud
 
 Sim, você não precisa descriptografar seu banco de dados para restaurá-lo para o SQL Instância Gerenciada. Você precisa fornecer um certificado/chave usado como o protetor de chave de criptografia no sistema de origem para o SQL Instância Gerenciada para poder ler dados do arquivo de backup criptografado. Há duas maneiras possíveis de fazer isso:
 
-- *Carregar o protetor de certificado para o SQL instância gerenciada* . Isso só pode ser feito usando o PowerShell. O [script de exemplo](./tde-certificate-migrate.md) descreve todo o processo.
-- *Carregue o protetor de chave assimétrica em Azure Key Vault e aponte instância gerenciada SQL para ele* . Essa abordagem é semelhante ao BYOK (traga sua própria chave) TDE caso de uso que também usa a integração Key Vault para armazenar a chave de criptografia. Se você não quiser usar a chave como um protetor de chave de criptografia e apenas quiser disponibilizar a chave para o SQL Instância Gerenciada restaurar bancos de dados criptografados, siga as instruções para [Configurar BYOK TDE](../database/transparent-data-encryption-tde-overview.md#manage-transparent-data-encryption)e não marque a caixa de seleção **tornar a chave selecionada o protetor de TDE padrão** .
+- *Carregar o protetor de certificado para o SQL instância gerenciada*. Isso só pode ser feito usando o PowerShell. O [script de exemplo](./tde-certificate-migrate.md) descreve todo o processo.
+- *Carregue o protetor de chave assimétrica em Azure Key Vault e aponte instância gerenciada SQL para ele*. Essa abordagem é semelhante ao BYOK (traga sua própria chave) TDE caso de uso que também usa a integração Key Vault para armazenar a chave de criptografia. Se você não quiser usar a chave como um protetor de chave de criptografia e apenas quiser disponibilizar a chave para o SQL Instância Gerenciada restaurar bancos de dados criptografados, siga as instruções para [Configurar BYOK TDE](../database/transparent-data-encryption-tde-overview.md#manage-transparent-data-encryption)e não marque a caixa de seleção **tornar a chave selecionada o protetor de TDE padrão**.
 
 Depois de disponibilizar o protetor de criptografia para o SQL Instância Gerenciada, você pode prosseguir com o procedimento de restauração do banco de dados padrão.
 
@@ -443,7 +436,7 @@ Para explorar Instância Gerenciada opções de preços, consulte a [página de 
 
 **Como rastrear o custo de cobrança da minha instância gerenciada?**
 
-Você pode fazer isso usando a [Solução de Gerenciamento de Custos do Azure](../../cost-management-billing/index.yml). Navegue até **Assinaturas** no [portal do Azure](https://portal.azure.com) e selecione **Análise de Custo** . 
+Você pode fazer isso usando a [Solução de Gerenciamento de Custos do Azure](../../cost-management-billing/index.yml). Navegue até **Assinaturas** no [portal do Azure](https://portal.azure.com) e selecione **Análise de Custo**. 
 
 Use a opção **Custos acumulados** e, em seguida, filtre pelo **Tipo de recurso** como `microsoft.sql/managedinstances`.
 
@@ -490,7 +483,7 @@ Cada logon deve definir sua senha no logon e alterar sua senha depois que atingi
 | Duração máxima da senha | 42 dias |
 | Duração mínima da senha | 1 dia |
 | Comprimento mínimo da senha | 10 caracteres |
-| A senha deve atender aos requisitos de complexidade | habilitado |
+| A senha deve atender aos requisitos de complexidade | Habilitada |
 
 **É possível desabilitar a complexidade e a expiração de senha no SQL Instância Gerenciada no nível de logon?**
 

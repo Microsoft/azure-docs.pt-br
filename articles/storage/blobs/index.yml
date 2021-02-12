@@ -1,8 +1,8 @@
 ### YamlMime:Landing
-title: Documentação do armazenamento de blobs do Azure
-summary: O Armazenamento de Blobs do Azure é uma solução de armazenamento de objetos da Microsoft para a nuvem. O Armazenamento de Blobs é otimizado para armazenar grandes quantidades de dados não estruturados.
+title: Documentação do Armazenamento de Blobs do Azure
+summary: O Armazenamento de Blobs do Azure é uma solução de armazenamento de objetos da Microsoft para a nuvem. O armazenamento de Blobs é otimizado para armazenar grandes quantidades de dados não estruturados.
 metadata:
-  title: Documentação do armazenamento de blobs do Azure
+  title: Documentação do Armazenamento de Blobs do Azure
   description: O Armazenamento de Blobs do Azure é uma solução de armazenamento de objetos da Microsoft para a nuvem. O Armazenamento de Blobs é otimizado para armazenar grandes quantidades de dados não estruturados.
   services: storage
   ms.service: storage
@@ -12,12 +12,12 @@ metadata:
   author: normesta
   ms.author: normesta
   ms.date: 08/20/2019
-  ms.openlocfilehash: 21736e257a31e65c6cd9ea4a6e1f65cf21bf61d1
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: d85631cd7ace8aa5b9b0725920f477e2447e78c0
+  ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91715748"
+  ms.lasthandoff: 01/29/2021
+  ms.locfileid: "99072011"
 landingContent:
 - title: Sobre Armazenamento de Blobs
   linkLists:
@@ -76,7 +76,7 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: Extrair, transformar e carregar dados com o Azure Databricks
-      url: ../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      url: /azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - text: Extrair, transformar e carregar dados usando o Apache Hive no HDInsight do Azure
       url: data-lake-storage-tutorial-extract-transform-load-hive.md
     - text: Inserir dados em tabelas do Databricks usando a Grade de Eventos
@@ -86,7 +86,7 @@ landingContent:
     - text: Usar com clusters Azure HDInsight
       url: ../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - text: Usar com Power BI
-      url: data-lake-storage-use-power-bi.md
+      url: /power-query/connectors/datalakestorage
 - title: Desenvolver aplicativos
   linkLists:
   - linkListType: quickstart
@@ -126,7 +126,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Acessar dados de blob com uma conta do Azure AD
-      url: authorize-blob-access-portal.md
+      url: authorize-data-operations-portal.md
     - text: Gerenciar direitos de acesso com o Azure RBAC
       url: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - text: Usar uma identidade gerenciada para autorizar o acesso ao armazenamento de blobs

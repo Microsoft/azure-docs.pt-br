@@ -3,15 +3,15 @@ title: Gerenciar servidor-CLI do Azure-banco de dados do Azure para PostgreSQL
 description: Saiba como gerenciar um banco de dados do Azure para o servidor PostgreSQL do CLI do Azure.
 author: ajlam
 ms.author: andrela
-ms.service: mysql
+ms.service: postgresql
 ms.topic: how-to
 ms.date: 9/22/2020
-ms.openlocfilehash: d99634388b9c4db99c996cfccb9bb5f12682f217
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2ea07e2bc12e6fc0d62abd462b8537c6a93689f9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490111"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935794"
 ---
 # <a name="manage-an-azure-database-for-postgresql-single-server-using-the-azure-cli"></a>Gerenciar um servidor único do banco de dados do Azure para PostgreSQL usando o CLI do Azure
 
@@ -39,7 +39,7 @@ Se você ainda não criou um servidor, consulte este guia de [início rápido](q
 
 ## <a name="scale-compute-and-storage"></a>Dimensionar a computação e o armazenamento
 
-Você pode escalar verticalmente seu tipo de preço, computação e armazenamento facilmente usando o comando a seguir. Você pode ver toda a operação do servidor que pode executar [AZ postgres Server Overview](/cli/azure/mysql/server)
+Você pode escalar verticalmente seu tipo de preço, computação e armazenamento com facilidade usando o comando a seguir. Você pode ver toda a operação do servidor que pode executar [AZ postgres Server Overview](/cli/azure/mysql/server)
 
 ```azurecli-interactive
 az postgres server update --resource-group myresourcegroup --name mydemoserver --sku-name GP_Gen5_4 --storage-size 6144
@@ -60,7 +60,7 @@ storage-size | 6144 | A capacidade de armazenamento do servidor (a unidade é me
 
 
 ## <a name="manage-postgresql-databases-on-a-server"></a>Gerencie bancos de dados PostgreSQL em um servidor.
-Você pode usar qualquer um desses comandos para criar, excluir, listar e exibir as propriedades de banco de dados de um banco de dados no servidor
+Você pode usar qualquer um desses comandos para criar, excluir, listar e exibir as propriedades de banco de dados de um banco de dados em seu servidor
 
 | Cmdlet | Uso| Descrição |
 | --- | ---| --- |

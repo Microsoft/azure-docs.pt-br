@@ -10,11 +10,11 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.openlocfilehash: 33435d2367b92f312d41f0e32fdbb3a93d59a9fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540873"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999919"
 ---
 # <a name="use-features-to-boost-signal-of-word-list"></a>Usar recursos para impulsionar o sinal da lista de palavras
 
@@ -26,7 +26,7 @@ Examine os [conceitos](luis-concept-feature.md) para entender quando e por que u
 
 1. Entre no [portal do LUIS](https://www.luis.ai) selecione sua **Assinatura** e **Recurso de criação** para ver os aplicativos atribuídos a esse recurso.
 1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** .
-1. Selecione **Compilar**e, em seguida, selecione **recursos** no painel esquerdo do seu aplicativo.
+1. Selecione **Compilar** e, em seguida, selecione **recursos** no painel esquerdo do seu aplicativo.
 
 1. Na página **recursos** , selecione **+ criar**.
 

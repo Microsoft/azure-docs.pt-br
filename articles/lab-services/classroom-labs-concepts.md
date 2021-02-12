@@ -1,16 +1,16 @@
 ---
-title: Conceitos de laboratórios de sala de aula – Azure Lab Services | Microsoft Docs
+title: Conceitos de laboratórios-Azure Lab Services | Microsoft Docs
 description: Aprenda os conceitos básicos do Lab Services e como ele pode facilitar a criação e o gerenciamento de laboratórios.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 38dd77df7a80ad252b553b6afa8b52d7fee753a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa3a8dad195b4b3cbf0786c8923c8b330d148898
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85443699"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435511"
 ---
-# <a name="classroom-labs-concepts"></a>Conceitos dos laboratórios de sala de aula
+# <a name="labs-concepts"></a>Conceitos de laboratórios
 
 A lista a seguir contém as principais definições e conceitos do Lab Services:
 
@@ -48,7 +48,7 @@ Normalmente, um administrador de TI dos recursos de nuvem da organização, que 
 
 ### <a name="educator"></a>Educador
 
-Normalmente, os usuários como um professor ou um instrutor online criam laboratórios de sala de aula em uma conta de laboratório. Um educador executa as seguintes tarefas:
+Normalmente, os usuários como professor ou instrutor online criam laboratórios em uma conta de laboratório. Um educador executa as seguintes tarefas:
 
 - Cria um laboratório de sala de aula.
 - Cria máquinas virtuais no laboratório.

@@ -11,15 +11,16 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 09/23/2020
-ms.openlocfilehash: 204399186ae229324f9dc478e0ef58a173060013
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 02/02/2021
+ms.openlocfilehash: 63816a40aa710d26dc036dfe82018883e917beb6
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638169"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428463"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de e para Dynamics 365 (Common Data Service) ou Dynamics CRM usando o Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como usar uma atividade de cópia no Azure Data Factory para copiar dados de e para o Microsoft Dynamics 365 e o Microsoft Dynamics CRM. Ele se baseia no artigo [visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral de uma atividade de cópia.
@@ -56,10 +57,10 @@ Para o Dynamics 365 especificamente, os seguintes tipos de aplicativos são comp
 
 Esse conector não dá suporte a outros tipos de aplicativos, como finanças, operações e talento.
 
-Esse conector do Dynamics é criado sobre as [Ferramentas do Dynamics xrm](/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
-
 >[!TIP]
 >Para copiar dados de finanças e operações do Dynamics 365, você pode usar o [conector do Dynamics AX](connector-dynamics-ax.md).
+
+Esse conector do Dynamics é criado sobre as [Ferramentas do Dynamics xrm](/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -88,7 +89,7 @@ As propriedades a seguir têm suporte no serviço vinculado do Dynamics.
 | servicePrincipalCredential | A credencial de entidade de serviço. <br/><br/>Quando você usa "ServicePrincipalKey" como o tipo de credencial, `servicePrincipalCredential` pode ser uma cadeia de caracteres que Azure data Factory criptografa na implantação do serviço vinculado. Ou pode ser uma referência a um segredo no Azure Key Vault. <br/><br/>Quando você usa "ServicePrincipalCert" como a credencial, `servicePrincipalCredential` deve ser uma referência a um certificado no Azure Key Vault. | Sim quando a autenticação for "AADServicePrincipal" |
 | Nome de Usuário | O nome de usuário para se conectar ao Dynamics. | Sim quando a autenticação for "Office365" |
 | password | A senha da conta de usuário que você especificou como o nome de usuários. Marque este campo com "SecureString" para armazená-lo com segurança no Data Factory ou [faça referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). | Sim quando a autenticação for "Office365" |
-| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Se nenhum valor for especificado, a propriedade usará o tempo de execução de integração do Azure padrão. | Não para fonte e sim para o coletor se o serviço vinculado de origem não tiver um tempo de execução de integração |
+| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Se nenhum valor for especificado, a propriedade usará o tempo de execução de integração do Azure padrão. | Não |
 
 >[!NOTE]
 >O conector do Dynamics usou anteriormente a propriedade **OrganizationName** opcional para identificar sua instância do Dynamics CRM ou do Dynamics 365 online. Embora essa propriedade ainda funcione, sugerimos que você especifique a nova propriedade **ServiceUri** em vez disso, para obter um melhor desempenho para a descoberta de instância.
@@ -172,7 +173,7 @@ As propriedades a seguir têm suporte no serviço vinculado do Dynamics.
 
 ### <a name="dynamics-365-and-dynamics-crm-on-premises-with-ifd"></a>Dynamics 365 e Dynamics CRM local com IFD
 
-Propriedades adicionais que se comparam ao Dynamics online são **hostname** e **Port** .
+Propriedades adicionais que se comparam ao Dynamics online são **hostname** e **Port**.
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
@@ -184,7 +185,7 @@ Propriedades adicionais que se comparam ao Dynamics online são **hostname** e *
 | authenticationType | O tipo de autenticação para se conectar ao servidor do Dynamics. Especifique "Ifd" para o Dynamics local com IFD. | Sim. |
 | Nome de Usuário | O nome de usuário para se conectar ao Dynamics. | Sim. |
 | password | A senha para a conta de usuário especificada para o nome do usuário. Você pode marcar esse campo com "SecureString" para armazená-lo com segurança em Data Factory. Ou você pode armazenar uma senha em Key Vault e deixar a atividade de cópia efetuar pull a partir daí quando ela faz a cópia de dados. Saiba mais sobre [Armazenar credenciais no Cofre de Chaves](store-credentials-in-key-vault.md). | Sim. |
-| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Se nenhum valor for especificado, a propriedade usará o tempo de execução de integração do Azure padrão. | Não para fonte e sim para coletor. |
+| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Se nenhum valor for especificado, a propriedade usará o tempo de execução de integração do Azure padrão. | Não |
 
 #### <a name="example-dynamics-on-premises-with-ifd-using-ifd-authentication"></a>Exemplo: Dynamics local com IFD usando a autenticação de IFD
 
@@ -326,7 +327,7 @@ Para copiar dados para o Dynamics, a seção de **coletor** de atividade de cóp
 | writeBehavior | O comportamento da operação de gravação. O valor deve ser "Upsert". | Sim |
 | alternateKeyName | O nome da chave alternativa definido em sua entidade para fazer um Upsert. | Não. |
 | writeBatchSize | A contagem de linhas de dados gravados no Dynamics em cada lote. | Não. O valor padrão é 10. |
-| ignoreNullValues | Se é para ignorar valores nulos de dados de entrada que não sejam campos de chave durante uma operação de gravação.<br/><br/>Os valores válidos são **true** e **false** :<ul><li>**True** : deixa os dados no objeto de destino inalterados quando você faz uma operação de Upsert ou atualização. Insira um valor padrão definido quando você faz uma operação insert.</li><li>**False** : atualizar os dados no objeto de destino para um valor nulo quando você fizer uma operação de Upsert ou atualização. Insira um valor nulo ao fazer uma operação de inserção.</li></ul> | Não. O valor padrão é **false** . |
+| ignoreNullValues | Se é para ignorar valores nulos de dados de entrada que não sejam campos de chave durante uma operação de gravação.<br/><br/>Os valores válidos são **true** e **false**:<ul><li>**True**: deixa os dados no objeto de destino inalterados quando você faz uma operação de Upsert ou atualização. Insira um valor padrão definido quando você faz uma operação insert.</li><li>**False**: atualizar os dados no objeto de destino para um valor nulo quando você fizer uma operação de Upsert ou atualização. Insira um valor nulo ao fazer uma operação de inserção.</li></ul> | Não. O valor padrão é **false**. |
 
 >[!NOTE]
 >O valor padrão para o coletor **writeBatchSize** e a atividade de cópia **[parallelCopies](copy-activity-performance-features.md#parallel-copy)** para o coletor do Dynamics é 10. Portanto, os registros 100 são enviados simultaneamente por padrão ao Dynamics.
@@ -378,15 +379,15 @@ Configure o tipo de dados Data Factory correspondente em uma estrutura de conjun
 | Tipo de dados do Dynamics | Tipo de dados provisório do Data Factory | Tem suporte como origem | Tem suporte como coletor |
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | long | ✓ | ✓ |
-| AttributeTypeCode.Boolean | Booliano | ✓ | ✓ |
+| AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
 | AttributeType.Customer | GUID | ✓ | ✓ (Consulte as [diretrizes](#writing-data-to-a-lookup-field)) |
 | AttributeType.DateTime | Datetime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
-| AttributeType.Double | Duplo | ✓ | ✓ |
+| AttributeType.Double | Double | ✓ | ✓ |
 | AttributeType.EntityName | String | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | GUID | ✓ | ✓ (Consulte as [diretrizes](#writing-data-to-a-lookup-field)) |
-| AttributeType.ManagedProperty | Booliano | ✓ | |
+| AttributeType.ManagedProperty | Boolean | ✓ | |
 | AttributeType.Memo | String | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |
 | AttributeType.Owner | GUID | ✓ | ✓ (Consulte as [diretrizes](#writing-data-to-a-lookup-field)) |
@@ -397,7 +398,7 @@ Configure o tipo de dados Data Factory correspondente em uma estrutura de conjun
 | AttributeType.Status | Int32 | ✓ | ✓ |
 
 > [!NOTE]
-> Não há suporte para os tipos de dados do Dynamics **attributeType. CalendarRules** , **attributeType. MultiSelectPicklist** e **attributeType. partylist** .
+> Não há suporte para os tipos de dados do Dynamics **attributeType. CalendarRules**, **attributeType. MultiSelectPicklist** e **attributeType. partylist** .
 
 ## <a name="writing-data-to-a-lookup-field"></a>Gravando dados em um campo de pesquisa
 
@@ -413,15 +414,15 @@ Para gravar dados em um campo de pesquisa com vários destinos, como cliente e p
 
 Por exemplo, suponha que a fonte tenha estas duas colunas:
 
-- **Customerfield** coluna do tipo **GUID** , que é o valor da chave primária da entidade de destino no Dynamics.
-- Coluna de **destino** do tipo **cadeia de caracteres** , que é o nome lógico da entidade de destino.
+- **Customerfield** coluna do tipo **GUID**, que é o valor da chave primária da entidade de destino no Dynamics.
+- Coluna de **destino** do tipo **cadeia de caracteres**, que é o nome lógico da entidade de destino.
 
-Além disso, suponha que você deseja copiar esses dados para o campo de entidade de dinâmica do coletor **customerfield** do tipo **Customer** .
+Além disso, suponha que você deseja copiar esses dados para o campo de entidade de dinâmica do coletor **customerfield** do tipo **Customer**.
 
 Em mapeamento de coluna de atividade de cópia, mapeie as duas colunas da seguinte maneira:
 
-- **Customerfield** para **customerfield** . Esse mapeamento é o mapeamento de campo normal.
-- **Destino** para **customerfield \@ EntityReference** . A coluna Sink é uma coluna virtual que representa a referência de entidade. Insira esses nomes de campo em um mapeamento, pois eles não aparecerão Importando esquemas.
+- **Customerfield** para **customerfield**. Esse mapeamento é o mapeamento de campo normal.
+- **Destino** para **customerfield \@ EntityReference**. A coluna Sink é uma coluna virtual que representa a referência de entidade. Insira esses nomes de campo em um mapeamento, pois eles não aparecerão Importando esquemas.
 
 ![Pesquisa de Dynamics – mapeamento de coluna de campo](./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping.png)
 

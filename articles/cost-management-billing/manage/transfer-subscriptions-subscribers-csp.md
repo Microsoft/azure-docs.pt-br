@@ -6,22 +6,26 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 11/17/2020
 ms.author: banders
-ms.openlocfilehash: ae504072e2a2cc481217933478ccbfb7bc3372b3
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 4cc213db19a567f18c5ff483b64a75e3bbeef892
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132356"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962103"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transferir assinaturas do Azure entre assinantes e CSPs
 
 Este artigo fornece as etapas de alto nível usadas para transferir assinaturas do Azure de/para parceiros CSP (provedor de soluções de nuvem) e seus clientes. O objetivo das informações aqui é ajudar o assinante do Azure a fazer a coordenação com o parceiro dele. As informações que os parceiros da Microsoft usam para o processo de transferência estão documentadas em [Saiba como transferir as assinaturas do Azure de um cliente para outro parceiro](/partner-center/switch-azure-subscriptions-to-a-different-partner).
 
+Antes de iniciar uma solicitação de transferência, você deve baixar ou exportar qualquer informação de custo e cobrança que deseja manter. As informações de cobrança e utilização não são transferidas com a assinatura. Para obter mais informações de como exportar dados de gerenciamento de custos, confira [Criar e gerenciar dados exportados](../costs/tutorial-export-acm-data.md). Para obter informações sobre como baixar sua fatura e os dados de uso, confira [Baixar ou exibir sua fatura de cobrança e dados de uso diário do Azure](download-azure-invoice-daily-usage-date.md).
+
+Se você tiver reservas existentes, elas deixarão de ser aplicadas depois que você transferir uma assinatura. Lembre-se de [cancelar as reservas e reembolsá-las](../reservations/exchange-and-refund-azure-reservations.md) antes de transferir uma assinatura.
+
 ## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>Transferir assinaturas EA para um parceiro CSP
 
-Os parceiros CSP de cobrança direta certificados como um [Provedor de Serviços Gerenciados (MSP) Especialista em Azure](https://partner.microsoft.com/membership/azure-expert-msp) podem solicitar a transferência de assinaturas do Azure para seus clientes que têm um EA (Contrato Enterprise) direto. Transferências de assinatura são permitidas somente para clientes que aceitaram um MCA (Contrato de Cliente da Microsoft) e compraram um plano do Azure.
+Os parceiros CSP de cobrança direta certificados como um [Provedor de Serviços Gerenciados (MSP) Especialista em Azure](https://partner.microsoft.com/membership/azure-expert-msp) podem solicitar a transferência de assinaturas do Azure para seus clientes que têm um EA (Contrato Enterprise) direto. Transferências de assinatura são permitidas somente para clientes que aceitaram um MCA (Contrato de Cliente da Microsoft) e compraram um plano do Azure com o Programa CSP.
 
 Quando a solicitação é aprovada, o CSP pode fornecer uma fatura combinada para seus clientes. Para saber mais sobre a transferência de assinaturas por CSPs, confira [Obter a propriedade de cobrança das assinaturas do Azure para sua conta do MPA](mpa-request-ownership.md).
 
@@ -54,7 +58,7 @@ Para transferir qualquer outra assinatura de um parceiro CSP para outra oferta d
 
 1. Criar assinaturas do Azure de destino.
 1. Verifique se as assinaturas de origem e destino estão no mesmo locatário do Azure Active Directory. Para obter mais informações sobre como alterar um locatário do Azure AD, confira [Associar ou adicionar uma assinatura do Azure ao seu locatário do Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
-    Observe que o diretório da alteração não é a assinatura do CSP. Por exemplo, você está transferindo de um CSP para uma assinatura paga conforme o uso. Você precisa alterar o diretório da assinatura paga conforme o uso de maneira a corresponder ao diretório.
+    Observe que não há suporte para a opção alterar diretório na assinatura CSP. Por exemplo, você está transferindo de um CSP para uma assinatura paga conforme o uso. Você precisa alterar o diretório da assinatura paga conforme o uso de maneira a corresponder ao diretório.
 
     > [!IMPORTANT]
     >  - Quando você associa uma assinatura a um diretório diferente, os usuários que têm funções atribuídas usando o [Azure RBAC](../../role-based-access-control/role-assignments-portal.md) perdem o acesso. Os administradores de assinatura clássicos, incluindo o Administrador de Serviços e os Coadministradores, também perdem o acesso.

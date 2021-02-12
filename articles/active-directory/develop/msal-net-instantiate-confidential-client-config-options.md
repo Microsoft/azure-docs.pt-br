@@ -13,12 +13,12 @@ ms.date: 04/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 140385a26dbfd754438d632ce327c3c4a3ea1b61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d477c419bb677a6b8f24a3aae26c403e47cc96cb
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88166171"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583935"
 ---
 # <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>Criar uma instância de um aplicativo cliente confidencial com opções de configuração usando MSAL.NET
 
@@ -60,7 +60,7 @@ Uma configuração de aplicativo ASP.NET Core é descrita em um *appsettings.jsn
 
 A partir do MSAL.NET v3. x, você pode configurar seu aplicativo cliente confidencial do arquivo de configuração.
 
-Na classe em que você deseja configurar e instanciar seu aplicativo, você precisa declarar um `ConfidentialClientApplicationOptions` objeto.  Associe a configuração lida da origem (incluindo a appconfig.jsno arquivo) à instância das opções de aplicativo, usando o `IConfigurationRoot.Bind()` método do [Microsoft.Extensions.Configuração. Pacote NuGet do Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
+Na classe em que você deseja configurar e instanciar seu aplicativo, declare um `ConfidentialClientApplicationOptions` objeto.  Associe a configuração lida da origem (incluindo a appconfig.jsno arquivo) à instância das opções de aplicativo, usando o `IConfigurationRoot.Bind()` método do [Microsoft.Extensions.Configuração. Pacote NuGet do Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
 
 ```csharp
 using Microsoft.Identity.Client;

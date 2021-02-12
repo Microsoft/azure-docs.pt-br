@@ -1,18 +1,17 @@
 ---
 title: Configurando políticas de ordenação de eventos para Azure Stream Analytics
 description: Este artigo descreve como definir as configurações de ordenação uniforme no Stream Analytics
-author: sidram
+author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 08/06/2020
-ms.openlocfilehash: 80567a211f08d6322c80b6645f8b70ec7df64b59
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f7ec6f32b48a93a29210311c7ba6747eb2e2d066
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130656"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014288"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Configurando políticas de ordenação de eventos para Azure Stream Analytics
 
@@ -20,9 +19,9 @@ Este artigo descreve como configurar e usar a chegada tardia e políticas de eve
 
 ## <a name="event-time-and-arrival-time"></a>Hora do evento e hora de chegada
 
-Seu trabalho de Stream Analytics pode processar eventos com base na *hora do evento* ou na hora da *chegada* . O **tempo de evento/aplicativo** é o carimbo de data/hora presente na carga do evento (quando o evento foi gerado). O **tempo de chegada** é o carimbo de data/hora em que o evento foi recebido na fonte de entrada (hubs de eventos/Hub IOT/armazenamento de BLOBs). 
+Seu trabalho de Stream Analytics pode processar eventos com base na *hora do evento* ou na hora da *chegada*. O **tempo de evento/aplicativo** é o carimbo de data/hora presente na carga do evento (quando o evento foi gerado). O **tempo de chegada** é o carimbo de data/hora em que o evento foi recebido na fonte de entrada (hubs de eventos/Hub IOT/armazenamento de BLOBs). 
 
-Por padrão, o Stream Analytics processa eventos por *hora de chegada* , mas você pode optar por processar eventos por hora do *evento* usando a cláusula [timestamp by](/stream-analytics-query/timestamp-by-azure-stream-analytics) em sua consulta. A chegada tardia e as políticas fora de ordem serão aplicáveis somente se você processar eventos por hora do evento. Ao definir essas configurações, considere os requisitos de latência e exatidão para seu cenário. 
+Por padrão, o Stream Analytics processa eventos por *hora de chegada*, mas você pode optar por processar eventos por hora do *evento* usando a cláusula [timestamp by](/stream-analytics-query/timestamp-by-azure-stream-analytics) em sua consulta. A chegada tardia e as políticas fora de ordem serão aplicáveis somente se você processar eventos por hora do evento. Ao definir essas configurações, considere os requisitos de latência e exatidão para seu cenário. 
 
 ## <a name="what-is-late-arrival-policy"></a>O que é a política de entrada tardia?
 
@@ -79,7 +78,7 @@ Esta mensagem para informar que pelo menos uma partição em sua entrada está v
 ## <a name="why-do-i-see-a-delay-of-5-seconds-even-when-my-late-arrival-policy-is-set-to-0"></a>Por que vejo um atraso de cinco segundos mesmo quando minha política de chegada tardia é definida como 0?
 Isso acontece quando há uma partição de entrada que nunca recebeu nenhuma entrada. Você pode verificar as métricas de entrada por partição para validar esse comportamento. 
 
-Quando uma partição não tem dados para mais do que o limite de chegada em atraso configurado, o Stream Analytics avança o carimbo de data/hora do aplicativo, conforme explicado na seção considerações de ordenação de eventos. Isso requer o tempo de chegada estimado. Se a partição nunca tiver dados, o Stream Analytics estimará a hora de chegada como *horário local – 5 segundos* . Devido a essas partições que nunca tinham dados podem mostrar um atraso de marca d' água de 5 segundos.  
+Quando uma partição não tem dados para mais do que o limite de chegada em atraso configurado, o Stream Analytics avança o carimbo de data/hora do aplicativo, conforme explicado na seção considerações de ordenação de eventos. Isso requer o tempo de chegada estimado. Se a partição nunca tiver dados, o Stream Analytics estimará a hora de chegada como *horário local – 5 segundos*. Devido a essas partições que nunca tinham dados podem mostrar um atraso de marca d' água de 5 segundos.  
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Considerações sobre o uso do tempo](stream-analytics-time-handling.md)

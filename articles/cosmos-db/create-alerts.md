@@ -4,16 +4,15 @@ description: Saiba como configurar alertas para Azure Cosmos DB usando Azure Mon
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 07/16/2020
-ms.openlocfilehash: 1042638dc622e6675c997bc6db8df1d072824816
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e29db7e31438bc7f6ac609384d0d9b92c275e813
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099905"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339522"
 ---
 # <a name="create-alerts-for-azure-cosmos-db-using-azure-monitor"></a>Criar alertas para Azure Cosmos DB usando Azure Monitor
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -34,7 +33,7 @@ Esta seção mostra como criar um alerta quando você recebe um código de statu
 
 1. Entre no [portal do Azure.](https://portal.azure.com/)
 
-1. Selecione **Monitor** na barra de navegação à esquerda e selecione **alertas** .
+1. Selecione **Monitor** na barra de navegação à esquerda e selecione **alertas**.
 
 1. Selecione o botão nova regra de alerta para abrir o painel criar regra de alerta.  
 
@@ -44,31 +43,31 @@ Esta seção mostra como criar um alerta quando você recebe um código de statu
 
    * Escolha o nome da sua **assinatura** .
 
-   * Selecione **contas de Azure Cosmos DB** para o **tipo de recurso** .
+   * Selecione **contas de Azure Cosmos DB** para o **tipo de recurso**.
 
    * O **local** da sua conta do Azure Cosmos.
 
-   * Depois de preencher os detalhes, será exibida uma lista de contas do Azure Cosmos no escopo selecionado. Escolha aquele para o qual você deseja configurar alertas e selecione **concluído** .
+   * Depois de preencher os detalhes, será exibida uma lista de contas do Azure Cosmos no escopo selecionado. Escolha aquele para o qual você deseja configurar alertas e selecione **concluído**.
 
 1. Preencha a seção **condição** :
 
    * Abra o painel **Selecionar condição** para abrir a página **Configurar lógica de sinal** e configure o seguinte:
 
-   * Selecione um sinal. O **tipo de sinal** pode ser uma **métrica** ou um **log de atividades** . Escolha **métricas** para este cenário. Porque você deseja receber um alerta quando houver problemas de limitação de taxa na métrica de unidades de solicitação total.
+   * Selecione um sinal. O **tipo de sinal** pode ser uma **métrica** ou um **log de atividades**. Escolha **métricas** para este cenário. Porque você deseja receber um alerta quando houver problemas de limitação de taxa na métrica de unidades de solicitação total.
 
    * Selecionar **tudo** para o **serviço monitor**
 
-   * Escolha um **nome de sinal** . Para obter um alerta para códigos de status HTTP, escolha o sinal **total de unidades de solicitação** .
+   * Escolha um **nome de sinal**. Para obter um alerta para códigos de status HTTP, escolha o sinal **total de unidades de solicitação** .
 
    * Na próxima guia, você pode definir a lógica para disparar um alerta e usar o gráfico para exibir as tendências da sua conta do Azure Cosmos. A métrica **total de unidades de solicitação** dá suporte a dimensões. Essas dimensões permitem que você filtre a métrica. Se você não selecionar nenhuma dimensão, esse valor será ignorado.
 
-   * Escolha **StatusCode** como o **nome da dimensão** . Selecione **adicionar valor personalizado** e defina o código de status como 429.
+   * Escolha **StatusCode** como o **nome da dimensão**. Selecione **adicionar valor personalizado** e defina o código de status como 429.
 
-   * Na **lógica de alerta** , defina o **limite** como **estático** . O limite estático usa um valor de limite definido pelo usuário para avaliar a regra, enquanto os limites dinâmicos usam algoritmos de aprendizado de máquina internos para aprender continuamente o padrão de comportamento de métrica e calcular os limites automaticamente.
+   * Na **lógica de alerta** , defina o **limite** como **estático**. O limite estático usa um valor de limite definido pelo usuário para avaliar a regra, enquanto os limites dinâmicos usam algoritmos de aprendizado de máquina internos para aprender continuamente o padrão de comportamento de métrica e calcular os limites automaticamente.
 
-   * Defina o **operador** como **maior que** , o **tipo de agregação** para **Total** e o **valor do limite** como **100** . Com essa lógica, se o cliente perceber mais de 100 solicitações com um código de status 429, o alerta será disparado. Você também pode configurar o tipo de agregação, a granularidade de agregação e a frequência de avaliação com base em seu requisito.
+   * Defina o **operador** como **maior que** , o **tipo de agregação** para **Total** e o **valor do limite** como **100**. Com essa lógica, se o cliente perceber mais de 100 solicitações com um código de status 429, o alerta será disparado. Você também pode configurar o tipo de agregação, a granularidade de agregação e a frequência de avaliação com base em seu requisito.
 
-   * Depois de preencher o formulário, selecione **concluído** . A captura de tela a seguir mostra os detalhes da lógica de alerta:
+   * Depois de preencher o formulário, selecione **concluído**. A captura de tela a seguir mostra os detalhes da lógica de alerta:
 
      :::image type="content" source="./media/create-alerts/configure-alert-logic.png" alt-text="Configurar a lógica para receber alertas para solicitações de taxa limitada/429":::
 
@@ -82,9 +81,9 @@ Esta seção mostra como criar um alerta quando você recebe um código de statu
 
    * Escolha a assinatura e o grupo de recursos no qual esse grupo de ações será criado.  
 
-   * Forneça um nome para a ação e selecione **email/mensagem SMS/Push/voz** como o **tipo de ação** . A captura de tela a seguir mostra os detalhes do tipo de ação:
+   * Forneça um nome para a ação e selecione **email/mensagem SMS/Push/voz** como o **tipo de ação**. A captura de tela a seguir mostra os detalhes do tipo de ação:
 
-     :::image type="content" source="./media/create-alerts/configure-alert-action-type.png" alt-text="Configurar a lógica para receber alertas para solicitações de taxa limitada/429":::
+     :::image type="content" source="./media/create-alerts/configure-alert-action-type.png" alt-text="Configurar o tipo de ação, como notificação por email, para receber o alerta":::
 
 1. Preencha a seção **detalhes da regra de alerta** :
 

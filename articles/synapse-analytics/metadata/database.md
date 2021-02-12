@@ -1,6 +1,6 @@
 ---
 title: Banco de dados compartilhado
-description: O Azure Synapse Analytics fornece um modelo de metadados compartilhados em que a criação de um banco de dados no Apache Spark o tornará acessível por meio dos mecanismos SQL sob demanda (versão prévia) e pool de SQL.
+description: O Azure Synapse Analytics fornece um modelo de metadados compartilhado em que a criação de um banco de dados no Pool do Apache Spark sem servidor o tornará acessível do pool de SQL sem servidor e dos mecanismos de pool de SQL.
 services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
@@ -10,36 +10,34 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 58c1aea944d89872a79d0672a925b1696791c1a8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 93602e522338166abac98c3e4a198e1aff392d21
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91260845"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934961"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Banco de dados compartilhado do Azure Synapse Analytics
 
-O Azure Synapse Analytics permite que os diferentes mecanismos computacionais do workspace compartilhem bancos de dados e tabelas entre os pools do Spark (versão prévia) e o mecanismo SQL sob demanda (versão prévia).
+O Azure Synapse Analytics permite que os diferentes mecanismos computacionais do workspace compartilhem bancos de dados e tabelas. Atualmente, os bancos de dados e as tabelas Parquet criadas nos pools do Apache Spark são compartilhados automaticamente com o mecanismo de pool de SQL sem servidor.
 
-[!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
+Um banco de dados criado com um trabalho do Spark ficará visível com esse mesmo nome para todos os pools do Spark, atuais e futuros, no workspace, incluindo o mecanismo do pool de SQL sem servidor. Você não pode adicionar objetos personalizados (tabelas externas, exibições, procedimentos) diretamente neste banco de dados replicado usando o pool de SQL sem servidor.
 
-Um banco de dados criado com um trabalho do Spark ficará visível com esse mesmo nome para todos os pools do Spark (versão prévia), atuais e futuros, no workspace, incluindo o mecanismo SQL sob demanda.
+O banco de dados padrão do Spark, chamado `default`, também ficará visível no contexto do pool de SQL sem servidor como um banco de dados chamado `default`.
 
-O banco de dados padrão do Spark, chamado `default`, também ficará visível no contexto do SQL sob demanda como um banco de dados chamado `default`.
-
-Como os bancos de dados são sincronizados com o SQL sob demanda de maneira assíncrona, haverá um atraso até que eles sejam exibidos.
+Como os banco de dados são sincronizados com o pool de SQL sem servidor de maneira assíncrona, haverá um atraso até que eles sejam exibidos.
 
 ## <a name="manage-a-spark-created-database"></a>Gerenciar um banco de dados criado pelo Spark
 
 Use o Spark para gerenciar bancos de dados criados pelo Spark. Por exemplo, exclua-o por meio de um trabalho do Pool do Spark e crie tabelas nele por meio do Spark.
 
-Se você criar objetos em um banco de dados criado pelo Spark usando o SQL sob demanda ou tentar remover o banco de dados, a operação terá êxito. Porém, o banco de dados do Spark original não será alterado.
+Se você criar objetos em um banco de dados criado pelo Spark usando o pool de SQL sem servidor ou tentar remover o banco de dados, a operação será bem sucedida. Porém, o banco de dados do Spark original não será alterado.
 
 ## <a name="how-name-conflicts-are-handled"></a>Como os conflitos de nome são tratados
 
-Se o nome de um banco de dados do Spark estiver em conflito com o nome de um banco de dados existente do SQL sob demanda, um sufixo do SQL sob demanda será anexado ao banco de dados do Spark. O sufixo do SQL sob demanda é `_<workspace name>-ondemand-DefaultSparkConnector`.
+Se o nome de um banco de dados do Spark entrar em conflito com o nome de outro banco de dados existente no pool de SQL sem servidor, um sufixo será acrescento ao banco de dados do Spark no pool de SQL sem servidor. O sufixo no pool de SQL sem servidor é `_<workspace name>-ondemand-DefaultSparkConnector`.
 
-Por exemplo, se um banco de dados do Spark chamado `mydb` for criado no workspace `myws` do Azure Synapse e um banco de dados do SQL sob demanda com esse nome já existir, o banco de dados do Spark no SQL sob demanda precisará ser referenciado com o nome `mydb_myws-ondemand-DefaultSparkConnector`.
+Por exemplo, se um banco de dados do Spark chamado `mydb` for criado no workspace `myws` do Azure Synapse e já existir um banco de dados no pool de SQL sem servidor com esse nome, então o banco de dados do Spark no pool de SQL sem servidor precisará ser referenciado usando o nome `mydb_myws-ondemand-DefaultSparkConnector`.
 
 > [!CAUTION]
 > Cuidado: você não deverá usar uma dependência nesse comportamento.
@@ -58,7 +56,7 @@ Se uma entidade de segurança exigir a capacidade de criar ou remover objetos de
 
 ## <a name="examples"></a>Exemplos
 
-### <a name="create-and-connect-to-spark-database-with-sql-on-demand"></a>Criar um banco de dados do Spark e se conectar a ele com o SQL sob demanda
+### <a name="create-and-connect-to-spark-database-with-serverless-sql-pool"></a>Criar um banco de dados do Spark e se conectar a ele com o pool de SQL sem servidor
 
 Primeiro, crie um banco de dados do Spark chamado `mytestdb` usando um cluster Spark que você já criou no workspace. Você pode fazer isso, por exemplo, usando um notebook C# do Spark com a seguinte instrução .NET para Spark:
 
@@ -66,7 +64,7 @@ Primeiro, crie um banco de dados do Spark chamado `mytestdb` usando um cluster S
 spark.Sql("CREATE DATABASE mytestdb")
 ```
 
-Após um pequeno atraso, você poderá ver o banco de dados no SQL sob demanda. Por exemplo, execute a instrução a seguir no SQL sob demanda.
+Após um pequeno atraso, você poderá ver o banco de dados no pool de SQL sem servidor. Por exemplo, execute a instrução a seguir no pool de SQL sem servidor.
 
 ```sql
 SELECT * FROM sys.databases;

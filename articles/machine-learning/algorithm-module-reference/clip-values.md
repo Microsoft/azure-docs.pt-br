@@ -10,11 +10,11 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
 ms.openlocfilehash: 99fb41542dff28997438881abad71da11e927a78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898816"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014883"
 ---
 # <a name="clip-values"></a>Recortar valores
 
@@ -56,7 +56,7 @@ Se você precisar aplicar métodos de recorte ou diferentes critérios a algumas
   
 1. Se você escolher **percentil**, restringirá os valores de coluna a um intervalo percentual. 
 
-    Por exemplo, suponha que você deseja manter apenas os valores no intervalo de 10-80 percentil e substituir todos os outros. Você deve escolher **percentil**e, em seguida, digitar 10 para o **valor de percentil para o limite inferior**e digitar 80 para o **valor de percentil para o limite superior**. 
+    Por exemplo, suponha que você deseja manter apenas os valores no intervalo de 10-80 percentil e substituir todos os outros. Você deve escolher **percentil** e, em seguida, digitar 10 para o **valor de percentil para o limite inferior** e digitar 80 para o **valor de percentil para o limite superior**. 
 
     Consulte a seção sobre [percentuais](#examples-for-clipping-using-percentiles) para ver alguns exemplos de como usar intervalos de percentil.  
   
@@ -86,7 +86,7 @@ Se você precisar aplicar métodos de recorte ou diferentes critérios a algumas
   
 1.  Envie o pipeline.  
   
-    Clique com o botão direito do mouse no módulo **valores de clipe** e selecione **Visualizar** ou selecione o módulo e alterne para a guia **saídas** no painel direito, clique no ícone de histograma nas **saídas de porta**para examinar os valores e verificar se a operação de recorte atende às suas expectativas.  
+    Clique com o botão direito do mouse no módulo **valores de clipe** e selecione **Visualizar** ou selecione o módulo e alterne para a guia **saídas** no painel direito, clique no ícone de histograma nas **saídas de porta** para examinar os valores e verificar se a operação de recorte atende às suas expectativas.  
  
 ### <a name="examples-for-clipping-using-percentiles"></a>Exemplos de recorte usando percentils
 

@@ -2,7 +2,7 @@
 title: Implantar Proxy de Aplicativo do AD do Azure para Azure AD Domain Services | Microsoft Docs
 description: Saiba como fornecer acesso seguro a aplicativos internos para funcionários remotos Implantando e configurando Proxy de Aplicativo do Azure Active Directory em um domínio Azure Active Directory Domain Services gerenciado
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: joflore
-ms.openlocfilehash: bc16f75a4ed2f9fe3be8a8bdc2d981a339780cc3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 8305b2190cf3b157973f5844c3237ffe73adba66
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960772"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619909"
 ---
 # <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-active-directory-domain-services-managed-domain"></a>Implantar Proxy de Aplicativo do AD do Azure para acesso seguro a aplicativos internos em um domínio Azure Active Directory Domain Services gerenciado
 
@@ -120,6 +120,6 @@ Com o Azure Proxy de Aplicativo do AD integrado com o AD DS do Azure, publique a
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [create-join-windows-vm]: join-windows-vm.md
-[azure-bastion]: ../bastion/bastion-create-host-portal.md
+[azure-bastion]: ../bastion/tutorial-create-host-portal.md
 [Get-ADComputer]: /powershell/module/addsadministration/get-adcomputer
 [Set-ADComputer]: /powershell/module/addsadministration/set-adcomputer

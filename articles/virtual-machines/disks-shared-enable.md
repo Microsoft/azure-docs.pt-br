@@ -8,22 +8,18 @@ ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 1efd4baf80c9ba30b1d1ea35390386bc4e7659d3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e8bb97196fcceea0c86f58fe4a63146e681c427e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747790"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500726"
 ---
 # <a name="enable-shared-disk"></a>Habilitar disco compartilhado
 
 Este artigo aborda como habilitar o recurso de discos compartilhados para o Azure Managed disks. Os discos compartilhados do Azure são um novo recurso para discos gerenciados do Azure que permite anexar um disco gerenciado a várias VMs (máquinas virtuais) simultaneamente. Anexar um disco gerenciado a várias VMs permite implantar novos aplicativos clusterizados ou migrar os existentes para o Azure. 
 
-Se você estiver procurando informações conceituais sobre discos gerenciados que têm discos compartilhados habilitados, consulte:
-
-* Para Linux: [discos compartilhados do Azure](linux/disks-shared.md)
-
-* Para Windows: [discos compartilhados do Azure](windows/disks-shared.md)
+Se você estiver procurando informações conceituais sobre discos gerenciados que têm discos compartilhados habilitados, consulte [Azure Shared disks](disks-shared.md).
 
 ## <a name="limitations"></a>Limitações
 
@@ -31,7 +27,7 @@ Se você estiver procurando informações conceituais sobre discos gerenciados q
 
 ## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
-Os discos compartilhados dão suporte a vários sistemas operacionais. Consulte as seções do [Windows](windows/disks-shared.md#windows) e do [Linux](linux/disks-shared.md#linux) do artigo conceitual para os sistemas operacionais com suporte.
+Os discos compartilhados dão suporte a vários sistemas operacionais. Consulte as seções do [Windows](./disks-shared.md#windows) e do [Linux](./disks-shared.md#linux) do artigo conceitual para os sistemas operacionais com suporte.
 
 ## <a name="disk-sizes"></a>Tamanhos do disco
 

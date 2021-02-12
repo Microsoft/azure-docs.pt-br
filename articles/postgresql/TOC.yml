@@ -12,6 +12,10 @@
           href: concepts-certificate-rotation.md
 - name: Documentação compartilhada
   items:
+    - name: Implantação de banco de dados
+      items:
+        - name: Ações do GitHub
+          href: how-to-deploy-github-action.md
     - name: Migração
       items:
         - name: Migrar dados com pg_dump e pg_restore
@@ -23,6 +27,9 @@
         - name: Migração com tempo de inatividade mínimo usando o DMS
           href: howto-migrate-online.md
           displayName: 'dms, data migration service'
+    - name: Política de controle de versão
+      href: concepts-version-policy.md
+      displayName: 'version, postgresql'
 - name: Servidor único
   expanded: true
   items:
@@ -103,8 +110,6 @@
       items:
         - name: CLI do Azure
           href: sample-scripts-azure-cli.md
-        - name: Itens internos do Azure Policy
-          href: ./policy-reference.md
     - name: Conceitos
       items:
         - name: Servidores
@@ -144,6 +149,9 @@
             - name: Criptografia dupla de infraestrutura
               href: concepts-infrastructure-double-encryption.md
               displayName: 'security, infrastructure encryption'
+            - name: Controles de segurança do Azure Policy
+              displayName: 'regulatory, compliance, standards, domains'
+              href: ./security-controls-policy.md
             - name: Linha de base de segurança
               href: security-baseline.md
         - name: Rede
@@ -198,6 +206,8 @@
               displayName: 'query store, performance, optimize, recommendations'
         - name: Desenvolvimento de aplicativos
           items:
+            - name: Práticas recomendadas
+              href: application-best-practices.md
             - name: Bibliotecas de conexão
               href: concepts-connection-libraries.md
               displayName: 'libraries, drivers'
@@ -252,6 +262,9 @@
             - name: Azure PowerShell
               href: howto-restore-server-powershell.md
               displayName: 'restore, georestore, geo-restore, outage'
+            - name: Restaurar um servidor descartado
+              href: howto-restore-dropped-server.md
+              displayName: 'restore server,dropped, recover'
         - name: Habilitar autenticação
           items:
             - name: Criar usuários
@@ -382,6 +395,8 @@
           items:
             - name: Portal do Azure
               href: howto-move-regions-portal.md
+        - name: Atualizações de versão principal
+          href: how-to-upgrade-using-dump-and-restore.md
 - name: Servidor flexível (versão prévia)
   expanded: true
   items:
@@ -405,12 +420,22 @@
           items:
             - name: Python
               href: flexible-server/connect-python.md
+            - name: Java
+              href: flexible-server/connect-java.md
+            - name: .NET
+              href: flexible-server/connect-csharp.md
     - name: Tutoriais
       items:
-        - name: Criar um aplicativo Web em uma rede virtual
-          href: flexible-server/tutorial-webapp-server-vnet.md
-        - name: Implantar um aplicativo do Django
-          href: flexible-server/tutorial-django-app-service-postgres.md
+        - name: Criar usando o AKS
+          items:
+            - name: Implantar aplicativo Python no Kubernetes
+              href: flexible-server/tutorial-django-aks-database.md
+        - name: Criar usando os Serviços de Aplicativos
+          items:
+            - name: Criar um aplicativo Web em uma rede virtual
+              href: flexible-server/tutorial-webapp-server-vnet.md
+            - name: Implantar um aplicativo Django no Serviço de Aplicativo
+              href: flexible-server/tutorial-django-app-service-postgres.md
     - name: Conceitos
       items:
         - name: Servidores
@@ -457,6 +482,8 @@
               href: flexible-server/how-to-manage-server-portal.md
             - name: CLI do Azure
               href: flexible-server/how-to-manage-server-cli.md
+            - name: Guia Conectar e consultar
+              href: flexible-server/how-to-connect-query-guide.md
         - name: Manutenção agendada
           items:
             - name: Portal do Azure
@@ -530,6 +557,12 @@
               displayName: 'portal, create hyperscale'
     - name: Tutoriais
       items:
+        - name: Criar um grupo de servidor
+          href: tutorial-hyperscale-server-group.md
+        - name: Modelar e carregar dados
+          items:
+            - name: Dados de fragmentos em nós de trabalho
+              href: tutorial-hyperscale-shard.md
         - name: Criar um banco de dados multilocatário
           href: tutorial-design-database-hyperscale-multi-tenant.md
           displayName: 'hyperscale, tutorial, multi-tenant'
@@ -578,6 +611,8 @@
           items:
             - name: Monitorar e ajustar
               href: concepts-hyperscale-monitoring.md
+            - name: Logs de auditoria
+              href: concepts-hyperscale-audit.md
         - name: Opções de configuração
           href: concepts-hyperscale-configuration-options.md
         - name: Pagar antecipadamente por capacidade reservada
@@ -594,8 +629,14 @@
           href: reference-hyperscale-metadata.md
     - name: Guias de instruções
       items:
-        - name: Escalar um grupo de servidores
-          href: howto-hyperscale-scaling.md
+        - name: Tamanho do grupo de servidores
+          items:
+            - name: Escolher tamanho inicial
+              href: howto-hyperscale-scale-initial.md
+            - name: Escalar grupo de servidores
+              href: howto-hyperscale-scale-grow.md
+            - name: Reequilibrar fragmentos
+              href: howto-hyperscale-scale-rebalance.md
         - name: Regras de firewall
           items:
             - name: Portal do Azure
@@ -605,6 +646,8 @@
           href: howto-hyperscale-create-users.md
         - name: Dados distribuídos
           items:
+            - name: Determinar o tamanho da tabela
+              href: howto-hyperscale-table-size.md
             - name: Distribuir e modificar tabelas
               href: howto-hyperscale-modify-distributed-tables.md
         - name: Alta disponibilidade
@@ -622,6 +665,8 @@
             - name: Solucionar erros de conexão
               href: howto-hyperscale-troubleshoot-common-connection-issues.md
               displayName: 'connection errors, hyperscale'
+            - name: Consultas de diagnóstico úteis
+              href: howto-hyperscale-useful-diagnostic-queries.md
 - name: Referência
   items:
     - name: CLI do Azure
@@ -630,6 +675,9 @@
       href: /rest/api/postgresql
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.dbforpostgresql/allversions
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Desenvolva suas habilidades com o Microsoft Learn

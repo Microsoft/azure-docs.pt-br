@@ -1,8 +1,8 @@
-- name: Documentação dos Serviços de Nuvem
+- name: Documentação dos Serviços de Nuvem (clássico)
   href: index.yml
 - name: Visão geral
   items:
-    - name: O que são os Serviços de Nuvem?
+    - name: O que são os Serviços de Nuvem (clássico)?
       href: cloud-services-choose-me.md
     - name: |-
         Arquivos de configuração e empacotamento do 
@@ -14,6 +14,12 @@
       href: cloud-services-dotnet-get-started.md
     - name: Exemplo de Python para o Serviço de Nuvem do Visual Studio
       href: cloud-services-python-ptvs.md
+- name: Conceitos
+  items:
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
 - name: Instruções
   items:
     - name: Plano

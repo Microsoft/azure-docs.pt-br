@@ -7,12 +7,12 @@ ms.date: 05/06/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 58bbe01c8de0bbe606f4fc428032cd213f05d386
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19320b8b497202c473f72f4751daf2110a347080
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88068072"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676743"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-azure-cli"></a>Configurar permissões de serviço do construtor de imagem do Azure usando CLI do Azure
 
@@ -22,7 +22,7 @@ O serviço do construtor de imagens do Azure requer a configuração de permiss�
 > O Construtor de Imagens do Azure está atualmente em versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="register-the-features"></a>Registrar os recursos
 
@@ -238,4 +238,4 @@ Para obter mais informações sobre como usar uma identidade gerenciada atribuí
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações, consulte [visão geral do construtor de imagens do Azure](image-builder-overview.md).
+Para obter mais informações, consulte [visão geral do construtor de imagens do Azure](../image-builder-overview.md).

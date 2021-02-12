@@ -9,17 +9,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 21c57257f9ce5a33585f151d38c16736f94a166c
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.custom: how-to, devx-track-python, deploy, responsible-ml
+ms.openlocfilehash: a2c8b765f109408b8cb08f78a4b3ad2283f35eb9
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998699"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223577"
 ---
 # <a name="how-to-deploy-an-encrypted-inferencing-web-service-preview"></a>Como implantar um serviço Web inferência criptografado (versão prévia)
 
-Saiba como implantar um modelo de classificação de imagem como um serviço Web de inferência criptografado nas [Instâncias de Contêiner do Azure](https://docs.microsoft.com/azure/container-instances/) (ACI). O serviço Web é uma imagem de contêiner do Docker que contém o modelo e a lógica de pontuação.
+Saiba como implantar um modelo de classificação de imagem como um serviço Web de inferência criptografado nas [Instâncias de Contêiner do Azure](../container-instances/index.yml) (ACI). O serviço Web é uma imagem de contêiner do Docker que contém o modelo e a lógica de pontuação.
 
 Nesta parte do guia, você usará o Serviço do Azure Machine Learning para:
 
@@ -30,7 +30,7 @@ Nesta parte do guia, você usará o Serviço do Azure Machine Learning para:
 > * Fazer previsões criptografadas
 > * Limpar os recursos
 
-ACIs são uma ótima solução para testar e compreender o fluxo de trabalho de implantação de modelo. Para implantações de produção escalonável, considere usar o Serviço de Kubernetes do Azure. Para obter mais informações, confira [como e em que local implantar](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
+ACIs são uma ótima solução para testar e compreender o fluxo de trabalho de implantação de modelo. Para implantações de produção escalonável, considere usar o Serviço de Kubernetes do Azure. Para obter mais informações, confira [como e em que local implantar](./how-to-deploy-and-where.md).
 
 O método de criptografia usado neste exemplo é a [criptografia homomórfica](https://github.com/Microsoft/SEAL#homomorphic-encryption). A criptografia homomórfica permite que as computações sejam feitas em dados criptografados sem necessidade de acesso a uma chave secreta (descriptografia). Os resultados dos cálculos são criptografados e podem ser revelados somente pelo proprietário da chave secreta. 
 

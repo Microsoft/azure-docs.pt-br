@@ -4,14 +4,14 @@ description: Saiba como usar portal do Azure ou CLI para criar, exibir e gerenci
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 01/11/2021
 ms.subservice: alerts
-ms.openlocfilehash: 8b1015573e4c01f01d82c7c152b66db80bef0aee
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 6919040308dcd3a80c3c0b05ec729744099b6d8f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342154"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944489"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Criar, exibir e gerenciar alertas de métrica usando o Azure Monitor
 
@@ -41,13 +41,13 @@ O procedimento a seguir descreve como criar uma regra de alerta de métrica no p
 7. Você verá um gráfico para a métrica das últimas seis horas. Use o menu suspenso **período do gráfico** para selecionar para ver o histórico mais longo da métrica.
 
 8. Se a métrica tiver dimensões, você verá uma tabela de dimensões apresentada. Selecione um ou mais valores por dimensão.
-    - Os valores de dimensão exibidos se baseiam nos dados de métrica dos últimos três dias.
-    - Se o valor de dimensão que você está procurando não for exibido, clique em "+" para adicionar um valor personalizado.
-    - Você também pode **selecionar \* *_ para qualquer uma das dimensões. _*Selecione \* *_ dimensionará dinamicamente a seleção para todos os valores atuais e futuros de uma dimensão.
+    - Os valores de dimensão exibidos são baseados nos dados de métrica do último dia.
+    - Se o valor de dimensão que você está procurando não for exibido, clique em "adicionar valor personalizado" para adicionar um valor de dimensão personalizado.
+    - Você também pode **selecionar todos os valores atuais e futuros** para qualquer uma das dimensões. Isso dimensionará dinamicamente a seleção para todos os valores atuais e futuros de uma dimensão.
 
     A regra de alerta de métrica avaliará a condição para todas as combinações de valores selecionados. [Saiba mais sobre como os alertas de métricas multidimensionais funcionam](alerts-metric-overview.md).
 
-9. Selecione o tipo _*Threshold**, o **operador**e o **tipo de agregação**. Isso determinará a lógica que será avaliada pela regra de alerta de métrica.
+9. Selecione o tipo de **limite** , o **operador** e o **tipo de agregação**. Isso determinará a lógica que será avaliada pela regra de alerta de métrica.
     - Se você estiver usando um limite **estático** , continue a definir um **valor de limite**. O gráfico de métrica pode ajudar a determinar o que pode ser um limite razoável.
     - Se você estiver usando um limite **dinâmico** , continue a definir a **sensibilidade do limite**. O gráfico de métricas exibirá os limites calculados com base nos dados recentes. [Saiba mais sobre as opções de sensibilidade e o tipo de condição de Limites Dinâmicos](alerts-dynamic-thresholds.md).
 
@@ -57,7 +57,7 @@ O procedimento a seguir descreve como criar uma regra de alerta de métrica no p
 
 12. Opcionalmente, adicione outro critério se quiser monitorar uma regra de alerta complexa. No momento, os usuários podem ter regras de alerta com critérios de Limites Dinâmicos como um único critério.
 
-13. Preencha os **detalhes do alerta** , como **nome da regra de alerta**, **Descrição**e **severidade**.
+13. Preencha os **detalhes do alerta** , como **nome da regra de alerta**, **Descrição** e **severidade**.
 
 14. Adicione um grupo de ações ao alerta selecionando um grupo de ações existente ou criar um novo.
 
@@ -74,7 +74,7 @@ O procedimento a seguir descreve como criar uma regra de alerta de métrica no p
 
 2. Clique em **Alertas** e **Gerenciar regras**
 
-3. Na folha **Gerenciar regras**, você pode exibir todas as regras de alertas configuradas em suas assinaturas. Você pode filtrar ainda mais as regras usando o  **grupo de recursos**, o **tipo de recurso**e o **recurso**. Se quiser ver somente os alertas de métrica, selecione Métricas como o **Tipo de sinal**.
+3. Na folha **Gerenciar regras**, você pode exibir todas as regras de alertas configuradas em suas assinaturas. Você pode filtrar ainda mais as regras usando o  **grupo de recursos**, o **tipo de recurso** e o **recurso**. Se quiser ver somente os alertas de métrica, selecione Métricas como o **Tipo de sinal**.
 
     > [!TIP]
     > Na folha **Gerenciar regras**, você pode selecionar várias regras de alerta e habilitar ou desabilitá-las. Isso poderá ser útil quando for necessário colocar determinados recursos de destino em manutenção.
@@ -91,7 +91,7 @@ O procedimento a seguir descreve como criar uma regra de alerta de métrica no p
 
 ## <a name="with-azure-cli"></a>Com a CLI do Azure
 
-As seções anteriores descreveram como criar, exibir e gerenciar regras de alerta de métrica usando portal do Azure. Esta seção descreve como fazer o mesmo usando a [CLI do Azure](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) de multiplataforma. O modo mais rápido de começar a usar a CLI do Azure é com o [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest). Para este artigo, usaremos Cloud Shell.
+As seções anteriores descreveram como criar, exibir e gerenciar regras de alerta de métrica usando portal do Azure. Esta seção descreve como fazer o mesmo usando a [CLI do Azure](/cli/azure/get-started-with-azure-cli) de multiplataforma. O modo mais rápido de começar a usar a CLI do Azure é com o [Azure Cloud Shell](../../cloud-shell/overview.md). Para este artigo, usaremos Cloud Shell.
 
 1. Vá para portal do Azure, clique em **Cloud Shell**.
 

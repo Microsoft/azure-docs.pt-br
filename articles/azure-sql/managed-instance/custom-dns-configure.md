@@ -12,14 +12,14 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 07/17/2019
-ms.openlocfilehash: 017698975706aa8501cd059351cf9a9d88594f77
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a54907dd3f7b3fbc06033624f14b12de14d9afb9
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779893"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831494"
 ---
-# <a name="configure-a-custom-dns-for-azure-sql-managed-instance"></a>Configurar um DNS personalizado para o Azure SQL Instância Gerenciada
+# <a name="configure-a-custom-dns-for-azure-sql-managed-instance"></a>Configurar um DNS personalizado para Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 O Azure SQL Instância Gerenciada deve ser implantado em uma [VNet (rede virtual)](../../virtual-network/virtual-networks-overview.md)do Azure. Há alguns cenários (por exemplo, db mail, servidores vinculados a outras instâncias do SQL Server em seu ambiente de nuvem ou híbrido) que exigem nomes de hosts privados para serem resolvidos na Instância Gerenciada de SQL. Nesse caso, você precisa configurar um DNS personalizado dentro do Azure. 
@@ -30,7 +30,7 @@ Como o SQL Instância Gerenciada usa o mesmo DNS para seus trabalhos internos, c
 > Sempre use um FQDN (nome de domínio totalmente qualificado) para o servidor de email, para a instância do SQL Server e para outros serviços, mesmo que eles estejam dentro de sua zona DNS privada. Por exemplo, use `smtp.contoso.com` para seu servidor de email porque o `smtp` não resolverá corretamente. Criar um servidor vinculado ou replicação que referencie SQL Server VMs dentro da mesma rede virtual também exige um FQDN e um sufixo DNS padrão. Por exemplo, `SQLVM.internal.cloudapp.net`. Para obter mais informações, consulte [resolução de nomes que usa seu próprio servidor DNS](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
 > [!IMPORTANT]
-> A atualização de servidores DNS da rede virtual não afetará o SQL Instância Gerenciada imediatamente. A configuração de DNS do SQL Instância Gerenciada é atualizada após a concessão do DHCP expirar ou após a atualização da plataforma, o que ocorrer primeiro. **Os usuários são aconselhados a definir sua configuração de DNS de rede virtual antes de criar sua primeira instância gerenciada.**
+> A atualização de servidores DNS da rede virtual não afetará o SQL Instância Gerenciada imediatamente. Consulte [como sincronizar a configuração de servidores DNS de rede virtual no cluster virtual do SQL instância gerenciada](synchronize-vnet-dns-servers-setting-on-virtual-cluster.md) para obter mais detalhes.
 
 ## <a name="next-steps"></a>Próximas etapas
 

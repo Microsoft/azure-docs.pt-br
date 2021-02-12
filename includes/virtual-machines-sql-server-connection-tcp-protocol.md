@@ -4,12 +4,12 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
-ms.openlocfilehash: 8b919608dfc562d8db77619d5215a6828a53a4aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7af6962c3343cd9d3e35e96d88650aa6a42c6b3
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67171864"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95564184"
 ---
 1. Ainda conectado à máquina virtual com a área de trabalho remota, procure **Configuration Manager**:
 
@@ -27,4 +27,4 @@ ms.locfileid: "67171864"
 
 1. Feche o SQL Server Configuration Manager.
 
-Para obter mais informações sobre como habilitar protocolos para o Mecanismo de Banco de Dados do SQL Server, consulte [Habilitar ou desabilitar um protocolo de rede de servidor (a página pode estar em inglês)](https://msdn.microsoft.com/library/ms191294.aspx).
+Para obter mais informações sobre como habilitar protocolos para o Mecanismo de Banco de Dados do SQL Server, consulte [Habilitar ou desabilitar um protocolo de rede de servidor (a página pode estar em inglês)](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol).

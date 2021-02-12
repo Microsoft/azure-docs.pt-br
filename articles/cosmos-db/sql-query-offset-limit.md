@@ -3,15 +3,16 @@ title: Cláusula de limite de deslocamento no Azure Cosmos DB
 description: Saiba como usar a cláusula de limite de deslocamento para ignorar e pegar alguns valores ao consultar em Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: tisande
-ms.openlocfilehash: 7bb0510befecf384d7d1341fe1b07b78620dccc9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 459bd8511577067766cf488f53df57c1dc33fad1
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077091"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338277"
 ---
 # <a name="offset-limit-clause-in-azure-cosmos-db"></a>Cláusula de limite de deslocamento no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

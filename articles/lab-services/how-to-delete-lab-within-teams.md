@@ -3,12 +3,12 @@ title: Excluir um laboratório de Azure Lab Services das equipes
 description: Saiba como excluir um laboratório de Azure Lab Services das equipes.
 ms.topic: article
 ms.date: 10/12/2020
-ms.openlocfilehash: 1d2fe73d33a88e595f42b47c1e7122dcbdfe1063
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 8d1e20f8f676eb9863187b550a3c0400871d670c
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094240"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433947"
 ---
 # <a name="delete-labs-within-teams"></a>Excluir laboratórios dentro de equipes
 
@@ -21,7 +21,7 @@ Este artigo mostra como excluir um laboratório do aplicativo **Azure Lab Servic
 
 ## <a name="delete-labs"></a>Excluir laboratórios
 
-Um laboratório criado dentro das equipes pode ser excluído no [site do Lab Services](https://labs.azure.com) , excluindo o laboratório diretamente, conforme descrito em [gerenciar laboratórios de sala de aula no Azure Lab Services](how-to-manage-classroom-labs.md). 
+Um laboratório criado em equipes pode ser excluído no [site do Lab Services](https://labs.azure.com) , excluindo o laboratório diretamente, conforme descrito em [gerenciar laboratórios no Azure Lab Services](how-to-manage-classroom-labs.md). 
 
 A exclusão de laboratório também é disparada quando a equipe é excluída. Se a equipe na qual o laboratório foi criado for excluída, o laboratório será excluído automaticamente 24 horas depois que a sincronização da lista de usuários automática for disparada. 
 

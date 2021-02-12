@@ -3,16 +3,17 @@ title: Implementar o Oracle Data Guard em uma máquina virtual Linux do Azure | 
 description: Execute rapidamente o Oracle Data Guard no ambiente do Azure.
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: b56fc172aa9fa4e88f03f488bdd1ac567708fe91
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: d9ff355ac81d3375a7c41b18df687f6068ee7069
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996709"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98926964"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementar o Oracle Data Guard em uma máquina virtual Linux do Azure 
 
@@ -266,13 +267,13 @@ SQL> ALTER DATABASE FORCE LOGGING;
 SQL> ALTER SYSTEM SWITCH LOGFILE;
 ```
 
-Criar logs de restauração em espera:
+Crie logs de refazer em espera, definindo o mesmo tamanho e quantidade que os logs de restauração do banco de dados primário:
 
 ```bash
-SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo01.log') SIZE 50M;
-SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo02.log') SIZE 50M;
-SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo03.log') SIZE 50M;
-SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo04.log') SIZE 50M;
+SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo01.log') SIZE 200M;
+SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo02.log') SIZE 200M;
+SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo03.log') SIZE 200M;
+SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo04.log') SIZE 200M;
 ```
 
 Ative o flashback (o que torna a recuperação muito mais fácil) e defina o \_ \_ Gerenciamento de arquivos em espera como automático. saia do SQL * Plus depois disso.
@@ -696,4 +697,4 @@ az group delete --name myResourceGroup
 
 [Tutorial: criar máquinas virtuais altamente disponíveis](../../linux/create-cli-complete.md)
 
-[Explorar exemplos da CLI do Azure de implantação de VM](../../linux/cli-samples.md)
+[Explorar exemplos da CLI do Azure de implantação de VM](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

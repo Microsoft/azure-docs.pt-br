@@ -1,16 +1,16 @@
 ---
-title: Visão geral das especificações do modelo
+title: Criar e implantar especificações de modelo
 description: Descreve como criar especificações de modelo e compartilhá-las com outros usuários em sua organização.
 ms.topic: conceptual
-ms.date: 10/02/2020
+ms.date: 01/14/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: b0dfc41bddccc6b5c5c924168044cffc0aa5e2b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 762c483883d391c436065b13b54f127f1618d7f9
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728464"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734908"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Especificações do modelo de Azure Resource Manager (versão prévia)
 
@@ -21,7 +21,7 @@ Uma especificação de modelo é um tipo de recurso para armazenar um modelo de 
 Para implantar a especificação do modelo, você usa ferramentas padrão do Azure como o PowerShell, CLI do Azure, portal do Azure, REST e outros SDKs e clientes com suporte. Você usa os mesmos comandos que faria para o modelo.
 
 > [!NOTE]
-> As especificações de modelo estão atualmente em versão prévia. Para usá-las, você deve [inscrever-se na lista de espera](https://aka.ms/templateSpecOnboarding).
+> As especificações de modelo estão atualmente em versão prévia. Para usá-lo com o Azure PowerShell, você precisa instalar a [versão 5.0.0 ou posterior](/powershell/azure/install-az-ps). Para usá-lo com a CLI do Azure, use a [versão 2.14.2 ou posterior](/cli/azure/install-azure-cli).
 
 ## <a name="why-use-template-specs"></a>Por que usar as especificações de modelo?
 
@@ -73,7 +73,7 @@ Crie uma especificação de modelo usando:
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-New-AzTemplateSpec -Name storageSpec -Version 1.0 -ResourceGroupName templateSpecsRg -Location westus2 -TemplateFile ./mainTemplate.json
+New-AzTemplateSpec -Name storageSpec -Version 1.0a -ResourceGroupName templateSpecsRg -Location westus2 -TemplateFile ./mainTemplate.json
 ```
 
 # <a name="cli"></a>[CLI](#tab/azure-cli)
@@ -81,7 +81,7 @@ New-AzTemplateSpec -Name storageSpec -Version 1.0 -ResourceGroupName templateSpe
 ```azurecli
 az ts create \
   --name storageSpec \
-  --version "1.0" \
+  --version "1.0a" \
   --resource-group templateSpecRG \
   --location "westus2" \
   --template-file "./mainTemplate.json"
@@ -119,7 +119,7 @@ Get-AzTemplateSpec -ResourceGroupName templateSpecsRG -Name storageSpec
 az ts show \
     --name storageSpec \
     --resource-group templateSpecRG \
-    --version "1.0"
+    --version "1.0a"
 ```
 
 ---
@@ -134,14 +134,14 @@ Em vez de passar um caminho ou URI para um modelo, você implanta uma especifica
 
 **/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Resources/templateSpecs/{template-spec-name}/versions/{template-spec-version}**
 
-Observe que a ID do recurso inclui um número de versão para a especificação do modelo.
+Observe que a ID do recurso inclui um nome de versão para a especificação do modelo.
 
 Por exemplo, você implanta uma especificação de modelo com o comando a seguir.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0"
+$id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0a"
 
 New-AzResourceGroupDeployment `
   -TemplateSpecId $id `
@@ -151,7 +151,7 @@ New-AzResourceGroupDeployment `
 # <a name="cli"></a>[CLI](#tab/azure-cli)
 
 ```azurecli
-id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0"
+id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0a"
 
 az deployment group create \
   --resource-group demoRG \
@@ -160,12 +160,12 @@ az deployment group create \
 
 ---
 
-Na prática, você normalmente executará `Get-AzTemplateSpec` para obter a ID da especificação do modelo que deseja implantar.
+Na prática, você normalmente executará `Get-AzTemplateSpec` ou `az ts show` obterá a ID da especificação do modelo que deseja implantar.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -Version 1.0).Versions.Id
+$id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -Version 1.0a).Versions.Id
 
 New-AzResourceGroupDeployment `
   -ResourceGroupName demoRG `
@@ -175,7 +175,7 @@ New-AzResourceGroupDeployment `
 # <a name="cli"></a>[CLI](#tab/azure-cli)
 
 ```azurecli
-id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
+id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0a" --query "id")
 
 az deployment group create \
   --resource-group demoRG \
@@ -309,7 +309,7 @@ O exemplo a seguir é semelhante ao exemplo anterior, mas você usa a `id` propr
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'networkingSpec', '1.0')]"
+          "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'networkingSpec', '1.0a')]"
         }
       }
     },
@@ -321,7 +321,7 @@ O exemplo a seguir é semelhante ao exemplo anterior, mas você usa a `id` propr
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'storageSpec', '1.0')]"
+          "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'storageSpec', '1.0a')]"
         }
       }
     }
@@ -334,7 +334,7 @@ Para obter mais informações sobre como vincular especificações de modelo, co
 
 ## <a name="versioning"></a>Controle de versão
 
-Ao criar uma especificação de modelo, você fornece um número de versão para ela. À medida que você itera o código do modelo, pode atualizar uma versão existente (para hotfixes) ou publicar uma nova versão. A versão é uma cadeia de caracteres de texto. Você pode optar por seguir qualquer sistema de controle de versão, incluindo controle de versão semântico. Os usuários da especificação do modelo podem fornecer o número de versão que desejam usar ao implantá-lo.
+Ao criar uma especificação de modelo, você fornece um nome de versão para ela. À medida que você itera o código do modelo, pode atualizar uma versão existente (para hotfixes) ou publicar uma nova versão. A versão é uma cadeia de caracteres de texto. Você pode optar por seguir qualquer sistema de controle de versão, incluindo controle de versão semântico. Os usuários da especificação do modelo podem fornecer o nome da versão que desejam usar ao implantá-lo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

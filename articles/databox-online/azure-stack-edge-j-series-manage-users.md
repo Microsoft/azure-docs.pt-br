@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 66967c1fa8f6ca42459559caf46bffb0e5afe925
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0bef344414a9ba27d5808fcd17ed664b7f51bddc
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743583"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915925"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-stack-edge-pro"></a>Use o portal do Azure para gerenciar usuários em seu Azure Stack Edge pro
 
@@ -30,19 +30,19 @@ Neste artigo, você aprenderá como:
 
 ## <a name="about-users"></a>Sobre os usuários
 
-Os usuários podem ter privilégio completo ou somente leitura. Como o nome indica, usuários somente leitura podem apenas exibir os dados do compartilhamento. Usuários com privilégio completo podem ler dados de compartilhamento, gravar nesses compartilhamentos e modificar ou excluir os dados de compartilhamento.
+Os usuários podem ter privilégio completo ou somente leitura. Os usuários somente leitura podem exibir apenas os dados de compartilhamento. Os usuários com privilégios totais podem ler dados de compartilhamento, gravar nesses compartilhamentos e modificar ou excluir os dados de compartilhamento.
 
  - **Usuário com privilégios completo** – um usuário local com acesso completo.
  - **Usuário somente leitura** – um usuário local com acesso somente leitura. Esses usuários estão associados a compartilhamentos que permitem operações somente leitura.
 
-As permissões do usuário são definidas quando o usuário é criado durante a criação do compartilhamento. Após as permissões associadas a um usuário serem definidas, elas podem ser modificadas usando o Explorador de Arquivos.
+As permissões do usuário são definidas quando o usuário é criado durante a criação do compartilhamento. Eles podem ser modificados usando o explorador de arquivos.
 
 
 ## <a name="add-a-user"></a>Adicionar um usuário
 
 Para adicionar um usuário, siga estas etapas no portal do Azure.
 
-1. Na portal do Azure, vá para o recurso de borda do Azure Stack e, em seguida, vá para **visão geral > usuários**. Selecione **+ Adicionar usuário** na barra de comandos.
+1. Na portal do Azure, vá para o recurso de borda do Azure Stack e vá para **usuários**. Selecione **+ Adicionar usuário** na barra de comandos.
 
     ![Selecionar Adicionar usuário](media/azure-stack-edge-j-series-manage-users/add-user-1.png)
 
@@ -59,7 +59,7 @@ Para adicionar um usuário, siga estas etapas no portal do Azure.
 ## <a name="modify-user"></a>Modificar usuário
 
 Você pode alterar a senha associada a um usuário após ele ser criado. Selecione na lista de usuários. Insira e confirme a nova senha. Salve as alterações.
- 
+
 ![Modificar usuário](media/azure-stack-edge-j-series-manage-users/modify-user-1.png)
 
 
@@ -68,7 +68,7 @@ Você pode alterar a senha associada a um usuário após ele ser criado. Selecio
 Para excluir um usuário, siga estas etapas no portal do Azure.
 
 
-1. Na portal do Azure, vá para o recurso de borda do Azure Stack e, em seguida, vá para **visão geral > usuários**.
+1. Na portal do Azure, vá para o recurso de borda do Azure Stack e vá para **usuários**.
 
     ![Selecionar o usuário a ser excluído](media/azure-stack-edge-j-series-manage-users/delete-user-1.png)
 

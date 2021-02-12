@@ -5,15 +5,21 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: srrengar
-ms.custom: mvc, devcenter
-ms.openlocfilehash: e940f0cf0d1547b317cd9e7bd15ac5486d5e70b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devcenter, devx-track-azurecli
+ms.openlocfilehash: 02de8ea5dd5c53192d2b8c7beba8bc36143beac6
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86248400"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626987"
 ---
 # <a name="monitoring-and-diagnostics"></a>Monitoramento e diagnóstico
+
+> [!IMPORTANT]
+> A visualização da malha de Service Fabric do Azure foi desativada. Novas implantações não serão mais permitidas por meio da API de malha Service Fabric. O suporte para implantações existentes continuará até 28 de abril de 2021.
+> 
+> Para obter detalhes, consulte desativação da [Visualização da malha de Service Fabric do Azure](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 A Malha do Microsoft Azure Service Fabric é um serviço totalmente gerenciado que permite aos desenvolvedores implantar aplicativos de microsserviços sem gerenciar máquinas virtuais, armazenamento ou rede. Monitoramento e diagnóstico para a malha de Service Fabric é categorizado em três principais tipos de dados de diagnóstico:
 
 - Logs de aplicativos - estes são definidos como os logs de aplicativos em contêineres, com base em como você tiver instrumentado seu aplicativo (por exemplo, logs de docker)
@@ -26,7 +32,7 @@ Este artigo discute as opções de monitoramento e diagnóstico para a versão d
 
 Você pode exibir os logs de docker de seus contêineres implantados, em uma base por contêiner. No modelo de aplicativo de Malha do Service Fabric, cada contêiner é um pacote de código em seu aplicativo. Para ver os logs associados com um pacote de códigos, use o seguinte comando:
 
-```cli
+```azurecli
 az mesh code-package-log get --resource-group <nameOfRG> --app-name <nameOfApp> --service-name <nameOfService> --replica-name <nameOfReplica> --code-package-name <nameOfCodePackage>
 ```
 
@@ -35,7 +41,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --app-name <nameOfApp> 
 
 Aqui é com o que isso se parece para ver os logs do contêiner do aplicativo de votação VotingWeb.Code:
 
-```cli
+```azurecli
 az mesh code-package-log get --resource-group <nameOfRG> --application-name SbzVoting --service-name VotingWeb --replica-name 0 --code-package-name VotingWeb.Code
 ```
 
@@ -58,7 +64,7 @@ O ambiente de malha expõe algumas métricas que indicam como os contêineres es
 | RestartCount | Número de reinicializações de contêiner | N/D |
 
 > [!NOTE]
-> Os valores de perstatus e ServiceReplicaStatus são os mesmos que o [HealthState](/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet) em Service Fabric. 
+> Os valores de perstatus e ServiceReplicaStatus são os mesmos que o [HealthState](/dotnet/api/system.fabric.health.healthstate) em Service Fabric.
 
 Cada métrica está disponível em dimensões diferentes para que você possa ver agregações em diferentes níveis. A lista atual de dimensões é a seguinte:
 
@@ -74,7 +80,7 @@ Cada dimensão corresponde a diferentes componentes do [modelo de aplicativo Ser
 
 ### <a name="azure-monitor-cli"></a>CLI do Azure Monitor
 
-Uma lista completa de comandos está disponível nos [documentos da CLI do Azure monitor](/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list) , mas incluímos alguns exemplos úteis abaixo 
+Uma lista completa de comandos está disponível nos [documentos da CLI do Azure monitor](/cli/azure/monitor/metrics#az-monitor-metrics-list) , mas incluímos alguns exemplos úteis abaixo 
 
 Em cada exemplo, a ID de recurso segue esse padrão
 
@@ -83,21 +89,21 @@ Em cada exemplo, a ID de recurso segue esse padrão
 
 * Utilização da CPU dos contêineres em um aplicativo
 
-```cli
+```azurecli
     az monitor metrics list --resource <resourceId> --metric "CpuUtilization"
 ```
 * Utilização de memória para cada réplica de serviço
-```cli
+```azurecli
     az monitor metrics list --resource <resourceId> --metric "MemoryUtilization" --dimension "ServiceReplicaName"
 ``` 
 
 * Reinicializações para cada contêiner em uma janela de 1 hora 
-```cli
+```azurecli
     az monitor metrics list --resource <resourceId> --metric "RestartCount" --start-time 2019-02-01T00:00:00Z --end-time 2019-02-01T01:00:00Z
 ``` 
 
 * Utilização média da CPU entre serviços denominados "VotingWeb" em uma janela de 1 hora
-```cli
+```azurecli
     az monitor metrics list --resource <resourceId> --metric "CpuUtilization" --start-time 2019-02-01T00:00:00Z --end-time 2019-02-01T01:00:00Z --aggregation "Average" --filter "ServiceName eq 'VotingWeb'"
 ``` 
 
@@ -118,4 +124,4 @@ In addition to the metrics explorer, we also have a dashboard available out of t
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre Malha do Service Fabric, leia [visão geral sobre Malha do Service Fabric](service-fabric-mesh-overview.md).
-* Para saber mais sobre os comandos de métricas Azure Monitor, confira os [documentos Azure monitor CLI](/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list).
+* Para saber mais sobre os comandos de métricas Azure Monitor, confira os [documentos Azure monitor CLI](/cli/azure/monitor/metrics#az-monitor-metrics-list).

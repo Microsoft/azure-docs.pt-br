@@ -14,20 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: d6b59de048cdf00d352c4f488ecb51bfdf83640f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05848eb2761284669e659b3875e96acdfa71f90f
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89178919"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632175"
 ---
 # <a name="connect-office-365-logs-to-azure-sentinel"></a>Conectar logs do Office 365 ao Azure Sentinel
 
-O conector de log do [Office 365](https://docs.microsoft.com/office/) traz para o Azure Sentinel informações sobre atividades de usuário e administrador em andamento no **Exchange** e no **SharePoint** (incluindo o **onedrive**), e agora também em **equipes** . Essas informações incluem detalhes de ações como downloads de arquivos, solicitações de acesso enviadas, alterações em eventos de grupo, operações de caixa de correio, eventos de equipes (como eventos de chat, equipe, membro e canal), bem como os detalhes do usuário que realizou as ações. Conectar logs do Office 365 ao Azure Sentinel permite exibir e analisar esses dados em suas pastas de trabalho, consultá-los para criar alertas personalizados e incorporá-los para melhorar o processo de investigação, fornecendo mais informações sobre a segurança do Office 365.
-
-> [!IMPORTANT]
-> A extensão do conector de log do Office 365 **para logs do Microsoft Teams** está atualmente em visualização pública.
-> Esse recurso é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+O conector de log do [Office 365](/office/) traz para o Azure Sentinel informações sobre atividades de usuário e administrador em andamento no **Exchange** e no **SharePoint** (incluindo o **onedrive**), e agora também em **equipes** . Essas informações incluem detalhes de ações como downloads de arquivos, solicitações de acesso enviadas, alterações em eventos de grupo, operações de caixa de correio, eventos de equipes (como eventos de chat, equipe, membro e canal), bem como os detalhes do usuário que realizou as ações. Conectar logs do Office 365 ao Azure Sentinel permite exibir e analisar esses dados em suas pastas de trabalho, consultá-los para criar alertas personalizados e incorporá-los para melhorar o processo de investigação, fornecendo mais informações sobre a segurança do Office 365.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,9 +34,9 @@ O conector de log do [Office 365](https://docs.microsoft.com/office/) traz para 
 - Sua implantação do Office 365 deve estar no mesmo locatário que o seu espaço de trabalho do Azure Sentinel.
 
 > [!IMPORTANT]
-> - Para que o conector possa acessar dados por meio da API de atividade de gerenciamento do Office 365, você deve ter o **log de auditoria unificado** habilitado na sua implantação do Office 365. Dependendo do tipo de licença do Office 365/Microsoft 365 que você tem, ela pode ou não ser habilitada por padrão. Consulte o [centro de conformidade e segurança do Office 365](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center) para verificar o status do log de auditoria unificado de acordo com seu tipo de licença.
-> - Você também pode habilitar, desabilitar e verificar manualmente o status atual do log de auditoria unificada do Office 365. Para obter instruções, consulte [Ativar ou desativar a pesquisa de logs de auditoria do Office 365](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off).
-> - Para obter mais informações, consulte a [referência da API de atividade de gerenciamento do Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-activity-api-reference).
+> - Para que o conector possa acessar dados por meio da API de atividade de gerenciamento do Office 365, você deve ter o **log de auditoria unificado** habilitado na sua implantação do Office 365. Dependendo do tipo de licença do Office 365/Microsoft 365 que você tem, ela pode ou não ser habilitada por padrão. Consulte o [centro de conformidade e segurança do Office 365](/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center) para verificar o status do log de auditoria unificado de acordo com seu tipo de licença.
+> - Você também pode habilitar, desabilitar e verificar manualmente o status atual do log de auditoria unificada do Office 365. Para obter instruções, consulte [Ativar ou desativar a pesquisa de logs de auditoria do Office 365](/office365/securitycompliance/turn-audit-log-search-on-or-off).
+> - Para obter mais informações, consulte a [referência da API de atividade de gerenciamento do Office 365](/office/office-365-management-api/office-365-management-activity-api-reference).
 
 
    > [!NOTE]
@@ -52,7 +48,7 @@ O conector de log do [Office 365](https://docs.microsoft.com/office/) traz para 
 
 1. No menu de navegação do Azure Sentinel, selecione **conectores de dados**.
 
-1. Na Galeria de **conectores de dados** , selecione **Office 365**e, em seguida, selecione a **página conector aberto** no painel de visualização.
+1. Na Galeria de **conectores de dados** , selecione **Office 365** e, em seguida, selecione a **página conector aberto** no painel de visualização.
 
 1. Na seção rotulada **configuração**, marque as caixas de seleção dos logs de atividade do Office 365 que você deseja conectar ao Azure Sentinel e clique em **aplicar alterações**. 
 
@@ -70,4 +66,3 @@ O conector de log do [Office 365](https://docs.microsoft.com/office/) traz para 
 Neste documento, você aprendeu a conectar o Office 365 ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade de seus dados e ameaças em potencial](quickstart-get-visibility.md).
 - Comece a detectar ameaças com o Azure Sentinel, usando regras [internas](tutorial-detect-threats-built-in.md) ou [personalizadas](tutorial-detect-threats-custom.md) .
-

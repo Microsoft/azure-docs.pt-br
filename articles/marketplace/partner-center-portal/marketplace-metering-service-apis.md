@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: e29aeb7570ad6daba9d6fc652291471fa246bf0a
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: b75964f8cfc41efc35858284dbffded3aa406eb6
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674635"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436055"
 ---
 # <a name="marketplace-metered-billing-apis"></a>APIs de cobrança limitada do Marketplace
 
@@ -20,7 +20,7 @@ As APIs de cobrança limitada devem ser usadas quando o Publicador cria dimensõ
 
 Para obter mais informações sobre como criar dimensões de medição personalizadas para SaaS, consulte [cobrança limitada de SaaS](saas-metered-billing.md).
 
-Para obter mais informações sobre como criar dimensões de medição personalizadas para uma oferta de Aplicativo Azure com um plano de aplicativo gerenciado, consulte a [seção configuração técnica de criar uma nova oferta de aplicativos do Azure](create-new-azure-apps-offer.md#technical-configuration)).
+Para obter mais informações sobre como criar dimensões de medição personalizadas para uma oferta de Aplicativo Azure com um plano de aplicativo gerenciado, consulte [configurar os detalhes da configuração da oferta de aplicativo do Azure](../create-new-azure-apps-offer.md#configure-your-azure-application-offer-setup-details).
 
 ## <a name="enforcing-tls-12-note"></a>Impondo a nota TLS 1,2
 
@@ -34,7 +34,7 @@ Somente um evento de uso pode ser emitido para cada hora de um dia do calendári
 
 Somente um evento de uso pode ser emitido para cada hora de um dia de calendário por recurso. Se mais de uma unidade for consumida em uma hora, o acumulará todas as unidades consumidas na hora e a emitirá em um único evento. Os eventos de uso só podem ser emitidos para as últimas 24 horas. Se você emitir um evento de uso a qualquer momento entre 8:00 e 8:59:59 (e ele for aceito) e enviar um evento adicional para o mesmo dia entre 8:00 e 8:59:59, ele será rejeitado como duplicado.
 
-**POST** : `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
+**POST**: `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
 
 *Parâmetros de consulta:*
 

@@ -1,15 +1,18 @@
 ---
 title: Descobrir servidores físicos com a Avaliação de Servidor das Migrações para Azure
 description: Saiba como descobrir servidores físicos locais com a Avaliação de Servidor das Migrações para Azure.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: e7cbd7939248686a251fdf56bf1a5f1acc952a3a
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 548cee262d874f5bc0f6024a857c2bb8a5466106
+ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314078"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541335"
 ---
 # <a name="tutorial-discover-physical-servers-with-server-assessment"></a>Tutorial: descobrir servidores físicos com a Avaliação de Servidor
 
@@ -37,7 +40,7 @@ Antes de iniciar este tutorial, verifique se estes pré-requisitos estão em vig
 
 **Requisito** | **Detalhes**
 --- | ---
-**Dispositivo** | Você precisa de um computador no qual o dispositivo de Migrações para Azure será executado. O computador deve ter:<br/><br/> – Windows Server 2016 instalado. _(Atualmente, a implantação do dispositivo tem suporte apenas no Windows Server 2016.)_<br/><br/> – 16 GB de RAM, 8 vCPUs e cerca de 80 GB de armazenamento em disco<br/><br/> – Um endereço IP estático ou dinâmico com acesso à Internet, seja diretamente ou por meio de um proxy.
+**Dispositivo** | Você precisa de um computador no qual o dispositivo de Migrações para Azure será executado. O computador deve ter:<br/><br/> – Windows Server 2016 instalado.<br/> _(Atualmente, a implantação do dispositivo tem suporte apenas no Windows Server 2016.)_<br/><br/> – 16 GB de RAM, 8 vCPUs e cerca de 80 GB de armazenamento em disco<br/><br/> – Um endereço IP estático ou dinâmico com acesso à Internet, seja diretamente ou por meio de um proxy.
 **Servidores Windows** | Permite conexões de entrada na porta WinRM 5985 (HTTP) para que o dispositivo possa extrair metadados de configuração e desempenho.
 **Servidores Linux** | Permite conexões de entrada na porta 22 (TCP).
 
@@ -45,7 +48,7 @@ Antes de iniciar este tutorial, verifique se estes pré-requisitos estão em vig
 
 Para criar um projeto das Migrações para Azure e registrar o dispositivo de Migrações para Azure, você precisa de uma conta com:
 - Permissões de Colaborador ou Proprietário em uma assinatura do Azure.
-- Permissões para registrar aplicativos do Azure Active Directory.
+- Permissões para registrar aplicativos do AAD (Azure Active Directory).
 
 Se você acaba de criar uma conta gratuita do Azure, você é o proprietário da assinatura. Se você não for o proprietário da assinatura, trabalhe com o proprietário para atribuir as permissões da seguinte maneira:
 
@@ -64,22 +67,27 @@ Se você acaba de criar uma conta gratuita do Azure, você é o proprietário da
 
     ![Abre a página Adicionar atribuição de função para atribuir uma função à conta](./media/tutorial-discover-physical/assign-role.png)
 
-7. No portal, pesquise por usuários e, em **Serviços**, selecione **Usuários**.
-8. Em **Configurações de usuário**, verifique se os usuários do Azure AD podem registrar aplicativos (definido como **Sim** por padrão).
+1. Para registrar o dispositivo, sua conta do Azure precisa ter **permissões para registrar aplicativos do AAD.**
+1. No portal do Azure, acesse **Azure Active Directory** > **Usuários** > **Configurações de Usuário**.
+1. Em **Configurações de usuário**, verifique se os usuários do Azure AD podem registrar aplicativos (definido como **Sim** por padrão).
 
     ![Verificar nas Configurações de Usuário se os usuários podem registrar aplicativos do Active Directory](./media/tutorial-discover-physical/register-apps.png)
 
-9. Como alternativa, o locatário/administrador global pode atribuir a função de **Desenvolvedor de Aplicativos** a uma conta para permitir o registro de Aplicativos do AAD. [Saiba mais](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+9. Caso as configurações de 'Registros de aplicativo' estejam definidas como 'Não', solicite ao administrador global/de locatários a atribuição da permissão necessária. Como alternativa, o administrador global/de locatários pode atribuir a função **Desenvolvedor de aplicativos** a uma conta para permitir o registro do Aplicativo do AAD. [Saiba mais](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="prepare-physical-servers"></a>Preparar servidores físicos
 
 Configure uma conta que o dispositivo possa usar para acessar os servidores físicos.
 
-- Em servidores Windows, configure uma conta de usuário local em todos os servidores Windows que você deseja incluir na descoberta. Adicione a conta de usuário aos seguintes grupos: – Usuários de gerenciamento remoto – Usuários do Monitor de Desempenho – Usuários de Log de Desempenho.
-- Para os servidores Linux, você precisa de uma conta raiz nos servidores Linux que deseja descobrir. Como alternativa, defina o acesso da seguinte maneira:
-    - setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk
-    - setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk (se /usr/sbin/fdisk não estiver presente)<br/> - setcap "cap_dac_override, cap_dac_read_search, cap_fowner,cap_fsetid, cap_setuid, cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin, cap_sys_resource, cap_audit_control, cap_setfcap=+eip" /sbin/lvm
-    - setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode chmod a+r /sys/class/dmi/id/product_uuid
+- Para **servidores Windows**, use uma conta de domínio para os computadores conectados ao domínio e uma conta local para os computadores que não estão conectados ao domínio. A conta de usuário deve ser adicionada a estes grupos: Usuários de Gerenciamento Remoto, Usuários do Monitor de Desempenho e Usuários do Log de Desempenho.
+- Para **servidores Linux**, você precisará ter uma conta raiz nos servidores Linux que deseja descobrir. Como alternativa, é possível definir uma conta não raiz com as funcionalidades necessárias usando os seguintes comandos:
+
+**Comando** | **Finalidade**
+--- | --- |
+setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br></br> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk _(se /usr/sbin/fdisk não estiver presente)_ | Para coletar dados de configuração de disco
+setcap "cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_setuid,<br>cap_setpcap,cap_net_bind_service,cap_net_admin,cap_sys_chroot,cap_sys_admin,<br>cap_sys_resource,cap_audit_control,cap_setfcap=+eip" /sbin/lvm | Para coletar dados de desempenho do disco
+setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode | Para coletar o número de série do BIOS
+chmod a+r /sys/class/dmi/id/product_uuid | Para coletar o GUID do BIOS
 
 
 ## <a name="set-up-a-project"></a>Configurar um projeto
@@ -95,23 +103,25 @@ Configure um novo projeto das Migrações para Azure.
    ![Caixas para nome e região do projeto](./media/tutorial-discover-physical/new-project.png)
 
 7. Selecione **Criar**.
-8. Aguarde alguns minutos até que o projeto das Migrações para Azure seja implantado.
-
-A ferramenta **Migrações para Azure: Avaliação de Servidor** é adicionada por padrão ao novo projeto.
+8. Aguarde alguns minutos até que o projeto das Migrações para Azure seja implantado. A ferramenta **Migrações para Azure: Avaliação de Servidor** é adicionada por padrão ao novo projeto.
 
 ![Página mostrando a ferramenta de Avaliação de Servidor adicionada por padrão](./media/tutorial-discover-physical/added-tool.png)
 
+> [!NOTE]
+> Se você já tiver criado um projeto, use o mesmo projeto para registrar dispositivos adicionais a fim de descobrir e avaliar um número maior de servidores.[Saiba mais](create-manage-projects.md#find-a-project)
 
 ## <a name="set-up-the-appliance"></a>Configurar o dispositivo
 
-Para configurar o dispositivo:
-- Forneça um nome de dispositivo e gere uma chave de projeto das Migrações para Azure no portal.
-- Baixe um arquivo compactado com o script do instalador de Migrações para Azure do portal do Azure.
-- Extraia o conteúdo do arquivo compactado. Inicie o console do PowerShell com privilégios administrativos.
-- Execute o script do PowerShell para iniciar o aplicativo Web do dispositivo.
-- Configure o dispositivo pela primeira vez e registre-o no projeto das Migrações para Azure usando a chave de projeto das Migrações para Azure.
+O dispositivo de Migrações para Azure executa a descoberta de servidores e envia os metadados de configuração e desempenho dos servidores às Migrações para Azure. Ele pode ser configurado pela execução de um script do PowerShell que pode ser baixado do projeto de Migrações para Azure.
 
-### <a name="generate-the-azure-migrate-project-key"></a>Gerar a chave do projeto das Migrações para Azure
+Para configurar o dispositivo:
+1. Forneça um nome de dispositivo e gere uma chave de projeto das Migrações para Azure no portal.
+2. Baixe um arquivo compactado com o script do instalador de Migrações para Azure do portal do Azure.
+3. Extraia o conteúdo do arquivo compactado. Inicie o console do PowerShell com privilégios administrativos.
+4. Execute o script do PowerShell para iniciar o aplicativo Web do dispositivo.
+5. Configure o dispositivo pela primeira vez e registre-o no projeto das Migrações para Azure usando a chave de projeto das Migrações para Azure.
+
+### <a name="1-generate-the-azure-migrate-project-key"></a>1. Gerar a chave do projeto das Migrações para Azure
 
 1. Em **Metas de Migração** > **Servidores** > **Migrações para Azure: Avaliação de Servidor**, selecione **Descobrir**.
 2. Em **Descobrir computadores** > **Os computadores estão virtualizados?** , selecione **Físico ou outro (AWS, GCP, Xen etc.)** .
@@ -120,10 +130,9 @@ Para configurar o dispositivo:
 1. Após a criação bem-sucedida dos recursos do Azure, uma **chave de projeto das Migrações para Azure** é gerada.
 1. Copie a chave, pois você precisará dela para concluir o registro do dispositivo durante a configuração dele.
 
-### <a name="download-the-installer-script"></a>Baixe o script do instalador.
+### <a name="2-download-the-installer-script"></a>2. Baixe o script do instalador.
 
 Em **2: Baixar o dispositivo das Migrações para Azure**, clique em **Baixar**.
-
 
 ### <a name="verify-security"></a>Verificar a segurança
 
@@ -137,18 +146,18 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
 3.  Verifique as versões mais recentes do dispositivo e os valores de hash:
     - Para a nuvem pública:
 
-        **Cenário** | **Baixar*** | **Valor de hash**
+        **Cenário** | **Baixar** _ | _ *Valor de hash**
         --- | --- | ---
         Físico (85,8 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140334) | ce5e6f0507936def8020eb7b3109173dad60fc51dd39c3bd23099bc9baaabe29
 
     - Para o Azure Government:
 
-        **Cenário** | **Baixar*** | **Valor de hash**
+        **Cenário** | **Baixar** _ | _ *Valor de hash**
         --- | --- | ---
         Físico (85,8 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140338) | ae132ebc574caf231bf41886891040ffa7abbe150c8b50436818b69e58622276
  
 
-### <a name="run-the-azure-migrate-installer-script"></a>Executar o script de instalador de Migrações para Azure
+### <a name="3-run-the-azure-migrate-installer-script"></a>3. Executar o script de instalador de Migrações para Azure
 O script do instalador faz o seguinte:
 
 - Instala agentes e um aplicativo Web para avaliação e descoberta de servidor físico.
@@ -177,13 +186,11 @@ Crie o script da seguinte maneira:
 
 Se você encontrar algum problema, poderá acessar os logs do script em C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Carimbo de data/hora</em>.log para solucionar problemas.
 
-
-
 ### <a name="verify-appliance-access-to-azure"></a>Verificar o acesso do dispositivo ao Azure
 
 Verifique se a VM do dispositivo pode se conectar às URLs do Azure para as nuvens [pública](migrate-appliance.md#public-cloud-urls) e [governamental](migrate-appliance.md#government-cloud-urls).
 
-### <a name="configure-the-appliance"></a>Configurar o dispositivo
+### <a name="4-configure-the-appliance"></a>4. Configurar o dispositivo
 
 Configure o dispositivo pela primeira vez.
 
@@ -203,11 +210,16 @@ Configure o dispositivo pela primeira vez.
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registrar o dispositivo nas Migrações para Azure
 
 1. Cole a **chave do projeto das Migrações para Azure** copiada do portal. Se você não tiver a chave, acesse **Avaliação do Servidor> Descobrir> Gerenciar dispositivos existentes**, selecione o nome do dispositivo fornecido no momento da geração da chave e copie a chave correspondente.
-1. Clique em **Fazer logon**. Será aberto um prompt de logon do Azure em uma nova guia do navegador. Se essa opção não for exibida, verifique se você desabilitou o bloqueador de pop-ups no navegador.
-1. Na nova guia, entre usando seu nome de usuário e senha do Azure.
+1. Será necessário um código do dispositivo para a autenticação com o Azure. Clicar em **Logon** abrirá uma janela restrita com o código do dispositivo, conforme mostrado abaixo.
+
+    ![Janela restrita mostrando o código do dispositivo](./media/tutorial-discover-vmware/device-code.png)
+
+1. Clique em **Copiar código e Fazer logon** para copiar o código do dispositivo e abrir um prompt de logon do Azure em uma nova guia do navegador. Se essa opção não for exibida, verifique se você desabilitou o bloqueador de pop-ups no navegador.
+1. Na nova guia, cole o código do dispositivo e entre usando seu nome de usuário e sua senha do Azure.
    
    Não há suporte para a entrada com um PIN.
-3. Depois de fazer logon com êxito, volte para o aplicativo Web. 
+3. Caso feche a guia de logon por engano sem fazer logon, você precisará atualizar a guia do navegador do gerenciador de configuração do dispositivo para habilitar novamente o botão Logon.
+1. Depois de fazer logon com êxito, volte para a guia anterior usando o gerenciador de configuração do dispositivo.
 4. Se a conta de usuário do Azure usada para o registro em log tiver as [permissões]() corretas nos recursos do Azure criados durante a geração de chave, o registro do dispositivo será iniciado.
 1. Depois que o dispositivo for registrado com êxito, você poderá ver os detalhes do registro clicando em **Exibir detalhes**.
 
@@ -216,7 +228,18 @@ Configure o dispositivo pela primeira vez.
 
 Agora, conecte-se do dispositivo aos servidores físicos a serem descobertos e inicie a descoberta.
 
-1. Na **Etapa 1: Fornecer credenciais para descoberta de servidores físicos ou virtuais do Windows e Linux**, clique em **Adicionar credenciais** para especificar um nome amigável para credenciais, adicione **Nome de usuário** e **Senha** para um servidor Windows ou Linux. Clique em **Save**.
+1. Na **Etapa 1: Forneça credenciais para a descoberta de servidores físicos ou virtuais do Windows e Linux** e clique em **Adicionar credenciais**.
+1. Para o Windows Server, selecione o tipo de origem como **Windows Server**, especifique um nome amigável para as credenciais, adicione o nome de usuário e a senha. Clique em **Salvar**.
+1. Se você estiver usando a autenticação baseada em senha para o servidor Linux, selecione o tipo de origem como **Servidor Linux (Baseado em senha)** , especifique um nome amigável para as credenciais, adicione o nome de usuário e a senha. Clique em **Salvar**.
+1. Se estiver usando a autenticação baseada em chave SSH para o servidor Linux, você poderá selecionar o tipo de origem como **Servidor Linux (Baseado em chave SSH)** , especificar um nome amigável para as credenciais, adicionar o nome de usuário, procurar e selecionar o arquivo de chave privada SSH. Clique em **Save**.
+
+    - As Migrações para Azure dão suporte à chave privada SSH gerada pelo comando ssh-keygen usando os algoritmos RSA, DSA, ECDSA e ed25519.
+    - No momento, as Migrações para Azure não dão suporte à chave SSH baseada em frase secreta. Use uma chave SSH sem uma frase secreta.
+    - No momento, as Migrações para Azure não dão suporte ao arquivo de chave privada SSH gerado pelo PuTTY.
+    - As Migrações para Azure dão suporte ao formato OpenSSH do arquivo de chave privada SSH, conforme mostrado abaixo:
+    
+    ![Formato de chave privada SSH com suporte](./media/tutorial-discover-physical/key-format.png)
+
 1. Se desejar adicionar várias credenciais ao mesmo tempo, clique em **Adicionar mais** para salvar e adicionar mais credenciais. Há suporte para várias credenciais para descoberta de servidores físicos.
 1. Na **Etapa 2: Fornecer detalhes do servidor virtual ou físico**, clique em **Adicionar origem da descoberta** para especificar o **endereço IP/FQDN** do servidor e o nome amigável para as credenciais se conectarem ao servidor.
 1. Você pode **Adicionar um item** de cada vez ou **Adicionar vários itens** em um só lugar. Também há uma opção de fornecer detalhes do servidor por meio de **Importar CSV**.

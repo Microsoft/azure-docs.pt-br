@@ -1,18 +1,15 @@
 ---
 title: Solucionar problemas de desempenho do Apache HBase no Azure HDInsight
 description: Várias diretrizes e dicas de ajuste de desempenho do Apache HBase para obter um desempenho ideal no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
-ms.openlocfilehash: 5be3f02a80524d9c4b633e1e34d581fc26bfd32d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 466fac524601e2d569bfa0ccf90179fe9419210d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547887"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942900"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Solucionar problemas de desempenho do Apache HBase no Azure HDInsight
 
@@ -73,9 +70,9 @@ A seguir estão alguns dos outros parâmetros específicos que ajustamos, e isso
 
 - Aumente o `memstore` tamanho do padrão de 128 MB a 256 MB. Normalmente, essa configuração é recomendada para cenários de gravação pesada.
 
-- Aumente o número de threads dedicados para compactação, da configuração padrão de **1** a **4** . Essa configuração será relevante se observarmos compactações secundárias frequentes.
+- Aumente o número de threads dedicados para compactação, da configuração padrão de **1** a **4**. Essa configuração será relevante se observarmos compactações secundárias frequentes.
 
-- Evite o bloqueio `memstore` de liberação devido ao limite de armazenamento. Para fornecer esse buffer, aumente a `Hbase.hstore.blockingStoreFiles` configuração para **100** .
+- Evite o bloqueio `memstore` de liberação devido ao limite de armazenamento. Para fornecer esse buffer, aumente a `Hbase.hstore.blockingStoreFiles` configuração para **100**.
 
 - Para controlar liberações, use as seguintes configurações:
 
@@ -104,13 +101,13 @@ A seguir estão alguns dos outros parâmetros específicos que ajustamos, e isso
 - Tempos limite de RPC: **3 minutos**
 
    - Os tempos limite de RPC incluem tempo limite de RPC do HBase, tempo limite do scanner de cliente HBase e tempo limite de consulta de Phoenix. 
-   - Verifique se o `hbase.client.scanner.caching` parâmetro está definido com o mesmo valor na extremidade do servidor e na extremidade do cliente. Se eles não forem iguais, essa configuração levará a erros de término do cliente relacionados ao `OutOfOrderScannerException` . Essa configuração deve ser definida como um valor baixo para verificações grandes. Definimos esse valor como **100** .
+   - Verifique se o `hbase.client.scanner.caching` parâmetro está definido com o mesmo valor na extremidade do servidor e na extremidade do cliente. Se eles não forem iguais, essa configuração levará a erros de término do cliente relacionados ao `OutOfOrderScannerException` . Essa configuração deve ser definida como um valor baixo para verificações grandes. Definimos esse valor como **100**.
 
 ## <a name="other-considerations"></a>Outras considerações
 
 Estes são os parâmetros adicionais para considerar o ajuste:
 
-- `Hbase.rs.cacheblocksonwrite` – Por padrão, em HDI, essa configuração é definida como **true** .
+- `Hbase.rs.cacheblocksonwrite` – Por padrão, em HDI, essa configuração é definida como **true**.
 
 - Configurações que permitem adiar a compactação secundária para mais tarde.
 
@@ -124,4 +121,4 @@ Se o problema permanecer sem resolução, visite um dos seguintes canais para ob
 
 - Conecte-se com [@AzureSupport](https://twitter.com/azuresupport). Essa é a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Ele conecta a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
 
-- Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte** . Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Sua assinatura do Microsoft Azure inclui acesso ao gerenciamento de assinaturas e suporte de cobrança, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+- Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Sua assinatura do Microsoft Azure inclui acesso ao gerenciamento de assinaturas e suporte de cobrança, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

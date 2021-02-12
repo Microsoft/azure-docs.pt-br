@@ -12,12 +12,12 @@ metadata:
   ms.author: joflore
   ms.date: 08/20/2019
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: e26be2206ba63fa4721ced7ed1a2f35ddc63a5fd
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: ee9fefcf3f73fe47d2bacb331b0e57f9fb55bf52
+  ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "69648933"
+  ms.lasthandoff: 01/17/2021
+  ms.locfileid: "98538394"
 landingContent:
 - title: Sobre a identidade do dispositivo
   linkLists:
@@ -27,6 +27,8 @@ landingContent:
       url: overview.md
     - text: O que é Enterprise State Roaming?
       url: enterprise-state-roaming-overview.md
+    - text: Planejar a implantação do seu dispositivo do Azure AD
+      url: plan-device-deployment.md
   - linkListType: concept
     links:
     - text: Dispositivos registrados no Azure AD

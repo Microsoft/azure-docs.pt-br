@@ -1,6 +1,6 @@
 ---
-title: Usar o Java e o JDBC com o Banco de Dados do Azure para PostgreSQL
-description: Saiba como usar o Java e o JDBC com um Banco de Dados do Azure para PostgreSQL.
+title: 'Início Rápido: Usar o Java e o JDBC com o Banco de Dados do Azure para PostgreSQL'
+description: Neste início rápido, você aprende como usar o Java e o JDBC com um Banco de Dados do Azure para PostgreSQL.
 author: jdubois
 ms.author: judubois
 ms.service: postgresql
@@ -8,14 +8,14 @@ ms.custom: mvc, devcenter, devx-track-azurecli
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
-ms.openlocfilehash: 402e69606196ecb1030023c49fa5afefd31b9e94
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 42547338c0f5f2f3105833b12e499d40b6209b05
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92734971"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184698"
 ---
-# <a name="use-java-and-jdbc-with-azure-database-for-postgresql"></a>Usar o Java e o JDBC com o Banco de Dados do Azure para PostgreSQL
+# <a name="quickstart-use-java-and-jdbc-with-azure-database-for-postgresql"></a>Início Rápido: Usar o Java e o JDBC com o Banco de Dados do Azure para PostgreSQL
 
 Este tópico demonstra como criar um aplicativo de exemplo que usa o Java e o [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) para armazenar e recuperar informações no [Banco de Dados do Azure para PostgreSQL](./index.yml).
 
@@ -233,7 +233,7 @@ Esse código Java usará os arquivos *application.properties* e *schema.sql* que
 Nesse arquivo, você pode ver que comentamos os métodos para inserir, ler, atualizar e excluir dados: codificaremos esses métodos no restante deste artigo e você poderá remover as marcas de comentários uma após a outra.
 
 > [!NOTE]
-> As credenciais de banco de dados são armazenadas nas propriedades *user* e *password* no arquivo *application.properties* . Essas credenciais são usadas durante a execução de `DriverManager.getConnection(properties.getProperty("url"), properties);`, pois o arquivo de propriedades é passado como um argumento.
+> As credenciais de banco de dados são armazenadas nas propriedades *user* e *password* no arquivo *application.properties*. Essas credenciais são usadas durante a execução de `DriverManager.getConnection(properties.getProperty("url"), properties);`, pois o arquivo de propriedades é passado como um argumento.
 
 Agora, você pode executar esta classe principal com a sua ferramenta favorita:
 
@@ -318,11 +318,11 @@ public class Todo {
 }
 ```
 
-Essa classe é um modelo de domínio mapeado na tabela `todo` que você criou ao executar o script *schema.sql* .
+Essa classe é um modelo de domínio mapeado na tabela `todo` que você criou ao executar o script *schema.sql*.
 
 ### <a name="insert-data-into-azure-database-for-postgresql"></a>Inserir dados no Banco de Dados do Azure para PostgreSQL
 
-No arquivo *src/main/java/DemoApplication.java* , após o método principal, adicione o seguinte método para inserir dados no banco de dados:
+No arquivo *src/main/java/DemoApplication.java*, após o método principal, adicione o seguinte método para inserir dados no banco de dados:
 
 ```java
 private static void insertData(Todo todo, Connection connection) throws SQLException {
@@ -360,7 +360,7 @@ A execução da classe principal deve produzir a seguinte saída:
 
 Vamos ler os dados inseridos anteriormente para validar se o nosso código funciona corretamente.
 
-No arquivo *src/main/java/DemoApplication.java* , após o método `insertData`, adicione o seguinte método para ler dados do banco de dados:
+No arquivo *src/main/java/DemoApplication.java*, após o método `insertData`, adicione o seguinte método para ler dados do banco de dados:
 
 ```java
 private static Todo readData(Connection connection) throws SQLException {
@@ -404,7 +404,7 @@ A execução da classe principal deve produzir a seguinte saída:
 
 Vamos atualizar os dados que inserimos anteriormente.
 
-Ainda no arquivo *src/main/java/DemoApplication.java* , após o método `readData`, adicione o seguinte método para atualizar os dados no banco de dados:
+Ainda no arquivo *src/main/java/DemoApplication.java*, após o método `readData`, adicione o seguinte método para atualizar os dados no banco de dados:
 
 ```java
 private static void updateData(Todo todo, Connection connection) throws SQLException {
@@ -448,7 +448,7 @@ A execução da classe principal deve produzir a seguinte saída:
 
 Por fim, vamos excluir os dados que inserimos anteriormente.
 
-Ainda no arquivo *src/main/java/DemoApplication.java* , após o método `updateData`, adicione o seguinte método para excluir os dados no banco de dados:
+Ainda no arquivo *src/main/java/DemoApplication.java*, após o método `updateData`, adicione o seguinte método para excluir os dados no banco de dados:
 
 ```java
 private static void deleteData(Todo todo, Connection connection) throws SQLException {
@@ -485,7 +485,7 @@ A execução da classe principal deve produzir a seguinte saída:
 [INFO   ] Closing database connection 
 ```
 
-## <a name="conclusion-and-resources-clean-up"></a>Conclusão e limpeza de recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Parabéns! Você criou um aplicativo Java que usa o JDBC para armazenar e recuperar dados do Banco de Dados do Azure para PostgreSQL.
 

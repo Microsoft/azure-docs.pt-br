@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: philmea
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5092aa0b5b23f04af1f49933bca234815f03f454
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3772988e9bf4f733323adae6c0527c8b811c4d04
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604509"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624449"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Tutorial: Enviar notificações por email sobre os eventos do Hub IoT do Azure usando Aplicativos Lógicos e a Grade de Eventos
 
@@ -21,13 +21,13 @@ A Grade de Eventos do Azure permite que você reaja aos eventos no Hub IoT, disp
 
 Este artigo aborda uma configuração de exemplo que usa o Hub IoT e a Grade de Eventos. No final, você terá um aplicativo lógico do Azure configurado para enviar um email de notificação sempre que um dispositivo for conectado ou desconectado do seu hub IoT. A Grade de Eventos pode ser usada para obter uma notificação em tempo hábil sobre a desconexão de dispositivos críticos. As Métricas e Diagnósticos podem demorar vários minutos (ou seja, 20 ou mais; no entanto, não queremos definir um valor) para aparecer nos logs/alertas. Isso pode ser inaceitável para uma infraestrutura crítica.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura ativa do Azure. Se você não tem uma assinatura, pode [criar uma conta gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Uma conta de email de qualquer provedor de email compatível com os Aplicativos Lógicos do Azure, como Office 365 Outlook ou Outlook.com. Essa conta de email é usada para enviar as notificações de eventos.
 
-* Uma conta de email de qualquer provedor de email compatível com os Aplicativos Lógicos do Azure, como Office 365 Outlook ou Outlook.com. Essa conta de email é usada para enviar as notificações de eventos. 
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
@@ -242,4 +242,7 @@ Para excluir todos os recursos criados neste tutorial, exclua o grupo de recurso
 * [Saiba como ordenar os eventos de conexão e desconexão de dispositivo](../iot-hub/iot-hub-how-to-order-connection-state-events.md)
 * Saiba mais sobre o que mais você pode fazer com [Grade de Eventos](overview.md).
 
-Para obter uma lista completa de conectores dos Aplicativos Lógicos compatíveis, confira a [Visão geral dos conectores](/connectors/).
+Para obter uma lista completa de conectores dos Aplicativos Lógicos compatíveis, confira a 
+
+> [!div class="nextstepaction"]
+> [Visão geral dos conectores](/connectors/).

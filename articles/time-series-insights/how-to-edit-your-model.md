@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: cac4234d5bd93de8b059ea53a4697dae1bf5c64c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89efc1d4f34b250d211f9fd7492588bd2896eb6e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667872"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016846"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-gen2"></a>Modelagem de dados no Azure Time Series Insights Gen2
 
@@ -24,11 +24,11 @@ Este artigo descreve como trabalhar com o modelo de série temporal no Azure Tim
 > [!TIP]
 >
 > * Leia mais sobre o [modelo de série temporal](concepts-model-overview.md).
-> * Saiba mais sobre como navegar no [Azure Time Series insights Explorer Gen2](./time-series-insights-update-explorer.md).
+> * Saiba mais sobre como navegar no [Azure Time Series insights Explorer Gen2](./concepts-ux-panels.md).
 
 ## <a name="instances"></a>Instâncias
 
-O Azure Time Series Insights Explorer dá suporte a operações de **criação**, **leitura**, **atualização**e **exclusão** no navegador.
+O Azure Time Series Insights Explorer dá suporte a operações de **criação**, **leitura**, **atualização** e **exclusão** no navegador.
 
 Para começar, selecione o modo de exibição de **modelo** na exibição de **análise** do Azure Time Series insights Explorer.
 
@@ -76,7 +76,7 @@ Para começar, selecione o modo de exibição de **modelo** na exibição de **a
 
 ## <a name="hierarchies"></a>Hierarquias
 
-O Azure Time Series Insights Explorer dá suporte a operações de **criação**, **leitura**, **atualização**e **exclusão** de hierarquia no navegador.
+O Azure Time Series Insights Explorer dá suporte a operações de **criação**, **leitura**, **atualização** e **exclusão** de hierarquia no navegador.
 
 Para começar, selecione o modo de exibição de **modelo** na exibição de **análise** do Azure Time Series insights Explorer.
 
@@ -126,7 +126,7 @@ Para começar, selecione o modo de exibição de **modelo** na exibição de **a
 
 ## <a name="types"></a>Tipos
 
-O Azure Time Series Insights Explorer dá suporte ao tipo **criar**, **ler**, **Atualizar**e **excluir** operações no navegador.
+O Azure Time Series Insights Explorer dá suporte ao tipo **criar**, **ler**, **Atualizar** e **excluir** operações no navegador.
 
 Para começar, selecione o modo de exibição de **modelo** na exibição de **análise** do Azure Time Series insights Explorer.
 
@@ -171,6 +171,6 @@ Para começar, selecione o modo de exibição de **modelo** na exibição de **a
 
 * Para obter mais informações sobre o modelo de série temporal, leia [modelagem de dados](./concepts-model-overview.md).
 
-* Para saber mais sobre o Gen2, leia [Visualizar dados no Azure Time Series insights Gen2 Explorer](./time-series-insights-update-explorer.md).
+* Para saber mais sobre o Gen2, leia [Visualizar dados no Azure Time Series insights Gen2 Explorer](./concepts-ux-panels.md).
 
 * Para saber mais sobre as formas JSON com suporte, leia [formas de JSON com suporte](./time-series-insights-send-events.md#supported-json-shapes).

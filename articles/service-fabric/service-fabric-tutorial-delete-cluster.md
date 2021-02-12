@@ -4,12 +4,12 @@ description: Neste tutorial, você aprende a excluir um cluster do Service Fabri
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: aa5b09b627db6bd3a3d573c32e7e68a359e2c04d
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 60c43adddd4799a639c2d58e0293086eb1776588
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739000"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791081"
 ---
 # <a name="tutorial-remove-a-service-fabric-cluster-running-in-azure"></a>Tutorial: remover um cluster do Service Fabric em execução no Azure
 
@@ -43,7 +43,7 @@ Antes de começar este tutorial:
 ## <a name="delete-the-resource-group-containing-the-service-fabric-cluster"></a>Excluir o grupo de recursos que contém o cluster do Service Fabric
 A maneira mais simples de excluir o cluster e todos os recursos que ele consume é excluir o grupo de recursos.
 
-Entre no Azure e selecione a ID de assinatura com a qual você deseja remover o cluster.  Você pode encontrar sua ID de assinatura fazendo logon no [Portal do Azure](https://portal.azure.com). Exclua o grupo de recursos e todos os recursos de cluster usando o cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) ou o comando [az group delete](/cli/azure/group?view=azure-cli-latest).
+Entre no Azure e selecione a ID de assinatura com a qual você deseja remover o cluster.  Você pode encontrar sua ID de assinatura fazendo logon no [Portal do Azure](https://portal.azure.com). Exclua o grupo de recursos e todos os recursos de cluster usando o cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) ou o comando [az group delete](/cli/azure/group).
 
 ```powershell
 Connect-AzAccount

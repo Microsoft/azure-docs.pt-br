@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 09/08/2020
+ms.date: 10/29/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.custom: contperfq1
-ms.openlocfilehash: b454ced085ec3d73f3ca0f761abb6c5de44244ab
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 22bfef17f68b2e83e4f7462d8e9af6fb8aacc284
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89594332"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246733"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Quais são as revisões de acesso do Azure AD?
 
@@ -74,14 +74,22 @@ Dependendo do que você deseja revisar, você criará sua revisão de acesso nas
 
 O diretório precisa ter, pelo menos, um número de licenças do Azure AD Premium P2 igual ou superior ao número de funcionários que executarão as seguintes tarefas:
 
-- Usuários membros e convidados que são atribuídos como revisores
-- Usuários membros e convidados que executam uma autorrevisão
-- Proprietários de grupo que executam uma revisão de acesso
-- Proprietários de aplicativo que executam uma revisão de acesso
+-   Usuários membros que são atribuídos como revisores
+-   Usuários membros que executam uma autorrevisão
+-   Usuários membros como proprietários de grupo que executam uma revisão de acesso
+-   Usuários membros como proprietários de aplicativo que executam uma revisão de acesso
+
+Para os usuários convidados, as necessidades de licenciamento dependerão do modelo de licenciamento utilizado. No entanto, as atividades dos usuários convidados abaixo são consideradas como uso do Azure AD Premium P2:
+
+-   Usuários convidados que são atribuídos como revisores
+-   Usuários convidados que executam uma autorrevisão
+-   Usuários convidados como proprietários de grupo que executam uma revisão de acesso
+-   Usuários convidados como proprietários de aplicativo que executam uma revisão de acesso
+
 
 As licenças do Azure AD Premium P2 **não** são necessárias para usuários com funções de Administrador Global ou de Administrador de Usuários que configuram revisões de acesso, definem configurações ou aplicam as decisões das revisões.
 
-Para cada licença paga do Azure AD Premium P2 atribuída a um dos usuários de sua organização, você poderá usar o Azure AD B2B (entre empresas) para convidar até cinco usuários convidados sob a Provisão de Usuário Externo. Esses usuários convidados também poderão usar os recursos do Azure AD Premium P2. Para obter mais informações, confira [Diretrizes de licenciamento de colaboração B2B do Azure AD](../external-identities/licensing-guidance.md).
+O acesso do usuário convidado do Azure AD é baseado em um modelo de cobrança de MAU (usuários ativos mensais), que substitui o modelo de cobrança de índice 1:5. Para obter mais informações, confira [Preços das Identidades Externas do Azure AD](../external-identities/external-identities-pricing.md).
 
 Para obter mais informações sobre licenças, confira [Atribuir ou remover licenças usando o portal do Azure Active Directory](../fundamentals/license-users-groups.md).
 
@@ -95,7 +103,7 @@ Aqui estão alguns exemplos de cenários de licença para ajudá-lo a determinar
 | Um administrador cria uma revisão de acesso do grupo A com 500 usuários e três proprietários do grupo e atribui os três como revisores. | Três licenças para cada proprietário do grupo como revisores | 3 |
 | Um administrador cria uma revisão de acesso do grupo B com 500 usuários. Ele a torna uma autorrevisão. | 500 licenças para cada usuário como autorrevisores | 500 |
 | Um administrador cria uma revisão de acesso do grupo C com 50 usuários membros e 25 usuários convidados. Ele a torna uma autorrevisão. | 50 licenças para cada usuário como autorrevisores.* | 50 |
-| Um administrador cria uma revisão de acesso do grupo D com seis usuários membros e 108 usuários convidados. Ele a torna uma autorrevisão. | 6 licenças para cada usuário como autorrevisores. Usuários convidados são cobrados com base em um MAU (usuário ativo mensal). Não há licenças adicionais necessárias. *  | - |
+| Um administrador cria uma revisão de acesso do grupo D com seis usuários membros e 108 usuários convidados. Ele a torna uma autorrevisão. | 6 licenças para cada usuário como autorrevisores. Usuários convidados são cobrados com base em um MAU (usuário ativo mensal). Não há licenças adicionais necessárias. *  | 6 |
 
 \* O preço das Identidades Externas (usuários convidados) do Azure AD baseiam-se em MAUs (usuários ativos mensais), que é a contagem de usuários exclusivos que realizam atividades de autenticação em um mês civil. Esse modelo substitui o modelo de cobrança com proporção de 1:5, que permitia até cinco usuários convidados para cada licença do Azure AD Premium no locatário. Quando o locatário estiver vinculado a uma assinatura e você usar recursos de Identidades Externas para colaborar com usuários convidados, você será cobrado automaticamente de acordo com o modelo de cobrança baseado em MAU. Para obter mais informações, confira Modelo de cobrança para Identidades Externas do Azure AD.
 

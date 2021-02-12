@@ -1,48 +1,66 @@
 ---
-title: Como implantar o modelo de aplicativo de IoT Central do Azure de detecção de vídeo e análise de movimento de objeto
-description: Este guia resume as etapas para implantar um aplicativo de IoT Central do Azure usando o modelo de aplicativo análise de vídeo-objeto e detecção de movimento.
+title: 'Tutorial: Como implantar o modelo de aplicativo do Azure IoT Central de detecção de objetos e movimentos e análise de vídeo'
+description: Tutorial – este guia resume as etapas para implantar um aplicativo do Azure IoT Central usando o modelo de aplicativo de detecção de objetos e movimentos e análise de vídeo.
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: how-to
+ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: decfa7020be7778e8ca64a9fb0cb4aac1657da27
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
-ms.translationtype: MT
+ms.openlocfilehash: f7f1952ab8c98553a447c3ed1955fb556ba48124
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873329"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831936"
 ---
-# <a name="how-to-deploy-an-iot-central-application-using-the-video-analytics---object-and-motion-detection-application-template"></a>Como implantar um aplicativo IoT Central usando o modelo de aplicativo análise de vídeo-objeto e detecção de movimento
+# <a name="tutorial-how-to-deploy-an-iot-central-application-using-the-video-analytics---object-and-motion-detection-application-template"></a>Tutorial: Como implantar um aplicativo do IoT Central usando o modelo de aplicativo de detecção de objetos e movimentos e análise de vídeo
 
-Para obter uma visão geral dos componentes de aplicativo de *análise de vídeo-objeto e detecção de movimento* , consulte [arquitetura de aplicativo de detecção de vídeo e do objeto](architecture-video-analytics.md).
+Para obter uma visão geral dos principais componentes do aplicativo de *detecção de objetos e movimentos e análise de vídeo*, confira a [arquitetura do aplicativo de detecção de objetos e movimentos e análise de vídeo](architecture-video-analytics.md).
 
-O vídeo a seguir fornece uma explicação de como usar o _modelo de aplicativo análise de vídeo-objeto e detecção de movimento_ para implantar uma solução de IOT central:
+O seguinte vídeo fornece uma explicação sobre como usar o _modelo de aplicativo de detecção de objetos e movimentos e análise de vídeo_ para implantar uma solução do IoT Central:
 
 > [!VIDEO https://www.youtube.com/embed/Bo3FziU9bSA]
 
+## <a name="prerequisites"></a>Pré-requisitos
+
+Uma assinatura do Azure é recomendada. Como alternativa, você pode usar uma avaliação gratuita de sete dias. Se você não tiver uma assinatura do Azure, poderá criar uma na [página de entrada do Azure](https://aka.ms/createazuresubscription).
+
 ## <a name="deploy-the-application"></a>Implantar o aplicativo
 
-Conclua as etapas a seguir para implantar um aplicativo IoT Central usando o modelo de aplicativo de análise de vídeo:
+Conclua as seguintes etapas para implantar um aplicativo do IoT Central usando o modelo de aplicativo de análise de vídeo:
 
-1. Conclua o tutorial [criar um aplicativo de análise de vídeo no azure IOT central (YOLO v3)](tutorial-video-analytics-create-app-yolo-v3.md) ou [criar um análise de vídeo no Azure IOT central (OpenVINO &trade; )](tutorial-video-analytics-create-app-openvino.md) para:
+1. Conclua o tutorial [Criar um aplicativo de análise de vídeo no Azure IoT Central (YOLO v3)](tutorial-video-analytics-create-app-yolo-v3.md) ou o [Criar uma análise de vídeo no Azure IoT Central (OpenVINO&trade;)](tutorial-video-analytics-create-app-openvino.md) para:
     - Criar uma conta de Serviços de Mídia do Azure.
-    - Crie o aplicativo IoT Central do modelo de aplicativo análise de vídeo-objeto e detecção de movimento.
-    - Configure um dispositivo de gateway no aplicativo IoT Central. O Gateway permite que os dispositivos de câmera se conectem ao aplicativo.
+    - Criar o aplicativo do IoT Central com o modelo de aplicativo de detecção de objetos e movimentos e análise de vídeo.
+    - Configurar um dispositivo de gateway no aplicativo do IoT Central. O gateway permite que os dispositivos de câmera se conectem ao aplicativo.
 
-1. Conclua o tutorial [criar uma instância de IOT Edge para análise de vídeo (VM do Linux)](tutorial-video-analytics-iot-edge-vm.md) ou o [tutorial: criar uma instância IOT Edge para análise de vídeo (Intel NUC)](tutorial-video-analytics-iot-edge-nuc.md) para:
-    - Crie uma VM do Azure com o Azure IoT Edge Runtime instalado.-Prepare a instalação do IoT Edge para hospedar o módulo análise de vídeo.
-    - Conecte o dispositivo IoT Edge ao seu aplicativo IoT Central.
+1. Conclua o tutorial [Criar uma instância do IoT Edge para análise de vídeo (VM do Linux)](tutorial-video-analytics-iot-edge-vm.md) ou o [Tutorial: Criar uma instância do IoT Edge para análise de vídeo (Intel NUC)](tutorial-video-analytics-iot-edge-nuc.md) para:
+    - Crie uma VM do Azure com o runtime do Azure IoT Edge instalado. Prepare a instalação do IoT Edge para hospedar o módulo de análise de vídeo.
+    - Conecte o dispositivo do IoT Edge ao aplicativo do IoT Central.
 
-1. Conclua o tutorial [monitorar e gerenciar um aplicativo de análise de vídeo](tutorial-video-analytics-manage.md) para:
-    - Adicione câmeras de detecção de objeto e de movimento ao gateway em seu aplicativo IoT Central.
-    - Inicie o processamento da câmera.
-    - Instale um player de mídia local para exibir o vídeo capturado no AMS.
-    - Exibir vídeo capturado que mostra objetos detectados.
+1. Conclua o tutorial [Monitorar e gerenciar um aplicativo de análise de vídeo](tutorial-video-analytics-manage.md) para:
+    - Adicionar câmeras de detecção de objetos e movimentos ao gateway no aplicativo do IoT Central.
+    - Iniciar o processamento da câmera.
+    - Instalar um player de mídia local para exibir o vídeo capturado no AMS.
+    - Exibir o vídeo capturado que mostra objetos detectados.
     - Organizar.
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Quando você tiver concluído o aplicativo, remova todos os recursos criados da seguinte maneira:
+
+1. No aplicativo do IoT Central, procure a página **Seu aplicativo** na seção **Administração**. Em seguida, selecione **Excluir**.
+1. No portal do Azure, exclua o grupo de recursos **lva-rg**.
+1. No computador local, pare o contêiner **amp-viewer** do Docker.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora você tem uma visão geral das etapas para implantar e usar o modelo de aplicativo de análise de vídeo, consulte [criar um aplicativo de análise de vídeo no azure IOT central (YOLO v3)](tutorial-video-analytics-create-app-yolo-v3.md) ou [criar uma análise de vídeo no Azure IOT central (OpenVINO &trade; )](tutorial-video-analytics-create-app-openvino.md) para começar.
+Agora você tem uma visão geral das etapas para implantar e usar o modelo de aplicativo de análise de vídeo, consulte
+
+> [!div class="nextstepaction"]
+> [Criar um aplicativo de análise de vídeo no Azure IoT Central (YOLO v3)](tutorial-video-analytics-create-app-yolo-v3.md) ou
+
+> [!div class="nextstepaction"]
+> [Criar uma análise de vídeo no Azure IoT Central (OpenVINO&trade;)](tutorial-video-analytics-create-app-openvino.md) para começar.

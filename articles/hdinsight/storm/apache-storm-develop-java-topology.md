@@ -1,19 +1,16 @@
 ---
 title: Exemplo de topologia Java do Apache Storm – Azure HDInsight
 description: Aprenda a criar topologias Apache Storm em Java criando um exemplo de topologia de contagem de palavras.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020,devx-track-java
 ms.date: 04/27/2020
-ms.openlocfilehash: 881ec4aa36261958b566dc2d7c4d06475a76bad4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 620a4e1627b25af22db68173f35924376e26f5f8
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545490"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929126"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Criar uma topologia Apache Storm em Java
 
@@ -43,7 +40,7 @@ cd C:\HDI
 
 ## <a name="create-a-maven-project"></a>Criar um projeto Maven
 
-Digite o seguinte comando para criar um projeto Maven chamado **WordCount** :
+Digite o seguinte comando para criar um projeto Maven chamado **WordCount**:
 
 ```cmd
 mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=com.microsoft.example -DartifactId=WordCount -DinteractiveMode=false
@@ -199,9 +196,9 @@ Esta seção será usada para adicionar plug-ins, recursos e outras opções de 
 
     Outro plug-in útil é o [`Apache Maven Compiler Plugin`](https://maven.apache.org/plugins/maven-compiler-plugin/) , que é usado para alterar as opções de compilação. Altere a versão Java que o Maven usa para a origem e o destino do seu aplicativo.
 
-  * Para HDInsight __3.4 ou anterior__ , defina a versão Java de origem e de destino como __1.7__ .
+  * Para HDInsight __3.4 ou anterior__, defina a versão Java de origem e de destino como __1.7__.
 
-  * Para HDInsight __3.5__ , defina a versão Java de origem e de destino como __1.8__ .
+  * Para HDInsight __3.5__, defina a versão Java de origem e de destino como __1.8__.
 
   Adicione o seguinte texto à seção `<plugins>` do arquivo `pom.xml` para incluir o plug-in Compilador do Apache Maven. Este exemplo especifica a versão 1.8. Portanto, a versão do HDInsight de destino será a 3.5.
 
@@ -237,11 +234,11 @@ Esse exemplo adiciona o diretório de recursos na raiz do projeto (`${basedir}`)
 
 Uma topologia Apache Storm baseada em Java consiste em três componentes que você deve criar (ou referenciar) como uma dependência.
 
-* **Spouts** : lê dados de fontes externas e a emite fluxos de dados para a topologia.
+* **Spouts**: lê dados de fontes externas e a emite fluxos de dados para a topologia.
 
-* Os **parafusos** : o processamento em fluxos emitidos por esgotamentos ou outros parafusos e emite um ou mais fluxos.
+* Os **parafusos**: o processamento em fluxos emitidos por esgotamentos ou outros parafusos e emite um ou mais fluxos.
 
-* **Topologia** : define como os spouts e bolts são organizados e fornece o ponto de entrada para a topologia.
+* **Topologia**: define como os spouts e bolts são organizados e fornece o ponto de entrada para a topologia.
 
 ### <a name="create-the-spout"></a>Criar o spout
 
@@ -327,9 +324,9 @@ public class RandomSentenceSpout extends BaseRichSpout {
 
 Bolts manipulam o processamento de dados. Os bolts podem fazer qualquer coisa, por exemplo, computação, persistência ou conversar com componentes externos. Essa topologia usa dois bolts:
 
-* **SplitSentence** : divide as sentenças emitidas por **RandomSentenceSpout** em palavras individuais.
+* **SplitSentence**: divide as sentenças emitidas por **RandomSentenceSpout** em palavras individuais.
 
-* **WordCount** : conta quantas vezes cada palavra ocorreu.
+* **WordCount**: conta quantas vezes cada palavra ocorreu.
 
 #### <a name="splitsentence"></a>SplitSentence
 
@@ -826,7 +823,7 @@ Os aplicativos Trident podem ser criados usando projetos Maven. Use as mesmas et
 
 Para obter mais informações sobre o Trident, consulte a [Visão geral da API do Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html).
 
-## <a name="next-steps"></a>Próximas Etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Você aprendeu como criar uma topologia de Apache Storm usando Java. Agora saiba como:
 

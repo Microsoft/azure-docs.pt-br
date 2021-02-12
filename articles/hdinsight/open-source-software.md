@@ -1,19 +1,16 @@
 ---
 title: Suporte para software livre no Azure HDInsight
 description: O Microsoft Azure fornece um nível geral de suporte para tecnologias de software livre.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: fe9ccc50d6196997863fbf228fbb76913a0d0330
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: fec4cff974031982c782c9265a7d3186d6bb0233
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534372"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942553"
 ---
 # <a name="open-source-software-support-in-azure-hdinsight"></a>Suporte para software livre no Azure HDInsight
 

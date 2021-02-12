@@ -3,12 +3,12 @@ title: Habilitar identidade gerenciada no grupo de contêineres
 description: Saiba como habilitar uma identidade gerenciada em instâncias de contêiner do Azure que podem ser autenticadas com outros serviços do Azure
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: 23f2347593137a4846c8fd22e3b90f22db39bda3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67ef17b77a9db92e539dd860a3083760fe1160db
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86259624"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558939"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Como usar identidades gerenciadas com Instâncias de Contêiner do Azure
 
@@ -45,9 +45,9 @@ Para usar uma identidade gerenciada, a identidade deve receber acesso a um ou ma
 * No momento, você não pode usar uma identidade gerenciada em um grupo de contêineres implantado em uma rede virtual.
 * Você não pode usar uma identidade gerenciada para efetuar pull de uma imagem do registro de contêiner do Azure ao criar um grupo de contêineres. A identidade está disponível somente dentro de um contêiner em execução.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se você optar por instalar e usar a CLI localmente, este artigo exigirá que esteja em execução a CLI do Azure versão 2.0.49 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+- Este artigo requer a versão 2.0.49 ou posterior do CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-an-azure-key-vault"></a>Criar um cofre de chaves do Azure
 

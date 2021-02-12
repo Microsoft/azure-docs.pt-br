@@ -13,12 +13,12 @@ ms.date: 11/21/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma
 ms.custom: aaddev, devx-track-java
-ms.openlocfilehash: 5d01d1143563637e21aaa06a3f997c1507e4d8f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82e3f3b32c6d96b83ec1d0402f344e7d65788c06
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88114771"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063698"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-java"></a>Suporte a Serviços de Federação do Active Directory (AD FS) no MSAL para Java
 

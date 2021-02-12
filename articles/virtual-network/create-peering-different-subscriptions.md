@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: kumud
-ms.openlocfilehash: 79062ae45f04b290f6e4120906b98590ce95dbe1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 654c883498e724d10104133f99ef1664f72fe09d
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87833259"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223475"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions-and-azure-active-directory-tenants"></a>Criar um emparelhamento de rede virtual – Resource Manager, diferentes assinaturas e locatários do Azure Active Directory
 
@@ -31,14 +31,14 @@ As etapas para criar um emparelhamento de rede virtual são diferentes, dependen
 |[Um Resource Manager, um clássico](create-peering-different-deployment-models.md) |Idêntico|
 |[Um Resource Manager, um clássico](create-peering-different-deployment-models-subscriptions.md) |Diferente|
 
-Não é possível criar um emparelhamento de rede virtual entre duas redes virtuais implantadas por meio do modelo de implantação clássico. Se você precisar conectar redes virtuais que foram criadas por meio do modelo de implantação clássico, poderá usar um [Gateway de VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Azure para conectar as redes virtuais.
+Não é possível criar um emparelhamento de rede virtual entre duas redes virtuais implantadas por meio do modelo de implantação clássico. Se você precisar conectar redes virtuais que foram criadas por meio do modelo de implantação clássico, poderá usar um [Gateway de VPN](../vpn-gateway/tutorial-site-to-site-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Azure para conectar as redes virtuais.
 
 Este tutorial emparelha redes virtuais na mesma região. Você também pode emparelhar redes virtuais em [regiões com suporte](virtual-network-manage-peering.md#cross-region) diferentes. É recomendável que você se familiarize com os [requerimentos e as restrições de emparelhamento](virtual-network-manage-peering.md#requirements-and-constraints) antes de emparelhar redes virtuais.
 
 Use o [portal do Azure](#portal), a [CLI](#cli) (interface de linha de comando) do Azure, o Azure [PowerShell](#powershell) ou um [modelo do Azure Resource Manager](#template) para criar um emparelhamento de rede virtual. Selecione um dos links de ferramentas anteriores para ir diretamente para as etapas para a criação de um emparelhamento de rede virtual usando a ferramenta de sua escolha.
 
 Se as redes virtuais estiverem em diferentes assinaturas e as assinaturas estiverem associadas a diferentes locatários do Azure Active Directory, siga estas etapas antes de continuar:
-1. Adicione o usuário de cada locatário do Active Directory como [usuário convidado](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) no locatário oposto do Azure Active Directory.
+1. Adicione o usuário de cada locatário do Active Directory como [usuário convidado](../active-directory/external-identities/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) no locatário oposto do Azure Active Directory.
 1. Cada usuário precisa aceitar o convite do usuário convidado do locatário oposto do Azure Active Directory.
 
 ## <a name="create-peering---azure-portal"></a><a name="portal"></a>Criar emparelhamento – portal do Azure

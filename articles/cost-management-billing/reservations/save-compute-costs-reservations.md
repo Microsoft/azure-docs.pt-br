@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 10/01/2020
+ms.date: 12/15/2020
 ms.author: banders
-ms.openlocfilehash: 5aeb9046b8901580e4de37b1735a2d2dddd42fce
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 0e45e9741e92bb9e1fe23af79695cae06e64e871
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147457"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602049"
 ---
 # <a name="what-are-azure-reservations"></a>O que são Reservas do Azure?
 
@@ -56,15 +56,16 @@ Para obter mais informações, confira [Comprar uma reserva](prepare-buy-reser
 
 ## <a name="how-is-a-reservation-billed"></a>Como uma reserva é cobrada? 
 
-A reserva é cobrada no método de pagamento associado à assinatura. O custo de reserva é deduzido do saldo do seu compromisso monetário, se disponível. Quando o saldo do compromisso monetário não cobrir o custo da reserva, você será cobrado pelo excedente. Se você tiver uma assinatura de um plano individual com tarifas pagas conforme o uso, o cartão de crédito que você tem em sua conta será cobrado imediatamente para as compras antecipadas. Os pagamentos mensais aparecem em sua fatura e seu cartão de crédito é cobrado mensalmente. Quando for cobrado por fatura, você verá os encargos na sua próxima fatura. 
+A reserva é cobrada no método de pagamento associado à assinatura. O custo de reserva é deduzido do saldo do seu Pagamento antecipado do Azure (anteriormente conhecido como compromisso monetário), se disponível. Quando o saldo do Pagamento antecipado do Azure não cobrir o custo da reserva, você será cobrado pelo excedente. Se você tiver uma assinatura de um plano individual com tarifas pagas conforme o uso, o cartão de crédito que você tem em sua conta será cobrado imediatamente para as compras antecipadas. Os pagamentos mensais aparecem em sua fatura e seu cartão de crédito é cobrado mensalmente. Quando for cobrado por fatura, você verá os encargos na sua próxima fatura. 
 
-## <a name="permissions-to-view-and-manage-reservations"></a>Permissões para exibir e gerenciar reservas 
+## <a name="who-can-manage-a-reservation-by-default"></a>Quem pode gerenciar uma reserva por padrão
 
-O usuário que compra uma reserva e o administrador da conta ou da assinatura usado para cobrar a reserva obtêm a função Proprietário no pedido da reserva e na reserva.
+Por padrão, os seguintes usuários podem ver e gerenciar reservas:
 
-Você pode delegar o gerenciamento de uma reserva adicionando pessoas às funções na reserva. Atribua as funções no portal do Azure ou usando APIs e o PowerShell. 
+- A pessoa que compra uma reserva e o administrador da conta da assinatura para cobrança usada para comprar a reserva são adicionadas ao pedido de reserva.
+- Administradores de cobrança do Contrato Enterprise e do Contrato de Cliente da Microsoft.
 
-Para obter mais informações, confira [Adicionar ou alterar os usuários que podem gerenciar uma reserva](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation) 
+Para permitir que outras pessoas gerenciem reservas, confira [Gerenciar reservas para recursos do Azure](manage-reserved-vm-instance.md).
 
 ## <a name="get-reservation-details-and-utilization-after-purchase"></a>Obter detalhes e a utilização da reserva após a compra
 
@@ -90,7 +91,7 @@ Para obter mais informações, confira [Trocas e reembolsos via autoatendimento 
 - **Instância de Máquina Virtual Reservada** – uma reserva abrange apenas os custos de computação de máquina virtual e de serviços de nuvem. Não cobre encargos adicionais de software, Windows, rede nem armazenamento.
 - **Capacidade reservada de Armazenamento do Azure**: uma reserva abrange a capacidade de contas de armazenamento padrão para armazenamento de blobs ou do Azure Data Lake Storage Gen2. A reserva não abrange a largura de banda nem as taxas de transação.
 - **Capacidade reservada do Azure Cosmos DB** – cobre a taxa de transferência provisionada para seus recursos. Ela não cobre encargos de armazenamento e rede.
-- **vCore reservado do Banco de Dados SQL** – apenas os custos de computação são incluídos com uma reserva. A licença do SQL é cobrada separadamente.
+- **vCore reservado do Banco de Dados SQL** – abrange a Instância Gerenciada de SQL e o Pool Elástico de Banco de Dados SQL/banco de dados individual. Apenas os custos de computação são incluídos em uma reserva. A licença do SQL é cobrada separadamente. 
 - **Azure Synapse Analytics** – uma reserva abrange o uso da cDWU. Ela não abrange os encargos de armazenamento nem de rede associados ao uso do Azure Synapse Analytics.
 - **Azure Databricks** – uma reserva abrange apenas o uso de DBU. Outros encargos, como computação, armazenamento e rede, são aplicados separadamente.
 - **Imposto de selo do Serviço de Aplicativo** – uma reserva cobre o uso do imposto de selo. Ela não se aplica a funções de trabalho, de forma que todos os outros recursos associados ao selo são cobrados separadamente.
@@ -125,7 +126,7 @@ Caso tenha dúvidas ou precise de ajuda, [crie uma solicitação de suporte](htt
     - [Reservas do Azure no programa de CSP (Provedor de Soluções na Nuvem) do Partner Center](/partner-center/azure-reservations)
 
 - Saiba mais sobre reservas para planos de serviço:
-    - [Máquinas virtuais com Instâncias de VM Reservadas do Azure](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+    - [Máquinas virtuais com Instâncias de VM Reservadas do Azure](../../virtual-machines/prepay-reserved-vm-instances.md)
     - [Recursos do Azure Cosmos DB com capacidade reservada do Azure Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)
     - [Recursos de computação do Banco de Dados SQL com capacidade reservada do Banco de Dados SQL do Azure](../../azure-sql/database/reserved-capacity-overview.md)
     - [Recursos do Cache do Azure para Redis com capacidade reservada do Cache do Azure para Redis](../../azure-cache-for-redis/cache-reserved-pricing.md) Saiba mais sobre as reservas para planos de software:

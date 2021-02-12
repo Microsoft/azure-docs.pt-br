@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 0a56cfe8e282b7fb7e618dcadda5beff7c4e3f43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0cf6fc1b37064ef6193f35334711dcc5b8d01088
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825392"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200780"
 ---
 # <a name="deploy-spot-vms-using-a-resource-manager-template"></a>Implantar VMs Spot usando um modelo do Resource Manager
 
@@ -194,4 +194,4 @@ Você também pode criar uma VM Spot usando [Azure PowerShell](../windows/spot-p
 
 Consulte as informações de preços atuais usando a [API de preços de varejo do Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) para obter informações sobre preços especiais. O `meterName` e `skuName` os dois conterão `Spot` .
 
-Se você encontrar um erro, consulte [códigos de erro](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Se você encontrar um erro, consulte [códigos de erro](../error-codes-spot.md).

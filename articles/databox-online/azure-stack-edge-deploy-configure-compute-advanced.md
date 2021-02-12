@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 05/20/2019
+ms.date: 01/06/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro for advanced deployment flow so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: bcad165f5d0ba2cf652cff35091e05b4414193c8
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 8946dfca9a416009effb45cad1e81348dd900f98
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951784"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968076"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro-for-advanced-deployment-flow"></a>Tutorial: Transformar dados com o Azure Stack Edge Pro para o fluxo de implantação avançada
 
@@ -52,32 +52,34 @@ Antes de configurar uma função de computação em seu dispositivo Azure Stack 
 
 Para configurar a computação no Azure Stack Edge Pro, você criará um recurso do Hub IoT.
 
-1. No portal do Azure do recurso do Azure Stack Edge, acesse **Visão geral**. No painel direito, no bloco **Computação**, selecione **Introdução**.
+1. No portal do Azure do recurso do Azure Stack Edge, acesse **Visão geral**. No painel direito, selecione o bloco **IoT Edge**.
 
     ![Introdução à computação](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-1.png)
 
-2. No bloco **Configurar computação de borda**, selecione **Configurar computação**.
+2. No bloco **Habilitar o serviço IoT Edge**, selecione **Adicionar**. Essa ação habilita o serviço do IoT Edge que lhe permite implantar os módulos do IoT Edge localmente em seu dispositivo.
 
     ![Introdução à computação 2](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-2.png)
 
-3. Na folha **Configurar computação de borda**, insira o seguinte:
+3. Em **Criar serviço do IoT Edge**, insira o seguinte:
 
    
     |Campo  |Valor  |
     |---------|---------|
-    |Hub IoT     | Escolha **Novo** ou **Existente**. <br> Por padrão, uma camada Standard (S1) é usada para criar um recurso de IoT. Para usar um recurso de IoT de Camada gratuita, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso do Hub IoT usa a mesma assinatura e o mesmo grupo de recursos usados pelo recurso do Azure Stack Edge.     |
-    |Nome     |Insira um nome para o recurso do Hub IoT.         |
+    |Subscription     |Selecione uma assinatura para o recurso do Hub IoT. Você pode selecionar a mesma assinatura usada pelo recurso Azure Stack Edge.        |
+    |Grupo de recursos     |Insira um nome para o grupo de recursos para o recurso do Hub IoT. Você pode selecionar o mesmo grupo de recursos usado pelo recurso do Azure Stack Edge.         |
+    |Hub IoT     | Escolha **Novo** ou **Existente**. <br> Por padrão, uma camada Standard (S1) é usada para criar um recurso de IoT. Para usar um recurso de IoT de Camada gratuita, crie um e, em seguida, selecione o recurso existente.      |
+    |Nome     |Aceite o padrão ou insira um nome para o recurso do Hub IoT.         |
 
     ![Introdução à computação 3](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-3.png)
 
-4. Selecione **Criar**. A criação do recurso do Hub IoT leva alguns minutos. Depois que o recurso do Hub IoT for criado, o bloco **Configurar computação de borda** será atualizado para mostrar a configuração de computação. Para confirmar que a função de computação de borda foi configurada, selecione **Exibir configuração** no bloco **Configurar computação**.
-    
+4. Selecione **Examinar + criar**. A criação do recurso do Hub IoT leva alguns minutos. Depois da criação do recurso do Hub IoT, a **visão geral** é atualizada para indicar que o serviço IoT Edge está em execução. 
+
+    Quando o serviço de IoT Edge é configurado no dispositivo de borda, ele cria dois dispositivos: um dispositivo IoT e um dispositivo IoT Edge. Os dois dispositivos podem ser exibidos no recurso do Hub IoT. Um runtime do IoT Edge também está em execução no dispositivo do IoT Edge. No momento, somente a plataforma Linux está disponível para o dispositivo IoT Edge.
+
+    Para confirmar que a função de computação de borda foi configurada, selecione **Serviço IoT Edge > Propriedades** e veja o dispositivo IoT e o dispositivo IoT Edge. 
+
     ![Introdução à computação 4](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-4.png)
-
-    Quando a função de computação de borda está configurada no dispositivo de borda, são criados dois dispositivos: um dispositivo IoT e um dispositivo IoT Edge. Os dois dispositivos podem ser exibidos no recurso do Hub IoT. Um runtime do IoT Edge também está em execução no dispositivo do IoT Edge.
-
-    No momento, somente a plataforma Linux está disponível para o dispositivo IoT Edge.
-
+    
 
 ## <a name="add-shares"></a>Adicionar compartilhamentos
 
@@ -85,19 +87,13 @@ Para a implantação avançada neste tutorial, você precisará de dois comparti
 
 1. Adicione um compartilhamento do Microsoft Edge no dispositivo seguindo as seguintes etapas:
 
-    1. No recurso Azure Stack Edge, acesse **Computação de Borda > Introdução**.
-    2. No bloco **Adicionar compartilhamentos**, selecione **Adicionar**.
+    1. Em seu recurso do Azure Stack Edge, vá para **IoT Edge > Compartilhamentos**.
+    2. Na página **Compartilhamentos**, na barra de comandos, selecione **+ Adicionar compartilhamento**.
     3. Na folha **Adicionar compartilhamento**, forneça o nome do compartilhamento e selecione o tipo de compartilhamento.
     4. Para montar o compartilhamento do Microsoft Edge, marque a caixa de seleção **Usar o compartilhamento com a computação de borda**.
     5. Selecione a **Conta de armazenamento**, o **Serviço de armazenamento**, um usuário existente e, em seguida, selecione **Criar**.
 
         ![Adicionar um compartilhamento do Microsoft Edge](./media/azure-stack-edge-deploy-configure-compute-advanced/add-edge-share-1.png)
-
-    <!--If you created a local NFS share, use the following remote sync (rsync) command option to copy files onto the share:
-
-    `rsync <source file path> < destination file path>`
-
-    For more information about the rsync command, go to [Rsync documentation](https://www.computerhope.com/unix/rsync.htm).-->
 
     Após o compartilhamento do Edge ser criado, você receberá uma notificação de êxito na criação. A lista de compartilhamentos é atualizada para refletir o novo compartilhamento.
 
@@ -124,7 +120,7 @@ Para a implantação avançada neste tutorial, você precisará de dois comparti
 
 ## <a name="add-a-trigger"></a>Adicionar um gatilho
 
-1. Acesse **Computação de borda > Gatilhos**. Selecione **+ Adicionar gatilho**.
+1. Vá para o recurso do Azure Stack Edge e para **IoT Edge > Gatilhos**. Selecione **+ Adicionar gatilho**.
 
     ![Adicionar gatilho](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-1.png)
 
@@ -154,7 +150,7 @@ Não há módulos personalizados neste dispositivo do Edge. Você pode adicionar
 
 Nesta seção, você adiciona um módulo personalizado ao dispositivo do IoT Edge que foi criado em [Desenvolver um módulo em C# para o Azure Stack Edge Pro](azure-stack-edge-create-iot-edge-module.md). Esse módulo personalizado usa arquivos de um compartilhamento local do Microsoft Edge no dispositivo do Microsoft Edge e move-os para um compartilhamento do Microsoft Edge (nuvem) no dispositivo. O compartilhamento em nuvem então efetua o push dos arquivos para a conta de Armazenamento do Azure associada com o compartilhamento em nuvem.
 
-1. Acesse **Computação de borda > Introdução**. No bloco **Adicionar módulos**, selecione o tipo de cenário como **avançado**. Selecione **Ir para o Hub IoT**.
+1. Vá para o recurso do Azure Stack Edge e para **IoT Edge > Visão geral**. No bloco **Módulos**, selecione **Ir para Hub IoT do Azure**.
 
     ![Selecionar a implantação avançada](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-1.png)
 

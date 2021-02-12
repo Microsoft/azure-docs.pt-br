@@ -8,16 +8,16 @@ metadata:
   ms.service: active-directory
   ms.subservice: authentication
   ms.topic: landing-page
-  author: MicrosoftGuyJFlo
-  ms.author: joflore
+  author: justinha
+  ms.author: justinha
   ms.date: 02/11/2020
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 17775be39e534d0825596973452dabc13054ee8d
-  ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+  ms.openlocfilehash: 5cec477161aa9a54e3338bdadc1823715e1f9488
+  ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/13/2020
-  ms.locfileid: "91968218"
+  ms.lasthandoff: 12/06/2020
+  ms.locfileid: "96741432"
 landingContent:
 - title: Sobre autenticação
   linkLists:
@@ -51,21 +51,21 @@ landingContent:
       url: howto-sspr-deployment.md
     - text: Habilitar redefinição de senha da tela de logon do Windows
       url: howto-sspr-windows.md
-- title: Habilitar a Autenticação Multifator do Microsoft Azure
+- title: Habilitar a Autenticação Multifator do Azure AD
   linkLists:
   - linkListType: concept
     links:
-    - text: Como funciona a Autenticação Multifator do Azure
+    - text: Como a Autenticação Multifator do Azure AD funciona
       url: concept-mfa-howitworks.md
   - linkListType: tutorial
     links:
-    - text: Habilitar a Autenticação Multifator do Microsoft Azure
+    - text: Habilitar a Autenticação Multifator do Azure AD
       url: tutorial-enable-azure-mfa.md
-    - text: Habilitar Autenticação Multifator do Azure baseada em risco
+    - text: Habilitar a Autenticação Multifator do Azure AD baseada em risco
       url: tutorial-risk-based-sspr-mfa.md
   - linkListType: deploy
     links:
-    - text: Guia de implantação para da Autenticação Multifator do Azure
+    - text: Guia de implantação para a Autenticação Multifator do Azure AD
       url: howto-mfa-getstarted.md
     - text: Usar a extensão do NPS para integrar aplicativos locais
       url: howto-mfa-nps-extension.md

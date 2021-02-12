@@ -1,24 +1,15 @@
 ---
 title: Criar e compartilhar painéis no Portal do Azure
 description: Este artigo descreve como criar, personalizar, publicar e compartilhar painéis no portal do Azure.
-services: azure-portal
-documentationcenter: ''
-author: sewatson
-manager: mtillman
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
-ms.service: azure-portal
-ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 03/23/2020
-ms.author: mblythe
-ms.openlocfilehash: b4241e51f186ea973702562ab27bb7f13a77de57
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 10c322c9d9d18f7b79a4419bd9efa2e366a5b7c3
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089478"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745818"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Criar e compartilhar painéis no Portal do Azure
 
@@ -40,7 +31,7 @@ Neste exemplo, criamos um novo painel privado e atribuímos um nome. Siga estas 
 
     ![Captura de tela do novo painel](./media/azure-portal-dashboards/create-new-dashboard.png)
 
-    Essa ação abre a **Galeria**de blocos, na qual você selecionará blocos e uma grade vazia na qual você organizará os blocos.
+    Essa ação abre a **Galeria** de blocos, na qual você selecionará blocos e uma grade vazia na qual você organizará os blocos.
 
     ![Captura de tela da Galeria de blocos e da grade vazia](./media/azure-portal-dashboards/dashboard-name.png)
 
@@ -142,7 +133,7 @@ Para usar um painel existente como modelo para um novo painel, siga estas etapas
 
 ## <a name="publish-and-share-a-dashboard"></a>Publicar e compartilhar um painel
 
-Quando você cria um painel, ele é privado por padrão, o que significa que você é o único que pode vê-lo. Para disponibilizar os painéis para outras pessoas, você pode publicá-los e compartilhá-los. Para obter mais informações, consulte [compartilhar painéis do Azure usando o controle de acesso baseado em função do Azure](azure-portal-dashboard-share-access.md).
+Quando você cria um painel, ele é privado por padrão, o que significa que você é o único que pode vê-lo. Para disponibilizar os painéis para outras pessoas, você pode publicá-los e compartilhá-los. Para obter mais informações, confira [Compartilhar painéis do Azure usando o controle de acesso baseado em função do Azure](azure-portal-dashboard-share-access.md).
 
 ### <a name="open-a-shared-dashboard"></a>Abrir um painel compartilhado
 

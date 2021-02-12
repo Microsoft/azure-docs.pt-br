@@ -8,18 +8,18 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 11/16/2020
 ms.author: juliako
-ms.openlocfilehash: 6eecaaff836d3253d382fdf0280f9a15c3a7b00b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf48f873127a12c3cabb28da33d34cedcda2793b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89050855"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831559"
 ---
 # <a name="examine-the-video-indexer-output"></a>Examinar a saída de Video Indexer
 
-Quando um vídeo é indexado, Video Indexer poduces o conteúdo JSON que contém detalhes das informações de vídeo especificadas. As informações incluem: transcrições, OCRs, rostos, tópicos, blocos, etc. Cada tipo de insight inclui instâncias de intervalos de tempo que mostram quando a Insight é exibida no vídeo. 
+Quando um vídeo é indexado, Video Indexer produz o conteúdo JSON que contém detalhes das informações de vídeo especificadas. As informações incluem: transcrições, OCRs, rostos, tópicos, blocos, etc. Cada tipo de insight inclui instâncias de intervalos de tempo que mostram quando a Insight é exibida no vídeo. 
 
 Você pode examinar visualmente as ideias resumidas do vídeo pressionando o botão **reproduzir** no vídeo no site [Video indexer](https://www.videoindexer.ai/) . 
 
@@ -187,6 +187,7 @@ Uma face pode ter uma ID, um nome, uma miniatura, outros metadados e uma lista d
 |textualContentModeration|O [textualContentModeration](#textualcontentmoderation) Insight.|
 |emotions| As [emoções](#emotions) insights.|
 |topics|Os [Tópicos](#topics) insights.|
+|alto-falantes|Os [oradores](#speakers) insights.|
 
 Exemplo:
 
@@ -221,37 +222,46 @@ instances|Uma lista de intervalos de tempo deste bloco.|
 |Nome|Descrição|
 |---|---|
 |id|A ID da linha.|
-|text|A própria transcrição.|
+|texto|A própria transcrição.|
+|confidence|A confiança de precisão da transcrição.|
+|palestraid|A ID do orador.|
 |Linguagem|O idioma da transcrição. Tem o objetivo dar suporte à transcrição na qual cada linha pode ter um idioma diferente.|
 |instances|Uma lista com os intervalos de tempo nos quais essa linha apareceu. Se a instância for transcrita, ela terá apenas 1 instância.|
 
 Exemplo:
 
 ```json
-"transcript": [
+"transcript":[
 {
-    "id": 0,
-    "text": "Hi I'm Doug from office.",
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:00.5100000",
-        "end": "00:00:02.7200000"
-    }
-    ]
+  "id":1,
+  "text":"Well, good morning everyone and welcome to",
+  "confidence":0.8839,
+  "speakerId":1,
+  "language":"en-US",
+  "instances":[
+     {
+    "adjustedStart":"0:00:10.21",
+    "adjustedEnd":"0:00:12.81",
+    "start":"0:00:10.21",
+    "end":"0:00:12.81"
+     }
+  ]
 },
 {
-    "id": 1,
-    "text": "I have a guest. It's Michelle.",
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:02.7200000",
-        "end": "00:00:03.9600000"
-    }
-    ]
-}
-] 
+  "id":2,
+  "text":"ignite 2016. Your mission at Microsoft is to empower every",
+  "confidence":0.8944,
+  "speakerId":2,
+  "language":"en-US",
+  "instances":[
+     {
+    "adjustedStart":"0:00:12.81",
+    "adjustedEnd":"0:00:17.03",
+    "start":"0:00:12.81",
+    "end":"0:00:17.03"
+     }
+  ]
+},
 ```
 
 #### <a name="ocr"></a>ocr
@@ -259,7 +269,7 @@ Exemplo:
 |Nome|Descrição|
 |---|---|
 |id|A ID da linha de OCR.|
-|text|O texto de OCR.|
+|texto|O texto de OCR.|
 |confidence|A confiança do reconhecimento.|
 |Linguagem|O idioma do OCR.|
 |instances|Uma lista de intervalos de tempo nos quais essa OCR apareceu (o mesmo OCR pode aparecer várias vezes).|
@@ -294,7 +304,7 @@ Exemplo:
 |Nome|Descrição|
 |---|---|
 |id|A ID da palavra-chave.|
-|text|O texto da palavra-chave.|
+|texto|O texto da palavra-chave.|
 |confidence|A confiança do reconhecimento da palavra-chave.|
 |Linguagem|O idioma da palavra-chave (quando traduzida).|
 |instances|Uma lista de intervalos de tempo nos quais essa palavra-chave apareceu (uma palavra-chave pode aparecer várias vezes).|
@@ -585,7 +595,7 @@ Nomes de marcas comerciais e de produtos detectados na fala para transcrição d
 |Nome|Descrição|
 |---|---|
 |id|A ID do efeito de áudio.|
-|type|O tipo de efeito de áudio (por exemplo, Palmas, Fala, Silêncio).|
+|tipo|O tipo de efeito de áudio (por exemplo, Palmas, Fala, Silêncio).|
 |instances|Uma lista com os intervalos de tempo nos quais esse efeito de áudio apareceu.|
 
 ```json
@@ -699,7 +709,7 @@ Video Indexer identifica emoções com base em indicações de fala e áudio. A 
 |Nome|Descrição|
 |---|---|
 |id|A ID da emoção.|
-|type|O momento de emoção que foi identificado com base nas indicações de fala e áudio. A emoção poderia ser: alegria, tristeza, raiva ou medo.|
+|tipo|O momento de emoção que foi identificado com base nas indicações de fala e áudio. A emoção poderia ser: alegria, tristeza, raiva ou medo.|
 |instances|Uma lista de intervalos de tempo nos quais essa emoção apareceu.|
 
 ```json
@@ -827,6 +837,42 @@ O Video Indexer faz inferências dos principais tópicos das transcrições. Qua
 . . .
 ```
 
+#### <a name="speakers"></a>alto-falantes
+
+|Nome|Descrição|
+|---|---|
+|id|A ID do orador.|
+|name|O nome do orador no formato "palestrante # *<number>* ", por exemplo: "viva-voz #1".|
+|instances |Uma lista de intervalos de tempo onde este orador apareceu.|
+
+```json
+"speakers":[
+{
+  "id":1,
+  "name":"Speaker #1",
+  "instances":[
+     {
+    "adjustedStart":"0:00:10.21",
+    "adjustedEnd":"0:00:12.81",
+    "start":"0:00:10.21",
+    "end":"0:00:12.81"
+     }
+  ]
+},
+{
+  "id":2,
+  "name":"Speaker #2",
+  "instances":[
+     {
+    "adjustedStart":"0:00:12.81",
+    "adjustedEnd":"0:00:17.03",
+    "start":"0:00:12.81",
+    "end":"0:00:17.03"
+     }
+  ]
+},
+` ` `
+```
 ## <a name="next-steps"></a>Próximas etapas
 
 [Portal do Desenvolvedor do Video Indexer](https://api-portal.videoindexer.ai)

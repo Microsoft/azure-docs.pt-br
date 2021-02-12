@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: videor, jeevanb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d681eba53aa85fe5df05f8404bcddb7c6877477
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 6d4dd6e64053af41d66e3accbb7fc9b21d951fc6
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992791"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860206"
 ---
 # <a name="conditional-access-programmatic-access"></a>Acesso condicional: acesso programático
 
@@ -78,7 +78,7 @@ Automatize o backup e a restauração de políticas de acesso condicional com ap
 
 ### <a name="emergency-access-accounts"></a>Contas de acesso de emergência
 
-Vários administradores podem criar políticas de acesso condicional e podem esquecer de adicionar suas [contas de acesso de emergência](../users-groups-roles/directory-emergency-access.md) como uma exclusão para essas políticas. Este exemplo garante que todas as políticas sejam atualizadas para incluir suas contas de acesso de emergência designadas.
+Vários administradores podem criar políticas de acesso condicional e podem esquecer de adicionar suas [contas de acesso de emergência](../roles/security-emergency-access.md) como uma exclusão para essas políticas. Este exemplo garante que todas as políticas sejam atualizadas para incluir suas contas de acesso de emergência designadas.
 
 - [Gerenciar a atribuição de contas de acesso de emergência a políticas de acesso condicional usando chamadas à API de Microsoft Graph](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/05-manage/02-emergency-access)
 
@@ -96,6 +96,6 @@ Esses exemplos estão disponíveis em nosso [repositório GitHub](https://github
 
 - [Visão geral do Microsoft Graph](/graph/overview)
 
-- [API de acesso condicional](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-1.0)
+- [API de acesso condicional](/graph/api/resources/conditionalaccesspolicy)
 
-- [API de localização nomeada](/graph/api/resources/namedlocation?view=graph-rest-1.0)
+- [API de localização nomeada](/graph/api/resources/namedlocation)

@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: c300faf33f57518d26f82234bdff94a37235cd66
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2d65889a841655fe27994d3855f30f7a7e20e1ed
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275792"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647589"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como fazer: personalizar declarações emitidas em tokens para um aplicativo específico em um locatário (versão prévia)
 
@@ -239,6 +239,9 @@ Há determinados conjuntos de declarações que definem como e quando elas são 
 
 Para controlar quais declarações são emitidas e o local em que os dados são originados, use as propriedades de uma política de mapeamento de declarações. Se uma política não for definida, o sistema emitirá tokens que incluam o conjunto de declarações principais, o conjunto de declarações básicas e quaisquer [declarações adicionais](active-directory-optional-claims.md) que o aplicativo optou por receber.
 
+> [!NOTE]
+> As declarações no conjunto de declarações de núcleo estão presentes em todos os tokens, independentemente de como essa propriedade estiver definida.
+
 ### <a name="include-basic-claim-set"></a>Incluir um conjunto de declarações básicas
 
 **Cadeia de caracteres:** IncludeBasicClaimSet
@@ -250,8 +253,7 @@ Para controlar quais declarações são emitidas e o local em que os dados são 
 - Se definido como True, todas as declarações no conjunto de declarações básicas serão emitidas nos tokens afetados pela política.
 - Se definido como False, as declarações no conjunto de declarações básicas não estarão nos tokens, a menos sejam adicionadas individualmente na propriedade de esquema de declarações da mesma política.
 
-> [!NOTE]
-> As declarações no conjunto de declarações de núcleo estão presentes em todos os tokens, independentemente de como essa propriedade estiver definida.
+
 
 ### <a name="claims-schema"></a>Esquema de declarações
 
@@ -260,7 +262,7 @@ Para controlar quais declarações são emitidas e o local em que os dados são 
 **Tipo de dados:** blob JSON com uma ou mais entradas de esquema de declaração
 
 **Resumo:** essa propriedade define quais declarações estão presentes nos tokens afetados pela política, além do conjunto de declarações básicas e do conjunto de declarações principais.
-Para cada entrada de esquema de declaração definida nesta propriedade, certas informações são necessárias. Especifique de onde os dados serão provenientes (**valor**, **par de origem/ID**ou par de **origem/extensão**) e quais declarações os dados são emitidos como (**tipo de declaração**).
+Para cada entrada de esquema de declaração definida nesta propriedade, certas informações são necessárias. Especifique de onde os dados serão provenientes (**valor**, **par de origem/ID** ou par de **origem/extensão**) e quais declarações os dados são emitidos como (**tipo de declaração**).
 
 ### <a name="claim-schema-entry-elements"></a>Elementos de entrada do esquema de declaração
 
@@ -439,8 +441,7 @@ Políticas de mapeamento de declarações podem ser atribuídas somente a objeto
 
 No Azure AD, muitos cenários são possíveis quando você pode personalizar as declarações emitidas em tokens para entidades de serviço específicas. Nesta seção, percorremos alguns cenários comuns que podem ajudá-lo a entender como usar o tipo de política de mapeamento de declarações.
 
-> [!NOTE]
-> Ao criar uma política de mapeamento de declarações, você também pode emitir uma declaração de um atributo de extensão de esquema de diretório em tokens. Use *ExtensionId* para o atributo de extensão em vez de *ID* no `ClaimsSchema` elemento.  Para obter mais informações sobre atributos de extensão, consulte [usando atributos de extensão de esquema de diretório](active-directory-schema-extensions.md).
+Ao criar uma política de mapeamento de declarações, você também pode emitir uma declaração de um atributo de extensão de esquema de diretório em tokens. Use *ExtensionId* para o atributo de extensão em vez de *ID* no `ClaimsSchema` elemento.  Para obter mais informações sobre atributos de extensão, consulte [usando atributos de extensão de esquema de diretório](active-directory-schema-extensions.md).
 
 #### <a name="prerequisites"></a>Pré-requisitos
 

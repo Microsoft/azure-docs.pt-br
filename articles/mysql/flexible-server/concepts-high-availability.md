@@ -1,17 +1,17 @@
 ---
 title: Visão geral de alta disponibilidade com redundância de zona com o banco de dados do Azure para MySQL servidor flexível
 description: Saiba mais sobre os conceitos de alta disponibilidade com redundância de zona com o banco de dados do Azure para MySQL servidor flexível
-author: kummanish
-ms.author: manishku
+author: ambhatna
+ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: 9db5776a4d2395baf03a5ed7cf05db49de8d0321
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/29/2021
+ms.openlocfilehash: f01a0869f7786ee6197835610456f4bb1cbd6b03
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932850"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097110"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Conceitos de alta disponibilidade no banco de dados do Azure para MySQL servidor flexível (versão prévia)
 
@@ -48,7 +48,7 @@ Aqui estão algumas vantagens para usar o recurso de HA de redundância de zona:
 -   A réplica em espera será implantada em uma configuração de VM exata como a do primário, como vCores, armazenamento, configurações de rede (VNET, firewall) etc.
 -   Capacidade de remover a réplica em espera desabilitando a alta disponibilidade.
 -   Os backups automáticos são baseados em instantâneo, executados do servidor de banco de dados primário e armazenados em um armazenamento com redundância de zona.
--   Se houver um evento de failover, uma nova réplica em espera será provisionada na zona de disponibilidade primária original.
+-   No caso de failover, o banco de dados do Azure para MySQL servidor flexível fará o failover automático para a réplica em espera se a alta disponibilidade estiver habilitada. A configuração de alta disponibilidade monitorará o servidor primário e o colocará online novamente.
 -   Os clientes sempre se conectam ao servidor de banco de dados primário.
 -   Se houver uma falha de banco de dados ou de nó, a reinicialização será tentada primeiro no mesmo nó. Se isso falhar, o failover automático será disparado.
 -   Capacidade de reiniciar o servidor para selecionar qualquer alteração de parâmetro de servidor estático.
@@ -100,5 +100,5 @@ Aqui estão algumas considerações para ter em mente quando você usa alta disp
 ## <a name="next-steps"></a>Próximas etapas
 
 -   Saiba mais sobre a [continuidade dos negócios](./concepts-business-continuity.md)
--   Saiba mais sobre [alta disponibilidade redundante de zona](./concepts-high-availability.md)
+-   Saiba mais sobre [alta disponibilidade redundante de zona](./concepts-high-availability.md)
 -   Saiba mais sobre [backup e recuperação](./concepts-backup-restore.md)

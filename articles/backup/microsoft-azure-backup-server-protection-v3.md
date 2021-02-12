@@ -3,12 +3,12 @@ title: O que o Servidor de Backup do Azure v3 RTM pode fazer backup
 description: Este artigo fornece uma matriz de proteção que lista todas as cargas de trabalho, tipos de dados e instalações que o backup do Azure serve para a versão v3 RTM.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 21c5fbcdf8aa3454a9af968509cb4cbf76b31f9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ec8240844061b9b250a3cbf92ffcc5f2b3f474b
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88763602"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986880"
 ---
 # <a name="azure-backup-server-v3-rtm-protection-matrix"></a>Matriz de proteção RTM do Servidor de Backup do Azure v3
 
@@ -78,7 +78,7 @@ A matriz a seguir lista o que pode ser protegido com o Servidor de Backup do Azu
 |Host Hyper-V-agente de proteção MABS no servidor host do Hyper-V, cluster ou VM|Windows Server 2008 SP2|Servidor físico<br /><br />Máquina virtual do Hyper-V local|Sem suporte|Protege: computadores Hyper-V, volumes compartilhados do cluster (CSVs)<br /><br />Recupera: máquina virtual, recuperação em nível de Item de arquivos e pastas, volumes e discos rígidos virtuais|
 |VMs do VMware|VMware vCenter/vSphere ESX/ESXi licenciado versão 5.5/6.0/6.5 |Servidor físico, <br/>VM do Hyper-V local, <br/> VM do Windows no VMware|V3, V2|VMs do VMware em CSVs (volumes compartilhados de cluster), NFS e armazenamento SAN<br /> A recuperação no nível de item de arquivos e pastas está disponível somente para VMs do Windows; não há suporte para vApps do VMware.|
 |VMs do VMware|[VMware vSphere versão licenciada 6,7](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |Servidor físico, <br/>VM do Hyper-V local, <br/> VM do Windows no VMware|V3|VMs do VMware em CSVs (volumes compartilhados de cluster), NFS e armazenamento SAN<br /> A recuperação no nível de item de arquivos e pastas está disponível somente para VMs do Windows; não há suporte para vApps do VMware.|
-|Linux|Linux em execução como convidado de Hyper-V ou VMware|Servidor físico, <br/>VM do Hyper-V local, <br/> VM do Windows no VMware|V3, V2|O Hyper-V deve estar em execução no Windows Server 2012 R2 ou Windows Server 2016. Protege: a máquina virtual inteira<br /><br />Recupera: a máquina virtual inteira <br/><br/> Somente os instantâneos consistentes de arquivos têm suporte. <br/><br/> Para obter uma lista completa de versões e distribuições Linux com suporte, consulte o artigo [Linux em distribuições aprovadas pelo Azure](../virtual-machines/linux/endorsed-distros.md).|
+|Linux|Linux em execução como [Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) ou convidado do [VMware](backup-azure-backup-server-vmware.md)|Servidor físico, <br/>VM do Hyper-V local, <br/> VM do Windows no VMware|V3, V2|O Hyper-V deve estar em execução no Windows Server 2012 R2 ou Windows Server 2016. Protege: a máquina virtual inteira<br /><br />Recupera: a máquina virtual inteira <br/><br/> Somente os instantâneos consistentes de arquivos têm suporte. <br/><br/> Para obter uma lista completa de versões e distribuições Linux com suporte, consulte o artigo [Linux em distribuições aprovadas pelo Azure](../virtual-machines/linux/endorsed-distros.md).|
 
 ## <a name="azure-expressroute-support"></a>Suporte do Azure ExpressRoute
 
@@ -86,11 +86,16 @@ Você pode fazer backup dos dados por meio do Azure ExpressRoute com o emparelha
 
 Com o emparelhamento público: Verifique o acesso aos seguintes domínios/endereços:
 
-* `http://www.msftncsi.com/ncsi.txt`
-* `microsoft.com`
-* `.WindowsAzure.com`
-* `.microsoftonline.com`
-* `.windows.net`
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Endereços IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 Com o emparelhamento da Microsoft, selecione os seguintes serviços/regiões e os valores de comunidade relevantes:
 

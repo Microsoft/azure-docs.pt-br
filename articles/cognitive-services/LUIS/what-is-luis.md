@@ -5,14 +5,14 @@ keywords: Azure, inteligência artificial, ia, processamento de linguagem natura
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 09/02/2020
+ms.date: 11/23/2020
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 242d131e79966ebdb286a20f75d20f91f5fa7406
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f21a2cc8218dde8b0cf7203a1fcb1f5cfb9424a2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91334643"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790860"
 ---
 # <a name="what-is-language-understanding-luis"></a>O que é Reconhecimento Vocal (LUIS)?
 
@@ -50,7 +50,7 @@ O [LUIS fornece IA (inteligência artificial)](artificial-intelligence.md "O LUI
 
 Um aplicativo LUIS contém um modelo de linguagem natural de domínio específico. Você pode iniciar o aplicativo LUIS com um modelo de domínio predefinido, criar seu próprio modelo ou combinar partes de um domínio predefinido com suas próprias informações personalizadas.
 
-* **Modelo predefinido** LUIS tem muitos modelos de domínio que incluem intenções, expressões e entidades predefinidas. Você pode usar as entidades predefinidas sem a necessidade de usar as intenções e expressões do modelo predefinido. [Modelos de domínio predefinidos](luis-how-to-use-prebuilt-domains.md "Modelos de domínio predefinidos") incluem todo o design para você e são uma ótima maneira de começar a usar o LUIS rapidamente.
+* **Modelo predefinido** LUIS tem muitos modelos de domínio que incluem intenções, expressões e entidades predefinidas. Você pode usar as entidades predefinidas sem a necessidade de usar as intenções e expressões do modelo predefinido. [Modelos de domínio predefinidos](./howto-add-prebuilt-models.md "Modelos de domínio predefinidos") incluem todo o design para você e são uma ótima maneira de começar a usar o LUIS rapidamente.
 
 * **O modelo personalizado** LUIS oferece várias maneiras de identificar seus próprios modelos personalizados, incluindo intenções e entidades. As entidades incluem entidades de aprendizado de máquina, entidades específicas ou literais e uma combinação de aprendizado de máquina e literal.
 
@@ -66,7 +66,7 @@ Projete seu modelo com as categorias de intenções de usuário chamadas **[inte
 |`When does your store open?`|StoreHoursAndLocation|Abrir|
 |`Schedule a meeting at 1pm with Bob in Distribution`|ScheduleMeeting|13h, Bob|
 
-Crie o modelo com as APIs de [criação](https://go.microsoft.com/fwlink/?linkid=2092087 "criação"), o **[portal do LUIS](https://www.luis.ai "Portal do LUIS")** ou ambos. Saiba mais sobre como criar um modelo com o [portal](get-started-portal-build-app.md "portal") e as [bibliotecas de clientes do SDK](azure-sdk-quickstart.md "Bibliotecas de cliente do SDK").
+Crie o modelo com as APIs de [criação](https://go.microsoft.com/fwlink/?linkid=2092087 "criação"), o **[portal do LUIS](https://www.luis.ai "Portal do LUIS")** ou ambos. Saiba mais sobre como criar um modelo com o [portal](get-started-portal-build-app.md "portal") e as [bibliotecas de clientes do SDK](./client-libraries-rest-api.md?pivots=rest-api "Bibliotecas de cliente do SDK").
 
 ## <a name="step-2-get-the-query-prediction"></a>Etapa 2: Obter a previsão da consulta
 
@@ -116,7 +116,7 @@ Ferramentas para usar o LUIS com um bot de modo rápido e fácil:
 
 ## <a name="integrate-with-a-bot"></a>Integração a um bot
 
-Use o [Serviço de Bot do Azure](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0 "Serviço de Bot do Azure") com o [Microsoft Bot Framework](https://dev.botframework.com/ "Microsoft Bot Framework") para criar e implantar um chatbot. Projete e desenvolva bots com a ferramenta de interface gráfica [Composer](https://docs.microsoft.com/composer/ "Compositor") ou os [exemplos de bots funcionais](https://github.com/microsoft/BotBuilder-Samples "exemplos de bot de trabalho") projetados para os principais cenários de bots.
+Use o [Serviço de Bot do Azure](/azure/bot-service/ "Serviço de Bot do Azure") com o [Microsoft Bot Framework](https://dev.botframework.com/ "Microsoft Bot Framework") para criar e implantar um chatbot. Projete e desenvolva bots com a ferramenta de interface gráfica [Composer](/composer/ "Compositor") ou os [exemplos de bots funcionais](https://github.com/microsoft/BotBuilder-Samples "exemplos de bot de trabalho") projetados para os principais cenários de bots.
 
 ## <a name="integrate-with-other-cognitive-services"></a>Integração a outros Serviços Cognitivos
 
@@ -128,8 +128,12 @@ O LUIS fornece a funcionalidade de Análise de Texto como parte dos recursos exi
 
 ## <a name="learn-with-the-quickstarts"></a>Saiba mais com os guias de início rápido
 
-Saiba mais sobre o LUIS com guias de início rápido práticos usando o [portal](get-started-portal-build-app.md "portal") e as [bibliotecas de clientes do SDK](azure-sdk-quickstart.md "bibliotecas de cliente do SDK").
+Saiba mais sobre o LUIS com guias de início rápido práticos usando o [portal](get-started-portal-build-app.md "portal") e as [bibliotecas de clientes do SDK](./client-libraries-rest-api.md?pivots=rest-api "bibliotecas de cliente do SDK").
 
+
+## <a name="deploy-on-premises-using-docker-containers"></a>Implantação local usando contêineres do Docker
+
+[Use os contêineres do LUIS](luis-container-howto.md) para implantar recursos de API no local. Esses contêineres do Docker permitem que você aproxime o serviço dos seus dados para fins de conformidade, segurança ou outras razões operacionais.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -138,8 +142,8 @@ Saiba mais sobre o LUIS com guias de início rápido práticos usando o [portal]
 * [Consulte o ponto de extremidade de previsão](luis-get-started-get-intent-from-browser.md "Consulte o ponto de extremidade de previsão").
 * [Recursos para desenvolvedores](developer-reference-resource.md "Recursos para desenvolvedores") para LUIS.
 
-[bot-framework]: https://docs.microsoft.com/bot-framework/
-[flow]: https://docs.microsoft.com/connectors/luis/
+[bot-framework]: /bot-framework/
+[flow]: /connectors/luis/
 [authoring-apis]: https://go.microsoft.com/fwlink/?linkid=2092087
 [endpoint-apis]: https://go.microsoft.com/fwlink/?linkid=2092356
 [qnamaker]: https://qnamaker.ai/

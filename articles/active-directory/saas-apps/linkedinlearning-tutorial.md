@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 20d505174b159365f23209942385a4d7078af079
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: e5c6bf41e1a3bf92c9141c0d3b54dd58ead2bf3c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458482"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98727287"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-linkedin-learning"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao LinkedIn Learning
 
@@ -25,8 +25,6 @@ Neste tutorial, você aprenderá a integrar o LinkedIn Learning ao Azure AD (Azu
 * Controlar no Azure AD quem tem acesso ao LinkedIn Learning.
 * Permitir que os usuários sejam conectados automaticamente ao LinkedIn Learning com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
-
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,25 +39,25 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 
 * O LinkedIn Learning é compatível com SSO iniciado por **SP e IDP**
 * O LinkedIn Learning dá suporte ao provisionamento de usuário **Just-In-Time**
-* Após configurar o LinkedIn Learning, você poderá impor controles de sessão, que protegem contra o vazamento e a infiltração de dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
+
 
 ## <a name="adding-linkedin-learning-from-the-gallery"></a>Adicionando o LinkedIn Learning da galeria
 
 Para configurar a integração do LinkedIn Learning com o Azure AD, é necessário adicionar o LinkedIn Learning da galeria à sua lista de aplicativos SaaS gerenciados.
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory** .
-1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos** .
-1. Para adicionar um novo aplicativo, escolha **Novo aplicativo** .
-1. Na seção **Adicionar por meio da galeria** , digite **LinkedIn Learning** na caixa de pesquisa.
+1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
+1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
+1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
+1. Na seção **Adicionar por meio da galeria**, digite **LinkedIn Learning** na caixa de pesquisa.
 1. Selecione **LinkedIn Learning** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-linkedin-learning"></a>Configurar e testar o logon único do Azure AD para o LinkedIn Learning
+## <a name="configure-and-test-azure-ad-sso-for-linkedin-learning"></a>Configurar e testar o SSO do Azure AD para o LinkedIn Learning
 
-Configure e teste o SSO do Azure AD com o LinkedIn Learning usando um usuário de teste chamado **B.Fernandes** . Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no LinkedIn Learning.
+Configure e teste o SSO do Azure AD com o LinkedIn Learning usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no LinkedIn Learning.
 
-Para configurar e testar o SSO do Azure AD com o LinkedIn Learning, conclua os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o LinkedIn Learning, execute as seguintes etapas:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
     1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
@@ -72,19 +70,19 @@ Para configurar e testar o SSO do Azure AD com o LinkedIn Learning, conclua os s
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **LinkedIn Learning** , localize a seção **Gerenciar** e selecione **Logon único** .
-1. Na página **Selecionar um método de logon único** , escolha **SAML** .
-1. Na página **Configurar o logon único com o SAML** , clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. No portal do Azure, na página de integração de aplicativos do **LinkedIn Learning**, localize a seção **Gerenciar** e selecione **logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica do SAML** , caso deseje configurar o aplicativo no modo iniciado por **IDP** , digite os valores dos seguintes campos:
+1. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IDP**, digite os valores dos seguintes campos:
 
-     a. Na caixa de texto **Identificador** , insira a **ID da Entidade** copiada do Portal do LinkedIn. 
+     a. Na caixa de texto **Identificador**, insira a **ID da Entidade** copiada do Portal do LinkedIn. 
 
-    b. Na caixa de texto **URL de resposta** , insira o **URL do serviço de consumidor de afirmações (ACS)** copiado do portal do LinkedIn.
+    b. Na caixa de texto **URL de resposta**, insira o **URL do serviço de consumidor de afirmações (ACS)** copiado do portal do LinkedIn.
 
-    c. Se você quiser configurar o aplicativo no modo **iniciado por SP** , clique na opção **Definir URLs adicionais** na seção **Configuração Básica do SAML** em que você especificará a URL de logon. Para criar sua URL de login, copie o **URL do Serviço de consumidor de afirmações (ACS)** e substitua / saml / por / login /. Depois disso, o URL de conexão deve ter o seguinte padrão:
+    c. Se você quiser configurar o aplicativo no modo **iniciado por SP**, clique na opção **Definir URLs adicionais** na seção **Configuração Básica do SAML** em que você especificará a URL de logon. Para criar sua URL de login, copie o **URL do Serviço de consumidor de afirmações (ACS)** e substitua / saml / por / login /. Depois disso, o URL de conexão deve ter o seguinte padrão:
 
     `https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=learning&applicationInstanceId=<InstanceId>`
 
@@ -93,15 +91,15 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     > [!NOTE]
     > Esses valores não são reais. Você atualizará esses valores com o Identificador e a URL de Resposta reais, que será explicado mais adiante na seção **Configurar o SSO do LinkedIn Learning** do tutorial.
 
-1. O aplicativo LinkedIn Learning espera as declarações SAML em um formato específico, o que exige a adição de mapeamentos de atributo personalizado à configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão, em que **nameidentifier** é mapeado com **user.userprincipalname** . O aplicativo LinkedIn Learning espera que **nameidentifier** seja mapeado com **user.mail** . Portanto, você precisa editar o mapeamento de atributo clicando no ícone **Editar** e alterar o mapeamento de atributo.
+1. O aplicativo LinkedIn Learning espera as declarações SAML em um formato específico, o que exige a adição de mapeamentos de atributo personalizado à configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão, em que **nameidentifier** é mapeado com **user.userprincipalname**. O aplicativo LinkedIn Learning espera que **nameidentifier** seja mapeado com **user.mail**. Portanto, você precisa editar o mapeamento de atributo clicando no ícone **Editar** e alterar o mapeamento de atributo.
 
     ![image](common/edit-attribute.png)
 
-1. Na página **Configurar o logon único com o SAML** , na seção **Certificado de Autenticação SAML** , localize **XML de Metadados de Federação** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **XML de Metadados de Federação** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-1. Na seção **Configurar o LinkedIn Learning** , copie as URLs apropriadas de acordo com suas necessidades.
+1. Na seção **Configurar o LinkedIn Learning**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -109,37 +107,31 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários** .
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário** , siga estas etapas:
-   1. No campo **Nome** , insira `B.Simon`.  
-   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha** .
-   1. Clique em **Criar** .
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que B.Fernandes use o logon único do Azure permitindo acesso ao LinkedIn Learning.
 
-1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos** .
-1. Na lista de aplicativos, selecione **LinkedIn Learning** .
-1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos** .
-
-   ![O link “Usuários e grupos”](common/users-groups-blade.png)
-
-1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
-
-    ![O link Adicionar Usuário](common/add-assign-user.png)
-
-1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. Na lista de aplicativos, selecione **LinkedIn Learning**.
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
+1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-linkedin-learning-sso"></a>Configurar o SSO do LinkedIn Learning
 
 1. Em uma janela diferente do navegador da Web, faça logon em seu locatário do LinkedIn Learning como administrador.
 
-2. Em **Centro de Contas** , clique em **Configurações Globais** em **Configurações** . Além disso, selecione **Learning – Padrão** na lista suspensa.
+2. Em **Centro de Contas**, clique em **Configurações Globais** em **Configurações**. Além disso, selecione **Learning – Padrão** na lista suspensa.
 
     ![A captura de tela mostra as Configurações Globais em que você pode selecionar Padrão.](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_01.png)
 
@@ -147,7 +139,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
     ![A captura de tela mostra o Logon Único em que você pode inserir os valores descritos.](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
 
-4. Vá para a seção **Configurações de administração do LinkedIn** . Carregue o arquivo XML que você baixou do Portal do Azure clicando na opção **Carregar o arquivo XML** .
+4. Vá para a seção **Configurações de administração do LinkedIn**. Carregue o arquivo XML que você baixou do Portal do Azure clicando na opção **Carregar o arquivo XML**.
 
     ![A captura de tela mostra Definir as configurações de SSO do provedor de serviços do LinkedIn em que você pode carregar um arquivo XML.](./media/linkedinlearning-tutorial/tutorial_linkedin_metadata_03.png)
 
@@ -163,18 +155,21 @@ O aplicativo LinkedIn Learning dá suporte ao provisionamento de usuário just i
 
 ## <a name="test-sso"></a>Testar o SSO 
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir. 
 
-Ao clicar no bloco do LinkedIn Learning no Painel de Acesso, você deverá ser conectado automaticamente ao LinkedIn Learning no qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Iniciado por SP:
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Clique em **Testar este aplicativo** no portal do Azure. Isso redirecionará você para a URL de Logon do LinkedIn Learning, na qual poderá iniciar o fluxo de logon.  
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](./tutorial-list.md)
+* Acesse a URL de Logon do LinkedIn Learning diretamente e inicie dela o fluxo de logon.
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>Iniciado por IdP:
 
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
+* Clique em **Testar este aplicativo** no portal do Azure e você será conectado automaticamente ao LinkedIn Learning, para o qual configurou o SSO 
 
-- [Experimentar o LinkedIn Learning com o Azure AD](https://aad.portal.azure.com/)
+Use também os Meus Aplicativos da Microsoft para testar o aplicativo em qualquer modo. Quando você clicar no bloco do LinkedIn Learning em Meus Aplicativos, se ele estiver configurado no modo SP, você será redirecionado à página de logon do aplicativo para iniciar o fluxo de logon e, se ele estiver configurado no modo IdP, você será conectado automaticamente ao LinkedIn Learning, para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
-- [O que é controle de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+
+## <a name="next-steps"></a>Próximas etapas
+
+Após configurar o LinkedIn Learning, você poderá impor controles de sessão, que protegem contra o vazamento e a infiltração de dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

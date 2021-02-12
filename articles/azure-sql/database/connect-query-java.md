@@ -11,11 +11,11 @@ ms.devlang: java
 ms.date: 06/26/2020
 ms.custom: devx-track-java, devx-track-azurecli
 ms.openlocfilehash: badf6b8887c356c2a7fc7308f6aa15f551e4bb67
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746729"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972667"
 ---
 # <a name="use-java-and-jdbc-with--azure-sql-database"></a>Usar o Java e o JDBC com o Banco de Dados SQL do Azure
 
@@ -230,7 +230,7 @@ Esse código Java usará os arquivos *application.properties* e *schema.sql* que
 Nesse arquivo, você pode ver que comentamos os métodos para inserir, ler, atualizar e excluir dados: codificaremos esses métodos no restante deste artigo e você poderá remover as marcas de comentários uma após a outra.
 
 > [!NOTE]
-> As credenciais de banco de dados são armazenadas nas propriedades *user* e *password* no arquivo *application.properties* . Essas credenciais são usadas durante a execução de `DriverManager.getConnection(properties.getProperty("url"), properties);`, pois o arquivo de propriedades é passado como um argumento.
+> As credenciais de banco de dados são armazenadas nas propriedades *user* e *password* no arquivo *application.properties*. Essas credenciais são usadas durante a execução de `DriverManager.getConnection(properties.getProperty("url"), properties);`, pois o arquivo de propriedades é passado como um argumento.
 
 Agora, você pode executar esta classe principal com a sua ferramenta favorita:
 
@@ -315,11 +315,11 @@ public class Todo {
 }
 ```
 
-Essa classe é um modelo de domínio mapeado na tabela `todo` que você criou ao executar o script *schema.sql* .
+Essa classe é um modelo de domínio mapeado na tabela `todo` que você criou ao executar o script *schema.sql*.
 
 ### <a name="insert-data-into-azure-sql-database"></a>Inserir dados no Banco de Dados SQL do Azure
 
-No arquivo *src/main/java/DemoApplication.java* , após o método principal, adicione o seguinte método para inserir dados no banco de dados:
+No arquivo *src/main/java/DemoApplication.java*, após o método principal, adicione o seguinte método para inserir dados no banco de dados:
 
 ```java
 private static void insertData(Todo todo, Connection connection) throws SQLException {
@@ -357,7 +357,7 @@ A execução da classe principal deve produzir a seguinte saída:
 
 Vamos ler os dados inseridos anteriormente para validar se o nosso código funciona corretamente.
 
-No arquivo *src/main/java/DemoApplication.java* , após o método `insertData`, adicione o seguinte método para ler dados do banco de dados:
+No arquivo *src/main/java/DemoApplication.java*, após o método `insertData`, adicione o seguinte método para ler dados do banco de dados:
 
 ```java
 private static Todo readData(Connection connection) throws SQLException {
@@ -401,7 +401,7 @@ A execução da classe principal deve produzir a seguinte saída:
 
 Vamos atualizar os dados que inserimos anteriormente.
 
-Ainda no arquivo *src/main/java/DemoApplication.java* , após o método `readData`, adicione o seguinte método para atualizar os dados no banco de dados:
+Ainda no arquivo *src/main/java/DemoApplication.java*, após o método `readData`, adicione o seguinte método para atualizar os dados no banco de dados:
 
 ```java
 private static void updateData(Todo todo, Connection connection) throws SQLException {
@@ -445,7 +445,7 @@ A execução da classe principal deve produzir a seguinte saída:
 
 Por fim, vamos excluir os dados que inserimos anteriormente.
 
-Ainda no arquivo *src/main/java/DemoApplication.java* , após o método `updateData`, adicione o seguinte método para excluir os dados no banco de dados:
+Ainda no arquivo *src/main/java/DemoApplication.java*, após o método `updateData`, adicione o seguinte método para excluir os dados no banco de dados:
 
 ```java
 private static void deleteData(Todo todo, Connection connection) throws SQLException {

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 4200bc9879aba5e18282123be03576cc617a5e14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 59c599167089d222324ed880c18e68d763f5e468
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88549221"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358446"
 ---
 # <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>Tutorial: Configurar o Cornerstone OnDemand para o provisionamento automático de usuário
 
@@ -46,7 +46,7 @@ Para adicionar a Cornerstone OnDemand do Marketplace, siga estas etapas.
 
     ![O ícone do Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os aplicativos**.
+2. Vá para **Aplicativos da empresa** , em seguida, selecione **Todos os aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -92,25 +92,25 @@ Para configurar o provisionamento automático de usuário para a Cornerstone OnD
 
     ![Modo de provisionamento da Cornerstone OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/ProvisioningCredentials.png)
 
-5. Na seção **Credenciais de Administrador**, insira o nome de usuário do administrador, a senha de administrador e o domínio da conta da Cornerstone OnDemand:
+5. Na seção **Credenciais de Administrador** , insira o nome de usuário do administrador, a senha de administrador e o domínio da conta da Cornerstone OnDemand:
 
-    * No campo **Nome de Usuário do Administrador**, insira o nome de usuário ou o domínio da conta de administrador no Locatário da Cornerstone OnDemand. Por exemplo, contoso\administrador.
+    * No campo **Nome de Usuário do Administrador** , insira o nome de usuário ou o domínio da conta de administrador no Locatário da Cornerstone OnDemand. Por exemplo, contoso\administrador.
 
-    * Na caixa **Senha do Administrador**, insira a senha que corresponde ao nome de usuário administrador.
+    * Na caixa **Senha do Administrador** , insira a senha que corresponde ao nome de usuário administrador.
 
-    * No campo **Domínio**, insira a URL do serviço Web do locatário Cornerstone OnDemand. Por exemplo, o serviço está localizado em `https://ws-[corpname].csod.com/feed30/clientdataservice.asmx`, e para a Contoso o domínio é `https://ws-contoso.csod.com/feed30/clientdataservice.asmx`. Para obter mais informações sobre como recuperar a URL do serviço Web, consulte [este PDF](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_Web_Services_-_User-OU_Technical_Specification_v20160222.pdf).
+    * No campo **Domínio** , insira a URL do serviço Web do locatário Cornerstone OnDemand. Por exemplo, o serviço está localizado em `https://ws-[corpname].csod.com/feed30/clientdataservice.asmx`, e para a Contoso o domínio é `https://ws-contoso.csod.com/feed30/clientdataservice.asmx`. Para obter mais informações sobre como recuperar a URL do serviço Web, consulte [este PDF](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_Web_Services_-_User-OU_Technical_Specification_v20160222.pdf).
 
 6. Depois de preencher as caixas mostradas na etapa 5, selecione **Testar Conexão** para garantir que o Azure Active Directory possa se conectar à Cornerstone OnDemand. Se a conexão falhar, garanta que a conta da Cornerstone OnDemand tenha permissões de administrador e tente novamente.
 
     ![Conexão-teste da Cornerstone OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/TestConnection.png)
 
-7. Na caixa **Email de Notificação**, insira o endereço de email da pessoa ou grupo que deve receber as notificações do erro de provisionamento. Marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
+7. Na caixa **Email de Notificação** , insira o endereço de email da pessoa ou grupo que deve receber as notificações do erro de provisionamento. Marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
 
     ![Email de notificação da Cornerstone OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/EmailNotification.png)
 
 8. Clique em **Salvar**.
 
-9. Na seção **Mapeamentos**, selecione **Sincronizar usuários do Azure Active Directory com a Cornerstone OnDemand**.
+9. Na seção **Mapeamentos** , selecione **Sincronizar usuários do Azure Active Directory com a Cornerstone OnDemand**.
 
     ![A sincronização da Cornerstone OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/UserMapping.png)
 
@@ -120,11 +120,11 @@ Para configurar o provisionamento automático de usuário para a Cornerstone OnD
 
 11. Para configurar filtros de escopo, siga as instruções fornecidas no [tutorial sobre filtros de escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-12. Para habilitar o serviço de provisionamento do Azure Active Directory para a Cornerstone OnDemand, na seção **Configurações**, altere **Status de Provisionamento** para **Ativado**.
+12. Para habilitar o serviço de provisionamento do Azure Active Directory para a Cornerstone OnDemand, na seção **Configurações** , altere **Status de Provisionamento** para **Ativado**.
 
     ![Status de provisionamento da Cornerstone OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/ProvisioningStatus.png)
 
-13. Defina os usuários ou os grupos que você deseja provisionar para a Cornerstone OnDemand. Na seção **Configurações**, selecione os valores desejados em **Escopo**.
+13. Defina os usuários ou os grupos que você deseja provisionar para a Cornerstone OnDemand. Na seção **Configurações** , selecione os valores desejados em **Escopo**.
 
     ![Escopo da Cornerstone OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/SyncScope.png)
 
@@ -132,7 +132,7 @@ Para configurar o provisionamento automático de usuário para a Cornerstone OnD
 
     ![Salvamento da Cornerstone OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/Save.png)
 
-Essa operação inicia a sincronização inicial de todos os usuários ou grupos definidos em **Escopo**, na seção **Configurações**. A sincronização inicial demora mais para ser executada do que as sincronizações posteriores. Elas ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure Active Directory seja executado. 
+Essa operação inicia a sincronização inicial de todos os usuários ou grupos definidos em **Escopo** , na seção **Configurações**. A sincronização inicial demora mais para ser executada do que as sincronizações posteriores. Elas ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure Active Directory seja executado. 
 
 É possível usar a seção **Detalhes de Sincronização** para monitorar o andamento e seguir os links para o relatório de atividade de provisionamento. O relatório descreve todas as ações executadas pelo serviço de provisionamento do Azure Active Directory na Cornerstone OnDemand.
 
@@ -140,7 +140,7 @@ Para obter informações sobre como ler os logs de provisionamento do Azure AD, 
 
 ## <a name="connector-limitations"></a>Limitações do conector
 
-O atributo Cornerstone OnDemand **posição** espera um valor que corresponde às funções no portal da Cornerstone OnDemand. Para obter uma lista de valores válidos de **Posição**, acesse **Editar Registro de Usuário > Estrutura Organizacional > Posição** no portal da Cornerstone OnDemand.
+O atributo Cornerstone OnDemand **posição** espera um valor que corresponde às funções no portal da Cornerstone OnDemand. Para obter uma lista de valores válidos de **Posição** , acesse **Editar Registro de Usuário > Estrutura Organizacional > Posição** no portal da Cornerstone OnDemand.
 
 ![Edição de registro do usuário do provisionamento da Cornerstone OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/UserEdit.png)
 

@@ -1,18 +1,18 @@
 ---
 title: Vincule sua ID de parceiro para acompanhar seu impacto em recursos delegados
 description: Saiba como associar sua ID de parceiro para receber o PEC (crédito ganho) do parceiro nos recursos do cliente que você gerencia por meio do Azure Lighthouse.
-ms.date: 10/30/2020
+ms.date: 01/28/2021
 ms.topic: how-to
-ms.openlocfilehash: fcbcc70e380116b8e9f9b1c1e365dee1adb87a99
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 46338b925b1ad44019c9cc95e4b7f8c0963c07c4
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080270"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985964"
 ---
 # <a name="link-your-partner-id-to-track-your-impact-on-delegated-resources"></a>Vincule sua ID de parceiro para acompanhar seu impacto em recursos delegados 
 
-Se você for membro da [Microsoft Partner Network](https://partner.microsoft.com/), poderá vincular sua ID de parceiro com as credenciais usadas para gerenciar recursos de cliente delegados. O link de administrador do parceiro (PAL) permite que a Microsoft identifique e reconheça os parceiros que impulsionam o sucesso do cliente do Azure. Esse link também permite que os parceiros [do CSP (provedor de soluções de nuvem)](/partner-center/csp-overview) recebam [crédito de contrato de serviço gerenciado (PEC)](/partner-center/partner-earned-credit) para clientes que [assinaram o Microsoft Customer Agreement (MCA)](/partner-center/confirm-customer-agreement) e estão [no plano do Azure](/partner-center/azure-plan-get-started).
+Se você for membro da [Microsoft Partner Network](https://partner.microsoft.com/), poderá vincular sua ID de parceiro com as credenciais usadas para gerenciar recursos de cliente delegados, permitindo que a Microsoft identifique e reconheça os parceiros que impulsionam o sucesso do cliente do Azure. Esse link também permite que os parceiros [do CSP (provedor de soluções de nuvem)](/partner-center/csp-overview) recebam [crédito de contrato de serviço gerenciado (PEC)](/partner-center/partner-earned-credit) para clientes que [assinaram o Microsoft Customer Agreement (MCA)](/partner-center/confirm-customer-agreement) e estão [no plano do Azure](/partner-center/azure-plan-get-started).
 
 Se você integrar [clientes com ofertas de serviço gerenciado no Azure Marketplace](publish-managed-services-offers.md), a vinculação ocorrerá automaticamente usando a ID de MPN associada à conta do Partner Center usada para publicar as ofertas. Nenhuma ação adicional é necessária para acompanhar o impacto desses clientes.
 
@@ -30,7 +30,7 @@ Para simplificar, é recomendável criar uma conta de entidade de serviço em se
 
 Seguindo essas etapas, todos os locatários de clientes que você gerenciar serão associados à sua ID de parceiro. A conta de automação do provedor não precisa autenticar ou executar nenhuma ação no locatário do cliente.
 
-:::image type="content" source="../media/lighthouse-pal.jpg" alt-text="Diagrama mostrando o processo PAL com o Azure Lighthouse.":::
+:::image type="content" source="../media/lighthouse-pal.jpg" alt-text="Diagrama mostrando o processo de vinculação de ID de parceiro com o Azure Lighthouse.":::
 
 ## <a name="add-your-partner-id-to-previously-onboarded-customers"></a>Adicione sua ID de parceiro aos clientes integrados anteriormente
 

@@ -3,12 +3,12 @@ title: Usar o Servidor de Backup do Azure para fazer backup de cargas de trabalh
 description: Neste artigo, veja como preparar o ambiente para proteger e fazer backup de cargas de trabalho usando o MABS (Servidor de Backup do Microsoft Azure).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 1be2af43f4d923a27fd96c5c0888a234725775a3
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: d476c228a619f03f798c1a2cd6854a8d603c3637
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056694"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98987015"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar o Servidor de Backup do Azure
 
@@ -303,13 +303,18 @@ Quando você souber o estado da conectividade do Azure e da assinatura do Azure,
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recuperação de perda de conectividade
 
-Se você tiver um firewall ou um proxy que esteja impedindo o acesso ao Azure, você precisará permitir os seguintes endereços de domínio no perfil de firewall/proxy:
+Se o seu computador tiver acesso limitado à Internet, verifique se as configurações de firewall no computador ou proxy permitem as seguintes URLs e endereços IP:
 
-* `http://www.msftncsi.com/ncsi.txt`
-* \*.Microsoft.com
-* \*.WindowsAzure.com
-* \*.microsoftonline.com
-* \*.windows.net
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Endereços IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 Se você estiver usando o emparelhamento da Microsoft do ExpressRoute, selecione os seguintes serviços/regiões:
 

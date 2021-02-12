@@ -9,14 +9,14 @@ ms.subservice: fundamentals
 ms.topic: overview
 ms.date: 06/05/2020
 ms.author: ajburnle
-ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperfq4
+ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperf-fy20q4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfc5126c0cce89502b0f1d8b17c06519f338fe52
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f9e85960f3efc074eca18475c4a3e6c422c1990b
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370841"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090834"
 ---
 # <a name="what-is-azure-active-directory"></a>O que é o Active Directory do Azure?
 
@@ -26,7 +26,7 @@ O Azure AD (Active Directory) é o serviço de gerenciamento de identidade e de 
 
 - Recursos internos, como aplicativos em sua rede corporativa e intranet, juntamente com outros aplicativos de nuvem desenvolvidos por sua organização. Para obter mais informações sobre como criar um locatário para sua organização, confira [Início Rápido: Criar um locatário no Azure Active Directory](active-directory-access-create-new-tenant.md).
 
-Para saber a diferença entre o Azure AD e o Active Directory Domain Services, confira [Comparar o Active Directory com o Azure Active Directory](active-directory-compare-azure-ad-to-ad.md). Você também pode usar os vários cartazes da [Série Microsoft Cloud for Enterprise Architects](/microsoft-365/solutions/cloud-architecture-models?view=o365-worldwide) para entender melhor os principais serviços de identidade no Azure, no Azure AD e no Microsoft 365.
+Para saber a diferença entre o Azure AD e o Active Directory Domain Services, confira [Comparar o Active Directory com o Azure Active Directory](active-directory-compare-azure-ad-to-ad.md). Você também pode usar os vários cartazes da [Série Microsoft Cloud for Enterprise Architects](/microsoft-365/solutions/cloud-architecture-models) para entender melhor os principais serviços de identidade no Azure, no Azure AD e no Microsoft 365.
 
 ## <a name="who-uses-azure-ad"></a>Quem usa o Azure AD?
 
@@ -93,7 +93,7 @@ Para entender melhor o Azure AD e sua documentação, recomendamos ler os termos
 |Administrador de conta|Essa função clássica de administrador de assinatura é, conceitualmente, o proprietário para cobrança de uma assinatura. Essa função tem acesso ao [Centro de Contas do Azure](https://account.azure.com/Subscriptions) e permite que você gerencie todas as assinaturas em uma conta. Para obter mais informações, confira [Funções clássicas de administrador da assinatura, funções do Azure e funções de administrador do Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Administrador de serviços|Essa função clássica de administrador de assinatura permite que você gerencie todos os recursos do Azure, incluindo o acesso. Essa função tem o acesso equivalente ao de um usuário que recebe a função de Proprietário no escopo da assinatura. Para obter mais informações, confira [Funções clássicas de administrador da assinatura, funções do Azure e funções de administrador do Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Proprietário|Essa função ajuda você a gerenciar todos os recursos do Azure, incluindo o acesso. Essa função está inserida em um sistema de autorização mais recente chamado de RBAC (controle de acesso baseado em função) do Azure, que fornece gerenciamento de acesso refinado aos recursos do Azure. Para obter mais informações, confira [Funções clássicas de administrador da assinatura, funções do Azure e funções de administrador do Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
-|Administrador Global do Azure AD|Essa função de administrador é automaticamente atribuída a quem criou o locatário do Azure AD. Os Administradores globais podem executar todas as funções administrativas do Azure AD e de todos serviços federados ao Azure AD, como o Exchange Online, o SharePoint Online e o Skype for Business Online. Você pode ter vários administradores globais, mas somente os administradores globais podem atribuir funções de administrador (incluindo a atribuição de outros administradores globais) aos usuários. Observe que essa função Administrador é chamada de Administrador global no portal do Azure, mas é chamada de **Administrador da empresa** na API do Microsoft Graph e no Azure AD PowerShell. Para obter mais informações sobre as várias funções Administrador, confira [Permissões de função Administrador no Azure Active Directory](../roles/permissions-reference.md).|
+|Administrador Global do Azure AD|Essa função de administrador é automaticamente atribuída a quem criou o locatário do Azure AD. Os Administradores globais podem executar todas as funções administrativas do Azure AD e de todos serviços federados ao Azure AD, como o Exchange Online, o SharePoint Online e o Skype for Business Online. Você pode ter vários administradores globais, mas somente os administradores globais podem atribuir funções de administrador (incluindo a atribuição de outros administradores globais) aos usuários. Para saber mais sobre as várias funções de administrador, confira [Permissões da função de administrador no Azure Active Directory](../roles/permissions-reference.md).|
 |Assinatura do Azure| Usada para pagar pelos serviços de nuvem do Azure. Você pode ter várias assinaturas, e elas estarão vinculadas a um cartão de crédito.|
 |Locatário do Azure| Uma instância dedicada e confiável do Azure AD criada automaticamente quando sua organização se inscreve em uma assinatura do serviço de nuvem da Microsoft, como do Microsoft Azure, do Microsoft Intune ou do Microsoft 365. Um locatário do Azure representa uma única organização.|
 |Locatário único| Locatários do Azure que acessem outros serviços em um ambiente dedicado são considerados locatários únicos.|

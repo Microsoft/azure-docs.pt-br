@@ -2,13 +2,13 @@
 title: Mover suporte de operação por tipo de recurso
 description: Lista os tipos de recursos do Azure que podem ser movidos para um novo grupo de recursos ou assinatura.
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: 675f7bb11ed98dd17e8f4ee4a0197d05128af851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/11/2021
+ms.openlocfilehash: fe8f6705fdce1a692dd8a969cfc4b3b21d2d2a11
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627101"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98072098"
 ---
 # <a name="move-operation-support-for-resources"></a>Mover o suporte de operação para recursos
 
@@ -754,7 +754,7 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | availableskus | Não | Não |
-> | databoxedgedevices | Sim | Sim |
+> | databoxedgedevices | Não | Não |
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 
@@ -792,7 +792,6 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | datafactories | Sim | Sim |
-> | datafactoryschema | Não | Não |
 > | factories | Sim | Sim |
 
 ## <a name="microsoftdatalake"></a>Microsoft.DataLake
@@ -1027,7 +1026,7 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | hanainstances | Não | Não |
-> | sapmonitors | Sim | Sim |
+> | sapmonitors | Não | Não |
 
 ## <a name="microsofthardwaresecuritymodules"></a>Microsoft.HardwareSecurityModules
 
@@ -1424,7 +1423,7 @@ Pule para um namespace de provedor de recursos:
 > | networkinterfaces | Sim | Sim |
 > | networkprofiles | Não | Não |
 > | networksecuritygroups | Sim | Sim |
-> | networkwatchers | Sim | Não |
+> | networkwatchers | Não | Não |
 > | networkwatchers/connectionmonitors | Sim | Não |
 > | networkwatchers/flowlogs | Sim | Não |
 > | networkwatchers/pingmeshes | Sim | Não |
@@ -1433,7 +1432,7 @@ Pule para um namespace de provedor de recursos:
 > | privatednszones/virtualnetworklinks | Sim | Sim |
 > | privatednszonesinternal | Não | Não |
 > | privateendpointredirectmaps | Não | Não |
-> | privateendpoints | Sim | Sim |
+> | privateendpoints | Não | Não |
 > | privatelinkservices | Não | Não |
 > | publicipaddresses | Sim - SKU Básico<br>Sim-SKU padrão | Sim - SKU Básico<br>Não - SKU Standard |
 > | publicipprefixes | Sim | Sim |
@@ -1913,9 +1912,9 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | workspaces | Sim | Sim |
-> | workspaces/bigdatapools | Sim | Sim |
-> | workspaces/sqlpools | Sim | Sim |
+> | workspaces | Não | Não |
+> | workspaces/bigdatapools | Não | Não |
+> | workspaces/sqlpools | Não | Não |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 

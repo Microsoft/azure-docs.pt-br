@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 12/02/2019
 ms.author: alkohli
-ms.openlocfilehash: 3474a97f4b05fd1f944e18abebcef927232453e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 203c977fe9109cd8b2b6de561e975e20aacf700e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89080021"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185517"
 ---
 Se essa for a primeira vez que estiver usando o Gerenciador de Armazenamento, você precisará executar as etapas a seguir.
 
@@ -24,11 +24,11 @@ Siga estas etapas para se conectar à conta de armazenamento e verificar a conex
 
 1. No Gerenciador de Armazenamento, selecione as contas de armazenamento. Clique com o botão direito do mouse e selecione a opção **Conectar ao Armazenamento do Azure** . 
 
-    ![Configurar Gerenciador de Armazenamento](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-2.png)
+    ![Configurar o Gerenciador de Armazenamento 2](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-2.png)
 
 2. Na caixa de diálogo **Conectar-se ao Armazenamento do Azure**, selecione **Usar um nome e uma chave da conta de armazenamento**.
 
-    ![Configurar Gerenciador de Armazenamento](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-3.png)
+    ![Configurar o Gerenciador de Armazenamento 3](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-3.png)
 
 2. Na caixa de diálogo **Conectar ao Nome e à Chave**, execute as seguintes etapas:
 
@@ -39,11 +39,11 @@ Siga estas etapas para se conectar à conta de armazenamento e verificar a conex
     5. Marque a opção **Usar HTTP**, pois a transferência é por meio de *HTTP*. 
     6. Selecione **Avançar**.
 
-    ![Configurar Gerenciador de Armazenamento](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-4.png)    
+    ![Configurar o Gerenciador de Armazenamento 4](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-4.png)    
 
 3. Na caixa de diálogo **Resumo da Conexão**, examine as informações fornecidas. Selecione **Conectar**.
 
-    ![Configurar Gerenciador de Armazenamento](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-5.png)
+    ![Configurar o Gerenciador de Armazenamento 5](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-5.png)
 
 4. A conta adicionada com êxito é exibida no painel esquerdo do Gerenciador de Armazenamento com (Externa, Outros) acrescentado ao nome. Selecione **Contêineres de Blobs** para ver o contêiner.
 
@@ -59,27 +59,27 @@ Execute as etapas a seguir para carregar dados em sua conta de armazenamento do 
 
 2. Na caixa de diálogo **Carregar arquivos**, navegue até os arquivos e selecione os que deseja carregar. Selecione **Avançar**.
 
-    ![Verificar transferência de dados](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-2.png)
+    ![Verificar transferência de dados 2](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-2.png)
 
 3. Verifique se os arquivos foram carregados. Os arquivos carregados são exibidos no contêiner.
 
-    ![Verificar transferência de dados](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-3.png)
+    ![Verificar transferência de dados 3](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-3.png)
 
 4. Em seguida, você se conectará à conta de Armazenamento do Azure que foi mapeada para esta conta de armazenamento do Edge. Todos os dados que são carregados na conta de armazenamento do Edge devem ser automaticamente colocados em camadas na conta de Armazenamento do Azure. 
     
     Para obter a cadeia de conexão da conta de Armazenamento do Azure, acesse **Conta de Armazenamento do Azure > Chaves de Acesso** e copie a cadeia de conexão.
 
-    ![Verificar transferência de dados](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-5.png)
+    ![Verificar transferência de dados 4](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-5.png)
 
     Use a cadeia de conexão para anexar à conta de Armazenamento do Azure.  
 
-    ![Verificar transferência de dados](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-4.png)
+    ![Verificar transferência de dados 5](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-4.png)
 
 
 5. Na caixa de diálogo **Resumo da Conexão**, examine as informações fornecidas. Selecione **Conectar**.
 
-    ![Verificar transferência de dados](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-6.png)
+    ![Verificar transferência de dados 6](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-6.png)
 
 6. Você verá que os arquivos que você carregou na conta de armazenamento do Edge foram transferidos para a conta de Armazenamento do Azure.
 
-    ![Verificar transferência de dados](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-7.png)
+    ![Verificar transferência de dados 7](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-7.png)

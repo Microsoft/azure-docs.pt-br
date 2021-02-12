@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
-ms.openlocfilehash: 37eac4acab7232e44f94e852b1c04c5549447b09
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 43a035662cc76dc6de1de3fa990e06f2e00cfd66
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637676"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632318"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar dados no Azure Data Factory
 
@@ -47,9 +47,9 @@ O Data Factory dá suporte às seguintes atividades de transformação de dados,
 
 O mapeamento de fluxos de dados são transformações de dados visualmente projetadas em Azure Data Factory. Os fluxos de dados permitem que os engenheiros de dados desenvolvam a lógica de transformação de dados gráficos sem escrever código. Os fluxos de dados resultantes são executados como atividades dentro de Azure Data Factory pipelines que usam clusters Spark expandidos. As atividades de fluxo de dados podem ser operadas por meio de recursos de agendamento, controle, fluxo e monitoramento existentes de Data Factory. Para obter mais informações, consulte [mapeando fluxos de dados](concepts-data-flow-overview.md).
 
-### <a name="wrangling-data-flows"></a>Fluxos de dados Wrangling
+### <a name="data-wrangling"></a>Wrangling de dados
 
-Os fluxos de dados do Wrangling no Azure Data Factory permitem que você faça uma preparação de dados sem código em escala de nuvem iterativamente. Os fluxos de dados do Wrangling integram-se ao [Power Query online](/power-query/) e fazem Power Query funções M disponíveis para os dados Wrangling em escala de nuvem por meio da execução do Spark. Para obter mais informações, consulte [fluxos de dados do Wrangling](wrangling-data-flow-overview.md).
+Power Query no Azure Data Factory permite a Wrangling de dados em escala de nuvem, o que permite que você faça a preparação de dados sem código em escala de nuvem iterativamente. O data Wrangling integra-se com o [Power Query online](/power-query/) e torna Power Query funções M disponíveis para os dados Wrangling em escala de nuvem por meio da execução do Spark. Para obter mais informações, consulte [Data Wrangling in ADF](wrangling-overview.md).
 
 ## <a name="external-transformations"></a>Transformações externas
 
@@ -78,7 +78,7 @@ Ao longo do tempo, os modelos de previsão nos experimentos de Pontuação do es
 Confira [usar atividades Azure Machine Learning Studio (clássicas)](transform-data-using-machine-learning.md) para obter detalhes sobre essas atividades do estúdio (clássico). 
 
 ### <a name="stored-procedure-activity"></a>Atividade de procedimento armazenado
-Você pode usar a SQL Server atividade de procedimento armazenado em um pipeline de Data Factory para invocar um procedimento armazenado em um dos seguintes repositórios de dados: banco de dados SQL do Azure, análise de Synapse do Azure (anteriormente SQL Data Warehouse), SQL Server banco de dado em sua empresa ou em uma VM do Azure. Consulte o artigo [Stored Procedure activity](transform-data-using-stored-procedure.md) (Atividade de Procedimento Armazenado) para obter detalhes.  
+Você pode usar a atividade de procedimento armazenado SQL Server em um pipeline de Data Factory para invocar um procedimento armazenado em um dos seguintes repositórios de dados: banco de dados SQL do Azure, análise de Synapse do Azure, banco de dados SQL Server em sua empresa ou uma VM do Azure. Consulte o artigo [Stored Procedure activity](transform-data-using-stored-procedure.md) (Atividade de Procedimento Armazenado) para obter detalhes.  
 
 ### <a name="data-lake-analytics-u-sql-activity"></a>Atividade do U-SQL do Data Lake Analytics
 A atividade de U-SQL do Data Lake Analytics executa um script U-SQL em um cluster do Azure Data Lake Analytics. Consulte o artigo [Data Analytics U-SQL activity](transform-data-using-data-lake-analytics.md) (atividade de U-SQL do Data Analytics) para obter detalhes. 
@@ -103,8 +103,8 @@ Você pode criar uma atividade personalizada para executar scripts R em seu clus
 ### <a name="compute-environments"></a>Ambientes de computação
 Crie um serviço vinculado para o ambiente de computação e, em seguida, usar o serviço vinculado ao definir uma atividade de transformação. Há dois tipos de ambientes de computação com suporte do Data Factory. 
 
-- **Sob demanda** : nesse caso, o ambiente de computação é totalmente gerenciado pelo Data Factory. Ele é automaticamente criado pelo serviço Data Factory antes de um trabalho ser enviado a fim de processar os dados e é removido após a conclusão do trabalho. Você pode configurar e controlar as configurações granulares do ambiente de computação sob demanda para execução do trabalho, gerenciamento de cluster e ações de inicialização. 
-- **Traga seu próprio** : nesse caso, você pode registrar no Data Factory seu próprio ambiente de computação (por exemplo, o cluster HDInsight) como um serviço vinculado. O ambiente de computação é gerenciado por você e o serviço Data Factory o utiliza para executar as atividades. 
+- **Sob demanda**: nesse caso, o ambiente de computação é totalmente gerenciado pelo Data Factory. Ele é automaticamente criado pelo serviço Data Factory antes de um trabalho ser enviado a fim de processar os dados e é removido após a conclusão do trabalho. Você pode configurar e controlar as configurações granulares do ambiente de computação sob demanda para execução do trabalho, gerenciamento de cluster e ações de inicialização. 
+- **Traga seu próprio**: nesse caso, você pode registrar no Data Factory seu próprio ambiente de computação (por exemplo, o cluster HDInsight) como um serviço vinculado. O ambiente de computação é gerenciado por você e o serviço Data Factory o utiliza para executar as atividades. 
 
 Veja o artigo [Serviços vinculados de computação](compute-linked-services.md) para saber mais sobre os serviços de computação com suporte do Data Factory. 
 

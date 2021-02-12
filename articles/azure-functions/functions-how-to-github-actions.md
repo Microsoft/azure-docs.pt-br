@@ -6,18 +6,18 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, github-actions-azure
-ms.openlocfilehash: a2d5234b3c80456a98fde4547b9665ca1b0a83dd
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: cc356b307a752b10ba6f1c1a7151381c5644ca1e
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913538"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762726"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Entrega contínua usando a ação do GitHub
 
-Use as [ações do GitHub](https://github.com/features/actions) para definir um fluxo de trabalho para compilar e implantar código automaticamente em seu aplicativo de funções do Azure. 
+Use as [ações do GitHub](https://github.com/features/actions) para definir um fluxo de trabalho para compilar e implantar código automaticamente em seu aplicativo de funções no Azure functions. 
 
-Em ações do GitHub, um [fluxo de trabalho](https://help.github.com/articles/about-github-actions#workflow) é um processo automatizado que você define em seu repositório github. Esse processo informa ao GitHub como criar e implantar seu projeto de aplicativo do Functions no GitHub. 
+Em ações do GitHub, um [fluxo de trabalho](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) é um processo automatizado que você define em seu repositório github. Esse processo informa ao GitHub como criar e implantar seu projeto de aplicativo de funções no GitHub. 
 
 Um fluxo de trabalho é definido por um arquivo YAML (.yml) no caminho `/.github/workflows/` no repositório. Essa definição contém as várias etapas e os parâmetros que compõem o fluxo de trabalho. 
 
@@ -26,15 +26,15 @@ Para um fluxo de trabalho Azure Functions, o arquivo tem três seções:
 | Seção | Tarefas |
 | ------- | ----- |
 | **Autenticação** | Baixar um perfil de publicação.<br/>Crie um segredo do GitHub.|
-| **Compilar** | Configure o ambiente.<br/>Compile o aplicativo de funções.|
+| **Build** | Configure o ambiente.<br/>Compile o aplicativo de funções.|
 | **Implantar** | Implante o aplicativo de funções.|
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Uma conta do GitHub. Se você não tiver uma, Inscreva-se [gratuitamente](https://github.com/join).  
+- Uma conta do GitHub. Caso ainda não tenha uma, inscreva-se [gratuitamente](https://github.com/join).  
 - Um aplicativo de funções de trabalho hospedado no Azure com um repositório GitHub.   
-    - [Início Rápido: Criar uma função no Azure usando o Visual Studio Code](functions-create-first-function-vs-code.md)
+    - [Início Rápido: Criar uma função no Azure usando o Visual Studio Code](./create-first-function-vs-code-csharp.md)
 
 ## <a name="generate-deployment-credentials"></a>Gerar as credenciais de implantação
 
@@ -46,7 +46,7 @@ Depois de salvar a credencial de perfil de publicação como um [segredo do GitH
 
 Para baixar o perfil de publicação do seu aplicativo de funções:
 
-1. Selecione a página **visão geral** do aplicativo de funções e, em seguida, selecione **obter perfil de publicação** .
+1. Selecione a página **visão geral** do aplicativo de funções e, em seguida, selecione **obter perfil de publicação**.
 
    :::image type="content" source="media/functions-how-to-github-actions/get-publish-profile.png" alt-text="Baixar perfil de publicação":::
 
@@ -55,11 +55,11 @@ Para baixar o perfil de publicação do seu aplicativo de funções:
 
 ### <a name="add-the-github-secret"></a>Adicionar o segredo do GitHub
 
-1. No [GitHub](https://github.com), navegue até o repositório, selecione **configurações**  >  **segredos**  >  **Adicionar um novo segredo** .
+1. No [GitHub](https://github.com), navegue até o repositório, selecione **configurações**  >  **segredos**  >  **Adicionar um novo segredo**.
 
-   :::image type="content" source="media/functions-how-to-github-actions/add-secret.png" alt-text="Baixar perfil de publicação":::
+   :::image type="content" source="media/functions-how-to-github-actions/add-secret.png" alt-text="Adicionar segredo":::
 
-1. Adicione um novo segredo usando `AZURE_FUNCTIONAPP_PUBLISH_PROFILE` para **nome** , o conteúdo do arquivo de perfil de publicação para **valor** e, em seguida, selecione **Adicionar segredo** .
+1. Adicione um novo segredo usando `AZURE_FUNCTIONAPP_PUBLISH_PROFILE` para **nome**, o conteúdo do arquivo de perfil de publicação para **valor** e, em seguida, selecione **Adicionar segredo**.
 
 O GitHub agora pode se autenticar no seu aplicativo de funções no Azure.
 
@@ -187,6 +187,7 @@ O exemplo a seguir mostra a parte do fluxo de trabalho que cria o aplicativo de 
 ---
 
 ## <a name="deploy-the-function-app"></a>Implantar o aplicativo de funções
+
 Use a `Azure/functions-action` ação para implantar seu código em um aplicativo de funções. Esta ação tem três parâmetros:
 
 |Parâmetro |Explicação  |
@@ -202,7 +203,7 @@ O exemplo a seguir usa a versão 1 do `functions-action` e um `publish profile` 
 Configure um fluxo de trabalho do Linux .NET que usa um perfil de publicação.
 
 ```yaml
-name: Deploy DotNet project to Azure function app with a Linux environment
+name: Deploy DotNet project to function app with a Linux environment
 
 on:
   [push]
@@ -217,7 +218,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
       uses: actions/setup-dotnet@v1
@@ -241,7 +242,7 @@ jobs:
 Configure um fluxo de trabalho do Windows .NET que usa um perfil de publicação.
 
 ```yaml
-name: Deploy DotNet project to Azure function app with a Windows environment
+name: Deploy DotNet project to function app with a Windows environment
 
 on:
   [push]
@@ -256,7 +257,7 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
       uses: actions/setup-dotnet@v1
@@ -283,7 +284,7 @@ jobs:
 Configure um fluxo de trabalho do Java Linux que usa um perfil de publicação.
 
 ```yaml
-name: Deploy Java project to Azure Function App
+name: Deploy Java project to function app
 
 on:
   [push]
@@ -299,7 +300,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup Java Sdk ${{ env.JAVA_VERSION }}
       uses: actions/setup-java@v1
@@ -325,7 +326,7 @@ jobs:
 Configure um fluxo de trabalho do Windows Java que usa um perfil de publicação.
 
 ```yaml
-name: Deploy Java project to Azure Function App
+name: Deploy Java project to function app
 
 on:
   [push]
@@ -341,7 +342,7 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup Java Sdk ${{ env.JAVA_VERSION }}
       uses: actions/setup-java@v1
@@ -369,7 +370,7 @@ jobs:
 Configure um Node.JS fluxo de trabalho do Linux que usa um perfil de publicação.
 
 ```yaml
-name: Deploy Node.js project to Azure Function App
+name: Deploy Node.js project to function app
 
 on:
   [push]
@@ -384,7 +385,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup Node ${{ env.NODE_VERSION }} Environment
       uses: actions/setup-node@v1
@@ -411,7 +412,7 @@ jobs:
 Configure um Node.JS fluxo de trabalho do Windows que usa um perfil de publicação.
 
 ```yaml
-name: Deploy Node.js project to Azure Function App
+name: Deploy Node.js project to function app
 
 on:
   [push]
@@ -426,7 +427,7 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup Node ${{ env.NODE_VERSION }} Environment
       uses: actions/setup-node@v1
@@ -455,7 +456,7 @@ jobs:
 Configure um fluxo de trabalho do Python Linux que usa um perfil de publicação.
 
 ```yaml
-name: Deploy Python project to Azure Function App
+name: Deploy Python project to function app
 
 on:
   [push]
@@ -470,7 +471,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup Python ${{ env.PYTHON_VERSION }} Environment
       uses: actions/setup-python@v1

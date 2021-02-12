@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: 7fe47289dcc6b6d6af4d13b36b5c3b1dae3baaf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63b9d74fbbb1a79dd4f3d3e7c5fb094a372282e0
+ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89663621"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96299625"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Usar o Logstash para conectar fontes de dados ao Azure Sentinel
 
@@ -48,8 +48,8 @@ O mecanismo Logstash é composto por três componentes:
 
 O plug-in de saída do Sentinela do Azure para Logstash envia dados formatados em JSON para seu espaço de trabalho Log Analytics, usando a API REST do coletor de dados HTTP Log Analytics. Os dados são ingeridos em logs personalizados.
 
-- Saiba mais sobre a [API REST do log Analytics](https://docs.microsoft.com/rest/api/loganalytics/create-request).
-- Saiba mais sobre [logs personalizados](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-custom-logs).
+- Saiba mais sobre a [API REST do log Analytics](/rest/api/loganalytics/create-request).
+- Saiba mais sobre [logs personalizados](../azure-monitor/platform/data-sources-custom-logs.md).
 
 ## <a name="deploy-the-azure-sentinel-output-plugin-in-logstash"></a>Implantar o plug-in de saída do Sentinela do Azure no Logstash
 
@@ -57,7 +57,7 @@ O plug-in de saída do Sentinela do Azure para Logstash envia dados formatados e
 
 O plug-in de saída do Sentinela do Azure está disponível na coleção Logstash.
 
-- Siga as instruções no documento Logstash [trabalhando com plugins](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) para instalar o plug-in ***Microsoft-Logstash-output-Azure-loganalytics*** .
+- Siga as instruções no documento Logstash [trabalhando com plugins](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) para instalar o plug-in **_[Microsoft-Logstash-output-Azure-loganalytics](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-logstash-output-azure-loganalytics)_* _.
    
 - Se o sistema Logstash não tiver acesso à Internet, siga as instruções no documento de [Gerenciamento de plug-ins offline](https://www.elastic.co/guide/en/logstash/current/offline-plugins.html) do Logstash para preparar e usar um pacote de plugin offline. (Isso exigirá que você crie outro sistema Logstash com acesso à Internet.)
 
@@ -67,7 +67,7 @@ Use as informações na estrutura Logstash [de um documento de arquivo de config
 
 | Nome do campo | Tipo de dados | Descrição |
 |----------------|---------------|-----------------|
-| `workspace_id` | string | Insira seu GUID de ID do espaço de trabalho. * |
+| `workspace_id` | string | Insira seu GUID de ID do espaço de trabalho. _ |
 | `workspace_key` | string | Insira o GUID de chave primária do espaço de trabalho. * |
 | `custom_log_table_name` | string | Defina o nome da tabela na qual os logs serão ingeridos. Somente um nome de tabela por plug-in de saída pode ser configurado. A tabela de log será exibida no Azure Sentinel em **logs**, em **tabelas** na categoria **logs personalizados** , com um `_CL` sufixo. |
 | `endpoint` | string | Campo opcional. Por padrão, esse é o ponto de extremidade Log Analytics. Use este campo para definir um ponto de extremidade alternativo. |
@@ -162,7 +162,7 @@ Aqui estão algumas configurações de exemplo que usam algumas opções diferen
 
 1. Para ver os registros na tabela, consulte a tabela usando o nome da tabela como o esquema.
 
-   :::image type="content" source="./media/connect-logstash/logstash-custom-logs-query.png" alt-text="Captura de tela dos logs personalizados do Stash de log.":::
+   :::image type="content" source="./media/connect-logstash/logstash-custom-logs-query.png" alt-text="Captura de tela de uma consulta de logs personalizados do Stash de log.":::
 
 ## <a name="monitor-output-plugin-audit-logs"></a>Monitorar logs de auditoria do plug-in de saída
 

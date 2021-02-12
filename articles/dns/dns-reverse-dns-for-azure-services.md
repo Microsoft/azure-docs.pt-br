@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
-ms.openlocfilehash: 15396467e92b3e035add03d0d29888558571aa2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c72e17e601ebf87b0f344a4723159ae22abc81d1
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84711231"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919860"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Configurar DNS reverso para serviços hospedados no Azure
 
@@ -33,7 +33,7 @@ Antes de ler este artigo, você deve estar familiarizado com essa [Visão geral 
 No DNS do Azure, os recursos de computação (como máquinas virtuais, conjuntos de escala de máquina virtual ou clusters do Service Fabric) são expostos por meio de um recurso PublicIpAddress. As pesquisas inversas de DNS são configuradas usando a propriedade 'ReverseFqdn' de PublicIpAddress.
 
 
-O DNS reverso no momento não é suportado para o Serviço de Aplicativo do Azure.
+O DNS reverso não tem suporte no momento para o serviço de Azure App e o gateway de aplicativo.
 
 ## <a name="validation-of-reverse-dns-records"></a>Validação de registros DNS reversos
 
@@ -247,11 +247,10 @@ Não. O Azure atualmente oferece suporte a DNS reverso somente para recursos Pub
 
 ### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>Posso enviar emails a domínios externos de meus Serviços de Computação do Azure?
 
-A capacidade técnica de enviar email diretamente de uma implantação do Azure depende do tipo de assinatura. Independentemente do tipo de assinatura, a Microsoft recomenda o uso de serviços de retransmissão de email confiáveis para enviar emails de saída. Para mais detalhes, consulte [Segurança reforçada do Azure para envio de Emails - atualização de novembro de 2017](https://blogs.msdn.microsoft.com/mast/2017/11/15/enhanced-azure-security-for-sending-emails-november-2017-update/).
+A capacidade técnica de enviar email diretamente de uma implantação do Azure depende do tipo de assinatura. Independentemente do tipo de assinatura, a Microsoft recomenda o uso de serviços de retransmissão de email confiáveis para enviar emails de saída. Para mais detalhes, consulte [Segurança reforçada do Azure para envio de Emails - atualização de novembro de 2017](../virtual-network/troubleshoot-outbound-smtp-connectivity.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre DNS reverso, confira [Pesquisa de DNS reverso na Wikipédia](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
 Saiba como [hospedar a zona de pesquisa inversa para o intervalo de IP atribuído pelo ISP no DNS do Azure](dns-reverse-dns-for-azure-services.md).
-

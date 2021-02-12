@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
 ms.openlocfilehash: 1766705e73afab5d15cdb5aa2c5bb1487ad3d7c5
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634276"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013880"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Usar segredos de Azure Key Vault em atividades de pipeline
 
@@ -39,7 +39,7 @@ Esse recurso depende da identidade gerenciada data factory.  Saiba como ele func
 
     ![Políticas de acesso ao cofre de chaves](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies-2.png)
 
-    Clique em **Adicionar** e em **salvar** .
+    Clique em **Adicionar** e em **salvar**.
 
 3. Navegue até seu segredo de Key Vault e copie o identificador secreto.
 
@@ -51,7 +51,7 @@ Esse recurso depende da identidade gerenciada data factory.  Saiba como ele func
 
     |Propriedade  |Valor  |
     |---------|---------|
-    |Saída segura     |Verdadeiro         |
+    |Saída segura     |True         |
     |URL     |[Seu valor de URI secreto]? API-Version = 7.0         |
     |Método     |GET         |
     |Autenticação     |MSI         |
@@ -65,7 +65,7 @@ Esse recurso depende da identidade gerenciada data factory.  Saiba como ele func
     > [!CAUTION]
     > Defina a opção de saída segura como true para impedir que o valor secreto seja registrado em texto sem formatação.  Qualquer outra atividade que consumir esse valor deve ter a opção de Entrada segura definida como verdadeira.
 
-5. Para usar o valor em outra atividade, use a seguinte expressão de código **@activity (' web1 '). Output. Value** .
+5. Para usar o valor em outra atividade, use a seguinte expressão de código **@activity (' web1 '). Output. Value**.
 
     ![Expressão de código](media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png)
 

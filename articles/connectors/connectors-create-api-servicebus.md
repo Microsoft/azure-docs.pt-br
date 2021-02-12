@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 10/22/2020
 tags: connectors
 ms.openlocfilehash: b6276ff940d8b156a671cb5386ce53ede30dd879
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426641"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019695"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Trocar mensagens na nuvem usando os aplicativos lógicos do Azure e o barramento de serviço do Azure
 
@@ -163,7 +163,7 @@ Confirme se seu aplicativo lógico tem permissões para acessar o namespace do B
 
 ## <a name="send-correlated-messages-in-order"></a>Enviar mensagens correlacionadas na ordem
 
-Quando você precisar enviar mensagens relacionadas em uma ordem específica, poderá usar o [padrão *comboio sequencial* ](/azure/architecture/patterns/sequential-convoy) usando o conector do [barramento de serviço do Azure](../connectors/connectors-create-api-servicebus.md). As mensagens correlacionadas têm uma propriedade que define a relação entre essas mensagens, como a ID da [sessão](../service-bus-messaging/message-sessions.md) no barramento de serviço.
+Quando você precisar enviar mensagens relacionadas em uma ordem específica, poderá usar o [padrão *comboio sequencial*](/azure/architecture/patterns/sequential-convoy) usando o conector do [barramento de serviço do Azure](../connectors/connectors-create-api-servicebus.md). As mensagens correlacionadas têm uma propriedade que define a relação entre essas mensagens, como a ID da [sessão](../service-bus-messaging/message-sessions.md) no barramento de serviço.
 
 Ao criar um aplicativo lógico, você pode selecionar o modelo **entrega em ordem correlacionada usando sessões do barramento de serviço** , que implementa o padrão comboio sequencial. Para obter mais informações, consulte [enviar mensagens relacionadas na ordem](../logic-apps/send-related-messages-sequential-convoy.md).
 

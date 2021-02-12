@@ -14,11 +14,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 15bce219b96268124729de2f475e33fc386348a8
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631726"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021207"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Tutorial: copiar dados do Armazenamento de Blobs para o Banco de Dados SQL usando o Data Factory
 > [!div class="op_single_selector"]
@@ -45,42 +45,42 @@ A atividade de cópia realiza a movimentação de dados no Azure Data Factory. E
 ## <a name="prerequisites-for-the-tutorial"></a>Pré-requisitos para o tutorial
 Antes de iniciar este tutorial, você deverá ter os seguintes pré-requisitos:
 
-* **Assinatura do Azure** .  Se você não tiver uma assinatura, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Consulte o artigo [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) para obter detalhes.
-* **Conta de armazenamento do Azure** . Você usa o armazenamento de blobs como um armazenamento de dados de **origem** dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [criar uma conta de armazenamento](../../storage/common/storage-account-create.md) para obter as etapas para criar uma.
-* **Banco de dados SQL do Azure** . Você usa o banco de dados SQL do Azure como um armazenamento de dado de **destino** neste tutorial. Se você não tiver um banco de dados no banco de dados SQL do Azure que possa ser usado no tutorial, consulte [como criar e configurar um banco de dados no banco de dados SQL do Azure](../../azure-sql/database/single-database-create-quickstart.md) para criar um.
-* **SQL Server 2012/2014 ou Visual Studio 2013** . Você usa SQL Server Management Studio ou Visual Studio para criar um banco de dados de exemplo e exibir os dados de resultado no banco de dados.  
+* **Assinatura do Azure**.  Se você não tiver uma assinatura, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Consulte o artigo [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) para obter detalhes.
+* **Conta de armazenamento do Azure**. Você usa o armazenamento de blobs como um armazenamento de dados de **origem** dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [criar uma conta de armazenamento](../../storage/common/storage-account-create.md) para obter as etapas para criar uma.
+* **Banco de dados SQL do Azure**. Você usa o banco de dados SQL do Azure como um armazenamento de dado de **destino** neste tutorial. Se você não tiver um banco de dados no banco de dados SQL do Azure que possa ser usado no tutorial, consulte [como criar e configurar um banco de dados no banco de dados SQL do Azure](../../azure-sql/database/single-database-create-quickstart.md) para criar um.
+* **SQL Server 2012/2014 ou Visual Studio 2013**. Você usa SQL Server Management Studio ou Visual Studio para criar um banco de dados de exemplo e exibir os dados de resultado no banco de dados.  
 
 ## <a name="collect-blob-storage-account-name-and-key"></a>Coletar o nome e a chave da conta de armazenamento de blobs
 Você precisa do nome da conta e chave de conta da sua conta de armazenamento do Azure para concluir este tutorial. Anote o **nome da conta** e a **chave de conta** da sua conta de armazenamento do Azure.
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-2. Clique em **Todos os serviços** no menu esquerdo e selecione **Contas de Armazenamento** .
+2. Clique em **Todos os serviços** no menu esquerdo e selecione **Contas de Armazenamento**.
 
     ![Procurar - Contas de armazenamento](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png)
-3. Na folha **Contas de armazenamento** , selecione a **Conta de armazenamento do Azure** que você deseja usar neste tutorial.
-4. Selecione o link **Chaves de acesso** em **CONFIGURAÇÕES** .
+3. Na folha **Contas de armazenamento**, selecione a **Conta de armazenamento do Azure** que você deseja usar neste tutorial.
+4. Selecione o link **Chaves de acesso** em **CONFIGURAÇÕES**.
 5. Clique no botão **copiar** (imagem) ao lado da caixa de texto **Nome da conta de armazenamento** e salve-a/cole-a em algum lugar (por exemplo, em um arquivo de texto).
-6. Repita a etapa anterior para copiar ou anote a **chave1** .
+6. Repita a etapa anterior para copiar ou anote a **chave1**.
 
     ![Chave de acesso de armazenamento](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
-7. Feche todas as folhas, clicando em **X** .
+7. Feche todas as folhas, clicando em **X**.
 
 ## <a name="collect-sql-server-database-user-names"></a>Coletar o servidor SQL, o banco de dados, os nomes de usuário
 Você precisa dos nomes do SQL Server, do banco de dados e do usuário lógicos para fazer este tutorial. Anote os nomes do **servidor, do** **banco de dados** e do **usuário** para o banco de dados SQL do Azure.
 
-1. No **Portal do Azure** , clique em **Todos os serviços** à esquerda e selecione **Bancos de Dados SQL** .
-2. Na **folha Bancos de dados SQL** , clique no **banco de dados** que você deseja utilizar neste tutorial. Anote o **nome do banco de dados** .  
-3. Em seguida, na folha **Banco de dados SQL** , clique em **Propriedades** em **CONFIGURAÇÕES** .
-4. Anote os valores para **NOME DO SERVIDOR** e **LOGON DE ADMINISTRADOR DO SERVIDOR** .
-5. Feche todas as folhas, clicando em **X** .
+1. No **Portal do Azure**, clique em **Todos os serviços** à esquerda e selecione **Bancos de Dados SQL**.
+2. Na **folha Bancos de dados SQL**, clique no **banco de dados** que você deseja utilizar neste tutorial. Anote o **nome do banco de dados**.  
+3. Em seguida, na folha **Banco de dados SQL**, clique em **Propriedades** em **CONFIGURAÇÕES**.
+4. Anote os valores para **NOME DO SERVIDOR** e **LOGON DE ADMINISTRADOR DO SERVIDOR**.
+5. Feche todas as folhas, clicando em **X**.
 
 ## <a name="allow-azure-services-to-access-sql-server"></a>Permitir que os serviços do Azure acessem o servidor
 Verifique se a configuração **permitir acesso aos serviços do Azure** está ativada para o **servidor para que** o serviço de data Factory possa acessar o servidor. Para verificar e ativar essa configuração, faça as seguintes etapas:
 
-1. Clique no hub **Todos os serviços** à esquerda e clique em **Servidores SQL Server** .
-2. Selecione seu servidor e clique em **Firewall** em **CONFIGURAÇÕES** .
-3. Na folha **Configurações de Firewall** , clique em **ATIVADO** para **Permitir acesso aos serviços do Azure** .
-4. Feche todas as folhas, clicando em **X** .
+1. Clique no hub **Todos os serviços** à esquerda e clique em **Servidores SQL Server**.
+2. Selecione seu servidor e clique em **Firewall** em **CONFIGURAÇÕES**.
+3. Na folha **Configurações de Firewall**, clique em **ATIVADO** para **Permitir acesso aos serviços do Azure**.
+4. Feche todas as folhas, clicando em **X**.
 
 ## <a name="prepare-blob-storage-and-sql-database"></a>Preparar o Armazenamento de Blobs e o banco de dados SQL
 Agora, prepare o armazenamento de BLOBs do Azure e o banco de dados SQL do Azure para o tutorial executando as seguintes etapas:  
@@ -111,7 +111,7 @@ Agora, prepare o armazenamento de BLOBs do Azure e o banco de dados SQL do Azure
 
     Se o cliente não tiver permissão para acessar o SQL Server lógico, você precisará configurar o firewall para o servidor para permitir o acesso do seu computador (endereço IP). Consulte [Este artigo](../../azure-sql/database/firewall-configure.md) para obter as etapas para configurar o firewall para seu servidor.
 
-## <a name="create-a-data-factory"></a>Criar um data factory
+## <a name="create-a-data-factory"></a>Criar uma data factory
 Você concluiu os pré-requisitos. Você pode criar um data factory usando um dos caminhos a seguir. Clique em uma das opções na lista suspensa na parte superior ou nos links a seguir para executar o tutorial.     
 
 * [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)

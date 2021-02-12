@@ -4,12 +4,12 @@ description: Saiba como criar uma conexão SSH com o nós de cluster do Serviço
 services: container-service
 ms.topic: article
 ms.date: 07/31/2019
-ms.openlocfilehash: 50a52584618e505aa2ae7bd9ed7e0a9f6bc330a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c044b552cd0c28a7073364c48b9572045a290331
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87015605"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662872"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Conectar com SSH aos nós de cluster do Serviço de Kubernetes do Azure (AKS) para manutenção ou solução de problemas
 
@@ -25,7 +25,7 @@ Por padrão, as chaves SSH são obtidas ou geradas e, em seguida, adicionadas ao
 
 Este artigo também pressupõe que você tenha uma chave SSH. Você pode criar uma chave SSH usando [MacOS ou Linux][ssh-nix] ou [Windows][ssh-windows]. Se você usar gen de geração para criar o par de chaves, salve o par de chaves em um formato OpenSSH em vez do formato de chave privada de geração padrão (arquivo. PPK).
 
-Você também precisa do CLI do Azure versão 2.0.64 ou posterior instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
+Você também precisa do CLI do Azure versão 2.0.64 ou posterior instalada e configurada. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][install-azure-cli].
 
 ## <a name="configure-virtual-machine-scale-set-based-aks-clusters-for-ssh-access"></a>Configurar clusters AKS baseados em conjunto de dimensionamento de máquinas virtuais para acesso SSH
 
@@ -35,7 +35,7 @@ Use o comando [AZ AKs show][az-aks-show] para obter o nome do grupo de recursos 
 
 ```azurecli-interactive
 CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
-SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query [0].name -o tsv)
+SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query '[0].name' -o tsv)
 ```
 
 O exemplo acima atribui o nome do grupo de recursos de cluster para o *myAKSCluster* em *MyResource* Group para *CLUSTER_RESOURCE_GROUP*. Em seguida, o exemplo usa *CLUSTER_RESOURCE_GROUP* para listar o nome do conjunto de dimensionamento e atribuí-lo a *SCALE_SET_NAME*.

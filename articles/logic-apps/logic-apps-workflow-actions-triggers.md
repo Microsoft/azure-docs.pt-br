@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: b0cd8245b6d8298ae1d99e2dbe1e8457a40dc7d6
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ea4a4a47e91e88c00ca8a4e886d0372a24482907
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330403"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784301"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guia de referência de esquema para tipos de ação e gatilho em aplicativos lógicos do Azure
 
@@ -77,7 +77,7 @@ Cada tipo de gatilho possui uma interface e entradas diferentes que definem o co
 | [**HTTP**](#http-trigger) | Verifica ou *pesquisas* qualquer ponto de extremidade. Esse ponto de extremidade deve estar em conformidade com um contrato de gatilho específico usando um `202` padrão assíncrono ou retornando uma matriz. | 
 | [**HTTPWebhook**](#http-webhook-trigger) | Cria um ponto de extremidade que pode ser chamado para seu aplicativo lógico, mas chama o URL especificado para registrar ou cancelar o registro. |
 | [**Recorrência**](#recurrence-trigger) | Acionado com base em um agendamento definido. Você pode definir uma data e hora futura para acionar esse gatilho. Com base na frequência, você também pode especificar horários e dias para executar seu fluxo de trabalho. | 
-| [**Quest**](#request-trigger)  | Cria um ponto de extremidade que pode ser chamado para seu aplicativo lógico e também é conhecido como um acionador "manual". Por exemplo, consulte [Chamar, disparar ou aninhar fluxos de trabalho com pontos de extremidade HTTP](../logic-apps/logic-apps-http-endpoint.md). | 
+| [**Solicitação**](#request-trigger)  | Cria um ponto de extremidade que pode ser chamado para seu aplicativo lógico e também é conhecido como um acionador "manual". Por exemplo, consulte [Chamar, disparar ou aninhar fluxos de trabalho com pontos de extremidade HTTP](../logic-apps/logic-apps-http-endpoint.md). | 
 ||| 
 
 ### <a name="managed-api-triggers"></a>Gatilhos de API gerenciados
@@ -151,7 +151,7 @@ Esse acionador verifica ou *pesquisa* um terminal usando [APIs gerenciadas pela 
 
 *Saídas*
  
-| Elemento | Digite | Descrição |
+| Elemento | Type | Descrição |
 |---------|------|-------------|
 | headers | Objeto JSON | Os cabeçalhos da resposta |
 | body | Objeto JSON | O corpo da resposta |
@@ -326,7 +326,7 @@ Esse gatilho envia uma solicitação para o ponto de extremidade HTTP ou HTTPS e
 
 *Saídas*
 
-| Elemento | Digite | Descrição |
+| Elemento | Type | Descrição |
 |---------|------|-------------|
 | `headers` | Objeto JSON | Os cabeçalhos da resposta |
 | `body` | Objeto JSON | O corpo da resposta |
@@ -420,7 +420,7 @@ Alguns valores, como <*tipo de método*>, estão disponíveis para ambos os `"su
 
 *Saídas* 
 
-| Elemento | Digite | Descrição |
+| Elemento | Type | Descrição |
 |---------|------|-------------| 
 | headers | Objeto JSON | Os cabeçalhos da resposta | 
 | body | Objeto JSON | O corpo da resposta | 
@@ -502,7 +502,7 @@ Esse acionador é executado com base no agendamento de recorrência especificado
 
 | Valor | Type | Descrição | 
 |-------|------|-------------| 
-| <*Data de início-hora-com-formato-AAAA-MM-DDThh: mm: SS*> | String | A data e hora de início neste formato: <p>AAAA-MM-DDThh:mm:ss se você especificar um fuso horário <p>- ou - <p>AAAA-MM-DDThh:mm:ssZ se você não especificar um fuso horário <p>Por exemplo, se você quiser 18 de setembro de 2017 às 14h00, especifique "2017-09-18T14:00:00" e especifique um fuso horário como "Hora Padrão do Pacífico" ou especifique "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Observação:** Essa hora de início tem um máximo de 49 anos no futuro e deve seguir a [especificação de data e hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data e hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem um [deslocamento UTC](https://en.wikipedia.org/wiki/UTC_offset). Se você não especificar um fuso horário, será necessário adicionar a letra "Z" no final sem espaços. Essa letra "Z" refere-se ao equivalente em [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para agendamentos simples, a hora de início é a primeira ocorrência, enquanto que, para agendamentos complexos, o gatilho não é disparado antes da hora de início. Para obter mais informações sobre datas e horas de início, consulte [Criar e agendar tarefas de execução regularmente](../connectors/connectors-native-recurrence.md). | 
+| <*Data de início-hora-com-formato-AAAA-MM-DDThh: mm: SS*> | String | A data e hora de início neste formato: <p>AAAA-MM-DDThh:mm:ss se você especificar um fuso horário <p>-ou- <p>AAAA-MM-DDThh:mm:ssZ se você não especificar um fuso horário <p>Por exemplo, se você quiser 18 de setembro de 2017 às 14h00, especifique "2017-09-18T14:00:00" e especifique um fuso horário como "Hora Padrão do Pacífico" ou especifique "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Observação:** Essa hora de início tem um máximo de 49 anos no futuro e deve seguir a [especificação de data e hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data e hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem um [deslocamento UTC](https://en.wikipedia.org/wiki/UTC_offset). Se você não especificar um fuso horário, será necessário adicionar a letra "Z" no final sem espaços. Essa letra "Z" refere-se ao equivalente em [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para agendamentos simples, a hora de início é a primeira ocorrência, enquanto que, para agendamentos complexos, o gatilho não é disparado antes da hora de início. Para obter mais informações sobre datas e horas de início, consulte [Criar e agendar tarefas de execução regularmente](../connectors/connectors-native-recurrence.md). | 
 | <*fuso horário*> | String | Aplica-se somente quando você especifica uma hora de início, porque o gatilho não aceita [diferença UTC](https://en.wikipedia.org/wiki/UTC_offset). Especifique o fuso horário que deseja aplicar. | 
 | <*uma ou mais marcas de hora*> | Inteiro ou matriz de inteiros | Se você selecionar "Dia" ou "Semana" para `frequency`, poderá selecionar um ou mais números inteiros, de 0 a 23, separados por vírgulas, como as horas do dia nas quais você deseja executar o fluxo de trabalho. <p>Por exemplo, se você especificar "10", "12" e "14", você obterá 10h, 12h e 14h como as marcas de hora. | 
 | <*aspas com um ou mais minutos*> | Inteiro ou matriz de inteiros | Se você selecionar "Dia" ou "Semana" para `frequency`, poderá selecionar um ou mais números inteiros, de 0 a 59, separados por vírgulas, como os minutos da hora nos quais você deseja executar o fluxo de trabalho. <p>Por exemplo, você pode especificar "30" como a marca de minutos e, usando o exemplo anterior como as horas do dia, você obtém 10h30, 12h30 e 14h30. | 
@@ -811,7 +811,7 @@ Aqui estão alguns tipos de ação comumente usadas:
 
 * [Tipos de ação de API gerenciados](#managed-api-actions), como [**ApiConnection**](#apiconnection-action) e [**ApiConnectionWebHook**](#apiconnectionwebhook-action) que chame vários conectores e APIs gerenciadas pela Microsoft, por exemplo, o barramento de serviço do Azure, Office 365 Outlook, Power BI, o armazenamento de BLOBs do Azure, OneDrive, GitHub e muito mais
 
-* [Tipos de ação de fluxo de trabalho de controle](#control-workflow-actions), como [**se**](#if-action), [**Foreach**](#foreach-action), [**Switch **](#switch-action), [**Escopo**](#scope-action), e [**até**](#until-action), que contêm outras ações e ajudá-lo organizar a execução de fluxo de trabalho
+* [Tipos de ação de fluxo de trabalho de controle](#control-workflow-actions), como [**se**](#if-action), [**Foreach**](#foreach-action), [**Switch**](#switch-action), [**Escopo**](#scope-action), e [**até**](#until-action), que contêm outras ações e ajudá-lo organizar a execução de fluxo de trabalho
 
 <a name="built-in-actions"></a>
 
@@ -819,18 +819,18 @@ Aqui estão alguns tipos de ação comumente usadas:
 
 | Tipo de ação | Descrição | 
 |-------------|-------------| 
-| [**Compor**](#compose-action) | Cria uma única saída de entradas, que podem ter vários tipos. | 
+| [**Redigir**](#compose-action) | Cria uma única saída de entradas, que podem ter vários tipos. | 
 | [**Executar código JavaScript**](#run-javascript-code) | Executar trechos de código JavaScript que se enquadram dentro de critérios específicos. Para obter os requisitos de código e mais informações, consulte [Adicionar e executar trechos de código com código embutido](../logic-apps/logic-apps-add-run-inline-code.md). |
 | [**Função**](#function-action) | Chama uma função do Azure. | 
 | [**HTTP**](#http-action) | Chama um ponto de extremidade HTTP. | 
 | [**Em**](#join-action) | Cria uma string de todos os itens em uma matriz e separa esses itens com um caractere delimitador especificado. | 
 | [**Analisar JSON**](#parse-json-action) | Cria conteúdo fácil de usar tokens de propriedades no JSON. Você pode fazer referência a essas propriedades, incluindo os tokens em seu aplicativo lógico. | 
-| [**Consulta**](#query-action) | Cria uma matriz de itens em outra matriz com base em uma condição ou filtro. | 
-| [**Responde**](#response-action) | Cria uma resposta a uma chamada de entrada ou a solicitação. | 
+| [**Consultá**](#query-action) | Cria uma matriz de itens em outra matriz com base em uma condição ou filtro. | 
+| [**Resposta**](#response-action) | Cria uma resposta a uma chamada de entrada ou a solicitação. | 
 | [**Não**](#select-action) | Cria uma matriz com objetos JSON, transformando itens de outra matriz com base no mapa especificado. | 
 | [**Tabela**](#table-action) | Cria uma tabela CSV ou HTML de uma matriz. | 
 | [**Encerrar**](#terminate-action) | Interrompe um fluxo de trabalho ativo. | 
-| [**Esperado**](#wait-action) | Pausa seu fluxo de trabalho por um período especificado ou até a data e a hora especificadas. | 
+| [**Aguardar**](#wait-action) | Pausa seu fluxo de trabalho por um período especificado ou até a data e a hora especificadas. | 
 | [**Fluxo de trabalho**](#workflow-action) | Aninha um fluxo de trabalho dentro de outro fluxo de trabalho. | 
 ||| 
 
@@ -853,9 +853,9 @@ Essas ações ajudam você a controlar a execução do fluxo de trabalho e inclu
 | Tipo de ação | Descrição | 
 |-------------|-------------| 
 | [**ForEach**](#foreach-action) | Execute as mesmas ações em um loop para cada item em uma matriz. | 
-| [**Se**](#if-action) | Execute ações com base em se a condição especificada é verdadeira ou falsa. | 
-| [**Escopo**](#scope-action) | Execute ações com base no status do grupo de um conjunto de ações. | 
-| [**Alternar**](#switch-action) | Execute ações organizadas em casos em que valores de expressões, objetos ou tokens correspondam aos valores especificados por cada caso. | 
+| [**Que**](#if-action) | Execute ações com base em se a condição especificada é verdadeira ou falsa. | 
+| [**Com**](#scope-action) | Execute ações com base no status do grupo de um conjunto de ações. | 
+| [**Comutador**](#switch-action) | Execute ações organizadas em casos em que valores de expressões, objetos ou tokens correspondam aos valores especificados por cada caso. | 
 | [**Haja**](#until-action) | Execute ações em um loop até que a condição especificada seja verdadeira. | 
 |||  
 
@@ -1126,7 +1126,7 @@ O código extrai os endereços de email da Propriedade do gatilho `Body` e retor
 
 ### <a name="function-action"></a>Ação de função
 
-Essa ação chama criado anteriormente [função do Azure](../azure-functions/functions-create-first-azure-function.md).
+Essa ação chama criado anteriormente [função do Azure](../azure-functions/functions-get-started.md).
 
 ```json
 "<Azure-function-name>": {
@@ -1506,7 +1506,7 @@ Ao contrário de outras ações, a ação **Response** tem restrições especiai
 
 * Seu fluxo de trabalho pode usar a ação **Resposta** em qualquer lugar *exceto* dentro de **Foreach** loops, **até** loops, incluindo loops sequenciais e ramificações paralelas. 
 
-* A solicitação HTTP original obtém a resposta do seu fluxo de trabalho somente quando todas as ações exigidas pela ação ** Response ** são concluídas dentro do limite de tempo [limite da solicitação HTTP](../logic-apps/logic-apps-limits-and-config.md#request-limits).
+* A solicitação original Obtém a resposta do fluxo de trabalho somente quando todas as ações exigidas pela ação de **resposta** são concluídas dentro do [limite de tempo limite de http](../logic-apps/logic-apps-limits-and-config.md#http-limits).
 
   No entanto, se o seu fluxo de trabalho chamar outro aplicativo lógico como um fluxo de trabalho aninhado, o fluxo de trabalho pai aguardará até que o fluxo de trabalho aninhado seja concluído, independentemente de quanto tempo passe antes que o fluxo de trabalho aninhado seja concluído.
 
@@ -2098,11 +2098,11 @@ Essa condição especifica que, quando a variável integer tiver um valor maior 
 
 Estes são alguns exemplos que mostram como você pode usar expressões em condições:
   
-| JSON | Resultado | 
+| JSON | Result | 
 |------|--------| 
 | "expressão": "@parameters('<*hasSpecialAction*>')" | Apenas para expressões booleanas, a condição passa para qualquer valor que seja avaliado como verdadeiro. <p>Para converter outros tipos em Boolean, use estas funções: `empty()` ou `equals()`. | 
 | "expressão": "@greater(actions('<*action*>').output.value, parâmetros ('<*limite*>'))" | Para funções de comparação, a ação é executada somente quando a saída do <*ação*> é mais do que <*limite*> valor. | 
-| "expression": "@or (maior (actions ('<* action *>'). output.value, parameters ('<* limiar *>')), less (ações ( '<* same-action *>'). Output.value, 100))" | Para funções lógicas e criando aninhados expressões Boolianas, a ação é executada quando a saída do <*ação*> é mais do que <*limite*> valor ou em 100. | 
+| "expression": "@or (maior (actions ('<*action*>'). output.value, parameters ('<*limiar*>')), less (ações ( '<*same-action*>'). Output.value, 100))" | Para funções lógicas e criando aninhados expressões Boolianas, a ação é executada quando a saída do <*ação*> é mais do que <*limite*> valor ou em 100. | 
 | "expressão": "@equals(comprimento (actions('<*action*>').outputs.errors), 0))" | Você pode usar funções de matriz para verificar se a matriz possui algum item. A ação é executada quando o `errors` matriz está vazia. | 
 ||| 
 
@@ -2397,11 +2397,10 @@ Você pode alterar o comportamento de tempo de execução padrão para gatilhos 
 
 Você pode alterar o comportamento padrão de acionadores e ações com a propriedade `operationOptions` na definição de acionador ou ação.
 
-| Opção de operação | Digite | Descrição | Gatilho ou ação | 
+| Opção de operação | Type | Descrição | Gatilho ou ação | 
 |------------------|------|-------------|-------------------| 
 | `DisableAsyncPattern` | String | Execute ações baseadas em HTTP de forma síncrona, em vez de assíncrona. <p><p>Para definir essa opção, consulte [executar ações de forma síncrona](#disable-asynchronous-pattern). | Ações: <p>[ApiConnection](#apiconnection-action), <br>[Http](#http-action), <br>[Resposta](#response-action) | 
 | `IncludeAuthorizationHeadersInOutputs` | String | Para aplicativos lógicos que [habilitam Azure Active Directory autenticação aberta (Azure ad OAuth)](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) para autorizar o acesso para chamadas de entrada a um ponto de extremidade de gatilho baseado em solicitação, inclua o `Authorization` cabeçalho do token de acesso OAuth nas saídas do gatilho. Para obter mais informações, consulte [incluir o cabeçalho ' Authorization ' nas saídas do gatilho de solicitação](../logic-apps/logic-apps-securing-a-logic-app.md#include-auth-header). | Gatilhos: <p>[Solicitação](#request-trigger), <br>[Webhook HTTP](#http-webhook-trigger) | 
-| `OptimizedForHighThroughput` | String | Altere o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) no número de execuções de ação por 5 minutos para o [limite máximo](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). <p><p>Para definir essa opção, consulte [Executar no modo de alto rendimento](#run-high-throughput-mode). | Todas as ações | 
 | `Sequential` | String | Execute "for each" loop iterações um por vez, em vez de todos ao mesmo tempo em paralelo. <p>Esta opção funciona da mesma forma que a configuração da `runtimeConfiguration.concurrency.repetitions` propriedade para `1`. Você pode definir a propriedade, mas não ambos. <p><p>Para definir essa opção, consulte [executar "for each" executa um loop em sequência](#sequential-for-each).| Ação: <p>[Foreach](#foreach-action) | 
 | `SingleInstance` | String | Executar o gatilho para cada instância de aplicativo lógico em sequência e aguarde a execução anteriormente ativa concluir antes de disparar a próxima instância do aplicativo lógico. <p><p>Esta opção funciona da mesma forma que a configuração da `runtimeConfiguration.concurrency.runs` propriedade para `1`. Você pode definir a propriedade, mas não ambos. <p>Para definir essa opção, consulte [disparar instâncias sequencialmente](#sequential-trigger). | Todos os gatilhos | 
 ||||
@@ -2683,7 +2682,7 @@ Nesses casos, você pode fazer uma ação ser executada de forma síncrona usand
 
 * Desabilite o comportamento assíncrono da ação seguindo uma das opções a seguir:
 
-  * No designer do aplicativo lógico, [desative a configuração **padrão assíncrono** ](#turn-off-asynchronous-pattern-setting).
+  * No designer do aplicativo lógico, [desative a configuração **padrão assíncrono**](#turn-off-asynchronous-pattern-setting).
 
   * Na definição de JSON subjacente da ação, [adicione a `"DisableAsyncPattern"` opção de operação](#add-disable-async-pattern-option).
 
@@ -2708,24 +2707,6 @@ Na definição de JSON subjacente da ação, adicione e defina a [Propriedade "o
    "type": "Http",
    "inputs": { "<action-inputs>" },
    "operationOptions": "DisableAsyncPattern",
-   "runAfter": {}
-}
-```
-
-<a name="run-high-throughput-mode"></a>
-
-### <a name="run-in-high-throughput-mode"></a>Executar no modo de alta taxa de transferência
-
-Para uma definição de aplicativo lógico único, o número de ações executadas a cada 5 minutos tem um [limite padrão](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Para aumentar esse limite para o [máxima](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) possível, defina o `operationOptions` propriedade `OptimizedForHighThroughput`. Essa configuração coloca seu aplicativo lógico no modo "alto rendimento".
-
-> [!NOTE]
-> Modo de alta taxa de transferência está em visualização. Você também pode distribuir uma carga de trabalho entre mais de um aplicativo lógico conforme necessário.
-
-```json
-"<action-name>": {
-   "type": "<action-type>",
-   "inputs": { "<action-inputs>" },
-   "operationOptions": "OptimizedForHighThroughput",
    "runAfter": {}
 }
 ```

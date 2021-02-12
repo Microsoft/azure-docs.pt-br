@@ -7,13 +7,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/28/2020
-ms.openlocfilehash: 70787f1d918064b48d37ce051bfdd2aba49472ea
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.date: 10/30/2020
+ms.openlocfilehash: 7ed1d9db09357b0702188c01a802600ff6350aff
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040190"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147259"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Transformação de pesquisa no fluxo de dados de mapeamento
 
@@ -68,6 +68,10 @@ Ao testar a transformação de pesquisa com a visualização de dados no modo de
 Em transformação de junções, pesquisas e ocorrências, se um ou ambos os fluxos de dados se ajustarem à memória do nó de trabalho, você poderá otimizar o desempenho habilitando a **Difusão** . Por padrão, o mecanismo do Spark decidirá automaticamente se deseja ou não transmitir um lado. Para escolher manualmente o lado a ser transmitido, selecione **Fixo** .
 
 Não é recomendável desabilitar a transmissão por meio da opção **Desativar** , a menos que suas uniões estejam tendo erros de tempo limite.
+
+## <a name="cached-lookup"></a>Pesquisa armazenada em cache
+
+Se você estiver fazendo várias pesquisas menores na mesma fonte, um coletor em cache e uma pesquisa talvez sejam um caso de uso melhor do que a transformação pesquisa. Exemplos comuns em que um coletor de cache pode ser melhor é Pesquisar um valor máximo em um armazenamento de dados e encontrar códigos de erro correspondentes a um banco de dado de mensagens de erro. Para obter mais informações, saiba mais sobre [coletores de cache](data-flow-sink.md#cache-sink) e [pesquisas em cache](concepts-data-flow-expression-builder.md#cached-lookup).
 
 ## <a name="data-flow-script"></a>Script de fluxo de dados
 

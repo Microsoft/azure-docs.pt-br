@@ -7,20 +7,20 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
-ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 10/23/2020
+ms.date: 01/11/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0e2ce094b792d6f3f7e5f8fe1920d87a9cceea2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 5038bde01a6b183a25a47f3b4e206c1ce80e6b6d
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517168"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127831"
 ---
 # <a name="user-management-enhancements-preview-in-azure-active-directory"></a>Aprimoramentos de gerenciamento de usuário (versão prévia) no Azure Active Directory
 
@@ -60,6 +60,9 @@ A seguir estão as propriedades do usuário exibidas na página **todos os usuá
 - Nome: o nome de exibição do usuário.
 - Nome principal do usuário: o UPN (nome principal do usuário) do usuário.
 - Tipo de usuário: membro, convidado, nenhum.
+- Hora de criação: a data e a hora em que o usuário foi criado.
+- Cargo: o cargo do usuário.
+- Departamento: o departamento no qual o usuário trabalha.
 - Diretório sincronizado: indica se o usuário está sincronizado de um diretório local.
 - Emissor de identidade: os emissores da identidade usada para entrar em uma conta de usuário.
 - ID do objeto: a ID de objeto do usuário.
@@ -76,7 +79,8 @@ A seguir estão as propriedades do usuário exibidas na página **todos os usuá
 A página **usuários excluídos** inclui todas as colunas que estão disponíveis na página **todos os usuários** e algumas colunas adicionais, isto é:
 
 - Data de exclusão: a data em que o usuário foi excluído pela primeira vez da organização (o usuário é restaurável).
-- Data de exclusão permanente: a data após a qual o processo de exclusão permanente do usuário da organização é iniciado automaticamente. 
+- Data de exclusão permanente: a data após a qual o processo de exclusão permanente do usuário da organização é iniciado automaticamente.
+- Nome principal do usuário original: o UPN original do usuário antes de sua ID de objeto ter sido adicionada como um prefixo ao seu UPN excluído.
 
 > [!NOTE]
 > As datas de exclusão são exibidas em UTC (tempo Universal Coordenado).
@@ -88,7 +92,7 @@ Algumas colunas são exibidas por padrão. Para adicionar outras colunas, seleci
 Selecione uma entrada na coluna **emissor de identidade** para qualquer usuário exibir detalhes adicionais sobre o emissor, incluindo o tipo de entrada e a ID atribuída do emissor. As entradas na coluna **emissor da identidade** podem ter valores múltiplos. Se houver vários emissores da identidade do usuário, você verá a palavra vários na coluna emissor de **identidade** em **todas as páginas usuários** e **usuários excluídos** e o painel detalhes listará todos os emissores.
 
 > [!NOTE]
-> A coluna de **origem** é substituída por várias colunas, incluindo o **tipo de criação**, o **diretório sincronizado**e o **emissor de identidade** para filtragem mais granular.
+> A coluna de **origem** é substituída por várias colunas, incluindo o **tipo de criação**, o **diretório sincronizado** e o **emissor de identidade** para filtragem mais granular.
 
 ## <a name="user-list-search"></a>Pesquisa de lista de usuários
 
@@ -105,6 +109,10 @@ A seguir estão as propriedades filtráveis na página **todos os usuários** :
 - Tipo de usuário: membro, convidado, nenhum
 - Status sincronizado do diretório: Sim, não
 - Tipo de criação: convite, email verificado, conta local
+- Hora da criação: últimas 7, 14, 30, 90, 360 ou >360 dias atrás
+- Título do trabalho: Insira um cargo
+- Departamento: Insira um nome de departamento
+- Grupo: Pesquisar um grupo
 - Estado do convite – aceitação pendente, aceito
 - Nome de domínio: Insira um nome de domínio
 - Nome da empresa: Insira um nome de empresa
@@ -117,6 +125,9 @@ A página **usuários excluídos** tem filtros adicionais que não estão na pá
 - Tipo de usuário: membro, convidado, nenhum
 - Status sincronizado do diretório: Sim, não
 - Tipo de criação: convite, email verificado, conta local
+- Hora da criação: últimas 7, 14, 30, 90, 360 ou > 360 dias atrás
+- Título do trabalho: Insira um cargo
+- Departamento: Insira um nome de departamento
 - Estado do convite: aceitação pendente, aceita
 - Data de exclusão: últimos 7, 14 ou 30 dias
 - Nome de domínio: Insira um nome de domínio

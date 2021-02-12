@@ -15,13 +15,15 @@
         - name: Windows
           href: ../../virtual-machines/windows/quick-create-portal.md
     - name: Sem servidor
-      href: ../../azure-functions/functions-create-first-azure-function.md
+      href: ../../azure-functions/functions-get-started.md
     - name: Microsserviços
       items:
         - name: Service Fabric
           href: ../../service-fabric/service-fabric-tutorial-create-dotnet-app.md
         - name: Serviço de Contêiner
           href: /previous-versions/azure/container-service/dcos-swarm/container-service-intro
+        - name: Azure Spring Cloud
+          href: ../../spring-cloud/spring-cloud-quickstart.md
 - name: Tutoriais
   items:
     - name: Crie e implante um aplicativo Web
@@ -51,17 +53,17 @@
         - name: Aplicativos Web
           href: ../../app-service/samples-cli.md
         - name: VM Linux
-          href: ../../virtual-machines/linux/cli-samples.md
+          href: 'https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine'
         - name: VM Windows
-          href: ../../virtual-machines/windows/cli-samples.md
+          href: 'https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine'
     - name: Azure PowerShell
       items:
         - name: Aplicativos Web
           href: ../../app-service/samples-powershell.md
         - name: VM Linux
-          href: ../../virtual-machines/linux/powershell-samples.md
+          href: 'https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine'
         - name: VM Windows
-          href: ../../virtual-machines/windows/powershell-samples.md
+          href: 'https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine'
 - name: Conceitos
   items:
     - name: Cobrança e assinaturas
@@ -146,8 +148,6 @@
       items:
         - name: Aplicativos Web e móveis
           href: ../../app-service/troubleshoot-diagnostic-logs.md
-        - name: VM Linux
-          href: ../../virtual-machines/linux/tutorial-monitor.md
         - name: VM Windows
           href: ../../virtual-machines/windows/tutorial-monitor.md
         - name: Microsserviços
@@ -185,7 +185,7 @@
         - name: Azure PowerShell
           href: /powershell/
     - name: Cobrança
-      href: ../../cost-management-billing/manage/usage-rate-card-overview.md
+      href: ../../cost-management-billing/manage/consumption-api-overview.md
 - name: Recursos
   items:
     - name: Limites e cotas do Azure

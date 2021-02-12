@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: eb1752ea66f2cbebf6a653705b5a760e8e268240
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cd97aef5d8c959aeb2e0314e051790fd0421585
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932929"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806928"
 ---
 # <a name="azure-sentinel-data-normalization-schema-reference"></a>Referência de esquema de normalização de dados do Azure Sentinel
 
 ## <a name="terminology"></a>Terminologia
 
-A seguinte terminologia é usada nos esquemas do Sentinel:
+A seguinte terminologia é usada em esquemas do Azure Sentinel:
 
 | Termo | Definição |
 | ---- | ---------- |
@@ -40,10 +40,10 @@ Os valores devem ser normalizados com base nas diretrizes abaixo. Isso é obriga
 
 | Tipo de dados | Tipo físico | Formato e valor |
 | --------- | ------------- | ---------------- |
-| **Data/Hora** | Dependendo da capacidade do método de ingestão, use a prioridade decrescente:<ul><li>Log Analytics tipo de data e hora interno</li><li>Um campo inteiro usando a representação numérica Log Analytics DateTime</li><li>Um campo de cadeia de caracteres usando Log Analytics representação numérica de DateTime</li></ul> | Representação Log Analytics DateTime. <br></br>A data de Log Analytics & representação de hora é semelhante, mas diferente da representação de tempo do UNIX. Consulte essas diretrizes de conversão. <br></br>A data & hora deve ser ajustada ao fuso horário. |
+| **Data/hora** | Dependendo da capacidade do método de ingestão, use a prioridade decrescente:<ul><li>Log Analytics tipo de data e hora interno</li><li>Um campo inteiro usando a representação numérica Log Analytics DateTime</li><li>Um campo de cadeia de caracteres usando Log Analytics representação numérica de DateTime</li></ul> | Representação Log Analytics DateTime. <br></br>A data de Log Analytics & representação de hora é semelhante, mas diferente da representação de tempo do UNIX. Consulte essas diretrizes de conversão. <br></br>A data & hora deve ser ajustada ao fuso horário. |
 | **Endereço MAC** | String | Notação de Colon-Hexadecimal |
 | **Endereço IP** | Endereço IP | O esquema não tem endereços IPv4 e IPv6 separados. Qualquer campo de endereço IP pode incluir um endereço IPv4 ou o endereço IPv6:<ul><li>IPv4 em uma notação de ponto decimal</li><li>IPv6 na notação de 8 hextets, permitindo os pequenos formulários descritos aqui.</li></ul> |
-| **Usuário** | String | Os três campos de usuário a seguir estão disponíveis:<ul><li>Nome de usuário</li><li>UPN do usuário</li><li>Domínio do usuário</li></ul> |
+| **Usuário** | String | Os três campos de usuário a seguir estão disponíveis:<ul><li>Nome do usuário</li><li>UPN do usuário</li><li>Domínio do usuário</li></ul> |
 | **ID de usuário** | String | Atualmente, há suporte para as duas IDs de usuário a seguir:<ul><li>SID de usuário</li><li>ID do Azure Active Directory</li></ul> |
 | **Dispositivo** | String | Há suporte para as três colunas de dispositivo/host a seguir:<ul><li>ID</li><li>Nome</li><li>FQDN (nome de domínio totalmente qualificado)</li></ul> |
 | **País** | String | Uma cadeia de caracteres usando ISO 3166-1 de acordo com essa prioridade:<ul><li>Códigos alfa-2 (ou seja, US para o Estados Unidos)</li><li>Códigos alfa-3 (ou seja, EUA para o Estados Unidos)</li><li>Nome curto</li></ul> |
@@ -52,7 +52,7 @@ Os valores devem ser normalizados com base nas diretrizes abaixo. Isso é obriga
 | **Longitude** | Double | Representação de coordenada ISO 6709 (decimal assinado) |
 | **Latitude** | Double | Representação de coordenada ISO 6709 (decimal assinado) |
 | **Algoritmo de hash** | String | Há suporte para as 4 colunas de hash a seguir:<ul><li>MD5</li><li>SHA1</li><li>SHA256</li><li>SHA512</li></ul> |
-| **Tipo de arquivo** | String | O tipo do tipo de arquivo:<ul><li>Extensão</li><li>Classe</li><li>Nome de chamada</li></ul> |
+| **Tipo de arquivo** | String | O tipo do tipo de arquivo:<ul><li>Extensão</li><li>Class</li><li>Nome de chamada</li></ul> |
 | 
 
 ## <a name="network-sessions-table-schema"></a>Esquema de tabela de sessões de rede
@@ -65,16 +65,16 @@ Veja abaixo o esquema da tabela sessões de rede, com versão 1.0.0
 | EventSubType | String | Autenticação | Descrição adicional do tipo, se aplicável | Evento |
 | EventCount | Integer  | 10 | O número de eventos agregados, se aplicável. | Evento |
 | EventEndTime | Data/Hora | Consulte "tipos de dados" | A hora em que o evento terminou | Evento |
-| EventMessage | cadeia de caracteres |  acesso negado | Uma mensagem ou descrição geral, incluída no ou gerada a partir do registro | Evento |
+| EventMessage | string |  acesso negado | Uma mensagem ou descrição geral, incluída no ou gerada a partir do registro | Evento |
 | DvcIpAddr | Endereço IP |  23.21.23.34 | O endereço IP do dispositivo que gera o registro | Dispositivo,<br>IP |
 | DvcMacAddr | String | 06:10:9F: EB: 8F: 14 | O endereço MAC da interface de rede do dispositivo de relatório do qual o evento foi enviado. | Dispositivo,<br>Mac |
 | DvcHostname | Nome do dispositivo (cadeia de caracteres) | syslogserver1.contoso.com | O nome do dispositivo do dispositivo que gera a mensagem. | Dispositivo |
 | EventProduct | String | OfficeSharepoint | O produto que gera o evento. | Evento |
-| EventProductVersion | cadeia de caracteres | 9.0 |  A versão do produto que gera o evento. | Evento |
+| EventProductVersion | string | 9.0 |  A versão do produto que gera o evento. | Evento |
 | EventResourceId | ID do dispositivo (cadeia de caracteres) | /subscriptions/3c1bb38c-82e3-4f8d-a115-a7110ba70d05 /resourcegroups/contoso77/providers /microsoft.compute/virtualmachines /syslogserver1 | A ID de recurso do dispositivo que gera a mensagem. | Evento |
 | EventReportUrl | String | https://192.168.1.1/repoerts/ae3-56.htm | Um link para o relatório completo criado pelo dispositivo de relatório | Evento |
 | EventVendor | String | Microsoft | O fornecedor do produto que gera o evento. | Evento |
-| EventResult | Múltiplos valores: êxito, parcial, falha, [vazio] (cadeia de caracteres) | Êxito | O resultado relatado para a atividade. Valor vazio quando não aplicável. | Evento |
+| EventResult | Múltiplos valores: êxito, parcial, falha, [vazio] (cadeia de caracteres) | Sucesso | O resultado relatado para a atividade. Valor vazio quando não aplicável. | Evento |
 | EventResultDetails | String | Senha incorreta | Motivo ou detalhes para o resultado relatado em EventResult | Evento |
 | EventSchemaVersion | Real | 0,1 | Versão do esquema do Azure Sentinel. No momento, 0,1. | Evento |
 | EventSeverity | String | Baixo | Se a atividade relatada tiver um impacto de segurança, o indicará a gravidade do impacto. | Evento |
@@ -82,7 +82,7 @@ Veja abaixo o esquema da tabela sessões de rede, com versão 1.0.0
 | EventStartTime | Data/Hora | Consulte "tipos de dados" | A hora em que o evento foi declarado | Evento |
 | TimeGenerated | Data/Hora | Consulte "tipos de dados" | A hora em que o evento ocorreu, conforme relatado pela fonte de relatório. | Campo personalizado |
 | EventTimeIngested | Data/Hora | Consulte "tipos de dados" | A hora em que o evento foi ingerido para o Azure Sentinel. Serão adicionados pelo Azure Sentinel. | Evento |
-| EventUid | GUID (cadeia de caracteres) | 516a64e3-8360-4f1e-a67c-d96b3d52df54 | Identificador exclusivo usado pelo sentinela para marcar uma linha. | Evento |
+| EventUid | GUID (cadeia de caracteres) | 516a64e3-8360-4f1e-a67c-d96b3d52df54 | Identificador exclusivo usado pelo Azure Sentinel para marcar uma linha. | Evento |
 | NetworkApplicationProtocol | String | HTTPS | O protocolo de camada de aplicativo usado pela conexão ou sessão. | Rede |
 | DstBytes | INT | 32455 | O número de bytes enviados do destino para a origem da conexão ou da sessão. | Destino |
 | SrcBytes | INT | 46536 | O número de bytes enviados da origem para o destino para a conexão ou a sessão. | Fonte |
@@ -92,9 +92,9 @@ Veja abaixo o esquema da tabela sessões de rede, com versão 1.0.0
 | DstGeoCountry | País (cadeia de caracteres) | EUA | O país associado ao endereço IP de origem | Destino<br>Localização geográfica |
 | DstDvcHostname | Nome do dispositivo (cadeia de caracteres) |  victim_pc | O nome do dispositivo do dispositivo de destino | Destino<br>Dispositivo |
 | DstDvcFqdn | String | victim_pc. contoso. local | O nome de domínio totalmente qualificado do host em que o log foi criado | Destino<br>Dispositivo |
-| DstDomainHostname | cadeia de caracteres | CONTOSO | O domínio do destino, o domínio do host de destino (site, nome de domínio, etc.), por exemplo, para pesquisas de DNS ou pesquisas do NS | Destino |
-| DstInterfaceName | cadeia de caracteres | Adaptador de rede Microsoft Hyper-V | A interface de rede usada para a conexão ou sessão pelo dispositivo de destino. | Destino |
-| DstInterfaceGuid | cadeia de caracteres | 2BB33827-6BB6-48DB-8DE6-DB9E0B9F9C9B | GUID da interface de rede que foi usada para solicitação de autenticação  | Destino |
+| DstDomainHostname | string | CONTOSO | O domínio do destino, o domínio do host de destino (site, nome de domínio, etc.), por exemplo, para pesquisas de DNS ou pesquisas do NS | Destino |
+| DstInterfaceName | string | Adaptador de rede Microsoft Hyper-V | A interface de rede usada para a conexão ou sessão pelo dispositivo de destino. | Destino |
+| DstInterfaceGuid | string | 2BB33827-6BB6-48DB-8DE6-DB9E0B9F9C9B | GUID da interface de rede que foi usada para solicitação de autenticação  | Destino |
 | DstIpAddr | Endereço IP | 2001: DB8:: FF00:42:8329 | O endereço IP do destino da conexão ou da sessão, mais comumente referido como o IP de destino no pacote de rede | Destino<br>IP |
 | DstDvcIpAddr | Endereço IP | 75.22.12.2 | O endereço IP de destino de um dispositivo que não está diretamente associado ao pacote de rede | Destino<br>Dispositivo,<br>IP
 | DstGeoLatitude | Latitude (duplo) | 44,475833 | A latitude da coordenada geográfica associada ao endereço IP de destino | Destino<br>Localização geográfica |
@@ -109,8 +109,8 @@ Veja abaixo o esquema da tabela sessões de rede, com versão 1.0.0
 | DstUserSid | SID de usuário |  S-12-1445 | A ID de usuário da identidade associada ao destino da sessão. Normalmente, a identidade usada para autenticar um servidor. Consulte "tipos de dados" para obter detalhes. | Destino<br>Usuário |
 | DstUserAadId | Cadeia de caracteres (GUID) | ae92b0b4-cfba-4b42-85a0-fbd862f4df54 | A ID de objeto da conta do Azure AD do usuário na extremidade de destino da sessão | Destino<br>Usuário |
 | DstUserName | Nome de usuário (cadeia de caracteres) | João | O nome de usuário da identidade associada ao destino da sessão.  | Destino<br>Usuário |
-| DstUserUpn | cadeia de caracteres | johnd@anon.com | O UPN da identidade associada ao destino da sessão. | Destino<br>Usuário |
-| DstUserDomain | cadeia de caracteres | GRUPO DE TRABALHO | O nome de domínio ou computador da conta no destino da sessão | Destino<br>Usuário |
+| DstUserUpn | string | johnd@anon.com | O UPN da identidade associada ao destino da sessão. | Destino<br>Usuário |
+| DstUserDomain | string | GRUPO DE TRABALHO | O nome de domínio ou computador da conta no destino da sessão | Destino<br>Usuário |
 | DstZone | String | DMZ | A zona de rede do destino, conforme definido pelo dispositivo de relatório. | Destino |
 | DstGeoLongitude | Longitude (dupla) | -73,211944 | A longitude da coordenada geográfica associada ao endereço IP de destino | Destino<br>Localização geográfica |
 | DvcAction | Vários valores: permitir, negar e descartar (cadeia de caracteres) | Allow | Se for relatado por um dispositivo intermediário, como um firewall, a ação realizada pelo dispositivo. | Dispositivo |
@@ -126,12 +126,12 @@ Veja abaixo o esquema da tabela sessões de rede, com versão 1.0.0
 | HttpResponseTime | Integer | 800 | A quantidade de tempo que leva para receber uma resposta no servidor, se aplicável. | Http |
 | NetworkRuleName | String | AnyAnyDrop | O nome ou a ID da regra pela qual o deviceaction foi decidido | Rede |
 | NetworkRuleNumber | INT |  23 | Número de regra correspondente  | Rede |
-| NetworkSessionId | cadeia de caracteres | 172_12_53_32_4322__123_64_207_1_80 | O identificador de sessão, conforme relatado pelo dispositivo de relatório. Por exemplo, identificador de sessão L7 para aplicativos específicos após a autenticação | Rede |
+| NetworkSessionId | string | 172_12_53_32_4322__123_64_207_1_80 | O identificador de sessão, conforme relatado pelo dispositivo de relatório. Por exemplo, identificador de sessão L7 para aplicativos específicos após a autenticação | Rede |
 | SrcGeoCity | String | Burlington | A cidade associada ao endereço IP de origem | Original<br>Localização geográfica |
 | SrcGeoCountry | País (cadeia de caracteres) | EUA | O país associado ao endereço IP de origem | Original<br>Localização geográfica |
 | SrcDvcHostname | Nome do dispositivo (cadeia de caracteres) |  villain | O nome do dispositivo do dispositivo de origem | Original<br>Dispositivo |
-| SrcDvcFqdn | cadeia de caracteres | Villain.malicious.com | O nome de domínio totalmente qualificado do host em que o log foi criado | Original<br>Dispositivo |
-| SrcDvcDomain | cadeia de caracteres | EVILORG | Domínio do dispositivo do qual a sessão foi iniciada | Original<br>Dispositivo |
+| SrcDvcFqdn | string | Villain.malicious.com | O nome de domínio totalmente qualificado do host em que o log foi criado | Original<br>Dispositivo |
+| SrcDvcDomain | string | EVILORG | Domínio do dispositivo do qual a sessão foi iniciada | Original<br>Dispositivo |
 | SrcDvcOs | String | iOS | O sistema operacional do dispositivo de origem | Original<br>Dispositivo |
 | SrcDvcModelName | String | Observação do Samsung Galaxy | O nome do modelo do dispositivo de origem | Original<br>Dispositivo |
 | SrcDvcModelNumber | String | 10.0 | O número do modelo do dispositivo de origem | Original<br>Dispositivo |
@@ -152,8 +152,8 @@ Veja abaixo o esquema da tabela sessões de rede, com versão 1.0.0
 | SrcUserSid | ID de usuário (cadeia de caracteres) | S-15-1445 | A ID de usuário da identidade associada à origem das sessões. Normalmente, o usuário realiza uma ação no cliente. Consulte "tipos de dados" para obter detalhes. | Original<br>Usuário |
 | SrcUserAadId | Cadeia de caracteres (GUID) | 16c8752c-7dd2-4cad-9e03-fb5d1cee5477 | A ID de objeto da conta do Azure AD do usuário na extremidade de origem da sessão | Original<br>Usuário |
 | SrcUserName | Nome de usuário (cadeia de caracteres) | José | O nome de usuário da identidade associada à origem das sessões. Normalmente, o usuário realiza uma ação no cliente. Consulte "tipos de dados" para obter detalhes. | Fonte<br>Usuário |
-| SrcUserUpn | cadeia de caracteres | bob@alice.com | O UPN da conta que inicia a sessão | Original<br>Usuário |
-| SrcUserDomain | cadeia de caracteres | PLACA | O domínio para a conta que inicia a sessão | Original<br>Usuário |
+| SrcUserUpn | string | bob@alice.com | O UPN da conta que inicia a sessão | Original<br>Usuário |
+| SrcUserDomain | string | PLACA | O domínio para a conta que inicia a sessão | Original<br>Usuário |
 | SrcZone | String | Toque | A zona de rede da origem, conforme definido pelo dispositivo de relatório. | Fonte |
 | NetworkProtocol | String | TCP | O protocolo IP usado pela conexão ou sessão. Normalmente, TCP, UDP ou ICMP | Rede |
 | CloudAppName | String | Facebook | O nome do aplicativo de destino para um aplicativo HTTP, conforme identificado por um proxy. | Nuvem |

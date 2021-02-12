@@ -5,11 +5,11 @@ author: ecfan
 ms.author: estfan
 ms.date: 03/02/2018
 ms.openlocfilehash: 1aabc1b33722c571c6519b6620fb62211a44c2e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74789744"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999528"
 ---
 1. No [portal do Azure](https://portal.azure.com), crie um aplicativo lógico em branco. 
 

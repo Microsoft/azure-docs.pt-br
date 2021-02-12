@@ -9,11 +9,11 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 07/25/2016
 ms.openlocfilehash: ccc7df5bfac327fabf05f210764dbe10658b5015
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86520708"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000310"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Atualizações de esquema para Aplicativos Lógicos do Azure - 1º de junho de 2016
 
@@ -110,7 +110,7 @@ Para atualizar para o [esquema mais recente](https://schema.management.azure.com
    É retornada a definição atualizada, que você pode copiar e colar em uma definição de recurso, se necessário. 
 
    > [!IMPORTANT]
-   > *Certifique-se de * escolher **Salvar Como** para que todas as referências de conexão permaneçam válidas no aplicativo lógico atualizado.
+   > *Certifique-se de* escolher **Salvar Como** para que todas as referências de conexão permaneçam válidas no aplicativo lógico atualizado.
 
 3. Na barra de ferramentas da folha de atualização, escolha **Salvar como**.
 

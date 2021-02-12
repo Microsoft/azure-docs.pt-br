@@ -3,20 +3,20 @@ title: Azure Data Factory - Exemplos
 description: Fornece detalhes sobre os exemplos fornecidos com o serviço Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: ed63d148afa6f5674d36cc50c18351b2a06966eb
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b373b5c440bf2ef2f50bf323baa2488981cdc775
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636826"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495184"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory - Exemplos
 > [!NOTE]
@@ -56,10 +56,10 @@ Você pode encontrar os seguintes modelos do Azure Resource Manager para Data Fa
 Você pode usar o bloco **Pipelines de exemplo** na home page de sua data factory para implantar os pipelines de exemplo e suas entidades associadas (conjuntos de dados e serviços vinculados) em sua data factory.
 
 1. Crie uma data factory ou abra uma existente. Consulte [Copiar dados do Armazenamento de Blobs para o Banco de Dados SQL usando o Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter as etapas para criar um data factory.
-2. Na folha **DATA FACTORY** para a data factory em questão, clique no bloco **Pipelines de exemplo** .
+2. Na folha **DATA FACTORY** para a data factory em questão, clique no bloco **Pipelines de exemplo**.
 
     ![Bloco Pipelines de exemplo](./media/data-factory-samples/SamplePipelinesTile.png)
-3. Na folha **Pipelines de exemplo** , clique no **exemplo** que você deseja implantar.
+3. Na folha **Pipelines de exemplo**, clique no **exemplo** que você deseja implantar.
 
     ![Folha Pipelines de exemplo](./media/data-factory-samples/SampleTile.png)
 4. Especifique definições de configuração para o exemplo. Por exemplo, o nome da conta de armazenamento do Azure e a chave de conta, nome lógico do SQL Server, banco de dados, ID de usuário e senha, etc.
@@ -69,8 +69,8 @@ Você pode usar o bloco **Pipelines de exemplo** na home page de sua data factor
 6. Você verá o status da implantação do bloco de exemplo em que você clicou anteriormente na folha **Pipelines de exemplo** .
 
     ![Status da Implantação](./media/data-factory-samples/DeploymentStatus.png)
-7. Quando você vir a mensagem **Implantação bem-sucedida** no bloco para o exemplo, feche a folha **Pipelines de exemplo** .  
-8. Na folha **DATA FACTORY** , você verá que os pipelines, conjuntos de dados e serviços vinculados são adicionados à sua data factory.  
+7. Quando você vir a mensagem **Implantação bem-sucedida** no bloco para o exemplo, feche a folha **Pipelines de exemplo**.  
+8. Na folha **DATA FACTORY**, você verá que os pipelines, conjuntos de dados e serviços vinculados são adicionados à sua data factory.  
 
     ![Folha Data Factory](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
@@ -79,47 +79,47 @@ Você pode usar o bloco **Pipelines de exemplo** na home page de sua data factor
 Você deve ter os seguintes itens instalados no seu computador:
 
 * Visual Studio 2013 ou Visual Studio 2015
-* Baixe o SDK do Azure para Visual Studio 2013 ou Visual Studio de 2015. Navegue até a [Página de Download do Azure](https://azure.microsoft.com/downloads/) e clique em **VS 2013** ou **VS 2015** na seção **.NET** .
-* Baixe o plug-in Azure Data Factory para o Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) ou [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Se você estiver usando Visual Studio 2013, também poderá atualizar o plug-in executando as seguintes etapas: no menu, clique em **ferramentas**  ->  **extensões e atualizações**  ->  **online**  ->  **Visual Studio Galeria**  ->  **Microsoft Azure data Factory ferramentas para Visual Studio**  ->  **atualização** .
+* Baixe o SDK do Azure para Visual Studio 2013 ou Visual Studio de 2015. Navegue até a [Página de Download do Azure](https://azure.microsoft.com/downloads/) e clique em **VS 2013** ou **VS 2015** na seção **.NET**.
+* Baixe o plug-in Azure Data Factory para o Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) ou [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Se você estiver usando Visual Studio 2013, também poderá atualizar o plug-in executando as seguintes etapas: no menu, clique em **ferramentas**  ->  **extensões e atualizações**  ->  **online**  ->  **Visual Studio Galeria**  ->  **Microsoft Azure data Factory ferramentas para Visual Studio**  ->  **atualização**.
 
 ### <a name="use-data-factory-templates"></a>Use modelos de Data Factory
-1. Clique em **Arquivo** no menu, aponte para **Novo** e clique em **Projeto** .
-2. Na caixa de diálogo **Novo Projeto** , faça o seguinte:
+1. Clique em **Arquivo** no menu, aponte para **Novo** e clique em **Projeto**.
+2. Na caixa de diálogo **Novo Projeto**, faça o seguinte:
 
-   1. Selecione **DataFactory** em **Modelos** .
+   1. Selecione **DataFactory** em **Modelos**.
    2. Selecione **Modelos de Data Factory** no painel à direita.
    3. Insira um **nome** para o projeto.
    4. Selecione um **local** para o projeto.
-   5. Clique em **OK** .
+   5. Clique em **OK**.
 
       ![Caixa de diálogo Novo projeto](./media/data-factory-samples/vs-new-project-adf-templates.png)
-3. Na caixa de diálogo **Modelos de Data Factory** , selecione o modelo de exemplo da seção **Modelos de caso de uso** seção e clique em **Avançar** . As etapas a seguir vão orientá-lo usando o modelo **Criação de Perfil de Clientes** . As etapas são semelhantes para os outros modelos.
+3. Na caixa de diálogo **Modelos de Data Factory**, selecione o modelo de exemplo da seção **Modelos de caso de uso** seção e clique em **Avançar**. As etapas a seguir vão orientá-lo usando o modelo **Criação de Perfil de Clientes** . As etapas são semelhantes para os outros modelos.
 
     ![Caixa de diálogo Modelos de Data Factory](./media/data-factory-samples/vs-data-factory-templates-dialog.png)
-4. Na caixa de diálogo **Configuração de Data Factory** , clique em **Avançar** na página **Noções básicas de Data Factory** .
-5. Na página **Configurar data factory** , execute as seguintes etapas:
-   1. Selecione **criar novo data Factory** . Você também pode selecionar **Usar data factory existente** .
+4. Na caixa de diálogo **Configuração de Data Factory**, clique em **Avançar** na página **Noções básicas de Data Factory**.
+5. Na página **Configurar data factory**, execute as seguintes etapas:
+   1. Selecione **criar novo data Factory**. Você também pode selecionar **Usar data factory existente**.
    2. Insira um **nome** para o data Factory.
    3. Escolha a **assinatura do Azure** em que você deseja que o data factory seja criado.
    4. Selecione o **grupo de recursos** para o data factory a ser criado.
-   5. Selecione o **Oeste dos EUA** , **Leste dos EUA** ou **Norte da Europa** como a **região** .
-   6. Clique em **Próximo** .
+   5. Selecione o **Oeste dos EUA**, **Leste dos EUA** ou **Norte da Europa** como a **região**.
+   6. Clique em **Próximo**.
 6. Na página **Configure Data Stores** , especifique um **banco de dados existente no Azure SQL Database e na** conta de **armazenamento do Azure** (ou) criar banco de dados/armazenamento e clique em Avançar.
-7. Na página **Configurar computação** , selecione os padrões e clique em **Avançar** .
-8. Na página **Resumo** examine as configurações e clique em **Avançar** .
-9. Na página **Status da Implantação** , aguarde até que a implantação seja concluída e clique em **Concluir** .
-10. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto e clique em **Publicar** .
-11. Se a caixa de diálogo **Entrar na sua conta da Microsoft** for exibida, insira as credenciais da conta com a assinatura do Azure e clique em **entrar** .
+7. Na página **Configurar computação**, selecione os padrões e clique em **Avançar**.
+8. Na página **Resumo** examine as configurações e clique em **Avançar**.
+9. Na página **Status da Implantação**, aguarde até que a implantação seja concluída e clique em **Concluir**.
+10. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto e clique em **Publicar**.
+11. Se a caixa de diálogo **Entrar na sua conta da Microsoft** for exibida, insira as credenciais da conta com a assinatura do Azure e clique em **entrar**.
 12. Você deve ver a caixa de diálogo a seguir:
 
     ![Caixa de diálogo Publicar](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
-13. Na página **Configurar data factory** , execute as seguintes etapas:
+13. Na página **Configurar data factory**, execute as seguintes etapas:
 
     1. Confirme a opção **Usar data factory existente** .
     2. Selecione a **da data factory** que tinha selecionado ao usar o modelo.
-    3. Clique em **Avançar** para alternar para a página **Publicar Itens** . (Pressione **TAB** para sair do campo Nome se o botão **Avançar** estiver desabilitado).
-14. Na página **Publicar Itens** , verifique se todas as entidades de Data Factories estão selecionadas e clique em **Avançar** para alternar para a página **Resumo** .     
-15. Examine o resumo e clique em **Avançar** para iniciar o processo de implantação e exibir o **Status da Implantação** .
+    3. Clique em **Avançar** para alternar para a página **Publicar Itens**. (Pressione **TAB** para sair do campo Nome se o botão **Avançar** estiver desabilitado).
+14. Na página **Publicar Itens**, verifique se todas as entidades de Data Factories estão selecionadas e clique em **Avançar** para alternar para a página **Resumo**.     
+15. Examine o resumo e clique em **Avançar** para iniciar o processo de implantação e exibir o **Status da Implantação**.
 16. Na página **Status da Implantação** , você deve ver o status do processo de implantação. Clique em Concluir depois que a implantação tiver terminado.
 
 Confira [Criar sua primeira data factory (Visual Studio)](data-factory-build-your-first-pipeline-using-vs.md) para obter detalhes sobre como usar o Visual Studio para criar entidades de Data Factory e publicá-las no Azure.

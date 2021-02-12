@@ -72,7 +72,7 @@
           href: diagnostics-log-analytics-2019.md
     - name: Publicar aplicativos internos
       href: publish-apps-2019.md
-    - name: Configurar a Autenticação Multifator do Azure
+    - name: Configurar a Autenticação Multifator do Azure AD
       href: ../set-up-mfa.md
 - name: Conceitos
   items:

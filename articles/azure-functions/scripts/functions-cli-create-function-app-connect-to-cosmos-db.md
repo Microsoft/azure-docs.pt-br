@@ -4,12 +4,12 @@ description: Exemplo de script da CLI do Azure – Criar uma Função do Azure q
 ms.topic: sample
 ms.date: 07/03/2018
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 440767159ec1321d9b157f53408dbff8f9706eec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ec4d3cb9d47608aa98075ba98aacfde51f341cd
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87498558"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934417"
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Criar um Azure Function que se conecta a um Banco de Dados Cosmo do Azure
 
@@ -17,9 +17,9 @@ Este script de exemplo do Azure Functions cria um aplicativo de funções e cone
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se usar a CLI localmente, certifique-se de que você esteja executando a versão 2.0 ou uma versão posterior da CLI do Azure. Para saber qual é a versão, execute `az --version`. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+ - Este tutorial exige a versão 2.0 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada. 
 
 ## <a name="sample-script"></a>Exemplo de script
 
@@ -31,13 +31,13 @@ Este exemplo cria um Aplicativo de funções do Azure e adiciona uma chave de ac
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Esse script usa os seguintes comandos: cada comando na tabela contém links para a respectiva documentação específica.
+Este script usa os seguintes comandos: Cada comando da tabela é vinculado à documentação específica do comando.
 
 | Comando | Observações |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Criar um grupo de recursos com local |
 | [az storage accounts create](/cli/azure/storage/account#az-storage-account-create) | Criar uma conta de armazenamento |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Cria um aplicativo de funções no [Plano de consumo](../functions-scale.md#consumption-plan) sem servidor. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Cria um aplicativo de funções no [Plano de consumo](../consumption-plan.md) sem servidor. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Crie um banco de dados do Azure Cosmos DB. |
 | [az cosmosdb show](/cli/azure/cosmosdb#az-cosmosdb-show)| Obtém a conexão da conta do banco de dados. |
 | [az cosmosdb list-keys](/cli/azure/cosmosdb#az-cosmosdb-list-keys)| Obtém as chaves para o banco de dados. |

@@ -5,20 +5,20 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 04/16/2020
+ms.date: 01/04/2021
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 878f091ac6ac40f6ce434710e809c790f382c1ac
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 57e3a059a5dd846250ba162513ef118e084c4b87
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374274"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861592"
 ---
 # <a name="download-a-list-of-users-in-azure-active-directory-portal"></a>Baixar uma lista de usuários no portal Azure Active Directory
 
@@ -26,12 +26,12 @@ O Azure Active Directory (AD do Azure) dá suporte a operações de importação
 
 ## <a name="required-permissions"></a>Permissões necessárias
 
-Para baixar a lista de usuários do centro de administração do Azure AD, você deve estar conectado com um usuário atribuído a uma ou mais funções de administrador de nível de organização no Azure AD (o administrador de usuário é a função mínima necessária). O convite para convidados e o desenvolvedor de aplicativos não são considerados funções de administrador.
+Para baixar a lista de usuários do centro de administração do Azure AD, você deve estar conectado com um usuário atribuído a uma ou mais funções de administrador no nível da organização no Azure AD (o Administrador de Usuários é a função mínima exigida). O emissor de convites independente e o desenvolvedor de aplicativos não são considerados funções de administrador.
 
 ## <a name="to-download-a-list-of-users"></a>Para baixar uma lista de usuários
 
 1. [Entre em sua organização do Azure ad](https://aad.portal.azure.com) com uma conta de administrador de usuário na organização.
-2. Navegue até Azure Active Directory > usuários. Em seguida, selecione os usuários que deseja incluir no download marcando a caixa na coluna esquerda ao lado de cada usuário. Observação: neste momento, não há como selecionar todos os usuários para exportação. Cada um deve ser selecionado individualmente.
+2. Navegue para Azure Active Directory > Usuários. Em seguida, selecione os usuários que deseja incluir no download, marcando a caixa na coluna à esquerda ao lado de cada usuário. Observação: neste momento, não há como selecionar todos os usuários para exportação. Cada um deve ser selecionado individualmente.
 3. No Azure AD, selecione **usuários**  >  **baixar usuários**.
 4. Na página **baixar usuários** , selecione **Iniciar** para receber um arquivo CSV listando propriedades de perfil de usuário. Se houver erros, você poderá baixar e exibir o arquivo de resultados na página Resultados da operação em massa. O arquivo contém o motivo de cada erro.
 
@@ -39,7 +39,7 @@ Para baixar a lista de usuários do centro de administração do Azure AD, você
 
    O arquivo de download conterá a lista filtrada de usuários.
 
-   Os seguintes atributos de usuário estão incluídos:
+   Os seguintes atributos de usuários são incluídos:
 
    - userPrincipalName
    - displayName
@@ -60,7 +60,6 @@ Para baixar a lista de usuários do centro de administração do Azure AD, você
    - postalCode
    - telephoneNumber
    - Serviço Móvel
-   - authenticationPhoneNumber
    - authenticationAlternativePhoneNumber
    - authenticationEmail
    - alternateEmailAddress

@@ -11,12 +11,12 @@ metadata:
   author: markingmyname
   ms.author: maghan
   ms.date: 10/02/2019
-  ms.openlocfilehash: 58e98721c443b0c4ecfce9bbfff88e7adf323342
-  ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+  ms.openlocfilehash: b30ce72830eab14262e2df6258ca052a897abe7e
+  ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/27/2020
-  ms.locfileid: "92635738"
+  ms.lasthandoff: 01/18/2021
+  ms.locfileid: "98555524"
 landingContent:
 - title: Sobre o Azure Data Factory
   linkLists:
@@ -165,7 +165,7 @@ landingContent:
     - text: .NET
       url: /dotnet/api/microsoft.azure.management.datafactory/
     - text: Python
-      url: /python/api/overview/azure/datafactory?view=azure-python
+      url: /python/api/overview/azure/datafactory
     - text: REST
       url: /rest/api/datafactory/
     - text: Modelo do Resource Manager

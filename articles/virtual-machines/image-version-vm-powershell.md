@@ -1,5 +1,5 @@
 ---
-title: Criar uma imagem de uma VM (versão prévia)
+title: Criar uma imagem de uma VM
 description: Saiba como usar Azure PowerShell para criar uma imagem em uma galeria de imagens compartilhada de uma VM existente no Azure.
 author: cynthn
 ms.topic: how-to
@@ -9,18 +9,18 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 757b297d3d74365928cda0934485c0018f28ffee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7b8cb10f75d7a99198ddfdc1a1bbef3c34a03da
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88225641"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685099"
 ---
-# <a name="preview-create-an-image-from-a-vm"></a>Visualização: criar uma imagem de uma VM
+# <a name="create-an-image-from-a-vm"></a>Criar uma imagem de uma VM
 
 Se você tiver uma VM existente que deseja usar para criar várias VMs idênticas, poderá usar essa VM para criar uma imagem em uma galeria de imagens compartilhadas usando Azure PowerShell. Você também pode criar uma imagem de uma VM usando o [CLI do Azure](image-version-vm-cli.md).
 
-Você pode capturar uma imagem de VMs [especializadas e generalizadas](./windows/shared-image-galleries.md#generalized-and-specialized-images) usando Azure PowerShell. 
+Você pode capturar uma imagem de VMs [especializadas e generalizadas](./shared-image-galleries.md#generalized-and-specialized-images) usando Azure PowerShell. 
 
 As imagens em uma galeria de imagens têm dois componentes, que serão criados neste exemplo:
 - Uma **definição de imagem** contém informações sobre a imagem e os requisitos para usá-la. Isso inclui se a imagem é Windows ou Linux, especializada ou generalizada, notas de versão e requisitos mínimos e máximos de memória. É uma definição de um tipo de imagem. 
@@ -77,11 +77,11 @@ As definições de imagem criam um agrupamento lógico para as imagens. Eles sã
 
 Ao fazer a definição de imagem, verifique se o tem todas as informações corretas. Se você generaliza a VM (usando Sysprep para Windows ou waagent-deprovision para Linux), você deve criar uma definição de imagem usando `-OsState generalized` . Se você não tiver generalizado a VM, crie uma definição de imagem usando `-OsState specialized` .
 
-Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, confira [Definições de imagem](./windows/shared-image-galleries.md#image-definitions).
+Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, confira [Definições de imagem](./shared-image-galleries.md#image-definitions).
 
 Crie a definição de imagem usando [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). 
 
-Neste exemplo, a definição de imagem é chamada *myImageDefinition*e é para uma VM especializada que executa o Windows. Para criar uma definição para imagens usando o Linux, use `-OsType Linux` . 
+Neste exemplo, a definição de imagem é chamada *myImageDefinition* e é para uma VM especializada que executa o Windows. Para criar uma definição para imagens usando o Linux, use `-OsType Linux` . 
 
 ```azurepowershell-interactive
 $imageDefinition = New-AzGalleryImageDefinition `
@@ -105,7 +105,7 @@ Caracteres permitidos para a versão da imagem são números e pontos. Os númer
 
 Neste exemplo, a versão da imagem é *1.0.0* e ela é replicado para os datacenters *Centro-Oeste dos EUA* e *Centro-Sul dos EUA*. Ao escolher regiões de destino para replicação, lembre-se de que você também precisa incluir a região de *origem* como um destino para replicação.
 
-Para criar uma versão da imagem da VM, use `$vm.Id.ToString()` para o `-Source`.
+Para criar uma versão da imagem da VM, use `$vm.Id.ToString()` para o `-SourceImageId`.
 
 ```azurepowershell-interactive
    $region1 = @{Name='South Central US';ReplicaCount=1}
@@ -119,7 +119,7 @@ $job = $imageVersion = New-AzGalleryImageVersion `
    -ResourceGroupName $gallery.ResourceGroupName `
    -Location $gallery.Location `
    -TargetRegion $targetRegions  `
-   -Source $sourceVm.Id.ToString() `
+   -SourceImageId $sourceVm.Id.ToString() `
    -PublishingProfileEndOfLifeDate '2020-12-01' `  
    -asJob 
 ```

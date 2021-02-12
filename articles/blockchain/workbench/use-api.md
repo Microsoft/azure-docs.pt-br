@@ -5,11 +5,11 @@ ms.date: 03/05/2020
 ms.topic: how-to
 ms.reviewer: brendal
 ms.openlocfilehash: 696f1f2f96034f7a044f6a39182774c02804518f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87003059"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004833"
 ---
 # <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Usando a API REST de visualização do Azure Blockchain Workbench
 
@@ -24,7 +24,7 @@ As APIs do Blockchain Workbench são acessadas por meio de um ponto de extremida
 1. Escolha o nome do grupo de recursos que você implantou o Blockchain Workbench.
 1. Selecione a coluna **TIPO** para classificar a lista alfabeticamente por tipo.
 1. Há dois recursos com o tipo **Serviço de Aplicativo**. Selecione o recurso do tipo **serviço de aplicativo** *com* o sufixo "-API".
-1. Na **visão geral**do serviço de aplicativo, copie o valor da **URL** , que representa a URL do ponto de extremidade da API para o Blockchain Workbench implantado.
+1. Na **visão geral** do serviço de aplicativo, copie o valor da **URL** , que representa a URL do ponto de extremidade da API para o Blockchain Workbench implantado.
 
     ![URL do ponto de extremidade da API do serviço de aplicativo](media/use-api/app-service-api.png)
 

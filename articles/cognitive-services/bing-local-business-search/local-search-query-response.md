@@ -10,25 +10,25 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: rosh
-ms.openlocfilehash: 8e26d128fea7208206be8a7329522f8202051215
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 70a33774ac82312660d887fb86f7e2a482c30a0c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095400"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487160"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Envio e uso de consultas e respostas da API da Pesquisa de empresa local do Bing
 
 > [!WARNING]
-> APIs de Pesquisa do Bing estão mudando de serviços cognitivas para serviços Pesquisa do Bings. A partir de **30 de outubro de 2020** , todas as novas instâncias do pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
-> APIs de Pesquisa do Bing provisionado usando serviços cognitivas terão suporte nos próximos três anos ou até o final do seu Enterprise Agreement, o que ocorrer primeiro.
-> Para obter instruções de migração, consulte [serviços de pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Você pode obter resultados locais da API de Pesquisa de Empresa Local do Bing enviando uma consulta de pesquisa para seu terminal e incluindo o `Ocp-Apim-Subscription-Key`cabeçalho, que é obrigatório. Juntamente com os cabeçalhos [disponíveis](local-search-reference.md#headers) e [parâmetros](local-search-reference.md#query-parameters), as pesquisas podem ser personalizadas especificando [limites geográficos](specify-geographic-search.md) para a área a ser pesquisada e as [categorias](local-search-query-response.md) de locais retornados.
 
 ## <a name="creating-a-request"></a>Criando uma solicitação
 
-Para enviar uma solicitação à API de Pesquisa de Empresa Local do Bing, anexe um termo de pesquisa ao parâmetro `q=`antes de adicioná-lo ao ponto de extremidade da API e incluir o cabeçalho`Ocp-Apim-Subscription-Key`. Por exemplo: 
+Para enviar uma solicitação à API de Pesquisa de Empresa Local do Bing, anexe um termo de pesquisa ao parâmetro `q=`antes de adicioná-lo ao ponto de extremidade da API e incluir o cabeçalho`Ocp-Apim-Subscription-Key`. Por exemplo:
 
 `https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restaurant+in+Bellevue`
 

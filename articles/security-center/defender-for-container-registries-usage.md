@@ -7,32 +7,22 @@ ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: b46c72730922a977dd754d8422d07db479a62b6c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a5d66e43485ec66b6297ef11ed382e8fb82b7cb3
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370535"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96014560"
 ---
-# <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Usar o Azure defender para registros de contêiner para verificar se há vulnerabilidades em suas imagens
+# <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Usar o Azure Defender para registros de contêiner para verificar se há vulnerabilidades em suas imagens
 
 Esta página explica como usar o verificador de vulnerabilidades interno para verificar as imagens de contêiner armazenadas em seu registro de contêiner do Azure baseado em Azure Resource Manager.
 
-Quando o **Azure defender para registros de contêiner** estiver habilitado, qualquer imagem que você enviar por push para o registro será verificada imediatamente. Além disso, qualquer imagem extraída nos últimos 30 dias também é verificada. 
+Quando o **Azure Defender para registros de contêiner** estiver habilitado, as imagens enviadas por push para o registro serão verificadas imediatamente. Além disso, qualquer imagem extraída nos últimos 30 dias também é verificada. 
 
 Quando o verificador relata vulnerabilidades à central de segurança, a central de segurança apresenta as descobertas e as informações relacionadas como recomendações. Além disso, as descobertas incluem informações relacionadas, como etapas de correção, CVEs relevantes, pontuações de CVSS e muito mais. Você pode exibir as vulnerabilidades identificadas para uma ou mais assinaturas ou para um registro específico.
 
-## <a name="availability"></a>Disponibilidade
-
-|Aspecto|Detalhes|
-|----|:----|
-|Estado da versão:|GA (em disponibilidade geral)|
-|Preço:|O **Azure defender para registros de contêiner** é cobrado conforme mostrado na [página de preços](security-center-pricing.md)|
-|Registros e imagens com suporte:|Imagens do Linux em registros ACR acessíveis da Internet pública com acesso ao shell|
-|Imagens e registros sem suporte:|Imagens do Windows<br>Registros "privados"<br>Registros com acesso limitado com um firewall, ponto de extremidade de serviço ou pontos de extremidades privados, como o link privado do Azure<br>Imagens de superplataforma, como imagens de [rascunho do Docker](https://hub.docker.com/_/scratch/) ou imagens "Distroless" que contêm apenas um aplicativo e suas dependências de tempo de execução sem um Gerenciador de pacotes, Shell ou sistema operacional|
-|Funções e permissões necessárias:|**Leitor de segurança** e [função de leitor do registro de contêiner do Azure](../container-registry/container-registry-roles.md)|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|
-|||
+[!INCLUDE [Defender for container registries availability info](../../includes/security-center-availability-defender-for-container-registries.md)]
 
 
 ## <a name="identify-vulnerabilities-in-images-in-azure-container-registries"></a>Identificar as vulnerabilidades em imagens em registros de contêiner do Azure 
@@ -114,6 +104,9 @@ Para habilitar verificações de vulnerabilidade de imagens armazenadas em seu r
 
 ## <a name="disable-specific-findings-preview"></a>Desabilitar descobertas específicas (versão prévia)
 
+> [!NOTE]
+> [!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]
+
 Caso você tenha uma necessidade organizacional para ignorar uma descoberta, em vez de corrigi-la, você pode opcionalmente desabilitá-la. As descobertas desabilitadas não afetam sua classificação de segurança nem geram um ruído indesejado.
 
 Quando uma descoberta corresponde aos critérios definidos nas regras de desabilitação, ela não será exibida na lista de descobertas. Os cenários típicos incluem:
@@ -149,7 +142,7 @@ Para criar uma regra:
 1. Para exibir, substituir ou excluir uma regra: 
     1. Selecione **desabilitar regra**.
     1. Na lista escopo, as assinaturas com regras ativas são mostradas como **regra aplicada**.
-        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Criar uma regra de desabilitação para descobertas de VA no registro":::
+        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Modificar ou excluir uma regra existente":::
     1. Para exibir ou excluir a regra, selecione o menu de reticências ("...").
 
 

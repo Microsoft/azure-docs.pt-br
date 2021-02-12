@@ -1,19 +1,19 @@
 ---
 title: Relocalização grosseira no Swift
 description: Explicação detalhada de como criar e localizar âncoras usando relocalização de alta granularidade em Swift.
-author: bucurb
-manager: dacoghl
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: bobuc
-ms.date: 09/19/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 7b568c43f8420b5a2f994b4cba145bf4d70b9010
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7cc964ca8339e82aa7388aeab8718a6102a23d1b
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76546156"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95999715"
 ---
 # <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-swift"></a>Como criar e localizar âncoras usando relocalização de alta granularidade em Swift
 

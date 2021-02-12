@@ -7,16 +7,16 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: 62d80426dec6f5d63d8fa5d67d64d6aafb881110
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca9f9ad0fb724884e865469ba118af4c7e6cea2f
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320006"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202837"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>Versão prévia: criar uma VM do Windows com o construtor de imagens do Azure
 
-Este artigo mostra como você pode criar uma imagem personalizada do Windows usando o construtor de imagem de VM do Azure. O exemplo neste artigo usa os [personalizadores](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#properties-customize) para personalizar a imagem:
+Este artigo mostra como você pode criar uma imagem personalizada do Windows usando o construtor de imagem de VM do Azure. O exemplo neste artigo usa os [personalizadores](../linux/image-builder-json.md#properties-customize) para personalizar a imagem:
 - PowerShell (ScriptUri) – Baixe e execute um [script do PowerShell](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testPsScript.ps1).
 - Reinicialização do Windows – reinicia a VM.
 - PowerShell (embutido) – executar um comando específico. Neste exemplo, ele cria um diretório na VM usando `mkdir c:\\buildActions` .
@@ -271,4 +271,4 @@ az group delete -n $imageResourceGroup
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre os componentes do arquivo. JSON usado neste artigo, consulte referência de [modelo do Image Builder](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para saber mais sobre os componentes do arquivo. JSON usado neste artigo, consulte referência de [modelo do Image Builder](../linux/image-builder-json.md).

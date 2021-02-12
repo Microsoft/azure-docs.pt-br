@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: abae83cee106feb553e8ced404d23ba5619ba416
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 489592fcbc779685728b120f18e5e923ee34d655
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327146"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346368"
 ---
 # <a name="the-confidence-score-of-an-answer"></a>A pontuação de confiança de uma resposta
 Quando uma consulta de usuário é comparada com uma base de conhecimento, o QnA Maker retorna respostas relevantes, juntamente com uma pontuação de confiança. Essa pontuação indica a confiança de que a resposta é a correspondência ideal da consulta do usuário.
@@ -62,7 +62,7 @@ Defina a pontuação de limite como uma propriedade do [corpo JSON da API Genera
 Na estrutura de bot, defina a Pontuação como parte do objeto de opções com [C#](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) ou [Node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
 
 ## <a name="improve-confidence-scores"></a>Melhorar as pontuações de confiança
-Para melhorar a pontuação de confiança de uma resposta específica a uma consulta de usuário, você poderá adicionar a consulta do usuário à base de dados de conhecimento como uma pergunta alternativa na resposta. Você também pode usar [alterações de palavra](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) que não diferenciam maiúsculas de minúsculas para adicionar sinônimos a palavras-chave em sua base de conhecimento.
+Para melhorar a pontuação de confiança de uma resposta específica a uma consulta de usuário, você poderá adicionar a consulta do usuário à base de dados de conhecimento como uma pergunta alternativa na resposta. Você também pode usar [alterações de palavra](/rest/api/cognitiveservices/qnamaker/alterations/replace) que não diferenciam maiúsculas de minúsculas para adicionar sinônimos a palavras-chave em sua base de conhecimento.
 
 
 ## <a name="similar-confidence-scores"></a>Pontuações de confiança semelhantes
@@ -89,4 +89,3 @@ Quando nenhuma boa correspondência for encontrada pelo classificador, a pontua�
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
 > [Práticas recomendadas](./best-practices.md)
-

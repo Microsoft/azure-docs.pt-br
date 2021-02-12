@@ -7,11 +7,11 @@ ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: f2f01e2b58c997db08ad4427de7eef1ee3760c4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323493"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016804"
 ---
 # <a name="set-up-the-powershell-module-for-windows-virtual-desktop"></a>Configurar o módulo do PowerShell para a Área de Trabalho Virtual do Windows
 

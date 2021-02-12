@@ -9,12 +9,12 @@ author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 205aed1811c3d9d21a10be7bc4f01c73eb7295b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7726fce7ac69ebfaabf44049abc49c53f8175718
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89254728"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704533"
 ---
 # <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Acompanhe experimentos e implante modelos no Azure Machine Learning
 
@@ -26,11 +26,11 @@ O diagrama a seguir ilustra isso com o Acompanhamento do MLflow, você acompanha
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Você precisará [provisionar um Workspace do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace)
+* Você precisará [provisionar um Workspace do Azure Machine Learning](../how-to-manage-workspace.md#create-a-workspace)
 
 ## <a name="create-a-new-notebook"></a>Criar um novo notebook
 
-O SDK do Azure Machine Learning e do MLFlow são pré-instalados no VM de Ciência de Dados e podem ser acessados no ambiente do **azureml_py36_ \* ** Conda. No Jupyterlab, clique no iniciador e selecione o seguinte kernel:
+O SDK do Azure Machine Learning e do MLFlow são pré-instalados no VM de Ciência de Dados e podem ser acessados no ambiente ** \* azureml_py36_* _ Conda. No JupyterLab, clique no iniciador e selecione o seguinte kernel:
 
 ![seleção de kernel](./media/how-to-track-experiments/experiment-tracking-1.png)
 
@@ -137,7 +137,7 @@ No menu à esquerda no [AzureML Studio](https://ml.azure.com) , clique em __comp
 
 No painel __novo cluster de inferência__ , preencha os detalhes para:
 
-* Nome da computação
+_ Nome da computação
 * Serviço kubernetes – selecione criar novo
 * Selecione a região
 * Selecione o tamanho da VM (para fins deste tutorial, o padrão de Standard_D3_v2 é suficiente)
@@ -204,4 +204,4 @@ Exclua a computação de inferência criada na etapa 1 para que você não incor
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre a [implantação de modelos no AzureML](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)
+* Saiba mais sobre a [implantação de modelos no AzureML](../how-to-deploy-and-where.md)

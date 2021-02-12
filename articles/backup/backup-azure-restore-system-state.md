@@ -3,12 +3,12 @@ title: Restaurar o estado do sistema para um Windows Server
 description: Explicação passo a passo para restaurar o estado do sistema do Windows Server de um backup no Azure.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 824ed5e71934af370211bfa8b4c266fe4323b4ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ef23d6ff16c263e310304cc240c2090751640b1
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89377430"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008462"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurar o Estado do Sistema para Windows Server
 
@@ -116,7 +116,7 @@ Depois de recuperar o estado do sistema como arquivos usando o agente dos servi�
 
 1. Abra o snap-in Backup do Windows Server. Se você não souber onde o snap-in foi instalado, pesquise **Backup do Windows Server** no computador ou servidor.
 
-    O aplicativo da área de trabalho aparece nos resultados da pesquisa. Se ele não aparecer ou se você encontrar erros ao abrir o aplicativo, você deve instalar os **recursos de backup do Windows Server**e os componentes dependentes abaixo dele, que estão disponíveis no **Assistente para adicionar recursos** no **Gerenciador do servidor**.
+    O aplicativo da área de trabalho aparece nos resultados da pesquisa. Se ele não aparecer ou se você encontrar erros ao abrir o aplicativo, você deve instalar os **recursos de backup do Windows Server** e os componentes dependentes abaixo dele, que estão disponíveis no **Assistente para adicionar recursos** no **Gerenciador do servidor**.
 
 1. No snap-in, selecione **Backup Local**.
 
@@ -124,7 +124,7 @@ Depois de recuperar o estado do sistema como arquivos usando o agente dos servi�
 
 1. No console de backup local, no **painel Ações**, selecione **recuperar** para abrir o assistente de recuperação.
 
-1. Selecione a opção, **um backup armazenado em outro local**e selecione **Avançar**.
+1. Selecione a opção, **um backup armazenado em outro local** e selecione **Avançar**.
 
    ![Escolha recuperar para um servidor diferente](./media/backup-azure-restore-system-state/backup-stored-in-diff-location.png)
 
@@ -140,7 +140,7 @@ Depois de recuperar o estado do sistema como arquivos usando o agente dos servi�
 
 1. No painel Selecionar tipo de recuperação, selecione **estado do sistema** e selecione **Avançar**.
 
-1. Para o local da recuperação do estado do sistema, selecione **local original**e selecione **Avançar**.
+1. Para o local da recuperação do estado do sistema, selecione **local original** e selecione **Avançar**.
 
     Se estiver restaurando um controlador de domínio, você verá a seguinte opção adicional:
 
@@ -201,6 +201,8 @@ Este artigo abordará apenas o primeiro cenário, que chama uma restauração no
 
 1. Depois de concluir uma restauração com êxito, você deve reiniciar o servidor no modo normal. Abra um prompt de comando e digite o seguinte: `bcdedit /deletevalue safeboot`
 1. Reinicialize o servidor.
+
+Para obter mais informações, consulte [fazer backup e restaurar Active Directory controladores de domínio](active-directory-backup-restore.md).
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>Solucionar problemas de restauração de estado do sistema com falha
 

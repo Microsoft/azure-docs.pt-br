@@ -2,23 +2,23 @@
 title: Atribuir uma função a um grupo usando Privileged Identity Management no Azure AD | Microsoft Docs
 description: Saiba como você pode atribuir uma função de Azure Active Directory (Azure AD) a um grupo usando Azure AD Privileged Identity Management (PIM).
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 07/27/2020
-ms.author: curtand
+ms.date: 11/05/2020
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23243de192683a4811eb569b17425701381c4cd1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 10f179ab1bf328a2132c9206580dfa58efb80f1b
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374455"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741914"
 ---
 # <a name="assign-a-role-to-a-group-using-privileged-identity-management"></a>Atribuir uma função a um grupo usando Privileged Identity Management
 
@@ -31,7 +31,7 @@ Este artigo descreve como você pode atribuir uma função de Azure Active Direc
 
 1. Entre no [Azure ad Privileged Identity Management](https://ms.portal.azure.com/?Microsoft_AAD_IAM_GroupRoles=true&Microsoft_AAD_IAM_userRolesV2=true&Microsoft_AAD_IAM_enablePimIntegration=true#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) como um administrador de função com privilégios ou administrador global em sua organização.
 
-1. Selecione **Privileged Identity Management**  >  funções de**funções do Azure ad**  >  **Roles**  >  **Adicionar atribuições**
+1. Selecione **Privileged Identity Management**  >  funções de **funções do Azure ad**  >    >  **Adicionar atribuições**
 
 1. Selecione uma função e, em seguida, selecione um grupo. Somente os grupos qualificados para atribuição de função (grupos de função atribuíveis) são exibidos e não todos os grupos.
 

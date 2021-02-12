@@ -3,21 +3,22 @@ title: ST_INTERSECTS na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função do sistema SQL ST_INTERSECTS no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 11/23/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 2f39dbfc33bfc34e8f5e339a489d0c74bebb415e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2fca6e94f61ff4d21886bf81a56afa032c8773c1
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082276"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96004442"
 ---
 # <a name="st_intersects-azure-cosmos-db"></a>ST_INTERSECTS (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
- Retorna uma expressão booliana que indica se o objeto GeoJSON (ponto, polígono ou LineString) especificado no primeiro argumento intercepta o GeoJSON (ponto, polígono ou LineString) no segundo argumento.  
+ Retorna uma expressão booliana que indica se o objeto geojson (ponto, polígono, MultiPolygon ou LineString) especificado no primeiro argumento cruza o geojson (ponto, polígono, MultiPolygon ou LineString) no segundo argumento.  
   
 ## <a name="syntax"></a>Sintaxe
   

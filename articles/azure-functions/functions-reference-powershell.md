@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: 796aca02e6f70da8f5b94f6bbdbd2fd1d535bd77
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 61ed3ed274505101c65e251260bd759fe78f7b31
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108466"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936780"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia do desenvolvedor do PowerShell do Azure Functions
 
@@ -20,7 +20,7 @@ Uma função do PowerShell do Azure (função) é representada como um script do
 
 Assim como outros tipos de funções, as funções de script do PowerShell assumem parâmetros que correspondem aos nomes de todas as associações de entrada definidas no `function.json` arquivo. `TriggerMetadata`Também é passado um parâmetro que contém informações adicionais sobre o gatilho que iniciou a função.
 
-Este artigo pressupõe que você já tenha lido a [Referência do desenvolvedor do Azure Functions](functions-reference.md). Você também deve ter concluído o guia de [início rápido do Functions para o PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell) para criar sua primeira função do PowerShell.
+Este artigo pressupõe que você já tenha lido a [Referência do desenvolvedor do Azure Functions](functions-reference.md). Você também deve ter concluído o guia de [início rápido do Functions para o PowerShell](./create-first-function-vs-code-powershell.md) para criar sua primeira função do PowerShell.
 
 ## <a name="folder-structure"></a>Estrutura de pastas
 
@@ -76,9 +76,9 @@ $TriggerMetadata.sys
 
 | Propriedade   | Descrição                                     | Type     |
 |------------|-------------------------------------------------|----------|
-| UtcNow     | Quando, em UTC, a função foi disparada        | Datetime |
-| MethodName | O nome da função que foi disparada     | cadeia de caracteres   |
-| RandGuid   | um GUID exclusivo para esta execução da função | cadeia de caracteres   |
+| UtcNow     | Quando, em UTC, a função foi disparada        | DateTime |
+| MethodName | O nome da função que foi disparada     | string   |
+| RandGuid   | um GUID exclusivo para esta execução da função | string   |
 
 Cada tipo de gatilho tem um conjunto diferente de metadados. Por exemplo, o `$TriggerMetadata` para `QueueTrigger` contém o `InsertionTime` , `Id` , `DequeueCount` , entre outras coisas. Para obter mais informações sobre os metadados do gatilho de fila, acesse a [documentação oficial para gatilhos de fila](functions-bindings-storage-queue-trigger.md#message-metadata). Verifique a documentação nos [gatilhos](functions-triggers-bindings.md) com os quais você está trabalhando para ver o que acontece nos metadados do gatilho.
 
@@ -227,7 +227,7 @@ MyQueue                        myData
 
 Há suporte para caracteres curinga (*) no `Get-OutputBinding` .
 
-## <a name="logging"></a>Registrando em log
+## <a name="logging"></a>Log
 
 O registro em log nas funções do PowerShell funciona como log normal do PowerShell. Você pode usar os cmdlets de log para gravar em cada fluxo de saída. Cada cmdlet é mapeado para um nível de log usado pelas funções.
 
@@ -276,7 +276,7 @@ Há vários gatilhos e associações disponíveis para você usar com seu aplica
 Todos os gatilhos e associações são representados no código como alguns tipos de dados reais:
 
 * Hashtable
-* cadeia de caracteres
+* string
 * byte[]
 * INT
 * double
@@ -299,10 +299,10 @@ O objeto de solicitação que é passado para o script é do tipo `HttpRequestCo
 |-----------|----------------------------------------------------------------|---------------------------|
 | **`Body`**    | Um objeto que contém o corpo da solicitação. `Body` é serializado no melhor tipo com base nos dados. Por exemplo, se os dados forem JSON, eles serão passados como uma tabela de hash. Se os dados forem uma cadeia de caracteres, eles serão passados como uma cadeia de caracteres. | objeto |
 | **`Headers`** | Um dicionário que contém os cabeçalhos de solicitação.                | <de cadeia de caracteres de dicionário, Cadeia de caracteres><sup>*</sup> |
-| **`Method`** | O método HTTP da solicitação.                                | cadeia de caracteres                    |
+| **`Method`** | O método HTTP da solicitação.                                | string                    |
 | **`Params`**  | Um objeto que contém os parâmetros de roteamento da solicitação. | <de cadeia de caracteres de dicionário, Cadeia de caracteres><sup>*</sup> |
 | **`Query`** | Um objeto que contém os parâmetros da consulta.                  | <de cadeia de caracteres de dicionário, Cadeia de caracteres><sup>*</sup> |
-| **`Url`** | A URL da solicitação.                                        | cadeia de caracteres                    |
+| **`Url`** | A URL da solicitação.                                        | string                    |
 
 <sup>*</sup> Todas as chaves não diferenciam `Dictionary<string,string>` maiúsculas de minúsculas.
 
@@ -313,7 +313,7 @@ O objeto de resposta que você deve enviar de volta é do tipo `HttpResponseCont
 | Propriedade      | Descrição                                                 | Type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
 | **`Body`**  | Um objeto que contém o corpo da resposta.           | objeto                    |
-| **`ContentType`** | Uma pequena mão para definir o tipo de conteúdo para a resposta. | cadeia de caracteres                    |
+| **`ContentType`** | Uma pequena mão para definir o tipo de conteúdo para a resposta. | string                    |
 | **`Headers`** | Um objeto que contém os cabeçalhos da resposta.               | Dicionário ou Hashtable   |
 | **`StatusCode`**  | O código de status HTTP da resposta.                       | cadeia de caracteres ou inteiro             |
 
@@ -649,11 +649,11 @@ Ao trabalhar com as funções do PowerShell, esteja ciente das considerações n
 
 ### <a name="cold-start"></a>Inicialização a frio
 
-Ao desenvolver Azure Functions no [modelo de hospedagem sem servidor](functions-scale.md#consumption-plan), inícios frios são uma realidade. *Início frio* refere-se ao período de tempo que leva para seu aplicativo de funções iniciar a execução para processar uma solicitação. A inicialização a frio acontece com mais frequência no plano de consumo porque seu aplicativo de funções é desligado durante períodos de inatividade.
+Ao desenvolver Azure Functions no [modelo de hospedagem sem servidor](consumption-plan.md), inícios frios são uma realidade. *Início frio* refere-se ao período de tempo que leva para seu aplicativo de funções iniciar a execução para processar uma solicitação. A inicialização a frio acontece com mais frequência no plano de consumo porque seu aplicativo de funções é desligado durante períodos de inatividade.
 
 ### <a name="bundle-modules-instead-of-using-install-module"></a>Agrupar módulos em vez de usar `Install-Module`
 
-O script é executado em cada invocação. Evite usar `Install-Module` em seu script. Em vez disso, use `Save-Module` antes de publicar para que sua função não precise perder tempo baixando o módulo. Se a frio for iniciada, afetando suas funções, considere implantar seu aplicativo de funções em um [plano do serviço de aplicativo](functions-scale.md#app-service-plan) definido como *Always on* ou em um [plano Premium](functions-scale.md#premium-plan).
+O script é executado em cada invocação. Evite usar `Install-Module` em seu script. Em vez disso, use `Save-Module` antes de publicar para que sua função não precise perder tempo baixando o módulo. Se a frio for iniciada, afetando suas funções, considere implantar seu aplicativo de funções em um [plano do serviço de aplicativo](dedicated-plan.md) definido como *Always on* ou em um [plano Premium](functions-premium-plan.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

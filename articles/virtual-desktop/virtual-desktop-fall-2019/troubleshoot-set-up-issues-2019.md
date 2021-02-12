@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: eed1b0e1b01d5d13330b927429eca9a28ff80658
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c6d26de62364b6aca671d1e4283a01c1b78c397
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009249"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014825"
 ---
 # <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Criação de locatários e pool de hosts na área de trabalho virtual do Windows (clássico)
 
@@ -26,7 +26,7 @@ Visite a [Comunidade Tecnológica da Área de Trabalho Virtual do Windows](https
 
 ## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>Adquirindo a imagem de várias sessões do Windows 10 Enterprise
 
-Para usar a imagem de várias sessões do Windows 10 Enterprise, vá para o Azure Marketplace, **selecione introdução**ao  >  **Microsoft Windows 10** > e [Windows 10 Enterprise para áreas de trabalho virtuais, versão 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
+Para usar a imagem de várias sessões do Windows 10 Enterprise, vá para o Azure Marketplace, **selecione introdução** ao  >  **Microsoft Windows 10** > e [Windows 10 Enterprise para áreas de trabalho virtuais, versão 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
 
 > [!div class="mx-imgBorder"]
 > ![Uma captura de tela de seleção do Windows 10 Enterprise para áreas de trabalho virtuais, versão 1809.](../media/AzureMarketPlace.png)
@@ -49,7 +49,7 @@ Contact your IT Admin to review the configuration of your service subscriptions.
 
 **Causa:** Consentimento não concedido à área de trabalho virtual do Windows na instância do Azure Active Directory.
 
-**Correção:** [siga este guia](https://docs.microsoft.com/azure/virtual-desktop/virtual-desktop-fall-2019/tenant-setup-azure-active-directory#grant-permissions-to-windows-virtual-desktop) para conceder consentimento.
+**Correção:** [siga este guia](./tenant-setup-azure-active-directory.md#grant-permissions-to-windows-virtual-desktop) para conceder consentimento.
 
 ### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Erro: O usuário não está autorizado a consultar o serviço de gerenciamento
 
@@ -140,9 +140,9 @@ Se o modelo de operação passar pelo limite de cota, você poderá executar uma
 
 Siga estas instruções para solucionar problemas de implantações sem êxito de modelos de Azure Resource Manager e DSC do PowerShell.
 
-1. Examine os erros na implantação usando [Exibir operações de implantação com o Azure Resource Manager](../../azure-resource-manager/resource-manager-deployment-operations.md).
-2. Se não houver erros na implantação, examine os erros no log de atividades usando [Exibir logs de atividades para auditar ações em recursos](../../azure-resource-manager/resource-group-audit.md).
-3. Depois que o erro for identificado, use a mensagem de erro e os recursos em [solucionar erros comuns de implantação do Azure com o Azure Resource Manager](../../azure-resource-manager/resource-manager-common-deployment-errors.md) para resolver o problema.
+1. Examine os erros na implantação usando [Exibir operações de implantação com o Azure Resource Manager](../../azure-resource-manager/templates/deployment-history.md).
+2. Se não houver erros na implantação, examine os erros no log de atividades usando [Exibir logs de atividades para auditar ações em recursos](../../azure-resource-manager/management/view-activity-logs.md).
+3. Depois que o erro for identificado, use a mensagem de erro e os recursos em [solucionar erros comuns de implantação do Azure com o Azure Resource Manager](../../azure-resource-manager/templates/common-deployment-errors.md) para resolver o problema.
 4. Exclua todos os recursos criados durante a implantação anterior e tente novamente implantar o modelo novamente.
 
 ### <a name="error-your-deployment-failedhostnamejoindomain"></a>Erro: falha na implantação... \<hostname> /JoinDomain
@@ -375,7 +375,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDefinitionName "RDS Contributor" -SignInName <UPN>
 ```
 
-### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>Erro: O usuário precisa ter a MFA (Autenticação Multifator) do Azure
+### <a name="error-user-requires-azure-ad-multi-factor-authentication-mfa"></a>Erro: o usuário requer a MFA (autenticação multifator) do Azure AD
 
 > [!div class="mx-imgBorder"]
 > ![Falha na captura de tela de sua implantação devido à falta de autenticação multifator (MFA)](../media/MFARequiredError.png)
@@ -386,7 +386,7 @@ Exemplo de erro bruto:
 "message": "{\r\n  \"status\": \"Failed\",\r\n  \"error\": {\r\n    \"code\": \"ResourceDeploymentFailure\",\r\n    \"message\": \"The resource operation completed with terminal provisioning state 'Failed'.\",\r\n    \"details\": [\r\n      {\r\n        \"code\": \"VMExtensionProvisioningError\",\r\n        \"message\": \"VM has reported a failure when processing extension 'dscextension'. Error message: \\\"DSC Configuration 'FirstSessionHost' completed with error(s). Following are the first few: PowerShell DSC resource MSFT_ScriptResource  failed to execute Set-TargetResource functionality with error message: One or more errors occurred.  The SendConfigurationApply function did not succeed.\\\".\"\r\n      }\r\n    ]\r\n  }\r\n}"
 ```
 
-**Causa:** O administrador de locatários da área de trabalho virtual do Windows especificado requer a autenticação multifator do Azure (MFA) para entrar.
+**Causa:** O administrador de locatários da área de trabalho virtual do Windows especificado requer a autenticação multifator (MFA) do Azure AD para entrar.
 
 **Correção:** Crie uma entidade de serviço e atribua a ela uma função para seu locatário da área de trabalho virtual do Windows seguindo as etapas em [tutorial: criar entidades de serviço e atribuições de função com o PowerShell](create-service-principal-role-powershell.md). Depois de verificar se você pode entrar na área de trabalho virtual do Windows com a entidade de serviço, execute novamente a oferta do Azure Marketplace ou o modelo de Azure Resource Manager do GitHub, dependendo do método que você está usando. Siga as instruções abaixo para inserir os parâmetros corretos para seu método.
 

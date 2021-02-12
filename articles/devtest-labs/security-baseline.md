@@ -3,12 +3,12 @@ title: Linha de base de segurança do Azure para Azure DevTest Labs
 description: Linha de base de segurança do Azure para Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 98f6ce7eee799b1baf29782d7eca11d62cf62353
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 09b4e28437c79961d53cf07b068e3169d20fe0c4
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207284"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789897"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Linha de base de segurança do Azure para Azure DevTest Labs
 
@@ -34,7 +34,7 @@ Consulte o artigo a seguir para saber mais sobre como configurar a sincronizaç�
 ### <a name="22-configure-central-security-log-management"></a>2.2: configurar o gerenciamento central de log de segurança
 **Diretrizes:** Habilite as configurações de diagnóstico do log de atividades do Azure e envie os logs para um Log Analytics espaço de trabalho, Hub de eventos do Azure ou conta de armazenamento do Azure para arquivamento. Os logs de atividade fornecem informações sobre as operações que foram feitas em suas instâncias de Azure DevTest Labs no nível de plano de gerenciamento. Usando os dados do log de atividades do Azure, você pode determinar "o que, quem e quando" para qualquer operação de gravação (PUT, POST, excluir) feita no nível de plano de gerenciamento para suas instâncias do DevTest Labs.
 
-Para obter mais informações, consulte [criar configurações de diagnóstico para enviar logs e métricas de plataforma para destinos diferentes](../azure-monitor/platform/diagnostic-settings.md).
+Para saber mais, confira [Criar configurações de diagnóstico para enviar logs e métricas de plataforma para destinos diferentes](../azure-monitor/platform/diagnostic-settings.md).
 
 **Monitoramento da central de segurança do Azure:** Não disponível no momento
 
@@ -43,7 +43,7 @@ Para obter mais informações, consulte [criar configurações de diagnóstico p
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3: habilitar o registro em log de auditoria para recursos do Azure
 **Diretrizes:** Habilite as configurações de diagnóstico do log de atividades do Azure e envie os logs para um Log Analytics espaço de trabalho, Hub de eventos do Azure ou conta de armazenamento do Azure para arquivamento. Os logs de atividade fornecem informações sobre as operações que foram feitas em suas instâncias de Azure DevTest Labs no nível de plano de gerenciamento. Usando os dados do log de atividades do Azure, você pode determinar "o que, quem e quando" para qualquer operação de gravação (PUT, POST, excluir) feita no nível de plano de gerenciamento para suas instâncias do DevTest Labs.
 
-Para obter mais informações, consulte [criar configurações de diagnóstico para enviar logs e métricas de plataforma para destinos diferentes](../azure-monitor/platform/diagnostic-settings.md).
+Para saber mais, confira [Criar configurações de diagnóstico para enviar logs e métricas de plataforma para destinos diferentes](../azure-monitor/platform/diagnostic-settings.md).
 
 **Monitoramento da central de segurança do Azure:** Não disponível no momento
 
@@ -62,7 +62,7 @@ Para obter mais informações, consulte os seguintes artigos:
 **Responsabilidade:** Cliente
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5: configurar a retenção de armazenamento do log de segurança
-***Diretrizes:** No Azure Monitor, defina o período de retenção de log para Log Analytics espaços de trabalho associados às suas instâncias de Azure DevTest Labs de acordo com os regulamentos de conformidade da sua organização.
+**_Diretrizes:_* No Azure Monitor, defina o período de retenção de log para Log Analytics espaços de trabalho associados às suas instâncias de Azure DevTest Labs de acordo com os regulamentos de conformidade da sua organização.
 
 Para obter mais informações, consulte o seguinte artigo: [como definir parâmetros de retenção de log](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
@@ -175,15 +175,15 @@ Além disso, para ajudá-lo a controlar contas administrativas dedicadas, você 
 - [Como habilitar a MFA no Azure](../active-directory/authentication/howto-mfa-getstarted.md)  
 - [Como monitorar identidade e acesso na Central de Segurança do Azure](../security-center/security-center-identity-access.md)
 
-**Monitoramento da central de segurança do Azure:*** Sim
+**Monitoramento da central de segurança do Azure:** _ Sim
 
-**Responsabilidade:** Cliente
+_ *Responsabilidade:** cliente
 
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: usar computadores dedicados (estações de trabalho com acesso privilegiado) para todas as tarefas administrativas
 **Diretrizes:** Use PAWs (estações de trabalho com acesso privilegiado) com a MFA configurada para fazer logon e configurar recursos do Azure.
 
-- [Saiba mais sobre Estações de Trabalho com Acesso Privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations)  
+- [Saiba mais sobre Estações de Trabalho com Acesso Privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)  
 - [Como habilitar a MFA no Azure](../active-directory/authentication/howto-mfa-getstarted.md)  
 
 **Monitoramento da central de segurança do Azure:** N/A
@@ -379,7 +379,7 @@ A Microsoft executa o gerenciamento de vulnerabilidades nos recursos subjacentes
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2: implantar solução automatizada de gerenciamento de patch de sistema operacional
 **Diretrizes:** Use o Azure Gerenciamento de Atualizações para garantir que as atualizações de segurança mais recentes sejam instaladas em suas VMs Windows e Linux hospedadas no DevTest Labs. Para VMs do Windows, verifique se Windows Update foi habilitado e definido para atualizar automaticamente. Atualmente, essa configuração não está disponível para configurar por meio do DevTest Labs, no entanto, o administrador de laboratório/administrador de assinaturas pode definir essa configuração nas VMs de computação subjacentes em sua assinatura. 
 
-- [Como configurar Gerenciamento de Atualizações para VMs no Azure](../automation/update-management/update-mgmt-overview.md)
+- [Como configurar Gerenciamento de Atualizações para VMs no Azure](../automation/update-management/overview.md)
 - [Entender as políticas de segurança do Azure monitoradas pela central de segurança](../security-center/policy-reference.md)
 
 **Monitoramento da central de segurança do Azure:** Não aplicável
@@ -387,16 +387,16 @@ A Microsoft executa o gerenciamento de vulnerabilidades nos recursos subjacentes
 **Responsabilidade:** Cliente
 
 ### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5.3: implantar uma solução automatizada de gerenciamento de patch de software de terceiros
-***Diretrizes:*** Como administrador de laboratório, você pode usar [artefatos do DevTest Labs](add-artifact-vm.md) para automatizar atualizações para imagens personalizadas do laboratório, incluindo patches de segurança e outras atualizações. 
+**_Orientação:_* _ como um administrador de laboratório, você pode usar [artefatos do DevTest Labs](add-artifact-vm.md) para automatizar atualizações para imagens personalizadas do laboratório, incluindo patches de segurança e outras atualizações. 
 
 Saiba mais sobre o [DevTest Labs Image Factory](image-factory-create.md), que é uma solução de configuração como código que cria e distribui imagens automaticamente regularmente com todas as configurações desejadas. 
 
 Como administrador de assinatura, você também pode usar a solução de Gerenciamento de Atualizações do Azure para gerenciar atualizações e patches para VMs do DevTest Labs. Gerenciamento de Atualizações se baseia no repositório de atualização configurado localmente para corrigir os sistemas Windows com suporte. Ferramentas como System Center Updates Publisher (Updates Publisher) permitem que você publique atualizações personalizadas no Windows Server Update Services (WSUS). Esse cenário permite que Gerenciamento de Atualizações patch de máquinas que usam Configuration Manager como seu repositório de atualizações com software de terceiros.
 
-- [Solução Gerenciamento de Atualizações no Azure](../automation/update-management/update-mgmt-overview.md)
-- [Gerenciar atualizações e patches para suas VMs](../automation/update-management/update-mgmt-overview.md)
+- [Solução Gerenciamento de Atualizações no Azure](../automation/update-management/overview.md)
+- [Gerenciar atualizações e patches para suas VMs](../automation/update-management/overview.md)
 
-**Monitoramento da central de segurança do Azure:** Não aplicável
+_ *Monitoramento da central de segurança do Azure:** não aplicável
 
 **Responsabilidade:** Cliente
 
@@ -515,7 +515,7 @@ Além de usar Controle de Alterações para o monitoramento de aplicativos de so
 - Tipos de recursos não permitidos
 - Tipos de recursos permitidos
 
-Confira os seguintes artigos: 
+Veja os artigos a seguir: 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 - [Como negar um tipo de recurso específico com o Azure Policy](../governance/policy/samples/index.md)
 
@@ -619,7 +619,7 @@ Além disso, as imagens de máquina virtual do Azure Marketplace publicadas pela
 
 - [Como implementar recomendações de avaliação de vulnerabilidade da central de segurança do Azure](../security-center/deploy-vulnerability-assessment-vm.md)
 - [Visão geral do State Configuration da Automação do Azure](../automation/automation-dsc-overview.md)
-- [Script de exemplo para carregar um VHD para o Azure e criar uma nova VM](../virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
+- [Script de exemplo para carregar um VHD para o Azure e criar uma nova VM](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script)
 - [Como criar uma fábrica de imagens no DevTest Labs](image-factory-create.md)
 
 **Monitoramento da central de segurança do Azure:** Ok
@@ -692,7 +692,7 @@ Além disso, as imagens de máquina virtual do Azure Marketplace publicadas pela
 
 - [Configurar a identidade gerenciada para implantar ambientes de Azure Resource Manager no DevTest Labs](use-managed-identities-environments.md)
 - [Configurar identidade gerenciada para implantar máquinas virtuais no DevTest Labs](enable-managed-identities-lab-vms.md)
-- [Como criar um cofre de chaves](../key-vault/secrets/quick-create-portal.md)
+- [Como criar um cofre de chaves](../key-vault/general/quick-create-portal.md)
 - [Como autenticar-se no Key Vault](../key-vault/general/authentication.md)
 - [Como atribuir uma política de acesso de Key Vault](../key-vault/general/assign-access-policy-portal.md)
 
@@ -877,7 +877,7 @@ Monitoramento da central de segurança do Azure: * * * * não aplicável
 
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1: realizar testes de penetração regulares de seus recursos do Azure e garanta a correção de todas as constatações de segurança críticas em 60 dias
-**Diretrizes:** Siga as regras de envolvimento da Microsoft para garantir que os testes de penetração não estejam em violação às políticas da Microsoft. Use a estratégia da Microsoft e a execução de equipes vermelhas e testes de penetração de sites ativos em infraestrutura de nuvem, serviços e aplicativos gerenciados pela Microsoft.
+**Diretrizes:** Siga as regras de envolvimento da Microsoft para garantir que os testes de penetração não estejam em violação às políticas da Microsoft. Use a estratégia da Microsoft, a execução de Equipes Vermelhas e os testes de penetração de sites online na infraestrutura, nos serviços e nos aplicativos de nuvem gerenciados pela Microsoft.
 
 - [Regras de teste de penetração do Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 - [Microsoft Cloud Red Integration](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)

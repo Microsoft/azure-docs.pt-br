@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: 82bebcbda3110d51ae72df1fb4b18fedaa6c2f4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7763c1d856a09acf2523a7073c3d300be6b70b37
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597703"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200695"
 ---
 # <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparar uma VM do Windows usando os comandos de reparo da Máquina Virtual do Azure
 
@@ -60,7 +60,7 @@ Para obter a documentação e as instruções adicionais, confira [az vm repair]
 
    Se preferir instalar e usar a CLI localmente, este início rápido exigirá a CLI do Azure versão 2.0.30 ou posterior. Execute ``az --version`` para encontrar a versão. Se você precisar instalar ou atualizar sua CLI do Azure, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
    
-   Se você precisar fazer logon em Cloud Shell com uma conta diferente da que está conectada no momento ao portal do Azure com você pode usar ``az login`` [AZ login Reference](/cli/azure/reference-index?view=azure-cli-latest#az-login&preserve-view=true).  Para alternar entre as assinaturas associadas à sua conta, você pode usar a ``az account set --subscription`` [referência do conjunto de contas AZ](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true).
+   Se você precisar fazer logon em Cloud Shell com uma conta diferente da que está conectada no momento ao portal do Azure com você pode usar ``az login`` [AZ login Reference](/cli/azure/reference-index#az-login&preserve-view=true).  Para alternar entre as assinaturas associadas à sua conta, você pode usar a ``az account set --subscription`` [referência do conjunto de contas AZ](/cli/azure/account#az-account-set&preserve-view=true).
 
 2. Se esta é a primeira vez que você usa os comandos `az vm repair`, adicione a extensão da CLI vm-repair.
 

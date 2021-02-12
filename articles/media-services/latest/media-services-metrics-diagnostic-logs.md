@@ -1,6 +1,5 @@
 ---
-title: Métricas dos serviços de mídia e logs de diagnóstico com Azure Monitor
-titleSuffix: Azure Media Services
+title: Métricas e logs de diagnóstico com Azure Monitor
 description: Saiba como monitorar as métricas dos serviços de mídia do Azure e os logs de diagnóstico por meio de Azure Monitor.
 services: media-services
 documentationcenter: ''
@@ -12,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 11/02/2020
 ms.author: inhenkel
-ms.openlocfilehash: c03950d64c9ead17dfa5c07ef70ab2b7ee0e90bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35b0d9c2937024341be6183ac1438b7c4500d6ef
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89296644"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954979"
 ---
-# <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Monitorar as métricas dos serviços de mídia e os logs de diagnóstico por meio de Azure Monitor
+# <a name="monitor-media-services-metrics-and-diagnostic-logs-with-azure-monitor"></a>Monitorar as métricas dos serviços de mídia e os logs de diagnóstico com Azure Monitor
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
@@ -67,8 +66,10 @@ As métricas de [pontos de extremidade de streaming](/rest/api/media/streamingen
 |Requests|Requests|Fornece o número total de solicitações HTTP atendidas pelo ponto de extremidade de streaming.|
 |Saída|Saída|Total de bytes de saída por minuto por ponto de extremidade de streaming.|
 |SuccessE2ELatency|Latência de ponta a ponta bem-sucedida|Duração de tempo de quando o ponto de extremidade de streaming recebeu a solicitação para quando o último byte da resposta foi enviado.|
+|Uso da CPU| | Uso da CPU para pontos de extremidade de streaming Premium. Esses dados não estão disponíveis para pontos de extremidade de streaming padrão. |
+|Largura de banda de saída | | Largura de banda de saída em bits por segundo.|
 
-### <a name="why-would-i-want-to-use-metrics"></a>Por que desejo usar métricas?
+### <a name="metrics-are-useful"></a>As métricas são úteis
 
 Aqui estão exemplos de como o monitoramento das métricas dos serviços de mídia pode ajudá-lo a entender como seus aplicativos estão sendo executados. Algumas perguntas que podem ser abordadas com as métricas dos serviços de mídia são:
 
@@ -79,6 +80,8 @@ Aqui estão exemplos de como o monitoramento das métricas dos serviços de míd
 * Como posso ver a divisão das solicitações que falharam e o que está causando a falha?
 * Como posso ver quantas solicitações HLS ou DASH estão sendo extraídas do empacotador?
 * Como fazer definir um alerta para saber quando o valor do limite de n º de solicitações com falha foi atingido?
+
+A simultaneidade se torna uma preocupação para o número de pontos de extremidade de streaming usados em uma única conta ao longo do tempo. Você precisa ter em mente a relação entre o número de fluxos simultâneos com parâmetros de publicação complexos, como empacotamento dinâmico para vários protocolos, várias criptografias DRM etc. Cada transmissão ao vivo publicada adicional adiciona à CPU e à largura de banda de saída no ponto de extremidade de streaming. Com isso em mente, você deve usar Azure Monitor para observar de forma mais adequada a utilização do ponto de extremidade de streaming (capacidade de saída e de CPU) para certificar-se de que você está dimensionando adequadamente (ou divida o tráfego entre vários pontos de extremidade de streaming se estiver entrando em uma simultaneidade muito alta).
 
 ### <a name="example"></a>Exemplo
 

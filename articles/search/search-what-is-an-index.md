@@ -1,5 +1,5 @@
 ---
-title: Criar um índice de pesquisa
+title: Crie um índice
 titleSuffix: Azure Cognitive Search
 description: Apresenta conceitos e ferramentas de indexação no Pesquisa Cognitiva do Azure, incluindo definições de esquema e a estrutura de dados física.
 manager: nitinme
@@ -7,80 +7,27 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/15/2020
-ms.openlocfilehash: 3aa4a1917711f8997c282ba577c33e7a7f94472b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/03/2021
+ms.openlocfilehash: d0cc7630a3bea67a99c3cb65d2015e934e8ac2da
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88932875"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539087"
 ---
-# <a name="create-a-basic-search-index-in-azure-cognitive-search"></a>Criar um índice de pesquisa básica no Azure Pesquisa Cognitiva
+# <a name="creating-search-indexes-in-azure-cognitive-search"></a>Criando índices de pesquisa no Azure Pesquisa Cognitiva
 
-No Azure Pesquisa Cognitiva, um *índice de pesquisa* armazena o conteúdo pesquisável usado para texto completo e consultas filtradas. Um índice é definido por um esquema e salvo no serviço, com a importação de dados a seguir como uma segunda etapa. 
+Pesquisa Cognitiva armazena o conteúdo pesquisável usado para texto completo e consultas filtradas em um *índice de pesquisa*. Um índice é definido por um esquema e salvo no serviço, com a importação de dados a seguir como uma segunda etapa. 
 
-Os índices contêm *documentos*. Conceitualmente, um documento é uma única unidade de dados pesquisáveis no índice. Um varejista pode ter um documento para cada produto, uma organização de notícias pode ter um documento para cada artigo e assim por diante. Mapeando esses conceitos para equivalentes de banco de dados mais conhecidos: um *índice de pesquisa* é igual a uma *tabela*e os *documentos* são aproximadamente equivalentes a *linhas* em uma tabela.
+Os índices contêm *documentos de pesquisa*. Conceitualmente, um documento é uma única unidade de dados pesquisáveis no índice. Um varejista pode ter um documento para cada produto, uma organização de notícias pode ter um documento para cada artigo e assim por diante. Mapeando esses conceitos para equivalentes de banco de dados mais conhecidos: um *índice de pesquisa* é igual a uma *tabela* e os *documentos* são aproximadamente equivalentes a *linhas* em uma tabela.
 
-A estrutura física de um índice é determinada pelo esquema, com campos marcados como "pesquisáveis", resultando em um índice invertido criado para esse campo. 
+## <a name="whats-an-index-schema"></a>O que é um esquema de índice?
 
-Você pode criar um índice com as seguintes ferramentas e APIs:
-
-* No portal do Azure, use o assistente para **Adicionar índice** ou **importar dados**
-* Usando o [criar índice (API REST)](/rest/api/searchservice/create-index)
-* Usando o [SDK do .net](./search-get-started-dotnet.md)
-
-É mais fácil aprender com uma ferramenta de Portal. O portal impõe requisitos e regras de esquema para tipos de dados específicos, como a despermissão de recursos de pesquisa de texto completo em campos numéricos. Depois de ter um índice viável, você pode fazer a transição para o código recuperando a definição de JSON do serviço usando [Get index (API REST)](/rest/api/searchservice/get-index) e adicionando-a à sua solução.
-
-## <a name="recommended-workflow"></a>Fluxo de trabalho recomendado
-
-Chegar a um design de índice final é um processo iterativo. É comum começar com o portal para criar o índice inicial e, em seguida, alternar para o código para posicionar o índice sob controle do código-fonte.
-
-1. Determine se você pode usar [**importar dados**](search-import-data-portal.md). O assistente executará a indexação com base no indexador All-in-One se os dados de origem forem de um [tipo de fonte de dados com suporte no Azure](search-indexer-overview.md#supported-data-sources).
-
-1. Se você não pode usar **importar dados**, comece com **Adicionar índice** para definir o esquema.
-
-   ![Comando adicionar índice](media/search-what-is-an-index/add-index.png "Comando adicionar índice")
-
-1. Forneça um nome e uma chave usados para identificar exclusivamente cada documento de pesquisa no índice. A chave é obrigatória e deve ser do tipo EDM. String. Durante a importação, você deve planejar o mapeamento de um campo exclusivo em dados de origem para esse campo. 
-
-   O portal fornece um `id` campo para a chave. Para substituir o padrão `id` , crie um novo campo (por exemplo, uma nova definição de campo chamada `HotelId` ) e, em seguida, selecione-o na **chave**.
-
-   ![Preencher as propriedades necessárias](media/search-what-is-an-index//field-attributes.png "Preencher as propriedades necessárias")
-
-1. Adicione mais campos. O portal mostra quais [atributos de campo](#index-attributes) estão disponíveis para diferentes tipos de dados. Se você for novo no design de índice, isso será útil.
-
-   Se os dados de entrada forem hierárquicos por natureza, atribua o tipo de dados de [tipo complexo](search-howto-complex-data-types.md) para representar as estruturas aninhadas. O conjunto de dados de exemplo interno, hotéis, ilustra os tipos complexos usando um endereço (contém vários subcampos) que têm uma relação um-para-um com cada hotel e uma coleção complexa de salas, em que várias salas são associadas a cada hotel. 
-
-1. Atribua qualquer [analisador](#analyzers) a campos de cadeia de caracteres antes de criar o índice. Faça o mesmo para [sugestores](#suggesters) se você quiser habilitar o preenchimento automático em campos específicos.
-
-1. Clique em **criar** para criar as estruturas físicas em seu serviço de pesquisa.
-
-1. Depois que um índice é criado, use comandos adicionais para revisar definições ou adicionar mais elementos.
-
-   ![Adicionar página de índice mostrando atributos por tipo de dados](media/search-what-is-an-index//field-definitions.png "Adicionar página de índice mostrando atributos por tipo de dados")
-
-1. Baixe o esquema de índice usando [obter índice (API REST)](/rest/api/searchservice/get-index) e uma ferramenta de teste na Web como o [postmaster](search-get-started-postman.md). Agora você tem uma representação JSON do índice que você pode adaptar para o código.
-
-1. [Carregue seu índice com os dados](search-what-is-data-import.md). O Azure Pesquisa Cognitiva aceita documentos JSON. Para carregar seus dados de maneira programática, é possível usar o Postman com documentos JSON no conteúdo da solicitação. Se os dados não estiverem expressados facilmente como JSON, essa etapa será a mais trabalhosa. 
-
-    Depois que um índice é carregado com dados, a maioria das edições nos campos existentes exigirá que você remova e reconstrua um índice.
-
-1. Consulte seu índice, examine resultados e itere o esquema de índice até que você comece a ver os resultados esperados. É possível usar o [**Gerenciador de pesquisa**](search-explorer.md) ou o Postman para consultar seu índice.
-
-Durante o desenvolvimento, planeje recompilações frequentes. Como as estruturas físicas são criadas no serviço, é necessário [descartar e recriar índices](search-howto-reindex.md) para a maioria das modificações em uma definição de campo existente. Considere trabalhar com um subconjunto de seus dados para acelerar as recompilações. 
-
-> [!Tip]
-> O código, em vez de uma abordagem de portal, é recomendado para trabalhar em design de índice e importação de dados simultaneamente. Como alternativa, ferramentas como [o Postman e a API REST](search-get-started-postman.md) são úteis para testes de prova de conceito quando os projetos de desenvolvimento ainda estão em fases iniciais. É possível fazer alterações incrementais em uma definição de índice em um corpo da solicitação e, em seguida, enviar a solicitação para seu serviço a fim de recriar um índice usando um esquema atualizado.
-
-## <a name="index-schema"></a>Esquema de índice
-
-É necessário um índice para ter um nome e um campo de chave designado (Of EDM. String) na coleção Fields. A [*coleção de campos*](#fields-collection) normalmente é a maior parte de um índice, onde cada campo é nomeado, digitado e atribuído com comportamentos permitidos que determinam como é usado. 
-
-Outros elementos incluem [sugestores](#suggesters), [perfis de Pontuação](#scoringprofiles), [analisadores](#analyzers) usados para processar cadeias de caracteres em tokens de acordo com as regras linguísticas ou outras características com suporte do analisador e configurações de [script remoto entre origens (CORS)](#corsoptions) .
+A estrutura física de um índice é determinada pelo esquema. A coleção ' Fields ' normalmente é a parte maior de um índice, em que cada campo é nomeado, atribuído a um [tipo de dados](/rest/api/searchservice/Supported-data-types)e com comportamentos permitidos que determinam como ele é usado.
 
 ```json
 {
-  "name": (optional on PUT; required on POST) "name_of_index",
+  "name": "name_of_index, unique across the service",
   "fields": [
     {
       "name": "name_of_field",
@@ -97,90 +44,77 @@ Outros elementos incluem [sugestores](#suggesters), [perfis de Pontuação](#sco
       "synonymMaps": [ "name_of_synonym_map" ] (optional, only one synonym map per field is currently supported)
     }
   ],
-  "suggesters": [
-    {
-      "name": "name of suggester",
-      "searchMode": "analyzingInfixMatching",
-      "sourceFields": ["field1", "field2", ...]
-    }
-  ],
-  "scoringProfiles": [
-    {
-      "name": "name of scoring profile",
-      "text": (optional, only applies to searchable fields) {
-        "weights": {
-          "searchable_field_name": relative_weight_value (positive #'s),
-          ...
-        }
-      },
-      "functions": (optional) [
-        {
-          "type": "magnitude | freshness | distance | tag",
-          "boost": # (positive number used as multiplier for raw score != 1),
-          "fieldName": "...",
-          "interpolation": "constant | linear (default) | quadratic | logarithmic",
-          "magnitude": {
-            "boostingRangeStart": #,
-            "boostingRangeEnd": #,
-            "constantBoostBeyondRange": true | false (default)
-          },
-          "freshness": {
-            "boostingDuration": "..." (value representing timespan leading to now over which boosting occurs)
-          },
-          "distance": {
-            "referencePointParameter": "...", (parameter to be passed in queries to use as reference location)
-            "boostingDistance": # (the distance in kilometers from the reference location where the boosting range ends)
-          },
-          "tag": {
-            "tagsParameter": "..." (parameter to be passed in queries to specify a list of tags to compare against target fields)
-          }
-        }
-      ],
-      "functionAggregation": (optional, applies only when functions are specified) 
-        "sum (default) | average | minimum | maximum | firstMatching"
-    }
-  ],
+  "suggesters": [ ],
+  "scoringProfiles": [ ],
   "analyzers":(optional)[ ... ],
   "charFilters":(optional)[ ... ],
   "tokenizers":(optional)[ ... ],
   "tokenFilters":(optional)[ ... ],
   "defaultScoringProfile": (optional) "...",
-  "corsOptions": (optional) {
-    "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
-    "maxAgeInSeconds": (optional) max_age_in_seconds (non-negative integer)
-  },
-  "encryptionKey":(optional){
-    "keyVaultUri": "azure_key_vault_uri",
-    "keyVaultKeyName": "name_of_azure_key_vault_key",
-    "keyVaultKeyVersion": "version_of_azure_key_vault_key",
-    "accessCredentials":(optional){
-      "applicationId": "azure_active_directory_application_id",
-      "applicationSecret": "azure_active_directory_application_authentication_key"
-    }
+  "corsOptions": (optional) { },
+  "encryptionKey":(optional){ }
   }
 }
 ```
 
-<a name="fields-collection"></a>
+Outros elementos são recolhidos para fins de brevidade, mas os links a seguir podem fornecer os detalhes: [sugestores](index-add-suggesters.md), [perfis de Pontuação](index-add-scoring-profiles.md), [analisadores](search-analyzers.md) usados para processar cadeias de caracteres em tokens de acordo com as regras linguísticas ou outras características com suporte do analisador e configurações de [script remoto entre origens (CORS)](#corsoptions) .
 
-## <a name="fields-collection-and-field-attributes"></a>Coleção e atributo de campos
+## <a name="choose-a-client"></a>Escolher um cliente
 
-Os campos têm um nome, um tipo que classifica os dados armazenados e atributos que especificam como o campo é usado.
+Há várias metodologias para criar um índice de pesquisa. Recomendamos as APIs portal do Azure ou REST para desenvolvimento antecipado e teste de prova de conceito.
 
-### <a name="data-types"></a>Tipos de dados
+Durante o desenvolvimento, planeje recompilações frequentes. Como as estruturas físicas são criadas no serviço, é necessário [descartar e recriar índices](search-howto-reindex.md) para a maioria das modificações em uma definição de campo existente. Considere trabalhar com um subconjunto de seus dados para acelerar as recompilações.
 
-| Tipo | Descrição |
-|------|-------------|
-| Edm.String |O texto que opcionalmente pode ser indexado para a pesquisa de texto completo (separação de palavras, derivação e assim por diante). |
-| Collection(Edm.String) |Uma lista de cadeias de caracteres que opcionalmente podem ser indexadas para a pesquisa de texto completo. Não há nenhum limite teórico superior no número de itens em uma coleção, mas o limite superior de 16 MB no tamanho da carga se aplica às coleções. |
-| Edm.Boolean |Contém valores true/false. |
-| Edm.Int32 |Valores inteiros de 32 bits. |
-| Edm.Int64 |Valores inteiros de 64 bits. |
-| Edm.Double |Dados numéricos de dupla precisão. |
-| Edm.DateTimeOffset |Valores de data e hora representados no formato OData V4 (por exemplo, `yyyy-MM-ddTHH:mm:ss.fffZ` ou `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
-| Edm.GeographyPoint |Um ponto que representa uma localização geográfica em todo o mundo. |
+### <a name="permissions"></a>Permissões
 
-Para obter mais informações, consulte [tipos de dados com suporte](/rest/api/searchservice/Supported-data-types).
+Todas as operações relacionadas a um índice de pesquisa, incluindo GET solicita sua definição, exigem uma [chave de API de administração](search-security-api-keys.md) na solicitação.
+
+### <a name="limits"></a>Limites
+
+Todas as [camadas de serviço limitam](search-limits-quotas-capacity.md#index-limits) o número de objetos que você pode criar. Se você estiver experimentando a camada gratuita, só poderá ter 3 índices em um determinado momento.
+
+### <a name="use-azure-portal-to-create-a-search-index"></a>Usar portal do Azure para criar um índice de pesquisa
+
+O portal fornece duas opções para criar um índice de pesquisa: [**Assistente de importação de dados**](search-import-data-portal.md) e **Adicionar índice** que fornece campos para especificar um esquema de índice. Os pacotes do assistente em operações adicionais também criam um indexador, uma fonte de dados e dados de carregamento. Se isso for maior do que o desejado, você deve usar apenas **Adicionar índice** ou outra abordagem.
+
+A captura de tela a seguir mostra onde você pode encontrar **Adicionar índice** no Portal. **Importar dados** é o próximo momento da próxima porta.
+
+  :::image type="content" source="media/search-what-is-an-index/add-index.png" alt-text="Comando adicionar índice" border="true":::
+
+> [!Tip]
+> O design de índice por meio do portal impõe requisitos e regras de esquema para tipos de dados específicos, como a despermissão de recursos de pesquisa de texto completo em campos numéricos. Depois de ter um índice funcional, você pode copiar o JSON do portal e adicioná-lo à sua solução.
+
+### <a name="use-a-rest-client"></a>Usar um cliente REST
+
+O postmaster e o Visual Studio Code (com uma extensão para o Azure Pesquisa Cognitiva) podem funcionar como um cliente de índice de pesquisa. Usando qualquer ferramenta, você pode se conectar ao serviço de pesquisa e enviar solicitações [de criar índice (REST)](/rest/api/searchservice/create-index) . Há vários tutoriais e exemplos que demonstram clientes REST para a criação de objetos. 
+
+Comece com um destes artigos para saber mais sobre cada cliente:
+
++ [Criar um índice de pesquisa usando REST e o postmaster](search-get-started-rest.md)
++ [Introdução ao Visual Studio Code e ao Azure Cognitive Search](search-get-started-vs-code.md)
+
+Consulte as [operações de índice (REST)](/rest/api/searchservice/index-operations) para obter ajuda com solicitações de índice formular.
+
+### <a name="use-an-sdk"></a>Usar um SDK
+
+Por Pesquisa Cognitiva, os SDKs do Azure implementam recursos geralmente disponíveis. Dessa forma, você pode usar qualquer um dos SDKs para criar um índice de pesquisa. Todos eles fornecem um **SearchIndexClient** que tem métodos para criar e atualizar índices.
+
+| SDK do Azure | Cliente | Exemplos |
+|-----------|--------|----------|
+| .NET | [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) | [Azure-Search-dotnet-Samples/QuickStart/v11/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) |
+| Java | [SearchIndexClient](/java/api/com.azure.search.documents.indexes.searchindexclient) | [CreateIndexExample. java](https://github.com/Azure/azure-sdk-for-java/blob/azure-search-documents_11.1.3/sdk/search/azure-search-documents/src/samples/java/com/azure/search/documents/indexes/CreateIndexExample.java) |
+| JavaScript | [SearchIndexClient](/javascript/api/@azure/search-documents/searchindexclient) | [Índices](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/indexes) |
+| Python | [SearchIndexClient](/python/api/azure-search-documents/azure.search.documents.indexes.searchindexclient) | [sample_index_crud_operations. py](https://github.com/Azure/azure-sdk-for-python/blob/7cd31ac01fed9c790cec71de438af9c45cb45821/sdk/search/azure-search-documents/samples/sample_index_crud_operations.py) |
+
+## <a name="define-fields"></a>Definir campos
+
+Um documento de pesquisa é definido pela `fields` coleção. Você precisará de campos para consultas e chaves. Você provavelmente também precisará de campos para dar suporte a filtros, facetas e classificações. Você também pode precisar de campos para dados que um usuário nunca vê, por exemplo, você pode desejar campos para margens de lucro ou promoções de marketing que você pode usar para modificar a classificação de pesquisa.
+
+Um campo do tipo EDM. String deve ser designado como a chave do documento. Ele é usado para identificar exclusivamente cada documento de pesquisa. Você pode recuperar um documento por sua chave para preencher uma página de detalhes.  
+
+Se os dados de entrada forem hierárquicos por natureza, atribua o tipo de dados de [tipo complexo](search-howto-complex-data-types.md) para representar as estruturas aninhadas. O conjunto de dados de exemplo interno, hotéis, ilustra os tipos complexos usando um endereço (contém vários subcampos) que têm uma relação um-para-um com cada hotel e uma coleção complexa de salas, em que várias salas são associadas a cada hotel. 
+
+Atribua qualquer analisador a campos de cadeia de caracteres antes de criar o índice. Faça o mesmo para sugestores se desejar habilitar o preenchimento automático em campos específicos.
 
 <a name="index-attributes"></a>
 
@@ -204,34 +138,6 @@ Embora seja possível adicionar novos campos a qualquer momento, as definições
 > [!NOTE]
 > As APIs usadas para criar um índice têm comportamentos padrão variados. Para as [APIs REST](/rest/api/searchservice/Create-Index), a maioria dos atributos é habilitada por padrão (por exemplo, "pesquisável" e "recuperável" são verdadeiros para campos de cadeia de caracteres) e, muitas vezes, você só precisa defini-los se desejar desativá-los. Para o SDK do .NET, o oposto é true. Em qualquer propriedade que você não definir explicitamente, o padrão é desabilitar o comportamento de pesquisa correspondente, a menos que você o habilite especificamente.
 
-## `analyzers`
-
-O elemento analisadores define o nome do analisador de linguagem a ser usado para o campo. Para obter mais informações sobre a variedade de analisadores disponíveis para você, consulte [adicionando analisadores a um índice de pesquisa cognitiva do Azure](search-analyzers.md). Os analisadores só podem ser usados com campos pesquisáveis. Depois que o analisador é atribuído a um campo, ele não pode ser alterado, a menos que você recompile o índice.
-
-## `suggesters`
-
-Um sugestor é uma seção do esquema que define quais campos em um índice são usados para dar suporte a consultas de preenchimento automático ou digitação antecipada em pesquisas. Normalmente, as cadeias de caracteres de pesquisa parciais são enviadas para as [sugestões (API REST)](/rest/api/searchservice/suggestions) enquanto o usuário está digitando uma consulta de pesquisa e a API retorna um conjunto de documentos ou frases sugeridos. 
-
-Os campos adicionados a um sugestor são usados para criar termos de pesquisa de digitação antecipada. Todos os termos de pesquisa são criados durante a indexação e armazenados separadamente. Para saber mais sobre como criar uma estrutura de sugestor, confira [Add suggesters](index-add-suggesters.md) (Adicionar sugestores).
-
-## `corsOptions`
-
-O JavaScript do lado do cliente não pode chamar nenhuma API por padrão, pois o navegador impedirá todas as solicitações entre origens. Para permitir ao índice as consultas entre origens, habilite o CORS (Compartilhamento de Recursos entre Origens) definindo o atributo **corsOptions**. Por motivos de segurança, apenas APIs de consulta dão suporte para CORS. 
-
-As seguintes opções podem ser definidas para CORS:
-
-+ **allowedOrigins** (obrigatório): esta é uma lista de origens que terão acesso concedido ao índice. Isso significa que qualquer código JavaScript atendendo a partir dessas origens terá permissão para consultar o índice (supondo que ele forneça a chave de API correta). Cada origem é tipicamente da forma, `protocol://<fully-qualified-domain-name>:<port>` embora `<port>` seja frequentemente omitida. Consulte [Compartilhamento de recursos entre origens (Wikipédia)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) para obter mais detalhes.
-
-  Se você quiser permitir acesso a todas as origens, inclua `*` como um único item na matriz **allowedOrigins**. *Essa não é uma prática recomendada para serviços de pesquisa de produção*, mas geralmente é útil para desenvolvimento e depuração.
-
-+ **maxAgeInSeconds** (opcional): os navegadores usam esse valor para determinar a duração (em segundos) para respostas de simulação de CORS de cache. Esse deve ser um inteiro não negativo. Quanto maior for esse valor, melhor será o desempenho, porém, mais tempo levará para que as alterações de política CORS entrem em vigor. Se ele não for definido, uma duração padrão de cinco minutos será usada.
-
-## `scoringProfiles`
-
-Um [perfil de Pontuação](index-add-scoring-profiles.md) é uma seção do esquema que define comportamentos de Pontuação personalizados que permitem que você influencie quais itens aparecem mais acima nos resultados da pesquisa. Perfis de pontuação são compostos de funções e pesos de campos. Para usá-las, você pode especificar um perfil por nome na sequência de consulta.
-
-Um padrão de pontuação perfil funciona nos bastidores para calcular uma pontuação para cada item em um conjunto de resultados de pesquisa. Você pode usar o perfil de pontuação interno e sem o nome. Como alternativa, defina **defaultScoringProfile** para usar um perfil personalizado como o padrão, invocado sempre que um perfil personalizado não for especificado na cadeia de caracteres de consulta.
-
 <a name="index-size"></a>
 
 ## <a name="attributes-and-index-size-storage-implications"></a>Atributos e tamanho do índice (implicações de armazenamento)
@@ -242,20 +148,35 @@ A captura de tela a seguir ilustra padrões de armazenamento de índice resultan
 
 ![Tamanho do índice com base na seleção de atributo](./media/search-what-is-an-index/realestate-index-size.png "Tamanho do índice com base na seleção de atributo")
 
-Embora essas variantes de índice sejam artificiais, podemos referenciá-las para obter amplas comparações de como os atributos afetam o armazenamento. Definir "recuperável" aumenta o tamanho do índice? Não. Adicionar campos a um **Sugestor** aumenta o tamanho do índice? Sim.
+Embora essas variantes de índice sejam artificiais, podemos referenciá-las para obter amplas comparações de como os atributos afetam o armazenamento. Definir "recuperável" aumenta o tamanho do índice? Não. Adicionar campos a um **Sugestor** aumenta o tamanho do índice? Sim. 
 
-Os índices que dão suporte ao filtro e à classificação são proporcionalmente maiores do que os índices que dão suporte à pesquisa de texto completo. Isso ocorre porque as operações de filtro e classificação verificam correspondências exatas, exigindo a presença de cadeias de caracteres de texto textual. Por outro lado, os campos pesquisáveis que dão suporte a consultas de texto completo usam índices invertidos, que são preenchidos com termos com token que consomem menos espaço do que documentos inteiros. 
+Tornar um campo filtrável ou classificável também adiciona ao consumo de armazenamento porque os campos filtrados e classificados não são indexados para que as sequências de caracteres possam corresponder textualmente.
+
+Também não refletida na tabela acima é o impacto dos [analisadores](search-analyzers.md). Se você estiver usando o edgeNgram criador para armazenar sequências idênticas de caracteres (a, AB, ABC, abcd), o tamanho do índice será maior do que se você tiver usado um analisador padrão.
 
 > [!Note]
 > A arquitetura de armazenamento é considerada um detalhe de implementação do Azure Pesquisa Cognitiva e pode ser alterada sem aviso prévio. Não há nenhuma garantia de que o comportamento atual persistirá no futuro.
 
+<a name="corsoptions"></a>
+
+## <a name="about-corsoptions"></a>Sobre o `corsOptions`
+
+Os esquemas de índice incluem uma seção para configuração `corsOptions` . O JavaScript do lado do cliente não pode chamar nenhuma API por padrão, pois o navegador impedirá todas as solicitações entre origens. Para permitir ao índice as consultas entre origens, habilite o CORS (Compartilhamento de Recursos entre Origens) definindo o atributo **corsOptions**. Por motivos de segurança, apenas APIs de consulta dão suporte para CORS. 
+
+As seguintes opções podem ser definidas para CORS:
+
++ **allowedOrigins** (obrigatório): esta é uma lista de origens que terão acesso concedido ao índice. Isso significa que qualquer código JavaScript atendendo a partir dessas origens terá permissão para consultar o índice (supondo que ele forneça a chave de API correta). Cada origem é tipicamente da forma, `protocol://<fully-qualified-domain-name>:<port>` embora `<port>` seja frequentemente omitida. Consulte [Compartilhamento de recursos entre origens (Wikipédia)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) para obter mais detalhes.
+
+  Se você quiser permitir acesso a todas as origens, inclua `*` como um único item na matriz **allowedOrigins**. *Essa não é uma prática recomendada para serviços de pesquisa de produção*, mas geralmente é útil para desenvolvimento e depuração.
+
++ **maxAgeInSeconds** (opcional): os navegadores usam esse valor para determinar a duração (em segundos) para respostas de simulação de CORS de cache. Esse deve ser um inteiro não negativo. Quanto maior for esse valor, melhor será o desempenho, porém, mais tempo levará para que as alterações de política CORS entrem em vigor. Se ele não for definido, uma duração padrão de cinco minutos será usada.
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Com o conhecimento adquirido sobre a composição de índice, você poderá continuar no portal para criar seu primeiro índice. É recomendável iniciar com o assistente de **importação de dados** , escolhendo as fontes de dados hospedadas *realestate-US-Sample* ou *Hotéis-Sample* .
+Você pode obter experiência prática ao criar um índice usando quase qualquer exemplo ou passo a passos para Pesquisa Cognitiva. Para iniciantes, você pode escolher qualquer um dos guias de início rápido do Sumário.
 
-> [!div class="nextstepaction"]
-> [Assistente de importação de dados (Portal)](search-get-started-portal.md)
+Mas você também desejará familiarizar-se com metodologias para carregar um índice com dados. As estratégias de definição de índice e de importação de dados são definidas em tandem. Os artigos a seguir fornecem mais informações sobre como carregar um índice.
 
-Para ambos os conjuntos de dados, o assistente pode inferir um esquema de índice, importar os dados e gerar um índice pesquisável que você possa consultar usando o Search Explorer. Localize essas fontes de dados na página **conectar-se a seus dados** do assistente de **importação de dados** .
++ [Visão geral da importação de dados](search-what-is-data-import.md)
 
-   ![Criar um índice de exemplo](media/search-what-is-an-index//import-wizard-sample-data.png "Criar um índice de exemplo")
++ [Adicionar, atualizar ou excluir documentos (REST)](/rest/api/searchservice/addupdate-or-delete-documents) 

@@ -1,15 +1,15 @@
 ---
 title: Atalhos de teclado no portal do Azure para o Gerenciador de gráficos de recursos do Azure
 description: O Gerenciador de grafo de recursos do Azure no portal do Azure dá suporte a atalhos de teclado para ajudá-lo a executar ações e navegar.
-ms.date: 10/21/2020
+ms.date: 01/27/2021
 ms.topic: reference
 ms.custom: accessibility
-ms.openlocfilehash: fdb53e079adf2f65180c15ab93da4f8343e3bab5
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 70777db630a654dc61aad697561583a02c0ccc25
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340114"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919084"
 ---
 # <a name="keyboard-shortcuts-for-azure-resource-graph-explorer"></a>Atalhos de teclado para o Gerenciador de gráficos de recursos do Azure
 
@@ -40,7 +40,7 @@ Este artigo lista os atalhos de teclado que funcionam na página do Gerenciador 
 | Ação | Atalho do Windows | Atalho do Mac |
 |---|---|---|
 |Executar consulta selecionada no momento |<kbd>Shift</kbd> + <kbd>Insira</kbd> | <kbd>Shift</kbd> + <kbd>Insira</kbd> |
-|Cancelar consulta em execução |<kbd>ESC</kbd> | <kbd>ESC</kbd> |
+|Cancelar consulta em execução |<kbd>Esc</kbd> | <kbd>Esc</kbd> |
 |Abrir nova guia de consulta |<kbd>Ctrl</kbd> + <kbd>ALT</kbd> + <kbd>N</kbd> | <kbd>Cmd</kbd> + <kbd>Opção</kbd> + <kbd>N</kbd> |
 |Fechar a guia consulta ativa |<kbd>Ctrl</kbd> + <kbd>ALT</kbd> + <kbd>W</kbd> | <kbd>Cmd</kbd> + <kbd>Opção</kbd> + <kbd>W</kbd> |
 |Salvar consulta atual |<kbd>CTRL</kbd>+<kbd>S</kbd> | <kbd>Cmd</kbd> + <kbd>S</kbd> |

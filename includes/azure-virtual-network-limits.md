@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: baf3d02e1c0ecf51ddea043ee560d5054f09d057
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 59329fccda77f16e4a595e9b1789ef684c5cbf95
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91936153"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98256336"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limites de rede – Azure Resource Manager
 Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo **Azure Resource Manager** por região e assinatura. Saiba como [exibir seu uso de recursos atual em relação a seus limites de assinatura](../articles/networking/check-usage-against-limits.md).
@@ -34,7 +34,7 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo **Azur
 | Endereços IP privados por máquina virtual |256 |
 | Endereços IP públicos por adaptador de rede |256 |
 | Endereços IP públicos por máquina virtual |256 |
-| [Fluxos TCP ou UDP simultâneos por NIC de uma máquina virtual ou instância de função](../articles/virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations) |500.000 |
+| [Fluxos TCP ou UDP simultâneos por NIC de uma máquina virtual ou instância de função](../articles/virtual-network/virtual-machine-network-throughput.md#flow-limits-and-active-connections-recommendations) |500.000 |
 | Placas de interface de rede |65.536 |
 | Grupos de segurança de rede |5\.000 |
 | Regras de NSG por NSG |1,000 |
@@ -55,6 +55,7 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo **Azur
 | Endereços IP públicos<sup>1</sup> | 10 para Básico. | Entre em contato com o suporte. |
 | Endereços IP públicos estáticos<sup>1</sup> | 10 para Básico. | Entre em contato com o suporte. |
 | Endereços IP públicos Standard<sup>1</sup> | 10 | Entre em contato com o suporte. |
+| [Endereços IP públicos por grupo de recursos](../articles/azure-resource-manager/management/resources-without-resource-group-limit.md#microsoftnetwork) | 800 | Entre em contato com o suporte. | 
 | Prefixos IP públicos | limitados pelo número de IPs Públicos Standard em uma assinatura | Entre em contato com o suporte. |
 | Comprimento do prefixo de IP público | / 28 | Entre em contato com o suporte. |
 
@@ -72,7 +73,7 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Regras por NIC (em todos os IPs em uma NIC) | 300                           |
 | Configuração do IP de front-end              | 600                           |
 | Tamanho do pool de back-end                       | 1\.000 configurações de IP, rede virtual única |
-| Recursos de back-end por Load Balancer <sup>1<sup> | 150                   |
+| Recursos de back-end por Load Balancer <sup>1<sup> | 250                   |
 | Portas de alta disponibilidade                 | 1 por front-end interno       |
 | Regras de saída por Load Balancer        | 600                           |
 | Load Balancers por VM                   | 2 (1 público e 1 interno)   |
@@ -106,6 +107,6 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Rotas definidas pelo usuário por tabela de rotas |400 |400 |
 | Endereços IP públicos (dinâmicos) |500 |500 |
 | Endereços IP públicos reservados |500 |500 |
-| VIP público por implantação |5 |Contate o suporte |
-| VIP privado (balanceamento de carga interno) por implantação |1 |1 |
+| IP público por implantação |5 |Contate o suporte |
+| IP privado (balanceamento de carga interno) por implantação |1 |1 |
 | ACLs (listas de controle de acesso) de ponto de extremidade |50 |50 |

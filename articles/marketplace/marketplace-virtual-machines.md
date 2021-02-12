@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: a14ccb74e6f0ac2454255d609662706cb53ede31
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9169d691b58ad4a59796123c64f856128a0f8c83
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129585"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879319"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>Como planejar uma oferta de máquina virtual
 
@@ -30,10 +30,10 @@ O processo de criação, criação e teste de ofertas leva tempo e requer experi
   - [VMs do Windows](../virtual-machines/windows/tutorial-manage-vm.md)
 
 - Exemplos
-  - [Exemplos da CLI do Azure para VMs do Linux](../virtual-machines/linux/cli-samples.md)
-  - [Azure PowerShell para VMs do Linux](../virtual-machines/linux/powershell-samples.md)
-  - [Exemplos da CLI do Azure para VMs do Windows](../virtual-machines/windows/cli-samples.md)
-  - [Azure PowerShell para VMs do Windows](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md)
+  - [Exemplos da CLI do Azure para VMs do Linux](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)
+  - [Azure PowerShell para VMs do Linux](https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine)
+  - [Exemplos da CLI do Azure para VMs do Windows](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)
+  - [Azure PowerShell para VMs do Windows](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick)
 
 ## <a name="technical-requirements"></a>Requisitos técnicos
 
@@ -73,7 +73,7 @@ As ofertas de VM exigem pelo menos um plano. Um plano define o escopo e os limit
 As VMs são totalmente habilitadas para comércio, usando modelos de licenciamento pago pelo uso ou BYOL (traga sua própria licença). A Microsoft hospeda a transação comercial e cobra o cliente em seu nome. Você tem a vantagem de usar a relação de pagamento preferencial entre o cliente e a Microsoft, incluindo os Contratos Enterprise. Para obter mais informações, consulte [recursos de transação do Marketplace comercial](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
 > [!NOTE]
-> Os compromissos monetários associados a um Enterprise Agreement podem ser usados no uso do Azure de sua VM, mas não em relação às taxas de licenciamento de software.
+> O pagamento antecipado do Azure (anteriormente chamado de compromisso monetário) associado a um Contrato Enterprise pode ser usado em relação ao uso do Azure de sua VM, mas não contra suas taxas de licenciamento de software.
 
 ### <a name="licensing-options"></a>Opções de licenciamento
 
@@ -100,7 +100,7 @@ O exemplo a seguir mostra uma oferta de VM no Azure Marketplace que tem preços 
 
 Você pode restringir a descoberta e a implantação de sua VM a um conjunto específico de clientes publicando a imagem e os preços como um plano privado. Os planos privados desbloqueiam a capacidade de você criar ofertas exclusivas para seus clientes mais próximos e oferecer softwares e termos personalizados. Os termos personalizados permitem a você destacar uma variedade de cenários, incluindo negócios de campos especializados com preços e termos especializados, e também acesso antecipado a software de versão limitada. Os planos privados permitem que você forneça preços ou produtos específicos a um conjunto limitado de clientes.
 
-Para obter mais informações, consulte [planos e preços para ofertas de Marketplace comercial](plans-pricing.md) e [ofertas privadas no Azure Marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).
+Para obter mais informações, consulte [planos e preços para ofertas de Marketplace comercial](plans-pricing.md) e [ofertas privadas no Microsoft Commercial Marketplace](private-offers.md).
 
 ## <a name="test-drives"></a>Test drives
 

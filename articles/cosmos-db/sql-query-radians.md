@@ -3,16 +3,17 @@ title: RADIANOs na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre os RADIANOs da função do sistema SQL no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: bf65daa1a765030efce5d1310a792df473571a5e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c6eaff5abd8c10aa90b89a54cd48281ba8ec09dc
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091830"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341664"
 ---
 # <a name="radians-azure-cosmos-db"></a>RADIANOs (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

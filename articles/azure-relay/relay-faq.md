@@ -3,12 +3,12 @@ title: Perguntas frequentes de retransmissão do Azure | Microsoft Docs
 description: Este artigo fornece respostas para algumas das perguntas frequentes sobre o serviço de retransmissão do Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 9d967d926c6ab59e027fe4d4cf98e8418a8ff9bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83cbc4b02bb8b63878abd046ed2314728546e87a
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89299279"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250020"
 ---
 # <a name="azure-relay-faqs"></a>Perguntas frequentes sobre Retransmissão do Azure
 
@@ -50,7 +50,6 @@ Aqui estão três exemplos de cenários de cobrança para Conexões Híbridas:
     *   Você envia 6 GB de dados pela conexão B durante o mês.
     *   O encargo total é de US$ 10,50. São US$ 5 para conexão A + US$ 5 para a conexão B + US$ 0,50 (para o sexto gigabyte na conexão B).
 
-Observe que os preços usados nos exemplos são aplicáveis somente durante o período de versão prévia das Conexões Híbridas. Os preços estão sujeitos a alterações conforme a disponibilidade geral de Conexões Híbridas.
 
 ### <a name="how-are-hours-calculated-for-relay"></a>Como as horas são calculadas para Retransmissão?
 
@@ -71,7 +70,7 @@ As retransmissões abertas usando a associação do WCF **netTCPRelay** tratam a
 ## <a name="quotas"></a>Cotas
 | Nome da cota | Escopo |  Observações | Valor |
 | --- | --- | --- | --- |
-| Ouvintes simultâneos em uma retransmissão |Entidade |Solicitações subsequentes de conexões adicionais são rejeitadas e uma exceção é recebida pelo código de chamada. |25 |
+| Ouvintes simultâneos em uma retransmissão |Entidade (conexão híbrida ou retransmissão do WCF) |Solicitações subsequentes de conexões adicionais são rejeitadas e uma exceção é recebida pelo código de chamada. |25 |
 | Conexões de retransmissão simultâneas por todos os pontos de extremidade de retransmissão em um namespace de serviço |Namespace |- |5\.000 |
 | Pontos de extremidade de retransmissão por namespace de serviço |Namespace |- |10.000 |
 | Tamanho de mensagem para retransmissões [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) e [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) |Namespace |As mensagens de entrada que excederem essas cotas serão rejeitadas e uma exceção será recebida pelo código de chamada. |64 KB |

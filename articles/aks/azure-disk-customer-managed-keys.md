@@ -4,12 +4,12 @@ description: Traga suas próprias chaves (BYOK) para criptografar o sistema oper
 services: container-service
 ms.topic: article
 ms.date: 09/01/2020
-ms.openlocfilehash: 8d0f66d034bb0566674e521ced3e3887e29e3aaa
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 60a7e36039500ccb8a46fd1f5998c23c37174689
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071720"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728128"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Traga suas próprias chaves (BYOK) com discos do Azure no serviço kubernetes do Azure (AKS)
 
@@ -48,10 +48,10 @@ Substitua *myKeyVaultName* pelo nome do cofre de chaves.  Você também precisar
     
 ```azurecli-interactive
 # Retrieve the Key Vault Id and store it in a variable
-keyVaultId=$(az keyvault show --name myKeyVaultName --query [id] -o tsv)
+keyVaultId=$(az keyvault show --name myKeyVaultName --query "[id]" -o tsv)
 
 # Retrieve the Key Vault key URL and store it in a variable
-keyVaultKeyUrl=$(az keyvault key show --vault-name myKeyVaultName  --name myKeyName  --query [key.kid] -o tsv)
+keyVaultKeyUrl=$(az keyvault key show --vault-name myKeyVaultName  --name myKeyName  --query "[key.kid]" -o tsv)
 
 # Create a DiskEncryptionSet
 az disk-encryption-set create -n myDiskEncryptionSetName  -l myAzureRegionName  -g myResourceGroup --source-vault $keyVaultId --key-url $keyVaultKeyUrl 
@@ -63,7 +63,7 @@ Use o DiskEncryptionSet e os grupos de recursos que você criou nas etapas anter
 
 ```azurecli-interactive
 # Retrieve the DiskEncryptionSet value and set a variable
-desIdentity=$(az disk-encryption-set show -n myDiskEncryptionSetName  -g myResourceGroup --query [identity.principalId] -o tsv)
+desIdentity=$(az disk-encryption-set show -n myDiskEncryptionSetName  -g myResourceGroup --query "[identity.principalId]" -o tsv)
 
 # Update security policy settings
 az keyvault set-policy -n myKeyVaultName -g myResourceGroup --object-id $desIdentity --key-permissions wrapkey unwrapkey get
@@ -78,7 +78,7 @@ Crie um **novo grupo de recursos** e cluster AKs e, em seguida, use sua chave pa
 
 ```azurecli-interactive
 # Retrieve the DiskEncryptionSet value and set a variable
-diskEncryptionSetId=$(az disk-encryption-set show -n mydiskEncryptionSetName -g myResourceGroup --query [id] -o tsv)
+diskEncryptionSetId=$(az disk-encryption-set show -n mydiskEncryptionSetName -g myResourceGroup --query "[id]" -o tsv)
 
 # Create a resource group for the AKS cluster
 az group create -n myResourceGroup -l myAzureRegionName
@@ -152,7 +152,7 @@ Examinar [as práticas recomendadas para segurança de cluster AKs][best-practic
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [best-practices-security]: ./operator-best-practices-cluster-security.md
 [byok-azure-portal]: ../storage/common/customer-managed-keys-configure-key-vault.md
-[customer-managed-keys-windows]: ../virtual-machines/windows/disk-encryption.md#customer-managed-keys
-[customer-managed-keys-linux]: ../virtual-machines/linux/disk-encryption.md#customer-managed-keys
+[customer-managed-keys-windows]: ../virtual-machines/disk-encryption.md#customer-managed-keys
+[customer-managed-keys-linux]: ../virtual-machines/disk-encryption.md#customer-managed-keys
 [key-vault-generate]: ../key-vault/general/manage-with-cli2.md
-[supported-regions]: ../virtual-machines/windows/disk-encryption.md#supported-regions
+[supported-regions]: ../virtual-machines/disk-encryption.md#supported-regions

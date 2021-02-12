@@ -15,7 +15,7 @@
       href: partner-center-portal/account-migration-from-cpp-to-pc.md
 - name: Conceitos
   items:
-    - name: Publicar opções e considerações
+    - name: Opções de listagem
       href: determine-your-listing-type.md
     - name: Transações no marketplace comercial
       href: marketplace-commercial-transaction-capabilities-and-considerations.md
@@ -37,6 +37,10 @@
           href: test-drive-technical-configuration.md
         - name: Test drive do Azure Resource Manager
           href: azure-resource-manager-test-drive.md
+        - name: Configuração detalhada para test drive hospedado
+          href: test-drive-hosted-detailed-config.md
+        - name: Configurar a assinatura do Azure para test drives hospedados
+          href: test-drive-azure-subscription-setup.md
     - name: Atribuição de uso do cliente do parceiro do Azure
       href: azure-partner-customer-usage-attribution.md
     - name: Opções go-to-market
@@ -46,7 +50,9 @@
         - name: Participação de parceiros de venda conjunta
           href: marketplace-co-sell.md
         - name: Opção de venda conjunta na Central de Parceiros
-          href: partner-center-portal/commercial-marketplace-co-sell.md
+          href: commercial-marketplace-co-sell.md
+        - name: Fazer a migração de soluções de venda conjunta do OCP GTM
+          href: co-sell-solution-migration.md
         - name: Revenda por meio de Parceiros do CSP
           href: cloud-solution-providers.md
         - name: Guia de integração do Programa Connect
@@ -69,7 +75,7 @@
           href: /partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context
         - name: Demonstrativos de pagamento
           href: /partner-center/payout-statement?context=/azure/marketplace/context/context
-        - name: Detalhes da política de pagamento
+        - name: Agendas e processos de pagamento
           href: /partner-center/payout-policy-details?context=/azure/marketplace/context/context
         - name: Detalhes do imposto
           href: /partner-center/tax-details-marketplace?context=/azure/marketplace/context/context
@@ -79,16 +85,38 @@
   items:
     - name: Guia de publicação por tipo de oferta
       href: publisher-guide-by-offer-type.md
-    - name: Habilitar autenticação de oferta com o Azure AD
-      href: enable-appsource-marketplace-using-azure-ad.md
     - name: Ofertas de aplicativo do Azure
       items:
-        - name: Planejar uma oferta de modelo de solução
-          href: marketplace-solution-templates.md
-        - name: Planejar uma oferta de aplicativo gerenciado
-          href: marketplace-managed-apps.md
+        - name: Planejar ofertas de aplicativo do Azure
+          items:
+            - name: Planejar uma oferta de aplicativo do Azure
+              href: plan-azure-application-offer.md
+            - name: Planejar um modelo de solução
+              href: plan-azure-app-solution-template.md
+            - name: Planejar um aplicativo gerenciado
+              href: plan-azure-app-managed-app.md
         - name: Criar e publicar uma oferta de aplicativo do Azure
-          href: partner-center-portal/create-new-azure-apps-offer.md
+          items:
+            - name: Criar uma oferta de aplicativo do Azure
+              href: create-new-azure-apps-offer.md
+            - name: Configurar propriedades da oferta de aplicativo do Azure
+              href: create-new-azure-apps-offer-properties.md
+            - name: Configurar listagem da oferta de aplicativo do Azure
+              href: create-new-azure-apps-offer-listing.md
+            - name: Adicionar um público-alvo de versão prévia
+              href: create-new-azure-apps-offer-preview.md
+            - name: Adicionar detalhes técnicos
+              href: create-new-azure-apps-offer-technical.md
+            - name: Criar planos
+              href: create-new-azure-apps-offer-plans.md
+            - name: Criar plano do modelo de solução
+              href: create-new-azure-apps-offer-solution.md
+            - name: Criar plano do aplicativo gerenciado
+              href: create-new-azure-apps-offer-managed.md
+            - name: Testar e publicar uma oferta de aplicativo do Azure
+              href: create-new-azure-apps-offer-test-publish.md
+        - name: Comercializar sua oferta de aplicativo do Azure
+          href: create-new-azure-apps-offer-marketing.md
         - name: Cobrança limitada de aplicativo do Azure
           href: partner-center-portal/azure-app-metered-billing.md
         - name: Tratar comentários de revisão
@@ -99,12 +127,12 @@
       items:
         - name: Planejar uma oferta de Contêiner do Azure
           href: marketplace-containers.md
+        - name: Preparar ativos técnicos
+          href: create-azure-container-technical-assets.md
         - name: Criar e publicar uma oferta de Contêiner do Azure
           items:
-            - name: Preparar ativos técnicos
-              href: partner-center-portal/create-azure-container-technical-assets.md
             - name: Criar uma oferta de Contêiner do Azure
-              href: partner-center-portal/create-azure-container-offer.md
+              href: create-azure-container-offer.md
     - name: Ofertas de máquina virtual do Azure
       items:
         - name: Planejar uma oferta de VM
@@ -117,10 +145,12 @@
               href: azure-vm-create-properties.md
             - name: Configurar listagem da oferta de VM
               href: azure-vm-create-listing.md
-            - name: Criar planos de VM
-              href: azure-vm-create-plans.md
             - name: Adicionar um público-alvo de versão prévia
               href: azure-vm-create-preview.md
+            - name: Criar planos de VM
+              href: azure-vm-create-plans.md
+            - name: Revenda por meio de CSPs
+              href: azure-vm-create-resell-csp.md
             - name: Criar ativos técnicos da VM
               items:
                 - name: Criar VM de uma base aprovada
@@ -175,8 +205,16 @@
           href: partner-center-portal/create-iot-edge-module-asset.md
     - name: Ofertas de serviço gerenciado
       items:
+        - name: Planejar uma oferta de serviço gerenciado
+          href: plan-managed-service-offer.md
         - name: Criar uma oferta de serviço gerenciado
-          href: partner-center-portal/create-new-managed-service-offer.md
+          href: create-managed-service-offer.md
+        - name: Configurar listagem de serviço gerenciado
+          href: create-managed-service-offer-listing.md
+        - name: Adicionar um público-alvo de versão prévia
+          href: create-managed-service-offer-preview.md
+        - name: Criar planos
+          href: create-managed-service-offer-plans.md
     - name: Ofertas de aplicativo do Power BI
       items:
         - name: Planejar uma oferta do aplicativo Power BI
@@ -248,21 +286,21 @@
     - name: Análise do marketplace comercial
       href: partner-center-portal/analytics.md
     - name: Painel de resumo
-      href: partner-center-portal/summary-dashboard.md
+      href: summary-dashboard.md
     - name: Painel de pedidos
-      href: partner-center-portal/orders-dashboard.md
+      href: orders-dashboard.md
     - name: Painel de uso
-      href: partner-center-portal/usage-dashboard.md
-    - name: Painel de cliente
-      href: partner-center-portal/customer-dashboard.md
+      href: usage-dashboard.md
+    - name: Painel dos clientes
+      href: customer-dashboard.md
     - name: Painel Insights do Marketplace
-      href: partner-center-portal/insights-dashboard.md
+      href: insights-dashboard.md
     - name: Painel de downloads
       href: partner-center-portal/downloads-dashboard.md
     - name: Painel de classificações e opiniões
       href: partner-center-portal/ratings-reviews.md
-    - name: Terminologia de análise do Partner Center
-      href: partner-center-portal/faq-terminology.md
+    - name: Perguntas comuns sobre a análise
+      href: analytics-faq.md
 - name: Políticas e termos
   items:
     - name: Sobre nossas políticas e termos
@@ -271,8 +309,6 @@
       href: /legal/marketplace/certification-policies?context=/azure/marketplace/context/context
     - name: Políticas de revisão do marketplace comercial
       href: /legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context
-    - name: Políticas de participação do Azure Marketplace
-      href: /legal/marketplace/participation-policy?context=/azure/marketplace/context/context
     - name: Termos do Azure Marketplace
       href: /legal/marketplace/terms?context=/azure/marketplace/context/context
 - name: Referência
@@ -309,6 +345,8 @@
           href: cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - name: Serviço de medição do Marketplace
       items:
+        - name: Serviço de detecção de anomalias
+          href: partner-center-portal/anomaly-detection-service-for-metered-billing.md
         - name: Estratégias de autenticação
           href: partner-center-portal/marketplace-metering-service-authentication.md
         - name: APIs de serviço de medição do Marketplace
@@ -319,15 +357,14 @@
       items:
         - name: Visão geral da API de cumprimento de SaaS
           href: partner-center-portal/pc-saas-fulfillment-apis.md
-          items:
-            - name: Registrar um aplicativo SaaS
-              href: partner-center-portal/pc-saas-registration.md
-            - name: APIs de cumprimento de SaaS v2
-              href: partner-center-portal/pc-saas-fulfillment-api-v2.md
-            - name: APIs de cumprimento de SaaS v1 (preteridas)
-              href: partner-center-portal/pc-saas-fulfillment-api-v1.md
-            - name: APIs de cumprimento de SaaS – perguntas frequentes
-              href: partner-center-portal/saas-fulfillment-apis-faq.md
+        - name: Registrar um aplicativo SaaS
+          href: partner-center-portal/pc-saas-registration.md
+        - name: APIs de cumprimento de SaaS v2
+          href: partner-center-portal/pc-saas-fulfillment-api-v2.md
+        - name: APIs de cumprimento de SaaS v1 (preteridas)
+          href: partner-center-portal/pc-saas-fulfillment-api-v1.md
+        - name: APIs de cumprimento de SaaS – perguntas frequentes
+          href: partner-center-portal/saas-fulfillment-apis-faq.md
 - name: Recursos
   items:
     - name: Perguntas frequentes sobre o marketplace comercial
@@ -353,8 +390,10 @@
     - name: Países e regiões com suporte
       href: sell-from-countries.md
     - name: Códigos de país e de região para venda conjunta
-      href: partner-center-portal/commercial-marketplace-co-sell-countries.md
+      href: commercial-marketplace-co-sell-countries.md
     - name: Códigos de estado para venda conjunta
-      href: partner-center-portal/commercial-marketplace-co-sell-states.md
+      href: commercial-marketplace-co-sell-states.md
+    - name: Categorias e subcategorias
+      href: categories.md
     - name: Marcas HTML com suporte
       href: supported-html-tags.md

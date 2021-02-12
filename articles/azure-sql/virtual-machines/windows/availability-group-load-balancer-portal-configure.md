@@ -7,18 +7,19 @@ author: MashaMSFT
 editor: monicar
 ms.assetid: d1f291e9-9af2-41ba-9d29-9541e3adcfcf
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4af7e10b573743602fea609264c73d58a1e6a7d1
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9fa23ca2ae655a11d7aaa4be67e08a6b3fa44394
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789991"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359380"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Configurar um balanceador de carga para um grupo de disponibilidade SQL Server Always On em máquinas virtuais do Azure
 
@@ -59,19 +60,19 @@ Primeiro, crie o balanceador de carga.
 
 1. No Portal do Azure, abra o grupo de recursos que contém as máquinas virtuais do SQL Server. 
 
-2. No grupo de recursos, selecione **Adicionar** .
+2. No grupo de recursos, selecione **Adicionar**.
 
-3. Pesquise pelo **balanceador de carga** . Escolha **Load Balancer** (publicado pela **Microsoft** ) nos resultados da pesquisa.
+3. Pesquise pelo **balanceador de carga**. Escolha **Load Balancer** (publicado pela **Microsoft**) nos resultados da pesquisa.
 
-4. Na folha **Balanceador de carga** , selecione **Criar** .
+4. Na folha **Balanceador de carga**, selecione **Criar**.
 
-5. Na caixa de diálogo **Criar balanceador de carga** , configure o balanceador de carga da seguinte maneira:
+5. Na caixa de diálogo **Criar balanceador de carga**, configure o balanceador de carga da seguinte maneira:
 
    | Configuração | Valor |
    | --- | --- |
-   | **Nome** |Um nome de texto que representa o balanceador de carga. Por exemplo, **sqlLB** . |
-   | **Tipo** |**Interna** : a maioria das implementações usa um balanceador de carga interno que permite a conexão dos aplicativos na mesma rede virtual ao grupo de disponibilidade.  </br> **Externa** : permite que os aplicativos se conectem ao grupo de disponibilidade por meio de uma conexão à Internet pública. |
-   | **SKU** |**Básico** : opção padrão. Válido somente se as instâncias de SQL Server estiverem no mesmo conjunto de disponibilidade. </br> **Standard** : preferencial. Válido se as instâncias de SQL Server estiverem no mesmo conjunto de disponibilidade. Necessário se suas instâncias de SQL Server estiverem em zonas de disponibilidade diferentes. |
+   | **Nome** |Um nome de texto que representa o balanceador de carga. Por exemplo, **sqlLB**. |
+   | **Tipo** |**Interna**: a maioria das implementações usa um balanceador de carga interno que permite a conexão dos aplicativos na mesma rede virtual ao grupo de disponibilidade.  </br> **Externa**: permite que os aplicativos se conectem ao grupo de disponibilidade por meio de uma conexão à Internet pública. |
+   | **SKU** |**Básico**: opção padrão. Válido somente se as instâncias de SQL Server estiverem no mesmo conjunto de disponibilidade. </br> **Standard**: preferencial. Válido se as instâncias de SQL Server estiverem no mesmo conjunto de disponibilidade. Necessário se suas instâncias de SQL Server estiverem em zonas de disponibilidade diferentes. |
    | **Rede virtual** |Selecione a rede virtual na qual estão as instâncias do SQL Server. |
    | **Sub-rede** |Selecione a sub-rede na qual estão as instâncias do SQL Server. |
    | **Atribuição de endereço IP** |**Estático** |
@@ -80,7 +81,7 @@ Primeiro, crie o balanceador de carga.
    | **Grupo de recursos** |Selecione o grupo de recursos no qual estão as instâncias do SQL Server. |
    | **Localidade** |Selecione o local do Azure no qual estão as instâncias do SQL Server. |
 
-6. Selecione **Criar** . 
+6. Selecione **Criar**. 
 
 O Azure cria o balanceador de carga. O balanceador de carga pertence a uma rede, sub-rede, grupo de recursos e local específicos. Após o Azure concluir a tarefa, verifique as configurações do balanceador de carga no Azure. 
 
@@ -90,19 +91,19 @@ O Azure chama o *pool de back-ends* do pool de endereços back-end. Nesse caso, 
 
 1. Em seu grupo de recursos, selecione o balanceador de carga que você criou. 
 
-2. Em **configurações** , selecione **pools de back-end** .
+2. Em **configurações**, selecione **pools de back-end**.
 
-3. Em **pools de back-end** , selecione **Adicionar** para criar um pool de endereços de back-end. 
+3. Em **pools de back-end**, selecione **Adicionar** para criar um pool de endereços de back-end. 
 
-4. Em **Adicionar pool de back-ends** , sob **Nome** , digite um nome para o pool de back-ends.
+4. Em **Adicionar pool de back-ends**, sob **Nome**, digite um nome para o pool de back-ends.
 
-5. Em **máquinas virtuais** , selecione **Adicionar uma máquina virtual** . 
+5. Em **máquinas virtuais**, selecione **Adicionar uma máquina virtual**. 
 
-6. Em **escolher máquinas virtuais** , selecione **escolher um conjunto de disponibilidade** e especifique o conjunto de disponibilidade ao qual as máquinas virtuais SQL Server pertencem.
+6. Em **escolher máquinas virtuais**, selecione **escolher um conjunto de disponibilidade** e especifique o conjunto de disponibilidade ao qual as máquinas virtuais SQL Server pertencem.
 
-7. Depois de ter escolhido o conjunto de disponibilidade, selecione **escolher as máquinas virtuais** , selecione as duas máquinas virtuais que hospedam as instâncias de SQL Server no grupo de disponibilidade e escolha **selecionar** . 
+7. Depois de ter escolhido o conjunto de disponibilidade, selecione **escolher as máquinas virtuais**, selecione as duas máquinas virtuais que hospedam as instâncias de SQL Server no grupo de disponibilidade e escolha **selecionar**. 
 
-8. Selecione **OK** para fechar as folhas para **escolher máquinas virtuais** e **Adicionar pool de back-end** . 
+8. Selecione **OK** para fechar as folhas para **escolher máquinas virtuais** e **Adicionar pool de back-end**. 
 
 O Azure atualiza as configurações para o pool de endereços de back-end. Agora seu conjunto de disponibilidade tem um pool de duas instâncias do SQL Server.
 
@@ -110,21 +111,21 @@ O Azure atualiza as configurações para o pool de endereços de back-end. Agora
 
 A investigação define como o Azure verifica qual das instâncias do SQL Server é proprietária atual do ouvinte do grupo de disponibilidade. O Azure investiga o serviço com base no endereço IP em uma porta que você define quando cria o teste.
 
-1. Na folha **configurações** do balanceador de carga, selecione **investigações de integridade** . 
+1. Na folha **configurações** do balanceador de carga, selecione **investigações de integridade**. 
 
-2. Na folha **investigações de integridade** , selecione **Adicionar** .
+2. Na folha **investigações de integridade** , selecione **Adicionar**.
 
 3. Configure a investigação na folha **Adicionar investigação** . Use os valores a seguir para configurar a investigação:
 
    | Configuração | Valor |
    | --- | --- |
-   | **Nome** |Um nome de texto que representa a investigação. Por exemplo, **SQLAlwaysOnEndPointProbe** . |
+   | **Nome** |Um nome de texto que representa a investigação. Por exemplo, **SQLAlwaysOnEndPointProbe**. |
    | **Protocolo** |**TCP** |
-   | **Porta** |Você pode usar qualquer porta disponível. Por exemplo, *59999* . |
+   | **Porta** |Você pode usar qualquer porta disponível. Por exemplo, *59999*. |
    | **Intervalo** |*5* |
    | **Limite não íntegro** |*2* |
 
-4.  Selecione **OK** . 
+4.  Selecione **OK**. 
 
 > [!NOTE]
 > Verifique se a porta especificada está aberta no firewall das duas instâncias do SQL Server. As duas instâncias exigem uma regra de entrada para a porta TCP que você usa. Para saber mais, confira [Adicionar ou Editar Regra de Firewall](/previous-versions/orphan-topics/ws.11/cc753558(v=ws.11)). 
@@ -136,18 +137,18 @@ O Azure cria a investigação e a usa para testar qual instância do SQL Server 
 
 As regras de balanceamento de carga configuram como o balanceador de carga encaminha o tráfego para as instâncias do SQL Server. Para este balanceador de carga, habilite o retorno de servidor direto, pois somente uma das duas instâncias do SQL Servers é proprietária do recurso de ouvinte do grupo de disponibilidade por vez.
 
-1. Na folha **configurações** do balanceador de carga, selecione **regras de balanceamento de carga** . 
+1. Na folha **configurações** do balanceador de carga, selecione **regras de balanceamento de carga**. 
 
-2. Na folha **regras de balanceamento de carga** , selecione **Adicionar** .
+2. Na folha **regras de balanceamento de carga** , selecione **Adicionar**.
 
-3. Na folha **Adicionar regras de balanceamento de carga** , configure a regra de balanceamento de carga. Use as configurações a seguir: 
+3. Na folha **Adicionar regras de balanceamento de carga**, configure a regra de balanceamento de carga. Use as configurações a seguir: 
 
    | Configuração | Valor |
    | --- | --- |
-   | **Nome** |Um nome de texto que representa as regras de balanceamento de carga. Por exemplo, **SQLAlwaysOnEndPointListener** . |
+   | **Nome** |Um nome de texto que representa as regras de balanceamento de carga. Por exemplo, **SQLAlwaysOnEndPointListener**. |
    | **Protocolo** |**TCP** |
    | **Porta** |*1433* |
-   | **Porta de back-end** |*1433* . Esse valor é ignorado porque essa regra usa **IP flutuante (retorno de servidor direto)** . |
+   | **Porta de back-end** |*1433*. Esse valor é ignorado porque essa regra usa **IP flutuante (retorno de servidor direto)** . |
    | **Investigação** |Use o nome da investigação que você criou para este balanceador de carga. |
    | **Persistência de sessão** |**Nenhuma** |
    | **Tempo limite de ociosidade (minutos)** |*4* |
@@ -157,7 +158,7 @@ As regras de balanceamento de carga configuram como o balanceador de carga encam
    > Talvez você precise rolar a folha para baixo para ver todas as configurações.
    > 
 
-4. Selecione **OK** . 
+4. Selecione **OK**. 
 
 5. O Azure configura a regra de balanceamento de carga. Agora, o balanceador de carga está configurado para rotear o tráfego para a instância do SQL Server que hospeda o ouvinte para o grupo de disponibilidade. 
 
@@ -187,13 +188,13 @@ Se os recursos e as dependências do cluster forem configurados corretamente, vo
 
 1. Inicie o SQL Server Management Studio e conecte-se à réplica principal.
 
-2. Vá até **Alta Disponibilidade do AlwaysOn** > **Grupos de Disponibilidade** > **Ouvintes do Grupo de Disponibilidade** .  
+2. Vá até **Alta Disponibilidade do AlwaysOn** > **Grupos de Disponibilidade** > **Ouvintes do Grupo de Disponibilidade**.  
 
     Agora você deve ver o nome do ouvinte que você criou no Gerenciador de Cluster de Failover. 
 
-3. Clique com o botão direito do mouse no nome do ouvinte e selecione **Propriedades** .
+3. Clique com o botão direito do mouse no nome do ouvinte e selecione **Propriedades**.
 
-4. Na caixa **porta** , especifique o número da porta para o ouvinte do grupo de disponibilidade usando o $EndpointPort usado anteriormente (1433 era o padrão) e, em seguida, selecione **OK** .
+4. Na caixa **porta** , especifique o número da porta para o ouvinte do grupo de disponibilidade usando o $EndpointPort usado anteriormente (1433 era o padrão) e, em seguida, selecione **OK**.
 
 Agora você tem um grupo de disponibilidade nas máquinas virtuais do Azure em execução no modo Resource Manager. 
 
@@ -219,9 +220,9 @@ Para adicionar um endereço IP a um balanceador de carga com o portal do Azure, 
 
 1. No portal do Azure, abra o grupo de recursos que contém o balanceador de carga e, em seguida, selecione o balanceador de carga. 
 
-2. Em **configurações** , selecione **pool de IPS de front-end** e, em seguida, selecione **Adicionar** . 
+2. Em **configurações**, selecione **pool de IPS de front-end** e, em seguida, selecione **Adicionar**. 
 
-3. Em **Adicionar endereço IP de front-end** , atribua um nome para o front-end. 
+3. Em **Adicionar endereço IP de front-end**, atribua um nome para o front-end. 
 
 4. Verifique se a **Rede virtual** e a **Sub-rede** são as mesmas das instâncias do SQL Server.
 
@@ -244,17 +245,17 @@ Para adicionar um endereço IP a um balanceador de carga com o portal do Azure, 
 
 8. Selecione **OK** para salvar a investigação. 
 
-9. Crie uma regra de balanceamento de carga. Selecione **regras de balanceamento de carga** e, em seguida, selecione **Adicionar** .
+9. Crie uma regra de balanceamento de carga. Selecione **regras de balanceamento de carga** e, em seguida, selecione **Adicionar**.
 
 10. Configure a nova regra de balanceamento de carga usando as seguintes configurações:
 
-    |Configuração |Valor
+    |Setting |Valor
     |:-----|:----
     |**Nome** |Um nome para identificar a regra de balanceamento de carga. 
     |**Endereço IP de front-end** |Selecione o endereço IP que você criou. 
     |**Protocolo** |TCP
     |**Porta** |Use a porta que as instâncias do SQL Server estão usando. Uma instância padrão usa a porta 1433, a menos que você tenha alterado. 
-    |**Porta de back-end** |Use o mesmo valor de **porta** .
+    |**Porta de back-end** |Use o mesmo valor de **porta**.
     |**Pool de back-end** |O pool que contém as máquinas virtuais com instâncias do SQL Server. 
     |**Investigação de integridade** |Escolha a investigação que você criou.
     |**Persistência de sessão** |Nenhum
@@ -293,7 +294,7 @@ Se um grupo de disponibilidade participar de um grupo de disponibilidade distrib
 
 1. Em cada servidor que participa no grupo de disponibilidade distribuído, crie uma regra de entrada na porta TCP do ouvinte do grupo de disponibilidade distribuído. Em muitos exemplos, a documentação usa 5022. 
 
-1. Na portal do Azure, selecione no balanceador de carga e selecione **regras de balanceamento de carga** e, em seguida, selecione **+ Adicionar** . 
+1. Na portal do Azure, selecione no balanceador de carga e selecione **regras de balanceamento de carga** e, em seguida, selecione **+ Adicionar**. 
 
 1. Crie a regra de balanceamento de carga com as configurações a seguir:
 
@@ -303,7 +304,7 @@ Se um grupo de disponibilidade participar de um grupo de disponibilidade distrib
    |**Endereço IP de front-end** |Use o mesmo endereço IP de front-end como o grupo de disponibilidade.
    |**Protocolo** |TCP
    |**Porta** |5022 - A porta para o [ouvinte de ponto de extremidade do grupo de disponibilidade distribuído](/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups).</br> Pode ser qualquer porta disponível.  
-   |**Porta de back-end** | 5022 - Use o mesmo valor da **Porta** .
+   |**Porta de back-end** | 5022 - Use o mesmo valor da **Porta**.
    |**Pool de back-end** |O pool que contém as máquinas virtuais com instâncias do SQL Server. 
    |**Investigação de integridade** |Escolha a investigação que você criou.
    |**Persistência de sessão** |Nenhum

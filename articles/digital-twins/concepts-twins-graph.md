@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 3bf039eb099a5735c3528c1ba5b9c440d7787c43
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 00058f75a2c4378371c427ff9ebabe7e2336b06a
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097049"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576541"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Entenda o gêmeos digital e seu gráfico de entrelaçamento
 
-Em uma solução de gêmeos digital do Azure, as entidades em seu ambiente são representadas pelo Azure **digital gêmeos** . Uma cópia digital é uma instância de um dos seus [modelos](concepts-models.md)definidos pelo personalizado. Ele pode ser conectado a outras gêmeos digitais por meio de **relações** para formar um **grafo de entrelaçamento** : este grafo de Altova é a representação de todo o seu ambiente.
+Em uma solução de gêmeos digital do Azure, as entidades em seu ambiente são representadas por **gêmeos digital**. Uma cópia digital é uma instância de um dos seus [modelos](concepts-models.md)definidos pelo personalizado. Ele pode ser conectado a outras gêmeos digitais por meio de **relações** para formar um **grafo de entrelaçamento**: este grafo de Altova é a representação de todo o seu ambiente.
 
 > [!TIP]
 > "Azure digital gêmeos" refere-se a esse serviço do Azure como um todo. "Cópia digital (ões)" ou apenas ""/s "" refere-se a nós de cópia individual na sua instância do serviço.
@@ -25,13 +25,15 @@ Em uma solução de gêmeos digital do Azure, as entidades em seu ambiente são 
 
 Antes de criar uma cópia digital em sua instância do gêmeos digital do Azure, você precisa ter um *modelo* carregado para o serviço. Um modelo descreve o conjunto de propriedades, mensagens de telemetria e relações que uma mensagem de grupo pode ter em particular, entre outras coisas. Para os tipos de informações que são definidas em um modelo, consulte [*conceitos: modelos personalizados*](concepts-models.md).
 
-Depois de criar e carregar um modelo, seu aplicativo cliente pode criar uma instância do tipo; Este é um teledigital. Por exemplo, depois de criar um modelo de *andar* , você pode criar um ou vários gêmeos digitais que usam esse tipo (como um tipo de *chão* de texto chamado *GroundFloor* , outro chamado *Floor2* , etc.). 
+Depois de criar e carregar um modelo, seu aplicativo cliente pode criar uma instância do tipo; Este é um teledigital. Por exemplo, depois de criar um modelo de *andar*, você pode criar um ou vários gêmeos digitais que usam esse tipo (como um tipo de *chão* de texto chamado *GroundFloor*, outro chamado *Floor2*, etc.).
+
+[!INCLUDE [digital-twins-versus-device-twins](../../includes/digital-twins-versus-device-twins.md)]
 
 ## <a name="relationships-a-graph-of-digital-twins"></a>Relações: um grafo de gêmeos digital
 
 Gêmeos são conectados a um grafo de entrelaçamento por suas relações. As relações que um papel de entrelaçar pode ter são definidas como parte de seu modelo.  
 
-Por exemplo, a *base* do modelo pode definir uma relação *Contains que tem* como alvo gêmeos do tipo *Room* . Com essa definição, o gêmeos digital do Azure permitirá que você crie *conterá* relações de qualquer *andar* de cima para qualquer *sala* (incluindo gêmeos que são subtipos de *espaço* ). 
+Por exemplo, a *base* do modelo pode definir uma relação *Contains que tem* como alvo gêmeos do tipo *Room*. Com essa definição, o gêmeos digital do Azure permitirá que você crie *conterá* relações de qualquer *andar* de cima para qualquer *sala* (incluindo gêmeos que são subtipos de *espaço* ). 
 
 O resultado desse processo é um conjunto de nós (o gêmeos digital) conectado por meio de bordas (suas relações) em um grafo.
 
@@ -43,38 +45,22 @@ Esta seção mostra o que parece criar gêmeos digital e relações de um aplica
 
 ### <a name="create-digital-twins"></a>Criar gêmeos digitais
 
-Abaixo está um trecho de código de cliente que usa as [APIs DigitalTwins](/rest/api/digital-twins/dataplane/twins) para criar uma instância de um tipo de *espaço* .
+Abaixo está um trecho de código de cliente que usa as [APIs DigitalTwins](/rest/api/digital-twins/dataplane/twins) para criar uma instância de um tipo de *espaço*.
 
 Você pode inicializar as propriedades de um conjunto de entrelaçamento quando ele é criado ou defini-los mais tarde. Para criar um entrelaçar com propriedades inicializadas, crie um documento JSON que forneça os valores de inicialização necessários.
 
-[!INCLUDE [Azure Digital Twins code: create twin](../../includes/digital-twins-code-create-twin.md)]
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="CreateTwin_noHelper":::
 
-Você também pode usar uma classe auxiliar chamada `BasicDigitalTwin` para armazenar campos de propriedade em um objeto "" "" e mais diretamente, como uma alternativa ao uso de um dicionário. Para obter mais informações sobre a classe auxiliar e exemplos de seu uso, consulte a seção [*criar uma*](how-to-manage-twin.md#create-a-digital-twin) altas digitais de *como: gerenciar digital gêmeos* .
+Você também pode usar uma classe auxiliar chamada `BasicDigitalTwin` para armazenar campos de propriedade em um objeto "" "" e mais diretamente, como uma alternativa ao uso de um dicionário. Para obter mais informações sobre a classe auxiliar e exemplos de seu uso, consulte a seção [*criar uma*](how-to-manage-twin.md#create-a-digital-twin) altas digitais de *como: gerenciar digital gêmeos*.
 
 >[!NOTE]
 >Embora as propriedades de entrelaçamento sejam tratadas como opcionais e, portanto, não precisem ser inicializadas, todos os [componentes](concepts-models.md#elements-of-a-model) em FileUp precisam ser definidos quando o conjunto **de entrelaçar** é criado. Eles podem ser objetos vazios, mas os próprios componentes devem existir.
 
 ### <a name="create-relationships"></a>Criar relações
 
-Aqui está um código de cliente de exemplo que usa as [APIs DigitalTwins](/rest/api/digital-twins/dataplane/twins) para criar uma relação entre um tipo de andar de um *piso* digital chamado *GroundFloor* e um tipo de *sala* digital de texto chamado *Cafe* .
+Aqui está um código de cliente de exemplo que usa as [APIs DigitalTwins](/rest/api/digital-twins/dataplane/twins) para criar uma relação de um "digital" (a "origem") para outra ("destino").
 
-```csharp
-// Create Twins, using functions similar to the previous sample
-await CreateRoom("Cafe", 70, 66);
-await CreateFloor("GroundFloor", averageTemperature=70);
-// Create relationships
-Dictionary<string, object> targetrec = new Dictionary<string, object>()
-{
-    { "$targetId", "Cafe" }
-};
-try
-{
-    await client.DigitalTwins.AddEdgeAsync("GroundFloor", "contains", "GF-to-Cafe", targetrec);
-} catch(ErrorResponseException e)
-{
-    Console.WriteLine($"*** Error creating relationship: {e.Response.StatusCode}");
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_short":::
 
 ## <a name="json-representations-of-graph-elements"></a>Representações JSON de elementos de grafo
 
@@ -88,7 +74,7 @@ Quando representado como um objeto JSON, uma pesquisa digital exibirá os seguin
 | --- | --- |
 | `$dtId` | Uma cadeia de caracteres fornecida pelo usuário que representa a ID do digital de texto |
 | `$etag` | Campo HTTP padrão atribuído pelo servidor Web |
-| `$conformance` | Um enum que contém o status de conformidade desta teledigital *(compatível* , *não* compatível, *desconhecido* ) |
+| `$conformance` | Um enum que contém o status de conformidade desta teledigital *(compatível*, *não* compatível, *desconhecido*) |
 | `{propertyName}` | O valor de uma propriedade em JSON ( `string` , tipo de número ou objeto) |
 | `$relationships` | A URL do caminho para a coleção de relações. Esse campo estará ausente se o digital up não tiver nenhuma borda de relação de saída. |
 | `$metadata.$model` | Adicional A ID da interface do modelo que caracteriza este teledigital |

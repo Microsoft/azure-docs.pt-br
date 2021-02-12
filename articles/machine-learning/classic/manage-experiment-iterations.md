@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: 374320c0becfecc6691af91b36a1d80b087300e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c958de5e49fbb7519ae71b13e9deba9af0c698de
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361936"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312871"
 ---
 # <a name="manage-experiment-runs-in-azure-machine-learning-studio-classic"></a>Gerenciar execuções de experimento no Azure Machine Learning Studio (clássico)
 
-**APLICA-SE A:**  ![Aplica-se a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico) ![Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APLICA-SE A:**  ![Aplica-se a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico) ![Não se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Desenvolver um modelo de análise de previsão é um processo iterativo - como modificar as várias funções e parâmetros de seu teste, seus resultados convergem até você ficar satisfeito com um modelo treinado e eficiente. A chave para esse processo está em acompanhar várias iterações dos parâmetros e configurações do seu teste.
@@ -33,7 +33,7 @@ Você pode examinar as execuções anteriores dos seus testes a qualquer momento
 ## <a name="view-the-prior-run"></a>Exibir a execução anterior
 Quando tiver um teste aberto que você tenha executado pelo menos uma vez, você pode exibir a execução anterior do teste clicando em **Execução anterior** no painel Propriedades.
 
-Por exemplo, suponha que você crie um teste e execute versões dele às 11h23 11h42 e 11h55. Se você abrir a última execução do teste (11h55) e clicar em **Execução anterior**, a versão que você executou às 11h42 será aberta.
+Por exemplo, suponha que você crie um teste e execute versões dele às 11h23 11h42 e 11h55. Se você abrir a última execução do teste (11h55) e clicar em **Execução anterior** , a versão que você executou às 11h42 será aberta.
 
 ## <a name="view-the-run-history"></a>Exibir o histórico de execuções
 Você pode exibir todas as execuções anteriores de um teste clicando em **Exibir Histórico de execução** em um teste aberto.
@@ -47,7 +47,7 @@ Por exemplo, suponha que você crie um teste com o módulo [Regressão Linear][l
 | 0,4 |11/09/2014 16h28min36s |
 | 0,5 |11/09/2014 16h33min31s |
 
-Se clicar em **EXIBIR O HISTÓRICO DE EXECUÇÃO**, você verá uma lista de todas essas execuções:
+Se clicar em **EXIBIR O HISTÓRICO DE EXECUÇÃO** , você verá uma lista de todas essas execuções:
 
 ![Exemplo de histórico de execução](./media/manage-experiment-iterations/viewrunhistory.jpg)
 
@@ -58,7 +58,7 @@ Clique em qualquer uma dessas execuções para exibir um instantâneo do teste n
 > 
 > 
 
-A lista de experimentos na guia **experimentos** em Machine Learning Studio (clássico) sempre exibe a versão mais recente de um experimento. Se abrir uma execução anterior do teste (usando **Execução anterior** ou **EXIBIR O HISTÓRICO DE EXECUÇÃO**), você pode retornar para a versão de rascunho, clicando em **EXIBIR O HISTÓRICO DE EXECUÇÃO** e selecionando a iteração que tem um **ESTADO****Editável**.
+A lista de experimentos na guia **experimentos** em Machine Learning Studio (clássico) sempre exibe a versão mais recente de um experimento. Se abrir uma execução anterior do teste (usando **Execução anterior** ou **EXIBIR O HISTÓRICO DE EXECUÇÃO** ), você pode retornar para a versão de rascunho, clicando em **EXIBIR O HISTÓRICO DE EXECUÇÃO** e selecionando a iteração que tem um **ESTADO****Editável**.
 
 ## <a name="run-a-previous-experiment"></a>Executar um experimento anterior
 Quando clicar em **Execução anterior** ou em **EXIBIR O HISTÓRICO DE EXECUÇÃO** e abrir uma execução anterior, você poderá exibir um teste concluído no modo somente leitura.
@@ -76,4 +76,4 @@ Por exemplo, suponha que você tenha o teste executando o histórico mostrado na
 Agora você pode continuar a modificar e executar esta versão do seu teste, criando um novo histórico de execução para registrar o seu trabalho.
 
 <!-- Module References -->
-[linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
+[linear-regression]: /azure/machine-learning/studio-module-reference/linear-regression

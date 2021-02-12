@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: cd6b64f118460a115963ed0bf105641d80334348
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c2f8058a85bbc0643ed31a7dc910339d0f6d9dd
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934983"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697043"
 ---
 # <a name="morelikethis-preview-in-azure-cognitive-search"></a>moreLikeThis (versão prévia) no Azure Pesquisa Cognitiva
 
@@ -71,4 +71,4 @@ GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$
 Você pode usar qualquer ferramenta de teste na Web para experimentar esse recurso.  É recomendável usar o postmaster para este exercício.
 
 > [!div class="nextstepaction"]
-> [Explorar as APIs REST do Azure Pesquisa Cognitiva usando o postmaster](search-get-started-postman.md)
+> [Explorar as APIs REST do Azure Pesquisa Cognitiva](search-get-started-rest.md)

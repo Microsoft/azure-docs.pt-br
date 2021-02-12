@@ -8,14 +8,15 @@ ms.topic: sample
 ms.date: 10/07/2019
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 0d9b0509af08357235efaab7f2813e08bc200844
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e605c10a765379c8f7d33dbd4d1f884d0e08734e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786404"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018642"
 ---
 # <a name="azure-cosmos-dbnet-v3-sdk-microsoftazurecosmos-examples-for-the-sql-api"></a>Exemplos de SDK do .NET V3 do Azure Cosmos DB (Microsoft.Azure.Cosmos) para a API SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Exemplos de SDK do .NET V2](sql-api-dotnet-samples.md)
@@ -37,7 +38,7 @@ O repositório GitHub [azure-cosmos-dotnet-v3](https://github.com/Azure/azure-co
 
 Visual Studio 2019 com o fluxo de trabalho de desenvolvimento do Azure instalado
 
-- Você pode baixar e usar o [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) **gratuito** . Verifique se você habilitou o **desenvolvimento do Azure** durante a instalação do Visual Studio.
+- Você pode baixar e usar o [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) **gratuito**. Verifique se você habilitou o **desenvolvimento do Azure** durante a instalação do Visual Studio.
 
    O [pacote NuGet Microsoft.Azure.cosmos](https://www.nuget.org/packages/Microsoft.Azure.cosmos/)
 
@@ -92,7 +93,7 @@ O método [RunItemsDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/ma
 
 ## <a name="indexing-examples"></a>Exemplos de indexação
 
-O método [RunIndexDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/IndexManagement/Program.cs#L108-L122) do projeto *IndexManagement* de exemplo mostra como executar as tarefas a seguir. Para saber mais sobre a indexação no Azure Cosmos DB antes de executar as amostras a seguir, confira [políticas de índice](index-policy.md), [tipos de índice](index-overview.md#index-kinds) e [caminhos de índice](index-policy.md#include-exclude-paths). 
+O método [RunIndexDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/IndexManagement/Program.cs#L108-L122) do projeto *IndexManagement* de exemplo mostra como executar as tarefas a seguir. Para saber mais sobre a indexação no Azure Cosmos DB antes de executar as amostras a seguir, confira [políticas de índice](index-policy.md), [tipos de índice](index-overview.md#index-types) e [caminhos de índice](index-policy.md#include-exclude-paths). 
 
 | Tarefa | Referência de API |
 | --- | --- |

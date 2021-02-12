@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/30/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 52f0db4086bac7c8131015114ea6ecfdc391a4af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9bda92667cfc3afb44a55adf3f3c12798a734ddc
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612754"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522712"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema sobre eventos do Log de Atividades do Azure
 O [log de atividades do Azure](platform-logs-overview.md) fornece informações sobre qualquer evento de nível de assinatura que ocorreu no Azure. Este artigo descreve as categorias de log de atividades e o esquema para cada uma. 
@@ -26,10 +26,10 @@ O esquema irá variar dependendo de como você acessa o log:
 ## <a name="severity-level"></a>Nível de severidade
 Cada entrada no log de atividades tem um nível de severidade. O nível de severidade pode ter um dos seguintes valores:  
 
-| Gravidade | Descrição |
+| Severidade | Descrição |
 |:---|:---|
 | Crítico | Eventos que exigem a atenção imediata de um administrador do sistema. Pode indicar que um aplicativo ou sistema falhou ou parou de responder.
-| Erro do | Eventos que indicam um problema, mas não exigem atenção imediata.
+| Erro | Eventos que indicam um problema, mas não exigem atenção imediata.
 | Aviso | Eventos que fornecem forewarning de possíveis problemas, embora não seja um erro real. Indique que um recurso não está em um estado ideal e possa diminuir mais tarde para mostrar erros ou eventos críticos.  
 | Informativo | Eventos que passam informações não críticas para o administrador. Semelhante a uma observação que diz: "para suas informações". 
 
@@ -40,7 +40,7 @@ Cada evento no log de atividades tem uma categoria específica que são descrita
 
 | Categoria | Descrição |
 |:---|:---|
-| [Administrativo](#administrative-category) | Contém o registro de todas as operações de criação, atualização, exclusão e ação executadas por meio do Resource Manager. Exemplos de eventos administrativos incluem _criar máquina virtual_ e _excluir grupo de segurança de rede_.<br><br>Cada ação tomada por um usuário ou aplicativo usando o Resource Manager é modelada como uma operação em um determinado tipo de recurso. Se o tipo de operação for _Gravação_, _Exclusão_ ou _Ação_, os registros do início e do êxito ou falha da operação são registrados na categoria Administrativa. Eventos administrativos também incluem alterações de controle de acesso baseado em função em uma assinatura. |
+| [Administrativo](#administrative-category) | Contém o registro de todas as operações de criação, atualização, exclusão e ação executadas por meio do Resource Manager. Exemplos de eventos administrativos incluem _criar máquina virtual_ e _excluir grupo de segurança de rede_.<br><br>Cada ação tomada por um usuário ou aplicativo usando o Resource Manager é modelada como uma operação em um determinado tipo de recurso. Se o tipo de operação for _Gravação_, _Exclusão_ ou _Ação_, os registros do início e do êxito ou falha da operação são registrados na categoria Administrativa. Os eventos administrativos também incluem quaisquer alterações no controle de acesso baseado em função do Azure em uma assinatura. |
 | [Integridade do Serviço](#service-health-category) | Contém o registro de qualquer incidente de integridade do serviço ocorrido no Azure. Um exemplo de um evento de Integridade do Serviço _SQL Azure no Leste dos EUA está apresentando tempo de inatividade_. <br><br>Eventos de integridade do serviço são fornecidos em seis variedades: _Ação Necessária_, _Recuperação Assistida_, _Incidente_, _Manutenção_, _Informações_ ou _Segurança_. Esses eventos serão criados somente se você tiver um recurso na assinatura que seria impactado pelo evento.
 | [Integridade de recursos](#resource-health-category) | Contém o registro de qualquer evento de integridade do recurso ocorrido nos recursos do Azure. Um exemplo de um evento de Integridade de Recursos é _Status de integridade da máquina virtual alterado para indisponível_.<br><br>Eventos de integridade de recursos podem representar um dos quatro status de integridade: _Disponível_, _Não disponível_, _Degradado_ e _Desconhecido_. Além disso, os eventos de integridade de recursos podem ser categorizados como _Iniciados pela plataforma_ ou _Iniciados pelo usuário_. |
 | [Alerta](#alert-category) | Contém o registro de ativações para alertas do Azure. Um exemplo de evento de alerta é _A % de CPU em myVM está maior que 80 nos últimos cinco minutos_.|
@@ -50,7 +50,7 @@ Cada evento no log de atividades tem uma categoria específica que são descrita
 | [Política](#policy-category) | Contém registros de todas as operações de ação de efeito executadas pelo Azure Policy. Exemplos de eventos de política incluem _Auditar_ e _Negar_. Cada ação tomada pelo Policy é modelada como uma operação em um recurso. |
 
 ## <a name="administrative-category"></a>Categoria administrativa
-Essa categoria contém o registro de todas as operações de criação, atualização, exclusão e ação executadas por meio do Resource Manager. Os exemplos dos tipos de eventos que você vê nessa categoria incluem "criar máquina virtual" e "excluir grupo de segurança". Cada ação tomada por um usuário ou um aplicativo usando o Resource Manager é modelada como uma operação em um tipo de recurso específico. Se o tipo de operação for Gravação, Exclusão ou Ação, os registros do início e do êxito ou falha da operação são registrados na categoria Administrativa. A categoria administrativa também inclui alterações de controle de acesso baseado em função em uma assinatura.
+Essa categoria contém o registro de todas as operações de criação, atualização, exclusão e ação executadas por meio do Resource Manager. Os exemplos dos tipos de eventos que você vê nessa categoria incluem "criar máquina virtual" e "excluir grupo de segurança". Cada ação tomada por um usuário ou um aplicativo usando o Resource Manager é modelada como uma operação em um tipo de recurso específico. Se o tipo de operação for Gravação, Exclusão ou Ação, os registros do início e do êxito ou falha da operação são registrados na categoria Administrativa. A categoria administrativa também inclui quaisquer alterações no controle de acesso baseado em função do Azure em uma assinatura.
 
 ### <a name="sample-event"></a>Evento de exemplo
 ```json
@@ -143,7 +143,7 @@ Essa categoria contém o registro de todas as operações de criação, atualiza
 ### <a name="property-descriptions"></a>Descrições de propriedade
 | Nome do elemento | Descrição |
 | --- | --- |
-| autorização |Blob de propriedades RBAC do evento. Geralmente, inclui as propriedades "action", "role" e "scope". |
+| autorização |Blob das propriedades do RBAC do Azure do evento. Geralmente, inclui as propriedades "action", "role" e "scope". |
 | chamador |Endereço de email do usuário que realizou a operação, declaração UPN ou declaração SPN com base na disponibilidade. |
 | canais |Um dos seguintes valores: "Admin", "Operação" |
 | declarações |O token JWT usado pelo Active Directory para autenticar o usuário ou o aplicativo a fim de executar essa operação no Resource Manager. |
@@ -774,7 +774,7 @@ Essa categoria contém registros de todas as operações de ação de efeito exe
 
 | Nome do elemento | Descrição |
 | --- | --- |
-| autorização | Matriz de propriedades RBAC do evento. Para os novos recursos, estes são a ação e o escopo da solicitação que disparou a avaliação. Para recursos existentes, a ação é "Microsoft.Resources/checkPolicyCompliance/read". |
+| autorização | Matriz de propriedades do RBAC do Azure do evento. Para os novos recursos, estes são a ação e o escopo da solicitação que disparou a avaliação. Para recursos existentes, a ação é "Microsoft.Resources/checkPolicyCompliance/read". |
 | chamador | Para novos recursos, a identidade que iniciou uma implantação. Para recursos existentes, o GUID do grupo de recursos de Insights do Microsoft Azure Policy. |
 | canais | Eventos do Policy usam apenas o canal "Operation". |
 | declarações | O token JWT usado pelo Active Directory para autenticar o usuário ou o aplicativo a fim de executar essa operação no Resource Manager. |

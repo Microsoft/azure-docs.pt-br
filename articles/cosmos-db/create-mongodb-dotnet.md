@@ -9,14 +9,15 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/15/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0cb5091b9b7d36c70454a65213113d34b29d76c2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 5d3c73bdc107ce1971e2958073ad5c100c6bf6bd
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478942"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349190"
 ---
 # <a name="quickstart-build-a-net-web-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Início Rápido: Criar um aplicativo Web do .NET usando a API para MongoDB do Azure Cosmos DB 
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -131,25 +132,25 @@ Criar uma tarefa e inseri-la na coleção
 
 Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo.
 
-1. No [portal do Azure](https://portal.azure.com/), na sua conta do Cosmos, no painel de navegação esquerdo, clique em **Cadeia de Conexão** e, em seguida, clique em **Chaves de leitura/gravação** . Você usará os botões de cópia no lado direito da tela para copiar o Nome de usuário, Senha e Host para o arquivo Dal.cs na próxima etapa.
+1. No [portal do Azure](https://portal.azure.com/), na sua conta do Cosmos, no painel de navegação esquerdo, clique em **Cadeia de Conexão** e, em seguida, clique em **Chaves de leitura/gravação**. Você usará os botões de cópia no lado direito da tela para copiar o Nome de usuário, Senha e Host para o arquivo Dal.cs na próxima etapa.
 
-2. Abra o arquivo **Dal.cs** no diretório **DAL** . 
+2. Abra o arquivo **Dal.cs** no diretório **DAL**. 
 
-3. Copie o valor do **nome de usuário** do portal (usando o botão de cópia) e transforme-o no valor do **nome de usuário** no arquivo **Dal.cs** . 
+3. Copie o valor do **nome de usuário** do portal (usando o botão de cópia) e transforme-o no valor do **nome de usuário** no arquivo **Dal.cs**. 
 
-4. Em seguida, copie o valor de **host** do portal e transforme-o no valor do **host** no arquivo **Dal.cs** . 
+4. Em seguida, copie o valor de **host** do portal e transforme-o no valor do **host** no arquivo **Dal.cs**. 
 
-5. Em seguida, copie sua **senha** do portal e transforme-o no valor da **senha** no arquivo **Dal.cs** . 
+5. Em seguida, copie sua **senha** do portal e transforme-o no valor da **senha** no arquivo **Dal.cs**. 
 
 Agora, você atualizou o aplicativo com todas as informações necessárias para comunicar-se com o Cosmos DB. 
     
 ## <a name="run-the-web-app"></a>Executar o aplicativo Web
 
-1. No Visual Studio, clique com o botão direito do mouse no projeto no **Gerenciador de Soluções** e clique em **Gerenciar Pacotes NuGet** . 
+1. No Visual Studio, clique com o botão direito do mouse no projeto no **Gerenciador de Soluções** e clique em **Gerenciar Pacotes NuGet**. 
 
-2. Na caixa **Procurar** do NuGet, digite *MongoDB.Driver* .
+2. Na caixa **Procurar** do NuGet, digite *MongoDB.Driver*.
 
-3. Nos resultados, instale a biblioteca **MongoDB.Driver** . Isso instala o pacote do MongoDB.Driver, bem como todas as dependências.
+3. Nos resultados, instale a biblioteca **MongoDB.Driver**. Isso instala o pacote do MongoDB.Driver, bem como todas as dependências.
 
 4. Clique em CTRL + F5 para executar o aplicativo. Seu aplicativo é exibido no navegador. 
 
@@ -168,4 +169,4 @@ Agora, você atualizou o aplicativo com todas as informações necessárias para
 Neste início rápido, você aprendeu como criar uma conta do Cosmos, criar uma coleção e executar um aplicativo de console. Agora você pode importar dados adicionais para o banco de dados Cosmos. 
 
 > [!div class="nextstepaction"]
-> [Importar dados do MongoDB no Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)
+> [Importar dados do MongoDB no Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)

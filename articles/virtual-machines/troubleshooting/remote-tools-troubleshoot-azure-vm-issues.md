@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
-ms.openlocfilehash: 5abb509f1753c65554bd74ababe9acca4103c15a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac785d43a71039ce52f0c8cd4315149a11e91cfc
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86509079"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737346"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Use ferramentas remotas para solucionar problemas do VM do Azure
 
@@ -180,7 +180,7 @@ Execute o seguinte comando com base no local do computador cliente:
     Enter-PSSession -ComputerName  "<<CLOUDSERVICENAME.cloudapp.net>>" -port "<<PUBLIC PORT NUMBER>>" -Credential (Get-Credential) -useSSL -SessionOption $Skip
     ```
 
-  * Para uma VM Azure Resource Manager, primeiro adicione um nome DNS ao endereço IP público. Para obter etapas detalhadas, consulte [Criar um nome de domínio totalmente qualificado no portal do Azure para uma VM do Windows](../windows/portal-create-fqdn.md). Em seguida, execute o seguinte comando:
+  * Para uma VM Azure Resource Manager, primeiro adicione um nome DNS ao endereço IP público. Para obter etapas detalhadas, consulte [Criar um nome de domínio totalmente qualificado no portal do Azure para uma VM do Windows](../create-fqdn.md). Em seguida, execute o seguinte comando:
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
@@ -251,7 +251,7 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter mais informações sobre o cmdlet Enter-PSSession, consulte [Enter-PSSession](/powershell/module/microsoft.powershell.core/enter-pssession?view=powershell-5.1).
+- Para obter mais informações sobre o cmdlet Enter-PSSession, consulte [Enter-PSSession](/powershell/module/microsoft.powershell.core/enter-pssession).
 - Para obter mais informações sobre a extensão de script personalizado para Windows usando o modelo de implantação clássico, consulte [extensão de script personalizado para Windows](../extensions/custom-script-windows.md).
 - PsExec é parte do [conjunto PSTools](https://download.sysinternals.com/files/PSTools.zip).
 - Para obter mais informações sobre o conjunto de PSTools, consulte [PsTools](/sysinternals/downloads/pstools).

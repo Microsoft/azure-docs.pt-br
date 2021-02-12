@@ -13,17 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2020
 ms.author: rkarlin
-ms.openlocfilehash: 9862519a2003eb373c43fef1b660986a8d830327
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: f584f11603e41b63f3c96749ed6c720eb5ce07a8
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094241"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97835050"
 ---
 # <a name="azure-defender-for-iot-agent-frequently-asked-questions"></a>Perguntas frequentes sobre o agente do Azure defender para IoT
 
 Este artigo fornece uma lista de perguntas frequentes e respostas sobre o agente do defender para IoT.
-
 
 ## <a name="do-i-have-to-install-an-embedded-security-agent"></a>É necessário instalar um agente de segurança inserido?
 
@@ -41,7 +40,6 @@ A instalação do agente em seus dispositivos IoT não é obrigatória para habi
 O agente do defender para IoT fornece cobertura de ameaça no nível do dispositivo para configuração, comportamento e acesso do dispositivo (examinando a configuração), processa & conectividade. O agente de segurança do defender para IoT não verifica dados ou atividades relacionados ao negócio.
 
 O agente de segurança do defender para IoT é de software livre e está disponível no GitHub nas versões do Windows e do Linux de 32 bits e 64 bits: https://github.com/Azure/Azure-IoT-Security .
-
 
 ## <a name="what-are-the-dependencies-and-prerequisites-of-the-agent"></a>Quais são as dependências e os pré-requisitos do agente?
 
@@ -87,13 +85,11 @@ O agente não pode ser desativado.
 
 Se o agente parar de se comunicar ou falhar em enviar mensagens de segurança, um alerta com a mensagem **O dispositivo está silencioso** será gerado.
 
-
-
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre como começar a usar o defender para IoT, consulte os seguintes artigos:
 
 - Leia a [visão geral](overview.md) do defender for IOT
-- Verifique os [Pré-requisitos do serviço](service-prerequisites.md)
-- Saiba mais sobre como [Começar](getting-started.md)
+- Verificar os [pré-requisitos do sistema](quickstart-system-prerequisites.md)
+- Saiba mais sobre como [começar a usar o defender para IOT](getting-started.md)
 - Entender o [defender para alertas de segurança de IOT](concept-security-alerts.md)

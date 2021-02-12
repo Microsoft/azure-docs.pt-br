@@ -1,7 +1,7 @@
 ---
 title: Pipelines de exemplo e conjuntos de dados para o designer
 titleSuffix: Azure Machine Learning
-description: Use amostras no designer do Azure Machine Learning para iniciar rapidamente seus pipelines de aprendizado de máquina.
+description: Saiba como usar exemplos no designer do Azure Machine Learning para iniciar rapidamente seus pipelines de machine learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/14/2020
 ms.custom: designer
-ms.openlocfilehash: ecdb011310d8aa5bd63e9b9e9679bb525cb4f7b3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 4d594115139321c8a4ad2b3aa6b065474bd426fa
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074593"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556164"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Pipelines e conjuntos de dados de exemplo para o designer do Azure Machine Learning
 
@@ -72,7 +72,7 @@ Explore esses exemplos internos de regressão.
 
 ## <a name="classification"></a>classificação
 
-Explore esses exemplos internos de classificação. Saiba mais sobre as amostras sem os links de documentação abrindo as amostras e vendo os comentários do módulo.
+Explore esses exemplos internos de classificação. Saiba mais sobre os exemplos abrindo-os e vendo os comentários do módulo no designer.
 
 | Titulo do exemplo | Descrição | 
 | --- | --- |
@@ -84,13 +84,15 @@ Explore esses exemplos internos de classificação. Saiba mais sobre as amostras
 
 ## <a name="computer-vision"></a>Visual computacional
 
-Explore esses exemplos de pesquisa visual computacional internos. Saiba mais sobre as amostras sem os links de documentação abrindo as amostras e vendo os comentários do módulo.
+Explore esses exemplos de pesquisa visual computacional internos. Saiba mais sobre os exemplos abrindo-os e vendo os comentários do módulo no designer.
 
-| Classificação de imagens usando o DenseNet  | Usar módulos da Pesquisa Visual Computacional para criar o modelo de classificação de imagem com base no PyTorch DenseNet.| 
+| Titulo do exemplo | Descrição | 
+| --- | --- |
+| Classificação de imagem usando DenseNet | Use módulos da pesquisa visual computacional para criar o modelo de classificação de imagem com base no PyTorch DenseNet.| 
 
 ## <a name="recommender"></a>Sistema de recomendação
 
-Explore esses exemplos internos de sistema de recomendação. Saiba mais sobre as amostras sem os links de documentação abrindo as amostras e vendo os comentários do módulo.
+Explore esses exemplos internos de sistema de recomendação. Saiba mais sobre os exemplos abrindo-os e vendo os comentários do módulo no designer.
 
 | Titulo do exemplo | Descrição | 
 | --- | --- |
@@ -99,7 +101,7 @@ Explore esses exemplos internos de sistema de recomendação. Saiba mais sobre a
 
 ## <a name="utility"></a>Utilitário
 
-Saiba mais sobre as amostras que descrevem os recursos e os utilitários de aprendizado de máquina. Saiba mais sobre as amostras sem os links de documentação abrindo as amostras e vendo os comentários do módulo.
+Saiba mais sobre as amostras que descrevem os recursos e os utilitários de aprendizado de máquina. Saiba mais sobre os exemplos abrindo-os e vendo os comentários do módulo no designer.
 
 | Titulo do exemplo | Descrição | 
 | --- | --- |

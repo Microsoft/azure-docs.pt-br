@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: overview
-ms.date: 07/30/2020
-ms.openlocfilehash: e80ea37409f7b5beb48ba7b8e96aeeda9a5836e5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/30/2020
+ms.openlocfilehash: b9fb5d6537d2c8dffef397c56128dd4891c939b7
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89433425"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578120"
 ---
 # <a name="what-is-azure-data-share"></a>O que é o Azure Data Share?
 
@@ -73,9 +73,7 @@ O Azure Data Share permite aos consumidores de dados:
 
 * Aceite dados compartilhados com você em um [armazenamento de dados compatível](supported-data-stores.md).
 
-* Disparar um instantâneo completo ou incremental de um Data Share que uma organização compartilhou com você
-
-* Assinar um compartilhamento de dados para receber a cópia mais recente dos dados por meio do instantâneo incremental
+* Acessar dados no local ou disparar um instantâneo completo ou incremental de dados compartilhados
 
 Todas as principais funcionalidades listadas acima têm suporte por meio do Azure ou das APIs REST. Para obter mais detalhes sobre como usar o Azure Data Share por meio de APIs REST, confira nossa documentação de referência. 
 

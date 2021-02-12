@@ -7,12 +7,12 @@ ms.date: 10/15/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 6c1ccbfc221970980d5d0b15e82f9f8483c48bce
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6ac4d0e0744bfc82a686671234e013b2dd717146
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043758"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927746"
 ---
 # <a name="integrate-azure-key-vault-with-azure-policy"></a>Integrar o Azure Key Vault ao Azure Policy
 
@@ -29,9 +29,9 @@ Exemplo de cenários de uso:
 
 ## <a name="types-of-policy-effects-and-guidance"></a>Diretrizes e tipos de efeito da política
 
-**Auditar**: quando o efeito de uma política for definido para auditar, a política não causará alterações de falha em seu ambiente. Ela só alertará você sobre componentes, como certificados que não estão em conformidade com as definições da política em um escopo especificado, marcando-os como fora de conformidade no painel de conformidade com a política. A auditoria será padrão se nenhum efeito de política for selecionado.
+**Auditar** : quando o efeito de uma política for definido para auditar, a política não causará alterações de falha em seu ambiente. Ela só alertará você sobre componentes, como certificados que não estão em conformidade com as definições da política em um escopo especificado, marcando-os como fora de conformidade no painel de conformidade com a política. A auditoria será padrão se nenhum efeito de política for selecionado.
 
-**Negar**: quando o efeito de uma política for definido para negar, a política bloqueará a criação de novos componentes, como certificados, bem como novas versões de componentes existentes que não cumprem a definição da política. Os recursos existentes não compatíveis em um cofre de chaves não são afetados. Os recursos de "auditoria" continuarão funcionando.
+**Negar** : quando o efeito de uma política for definido para negar, a política bloqueará a criação de novos componentes, como certificados, bem como novas versões de componentes existentes que não cumprem a definição da política. Os recursos existentes não compatíveis em um cofre de chaves não são afetados. Os recursos de "auditoria" continuarão funcionando.
 
 ## <a name="available-built-in-policy-definitions"></a>Definições de política "interna" disponíveis
 
@@ -91,9 +91,9 @@ Seu serviço pode sofrer uma interrupção se um certificado que não está send
 
 Se você quer garantir que suas chaves não fiquem ativas por um tempo maior do que um número especificado de dias, use esta política para auditar há quanto tempo a chave está ativa.
 
-**Se a chave tiver uma data de ativação definida**, esta política calculará o número de dias decorridos desde a **data de ativação** da chave até a data atual. Se o número de dias exceder o limite definido, a chave será marcada como sem conformidade com a política.
+**Se a chave tiver uma data de ativação definida** , esta política calculará o número de dias decorridos desde a **data de ativação** da chave até a data atual. Se o número de dias exceder o limite definido, a chave será marcada como sem conformidade com a política.
 
-**Se a chave não tiver uma data de ativação definida**, esta política calculará o número de dias decorridos desde a **data de criação** da chave até a data atual. Se o número de dias exceder o limite definido, a chave será marcada como sem conformidade com a política.
+**Se a chave não tiver uma data de ativação definida** , esta política calculará o número de dias decorridos desde a **data de criação** da chave até a data atual. Se o número de dias exceder o limite definido, a chave será marcada como sem conformidade com a política.
 
 ### <a name="keys-should-be-the-specified-cryptographic-type-rsa-or-ec-preview"></a>As chaves devem ser do tipo criptográfico especificado RSA ou EC (versão prévia)
 
@@ -139,9 +139,9 @@ Gerencie seus requisitos de conformidade organizacional especificando o período
 
 Se você quer garantir que seus segredos não fiquem ativos por um tempo maior do que um número especificado de dias, use esta política para auditar há quanto tempo o segredo está ativo.
 
-**Se o segredo tiver uma data de ativação definida**, esta política calculará o número de dias decorridos desde a **data de ativação** do segredo até a data atual. Se o número de dias exceder o limite definido, o segredo será marcado como sem conformidade com a política.
+**Se o segredo tiver uma data de ativação definida** , esta política calculará o número de dias decorridos desde a **data de ativação** do segredo até a data atual. Se o número de dias exceder o limite definido, o segredo será marcado como sem conformidade com a política.
 
-**Se o segredo não tiver uma data de ativação definida**, esta política calculará o número de dias decorridos desde a **data de criação** do segredo até a data atual. Se o número de dias exceder o limite definido, o segredo será marcado como sem conformidade com a política.
+**Se o segredo não tiver uma data de ativação definida** , esta política calculará o número de dias decorridos desde a **data de criação** do segredo até a data atual. Se o número de dias exceder o limite definido, o segredo será marcado como sem conformidade com a política.
 
 ### <a name="secrets-should-have-content-type-set-preview"></a>Os segredos devem ter o tipo de conteúdo definido (versão prévia)
 
@@ -165,7 +165,7 @@ Gerencie seus requisitos de conformidade organizacional especificando o período
 
 Você gerencia um cofre de chaves usado por várias equipes; o cofre contém 100 certificados e você quer ter certeza de que nenhum desses certificados será válido por mais de 2 anos.
 
-1. Você atribui a política **Os certificados devem ter o período de validade máximo especificado**, especifica que o período máximo de validade de um certificado é de 24 meses e define o efeito da política como "Auditar". 
+1. Você atribui a política **Os certificados devem ter o período de validade máximo especificado** , especifica que o período máximo de validade de um certificado é de 24 meses e define o efeito da política como "Auditar". 
 1. Você exibe o [relatório de conformidade no portal do Azure](#view-compliance-results) e descobre que 20 certificados estão fora de conformidade e são válidos por mais de 2 anos, e que os certificados restantes estão em conformidade. 
 1. Você entra em contato com os proprietários desses certificados e comunica o novo requisito de segurança de que os certificados não podem ser válidos por mais de 2 anos. Algumas equipes respondem e 15 dos certificados foram renovados com um período de validade máximo de 2 anos ou menos. Outras equipes não respondem e você ainda tem 5 certificados fora de conformidade em seu cofre de chaves.
 1. Você altera o efeito da política que atribuiu como "negar". Os 5 certificados fora de conformidade não são revogados e continuam funcionando. No entanto, eles não podem ser renovados com um período de validade superior a 2 anos. 
@@ -177,49 +177,49 @@ Você gerencia um cofre de chaves usado por várias equipes; o cofre contém 100
 1. Faça logon no Portal do Azure. 
 1. Procure por "Política" na barra de pesquisa e selecione **Política**.
 
-    ![Visão geral do funcionamento do Azure Key Vault](../media/policy-img1.png)
+    ![Captura de tela que mostra a barra de pesquisa.](../media/policy-img1.png)
 
 1. Na janela Política, selecione **Definições**.
 
-    ![Visão geral do funcionamento do Azure Key Vault](../media/policy-img2.png)
+    ![Captura de tela que realça a opção Definições.](../media/policy-img2.png)
 
 1. No filtro Categoria, desmarque **Selecionar Tudo** e selecione **Key Vault**. 
 
-    ![Visão geral do funcionamento do Azure Key Vault](../media/policy-img3.png)
+    ![Captura de tela que mostra o Filtro de Categoria e a categoria de Key Vault selecionada.](../media/policy-img3.png)
 
 1. Agora deve ser possível ver todas as políticas disponíveis para Visualização Pública do Azure Key Vault. Certifique-se de que leu e entendeu a seção de diretrizes de política acima e selecione uma política que queira atribuir a um escopo.  
 
-    ![Visão geral do funcionamento do Azure Key Vault](../media/policy-img4.png)
+    ![Captura de tela que mostra as políticas disponíveis para Visualização Pública.](../media/policy-img4.png)
 
 ### <a name="assign-a-policy-to-a-scope"></a>Atribuir uma política a um escopo 
 
 1. Selecione uma política que queira aplicar. Neste exemplo, a política **Gerenciar o período de validade do certificado** é mostrada. Clique no botão de atribuição no canto superior esquerdo.
 
-    ![Visão geral do funcionamento do Azure Key Vault](../media/policy-img5.png)
+    ![Captura de tela que mostra a política Gerenciar Período de Validade do Certificado.](../media/policy-img5.png)
   
 1. Selecione a assinatura na qual deseja que a política seja aplicada. Você pode optar por restringir o escopo a um único grupo de recursos em uma assinatura. Se quiser aplicar a política a toda a assinatura e excluir alguns grupos de recursos, você também poderá configurar uma lista de exclusões. Defina o seletor de imposição de política para **Habilitado** se quiser que o efeito da política (auditar ou negar) ocorra ou para **Desabilitado** para desativar o efeito (auditar ou negar). 
 
-    ![Visão geral do funcionamento do Azure Key Vault](../media/policy-img6.png)
+    ![Captura de tela que mostra onde é possível optar por restringir o escopo a um único grupo de recursos em uma assinatura.](../media/policy-img6.png)
 
 1. Clique na guia de parâmetros na parte superior da tela para especificar o período máximo de validade em meses que você deseja. Selecione **auditar** ou **negar** para o efeito da política seguindo as diretrizes nas seções acima. Em seguida, selecione o botão revisar + criar. 
 
-    ![Visão geral do funcionamento do Azure Key Vault](../media/policy-img7.png)
+    ![Captura de tela que mostra a guia Parâmetros, na qual é possível especificar o período máximo de validade nos meses desejados.](../media/policy-img7.png)
 
 ### <a name="view-compliance-results"></a>Exibir resultados da conformidade
 
 1. Volte para a folha Política e selecione a guia Conformidade. Clique na atribuição de política para a qual deseja exibir os resultados da conformidade.
 
-    ![Visão geral do funcionamento do Azure Key Vault](../media/policy-img8.png)
+    ![Captura de tela que mostra a guia Conformidade, na qual é possível selecionar a atribuição de política da qual deseja exibir os resultados de conformidade.](../media/policy-img8.png)
 
 1. Nessa página, você pode filtrar os resultados por cofres em conformidade ou fora de conformidade. Aqui, você pode ver uma lista de cofres de chaves fora de conformidade no escopo da atribuição de política. Um cofre será considerado fora de conformidade se algum dos componentes (certificados) no cofre estiver fora de conformidade. É possível selecionar um cofre individual para exibir os componentes individuais fora de conformidade (certificados). 
 
 
-    ![Visão geral do funcionamento do Azure Key Vault](../media/policy-img9.png)
+    ![Captura de tela que mostra uma lista de cofres de chaves fora de conformidade no escopo da atribuição de política.](../media/policy-img9.png)
 
 1. Exiba o nome dos componentes em um cofre que está fora de conformidade
 
 
-    ![Visão geral do funcionamento do Azure Key Vault](../media/policy-img10.png)
+    ![Captura de tela que mostra onde é possível visualizar o nome dos componentes em um cofre que está fora de conformidade.](../media/policy-img10.png)
 
 1. Se precisar verificar se os usuários estão sendo impedidos de criar recursos no cofre de chaves, você poderá clicar na guia **Eventos de Componente (versão prévia)** para exibir um resumo das operações de certificado negadas com o solicitante e os carimbos de data/hora das solicitações. 
 

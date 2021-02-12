@@ -10,13 +10,13 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, references_regions, contperfq1
-ms.openlocfilehash: 7ec62e4a6a864ca37011014341a2d059615873d5
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
+ms.openlocfilehash: 857fba6dfa6191163c06c423cefb42d57f25dc1d
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131931"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980568"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Visão geral de isolamento de rede virtual e privacidade
 
@@ -31,10 +31,10 @@ Estes são os outros artigos desta série:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este artigo pressupõe que você tenha familiaridade com os seguintes tópicos:
-+ [Redes Virtuais do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
-+ [Rede IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
++ [Redes Virtuais do Azure](../virtual-network/virtual-networks-overview.md)
++ [Rede IP](../virtual-network/public-ip-addresses.md)
 + [Link Privado do Azure](how-to-configure-private-link.md)
-+ [Grupos de segurança de rede (NSG)](../virtual-network/security-overview.md)
++ [NSG (grupos de segurança de rede)](../virtual-network/network-security-groups-overview.md)
 + [Firewalls de rede](../firewall/overview.md)
 
 ## <a name="example-scenario"></a>Cenário de exemplo
@@ -137,6 +137,15 @@ O diagrama de rede a seguir mostra um espaço de trabalho Azure Machine Learning
 ### <a name="limitations"></a>Limitações
 - Os clusters AKS devem pertencer à mesma VNet que o espaço de trabalho e seus recursos associados. 
 
+## <a name="optional-enable-public-access"></a>Opcional: habilitar acesso público
+
+Você pode proteger o espaço de trabalho por trás de uma VNet usando um ponto de extremidade privado e ainda permitir o acesso pela Internet pública. A configuração inicial é a mesma que [proteger o espaço de trabalho e os recursos associados](#secure-the-workspace-and-associated-resources). 
+
+Depois de proteger o espaço de trabalho com um link privado, você [habilitará o acesso público](how-to-configure-private-link.md#enable-public-access). Depois disso, você pode acessar o espaço de trabalho da Internet pública e da VNet.
+
+### <a name="limitations"></a>Limitações
+
+- Se você usar o Azure Machine Learning Studio pela Internet pública, alguns recursos, como o designer, poderão falhar ao acessar seus dados. Esse problema ocorre quando os dados são armazenados em um serviço protegido por trás da VNet. Por exemplo, uma conta de armazenamento do Azure.
 ## <a name="optional-enable-studio-functionality"></a>Opcional: habilitar a funcionalidade do estúdio
 
 [Proteger o espaço de trabalho](#secure-the-workspace-and-associated-resources)  >  [Proteger o ambiente](#secure-the-training-environment)  >  de treinamento [Proteger o ambiente inferência](#secure-the-inferencing-environment)  >  **Habilitar a funcionalidade**  >  do estúdio [Definir configurações de firewall](#configure-firewall-settings)
@@ -145,13 +154,15 @@ Se o armazenamento estiver em uma VNet, você deve primeiro executar etapas de c
 
 * Visualizar dados no estúdio.
 * Visualize dados no designer.
+* Implante um modelo no designer.
 * Envie um experimento do AutoML.
 * Inicie um projeto de rotulagem.
 
-Para habilitar a funcionalidade completa do estúdio dentro de uma VNet, consulte [usar o Azure Machine Learning Studio em uma rede virtual](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). O estúdio dá suporte a contas de armazenamento usando pontos de extremidade de serviço ou pontos de extremidade privados.
+Para habilitar a funcionalidade completa do estúdio dentro de uma VNet, consulte [usar o Azure Machine Learning Studio em uma rede virtual](how-to-enable-studio-virtual-network.md#configure-data-access-in-the-studio). O estúdio dá suporte a contas de armazenamento usando pontos de extremidade de serviço ou pontos de extremidade privados.
 
 ### <a name="limitations"></a>Limitações
-- [Rótulos de dados assistidos de ml](how-to-create-labeling-projects.md#use-ml-assisted-labeling) não dão suporte a contas de armazenamento padrão protegidas por trás de uma rede virtual. Você deve usar uma conta de armazenamento não padrão para rotular dados assistidos por ML. Observe que a conta de armazenamento não padrão pode ser protegida por trás da rede virtual. 
+
+O [rotulamento de dados assistido por ml](how-to-create-labeling-projects.md#use-ml-assisted-data-labeling) não dá suporte a contas de armazenamento padrão protegidas por trás de uma rede virtual. Você deve usar uma conta de armazenamento não padrão para rotular dados assistidos por ML. Observe que a conta de armazenamento não padrão pode ser protegida por trás da rede virtual. 
 
 ## <a name="configure-firewall-settings"></a>Definir configurações de firewall
 

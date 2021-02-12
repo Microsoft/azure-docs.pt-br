@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial de classificação de imagens: Implantar modelos'
 titleSuffix: Azure Machine Learning
-description: Este tutorial, o segundo de uma série de duas partes, mostra como usar o Azure Machine Learning para implantar um modelo de classificação de imagem com o scikit-learn em um Notebook Jupyter Python.
+description: Este tutorial mostra como usar o Azure Machine Learning para implantar um modelo de classificação de imagem com o Scikit-learn em um Python Jupyter Notebook.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: f0d78fc55ca60fa883c742885acf2fa98ede61ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee6529f36c302cba1dc7b5a4b53aaf96ce58e4a5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90896575"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532776"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Tutorial: Implantar um modelo de classificação de imagem em Instâncias de Contêiner do Azure
 
@@ -358,6 +358,6 @@ service.delete()
 
 + Saiba mais sobre todas as [opções de implantação do Azure Machine Learning](how-to-deploy-and-where.md).
 + Saiba como [criar clientes para o serviço Web](how-to-consume-web-service.md).
-+  [Fazer previsões sobre grandes quantidades de dados](how-to-use-parallel-run-step.md) assincronamente.
++  [Fazer previsões sobre grandes quantidades de dados](./tutorial-pipeline-batch-scoring-classification.md) assincronamente.
 + [Monitorar seus modelos do Azure Machine Learning com o Application Insights](how-to-enable-app-insights.md).
-+ Experimente o tutorial de [seleção automática de algoritmo](tutorial-auto-train-models.md). 
++ Experimente o tutorial de [seleção automática de algoritmo](tutorial-auto-train-models.md).

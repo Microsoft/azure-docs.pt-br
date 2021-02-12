@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 12/09/2020
 ms.author: banders
-ms.openlocfilehash: 2aae71836a4eaba845e4752edf708607977763fa
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: ca55773b2deb74ea0647ed33df4040065762f94a
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371857"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938470"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>Obter propriedade de cobrança das assinaturas do Azure de outras contas
 
@@ -23,12 +23,20 @@ Este artigo aplica-se a uma conta de cobrança para um Contrato de Cliente da Mi
 
 Para solicitar a propriedade de cobrança, você deve ser o **proprietário da seção da fatura** ou **colaborador da seção da fatura**. Para saber mais, confira [tarefas de funções da seção da fatura](understand-mca-roles.md#invoice-section-roles-and-tasks).
 
+A pessoa de quem você está solicitando a propriedade da cobrança precisa ter uma das seguintes funções:
+
+- Para um Contrato Enterprise de Cliente da Microsoft, o usuário é um Proprietário de Cobrança.
+- Para um Contrato Enterprise, o usuário precisa ser um Proprietário da Conta.
+- Para uma conta de cobrança do Programa Microsoft Online Services, o usuário precisa ser um Administrador da Conta.
+
+Para obter mais informações, confira [exibir suas contas de cobrança no portal do Azure](view-all-accounts.md).
+
 ## <a name="request-billing-ownership"></a>Solicitar propriedade de cobrança
 
 1. Entre no [portal do Azure](https://portal.azure.com) como proprietário ou colaborador da seção da fatura para uma conta de cobrança do Contrato de Cliente da Microsoft.
 1. Pesquise **Gerenciamento de Custos + Cobrança**.  
     ![Captura de tela que mostra a pesquisa do portal do Azure para gerenciamento de custos + cobrança](./media/mca-request-billing-ownership/billing-search-cost-management-billing.png)
-1. Na página de escopos do orçamento, selecione a conta de cobrança, que seria usada para pagar pelo uso das assinaturas. A conta de cobrança deve ser do tipo **Contrato de Cliente da Microsoft**.  
+1. Na página de escopos do orçamento, selecione **Escopos do orçamento** e a conta de cobrança, que será usada no pagamento do uso das assinaturas. A conta de cobrança deve ser do tipo **Contrato de Cliente da Microsoft**.  
     [![Captura de tela que mostra a pesquisa de gerenciamento de custos + cobrança no portal](./media/mca-request-billing-ownership/list-of-scopes.png)](./media/mca-request-billing-ownership/list-of-scopes.png#lightbox)
     > [!NOTE]
     > O portal do Azure lembra o último escopo do orçamento que você acessou e exibirá o escopo na próxima vez que você visitar a página Gerenciamento de Custos + Cobrança. Você não verá a página de escopos do orçamento se tiver visitado a página de Gerenciamento de Custos + Cobrança anteriormente. Nesse caso, verifique se você está no [escopo certo](#check-for-access). Se não estiver, [alterne o escopo](view-all-accounts.md#switch-billing-scope-in-the-azure-portal) para selecionar a conta de cobrança para um Contrato de Cliente da Microsoft.
@@ -42,7 +50,7 @@ Para solicitar a propriedade de cobrança, você deve ser o **proprietário da s
 1. Selecione uma seção da fatura na lista. Depois de assumir a propriedade das assinaturas, elas o uso delas será atribuído para essa seção na fatura do perfil de cobrança.
 1. Selecione **Solicitações de transferência** no lado inferior esquerdo e, em seguida, selecione **Adicionar uma nova solicitação**.  
     [![Captura de tela que mostra a seleção de solicitações de transferência](./media/mca-request-billing-ownership/mca-select-transfer-requests.png)](./media/mca-request-billing-ownership/mca-select-transfer-requests.png#lightbox)
-1. Insira o endereço de email do usuário do qual você está solicitando propriedade de cobrança. O usuário precisa ser um Administrador da Conta em uma conta de cobrança do Programa de Serviço Online da Microsoft ou um proprietário da conta em um Contrato Enterprise. Para obter mais informações, confira [exibir suas contas de cobrança no portal do Azure](view-all-accounts.md). Selecione **Enviar solicitação de transferência**.  
+1. Insira o endereço de email do usuário do qual você está solicitando propriedade de cobrança. Selecione **Enviar solicitação de transferência**.  
     [![Captura de tela que mostra o envio de uma solicitação de transferência](./media/mca-request-billing-ownership/mca-send-transfer-requests.png)](./media/mca-request-billing-ownership/mca-send-transfer-requests.png#lightbox)
 1. O usuário recebe um email com instruções para revisar sua solicitação de transferência.  
     ![Captura de tela que mostra o email de análise da solicitação de transferência](./media/mca-request-billing-ownership/mca-review-transfer-request-email.png)
@@ -68,6 +76,7 @@ Para solicitar a propriedade de cobrança, você deve ser o **proprietário da s
 1. Selecione a seção da fatura na lista para a qual a solicitação de transferência foi enviada.
 1. Selecione **Solicitações de transferência** no lado inferior esquerdo. A página Solicitações de transferência exibe as seguintes informações:  
     [![Captura de tela que mostra uma lista de solicitações de transferência](./media/mca-request-billing-ownership/mca-select-transfer-requests-for-status.png)](./media/mca-request-billing-ownership/mca-select-transfer-requests-for-status.png#lightbox)
+
    |Coluna|Definição|
    |---------|---------|
    |Data da solicitação|A data em que a solicitação de transferência foi enviada|

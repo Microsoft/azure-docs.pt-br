@@ -2,17 +2,15 @@
 title: Conceitos – atualizações de nuvem privada e atualizações
 description: Saiba mais sobre os principais processos e recursos de atualização da solução Azure VMware.
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 380e97eae559145a9ef5ed7b6e7bf14f18039eed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/02/2021
+ms.openlocfilehash: 78d4b566aa9156cdddfdcd69b50ebfd1d10aa784
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316793"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006693"
 ---
 # <a name="azure-vmware-solution-private-cloud-updates-and-upgrades"></a>Atualizações e upgrades de nuvem privada da solução Azure VMware
-
-## <a name="overview"></a>Visão geral
 
 Um dos principais benefícios das nuvens privadas da solução Azure VMware é que a plataforma é mantida para você. A manutenção de plataforma inclui atualizações automatizadas para um pacote de software validado pela VMware, ajudando a garantir que você esteja usando a versão mais recente do software de nuvem privada da solução Azure VMware validada.
 
@@ -55,11 +53,14 @@ Além de fazer atualizações, a solução Azure VMware usa um backup de configu
 
 Em momentos de falha, a solução Azure VMware pode restaurá-las do backup de configuração. 
 
-Para obter mais informações sobre versões de software VMware, consulte o [artigo conceito de nuvens privadas e clusters](concepts-private-clouds-clusters.md) e as [perguntas frequentes](faq.md).
+Para obter mais informações sobre versões de software VMware, consulte o [artigo conceito de nuvens privadas e clusters](concepts-private-clouds-clusters.md) e as [perguntas frequentes](faq.yml).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-A próxima etapa é [criar uma nuvem privada](tutorial-create-private-cloud.md).
+Agora que você já abordou os principais processos e recursos de atualização da solução Azure VMware, talvez queira saber mais sobre:
+
+- [Como criar uma nuvem privada](tutorial-create-private-cloud.md).
+- [Como habilitar o recurso de solução VMware do Azure](enable-azure-vmware-solution.md).
 
 <!-- LINKS - external -->
 

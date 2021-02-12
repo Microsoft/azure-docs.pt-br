@@ -1,18 +1,17 @@
 ---
 title: Saída Azure Data Lake Storage Gen 1 de Azure Stream Analytics
 description: Este artigo descreve Azure Data Lake Storage Gen 1 como uma opção de saída para Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 59b4a04231df3b93b093750cc6c9d70982a418a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 629a154c89ad301a3e200b1d6cd04c62057d9959
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665337"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016534"
 ---
 # <a name="azure-data-lake-storage-gen-1-output-from-azure-stream-analytics"></a>Saída Azure Data Lake Storage Gen 1 de Azure Stream Analytics
 
@@ -36,7 +35,7 @@ A tabela a seguir lista nomes de propriedade e suas descrições para configurar
 | Codificação | Se você estiver usando o formato CSV ou JSON, uma codificação deverá ser especificada. UTF-8 é o único formato de codificação com suporte no momento.|
 | Delimitador | Aplicável somente à serialização de CSV. O Stream Analytics é compatível com vários delimitadores comuns para serialização de dados CSV. Os valores com suporte são vírgula, ponto e vírgula, espaço, tab e barra vertical.|
 | Formatar | Aplicável somente à serialização de JSON. Uma **Linha separada** especifica que a saída é formatada com cada objeto JSON separado por uma nova linha. Se você selecionar **Linha separada**, o JSON será lido um objeto por vez. O conteúdo inteiro por si só não seria um JSON válido.  A **matriz** especifica que a saída é formatada como uma matriz de objetos JSON. Essa matriz é fechada somente quando o trabalho for interrompido ou o Stream Analytics tiver passado para a próxima janela de tempo. Em geral, é preferível usar o JSON separado por linha, porque ele não exige nenhuma manipulação especial enquanto o arquivo de saída ainda estiver sendo gravado.|
-| Modo de autenticação | Você pode autorizar o acesso à sua conta do Data Lake Storage usando a [Identidade Gerenciada](stream-analytics-managed-identities-adls.md) ou Token de usuário. Depois de conceder acesso, você pode revogar o acesso alterando a senha da conta do usuário, excluindo a saída do Data Lake Storage para esse trabalho ou excluindo o trabalho do Stream Analytics. |
+| Modo de autenticação | Você pode autorizar o acesso à sua conta de Data Lake Storage usando a [identidade gerenciada](stream-analytics-managed-identities-adls.md) (versão prévia) ou o token de usuário. Depois de conceder acesso, você pode revogar o acesso alterando a senha da conta do usuário, excluindo a saída do Data Lake Storage para esse trabalho ou excluindo o trabalho do Stream Analytics. |
 
 ## <a name="partitioning"></a>Particionamento
 
@@ -48,9 +47,5 @@ Para obter o tamanho máximo da mensagem, consulte [limites de data Lake Storage
 
 ## <a name="next-steps"></a>Próximas etapas
 
+* [Autenticar Stream Analytics para Azure Data Lake Storage Gen1 usando identidades gerenciadas (versão prévia)](stream-analytics-managed-identities-adls.md)
 * [Início Rápido: Criar um trabalho do Stream Analytics usando o portal do Azure](stream-analytics-quick-create-portal.md)
-* [Início Rápido: Criar um trabalho do Azure Stream Analytics usando a CLI do Azure](quick-create-azure-cli.md)
-* [Início Rápido: Criar um trabalho do Azure Stream Analytics usando um modelo do Resource Manager](quick-create-azure-resource-manager.md)
-* [Início rápido: criar um trabalho de Stream Analytics usando Azure PowerShell](stream-analytics-quick-create-powershell.md)
-* [Início Rápido: Criar um trabalho do Azure Stream Analytics usando o Visual Studio](stream-analytics-quick-create-vs.md)
-* [Início rápido: criar um trabalho de Azure Stream Analytics no Visual Studio Code](quick-create-visual-studio-code.md)

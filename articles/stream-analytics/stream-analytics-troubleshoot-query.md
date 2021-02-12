@@ -1,19 +1,18 @@
 ---
 title: Solucionar problemas de consultas do Azure Stream Analytics
 description: Este artigo descreve as técnicas para solucionar problemas das suas consultas nos trabalhos do Azure Stream Analytics.
-author: sidram
+author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: c2c199b2366f2708af19c1868cce09e0ba38fc96
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 0dc36b817d5b5cdf731edecd64e1879c153d866a
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130248"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015123"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Solucionar problemas de consultas do Azure Stream Analytics
 
@@ -25,7 +24,7 @@ Este artigo descreve problemas comuns com o desenvolvimento de consultas do Azur
 
 1.  Examine os erros testando localmente:
 
-    - No portal do Azure, na guia **Consulta** , selecione **Teste** . Use os dados de exemplo baixado para [testar a consulta](stream-analytics-test-query.md). Examine os erros e tente corrigi-los.   
+    - No portal do Azure, na guia **Consulta**, selecione **Teste**. Use os dados de exemplo baixado para [testar a consulta](stream-analytics-test-query.md). Examine os erros e tente corrigi-los.   
     - Você também pode [testar sua consulta localmente](stream-analytics-live-data-local-testing.md) usando as ferramentas do Azure Stream Analytics para Visual Studio ou [Visual Studio Code](visual-studio-code-local-run-live-input.md). 
 
 2.  [Depurar consultas passo a passo localmente usando o diagrama de trabalho](debug-locally-using-job-diagram-vs-code.md) em ferramentas de Azure Stream Analytics para Visual Studio Code. O diagrama de trabalho mostra como os dados fluem de fontes de entrada (hub de eventos, Hub IoT, etc.) por meio de várias etapas de consulta e finalmente para coletores de saída. Cada etapa da consulta é mapeada para um conjunto de resultados temporário definido no script usando a instrução WITH. Você pode exibir os dados, além das métricas, em cada conjunto de resultados intermediários para localizar a origem do problema.
@@ -51,6 +50,8 @@ Este artigo descreve problemas comuns com o desenvolvimento de consultas do Azur
 
 Este artigo mostra como tirar proveito da paralelização no Azure Stream Analytics. Você pode aprender a [dimensionar com paralelização de consultas](stream-analytics-parallelization.md) de trabalhos do Stream Analytics configurando partições de entrada e ajustando a definição da consulta de análise.
 
+Se a utilização de recursos estiver consistentemente acima de 80%, o atraso de marca d' água será aumentado e o número de eventos de registro posterior estará aumentando, considere aumentar as unidades de streaming. A alta utilização indica que o trabalho está usando próximo ao máximo de recursos alocados.
+
 ## <a name="debug-queries-progressively"></a>Depurar consultas progressivamente
 
 No processamento de dados em tempo real, saber qual será a aparência dos dados no meio da consulta pode ser útil. Isso pode ser visto no diagrama de trabalho no Visual Studio. Se não tiver o Visual Studio, você poderá executar etapas adicionais para gerar dados intermediários.
@@ -61,7 +62,7 @@ O exemplo de consulta a seguir em um trabalho do Stream Analytics do Azure tem u
 
 ![No Stream Analytics, consulta SELECIONAR EM](./media/stream-analytics-select-into/stream-analytics-select-into-query1.png)
 
-Observe que o trabalho está em execução, mas não há eventos sendo gerados na saída. No bloco **Monitoramento** , mostrado aqui, você pode ver que a entrada está gerando dados, mas não dá para saber qual etapa de **JOIN** fez com que todos os eventos fossem removidos.
+Observe que o trabalho está em execução, mas não há eventos sendo gerados na saída. No bloco **Monitoramento**, mostrado aqui, você pode ver que a entrada está gerando dados, mas não dá para saber qual etapa de **JOIN** fez com que todos os eventos fossem removidos.
 
 ![Bloco de Monitoramento do Stream Analytics](./media/stream-analytics-select-into/stream-analytics-select-into-monitor.png)
 
@@ -103,7 +104,7 @@ Dessa vez, os dados na saída são formatados e preenchidos conforme esperado.
 
 ## <a name="get-help"></a>Obter ajuda
 
-Para obter mais ajuda, experimente a nossa [página de Perguntas e respostas da Microsoft do Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
+Para obter mais assistência, confira nossa [página de Perguntas e respostas do Microsoft do Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Próximas etapas
 

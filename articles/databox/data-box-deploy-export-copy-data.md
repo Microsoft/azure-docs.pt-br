@@ -6,17 +6,17 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/10/2020
+ms.date: 12/18/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: fb1415874c42e3913d98d4a674732a4d9b98a0c5
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 495b4427fb7e456c60a489b9ce3d19c2a44bd918
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123901"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680897"
 ---
-# <a name="tutorial-copy-data-from-azure-data-box-via-smb-preview"></a>Tutorial: Copiar dados do Azure Data Box por meio de SMB (Versão Prévia)
+# <a name="tutorial-copy-data-from-azure-data-box-via-smb"></a>Tutorial: Copiar dados do Azure Data Box por meio do SMB
 
 Este tutorial descreve como conectar-se e copiar dados do Data Box para um servidor local usando a IU da Web local. O dispositivo Data Box contém os dados exportados da sua conta de Armazenamento do Azure.
 
@@ -27,8 +27,6 @@ Neste tutorial, você aprenderá como:
 > * Pré-requisitos
 > * Conectar-se à caixa de dados
 > * Copiar dados do Data Box
-
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -54,7 +52,7 @@ Se estiver usando um computador host do Windows Server, siga estas etapas para c
 
 2. No compartilhamento de acesso e caixa de diálogo de dados de cópia, copie o **nome de usuário** e o **senha** correspondente para o compartilhamento. Selecione **OK**.
     
-    ![Obter as credenciais de compartilhamento 2](media/data-box-deploy-export-copy-data/get-share-credentials-2.png)
+    ![Obter credenciais de compartilhamento, bem como acessar o compartilhamento e copiar dados](media/data-box-deploy-export-copy-data/get-share-credentials-2.png)
 
 3. Para acessar os compartilhamentos associados à sua conta de armazenamento (*exportbvtdataset2* no exemplo a seguir) no computador host, abra uma janela Comando. No prompt de comando, digite:
 
@@ -73,13 +71,13 @@ Se estiver usando um computador host do Windows Server, siga estas etapas para c
     The command completed successfully.
     ```
 
-4. Pressione Windows + R. Na janela **Executar**, especifique o `\\<device IP address>`. Selecione **OK** para abrir o Explorador de Arquivos.
+5. Pressione Windows + R. Na janela **Executar**, especifique o `\\<device IP address>`. Selecione **OK** para abrir o Explorador de Arquivos.
     
-    ![Conectar-se ao compartilhamento por meio do Explorador de Arquivos](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
+    ![Conectar-se para compartilhar por meio do Explorador de Arquivos e inserir o IP do dispositivo](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
 
     Agora você verá os compartilhamentos como pastas.
     
-    ![Conecte-se para compartilhar via File Explorer 2](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-2.png)
+    ![Conectar-se para compartilhar por meio do Explorador de Arquivos e exibir compartilhamentos](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-2.png)
 
     
 Se estiver usando um cliente Linux, use o seguinte comando para montar o compartilhamento SMB. O parâmetro "vers" abaixo é a versão do SMB compatível com seu host do Linux. Conecte a versão adequada no comando a seguir. Para versões do SMB compatíveis com o Data Box, consulte [Sistemas de arquivo compatíveis para clientes Linux](./data-box-system-requirements.md#supported-file-transfer-protocols-for-clients) 

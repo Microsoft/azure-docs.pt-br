@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.custom: contperfq2
-ms.openlocfilehash: cbe3bedb188b563bb29ad1aa6e6e53e3039f1d51
-ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 2f0b6feea5e586c87191b22f42e3ab86e85ba7b3
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170347"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032517"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gerenciar dispositivos no aplicativo Azure IoT Central
 
@@ -142,7 +142,7 @@ Para exportar em massa os dispositivos do seu aplicativo:
 
 Para obter mais informações sobre cadeias de conexão e conectar dispositivos reais ao seu aplicativo IoT Central, consulte [conectividade de dispositivo no IOT central do Azure](concepts-get-connected.md).
 
-## <a name="delete-a-device"></a>Excluir um dispositivo
+## <a name="delete-a-device"></a>excluir um dispositivo e
 
 Para excluir um dispositivo real ou simulado do aplicativo Azure IoT Central:
 
@@ -166,7 +166,7 @@ As propriedades de nuvem são os metadados de dispositivo associados ao disposit
 
 1. Modifique as propriedades para os valores necessários. Você pode modificar várias propriedades por vez e atualizá-las ao mesmo tempo.
 
-1. Escolha **Salvar**. Se você salvou as propriedades graváveis, os valores serão enviados ao seu dispositivo. Quando o dispositivo confirma a alteração da propriedade Writeable, o status retorna de volta para **sincronizado**. Se você salvou uma propriedade de nuvem, o valor será atualizado.
+1. Selecione **Salvar**. Se você salvou as propriedades graváveis, os valores serão enviados ao seu dispositivo. Quando o dispositivo confirma a alteração da propriedade Writeable, o status retorna de volta para **sincronizado**. Se você salvou uma propriedade de nuvem, o valor será atualizado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

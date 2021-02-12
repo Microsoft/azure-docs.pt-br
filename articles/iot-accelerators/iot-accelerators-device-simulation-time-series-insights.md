@@ -8,12 +8,12 @@ ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: db9ba3efe60af830c0e15310b6127c18130f00b9
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: e1409b43f0ce1fc0d8c622dda79e857ac6abdd33
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076242"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854556"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Use as informações do Time Series para visualizar a telemetria enviada a partir do acelerador de solução do Device Simulation
 
@@ -23,7 +23,7 @@ O acelerador de solução Device Simulation permite gerar telemetria de disposit
 
 Para seguir as etapas deste guia prático, você precisa de uma assinatura ativa do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-As etapas neste guia prático pressupõem que você tenha implantado o acelerador da solução Simulação de dispositivos em sua assinatura do Azure. Se você não tiver implantado o acelerador de solução, siga as etapas no [Implantar e executar um início rápido da solução de simulação de dispositivo baseada em nuvem](quickstart-device-simulation-deploy.md).
+As etapas neste guia prático pressupõem que você tenha implantado o acelerador da solução Simulação de dispositivos em sua assinatura do Azure. Se você ainda não implantou a simulação de dispositivo, consulte [implantação de simulação de dispositivo](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) no github.
 
 Este artigo presume que o nome do seu acelerador de solução é **contoso-simulation**. Substitua **contoso-simulation** pelo nome do seu acelerador de solução ao concluir as etapas a seguir.
 
@@ -68,7 +68,7 @@ As etapas a seguir usam a CLI do Azure no Azure Cloud Shell para criar o grupo d
     | Nome do ambiente | A captura de tela a seguir usa o nome **Contoso-TSI**. Ao concluir esta etapa, escolha seu próprio nome exclusivo. |
     | Subscription | Na lista suspensa, selecione sua assinatura do Azure. |
     | Resource group | **contoso-simulation**. Use o nome do seu acelerador de solução. |
-    | Location | Este exemplo usa **Leste dos EUA**. Crie seu ambiente na mesma região que seu acelerador de simulação de dispositivo. |
+    | Localização | Este exemplo usa **Leste dos EUA**. Crie seu ambiente na mesma região que seu acelerador de simulação de dispositivo. |
     | Sku |**S1** |
     | Capacity | **1** |
 

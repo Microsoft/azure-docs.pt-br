@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: faa98f1c52cfe2dd0e19f085f4d33dedb6f01851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac2690a5f18bb58c29b433f4a07e52096bbd268b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934881"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701578"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Pesquisa difusa para corrigir erros ortográficos e erros de digitação
 
@@ -73,7 +73,7 @@ No Azure Pesquisa Cognitiva, além do termo e da distância (máximo de 2), não
 
 ## <a name="testing-fuzzy-search"></a>Testando pesquisa difusa
 
-Para testes simples, recomendamos que o [Search Explorer](search-explorer.md) ou o [postmaster](search-get-started-postman.md) se sobreiterando em uma expressão de consulta. Ambas as ferramentas são interativas, o que significa que você pode percorrer rapidamente várias variantes de um termo e avaliar as respostas que retornam.
+Para testes simples, recomendamos que o [Search Explorer](search-explorer.md) ou o [postmaster](search-get-started-rest.md) se sobreiterando em uma expressão de consulta. Ambas as ferramentas são interativas, o que significa que você pode percorrer rapidamente várias variantes de um termo e avaliar as respostas que retornam.
 
 Quando os resultados são ambíguos, o [realce de ocorrências](search-pagination-page-layout.md#hit-highlighting) pode ajudá-lo a identificar a correspondência na resposta. 
 
@@ -132,7 +132,7 @@ Observe que a mesma resposta é retornada, mas agora, em vez de corresponder ao 
 
 O ponto deste exemplo expandido é ilustrar a clareza de que o realce de pressionamento pode trazer resultados ambíguos. Em todos os casos, o mesmo documento é retornado. Se você confiava em IDs de documento para verificar uma correspondência, talvez tenha perdido a mudança de "especial" para "SQL".
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 + [Como a pesquisa de texto completo funciona no Azure Pesquisa Cognitiva (arquitetura de análise de consulta)](search-lucene-query-architecture.md)
 + [Gerenciador de pesquisa](search-explorer.md)

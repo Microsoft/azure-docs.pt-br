@@ -1,6 +1,5 @@
 ---
-title: Conceitos de eventos ao vivo e saídas ao vivo nos serviços de mídia do Azure v3
-titleSuffix: Azure Media Services
+title: Conceitos de eventos ao vivo e saídas ao vivo
 description: Este tópico fornece uma visão geral de eventos ao vivo e saídas ao vivo nos serviços de mídia do Azure v3.
 services: media-services
 documentationcenter: ''
@@ -14,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: 300d9e433b4c57f2868416d866f1dcff6c189fb7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 0b223fcedfdead991f7ce374f7f7814749388f90
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784449"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955946"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventos e saídas ao vivo nos Serviços de Mídia
 
@@ -28,7 +27,7 @@ ms.locfileid: "92784449"
 Os serviços de mídia do Azure permitem que você forneça eventos ao vivo para seus clientes na nuvem do Azure. Para configurar seus eventos de transmissão ao vivo nos serviços de mídia v3, você precisa entender os conceitos discutidos neste artigo.
 
 > [!TIP]
-> Para clientes que estão migrando das APIs do Media Services v2, a entidade de **evento ao vivo** substitui o **canal** em v2 e a **saída ao vivo** substitui o **programa** .
+> Para clientes que estão migrando das APIs do Media Services v2, a entidade de **evento ao vivo** substitui o **canal** em v2 e a **saída ao vivo** substitui o **programa**.
 
 ## <a name="live-events"></a>Eventos ao vivo
 
@@ -38,15 +37,15 @@ Os serviços de mídia do Azure permitem que você forneça eventos ao vivo para
 
 Um [evento ao vivo](/rest/api/media/liveevents) pode ser definido como uma *passagem* (um codificador ao vivo local envia um fluxo de várias taxas de bits) ou *codificação ativa* (um codificador ao vivo local envia um fluxo de taxa de bits única). Os tipos são definidos durante a criação usando [LiveEventEncodingType](/rest/api/media/liveevents/create#liveeventencodingtype):
 
-* **LiveEventEncodingType. None** : um codificador ao vivo local envia um fluxo de taxas de bits múltiplas. O fluxo ingerido passa pelo evento ao vivo sem nenhum processamento adicional. Também chamado de modo de passagem.
-* **LiveEventEncodingType. Standard** : um codificador ao vivo local envia um fluxo de taxa de bits única para o evento ao vivo e os serviços de mídia criam fluxos de taxas de bits múltiplas. Se o feed de contribuição for de 720p ou de resolução superior, a predefinição de **default720p** codificará um conjunto de 6 pares de resolução/taxa de bits.
-* **LiveEventEncodingType. Premium1080p** : um codificador ao vivo local envia um fluxo de taxa de bits única para o evento ao vivo e os serviços de mídia criam fluxos de taxa de bits múltiplas. A predefinição de default1080p especifica o conjunto de saída de pares de resolução/taxa de bits.
+* **LiveEventEncodingType. None**: um codificador ao vivo local envia um fluxo de taxas de bits múltiplas. O fluxo ingerido passa pelo evento ao vivo sem nenhum processamento adicional. Também chamado de modo de passagem.
+* **LiveEventEncodingType. Standard**: um codificador ao vivo local envia um fluxo de taxa de bits única para o evento ao vivo e os serviços de mídia criam fluxos de taxas de bits múltiplas. Se o feed de contribuição for de 720p ou de resolução superior, a predefinição de **default720p** codificará um conjunto de 6 pares de resolução/taxa de bits.
+* **LiveEventEncodingType. Premium1080p**: um codificador ao vivo local envia um fluxo de taxa de bits única para o evento ao vivo e os serviços de mídia criam fluxos de taxa de bits múltiplas. A predefinição de default1080p especifica o conjunto de saída de pares de resolução/taxa de bits.
 
 ### <a name="pass-through"></a>Passagem
 
 ![diagrama de exemplo de passagem ao vivo com serviços de mídia](./media/live-streaming/pass-through.svg)
 
-Ao usar o evento de passagem **ao vivo** , você depende de seu codificador ao vivo local para gerar um fluxo de vídeo com várias taxas de bits e enviá-lo como o feed de contribuição para o evento ao vivo (usando o protocolo RTMP ou MP4 fragmentado). O evento ao vivo então executa os fluxos de vídeo de entrada sem nenhum processamento adicional. Esse evento ao vivo de passagem é otimizado para eventos ao vivo de execução longa ou transmissão ao vivo linear 24x365. Ao criar esse tipo de evento ao vivo, especifique nenhum (LiveEventEncodingType. None).
+Ao usar o evento de passagem **ao vivo**, você depende de seu codificador ao vivo local para gerar um fluxo de vídeo com várias taxas de bits e enviá-lo como o feed de contribuição para o evento ao vivo (usando o protocolo RTMP ou MP4 fragmentado). O evento ao vivo então executa os fluxos de vídeo de entrada sem nenhum processamento adicional. Esse evento ao vivo de passagem é otimizado para eventos ao vivo de execução longa ou transmissão ao vivo linear 24x365. Ao criar esse tipo de evento ao vivo, especifique nenhum (LiveEventEncodingType. None).
 
 Você pode enviar a contribuição em resoluções de até 4K e em uma taxa de quadros de 60 quadros / segundo, com codecs de vídeo H.264/AVC ou H.265/HEVC e AAC (AAC-LC, HE-AACv1 ou HE-AACv2) codec de áudio. Para obter mais informações, consulte [comparação de tipos de eventos ao vivo](live-event-types-comparison.md).
 
@@ -136,7 +135,7 @@ Você pode usar URLs intuitivas ou não intuitivas.
     O modo intuitivo é preferido por difusores de mídia grandes que usam codificadores de difusão de hardware e não desejam reconfigurar seus codificadores quando eles iniciam o evento ao vivo. Esses difusores desejam uma URL de ingestão preditiva que não é alterada ao longo do tempo.
 
     > [!NOTE]
-    > No portal do Azure, a URL intuitivo é denominada " *prefixo de nome de host estático* ".
+    > No portal do Azure, a URL intuitivo é denominada "*prefixo de nome de host estático*".
 
     Para especificar esse modo na API, defina `useStaticHostName` como `true` no momento da criação (o padrão é `false` ). Quando `useStaticHostname` é definido como true, o `hostnamePrefix` especifica a primeira parte do nome de host atribuído aos pontos de extremidade de visualização e ingestão de eventos ao vivo. O hostname final seria uma combinação desse prefixo, o nome da conta do serviço de mídia e um código curto para os data center dos serviços de mídia do Azure.
 
@@ -146,17 +145,17 @@ Você pode usar URLs intuitivas ou não intuitivas.
 
     Use as seguintes APIs para habilitar a URL intuitivo e definir o token de acesso para um GUID válido (por exemplo, `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"` ).  
 
-    |Linguagem|Habilitar URL intuitivo|Definir token de acesso|
+    |Idioma|Habilitar URL intuitivo|Definir token de acesso|
     |---|---|---|
     |REST|[Properties. vanityUrl](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput. accessToken](/rest/api/media/liveevents/create#liveeventinput)|
     |CLI|[--intuitivo-URL](/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--Access-token](/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
-    |.NET|[LiveEvent. VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent.vanityurl?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput. AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    |.NET|[LiveEvent. VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput. AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
 
 ### <a name="live-ingest-url-naming-rules"></a>Regras de nomenclatura de URL de ingestão dinâmica
 
 * A cadeia de caracteres *aleatória* abaixo é um número hexadecimal de 128 bits composto de 32 caracteres de “0” a “9” e “a” a “f”.
-* *seu token de acesso* : a cadeia de caracteres GUID válida que você define ao usar o modo intuitivo. Por exemplo, `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
-* *nome do fluxo* : indica o nome do fluxo para uma conexão específica. O valor do nome do fluxo geralmente é adicionado pelo codificador ao vivo que você usa. Você pode configurar o codificador ao vivo para usar qualquer nome para descrever a conexão, por exemplo: "video1_audio1", "video2_audio1", "fluxo".
+* *seu token de acesso*: a cadeia de caracteres GUID válida que você define ao usar o modo intuitivo. Por exemplo, `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
+* *nome do fluxo*: indica o nome do fluxo para uma conexão específica. O valor do nome do fluxo geralmente é adicionado pelo codificador ao vivo que você usa. Você pode configurar o codificador ao vivo para usar qualquer nome para descrever a conexão, por exemplo: "video1_audio1", "video2_audio1", "fluxo".
 
 #### <a name="non-vanity-url"></a>URL não intuitiva
 

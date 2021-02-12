@@ -1,25 +1,25 @@
 ---
-title: Depurar & solucionar problemas de pipelines de ML
+title: Solução de problemas de pipelines de ML
 titleSuffix: Azure Machine Learning
-description: Depure seus pipelines de Azure Machine Learning no Python. Aprenda armadilhas comuns para desenvolver pipelines e dicas para ajudá-lo a depurar seus scripts antes e durante a execução remota.
+description: Como solucionar problemas ao obter erros ao executar um pipeline do Machine Learning. Armadilhas e dicas comuns para ajudar a depurar seus scripts antes e durante a execução remota.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 author: lobrien
 ms.author: laobri
 ms.date: 10/22/2020
-ms.topic: conceptual
-ms.custom: troubleshooting, devx-track-python, contperfq2
-ms.openlocfilehash: ce32871620cc0a471e56a5b65191834d7c23b88d
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.topic: troubleshooting
+ms.custom: troubleshooting, devx-track-python, contperf-fy21q2
+ms.openlocfilehash: 0f27688e31f772cc8d784371aa570d55c41f5695
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735711"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131807"
 ---
-# <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Depurar e solucionar problemas de pipelines do aprendizado de máquina
+# <a name="troubleshooting-machine-learning-pipelines"></a>Solucionando problemas de pipelines do Machine Learning
 
-Neste artigo, você aprenderá a depurar e solucionar problemas de [pipelines do Machine Learning](concept-ml-pipelines.md) no [SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) e no [Designer de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-designer). 
+Neste artigo, você aprenderá a solucionar problemas ao obter erros ao executar um [pipeline do Machine Learning](concept-ml-pipelines.md) no [SDK do Azure Machine Learning](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) e no designer de [Azure Machine Learning](./concept-designer.md). 
 
 ## <a name="troubleshooting-tips"></a>Dicas de solução de problemas
 
@@ -28,12 +28,26 @@ A tabela a seguir contém problemas comuns durante o desenvolvimento de pipeline
 | Problema | Solução possível |
 |--|--|
 | Não é possível passar dados para o `PipelineData` diretório | Verifique se você criou um diretório no script que corresponde a onde o seu pipeline espera os dados de saída da etapa. Na maioria dos casos, um argumento de entrada definirá o diretório de saída e, em seguida, você criará o diretório explicitamente. Use `os.makedirs(args.output_dir, exist_ok=True)` para criar o diretório de saída. Consulte o [tutorial](tutorial-pipeline-batch-scoring-classification.md#write-a-scoring-script) para obter um exemplo de script de pontuação que mostra esse padrão de design. |
-| Bugs de dependência | Se você vir erros de dependência em seu pipeline remoto que não ocorreram durante o teste local, confirme se as suas dependências e versões de ambiente remoto correspondem àquelas em seu ambiente de teste. (Consulte [criação de ambiente, Caching e reutilização](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse)|
+| Bugs de dependência | Se você vir erros de dependência em seu pipeline remoto que não ocorreram durante o teste local, confirme se as suas dependências e versões de ambiente remoto correspondem àquelas em seu ambiente de teste. (Consulte [criação de ambiente, Caching e reutilização](./concept-environments.md#environment-building-caching-and-reuse)|
 | Erros ambíguos com destinos de computação | Tente excluir e recriar destinos de computação. Recriar destinos de computação é rápido e pode resolver alguns problemas transitórios. |
 | O pipeline não está Reutilizando as etapas | A reutilização de etapa é habilitada por padrão, mas certifique-se de que você não a desabilitou em uma etapa de pipeline. Se a reutilização estiver desabilitada, o `allow_reuse` parâmetro na etapa será definido como `False` . |
 | O pipeline está sendo executado desnecessariamente | Para garantir que as etapas sejam executadas somente quando seus dados ou scripts subjacentes forem alterados, desassocie os diretórios de código-fonte para cada etapa. Se você usar o mesmo diretório de origem para várias etapas, poderá ocorrer uma reexecutação desnecessária. Use o `source_directory` parâmetro em um objeto Step de pipeline para apontar para seu diretório isolado para essa etapa e verifique se você não está usando o mesmo `source_directory` caminho para várias etapas. |
 | Etapa reduzindo as épocas de treinamento ou outro comportamento de looping | Tente alternar qualquer gravação de arquivo, incluindo registro em log, de `as_mount()` para `as_upload()` . O modo de **montagem** usa um sistema de arquivos virtualizado remoto e carrega todo o arquivo cada vez que é anexado. |
+| O destino de computação leva muito tempo para iniciar | As imagens do Docker para destinos de computação são carregadas do ACR (registro de contêiner do Azure). Por padrão, Azure Machine Learning cria um ACR que usa a camada de serviço *básica* . Alterar o ACR para o seu espaço de trabalho para a camada Standard ou Premium pode reduzir o tempo necessário para criar e carregar imagens. Para obter mais informações, confira [Níveis de serviço do Registro de Contêiner do Azure](../container-registry/container-registry-skus.md). |
 
+### <a name="authentication-errors"></a>Erros de autenticação
+
+Se executar uma operação de gerenciamento em um destino de computação de um trabalho remoto, você receberá um dos seguintes erros: 
+
+```json
+{"code":"Unauthorized","statusCode":401,"message":"Unauthorized","details":[{"code":"InvalidOrExpiredToken","message":"The request token was either invalid or expired. Please try again with a valid token."}]}
+```
+
+```json
+{"error":{"code":"AuthenticationFailed","message":"Authentication failed."}}
+```
+
+Por exemplo, você receberá um erro se tentar criar ou anexar um destino de computação de um Pipeline de ML que é enviado para execução remota.
 ## <a name="troubleshooting-parallelrunstep"></a>Solução `ParallelRunStep` 
 
 O script para um `ParallelRunStep` *deve conter* duas funções:
@@ -125,7 +139,7 @@ Crie o ParallelRunStep usando o script, a configuração do ambiente e os parâm
 - `parallel_run_config`: Um objeto `ParallelRunConfig`, conforme definido anteriormente.
 - `inputs`: um ou mais conjuntos de dados do Azure Machine Learning de tipo único a serem particionados para processamento paralelo.
 - `side_inputs`: um ou mais dados de referência ou conjuntos de dados usados como entradas laterais sem a necessidade de partição.
-- `output`: Um objeto `PipelineData` que corresponde ao diretório de saída.
+- `output`: Um `OutputFileDatasetConfig` objeto que corresponde ao diretório de saída.
 - `arguments`: uma lista de argumentos passados para o script do usuário. Use unknown_args para recuperá-los em seu script de entrada (opcional).
 - `allow_reuse`: Se a etapa deve reutilizar os resultados anteriores quando executada com as mesmas configurações/entradas. Se esse parâmetro for `False`, uma nova execução sempre será gerada para essa etapa durante a execução do pipeline. (opcional; o valor padrão é `True`.)
 
@@ -178,9 +192,9 @@ A tabela a seguir fornece informações para opções de depuração diferentes 
 
 | Biblioteca                    | Type   | Exemplo                                                          | Destino                                  | Recursos                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SDK do Azure Machine Learning | Métrica | `run.log(name, val)`                                             | Interface do usuário do portal do Azure Machine Learning             | [Como acompanhar experimentos](how-to-track-experiments.md)<br>[classe azureml. Core. Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true)                                                                                                                                                 |
+| SDK do Azure Machine Learning | Metric | `run.log(name, val)`                                             | Interface do usuário do portal do Azure Machine Learning             | [Como acompanhar experimentos](how-to-track-experiments.md)<br>[classe azureml. Core. Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py)                                                                                                                                                 |
 | Impressão/log do Python    | Registro    | `print(val)`<br>`logging.info(message)`                          | Logs de driver, designer de Azure Machine Learning | [Como acompanhar experimentos](how-to-track-experiments.md)<br><br>[Registro em log do Python](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
-| OpenCensus Python          | Registro    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Rastreamentos de Application Insights                | [Depurar pipelines no Application Insights](how-to-debug-pipelines-application-insights.md)<br><br>[Exportadores OpenCensus Azure Monitor](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Guia de registro em log do Python](https://docs.python.org/3/howto/logging-cookbook.html) |
+| OpenCensus Python          | Registro    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Rastreamentos de Application Insights                | [Depurar pipelines no Application Insights](./how-to-log-pipelines-application-insights.md)<br><br>[Exportadores OpenCensus Azure Monitor](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Guia de registro em log do Python](https://docs.python.org/3/howto/logging-cookbook.html) |
 
 #### <a name="logging-options-example"></a>Exemplo de opções de log
 
@@ -220,7 +234,7 @@ Para pipelines criados no designer, você pode encontrar o arquivo de **70_drive
 
 ### <a name="enable-logging-for-real-time-endpoints"></a>Habilitar o registro em log para pontos de extremidade em tempo real
 
-Para solucionar problemas e depurar pontos de extremidade em tempo real no designer, você deve habilitar o log do Application insights usando o SDK. O registro em log permite solucionar problemas e depurar questões de uso e implantação de modelo. Para obter mais informações, consulte [Logging for deployed Models](how-to-enable-logging.md#logging-for-deployed-models). 
+Para solucionar problemas e depurar pontos de extremidade em tempo real no designer, você deve habilitar o log do Application insights usando o SDK. O registro em log permite solucionar problemas e depurar questões de uso e implantação de modelo. Para obter mais informações, consulte [Logging for deployed Models](./how-to-enable-app-insights.md). 
 
 ### <a name="get-logs-from-the-authoring-page"></a>Obter logs da página de criação
 
@@ -248,7 +262,7 @@ Você também pode encontrar os arquivos de log para execuções específicas na
 > Para atualizar um pipeline da página de detalhes de execução do pipeline, você deve **clonar** a execução do pipeline para um novo rascunho do pipeline. Uma execução de pipeline é um instantâneo do pipeline. Ele é semelhante a um arquivo de log e não pode ser alterado. 
 
 ## <a name="application-insights"></a>Application Insights
-Para obter mais informações sobre como usar a biblioteca do OpenCensus Python dessa maneira, consulte este guia: [depurar e solucionar problemas de pipelines do Machine Learning no Application insights](how-to-debug-pipelines-application-insights.md)
+Para obter mais informações sobre como usar a biblioteca do OpenCensus Python dessa maneira, consulte este guia: [depurar e solucionar problemas de pipelines do Machine Learning no Application insights](./how-to-log-pipelines-application-insights.md)
 
 ## <a name="interactive-debugging-with-visual-studio-code"></a>Depuração interativa com Visual Studio Code
 
@@ -260,6 +274,6 @@ Em alguns casos, talvez seja necessário depurar interativamente o código Pytho
 
 * Para obter um exemplo completo mostrando o Machine Learning automatizado em pipelines de ML, consulte [usar o ml automatizado em um pipeline de Azure Machine Learning no Python](how-to-use-automlstep-in-pipelines.md).
 
-* Consulte a referência do SDK para obter ajuda com o pacote [azureml-pipelines-Core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py&preserve-view=true) e o pacote [azureml-pipelines-Steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py&preserve-view=true) .
+* Consulte a referência do SDK para obter ajuda com o pacote [azureml-pipelines-Core](/python/api/azureml-pipeline-core/?preserve-view=true&view=azure-ml-py) e o pacote [azureml-pipelines-Steps](/python/api/azureml-pipeline-steps/?preserve-view=true&view=azure-ml-py) .
 
 * Consulte a lista de [exceções de designer e códigos de erro](algorithm-module-reference/designer-error-codes.md).

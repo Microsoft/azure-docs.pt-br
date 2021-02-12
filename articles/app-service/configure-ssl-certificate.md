@@ -6,18 +6,21 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 3201870d2d738a867f89166904d668b5596cbcdf
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 15a77835e3e618c17b9839aa5a010cd4d29cebe1
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149064"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653105"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Adicionar um certificado TLS/SSL ao Serviço de Aplicativo do Azure
 
 O [Serviço de Aplicativo do Azure](overview.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches. Este artigo mostra como criar, carregar ou importar um certificado privado ou público no Serviço de Aplicativo. 
 
 Depois que o certificado for adicionado ao aplicativo Serviço de Aplicativo ou [aplicativo de funções](../azure-functions/index.yml), você poderá [proteger um nome DNS personalizado com ele](configure-ssl-bindings.md) ou [usá-lo em seu código do aplicativo](configure-ssl-certificate-in-code.md).
+
+> [!NOTE]
+> Um certificado carregado em um aplicativo é armazenado em uma unidade de implantação que esteja associada ao grupo de recursos do aplicativo e à combinação de região (internamente chamada de *espaço na Web*). Isso torna o certificado acessível a outros aplicativos na mesma combinação de grupo de recursos e região. 
 
 A tabela a seguir lista as opções disponíveis para adição de certificados no Serviço de Aplicativo:
 
@@ -105,6 +108,8 @@ Se você já tiver um certificado funcional do Serviço de Aplicativo, poderá:
 
 - [Importar o certificado no Serviço de Aplicativo](#import-certificate-into-app-service).
 - [Gerenciar o certificado](#manage-app-service-certificates), por exemplo, renovar, rechavear e exportá-lo.
+> [!NOTE]
+> Não há suporte para os Certificados do Serviço de Aplicativo nas Nuvens Nacionais do Azure no momento.
 
 ### <a name="start-certificate-order"></a>Iniciar o pedido de certificado
 

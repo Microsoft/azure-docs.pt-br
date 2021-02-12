@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 07/17/2017
 ms.custom: devx-track-java
 ms.author: cynthn
-ms.openlocfilehash: f571dc5f4f3aee2405d4968b050bd2dd92a709db
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 568760dcaebbad0e14405e14c5a5bf8f6cd18395
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973658"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197448"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Criar e gerenciar VMs Windows no Azure usando o Java
 
-Uma [VM (Máquina Virtual) do Azure](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) precisa de vários recursos do Azure suporte. Este artigo aborda a criação, o gerenciamento e a exclusão de recursos de VM usando o Java. Você aprenderá como:
+Uma [VM (Máquina Virtual) do Azure](overview.md) precisa de vários recursos do Azure suporte. Este artigo aborda a criação, o gerenciamento e a exclusão de recursos de VM usando o Java. Você aprenderá como:
 
 > [!div class="checklist"]
 > * Criar um projeto Maven
@@ -288,7 +288,7 @@ input.nextLine();
 ```
 
 > [!NOTE]
-> Este tutorial cria uma máquina virtual executando uma versão do sistema operacional do Windows Server. Para saber mais sobre a seleção de outras imagens, veja [Navegar e selecionar imagens de máquina virtual do Azure com o Windows PowerShell e a CLI do Azure](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Este tutorial cria uma máquina virtual executando uma versão do sistema operacional do Windows Server. Para saber mais sobre a seleção de outras imagens, veja [Navegar e selecionar imagens de máquina virtual do Azure com o Windows PowerShell e a CLI do Azure](../linux/cli-ps-findimage.md).
 > 
 >
 

@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/23/2020
 ms.author: JenCook
-ms.openlocfilehash: 4723bce8f3721833ae80b233f7b346fe69363b0b
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: 1e417563b463d7033072b27bec505d10ef1adb47
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91409537"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695734"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-azure-portal"></a>Início Rápido: Implantar uma VM de computação confidencial do Azure no portal do Azure
 
@@ -62,7 +62,7 @@ Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsof
 
     * **Escolha a imagem**: Para este tutorial, selecione Ubuntu 18.04 LTS. Você também pode selecionar Windows Server 2019, Windows Server 2016 ou Ubuntu 16.04 LTS. Se você optar por fazer isso, será redirecionado neste tutorial adequadamente.
     
-    * **Mude a imagem para a Gen 2**: As máquinas virtuais de computação confidencial só são executadas em imagens da [Gen 2](../virtual-machines/linux/generation-2.md). Verifique se a imagem selecionada é uma imagem de Gen 2. Clique na guia **Avançado** acima do local em que você está configurando a máquina virtual. Role para baixo até encontrar a seção chamada "Geração de VM". Selecione Gen 2 e, em seguida, volte para a guia **Noções básicas**.
+    * **Mude a imagem para a Gen 2**: As máquinas virtuais de computação confidencial só são executadas em imagens da [Gen 2](../virtual-machines/generation-2.md). Verifique se a imagem selecionada é uma imagem de Gen 2. Clique na guia **Avançado** acima do local em que você está configurando a máquina virtual. Role para baixo até encontrar a seção chamada "Geração de VM". Selecione Gen 2 e, em seguida, volte para a guia **Noções básicas**.
     
 
         ![Guia Avançado](media/quick-create-portal/advanced-tab-virtual-machine.png)
@@ -168,7 +168,7 @@ wget -qO - https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add 
 ```bash
 sudo apt update
 sudo apt -y install dkms
-wget https://download.01.org/intel-sgx/sgx-dcap/1.4/linux/distro/ubuntuServer18.04/sgx_linux_x64_driver_1.21.bin -O sgx_linux_x64_driver.bin
+wget https://download.01.org/intel-sgx/sgx-dcap/1.9/linux/distro/ubuntu18.04-server/sgx_linux_x64_driver_1.36.2.bin -O sgx_linux_x64_driver.bin
 chmod +x sgx_linux_x64_driver.bin
 sudo ./sgx_linux_x64_driver.bin
 ```

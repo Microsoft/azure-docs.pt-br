@@ -1,21 +1,25 @@
 ---
 title: Tarefas comuns de gerenciamento de serviço de nuvem | Microsoft Docs
 description: Saiba como gerenciar Serviços de Nuvem no portal do Azure. Esses exemplos usam o portal do Azure.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 07/05/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 84e450a55f9482c3a713943adfcc4d7940ab873f
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 306da8dae31c2bbdb487e7128e3a2e24424c239d
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076701"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743382"
 ---
-# <a name="manage-cloud-services-in-the-azure-portal"></a>Gerenciar Serviços de Nuvem no portal do Azure
+# <a name="manage-cloud-services-classic-in-the-azure-portal"></a>Gerenciar serviços de nuvem (clássicos) no portal do Azure
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
+
 Na área de **Serviços de Nuvem** do portal do Azure, você pode:
 
 * Atualizar uma função de serviço ou implantação.
@@ -77,7 +81,7 @@ Existem dois pré-requisitos essenciais para uma troca de implantação bem-suce
 
 - Se quiser usar um endereço IP estático para o slot de produção, você também deverá reservar um para o slot de preparo. Caso contrário, a troca falhará.
 
-- Todas as instâncias de suas funções devem estar em execução para que você possa executar a troca. Você pode verificar o status de suas instâncias na folha **Visão geral** do Portal do Azure. Como alternativa, use o comando [Get-AzureRole](/powershell/module/servicemanagement/azure.service/get-azurerole?view=azuresmps-3.7.0) no Windows PowerShell.
+- Todas as instâncias de suas funções devem estar em execução para que você possa executar a troca. Você pode verificar o status de suas instâncias na folha **Visão geral** do Portal do Azure. Como alternativa, use o comando [Get-AzureRole](/powershell/module/servicemanagement/azure.service/get-azurerole?view=azuresmps-3.7.0&preserve-view=true) no Windows PowerShell.
 
 Observe que as atualizações do SO convidado e as operações de recuperação de serviço também podem fazer com que as trocas de implantação falhem. Para saber mais, confira [Solucionar problemas de implantação do serviço de nuvem](cloud-services-troubleshoot-deployment-problems.md).
 
@@ -104,7 +108,7 @@ Use o procedimento a seguir para excluir uma implantação ou seu serviço de nu
 
 4. Selecione **Excluir** na parte inferior.
 
-5. Para excluir o Serviço de Nuvem, selecione **Excluir o Serviço de Nuvem**. Em seguida, selecione **Sim**no prompt de confirmação.
+5. Para excluir o Serviço de Nuvem, selecione **Excluir o Serviço de Nuvem**. Em seguida, selecione **Sim** no prompt de confirmação.
 
 > [!NOTE]
 > Quando um serviço de nuvem for excluído e o monitoramento detalhado estiver configurado, você deverá excluir manualmente os dados de sua conta de armazenamento. Para obter informações sobre onde encontrar as tabelas de métricas, consulte [Introdução ao monitoramento de serviço de nuvem](cloud-services-how-to-monitor.md).

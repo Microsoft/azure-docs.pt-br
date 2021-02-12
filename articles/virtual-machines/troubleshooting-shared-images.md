@@ -1,107 +1,346 @@
 ---
 title: Solucionar problemas com imagens compartilhadas no Azure
 description: Saiba como solucionar problemas com galerias de imagens compartilhadas.
-author: cynthn
+author: olayemio
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: troubleshooting
 ms.workload: infrastructure
-ms.date: 06/15/2020
-ms.author: cynthn
+ms.date: 10/27/2020
+ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: d01ac7d5b01f485c3b0100c468332475a9bd4274
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9a905dd61bcc267b47dcd075f54a0ed6563a3797
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978536"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879622"
 ---
-# <a name="troubleshooting-shared-image-galleries-in-azure"></a>Solução de problemas de galerias de imagens compartilhadas no Azure
+# <a name="troubleshoot-shared-image-galleries-in-azure"></a>Solucionar problemas de galerias de imagens compartilhadas no Azure
 
-Se você encontrar problemas ao executar quaisquer operações em galerias de imagens compartilhadas, definições de imagem e versões de imagem, execute o comando com falha novamente no modo de depuração. O modo de depuração é ativado passando a `--debug` opção com a CLI e a `-Debug` opção com o PowerShell. Depois de localizar o erro, siga este documento para solucionar os erros.
-
-
-## <a name="unable-to-create-a-shared-image-gallery"></a>Não é possível criar uma galeria de imagens compartilhadas
-
-Possíveis causas:
-
-*O nome da galeria é inválido.*
-
-Caracteres permitidos para o nome da galeria são letras maiúsculas ou minúsculas, dígitos, pontos e pontos finais. O nome da galeria não pode conter traços. Altere o nome da galeria e tente novamente. 
-
-*O nome da galeria não é exclusivo na sua assinatura.*
-
-Escolha outro nome de galeria e tente novamente.
+Se você tiver problemas ao executar qualquer operação em galerias de imagens compartilhadas, definições de imagem e versões de imagem, execute o comando com falha novamente no modo de depuração. Você ativa o modo de depuração passando a `--debug` opção com o CLI do Azure e a `-Debug` opção com o PowerShell. Depois de localizar o erro, siga este artigo para solucionar o problema.
 
 
-## <a name="unable-to-create-an-image-definition"></a>Não é possível criar uma definição de imagem 
+## <a name="creating-or-modifying-a-gallery"></a>Criando ou modificando uma galeria ##
 
-Possíveis causas:
+*O nome da galeria é inválido. Os caracteres permitidos são caracteres alfanuméricos em inglês, com sublinhados e pontos permitidos no meio, até 80 caracteres no total. Todos os outros caracteres especiais, incluindo traços, não são permitidos.*  
+**Causa**: o nome da Galeria não atende aos requisitos de nomenclatura.  
+**Solução alternativa**: escolha um nome que atenda às seguintes condições: 
+- Tem um limite de 80 caracteres
+- Contém apenas letras em inglês, números, sublinhados e pontos
+- Inicia e termina com letras ou números em inglês
 
-*o nome da definição de imagem é inválido.*
+*O nome da entidade ' galleryname ' é inválido de acordo com sua regra de validação: ^ [^ \_ \w] [\w-. \_ ] {0,79} (? <! [-.]) $.*  
+**Causa**: o nome da Galeria não atende aos requisitos de nomenclatura.  
+**Solução alternativa**: escolha um nome para a galeria que atenda às seguintes condições: 
+- Tem um limite de 80 caracteres
+- Contém apenas letras em inglês, números, sublinhados e pontos
+- Inicia e termina com letras ou números em inglês
 
-Os caracteres permitidos para a definição de imagem são letras maiúsculas ou minúsculas, dígitos, pontos, traços e pontos. Altere o nome da definição de imagem e tente novamente.
+*O nome de recurso fornecido <galleryname \> tem estes caracteres à direita inválidos: <caractere \> . O nome não pode terminar com caracteres: <caractere\>*  
+**Causa**: o nome da galeria termina com um ponto ou sublinhado.  
+**Solução alternativa**: escolha um nome para a galeria que atenda às seguintes condições: 
+- Tem um limite de 80 caracteres
+- Contém apenas letras em inglês, números, sublinhados e pontos
+- Inicia e termina com letras ou números em inglês
 
-*As propriedades obrigatórias para criar uma definição de imagem não são preenchidas.*
+*A região <local fornecida \> não está disponível para o tipo de recurso ' Microsoft. Compute/galerias '. A lista de regiões disponíveis para o tipo de recurso é...*  
+**Causa**: a região especificada para a galeria está incorreta ou requer uma solicitação de acesso.  
+**Solução alternativa**: Verifique se o nome da região está grafado corretamente. Você pode executar esse comando para ver as regiões às quais você tem acesso. Se a região não estiver na lista, envie [uma solicitação de acesso](/troubleshoot/azure/general/region-access-request-process).
 
-As propriedades como nome, editor, oferta, sku e tipo de sistema operacional são obrigatórias. Verifique se todas as propriedades estão sendo passadas.
+*Não é possível excluir o recurso antes que os recursos aninhados sejam excluídos.*  
+**Causa**: você tentou excluir uma galeria que contém pelo menos uma definição de imagem existente. Uma galeria deve estar vazia antes que possa ser excluída.  
+**Solução alternativa**: exclua todas as definições de imagem dentro da galeria e, em seguida, continue a excluir a galeria. Se a definição de imagem contiver versões de imagem, você deverá excluir as versões da imagem antes de excluir as definições de imagem.
 
-Verifique se o **OSType**, Linux ou Windows, da definição da imagem é igual à origem que você está usando para criar a versão da imagem. 
+*O recurso <galleryname \> já existe no local <região \_ 1 \> no grupo de recursos <resourcegroup \> . Um recurso com o mesmo nome não pode ser criado no local <região \_ 2 \> . Selecione um novo nome de recurso.*  
+**Causa**: você tem uma galeria existente no grupo de recursos com o mesmo nome e tentou criar outra galeria com o mesmo nome, mas em uma região diferente.  
+**Solução alternativa**: Use uma galeria diferente ou use um grupo de recursos diferente.
 
+## <a name="creating-or-modifying-image-definitions"></a>Criando ou modificando definições de imagem ##
 
-## <a name="unable-to-create-an-image-version"></a>Não é possível criar uma versão da imagem 
+*A alteração da propriedade ' galleryImage. Properties. <property \> ' não é permitida.*  
+**Causa**: você tentou alterar o tipo de sistema operacional, estado do sistema operacional, geração do Hyper-V, oferta, Publicador ou SKU. A alteração de qualquer uma dessas propriedades não é permitida.  
+**Solução alternativa**: Crie uma nova definição de imagem em vez disso.
 
-Possíveis causas:
+*O recurso <Gallery/imageDefinitionName \> já existe no local <região \_ 1 \> no grupo de recursos <resourcegroup \> . Um recurso com o mesmo nome não pode ser criado no local <região \_ 2 \> . Selecione um novo nome de recurso.*  
+**Causa**: você tem uma definição de imagem existente na mesma galeria e no mesmo grupo de recursos com o mesmo nome. Você tentou criar outra definição de imagem com o mesmo nome e na mesma galeria, mas em uma região diferente.  
+**Solução alternativa**: Use um nome diferente para a definição de imagem ou coloque a definição de imagem em uma galeria ou grupo de recursos diferente.
 
-*O nome de versão da imagem é inválido.*
+*O nome de recurso fornecido <galleryname \> /<imageDefinitionName \> tem estes caracteres inválidos: <caractere \> . O nome não pode terminar com caracteres: <caractere\>*  
+**Causa**: o nome da <imageDefinitionName \> termina com um ponto ou sublinhado.  
+**Solução alternativa**: escolha um nome para a definição de imagem que atenda às seguintes condições: 
+- Tem um limite de 80 caracteres
+- Contém apenas letras em inglês, números, sublinhados, hifens e pontos
+- Inicia e termina com letras ou números em inglês.
 
-Caracteres permitidos para a versão da imagem são números e pontos. Os números devem estar dentro do intervalo de um inteiro de 32 bits. Formato: *MajorVersion. MinorVersion. patch*. Altere o nome da versão de imagem e tente novamente.
+*O nome da entidade <imageDefinitionName \> é inválido de acordo com sua regra de validação: ^ [^ \_ \\ W] [ \\ W-. \_ ] {0,79} (? <! [-.]) $"*  
+**Causa**: o nome da <imageDefinitionName \> termina com um ponto ou sublinhado.  
+**Solução alternativa**: escolha um nome para a definição de imagem que atenda às seguintes condições: 
+- Tem um limite de 80 caracteres
+- Contém apenas letras em inglês, números, sublinhados, hifens e pontos
+- Inicia e termina com letras ou números em inglês
 
-*A imagem gerenciada de origem da qual a versão da imagem está sendo criada não foi encontrada.* 
+*O nome do ativo galleryImage. Properties. ID. <propriedade \> não é válido. Ele não pode ficar vazio. Os caracteres permitidos são letras maiúsculas ou minúsculas, dígitos, hífen (-), ponto final (.), sublinhado ( \_ ). Os nomes não têm permissão para terminar com o ponto (.). O comprimento do nome não pode exceder <\> caracteres numéricos.*  
+**Causa**: o valor de Publicador, oferta ou SKU não atende aos requisitos de nomenclatura.  
+**Solução alternativa**: escolha um valor que atenda às seguintes condições: 
+- Tem um limite de 128 caracteres para o fornecedor ou o limite de 64 caracteres para oferta e SKU
+- Contém apenas letras em inglês, números, hifens, sublinhados e pontos
+- Não termina com um ponto
 
-Verifique se a imagem de origem existe e está na mesma região que a versão da imagem.
+*Não é possível executar a operação solicitada no recurso aninhado. O recurso pai <galleryname \> não foi encontrado.*  
+**Causa**: não há uma galeria com o nome <galleryname \> na assinatura atual e no grupo de recursos.  
+**Solução alternativa**: Verifique se os nomes da galeria, da assinatura e do grupo de recursos estão corretos. Caso contrário, crie uma nova galeria chamada <galleryname \> .
 
-*A imagem gerenciada não terminou de ser provisionada.*
+*A região <local fornecida \> não está disponível para o tipo de recurso ' Microsoft. Compute/galerias '. A lista de regiões disponíveis para o tipo de recurso é...*  
+**Causa**: o nome da região de <\> está incorreto ou requer uma solicitação de acesso.  
+**Solução alternativa**: Verifique se o nome da região está grafado corretamente. Você pode executar esse comando para ver as regiões às quais você tem acesso. Se a região não estiver na lista, envie [uma solicitação de acesso](/troubleshoot/azure/general/region-access-request-process).
 
-Verifique se o estado de provisionamento da imagem gerenciada de origem é **Êxito**.
+*Não é possível serializar o valor: <valor \> como tipo: ' ISO-8601 '., ISO8601Error: iso 8601 time Designator ' T' ausente. Não é possível analisar a cadeia de caracteres DateTime <valor\>*  
+**Causa**: o valor fornecido à propriedade não está formatado corretamente como uma data.  
+**Solução alternativa**: forneça uma data no formato aaaa-mm-dd, yyyy-mm-dd'T'HH: mm: Sszzz ou [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)-válido.
 
-*A lista região de destino não inclui a região de origem.*
+*Não foi possível converter a cadeia de caracteres em DateTimeOffset: <valor \> . Caminho ' Properties. <property \> '*  
+**Causa**: o valor fornecido à propriedade não está formatado corretamente como uma data.  
+**Solução alternativa**: forneça uma data no formato aaaa-mm-dd, yyyy-mm-dd'T'HH: mm: Sszzz ou [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)-válido.
 
-A lista de regiões de destino deve incluir a região de origem da versão da imagem. Inclua a região de origem na lista de regiões de destino para as quais você deseja que o Azure replique sua versão da imagem.
+*EndOfLifeDate deve ser definido como uma data futura.*  
+**Causa**: a propriedade de data de fim da vida útil não está formatada corretamente como uma data após a data de hoje.  
+**Solução alternativa**: forneça uma data no formato aaaa-mm-dd, yyyy-mm-dd'T'HH: mm: Sszzz ou [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)-válido.
 
-*A replicação para todas as regiões de destino não foi concluída.*
+*argumento--<propriedade \> : valor int inválido: valor de <\>*  
+**Causa**: <propriedade \> aceita apenas valores inteiros e <valor \> não é um inteiro.  
+**Solução alternativa**: escolha um valor inteiro.
 
-Use o sinalizador **--expand ReplicationStatus** para verificar se a replicação para todas as regiões de destino especificadas foi concluída. Caso contrário, aguarde até 6 horas até a conclusão do trabalho. Se falhar, execute o comando novamente para criar e replicar a versão da imagem. Se houver muitas regiões de destino para as quais a versão da imagem esteja sendo replicada, considere fazer a replicação em fases.
+*O valor mínimo da propriedade <\> não deve ser maior que o valor máximo da propriedade <\> .*  
+**Causa**: o valor mínimo fornecido para <propriedade \> é maior que o valor máximo fornecido para <propriedade \> .  
+**Solução alternativa**: altere os valores para que o mínimo seja menor ou igual ao máximo.
 
-## <a name="unable-to-create-a-vm-or-a-scale-set"></a>Não é possível criar uma VM ou conjunto de dimensionamento 
+*Imagem da Galeria: <imageDefinitionName \> identificadas por (Publicador: <Publisher \> , oferta: <oferta \> , SKU: <SKU \> ) já existe. Escolha uma combinação de Publicador, oferta, SKU diferente.*  
+**Causa**: você tentou criar uma nova definição de imagem com o mesmo editor, oferta e SKU terceto como uma definição de imagem existente na mesma galeria.  
+**Solução alternativa**: em uma galeria, todas as definições de imagem devem ter uma combinação exclusiva de Publicador, oferta e SKU. Escolha uma combinação exclusiva ou escolha uma nova galeria e crie a definição de imagem novamente.
 
-Possíveis causas:
+*Não é possível excluir o recurso antes que os recursos aninhados sejam excluídos.*  
+**Causa**: você tentou excluir uma definição de imagem que contém versões de imagem. Uma definição de imagem deve estar vazia antes que possa ser excluída.  
+**Solução alternativa**: exclua todas as versões de imagem dentro da definição de imagem e, em seguida, prossiga para excluir a definição de imagem.
 
-*O usuário que está tentando criar uma VM ou um conjunto de dimensionamento de máquinas virtuais ou não tem acesso de leitura para a versão da imagem.*
+*Não é possível associar o parâmetro <propriedade \> . Não é possível converter valor <valor \> para o tipo <PropertyType \> . Não é possível corresponder o valor do identificador <\> ao nome de um enumerador válido. Especifique um dos seguintes nomes de enumerador e tente novamente: <Choice1 \> , <Choice2 \> ,...*  
+**Causa**: a propriedade tem uma lista restrita de valores possíveis e <valor \> não é um deles.  
+**Solução alternativa**: escolha um dos possíveis valores de <opção \> .
 
-Entre em contato com o proprietário da assinatura e peça para conceder acesso de leitura à versão da imagem ou aos recursos pai (como a Galeria de imagens compartilhada ou definição de imagem) por meio do [controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/rbac-and-directory-admin-roles.md). 
+*Não é possível associar o parâmetro <propriedade \> . Não é possível converter valor <valor \> para o tipo &quot; System. DateTime&quot;*  
+**Causa**: o valor fornecido à propriedade não está formatado corretamente como uma data.  
+**Solução alternativa**: forneça uma data no formato aaaa-mm-dd, yyyy-mm-dd'T'HH: mm: Sszzz ou [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)-válido.
 
-*A versão da imagem não foi encontrada.*
+*Não é possível associar o parâmetro <propriedade \> . Não é possível converter valor <valor \> para o tipo &quot; System. Int32&quot;*  
+**Causa**: <propriedade \> aceita apenas valores inteiros e <valor \> não é um inteiro.  
+**Solução alternativa**: escolha um valor inteiro.
 
-Verifique se a região em que você está tentando criar uma escala de VM ou máquina virtual está incluída na lista de regiões de destino da versão da imagem. Se a região já estiver na lista de regiões de destino, verifique se o trabalho de replicação foi concluído. Você pode usar o sinalizador **--expand ReplicationStatus** para verificar se a replicação para todas as regiões de destino especificadas foi concluída. 
+*Não há suporte para o tipo de conta de armazenamento ZRS nesta região.*  
+**Causa**: você escolheu o ZRS (armazenamento com redundância de zona padrão) em uma região que ainda não oferece suporte a ele.  
+**Solução alternativa**: altere o tipo de conta de armazenamento para **Premium \_ LRS** ou **Standard \_ LRS**. Verifique nossa documentação para obter a [lista mais recente de regiões](../storage/common/storage-redundancy.md#zone-redundant-storage) com a visualização de ZRS habilitada.
 
-*A criação do conjunto de dimensionamento de máquinas virtuais ou VM leva muito tempo.*
+## <a name="creating-or-updating-image-versions"></a>Criando ou atualizando versões de imagem ##
 
-Verifique se o **OSType** da versão da imagem da qual você está tentando criar a VM ou o conjunto de dimensionamento de máquinas virtuais tem o mesmo **OSType** da fonte que você usou para criar a versão da imagem. 
+*A região <local fornecida \> não está disponível para o tipo de recurso ' Microsoft. Compute/galerias '. A lista de regiões disponíveis para o tipo de recurso é...*  
+**Causa**: o nome da região de <\> está incorreto ou requer uma solicitação de acesso.  
+**Solução alternativa**: Verifique se o nome da região está grafado corretamente. Você pode executar esse comando para ver as regiões às quais você tem acesso. Se a região não estiver na lista, envie [uma solicitação de acesso](/troubleshoot/azure/general/region-access-request-process).
 
-## <a name="unable-to-share-resources"></a>Não é possível compartilhar recursos
+*Não é possível executar a operação solicitada no recurso aninhado. O recurso pai <Gallery/imageDefinitionName \> não foi encontrado.*  
+**Causa**: não há uma galeria com o nome <Gallery/imageDefinitionName \> na assinatura atual e no grupo de recursos.  
+**Solução alternativa**: Verifique se os nomes da galeria, da assinatura e do grupo de recursos estão corretos. Caso contrário, crie uma nova galeria com o nome <Gallery \> e/ou uma definição de imagem chamada <imageDefinitionName \> no grupo de recursos indicado.
 
-O compartilhamento de galeria de imagens compartilhada, definição de imagem e recursos de versão de imagem entre assinaturas é habilitado usando o Azure [RBAC (controle de acesso baseado em função do Azure)](../role-based-access-control/rbac-and-directory-admin-roles.md). 
+*Não é possível associar o parâmetro <propriedade \> . Não é possível converter valor <valor \> para o tipo &quot; System. DateTime&quot;*  
+**Causa**: o valor fornecido à propriedade não está formatado corretamente como uma data.  
+**Solução alternativa**: forneça uma data no formato aaaa-mm-dd, yyyy-mm-dd'T'HH: mm: Sszzz ou [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)-válido.
 
-## <a name="replication-is-slow"></a>A replicação é lenta
+*Não é possível associar o parâmetro <propriedade \> . Não é possível converter valor <valor \> para o tipo &quot; System. Int32&quot;*  
+**Causa**: <propriedade \> aceita apenas valores inteiros e <valor \> não é um inteiro.  
+**Solução alternativa**: escolha um valor inteiro.
 
-Use o sinalizador **--expand ReplicationStatus** para verificar se a replicação para todas as regiões de destino especificadas foi concluída. Caso contrário, aguarde até 6 horas até a conclusão do trabalho. Se falhar, dispare o comando novamente para criar e replicar a versão da imagem. Se houver muitas regiões de destino para as quais a versão da imagem esteja sendo replicada, considere fazer a replicação em fases.
+*Regiões de perfil de publicação de versão de imagem da Galeria <publishingRegions \> deve conter o local da versão da imagem <sourceRegion\>*  
+**Causa**: o local da imagem de origem (<sourceRegion \> ) deve ser incluído na lista de <publishingRegions \> .  
+**Solução alternativa**: inclua <sourceRegion \> na lista <publishingRegions \> .
+
+*O valor <valor \> do parâmetro <propriedade \> está fora do intervalo. O valor deve estar entre <minValue \> e <MaxValue \> , inclusive.*  
+**Causa**: <valor \> está fora do intervalo de valores possíveis para a propriedade <\> .  
+**Solução alternativa**: escolha um valor que esteja dentro do intervalo de <minValue \> e <MaxValue \> , inclusive.
+
+*ResourceId de <de origem \> não encontrado. Verifique se a origem existe e se está na mesma região que a versão da imagem da galeria que está sendo criada.*  
+**Causa**: não há fonte localizada em <ResourceId \> ou a origem em <ResourceId \> não está na mesma região que a imagem da galeria que está sendo criada.  
+**Solução alternativa**: Verifique se o valor <ResourceId \> está correto e se a região de origem da versão da imagem da galeria é a mesma que a região do valor <ResourceId \> .
+
+*Não é permitido alterar a propriedade ' galleryImageVersion. Properties. storageProfile. <. \> Source.ID '.*  
+**Causa**: a ID de origem de uma versão de imagem da Galeria não pode ser alterada após a criação.  
+**Solução alternativa**: Verifique se a ID de origem é igual à ID de origem existente, altere o número da versão da imagem ou exclua a versão da imagem atual e tente novamente.
+
+*Foram detectados números de LUN duplicados nos discos de dados de entrada. O número de LUN deve ser exclusivo para cada disco de dados.*  
+**Causa**: quando você está criando uma versão de imagem usando uma lista de discos e/ou instantâneos de disco, dois ou mais discos ou instantâneos de disco têm o mesmo LUN.  
+**Solução alternativa**: remova ou altere quaisquer LUNs duplicados.
+
+*IDs de origem duplicadas são encontradas nos discos de entrada. A ID de origem deve ser exclusiva para cada disco.*  
+**Causa**: quando você está criando uma versão de imagem usando uma lista de discos e/ou instantâneos de disco, dois ou mais discos ou instantâneos de disco têm a mesma ID de recurso.  
+**Solução alternativa**: remova ou altere quaisquer IDs de origem de disco duplicadas.
+
+*A ID da propriedade <ResourceId \> no caminho ' Properties. storageProfile. <diskImages \> . Source.ID ' é inválido. Espere uma ID de recurso totalmente qualificada que comece com '/subscriptions/{subscriptionId} ' ou '/providers/{resourceProviderNamespace}/'.*  
+**Causa**: o valor de resourceid <\> está formatado incorretamente.  
+**Solução alternativa**: Verifique se a ID do recurso está correta.
+
+*A ID de origem: <ResourceId \> deve ser uma imagem gerenciada, uma máquina virtual ou outra versão de imagem da Galeria*  
+**Causa**: o valor de resourceid <\> está formatado incorretamente.  
+**Solução alternativa**: se você estiver usando uma VM, imagem gerenciada ou versão de imagem da galeria como a imagem de origem, verifique se a ID de recurso da VM, imagem gerenciada ou versão da imagem da galeria está correta.
+
+*A ID de origem: <ResourceId \> deve ser um disco gerenciado ou um instantâneo.*  
+**Causa**: o valor de resourceid <\> está formatado incorretamente.  
+**Solução alternativa**: se você estiver usando discos e/ou instantâneos de disco como fontes para a versão da imagem, verifique se as IDs de recurso dos discos e/ou instantâneos do disco estão corretos.
+
+*Não é possível criar a versão da imagem da Galeria de: <ResourceId \> , pois o estado do sistema operacional na imagem da Galeria pai (<OsState \_ 1 \> ) não é <OsState \_ 2 \> .*  
+**Causa**: o estado do sistema operacional (generalizado ou especializado) não corresponde ao estado do sistema operacional especificado na definição de imagem.  
+**Solução alternativa**: escolha uma fonte com base em uma VM com o estado do sistema operacional de <OsState \_ 1 \> ou crie uma nova definição de imagem para VMs com base em <OsState \_ 2 \> .
+
+*O recurso com a ID ' <ResourceId \> ' tem uma geração de hipervisor diferente [' <V # \_ 1 \> '] que a geração de hipervisor de imagem da Galeria pai [' <V # \_ 2 \> ']*  
+**Causa**: a geração de hipervisor da versão de imagem não corresponde à geração de hipervisor especificada na definição de imagem. O sistema operacional de definição de imagem é <V # \_ 1 \> e o sistema operacional da versão da imagem é <v # \_ 2 \> .  
+**Solução alternativa**: escolha uma fonte com a mesma geração de hipervisor que a definição de imagem ou crie/escolha uma nova definição de imagem que tenha a mesma geração de hipervisor que a versão da imagem.
+
+*O recurso com a ID ' <ResourceId \> ' tem um tipo de sistema operacional diferente [' <OsType \_ 1 \> '] que a geração de tipo de so da imagem da Galeria pai [' <OsType \_ 2 \> ']*  
+**Causa**: a geração de hipervisor da versão de imagem não corresponde à geração de hipervisor especificada na definição de imagem. O sistema operacional de definição de imagem é <OsType \_ 1 \> e o sistema operacional da versão da imagem é <OsType \_ 2 \> .  
+**Solução alternativa**: escolha uma fonte com o mesmo sistema operacional (Linux/Windows) como a definição de imagem ou crie/escolha uma nova definição de imagem que tenha a mesma geração de sistema operacional que a versão da imagem.
+
+*A ResourceId da máquina virtual de origem <\> não pode conter um disco do sistema operacional efêmero.*  
+**Causa**: a origem em <ResourceId \> contém um disco do sistema operacional efêmero. Atualmente, a Galeria de imagens compartilhadas não oferece suporte a discos do sistema operacional efêmero.  
+**Solução alternativa**: escolha uma fonte diferente com base em uma VM que não usa um disco do sistema operacional efêmero.
+
+*A ResourceId da máquina virtual de origem <\> não pode conter o disco [' <DiskId \> '] armazenado em um tipo de conta UltraSSD.*  
+**Causa**: o disco <DiskId \> é um disco SSD ultra. Atualmente, a Galeria de imagens compartilhadas não oferece suporte a discos SSD Ultra.  
+**Solução alternativa**: Use uma fonte que contenha somente SSD Premium, SSD Standard e/ou HDD Standard Managed disks.
+
+*A ResourceId da máquina virtual de origem <\> deve ser criada a partir de Managed disks.*  
+**Causa**: a máquina virtual no <ResourceId \> usa discos não gerenciados.  
+**Solução alternativa**: Use uma fonte baseada em uma VM que contenha somente SSD Premium, SSD Standard e/ou HDD Standard Managed disks.
+
+*Muitas solicitações na fonte ' <ResourceId \> '. Reduza o número de solicitações na origem ou aguarde algum tempo antes de tentar novamente.*  
+**Causa**: a origem desta versão de imagem está sendo limitada no momento devido a muitas solicitações.  
+**Solução alternativa**: tente criar a versão da imagem mais tarde.
+
+*O conjunto de criptografia de disco ' <diskEncryptionSetID \> ' deve estar na mesma assinatura ' <SubscriptionId \> ' que o recurso da galeria.*  
+**Causa**: os conjuntos de criptografia de disco podem ser usados somente na mesma assinatura e região em que foram criados.  
+**Solução alternativa**: crie ou use um conjunto de criptografia na mesma assinatura e região que a versão da imagem.
+
+*Fonte criptografada: ' <ResourceId \> ' está em uma ID de assinatura diferente da assinatura de versão de imagem da Galeria atual ' <SubscriptionId \_ 1 \> '. Tente novamente com uma ou mais fontes não criptografadas ou use a assinatura da origem ' <subassinaturaid \_ 2 \> ' para criar a versão da imagem da galeria.*  
+**Causa**: a Galeria de imagens compartilhadas atualmente não oferece suporte à criação de versões de imagem em outra assinatura de outra imagem de origem se a imagem de origem estiver criptografada.  
+**Solução alternativa**: Use uma fonte não criptografada ou crie a versão da imagem na mesma assinatura que a origem.
+
+*O conjunto de criptografia de disco <diskEncryptionSetID \> não foi encontrado.*  
+**Causa**: a criptografia de disco pode estar incorreta.  
+**Solução alternativa**: Verifique se a ID de recurso do conjunto de criptografia de disco está correta.
+
+*O nome da versão da imagem é inválido. O nome da versão da imagem deve seguir a principal (int). Secundária (int). Formato de patch (int), por exemplo: 1.0.0, 2018.12.1 etc.*  
+**Causa**: o formato válido para uma versão de imagem é de três inteiros separados por um ponto. O nome da versão da imagem não atendeu ao formato válido.  
+**Solução alternativa**: Use um nome de versão de imagem que segue o formato Major (int). Secundária (int). Patch (int). Por exemplo: 1.0.0. ou 2018.12.1.
+
+*O valor do parâmetro galleryArtifactVersion. Properties. publishingProfile. targetRegions. encryption. dataDiskImages. diskEncryptionSetId é inválido*  
+**Causa**: a ID de recurso do conjunto de criptografia de disco usada em uma imagem de disco de dados usa um formato inválido.  
+**Solução alternativa**: Verifique se a ID de recurso do conjunto de criptografia de disco segue o formato/subscriptions/<SubscriptionId \> /ResourceGroups/<ResourceGroupName \> /Providers/Microsoft.Compute/<diskEncryptionSetName \> .
+
+*O valor do parâmetro galleryArtifactVersion. Properties. publishingProfile. targetRegions. encryption. osDiskImage. diskEncryptionSetId é inválido.*  
+**Causa**: a ID de recurso do conjunto de criptografia de disco usada na imagem de disco do sistema operacional usa um formato inválido.  
+**Solução alternativa**: Verifique se a ID de recurso do conjunto de criptografia de disco segue o formato/subscriptions/<SubscriptionId \> /ResourceGroups/<ResourceGroupName \> /Providers/Microsoft.Compute/<diskEncryptionSetName \> .
+
+*Não é possível especificar o novo LUN de criptografia de imagem de disco de dados [número <\> ] com um conjunto de criptografia de disco na região [região \> de <] para a solicitação atualizar versão da imagem da galeria. Para atualizar essa versão, remova o novo LUN. Se precisar alterar as configurações de criptografia de imagem de disco de dados, você deverá criar uma nova versão de imagem da galeria com as configurações corretas.*  
+**Causa**: você adicionou criptografia ao disco de dados de uma versão de imagem existente. Você não pode adicionar criptografia a uma versão de imagem existente.  
+**Solução alternativa**: Crie uma nova versão de imagem da galeria ou remova as configurações de criptografia adicionadas.
+
+*A origem da versão do artefato da galeria só pode ser especificada diretamente sob storageProfile ou dentro de um sistema operacional ou discos de dados individuais. Apenas um tipo de origem (imagem do usuário, instantâneo, disco, máquina virtual) pode ser fornecido.*  
+**Causa**: a ID de origem está ausente.  
+**Solução alternativa**: Verifique se a ID de origem da origem está presente.
+
+*A origem não foi encontrada: <ResourceId \> . Certifique-se de que a origem exista.*  
+**Causa**: a ID de recurso da origem pode estar incorreta.  
+**Solução alternativa**: Verifique se a ID de recurso da origem está correta.
+
+*Um conjunto de criptografia de disco é necessário para o disco ' galleryArtifactVersion. Properties. publishingProfile. targetRegions. encryption. osDiskImage. diskEncryptionSetId ' na região de destino ' <região \_ 1 \> ', pois o conjunto de criptografia de disco ' <diskEncryptionSetId \> ' é usado para o disco correspondente na região ' <região \_ 2 \> '*  
+**Causa**: a criptografia foi usada no disco do sistema operacional na região do <\_ 2 \> , mas não na <região \_ 1 \> .  
+**Solução alternativa**: se você estiver usando a criptografia no disco do sistema operacional, use a criptografia em todas as regiões.
+
+*Um conjunto de criptografia de disco é necessário para o disco ' LUN <Number \> ' na região de destino ' <Region \_ 1 \> ', pois o conjunto de criptografia de disco ' <diskEncryptionSetID \> ' é usado para o disco correspondente na região ' <Region \_ 2 \> '*  
+**Causa**: a criptografia foi usada no disco de dados no LUN <número \> na região <\_ 2 \> , mas não na <região \_ 1 \> .  
+**Solução alternativa**: se você estiver usando a criptografia em um disco de dados, use a criptografia em todas as regiões.
+
+*Um LUN inválido [<Number \> ] foi especificado em Encryption. dataDiskImages. O LUN deve ser um dos seguintes valores [' 0, 9 '].*  
+**Causa**: o LUN especificado para a criptografia não corresponde a nenhum dos LUNs para discos anexados à VM.  
+**Solução alternativa**: altere o LUN na criptografia para o LUN de um disco de dados presente na VM.
+
+*LUNs duplicados ' <Number \> ' foram especificados na região de destino ' <Region \> ' Encryption. dataDiskImages.*  
+**Causa**: as configurações de criptografia usadas em <região \> especificou um LUN pelo menos duas vezes.  
+**Solução alternativa**: altere o LUN na região <\> para garantir que todos os LUNs sejam exclusivos na região <\> .
+
+*OSDiskImage e DataDiskImage não podem apontar para o mesmo blob <SourceID\>*  
+**Causa**: as origens do disco do sistema operacional e de pelo menos um disco de dados não são exclusivas.  
+**Solução alternativa**: altere a origem do disco do sistema operacional e/ou dos discos de dados para garantir que o disco do sistema operacional, bem como cada disco de dados seja exclusivo.
+
+*Regiões duplicadas não são permitidas em regiões de publicação de destino.*  
+**Causa**: uma região é listada entre as regiões de publicação mais de uma vez.  
+**Solução alternativa**: Remova a região duplicada.
+
+*Não é permitido adicionar novos discos de dados ou alterar o LUN de um disco de dados em uma imagem existente.*  
+**Causa**: uma chamada de atualização para a versão da imagem contém um novo disco de dados ou tem um novo LUN para um disco.  
+**Solução alternativa**: Use os LUNs e discos de dados da versão da imagem existente.
+
+*O conjunto de criptografia de disco <diskEncryptionSetID \> deve estar na mesma assinatura <SubscriptionId \> que o recurso da galeria.*  
+**Causa**: atualmente, a Galeria de imagens compartilhadas não oferece suporte ao uso de uma criptografia de disco definida em uma assinatura diferente.  
+**Solução alternativa**: Crie a versão da imagem e o conjunto de criptografia de disco na mesma assinatura.
+
+## <a name="creating-or-updating-a-vm-or-scale-sets-from-an-image-version"></a>Criando ou atualizando uma VM ou conjuntos de dimensionamento de uma versão de imagem ##
+
+*O cliente tem permissão para executar a ação ' Microsoft. Compute/galerias/images/Versions/Read ' no escopo <ResourceId \> , no entanto, o locatário atual <tenantId1 \> não está autorizado a acessar a assinatura vinculada <subscriptionId2 \> .*  
+**Causa**: a máquina virtual ou o conjunto de dimensionamento foi criado por meio de uma imagem SIG em outro locatário. Você tentou fazer uma alteração na máquina virtual ou no conjunto de dimensionamento, mas não tem acesso à assinatura que possui a imagem.  
+**Solução alternativa**: entre em contato com o proprietário da assinatura da versão da imagem para conceder acesso de leitura à versão da imagem.
+
+*A imagem da Galeria <ResourceId \> não está disponível na região da região <\> . Contate o proprietário da imagem para replicar nessa região ou altere a região solicitada.*  
+**Causa**: a VM está sendo criada em uma região que não está entre a lista de regiões publicadas para a imagem da galeria.  
+**Solução alternativa**: replique a imagem para a região ou crie uma VM em uma das regiões nas regiões de publicação da imagem da galeria.
+
+*O parâmetro ' osProfile ' não é permitido.*  
+**Causa**: o nome de usuário do administrador, a senha ou as chaves SSH foram fornecidas para uma VM que foi criada a partir de uma versão de imagem especializada.  
+**Solução alternativa**: não inclua o nome de usuário do administrador, a senha ou as chaves SSH se você pretende criar uma VM a partir dessa imagem. Caso contrário, use uma versão de imagem generalizada e forneça o nome de usuário, a senha ou as chaves SSH do administrador.
+
+*O parâmetro necessário ' osProfile ' está ausente (nulo).*  
+**Causa**: a VM é criada a partir de uma imagem generalizada e falta o nome de usuário, a senha ou as chaves SSH do administrador. Como as imagens generalizadas não retêm o nome de usuário, a senha ou as chaves SSH do administrador, esses campos devem ser especificados durante a criação de uma VM ou um conjunto de dimensionamento.  
+**Solução alternativa**: especifique o nome de usuário do administrador, a senha ou as chaves SSH ou use uma versão de imagem especializada.
+
+*Não é possível criar a versão da imagem da Galeria de: <ResourceId \> , pois o estado do sistema operacional na imagem da Galeria pai (' especializada ') não é ' generalizado '.*  
+**Causa**: a versão da imagem é criada a partir de uma fonte generalizada, mas sua definição pai é especializada.  
+**Solução alternativa**: Crie a versão da imagem usando uma fonte especializada ou use uma definição pai que seja generalizada.
+
+*Não é possível atualizar o conjunto de dimensionamento de máquinas virtuais <vmssName \> , pois o estado atual do sistema operacional do conjunto de escala de VM é generalizado, o que é diferente do estado atualizado do sistema operacional da imagem da galeria que é especializada.*  
+**Causa**: a imagem de origem atual do conjunto de dimensionamento é uma imagem de origem generalizada, mas está sendo atualizada com uma imagem de origem especializada. A imagem de origem atual e a nova imagem de origem para um conjunto de dimensionamento devem ser do mesmo estado.  
+**Solução alternativa**: para atualizar o conjunto de dimensionamento, use uma versão de imagem generalizada.
+
+*O conjunto de criptografia de disco <diskEncryptionSetId \> na Galeria de imagens compartilhadas <VersionId \> pertence à assinatura <subscriptionId1 \> e não pode ser usado com o recurso ' ' na assinatura <subscriptionId2\>*  
+**Causa**: o conjunto de criptografia de disco usado para criptografar a versão da imagem reside em uma assinatura diferente da assinatura para hospedar a versão da imagem.  
+**Solução alternativa**: Use a mesma assinatura para a versão de imagem e o conjunto de criptografia de disco.
+
+*A criação do conjunto de dimensionamento de máquinas virtuais ou VM leva muito tempo.*  
+**Solução alternativa**: Verifique se o **OSType** da versão da imagem da qual você está tentando criar a VM ou o conjunto de dimensionamento de máquinas virtuais tem o mesmo **OSType** da fonte que você usou para criar a versão da imagem. 
+
+## <a name="creating-a-disk-from-an-image-version"></a>Criando um disco com base em uma versão de imagem ##
+
+*O valor do parâmetro imageReference é inválido.*  
+**Causa**: você tentou exportar de uma versão de imagem SIG para um disco, mas usou uma posição de LUN que não existe na imagem.    
+**Solução alternativa**: Verifique a versão da imagem para ver quais posições de LUN estão em uso.
+
+## <a name="sharing-resources"></a>Compartilhando recursos
+
+O compartilhamento de galeria de imagens, definição de imagem e recursos de versão de imagem entre assinaturas é habilitado usando o [controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/rbac-and-directory-admin-roles.md). 
+
+## <a name="replication-speed"></a>Velocidade de replicação
+
+Use o sinalizador **--Expand ReplicationStatus** para verificar se a replicação para todas as regiões de destino especificadas foi concluída. Caso contrário, aguarde até seis horas para que o trabalho seja concluído. Se falhar, dispare o comando novamente para criar e replicar a versão da imagem. Se houver muitas regiões de destino para as quais a versão da imagem está sendo replicada, considere fazer a replicação em fases.
 
 ## <a name="azure-limits-and-quotas"></a>Limites e cotas do Azure 
 
-[Limites e cotas do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md) se aplicam a todos os recursos de versão de imagem, definição da imagem e galeria de imagens compartilhadas. Fique dentro dos limites para suas assinaturas. 
+[Limites e cotas do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md) se aplicam a todos os recursos de versão de imagem, definição da imagem e galeria de imagens compartilhadas. Verifique se você está dentro dos limites de suas assinaturas. 
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre [galerias de imagens compartilhadas](./linux/shared-image-galleries.md).
+Saiba mais sobre [galerias de imagens compartilhadas](./shared-image-galleries.md).

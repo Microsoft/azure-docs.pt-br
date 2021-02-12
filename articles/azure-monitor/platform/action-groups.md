@@ -3,18 +3,18 @@ title: Criar e gerenciar grupos de ações no portal do Azure
 description: Este artigo mostra como criar e gerenciar grupos de ações no portal do Azure.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 01/28/2021
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: f65707d80461385c28369e75a294865e03f8c662
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 08cf66edaa67ab1853a3b246afb9364b431445c6
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367730"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055103"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerenciar grupos de ações no portal do Azure
-Um grupo de ações é uma coleção de preferências de notificação definidas pelo proprietário de uma assinatura do Azure. Alertas do Azure Monitor e da Integridade do Serviço usam grupos de ações para notificar usuários de que um alerta foi disparado. Vários alertas podem usar o mesmo grupo de ação ou grupos de ações diferentes dependendo dos requisitos do usuário. Você pode configurar até 2 mil grupos de ação em uma assinatura.
+Um grupo de ações é uma coleção de preferências de notificação definidas pelo proprietário de uma assinatura do Azure. Alertas do Azure Monitor e da Integridade do Serviço usam grupos de ações para notificar usuários de que um alerta foi disparado. Vários alertas podem usar o mesmo grupo de ação ou grupos de ações diferentes dependendo dos requisitos do usuário. 
 
 Este artigo mostra como criar e gerenciar grupos de ação no Portal do Azure.
 
@@ -30,11 +30,11 @@ Para saber mais sobre como usar modelos do Azure Resource Manager para configura
 
 1. No [portal do Azure](https://portal.azure.com), pesquise e selecione **Monitor**. O painel **Monitor** consolida todas as configurações e dados de monitoramento em uma exibição.
 
-1. Selecione **alertas**e, em seguida, selecione **Gerenciar ações**.
+1. Selecione **alertas** e, em seguida, selecione **Gerenciar ações**.
 
     ![Botão Gerenciar Ações](./media/action-groups/manage-action-groups.png)
     
-1. Selecione **Adicionar grupo de ação**e preencha os campos relevantes na experiência do assistente.
+1. Selecione **Adicionar grupo de ação** e preencha os campos relevantes na experiência do assistente.
 
     ![O comando "Adicionar grupo de ações"](./media/action-groups/add-action-group.PNG)
 
@@ -133,10 +133,22 @@ Envie o email aos membros da função de assinatura. O email será enviado somen
 
 Um email de notificação é enviado somente para o endereço de *email principal* .
 
+Se você não estiver recebendo notificações em seu *email primário*, poderá tentar as seguintes etapas:
+
+1. Em portal do Azure vá para *Active Directory*.
+2. Clique em todos os usuários (no painel esquerdo), você verá a lista de usuários (no painel direito).
+3. Selecione o usuário para o qual você deseja examinar as informações de *email primário* .
+
+  :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="Exemplo de como examinar o perfil do usuário."border="true":::
+
+4. Em perfil do usuário em informações de contato, se a guia "email" estiver em branco, clique no botão *Editar* na parte superior e adicione seu *email principal* e pressione o botão *salvar* na parte superior.
+
+  :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="Exemplo de como adicionar email primário."border="true":::
+
 É possível ter um número limitado de ações de email em um grupo de ações. Confira o artigo [informações de limitação da taxa](./alerts-rate-limiting.md).
 
 ### <a name="function"></a>Função
-Chama um ponto de extremidade de gatilho HTTP existente no [Azure Functions](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
+Chama um ponto de extremidade de gatilho HTTP existente no [Azure Functions](../../azure-functions/functions-get-started.md).
 
 É possível ter um número limitado de ações de função em um grupo de ações.
 
@@ -149,6 +161,11 @@ Ação de ITSM exige uma Conexão de ITSM. Saiba como criar uma [Conexão de ITS
 É possível ter um número limitado de ações de aplicativo lógico em um grupo de ações.
 
 ### <a name="secure-webhook"></a>Webhook Seguro
+
+> [!NOTE]
+> Usar a ação de webhook requer que o ponto de extremidade de webhook de destino não exija que os detalhes do alerta funcionem com êxito ou seja capaz de analisar as informações de contexto de alerta fornecidas como parte da operação de POSTAgem. Se o ponto de extremidade do webhook não puder manipular as informações de contexto de alerta por conta própria, você poderá usar uma solução como uma [ação de aplicativo lógico](./action-groups-logic-app.md) para uma manipulação personalizada das informações de contexto de alerta para corresponder ao formato de dados esperado do webhook.
+> O usuário deve ser o **proprietário** da entidade de serviço de webhook para garantir que a segurança não seja violada. Como qualquer cliente do Azure pode acessar todas as IDs de objeto por meio do portal, sem verificar o proprietário, qualquer pessoa pode adicionar o webhook seguro a seu próprio grupo de ação para a notificação de alerta do Azure monitor que viola a segurança.
+
 A ação de webhook dos grupos de ações permite que você aproveite o Azure Active Directory para proteger a conexão entre o grupo de ações e a API Web protegida (ponto de extremidade do webhook). O fluxo de trabalho geral para aproveitar essa funcionalidade é descrito abaixo. Para obter uma visão geral dos aplicativos do Azure AD e das entidades de serviço, confira a [Visão geral da plataforma de identidade da Microsoft (v2.0)](../../active-directory/develop/v2-overview.md).
 
 1. Crie um aplicativo do Azure AD para sua API Web protegida. Consulte [API Web protegida: registro de aplicativo](../../active-directory/develop/scenario-protected-web-api-app-registration.md).
@@ -246,7 +263,47 @@ Confira as [informações de limitação de taxa](./alerts-rate-limiting.md) e o
 > Se a interface do usuário do grupo de ações do portal do Azure não permitir que você selecione o código do país/região, o SMS não terá suporte para seu país/região.  Se o código de seu país/região não estiver disponível, você poderá votar no [UserVoice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice) para que seu país/região seja adicionado. Enquanto isso, uma solução alternativa é fazer com que seu grupo de ações chame um webhook para um provedor de SMS de terceiros com suporte em seu país/região.  
 
 Os preços de países/regiões com suporte são listados na [página de preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
-  
+
+**Lista de países em que há suporte para notificação de SMS**
+
+| Código do país | Nome do país |
+|:---|:---|
+| 61 | Austrália |
+| 43 | Áustria |
+| 32 | Bélgica |
+| 55 | Brasil |
+| 1 |Canadá |
+| 56 | Chile |
+| 86 | China |
+| 420 | República Tcheca |
+| 45 | Dinamarca |
+| 372 | Estônia |
+| 358 | Finlândia |
+| 33 | França |
+| 49 | Alemanha |
+| 852 | RAE de Hong Kong |
+| 91 | Índia |
+| 353 | Irlanda |
+| 972 | Israel |
+| 39 | Itália |
+| 81 | Japão |
+| 352 | Luxemburgo |
+| 60 | Malásia |
+| 52 | México |
+| 31 | Países Baixos |
+| 64 | Nova Zelândia |
+| 47 | Noruega |
+| 351 | Portugal |
+| 1 | Porto Rico |
+| 40 | Romênia |
+| 65 | Singapura |
+| 27 | África do Sul |
+| 82 | Coreia do Sul |
+| 34 | Espanha |
+| 41 | Suíça |
+| 886 | Taiwan |
+| 44 | Reino Unido |
+| 1 | Estados Unidos |
 
 ### <a name="voice"></a>Voz
 Confira o artigo sobre [informações de limitação de taxa](./alerts-rate-limiting.md) para comportamento adicional importante.
@@ -255,10 +312,15 @@ Confira o artigo sobre [informações de limitação de taxa](./alerts-rate-limi
 
 > [!NOTE]
 > Se a interface do usuário do grupo de ações do portal do Azure não permitir que você selecione o código do país/região, as chamadas de voz não terão suporte para seu país/região. Se o código de seu país/região não estiver disponível, você poderá votar no [UserVoice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice) para que seu país/região seja adicionado.  Enquanto isso, uma solução alternativa é fazer com que seu grupo de ações chame um webhook para um provedor de chamada de voz de terceiros com suporte em seu país/região.  
+> Somente o código de país com suporte hoje no grupo de ação portal do Azure para notificação por voz é + 1 (Estados Unidos). 
 
 Os preços de países/regiões com suporte são listados na [página de preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### <a name="webhook"></a>webhook
+
+> [!NOTE]
+> Usar a ação de webhook requer que o ponto de extremidade de webhook de destino não exija que os detalhes do alerta funcionem com êxito ou seja capaz de analisar as informações de contexto de alerta fornecidas como parte da operação de POSTAgem. Se o ponto de extremidade do webhook não puder manipular as informações de contexto de alerta por conta própria, você poderá usar uma solução como uma [ação de aplicativo lógico](./action-groups-logic-app.md) para uma manipulação personalizada das informações de contexto de alerta para corresponder ao formato de dados esperado do webhook.
+
 WebHooks são processados usando as seguintes regras
 - Uma chamada de webhook é tentada no máximo três vezes.
 - A chamada será repetida se uma resposta não for recebida dentro do período de tempo limite ou se um dos seguintes códigos de status HTTP for retornado: 408, 429, 503 ou 504.
@@ -266,53 +328,8 @@ WebHooks são processados usando as seguintes regras
 - A segunda e terceira tentativas aguardarão 30 segundos por uma resposta.
 - Depois que as 3 tentativas de chamar o webhook falharam, nenhum grupo de ação chamará o ponto de extremidade por 15 minutos.
 
-Intervalos de endereços IP de fonte
- - 13.72.19.232
- - 13.106.57.181
- - 13.106.54.3
- - 13.106.54.19
- - 13.106.38.142
- - 13.106.38.148
- - 13.106.57.196
- - 13.106.57.197
- - 52.244.68.117
- - 52.244.65.137
- - 52.183.31.0
- - 52.184.145.166
- - 51.4.138.199
- - 51.5.148.86
- - 51.5.149.19
+Consulte os [endereços IP do grupo de ações](../app/ip-addresses.md) para os intervalos de endereços IP de origem.
 
-Para receber atualizações sobre as alterações para esses endereços IP, é recomendável que você configure um alerta de Integridade do Serviço, que monitora notificações informativas sobre o serviço de grupos de ação.
-
-É possível ter um número limitado de ações de webhook em um grupo de ações.
-
-### <a name="service-tag"></a>Marca de serviço
-Uma marca de serviço representa um grupo de prefixos de endereço IP de um determinado serviço do Azure. A Microsoft gerencia os prefixos de endereço abordados pela marca de serviço e atualiza automaticamente a marca de serviço à medida que os endereços são alterados, minimizando a complexidade de atualizações frequentes para regras de segurança de rede para um The Action.
-
-1. Em portal do Azure em pesquisa de serviços do Azure para *grupo de segurança de rede*.
-2. Clique em **Adicionar** e crie um grupo de segurança de rede.
-
-   1. Adicione o nome do grupo de recursos e insira os *detalhes da instância*.
-   1. Clique em **revisão + criar** e, em seguida, clique em *criar*.
-   
-   :::image type="content" source="media/action-groups/action-group-create-security-group.png" alt-text="Exemplo de como criar um grupo de segurança de rede."border="true":::
-
-3. Vá para o grupo de recursos e clique em *grupo de segurança de rede* que você criou.
-
-    1. Selecione *regras de segurança de entrada*.
-    1. Clique em **Adicionar**.
-    
-    :::image type="content" source="media/action-groups/action-group-add-service-tag.png" alt-text="Exemplo de como adicionar uma marca de serviço."border="true":::
-
-4. Uma nova janela será aberta no painel direito.
-    1.  Selecionar origem: **marca de serviço**
-    1.  Marca de serviço de **origem: resourcegroup**
-    1.  Clique em **Adicionar**.
-    
-    :::image type="content" source="media/action-groups/action-group-service-tag.png" alt-text="Exemplo de como adicionar a marca de serviço."border="true":::
-
-O uso da **marca de serviço** para o The Action ajuda a minimizar a complexidade de atualizações frequentes para endereços IP.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre o [comportamento de alertas por SMS](./alerts-sms-behavior.md).  

@@ -3,21 +3,27 @@ title: Solucionar problemas do Application Insights em um projeto Web Java
 description: 'Guia de solução de problemas: monitoramento em tempo real aplicativos Java com o Application Insights.'
 ms.topic: conceptual
 ms.date: 03/14/2019
+author: MS-jgol
 ms.custom: devx-track-java
-ms.openlocfilehash: 4b6a7070b6b1b76a3f763105f4dce795f3e5c4be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: jgol
+ms.openlocfilehash: 3144633f76d1c4738f2323f1e047d6f32329909f
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372511"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133235"
 ---
-# <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Solução de problemas e perguntas e respostas para o Application Insights para Java
+# <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Solução de problemas e perguntas e respostas para o Application Insights para o SDK do Java
+
+> [!IMPORTANT]
+> A abordagem recomendada para monitorar aplicativos Java é usar a instrumentação automática sem alterar o código. Siga as diretrizes para [Application insights o agente do Java 3,0](./java-in-process-agent.md).
+
 Dúvidas ou problemas com o [Azure Application Insights em Java][java]? Aqui estão algumas dicas.
 
 ## <a name="build-errors"></a>Erros de compilação
 **No Eclipse ou Intellij Idea, ao adicionar o Application Insights SDK via Maven ou Gradle, eu recebo erros de validação de soma ou compilação.**
 
-* Se o elemento `<version>` de dependência estiver usando um padrão com caracteres curinga (ex.: Maven `<version>[2.0,)</version>` ou Gradle `version:'2.0.+'`), tente definir uma versão específica, como `2.0.1`. Veja as [notas de versão](https://github.com/Microsoft/ApplicationInsights-Java/releases) da versão mais recente.
+* Se o elemento `<version>` de dependência estiver usando um padrão com caracteres curinga (ex.: Maven `<version>[2.0,)</version>` ou Gradle `version:'2.+'`), tente definir uma versão específica, como `2.6.2`.
 
 ## <a name="no-data"></a>Sem dados
 **Adicionei o Application Insights com êxito e executei meu aplicativo, mas nunca vi dados no portal.**
@@ -30,7 +36,7 @@ Dúvidas ou problemas com o [Azure Application Insights em Java][java]? Aqui est
 * [Ative o registro em log](#debug-data-from-the-sdk) adicionando um `<SDKLogger />` elemento sob o nó raiz no arquivo de ApplicationInsights.xml (na pasta recursos em seu projeto) e verifique se há entradas precedidas com ia: info/Warn/erro para quaisquer logs suspeitos. 
 * Certifique-se de que o arquivo ApplicationInsights.xml correto foi carregado com êxito pelo SDK do Java, examinando as mensagens de saída do console para uma instrução "Arquivo de configuração foi descoberto com êxito".
 * Se não for encontrado no arquivo de configuração, verifique as mensagens de saída para ver onde o arquivo de configuração está sendo procurado e certifique-se de que o ApplicationInsights.xml seja localizado em um desses locais de pesquisa. Como regra geral, você pode colocar o arquivo de configuração perto dos JARs do SDK do Application Insights. Por exemplo: no Tomcat, isso poderia significar que a pasta WEB-INF/classes. Durante o desenvolvimento, você pode colocar ApplicationInsights.xml na pasta de recursos de seu projeto Web.
-* Também consulte a [página de problemas no GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues) para problemas conhecidos com o SDK.
+* Também consulte a [página de problemas no GitHub](https://github.com/microsoft/ApplicationInsights-Java/issues) para problemas conhecidos com o SDK.
 * Certifique-se de usar a mesma versão do Application Insights principal, web, agente e log appenders para evitar quaisquer problemas de conflito de versão.
 
 #### <a name="i-used-to-see-data-but-it-has-stopped"></a>Eu costumava ver os dados, mas eles foram interrompidos
@@ -57,7 +63,6 @@ Você configurou com êxito seu aplicativo para enviar telemetria do servidor. A
 Como alternativa, se o cliente for um aplicativo em um [telefone ou outro dispositivo][platforms], você poderá enviar telemetria por meio dele.
 
 Use a mesma chave de instrumentação para configurar a telemetria de seu cliente e do servidor. Os dados serão exibidos no mesmo recurso do Application Insights, e você poderá correlacionar eventos do cliente e do servidor.
-
 
 ## <a name="disabling-telemetry"></a>Desabilitando a telemetria
 **Como desabilitar a coleta da telemetria?**
@@ -178,7 +183,6 @@ O Application Insights usa `org.apache.http`. Isso é realocado no jars do núcl
 >[!NOTE]
 >Se você habilitar o registro em log de nível DEBUG para todos os namespaces no aplicativo, isso será respeitado por todos os módulos em execução, incluindo `org.apache.http` renomeado como `com.microsoft.applicationinsights.core.dependencies.http`. O Application Insights não poderá aplicar a filtragem a essas chamadas, pois a chamada de log estará sendo feita pela biblioteca Apache. O registro em log do nível DEBUG gera uma quantidade considerável de dados de log e não é recomendado para instâncias de produção.
 
-
 ## <a name="next-steps"></a>Próximas etapas
 **Configurei o Application Insights para meu aplicativo de servidor Java. O que mais posso fazer?**
 
@@ -190,7 +194,7 @@ O Application Insights usa `org.apache.http`. Isso é realocado no jars do núcl
 
 ## <a name="get-help"></a>Obter ajuda
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
-* [Relatar Problema no GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues)
+* [Relatar Problema no GitHub](https://github.com/microsoft/ApplicationInsights-Java/issues)
 
 <!--Link references-->
 

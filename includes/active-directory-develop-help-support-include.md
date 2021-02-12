@@ -5,12 +5,12 @@ ms.subservice: develop
 ms.topic: include
 ms.date: 05/13/2019
 ms.author: celested
-ms.openlocfilehash: f4abe0b4fb70726da4ede3d4b05f5214f549bf41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d085234709cd4393df8b775bbc57d1da2e5c474
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83680324"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97692034"
 ---
 ## <a name="help-and-support"></a>Ajuda e suporte
 

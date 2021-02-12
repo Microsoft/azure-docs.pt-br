@@ -16,12 +16,12 @@ ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77271679306b0fbde10c748afc7535f3ad3d0945
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c6ec162ceb51c3bf19be42219b054d8371ff221
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317558"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247345"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Solução de problemas de sincronização de hash de senha com a sincronização do Azure AD Connect
 
@@ -64,7 +64,7 @@ Para solucionar problemas em que nenhuma senha é sincronizada:
 
 3. Iniciar o assistente do Azure AD Connect.
 
-4. Navegue até a página **tarefas adicionais** , selecione **solucionar problemas**e clique em **Avançar**.
+4. Navegue até a página **tarefas adicionais** , selecione **solucionar problemas** e clique em **Avançar**.
 
 5. Na página de solução de problemas, clique em **Iniciar** para iniciar o menu de solução de problemas no PowerShell.
 
@@ -147,7 +147,7 @@ Para solucionar problemas de um objeto de usuário específico:
 
 3. Iniciar o assistente do Azure AD Connect.
 
-4. Navegue até a página **tarefas adicionais** , selecione **solucionar problemas**e clique em **Avançar**.
+4. Navegue até a página **tarefas adicionais** , selecione **solucionar problemas** e clique em **Avançar**.
 
 5. Na página de solução de problemas, clique em **Iniciar** para iniciar o menu de solução de problemas no PowerShell.
 
@@ -253,7 +253,7 @@ Siga estas etapas para determinar por que nenhuma senha é sincronizada:
 
     ![Saída de script do PowerShell das configurações de sincronização de senha](./media/tshoot-connect-password-hash-synchronization/psverifyconfig.png)  
 
-3. Se o recurso não estiver habilitado no Azure AD ou se o status do canal de sincronização não estiver habilitado, execute o assistente de instalação do Connect. Selecione **Personalizar opções de sincronização**e desmarque a sincronização de senha. Essa alteração desabilita temporariamente o recurso. Em seguida, execute o assistente novamente e habilite novamente a sincronização de senha. Execute o script novamente para verificar se a configuração está correta.
+3. Se o recurso não estiver habilitado no Azure AD ou se o status do canal de sincronização não estiver habilitado, execute o assistente de instalação do Connect. Selecione **Personalizar opções de sincronização** e desmarque a sincronização de senha. Essa alteração desabilita temporariamente o recurso. Em seguida, execute o assistente novamente e habilite novamente a sincronização de senha. Execute o script novamente para verificar se a configuração está correta.
 
 4. Procure se há erros no log de eventos. Procure os seguintes eventos, que poderão indicar um problema:
     * Fonte: “Sincronização de diretório” ID: 0, 611, 652, 655 Se um desses eventos aparecer, há um problema de conectividade. A mensagem do log de eventos contém informações da floresta em que há um problema. Para obter mais informações, consulte [Problema de conectividade](#connectivity problem).
@@ -346,7 +346,7 @@ Você pode solucionar problemas de sincronização de hash de senha problemas fa
 
     ![Informações de metaverso](./media/tshoot-connect-password-hash-synchronization/mvconnectors.png)  
 
-    k. Selecione a linha que representa o Azure AD, clique em **Propriedades**e, em seguida, clique na guia **linhagem** . O objeto de espaço do conector deve ter uma regra de saída na coluna **PasswordSync** definida como **true**. Na configuração padrão, o nome da regra de sincronização é **Saída para AAD – Ingresso do Usuário**.  
+    k. Selecione a linha que representa o Azure AD, clique em **Propriedades** e, em seguida, clique na guia **linhagem** . O objeto de espaço do conector deve ter uma regra de saída na coluna **PasswordSync** definida como **true**. Na configuração padrão, o nome da regra de sincronização é **Saída para AAD – Ingresso do Usuário**.  
 
     ![Caixa de diálogo Propriedades do objeto de espaço do conector](./media/tshoot-connect-password-hash-synchronization/cspasswordsync2.png)  
 
@@ -362,7 +362,7 @@ A coluna de status pode ter os seguintes valores:
 | SourceConnectorNotPresent |Nenhum objeto encontrado no espaço conector do Active Directory local. |
 | TargetNotExportedToDirectory |O objeto no espaço conector do AD do Azure ainda não foi exportado. |
 | MigratedCheckDetailsForMoreInfo |A entrada de log foi criada antes da versão 1.0.9125.0 e é mostrada em seu estado herdado. |
-| Erro do |O serviço retornou um erro desconhecido. |
+| Erro |O serviço retornou um erro desconhecido. |
 | Unknown |Ocorreu um erro ao tentar processar um lote de hashes de senha.  |
 | MissingAttribute |Atributos específicos (por exemplo, o hash de Kerberos) exigidos pelos Azure AD Domain Services não estão disponíveis. |
 | RetryRequestedByTarget |Atributos específicos (por exemplo, o hash de Kerberos) exigidos pelos Azure AD Domain Services não estavam disponíveis anteriormente. É feita uma tentativa de sincronizar novamente o hash de senha do usuário. |
@@ -380,7 +380,7 @@ if ($aadConnectors -ne $null -and $adConnectors -ne $null)
 {
     if ($aadConnectors.Count -eq 1)
     {
-        $features = Get-ADSyncAADCompanyFeature -ConnectorName $aadConnectors[0].Name
+        $features = Get-ADSyncAADCompanyFeature
         Write-Host
         Write-Host "Password sync feature enabled in your Azure AD directory: "  $features.PasswordHashSync
         foreach ($adConnector in $adConnectors)

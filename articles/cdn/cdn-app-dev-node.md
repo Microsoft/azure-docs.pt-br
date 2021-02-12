@@ -16,11 +16,11 @@ ms.date: 01/23/2017
 ms.author: mazha
 ms.custom: devx-track-js
 ms.openlocfilehash: f5d5c7a6e1f6993b19f38db2ae846b213a1d553e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316743"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993361"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Introdução ao desenvolvimento de CDN do Azure
 > [!div class="op_single_selector"]
@@ -124,7 +124,7 @@ Com *app.js* aberto no editor, vamos escrever a estrutura básica do programa.
     var cdnClient = new cdnManagementClient(credentials, subscriptionId);
     ```
    
-    Certifique-se de substituir os itens entre ** &lt; colchetes &gt; ** com as informações corretas.  Para `<redirect URI>`, use o URI de redirecionamento que você inseriu quando registrou o aplicativo no Azure AD.
+    Certifique-se de substituir os itens entre **&lt; colchetes &gt;** com as informações corretas.  Para `<redirect URI>`, use o URI de redirecionamento que você inseriu quando registrou o aplicativo no Azure AD.
 4. O aplicativo de console do Node.js usará alguns parâmetros da linha de comando.  Validaremos que pelo menos um parâmetro foi passado.
    
    ```javascript

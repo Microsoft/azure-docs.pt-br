@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 0df9e4722136dafe94d1bfc84a7767e1e0144d69
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 552e5c2411889ee7f07265eb1cc35d98aed4d7c1
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458290"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574071"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-m-files"></a>Tutorial: integração do Azure Active Directory com o M-Files
 
@@ -49,11 +49,11 @@ Para configurar a integração do M-Files ao Azure AD, você precisará adiciona
 
 **Para adicionar o M-Files da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory** .
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos** .
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Para configurar a integração do M-Files ao Azure AD, você precisará adiciona
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **M-Files** , selecione **M-Files** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **M-Files**, selecione **M-Files** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![M-Files na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o M-Files, com base em um usuário de teste chamado **Brenda Fernandes** .
+Nesta seção, você configurará e testará o logon único do Azure AD com o M-Files, com base em um usuário de teste chamado **Brenda Fernandes**.
 Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do M-Files.
 
 Para configurar e testar o logon único do Azure AD com o M-Files, você precisa concluir os seguintes blocos de construção:
@@ -85,34 +85,34 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o M-Files, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **M-Files** , selecione **Logon único** .
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **M-Files**, selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML** .
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica de SAML** , realize as seguintes etapas:
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
     ![Informações de logon único de Domínio e URLs do M-Files](common/sp-identifier.png)
 
-    a. Na caixa de texto **URL de Logon** , digite uma URL usando o seguinte padrão: `https://<tenantname>.cloudvault.m-files.com/authentication/MFiles.AuthenticationProviders.Core/sso`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<tenantname>.cloudvault.m-files.com/authentication/MFiles.AuthenticationProviders.Core/sso`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<tenantname>.cloudvault.m-files.com`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte do Cliente M-Files](mailto:support@m-files.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-5. Na página **Configurar Logon Único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+5. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-6. Na seção **Configurar o M-Files** , copie as URLs apropriadas de acordo com suas necessidades.
+6. Na seção **Configurar o M-Files**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -129,35 +129,35 @@ Para configurar o logon único do Azure AD com o M-Files, execute as seguintes e
     >[!NOTE]
     >Siga as próximas etapas se quiser configurar o SSO para o aplicativo da área de trabalho do M-Files. Nenhuma etapa adicional é necessária se você quer apenas configurar o SSO para versão Web do M-Files.  
 
-1. Siga as próximas etapas para configurar o aplicativo da área de trabalho do M-Files a fim de habilitar o SSO com o Azure AD. Para baixar o M-Files, vá para a página [Baixar M-Files](https://www.m-files.com/en/download-latest-version).
+1. Siga as próximas etapas para configurar o aplicativo da área de trabalho do M-Files a fim de habilitar o SSO com o Azure AD. Para baixar o M-Files, vá para a página [Baixar M-Files](https://www.m-files.com/customers/product-downloads/download-update-links/).
 
-1. Abra a janela **Configurações da área de trabalho do M-Files** . Em seguida, clique em **Adicionar** .
+1. Abra a janela **Configurações da área de trabalho do M-Files**. Em seguida, clique em **Adicionar**.
    
     ![A captura de tela mostra as Configurações da Área de Trabalho do M-Files em que você pode selecionar Adicionar.](./media/m-files-tutorial/tutorial_m_files_10.png)
 
-1. Na janela **Propriedades de Conexão do Cofre de Documentos** , execute as seguintes etapas:
+1. Na janela **Propriedades de Conexão do Cofre de Documentos**, execute as seguintes etapas:
    
     ![A captura de tela mostra as Propriedades de Conexão do Cofre de Documentos em que você pode inserir os valores descritos.](./media/m-files-tutorial/tutorial_m_files_11.png)  
 
     No tipo de seção Servidor, os valores são os seguintes:  
 
-    a. Para **Nome** , digite `<tenant-name>.cloudvault.m-files.com`. 
+    a. Para **Nome**, digite `<tenant-name>.cloudvault.m-files.com`. 
  
-    b. Para **Número de Porta** , digite **4466** . 
+    b. Para **Número de Porta**, digite **4466**. 
 
-    c. Para **Protocolo** , selecione **HTTPS** . 
+    c. Para **Protocolo**, selecione **HTTPS**. 
 
-    d. No campo **Autenticação** , selecione **Usuário específico do Windows** . Em seguida, você verá uma página de entrada. Insira suas credenciais do Azure AD. 
+    d. No campo **Autenticação**, selecione **Usuário específico do Windows**. Em seguida, você verá uma página de entrada. Insira suas credenciais do Azure AD. 
 
-    e. Para o **Cofre no Servidor** , selecione o cofre correspondente no servidor.
+    e. Para o **Cofre no Servidor**, selecione o cofre correspondente no servidor.
  
-    f. Clique em **OK** .
+    f. Clique em **OK**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários** .
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -169,40 +169,40 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes** .
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário** , digite **brendafernandes\@dominiodaempresa.extensao**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure ao conceder acesso ao M-Files.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, **M-Files** .
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **M-Files**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **M-Files** .
+2. Na lista de aplicativos, selecione **M-Files**.
 
     ![O link do M-Files na lista Aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Usuários e grupos** .
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
     ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-m-files-test-user"></a>Criar um usuário de teste do M-Files
 

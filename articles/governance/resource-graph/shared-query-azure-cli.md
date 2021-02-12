@@ -3,12 +3,12 @@ title: 'Início Rápido: Criar uma consulta compartilhada com a CLI do Azure'
 description: Neste guia de início rápido, você seguirá as etapas necessárias para habilitar a extensão do Resource Graph para a CLI do Azure e criar uma consulta compartilhada.
 ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: daaa0dc4039c37094330148f839fadf7b4013276
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 93df1c858ac6238a0192bcdedac8286f2cf75007
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057154"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919702"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-cli"></a>Início Rápido: Criar uma consulta compartilhada do Resource Graph usando a CLI do Azure
 
@@ -28,14 +28,14 @@ A fim de habilitar a CLI do Azure para funcionar com o Azure Resource Graph, é 
 
 1. Verifique se a CLI do Azure mais recente está instalada (pelo menos, a versão **2.8.0**). Se ainda não estiver instalado, siga [estas instruções](/cli/azure/install-azure-cli-windows).
 
-1. No ambiente escolhido da CLI do Azure, use [az extension add](/cli/azure/extension#az-extension-add) para importar a extensão do Resource Graph com o seguinte comando:
+1. No ambiente escolhido da CLI do Azure, use [az extension add](/cli/azure/extension#az_extension_add) para importar a extensão do Resource Graph com o seguinte comando:
 
    ```azurecli-interactive
    # Add the Resource Graph extension to the Azure CLI environment
    az extension add --name resource-graph
    ```
 
-1. Confirme se a extensão foi instalada e se ela tem a versão esperada (pelo menos, **1.1.0**) com [az extension list](/cli/azure/extension#az-extension-list):
+1. Confirme se a extensão foi instalada e se ela tem a versão esperada (pelo menos, **1.1.0**) com [az extension list](/cli/azure/extension#az_extension_list):
 
    ```azurecli-interactive
    # Check the extension list (note that you may have other extensions installed)
@@ -49,7 +49,7 @@ A fim de habilitar a CLI do Azure para funcionar com o Azure Resource Graph, é 
 
 Com a extensão da CLI do Azure adicionada ao ambiente escolhido, é hora de experimentar uma consulta compartilhada do Resource Graph. A consulta compartilhada é um objeto do Azure Resource Manager ao qual você pode conceder permissão ou o qual você pode executar no Explorador do Azure Resource Graph. A consulta resume a contagem de todos os recursos agrupados por _localização_.
 
-1. Crie um grupo de recursos com [az group create](/cli/azure/group#az-group-create) para armazenar a consulta compartilhada do Azure Resource Graph. Esse grupo de recursos é chamado `resource-graph-queries`, e a localização é `westus2`.
+1. Crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create) para armazenar a consulta compartilhada do Azure Resource Graph. Esse grupo de recursos é chamado `resource-graph-queries`, e a localização é `westus2`.
 
    ```azurecli-interactive
    # Login first with az login if not using Cloud Shell
@@ -58,7 +58,7 @@ Com a extensão da CLI do Azure adicionada ao ambiente escolhido, é hora de exp
    az group create --name 'resource-graph-queries' --location 'westus2'
    ```
 
-1. Crie a consulta compartilhada do Azure Resource Graph usando a extensão `graph` e o comando [az graph shared-query create](/cli/azure/ext/resource-graph/graph/shared-query#ext-resource-graph-az-graph-shared-query-create):
+1. Crie a consulta compartilhada do Azure Resource Graph usando a extensão `graph` e o comando [az graph shared-query create](/cli/azure/ext/resource-graph/graph/shared-query#ext_resource_graph_az_graph_shared_query_create):
 
    ```azurecli-interactive
    # Create the Azure Resource Graph shared query
@@ -68,14 +68,14 @@ Com a extensão da CLI do Azure adicionada ao ambiente escolhido, é hora de exp
       --resource-group 'resource-graph-queries'
    ```
 
-1. Liste as consultas compartilhadas no novo grupo de recursos. O comando [az graph shared-query list](/cli/azure/ext/resource-graph/graph/shared-query#ext-resource-graph-az-graph-shared-query-list) retorna uma matriz de valores.
+1. Liste as consultas compartilhadas no novo grupo de recursos. O comando [az graph shared-query list](/cli/azure/ext/resource-graph/graph/shared-query#ext_resource_graph_az_graph_shared_query_list) retorna uma matriz de valores.
 
    ```azurecli-interactive
    # List all the Azure Resource Graph shared queries in a resource group
    az graph shared-query list --resource-group 'resource-graph-queries'
    ```
 
-1. Para obter só um resultado da consulta compartilhada, use o comando [az graph shared-query show](/cli/azure/ext/resource-graph/graph/shared-query#ext-resource-graph-az-graph-shared-query-show).
+1. Para obter só um resultado da consulta compartilhada, use o comando [az graph shared-query show](/cli/azure/ext/resource-graph/graph/shared-query#ext_resource_graph_az_graph_shared_query_show).
 
    ```azurecli-interactive
    # Show a specific Azure Resource Graph shared query
@@ -83,7 +83,7 @@ Com a extensão da CLI do Azure adicionada ao ambiente escolhido, é hora de exp
       --name 'Summarize resources by location'
    ```
 
-1. Execute a consulta compartilhada na CLI do Azure com a sintaxe `{{shared-query-uri}}` em um comando [az graph query](/cli/azure/ext/resource-graph/graph#ext-resource-graph-az-graph-query).
+1. Execute a consulta compartilhada na CLI do Azure com a sintaxe `{{shared-query-uri}}` em um comando [az graph query](/cli/azure/ext/resource-graph/graph#ext_resource_graph_az_graph_query).
    Primeiro, copie o campo `id` do resultado do comando `show` anterior. Substitua o texto `shared-query-uri` no exemplo pelo valor do campo `id`, mas mantenha os caracteres `{{` e `}}` ao redor.
 
    ```azurecli-interactive
@@ -100,9 +100,9 @@ Outra maneira de encontrar consultas compartilhadas do Resource Graph é por mei
 
 Caso deseje remover a consulta compartilhada, o grupo de recursos e a extensão do Resource Graph do ambiente da CLI do Azure, faça isso usando os seguintes comandos:
 
-- [az graph shared-query delete](/cli/azure/ext/resource-graph/graph/shared-query#ext-resource-graph-az-graph-shared-query-delete)
-- [az group delete](/cli/azure/group#az-group-delete)
-- [az extension remove](/cli/azure/extension#az-extension-remove)
+- [az graph shared-query delete](/cli/azure/ext/resource-graph/graph/shared-query#ext_resource_graph_az_graph_shared_query_delete)
+- [az group delete](/cli/azure/group#az_group_delete)
+- [az extension remove](/cli/azure/extension#az_extension_remove)
 
 ```azurecli-interactive
 # Delete the Azure Resource Graph shared query

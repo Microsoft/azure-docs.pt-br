@@ -6,12 +6,12 @@ ms.date: 09/09/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 310637ce099aca7b8b9057a674d6b2094b008a87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba1797da5a78eeebd25f5df1b6e37eb92470f584
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613604"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106913"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Tutorial: Usar o modelo exportado do portal do Azure
 
@@ -62,12 +62,12 @@ Esse modelo funciona bem para a implantação de contas de armazenamento, mas ta
 
    O recurso Exportar Modelo usa o estado atual de um recurso e gera um modelo para implantá-lo. A exportação de um modelo pode ser uma maneira útil de obter rapidamente o JSON de que você precisa para implantar um recurso.
 
-1. Examine a definição de **Microsoft.Web/serverfarms** e a definição do parâmetro no modelo exportado. Não é necessário copiar essas seções. Você pode simplesmente usar esse modelo exportado como um exemplo de como deseja adicionar esse recurso ao modelo.
+1. Examine a definição de `Microsoft.Web/serverfarms` e a definição do parâmetro no modelo exportado. Não é necessário copiar essas seções. Você pode simplesmente usar esse modelo exportado como um exemplo de como deseja adicionar esse recurso ao modelo.
 
     ![Modelo exportado do modelo de exportação do modelo do Resource Manager](./media/template-tutorial-export-template/resource-manager-template-exported-template.png)
 
 > [!IMPORTANT]
-> Normalmente, o modelo exportado é mais detalhado do que o esperado ao criar um modelo. Por exemplo, o objeto do SKU no modelo exportado tem cinco propriedades. Esse modelo funciona, mas você pode simplesmente usar a propriedade **name**. Comece com o modelo exportado e, em seguida, modifique-o como desejar de acordo com suas necessidades.
+> Normalmente, o modelo exportado é mais detalhado do que o esperado ao criar um modelo. Por exemplo, o objeto do SKU no modelo exportado tem cinco propriedades. Esse modelo funciona, mas você pode simplesmente usar a propriedade `name`. Comece com o modelo exportado e, em seguida, modifique-o como desejar de acordo com suas necessidades.
 
 ## <a name="revise-existing-template"></a>Revisar o modelo existente
 
@@ -83,7 +83,7 @@ Copie o arquivo inteiro e substitua o modelo pelo conteúdo.
 
 Use a CLI do Azure ou o Azure PowerShell para implantar um modelo.
 
-Caso você não tenha criado o grupo de recursos, confira [Criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que você tenha definido a variável **templateFile** como o caminho para o arquivo de modelo, conforme mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
+Caso você não tenha criado o grupo de recursos, confira [Criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que você tenha definido a variável `templateFile` como o caminho para o arquivo de modelo, conforme mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -111,7 +111,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Se a implantação falhar, use a opção **detalhado** para obter informações sobre os recursos que estão sendo criados. Use a opção **depurar** para obter mais informações de depuração.
+> Se a implantação falhar, use a opção `verbose` para obter informações sobre os recursos que estão sendo criados. Use a opção `debug` para obter mais informações de depuração.
 
 ## <a name="verify-deployment"></a>Verificar implantação
 

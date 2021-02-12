@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 957e827e621d07ed9b5533a1607f955f05985d9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5161d8e169a7eb9e757dfbfa71fa697880e1806e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90004775"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673680"
 ---
 # <a name="use-azure-files-with-linux"></a>Usar o Arquivos do Azure com o Linux
 [Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de nuvem de fácil acesso da Microsoft. Os compartilhamentos de arquivos do Azure podem ser montados em distribuições do Linux usando o [cliente de kernel SMB](https://wiki.samba.org/index.php/LinuxCIFS). Este artigo mostra duas maneiras de montar um compartilhamento de arquivos do Azure: sob demanda com o comando `mount` e na inicialização criando uma entrada em `/etc/fstab`.
@@ -24,7 +24,7 @@ A maneira recomendada para montar um compartilhamento de arquivos do Azure no Li
 | Ubuntu | 14.04+ | 16.04+ |
 | Red Hat Enterprise Linux (RHEL) | 7+ | 7.5+ |
 | CentOS | 7+ |  7.5+ |
-| Debian | Mais de 8 | 10+ |
+| Debian | Mais de 8 | Mais de 10 |
 | openSUSE | 13.2+ | 42.3+ |
 | SUSE Linux Enterprise Server | 12+ | 12 SP2+ |
 
@@ -67,7 +67,7 @@ uname -r
 
     Em outras distribuições, use o gerenciador de pacotes apropriado ou [compile do código-fonte](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download)
 
-* **A versão mais recente da CLI (interface de linha de comando) do Azure.** Para obter mais informações sobre como instalar o CLI do Azure, consulte [instalar o CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e selecionar o sistema operacional. Se preferir usar o módulo Azure PowerShell no PowerShell 6 +, você pode, no entanto, as instruções a seguir são apresentadas para o CLI do Azure.
+* **A versão mais recente da CLI (interface de linha de comando) do Azure.** Para obter mais informações sobre como instalar o CLI do Azure, consulte [instalar o CLI do Azure](/cli/azure/install-azure-cli) e selecionar o sistema operacional. Se preferir usar o módulo Azure PowerShell no PowerShell 6 +, você pode, no entanto, as instruções a seguir são apresentadas para o CLI do Azure.
 
 * **Verifique se a porta 445 está aberta**: o SMB se comunica pela porta TCP 445, por isso confira se o firewall não está bloqueando as portas TCP 445 do computador cliente.  Substitua `<your-resource-group>` e `<your-storage-account>` Execute o seguinte script:
     ```bash
@@ -87,7 +87,7 @@ uname -r
 
     Se a conexão tiver sido bem-sucedida, você verá algo semelhante à seguinte saída:
 
-    ```
+    ```ouput
     Connection to <your-storage-account> 445 port [tcp/microsoft-ds] succeeded!
     ```
 
@@ -174,7 +174,7 @@ Quando tiver terminado de usar o compartilhamento de arquivos do Azure, você po
     sudo chmod 600 $smbCredentialFile
     ```
 
-1. **Use o comando a seguir para acrescentar a seguinte linha `/etc/fstab` a **: no exemplo abaixo, as permissões de pasta e arquivo Linux local padrão 0755, que significa leitura, gravação e execução para o proprietário (com base no proprietário do Linux de arquivo/diretório), leitura e execução para usuários no grupo proprietário e leitura e execução para outras pessoas no sistema. Você pode usar as `uid` `gid` Opções de montagem e para definir a ID de usuário e a ID de grupo para a montagem. Você também pode usar `dir_mode` e `file_mode` para definir permissões personalizadas conforme desejado. Para obter mais informações sobre como definir permissões, consulte [notação numérica do UNIX](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) na Wikipédia.
+1. **Use o comando a seguir para acrescentar a seguinte linha `/etc/fstab` a**: no exemplo abaixo, as permissões de pasta e arquivo Linux local padrão 0755, que significa leitura, gravação e execução para o proprietário (com base no proprietário do Linux de arquivo/diretório), leitura e execução para usuários no grupo proprietário e leitura e execução para outras pessoas no sistema. Você pode usar as `uid` `gid` Opções de montagem e para definir a ID de usuário e a ID de grupo para a montagem. Você também pode usar `dir_mode` e `file_mode` para definir permissões personalizadas conforme desejado. Para obter mais informações sobre como definir permissões, consulte [notação numérica do UNIX](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) na Wikipédia.
 
     ```bash
     # This command assumes you have logged in with az login
@@ -326,5 +326,5 @@ cat /sys/module/cifs/parameters/disable_legacy_dialects
 Veja estes links para obter mais informações sobre o Arquivos do Azure:
 
 * [Planejando uma implantação de Arquivos do Azure](storage-files-planning.md)
-* [perguntas frequentes](../storage-files-faq.md)
+* [perguntas frequentes](./storage-files-faq.md)
 * [Solução de problemas](storage-troubleshoot-linux-file-connection-problems.md)

@@ -1,18 +1,15 @@
 ---
 title: Configurar solução de virtualização de rede no Azure HDInsight
 description: Saiba como configurar vários recursos adicionais para sua solução de virtualização de rede no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: c831e099eca3cd6e6da20f55ad19980ae8e9ddc5
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7fe266c3c7b75762133fca4645e0675845c28972
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545915"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943968"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Configurar solução de virtualização de rede no Azure HDInsight
 
@@ -22,7 +19,7 @@ ms.locfileid: "92545915"
 A marca de FQDN do firewall do Azure é configurada automaticamente para permitir o tráfego para muitos dos FQDNs importantes comuns. Usar outra solução de virtualização de rede exigirá que você configure vários recursos adicionais. Lembre-se dos seguintes fatores ao configurar sua solução de virtualização de rede:
 
 * Os serviços com capacidade de ponto de extremidade de serviço podem ser configurados com pontos de extremidade de serviço que resultam em ignorar o NVA, geralmente para considerações de custo ou desempenho.
-* Se ResourceProviderConnection for definido como *saída* , você poderá usar pontos de extremidade privados para o armazenamento e os servidores SQL para metastores e não haverá necessidade de adicioná-los ao NVA.
+* Se ResourceProviderConnection for definido como *saída*, você poderá usar pontos de extremidade privados para o armazenamento e os servidores SQL para metastores e não haverá necessidade de adicioná-los ao NVA.
 * As dependências de endereço IP são para tráfego não HTTP/S (tráfego TCP e UDP).
 * Os pontos de extremidade HTTP/HTTPS do FQDN podem ser aprovados em seu dispositivo NVA.
 * Atribua a tabela de rotas que você cria à sub-rede do HDInsight.
@@ -41,7 +38,7 @@ Opcionalmente, você pode habilitar um ou mais dos seguintes pontos de extremida
 
 | **Ponto de extremidade** | **Detalhes** |
 |---|---|
-| IPs publicados [aqui](hdinsight-management-ip-addresses.md) | Esses IPs são para o provedor de recursos do HDInsight e devem ser incluídos no UDR para evitar o roteamento assimétrico. Essa regra só será necessária se o ResourceProviderConnection estiver definido como *entrada* . Se o ResourceProviderConnection for definido como *saída* , esses IPS não serão necessários no UDR.  |
+| IPs publicados [aqui](hdinsight-management-ip-addresses.md) | Esses IPs são para o provedor de recursos do HDInsight e devem ser incluídos no UDR para evitar o roteamento assimétrico. Essa regra só será necessária se o ResourceProviderConnection estiver definido como *entrada*. Se o ResourceProviderConnection for definido como *saída* , esses IPS não serão necessários no UDR.  |
 | AAD – IPs privados DS | Necessário somente para clusters ESP, se os VNETs não estiverem emparelhados.|
 
 
@@ -57,6 +54,7 @@ A lista a seguir fornece apenas alguns FQDNs que podem ser necessários para o s
 | security.ubuntu.com:80                                                |
 | ocsp.msocsp.com:80                                                    |
 | ocsp.digicert.com:80                                                  |
+| microsoft.com/pki/mscorp/cps/default.htm:443                                      |
 | microsoft.com:80                                                      |
 |login.windows.net:443                                                  |
 |login.microsoftonline.com:443                                          |

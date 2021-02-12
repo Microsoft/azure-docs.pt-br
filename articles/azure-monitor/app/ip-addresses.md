@@ -1,17 +1,17 @@
 ---
-title: Endereços IP usados pelo Application Insights e pelo Log Analytics | Microsoft Docs
+title: Endereços IP usados pelo Azure Monitor
 description: Exceções de firewall de servidor exigidas pelo Application Insights
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: 755fd62482d7e453814cab5b5b617ba5eb0cc85a
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.date: 01/27/2020
+ms.openlocfilehash: 0e7028c59b4588ac23424a63f4e3ce240391dfb8
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932355"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220795"
 ---
-# <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Endereços IP usados pelo Application Insights e pelo Log Analytics
-O serviço [Azure Application Insights](./app-insights-overview.md) usa vários endereços IP. Talvez seja necessário conhecer esses endereços se o aplicativo que você está monitorando estiver hospedado atrás de um firewall.
+# <a name="ip-addresses-used-by-azure-monitor"></a>Endereços IP usados pelo Azure Monitor
+[Azure monitor](../overview.md) usa um número de endereços IP. O Azure Monitor é composto de métricas de plataforma principal e log, além de Log Analytics e Application Insights. Talvez você precise saber esses endereços se o aplicativo ou a infraestrutura que você está monitorando estiver hospedado atrás de um firewall.
 
 > [!NOTE]
 > Embora esses endereços sejam estáticos, é possível que seja necessário alterá-los de tempos em tempos. Todo o tráfego do Application Insights representa o tráfego de saída, com exceção do monitoramento da disponibilidade e webhooks, que requerem regras de firewall de entrada.
@@ -27,7 +27,7 @@ Você precisa abrir algumas portas de saída no firewall do servidor para permit
 
 | Finalidade | URL | IP | Portas |
 | --- | --- | --- | --- |
-| Telemetria |dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248<br/>13.69.66.140<br/>13.77.52.29<br/>51.107.59.180<br/>40.71.12.235<br/>20.44.8.10<br/>40.71.13.169<br/>13.66.141.156<br/>40.71.13.170<br/>13.69.65.23<br/>20.44.17.0<br/>20.36.114.207 <br/>51.116.155.246 <br/>51.107.155.178 <br/>51.140.212.64 <br/>13.86.218.255 <br/>20.37.74.240 <br/>65.52.250.236 <br/>13.69.229.240 <br/>52.236.186.210 | 443 |
+| Telemetria |dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248<br/>13.69.66.140<br/>13.77.52.29<br/>51.107.59.180<br/>40.71.12.235<br/>20.44.8.10<br/>40.71.13.169<br/>13.66.141.156<br/>40.71.13.170<br/>13.69.65.23<br/>20.44.17.0<br/>20.36.114.207 <br/>51.116.155.246 <br/>51.107.155.178 <br/>51.140.212.64 <br/>13.86.218.255 <br/>20.37.74.240 <br/>65.52.250.236 <br/>13.69.229.240 <br/>52.236.186.210<br/>52.167.107.65<br/>40.71.12.237<br/>40.78.229.32<br/>40.78.229.33<br/>51.105.67.161<br/>40.124.64.192<br/>20.44.12.194<br/>20.189.172.0<br/>13.69.106.208<br/>40.78.253.199<br/>40.78.253.198<br/>40.78.243.19 | 443 |
 | Live Metrics Stream | live.applicationinsights.azure.com<br/>rt.applicationinsights.microsoft.com<br/>rt.services.visualstudio.com|23.96.28.38<br/>13.92.40.198<br/>40.112.49.101<br/>40.117.80.207<br/>157.55.177.6<br/>104.44.140.84<br/>104.215.81.124<br/>23.100.122.113| 443 |
 
 ## <a name="status-monitor"></a>Monitor de status
@@ -46,6 +46,10 @@ Configuração do Monitor de Status - necessária somente ao fazer alterações.
 
 ## <a name="availability-tests"></a>Testes de disponibilidade
 Esta é a lista de endereços a partir dos quais [testes da web de disponibilidade](./monitor-web-app-availability.md) são executados. Se você deseja executar testes da Web em seu aplicativo, mas o servidor Web está restrito a servir clientes específicos, você precisa permitir o tráfego de entrada dos nossos servidores de teste de disponibilidade.
+
+
+> [!NOTE]
+> Para recursos localizados dentro de redes virtuais privadas que não podem permitir a comunicação direta de entrada com os agentes de teste de disponibilidade no Azure público, a única opção é [criar e hospedar seus próprios testes de disponibilidade personalizados](availability-azure-functions.md).
 
 ### <a name="service-tag"></a>Marca de serviço
 
@@ -170,14 +174,33 @@ East US
 20.42.35.112/28
 20.42.35.128/28
 
-Azure US Government (Not needed if you are an Azure Public cloud customer)
-
-20.140.48.160/27
-20.140.56.160/27
-20.140.64.160/27
-20.140.72.160/27
-52.127.49.96/27
 ```  
+
+#### <a name="azure-government"></a>Azure Government
+
+Não é necessário se você for um cliente de nuvem pública do Azure.
+
+```
+USGov Virginia
+52.227.229.80/31
+
+
+USGov Arizona
+52.244.35.112/31
+
+
+USGov Texas
+52.243.157.80/31
+
+
+USDoD Central
+52.182.23.96/31
+
+
+USDoD East
+52.181.33.96/31
+
+```
 
 ## <a name="application-insights--log-analytics-apis"></a>APIs de Application Insights e Log Analytics
 
@@ -220,9 +243,33 @@ Observação: o domínio *.loganalytics.io pertence à equipe do Log Analytics.
 
 ## <a name="action-group-webhooks"></a>WebHooks do grupo de ações
 
-| Finalidade | IP | Portas
-| --- | --- | --- |
-| Alertas | 13.72.19.232 <br/>13.106.57.181<br/>13.106.54.3<br/>13.106.54.19<br/>13.106.38.142<br/>13.106.38.148<br/>13.106.57.196<br/>13.106.57.197<br/>52.244.68.117<br/>52.244.65.137<br/>52.183.31.0<br/>52.184.145.166<br/>51.4.138.199<br/>51.5.148.86<br/>51.5.149.19 | 443 |
+Você pode consultar a lista de endereços IP usados por grupos de ação usando o [comando Get-AzNetworkServiceTag do PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag).
+
+### <a name="action-groups-service-tag"></a>Marca de serviço de grupos de ação
+O gerenciamento de alterações nos endereços IP de origem pode ser muito demorado. O uso de **marcas de serviço** elimina a necessidade de atualizar sua configuração. Uma marca de serviço representa um grupo de prefixos de endereço IP de um determinado serviço do Azure. A Microsoft gerencia os endereços IP e atualiza automaticamente a marca de serviço à medida que os endereços são alterados, eliminando a necessidade de atualizar as regras de segurança de rede para um grupo de ação.
+
+1. Na portal do Azure em pesquisa de serviços do Azure para *grupo de segurança de rede*.
+2. Clique em **Adicionar** e crie um grupo de segurança de rede.
+
+   1. Adicione o nome do grupo de recursos e insira os *detalhes da instância*.
+   1. Clique em **revisão + criar** e, em seguida, clique em *criar*.
+   
+   :::image type="content" source="../platform/media/action-groups/action-group-create-security-group.png" alt-text="Exemplo de como criar um grupo de segurança de rede."border="true":::
+
+3. Vá para o grupo de recursos e clique em *grupo de segurança de rede* que você criou.
+
+    1. Selecione *regras de segurança de entrada*.
+    1. Clique em **Adicionar**.
+    
+    :::image type="content" source="../platform/media/action-groups/action-group-add-service-tag.png" alt-text="Exemplo de como adicionar uma marca de serviço."border="true":::
+
+4. Uma nova janela será aberta no painel direito.
+    1.  Selecionar origem: **marca de serviço**
+    1.  Marca de serviço de **origem: resourcegroup**
+    1.  Clique em **Adicionar**.
+    
+    :::image type="content" source="../platform/media/action-groups/action-group-service-tag.png" alt-text="Exemplo de como adicionar a marca de serviço."border="true":::
+
 
 ## <a name="profiler"></a>Criador de perfil
 
@@ -239,7 +286,7 @@ Observação: o domínio *.loganalytics.io pertence à equipe do Log Analytics.
 
 | Finalidade | URI | IP | Portas |
 | --- | --- | --- | --- |
-| Agente | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | 20.190.60.38<br/>20.190.60.32<br/>52.173.196.230<br/>52.173.196.209<br/>23.102.44.211<br/>23.102.45.216<br/>13.69.51.218<br/>13.69.51.175<br/>138.91.32.98<br/>138.91.37.93<br/>40.121.61.208<br/>40.121.57.2<br/>51.140.60.235<br/>51.140.180.52<br/>52.138.31.112<br/>52.138.31.127<br/>104.211.90.234<br/>104.211.91.254<br/>13.70.124.27<br/>13.75.195.15<br/>52.185.132.101<br/>52.185.132.170<br/>20.188.36.28<br/>40.89.153.171<br/>52.141.22.239<br/>52.141.22.149<br/>102.133.162.233<br/>102.133.161.73<br/>191.232.214.6<br/>191.232.213.239 | 443
-| Portal | ppe.gateway.azureserviceprofiler.net | dinâmico | 443
+| Agente | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | 20.190.60.38<br/>20.190.60.32<br/>52.173.196.230<br/>52.173.196.209<br/>23.102.44.211<br/>23.102.45.216<br/>13.69.51.218<br/>13.69.51.175<br/>138.91.32.98<br/>138.91.37.93<br/>40.121.61.208<br/>40.121.57.2<br/>51.140.60.235<br/>51.140.180.52<br/>52.138.31.112<br/>52.138.31.127<br/>104.211.90.234<br/>104.211.91.254<br/>13.70.124.27<br/>13.75.195.15<br/>52.185.132.101<br/>52.185.132.170<br/>20.188.36.28<br/>40.89.153.171<br/>52.141.22.239<br/>52.141.22.149<br/>102.133.162.233<br/>102.133.161.73<br/>191.232.214.6<br/>191.232.213.239 | 443
+| Portal | gateway.azureserviceprofiler.net | dinâmico | 443
 | Armazenamento | *.core.windows.net | dinâmico | 443
 

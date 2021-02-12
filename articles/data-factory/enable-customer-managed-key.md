@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: chez
 ms.reviewer: mariozi
-ms.openlocfilehash: c7d3dae2b7da2fcc14e86eb4965ebd99fd7bf681
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f1a7bffc05d83b30fe9e5bcd6e17bf6bc0192e1d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88650563"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348935"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>Criptografar o Azure Data Factory com chaves gerenciadas pelo cliente
 
@@ -47,8 +47,8 @@ A seguinte lista explica as etapas enumeradas no diagrama:
 
 O uso de chaves gerenciadas pelo cliente com o Data Factory exige que duas propriedades sejam definidas no Key Vault: __Exclusão Temporária__ e __Não Limpar__. Essas propriedades podem ser habilitadas usando o PowerShell ou a CLI do Azure em um cofre de chaves novo ou existente. Para saber como habilitar essas propriedades em um cofre de chaves existente, confira as seções intituladas _Como habilitar a exclusão temporária_ e _Como habilitar a proteção contra a limpeza_ em um dos seguintes artigos:
 
-- [Como usar a exclusão reversível com o PowerShell](../key-vault/general/soft-delete-powershell.md)
-- [Como usar a exclusão temporária com a CLI](../key-vault/general/soft-delete-cli.md)
+- [Como usar a exclusão reversível com o PowerShell](../key-vault/general/key-vault-recovery.md)
+- [Como usar a exclusão temporária com a CLI](../key-vault/general/key-vault-recovery.md)
 
 Se você estiver criando um novo Azure Key Vault por meio do portal do Azure, as propriedades __Exclusão Temporária__ e __Não Limpar__ podem ser habilitadas da seguinte maneira:
 

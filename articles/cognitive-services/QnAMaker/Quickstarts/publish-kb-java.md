@@ -7,23 +7,23 @@ ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27, devx-track-java
 ms.topic: how-to
-ms.openlocfilehash: 34184123a3fc096c014dc0185b51b088c59a6e04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e2e902e0563e0f4ae8c0c3d0dc795a8260c62db
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777511"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351156"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-java"></a>Início Rápido: publicar uma base de dados de conhecimento no QnA Maker usando Java
 
 Esse início rápido baseado em REST orienta você durante a publicação programática de sua KB (base de dados de conhecimento). A publicação envia por push a versão mais recente da base de dados de conhecimento para um índice dedicado da Azure Cognitive Search e cria um ponto de extremidade que pode ser chamado no aplicativo ou no chatbot.
 
 Este início rápido chama as APIs de QnA Maker:
-* [Publicar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) – esta API não requer nenhuma informação no corpo da solicitação.
+* [Publicar](/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) – esta API não requer nenhuma informação no corpo da solicitação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [JDK SE](https://aka.ms/azure-jdks) (Java Development Kit, Standard Edition)
+* [JDK SE](/azure/developer/java/fundamentals/java-jdk-long-term-support) (Java Development Kit, Standard Edition)
 * Esse exemplo usa o [cliente HTTP](https://hc.apache.org/httpcomponents-client-ga/) do Apache de componentes HTTP. Você precisa adicionar as bibliotecas de cliente Apache HTTP a seguir ao seu projeto:
     * httpclient-4.5.3.jar
     * httpcore-4.4.6.jar
@@ -101,4 +101,4 @@ Compilar e executar o programa da linha de comando. Ela enviará automaticamente
 Após a publicação da base de dados de conhecimento, você precisa da [URL do ponto de extremidade para gerar uma resposta](./get-answer-from-knowledge-base-java.md).
 
 > [!div class="nextstepaction"]
-> [Referência da API REST do QnA Maker (V4)](https://go.microsoft.com/fwlink/?linkid=2092179)
+> [Referência da API REST do QnA Maker (V4)](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase)

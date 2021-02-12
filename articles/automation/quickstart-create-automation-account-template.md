@@ -3,22 +3,18 @@ title: 'Início Rápido: Criar uma conta de Automação – modelo do Azure'
 titleSuffix: Azure Automation
 description: Este guia de início rápido mostra como criar uma conta de Automação usando o modelo do Azure Resource Manager.
 services: automation
-documentationcenter: na
-author: mgoedtel
 Customer intent: I want to create an Automation account by using an Azure Resource Manager template so that I can automate processes with runbooks.
-ms.service: automation
-ms.devlang: na
 ms.topic: quickstart
 ms.workload: infrastructure-services
-ms.date: 07/23/2020
+ms.date: 01/07/2021
 ms.author: magoedte
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 9315b898e290dc758c300f9b74006b4b08888e9e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: d0582876a08b433a10106b97179ab603d4ec5762
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078945"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050661"
 ---
 # <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>Início Rápido: Criar uma conta de Automação usando o modelo do ARM
 
@@ -44,7 +40,7 @@ Este modelo de exemplo realiza o seguinte:
 * Adiciona runbooks de Automação de exemplo à conta.
 
 >[!NOTE]
->Não há suporte para a criação da conta Executar como de Automação quando você está usando um modelo do ARM. Para criar uma conta Executar como manualmente no portal ou com o PowerShell, consulte [Gerenciar contas Executar como](manage-runas-account.md).
+>Não há suporte para a criação da conta Executar como de Automação quando você está usando um modelo do ARM. Para criar uma conta Executar como manualmente no portal ou com o PowerShell, confira [Criar uma conta Executar como](create-run-as-account.md).
 
 Depois de concluir essas etapas, você precisará [definir configurações de diagnóstico](automation-manage-send-joblogs-log-analytics.md) para sua conta de automação para enviar fluxos de trabalho e status do trabalho de runbook para o workspace do Log Analytics vinculado.
 

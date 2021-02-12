@@ -9,14 +9,14 @@ ms.subservice: metrics-advisor
 ms.topic: include
 ms.date: 09/10/2020
 ms.author: mbullwin
-ms.openlocfilehash: c754efef02cdad6edbf047c5de9f1af6d758f137
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 4c55c25621df1925b6ed6c374d8af88551eb1e46
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043181"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96231422"
 ---
-O Monitoramento de Métricas é um serviço para detecção de anomalias, diagnóstico e análise de séries temporais. Como um serviço da plataforma AI, ele usa os dados para treinar o modelo usado. O serviço aceita tabelas de dados agregados com as seguintes colunas:
+O Assistente de Métricas é um serviço para detecção de anomalias, diagnóstico e análise de séries temporais. Como um serviço da plataforma AI, ele usa os dados para treinar o modelo usado. O serviço aceita tabelas de dados agregados com as seguintes colunas:
 
 * **Medida** (obrigatória): uma ou mais colunas contendo valores numéricos.
 * **Carimbo de data/hora** (opcional): zero ou uma coluna com o tipo `DateTime` ou `String`. Quando essa coluna não for definida, o carimbo de data/hora será designado como a hora de início de cada período de ingestão. Formatar o carimbo de data/hora como: `yyyy-MM-ddTHH:mm:ssZ`. 

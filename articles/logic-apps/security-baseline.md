@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9630919b71afd0219a2e82a86e0f89106e8a0ac2
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: e47dfeab7466faf9a60b161b05d8b3bf39ebdb6a
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424061"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203296"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Linha de base de segurança do Azure para aplicativos lógicos
 
@@ -98,7 +98,7 @@ Use a proteção de rede adaptável da central de segurança do Azure para recom
 
 - [Como restringir endereços IP de entrada](logic-apps-securing-a-logic-app.md#restrict-inbound-ip-addresses)
 
-- [Como configurar a proteção contra DDoS](../virtual-network/manage-ddos-protection.md)
+- [Como configurar a proteção contra DDoS](../ddos-protection/manage-ddos-protection.md)
 
 - [Como implantar o Firewall do Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -384,7 +384,7 @@ Se você estiver usando a infraestrutura como código, evite armazenar senhas no
 
 - [Como proteger e acessar dados em aplicativos lógicos](logic-apps-securing-a-logic-app.md)
 
-- [Como definir e recuperar um segredo de Azure Key Vault](../key-vault/secrets/quick-create-portal.md)
+- [Como definir e recuperar um segredo de Azure Key Vault](../key-vault/general/quick-create-portal.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -444,7 +444,7 @@ Para conectores que usam Azure Active Directory (Azure AD) OAuth, criar uma cone
 
 **Diretriz**: Use PAWs (estações de trabalho com acesso privilegiado) com a MFA (autenticação multifator) configurada para fazer logon e configurar os recursos do Azure.
 
-- [Saiba mais sobre Estações de Trabalho com Acesso Privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Saiba mais sobre Estações de Trabalho com Acesso Privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Como habilitar a MFA no Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -486,7 +486,7 @@ Além disso, cada ponto de extremidade de solicitação em um aplicativo lógico
 
 Onde há suporte em aplicativos lógicos, use uma identidade gerenciada para acessar facilmente outros recursos protegidos pelo Azure Active Directory (AD do Azure) e autentique sua identidade sem entrar, em vez de credenciais ou segredos. O Azure gerencia essa identidade para você e ajuda a proteger suas credenciais, porque você não precisa fornecer ou trocar segredos.
 
-O aplicativo lógico do Azure dá suporte a identidades gerenciadas atribuídas pelo sistema e pelo usuário. Seu aplicativo lógico pode usar a identidade atribuída ao sistema ou uma única identidade atribuída ao usuário, que você pode compartilhar em um grupo de aplicativos lógicos, mas não ambas. No momento, somente gatilhos e ações internos específicos dão suporte a identidades gerenciadas, não conectores ou conexões gerenciadas, por exemplo:
+Os Aplicativos Lógicos do Azure dão suporte a identidades gerenciadas atribuídas pelo sistema e atribuídas pelo usuário. Seu aplicativo lógico pode usar a identidade atribuída ao sistema ou uma única identidade atribuída ao usuário, que você pode compartilhar em um grupo de aplicativos lógicos, mas não ambas. No momento, somente gatilhos e ações internos específicos dão suporte a identidades gerenciadas, não conectores ou conexões gerenciadas, por exemplo:
 
 -  HTTP
 
@@ -1284,9 +1284,9 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 **Diretrizes**: siga as regras de envolvimento da Microsoft para garantir que seus testes de penetração não sejam violações das políticas da Microsoft. Use a estratégia da Microsoft e a execução de equipes vermelhas e testes de penetração de sites ativos em infraestrutura de nuvem, serviços e aplicativos gerenciados pela Microsoft.
 
-- [Regras de teste de penetração do Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+- [Regras de participação para testes de penetração](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-- [Microsoft Cloud o agrupamento vermelho](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Equipes Vermelhas do Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

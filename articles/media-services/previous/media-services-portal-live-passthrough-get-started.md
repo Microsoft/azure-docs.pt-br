@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 707c12cac6bbceee925c4710eff29482f687d47f
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 08d1e9cd281cf41a79d1b30d709062c01abbab33
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040730"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695434"
 ---
 # <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Executar transmissão ao vivo com codificadores locais usando portal do Azure
 
@@ -33,7 +33,7 @@ ms.locfileid: "93040730"
 > 
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Este tutorial orienta você nas etapas de como usar o portal do Azure para criar um **Canal** que é configurado para uma entrega de passagem. 
 
@@ -55,7 +55,7 @@ Os itens a seguir são necessários para concluir o tutorial:
 As etapas a seguir descrevem as tarefas envolvidas na criação de aplicativos comuns de transmissão ao vivo que usam canais configurados para entrega de passagem. Este tutorial mostra como criar e gerenciar um canal de passagem e eventos ao vivo.
 
 > [!NOTE]
-> Verifique se o ponto de extremidade de streaming do qual você deseja transmitir nosso conteúdo está no estado **Executando** . 
+> Verifique se o ponto de extremidade de streaming do qual você deseja transmitir nosso conteúdo está no estado **Executando**. 
     
 1. Conecte uma câmera de vídeo a um computador. <br/>Para obter ideias de instalação, confira [Configuração da engrenagem de vídeo de evento simples e portátil]( https://link.medium.com/KNTtiN6IeT).
 1. Inicie e configure um codificador ao vivo local que gere um fluxo RTMP com múltiplas taxas de bits ou MP4 Fragmentado. Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](https://go.microsoft.com/fwlink/?LinkId=532824).<br/>Além disso, confira este blog: [produção de transmissão ao vivo com Obs](https://link.medium.com/ttuwHpaJeT).
@@ -112,7 +112,7 @@ Esta seção mostra como usar a opção **Criação Rápida** para criar um cana
 Para obter mais detalhes sobre os canais de passagem, veja [Transmissão ao vivo com codificadores locais que criam fluxos de múltiplas taxas de bits](media-services-live-streaming-with-onprem-encoders.md).
 
 1. No [Portal do Azure](https://portal.azure.com/), selecione sua conta dos Serviços de Mídia do Azure.
-2. Na janela **Configurações** , clique em **Transmissão ao vivo** . 
+2. Na janela **Configurações**, clique em **Transmissão ao vivo**. 
    
     ![Introdução](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
    
@@ -120,7 +120,7 @@ Para obter mais detalhes sobre os canais de passagem, veja [Transmissão ao vivo
 3. Clique em **Criação Rápida** para criar um canal de passagem com o protocolo de ingestão RTMP.
    
     A janela **CRIAR UM NOVO CANAL** é exibida.
-4. Nomeie o novo canal e clique em **Criar** . 
+4. Nomeie o novo canal e clique em **Criar**. 
    
     Isso cria um canal de passagem com o protocolo de ingestão RTMP.
 
@@ -142,7 +142,7 @@ Para assistir o evento, clique em **Assistir** no portal do Azure ou copie a URL
 
 O evento ao vivo é convertido automaticamente no conteúdo sob demanda quando estiver parado.
 
-## <a name="clean-up"></a>Limpeza
+## <a name="clean-up"></a>Limpar
 Para obter mais detalhes sobre os canais de passagem, veja [Transmissão ao vivo com codificadores locais que criam fluxos de múltiplas taxas de bits](media-services-live-streaming-with-onprem-encoders.md).
 
 * Um canal pode ser interrompido somente quando todos os eventos/programas nele foram interrompidos.  Depois que o canal estiver parado, ele não incorrerá em nenhum encargo. Quando for necessário iniciá-lo novamente ele terá a mesma URL de ingestão, portanto, você não precisará reconfigurar seu codificador.
@@ -151,7 +151,7 @@ Para obter mais detalhes sobre os canais de passagem, veja [Transmissão ao vivo
 ## <a name="view-archived-content"></a>Exibir conteúdo arquivado
 Mesmo depois de você parar e excluir o evento, os usuários poderão transmitir seu conteúdo arquivado como vídeo por demanda enquanto você não excluir o ativo. Não será possível excluir um ativo se este for usado por um evento; o evento deve ser excluído primeiro. 
 
-Para gerenciar os ativos, selecione **Configuração** e clique em **Ativos** .
+Para gerenciar os ativos, selecione **Configuração** e clique em **Ativos**.
 
 ![Ativos](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 

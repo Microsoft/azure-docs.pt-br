@@ -1,5 +1,5 @@
 ---
-title: Notas de versão dos Serviços de Mídia do Azure v3 | Microsoft Docs
+title: Notas de versão dos Serviços de Mídia do Azure v3
 description: Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece as atualizações mais recentes sobre os Serviços de Mídia do Azure v3.
 services: media-services
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: d825a30cf43b3e7f9017638138df91d5145d280e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2254762ec2cc9d99946afaef12f452fdfbfea9e2
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791589"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898232"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure v3
 
@@ -38,24 +38,36 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 >
 > Para obter detalhes, consulte: [as limitações de portal do Azure para os serviços de mídia v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
 
+## <a name="december-2020"></a>Dezembro de 2020
+
+### <a name="regional-availability"></a>Disponibilidade regional
+
+Os serviços de mídia do Azure agora estão disponíveis na região do leste da Noruega na portal do Azure.  Não há nenhum restV2 nessa região.
+
 ## <a name="october-2020"></a>Outubro de 2020
 
 ### <a name="basic-audio-analysis"></a>Análise de áudio básica
+
 A predefinição de análise de áudio agora inclui um tipo de preço de modo básico. O novo modo básico do analisador de áudio fornece uma opção de baixo custo para extrair a transcrição de fala e formatar legendas de saída e legendas. Esse modo executa a transcrição de fala em texto e a geração de um arquivo de subtítulo/legenda do VTT. A saída desse modo inclui um arquivo JSON do insights, incluindo apenas palavras-chave, transcrição e informações de tempo. A detecção automática de idioma e os diarization de orador não estão incluídos nesse modo. Consulte a lista de [idiomas com suporte.](analyzing-video-audio-files-concept.md#built-in-presets)
 
 Os clientes que usam o indexador v1 e o indexador v2 devem migrar para a predefinição de análise de áudio básica.
 
 Para obter mais informações sobre o modo básico do analisador de áudio, consulte [analisando arquivos de vídeo e áudio](analyzing-video-audio-files-concept.md).  Para aprender a usar o modo básico do analisador de áudio com a API REST, consulte [como criar uma transformação de áudio básica](how-to-create-basic-audio-transform.md).
 
-## <a name="live-events"></a>Eventos ao Vivo
+### <a name="live-events"></a>Eventos ao Vivo
 
 As atualizações para a maioria das propriedades agora são permitidas quando eventos ao vivo são interrompidos. Além disso, os usuários têm permissão para especificar um prefixo para o nome do host estático para as URLs de entrada e visualização do evento ao vivo. VanityUrl agora é chamado `useStaticHostName` para refletir melhor a intenção da propriedade.
 
-Os eventos ao vivo agora têm um estado de espera.  Consulte [eventos ao vivo e saídas ao vivo nos serviços de mídia](https://docs.microsoft.com/azure/media-services/latest/live-events-outputs-concept).
+Os eventos ao vivo agora têm um estado de espera.  Consulte [eventos ao vivo e saídas ao vivo nos serviços de mídia](./live-events-outputs-concept.md).
 
 Um evento ao vivo dá suporte ao recebimento de várias taxas de proporção de entrada. O modo de ampliação permite que os clientes especifiquem o comportamento de alongamento para a saída.
 
 A codificação ativa agora adiciona o recurso de saída de fragmentos de intervalo de quadro chave fixo entre 0,5 e 20 segundos.
+
+### <a name="accounts"></a>Contas
+
+> [!WARNING]
+> Se você criar uma conta de serviços de mídia com a versão de API 2020-05-01, ela não funcionará com RESTv2 
 
 ## <a name="august-2020"></a>Agosto de 2020
 
@@ -109,7 +121,7 @@ Os documentos do Player de Mídia do Azure foram migrados para a [documentação
 
 ### <a name="azure-government-cloud-updates"></a>Atualizações da nuvem do Azure Government
 
-Os Serviços de Mídia estão em disponibilidade geral nas seguintes regiões do Azure Government: *USGov – Arizona* e *USGov – Texas* .
+Os Serviços de Mídia estão em disponibilidade geral nas seguintes regiões do Azure Government: *USGov – Arizona* e *USGov – Texas*.
 
 ## <a name="december-2019"></a>Dezembro de 2019
 
@@ -173,7 +185,7 @@ Os Serviços de Mídia v3 estão anunciando a versão prévia por 365 dias, 24 h
 
 #### <a name="deprecation-of-media-processors"></a>Substituição dos processadores de mídia
 
-Estamos anunciando a substituição do *Azure Media Indexer* e da *versão prévia do Azure Media Indexer 2* . Para as datas de desativação, consulte o artigo  [componentes herdados](../previous/legacy-components.md) . O [Video Indexer dos Serviços de Mídia do Azure](../video-indexer/index.yml) substitui esses processadores de mídia herdados.
+Estamos anunciando a substituição do *Azure Media Indexer* e da *versão prévia do Azure Media Indexer 2*. Para as datas de desativação, consulte o artigo  [componentes herdados](../previous/legacy-components.md) . O [Video Indexer dos Serviços de Mídia do Azure](../video-indexer/index.yml) substitui esses processadores de mídia herdados.
 
 Para obter mais informações, confira [Migrar do Azure Media Indexer e do Azure Media Indexer 2 para o Video Indexer dos Serviços de Mídia do Azure](../previous/migrate-indexer-v1-v2.md).
 
@@ -275,10 +287,10 @@ Você não deve modificar nem remover o arquivo MPI, nem usar qualquer dependên
 
 As atualizações da versão disponível ao público geral da API V3 incluem:
        
-* As propriedades **PresentationTimeRange** não são mais “obrigatórias” para **Filtros de Ativo** e **Filtros de Conta** . 
+* As propriedades **PresentationTimeRange** não são mais “obrigatórias” para **Filtros de Ativo** e **Filtros de Conta**. 
 * As opções de consulta $top e $skip para **Trabalhos** e **Transformações** foram removidas e $orderby foi adicionado. Como parte da adição da nova funcionalidade de ordenação, foi descoberto que as opções $top e $skip acidentalmente tinham sido expostas anteriormente, embora não tenham sido implementadas.
 * A extensibilidade da enumeração foi reabilitada. Esse recurso estava habilitado nas versões prévias do SDK e foi acidentalmente desabilitado na versão disponível ao público geral.
-* Duas políticas predefinidas de transmissão foram renomeadas. **SecureStreaming** agora é **MultiDrmCencStreaming** . **SecureStreamingWithFairPlay** agora é **Predefined_MultiDrmStreaming** .
+* Duas políticas predefinidas de transmissão foram renomeadas. **SecureStreaming** agora é **MultiDrmCencStreaming**. **SecureStreamingWithFairPlay** agora é **Predefined_MultiDrmStreaming**.
 
 ## <a name="november-2018"></a>Novembro de 2018
 
@@ -424,7 +436,7 @@ Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-co
 
 ## <a name="see-also"></a>Confira também
 
-[Diretrizes de migração para mudar dos serviços de mídia v2 para v3](migrate-from-v2-to-v3.md#known-issues).
+[Diretrizes de migração para mudar dos serviços de mídia v2 para v3](migrate-v-2-v-3-migration-introduction.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

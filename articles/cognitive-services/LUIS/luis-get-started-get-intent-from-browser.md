@@ -1,18 +1,18 @@
 ---
-title: 'Início Rápido: Consulta de previsão com navegador – LUIS'
-description: Neste início rápido, use um aplicativo LUIS público disponível para determinar a intenção de um usuário com base no texto de conversa em um navegador.
+title: Como consultar previsões usando um navegador – LUIS
+description: Neste artigo, use um aplicativo LUIS público disponível para determinar a intenção do usuário com base em textos de conversa em um navegador.
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: quickstart
-ms.date: 04/21/2020
-ms.openlocfilehash: ce7544bee32586aa4cdeeb7f47a84744194db5da
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.topic: conceptual
+ms.date: 11/30/2020
+ms.openlocfilehash: 6aa681c8ea60cb57ac3e6d143c60cc46bc057719
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91316266"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436905"
 ---
-# <a name="quickstart-query-prediction-runtime-with-user-text"></a>Início Rápido: Runtime de previsão de consulta com texto de usuário
+# <a name="how-to-query-the-prediction-runtime-with-user-text"></a>Como consultar o runtime de previsão com o texto do usuário
 
 Para entender o que um ponto de extremidade de previsão do LUIS retorna, exiba um resultado de previsão em um navegador da Web.
 

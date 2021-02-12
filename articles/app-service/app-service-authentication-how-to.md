@@ -4,12 +4,12 @@ description: Saiba como personalizar o recurso de autenticação e autorização
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: ad83e7ad5e1ffc03bf7c62df9b28512e19a62100
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 4f2f43b142b290d29a4a90e504422b6c9ba2739c
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739786"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630320"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avançado de autenticação e autorização no Serviço de Aplicativo do Azure
 
@@ -24,6 +24,7 @@ Para começar rapidamente, veja um dos seguintes tutoriais:
 * [Como configurar seu aplicativo para usar o logon da Conta da Microsoft](configure-authentication-provider-microsoft.md)
 * [Como configurar seu aplicativo para usar o logon do Twitter](configure-authentication-provider-twitter.md)
 * [Como configurar seu aplicativo para fazer logon usando um provedor do OpenID Connect (versão prévia)](configure-authentication-provider-openid-connect.md)
+* [Como configurar seu aplicativo para fazer logon usando uma entrada com a Apple (versão prévia)](configure-authentication-provider-apple.md)
 
 ## <a name="use-multiple-sign-in-providers"></a>Usar vários provedores de entrada
 
@@ -31,7 +32,7 @@ A configuração do portal não oferece uma maneira prática turnkey para aprese
 
 Primeiro, na página **Autenticação/Autorização** no Portal do Azure, configure cada provedor de identidade que você deseja habilitar.
 
-Em **Ação a tomar quando a solicitação não está autenticada** , selecione **Permitir solicitações anônimas (nenhuma ação)** .
+Em **Ação a tomar quando a solicitação não está autenticada**, selecione **Permitir solicitações anônimas (nenhuma ação)**.
 
 Na página de entrada, na barra de navegação, ou em qualquer outro local do aplicativo, adicione um link de entrada a cada um dos provedores que você habilitou (`/.auth/login/<provider>`). Por exemplo:
 
@@ -41,6 +42,7 @@ Na página de entrada, na barra de navegação, ou em qualquer outro local do ap
 <a href="/.auth/login/facebook">Log in with Facebook</a>
 <a href="/.auth/login/google">Log in with Google</a>
 <a href="/.auth/login/twitter">Log in with Twitter</a>
+<a href="/.auth/login/apple">Log in with Apple</a>
 ```
 
 Quando o usuário clica em um dos links, a respectiva página de entrada é aberta para que ele entre.
@@ -170,21 +172,21 @@ Do seu código de cliente (como um aplicativo móvel ou JavaScript no navegador)
 
 Quando o token de acesso do seu provedor (não o [token de sessão](#extend-session-token-expiration-grace-period)) expirar, você precisará autenticar novamente o usuário antes de usar esse token novamente. Você pode evitar a expiração do token fazendo uma `GET` chamada para o `/.auth/refresh` ponto de extremidade de seu aplicativo. Quando chamado, o serviço de aplicativo atualiza automaticamente os tokens de acesso no [repositório de token](overview-authentication-authorization.md#token-store) para o usuário autenticado. As solicitações subsequentes de tokens do seu código do aplicativo obtêm tokens atualizados. No entanto, para que a atualização do token funcione, o repositório de token deve conter [tokens de atualização](https://auth0.com/learn/refresh-tokens/) para o seu provedor. A forma de obter tokens de atualização é documentada por cada provedor, mas a lista a seguir traz um breve resumo:
 
-- **Google** : anexe um `access_type=offline` parâmetro de cadeia de caracteres para consulta a sua `/.auth/login/google` chamada à API. Se usar o SDK de Aplicativos Móveis, você pode adicionar o parâmetro a uma das `LogicAsync` sobrecargas (consulte [Tokens de atualização do Google](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
-- **Facebook** : não fornece tokens de atualização. Tokens de vida útil longa expiram em 60 dias (consulte [Expiração e extensão de tokens de acesso do Facebook](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
-- **Twitter** : tokens de acesso não expiram (consulte [Perguntas frequentes sobre o OAuth do Twitter](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
-- **Microsoft Account** : quando [definir configurações de autenticação de conta Microsoft](configure-authentication-provider-microsoft.md), selecione o escopo `wl.offline_access`.
-- **Azure Active Directory** : em [https://resources.azure.com](https://resources.azure.com), execute as seguintes etapas:
-    1. Na parte superior da página, selecione **Ler/Gravar** .
-    2. No navegador esquerdo, navegue até **assinaturas** > * * _\<subscription\_name_** > **resourceGroups** > *_ * * * \<resource\_group\_name> _> **provedores**  >  **Microsoft. Web**  >  **sites** > * *_ \<app\_name> _ * * > **config**  >  **authsettings** . 
-    3. Clique em **Editar** .
+- **Google**: anexe um `access_type=offline` parâmetro de cadeia de caracteres para consulta a sua `/.auth/login/google` chamada à API. Se usar o SDK de Aplicativos Móveis, você pode adicionar o parâmetro a uma das `LogicAsync` sobrecargas (consulte [Tokens de atualização do Google](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
+- **Facebook**: não fornece tokens de atualização. Tokens de vida útil longa expiram em 60 dias (consulte [Expiração e extensão de tokens de acesso do Facebook](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
+- **Twitter**: tokens de acesso não expiram (consulte [Perguntas frequentes sobre o OAuth do Twitter](https://developer.twitter.com/en/docs/authentication/faq)).
+- **Microsoft Account**: quando [definir configurações de autenticação de conta Microsoft](configure-authentication-provider-microsoft.md), selecione o escopo `wl.offline_access`.
+- **Azure Active Directory**: em [https://resources.azure.com](https://resources.azure.com), execute as seguintes etapas:
+    1. Na parte superior da página, selecione **Ler/Gravar**.
+    2. No navegador esquerdo, navegue até **assinaturas** > * *_\<subscription\_name_** > **resourceGroups** > *_* * * \<resource\_group\_name> _> **provedores**  >  **Microsoft. Web**  >  **sites** > * *_ \<app\_name> _ * * > **config**  >  **authsettings**. 
+    3. Clique em **Editar**.
     4. Modifique a propriedade a seguir. Substitua _\<app\_id>_ pela ID de aplicativo Azure Active Directory do serviço que você deseja acessar.
 
         ```json
         "additionalLoginParams": ["response_type=code id_token", "resource=<app_id>"]
         ```
 
-    5. Clique em **Put** . 
+    5. Clique em **Put**. 
 
 Depois que seu provedor estiver configurado, você poderá [ encontrar o token de atualização e o tempo de expiração do token de acesso ](#retrieve-tokens-in-app-code) na loja do token. 
 
@@ -221,11 +223,11 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 ## <a name="limit-the-domain-of-sign-in-accounts"></a>Limite do domínio de contas de entrada
 
-A Conta da Microsoft e o Microsoft Azure Active Directory permitem a entrada de vários domínios. Por exemplo, a Conta da Microsoft permite contas de _outlook.com_ , _live.com_ e _hotmail.com_ . O Azure AD permite qualquer número de domínios personalizados para as contas de entrada. No entanto, talvez você queira acelerar seus usuários diretamente para sua própria página de entrada do Azure AD com marca (como `contoso.com` ). Para sugerir o nome de domínio das contas de entrada, siga estas etapas.
+A Conta da Microsoft e o Microsoft Azure Active Directory permitem a entrada de vários domínios. Por exemplo, a Conta da Microsoft permite contas de _outlook.com_, _live.com_ e _hotmail.com_. O Azure AD permite qualquer número de domínios personalizados para as contas de entrada. No entanto, talvez você queira acelerar seus usuários diretamente para sua própria página de entrada do Azure AD com marca (como `contoso.com` ). Para sugerir o nome de domínio das contas de entrada, siga estas etapas.
 
-No [https://resources.azure.com](https://resources.azure.com) , navegue até **assinaturas** > * * _\<subscription\_name_** > **resourceGroups** > *_ * * * \<resource\_group\_name> _> **provedores**  >  **Microsoft. Web**  >  **sites** > * *_ \<app\_name> _ * * > **config**  >  **authsettings** . 
+No [https://resources.azure.com](https://resources.azure.com) , navegue até **assinaturas** > * *_\<subscription\_name_** > **resourceGroups** > *_* * * \<resource\_group\_name> _> **provedores**  >  **Microsoft. Web**  >  **sites** > * *_ \<app\_name> _ * * > **config**  >  **authsettings**. 
 
-Clique em **Editar** , modifique a propriedade a seguir e, em seguida, clique em **Put** . Certifique-se de substituir _\<domain\_name>_ pelo domínio desejado.
+Clique em **Editar**, modifique a propriedade a seguir e, em seguida, clique em **Put**. Certifique-se de substituir _\<domain\_name>_ pelo domínio desejado.
 
 ```json
 "additionalLoginParams": ["domain_hint=<domain_name>"]
@@ -247,13 +249,13 @@ Embora o serviço de aplicativo se encarrega do caso de autorização mais simpl
 
 ### <a name="server-level-windows-apps-only"></a>Nível do servidor (somente aplicativos do Windows)
 
-Para qualquer aplicativo do Windows, você pode definir o comportamento de autorização do servidor Web do IIS, editando o arquivo de *Web.config* . Os aplicativos do Linux não usam o IIS e não podem ser configurados por meio de *Web.config* .
+Para qualquer aplicativo do Windows, você pode definir o comportamento de autorização do servidor Web do IIS, editando o arquivo de *Web.config* . Os aplicativos do Linux não usam o IIS e não podem ser configurados por meio de *Web.config*.
 
 1. Navegue até `https://<app-name>.scm.azurewebsites.net/DebugConsole`
 
-1. No Gerenciador de navegador de seus arquivos do serviço de aplicativo, navegue até *site/wwwroot* . Se um *Web.config* não existir, crie-o selecionando **+**  >  **novo arquivo** . 
+1. No Gerenciador de navegador de seus arquivos do serviço de aplicativo, navegue até *site/wwwroot*. Se um *Web.config* não existir, crie-o selecionando **+**  >  **novo arquivo**. 
 
-1. Selecione o lápis para *Web.config* para editá-lo. Adicione o código de configuração a seguir e clique em **salvar** . Se *Web.config* já existir, basta adicionar o `<authorization>` elemento a tudo nele. Adicione as contas que você deseja permitir no `<allow>` elemento.
+1. Selecione o lápis para *Web.config* para editá-lo. Adicione o código de configuração a seguir e clique em **salvar**. Se *Web.config* já existir, basta adicionar o `<authorization>` elemento a tudo nele. Adicione as contas que você deseja permitir no `<allow>` elemento.
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -277,6 +279,150 @@ O provedor de identidade pode fornecer determinada autorização de chave. Por e
 ### <a name="application-level"></a>Nível de aplicativo
 
 Se qualquer um dos outros níveis não fornecer a autorização de que você precisa, ou se sua plataforma ou provedor de identidade não tiver suporte, você deverá escrever um código personalizado para autorizar usuários com base nas [declarações do usuário](#access-user-claims).
+
+## <a name="updating-the-configuration-version-preview"></a>Atualizando a versão de configuração (visualização)
+
+Há duas versões da API de gerenciamento para o recurso de autenticação/autorização. A versão de visualização V2 é necessária para a experiência de "autenticação (visualização)" no portal do Azure. Um aplicativo que já usa a API v1 pode atualizar para a versão v2 depois que algumas alterações forem feitas. Especificamente, a configuração secreta deve ser movida para as configurações do aplicativo de slot-adesivo. A configuração do provedor de conta da Microsoft também não tem suporte na V2 no momento.
+
+> [!WARNING]
+> A migração para a versão prévia do v2 desabilitará o gerenciamento do recurso de autenticação/autorização do serviço de aplicativo para seu aplicativo por meio de alguns clientes, como sua experiência existente no portal do Azure, CLI do Azure e Azure PowerShell. Isso não pode ser revertido. Durante a versão prévia, a migração de cargas de trabalho de produção não é incentivada nem suportada. Você só deve seguir as etapas nesta seção para aplicativos de teste.
+
+### <a name="moving-secrets-to-application-settings"></a>Movendo segredos para as configurações do aplicativo
+
+1. Obtenha sua configuração existente usando a API V1:
+
+   ```azurecli
+   # For Web Apps
+   az webapp auth show -g <group_name> -n <site_name>
+
+   # For Azure Functions
+   az functionapp auth show -g <group_name> -n <site_name>
+   ```
+
+   Na carga JSON resultante, anote o valor secreto usado para cada provedor que você configurou:
+
+   * AAD `clientSecret`
+   * Google `googleClientSecret`
+   * Facebook `facebookAppSecret`
+   * Twitter `twitterConsumerSecret`
+   * Conta da Microsoft: `microsoftAccountClientSecret`
+
+   > [!IMPORTANT]
+   > Os valores secretos são credenciais de segurança importantes e devem ser tratados com cuidado. Não compartilhe esses valores ou mantenha-os em um computador local.
+
+1. Crie configurações de aplicativo de slot-adesivo para cada valor secreto. Você pode escolher o nome de cada configuração de aplicativo. Seu valor deve corresponder ao que você obteve na etapa anterior ou [fazer referência a um segredo de Key Vault](./app-service-key-vault-references.md?toc=/azure/azure-functions/toc.json) que você criou com esse valor.
+
+   Para criar a configuração, você pode usar o portal do Azure ou executar uma variação do seguinte para cada provedor:
+
+   ```azurecli
+   # For Web Apps, Google example    
+   az webapp config appsettings set -g <group_name> -n <site_name> --slot-settings GOOGLE_PROVIDER_AUTHENTICATION_SECRET=<value_from_previous_step>
+
+   # For Azure Functions, Twitter example
+   az functionapp config appsettings set -g <group_name> -n <site_name> --slot-settings TWITTER_PROVIDER_AUTHENTICATION_SECRET=<value_from_previous_step>
+   ```
+
+   > [!NOTE]
+   > As configurações de aplicativo para essa configuração devem ser marcadas como slot-adesivo, o que significa que elas não serão movidas entre ambientes durante uma [operação de permuta de slot](./deploy-staging-slots.md). Isso ocorre porque sua configuração de autenticação em si está vinculada ao ambiente. 
+
+1. Crie um novo arquivo JSON chamado `authsettings.json` . Pegue a saída que você recebeu anteriormente e remova cada valor secreto dela. Grave a saída restante no arquivo, certificando-se de que nenhum segredo esteja incluído. Em alguns casos, a configuração pode ter matrizes que contenham cadeias de caracteres vazias. Certifique-se de que `microsoftAccountOAuthScopes` o não e, se tiver, mude esse valor para `null` .
+
+1. Adicione uma propriedade à `authsettings.json` qual aponta para o nome da configuração de aplicativo que você criou anteriormente para cada provedor:
+ 
+   * AAD `clientSecretSettingName`
+   * Google `googleClientSecretSettingName`
+   * Facebook `facebookAppSecretSettingName`
+   * Twitter `twitterConsumerSecretSettingName`
+   * Conta da Microsoft: `microsoftAccountClientSecretSettingName`
+
+   Um arquivo de exemplo após essa operação pode ser semelhante ao seguinte, neste caso, somente configurado para o AAD:
+
+   ```json
+   {
+       "id": "/subscriptions/00d563f8-5b89-4c6a-bcec-c1b9f6d607e0/resourceGroups/myresourcegroup/providers/Microsoft.Web/sites/mywebapp/config/authsettings",
+       "name": "authsettings",
+       "type": "Microsoft.Web/sites/config",
+       "location": "Central US",
+       "properties": {
+           "enabled": true,
+           "runtimeVersion": "~1",
+           "unauthenticatedClientAction": "AllowAnonymous",
+           "tokenStoreEnabled": true,
+           "allowedExternalRedirectUrls": null,
+           "defaultProvider": "AzureActiveDirectory",
+           "clientId": "3197c8ed-2470-480a-8fae-58c25558ac9b",
+           "clientSecret": null,
+           "clientSecretSettingName": "MICROSOFT_IDENTITY_AUTHENTICATION_SECRET",
+           "clientSecretCertificateThumbprint": null,
+           "issuer": "https://sts.windows.net/0b2ef922-672a-4707-9643-9a5726eec524/",
+           "allowedAudiences": [
+               "https://mywebapp.azurewebsites.net"
+           ],
+           "additionalLoginParams": null,
+           "isAadAutoProvisioned": true,
+           "aadClaimsAuthorization": null,
+           "googleClientId": null,
+           "googleClientSecret": null,
+           "googleClientSecretSettingName": null,
+           "googleOAuthScopes": null,
+           "facebookAppId": null,
+           "facebookAppSecret": null,
+           "facebookAppSecretSettingName": null,
+           "facebookOAuthScopes": null,
+           "gitHubClientId": null,
+           "gitHubClientSecret": null,
+           "gitHubClientSecretSettingName": null,
+           "gitHubOAuthScopes": null,
+           "twitterConsumerKey": null,
+           "twitterConsumerSecret": null,
+           "twitterConsumerSecretSettingName": null,
+           "microsoftAccountClientId": null,
+           "microsoftAccountClientSecret": null,
+           "microsoftAccountClientSecretSettingName": null,
+           "microsoftAccountOAuthScopes": null,
+           "isAuthFromFile": "false"
+       }   
+   }
+   ```
+
+1. Envie este arquivo como a nova configuração de autenticação/autorização para seu aplicativo:
+
+   ```azurecli
+   az rest --method PUT --url "/subscriptions/<subscription_id>/resourceGroups/<group_name>/providers/Microsoft.Web/sites/<site_name>/config/authsettings?api-version=2020-06-01" --body @./authsettings.json
+   ```
+
+1. Valide se seu aplicativo ainda está operando conforme o esperado após esse gesto.
+
+1. Exclua o arquivo usado nas etapas anteriores.
+
+Agora você migrou o aplicativo para armazenar os segredos do provedor de identidade como configurações do aplicativo.
+
+### <a name="support-for-microsoft-account-registrations"></a>Suporte para registros de conta Microsoft
+
+Atualmente, a API v2 não dá suporte à conta da Microsoft como um provedor distinto. Em vez disso, ele aproveita a plataforma de [identidade da Microsoft](../active-directory/develop/v2-overview.md) convergida para conectar usuários com contas pessoais da Microsoft. Ao alternar para a API v2, a configuração de Azure Active Directory v1 é usada para configurar o provedor de plataforma de identidade da Microsoft.
+
+Se sua configuração existente contiver um provedor de conta da Microsoft e não contiver um provedor de Azure Active Directory, você poderá alternar a configuração para o provedor de Azure Active Directory e, em seguida, executar a migração. Para fazer isso:
+
+1. Vá para [**registros de aplicativo**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) no portal do Azure e localize o registro associado ao seu provedor de conta da Microsoft. Pode estar no cabeçalho "aplicativos de conta pessoal".
+1. Navegue até a página "autenticação" para o registro. Em "URIs de redirecionamento", você deverá ver uma entrada terminando em `/.auth/login/microsoftaccount/callback` . Copie esse URI.
+1. Adicione um novo URI que corresponda ao que você acabou de copiar, exceto em que ele termina em `/.auth/login/aad/callback` . Isso permitirá que o registro seja usado pela configuração de autenticação/autorização do serviço de aplicativo.
+1. Navegue até a configuração de autenticação/autorização do serviço de aplicativo para seu aplicativo.
+1. Colete a configuração do provedor de conta da Microsoft.
+1. Configure o provedor de Azure Active Directory usando o modo de gerenciamento "avançado", fornecendo a ID do cliente e os valores de segredo do cliente que você coletou na etapa anterior. Para a URL do emissor, use usar e `<authentication-endpoint>/<tenant-id>/v2.0` substitua *\<authentication-endpoint>* pelo ponto de [extremidade de autenticação para seu ambiente de nuvem](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (por exemplo, " https://login.microsoftonline.com " para o Azure global), também substituindo *\<tenant-id>* pela sua **ID de diretório (locatário)**.
+1. Depois de salvar a configuração, teste o fluxo de logon navegando no navegador para o `/.auth/login/aad` ponto de extremidade no seu site e conclua o fluxo de entrada.
+1. Neste ponto, você copiou a configuração com êxito, mas a configuração existente do provedor de conta da Microsoft permanece. Antes de removê-lo, verifique se todas as partes do seu aplicativo referenciam o provedor de Azure Active Directory por meio de links de logon, etc. Verifique se todas as partes do seu aplicativo funcionam conforme o esperado.
+1. Depois de validar que as coisas funcionam com o provedor de Azure Active Directory do AAD, você pode remover a configuração do provedor de conta da Microsoft.
+
+Alguns aplicativos podem já ter registros separados para Azure Active Directory e a conta da Microsoft. Esses aplicativos não podem ser migrados no momento. 
+
+> [!WARNING]
+> É possível convergir os dois registros modificando os [tipos de conta com suporte](../active-directory/develop/supported-accounts-validation.md) para o registro do aplicativo do AAD. No entanto, isso forçaria um novo prompt de consentimento para os usuários da conta da Microsoft, e as declarações de identidade dos usuários podem ser diferentes na estrutura, `sub` notavelmente alterando os valores, uma vez que uma nova ID do aplicativo está sendo usada. Essa abordagem não é recomendada a menos que seja totalmente compreendida. Em vez disso, você deve aguardar o suporte para os dois registros na superfície da API v2.
+
+### <a name="switching-to-v2"></a>Alternando para v2
+
+Depois que as etapas acima forem executadas, navegue até o aplicativo na portal do Azure. Selecione a seção "autenticação (visualização)". 
+
+Como alternativa, você pode fazer uma solicitação PUT em relação ao `config/authsettingsv2` recurso sob o recurso site. O esquema para a carga é o mesmo que foi capturado na seção [Configurar usando um arquivo](#config-file) .
 
 ## <a name="configure-using-a-file-preview"></a><a name="config-file"> </a>Configurar usando um arquivo (visualização)
 
@@ -315,7 +461,6 @@ Os seguintes esgotamentos possíveis opções de configuração dentro do arquiv
         "enabled": <true|false>
     },
     "globalValidation": {
-        "requireAuthentication": <true|false>,
         "unauthenticatedClientAction": "RedirectToLoginPage|AllowAnonymous|Return401|Return403",
         "redirectToProvider": "<default provider alias>",
         "excludedPaths": [
@@ -349,13 +494,13 @@ Os seguintes esgotamentos possíveis opções de configuração dentro do arquiv
             }
         },
         "preserveUrlFragmentsForLogins": <true|false>,
-        "allowedExternalRedirectUri": [
+        "allowedExternalRedirectUrls": [
             "https://uri1.azurewebsites.net/",
             "https://uri2.azurewebsites.net/",
             "url_scheme_of_your_app://easyauth.callback"
         ],
         "cookieExpiration": {
-            "convention": "FixedTime|IdentityProviderDerived",
+            "convention": "FixedTime|IdentityDerived",
             "timeToExpiration": "<timespan>"
         },
         "nonce": {
@@ -437,13 +582,26 @@ Os seguintes esgotamentos possíveis opções de configuração dentro do arquiv
                 "consumerSecretSettingName": "APP_SETTING_CONTAINING TWITTER_CONSUMER_SECRET"
             }
         },
+        "apple": {
+            "enabled": <true|false>,
+            "registration": {
+                "clientId": "<client id>",
+                "clientSecretSettingName": "APP_SETTING_CONTAINING_APPLE_SECRET"
+            },
+            "login": {
+                "scopes": [
+                    "profile",
+                    "email"
+                ]
+            }
+        },
         "openIdConnectProviders": {
             "<providerName>": {
                 "enabled": <true|false>,
                 "registration": {
                     "clientId": "<client id>",
                     "clientCredential": {
-                        "secretSettingName": "<name of app setting containing client secret>"
+                        "clientSecretSettingName": "<name of app setting containing client secret>"
                     },
                     "openIdConnectConfiguration": {
                         "authorizationEndpoint": "<url specifying authorization endpoint>",
@@ -455,7 +613,7 @@ Os seguintes esgotamentos possíveis opções de configuração dentro do arquiv
                 },
                 "login": {
                     "nameClaimType": "<name of claim containing name>",
-                    "scope": [
+                    "scopes": [
                         "openid",
                         "profile",
                         "email"
@@ -486,7 +644,7 @@ Você pode alterar a versão de tempo de execução usada pelo seu aplicativo. A
 
 #### <a name="view-the-current-runtime-version"></a>Exibir a versão de runtime atual
 
-Você pode exibir a versão atual do middleware de autenticação de plataforma usando o CLI do Azure ou por meio de um dos pontos de extremidade HTTP da versão built0 em seu aplicativo.
+Você pode exibir a versão atual do middleware de autenticação de plataforma usando o CLI do Azure ou por meio de um dos pontos de extremidade HTTP da versão interna em seu aplicativo.
 
 ##### <a name="from-the-azure-cli"></a>Na CLI do Azure
 

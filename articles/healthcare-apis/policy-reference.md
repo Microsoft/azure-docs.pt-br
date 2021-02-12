@@ -1,19 +1,19 @@
 ---
 title: Definições de políticas internas para a API do Azure para FHIR
 description: Lista as definições de políticas internas do Azure Policy para a API do Azure para FHIR. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 10/20/2020
+ms.date: 02/04/2021
 author: matjazl
 ms.author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: af94f8a8106307179a65c8de92a90b21fa3f790b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 49e8f9d46b74d0d230cc55eaba5ae6f838e9a7c4
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319871"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555170"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-api-for-fhir"></a>Definições internas do Azure Policy para a API do Azure para FHIR
 

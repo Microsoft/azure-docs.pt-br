@@ -5,17 +5,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 11/10/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4e8623ecb351fa99a437de70a9b74a70fb6228cd
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5f2d3ba12fa65beb7156e056c23e44b028cbb520
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151142"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445057"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Criptografia do lado do cliente e o Cofre da Chave do Azure para o Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -209,7 +209,7 @@ blob.DownloadTo(outputStream);
 
 Um **BlobServiceClient** não é necessário para aplicar as opções de criptografia. Elas também podem ser passadas para construtores **BlobContainerClient** / **BlobClient** que aceitam objetos **BlobClientOptions** .
 
-Se um objeto **BlobClient** desejado já existir, mas sem opções de criptografia do lado do cliente, um método de extensão existirá para criar uma cópia desse objeto com o **ClientSideEncryptionOptions**especificado. Esse método de extensão evita a sobrecarga de construir um novo objeto **BlobClient** do zero.
+Se um objeto **BlobClient** desejado já existir, mas sem opções de criptografia do lado do cliente, um método de extensão existirá para criar uma cópia desse objeto com o **ClientSideEncryptionOptions** especificado. Esse método de extensão evita a sobrecarga de construir um novo objeto **BlobClient** do zero.
 
 ```csharp
 using Azure.Storage.Blobs.Specialized;
@@ -223,7 +223,7 @@ BlobClient clientSideEncryptionBlob = plaintextBlob.WithClientSideEncryptionOpti
 ```
 
 # <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
-Crie um objeto **BlobEncryptionPolicy** e o defina nas opções de solicitação (por API ou no nível do cliente usando **DefaultRequestOptions**). Todo o resto será tratado pela biblioteca de cliente internamente.
+Crie um objeto **BlobEncryptionPolicy** e o defina nas opções de solicitação (por API ou no nível do cliente usando **DefaultRequestOptions** ). Todo o resto será tratado pela biblioteca de cliente internamente.
 
 ```csharp
 // Create the IKey used for encryption.
@@ -279,7 +279,7 @@ QueueMessage[] queue.ReceiveMessages();
 
 Um **QueueServiceClient** não é necessário para aplicar as opções de criptografia. Elas também podem ser passadas para construtores **QueueClient** que aceitam objetos **QueueClientOptions** .
 
-Se um objeto **QueueClient** desejado já existir, mas sem opções de criptografia do lado do cliente, um método de extensão existirá para criar uma cópia desse objeto com o **ClientSideEncryptionOptions**especificado. Esse método de extensão evita a sobrecarga de construir um novo objeto **QueueClient** do zero.
+Se um objeto **QueueClient** desejado já existir, mas sem opções de criptografia do lado do cliente, um método de extensão existirá para criar uma cópia desse objeto com o **ClientSideEncryptionOptions** especificado. Esse método de extensão evita a sobrecarga de construir um novo objeto **QueueClient** do zero.
 
 ```csharp
 using Azure.Storage.Queues.Specialized;
@@ -324,7 +324,7 @@ Debug.Assert(messages.Length == 4)
 ```
 
 # <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
-Crie um objeto **QueueEncryptionPolicy** e o defina nas opções de solicitação (por API ou no nível do cliente usando **DefaultRequestOptions**). Todo o resto será tratado pela biblioteca de cliente internamente.
+Crie um objeto **QueueEncryptionPolicy** e o defina nas opções de solicitação (por API ou no nível do cliente usando **DefaultRequestOptions** ). Todo o resto será tratado pela biblioteca de cliente internamente.
 
 ```csharp
 // Create the IKey used for encryption.

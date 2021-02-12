@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: fcc482e6231bbd925fd500a37989052765dede58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90831c0e8d5ab73f65dc801319a357d59799cbc6
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77538527"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97807545"
 ---
 # <a name="troubleshoot-azure-private-endpoint-connectivity-problems"></a>Solucionar problemas de conectividade do ponto de extremidade privado do Azure
 
@@ -56,7 +56,7 @@ Examine essas etapas para verificar se todas as configurações usuais estão co
     
        ![Configuração de rede virtual e DNS](./media/private-endpoint-tsg/vnet-dns-configuration.png)
     
-1. Use [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview) para ver se os dados estão fluindo.
+1. Use [Azure monitor](../azure-monitor/overview.md) para ver se os dados estão fluindo.
 
     a. No recurso de ponto de extremidade privado, selecione **Monitor**.
      - Selecione **dados** ou **dados de saída**. 
@@ -68,7 +68,7 @@ Examine essas etapas para verificar se todas as configurações usuais estão co
 
     a. Selecione a VM do cliente.
 
-    b. Selecione **solução de problemas de conexão**e, em seguida, selecione a guia **conexões de saída** .
+    b. Selecione **solução de problemas de conexão** e, em seguida, selecione a guia **conexões de saída** .
     
       ![Observador de rede-testar conexões de saída](./media/private-endpoint-tsg/network-watcher-outbound-connection.png)
     
@@ -80,7 +80,7 @@ Examine essas etapas para verificar se todas as configurações usuais estão co
      - Cole o FQDN do recurso de ponto de extremidade privado.
      - Forneça uma porta. Normalmente, use 443 para o armazenamento do Azure ou Azure Cosmos DB e 1336 para SQL.
 
-    e. Selecione **teste**e valide os resultados do teste.
+    e. Selecione **teste** e valide os resultados do teste.
     
       ![Observador de rede – resultados do teste](./media/private-endpoint-tsg/network-watcher-test-results.png)
     
@@ -93,19 +93,35 @@ Examine essas etapas para verificar se todas as configurações usuais estão co
        - Verifique se o registro da zona DNS privada existe. Se ele não existir, crie-o.
      - Se você usar o DNS personalizado:
        - Examine as configurações de DNS personalizadas e valide se a configuração de DNS está correta.
-       Para obter diretrizes, consulte [visão geral do ponto de extremidade privado: configuração de DNS](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
+       Para obter diretrizes, consulte [visão geral do ponto de extremidade privado: configuração de DNS](./private-endpoint-overview.md#dns-configuration).
 
     b. Se a conectividade estiver falhando devido a NSGs (grupos de segurança de rede) ou a rotas definidas pelo usuário:
      - Examine as regras de saída do NSG e crie as regras de saída apropriadas para permitir o tráfego.
     
        ![Regras de saída do NSG](./media/private-endpoint-tsg/nsg-outbound-rules.png)
 
+1. A máquina virtual de origem deve ter a rota para o IP do ponto de extremidade privado próximo salto como InterfaceEndpoints nas rotas efetivas da NIC. 
+
+    a. Se você não conseguir ver a rota do ponto de extremidade privado na VM de origem, verifique se 
+     - A VM de origem e o ponto de extremidade privado pertencem à mesma VNET. Em caso afirmativo, você precisará entrar em contato com o suporte. 
+     - A VM de origem e o ponto de extremidade privado fazem parte de VNETs diferentes e, em seguida, verificam a conectividade de IP entre o VNETS. Se houver conectividade IP e ainda não for possível ver a rota, envolva o suporte. 
+
 1. Se a conexão tiver resultados validados, o problema de conectividade poderá estar relacionado a outros aspectos, como segredos, tokens e senhas na camada de aplicativo.
-   - Nesse caso, examine a configuração do recurso de link privado associado ao ponto de extremidade privado. Para obter mais informações, consulte o [Guia de solução de problemas do link privado do Azure](troubleshoot-private-link-connectivity.md).
+   - Nesse caso, examine a configuração do recurso de link privado associado ao ponto de extremidade privado. Para obter mais informações, consulte o [Guia de solução de problemas do link privado do Azure](troubleshoot-private-link-connectivity.md)
+   
+1. É sempre bom restringir antes de gerar o tíquete de suporte. 
+
+    a. Se a fonte for local conectando-se ao ponto de extremidade privado no Azure com problemas, tente se conectar 
+      - Para outra máquina virtual local e verifique se você tem conectividade IP com a rede virtual do local. 
+      - De uma máquina virtual na rede virtual para o ponto de extremidade privado.
+      
+    b. Se a origem for Azure e o ponto de extremidade privado estiver em uma rede virtual diferente, tente se conectar 
+      - Para o ponto de extremidade privado de uma fonte diferente. Fazendo isso, você pode isolar qualquer problema específico da máquina virtual. 
+      - Para qualquer máquina virtual que faz parte da mesma rede virtual do ponto de extremidade privado.  
 
 1. Entre em contato com a equipe de [suporte do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) se seu problema ainda não estiver resolvido e um problema de conectividade ainda existir.
 
 ## <a name="next-steps"></a>Próximas etapas
 
- * [Criar um ponto de extremidade privado na sub-rede atualizada (portal do Azure)](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal)
+ * [Criar um ponto de extremidade privado na sub-rede atualizada (portal do Azure)](./create-private-endpoint-portal.md)
  * [Guia de solução de problemas do link privado do Azure](troubleshoot-private-link-connectivity.md)

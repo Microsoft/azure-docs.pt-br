@@ -1,7 +1,7 @@
 ---
 title: 'Executar script Python: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo executar script Python no Azure Machine Learning para executar o código Python.
+description: Saiba como usar o módulo executar script Python no Azure Machine Learning designer para executar o código Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
-ms.date: 10/21/2020
-ms.openlocfilehash: e07e12e82d96b591db324673f4c24b9074128065
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 01/02/2021
+ms.openlocfilehash: 7b5bc77375d684340116a21b7f95cf576d99dad2
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092986"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065347"
 ---
 # <a name="execute-python-script-module"></a>Executar módulo de script Python
 
@@ -37,7 +37,7 @@ Azure Machine Learning usa a distribuição Anaconda do Python, que inclui muito
 
 Para obter uma lista completa, consulte a seção [pacotes python pré-instalados](#preinstalled-python-packages).
 
-Para instalar pacotes que não estão na lista pré-instalada (por exemplo, *scikit-misc* ), adicione o seguinte código ao seu script: 
+Para instalar pacotes que não estão na lista pré-instalada (por exemplo, *scikit-misc*), adicione o seguinte código ao seu script: 
 
 ```python
 import os
@@ -60,8 +60,40 @@ if spec is None:
 > [!WARNING]
 > O módulo script excute Python não dá suporte à instalação de pacotes que dependem de bibliotecas nativas extras com comando como "apt-get", como Java, PyODBC e etc. Isso ocorre porque esse módulo é executado em um ambiente simples com Python pré-instalado apenas e com permissão de não administrador.  
 
+## <a name="access-to-current-workspace-and-registered-datasets"></a>Acesso ao espaço de trabalho atual e conjuntos de valores registrados
+
+Você pode consultar o seguinte código de exemplo para acessar os [conjuntos de valores registrados](../how-to-create-register-datasets.md) em seu espaço de trabalho:
+
+```Python
+def azureml_main(dataframe1 = None, dataframe2 = None):
+
+    # Execution logic goes here
+    print(f'Input pandas.DataFrame #1: {dataframe1}')
+    from azureml.core import Run
+    run = Run.get_context(allow_offline=True)
+    #access to current workspace
+    ws = run.experiment.workspace
+
+    #access to registered dataset of current workspace
+    from azureml.core import Dataset
+    dataset = Dataset.get_by_name(ws, name='test-register-tabular-in-designer')
+    dataframe1 = dataset.to_pandas_dataframe()
+     
+    # If a zip file is connected to the third input port,
+    # it is unzipped under "./Script Bundle". This directory is added
+    # to sys.path. Therefore, if your zip file contains a Python file
+    # mymodule.py you can import it using:
+    # import mymodule
+
+    # Return value must be of a sequence of pandas.DataFrame
+    # E.g.
+    #   -  Single return value: return dataframe1,
+    #   -  Two return values: return dataframe1, dataframe2
+    return dataframe1,
+```
+
 ## <a name="upload-files"></a>Carregar arquivos
-O módulo executar script Python dá suporte ao carregamento de arquivos usando o [SDK Azure Machine Learning Python](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#upload-file-name--path-or-stream-).
+O módulo executar script Python dá suporte ao carregamento de arquivos usando o [SDK Azure Machine Learning Python](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#upload-file-name--path-or-stream-).
 
 O exemplo a seguir mostra como carregar um arquivo de imagem no módulo executar script Python:
 
@@ -110,23 +142,23 @@ O módulo executar script Python contém o código Python de exemplo que você p
 
 1. Adicione o módulo **Executar script Python** ao seu pipeline.
 
-2. Adicione e conecte-se em **dataSet1** quaisquer conjuntos de dados do designer que você deseja usar para entrada. Referencie este conjunto de DataSet em seu script Python como **DataFrame1** .
+2. Adicione e conecte-se em **dataSet1** quaisquer conjuntos de dados do designer que você deseja usar para entrada. Referencie este conjunto de DataSet em seu script Python como **DataFrame1**.
 
     O uso de um conjunto de um DataSet é opcional. Use-o se você quiser gerar dados usando o Python ou usar o código Python para importar os dados diretamente para o módulo.
 
-    Este módulo dá suporte à adição de um segundo conjunto de uma em **Dataset2** . Referencie o segundo conjunto de DataSet em seu script Python como **DataFrame2** .
+    Este módulo dá suporte à adição de um segundo conjunto de uma em **Dataset2**. Referencie o segundo conjunto de DataSet em seu script Python como **DataFrame2**.
 
     Os conjuntos de dados armazenados em Azure Machine Learning são convertidos automaticamente em quadros de dado do pandas quando carregados com esse módulo.
 
     ![Executar mapa de entrada do Python](media/module/python-module.png)
 
-4. Para incluir novos pacotes ou códigos do Python, conecte o arquivo compactado que contém esses recursos personalizados à porta do **pacote de script** . Ou, se o seu script tiver mais de 16 KB, use a porta de **pacote de script** para evitar erros como *CommandLine excede o limite de 16597 caracteres* . 
+4. Para incluir novos pacotes ou códigos do Python, conecte o arquivo compactado que contém esses recursos personalizados à porta do **pacote de script** . Ou, se o seu script tiver mais de 16 KB, use a porta de **pacote de script** para evitar erros como *CommandLine excede o limite de 16597 caracteres*. 
 
     
     1. Agrupe o script e outros recursos personalizados em um arquivo zip.
     1. Carregue o arquivo zip como um **conjunto** de um arquivo para o estúdio. 
     1. Arraste o módulo DataSet da lista *DataSets* no painel do módulo à esquerda na página criação do designer. 
-    1. Conecte o módulo DataSet à porta do **pacote de script** do módulo **Executar script R** .
+    1. Conecte o módulo DataSet à porta do **pacote de script** do módulo **Executar script Python** .
     
     Qualquer arquivo contido no arquivo compactado carregado pode ser usado durante a execução do pipeline. Se o arquivo incluir uma estrutura de diretório, a estrutura será preservada.
  
@@ -185,11 +217,13 @@ O módulo executar script Python contém o código Python de exemplo que você p
     Dois conjuntos de valores podem ser retornados para o designer, que deve ser uma sequência do tipo `pandas.DataFrame` . Você pode criar outras saídas em seu código Python e gravá-las diretamente no armazenamento do Azure.
 
     > [!WARNING]
-    > **Não** é recomendável conectar-se a um banco de dados ou a outros armazenamentos externos no **módulo executar script Python** . Você pode usar [módulo importar dados](./import-data.md) e [Exportar módulo de dados](./export-data.md)     
+    > **Não** é recomendável conectar-se a um banco de dados ou a outros armazenamentos externos no **módulo executar script Python**. Você pode usar [módulo importar dados](./import-data.md) e [Exportar módulo de dados](./export-data.md)     
 
 6. Envie o pipeline.
 
-    Todos os dados e o código são carregados em uma máquina virtual e executados usando o ambiente do Python especificado.
+    Se o módulo estiver concluído, verifique a saída se for o esperado.
+
+    Se o módulo falhar, você precisará fazer algumas soluções de problemas. Selecione o módulo e abra **saídas + logs** no painel direito. Abra **70_driver_log.txt** e pesquise **no azureml_main**, em seguida, você pode descobrir qual linha causou o erro. Por exemplo, "File"/tmp/tmp01_ID/user_script. py ", line 17, in azureml_main" indica que o erro ocorreu na linha 17 do seu script Python.
 
 ## <a name="results"></a>Resultados
 
@@ -197,9 +231,9 @@ Os resultados de qualquer computação pelo código Python inserido devem ser fo
 
 O módulo retorna dois conjuntos de valores:  
   
-+ **Results DataSet 1** , definido pelo primeiro quadro de dados pandas retornado em um script Python.
++ **Results DataSet 1**, definido pelo primeiro quadro de dados pandas retornado em um script Python.
 
-+ O conjunto de dados de **resultado 2** , definido pelo segundo, retornou o quadro de dado pandas em um script Python.
++ O conjunto de dados de **resultado 2**, definido pelo segundo, retornou o quadro de dado pandas em um script Python.
 
 ## <a name="preinstalled-python-packages"></a>Pacotes python pré-instalados
 Os pacotes pré-instalados são:
@@ -315,4 +349,4 @@ Os pacotes pré-instalados são:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning.

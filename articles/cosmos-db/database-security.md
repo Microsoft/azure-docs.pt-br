@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: mjbrown
-ms.openlocfilehash: 5b2457018daf716052b81a8b99c21e3248f185eb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 19b4c8466e88159839ce1f43a5ba282b1bb3ec9e
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096777"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636904"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Segurança no Azure Cosmos DB – visão geral
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -63,7 +63,7 @@ Vamos examinar cada um deles em detalhes.
 |Segurança de rede|O uso de um firewall de IP é a primeira camada de proteção de seu banco de dados. O Azure Cosmos DB dá suporte a controles de acesso baseado em IP controlados por política para suporte de firewall de entrada. Os controles de acesso baseados em IP são semelhantes às regras de firewall usadas pelos sistemas de banco de dados tradicionais, mas são expandidos para que uma conta de banco de dados Cosmos do Azure seja acessível somente de um conjunto aprovado de computadores ou serviços de nuvem. Saiba mais no artigo de [suporte do Azure Cosmos DB firewall](how-to-configure-firewall.md) .<br><br>O Azure Cosmos DB permite que você habilite um endereço IP específico (168.61.48.0), um intervalo de IPs (168.61.48.0/8) e combinações de IPs e intervalos. <br><br>Todas as solicitações provenientes de computadores fora dessa lista de permissões são bloqueadas pelo Azure Cosmos DB. As solicitações de computadores e de serviços de nuvem aprovados devem concluir o processo de autenticação para receber o controle de acesso aos recursos.<br><br> Você pode usar [marcas de serviço de rede virtual](../virtual-network/service-tags-overview.md) para obter isolamento de rede e proteger seus recursos de Azure Cosmos DB da Internet geral. Use marcas de serviço em vez de endereços IP específicos ao criar regras de segurança. Ao especificar o nome da marca de serviço (por exemplo, AzureCosmosDB) no campo de origem ou destino apropriado de uma regra, você pode permitir ou negar o tráfego para o serviço correspondente.|
 |Autorização|O Azure Cosmos DB usa o HMAC (código de autenticação de mensagem baseado em hash) para autorização. <br><br>Cada solicitação recebe o hash usando a chave de conta segredo e o próximo hash codificado em base 64 é enviado com cada chamada ao Azure Cosmos DB. Para validar a solicitação, o serviço Azure Cosmos DB usa a chave segredo e as propriedades corretas para gerar um hash e, depois, compara o valor ao valor da solicitação. Se os dois valores corresponderem, a operação será autorizada e a solicitação processada; caso contrário, haverá uma falha de autorização e a solicitação será rejeitada.<br><br>Você pode usar uma [chave primária](#primary-keys)ou um token de [recurso](secure-access-to-data.md#resource-tokens) que permite o acesso refinado a um recurso, como um documento.<br><br>Saiba mais em [Protegendo o acesso aos recursos do Azure Cosmos DB](secure-access-to-data.md).|
 |Usuários e permissões|Usando a chave primária da conta, você pode criar recursos de usuário e recursos de permissão por banco de dados. Um token de recurso está associado uma permissão em um banco de dados e determina se o usuário tem acesso (leitura/gravação, somente leitura ou nenhum acesso) a um recurso de aplicativo no banco de dados. Os recursos do aplicativo incluem o contêiner, documentos, anexos, procedimentos armazenados, gatilhos e UDFs. Em seguida, o token de recurso é usado durante a autenticação para fornecer ou negar acesso ao recurso.<br><br>Saiba mais em [Protegendo o acesso aos recursos do Azure Cosmos DB](secure-access-to-data.md).|
-|Integração do Active Directory (RBAC)| Você também pode fornecer ou restringir o acesso à conta do cosmos, ao banco de dados, ao contêiner e às ofertas (taxa de transferência) usando o controle de acesso (IAM) no portal do Azure. O IAM fornece controle de acesso baseado em função e integra-se ao Active Directory. Você pode usar funções internas ou funções personalizadas para indivíduos e grupos. Consulte o artigo [integração Active Directory](role-based-access-control.md) para obter mais informações.|
+|Integração do Active Directory (RBAC do Azure)| Você também pode fornecer ou restringir o acesso à conta do cosmos, ao banco de dados, ao contêiner e às ofertas (taxa de transferência) usando o controle de acesso (IAM) no portal do Azure. O IAM fornece controle de acesso baseado em função e integra-se ao Active Directory. Você pode usar funções internas ou funções personalizadas para indivíduos e grupos. Consulte o artigo [integração Active Directory](role-based-access-control.md) para obter mais informações.|
 |Replicação global|O Azure Cosmos DB oferece distribuição global turnkey, o que permite replicar os dados em qualquer um dos data centers do Azure em todo o mundo com um clique de botão. A replicação global permite que você dimensione globalmente e forneça acesso de baixa latência aos seus dados no mundo inteiro.<br><br>No contexto de segurança, a replicação global garante a proteção dos dados contra falhas regionais.<br><br>Saiba mais em [Distribuir dados globalmente](distribute-data-globally.md).|
 |Failovers regionais|Se você tiver replicado seus dados em mais de um data center, o Azure Cosmos DB reverterá automaticamente aas operações, caso um data center regional fique offline. Crie uma lista de prioridade de regiões de failover usando as regiões nas quais seus dados são replicados. <br><br>Saiba mais em [Failovers regionais no Azure Cosmos DB](high-availability.md).|
 |Replicação local|Mesmo em um único data center, o Azure Cosmos DB replica automaticamente os dados para proporcionar alta disponibilidade, oferecendo a você a opção de [níveis de consistência](consistency-levels.md). Essa replicação garante um SLA de [disponibilidade](https://azure.microsoft.com/support/legal/sla/cosmos-db) de 99,99% para todas as contas de região única e todas as contas de várias regiões com consistência reduzida e 99,999% de disponibilidade de leitura em todas as contas de banco de dados de várias regiões.|
@@ -80,7 +80,7 @@ Vamos examinar cada um deles em detalhes.
 |Contas administrativas com senhas fortes|É difícil de acreditar que precisamos mencionar esse requisito, mas ao contrário de alguns de nossos concorrentes, é impossível ter uma conta administrativa sem senha no Azure Cosmos DB.<br><br> A segurança por meio de autenticação baseada em TLS e HMAC é inclusas por padrão.|
 |Certificações de proteção de dados e de segurança| Para obter a lista mais atualizada de certificações, consulte o [site de conformidade](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) geral do Azure, bem como o documento de conformidade mais recente do [Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) com todas as certificações (pesquise por Cosmos). Para obter uma leitura mais focalizada, confira 25 de abril de 2018 post [Azure #CosmosDB: seguro, privado, em conformidade que inclui SOCS 1/2 tipo 2, HITRUST, PCI DSS nível 1, ISO 27001, HIPAA, FedRAMP alto e muitos outros.
 
-A captura de tela a seguir mostra como você pode usar os logs de atividade e log de auditoria para monitorar sua conta: :::image type="content" source="./media/database-security/nosql-database-security-application-logging.png" alt-text="Responsabilidades do cliente e do provedor de banco de dados":::
+A captura de tela a seguir mostra como você pode usar os logs de atividade e log de auditoria para monitorar sua conta: :::image type="content" source="./media/database-security/nosql-database-security-application-logging.png" alt-text="Logs de atividades do Azure Cosmos DB":::
 
 <a id="primary-keys"></a>
 
@@ -99,7 +99,7 @@ Além das duas chaves primárias para a conta de Cosmos DB, há duas chaves some
 
 Chaves primárias primárias, secundárias, somente leitura e de leitura/gravação podem ser recuperadas e geradas novamente usando o portal do Azure. Para obter instruções, veja [Exibir, copiar e gerar novamente as chaves de acesso](manage-with-cli.md#regenerate-account-key).
 
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Responsabilidades do cliente e do provedor de banco de dados":::
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Controle de acesso (IAM) no Portal do Azure - demonstrando a segurança do banco de dados NoSQL":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

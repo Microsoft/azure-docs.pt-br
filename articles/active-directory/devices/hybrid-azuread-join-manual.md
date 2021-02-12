@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fe19a1fadd54b7146ccb074d82a68ec259100f2
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 5316a1647c96076696b14de157e74e2155a6b368
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093252"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860007"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: configurar manualmente dispositivos ingressados no Azure Active Directory híbrido
 
@@ -169,7 +169,7 @@ No script anterior, `$verifiedDomain = "contoso.com"` é um espaço reservado. S
 
 Para obter mais informações sobre nomes de domínio verificados, confira [Adicionar um nome de domínio ao Azure Active Directory](../fundamentals/add-custom-domain.md).
 
-Para obter uma lista dos domínios da empresa verificados, use o cmdlet [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0).
+Para obter uma lista dos domínios da empresa verificados, use o cmdlet [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain).
 
 ![Lista de domínios da empresa](./media/hybrid-azuread-join-manual/01.png)
 
@@ -328,7 +328,7 @@ Na declaração anterior, `<verified-domain-name>` é um espaço reservado. Subs
 
 Para obter mais informações sobre nomes de domínio verificados, confira [Adicionar um nome de domínio ao Azure Active Directory](../fundamentals/add-custom-domain.md).  
 
-Para obter uma lista dos domínios da empresa verificados, você pode usar o cmdlet [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0).
+Para obter uma lista dos domínios da empresa verificados, você pode usar o cmdlet [Get-MsolDomain](/powershell/module/msonline/get-msoldomain).
 
 ![Lista de domínios da empresa](./media/hybrid-azuread-join-manual/01.png)
 
@@ -570,7 +570,7 @@ Aqui estão três maneiras de localizar e verificar o estado do dispositivo:
 
 ### <a name="using-powershell"></a>Usando o PowerShell
 
-Verifique o estado de registro do dispositivo em seu locatário do Azure usando **[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)** . Esse cmdlet está no [módulo do PowerShell do Azure Active Directory](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-2.0).
+Verifique o estado de registro do dispositivo em seu locatário do Azure usando **[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)** . Esse cmdlet está no [módulo do PowerShell do Azure Active Directory](/powershell/azure/active-directory/install-msonlinev1).
 
 Ao usar o cmdlet **Get-MSolDevice** para verificar os detalhes do serviço:
 

@@ -3,7 +3,7 @@ title: Acessar APIs locais com o Azure Proxy de Aplicativo do AD
 description: O proxy de aplicativo do Azure Active Directory permite que aplicativos nativos acessem APIs e lógica de negócios com segurança que você hospeda no local ou em VMs de nuvem.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 02/12/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: e72129b1f391996f6d5b085fe602adb35a3aecbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9341646f32f6a2e05397b072d3f63186964fbd88
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371211"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258975"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Acesso seguro a APIs locais com o Azure Proxy de Aplicativo do AD
 
-Você pode ter APIs de lógica de negócios em execução localmente ou hospedadas em máquinas virtuais na nuvem. Seus aplicativos nativos do Android, iOS, Mac ou Windows precisam interagir com os pontos de extremidade da API para usar dados ou fornecer interação do usuário. O Azure Proxy de Aplicativo do AD e a [MSAL (biblioteca de autenticação da Microsoft)](/azure/active-directory/develop/active-directory-authentication-libraries) permitem que seus aplicativos nativos acessem com segurança suas APIs locais. Proxy de Aplicativo do Azure Active Directory é uma solução mais rápida e segura do que abrir portas de firewall e controlar a autenticação e a autorização na camada de aplicativo.
+Você pode ter APIs de lógica de negócios em execução localmente ou hospedadas em máquinas virtuais na nuvem. Seus aplicativos nativos do Android, iOS, Mac ou Windows precisam interagir com os pontos de extremidade da API para usar dados ou fornecer interação do usuário. O Azure Proxy de Aplicativo do AD e a [MSAL (biblioteca de autenticação da Microsoft)](../azuread-dev/active-directory-authentication-libraries.md) permitem que seus aplicativos nativos acessem com segurança suas APIs locais. Proxy de Aplicativo do Azure Active Directory é uma solução mais rápida e segura do que abrir portas de firewall e controlar a autenticação e a autorização na camada de aplicativo.
 
 Este artigo orienta você pela configuração de uma solução de Proxy de Aplicativo do AD do Azure para hospedar um serviço de API Web que aplicativos nativos podem acessar.
 
@@ -34,9 +34,9 @@ O diagrama a seguir mostra como você pode usar o Azure Proxy de Aplicativo do A
 
 ![Acesso à API do Azure Proxy de Aplicativo do AD](./media/application-proxy-secure-api-access/overview-publish-api-app-proxy.png)
 
-O Proxy de Aplicativo do AD do Azure forma o backbone da solução, trabalhando como um ponto de extremidade público para acesso à API e fornecendo autenticação e autorização. Você pode acessar suas APIs de uma vasta gama de plataformas usando as bibliotecas [MSAL (biblioteca de autenticação da Microsoft)](/azure/active-directory/develop/active-directory-authentication-libraries) .
+O Proxy de Aplicativo do AD do Azure forma o backbone da solução, trabalhando como um ponto de extremidade público para acesso à API e fornecendo autenticação e autorização. Você pode acessar suas APIs de uma vasta gama de plataformas usando as bibliotecas [MSAL (biblioteca de autenticação da Microsoft)](../azuread-dev/active-directory-authentication-libraries.md) .
 
-Como a autenticação e a autorização do Azure Proxy de Aplicativo do AD são criadas com base no Azure AD, você pode usar o acesso condicional do Azure AD para garantir que somente dispositivos confiáveis possam acessar APIs publicadas por meio do proxy de aplicativo. Use o ingresso no Azure AD ou o Azure AD híbrido Unido para desktops e o Intune gerenciado para dispositivos. Você também pode aproveitar Azure Active Directory Premium recursos como a autenticação multifator do Azure e a segurança com suporte do Machine Learning da [proteção de identidade do Azure](/azure/active-directory/active-directory-identityprotection).
+Como a autenticação e a autorização do Azure Proxy de Aplicativo do AD são criadas com base no Azure AD, você pode usar o acesso condicional do Azure AD para garantir que somente dispositivos confiáveis possam acessar APIs publicadas por meio do proxy de aplicativo. Use o ingresso no Azure AD ou o Azure AD híbrido Unido para desktops e o Intune gerenciado para dispositivos. Você também pode aproveitar os recursos Azure Active Directory Premium como a autenticação multifator do Azure AD e a segurança com suporte do Machine Learning da [proteção de identidade do Azure](../identity-protection/overview-identity-protection.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -53,7 +53,7 @@ Para publicar a API Web do SecretAPI por meio do proxy de aplicativo:
 
 1. Crie e publique o projeto SecretAPI de exemplo como um aplicativo Web ASP.NET no computador local ou na intranet. Verifique se você pode acessar o aplicativo Web localmente.
 
-1. No [Portal do Azure](https://portal.azure.com), selecione **Azure Active Directory**. Em seguida, selecione **aplicativos empresariais**.
+1. No [portal do Azure](https://portal.azure.com), selecione **Azure Active Directory**. Em seguida, selecione **aplicativos empresariais**.
 
 1. Na parte superior da página **aplicativos empresariais – todos os aplicativos** , selecione **novo aplicativo**.
 
@@ -96,7 +96,7 @@ Você publicou sua API Web por meio do Azure Proxy de Aplicativo do AD. Agora, a
 1. De volta à página **Adicionar atribuição** , selecione **atribuir**.
 
 > [!NOTE]
-> As APIs que usam a autenticação integrada do Windows podem exigir [etapas adicionais](/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd).
+> As APIs que usam a autenticação integrada do Windows podem exigir [etapas adicionais](./application-proxy-configure-single-sign-on-with-kcd.md).
 
 ## <a name="register-the-native-app-and-grant-access-to-the-api"></a>Registrar o aplicativo nativo e conceder acesso à API
 
@@ -104,9 +104,9 @@ Aplicativos nativos são programas desenvolvidos para uso em uma plataforma ou d
 
 Para registrar o aplicativo nativo AppProxyNativeAppSample:
 
-1. Na página **visão geral** do Azure Active Directory, **selecione registros de aplicativo**e, na parte superior do painel **registros de aplicativo** , selecione **novo registro**.
+1. Na página **visão geral** do Azure Active Directory, **selecione registros de aplicativo** e, na parte superior do painel **registros de aplicativo** , selecione **novo registro**.
 
-1. Na página **registrar um aplicativo** :
+1. Na página **Registrar um aplicativo**:
 
    1. Em **nome**, insira *AppProxyNativeAppSample*.
 
@@ -114,7 +114,7 @@ Para registrar o aplicativo nativo AppProxyNativeAppSample:
 
    1. Em **URL de redirecionamento**, menu suspenso e selecione **cliente público (Mobile & Desktop)** e, em seguida, insira *https://login.microsoftonline.com/common/oauth2/nativeclient* .
 
-   1. Selecione **registrar**e aguarde até que o aplicativo seja registrado com êxito.
+   1. Selecione **registrar** e aguarde até que o aplicativo seja registrado com êxito.
 
       ![Novo registro de aplicativo](./media/application-proxy-secure-api-access/8-create-reg-ga.png)
 
@@ -128,7 +128,7 @@ Agora você registrou o aplicativo AppProxyNativeAppSample no Azure Active Direc
 
 1. Na página primeiro **solicitar permissões de API** , selecione a guia **APIs que minha organização usa** e, em seguida, procure e selecione **SecretAPI**.
 
-1. Na página próximo **permissões de API de solicitação** , marque a caixa de seleção ao lado de **user_impersonation**e, em seguida, selecione **adicionar permissões**.
+1. Na página próximo **permissões de API de solicitação** , marque a caixa de seleção ao lado de **user_impersonation** e, em seguida, selecione **adicionar permissões**.
 
     ![Selecionar uma API](./media/application-proxy-secure-api-access/10-secretapi-added.png)
 

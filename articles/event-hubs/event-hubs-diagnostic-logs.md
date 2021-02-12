@@ -3,12 +3,12 @@ title: Configurar logs de diagnóstico – Hub de Eventos do Azure | Microsoft D
 description: Saiba como configurar logs de atividade e de diagnóstico para Hubs de Eventos no Azure.
 ms.topic: article
 ms.date: 10/27/2020
-ms.openlocfilehash: a7230746dc4225b04b0507c872416368aa14442b
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 015814b9a56ec963f5209f971f096ac6c173d7e1
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912592"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131977"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurar logs de diagnóstico para um hub de eventos do Azure
 
@@ -25,16 +25,16 @@ ms.locfileid: "92912592"
 Os logs de diagnóstico estão desabilitados por padrão. Para habilitar logs de diagnóstico, siga estas etapas:
 
 1.  No [Portal do Azure](https://portal.azure.com), navegue até o seu namespace de Hubs de Eventos. 
-2. Selecione **Configurações de diagnóstico** em **Monitoramento** no painel esquerdo e, em seguida, selecione **+Adicionar configuração de diagnóstico** . 
+2. Selecione **Configurações de diagnóstico** em **Monitoramento** no painel esquerdo e, em seguida, selecione **+Adicionar configuração de diagnóstico**. 
 
     ![Página Configurações de diagnóstico - adicionar configuração de diagnóstico](./media/event-hubs-diagnostic-logs/diagnostic-settings-page.png)
-4. Na seção **Detalhes da categoria** , selecione os **Tipos de logs de diagnóstico** que você deseja habilitar. Você encontrará detalhes sobre essas categorias posteriormente neste artigo. 
-5. Na seção **Detalhes de destino** , defina o destino do arquivo (destino) desejado; por exemplo, uma conta de armazenamento, um hub de eventos ou um espaço de trabalho Log Analytics.
+4. Na seção **Detalhes da categoria**, selecione os **Tipos de logs de diagnóstico** que você deseja habilitar. Você encontrará detalhes sobre essas categorias posteriormente neste artigo. 
+5. Na seção **Detalhes de destino**, defina o destino do arquivo (destino) desejado; por exemplo, uma conta de armazenamento, um hub de eventos ou um espaço de trabalho Log Analytics.
 
     ![Página Adicionar configurações de diagnóstico](./media/event-hubs-diagnostic-logs/aDD-diagnostic-settings-page.png)
 6.  Selecione **Salvar** na barra de ferramentas para salvar as configurações de diagnóstico.
 
-    As novas configurações terão efeito em aproximadamente 10 minutos. Depois disso, os logs aparecerão no destino de arquivamento configurado, no painel **Logs de diagnóstico** .
+    As novas configurações terão efeito em aproximadamente 10 minutos. Depois disso, os logs aparecerão no destino de arquivamento configurado, no painel **Logs de diagnóstico**.
 
     Para saber mais sobre como configurar um diagnóstico, confira a [visão geral dos logs de diagnóstico do Azure](../azure-monitor/platform/platform-logs-overview.md).
 
@@ -45,7 +45,7 @@ Os Hubs de Eventos capturam os logs de diagnóstico das seguintes categorias:
 | Categoria | Descrição | 
 | -------- | ----------- | 
 | Logs de arquivo | Captura informações sobre operações de [Captura de Hubs de Eventos](event-hubs-capture-overview.md), especificamente, logs relacionados a erros de captura. |
-| Logs operacionais | Captura todas as operações de gerenciamento executadas no namespace dos Hubs de Eventos do Azure. As operações de dados não são capturadas devido ao alto volume de operações de dados que são realizadas nos Hubs de Eventos do Azure. |
+| Logs operacionais | Captura todas as operações de gerenciamento executadas no namespace dos Hubs de Eventos do Azure. As operações de dados não são capturadas devido ao alto volume de operações de dados que são realizadas nos hubs de eventos do Azure. |
 | Logs de dimensionamento automático | Captura operações de inflação automática realizada em um namespace de Hubs de Eventos. |
 | Logs do coordenador de Kafka | Captura operações de coordenador de Kafka relacionadas aos Hubs de Eventos. |
 | Logs de erros do usuário do Kafka | Captura informações sobre APIs do Kafka chamadas em Hubs de Eventos. |
@@ -100,12 +100,12 @@ As cadeias de caracteres JSON do log operacional incluem os elementos listados n
 Nome | Descrição
 ------- | -------
 `ActivityId` | ID interna, usada para acompanhamento |
-`EventName` | Nome da operação |
+`EventName` | Nome da operação. Para obter uma lista de valores para esse elemento, consulte os [nomes de evento](#event-names) |
 `resourceId` | ID de recurso do Azure Resource Manager |
 `SubscriptionId` | ID da assinatura |
 `EventTimeString` | Tempo de operação |
-`EventProperties` | Propriedades da operação |
-`Status` | Status da operação |
+`EventProperties` |Propriedades da operação. Esse elemento fornece mais informações sobre o evento, conforme mostrado no exemplo a seguir. |
+`Status` | Status da operação. O valor pode ser **bem-sucedido** ou ter **falhado**.  |
 `Caller` | Chamador da operação (portal do Azure ou cliente de gerenciamento) |
 `Category` | OperationalLogs |
 
@@ -125,6 +125,13 @@ Example:
    "category": "OperationalLogs"
 }
 ```
+
+### <a name="event-names"></a>Nomes de evento
+O nome do evento é preenchido como tipo de operação + tipo de recurso das enumerações a seguir. Por exemplo, `Create Queue`, `Retrieve Event Hu` ou `Delete Rule`. 
+
+| Tipo de operação | Tipo de recurso | 
+| -------------- | ------------- | 
+| <ul><li>Criar</li><li>Atualizar</li><li>Excluir</li><li>Recuperar</li><li>Unknown</li></ul> | <ul><li>Namespace</li><li>Fila</li><li>Tópico</li><li>Subscription</li><li>EventHub</li><li>EventHubSubscription</li><li>NotificationHub</li><li>NotificationHubTier</li><li>SharedAccessPolicy</li><li>UsageCredit</li><li>NamespacePnsCredentials</li>Regra</li>ConsumerGroup</li> |
 
 ## <a name="autoscale-logs-schema"></a>Esquema dos logs de dimensionamento automático
 O JSON do log de dimensionamento automático incluem os elementos listados na seguinte tabela:
@@ -195,12 +202,12 @@ O evento JSON de conexão de VNet (rede virtual) dos Hubs de Eventos inclui elem
 | `SubscriptionId` | ID da assinatura do Azure |
 | `NamespaceName` | Nome do Namespace |
 | `IPAddress` | Endereço IP de um cliente que se conecta ao serviço de Hubs de Eventos |
-| `Action` | Ação feita pelo serviço de Hubs de Eventos ao avaliar solicitações de conexão. As ações com suporte são **Aceitar conexão** e **Negar conexão** . |
+| `Action` | Ação feita pelo serviço de Hubs de Eventos ao avaliar solicitações de conexão. As ações com suporte são **Aceitar conexão** e **Negar conexão**. |
 | `Reason` | Fornece um motivo pelo qual a ação foi feita |
 | `Count` | Número de ocorrências para a ação especificada |
 | `ResourceId` | ID do Recurso do Azure Resource Manager. |
 
-Os logs de rede virtual serão gerados somente se o namespace permitir o acesso de **redes selecionadas** ou de **endereços IP específicos** (regras de filtro IP). Se você não quiser restringir o acesso ao seu namespace usando esses recursos e ainda quiser obter logs de rede virtual para rastrear endereços IP de clientes que se conectam ao namespace de hubs de eventos, você pode usar a seguinte solução alternativa. Habilite a filtragem de IP e adicione o intervalo de IPv4 endereçável total (1.0.0.0/1-255.0.0.0/1). Os hubs de eventos não dão suporte a intervalos de IPv6. 
+Os logs de rede virtual serão gerados somente se o namespace permitir o acesso de **redes selecionadas** ou de **endereços IP específicos** (regras de filtro IP). Se você não quiser restringir o acesso ao seu namespace usando esses recursos e ainda desejar obter logs de rede virtual para rastrear endereços IP de clientes que se conectam ao namespace de hubs de eventos, você pode usar a seguinte solução alternativa. Habilite a filtragem de IP e adicione o intervalo de IPv4 endereçável total (1.0.0.0/1-255.0.0.0/1). Os hubs de eventos não dão suporte a intervalos de IPv6. 
 
 ### <a name="example"></a>Exemplo
 

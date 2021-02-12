@@ -3,16 +3,18 @@ title: Protocolo de extensão HTTP – Azure
 description: Neste artigo, você aprenderá a usar o protocolo de extensão HTTP para enviar mensagens entre o módulo da Análise Dinâmica de Vídeo e o seu módulo de IA ou CV.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: f1e1fb0e8fe63b3a83c59a4ec48abdac7f22096a
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 52c98231780a2776f4ff67992f29b247eccb8bc2
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016647"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399138"
 ---
 # <a name="http-extension-protocol"></a>Protocolo de extensão HTTP
 
-Neste artigo, você aprenderá a usar o protocolo de extensão HTTP para enviar mensagens entre o módulo da Análise Dinâmica de Vídeo e o seu módulo de IA ou CV.
+A Análise Dinâmica de Vídeo do IoT Edge permite que você estenda as funcionalidades de processamento do grafo de mídia por meio de um [nó de extensão de grafo](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/media-graph-extension-concept?branch=release-lva-dec-update). Se você usar o processador de extensão HTTP como o nó de extensão, a comunicação entre o módulo da Análise Dinâmica de Vídeo e o módulo de IA ou CV será feita por HTTP
+
+Neste artigo, você aprenderá a usar o protocolo de extensão HTTP para enviar mensagens entre o módulo da Análise Dinâmica de Vídeo e o seu módulo de IA ou CV. 
 
 O contrato HTTP é definido entre os dois seguintes componentes:
 
@@ -85,19 +87,16 @@ Date: Fri, 17 Apr 2020 04:44:01 GMT
 }
 ```
 
-Recomendamos expressamente que as respostas sejam retornadas por meio de documentos JSON válidos seguindo o esquema preestabelecido definido abaixo. Isso garantirá melhor a interoperabilidade com outros componentes e possíveis funcionalidades futuras adicionadas ao módulo da Análise Dinâmica de Vídeo.
+Recomendamos expressamente que as respostas sejam retornadas por meio de documentos JSON válidos seguindo o esquema preestabelecido definido de acordo com o [modelo de objeto de esquema de metadados de inferência](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/inference-metadata-schema?branch=release-lva-dec-update). Isso garantirá melhor a interoperabilidade com outros componentes e possíveis funcionalidades futuras adicionadas ao módulo da Análise Dinâmica de Vídeo.
 
 Se o módulo retornar uma resposta em que o tipo de conteúdo não é “application/json”, a Análise Dinâmica de Vídeo codificará a mensagem como um conteúdo de Base 64 e a serializará como um conteúdo JSON opaco.
 
-Se o módulo retornar uma resposta com o tipo de conteúdo como “application/json”, mas o esquema JSON não seguir o esquema de metadados de inferência descrito abaixo, o conteúdo da mensagem será encaminhado pelo pipeline, mas a interoperabilidade será reduzida.
+Se o módulo retornar uma resposta com o tipo de conteúdo como “application/json”, mas o esquema JSON não seguir o esquema de metadados de inferência descrito abaixo, o conteúdo da mensagem será encaminhado pelo pipeline, mas a interoperabilidade será reduzida. Acesse [aqui](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/inference-metadata-schema?branch=release-lva-dec-update) para obter informações detalhadas e atualizadas sobre o esquema de metadados de inferência.
 
 > [!NOTE]
 > Se o módulo não produzir nenhum resultado, ele deverá retornar o código de status HTTP 204 (Sem Conteúdo) com um corpo de resposta vazio. A Análise Dinâmica de Vídeo entenderá isso como um resultado vazio e não encaminhará o evento pelo pipeline.
 
-## <a name="data-contracts---class-hierarchy"></a>Contratos de dados – hierarquia de classe
-
-![hierarquia de classe](./media/http-extension-protocol/class-hierarchy.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Contrato de dados gRPC](./grpc-extension-protocol.md)
+[Protocolo de extensão gRPC](./grpc-extension-protocol.md)

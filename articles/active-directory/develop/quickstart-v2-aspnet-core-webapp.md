@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 80b0c357bbad79a31d8b7153248b73c1231629c8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b2e42dcaeb72a053f20afa47439d1825445b0ad8
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145039"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225826"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Início Rápido: Adicionar entrada com a Microsoft para um aplicativo Web do ASP.NET Core
 
-Neste início rápido, você usará um exemplo de código para saber como um aplicativo Web ASP.NET Core pode entrar em contas pessoais (hotmail.com, outlook.com e outras) e contas corporativas e de estudante em qualquer instância do Azure AD (Azure Active Directory). (Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.)
+Neste guia de início rápido, você baixará e executará um exemplo de código que demonstra como um aplicativo Web ASP.NET Core pode conectar usuários de qualquer organização do Azure AD (Azure Active Directory).  
+
+Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.
 
 > [!div renderon="docs"]
 > ## <a name="prerequisites"></a>Pré-requisitos
@@ -36,31 +38,31 @@ Neste início rápido, você usará um exemplo de código para saber como um apl
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: Registrar e configurar o aplicativo automaticamente e, em seguida, baixar seu exemplo de código
 >
-> 1. Acesse o [portal do Azure – Registros de aplicativo](https://aka.ms/aspnetcore2-1-aad-quickstart-v2).
-> 1. Insira um nome para seu aplicativo e selecione **Registrar** .
+> 1. Acesse a experiência de início rápido do <a href="https://aka.ms/aspnetcore2-1-aad-quickstart-v2/" target="_blank">portal do Azure – Registros de aplicativo<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Insira um nome para seu aplicativo e selecione **Registrar**.
 > 1. Siga as instruções para baixar e configurar automaticamente o novo aplicativo com apenas um clique.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2: Registrar e configurar manualmente o aplicativo e o exemplo de código
 >
 > #### <a name="step-1-register-your-application"></a>Etapa 1: Registre seu aplicativo
-> Para registrar seu aplicativo e adicionar manualmente as informações de registro do aplicativo à solução, execute estas etapas:
+> Para registrar seu aplicativo e adicionar as informações de registro do aplicativo à solução manualmente, siga estas etapas:
 >
-> 1. Entre no [portal do Azure](https://portal.azure.com).
+> 1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 > 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
 > 1. Pesquise **Azure Active Directory** e selecione-o.
-> 1. Em **Gerenciar** , selecione **Registros de aplicativo** e **Novo registro** .
+> 1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
 > 1. Insira um **Nome** para seu aplicativo, por exemplo, `AspNetCore-Quickstart`. Os usuários do seu aplicativo podem ver esse nome e você pode alterá-lo mais tarde.
-> 1. Insira um **URI de redirecionamento** de `https://localhost:44321/`
-> 1. Selecione **Registrar** .
-> 1. Em **Gerenciar** , selecione **Autenticação** .
-> 1. Em **URIs de Redirecionamento** , selecione **Adicionar URI** e insira `https://localhost:44321/signin-oidc`
-> 1. Insira uma **URL de Logoff** de `https://localhost:44321/signout-oidc`
-> 1. Em **Concessão implícita** , selecione **Tokens de ID** .
-> 1. Clique em **Salvar** .
+> 1. Insira um **URI de Redirecionamento** de `https://localhost:44321/`.
+> 1. Selecione **Registrar**.
+> 1. Em **Gerenciar**, selecione **Autenticação**.
+> 1. Em **URIs de Redirecionamento**, selecione **Adicionar URI** e insira `https://localhost:44321/signin-oidc`.
+> 1. Insira uma **URL de logoff de front-channel** igual a `https://localhost:44321/signout-oidc`.
+> 1. Em **Concessão implícita e fluxos híbridos**, selecione **Tokens de ID**.
+> 1. Clique em **Salvar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Etapa 1: Configurar seu aplicativo no portal do Azure
-> Para que o exemplo de código deste início rápido funcione, você precisa adicionar URLs de resposta como `https://localhost:44321/` e `https://localhost:44321/signin-oidc`, adicionar a URL de logoff como `https://localhost:44321/signout-oidc` e solicitar a emissão de tokens de ID pelo ponto de extremidade de autorização.
+> O código de exemplo deste guia de início rápido exige um **URI de redirecionamento** igual a `https://localhost:44321/` e `https://localhost:44321/signin-oidc` e uma **URL de logoff de front-channel** igual a `https://localhost:44321/signout-oidc`. Os tokens de ID de solicitação serão emitidos pelo ponto de extremidade da autorização.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer essa alteração para mim]()
 >
@@ -86,7 +88,7 @@ Neste início rápido, você usará um exemplo de código para saber como um apl
 > > `Enter_the_Supported_Account_Info_Here`
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-aspnet-core-project"></a>Etapa 3: Configurar seu projeto do ASP.NET Core
-> 1. Extraia o arquivo .zip para uma pasta local próxima à raiz da unidade. Por exemplo, em *C:\Azure-Samples* .
+> 1. Extraia o arquivo .zip para uma pasta local próxima à raiz da unidade. Por exemplo, em *C:\Azure-Samples*.
 > 1. Abra a solução no Visual Studio 2019.
 > 1. Abra o arquivo *appsettings.json* e modifique o seguinte:
 >
@@ -97,11 +99,11 @@ Neste início rápido, você usará um exemplo de código para saber como um apl
 >
 >    - Substitua `Enter_the_Application_Id_here` pela **ID do aplicativo (cliente)** referente ao aplicativo registrado no portal do Azure. Você pode encontrar **ID do aplicativo (cliente)** na página **Visão geral** do aplicativo.
 >    - Substitua `common` por um dos seguintes:
->       - Se o aplicativo der suporte a **Contas somente neste diretório organizacional** , substitua esse valor pela **ID do diretório (locatário)** (um GUID) ou pelo **nome do locatário** (por exemplo, `contoso.onmicrosoft.com`). Você pode encontrar a **ID do diretório (locatário)** na página **Visão geral** do aplicativo.
->       - Se seu aplicativo dá suporte a **Contas em qualquer diretório organizacional** , substitua esse valor por `organizations`
->       - Se o aplicativo der suporte a **Todos os usuários de contas Microsoft** , defina esse valor como `common`
+>       - Se o aplicativo der suporte a **Contas somente neste diretório organizacional**, substitua esse valor pela **ID do diretório (locatário)** (um GUID) ou pelo **nome do locatário** (por exemplo, `contoso.onmicrosoft.com`). Você pode encontrar a **ID do diretório (locatário)** na página **Visão geral** do aplicativo.
+>       - Se seu aplicativo dá suporte a **Contas em qualquer diretório organizacional**, substitua esse valor por `organizations`
+>       - Se o aplicativo der suporte a **Todos os usuários de contas Microsoft**, defina esse valor como `common`
 >
-> Para este guia de início rápido, não altere nenhum outro valor no arquivo *appsettings.json* .
+> Para este guia de início rápido, não altere nenhum outro valor no arquivo *appsettings.json*.
 >
 > #### <a name="step-4-build-and-run-the-application"></a>Etapa 4: compile e execute o aplicativo
 >
@@ -113,7 +115,7 @@ Neste início rápido, você usará um exemplo de código para saber como um apl
 >
 > Depois de consentir com as permissões solicitadas, o aplicativo exibe que você fez logon com êxito usando suas credenciais do Azure Active Directory.
 >
-> :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-02-signed-in.png" alt-text="Caixa de diálogo de consentimento mostrando as permissões que o aplicativo está solicitando do > usuário":::
+> :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-02-signed-in.png" alt-text="Navegador da Web exibindo o aplicativo Web em execução e o usuário conectado":::
 
 ## <a name="more-information"></a>Mais informações
 
@@ -146,7 +148,7 @@ O middleware *Microsoft.AspNetCore.Authentication* usa a classe `Startup` execut
 
 O método `AddAuthentication()` configura o serviço para adicionar a autenticação baseada em cookies, que é usada em cenários do navegador, e para definir o desafio para OpenID Connect.
 
-A linha que contém `.AddMicrosoftIdentityWebApp` adiciona a autenticação de plataforma de identidade da Microsoft ao seu aplicativo. Em seguida, ele é configurado para entrar usando o ponto de extremidade da plataforma de identidade da Microsoft com base nas informações da seção `AzureAD` do arquivo de configuração *appSettings.json* :
+A linha que contém `.AddMicrosoftIdentityWebApp` adiciona a autenticação de plataforma de identidade da Microsoft ao seu aplicativo. Em seguida, ele é configurado para entrar usando a plataforma de identidade da Microsoft com base nas informações da seção `AzureAD` do arquivo de configuração *appSettings.json*:
 
 | chave *appsettings.json* | Descrição                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|

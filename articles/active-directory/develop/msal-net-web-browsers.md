@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: bf51f39a789b91a4cb0b88eb8bb1f2989bec7358
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23ba50a6eca1e398b9d459153b84719909f2ecac
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88165814"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583732"
 ---
 # <a name="using-web-browsers-msalnet"></a>Usar navegadores da Web (MSAL.NET)
 
@@ -41,7 +41,7 @@ ms.locfileid: "88165814"
 
 A MSAL.NET é uma biblioteca de várias estruturas e tem código específico da estrutura para hospedar um navegador em um controle de interface do usuário (por exemplo, no .NET Classic, ela usa o WinForms, no Xamarin, ela usa controles móveis nativos etc.). Esse controle é chamado de interface do usuário da Web `embedded`. Como alternativa, a MSAL.NET também pode iniciar o navegador do sistema operacional.
 
-Em geral, é recomendável usar o padrão de plataforma, que normalmente é o navegador do sistema. O navegador do sistema é melhor para lembrar os usuários que fizeram logon antes. Se você precisar alterar esse comportamento, use `WithUseEmbeddedWebView(bool)`
+Em geral, é recomendável usar o padrão de plataforma, que normalmente é o navegador do sistema. O navegador do sistema é melhor para lembrar os usuários que fizeram logon antes. Para alterar esse comportamento, use `WithUseEmbeddedWebView(bool)`
 
 ### <a name="at-a-glance"></a>Visão rápida
 
@@ -141,7 +141,7 @@ Também é possível habilitar modos de exibição da Web incorporados em aplica
 
 Como desenvolvedor que usa a MSAL.NET para o Xamarin, você pode optar por usar os modos de exibição da Web incorporados ou os navegadores do sistema. Essa é sua opção, dependendo da experiência do usuário e das questões de segurança que você deseja resolver.
 
-No momento, a MSAL.NET ainda não é compatível com os agentes do Android e do iOS. Portanto, se você precisar fornecer SSO (logon único), o navegador do sistema ainda poderá ser uma opção melhor. A compatibilidade dos agentes com o navegador da Web incorporado está na lista de pendências da MSAL.NET.
+No momento, a MSAL.NET ainda não é compatível com os agentes do Android e do iOS. Portanto, para fornecer SSO (logon único), o navegador do sistema ainda pode ser uma opção melhor. A compatibilidade dos agentes com o navegador da Web incorporado está na lista de pendências da MSAL.NET.
 
 ### <a name="differences-between-embedded-webview-and-system-browser"></a>Diferenças entre o modo de exibição da Web incorporado e o navegador do sistema
 Há algumas diferenças visuais entre o modo de exibição da Web incorporado e o navegador do sistema na MSAL.NET.

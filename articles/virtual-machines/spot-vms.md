@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: b8e5c6b6b755134772cc8eaea3dab3af7f5346c9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1e3934a8ff91d764a5148b3d490b44f30983a284
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963356"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202123"
 ---
 # <a name="use-spot-vms-in-azure"></a>Usar VMs pontuais no Azure
 
@@ -81,7 +81,7 @@ Você pode ver os preços históricos e as taxas de remoção por tamanho em uma
 
 **Tabela**:
 
-:::image type="content" source="./media/spot-table.png" alt-text="Captura de tela das opções de região com a diferença nas taxas de preço e de remoção como um gráfico.":::
+:::image type="content" source="./media/spot-table.png" alt-text="Captura de tela das opções de região com a diferença nas taxas de preço e de remoção como uma tabela.":::
 
 
 
@@ -111,9 +111,14 @@ Você pode ver os preços históricos e as taxas de remoção por tamanho em uma
 
 **R:** Você pode postar e marcar sua pergunta com `azure-spot` em [Perguntas e respostas](/answers/topics/azure-spot.html). 
 
+
+**P:** Como posso alterar o preço máximo de uma VM Spot?
+
+**R:** Para poder alterar o preço máximo, você precisa desalocar a VM. Em seguida, você pode alterar o preço máximo no portal, na seção de **configuração** da VM. 
+
 ## <a name="next-steps"></a>Próximas etapas
 Use a [CLI](./linux/spot-cli.md), o [portal](spot-portal.md), o [modelo ARM](./linux/spot-template.md)ou o [PowerShell](./windows/spot-powershell.md) para implantar VMs pontuais.
 
 Você também pode implantar um [conjunto de dimensionamento com instâncias de VM Spot](../virtual-machine-scale-sets/use-spot.md).
 
-Se você encontrar um erro, consulte [códigos de erro](./error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Se você encontrar um erro, consulte [códigos de erro](./error-codes-spot.md).

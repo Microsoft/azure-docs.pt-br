@@ -13,18 +13,18 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04e1d35ab17a49dd1c4e9bd2bd19289de2b8658a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bb138ade0f579a7545c0910646b6adfb7d5ac02a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "89565847"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996654"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Adicionar identidade visual à página de entrada de sua empresa no Azure Active Directory
 Use o logotipo da organização e os esquemas de cores personalizados para fornecer uma aparência consistente nas páginas de entrada do Azure AD (Azure Active Directory). Suas páginas de entrada são exibidas quando os usuários entram nos aplicativos baseados na Web da sua organização, como Microsoft 365, que usa o Azure AD como seu provedor de identidade.
 
 >[!NOTE]
->A adição de identidade visual personalizada exige que você use as edições Azure Active Directory Premium 1, Premium 2 ou Basic ou para ter uma licença de Microsoft 365. Para obter mais informações sobre licenciamento e edições, consulte [Inscrever-se no Azure AD Premium](active-directory-get-started-premium.md).<br><br>As edições Azure AD Premium e Básico estão disponíveis para clientes na China por meio da instância mundial do Azure Active Directory. Atualmente, as edições Azure AD Premium e Básico não têm suporte no serviço do Azure operado pela 21Vianet na China. Para obter mais informações, fale conosco usando o [Fórum do Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
+>A adição de identidade visual personalizada exige que você tenha licenças Azure Active Directory Premium 1 ou Premium 2. Para obter mais informações sobre licenciamento e edições, consulte [Inscrever-se no Azure AD Premium](active-directory-get-started-premium.md).<br><br>Azure AD Premium edições estão disponíveis para clientes na China usando a instância Mundial do Azure Active Directory. Atualmente, não há suporte para as edições Azure AD Premium no serviço do Azure operado pela 21Vianet na China. Para obter mais informações, fale conosco usando o [Fórum do Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Personalizar a página de entrada do Azure AD
 É possível personalizar as páginas de entrada do Azure AD que aparecem quando os usuários entram nos aplicativos específicos de locatário da organização, como `https://outlook.com/contoso.com`, ou ao passar uma variável de domínio como `https://passwordreset.microsoftonline.com/?whr=contoso.com`.

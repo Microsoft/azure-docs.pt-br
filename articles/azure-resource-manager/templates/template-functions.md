@@ -1,18 +1,18 @@
 ---
 title: Funções de modelo
-description: Descreve as funções a serem usadas no modelo do Gerenciador de Recursos do Azure para recuperar valores, trabalhar com cadeias de caracteres e numéricos e recuperar informações de implantação.
+description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager (modelo ARM) para recuperar valores, trabalhar com cadeias de caracteres e numéricos e recuperar informações de implantação.
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: a479b81d0f0bc378f77885cbd644e70d7be1d857
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2d124893cbe1694671231fd206f8e44cc20f6204
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961163"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931700"
 ---
 # <a name="arm-template-functions"></a>Funções de modelo ARM
 
-Este artigo descreve todas as funções que você pode usar em um modelo de Azure Resource Manager (ARM). Para obter informações sobre como usar funções em seu modelo, consulte [sintaxe do modelo](template-expressions.md).
+Este artigo descreve todas as funções que você pode usar em um modelo de Azure Resource Manager (modelo ARM). Para obter informações sobre como usar funções em seu modelo, consulte [sintaxe do modelo](template-expressions.md).
 
 Para criar suas próprias funções, consulte [Funções definidas pelo usuário](template-syntax.md#functions).
 
@@ -250,7 +250,7 @@ O Gerenciador de Recursos fornece as seguintes funções para trabalhar com cade
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter uma descrição das seções em um modelo do ARM, consulte [criação de modelos do ARM](template-syntax.md)
-* Para mesclar vários modelos, consulte [usando modelos vinculados com Azure Resource Manager](linked-templates.md)
-* Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](copy-resources.md).
-* Para ver como implantar o modelo que você criou, consulte [implantar um aplicativo com modelos do ARM](deploy-powershell.md)
+* Para obter uma descrição das seções em um modelo do ARM, consulte [entender a estrutura e a sintaxe de modelos do ARM](template-syntax.md).
+* Para mesclar vários modelos, consulte [usando modelos vinculados e aninhados ao implantar recursos do Azure](linked-templates.md).
+* Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte [iteração de recurso em modelos ARM](copy-resources.md).
+* Para ver como implantar o modelo que você criou, consulte [implantar recursos com modelos ARM e Azure PowerShell](deploy-powershell.md).

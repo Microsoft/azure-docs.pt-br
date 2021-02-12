@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2020
+ms.date: 01/25/2021
 ms.author: yelevin
-ms.openlocfilehash: 4587ab5e2cf36dce65cd02b167656c88cfde10a1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0dccd8ac4f852688bf7e59e7ed96c4458c08d18b
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096947"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784721"
 ---
 # <a name="enable-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Habilitar UEBA (análise de comportamento de entidade e usuário) no Azure Sentinel 
 
-
+> [!IMPORTANT]
+>
+> - Os recursos de páginas de UEBA e entidade agora estão em **disponibilidade geral** em **_todas as_* regiões e Geografia do Azure Sentinel.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -31,9 +33,9 @@ Para habilitar ou desabilitar esse recurso (esses pré-requisitos não são nece
 
 - Seu usuário deve ser membro do Azure Active Directory da sua organização e não de um usuário convidado.
 
-- O usuário deve receber as funções de administrador **global** ou de **administrador de segurança** no Azure AD.
+- O usuário deve ter atribuído o _ *global Administrator** ou as funções de **administrador de segurança** no Azure AD.
 
-- Seu usuário deve receber pelo menos uma das seguintes **funções do Azure** ( [saiba mais sobre o RBAC do Azure](roles.md)):
+- Seu usuário deve receber pelo menos uma das seguintes **funções do Azure** ([saiba mais sobre o RBAC do Azure](roles.md)):
     - **Colaborador do Azure Sentinel** nos níveis de espaço de trabalho ou grupo de recursos.
     - **Log Analytics colaborador** nos níveis do grupo de recursos ou da assinatura.
 
@@ -41,13 +43,13 @@ Para habilitar ou desabilitar esse recurso (esses pré-requisitos não são nece
 
 ## <a name="how-to-enable-user-and-entity-behavior-analytics"></a>Como habilitar a análise de comportamento de usuário e entidade
 
-1. No menu de navegação do Azure Sentinel, selecione **comportamento da entidade (versão prévia)** .
+1. No menu de navegação do Azure Sentinel, selecione **comportamento da entidade**.
 
-1. Sob o título **Ativar** , alterne a alternância para **ativado** .
+1. Sob o título **Ativar**, alterne a alternância para **ativado**.
 
 1. Clique no botão **selecionar fontes de dados** .
 
-1. No painel **seleção de fonte de dados** , marque as caixas de seleção ao lado das fontes de dados nas quais você deseja habilitar Ueba e, em seguida, selecione **aplicar** .
+1. No painel **seleção de fonte de dados** , marque as caixas de seleção ao lado das fontes de dados nas quais você deseja habilitar Ueba e, em seguida, selecione **aplicar**.
 
     > [!NOTE]
     >
@@ -55,7 +57,7 @@ Para habilitar ou desabilitar esse recurso (esses pré-requisitos não são nece
     >
     > Depois de habilitar o UEBA, você terá a opção de conectar novas fontes de dados, para habilitá-las para o UEBA diretamente do painel do conector de dados, se elas forem compatíveis com UEBA.
 
-1. Selecione **ir para pesquisa de entidade** . Isso o levará para o painel pesquisa de entidade, que, de agora em diante, será o que você vê quando escolhe o **comportamento da entidade** no menu principal do Azure Sentinel.
+1. Selecione **ir para pesquisa de entidade**. Isso o levará para o painel pesquisa de entidade, que, de agora em diante, será o que você vê quando escolhe o **comportamento da entidade** no menu principal do Azure Sentinel.
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu a habilitar e configurar a UEBA (análise de comportamento de usuário e entidade) no Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:

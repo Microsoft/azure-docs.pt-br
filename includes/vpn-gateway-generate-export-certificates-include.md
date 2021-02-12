@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 10/29/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: e8e3df77df53b887c4367e46b05d8a7ea4eed2f6
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 946ff043828034340ae3273fc0629e32de755540
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93061577"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026505"
 ---
 ## <a name="create-a-self-signed-root-certificate"></a><a name="rootcert"></a>Criar um certificado raiz autoassinado
 
-Utilize o cmdlet New-SelfSignedCertificate para criar um certificado raiz autoassinado. Para obter informações adicionais sobre os parâmetros, consulte [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
+Utilize o cmdlet New-SelfSignedCertificate para criar um certificado raiz autoassinado. Para obter informações adicionais sobre os parâmetros, consulte [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate).
 
 1. Em um computador com Windows 10 ou Windows Server 2016, abra um console do Windows PowerShell com privilégios elevados. Esses exemplos não funcionam no modo "Experimentar" do Azure Cloud Shell. Você deve executar esses exemplos localmente.
-1. Use o exemplo a seguir para criar o certificado raiz autoassinado. O exemplo a seguir cria um certificado raiz autoassinado chamado 'P2SRootCert' que é instalado automaticamente em 'Certificates-Current User\Personal\Certificates'. Exiba o certificado abrindo *certmgr.msc* ou *Gerenciar Certificados de Usuário* .
+1. Use o exemplo a seguir para criar o certificado raiz autoassinado. O exemplo a seguir cria um certificado raiz autoassinado chamado 'P2SRootCert' que é instalado automaticamente em 'Certificates-Current User\Personal\Certificates'. Exiba o certificado abrindo *certmgr.msc* ou *Gerenciar Certificados de Usuário*.
 
    Entre usando o `Connect-AzAccount` cmdlet. Em seguida, execute o exemplo a seguir com as modificações necessárias.
 
@@ -39,7 +39,7 @@ Cada computador cliente que se conecta a uma rede virtual usando ponto a site de
 
 As etapas abaixo lhe guiarão pela geração de um certificado do cliente por meio de um certificado raiz autoassinado. Você pode gerar vários certificados de cliente a partir do mesmo certificado raiz. Quando você gerar certificados do cliente usando as etapas a seguir, o certificado do cliente será instalado automaticamente no computador que você tiver usado para gerar o certificado. Se você quiser instalar um certificado do cliente em outro computador cliente, você poderá exportar o certificado.
 
-Os exemplos utilizam o cmdlet New-SelfSignedCertificate para gerar um certificado do cliente que expira em um ano. Para informações de parâmetros adicionais, como definir um valor de expiração diferente para o certificado do cliente, consulte [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
+Os exemplos utilizam o cmdlet New-SelfSignedCertificate para gerar um certificado do cliente que expira em um ano. Para informações de parâmetros adicionais, como definir um valor de expiração diferente para o certificado do cliente, consulte [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate).
 
 ### <a name="example-1---powershell-console-session-still-open"></a>Exemplo 1-a sessão do console do PowerShell ainda está aberta
 

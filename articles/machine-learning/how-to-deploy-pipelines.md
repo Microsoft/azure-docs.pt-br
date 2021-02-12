@@ -10,13 +10,13 @@ ms.author: laobri
 author: lobrien
 ms.date: 8/25/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq1
-ms.openlocfilehash: de2b12bca10382d7e885626222fe463af27f9953
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.custom: how-to, contperf-fy21q1
+ms.openlocfilehash: 5dc14873f8863332d37a6ced6ce4013e76640dea
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128768"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879386"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>Publicar e acompanhar pipelines do Machine Learning
 
@@ -32,13 +32,13 @@ Pipelines de Machine Learning são fluxos de trabalho reutilizáveis para tarefa
 
 * [Configurar seu ambiente de desenvolvimento](how-to-configure-environment.md) para instalar o sdk do Azure Machine Learning ou usar uma [instância de computação Azure Machine Learning](concept-compute-instance.md) com o SDK já instalado
 
-* Crie e execute um pipeline de Machine Learning, como o seguinte [tutorial: criar um pipeline de Azure Machine Learning para Pontuação de lote](tutorial-pipeline-batch-scoring-classification.md). Para outras opções, consulte [criar e executar pipelines do Machine Learning com o SDK do Azure Machine Learning](how-to-create-your-first-pipeline.md)
+* Crie e execute um pipeline de Machine Learning, como o seguinte [tutorial: criar um pipeline de Azure Machine Learning para Pontuação de lote](tutorial-pipeline-batch-scoring-classification.md). Para outras opções, consulte [criar e executar pipelines do Machine Learning com o SDK do Azure Machine Learning](./how-to-create-machine-learning-pipelines.md)
 
 ## <a name="publish-a-pipeline"></a>Publicar um pipeline
 
 Quando você tiver um pipeline em funcionamento, poderá publicar um pipeline para que ele seja executado com entradas diferentes. Para o ponto de extremidade REST de um pipeline já publicado para aceitar parâmetros, você deve configurar seu pipeline para usar `PipelineParameter` objetos para os argumentos que irão variar.
 
-1. Para criar um parâmetro de pipeline, use um objeto [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py&preserve-view=true) com um valor padrão.
+1. Para criar um parâmetro de pipeline, use um objeto [PipelineParameter](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?preserve-view=true&view=azure-ml-py) com um valor padrão.
 
    ```python
    from azureml.pipeline.core.graph import PipelineParameter
@@ -73,7 +73,10 @@ Quando você tiver um pipeline em funcionamento, poderá publicar um pipeline pa
 
 Todos os pipelines publicados têm um ponto de extremidade REST. Com o ponto de extremidade do pipeline, você pode disparar uma execução do pipeline de qualquer sistema externo, incluindo clientes não Python. Esse ponto de extremidade permite a "repetibilidade gerenciada" em cenários de retreinamento e pontuação de lote.
 
-Para invocar a execução do pipeline anterior, você precisa de um token de cabeçalho de autenticação Azure Active Directory. Obter esse token é descrito na referência da [classe AzureCliAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py&preserve-view=true) e na [autenticação no Azure Machine Learning](https://aka.ms/pl-restep-auth) notebook.
+> [!IMPORTANT]
+> Se você estiver usando o controle de acesso baseado em função do Azure (RBAC do Azure) para gerenciar o acesso ao seu pipeline, [defina as permissões para seu cenário de pipeline (treinamento ou pontuação)](how-to-assign-roles.md#common-scenarios).
+
+Para invocar a execução do pipeline anterior, você precisa de um token de cabeçalho de autenticação Azure Active Directory. Obter esse token é descrito na referência da [classe AzureCliAuthentication](/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?preserve-view=true&view=azure-ml-py) e na [autenticação no Azure Machine Learning](https://aka.ms/pl-restep-auth) notebook.
 
 ```python
 from azureml.pipeline.core import PublishedPipeline
@@ -340,9 +343,9 @@ Você também pode executar um pipeline publicado no estúdio:
 
 1. [Exiba seu espaço de trabalho](how-to-manage-workspace.md#view).
 
-1. À esquerda, selecione **pontos de extremidade** .
+1. À esquerda, selecione **pontos de extremidade**.
 
-1. Na parte superior, selecione **pontos de extremidade do pipeline** .
+1. Na parte superior, selecione **pontos de extremidade do pipeline**.
  ![lista de pipelines publicados do Machine Learning](./media/how-to-create-your-first-pipeline/pipeline-endpoints.png)
 
 1. Selecione um pipeline específico para executar, consumir ou examinar os resultados das execuções anteriores do ponto de extremidade do pipeline.
@@ -357,10 +360,10 @@ p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```
 
-Você pode habilitá-lo novamente com `p.enable()` . Para obter mais informações, consulte referência de [classe PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?view=azure-ml-py&preserve-view=true) .
+Você pode habilitá-lo novamente com `p.enable()` . Para obter mais informações, consulte referência de [classe PublishedPipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?preserve-view=true&view=azure-ml-py) .
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Use [esses Jupyter Notebooks no GitHub](https://aka.ms/aml-pipeline-readme) para explorar ainda mais pipelines de machine learning.
-- Consulte a ajuda de referência do SDK para o pacote [azureml-pipelines-Core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py&preserve-view=true) e o pacote [azureml-pipelines-Steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py&preserve-view=true) .
+- Consulte a ajuda de referência do SDK para o pacote [azureml-pipelines-Core](/python/api/azureml-pipeline-core/?preserve-view=true&view=azure-ml-py) e o pacote [azureml-pipelines-Steps](/python/api/azureml-pipeline-steps/?preserve-view=true&view=azure-ml-py) .
 - Consulte a [instruções](how-to-debug-pipelines.md) para obter dicas sobre como depurar e solucionar problemas de pipelines.

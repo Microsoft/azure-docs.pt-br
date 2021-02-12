@@ -3,29 +3,29 @@ title: Delegar permissões de administrador de gerenciamento de aplicativos-Azur
 description: Conceder permissões para o gerenciamento de acesso do aplicativo no Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/08/2019
-ms.author: curtand
+ms.date: 11/04/2020
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8139dca2896610b8a3a52f1446255bea0031dc11
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b5cb7e1521c649be4abc155d9f28a49b43a11e6d
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374751"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071249"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegar permissões de registro de aplicativo no Azure Active Directory
 
 Este artigo descreve como usar permissões concedidas por funções personalizadas no Azure Active Directory (Azure AD) para atender às necessidades de gerenciamento de aplicativos. No Azure AD, você pode delegar permissões de criação e gerenciamento de aplicativos das seguintes maneiras:
 
-- [Restringir quem pode criar aplicativos](#restrict-who-can-create-applications) e gerenciar os aplicativos que eles criam. Por padrão, no Azure AD, todos os usuários podem registrar registros de aplicativos e gerenciar todos os aspectos de aplicativos que criam. Isso pode ser restrito para permitir apenas pessoas selecionadas que tenham permissão.
+- [Restringir quem pode criar aplicativos](#restrict-who-can-create-applications) e gerenciar os aplicativos que eles criam. Por padrão, no Azure AD, todos os usuários podem registrar aplicativos e gerenciar todos os aspectos de aplicativos que criam. Isso pode ser restrito para permitir apenas pessoas selecionadas que tenham permissão.
 - [Atribuição de um ou mais proprietários a um aplicativo](#assign-application-owners). Essa é uma maneira simples de conceder a alguém a capacidade de gerenciar todos os aspectos da configuração do Azure AD para um aplicativo específico.
 - [Atribuição de uma função administrativa interna](#assign-built-in-application-admin-roles) que concede acesso para gerenciar a configuração no Azure ad para todos os aplicativos. Essa é a maneira recomendada para conceder aos especialistas de ti o acesso para gerenciar as amplas permissões de configuração de aplicativo sem conceder acesso para gerenciar outras partes do Azure AD não relacionadas à configuração do aplicativo.
 - [Criar uma função personalizada](#create-and-assign-a-custom-role-preview) definindo permissões muito específicas e atribuindo-a a alguém para o escopo de um único aplicativo como proprietário limitado ou no escopo do diretório (todos os aplicativos) como um administrador limitado.
@@ -34,7 +34,7 @@ Este artigo descreve como usar permissões concedidas por funções personalizad
 
 ## <a name="restrict-who-can-create-applications"></a>Restringir quem pode criar aplicativos
 
-Por padrão, no Azure AD, todos os usuários podem registrar registros de aplicativos e gerenciar todos os aspectos de aplicativos que criam. Todos também têm a capacidade de dar consentimento a aplicativos que acessam dados da empresa em seu nome. Você pode optar por conceder essas permissões seletivamente definindo as opções globais como ' não ' e adicionando os usuários selecionados à função de desenvolvedor do aplicativo.
+Por padrão, no Azure AD, todos os usuários podem registrar aplicativos e gerenciar todos os aspectos de aplicativos que criam. Todos também têm a capacidade de dar consentimento a aplicativos que acessam dados da empresa em seu nome. Você pode optar por conceder essas permissões seletivamente definindo as opções globais como ' não ' e adicionando os usuários selecionados à função de desenvolvedor do aplicativo.
 
 ### <a name="to-disable-the-default-ability-to-create-application-registrations-or-consent-to-applications"></a>Para desabilitar a capacidade padrão de criar registros de aplicativo ou consentimento para aplicativos
 
@@ -90,9 +90,9 @@ Siga as instruções em [atribuir funções a usuários com Azure Active Directo
 A criação de funções personalizadas e a atribuição de funções personalizadas são etapas separadas:
 
 - [Crie uma *definição de função* personalizada](custom-create.md) e [Adicione permissões a ela de uma lista predefinida](custom-available-permissions.md). Essas são as mesmas permissões usadas nas funções internas.
-- [Crie uma *atribuição de função* ](custom-assign-powershell.md) para atribuir a função personalizada.
+- [Crie uma *atribuição de função*](custom-assign-powershell.md) para atribuir a função personalizada.
 
-Essa separação permite que você crie uma única definição de função e, em seguida, atribua-a muitas vezes em *escopos*diferentes. Uma função personalizada pode ser atribuída em escopo de toda a organização ou pode ser atribuída no escopo se um único objeto do Azure AD. Um exemplo de escopo de objeto é um registro de aplicativo único. Usando escopos diferentes, a mesma definição de função pode ser atribuída a Sally sobre todos os registros de aplicativo na organização e, em seguida, para Naveen somente pelo registro do aplicativo de relatórios de despesas da contoso.
+Essa separação permite que você crie uma única definição de função e, em seguida, atribua-a muitas vezes em *escopos* diferentes. Uma função personalizada pode ser atribuída em escopo de toda a organização ou pode ser atribuída no escopo se um único objeto do Azure AD. Um exemplo de escopo de objeto é um registro de aplicativo único. Usando escopos diferentes, a mesma definição de função pode ser atribuída a Sally sobre todos os registros de aplicativo na organização e, em seguida, para Naveen somente pelo registro do aplicativo de relatórios de despesas da contoso.
 
 Dicas ao criar e usar funções personalizadas para delegar o gerenciamento de aplicativos:
 - As funções personalizadas só concedem acesso nas folhas de registro de aplicativo mais atuais do portal do Azure AD. Eles não concedem acesso nas folhas de registros do aplicativo herdado.

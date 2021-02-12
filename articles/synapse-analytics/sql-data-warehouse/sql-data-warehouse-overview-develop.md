@@ -1,6 +1,6 @@
 ---
-title: Recursos para o desenvolvimento de um pool SQL Synapse no Azure Synapse Analytics
-description: Conceitos de desenvolvimento, decisões de design, recomendações e técnicas de codificação para o Azure Synapse Analytics.
+title: Recursos para o desenvolvimento de um pool SQL dedicado (anteriormente conhecido como SQL DW) no Azure Synapse Analytics
+description: Conceitos de desenvolvimento, decisões de design, recomendações e técnicas de codificação para um pool SQL dedicado (anteriormente conhecido como SQL DW) no Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,20 +10,22 @@ ms.subservice: sql-dw
 ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 95f712f196c37650b52220c9e34f6cb6b50bff23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b34c70b453c26fe27a51e1aa802564864640cb9
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460602"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453687"
 ---
-# <a name="design-decisions-and-coding-techniques-for-a-synapse-sql-pool-in-azure-synapse-analytics"></a>Decisões de design e técnicas de codificação para um pool SQL Synapse no Azure Synapse Analytics 
- Neste artigo, você encontrará recursos adicionais para ajudá-lo a entender melhor as principais decisões de design, recomendações e técnicas de codificação para um pool do SQL no Azure Synapse.
+# <a name="design-decisions-and-coding-techniques-for-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Decisões de design e técnicas de codificação para um pool SQL dedicado (anteriormente conhecido como SQL DW) no Azure Synapse Analytics 
+
+ Neste artigo, você encontrará recursos adicionais para ajudá-lo a entender melhor as principais decisões de design, recomendações e técnicas de codificação para um pool SQL dedicado (anteriormente conhecido como SQL DW) no Azure Synapse.
 
 ## <a name="key-design-decisions"></a>Principais decisões de design
-Os artigos a seguir destacam os conceitos e as decisões de design para o desenvolvimento de um data warehouse distribuído usando o recurso de pool do SQL no Azure Synapse:
 
-* [conexões](../sql/connect-overview.md)
+Os artigos a seguir destacam os conceitos e as decisões de design para o desenvolvimento de um data warehouse distribuído usando o recurso de pool dedicado do SQL (anteriormente conhecido como SQL DW) no Azure Synapse:
+
+* [conexões](sql-data-warehouse-connect-overview.md)
 * [concurrency](resource-classes-for-workload-management.md)
 * [transações](sql-data-warehouse-develop-transactions.md)
 * [esquemas definidos pelo usuário](sql-data-warehouse-develop-user-defined-schemas.md)
@@ -34,7 +36,8 @@ Os artigos a seguir destacam os conceitos e as decisões de design para o desenv
 * [estatística](sql-data-warehouse-tables-statistics.md)
 
 ## <a name="development-recommendations-and-coding-techniques"></a>Recomendações para o desenvolvimento e técnicas de codificação
-Os artigos a seguir apresentam técnicas de codificação específicas, dicas e recomendações para o desenvolvimento de um pool SQL:
+
+Os artigos a seguir apresentam técnicas de codificação específicas, dicas e recomendações para o desenvolvimento de um pool SQL dedicado (anteriormente conhecido como SQL DW):
 
 * [procedimentos armazenados](sql-data-warehouse-develop-stored-procedures.md)
 * [las](sql-data-warehouse-develop-label.md)
@@ -46,4 +49,5 @@ Os artigos a seguir apresentam técnicas de codificação específicas, dicas e 
 * [atribuição de variável](sql-data-warehouse-develop-variable-assignment.md)
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Para obter mais informações de referência, consulte [instruções T-SQL](sql-data-warehouse-reference-tsql-statements.md).

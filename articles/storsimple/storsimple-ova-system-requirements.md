@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 020208a8b67d248c02fc659d4dc48fa22d333839
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5970e82619667a47ba160c84df2cdeb145b0dab8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80298815"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966166"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisitos de sistema da matriz virtual StorSimple
 
@@ -29,7 +29,7 @@ Os requisitos do sistema incluem:
 
 As informações de requisitos de sistema do StorSimple publicadas neste artigo se aplica somente a Matrizes Virtuais StorSimple.
 
-* Para dispositivos série 8000, vá para [requisitos de sistema para o dispositivo StorSimple série 8000](storsimple-system-requirements.md).
+* Para dispositivos série 8000, vá para [requisitos de sistema para o dispositivo StorSimple série 8000](./storsimple-8000-system-requirements.md).
 * Para dispositivos série 7000, vá para [Requisitos de sistema para o dispositivo StorSimple série 5000-7000](http://onlinehelp.storsimple.com/1_StorSimple_System_Requirements).
 
 ## <a name="software-requirements"></a>Requisitos de software
@@ -84,20 +84,20 @@ Os requisitos de software a seguir referem-se aos clientes SMB que acessam o Sto
 
 
 ### <a name="supported-storage-format"></a>Formato de armazenamento com suporte
-Há suporte para o armazenamento de blob de blocos do Azure. Blobs de página não têm suporte. Para obter mais informações [sobre blobs de blocos e blobs de página](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+Há suporte para o armazenamento de blob de blocos do Azure. Blobs de página não têm suporte. Para obter mais informações [sobre blobs de blocos e blobs de página](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
 ## <a name="networking-requirements"></a>Requisitos de rede
 A tabela a seguir lista as portas que devem ser abertas no firewall para permitir o tráfego de gerenciamento, de nuvem, SMB ou iSCSI. Nesta tabela, *entrada* ou *de entrada* refere-se à direção a partir da qual as solicitações de cliente acessam o dispositivo. *Saída* ou *de saída* refere-se à direção na qual seu dispositivo StorSimple envia dados externamente, além da implantação: por exemplo, saída para a Internet.
 
 | **Porta No.<sup>1</sup>** | **Entrada ou saída** | **Escopo da porta** | **Necessária** | **Observações** |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP) |Saída |WAN |Não |A porta de saída é usada para acesso à Internet para recuperar atualizações. <br></br>O proxy Web de saída é configurável pelo usuário. |
-| TCP 443 (HTTPS) |Saída |WAN |Sim |A porta de saída é usada para acessar dados na nuvem. <br></br>O proxy Web de saída é configurável pelo usuário. |
+| TCP 80 (HTTP) |Saída |WAN |No |A porta de saída é usada para acesso à Internet para recuperar atualizações. <br></br>O proxy Web de saída é configurável pelo usuário. |
+| TCP 443 (HTTPS) |Saída |WAN |Yes |A porta de saída é usada para acessar dados na nuvem. <br></br>O proxy Web de saída é configurável pelo usuário. |
 | UDP 53 (DNS) |Saída |WAN |Em alguns casos; consulte as observações. |Esta porta só será necessária se você estiver usando um servidor DNS baseado na Internet. <br></br> Observe que, caso esteja implantando um servidor de arquivos, recomendamos usar o servidor DNS local. |
 | UDP 123 (NTP) |Saída |WAN |Em alguns casos; consulte as observações. |Esta porta é necessária apenas se você estiver usando um servidor NTP baseado na Internet.<br></br> Observe que, caso esteja implantando um servidor de arquivos, recomendamos sincronizar a hora com os controladores de domínio do Active Directory. |
-| TCP 80 (HTTP) |Em |LAN |Sim |Essa é a porta de entrada para a interface do usuário local no dispositivo StorSimple para gerenciamento local. <br></br> Observe que o acesso à interface do usuário local por HTTP será redirecionado automaticamente para HTTPS. |
-| TCP 443 (HTTPS) |Em |LAN |Sim |Essa é a porta de entrada para a interface do usuário local no dispositivo StorSimple para gerenciamento local. |
-| TCP 3260 (iSCSI) |Em |LAN |Não |Esta porta é usada para acessar dados em iSCSI. |
+| TCP 80 (HTTP) |Em |LAN |Yes |Essa é a porta de entrada para a interface do usuário local no dispositivo StorSimple para gerenciamento local. <br></br> Observe que o acesso à interface do usuário local por HTTP será redirecionado automaticamente para HTTPS. |
+| TCP 443 (HTTPS) |Em |LAN |Yes |Essa é a porta de entrada para a interface do usuário local no dispositivo StorSimple para gerenciamento local. |
+| TCP 3260 (iSCSI) |Em |LAN |No |Esta porta é usada para acessar dados em iSCSI. |
 
 <sup>1</sup> Nenhuma porta de entrada precisa estar aberta na Internet pública.
 

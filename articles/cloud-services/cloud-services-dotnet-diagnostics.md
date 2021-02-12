@@ -1,25 +1,26 @@
 ---
-title: Como usar o diagnóstico do Azure (.NET) com os Serviços de Nuvem | Microsoft Docs
+title: Como usar o diagnóstico do Azure (.NET) com serviços de nuvem (clássico) | Microsoft Docs
 description: Usando o diagnóstico do Azure para coletar dados dos Serviços de Nuvem do Azure para depuração, medição de desempenho, monitoramento, análise de tráfego e muito mais.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-manager: carmonm
-ms.service: cloud-services
-ms.devlang: dotnet
-ms.custom: devx-track-csharp
 ms.topic: article
-ms.date: 05/22/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 6a015a8d56cf3991d04b212db73d5b752c13a793
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 89ba50b91e8ff2e2d7a05d59f2b738a1f87a5fd2
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077534"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742141"
 ---
-# <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Habilitando o Diagnóstico do Azure nos Serviços de Nuvem do Azure
-Confira [Visão geral do Diagnóstico do Azure](../azure-monitor/platform/diagnostics-extension-overview.md) para obter informações preliminares sobre o Diagnóstico do Azure.
+# <a name="enabling-azure-diagnostics-in-azure-cloud-services-classic"></a>Habilitando Diagnóstico do Azure nos serviços de nuvem do Azure (clássico)
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
+
+Confira [Visão geral do Diagnóstico do Azure](../azure-diagnostics.md) para obter informações preliminares sobre o Diagnóstico do Azure.
 
 ## <a name="how-to-enable-diagnostics-in-a-worker-role"></a>Como habilitar o Diagnostics em uma Função do Trabalho
 Este passo a passo descreve como implementar uma função de trabalho do Azure que emite dados de telemetria usando o .NET EventSource Class. O Diagnóstico do Azure é usado para coletar os dados de telemetria e armazená-los em uma conta de armazenamento do Azure. Ao criar uma função de trabalho, o Visual Studio permite automaticamente O Diagnóstico 1.0 como parte da solução em SDKs do Azure para .NET 2.4 e versões anteriores. As instruções a seguir descrevem o processo de criação da função de trabalho, desabilitando o Diagnóstico 1.0 por meio da solução e implantando o Diagnóstico 1.2 ou 1.3 para sua função de trabalho.

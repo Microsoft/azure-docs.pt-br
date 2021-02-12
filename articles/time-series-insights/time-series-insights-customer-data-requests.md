@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5565dd43689d0420fbb9b73f088f24a38a2d54db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5ecbabe4a5c3458c77d145fbce1281550470e00
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665898"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96019065"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Resumo dos recursos de solicitação de dados do cliente
 
@@ -34,7 +34,7 @@ Um administrador de locatários pode excluir os dados do cliente usando o portal
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-No entanto, antes de excluir os dados do cliente por meio do portal, você deve remover as políticas de acesso do usuário do ambiente do Time Series Insights no portal do Azure. Para obter mais informações, leia [conceder acesso a dados para um ambiente de time Series insights usando portal do Azure](time-series-insights-data-access.md).
+No entanto, antes de excluir os dados do cliente por meio do portal, você deve remover as políticas de acesso do usuário do ambiente do Time Series Insights no portal do Azure. Para obter mais informações, leia [conceder acesso a dados para um ambiente de time Series insights usando portal do Azure](./concepts-access-policies.md).
 
 Você também pode executar operações de exclusão em políticas de acesso usando a API REST. Para obter mais informações, leia [políticas de acesso-excluir](/rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/delete).
 
@@ -46,7 +46,7 @@ De forma semelhante à exclusão de dados, um administrador de locatários pode 
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-Caso você seja um administrador de locatários, exiba as políticas de acesso a dados no ambiente do Time Series Insights no portal do Azure. Para obter mais informações, leia [conceder acesso a dados para um ambiente de time Series insights usando portal do Azure](time-series-insights-data-access.md).
+Caso você seja um administrador de locatários, exiba as políticas de acesso a dados no ambiente do Time Series Insights no portal do Azure. Para obter mais informações, leia [conceder acesso a dados para um ambiente de time Series insights usando portal do Azure](./concepts-access-policies.md).
 
 Também é possível executar operações de exportação nas políticas de acesso usando a operação "listar por ambiente" na API REST fornecida. Para obter mais informações, leia [políticas de acesso-listar por ambiente](/rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/listbyenvironment).
 
@@ -68,7 +68,7 @@ Para obter mais informações, leia [Configurando a retenção em time Series in
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Leia mais sobre como [conceder acesso a dados ao seu ambiente de Azure Time Series insights](./time-series-insights-data-access.md).
+* Leia mais sobre como [conceder acesso a dados ao seu ambiente de Azure Time Series insights](./concepts-access-policies.md).
 
 * Exiba o [Azure Time Series insights Explorer](time-series-insights-explorer.md).
 

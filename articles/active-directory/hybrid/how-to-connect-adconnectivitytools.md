@@ -12,11 +12,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d7eed3e06ab42671d9674ad3893a88dfe9817e22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85360173"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95973449"
 ---
 # <a name="troubleshoot-azure-ad-connectivity-with-the-adconnectivitytool-powershell-module"></a>Solucionar problemas de conectividade do Azure AD com o módulo do PowerShell do ADConnectivityTool
 
@@ -41,7 +41,7 @@ Na página **Conecte seus diretórios**, no Assistente para Conexão do Azure AD
 Sempre que qualquer um desses problemas for encontrado, uma mensagem de erro relacionada será exibida no Assistente AADConnect:
 
 
-![Erro do](media/how-to-connect-adconnectivitytools/error1.png)
+![Erro](media/how-to-connect-adconnectivitytools/error1.png)
 
 Por exemplo, quando estamos tentando adicionar um diretório na tela **Conecte seus diretórios**, o Azure AD Connect precisa verificar isso e espera poder se comunicar com um controlador de domínio pela porta 389.  Se não puder, veremos o erro mostrado na captura de tela acima.  
 

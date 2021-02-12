@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 2c487b5bc5c8d5fa01388b2942a70defa0001253
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e50cce74f7291a6673e5d43f3485a1c63c81d827
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791521"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319288"
 ---
 # <a name="create-and-manage-servers-and-single-databases-in-azure-sql-database"></a>Criar e gerenciar servidores e bancos de dados individuais no Azure SQL Database
 
@@ -123,10 +123,10 @@ Para criar e gerenciar servidores, bancos de dados e firewalls com o Transact-SQ
 
 | Comando | Descrição |
 | --- | --- |
-|[CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)|Cria um novo banco de dados individual. Você deve estar conectado ao banco de dados mestre para criar um novo banco de dados.|
-| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modifica um banco de dados ou pool elástico. |
+|[CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true)|Cria um novo banco de dados individual. Você deve estar conectado ao banco de dados mestre para criar um novo banco de dados.|
+| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Modifica um banco de dados ou pool elástico. |
 |[DROP DATABASE](/sql/t-sql/statements/drop-database-transact-sql)|Exclui um banco de dados.|
-|[sys.database_service_objectives](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Retorna a edição (camada de serviço), o objetivo de serviço (tipo de preço) e o nome do pool elástico, se houver, para o banco de dados SQL do Azure ou um pool SQL do Azure Synapse Analytics. Se estiver conectado ao banco de dados mestre em um servidor no banco de dados SQL, o retornará informações sobre todos os bancos. Para o Azure Synapse Analytics, você deve estar conectado ao banco de dados mestre.|
+|[sys.database_service_objectives](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Retorna a edição (camada de serviço), o objetivo de serviço (tipo de preço) e o nome do pool elástico, se houver, para o banco de dados SQL do Azure ou um pool SQL dedicado no Azure Synapse Analytics. Se estiver conectado ao banco de dados mestre em um servidor no banco de dados SQL, o retornará informações sobre todos os bancos. Para o Azure Synapse Analytics, você deve estar conectado ao banco de dados mestre.|
 |[sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Retorna CPU, e/s e consumo de memória para um banco de dados no banco de dados SQL do Azure. Existe uma linha para cada 15 segundos, mesmo que não haja atividade no banco de dados.|
 |[sys. resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|Retorna o uso da CPU e os dados de armazenamento de um banco de dado no Azure SQL Database. Os dados são coletados e agregados em intervalos de cinco minutos.|
 |[sys.database_connection_stats](/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database)|Contém estatísticas para eventos de conectividade do banco de dados SQL, fornecendo uma visão geral de êxitos e falhas de conexão de banco de dados. |

@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: jushiman
-ms.openlocfilehash: 3ac90d3cabc179ecd1c1e421fd026a584f7158e3
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 215f907edb01cc35ffa4e9bb683964f8eda11d94
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368563"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089318"
 ---
 # <a name="dv3-and-dsv3-series"></a>Séries Dv3 e DSv3
 
@@ -34,6 +34,8 @@ O recurso de VMs da série Dv3 Intel® Hyper-Threading tecnologia.
 [Migração ao vivo](maintenance-and-updates.md): com suporte<br>
 [Atualizações de preservação de memória](maintenance-and-updates.md): com suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
 <br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento temporário: IOPS/MBps de leitura/MBps de gravação | Largura de banda máxima de NICs/rede |
@@ -58,6 +60,8 @@ O recurso de VMs da série Dsv3 Intel® Hyper-Threading tecnologia.
 [Migração ao vivo](maintenance-and-updates.md): com suporte<br>
 [Atualizações de preservação de memória](maintenance-and-updates.md): com suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): com suporte <br>
 <br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento em cache e temporária: IOPS/MBps (tamanho do cache em GiB) | Taxa de transferência máxima de armazenamento em cache e temporária de intermitência: IOPS/MBps<sup>1</sup> | Taxa de transferência de disco sem cache: IOPS/MBps | Taxa de transferência máxima de disco não cache de intermitência: IOPS/MBps<sup>1</sup> | Máximo de NICs/largura de banda de rede esperada (Mbps) |
@@ -70,7 +74,7 @@ O recurso de VMs da série Dsv3 Intel® Hyper-Threading tecnologia.
 | Standard_D48s_v3 | 48 | 192 | 384 | 32 | 96000/768 (1200)   | 96000/2000  |76800/1152 | 80000/2000 | 8/24000 |
 | Standard_D64s_v3 | 64 | 256 | 512 | 32 | 128000/1024 (1600) | 128000/2000 |80000/1200 | 80000/2000 | 8/30000 |
 
-<sup>1</sup>  as VMs da série Dsv3 podem [estourar](linux/disk-bursting.md) o desempenho do disco e chegar até o máximo de pico por até 30 minutos por vez.
+<sup>1</sup>  as VMs da série Dsv3 podem [estourar](./disk-bursting.md) o desempenho do disco e chegar até o máximo de pico por até 30 minutos por vez.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: fb0e56c5eeebb4f3a869feacb996d690ea7dde86
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: e003d0121721838bd5ae038a3a8b4d1b8cd9d1eb
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124161"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573183"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limites do Azure Data Box Disk
 
@@ -44,7 +44,7 @@ Para obter as informações mais recentes sobre os limites de serviço de armaze
 
 ## <a name="data-upload-caveats"></a>Limitações de upload de dados
 
-- Não copie dados diretamente para os discos. Copie os dados para as pastas *BlockBlob*,*PageBlob*e *azurefile* criadas previamente.
+- Não copie dados diretamente para os discos. Copie os dados para as pastas *BlockBlob*,*PageBlob* e *azurefile* criadas previamente.
 - Uma pasta sob as pastas *BlockBlob* e *PageBlob* é um contêiner. Por exemplo, os contêineres são criados como *BlockBlob/contêiner* e *PageBlob/contêiner*.
 - Se você tiver um objeto do Azure existente (como um blob) na nuvem com o mesmo nome que o objeto que está sendo copiado, Disco do Data Box renomeará o arquivo como arquivo (1) na nuvem.
 - Todos os arquivos gravados nos compartilhamentos *BlockBlob* e *PageBlob* são carregados como um blob de blocos e um blob de páginas, respectivamente.
@@ -76,7 +76,7 @@ Aqui estão os tamanhos dos objetos do Azure que podem ser gravados. Verifique s
 | Blob de blocos        | Aproximadamente 4,75 TiB                                                 |
 | Blob de páginas         | 8 TiB <br> (Cada arquivo carregado no formato de blob de páginas deve ter 512 bytes alinhados, caso contrário, o carregamento falhará. <br> O VHD e o VHDX são 512 bytes alinhados.) |
 |Arquivos do Azure        | 1 TiB <br> Máx. o tamanho do compartilhamento é 5 TiB     |
-| Discos gerenciados     |4 TiB <br> Para obter mais informações sobre tamanho e limites, consulte: <li>[Metas de escalabilidade para discos gerenciados](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
+| Discos gerenciados     |4 TiB <br> Para obter mais informações sobre tamanho e limites, consulte: <li>[Metas de escalabilidade para discos gerenciados](../virtual-machines/disks-scalability-targets.md#managed-virtual-machine-disks)</li>|
 
 
 ## <a name="azure-block-blob-page-blob-and-file-naming-conventions"></a>Convenções de nomenclatura de arquivo, blob de páginas e blob de blocos do Azure

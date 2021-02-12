@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: dc6056653fc50976439d4b16594e6d554e62f061
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1238a45a7175101253f43e6bbd199ff1c913650
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652815"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095648"
 ---
 # <a name="nvv3-series"></a>Série NVv3
 
@@ -26,6 +26,8 @@ Cada GPU em instâncias de NVv3 vem com uma licença de grade. Esta licença ofe
 [Migração ao vivo](maintenance-and-updates.md): sem suporte<br>
 [Atualizações de preservação de memória](maintenance-and-updates.md): sem suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
 <br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | GPU | Memória da GPU: GiB | Discos de dados máximos | Taxa de transferência de disco sem cache: IOPS/MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) | Estações de trabalho virtuais | Aplicativos virtuais |
@@ -35,8 +37,6 @@ Cada GPU em instâncias de NVv3 vem com uma licença de grade. Esta licença ofe
 | Standard_NV48s_v3 |48 | 448 | 1280 | 4 | 32 | 32 | 80000/800 | 8 / 24000 | 4 | 100 |
 
 <sup>1</sup> 1 GPU = placa M60 de uma metade.
-
-<sup>2</sup> neste momento, a rede acelerada não tem suporte nesta família de VMs, portanto, o desempenho da rede real pode ser menor do que os números teóricos de pico capturados aqui.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

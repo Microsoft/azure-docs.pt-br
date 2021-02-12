@@ -2,16 +2,16 @@
 title: Explorar Azure Stream Analytics trabalhos no Visual Studio Code
 description: Este artigo mostra como exportar um trabalho de Azure Stream Analytics para um projeto local, listar trabalhos e exibir entidades de trabalho.
 ms.service: stream-analytics
-author: mamccrea
-ms.author: mamccrea
+author: su-jie
+ms.author: sujie
 ms.date: 05/15/2019
 ms.topic: how-to
-ms.openlocfilehash: 4b4ddd7db4891c642ec2002bbe992314fe67a20f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f1c0650820a419275ade6095344033b6d81a568
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891976"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013865"
 ---
 # <a name="explore-azure-stream-analytics-with-visual-studio-code-preview"></a>Explorar Azure Stream Analytics com Visual Studio Code (versão prévia)
 

@@ -10,19 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 9/03/2019
-ms.openlocfilehash: 8192b1351d54acbb553bacb8b36474cba271cb05
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 12/09/2020
+ms.openlocfilehash: e65c8c8574edc10f9366611c5b41ba93f609c7e3
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638067"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008211"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Usar Azure Data Factory para migrar dados de um servidor Netezza local para o Azure 
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-O Azure Data Factory fornece um mecanismo de desempenho, robusto e econômico para migrar dados em escala de um servidor Netezza local para sua conta de armazenamento do Azure ou para o Azure Synapse Analytics (anteriormente SQL Data Warehouse). 
+O Azure Data Factory fornece um mecanismo eficaz, robusto e econômico para migrar dados em escala de um servidor Netezza local para sua conta de armazenamento do Azure ou para o banco de dados do Azure Synapse Analytics. 
 
 Este artigo fornece as seguintes informações para desenvolvedores e engenheiros de dados:
 

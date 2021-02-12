@@ -1,17 +1,17 @@
 ---
 title: Solucionar problemas de desempenho de consultas – Banco de Dados do Azure para MySQL
 description: Saiba como usar o EXPLAIN para solucionar problemas de desempenho de consulta no Banco de Dados do Azure para MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: 0725de878836e415695d307b68db43802d9b5c2f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 81ec7e6f822f24f2b9e6ca4298e9668358c78149
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545847"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540749"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>Como usar a EXPLAIN para analisar o desempenho de consultas no Banco de Dados do Azure para MySQL
 **EXPLAIN** é uma ferramenta útil para otimizar consultas. A instrução EXPLAIN pode ser utilizada para obter informações sobre como as instruções SQL são executadas. A saída a seguir mostra um exemplo da execução de uma instrução EXPLAIN.
@@ -33,7 +33,7 @@ possible_keys: NULL
         Extra: Using where
 ```
 
-Como pode ser observado a partir desse exemplo, o valor da *chave* é NULL. Esta saída significa que o MySQL não consegue localizar nenhum índice otimizado para a consulta e executa uma verificação de tabela completa. Vamos otimizar essa consulta, adicionando um índice na coluna **ID** .
+Como pode ser observado a partir desse exemplo, o valor da *chave* é NULL. Esta saída significa que o MySQL não consegue localizar nenhum índice otimizado para a consulta e executa uma verificação de tabela completa. Vamos otimizar essa consulta, adicionando um índice na coluna **ID**.
 
 ```sql
 mysql> ALTER TABLE tb1 ADD KEY (id);
@@ -75,7 +75,7 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-Como pode ser observado a partir da saída, o MySQL não usa nenhum índice porque não há índices adequados disponíveis. Além disso, também mostra *Usando temporário; Usando classificação de arquivo* , que significa que o MySQL cria uma tabela temporária para satisfazer a cláusula **GROUP BY** .
+Como pode ser observado a partir da saída, o MySQL não usa nenhum índice porque não há índices adequados disponíveis. Além disso, também mostra *Usando temporário; Usando classificação de arquivo* , que significa que o MySQL cria uma tabela temporária para satisfazer a cláusula **GROUP BY**.
  
 É indiferente criar um índice na coluna **c2** sozinho e o MySQL ainda precisa criar uma tabela temporária:
 
@@ -120,7 +120,7 @@ possible_keys: covered
 Como mostrado na EXPLAIN acima, o MySQL agora usa o índice coberto e evita criar uma tabela temporária. 
 
 ## <a name="combined-index"></a>Índice combinado
-Um índice combinado consiste em valores de várias colunas e pode ser considerado uma matriz de linhas ordenadas por concatenação de valores das colunas indexadas.  Esse método pode ser útil em uma instrução **GROUP BY** .
+Um índice combinado consiste em valores de várias colunas e pode ser considerado uma matriz de linhas ordenadas por concatenação de valores das colunas indexadas.  Esse método pode ser útil em uma instrução **GROUP BY**.
 
 ```sql
 mysql> EXPLAIN SELECT c1, c2 from tb1 WHERE c2 LIKE '%100' ORDER BY c1 DESC LIMIT 10\G

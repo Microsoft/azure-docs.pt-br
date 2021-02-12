@@ -3,12 +3,12 @@ title: Pontos de extremidade privados
 description: Entenda o processo de criação de pontos de extremidade privados para o backup do Azure e os cenários em que o uso de pontos de extremidade privados ajuda a manter a segurança de seus recursos.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 0ca4e7a83e18ac72e25131d320737ce9578b1cf3
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 0d9d77c139896f9067f73943dbb213fc655f00f6
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172233"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054865"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Pontos de extremidade privados para o backup do Azure
 
@@ -26,12 +26,13 @@ Este artigo o ajudará a entender o processo de criação de pontos de extremida
 - No momento, o Azure Active Directory não dá suporte a pontos de extremidade privados. Portanto, os IPs e FQDNs necessários para Azure Active Directory trabalhar em uma região precisarão ter acesso de saída da rede protegida ao executar o backup de bancos de dados em VMs do Azure e fazer backup usando o agente MARS. Você também pode usar marcas NSG e marcas de firewall do Azure para permitir o acesso ao Azure AD, conforme aplicável.
 - As redes virtuais com políticas de rede não têm suporte para pontos de extremidade privados. Você precisará desabilitar as políticas de rede antes de continuar.
 - Você precisa registrar novamente o provedor de recursos dos serviços de recuperação com a assinatura se o tiver registrado antes de maio de 1 2020. Para registrar novamente o provedor, acesse sua assinatura no portal do Azure, navegue até provedor de **recursos** na barra de navegação à esquerda, selecione **Microsoft. recoveryservices** e selecione **registrar novamente**.
+- Não há suporte para a [restauração entre regiões](backup-create-rs-vault.md#set-cross-region-restore) para SQL e SAP Hana backups de banco de dados se o cofre tiver pontos de extremidade privados habilitados.
 
 ## <a name="recommended-and-supported-scenarios"></a>Cenários recomendados e com suporte
 
 Embora os pontos de extremidade privados estejam habilitados para o cofre, eles são usados para backup e restauração de cargas de trabalho do SQL e do SAP HANA somente em uma VM do Azure e no backup do agente MARS. Você também pode usar o cofre para backup de outras cargas de trabalho (eles não precisarão de pontos de extremidade privados). Além do backup de cargas de trabalho do SQL e do SAP HANA e do backup usando o agente MARS, os pontos de extremidade privados também são usados para executar a recuperação de arquivos para o backup de VM do Azure. Para obter mais informações, confira a tabela a seguir:
 
-| Backup de cargas de trabalho na VM do Azure (SQL, SAP HANA), backup usando o agente MARS | O uso de pontos de extremidade privados é recomendado para permitir backup e restauração sem a necessidade de permitir-listar qualquer IPs/FQDNs para o backup do Azure ou o armazenamento do Azure de suas redes virtuais. |
+| Backup de cargas de trabalho na VM do Azure (SQL, SAP HANA), backup usando o agente MARS | O uso de pontos de extremidade privados é recomendado para permitir backup e restauração sem a necessidade de permitir que qualquer IPs/FQDNs para o backup do Azure ou o armazenamento do Azure de suas redes virtuais. Nesse cenário, verifique se as VMs que hospedam bancos de dados SQL podem alcançar IPs ou FQDNs do Azure AD. |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Backup de VM do Azure**                                         | O backup da VM não exige que você permita o acesso a IPs ou FQDNs. Portanto, ele não requer pontos de extremidade privados para backup e restauração de discos.  <br><br>   No entanto, a recuperação de arquivo de um cofre que contém pontos de extremidade privados seria restrita a redes virtuais que contêm um ponto final privado para o cofre. <br><br>    Ao usar os discos não gerenciados do ACL'ed, verifique se a conta de armazenamento que contém os discos permite o acesso a **serviços confiáveis da Microsoft** se for ACL'ed. |
 | **Backup de arquivos do Azure**                                      | Os backups de arquivos do Azure são armazenados na conta de armazenamento local. Portanto, ele não requer pontos de extremidade privados para backup e restauração. |
@@ -77,7 +78,7 @@ Recomendamos que você conceda a função de **colaborador** para esses três gr
 
     ![Adicionar uma atribuição de função](./media/private-endpoints/add-role-assignment.png)
 
-1. No painel **Adicionar atribuição de função** , escolha **colaborador** como a **função**e use o **nome** do cofre como a entidade de **segurança**. Selecione seu cofre e selecione **salvar** quando terminar.
+1. No painel **Adicionar atribuição de função** , escolha **colaborador** como a **função** e use o **nome** do cofre como a entidade de **segurança**. Selecione seu cofre e selecione **salvar** quando terminar.
 
     ![Escolher função e entidade de segurança](./media/private-endpoints/choose-role-and-principal.png)
 
@@ -385,7 +386,7 @@ $privateEndpoint = New-AzPrivateEndpoint `
 
 #### <a name="create-dns-zones-for-custom-dns-servers"></a>Criar zonas DNS para servidores DNS personalizados
 
-Você precisa criar três zonas DNS privadas e vinculá-las à sua rede virtual.
+Você precisa criar três zonas DNS privadas e vinculá-las à sua rede virtual. Tenha em mente que, diferentemente do blob e da fila, as URLs públicas do serviço de backup não se registram no DNS público do Azure para o redirecionamento para as zonas DNS do link privado. 
 
 | **Zona**                                                     | **Serviço** |
 | ------------------------------------------------------------ | ----------- |

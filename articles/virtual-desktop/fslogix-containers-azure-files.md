@@ -3,15 +3,15 @@ title: Arquivos de contêineres de perfil FSLogix da área de trabalho virtual d
 description: Este artigo descreve os contêineres de perfil FSLogix nos arquivos da área de trabalho virtual do Windows e do Azure.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 01/04/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 669f4baa723b78b8933f3a75fc361c468f9e2df9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b977944f3a531365487b9655820e5d8f85e13d0
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88002398"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225908"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contêineres de perfil FSLogix e arquivos do Azure
 
@@ -55,7 +55,7 @@ A tabela a seguir mostra os benefícios e as limitações das tecnologias de per
 
 #### <a name="performance"></a>Desempenho
 
-O UPD requer [espaços de armazenamento diretos (S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) para resolver os requisitos de desempenho. O UPD usa o protocolo SMB. Ele copia o perfil para a VM na qual o usuário está sendo registrado. O UPD com S2D é a solução que recomendamos para a área de trabalho virtual do Windows.
+O UPD requer [espaços de armazenamento diretos (S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) para resolver os requisitos de desempenho. O UPD usa o protocolo SMB. Ele copia o perfil para a VM na qual o usuário está sendo registrado.
 
 #### <a name="cost"></a>Cost
 
@@ -70,7 +70,7 @@ Os clusters S2D exigem um sistema operacional que seja corrigido, atualizado e m
 Em 19 de novembro de 2018, a [Microsoft adquiriu o FSLogix](https://blogs.microsoft.com/blog/2018/11/19/microsoft-acquires-fslogix-to-enhance-the-office-365-virtualization-experience/). FSLogix resolve muitos desafios de contêiner de perfil. A chave entre eles são:
 
 - **Desempenho:** Os [contêineres de perfil do FSLogix](/fslogix/configure-profile-container-tutorial/) são de alto desempenho e resolvem problemas de desempenho que têm o modo de troca armazenado em cache historicamente bloqueado.
-- **Onedrive:** Sem os contêineres de perfil do FSLogix, o OneDrive for Business não tem suporte em ambientes de RDSH ou VDI não persistentes. O [onedrive for Business e o FSLogix Best Practices](/fslogix/overview/) descrevem como eles interagem. Para obter mais informações, consulte [usar o cliente de sincronização em áreas de trabalho virtuais](/deployoffice/rds-onedrive-business-vdi/).
+- **Onedrive:** Sem os contêineres de perfil do FSLogix, o OneDrive for Business não tem suporte em ambientes de RDSH ou VDI não persistentes. A [página de suporte do VDI do onedrive](/onedrive/sync-vdi-support) informará como eles interagem. Para obter mais informações, consulte [usar o cliente de sincronização em áreas de trabalho virtuais](/deployoffice/rds-onedrive-business-vdi/).
 - **Pastas adicionais:** O FSLogix fornece a capacidade de estender perfis de usuário para incluir pastas adicionais.
 
 Desde a aquisição, a Microsoft começou a substituir as soluções de perfil de usuário existentes, como o UPD, por contêineres de perfil FSLogix.
@@ -87,7 +87,7 @@ Para garantir que seu ambiente de área de trabalho virtual do Windows siga as p
 
 - A conta de armazenamento de arquivos do Azure deve estar na mesma região que as VMs do host de sessão.
 - As permissões dos arquivos do Azure devem corresponder às permissões descritas em [requisitos – contêineres de perfil](/fslogix/fslogix-storage-config-ht).
-- Cada pool de hosts deve ser compilado do mesmo tipo e de uma VM de tamanho com base na mesma imagem mestra.
+- Cada VM do pool de hosts deve ser criada do mesmo tipo e de uma VM de tamanho com base na mesma imagem mestra.
 - Cada VM do pool de hosts deve estar no mesmo grupo de recursos para ajudar no gerenciamento, no dimensionamento e na atualização.
 - Para obter um desempenho ideal, a solução de armazenamento e o contêiner de perfil FSLogix devem estar no mesmo local de data center.
 - A conta de armazenamento que contém a imagem mestra deve estar na mesma região e assinatura em que as VMs estão sendo provisionadas.

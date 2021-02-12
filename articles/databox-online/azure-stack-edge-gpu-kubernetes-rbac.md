@@ -8,21 +8,21 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: 0880ae64520997fc6b41ba4a7e8508d927235a8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a9625dcf40ae7d11e1154fc89b7f04652c8ca16
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320805"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635833"
 ---
 # <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-pro-gpu-device"></a>Controle de acesso baseado em função do kubernetes no seu dispositivo de GPU pro do Azure Stack Edge
 
 
-No dispositivo Azure Stack Edge pro, quando você configura a função de computação, um cluster kubernetes é criado. Você pode usar o RBAC (controle de acesso baseado em função) kubernetes para limitar o acesso aos recursos de cluster em seu dispositivo.
+No dispositivo Azure Stack Edge pro, quando você configura a função de computação, um cluster kubernetes é criado. Você pode usar o controle de acesso baseado em função do kubernetes (kubernetes RBAC) para limitar o acesso aos recursos de cluster em seu dispositivo.
 
-Este artigo fornece uma visão geral do sistema RBAC fornecido pelo kubernetes e como o kubernetes RBAC é implementado em seu dispositivo Azure Stack Edge pro. 
+Este artigo fornece uma visão geral do sistema kubernetes RBAC fornecido pelo kubernetes e como o kubernetes RBAC é implementado em seu dispositivo Azure Stack Edge pro. 
 
-## <a name="rbac-for-kubernetes"></a>RBAC para kubernetes
+## <a name="kubernetes-rbac"></a>RBAC do Kubernetes
 
 O RBAC kubernetes permite atribuir usuários ou grupos de usuários, permissão para tarefas como criar ou modificar recursos ou exibir logs da execução de cargas de trabalho do aplicativo. Essas permissões podem ser delimitadas para um único namespace ou concedidas em todo o cluster. 
 
@@ -42,7 +42,7 @@ O dispositivo pro Edge Azure Stack tem os seguintes namespaces:
     - Kube-sistema
     - metallb-sistema
     - DBE-namespace
-    - padrão
+    - default
     - kubernetes-painel
     - Kube-concessão de nó
     - Kube – público
@@ -61,21 +61,21 @@ O dispositivo pro Edge Azure Stack tem os seguintes namespaces:
 
 No mundo real, é importante dividir o cluster em vários namespaces. 
 
-- **Vários usuários**: se você tiver vários usuários, vários namespaces permitirão que esses usuários implantem seus aplicativos e serviços em seus namespaces específicos isoladamente uns dos outros. 
-- **Usuário único**: mesmo que haja um único usuário, vários namespaces permitirão que o usuário executasse várias versões dos aplicativos no mesmo cluster kubernetes.
+- **Vários usuários** : se você tiver vários usuários, vários namespaces permitirão que esses usuários implantem seus aplicativos e serviços em seus namespaces específicos isoladamente uns dos outros. 
+- **Usuário único** : mesmo que haja um único usuário, vários namespaces permitirão que o usuário executasse várias versões dos aplicativos no mesmo cluster kubernetes.
 
 ### <a name="roles-and-rolebindings"></a>Funções e RoleBindings
 
 Kubernetes tem o conceito de função e Associação de função que permite conceder permissões a usuários ou recursos em um nível de namespace e em um nível de cluster. 
 
-- **Funções**: você pode definir permissões para usuários como uma **função** e, em seguida, usar **funções** para conceder permissões em um namespace. 
-- **RoleBindings**: depois de definir as funções, você pode usar **RoleBindings** para atribuir funções para um namespace específico. 
+- **Funções** : você pode definir permissões para usuários como uma **função** e, em seguida, usar **funções** para conceder permissões em um namespace. 
+- **RoleBindings** : depois de definir as funções, você pode usar **RoleBindings** para atribuir funções para um namespace específico. 
 
 Essa abordagem permite separar logicamente um único cluster kubernetes, com os usuários capazes de acessar somente os recursos do aplicativo em seu namespace atribuído. 
 
-## <a name="rbac-on-azure-stack-edge-pro"></a>RBAC no Azure Stack Edge pro
+## <a name="kubernetes-rbac-on-azure-stack-edge-pro"></a>Kubernetes RBAC no Azure Stack Edge pro
 
-Na implementação atual do RBAC, Azure Stack o Edge Pro permite executar as seguintes ações de um runspace do PowerShell restrito:
+Na implementação atual do RBAC kubernetes, Azure Stack o Edge Pro permite executar as seguintes ações de um runspace do PowerShell restrito:
 
 - Criar namespaces.  
 - Crie usuários adicionais.
@@ -85,9 +85,9 @@ Na implementação atual do RBAC, Azure Stack o Edge Pro permite executar as seg
 
 O dispositivo pro Edge Azure Stack tem vários namespaces de sistema e você pode criar namespaces de usuário com `kubeconfig` arquivos para acessar esses namespaces. Os usuários têm controle total sobre esses namespaces e podem criar ou modificar usuários ou conceder acesso a usuários. Somente o administrador do cluster tem acesso completo aos namespaces do sistema e aos recursos de todo o cluster. Um `aseuser` tem acesso somente leitura aos namespaces do sistema.
 
-Aqui está um diagrama que descreve a implementação do RBAC no dispositivo Azure Stack Edge pro.
+Aqui está um diagrama que descreve a implementação do RBAC kubernetes no dispositivo Azure Stack Edge pro.
 
-![RBAC no dispositivo pro Azure Stack Edge](./media/azure-stack-edge-gpu-kubernetes-rbac/rbac-view-1.png)
+![Kubernetes RBAC no dispositivo pro Edge Azure Stack](./media/azure-stack-edge-gpu-kubernetes-rbac/rbac-view-1.png)
 
 Neste diagrama, Alice, Bob e Chuck têm acesso somente a namespaces de usuário atribuídos, que nesse caso são `ns1` , e, `ns2` `ns3` respectivamente. Nesses namespaces, eles têm acesso de administrador. O administrador de cluster, por outro lado, tem acesso de administrador aos namespaces do sistema e aos recursos de todo o cluster.
 

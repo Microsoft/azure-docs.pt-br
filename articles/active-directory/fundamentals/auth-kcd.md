@@ -1,6 +1,6 @@
 ---
 title: Delegação restrita de Kerberos com Azure Active Directory
-description: Diretrizes arquitetônicas sobre como atingir esse padrão de autenticação
+description: Diretrizes arquitetônicas sobre a obtenção de delegação restrita de Kerberos com Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77f90cd7aa8d972226a8f134eaa7b3abfe7bea66
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: a1c7aa4d2300a6dee44da067b122fc7af97f7aa9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114070"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172849"
 ---
 # <a name="windows-authentication---kerberos-constrained-delegation-with-azure-active-directory"></a>Autenticação do Windows-delegação restrita de Kerberos com Azure Active Directory
 
@@ -52,8 +52,7 @@ Há a necessidade de fornecer acesso remoto, proteger com pré-autenticação e 
 
 ## <a name="implement-windows-authentication-kcd-with-azure-ad"></a>Implementar a autenticação do Windows (KCD) com o Azure AD
 
-* [Delegação restrita de Kerberos para logon único em seus aplicativos com o Proxy de Aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd) 
+* [Delegação restrita de Kerberos para logon único em seus aplicativos com o Proxy de Aplicativo](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md) 
 
-* [Adicionar um aplicativo local para acesso remoto por meio do proxy de aplicativo no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application)
+* [Adicionar um aplicativo local para acesso remoto por meio do proxy de aplicativo no Azure Active Directory](../manage-apps/application-proxy-add-on-premises-application.md)
 
- 

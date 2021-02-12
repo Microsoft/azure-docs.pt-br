@@ -3,16 +3,17 @@ title: ROUND in Azure Cosmos DB linguagem de consulta
 description: Saiba mais sobre as arredondamentos de função do sistema SQL em Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 1e2447c713ff418f8d5ccc0e6bc64bf81f000524
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 41b1372cd5165b3548a4e574e7eb037111188bac
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082718"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341545"
 ---
 # <a name="round-azure-cosmos-db"></a>ROUND (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -42,7 +43,7 @@ ROUND(<numeric_expr>)
   |-|-|
   |-6,5000|-7|
   |-0,5|-1|
-  |0.5|1|
+  |0,5|1|
   |6,5000|7||
   
 ## <a name="examples"></a>Exemplos

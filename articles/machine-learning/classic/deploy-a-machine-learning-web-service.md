@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: c9cfe05b6547cbdc61a1c8cc6223f08900cf09d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f77c0fb09dddd884335d31d630904ea6aeafeaf5
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91340777"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95495195"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Implantar um serviço Web Azure Machine Learning Studio (clássico)
 
-**APLICA-SE A:**  ![sim](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico)   ![não](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**aplica-se a:** ![ Essa é uma marca de seleção, o que significa que este artigo se aplica a Machine Learning Studio (clássico). ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ é um X, o que significa que este artigo se aplica a Azure Machine Learning ](../../../includes/media/aml-applies-to-skus/no.png)[ . Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Azure Machine Learning Studio (clássico) permite que você crie e teste uma solução analítica preditiva. Em seguida, é possível implantar a solução como um serviço Web.
@@ -42,7 +42,7 @@ Em um ponto de exibição de alto nível, implante seu modelo em três etapas:
 
 Para treinar um modelo de análise preditiva, você usa Azure Machine Learning Studio (clássico) para criar um teste de treinamento no qual você inclui vários módulos para carregar dados de treinamento, preparar os dados conforme necessário, aplicar algoritmos de aprendizado de máquina e avaliar os resultados. Você pode iterar em um teste e testar algoritmos de aprendizado de máquina diferentes para comparar e avaliar os resultados.
 
-O processo de criar e gerenciar testes de treinamento é abordado mais detalhadamente em outro ponto. Para obter mais informações, consulte estes artigos:
+O processo de criar e gerenciar testes de treinamento é abordado mais detalhadamente em outro ponto. Para obter mais informações, confira estes tópicos:
 
 * [Criar um experimento simples no Azure Machine Learning Studio (clássico)](create-experiment.md)
 * [Desenvolver uma solução preditiva com Azure Machine Learning Studio (clássico)](tutorial-part1-credit-risk.md)
@@ -282,7 +282,7 @@ Como você já implantou esse teste antes, será solicitado se deseja substituir
 > [!NOTE]
 > Se você fez alterações na configuração do serviço Web original, por exemplo, inserindo um novo nome de exibição ou uma descrição, você precisará inserir esses valores novamente.
 
-Uma opção para atualizar seu serviço Web é treinar novamente o modelo de forma programática. Para obter mais informações, consulte [readaptação de modelos de Machine Learning Studio (clássico) programaticamente](/azure/machine-learning/studio/retrain-machine-learning-model).
+Uma opção para atualizar seu serviço Web é treinar novamente o modelo de forma programática. Para obter mais informações, consulte [readaptação de modelos de Machine Learning Studio (clássico) programaticamente](./retrain-machine-learning-model.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -305,11 +305,11 @@ Uma opção para atualizar seu serviço Web é treinar novamente o modelo de for
 
 [webserviceparameters]: web-service-parameters.md
 [deploy]: deploy-a-machine-learning-web-service.md
-[clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[export-data]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
+[clean-missing-data]: /azure/machine-learning/studio-module-reference/clean-missing-data
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[import-data]: /azure/machine-learning/studio-module-reference/import-data
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[train-model]: /azure/machine-learning/studio-module-reference/train-model
+[export-data]: /azure/machine-learning/studio-module-reference/export-data

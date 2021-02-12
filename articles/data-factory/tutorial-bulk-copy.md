@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 4a9aaca8128570af74370213e9848e26dec25156
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf40353a8f29200ab2a33859473dbc504c29bf7d
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89490251"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510427"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-using-powershell"></a>Copiar várias tabelas em massa usando o Azure Data Factory usando o PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Este tutorial demonstra como **copiar uma série de tabelas do Banco de Dados SQL do Azure para o Azure Synapse Analytics (antigo SQL Data Warehouse)** . Você também pode aplicar o mesmo padrão em outros cenários de cópia. Por exemplo, copiando tabelas do SQL Server/Oracle para o Banco de Dados SQL do Azure/Data Warehouse/Blob do Azure, copiando diferentes caminhos do Blob para tabelas do Banco de Dados SQL do Azure.
+Este tutorial demonstra como **copiar uma série de tabelas do Banco de Dados SQL do Azure para o Azure Synapse Analytics**. Você também pode aplicar o mesmo padrão em outros cenários de cópia. Por exemplo, copiando tabelas do SQL Server/Oracle para o Banco de Dados SQL do Azure/Data Warehouse/Blob do Azure, copiando diferentes caminhos do Blob para tabelas do Banco de Dados SQL do Azure.
 
 De forma mais abrangente, este tutorial envolve as seguintes etapas:
 
@@ -146,7 +146,7 @@ Neste tutorial, você cria três serviços vinculados respectivamente para orige
 
     Veja o exemplo de saída:
 
-    ```json
+    ```console
     LinkedServiceName : AzureSqlDatabaseLinkedService
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -180,7 +180,7 @@ Neste tutorial, você cria três serviços vinculados respectivamente para orige
 
     Veja o exemplo de saída:
 
-    ```json
+    ```console
     LinkedServiceName : AzureSqlDWLinkedService
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -216,7 +216,7 @@ Neste tutorial, você usa o Armazenamento de Blobs do Azure como uma área de pr
 
     Veja o exemplo de saída:
 
-    ```json
+    ```console
     LinkedServiceName : AzureStorageLinkedService
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -255,7 +255,7 @@ Neste tutorial você cria os conjuntos de dados de origem e de coletor, que espe
 
     Veja o exemplo de saída:
 
-    ```json
+    ```console
     DatasetName       : AzureSqlDatabaseDataset
     ResourceGroupName : <resourceGroupname>
     DataFactoryName   : <dataFactoryName>
@@ -263,7 +263,7 @@ Neste tutorial você cria os conjuntos de dados de origem e de coletor, que espe
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlTableDataset
     ```
 
-### <a name="create-a-dataset-for-sink-synapse-analytics"></a>Criar um conjunto de dados para o Synapse Analytics coletor
+### <a name="create-a-dataset-for-sink-azure-synapse-analytics"></a>Crie um conjunto de dados para o Azure Synapse Analytics coletor
 
 1. Crie um arquivo JSON chamado **AzureSqlDWDataset.json** na pasta **C:\ADFv2TutorialBulkCopy** com o seguinte conteúdo: O "tableName" é definido como um parâmetro; posteriormente, a atividade de cópia que referencia esse conjunto de dados passará o valor real para o conjunto de dados.
 
@@ -299,7 +299,7 @@ Neste tutorial você cria os conjuntos de dados de origem e de coletor, que espe
 
     Veja o exemplo de saída:
 
-    ```json
+    ```console
     DatasetName       : AzureSqlDWDataset
     ResourceGroupName : <resourceGroupname>
     DataFactoryName   : <dataFactoryName>
@@ -391,7 +391,7 @@ Esse pipeline usa uma lista de tabelas como um parâmetro. Para cada tabela da l
 
     Veja o exemplo de saída:
 
-    ```json
+    ```console
     PipelineName      : IterateAndCopySQLTables
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -467,7 +467,7 @@ Esse pipeline realiza duas etapas:
 
     Veja o exemplo de saída:
 
-    ```json
+    ```console
     PipelineName      : GetTableListAndTriggerCopyData
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -509,7 +509,7 @@ Esse pipeline realiza duas etapas:
 
     Aqui está a saída da execução de exemplo:
 
-    ```json
+    ```console
     Pipeline run details:
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>

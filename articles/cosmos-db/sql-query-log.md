@@ -3,16 +3,17 @@ title: Fazer logon Azure Cosmos DB linguagem de consulta
 description: Saiba mais sobre a função de sistema SQL de LOG em Azure Cosmos DB para retornar o logaritmo natural da expressão numérica especificada
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 30e1f43e283707434adfa48b8754a7b0509b9eed
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 44a9d5b273e13886b0674b3b2e9f5f7a75e72fcc
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075340"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338570"
 ---
 # <a name="log-azure-cosmos-db"></a>LOG (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
